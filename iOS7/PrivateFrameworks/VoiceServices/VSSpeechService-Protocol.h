@@ -7,6 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol VSSpeechService <NSObject>
+- (oneway void)getVoiceInfoForLanguageCode:(id)arg1 footprint:(long long)arg2 gender:(long long)arg3 custom:(_Bool)arg4 reply:(id)arg5;
 - (oneway void)getAutoDownloadedVoiceAssets:(id)arg1;
 - (oneway void)setAutoDownloadedVoiceAssets:(id)arg1;
 - (oneway void)downloadVoiceAsset:(id)arg1 progress:(id)arg2 completion:(id)arg3;
@@ -16,9 +17,9 @@
 - (oneway void)getSpeechIsActiveReply:(id)arg1;
 - (oneway void)getFootprintsForVoiceName:(id)arg1 languageCode:(id)arg2 reply:(id)arg3;
 - (oneway void)getVoiceNamesForLanguage:(id)arg1 reply:(id)arg2;
-- (oneway void)stopSpeechRequestAtMark:(int)arg1 reply:(id)arg2;
+- (oneway void)stopSpeechRequestAtMark:(long long)arg1;
 - (oneway void)continueSpeechRequest;
-- (oneway void)pauseSpeechRequestAtMark:(int)arg1 reply:(id)arg2;
+- (oneway void)pauseSpeechRequestAtMark:(long long)arg1;
 - (oneway void)startSpeechRequest:(id)arg1;
 @end
 

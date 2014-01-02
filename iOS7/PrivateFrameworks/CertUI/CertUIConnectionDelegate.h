@@ -24,9 +24,9 @@
 @property(nonatomic) id forwardingDelegate; // @synthesize forwardingDelegate=_forwardingDelegate;
 - (void)connection:(id)arg1 didReceiveAuthenticationChallenge:(id)arg2;
 - (void)_continueConnectionWithResponse:(int)arg1 challenge:(id)arg2 service:(id)arg3;
-- (BOOL)connection:(id)arg1 canAuthenticateAgainstProtectionSpace:(id)arg2;
+- (_Bool)connection:(id)arg1 canAuthenticateAgainstProtectionSpace:(id)arg2;
 - (id)forwardingTargetForSelector:(SEL)arg1;
-- (BOOL)respondsToSelector:(SEL)arg1;
+- (_Bool)respondsToSelector:(SEL)arg1;
 - (void)dealloc;
 
 @end

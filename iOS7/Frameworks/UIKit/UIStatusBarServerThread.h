@@ -8,38 +8,39 @@
 
 @class NSMutableArray, NSMutableDictionary;
 
+// Not exported
 @interface UIStatusBarServerThread : NSThread
 {
     NSMutableArray *_clientPorts;
     NSMutableArray *_publishers;
-    CDStruct_87a532be _statusBarData;
-    CDStruct_87a532be _composedStatusBarData;
-    CDStruct_364e5eb5 _overrides;
+    CDStruct_0e61b686 _statusBarData;
+    CDStruct_0e61b686 _composedStatusBarData;
+    CDStruct_9dad2be2 _overrides;
     struct __CFDictionary *_doubleHeightStatusStrings;
     struct __CFDictionary *_glowAnimationStates;
     NSMutableDictionary *_glowAnimationEndTimes;
-    BOOL _composedStatusBarDataValid;
+    _Bool _composedStatusBarDataValid;
 }
 
 - (void)_removeStatusBarItem:(int)arg1 forPublisher:(id)arg2;
 - (void)_addStatusBarItem:(int)arg1 forPublisher:(id)arg2;
-- (BOOL)_permanentizeStatusBarOverrideData;
-- (void)_postStatusBarOverrideData:(CDStruct_364e5eb5 *)arg1;
-- (void)_postDoubleHeightStatus:(char *)arg1 forStyle:(int)arg2;
-- (id)_doubleHeightStatusStringForStyle:(int)arg1;
-- (void)_postGlowAnimationState:(BOOL)arg1 forStyle:(int)arg2;
-- (BOOL)_glowAnimationStateForStyle:(int)arg1;
-- (double)_glowAnimationEndTimeForStyle:(int)arg1;
+- (_Bool)_permanentizeStatusBarOverrideData;
+- (void)_postStatusBarOverrideData:(CDStruct_9dad2be2 *)arg1;
+- (void)_postDoubleHeightStatus:(char *)arg1 forStyle:(long long)arg2;
+- (id)_doubleHeightStatusStringForStyle:(long long)arg1;
+- (void)_postGlowAnimationState:(_Bool)arg1 forStyle:(long long)arg2;
+- (_Bool)_glowAnimationStateForStyle:(long long)arg1;
+- (double)_glowAnimationEndTimeForStyle:(long long)arg1;
 - (void)_removeAnimationEndTimesForOverrides:(int)arg1;
 - (void)_removeStyleOverrides:(int)arg1 forPublisher:(id)arg2;
 - (void)_setAnimationEndTimesForOverrides:(int)arg1;
 - (void)_addStyleOverrides:(int)arg1 forPublisher:(id)arg2;
 - (void)_broadcastStyleOverrides;
 - (int)_styleOverrides;
-- (void)_postStatusBarData:(CDStruct_87a532be *)arg1 actions:(int)arg2;
+- (void)_postStatusBarData:(CDStruct_0e61b686 *)arg1 actions:(int)arg2;
 - (void)_broadcastStatusBarDataWithActions:(int)arg1;
-- (CDStruct_364e5eb5 *)_statusBarOverrideData;
-- (CDStruct_87a532be *)_statusBarData;
+- (CDStruct_9dad2be2 *)_statusBarOverrideData;
+- (CDStruct_0e61b686 *)_statusBarData;
 - (void)_removePublisher:(struct __CFMachPort *)arg1;
 - (id)_publisherForPort:(unsigned int)arg1;
 - (void)_removeClient:(struct __CFMachPort *)arg1;

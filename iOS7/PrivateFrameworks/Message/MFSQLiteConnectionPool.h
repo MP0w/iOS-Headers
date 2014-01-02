@@ -13,10 +13,10 @@
     id <MFSQLiteConnectionPoolDelegate> _delegate;
     NSLock *_cacheLock;
     NSMutableSet *_cache;
-    unsigned int _cacheSize;
-    unsigned int _cacheGeneration;
-    unsigned int _maxConcurrentBackgroundReaders;
-    unsigned int _maxConcurrentWriters;
+    unsigned long long _cacheSize;
+    unsigned long long _cacheGeneration;
+    unsigned long long _maxConcurrentBackgroundReaders;
+    unsigned long long _maxConcurrentWriters;
     NSLock *_checkoutLock;
     struct __CFDictionary *_checkoutMap;
     NSObject<OS_dispatch_semaphore> *_backgroundReaderSemaphore;
@@ -25,22 +25,22 @@
     int _writersWaiting;
 }
 
-@property(readonly) unsigned int maxConcurrentBackgroundReaders; // @synthesize maxConcurrentBackgroundReaders=_maxConcurrentBackgroundReaders;
+@property(readonly) unsigned long long maxConcurrentBackgroundReaders; // @synthesize maxConcurrentBackgroundReaders=_maxConcurrentBackgroundReaders;
 @property id <MFSQLiteConnectionPoolDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly) unsigned int writersWaiting;
-@property(readonly) unsigned int backgroundReadersWaiting;
-@property(readonly) unsigned int maxConcurrentWriters;
-- (unsigned int)maxConcurrentReaders;
-@property unsigned int cacheSize;
+@property(readonly) unsigned long long writersWaiting;
+@property(readonly) unsigned long long backgroundReadersWaiting;
+@property(readonly) unsigned long long maxConcurrentWriters;
+- (unsigned long long)maxConcurrentReaders;
+@property unsigned long long cacheSize;
 - (void)flush;
 - (void)checkInConnection:(id)arg1;
-- (id)_semaphoreForConnectionType:(unsigned int)arg1 waitCounter:(int **)arg2;
-- (id)_connectionWithType:(unsigned int)arg1;
+- (id)_semaphoreForConnectionType:(unsigned long long)arg1 waitCounter:(int **)arg2;
+- (id)_connectionWithType:(unsigned long long)arg1;
 - (id)writerConnection;
 - (id)readerConnection;
 - (id)backgroundReaderConnection;
 - (void)dealloc;
-- (id)initWithDelegate:(id)arg1 maxConcurrentBackgroundReaders:(unsigned int)arg2;
+- (id)initWithDelegate:(id)arg1 maxConcurrentBackgroundReaders:(unsigned long long)arg2;
 
 @end
 

@@ -7,7 +7,7 @@
 @class NSDictionary;
 
 @protocol MCActionSupport
-@property(readonly, nonatomic) unsigned int countOfActions;
+@property(readonly, nonatomic) unsigned long long countOfActions;
 @property(readonly) NSDictionary *actions;
 - (void)removeAllActions;
 - (void)removeActionForKey:(id)arg1;

@@ -16,39 +16,39 @@
     id _delegate;
     id _representedObject;
     TPLockTextView *_labelView;
-    float _fontSize;
-    float _deltaFromDefaultLabelWidth;
+    double _fontSize;
+    double _deltaFromDefaultLabelWidth;
 }
 
-+ (float)defaultLabelFontSize;
++ (double)defaultLabelFontSize;
 + (struct CGSize)defaultSize;
 - (void)setKnobImage:(id)arg1;
 - (void)setKnobColor:(int)arg1;
 - (void)setKnobWellWidthToDefault;
-- (void)setKnobWellWidth:(float)arg1;
+- (void)setKnobWellWidth:(double)arg1;
 - (id)wellImageName;
-- (float)defaultWellWidth;
+- (double)defaultWellWidth;
 - (id)well;
-- (float)knobTrackInsetRight;
-- (float)knobTrackInsetLeft;
+- (double)knobTrackInsetRight;
+- (double)knobTrackInsetLeft;
 - (id)knob;
-- (BOOL)usesBackgroundImage;
-- (void)setTextAlpha:(float)arg1;
-- (BOOL)_canDrawContent;
+- (_Bool)usesBackgroundImage;
+- (void)setTextAlpha:(double)arg1;
+- (_Bool)_canDrawContent;
 - (id)labelView;
-- (float)slideTouchAreaInsetRight;
-- (float)slideTouchAreaInsetLeft;
-- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (double)slideTouchAreaInsetRight;
+- (double)slideTouchAreaInsetLeft;
+- (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (id)representedObject;
 - (void)setRepresentedObject:(id)arg1;
 - (void)setDelegate:(id)arg1;
 - (void)unlock;
 - (void)freezeKnobInUnlockedPosition;
 - (void)relock;
-- (void)slideBack:(BOOL)arg1;
-- (void)knobDragged:(float)arg1;
-- (float)fontSize;
-- (void)setFontSize:(float)arg1;
+- (void)slideBack:(_Bool)arg1;
+- (void)knobDragged:(double)arg1;
+- (double)fontSize;
+- (void)setFontSize:(double)arg1;
 - (id)labels;
 - (void)setLabels:(id)arg1;
 - (void)cycleToLabelAtIndex:(int)arg1;
@@ -62,7 +62,7 @@
 - (void)setLabel:(id)arg1;
 - (void)upInKnob;
 - (void)downInKnob;
-- (BOOL)isAnimating;
+- (_Bool)isAnimating;
 - (void)stopAnimating;
 - (void)startAnimating;
 - (void)dealloc;
@@ -70,8 +70,8 @@
 - (id)initWithFrame:(struct CGRect)arg1 knobColor:(int)arg2;
 - (id)_knobImageForColor:(int)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 knobImage:(id)arg2;
-- (BOOL)_shouldStopLabelAnimationForGrab;
-- (BOOL)allowsTouchTrackingBeyondVerticalThreshold;
+- (_Bool)_shouldStopLabelAnimationForGrab;
+- (_Bool)allowsTouchTrackingBeyondVerticalThreshold;
 - (void)drawRect:(struct CGRect)arg1;
 
 @end

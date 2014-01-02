@@ -6,21 +6,25 @@
 
 #import <UIKit/UIView.h>
 
-@class CALayer, UITableViewCellDeleteConfirmationButton;
+@class UITableViewCellDeleteConfirmationButton;
 
+// Not exported
 @interface UITableViewCellDeleteConfirmationView : UIView
 {
-    CALayer *_maskLayer;
-    float _visibleWidth;
+    double _visibleWidth;
+    double _cornerRadius;
+    int _sectionLocation;
     UITableViewCellDeleteConfirmationButton *_deleteView;
     UITableViewCellDeleteConfirmationButton *_accessoryView;
-    BOOL _useMask;
 }
 
-@property(nonatomic) BOOL useMask; // @synthesize useMask=_useMask;
+@property(nonatomic) int sectionLocation; // @synthesize sectionLocation=_sectionLocation;
+@property(nonatomic) double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
 @property(readonly, nonatomic) UITableViewCellDeleteConfirmationButton *accessoryView; // @synthesize accessoryView=_accessoryView;
 @property(readonly, nonatomic) UITableViewCellDeleteConfirmationButton *deleteView; // @synthesize deleteView=_deleteView;
-@property(nonatomic) float visibleWidth; // @synthesize visibleWidth=_visibleWidth;
+@property(nonatomic) double visibleWidth; // @synthesize visibleWidth=_visibleWidth;
+- (void)updateMaskView:(_Bool)arg1;
+- (void)didMoveToWindow;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 deleteView:(id)arg2 accessoryView:(id)arg3;
 

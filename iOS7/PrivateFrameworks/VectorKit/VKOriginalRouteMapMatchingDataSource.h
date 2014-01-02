@@ -10,6 +10,7 @@
 
 @class NSArray;
 
+// Not exported
 @interface VKOriginalRouteMapMatchingDataSource : NSObject <VKRouteMapMatchingDataSource>
 {
     struct _NSRange _sectionRange;

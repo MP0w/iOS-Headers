@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface OABDrawing : NSObject
 {
 }
@@ -15,7 +16,7 @@
 + (void)finalizeWritingOfDrawing:(id)arg1 state:(id)arg2;
 + (void)writeConnectionsWithDrawing:(id)arg1 state:(id)arg2;
 + (id)createDrawingWithState:(id)arg1;
-+ (unsigned long)addShapeIdForObject:(id)arg1;
++ (unsigned int)addShapeIdForObject:(id)arg1;
 + (void)applyRulesFromSolverContainer:(id)arg1 state:(id)arg2;
 + (id)readBackgroundPropertiesFromDrawing:(id)arg1 state:(id)arg2;
 + (id)readDrawablesFromDrawing:(id)arg1 state:(id)arg2;

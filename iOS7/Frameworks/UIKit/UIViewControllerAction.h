@@ -8,21 +8,22 @@
 
 @class NSString, UIViewController;
 
+// Not exported
 @interface UIViewControllerAction : NSObject
 {
     UIViewController *_viewController;
     NSString *_name;
     int _transition;
     id _completion;
-    float _curlUpRevealedHeight;
+    double _curlUpRevealedHeight;
 }
 
 @property(copy, nonatomic) id completion; // @synthesize completion=_completion;
 @property(nonatomic) int transition; // @synthesize transition=_transition;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(nonatomic) UIViewController *viewController; // @synthesize viewController=_viewController;
-@property(nonatomic, setter=_setCurlUpRevealedHeight:) float _curlUpRevealedHeight; // @synthesize _curlUpRevealedHeight;
-@property(readonly, nonatomic) BOOL animated;
+@property(nonatomic, setter=_setCurlUpRevealedHeight:) double _curlUpRevealedHeight; // @synthesize _curlUpRevealedHeight;
+@property(readonly, nonatomic) _Bool animated;
 - (void)dealloc;
 - (id)initWithViewController:(id)arg1 name:(id)arg2 transition:(int)arg3;
 

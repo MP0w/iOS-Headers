@@ -7,7 +7,7 @@
 #import "NSURLRequest.h"
 
 @interface NSURLRequest (WebNSURLRequestExtras)
-- (BOOL)_web_isConditionalRequest;
+- (_Bool)_web_isConditionalRequest;
 - (id)_web_HTTPContentType;
 - (id)_web_HTTPReferrer;
 @end

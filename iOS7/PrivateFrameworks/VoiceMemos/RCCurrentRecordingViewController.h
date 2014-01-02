@@ -12,9 +12,10 @@
 
 @interface RCCurrentRecordingViewController : UIViewController <RCCurrentRecordingViewControllerDelegate>
 {
-    BOOL _screenUpdatesDisabled;
-    BOOL _isDisplayingLockscreenInterface;
+    _Bool _screenUpdatesDisabled;
+    _Bool _isDisplayingLockscreenInterface;
     UIColor *_presentationBackgroundColor;
+    UIColor *_waveformForegroundColor;
     RCCurrentRecordingRemoteViewController *_remoteViewController;
     id <RCCurrentRecordingViewControllerDelegate> _delegate;
 }
@@ -24,16 +25,16 @@
 @property(nonatomic) __weak id <RCCurrentRecordingViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_failedToBecomeReadyWithMessage:(id)arg1;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
 - (void)currentRecordingViewControllerRecordingDidEnd:(id)arg1;
-- (void)currentRecordingViewController:(id)arg1 didDeterminteAvailability:(BOOL)arg2;
+- (void)currentRecordingViewController:(id)arg1 didDeterminteAvailability:(_Bool)arg2;
 - (void)dismissLockscreenInterface;
-- (void)presentLockscreenInterfaceWithBackgroundColor:(id)arg1;
-- (void)setScreenUpdatesDisabled:(BOOL)arg1;
+- (void)presentLockscreenInterfaceWithBackgroundColor:(id)arg1 waveformForegroundColor:(id)arg2;
+- (void)setScreenUpdatesDisabled:(_Bool)arg1;
 - (void)insertRemoteViewController:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
-- (BOOL)shouldAutomaticallyForwardRotationMethods;
-- (BOOL)shouldAutomaticallyForwardAppearanceMethods;
+- (_Bool)shouldAutomaticallyForwardRotationMethods;
+- (_Bool)shouldAutomaticallyForwardAppearanceMethods;
 - (id)initWithDelegate:(id)arg1;
 
 @end

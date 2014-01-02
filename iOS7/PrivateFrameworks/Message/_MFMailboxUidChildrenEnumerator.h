@@ -11,12 +11,12 @@
 @interface _MFMailboxUidChildrenEnumerator : NSEnumerator
 {
     NSMutableArray *_mailboxes;
-    unsigned int _index;
-    BOOL _includeHidden;
+    unsigned long long _index;
+    _Bool _includeHidden;
 }
 
 - (id)nextObject;
-- (id)_initWithMailbox:(id)arg1 includeHiddenChildren:(BOOL)arg2;
+- (id)_initWithMailbox:(id)arg1 includeHiddenChildren:(_Bool)arg2;
 - (void)dealloc;
 
 @end

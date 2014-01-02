@@ -9,21 +9,24 @@
 #import "WebFormSubmissionListener-Protocol.h"
 #import <WebKit/WebPolicyDecisionListener-Protocol.h>
 
+// Not exported
 @interface WebFramePolicyListener : NSObject <WebPolicyDecisionListener, WebFormSubmissionListener>
 {
-    struct Frame *m_frame;
+    struct RefPtr<WebCore::Frame> _frame;
+    // Error parsing type: , name: _policyFunction
 }
 
 + (void)initialize;
+- (id).cxx_construct;
+- (void).cxx_destruct;
 - (void)continue;
 - (void)use;
 - (void)download;
 - (void)ignore;
 - (void)receivedPolicyDecision:(int)arg1;
-- (void)finalize;
 - (void)dealloc;
 - (void)invalidate;
-- (id)initWithWebCoreFrame:(struct Frame *)arg1;
+- (id)initWithFrame:(struct Frame *)arg1 policyFunction: /* Error: Ran out of types for this method. */;
 
 @end
 

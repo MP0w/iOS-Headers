@@ -22,7 +22,6 @@
 - (void)setOrientation:(id)arg1;
 - (void)dealloc;
 - (id)init;
-- (void)setController:(struct DeviceOrientationController *)arg1;
 
 @end
 

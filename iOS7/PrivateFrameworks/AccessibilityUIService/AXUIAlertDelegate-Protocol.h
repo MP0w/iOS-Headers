@@ -12,7 +12,7 @@
 - (void)alertWithIdentifierDidDisappear:(id)arg1;
 - (void)alertWithIdentifierDidAppear:(id)arg1;
 - (id)styleProviderForAlertWithIdentifier:(id)arg1;
-- (float)desiredWindowLevelForAlertWithIdentifier:(id)arg1;
+- (double)desiredWindowLevelForAlertWithIdentifier:(id)arg1;
 - (double)delayForDequeuingAlertWithIdentifier:(id)arg1;
 - (void)alertWithIdentifierWasEnqueued:(id)arg1;
 @end

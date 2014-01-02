@@ -11,18 +11,17 @@
 @interface SBToAppWorkspaceTransaction : SBWorkspaceTransaction
 {
     SBApplication *_toApp;
-    BOOL _activateSuspended;
+    _Bool _activateSuspended;
     double _watchdogExtension;
-    BOOL _fromAssistant;
-    BOOL _tearDownSwitcher;
+    _Bool _fromAssistant;
+    _Bool _fromSwitcher;
     id _activationHandlerBlock;
 }
 
 @property(readonly, nonatomic) SBApplication *toApplication; // @synthesize toApplication=_toApp;
-@property(nonatomic) BOOL tearDownSwitcher; // @synthesize tearDownSwitcher=_tearDownSwitcher;
 - (void)_commit;
 - (void)_captureApplicationData;
-- (BOOL)_shouldBeWatchdogged:(id *)arg1;
+- (_Bool)_shouldBeWatchdogged:(id *)arg1;
 - (double)_watchdogInterval;
 - (void)_fireAndClearActivationContinuationForActivationFailureIfNecessary;
 - (void)_interruptWithReason:(int)arg1;
@@ -30,11 +29,11 @@
 - (void)activate:(id)arg1;
 - (void)toggleStatusBarForCleanup;
 - (void)performToAppStateCleanup;
-- (BOOL)shouldAnimateOrientationChangeOnCompletion;
-- (BOOL)shouldDismissShowcase;
-- (BOOL)shouldPerformToAppStateCleanupOnCompletion;
-- (BOOL)shouldToggleSpringBoardStatusBarOnCleanup;
-- (BOOL)shouldHideSpringBoardStatusBarOnCleanup;
+- (_Bool)shouldAnimateOrientationChangeOnCompletion;
+- (_Bool)shouldDismissSwitcher;
+- (_Bool)shouldPerformToAppStateCleanupOnCompletion;
+- (_Bool)shouldToggleSpringBoardStatusBarOnCleanup;
+- (_Bool)shouldHideSpringBoardStatusBarOnCleanup;
 - (id)debugDescription;
 - (void)dealloc;
 - (id)initWithWorkspace:(id)arg1 alertManager:(id)arg2 toApplication:(id)arg3 activationHandler:(id)arg4;

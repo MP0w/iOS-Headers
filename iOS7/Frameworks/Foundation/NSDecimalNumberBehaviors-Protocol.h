@@ -5,8 +5,8 @@
  */
 
 @protocol NSDecimalNumberBehaviors
-- (id)exceptionDuringOperation:(SEL)arg1 error:(unsigned int)arg2 leftOperand:(id)arg3 rightOperand:(id)arg4;
+- (id)exceptionDuringOperation:(SEL)arg1 error:(unsigned long long)arg2 leftOperand:(id)arg3 rightOperand:(id)arg4;
 - (short)scale;
-- (unsigned int)roundingMode;
+- (unsigned long long)roundingMode;
 @end
 

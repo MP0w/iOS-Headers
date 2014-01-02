@@ -9,11 +9,11 @@
 @interface PLXPCShMemData : NSData
 {
     void *_buffer;
-    unsigned long _dataLength;
-    unsigned long _bufferLength;
+    unsigned long long _dataLength;
+    unsigned long long _bufferLength;
 }
 
-- (unsigned int)length;
+- (unsigned long long)length;
 - (const void *)bytes;
 - (id)description;
 - (void)dealloc;

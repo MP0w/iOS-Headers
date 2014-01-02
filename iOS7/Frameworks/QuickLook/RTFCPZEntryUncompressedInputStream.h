@@ -8,6 +8,7 @@
 
 #import "RTFCPZEntryInputStream-Protocol.h"
 
+// Not exported
 @interface RTFCPZEntryUncompressedInputStream : NSObject <RTFCPZEntryInputStream>
 {
     long long mOffset;
@@ -15,8 +16,8 @@
     id <RTFCPZArchiveInputStream> mInput;
 }
 
-- (unsigned long)readToBuffer:(char *)arg1 size:(unsigned long)arg2;
-- (void)readToOwnBuffer:(const char **)arg1 size:(unsigned int *)arg2;
+- (unsigned long long)readToBuffer:(char *)arg1 size:(unsigned long long)arg2;
+- (void)readToOwnBuffer:(const char **)arg1 size:(unsigned long long *)arg2;
 - (void)dealloc;
 - (id)initWithOffset:(long long)arg1 end:(long long)arg2 input:(id)arg3;
 

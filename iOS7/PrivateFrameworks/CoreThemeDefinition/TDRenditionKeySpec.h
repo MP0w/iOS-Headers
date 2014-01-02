@@ -31,7 +31,7 @@
 - (const struct _renditionkeytoken *)key;
 - (void)getKey:(struct _renditionkeytoken *)arg1;
 - (void)setAttributesFromRenditionKey:(const struct _renditionkeytoken *)arg1 withDocument:(id)arg2;
-- (int)attributeCount;
+- (long long)attributeCount;
 - (const struct _renditionkeyfmt *)keyFormat;
 - (id)debugDescription;
 - (void)setScaleFactorString:(id)arg1;

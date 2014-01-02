@@ -9,43 +9,43 @@
 @interface NSPinyinString : NSString
 {
     NSString *_string;
-    unsigned int _syllableCount;
-    unsigned int _score;
-    unsigned int _rangeCount;
-    unsigned int _replacementCount;
-    unsigned int _transpositionCount;
-    unsigned int _insertionCount;
-    unsigned int _deletionCount;
-    unsigned int _firstModificationIndex;
+    unsigned long long _syllableCount;
+    unsigned long long _score;
+    unsigned long long _rangeCount;
+    unsigned long long _replacementCount;
+    unsigned long long _transpositionCount;
+    unsigned long long _insertionCount;
+    unsigned long long _deletionCount;
+    unsigned long long _firstModificationIndex;
     struct _NSRange *_ranges;
-    BOOL _lastSyllableIsPartial;
+    _Bool _lastSyllableIsPartial;
 }
 
 + (id)prefixesForInputString:(id)arg1;
 + (id)alternativesForInputString:(id)arg1;
-- (struct _NSRange)nonPinyinRangeAtIndex:(unsigned int)arg1;
-- (unsigned int)indexOfFirstModification;
-- (unsigned int)numberOfDeletions;
-- (unsigned int)numberOfInsertions;
-- (unsigned int)numberOfTranspositions;
-- (unsigned int)numberOfReplacements;
-- (unsigned int)numberOfNonPinyinRanges;
-- (unsigned int)score;
-- (BOOL)lastSyllableIsPartial;
-- (unsigned int)syllableCount;
+- (struct _NSRange)nonPinyinRangeAtIndex:(unsigned long long)arg1;
+- (unsigned long long)indexOfFirstModification;
+- (unsigned long long)numberOfDeletions;
+- (unsigned long long)numberOfInsertions;
+- (unsigned long long)numberOfTranspositions;
+- (unsigned long long)numberOfReplacements;
+- (unsigned long long)numberOfNonPinyinRanges;
+- (unsigned long long)score;
+- (_Bool)lastSyllableIsPartial;
+- (unsigned long long)syllableCount;
 - (id)string;
 - (Class)classForCoder;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)description;
 - (id)nonPinyinIndexSet;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
-- (id)initWithString:(id)arg1 syllableCount:(unsigned int)arg2 lastSyllableIsPartial:(BOOL)arg3 score:(unsigned int)arg4 replacementCount:(unsigned int)arg5 transpositionCount:(unsigned int)arg6 insertionCount:(unsigned int)arg7 deletionCount:(unsigned int)arg8 rangeCount:(unsigned int)arg9 ranges:(struct _NSRange *)arg10;
-- (id)initWithString:(id)arg1 syllableCount:(unsigned int)arg2 lastSyllableIsPartial:(BOOL)arg3 score:(unsigned int)arg4 replacementCount:(unsigned int)arg5 transpositionCount:(unsigned int)arg6 insertionCount:(unsigned int)arg7 deletionCount:(unsigned int)arg8 indexOfFirstModification:(unsigned int)arg9 rangeCount:(unsigned int)arg10 ranges:(struct _NSRange *)arg11;
-- (unsigned short)characterAtIndex:(unsigned int)arg1;
-- (unsigned int)length;
+- (id)initWithString:(id)arg1 syllableCount:(unsigned long long)arg2 lastSyllableIsPartial:(_Bool)arg3 score:(unsigned long long)arg4 replacementCount:(unsigned long long)arg5 transpositionCount:(unsigned long long)arg6 insertionCount:(unsigned long long)arg7 deletionCount:(unsigned long long)arg8 rangeCount:(unsigned long long)arg9 ranges:(struct _NSRange *)arg10;
+- (id)initWithString:(id)arg1 syllableCount:(unsigned long long)arg2 lastSyllableIsPartial:(_Bool)arg3 score:(unsigned long long)arg4 replacementCount:(unsigned long long)arg5 transpositionCount:(unsigned long long)arg6 insertionCount:(unsigned long long)arg7 deletionCount:(unsigned long long)arg8 indexOfFirstModification:(unsigned long long)arg9 rangeCount:(unsigned long long)arg10 ranges:(struct _NSRange *)arg11;
+- (unsigned short)characterAtIndex:(unsigned long long)arg1;
+- (unsigned long long)length;
 
 @end
 

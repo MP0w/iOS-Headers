@@ -17,7 +17,7 @@
 
 @property(readonly, nonatomic) struct __CXQuery *query; // @synthesize query;
 - (void).cxx_destruct;
-- (BOOL)nextSearchResults:(id *)arg1 includePrevious:(BOOL)arg2;
+- (_Bool)nextSearchResults:(id *)arg1 includePrevious:(_Bool)arg2;
 - (void)dealloc;
 - (id)initWithSearchTerms:(id)arg1 context:(id)arg2;
 

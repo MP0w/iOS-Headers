@@ -10,7 +10,7 @@
 {
     UIView *_backView;
     id <SUScalingFlipViewDelegate> _delegate;
-    int _direction;
+    long long _direction;
     double _duration;
     struct CGRect _fromFrame;
     UIView *_frontView;
@@ -18,7 +18,7 @@
 }
 
 @property(nonatomic) double duration; // @synthesize duration=_duration;
-@property(nonatomic) int direction; // @synthesize direction=_direction;
+@property(nonatomic) long long direction; // @synthesize direction=_direction;
 @property(nonatomic) id <SUScalingFlipViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (id)_transformAnimationWithStart:(struct CATransform3D)arg1 middle:(struct CATransform3D)arg2 end:(struct CATransform3D)arg3;
 - (id)_positionAnimation;
@@ -26,7 +26,7 @@
 - (id)_frontLayerAnimation;
 - (id)_fixedAnimationForAnimation:(id)arg1;
 - (id)_backLayerAnimation;
-- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
+- (void)animationDidStop:(id)arg1 finished:(_Bool)arg2;
 - (void)performFlip;
 - (void)dealloc;
 - (id)initWithFrontView:(id)arg1 backView:(id)arg2;

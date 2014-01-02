@@ -8,6 +8,7 @@
 
 @class NSMutableArray, NSMutableDictionary, NSMutableSet;
 
+// Not exported
 @interface VGLResourceFactory : NSObject
 {
     struct recursive_mutex _mutex;

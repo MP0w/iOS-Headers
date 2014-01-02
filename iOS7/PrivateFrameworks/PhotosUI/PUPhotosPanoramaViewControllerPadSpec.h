@@ -10,7 +10,7 @@
 {
 }
 
-- (struct CGSize)itemSizeForOrientation:(int)arg1;
+- (struct CGSize)itemSizeForOrientation:(long long)arg1;
 - (id)gridSpec;
 
 @end

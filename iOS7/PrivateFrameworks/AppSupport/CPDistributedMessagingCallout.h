@@ -10,11 +10,11 @@
 {
     id _target;
     SEL _selector;
-    BOOL _returnsVoid;
-    BOOL _returnsVoidIsValid;
+    _Bool _returnsVoid;
+    _Bool _returnsVoidIsValid;
 }
 
-@property(readonly, nonatomic) BOOL returnsVoid; // @synthesize returnsVoid=_returnsVoid;
+@property(readonly, nonatomic) _Bool returnsVoid; // @synthesize returnsVoid=_returnsVoid;
 @property(readonly, nonatomic) SEL selector; // @synthesize selector=_selector;
 @property(readonly, nonatomic) id target; // @synthesize target=_target;
 - (void)dealloc;

@@ -13,10 +13,10 @@
     struct CGPoint _startLocation;
     double _startTime;
     UITouch *_trackingTouch;
-    int _swipeDirection;
+    long long _swipeDirection;
 }
 
-@property(readonly, nonatomic) int swipeDirection; // @synthesize swipeDirection=_swipeDirection;
+@property(readonly, nonatomic) long long swipeDirection; // @synthesize swipeDirection=_swipeDirection;
 - (void).cxx_destruct;
 - (void)dealloc;
 - (void)reset;

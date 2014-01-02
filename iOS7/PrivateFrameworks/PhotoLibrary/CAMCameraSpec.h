@@ -13,26 +13,28 @@
 + (id)specForCurrentPlatform;
 + (id)specForPad;
 + (id)specForPhone;
-@property(readonly, nonatomic) BOOL shouldCreateZoomSliderOnLaunch;
-@property(readonly, nonatomic) BOOL shouldCreatePanoramaViewOnLaunch;
-@property(readonly, nonatomic) BOOL shouldCreateHDRButtonOnLaunch;
-@property(readonly, nonatomic) BOOL shouldCreateModeDialOnLaunch;
-@property(readonly, nonatomic) BOOL shouldCreateFiltersButtonOnLaunch;
-@property(readonly, nonatomic) BOOL shouldCreateShutterButtonOnLaunch;
-@property(readonly, nonatomic) BOOL shouldCreateImageWellOnLaunch;
-@property(readonly, nonatomic) BOOL shouldCreateStillDuringVideoOnLaunch;
-@property(readonly, nonatomic) BOOL shouldCreateFlipButtonOnLaunch;
-@property(readonly, nonatomic) BOOL shouldCreateElapsedTimeViewOnLaunch;
-@property(readonly, nonatomic) BOOL shouldCreateFlashButtonOnLaunch;
-@property(readonly, nonatomic) BOOL shouldCreateTopBarOnLaunch;
-@property(readonly, nonatomic) BOOL shouldCreateBottomBarOnLaunch;
-@property(readonly, nonatomic) int modeDialOrientation;
-- (struct CGRect)initialFrameForOrientation:(int)arg1;
-@property(readonly, nonatomic) int bottomBarOrientation;
+@property(readonly, nonatomic) _Bool shouldCreateSlalomIndicator;
+@property(readonly, nonatomic) _Bool shouldCreateAvalancheIndicator;
+@property(readonly, nonatomic) _Bool shouldCreateZoomSlider;
+@property(readonly, nonatomic) _Bool shouldCreatePanoramaView;
+@property(readonly, nonatomic) _Bool shouldCreateHDRButton;
+@property(readonly, nonatomic) _Bool shouldCreateModeDial;
+@property(readonly, nonatomic) _Bool shouldCreateFiltersButton;
+@property(readonly, nonatomic) _Bool shouldCreateShutterButton;
+@property(readonly, nonatomic) _Bool shouldCreateImageWell;
+@property(readonly, nonatomic) _Bool shouldCreateStillDuringVideo;
+@property(readonly, nonatomic) _Bool shouldCreateFlipButton;
+@property(readonly, nonatomic) _Bool shouldCreateElapsedTimeView;
+@property(readonly, nonatomic) _Bool shouldCreateFlashButton;
+@property(readonly, nonatomic) _Bool shouldCreateTopBar;
+@property(readonly, nonatomic) _Bool shouldCreateBottomBar;
+@property(readonly, nonatomic) long long modeDialOrientation;
+- (struct CGRect)initialFrameForOrientation:(long long)arg1;
+@property(readonly, nonatomic) long long bottomBarOrientation;
 - (int)rotationStyle;
-- (BOOL)isPad;
-- (BOOL)isPhone;
-- (BOOL)isCameraApp;
+- (_Bool)isPad;
+- (_Bool)isPhone;
+- (_Bool)isCameraApp;
 
 @end
 

@@ -5,6 +5,6 @@
  */
 
 @protocol SetupUIConfigDelegateResult
-- (void)setupUIConfigResult:(long)arg1 withOptions:(id)arg2;
+- (void)setupUIConfigResult:(int)arg1 withOptions:(id)arg2;
 @end
 

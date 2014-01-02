@@ -10,12 +10,13 @@
 
 @class NSMutableArray, NSString, NSXMLParser;
 
+// Not exported
 @interface SKTileMap : SKNode <NSXMLParserDelegate>
 {
-    BOOL _loading;
-    BOOL _loaded;
-    BOOL _skipSprites;
-    BOOL _isometric;
+    _Bool _loading;
+    _Bool _loaded;
+    _Bool _skipSprites;
+    _Bool _isometric;
     NSXMLParser *_parser;
     int _mapWidth;
     int _mapHeight;

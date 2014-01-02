@@ -14,15 +14,13 @@
 }
 
 @property(readonly, nonatomic) CKMediaObject *mediaObject; // @synthesize mediaObject=_mediaObject;
+- (id)compositionRepresentation;
 - (void)dealloc;
 - (int)type;
 - (id)pasteboardItems;
 - (id)initWithMediaObject:(id)arg1;
 - (id)detachedCopy;
 - (id)description;
-- (void)__ck_prewarmForDisplay;
-- (id)composeImages;
-- (Class)balloonViewClass;
 
 @end
 

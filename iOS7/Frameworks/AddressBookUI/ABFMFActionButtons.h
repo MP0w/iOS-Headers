@@ -18,10 +18,10 @@
     UIButton *_callButton;
 }
 
-- (void)showFMFCallButton:(BOOL)arg1 withAction:(id)arg2;
-- (void)showFMFFacetimeButton:(BOOL)arg1 withAction:(id)arg2;
-- (void)showFMFMessageButton:(BOOL)arg1 withAction:(id)arg2;
-@property(readonly, nonatomic) BOOL hasTelephonyCapability;
+- (void)showFMFCallButton:(_Bool)arg1 withAction:(id)arg2;
+- (void)showFMFFacetimeButton:(_Bool)arg1 withAction:(id)arg2;
+- (void)showFMFMessageButton:(_Bool)arg1 withAction:(id)arg2;
+@property(readonly, nonatomic) _Bool hasTelephonyCapability;
 @property(nonatomic) void *displayedPerson;
 - (void)dealloc;
 - (id)initWithMessageButton:(id)arg1 facetimeButton:(id)arg2 callButton:(id)arg3;

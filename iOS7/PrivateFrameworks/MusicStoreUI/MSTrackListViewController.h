@@ -26,7 +26,7 @@
 - (void)_delayedReloadForWebViews;
 - (id)purchasableItemsForHeaderView:(id)arg1;
 - (void)operation:(id)arg1 finishedWithOutput:(id)arg2;
-- (void)viewWillDisappear:(BOOL)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
 - (void)reloadData;
 - (void)loadView;
 - (id)newTermsAndConditionsFooter;

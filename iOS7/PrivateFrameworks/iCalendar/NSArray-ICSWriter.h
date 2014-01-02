@@ -7,8 +7,8 @@
 #import "NSArray.h"
 
 @interface NSArray (ICSWriter)
-- (void)_ICSStringsForPropertyValuesWithOptions:(unsigned int)arg1 appendingToString:(id)arg2;
+- (void)_ICSStringsForPropertyValuesWithOptions:(unsigned long long)arg1 appendingToString:(id)arg2;
 - (void)_ICSParametersAppendingToString:(id)arg1;
-- (void)_ICSStringWithOptions:(unsigned int)arg1 appendingToString:(id)arg2;
+- (void)_ICSStringWithOptions:(unsigned long long)arg1 appendingToString:(id)arg2;
 @end
 

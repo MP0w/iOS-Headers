@@ -15,7 +15,7 @@
 {
     long long _assetFileSize;
     NSURL *_destinationURL;
-    BOOL _downloadExists;
+    _Bool _downloadExists;
     NSString *_downloadIdentifier;
     long long _downloadSizeLimit;
     unsigned long long _downloadToken;
@@ -28,17 +28,17 @@
 @property(nonatomic) unsigned long long downloadToken; // @synthesize downloadToken=_downloadToken;
 @property(readonly, nonatomic) long long downloadSizeLimit; // @synthesize downloadSizeLimit=_downloadSizeLimit;
 @property(readonly, nonatomic) NSString *downloadIdentifier; // @synthesize downloadIdentifier=_downloadIdentifier;
-@property(readonly, nonatomic) BOOL downloadExists; // @synthesize downloadExists=_downloadExists;
+@property(readonly, nonatomic) _Bool downloadExists; // @synthesize downloadExists=_downloadExists;
 @property(readonly, nonatomic) NSURL *destinationURL; // @synthesize destinationURL=_destinationURL;
 @property(readonly, nonatomic) long long assetFileSize; // @synthesize assetFileSize=_assetFileSize;
 - (void).cxx_destruct;
 - (void)_reloadNetworkConstraints;
-- (id)newAVAssetOptionsWithDownloadStyle:(int)arg1;
+- (id)newAVAssetOptionsWithDownloadStyle:(long long)arg1;
 - (void)acquireDownloadTokenWithCompletionHandler:(id)arg1;
 - (void)downloadManager:(id)arg1 downloadStatesDidChange:(id)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)description;
 - (void)dealloc;
 - (id)initWithMediaItem:(id)arg1;

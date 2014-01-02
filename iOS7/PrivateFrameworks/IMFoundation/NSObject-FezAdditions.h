@@ -7,6 +7,6 @@
 #import "NSObject.h"
 
 @interface NSObject (FezAdditions)
-- (BOOL)isNull;
+- (_Bool)isNull;
 @end
 

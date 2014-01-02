@@ -18,10 +18,10 @@
         unsigned int hasSupplementaryLayoutAttributes:1;
         unsigned int hasDecorationLayoutAttributes:1;
     } _layoutProviderFlags;
-    BOOL _cachesResults;
+    _Bool _cachesResults;
 }
 
-@property(nonatomic) BOOL cachesResults; // @synthesize cachesResults=_cachesResults;
+@property(nonatomic) _Bool cachesResults; // @synthesize cachesResults=_cachesResults;
 @property(readonly, nonatomic) id <PUCollectionViewLayoutProvider> layoutProvider; // @synthesize layoutProvider=_layoutProvider;
 - (void).cxx_destruct;
 - (void)invalidateLayoutCache;

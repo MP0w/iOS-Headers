@@ -22,11 +22,11 @@
 @property(copy) NSString *predicate; // @synthesize predicate=_predicate;
 - (id)description;
 - (void)_copySelfToSnapshot:(id)arg1;
-- (id)setConditionalActionWithPredicate:(id)arg1 forCondition:(BOOL)arg2;
-- (id)setActionGroupForCondition:(BOOL)arg1;
-- (id)setGenericActionForTargetPlugObjectID:(id)arg1 withAttributes:(id)arg2 forCondition:(BOOL)arg3;
-- (id)setAnimationTriggerForTargetPlugObjectID:(id)arg1 withAnimationKey:(id)arg2 forCondition:(BOOL)arg3;
-- (id)setTransitionForTargetPlugObjectID:(id)arg1 withTransitionID:(id)arg2 forCondition:(BOOL)arg3;
+- (id)setConditionalActionWithPredicate:(id)arg1 forCondition:(_Bool)arg2;
+- (id)setActionGroupForCondition:(_Bool)arg1;
+- (id)setGenericActionForTargetPlugObjectID:(id)arg1 withAttributes:(id)arg2 forCondition:(_Bool)arg3;
+- (id)setAnimationTriggerForTargetPlugObjectID:(id)arg1 withAnimationKey:(id)arg2 forCondition:(_Bool)arg3;
+- (id)setTransitionForTargetPlugObjectID:(id)arg1 withTransitionID:(id)arg2 forCondition:(_Bool)arg3;
 - (id)imprint;
 - (void)demolish;
 - (id)initWithImprint:(id)arg1;

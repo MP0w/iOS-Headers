@@ -17,7 +17,9 @@
 }
 
 - (void).cxx_destruct;
+- (void)setLanguage:(id)arg1 withCompletion:(id)arg2;
 - (void)setLanguage:(id)arg1;
+- (void)setOutputVoice:(id)arg1 withCompletion:(id)arg2;
 - (void)setOutputVoice:(id)arg1;
 - (void)getAvailableVoicesForRecognitionLanguage:(id)arg1 completion:(id)arg2;
 - (void)_updateVoicesWithCompletion:(id)arg1;
@@ -27,11 +29,11 @@
 - (void)_setVoices:(id)arg1;
 - (void)barrier;
 - (void)killDaemon;
-- (void)setDictationEnabled:(BOOL)arg1;
-- (void)setAssistantEnabled:(BOOL)arg1;
+- (void)setDictationEnabled:(_Bool)arg1;
+- (void)setAssistantEnabled:(_Bool)arg1;
 - (void)setActiveAccountIdentifier:(id)arg1;
 - (void)deleteAccountWithIdentifier:(id)arg1;
-- (void)saveAccount:(id)arg1 setActive:(BOOL)arg2;
+- (void)saveAccount:(id)arg1 setActive:(_Bool)arg2;
 - (id)accounts;
 - (void)fetchSupportedLanguageCodes:(id)arg1;
 - (id)_settingsServiceWithErrorHandler:(id)arg1;
@@ -40,7 +42,6 @@
 - (void)_clearConnection;
 - (void)dealloc;
 - (id)init;
-- (void)_syncDataWithAnchorKeys:(id)arg1 forceReset:(BOOL)arg2 completion:(id)arg3;
 
 @end
 

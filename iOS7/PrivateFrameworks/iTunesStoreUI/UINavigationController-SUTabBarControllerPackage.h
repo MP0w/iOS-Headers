@@ -7,6 +7,6 @@
 #import "UINavigationController.h"
 
 @interface UINavigationController (SUTabBarControllerPackage)
-- (void)_setStoreBarStyle:(int)arg1 clientInterface:(id)arg2;
+- (void)_setStoreBarStyle:(long long)arg1 clientInterface:(id)arg2;
 @end
 

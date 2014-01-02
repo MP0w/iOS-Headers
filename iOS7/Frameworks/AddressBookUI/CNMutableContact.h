@@ -12,18 +12,19 @@
 {
 }
 
-+ (id)contactWithRecord:(void *)arg1 unify:(BOOL)arg2;
++ (id)contactWithRecord:(void *)arg1 unify:(_Bool)arg2;
 + (id)contactWithRecord:(void *)arg1;
 + (id)contact;
 - (struct __CFString *)_ABLabelFromCNLabel:(id)arg1;
 - (void)_setStringMultiValueForProperty:(int)arg1 values:(id)arg2;
 - (void)_setMultiValueForProperty:(int)arg1 values:(id)arg2 valueFromCNValue:(id)arg3;
 - (void)addProperties:(id)arg1 excludingProperties:(id)arg2 fromContact:(id)arg3;
-- (BOOL)unlinkContact;
-- (BOOL)linkToContact:(id)arg1;
-- (BOOL)deleteContact;
-- (BOOL)saveContactInAddressBook:(void *)arg1;
-- (BOOL)saveContact;
+- (_Bool)addToGroup:(void *)arg1;
+- (_Bool)unlinkContact;
+- (_Bool)linkToContact:(id)arg1;
+- (_Bool)deleteContact;
+- (_Bool)saveContactInAddressBook:(void *)arg1;
+- (_Bool)saveContact;
 @property(copy) NSArray *textTone;
 @property(copy) NSArray *ringtone;
 @property(copy) NSArray *postalAddresses;
@@ -51,17 +52,18 @@
 @property(copy) NSString *middleName;
 @property(copy) NSString *givenName;
 @property(copy) NSString *namePrefix;
-- (BOOL)isEqualToContact:(id)arg1 includeIdentifiers:(BOOL)arg2;
-- (BOOL)isEqualToContact:(id)arg1;
-- (id)initWithRecord:(void *)arg1 unify:(BOOL)arg2;
+- (_Bool)isEqualToContact:(id)arg1 includeIdentifiers:(_Bool)arg2;
+- (_Bool)isEqualToContact:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
+- (id)initWithRecord:(void *)arg1 unify:(_Bool)arg2;
 - (id)initWithRecord:(void *)arg1;
 - (id)init;
 
 // Remaining properties
 @property void *addressBook;
 @property NSArray *linkedContacts;
-@property(getter=isPreferredForName) BOOL preferredForName;
-@property(getter=isPreferredForPhoto) BOOL preferredForPhoto;
+@property(getter=isPreferredForName) _Bool preferredForName;
+@property(getter=isPreferredForPhoto) _Bool preferredForPhoto;
 @property void *source;
 
 @end

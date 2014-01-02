@@ -6,12 +6,14 @@
 
 #import "UIView.h"
 
+// Not exported
 @interface _MKPopoverEmbeddingView : UIView
 {
     id <_MKPopoverEmbeddingViewWindowDelegate> _windowDelegate;
 }
 
 @property(nonatomic) id <_MKPopoverEmbeddingViewWindowDelegate> windowDelegate; // @synthesize windowDelegate=_windowDelegate;
+- (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)willMoveToWindow:(id)arg1;
 - (void)didMoveToWindow;
 

@@ -17,9 +17,9 @@
 }
 
 @property(readonly, nonatomic) DAMailMessage *DAMailMessage; // @synthesize DAMailMessage=_DAMailMessage;
-- (unsigned int)messageSize;
+- (unsigned long long)messageSize;
 - (id)remoteMailboxURL;
-- (BOOL)messageData:(id *)arg1 messageSize:(unsigned int *)arg2 isComplete:(char *)arg3 downloadIfNecessary:(BOOL)arg4;
+- (_Bool)messageData:(id *)arg1 messageSize:(unsigned long long *)arg2 isComplete:(_Bool *)arg3 downloadIfNecessary:(_Bool)arg4;
 - (id)messageBody;
 - (unsigned long long)messageFlags;
 - (id)headersIfAvailable;

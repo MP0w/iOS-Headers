@@ -5,9 +5,9 @@
  */
 
 @protocol AirPlayControllerSync
-- (long)setProperty:(id)arg1 qualifier:(id)arg2 value:(id)arg3;
+- (int)setProperty:(id)arg1 qualifier:(id)arg2 value:(id)arg3;
 - (id)getProperty:(id)arg1 qualifier:(id)arg2 status:(int *)arg3;
 - (void)postEvent:(id)arg1 qualifier:(id)arg2 params:(id)arg3;
-- (long)performCommand:(id)arg1 qualifier:(id)arg2 params:(id)arg3 response:(id *)arg4;
+- (int)performCommand:(id)arg1 qualifier:(id)arg2 params:(id)arg3 response:(id *)arg4;
 @end
 

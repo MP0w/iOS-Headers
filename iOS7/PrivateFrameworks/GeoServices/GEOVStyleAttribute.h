@@ -6,6 +6,7 @@
 
 #import "PBCodable.h"
 
+// Not exported
 @interface GEOVStyleAttribute : PBCodable
 {
     int _intValue;
@@ -17,14 +18,14 @@
 
 @property(nonatomic) int intValue; // @synthesize intValue=_intValue;
 @property(nonatomic) unsigned int key; // @synthesize key=_key;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) BOOL hasIntValue;
+@property(nonatomic) _Bool hasIntValue;
 - (void)dealloc;
 
 @end

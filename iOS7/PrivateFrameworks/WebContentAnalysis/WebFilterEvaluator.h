@@ -10,18 +10,18 @@
 
 @interface WebFilterEvaluator : NSObject
 {
-    unsigned int _filterState;
+    unsigned long long _filterState;
     NSURL *_url;
     NSString *_pageTitle;
     NSMutableData *_buffer;
 }
 
 + (id)createWithResponse:(id)arg1;
-+ (BOOL)isManagedSession;
++ (_Bool)isManagedSession;
 - (void)unblockWithCompletion:(id)arg1;
 - (void)attemptUnblockWithCompletion:(id)arg1;
-- (BOOL)wasBlocked;
-- (long)filterState;
+- (_Bool)wasBlocked;
+- (int)filterState;
 - (id)dataComplete;
 - (id)addData:(id)arg1;
 - (void)dealloc;

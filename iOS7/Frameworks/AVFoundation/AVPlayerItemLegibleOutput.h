@@ -14,8 +14,8 @@
 }
 
 + (void)initialize;
-- (void)setSuppressesPlayerRendering:(BOOL)arg1;
-- (BOOL)suppressesPlayerRendering;
+- (void)setSuppressesPlayerRendering:(_Bool)arg1;
+- (_Bool)suppressesPlayerRendering;
 - (void)setTextStylingResolution:(id)arg1;
 - (id)textStylingResolution;
 @property(nonatomic) double advanceIntervalForDelegateInvocation;
@@ -27,8 +27,9 @@
 - (id)_figLegibleOutputsDictionaryKey;
 - (void)_detachFromPlayerItem;
 - (void)_attachToPlayerItem:(id)arg1;
+- (void)_dataSourceSignaledFlush;
 - (void)_dataSourceProvidedAttributedStrings:(id)arg1 andSampleBuffers:(id)arg2 atItemTime:(CDStruct_1b6d18a9)arg3;
-- (BOOL)_isAttachedToHost;
+- (_Bool)_isAttachedToHost;
 - (void)finalize;
 - (void)dealloc;
 - (void)_collectUncollectables;

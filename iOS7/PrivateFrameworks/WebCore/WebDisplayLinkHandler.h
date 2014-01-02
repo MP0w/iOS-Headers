@@ -8,6 +8,7 @@
 
 @class CADisplayLink;
 
+// Not exported
 @interface WebDisplayLinkHandler : NSObject
 {
     struct DisplayRefreshMonitor *m_monitor;

@@ -14,11 +14,11 @@
 }
 
 @property(nonatomic) SUViewController *viewController; // @synthesize viewController=_viewController;
-- (struct CGRect)viewFrameForInterfaceOrientation:(int)arg1;
-- (void)prepareToRotateToInterfaceOrientation:(int)arg1;
-- (BOOL)orientationAffectsViewFrame;
-- (void)finishRotationFromInterfaceOrientation:(int)arg1;
-- (void)animateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (struct CGRect)viewFrameForInterfaceOrientation:(long long)arg1;
+- (void)prepareToRotateToInterfaceOrientation:(long long)arg1;
+- (_Bool)orientationAffectsViewFrame;
+- (void)finishRotationFromInterfaceOrientation:(long long)arg1;
+- (void)animateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
 - (void)dealloc;
 - (id)initWithViewController:(id)arg1;
 - (id)init;

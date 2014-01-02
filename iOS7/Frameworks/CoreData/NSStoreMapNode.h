@@ -8,6 +8,7 @@
 
 @class NSManagedObjectID, NSMutableDictionary, NSPersistentStoreMap, NSString;
 
+// Not exported
 @interface NSStoreMapNode : NSObject
 {
     NSPersistentStoreMap *_map;
@@ -30,7 +31,7 @@
 - (id)entity;
 - (id)key;
 - (id)objectID;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

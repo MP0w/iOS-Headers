@@ -8,6 +8,7 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface _UITextTiledLayer : CALayer
 {
     NSMutableArray *_reusableTiles;
@@ -21,8 +22,7 @@
 }
 
 @property(nonatomic) struct CGSize tileSize; // @synthesize tileSize=_tileSize;
-- (void)windowDidRotate:(id)arg1;
-- (void)windowWillRotate:(id)arg1;
+- (void)renderInContext:(struct CGContext *)arg1;
 - (void)resumeTiling;
 - (void)suspendTiling;
 - (void)setBounds:(struct CGRect)arg1;
@@ -32,7 +32,7 @@
 - (void)_buildTilesForRect:(struct CGRect)arg1;
 - (void)_validateTiles;
 - (void)setNeedsDisplayInRect:(struct CGRect)arg1;
-@property(nonatomic, getter=shouldDisableTiling) BOOL disableTiling;
+@property(nonatomic) _Bool usesTiledLayers;
 - (void)drawDirtyLayer:(id)arg1 intoContext:(struct CGContext *)arg2;
 - (void)dealloc;
 - (id)init;

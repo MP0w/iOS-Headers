@@ -14,7 +14,7 @@
 }
 
 + (id)operationWithStrokes:(id)arg1;
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) NSIndexSet *strokes; // @synthesize strokes=_strokes;
 - (id)propertiesForDescription;
 - (void)encodeWithCoder:(id)arg1;

@@ -19,7 +19,7 @@
 @property(nonatomic) UIWebView *webView; // @synthesize webView=_webView;
 @property(nonatomic) id <NSObject><UIWebPDFViewHandlerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)forwardInvocation:(id)arg1;
-- (BOOL)respondsToSelector:(SEL)arg1;
+- (_Bool)respondsToSelector:(SEL)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
 
 @end

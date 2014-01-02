@@ -19,13 +19,15 @@
     struct CGPDFDocument *_document;
     WebDataSource *_dataSource;
     NSObject<WebPDFViewPlaceholderDelegate> *_delegate;
-    BOOL _didFinishLoadAndMemoryMap;
+    _Bool _didFinishLoadAndMemoryMap;
     struct CGSize _containerSize;
+    _Bool _didCompleteLayout;
 }
 
 + (id)supportedMIMETypes;
 + (Class)_representationClassForWebFrame:(id)arg1;
 + (void)setAsPDFDocRepAndView;
+@property(readonly, nonatomic) _Bool didCompleteLayout; // @synthesize didCompleteLayout=_didCompleteLayout;
 @property struct CGSize containerSize; // @synthesize containerSize=_containerSize;
 @property(retain) NSString *title; // @synthesize title=_title;
 @property(retain) NSArray *pageYOrigins; // @synthesize pageYOrigins=_pageYOrigins;
@@ -33,7 +35,7 @@
 @property NSObject<WebPDFViewPlaceholderDelegate> *delegate; // @synthesize delegate=_delegate;
 - (id).cxx_construct;
 - (void)simulateClickOnLinkToURL:(id)arg1;
-- (struct CGRect)rectForPageNumber:(unsigned int)arg1;
+- (struct CGRect)rectForPageNumber:(unsigned long long)arg1;
 - (void)didUnlockDocument;
 - (struct CGSize)_computePageRects:(struct CGPDFDocument *)arg1;
 - (struct CGRect)_getPDFPageBounds:(struct CGPDFPage *)arg1;
@@ -41,7 +43,7 @@
 - (void)_updateTitleForURL:(id)arg1;
 - (void)_evaluateJSForDocument:(struct CGPDFDocument *)arg1;
 - (id)documentSource;
-- (BOOL)canProvideDocumentSource;
+- (_Bool)canProvideDocumentSource;
 - (void)finishedLoadingWithDataSource:(id)arg1;
 - (void)dataSourceMemoryMapFailed;
 - (void)dataSourceMemoryMapped;
@@ -55,8 +57,9 @@
 - (void)_notifyDidCompleteLayout;
 - (void)setDataSource:(id)arg1;
 - (void)dealloc;
-@property(readonly) unsigned int totalPages;
+@property(readonly) unsigned long long totalPages;
 @property(readonly) struct CGPDFDocument *doc;
+- (void)clearDocument;
 - (void)setDocument:(struct CGPDFDocument *)arg1;
 @property(readonly) struct CGPDFDocument *document; // @synthesize document=_document;
 

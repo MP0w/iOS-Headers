@@ -15,17 +15,16 @@
     struct _CAEAGLNativeWindow *_win;
 }
 
-+ (BOOL)CA_automaticallyNotifiesObservers:(Class)arg1;
++ (_Bool)CA_automaticallyNotifiesObservers:(Class)arg1;
 + (id)defaultValueForKey:(id)arg1;
 @property(copy) NSDictionary *drawableProperties;
 - (void)_didCommitLayer:(struct Transaction *)arg1;
 - (void)_display;
-- (void)layerDidBecomeVisible:(BOOL)arg1;
+- (void)layerDidBecomeVisible:(_Bool)arg1;
 - (void)dealloc;
-@property(readonly) struct _EAGLNativeWindowObject *nativeWindow;
+- (struct _EAGLNativeWindowObject *)nativeWindow;
 - (void)didChangeValueForKey:(id)arg1;
-- (BOOL)shouldArchiveValueForKey:(id)arg1;
-@property(getter=isAsynchronous) BOOL asynchronous;
+- (_Bool)shouldArchiveValueForKey:(id)arg1;
 
 @end
 

@@ -8,6 +8,7 @@
 
 @class OADTableCellStyle, OADTableTextStyle;
 
+// Not exported
 @interface OADTablePartStyle : NSObject
 {
     OADTableTextStyle *mTextStyle;

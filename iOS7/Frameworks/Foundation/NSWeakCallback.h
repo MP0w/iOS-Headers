@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface NSWeakCallback : NSObject
 {
     id _callback_next;

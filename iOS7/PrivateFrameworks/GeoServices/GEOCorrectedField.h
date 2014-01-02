@@ -6,31 +6,36 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSString;
 
-@interface GEOCorrectedField : PBCodable
+@interface GEOCorrectedField : PBCodable <NSCopying>
 {
     NSString *_correctedValue;
     NSString *_displayName;
     NSString *_objectName;
-    BOOL _isMarkedIncorrect;
-    CDStruct_9e8b5140 _has;
+    _Bool _isMarkedIncorrect;
+    struct {
+        unsigned int isMarkedIncorrect:1;
+    } _has;
 }
 
-@property(nonatomic) BOOL isMarkedIncorrect; // @synthesize isMarkedIncorrect=_isMarkedIncorrect;
+@property(nonatomic) _Bool isMarkedIncorrect; // @synthesize isMarkedIncorrect=_isMarkedIncorrect;
 @property(retain, nonatomic) NSString *correctedValue; // @synthesize correctedValue=_correctedValue;
 @property(retain, nonatomic) NSString *objectName; // @synthesize objectName=_objectName;
 @property(retain, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) BOOL hasIsMarkedIncorrect;
-@property(readonly, nonatomic) BOOL hasCorrectedValue;
-@property(readonly, nonatomic) BOOL hasObjectName;
+@property(nonatomic) _Bool hasIsMarkedIncorrect;
+@property(readonly, nonatomic) _Bool hasCorrectedValue;
+@property(readonly, nonatomic) _Bool hasObjectName;
 - (void)dealloc;
 
 @end

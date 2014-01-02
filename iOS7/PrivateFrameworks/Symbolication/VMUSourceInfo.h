@@ -21,8 +21,8 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)description;
-- (BOOL)isEqualToSourceInfo:(id)arg1;
-- (int)compare:(id)arg1;
+- (_Bool)isEqualToSourceInfo:(id)arg1;
+- (long long)compare:(id)arg1;
 - (struct _VMURange)addressRange;
 - (unsigned int)fileOffset;
 - (unsigned int)lineNumber;

@@ -17,16 +17,16 @@
     NSString *_incomingMailServerAuthentication;
     NSString *_incomingMailServerHostname;
     NSNumber *_incomingMailServerPortNumber;
-    BOOL _incomingMailServerUseSSL;
+    _Bool _incomingMailServerUseSSL;
     NSString *_incomingMailServerUsername;
     NSString *_incomingMailServerIMAPPathPrefix;
     NSString *_incomingPassword;
     NSString *_outgoingPassword;
-    BOOL _outgoingPasswordSameAsIncomingPassword;
+    _Bool _outgoingPasswordSameAsIncomingPassword;
     NSString *_outgoingMailServerAuthentication;
     NSString *_outgoingMailServerHostname;
     NSNumber *_outgoingMailServerPortNumber;
-    BOOL _outgoingMailServerUseSSL;
+    _Bool _outgoingMailServerUseSSL;
     NSString *_outgoingMailServerUsername;
 }
 
@@ -35,16 +35,16 @@
 + (id)localizedSingularForm;
 + (id)typeStrings;
 @property(readonly, nonatomic) NSString *outgoingMailServerUsername; // @synthesize outgoingMailServerUsername=_outgoingMailServerUsername;
-@property(readonly, nonatomic) BOOL outgoingMailServerUseSSL; // @synthesize outgoingMailServerUseSSL=_outgoingMailServerUseSSL;
+@property(readonly, nonatomic) _Bool outgoingMailServerUseSSL; // @synthesize outgoingMailServerUseSSL=_outgoingMailServerUseSSL;
 @property(readonly, nonatomic) NSNumber *outgoingMailServerPortNumber; // @synthesize outgoingMailServerPortNumber=_outgoingMailServerPortNumber;
 @property(readonly, nonatomic) NSString *outgoingMailServerHostname; // @synthesize outgoingMailServerHostname=_outgoingMailServerHostname;
 @property(readonly, nonatomic) NSString *outgoingMailServerAuthentication; // @synthesize outgoingMailServerAuthentication=_outgoingMailServerAuthentication;
-@property(readonly, nonatomic) BOOL outgoingPasswordSameAsIncomingPassword; // @synthesize outgoingPasswordSameAsIncomingPassword=_outgoingPasswordSameAsIncomingPassword;
+@property(readonly, nonatomic) _Bool outgoingPasswordSameAsIncomingPassword; // @synthesize outgoingPasswordSameAsIncomingPassword=_outgoingPasswordSameAsIncomingPassword;
 @property(readonly, nonatomic) NSString *outgoingPassword; // @synthesize outgoingPassword=_outgoingPassword;
 @property(readonly, nonatomic) NSString *incomingPassword; // @synthesize incomingPassword=_incomingPassword;
 @property(readonly, nonatomic) NSString *incomingMailServerIMAPPathPrefix; // @synthesize incomingMailServerIMAPPathPrefix=_incomingMailServerIMAPPathPrefix;
 @property(readonly, nonatomic) NSString *incomingMailServerUsername; // @synthesize incomingMailServerUsername=_incomingMailServerUsername;
-@property(readonly, nonatomic) BOOL incomingMailServerUseSSL; // @synthesize incomingMailServerUseSSL=_incomingMailServerUseSSL;
+@property(readonly, nonatomic) _Bool incomingMailServerUseSSL; // @synthesize incomingMailServerUseSSL=_incomingMailServerUseSSL;
 @property(readonly, nonatomic) NSNumber *incomingMailServerPortNumber; // @synthesize incomingMailServerPortNumber=_incomingMailServerPortNumber;
 @property(readonly, nonatomic) NSString *incomingMailServerHostname; // @synthesize incomingMailServerHostname=_incomingMailServerHostname;
 @property(readonly, nonatomic) NSString *incomingMailServerAuthentication; // @synthesize incomingMailServerAuthentication=_incomingMailServerAuthentication;

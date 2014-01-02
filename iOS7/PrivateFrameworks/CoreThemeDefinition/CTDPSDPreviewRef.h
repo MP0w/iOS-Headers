@@ -11,24 +11,24 @@
 @interface CTDPSDPreviewRef : CUIPSDImageRef
 {
     struct _PSDImageInfo _imageInfo;
-    int _layerCount;
-    int _sliceCount;
-    int _columnWidth;
-    int _rowHeight;
+    long long _layerCount;
+    long long _sliceCount;
+    long long _columnWidth;
+    long long _rowHeight;
     NSArray *_layerIndexLayout;
-    int _sliceRowCount;
-    int _sliceColumnCount;
+    long long _sliceRowCount;
+    long long _sliceColumnCount;
     NSArray *_sliceRects;
 }
 
-- (int)indexOfDrawingLayerType:(int)arg1;
-- (int)numberOfAlphaChannels;
-- (int)numberOfGradientLayers;
-- (BOOL)hasGradient;
-- (BOOL)hasRegularSliceGrid;
+- (long long)indexOfDrawingLayerType:(long long)arg1;
+- (long long)numberOfAlphaChannels;
+- (long long)numberOfGradientLayers;
+- (_Bool)hasGradient;
+- (_Bool)hasRegularSliceGrid;
 - (void)evaluateSliceGrid;
-- (int)sliceColumnCount;
-- (int)sliceRowCount;
+- (long long)sliceColumnCount;
+- (long long)sliceRowCount;
 - (void)dealloc;
 - (id)initWithPath:(id)arg1;
 

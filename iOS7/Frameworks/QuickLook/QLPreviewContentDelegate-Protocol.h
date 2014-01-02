@@ -16,11 +16,10 @@
 - (void)contentWasTappedInPreviewContentController:(id)arg1;
 - (void)previewContentController:(id)arg1 willHideOverlayWithDuration:(double)arg2;
 - (void)previewContentController:(id)arg1 willShowOverlayWithDuration:(double)arg2;
-- (void)previewContentController:(id)arg1 didUnloadItem:(id)arg2;
 - (void)previewContentController:(id)arg1 didFailWithError:(id)arg2;
-- (void)previewContentController:(id)arg1 didLoadItem:(id)arg2 atIndex:(int)arg3 withError:(id)arg4;
-- (void)previewContentController:(id)arg1 didMoveToItem:(id)arg2 atIndex:(int)arg3;
-- (void)previewContentController:(id)arg1 willMoveToItemAtIndex:(int)arg2;
+- (void)previewContentController:(id)arg1 didLoadItem:(id)arg2 atIndex:(long long)arg3 withError:(id)arg4;
+- (void)previewContentController:(id)arg1 didMoveToItem:(id)arg2 atIndex:(long long)arg3;
+- (void)previewContentController:(id)arg1 willMoveToItemAtIndex:(long long)arg2;
 
 @optional
 - (id)clientProcessAlertViewForPreviewContentController:(id)arg1;

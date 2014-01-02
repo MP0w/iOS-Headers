@@ -16,17 +16,17 @@
     NSObject<OS_dispatch_queue> *_accessQueue;
     NSMutableArray *_connections;
     NSXPCListener *_listener;
-    unsigned int _serverStartCount;
+    unsigned long long _serverStartCount;
 }
 
 + (id)sharedServer;
 - (void).cxx_destruct;
-- (BOOL)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
+- (_Bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
 - (void)stop;
 - (void)start;
 @property(readonly, nonatomic) NSArray *remoteClientProxies;
 @property(readonly, nonatomic) NSArray *connections;
-- (void)connection:(id)arg1 handleInvocation:(id)arg2 isReply:(BOOL)arg3;
+- (void)connection:(id)arg1 handleInvocation:(id)arg2 isReply:(_Bool)arg3;
 - (void)dealloc;
 - (id)_init;
 - (id)init;

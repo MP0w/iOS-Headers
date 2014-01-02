@@ -10,6 +10,7 @@
 
 @class NSArray, NSString, NSURL, WFRemotePINEntryViewController, _UIFallbackPresentationViewController;
 
+// Not exported
 @interface WFPINEntryViewController : UIViewController <WFPINEntryViewControllerProtocol>
 {
     _UIFallbackPresentationViewController *_fallbackPresentationVC;
@@ -27,14 +28,14 @@
 @property(copy, nonatomic) id dismissCompletionHandler; // @synthesize dismissCompletionHandler=_dismissCompletionHandler;
 - (void)userDidCancel;
 - (void)userEnteredCorrectPIN;
-- (unsigned int)_supportedInterfaceOrientationsForRootViewController;
+- (unsigned long long)_supportedInterfaceOrientationsForRootViewController;
 - (id)delegate;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (unsigned int)supportedInterfaceOrientations;
-- (BOOL)shouldAutorotate;
-- (void)viewDidDisappear:(BOOL)arg1;
-- (BOOL)hasUIWebViewSubView:(id)arg1;
-- (void)presentViewControllerAnimated:(BOOL)arg1 completion:(id)arg2;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (unsigned long long)supportedInterfaceOrientations;
+- (_Bool)shouldAutorotate;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (_Bool)hasUIWebViewSubView:(id)arg1;
+- (void)presentViewControllerAnimated:(_Bool)arg1 completion:(id)arg2;
 - (void)insertRemoteViewController:(id)arg1;
 - (void)dealloc;
 - (id)initWithURL:(id)arg1 pageTitle:(id)arg2 completion:(id)arg3;

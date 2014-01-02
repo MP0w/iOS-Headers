@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface WKBrowsingContextGroupData : NSObject
 {
     struct WKRetainPtr<const OpaqueWKPageGroup *> _pageGroupRef;

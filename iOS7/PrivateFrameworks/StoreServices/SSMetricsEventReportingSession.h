@@ -20,8 +20,8 @@
 - (void)_writeString:(id)arg1 toData:(id)arg2;
 - (id)_unreportedEvents;
 - (void)writeEventsToStream:(id)arg1;
-- (BOOL)markEventsAsReported;
-- (BOOL)anyUnreportedEvents;
+- (_Bool)markEventsAsReported;
+- (_Bool)anyUnreportedEvents;
 - (void)dealloc;
 - (id)initWithReportingURL:(id)arg1 insertTimestamp:(long long)arg2 eventController:(id)arg3;
 

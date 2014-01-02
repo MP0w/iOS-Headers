@@ -7,6 +7,6 @@
 #import "NSArray.h"
 
 @interface NSArray (ICSTranslation)
-- (BOOL)ICSContainsArray:(id)arg1;
+- (_Bool)ICSContainsArray:(id)arg1;
 @end
 

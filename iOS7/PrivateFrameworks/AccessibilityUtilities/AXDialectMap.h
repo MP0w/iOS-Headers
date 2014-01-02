@@ -24,10 +24,10 @@
 @property(retain, nonatomic) NSLocale *locale; // @synthesize locale=_locale;
 @property(copy, nonatomic) NSString *voiceName; // @synthesize voiceName=_voiceName;
 @property(nonatomic) AXLangMap *langMap; // @synthesize langMap=_langMap;
-- (BOOL)canSpeakString:(id)arg1;
-- (BOOL)canSpeakLongCharacter:(unsigned long)arg1;
-- (BOOL)canSpeakCharacter:(unsigned short)arg1;
-- (BOOL)isDialectSecondaryForCharacter:(unsigned short)arg1;
+- (_Bool)canSpeakString:(id)arg1;
+- (_Bool)canSpeakLongCharacter:(unsigned int)arg1;
+- (_Bool)canSpeakCharacter:(unsigned short)arg1;
+- (_Bool)isDialectSecondaryForCharacter:(unsigned short)arg1;
 @property(readonly, nonatomic) NSString *languageNameAndLocaleInNativeLocale;
 @property(readonly, nonatomic) NSString *localeNameInCurrentLocale;
 @property(readonly, nonatomic) NSString *languageNameAndLocaleInCurrentLocale;

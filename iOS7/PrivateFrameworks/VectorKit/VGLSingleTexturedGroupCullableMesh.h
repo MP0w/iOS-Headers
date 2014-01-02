@@ -8,17 +8,18 @@
 
 @class VGLTexture;
 
+// Not exported
 @interface VGLSingleTexturedGroupCullableMesh : VGLGroupCullableMesh
 {
     VGLTexture *_texture;
 }
 
 @property(retain, nonatomic) VGLTexture *texture; // @synthesize texture=_texture;
-- (void)drawGroups:(const vector_81578dfd *)arg1 context:(id)arg2;
-- (void)drawInRects:(const CDStruct_818bb265 *)arg1 rectCount:(unsigned int)arg2 excludeGroups:(const vector_81578dfd *)arg3 context:(id)arg4;
-- (void)drawInRects:(const CDStruct_818bb265 *)arg1 rectCount:(unsigned int)arg2 context:(id)arg3;
+- (void)drawGroups:(const vector_a3ee659f *)arg1 context:(id)arg2;
+- (void)drawInRects:(const CDStruct_818bb265 *)arg1 rectCount:(unsigned long long)arg2 excludeGroups:(const vector_a3ee659f *)arg3 context:(id)arg4;
+- (void)drawInRects:(const CDStruct_818bb265 *)arg1 rectCount:(unsigned long long)arg2 context:(id)arg3;
 - (void)drawInPreparedCulls:(id)arg1;
-- (void)drawInPreparedCulls:(id)arg1 excludeGroups:(const vector_81578dfd *)arg2;
+- (void)drawInPreparedCulls:(id)arg1 excludeGroups:(const vector_a3ee659f *)arg2;
 - (void)dealloc;
 
 @end

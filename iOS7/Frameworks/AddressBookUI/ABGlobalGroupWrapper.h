@@ -11,9 +11,9 @@
 }
 
 + (id)newGlobalGroupWrapperWithAddressBook:(void *)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)name;
-- (BOOL)isGlobalWrapper;
+- (_Bool)isGlobalWrapper;
 
 @end
 

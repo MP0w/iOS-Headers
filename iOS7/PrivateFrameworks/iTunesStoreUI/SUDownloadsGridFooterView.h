@@ -18,7 +18,7 @@
 @property(retain, nonatomic) NSArray *scriptButtons; // @synthesize scriptButtons=_scriptButtons;
 - (void)_reloadNativeButtons;
 - (id)_newNativeButton;
-- (float)_maximumButtonHeight;
+- (double)_maximumButtonHeight;
 - (void)_linkControlAction:(id)arg1;
 - (void)sizeToFit;
 - (void)layoutSubviews;

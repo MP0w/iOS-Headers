@@ -8,10 +8,11 @@
 
 @class NSString, VKMapView;
 
+// Not exported
 @interface VKPerformanceTest : NSObject
 {
     VKMapView *_mapView;
-    BOOL _running;
+    _Bool _running;
     int _loopCounter;
     int _resultCount;
     struct VKPerformanceTestResult_struct *_results;

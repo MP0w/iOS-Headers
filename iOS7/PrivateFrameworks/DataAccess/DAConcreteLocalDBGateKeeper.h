@@ -13,15 +13,15 @@
 - (void)_setUnitTestHackRunLoopMode:(id)arg1;
 - (id)stateString;
 - (void)claimedOwnershipOfDataclasses:(int)arg1;
-- (void)relinquishLocksForWaiter:(id)arg1 dataclasses:(int)arg2 moreComing:(BOOL)arg3;
+- (void)relinquishLocksForWaiter:(id)arg1 dataclasses:(int)arg2 moreComing:(_Bool)arg3;
 - (void)unregisterWaiterForDataclassLocks:(id)arg1;
 - (void)_sendAllClearNotifications;
 - (void)registerWaiter:(id)arg1 forDataclassLocks:(int)arg2 completionHandler:(id)arg3;
 - (void)registerPreemptiveWaiter:(id)arg1 forDataclassLocks:(int)arg2 completionHandler:(id)arg3;
-- (void)_registerWaiter:(id)arg1 forDataclassLocks:(int)arg2 preempt:(BOOL)arg3 completionHandler:(id)arg4;
+- (void)_registerWaiter:(id)arg1 forDataclassLocks:(int)arg2 preempt:(_Bool)arg3 completionHandler:(id)arg4;
 - (void)_notifyWaitersForDataclasses:(id)arg1;
 - (void)_abortWaiterForWrappers:(id)arg1;
-- (BOOL)_canWakenWaiter:(id)arg1;
+- (_Bool)_canWakenWaiter:(id)arg1;
 - (void)setBookmarksLockHolder:(id)arg1;
 - (void)setNotesLockHolder:(id)arg1;
 - (void)setEventsLockHolder:(id)arg1;

@@ -7,10 +7,10 @@
 #import "NSString.h"
 
 @interface NSString (MobileBackup)
-+ (id)stringWithFileSystemRepresentation:(const char *)arg1 length:(unsigned int)arg2;
++ (id)stringWithFileSystemRepresentation:(const char *)arg1 length:(unsigned long long)arg2;
 + (id)stringWithFileSystemRepresentation:(const char *)arg1;
 - (id)MBAppendGreenteaSuffix;
-- (BOOL)pathComponentExistsInSet:(id)arg1;
+- (_Bool)pathComponentExistsInSet:(id)arg1;
 - (id)stringByAppendingSlash;
 - (const char *)FSR;
 @end

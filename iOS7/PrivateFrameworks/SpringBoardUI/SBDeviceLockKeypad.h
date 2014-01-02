@@ -12,19 +12,19 @@
 {
     UIButton *_deleteButton;
     UIButton *_cancelButton;
-    BOOL _deleteEnabled;
-    BOOL _playKeyboardClicks;
+    _Bool _deleteEnabled;
+    _Bool _playKeyboardClicks;
 }
 
 + (struct CGSize)defaultSize;
 + (id)pressedImage;
 + (id)keypadImage;
-@property(nonatomic, getter=isDeleteEnabled) BOOL deleteEnabled; // @synthesize deleteEnabled=_deleteEnabled;
+@property(nonatomic, getter=isDeleteEnabled) _Bool deleteEnabled; // @synthesize deleteEnabled=_deleteEnabled;
 @property(readonly, nonatomic) BOOL emergencyKeyChar;
 @property(readonly, nonatomic) BOOL cancelKeyChar;
 @property(readonly, nonatomic) BOOL deleteKeyChar;
-@property(nonatomic) BOOL showsEmergencyCallButton;
-@property(nonatomic) BOOL playsKeyboardClicks;
+@property(nonatomic) _Bool showsEmergencyCallButton;
+@property(nonatomic) _Bool playsKeyboardClicks;
 - (id)initWithDefaultSizeForStyle:(int)arg1;
 - (id)_pressedImage;
 - (id)_keypadImage;

@@ -6,25 +6,24 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary;
+@class NSMutableSet;
 
 @interface IMIDStatusController : NSObject
 {
-    NSMutableDictionary *_idStatusCache;
+    NSMutableSet *_servicesRegistered;
 }
 
 + (id)sharedInstance;
-@property(retain, nonatomic) NSMutableDictionary *_idStatusCache; // @synthesize _idStatusCache;
-- (int)statusForID:(id)arg1 onService:(id)arg2;
+@property(retain, nonatomic) NSMutableSet *_servicesRegistered; // @synthesize _servicesRegistered;
+- (long long)statusForID:(id)arg1 onService:(id)arg2;
 - (void)requestStatusForID:(id)arg1 onAccount:(id)arg2;
 - (void)requestStatusForID:(id)arg1 onService:(id)arg2;
-- (int)_idStatusForID:(id)arg1 onAccount:(id)arg2;
-- (int)_statusForCanonicalizedID:(id)arg1 onService:(id)arg2;
-- (int)_idStatusForID:(id)arg1 onService:(id)arg2;
-- (void)IDQueryCompletedWithFromURI:(id)arg1 idStatusUpdates:(id)arg2 service:(id)arg3 success:(BOOL)arg4 error:(id)arg5;
-- (void)_updateCacheWithIDStatusChanges:(id)arg1;
-- (void)_purgeCache;
-- (void)_loadWithCache:(id)arg1;
+- (void)_requestStatusForID:(id)arg1 onService:(id)arg2 onAccount:(id)arg3;
+- (long long)_idStatusForID:(id)arg1 onAccount:(id)arg2;
+- (long long)_statusForCanonicalizedID:(id)arg1 onService:(id)arg2;
+- (long long)_idStatusForID:(id)arg1 onService:(id)arg2;
+- (long long)__statusForID:(id)arg1 onService:(id)arg2 isCanonicalized:(_Bool)arg3;
+- (void)_processIDStatusResponseForURI:(id)arg1 resultStatus:(long long)arg2 forService:(id)arg3;
 - (void)dealloc;
 - (id)init;
 

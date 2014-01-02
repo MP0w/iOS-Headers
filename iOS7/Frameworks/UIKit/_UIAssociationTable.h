@@ -8,14 +8,15 @@
 
 @class NSMapTable;
 
+// Not exported
 @interface _UIAssociationTable : NSObject
 {
     NSMapTable *_leftToRightHashTables;
     NSMapTable *_rightToLeftHashTables;
 }
 
-- (BOOL)hasRightValuesForLeftValue:(id)arg1;
-- (BOOL)hasLeftValuesForRightValue:(id)arg1;
+- (_Bool)hasRightValuesForLeftValue:(id)arg1;
+- (_Bool)hasLeftValuesForRightValue:(id)arg1;
 - (id)rightValueEnumerableForLeftValue:(id)arg1;
 - (id)leftValueEnumerableForRightValue:(id)arg1;
 - (id)rightValuesForLeftValue:(id)arg1;
@@ -24,12 +25,12 @@
 - (id)leftValueEnumerable;
 - (id)rightValues;
 - (id)leftValues;
-- (BOOL)isEmpty;
+- (_Bool)isEmpty;
 - (void)unregisterAssociationWithLeftValue:(id)arg1 rightValue:(id)arg2;
 - (void)registerAssociationWithLeftValue:(id)arg1 rightValue:(id)arg2;
 - (id)description;
 - (void)dealloc;
-- (id)initWithLeftValueOptions:(unsigned int)arg1 rightValueOptions:(unsigned int)arg2;
+- (id)initWithLeftValueOptions:(unsigned long long)arg1 rightValueOptions:(unsigned long long)arg2;
 
 @end
 

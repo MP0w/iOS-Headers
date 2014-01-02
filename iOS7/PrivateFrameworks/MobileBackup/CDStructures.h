@@ -19,7 +19,7 @@ struct CC_SHA1state_st {
 };
 
 struct _NSRange {
-    unsigned int _field1;
-    unsigned int _field2;
+    unsigned long long _field1;
+    unsigned long long _field2;
 };
 

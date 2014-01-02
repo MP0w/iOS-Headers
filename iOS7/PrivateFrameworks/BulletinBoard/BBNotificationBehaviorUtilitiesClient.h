@@ -19,13 +19,13 @@
     id _activeBehaviorOverridesChangeHandler;
 }
 
-- (void)connection:(id)arg1 connectionStateDidChange:(BOOL)arg2;
-- (void)activeBehaviorOverrideTypesChanged:(unsigned int)arg1;
+- (void)connection:(id)arg1 connectionStateDidChange:(_Bool)arg2;
+- (void)activeBehaviorOverrideTypesChanged:(unsigned long long)arg1;
 - (void)shouldPresentNotificationOfType:(int)arg1 fromSender:(id)arg2 withHandler:(id)arg3;
 - (void)setActiveBehaviorOverridesChangeHandler:(id)arg1;
 - (void)setFilteringStateChangeHandler:(id)arg1;
 - (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
-- (void)notificationPresentationFilteringChangedToEnabled:(BOOL)arg1;
+- (void)notificationPresentationFilteringChangedToEnabled:(_Bool)arg1;
 - (void)invalidate;
 - (void)dealloc;
 - (id)init;

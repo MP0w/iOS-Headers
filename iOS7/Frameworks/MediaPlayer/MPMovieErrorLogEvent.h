@@ -18,7 +18,7 @@
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSString *errorComment;
 @property(readonly, nonatomic) NSString *errorDomain;
-@property(readonly, nonatomic) int errorStatusCode;
+@property(readonly, nonatomic) long long errorStatusCode;
 @property(readonly, nonatomic) NSString *playbackSessionID;
 @property(readonly, nonatomic) NSString *serverAddress;
 @property(readonly, nonatomic) NSString *URI;

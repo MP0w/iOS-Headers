@@ -10,7 +10,7 @@
 + (id)parseRuleCache;
 + (id)copyParseRules;
 - (void)parserSuggestsBaseURL:(id)arg1;
-- (BOOL)validate;
+- (_Bool)validate;
 - (void)write:(id)arg1;
 - (id)copyParseRules;
 - (void)parserFoundUnrecognizedElement:(id)arg1;

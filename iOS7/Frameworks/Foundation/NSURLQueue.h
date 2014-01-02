@@ -8,27 +8,28 @@
 
 @class NSURLQueueNode;
 
+// Not exported
 @interface NSURLQueue : NSObject
 {
-    unsigned int count;
+    unsigned long long count;
     NSURLQueueNode *head;
     NSURLQueueNode *tail;
     id monitor;
-    BOOL waitOnTake;
-    BOOL _pad1;
-    BOOL _pad2;
-    BOOL _pad3;
+    _Bool waitOnTake;
+    _Bool _pad1;
+    _Bool _pad2;
+    _Bool _pad3;
 }
 
 + (id)newNode;
-- (void)setWaitOnTake:(BOOL)arg1;
-- (BOOL)waitOnTake;
-- (unsigned int)count;
-- (BOOL)isEmpty;
-- (int)indexOf:(id)arg1;
+- (void)setWaitOnTake:(_Bool)arg1;
+- (_Bool)waitOnTake;
+- (unsigned long long)count;
+- (_Bool)isEmpty;
+- (long long)indexOf:(id)arg1;
 - (void)clear;
-- (BOOL)remove:(id)arg1;
-- (id)peekAt:(unsigned int)arg1;
+- (_Bool)remove:(id)arg1;
+- (id)peekAt:(unsigned long long)arg1;
 - (id)peek;
 - (id)take;
 - (void)put:(id)arg1;

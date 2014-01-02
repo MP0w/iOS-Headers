@@ -6,22 +6,23 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface NSInsertionPointHelper : NSObject
 {
     struct _NSRange _charRange;
-    int _writingDirection;
-    unsigned int _count;
-    unsigned int _altCount;
-    float *_logicalPositions;
-    float *_logicalLeftBoundaries;
-    float *_logicalRightBoundaries;
-    unsigned int *_logicalCharIndexes;
-    float *_displayPositions;
-    unsigned int *_displayCharIndexes;
-    float *_logicalAltPositions;
-    unsigned int *_logicalAltCharIndexes;
-    float *_displayAltPositions;
-    unsigned int *_displayAltCharIndexes;
+    long long _writingDirection;
+    unsigned long long _count;
+    unsigned long long _altCount;
+    double *_logicalPositions;
+    double *_logicalLeftBoundaries;
+    double *_logicalRightBoundaries;
+    unsigned long long *_logicalCharIndexes;
+    double *_displayPositions;
+    unsigned long long *_displayCharIndexes;
+    double *_logicalAltPositions;
+    unsigned long long *_logicalAltCharIndexes;
+    double *_displayAltPositions;
+    unsigned long long *_displayAltCharIndexes;
 }
 
 - (void)dealloc;

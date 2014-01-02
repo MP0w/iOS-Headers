@@ -14,7 +14,7 @@
 
 + (id)setActivationTokenWithDictionary:(id)arg1 context:(id)arg2;
 + (id)setActivationToken;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSString *language;
 @property(copy, nonatomic) NSData *activationToken;
 - (id)encodedClassName;

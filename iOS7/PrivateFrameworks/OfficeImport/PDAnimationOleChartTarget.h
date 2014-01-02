@@ -6,14 +6,15 @@
 
 #import <OfficeImport/PDAnimationShapeTarget.h>
 
+// Not exported
 @interface PDAnimationOleChartTarget : PDAnimationShapeTarget
 {
     int mLevel;
     int mChartSubElementType;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)setChartSubElementType:(int)arg1;
 - (int)chartSubElementType;
 - (void)setLevel:(int)arg1;

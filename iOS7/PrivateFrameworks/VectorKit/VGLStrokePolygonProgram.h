@@ -6,6 +6,7 @@
 
 #import <VectorKit/VGLSimpleRoadProgram.h>
 
+// Not exported
 @interface VGLStrokePolygonProgram : VGLSimpleRoadProgram
 {
     int _uScale;

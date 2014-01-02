@@ -10,7 +10,7 @@
 
 @interface MPMovieTVHUDView : UIView
 {
-    unsigned int _currentState;
+    unsigned long long _currentState;
     UIImageView *_playbackMode;
     MPAVController *_player;
 }

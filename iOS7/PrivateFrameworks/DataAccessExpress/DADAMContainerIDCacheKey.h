@@ -20,8 +20,8 @@
 @property(readonly) NSString *accountID; // @synthesize accountID=_accountID;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)initWithAccountID:(id)arg1 andDataclass:(int)arg2;
 

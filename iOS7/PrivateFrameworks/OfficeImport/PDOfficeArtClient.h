@@ -11,31 +11,32 @@
 
 @class OADImageRecolorInfo, PDAnimationInfo, PDPlaceholder;
 
+// Not exported
 @interface PDOfficeArtClient : NSObject <OADClient, OADImageRecolorInfoClient>
 {
     OADImageRecolorInfo *mImageRecolorInfo;
     PDPlaceholder *mPlaceholder;
-    BOOL mIsComment;
+    _Bool mIsComment;
     PDAnimationInfo *mAnimationInfo;
-    BOOL mHasOleChart;
+    _Bool mHasOleChart;
     int mInheritedTextStylePlaceholderType;
 }
 
 @property(nonatomic) int inheritedTextStylePlaceholderType; // @synthesize inheritedTextStylePlaceholderType=mInheritedTextStylePlaceholderType;
-- (void)setHasOleChart:(BOOL)arg1;
-- (BOOL)hasOleChart;
+- (void)setHasOleChart:(_Bool)arg1;
+- (_Bool)hasOleChart;
 - (id)animationInfo;
 - (void)setAnimationInfo:(id)arg1;
-- (BOOL)hasAnimationInfo;
-- (void)setIsComment:(BOOL)arg1;
-- (BOOL)isComment;
+- (_Bool)hasAnimationInfo;
+- (void)setIsComment:(_Bool)arg1;
+- (_Bool)isComment;
 - (void)setPlaceholder:(id)arg1;
 - (id)placeholder;
-- (BOOL)hasPlaceholder;
+- (_Bool)hasPlaceholder;
 - (void)setImageRecolorInfo:(id)arg1;
 - (id)imageRecolorInfo;
 - (struct CGRect)bounds;
-- (BOOL)hasBounds;
+- (_Bool)hasBounds;
 - (void)dealloc;
 - (id)init;
 

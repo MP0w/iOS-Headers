@@ -8,6 +8,7 @@
 
 #import "Endpointer-Protocol.h"
 
+// Not exported
 @interface VoiceVerificationEndpointer : NSObject <Endpointer>
 {
 }
@@ -18,7 +19,7 @@
 @property int endpointMode;
 - (void)reset;
 - (int)getStatus:(struct AudioQueueBuffer *)arg1;
-- (BOOL)configureWithSampleRate:(double)arg1 andFrameRate:(unsigned long)arg2;
+- (_Bool)configureWithSampleRate:(double)arg1 andFrameRate:(unsigned int)arg2;
 - (void)dealloc;
 - (id)init;
 

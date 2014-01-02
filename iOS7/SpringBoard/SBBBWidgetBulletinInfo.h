@@ -12,14 +12,14 @@
 {
     NSString *_identifier;
     struct CGSize _preferredViewSize;
-    BOOL _visible;
+    _Bool _visible;
     struct {
         unsigned int isPreferredViewSizeValid:1;
     } _widgetBulletinInfoFlags;
 }
 
 - (void)populateReusableView:(id)arg1;
-- (float)heightForReusableViewInTableView:(id)arg1;
+- (double)heightForReusableViewInTableView:(id)arg1;
 - (Class)reusableViewClass;
 - (id)originalSectionIdentifier;
 - (id)identifier;

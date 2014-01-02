@@ -13,24 +13,24 @@
     PLPhotoLibrary *_photoLibrary;
     NSString *_photoLibraryStoreUUID;
     NSMutableIndexSet *_thumbIndexes;
-    BOOL _hasProcessedAnyAssets;
+    _Bool _hasProcessedAnyAssets;
     NSMutableSet *_existingUUIDs;
     NSMutableDictionary *_existingUUIDsByPath;
     NSMutableDictionary *_existingOIDsByUUID;
-    unsigned int _thumbnailBatchFetchSize;
+    unsigned long long _thumbnailBatchFetchSize;
 }
 
-@property(nonatomic) unsigned int thumbnailBatchFetchSize; // @synthesize thumbnailBatchFetchSize=_thumbnailBatchFetchSize;
+@property(nonatomic) unsigned long long thumbnailBatchFetchSize; // @synthesize thumbnailBatchFetchSize=_thumbnailBatchFetchSize;
 @property(retain, nonatomic) NSMutableDictionary *existingOIDsByUUID; // @synthesize existingOIDsByUUID=_existingOIDsByUUID;
 @property(retain, nonatomic) NSMutableDictionary *existingUUIDsByPath; // @synthesize existingUUIDsByPath=_existingUUIDsByPath;
 @property(retain, nonatomic) NSMutableSet *existingUUIDs; // @synthesize existingUUIDs=_existingUUIDs;
-- (unsigned int)nextThumbnailIndex;
-- (void)addAvailableThumbnailIndex:(unsigned int)arg1;
-- (BOOL)setupVideoAsset:(id)arg1 withURL:(id)arg2;
-- (BOOL)setupPhotoAsset:(id)arg1 withURL:(id)arg2;
+- (unsigned long long)nextThumbnailIndex;
+- (void)addAvailableThumbnailIndex:(unsigned long long)arg1;
+- (_Bool)setupVideoAsset:(id)arg1 withURL:(id)arg2;
+- (_Bool)setupPhotoAsset:(id)arg1 withURL:(id)arg2;
 - (void)setModificationAndCreationDateOnAsset:(id)arg1 withURL:(id)arg2;
 - (id)addAssetWithURLs:(id)arg1;
-- (id)addAssetWithURLs:(id)arg1 forceInsert:(BOOL)arg2 forceUpdate:(BOOL)arg3;
+- (id)addAssetWithURLs:(id)arg1 forceInsert:(_Bool)arg2 forceUpdate:(_Bool)arg3;
 - (id)assetURLisInDatabase:(id)arg1;
 - (id)_addAssetWithURL:(id)arg1 existingOID:(id)arg2;
 - (void)dealloc;

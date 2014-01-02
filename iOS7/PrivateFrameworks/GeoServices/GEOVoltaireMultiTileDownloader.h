@@ -10,13 +10,14 @@
 
 @class GEONetworkDataReader, GEOTileKeyList, GEOTileKeyMap, NSData, NSMutableSet, NSString, NSURL, NSURLConnection;
 
+// Not exported
 @interface GEOVoltaireMultiTileDownloader : NSObject <NSURLConnectionDelegate>
 {
     GEOTileKeyList *_keyList;
     GEOTileKeyList *_requiresLocalization;
     GEOTileKeyList *_receivedKeys;
     NSURL *_requestURL;
-    BOOL _useStatusCodes;
+    _Bool _useStatusCodes;
     NSMutableSet *_errorCodes;
     NSURLConnection *_connection;
     GEONetworkDataReader *_reader;
@@ -28,14 +29,14 @@
     GEOTileKeyMap *_baseTilesWaitingForLocalized;
     GEOTileKeyMap *_localizedTilesWaitingForBase;
     NSString *_postString;
-    BOOL _requireWiFi;
+    _Bool _requireWiFi;
     int _attempts;
     double _startTime;
     double _timeout;
 }
 
-@property(nonatomic) BOOL requireWiFi; // @synthesize requireWiFi=_requireWiFi;
-@property(nonatomic) BOOL useStatusCodes; // @synthesize useStatusCodes=_useStatusCodes;
+@property(nonatomic) _Bool requireWiFi; // @synthesize requireWiFi=_requireWiFi;
+@property(nonatomic) _Bool useStatusCodes; // @synthesize useStatusCodes=_useStatusCodes;
 @property(readonly, nonatomic) NSURL *requestURL; // @synthesize requestURL=_requestURL;
 @property(retain, nonatomic) NSData *auditToken; // @synthesize auditToken=_auditToken;
 @property(retain, nonatomic) NSString *userAgent; // @synthesize userAgent=_userAgent;
@@ -47,7 +48,7 @@
 - (void)connection:(id)arg1 didReceiveResponse:(id)arg2;
 - (void)_tryParseTiles;
 - (id)_mergeBaseTile:(id)arg1 withLocalizationTile:(id)arg2;
-- (struct _GEOTileKey)_tileKeyForURL:(id)arg1 edition:(unsigned int *)arg2 isLocalized:(char *)arg3;
+- (struct _GEOTileKey)_tileKeyForURL:(id)arg1 edition:(unsigned int *)arg2 isLocalized:(_Bool *)arg3;
 - (id)_urlForTileKey:(struct _GEOTileKey *)arg1;
 - (id)_localizationURLIfNecessaryForTileKey:(struct _GEOTileKey *)arg1;
 - (id)_localizationURLForTileKey:(struct _GEOTileKey *)arg1;

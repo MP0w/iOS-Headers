@@ -9,6 +9,6 @@
 @protocol PKPassDeleteDelegate <NSObject>
 
 @optional
-- (void)deleteSheet:(id)arg1 didComplete:(BOOL)arg2;
+- (void)deleteSheet:(id)arg1 didComplete:(_Bool)arg2;
 @end
 

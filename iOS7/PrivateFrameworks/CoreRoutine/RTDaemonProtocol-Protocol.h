@@ -7,14 +7,14 @@
 #import "NSObject-Protocol.h"
 
 @protocol RTDaemonProtocol <NSObject>
-- (void)fetchDefaultValueForKey:(id)arg1 reply:(id)arg2;
 - (void)synchronizeDefaults;
 - (void)clearRoutine;
-- (void)setRoutineEnabled:(BOOL)arg1;
+- (void)setRoutineEnabled:(_Bool)arg1;
+- (void)fetchBBPluginSupportedWithReply:(id)arg1;
 - (void)fetchRoutineEnabledWithReply:(id)arg1;
 - (void)fetchNextLocationsOfInterestFromLocation:(id)arg1 startDate:(id)arg2 timeInterval:(double)arg3 withReply:(id)arg4;
 - (void)fetchAllLocationsOfInterestWithReply:(id)arg1;
-- (void)fetchLocationsOfInterestOfType:(int)arg1 withReply:(id)arg2;
+- (void)fetchLocationsOfInterestOfType:(long long)arg1 withReply:(id)arg2;
 - (void)fetchLocationsOfInterestWithinDistance:(double)arg1 ofLocation:(id)arg2 withReply:(id)arg3;
 @end
 

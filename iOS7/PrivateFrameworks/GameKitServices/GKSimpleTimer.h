@@ -8,6 +8,7 @@
 
 @class NSObject<OS_dispatch_source>;
 
+// Not exported
 @interface GKSimpleTimer : NSObject
 {
     struct _opaque_pthread_mutex_t _lock;
@@ -15,7 +16,7 @@
     id _delegate;
     double _startTime;
     double _interval;
-    BOOL _timerSourceSet;
+    _Bool _timerSourceSet;
 }
 
 @property(readonly, nonatomic) double interval; // @synthesize interval=_interval;

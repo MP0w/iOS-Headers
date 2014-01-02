@@ -10,7 +10,7 @@
 
 @interface MPMediaQueryQueueFeeder : MPQueueFeeder
 {
-    int _ignoreShuffleTypeChangesCount;
+    long long _ignoreShuffleTypeChangesCount;
     MPMediaQueryShuffledItems *_items;
     unsigned int _itemsChanged:1;
     MPMediaLibraryConnectionAssertion *_connectionAssertion;
@@ -18,41 +18,41 @@
     NSArray *_prefixMediaItems;
     MPMediaItem *_focusedItem;
     unsigned int _hasPendingLibraryChanges:1;
-    BOOL _useAirPlayMusicMode;
+    _Bool _useAirPlayMusicMode;
 }
 
 + (id)imageCache;
-@property(nonatomic) BOOL useAirPlayMusicMode; // @synthesize useAirPlayMusicMode=_useAirPlayMusicMode;
+@property(nonatomic) _Bool useAirPlayMusicMode; // @synthesize useAirPlayMusicMode=_useAirPlayMusicMode;
 @property(retain, nonatomic) MPMediaItem *focusedItem; // @synthesize focusedItem=_focusedItem;
 @property(retain, nonatomic) NSArray *prefixMediaItems; // @synthesize prefixMediaItems=_prefixMediaItems;
 @property(copy, nonatomic) MPMediaQuery *query; // @synthesize query=_query;
 - (void).cxx_destruct;
 - (void)_performWhileIgnoringShuffleChanges:(id)arg1;
 - (void)_applyAirPlayMusicMode;
-- (unsigned int)_shuffleItemsInFeederQueryWithShuffleType:(unsigned int)arg1 initialIndex:(unsigned int)arg2;
-- (unsigned int)unshuffledIndexOfAVItem:(id)arg1;
-- (id)mediaItemAtIndex:(unsigned int)arg1;
-- (unsigned int)indexOfMediaItem:(id)arg1;
+- (unsigned long long)_shuffleItemsInFeederQueryWithShuffleType:(unsigned long long)arg1 initialIndex:(unsigned long long)arg2;
+- (unsigned long long)unshuffledIndexOfAVItem:(id)arg1;
+- (id)mediaItemAtIndex:(unsigned long long)arg1;
+- (unsigned long long)indexOfMediaItem:(id)arg1;
 - (void)_handleMediaLibraryDidChange;
 - (void)_libraryDidChangeNotification:(id)arg1;
 - (void)_availableRoutesDidChangeNotification:(id)arg1;
 - (void)_applicationWillEnterForegroundNotification:(id)arg1;
-- (unsigned int)initialPlaybackQueueDepth;
-- (id)playbackInfoAtIndex:(unsigned int)arg1;
+- (unsigned long long)initialPlaybackQueueDepth;
+- (id)playbackInfoAtIndex:(unsigned long long)arg1;
 - (void)archiveAVControllerPlaybackQueue:(id)arg1 toArchiver:(id)arg2;
 - (void)restoreAVControllerPlaybackQueue:(id)arg1 fromUnarchiver:(id)arg2;
-- (BOOL)trackChangesCanEndPlayback;
-- (void)shuffleItemsWithAnchor:(unsigned int *)arg1;
-- (BOOL)shouldBeginPlaybackOfItem:(id)arg1 error:(id *)arg2;
-- (void)setSubsequenceFocused:(BOOL)arg1 currentItemIndex:(unsigned int)arg2;
+- (_Bool)trackChangesCanEndPlayback;
+- (void)shuffleItemsWithAnchor:(unsigned long long *)arg1;
+- (_Bool)shouldBeginPlaybackOfItem:(id)arg1 error:(id *)arg2;
+- (void)setSubsequenceFocused:(_Bool)arg1 currentItemIndex:(unsigned long long)arg2;
 - (void)setAVController:(id)arg1;
 - (id)preferredLanguages;
-- (id)pathAtIndex:(unsigned int)arg1;
-- (unsigned int)itemTypeForIndex:(unsigned int)arg1;
+- (id)pathAtIndex:(unsigned long long)arg1;
+- (unsigned long long)itemTypeForIndex:(unsigned long long)arg1;
 - (Class)itemClass;
-- (id)copyRawItemAtIndex:(unsigned int)arg1;
-- (unsigned int)nonRepeatingItemCount;
-- (unsigned int)itemCount;
+- (id)copyRawItemAtIndex:(unsigned long long)arg1;
+- (unsigned long long)nonRepeatingItemCount;
+- (unsigned long long)itemCount;
 - (void)dealloc;
 - (id)init;
 

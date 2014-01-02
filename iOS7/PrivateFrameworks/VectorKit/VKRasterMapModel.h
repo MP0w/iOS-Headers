@@ -10,23 +10,24 @@
 
 @class NSMutableArray, VGLRenderState, VGLTexture;
 
+// Not exported
 @interface VKRasterMapModel : VKMapTileModel <VKMapLayer>
 {
     NSMutableArray *_sortedTiles;
-    unsigned int _mapLayer;
-    BOOL _rasterViewer;
+    unsigned long long _mapLayer;
+    _Bool _rasterViewer;
     VGLRenderState *_renderState;
     VGLTexture *_clutTexture;
-    BOOL _showingNoDataPlaceholders;
+    _Bool _showingNoDataPlaceholders;
 }
 
-+ (BOOL)reloadOnStylesheetChange;
-@property(readonly, getter=isShowingNoDataPlaceholders) BOOL showingNoDataPlaceholders; // @synthesize showingNoDataPlaceholders=_showingNoDataPlaceholders;
-@property(nonatomic) BOOL rasterViewer; // @synthesize rasterViewer=_rasterViewer;
-@property(nonatomic) unsigned int mapLayerPosition; // @synthesize mapLayerPosition=_mapLayer;
++ (_Bool)reloadOnStylesheetChange;
+@property(readonly, getter=isShowingNoDataPlaceholders) _Bool showingNoDataPlaceholders; // @synthesize showingNoDataPlaceholders=_showingNoDataPlaceholders;
+@property(nonatomic) _Bool rasterViewer; // @synthesize rasterViewer=_rasterViewer;
+@property(nonatomic) unsigned long long mapLayerPosition; // @synthesize mapLayerPosition=_mapLayer;
 - (void)drawScene:(id)arg1 withContext:(id)arg2;
 - (void)layoutScene:(id)arg1 withContext:(id)arg2;
-- (id)_clutTextureForLevelOfDetail:(unsigned int)arg1 scale:(float)arg2;
+- (void)setupClutTextureForLevelOfDetail:(unsigned long long)arg1 scale:(double)arg2;
 - (void)stylesheetDidChange;
 - (id)stylesheet;
 - (void)reset;

@@ -18,11 +18,11 @@
 @property(retain) CoreDAVItemWithNoChildren *resourceChanged; // @synthesize resourceChanged=_resourceChanged;
 @property(retain) CoreDAVItemWithNoChildren *inviteReply; // @synthesize inviteReply=_inviteReply;
 @property(retain) CoreDAVItemWithNoChildren *inviteNotification; // @synthesize inviteNotification=_inviteNotification;
-- (BOOL)notificationNameIn:(id)arg1;
-- (BOOL)notificationNameMatches:(id)arg1;
-@property(readonly) BOOL isResourceChanged;
-@property(readonly) BOOL isInviteReply;
-@property(readonly) BOOL isInviteNotification;
+- (_Bool)notificationNameIn:(id)arg1;
+- (_Bool)notificationNameMatches:(id)arg1;
+@property(readonly) _Bool isResourceChanged;
+@property(readonly) _Bool isInviteReply;
+@property(readonly) _Bool isInviteNotification;
 - (id)description;
 - (id)copyParseRules;
 - (void)dealloc;

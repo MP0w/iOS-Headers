@@ -6,6 +6,7 @@
 
 #import <OfficeImport/OADTextField.h>
 
+// Not exported
 @interface PDSlideNumberField : OADTextField
 {
 }

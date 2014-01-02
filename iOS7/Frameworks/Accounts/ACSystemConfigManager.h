@@ -6,25 +6,32 @@
 
 #import "NSObject.h"
 
+@class NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>;
+
 @interface ACSystemConfigManager : NSObject
 {
+    NSObject<OS_dispatch_queue> *_timerQueue;
+    NSObject<OS_dispatch_source> *_timerSource;
     struct __SCPreferences *_prefs;
-    BOOL _notifyForExternalChangeOnly;
+    _Bool _notifyForExternalChangeOnly;
     int _applySkipCount;
 }
 
++ (unsigned long long)_timeoutInterval;
++ (id)_livingInstance;
 + (id)sharedInstance;
-- (void)setCallback:(void *)arg1 withContext:(CDStruct_60d14f2d *)arg2;
+- (void).cxx_destruct;
+- (void)setCallback:(void *)arg1 withContext:(CDStruct_e097db04 *)arg2;
 - (void)setValue:(void *)arg1 forKey:(id)arg2;
 - (void)unlockPrefs;
-- (BOOL)lockPrefs;
+- (_Bool)lockPrefs;
 - (void *)getValueForKey:(id)arg1;
 - (void)synchronize;
 - (void)notifyTarget:(unsigned int)arg1;
 - (void)initializeSCPrefs:(id)arg1;
-- (void)setCountOfAccounts:(int)arg1 withAccountTypeIdentifier:(id)arg2;
-- (int)countOfAccountsWithAccountTypeIdentifier:(id)arg1;
-- (void)setAccountsWithAccountTypeIdentifier:(id)arg1 exist:(BOOL)arg2;
+- (void)setCountOfAccounts:(long long)arg1 withAccountTypeIdentifier:(id)arg2;
+- (long long)countOfAccountsWithAccountTypeIdentifier:(id)arg1;
+- (void)setAccountsWithAccountTypeIdentifier:(id)arg1 exist:(_Bool)arg2;
 - (int)accountsWithAccountTypeIdentifierExist:(id)arg1;
 - (void)_tearDown;
 - (void)_keepAlive;

@@ -9,6 +9,7 @@
 @protocol RCWaveformViewDelegate <NSObject>
 
 @optional
+- (void)waveformViewControllerDidChangeSelectedTimeRange:(id)arg1;
 - (void)waveformViewController:(id)arg1 didScrubToTime:(double)arg2;
 @end
 

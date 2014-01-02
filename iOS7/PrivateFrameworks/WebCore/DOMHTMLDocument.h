@@ -12,7 +12,7 @@
 {
 }
 
-- (BOOL)hasFocus;
+- (_Bool)hasFocus;
 - (void)releaseEvents;
 - (void)captureEvents;
 - (void)clear;
@@ -34,10 +34,6 @@
 @property(readonly) DOMHTMLCollection *scripts;
 @property(readonly) DOMHTMLCollection *plugins;
 @property(readonly) DOMHTMLCollection *embeds;
-- (id)createDocumentFragmentWithText:(id)arg1;
-- (id)createDocumentFragmentWithMarkupString:(id)arg1 baseURL:(id)arg2;
-- (id)_createDocumentFragmentWithText:(id)arg1;
-- (id)_createDocumentFragmentWithMarkupString:(id)arg1 baseURLString:(id)arg2;
 
 @end
 

@@ -9,9 +9,9 @@
 @interface UITableView (PhotoLibraryAdditions)
 - (void)pl_resetContentOffsetFromContentInsets;
 - (id)pl_indexPathForLastRow;
-- (BOOL)pl_lastRowIsVisible;
-- (void)pl_scrollToBottom:(BOOL)arg1;
-- (void)pl_scrollToTop:(BOOL)arg1;
-- (void)pl_scrollToVisibleRowAtIndexPath:(id)arg1 animated:(BOOL)arg2;
+- (_Bool)pl_lastRowIsVisible;
+- (void)pl_scrollToBottom:(_Bool)arg1;
+- (void)pl_scrollToTop:(_Bool)arg1;
+- (void)pl_scrollToVisibleRowAtIndexPath:(id)arg1 animated:(_Bool)arg2;
 @end
 

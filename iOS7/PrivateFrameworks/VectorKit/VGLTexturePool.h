@@ -8,6 +8,7 @@
 
 @class NSMutableArray, VGLContext;
 
+// Not exported
 @interface VGLTexturePool : NSObject
 {
     struct CGSize _contentSize;

@@ -8,6 +8,7 @@
 
 @class NSNumber;
 
+// Not exported
 @interface WFLSMMap : NSObject
 {
     struct __LSMMap *map;
@@ -21,7 +22,7 @@
 - (void)dealloc;
 - (id)wordDump:(id)arg1;
 - (id)evaluate:(id)arg1;
-- (long)numberOfCategories;
+- (long long)numberOfCategories;
 - (struct __LSMText *)_createLSMTextFromString:(id)arg1;
 - (void)_setMap:(struct __LSMMap *)arg1;
 - (struct __LSMMap *)_map;

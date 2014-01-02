@@ -14,14 +14,14 @@
     id <MFMessageBodyElement_Private> _lastNonWhitespaceTextElement;
     id _foundTextBlock;
     id _foundWhitespaceBlock;
-    BOOL _foundText;
-    BOOL _foundForwardSeparator;
+    _Bool _foundText;
+    _Bool _foundForwardSeparator;
 }
 
 - (void)messageBodyParserDidFinishParsing:(id)arg1;
 - (void)messageBodyParser:(id)arg1 foundMessageBodyElement:(id)arg2;
-- (void)_consumeAnyLastTextElementAsAttribution:(BOOL)arg1;
-- (void)_consumeTextElement:(id)arg1 isAttribution:(BOOL)arg2;
+- (void)_consumeAnyLastTextElementAsAttribution:(_Bool)arg1;
+- (void)_consumeTextElement:(id)arg1 isAttribution:(_Bool)arg2;
 - (void)setFoundWhitespaceBlock:(id)arg1;
 - (void)setFoundTextBlock:(id)arg1;
 - (void)copyBlocks;

@@ -8,6 +8,7 @@
 
 @class NSKeyValueMutatingCollectionMethodSet, NSKeyValueNonmutatingCollectionMethodSet;
 
+// Not exported
 @interface NSKeyValueFastMutableCollection1Getter : NSKeyValueProxyGetter
 {
     NSKeyValueNonmutatingCollectionMethodSet *_nonmutatingMethods;

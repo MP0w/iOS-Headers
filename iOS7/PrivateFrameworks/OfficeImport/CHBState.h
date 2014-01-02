@@ -8,6 +8,7 @@
 
 @class CHDChart;
 
+// Not exported
 @interface CHBState : NSObject
 {
     CHDChart *mChart;

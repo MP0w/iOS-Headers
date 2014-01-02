@@ -10,22 +10,22 @@
 
 @interface EKReminder : EKCalendarItem
 {
-    BOOL hadRecurrences;
+    _Bool hadRecurrences;
 }
 
 + (void)_removeSnoozedAlarmsFromReminder:(id)arg1 usingDueDate:(id)arg2;
 + (id)reminderWithEventStore:(id)arg1;
-@property(nonatomic) BOOL hadRecurrences; // @synthesize hadRecurrences;
+@property(nonatomic) _Bool hadRecurrences; // @synthesize hadRecurrences;
 @property(readonly, nonatomic) EKAlarm *bestDisplayAlarm;
-- (BOOL)commit:(id *)arg1;
-- (BOOL)validate:(id *)arg1;
+- (_Bool)commit:(id *)arg1;
+- (_Bool)validate:(id *)arg1;
 - (void)snoozeAlarm:(id)arg1 withTimeIntervalFromNow:(double)arg2;
 - (void)clearParentID;
 @property(readonly, nonatomic) EKObjectID *parentID;
-@property(nonatomic, getter=isCompleted) BOOL completed;
+@property(nonatomic, getter=isCompleted) _Bool completed;
 - (id)description;
-@property(nonatomic) int priority;
-@property(nonatomic) unsigned int displayOrder;
+@property(nonatomic) long long priority;
+@property(nonatomic) unsigned long long displayOrder;
 @property(copy, nonatomic) NSDate *completionDate;
 - (void)setTimeZone:(id)arg1;
 @property(copy, nonatomic) NSDateComponents *dueDateComponents;

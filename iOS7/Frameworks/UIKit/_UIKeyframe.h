@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface _UIKeyframe : NSObject
 {
     NSString *_key;

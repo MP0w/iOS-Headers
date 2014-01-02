@@ -12,19 +12,19 @@
 {
 }
 
-- (BOOL)overridesQuietMode;
-- (BOOL)isCritical;
-- (BOOL)inertWhenLocked;
+- (_Bool)overridesQuietMode;
+- (_Bool)isCritical;
+- (_Bool)inertWhenLocked;
 - (id)subActionWithIndex:(SEL)arg1;
 - (id)subActionLabels;
 - (id)pullDownNotification;
-- (BOOL)canShowWhileLocked;
-- (BOOL)canShowInAssistant;
+- (_Bool)canShowWhileLocked;
+- (_Bool)canShowInAssistant;
 - (id)sortDate;
 - (id)sound;
 - (id)action;
-- (BOOL)isSticky;
-- (unsigned int)priority;
+- (_Bool)isSticky;
+- (unsigned long long)priority;
 
 @end
 

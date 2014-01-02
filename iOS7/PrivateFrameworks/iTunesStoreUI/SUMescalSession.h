@@ -11,17 +11,17 @@
 @interface SUMescalSession : NSObject
 {
     NSObject<OS_dispatch_queue> *_dispatchQueue;
-    BOOL _complete;
+    _Bool _complete;
     struct FairPlayHWInfo_ _hardwareInfo;
     struct FPSAPContextOpaque_ *_session;
 }
 
 - (void)_teardownSession;
-- (id)_newDataWithBytes:(char *)arg1 length:(unsigned long)arg2;
-- (BOOL)verifyPrimeSignature:(id)arg1 error:(id *)arg2;
+- (id)_newDataWithBytes:(char *)arg1 length:(unsigned int)arg2;
+- (_Bool)verifyPrimeSignature:(id)arg1 error:(id *)arg2;
 - (id)signData:(id)arg1 error:(id *)arg2;
 - (id)primeForAccountCreationWithData:(id)arg1 error:(id *)arg2;
-@property(readonly, getter=isComplete) BOOL complete;
+@property(readonly, getter=isComplete) _Bool complete;
 - (id)exchangeData:(id)arg1 error:(id *)arg2;
 - (void)dealloc;
 - (id)init;

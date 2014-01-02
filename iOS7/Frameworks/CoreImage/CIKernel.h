@@ -6,16 +6,17 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface CIKernel : NSObject
 {
     void *_priv;
 }
 
 - (id)description;
-- (BOOL)_validOptions:(id)arg1;
+- (_Bool)_validOptions:(id)arg1;
 - (void *)_internalRepresentation;
 - (id)_initWithInternalRepresentation:(void *)arg1;
-- (int)_argumentTypeAtIndex:(unsigned long)arg1;
+- (int)_argumentTypeAtIndex:(int)arg1;
 - (id)init;
 
 @end

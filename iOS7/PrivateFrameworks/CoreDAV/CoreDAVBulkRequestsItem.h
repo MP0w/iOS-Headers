@@ -19,12 +19,12 @@
 @property(readonly) NSSet *supportedItems; // @synthesize supportedItems=_supportedItems;
 @property(retain) CoreDAVLeafItem *maxSizeItem; // @synthesize maxSizeItem=_maxSizeItem;
 @property(retain) CoreDAVLeafItem *maxResourcesItem; // @synthesize maxResourcesItem=_maxResourcesItem;
-@property(readonly) BOOL supportsDelete;
-@property(readonly) BOOL supportsUpdate;
-@property(readonly) BOOL supportsInsert;
-- (BOOL)supportsItemWithNameSpace:(id)arg1 name:(id)arg2;
-@property(readonly) int maxSize;
-@property(readonly) int maxResources;
+@property(readonly) _Bool supportsDelete;
+@property(readonly) _Bool supportsUpdate;
+@property(readonly) _Bool supportsInsert;
+- (_Bool)supportsItemWithNameSpace:(id)arg1 name:(id)arg2;
+@property(readonly) long long maxSize;
+@property(readonly) long long maxResources;
 @property(readonly) NSDictionary *dictRepresentation;
 - (void)addSupportedItem:(id)arg1;
 - (id)description;

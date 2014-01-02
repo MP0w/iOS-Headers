@@ -6,6 +6,6 @@
 
 @protocol SetupUIConfigDelegate
 - (void)setupUIConfigPrompt:(int)arg1 paramDict:(id)arg2 forController:(id)arg3;
-- (void)setupUIConfigConnectionStatusUpdated:(int)arg1 status:(long)arg2 paramDict:(id)arg3 forController:(id)arg4;
+- (void)setupUIConfigConnectionStatusUpdated:(int)arg1 status:(int)arg2 paramDict:(id)arg3 forController:(id)arg4;
 @end
 

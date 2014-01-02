@@ -6,6 +6,7 @@
 
 #import <OfficeImport/CHDChartType.h>
 
+// Not exported
 @interface CHDPie2DType : CHDChartType
 {
     int mFirstSliceAngle;

@@ -13,15 +13,15 @@
 @interface TRPacketEvent : NSObject <NSSecureCoding>
 {
     unsigned int _packetEventType;
-    NSDictionary *_payloadDictionary;
     unsigned int _version;
+    NSDictionary *_payloadDictionary;
 }
 
 + (Class)_packetClassForPacketEventType:(unsigned int)arg1;
 + (unsigned int)_packetEventType;
-+ (unsigned long)payloadSizeWithNetworkRepresentationHeader:(id)arg1;
-+ (unsigned long)networkRepresentationHeaderLength;
-+ (BOOL)supportsSecureCoding;
++ (unsigned long long)payloadSizeWithNetworkRepresentationHeader:(id)arg1;
++ (unsigned long long)networkRepresentationHeaderLength;
++ (_Bool)supportsSecureCoding;
 + (id)packetWithNetworkRepresentation:(id)arg1;
 @property(readonly, nonatomic) unsigned int version; // @synthesize version=_version;
 @property(readonly, nonatomic) NSDictionary *payloadDictionary; // @synthesize payloadDictionary=_payloadDictionary;

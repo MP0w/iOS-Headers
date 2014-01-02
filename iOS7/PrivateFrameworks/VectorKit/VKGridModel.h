@@ -11,10 +11,11 @@
 
 @class VGLMesh, VGLRenderState, VKMapModel, VKStylesheet;
 
+// Not exported
 @interface VKGridModel : VKModelObject <VKMapLayer, VKStylesheetObserver>
 {
     VKMapModel *_mapModel;
-    BOOL _simpleGridEnabled;
+    _Bool _simpleGridEnabled;
     VGLRenderState *_renderState;
     double _gridMix;
     CDStruct_aa5aacbc _projection;
@@ -25,19 +26,20 @@
     VGLMesh *_mesh;
 }
 
-+ (BOOL)reloadOnStylesheetChange;
++ (_Bool)reloadOnStylesheetChange;
 @property(readonly, nonatomic) struct _VGLColor fillColor; // @synthesize fillColor=_fillColor;
 @property(nonatomic) VKMapModel *mapModel; // @synthesize mapModel=_mapModel;
-@property(nonatomic) BOOL simpleGridEnabled; // @synthesize simpleGridEnabled=_simpleGridEnabled;
+@property(nonatomic) _Bool simpleGridEnabled; // @synthesize simpleGridEnabled=_simpleGridEnabled;
 - (id).cxx_construct;
 - (void)drawScene:(id)arg1 withContext:(id)arg2;
 - (void)layoutScene:(id)arg1 withContext:(id)arg2;
 - (void)dealloc;
 - (id)init;
 - (void)stylesheetDidChange;
+- (void)updateGridColor;
 @property(readonly, nonatomic) VKStylesheet *stylesheet;
 - (unsigned int)supportedRenderPasses;
-- (unsigned int)mapLayerPosition;
+- (unsigned long long)mapLayerPosition;
 
 @end
 

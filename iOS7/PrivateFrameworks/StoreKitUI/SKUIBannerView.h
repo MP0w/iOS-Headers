@@ -11,6 +11,7 @@
 @interface SKUIBannerView : UIView
 {
     UILabel *_artistNameLabel;
+    UIView *_bottomBorderView;
     SKUIClientContext *_clientContext;
     UIButton *_closeButton;
     UIImageView *_iconImageView;

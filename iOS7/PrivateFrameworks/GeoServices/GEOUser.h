@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class GEOPhoto, NSString;
 
-@interface GEOUser : PBCodable
+@interface GEOUser : PBCodable <NSCopying>
 {
     GEOPhoto *_image;
     NSString *_name;
@@ -16,15 +18,16 @@
 
 @property(retain, nonatomic) GEOPhoto *image; // @synthesize image=_image;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) BOOL hasImage;
-@property(readonly, nonatomic) BOOL hasName;
+@property(readonly, nonatomic) _Bool hasImage;
+@property(readonly, nonatomic) _Bool hasName;
 - (void)dealloc;
 
 @end

@@ -14,12 +14,12 @@
     UIView *_imageViewsContainer;
     NSMutableArray *_imageViews;
     id <SKUISlideshowGalleryBarViewDelegate> _delegate;
-    unsigned int _numberOfImages;
-    unsigned int _selectedImageIndex;
+    unsigned long long _numberOfImages;
+    unsigned long long _selectedImageIndex;
 }
 
-@property(nonatomic) unsigned int selectedImageIndex; // @synthesize selectedImageIndex=_selectedImageIndex;
-@property(nonatomic) unsigned int numberOfImages; // @synthesize numberOfImages=_numberOfImages;
+@property(nonatomic) unsigned long long selectedImageIndex; // @synthesize selectedImageIndex=_selectedImageIndex;
+@property(nonatomic) unsigned long long numberOfImages; // @synthesize numberOfImages=_numberOfImages;
 @property(nonatomic) __weak id <SKUISlideshowGalleryBarViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_handleTouch:(id)arg1 withEvent:(id)arg2;
@@ -28,8 +28,8 @@
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
-- (void)setImage:(id)arg1 atIndex:(int)arg2;
-- (id)imageAtIndex:(int)arg1;
+- (void)setImage:(id)arg1 atIndex:(long long)arg2;
+- (id)imageAtIndex:(long long)arg1;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 

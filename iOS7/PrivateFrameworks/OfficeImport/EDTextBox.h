@@ -8,6 +8,7 @@
 
 @class EDAlignmentInfo, EDProtection, EDString;
 
+// Not exported
 @interface EDTextBox : NSObject
 {
     EDString *mText;

@@ -19,7 +19,7 @@
 - (id)uninstallAlertConfirmTitle;
 - (id)uninstallAlertBody;
 - (id)uninstallAlertTitle;
-- (BOOL)canGenerateImageInBackgroundForFormat:(int)arg1;
+- (_Bool)canGenerateImageInBackgroundForFormat:(int)arg1;
 - (id)webClip;
 
 @end

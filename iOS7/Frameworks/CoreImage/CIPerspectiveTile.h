@@ -8,6 +8,7 @@
 
 @class CIImage, CIVector;
 
+// Not exported
 @interface CIPerspectiveTile : CIFilter
 {
     CIImage *inputImage;

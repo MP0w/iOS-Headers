@@ -19,12 +19,12 @@
 - (id)visibleDownloadCellForDownload:(id)arg1;
 @property(retain, nonatomic) NSArray *scriptButtons;
 - (void)reloadDownloadCellForDownload:(id)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)tabBarControllerDidReselectTabBarItem:(id)arg1;
 - (void)loadView;
-- (BOOL)handleSelectionForIndexPath:(id)arg1 tapCount:(int)arg2;
+- (_Bool)handleSelectionForIndexPath:(id)arg1 tapCount:(long long)arg2;
 - (void)didMoveToParentViewController:(id)arg1;
-- (BOOL)deleteRowAtIndexPath:(id)arg1;
+- (_Bool)deleteRowAtIndexPath:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

@@ -13,7 +13,7 @@
 }
 
 + (void)detachNewThreadSelector:(SEL)arg1 toTarget:(id)arg2 withObject:(id)arg3;
-+ (BOOL)isDying;
++ (_Bool)isDying;
 + (void)exit;
 + (id)currentThread;
 + (id)mainThread;
@@ -21,30 +21,30 @@
 + (id)callStackReturnAddresses;
 + (void)sleepForTimeInterval:(double)arg1;
 + (void)sleepUntilDate:(id)arg1;
-+ (BOOL)setThreadPriority:(double)arg1;
++ (_Bool)setThreadPriority:(double)arg1;
 + (double)threadPriority;
-+ (BOOL)isMultiThreaded;
-+ (BOOL)isMainThread;
++ (_Bool)isMultiThreaded;
++ (_Bool)isMainThread;
 - (void)_nq:(id)arg1;
 - (void)main;
 - (void)start;
 - (id)description;
 - (void)cancel;
-- (BOOL)isCancelled;
-- (BOOL)isFinished;
-- (BOOL)isExecuting;
-- (BOOL)isMainThread;
+- (_Bool)isCancelled;
+- (_Bool)isFinished;
+- (_Bool)isExecuting;
+- (_Bool)isMainThread;
 - (void)setThreadPriority:(double)arg1;
 - (double)threadPriority;
-- (unsigned int)stackSize;
-- (void)setStackSize:(unsigned int)arg1;
+- (unsigned long long)stackSize;
+- (void)setStackSize:(unsigned long long)arg1;
 - (id)name;
 - (void)setName:(id)arg1;
 - (id)threadDictionary;
 - (void)dealloc;
 - (id)initWithTarget:(id)arg1 selector:(SEL)arg2 object:(id)arg3;
 - (id)init;
-- (BOOL)isDying;
+- (_Bool)isDying;
 - (id)runLoop;
 
 @end

@@ -8,6 +8,7 @@
 
 @class CADisplayLink, NSMutableArray, NSTimer, UIScreen;
 
+// Not exported
 @interface _UIDynamicAnimationState : NSObject
 {
     UIScreen *_screen;
@@ -15,7 +16,7 @@
     NSTimer *_timer;
     NSMutableArray *_activeAnimations;
     double _lastUpdateTime;
-    BOOL _shouldSchedYield;
+    _Bool _shouldSchedYield;
 }
 
 @end

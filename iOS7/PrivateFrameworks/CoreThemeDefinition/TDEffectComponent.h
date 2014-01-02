@@ -12,12 +12,12 @@
 {
 }
 
-- (void)updatePresetParameters:(id)arg1 atIndex:(unsigned int)arg2;
-- (void)setEffectParametersFromPreset:(id)arg1 atIndex:(unsigned int)arg2 withDocument:(id)arg3;
+- (void)updatePresetParameters:(id)arg1 atIndex:(unsigned long long)arg2;
+- (void)setEffectParametersFromPreset:(id)arg1 atIndex:(unsigned long long)arg2 withDocument:(id)arg3;
 
 // Remaining properties
 @property(retain, nonatomic) TDEffectType *effectType; // @dynamic effectType;
-@property(nonatomic) BOOL isEnabled; // @dynamic isEnabled;
+@property(nonatomic) _Bool isEnabled; // @dynamic isEnabled;
 @property(retain, nonatomic) NSSet *parameters; // @dynamic parameters;
 @property(retain, nonatomic) TDEffectRenditionSpec *rendition; // @dynamic rendition;
 

@@ -8,6 +8,7 @@
 
 @class ODDIteratorSpecification;
 
+// Not exported
 @interface ODDForEach : ODDLayoutObjectList
 {
     ODDIteratorSpecification *mIteratorSpecification;

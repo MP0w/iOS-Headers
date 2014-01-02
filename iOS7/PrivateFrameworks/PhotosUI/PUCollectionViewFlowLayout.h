@@ -21,22 +21,22 @@
     NSIndexPath *_reorderingInsertedIndexPath;
     UICollectionViewLayoutAttributes *_globalFooterLayoutAttributes;
     NSIndexPath *globalFooterIndexPath;
-    float globalBottomPadding;
-    NSSet *hiddenItemIndexPaths;
+    double globalTopPadding;
+    double globalBottomPadding;
     NSString *sectionHeaderElementKind;
-    float sectionTopPadding;
+    double sectionTopPadding;
     id <PUCollectionViewLayoutTransitioningDelegate> transitioningDelegate;
-    float _globalFooterHeight;
-    id <PUCollectionViewFlowLayoutDelegate> _delegate;
+    NSSet *_hiddenItemIndexPaths;
+    double _globalFooterHeight;
 }
 
-@property(nonatomic) __weak id <PUCollectionViewFlowLayoutDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) float globalFooterHeight; // @synthesize globalFooterHeight=_globalFooterHeight;
+@property(nonatomic) double globalFooterHeight; // @synthesize globalFooterHeight=_globalFooterHeight;
+@property(copy, nonatomic) NSSet *hiddenItemIndexPaths; // @synthesize hiddenItemIndexPaths=_hiddenItemIndexPaths;
 @property(nonatomic) __weak id <PUCollectionViewLayoutTransitioningDelegate> transitioningDelegate; // @synthesize transitioningDelegate;
-@property(nonatomic) float sectionTopPadding; // @synthesize sectionTopPadding;
+@property(nonatomic) double sectionTopPadding; // @synthesize sectionTopPadding;
 @property(copy, nonatomic) NSString *sectionHeaderElementKind; // @synthesize sectionHeaderElementKind;
-@property(copy, nonatomic) NSSet *hiddenItemIndexPaths; // @synthesize hiddenItemIndexPaths;
-@property(nonatomic) float globalBottomPadding; // @synthesize globalBottomPadding;
+@property(nonatomic) double globalBottomPadding; // @synthesize globalBottomPadding;
+@property(nonatomic) double globalTopPadding; // @synthesize globalTopPadding;
 - (void).cxx_destruct;
 - (void)endInsertingItem;
 - (void)beginInsertingItemAtIndexPath:(id)arg1;
@@ -44,13 +44,14 @@
 - (void)endReordering;
 - (void)updateReorderingTargetIndexPath:(id)arg1;
 - (void)beginReorderingItemAtIndexPath:(id)arg1;
-- (void)_updateLayoutAttributes:(id)arg1;
-- (id)_layoutAttributesForItemAtIndexPath:(id)arg1 ignoringReordering:(BOOL)arg2;
+- (void)_updateLayoutAttributes:(id)arg1 ignoringReordering:(_Bool)arg2;
+- (id)_layoutAttributesForItemAtIndexPath:(id)arg1 ignoringReordering:(_Bool)arg2;
 - (id)layoutAttributesForItemAtIndexPath:(id)arg1;
 - (id)layoutAttributesForSupplementaryViewOfKind:(id)arg1 atIndexPath:(id)arg2;
 - (id)layoutAttributesForElementsInRect:(struct CGRect)arg1;
 - (struct CGSize)collectionViewContentSize;
 - (void)prepareLayout;
+- (void)invalidateLayoutForVerticalScroll;
 - (void)invalidateLayoutWithContext:(id)arg1;
 - (id)finalLayoutAttributesForDisappearingSupplementaryElementOfKind:(id)arg1 atIndexPath:(id)arg2;
 - (id)finalLayoutAttributesForDisappearingItemAtIndexPath:(id)arg1;
@@ -59,7 +60,7 @@
 - (id)assetIndexPathsForElementsInRect:(struct CGRect)arg1;
 - (struct CGRect)_frameForGlobalFooter;
 @property(readonly, nonatomic) NSIndexPath *globalFooterIndexPath; // @synthesize globalFooterIndexPath;
-@property(nonatomic) float sectionHeaderHeight;
+@property(nonatomic) double sectionHeaderHeight;
 
 @end
 

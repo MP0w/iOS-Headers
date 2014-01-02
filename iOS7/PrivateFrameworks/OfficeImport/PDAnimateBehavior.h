@@ -8,6 +8,7 @@
 
 @class PDAnimationTarget;
 
+// Not exported
 @interface PDAnimateBehavior : PDTimeNode
 {
     PDAnimationTarget *mTgtElement;

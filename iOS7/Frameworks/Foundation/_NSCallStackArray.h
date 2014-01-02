@@ -6,19 +6,20 @@
 
 #import "NSArray.h"
 
+// Not exported
 @interface _NSCallStackArray : NSArray
 {
     void **_frames;
-    unsigned int _cnt;
-    unsigned int _ignore;
+    unsigned long long _cnt;
+    unsigned long long _ignore;
     char **_pcstrs;
-    BOOL _wantSyms;
+    _Bool _wantSyms;
 }
 
-+ (id)arrayWithFrames:(void **)arg1 count:(unsigned int)arg2 symbols:(BOOL)arg3;
-- (id)descriptionWithLocale:(id)arg1 indent:(unsigned int)arg2;
-- (id)objectAtIndex:(unsigned int)arg1;
-- (unsigned int)count;
++ (id)arrayWithFrames:(void **)arg1 count:(unsigned long long)arg2 symbols:(_Bool)arg3;
+- (id)descriptionWithLocale:(id)arg1 indent:(unsigned long long)arg2;
+- (id)objectAtIndex:(unsigned long long)arg1;
+- (unsigned long long)count;
 - (void)finalize;
 - (void)dealloc;
 

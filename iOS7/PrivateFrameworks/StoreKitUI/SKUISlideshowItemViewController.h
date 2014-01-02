@@ -15,28 +15,29 @@
 {
     SKUIClientContext *_clientContext;
     UIView *_loadingView;
-    BOOL _zoomingGestureThresholdBroken;
+    _Bool _zoomingGestureThresholdBroken;
     struct CGPoint _lastContentOffset;
-    float _lastZoomScale;
+    double _lastZoomScale;
     id <SKUISlideshowItemViewControllerDelegate> _delegate;
     SKUISlideshowImageScrollView *_imageScrollView;
-    int _indexInCollection;
+    long long _indexInCollection;
 }
 
-@property(nonatomic) int indexInCollection; // @synthesize indexInCollection=_indexInCollection;
+@property(nonatomic) long long indexInCollection; // @synthesize indexInCollection=_indexInCollection;
 @property(readonly, nonatomic) SKUISlideshowImageScrollView *imageScrollView; // @synthesize imageScrollView=_imageScrollView;
 @property(nonatomic) __weak id <SKUISlideshowItemViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
 - (void).cxx_destruct;
 - (void)_pinchGestureAction:(id)arg1;
 - (id)_newLoadingView;
-- (BOOL)_gestureRecognizer:(id)arg1 canPreventGestureRecognizer:(id)arg2;
-- (BOOL)_gestureRecognizer:(id)arg1 canBePreventedByGestureRecognizer:(id)arg2;
+- (_Bool)_gestureRecognizer:(id)arg1 canPreventGestureRecognizer:(id)arg2;
+- (_Bool)_gestureRecognizer:(id)arg1 canBePreventedByGestureRecognizer:(id)arg2;
 - (id)viewForZoomingInScrollView:(id)arg1;
 @property(retain, nonatomic) UIImage *itemImage;
-- (unsigned int)supportedInterfaceOrientations;
-- (void)viewDidDisappear:(BOOL)arg1;
+- (unsigned long long)supportedInterfaceOrientations;
+- (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewDidLoad;
+- (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 @end

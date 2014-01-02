@@ -6,23 +6,24 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, SBWorkspaceEvent;
+@class NSHashTable, NSMutableArray, SBWorkspaceEvent;
 
 @interface SBWorkspaceEventQueue : NSObject
 {
-    unsigned int _lockCount;
+    NSHashTable *_eventQueueLocks;
     NSMutableArray *_eventQueue;
     SBWorkspaceEvent *_executingEvent;
 }
 
 + (id)sharedInstance;
 @property(retain, nonatomic) SBWorkspaceEvent *executingEvent; // @synthesize executingEvent=_executingEvent;
-- (void)_bumpLockAssertionCount:(int)arg1;
+- (void)_removeEventQueueLock:(id)arg1;
+- (void)_addEventQueueLock:(id)arg1;
 - (void)_processNextEvent;
-- (BOOL)hasEventWithName:(id)arg1;
-- (BOOL)hasEventWithPrefix:(id)arg1;
+- (_Bool)hasEventWithName:(id)arg1;
+- (_Bool)hasEventWithPrefix:(id)arg1;
 - (void)cancelEventsWithName:(id)arg1;
-- (BOOL)isLocked;
+- (_Bool)isLocked;
 - (void)executeOrPrependEvents:(id)arg1;
 - (void)executeOrPrependEvent:(id)arg1;
 - (void)executeOrAppendEvent:(id)arg1;

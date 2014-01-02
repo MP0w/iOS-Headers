@@ -10,9 +10,9 @@
 {
 }
 
-+ (BOOL)isIconLoggingEnabled;
++ (_Bool)isIconLoggingEnabled;
 - (void)reloadFromDefaults;
-- (id)consoleFormat:(id)arg1 withArguments:(char *)arg2;
+- (id)consoleFormat:(id)arg1 withArguments:(struct __va_list_tag [1])arg2;
 - (id)logPreferenceName;
 - (int)maxLogCount;
 - (id)name;

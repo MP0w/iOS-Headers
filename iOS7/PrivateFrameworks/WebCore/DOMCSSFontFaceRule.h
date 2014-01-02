@@ -8,6 +8,7 @@
 
 @class DOMCSSStyleDeclaration;
 
+// Not exported
 @interface DOMCSSFontFaceRule : DOMCSSRule
 {
 }

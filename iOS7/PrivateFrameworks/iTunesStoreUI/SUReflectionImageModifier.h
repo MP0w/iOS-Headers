@@ -11,10 +11,10 @@
 @interface SUReflectionImageModifier : SUImageModifier
 {
     UIGradient *_gradient;
-    float _reflectionHeight;
+    double _reflectionHeight;
 }
 
-@property(nonatomic) float reflectionHeight; // @synthesize reflectionHeight=_reflectionHeight;
+@property(nonatomic) double reflectionHeight; // @synthesize reflectionHeight=_reflectionHeight;
 @property(retain, nonatomic) UIGradient *gradient; // @synthesize gradient=_gradient;
 - (void)drawAfterImageForContext:(struct CGContext *)arg1 imageFrame:(struct CGRect)arg2 finalSize:(struct CGSize)arg3;
 - (struct CGRect)imageFrameForImage:(id)arg1 currentFrame:(struct CGRect)arg2 finalSize:(struct CGSize)arg3;

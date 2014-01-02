@@ -26,7 +26,7 @@
 - (void)cacheValue:(id)arg1 forProperty:(id)arg2 persistValueInBackgroundBlock:(id)arg3;
 - (void)cachePropertyValues:(id)arg1 forProperties:(id)arg2 persistValueInBackgroundBlock:(id)arg3;
 - (void)_onBarrierCacheValues:(id)arg1 persistValueInBackgroundBlock:(id)arg2;
-- (id)valueForProperty:(id)arg1 isCached:(char *)arg2;
+- (id)valueForProperty:(id)arg1 isCached:(_Bool *)arg2;
 - (id)initWithDataProviderEntityClass:(Class)arg1 identifier:(long long)arg2;
 
 @end

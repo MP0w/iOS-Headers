@@ -10,35 +10,37 @@
 
 @interface CalendarPreferences : NSObject
 {
-    BOOL _hideCalendarsInNCTodayView;
+    _Bool _hideCalendarsInNCTodayView;
 }
 
 + (id)sharedPreferences;
-@property(nonatomic) BOOL hideCalendarsInNCTodayView; // @synthesize hideCalendarsInNCTodayView=_hideCalendarsInNCTodayView;
-- (BOOL)areAllCalendarsNotificationEnabledInEventStore:(id)arg1;
-- (id)notificationEnabledCalendarsFromEventStore:(id)arg1 entityType:(unsigned int)arg2;
-- (void)setNotificationEnabledCalendars:(id)arg1 usingEventStore:(id)arg2 entityType:(unsigned int)arg3;
+@property(nonatomic) _Bool hideCalendarsInNCTodayView; // @synthesize hideCalendarsInNCTodayView=_hideCalendarsInNCTodayView;
+- (_Bool)areAllCalendarsNotificationEnabledInEventStore:(id)arg1;
+- (id)notificationEnabledCalendarsFromEventStore:(id)arg1 entityType:(unsigned long long)arg2;
+- (void)setNotificationEnabledCalendars:(id)arg1 usingEventStore:(id)arg2 entityType:(unsigned long long)arg3;
+@property(nonatomic) _Bool showEventsInPhoneMonthView;
 - (void)setDeselectedCalendarIDs:(id)arg1;
 - (id)deselectedCalendarIDsFromCalendars:(id)arg1;
 @property(retain, nonatomic) NSArray *calendarUUIDsExcludedFromNotifications;
-@property(nonatomic) BOOL usePickerStyleInlineEditorMenus;
-@property(nonatomic) BOOL drawDebugViewColors;
-@property(nonatomic) BOOL requestSyncOnApplicationLaunch;
-@property(nonatomic) BOOL viewedTimeZoneAutomatic;
-@property(nonatomic) BOOL showDebugGridOverlay;
-@property(nonatomic) BOOL showWeekNumbers;
+@property(nonatomic) _Bool usePickerStyleInlineEditorMenus;
+@property(nonatomic) _Bool drawDebugViewColors;
+@property(nonatomic) _Bool requestSyncOnApplicationLaunch;
+@property(nonatomic) _Bool viewedTimeZoneAutomatic;
+@property(nonatomic) _Bool immediateAlarmCreation;
+@property(nonatomic) _Bool showDebugGridOverlay;
+@property(nonatomic) _Bool showWeekNumbers;
 @property(retain, nonatomic) NSString *searchString;
 @property(retain, nonatomic) NSNumber *lastSuspendTime;
 @property(retain, nonatomic) NSNumber *lastViewedDate;
 @property(retain, nonatomic) NSNumber *lastViewMode;
 @property(retain, nonatomic) NSNumber *weekStart;
 @property(retain, nonatomic) NSDate *simulatedCurrentDate;
-- (void)_setPreference:(id)arg1 stringValue:(id)arg2 notificationName:(id)arg3 forceSync:(BOOL)arg4;
+- (void)_setPreference:(id)arg1 stringValue:(id)arg2 notificationName:(id)arg3 forceSync:(_Bool)arg4;
 - (id)_getStringPreference:(id)arg1;
-- (void)_setPreference:(id)arg1 arrayValue:(id)arg2 notificationName:(id)arg3 forceSync:(BOOL)arg4;
+- (void)_setPreference:(id)arg1 arrayValue:(id)arg2 notificationName:(id)arg3 forceSync:(_Bool)arg4;
 - (id)_getPreference:(id)arg1 defaultArrayValue:(id)arg2;
-- (void)_setPreference:(id)arg1 boolValue:(BOOL)arg2 notificationName:(id)arg3;
-- (BOOL)_getPreference:(id)arg1 defaultBoolValue:(BOOL)arg2;
+- (void)_setPreference:(id)arg1 boolValue:(_Bool)arg2 notificationName:(id)arg3;
+- (_Bool)_getPreference:(id)arg1 defaultBoolValue:(_Bool)arg2;
 - (void)_setPreference:(id)arg1 number:(id)arg2 notificationName:(id)arg3;
 - (id)_getNumberPreference:(id)arg1 withDefaultValue:(id)arg2;
 - (id)_getNumberPreference:(id)arg1;

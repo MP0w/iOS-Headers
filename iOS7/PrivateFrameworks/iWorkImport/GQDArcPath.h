@@ -6,6 +6,7 @@
 
 #import <iWorkImport/GQDPath.h>
 
+// Not exported
 @interface GQDArcPath : GQDPath
 {
     struct CGSize mSize;
@@ -22,7 +23,6 @@
 - (double)arcWidth;
 - (double)headAngle;
 - (struct CGSize)size;
-- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1 processor:(id)arg2;
 
 @end
 

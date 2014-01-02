@@ -16,7 +16,7 @@
     id _internal;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 - (void)setHorizontalAccuracy:(double)arg1;
 @property(readonly, nonatomic) NSString *iso6709Notation;
 - (id)propagateLocationToTime:(double)arg1;

@@ -8,8 +8,8 @@
 
 @interface NSIndexSet (CKUtilities)
 - (id)__ck_indexSetShiftedForInsertedIndexes:(id)arg1 deletedIndexes:(id)arg2;
-- (void)__ck_enumerateIndexesByProximityToIndex:(unsigned int)arg1 usingBlock:(id)arg2;
-- (id)__ck_indexPathItemsInSection:(int)arg1;
-- (id)__ck_indexPathRowsInSection:(int)arg1;
+- (void)__ck_enumerateIndexesByProximityToIndex:(unsigned long long)arg1 usingBlock:(id)arg2;
+- (id)__ck_indexPathItemsInSection:(long long)arg1;
+- (id)__ck_indexPathRowsInSection:(long long)arg1;
 @end
 

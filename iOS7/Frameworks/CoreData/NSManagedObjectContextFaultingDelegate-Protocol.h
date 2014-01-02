@@ -9,6 +9,6 @@
 @protocol NSManagedObjectContextFaultingDelegate <NSObject>
 
 @optional
-- (int)context:(id)arg1 shouldHandleInaccessibleFault:(id)arg2 forObjectID:(id)arg3 andTrigger:(id)arg4;
+- (long long)context:(id)arg1 shouldHandleInaccessibleFault:(id)arg2 forObjectID:(id)arg3 andTrigger:(id)arg4;
 @end
 

@@ -8,6 +8,7 @@
 
 @class CIColor, CIImage, CIVector, NSNumber;
 
+// Not exported
 @interface CUIInnerGlowOrShadowFilter : CIFilter
 {
     CIImage *inputImage;

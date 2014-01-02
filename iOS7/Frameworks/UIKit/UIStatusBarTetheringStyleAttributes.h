@@ -6,6 +6,7 @@
 
 #import <UIKit/UIStatusBarLegacyStyleAttributes.h>
 
+// Not exported
 @interface UIStatusBarTetheringStyleAttributes : UIStatusBarLegacyStyleAttributes
 {
 }

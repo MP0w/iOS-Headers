@@ -7,15 +7,15 @@
 #pragma mark Named Structures
 
 struct AXLogColorTheme {
-    int errorColor;
-    int warningColor;
-    int infoColor;
-    int debugColor;
+    long long errorColor;
+    long long warningColor;
+    long long infoColor;
+    long long debugColor;
 };
 
 struct CGPoint {
-    float x;
-    float y;
+    double x;
+    double y;
 };
 
 struct CGRect {
@@ -24,8 +24,8 @@ struct CGRect {
 };
 
 struct CGSize {
-    float _field1;
-    float _field2;
+    double _field1;
+    double _field2;
 };
 
 struct NSString {
@@ -33,26 +33,26 @@ struct NSString {
 };
 
 struct _NSRange {
-    unsigned int location;
-    unsigned int length;
+    unsigned long long location;
+    unsigned long long length;
 };
 
 #pragma mark Typedef'd Structures
 
 typedef struct {
-    unsigned long _field1;
+    unsigned long long _field1;
     id *_field2;
-    unsigned long *_field3;
-    unsigned long _field4[5];
-} CDStruct_11f37819;
+    unsigned long long *_field3;
+    unsigned long long _field4[5];
+} CDStruct_70511ce9;
 
 typedef struct {
     unsigned int _field1[2];
 } CDStruct_52eb0d21;
 
 typedef struct {
-    unsigned int _field1[8];
-} CDStruct_6ad76789;
+    unsigned int val[8];
+} CDStruct_4c969caf;
 
 typedef struct {
     unsigned char _field1;
@@ -63,7 +63,7 @@ typedef struct {
     struct CGPoint _field6;
     unsigned int _field7;
     void *_field8;
-} CDStruct_7c8f539c;
+} CDStruct_723b0d29;
 
 typedef struct {
     int _field1;
@@ -78,7 +78,7 @@ typedef struct {
     unsigned int _field10;
     unsigned long long _field11;
     unsigned char _field12[0];
-} CDStruct_74958489;
+} CDStruct_64a21a73;
 
 typedef struct {
     int _field1;
@@ -93,6 +93,6 @@ typedef struct {
     unsigned char _field10;
     unsigned char _field11;
     unsigned char _field12;
-    CDStruct_7c8f539c _field13[0];
-} CDStruct_af9b8baa;
+    CDStruct_723b0d29 _field13[0];
+} CDStruct_f2c5c900;
 

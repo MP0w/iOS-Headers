@@ -17,7 +17,7 @@
     NSArray *colorMidpointLocations;
     NSArray *opacityStops;
     NSArray *opacityMidpointLocations;
-    float smoothingCoefficient;
+    double smoothingCoefficient;
     struct _psdGradientColor fillColor;
     int blendMode;
     struct {
@@ -30,30 +30,30 @@
 
 + (void)initialize;
 @property(nonatomic) int blendMode; // @synthesize blendMode;
-- (void)customizeForDistance:(float)arg1;
-- (void)setFillCoefficient:(float)arg1;
-- (void)setSmoothingCoefficient:(float)arg1;
+- (void)customizeForDistance:(double)arg1;
+- (void)setFillCoefficient:(double)arg1;
+- (void)setSmoothingCoefficient:(double)arg1;
 - (void)setOpacityStops:(id)arg1 midpoints:(id)arg2;
 - (void)setColorStops:(id)arg1 midpoints:(id)arg2;
 - (id)description;
-- (BOOL)hasEdgePixel;
+- (_Bool)hasEdgePixel;
 - (struct _psdGradientColor)fillColor;
-- (float)fillCoefficient;
-- (BOOL)isDithered;
-- (float)smoothingCoefficient;
+- (double)fillCoefficient;
+- (_Bool)isDithered;
+- (double)smoothingCoefficient;
 - (id)opacityMidpointLocations;
 - (id)opacityStops;
 - (id)colorMidpointLocations;
 - (id)colorStops;
-- (struct _psdGradientColor)_smoothedGradientColorAtLocation:(float)arg1;
-- (float)_smoothedInterpolationOfLocation:(float)arg1 betweenLower:(float)arg2 upper:(float)arg3 scaledMidpoint:(float)arg4;
+- (struct _psdGradientColor)_smoothedGradientColorAtLocation:(double)arg1;
+- (double)_smoothedInterpolationOfLocation:(double)arg1 betweenLower:(double)arg2 upper:(double)arg3 scaledMidpoint:(double)arg4;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithColorStops:(id)arg1 colorMidpoints:(id)arg2 opacityStops:(id)arg3 opacityMidpoints:(id)arg4 smoothingCoefficient:(float)arg5 fillColor:(struct _psdGradientColor)arg6 dither:(BOOL)arg7;
-- (id)initWithColorStops:(id)arg1 colorMidpoints:(id)arg2 opacityStops:(id)arg3 opacityMidpoints:(id)arg4 smoothingCoefficient:(float)arg5 fillCoefficient:(float)arg6;
-- (void)_createOrderedStops:(id *)arg1 midpoints:(id *)arg2 fromStops:(id)arg3 midpoints:(id)arg4 edgePixel:(int *)arg5;
+- (id)initWithColorStops:(id)arg1 colorMidpoints:(id)arg2 opacityStops:(id)arg3 opacityMidpoints:(id)arg4 smoothingCoefficient:(double)arg5 fillColor:(struct _psdGradientColor)arg6 dither:(_Bool)arg7;
+- (id)initWithColorStops:(id)arg1 colorMidpoints:(id)arg2 opacityStops:(id)arg3 opacityMidpoints:(id)arg4 smoothingCoefficient:(double)arg5 fillCoefficient:(double)arg6;
+- (void)_createOrderedStops:(id *)arg1 midpoints:(id *)arg2 fromStops:(id)arg3 midpoints:(id)arg4 edgePixel:(long long *)arg5;
 - (id)_cleanedUpMidpointLocationsFromLocations:(id)arg1;
 
 @end

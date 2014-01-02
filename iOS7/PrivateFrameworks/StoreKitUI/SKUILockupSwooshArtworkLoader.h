@@ -15,9 +15,9 @@
 
 - (void).cxx_destruct;
 - (void)setImage:(id)arg1 forRequest:(id)arg2;
-- (void)loadImagesForNextPageWithReason:(int)arg1;
+- (void)loadImagesForNextPageWithReason:(long long)arg1;
 - (id)placeholderImageForItem:(id)arg1;
-- (BOOL)loadImageForItem:(id)arg1 reason:(int)arg2;
+- (_Bool)loadImageForItem:(id)arg1 reason:(long long)arg2;
 - (id)cachedImageForItem:(id)arg1;
 - (id)initWithArtworkLoader:(id)arg1 swoosh:(id)arg2;
 

@@ -7,7 +7,7 @@
 #import "NSNumberFormatter.h"
 
 @interface NSNumberFormatter (MFUtilities)
-+ (id)mf_formatUnsignedInteger:(unsigned int)arg1 withGrouping:(BOOL)arg2;
-+ (id)mf_formatInteger:(int)arg1 withGrouping:(BOOL)arg2;
++ (id)mf_formatUnsignedInteger:(unsigned long long)arg1 withGrouping:(_Bool)arg2;
++ (id)mf_formatInteger:(long long)arg1 withGrouping:(_Bool)arg2;
 @end
 

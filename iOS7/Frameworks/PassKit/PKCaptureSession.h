@@ -24,6 +24,7 @@
 - (void)_changeCameraConfiguration;
 - (void)autoExposeAtPoint:(struct CGPoint)arg1;
 - (void)autoFocusAtPoint:(struct CGPoint)arg1;
+- (_Bool)isRunning;
 - (void)stopRunning;
 - (void)startRunning;
 - (void)setupCameraSession;

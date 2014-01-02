@@ -7,12 +7,13 @@
 #import "NSObject.h"
 
 #import "BBObserverDelegate-Protocol.h"
+#import "SBAssertionDelegate-Protocol.h"
 #import "SBVolumePressBandit-Protocol.h"
 #import "_UISettingsKeyObserver-Protocol.h"
 
 @class BBObserver, CPDistributedNotificationCenter, NSArray, NSHashTable, NSMutableArray, NSMutableSet, NSTimer, SBAlertItem, SBAlertItemsSettings;
 
-@interface SBAlertItemsController : NSObject <_UISettingsKeyObserver, SBVolumePressBandit, BBObserverDelegate>
+@interface SBAlertItemsController : NSObject <_UISettingsKeyObserver, SBVolumePressBandit, SBAssertionDelegate, BBObserverDelegate>
 {
     NSMutableArray *_lockedAlertItems;
     NSMutableArray *_unlockedAlertItems;
@@ -20,51 +21,54 @@
     NSMutableArray *_superModalAlertItems;
     NSTimer *_autoDismissTimer;
     CPDistributedNotificationCenter *_notificationCenter;
-    unsigned int _notificationClientCount;
-    BOOL _systemShuttingDown;
+    unsigned long long _notificationClientCount;
+    _Bool _systemShuttingDown;
+    _Bool _lockedButNotSetupYet;
     NSMutableSet *_forceAlertsToPendReasons;
     BBObserver *_bbObserver;
     NSHashTable *_observers;
     SBAlertItemsSettings *_settings;
     SBAlertItem *_testItem;
+    NSMutableSet *_suppressionAssertions;
 }
 
 + (id)sharedInstance;
 @property(readonly, nonatomic) NSArray *lockedAlertItems; // @synthesize lockedAlertItems=_lockedAlertItems;
+- (void)assertionExpired:(id)arg1;
+- (_Bool)captureSuppressionAssertionWithPort:(unsigned int)arg1 reason:(id)arg2;
 - (void)handleVolumeDecrease;
 - (void)handleVolumeIncrease;
 - (void)settings:(id)arg1 changedValueForKey:(id)arg2;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
 - (void)_notifyObservers:(id)arg1;
-- (void)observer:(id)arg1 addBulletin:(id)arg2 forFeed:(unsigned int)arg3;
+- (void)observer:(id)arg1 addBulletin:(id)arg2 forFeed:(unsigned long long)arg3;
+- (void)_lockedButNotSetupYetChanged;
 - (void)_buddyDidExit;
 - (void)_notificationClientEnded:(id)arg1;
 - (void)_notificationClientStarted:(id)arg1;
-- (void)moveActiveAlertsToPendingWithAnimation:(BOOL)arg1;
-- (void)setForceAlertsToPend:(BOOL)arg1 forReason:(id)arg2;
+- (void)moveActiveAlertsToPendingWithAnimation:(_Bool)arg1;
+- (void)setForceAlertsToPend:(_Bool)arg1 forReason:(id)arg2;
 - (void)noteSystemShuttingDown;
 - (void)notifySystemOfAlertItemActivation:(id)arg1;
 - (void)_postAlertPresentedNotificationForType:(int)arg1 sender:(id)arg2 date:(id)arg3;
 - (void)noteVolumeOrLockPressedOverLockedAlerts;
 - (void)stopPendingAlertItemsForFullscreenAlert;
-- (void)deactivateAlertItemsForFullscreenAlertActivationAndPendMiniAlerts:(BOOL)arg1;
-- (BOOL)dontLockOverAlertItems;
-- (BOOL)deactivateAlertForMenuClickOrSystemGestureWithAnimation:(BOOL)arg1;
-- (BOOL)canDeactivateAlertForMenuClickOrSystemGesture;
+- (void)deactivateAlertItemsForFullscreenAlertActivationAndPendMiniAlerts:(_Bool)arg1;
+- (_Bool)dontLockOverAlertItems;
+- (_Bool)deactivateAlertForMenuClickOrSystemGestureWithAnimation:(_Bool)arg1;
+- (_Bool)canDeactivateAlertForMenuClickOrSystemGesture;
 - (id)visibleAlertItem;
-- (BOOL)hasVisibleAlert;
-- (BOOL)hasAlerts;
-- (BOOL)hasAlertOfClass:(Class)arg1;
+- (_Bool)hasVisibleAlert;
+- (_Bool)hasAlerts;
+- (_Bool)hasAlertOfClass:(Class)arg1;
 - (id)alertItemsOfClass:(Class)arg1;
-- (id)alertItemOfClass:(Class)arg1;
 - (void)autoDismissAlertItem:(id)arg1;
-- (void)deactivateVisibleAlertItemOfClass:(Class)arg1 reason:(int)arg2;
-- (void)deactivateAlertItemsOfClass:(Class)arg1 reason:(int)arg2 animated:(BOOL)arg3;
+- (void)deactivateAlertItemsOfClass:(Class)arg1 reason:(int)arg2 animated:(_Bool)arg3;
 - (void)deactivateAlertItemsOfClass:(Class)arg1 reason:(int)arg2;
 - (void)deactivateAlertItemsOfClass:(Class)arg1;
 - (void)deactivateAlertItem:(id)arg1;
-- (void)deactivateAlertItem:(id)arg1 reason:(int)arg2 animated:(BOOL)arg3;
+- (void)deactivateAlertItem:(id)arg1 reason:(int)arg2 animated:(_Bool)arg3;
 - (void)activatePendedAlertsIfNecessary;
 - (void)_activateSuperModalAlertsIfNecessary;
 - (void)deactivateAlertItem:(id)arg1 reason:(int)arg2;
@@ -72,7 +76,7 @@
 - (void)resetAutoDismissTimer;
 - (void)convertUnlockedAlertsToLockedAlerts;
 - (id)description;
-- (BOOL)hasVisibleSuperModalAlert;
+- (_Bool)hasVisibleSuperModalAlert;
 - (void)dealloc;
 - (id)init;
 

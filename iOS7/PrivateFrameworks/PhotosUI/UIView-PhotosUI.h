@@ -7,9 +7,10 @@
 #import "UIView.h"
 
 @interface UIView (PhotosUI)
-+ (void)pu_transitionWithView:(id)arg1 duration:(double)arg2 options:(unsigned int)arg3 animations:(id)arg4 completion:(void)arg5;
++ (double)pu_springOscillationRootAtIndex:(long long)arg1 forMass:(double)arg2 stiffness:(double)arg3 damping:(double)arg4 initialVelocity:(double)arg5;
++ (void)pu_transitionWithView:(id)arg1 duration:(double)arg2 options:(unsigned long long)arg3 animations:(id)arg4 completion:(void)arg5;
 + (void)pu_animateWithDuration:(double)arg1 animations:(id)arg2;
 + (void)pu_animateWithDuration:(double)arg1 animations:(id)arg2 completion:(void)arg3;
-+ (void)pu_animateWithDuration:(double)arg1 delay:(double)arg2 options:(unsigned int)arg3 animations:(id)arg4 completion:(void)arg5;
++ (void)pu_animateWithDuration:(double)arg1 delay:(double)arg2 options:(unsigned long long)arg3 animations:(id)arg4 completion:(void)arg5;
 @end
 

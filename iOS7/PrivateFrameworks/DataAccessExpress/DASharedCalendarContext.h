@@ -14,10 +14,10 @@
     NSString *_accountID;
     NSObject<OS_dispatch_queue> *_queue;
     id _completionBlock;
-    BOOL _shouldSyncCalendar;
+    _Bool _shouldSyncCalendar;
 }
 
-@property(nonatomic) BOOL shouldSyncCalendar; // @synthesize shouldSyncCalendar=_shouldSyncCalendar;
+@property(nonatomic) _Bool shouldSyncCalendar; // @synthesize shouldSyncCalendar=_shouldSyncCalendar;
 - (void)finishedWithError:(id)arg1;
 - (void)dealloc;
 - (id)initWithCalendarID:(id)arg1 accountID:(id)arg2 queue:(id)arg3 completionBlock:(id)arg4;

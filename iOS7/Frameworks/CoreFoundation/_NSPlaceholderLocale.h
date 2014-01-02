@@ -6,6 +6,7 @@
 
 #import <CoreFoundation/NSLocale.h>
 
+// Not exported
 @interface _NSPlaceholderLocale : NSLocale
 {
 }

@@ -13,20 +13,15 @@
 
 @interface PTSButton : UIButton <PTSHUDControl, _UISettingsKeyPathObserver>
 {
-    BOOL _autoEnablesForDesignMode;
-    _UISettings *_settings;
     int _alignment;
+    _UISettings *_settings;
     NSString *_valueKeyPath;
 }
 
-+ (id)settingsABButton;
-+ (id)settingsBButton;
-+ (id)settingsAButton;
 + (id)saveToPersistentSettingsButton;
 + (id)restoreDefaultValuesButton;
 + (id)dismissHUDButton;
 + (id)button;
-@property(nonatomic) BOOL autoEnablesForDesignMode; // @synthesize autoEnablesForDesignMode=_autoEnablesForDesignMode;
 @property(copy, nonatomic) NSString *valueKeyPath; // @synthesize valueKeyPath=_valueKeyPath;
 @property(nonatomic) int alignment; // @synthesize alignment=_alignment;
 @property(nonatomic) __weak _UISettings *settings; // @synthesize settings=_settings;
@@ -36,7 +31,7 @@
 - (id)initWithDefaultFrame;
 
 // Remaining properties
-@property(nonatomic) BOOL enabled;
+@property(nonatomic) _Bool enabled;
 
 @end
 

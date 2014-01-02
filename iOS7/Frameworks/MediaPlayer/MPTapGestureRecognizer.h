@@ -10,13 +10,13 @@
 
 @interface MPTapGestureRecognizer : UIGestureRecognizer
 {
-    unsigned int _lastTapCount;
+    unsigned long long _lastTapCount;
     struct CGPoint _tapLocation;
     UITouch *_trackingTouch;
     NSTimer *_tapHandleTimer;
 }
 
-@property unsigned int tapCount; // @synthesize tapCount=_lastTapCount;
+@property unsigned long long tapCount; // @synthesize tapCount=_lastTapCount;
 - (void).cxx_destruct;
 - (void)dealloc;
 - (void)reset;

@@ -8,6 +8,7 @@
 
 @class NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
 
+// Not exported
 @interface GKDiscoveryBonjour : NSObject
 {
     NSString *_serviceType;
@@ -17,7 +18,7 @@
     id _browseCallback;
     id _connectionCallback;
     id _serviceNameCollisionCallback;
-    BOOL _checkedInWithLaunchd;
+    _Bool _checkedInWithLaunchd;
     NSMutableArray *_launchdSources;
     int _listeningPort;
     NSMutableDictionary *_resolveContainers;

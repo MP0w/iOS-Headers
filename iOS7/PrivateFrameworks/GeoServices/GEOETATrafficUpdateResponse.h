@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSMutableArray;
 
-@interface GEOETATrafficUpdateResponse : PBCodable
+@interface GEOETATrafficUpdateResponse : PBCodable <NSCopying>
 {
     NSMutableArray *_routes;
     int _status;
@@ -17,18 +19,19 @@
 
 @property(retain, nonatomic) NSMutableArray *routes; // @synthesize routes=_routes;
 @property(nonatomic) int status; // @synthesize status=_status;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)routeAtIndex:(unsigned int)arg1;
-- (unsigned int)routesCount;
+- (id)routeAtIndex:(unsigned long long)arg1;
+- (unsigned long long)routesCount;
 - (void)addRoute:(id)arg1;
 - (void)clearRoutes;
-@property(nonatomic) BOOL hasStatus;
+@property(nonatomic) _Bool hasStatus;
 - (void)dealloc;
 
 @end

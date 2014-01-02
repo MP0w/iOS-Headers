@@ -9,7 +9,7 @@
 @interface NSError (MessageAdditions)
 - (id)mf_shortDescription;
 - (id)mf_moreInfo;
-- (BOOL)mf_shouldBeReportedToUser;
-- (BOOL)mf_isUserCancelledError;
+- (_Bool)mf_shouldBeReportedToUser;
+- (_Bool)mf_isUserCancelledError;
 @end
 

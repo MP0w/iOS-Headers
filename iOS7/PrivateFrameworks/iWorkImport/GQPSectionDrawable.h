@@ -8,9 +8,10 @@
 
 @class GQDSStyle;
 
+// Not exported
 @interface GQPSectionDrawable : NSObject
 {
-    CDStruct_dff5684f mPageRange;
+    CDStruct_627e0f85 mPageRange;
     GQDSStyle *mStyle;
 }
 

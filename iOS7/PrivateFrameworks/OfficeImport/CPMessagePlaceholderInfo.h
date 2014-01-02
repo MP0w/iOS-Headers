@@ -6,14 +6,15 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface CPMessagePlaceholderInfo : NSObject
 {
     id mKey;
-    BOOL mInUse;
+    _Bool mInUse;
 }
 
-- (void)setInUse:(BOOL)arg1;
-- (BOOL)isInUse;
+- (void)setInUse:(_Bool)arg1;
+- (_Bool)isInUse;
 - (id)key;
 - (void)dealloc;
 - (id)init;

@@ -8,16 +8,16 @@
 
 @interface CPTextBox : CPRegion
 {
-    float rotationAngle;
+    double rotationAngle;
 }
 
 - (id)description;
 - (struct CGRect)bounds;
-- (BOOL)isRotated;
-- (float)rotationAngle;
-- (void)setRotationAngle:(float)arg1;
+- (_Bool)isRotated;
+- (double)rotationAngle;
+- (void)setRotationAngle:(double)arg1;
 - (void)accept:(id)arg1;
-- (BOOL)isBoxRegion;
+- (_Bool)isBoxRegion;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
 

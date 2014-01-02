@@ -5,6 +5,7 @@
  */
 
 @protocol UIWebFormControl
+- (void)controlEndEditing;
 - (void)controlBeginEditing;
 - (id)controlView;
 @end

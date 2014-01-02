@@ -6,6 +6,6 @@
 
 @protocol _UIScrollToTopView
 - (void)_scrollToTopFromTouchAtScreenLocation:(struct CGPoint)arg1 resultHandler:(id)arg2;
-- (BOOL)isScrollEnabled;
+- (_Bool)isScrollEnabled;
 @end
 

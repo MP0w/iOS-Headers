@@ -6,22 +6,23 @@
 
 #import <OfficeImport/OADPathElement.h>
 
+// Not exported
 @interface OADAngleArcPathElement : OADPathElement
 {
     struct OADAdjustPoint mCenter;
     struct OADAdjustPoint mSemiaxes;
     struct OADAdjustCoord mStartAngle;
     struct OADAdjustCoord mAngleLength;
-    BOOL mConnectedToPrevious;
+    _Bool mConnectedToPrevious;
 }
 
 - (id).cxx_construct;
-- (BOOL)connectedToPrevious;
+- (_Bool)connectedToPrevious;
 - (struct OADAdjustCoord)angleLength;
 - (struct OADAdjustCoord)startAngle;
 - (struct OADAdjustPoint)semiaxes;
 - (struct OADAdjustPoint)center;
-- (id)initWithCenter:(struct OADAdjustPoint)arg1 semiaxes:(struct OADAdjustPoint)arg2 startAngle:(struct OADAdjustCoord)arg3 angleLength:(struct OADAdjustCoord)arg4 connectedToPrevious:(BOOL)arg5;
+- (id)initWithCenter:(struct OADAdjustPoint)arg1 semiaxes:(struct OADAdjustPoint)arg2 startAngle:(struct OADAdjustCoord)arg3 angleLength:(struct OADAdjustCoord)arg4 connectedToPrevious:(_Bool)arg5;
 
 @end
 

@@ -6,7 +6,10 @@
 
 #import "PBCodable.h"
 
-@interface GEOTrafficSegment : PBCodable
+#import "NSCopying-Protocol.h"
+
+// Not exported
+@interface GEOTrafficSegment : PBCodable <NSCopying>
 {
     int _speed;
     int _vertexCount;
@@ -21,15 +24,16 @@
 @property(nonatomic) int width; // @synthesize width=_width;
 @property(nonatomic) int vertexCount; // @synthesize vertexCount=_vertexCount;
 @property(nonatomic) int vertexOffset; // @synthesize vertexOffset=_vertexOffset;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) BOOL hasWidth;
-@property(nonatomic) BOOL hasSpeed;
+@property(nonatomic) _Bool hasWidth;
+@property(nonatomic) _Bool hasSpeed;
 @property(nonatomic) int speed; // @synthesize speed=_speed;
 - (void)dealloc;
 

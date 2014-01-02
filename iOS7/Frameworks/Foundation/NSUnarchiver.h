@@ -9,9 +9,9 @@
 @interface NSUnarchiver : NSCoder
 {
     void *datax;
-    unsigned int cursor;
+    unsigned long long cursor;
     struct _NSZone *objectZone;
-    unsigned int systemVersion;
+    unsigned long long systemVersion;
     BOOL streamerVersion;
     BOOL swap;
     BOOL unused1;
@@ -19,7 +19,7 @@
     void *pointerTable;
     void *stringTable;
     id classVersions;
-    int lastLabel;
+    long long lastLabel;
     void *map;
     void *allUnarchivedObjects;
     id reserved;
@@ -34,14 +34,14 @@
 - (void)decodeClassName:(id)arg1 asClassName:(id)arg2;
 - (id)decodeDataObject;
 - (id)decodeObject;
-- (void *)decodeBytesWithReturnedLength:(unsigned int *)arg1;
-- (void)decodeArrayOfObjCType:(const char *)arg1 count:(unsigned int)arg2 at:(void *)arg3;
+- (void *)decodeBytesWithReturnedLength:(unsigned long long *)arg1;
+- (void)decodeArrayOfObjCType:(const char *)arg1 count:(unsigned long long)arg2 at:(void *)arg3;
 - (void)decodeValuesOfObjCTypes:(const char *)arg1;
 - (void)decodeValueOfObjCType:(const char *)arg1 at:(void *)arg2;
 - (id)data;
-- (int)versionForClassName:(id)arg1;
+- (long long)versionForClassName:(id)arg1;
 - (unsigned int)systemVersion;
-- (BOOL)isAtEnd;
+- (_Bool)isAtEnd;
 - (struct _NSZone *)objectZone;
 - (void)setObjectZone:(struct _NSZone *)arg1;
 - (void)_setAllowedClasses:(id)arg1;

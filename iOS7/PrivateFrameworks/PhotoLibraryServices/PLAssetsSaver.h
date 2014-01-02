@@ -6,15 +6,19 @@
 
 #import "NSObject.h"
 
+@class NSMutableArray;
+
 @interface PLAssetsSaver : NSObject
 {
+    NSMutableArray *__pendingSaveAssetJobs;
 }
 
 + (id)publicAssetsLibraryErrorFromPrivateError:(id)arg1;
-+ (id)publicAssetsLibraryErrorFromPrivateDomain:(id)arg1 withPrivateCode:(int)arg2;
++ (id)publicAssetsLibraryErrorFromPrivateDomain:(id)arg1 withPrivateCode:(long long)arg2;
 + (id)sharedAssetsSaver;
+@property(retain, nonatomic) NSMutableArray *_pendingSaveAssetJobs; // @synthesize _pendingSaveAssetJobs=__pendingSaveAssetJobs;
 - (void)saveSyncedAssets:(id)arg1 completionBlock:(id)arg2;
-- (void)importFilesWithMasterPath:(id)arg1 sidecarFileInfo:(id)arg2 intoEventWithName:(id)arg3 importSessionIdentifier:(id)arg4 isPhotoStreamsPublishCandidate:(BOOL)arg5;
+- (void)importFilesWithMasterPath:(id)arg1 sidecarFileInfo:(id)arg2 intoEventWithName:(id)arg3 importSessionIdentifier:(id)arg4 isPhotoStreamsPublishCandidate:(_Bool)arg5;
 - (void)copyAssetToCameraRoll:(id)arg1;
 - (void)reenqueueAssetUUIDsForPhotoStreamPublication:(id)arg1;
 - (void)deletePhotoStreamAssetsWithUUIDs:(id)arg1 streamID:(id)arg2;
@@ -26,19 +30,23 @@
 - (void)saveVideoAtPath:(id)arg1 properties:(id)arg2 completionBlock:(id)arg3;
 - (void)saveImage:(id)arg1 imageData:(id)arg2 properties:(id)arg3 completionTarget:(id)arg4 completionSelector:(SEL)arg5 contextInfo:(void *)arg6;
 - (void)saveImage:(id)arg1 properties:(id)arg2 completionBlock:(id)arg3;
-- (void)saveImageRef:(struct CGImage *)arg1 orientation:(int)arg2 imageData:(id)arg3 properties:(id)arg4 completionBlock:(id)arg5;
+- (void)saveImageRef:(struct CGImage *)arg1 orientation:(long long)arg2 imageData:(id)arg3 properties:(id)arg4 completionBlock:(id)arg5;
 - (void)_saveVideoAtPath:(id)arg1 properties:(id)arg2 completionBlock:(id)arg3;
 - (void)_saveImage:(id)arg1 imageData:(id)arg2 properties:(id)arg3 completionBlock:(id)arg4;
 - (id)_createWriteVideoCompletionBlockWithVideoPath:(SEL)arg1 target:(id)arg2 selector:(id)arg3 contextInfo:(SEL)arg4;
 - (id)_createWriteImageCompletionBlockWithImage:(SEL)arg1 target:(id)arg2 selector:(id)arg3 contextInfo:(SEL)arg4;
-- (void)saveCameraLastTokenWithUUID:(id)arg1 allAssetUUIDs:(id)arg2 bestAssetUUIDs:(id)arg3;
+- (void)saveCameraAvalancheWithUUID:(id)arg1 allAssetUUIDs:(id)arg2 allAssets:(id)arg3 stackAsset:(id)arg4 completionBlock:(id)arg5;
 - (void)regenerateVideoThumbnailsForVideo:(id)arg1 withCreationDate:(id)arg2 progressStack:(id)arg3 completionBlock:(id)arg4;
-- (void)saveCameraVideoAtPath:(id)arg1 withMetadata:(id)arg2 thumbnailImage:(id)arg3 createPreviewWellImage:(BOOL)arg4 progressStack:(id)arg5 eventUUID:(id)arg6 isSlalom:(BOOL)arg7 slalomRegions:(id)arg8 videoHandler:(id)arg9 requestEnqueuedBlock:(void)arg10 completionBlock:(id)arg11;
-- (id)saveCameraImage:(id)arg1 metadata:(id)arg2 additionalProperties:(id)arg3 adjustmentFilters:(id)arg4 effectFilters:(id)arg5 previouslyPendingAsset:(id)arg6 requestEnqueuedBlock:(id)arg7;
+- (void)saveCameraVideoAtPath:(id)arg1 withMetadata:(id)arg2 thumbnailImage:(id)arg3 createPreviewWellImage:(_Bool)arg4 progressStack:(id)arg5 eventUUID:(id)arg6 isSlalom:(_Bool)arg7 slalomRegions:(id)arg8 videoHandler:(id)arg9 requestEnqueuedBlock:(void)arg10 completionBlock:(id)arg11;
+- (id)saveCameraImage:(id)arg1 metadata:(id)arg2 additionalProperties:(id)arg3 adjustmentFilters:(id)arg4 effectFilters:(id)arg5 diagnostics:(id)arg6 previouslyPendingAsset:(id)arg7 requestEnqueuedBlock:(id)arg8;
 - (void)saveCameraImage:(id)arg1 metadata:(id)arg2 additionalProperties:(id)arg3 requestEnqueuedBlock:(id)arg4;
-- (id)_addCameraAssetToLibraryWithPath:(id)arg1 thumbnailImage:(id)arg2 assetUUID:(id)arg3 metadata:(id)arg4 assetType:(int)arg5 kind:(short)arg6 kindSubtype:(short)arg7 batchUUID:(id)arg8 batchToken:(id)arg9 adjustmentFilters:(id)arg10 effectFilters:(id)arg11 completionHandler:(id)arg12;
+- (id)_addCameraAssetToLibraryWithPath:(id)arg1 thumbnailImage:(id)arg2 assetUUID:(id)arg3 metadata:(id)arg4 assetType:(long long)arg5 kind:(short)arg6 kindSubtype:(short)arg7 avalancheUUID:(id)arg8 adjustmentFilters:(id)arg9 effectFilters:(id)arg10 completionHandler:(id)arg11;
 - (void)queueJobDictionary:(id)arg1 completionBlock:(id)arg2;
 - (void)queueJobDictionary:(id)arg1 asset:(id)arg2 requestEnqueuedBlock:(id)arg3 completionBlock:(void)arg4 imageSurface:(id)arg5 previewImageSurface:(void)arg6 slalomRegions:(struct __IOSurface *)arg7;
+- (id)_saveIsolationQueue;
+- (void)_setIsTakingPhoto:(_Bool)arg1;
+- (void)setAvalancheInProgress:(_Bool)arg1 uuid:(id)arg2;
+- (void)batchSavePendingAssetJobs;
 - (id)_XMPDictionaryForAsset:(id)arg1 jobDictionary:(id)arg2;
 - (void)requestAsynchronousImageForAssetOID:(id)arg1 withFormat:(int)arg2 completionBlock:(id)arg3;
 - (id)requestSynchronousImageForAssetOID:(id)arg1 withFormat:(int)arg2;
@@ -46,6 +54,7 @@
 - (id)pathForNewAssetOfType:(long long)arg1 extension:(id)arg2;
 - (void)_requestAccess;
 - (void)dealloc;
+- (id)init;
 
 @end
 

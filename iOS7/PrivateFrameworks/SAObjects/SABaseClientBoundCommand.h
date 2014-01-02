@@ -16,7 +16,7 @@
 
 + (id)baseClientBoundCommandWithDictionary:(id)arg1 context:(id)arg2;
 + (id)baseClientBoundCommand;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSArray *callbacks;
 @property(copy, nonatomic) NSString *appId;
 - (id)encodedClassName;

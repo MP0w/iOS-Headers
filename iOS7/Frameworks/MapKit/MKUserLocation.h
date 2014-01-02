@@ -28,7 +28,7 @@
 - (id)annotation;
 @property(readonly, nonatomic) double headingDegrees;
 @property(nonatomic) CDStruct_c3b9c2ee coordinate;
-- (BOOL)isEqualToLocation:(id)arg1;
+- (_Bool)isEqualToLocation:(id)arg1;
 @property(readonly, nonatomic) double accuracy;
 @property(retain, nonatomic) CLLocation *location;
 @property(copy, nonatomic) NSString *subtitle;
@@ -40,7 +40,7 @@
 @property(retain, nonatomic) CLHeading *heading;
 @property(retain, nonatomic) CLLocation *predictedLocation;
 @property(retain, nonatomic) CLLocation *fixedLocation;
-@property(nonatomic, getter=isUpdating) BOOL updating;
+@property(nonatomic, getter=isUpdating) _Bool updating;
 - (void)dealloc;
 - (id)init;
 

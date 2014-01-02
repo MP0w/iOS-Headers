@@ -12,10 +12,10 @@ typedef struct {
     unsigned short *_field3;
     char *_field4;
     struct {
-        int _field1;
-        int _field2;
+        long long _field1;
+        long long _field2;
     } _field5;
-    int _field6;
-    int _field7;
-} CDStruct_64adce64;
+    long long _field6;
+    long long _field7;
+} CDStruct_f9502b4c;
 

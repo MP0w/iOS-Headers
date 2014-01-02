@@ -8,27 +8,15 @@
 
 @interface SBFolderSettings : _UISettings
 {
-    BOOL _allowNestedFolders;
-    BOOL _pinchToClose;
-    BOOL _blurFolderBackground;
-    BOOL _blurFolderIcon;
-    BOOL _blurNewsstandBackground;
-    BOOL _iconBackgroundAdaptive;
-    float _adaptiveSaturation;
-    float _adaptiveBrightness;
-    float _adaptiveAlpha;
+    _Bool _allowNestedFolders;
+    _Bool _pinchToClose;
+    _Bool _blurFolderBackground;
 }
 
 + (id)settingsControllerModule;
-@property float adaptiveAlpha; // @synthesize adaptiveAlpha=_adaptiveAlpha;
-@property float adaptiveBrightness; // @synthesize adaptiveBrightness=_adaptiveBrightness;
-@property float adaptiveSaturation; // @synthesize adaptiveSaturation=_adaptiveSaturation;
-@property(getter=isIconBackgroundAdaptive) BOOL iconBackgroundAdaptive; // @synthesize iconBackgroundAdaptive=_iconBackgroundAdaptive;
-@property BOOL blurNewsstandBackground; // @synthesize blurNewsstandBackground=_blurNewsstandBackground;
-@property BOOL blurFolderIcon; // @synthesize blurFolderIcon=_blurFolderIcon;
-@property BOOL blurFolderBackground; // @synthesize blurFolderBackground=_blurFolderBackground;
-@property BOOL pinchToClose; // @synthesize pinchToClose=_pinchToClose;
-@property BOOL allowNestedFolders; // @synthesize allowNestedFolders=_allowNestedFolders;
+@property(nonatomic) _Bool blurFolderBackground; // @synthesize blurFolderBackground=_blurFolderBackground;
+@property(nonatomic) _Bool pinchToClose; // @synthesize pinchToClose=_pinchToClose;
+@property(nonatomic) _Bool allowNestedFolders; // @synthesize allowNestedFolders=_allowNestedFolders;
 - (void)setDefaultValues;
 
 @end

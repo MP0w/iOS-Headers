@@ -8,10 +8,11 @@
 
 @class NSMutableDictionary, NSMutableSet, NSString;
 
+// Not exported
 @interface RTF_CMArchiveManager : NSObject
 {
-    BOOL mIsThumbnail;
-    unsigned int mPageCount;
+    _Bool mIsThumbnail;
+    unsigned long long mPageCount;
     NSMutableDictionary *mDrawableCache;
     NSString *mResourcePathPrefix;
     NSMutableSet *mPausedPaths;
@@ -24,11 +25,11 @@
 + (id)hashKeyFor:(id)arg1;
 - (void)setHTMLWidth:(int)arg1;
 - (void)setHTMLHeight:(int)arg1;
-- (BOOL)isProgressive;
-- (unsigned int)pageCount;
-- (void)setPageCount:(unsigned int)arg1;
-- (BOOL)isThumbnail;
-- (void)setIsThumbnail:(BOOL)arg1;
+- (_Bool)isProgressive;
+- (unsigned long long)pageCount;
+- (void)setPageCount:(unsigned long long)arg1;
+- (_Bool)isThumbnail;
+- (void)setIsThumbnail:(_Bool)arg1;
 - (id)appendResourcePathToName:(id)arg1;
 - (id)resourcePathPrefix;
 - (void)setResourcePathPrefix:(id)arg1;
@@ -36,7 +37,7 @@
 - (void)addCssStyle:(id)arg1 withName:(id)arg2;
 - (id)addCssStyle:(id)arg1;
 - (int)resourceCount;
-- (BOOL)progressiveMappingIsPausedOnPath:(id)arg1;
+- (_Bool)progressiveMappingIsPausedOnPath:(id)arg1;
 - (void)restartProgressiveMappingOnPath:(id)arg1;
 - (void)pauseProgressiveMappingOnPath:(id)arg1;
 - (id)cachedPathForDrawable:(id)arg1;

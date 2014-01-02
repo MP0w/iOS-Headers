@@ -10,12 +10,12 @@
 
 @interface PLAVPlayerView : UIView
 {
-    unsigned int _scaleMode;
+    unsigned long long _scaleMode;
 }
 
 + (Class)layerClass;
-@property(nonatomic) unsigned int scaleMode; // @synthesize scaleMode=_scaleMode;
-- (void)setScaleMode:(unsigned int)arg1 duration:(double)arg2;
+@property(nonatomic) unsigned long long scaleMode; // @synthesize scaleMode=_scaleMode;
+- (void)setScaleMode:(unsigned long long)arg1 duration:(double)arg2;
 @property(retain, nonatomic) AVPlayer *player;
 - (id)initWithFrame:(struct CGRect)arg1;
 

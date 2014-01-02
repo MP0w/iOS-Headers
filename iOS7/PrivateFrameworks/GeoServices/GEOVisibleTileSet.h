@@ -6,30 +6,33 @@
 
 #import "PBCodable.h"
 
-@interface GEOVisibleTileSet : PBCodable
+#import "NSCopying-Protocol.h"
+
+@interface GEOVisibleTileSet : PBCodable <NSCopying>
 {
     CDStruct_32a7f38a *_tileKeys;
-    unsigned int _tileKeysCount;
-    unsigned int _tileKeysSpace;
+    unsigned long long _tileKeysCount;
+    unsigned long long _tileKeysSpace;
     unsigned int _identifier;
     int _style;
 }
 
 @property(nonatomic) unsigned int identifier; // @synthesize identifier=_identifier;
 @property(nonatomic) int style; // @synthesize style=_style;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (void)setTileKeys:(CDStruct_32a7f38a *)arg1 count:(unsigned int)arg2;
-- (CDStruct_32a7f38a)tileKeyAtIndex:(unsigned int)arg1;
+- (void)setTileKeys:(CDStruct_32a7f38a *)arg1 count:(unsigned long long)arg2;
+- (CDStruct_32a7f38a)tileKeyAtIndex:(unsigned long long)arg1;
 - (void)addTileKey:(CDStruct_32a7f38a)arg1;
 - (void)clearTileKeys;
 @property(readonly, nonatomic) CDStruct_32a7f38a *tileKeys;
-@property(readonly, nonatomic) unsigned int tileKeysCount;
+@property(readonly, nonatomic) unsigned long long tileKeysCount;
 - (void)dealloc;
 
 @end

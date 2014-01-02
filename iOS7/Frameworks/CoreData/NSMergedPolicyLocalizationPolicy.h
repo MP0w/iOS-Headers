@@ -8,6 +8,7 @@
 
 @class NSSet;
 
+// Not exported
 @interface NSMergedPolicyLocalizationPolicy : NSValidationErrorLocalizationPolicy
 {
     NSSet *_mergedPolicies;

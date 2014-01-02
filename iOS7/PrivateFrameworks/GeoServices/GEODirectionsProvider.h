@@ -8,7 +8,7 @@
 
 @interface GEODirectionsProvider : NSObject
 {
-    BOOL _isLoading;
+    _Bool _isLoading;
     int _requestType;
     id _finishedHandler;
     id _errorHandler;
@@ -17,9 +17,9 @@
 + (unsigned short)providerID;
 @property(copy, nonatomic) id errorHandler; // @synthesize errorHandler=_errorHandler;
 @property(copy, nonatomic) id finishedHandler; // @synthesize finishedHandler=_finishedHandler;
-@property(nonatomic) BOOL isLoading; // @synthesize isLoading=_isLoading;
+@property(nonatomic) _Bool isLoading; // @synthesize isLoading=_isLoading;
 - (void)providerDidCancel;
-- (void)providerReceivedErrorCode:(int)arg1 userInfo:(id)arg2 problemDetails:(CDStruct_c55e649d *)arg3;
+- (void)providerReceivedErrorCode:(long long)arg1 userInfo:(id)arg2 problemDetails:(CDStruct_c55e649d *)arg3;
 - (void)providerReceivedResponse:(id)arg1;
 - (void)cancelProviderRequest;
 - (void)startProviderWithRequest:(id)arg1;

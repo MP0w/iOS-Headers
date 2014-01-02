@@ -12,12 +12,12 @@
 {
     _TRUserNotfication *_activeUserNotification;
     NSString *_authenticationAppleID;
-    unsigned int _authenticationAttemptCount;
+    unsigned long long _authenticationAttemptCount;
     NSData *_dataToSend;
     NSObject<OS_dispatch_semaphore> *_dataToSendSemaphore;
     NSString *_deviceGUID;
-    BOOL _performingSetup;
-    BOOL _preparingForSetup;
+    _Bool _performingSetup;
+    _Bool _preparingForSetup;
     NSObject<OS_dispatch_queue> *_queue;
     NSString *_userAgent;
     id <TRDeviceSetupPeripheralDelegate> _delegate;
@@ -26,22 +26,22 @@
 @property(nonatomic) __weak id <TRDeviceSetupPeripheralDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_startAuthentication;
-- (BOOL)_showUserNotificationForRememberPasswordForAppleID:(id)arg1;
+- (_Bool)_showUserNotificationForRememberPasswordForAppleID:(id)arg1;
 - (void)_showUserNotificationForErrorWithTitle:(id)arg1 message:(id)arg2;
-- (BOOL)_showUserNotificationForDiagnosticSubmission;
+- (_Bool)_showUserNotificationForDiagnosticSubmission;
 - (void)_showUserNotificationForAuthenticationFailure:(id)arg1;
-- (BOOL)_showUserNotificationForAppleID:(id)arg1 returningAppleID:(id *)arg2 password:(id *)arg3;
+- (_Bool)_showUserNotificationForAppleID:(id)arg1 returningAppleID:(id *)arg2 password:(id *)arg3;
 - (void)_setupDidFailWithError:(id)arg1;
 - (void)_setupDidComplete;
-- (void)_sendSetupDataWithAuthInfo:(id)arg1 diagnosticSubmissionEnabled:(BOOL)arg2 rememberPasswordEnabled:(BOOL)arg3;
-- (BOOL)_canPerformSetupReturningHasWiFiNetwork:(char *)arg1;
+- (void)_sendSetupDataWithAuthInfo:(id)arg1 diagnosticSubmissionEnabled:(_Bool)arg2 rememberPasswordEnabled:(_Bool)arg3;
+- (_Bool)_canPerformSetupReturningHasWiFiNetwork:(_Bool *)arg1;
 - (void)_authenticateWithParameters:(id)arg1;
 - (id)_didTap;
 - (id)_didReceiveData:(id)arg1;
 - (void)_didDisconnect;
 - (void)cancelSetupForTimeout;
 - (void)cancelSetupForStateChange;
-- (BOOL)performSetup;
+- (_Bool)performSetup;
 - (id)init;
 
 @end

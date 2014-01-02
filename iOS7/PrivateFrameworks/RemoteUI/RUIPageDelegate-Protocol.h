@@ -5,8 +5,8 @@
  */
 
 @protocol RUIPageDelegate
-- (unsigned int)supportedInterfaceOrientationsForRUIPage:(id)arg1;
-- (void)RUIPage:(id)arg1 toggledEditing:(BOOL)arg2;
+- (unsigned long long)supportedInterfaceOrientationsForRUIPage:(id)arg1;
+- (void)RUIPage:(id)arg1 toggledEditing:(_Bool)arg2;
 - (void)RUIPage:(id)arg1 pressedNavBarButton:(id)arg2;
 @end
 

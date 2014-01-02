@@ -9,6 +9,6 @@
 @protocol UIPopoverControllerDelegatePrivate <NSObject>
 
 @optional
-- (void)popoverController:(id)arg1 animationCompleted:(int)arg2;
+- (void)popoverController:(id)arg1 animationCompleted:(long long)arg2;
 @end
 

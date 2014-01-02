@@ -5,6 +5,6 @@
  */
 
 @protocol RUIPasscodeViewDelegate
-- (void)pinViewOM:(id)arg1 pressedLink:(id)arg2 attributes:(id)arg3;
+- (void)passcodeViewOM:(id)arg1 pressedLink:(id)arg2 attributes:(id)arg3;
 @end
 

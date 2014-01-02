@@ -12,9 +12,10 @@
 {
 }
 
-- (int)numberOfCells;
+- (long long)numberOfCells;
 - (struct CGSize)cellSizeForIndexPath:(id)arg1;
 - (id)cellForIndexPath:(id)arg1;
+- (void)willAppearInContext:(id)arg1;
 - (id)initWithPageComponent:(id)arg1;
 
 // Remaining properties

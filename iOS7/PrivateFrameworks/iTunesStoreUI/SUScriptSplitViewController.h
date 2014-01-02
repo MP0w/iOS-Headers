@@ -17,7 +17,7 @@
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
 - (id)_splitViewController;
-@property BOOL usesSharedPlaceholder;
+@property _Bool usesSharedPlaceholder;
 @property(retain) NSString *title;
 @property(retain) NSString *splitType;
 @property(retain) NSNumber *splitShadowRadius;

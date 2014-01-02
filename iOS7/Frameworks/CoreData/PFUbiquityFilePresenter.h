@@ -10,22 +10,25 @@
 
 @class NSDictionary, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSOperationQueue, NSString, NSURL, PFUbiquityLocation;
 
+// Not exported
 @interface PFUbiquityFilePresenter : NSObject <NSFilePresenter>
 {
     PFUbiquityLocation *_ubiquityRootLocation;
     NSString *_localPeerID;
     NSURL *_presentedItemURL;
-    unsigned long long _lastFSEventIdentifier;
     NSObject<OS_dispatch_queue> *_processingQueue;
-    BOOL _scheduledProcessingBlock;
+    _Bool _scheduledProcessingBlock;
     NSMutableArray *_pendingURLs;
     int _pendingURLsLock;
     NSMutableDictionary *_locationToSafeSaveFile;
     NSMutableDictionary *_locationToStatus;
 }
 
++ (void)registerInitialSyncHandlerForURL:(id)arg1 onQueue:(id)arg2 withBlock:(id)arg3;
++ (void)startDownloadForItems:(id)arg1 onQueue:(id)arg2 withBlock:(id)arg3;
 + (id)sharedPrivateOperationQueue;
 + (void)initialize;
+@property(readonly, nonatomic) NSDictionary *locationToSafeSaveFile; // @synthesize locationToSafeSaveFile=_locationToSafeSaveFile;
 @property(readonly, nonatomic) NSDictionary *locationToStatus; // @synthesize locationToStatus=_locationToStatus;
 @property(readonly) NSString *localPeerID; // @synthesize localPeerID=_localPeerID;
 @property(readonly) PFUbiquityLocation *ubiquityRootLocation; // @synthesize ubiquityRootLocation=_ubiquityRootLocation;
@@ -39,8 +42,6 @@
 - (void)logWasExported:(id)arg1;
 - (void)exporterDidMoveLog:(id)arg1;
 - (id)retainedStatusForLocation:(id)arg1;
-- (unsigned long long)lastPresentedItemEventIdentifier;
-- (void)setLastPresentedItemEventIdentifier:(unsigned long long)arg1;
 - (void)processPendingURLs;
 - (void)presentedSubitemUbiquityDidChangeAtURL:(id)arg1;
 - (void)presentedSubitemDidChangeAtURL:(id)arg1;

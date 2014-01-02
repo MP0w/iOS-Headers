@@ -15,7 +15,7 @@
     NSURL *_URL;
     NSURLConnection *_connection;
     NSMutableData *_imageData;
-    BOOL _invalidResponse;
+    _Bool _invalidResponse;
 }
 
 - (void)connection:(id)arg1 didFailWithError:(id)arg2;
@@ -26,7 +26,7 @@
 - (void)_loadFinished;
 - (void)start;
 - (void)dealloc;
-- (BOOL)receivedValidResponse:(id)arg1;
+- (_Bool)receivedValidResponse:(id)arg1;
 
 @end
 

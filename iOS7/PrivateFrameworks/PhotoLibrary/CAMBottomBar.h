@@ -6,12 +6,12 @@
 
 #import "UIView.h"
 
-@class CAMElapsedTimeView, CAMFilterButton, CAMFlipButton, CAMImageWell, CAMModeDial, CAMShutterButton, UIButton;
+@class CAMElapsedTimeView, CAMFilterButton, CAMFlipButton, CAMHDRButton, CAMImageWell, CAMModeDial, CAMShutterButton, CAMSlalomIndicatorView, UIButton;
 
 @interface CAMBottomBar : UIView
 {
-    int _orientation;
-    int _backgroundStyle;
+    long long _orientation;
+    long long _backgroundStyle;
     CAMModeDial *_modeDial;
     CAMImageWell *_imageWell;
     CAMShutterButton *_stillDuringVideoButton;
@@ -19,10 +19,14 @@
     CAMFilterButton *_filterButton;
     CAMFlipButton *_flipButton;
     CAMElapsedTimeView *_elapsedTimeView;
+    CAMHDRButton *_HDRButton;
+    CAMSlalomIndicatorView *_slalomIndicatorView;
     UIButton *_cancelButton;
 }
 
 @property(retain, nonatomic) UIButton *cancelButton; // @synthesize cancelButton=_cancelButton;
+@property(retain, nonatomic) CAMSlalomIndicatorView *slalomIndicatorView; // @synthesize slalomIndicatorView=_slalomIndicatorView;
+@property(retain, nonatomic) CAMHDRButton *HDRButton; // @synthesize HDRButton=_HDRButton;
 @property(retain, nonatomic) CAMElapsedTimeView *elapsedTimeView; // @synthesize elapsedTimeView=_elapsedTimeView;
 @property(retain, nonatomic) CAMFlipButton *flipButton; // @synthesize flipButton=_flipButton;
 @property(retain, nonatomic) CAMFilterButton *filterButton; // @synthesize filterButton=_filterButton;
@@ -30,16 +34,16 @@
 @property(retain, nonatomic) CAMShutterButton *stillDuringVideoButton; // @synthesize stillDuringVideoButton=_stillDuringVideoButton;
 @property(retain, nonatomic) CAMImageWell *imageWell; // @synthesize imageWell=_imageWell;
 @property(retain, nonatomic) CAMModeDial *modeDial; // @synthesize modeDial=_modeDial;
-@property(nonatomic) int backgroundStyle; // @synthesize backgroundStyle=_backgroundStyle;
-@property(readonly, nonatomic) int orientation; // @synthesize orientation=_orientation;
-- (void)_updateBackgroundStyleAnimated:(BOOL)arg1;
-- (void)setBackgroundStyle:(int)arg1 animated:(BOOL)arg2;
+@property(nonatomic) long long backgroundStyle; // @synthesize backgroundStyle=_backgroundStyle;
+@property(readonly, nonatomic) long long orientation; // @synthesize orientation=_orientation;
+- (void)_updateBackgroundStyleAnimated:(_Bool)arg1;
+- (void)setBackgroundStyle:(long long)arg1 animated:(_Bool)arg2;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (void)_layoutForVerticalOrientation;
 - (void)_layoutForHorizontalOrientation;
 - (void)dealloc;
-- (id)initWithOrientation:(int)arg1;
+- (id)initWithOrientation:(long long)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)_commonCAMBottomBarInitialization;

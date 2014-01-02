@@ -11,15 +11,15 @@
 }
 
 + (void)enableLoggingForCustomHandler:(id)arg1;
-+ (void)enableFileLogging:(BOOL)arg1;
++ (void)enableFileLogging:(_Bool)arg1;
 + (void)enableConsoleLoggingForLevel:(int)arg1;
 + (void)_appendString:(id)arg1 toFileNamed:(id)arg2;
 + (id)logFileDirectory;
 + (void)logKeepAliveInterval:(double)arg1 forServiceIdentifier:(id)arg2;
-+ (void)logAtLevel:(int)arg1 delegate:(id)arg2 format:(id)arg3 arguments:(void *)arg4;
++ (void)logAtLevel:(int)arg1 delegate:(id)arg2 format:(id)arg3 arguments:(char *)arg4;
 + (id)_formatBlock;
 + (void)logAtLevel:(int)arg1 delegate:(id)arg2 format:(id)arg3;
-+ (BOOL)loggingEnabledForLevel:(int)arg1;
++ (_Bool)loggingEnabledForLevel:(int)arg1;
 + (id)getMainBundleId;
 + (void)_configureLogFacilityIfNeeded:(id)arg1;
 + (id)_facilityForIdentifier:(id)arg1;

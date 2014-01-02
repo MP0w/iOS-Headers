@@ -31,10 +31,10 @@
 - (void)_setDataRequest:(id)arg1;
 @property(readonly, nonatomic) AVAssetResourceLoadingContentInformationRequest *contentInformationRequest;
 - (void)_setContentInformationRequest:(id)arg1;
-@property(readonly, nonatomic, getter=isCancelled) BOOL cancelled;
-- (BOOL)_tryToMarkAsCancelled;
-- (BOOL)finished;
-@property(readonly, nonatomic, getter=isFinished) BOOL finished;
+@property(readonly, nonatomic, getter=isCancelled) _Bool cancelled;
+- (_Bool)_tryToMarkAsCancelled;
+- (_Bool)finished;
+@property(readonly, nonatomic, getter=isFinished) _Bool finished;
 @property(readonly, nonatomic) NSURLRequest *request;
 - (id)_requestDictionary;
 - (id)_resourceLoader;

@@ -8,6 +8,7 @@
 
 @class GEOVectorTile, NSArray, NSMutableArray, VKBuildingFootprintMaker, VKMapTileList, VKStylesheet, VKTrafficTile;
 
+// Not exported
 @interface VKVectorTile : VKTile
 {
     GEOVectorTile *_modelTile;
@@ -15,38 +16,38 @@
     NSMutableArray *_roadGroups;
     NSMutableArray *_polygonGroups;
     NSMutableArray *_coastlineGroups;
-    BOOL _shouldBlend;
+    _Bool _shouldBlend;
     float _alpha;
-    float _contentScale;
+    double _contentScale;
     VKBuildingFootprintMaker *_buildingFootprintMaker;
     float _maximumStyleZ;
     float _textureScale;
     VKStylesheet *_stylesheet;
-    int _vectorType;
+    long long _vectorType;
     VKMapTileList *_fragments;
 }
 
-@property(nonatomic) float contentScale; // @synthesize contentScale=_contentScale;
+@property(nonatomic) double contentScale; // @synthesize contentScale=_contentScale;
 @property(readonly, nonatomic) VKMapTileList *fragments; // @synthesize fragments=_fragments;
 @property(nonatomic) float maximumStyleZ; // @synthesize maximumStyleZ=_maximumStyleZ;
 @property(nonatomic) float textureScale; // @synthesize textureScale=_textureScale;
 @property(readonly, nonatomic) VKBuildingFootprintMaker *buildingFootprintMaker; // @synthesize buildingFootprintMaker=_buildingFootprintMaker;
 @property(nonatomic) float alpha; // @synthesize alpha=_alpha;
-@property(nonatomic) BOOL shouldBlend; // @synthesize shouldBlend=_shouldBlend;
+@property(nonatomic) _Bool shouldBlend; // @synthesize shouldBlend=_shouldBlend;
 @property(readonly, nonatomic) NSArray *coastlineGroups; // @synthesize coastlineGroups=_coastlineGroups;
 @property(readonly, nonatomic) NSArray *polygonGroups; // @synthesize polygonGroups=_polygonGroups;
 @property(readonly, nonatomic) NSArray *roadGroups; // @synthesize roadGroups=_roadGroups;
 @property(retain, nonatomic) VKTrafficTile *trafficTile; // @synthesize trafficTile=_trafficTile;
 @property(retain, nonatomic) GEOVectorTile *modelTile; // @synthesize modelTile=_modelTile;
-@property(nonatomic) int vectorType; // @synthesize vectorType=_vectorType;
+@property(nonatomic) long long vectorType; // @synthesize vectorType=_vectorType;
 @property(retain, nonatomic) VKStylesheet *stylesheet; // @synthesize stylesheet=_stylesheet;
-- (unsigned int)geometryCount;
+- (unsigned long long)geometryCount;
 @property(readonly, nonatomic) double maxHeight;
-- (BOOL)heightAtX:(float)arg1 Y:(float)arg2 outZ:(float *)arg3;
-- (void)generateBuildingFootprintMeshWithFacades:(BOOL)arg1;
+- (_Bool)heightAtX:(float)arg1 Y:(float)arg2 outZ:(float *)arg3;
+- (void)generateBuildingFootprintMeshWithFacades:(_Bool)arg1;
 - (void)buildPolygons;
 - (void)buildCoastlines;
-- (void)buildRoadGroupsAndGenerateMesh:(BOOL)arg1;
+- (void)buildRoadGroupsAndGenerateMesh:(_Bool)arg1;
 - (void)postprocessRoadGroups;
 - (void)dealloc;
 - (id)initWithKey:(const struct VKTileKey *)arg1;

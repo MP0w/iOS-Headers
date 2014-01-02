@@ -16,25 +16,25 @@
     NSString *_artworkFile;
     NSDictionary *_playbackProperties;
     NSNumber *_pid;
-    unsigned int _duration;
-    BOOL _ringtone;
-    BOOL _purchased;
-    BOOL _protected;
-    BOOL _private;
+    unsigned long long _duration;
+    _Bool _ringtone;
+    _Bool _purchased;
+    _Bool _protected;
+    _Bool _private;
 }
 
-@property(nonatomic) BOOL private; // @synthesize private=_private;
-@property(nonatomic) BOOL protected; // @synthesize protected=_protected;
-@property(nonatomic) unsigned int duration; // @synthesize duration=_duration;
+@property(nonatomic) _Bool private; // @synthesize private=_private;
+@property(nonatomic) _Bool protected; // @synthesize protected=_protected;
+@property(nonatomic) unsigned long long duration; // @synthesize duration=_duration;
 @property(retain, nonatomic) NSString *artworkFile; // @synthesize artworkFile=_artworkFile;
 @property(retain, nonatomic) NSNumber *pid; // @synthesize pid=_pid;
-@property(nonatomic, getter=isRingtone) BOOL ringtone; // @synthesize ringtone=_ringtone;
-@property(nonatomic, getter=isPurchased) BOOL purchased; // @synthesize purchased=_purchased;
+@property(nonatomic, getter=isRingtone) _Bool ringtone; // @synthesize ringtone=_ringtone;
+@property(nonatomic, getter=isPurchased) _Bool purchased; // @synthesize purchased=_purchased;
 @property(retain, nonatomic) NSDictionary *playbackProperties; // @synthesize playbackProperties=_playbackProperties;
 @property(retain, nonatomic) NSString *filePath; // @synthesize filePath=_filePath;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
-- (BOOL)loadFromPropertyList:(id)arg1;
+- (_Bool)loadFromPropertyList:(id)arg1;
 - (void)dealloc;
 
 @end

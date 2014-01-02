@@ -24,10 +24,11 @@
 - (void)deactivate;
 - (void)activate;
 - (void)_delayedDismiss;
-- (void)setDismissOnActivate:(BOOL)arg1;
-- (BOOL)receivedString;
-- (BOOL)allowsResponse;
-- (void)USSDStringAvailable:(id)arg1 allowsResponse:(BOOL)arg2;
+- (void)setDismissOnActivate:(_Bool)arg1;
+- (_Bool)receivedString;
+- (_Bool)sentResponse;
+- (_Bool)allowsResponse;
+- (void)USSDStringAvailable:(id)arg1 allowsResponse:(_Bool)arg2;
 - (id)alertDisplayViewWithSize:(struct CGSize)arg1;
 - (void)dealloc;
 

@@ -14,7 +14,7 @@
     AVAssetTrack *_track;
     NSDictionary *_dictionary;
     AVWeakReference *_weakReferenceToGroup;
-    BOOL _displaysNonForcedSubtitles;
+    _Bool _displaysNonForcedSubtitles;
 }
 
 - (id)associatedMediaSelectionOptionInMediaSelectionGroup:(id)arg1;
@@ -22,18 +22,18 @@
 - (id)availableMetadataFormats;
 - (id)commonMetadata;
 - (id)locale;
-- (BOOL)isPlayable;
-- (BOOL)hasMediaCharacteristic:(id)arg1;
+- (_Bool)isPlayable;
+- (_Bool)hasMediaCharacteristic:(id)arg1;
 - (id)mediaSubTypes;
 - (id)mediaType;
 - (int)trackID;
-- (BOOL)displaysNonForcedSubtitles;
+- (_Bool)displaysNonForcedSubtitles;
 - (id)track;
 - (id)_groupID;
 - (id)group;
 - (id)dictionary;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)initWithAsset:(id)arg1 group:(id)arg2 dictionary:(id)arg3;
 

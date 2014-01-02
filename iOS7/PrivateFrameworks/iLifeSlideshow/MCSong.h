@@ -10,27 +10,27 @@
 
 @interface MCSong : MCObject
 {
-    BOOL mStartTimeIsDefined;
-    BOOL mDurationIsDefined;
-    MCAssetAudio *mAsset;
+    _Bool mStartTimeIsDefined;
+    _Bool mDurationIsDefined;
     float mVolume;
-    unsigned int mIndex;
-    MCAudioPlaylist *mAudioPlaylistIfAudioPlaylistSong;
-    MCSlide *mSlideIfSlideSong;
+    MCAssetAudio *mAsset;
     double mFadeInDuration;
     double mFadeOutDuration;
+    unsigned long long mIndex;
     double mStartTime;
     double mDuration;
+    MCAudioPlaylist *mAudioPlaylistIfAudioPlaylistSong;
+    MCSlide *mSlideIfSlideSong;
 }
 
 + (id)keyPathsForValuesAffectingValueForKey:(id)arg1;
 @property MCSlide *slideIfSlideSong; // @synthesize slideIfSlideSong=mSlideIfSlideSong;
 @property MCAudioPlaylist *audioPlaylistIfAudioPlaylistSong; // @synthesize audioPlaylistIfAudioPlaylistSong=mAudioPlaylistIfAudioPlaylistSong;
-@property(readonly, nonatomic) BOOL durationIsDefined; // @synthesize durationIsDefined=mDurationIsDefined;
+@property(readonly, nonatomic) _Bool durationIsDefined; // @synthesize durationIsDefined=mDurationIsDefined;
 @property(nonatomic) double duration; // @synthesize duration=mDuration;
-@property(readonly, nonatomic) BOOL startTimeIsDefined; // @synthesize startTimeIsDefined=mStartTimeIsDefined;
+@property(readonly, nonatomic) _Bool startTimeIsDefined; // @synthesize startTimeIsDefined=mStartTimeIsDefined;
 @property(nonatomic) double startTime; // @synthesize startTime=mStartTime;
-@property(nonatomic) unsigned int index; // @synthesize index=mIndex;
+@property(nonatomic) unsigned long long index; // @synthesize index=mIndex;
 @property(nonatomic) double fadeOutDuration; // @synthesize fadeOutDuration=mFadeOutDuration;
 @property(nonatomic) double fadeInDuration; // @synthesize fadeInDuration=mFadeInDuration;
 @property(nonatomic) float volume; // @synthesize volume=mVolume;

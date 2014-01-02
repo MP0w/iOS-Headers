@@ -12,7 +12,7 @@
 {
     NSObject<OS_xpc_object> *_connection;
     NSMutableArray *_clients;
-    BOOL _hasRegistered;
+    _Bool _hasRegistered;
 }
 
 + (id)sharedInstance;

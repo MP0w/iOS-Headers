@@ -17,8 +17,8 @@
     PSSpecifier *_specifier;
 }
 
-- (void)statusBarWillAnimateByHeight:(float)arg1;
-- (BOOL)canBeShownFromSuspendedState;
+- (void)statusBarWillAnimateByHeight:(double)arg1;
+- (_Bool)canBeShownFromSuspendedState;
 - (void)formSheetViewDidDisappear;
 - (void)formSheetViewWillDisappear;
 - (void)popupViewDidDisappear;

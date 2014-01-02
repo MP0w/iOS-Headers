@@ -23,7 +23,7 @@
 - (void)queue_registerWithServerIfNecessary;
 - (void)queue_connectionWasCreated;
 - (void)queue_handleMessage:(id)arg1;
-- (BOOL)_isServerRegistered;
+- (_Bool)_isServerRegistered;
 - (void)_setEndpoint:(id)arg1;
 - (id)_connection;
 - (id)_notifyTokenName;

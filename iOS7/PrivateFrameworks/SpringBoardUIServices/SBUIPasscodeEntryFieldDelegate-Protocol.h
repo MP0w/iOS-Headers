@@ -10,7 +10,7 @@
 
 @optional
 - (void)passcodeEntryFieldTextDidChange:(id)arg1;
-- (BOOL)passcodeEntryField:(id)arg1 shouldInsertText:(id)arg2;
+- (_Bool)passcodeEntryField:(id)arg1 shouldInsertText:(id)arg2;
 - (void)passcodeEntryFieldDidCancelEntry:(id)arg1;
 - (void)passcodeEntryFieldDidAcceptEntry:(id)arg1;
 @end

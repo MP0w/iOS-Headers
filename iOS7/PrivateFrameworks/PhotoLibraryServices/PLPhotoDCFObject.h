@@ -15,9 +15,9 @@
 }
 
 + (id)validDCFNameForName:(id)arg1 requiredLength:(int)arg2 nameLength:(int)arg3 number:(int *)arg4 numberRange:(struct _NSRange)arg5 suffix:(id)arg6;
-- (void)setWriteIsPending:(BOOL)arg1;
+- (void)setWriteIsPending:(_Bool)arg1;
 - (id)description;
-- (int)compare:(id)arg1;
+- (long long)compare:(id)arg1;
 - (int)number;
 - (id)name;
 - (void)dealloc;

@@ -14,11 +14,11 @@
 - (void)_remote_songSkipped;
 - (void)_remote_songStopped;
 - (void)_remote_songBegan:(id)arg1 reply:(id)arg2;
-- (void)_remote_setVisuallyEngaged:(BOOL)arg1;
+- (void)_remote_setVisuallyEngaged:(_Bool)arg1;
 - (void)_remote_disablePolicyEngine;
 - (void)_remote_enablePolicyEngine;
-- (void)_remote_forwardDeviceOrientation:(int)arg1 statusBarOrientation:(int)arg2;
-- (void)_remote_createProxyForAdSpace:(id)arg1 type:(int)arg2 options:(int)arg3 reply:(id)arg4;
+- (void)_remote_forwardDeviceOrientation:(long long)arg1 statusBarOrientation:(long long)arg2;
+- (void)_remote_createProxyForAdSpace:(id)arg1 type:(int)arg2 options:(long long)arg3 reply:(id)arg4;
 - (void)_remote_setClientLinkedOnVersion:(id)arg1;
 - (void)_priv_setServerURL:(id)arg1;
 - (void)_remote_didBecomeActive;

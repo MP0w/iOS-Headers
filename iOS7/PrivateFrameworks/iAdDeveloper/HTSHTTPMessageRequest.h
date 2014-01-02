@@ -16,7 +16,7 @@
 
 @property(copy, nonatomic) NSURL *requestURL; // @synthesize requestURL=_requestURL;
 @property(copy, nonatomic) NSString *requestMethod; // @synthesize requestMethod=_requestMethod;
-- (BOOL)responseCanUseGZip;
+- (_Bool)responseCanUseGZip;
 - (id)responseWithStatus:(int)arg1;
 - (struct __CFHTTPMessage *)copyMessage;
 - (id)initWithRequest:(struct __CFHTTPMessage *)arg1;

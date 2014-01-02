@@ -21,14 +21,14 @@
 @property(readonly, nonatomic) NSMutableDictionary *cacheRepresentation;
 - (id)initWithCacheRepresentation:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 @property(readonly, nonatomic) SKUIArtwork *smallestArtwork;
 @property(readonly, nonatomic) SKUIArtwork *largestArtwork;
 - (id)bestArtworkForScaledSize:(struct CGSize)arg1;
 - (id)bestArtworkForSize:(struct CGSize)arg1;
-- (id)artworkWithWidth:(int)arg1;
-- (id)artworkURLForSize:(int)arg1;
+- (id)artworkWithWidth:(long long)arg1;
+- (id)artworkURLForSize:(long long)arg1;
 - (id)initWithLookupArray:(id)arg1;
 - (id)initWithArtworkListArray:(id)arg1;
 

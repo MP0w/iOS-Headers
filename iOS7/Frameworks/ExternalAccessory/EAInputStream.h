@@ -19,10 +19,10 @@
     NSRecursiveLock *_statusLock;
     NSRecursiveLock *_runloopLock;
     NSThread *_inputFromAccThread;
-    BOOL _isOpenCompletedEventSent;
-    BOOL _hasNewBytesAvailable;
-    BOOL _isAtEndEventSent;
-    unsigned int _streamStatus;
+    _Bool _isOpenCompletedEventSent;
+    _Bool _hasNewBytesAvailable;
+    _Bool _isAtEndEventSent;
+    unsigned long long _streamStatus;
     struct __CFRunLoop *_runLoop;
     struct __CFRunLoopSource *_runLoopSource;
 }
@@ -34,14 +34,14 @@
 - (void)_accessoryDidDisconnect:(id)arg1;
 - (void)endStream;
 - (void)openCompleted;
-- (BOOL)hasBytesAvailable;
-- (BOOL)getBuffer:(char **)arg1 length:(unsigned int *)arg2;
-- (int)read:(char *)arg1 maxLength:(unsigned int)arg2;
+- (_Bool)hasBytesAvailable;
+- (_Bool)getBuffer:(char **)arg1 length:(unsigned long long *)arg2;
+- (long long)read:(char *)arg1 maxLength:(unsigned long long)arg2;
 - (id)streamError;
-- (unsigned int)streamStatus;
+- (unsigned long long)streamStatus;
 - (void)removeFromRunLoop:(id)arg1 forMode:(id)arg2;
 - (void)scheduleInRunLoop:(id)arg1 forMode:(id)arg2;
-- (BOOL)setProperty:(id)arg1 forKey:(id)arg2;
+- (_Bool)setProperty:(id)arg1 forKey:(id)arg2;
 - (id)propertyForKey:(id)arg1;
 - (void)setDelegate:(id)arg1;
 - (id)delegate;

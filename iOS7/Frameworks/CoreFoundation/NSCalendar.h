@@ -14,18 +14,18 @@
 }
 
 + (id)currentCalendar;
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (void)initialize;
-- (unsigned char)_diffComponents:(double)arg1:(double)arg2:(unsigned long)arg3:(const char *)arg4:(void *)arg5;
-- (unsigned char)_addComponents:(double *)arg1:(unsigned long)arg2:(const char *)arg3:(void *)arg4;
-- (unsigned char)_decomposeAbsoluteTime:(double)arg1:(const char *)arg2:(void *)arg3;
-- (unsigned char)_composeAbsoluteTime:(double *)arg1:(const char *)arg2:(void *)arg3;
-- (unsigned char)_rangeOfUnit:(unsigned int)arg1 startTime:(double *)arg2 interval:(double *)arg3 forAT:(double)arg4;
-- (long)_ordinalityOfUnit:(unsigned int)arg1 inUnit:(unsigned int)arg2 forAT:(double)arg3;
-- (CDStruct_1ef3fb1f)_rangeOfUnit:(unsigned int)arg1 inUnit:(unsigned int)arg2 forAT:(double)arg3;
-- (CDStruct_1ef3fb1f)_maximumRangeOfUnit:(unsigned int)arg1;
-- (CDStruct_1ef3fb1f)_minimumRangeOfUnit:(unsigned int)arg1;
+- (unsigned char)_diffComponents:(double)arg1:(double)arg2:(unsigned long long)arg3:(const char *)arg4:(char *)arg5;
+- (unsigned char)_addComponents:(double *)arg1:(unsigned long long)arg2:(const char *)arg3:(char *)arg4;
+- (unsigned char)_decomposeAbsoluteTime:(double)arg1:(const char *)arg2:(char *)arg3;
+- (unsigned char)_composeAbsoluteTime:(double *)arg1:(const char *)arg2:(char *)arg3;
+- (unsigned char)_rangeOfUnit:(unsigned long long)arg1 startTime:(double *)arg2 interval:(double *)arg3 forAT:(double)arg4;
+- (long long)_ordinalityOfUnit:(unsigned long long)arg1 inUnit:(unsigned long long)arg2 forAT:(double)arg3;
+- (CDStruct_912cb5d2)_rangeOfUnit:(unsigned long long)arg1 inUnit:(unsigned long long)arg2 forAT:(double)arg3;
+- (CDStruct_912cb5d2)_maximumRangeOfUnit:(unsigned long long)arg1;
+- (CDStruct_912cb5d2)_minimumRangeOfUnit:(unsigned long long)arg1;
 - (id)shortStandaloneQuarterSymbols;
 - (id)standaloneQuarterSymbols;
 - (id)shortQuarterSymbols;
@@ -50,21 +50,21 @@
 - (void)_setGregorianStartDate:(id)arg1;
 - (id)_copyTimeZone;
 - (id)_copyLocale;
-- (id)components:(unsigned int)arg1 fromDate:(id)arg2 toDate:(id)arg3 options:(unsigned int)arg4;
-- (id)dateByAddingComponents:(id)arg1 toDate:(id)arg2 options:(unsigned int)arg3;
-- (id)components:(unsigned int)arg1 fromDate:(id)arg2;
+- (id)components:(unsigned long long)arg1 fromDate:(id)arg2 toDate:(id)arg3 options:(unsigned long long)arg4;
+- (id)dateByAddingComponents:(id)arg1 toDate:(id)arg2 options:(unsigned long long)arg3;
+- (id)components:(unsigned long long)arg1 fromDate:(id)arg2;
 - (id)dateFromComponents:(id)arg1;
-- (BOOL)rangeOfUnit:(unsigned int)arg1 startDate:(id *)arg2 interval:(double *)arg3 forDate:(id)arg4;
-- (unsigned int)ordinalityOfUnit:(unsigned int)arg1 inUnit:(unsigned int)arg2 forDate:(id)arg3;
-- (struct _NSRange)rangeOfUnit:(unsigned int)arg1 inUnit:(unsigned int)arg2 forDate:(id)arg3;
-- (struct _NSRange)maximumRangeOfUnit:(unsigned int)arg1;
-- (struct _NSRange)minimumRangeOfUnit:(unsigned int)arg1;
+- (_Bool)rangeOfUnit:(unsigned long long)arg1 startDate:(id *)arg2 interval:(double *)arg3 forDate:(id)arg4;
+- (unsigned long long)ordinalityOfUnit:(unsigned long long)arg1 inUnit:(unsigned long long)arg2 forDate:(id)arg3;
+- (struct _NSRange)rangeOfUnit:(unsigned long long)arg1 inUnit:(unsigned long long)arg2 forDate:(id)arg3;
+- (struct _NSRange)maximumRangeOfUnit:(unsigned long long)arg1;
+- (struct _NSRange)minimumRangeOfUnit:(unsigned long long)arg1;
 - (id)gregorianStartDate;
 - (void)setGregorianStartDate:(id)arg1;
-- (unsigned int)minimumDaysInFirstWeek;
-- (void)setMinimumDaysInFirstWeek:(unsigned int)arg1;
-- (unsigned int)firstWeekday;
-- (void)setFirstWeekday:(unsigned int)arg1;
+- (unsigned long long)minimumDaysInFirstWeek;
+- (void)setMinimumDaysInFirstWeek:(unsigned long long)arg1;
+- (unsigned long long)firstWeekday;
+- (void)setFirstWeekday:(unsigned long long)arg1;
 - (id)timeZone;
 - (void)setTimeZone:(id)arg1;
 - (id)locale;
@@ -74,9 +74,9 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (unsigned long)_cfTypeID;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (unsigned long long)_cfTypeID;
 - (id)init;
 
 @end

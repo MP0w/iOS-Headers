@@ -10,6 +10,7 @@
 
 @class SKStorePageViewController;
 
+// Not exported
 @interface SKRemoteStorePageViewController : _UIRemoteViewController <SKUIClientStorePageViewController>
 {
     SKStorePageViewController *_storePageViewController;

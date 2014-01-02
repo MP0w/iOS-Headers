@@ -20,16 +20,16 @@
     unsigned int _parkedServerPort;
     CPDistributedMessagingCallout *_currentCallout;
     unsigned int _replyPort;
-    BOOL _portPassing;
-    BOOL _delayedReply;
+    _Bool _portPassing;
+    _Bool _delayedReply;
 }
 
 + (id)centerNamed:(id)arg1;
 - (id)_requiredEntitlement;
-- (BOOL)_isTaskEntitled:(CDStruct_6ad76789 *)arg1;
-- (void)_sendReplyMessage:(id)arg1 portPassing:(BOOL)arg2 onMachPort:(unsigned int)arg3;
+- (_Bool)_isTaskEntitled:(CDStruct_6ad76789 *)arg1;
+- (void)_sendReplyMessage:(id)arg1 portPassing:(_Bool)arg2 onMachPort:(unsigned int)arg3;
 - (void)_dispatchMessageNamed:(id)arg1 userInfo:(id)arg2 reply:(id *)arg3 auditToken:(CDStruct_6ad76789 *)arg4;
-- (BOOL)doesServerExist;
+- (_Bool)doesServerExist;
 - (void)unregisterForMessageName:(id)arg1;
 - (void)sendDelayedReply:(id)arg1 dictionary:(id)arg2;
 - (id)delayReply;
@@ -38,14 +38,14 @@
 - (void)runServerOnCurrentThreadProtectedByEntitlement:(id)arg1;
 - (void)runServerOnCurrentThread;
 - (unsigned int)_serverPort;
-- (BOOL)_sendMessage:(id)arg1 userInfoData:(id)arg2 oolKey:(id)arg3 oolData:(id)arg4 makeServer:(BOOL)arg5 receiveReply:(id *)arg6 nonBlocking:(BOOL)arg7 error:(id *)arg8;
-- (BOOL)_sendMessage:(id)arg1 userInfo:(id)arg2 receiveReply:(id *)arg3 error:(id *)arg4 toTarget:(id)arg5 selector:(SEL)arg6 context:(void *)arg7 nonBlocking:(BOOL)arg8;
-- (BOOL)_sendMessage:(id)arg1 userInfo:(id)arg2 receiveReply:(id *)arg3 error:(id *)arg4 toTarget:(id)arg5 selector:(SEL)arg6 context:(void *)arg7;
+- (_Bool)_sendMessage:(id)arg1 userInfoData:(id)arg2 oolKey:(id)arg3 oolData:(id)arg4 makeServer:(_Bool)arg5 receiveReply:(id *)arg6 nonBlocking:(_Bool)arg7 error:(id *)arg8;
+- (_Bool)_sendMessage:(id)arg1 userInfo:(id)arg2 receiveReply:(id *)arg3 error:(id *)arg4 toTarget:(id)arg5 selector:(SEL)arg6 context:(void *)arg7 nonBlocking:(_Bool)arg8;
+- (_Bool)_sendMessage:(id)arg1 userInfo:(id)arg2 receiveReply:(id *)arg3 error:(id *)arg4 toTarget:(id)arg5 selector:(SEL)arg6 context:(void *)arg7;
 - (void)sendMessageAndReceiveReplyName:(id)arg1 userInfo:(id)arg2 toTarget:(id)arg3 selector:(SEL)arg4 context:(void *)arg5;
 - (id)sendMessageAndReceiveReplyName:(id)arg1 userInfo:(id)arg2 error:(id *)arg3;
 - (id)sendMessageAndReceiveReplyName:(id)arg1 userInfo:(id)arg2;
-- (BOOL)sendNonBlockingMessageName:(id)arg1 userInfo:(id)arg2;
-- (BOOL)sendMessageName:(id)arg1 userInfo:(id)arg2;
+- (_Bool)sendNonBlockingMessageName:(id)arg1 userInfo:(id)arg2;
+- (_Bool)sendMessageName:(id)arg1 userInfo:(id)arg2;
 - (void)_setSendPort:(unsigned int)arg1;
 - (unsigned int)_sendPort;
 - (void)_setupInvalidationSource;

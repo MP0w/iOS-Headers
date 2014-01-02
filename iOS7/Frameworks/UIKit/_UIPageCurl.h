@@ -10,7 +10,7 @@
 
 @interface _UIPageCurl : NSObject
 {
-    int _spineLocation;
+    long long _spineLocation;
     struct CGRect _contentRect;
     UIView *_contentView;
     _UIPageCurlState *_manualPageCurlState;
@@ -18,46 +18,46 @@
     NSMutableArray *_activeStateQueue;
     NSMutableSet *_completedStates;
     double _delayBetweenSuccessiveAnimations;
-    float _pageDiagonalAngle;
-    float _pageDiagonalLength;
-    float _manualPageCurlMaxDAngle;
+    double _pageDiagonalAngle;
+    double _pageDiagonalLength;
+    double _manualPageCurlMaxDAngle;
 }
 
-@property(nonatomic, setter=_setManualPageCurlMaxDAngle:) float _manualPageCurlMaxDAngle; // @synthesize _manualPageCurlMaxDAngle;
-@property(readonly, nonatomic) int _spineLocation; // @synthesize _spineLocation;
+@property(nonatomic, setter=_setManualPageCurlMaxDAngle:) double _manualPageCurlMaxDAngle; // @synthesize _manualPageCurlMaxDAngle;
+@property(readonly, nonatomic) long long _spineLocation; // @synthesize _spineLocation;
 - (void)_pageCurlAnimationDidStop:(id)arg1 withState:(id)arg2;
-- (void)_abortManualCurlAtLocation:(struct CGPoint)arg1 withSuggestedVelocity:(float)arg2;
-- (void)_completeManualCurlAtLocation:(struct CGPoint)arg1 withSuggestedVelocity:(float)arg2;
-- (void)_endManualCurlAtLocation:(struct CGPoint)arg1 withSuggestedVelocity:(float)arg2 shouldComplete:(BOOL)arg3;
-- (float)_durationForManualCurlEndAnimationWithSuggestedVelocity:(float)arg1 shouldComplete:(BOOL)arg2;
+- (void)_abortManualCurlAtLocation:(struct CGPoint)arg1 withSuggestedVelocity:(double)arg2;
+- (void)_completeManualCurlAtLocation:(struct CGPoint)arg1 withSuggestedVelocity:(double)arg2;
+- (void)_endManualCurlAtLocation:(struct CGPoint)arg1 withSuggestedVelocity:(double)arg2 shouldComplete:(_Bool)arg3;
+- (double)_durationForManualCurlEndAnimationWithSuggestedVelocity:(double)arg1 shouldComplete:(_Bool)arg2;
 - (void)_updateManualCurlToLocation:(struct CGPoint)arg1;
 - (void)_beginCurlWithState:(id)arg1 previousState:(id)arg2;
-- (void)_cancelAllActiveTransitionsAndAbandonCallbacks:(BOOL)arg1;
-- (void)_cancelTransitionWithState:(id)arg1 invalidatingPageCurl:(BOOL)arg2;
-- (void)_forceCleanupState:(id)arg1 finished:(BOOL)arg2 completed:(BOOL)arg3;
+- (void)_cancelAllActiveTransitionsAndAbandonCallbacks:(_Bool)arg1;
+- (void)_cancelTransitionWithState:(id)arg1 invalidatingPageCurl:(_Bool)arg2;
+- (void)_forceCleanupState:(id)arg1 finished:(_Bool)arg2 completed:(_Bool)arg3;
 - (void)_cleanupState:(id)arg1;
-- (void)_enqueueCurlOfType:(int)arg1 fromLocation:(struct CGPoint)arg2 inDirection:(int)arg3 withView:(id)arg4 revealingView:(id)arg5 completion:(id)arg6 finally:(void)arg7;
-- (BOOL)_isPreviousCurlCompatibleWithCurlOfType:(int)arg1 inDirection:(int)arg2;
-- (int)_validatedPageCurlTypeForPageCurlType:(int)arg1 inDirection:(int)arg2;
-- (struct CGPoint)_referenceLocationForInitialLocation:(struct CGPoint)arg1 direction:(int)arg2;
-- (void)_updateCurlFromState:(id)arg1 withTime:(float)arg2 radius:(float)arg3 angle:(float)arg4 addingAnimations:(id)arg5;
+- (void)_enqueueCurlOfType:(long long)arg1 fromLocation:(struct CGPoint)arg2 inDirection:(long long)arg3 withView:(id)arg4 revealingView:(id)arg5 completion:(id)arg6 finally:(void)arg7;
+- (_Bool)_isPreviousCurlCompatibleWithCurlOfType:(long long)arg1 inDirection:(long long)arg2;
+- (long long)_validatedPageCurlTypeForPageCurlType:(long long)arg1 inDirection:(long long)arg2;
+- (struct CGPoint)_referenceLocationForInitialLocation:(struct CGPoint)arg1 direction:(long long)arg2;
+- (void)_updateCurlFromState:(id)arg1 withTime:(double)arg2 radius:(double)arg3 angle:(double)arg4 addingAnimations:(id)arg5;
 - (id)_animationKeyPaths;
-- (void)_updatedInputsFromState:(id)arg1 forLocation:(struct CGPoint)arg2 time:(float *)arg3 radius:(float *)arg4 angle:(float *)arg5;
-- (float)_distanceToTravelWithCurrentSpineLocation;
-- (float)_inputTimeForProgress:(float)arg1 distanceToTravel:(float)arg2 radius:(float *)arg3 minRadius:(float)arg4 angle:(float)arg5 dAngle:(float)arg6 touchLocation:(struct CGPoint)arg7 state:(id)arg8;
+- (void)_updatedInputsFromState:(id)arg1 forLocation:(struct CGPoint)arg2 time:(double *)arg3 radius:(double *)arg4 angle:(double *)arg5;
+- (double)_distanceToTravelWithCurrentSpineLocation;
+- (double)_inputTimeForProgress:(double)arg1 distanceToTravel:(double)arg2 radius:(double *)arg3 minRadius:(double)arg4 angle:(double)arg5 dAngle:(double)arg6 touchLocation:(struct CGPoint)arg7 state:(id)arg8;
 - (void)_ensureCurlFilterOnLayer:(id)arg1;
-- (void)_fromValue:(float *)arg1 toValue:(float *)arg2 fromState:(id)arg3 forAnimationWithKeyPath:(id)arg4;
-- (BOOL)_populateFromValue:(float *)arg1 toValue:(float *)arg2 fromState:(id)arg3 forAnimationWithKeyPath:(id)arg4;
-- (float)_baseAngleOffsetForState:(id)arg1;
-- (id)_newAnimationForState:(id)arg1 withKeyPath:(id)arg2 duration:(float)arg3 fromValue:(id)arg4;
+- (void)_fromValue:(double *)arg1 toValue:(double *)arg2 fromState:(id)arg3 forAnimationWithKeyPath:(id)arg4;
+- (_Bool)_populateFromValue:(double *)arg1 toValue:(double *)arg2 fromState:(id)arg3 forAnimationWithKeyPath:(id)arg4;
+- (double)_baseAngleOffsetForState:(id)arg1;
+- (id)_newAnimationForState:(id)arg1 withKeyPath:(id)arg2 duration:(double)arg3 fromValue:(id)arg4;
 - (id)_newCurlFilter;
-- (struct CGRect)_pageViewFrame:(BOOL)arg1;
+- (struct CGRect)_pageViewFrame:(_Bool)arg1;
 - (void)_setContentRect:(struct CGRect)arg1;
 @property(readonly, nonatomic) NSNumber *_wrappedManualPageCurlDirection;
-- (BOOL)_areAnimationsInFlightOrPending;
-@property(readonly, nonatomic, getter=_isManualPageCurlInProgressAndUncommitted) BOOL _manualPageCurlInProgressAndUncommitted;
+- (_Bool)_areAnimationsInFlightOrPending;
+@property(readonly, nonatomic, getter=_isManualPageCurlInProgressAndUncommitted) _Bool _manualPageCurlInProgressAndUncommitted;
 - (void)dealloc;
-- (id)initWithSpineLocation:(int)arg1 andContentRect:(struct CGRect)arg2 inContentView:(id)arg3;
+- (id)initWithSpineLocation:(long long)arg1 andContentRect:(struct CGRect)arg2 inContentView:(id)arg3;
 
 @end
 

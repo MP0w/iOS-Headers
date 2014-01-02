@@ -7,10 +7,11 @@
 #import "SUNavigationController.h"
 
 #import "SKUIComposeReviewFormDelegate-Protocol.h"
+#import "UIAlertViewDelegate-Protocol.h"
 
 @class SKUIComposeReviewFormViewController, SKUIReviewMetadata, SUPlaceholderViewController;
 
-@interface SKUIComposeReviewViewController : SUNavigationController <SKUIComposeReviewFormDelegate>
+@interface SKUIComposeReviewViewController : SUNavigationController <SKUIComposeReviewFormDelegate, UIAlertViewDelegate>
 {
     SKUIComposeReviewFormViewController *_formViewController;
     SUPlaceholderViewController *_placeholderViewController;
@@ -18,9 +19,11 @@
 
 - (void).cxx_destruct;
 - (void)_sendDidCancel;
+- (void)_sendDidSubmit;
 - (void)_loadReviewWithURL:(id)arg1 completionBlock:(id)arg2;
 - (void)_finishLoadWithOutput:(id)arg1 error:(id)arg2;
 - (void)_cancelAction:(id)arg1;
+- (void)alertView:(id)arg1 didDismissWithButtonIndex:(long long)arg2;
 - (void)composeReviewFormDidSubmit:(id)arg1;
 - (void)composeReviewFormDidCancel:(id)arg1;
 - (void)submitReview;

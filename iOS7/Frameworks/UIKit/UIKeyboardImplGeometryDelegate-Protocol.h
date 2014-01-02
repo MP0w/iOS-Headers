@@ -5,11 +5,11 @@
  */
 
 @protocol UIKeyboardImplGeometryDelegate
-@property(nonatomic, getter=isMinimized) BOOL minimized;
-- (BOOL)isActive;
-- (BOOL)canDismiss;
-- (BOOL)shouldSaveMinimizationState;
-- (void)implBoundsHeightChangeDone:(float)arg1 suppressNotification:(BOOL)arg2;
-- (void)prepareForImplBoundsHeightChange:(float)arg1 suppressNotification:(BOOL)arg2;
+@property(nonatomic, getter=isMinimized) _Bool minimized;
+- (_Bool)isActive;
+- (_Bool)canDismiss;
+- (_Bool)shouldSaveMinimizationState;
+- (void)implBoundsHeightChangeDone:(double)arg1 suppressNotification:(_Bool)arg2;
+- (void)prepareForImplBoundsHeightChange:(double)arg1 suppressNotification:(_Bool)arg2;
 @end
 

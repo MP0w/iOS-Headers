@@ -8,6 +8,7 @@
 
 #import "GQPagesGenerator-Protocol.h"
 
+// Not exported
 @interface GQHPages : NSObject <GQPagesGenerator>
 {
 }
@@ -24,9 +25,6 @@
 + (int)handlePageSetup:(id)arg1 state:(id)arg2;
 + (int)endPublication:(id)arg1 state:(id)arg2;
 + (int)beginPublication:(id)arg1 state:(id)arg2;
-+ (void)mapHeaderOrFooter:(id)arg1 isHeader:(BOOL)arg2 toPublication:(id)arg3 state:(id)arg4;
-+ (void)handlePagesOrders:(id)arg1;
-+ (void)handleZOrder:(unsigned int)arg1 cssClassName:(struct __CFString *)arg2 state:(id)arg3;
 
 @end
 

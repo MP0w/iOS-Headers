@@ -12,10 +12,10 @@
 
 @interface AOSFMFAccountInfo : NSObject <NSSecureCoding>
 {
+    int _appAuthTokenStatus;
     NSString *_dsid;
     NSString *_username;
     NSString *_appAuthToken;
-    int _appAuthTokenStatus;
     NSDictionary *_additionalInfo;
     NSString *_aosServerHost;
     NSString *_aosServerProtocolScheme;
@@ -23,7 +23,7 @@
     NSString *_internalAuthToken;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSString *internalAuthToken; // @synthesize internalAuthToken=_internalAuthToken;
 @property(retain, nonatomic) NSString *aosAPSEnvironment; // @synthesize aosAPSEnvironment=_aosAPSEnvironment;
 @property(retain, nonatomic) NSString *aosServerProtocolScheme; // @synthesize aosServerProtocolScheme=_aosServerProtocolScheme;

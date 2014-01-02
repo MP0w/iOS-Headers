@@ -15,7 +15,7 @@
 
 - (void)cleanupZoom;
 - (void)animateZoomWithCompletion:(id)arg1;
-- (BOOL)_shouldUpdateStatusBarOnContentRestore;
+- (_Bool)_shouldUpdateStatusBarOnContentRestore;
 - (void)prepareZoom;
 - (void)dealloc;
 

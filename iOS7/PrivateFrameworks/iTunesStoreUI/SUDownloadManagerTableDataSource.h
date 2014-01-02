@@ -12,7 +12,7 @@
 
 - (void)reloadCellContexts;
 - (void)configureCell:(id)arg1 forIndexPath:(id)arg2;
-- (float)cellHeightForIndexPath:(id)arg1;
+- (double)cellHeightForIndexPath:(id)arg1;
 
 @end
 

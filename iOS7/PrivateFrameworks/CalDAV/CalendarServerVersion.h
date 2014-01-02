@@ -10,7 +10,7 @@
 {
 }
 
-- (BOOL)supportsTimeRangeFilterWithoutEndDate;
+- (_Bool)supportsTimeRangeFilterWithoutEndDate;
 - (id)type;
 - (id)init;
 

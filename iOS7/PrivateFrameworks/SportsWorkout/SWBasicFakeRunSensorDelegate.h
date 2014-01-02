@@ -13,7 +13,7 @@
 @interface SWBasicFakeRunSensorDelegate : NSObject <SWFakeRunSensorDelegate>
 {
     NSTimer *_packetTimer;
-    BOOL _firstPacketDelivered;
+    _Bool _firstPacketDelivered;
     unsigned char _payload[28];
     struct SDARunState _runState;
 }
@@ -25,7 +25,7 @@
 - (void)beginSearchingForFakeSensor:(id)arg1;
 - (void)cancelLinkingForFakeSensor:(id)arg1;
 - (void)beginLinkingForFakeSensor:(id)arg1;
-- (unsigned int)remainingBatteryLifetimeInHoursForFakeSensor:(id)arg1;
+- (unsigned long long)remainingBatteryLifetimeInHoursForFakeSensor:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

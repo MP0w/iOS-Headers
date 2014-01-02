@@ -8,6 +8,7 @@
 
 @interface UIImage (PhotosUI)
 + (id)pu_PhotosUIImageNamed:(id)arg1;
+- (void)pu_drawInRect:(struct CGRect)arg1 withContentMode:(long long)arg2;
 - (id)pu_tintedImageWithColor:(id)arg1;
 @end
 

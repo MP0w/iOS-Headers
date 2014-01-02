@@ -20,14 +20,14 @@
     NSString *_service;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 + (id)socialProfile;
 @property(readonly, nonatomic) NSString *service; // @synthesize service=_service;
 @property(readonly, nonatomic) NSString *userIdentifier; // @synthesize userIdentifier=_userIdentifier;
 @property(readonly, nonatomic) NSString *username; // @synthesize username=_username;
 @property(readonly, nonatomic) NSString *urlString; // @synthesize urlString=_urlString;
 - (void).cxx_destruct;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;

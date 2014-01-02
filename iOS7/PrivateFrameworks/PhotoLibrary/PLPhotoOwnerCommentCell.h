@@ -6,27 +6,25 @@
 
 #import "UITableViewCell.h"
 
-@class NSString, UILabel, UIView;
+@class NSAttributedString, UILabel, UIView;
 
 @interface PLPhotoOwnerCommentCell : UITableViewCell
 {
+    NSAttributedString *_ownerString;
     UILabel *_ownerContentLabel;
-    NSString *_ownerString;
     UIView *_styledSeparatorView;
 }
 
-+ (id)_attributedStringForOwnerText:(id)arg1 color:(id)arg2;
-+ (id)_attributedStringForOwnerText:(id)arg1;
-+ (float)heightOfOwnerCellWithAsset:(id)arg1 forWidth:(float)arg2 forInterfaceOrientation:(int)arg3;
-+ (id)ownerStringForAsset:(id)arg1;
++ (double)heightOfOwnerCellWithAsset:(id)arg1 forWidth:(double)arg2 forInterfaceOrientation:(long long)arg3;
++ (id)_ownerStringForAsset:(id)arg1;
 @property(readonly, nonatomic) UIView *styledSeparatorView; // @synthesize styledSeparatorView=_styledSeparatorView;
-@property(copy, nonatomic) NSString *ownerString; // @synthesize ownerString=_ownerString;
 @property(readonly, nonatomic) UILabel *ownerContentLabel; // @synthesize ownerContentLabel=_ownerContentLabel;
+@property(copy, nonatomic) NSAttributedString *ownerString; // @synthesize ownerString=_ownerString;
 - (void)layoutSubviews;
-- (void)_updateContent;
+- (void)updateContentFromAsset:(id)arg1;
 - (void)prepareForReuse;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

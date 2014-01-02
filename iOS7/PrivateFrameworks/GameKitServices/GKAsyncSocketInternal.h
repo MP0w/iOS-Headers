@@ -8,12 +8,13 @@
 
 @class NSMutableData, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString;
 
+// Not exported
 @interface GKAsyncSocketInternal : GKAsyncSocket
 {
     NSObject<OS_dispatch_source> *_receiveSource;
     NSObject<OS_dispatch_source> *_sendSource;
-    BOOL _sendSourceSuspended;
-    BOOL _invalidated;
+    _Bool _sendSourceSuspended;
+    _Bool _invalidated;
     int _connectionSocket;
     NSMutableData *_dataToSend;
     id _receiveDataHandler;
@@ -38,7 +39,7 @@
 - (void)dealloc;
 - (void)tcpConnectSockAddr:(const struct sockaddr *)arg1 port:(unsigned short)arg2;
 - (void)tcpAttachSocketDescriptor:(int)arg1;
-- (BOOL)setupSourcesWithSocket:(int)arg1 receiveEventHandler:(id)arg2 sendEventHandler:(void)arg3;
+- (_Bool)setupSourcesWithSocket:(int)arg1 receiveEventHandler:(id)arg2 sendEventHandler:(void)arg3;
 - (void)setTargetQueue:(id)arg1;
 - (id)init;
 

@@ -10,11 +10,15 @@
 
 @interface GCExtendedGamepadSnapshot : GCExtendedGamepad
 {
+    NSData *snapshotData;
 }
 
 + (id)allocWithZone:(struct _NSZone *)arg1;
+- (void).cxx_destruct;
+- (id)initWithController:(id)arg1 snapshotData:(id)arg2;
 - (id)initWithSnapshotData:(id)arg1;
-@property(copy) NSData *snapshotData;
+- (id)init;
+@property(copy) NSData *snapshotData; // @synthesize snapshotData;
 
 @end
 

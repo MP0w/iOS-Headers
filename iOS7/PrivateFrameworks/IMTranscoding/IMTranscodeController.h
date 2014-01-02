@@ -14,9 +14,9 @@
 }
 
 + (id)sharedInstance;
-- (void)transcodeFileTransferContents:(id)arg1 utiType:(id)arg2 allowUnfilteredUTIs:(id)arg3 target:(int)arg4 highQualityMaxByteSize:(unsigned long)arg5 lowQualityMaxByteSize:(unsigned long)arg6 maxDimension:(unsigned long)arg7 transcoderUserInfo:(id)arg8 representations:(int)arg9 completionBlock:(id)arg10;
-- (void)_transcodeFileTransferContents:(id)arg1 utiType:(id)arg2 allowUnfilteredUTIs:(id)arg3 target:(int)arg4 highQualityMaxByteSize:(unsigned long)arg5 lowQualityMaxByteSize:(unsigned long)arg6 maxDimension:(unsigned long)arg7 transcoderUserInfo:(id)arg8 representations:(int)arg9 retries:(int)arg10 completionBlock:(id)arg11;
-- (BOOL)_connect;
+- (void)transcodeFileTransferContents:(id)arg1 utiType:(id)arg2 allowUnfilteredUTIs:(id)arg3 target:(long long)arg4 highQualityMaxByteSize:(unsigned long long)arg5 lowQualityMaxByteSize:(unsigned long long)arg6 maxDimension:(unsigned long long)arg7 transcoderUserInfo:(id)arg8 representations:(long long)arg9 completionBlock:(id)arg10;
+- (void)_transcodeFileTransferContents:(id)arg1 utiType:(id)arg2 allowUnfilteredUTIs:(id)arg3 target:(long long)arg4 highQualityMaxByteSize:(unsigned long long)arg5 lowQualityMaxByteSize:(unsigned long long)arg6 maxDimension:(unsigned long long)arg7 transcoderUserInfo:(id)arg8 representations:(long long)arg9 retries:(int)arg10 completionBlock:(id)arg11;
+- (_Bool)_connect;
 - (void)_disconnected;
 - (void)dealloc;
 - (id)init;

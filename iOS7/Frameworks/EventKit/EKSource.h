@@ -13,18 +13,18 @@
 }
 
 + (id)sourceWithEventStore:(id)arg1;
-- (BOOL)remove:(id *)arg1;
-- (BOOL)commit:(id *)arg1;
+- (_Bool)remove:(id *)arg1;
+- (_Bool)commit:(id *)arg1;
 - (id)description;
 @property(readonly, nonatomic) int displayOrderForNewCalendar;
 @property(readonly, nonatomic) EKSourceConstraints *constraints;
-- (id)readWriteCalendarsForEntityType:(unsigned int)arg1;
-- (id)calendarsForEntityType:(unsigned int)arg1;
+- (id)readWriteCalendarsForEntityType:(unsigned long long)arg1;
+- (id)calendarsForEntityType:(unsigned long long)arg1;
 @property(readonly, nonatomic) NSSet *allCalendars;
 @property(readonly, nonatomic) NSSet *calendars;
-@property(readonly, nonatomic) BOOL isFacebookSource;
-@property(readonly, nonatomic, getter=isEnabled) BOOL enabled;
-@property(nonatomic) BOOL onlyCreatorCanModify;
+@property(readonly, nonatomic) _Bool isFacebookSource;
+@property(readonly, nonatomic, getter=isEnabled) _Bool enabled;
+@property(nonatomic) _Bool onlyCreatorCanModify;
 @property(copy, nonatomic) NSString *externalModificationTag;
 @property(copy, nonatomic) NSString *externalID;
 @property(readonly, nonatomic) NSString *sourceIdentifier;

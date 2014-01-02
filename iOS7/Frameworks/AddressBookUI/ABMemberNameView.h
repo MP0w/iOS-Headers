@@ -12,17 +12,25 @@
 {
     UILabel *_nameLabel;
     UILabel *_meLabel;
-    BOOL _highlighted;
-    BOOL _isMeCard;
+    _Bool _highlighted;
+    _Bool _isMeCard;
     ABStyleProvider *_styleProvider;
     ABUIPerson *_person;
 }
 
-@property(nonatomic) BOOL isMeCard; // @synthesize isMeCard=_isMeCard;
-@property(nonatomic) BOOL highlighted; // @synthesize highlighted=_highlighted;
+@property(nonatomic) _Bool isMeCard; // @synthesize isMeCard=_isMeCard;
+@property(nonatomic) _Bool highlighted; // @synthesize highlighted=_highlighted;
 @property(retain, nonatomic) ABUIPerson *person; // @synthesize person=_person;
 @property(retain, nonatomic) ABStyleProvider *styleProvider; // @synthesize styleProvider=_styleProvider;
-- (id)_attributedNameWithNameComponents:(id)arg1 delimiter:(id)arg2 highlightedIndex:(int)arg3;
+- (id)_cachedBoldTextAttributes;
+- (id)_cachedRegularTextAttributes;
+- (double)_cachedNameLabelBaselineOffsetFromBottom;
+- (struct CGRect)_cachedNameLabelFrame;
+- (_Bool)_hasCachedNameLabelFrame;
+- (id)_cachedMemberNamePlaceholderFont;
+- (id)_cachedMemberNameBoldFont;
+- (id)_cachedMemberNameRegularFont;
+- (id)_attributedNameWithNameComponents:(id)arg1 delimiter:(id)arg2 highlightedIndex:(long long)arg3;
 - (void)layoutSubviews;
 @property(readonly, nonatomic) UILabel *meLabel;
 @property(readonly, nonatomic) UILabel *nameLabel;

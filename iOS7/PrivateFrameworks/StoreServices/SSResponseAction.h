@@ -19,7 +19,7 @@
     SSDialog *_dialog;
     NSString *_footerSection;
     NSURL *_url;
-    int _urlBagType;
+    long long _urlBagType;
 }
 
 + (id)_urlActionWithType:(id)arg1 URL:(id)arg2;
@@ -30,7 +30,7 @@
 + (id)_dialogActionWithDialog:(id)arg1;
 + (id)_checkInAppQueueActionWithClientID:(id)arg1 environment:(id)arg2;
 + (id)_actionWithActionType:(id)arg1;
-@property(readonly, nonatomic) int URLBagType; // @synthesize URLBagType=_urlBagType;
+@property(readonly, nonatomic) long long URLBagType; // @synthesize URLBagType=_urlBagType;
 @property(readonly, nonatomic) NSURL *URL; // @synthesize URL=_url;
 @property(readonly, nonatomic) NSString *footerSection; // @synthesize footerSection=_footerSection;
 @property(readonly, nonatomic) SSDialog *dialog; // @synthesize dialog=_dialog;

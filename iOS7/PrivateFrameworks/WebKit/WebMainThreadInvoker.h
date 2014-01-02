@@ -6,6 +6,7 @@
 
 #import "NSProxy.h"
 
+// Not exported
 @interface WebMainThreadInvoker : NSProxy
 {
     id target;

@@ -9,9 +9,9 @@
 @interface CoreThemeConstantEnumerator : NSObject
 {
     void *_globalListPointer;
-    int _listIndex;
-    int _indexOfLastEntry;
-    BOOL _isPastLastEntry;
+    long long _listIndex;
+    long long _indexOfLastEntry;
+    _Bool _isPastLastEntry;
 }
 
 + (id)enumeratorForGlobalListAtAddress:(void *)arg1;
@@ -20,7 +20,7 @@
 - (id)previousConstantHelper;
 - (id)nextConstantHelper;
 - (id)currentConstantHelper;
-- (int)constantCount;
+- (long long)constantCount;
 - (void)_moveToIndexOfLastEntry;
 - (id)initWithGlobalListAtAddress:(void *)arg1;
 

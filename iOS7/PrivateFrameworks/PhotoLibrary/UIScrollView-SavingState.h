@@ -7,7 +7,7 @@
 #import "UIScrollView.h"
 
 @interface UIScrollView (SavingState)
-- (BOOL)restoreScrollPositionForKey:(id)arg1;
+- (_Bool)restoreScrollPositionForKey:(id)arg1;
 - (void)saveScrollPositionForKey:(id)arg1;
 - (id)keyForContentMode:(int)arg1;
 @end

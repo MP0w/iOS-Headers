@@ -9,13 +9,13 @@
 @interface MFRangedDataFilter : MFBaseFilterDataConsumer
 {
     struct _NSRange _range;
-    unsigned int _consumedLength;
+    unsigned long long _consumedLength;
 }
 
 + (id)rangedFilterWithConsumer:(id)arg1 range:(struct _NSRange)arg2;
 + (id)rangedFilterWithConsumers:(id)arg1 range:(struct _NSRange)arg2;
 @property(nonatomic) struct _NSRange range; // @synthesize range=_range;
-- (int)appendData:(id)arg1;
+- (long long)appendData:(id)arg1;
 
 @end
 

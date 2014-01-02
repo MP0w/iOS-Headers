@@ -8,7 +8,7 @@
 
 #import "MPUStackViewDataSource-Protocol.h"
 
-@class MPImageCache, MPImageCacheRequest, MPUStackView, NSString, UIImage, UILabel;
+@class MPImageCache, MPImageCacheRequest, MPUStackView, NSString, UIImage, UILabel, UIView;
 
 @interface _RUEditStationTableViewCell : UITableViewCell <MPUStackViewDataSource>
 {
@@ -24,14 +24,16 @@
 - (void).cxx_destruct;
 - (id)_newStackView;
 - (void)_applyImageToStackItems:(id)arg1;
+@property(nonatomic) struct CGPoint vanishingPoint;
 - (void)updateForChangedDistanceFromVanishingPoint;
 @property(copy, nonatomic) NSString *stationName;
+@property(nonatomic) __weak UIView *perspectiveTargetView;
 - (void)stackView:(id)arg1 didCreateItem:(id)arg2;
-- (void)stackView:(id)arg1 applyAttributesToItem:(id)arg2 atIndex:(int)arg3;
-- (int)numberOfItemsInStackView:(id)arg1;
+- (void)stackView:(id)arg1 applyAttributesToItem:(id)arg2 atIndex:(long long)arg3;
+- (long long)numberOfItemsInStackView:(id)arg1;
 - (void)layoutSubviews;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

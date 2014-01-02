@@ -12,12 +12,14 @@
 {
     UIEvent *_tapEvent;
     UIEvent *_pressEvent;
-    BOOL _isDoubleTap;
-    BOOL _didLongPress;
+    struct CGPoint _tapEventTouchPoint;
+    _Bool _isDoubleTap;
+    _Bool _didLongPress;
     CKBalloonView *_balloonView;
 }
 
 @property(nonatomic) CKBalloonView *balloonView; // @synthesize balloonView=_balloonView;
+- (struct CGPoint)tapEventTouchPoint;
 - (void)repeatTouchDown:(id)arg1 forEvent:(id)arg2;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)touchUpOutside:(id)arg1 forEvent:(id)arg2;
@@ -29,6 +31,7 @@
 - (void)doSingleTap;
 - (void)cancelDelayedLongPress;
 - (void)cancelDelayedSingleTap;
+- (void)prepareForReuse;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

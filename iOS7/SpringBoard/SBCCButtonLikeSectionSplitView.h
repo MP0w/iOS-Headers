@@ -11,10 +11,9 @@
 @interface SBCCButtonLikeSectionSplitView : SBControlCenterSectionView
 {
     SBControlCenterSeparatorView *_separatorView;
-    float _separatorWidth;
-    BOOL _leftHidden;
-    BOOL _rightHidden;
-    BOOL _needsUpdate;
+    double _separatorWidth;
+    _Bool _leftHidden;
+    _Bool _rightHidden;
     SBCCButtonLikeSectionView *_leftSection;
     SBCCButtonLikeSectionView *_rightSection;
 }
@@ -26,10 +25,11 @@
 - (struct CGRect)_frameForSectionSlot:(int)arg1;
 - (id)_viewForSectionSlot:(int)arg1;
 - (void)_updateLabelParameters;
-- (void)setRightSectionHidden:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)setLeftSectionHidden:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)_relayoutAnimated:(BOOL)arg1;
-- (BOOL)_useLandscapeBehavior;
+- (void)_updateSeparatorVisibility;
+- (void)setRightSectionHidden:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)setLeftSectionHidden:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)_relayoutAnimated:(_Bool)arg1;
+- (_Bool)_useLandscapeBehavior;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

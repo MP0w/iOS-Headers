@@ -8,6 +8,7 @@
 
 @class NSObject<OS_dispatch_source>;
 
+// Not exported
 @interface VKMemoryObserver : NSObject
 {
     id _target;

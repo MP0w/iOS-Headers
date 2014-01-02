@@ -9,6 +9,6 @@
 @protocol SKUIPopupMenuDelegate <NSObject>
 
 @optional
-- (void)popupMenuHeader:(id)arg1 didSelectMenuItemAtIndex:(int)arg2;
+- (void)popupMenuHeader:(id)arg1 didSelectMenuItemAtIndex:(long long)arg2;
 @end
 

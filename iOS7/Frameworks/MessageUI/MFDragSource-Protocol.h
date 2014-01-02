@@ -8,12 +8,12 @@
 
 @protocol MFDragSource <NSObject>
 - (id)viewForDragSource;
-- (void)dragCompletedForItem:(id)arg1 success:(BOOL)arg2;
+- (void)dragCompletedForItem:(id)arg1 success:(_Bool)arg2;
 - (void)animatePlaceholderForDragFailure:(id)arg1;
 - (void)dragStartedWithItem:(id)arg1;
-- (id)viewForDraggedItem:(id)arg1 atScale:(float)arg2;
+- (id)viewForDraggedItem:(id)arg1 atScale:(double)arg2;
 - (struct CGRect)frameForDraggedItem:(id)arg1;
 - (id)dragInitiatedAtPoint:(struct CGPoint)arg1;
-- (BOOL)allowsDrag;
+- (_Bool)allowsDrag;
 @end
 

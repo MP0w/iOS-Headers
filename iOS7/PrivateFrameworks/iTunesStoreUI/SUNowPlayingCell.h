@@ -10,9 +10,9 @@
 {
 }
 
-- (void)setHighlightsOnlyContentView:(BOOL)arg1;
+- (void)setHighlightsOnlyContentView:(_Bool)arg1;
 - (void)setAccessoryView:(id)arg1;
-- (void)setAccessoryType:(int)arg1;
+- (void)setAccessoryType:(long long)arg1;
 - (void)layoutSubviews;
 
 @end

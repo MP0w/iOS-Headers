@@ -18,20 +18,16 @@
     MRCroppingSprite *mTextSprite1;
     struct CGRect mText0Rect;
     struct CGRect mText1Rect;
-    BOOL mTextWasUpdatedSinceLastRendering;
+    _Bool mTextWasUpdatedSinceLastRendering;
 }
 
 - (void)renderAtTime:(double)arg1 inContext:(id)arg2 withArguments:(id)arg3;
-- (BOOL)prerenderForTime:(double)arg1 inContext:(id)arg2 withArguments:(id)arg3;
-- (BOOL)isLoadedForTime:(double)arg1;
-- (BOOL)getVerticesCoordinates:(struct CGPoint (*)[4])arg1 withMatrix:(float [16])arg2 forElement:(id)arg3;
+- (_Bool)prerenderForTime:(double)arg1 inContext:(id)arg2 withArguments:(id)arg3;
+- (_Bool)isLoadedForTime:(double)arg1;
+- (_Bool)getVerticesCoordinates:(struct CGPoint (*)[4])arg1 withMatrix:(float [16])arg2 forElement:(id)arg3;
 - (id)elementHitAtPoint:(struct CGPoint)arg1 withInverseMatrix:(float [16])arg2 localPoint:(struct CGPoint *)arg3;
 - (void)setAttributes:(id)arg1;
 - (id)init;
-- (void)_unload;
-- (int)_maxLinesForTextElement:(id)arg1;
-- (struct CGSize)_maxSizeForTextElement:(id)arg1;
-- (void)_loadForTime:(double)arg1 inContext:(id)arg2 withArguments:(id)arg3;
 
 @end
 

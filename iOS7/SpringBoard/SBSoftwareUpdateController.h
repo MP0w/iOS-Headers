@@ -17,16 +17,16 @@
     SUDownload *_updateToInstall;
     int _currentNetworkType;
     int _iCloudRestoreToken;
-    BOOL _showOrScheduleForcedInstallAlertAfterNextUnlock;
-    BOOL _scheduleForcedInstallAlertAfterNextUnlock;
-    BOOL _scheduleForcedInstallAlertWhenAble;
-    BOOL _settingsResetPrefsBadgedFlag;
+    _Bool _showOrScheduleForcedInstallAlertAfterNextUnlock;
+    _Bool _scheduleForcedInstallAlertAfterNextUnlock;
+    _Bool _scheduleForcedInstallAlertWhenAble;
+    _Bool _settingsResetPrefsBadgedFlag;
 }
 
-+ (id)stringFromReasons:(int)arg1;
++ (id)stringFromReasons:(long long)arg1;
 + (id)sharedInstance;
-- (void)_toggleSettingsBadge:(BOOL)arg1;
-- (BOOL)_isSettingsBadgedForSoftwareUpdate;
+- (void)_toggleSettingsBadge:(_Bool)arg1;
+- (_Bool)_isSettingsBadgedForSoftwareUpdate;
 - (void)_clearLegacyBadgeIfNecessary:(id)arg1;
 - (void)_migrateForNewOSVersionIfNecessary;
 - (void)_saveLastKnownVersionPreference:(id)arg1;
@@ -34,13 +34,13 @@
 - (void)_savePreferencesBadgeFlag:(id)arg1;
 - (void)_autoDownloadUnknownToUserFailedForDescriptor:(id)arg1 error:(id)arg2;
 - (void)_resetState;
-- (BOOL)_isSettingsActive;
+- (_Bool)_isSettingsActive;
 - (void)_handleInstallError:(id)arg1;
-- (BOOL)_forceInstallAfterDownload;
+- (_Bool)_forceInstallAfterDownload;
 - (void)_scheduleForcedInstallRepeatAlert:(double)arg1;
 - (void)_showForcedInstallAlert;
 - (void)_isUpdateInstallable:(id)arg1;
-- (void)_showOrScheduleNextForcedInstallAlertWithReasons:(int)arg1;
+- (void)_showOrScheduleNextForcedInstallAlertWithReasons:(long long)arg1;
 - (void)_showOrScheduleNextForcedInstallAlert;
 - (void)_resetAndCancelExistingScheduledForcedInstallAlerts;
 - (void)_setUpdateToInstall:(id)arg1;
@@ -54,7 +54,7 @@
 - (void)client:(id)arg1 downloadDidStart:(id)arg2;
 - (void)client:(id)arg1 automaticDownloadDidFailToStartForNewUpdateAvailable:(id)arg2 withError:(id)arg3;
 - (void)client:(id)arg1 downloadWasInvalidatedForNewUpdateAvailable:(id)arg2;
-- (void)_postDownloadStateChangeNotification:(BOOL)arg1;
+- (void)_postDownloadStateChangeNotification:(_Bool)arg1;
 - (void)_iTunesRestoreStateChanged:(id)arg1;
 - (void)_iCloudStatusChanged;
 - (void)_lockStateChanged:(id)arg1;

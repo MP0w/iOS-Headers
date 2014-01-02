@@ -22,17 +22,17 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)description;
-- (BOOL)isEqualToSymbol:(id)arg1;
-- (int)compare:(id)arg1;
-- (BOOL)isThumb;
-- (BOOL)isArm;
-- (BOOL)isDwarf;
-- (BOOL)isStab;
-- (BOOL)isExternal;
-- (BOOL)isDyldStub;
-- (BOOL)isJavaMethod;
-- (BOOL)isObjcMethod;
-- (BOOL)isFunction;
+- (_Bool)isEqualToSymbol:(id)arg1;
+- (long long)compare:(id)arg1;
+- (_Bool)isThumb;
+- (_Bool)isArm;
+- (_Bool)isDwarf;
+- (_Bool)isStab;
+- (_Bool)isExternal;
+- (_Bool)isDyldStub;
+- (_Bool)isJavaMethod;
+- (_Bool)isObjcMethod;
+- (_Bool)isFunction;
 - (unsigned int)flags;
 - (id)text;
 - (id)sourceInfosInAddressRange:(struct _VMURange)arg1;
@@ -43,7 +43,6 @@
 - (id)mangledName;
 - (id)name;
 - (id)initWithName:(id)arg1 mangledName:(id)arg2 addressRange:(struct _VMURange)arg3 owner:(id)arg4 flags:(unsigned int)arg5;
-- (void)setOwner:(id)arg1;
 
 @end
 

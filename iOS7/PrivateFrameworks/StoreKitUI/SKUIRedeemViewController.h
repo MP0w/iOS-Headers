@@ -10,21 +10,25 @@
 
 @interface SKUIRedeemViewController : UINavigationController
 {
-    int _category;
+    long long _category;
     SKUIClientContext *_clientContext;
     NSString *_initialCode;
     SKUIRedeemStepViewController *_rootViewController;
     NSOperationQueue *_operationQueue;
 }
 
-+ (id)startingViewControllerForCategory:(int)arg1;
++ (id)startingViewControllerForCategory:(long long)arg1;
 @property(retain, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
 @property(copy, nonatomic) NSString *initialCode; // @synthesize initialCode=_initialCode;
 @property(retain, nonatomic) NSOperationQueue *operationQueue; // @synthesize operationQueue=_operationQueue;
-@property(readonly, nonatomic) int category; // @synthesize category=_category;
+@property(readonly, nonatomic) long long category; // @synthesize category=_category;
 - (void).cxx_destruct;
-- (void)viewWillAppear:(BOOL)arg1;
-- (id)initWithRedeemCategory:(int)arg1;
+- (void)_showRootViewController;
+- (void)_clientContextDidLoadWithContext:(id)arg1 error:(id)arg2;
+- (void)_cancelButtonAction:(id)arg1;
+- (unsigned long long)supportedInterfaceOrientations;
+- (void)viewWillAppear:(_Bool)arg1;
+- (id)initWithRedeemCategory:(long long)arg1;
 
 @end
 

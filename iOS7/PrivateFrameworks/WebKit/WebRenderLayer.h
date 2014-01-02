@@ -14,15 +14,15 @@
     NSString *name;
     NSString *compositingInfo;
     struct CGRect bounds;
-    BOOL composited;
-    BOOL separator;
+    _Bool composited;
+    _Bool separator;
 }
 
 + (id)compositingInfoForLayer:(struct RenderLayer *)arg1;
 + (id)nameForLayer:(struct RenderLayer *)arg1;
 - (id).cxx_construct;
-- (BOOL)isSeparator;
-- (BOOL)isComposited;
+- (_Bool)isSeparator;
+- (_Bool)isComposited;
 - (id)compositingInfo;
 - (id)heightString;
 - (id)widthString;

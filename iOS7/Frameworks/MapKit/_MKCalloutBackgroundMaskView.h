@@ -6,19 +6,24 @@
 
 #import "UIView.h"
 
+@class UIImageView;
+
+// Not exported
 @interface _MKCalloutBackgroundMaskView : UIView
 {
     UIView *_baseView;
-    UIView *_topArrow;
-    UIView *_bottomArrow;
-    UIView *_leftArrow;
-    UIView *_rightArrow;
+    UIImageView *_topArrow;
+    UIImageView *_bottomArrow;
+    UIImageView *_leftArrow;
+    UIImageView *_rightArrow;
+    UIView *_currentArrowContainer;
 }
 
-@property(readonly, nonatomic) UIView *rightArrow; // @synthesize rightArrow=_rightArrow;
-@property(readonly, nonatomic) UIView *leftArrow; // @synthesize leftArrow=_leftArrow;
-@property(readonly, nonatomic) UIView *bottomArrow; // @synthesize bottomArrow=_bottomArrow;
-@property(readonly, nonatomic) UIView *topArrow; // @synthesize topArrow=_topArrow;
+@property(readonly, nonatomic) UIView *currentArrowContainer; // @synthesize currentArrowContainer=_currentArrowContainer;
+@property(readonly, nonatomic) UIImageView *rightArrow; // @synthesize rightArrow=_rightArrow;
+@property(readonly, nonatomic) UIImageView *leftArrow; // @synthesize leftArrow=_leftArrow;
+@property(readonly, nonatomic) UIImageView *bottomArrow; // @synthesize bottomArrow=_bottomArrow;
+@property(readonly, nonatomic) UIImageView *topArrow; // @synthesize topArrow=_topArrow;
 @property(readonly, nonatomic) UIView *baseView; // @synthesize baseView=_baseView;
 - (void)_removeArrows;
 - (void)dealloc;

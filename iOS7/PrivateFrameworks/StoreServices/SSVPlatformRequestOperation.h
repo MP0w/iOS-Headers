@@ -17,6 +17,7 @@
     NSString *_imageProfile;
     NSString *_keyProfile;
     id _responseBlock;
+    NSString *_storeFrontSuffix;
 }
 
 - (void).cxx_destruct;
@@ -28,6 +29,7 @@
 - (id)_callerValue;
 - (void)main;
 - (id)valueForRequestParameter:(id)arg1;
+@property(copy) NSString *storeFrontSuffix;
 - (void)setValue:(id)arg1 forRequestParameter:(id)arg2;
 @property(copy) id responseBlock;
 @property(copy) NSString *keyProfile;

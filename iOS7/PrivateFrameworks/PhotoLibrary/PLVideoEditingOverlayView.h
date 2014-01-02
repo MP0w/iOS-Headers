@@ -6,18 +6,16 @@
 
 #import "UIView.h"
 
-@class UILabel;
+@class UILabel, UITextView;
 
 @interface PLVideoEditingOverlayView : UIView
 {
     UILabel *_titleLabel;
-    UILabel *_bodyLabel;
+    UITextView *_bodyLabel;
 }
 
-- (void)layoutSubviews;
 - (void)setBody:(id)arg1;
 - (void)setTitle:(id)arg1;
-- (void)drawRect:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

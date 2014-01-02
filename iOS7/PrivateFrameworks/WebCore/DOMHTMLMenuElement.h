@@ -6,11 +6,12 @@
 
 #import <WebCore/DOMHTMLElement.h>
 
+// Not exported
 @interface DOMHTMLMenuElement : DOMHTMLElement
 {
 }
 
-@property BOOL compact;
+@property _Bool compact;
 
 @end
 

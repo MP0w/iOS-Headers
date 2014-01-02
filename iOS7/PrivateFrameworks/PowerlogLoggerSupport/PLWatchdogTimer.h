@@ -12,10 +12,10 @@
 {
     PLLogger *_logger;
     NSString *_message;
+    double _timeout;
     id _timeoutBlock;
     NSDate *_fired;
     NSObject<OS_dispatch_source> *_timer;
-    double _timeout;
 }
 
 @property(nonatomic) NSObject<OS_dispatch_source> *timer; // @synthesize timer=_timer;

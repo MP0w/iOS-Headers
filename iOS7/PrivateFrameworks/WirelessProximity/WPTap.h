@@ -14,10 +14,10 @@
 {
     id <WPTapDelegate> _delegate;
     XPCClient *_xpcClient;
-    int _state;
+    long long _state;
 }
 
-@property(readonly) int state; // @synthesize state=_state;
+@property(readonly) long long state; // @synthesize state=_state;
 - (void).cxx_destruct;
 - (void)connectionInterrupted;
 - (void)connectionDied;
@@ -26,6 +26,7 @@
 - (void)stopWirelessTouchServer;
 - (void)startWirelessTouchClient:(id)arg1 withUUID:(id)arg2 withTransport:(unsigned char)arg3;
 - (void)startWirelessTouchServer:(id)arg1 withUUID:(id)arg2 allowTransport:(unsigned char)arg3;
+- (id)description;
 - (void)dealloc;
 - (id)init;
 

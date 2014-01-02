@@ -8,6 +8,7 @@
 
 @class CALayer, CAState, CAStateControllerUndo, NSMutableArray, NSTimer;
 
+// Not exported
 @interface CAStateControllerLayer : NSObject
 {
     CALayer *_layer;

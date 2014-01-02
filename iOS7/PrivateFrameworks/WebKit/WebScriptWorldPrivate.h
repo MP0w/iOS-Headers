@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface WebScriptWorldPrivate : NSObject
 {
     struct RefPtr<WebCore::DOMWrapperWorld> world;

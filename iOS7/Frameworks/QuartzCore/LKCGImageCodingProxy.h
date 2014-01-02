@@ -6,6 +6,7 @@
 
 #import <QuartzCore/CACodingProxy.h>
 
+// Not exported
 @interface LKCGImageCodingProxy : CACodingProxy
 {
     struct CGImage *_image;

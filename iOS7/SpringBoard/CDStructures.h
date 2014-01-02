@@ -7,17 +7,17 @@
 #pragma mark Named Structures
 
 struct CGAffineTransform {
-    float a;
-    float b;
-    float c;
-    float d;
-    float tx;
-    float ty;
+    double a;
+    double b;
+    double c;
+    double d;
+    double tx;
+    double ty;
 };
 
 struct CGPoint {
-    float x;
-    float y;
+    double x;
+    double y;
 };
 
 struct CGRect {
@@ -26,67 +26,83 @@ struct CGRect {
 };
 
 struct CGSize {
-    float width;
-    float height;
+    double width;
+    double height;
 };
 
 struct SBBannerDismissGestureState {
-    char _field1;
-    char _field2;
+    _Bool _field1;
+    _Bool _field2;
     struct CGSize _field3;
     struct CGSize _field4;
     struct CGRect _field5;
-    int _field6;
-    float _field7;
-    char _field8;
+    long long _field6;
+    double _field7;
+    _Bool _field8;
 };
 
 struct SBIconCoordinate {
-    int row;
-    int col;
+    long long row;
+    long long col;
 };
 
 struct SBWindowLevelRange_struct {
-    float start;
-    float end;
+    double start;
+    double end;
 };
 
 struct UIEdgeInsets {
-    float top;
-    float left;
-    float bottom;
-    float right;
+    double top;
+    double left;
+    double bottom;
+    double right;
 };
 
 struct _NSRange {
-    unsigned int location;
-    unsigned int length;
+    unsigned long long location;
+    unsigned long long length;
+};
+
+struct __va_list_tag {
+    unsigned int _field1;
+    unsigned int _field2;
+    void *_field3;
+    void *_field4;
 };
 
 struct _opaque_pthread_t {
-    long _field1;
+    long long _field1;
     struct __darwin_pthread_handler_rec *_field2;
-    char _field3[596];
-};
-
-struct vImage_Buffer {
-    void *_field1;
-    unsigned int _field2;
-    unsigned int _field3;
-    unsigned int _field4;
+    char _field3[1168];
 };
 
 #pragma mark Typedef'd Structures
 
 typedef struct {
-    unsigned long _field1;
-    id *_field2;
-    unsigned long *_field3;
-    unsigned long _field4[5];
-} CDStruct_11f37819;
+    id _field1;
+    id _field2;
+    id _field3;
+    id _field4;
+} CDStruct_89ddc8e1;
 
 typedef struct {
-    char itemIsEnabled[25];
+    _Bool _field1;
+    _Bool _field2;
+    _Bool _field3;
+    _Bool _field4;
+    double _field5;
+    int _field6;
+} CDStruct_ebaa735e;
+
+typedef struct {
+    unsigned long long _field1;
+    id *_field2;
+    unsigned long long *_field3;
+    unsigned long long _field4[5];
+} CDStruct_70511ce9;
+
+typedef struct {
+    _Bool itemIsEnabled[25];
     char timeString[64];
     int gsmSignalStrengthRaw;
     int gsmSignalStrengthBars;
@@ -111,7 +127,9 @@ typedef struct {
     unsigned int displayRawGSMSignal:1;
     unsigned int displayRawWifiSignal:1;
     unsigned int locationIconType:1;
-} CDStruct_87a532be;
+    unsigned int quietModeInactive:1;
+    unsigned int tetheringConnectionCount;
+} CDStruct_0e61b686;
 
 typedef struct {
     unsigned int _field1[8];
@@ -123,40 +141,18 @@ typedef struct {
     unsigned int willDeactivate:1;
     unsigned int didDeactivate:1;
     unsigned int didChangeTop:1;
+    unsigned int topBgStyleChange:1;
     unsigned int willTearDownWindow:1;
     unsigned int didTearDownWindow:1;
     unsigned int didRemoveFromWindow:1;
-} CDStruct_8a76bf7f;
+} CDStruct_6031b1ff;
 
 typedef struct {
-    char _field1;
-    char _field2;
-    char _field3;
-    char _field4;
-    float _field5;
-    int _field6;
-} CDStruct_af7d35ee;
-
-typedef struct {
-    float x;
-    float y;
-    float scale;
-    float rotate;
-} CDStruct_812d5f7b;
-
-typedef struct {
-    float _field1;
-    float _field2;
-} CDStruct_b2fbf00d;
-
-typedef struct {
-    int startStyle;
-    int startOrientation;
-    int endStyle;
-    int endOrientation;
-    int transitionType;
-    char zoomOther;
-} CDStruct_5d575efc;
+    double x;
+    double y;
+    double scale;
+    double rotate;
+} CDStruct_3dac535d;
 
 typedef struct {
     int _field1;
@@ -164,43 +160,28 @@ typedef struct {
 } CDStruct_1ef3fb1f;
 
 typedef struct {
-    char _field1[25];
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :2;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    CDStruct_87a532be _field2;
-} CDStruct_70a52081;
+    long long startStyle;
+    long long endStyle;
+    double transitionFraction;
+} CDStruct_059c2b36;
+
+typedef struct {
+    _Bool valid;
+    CDStruct_059c2b36 styleTransitionState;
+} CDStruct_e838e30c;
 
 typedef struct {
     int type;
     int modifier;
-    unsigned int pathIndex;
-    unsigned int pathIdentity;
+    unsigned long long pathIndex;
+    unsigned long long pathIdentity;
     struct CGPoint location;
     struct CGPoint previousLocation;
     struct CGPoint unrotatedLocation;
     struct CGPoint previousUnrotatedLocation;
-    float totalDistanceTraveled;
-    int interfaceOrientation;
-    int previousInterfaceOrientation;
+    double totalDistanceTraveled;
+    long long interfaceOrientation;
+    long long previousInterfaceOrientation;
     double timestamp;
-} CDStruct_9bf48c9a;
+} CDStruct_bab9d11d;
 

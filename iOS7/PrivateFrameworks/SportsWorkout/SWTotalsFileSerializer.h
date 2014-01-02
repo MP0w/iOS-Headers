@@ -12,17 +12,17 @@
 
 @interface SWTotalsFileSerializer : NSObject <NSXMLParserDelegate>
 {
-    unsigned int _totalWorkouts;
-    unsigned int _totalCalories;
-    unsigned int _totalSeconds;
-    unsigned int _mostCalories;
-    unsigned int _total5K;
-    unsigned int _total10K;
-    unsigned int _totalMarathon;
-    unsigned int _totalHalfMarathon;
+    unsigned long long _totalWorkouts;
+    unsigned long long _totalCalories;
+    unsigned long long _totalSeconds;
+    unsigned long long _mostCalories;
+    unsigned long long _total5K;
+    unsigned long long _total10K;
+    unsigned long long _totalMarathon;
+    unsigned long long _totalHalfMarathon;
     float _farthestMile;
     float _totalDistanceMiles;
-    unsigned int _totalWeightWorkouts;
+    unsigned long long _totalWeightWorkouts;
     double _weight;
     NSMutableString *_foundCharacters;
     NSURL *_url;
@@ -30,17 +30,17 @@
 
 + (void)initialize;
 @property(readonly) double weight; // @synthesize weight=_weight;
-@property(readonly) unsigned int totalWeightWorkouts; // @synthesize totalWeightWorkouts=_totalWeightWorkouts;
+@property(readonly) unsigned long long totalWeightWorkouts; // @synthesize totalWeightWorkouts=_totalWeightWorkouts;
 @property(readonly) float totalDistanceMiles; // @synthesize totalDistanceMiles=_totalDistanceMiles;
 @property(readonly) float farthestMile; // @synthesize farthestMile=_farthestMile;
-@property(readonly) unsigned int totalHalfMarathon; // @synthesize totalHalfMarathon=_totalHalfMarathon;
-@property(readonly) unsigned int totalMarathon; // @synthesize totalMarathon=_totalMarathon;
-@property(readonly) unsigned int total10K; // @synthesize total10K=_total10K;
-@property(readonly) unsigned int total5K; // @synthesize total5K=_total5K;
-@property(readonly) unsigned int mostCalories; // @synthesize mostCalories=_mostCalories;
-@property(readonly) unsigned int totalSeconds; // @synthesize totalSeconds=_totalSeconds;
-@property(readonly) unsigned int totalCalories; // @synthesize totalCalories=_totalCalories;
-@property(readonly) unsigned int totalWorkouts; // @synthesize totalWorkouts=_totalWorkouts;
+@property(readonly) unsigned long long totalHalfMarathon; // @synthesize totalHalfMarathon=_totalHalfMarathon;
+@property(readonly) unsigned long long totalMarathon; // @synthesize totalMarathon=_totalMarathon;
+@property(readonly) unsigned long long total10K; // @synthesize total10K=_total10K;
+@property(readonly) unsigned long long total5K; // @synthesize total5K=_total5K;
+@property(readonly) unsigned long long mostCalories; // @synthesize mostCalories=_mostCalories;
+@property(readonly) unsigned long long totalSeconds; // @synthesize totalSeconds=_totalSeconds;
+@property(readonly) unsigned long long totalCalories; // @synthesize totalCalories=_totalCalories;
+@property(readonly) unsigned long long totalWorkouts; // @synthesize totalWorkouts=_totalWorkouts;
 - (void)parseWeight;
 - (void)parseTotalWeightWorkouts;
 - (void)parseTotalDistanceMiles;

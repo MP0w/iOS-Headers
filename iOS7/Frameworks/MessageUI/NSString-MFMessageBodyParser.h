@@ -7,17 +7,17 @@
 #import "NSString.h"
 
 @interface NSString (MFMessageBodyParser)
-- (BOOL)mf_isHorizontalSeparator;
-- (BOOL)mf_isSignature;
-- (BOOL)mf_isForwardSeparator;
-- (BOOL)mf_isAttributionPrefix;
-- (BOOL)mf_isAttribution;
+- (_Bool)mf_isHorizontalSeparator;
+- (_Bool)mf_isSignature;
+- (_Bool)mf_isForwardSeparator;
+- (_Bool)mf_isAttributionPrefix;
+- (_Bool)mf_isAttribution;
 - (id)mf_horizontalSeparatorRegularExpression;
 - (id)mf_signatureRegularExpression;
 - (id)mf_forwardSeparatorRegularExpression;
 - (id)mf_attributionPrefixRegularExpression;
 - (id)mf_attributionRegularExpression;
 - (id)mf_copyAttributionRegularExpressionForType:(int)arg1;
-- (BOOL)mf_isWhitespace;
+- (_Bool)mf_isWhitespace;
 @end
 

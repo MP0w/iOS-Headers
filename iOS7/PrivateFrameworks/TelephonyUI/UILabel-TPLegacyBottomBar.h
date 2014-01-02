@@ -7,6 +7,6 @@
 #import "UILabel.h"
 
 @interface UILabel (TPLegacyBottomBar)
-- (BOOL)labelTextIsTruncated;
+- (_Bool)labelTextIsTruncated;
 @end
 

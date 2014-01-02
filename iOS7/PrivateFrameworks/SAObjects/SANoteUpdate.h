@@ -14,7 +14,7 @@
 
 + (id)updateWithDictionary:(id)arg1 context:(id)arg2;
 + (id)update;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSURL *identifier;
 @property(copy, nonatomic) NSString *contentsToAppend;
 - (id)encodedClassName;

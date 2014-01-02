@@ -26,16 +26,16 @@
 - (id)initWithSource:(id)arg1 dest:(id)arg2 mode:(id)arg3 options:(id)arg4;
 - (struct OpaqueFigRemaker *)createFigRemaker;
 - (id)retrieveAudioSettingForNumChannels:(id)arg1;
-- (BOOL)canPassThroughVideo:(id)arg1;
-- (BOOL)canPassThroughAudio:(id)arg1;
+- (_Bool)canPassThroughVideo:(id)arg1;
+- (_Bool)canPassThroughAudio:(id)arg1;
 - (id)settingForFigRemaker;
 - (id)fileFormatForURL:(id)arg1;
-- (BOOL)sourceHasPortraitOrientationVideo;
+- (_Bool)sourceHasPortraitOrientationVideo;
 - (struct CGSize)calculateDimensionsOfSource;
 - (void)discoverSourceProperties;
 - (id)videoPropertiesForTrackReader:(struct OpaqueFigTrackReader *)arg1;
 - (id)audioPropertiesForTrackReader:(struct OpaqueFigTrackReader *)arg1;
-- (BOOL)multipleNonEmptyEditsInTrackReader:(struct OpaqueFigTrackReader *)arg1;
+- (_Bool)multipleNonEmptyEditsInTrackReader:(struct OpaqueFigTrackReader *)arg1;
 - (void)addListeners;
 - (void)removeListeners;
 

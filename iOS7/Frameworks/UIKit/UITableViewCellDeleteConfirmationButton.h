@@ -8,6 +8,7 @@
 
 @class UILabel;
 
+// Not exported
 @interface UITableViewCellDeleteConfirmationButton : UIButton
 {
     UILabel *_titleLabel;

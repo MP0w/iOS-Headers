@@ -6,9 +6,9 @@
 
 @protocol UIWebSelectedItemPrivate
 - (void)unselect;
-- (void)setSelected:(BOOL)arg1;
-- (BOOL)isGroup;
-- (BOOL)selected;
+- (void)setSelected:(_Bool)arg1;
+- (_Bool)isGroup;
+- (_Bool)selected;
 - (id)node;
 @end
 

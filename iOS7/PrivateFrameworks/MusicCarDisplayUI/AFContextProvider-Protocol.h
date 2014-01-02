@@ -6,6 +6,6 @@
 
 @protocol AFContextProvider
 - (id)getCurrentContext;
-- (BOOL)allowContextProvider:(id)arg1;
+- (_Bool)allowContextProvider:(id)arg1;
 @end
 

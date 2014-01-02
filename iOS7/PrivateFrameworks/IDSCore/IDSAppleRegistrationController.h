@@ -10,7 +10,7 @@
 #import "IDSAppleIDSRegistrationCenterListener-Protocol.h"
 #import "IDSAppleSMSRegistrationCenterListener-Protocol.h"
 
-@class NSArray, NSMutableArray, NSString;
+@class NSArray, NSMutableArray, NSMutableSet, NSString;
 
 @interface IDSAppleRegistrationController : NSObject <IDSAppleSMSRegistrationCenterListener, IDSAppleIDRegistrationCenterListener, IDSAppleIDSRegistrationCenterListener>
 {
@@ -19,18 +19,20 @@
     NSMutableArray *_activeRegistrations;
     NSMutableArray *_trackedRegistrations;
     NSMutableArray *_authenticatedRegistrations;
+    NSMutableSet *_deferredRegisters;
     int _iMessageToken;
     int _faceTimeToken;
     int _callingToken;
 }
 
-+ (BOOL)systemSupportsRegistrationInfo:(id)arg1;
++ (_Bool)systemSupportsRegistrationInfo:(id)arg1;
 + (id)sharedInstance;
-+ (BOOL)validSIMStateForRegistration;
++ (_Bool)validSIMStateForRegistration;
 + (void)initialize;
 @property(readonly, nonatomic) NSArray *activeRegistrations; // @synthesize activeRegistrations=_activeRegistrations;
 @property(readonly, nonatomic) NSArray *authenticatedRegistrations; // @synthesize authenticatedRegistrations=_authenticatedRegistrations;
 @property(readonly, nonatomic) NSArray *trackedRegistrations; // @synthesize trackedRegistrations=_trackedRegistrations;
+- (void)systemDidLeaveFirstDataProtectionLock;
 - (void)_systemConfigurationPrefsChanged;
 @property(readonly, nonatomic) NSArray *activeRegistrationsToRegister;
 - (id)activeRegistrationsMatchingUserID:(id)arg1;
@@ -49,33 +51,34 @@
 - (void)_checkTechChange;
 - (void)center:(id)arg1 noteRegistrationRequired:(id)arg2;
 - (void)center:(id)arg1 succeededLinkHandlesConfirmation:(id)arg2 emailAddress:(id)arg3;
-- (void)center:(id)arg1 failedAuthentication:(id)arg2 error:(int)arg3 info:(id)arg4;
-- (void)center:(id)arg1 succeededRegionValidation:(id)arg2 regionID:(id)arg3 phoneNumber:(id)arg4 extraContext:(id)arg5 verified:(BOOL)arg6;
+- (void)center:(id)arg1 failedAuthentication:(id)arg2 error:(long long)arg3 info:(id)arg4;
+- (void)center:(id)arg1 succeededRegionValidation:(id)arg2 regionID:(id)arg3 phoneNumber:(id)arg4 extraContext:(id)arg5 verified:(_Bool)arg6;
 - (void)center:(id)arg1 succeededAuthentication:(id)arg2;
 - (void)center:(id)arg1 succeededInitialRegionQuery:(id)arg2;
-- (BOOL)_ensureProfileQueriesAreReadyForRegistratration:(id)arg1;
-- (void)center:(id)arg1 failedCurrentEmailsRequest:(id)arg2 error:(int)arg3 info:(id)arg4;
+- (_Bool)_sendIDSAuthenticationForRegistration:(id)arg1;
+- (_Bool)_ensureProfileQueriesAreReadyForRegistratration:(id)arg1;
+- (void)center:(id)arg1 failedCurrentEmailsRequest:(id)arg2 error:(long long)arg3 info:(id)arg4;
 - (void)center:(id)arg1 succeededCurrentEmailsRequest:(id)arg2 emailInfo:(id)arg3;
-- (BOOL)_checkRegistrationCompleteSetupBeforeAuthentication:(id)arg1;
-- (void)center:(id)arg1 failedIDSAuthentication:(id)arg2 error:(int)arg3 info:(id)arg4;
+- (_Bool)_sendIDSAuthenticationOrRegistrationIfNeeded:(id)arg1;
+- (void)center:(id)arg1 failedIDSAuthentication:(id)arg2 error:(long long)arg3 info:(id)arg4;
 - (void)center:(id)arg1 succeededIDSAuthentication:(id)arg2;
 - (void)centerNeedsNewIdentification:(id)arg1;
-- (void)center:(id)arg1 failedIdentification:(id)arg2 error:(int)arg3;
-- (void)center:(id)arg1 succeededIdentification:(id)arg2;
-- (void)center:(id)arg1 failedRegistration:(id)arg2 error:(int)arg3 info:(id)arg4;
+- (void)center:(id)arg1 failedIdentification:(id)arg2 error:(long long)arg3;
+- (void)center:(id)arg1 succeededIdentification:(id)arg2 phoneNumber:(id)arg3 token:(id)arg4;
+- (void)center:(id)arg1 failedRegistration:(id)arg2 error:(long long)arg3 info:(id)arg4;
 - (void)center:(id)arg1 succeededRegistration:(id)arg2;
 - (void)_notifyDeregistrationStarting:(id)arg1;
 - (void)_notifyRegistrationSuccess:(id)arg1;
-- (void)_notifyRegistrationFailure:(id)arg1 error:(int)arg2 info:(id)arg3;
+- (void)_notifyRegistrationFailure:(id)arg1 error:(long long)arg2 info:(id)arg3;
 - (void)_notifyRegistrationStarting:(id)arg1;
 - (void)_notifyRegistrationUpdated:(id)arg1;
 - (void)_notifyNeedsNewRegistration;
 - (void)cancelActionsForRegistrationInfo:(id)arg1;
-- (BOOL)unregisterInfo:(id)arg1;
-- (BOOL)registerInfo:(id)arg1;
-- (BOOL)registrationSupportedForRegistration:(id)arg1;
-- (BOOL)validRegistrationStateToMakeCallsForRegistration:(id)arg1;
-- (BOOL)validRegistrationStateToAcceptCallsForRegistration:(id)arg1;
+- (_Bool)unregisterInfo:(id)arg1;
+- (_Bool)registerInfo:(id)arg1;
+- (_Bool)registrationSupportedForRegistration:(id)arg1;
+- (_Bool)validRegistrationStateToMakeCallsForRegistration:(id)arg1;
+- (_Bool)validRegistrationStateToAcceptCallsForRegistration:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

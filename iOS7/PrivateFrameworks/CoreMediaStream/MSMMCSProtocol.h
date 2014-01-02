@@ -30,7 +30,7 @@
 - (void)didFinishUsingAssets:(id)arg1;
 - (void)abort;
 - (void)dealloc;
-- (void)deactivateRemoveAllFiles:(BOOL)arg1;
+- (void)deactivateRemoveAllFiles:(_Bool)arg1;
 - (void)deactivate;
 - (id)initWithPersonID:(id)arg1 path:(id)arg2;
 

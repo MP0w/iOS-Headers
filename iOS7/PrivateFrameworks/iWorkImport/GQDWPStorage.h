@@ -8,6 +8,7 @@
 
 @class GQDSStylesheet;
 
+// Not exported
 @interface GQDWPStorage : NSObject
 {
     GQDSStylesheet *mStylesheet;

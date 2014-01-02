@@ -13,23 +13,23 @@
     void *_impl;
 }
 
-+ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
++ (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 + (id)TVOutDisplay;
 + (id)mainDisplay;
 + (id)displays;
 - (id)description;
-@property(readonly, getter=isCloningSupported) BOOL cloningSupported;
-@property(readonly, getter=isCloned) BOOL cloned;
+@property(readonly, getter=isCloningSupported) _Bool cloningSupported;
+@property(readonly, getter=isCloned) _Bool cloned;
 @property(copy, nonatomic) NSString *overscanAdjustment;
-@property(readonly) float overscanAmount;
-@property(readonly, getter=isOverscanned) BOOL overscanned;
+@property(readonly) double overscanAmount;
+@property(readonly, getter=isOverscanned) _Bool overscanned;
 @property(readonly) double refreshRate;
-@property(readonly, getter=isExternal) BOOL external;
-@property(readonly, getter=isSupported) BOOL supported;
-@property(readonly) int tag;
+@property(readonly, getter=isExternal) _Bool external;
+@property(readonly, getter=isSupported) _Bool supported;
+@property(readonly) long long tag;
 @property(readonly, nonatomic) struct CGRect safeBounds;
 @property(readonly, nonatomic) struct CGRect bounds;
-@property BOOL allowsVirtualModes;
+@property _Bool allowsVirtualModes;
 @property(copy, nonatomic) NSString *colorMode;
 @property(readonly, nonatomic) CADisplayMode *preferredMode;
 @property(retain, nonatomic) CADisplayMode *currentMode;

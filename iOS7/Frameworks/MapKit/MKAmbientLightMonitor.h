@@ -11,22 +11,21 @@
 @interface MKAmbientLightMonitor : NSObject
 {
     NSHashTable *_observers;
-    BOOL _monitoring;
-    int _ambientLightLevel;
-    BOOL _debugLogLux;
+    _Bool _monitoring;
+    long long _ambientLightLevel;
+    _Bool _debugLogLux;
     struct __IOHIDEventSystemClient *_client;
-    struct __IOHIDServiceClient *_service;
-    struct deque<float, std::__1::allocator<float>> _runningStatBuffer;
-    float _runningStatSum;
-    float _lightLevelNoneThreshold;
-    float _lightLevelLowThreshold;
-    float _lightLevelMediumThreshold;
+    struct deque<double, std::__1::allocator<double>> _runningStatBuffer;
+    double _runningStatSum;
+    double _lightLevelNoneThreshold;
+    double _lightLevelLowThreshold;
+    double _lightLevelMediumThreshold;
 }
 
 + (id)sharedAmbientLightMonitor;
-@property(nonatomic) BOOL debugLogLux; // @synthesize debugLogLux=_debugLogLux;
-@property(readonly, nonatomic) int ambientLightLevel; // @synthesize ambientLightLevel=_ambientLightLevel;
-@property(readonly, nonatomic, getter=isMonitoring) BOOL monitoring; // @synthesize monitoring=_monitoring;
+@property(nonatomic) _Bool debugLogLux; // @synthesize debugLogLux=_debugLogLux;
+@property(readonly, nonatomic) long long ambientLightLevel; // @synthesize ambientLightLevel=_ambientLightLevel;
+@property(readonly, nonatomic, getter=isMonitoring) _Bool monitoring; // @synthesize monitoring=_monitoring;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)handleIOHIDEvent:(struct __IOHIDEvent *)arg1;
@@ -34,7 +33,7 @@
 - (void)startMonitoringWithObserver:(id)arg1;
 - (void)_stopMonitoring;
 - (void)_startMonitoring;
-- (float)_addSampleAndComputeMean:(const float *)arg1;
+- (double)_addSampleAndComputeMean:(const double *)arg1;
 - (void)_updateThresholds;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;

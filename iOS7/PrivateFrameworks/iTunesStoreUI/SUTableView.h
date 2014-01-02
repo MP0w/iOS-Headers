@@ -8,12 +8,12 @@
 
 @interface SUTableView : UITableView
 {
-    BOOL _allowsHeaderAndFooterToFloat;
+    _Bool _allowsHeaderAndFooterToFloat;
 }
 
-@property(nonatomic) BOOL allowsHeaderAndFooterToFloat; // @synthesize allowsHeaderAndFooterToFloat=_allowsHeaderAndFooterToFloat;
-- (BOOL)allowsHeaderViewsToFloat;
-- (BOOL)allowsFooterViewsToFloat;
+@property(nonatomic) _Bool allowsHeaderAndFooterToFloat; // @synthesize allowsHeaderAndFooterToFloat=_allowsHeaderAndFooterToFloat;
+- (_Bool)allowsHeaderViewsToFloat;
+- (_Bool)allowsFooterViewsToFloat;
 
 @end
 

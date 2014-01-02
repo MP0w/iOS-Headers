@@ -17,7 +17,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (unsigned long)_cfTypeID;
+- (unsigned long long)_cfTypeID;
 
 @end
 

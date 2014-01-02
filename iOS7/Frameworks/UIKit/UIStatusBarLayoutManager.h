@@ -8,48 +8,49 @@
 
 @class UIStatusBarForegroundView, UIStatusBarItemView;
 
+// Not exported
 @interface UIStatusBarLayoutManager : NSObject
 {
     UIStatusBarForegroundView *_foregroundView;
     int _region;
-    UIStatusBarItemView *_itemViews[31];
-    BOOL _persistentAnimationsEnabled;
+    UIStatusBarItemView *_itemViews[32];
+    _Bool _persistentAnimationsEnabled;
 }
 
-@property(nonatomic) BOOL persistentAnimationsEnabled; // @synthesize persistentAnimationsEnabled=_persistentAnimationsEnabled;
+@property(nonatomic) _Bool persistentAnimationsEnabled; // @synthesize persistentAnimationsEnabled=_persistentAnimationsEnabled;
 @property(nonatomic) UIStatusBarForegroundView *foregroundView; // @synthesize foregroundView=_foregroundView;
-- (struct CGRect)_repositionedNewFrame:(struct CGRect)arg1 widthDelta:(float)arg2;
-- (float)_positionAfterPlacingItemView:(id)arg1 startPosition:(float)arg2;
-- (struct CGRect)_frameForItemView:(id)arg1 startPosition:(float)arg2;
-- (float)_startPosition;
+- (struct CGRect)_repositionedNewFrame:(struct CGRect)arg1 widthDelta:(double)arg2;
+- (double)_positionAfterPlacingItemView:(id)arg1 startPosition:(double)arg2;
+- (struct CGRect)_frameForItemView:(id)arg1 startPosition:(double)arg2;
+- (double)_startPosition;
 - (SEL)_itemSortSelector;
 - (id)_itemViewsSortedForLayout;
 - (id)_itemViews;
 - (id)_createViewForItem:(id)arg1 withData:(id)arg2 actions:(int)arg3;
 - (id)_viewForItem:(id)arg1;
-- (float)_widthNeededForItemView:(id)arg1;
-- (void)itemView:(id)arg1 widthChangedBy:(float)arg2;
-- (BOOL)itemIsVisible:(id)arg1;
+- (double)_widthNeededForItemView:(id)arg1;
+- (void)itemView:(id)arg1 widthChangedBy:(double)arg2;
+- (_Bool)itemIsVisible:(id)arg1;
 - (struct CGRect)rectForItems:(id)arg1;
-- (float)removeOverlap:(float)arg1 fromItems:(id)arg2;
-- (float)distributeOverlap:(float)arg1 amongItems:(id)arg2;
+- (double)removeOverlap:(double)arg1 fromItems:(id)arg2;
+- (double)distributeOverlap:(double)arg1 amongItems:(id)arg2;
 - (void)clearOverlapFromItems:(id)arg1;
-- (float)widthNeededForItems:(id)arg1;
-- (float)widthNeededForItem:(id)arg1;
+- (double)widthNeededForItems:(id)arg1;
+- (double)widthNeededForItem:(id)arg1;
 - (void)makeVisibleItemsPerformPendedActions;
 - (void)positionInvisibleItems;
-- (void)removeDisabledItems:(char *)arg1;
+- (void)removeDisabledItems:(_Bool *)arg1;
 - (void)reflowWithVisibleItems:(id)arg1 duration:(double)arg2;
-- (BOOL)updateDoubleHeightItem;
-- (BOOL)prepareDoubleHeightItemWithEnabledItems:(char *)arg1;
-- (BOOL)_updateItemView:(id)arg1 withData:(id)arg2 actions:(int)arg3 animated:(BOOL)arg4;
-- (BOOL)_processDelta:(float)arg1 forView:(id)arg2;
-- (void)_positionNewItemViewsWithEnabledItems:(char *)arg1;
-- (void)_prepareEnabledItemType:(int)arg1 withEnabledItems:(char *)arg2 withData:(id)arg3 actions:(int)arg4 itemAppearing:(char *)arg5 itemDisappearing:(char *)arg6;
-- (BOOL)updateItemsWithData:(id)arg1 actions:(int)arg2 animated:(BOOL)arg3;
-- (void)setVisibilityOfItem:(id)arg1 visible:(BOOL)arg2;
-- (void)setVisibilityOfAllItems:(BOOL)arg1;
-- (BOOL)prepareEnabledItems:(char *)arg1 withData:(id)arg2 actions:(int)arg3;
+- (_Bool)updateDoubleHeightItem;
+- (_Bool)prepareDoubleHeightItemWithEnabledItems:(_Bool *)arg1;
+- (_Bool)_updateItemView:(id)arg1 withData:(id)arg2 actions:(int)arg3 animated:(_Bool)arg4;
+- (_Bool)_processDelta:(double)arg1 forView:(id)arg2;
+- (void)_positionNewItemViewsWithEnabledItems:(_Bool *)arg1;
+- (void)_prepareEnabledItemType:(int)arg1 withEnabledItems:(_Bool *)arg2 withData:(id)arg3 actions:(int)arg4 itemAppearing:(_Bool *)arg5 itemDisappearing:(_Bool *)arg6;
+- (_Bool)updateItemsWithData:(id)arg1 actions:(int)arg2 animated:(_Bool)arg3;
+- (void)setVisibilityOfItem:(id)arg1 visible:(_Bool)arg2;
+- (void)setVisibilityOfAllItems:(_Bool)arg1;
+- (_Bool)prepareEnabledItems:(_Bool *)arg1 withData:(id)arg2 actions:(int)arg3;
 - (void)dealloc;
 - (id)initWithRegion:(int)arg1 foregroundView:(id)arg2;
 

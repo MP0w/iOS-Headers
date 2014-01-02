@@ -8,15 +8,15 @@
 
 @interface PTPInitFailPacket : NSObject
 {
-    unsigned long _reason;
+    unsigned int _reason;
 }
 
-- (void)setReason:(unsigned long)arg1;
-- (unsigned long)reason;
+- (void)setReason:(unsigned int)arg1;
+- (unsigned int)reason;
 - (id)description;
 - (id)contentForTCP;
 - (id)initWithTCPBuffer:(void *)arg1;
-- (id)initWithReason:(unsigned long)arg1;
+- (id)initWithReason:(unsigned int)arg1;
 
 @end
 

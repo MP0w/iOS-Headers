@@ -8,37 +8,35 @@
 
 #import "AASetupAssistantDelegateService-Protocol.h"
 
-@class CNFRegController, FTRegAppleIDSetupOperation, NSDictionary;
+@class CNFRegController, NSDictionary;
 
 @interface FTRegAccountServiceDelegate : NSObject <AASetupAssistantDelegateService>
 {
     CNFRegController *_regController;
-    FTRegAppleIDSetupOperation *_setupOperation;
     NSDictionary *_responseDictionary;
     id _completionHandler;
 }
 
-@property(retain, nonatomic) FTRegAppleIDSetupOperation *setupOperation; // @synthesize setupOperation=_setupOperation;
 @property(copy, nonatomic) NSDictionary *responseDictionary; // @synthesize responseDictionary=_responseDictionary;
 @property(copy, nonatomic) id completionHandler; // @synthesize completionHandler=_completionHandler;
 @property(retain, nonatomic) CNFRegController *regController; // @synthesize regController=_regController;
-- (BOOL)serviceIsAvailable;
+- (_Bool)serviceIsAvailable;
 - (id)displayName;
 - (id)name;
-- (int)serviceType;
+- (long long)serviceType;
 - (void)setupOperationFailed;
 - (void)completeSetupWithResponseParameters:(id)arg1 handler:(id)arg2;
 - (id)accountSetupRequestParameters;
 - (id)_defaultSetupRequestParameters;
 - (id)delegateServiceIdentifier;
-- (BOOL)_shouldSkipAccountSetup:(id)arg1;
+- (_Bool)_shouldSkipAccountSetup:(id)arg1;
 - (id)_existingOperationalAccount;
 - (id)_existingAccountForSetupParameters:(id)arg1;
-- (BOOL)_account:(id)arg1 matchesSetupParameters:(id)arg2;
-- (BOOL)_hasOperationalAccount;
-- (BOOL)_hasAccount;
-- (void)_handleFailureWithErrorCode:(int)arg1;
-- (void)_handleSuccess:(BOOL)arg1 error:(id)arg2;
+- (_Bool)_account:(id)arg1 matchesSetupParameters:(id)arg2;
+- (_Bool)_hasOperationalAccount;
+- (_Bool)_hasAccount;
+- (void)_handleFailureWithErrorCode:(long long)arg1;
+- (void)_handleSuccess:(_Bool)arg1 error:(id)arg2;
 - (void)_cleanup;
 - (id)_logName;
 - (void)dealloc;

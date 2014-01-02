@@ -11,17 +11,17 @@
 @interface MCPlugSerial : MCPlug
 {
     NSMutableDictionary *mTransitionAttributes;
-    unsigned int mIndex;
+    unsigned long long mIndex;
     NSString *mTransitionID;
-    MCContainerSerializer *mSupercontainer;
     double mTransitionDuration;
+    MCContainerSerializer *mSupercontainer;
 }
 
 + (id)keyPathsForValuesAffectingValueForKey:(id)arg1;
 @property MCContainerSerializer *supercontainer; // @synthesize supercontainer=mSupercontainer;
 @property(nonatomic) double transitionDuration; // @synthesize transitionDuration=mTransitionDuration;
 @property(copy) NSString *transitionID; // @synthesize transitionID=mTransitionID;
-@property(nonatomic) unsigned int index; // @synthesize index=mIndex;
+@property(nonatomic) unsigned long long index; // @synthesize index=mIndex;
 - (void)_copySelfToSnapshot:(id)arg1;
 @property(copy) NSDictionary *transitionAttributes;
 - (void)addTransitionAttributes:(id)arg1;

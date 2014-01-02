@@ -8,6 +8,7 @@
 
 @class NSNumber, NSString, WebInspectorRemoteChannel, WebInspectorServerWebViewConnectionController;
 
+// Not exported
 @interface WebInspectorServerWebViewConnection : NSObject
 {
     WebInspectorRemoteChannel *_channel;
@@ -25,7 +26,7 @@
 - (id)identifier;
 - (id)connectionIdentifier;
 - (void)dealloc;
-- (BOOL)setupChannel;
+- (_Bool)setupChannel;
 - (id)initWithController:(id)arg1 connectionIdentifier:(id)arg2 destination:(id)arg3 identifier:(id)arg4;
 
 @end

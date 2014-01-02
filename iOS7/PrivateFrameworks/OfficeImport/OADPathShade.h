@@ -8,21 +8,22 @@
 
 @class OADRelativeRect;
 
+// Not exported
 @interface OADPathShade : OADShade
 {
     OADRelativeRect *mFillToRect;
-    BOOL mIsFillToRectOverridden;
+    _Bool mIsFillToRectOverridden;
     int mType;
-    BOOL mIsTypeOverridden;
+    _Bool mIsTypeOverridden;
 }
 
 + (id)defaultProperties;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (BOOL)isTypeOverridden;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isTypeOverridden;
 - (void)setType:(int)arg1;
 - (int)type;
-- (BOOL)isFillToRectOverridden;
+- (_Bool)isFillToRectOverridden;
 - (void)setFillToRect:(id)arg1;
 - (id)fillToRect;
 - (id)initWithDefaults;

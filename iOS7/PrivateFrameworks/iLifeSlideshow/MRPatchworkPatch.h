@@ -12,14 +12,14 @@
 {
     MRImage *_image;
     struct CGRect rectangle;
-    BOOL needsBlend;
+    _Bool needsBlend;
 }
 
-@property(nonatomic) BOOL needsBlend; // @synthesize needsBlend;
+@property(nonatomic) _Bool needsBlend; // @synthesize needsBlend;
 @property(nonatomic) struct CGRect rectangle; // @synthesize rectangle;
 @property(retain, nonatomic) MRImage *image; // @synthesize image=_image;
 - (void)dealloc;
-- (id)initWithImage:(id)arg1 rectangle:(struct CGRect)arg2 needsBlend:(BOOL)arg3;
+- (id)initWithImage:(id)arg1 rectangle:(struct CGRect)arg2 needsBlend:(_Bool)arg3;
 
 @end
 

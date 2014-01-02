@@ -7,65 +7,87 @@
 #import "UIViewController.h"
 
 #import "RUSearchDataSourceDelegate-Protocol.h"
+#import "UISearchBarDelegate-Protocol.h"
 #import "UISearchDisplayDelegate-Protocol.h"
 #import "UITableViewDataSource-Protocol.h"
 #import "UITableViewDelegate-Protocol.h"
 
-@class MPImageCache, NSArray, NSString, RUSearchDataSource, SKUICircleProgressIndicator, UILabel, UITableView;
+@class MPImageCache, NSArray, NSError, NSMutableArray, NSString, RUMetricsController, RUSearchDataSource, SKUICircleProgressIndicator, SSMetricsPageEvent, UILabel, UITableView;
 
-@interface RUSearchViewController : UIViewController <RUSearchDataSourceDelegate, UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface RUSearchViewController : UIViewController <RUSearchDataSourceDelegate, UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate>
 {
     SKUICircleProgressIndicator *_activityIndicatorView;
-    unsigned int _addingIndex;
+    unsigned long long _addingIndex;
     RUSearchDataSource *_dataSource;
     MPImageCache *_imageCache;
+    SSMetricsPageEvent *_lastPageEvent;
+    NSError *_lastSearchError;
     UILabel *_loadingLabel;
     struct CGRect _keyboardFrame;
+    RUMetricsController *_metricsController;
     UILabel *_noResultsLabel;
+    NSMutableArray *_queuedMetricsOperations;
     NSArray *_searchResultCategories;
     NSString *_searchTerm;
-    BOOL _displaysCoreSeedName;
+    _Bool _displaysCoreSeedName;
+    _Bool _excludeFeaturedStations;
     id <RUSearchViewControllerDelegate> _delegate;
     UITableView *_tableView;
 }
 
 @property(readonly, nonatomic) UITableView *tableView; // @synthesize tableView=_tableView;
-@property(nonatomic) BOOL displaysCoreSeedName; // @synthesize displaysCoreSeedName=_displaysCoreSeedName;
+@property(nonatomic) _Bool excludeFeaturedStations; // @synthesize excludeFeaturedStations=_excludeFeaturedStations;
+@property(nonatomic) _Bool displaysCoreSeedName; // @synthesize displaysCoreSeedName=_displaysCoreSeedName;
 @property(nonatomic) __weak id <RUSearchViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_updateVisibleHeadersState;
-- (void)_setShowingLoading:(BOOL)arg1;
-- (id)_searchResultsForSection:(unsigned int)arg1;
-- (void)_reloadForSearchTerm:(id)arg1;
+- (id)_stationDictionaryForIndexPath:(id)arg1 usingResultsDictionary:(_Bool *)arg2;
+- (void)_setShowingLoading:(_Bool)arg1;
+- (void)_reloadForSearchTerm:(id)arg1 canUpdateDataSourceResults:(_Bool)arg2;
+- (id)_parentPageType;
+- (id)_parentPageDescription;
 - (id)_newSectionHeaderWithAttributedText:(id)arg1;
 - (void)_layoutSearchSubviews;
+- (id)_impressionsWithStationDictionaries:(id)arg1 fieldsMap:(id)arg2;
+- (id)_highlightRangesDictionaryForIndexPath:(id)arg1;
+- (id)_firstValueForKeyInImpressionsMap:(id)arg1 withStationDictionary:(id)arg2;
+- (id)_currentVisibleStationDictionaries;
+- (id)_createPageEventForCurrentState;
+- (long long)_countOfStationsForSection:(unsigned long long)arg1;
+- (void)_addMetricsControllerOperationBlock:(id)arg1;
 - (void)_keyboardWillChangeFrameNotification:(id)arg1;
+- (void)_applicationWillEnterForegroundNotification:(id)arg1;
+- (void)_clearButtonAction:(id)arg1;
 - (void)updateResultsForSearchTerm:(id)arg1;
 - (void)removeAddingIndicator;
 - (void)tableViewDidFinishReload:(id)arg1;
-- (void)tableView:(id)arg1 willDisplayHeaderView:(id)arg2 forSection:(int)arg3;
+- (void)tableView:(id)arg1 willDisplayHeaderView:(id)arg2 forSection:(long long)arg3;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
-- (id)tableView:(id)arg1 viewForHeaderInSection:(int)arg2;
-- (id)tableView:(id)arg1 viewForFooterInSection:(int)arg2;
-- (float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2;
-- (float)tableView:(id)arg1 heightForFooterInSection:(int)arg2;
+- (id)tableView:(id)arg1 viewForHeaderInSection:(long long)arg2;
+- (id)tableView:(id)arg1 viewForFooterInSection:(long long)arg2;
+- (double)tableView:(id)arg1 heightForHeaderInSection:(long long)arg2;
+- (double)tableView:(id)arg1 heightForFooterInSection:(long long)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (void)_applyHighlightRanges:(id)arg1 toAttributedString:(id)arg2 withEmphasizedTextAttributes:(id)arg3;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
 - (void)searchDisplayController:(id)arg1 willUnloadSearchResultsTableView:(id)arg2;
 - (void)searchDisplayController:(id)arg1 willShowSearchResultsTableView:(id)arg2;
 - (void)searchDisplayController:(id)arg1 willHideSearchResultsTableView:(id)arg2;
 - (void)searchDisplayControllerWillEndSearch:(id)arg1;
 - (void)searchDisplayControllerWillBeginSearch:(id)arg1;
-- (BOOL)searchDisplayController:(id)arg1 shouldReloadTableForSearchString:(id)arg2;
+- (_Bool)searchDisplayController:(id)arg1 shouldReloadTableForSearchString:(id)arg2;
 - (void)searchDisplayController:(id)arg1 didLoadSearchResultsTableView:(id)arg2;
 - (void)searchDisplayControllerDidEndSearch:(id)arg1;
 - (void)searchDisplayControllerDidBeginSearch:(id)arg1;
+- (void)searchBarCancelButtonClicked:(id)arg1;
 - (void)scrollViewDidScroll:(id)arg1;
-- (void)searchDataSource:(id)arg1 didFinishUpdatingResults:(id)arg2 forSearchTerm:(id)arg3;
+- (void)searchDataSource:(id)arg1 willStartSearchRequestForSearchTerm:(id)arg2;
+- (void)searchDataSource:(id)arg1 didFinishUpdatingResults:(id)arg2 forSearchTerm:(id)arg3 withError:(id)arg4 metricsConfiguration:(id)arg5 metricsPageEvent:(id)arg6;
 - (id)contentScrollView;
 - (void)viewDidLoad;
+- (void)didRotateFromInterfaceOrientation:(long long)arg1;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 

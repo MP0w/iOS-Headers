@@ -6,24 +6,22 @@
 
 #import "UIView.h"
 
-@class NSString, UIImage, UIImageView, UILabel;
+@class NSString, UILabel;
 
 @interface SBSearchTableHeaderView : UIView
 {
-    UIImageView *_imageView;
     UILabel *_titleLabel;
+    UIView *_separatorView;
     NSString *_reuseIdentifier;
 }
 
-+ (float)heightForContentSizeCategory:(id)arg1;
-+ (float)titleBaselineFromBottomForContentSizeCategory:(id)arg1;
-+ (id)textColor;
++ (double)heightForContentSizeCategory:(id)arg1;
++ (double)titleBaselineFromBottomForContentSizeCategory:(id)arg1;
++ (id)lineColor;
 @property(readonly, nonatomic) NSString *reuseIdentifier; // @synthesize reuseIdentifier=_reuseIdentifier;
-- (BOOL)isUserInteractionEnabled;
+- (_Bool)isUserInteractionEnabled;
 - (void)dealloc;
 @property(retain, nonatomic) NSString *title;
-@property(retain, nonatomic) UIImage *image;
-- (void)drawRect:(struct CGRect)arg1;
 - (void)layoutSubviews;
 - (void)prepareForReuse;
 - (id)initWithReuseIdentifier:(id)arg1;

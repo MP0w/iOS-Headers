@@ -8,6 +8,7 @@
 
 @class NSExpression, NSMutableArray, NSMutableString, NSSQLColumn, NSSQLEntity, NSSQLFetchIntermediate, NSString;
 
+// Not exported
 @interface NSSQLSubqueryExpressionIntermediate : NSSQLExpressionIntermediate
 {
     NSExpression *_trailingKeypath;
@@ -22,11 +23,11 @@
     NSSQLColumn *_targetColumn;
     NSString *_targetAlias;
     NSMutableArray *_keypathsToPromote;
-    BOOL _useDistinct;
-    BOOL _isCount;
-    BOOL _hasTrailingFunction;
-    BOOL _onlyTrailIsCount;
-    BOOL _subqueryHasTruePredicate;
+    _Bool _useDistinct;
+    _Bool _isCount;
+    _Bool _hasTrailingFunction;
+    _Bool _onlyTrailIsCount;
+    _Bool _subqueryHasTruePredicate;
 }
 
 - (id)generateSQLStringInContext:(id)arg1;
@@ -34,14 +35,14 @@
 - (void)_setVariableColumn:(id)arg1;
 - (void)_createSelectClauseInFetchWithContext:(id)arg1;
 - (void)selectDistinct;
-- (BOOL)keypathExpressionIsSafeLHSForIn:(id)arg1;
+- (_Bool)keypathExpressionIsSafeLHSForIn:(id)arg1;
 - (void)_promoteJoinsForSubqueryScopedKeypaths;
 - (void)_promoteJoinsForSubqueryScopedKeypath:(id)arg1;
 - (id)_generateSQLForVariableExpression:(id)arg1 inContext:(id)arg2;
 - (id)governingAliasForKeypathExpression:(id)arg1;
 - (id)governingEntityForKeypathExpression:(id)arg1;
 - (id)fetchIntermediateForKeypathExpression:(id)arg1;
-- (BOOL)_isKeypathScopedToSubquery:(id)arg1;
+- (_Bool)_isKeypathScopedToSubquery:(id)arg1;
 - (void)dealloc;
 - (id)initWithExpression:(id)arg1 trailingKeypath:(id)arg2 inScope:(id)arg3;
 

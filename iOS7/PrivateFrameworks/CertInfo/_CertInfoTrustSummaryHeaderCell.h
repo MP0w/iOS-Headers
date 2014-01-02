@@ -16,23 +16,23 @@
     UILabel *_subtitleLabel;
     _CertInfoActionButton *_actionButton;
     _CertInfoGradientLabel *_trustedLabel;
-    BOOL _trusted;
+    _Bool _trusted;
 }
 
-@property(nonatomic, getter=isTrusted) BOOL trusted; // @synthesize trusted=_trusted;
+@property(nonatomic, getter=isTrusted) _Bool trusted; // @synthesize trusted=_trusted;
 - (id)_trustedLabel;
 - (id)_subtitleLabel;
 - (id)_titleLabel;
 - (void)_layoutSubviewsWithActionButtonSize:(struct CGSize)arg1;
 - (void)layoutSubviews;
-- (void)setActionButtonTitle:(id)arg1 destructive:(BOOL)arg2 animated:(BOOL)arg3;
-@property(readonly, nonatomic) float rowHeight;
-- (void)setExpired:(BOOL)arg1;
+- (void)setActionButtonTitle:(id)arg1 destructive:(_Bool)arg2 animated:(_Bool)arg3;
+@property(readonly, nonatomic) double rowHeight;
+- (void)setExpired:(_Bool)arg1;
 @property(copy, nonatomic) NSString *trustSubtitle;
 @property(copy, nonatomic) NSString *trustTitle;
 @property(readonly, nonatomic) _CertInfoActionButton *actionButton;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

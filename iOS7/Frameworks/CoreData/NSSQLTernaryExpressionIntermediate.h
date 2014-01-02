@@ -6,6 +6,7 @@
 
 #import <CoreData/NSSQLExpressionIntermediate.h>
 
+// Not exported
 @interface NSSQLTernaryExpressionIntermediate : NSSQLExpressionIntermediate
 {
 }

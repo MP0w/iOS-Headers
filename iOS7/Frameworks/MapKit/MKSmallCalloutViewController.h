@@ -16,23 +16,25 @@
 }
 
 + (struct CGSize)defaultSize;
+@property(nonatomic) long long mapDisplayStyle;
 @property(retain, nonatomic) MKCalloutBackgroundView *calloutBackgroundView;
-- (BOOL)canDisplayCompleteTitleWhenExpanded;
-- (void)setDetailView:(id)arg1 animated:(BOOL)arg2;
+- (_Bool)canDisplayCompleteTitleWhenExpanded;
+- (void)setDetailView:(id)arg1 animated:(_Bool)arg2;
 @property(retain, nonatomic) UIView *detailView;
-- (void)setRightView:(id)arg1 animated:(BOOL)arg2;
-- (void)setLeftView:(id)arg1 animated:(BOOL)arg2;
+- (void)setRightView:(id)arg1 animated:(_Bool)arg2;
+- (void)setLeftView:(id)arg1 animated:(_Bool)arg2;
 @property(retain, nonatomic) UIView *rightView;
 @property(retain, nonatomic) UIView *leftView;
 @property(copy, nonatomic) NSString *calloutSubtitle;
-- (void)setCalloutSubtitle:(id)arg1 animated:(BOOL)arg2;
+- (void)setCalloutSubtitle:(id)arg1 animated:(_Bool)arg2;
 @property(copy, nonatomic) NSString *calloutTitle;
-- (struct CGSize)contentSizeForViewInPopover;
+- (struct CGSize)preferredContentSize;
 - (id)_smallCalloutView;
 - (void)beginMapsTransitionMovingSideways;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;
 - (void)reset;
+- (void)updatePreferredContentSize;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 

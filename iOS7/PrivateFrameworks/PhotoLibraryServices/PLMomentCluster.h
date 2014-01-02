@@ -29,13 +29,14 @@
 @property(retain, nonatomic) NSDate *startingDate; // @synthesize startingDate=__startingDate;
 @property(readonly, nonatomic) NSManagedObjectID *objectID; // @synthesize objectID=__objectID;
 @property(retain, nonatomic) NSString *title; // @synthesize title=__title;
-- (unsigned int)expandFromNode:(id)arg1 withNeighbors:(id)arg2 inClustering:(id)arg3 minimumNumberOfPoints:(unsigned int)arg4;
+- (unsigned long long)expandFromNode:(id)arg1 withNeighbors:(id)arg2 inClustering:(id)arg3 minimumNumberOfPoints:(unsigned long long)arg4;
 @property(readonly, nonatomic) CLLocation *approximateLocation; // @synthesize approximateLocation=__approximateLocation;
 - (void)removeNodesFromCluster:(id)arg1;
 - (void)removeNode:(id)arg1;
 - (void)addNodesFromCluster:(id)arg1;
 - (void)addNode:(id)arg1;
 @property(readonly, nonatomic) NSArray *nodes;
+- (id)description;
 - (void)dealloc;
 - (id)initWithObjectID:(id)arg1;
 - (id)initWithMoment:(id)arg1;

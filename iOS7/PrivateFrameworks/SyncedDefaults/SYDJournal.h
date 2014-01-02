@@ -8,15 +8,16 @@
 
 @class NSMutableDictionary;
 
+// Not exported
 @interface SYDJournal : NSObject
 {
     NSMutableDictionary *store;
     NSMutableDictionary *journal;
-    BOOL readonly;
+    _Bool readonly;
 }
 
 - (id)description;
-- (BOOL)removeChangesUntilChangeCount:(long long)arg1;
+- (_Bool)removeChangesUntilChangeCount:(long long)arg1;
 - (void)addChange:(int)arg1 forKey:(id)arg2 changeCount:(long long)arg3;
 - (long long)maximumChangeCount;
 - (id)changesSinceChangeCount:(long long)arg1;

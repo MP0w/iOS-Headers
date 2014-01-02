@@ -8,6 +8,7 @@
 
 @class _UIFlowLayoutRow, _UIFlowLayoutSection;
 
+// Not exported
 @interface _UIFlowLayoutItem : NSObject
 {
     _UIFlowLayoutSection *_section;

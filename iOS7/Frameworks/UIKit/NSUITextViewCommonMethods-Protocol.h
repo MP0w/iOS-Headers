@@ -10,16 +10,17 @@
 @class NSTextContainer;
 
 @protocol NSUITextViewCommonMethods <NSTextLayoutOrientationProvider, NSTextContainerView>
-- (void)setNeedsDisplayInRect:(struct CGRect)arg1 avoidAdditionalLayout:(BOOL)arg2;
-- (BOOL)isHorizontallyResizable;
+- (void)setNeedsDisplayInRect:(struct CGRect)arg1 avoidAdditionalLayout:(_Bool)arg2;
+- (_Bool)isHorizontallyResizable;
 - (struct CGSize)minSize;
 - (void)invalidateTextContainerOrigin;
 - (void)setConstrainedFrameSize:(struct CGSize)arg1;
-- (struct CGSize)textContainerInset;
+- (struct UIEdgeInsets)textContainerInset;
 - (struct CGPoint)textContainerOrigin;
 - (struct CGRect)visibleRect;
 
 @optional
+@property(nonatomic) struct _NSRange markedRange;
 @property(nonatomic) NSTextContainer *textContainer;
 - (void)addTextAttachmentView:(id)arg1 forAttachment:(id)arg2;
 @end

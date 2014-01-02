@@ -8,6 +8,7 @@
 
 @class CALayer, CAStateController, CAStateTransition, NSMutableArray, NSString;
 
+// Not exported
 @interface CAStateControllerTransition : NSObject
 {
     CAStateController *_controller;
@@ -26,7 +27,7 @@
 @property(readonly, nonatomic) CAStateTransition *transition; // @synthesize transition=_transition;
 @property(readonly, nonatomic) CALayer *layer; // @synthesize layer=_layer;
 - (void)dealloc;
-- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
+- (void)animationDidStop:(id)arg1 finished:(_Bool)arg2;
 - (void)invalidate;
 - (void)removeAnimationFromLayer:(id)arg1 forKey:(id)arg2;
 - (void)addAnimation:(id)arg1;

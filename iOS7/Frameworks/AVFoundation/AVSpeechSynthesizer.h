@@ -8,17 +8,18 @@
 
 @interface AVSpeechSynthesizer : NSObject
 {
-    BOOL speaking;
-    BOOL paused;
+    _Bool speaking;
+    _Bool paused;
     id <AVSpeechSynthesizerDelegate> delegate;
 }
 
-@property(readonly, nonatomic, getter=isPaused) BOOL paused; // @synthesize paused;
-@property(readonly, nonatomic, getter=isSpeaking) BOOL speaking; // @synthesize speaking;
++ (void)initialize;
+@property(readonly, nonatomic, getter=isPaused) _Bool paused; // @synthesize paused;
+@property(readonly, nonatomic, getter=isSpeaking) _Bool speaking; // @synthesize speaking;
 @property(nonatomic) id <AVSpeechSynthesizerDelegate> delegate; // @synthesize delegate;
-- (BOOL)continueSpeaking;
-- (BOOL)pauseSpeakingAtBoundary:(int)arg1;
-- (BOOL)stopSpeakingAtBoundary:(int)arg1;
+- (_Bool)continueSpeaking;
+- (_Bool)pauseSpeakingAtBoundary:(long long)arg1;
+- (_Bool)stopSpeakingAtBoundary:(long long)arg1;
 - (void)speakUtterance:(id)arg1;
 
 @end

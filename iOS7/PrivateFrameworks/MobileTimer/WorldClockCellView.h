@@ -6,40 +6,46 @@
 
 #import "UIView.h"
 
-@class AnalogClockView, CADisplayLink, DigitalClockLabel, NSDateFormatter, NSTimeZone, UILabel;
+#import "Clock-Protocol.h"
 
-@interface WorldClockCellView : UIView
+@class AnalogClockView, DigitalClockLabel, NSTimeZone, UILabel;
+
+@interface WorldClockCellView : UIView <Clock>
 {
-    NSDateFormatter *_dateFormatter;
-    NSDateFormatter *_timeFormatter;
     NSTimeZone *_timeZone;
-    double _nowInMinutes;
-    CADisplayLink *_displayLink;
-    BOOL _editing;
+    long long _nowInMinutes;
+    _Bool _editing;
+    _Bool _started;
     id <WorldClockCellViewDelegate> _delegate;
-    int _style;
+    long long _style;
     AnalogClockView *_analogClock;
     DigitalClockLabel *_digitalClock;
     UILabel *_nameLabel;
     UILabel *_combinedLabel;
 }
 
++ (id)combinedStringFromDate:(id)arg1 withTimezoneOffset:(long long)arg2 dayText:(id *)arg3 hourText:(id *)arg4 usesSeparateLines:(_Bool)arg5;
+@property(readonly, nonatomic) _Bool started; // @synthesize started=_started;
 @property(readonly, nonatomic) UILabel *combinedLabel; // @synthesize combinedLabel=_combinedLabel;
 @property(readonly, nonatomic) UILabel *nameLabel; // @synthesize nameLabel=_nameLabel;
 @property(readonly, nonatomic) DigitalClockLabel *digitalClock; // @synthesize digitalClock=_digitalClock;
 @property(readonly, nonatomic) AnalogClockView *analogClock; // @synthesize analogClock=_analogClock;
-@property(nonatomic) int style; // @synthesize style=_style;
+@property(nonatomic) long long style; // @synthesize style=_style;
 @property(nonatomic) id <WorldClockCellViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)layoutSubviews;
-- (id)stringFromDate:(id)arg1 dayText:(id)arg2 withTimezoneOffset:(int)arg3;
+- (id)stringFromDate:(id)arg1 withTimezoneOffset:(long long)arg2;
 - (void)setTimeZone:(id)arg1;
 - (void)updateTime;
-- (void)updateTimeIfNeeded;
+- (double)coarseUpdateInterval;
+- (double)updateInterval;
+- (void)updateTimeContinuously:(long long)arg1;
+@property(readonly, nonatomic) int runMode;
 - (void)localeChange:(id)arg1;
+- (void)stop;
+- (void)start;
 - (void)significantTimeChange:(id)arg1;
-- (void)didMoveToSuperview;
-- (void)setStyle:(int)arg1 animated:(BOOL)arg2;
-- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)setStyle:(long long)arg1 animated:(_Bool)arg2;
+- (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

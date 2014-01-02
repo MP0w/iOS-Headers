@@ -7,7 +7,7 @@
 #import "NSNumber.h"
 
 @interface NSNumber (ArchitectureSafeAdditions)
-+ (id)numberWithCGFloat:(float)arg1;
-- (id)initWithCGFloat:(float)arg1;
++ (id)numberWithCGFloat:(double)arg1;
+- (id)initWithCGFloat:(double)arg1;
 @end
 

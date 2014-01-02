@@ -7,7 +7,7 @@
 #import "NSString.h"
 
 @interface NSString (SBPasscodeLockEntryFieldExtras)
-- (BOOL)isNewline;
-- (BOOL)isSingleCharacterAndMemberOfSet:(id)arg1;
+- (_Bool)isNewline;
+- (_Bool)isSingleCharacterAndMemberOfSet:(id)arg1;
 @end
 

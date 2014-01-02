@@ -10,20 +10,20 @@
 
 @interface PUFeedSectionInfosChange : NSObject
 {
-    BOOL _shouldReload;
+    _Bool _shouldReload;
     NSIndexSet *_deletedIndexes;
     NSIndexSet *_insertedIndexes;
     NSIndexSet *_updatedIndexes;
-    NSIndexSet *_indexesWithCommentChanges;
+    NSSet *_sectionInfosWithCommentChanges;
     NSSet *_updatedAssets;
 }
 
 @property(retain, nonatomic) NSSet *updatedAssets; // @synthesize updatedAssets=_updatedAssets;
-@property(retain, nonatomic) NSIndexSet *indexesWithCommentChanges; // @synthesize indexesWithCommentChanges=_indexesWithCommentChanges;
+@property(retain, nonatomic) NSSet *sectionInfosWithCommentChanges; // @synthesize sectionInfosWithCommentChanges=_sectionInfosWithCommentChanges;
 @property(retain, nonatomic) NSIndexSet *updatedIndexes; // @synthesize updatedIndexes=_updatedIndexes;
 @property(retain, nonatomic) NSIndexSet *insertedIndexes; // @synthesize insertedIndexes=_insertedIndexes;
 @property(retain, nonatomic) NSIndexSet *deletedIndexes; // @synthesize deletedIndexes=_deletedIndexes;
-@property(nonatomic) BOOL shouldReload; // @synthesize shouldReload=_shouldReload;
+@property(nonatomic) _Bool shouldReload; // @synthesize shouldReload=_shouldReload;
 - (void).cxx_destruct;
 
 @end

@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface WKProcessGroupData : NSObject
 {
     struct WKRetainPtr<const OpaqueWKContext *> _contextRef;

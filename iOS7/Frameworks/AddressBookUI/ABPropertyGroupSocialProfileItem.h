@@ -12,7 +12,7 @@
 {
 }
 
-- (BOOL)isEquivalentToItem:(id)arg1;
+- (_Bool)isEquivalentToItem:(id)arg1;
 - (id)editingStringValue;
 - (id)valueForDisplayString:(id)arg1;
 - (id)displayStringForValue:(id)arg1;

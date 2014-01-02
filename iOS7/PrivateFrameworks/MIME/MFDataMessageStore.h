@@ -18,8 +18,8 @@
 - (id)_cachedBodyDataForMessage:(id)arg1 valueIfNotPresent:(id)arg2;
 - (id)_cachedHeadersForMessage:(id)arg1 valueIfNotPresent:(id)arg2;
 - (id)_cachedBodyForMessage:(id)arg1 valueIfNotPresent:(id)arg2;
-- (id)bodyDataForMessage:(id)arg1 isComplete:(char *)arg2 isPartial:(char *)arg3 downloadIfNecessary:(BOOL)arg4;
-- (id)headerDataForMessage:(id)arg1 downloadIfNecessary:(BOOL)arg2;
+- (id)bodyDataForMessage:(id)arg1 isComplete:(_Bool *)arg2 isPartial:(_Bool *)arg3 downloadIfNecessary:(_Bool)arg4;
+- (id)headerDataForMessage:(id)arg1 downloadIfNecessary:(_Bool)arg2;
 - (id)account;
 - (id)message;
 - (void)setMessageClass:(Class)arg1;

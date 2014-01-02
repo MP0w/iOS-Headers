@@ -10,6 +10,6 @@
 - (void)cr_addObject:(id)arg1 orPlaceholder:(id)arg2;
 - (void)cr_addNonNilObject:(id)arg1;
 - (void)cr_insertObject:(id)arg1 usingComparator:(id)arg2;
-- (void)cr_removeObjectsStartingAtIndex:(unsigned int)arg1;
+- (void)cr_removeObjectsStartingAtIndex:(unsigned long long)arg1;
 @end
 

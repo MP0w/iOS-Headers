@@ -6,6 +6,7 @@
 
 #import <OfficeImport/OADShadowEffect.h>
 
+// Not exported
 @interface OADOuterShadowEffect : OADShadowEffect
 {
     float mXScale;
@@ -13,13 +14,13 @@
     float mXSkew;
     float mYSkew;
     int mAlignment;
-    BOOL mRotateWithShape;
+    _Bool mRotateWithShape;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (void)setRotateWithShape:(BOOL)arg1;
-- (BOOL)rotateWithShape;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (void)setRotateWithShape:(_Bool)arg1;
+- (_Bool)rotateWithShape;
 - (void)setAlignment:(int)arg1;
 - (int)alignment;
 - (void)setYSkew:(float)arg1;

@@ -9,9 +9,9 @@
 @interface IMService (CKAdditions)
 - (id)attributedTranscriptText;
 - (BOOL)__ck_displayColor;
-- (int)__ck_maxRecipientCount;
+- (long long)__ck_maxRecipientCount;
 - (id)__ck_displayName;
-- (BOOL)__ck_isSMS;
-- (BOOL)__ck_isiMessage;
+- (_Bool)__ck_isSMS;
+- (_Bool)__ck_isiMessage;
 @end
 

@@ -16,7 +16,7 @@
 }
 
 + (void)addSingletonObjectsToContext:(id)arg1;
-+ (id)sharedMomentLibraryInManagedObjectContext:(id)arg1 createIfNecessary:(BOOL)arg2;
++ (id)sharedMomentLibraryInManagedObjectContext:(id)arg1 createIfNecessary:(_Bool)arg2;
 + (id)sharedMomentLibraryInManagedObjectContext:(id)arg1;
 + (id)entityInManagedObjectContext:(id)arg1;
 + (id)entityName;
@@ -27,14 +27,14 @@
 - (void)replaceMomentsAtIndexes:(id)arg1 withMoments:(id)arg2;
 - (void)removeMomentsAtIndexes:(id)arg1;
 - (void)insertMoments:(id)arg1 atIndexes:(id)arg2;
-- (void)replaceObjectInMomentsAtIndex:(unsigned int)arg1 withObject:(id)arg2;
-- (void)removeObjectFromMomentsAtIndex:(unsigned int)arg1;
-- (void)insertObject:(id)arg1 inMomentsAtIndex:(unsigned int)arg2;
+- (void)replaceObjectInMomentsAtIndex:(unsigned long long)arg1 withObject:(id)arg2;
+- (void)removeObjectFromMomentsAtIndex:(unsigned long long)arg1;
+- (void)insertObject:(id)arg1 inMomentsAtIndex:(unsigned long long)arg2;
 - (id)_typeDescription;
 - (id)containersRelationshipName;
-- (BOOL)canEditContainers;
-- (BOOL)isEmpty;
-@property(readonly, nonatomic) unsigned int containersCount;
+- (_Bool)canEditContainers;
+- (_Bool)isEmpty;
+@property(readonly, nonatomic) unsigned long long containersCount;
 - (id)containers;
 - (void)prepareForDeletion;
 

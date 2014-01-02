@@ -6,7 +6,7 @@
 
 #import <PhotosUI/PUFeedCell.h>
 
-@class NSString, UILabel, UISegmentedControl, UIView;
+@class NSString, UIButton, UILabel, UIView;
 
 @interface PUFeedInvitationCell : PUFeedCell
 {
@@ -14,24 +14,23 @@
     NSString *_subtitle;
     UILabel *__titleLabel;
     UILabel *__subtitleLabel;
-    UISegmentedControl *__segmentedControl;
+    UIButton *__acceptButon;
+    UIButton *__declineButton;
     UIView *__bottomSeparatorView;
 }
 
 @property(retain, nonatomic, setter=_setBottomSeparatorView:) UIView *_bottomSeparatorView; // @synthesize _bottomSeparatorView=__bottomSeparatorView;
-@property(retain, nonatomic, setter=_setSegmentedControl:) UISegmentedControl *_segmentedControl; // @synthesize _segmentedControl=__segmentedControl;
+@property(retain, nonatomic, setter=_setDeclineButton:) UIButton *_declineButton; // @synthesize _declineButton=__declineButton;
+@property(retain, nonatomic, setter=_setAcceptButton:) UIButton *_acceptButon; // @synthesize _acceptButon=__acceptButon;
 @property(retain, nonatomic, setter=_setSubtitleLabel:) UILabel *_subtitleLabel; // @synthesize _subtitleLabel=__subtitleLabel;
 @property(retain, nonatomic, setter=_setTitleLabel:) UILabel *_titleLabel; // @synthesize _titleLabel=__titleLabel;
 @property(copy, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 - (void).cxx_destruct;
-- (void)_segmentedControlAction:(id)arg1;
+- (void)_replyButtonAction:(id)arg1;
 - (id)_delegate;
-- (void)_createSegmentedControl;
-- (void)resetSelectionAnimated:(BOOL)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
-- (void)prepareForReuse;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

@@ -10,6 +10,6 @@
 - (void)moveContentSwitchingTabsAboveView:(id)arg1 inScrollView:(id)arg2;
 - (void)didChangeContentOffset:(struct CGPoint)arg1 inScrollView:(id)arg2;
 - (void)repositionContentSwitchingTabs;
-- (float)heightForHeaderAndContentSwitchingTabs;
+- (double)heightForHeaderAndContentSwitchingTabs;
 @end
 

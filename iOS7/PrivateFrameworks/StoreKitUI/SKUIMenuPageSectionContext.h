@@ -11,13 +11,13 @@
 @interface SKUIMenuPageSectionContext : NSObject
 {
     NSMutableDictionary *_sections;
-    int _selectedIndex;
+    long long _selectedIndex;
 }
 
-@property(nonatomic) int selectedIndex; // @synthesize selectedIndex=_selectedIndex;
+@property(nonatomic) long long selectedIndex; // @synthesize selectedIndex=_selectedIndex;
 - (void).cxx_destruct;
-- (void)setSections:(id)arg1 forIndex:(int)arg2;
-- (id)sectionsForIndex:(int)arg1;
+- (void)setSections:(id)arg1 forIndex:(long long)arg2;
+- (id)sectionsForIndex:(long long)arg1;
 
 @end
 

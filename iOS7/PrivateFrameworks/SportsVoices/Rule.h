@@ -12,7 +12,7 @@
 {
     SlotsInContext *_leftHandSide;
     NewProduction *_rightHandSide;
-    BOOL _repeat;
+    _Bool _repeat;
 }
 
 + (id)ruleWithLeftHandSide:(id)arg1 rightHandSide:(id)arg2;

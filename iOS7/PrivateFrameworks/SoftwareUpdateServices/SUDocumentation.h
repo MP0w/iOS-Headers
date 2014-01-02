@@ -25,7 +25,7 @@
     NSMutableDictionary *_cachedData;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSString *primaryLanguage; // @synthesize primaryLanguage=_primaryLanguage;
 @property(retain, nonatomic) NSString *humanReadableUpdateName; // @synthesize humanReadableUpdateName=_humanReadableUpdateName;
 @property(retain, nonatomic) NSURL *licenseAgreementURL; // @synthesize licenseAgreementURL=_licenseAgreementURL;
@@ -43,7 +43,7 @@
 - (id)localizedStringFromBundle:(struct __CFBundle *)arg1 key:(id)arg2;
 - (void)_clearTransientDocumentationData;
 - (id)description;
-- (BOOL)hasAnyDocumentation;
+- (_Bool)hasAnyDocumentation;
 - (id)licenseAgreement;
 - (id)releaseNotes;
 - (id)releaseNotesSummary;

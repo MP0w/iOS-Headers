@@ -11,8 +11,8 @@
     struct _NSRange _range;
 }
 
-- (BOOL)_adjustRangesWithOffset:(int)arg1;
-- (id)resultByAdjustingRangesWithOffset:(int)arg1;
+- (_Bool)_adjustRangesWithOffset:(long long)arg1;
+- (id)resultByAdjustingRangesWithOffset:(long long)arg1;
 - (struct _NSRange)range;
 - (unsigned long long)resultType;
 - (id)initWithCoder:(id)arg1;

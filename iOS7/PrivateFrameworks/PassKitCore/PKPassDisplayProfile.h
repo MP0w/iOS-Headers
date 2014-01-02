@@ -13,8 +13,8 @@
 
 @interface PKPassDisplayProfile : NSObject <NSSecureCoding, NSCopying>
 {
-    BOOL _tallCode;
-    int _passStyle;
+    _Bool _tallCode;
+    long long _passStyle;
     PKColor *_backgroundColor;
     PKColor *_foregroundColor;
     PKColor *_labelColor;
@@ -24,11 +24,11 @@
     NSData *_thumbnailHash;
     NSData *_backgroundHash;
     NSData *_stripHash;
-    int _layoutMode;
+    long long _layoutMode;
 }
 
-+ (BOOL)supportsSecureCoding;
-@property(nonatomic) BOOL tallCode; // @synthesize tallCode=_tallCode;
++ (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool tallCode; // @synthesize tallCode=_tallCode;
 @property(retain, nonatomic) NSData *stripHash; // @synthesize stripHash=_stripHash;
 @property(retain, nonatomic) NSData *backgroundHash; // @synthesize backgroundHash=_backgroundHash;
 @property(retain, nonatomic) NSData *thumbnailHash; // @synthesize thumbnailHash=_thumbnailHash;
@@ -38,13 +38,13 @@
 @property(retain, nonatomic) PKColor *labelColor; // @synthesize labelColor=_labelColor;
 @property(retain, nonatomic) PKColor *foregroundColor; // @synthesize foregroundColor=_foregroundColor;
 @property(retain, nonatomic) PKColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
-@property(nonatomic) int passStyle; // @synthesize passStyle=_passStyle;
+@property(nonatomic) long long passStyle; // @synthesize passStyle=_passStyle;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-@property(readonly, nonatomic) int layoutMode; // @synthesize layoutMode=_layoutMode;
-- (BOOL)showsStripImage;
-- (BOOL)showsBackgroundImage;
+@property(readonly, nonatomic) long long layoutMode; // @synthesize layoutMode=_layoutMode;
+- (_Bool)showsStripImage;
+- (_Bool)showsBackgroundImage;
 - (void)dealloc;
 - (id)initWithPassDictionary:(id)arg1 passURL:(id)arg2;
 

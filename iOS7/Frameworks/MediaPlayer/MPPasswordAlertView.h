@@ -13,15 +13,15 @@
 @interface MPPasswordAlertView : UIAlertView <UIAlertViewDelegate>
 {
     id _completionHandler;
-    int _style;
+    long long _style;
     UITextField *_passwordTextField;
 }
 
-@property(readonly, nonatomic) int style; // @synthesize style=_style;
+@property(readonly, nonatomic) long long style; // @synthesize style=_style;
 - (void).cxx_destruct;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (id)initWithTitle:(id)arg1 message:(id)arg2 delegate:(id)arg3 cancelButtonTitle:(id)arg4 otherButtonTitles:(id)arg5;
-- (id)initWithStyle:(int)arg1 routeName:(id)arg2 completionHandler:(id)arg3;
+- (id)initWithStyle:(long long)arg1 routeName:(id)arg2 completionHandler:(id)arg3;
 
 @end
 

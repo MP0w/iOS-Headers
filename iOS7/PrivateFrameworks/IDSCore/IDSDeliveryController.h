@@ -15,11 +15,11 @@
 }
 
 + (id)sharedInstance;
-- (void)sendMessageDictionary:(id)arg1 dataToEncrypt:(id)arg2 onService:(id)arg3 wantsResponse:(BOOL)arg4 timeout:(double)arg5 allowPartialSendsToSucceed:(BOOL)arg6 highPriority:(BOOL)arg7 fromID:(id)arg8 fromIdentity:(id)arg9 toPeople:(id)arg10 topic:(id)arg11 ackBlock:(id)arg12 sendCompletionBlock:(void)arg13;
+- (void)sendMessageDictionary:(id)arg1 messageID:(id)arg2 dataToEncrypt:(id)arg3 onService:(id)arg4 wantsResponse:(_Bool)arg5 timeout:(double)arg6 allowPartialSendsToSucceed:(_Bool)arg7 highPriority:(_Bool)arg8 fromID:(id)arg9 fromIdentity:(id)arg10 toPeople:(id)arg11 topic:(id)arg12 ackBlock:(id)arg13 sendCompletionBlock:(void)arg14;
 - (void)_sendErrorDictionary:(id)arg1 onService:(id)arg2 fromID:(id)arg3 fromIdentity:(id)arg4 toID:(id)arg5 toToken:(id)arg6 topic:(id)arg7 sendCompletionBlock:(id)arg8;
-- (void)_sendMessageDictionary:(id)arg1 lastRetryInterval:(double)arg2 dataToEncrypt:(id)arg3 onService:(id)arg4 wantsResponse:(BOOL)arg5 allowPartialSendsToSucceed:(BOOL)arg6 highPriority:(BOOL)arg7 timeout:(double)arg8 fromID:(id)arg9 fromIdentity:(id)arg10 toID:(id)arg11 toPeople:(id)arg12 topic:(id)arg13 ackBlock:(id)arg14 sendCompletionBlock:(void)arg15;
+- (void)_sendMessageDictionary:(id)arg1 lastRetryInterval:(double)arg2 dataToEncrypt:(id)arg3 onService:(id)arg4 wantsResponse:(_Bool)arg5 allowPartialSendsToSucceed:(_Bool)arg6 highPriority:(_Bool)arg7 timeout:(double)arg8 messageID:(id)arg9 fromID:(id)arg10 fromIdentity:(id)arg11 toID:(id)arg12 toPeople:(id)arg13 topic:(id)arg14 ackBlock:(id)arg15 sendCompletionBlock:(void)arg16;
 - (void)sendIDSMessage:(id)arg1 service:(id)arg2 topic:(id)arg3 completionBlock:(id)arg4;
-- (void)_sendMessage:(id)arg1 dataToEncrypt:(id)arg2 onService:(id)arg3 fromID:(id)arg4 fromIdentity:(id)arg5 toID:(id)arg6 toSessionToken:(id)arg7 toPeople:(id)arg8 originallyToPeople:(id)arg9 allowPartialSendsToSucceed:(BOOL)arg10 completionBlock:(id)arg11;
+- (void)_sendMessage:(id)arg1 dataToEncrypt:(id)arg2 onService:(id)arg3 fromID:(id)arg4 fromIdentity:(id)arg5 toID:(id)arg6 toSessionToken:(id)arg7 toPeople:(id)arg8 originallyToPeople:(id)arg9 allowPartialSendsToSucceed:(_Bool)arg10 completionBlock:(id)arg11;
 - (id)_stripPotentialTokenURI:(id)arg1 token:(id *)arg2;
 - (id)_tokenURIForToken:(id)arg1 uri:(id)arg2;
 - (void)_sendAttachmentWithGuid:(id)arg1 service:(id)arg2 topic:(id)arg3 encryptedData:(id)arg4 toToken:(id)arg5 toID:(id)arg6 fromID:(id)arg7 fromIdentity:(id)arg8 ackBlock:(id)arg9 completionBlock:(void)arg10;
@@ -28,8 +28,9 @@
 - (void)_emptyMessagesForURIs:(id)arg1;
 - (void)_handleMessagesForURIs:(id)arg1 originalURIs:(id)arg2;
 - (void)_checkFastDormancy;
-- (void)_processMessageResponse:(id)arg1 error:(id)arg2 resultCode:(int)arg3 toURI:(id)arg4 fromURI:(id)arg5 service:(id)arg6;
-@property(readonly, nonatomic) int maxMessageSize;
+- (void)_processMessageResponse:(id)arg1 error:(id)arg2 resultCode:(long long)arg3 toURI:(id)arg4 fromURI:(id)arg5 service:(id)arg6;
+@property(readonly, nonatomic) long long effectiveMaxPayloadSize;
+@property(readonly, nonatomic) long long maxMessageSize;
 - (void)dealloc;
 - (id)init;
 

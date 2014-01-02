@@ -17,11 +17,11 @@
 
 - (void)pickerDidCancel:(id)arg1;
 - (void)picker:(id)arg1 didPickItem:(id)arg2;
-- (CDStruct_421913e2)suggestionsForString:(id)arg1 inputIndex:(unsigned int)arg2;
+- (CDStruct_856ef1b3)suggestionsForString:(id)arg1 inputIndex:(unsigned int)arg2;
 - (void)labelButtonClicked:(id)arg1;
 @property(readonly, nonatomic) CNSocialProfile *profile;
+- (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

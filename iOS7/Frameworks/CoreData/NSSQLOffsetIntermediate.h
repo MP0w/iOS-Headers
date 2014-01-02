@@ -6,13 +6,14 @@
 
 #import <CoreData/NSSQLIntermediate.h>
 
+// Not exported
 @interface NSSQLOffsetIntermediate : NSSQLIntermediate
 {
-    unsigned int _offset;
+    unsigned long long _offset;
 }
 
 - (id)generateSQLStringInContext:(id)arg1;
-- (id)initWithOffset:(unsigned int)arg1 inScope:(id)arg2;
+- (id)initWithOffset:(unsigned long long)arg1 inScope:(id)arg2;
 
 @end
 

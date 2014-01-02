@@ -16,7 +16,7 @@
     NSObject<OS_dispatch_queue> *handlerQueue;
     id messageHandler;
     NSMutableDictionary *pendingRequests;
-    BOOL didStop;
+    _Bool didStop;
 }
 
 - (void)sendMessageToFud:(id)arg1 reply:(id)arg2;

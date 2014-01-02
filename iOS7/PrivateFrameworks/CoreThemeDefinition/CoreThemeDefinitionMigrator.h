@@ -12,19 +12,19 @@
 {
     NSMigrationManager *_migrationManager;
     NSURL *_documentURL;
-    int _oldVersion;
-    int _newVersion;
+    long long _oldVersion;
+    long long _newVersion;
     NSString *temporaryMigrationPath;
 }
 
 @property(copy) NSString *temporaryMigrationPath; // @synthesize temporaryMigrationPath;
-- (BOOL)migrateWithError:(id *)arg1;
+- (_Bool)migrateWithError:(id *)arg1;
 - (id)mappingModelForMigrationWithError:(id *)arg1;
-- (BOOL)_shouldUseCustomRenditionMigration;
+- (_Bool)_shouldUseCustomRenditionMigration;
 - (void)dealloc;
-- (id)initWithURL:(id)arg1 oldVersion:(int)arg2 newVersion:(int)arg3;
-- (BOOL)_updateMetadata:(id *)arg1;
-- (BOOL)_checkDiskSpace:(id *)arg1;
+- (id)initWithURL:(id)arg1 oldVersion:(long long)arg2 newVersion:(long long)arg3;
+- (_Bool)_updateMetadata:(id *)arg1;
+- (_Bool)_checkDiskSpace:(id *)arg1;
 
 @end
 

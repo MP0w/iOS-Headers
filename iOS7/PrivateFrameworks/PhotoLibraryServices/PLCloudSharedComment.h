@@ -14,19 +14,19 @@
 
 + (id)cloudSharedCommentWithGUID:(id)arg1 inLibrary:(id)arg2;
 + (id)cloudSharedCommentWithGUIDs:(id)arg1 inLibrary:(id)arg2;
-+ (id)insertNewCommentIntoAsset:(id)arg1 commentDate:(id)arg2 withText:(id)arg3 isLike:(BOOL)arg4 isMyComment:(BOOL)arg5 inLibrary:(id)arg6;
++ (id)insertNewCommentIntoAsset:(id)arg1 commentDate:(id)arg2 withText:(id)arg3 isLike:(_Bool)arg4 isMyComment:(_Bool)arg5 inLibrary:(id)arg6;
 + (id)entityName;
 + (id)entityInManagedObjectContext:(id)arg1;
 @property(readonly, nonatomic) NSString *commenterFullName;
 @property(readonly, nonatomic) NSString *commenterLastName;
 @property(readonly, nonatomic) NSString *commenterFirstName;
 @property(readonly, nonatomic) NSString *commenterEmail;
-- (BOOL)canBeDeletedByUser;
+- (_Bool)canBeDeletedByUser;
 - (id)commenterDisplayName;
-- (BOOL)isInterestingForAlbumsSorting;
-- (BOOL)shouldNotifyAsBulletinWithMediaStreamInfo:(id)arg1 asCaptionOnly:(char *)arg2;
-- (BOOL)_isInterestingToUser;
-@property(readonly, nonatomic) BOOL isLikeBoolValue;
+- (_Bool)isInterestingForAlbumsSorting;
+- (_Bool)shouldNotifyAsBulletinWithMediaStreamInfo:(id)arg1 asCaptionOnly:(_Bool *)arg2;
+- (_Bool)_isInterestingToUser;
+@property(readonly, nonatomic) _Bool isLikeBoolValue;
 @property(readonly, nonatomic) PLCloudFeedCommentsEntry *cloudFeedEntry;
 - (id)asset;
 - (void)dealloc;

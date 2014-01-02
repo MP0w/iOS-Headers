@@ -8,12 +8,13 @@
 
 @class NSCharacterSet, NSString;
 
+// Not exported
 @interface SFUJsonScanner : NSObject
 {
     NSString *mString;
     unsigned short *mCharacters;
-    unsigned int mLength;
-    unsigned int mOffset;
+    unsigned long long mLength;
+    unsigned long long mOffset;
     NSCharacterSet *mWhitespaceCharacterSet;
     NSCharacterSet *mDecimalDigitCharacterSet;
 }
@@ -23,7 +24,7 @@
 - (id)parseFalse;
 - (id)parseTrue;
 - (id)parseNull;
-- (BOOL)parseConstantString:(const char *)arg1;
+- (_Bool)parseConstantString:(const char *)arg1;
 - (id)parseArray;
 - (id)parseDictionary;
 - (id)parseString;

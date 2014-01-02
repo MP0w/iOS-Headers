@@ -18,7 +18,7 @@
     PTXParallaxEngineSettings *_settings;
     PTXParallaxReferenceFrame *_referenceFrame;
     double _startUpdatesTimestamp;
-    BOOL _generatingUpdates;
+    _Bool _generatingUpdates;
     NSMutableSet *_suspendReasons;
 }
 
@@ -26,9 +26,9 @@
 - (void)start;
 - (void)stop;
 - (void)_sendClearOffset;
-- (void)_sendOffset:(struct CGPoint)arg1 lockStatus:(int)arg2 lockStrength:(float)arg3;
-- (BOOL)_suspended;
-- (BOOL)_shouldGenerateUpdates;
+- (void)_sendOffset:(struct CGPoint)arg1 lockStatus:(long long)arg2 lockStrength:(double)arg3;
+- (_Bool)_suspended;
+- (_Bool)_shouldGenerateUpdates;
 - (void)_defaultsChanged:(id)arg1;
 - (void)_onDisplayLink:(id)arg1;
 - (void)settings:(id)arg1 changedValueForKey:(id)arg2;

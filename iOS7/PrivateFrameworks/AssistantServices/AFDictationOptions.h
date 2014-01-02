@@ -18,21 +18,21 @@
     NSString *_fieldLabel;
     NSString *_fieldIdentifier;
     NSString *_interactionIdentifier;
-    int _keyboardType;
+    long long _keyboardType;
     NSString *_prefixText;
     NSString *_postfixText;
     NSString *_selectedText;
-    int _returnKeyType;
+    long long _returnKeyType;
     NSString *_languageCodeOverride;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSString *languageCodeOverride; // @synthesize languageCodeOverride=_languageCodeOverride;
-@property(nonatomic) int returnKeyType; // @synthesize returnKeyType=_returnKeyType;
+@property(nonatomic) long long returnKeyType; // @synthesize returnKeyType=_returnKeyType;
 @property(copy, nonatomic) NSString *selectedText; // @synthesize selectedText=_selectedText;
 @property(copy, nonatomic) NSString *postfixText; // @synthesize postfixText=_postfixText;
 @property(copy, nonatomic) NSString *prefixText; // @synthesize prefixText=_prefixText;
-@property(nonatomic) int keyboardType; // @synthesize keyboardType=_keyboardType;
+@property(nonatomic) long long keyboardType; // @synthesize keyboardType=_keyboardType;
 @property(copy, nonatomic) NSString *interactionIdentifier; // @synthesize interactionIdentifier=_interactionIdentifier;
 @property(copy, nonatomic) NSString *fieldIdentifier; // @synthesize fieldIdentifier=_fieldIdentifier;
 @property(copy, nonatomic) NSString *fieldLabel; // @synthesize fieldLabel=_fieldLabel;

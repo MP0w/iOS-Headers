@@ -11,19 +11,20 @@
 }
 
 + (void)enumeratePathsToDeleteFromLibrary:(id)arg1 persistentIDs:(id)arg2 usingBlock:(id)arg3;
-+ (BOOL)clearLocationFromLibrary:(id)arg1 persistentIDs:(id)arg2;
-+ (BOOL)registerBookmarkMetadataIdentifierFunctionOnConnection:(id)arg1;
++ (_Bool)clearLocationFromLibrary:(id)arg1 persistentIDs:(id)arg2;
++ (_Bool)registerBookmarkMetadataIdentifierFunctionOnConnection:(id)arg1;
 + (void)updateAllBookmarkableStoreBookmarkMetadataIdentifiersOnConnection:(id)arg1;
-+ (BOOL)trackValueAreInTheCloud:(id)arg1;
-+ (BOOL)unlinkRedownloadableAssetsFromLibrary:(id)arg1 persistentIDs:(id)arg2 deletedFileSize:(long long *)arg3;
-+ (BOOL)unlinkRedownloadableAssetsFromLibrary:(id)arg1 persistentIDs:(id)arg2;
++ (_Bool)trackValueAreInTheCloud:(id)arg1;
++ (_Bool)unlinkRedownloadableAssetsFromLibrary:(id)arg1 persistentIDs:(id)arg2 deletedFileSize:(long long *)arg3;
++ (_Bool)unlinkRedownloadableAssetsFromLibrary:(id)arg1 persistentIDs:(id)arg2;
 + (id)collectionClassesToUpdateBeforeDelete;
 + (id)unsettableProperties;
 + (void)populateSortOrdersOfPropertyValues:(id)arg1 inLibrary:(id)arg2 cachedNameOrders:(id)arg3;
-+ (BOOL)trackWithPersistentID:(long long)arg1 existsInLibrary:(id)arg2;
-+ (BOOL)deleteFromLibrary:(id)arg1 deletionType:(int)arg2 persistentIDs:(const long long *)arg3 count:(unsigned int)arg4;
-+ (BOOL)libraryDynamicChangeForProperty:(id)arg1;
-+ (BOOL)libraryContentsChangeForProperty:(id)arg1;
++ (_Bool)trackWithPersistentID:(long long)arg1 existsInLibraryWithConnection:(id)arg2;
++ (_Bool)trackWithPersistentID:(long long)arg1 existsInLibrary:(id)arg2;
++ (_Bool)deleteFromLibrary:(id)arg1 deletionType:(int)arg2 persistentIDs:(const long long *)arg3 count:(unsigned long long)arg4;
++ (_Bool)libraryDynamicChangeForProperty:(id)arg1;
++ (_Bool)libraryContentsChangeForProperty:(id)arg1;
 + (id)persistentIDColumnForTable:(id)arg1;
 + (id)extraTablesToInsert;
 + (id)extraTablesToDelete;
@@ -46,31 +47,17 @@
 + (id)genresDefaultOrderingProperties;
 + (id)albumsDefaultOrderingProperties;
 + (id)defaultOrderingProperties;
-+ (int)revisionTrackingCode;
++ (long long)revisionTrackingCode;
 + (id)databaseTable;
 + (void)initialize;
-+ (id)predicateByOptimizingComparisonPredicate:(id)arg1;
-+ (id)orderingTermsForITTGTrackOrder:(unsigned long)arg1 descending:(BOOL)arg2;
-+ (id)containerQueryWithContainer:(id)arg1 predicate:(id)arg2 orderingTerms:(id)arg3;
-+ (id)containerQueryWithContainer:(id)arg1 predicate:(id)arg2 orderingProperties:(id)arg3;
-+ (id)containerQueryWithContainer:(id)arg1 predicate:(id)arg2;
-+ (id)containerQueryWithContainer:(id)arg1;
-+ (id)importChaptersByParsingAsset:(id)arg1;
-+ (id)flattenedChapterDataFromDAAPInfoDictionary:(id)arg1 trackPersistentID:(long long)arg2;
-+ (id)flattenedChapterDataFromSyncInfoDictionaries:(id)arg1 trackPersistentID:(long long)arg2;
-+ (id)flattenedChapterDataWithImportChapters:(id)arg1 library:(id)arg2 trackPersistentID:(long long)arg3;
-+ (id)_normalizedImportChapters:(id)arg1 trackPersistentID:(long long)arg2;
 - (void)updateStoreBookmarkMetadataIdentifier;
 - (void)updateCollectionCloudStatus;
 - (id)artworkCacheIDAtPlaybackTime:(double)arg1;
 - (id)chapterTOC;
 - (id)rawIntegrity;
-- (BOOL)updateIntegrity;
+- (_Bool)updateIntegrity;
 - (id)initWithDictionary:(id)arg1 inLibrary:(id)arg2 cachedNameOrders:(id)arg3;
 - (id)absoluteFilePath;
-- (void)populateLocationPropertiesWithPath:(id)arg1;
-- (void)populateChapterDataWithImportChapters:(id)arg1;
-- (BOOL)populateArtworkCacheWithArtworkData:(id)arg1;
 
 @end
 

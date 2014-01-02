@@ -14,9 +14,9 @@
     struct CGRect _logoRect;
 }
 
-+ (BOOL)supportsSecureCoding;
-+ (int)imageSet;
-+ (int)currentVersion;
++ (_Bool)supportsSecureCoding;
++ (long long)imageSet;
++ (long long)currentVersion;
 + (id)archiveName;
 @property(nonatomic) struct CGRect logoRect; // @synthesize logoRect=_logoRect;
 @property(retain, nonatomic) PKImage *placeHolderImage; // @synthesize placeHolderImage=_placeHolderImage;

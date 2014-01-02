@@ -7,11 +7,10 @@
 #import <PhotoLibraryServices/PLAssetContainerChangeNotification.h>
 
 #import "PLDerivedNotification-Protocol.h"
-#import "PLIndexMapperDataSource-Protocol.h"
 
 @class NSIndexSet, PLFilteredAlbum, PLIndexMapper;
 
-@interface PLFilteredAlbumChangeNotification : PLAssetContainerChangeNotification <PLIndexMapperDataSource, PLDerivedNotification>
+@interface PLFilteredAlbumChangeNotification : PLAssetContainerChangeNotification <PLDerivedNotification>
 {
     PLFilteredAlbum *_album;
     NSIndexSet *_oldFilteredIndexes;
@@ -22,22 +21,18 @@
 
 + (id)notificationForDerivedObject:(id)arg1 priorChangeState:(id)arg2 forBackingObjectNotification:(id)arg3;
 - (id)_changedObjects;
-- (BOOL)_getOldSet:(id *)arg1 newSet:(id *)arg2;
+- (_Bool)_getOldSet:(id *)arg1 newSet:(id *)arg2;
 - (id)_diffDescription;
 - (id)description;
-- (BOOL)countDidChange;
-- (BOOL)keyAssetDidChange;
-- (BOOL)titleDidChange;
-- (BOOL)shouldReload;
+- (_Bool)countDidChange;
+- (_Bool)keyAssetDidChange;
+- (_Bool)titleDidChange;
+- (_Bool)shouldReload;
 - (id)album;
 - (id)object;
 - (void)dealloc;
 - (id)initWithFilteredAlbum:(id)arg1 priorChangeState:(id)arg2 albumChangeNotification:(id)arg3;
 - (id)init;
-- (BOOL)shouldIncludeObjectAtIndex:(unsigned int)arg1;
-@property(copy, nonatomic) NSIndexSet *filteredIndexes;
-@property(readonly, nonatomic) PLIndexMapper *indexMapper;
-@property(readonly, nonatomic) NSIndexSet *updatedFilteredIndexes;
 
 @end
 

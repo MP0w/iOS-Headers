@@ -6,6 +6,7 @@
 
 #import <VectorKit/VGLStrokePolygonProgram.h>
 
+// Not exported
 @interface VGLAnimatableStrokePolygonProgram : VGLStrokePolygonProgram
 {
     int _uTextureVariantSampler;

@@ -9,8 +9,9 @@
 @protocol MPVideoOverlayDelegate <NSObject>
 
 @optional
-- (void)overlay:(id)arg1 didEndUserEvent:(int)arg2;
-- (void)overlay:(id)arg1 didBeginUserEvent:(int)arg2;
+- (void)overlay:(id)arg1 didEndUserEvent:(long long)arg2;
+- (void)overlay:(id)arg1 didCancelUserEvent:(long long)arg2;
+- (void)overlay:(id)arg1 didBeginUserEvent:(long long)arg2;
 - (void)overlayTappedFullscreenButton:(id)arg1;
 - (void)overlayDidDismissAlternateTracksPopover:(id)arg1;
 - (void)overlayTappedScaleModeButton:(id)arg1;

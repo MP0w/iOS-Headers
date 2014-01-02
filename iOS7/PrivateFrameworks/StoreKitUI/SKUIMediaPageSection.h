@@ -13,23 +13,23 @@
 
 @interface SKUIMediaPageSection : SKUIStorePageSection <SKUIArtworkRequestDelegate, SKUIEmbeddedMediaViewDelegate>
 {
-    unsigned int _artworkRequestID;
+    unsigned long long _artworkRequestID;
     struct CGSize _imageSize;
     SKUIEmbeddedMediaView *_mediaView;
-    BOOL _pinned;
+    _Bool _pinned;
 }
 
 - (void).cxx_destruct;
-- (id)_metricsLocationID;
-- (void)_loadImageWithReason:(int)arg1;
-- (void)mediaView:(id)arg1 playbackStateDidChange:(int)arg2;
+- (void)_loadImageWithReason:(long long)arg1;
+- (void)mediaView:(id)arg1 playbackStateDidChange:(long long)arg2;
 - (void)artworkRequest:(id)arg1 didLoadImage:(id)arg2;
-- (void)setSectionIndex:(int)arg1;
+- (void)willAppearInContext:(id)arg1;
+- (void)setSectionIndex:(long long)arg1;
 - (void)restorePinnedHeaderView:(id)arg1;
-- (void)prefetchResourcesWithReason:(int)arg1;
+- (void)prefetchResourcesWithReason:(long long)arg1;
 - (id)popPinnedHeaderView;
-- (int)numberOfCells;
-- (float)contentInsetAdjustmentForCollectionView:(id)arg1;
+- (long long)numberOfCells;
+- (double)contentInsetAdjustmentForCollectionView:(id)arg1;
 - (void)collectionViewDidSelectItemAtIndexPath:(id)arg1;
 - (void)collectionViewDidEndDisplayingCellForItemAtIndexPath:(id)arg1;
 - (struct CGSize)cellSizeForIndexPath:(id)arg1;

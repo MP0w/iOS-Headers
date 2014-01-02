@@ -13,14 +13,14 @@
     double _startTime;
     double _endTime;
     NSMapTable *_tileStyleToCount;
-    unsigned int _dataLength;
+    unsigned long long _dataLength;
 }
 
-@property(readonly, nonatomic) unsigned int dataLength; // @synthesize dataLength=_dataLength;
+@property(readonly, nonatomic) unsigned long long dataLength; // @synthesize dataLength=_dataLength;
 @property(readonly, nonatomic) NSMapTable *tileStyleToCount; // @synthesize tileStyleToCount=_tileStyleToCount;
 @property(nonatomic) double endTime; // @synthesize endTime=_endTime;
 @property(nonatomic) double startTime; // @synthesize startTime=_startTime;
-- (void)addTileKey:(const struct _GEOTileKey *)arg1 dataLength:(unsigned int)arg2;
+- (void)addTileKey:(const struct _GEOTileKey *)arg1 dataLength:(unsigned long long)arg2;
 - (void)dealloc;
 
 @end

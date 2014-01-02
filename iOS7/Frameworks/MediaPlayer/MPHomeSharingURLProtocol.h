@@ -11,7 +11,7 @@
 }
 
 + (id)canonicalRequestForRequest:(id)arg1;
-+ (BOOL)canInitWithRequest:(id)arg1;
++ (_Bool)canInitWithRequest:(id)arg1;
 + (void)initialize;
 - (void)stopLoading;
 - (void)startLoading;

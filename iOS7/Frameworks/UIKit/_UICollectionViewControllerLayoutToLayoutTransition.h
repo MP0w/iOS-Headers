@@ -6,35 +6,33 @@
 
 #import "NSObject.h"
 
-#import "UIViewControllerAnimatedTransitioningEx-Protocol.h"
+#import "UIViewControllerAnimatedTransitioning-Protocol.h"
 
 @class UICollectionViewLayout, UIPercentDrivenInteractiveTransition;
 
-@interface _UICollectionViewControllerLayoutToLayoutTransition : NSObject <UIViewControllerAnimatedTransitioningEx>
+@interface _UICollectionViewControllerLayoutToLayoutTransition : NSObject <UIViewControllerAnimatedTransitioning>
 {
-    BOOL _crossFadeNavigationBar;
-    BOOL _crossFadeBottomBars;
-    BOOL _interactionAborted;
-    float _transitionDuration;
+    _Bool _crossFadeNavigationBar;
+    _Bool _crossFadeBottomBars;
+    _Bool _interactionAborted;
     UICollectionViewLayout *_toLayout;
     UIPercentDrivenInteractiveTransition *_interactionController;
-    int _operation;
+    long long _operation;
 }
 
-+ (id)transitionForOperation:(int)arg1 fromViewController:(id)arg2 toViewController:(id)arg3;
-@property(nonatomic) int operation; // @synthesize operation=_operation;
-@property(nonatomic) BOOL interactionAborted; // @synthesize interactionAborted=_interactionAborted;
++ (id)transitionForOperation:(long long)arg1 fromViewController:(id)arg2 toViewController:(id)arg3;
+@property(nonatomic) long long operation; // @synthesize operation=_operation;
+@property(nonatomic) _Bool interactionAborted; // @synthesize interactionAborted=_interactionAborted;
 @property(nonatomic) UIPercentDrivenInteractiveTransition *interactionController; // @synthesize interactionController=_interactionController;
-@property(nonatomic) BOOL crossFadeBottomBars; // @synthesize crossFadeBottomBars=_crossFadeBottomBars;
-@property(nonatomic) BOOL crossFadeNavigationBar; // @synthesize crossFadeNavigationBar=_crossFadeNavigationBar;
+@property(nonatomic) _Bool crossFadeBottomBars; // @synthesize crossFadeBottomBars=_crossFadeBottomBars;
+@property(nonatomic) _Bool crossFadeNavigationBar; // @synthesize crossFadeNavigationBar=_crossFadeNavigationBar;
 @property(retain, nonatomic) UICollectionViewLayout *toLayout; // @synthesize toLayout=_toLayout;
-@property(nonatomic) float transitionDuration; // @synthesize transitionDuration=_transitionDuration;
-- (BOOL)_shouldCrossFadeBottomBars;
-- (BOOL)_shouldCrossFadeNavigationBar;
+- (_Bool)_shouldCrossFadeBottomBars;
+- (_Bool)_shouldCrossFadeNavigationBar;
 - (void)dealloc;
 - (double)transitionDuration:(id)arg1;
 - (void)animateTransition:(id)arg1;
-- (void)animationEnded:(BOOL)arg1;
+- (void)animationEnded:(_Bool)arg1;
 
 @end
 

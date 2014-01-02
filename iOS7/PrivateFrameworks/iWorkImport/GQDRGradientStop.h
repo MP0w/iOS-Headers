@@ -8,6 +8,7 @@
 
 @class GQDColor;
 
+// Not exported
 @interface GQDRGradientStop : NSObject
 {
     float mFraction;

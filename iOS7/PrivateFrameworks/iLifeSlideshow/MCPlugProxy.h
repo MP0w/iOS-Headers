@@ -16,8 +16,8 @@
 @property(retain) MCPlug *plug; // @synthesize plug=_plug;
 - (void)_copySelfToSnapshot:(id)arg1;
 - (void)setContainer:(id)arg1;
-- (int)zIndex;
-- (BOOL)isKindOfClass:(Class)arg1;
+- (long long)zIndex;
+- (_Bool)isKindOfClass:(Class)arg1;
 - (id)forwardingTargetForSelector:(SEL)arg1;
 - (void)dealloc;
 

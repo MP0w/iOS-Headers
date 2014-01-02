@@ -11,37 +11,34 @@
 @interface AVCustomVideoCompositorSession : NSObject
 {
     struct OpaqueFigVideoCompositor *_figCustomCompositor;
-    BOOL _hasRegisteredFigCustomCompositorCallbacks;
+    _Bool _hasRegisteredFigCustomCompositorCallbacks;
     NSDictionary *_clientRequiredPixelBufferAttributes;
     AVWeakReference *_weakSelf;
     NSObject<OS_dispatch_queue> *_videoCompositionQ;
     AVVideoComposition *_videoComposition;
+    _Bool _videoCompositionDidChange;
     NSObject<OS_dispatch_queue> *_clientCustomCompositorQ;
     id <AVVideoCompositing> _clientCustomCompositor;
     NSObject<OS_dispatch_queue> *_clientErrorQ;
     NSError *_clientError;
     NSObject<OS_dispatch_queue> *_renderContextQ;
     AVVideoCompositionRenderContext *_renderContext;
+    NSObject<OS_dispatch_queue> *_finishedRequestQ;
 }
 
 + (id)sessionWithVideoComposition:(id)arg1 recyclingSession:(id)arg2;
 - (void)requestDidCancel:(id)arg1;
 - (void)request:(id)arg1 didFinishWithError:(id)arg2;
 - (void)request:(id)arg1 didFinishWithComposedPixelBuffer:(struct __CVBuffer *)arg2;
-- (void)clearClientError;
-- (id)clientError;
+- (id)getAndClearClientError;
 - (struct OpaqueFigVideoCompositor *)_copyFigVideoCompositor;
 - (void)setVideoComposition:(id)arg1;
 - (void)dealloc;
 - (void)finalize;
 - (void)_willDeallocOrFinalize;
+- (void)detachVideoComposition;
 - (id)customVideoCompositor;
 - (id)initWithVideoComposition:(id)arg1;
-- (void)_cleanupFigCallbacks;
-- (long)_setupFigCallbacks;
-- (void)_customCompositorFigPropertyDidChange;
-- (long)_customCompositorShouldCancelPendingFrames;
-- (long)_compositionFrame:(struct OpaqueFigVideoCompositorFrame *)arg1 atTime:(CDStruct_1b6d18a9)arg2 requiresRenderUsingSources:(id)arg3 withInstruction:(void *)arg4;
 
 @end
 

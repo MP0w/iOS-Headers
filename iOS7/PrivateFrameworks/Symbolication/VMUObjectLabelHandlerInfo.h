@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface VMUObjectLabelHandlerInfo : NSObject
 {
     NSString *_className;

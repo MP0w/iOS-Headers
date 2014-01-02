@@ -18,15 +18,15 @@
 }
 
 @property(nonatomic) struct UIOffset slideMagnitude; // @synthesize slideMagnitude=_slideMagnitude;
-@property(nonatomic) float rotatingSphereRadius;
-@property(nonatomic) float maximumVerticalTiltAngle;
-@property(nonatomic) float maximumHorizontalTiltAngle;
+@property(nonatomic) double rotatingSphereRadius;
+@property(nonatomic) double maximumVerticalTiltAngle;
+@property(nonatomic) double maximumHorizontalTiltAngle;
 - (void)_activateTiltEffectIfNecessary;
 - (id)keyPathsAndRelativeValuesForViewerOffset:(struct UIOffset)arg1;
 - (id)_keyPathsAndRelativeValuesForPose:(id)arg1;
 - (void)_updateGroupMotionEffect;
-@property(nonatomic) float verticalSlideAccelerationBoostFactor;
-@property(nonatomic) float horizontalSlideAccelerationBoostFactor;
+@property(nonatomic) double verticalSlideAccelerationBoostFactor;
+@property(nonatomic) double horizontalSlideAccelerationBoostFactor;
 - (void)_updateSlideEffectsWithCurrentSlideMagnitude;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;

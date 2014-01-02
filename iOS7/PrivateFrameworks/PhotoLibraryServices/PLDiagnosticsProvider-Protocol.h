@@ -10,6 +10,6 @@
 
 @optional
 - (id)diagnosticInformation;
-- (BOOL)supportsDiagnosticInformation;
+- (_Bool)supportsDiagnosticInformation;
 @end
 

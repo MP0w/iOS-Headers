@@ -6,13 +6,15 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSMutableArray, NSString;
 
-@interface GEOActiveTileSet : PBCodable
+@interface GEOActiveTileSet : PBCodable <NSCopying>
 {
     CDStruct_d66e66b9 *_availableTiles;
-    unsigned int _availableTilesCount;
-    unsigned int _availableTilesSpace;
+    unsigned long long _availableTilesCount;
+    unsigned long long _availableTilesSpace;
     NSString *_baseURL;
     NSString *_localizationURL;
     NSString *_multiTileURL;
@@ -23,14 +25,14 @@
     NSMutableArray *_supportedLanguages;
     unsigned int _timeToLiveSeconds;
     unsigned int _version;
-    BOOL _multiTileURLUsesStatusCodes;
+    _Bool _multiTileURLUsesStatusCodes;
     struct {
         unsigned int timeToLiveSeconds:1;
         unsigned int multiTileURLUsesStatusCodes:1;
     } _has;
 }
 
-@property(nonatomic) BOOL multiTileURLUsesStatusCodes; // @synthesize multiTileURLUsesStatusCodes=_multiTileURLUsesStatusCodes;
+@property(nonatomic) _Bool multiTileURLUsesStatusCodes; // @synthesize multiTileURLUsesStatusCodes=_multiTileURLUsesStatusCodes;
 @property(retain, nonatomic) NSMutableArray *supportedLanguages; // @synthesize supportedLanguages=_supportedLanguages;
 @property(retain, nonatomic) NSString *localizationURL; // @synthesize localizationURL=_localizationURL;
 @property(retain, nonatomic) NSMutableArray *sentinelTiles; // @synthesize sentinelTiles=_sentinelTiles;
@@ -41,40 +43,34 @@
 @property(nonatomic) int style; // @synthesize style=_style;
 @property(retain, nonatomic) NSString *multiTileURL; // @synthesize multiTileURL=_multiTileURL;
 @property(retain, nonatomic) NSString *baseURL; // @synthesize baseURL=_baseURL;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) BOOL hasMultiTileURLUsesStatusCodes;
-- (id)supportedLanguageAtIndex:(unsigned int)arg1;
-- (unsigned int)supportedLanguagesCount;
+@property(nonatomic) _Bool hasMultiTileURLUsesStatusCodes;
+- (id)supportedLanguageAtIndex:(unsigned long long)arg1;
+- (unsigned long long)supportedLanguagesCount;
 - (void)addSupportedLanguage:(id)arg1;
 - (void)clearSupportedLanguages;
-@property(readonly, nonatomic) BOOL hasLocalizationURL;
-- (id)sentinelTileAtIndex:(unsigned int)arg1;
-- (unsigned int)sentinelTilesCount;
+@property(readonly, nonatomic) _Bool hasLocalizationURL;
+- (id)sentinelTileAtIndex:(unsigned long long)arg1;
+- (unsigned long long)sentinelTilesCount;
 - (void)addSentinelTile:(id)arg1;
 - (void)clearSentinelTiles;
-- (void)setAvailableTiles:(CDStruct_d66e66b9 *)arg1 count:(unsigned int)arg2;
-- (CDStruct_d66e66b9)availableTilesAtIndex:(unsigned int)arg1;
+- (void)setAvailableTiles:(CDStruct_d66e66b9 *)arg1 count:(unsigned long long)arg2;
+- (CDStruct_d66e66b9)availableTilesAtIndex:(unsigned long long)arg1;
 - (void)addAvailableTiles:(CDStruct_d66e66b9)arg1;
 - (void)clearAvailableTiles;
 @property(readonly, nonatomic) CDStruct_d66e66b9 *availableTiles;
-@property(readonly, nonatomic) unsigned int availableTilesCount;
-@property(nonatomic) BOOL hasTimeToLiveSeconds;
-@property(readonly, nonatomic) BOOL hasMultiTileURL;
-@property(readonly, nonatomic) BOOL hasBaseURL;
+@property(readonly, nonatomic) unsigned long long availableTilesCount;
+@property(nonatomic) _Bool hasTimeToLiveSeconds;
+@property(readonly, nonatomic) _Bool hasMultiTileURL;
+@property(readonly, nonatomic) _Bool hasBaseURL;
 - (void)dealloc;
-- (void)_resetBestLanguage;
-- (id)bestLanguage;
-- (id)dataForGenericTileType:(int)arg1;
-- (BOOL)isAvailableForTileKey:(const struct _GEOTileKey *)arg1;
-- (unsigned int)largestZoomLevelLEQ:(unsigned int)arg1 inRect:(CDStruct_90e2a262)arg2;
-- (unsigned int)maximumZoomLevelInRect:(CDStruct_90e2a262)arg1;
-- (unsigned int)minimumZoomLevelInRect:(CDStruct_90e2a262)arg1;
 
 @end
 

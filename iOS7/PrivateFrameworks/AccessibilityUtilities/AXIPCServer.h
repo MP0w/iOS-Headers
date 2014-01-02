@@ -20,7 +20,7 @@
     id _clientInvalidationHandler;
     NSMutableDictionary *_entitlements;
     unsigned int _assignedServerPort;
-    BOOL _running;
+    _Bool _running;
     NSString *_serviceName;
     NSMutableDictionary *_handlers;
 }
@@ -28,13 +28,14 @@
 @property(readonly, nonatomic) unsigned int machPort; // @synthesize machPort=_serverPort;
 @property(retain, nonatomic) NSMutableDictionary *handlers; // @synthesize handlers=_handlers;
 @property(retain, nonatomic) NSString *serviceName; // @synthesize serviceName=_serviceName;
-@property(nonatomic, getter=isRunning) BOOL running; // @synthesize running=_running;
-- (BOOL)_handleErrorWithMessage:(id)arg1 outError:(id *)arg2;
-- (id)_handleIncomingMessage:(id)arg1 securityToken:(CDStruct_52eb0d21)arg2 auditToken:(CDStruct_6ad76789)arg3 clientPort:(unsigned int)arg4;
+@property(nonatomic, getter=isRunning) _Bool running; // @synthesize running=_running;
+- (id)_clientIdentificationForAuditToken:(CDStruct_4c969caf)arg1;
+- (_Bool)_handleErrorWithMessage:(id)arg1 outError:(id *)arg2;
+- (id)_handleIncomingMessage:(id)arg1 securityToken:(CDStruct_52eb0d21)arg2 auditToken:(CDStruct_4c969caf)arg3 clientPort:(unsigned int)arg4;
 - (void)_handleClientRegistration:(id)arg1;
 - (void)_startServerThread;
 - (void)_handleClientInvalidation:(unsigned int)arg1;
-- (BOOL)_clientWithPort:(unsigned int)arg1 auditToken:(CDStruct_6ad76789)arg2 hasAnyEntitlementRequiredForMessageWithKey:(int)arg3;
+- (_Bool)_clientWithPort:(unsigned int)arg1 auditToken:(CDStruct_4c969caf)arg2 hasAnyEntitlementRequiredForMessage:(id)arg3;
 - (void)removePossibleRequiredEntitlement:(id)arg1 forMessageWithKey:(int)arg2;
 - (void)addPossibleRequiredEntitlement:(id)arg1 forMessageWithKey:(int)arg2;
 - (void)removeAllHandlersForTarget:(id)arg1;
@@ -42,8 +43,8 @@
 - (void)setHandlerWithTarget:(id)arg1 selector:(SEL)arg2 forKey:(int)arg3;
 - (void)removeHandlerForKey:(int)arg1;
 - (void)setHandler:(id)arg1 forKey:(void)arg2;
-- (BOOL)stopServerWithError:(id *)arg1;
-- (BOOL)startServerWithError:(id *)arg1;
+- (_Bool)stopServerWithError:(id *)arg1;
+- (_Bool)startServerWithError:(id *)arg1;
 @property(copy, nonatomic) id clientInvalidationCallback;
 @property(copy, nonatomic) id defaultHandler;
 - (void)setServiceRunLoopSource:(struct __CFRunLoopSource *)arg1;

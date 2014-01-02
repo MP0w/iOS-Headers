@@ -10,7 +10,7 @@
 
 @interface SKUIShowcasePageComponent : SKUIPageComponent
 {
-    int _missingItemCount;
+    long long _missingItemCount;
     NSArray *_showcaseItems;
 }
 
@@ -18,10 +18,10 @@
 - (void).cxx_destruct;
 - (void)_updateWithMissingItems:(id)arg1;
 - (id)metricsElementName;
-- (BOOL)isMissingItemData;
-- (void)enumerateMissingItemIdentifiersFromIndex:(int)arg1 usingBlock:(id)arg2;
-- (int)componentType;
-- (id)initWithFeaturedContentContext:(id)arg1 kind:(int)arg2;
+- (_Bool)isMissingItemData;
+- (void)enumerateMissingItemIdentifiersFromIndex:(long long)arg1 usingBlock:(id)arg2;
+- (long long)componentType;
+- (id)initWithFeaturedContentContext:(id)arg1 kind:(long long)arg2;
 
 @end
 

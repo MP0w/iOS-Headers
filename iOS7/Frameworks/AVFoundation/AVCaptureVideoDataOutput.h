@@ -16,8 +16,8 @@
 + (id)supportedVideoSettingsKeys;
 + (void)initialize;
 - (void)_AVCaptureVideoDataOutput_VideoDataBecameReady;
-- (BOOL)appliesMirroringWithPhysicalFlipForConnection:(id)arg1;
-- (BOOL)appliesOrientationWithPhysicalRotationForConnection:(id)arg1;
+- (_Bool)appliesMirroringWithPhysicalFlipForConnection:(id)arg1;
+- (_Bool)appliesOrientationWithPhysicalRotationForConnection:(id)arg1;
 - (struct CGSize)outputSizeForCaptureOptions:(id)arg1;
 - (void)didStartForSession:(id)arg1;
 - (void)didStopForSession:(id)arg1 error:(id)arg2;
@@ -25,9 +25,11 @@
 - (void)_applyOverridesToCaptureOptions:(id)arg1;
 - (id)addConnection:(id)arg1 error:(id *)arg2;
 - (id)connectionMediaTypes;
-@property(nonatomic) BOOL alwaysDiscardsLateVideoFrames;
+@property(nonatomic) _Bool alwaysDiscardsLateVideoFrames;
 @property(nonatomic) CDStruct_1b6d18a9 minFrameDuration;
 - (void)_setMinFrameDuration:(CDStruct_1b6d18a9)arg1;
+- (id)recommendedVideoSettingsForAssetWriterWithOutputFileType:(id)arg1;
+- (id)supportedAssetWriterOutputFileTypes;
 @property(copy, nonatomic) NSDictionary *videoSettings;
 - (id)vettedVideoSettingsForSettingsDictionary:(id)arg1;
 @property(readonly, nonatomic) NSArray *availableVideoCodecTypes;
@@ -36,7 +38,7 @@
 @property(readonly, nonatomic) id <AVCaptureVideoDataOutputSampleBufferDelegate> sampleBufferDelegate;
 - (void)setSampleBufferDelegate:(id)arg1 queue:(id)arg2;
 - (void)setSession:(id)arg1;
-- (BOOL)isTheOnlyDataOutput;
+- (_Bool)isTheOnlyDataOutput;
 - (void)dealloc;
 - (id)init;
 

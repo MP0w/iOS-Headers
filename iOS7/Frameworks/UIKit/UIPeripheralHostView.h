@@ -6,36 +6,41 @@
 
 #import <UIKit/UIView.h>
 
-@class UIKBRenderConfig, UIKeyboardCornerView, _UIBackdropView;
+@class UIKBInputBackdropView, UIKBRenderConfig, UIKeyboardCornerView;
 
+// Not exported
 @interface UIPeripheralHostView : UIView
 {
     int _explicitLayoutCount;
     UIKeyboardCornerView *_cornerViewLeft;
     UIKeyboardCornerView *_cornerViewRight;
-    _UIBackdropView *_inputBackdropView;
-    _UIBackdropView *_inputAccessoryBackdropView;
+    UIKBInputBackdropView *_inputBackdropView;
+    UIKBInputBackdropView *_inputAccessoryBackdropView;
     UIKBRenderConfig *_renderConfig;
 }
 
+@property(readonly, nonatomic) UIKBInputBackdropView *inputAccessoryBackdropView; // @synthesize inputAccessoryBackdropView=_inputAccessoryBackdropView;
+@property(readonly, nonatomic) UIKBInputBackdropView *inputBackdropView; // @synthesize inputBackdropView=_inputBackdropView;
 @property(readonly, nonatomic) UIKeyboardCornerView *cornerViewRight; // @synthesize cornerViewRight=_cornerViewRight;
 @property(readonly, nonatomic) UIKeyboardCornerView *cornerViewLeft; // @synthesize cornerViewLeft=_cornerViewLeft;
 - (void)removeFromSuperview;
 - (int)_clipCornersOfView:(id)arg1;
 - (void)resizeForKeyplaneSize:(struct CGSize)arg1;
 - (void)layoutSubviews;
-- (BOOL)explicitLayout;
+- (_Bool)explicitLayout;
 - (void)endExplicitLayout;
 - (void)beginExplicitLayout;
-- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)didAddSubview:(id)arg1;
+- (void)_setRenderConfig:(id)arg1 updateKeyboard:(_Bool)arg2;
 - (void)_setRenderConfig:(id)arg1;
+- (void)_setBaseRenderConfig:(id)arg1;
 - (id)_inheritedRenderConfig;
 - (void)syncInputAccessoryViewBackdropToFrame:(struct CGRect)arg1;
 - (void)syncInputViewBackdropToFrame:(struct CGRect)arg1;
-- (void)setKeyboardAppearance:(int)arg1;
 - (int)textEffectsVisibilityLevel;
 - (void)dealloc;
+- (void)updateBackdropViewForInputAccessoryView:(_Bool)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

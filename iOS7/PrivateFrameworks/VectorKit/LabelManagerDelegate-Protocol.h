@@ -7,9 +7,9 @@
 #import "NSObject-Protocol.h"
 
 @protocol LabelManagerDelegate <NSObject>
-- (void)labelManager:(struct LabelManager *)arg1 pendingArtworkIsReady:(BOOL)arg2;
+- (void)labelManager:(struct LabelManager *)arg1 pendingArtworkIsReady:(_Bool)arg2;
 - (void)labelManager:(struct LabelManager *)arg1 selectedLabelMarkerWillDisappear:(id)arg2;
-- (void)labelManager:(struct LabelManager *)arg1 setNeedsDisplay:(BOOL)arg2;
-- (void)labelManager:(struct LabelManager *)arg1 setNeedsLayout:(BOOL)arg2;
+- (void)labelManager:(struct LabelManager *)arg1 setNeedsDisplay:(_Bool)arg2;
+- (void)labelManager:(struct LabelManager *)arg1 setNeedsLayout:(_Bool)arg2;
 @end
 

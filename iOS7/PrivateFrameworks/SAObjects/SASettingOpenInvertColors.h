@@ -12,7 +12,7 @@
 
 + (id)openInvertColorsWithDictionary:(id)arg1 context:(id)arg2;
 + (id)openInvertColors;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

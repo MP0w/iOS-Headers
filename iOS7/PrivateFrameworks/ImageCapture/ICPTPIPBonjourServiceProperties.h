@@ -14,7 +14,7 @@
     NSString *_hostName;
     unsigned short _hostPort;
     NSString *_hostGUID;
-    unsigned long _hostMaxConnections;
+    unsigned int _hostMaxConnections;
     int _hostSecuritylevel;
     NSString *_serviceType;
     NSDictionary *_txtRecordsDict;
@@ -32,7 +32,7 @@
 @property(retain) NSDictionary *txtRecordsDict; // @synthesize txtRecordsDict=_txtRecordsDict;
 @property(retain) NSString *serviceType; // @synthesize serviceType=_serviceType;
 @property int hostSecurityLevel; // @synthesize hostSecurityLevel=_hostSecuritylevel;
-@property unsigned long hostMaxConnections; // @synthesize hostMaxConnections=_hostMaxConnections;
+@property unsigned int hostMaxConnections; // @synthesize hostMaxConnections=_hostMaxConnections;
 @property(retain) NSString *hostGUID; // @synthesize hostGUID=_hostGUID;
 @property unsigned short hostPort; // @synthesize hostPort=_hostPort;
 @property(retain) NSString *hostName; // @synthesize hostName=_hostName;

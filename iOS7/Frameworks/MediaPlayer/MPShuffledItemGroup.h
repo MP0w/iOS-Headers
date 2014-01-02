@@ -6,16 +6,17 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
 @class NSMutableArray;
 
-@interface MPShuffledItemGroup : NSObject <NSCoding>
+@interface MPShuffledItemGroup : NSObject <NSSecureCoding>
 {
     long long _groupPersistentID;
     NSMutableArray *_mutableItems;
 }
 
++ (_Bool)supportsSecureCoding;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

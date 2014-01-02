@@ -6,24 +6,28 @@
 
 #import "UIView.h"
 
-@class PLCommentTextView, UIButton, UILabel, UIScrollView, _UIBackdropView;
+#import "UITextViewDelegate-Protocol.h"
 
-@interface PLPhotoCommentEntryView : UIView
+@class UIButton, UILabel, UITextView;
+
+@interface PLPhotoCommentEntryView : UIView <UITextViewDelegate>
 {
-    UIScrollView *_scrollview;
     UILabel *placeholderLabel;
-    _UIBackdropView *_backdropView;
     UILabel *_placeholderLabel;
-    PLCommentTextView *_textView;
+    UITextView *_textView;
     UIButton *_postButton;
+    id <PLPhotoCommentEntryViewDelegate> _delegate;
 }
 
+@property(nonatomic) id <PLPhotoCommentEntryViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) UIButton *postButton; // @synthesize postButton=_postButton;
-@property(readonly, nonatomic) PLCommentTextView *textView; // @synthesize textView=_textView;
+@property(readonly, nonatomic) UITextView *textView; // @synthesize textView=_textView;
 @property(readonly, nonatomic) UILabel *placeholderLabel; // @synthesize placeholderLabel=_placeholderLabel;
+- (void)textViewDidChange:(id)arg1;
 - (void)layoutSubviews;
-- (float)preferredHeightForOrientation:(int)arg1;
-- (float)heightForTextContentHeight:(float)arg1 orientation:(int)arg2;
+- (id)trimmedText;
+- (void)clearText;
+- (double)preferredHeight;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

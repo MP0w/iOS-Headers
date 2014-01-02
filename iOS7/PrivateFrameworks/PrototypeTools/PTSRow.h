@@ -23,7 +23,7 @@
     id _valueValidatator;
     id _valueFormatter;
     NSString *_groupKeyPath;
-    int _allowedEditingTypes;
+    long long _allowedEditingTypes;
     _UISettings *_settings;
     PTSSection *_section;
     _UISettings *_groupChild;
@@ -34,7 +34,7 @@
 @property(retain, nonatomic) _UISettings *groupChild; // @synthesize groupChild=_groupChild;
 @property(nonatomic) __weak PTSSection *section; // @synthesize section=_section;
 @property(retain, nonatomic) _UISettings *settings; // @synthesize settings=_settings;
-@property(nonatomic) int allowedEditingTypes; // @synthesize allowedEditingTypes=_allowedEditingTypes;
+@property(nonatomic) long long allowedEditingTypes; // @synthesize allowedEditingTypes=_allowedEditingTypes;
 @property(retain, nonatomic) NSString *groupKeyPath; // @synthesize groupKeyPath=_groupKeyPath;
 @property(copy, nonatomic) id valueFormatter; // @synthesize valueFormatter=_valueFormatter;
 @property(copy, nonatomic) id valueValidatator; // @synthesize valueValidatator=_valueValidatator;
@@ -46,12 +46,12 @@
 @property(copy, nonatomic) NSString *staticTitle; // @synthesize staticTitle=_staticTitle;
 @property(copy, nonatomic) NSString *valueKeyPath; // @synthesize valueKeyPath=_valueKeyPath;
 - (void).cxx_destruct;
-- (BOOL)allowsShare;
-- (BOOL)allowsDuplicate;
-- (BOOL)allowsReorder;
-- (BOOL)allowsDelete;
-- (id)concreteCopyWithIndex:(unsigned int)arg1;
-- (void)resolveTemplatesWithIndex:(unsigned int)arg1;
+- (_Bool)allowsShare;
+- (_Bool)allowsDuplicate;
+- (_Bool)allowsReorder;
+- (_Bool)allowsDelete;
+- (id)concreteCopyWithIndex:(unsigned long long)arg1;
+- (void)resolveTemplatesWithIndex:(unsigned long long)arg1;
 - (id)group;
 - (void)_sendImageChanged;
 - (void)_sendTitleChanged;
@@ -64,7 +64,7 @@
 - (id)image;
 - (id)title;
 - (void)updateWithRow:(id)arg1;
-- (id)allowedEditingTypes:(int)arg1;
+- (id)allowedEditingTypes:(long long)arg1;
 - (id)groupKeyPath:(id)arg1;
 - (id)valueFormatter:(id)arg1;
 - (id)valueValidator:(id)arg1;
@@ -78,7 +78,6 @@
 - (id)valueKeyPath:(id)arg1;
 - (void)dealloc;
 - (id)init;
-- (Class)rowTableViewCellClass;
 
 @end
 

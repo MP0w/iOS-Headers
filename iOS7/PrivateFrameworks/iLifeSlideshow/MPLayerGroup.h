@@ -8,23 +8,20 @@
 
 #import "MPActionSupport-Protocol.h"
 #import "MPActionableSupport-Protocol.h"
-#import "MPActionableSupportInternal-Protocol.h"
 #import "MPAnimationSupport-Protocol.h"
 #import "MPAudioSupport-Protocol.h"
 #import "MPAutomaticLayerSupport-Protocol.h"
 #import "MPGeometrySupport-Protocol.h"
 #import "MPLayerableSupport-Protocol.h"
-#import "MPLayerableSupportInternal-Protocol.h"
 #import "MPManualLayerSupport-Protocol.h"
 #import "MPNavigatorSupport-Protocol.h"
-#import "MPNavigatorSupportInternal-Protocol.h"
 #import "MPTimingSupport-Protocol.h"
 #import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
 
 @class MCContainerParallelizer, MCPlugParallel, MPAudioPlaylist, MPLayerGroupInternal, NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSString;
 
-@interface MPLayerGroup : NSObject <MPActionableSupportInternal, MPNavigatorSupportInternal, MPLayerableSupportInternal, NSCoding, NSCopying, MPAnimationSupport, MPActionableSupport, MPAudioSupport, MPLayerableSupport, MPNavigatorSupport, MPGeometrySupport, MPTimingSupport, MPActionSupport, MPAutomaticLayerSupport, MPManualLayerSupport>
+@interface MPLayerGroup : NSObject <NSCoding, NSCopying, MPAnimationSupport, MPActionableSupport, MPAudioSupport, MPLayerableSupport, MPNavigatorSupport, MPGeometrySupport, MPTimingSupport, MPActionSupport, MPAutomaticLayerSupport, MPManualLayerSupport>
 {
     MPLayerGroupInternal *_internal;
     NSMutableArray *_userProvidedVideoPaths;
@@ -40,29 +37,29 @@
     NSMutableDictionary *_actions;
 }
 
-+ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
++ (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 - (void)removeActionForKey:(id)arg1;
 - (void)setAction:(id)arg1 forKey:(id)arg2;
 - (id)actionForKey:(id)arg1;
 - (id)actions;
-- (void)setZIndex:(int)arg1;
-- (int)zIndex;
-- (void)setScale:(float)arg1;
-- (float)scale;
-- (void)setYRotationAngle:(float)arg1;
-- (float)yRotationAngle;
-- (void)setXRotationAngle:(float)arg1;
-- (float)xRotationAngle;
+- (void)setZIndex:(long long)arg1;
+- (long long)zIndex;
+- (void)setScale:(double)arg1;
+- (double)scale;
+- (void)setYRotationAngle:(double)arg1;
+- (double)yRotationAngle;
+- (void)setXRotationAngle:(double)arg1;
+- (double)xRotationAngle;
 - (void)setSize:(struct CGSize)arg1;
 - (struct CGSize)size;
-- (void)setRotationAngle:(float)arg1;
-- (float)rotationAngle;
-- (void)setZPosition:(float)arg1;
-- (float)zPosition;
+- (void)setRotationAngle:(double)arg1;
+- (double)rotationAngle;
+- (void)setZPosition:(double)arg1;
+- (double)zPosition;
 - (void)setPosition:(struct CGPoint)arg1;
 - (struct CGPoint)position;
-- (void)setOpacity:(float)arg1;
-- (float)opacity;
+- (void)setOpacity:(double)arg1;
+- (double)opacity;
 - (void)removeAnimationPathForKey:(id)arg1;
 - (void)setAnimationPath:(id)arg1 forKey:(id)arg2;
 - (id)animationPathForKey:(id)arg1;
@@ -72,7 +69,7 @@
 - (id)layerForKey:(id)arg1;
 - (id)keyedLayers;
 - (id)layerKey;
-@property(nonatomic) BOOL autoAdjustDuration; // @dynamic autoAdjustDuration;
+@property(nonatomic) _Bool autoAdjustDuration; // @dynamic autoAdjustDuration;
 - (void)setPhaseOutDuration:(double)arg1;
 - (double)phaseOutDuration;
 - (void)setPhaseInDuration:(double)arg1;
@@ -95,23 +92,23 @@
 @property(readonly, nonatomic) NSString *uuid;
 @property(nonatomic) struct CGColor *backgroundCGColor; // @dynamic backgroundCGColor;
 - (void)setBackgroundColorString:(id)arg1;
-@property(nonatomic) unsigned int loopingMode; // @dynamic loopingMode;
+@property(nonatomic) unsigned long long loopingMode; // @dynamic loopingMode;
 - (void)setAudioPlaylist:(id)arg1;
 - (id)audioPlaylist;
 - (id)parent;
-- (void)setStartsPaused:(BOOL)arg1;
-- (BOOL)startsPaused;
-- (void)setIsTriggered:(BOOL)arg1;
-- (BOOL)isTriggered;
+- (void)setStartsPaused:(_Bool)arg1;
+- (_Bool)startsPaused;
+- (void)setIsTriggered:(_Bool)arg1;
+- (_Bool)isTriggered;
 - (void)setTimeIn:(double)arg1;
 - (double)timeIn;
 - (void)setDuration:(double)arg1;
 - (double)duration;
 - (double)videoDuration;
-- (void)moveLayersFromIndices:(id)arg1 toIndex:(int)arg2;
+- (void)moveLayersFromIndices:(id)arg1 toIndex:(long long)arg2;
 - (void)removeLayersAtIndices:(id)arg1;
 - (void)removeAllLayers;
-- (void)insertLayers:(id)arg1 atIndex:(int)arg2;
+- (void)insertLayers:(id)arg1 atIndex:(long long)arg2;
 - (void)addLayers:(id)arg1;
 - (void)addLayer:(id)arg1;
 - (id)layers;
@@ -119,7 +116,7 @@
 - (id)authoringOptionForKey:(id)arg1;
 - (void)setAuthoringOption:(id)arg1 forKey:(id)arg2;
 - (id)authoringOptions;
-- (unsigned int)setStyleID:(id)arg1;
+- (unsigned long long)setStyleID:(id)arg1;
 - (id)styleID;
 - (id)navigatorKey;
 - (void)dealloc;
@@ -128,54 +125,6 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)init;
-- (id)parentDocument;
-- (id)absoluteVideoPaths;
-- (double)posterTime;
-- (id)allSongs;
-- (id)allSlides:(BOOL)arg1;
-- (id)allEffects;
-- (id)allEffectContainers;
-- (id)plug;
-- (BOOL)detectFacesInBackground;
-- (id)layerKeyDictionary;
-- (id)actionableObjectForID:(id)arg1;
-- (void)setIsDocumentLayerGroup:(BOOL)arg1;
-- (int)lastSlideUsed;
-- (void)setLastSlideUsed:(int)arg1;
-- (void)setUsedAllPaths:(BOOL)arg1;
-- (double)aspectRatioDidChange:(float)arg1 atTime:(double)arg2;
-- (BOOL)nearingEndWithOptions:(id)arg1;
-- (id)liveLock;
-- (void)setAuthoredVersionInfo:(id)arg1;
-- (id)authoredVersionInfo;
-- (void)copyActions:(id)arg1;
-- (void)copyAnimationPaths:(id)arg1;
-- (void)copyAudioPlaylist:(id)arg1;
-- (void)copyLayerDictionary:(id)arg1;
-- (void)copyLayers:(id)arg1;
-- (void)copyStruct:(id)arg1;
-- (void)reconfigureLoopingMode;
-- (void)reconnectAll;
-- (void)setDurationPadding:(double)arg1;
-- (double)durationPadding;
-- (void)resetDuration;
-- (void)cleanup;
-- (void)setPlug:(id)arg1;
-- (void)setContainer:(id)arg1;
-- (id)container;
-- (void)configureActions;
-- (void)setParent:(id)arg1;
-- (id)observer;
-- (void)cachePaths;
-- (BOOL)layersCanPositionZIndex;
-- (id)objectID;
-- (id)plugID;
-- (void)replaceObjectInLayersAtIndex:(int)arg1 withObject:(id)arg2;
-- (void)removeObjectFromLayersAtIndex:(int)arg1;
-- (void)insertObject:(id)arg1 inLayersAtIndex:(int)arg2;
-- (id)valueInLayersWithName:(id)arg1;
-- (id)objectInLayersAtIndex:(int)arg1;
-- (int)countOfLayers;
 
 @end
 

@@ -6,11 +6,12 @@
 
 #import "UIPopoverController.h"
 
+// Not exported
 @interface _MKPopoverController : UIPopoverController
 {
 }
 
-+ (BOOL)_popoversDisabled;
++ (_Bool)_popoversDisabled;
 
 @end
 

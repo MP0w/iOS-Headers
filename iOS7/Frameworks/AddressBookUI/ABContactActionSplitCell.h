@@ -6,21 +6,27 @@
 
 #import <AddressBookUI/ABContactCell.h>
 
-@class UIButton;
+@class UIButton, UIView;
 
 @interface ABContactActionSplitCell : ABContactCell
 {
+    _Bool _displayConstraintsActive;
     UIButton *_leftLabel;
     UIButton *_rightLabel;
+    UIView *_spacer;
 }
 
+@property(nonatomic) _Bool displayConstraintsActive; // @synthesize displayConstraintsActive=_displayConstraintsActive;
+@property(readonly, nonatomic) UIView *spacer; // @synthesize spacer=_spacer;
 @property(readonly, nonatomic) UIButton *rightLabel; // @synthesize rightLabel=_rightLabel;
 @property(readonly, nonatomic) UIButton *leftLabel; // @synthesize leftLabel=_leftLabel;
 - (void)_setupButton:(id)arg1 forAction:(id)arg2;
 - (void)updateConstraints;
+- (void)setRightContentMargin:(double)arg1;
+- (void)setLeftContentMargin:(double)arg1;
 - (void)setCardGroupItem:(id)arg1;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

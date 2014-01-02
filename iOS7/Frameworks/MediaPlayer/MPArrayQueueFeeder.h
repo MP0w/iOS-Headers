@@ -15,10 +15,10 @@
 
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSArray *items;
-- (id)playbackInfoAtIndex:(unsigned int)arg1;
-- (id)pathAtIndex:(unsigned int)arg1;
-- (unsigned int)itemCount;
-- (id)copyRawItemAtIndex:(unsigned int)arg1;
+- (id)playbackInfoAtIndex:(unsigned long long)arg1;
+- (id)pathAtIndex:(unsigned long long)arg1;
+- (unsigned long long)itemCount;
+- (id)copyRawItemAtIndex:(unsigned long long)arg1;
 - (void)dealloc;
 - (id)initWithItems:(id)arg1;
 

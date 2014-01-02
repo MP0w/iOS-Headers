@@ -13,22 +13,22 @@
 
 @interface SSPurchaseRequest : SSRequest <SSPurchaseManagerDelegate, SSXPCCoding>
 {
-    BOOL _isBackgroundRequest;
+    _Bool _isBackgroundRequest;
     NSArray *_purchases;
-    BOOL _shouldValidatePurchases;
+    _Bool _shouldValidatePurchases;
     id _completionBlock;
-    BOOL _createsDownloads;
+    _Bool _createsDownloads;
     NSMutableSet *_openPurchaseIdentifiers;
     id _purchaseBlock;
     id _purchaseResponseBlock;
     SSPurchaseManager *_purchaseManager;
-    BOOL _needsAuthentication;
+    _Bool _needsAuthentication;
 }
 
-@property(nonatomic) BOOL shouldValidatePurchases; // @synthesize shouldValidatePurchases=_shouldValidatePurchases;
-@property(nonatomic) BOOL needsAuthentication; // @synthesize needsAuthentication=_needsAuthentication;
-@property(nonatomic) BOOL createsDownloads; // @synthesize createsDownloads=_createsDownloads;
-@property(nonatomic, getter=isBackgroundRequest) BOOL backgroundRequest; // @synthesize backgroundRequest=_isBackgroundRequest;
+@property(nonatomic) _Bool shouldValidatePurchases; // @synthesize shouldValidatePurchases=_shouldValidatePurchases;
+@property(nonatomic) _Bool needsAuthentication; // @synthesize needsAuthentication=_needsAuthentication;
+@property(nonatomic) _Bool createsDownloads; // @synthesize createsDownloads=_createsDownloads;
+@property(nonatomic, getter=isBackgroundRequest) _Bool backgroundRequest; // @synthesize backgroundRequest=_isBackgroundRequest;
 - (id)_purchaseForUniqueIdentifier:(long long)arg1;
 - (void)_finishPurchasesWithResponses:(id)arg1;
 - (void)_addPurchasesToManager;
@@ -36,7 +36,7 @@
 - (id)copyXPCEncoding;
 - (void)purchaseManager:(id)arg1 didFinishPurchasesWithResponses:(id)arg2;
 - (void)startWithCompletionBlock:(id)arg1;
-- (BOOL)start;
+- (_Bool)start;
 - (void)cancel;
 - (void)startWithPurchaseResponseBlock:(id)arg1 completionBlock:(void)arg2;
 - (void)startWithPurchaseBlock:(id)arg1 completionBlock:(void)arg2;

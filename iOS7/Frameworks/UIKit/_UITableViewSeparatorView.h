@@ -8,6 +8,7 @@
 
 @class UITableView, UITableViewCell;
 
+// Not exported
 @interface _UITableViewSeparatorView : UIView
 {
     UITableViewCell *_tableCell;

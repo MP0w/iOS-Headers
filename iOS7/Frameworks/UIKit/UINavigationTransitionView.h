@@ -15,32 +15,32 @@
     id _delegate;
     UIView *_fromView;
     UIView *_toView;
-    int _transition;
+    long long _transition;
     UIResponder *_firstResponderToRestore;
     UIWindow *_originalWindow;
-    float _fromViewAlpha;
+    double _fromViewAlpha;
     unsigned int _isTransitioning:1;
     unsigned int _popoverWillCleanUpNavigationTransition:1;
     unsigned int _usesRoundedCorners:1;
 }
 
-+ (double)defaultDurationForTransition:(int)arg1;
++ (double)defaultDurationForTransition:(long long)arg1;
 @property(readonly) UIView *fromView; // @synthesize fromView=_fromView;
 @property(nonatomic) id delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) BOOL usesRoundedCorners;
+@property(nonatomic) _Bool usesRoundedCorners;
 - (void)_navigationTransitionDidStop;
 - (void)_cleanupTransition;
 - (void)_cleanupTransitionFromPopover;
 - (void)_notifyDelegateTransitionDidStopWithContext:(id)arg1;
-- (BOOL)_isTransitioningFromView:(id)arg1;
-@property(readonly) BOOL isTransitioning;
-- (BOOL)transition:(int)arg1 fromView:(id)arg2 toView:(id)arg3;
-- (BOOL)transition:(int)arg1 toView:(id)arg2;
+- (_Bool)_isTransitioningFromView:(id)arg1;
+@property(readonly) _Bool isTransitioning;
+- (_Bool)transition:(long long)arg1 fromView:(id)arg2 toView:(id)arg3;
+- (_Bool)transition:(long long)arg1 toView:(id)arg2;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
-@property(nonatomic) BOOL popoverWillCleanUpNavigationTransition;
+@property(nonatomic) _Bool popoverWillCleanUpNavigationTransition;
 
 @end
 

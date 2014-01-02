@@ -27,7 +27,7 @@
     unsigned int _threadsCount;
     id *_classInfos;
     unsigned int _classInfosCount;
-    BOOL _exactScanningEnabled;
+    _Bool _exactScanningEnabled;
     unsigned long long _maxInteriorOffset;
     int _scanningMask;
     id _referenceLogger;
@@ -36,7 +36,7 @@
 
 @property(nonatomic) int scanningMask; // @synthesize scanningMask=_scanningMask;
 @property(readonly, nonatomic) unsigned int nodeCount; // @synthesize nodeCount=_blocksCount;
-@property(nonatomic) BOOL exactScanningEnabled; // @synthesize exactScanningEnabled=_exactScanningEnabled;
+@property(nonatomic) _Bool exactScanningEnabled; // @synthesize exactScanningEnabled=_exactScanningEnabled;
 @property(nonatomic) unsigned long long maxInteriorOffset; // @synthesize maxInteriorOffset=_maxInteriorOffset;
 - (id)referenceDescription:(CDStruct_df82e459)arg1 withSourceNode:(unsigned int)arg2 destinationNode:(unsigned int)arg3 symbolicator:(struct _CSTypeRef)arg4 alignmentSpacing:(unsigned int)arg5;
 - (id)nodeDescription:(unsigned int)arg1 withOffset:(unsigned long long)arg2;
@@ -65,7 +65,7 @@
 - (void)_withMemoryReaderBlock:(id)arg1;
 - (void)dealloc;
 - (void)detachFromTask;
-- (BOOL)_suspend;
+- (_Bool)_suspend;
 - (id)initWithTask:(unsigned int)arg1;
 
 @end

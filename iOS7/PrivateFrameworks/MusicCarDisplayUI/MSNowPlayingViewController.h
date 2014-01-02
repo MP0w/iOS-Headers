@@ -24,19 +24,23 @@
     UIButton *_pageLeftButton;
     UIButton *_pageRightButton;
     UITapGestureRecognizer *_knobPressRecognizer;
-    float _wheelScrubVelocity;
-    BOOL _viewAppeared;
+    UITapGestureRecognizer *_knobBackPressRecognizer;
+    double _wheelScrubVelocity;
+    _Bool _viewAppeared;
+    int _viewMode;
     UIPageViewController *_pageViewController;
     NSArray *_controlPages;
-    unsigned int _currentPageIndex;
+    unsigned long long _currentPageIndex;
 }
 
-@property(nonatomic) unsigned int currentPageIndex; // @synthesize currentPageIndex=_currentPageIndex;
+@property(nonatomic) int viewMode; // @synthesize viewMode=_viewMode;
+@property(nonatomic) unsigned long long currentPageIndex; // @synthesize currentPageIndex=_currentPageIndex;
 @property(retain, nonatomic) NSArray *controlPages; // @synthesize controlPages=_controlPages;
 @property(retain, nonatomic) UIPageViewController *pageViewController; // @synthesize pageViewController=_pageViewController;
 - (void).cxx_destruct;
 - (void)updateTrackInformation;
 - (void)updatePageArrows;
+- (void)_refreshSubViewsAndViewControllers;
 - (void)_endWheelScrub;
 - (void)_cancelWheelScrubEndTimer;
 - (void)_restartWheelScrubEndTimer;
@@ -49,25 +53,26 @@
 - (void)nowPlayingView:(id)arg1 menuButtonTapped:(id)arg2;
 - (void)nowPlayingView:(id)arg1 backButtonTapped:(id)arg2;
 - (void)transportControlViewController:(id)arg1 infoButtonTapped:(id)arg2;
-- (int)presentationIndexForPageViewController:(id)arg1;
-- (int)presentationCountForPageViewController:(id)arg1;
+- (long long)presentationIndexForPageViewController:(id)arg1;
+- (long long)presentationCountForPageViewController:(id)arg1;
 - (id)pageViewController:(id)arg1 viewControllerAfterViewController:(id)arg2;
 - (id)pageViewController:(id)arg1 viewControllerBeforeViewController:(id)arg2;
-- (void)pageViewController:(id)arg1 didFinishAnimating:(BOOL)arg2 previousViewControllers:(id)arg3 transitionCompleted:(BOOL)arg4;
+- (void)pageViewController:(id)arg1 didFinishAnimating:(_Bool)arg2 previousViewControllers:(id)arg3 transitionCompleted:(_Bool)arg4;
+- (void)_playbackContentsChanged:(id)arg1;
 - (void)_itemChanged:(id)arg1;
 - (id)getCurrentContext;
-- (BOOL)allowContextProvider:(id)arg1;
+- (_Bool)allowContextProvider:(id)arg1;
 - (void)viewDidLayoutSubviews;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)dealloc;
 - (id)initWithRadioStation:(id)arg1 player:(id)arg2 serviceProvider:(id)arg3;
 - (id)initWithGeniusMixPlaylist:(id)arg1 player:(id)arg2 serviceProvider:(id)arg3;
 - (id)initWithQueryToShuffle:(id)arg1 player:(id)arg2 serviceProvider:(id)arg3;
-- (id)initWithQuery:(id)arg1 startingAtIndex:(unsigned int)arg2 player:(id)arg3 serviceProvider:(id)arg4;
-- (id)initWithPlayer:(id)arg1 serviceProvider:(id)arg2 startPlay:(BOOL)arg3;
+- (id)initWithQuery:(id)arg1 startingAtIndex:(unsigned long long)arg2 player:(id)arg3 serviceProvider:(id)arg4;
+- (id)initWithPlayer:(id)arg1 serviceProvider:(id)arg2 startPlay:(_Bool)arg3;
 
 @end
 

@@ -20,7 +20,7 @@
 @property(nonatomic) SEL selector; // @synthesize selector=_selector;
 @property(nonatomic) id target; // @synthesize target=_target;
 @property(readonly, nonatomic) NSSet *set; // @synthesize set=_set;
-- (BOOL)empty;
+- (_Bool)empty;
 - (void)removeAnnotation:(id)arg1;
 - (void)removeAnnotations:(id)arg1;
 - (void)removeAllAnnotations;

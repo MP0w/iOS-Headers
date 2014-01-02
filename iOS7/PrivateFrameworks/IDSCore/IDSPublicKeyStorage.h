@@ -14,15 +14,15 @@
 }
 
 + (id)sharedInstance;
-- (void)removePublicKeyForToken:(id)arg1 forURI:(id)arg2 fromURI:(id)arg3;
-- (void)storePublicKey:(id)arg1 forToken:(id)arg2 forURI:(id)arg3 fromURI:(id)arg4;
-- (struct _SecMPPublicIdentity *)copyPublicIdentityForToken:(id)arg1 forURI:(id)arg2 fromURI:(id)arg3;
-- (id)publicKeyForToken:(id)arg1 forURI:(id)arg2 fromURI:(id)arg3;
-- (BOOL)hasPublicKeyForToken:(id)arg1 forURI:(id)arg2 fromURI:(id)arg3;
+- (void)removePublicKeyForToken:(id)arg1 forURI:(id)arg2 fromURI:(id)arg3 forService:(id)arg4;
+- (void)storePublicKey:(id)arg1 forToken:(id)arg2 forURI:(id)arg3 fromURI:(id)arg4 forService:(id)arg5;
+- (struct _SecMPPublicIdentity *)copyPublicIdentityForToken:(id)arg1 forURI:(id)arg2 fromURI:(id)arg3 forService:(id)arg4;
+- (id)publicKeyForToken:(id)arg1 forURI:(id)arg2 fromURI:(id)arg3 forService:(id)arg4;
+- (_Bool)hasPublicKeyForToken:(id)arg1 forURI:(id)arg2 fromURI:(id)arg3 forService:(id)arg4;
 - (void)_purgeOrphanedKeysToThreshold;
-- (void)_purgeEntryIfNecessaryWithFromURI:(id)arg1 forURI:(id)arg2;
-- (id)_existingEntryFromURI:(id)arg1 forURI:(id)arg2;
-- (id)_entryFromURI:(id)arg1 forURI:(id)arg2;
+- (void)_purgeEntryIfNecessaryWithFromURI:(id)arg1 forURI:(id)arg2 forService:(id)arg3;
+- (id)_existingEntryFromURI:(id)arg1 forURI:(id)arg2 forService:(id)arg3;
+- (id)_entryFromURI:(id)arg1 forURI:(id)arg2 forService:(id)arg3;
 
 @end
 

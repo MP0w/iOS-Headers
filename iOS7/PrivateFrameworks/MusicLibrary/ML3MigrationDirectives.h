@@ -6,22 +6,23 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface ML3MigrationDirectives : NSObject
 {
-    BOOL _needsToRecreateIndexes;
-    BOOL _needsToRecreateTriggers;
-    BOOL _needsToRemoveLocationsForItemsMissingAssets;
-    BOOL _needsToReloadStoreBookmarkMetadataIdentifiers;
-    BOOL _needsAnalyze;
+    _Bool _needsToRecreateIndexes;
+    _Bool _needsToRecreateTriggers;
+    _Bool _needsToRemoveLocationsForItemsMissingAssets;
+    _Bool _needsToReloadStoreBookmarkMetadataIdentifiers;
+    _Bool _needsAnalyze;
     int _userVersion;
 }
 
 @property(nonatomic) int userVersion; // @synthesize userVersion=_userVersion;
-@property(nonatomic) BOOL needsAnalyze; // @synthesize needsAnalyze=_needsAnalyze;
-@property(nonatomic) BOOL needsToReloadStoreBookmarkMetadataIdentifiers; // @synthesize needsToReloadStoreBookmarkMetadataIdentifiers=_needsToReloadStoreBookmarkMetadataIdentifiers;
-@property(nonatomic) BOOL needsToRemoveLocationsForItemsMissingAssets; // @synthesize needsToRemoveLocationsForItemsMissingAssets=_needsToRemoveLocationsForItemsMissingAssets;
-@property(nonatomic) BOOL needsToRecreateTriggers; // @synthesize needsToRecreateTriggers=_needsToRecreateTriggers;
-@property(nonatomic) BOOL needsToRecreateIndexes; // @synthesize needsToRecreateIndexes=_needsToRecreateIndexes;
+@property(nonatomic) _Bool needsAnalyze; // @synthesize needsAnalyze=_needsAnalyze;
+@property(nonatomic) _Bool needsToReloadStoreBookmarkMetadataIdentifiers; // @synthesize needsToReloadStoreBookmarkMetadataIdentifiers=_needsToReloadStoreBookmarkMetadataIdentifiers;
+@property(nonatomic) _Bool needsToRemoveLocationsForItemsMissingAssets; // @synthesize needsToRemoveLocationsForItemsMissingAssets=_needsToRemoveLocationsForItemsMissingAssets;
+@property(nonatomic) _Bool needsToRecreateTriggers; // @synthesize needsToRecreateTriggers=_needsToRecreateTriggers;
+@property(nonatomic) _Bool needsToRecreateIndexes; // @synthesize needsToRecreateIndexes=_needsToRecreateIndexes;
 
 @end
 

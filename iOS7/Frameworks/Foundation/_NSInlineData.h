@@ -6,15 +6,16 @@
 
 #import "NSData.h"
 
+// Not exported
 @interface _NSInlineData : NSData
 {
     unsigned short _length;
 }
 
-- (id)initWithBytes:(const void *)arg1 length:(unsigned int)arg2;
+- (id)initWithBytes:(const void *)arg1 length:(unsigned long long)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (const void *)bytes;
-- (unsigned int)length;
+- (unsigned long long)length;
 
 @end
 

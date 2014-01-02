@@ -10,7 +10,7 @@
 
 @interface PUPreheatManager : NSObject
 {
-    BOOL _imageFormatIsTable;
+    _Bool _imageFormatIsTable;
     int _imageFormat;
     NSNumber *_imageFormatKey;
     PUImageManager *_imageManager;
@@ -23,7 +23,7 @@
 @property(retain, nonatomic) id <NSFastEnumeration> previousAssets; // @synthesize previousAssets=_previousAssets;
 @property(retain, nonatomic) id <PLPreheatItemSource> imageTable; // @synthesize imageTable=_imageTable;
 @property(retain, nonatomic) PUImageManager *imageManager; // @synthesize imageManager=_imageManager;
-@property(nonatomic) BOOL imageFormatIsTable; // @synthesize imageFormatIsTable=_imageFormatIsTable;
+@property(nonatomic) _Bool imageFormatIsTable; // @synthesize imageFormatIsTable=_imageFormatIsTable;
 @property(retain, nonatomic) NSNumber *imageFormatKey; // @synthesize imageFormatKey=_imageFormatKey;
 @property(nonatomic) int imageFormat; // @synthesize imageFormat=_imageFormat;
 - (void).cxx_destruct;

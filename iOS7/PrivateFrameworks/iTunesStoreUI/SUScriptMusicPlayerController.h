@@ -16,7 +16,7 @@
 + (void)initialize;
 + (id)webScriptNameForSelector:(SEL)arg1;
 + (id)webScriptNameForKeyName:(id)arg1;
-+ (id)scriptPlaybackStateForNativePlaybackState:(int)arg1;
++ (id)scriptPlaybackStateForNativePlaybackState:(long long)arg1;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
 @property(readonly) NSString *shuffleModeSongs;

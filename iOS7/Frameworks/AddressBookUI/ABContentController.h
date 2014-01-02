@@ -19,9 +19,9 @@
 
 - (void)preloadController;
 - (void)reload;
-- (void)back:(BOOL)arg1 save:(BOOL)arg2;
+- (void)back:(_Bool)arg1 save:(_Bool)arg2;
 - (void)displayScrollerIndicators;
-- (BOOL)contentViewIsVisible;
+- (_Bool)contentViewIsVisible;
 - (void)cleanUpContentLayer;
 - (id)contentView;
 - (void)setContentControllerDelegate:(id)arg1;

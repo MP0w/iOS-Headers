@@ -49,48 +49,48 @@ struct _CFXPreferencesStatInfo {
 };
 
 struct _NSRange {
-    unsigned int _field1;
-    unsigned int _field2;
+    unsigned long long _field1;
+    unsigned long long _field2;
 };
 
 struct edge {
-    unsigned int _field1;
-    unsigned int _field2[2];
-    unsigned int _field3;
+    unsigned long long _field1;
+    unsigned long long _field2[2];
+    unsigned long long _field3;
 };
 
 struct timespec {
-    int tv_sec;
-    long tv_nsec;
+    long long tv_sec;
+    long long tv_nsec;
 };
 
 struct vertex {
-    unsigned int _field1;
-    unsigned int _field2;
-    unsigned int *_field3;
+    unsigned long long _field1;
+    unsigned long long _field2;
+    unsigned long long *_field3;
 };
 
 #pragma mark Typedef'd Structures
 
 typedef struct {
-    unsigned long _field1;
+    unsigned long long _field1;
     id *_field2;
-    unsigned long *_field3;
-    unsigned long _field4[5];
-} CDStruct_11f37819;
+    unsigned long long *_field3;
+    unsigned long long _field4[5];
+} CDStruct_70511ce9;
 
 typedef struct {
-    int version;
+    long long version;
     void *info;
     void *retain;
     void *release;
     void *copyDescription;
-} CDStruct_304912e7;
+} CDStruct_4210025a;
 
 typedef struct {
-    int _field1;
-    int _field2;
-} CDStruct_1ef3fb1f;
+    long long _field1;
+    long long _field2;
+} CDStruct_912cb5d2;
 
 typedef struct {
     struct NSMethodFrameArgInfo *_field1;

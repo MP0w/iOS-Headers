@@ -7,6 +7,6 @@
 #import "NSMutableArray.h"
 
 @interface NSMutableArray (PBExtensions)
-- (void)setObject:(id)arg1 atIndex:(unsigned int)arg2;
+- (void)setObject:(id)arg1 atIndex:(unsigned long long)arg2;
 @end
 

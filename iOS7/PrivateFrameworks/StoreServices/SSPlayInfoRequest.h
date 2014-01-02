@@ -19,7 +19,7 @@
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)copyXPCEncoding;
 - (void)startWithCompletionBlock:(id)arg1;
-- (BOOL)start;
+- (_Bool)start;
 - (void)startWithPlayInfoResponseBlock:(id)arg1;
 @property(readonly) SSPlayInfoResponse *playInfoResponse;
 @property(readonly) SSPlayInfoRequestContext *playInfoContext;

@@ -10,10 +10,10 @@
 
 @interface PLBulletinsTestDaemonJob : PLDaemonJob
 {
+    long long _bulletinType;
     NSString *_albumUUID;
     NSArray *_addedAssetUUIDs;
     PLPhotoLibrary *_photoLibrary;
-    long long _bulletinType;
 }
 
 + (void)notifyCommentWasReceivedForAssets:(id)arg1;

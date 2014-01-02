@@ -8,6 +8,7 @@
 
 @class NSMapTable;
 
+// Not exported
 @interface VKObjectPool : NSObject
 {
     NSMapTable *_map;

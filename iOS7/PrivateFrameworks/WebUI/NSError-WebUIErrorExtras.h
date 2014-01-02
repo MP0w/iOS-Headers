@@ -7,6 +7,6 @@
 #import "NSError.h"
 
 @interface NSError (WebUIErrorExtras)
-+ (id)_webUI_WebUIErrorWithCode:(unsigned int)arg1 URL:(id)arg2;
++ (id)_webUI_WebUIErrorWithCode:(unsigned long long)arg1 URL:(id)arg2;
 @end
 

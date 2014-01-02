@@ -23,14 +23,14 @@
 
 @property(retain, nonatomic) UITableView *tableView; // @synthesize tableView=_tableView;
 - (void).cxx_destruct;
-- (void)setCreatingGenius:(BOOL)arg1;
+- (void)setCreatingGenius:(_Bool)arg1;
 - (void)knobBackPressed:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (void)viewDidLayoutSubviews;
-- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)loadView;
 - (id)initWithItem:(id)arg1 player:(id)arg2 serviceProvider:(id)arg3;

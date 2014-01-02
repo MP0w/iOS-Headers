@@ -13,18 +13,18 @@
 @interface IDSRegistrationPushHandler : NSObject <IDSPushHandlerDelegate>
 {
     NSMutableArray *_handlers;
-    BOOL _registeredForPush;
-    BOOL _isListening;
+    _Bool _registeredForPush;
+    _Bool _isListening;
 }
 
 + (id)commandToHandlerBlock;
 - (void)handler:(id)arg1 pushTokenChanged:(id)arg2;
-- (void)handler:(id)arg1 didReceiveMessage:(id)arg2 forTopic:(id)arg3 fromID:(id)arg4;
+- (void)handler:(id)arg1 didReceiveMessage:(id)arg2 forTopic:(id)arg3 fromID:(id)arg4 messageContext:(id)arg5;
 - (void)removeListener:(id)arg1;
 - (void)addListener:(id)arg1;
 - (id)copyHandlersForEnumerating;
 - (id)_pushTopics;
-@property(nonatomic) BOOL registered;
+@property(nonatomic) _Bool registered;
 - (void)_ignoreIncomingPushes;
 - (void)_acceptIncomingPushes;
 - (void)_updateListenerIfNeeded;

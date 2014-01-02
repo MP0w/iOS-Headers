@@ -12,14 +12,14 @@
 {
     UIColor *m_patternColor;
     UIColor *m_checkerColor;
-    float m_scale;
+    double m_scale;
 }
 
 - (void)setCheckerColor:(id)arg1;
 - (id)checkerColor;
 - (void)updatePatternColor;
 - (void)didMoveToWindow;
-- (BOOL)_canDrawContent;
+- (_Bool)_canDrawContent;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

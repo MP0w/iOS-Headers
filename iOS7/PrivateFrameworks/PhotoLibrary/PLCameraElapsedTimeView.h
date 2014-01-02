@@ -14,17 +14,17 @@
     UILabel *_seconds;
     NSTimer *_timer;
     NSDate *_startTime;
-    BOOL _autorotationEnabled;
-    BOOL _watchingOrientationChanges;
-    int _orientation;
+    _Bool _autorotationEnabled;
+    _Bool _watchingOrientationChanges;
+    long long _orientation;
 }
 
-- (void)_setDeviceOrientation:(int)arg1 animated:(BOOL)arg2;
-- (void)setOrientation:(int)arg1;
+- (void)_setDeviceOrientation:(long long)arg1 animated:(_Bool)arg2;
+- (void)setOrientation:(long long)arg1;
 - (void)_deviceOrientationChanged:(id)arg1;
 - (void)_stopWatchingDeviceOrientationChanges;
 - (void)_startWatchingDeviceOrientationChanges;
-@property(nonatomic) BOOL autorotationEnabled;
+@property(nonatomic) _Bool autorotationEnabled;
 - (void)stopTimer;
 - (void)startTimer;
 - (void)_update:(id)arg1;

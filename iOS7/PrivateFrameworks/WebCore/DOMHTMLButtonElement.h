@@ -14,19 +14,19 @@
 
 - (void)click;
 - (void)setCustomValidity:(id)arg1;
-- (BOOL)checkValidity;
+- (_Bool)checkValidity;
 @property(copy) NSString *accessKey;
 - (id)labels;
 - (id)validationMessage;
 - (id)validity;
-@property(readonly) BOOL willValidate;
+@property(readonly) _Bool willValidate;
 @property(copy) NSString *value;
 @property(copy) NSString *type;
 @property(copy) NSString *name;
 - (void)setFormTarget:(id)arg1;
 - (id)formTarget;
-- (void)setFormNoValidate:(BOOL)arg1;
-- (BOOL)formNoValidate;
+- (void)setFormNoValidate:(_Bool)arg1;
+- (_Bool)formNoValidate;
 - (void)setFormMethod:(id)arg1;
 - (id)formMethod;
 - (void)setFormEnctype:(id)arg1;
@@ -34,9 +34,8 @@
 - (void)setFormAction:(id)arg1;
 - (id)formAction;
 @property(readonly) DOMHTMLFormElement *form;
-@property BOOL disabled;
-@property BOOL autofocus;
-- (int)structuralComplexityContribution;
+@property _Bool disabled;
+@property _Bool autofocus;
 
 @end
 

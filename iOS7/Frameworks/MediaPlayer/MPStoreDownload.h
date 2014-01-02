@@ -12,19 +12,21 @@
 {
     NSObject<OS_dispatch_queue> *_accessQueue;
     NSDictionary *_attributes;
-    BOOL _canceled;
+    _Bool _canceled;
     SSDownload *_SSDownload;
     SSPurchase *_SSPurchase;
     SSPurchaseResponse *_SSPurchaseResponse;
-    int _type;
+    long long _type;
 }
 
-+ (id)_storeDownloadForMediaItem:(id)arg1 type:(int)arg2 attributes:(id)arg3;
-+ (id)_SSPurchaseForType:(int)arg1 attributes:(id)arg2 buyParameters:(id)arg3 purchaseValuesForDownloadProperties:(id)arg4 URLBagKeyOverride:(id)arg5;
-+ (id)storeDownloadsForRadioTracks:(id)arg1 type:(int)arg2 attributes:(id)arg3;
-+ (id)storeDownloadsForMediaQuery:(id)arg1 type:(int)arg2 attributes:(id)arg3;
-+ (id)storeDownloadsForMediaItems:(id)arg1 type:(int)arg2 attributes:(id)arg3;
-@property(readonly, nonatomic) int type; // @synthesize type=_type;
++ (id)_storeDownloadForMediaItem:(id)arg1 type:(long long)arg2 attributes:(id)arg3;
++ (id)_storeDownloadForCompletionOffer:(id)arg1 type:(long long)arg2 attributes:(id)arg3;
++ (id)_SSPurchaseForType:(long long)arg1 attributes:(id)arg2 buyParameters:(id)arg3 purchaseValuesForDownloadProperties:(id)arg4 URLBagKeyOverride:(id)arg5;
++ (id)storeDownloadForCompletionOffering:(id)arg1 type:(long long)arg2 attributes:(id)arg3;
++ (id)storeDownloadsForRadioTracks:(id)arg1 type:(long long)arg2 attributes:(id)arg3;
++ (id)storeDownloadsForMediaQuery:(id)arg1 type:(long long)arg2 attributes:(id)arg3;
++ (id)storeDownloadsForMediaItems:(id)arg1 type:(long long)arg2 attributes:(id)arg3;
+@property(readonly, nonatomic) long long type; // @synthesize type=_type;
 @property(readonly, nonatomic) NSDictionary *attributes; // @synthesize attributes=_attributes;
 - (void).cxx_destruct;
 - (id)_valueForDownloadProperty:(id)arg1;
@@ -33,22 +35,23 @@
 - (id)_SSDownload;
 - (void)_setSSPurchase:(id)arg1 SSPurchaseResponse:(id)arg2;
 - (void)_setSSDownload:(id)arg1;
-- (void)_setCanceled:(BOOL)arg1;
-- (BOOL)_isCanceled;
+- (void)_setCanceled:(_Bool)arg1;
+- (_Bool)_isCanceled;
 @property(readonly, nonatomic) long long storeItemIdentifier;
+@property(readonly, nonatomic) NSError *purchaseError;
 @property(readonly, nonatomic) NSString *phaseIdentifier;
 @property(readonly, nonatomic) double percentComplete;
 @property(readonly, nonatomic) unsigned long long libraryItemIdentifier;
-@property(readonly, nonatomic, getter=isRestore) BOOL restore;
-@property(readonly, nonatomic, getter=isPurchasing) BOOL purchasing;
-@property(readonly, nonatomic, getter=isFinished) BOOL finished;
-@property(readonly, nonatomic, getter=isCanceled) BOOL canceled;
+@property(readonly, nonatomic, getter=isRestore) _Bool restore;
+@property(readonly, nonatomic, getter=isPurchasing) _Bool purchasing;
+@property(readonly, nonatomic, getter=isFinished) _Bool finished;
+@property(readonly, nonatomic, getter=isCanceled) _Bool canceled;
 @property(readonly, nonatomic) NSError *failureError;
 @property(readonly, nonatomic) long long downloadIdentifier;
 @property(readonly, nonatomic) long long bytesTotal;
 @property(readonly, nonatomic) long long bytesDownloaded;
 - (id)description;
-- (id)initWithType:(int)arg1 attributes:(id)arg2;
+- (id)initWithType:(long long)arg1 attributes:(id)arg2;
 
 @end
 

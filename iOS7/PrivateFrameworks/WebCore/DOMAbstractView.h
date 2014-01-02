@@ -14,7 +14,6 @@
 
 @property(readonly) DOMDocument *document;
 - (void)dealloc;
-- (void)_disconnectFrame;
 
 @end
 

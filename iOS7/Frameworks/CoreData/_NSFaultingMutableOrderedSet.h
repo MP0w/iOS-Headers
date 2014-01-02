@@ -8,6 +8,7 @@
 
 @class NSManagedObject;
 
+// Not exported
 @interface _NSFaultingMutableOrderedSet : NSMutableOrderedSet
 {
     int _cd_rc;
@@ -20,10 +21,10 @@
 
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (id)alloc;
-+ (BOOL)accessInstanceVariablesDirectly;
++ (_Bool)accessInstanceVariablesDirectly;
 - (id)allObjects;
-- (void)sortRange:(struct _NSRange)arg1 options:(unsigned int)arg2 usingComparator:(id)arg3;
-- (void)sortWithOptions:(unsigned int)arg1 usingComparator:(id)arg2;
+- (void)sortRange:(struct _NSRange)arg1 options:(unsigned long long)arg2 usingComparator:(id)arg3;
+- (void)sortWithOptions:(unsigned long long)arg1 usingComparator:(id)arg2;
 - (void)sortUsingComparator:(id)arg1;
 - (void)unionSet:(id)arg1;
 - (void)minusSet:(id)arg1;
@@ -33,62 +34,63 @@
 - (void)removeAllObjects;
 - (void)removeObjectsInRange:(struct _NSRange)arg1;
 - (void)insertObjects:(id)arg1 atIndexes:(id)arg2;
-- (void)insertObjects:(const id *)arg1 count:(unsigned int)arg2 atIndex:(unsigned int)arg3;
+- (void)insertObjects:(const id *)arg1 count:(unsigned long long)arg2 atIndex:(unsigned long long)arg3;
 - (void)addObjectsFromArray:(id)arg1;
-- (void)addObjects:(const id *)arg1 count:(unsigned int)arg2;
+- (void)addObjects:(const id *)arg1 count:(unsigned long long)arg2;
 - (void)addObject:(id)arg1;
-- (BOOL)containsObject:(id)arg1;
-- (BOOL)_isIdenticalFault:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isEqualToOrderedSet:(id)arg1;
+- (_Bool)containsObject:(id)arg1;
+- (_Bool)_isIdenticalFault:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)isEqualToOrderedSet:(id)arg1;
 - (Class)classForArchiver;
 - (id)replacementObjectForCoder:(id)arg1;
 - (Class)classForCoder;
 - (id)valueForKeyPath:(id)arg1;
 - (id)valueForKey:(id)arg1;
 - (void)setValue:(id)arg1 forKey:(id)arg2;
-- (void)replaceObjectAtIndex:(unsigned int)arg1 withObject:(id)arg2;
-- (void)removeObjectAtIndex:(unsigned int)arg1;
+- (void)replaceObjectAtIndex:(unsigned long long)arg1 withObject:(id)arg2;
+- (void)removeObjectAtIndex:(unsigned long long)arg1;
 - (void)getObjects:(id *)arg1;
 - (void)getObjects:(id *)arg1 range:(struct _NSRange)arg2;
 - (id)objectEnumerator;
-- (id)indexesOfObjectsAtIndexes:(id)arg1 options:(unsigned int)arg2 passingTest:(id)arg3;
-- (id)indexesOfObjectsWithOptions:(unsigned int)arg1 passingTest:(id)arg2;
-- (unsigned int)indexOfObjectAtIndexes:(id)arg1 options:(unsigned int)arg2 passingTest:(id)arg3;
-- (unsigned int)indexOfObjectWithOptions:(unsigned int)arg1 passingTest:(id)arg2;
-- (void)enumerateObjectsAtIndexes:(id)arg1 options:(unsigned int)arg2 usingBlock:(id)arg3;
-- (void)enumerateObjectsWithOptions:(unsigned int)arg1 usingBlock:(id)arg2;
-- (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
-- (void)insertObject:(id)arg1 atIndex:(unsigned int)arg2;
-- (unsigned int)indexOfObject:(id)arg1;
-- (id)objectAtIndex:(unsigned int)arg1;
-- (unsigned int)count;
+- (id)indexesOfObjectsAtIndexes:(id)arg1 options:(unsigned long long)arg2 passingTest:(id)arg3;
+- (id)indexesOfObjectsWithOptions:(unsigned long long)arg1 passingTest:(id)arg2;
+- (unsigned long long)indexOfObjectAtIndexes:(id)arg1 options:(unsigned long long)arg2 passingTest:(id)arg3;
+- (unsigned long long)indexOfObjectWithOptions:(unsigned long long)arg1 passingTest:(id)arg2;
+- (void)enumerateObjectsAtIndexes:(id)arg1 options:(unsigned long long)arg2 usingBlock:(id)arg3;
+- (void)enumerateObjectsWithOptions:(unsigned long long)arg1 usingBlock:(id)arg2;
+- (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
+- (void)insertObject:(id)arg1 atIndex:(unsigned long long)arg2;
+- (unsigned long long)indexOfObject:(id)arg1;
+- (id)objectAtIndex:(unsigned long long)arg1;
+- (unsigned long long)count;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)relationship;
 - (id)source;
 - (void)turnIntoFault;
-- (BOOL)_hasOrderKeys;
+- (_Bool)_hasOrderKeys;
 - (id)_newOrderKeys;
 - (unsigned int)_orderKeyForObject:(id)arg1;
-- (void)_populateOrderKeysUsingSnapshot:(id)arg1 orderKeys:(id)arg2 newIndexes:(unsigned int **)arg3 reorderedIndexes:(char **)arg4;
+- (void)_batchFulfillOrderKeysForObjectsIntoIndexes:(unsigned long long **)arg1;
+- (void)_populateOrderKeysUsingSnapshot:(id)arg1 orderKeys:(id)arg2 newIndexes:(unsigned long long **)arg3 reorderedIndexes:(char **)arg4;
 - (void)_updateOrderKeysFromOrderOfObjectIDs:(id)arg1;
 - (void)_assignOrderKeysUsingCount:(unsigned int)arg1;
-- (void)_setProcessingIdempotentKVO:(BOOL)arg1;
-- (BOOL)_shouldProcessKVOChange;
+- (void)_setProcessingIdempotentKVO:(_Bool)arg1;
+- (_Bool)_shouldProcessKVOChange;
 - (void)willChange;
 - (void)willRead;
 - (id)descriptionWithLocale:(id)arg1;
 - (id)description;
-- (BOOL)isFault;
+- (_Bool)isFault;
 - (void)dealloc;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
-- (unsigned int)retainCount;
+- (_Bool)_isDeallocating;
+- (_Bool)_tryRetain;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;
 - (id)initWithSource:(id)arg1 destinations:(id)arg2 forRelationship:(id)arg3 inContext:(id)arg4;
-- (id)initWithSource:(id)arg1 forRelationship:(id)arg2 asFault:(BOOL)arg3;
+- (id)initWithSource:(id)arg1 forRelationship:(id)arg2 asFault:(_Bool)arg3;
 - (id)initWithOrderedSet:(id)arg1;
 
 @end

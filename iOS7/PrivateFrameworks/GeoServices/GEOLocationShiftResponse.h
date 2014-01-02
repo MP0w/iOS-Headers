@@ -6,21 +6,23 @@
 
 #import "PBCodable.h"
 
-@interface GEOLocationShiftResponse : PBCodable
+#import "NSCopying-Protocol.h"
+
+@interface GEOLocationShiftResponse : PBCodable <NSCopying>
 {
     CDStruct_bddcf505 _shiftedPixel;
 }
 
 @property(nonatomic) CDStruct_bddcf505 shiftedPixel; // @synthesize shiftedPixel=_shiftedPixel;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
 - (void)dealloc;
-@property(readonly) CDStruct_c3b9c2ee shiftedCoordinate;
 
 @end
 

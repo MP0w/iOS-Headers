@@ -12,20 +12,20 @@
 
 @interface AXDispatchTimer : NSObject <AXTimer>
 {
-    BOOL _active;
-    BOOL _pending;
-    BOOL _cancelled;
-    BOOL _automaticallyCancelPendingBlockUponSchedulingNewBlock;
+    _Bool _active;
+    _Bool _pending;
+    _Bool _cancelled;
+    _Bool _automaticallyCancelPendingBlockUponSchedulingNewBlock;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     NSObject<OS_dispatch_source> *_dispatchTimer;
 }
 
 @property(retain, nonatomic) NSObject<OS_dispatch_source> *dispatchTimer; // @synthesize dispatchTimer=_dispatchTimer;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue; // @synthesize dispatchQueue=_dispatchQueue;
-@property(nonatomic) BOOL automaticallyCancelPendingBlockUponSchedulingNewBlock; // @synthesize automaticallyCancelPendingBlockUponSchedulingNewBlock=_automaticallyCancelPendingBlockUponSchedulingNewBlock;
-@property(nonatomic, getter=isCancelled) BOOL cancelled; // @synthesize cancelled=_cancelled;
-@property(nonatomic, getter=isPending) BOOL pending; // @synthesize pending=_pending;
-@property(nonatomic, getter=isActive) BOOL active; // @synthesize active=_active;
+@property(nonatomic) _Bool automaticallyCancelPendingBlockUponSchedulingNewBlock; // @synthesize automaticallyCancelPendingBlockUponSchedulingNewBlock=_automaticallyCancelPendingBlockUponSchedulingNewBlock;
+@property(nonatomic, getter=isCancelled) _Bool cancelled; // @synthesize cancelled=_cancelled;
+@property(nonatomic, getter=isPending) _Bool pending; // @synthesize pending=_pending;
+@property(nonatomic, getter=isActive) _Bool active; // @synthesize active=_active;
 - (void)cancel;
 - (void)_reallyCancel;
 - (void)afterDelay:(double)arg1 processBlock:(id)arg2 cancelBlock:(void)arg3;

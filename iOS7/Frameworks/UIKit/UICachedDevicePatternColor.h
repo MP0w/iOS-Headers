@@ -6,6 +6,7 @@
 
 #import <UIKit/UICGColor.h>
 
+// Not exported
 @interface UICachedDevicePatternColor : UICGColor
 {
 }
@@ -14,10 +15,10 @@
 - (void)dealloc;
 - (id)copy;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)retainWeakReference;
-- (BOOL)allowsWeakReference;
+- (_Bool)retainWeakReference;
+- (_Bool)allowsWeakReference;
 - (id)autorelease;
-- (unsigned int)retainCount;
+- (unsigned long long)retainCount;
 - (id)retain;
 - (oneway void)release;
 

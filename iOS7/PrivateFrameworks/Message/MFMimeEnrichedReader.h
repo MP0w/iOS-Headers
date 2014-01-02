@@ -15,12 +15,15 @@
         struct __CFString *theString;
         unsigned short *directUniCharBuffer;
         char *directCStringBuffer;
-        CDStruct_dff5684f rangeToBuffer;
-        int bufferedRangeStart;
-        int bufferedRangeEnd;
+        struct {
+            long long location;
+            long long length;
+        } rangeToBuffer;
+        long long bufferedRangeStart;
+        long long bufferedRangeEnd;
     } _inputBuffer;
-    long _currentIndex;
-    long _inputLength;
+    long long _currentIndex;
+    long long _inputLength;
     unsigned int _noFillLevel:30;
     unsigned int _eatOneNewline:1;
     unsigned int _insideComment:1;
@@ -53,7 +56,7 @@
 - (void)appendStringToBuffer:(id)arg1;
 - (void)dealloc;
 - (void)mismatchError:(id)arg1;
-- (void)setWantsHTML:(BOOL)arg1;
+- (void)setWantsHTML:(_Bool)arg1;
 
 @end
 

@@ -5,6 +5,6 @@
  */
 
 @protocol MFDAOfflineCacheOperation
-- (BOOL)performWithAccount:(id)arg1 offlineCache:(id)arg2;
+- (_Bool)performWithAccount:(id)arg1 offlineCache:(id)arg2;
 @end
 

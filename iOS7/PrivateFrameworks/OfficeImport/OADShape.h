@@ -8,13 +8,14 @@
 
 @class OADShapeGeometry, OADTextBody;
 
+// Not exported
 @interface OADShape : OADGraphic
 {
     OADShapeGeometry *mGeometry;
     OADTextBody *mTextBody;
 }
 
-- (BOOL)isTextBox;
+- (_Bool)isTextBox;
 - (void)createPresetGeometryWithShapeType:(int)arg1;
 - (void)removeUnnecessaryOverrides;
 - (void)flattenProperties;

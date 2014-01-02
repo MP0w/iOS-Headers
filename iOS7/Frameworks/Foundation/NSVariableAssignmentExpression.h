@@ -8,18 +8,19 @@
 
 @class NSVariableExpression;
 
+// Not exported
 @interface NSVariableAssignmentExpression : NSExpression
 {
     NSVariableExpression *_assignmentVariable;
     NSExpression *_subexpression;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 - (id)_expressionWithSubstitutionVariables:(id)arg1;
-- (void)acceptVisitor:(id)arg1 flags:(unsigned int)arg2;
+- (void)acceptVisitor:(id)arg1 flags:(unsigned long long)arg2;
 - (id)expressionValueWithObject:(id)arg1 context:(id)arg2;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)predicateFormat;
 - (id)subexpression;
 - (id)variable;

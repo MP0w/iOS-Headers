@@ -6,31 +6,25 @@
 
 #import "NSObject.h"
 
-#import "NSURLAuthenticationChallengeSender-Protocol.h"
-
 @class NSURLConnectionInternal;
 
-@interface NSURLConnection : NSObject <NSURLAuthenticationChallengeSender>
+@interface NSURLConnection : NSObject
 {
     NSURLConnectionInternal *_internal;
 }
 
-+ (void)_setSweeperInterval:(unsigned int)arg1;
-+ (unsigned int)_sweeperInterval;
-+ (BOOL)canHandleRequest:(id)arg1;
++ (void)_setSweeperInterval:(unsigned long long)arg1;
++ (unsigned long long)_sweeperInterval;
++ (_Bool)canHandleRequest:(id)arg1;
 + (void)sendAsynchronousRequest:(id)arg1 queue:(id)arg2 completionHandler:(id)arg3;
 + (id)sendSynchronousRequest:(id)arg1 returningResponse:(id *)arg2 error:(id *)arg3;
 + (id)connectionWithRequest:(id)arg1 delegate:(id)arg2;
-+ (void)_setMIMETypesWithNoSizeLimit:(id)arg1;
-+ (void)_resourceLoadLoop:(id)arg1;
-+ (void)_setLoaderThreadPriority:(int)arg1;
-+ (struct __CFRunLoop *)resourceLoaderRunLoop;
 - (void)_resumeLoading;
 - (void)_suspendLoading;
 - (id)_cfInternal;
 - (id)_dlInternal;
-- (BOOL)defersCallbacks;
-- (void)setDefersCallbacks:(BOOL)arg1;
+- (_Bool)defersCallbacks;
+- (void)setDefersCallbacks:(_Bool)arg1;
 - (id)connectionProperties;
 - (void)download;
 - (id)currentRequest;
@@ -43,13 +37,7 @@
 - (void)dealloc;
 - (id)description;
 - (id)initWithRequest:(id)arg1 delegate:(id)arg2;
-- (id)initWithRequest:(id)arg1 delegate:(id)arg2 startImmediately:(BOOL)arg3;
-- (void)rejectProtectionSpaceAndContinueWithChallenge:(id)arg1;
-- (void)performDefaultHandlingForAuthenticationChallenge:(id)arg1;
-- (void)cancelAuthenticationChallenge:(id)arg1;
-- (void)continueWithoutCredentialForAuthenticationChallenge:(id)arg1;
-- (void)useCredential:(id)arg1 forAuthenticationChallenge:(id)arg2;
-- (id)_initWithRequest:(id)arg1 delegate:(id)arg2 usesCache:(BOOL)arg3 maxContentLength:(long long)arg4 startImmediately:(BOOL)arg5 connectionProperties:(id)arg6;
+- (id)initWithRequest:(id)arg1 delegate:(id)arg2 startImmediately:(_Bool)arg3;
 
 @end
 

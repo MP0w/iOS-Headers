@@ -7,7 +7,7 @@
 #pragma mark Typedef'd Structures
 
 typedef struct {
-    unsigned int _field1;
-    unsigned int _field2;
-} CDStruct_c0454aff;
+    unsigned long long _field1;
+    unsigned long long _field2;
+} CDStruct_4bcfbbae;
 

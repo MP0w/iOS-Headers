@@ -14,15 +14,15 @@
 @property(nonatomic) __weak id <MPVideoOverlayDelegate> delegate;
 @property(readonly, nonatomic) UINavigationBar *navigationBar;
 @property(retain, nonatomic) MPAVController *player;
-@property(nonatomic) BOOL navigationBarHidden;
-@property(nonatomic) BOOL allowsWirelessPlayback;
+@property(nonatomic) _Bool navigationBarHidden;
+@property(nonatomic) _Bool allowsWirelessPlayback;
 @property(nonatomic) __weak id <MPVideoControllerProtocol> videoViewController;
 - (void)hideAlternateTracks;
 - (void)showAlternateTracks;
-- (void)setVisibleParts:(unsigned long long)arg1 animate:(BOOL)arg2;
-- (void)setDesiredParts:(unsigned long long)arg1 animate:(BOOL)arg2;
+- (void)setVisibleParts:(unsigned long long)arg1 animate:(_Bool)arg2;
+- (void)setDesiredParts:(unsigned long long)arg1 animate:(_Bool)arg2;
 - (void)stopTicking;
 - (void)startTicking;
-- (BOOL)updateTimeBasedValues;
+- (_Bool)updateTimeBasedValues;
 @end
 

@@ -11,13 +11,13 @@
 @interface BBBulletinTransaction : NSObject
 {
     NSString *_bulletinID;
-    unsigned int _transactionID;
+    unsigned long long _transactionID;
 }
 
 + (id)transactionWithBulletinID:(id)arg1;
-@property(readonly, nonatomic) unsigned int transactionID; // @synthesize transactionID=_transactionID;
+@property(readonly, nonatomic) unsigned long long transactionID; // @synthesize transactionID=_transactionID;
 @property(readonly, nonatomic) NSString *bulletinID; // @synthesize bulletinID=_bulletinID;
-- (unsigned int)incrementTransactionID;
+- (unsigned long long)incrementTransactionID;
 - (void)dealloc;
 - (id)initWithBulletinID:(id)arg1;
 

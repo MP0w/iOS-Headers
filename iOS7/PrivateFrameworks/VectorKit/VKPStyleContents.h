@@ -8,6 +8,7 @@
 
 @class NSMutableArray, VKPStyleProperties;
 
+// Not exported
 @interface VKPStyleContents : PBCodable
 {
     VKPStyleProperties *_properties;
@@ -16,18 +17,18 @@
 
 @property(retain, nonatomic) NSMutableArray *zooms; // @synthesize zooms=_zooms;
 @property(retain, nonatomic) VKPStyleProperties *properties; // @synthesize properties=_properties;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)zoomsAtIndex:(unsigned int)arg1;
-- (unsigned int)zoomsCount;
+- (id)zoomsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)zoomsCount;
 - (void)addZooms:(id)arg1;
 - (void)clearZooms;
-@property(readonly, nonatomic) BOOL hasProperties;
+@property(readonly, nonatomic) _Bool hasProperties;
 - (void)dealloc;
 
 @end

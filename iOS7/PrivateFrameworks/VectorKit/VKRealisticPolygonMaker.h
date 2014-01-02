@@ -8,6 +8,7 @@
 
 @class NSMutableArray, NSMutableDictionary;
 
+// Not exported
 @interface VKRealisticPolygonMaker : NSObject
 {
     NSMutableArray *_polygons;
@@ -15,7 +16,7 @@
 }
 
 - (void)generateIndexedTrianglesWithHandler:(id)arg1;
-- (void)addPolygonForPoints:(const Vec2Imp_1782d7e3 *)arg1 pointCount:(unsigned int)arg2 withStyle:(id)arg3;
+- (void)addPolygonForPoints:(const Vec2Imp_1782d7e3 *)arg1 pointCount:(unsigned long long)arg2 withStyle:(id)arg3;
 - (void)dealloc;
 
 @end

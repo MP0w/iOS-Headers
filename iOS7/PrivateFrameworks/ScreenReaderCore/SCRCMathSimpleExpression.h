@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface SCRCMathSimpleExpression : SCRCMathExpression
 {
     NSString *_content;
@@ -15,14 +16,14 @@
 
 @property(copy, nonatomic) NSString *content; // @synthesize content=_content;
 - (id)latexMathModeDescription;
-- (id)dollarCodeDescriptionWithNumberOfOuterRadicals:(unsigned int)arg1 treePosition:(id)arg2;
-- (id)speakableDescriptionWithSpeakingStyle:(int)arg1 arePausesAllowed:(BOOL)arg2;
-- (BOOL)canBeUsedWithBase;
-- (BOOL)isFunctionName;
+- (id)dollarCodeDescriptionWithNumberOfOuterRadicals:(unsigned long long)arg1 treePosition:(id)arg2;
+- (id)speakableDescriptionWithSpeakingStyle:(int)arg1 arePausesAllowed:(_Bool)arg2;
+- (_Bool)canBeUsedWithBase;
+- (_Bool)isFunctionName;
 - (id)_functionNames;
-- (BOOL)isWordOrAbbreviation;
-- (int)integerValue;
-- (BOOL)isInteger;
+- (_Bool)isWordOrAbbreviation;
+- (long long)integerValue;
+- (_Bool)isInteger;
 - (id)description;
 - (void)dealloc;
 - (id)initWithDictionary:(id)arg1;

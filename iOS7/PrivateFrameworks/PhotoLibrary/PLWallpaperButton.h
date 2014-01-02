@@ -8,27 +8,23 @@
 
 #import "_UIBackdropViewObserver-Protocol.h"
 
-@class NSString, UIImageView, UILabel, _UIBackdropView;
+@class UIImageView, _UIBackdropView;
 
 @interface PLWallpaperButton : UIButton <_UIBackdropViewObserver>
 {
-    NSString *_title;
-    UILabel *_titleMaskLabel;
     UIImageView *_titleMaskImageView;
     _UIBackdropView *_backdropView;
 }
 
 @property(retain, nonatomic) _UIBackdropView *backdropView; // @synthesize backdropView=_backdropView;
 @property(retain, nonatomic) UIImageView *titleMaskImageView; // @synthesize titleMaskImageView=_titleMaskImageView;
-@property(retain, nonatomic) UILabel *titleMaskLabel; // @synthesize titleMaskLabel=_titleMaskLabel;
-@property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 - (void)backdropViewDidChange:(id)arg1;
-- (void)layoutSubviews;
-- (void)_updateTitleMask;
-- (void)setEnabled:(BOOL)arg1;
-- (void)setSelected:(BOOL)arg1;
-- (void)setHighlighted:(BOOL)arg1;
+- (void)setEnabled:(_Bool)arg1;
+- (void)setSelected:(_Bool)arg1;
+- (void)setHighlighted:(_Bool)arg1;
+- (void)_setupBackdropView;
 - (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1 style:(long long)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

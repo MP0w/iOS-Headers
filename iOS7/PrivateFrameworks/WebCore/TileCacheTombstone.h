@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface TileCacheTombstone : NSObject
 {
-    BOOL dead;
+    _Bool dead;
 }
 
-@property(getter=isDead) BOOL dead; // @synthesize dead;
+@property(getter=isDead) _Bool dead; // @synthesize dead;
 
 @end
 

@@ -20,15 +20,13 @@
     void *_NSUndoManagerPrivate3;
 }
 
-+ (void)_endTopLevelGroupings;
-+ (void)_setEndsTopLevelGroupingsAfterRunLoopIterations:(BOOL)arg1;
 - (id)redoMenuTitleForUndoActionName:(id)arg1;
 - (id)undoMenuTitleForUndoActionName:(id)arg1;
 - (id)redoMenuItemTitle;
 - (id)undoMenuItemTitle;
-- (BOOL)redoActionIsDiscardable;
-- (BOOL)undoActionIsDiscardable;
-- (void)setActionIsDiscardable:(BOOL)arg1;
+- (_Bool)redoActionIsDiscardable;
+- (_Bool)undoActionIsDiscardable;
+- (void)setActionIsDiscardable:(_Bool)arg1;
 - (void)setActionName:(id)arg1;
 - (void)_setGroupIdentifier:(id)arg1;
 - (id)redoActionName;
@@ -40,25 +38,25 @@
 - (id)prepareWithInvocationTarget:(id)arg1;
 - (void)removeAllActionsWithTarget:(id)arg1;
 - (void)removeAllActions;
-- (BOOL)isRedoing;
-- (BOOL)isUndoing;
-- (BOOL)canRedo;
-- (BOOL)canUndo;
+- (_Bool)isRedoing;
+- (_Bool)isUndoing;
+- (_Bool)canRedo;
+- (_Bool)canUndo;
 - (void)redo;
 - (void)undoNestedGroup;
 - (void)undo;
 - (id)runLoopModes;
 - (void)setRunLoopModes:(id)arg1;
-- (unsigned int)levelsOfUndo;
-- (void)setLevelsOfUndo:(unsigned int)arg1;
-- (void)setGroupsByEvent:(BOOL)arg1;
-- (BOOL)groupsByEvent;
-- (BOOL)isUndoRegistrationEnabled;
+- (unsigned long long)levelsOfUndo;
+- (void)setLevelsOfUndo:(unsigned long long)arg1;
+- (void)setGroupsByEvent:(_Bool)arg1;
+- (_Bool)groupsByEvent;
+- (_Bool)isUndoRegistrationEnabled;
 - (void)enableUndoRegistration;
 - (void)disableUndoRegistration;
 - (void)endUndoGrouping;
-- (BOOL)_endUndoGroupRemovingIfEmpty:(BOOL)arg1;
-- (int)groupingLevel;
+- (_Bool)_endUndoGroupRemovingIfEmpty:(_Bool)arg1;
+- (long long)groupingLevel;
 - (void)beginUndoGrouping;
 - (void)_postCheckpointNotification;
 - (void)_prepareEventGrouping;
@@ -68,11 +66,6 @@
 - (void)finalize;
 - (void)dealloc;
 - (id)init;
-- (void)_rollbackUndoGrouping;
-- (void)_commitUndoGrouping;
-- (void)_processEndOfEventNotification:(id)arg1;
-- (BOOL)_shouldCoalesceTypingForText:(id)arg1:(id)arg2;
-- (id)_undoStack;
 
 @end
 

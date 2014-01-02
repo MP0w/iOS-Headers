@@ -6,6 +6,7 @@
 
 #import <UIKit/UIStatusBarItemView.h>
 
+// Not exported
 @interface UIStatusBarIndicatorItemView : UIStatusBarItemView
 {
 }

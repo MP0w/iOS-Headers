@@ -14,7 +14,7 @@
 
 + (id)sessionValidationFailedWithDictionary:(id)arg1 context:(id)arg2;
 + (id)sessionValidationFailed;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSString *errorCode;
 - (id)encodedClassName;
 - (id)groupIdentifier;

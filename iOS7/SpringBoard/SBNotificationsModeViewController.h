@@ -14,32 +14,44 @@
         unsigned int suppliesInsertionAnimation:1;
         unsigned int suppliesRemovalAnimation:1;
         unsigned int suppliesReplacementAnimation:1;
-        unsigned int decidesWidgetHierarchy:1;
         unsigned int handlesBulletinActions:1;
     } _notificationsModeViewControllerDelegateFlags;
     NSMutableArray *_orderedSectionIDs;
     NSMutableDictionary *_sectionIDsToOrderedBulletins;
 }
 
-- (BOOL)handleActionForBulletin:(id)arg1;
-- (int)bulletinViewController:(id)arg1 replacementAnimationForBulletin:(id)arg2 inSection:(id)arg3;
-- (int)bulletinViewController:(id)arg1 removalAnimationForBulletin:(id)arg2 inSection:(id)arg3;
-- (int)bulletinViewController:(id)arg1 insertionAnimationForBulletin:(id)arg2 inSection:(id)arg3;
+- (_Bool)handleActionForBulletin:(id)arg1;
+- (long long)bulletinViewController:(id)arg1 replacementAnimationForBulletin:(id)arg2 inSection:(id)arg3;
+- (long long)bulletinViewController:(id)arg1 removalAnimationForBulletin:(id)arg2 inSection:(id)arg3;
+- (long long)bulletinViewController:(id)arg1 insertionAnimationForBulletin:(id)arg2 inSection:(id)arg3;
+- (void)updateForChangeInMessagePrivacy;
+- (void)hostWillPresent;
+- (void)updateSection:(id)arg1 withParameters:(id)arg2;
+- (void)updateSection:(id)arg1 withInfo:(id)arg2;
+- (void)_updateSectionForChangeInNumberOfLines:(id)arg1;
+- (void)_updateSection:(id)arg1 withLockState:(_Bool)arg2;
+- (void)_updateSectionForChangeInMessagePrivacyIfNecessary:(id)arg1;
+- (void)_updateSectionForChangeInLockScreenVisibility:(id)arg1 withLockState:(_Bool)arg2 updatedSubsectionIDs:(id)arg3;
+- (void)_updateSectionForChangeInLockScreenVisibility:(id)arg1 withProcessingBlock:(id)arg2;
 - (void)populateBulletinInfo:(id)arg1 inSection:(id)arg2;
 - (id)infoForBulletinInfo:(id)arg1 inSection:(id)arg2;
 - (void)commitMoveOfBulletin:(id)arg1 inSection:(id)arg2 beforeBulletin:(id)arg3 inSection:(id)arg4;
 - (void)commitReplacementWithBulletin:(id)arg1 ofBulletin:(id)arg2 inSection:(id)arg3;
 - (void)commitRemovalOfBulletin:(id)arg1 fromSection:(id)arg2;
-- (void)commitInsertionOfBulletin:(id)arg1 beforeBulletin:(id)arg2 inSection:(id)arg3 forFeed:(unsigned int)arg4;
+- (void)commitInsertionOfBulletin:(id)arg1 beforeBulletin:(id)arg2 inSection:(id)arg3 forFeed:(unsigned long long)arg4;
+- (void)_updateSectionOrderForOperationInSection:(id)arg1;
+- (void)_sortBulletins:(id)arg1 forSection:(id)arg2;
 - (void)commitReplacementWithSection:(id)arg1 ofSection:(id)arg2;
 - (void)commitMoveOfSection:(id)arg1 beforeSection:(id)arg2;
 - (void)commitRemovalOfSection:(id)arg1;
 - (void)commitInsertionOfSection:(id)arg1 beforeSection:(id)arg2;
+- (void)_sortSectionIDs;
 @property(readonly, nonatomic) NSMutableDictionary *sectionIDsToOrderedBulletins;
 @property(readonly, nonatomic) NSArray *orderedSectionIDs;
 @property(nonatomic) id <SBBulletinViewControllerDelegate><SBBulletinActionHandler> delegate;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)dealloc;
-- (id)initWithObserverFeed:(unsigned int)arg1;
+- (id)initWithObserverFeed:(unsigned long long)arg1;
 
 @end
 

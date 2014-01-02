@@ -6,20 +6,23 @@
 
 #import "PBCodable.h"
 
-@interface GEOTileGroup : PBCodable
+#import "NSCopying-Protocol.h"
+
+// Not exported
+@interface GEOTileGroup : PBCodable <NSCopying>
 {
     CDStruct_3f74b7eb *_regionalResourceIndexs;
-    unsigned int _regionalResourceIndexsCount;
-    unsigned int _regionalResourceIndexsSpace;
-    CDStruct_084d6ede _attributionIndexs;
-    CDStruct_084d6ede _fontIndexs;
-    CDStruct_084d6ede _iconIndexs;
-    CDStruct_084d6ede _styleSheetIndexs;
-    CDStruct_084d6ede _textureIndexs;
-    CDStruct_084d6ede _xmlIndexs;
+    unsigned long long _regionalResourceIndexsCount;
+    unsigned long long _regionalResourceIndexsSpace;
+    CDStruct_9f2792e4 _attributionIndexs;
+    CDStruct_9f2792e4 _fontIndexs;
+    CDStruct_9f2792e4 _iconIndexs;
+    CDStruct_9f2792e4 _styleSheetIndexs;
+    CDStruct_9f2792e4 _textureIndexs;
+    CDStruct_9f2792e4 _xmlIndexs;
     CDStruct_c0454aff *_tileSets;
-    unsigned int _tileSetsCount;
-    unsigned int _tileSetsSpace;
+    unsigned long long _tileSetsCount;
+    unsigned long long _tileSetsSpace;
     unsigned int _attributionBadgeIndex;
     unsigned int _identifier;
     struct {
@@ -29,62 +32,63 @@
 
 @property(nonatomic) unsigned int attributionBadgeIndex; // @synthesize attributionBadgeIndex=_attributionBadgeIndex;
 @property(nonatomic) unsigned int identifier; // @synthesize identifier=_identifier;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (void)setAttributionIndexs:(unsigned int *)arg1 count:(unsigned int)arg2;
-- (unsigned int)attributionIndexAtIndex:(unsigned int)arg1;
+- (void)setAttributionIndexs:(unsigned int *)arg1 count:(unsigned long long)arg2;
+- (unsigned int)attributionIndexAtIndex:(unsigned long long)arg1;
 - (void)addAttributionIndex:(unsigned int)arg1;
 - (void)clearAttributionIndexs;
 @property(readonly, nonatomic) unsigned int *attributionIndexs;
-@property(readonly, nonatomic) unsigned int attributionIndexsCount;
-@property(nonatomic) BOOL hasAttributionBadgeIndex;
-- (void)setXmlIndexs:(unsigned int *)arg1 count:(unsigned int)arg2;
-- (unsigned int)xmlIndexAtIndex:(unsigned int)arg1;
+@property(readonly, nonatomic) unsigned long long attributionIndexsCount;
+@property(nonatomic) _Bool hasAttributionBadgeIndex;
+- (void)setXmlIndexs:(unsigned int *)arg1 count:(unsigned long long)arg2;
+- (unsigned int)xmlIndexAtIndex:(unsigned long long)arg1;
 - (void)addXmlIndex:(unsigned int)arg1;
 - (void)clearXmlIndexs;
 @property(readonly, nonatomic) unsigned int *xmlIndexs;
-@property(readonly, nonatomic) unsigned int xmlIndexsCount;
-- (void)setRegionalResourceIndexs:(CDStruct_3f74b7eb *)arg1 count:(unsigned int)arg2;
-- (CDStruct_3f74b7eb)regionalResourceIndexAtIndex:(unsigned int)arg1;
+@property(readonly, nonatomic) unsigned long long xmlIndexsCount;
+- (void)setRegionalResourceIndexs:(CDStruct_3f74b7eb *)arg1 count:(unsigned long long)arg2;
+- (CDStruct_3f74b7eb)regionalResourceIndexAtIndex:(unsigned long long)arg1;
 - (void)addRegionalResourceIndex:(CDStruct_3f74b7eb)arg1;
 - (void)clearRegionalResourceIndexs;
 @property(readonly, nonatomic) CDStruct_3f74b7eb *regionalResourceIndexs;
-@property(readonly, nonatomic) unsigned int regionalResourceIndexsCount;
-- (void)setIconIndexs:(unsigned int *)arg1 count:(unsigned int)arg2;
-- (unsigned int)iconIndexAtIndex:(unsigned int)arg1;
+@property(readonly, nonatomic) unsigned long long regionalResourceIndexsCount;
+- (void)setIconIndexs:(unsigned int *)arg1 count:(unsigned long long)arg2;
+- (unsigned int)iconIndexAtIndex:(unsigned long long)arg1;
 - (void)addIconIndex:(unsigned int)arg1;
 - (void)clearIconIndexs;
 @property(readonly, nonatomic) unsigned int *iconIndexs;
-@property(readonly, nonatomic) unsigned int iconIndexsCount;
-- (void)setFontIndexs:(unsigned int *)arg1 count:(unsigned int)arg2;
-- (unsigned int)fontIndexAtIndex:(unsigned int)arg1;
+@property(readonly, nonatomic) unsigned long long iconIndexsCount;
+- (void)setFontIndexs:(unsigned int *)arg1 count:(unsigned long long)arg2;
+- (unsigned int)fontIndexAtIndex:(unsigned long long)arg1;
 - (void)addFontIndex:(unsigned int)arg1;
 - (void)clearFontIndexs;
 @property(readonly, nonatomic) unsigned int *fontIndexs;
-@property(readonly, nonatomic) unsigned int fontIndexsCount;
-- (void)setTextureIndexs:(unsigned int *)arg1 count:(unsigned int)arg2;
-- (unsigned int)textureIndexAtIndex:(unsigned int)arg1;
+@property(readonly, nonatomic) unsigned long long fontIndexsCount;
+- (void)setTextureIndexs:(unsigned int *)arg1 count:(unsigned long long)arg2;
+- (unsigned int)textureIndexAtIndex:(unsigned long long)arg1;
 - (void)addTextureIndex:(unsigned int)arg1;
 - (void)clearTextureIndexs;
 @property(readonly, nonatomic) unsigned int *textureIndexs;
-@property(readonly, nonatomic) unsigned int textureIndexsCount;
-- (void)setStyleSheetIndexs:(unsigned int *)arg1 count:(unsigned int)arg2;
-- (unsigned int)styleSheetIndexAtIndex:(unsigned int)arg1;
+@property(readonly, nonatomic) unsigned long long textureIndexsCount;
+- (void)setStyleSheetIndexs:(unsigned int *)arg1 count:(unsigned long long)arg2;
+- (unsigned int)styleSheetIndexAtIndex:(unsigned long long)arg1;
 - (void)addStyleSheetIndex:(unsigned int)arg1;
 - (void)clearStyleSheetIndexs;
 @property(readonly, nonatomic) unsigned int *styleSheetIndexs;
-@property(readonly, nonatomic) unsigned int styleSheetIndexsCount;
-- (void)setTileSets:(CDStruct_c0454aff *)arg1 count:(unsigned int)arg2;
-- (CDStruct_c0454aff)tileSetAtIndex:(unsigned int)arg1;
+@property(readonly, nonatomic) unsigned long long styleSheetIndexsCount;
+- (void)setTileSets:(CDStruct_c0454aff *)arg1 count:(unsigned long long)arg2;
+- (CDStruct_c0454aff)tileSetAtIndex:(unsigned long long)arg1;
 - (void)addTileSet:(CDStruct_c0454aff)arg1;
 - (void)clearTileSets;
 @property(readonly, nonatomic) CDStruct_c0454aff *tileSets;
-@property(readonly, nonatomic) unsigned int tileSetsCount;
+@property(readonly, nonatomic) unsigned long long tileSetsCount;
 - (void)dealloc;
 
 @end

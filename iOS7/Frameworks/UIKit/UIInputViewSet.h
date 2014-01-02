@@ -8,14 +8,15 @@
 
 @class UIKeyboard, UIResponder, UIView;
 
+// Not exported
 @interface UIInputViewSet : NSObject
 {
     UIView *_inputView;
     UIView *_inputAccessoryView;
-    BOOL _isKeyboard;
-    BOOL _supportsSplit;
-    BOOL _isSplit;
-    float _splitHeightDelta;
+    _Bool _isKeyboard;
+    _Bool _supportsSplit;
+    _Bool _isSplit;
+    double _splitHeightDelta;
     UIResponder *_restorableResponder;
 }
 
@@ -23,14 +24,14 @@
 + (id)inputSetWithKeyboardAndAccessoryView:(id)arg1;
 + (id)inputSetWithInputView:(id)arg1 accessoryView:(id)arg2;
 @property(nonatomic) UIResponder *restorableResponder; // @synthesize restorableResponder=_restorableResponder;
-@property(nonatomic) float splitHeightDelta; // @synthesize splitHeightDelta=_splitHeightDelta;
-@property(readonly, nonatomic) BOOL supportsSplit; // @synthesize supportsSplit=_supportsSplit;
+@property(nonatomic) double splitHeightDelta; // @synthesize splitHeightDelta=_splitHeightDelta;
+@property(readonly, nonatomic) _Bool supportsSplit; // @synthesize supportsSplit=_supportsSplit;
 @property(retain, nonatomic) UIView *inputAccessoryView; // @synthesize inputAccessoryView=_inputAccessoryView;
 @property(retain, nonatomic) UIView *inputView; // @synthesize inputView=_inputView;
-- (void)_setSplitProgress:(float)arg1;
+- (void)_setSplitProgress:(double)arg1;
 - (void)_endSplitTransitionIfNeeded;
 - (void)_beginSplitTransitionIfNeeded;
-- (BOOL)_accessorySuppressesShadow;
+- (_Bool)_accessorySuppressesShadow;
 - (id)_splittableInputAccessoryView;
 - (id)_themableInputAccessoryView;
 - (void)refreshPresentation;
@@ -38,30 +39,30 @@
 - (struct CGRect)_leftInputViewSetFrame;
 @property(readonly, nonatomic) struct CGRect inputAccessoryViewBounds;
 @property(readonly, nonatomic) struct CGRect inputViewBounds;
-- (BOOL)_inputViewIsSplit;
-@property(readonly, nonatomic) BOOL isSplit; // @synthesize isSplit=_isSplit;
-@property(readonly, nonatomic) BOOL inputViewKeyboardCanSplit;
-- (BOOL)_inputViewSetSupportsSplit;
-- (BOOL)_inputAccessoryViewSupportsSplit;
-- (BOOL)_inputViewSupportsSplit;
-- (BOOL)__isCKAccessoryView;
-- (BOOL)inSyncWithOrientation:(int)arg1 forKeyboard:(id)arg2;
-- (int)keyboardOrientation:(id)arg1;
+- (_Bool)_inputViewIsSplit;
+@property(readonly, nonatomic) _Bool isSplit; // @synthesize isSplit=_isSplit;
+@property(readonly, nonatomic) _Bool inputViewKeyboardCanSplit;
+- (_Bool)_inputViewSetSupportsSplit;
+- (_Bool)_inputAccessoryViewSupportsSplit;
+- (_Bool)_inputViewSupportsSplit;
+- (_Bool)__isCKAccessoryView;
+- (_Bool)inSyncWithOrientation:(long long)arg1 forKeyboard:(id)arg2;
+- (long long)keyboardOrientation:(id)arg1;
 - (id)description;
-- (BOOL)isStrictSupersetOfViewSet:(id)arg1;
-- (BOOL)containsResponder:(id)arg1;
-- (BOOL)visible;
-- (BOOL)_inputViewIsVisible;
-- (BOOL)usesKeyClicks;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)containsView:(id)arg1;
-@property(readonly, nonatomic, getter=isEmpty) BOOL empty;
+- (_Bool)isStrictSupersetOfViewSet:(id)arg1;
+- (_Bool)containsResponder:(id)arg1;
+- (_Bool)visible;
+- (_Bool)_inputViewIsVisible;
+- (_Bool)usesKeyClicks;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)containsView:(id)arg1;
+@property(readonly, nonatomic, getter=isEmpty) _Bool empty;
 @property(readonly, nonatomic) UIView *layeringView;
 - (void)_setRenderConfig:(id)arg1;
 - (void)dealloc;
-- (id)initWithInputView:(id)arg1 accessoryView:(id)arg2 isKeyboard:(BOOL)arg3;
+- (id)initWithInputView:(id)arg1 accessoryView:(id)arg2 isKeyboard:(_Bool)arg3;
 @property(readonly, nonatomic) UIKeyboard *keyboard;
-- (BOOL)canAnimateToInputViewSet:(id)arg1;
+- (_Bool)canAnimateToInputViewSet:(id)arg1;
 
 @end
 

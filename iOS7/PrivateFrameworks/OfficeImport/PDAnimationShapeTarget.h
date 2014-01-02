@@ -8,13 +8,14 @@
 
 @class OADDrawable;
 
+// Not exported
 @interface PDAnimationShapeTarget : PDAnimationTarget
 {
     OADDrawable *mDrawable;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)setDrawable:(id)arg1;
 - (id)drawable;
 - (void)dealloc;

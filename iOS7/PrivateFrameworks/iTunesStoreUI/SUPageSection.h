@@ -13,7 +13,7 @@
     double _expirationTime;
     NSString *_identifier;
     UIImage *_image;
-    int _structuredPageType;
+    long long _structuredPageType;
     NSString *_title;
     SSMutableURLRequestProperties *_urlRequestProperties;
     id _userInfo;
@@ -22,15 +22,15 @@
 @property(retain, nonatomic) id userInfo; // @synthesize userInfo=_userInfo;
 @property(copy, nonatomic) SSURLRequestProperties *URLRequestProperties; // @synthesize URLRequestProperties=_urlRequestProperties;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
-@property(nonatomic) int structuredPageType; // @synthesize structuredPageType=_structuredPageType;
+@property(nonatomic) long long structuredPageType; // @synthesize structuredPageType=_structuredPageType;
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(nonatomic) double expirationTime; // @synthesize expirationTime=_expirationTime;
 - (void)_setURLBagKey:(id)arg1;
 - (void)_setURL:(id)arg1;
 @property(readonly, nonatomic) id segmentedControlItem;
-- (BOOL)loadFromDictionary:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)loadFromDictionary:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

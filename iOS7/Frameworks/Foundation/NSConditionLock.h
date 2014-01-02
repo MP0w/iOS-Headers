@@ -17,18 +17,18 @@
 - (id)name;
 - (void)setName:(id)arg1;
 - (id)description;
-- (void)unlockWithCondition:(int)arg1;
+- (void)unlockWithCondition:(long long)arg1;
 - (void)unlock;
-- (BOOL)tryLockWhenCondition:(int)arg1;
-- (BOOL)tryLock;
-- (BOOL)lockWhenCondition:(int)arg1 beforeDate:(id)arg2;
-- (void)lockWhenCondition:(int)arg1;
-- (BOOL)lockBeforeDate:(id)arg1;
+- (_Bool)tryLockWhenCondition:(long long)arg1;
+- (_Bool)tryLock;
+- (_Bool)lockWhenCondition:(long long)arg1 beforeDate:(id)arg2;
+- (void)lockWhenCondition:(long long)arg1;
+- (_Bool)lockBeforeDate:(id)arg1;
 - (void)lock;
-- (int)condition;
+- (long long)condition;
 - (void)finalize;
 - (void)dealloc;
-- (id)initWithCondition:(int)arg1;
+- (id)initWithCondition:(long long)arg1;
 - (id)init;
 
 @end

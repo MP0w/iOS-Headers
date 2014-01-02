@@ -10,44 +10,44 @@
 
 @interface QuietHoursStateController : NSObject
 {
-    BOOL _valid;
-    BOOL _enabled;
-    unsigned int _mode;
+    _Bool _valid;
+    _Bool _enabled;
+    unsigned long long _mode;
     NSArray *_overrides;
-    unsigned int _privilegeTypes;
+    unsigned long long _privilegeTypes;
     int _recordID;
     NSDateComponents *_fromComponents;
     NSDateComponents *_toComponents;
     BBSettingsGateway *_bbGateway;
-    unsigned int _overrideType;
-    BOOL _isEffectiveWhileUnlocked;
-    int _overrideStatus;
+    unsigned long long _overrideType;
+    _Bool _isEffectiveWhileUnlocked;
+    long long _overrideStatus;
 }
 
 + (void)setScheduledRangeFrom:(id)arg1 to:(id)arg2;
-+ (void)setScheduledEnabled:(BOOL)arg1;
-+ (void)setManualEnabled:(BOOL)arg1;
-+ (BOOL)isDNDScheduled;
++ (void)setScheduledEnabled:(_Bool)arg1;
++ (void)setManualEnabled:(_Bool)arg1;
++ (_Bool)isDNDScheduled;
 + (id)sharedController;
-@property(nonatomic) int overrideStatus; // @synthesize overrideStatus=_overrideStatus;
-@property(nonatomic) unsigned int overrideType; // @synthesize overrideType=_overrideType;
+@property(nonatomic) long long overrideStatus; // @synthesize overrideStatus=_overrideStatus;
+@property(nonatomic) unsigned long long overrideType; // @synthesize overrideType=_overrideType;
 @property(readonly, nonatomic) BBSettingsGateway *bbGateway; // @synthesize bbGateway=_bbGateway;
 @property(retain, nonatomic) NSDateComponents *toComponents; // @synthesize toComponents=_toComponents;
 @property(retain, nonatomic) NSDateComponents *fromComponents; // @synthesize fromComponents=_fromComponents;
 @property(nonatomic) int recordID; // @synthesize recordID=_recordID;
-@property(nonatomic) unsigned int privilegeTypes; // @synthesize privilegeTypes=_privilegeTypes;
-@property(nonatomic) BOOL isEffectiveWhileUnlocked; // @synthesize isEffectiveWhileUnlocked=_isEffectiveWhileUnlocked;
+@property(nonatomic) unsigned long long privilegeTypes; // @synthesize privilegeTypes=_privilegeTypes;
+@property(nonatomic) _Bool isEffectiveWhileUnlocked; // @synthesize isEffectiveWhileUnlocked=_isEffectiveWhileUnlocked;
 @property(copy, nonatomic) NSArray *overrides; // @synthesize overrides=_overrides;
-@property(nonatomic) BOOL enabled; // @synthesize enabled=_enabled;
-@property(nonatomic) unsigned int mode; // @synthesize mode=_mode;
-@property(nonatomic) BOOL valid; // @synthesize valid=_valid;
-- (void)synchronizeOverrides:(id)arg1 mode:(unsigned int)arg2 gateway:(id)arg3;
+@property(nonatomic) _Bool enabled; // @synthesize enabled=_enabled;
+@property(nonatomic) unsigned long long mode; // @synthesize mode=_mode;
+@property(nonatomic) _Bool valid; // @synthesize valid=_valid;
+- (void)synchronizeOverrides:(id)arg1 mode:(unsigned long long)arg2 gateway:(id)arg3;
 - (void)setAllowedGroup:(id)arg1 recordID:(int)arg2 groupName:(id)arg3;
 - (int)userSelectedGroupID;
-- (unsigned int)allowedGroupType;
-- (void)setRepeatedCalls:(BOOL)arg1;
-- (BOOL)manualModeEnabled;
-- (BOOL)repeatedCalls;
+- (unsigned long long)allowedGroupType;
+- (void)setRepeatedCalls:(_Bool)arg1;
+- (_Bool)manualModeEnabled;
+- (_Bool)repeatedCalls;
 - (void)synchronizeEnabledState;
 - (void)resetToFallbackRange;
 - (void)dealloc;

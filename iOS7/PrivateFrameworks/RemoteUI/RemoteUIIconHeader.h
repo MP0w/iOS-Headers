@@ -15,14 +15,14 @@
     UILabel *_header;
     UILabel *_subHeader;
     UIImageView *_iconView;
-    BOOL _isFirstSection;
+    _Bool _isFirstSection;
     int _alignment;
 }
 
-- (float)headerHeightForWidth:(float)arg1 inTableView:(id)arg2;
+- (double)headerHeightForWidth:(double)arg1 inTableView:(id)arg2;
 - (void)layoutSubviews;
 - (void)dealloc;
-- (void)setSectionIsFirst:(BOOL)arg1;
+- (void)setSectionIsFirst:(_Bool)arg1;
 - (void)setImageAlignment:(int)arg1;
 - (void)setImageSize:(struct CGSize)arg1;
 - (void)setIconImage:(id)arg1;

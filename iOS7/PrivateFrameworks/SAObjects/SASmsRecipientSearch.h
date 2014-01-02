@@ -14,7 +14,7 @@
 
 + (id)recipientSearchWithDictionary:(id)arg1 context:(id)arg2;
 + (id)recipientSearch;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSArray *recipients;
 - (id)encodedClassName;
 - (id)groupIdentifier;

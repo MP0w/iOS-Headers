@@ -8,6 +8,7 @@
 
 @interface MPMoviePlayerController (iAdPreroll)
 + (void)preparePrerollAds;
+- (void)_iAd_stopPreroll;
 - (void)_iAd_setVideoAdController:(id)arg1;
 - (id)_iAd_videoAdController;
 - (void)playPrerollAdWithCompletionHandler:(id)arg1;

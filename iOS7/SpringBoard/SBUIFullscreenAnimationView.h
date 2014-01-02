@@ -9,10 +9,10 @@
 @interface SBUIFullscreenAnimationView : UIView
 {
     id <SBUIFullscreenAnimationViewDelegate> _delegate;
-    BOOL _animating;
+    _Bool _animating;
 }
 
-@property(readonly, nonatomic) BOOL animating; // @synthesize animating=_animating;
+@property(readonly, nonatomic) _Bool animating; // @synthesize animating=_animating;
 @property(nonatomic) id <SBUIFullscreenAnimationViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)_notifyDelegateThatAnimationIsDone;
 - (void)_notifyDelegateAnimationBeganWithDuration:(double)arg1 delay:(double)arg2;

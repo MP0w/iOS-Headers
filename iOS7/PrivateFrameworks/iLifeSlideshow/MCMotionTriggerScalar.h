@@ -8,11 +8,11 @@
 
 @interface MCMotionTriggerScalar : MCMotionTrigger
 {
-    float _value;
+    double _value;
 }
 
-+ (id)motionTriggerForTargetPlugObjectID:(id)arg1 withKey:(id)arg2 duration:(double)arg3 andValue:(float)arg4;
-@property(nonatomic) float value; // @synthesize value=_value;
++ (id)motionTriggerForTargetPlugObjectID:(id)arg1 withKey:(id)arg2 duration:(double)arg3 andValue:(double)arg4;
+@property(nonatomic) double value; // @synthesize value=_value;
 - (id)description;
 - (void)_copySelfToSnapshot:(id)arg1;
 - (id)imprint;

@@ -23,9 +23,9 @@
 - (void).cxx_destruct;
 - (void)_loadDonationConfiguration;
 - (void)_finishAuthenticateWithResponse:(id)arg1 error:(id)arg2;
-- (void)_configurationDidLoadWithResult:(BOOL)arg1 error:(id)arg2;
+- (void)_configurationDidLoadWithResult:(_Bool)arg1 error:(id)arg2;
 - (void)_cancelButtonAction:(id)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (id)initWithURL:(id)arg1;
 - (id)initWithCharityIdentifier:(id)arg1;
 - (id)_initSKUIDonationViewController;

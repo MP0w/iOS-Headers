@@ -12,11 +12,11 @@
 {
     CBService *_service;
     CBUUID *_UUID;
-    int _properties;
+    long long _properties;
     NSData *_value;
     NSArray *_descriptors;
-    BOOL _isBroadcasted;
-    BOOL _isNotifying;
+    _Bool _isBroadcasted;
+    _Bool _isNotifying;
     CBPeripheral *_peripheral;
     NSNumber *_handle;
     NSNumber *_valueHandle;
@@ -25,11 +25,11 @@
 @property(readonly, nonatomic) NSNumber *valueHandle; // @synthesize valueHandle=_valueHandle;
 @property(readonly, nonatomic) NSNumber *handle; // @synthesize handle=_handle;
 @property(readonly, nonatomic) CBPeripheral *peripheral; // @synthesize peripheral=_peripheral;
-@property BOOL isNotifying; // @synthesize isNotifying=_isNotifying;
-@property(readonly) BOOL isBroadcasted; // @synthesize isBroadcasted=_isBroadcasted;
+@property _Bool isNotifying; // @synthesize isNotifying=_isNotifying;
+@property(readonly) _Bool isBroadcasted; // @synthesize isBroadcasted=_isBroadcasted;
 @property(retain) NSArray *descriptors; // @synthesize descriptors=_descriptors;
 @property(retain) NSData *value; // @synthesize value=_value;
-@property(readonly, nonatomic) int properties; // @synthesize properties=_properties;
+@property(readonly, nonatomic) long long properties; // @synthesize properties=_properties;
 @property(readonly, nonatomic) CBUUID *UUID; // @synthesize UUID=_UUID;
 @property(nonatomic) __weak CBService *service; // @synthesize service=_service;
 - (id)handleDescriptorsDiscovered:(id)arg1;

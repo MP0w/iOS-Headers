@@ -8,6 +8,7 @@
 
 @class NSSet, NSString;
 
+// Not exported
 @interface ACDManagedDataclass : NSManagedObject
 {
 }

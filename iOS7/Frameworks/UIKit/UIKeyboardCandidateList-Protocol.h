@@ -7,32 +7,39 @@
 #import "NSObject-Protocol.h"
 
 @protocol UIKeyboardCandidateList <NSObject>
+- (unsigned long long)selectedSortIndex;
+- (id)statisticsIdentifier;
 - (id)keyboardBehaviors;
-- (BOOL)hasCandidates;
-- (void)candidateAcceptedAtIndex:(unsigned int)arg1;
-- (unsigned int)currentIndex;
+- (_Bool)hasCandidates;
+- (void)candidateAcceptedAtIndex:(unsigned long long)arg1;
+- (unsigned long long)currentIndex;
 - (id)currentCandidate;
+- (void)showPreviousRow;
+- (void)showNextRow;
 - (void)showPreviousPage;
 - (void)showNextPage;
 - (void)showPreviousCandidate;
 - (void)showNextCandidate;
 - (void)showCandidate:(id)arg1;
-- (void)showCandidateAtIndex:(unsigned int)arg1;
+- (void)showCandidateAtIndex:(unsigned long long)arg1;
 - (void)setUIKeyboardCandidateListDelegate:(id)arg1;
-- (void)setCandidates:(id)arg1 inlineText:(id)arg2 inlineRect:(struct CGRect)arg3 maxX:(float)arg4 layout:(BOOL)arg5;
-- (BOOL)isExtendedList;
+- (void)setCandidates:(id)arg1 inlineText:(id)arg2 inlineRect:(struct CGRect)arg3 maxX:(double)arg4 layout:(_Bool)arg5;
+- (_Bool)isHiddenCandidatesList;
+- (_Bool)isExtendedList;
 
 @optional
+- (id)inlineText;
+- (id)candidates;
 - (void)revealHiddenCandidates;
 - (void)jumpToCompositions;
 - (void)candidatesDidChange;
-- (BOOL)hasPreviousPage;
-- (BOOL)hasNextPage;
-- (BOOL)handleTabKeyWithShift:(BOOL)arg1;
-- (BOOL)handleNumberKey:(unsigned int)arg1;
+- (_Bool)hasPreviousPage;
+- (_Bool)hasNextPage;
+- (_Bool)handleTabKeyWithShift:(_Bool)arg1;
+- (_Bool)handleNumberKey:(unsigned long long)arg1;
 - (void)setCompletionContext:(id)arg1;
-- (void)showCaret:(BOOL)arg1 gradually:(BOOL)arg2;
+- (void)showCaret:(_Bool)arg1 gradually:(_Bool)arg2;
 - (void)setInlineText:(id)arg1;
-- (void)setCandidates:(id)arg1 type:(int)arg2 inlineText:(id)arg3 inlineRect:(struct CGRect)arg4 maxX:(float)arg5 layout:(BOOL)arg6;
+- (void)setCandidates:(id)arg1 type:(int)arg2 inlineText:(id)arg3 inlineRect:(struct CGRect)arg4 maxX:(double)arg5 layout:(_Bool)arg6;
 @end
 

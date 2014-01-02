@@ -10,9 +10,8 @@
 {
 }
 
-+ (id)ascii7BitFormatter:(unsigned int)arg1;
-+ (id)ascii7BitSet;
-- (id)initWithMaxLength:(unsigned int)arg1;
++ (id)ascii7BitFormatter:(unsigned long long)arg1;
+- (id)initWithMaxLength:(unsigned long long)arg1;
 
 @end
 

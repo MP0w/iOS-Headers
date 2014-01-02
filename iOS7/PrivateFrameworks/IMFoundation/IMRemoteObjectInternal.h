@@ -13,10 +13,10 @@
     NSRecursiveLock *_lock;
     NSObject<OS_xpc_object> *_connection;
     NSObject<OS_dispatch_queue> *_queue;
-    long _deathPostPredicate;
+    long long _deathPostPredicate;
     Protocol *_protocol;
     NSString *_portName;
-    BOOL _willBeTerminated;
+    _Bool _willBeTerminated;
     int _pid;
 }
 

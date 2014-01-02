@@ -6,6 +6,7 @@
 
 #import <Symbolication/VMUSymbolExtractor.h>
 
+// Not exported
 @interface VMUDsymExtractor : VMUSymbolExtractor
 {
 }

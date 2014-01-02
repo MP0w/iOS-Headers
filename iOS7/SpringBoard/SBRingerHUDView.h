@@ -8,10 +8,10 @@
 
 @interface SBRingerHUDView : SBHUDView
 {
-    BOOL _silent;
+    _Bool _silent;
 }
 
-@property(nonatomic, getter=isSilent) BOOL silent; // @synthesize silent=_silent;
+@property(nonatomic, getter=isSilent) _Bool silent; // @synthesize silent=_silent;
 - (id)init;
 - (void)_updateSilentImage;
 

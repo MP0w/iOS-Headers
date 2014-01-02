@@ -10,20 +10,21 @@
 
 @class _UIViewServiceFencingControlProxy;
 
+// Not exported
 @interface _UIViewServiceUIBehaviorProxy : _UITargetedProxy <_UIViewServiceUIBehaviorInterface>
 {
     int _remotePID;
     _UIViewServiceFencingControlProxy *_fencingControlProxy;
     int __automatic_invalidation_retainCount;
-    BOOL __automatic_invalidation_invalidated;
+    _Bool __automatic_invalidation_invalidated;
 }
 
 + (id)activeFencePort;
 + (id)proxyWrappingExportedObject:(id)arg1 forCommunicationWithPID:(int)arg2 exportedProtocol:(id)arg3;
 - (void)dealloc;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
-- (unsigned int)retainCount;
+- (_Bool)_isDeallocating;
+- (_Bool)_tryRetain;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;
 - (int)__automatic_invalidation_logic;

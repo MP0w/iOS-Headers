@@ -7,6 +7,5 @@
 #import "NSObject-Protocol.h"
 
 @protocol HandView <NSObject>
-@property(nonatomic) float handAngle;
 @end
 

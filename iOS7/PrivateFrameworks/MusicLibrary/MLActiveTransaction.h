@@ -8,25 +8,31 @@
 
 @class ML3DatabaseConnection, NSObject<OS_dispatch_semaphore>, NSUUID, NSXPCConnection;
 
+// Not exported
 @interface MLActiveTransaction : NSObject
 {
     ML3DatabaseConnection *_connection;
     NSObject<OS_dispatch_semaphore> *_connectionSemaphore;
-    BOOL _inUseByOperation;
-    BOOL _startedByOperation;
+    unsigned long long _transactionTerminationRule;
+    _Bool _inUseByOperation;
+    _Bool _startedByOperation;
+    _Bool _connectionInUse;
     NSUUID *_identifier;
     NSXPCConnection *_xpcConnection;
     double _lastUsedTime;
 }
 
-@property(nonatomic) BOOL startedByOperation; // @synthesize startedByOperation=_startedByOperation;
-@property(nonatomic) BOOL inUseByOperation; // @synthesize inUseByOperation=_inUseByOperation;
+@property(readonly, nonatomic) _Bool connectionInUse; // @synthesize connectionInUse=_connectionInUse;
+@property(nonatomic) _Bool startedByOperation; // @synthesize startedByOperation=_startedByOperation;
+@property(nonatomic) _Bool inUseByOperation; // @synthesize inUseByOperation=_inUseByOperation;
 @property(nonatomic) double lastUsedTime; // @synthesize lastUsedTime=_lastUsedTime;
 @property(retain, nonatomic) NSXPCConnection *xpcConnection; // @synthesize xpcConnection=_xpcConnection;
 @property(retain, nonatomic) NSUUID *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
+- (void)_setTransactionTerminationRule:(unsigned long long)arg1;
+- (unsigned long long)_transactionTerminationRule;
 - (void)updateLastUsed;
-- (id)relinquishConnection:(BOOL)arg1;
+- (id)relinquishConnection:(_Bool)arg1;
 - (void)useConnectionWithBlock:(id)arg1;
 - (void)checkInTransactionConnection:(id)arg1;
 - (id)checkoutTransactionConnection;

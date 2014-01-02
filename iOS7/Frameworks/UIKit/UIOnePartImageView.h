@@ -8,6 +8,7 @@
 
 @class UIImage;
 
+// Not exported
 @interface UIOnePartImageView : UIView
 {
     struct CGRect _fromRect;

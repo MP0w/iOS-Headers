@@ -11,7 +11,7 @@
 @interface PTPDataPacket : NSObject
 {
     unsigned short _operationCode;
-    unsigned long _transactionID;
+    unsigned int _transactionID;
     id _data;
     NSString *_filepath;
     int _fd;
@@ -34,19 +34,19 @@
 - (long long)bufferSize;
 - (void)setData:(id)arg1;
 - (id)data;
-- (void)setTransactionID:(unsigned long)arg1;
-- (unsigned long)transactionID;
+- (void)setTransactionID:(unsigned int)arg1;
+- (unsigned int)transactionID;
 - (void)setOperationCode:(unsigned short)arg1;
 - (unsigned short)operationCode;
 - (id)description;
-- (id)contentForUSBUsingBuffer:(void *)arg1 capacity:(unsigned long)arg2;
+- (id)contentForUSBUsingBuffer:(void *)arg1 capacity:(unsigned int)arg2;
 - (id)contentForUSB;
 - (id)contentForTCP;
 - (void)dealloc;
 - (id)initWithUSBBuffer:(void *)arg1;
 - (id)initWithTCPBuffer:(void *)arg1;
-- (id)initWithOperationCode:(unsigned short)arg1 transactionID:(unsigned long)arg2 andFilepath:(id)arg3;
-- (id)initWithOperationCode:(unsigned short)arg1 transactionID:(unsigned long)arg2 andData:(id)arg3;
+- (id)initWithOperationCode:(unsigned short)arg1 transactionID:(unsigned int)arg2 andFilepath:(id)arg3;
+- (id)initWithOperationCode:(unsigned short)arg1 transactionID:(unsigned int)arg2 andData:(id)arg3;
 - (id)filepath;
 
 @end

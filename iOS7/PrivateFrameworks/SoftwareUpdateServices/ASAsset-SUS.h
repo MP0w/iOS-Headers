@@ -9,9 +9,9 @@
 @interface ASAsset (SUS)
 - (void)cleanupAsset;
 - (void)cancelDownloadIfNecessary;
-- (BOOL)isEmergencyUpdate;
-- (BOOL)isInstalled;
-- (BOOL)isDownloading;
-- (BOOL)isDownloadingOrInstalled;
+- (_Bool)isEmergencyUpdate;
+- (_Bool)isInstalled;
+- (_Bool)isDownloading;
+- (_Bool)isDownloadingOrInstalled;
 @end
 

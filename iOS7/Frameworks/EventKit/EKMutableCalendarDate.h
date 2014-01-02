@@ -6,6 +6,7 @@
 
 #import <EventKit/EKCalendarDate.h>
 
+// Not exported
 @interface EKMutableCalendarDate : EKCalendarDate
 {
 }

@@ -8,13 +8,14 @@
 
 @class NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>, _UIAsyncInvocation;
 
+// Not exported
 @interface _UIViewServiceXPCListener : NSObject
 {
     NSObject<OS_xpc_object> *_connection;
     NSObject<OS_dispatch_queue> *_incomingConnectionQueue;
     _UIAsyncInvocation *_invalidationInvocation;
     int __automatic_invalidation_retainCount;
-    BOOL __automatic_invalidation_invalidated;
+    _Bool __automatic_invalidation_invalidated;
 }
 
 - (id)invalidate;
@@ -22,9 +23,9 @@
 - (id)endpoint;
 - (void)dealloc;
 - (id)initWithName:(id)arg1 connectionHandler:(id)arg2;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
-- (unsigned int)retainCount;
+- (_Bool)_isDeallocating;
+- (_Bool)_tryRetain;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;
 - (int)__automatic_invalidation_logic;

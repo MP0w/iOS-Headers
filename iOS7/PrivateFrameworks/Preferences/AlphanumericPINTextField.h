@@ -10,7 +10,7 @@
 {
 }
 
-- (BOOL)canPerformAction:(SEL)arg1 withSender:(id)arg2;
+- (_Bool)canPerformAction:(SEL)arg1 withSender:(id)arg2;
 
 @end
 

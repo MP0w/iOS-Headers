@@ -24,10 +24,10 @@
 @property(nonatomic) id <ABPickerViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) id defaultValue; // @synthesize defaultValue=_defaultValue;
 @property(nonatomic) void *context; // @synthesize context=_context;
-- (BOOL)_isSupportedInterfaceOrientation:(int)arg1;
-- (BOOL)_allowsAutorotation;
+- (_Bool)_isSupportedInterfaceOrientation:(long long)arg1;
+- (_Bool)_allowsAutorotation;
 - (void)viewDidLoad;
-- (float)ab_heightToFitForViewInPopoverView;
+- (double)ab_heightToFitForViewInPopoverView;
 - (void)cancelButtonClicked:(id)arg1;
 - (void)attemptDismissAfterSelectingItem:(id)arg1;
 @property(readonly, nonatomic) UIBarButtonItem *doneBarButtonItem;

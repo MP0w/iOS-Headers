@@ -19,10 +19,10 @@
 - (id)urlBySettingScheme:(id)arg1;
 - (id)urlByRemovingUsername;
 - (id)urlBySettingUsername:(id)arg1;
-- (id)urlBySettingPath:(id)arg1 keepUsername:(BOOL)arg2;
-- (id)urlBySettingPort:(id)arg1 keepUsername:(BOOL)arg2;
-- (id)urlBySettingHost:(id)arg1 keepUsername:(BOOL)arg2;
-- (id)urlBySettingScheme:(id)arg1 keepUsername:(BOOL)arg2;
-- (BOOL)isEqualToDAVURL:(id)arg1;
+- (id)urlBySettingPath:(id)arg1 keepUsername:(_Bool)arg2;
+- (id)urlBySettingPort:(id)arg1 keepUsername:(_Bool)arg2;
+- (id)urlBySettingHost:(id)arg1 keepUsername:(_Bool)arg2;
+- (id)urlBySettingScheme:(id)arg1 keepUsername:(_Bool)arg2;
+- (_Bool)isEqualToDAVURL:(id)arg1;
 @end
 

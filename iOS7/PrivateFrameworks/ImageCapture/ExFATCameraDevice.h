@@ -11,9 +11,9 @@
     void *_exFATCameraProperties;
 }
 
-- (BOOL)eject;
+- (_Bool)eject;
 - (void)enumerateContent;
-- (unsigned int)itemsInFolder:(id)arg1;
+- (unsigned long long)itemsInFolder:(id)arg1;
 - (void)finalize;
 - (void)dealloc;
 - (id)initWithVolumePath:(id)arg1 mediaPaths:(id)arg2;

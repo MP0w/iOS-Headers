@@ -8,11 +8,12 @@
 
 @interface SBLockScreenScrollView : UIScrollView
 {
+    id <SBUIPasscodeLockView> _passcodeView;
 }
 
-- (BOOL)gestureRecognizerShouldBegin:(id)arg1;
-- (void)setEnablePasscodeHysteresis:(BOOL)arg1;
-- (BOOL)touchesShouldCancelInContentView:(id)arg1;
+@property(nonatomic) id <SBUIPasscodeLockView> passcodeView; // @synthesize passcodeView=_passcodeView;
+- (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
+- (_Bool)touchesShouldCancelInContentView:(id)arg1;
 
 @end
 

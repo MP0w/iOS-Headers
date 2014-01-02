@@ -26,16 +26,16 @@
 - (id)_views;
 - (void)_reloadImages;
 - (void)flowcaseViewDidEndDecelerating:(id)arg1;
-- (void)flowcaseView:(id)arg1 didSelectViewAtIndex:(int)arg2;
-- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
+- (void)flowcaseView:(id)arg1 didSelectViewAtIndex:(long long)arg2;
+- (void)willRotateToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (void)willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)loadView;
-- (void)setImage:(id)arg1 forItemAtIndex:(int)arg2 orientation:(int)arg3;
+- (void)setImage:(id)arg1 forItemAtIndex:(long long)arg2 orientation:(long long)arg3;
 - (id)indexSetForVisibleViews;
-- (struct CGRect)frameForItemAtIndex:(int)arg1;
+- (struct CGRect)frameForItemAtIndex:(long long)arg1;
 - (void)dealloc;
 - (id)initWithFlowcase:(id)arg1;
 

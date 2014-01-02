@@ -12,6 +12,6 @@
 - (double)expirationInterval;
 - (id)expirationDate;
 - (id)_dateFromExpires;
-- (BOOL)_getCacheControlMaxAge:(double *)arg1;
+- (_Bool)_getCacheControlMaxAge:(double *)arg1;
 @end
 

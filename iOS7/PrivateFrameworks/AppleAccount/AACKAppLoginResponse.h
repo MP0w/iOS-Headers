@@ -11,9 +11,9 @@
 }
 
 - (id)statusMessage;
-- (int)statusCode;
+- (long long)statusCode;
 - (id)appContainerToken;
-- (BOOL)success;
+- (_Bool)success;
 
 @end
 

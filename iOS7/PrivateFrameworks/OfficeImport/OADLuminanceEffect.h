@@ -6,14 +6,15 @@
 
 #import <OfficeImport/OADBlipEffect.h>
 
+// Not exported
 @interface OADLuminanceEffect : OADBlipEffect
 {
     float mBrightness;
     float mContrast;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)setContrast:(float)arg1;
 - (float)contrast;
 - (void)setBrightness:(float)arg1;

@@ -6,14 +6,12 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface PXPresentation : NSObject
 {
 }
 
-+ (id)readFromPackage:(id)arg1 fileName:(id)arg2 reader:(id)arg3 cancel:(id)arg4 isThumbnail:(BOOL)arg5 delegate:(id)arg6;
-+ (void)readSlideIndicesWithPresentationPart:(id)arg1 presentationState:(id)arg2;
-+ (void)readPresentationProperties:(id)arg1 to:(id)arg2;
-+ (struct CGSize)readSizeFromChildOfElement:(struct _xmlNode *)arg1 childName:(const char *)arg2;
++ (id)readFromPackage:(id)arg1 fileName:(id)arg2 reader:(id)arg3 cancel:(id)arg4 isThumbnail:(_Bool)arg5 delegate:(id)arg6;
 
 @end
 

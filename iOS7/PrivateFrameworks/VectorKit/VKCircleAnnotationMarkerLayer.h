@@ -12,39 +12,39 @@
 {
     struct CGColor *_fillColor;
     float _fillColorComponents[4];
-    float _radius;
-    float _presentationRadius;
+    double _radius;
+    double _presentationRadius;
     double _distanceRadius;
     double _presentationDistanceRadius;
-    BOOL _useDistanceRadius;
-    float _minRadius;
+    _Bool _useDistanceRadius;
+    double _minRadius;
     VKAnimation *_radiusAnimation;
     CDStruct_aa5aacbc _modelMatrix;
     CDStruct_aa5aacbc _inverseMatrix;
     VGLMesh *_strokeMesh;
-    float _strokeWidth;
+    double _strokeWidth;
     struct CGColor *_strokeColor;
     float _strokeColorComponents[4];
-    int _strokeTriangleCount;
+    long long _strokeTriangleCount;
     struct VKPoint _localEyePos;
     Vec3Imp_f658403c _localEyeDir;
-    BOOL _hasDistanceRadiusToScreenRadiusMultiplier;
-    float _distanceRadiusToScreenRadiusMultiplier;
+    _Bool _hasDistanceRadiusToScreenRadiusMultiplier;
+    double _distanceRadiusToScreenRadiusMultiplier;
     VGLRenderState *_circleRenderState;
 }
 
 @property(nonatomic) struct CGColor *strokeColor; // @synthesize strokeColor=_strokeColor;
-@property(nonatomic) float strokeWidth; // @synthesize strokeWidth=_strokeWidth;
-@property(nonatomic) float minRadius; // @synthesize minRadius=_minRadius;
+@property(nonatomic) double strokeWidth; // @synthesize strokeWidth=_strokeWidth;
+@property(nonatomic) double minRadius; // @synthesize minRadius=_minRadius;
 @property(nonatomic) double distanceRadius; // @synthesize distanceRadius=_distanceRadius;
-@property(nonatomic) float radius; // @synthesize radius=_radius;
+@property(nonatomic) double radius; // @synthesize radius=_radius;
 @property(nonatomic) struct CGColor *fillColor; // @synthesize fillColor=_fillColor;
 - (id).cxx_construct;
 - (void)drawWithContext:(id)arg1;
 - (void)layoutWithContext:(id)arg1;
 - (void)setDistanceRadius:(double)arg1 duration:(double)arg2;
-- (void)setRadius:(float)arg1 duration:(double)arg2;
-- (void)_createStrokeMeshWithTriangleCount:(int)arg1 context:(id)arg2;
+- (void)setRadius:(double)arg1 duration:(double)arg2;
+- (void)_createStrokeMeshWithTriangleCount:(long long)arg1 context:(id)arg2;
 - (void)dealloc;
 - (id)init;
 

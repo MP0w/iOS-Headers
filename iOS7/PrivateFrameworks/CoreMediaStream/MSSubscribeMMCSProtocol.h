@@ -13,7 +13,7 @@
 @interface MSSubscribeMMCSProtocol : MSMMCSProtocol <MSSubscribeStorageProtocol>
 {
     id <MSSubscribeStorageProtocolDelegate> _delegate;
-    unsigned int _itemCount;
+    unsigned long long _itemCount;
     NSMutableDictionary *_itemIDToAssetDict;
     unsigned long long *_itemIDs;
     const char **_signatures;

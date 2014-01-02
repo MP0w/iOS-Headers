@@ -7,7 +7,7 @@
 #import "NSMutableArray.h"
 
 @interface NSMutableArray (TSUAdditions)
-- (void)trimObjectsFromIndex:(unsigned int)arg1;
+- (void)trimObjectsFromIndex:(unsigned long long)arg1;
 - (void)removeObjectsIdenticalToObjectsInArray:(id)arg1;
 - (void)addObjectsFromNonNilArray:(id)arg1;
 - (void)addNonNilObject:(id)arg1;

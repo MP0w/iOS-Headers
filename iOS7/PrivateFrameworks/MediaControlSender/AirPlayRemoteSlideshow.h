@@ -14,7 +14,7 @@
     MediaControlClient *_client;
     id <AirPlayRemoteSlideshowDelegate> _delegate;
     NSObject<OS_dispatch_queue> *_userQueue;
-    BOOL _started;
+    _Bool _started;
     double _startTime;
 }
 

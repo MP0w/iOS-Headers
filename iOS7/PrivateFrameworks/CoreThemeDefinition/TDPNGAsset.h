@@ -12,8 +12,8 @@
 {
 }
 
-- (BOOL)hasProduction;
-- (BOOL)hasCursorProduction;
+- (_Bool)hasProduction;
+- (_Bool)hasCursorProduction;
 
 // Remaining properties
 @property(retain, nonatomic) NSSet *renditions; // @dynamic renditions;

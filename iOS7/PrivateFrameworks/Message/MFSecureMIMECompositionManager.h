@@ -26,29 +26,29 @@
     int _encryptionPolicy;
     int _signingStatus;
     int _encryptionStatus;
-    unsigned int _encryptionStatusSemaphore;
-    unsigned int _signingStatusSemaphore;
-    BOOL _invalidated;
+    unsigned long long _encryptionStatusSemaphore;
+    unsigned long long _signingStatusSemaphore;
+    _Bool _invalidated;
 }
 
 + (id)copyEncryptionCertificatesForAccount:(id)arg1 recipientAddress:(id)arg2 error:(id *)arg3;
 + (struct __SecIdentity *)copyEncryptionIdentityForAccount:(id)arg1 sendingAddress:(id)arg2 error:(id *)arg3;
 + (struct __SecIdentity *)copySigningIdentityForAccount:(id)arg1 sendingAddress:(id)arg2 error:(id *)arg3;
-- (BOOL)_shouldAllowSend_nts;
-- (BOOL)_shouldEncrypt_nts;
-- (BOOL)_shouldSign_nts;
-- (BOOL)shouldAllowSend;
+- (_Bool)_shouldAllowSend_nts;
+- (_Bool)_shouldEncrypt_nts;
+- (_Bool)_shouldSign_nts;
+- (_Bool)shouldAllowSend;
 - (id)compositionSpecification;
 @property(readonly) NSSet *recipients;
 @property(readonly) int encryptionStatus;
 - (void)_notifyDelegateEncryptionStatusDidChange:(int)arg1 certsByRecipient:(id)arg2 errorsByRecipient:(id)arg3 identity:(struct __SecIdentity *)arg4 error:(id)arg5;
 - (void)_setEncryptionIdentityError_nts:(id)arg1;
-- (BOOL)_updateEncryptionStatus_nts;
+- (_Bool)_updateEncryptionStatus_nts;
 - (void)_determineEncryptionStatusWithNewRecipients:(id)arg1;
 - (void)_determineEncryptionStatusWithSendingAddress:(id)arg1;
 @property(readonly) int signingStatus;
 - (void)_setSigningIdentityError_nts:(id)arg1;
-- (BOOL)_updateSigningStatus_nts;
+- (_Bool)_updateSigningStatus_nts;
 - (void)_notifyDelegateSigningStatusDidChange:(int)arg1 identity:(struct __SecIdentity *)arg2 error:(id)arg3;
 - (void)_determineSigningStatusWithSendingAddress:(id)arg1;
 @property(readonly) int encryptionPolicy;

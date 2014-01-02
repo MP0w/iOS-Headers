@@ -9,13 +9,12 @@
 @interface NSProgress (LSInstallProgressAdditions)
 + (id)keyPathsForValuesAffectingInstallPhase;
 + (id)keyPathsForValuesAffectingInstallState;
-+ (id)publishingKeyForApp:(id)arg1 withPhase:(unsigned int)arg2;
-+ (id)childProgressForBundleID:(id)arg1 andPhase:(unsigned int)arg2;
-+ (id)childProgressForParent:(id)arg1 andPhase:(unsigned int)arg2;
++ (id)publishingKeyForApp:(id)arg1 withPhase:(unsigned long long)arg2;
++ (id)childProgressForBundleID:(id)arg1 andPhase:(unsigned long long)arg2;
 - (id)description;
 - (void)resume;
-@property(nonatomic) unsigned int installPhase;
-@property(nonatomic) unsigned int installState;
-- (id)initWithParent:(id)arg1 bundleID:(id)arg2 andPhase:(unsigned int)arg3;
+@property(nonatomic) unsigned long long installPhase;
+@property(nonatomic) unsigned long long installState;
+- (id)initWithParent:(id)arg1 bundleID:(id)arg2 andPhase:(unsigned long long)arg3;
 @end
 

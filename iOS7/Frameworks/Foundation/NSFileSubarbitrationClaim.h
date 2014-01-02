@@ -8,12 +8,13 @@
 
 @class NSArray, NSFileAccessNode, NSMutableDictionary, NSMutableSet;
 
+// Not exported
 @interface NSFileSubarbitrationClaim : NSFileAccessClaim
 {
     NSArray *_readingURLs;
-    unsigned int _readingOptions;
+    unsigned long long _readingOptions;
     NSArray *_writingURLs;
-    unsigned int _writingOptions;
+    unsigned long long _writingOptions;
     id _messageSender;
     NSArray *_readingLocations;
     NSArray *_writingLocations;
@@ -23,7 +24,7 @@
     NSMutableDictionary *_writeRelinquishmentsByPresenterID;
 }
 
-- (void)forwardReacquisitionMessageWithKind:(id)arg1 parameters:(id)arg2 toPresenterForID:(id)arg3;
+- (void)forwardReacquisitionMessageWithKind:(id)arg1 parameters:(id)arg2 toPresenterForID:(id)arg3 usingReplySender:(id)arg4;
 - (void)forwardRelinquishmentMessageWithKind:(id)arg1 parameters:(id)arg2 toPresenter:(id)arg3 usingReplySender:(id)arg4;
 - (id)relinquishmentForMessageOfKind:(id)arg1 toPresenterForID:(id)arg2;
 - (void)itemAtLocation:(id)arg1 wasReplacedByItemAtLocation:(id)arg2;
@@ -31,17 +32,17 @@
 - (void)revoked;
 - (void)invokeClaimer;
 - (void)granted;
-- (BOOL)isBlockedByWritingItemAtLocation:(id)arg1 options:(unsigned int)arg2;
-- (BOOL)isBlockedByReadingItemAtLocation:(id)arg1 options:(unsigned int)arg2;
+- (_Bool)isBlockedByWritingItemAtLocation:(id)arg1 options:(unsigned long long)arg2;
+- (_Bool)isBlockedByReadingItemAtLocation:(id)arg1 options:(unsigned long long)arg2;
 - (void)devalueOldClaim:(id)arg1;
 - (void)evaluateNewClaim:(id)arg1;
-- (BOOL)evaluateSelfWithRootNode:(id)arg1 checkSubarbitrability:(BOOL)arg2;
+- (_Bool)evaluateSelfWithRootNode:(id)arg1 checkSubarbitrability:(_Bool)arg2;
 - (void)forwardUsingMessageSender:(id)arg1 crashHandler:(void)arg2;
 - (id)messageSender;
 - (void)setMessageSender:(id)arg1;
 - (void)dealloc;
 - (id)initWithClient:(id)arg1 messageParameters:(id)arg2 replySender:(id)arg3;
-- (id)initWithReadingURLs:(id)arg1 options:(unsigned int)arg2 writingURLs:(id)arg3 options:(unsigned int)arg4 claimer:(id)arg5;
+- (id)initWithReadingURLs:(id)arg1 options:(unsigned long long)arg2 writingURLs:(id)arg3 options:(unsigned long long)arg4 claimer:(id)arg5;
 
 @end
 

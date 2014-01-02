@@ -6,31 +6,32 @@
 
 #import "NSObject.h"
 
-@class _UIBackdropViewSettings;
+@class UIColor, _UIBackdropViewSettings;
 
 @interface _UIBackdropColorSettings : NSObject
 {
-    float _averageHue;
-    float _averageSaturation;
-    float _averageBrightness;
-    float _contrast;
+    double _averageHue;
+    double _averageSaturation;
+    double _averageBrightness;
+    double _contrast;
     _UIBackdropViewSettings *_parentSettings;
-    float _previousAverageHue;
-    float _previousAverageSaturation;
-    float _previousAverageBrightness;
-    float _previousContrast;
+    double _previousAverageHue;
+    double _previousAverageSaturation;
+    double _previousAverageBrightness;
+    double _previousContrast;
 }
 
-@property(nonatomic) float previousContrast; // @synthesize previousContrast=_previousContrast;
-@property(nonatomic) float previousAverageBrightness; // @synthesize previousAverageBrightness=_previousAverageBrightness;
-@property(nonatomic) float previousAverageSaturation; // @synthesize previousAverageSaturation=_previousAverageSaturation;
-@property(nonatomic) float previousAverageHue; // @synthesize previousAverageHue=_previousAverageHue;
+@property(nonatomic) double previousContrast; // @synthesize previousContrast=_previousContrast;
+@property(nonatomic) double previousAverageBrightness; // @synthesize previousAverageBrightness=_previousAverageBrightness;
+@property(nonatomic) double previousAverageSaturation; // @synthesize previousAverageSaturation=_previousAverageSaturation;
+@property(nonatomic) double previousAverageHue; // @synthesize previousAverageHue=_previousAverageHue;
 @property(nonatomic) _UIBackdropViewSettings *parentSettings; // @synthesize parentSettings=_parentSettings;
-@property(nonatomic) float contrast; // @synthesize contrast=_contrast;
-@property(nonatomic) float averageBrightness; // @synthesize averageBrightness=_averageBrightness;
-@property(nonatomic) float averageSaturation; // @synthesize averageSaturation=_averageSaturation;
-@property(nonatomic) float averageHue; // @synthesize averageHue=_averageHue;
-- (BOOL)applyCABackdropLayerStatistics:(id)arg1;
+@property(nonatomic) double contrast; // @synthesize contrast=_contrast;
+@property(nonatomic) double averageBrightness; // @synthesize averageBrightness=_averageBrightness;
+@property(nonatomic) double averageSaturation; // @synthesize averageSaturation=_averageSaturation;
+@property(nonatomic) double averageHue; // @synthesize averageHue=_averageHue;
+@property(readonly, nonatomic) UIColor *color; // @dynamic color;
+- (_Bool)applyCABackdropLayerStatistics:(id)arg1;
 - (void)setValuesFromModel:(id)arg1;
 - (void)setDefaultValues;
 

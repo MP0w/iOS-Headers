@@ -20,9 +20,9 @@
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
 - (id)_accountStore;
-@property(readonly) int renewResultRenewed;
-@property(readonly) int renewResultRejected;
-@property(readonly) int renewResultFailed;
+@property(readonly) long long renewResultRenewed;
+@property(readonly) long long renewResultRejected;
+@property(readonly) long long renewResultFailed;
 @property(readonly) NSString *accountTypeIdentifierTwitter;
 @property(readonly) NSString *accountTypeIdentifierSinaWeibo;
 @property(readonly) NSString *accountTypeIdentifierFacebook;

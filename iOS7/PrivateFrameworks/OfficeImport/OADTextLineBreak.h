@@ -6,11 +6,12 @@
 
 #import <OfficeImport/OADTextRun.h>
 
+// Not exported
 @interface OADTextLineBreak : OADTextRun
 {
 }
 
-- (BOOL)isEmpty;
+- (_Bool)isEmpty;
 
 @end
 

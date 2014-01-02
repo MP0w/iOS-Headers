@@ -11,8 +11,9 @@
 #import "VKCameraDelegate-Protocol.h"
 #import "VKWorldDelegate-Protocol.h"
 
-@class NSArray, NSMutableArray, VGLDisplayLink, VKCamera, VKDispatch, VKLayoutContext, VKMemoryObserver, VKScene, VKWorld;
+@class CADisplay, NSArray, NSMutableArray, VGLDisplayLink, VKCamera, VKDispatch, VKLayoutContext, VKMemoryObserver, VKScene, VKWorld;
 
+// Not exported
 @interface VKScreenCanvas : VGLScreenCanvas <VKWorldDelegate, VKAnimationRunner, VKCameraControllerDelegate, VKCameraDelegate>
 {
     VKDispatch *_dispatch;
@@ -20,53 +21,58 @@
     VKCamera *_camera;
     VKScene *_scene;
     VKLayoutContext *_layoutContext;
-    BOOL _needsLayout;
+    _Bool _needsLayout;
     unsigned int _wantsLayout;
     unsigned int _needsRepaint;
-    BOOL _userIsGesturing;
-    BOOL _iconsShouldAlignToPixels;
+    _Bool _userIsGesturing;
+    _Bool _iconsShouldAlignToPixels;
     NSMutableArray *_cameraControllers;
-    BOOL _debugPaintFrameRateGraph;
+    _Bool _debugPaintFrameRateGraph;
     float _debugFramesPerSecond;
-    BOOL _rendersInBackground;
-    Vec2Imp_1782d7e3 _deviceTilt;
+    _Bool _rendersInBackground;
     NSMutableArray *_animations[2];
-    int _displayRate;
-    int _requestedRate;
+    long long _displayRate;
+    long long _requestedRate;
     VKMemoryObserver *_memoryObserver;
     VGLDisplayLink *_displayLink;
-    BOOL _isInBackground;
+    _Bool _isInBackground;
     struct VKEdgeInsets _edgeInsets;
     struct VKEdgeInsets _fullyOccludedEdgeInsets;
+    struct VKEdgeInsets _labelEdgeInsets;
+    _Bool _deallocing;
 }
 
 + (Class)contextClass;
 @property(readonly, nonatomic) NSArray *cameraControllers; // @synthesize cameraControllers=_cameraControllers;
-@property(nonatomic) Vec2Imp_1782d7e3 deviceTilt; // @synthesize deviceTilt=_deviceTilt;
-@property(nonatomic) BOOL iconsShouldAlignToPixels; // @synthesize iconsShouldAlignToPixels=_iconsShouldAlignToPixels;
+@property(nonatomic) struct VKEdgeInsets fullyOccludedEdgeInsets; // @synthesize fullyOccludedEdgeInsets=_fullyOccludedEdgeInsets;
+@property(nonatomic) _Bool iconsShouldAlignToPixels; // @synthesize iconsShouldAlignToPixels=_iconsShouldAlignToPixels;
 @property(readonly, nonatomic) VKCamera *camera; // @synthesize camera=_camera;
 @property(nonatomic) float debugFramesPerSecond; // @synthesize debugFramesPerSecond=_debugFramesPerSecond;
-@property(nonatomic) BOOL debugPaintFrameRateGraph; // @synthesize debugPaintFrameRateGraph=_debugPaintFrameRateGraph;
+@property(nonatomic) _Bool debugPaintFrameRateGraph; // @synthesize debugPaintFrameRateGraph=_debugPaintFrameRateGraph;
 @property(readonly, nonatomic) VKWorld *world; // @synthesize world=_world;
 - (id).cxx_construct;
-@property(nonatomic) BOOL rendersInBackground;
+- (void)edgeInsetsDidEndAnimating;
+- (void)edgeInsetsWillBeginAnimating;
+@property(nonatomic) _Bool rendersInBackground;
 - (id)cameraController:(id)arg1 presentationForAnnotation:(id)arg2;
-- (void)cameraController:(id)arg1 canEnter3DModeDidChange:(BOOL)arg2;
-- (void)cameraController:(id)arg1 didBecomePitched:(BOOL)arg2;
-- (void)cameraControllerDidStopRegionAnimation:(id)arg1 completed:(BOOL)arg2;
+- (void)cameraController:(id)arg1 canEnter3DModeDidChange:(_Bool)arg2;
+- (void)cameraController:(id)arg1 didBecomePitched:(_Bool)arg2;
+- (void)cameraControllerDidStopRegionAnimation:(id)arg1 completed:(_Bool)arg2;
 - (void)cameraControllerWillStartRegionAnimation:(id)arg1;
 - (void)cameraControllerDidChangeCameraState:(id)arg1;
-- (void)cameraController:(id)arg1 requestsDisplayRate:(int)arg2;
+- (void)cameraController:(id)arg1 requestsDisplayRate:(long long)arg2;
 - (void)removeCameraController:(id)arg1;
 - (void)addCameraController:(id)arg1;
-@property(nonatomic, getter=isGesturing) BOOL gesturing;
+@property(nonatomic) long long targetDisplay;
+@property(nonatomic, getter=isGesturing) _Bool gesturing;
 - (void)cameraDidChange:(id)arg1;
 - (void)animationDidStop:(id)arg1;
-- (void)runOrAdoptAnimation:(id)arg1 run:(BOOL)arg2;
+- (void)runOrAdoptAnimation:(id)arg1 run:(_Bool)arg2;
 - (void)runAnimation:(id)arg1;
 - (void)worldDisplayDidChange:(id)arg1;
 - (void)worldLayoutDidChange:(id)arg1;
-- (void)setContentsScale:(float)arg1;
+- (void)_queueUpdateDisplayLinkStatus;
+- (void)setContentsScale:(double)arg1;
 - (void)forceLayout;
 - (void)layoutSublayers;
 - (void)updateCameraForFrameResize;
@@ -75,27 +81,28 @@
 - (void)_renderCore:(double)arg1;
 - (void)drawWithTimestamp:(double)arg1;
 - (void)animateWithTimestamp:(double)arg1;
-@property(nonatomic) struct VKEdgeInsets fullyOccludedEdgeInsets; // @synthesize fullyOccludedEdgeInsets=_fullyOccludedEdgeInsets;
+@property(nonatomic) struct VKEdgeInsets labelEdgeInsets;
 @property(nonatomic) struct VKEdgeInsets edgeInsets;
 - (void)onTimerFired:(id)arg1;
 - (void)didEnterBackground;
 - (void)willEnterForeground;
-@property(nonatomic) int displayRate;
-@property(nonatomic) BOOL debugEnableMultisampling; // @dynamic debugEnableMultisampling;
+@property(nonatomic) long long displayRate;
+@property(nonatomic) _Bool debugEnableMultisampling; // @dynamic debugEnableMultisampling;
 - (void)setNeedsDisplay;
 - (void)setNeedsLayout;
-- (void)setHidden:(BOOL)arg1;
-- (BOOL)updateDisplayLinkStatus;
+- (void)setHidden:(_Bool)arg1;
+- (_Bool)updateDisplayLinkStatus;
 - (void)_updateDisplayRate;
-- (BOOL)wantsTimerTick;
-- (BOOL)wantsRender;
-- (BOOL)canRender;
+- (_Bool)wantsTimerTick;
+- (_Bool)wantsRender;
+- (_Bool)canRender;
 - (void)drawInContext:(struct CGContext *)arg1;
 - (void)didReceiveMemoryWarning;
 - (void)transferAnimationsTo:(id)arg1;
 - (void)adoptAnimation:(id)arg1;
+@property(nonatomic) CADisplay *hostDisplay;
 - (void)dealloc;
-- (id)initWithContext:(id)arg1;
+- (id)initWithContext:(id)arg1 inBackground:(_Bool)arg2;
 
 @end
 

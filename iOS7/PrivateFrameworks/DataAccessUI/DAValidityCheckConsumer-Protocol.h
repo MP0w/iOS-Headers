@@ -7,6 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol DAValidityCheckConsumer <NSObject>
-- (void)account:(id)arg1 isValid:(BOOL)arg2 validationError:(id)arg3;
+- (void)account:(id)arg1 isValid:(_Bool)arg2 validationError:(id)arg3;
 @end
 

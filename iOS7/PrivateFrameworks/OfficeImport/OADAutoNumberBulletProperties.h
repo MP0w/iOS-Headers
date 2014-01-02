@@ -6,16 +6,17 @@
 
 #import <OfficeImport/OADBulletProperties.h>
 
+// Not exported
 @interface OADAutoNumberBulletProperties : OADBulletProperties
 {
     int mSchemeType;
-    unsigned int mStartIndex;
+    unsigned long long mStartIndex;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)startIndex;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)startIndex;
 - (int)autoNumberSchemeType;
-- (id)initWithAutoNumberSchemeType:(int)arg1 startIndex:(unsigned int)arg2;
+- (id)initWithAutoNumberSchemeType:(int)arg1 startIndex:(unsigned long long)arg2;
 
 @end
 

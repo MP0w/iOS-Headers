@@ -14,7 +14,7 @@
 }
 
 @property(nonatomic) id <EADiscoveredWirelessAccessoryDelegate> delegate;
-@property(readonly, nonatomic, getter=isConnected) BOOL connected;
+@property(readonly, nonatomic, getter=isConnected) _Bool connected;
 @property(readonly, nonatomic) NSString *name;
 - (id)_shortDescription;
 - (id)description;

@@ -8,24 +8,24 @@
 
 @interface PSEditableListController : PSListController
 {
-    BOOL _editable;
-    BOOL _editingDisabled;
+    _Bool _editable;
+    _Bool _editingDisabled;
 }
 
-- (void)tableView:(id)arg1 commitEditingStyle:(int)arg2 forRowAtIndexPath:(id)arg3;
+- (void)tableView:(id)arg1 commitEditingStyle:(long long)arg2 forRowAtIndexPath:(id)arg3;
 - (void)didLock;
 - (void)suspend;
-- (BOOL)performDeletionActionForSpecifier:(id)arg1;
-- (int)tableView:(id)arg1 editingStyleForRowAtIndexPath:(id)arg2;
+- (_Bool)performDeletionActionForSpecifier:(id)arg1;
+- (long long)tableView:(id)arg1 editingStyleForRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;
-- (void)setEditable:(BOOL)arg1;
-- (void)_setEditable:(BOOL)arg1 animated:(BOOL)arg2;
-- (BOOL)editable;
+- (void)setEditable:(_Bool)arg1;
+- (void)_setEditable:(_Bool)arg1 animated:(_Bool)arg2;
+- (_Bool)editable;
 - (void)editDoneTapped;
 - (void)pushController:(id)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
-- (void)setEditButtonEnabled:(BOOL)arg1;
-- (void)setEditingButtonHidden:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)viewWillAppear:(_Bool)arg1;
+- (void)setEditButtonEnabled:(_Bool)arg1;
+- (void)setEditingButtonHidden:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)_updateNavigationBar;
 - (id)_editButtonBarItem;
 - (id)init;

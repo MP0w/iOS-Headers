@@ -10,22 +10,22 @@
 
 @interface ClockManager : NSObject
 {
-    BOOL _performingUpgrade;
+    _Bool _performingUpgrade;
     NSMutableArray *_scheduledLocalNotifications;
     ObjectUpdates *_localNotificationUpdates;
-    BOOL runningInSpringBoard;
-    BOOL runningInAssistantPlugin;
-    BOOL ignoringNotificationPostRequests;
+    _Bool runningInSpringBoard;
+    _Bool runningInAssistantPlugin;
+    _Bool ignoringNotificationPostRequests;
 }
 
 + (id)sharedManager;
 + (int)sectionFromClockAppURL:(id)arg1;
 + (id)urlForClockAppSection:(int)arg1;
-+ (void)saveAndNotifyForUserPreferences:(BOOL)arg1 localNotifications:(BOOL)arg2;
++ (void)saveAndNotifyForUserPreferences:(_Bool)arg1 localNotifications:(_Bool)arg2;
 + (void)loadUserPreferences;
-@property(nonatomic, getter=isIgnoringNotificationPostRequests) BOOL ignoringNotificationPostRequests; // @synthesize ignoringNotificationPostRequests;
-@property(nonatomic, getter=isRunningInAssistantPlugin) BOOL runningInAssistantPlugin; // @synthesize runningInAssistantPlugin;
-@property(nonatomic, getter=isRunningInSpringBoard) BOOL runningInSpringBoard; // @synthesize runningInSpringBoard;
+@property(nonatomic, getter=isIgnoringNotificationPostRequests) _Bool ignoringNotificationPostRequests; // @synthesize ignoringNotificationPostRequests;
+@property(nonatomic, getter=isRunningInAssistantPlugin) _Bool runningInAssistantPlugin; // @synthesize runningInAssistantPlugin;
+@property(nonatomic, getter=isRunningInSpringBoard) _Bool runningInSpringBoard; // @synthesize runningInSpringBoard;
 @property(readonly, nonatomic) ObjectUpdates *updatesToLocalNotificationsCache;
 @property(readonly, nonatomic) NSArray *scheduledLocalNotificationsCache;
 - (void)resetUpdatesToLocalNotificationsCache;
@@ -33,9 +33,9 @@
 - (void)cancelLocalNotification:(id)arg1;
 - (void)scheduleLocalNotification:(id)arg1;
 - (void)postUserPreferencesChangedNotification;
-- (BOOL)discardOldVersion;
-- (BOOL)upgrade;
-- (BOOL)upgradeIfNeverAttempted;
+- (_Bool)discardOldVersion;
+- (_Bool)upgrade;
+- (_Bool)upgradeIfNeverAttempted;
 - (void)dealloc;
 
 @end

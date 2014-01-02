@@ -8,24 +8,26 @@
 
 @class NSArray;
 
+// Not exported
 @interface _UIAnimatedImage : UIImage
 {
     NSArray *_images;
     double _duration;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 - (id)_imageWithLetterpressEffectWithForegroundColor:(id)arg1;
-- (id)_imageScaledToProportion:(float)arg1 interpolationQuality:(int)arg2;
-- (id)_doubleBezeledImageWithExteriorShadowRed:(float)arg1 green:(float)arg2 blue:(float)arg3 alpha:(float)arg4 interiorShadowRed:(float)arg5 green:(float)arg6 blue:(float)arg7 alpha:(float)arg8 fillRed:(float)arg9 green:(float)arg10 blue:(float)arg11 alpha:(float)arg12;
-- (id)_bezeledImageWithShadowRed:(float)arg1 green:(float)arg2 blue:(float)arg3 alpha:(float)arg4 fillRed:(float)arg5 green:(float)arg6 blue:(float)arg7 alpha:(float)arg8 drawShadow:(BOOL)arg9;
-- (id)resizableImageWithCapInsets:(struct UIEdgeInsets)arg1 resizingMode:(int)arg2;
+- (id)_imageScaledToProportion:(double)arg1 interpolationQuality:(int)arg2;
+- (id)_doubleBezeledImageWithExteriorShadowRed:(double)arg1 green:(double)arg2 blue:(double)arg3 alpha:(double)arg4 interiorShadowRed:(double)arg5 green:(double)arg6 blue:(double)arg7 alpha:(double)arg8 fillRed:(double)arg9 green:(double)arg10 blue:(double)arg11 alpha:(double)arg12;
+- (id)_bezeledImageWithShadowRed:(double)arg1 green:(double)arg2 blue:(double)arg3 alpha:(double)arg4 fillRed:(double)arg5 green:(double)arg6 blue:(double)arg7 alpha:(double)arg8 drawShadow:(_Bool)arg9;
+- (id)resizableImageWithCapInsets:(struct UIEdgeInsets)arg1 resizingMode:(long long)arg2;
 - (id)resizableImageWithCapInsets:(struct UIEdgeInsets)arg1;
-- (void)_setAlwaysStretches:(BOOL)arg1;
-- (BOOL)_isTiledWhenStretchedToSize:(struct CGSize)arg1;
-- (BOOL)_isResizable;
+- (void)_setAlwaysStretches:(_Bool)arg1;
+- (_Bool)_isTiledWhenStretchedToSize:(struct CGSize)arg1;
+- (_Bool)_isResizable;
+- (struct CGRect)_contentRectInPixels;
 - (struct CGRect)_contentStretchInPixels;
-- (int)resizingMode;
+- (long long)resizingMode;
 - (struct UIEdgeInsets)capInsets;
 - (double)duration;
 - (id)images;
@@ -34,8 +36,6 @@
 - (void)dealloc;
 - (id)initWithImages:(id)arg1 duration:(double)arg2;
 - (id)_initWithOtherImage:(id)arg1;
-- (id)_unselectedTabBarItemImageWithTintColor:(id)arg1 metrics:(int)arg2 style:(int)arg3;
-- (id)_selectedTabBarItemImageWithTintColor:(id)arg1 metrics:(int)arg2 style:(int)arg3;
 
 @end
 

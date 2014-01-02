@@ -10,6 +10,7 @@
 
 @class NSDictionary;
 
+// Not exported
 @interface CalItemMetadata : NSObject <NSCoding>
 {
     NSDictionary *_x_props;

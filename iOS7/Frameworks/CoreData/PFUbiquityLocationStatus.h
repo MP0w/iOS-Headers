@@ -8,39 +8,40 @@
 
 @class NSError, PFUbiquityLocation;
 
+// Not exported
 @interface PFUbiquityLocationStatus : NSObject
 {
-    BOOL _isLive;
-    BOOL _isDeleted;
-    BOOL _isDownloaded;
-    BOOL _isDownloading;
-    BOOL _isUploaded;
-    BOOL _isUploading;
-    BOOL _isImported;
-    BOOL _isScheduled;
-    BOOL _isExported;
-    BOOL _isFailed;
+    _Bool _isLive;
+    _Bool _isDeleted;
+    _Bool _isDownloaded;
+    _Bool _isDownloading;
+    _Bool _isUploaded;
+    _Bool _isUploading;
+    _Bool _isImported;
+    _Bool _isScheduled;
+    _Bool _isExported;
+    _Bool _isFailed;
     PFUbiquityLocation *_location;
     NSError *_error;
-    unsigned int _hash;
-    int _numNotifications;
+    unsigned long long _hash;
+    long long _numNotifications;
 }
 
-@property(readonly, nonatomic) int numNotifications; // @synthesize numNotifications=_numNotifications;
+@property(readonly, nonatomic) long long numNotifications; // @synthesize numNotifications=_numNotifications;
 @property(readonly, nonatomic) PFUbiquityLocation *location; // @synthesize location=_location;
 @property(readonly, nonatomic) NSError *error; // @synthesize error=_error;
-@property(readonly, nonatomic) BOOL isFailed; // @synthesize isFailed=_isFailed;
-@property(readonly, nonatomic) BOOL isScheduled; // @synthesize isScheduled=_isScheduled;
-@property(readonly, nonatomic) BOOL isExported; // @synthesize isExported=_isExported;
-@property(readonly, nonatomic) BOOL isImported; // @synthesize isImported=_isImported;
-@property(readonly, nonatomic) BOOL isUploading; // @synthesize isUploading=_isUploading;
-@property(readonly, nonatomic) BOOL isUploaded; // @synthesize isUploaded=_isUploaded;
-@property(readonly, nonatomic) BOOL isDownloading; // @synthesize isDownloading=_isDownloading;
-@property(readonly, nonatomic) BOOL isDownloaded; // @synthesize isDownloaded=_isDownloaded;
-@property(readonly, nonatomic) BOOL isDeleted; // @synthesize isDeleted=_isDeleted;
-@property(readonly, nonatomic) BOOL isLive; // @synthesize isLive=_isLive;
+@property(readonly, nonatomic) _Bool isFailed; // @synthesize isFailed=_isFailed;
+@property(readonly, nonatomic) _Bool isScheduled; // @synthesize isScheduled=_isScheduled;
+@property(readonly, nonatomic) _Bool isExported; // @synthesize isExported=_isExported;
+@property(readonly, nonatomic) _Bool isImported; // @synthesize isImported=_isImported;
+@property(readonly, nonatomic) _Bool isUploading; // @synthesize isUploading=_isUploading;
+@property(readonly, nonatomic) _Bool isUploaded; // @synthesize isUploaded=_isUploaded;
+@property(nonatomic) _Bool isDownloading; // @synthesize isDownloading=_isDownloading;
+@property(readonly, nonatomic) _Bool isDownloaded; // @synthesize isDownloaded=_isDownloaded;
+@property(readonly, nonatomic) _Bool isDeleted; // @synthesize isDeleted=_isDeleted;
+@property(readonly, nonatomic) _Bool isLive; // @synthesize isLive=_isLive;
 - (void)statusDidChange;
-- (BOOL)getBoolResourceFromURL:(id)arg1 forKey:(id)arg2;
+- (_Bool)getBoolResourceFromURL:(id)arg1 forKey:(id)arg2;
 - (void)recoveredFromError;
 - (void)encounteredError:(id)arg1;
 - (void)logWasExported;
@@ -49,7 +50,7 @@
 - (void)logWasImported;
 - (void)checkFileURLState;
 - (id)description;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (void)dealloc;
 - (id)initWithLocation:(id)arg1;
 - (id)init;

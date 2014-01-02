@@ -9,15 +9,15 @@
 @interface NSBundle (SCROBundleExtras)
 + (id)tableIdentifiersForLanguageIdentifier:(id)arg1;
 + (id)languageIdentifiersForBrailleTableIdentifier:(id)arg1;
-+ (BOOL)doesBrailleTableSupportEightDot:(id)arg1;
-+ (BOOL)doesBrailleTableSupportContractions:(id)arg1;
++ (_Bool)doesBrailleTableSupportEightDot:(id)arg1;
++ (_Bool)doesBrailleTableSupportContractions:(id)arg1;
 + (id)_brailleTableDictionaryForBrailleTableIdentifier:(id)arg1;
 + (id)nameForBrailleTableIdentifier:(id)arg1;
 + (id)brailleTableBundleWithTableIdentifier:(id)arg1;
 + (id)brailleTableIdentifiers;
 + (id)_brailleTableBundles;
 + (id)brailleDriverDeviceDetectionInfo;
-+ (long)bundleIndexForBrailleDriverIdentifier:(id)arg1;
++ (long long)bundleIndexForBrailleDriverIdentifier:(id)arg1;
 + (id)brailleDriverBundleWithIdentifier:(id)arg1;
 + (id)brailleDriverBundles;
 - (id)tableIdentifierForBundleSpecificTableIdentifier:(id)arg1;

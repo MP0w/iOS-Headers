@@ -6,9 +6,10 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface GQWrapPointSet : NSObject
 {
-    set_a2165b2d *mWrapPointSet;
+    set_80ec8016 *mWrapPointSet;
 }
 
 - (void)dealloc;

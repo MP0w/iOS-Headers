@@ -6,33 +6,41 @@
 
 #import "NSObject.h"
 
-@class ML3DatabaseConnection, ML3MusicLibrary, NSString;
+#import "ML3DatabaseConnectionDelegate-Protocol.h"
+#import "ML3DatabaseConnectionPoolDelegate-Protocol.h"
 
-@interface ML3UbiquitousDatabase : NSObject
+@class ML3DatabaseConnectionPool, ML3MusicLibrary, NSString;
+
+// Not exported
+@interface ML3UbiquitousDatabase : NSObject <ML3DatabaseConnectionDelegate, ML3DatabaseConnectionPoolDelegate>
 {
-    BOOL _needsToPurgeOldEntries;
+    _Bool _needsToPurgeOldEntries;
     ML3MusicLibrary *_musicLibrary;
     NSString *_databasePath;
-    ML3DatabaseConnection *_databaseConnection;
+    ML3DatabaseConnectionPool *_connectionPool;
 }
 
-+ (BOOL)supportsUbiquitousBookmarksInMusicLibrary:(id)arg1;
++ (_Bool)supportsUbiquitousBookmarksInMusicLibrary:(id)arg1;
 + (id)allSchemaSQL;
-+ (int)currentUserVersion;
-@property(retain) ML3DatabaseConnection *databaseConnection; // @synthesize databaseConnection=_databaseConnection;
++ (long long)currentUserVersion;
+@property(retain) ML3DatabaseConnectionPool *connectionPool; // @synthesize connectionPool=_connectionPool;
 @property(retain, nonatomic) NSString *databasePath; // @synthesize databasePath=_databasePath;
 @property(readonly) ML3MusicLibrary *musicLibrary; // @synthesize musicLibrary=_musicLibrary;
 - (void).cxx_destruct;
-- (BOOL)_userVersionMatchesSystemVersion;
-- (BOOL)_migrateToCurrentUserVersion;
+- (_Bool)_userVersionMatchesSystemVersion;
+- (_Bool)_migrateToCurrentUserVersion;
 - (int)_fetchDatabaseUserVersion;
-- (BOOL)_deleteAndRecreateDatabase;
-- (BOOL)_buildDatabaseTablesUsingTransaction:(BOOL)arg1;
-- (BOOL)_setupDatabaseConnection;
+- (_Bool)_deleteAndRecreateDatabase;
+- (_Bool)_buildDatabaseTablesUsingTransaction:(_Bool)arg1;
+- (_Bool)_setupDatabaseConnection;
 - (void)dumpUbiquitousMetadata;
-- (BOOL)hasLocalChangesToPush;
-- (BOOL)hasRemoteChangesToPull;
-- (void)updateUbiquitousBookmarkMetadataValuesForChangedTrackWithPersistentID:(long long)arg1;
+- (_Bool)hasLocalChangesToPush;
+- (_Bool)hasRemoteChangesToPull;
+- (_Bool)hasSyncedAtleastOnce;
+- (_Bool)connectionDetectedDatabaseCorruption:(id)arg1;
+- (void)connectionWillOpenDatabase:(id)arg1;
+- (void)connectionPool:(id)arg1 createdNewConnection:(id)arg2;
+- (_Bool)updateUbiquitousBookmarkMetadataValuesForChangedTrackWithPersistentID:(long long)arg1;
 - (void)applyUbiqiutousBookmarkMetadataToImportedTrack:(id)arg1;
 - (void)removeUbiquitousBookmarkMetadataForTrack:(id)arg1;
 - (void)insertUbiquitousBookmarkMetadataWithMetadataIdentifier:(id)arg1 propertyValues:(id)arg2 timestamp:(double)arg3;
@@ -48,15 +56,15 @@
 - (void)setLastSyncedDomainVersion:(id)arg1;
 - (unsigned long long)lastSyncedEntityRevision;
 - (void)setLastSyncedEntityRevision:(unsigned long long)arg1;
-- (BOOL)_setValue:(id)arg1 forDatabaseProperty:(id)arg2;
+- (_Bool)_setValue:(id)arg1 forDatabaseProperty:(id)arg2;
 - (id)_valueForDatabaseProperty:(id)arg1;
 - (void)performDatabaseWriteTransactionWithBlock:(id)arg1;
-- (BOOL)coerceValidDatabase;
+- (_Bool)coerceValidDatabase;
 - (int)userVersion;
-- (BOOL)requiresSchemaOnlyUpdates;
-- (BOOL)migrateFromVersion:(int)arg1 outUserVersion:(int *)arg2;
+- (_Bool)requiresSchemaOnlyUpdates;
+- (_Bool)migrateFromVersion:(int)arg1 outUserVersion:(int *)arg2;
 - (id)init;
-- (id)initWithIdentifier:(id)arg1 path:(id)arg2 enableWrites:(BOOL)arg3;
+- (id)initWithIdentifier:(id)arg1 path:(id)arg2 enableWrites:(_Bool)arg3;
 - (id)initWithMusicLibrary:(id)arg1;
 
 @end

@@ -10,34 +10,24 @@
 
 @interface AssistantCallbackController : NSObject <AssistantCallbackUIDelegateResult>
 {
-    BOOL _saveScanState;
+    _Bool _saveScanState;
     id _uiDelegate;
     struct AssistantCallbackContext *_callbackContext;
 }
 
-+ (long)removeKeychainPasswordForBaseStation:(id)arg1;
++ (int)removeKeychainPasswordForBaseStation:(id)arg1;
 + (void)keychainPasswordForBaseStation:(id)arg1 delegate:(id)arg2;
 + (id)keychainPasswordForBaseStation:(id)arg1;
-+ (long)updateKeychainBasePassword:(id)arg1 forMACAddress:(id)arg2 withBaseName:(id)arg3;
-+ (long)updateKeychainNetworkPassword:(id)arg1 forNetworkNamed:(id)arg2;
-@property(nonatomic) id <AssistantCallbackUIDelegate> uiDelegate; // @synthesize uiDelegate=_uiDelegate;
-- (void)callbackAskUserAQuestionResult:(int)arg1 result:(long)arg2;
-- (void)callbackAskUserToChooseFromStringListResult:(long)arg1 selectedString:(id)arg2;
-- (void)callbackAskUserForPasswordResult:(long)arg1 password:(id)arg2 remember:(int)arg3;
-- (long)subclassAssistantCallback:(struct AssistantCallbackContext *)arg1;
++ (int)updateKeychainBasePassword:(id)arg1 forMACAddress:(id)arg2 withBaseName:(id)arg3;
++ (int)updateKeychainNetworkPassword:(id)arg1 forNetworkNamed:(id)arg2;
+@property(retain, nonatomic) id <AssistantCallbackUIDelegate> uiDelegate; // @synthesize uiDelegate=_uiDelegate;
+- (void)callbackAskUserAQuestionResult:(int)arg1 result:(int)arg2;
+- (void)callbackAskUserToChooseFromStringListResult:(int)arg1 selectedString:(id)arg2;
+- (void)callbackAskUserForPasswordResult:(int)arg1 password:(id)arg2 remember:(int)arg3;
+- (int)subclassAssistantCallback:(struct AssistantCallbackContext *)arg1;
 - (void *)assistantCallback;
 - (void)dealloc;
 - (id)init;
-- (void)directedScanDone:(id)arg1;
-- (void)scanForNetworksDone:(id)arg1;
-- (long)startScanForNetworks;
-- (long)startDirectedScan:(id)arg1 wifiType:(int)arg2 retries:(int)arg3;
-- (void)joinNetworkDone:(id)arg1;
-- (long)startJoinNetwork:(id)arg1 password:(id)arg2 rememberChoice:(int)arg3;
-- (void)userResponseToPPPoECredsFailed:(long)arg1;
-- (void)userResponseToWarning:(long)arg1;
-- (void)userResponseToJoinNetwork:(long)arg1;
-- (long)assistantCallback:(struct AssistantCallbackContext *)arg1 withSelector:(int)arg2;
 
 @end
 

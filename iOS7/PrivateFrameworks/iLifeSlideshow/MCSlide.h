@@ -6,32 +6,29 @@
 
 #import <iLifeSlideshow/MCObject.h>
 
-#import "MCAnimationPathSupport-Protocol.h"
-#import "MCFilterSupport-Protocol.h"
+@class MCAssetVideo, MCContainerEffect, MCPlugSlide, MCSong, NSArray, NSDictionary, NSMutableDictionary, NSMutableSet, NSString;
 
-@class MCAssetVideo, MCContainerEffect, MCPlugSlide, MCSong, NSArray, NSDictionary, NSMutableDictionary, NSMutableSet, NSSet, NSString;
-
-@interface MCSlide : MCObject <MCAnimationPathSupport, MCFilterSupport>
+@interface MCSlide : MCObject
 {
     id *mSlideAsset;
     NSMutableDictionary *mFrameAttributes;
     NSMutableSet *mAnimationPaths;
     NSMutableSet *mFilters;
     NSArray *mCachedOrderedFilters;
-    unsigned int mFlags;
-    MCPlugSlide *mPlug;
-    MCSong *mSong;
-    unsigned int mIndex;
+    unsigned long long mFlags;
     float mAudioVolume;
     float mAudioDuckLevel;
-    NSString *mFrameID;
-    MCContainerEffect *mContainer;
+    MCPlugSlide *mPlug;
+    MCSong *mSong;
+    unsigned long long mIndex;
     double mAudioFadeInDuration;
     double mAudioFadeOutDuration;
     double mAudioDuckInDuration;
     double mAudioDuckOutDuration;
     double mStartTime;
     double mDuration;
+    NSString *mFrameID;
+    MCContainerEffect *mContainer;
 }
 
 + (id)keyPathsForValuesAffectingValueForKey:(id)arg1;
@@ -45,22 +42,22 @@
 @property(nonatomic) double audioFadeOutDuration; // @synthesize audioFadeOutDuration=mAudioFadeOutDuration;
 @property(nonatomic) double audioFadeInDuration; // @synthesize audioFadeInDuration=mAudioFadeInDuration;
 @property(nonatomic) float audioVolume; // @synthesize audioVolume=mAudioVolume;
-@property(nonatomic) unsigned int index; // @synthesize index=mIndex;
+@property(nonatomic) unsigned long long index; // @synthesize index=mIndex;
 - (void)_copySelfToSnapshot:(id)arg1;
 @property(nonatomic) unsigned char currentLayoutIndex;
 @property(readonly) unsigned char countOfLayouts;
 @property(copy) NSDictionary *frameAttributes;
 - (void)setFrameAttribute:(id)arg1 forKey:(id)arg2;
 - (id)frameAttributeForKey:(id)arg1;
-@property(readonly) BOOL durationIsDefined;
+@property(readonly) _Bool durationIsDefined;
 - (void)undefineDuration;
-@property(readonly) BOOL startTimeIsDefined;
+@property(readonly) _Bool startTimeIsDefined;
 - (void)undefineStartTime;
 @property(retain) MCPlugSlide *plug; // @synthesize plug=mPlug;
 - (void)setSongForAsset:(id)arg1;
 @property(readonly) MCSong *song; // @synthesize song=mSong;
-@property(nonatomic) float rotation;
-@property(nonatomic) float scale;
+@property(nonatomic) double rotation;
+@property(nonatomic) double scale;
 @property(nonatomic) struct CGPoint center;
 @property(copy) NSString *kenBurnsType;
 @property(retain) MCAssetVideo *asset;
@@ -69,29 +66,6 @@
 - (void)demolish;
 - (id)initWithImprint:(id)arg1 andMontage:(id)arg2;
 - (id)init;
-- (void)removeAllAnimationPaths;
-- (void)removeAnimationPathForKey:(id)arg1;
-- (void)addAnimationPath:(id)arg1;
-- (id)animationPathForKey:(id)arg1;
-@property(readonly) unsigned int countOfAnimationPaths;
-@property(readonly) NSSet *animationPaths;
-- (id)imprintsForAnimationPaths;
-- (void)demolishAnimationPaths;
-- (void)initAnimationPathsWithImprints:(id)arg1;
-- (void)unobserveFilter:(id)arg1;
-- (void)observeFilter:(id)arg1;
-- (void)moveFiltersAtIndices:(id)arg1 toIndex:(unsigned int)arg2;
-- (void)removeAllFilters;
-- (void)removeFiltersAtIndices:(id)arg1;
-- (id)insertFilterWithFilterID:(id)arg1 atIndex:(unsigned int)arg2;
-- (id)addFilterWithFilterID:(id)arg1;
-- (id)filterAtIndex:(unsigned int)arg1;
-@property(readonly, nonatomic) unsigned int countOfFilters;
-@property(readonly) NSSet *filters;
-@property(readonly) NSArray *orderedFilters;
-- (id)imprintsForFilters;
-- (void)demolishFilters;
-- (void)initFiltersWithImprints:(id)arg1;
 
 @end
 

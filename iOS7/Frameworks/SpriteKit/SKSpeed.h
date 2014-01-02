@@ -6,13 +6,14 @@
 
 #import <SpriteKit/SKAction.h>
 
+// Not exported
 @interface SKSpeed : SKAction
 {
     struct SKCSpeed *_mycaction;
 }
 
-+ (id)speedTo:(float)arg1 duration:(double)arg2;
-+ (id)speedBy:(float)arg1 duration:(double)arg2;
++ (id)speedTo:(double)arg1 duration:(double)arg2;
++ (id)speedBy:(double)arg1 duration:(double)arg2;
 - (id)reversedAction;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;

@@ -22,7 +22,7 @@
 - (void)_submit;
 - (void)_cancel;
 - (void)composeReviewViewValidityChanged:(id)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;
 - (void)setRating:(float)arg1;
 @property(readonly, nonatomic) SKUIReviewMetadata *editedReviewMetadata;

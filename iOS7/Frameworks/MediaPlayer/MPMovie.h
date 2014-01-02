@@ -12,14 +12,14 @@
 {
     MPAVItem *_item;
     NSURL *_url;
-    int _movieSourceType;
+    long long _movieSourceType;
     double _startPlaybackTime;
     double _endPlaybackTime;
-    BOOL _explicitlySetMovieSourceType;
-    BOOL _movieIsUnplayable;
+    _Bool _explicitlySetMovieSourceType;
+    _Bool _movieIsUnplayable;
     double _lastKnownDuration;
     struct CGSize _lastKnownNaturalSize;
-    unsigned int _lastKnownType;
+    unsigned long long _lastKnownType;
 }
 
 + (id)movieWithAsset:(id)arg1 error:(id *)arg2;
@@ -35,8 +35,8 @@
 @property(readonly, nonatomic) struct CGSize naturalSize;
 @property(readonly, nonatomic) double playableDuration;
 @property(readonly, nonatomic) double duration;
-@property(nonatomic) int movieSourceType;
-@property(readonly, nonatomic) int movieMediaTypes;
+@property(nonatomic) long long movieSourceType;
+@property(readonly, nonatomic) long long movieMediaTypes;
 @property(readonly, nonatomic) NSURL *url;
 @property(readonly, nonatomic) AVAsset *asset;
 - (void)dealloc;

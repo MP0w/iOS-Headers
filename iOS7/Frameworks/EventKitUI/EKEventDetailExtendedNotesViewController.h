@@ -7,22 +7,19 @@
 #import "UIViewController.h"
 
 #import "EKEditItemViewControllerProtocol-Protocol.h"
-#import "UIWebViewDelegate-Protocol.h"
 
-@class NSString, UIWebView;
+@class NSString, UITextView;
 
-@interface EKEventDetailExtendedNotesViewController : UIViewController <UIWebViewDelegate, EKEditItemViewControllerProtocol>
+// Not exported
+@interface EKEventDetailExtendedNotesViewController : UIViewController <EKEditItemViewControllerProtocol>
 {
-    UIWebView *_webView;
-    NSString *_notes;
+    UITextView *_textView;
 }
 
-@property(copy, nonatomic) NSString *notes; // @synthesize notes=_notes;
 - (void).cxx_destruct;
-- (void)webViewDidFinishLoad:(id)arg1;
-- (BOOL)webView:(id)arg1 shouldStartLoadWithRequest:(id)arg2 navigationType:(int)arg3;
-- (id)_webView;
-- (unsigned int)supportedInterfaceOrientations;
+@property(copy, nonatomic) NSString *notes;
+- (id)_textView;
+- (unsigned long long)supportedInterfaceOrientations;
 - (void)loadView;
 - (id)init;
 

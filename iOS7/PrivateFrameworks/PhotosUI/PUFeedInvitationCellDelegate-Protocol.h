@@ -9,6 +9,6 @@
 @protocol PUFeedInvitationCellDelegate <PUFeedCellDelegate>
 
 @optional
-- (void)feedInvitationCell:(id)arg1 didAccept:(BOOL)arg2;
+- (void)feedInvitationCell:(id)arg1 didAccept:(_Bool)arg2;
 @end
 

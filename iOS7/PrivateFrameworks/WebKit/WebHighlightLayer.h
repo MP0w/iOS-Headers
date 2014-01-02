@@ -8,6 +8,7 @@
 
 @class WebNodeHighlightView, WebView;
 
+// Not exported
 @interface WebHighlightLayer : CALayer
 {
     WebNodeHighlightView *_view;

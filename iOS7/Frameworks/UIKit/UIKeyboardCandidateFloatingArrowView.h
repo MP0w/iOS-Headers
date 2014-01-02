@@ -8,6 +8,7 @@
 
 @class UIButton;
 
+// Not exported
 @interface UIKeyboardCandidateFloatingArrowView : UICollectionReusableView
 {
     UIButton *_arrowButton;
@@ -19,6 +20,8 @@
 - (void)dealloc;
 - (void)applyLayoutAttributes:(id)arg1;
 - (void)prepareForReuse;
+- (void)updateArrow;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

@@ -7,6 +7,6 @@
 #import "UITabBarController.h"
 
 @interface UITabBarController (PhotosUI)
-- (BOOL)pu_isTabBarVisible;
+- (_Bool)pu_isTabBarVisible;
 @end
 

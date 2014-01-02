@@ -16,8 +16,8 @@
     id <MFCollectingDataConsumer> _dataConsumer;
     id <MFCollectingDataConsumer> _alternatePartConsumer;
     id <MFMessageDataConsumerFactory> _consumerFactory;
-    BOOL _triedCreatingAlternatePartConsumer;
-    BOOL _succeeded;
+    _Bool _triedCreatingAlternatePartConsumer;
+    _Bool _succeeded;
     NSMutableData *_bodyData;
     double _timeOfLastActivity;
 }
@@ -30,11 +30,11 @@
 @property(retain, nonatomic) id <MFCollectingDataConsumer> dataConsumer; // @synthesize dataConsumer=_dataConsumer;
 - (void)dealloc;
 - (id)dataConsumerForPart:(id)arg1;
-- (BOOL)succeeded;
+- (_Bool)succeeded;
 - (id)data;
 - (void)didEndStreamingForMailMessage:(id)arg1;
 - (void)consumeData:(char *)arg1 length:(int)arg2 format:(int)arg3 mailMessage:(id)arg4;
-- (BOOL)shouldBeginStreamingForMailMessage:(id)arg1 format:(int)arg2;
+- (_Bool)shouldBeginStreamingForMailMessage:(id)arg1 format:(int)arg2;
 
 @end
 

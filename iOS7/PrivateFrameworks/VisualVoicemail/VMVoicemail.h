@@ -19,23 +19,17 @@
 }
 
 + (void)initialize;
-+ (void)forceReloadAllLiveVoicemailsForAccount:(id)arg1;
-+ (id)voicemailWithAccount:(id)arg1 identifier:(long long)arg2 creating:(BOOL)arg3;
-+ (void)_doVoicemailMapHousekeepingNoLock;
-+ (void)_scheduleVoicemailMapHousekeepingNoLock;
-+ (void)scheduleVoicemailMapHousekeeping;
-+ (id)_findPreviouslyCreatedVoicemailWithAccountNoLock:(id)arg1 identifier:(long long)arg2;
 - (id)imageDataUsingAddressBook:(void *)arg1;
 - (id)displayLabelUsingAddressBook:(void *)arg1;
 - (id)displayNameUsingAddressBook:(void *)arg1;
 - (void *)abRecordUsingAddressBook:(void *)arg1 withIdentifier:(int *)arg2;
 - (void *)abRecordUsingAddressBook:(void *)arg1;
 - (void)_handleDataAvailable:(id)arg1;
-- (BOOL)willBroadcastNotificationName:(id)arg1 userInfo:(id)arg2;
+- (_Bool)willBroadcastNotificationName:(id)arg1 userInfo:(id)arg2;
 - (id)description;
 - (void)setFlags:(unsigned int)arg1;
-- (BOOL)doesNotHaveFlags:(unsigned int)arg1;
-- (BOOL)hasFlags:(unsigned int)arg1;
+- (_Bool)doesNotHaveFlags:(unsigned int)arg1;
+- (_Bool)hasFlags:(unsigned int)arg1;
 - (unsigned int)flags;
 - (id)dataPath;
 - (int)duration;
@@ -48,10 +42,6 @@
 - (long long)identifier;
 - (void)_updateCache;
 - (void)dealloc;
-- (void)_forceUpdateCache;
-- (void)_lockedPreemptivelySetFlags:(unsigned int)arg1 clearFlags:(unsigned int)arg2 unlockedBlock:(id *)arg3;
-- (void)_preemptivelySetFlags:(unsigned int)arg1 clearFlags:(unsigned int)arg2;
-- (id)initWithAccount:(id)arg1 identifier:(long long)arg2;
 
 @end
 

@@ -8,21 +8,21 @@
 
 @interface GEOVoltaireRasterTileTrafficSegment : NSObject
 {
-    CDStruct_1ef3fb1f *_vertices;
-    int _vertexCount;
-    BOOL _hasSpeed;
+    CDStruct_912cb5d2 *_vertices;
+    long long _vertexCount;
+    _Bool _hasSpeed;
     int _speed;
-    BOOL _hasWidth;
+    _Bool _hasWidth;
     int _width;
 }
 
 @property(nonatomic) int width; // @synthesize width=_width;
 @property(nonatomic) int speed; // @synthesize speed=_speed;
-@property(nonatomic) BOOL hasWidth; // @synthesize hasWidth=_hasWidth;
-@property(nonatomic) BOOL hasSpeed; // @synthesize hasSpeed=_hasSpeed;
-@property(readonly, nonatomic) int vertexCount; // @synthesize vertexCount=_vertexCount;
-@property(readonly, nonatomic) CDStruct_1ef3fb1f *vertices; // @synthesize vertices=_vertices;
-- (void)setVertices:(CDStruct_1ef3fb1f *)arg1 count:(int)arg2;
+@property(nonatomic) _Bool hasWidth; // @synthesize hasWidth=_hasWidth;
+@property(nonatomic) _Bool hasSpeed; // @synthesize hasSpeed=_hasSpeed;
+@property(readonly, nonatomic) long long vertexCount; // @synthesize vertexCount=_vertexCount;
+@property(readonly, nonatomic) CDStruct_912cb5d2 *vertices; // @synthesize vertices=_vertices;
+- (void)setVertices:(CDStruct_912cb5d2 *)arg1 count:(long long)arg2;
 
 @end
 

@@ -8,6 +8,7 @@
 
 @class CPDumpEnum;
 
+// Not exported
 @interface CPDumpNumeric : CPDumpType
 {
     int mType;

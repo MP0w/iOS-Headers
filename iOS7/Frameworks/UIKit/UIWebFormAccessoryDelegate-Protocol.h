@@ -7,7 +7,7 @@
 @protocol UIWebFormAccessoryDelegate
 - (void)accessoryClear;
 - (void)accessoryAutoFill;
-- (void)accessoryTab:(BOOL)arg1;
+- (void)accessoryTab:(_Bool)arg1;
 - (void)accessoryDone;
 @end
 

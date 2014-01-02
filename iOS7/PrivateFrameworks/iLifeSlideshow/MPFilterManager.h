@@ -17,7 +17,6 @@
 
 + (void)releaseSharedManager;
 + (id)sharedManager;
-+ (void)loadFilterManagerWithPaths:(id)arg1;
 - (id)animationsForFilterID:(id)arg1 andPresetID:(id)arg2;
 - (id)attributesForFilterID:(id)arg1 andPresetID:(id)arg2;
 - (id)presetIDsForFilterID:(id)arg1;
@@ -26,11 +25,6 @@
 - (id)versionOfFilterID:(id)arg1;
 - (id)allFilterIDs;
 - (void)dealloc;
-- (id)randomFilter:(BOOL)arg1;
-- (id)filterPresetsMatchingCriteria:(id)arg1;
-- (id)randomFilterPresetFromList:(id)arg1 abidingWithConstraints:(id)arg2;
-- (id)constraintsForFilterPresetsMatchingList:(id)arg1 andCriteria:(id)arg2;
-- (id)initWithPaths:(id)arg1;
 
 @end
 

@@ -11,7 +11,7 @@
 @interface ABContactsFilter : NSObject
 {
     void *_addressBook;
-    BOOL _showsAllContacts;
+    _Bool _showsAllContacts;
     NSArray *_groups;
     NSArray *_sources;
     void *_directorySource;
@@ -19,11 +19,11 @@
 
 + (id)newContactsFilterFromDictionaryRepresentation:(id)arg1 withAddressBook:(void *)arg2;
 + (id)_newContactsFilterFromGroupWrapperRepresentation:(id)arg1 withAddressBook:(void *)arg2;
-@property(readonly, nonatomic) BOOL showsAllContacts; // @synthesize showsAllContacts=_showsAllContacts;
+@property(readonly, nonatomic) _Bool showsAllContacts; // @synthesize showsAllContacts=_showsAllContacts;
 @property(readonly, nonatomic) void *directorySource; // @synthesize directorySource=_directorySource;
 @property(readonly, nonatomic) NSArray *groups; // @synthesize groups=_groups;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (id)sortedSourcesForSources:(id)arg1;
 - (id)sortedGroupsForGroups:(id)arg1;
@@ -31,12 +31,12 @@
 @property(readonly, nonatomic) NSString *name;
 @property(readonly, nonatomic) void *sourceForNewRecords;
 @property(readonly, nonatomic) void *groupForNewRecords;
-@property(readonly, nonatomic, getter=isEditable) BOOL editable;
+@property(readonly, nonatomic, getter=isEditable) _Bool editable;
 @property(readonly, nonatomic) NSArray *sources; // @synthesize sources=_sources;
 - (void)_getWritableSource:(const void **)arg1 andGroup:(const void **)arg2;
 - (void *)_defaultSourceForAccountContainingSource:(void *)arg1;
-@property(readonly, nonatomic) BOOL shouldChangeModelSelectionWhenDisplayed;
-@property(readonly, nonatomic) BOOL isDirectory;
+@property(readonly, nonatomic) _Bool shouldChangeModelSelectionWhenDisplayed;
+@property(readonly, nonatomic) _Bool isDirectory;
 - (id)copyDictionaryRepresentation;
 - (void)invalidateSourcesForAllContacts;
 @property(readonly, nonatomic) void *addressBook;

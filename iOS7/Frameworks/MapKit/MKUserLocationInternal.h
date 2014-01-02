@@ -8,6 +8,7 @@
 
 @class CLHeading, CLLocation, NSString;
 
+// Not exported
 @interface MKUserLocationInternal : NSObject
 {
     CLLocation *location;
@@ -19,7 +20,7 @@
     id <MKUserLocationAnnotation> _annotation;
     int source;
     double timestamp;
-    BOOL updating;
+    _Bool updating;
     double course;
     id <MKAnnotation> annotation;
 }
@@ -34,7 +35,7 @@
 @property(retain, nonatomic) CLLocation *predictedLocation; // @synthesize predictedLocation;
 @property(retain, nonatomic) CLLocation *location; // @synthesize location;
 @property(retain, nonatomic) CLLocation *fixedLocation; // @synthesize fixedLocation;
-@property(nonatomic, getter=isUpdating) BOOL updating; // @synthesize updating;
+@property(nonatomic, getter=isUpdating) _Bool updating; // @synthesize updating;
 
 @end
 

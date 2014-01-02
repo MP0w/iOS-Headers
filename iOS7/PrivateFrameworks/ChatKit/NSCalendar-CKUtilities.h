@@ -8,6 +8,6 @@
 
 @interface NSCalendar (CKUtilities)
 + (id)__ck_currentCalendar;
-- (unsigned int)__ck_unitOfDisambiguityFromDate:(id)arg1 toDate:(id)arg2;
+- (unsigned long long)__ck_unitOfDisambiguityFromDate:(id)arg1 toDate:(id)arg2;
 @end
 

@@ -6,11 +6,13 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSMutableArray, NSString;
 
-@interface GEOStructuredAddress : PBCodable
+@interface GEOStructuredAddress : PBCodable <NSCopying>
 {
-    CDStruct_815f15fd _geoIds;
+    CDStruct_5df41632 _geoIds;
     NSString *_administrativeArea;
     NSString *_administrativeAreaCode;
     NSMutableArray *_areaOfInterests;
@@ -23,6 +25,7 @@
     NSString *_ocean;
     NSString *_postCode;
     NSString *_postCodeExtension;
+    NSString *_postCodeFull;
     NSString *_premise;
     NSString *_premises;
     NSString *_subAdministrativeArea;
@@ -32,6 +35,7 @@
     NSString *_thoroughfare;
 }
 
+@property(retain, nonatomic) NSString *postCodeFull; // @synthesize postCodeFull=_postCodeFull;
 @property(retain, nonatomic) NSMutableArray *subPremises; // @synthesize subPremises=_subPremises;
 @property(retain, nonatomic) NSString *premise; // @synthesize premise=_premise;
 @property(retain, nonatomic) NSMutableArray *dependentLocalitys; // @synthesize dependentLocalitys=_dependentLocalitys;
@@ -51,49 +55,50 @@
 @property(retain, nonatomic) NSString *administrativeArea; // @synthesize administrativeArea=_administrativeArea;
 @property(retain, nonatomic) NSString *countryCode; // @synthesize countryCode=_countryCode;
 @property(retain, nonatomic) NSString *country; // @synthesize country=_country;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (void)setGeoIds:(long long *)arg1 count:(unsigned int)arg2;
-- (long long)geoIdAtIndex:(unsigned int)arg1;
+- (void)setGeoIds:(long long *)arg1 count:(unsigned long long)arg2;
+- (long long)geoIdAtIndex:(unsigned long long)arg1;
 - (void)addGeoId:(long long)arg1;
 - (void)clearGeoIds;
 @property(readonly, nonatomic) long long *geoIds;
-@property(readonly, nonatomic) unsigned int geoIdsCount;
-- (id)subPremiseAtIndex:(unsigned int)arg1;
-- (unsigned int)subPremisesCount;
+@property(readonly, nonatomic) unsigned long long geoIdsCount;
+@property(readonly, nonatomic) _Bool hasPostCodeFull;
+- (id)subPremiseAtIndex:(unsigned long long)arg1;
+- (unsigned long long)subPremisesCount;
 - (void)addSubPremise:(id)arg1;
 - (void)clearSubPremises;
-@property(readonly, nonatomic) BOOL hasPremise;
-- (id)dependentLocalityAtIndex:(unsigned int)arg1;
-- (unsigned int)dependentLocalitysCount;
+@property(readonly, nonatomic) _Bool hasPremise;
+- (id)dependentLocalityAtIndex:(unsigned long long)arg1;
+- (unsigned long long)dependentLocalitysCount;
 - (void)addDependentLocality:(id)arg1;
 - (void)clearDependentLocalitys;
-@property(readonly, nonatomic) BOOL hasOcean;
-@property(readonly, nonatomic) BOOL hasInlandWater;
-- (id)areaOfInterestAtIndex:(unsigned int)arg1;
-- (unsigned int)areaOfInterestsCount;
+@property(readonly, nonatomic) _Bool hasOcean;
+@property(readonly, nonatomic) _Bool hasInlandWater;
+- (id)areaOfInterestAtIndex:(unsigned long long)arg1;
+- (unsigned long long)areaOfInterestsCount;
 - (void)addAreaOfInterest:(id)arg1;
 - (void)clearAreaOfInterests;
-@property(readonly, nonatomic) BOOL hasPostCodeExtension;
-@property(readonly, nonatomic) BOOL hasFullThoroughfare;
-@property(readonly, nonatomic) BOOL hasSubThoroughfare;
-@property(readonly, nonatomic) BOOL hasThoroughfare;
-@property(readonly, nonatomic) BOOL hasPremises;
-@property(readonly, nonatomic) BOOL hasSubLocality;
-@property(readonly, nonatomic) BOOL hasPostCode;
-@property(readonly, nonatomic) BOOL hasLocality;
-@property(readonly, nonatomic) BOOL hasSubAdministrativeArea;
-@property(readonly, nonatomic) BOOL hasAdministrativeAreaCode;
-@property(readonly, nonatomic) BOOL hasAdministrativeArea;
-@property(readonly, nonatomic) BOOL hasCountryCode;
-@property(readonly, nonatomic) BOOL hasCountry;
+@property(readonly, nonatomic) _Bool hasPostCodeExtension;
+@property(readonly, nonatomic) _Bool hasFullThoroughfare;
+@property(readonly, nonatomic) _Bool hasSubThoroughfare;
+@property(readonly, nonatomic) _Bool hasThoroughfare;
+@property(readonly, nonatomic) _Bool hasPremises;
+@property(readonly, nonatomic) _Bool hasSubLocality;
+@property(readonly, nonatomic) _Bool hasPostCode;
+@property(readonly, nonatomic) _Bool hasLocality;
+@property(readonly, nonatomic) _Bool hasSubAdministrativeArea;
+@property(readonly, nonatomic) _Bool hasAdministrativeAreaCode;
+@property(readonly, nonatomic) _Bool hasAdministrativeArea;
+@property(readonly, nonatomic) _Bool hasCountryCode;
+@property(readonly, nonatomic) _Bool hasCountry;
 - (void)dealloc;
-- (id)initWithAddressDictionary:(id)arg1;
 
 @end
 

@@ -15,7 +15,11 @@
 }
 
 - (void)tintColorDidChange;
-- (void)setLabelHighlighted:(BOOL)arg1;
+- (void)setLabelHighlighted:(_Bool)arg1;
+- (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
+- (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
+- (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
+- (void)_setBackgroundVisible:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)setAccountLabel:(id)arg1;
 - (struct CGRect)accountLabelRect;
 - (id)_accountLabel;

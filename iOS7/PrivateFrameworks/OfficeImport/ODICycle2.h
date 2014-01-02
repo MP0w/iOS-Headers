@@ -6,12 +6,13 @@
 
 #import <OfficeImport/ODICycle.h>
 
+// Not exported
 @interface ODICycle2 : ODICycle
 {
 }
 
-+ (BOOL)map2NodeWithState:(id)arg1;
-+ (BOOL)map1NodeWithState:(id)arg1;
++ (_Bool)map2NodeWithState:(id)arg1;
++ (_Bool)map1NodeWithState:(id)arg1;
 + (void)mapTransition:(id)arg1 index:(unsigned int)arg2 state:(id)arg3;
 + (void)mapNode:(id)arg1 index:(unsigned int)arg2 state:(id)arg3;
 + (struct CGRect)mapGSpaceWithState:(id)arg1;

@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface PXSlideMaster : NSObject
 {
 }
 
 + (id)readFromPackagePart:(id)arg1 presentationState:(id)arg2;
-+ (void)readTextStylesFromNode:(struct _xmlNode *)arg1 slideMaster:(id)arg2 state:(id)arg3;
 
 @end
 

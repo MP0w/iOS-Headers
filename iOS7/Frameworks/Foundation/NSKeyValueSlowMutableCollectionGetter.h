@@ -8,13 +8,14 @@
 
 @class NSKeyValueGetter, NSKeyValueSetter;
 
+// Not exported
 @interface NSKeyValueSlowMutableCollectionGetter : NSKeyValueProxyGetter
 {
     NSKeyValueGetter *_baseGetter;
     NSKeyValueSetter *_baseSetter;
 }
 
-- (BOOL)treatNilValuesLikeEmptyCollections;
+- (_Bool)treatNilValuesLikeEmptyCollections;
 - (id)baseSetter;
 - (id)baseGetter;
 - (void)dealloc;

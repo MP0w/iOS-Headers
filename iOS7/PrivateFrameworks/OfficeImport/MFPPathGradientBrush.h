@@ -8,6 +8,7 @@
 
 @class NSArray, TSDBezierPath, TSUColor;
 
+// Not exported
 @interface MFPPathGradientBrush : MFPGradientBrush
 {
     TSUColor *mCenterColor;

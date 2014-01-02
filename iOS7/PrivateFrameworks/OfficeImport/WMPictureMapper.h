@@ -8,6 +8,7 @@
 
 @class WDPicture;
 
+// Not exported
 @interface WMPictureMapper : CMDrawableMapper
 {
     WDPicture *wdPicture;

@@ -8,6 +8,7 @@
 
 @class VKOverlayContainerModel;
 
+// Not exported
 @interface VKOverlayPainter : NSObject
 {
     id <VKOverlay> _overlay;
@@ -15,7 +16,6 @@
     float _brightness;
 }
 
-@property(nonatomic) float brightness; // @synthesize brightness=_brightness;
 @property(nonatomic) VKOverlayContainerModel *containerModel; // @synthesize containerModel=_containerModel;
 @property(readonly, nonatomic) id <VKOverlay> overlay; // @synthesize overlay=_overlay;
 - (void)stylesheetDidChange;

@@ -8,6 +8,7 @@
 
 @class NSDate, NSNumber, NSString, PFUbiquityGlobalObjectID, PFUbiquityKnowledgeVector, PFUbiquityLocation;
 
+// Not exported
 @interface PFUbiquityTransactionEntryLight : NSObject
 {
     PFUbiquityGlobalObjectID *_globalID;

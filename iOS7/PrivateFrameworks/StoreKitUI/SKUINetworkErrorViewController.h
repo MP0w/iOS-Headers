@@ -17,7 +17,7 @@
     NSError *_error;
 }
 
-+ (BOOL)canDisplayError:(id)arg1;
++ (_Bool)canDisplayError:(id)arg1;
 @property(readonly, nonatomic) NSError *error; // @synthesize error=_error;
 @property(nonatomic) __weak id delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;

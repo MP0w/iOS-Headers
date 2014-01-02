@@ -19,13 +19,13 @@
 - (void)broadcastCallStateChangesIfNeededWithFailureLogMessage:(id)arg1;
 - (void)handleNotificationFromConnection:(void *)arg1 ofType:(id)arg2 withInfo:(id)arg3;
 @property(retain) NSSet *currentCalls; // @dynamic currentCalls;
-- (BOOL)calculateCallStateChanges:(id)arg1;
-- (BOOL)getCurrentCallSetFromServer:(id)arg1;
+- (_Bool)calculateCallStateChanges:(id)arg1;
+- (_Bool)getCurrentCallSetFromServer:(id)arg1;
 @property(copy, nonatomic) id callEventHandler;
 - (void)dealloc;
 - (id)init;
 - (void)cleanUpServerConnection;
-- (BOOL)setUpServerConnection;
+- (_Bool)setUpServerConnection;
 
 @end
 

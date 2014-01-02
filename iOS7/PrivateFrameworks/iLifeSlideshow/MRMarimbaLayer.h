@@ -7,46 +7,44 @@
 #import "CAEAGLLayer.h"
 
 #import "MRMarimbaBasicPlayback-Protocol.h"
-#import "MRMarimbaHitBlobSupport-Protocol.h"
-#import "MRMarimbaPlayback-Protocol.h"
 
 @class EAGLContext, MPDocument, MPFaceDetector, MRRenderer, NSDictionary, NSString, NSTimer;
 
-@interface MRMarimbaLayer : CAEAGLLayer <MRMarimbaPlayback, MRMarimbaHitBlobSupport, MRMarimbaBasicPlayback>
+@interface MRMarimbaLayer : CAEAGLLayer <MRMarimbaBasicPlayback>
 {
     MRRenderer *_renderer;
     MPDocument *_document;
-    BOOL _masterClockIsSet;
-    BOOL _bailTimeWatcher;
-    BOOL _stopWithVideo;
-    BOOL _wasSuspended;
+    _Bool _masterClockIsSet;
+    _Bool _bailTimeWatcher;
+    _Bool _stopWithVideo;
+    _Bool _wasSuspended;
     MPFaceDetector *_faceDetector;
-    float _morphingToAspectRatio;
+    double _morphingToAspectRatio;
     struct CGSize _frameBufferSize;
     NSDictionary *_nextMorphInfo;
     NSTimer *_faceTimer;
-    BOOL _usesNewImageManager;
-    BOOL _enableSlideDidChangeNotification;
+    _Bool _usesNewImageManager;
+    _Bool _enableSlideDidChangeNotification;
     NSString *_lastSlideChange;
     EAGLContext *_context;
     unsigned int _viewRenderbuffer;
     unsigned int _viewFramebuffer;
     unsigned int _depthBuffer;
-    BOOL _isReadonly;
-    BOOL _slidesAreReadonly;
+    _Bool _isReadonly;
+    _Bool _slidesAreReadonly;
 }
 
-+ (BOOL)shouldRenderOnBackgroundThread;
++ (_Bool)shouldRenderOnBackgroundThread;
 + (void)releaseResources;
 + (id)layerWithDocument:(id)arg1;
 + (id)layerWithDocument:(id)arg1 size:(struct CGSize)arg2;
-@property(nonatomic) BOOL enableSlideDidChangeNotification; // @synthesize enableSlideDidChangeNotification=_enableSlideDidChangeNotification;
-@property(nonatomic) BOOL usesNewImageManager; // @synthesize usesNewImageManager=_usesNewImageManager;
-@property(nonatomic) BOOL slidesAreReadonly; // @synthesize slidesAreReadonly=_slidesAreReadonly;
-@property(nonatomic) BOOL isReadonly; // @synthesize isReadonly=_isReadonly;
+@property(nonatomic) _Bool enableSlideDidChangeNotification; // @synthesize enableSlideDidChangeNotification=_enableSlideDidChangeNotification;
+@property(nonatomic) _Bool usesNewImageManager; // @synthesize usesNewImageManager=_usesNewImageManager;
+@property(nonatomic) _Bool slidesAreReadonly; // @synthesize slidesAreReadonly=_slidesAreReadonly;
+@property(nonatomic) _Bool isReadonly; // @synthesize isReadonly=_isReadonly;
 - (void)beginEditingOfText:(id)arg1;
 - (void)touchesCancelled:(id)arg1;
-- (BOOL)touchesEnded:(id)arg1;
+- (_Bool)touchesEnded:(id)arg1;
 - (void)touchesMoved:(id)arg1;
 - (void)touchesBegan:(id)arg1;
 - (struct CGImage *)snapshotAsCGImage;
@@ -54,18 +52,18 @@
 - (void)aspectRatioChangedTo:(id)arg1;
 - (void)didAddEffects:(id)arg1;
 - (void)didApplyStyle:(id)arg1;
-- (BOOL)effectRequestedSlidesAfterDelay:(id)arg1;
-- (BOOL)effect:(id)arg1 requestedNumberOfSlides:(unsigned int)arg2 firstSlideIndexStillNeeded:(unsigned int)arg3;
-- (BOOL)nearingEndForSerializerAfterDelay:(id)arg1;
-- (BOOL)nearingEndForSerializer:(id)arg1;
+- (_Bool)effectRequestedSlidesAfterDelay:(id)arg1;
+- (_Bool)effect:(id)arg1 requestedNumberOfSlides:(unsigned long long)arg2 firstSlideIndexStillNeeded:(unsigned long long)arg3;
+- (_Bool)nearingEndForSerializerAfterDelay:(id)arg1;
+- (_Bool)nearingEndForSerializer:(id)arg1;
 - (void)unlockRendering;
 - (void)lockRendering;
 - (void)_reauthorForAspectRatioChange;
 - (void)endMorphing;
-- (void)beginMorphingToAspectRatio:(float)arg1 withDuration:(double)arg2;
-- (void)morphToAspectRatio:(float)arg1 andOrientation:(int)arg2 withDuration:(double)arg3;
+- (void)beginMorphingToAspectRatio:(double)arg1 withDuration:(double)arg2;
+- (void)morphToAspectRatio:(double)arg1 andOrientation:(int)arg2 withDuration:(double)arg3;
 - (void)warmupRenderer;
-- (void)requestRendering:(BOOL)arg1;
+- (void)requestRendering:(_Bool)arg1;
 @property(nonatomic) double framesPerSecond; // @dynamic framesPerSecond;
 @property(readonly, nonatomic) MRRenderer *renderer;
 - (void)prevFrame;
@@ -74,66 +72,25 @@
 - (void)gotoEnd;
 - (void)goForth;
 - (void)goBack;
-- (void)setSuspended:(BOOL)arg1;
-@property(nonatomic) float volume;
+- (void)setSuspended:(_Bool)arg1;
+@property(nonatomic) double volume;
 @property(readonly, nonatomic) double timeRemaining;
 @property(nonatomic) double time;
-@property(nonatomic) BOOL displaysFPS;
-@property(nonatomic) BOOL stopWithVideo;
+@property(nonatomic) _Bool displaysFPS;
+@property(nonatomic) _Bool stopWithVideo;
 - (void)pauseWhenStill;
 - (void)pause;
 - (void)play;
-@property(readonly, nonatomic) BOOL isPlaying;
+@property(readonly, nonatomic) _Bool isPlaying;
 - (void)togglePlayback;
 - (void)didLiveChanged:(id)arg1;
 @property(retain, nonatomic) MPDocument *document;
 @property(readonly) struct CGSize size;
 - (void)setBounds:(struct CGRect)arg1;
-- (BOOL)asynchronous:(BOOL)arg1;
+- (_Bool)asynchronous:(_Bool)arg1;
 - (void)cleanup;
 - (void)dealloc;
 - (id)init;
-- (void)_postNotificationForSlideChange:(id)arg1;
-- (void)_slideDidAppear:(id)arg1;
-- (void)gotoSlide:(id)arg1;
-- (void)gotoPreviousSlide;
-- (void)gotoNextSlide;
-- (void)removeEffectContainersBeforeTime:(double)arg1;
-- (id)currentSlide;
-- (id)currentSlides;
-- (void)watcherThread:(id)arg1;
-- (void)callbackThread:(id)arg1;
-- (int)_mainLayerIndex;
-- (id)_effectContainerForTime:(double)arg1;
-- (id)_firstEffectContainer;
-- (void)whenTransitionIsFinishedSendAction:(SEL)arg1 toTarget:(id)arg2;
-- (BOOL)isInTransition;
-- (id)_currentEffectContainer;
-- (id)_currentEffectLayer;
-- (void)moveToSubtitleForSlide:(id)arg1;
-- (void)moveToTitleSlide;
-- (void)moveToPreviousEffectContainer;
-- (void)moveToNextEffectContainer;
-- (void)moveToEffectContainer:(id)arg1 withStartOffset:(double)arg2 toStopOffset:(double)arg3 blocking:(BOOL)arg4;
-- (id)displayedEffectContainers;
-- (double)relativeTimeForLayer:(id)arg1;
-- (double)relativeTimeForBackgroundAudio;
-- (double)relativeTime;
-- (void)cancelGesture:(id)arg1;
-- (void)endGesture:(id)arg1;
-- (void)doGesture:(id)arg1;
-- (void)beginGesture:(id)arg1;
-- (BOOL)endLiveUpdateForHitBlob:(id)arg1;
-- (BOOL)beginLiveUpdateForHitBlob:(id)arg1;
-- (struct CGPoint)convertPoint:(struct CGPoint)arg1 toHitBlob:(id)arg2;
-- (BOOL)getOnScreenVertices:(struct CGPoint [4])arg1 forHitBlob:(id)arg2;
-- (id)blobHitAtPoint:(struct CGPoint)arg1 fromObjectsForObjectIDs:(id)arg2 localPoint:(struct CGPoint *)arg3;
-- (BOOL)updateFramebuffer;
-- (void)destroyFramebuffer;
-- (void)setBailTimeWatcher:(BOOL)arg1;
-- (BOOL)bailTimeWatcher;
-- (void)setLastSlideChange:(id)arg1;
-- (id)lastSlideChange;
 
 @end
 

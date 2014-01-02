@@ -22,7 +22,7 @@
 - (void)sendMessage:(id)arg1;
 - (id)messageReplyingTo:(id)arg1;
 - (id)messageWithName:(const char *)arg1;
-- (BOOL)hasBoolEntitlement:(id)arg1;
+- (_Bool)hasBoolEntitlement:(id)arg1;
 - (void)setMessageHandlers:(id)arg1;
 - (void)setHandler:(id)arg1 forMessageNamed:(void)arg2;
 - (void)invalidate;

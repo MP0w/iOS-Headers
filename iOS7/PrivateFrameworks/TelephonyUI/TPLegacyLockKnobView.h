@@ -12,8 +12,8 @@
 {
     TPLegacyBottomLockBar *_track;
     UIAlphaAnimation *_animation;
-    float _centerDelta;
-    BOOL _tracking;
+    double _centerDelta;
+    _Bool _tracking;
 }
 
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
@@ -21,11 +21,11 @@
 - (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
 - (void)beginTracking:(id)arg1;
-- (BOOL)shouldBeginTracking:(id)arg1;
-- (BOOL)isTracking;
+- (_Bool)shouldBeginTracking:(id)arg1;
+- (_Bool)isTracking;
 - (void)dealloc;
 - (void)setLockView:(id)arg1;
-- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (id)initWithImage:(id)arg1;
 
 @end

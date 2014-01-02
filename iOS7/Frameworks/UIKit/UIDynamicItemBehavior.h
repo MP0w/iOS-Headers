@@ -6,12 +6,12 @@
 
 #import <UIKit/UIDynamicBehavior.h>
 
-@class NSArray;
+@class NSArray, NSMapTable;
 
 @interface UIDynamicItemBehavior : UIDynamicBehavior
 {
-    BOOL _useDefaultViewPropertiesApplier;
-    BOOL _useCircularBoundingBox;
+    _Bool _useDefaultViewPropertiesApplier;
+    _Bool _useCircularBoundingBox;
     struct {
         unsigned int elasticityChanged:1;
         unsigned int frictionChanged:1;
@@ -21,48 +21,51 @@
         unsigned int rotationEnabledChanged:1;
         unsigned int useDefaultViewPropertiesApplierChanged:1;
     } _stateFlags;
-    BOOL _allowsRotation;
-    float _elasticity;
-    float _friction;
-    float _density;
-    float _resistance;
-    float _angularResistance;
+    NSMapTable *_cachedAngularVelocities;
+    NSMapTable *_cachedLinearVelocities;
+    _Bool _allowsRotation;
+    double _elasticity;
+    double _friction;
+    double _density;
+    double _resistance;
+    double _angularResistance;
 }
 
-@property(nonatomic) BOOL allowsRotation; // @synthesize allowsRotation=_allowsRotation;
-@property(nonatomic) float angularResistance; // @synthesize angularResistance=_angularResistance;
-@property(nonatomic) float resistance; // @synthesize resistance=_resistance;
-@property(nonatomic) float density; // @synthesize density=_density;
-@property(nonatomic) float friction; // @synthesize friction=_friction;
-@property(nonatomic) float elasticity; // @synthesize elasticity=_elasticity;
+@property(nonatomic) _Bool allowsRotation; // @synthesize allowsRotation=_allowsRotation;
+@property(nonatomic) double angularResistance; // @synthesize angularResistance=_angularResistance;
+@property(nonatomic) double resistance; // @synthesize resistance=_resistance;
+@property(nonatomic) double density; // @synthesize density=_density;
+@property(nonatomic) double friction; // @synthesize friction=_friction;
+@property(nonatomic) double elasticity; // @synthesize elasticity=_elasticity;
 - (id)description;
-- (void)setUseDefaultViewPropertiesApplier:(BOOL)arg1;
-- (BOOL)useDefaultViewPropertiesApplier;
+- (void)setUseDefaultViewPropertiesApplier:(_Bool)arg1;
+- (_Bool)useDefaultViewPropertiesApplier;
 - (void)_dissociate;
 - (void)_associate;
-- (void)_reevaluate:(unsigned int)arg1;
+- (void)_reevaluate:(unsigned long long)arg1;
 - (void)applyImpulse:(struct CGPoint)arg1 toItem:(id)arg2;
-- (BOOL)_rotationEnabledForItem:(id)arg1;
-- (float)_massForItem:(id)arg1;
-- (float)_angularResistanceForItem:(id)arg1;
-- (float)_resistanceForItem:(id)arg1;
-- (float)_densityForItem:(id)arg1;
-- (float)_frictionForItem:(id)arg1;
-- (float)_elasticityForItem:(id)arg1;
-- (float)angularVelocityForItem:(id)arg1;
-- (void)addAngularVelocity:(float)arg1 forItem:(id)arg2;
-- (float)angleForItem:(id)arg1;
-- (void)setAngle:(float)arg1 forItem:(id)arg2;
-- (struct CGPoint)positionForItem:(id)arg1;
-- (void)setPosition:(struct CGPoint)arg1 forItem:(id)arg2;
+- (_Bool)_rotationEnabledForItem:(id)arg1;
+- (double)_massForItem:(id)arg1;
+- (double)_angularResistanceForItem:(id)arg1;
+- (double)_resistanceForItem:(id)arg1;
+- (double)_densityForItem:(id)arg1;
+- (double)_frictionForItem:(id)arg1;
+- (double)_elasticityForItem:(id)arg1;
+- (double)angularVelocityForItem:(id)arg1;
+- (void)addAngularVelocity:(double)arg1 forItem:(id)arg2;
+- (double)_angleForItem:(id)arg1;
+- (void)_setAngle:(double)arg1 forItem:(id)arg2;
+- (struct CGPoint)_positionForItem:(id)arg1;
+- (void)_setPosition:(struct CGPoint)arg1 forItem:(id)arg2;
 - (struct CGPoint)linearVelocityForItem:(id)arg1;
 - (void)addLinearVelocity:(struct CGPoint)arg1 forItem:(id)arg2;
 @property(readonly, nonatomic) NSArray *items;
 - (void)removeItem:(id)arg1;
 - (void)addItem:(id)arg1;
 - (void)_configureBody:(id)arg1 forView:(id)arg2;
-- (void)_setUseCircularBoundingBox:(BOOL)arg1;
-- (BOOL)_useCircularBoundingBox;
+- (void)_setUseCircularBoundingBox:(_Bool)arg1;
+- (_Bool)_useCircularBoundingBox;
+- (void)dealloc;
 - (id)initWithItems:(id)arg1;
 - (id)init;
 - (void)_commonInit;

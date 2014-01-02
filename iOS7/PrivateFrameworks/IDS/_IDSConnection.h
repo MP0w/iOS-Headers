@@ -13,26 +13,31 @@
 
 @interface _IDSConnection : NSObject <IDSDaemonListenerProtocol, IDSAccountDelegate>
 {
+    id _messageContext;
     id _delegateContext;
     NSMapTable *_delegateToInfo;
     IDSAccount *_account;
     NSSet *_commands;
     NSString *_serviceToken;
     NSMutableDictionary *_pendingSends;
+    unsigned int _delegateCapabilities;
 }
 
 - (void)messageReceived:(id)arg1 withGUID:(id)arg2 withPayload:(id)arg3 forTopic:(id)arg4 fromID:(id)arg5;
-- (void)messageIdentifier:(id)arg1 updatedWithResponseCode:(int)arg2 error:(id)arg3 lastCall:(BOOL)arg4;
+- (void)_setTemporaryMessageContext:(id)arg1;
+- (void)messageIdentifier:(id)arg1 updatedWithResponseCode:(long long)arg2 error:(id)arg3 lastCall:(_Bool)arg4;
 - (void)daemonDisconnected;
 - (void)_connect;
 - (void)account:(id)arg1 devicesChanged:(id)arg2;
-- (void)account:(id)arg1 isActiveChanged:(BOOL)arg2;
+- (void)account:(id)arg1 isActiveChanged:(_Bool)arg2;
 - (void)requestKeepAlive;
-- (BOOL)sendMessage:(id)arg1 toDestinations:(id)arg2 priority:(int)arg3 options:(id)arg4 identifier:(id *)arg5 error:(id *)arg6;
+- (_Bool)sendServerMessage:(id)arg1 command:(id)arg2;
+- (_Bool)sendMessage:(id)arg1 toDestinations:(id)arg2 priority:(long long)arg3 options:(id)arg4 identifier:(id *)arg5 error:(id *)arg6;
+- (void)setDelegateCapabilities:(unsigned int)arg1;
 - (void)_callDelegatesWithBlock:(id)arg1;
 - (void)removeDelegate:(id)arg1;
 - (void)addDelegate:(id)arg1 queue:(id)arg2;
-@property(readonly, nonatomic) BOOL isActive;
+@property(readonly, nonatomic) _Bool isActive;
 @property(readonly, nonatomic) IDSAccount *account;
 - (void)dealloc;
 - (id)initWithAccount:(id)arg1 commands:(id)arg2 delegateContext:(id)arg3;

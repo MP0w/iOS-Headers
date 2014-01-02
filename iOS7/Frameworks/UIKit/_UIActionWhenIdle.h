@@ -8,6 +8,7 @@
 
 @class NSInvocation;
 
+// Not exported
 @interface _UIActionWhenIdle : NSObject
 {
     NSInvocation *_invocation;
@@ -18,6 +19,7 @@
 - (void)addObserverToRunLoop;
 - (void)invoke;
 - (void)invalidate;
+- (_Bool)isValid;
 - (void)dealloc;
 - (id)initWithInvocation:(id)arg1;
 - (id)initWithTarget:(id)arg1 selector:(SEL)arg2 object:(id)arg3;

@@ -6,21 +6,26 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray;
+@class IMTimer, NSMutableArray;
 
 @interface IDSAppleRegistrationKeychainReader : NSObject
 {
     NSMutableArray *_registrationData;
+    IMTimer *_purgeTimer;
+    id _purgeCancelBlock;
+    id _purgeEnqueueBlock;
 }
 
-+ (id)keychainAccessGroupForVersion:(unsigned int)arg1;
-+ (id)keychainAccountForVersion:(unsigned int)arg1;
-+ (id)keychainServiceForVersion:(unsigned int)arg1;
++ (id)keychainAccessGroupForVersion:(unsigned long long)arg1;
++ (id)keychainAccountForVersion:(unsigned long long)arg1;
++ (id)keychainServiceForVersion:(unsigned long long)arg1;
 + (id)sharedInstance;
 - (id)registrationWithServiceType:(id)arg1 accountType:(int)arg2 value:(id)arg3;
-- (void)reloadFromKeychain;
+- (void)_reloadFromKeychainLocked;
 - (id)registrationData;
-- (void)_reloadFromDictionary:(id)arg1;
+- (void)_reloadFromDictionaryLocked:(id)arg1;
+- (void)_setPurgeTimer;
+- (void)_flush;
 - (void)dealloc;
 - (id)init;
 

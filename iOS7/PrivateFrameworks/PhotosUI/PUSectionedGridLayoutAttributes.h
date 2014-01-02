@@ -8,18 +8,20 @@
 
 @interface PUSectionedGridLayoutAttributes : UICollectionViewLayoutAttributes
 {
-    BOOL _floating;
-    BOOL _useTemporaryPhotoImage;
-    BOOL _extendsTopContent;
-    BOOL _exists;
+    _Bool _floating;
+    _Bool _extendsTopContent;
+    _Bool _exists;
+    double _interactiveTransitionProgress;
 }
 
-@property(nonatomic) BOOL exists; // @synthesize exists=_exists;
-@property(nonatomic) BOOL extendsTopContent; // @synthesize extendsTopContent=_extendsTopContent;
-@property(nonatomic) BOOL useTemporaryPhotoImage; // @synthesize useTemporaryPhotoImage=_useTemporaryPhotoImage;
-@property(nonatomic) BOOL floating; // @synthesize floating=_floating;
+@property(nonatomic) _Bool exists; // @synthesize exists=_exists;
+@property(nonatomic) _Bool extendsTopContent; // @synthesize extendsTopContent=_extendsTopContent;
+@property(nonatomic) double interactiveTransitionProgress; // @synthesize interactiveTransitionProgress=_interactiveTransitionProgress;
+@property(nonatomic) _Bool floating; // @synthesize floating=_floating;
 - (id)description;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)init;
 
 @end
 

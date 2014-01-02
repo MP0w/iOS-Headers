@@ -13,20 +13,18 @@
 
 @interface PTSGraphView : PT2DGraphView <PTSHUDControl, _UISettingsKeyPathObserver>
 {
-    BOOL _enabled;
-    BOOL _autoEnablesForDesignMode;
+    _Bool _enabled;
+    int _alignment;
     _UISettings *_settings;
     _UISettingsGroup *_settingsGroup;
     NSString *_xAxisValueKeyPath;
     NSString *_yAxisValueKeyPath;
     NSString *_valueKeyPath;
-    int _alignment;
 }
 
 + (id)graphView;
 + (struct CGRect)defaultFrame;
-@property(nonatomic) BOOL autoEnablesForDesignMode; // @synthesize autoEnablesForDesignMode=_autoEnablesForDesignMode;
-@property(nonatomic) BOOL enabled; // @synthesize enabled=_enabled;
+@property(nonatomic) _Bool enabled; // @synthesize enabled=_enabled;
 @property(nonatomic) int alignment; // @synthesize alignment=_alignment;
 @property(copy, nonatomic) NSString *valueKeyPath; // @synthesize valueKeyPath=_valueKeyPath;
 @property(copy, nonatomic) NSString *yAxisValueKeyPath; // @synthesize yAxisValueKeyPath=_yAxisValueKeyPath;

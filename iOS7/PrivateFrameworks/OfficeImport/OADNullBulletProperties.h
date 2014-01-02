@@ -6,11 +6,12 @@
 
 #import <OfficeImport/OADBulletProperties.h>
 
+// Not exported
 @interface OADNullBulletProperties : OADBulletProperties
 {
 }
 
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 
 @end
 

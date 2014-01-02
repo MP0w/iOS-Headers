@@ -8,21 +8,22 @@
 
 @class NSString;
 
+// Not exported
 @interface EKRelation : NSObject
 {
     NSString *_entityName;
-    BOOL _toMany;
-    BOOL _ownsRelated;
+    _Bool _toMany;
+    _Bool _ownsRelated;
     NSString *_inversePropertyName;
 }
 
-+ (id)relationWithEntityName:(id)arg1 toMany:(BOOL)arg2 inversePropertyName:(id)arg3 ownsRelated:(BOOL)arg4;
-+ (id)relationWithEntityName:(id)arg1 toMany:(BOOL)arg2 inversePropertyName:(id)arg3;
++ (id)relationWithEntityName:(id)arg1 toMany:(_Bool)arg2 inversePropertyName:(id)arg3 ownsRelated:(_Bool)arg4;
++ (id)relationWithEntityName:(id)arg1 toMany:(_Bool)arg2 inversePropertyName:(id)arg3;
 @property(readonly, nonatomic) NSString *inversePropertyName;
-@property(readonly, nonatomic) BOOL ownsRelatedObject;
-@property(readonly, nonatomic) BOOL toMany;
+@property(readonly, nonatomic) _Bool ownsRelatedObject;
+@property(readonly, nonatomic) _Bool toMany;
 - (void)dealloc;
-- (id)initWithEntityName:(id)arg1 toMany:(BOOL)arg2 inversePropertyName:(id)arg3 ownsRelated:(BOOL)arg4;
+- (id)initWithEntityName:(id)arg1 toMany:(_Bool)arg2 inversePropertyName:(id)arg3 ownsRelated:(_Bool)arg4;
 
 @end
 

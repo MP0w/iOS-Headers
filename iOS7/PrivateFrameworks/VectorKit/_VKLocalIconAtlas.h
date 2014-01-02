@@ -6,11 +6,13 @@
 
 #import <VectorKit/VKIconAtlas.h>
 
+// Not exported
 @interface _VKLocalIconAtlas : VKIconAtlas
 {
 }
 
-- (struct CGImage *)_createImageForName:(id)arg1 contentScale:(float)arg2;
+- (struct CGImage *)_createImageForStyleAttributeKey:(unsigned int)arg1 value:(int)arg2 contentScale:(double)arg3;
+- (struct CGImage *)_createImageForName:(id)arg1 contentScale:(double)arg2;
 
 @end
 

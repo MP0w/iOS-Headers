@@ -19,10 +19,10 @@
     BasicAccount *_parentAccount;
 }
 
-+ (BOOL)userConfirmationIsRequiredByDataclass:(id)arg1;
-+ (BOOL)displayToggleForDataclass:(id)arg1;
-+ (BOOL)multipleStoresSupportedByDataclass:(id)arg1;
-+ (BOOL)showRemindersSeparatelyForAccountType:(id)arg1;
++ (_Bool)userConfirmationIsRequiredByDataclass:(id)arg1;
++ (_Bool)displayToggleForDataclass:(id)arg1;
++ (_Bool)multipleStoresSupportedByDataclass:(id)arg1;
++ (_Bool)showRemindersSeparatelyForAccountType:(id)arg1;
 + (id)deleteAccountActionsForAccountType:(id)arg1;
 + (id)userActionsToDisableDataclass:(id)arg1 forAccountType:(id)arg2;
 + (id)userActionsToEnableDataclass:(id)arg1 forAccountType:(id)arg2;
@@ -32,24 +32,19 @@
 + (id)accountWithProperties:(id)arg1;
 + (id)accountWithType:(id)arg1 class:(id)arg2;
 + (void)initialize;
-+ (BOOL)isMultitaskingEnabled;
-+ (id)_dataclassesProperties;
-+ (id)_creatorsInfo;
-+ (BOOL)_isValidAccountType:(id)arg1;
-+ (id)_accountCreationMap;
-+ (id)createNewAccountUID;
++ (_Bool)isMultitaskingEnabled;
 @property(retain, nonatomic) NSDictionary *originalProperties; // @synthesize originalProperties=_originalProperties;
 - (void)renewAccountCredentialsWithHandler:(id)arg1;
-- (BOOL)refreshContainersForDataclass:(id)arg1;
-- (BOOL)refreshContainerListForDataclass:(id)arg1;
-- (BOOL)refreshContainerWithIdentifier:(id)arg1 forDataclass:(id)arg2;
-- (BOOL)refreshContainersForDataclass:(id)arg1 isUserRequested:(BOOL)arg2;
-- (BOOL)refreshContainerListForDataclass:(id)arg1 isUserRequested:(BOOL)arg2;
-- (BOOL)refreshContainerWithIdentifier:(id)arg1 forDataclass:(id)arg2 isUserRequested:(BOOL)arg3;
+- (_Bool)refreshContainersForDataclass:(id)arg1;
+- (_Bool)refreshContainerListForDataclass:(id)arg1;
+- (_Bool)refreshContainerWithIdentifier:(id)arg1 forDataclass:(id)arg2;
+- (_Bool)refreshContainersForDataclass:(id)arg1 isUserRequested:(_Bool)arg2;
+- (_Bool)refreshContainerListForDataclass:(id)arg1 isUserRequested:(_Bool)arg2;
+- (_Bool)refreshContainerWithIdentifier:(id)arg1 forDataclass:(id)arg2 isUserRequested:(_Bool)arg3;
 - (id)fullAccountUsingLoader:(id)arg1;
 - (void)setEnabledForDataclasses:(id)arg1;
-- (void)setEnabled:(BOOL)arg1 forDataclass:(id)arg2;
-- (BOOL)isEnabledForDataclass:(id)arg1;
+- (void)setEnabled:(_Bool)arg1 forDataclass:(id)arg2;
+- (_Bool)isEnabledForDataclass:(id)arg1;
 - (id)enabledDataclasses;
 - (id)provisionedDataclasses;
 - (id)supportedDataclasses;
@@ -72,17 +67,6 @@
 - (void)dealloc;
 - (id)init;
 - (id)initWithProperties:(id)arg1;
-- (id)_profileRestrictedDataclasses;
-- (id)_orderedDataclasses:(id)arg1;
-- (id)_cachedSyncAccount;
-- (id)_initWithType:(id)arg1 class:(id)arg2;
-- (id)syncAccountCreatorClassNameForAccountType:(id)arg1;
-- (id)fullAccountCreatorClassNameForAccountType:(id)arg1 loader:(id)arg2;
-- (id)_creatorClassNameForAccountType:(id)arg1 creatorType:(id)arg2 loader:(id)arg3;
-- (void)setFullAccount:(id)arg1;
-- (void)setDisplayName:(id)arg1;
-- (void)_forcedSetEnabled:(BOOL)arg1 forDataclass:(id)arg2;
-- (void)_forcedSetAccountProperty:(id)arg1 forKey:(id)arg2;
 
 @end
 

@@ -8,17 +8,17 @@
 
 @class WDTableRow;
 
+// Not exported
 @interface WMTableRowMapper : CMMapper
 {
     WDTableRow *mWdTableRow;
     double mHeight;
 }
 
-+ (BOOL)isTableRowDeleted:(id)arg1;
++ (_Bool)isTableRowDeleted:(id)arg1;
 - (void)mapAt:(id)arg1 withState:(id)arg2;
 - (double)height;
 - (id)initWithWDTableRow:(id)arg1 parent:(id)arg2;
-- (void)setRowProperties:(id)arg1;
 
 @end
 

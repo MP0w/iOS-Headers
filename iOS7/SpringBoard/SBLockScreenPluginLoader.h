@@ -11,7 +11,7 @@
 }
 
 - (Class)_principleClassFromBundleWithName:(id)arg1;
-- (BOOL)_verifyPrincipleClass:(Class)arg1 fromBundleWithName:(id)arg2;
+- (_Bool)_verifyPrincipleClass:(Class)arg1 fromBundleWithName:(id)arg2;
 - (id)_pluginControllerFromPrincipalClass:(Class)arg1;
 - (id)pluginControllerForName:(id)arg1 activationContext:(id)arg2;
 

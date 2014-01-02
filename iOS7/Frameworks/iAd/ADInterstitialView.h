@@ -11,14 +11,14 @@
 @interface ADInterstitialView : UIView
 {
     ADInterstitialAd *_interstitialAd;
-    BOOL _dimmed;
+    _Bool _dimmed;
     ADTapGestureRecognizer *_tapGestureRecognizer;
     ADRemoteView *_remoteView;
     UIView *_dimmerView;
     ADTapGestureRecognizer *_gestureRecognizer;
 }
 
-@property(nonatomic) BOOL dimmed; // @synthesize dimmed=_dimmed;
+@property(nonatomic) _Bool dimmed; // @synthesize dimmed=_dimmed;
 @property(retain, nonatomic) ADTapGestureRecognizer *gestureRecognizer; // @synthesize gestureRecognizer=_gestureRecognizer;
 @property(retain, nonatomic) UIView *dimmerView; // @synthesize dimmerView=_dimmerView;
 @property(retain, nonatomic) ADRemoteView *remoteView; // @synthesize remoteView=_remoteView;
@@ -27,8 +27,8 @@
 - (void)didMoveToWindow;
 - (void)removeFromSuperview;
 - (void)setCenter:(struct CGPoint)arg1;
-- (void)setAlpha:(float)arg1;
-- (void)setHidden:(BOOL)arg1;
+- (void)setAlpha:(double)arg1;
+- (void)setHidden:(_Bool)arg1;
 - (void)setTransform:(struct CGAffineTransform)arg1;
 - (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;

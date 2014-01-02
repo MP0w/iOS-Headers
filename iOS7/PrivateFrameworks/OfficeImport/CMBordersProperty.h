@@ -8,6 +8,7 @@
 
 @class TSUColor;
 
+// Not exported
 @interface CMBordersProperty : CMProperty
 {
     TSUColor *mBorderColor;
@@ -20,7 +21,7 @@
     int mCustomWidth;
 }
 
-+ (BOOL)isStroked:(id)arg1;
++ (_Bool)isStroked:(id)arg1;
 - (id)colorString;
 - (id)widthString;
 - (id)styleString;
@@ -32,7 +33,7 @@
 - (void)adjustValues;
 - (void)setFromOadStroke:(id)arg1 atLocation:(int)arg2 state:(id)arg3;
 - (void)setNoneAtLocation:(int)arg1;
-- (BOOL)isNoneAtLocation:(int)arg1;
+- (_Bool)isNoneAtLocation:(int)arg1;
 - (id)initWithOADStroke:(id)arg1;
 - (id)init;
 

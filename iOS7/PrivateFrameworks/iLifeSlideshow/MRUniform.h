@@ -9,19 +9,19 @@
 @interface MRUniform : MUPoolObject
 {
     float m[16];
-    int i;
-    int length;
+    long long i;
+    long long length;
 }
 
-+ (BOOL)clearVars;
-+ (CDStruct_7b508128 *)poolInfo;
++ (_Bool)clearVars;
++ (CDStruct_32b7e343 *)poolInfo;
 - (id)initWithMat4:(float [16])arg1;
 - (id)initWithMat4ForMat3:(float [16])arg1;
-- (id)initWithI:(int)arg1;
-- (id)initWithVec4:(float)arg1:(float)arg2:(float)arg3:(float)arg4;
-- (id)initWithVec3:(float)arg1:(float)arg2:(float)arg3;
-- (id)initWithVec2:(float)arg1:(float)arg2;
-- (id)initWithFloat:(float)arg1;
+- (id)initWithI:(long long)arg1;
+- (id)initWithVec4:(double)arg1:(double)arg2:(double)arg3:(double)arg4;
+- (id)initWithVec3:(double)arg1:(double)arg2:(double)arg3;
+- (id)initWithVec2:(double)arg1:(double)arg2;
+- (id)initWithFloat:(double)arg1;
 
 @end
 

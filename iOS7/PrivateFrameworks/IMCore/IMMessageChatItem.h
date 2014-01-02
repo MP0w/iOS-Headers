@@ -12,10 +12,10 @@
 {
 }
 
-- (int)_reverseCompareToChatItem:(id)arg1;
-- (int)_compareToChatItem:(id)arg1;
+- (long long)_reverseCompareToChatItem:(id)arg1;
+- (long long)_compareToChatItem:(id)arg1;
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (void)_setMessage:(id)arg1;
 @property(readonly, nonatomic) IMMessage *message;
 - (id)initWithMessage:(id)arg1;

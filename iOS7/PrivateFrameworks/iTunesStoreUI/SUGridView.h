@@ -9,11 +9,11 @@
 #import "UITableViewDataSource-Protocol.h"
 #import "UITableViewDelegate-Protocol.h"
 
-@class NSMutableDictionary, SUGridRowTableViewCellLayoutManager, UIControl, UITableView;
+@class NSArray, NSMutableArray, NSMutableDictionary, SUGridRowTableViewCellLayoutManager, UIControl, UITableView;
 
 @interface SUGridView : UIView <UITableViewDataSource, UITableViewDelegate>
 {
-    int _animationCount;
+    long long _animationCount;
     struct __CFArray *_columnCountBySection;
     id <SUGridViewDataSource> _dataSource;
     id <SUGridViewDelegate> _delegate;
@@ -28,48 +28,55 @@
         unsigned int titleForHeader:1;
         unsigned int viewForHeader:1;
         unsigned int willDisplayCell:1;
+        unsigned int selectionDidChange:1;
     } _respondFlags;
     NSMutableDictionary *_reusableCells;
     UITableView *_tableView;
     UIControl *_touchCaptureView;
+    _Bool _editing;
+    NSMutableArray *_editSelection;
 }
 
+@property(readonly, nonatomic) NSArray *editSelection; // @synthesize editSelection=_editSelection;
 @property(readonly, nonatomic) UITableView *tableView; // @synthesize tableView=_tableView;
 @property(nonatomic) id <SUGridViewDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(nonatomic) id <SUGridViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)_reloadColumnCounts;
 - (void)_endSwipeToDelete;
 - (id)_copyCellSetForIndexPaths:(id)arg1;
-- (BOOL)_canDeleteCellAtIndexPath:(id)arg1;
+- (_Bool)_canDeleteCellAtIndexPath:(id)arg1;
 - (void)_animateDeletionOfCellsAtIndexPaths:(id)arg1;
+- (void)_toggleEditStateForCell:(id)arg1;
+- (void)_configureCellForEdit:(id)arg1 indexPath:(id)arg2;
 - (void)_reuseColumnCellsForCell:(id)arg1;
-- (int)_minimumColumnCount;
+- (long long)_minimumColumnCount;
 - (void)_animateDeletionOfCell:(id)arg1;
 - (void)_deleteAnimationStopped;
 - (void)_touchCaptureAction:(id)arg1;
 - (void)_gridSwipeGesture:(id)arg1;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
-- (id)tableView:(id)arg1 viewForHeaderInSection:(int)arg2;
-- (id)tableView:(id)arg1 titleForHeaderInSection:(int)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2;
+- (id)tableView:(id)arg1 viewForHeaderInSection:(long long)arg2;
+- (id)tableView:(id)arg1 titleForHeaderInSection:(long long)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (double)tableView:(id)arg1 heightForHeaderInSection:(long long)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
-- (float)marginForTableView:(id)arg1;
+- (long long)numberOfSectionsInTableView:(id)arg1;
+- (double)marginForTableView:(id)arg1;
 - (void)layoutSubviews;
 - (id)visibleCells;
+- (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)reloadData;
-- (void)reloadCellsAtIndexPaths:(id)arg1 withRowAnimation:(int)arg2;
+- (void)reloadCellsAtIndexPaths:(id)arg1 withRowAnimation:(long long)arg2;
 - (id)indexPathForCellAtPoint:(struct CGPoint)arg1;
 - (id)indexPathForCell:(id)arg1;
-- (int)globalRowForRowAtIndexPath:(id)arg1;
-- (int)globalIndexForCellAtIndexPath:(id)arg1;
+- (long long)globalRowForRowAtIndexPath:(id)arg1;
+- (long long)globalIndexForCellAtIndexPath:(id)arg1;
 - (id)dequeueReusableCellWithIdentifier:(id)arg1;
-- (void)deleteSections:(id)arg1 withRowAnimation:(int)arg2;
-- (void)deleteCellsAtIndexPaths:(id)arg1 animated:(BOOL)arg2;
+- (void)deleteSections:(id)arg1 withRowAnimation:(long long)arg2;
+- (void)deleteCellsAtIndexPaths:(id)arg1 animated:(_Bool)arg2;
 - (id)cellForIndexPath:(id)arg1;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 tableViewStyle:(int)arg2;
+- (id)initWithFrame:(struct CGRect)arg1 tableViewStyle:(long long)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

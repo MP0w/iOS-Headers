@@ -6,24 +6,25 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface __NSSKGraph : NSObject
 {
     struct edge *_edges;
     struct vertex *_vertices;
-    unsigned int _numV;
-    unsigned int _numE;
-    unsigned int _currE;
-    unsigned int _dump;
-    unsigned int _l_end;
+    unsigned long long _numV;
+    unsigned long long _numE;
+    unsigned long long _currE;
+    unsigned long long _dump;
+    unsigned long long _l_end;
 }
 
 - (struct edge **)isAcyclic;
-- (unsigned int)numOfEdges;
-- (BOOL)isEmpty;
-- (BOOL)addEdgeWithH1:(unsigned int)arg1 withH2:(unsigned int)arg2;
+- (unsigned long long)numOfEdges;
+- (_Bool)isEmpty;
+- (_Bool)addEdgeWithH1:(unsigned long long)arg1 withH2:(unsigned long long)arg2;
 - (void)finalize;
 - (void)dealloc;
-- (id)initWithNumberOfVertices:(int)arg1 numberOfEdges:(int)arg2;
+- (id)initWithNumberOfVertices:(long long)arg1 numberOfEdges:(long long)arg2;
 
 @end
 

@@ -16,39 +16,39 @@
     unsigned int _cachedPhysicalCluster;
     unsigned int _cachedClusterCount;
     unsigned int _cachedNextCluster;
-    BOOL _locked;
-    BOOL _contig;
+    _Bool _locked;
+    _Bool _contig;
+    unsigned int _startingCluster;
     ExFATVolume *_volume;
     ExFATFolder *_parent;
     NSString *_name;
-    unsigned int _startingCluster;
     unsigned long long _length;
-    struct timespec _createdDate;
-    struct timespec _modifiedDate;
+    long long _createdDate;
+    long long _modifiedDate;
     unsigned long long _validDataLength;
 }
 
 + (id)newItemWithVolume:(id)arg1 parent:(id)arg2 fileSet:(struct exfat_file_entry_set *)arg3;
-@property(nonatomic) BOOL contig; // @synthesize contig=_contig;
+@property(nonatomic) _Bool contig; // @synthesize contig=_contig;
 @property(nonatomic) unsigned long long validDataLength; // @synthesize validDataLength=_validDataLength;
 @property(nonatomic) unsigned int startingCluster; // @synthesize startingCluster=_startingCluster;
-@property(nonatomic, getter=isLocked) BOOL locked; // @synthesize locked=_locked;
-@property(nonatomic) struct timespec modifiedDate; // @synthesize modifiedDate=_modifiedDate;
-@property(nonatomic) struct timespec createdDate; // @synthesize createdDate=_createdDate;
+@property(nonatomic, getter=isLocked) _Bool locked; // @synthesize locked=_locked;
+@property(nonatomic) long long modifiedDate; // @synthesize modifiedDate=_modifiedDate;
+@property(nonatomic) long long createdDate; // @synthesize createdDate=_createdDate;
 @property(nonatomic) unsigned long long length; // @synthesize length=_length;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, nonatomic) ExFATFolder *parent; // @synthesize parent=_parent;
 @property(retain, nonatomic) ExFATVolume *volume; // @synthesize volume=_volume;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) BOOL isDirectory;
-- (id)getBufferAtOffset:(unsigned long long)arg1 ofLength:(unsigned long)arg2 error:(int *)arg3;
-- (long)writeBytes:(void *)arg1 ofLength:(unsigned long)arg2 atOffset:(unsigned long long)arg3;
-- (id)readDataOfLength:(unsigned long)arg1 atOffset:(unsigned long long)arg2;
-- (long)readBytesOfLength:(unsigned long)arg1 atOffset:(unsigned long long)arg2 toBuffer:(void *)arg3;
+@property(readonly, nonatomic) _Bool isDirectory;
+- (id)getBufferAtOffset:(unsigned long long)arg1 ofLength:(unsigned long long)arg2 error:(int *)arg3;
+- (long long)writeBytes:(void *)arg1 ofLength:(unsigned long long)arg2 atOffset:(unsigned long long)arg3;
+- (id)readDataOfLength:(unsigned long long)arg1 atOffset:(unsigned long long)arg2;
+- (long long)readBytesOfLength:(unsigned long long)arg1 atOffset:(unsigned long long)arg2 toBuffer:(void *)arg3;
 - (struct extent)physicalExtentAtOffset:(unsigned long long)arg1 ofLength:(unsigned long long)arg2;
 - (void)dealloc;
 - (id)_initWithVolume:(id)arg1 parent:(id)arg2 fileSet:(struct exfat_file_entry_set *)arg3;
-- (id)initWithVolume:(id)arg1 parent:(id)arg2 name:(id)arg3 startingCluster:(unsigned int)arg4 length:(unsigned long long)arg5 contiguous:(BOOL)arg6;
+- (id)initWithVolume:(id)arg1 parent:(id)arg2 name:(id)arg3 startingCluster:(unsigned int)arg4 length:(unsigned long long)arg5 contiguous:(_Bool)arg6;
 
 @end
 

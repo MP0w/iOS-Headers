@@ -14,13 +14,16 @@
     NSString *_property;
     NSString *_key;
     NSString *_identifier;
+    NSString *_label;
 }
 
+@property(readonly, nonatomic) NSString *label; // @synthesize label=_label;
 @property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(readonly, nonatomic) NSString *key; // @synthesize key=_key;
 @property(copy, nonatomic) NSString *property; // @synthesize property=_property;
 - (id)completion;
 - (void)dealloc;
+- (id)initWithValue:(id)arg1 property:(id)arg2 key:(id)arg3 identifier:(id)arg4 label:(id)arg5;
 - (id)initWithValue:(id)arg1 property:(id)arg2 key:(id)arg3 identifier:(id)arg4;
 @property(copy, nonatomic) NSDate *dateValue;
 @property(copy, nonatomic) NSString *stringValue;

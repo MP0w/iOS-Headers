@@ -8,6 +8,7 @@
 
 @class NSMutableArray, RTFTextTable;
 
+// Not exported
 @interface RTFReaderTableState : NSObject
 {
     RTFTextTable *_currentTable;
@@ -17,7 +18,7 @@
     int _currentRow;
     int _currentColumn;
     int _currentDefinitionColumn;
-    BOOL _currentRowIsLast;
+    _Bool _currentRowIsLast;
 }
 
 - (void)dealloc;

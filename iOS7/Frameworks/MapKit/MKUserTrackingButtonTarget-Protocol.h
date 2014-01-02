@@ -8,14 +8,14 @@
 
 @protocol MKUserTrackingButtonTarget <NSObject>
 + (Class)_activityIndicatorClass;
-- (int)_activityIndicatorStyle;
+- (long long)_activityIndicatorStyle;
 - (id)_trackingFollowWithHeadingImage;
 - (id)_trackingFollowImage;
 - (id)_trackingNoneImage;
 - (id)_trackingEmptyImage;
 - (void)_repositionViews;
-- (BOOL)_isHighlightedForState:(int)arg1;
-- (void)_updateForState:(int)arg1;
-- (void)setEnabled:(BOOL)arg1;
+- (_Bool)_isHighlightedForState:(long long)arg1;
+- (void)_updateForState:(long long)arg1;
+- (void)setEnabled:(_Bool)arg1;
 @end
 

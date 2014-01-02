@@ -10,28 +10,28 @@
 
 @interface SBMainStatusBarStateProvider : SBStatusBarStateProvider <UIStatusBarStateObserver>
 {
-    BOOL _overridePercent;
-    BOOL _killActivity;
-    BOOL _simulateInCallStatusBar;
-    char _itemIsDisabled[25];
-    char _itemWasDisabled[25];
-    BOOL _timeEnabled;
-    BOOL _timeCloaked;
-    BOOL _allButBatteryCloaked;
-    BOOL _telephonyAndBluetoothCloaked;
+    _Bool _overridePercent;
+    _Bool _killActivity;
+    _Bool _simulateInCallStatusBar;
+    _Bool _itemIsDisabled[25];
+    _Bool _itemWasDisabled[25];
+    _Bool _timeEnabled;
+    _Bool _timeCloaked;
+    _Bool _allButBatteryCloaked;
+    _Bool _telephonyAndBluetoothCloaked;
 }
 
 + (id)sharedInstance;
-- (void)statusBarStateProvider:(id)arg1 didPostStatusBarData:(const CDStruct_87a532be *)arg2 withActions:(int)arg3;
+- (void)statusBarStateProvider:(id)arg1 didPostStatusBarData:(const CDStruct_0e61b686 *)arg2 withActions:(int)arg3;
 - (void)_toggleSimulatesInCallStatusBar;
-- (void)_composePostDataFromAggregatorData:(CDStruct_87a532be *)arg1;
-- (BOOL)_shouldPostForVisitedItem:(int)arg1 withUpdates:(BOOL)arg2 toAggregatorData:(const CDStruct_87a532be *)arg3;
-- (void)setTelephonyAndBluetoothItemsCloaked:(BOOL)arg1;
-- (void)setAllItemsExceptBatteryCloaked:(BOOL)arg1;
-- (void)setTimeCloaked:(BOOL)arg1;
-- (void)enableTime:(BOOL)arg1 crossfade:(BOOL)arg2 crossfadeDuration:(double)arg3;
-- (void)enableTime:(BOOL)arg1;
-- (BOOL)isTimeEnabled;
+- (void)_composePostDataFromAggregatorData:(CDStruct_0e61b686 *)arg1;
+- (_Bool)_shouldPostForVisitedItem:(int)arg1 withUpdates:(_Bool)arg2 toAggregatorData:(const CDStruct_0e61b686 *)arg3;
+- (void)setTelephonyAndBluetoothItemsCloaked:(_Bool)arg1;
+- (void)setAllItemsExceptBatteryCloaked:(_Bool)arg1;
+- (void)setTimeCloaked:(_Bool)arg1;
+- (void)enableTime:(_Bool)arg1 crossfade:(_Bool)arg2 crossfadeDuration:(double)arg3;
+- (void)enableTime:(_Bool)arg1;
+- (_Bool)isTimeEnabled;
 - (void)_updateDisabledItems;
 - (void)dealloc;
 - (id)init;

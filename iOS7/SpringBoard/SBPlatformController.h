@@ -11,17 +11,18 @@
 @interface SBPlatformController : NSObject
 {
     NSString *_currentConfigurationName;
-    long _defaultIconInfoOnce;
+    long long _defaultIconInfoOnce;
     NSArray *_defaultStarkIconState;
     NSDictionary *_defaultIconState;
     NSSet *_defaultIconStateDisplayIdentifiers;
     NSLock *_iconStateDisplayIdentifiersLock;
     NSSet *_iconStateDisplayIdentifiers;
     NSString *_localizedDeviceName;
-    BOOL _hasGasGauge;
-    BOOL _supportsOpenGLES2;
-    BOOL _internalInstall;
-    BOOL _carrierInstall;
+    _Bool _hasGasGauge;
+    _Bool _supportsOpenGLES2;
+    _Bool _internalInstall;
+    _Bool _carrierInstall;
+    _Bool _singleCoreDevice;
 }
 
 + (id)uniqueDeviceIdentifier;
@@ -33,10 +34,12 @@
 - (void)_visibleIdentifiersChanged:(id)arg1;
 - (void)_loadDefaultIconInfoIfNecessary;
 - (id)_currentConfigurationName;
-- (BOOL)isCarrierInstall;
-- (BOOL)isInternalInstall;
-- (BOOL)supportsOpenGLES2;
-- (BOOL)hasGasGauge;
+- (_Bool)isN90Like;
+- (_Bool)isSingleCoreDevice;
+- (_Bool)isCarrierInstall;
+- (_Bool)isInternalInstall;
+- (_Bool)supportsOpenGLES2;
+- (_Bool)hasGasGauge;
 - (id)localizedPlatformName;
 - (id)iconStateDisplayIdentifiers;
 - (void)registerForIconVisibilityChanges;

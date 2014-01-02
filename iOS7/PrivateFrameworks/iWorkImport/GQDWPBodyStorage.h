@@ -8,6 +8,7 @@
 
 @class GQDWPLayoutStorage;
 
+// Not exported
 @interface GQDWPBodyStorage : GQDWPStorage
 {
     GQDWPLayoutStorage *mFootnotes;

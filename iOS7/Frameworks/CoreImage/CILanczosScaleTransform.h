@@ -8,6 +8,7 @@
 
 @class CIImage, NSNumber;
 
+// Not exported
 @interface CILanczosScaleTransform : CIFilter
 {
     CIImage *inputImage;
@@ -20,7 +21,7 @@
 @property(retain, nonatomic) NSNumber *inputScale; // @synthesize inputScale;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
-- (BOOL)_isIdentity;
+- (_Bool)_isIdentity;
 - (void)setDefaults;
 
 @end

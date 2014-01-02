@@ -11,10 +11,10 @@
 @interface PUPhotosSharingSelectionView : UICollectionReusableView
 {
     UIImageView *_imageView;
-    BOOL _selected;
+    _Bool _selected;
 }
 
-@property(nonatomic, getter=isSelected) BOOL selected; // @synthesize selected=_selected;
+@property(nonatomic, getter=isSelected) _Bool selected; // @synthesize selected=_selected;
 - (void).cxx_destruct;
 - (void)_updateSelected;
 - (id)initWithFrame:(struct CGRect)arg1;

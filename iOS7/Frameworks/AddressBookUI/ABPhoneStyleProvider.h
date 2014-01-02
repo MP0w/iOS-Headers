@@ -10,8 +10,8 @@
 {
 }
 
-- (BOOL)cardActionsAllowFaceTimeFavorites;
-- (BOOL)cardActionsAllowVoiceFavorites;
+- (_Bool)cardActionsAllowFaceTimeFavorites;
+- (_Bool)cardActionsAllowVoiceFavorites;
 
 @end
 

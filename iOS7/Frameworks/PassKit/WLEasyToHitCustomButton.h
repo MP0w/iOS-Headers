@@ -12,7 +12,7 @@
 }
 
 @property(nonatomic) struct UIEdgeInsets margins; // @synthesize margins=_margins;
-- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (id)initWithMargins:(struct UIEdgeInsets)arg1;
 
 @end

@@ -9,16 +9,17 @@
 @class NSString;
 
 @protocol PCInterfaceMonitorProtocol <NSObject>
-@property(readonly, nonatomic) BOOL isRadioHot;
-@property(readonly, nonatomic) BOOL isPoorLinkQuality;
+@property(readonly, nonatomic) _Bool isRadioHot;
+@property(readonly, nonatomic) _Bool isPoorLinkQuality;
 @property(readonly, nonatomic) NSString *linkQualityString;
-@property(readonly, nonatomic) BOOL isInternetReachable;
-@property(readonly, nonatomic) BOOL isInterfaceHistoricallyUsable;
-@property(readonly, nonatomic) BOOL isInterfaceUsable;
+@property(readonly, nonatomic) _Bool isInternetReachable;
+@property(readonly, nonatomic) _Bool isInterfaceHistoricallyUsable;
+@property(readonly, nonatomic) _Bool isInterfaceUsable;
 @property(readonly, nonatomic) int linkQuality;
-@property(readonly, nonatomic) int interfaceIdentifier;
+@property(readonly, nonatomic) long long interfaceIdentifier;
 
 @optional
+@property(readonly, nonatomic) _Bool isLTEWithCDRX;
 @property(readonly, nonatomic) struct __CFString *currentRAT;
 @end
 

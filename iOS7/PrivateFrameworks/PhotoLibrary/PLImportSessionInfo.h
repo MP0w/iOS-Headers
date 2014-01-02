@@ -10,28 +10,28 @@
 
 @interface PLImportSessionInfo : NSObject
 {
-    BOOL _importComplete;
-    BOOL _importStopped;
-    BOOL _importingSelection;
+    _Bool _importComplete;
+    _Bool _importStopped;
+    _Bool _importingSelection;
     NSMutableIndexSet *_importIndexes;
     NSMutableIndexSet *_importInProgressIndexes;
     NSMutableIndexSet *_importErrorIndexes;
     NSMutableIndexSet *_importCompleteIndexes;
 }
 
-@property(nonatomic) BOOL importingSelection; // @synthesize importingSelection=_importingSelection;
+@property(nonatomic) _Bool importingSelection; // @synthesize importingSelection=_importingSelection;
 @property(readonly, nonatomic) NSIndexSet *completedIndexes; // @synthesize completedIndexes=_importCompleteIndexes;
 @property(readonly, nonatomic) NSIndexSet *errorIndexes; // @synthesize errorIndexes=_importErrorIndexes;
 @property(readonly, nonatomic) NSIndexSet *inProgressIndexes; // @synthesize inProgressIndexes=_importInProgressIndexes;
 @property(readonly, nonatomic) NSIndexSet *importIndexes; // @synthesize importIndexes=_importIndexes;
-@property(nonatomic) BOOL importStopped; // @synthesize importStopped=_importStopped;
-@property(nonatomic) BOOL importComplete; // @synthesize importComplete=_importComplete;
-- (void)shiftIndexesStartingAtIndex:(unsigned int)arg1 by:(unsigned int)arg2;
-- (void)removeIndex:(unsigned int)arg1;
-- (void)completeImportForIndex:(unsigned int)arg1 error:(BOOL)arg2;
-- (void)beginImportForIndex:(unsigned int)arg1;
-- (BOOL)_isImportCompleteForIndex:(unsigned int)arg1;
-- (void)addIndexToImport:(unsigned int)arg1;
+@property(nonatomic) _Bool importStopped; // @synthesize importStopped=_importStopped;
+@property(nonatomic) _Bool importComplete; // @synthesize importComplete=_importComplete;
+- (void)shiftIndexesStartingAtIndex:(unsigned long long)arg1 by:(unsigned long long)arg2;
+- (void)removeIndex:(unsigned long long)arg1;
+- (void)completeImportForIndex:(unsigned long long)arg1 error:(_Bool)arg2;
+- (void)beginImportForIndex:(unsigned long long)arg1;
+- (_Bool)_isImportCompleteForIndex:(unsigned long long)arg1;
+- (void)addIndexToImport:(unsigned long long)arg1;
 - (void)dealloc;
 - (id)initWithImportIndexes:(id)arg1;
 

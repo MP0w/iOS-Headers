@@ -8,6 +8,7 @@
 
 @class EDReference;
 
+// Not exported
 @interface EMCellMapper : CMMapper
 {
     struct EDCellHeader *edCell;
@@ -16,20 +17,20 @@
     int firstColumn;
     int lastColumn;
     int columnSpan;
-    BOOL firstCellFlag;
-    BOOL spreadLeftFlag;
+    _Bool firstCellFlag;
+    _Bool spreadLeftFlag;
     double columnWidth;
 }
 
 - (void)mapAt:(id)arg1 withState:(id)arg2 height:(double)arg3;
 - (void)mapAt:(id)arg1 withState:(id)arg2;
 - (void)mapRowColSpansAt:(id)arg1 withState:(id)arg2;
-- (void)adjustColumnSpanForGrid:(double *)arg1 columnCount:(unsigned int)arg2 nextCell:(struct EDCellHeader *)arg3 withState:(id)arg4;
-- (BOOL)isCellMerged;
-- (BOOL)isCellSpreading:(id)arg1;
-- (BOOL)isFirstCell;
+- (void)adjustColumnSpanForGrid:(double *)arg1 columnCount:(unsigned long long)arg2 nextCell:(struct EDCellHeader *)arg3 withState:(id)arg4;
+- (_Bool)isCellMerged;
+- (_Bool)isCellSpreading:(id)arg1;
+- (_Bool)isFirstCell;
 - (void)setFirstCellFlag;
-- (BOOL)isCellEmpty;
+- (_Bool)isCellEmpty;
 - (int)columnSpan;
 - (void)resetColumnSpan:(int)arg1;
 - (double)columnWidth;
@@ -39,7 +40,6 @@
 - (int)lastColumn;
 - (id)initWithEDCell:(struct EDCellHeader *)arg1 rowInfo:(struct EDRowInfo *)arg2 parent:(id)arg3 state:(id)arg4;
 - (id)initWithParent:(id)arg1;
-- (id)mapHyperlinkAt:(id)arg1;
 
 @end
 

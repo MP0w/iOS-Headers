@@ -18,20 +18,17 @@
     NSMutableArray *_sections;
     NSArray *_searchDomains;
     unsigned int _resultCount;
-    unsigned int _latestCurrentSection;
-    unsigned int _latestCurrentReplacementGroup;
-    unsigned int *_replacementGroupLengths;
     int _options;
     SPSearchResultSection *_topHitResultSection;
     SPSearchResultSection *_searchThroughSection;
-    BOOL _searchThroughAllowed;
-    BOOL _queryComplete;
+    _Bool _searchThroughAllowed;
+    _Bool _queryComplete;
     NSObject<SPSearchAgentDelegate> *_delegate;
 }
 
 @property(nonatomic) NSObject<SPSearchAgentDelegate> *delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSArray *searchDomains; // @synthesize searchDomains=_searchDomains;
-@property(readonly, nonatomic) BOOL queryComplete; // @synthesize queryComplete=_queryComplete;
+@property(readonly, nonatomic) _Bool queryComplete; // @synthesize queryComplete=_queryComplete;
 @property(readonly, nonatomic) unsigned int resultCount; // @synthesize resultCount=_resultCount;
 @property(nonatomic) int options; // @synthesize options=_options;
 - (void)dealloc;
@@ -42,13 +39,12 @@
 - (void)searchDaemonQueryCompleted:(id)arg1;
 - (void)searchDaemonQuery:(id)arg1 encounteredError:(id)arg2;
 - (void)searchDaemonQuery:(id)arg1 addedResults:(id)arg2;
-- (BOOL)setQueryString:(id)arg1;
-- (BOOL)_shouldIgnoreQuery:(id)arg1;
+- (_Bool)setQueryString:(id)arg1;
+- (_Bool)_shouldIgnoreQuery:(id)arg1;
 - (id)queryString;
 - (void)retrieveImageDataForResult:(id)arg1 inSection:(id)arg2 preferredSize:(struct CGSize)arg3 completion:(id)arg4;
-- (BOOL)hasResults;
+- (_Bool)hasResults;
 - (void)updateSearchThroughWithString:(id)arg1;
-- (BOOL)sectionAtIndexIsValid:(unsigned int)arg1;
 - (void)removeSectionAtIndex:(unsigned int)arg1;
 - (id)sectionAtIndex:(unsigned int)arg1;
 - (unsigned int)sectionCount;
@@ -56,6 +52,7 @@
 - (void)invalidate;
 - (void)addDeserializer:(id)arg1;
 - (void)addSections:(id)arg1;
+- (long long)_indexOfCompatibleSection:(id)arg1;
 - (void)handleOptionsForNewSections:(id)arg1;
 
 @end

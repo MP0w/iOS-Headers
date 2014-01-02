@@ -8,29 +8,29 @@
 
 @class NSArray, UIPrintingMessageView;
 
+// Not exported
 @interface UIPrintStatusJobsViewController : UITableViewController
 {
     NSArray *_jobs;
-    BOOL _autoPush;
+    _Bool _autoPush;
     UIPrintingMessageView *_noJobsView;
 }
 
-- (void)tableView:(id)arg1 commitEditingStyle:(int)arg2 forRowAtIndexPath:(id)arg3;
+- (void)tableView:(id)arg1 commitEditingStyle:(long long)arg2 forRowAtIndexPath:(id)arg3;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)willReappear;
 - (void)handleJobListDidChange;
 - (void)updateJobInfo:(id)arg1;
 - (void)updateTableViewCell:(id)arg1 withJob:(id)arg2;
 - (id)visibleJobs;
 - (void)updateForJobCountChange;
-- (void)pushSingleJobAnimated:(BOOL)arg1;
-- (void)pushJob:(id)arg1 animated:(BOOL)arg2;
-- (struct CGSize)contentSizeForViewInPopover;
+- (void)pushSingleJobAnimated:(_Bool)arg1;
+- (void)pushJob:(id)arg1 animated:(_Bool)arg2;
 - (void)loadView;
 - (void)dealloc;
 - (id)init;

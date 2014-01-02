@@ -10,37 +10,37 @@
 
 @interface SBSwitchAppGestureView : UIView
 {
-    int m_orientation;
+    long long m_orientation;
     SBApplication *m_startingApp;
     SBApplication *m_endingApp;
     SBApplication *m_leftwardApp;
     SBApplication *m_rightwardApp;
-    int m_startingViewOrientation;
-    int m_leftwardViewOrientation;
-    int m_rightwardViewOrientation;
+    long long m_startingViewOrientation;
+    long long m_leftwardViewOrientation;
+    long long m_rightwardViewOrientation;
     UIView *m_startingView;
     UIView *m_leftwardView;
     UIView *m_rightwardView;
-    float m_pageWidth;
-    float m_percentage;
-    float m_contentOffset;
+    double m_pageWidth;
+    double m_percentage;
+    double m_contentOffset;
     SBStretchTransformer *m_stretchTransformer;
-    BOOL m_finishingPaging;
-    BOOL m_underflowing;
-    BOOL m_overflowing;
+    _Bool m_finishingPaging;
+    _Bool m_underflowing;
+    _Bool m_overflowing;
     id m_completion;
 }
 
 @property(copy, nonatomic) id completion; // @synthesize completion=m_completion;
-@property(nonatomic) BOOL overflowing; // @synthesize overflowing=m_overflowing;
-@property(nonatomic) BOOL underflowing; // @synthesize underflowing=m_underflowing;
+@property(nonatomic) _Bool overflowing; // @synthesize overflowing=m_overflowing;
+@property(nonatomic) _Bool underflowing; // @synthesize underflowing=m_underflowing;
 @property(retain, nonatomic) SBStretchTransformer *stretchTransformer; // @synthesize stretchTransformer=m_stretchTransformer;
-@property(nonatomic) float contentOffset; // @synthesize contentOffset=m_contentOffset;
-@property(nonatomic) float percentage; // @synthesize percentage=m_percentage;
-@property(nonatomic) float pageWidth; // @synthesize pageWidth=m_pageWidth;
-@property(nonatomic) int rightwardViewOrientation; // @synthesize rightwardViewOrientation=m_rightwardViewOrientation;
-@property(nonatomic) int leftwardViewOrientation; // @synthesize leftwardViewOrientation=m_leftwardViewOrientation;
-@property(nonatomic) int startingViewOrientation; // @synthesize startingViewOrientation=m_startingViewOrientation;
+@property(nonatomic) double contentOffset; // @synthesize contentOffset=m_contentOffset;
+@property(nonatomic) double percentage; // @synthesize percentage=m_percentage;
+@property(nonatomic) double pageWidth; // @synthesize pageWidth=m_pageWidth;
+@property(nonatomic) long long rightwardViewOrientation; // @synthesize rightwardViewOrientation=m_rightwardViewOrientation;
+@property(nonatomic) long long leftwardViewOrientation; // @synthesize leftwardViewOrientation=m_leftwardViewOrientation;
+@property(nonatomic) long long startingViewOrientation; // @synthesize startingViewOrientation=m_startingViewOrientation;
 @property(retain, nonatomic) UIView *rightwardView; // @synthesize rightwardView=m_rightwardView;
 @property(retain, nonatomic) UIView *leftwardView; // @synthesize leftwardView=m_leftwardView;
 @property(retain, nonatomic) UIView *startingView; // @synthesize startingView=m_startingView;
@@ -48,28 +48,28 @@
 @property(retain, nonatomic) SBApplication *leftwardApp; // @synthesize leftwardApp=m_leftwardApp;
 @property(retain, nonatomic) SBApplication *endingApp; // @synthesize endingApp=m_endingApp;
 @property(retain, nonatomic) SBApplication *startingApp; // @synthesize startingApp=m_startingApp;
-@property(nonatomic) int orientation; // @synthesize orientation=m_orientation;
-@property(readonly, nonatomic) BOOL pagingRightward;
-@property(readonly, nonatomic) BOOL pagingLeftward;
-- (BOOL)isPagingOverflowPercentage:(float)arg1;
-- (BOOL)isPagingUnderflowPercentage:(float)arg1;
-- (void)stretchTransformerAnimationDidStop:(BOOL)arg1;
-- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
-- (void)moveToContentOffset:(float)arg1 percentage:(float)arg2 animated:(BOOL)arg3;
-- (void)moveToApp:(id)arg1 animated:(BOOL)arg2;
+@property(nonatomic) long long orientation; // @synthesize orientation=m_orientation;
+@property(readonly, nonatomic) _Bool pagingRightward;
+@property(readonly, nonatomic) _Bool pagingLeftward;
+- (_Bool)isPagingOverflowPercentage:(double)arg1;
+- (_Bool)isPagingUnderflowPercentage:(double)arg1;
+- (void)stretchTransformerAnimationDidStop:(_Bool)arg1;
+- (void)animationDidStop:(id)arg1 finished:(_Bool)arg2;
+- (void)moveToContentOffset:(double)arg1 percentage:(double)arg2 animated:(_Bool)arg3;
+- (void)moveToApp:(id)arg1 animated:(_Bool)arg2;
 - (void)moveToApp:(id)arg1;
-- (float)opacityForPercentage:(float)arg1;
-- (float)scaleForPercentage:(float)arg1;
-- (float)percentageForApp:(id)arg1;
-- (float)contentOffsetForApp:(id)arg1;
+- (double)opacityForPercentage:(double)arg1;
+- (double)scaleForPercentage:(double)arg1;
+- (double)percentageForApp:(id)arg1;
+- (double)contentOffsetForApp:(id)arg1;
 - (void)finishBackwardToStartWithCompletion:(id)arg1;
-- (void)finishForwardToEndWithPercentage:(float)arg1 completion:(id)arg2;
-- (void)updatePaging:(float)arg1;
+- (void)finishForwardToEndWithPercentage:(double)arg1 completion:(id)arg2;
+- (void)updatePaging:(double)arg1;
 - (void)beginPaging;
 - (id)viewForApp:(id)arg1;
 - (void)transformGestureViewContainer:(id)arg1;
 - (void)dealloc;
-- (id)initWithInterfaceOrientation:(int)arg1 startingApp:(id)arg2 leftwardApp:(id)arg3 rightwardApp:(id)arg4;
+- (id)initWithInterfaceOrientation:(long long)arg1 startingApp:(id)arg2 leftwardApp:(id)arg3 rightwardApp:(id)arg4;
 
 @end
 

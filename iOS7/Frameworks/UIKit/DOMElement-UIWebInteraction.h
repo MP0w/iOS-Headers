@@ -7,7 +7,7 @@
 #import "DOMElement.h"
 
 @interface DOMElement (UIWebInteraction)
-- (BOOL)touchCalloutEnabled;
+- (_Bool)touchCalloutEnabled;
 - (id)tapHighlightColor;
 @end
 

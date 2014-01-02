@@ -8,6 +8,7 @@
 
 @class NSData, NSMapTable, NSMutableDictionary, NSMutableString, NSURL, RTFCPZArchive, RTFHTMLWriter, RTFNSColor, RTFReaderState, RTF_CMArchiveManager;
 
+// Not exported
 @interface RTFReader : NSObject
 {
     RTFReaderState *_readerState;
@@ -23,7 +24,7 @@
         unsigned char thin[128];
         unsigned short fat[128];
     } _textBuffer;
-    unsigned int _textBufferIndex;
+    unsigned long long _textBufferIndex;
     int _rtfVersion;
     int _cocoaVersion;
     int _cocoaSubVersion;
@@ -31,30 +32,30 @@
     RTFNSColor *_documentBackgroundColor;
     NSMutableDictionary *_documentInfoDictionary;
     NSMapTable *_cachedRTFFontTable;
-    float _hyphenationFactor;
-    float _defaultTabInterval;
+    double _hyphenationFactor;
+    double _defaultTabInterval;
     struct _NSRTFPriv _private;
-    BOOL _textBufferContentsIsFat;
-    BOOL _explicitCharSetEncountered;
-    BOOL _isRTLDocument;
-    int _readLimit;
-    int _thumbnailLimit;
-    BOOL _limitReached;
-    BOOL _currentRowIsLast;
+    _Bool _textBufferContentsIsFat;
+    _Bool _explicitCharSetEncountered;
+    _Bool _isRTLDocument;
+    long long _readLimit;
+    long long _thumbnailLimit;
+    _Bool _limitReached;
+    _Bool _currentRowIsLast;
 }
 
 - (void)_insertAttachmentNamed:(id)arg1;
 - (void)read;
-- (float)defaultTabInterval;
-- (void)setDefaultTabInterval:(float)arg1;
+- (double)defaultTabInterval;
+- (void)setDefaultTabInterval:(double)arg1;
 - (void)setBackgroundColor:(id)arg1;
 - (void)setHyphenationFactor:(float)arg1;
-- (void)setReadOnly:(int)arg1;
-- (float)floatCocoaVersion;
-- (void)setCocoaSubVersion:(int)arg1;
-- (void)setCocoaVersion:(int)arg1;
-- (int)cocoaSubVersion;
-- (int)cocoaVersion;
+- (void)setReadOnly:(long long)arg1;
+- (double)floatCocoaVersion;
+- (void)setCocoaSubVersion:(long long)arg1;
+- (void)setCocoaVersion:(long long)arg1;
+- (long long)cocoaSubVersion;
+- (long long)cocoaVersion;
 - (void)dealloc;
 - (id)initWithPackageURL:(id)arg1 archiver:(id)arg2;
 - (id)initWithZippedRTFD:(id)arg1 archiver:(id)arg2;

@@ -14,16 +14,17 @@
 
 + (id)appPunchOutWithDictionary:(id)arg1 context:(id)arg2;
 + (id)appPunchOut;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSURL *punchOutUri;
 @property(copy, nonatomic) NSString *punchOutName;
 @property(copy, nonatomic) NSString *providerId;
 @property(copy, nonatomic) NSString *bundleId;
 @property(copy, nonatomic) NSURL *appStoreUri;
-@property(nonatomic) BOOL appInstalled;
+@property(nonatomic) _Bool appInstalled;
 @property(copy, nonatomic) NSDictionary *appIconMap;
 @property(retain, nonatomic) SAUIImageResource *appIcon;
 @property(copy, nonatomic) NSString *appDisplayName;
+@property(nonatomic) _Bool appAvailableInStorefront;
 @property(retain, nonatomic) SAUIAddViews *alternativePunchOut;
 - (id)encodedClassName;
 - (id)groupIdentifier;

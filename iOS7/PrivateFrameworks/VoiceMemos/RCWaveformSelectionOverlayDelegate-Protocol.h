@@ -7,10 +7,10 @@
 #import "NSObject-Protocol.h"
 
 @protocol RCWaveformSelectionOverlayDelegate <NSObject>
-- (double)waveformSelectionOverlay:(id)arg1 timeForOffset:(float)arg2;
-- (float)waveformSelectionOverlay:(id)arg1 offsetForTime:(double)arg2;
-- (CDStruct_73a5d3ca)waveformSelectionOverlay:(id)arg1 willChangeSelectedTimeRange:(CDStruct_73a5d3ca)arg2 isTracking:(BOOL)arg3;
-- (void)waveformSelectionOverlay:(id)arg1 didFinishTrackingSelectionBeginTime:(BOOL)arg2 endTime:(BOOL)arg3;
-- (void)waveformSelectionOverlay:(id)arg1 willBeginTrackingSelectionBeginTime:(BOOL)arg2 endTime:(BOOL)arg3;
+- (double)waveformSelectionOverlay:(id)arg1 timeForOffset:(double)arg2;
+- (double)waveformSelectionOverlay:(id)arg1 offsetForTime:(double)arg2;
+- (CDStruct_73a5d3ca)waveformSelectionOverlay:(id)arg1 willChangeSelectedTimeRange:(CDStruct_73a5d3ca)arg2 isTracking:(_Bool)arg3;
+- (void)waveformSelectionOverlay:(id)arg1 didFinishTrackingSelectionBeginTime:(_Bool)arg2 endTime:(_Bool)arg3;
+- (void)waveformSelectionOverlay:(id)arg1 willBeginTrackingSelectionBeginTime:(_Bool)arg2 endTime:(_Bool)arg3;
 @end
 

@@ -21,12 +21,12 @@
 + (void)registerCallbackWithKey:(int)arg1 forClientIdentifier:(unsigned int)arg2;
 + (id)callbacksForClientIdentifier:(unsigned int)arg1;
 + (void)sendCallback:(id)arg1;
-+ (BOOL)isClientTrustedWithPortToken:(CDStruct_6ad76789)arg1;
-+ (long)removeClientWithPort:(unsigned int)arg1;
++ (_Bool)isClientTrustedWithPortToken:(CDStruct_6ad76789)arg1;
++ (long long)removeClientWithPort:(unsigned int)arg1;
 + (id)addClientGetIdentifier:(unsigned int *)arg1 token:(CDStruct_6ad76789)arg2 getPort:(unsigned int *)arg3;
 + (void)initialize;
 - (void)_sendCallback:(id)arg1;
-- (BOOL)_wantsCallback:(id)arg1;
+- (_Bool)_wantsCallback:(id)arg1;
 - (id)_dequeueCallbacks;
 - (void)_registerCallbackWithKey:(int)arg1;
 - (void)_invalidate;

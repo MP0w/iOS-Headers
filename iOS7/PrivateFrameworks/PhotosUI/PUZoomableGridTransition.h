@@ -6,44 +6,46 @@
 
 #import "NSObject.h"
 
-@class NSIndexPath, PUZoomableGridViewController, PUZoomableGridZoomLevel, UICollectionViewTransitionLayout;
+#import "UIViewControllerInteractiveTransitioning-Protocol.h"
 
-@interface PUZoomableGridTransition : NSObject
+@class NSIndexPath, PUMomentsZoomLevelManager, UICollectionView, UICollectionViewTransitionLayout;
+
+@interface PUZoomableGridTransition : NSObject <UIViewControllerInteractiveTransitioning>
 {
-    BOOL _updatePeripheralUI;
-    PUZoomableGridViewController *_zoomableGridViewController;
-    PUZoomableGridZoomLevel *_originZoomLevel;
-    PUZoomableGridZoomLevel *_targetZoomLevel;
-    unsigned int _transitionState;
+    UICollectionView *_collectionView;
+    _Bool _interactive;
+    PUMomentsZoomLevelManager *_zoomLevelManager;
+    unsigned long long _originZoomLevel;
+    unsigned long long _targetZoomLevel;
+    unsigned long long _transitionState;
     NSIndexPath *_anchorItemIndexPath;
-    float _currentInteractiveProgress;
+    double _currentInteractiveProgress;
     UICollectionViewTransitionLayout *__transitionLayout;
+    id <UIViewControllerContextTransitioning> _transitionContext;
     struct CGSize _currentInteractiveCenterOffset;
 }
 
+@property(retain, nonatomic) id <UIViewControllerContextTransitioning> transitionContext; // @synthesize transitionContext=_transitionContext;
 @property(retain, nonatomic, setter=_setTransitionLayout:) UICollectionViewTransitionLayout *_transitionLayout; // @synthesize _transitionLayout=__transitionLayout;
 - (void)_setCurrentInteractiveCenterOffset:(struct CGSize)arg1;
 @property(nonatomic) struct CGSize currentInteractiveCenterOffset; // @synthesize currentInteractiveCenterOffset=_currentInteractiveCenterOffset;
-- (void)_setCurrentInteractiveProgress:(float)arg1;
-@property(nonatomic) float currentInteractiveProgress; // @synthesize currentInteractiveProgress=_currentInteractiveProgress;
-@property(nonatomic) BOOL updatePeripheralUI; // @synthesize updatePeripheralUI=_updatePeripheralUI;
-- (void)_setAnchorItemIndexPath:(id)arg1;
+- (void)_setCurrentInteractiveProgress:(double)arg1;
+@property(nonatomic) double currentInteractiveProgress; // @synthesize currentInteractiveProgress=_currentInteractiveProgress;
 @property(retain, nonatomic) NSIndexPath *anchorItemIndexPath; // @synthesize anchorItemIndexPath=_anchorItemIndexPath;
-@property(nonatomic) unsigned int transitionState; // @synthesize transitionState=_transitionState;
-- (void)_setTargetZoomLevel:(id)arg1;
-@property(retain, nonatomic) PUZoomableGridZoomLevel *targetZoomLevel; // @synthesize targetZoomLevel=_targetZoomLevel;
-- (void)_setOriginZoomLevel:(id)arg1;
-@property(retain, nonatomic) PUZoomableGridZoomLevel *originZoomLevel; // @synthesize originZoomLevel=_originZoomLevel;
-@property(readonly, nonatomic) PUZoomableGridViewController *zoomableGridViewController; // @synthesize zoomableGridViewController=_zoomableGridViewController;
+@property(nonatomic) unsigned long long transitionState; // @synthesize transitionState=_transitionState;
+- (void)_setTargetZoomLevel:(unsigned long long)arg1;
+@property(nonatomic) unsigned long long targetZoomLevel; // @synthesize targetZoomLevel=_targetZoomLevel;
+- (void)_setOriginZoomLevel:(unsigned long long)arg1;
+@property(nonatomic) unsigned long long originZoomLevel; // @synthesize originZoomLevel=_originZoomLevel;
+@property(readonly, nonatomic) PUMomentsZoomLevelManager *zoomLevelManager; // @synthesize zoomLevelManager=_zoomLevelManager;
+@property(readonly, nonatomic, getter=isInteractive) _Bool interactive; // @synthesize interactive=_interactive;
 - (void).cxx_destruct;
-- (void)_setTransitionState:(unsigned int)arg1;
-- (void)_prepareLayoutsForTransitionZoomingOut:(BOOL)arg1 anchorShiftsColumns:(BOOL)arg2 interactive:(BOOL)arg3;
+- (void)_setTransitionState:(unsigned long long)arg1;
 - (void)cancelInteractiveTransitionAnimated;
 - (void)finishInteractiveTransitionAnimated;
-- (void)updateInteractiveTransitionForProgress:(float)arg1 centerOffset:(struct CGSize)arg2;
-- (void)beginInteractiveTransitionWithAnchorItemIndexPath:(id)arg1 anchorShiftsColumns:(BOOL)arg2 zoomingOut:(BOOL)arg3 completion:(id)arg4;
-- (void)beginTransitionWithAnchorItemIndexPath:(id)arg1 animated:(BOOL)arg2 anchorShiftsColumns:(BOOL)arg3 zoomingOut:(BOOL)arg4 completion:(id)arg5;
-- (id)initWithOriginLevel:(id)arg1 targetLevel:(id)arg2 zoomableGridViewController:(id)arg3;
+- (void)updateInteractiveTransitionForProgress:(double)arg1 centerOffset:(struct CGSize)arg2;
+- (void)startInteractiveTransition:(id)arg1;
+- (id)initWithOriginLevel:(unsigned long long)arg1 targetLevel:(unsigned long long)arg2 zoomLevelManager:(id)arg3 interactive:(_Bool)arg4;
 
 @end
 

@@ -21,8 +21,9 @@
 @property(readonly, nonatomic) SKUIItem *item; // @synthesize item=_item;
 @property(readonly, nonatomic) SKUIEditorialComponent *editorial; // @synthesize editorial=_editorial;
 - (void).cxx_destruct;
+- (void)_setLockupStyle:(struct SKUILockupStyle)arg1;
 - (void)_setItem:(id)arg1;
-- (int)componentType;
+- (long long)componentType;
 - (id)initWithItem:(id)arg1 style:(struct SKUILockupStyle)arg2;
 - (id)initWithItemIdentifier:(long long)arg1 style:(struct SKUILockupStyle)arg2;
 - (id)initWithCustomPageContext:(id)arg1;

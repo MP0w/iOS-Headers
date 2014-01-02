@@ -23,10 +23,10 @@
 - (id)message;
 - (id)title;
 - (id)showInViewController:(id)arg1;
-@property(readonly, nonatomic) int priorityIndex;
-- (BOOL)hasActionOfType:(int)arg1;
+@property(readonly, nonatomic) long long priorityIndex;
+- (_Bool)hasActionOfType:(long long)arg1;
 @property(readonly, nonatomic) ACDataclassAction *firstDestructiveAction;
-@property(readonly, nonatomic) BOOL hasDestructiveActions;
+@property(readonly, nonatomic) _Bool hasDestructiveActions;
 - (void)addAffectedDataclass:(id)arg1;
 - (id)initWithActions:(id)arg1 affectingAccount:(id)arg2;
 

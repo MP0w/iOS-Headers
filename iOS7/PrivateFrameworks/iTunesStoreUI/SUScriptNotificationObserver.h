@@ -14,7 +14,9 @@
     struct __CFSet *_receivers;
 }
 
+- (void)_enumerateReceiversUsingBlock:(id)arg1;
 - (void)_endObservingNotifications;
+- (void)_dispatchEventWithDictionary:(id)arg1 forName:(id)arg2;
 - (void)_dispatchEvent:(id)arg1 forName:(id)arg2;
 - (void)_beginObservingNotifications;
 - (void)_accessibilityPerformEscape;
@@ -24,6 +26,7 @@
 - (void)_accessibilityPerformScrollUp;
 - (void)_softwareMapChangedNotification:(id)arg1;
 - (void)_restrictionsChangedNotification:(id)arg1;
+- (void)_purchaseRequestDidSucceedNotification:(id)arg1;
 - (void)_networkTypeChangedNotification:(id)arg1;
 - (void)_memoryWarningNotification:(id)arg1;
 - (void)_audioSessionsChangedNotification:(id)arg1;

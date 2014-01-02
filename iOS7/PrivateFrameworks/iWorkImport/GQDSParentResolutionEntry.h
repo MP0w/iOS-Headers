@@ -8,6 +8,7 @@
 
 @class GQDSStyle;
 
+// Not exported
 @interface GQDSParentResolutionEntry : NSObject
 {
     char *mParentIdentifier;

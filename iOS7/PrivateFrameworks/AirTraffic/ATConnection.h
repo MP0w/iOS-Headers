@@ -12,17 +12,17 @@
 {
     ATXPCConnection *_connection;
     NSObject<ATConnectionDelegate> *_delegate;
-    BOOL _registerForStatus;
+    _Bool _registerForStatus;
     NSMutableArray *_registeredDataclasses;
     int _atcRunningToken;
-    BOOL _atcRunning;
+    _Bool _atcRunning;
 }
 
 @property(retain, nonatomic) NSObject<ATConnectionDelegate> *delegate; // @synthesize delegate=_delegate;
 - (void)dealloc;
 - (id)init;
-- (BOOL)isSyncing:(char *)arg1 automatically:(char *)arg2 wirelessly:(char *)arg3;
-- (void)keepATCAlive:(BOOL)arg1;
+- (_Bool)isSyncing:(_Bool *)arg1 automatically:(_Bool *)arg2 wirelessly:(_Bool *)arg3;
+- (void)keepATCAlive:(_Bool)arg1;
 - (void)lowBatteryNotification;
 - (void)dataMigrationFinished;
 - (void)clearSyncData;

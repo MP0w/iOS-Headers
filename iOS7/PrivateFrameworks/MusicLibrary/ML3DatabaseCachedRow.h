@@ -8,6 +8,7 @@
 
 @class NSArray;
 
+// Not exported
 @interface ML3DatabaseCachedRow : ML3DatabaseRow
 {
     NSArray *_arrayRepresentation;
@@ -22,18 +23,18 @@
 - (int)intForColumnName:(id)arg1;
 - (double)doubleForColumnName:(id)arg1;
 - (id)dataForColumnName:(id)arg1;
-- (id)_numberOrZeroForColumnIndex:(unsigned int)arg1;
+- (id)_numberOrZeroForColumnIndex:(unsigned long long)arg1;
 - (id)arrayRepresentation;
 - (id)dictionaryRepresentation;
-- (id)valueForColumnIndex:(unsigned int)arg1;
-- (void)getBlobBytes:(const void **)arg1 outLength:(int *)arg2 forColumnIndex:(unsigned int)arg3;
-- (id)numberForColumnIndex:(unsigned int)arg1;
-- (id)stringForColumnIndex:(unsigned int)arg1;
-- (long long)int64ForColumnIndex:(unsigned int)arg1;
-- (int)intForColumnIndex:(unsigned int)arg1;
-- (double)doubleForColumnIndex:(unsigned int)arg1;
-- (id)dataForColumnIndex:(unsigned int)arg1;
-- (unsigned int)columnCount;
+- (id)valueForColumnIndex:(unsigned long long)arg1;
+- (void)getBlobBytes:(const void **)arg1 outLength:(int *)arg2 forColumnIndex:(unsigned long long)arg3;
+- (id)numberForColumnIndex:(unsigned long long)arg1;
+- (id)stringForColumnIndex:(unsigned long long)arg1;
+- (long long)int64ForColumnIndex:(unsigned long long)arg1;
+- (int)intForColumnIndex:(unsigned long long)arg1;
+- (double)doubleForColumnIndex:(unsigned long long)arg1;
+- (id)dataForColumnIndex:(unsigned long long)arg1;
+- (unsigned long long)columnCount;
 - (id)initWithParentResult:(id)arg1;
 - (id)initWithArray:(id)arg1;
 

@@ -16,7 +16,7 @@
 
 + (id)visibilitySetCompletedWithDictionary:(id)arg1 context:(id)arg2;
 + (id)visibilitySetCompleted;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSURL *searchContext;
 - (id)encodedClassName;
 - (id)groupIdentifier;

@@ -5,6 +5,6 @@
  */
 
 @protocol MFComposeImageSizeViewDelegate
-- (void)imageSizeView:(id)arg1 changedSelectedScaleTo:(unsigned int)arg2;
+- (void)imageSizeView:(id)arg1 changedSelectedScaleTo:(unsigned long long)arg2;
 @end
 

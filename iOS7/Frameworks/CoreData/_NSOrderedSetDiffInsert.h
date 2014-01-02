@@ -6,6 +6,7 @@
 
 #import <CoreData/_NSOrderedSetDiffChange.h>
 
+// Not exported
 @interface _NSOrderedSetDiffInsert : _NSOrderedSetDiffChange
 {
 }

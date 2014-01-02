@@ -17,7 +17,7 @@
 }
 
 - (void)alertViewCancel:(id)arg1;
-- (void)alertView:(id)arg1 willDismissWithButtonIndex:(int)arg2;
+- (void)alertView:(id)arg1 willDismissWithButtonIndex:(long long)arg2;
 - (void)showAlertView:(id)arg1 withCompletionBlock:(id)arg2;
 - (void)dealloc;
 

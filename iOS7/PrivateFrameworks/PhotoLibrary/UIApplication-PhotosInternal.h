@@ -7,7 +7,7 @@
 #import "UIApplication.h"
 
 @interface UIApplication (PhotosInternal)
-- (void)setDelaySuspend:(BOOL)arg1;
+- (void)setDelaySuspend:(_Bool)arg1;
 - (void)_setDelaySuspend:(id)arg1;
 @end
 

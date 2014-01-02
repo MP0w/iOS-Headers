@@ -15,8 +15,8 @@
     double _fireTime;
     double _startTime;
     double _lastUpdateTime;
-    BOOL _triggerOnGMTChange;
-    BOOL _disableSystemWaking;
+    _Bool _triggerOnGMTChange;
+    _Bool _disableSystemWaking;
     NSDate *_scheduledWakeDate;
     NSString *_serviceIdentifier;
     id _target;
@@ -24,7 +24,7 @@
     id _userInfo;
     PCDispatchTimer *_preventSleepTimer;
     PCDispatchTimer *_fireTimer;
-    BOOL _sleepIsImminent;
+    _Bool _sleepIsImminent;
     unsigned int _powerAssertionID;
     id _timeChangeSource;
     NSRunLoop *_timerRunLoop;
@@ -36,13 +36,13 @@
 + (double)currentMachTimeInterval;
 + (id)lastSystemWakeDate;
 @property(readonly, nonatomic) NSString *loggingIdentifier; // @synthesize loggingIdentifier=_serviceIdentifier;
-@property(nonatomic) BOOL disableSystemWaking; // @synthesize disableSystemWaking=_disableSystemWaking;
+@property(nonatomic) _Bool disableSystemWaking; // @synthesize disableSystemWaking=_disableSystemWaking;
 - (id)debugDescription;
-- (void)_setSignificantTimeChangeMonitoringEnabled:(BOOL)arg1;
+- (void)_setSignificantTimeChangeMonitoringEnabled:(_Bool)arg1;
 - (void)_significantTimeChange;
 - (void)_powerNotificationSleepIsImminent;
 - (void)_powerNotificationSleepIsNotImminent;
-- (void)_setPowerMonitoringEnabled:(BOOL)arg1;
+- (void)_setPowerMonitoringEnabled:(_Bool)arg1;
 - (void)_fireTimerFired;
 - (void)_preventSleepFired;
 - (void)_updateTimers;
@@ -50,15 +50,16 @@
 - (id)_getTimerMode;
 - (id)_getTimerRunLoop;
 - (id)userInfo;
-- (BOOL)isValid;
+- (_Bool)firingIsImminent;
+- (_Bool)isValid;
 - (void)invalidate;
 - (void)_scheduleTimer;
 - (void)scheduleInQueue:(struct dispatch_queue_s *)arg1;
 - (void)scheduleInRunLoop:(id)arg1 inMode:(id)arg2;
 - (void)scheduleInRunLoop:(id)arg1;
-- (void)updateFireTime:(double)arg1 triggerOnGMTChange:(BOOL)arg2;
+- (void)updateFireTime:(double)arg1 triggerOnGMTChange:(_Bool)arg2;
 - (void)dealloc;
-- (id)initWithAbsoluteTime:(double)arg1 serviceIdentifier:(id)arg2 target:(id)arg3 selector:(SEL)arg4 userInfo:(id)arg5 triggerOnGMTChange:(BOOL)arg6;
+- (id)initWithAbsoluteTime:(double)arg1 serviceIdentifier:(id)arg2 target:(id)arg3 selector:(SEL)arg4 userInfo:(id)arg5 triggerOnGMTChange:(_Bool)arg6;
 - (id)initWithTimeInterval:(double)arg1 serviceIdentifier:(id)arg2 target:(id)arg3 selector:(SEL)arg4 userInfo:(id)arg5;
 - (id)initWithFireDate:(id)arg1 serviceIdentifier:(id)arg2 target:(id)arg3 selector:(SEL)arg4 userInfo:(id)arg5;
 

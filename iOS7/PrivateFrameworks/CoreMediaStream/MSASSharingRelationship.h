@@ -12,7 +12,8 @@
 
 @interface MSASSharingRelationship : NSObject <NSCopying>
 {
-    BOOL _isMine;
+    _Bool _isMine;
+    int _state;
     NSString *_GUID;
     NSString *_albumGUID;
     NSString *_email;
@@ -23,12 +24,10 @@
     NSString *_fullName;
     NSString *_personID;
     NSDate *_subscriptionDate;
-    int _state;
 }
 
-+ (BOOL)supportsSecureCoding;
-+ (id)MSASPSharingRelationshipFromProtocolDictionary:(id)arg1;
-@property(nonatomic) BOOL isMine; // @synthesize isMine=_isMine;
++ (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool isMine; // @synthesize isMine=_isMine;
 @property(nonatomic) int state; // @synthesize state=_state;
 @property(retain, nonatomic) NSDate *subscriptionDate; // @synthesize subscriptionDate=_subscriptionDate;
 @property(retain, nonatomic) NSString *personID; // @synthesize personID=_personID;
@@ -45,10 +44,10 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isEqualToSharingRelationship:(id)arg1;
+- (_Bool)isEqualToSharingRelationship:(id)arg1;
 - (id)_fullName;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)init;
 
 @end

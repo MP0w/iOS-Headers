@@ -11,13 +11,13 @@
     int _mode;
     float *_plane;
     int _coord;
-    float *_eyePlaneByInvModelview;
     int _modeLoc;
     int _planeLoc;
     int _eyePlaneByInvModelviewLoc;
+    unsigned int _textureIndex;
+    float *_eyePlaneByInvModelview;
     char *_modeNameString;
     char *_planeNameString;
-    unsigned int _textureIndex;
 }
 
 @property(nonatomic) unsigned int textureIndex; // @synthesize textureIndex=_textureIndex;

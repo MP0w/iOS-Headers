@@ -8,13 +8,14 @@
 
 @class NSString;
 
+// Not exported
 @interface DOMHTMLHRElement : DOMHTMLElement
 {
 }
 
 @property(copy) NSString *width;
 @property(copy) NSString *size;
-@property BOOL noShade;
+@property _Bool noShade;
 @property(copy) NSString *align;
 
 @end

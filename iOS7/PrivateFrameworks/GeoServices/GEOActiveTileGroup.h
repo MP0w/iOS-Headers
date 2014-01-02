@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSMutableArray, NSString;
 
-@interface GEOActiveTileGroup : PBCodable
+@interface GEOActiveTileGroup : PBCodable <NSCopying>
 {
     NSString *_addressCorrectionInitURL;
     NSString *_addressCorrectionUpdateURL;
@@ -22,6 +24,8 @@
     NSString *_locationShiftURL;
     NSString *_mapMatchURL;
     NSString *_polyLocationShiftURL;
+    NSString *_problemStatusURL;
+    NSString *_problemSubmissionURL;
     NSMutableArray *_regionalResourceRegions;
     NSMutableArray *_regionalResourceTiles;
     NSString *_regionalResourcesURL;
@@ -36,6 +40,8 @@
     NSString *_uniqueIdentifier;
 }
 
+@property(retain, nonatomic) NSString *problemStatusURL; // @synthesize problemStatusURL=_problemStatusURL;
+@property(retain, nonatomic) NSString *problemSubmissionURL; // @synthesize problemSubmissionURL=_problemSubmissionURL;
 @property(retain, nonatomic) NSString *polyLocationShiftURL; // @synthesize polyLocationShiftURL=_polyLocationShiftURL;
 @property(retain, nonatomic) NSString *addressCorrectionUpdateURL; // @synthesize addressCorrectionUpdateURL=_addressCorrectionUpdateURL;
 @property(retain, nonatomic) NSString *addressCorrectionInitURL; // @synthesize addressCorrectionInitURL=_addressCorrectionInitURL;
@@ -60,67 +66,55 @@
 @property(retain, nonatomic) NSMutableArray *resources; // @synthesize resources=_resources;
 @property(retain, nonatomic) NSMutableArray *tileSets; // @synthesize tileSets=_tileSets;
 @property(nonatomic) unsigned int identifier; // @synthesize identifier=_identifier;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) BOOL hasPolyLocationShiftURL;
-@property(readonly, nonatomic) BOOL hasAddressCorrectionUpdateURL;
-@property(readonly, nonatomic) BOOL hasAddressCorrectionInitURL;
-@property(readonly, nonatomic) BOOL hasSimpleETAURL;
-@property(readonly, nonatomic) BOOL hasResourcesURL;
-@property(readonly, nonatomic) BOOL hasMapMatchURL;
-@property(readonly, nonatomic) BOOL hasReleaseInfo;
-@property(readonly, nonatomic) BOOL hasBatchReverseGeocoderURL;
-@property(readonly, nonatomic) BOOL hasLocationShiftURL;
-@property(readonly, nonatomic) BOOL hasEtaURL;
-@property(readonly, nonatomic) BOOL hasDirectionsURL;
-@property(readonly, nonatomic) BOOL hasForwardGeocoderURL;
-@property(readonly, nonatomic) BOOL hasReverseGeocoderURL;
-@property(readonly, nonatomic) BOOL hasAutocompleteURL;
-@property(readonly, nonatomic) BOOL hasSearchAttributionManifestURL;
-@property(readonly, nonatomic) BOOL hasSearchURL;
-@property(readonly, nonatomic) BOOL hasRegionalResourcesURL;
-- (id)regionalResourceRegionAtIndex:(unsigned int)arg1;
-- (unsigned int)regionalResourceRegionsCount;
+@property(readonly, nonatomic) _Bool hasProblemStatusURL;
+@property(readonly, nonatomic) _Bool hasProblemSubmissionURL;
+@property(readonly, nonatomic) _Bool hasPolyLocationShiftURL;
+@property(readonly, nonatomic) _Bool hasAddressCorrectionUpdateURL;
+@property(readonly, nonatomic) _Bool hasAddressCorrectionInitURL;
+@property(readonly, nonatomic) _Bool hasSimpleETAURL;
+@property(readonly, nonatomic) _Bool hasResourcesURL;
+@property(readonly, nonatomic) _Bool hasMapMatchURL;
+@property(readonly, nonatomic) _Bool hasReleaseInfo;
+@property(readonly, nonatomic) _Bool hasBatchReverseGeocoderURL;
+@property(readonly, nonatomic) _Bool hasLocationShiftURL;
+@property(readonly, nonatomic) _Bool hasEtaURL;
+@property(readonly, nonatomic) _Bool hasDirectionsURL;
+@property(readonly, nonatomic) _Bool hasForwardGeocoderURL;
+@property(readonly, nonatomic) _Bool hasReverseGeocoderURL;
+@property(readonly, nonatomic) _Bool hasAutocompleteURL;
+@property(readonly, nonatomic) _Bool hasSearchAttributionManifestURL;
+@property(readonly, nonatomic) _Bool hasSearchURL;
+@property(readonly, nonatomic) _Bool hasRegionalResourcesURL;
+- (id)regionalResourceRegionAtIndex:(unsigned long long)arg1;
+- (unsigned long long)regionalResourceRegionsCount;
 - (void)addRegionalResourceRegion:(id)arg1;
 - (void)clearRegionalResourceRegions;
-- (id)regionalResourceTileAtIndex:(unsigned int)arg1;
-- (unsigned int)regionalResourceTilesCount;
+- (id)regionalResourceTileAtIndex:(unsigned long long)arg1;
+- (unsigned long long)regionalResourceTilesCount;
 - (void)addRegionalResourceTile:(id)arg1;
 - (void)clearRegionalResourceTiles;
-- (id)attributionAtIndex:(unsigned int)arg1;
-- (unsigned int)attributionsCount;
+- (id)attributionAtIndex:(unsigned long long)arg1;
+- (unsigned long long)attributionsCount;
 - (void)addAttribution:(id)arg1;
 - (void)clearAttributions;
-@property(readonly, nonatomic) BOOL hasUniqueIdentifier;
-- (id)resourceAtIndex:(unsigned int)arg1;
-- (unsigned int)resourcesCount;
+@property(readonly, nonatomic) _Bool hasUniqueIdentifier;
+- (id)resourceAtIndex:(unsigned long long)arg1;
+- (unsigned long long)resourcesCount;
 - (void)addResource:(id)arg1;
 - (void)clearResources;
-- (id)tileSetAtIndex:(unsigned int)arg1;
-- (unsigned int)tileSetsCount;
+- (id)tileSetAtIndex:(unsigned long long)arg1;
+- (unsigned long long)tileSetsCount;
 - (void)addTileSet:(id)arg1;
 - (void)clearTileSets;
 - (void)dealloc;
-- (unsigned int)largestRegionalResourceZoomLevelContainingTileKey:(const struct _GEOTileKey *)arg1;
-- (id)regionalResourceKeysForTileKey:(const struct _GEOTileKey *)arg1;
-- (BOOL)hasRegionalResourcesForTileKey:(const struct _GEOTileKey *)arg1;
-- (void)_resetBestLanguages;
-- (BOOL)supportsTileStyle:(int)arg1 size:(int)arg2 scale:(int)arg3;
-- (id)languageForTileKey:(const struct _GEOTileKey *)arg1;
-- (BOOL)isAvailableForTileKey:(const struct _GEOTileKey *)arg1;
-- (double)timeToLiveForTileKey:(const struct _GEOTileKey *)arg1;
-- (unsigned int)versionForTileKey:(const struct _GEOTileKey *)arg1;
-- (id)localizationURLStringForTileKey:(const struct _GEOTileKey *)arg1;
-- (id)multiTileURLStringForTileKey:(const struct _GEOTileKey *)arg1 useStatusCodes:(char *)arg2;
-- (id)baseURLStringForTileKey:(const struct _GEOTileKey *)arg1;
-- (id)activeTileSetForKey:(const struct _GEOTileKey *)arg1;
-- (id)_activeTileSetForStyle:(int)arg1 size:(int)arg2 scale:(int)arg3;
-- (id)activeTileSetForTileType:(int)arg1 scale:(int)arg2;
 
 @end
 

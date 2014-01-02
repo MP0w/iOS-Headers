@@ -8,6 +8,7 @@
 
 @class UITableViewCell;
 
+// Not exported
 @interface UITableViewCellReorderControl : UIControl
 {
     UITableViewCell *_cell;
@@ -18,10 +19,10 @@
 + (id)grabberImage;
 - (void)cancelTrackingWithEvent:(id)arg1;
 - (void)endTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (BOOL)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (BOOL)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
+- (_Bool)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
+- (_Bool)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (void)setFrame:(struct CGRect)arg1;
-- (BOOL)shouldTrack;
+- (_Bool)shouldTrack;
 - (void)layoutSubviews;
 - (id)initWithTableViewCell:(id)arg1;
 - (id)grabberImage;

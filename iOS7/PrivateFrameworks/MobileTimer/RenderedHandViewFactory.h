@@ -16,23 +16,23 @@
     struct CGSize _scale;
     struct CGPDFPage *_page;
     struct CGSize _viewSize;
-    BOOL _allowCaching;
+    _Bool _allowCaching;
     NSMutableDictionary *_angleCache;
-    unsigned int _registeredClientsCount;
+    unsigned long long _registeredClientsCount;
 }
 
 + (void)flushAllCaches;
 + (void)unregisterForFactory:(id)arg1;
-+ (id)registerForFactoryWithBundle:(id)arg1 imagePath:(id)arg2 offset:(struct CGPoint)arg3 scale:(struct CGSize)arg4 allowCaching:(BOOL)arg5;
++ (id)registerForFactoryWithBundle:(id)arg1 imagePath:(id)arg2 offset:(struct CGPoint)arg3 scale:(struct CGSize)arg4 allowCaching:(_Bool)arg5;
 + (id)keyForBundle:(id)arg1 imagePath:(id)arg2 offset:(struct CGPoint)arg3 scale:(struct CGSize)arg4;
-@property(nonatomic) unsigned int registeredClientsCount; // @synthesize registeredClientsCount=_registeredClientsCount;
-@property(readonly, nonatomic) BOOL allowCaching; // @synthesize allowCaching=_allowCaching;
+@property(nonatomic) unsigned long long registeredClientsCount; // @synthesize registeredClientsCount=_registeredClientsCount;
+@property(readonly, nonatomic) _Bool allowCaching; // @synthesize allowCaching=_allowCaching;
 - (void)flushCache;
-- (id)imageForAngle:(float)arg1 viewSize:(struct CGSize)arg2;
-- (id)renderImageForAngle:(float)arg1 viewSize:(struct CGSize)arg2;
+- (id)imageForAngle:(double)arg1 viewSize:(struct CGSize)arg2;
+- (id)renderImageForAngle:(double)arg1 viewSize:(struct CGSize)arg2;
 @property(readonly, nonatomic) NSString *key;
 - (void)dealloc;
-- (id)initWithBundle:(id)arg1 imagePath:(id)arg2 offset:(struct CGPoint)arg3 scale:(struct CGSize)arg4 allowCaching:(BOOL)arg5;
+- (id)initWithBundle:(id)arg1 imagePath:(id)arg2 offset:(struct CGPoint)arg3 scale:(struct CGSize)arg4 allowCaching:(_Bool)arg5;
 
 @end
 

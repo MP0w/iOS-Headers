@@ -14,20 +14,20 @@
 
 @interface MPInlineVideoFullscreenViewController : UIViewController <MPSwipableViewDelegate, MPVideoOverlayDelegate, MPTransportControlsTarget>
 {
-    BOOL _disableTaps;
+    _Bool _disableTaps;
     UITapGestureRecognizer *_doubleTapGestureRecognizer;
     NSTimer *_idleTimer;
-    BOOL _isAnimatingOverlay;
+    _Bool _isAnimatingOverlay;
     MPAVItem *_item;
     UIActivityIndicatorView *_loadingIndicator;
     MPInlineVideoController *_masterController;
     MPVideoPlaybackOverlayView *_overlayView;
     UIPinchGestureRecognizer *_pinchGestureRecognizer;
-    float _savedWindowLevel;
-    BOOL _shouldForwardRotationEvents;
+    _Bool _shouldForwardRotationEvents;
     MPSwipableView *_swipableView;
     UITapGestureRecognizer *_tapGestureRecognizer;
-    int _activeOverlayUserEvents;
+    long long _activeOverlayUserEvents;
+    _Bool _statusBarWasHidden;
 }
 
 @property(retain, nonatomic) MPAVItem *item; // @synthesize item=_item;
@@ -37,31 +37,31 @@
 - (void)_viewWasTapped:(id)arg1;
 - (void)_showOverlayDidEnd;
 - (void)_overlayIdleTimerFired:(id)arg1;
-- (void)_hideOverlayDidEnd:(id)arg1 finished:(id)arg2;
-- (void)_hideOverlayAnimated:(BOOL)arg1;
+- (void)_hideOverlayDidEnd;
+- (void)_hideOverlayAnimated:(_Bool)arg1;
 - (void)updateOverlayView;
-- (void)showOverlayAnimated:(BOOL)arg1;
+- (void)showOverlayAnimated:(_Bool)arg1;
 - (void)showLoadingIndicator;
 - (void)showAlternateTracks;
 - (void)resetOverlayIdleTimer;
 - (void)prepareForTransitionFromFullscreen;
 - (void)hideLoadingIndicator;
 - (void)cancelOverlayIdleTimer;
-- (void)_windowWillRotate:(id)arg1;
 - (void)overlayTappedBackButton:(id)arg1;
-- (void)overlay:(id)arg1 didEndUserEvent:(int)arg2;
-- (void)overlay:(id)arg1 didBeginUserEvent:(int)arg2;
-- (BOOL)transportControls:(id)arg1 tappedButtonPart:(unsigned long long)arg2;
+- (void)overlay:(id)arg1 didEndUserEvent:(long long)arg2;
+- (void)overlay:(id)arg1 didCancelUserEvent:(long long)arg2;
+- (void)overlay:(id)arg1 didBeginUserEvent:(long long)arg2;
+- (_Bool)transportControls:(id)arg1 tappedButtonPart:(unsigned long long)arg2;
 - (void)swipableViewHadActivity:(id)arg1;
-- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (BOOL)wantsFullScreenLayout;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
-- (unsigned int)supportedInterfaceOrientations;
-- (BOOL)shouldAutorotate;
+- (void)willRotateToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (void)willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
+- (_Bool)prefersStatusBarHidden;
+- (unsigned long long)supportedInterfaceOrientations;
+- (_Bool)shouldAutorotate;
 - (void)loadView;
-- (void)didRotateFromInterfaceOrientation:(int)arg1;
+- (void)didRotateFromInterfaceOrientation:(long long)arg1;
 - (void)dealloc;
 - (id)init;
 

@@ -14,15 +14,15 @@
     struct CGSize _size;
     struct CGImageSource *_imageSource;
     struct CGImage *_currentImage;
-    unsigned long _currentIndex;
-    unsigned long _numberOfImages;
+    unsigned int _currentIndex;
+    unsigned int _numberOfImages;
     double _nextImageTime;
     double _playTimeOffset;
     float _imageDuration;
-    BOOL _isPlaying;
+    _Bool _isPlaying;
 }
 
-@property(nonatomic) BOOL isPlaying; // @synthesize isPlaying=_isPlaying;
+@property(nonatomic) _Bool isPlaying; // @synthesize isPlaying=_isPlaying;
 - (void)getNextImage;
 @property(readonly) struct CGImage *currentImage;
 - (void)setTime:(double)arg1;

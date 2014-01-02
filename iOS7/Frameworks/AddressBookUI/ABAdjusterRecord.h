@@ -11,20 +11,20 @@
 @interface ABAdjusterRecord : NSObject
 {
     UIScrollView *_scrollView;
-    float _adjustment;
-    BOOL _manuallyAdjusted;
+    double _adjustment;
+    _Bool _manuallyAdjusted;
     NSTimer *_delayedScrollTimer;
 }
 
 + (id)recordWithScrollView:(id)arg1;
 @property(retain, nonatomic) NSTimer *delayedScrollTimer; // @synthesize delayedScrollTimer=_delayedScrollTimer;
-@property(nonatomic) BOOL manuallyAdjusted; // @synthesize manuallyAdjusted=_manuallyAdjusted;
-@property(nonatomic) float adjustment; // @synthesize adjustment=_adjustment;
+@property(nonatomic) _Bool manuallyAdjusted; // @synthesize manuallyAdjusted=_manuallyAdjusted;
+@property(nonatomic) double adjustment; // @synthesize adjustment=_adjustment;
 @property(retain, nonatomic) UIScrollView *scrollView; // @synthesize scrollView=_scrollView;
 - (void)cancelDelayedAdjustments;
 - (void)_adjustTableForKeyboardInfo:(id)arg1;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
 
 @end

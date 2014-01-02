@@ -11,7 +11,7 @@
 @interface PrefsUILinkLabel : UILabel
 {
     NSURL *_url;
-    BOOL _touchingURL;
+    _Bool _touchingURL;
     id _target;
     SEL _action;
     NSURL *_URL;

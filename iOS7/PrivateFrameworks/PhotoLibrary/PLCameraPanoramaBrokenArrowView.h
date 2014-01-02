@@ -15,19 +15,19 @@
     CAShapeLayer *_arrowTailPiecesLayer;
     struct CGPath *_currentTailPiecesPath;
     struct CGRect _arrowTailRect;
-    float _currentNormalizedSpeed;
-    float _tailBiggestDelta;
-    float _tailBigDelta;
-    float _tailMediumDelta;
-    float _tailSmallDelta;
+    double _currentNormalizedSpeed;
+    double _tailBiggestDelta;
+    double _tailBigDelta;
+    double _tailMediumDelta;
+    double _tailSmallDelta;
 }
 
-- (void)animateArrowSpeedWithNormalizedSpeed:(float)arg1 duration:(double)arg2;
+- (void)animateArrowSpeedWithNormalizedSpeed:(double)arg1 duration:(double)arg2;
 - (void)resetArrow;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)_updateTailWithAnimationDuration:(double)arg1;
-- (struct CGPath *)_newTailPiecesPathOfWidth:(float *)arg1;
+- (struct CGPath *)_newTailPiecesPathOfWidth:(double *)arg1;
 
 @end
 

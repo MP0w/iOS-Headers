@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface _PFTask : NSObject
 {
     int _cd_rc;
@@ -13,8 +14,8 @@
     void *arguments;
     struct _opaque_pthread_mutex_t lock;
     struct _opaque_pthread_cond_t {
-        long __sig;
-        char __opaque[24];
+        long long __sig;
+        char __opaque[40];
     } condition;
     int isFinishedFlag;
 }
@@ -22,9 +23,9 @@
 + (unsigned long long)getPhysicalMemory;
 + (double)getProcessorSpeed;
 + (int)getNumActiveProcessors;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
-- (unsigned int)retainCount;
+- (_Bool)_isDeallocating;
+- (_Bool)_tryRetain;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;
 - (void)finalize;

@@ -8,6 +8,7 @@
 
 @class NSArray, NSMutableArray;
 
+// Not exported
 @interface MKOrientationContext : NSObject
 {
     NSMutableArray *orientViews;

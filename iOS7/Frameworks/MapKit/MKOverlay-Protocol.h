@@ -11,7 +11,7 @@
 @property(readonly, nonatomic) CDStruct_c3b9c2ee coordinate;
 
 @optional
-- (BOOL)canReplaceMapContent;
-- (BOOL)intersectsMapRect:(CDStruct_90e2a262)arg1;
+- (_Bool)canReplaceMapContent;
+- (_Bool)intersectsMapRect:(CDStruct_90e2a262)arg1;
 @end
 

@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSMutableArray, NSString;
 
-@interface GEOSearchAttribution : PBCodable
+@interface GEOSearchAttribution : PBCodable <NSCopying>
 {
     NSMutableArray *_attributionURLs;
     NSString *_sourceIdentifier;
@@ -18,15 +20,16 @@
 @property(retain, nonatomic) NSMutableArray *attributionURLs; // @synthesize attributionURLs=_attributionURLs;
 @property(nonatomic) unsigned int sourceVersion; // @synthesize sourceVersion=_sourceVersion;
 @property(retain, nonatomic) NSString *sourceIdentifier; // @synthesize sourceIdentifier=_sourceIdentifier;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)attributionURLsAtIndex:(unsigned int)arg1;
-- (unsigned int)attributionURLsCount;
+- (id)attributionURLsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)attributionURLsCount;
 - (void)addAttributionURLs:(id)arg1;
 - (void)clearAttributionURLs;
 - (void)dealloc;

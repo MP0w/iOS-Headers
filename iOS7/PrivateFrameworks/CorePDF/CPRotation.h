@@ -8,13 +8,13 @@
 
 @interface CPRotation : CPZone
 {
-    float rotationAngle;
+    double rotationAngle;
 }
 
 - (struct CGRect)renderedBounds;
 - (struct CGRect)bounds;
-- (float)rotationAngle;
-- (void)setRotationAngle:(float)arg1;
+- (double)rotationAngle;
+- (void)setRotationAngle:(double)arg1;
 - (void)accept:(id)arg1;
 - (id)init;
 

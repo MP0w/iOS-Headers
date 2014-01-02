@@ -9,7 +9,7 @@
 @protocol _UIServiceWebViewControllerProtocol <NSObject>
 - (void)_webContentSizeWithReplyHandler:(id)arg1;
 - (void)configureWithEncodedSettings:(id)arg1;
-- (void)setShouldDecidePolicyRemotely:(BOOL)arg1;
+- (void)setShouldDecidePolicyRemotely:(_Bool)arg1;
 - (void)stopLoading;
 - (void)reload;
 - (void)goForward;

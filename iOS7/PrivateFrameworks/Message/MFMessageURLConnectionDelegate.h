@@ -13,7 +13,7 @@
 @interface MFMessageURLConnectionDelegate : NSObject <NSURLConnectionDelegate>
 {
     NSMutableData *_responseBody;
-    BOOL _done;
+    _Bool _done;
     NSError *_error;
     NSURLResponse *_response;
 }

@@ -8,6 +8,7 @@
 
 @class OADColor;
 
+// Not exported
 @interface OADDuotoneEffect : OADBlipEffect
 {
     OADColor *mColor1;
@@ -16,8 +17,8 @@
     int mTransferMode2;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)setStyleColor:(id)arg1;
 - (void)setTransferMode2:(int)arg1;
 - (int)transferMode2;

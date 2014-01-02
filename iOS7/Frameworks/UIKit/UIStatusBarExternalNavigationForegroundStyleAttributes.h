@@ -6,6 +6,7 @@
 
 #import <UIKit/UIStatusBarExternalForegroundStyleAttributes.h>
 
+// Not exported
 @interface UIStatusBarExternalNavigationForegroundStyleAttributes : UIStatusBarExternalForegroundStyleAttributes
 {
 }

@@ -20,7 +20,7 @@
 }
 
 + (void)raise:(id)arg1 format:(id)arg2;
-+ (void)raise:(id)arg1 format:(id)arg2 arguments:(void *)arg3;
++ (void)raise:(id)arg1 format:(id)arg2 arguments:(char *)arg3;
 + (id)exceptionWithName:(id)arg1 reason:(id)arg2 userInfo:(id)arg3;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
@@ -30,9 +30,9 @@
 - (id)init;
 - (void)raise;
 - (id)description;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)_installStackTraceKeyIfNeeded;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)_installStackTraceKeyIfNeeded;
 - (id)callStackSymbols;
 - (id)callStackReturnAddresses;
 - (id)userInfo;

@@ -16,23 +16,23 @@
     UIView *_wellContainer;
 }
 
-+ (float)_wellPadding;
-- (void)setWellAlpha:(float)arg1;
++ (double)_wellPadding;
+- (void)setWellAlpha:(double)arg1;
 - (void)layoutSubviews;
 - (void)_layoutButtons;
 - (void)_layoutWells;
-- (void)setDrawsSeparateWells:(BOOL)arg1;
+- (void)setDrawsSeparateWells:(_Bool)arg1;
 - (id)button2;
-- (void)setButton2:(id)arg1 andStyle:(BOOL)arg2;
-- (void)setButton:(id)arg1 andStyle:(BOOL)arg2;
+- (void)setButton2:(id)arg1 andStyle:(_Bool)arg2;
+- (void)setButton:(id)arg1 andStyle:(_Bool)arg2;
 - (void)_updateButtonSettings:(id)arg1;
 - (void)dealloc;
 - (id)initForVideoChatWithFrame:(struct CGRect)arg1;
 - (id)initForEmergencyCallWithFrame:(struct CGRect)arg1;
 - (id)initForCallFailureWithFrame:(struct CGRect)arg1;
 - (id)initForIncomingCallWithFrame:(struct CGRect)arg1;
-- (id)initWithFrame:(struct CGRect)arg1 style:(int)arg2;
-- (float)_buttonWidth;
+- (id)initWithFrame:(struct CGRect)arg1 style:(long long)arg2;
+- (double)_buttonWidth;
 
 @end
 

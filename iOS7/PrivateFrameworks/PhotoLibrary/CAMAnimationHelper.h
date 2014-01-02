@@ -11,7 +11,7 @@
 }
 
 + (id)_animationWithKeyPath:(id)arg1;
-+ (void)animateLayer:(id)arg1 toFrame:(struct CGRect)arg2 fromCurrentState:(BOOL)arg3;
++ (void)animateLayer:(id)arg1 toFrame:(struct CGRect)arg2 fromCurrentState:(_Bool)arg3;
 
 @end
 

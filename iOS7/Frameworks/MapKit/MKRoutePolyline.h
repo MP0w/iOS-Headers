@@ -6,6 +6,7 @@
 
 #import <MapKit/MKPolyline.h>
 
+// Not exported
 @interface MKRoutePolyline : MKPolyline
 {
 }

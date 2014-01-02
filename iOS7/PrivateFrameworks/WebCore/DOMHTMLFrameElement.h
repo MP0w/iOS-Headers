@@ -19,13 +19,12 @@
 @property(readonly) DOMDocument *contentDocument;
 @property(copy) NSString *src;
 @property(copy) NSString *scrolling;
-@property BOOL noResize;
+@property _Bool noResize;
 @property(copy) NSString *name;
 @property(copy) NSString *marginWidth;
 @property(copy) NSString *marginHeight;
 @property(copy) NSString *longDesc;
 @property(copy) NSString *frameBorder;
-- (int)structuralComplexityContribution;
 
 @end
 

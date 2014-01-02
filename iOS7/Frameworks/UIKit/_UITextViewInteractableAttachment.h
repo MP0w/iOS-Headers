@@ -8,6 +8,7 @@
 
 @class NSTextAttachment;
 
+// Not exported
 @interface _UITextViewInteractableAttachment : _UITextViewInteractableItem
 {
     NSTextAttachment *_attachment;
@@ -19,7 +20,7 @@
 - (void)_copyImage;
 - (id)defaultAction;
 - (id)actions;
-- (BOOL)allowInteraction;
+- (_Bool)allowInteraction;
 - (id)_image;
 - (id)localizedTitle;
 - (void)dealloc;

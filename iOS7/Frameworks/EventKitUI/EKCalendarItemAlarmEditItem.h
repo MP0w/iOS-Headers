@@ -6,32 +6,27 @@
 
 #import <EventKitUI/EKCalendarItemEditItem.h>
 
-#import "EKCalendarItemDisclosableEditItem-Protocol.h"
-
 @class CalendarEventAlarmTable, NSArray;
 
-@interface EKCalendarItemAlarmEditItem : EKCalendarItemEditItem <EKCalendarItemDisclosableEditItem>
+// Not exported
+@interface EKCalendarItemAlarmEditItem : EKCalendarItemEditItem
 {
     CalendarEventAlarmTable *_alarmTable;
-    unsigned int _disclosedSubitem;
+    unsigned long long _disclosedSubitem;
     NSArray *_alarms;
     int _lastSeenAllDayState;
-    BOOL _userChangedAlarm;
+    _Bool _userChangedAlarm;
 }
 
 - (void).cxx_destruct;
-- (unsigned int)indexOfSelectedDisclosedItem;
-- (void)didSelectDisclosedItemAtIndex:(int)arg1;
-- (void)willDiscloseSubitem:(int)arg1;
-- (id)titleForDisclosedItemAtIndex:(int)arg1 inSubitem:(int)arg2;
-- (int)numberOfDisclosableItemsInSubitem:(int)arg1;
-- (int)disclosedEditItemTypeForSubitem:(int)arg1;
-- (BOOL)saveAndDismissWithForce:(BOOL)arg1;
+- (_Bool)saveAndDismissWithForce:(_Bool)arg1;
 - (void)refreshFromCalendarItemAndStore;
-- (BOOL)configureForCalendarConstraints:(id)arg1;
+- (_Bool)configureForCalendarConstraints:(id)arg1;
 - (void)_updateDefaultAlarm;
-- (id)cellForSubitemAtIndex:(unsigned int)arg1 inSubsection:(unsigned int)arg2;
-- (unsigned int)numberOfSubitemsInSubsection:(unsigned int)arg1;
+- (id)cellForSubitemAtIndex:(unsigned long long)arg1 inSubsection:(unsigned long long)arg2;
+- (_Bool)editItemViewControllerCommit:(id)arg1;
+- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(unsigned long long)arg2 inSubsection:(unsigned long long)arg3;
+- (unsigned long long)numberOfSubitemsInSubsection:(unsigned long long)arg1;
 - (void)setCalendarItem:(id)arg1 store:(id)arg2;
 - (id)init;
 

@@ -13,24 +13,24 @@
     struct AudioStreamBasicDescription _inputASBD;
     struct AudioStreamBasicDescription _outputASBD;
     struct OpaqueAudioConverter *_audioConverter;
-    unsigned long _outputDataRate;
-    BOOL _needNewConverter;
-    BOOL _needAvailableSampleRates;
-    BOOL _needApplicableParameters;
+    unsigned int _outputDataRate;
+    _Bool _needNewConverter;
+    _Bool _needAvailableSampleRates;
+    _Bool _needApplicableParameters;
     NSArray *_availableOutputSampleRates;
     NSMutableArray *_availableOutputDataRates;
     NSMutableArray *_applicableOutputSampleRatesForDataRate;
     NSMutableArray *_applicableOutputDataRatesForSampleRate;
 }
 
-- (float)_getAvailableOutputSampleRateFor:(float)arg1 rounding:(int)arg2;
-- (unsigned long)availableOutputChannelCountForDesiredChannelCount:(unsigned long)arg1 rounding:(int)arg2;
-- (float)applicableOutputSampleRateForDesiredSampleRate:(float)arg1 rounding:(int)arg2;
-@property(nonatomic) unsigned long outputDataRate;
-@property(nonatomic) unsigned long outputChannelCount;
-@property(nonatomic) unsigned long outputBitsPerChannel;
-@property(nonatomic) unsigned long outputFormatFlags;
-@property(nonatomic) unsigned long outputFormat;
+- (float)_getAvailableOutputSampleRateFor:(float)arg1 rounding:(long long)arg2;
+- (unsigned int)availableOutputChannelCountForDesiredChannelCount:(unsigned int)arg1 rounding:(long long)arg2;
+- (float)applicableOutputSampleRateForDesiredSampleRate:(float)arg1 rounding:(long long)arg2;
+@property(nonatomic) unsigned int outputDataRate;
+@property(nonatomic) unsigned int outputChannelCount;
+@property(nonatomic) unsigned int outputBitsPerChannel;
+@property(nonatomic) unsigned int outputFormatFlags;
+@property(nonatomic) unsigned int outputFormat;
 @property(nonatomic) float outputSampleRate;
 - (void)setInputPropertiesFromASBD:(struct AudioStreamBasicDescription)arg1;
 - (void)_bringUpToDate;

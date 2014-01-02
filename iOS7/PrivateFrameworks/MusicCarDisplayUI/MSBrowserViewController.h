@@ -10,15 +10,16 @@
 #import "UITableViewDataSource-Protocol.h"
 #import "UITableViewDelegate-Protocol.h"
 
-@class MPAVController, MSTableViewController, NSArray, UIButton, UITabBarController;
+@class MPAVController, MSNowPlayingButton, MSTableViewController, NSArray, UITabBarController;
 
 @interface MSBrowserViewController : UINavigationController <UITableViewDelegate, UITableViewDataSource, UITabBarControllerDelegate>
 {
+    NSArray *_tabIdentifiers;
     UITabBarController *_tabBarController;
-    UIButton *_nowPlayingButton;
+    MSNowPlayingButton *_nowPlayingButton;
     MSTableViewController *_knobMainViewController;
     NSArray *_availableViewControllers;
-    BOOL _showingNowPlayingRow;
+    _Bool _showingNowPlayingRow;
     MPAVController *_player;
     id <MSCarDisplayServiceProvider> _serviceProvider;
 }
@@ -29,15 +30,15 @@
 - (void)_nowPlayingButtonTouchUpInside:(id)arg1;
 - (id)nowPlayingButton;
 - (void)_updateNowPlayingVisibility;
-- (BOOL)_isNowPlayingAvailable;
+- (_Bool)_isNowPlayingAvailable;
 - (void)tabBarController:(id)arg1 didSelectViewController:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (void)_mediaLibraryDidChange:(id)arg1;
 - (void)_itemChanged:(id)arg1;
 - (void)refreshNavigationPath;
-- (void)pushNowPlaying:(BOOL)arg1;
+- (void)pushNowPlaying:(_Bool)arg1;
 - (void)reloadWithTabs:(id)arg1;
 - (void)viewDidLoad;
 - (void)dealloc;

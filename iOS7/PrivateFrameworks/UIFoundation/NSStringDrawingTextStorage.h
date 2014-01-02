@@ -10,20 +10,14 @@
 
 @class CUICatalog, CUIStyleEffectConfiguration, NSConcreteNotifyingMutableAttributedString, NSLayoutManager, NSTextContainer;
 
+// Not exported
 @interface NSStringDrawingTextStorage : NSTextStorage <NSLayoutManagerDelegate>
 {
     NSConcreteNotifyingMutableAttributedString *_contents;
     NSLayoutManager *_layoutManager;
     NSTextContainer *_textContainer;
-    id _preliminaryCache;
-    id _cache;
-    NSTextContainer *_firstTextContainer;
-    NSTextContainer *_secondTextContainer;
-    struct _NSRange _currentCharacterRange;
-    struct _NSRange _currentGlyphRange;
     struct _NSRange _temporaryCharacterRange;
-    unsigned int _retainCount;
-    float _baselineDelta;
+    double _baselineDelta;
     struct {
         unsigned int _typesetterBehavior:4;
         unsigned int _needToFlushCache:1;
@@ -36,8 +30,7 @@
     CUIStyleEffectConfiguration *_styleEffects;
 }
 
-+ (void)_setHasCustomSettings:(BOOL)arg1;
-+ (id)allocWithZone:(struct _NSZone *)arg1;
++ (void)_setHasCustomSettings:(_Bool)arg1;
 + (id)stringDrawingTextStorage;
 + (void)initialize;
 @property(retain, nonatomic) CUIStyleEffectConfiguration *cuiStyleEffects; // @synthesize cuiStyleEffects=_styleEffects;
@@ -46,39 +39,31 @@
 - (void)replaceCharactersInRange:(struct _NSRange)arg1 withAttributedString:(id)arg2;
 - (void)setAttributes:(id)arg1 range:(struct _NSRange)arg2;
 - (void)replaceCharactersInRange:(struct _NSRange)arg1 withString:(id)arg2;
-- (id)attribute:(id)arg1 atIndex:(unsigned int)arg2 longestEffectiveRange:(struct _NSRange *)arg3 inRange:(struct _NSRange)arg4;
-- (id)attribute:(id)arg1 atIndex:(unsigned int)arg2 effectiveRange:(struct _NSRange *)arg3;
-- (id)attributesAtIndex:(unsigned int)arg1 effectiveRange:(struct _NSRange *)arg2;
+- (id)attribute:(id)arg1 atIndex:(unsigned long long)arg2 longestEffectiveRange:(struct _NSRange *)arg3 inRange:(struct _NSRange)arg4;
+- (id)attribute:(id)arg1 atIndex:(unsigned long long)arg2 effectiveRange:(struct _NSRange *)arg3;
+- (id)attributesAtIndex:(unsigned long long)arg1 effectiveRange:(struct _NSRange *)arg2;
 - (id)string;
-- (unsigned int)length;
+- (unsigned long long)length;
 - (void)processEditing;
 - (id)init;
-- (BOOL)_isStringDrawingTextStorage;
+- (_Bool)_isStringDrawingTextStorage;
 - (void)fontSetChanged;
-- (void)invalidate;
-- (id)textContainerForAttributedString:(id)arg1 containerSize:(struct CGSize)arg2 lineFragmentPadding:(float)arg3;
+- (id)textContainerForAttributedString:(id)arg1 containerSize:(struct CGSize)arg2 lineFragmentPadding:(double)arg3;
 - (id)textContainerForAttributedString:(id)arg1;
 - (struct CGPoint)defaultTextContainerOriginForRect:(struct CGRect)arg1;
-- (void)drawTextContainer:(id)arg1 withRect:(struct CGRect)arg2 graphicsContext:(struct CGContext *)arg3 baselineMode:(BOOL)arg4 scrollable:(BOOL)arg5 padding:(float)arg6;
-- (void)_setForceWordWrapping:(BOOL)arg1;
-- (BOOL)_forceWordWrapping;
-@property(nonatomic, getter=_usesSimpleTextEffects, setter=_setUsesSimpleTextEffects:) BOOL usesSimpleTextEffects;
-- (BOOL)_baselineMode;
-- (void)_setBaselineMode:(BOOL)arg1;
-- (float)_baselineDelta;
-- (void)_setBaselineDelta:(float)arg1;
+- (void)drawTextContainer:(id)arg1 withRect:(struct CGRect)arg2 graphicsContext:(struct CGContext *)arg3 baselineMode:(_Bool)arg4 scrollable:(_Bool)arg5 padding:(double)arg6;
+- (void)_setForceWordWrapping:(_Bool)arg1;
+- (_Bool)_forceWordWrapping;
+@property(nonatomic, getter=_usesSimpleTextEffects, setter=_setUsesSimpleTextEffects:) _Bool usesSimpleTextEffects;
+- (_Bool)_baselineMode;
+- (void)_setBaselineMode:(_Bool)arg1;
+- (double)_baselineDelta;
+- (void)_setBaselineDelta:(double)arg1;
 - (struct CGRect)usedRectForTextContainer:(id)arg1;
-- (int)typesetterBehavior;
+- (long long)typesetterBehavior;
 - (id)flippedView;
 - (id)textContainer;
 - (id)layoutManager;
-- (BOOL)_informationForFont:(id)arg1 glyphTable:(unsigned short **)arg2 positionTable:(float **)arg3;
-- (void)dealloc;
-- (unsigned int)retainCount;
-- (oneway void)release;
-- (id)retain;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
 
 @end
 

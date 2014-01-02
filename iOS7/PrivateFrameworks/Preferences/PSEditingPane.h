@@ -6,29 +6,36 @@
 
 #import "UIView.h"
 
-@class PSSpecifier;
+@class PSSpecifier, UIViewController;
 
 @interface PSEditingPane : UIView
 {
     PSSpecifier *_specifier;
     id _delegate;
     unsigned int _requiresKeyboard:1;
+    UIViewController *_viewController;
 }
 
 + (float)preferredHeight;
 + (id)defaultBackgroundColor;
-- (void)didRotateFromInterfaceOrientation:(int)arg1;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (BOOL)changed;
-- (BOOL)handlesDoneButton;
+@property(nonatomic) UIViewController *viewController; // @synthesize viewController=_viewController;
+- (void)didRotateFromInterfaceOrientation:(long long)arg1;
+- (void)willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (void)willRotateToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (id)scrollViewToBeInsetted;
+- (id)childViewControllerForHostingViewController;
+- (void)layoutInsetContent:(struct CGRect)arg1;
+- (void)insetContent;
+- (_Bool)shouldInsetContent;
+- (_Bool)changed;
+- (_Bool)handlesDoneButton;
 - (void)doneEditing;
 - (void)editMode;
 - (void)addNewValue;
 - (void)viewDidBecomeVisible;
-- (BOOL)wantsNewButton;
+- (_Bool)wantsNewButton;
 - (id)specifierLabel;
-- (BOOL)requiresKeyboard;
+- (_Bool)requiresKeyboard;
 - (id)preferenceValue;
 - (void)setPreferenceValue:(id)arg1;
 - (id)preferenceSpecifier;

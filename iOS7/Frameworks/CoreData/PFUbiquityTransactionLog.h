@@ -8,28 +8,29 @@
 
 @class NSMutableDictionary, NSNumber, NSRecursiveLock, NSString, PFUbiquityKnowledgeVector, PFUbiquityLocation, PFUbiquitySaveSnapshot;
 
+// Not exported
 @interface PFUbiquityTransactionLog : NSObject
 {
     NSMutableDictionary *_contents;
     int _transactionLogType;
-    BOOL _useTemporaryLogLocation;
+    _Bool _useTemporaryLogLocation;
     PFUbiquityLocation *_transactionLogLocation;
     PFUbiquityLocation *_temporaryTransactionLogLocation;
     PFUbiquityLocation *_stagingTransactionLogLocation;
     NSString *_fileProtectionOption;
-    BOOL _inTemporaryLocation;
-    BOOL _inStagingLocation;
-    BOOL _inPermanentLocation;
+    _Bool _inTemporaryLocation;
+    _Bool _inStagingLocation;
+    _Bool _inPermanentLocation;
     PFUbiquityKnowledgeVector *_knowledgeVector;
     PFUbiquitySaveSnapshot *_saveSnapshot;
     NSString *_localPeerID;
-    BOOL _loadUsingRetry;
-    BOOL _loadedComparisonMetadata;
-    BOOL _loadedImportMetadata;
-    BOOL _loadedInsertedObjectData;
-    BOOL _loadedUpdatedObjectData;
-    BOOL _loadedDeletedObjectData;
-    BOOL _loadedContents;
+    _Bool _loadUsingRetry;
+    _Bool _loadedComparisonMetadata;
+    _Bool _loadedImportMetadata;
+    _Bool _loadedInsertedObjectData;
+    _Bool _loadedUpdatedObjectData;
+    _Bool _loadedDeletedObjectData;
+    _Bool _loadedContents;
     NSRecursiveLock *_contentsLock;
 }
 
@@ -38,15 +39,16 @@
 + (int)transactionLogTypeFromLocation:(id)arg1;
 + (id)createTransactionLogFilenameForLogType:(int)arg1;
 + (id)transactionLogFilenameUUID;
-+ (BOOL)pruneTemporaryLogDirectoryForPeerRootLocation:(id)arg1 error:(id *)arg2;
++ (_Bool)pruneTemporaryLogDirectoryForPeerRootLocation:(id)arg1 error:(id *)arg2;
++ (void)truncateLogFilesForPeerID:(id)arg1 storeName:(id)arg2 modelVersionHash:(id)arg3 beforeKnowledgeVector:(id)arg4 withLocalPeerID:(id)arg5 andUbiquityRootLocation:(id)arg6;
 + (void)truncateLogFilesBeforeBaselineMetadata:(id)arg1 withLocalPeerID:(id)arg2 andUbiquityRootLocation:(id)arg3;
 + (id)createDataFromExtendedAttrsForLog:(id)arg1 error:(id *)arg2;
-@property(readonly, nonatomic) BOOL loadedDeletedObjectData; // @synthesize loadedDeletedObjectData=_loadedDeletedObjectData;
-@property(readonly, nonatomic) BOOL loadedUpdatedObjectData; // @synthesize loadedUpdatedObjectData=_loadedUpdatedObjectData;
-@property(readonly, nonatomic) BOOL loadedInsertedObjectData; // @synthesize loadedInsertedObjectData=_loadedInsertedObjectData;
-@property(readonly, nonatomic) BOOL loadedImportMetadata; // @synthesize loadedImportMetadata=_loadedImportMetadata;
-@property(readonly, nonatomic) BOOL loadedComparisonMetadata; // @synthesize loadedComparisonMetadata=_loadedComparisonMetadata;
-@property(nonatomic) BOOL loadUsingRetry; // @synthesize loadUsingRetry=_loadUsingRetry;
+@property(readonly, nonatomic) _Bool loadedDeletedObjectData; // @synthesize loadedDeletedObjectData=_loadedDeletedObjectData;
+@property(readonly, nonatomic) _Bool loadedUpdatedObjectData; // @synthesize loadedUpdatedObjectData=_loadedUpdatedObjectData;
+@property(readonly, nonatomic) _Bool loadedInsertedObjectData; // @synthesize loadedInsertedObjectData=_loadedInsertedObjectData;
+@property(readonly, nonatomic) _Bool loadedImportMetadata; // @synthesize loadedImportMetadata=_loadedImportMetadata;
+@property(readonly, nonatomic) _Bool loadedComparisonMetadata; // @synthesize loadedComparisonMetadata=_loadedComparisonMetadata;
+@property(nonatomic) _Bool loadUsingRetry; // @synthesize loadUsingRetry=_loadUsingRetry;
 @property(readonly, nonatomic) NSString *localPeerID; // @synthesize localPeerID=_localPeerID;
 @property(readonly, nonatomic) PFUbiquityKnowledgeVector *knowledgeVector; // @synthesize knowledgeVector=_knowledgeVector;
 @property(readonly, nonatomic) int transactionLogType; // @synthesize transactionLogType=_transactionLogType;
@@ -55,26 +57,26 @@
 @property(readonly, nonatomic) PFUbiquityLocation *transactionLogLocation; // @synthesize transactionLogLocation=_transactionLogLocation;
 @property(readonly, nonatomic) PFUbiquitySaveSnapshot *saveSnapshot; // @synthesize saveSnapshot=_saveSnapshot;
 @property(readonly, nonatomic) NSString *fileProtectionOption; // @synthesize fileProtectionOption=_fileProtectionOption;
-@property(readonly, nonatomic) BOOL inStagingLocation; // @synthesize inStagingLocation=_inStagingLocation;
-@property(readonly, nonatomic) BOOL inPermanentLocation; // @synthesize inPermanentLocation=_inPermanentLocation;
-@property(readonly, nonatomic) BOOL inTemporaryLocation; // @synthesize inTemporaryLocation=_inTemporaryLocation;
-@property(nonatomic) BOOL useTemporaryLogLocation; // @synthesize useTemporaryLogLocation=_useTemporaryLogLocation;
+@property(readonly, nonatomic) _Bool inStagingLocation; // @synthesize inStagingLocation=_inStagingLocation;
+@property(readonly, nonatomic) _Bool inPermanentLocation; // @synthesize inPermanentLocation=_inPermanentLocation;
+@property(readonly, nonatomic) _Bool inTemporaryLocation; // @synthesize inTemporaryLocation=_inTemporaryLocation;
+@property(nonatomic) _Bool useTemporaryLogLocation; // @synthesize useTemporaryLogLocation=_useTemporaryLogLocation;
 - (void)populateContents;
 - (id)generatePeerCodeKnowledgeVectorWithManagedObjectContext:(id)arg1;
-- (BOOL)rewriteToDiskWithError:(id *)arg1;
-- (BOOL)writeContentsOfZipArchive:(id)arg1 intoExtendedAttributesForFile:(id)arg2 error:(id *)arg3;
-- (BOOL)writeToDiskWithError:(id *)arg1 andUpdateFilenameInTransactionEntries:(id)arg2;
-- (BOOL)moveFileToPermanentLocationWithError:(id *)arg1;
-- (BOOL)deleteLogFileWithError:(id *)arg1;
+- (_Bool)rewriteToDiskWithError:(id *)arg1;
+- (_Bool)writeContentsOfZipArchive:(id)arg1 intoExtendedAttributesForFile:(id)arg2 error:(id *)arg3;
+- (_Bool)writeToDiskWithError:(id *)arg1 andUpdateFilenameInTransactionEntries:(id)arg2;
+- (_Bool)moveFileToPermanentLocationWithError:(id *)arg1;
+- (_Bool)deleteLogFileWithError:(id *)arg1;
 - (void)cleanupExternalDataReferences;
 - (id)loadPlistAtLocation:(id)arg1 withError:(id *)arg2;
-- (BOOL)loadDeletedObjectsDataWithError:(id *)arg1;
-- (BOOL)loadUpdatedObjectsDataWithError:(id *)arg1;
-- (BOOL)loadInsertedObjectsDataWithError:(id *)arg1;
-- (BOOL)loadImportMetadataWithError:(id *)arg1;
-- (BOOL)loadComparisonMetadataWithError:(id *)arg1;
-- (BOOL)loadContents:(id *)arg1;
-- (BOOL)releaseContents:(id *)arg1;
+- (_Bool)loadDeletedObjectsDataWithError:(id *)arg1;
+- (_Bool)loadUpdatedObjectsDataWithError:(id *)arg1;
+- (_Bool)loadInsertedObjectsDataWithError:(id *)arg1;
+- (_Bool)loadImportMetadataWithError:(id *)arg1;
+- (_Bool)loadComparisonMetadataWithError:(id *)arg1;
+- (_Bool)loadContents:(id *)arg1;
+- (_Bool)releaseContents:(id *)arg1;
 - (void)releaseDeletedObjects;
 - (void)releaseUpdatedObjects;
 - (void)releaseInsertedObjects;

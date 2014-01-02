@@ -11,6 +11,6 @@
 @optional
 - (void)widget:(id)arg1 didUpdatePreferredSize:(struct CGSize)arg2;
 - (void)widget:(id)arg1 requestsLaunchOfURL:(id)arg2;
-- (void)widget:(id)arg1 requestsPresentationOfViewController:(id)arg2 presentationStyle:(int)arg3 context:(id)arg4 completion:(id)arg5;
+- (void)widget:(id)arg1 requestsPresentationOfViewController:(id)arg2 presentationStyle:(long long)arg3 context:(id)arg4 completion:(id)arg5;
 @end
 

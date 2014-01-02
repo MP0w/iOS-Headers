@@ -12,23 +12,23 @@
 
 @interface MSASAssetTransferer : NSObject <MMCSEngineDelegate>
 {
-    BOOL _hasShutDown;
+    _Bool _hasShutDown;
+    int _maxBatchCount;
+    int _maxRetryCount;
     id _delegate;
     NSString *_personID;
     MMCSEngine *_engine;
+    double _maxMMCSTokenValidityTimeInterval;
     MSAlbumSharingDaemon *_daemon;
     MSASPersonModel *_model;
     MSBackoffManager *_backoffManager;
-    int _maxBatchCount;
-    int _maxRetryCount;
     NSString *_focusAlbumGUID;
     NSString *_focusAssetCollectionGUID;
     NSObject<OS_dispatch_queue> *_workQueue;
     NSObject<OS_dispatch_queue> *_eventQueue;
-    double _maxMMCSTokenValidityTimeInterval;
 }
 
-@property(nonatomic) BOOL hasShutDown; // @synthesize hasShutDown=_hasShutDown;
+@property(nonatomic) _Bool hasShutDown; // @synthesize hasShutDown=_hasShutDown;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *eventQueue; // @synthesize eventQueue=_eventQueue;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
 @property(copy, nonatomic) NSString *focusAssetCollectionGUID; // @synthesize focusAssetCollectionGUID=_focusAssetCollectionGUID;
@@ -45,7 +45,7 @@
 - (void).cxx_destruct;
 - (void)MMCSEngine:(id)arg1 logPerformanceMetrics:(id)arg2;
 - (void)MMCSEngine:(id)arg1 logMessage:(id)arg2 logLevel:(int)arg3;
-- (BOOL)MMCSEngine:(id)arg1 shouldLogAtLogLevel:(int)arg2;
+- (_Bool)MMCSEngine:(id)arg1 shouldLogAtLogLevel:(int)arg2;
 - (void)didFinishGettingAllAssets;
 - (void)MMCSEngine:(id)arg1 didMakeGetProgress:(float)arg2 state:(int)arg3 onAsset:(id)arg4;
 - (void)MMCSEngine:(id)arg1 didFinishGettingAsset:(id)arg2 path:(id)arg3 error:(id)arg4;

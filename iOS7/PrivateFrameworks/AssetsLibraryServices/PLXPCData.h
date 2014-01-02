@@ -13,9 +13,9 @@
     NSObject<OS_xpc_object> *_data;
 }
 
-- (unsigned int)length;
+- (unsigned long long)length;
 - (void)getBytes:(void *)arg1 range:(struct _NSRange)arg2;
-- (void)getBytes:(void *)arg1 length:(unsigned int)arg2;
+- (void)getBytes:(void *)arg1 length:(unsigned long long)arg2;
 - (const void *)bytes;
 - (id)debugDescription;
 - (void)dealloc;

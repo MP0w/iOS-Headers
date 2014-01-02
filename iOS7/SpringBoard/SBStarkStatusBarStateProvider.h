@@ -10,9 +10,10 @@
 {
 }
 
-+ (BOOL)_itemIsIgnored:(int)arg1;
-- (void)_composePostDataFromAggregatorData:(CDStruct_87a532be *)arg1;
-- (BOOL)_shouldPostForVisitedItem:(int)arg1 withUpdates:(BOOL)arg2 toAggregatorData:(const CDStruct_87a532be *)arg3;
++ (_Bool)_itemIsIgnored:(int)arg1;
+- (void)_composePostDataFromAggregatorData:(CDStruct_0e61b686 *)arg1;
+- (_Bool)_shouldPostForUpdatesToNonItemData:(const CDStruct_0e61b686 *)arg1;
+- (_Bool)_shouldPostForVisitedItem:(int)arg1 withUpdates:(_Bool)arg2 toAggregatorData:(const CDStruct_0e61b686 *)arg3;
 
 @end
 

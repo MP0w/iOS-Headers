@@ -6,20 +6,25 @@
 
 #import "UIViewController.h"
 
+#import "SBControlCenterObserver-Protocol.h"
+
 @class NSString;
 
-@interface SBControlCenterSectionViewController : UIViewController
+@interface SBControlCenterSectionViewController : UIViewController <SBControlCenterObserver>
 {
     id <SBControlCenterSectionViewControllerDelegate> _delegate;
 }
 
 + (Class)viewClass;
 @property(nonatomic) id <SBControlCenterSectionViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)noteControlCenterDidDismiss;
-- (void)noteControlCenterWillPresent;
+- (void)controlCenterDidFinishTransition;
+- (void)controlCenterWillBeginTransition;
+- (void)controlCenterDidDismiss;
+- (void)controlCenterWillPresent;
 - (void)noteSettingsDidUpdate:(id)arg1;
-- (struct CGSize)contentSizeForOrientation:(int)arg1;
-- (BOOL)enabledForOrientation:(int)arg1;
+- (struct CGSize)contentSizeForOrientation:(long long)arg1;
+- (_Bool)enabledForOrientation:(long long)arg1;
+- (id)view;
 @property(readonly, nonatomic) NSString *sectionIdentifier;
 - (void)loadView;
 

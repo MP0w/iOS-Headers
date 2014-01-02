@@ -8,42 +8,45 @@
 
 #import "CalloutViewControllerProtocol-Protocol.h"
 
-@class MKCalloutBackgroundView, NSString, UILabel, _MKSmallCalloutPassthroughButton;
+@class MKCalloutBackgroundView, NSString, UILabel, UIView<_MKCalloutDetailView>, _MKSmallCalloutPassthroughButton;
 
+// Not exported
 @interface MKSmallCalloutView : UIView <CalloutViewControllerProtocol>
 {
     UILabel *_titleLabel;
     UILabel *_subtitleLabel;
     UIView *_leftView;
     UIView *_rightView;
-    UIView *_detailView;
-    struct CGSize _sizeForViewInPopover;
-    float _maxWidth;
-    BOOL _shouldPositionTitleForMapsTransitionMovingSideways;
+    UIView<_MKCalloutDetailView> *_detailView;
+    struct CGSize _preferredContentSize;
+    double _maxWidth;
+    _Bool _shouldPositionTitleForMapsTransitionMovingSideways;
     _MKSmallCalloutPassthroughButton *_maskedContainerView;
     UIView *_unmaskedContainerView;
     MKCalloutBackgroundView *_calloutBackgroundView;
+    long long _mapDisplayStyle;
 }
 
+@property(nonatomic) long long mapDisplayStyle; // @synthesize mapDisplayStyle=_mapDisplayStyle;
 @property(retain, nonatomic) MKCalloutBackgroundView *calloutBackgroundView; // @synthesize calloutBackgroundView=_calloutBackgroundView;
-@property(readonly, nonatomic) struct CGSize _sizeForViewInPopover; // @synthesize _sizeForViewInPopover;
-- (BOOL)canDisplayCompleteTitleWhenExpanded;
-- (void)setDetailView:(id)arg1 animated:(BOOL)arg2;
+@property(readonly, nonatomic) struct CGSize _preferredContentSize; // @synthesize _preferredContentSize;
+- (_Bool)canDisplayCompleteTitleWhenExpanded;
+- (void)setDetailView:(id)arg1 animated:(_Bool)arg2;
 @property(retain, nonatomic) UIView *detailView;
-- (void)setRightView:(id)arg1 animated:(BOOL)arg2;
-- (void)setLeftView:(id)arg1 animated:(BOOL)arg2;
+- (void)setRightView:(id)arg1 animated:(_Bool)arg2;
+- (void)setLeftView:(id)arg1 animated:(_Bool)arg2;
 @property(retain, nonatomic) UIView *rightView;
 @property(retain, nonatomic) UIView *leftView;
 @property(copy, nonatomic) NSString *calloutSubtitle;
-- (void)setCalloutSubtitle:(id)arg1 animated:(BOOL)arg2;
+- (void)setCalloutSubtitle:(id)arg1 animated:(_Bool)arg2;
 @property(copy, nonatomic) NSString *calloutTitle;
-- (void)_updateSizeForViewInPopover;
+- (void)_updatePreferredContentSize;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (float)_widthWithoutTruncation;
-- (float)maxCenterTextWidth;
+- (double)_widthWithoutTruncation;
+- (double)maxCenterTextWidth;
 - (void)layoutSubviews;
-- (float)_rightTextMargin;
-- (float)_leftTextMargin;
+- (double)_rightTextMargin;
+- (double)_leftTextMargin;
 - (void)_preLayoutCenterSubviews;
 - (struct CGRect)_centerRect;
 - (void)beginMapsTransitionMovingSideways;

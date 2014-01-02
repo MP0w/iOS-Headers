@@ -20,11 +20,11 @@
 - (id)subActionLabels;
 - (id)sound;
 - (id)action;
-- (BOOL)isSticky;
-- (unsigned int)priority;
-- (BOOL)matchesContext:(id)arg1;
+- (_Bool)isSticky;
+- (unsigned long long)priority;
+- (_Bool)matchesContext:(id)arg1;
 - (void)reloadDisplayProperties;
-- (int)actionType;
+- (long long)actionType;
 - (id)categoryImage;
 - (id)category;
 - (id)title;

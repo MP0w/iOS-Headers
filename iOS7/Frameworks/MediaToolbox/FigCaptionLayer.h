@@ -13,7 +13,7 @@
     FigCaptionLayerPrivate *_priv;
 }
 
-- (void)_renderer:(struct OpaqueFigCFCaptionRenderer *)arg1 didChangeRows:(CDStruct_1ef3fb1f)arg2;
+- (void)_renderer:(struct OpaqueFigCFCaptionRenderer *)arg1 didChangeRows:(CDStruct_912cb5d2)arg2;
 - (void)drawLayer:(id)arg1 inContext:(struct CGContext *)arg2;
 - (void)layoutSublayers;
 - (void)processCaptionCommand:(unsigned int)arg1 data:(id)arg2;

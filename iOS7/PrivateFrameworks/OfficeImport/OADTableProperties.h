@@ -10,39 +10,40 @@
 
 @class NSArray, OADTableStyle;
 
+// Not exported
 @interface OADTableProperties : OADDrawableProperties <OADEffectsParent>
 {
     OADTableStyle *mStyle;
-    BOOL mRightToLeft;
-    BOOL mFirstRow;
-    BOOL mFirstColumn;
-    BOOL mLastRow;
-    BOOL mLastColumn;
-    BOOL mBandRow;
-    BOOL mBandColumn;
+    _Bool mRightToLeft;
+    _Bool mFirstRow;
+    _Bool mFirstColumn;
+    _Bool mLastRow;
+    _Bool mLastColumn;
+    _Bool mBandRow;
+    _Bool mBandColumn;
     NSArray *mEffects;
 }
 
 + (id)defaultProperties;
-- (BOOL)hasEffects;
+- (_Bool)hasEffects;
 - (void)setEffects:(id)arg1;
 - (id)effects;
-- (BOOL)hasVectorNormalToDir:(int)arg1 atExtremePos:(int)arg2;
-- (BOOL)hasBandsNormalToDir:(int)arg1;
-- (void)setBandColumn:(BOOL)arg1;
-- (BOOL)bandColumn;
-- (void)setBandRow:(BOOL)arg1;
-- (BOOL)bandRow;
-- (void)setLastColumn:(BOOL)arg1;
-- (BOOL)lastColumn;
-- (void)setLastRow:(BOOL)arg1;
-- (BOOL)lastRow;
-- (void)setFirstColumn:(BOOL)arg1;
-- (BOOL)firstColumn;
-- (void)setFirstRow:(BOOL)arg1;
-- (BOOL)firstRow;
-- (void)setRightToLeft:(BOOL)arg1;
-- (BOOL)rightToLeft;
+- (_Bool)hasVectorNormalToDir:(int)arg1 atExtremePos:(int)arg2;
+- (_Bool)hasBandsNormalToDir:(int)arg1;
+- (void)setBandColumn:(_Bool)arg1;
+- (_Bool)bandColumn;
+- (void)setBandRow:(_Bool)arg1;
+- (_Bool)bandRow;
+- (void)setLastColumn:(_Bool)arg1;
+- (_Bool)lastColumn;
+- (void)setLastRow:(_Bool)arg1;
+- (_Bool)lastRow;
+- (void)setFirstColumn:(_Bool)arg1;
+- (_Bool)firstColumn;
+- (void)setFirstRow:(_Bool)arg1;
+- (_Bool)firstRow;
+- (void)setRightToLeft:(_Bool)arg1;
+- (_Bool)rightToLeft;
 - (void)setStyle:(id)arg1;
 - (id)style;
 - (void)dealloc;

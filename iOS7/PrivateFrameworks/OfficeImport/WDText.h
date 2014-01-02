@@ -8,6 +8,7 @@
 
 @class NSMutableArray, WDDocument, WDTableCell;
 
+// Not exported
 @interface WDText : NSObject
 {
     NSMutableArray *mBlocks;
@@ -17,7 +18,7 @@
 }
 
 - (id)content;
-- (BOOL)isEmpty;
+- (_Bool)isEmpty;
 - (id)newRunIterator;
 - (id)runIterator;
 - (id)newBlockIterator;
@@ -33,10 +34,10 @@
 - (int)textType;
 - (id)document;
 - (void)addBlock:(id)arg1;
-- (unsigned int)indexOfBlock:(id)arg1;
+- (unsigned long long)indexOfBlock:(id)arg1;
 - (id)lastBlock;
-- (id)blockAt:(unsigned int)arg1;
-- (unsigned int)blockCount;
+- (id)blockAt:(unsigned long long)arg1;
+- (unsigned long long)blockCount;
 - (id)blocks;
 - (void)dealloc;
 - (id)initWithDocument:(id)arg1 textType:(int)arg2 tableCell:(id)arg3;

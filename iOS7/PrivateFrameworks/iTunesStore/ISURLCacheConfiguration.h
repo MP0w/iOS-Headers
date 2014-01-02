@@ -12,14 +12,14 @@
 
 @interface ISURLCacheConfiguration : NSObject <NSCopying>
 {
-    unsigned int _diskCapacity;
-    unsigned int _memoryCapacity;
+    unsigned long long _diskCapacity;
+    unsigned long long _memoryCapacity;
     NSString *_persistentIdentifier;
 }
 
 @property(copy, nonatomic) NSString *persistentIdentifier; // @synthesize persistentIdentifier=_persistentIdentifier;
-@property(nonatomic) unsigned int memoryCapacity; // @synthesize memoryCapacity=_memoryCapacity;
-@property(nonatomic) unsigned int diskCapacity; // @synthesize diskCapacity=_diskCapacity;
+@property(nonatomic) unsigned long long memoryCapacity; // @synthesize memoryCapacity=_memoryCapacity;
+@property(nonatomic) unsigned long long diskCapacity; // @synthesize diskCapacity=_diskCapacity;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 

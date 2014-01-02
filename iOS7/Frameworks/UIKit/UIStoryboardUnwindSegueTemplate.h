@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface UIStoryboardUnwindSegueTemplate : UIStoryboardSegueTemplate
 {
     NSString *_action;

@@ -35,8 +35,8 @@
 - (void)netService:(id)arg1 didNotResolve:(id)arg2;
 - (void)netServiceDidResolveAddress:(id)arg1;
 - (void)netServiceBrowserDidStopSearch:(id)arg1;
-- (void)netServiceBrowser:(id)arg1 didRemoveService:(id)arg2 moreComing:(BOOL)arg3;
-- (void)netServiceBrowser:(id)arg1 didFindService:(id)arg2 moreComing:(BOOL)arg3;
+- (void)netServiceBrowser:(id)arg1 didRemoveService:(id)arg2 moreComing:(_Bool)arg3;
+- (void)netServiceBrowser:(id)arg1 didFindService:(id)arg2 moreComing:(_Bool)arg3;
 - (void)stopRunning;
 - (void)startRunning;
 - (void)dealloc;

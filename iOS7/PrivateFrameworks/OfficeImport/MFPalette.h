@@ -10,6 +10,7 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface MFPalette : NSObject <MFObject>
 {
     NSMutableArray *m_colours;
@@ -17,8 +18,8 @@
 
 + (id)paletteWithColours:(id)arg1;
 - (id)getColour:(int)arg1;
-- (BOOL)resize:(int)arg1;
-- (BOOL)setEntries:(int)arg1:(id)arg2;
+- (_Bool)resize:(int)arg1;
+- (_Bool)setEntries:(int)arg1:(id)arg2;
 - (int)selectInto:(id)arg1;
 - (void)dealloc;
 - (id)initWithColours:(id)arg1;

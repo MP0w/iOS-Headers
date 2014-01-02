@@ -12,40 +12,40 @@
 
 @interface _UIGraphicsLetterpressStyle : NSObject <NSCopying>
 {
+    int innerShadowBlendMode;
+    int outerShadowBlendMode;
     UIColor *embossHighlightColor;
     UIColor *embossShadowColor;
-    float embossSize;
+    double embossSize;
     UIColor *innerShadowColor;
-    float innerShadowBlur;
-    int innerShadowBlendMode;
+    double innerShadowBlur;
     UIColor *outerShadowColor;
-    float outerShadowBlur;
-    int outerShadowBlendMode;
+    double outerShadowBlur;
     UIColor *topGradientColor;
     UIColor *bottomGradientColor;
-    float innerOpacity;
+    double innerOpacity;
     struct CGPoint innerShadowOffset;
     struct CGPoint outerShadowOffset;
 }
 
 + (id)old2xLetterpressStyle;
 + (id)defaultLetterpressStyle;
-@property(nonatomic) float innerOpacity; // @synthesize innerOpacity;
+@property(nonatomic) double innerOpacity; // @synthesize innerOpacity;
 @property(retain, nonatomic) UIColor *bottomGradientColor; // @synthesize bottomGradientColor;
 @property(retain, nonatomic) UIColor *topGradientColor; // @synthesize topGradientColor;
 @property(nonatomic) int outerShadowBlendMode; // @synthesize outerShadowBlendMode;
-@property(nonatomic) float outerShadowBlur; // @synthesize outerShadowBlur;
+@property(nonatomic) double outerShadowBlur; // @synthesize outerShadowBlur;
 @property(nonatomic) struct CGPoint outerShadowOffset; // @synthesize outerShadowOffset;
 @property(retain, nonatomic) UIColor *outerShadowColor; // @synthesize outerShadowColor;
 @property(nonatomic) int innerShadowBlendMode; // @synthesize innerShadowBlendMode;
-@property(nonatomic) float innerShadowBlur; // @synthesize innerShadowBlur;
+@property(nonatomic) double innerShadowBlur; // @synthesize innerShadowBlur;
 @property(nonatomic) struct CGPoint innerShadowOffset; // @synthesize innerShadowOffset;
 @property(retain, nonatomic) UIColor *innerShadowColor; // @synthesize innerShadowColor;
-@property(nonatomic) float embossSize; // @synthesize embossSize;
+@property(nonatomic) double embossSize; // @synthesize embossSize;
 @property(retain, nonatomic) UIColor *embossShadowColor; // @synthesize embossShadowColor;
 @property(retain, nonatomic) UIColor *embossHighlightColor; // @synthesize embossHighlightColor;
 @property(readonly, nonatomic) struct UIEdgeInsets edgeInsets;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 

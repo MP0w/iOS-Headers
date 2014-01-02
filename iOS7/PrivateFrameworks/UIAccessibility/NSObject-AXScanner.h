@@ -8,15 +8,17 @@
 
 @interface NSObject (AXScanner)
 - (void)_accessibilitySetScannerGroupTraits:(int)arg1;
-- (void)_accessibilitySetIsScannerGroup:(BOOL)arg1;
+- (void)_accessibilitySetIsScannerGroup:(_Bool)arg1;
 - (int)_accessibilityScannerGroupTraits;
-- (BOOL)_accessibilityIsScannerGroup;
+- (_Bool)_accessibilityIsScannerGroup;
 - (id)_accessibilityScannerGroupElements;
 - (void)_accessibilityProcessScannerGroupElementPieces:(id)arg1;
-- (void)_accessibilitySetIsScannerElement:(BOOL)arg1;
-- (BOOL)_accessibilityIsScannerElement;
+- (void)_accessibilitySetIsScannerElement:(_Bool)arg1;
+- (_Bool)_accessibilityIsScannerElement;
+- (id)_accessibilityRemoteVisibleElementsGrouped:(_Bool)arg1;
+- (id)_accessibilityVisibleElementsForHostedWindowWithContextID:(unsigned int)arg1 grouped:(_Bool)arg2;
 - (id)_accessibilityScannerRootGroup;
 - (id)_accessibilityVisibleElements;
-- (id)_accessibilityVisibleElementsGrouped:(BOOL)arg1;
+- (id)_accessibilityVisibleElementsGrouped:(_Bool)arg1;
 @end
 

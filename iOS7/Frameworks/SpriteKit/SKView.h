@@ -10,10 +10,12 @@
 
 @interface SKView : UIView
 {
-    unsigned int _frameInterval;
+    unsigned long long _frameInterval;
     SKDisplayLink *_displayLink;
+    NSObject<OS_dispatch_queue> *_updateQueue;
+    double _timePreviousUpdate;
     SKLabelNode *_statsLabel;
-    float _prevViewAspect;
+    double _prevViewAspect;
     unsigned int _spritesRendered;
     unsigned int _spritesSubmitted;
     int _frames;
@@ -25,23 +27,23 @@
     unsigned int _colorRenderBuffer;
     unsigned int _depthStencilRenderBuffer;
     unsigned int _frameBuffer;
-    BOOL _usesAsyncUpdateQueue;
-    BOOL _hasRenderedOnce;
-    BOOL _hasRenderedForCurrentUpdate;
-    BOOL _isInTransition;
-    BOOL _disableInput;
+    _Bool _usesAsyncUpdateQueue;
+    _Bool _hasRenderedOnce;
+    _Bool _hasRenderedForCurrentUpdate;
+    _Bool _isInTransition;
+    _Bool _disableInput;
     float _transitionDuration;
     float _transitionTime;
     SKScene *_nextScene;
     SKScene *_scene;
-    BOOL _paused;
+    _Bool _paused;
     NSData *_spriteArrayHint;
     struct SKCRenderer *_renderer;
     NSMutableDictionary *_touchMap;
     float _prevBackingScaleFactor;
     NSObject<OS_dispatch_queue> *_renderQueue;
-    BOOL showsFPS;
-    BOOL showsNodeCount;
+    _Bool showsFPS;
+    _Bool showsNodeCount;
 }
 
 + (Class)layerClass;
@@ -50,20 +52,19 @@
 @property(readonly, nonatomic) SKScene *scene;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (id)initWithFrame:(struct CGRect)arg1 updateQueue:(id)arg2;
 - (id)init;
 - (id)_textureFromNode:(id)arg1;
 - (id)textureFromNode:(id)arg1;
-@property(nonatomic) BOOL showsDrawCount;
-@property(nonatomic) BOOL showsNodeCount; // @synthesize showsNodeCount;
-@property(nonatomic) BOOL showsFPS; // @synthesize showsFPS;
-- (BOOL)showsSpriteBounds;
-- (void)setShowsSpriteBounds:(BOOL)arg1;
+@property(nonatomic) _Bool showsDrawCount;
+@property(nonatomic) _Bool showsNodeCount; // @synthesize showsNodeCount;
+@property(nonatomic) _Bool showsFPS; // @synthesize showsFPS;
+- (_Bool)showsSpriteBounds;
+- (void)setShowsSpriteBounds:(_Bool)arg1;
 @property(readonly, nonatomic) struct CGSize pixelSize;
 - (void)writeContentsToPNG:(id)arg1;
-- (id)_snapshot;
-- (id)snapshot;
-@property(nonatomic, getter=isPaused) BOOL paused;
-@property(nonatomic) int frameInterval;
+@property(nonatomic, getter=isPaused) _Bool paused;
+@property(nonatomic) long long frameInterval;
 - (void)willMoveToSuperview:(id)arg1;
 - (void)scrollViewDidScroll:(id)arg1;
 - (void)_renderContent;
@@ -74,8 +75,8 @@
 - (void)_setupContext;
 @property(retain) EAGLContext *_context;
 - (void)displayLayer:(id)arg1;
-- (BOOL)isOpaque;
-- (void)remakeFramebuffer:(float)arg1;
+- (_Bool)isOpaque;
+- (void)remakeFramebuffer:(double)arg1;
 - (void)_initialize;
 - (void)dealloc;
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 fromScene:(id)arg2;
@@ -88,22 +89,10 @@
 - (void)startRenderCallbacks;
 - (void)setUpRenderCallback;
 - (void)bindOpenGLContext;
-@property(nonatomic) BOOL _usesAsyncUpdateQueue;
-@property(getter=isAsynchronous) BOOL asynchronous;
-@property(readonly, nonatomic) int _spriteSubmitCount;
-@property(readonly, nonatomic) int _spriteRenderCount;
-@property(readonly, nonatomic) float _fps;
-@property(readonly, nonatomic) SKScene *_nextScene;
-@property(readonly, nonatomic) SKScene *_scene;
-- (void)_update:(double)arg1;
-- (void)_showAllStats;
-@property(nonatomic) BOOL _showsTotalAreaRendered;
-@property(nonatomic) BOOL _showsCulledNodesInNodeCount;
-@property(nonatomic) BOOL _showsGPUStats;
-@property(nonatomic) BOOL _showsCPUStats;
-@property(nonatomic) BOOL _showsCoreAnimationFPS;
-@property(nonatomic) BOOL _shouldCenterStats;
-@property(nonatomic) BOOL _showsSpriteBounds;
+- (_Bool)_usesAsyncUpdateQueue;
+- (void)set_usesAsyncUpdateQueue:(_Bool)arg1;
+@property(nonatomic) _Bool ignoresSiblingOrder;
+@property(nonatomic, getter=isAsynchronous) _Bool asynchronous;
 
 @end
 

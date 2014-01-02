@@ -10,9 +10,10 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface NSSQLPredicateAnalyser : NSObject <NSPredicateVisitor>
 {
-    BOOL _compoundPredicate;
+    _Bool _compoundPredicate;
     NSMutableArray *_keys;
     NSMutableArray *_allModifierPredicates;
     NSMutableArray *_setExpressions;

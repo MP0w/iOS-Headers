@@ -11,15 +11,15 @@
 @interface DOMRange (UIWebSelectionAdditions) <UIWebSelectionBlock>
 - (id)enclosingDocument;
 - (id)rangeOfContents;
-- (BOOL)canShrinkDirectlyToTextOnly;
-- (BOOL)containsRange:(id)arg1;
+- (_Bool)canShrinkDirectlyToTextOnly;
+- (_Bool)containsRange:(id)arg1;
 - (id)asDomRange;
 - (id)asDomNode;
-- (BOOL)selectable;
-- (BOOL)rendersAsBlock;
-- (BOOL)strictlyContainsBlock:(id)arg1;
-- (BOOL)containsBlock:(id)arg1;
-- (BOOL)isSameBlock:(id)arg1;
+- (_Bool)selectable;
+- (_Bool)rendersAsBlock;
+- (_Bool)strictlyContainsBlock:(id)arg1;
+- (_Bool)containsBlock:(id)arg1;
+- (_Bool)isSameBlock:(id)arg1;
 - (id)largerParent;
 - (id)parentBlock;
 - (struct CGRect)boundingRectAndInsideFixedPosition:(int *)arg1;

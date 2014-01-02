@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray;
+@class NSMutableArray, NSString;
 
 @interface AVAudioMixInputParametersInternal : NSObject
 {
     int trackID;
     NSMutableArray *ramps;
+    NSString *audioTimePitchAlgorithm;
     struct opaqueMTAudioProcessingTap *tap;
 }
 

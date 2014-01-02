@@ -10,15 +10,16 @@
 {
 }
 
-- (int)albumDeletionConfirmationStyle;
-- (BOOL)wantsSpecialEmptyPlaceholderImageForLandscape;
+- (long long)albumDeletionConfirmationStyle;
 - (id)feedViewControllerSpec;
 - (id)photosPickerViewControllerSpec;
 - (id)panoramaViewControllerSpec;
 - (id)gridViewControllerSpec;
-- (float)sectionFooterHeight;
-- (float)sectionHeaderHeight;
-- (BOOL)allowsAlbumCountSubtitle;
+- (id)_nameOfEmptySharedAlbumPlaceholderImage;
+- (id)_nameOfAddSharedAlbumPlaceholderImage;
+- (double)sectionFooterHeight;
+- (double)sectionHeaderHeight;
+- (_Bool)allowsAlbumCountSubtitle;
 - (struct UIOffset)stackOffset;
 - (struct UIOffset)stackPerspectiveOffset;
 - (struct UIEdgeInsets)stackPerspectiveInsets;
@@ -27,7 +28,7 @@
 - (struct CGSize)photoSize;
 - (id)emptyStackPhotoDecoration;
 - (id)stackPhotoDecoration;
-- (unsigned int)stackViewStyle;
+- (unsigned long long)stackViewStyle;
 - (int)qualityImageFormat;
 - (int)fastImageFormat;
 

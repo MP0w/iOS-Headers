@@ -8,16 +8,16 @@
 
 @interface CNFRegAliasTableCell : PSTableCell
 {
-    BOOL _hidesDisclosureButton;
+    _Bool _hidesDisclosureButton;
 }
 
-- (BOOL)usesStandardBackgroundImage;
+- (_Bool)usesStandardBackgroundImage;
 - (void)layoutSubviews;
 - (void)refreshCellContentsWithSpecifier:(id)arg1;
 - (void)_updateIcon;
-- (void)setChecked:(BOOL)arg1;
-- (void)setHidesDisclosureButton:(BOOL)arg1;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
+- (void)setChecked:(_Bool)arg1;
+- (void)setHidesDisclosureButton:(_Bool)arg1;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
 
 @end
 

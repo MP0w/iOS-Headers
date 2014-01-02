@@ -8,6 +8,7 @@
 
 @class NSArray, NSDate;
 
+// Not exported
 @interface EKPreviewSection : NSObject
 {
     NSArray *_events;

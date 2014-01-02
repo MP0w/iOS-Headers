@@ -6,22 +6,21 @@
 
 #import "UIViewController.h"
 
+#import "RUIObjectModelDelegate-Protocol.h"
 #import "UIAlertViewDelegate-Protocol.h"
 #import "UIWebViewDelegate-Protocol.h"
 
-@class CNFRegController, CNFRegLoadingView, NSMutableDictionary, NSString, NSTimer, UIAlertView, UIWebView;
+@class CNFRegController, CNFRegLoadingView, NSMutableArray, NSTimer, RUILoader, UIAlertView, UIWebView;
 
-@interface CNFRegServerWebViewController : UIViewController <UIWebViewDelegate, UIAlertViewDelegate>
+@interface CNFRegServerWebViewController : UIViewController <UIWebViewDelegate, UIAlertViewDelegate, RUIObjectModelDelegate>
 {
-    UIWebView *_webView;
     CNFRegController *_regController;
     CNFRegLoadingView *_loadingView;
-    NSString *_leftButtonAction;
-    NSString *_rightButtonAction;
-    NSMutableDictionary *_urlHandlers;
     UIAlertView *_alert;
     id _alertHandler;
     NSTimer *_timeoutTimer;
+    RUILoader *_loader;
+    NSMutableArray *_objectModels;
     struct {
         unsigned int isLoading:1;
         unsigned int isLoaded:1;
@@ -32,67 +31,48 @@
         unsigned int shouldLog:1;
         unsigned int timedOut;
     } _webControllerFlags;
+    UIWebView *_webView;
 }
 
+@property(retain, nonatomic) UIWebView *webView; // @synthesize webView=_webView;
 @property(retain, nonatomic) CNFRegController *regController; // @synthesize regController=_regController;
 @property(copy, nonatomic) id alertHandler; // @synthesize alertHandler=_alertHandler;
 @property(retain, nonatomic) UIAlertView *alert; // @synthesize alert=_alert;
-@property(copy, nonatomic) NSString *rightButtonAction; // @synthesize rightButtonAction=_rightButtonAction;
-@property(copy, nonatomic) NSString *leftButtonAction; // @synthesize leftButtonAction=_leftButtonAction;
-@property(retain, nonatomic) UIWebView *webView; // @synthesize webView=_webView;
-@property(readonly, nonatomic) BOOL timedOut; // @dynamic timedOut;
-@property(readonly, nonatomic) BOOL isLoading; // @dynamic isLoading;
-@property(readonly, nonatomic) BOOL isLoaded; // @dynamic isLoaded;
+@property(readonly, nonatomic) _Bool timedOut; // @dynamic timedOut;
+@property(readonly, nonatomic) _Bool isLoading; // @dynamic isLoading;
+@property(readonly, nonatomic) _Bool isLoaded; // @dynamic isLoaded;
 - (void)applicationWillSuspend;
 - (void)_handleTimeout;
 - (void)_timeoutFired:(id)arg1;
 - (void)_stopTimeout;
 - (void)_startTimeoutWithDuration:(double)arg1;
-- (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
-- (void)parseAlertURL:(id)arg1;
-- (void)parseNavBarURL:(id)arg1;
-- (void)handleRightButtonError:(id)arg1;
-- (void)rightButtonTapped:(id)arg1;
-- (void)_clearRightButtonTarget;
-- (void)handleLeftButtonError:(id)arg1;
-- (void)leftButtonTapped:(id)arg1;
-- (void)_clearLeftButtonTarget;
-- (id)navButtonWithTitle:(id)arg1 action:(SEL)arg2 highlight:(BOOL)arg3;
-- (id)executeJavaScript:(id)arg1;
-- (id)executeJavaScript:(id)arg1 error:(id *)arg2;
-- (id)javaScriptStringForValue:(struct OpaqueJSValue *)arg1;
-- (struct OpaqueJSContext *)javaScriptExecutionContext;
-- (id)functionStringFromCallbackName:(id)arg1 withStringArgument:(id)arg2;
-- (id)functionStringFromCallbackName:(id)arg1;
-- (BOOL)uintForServerValue:(id)arg1 value:(unsigned int *)arg2 defaultValue:(unsigned int)arg3;
-- (BOOL)intForServerValue:(id)arg1 value:(int *)arg2 defaultValue:(int)arg3;
-- (BOOL)boolForServerValue:(id)arg1 value:(char *)arg2 defaultValue:(BOOL)arg3;
-- (id)numberForServerValue:(id)arg1;
-- (id)queryDictionaryForUrl:(id)arg1;
-- (id)schemeForURL:(id)arg1;
-- (void)clearUrlHandlers;
-- (void)setupUrlHandlers;
-- (SEL)selectorForScheme:(id)arg1;
-- (void)addSelector:(SEL)arg1 forScheme:(id)arg2;
-- (BOOL)canSendURLRequest:(id)arg1;
-- (BOOL)shouldSetHeadersForRequest:(id)arg1;
+- (void)alertView:(id)arg1 didDismissWithButtonIndex:(long long)arg2;
+- (_Bool)canSendURLRequest:(id)arg1;
+- (_Bool)shouldSetHeadersForRequest:(id)arg1;
 - (void)setHeadersForRequest:(id)arg1;
 - (id)overrideURLForURL:(id)arg1;
+- (void)receivedStatus:(int)arg1 appleID:(id)arg2 authID:(id)arg3 authToken:(id)arg4;
+- (void)loader:(id)arg1 didFailWithError:(id)arg2;
+- (void)objectModel:(id)arg1 pressedButton:(id)arg2 attributes:(id)arg3;
+- (void)objectModel:(id)arg1 pressedLink:(id)arg2 httpMethod:(id)arg3;
+- (void)loader:(id)arg1 receivedObjectModel:(id)arg2 actionSignal:(int)arg3;
+- (void)cancelButtonPressed:(id)arg1;
+- (void)objectModelDidChange:(id)arg1;
+- (void)objectModelPressedBack:(id)arg1;
+- (id)parentViewControllerForObjectModel:(id)arg1;
+- (void)_popObjectModelAnimated:(_Bool)arg1;
+- (void)_cleanupLoader;
 - (void)loadURL:(id)arg1;
-- (void)webView:(id)arg1 didFailLoadWithError:(id)arg2;
-- (void)webViewDidFinishLoad:(id)arg1;
-- (void)webViewDidStartLoad:(id)arg1;
-- (BOOL)webView:(id)arg1 shouldStartLoadWithRequest:(id)arg2 navigationType:(int)arg3;
 - (void)hideSpinner;
 - (void)showSpinner;
-- (void)setWantsWifi:(BOOL)arg1;
+- (void)setWantsWifi:(_Bool)arg1;
 - (void)stopRequiringWifi;
 - (void)startRequiringWifi;
-- (void)viewDidDisappear:(BOOL)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
-- (BOOL)_shouldLog;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
+- (_Bool)_shouldLog;
 - (id)logName;
 - (void)dealloc;
 - (void)viewDidUnload;

@@ -6,47 +6,82 @@
 
 #import "UIViewController.h"
 
-#import "RULikeBanCollectionViewControllerDelegate-Protocol.h"
-#import "UIScrollViewDelegate-Protocol.h"
+#import "RUAddSeedViewControllerDelegate-Protocol.h"
+#import "UITableViewDataSource-Protocol.h"
+#import "UITableViewDelegate-Protocol.h"
 
-@class MPImageCache, NSArray, NSMutableArray, RULikeBanCollectionViewController, RUStationTuningView, RadioStation, UIAlertView, UIButton, UIScrollView, UITextField, UIView, _UIBackdropView;
+@class MPImageCache, NSArray, NSMutableArray, RUAddSeedViewController, RUMetricsController, RUParallelScrollView, RUStationTuningView, RadioStation, UIAlertView, UIImage, UITableViewCell, UITextField, UIView, _RUStationSettingsTableView;
 
-@interface RUStationSettingsViewController : UIViewController <RULikeBanCollectionViewControllerDelegate, UIScrollViewDelegate>
+@interface RUStationSettingsViewController : UIViewController <RUAddSeedViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 {
-    _UIBackdropView *_backdropView;
-    NSMutableArray *_bannedItems;
-    RULikeBanCollectionViewController *_banCollectionViewController;
-    UIButton *_deleteButton;
-    UIView *_deleteMaskView;
-    UIView *_deleteSeparator;
+    UIImage *_addLikeBanImage;
+    RUAddSeedViewController *_addSeedViewController;
+    _Bool _addingForLike;
+    NSArray *_bannedItems;
+    RUParallelScrollView *_containerScrollView;
+    UIView *_deleteTintView;
     UIAlertView *_deletionAlertView;
     MPImageCache *_imageCache;
-    NSArray *_globalLikedItems;
-    NSMutableArray *_likedItems;
-    RULikeBanCollectionViewController *_likeCollectionViewController;
-    UIView *_likeSeparatorView;
-    UIScrollView *_scrollView;
+    _Bool _isEditing;
+    NSArray *_likedItems;
+    RUMetricsController *_metricsController;
+    NSMutableArray *_orderedSections;
+    NSMutableArray *_queuedMetricsOperations;
+    long long _sharingRow;
     RadioStation *_station;
+    UITableViewCell *_stationNameCell;
+    UITextField *_stationNameTextField;
+    UITableViewCell *_stationTuningCell;
     RUStationTuningView *_stationTuningView;
-    UITextField *_textField;
+    _RUStationSettingsTableView *_tableView;
+    long long _tuningRow;
 }
 
 - (void).cxx_destruct;
+- (void)_updateEditingStateAnimated:(_Bool)arg1;
 - (void)_updateLikesAndBans;
-- (id)_populatedItemDictionaryForItemDictionary:(id)arg1;
+- (id)_titleForSettingsSection:(long long)arg1;
+- (long long)_tableViewSectionForSettingsSection:(long long)arg1;
+- (long long)_settingsSectionForTableViewSection:(long long)arg1;
+- (void)_presentAddSeedController;
+- (void)_populateLikeBanItems:(id)arg1 withCompletionHandler:(id)arg2;
+- (id)_newPageEvent;
 - (id)_newTextField;
-- (id)_itemsFromStationSeeds;
-- (void)_layoutLikeBanCollectionViews;
+- (id)_newShadowViewWithFrame:(struct CGRect)arg1;
+- (id)_newSectionHeaderWithFrame:(struct CGRect)arg1 title:(id)arg2;
+- (_Bool)_isDeletableRowAtIndexPath:(id)arg1;
+- (void)_handleResponseForLikeRequest:(id)arg1 withStation:(id)arg2 responseDictionary:(id)arg3 requestError:(id)arg4;
+- (void)_didSelectLikeBanStation:(id)arg1;
+- (long long)_countOfSettingsSections;
+- (void)_addMetricsControllerOperationBlock:(id)arg1;
+- (id)_addLikeBanImage;
+- (void)_applicationWillEnterForegroundNotification:(id)arg1;
 - (void)_radioModelDidChangeNotification:(id)arg1;
-- (void)_textFieldValueDidEndEditingAction:(id)arg1;
-- (void)_deleteAction:(id)arg1;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
-- (void)likeBanCollectionViewController:(id)arg1 didSelectStation:(id)arg2;
+- (void)_toggleEditAction:(id)arg1;
+- (void)_stationNameTextFieldValueDidEndEditingAction:(id)arg1;
+- (void)_stationNameTextFieldEditingDidBeginAction:(id)arg1;
+- (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
+- (id)tableView:(id)arg1 viewForHeaderInSection:(long long)arg2;
+- (id)tableView:(id)arg1 viewForFooterInSection:(long long)arg2;
+- (_Bool)tableView:(id)arg1 shouldIndentWhileEditingRowAtIndexPath:(id)arg2;
+- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (double)tableView:(id)arg1 heightForHeaderInSection:(long long)arg2;
+- (double)tableView:(id)arg1 heightForFooterInSection:(long long)arg2;
+- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (void)tableView:(id)arg1 commitEditingStyle:(long long)arg2 forRowAtIndexPath:(id)arg3;
+- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (_Bool)tableView:(id)arg1 canEditRowAtIndexPath:(id)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
+- (void)addSeedViewControllerDidCancel:(id)arg1;
+- (void)addSeedViewController:(id)arg1 didSelectStation:(id)arg2;
 - (id)contentScrollView;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
-- (void)loadView;
+- (void)dismissViewControllerAnimated:(_Bool)arg1 completion:(id)arg2;
+- (void)didRotateFromInterfaceOrientation:(long long)arg1;
 - (void)dealloc;
 - (id)initWithStation:(id)arg1;
 

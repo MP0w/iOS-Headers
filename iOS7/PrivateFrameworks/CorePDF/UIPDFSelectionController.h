@@ -11,29 +11,29 @@
 @interface UIPDFSelectionController : NSObject
 {
     UIPDFPageView *_pageView;
-    BOOL _rangeMode;
+    _Bool _rangeMode;
     id <UIPDFSelectionWidget><NSObject> _selectionWidget;
-    BOOL _resizingWidget;
+    _Bool _resizingWidget;
     struct CGPoint _selectionFixedPoint;
     struct CGRect _selectionBounds;
-    BOOL _preceeds;
-    BOOL _isTracking;
+    _Bool _preceeds;
+    _Bool _isTracking;
     struct CGPoint _adjustedPoint;
-    BOOL _hiding;
-    long _firstIndex;
-    long _lastIndex;
+    _Bool _hiding;
+    long long _firstIndex;
+    long long _lastIndex;
     struct CGPoint _startPoint;
-    BOOL _needsLayout;
-    BOOL _cancelled;
-    BOOL _instantModeIsSuspended;
-    BOOL _instantHighlightMode;
+    _Bool _needsLayout;
+    _Bool _cancelled;
+    _Bool _instantModeIsSuspended;
+    _Bool _instantHighlightMode;
 }
 
-@property(nonatomic) BOOL instantHighlightMode; // @synthesize instantHighlightMode=_instantHighlightMode;
+@property(nonatomic) _Bool instantHighlightMode; // @synthesize instantHighlightMode=_instantHighlightMode;
 @property(readonly, nonatomic) struct CGPoint adjustedPoint; // @synthesize adjustedPoint=_adjustedPoint;
-@property(readonly, nonatomic) BOOL isTracking; // @synthesize isTracking=_isTracking;
+@property(readonly, nonatomic) _Bool isTracking; // @synthesize isTracking=_isTracking;
 @property(readonly, nonatomic) id <UIPDFSelectionWidget> selectionWidget; // @synthesize selectionWidget=_selectionWidget;
-@property(readonly, nonatomic) BOOL rangeMode; // @synthesize rangeMode=_rangeMode;
+@property(readonly, nonatomic) _Bool rangeMode; // @synthesize rangeMode=_rangeMode;
 @property(nonatomic) UIPDFPageView *pageView; // @synthesize pageView=_pageView;
 - (id)description;
 - (void)layoutSelections;
@@ -44,16 +44,16 @@
 - (void)startTracking:(struct CGPoint)arg1 andPoint:(struct CGPoint)arg2;
 - (void)suspendInstantHighlightMode;
 - (void)endTracking:(struct CGPoint)arg1;
-- (void)tracking:(struct CGPoint)arg1 showMagnifier:(char *)arg2;
-- (void)startTracking:(struct CGPoint)arg1 showMagnifier:(char *)arg2;
+- (void)tracking:(struct CGPoint)arg1 showMagnifier:(_Bool *)arg2;
+- (void)startTracking:(struct CGPoint)arg1 showMagnifier:(_Bool *)arg2;
 - (void)startSelectingAt:(struct CGPoint)arg1;
-- (BOOL)shouldTrackAt:(struct CGPoint)arg1;
+- (_Bool)shouldTrackAt:(struct CGPoint)arg1;
 - (void)hideWidget;
 - (void)clearSelection;
 - (void)extendSelectionToParagraph;
 - (void)setSelectionFor:(struct CGPoint)arg1;
 - (void)addSelectionWidget:(id)arg1;
-- (BOOL)useParagraphMode;
+- (_Bool)useParagraphMode;
 - (void)adjustSelection:(struct CGPoint)arg1;
 - (void)selectionShowDelayed:(id)arg1;
 - (void)selectionShow:(id)arg1;

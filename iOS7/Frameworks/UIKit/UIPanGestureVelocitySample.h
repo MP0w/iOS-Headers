@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface UIPanGestureVelocitySample : NSObject
 {
     struct CGPoint start;

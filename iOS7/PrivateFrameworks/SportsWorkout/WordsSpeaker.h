@@ -15,8 +15,8 @@
 }
 
 - (void)stopAllSounds;
-- (BOOL)playSoundsForWords:(id)arg1;
-@property(readonly, nonatomic) BOOL isPlaying; // @dynamic isPlaying;
+- (_Bool)playSoundsForWords:(id)arg1;
+@property(readonly, nonatomic) _Bool isPlaying; // @dynamic isPlaying;
 - (id)initWithGender:(id)arg1 language:(id)arg2;
 
 @end

@@ -15,12 +15,12 @@
 
 + (id)activeWishlist;
 - (void).cxx_destruct;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)removeItemsWithItemIdentifiers:(id)arg1;
 - (void)postChangeNotification;
 @property(readonly, nonatomic) NSArray *items;
-- (BOOL)containsItemWithIdentifier:(long long)arg1;
+- (_Bool)containsItemWithIdentifier:(long long)arg1;
 - (void)addItem:(id)arg1;
 @property(readonly, nonatomic) long long accountIdentifier;
 - (id)initWithAccountIdentifier:(long long)arg1;

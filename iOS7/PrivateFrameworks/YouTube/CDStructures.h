@@ -7,8 +7,8 @@
 #pragma mark Named Structures
 
 struct CGPoint {
-    float _field1;
-    float _field2;
+    double _field1;
+    double _field2;
 };
 
 struct CGRect {
@@ -17,7 +17,7 @@ struct CGRect {
 };
 
 struct CGSize {
-    float _field1;
-    float _field2;
+    double _field1;
+    double _field2;
 };
 

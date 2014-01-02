@@ -17,7 +17,7 @@
 - (struct CGRect)thumbRectForBounds:(struct CGRect)arg1 trackRect:(struct CGRect)arg2 value:(float)arg3;
 - (struct CGRect)trackRectForBounds:(struct CGRect)arg1;
 - (void)drawRect:(struct CGRect)arg1;
-- (void)setValue:(float)arg1 animated:(BOOL)arg2;
+- (void)setValue:(float)arg1 animated:(_Bool)arg2;
 - (void)sliderTapped:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

@@ -8,12 +8,13 @@
 
 @class UIImage;
 
+// Not exported
 @interface UITextFieldBorderView : UIView
 {
     UIImage *_image;
 }
 
-- (BOOL)useBlockyMagnificationInClassic;
+- (_Bool)useBlockyMagnificationInClassic;
 - (void)dealloc;
 - (void)layoutSubviews;
 - (void)setImage:(id)arg1;

@@ -8,6 +8,7 @@
 
 @class NSMutableArray, NSMutableDictionary, NSMutableSet;
 
+// Not exported
 @interface CPMessageContext : NSObject
 {
     NSMutableSet *m_warnings;
@@ -17,15 +18,15 @@
 }
 
 + (void)restoreObjectStack:(unsigned int)arg1;
-+ (unsigned int)saveObjectStack;
++ (unsigned long long)saveObjectStack;
 + (void)replacePlaceholdersWithObjects;
 + (void)setObject:(id)arg1 forPlaceholder:(id)arg2;
 + (void)popCurrentPlaceholder:(id)arg1;
 + (id)pushCurrentPlaceholder;
 + (void)popCurrentObject;
 + (void)pushCurrentObject:(id)arg1;
-+ (BOOL)isFileStructuredStorage;
-+ (void)setIsFileStructuredStorage:(BOOL)arg1;
++ (_Bool)isFileStructuredStorage;
++ (void)setIsFileStructuredStorage:(_Bool)arg1;
 + (id)getErrorArray;
 + (id)getWarningArray;
 + (void)removeContextForCurrentThread;
@@ -36,7 +37,7 @@
 + (void)reportWarning:(struct CPTaggedMessageStructure *)arg1;
 + (void)reportObject:(id)arg1 withWarning:(struct CPTaggedMessageStructure *)arg2;
 + (id)currentObjectOrPlaceholder;
-+ (void)reportObjectOrPlaceholder:(id)arg1 withWarning:(struct CPTaggedMessageStructure *)arg2 parameters:(void *)arg3;
++ (void)reportObjectOrPlaceholder:(id)arg1 withWarning:(struct CPTaggedMessageStructure *)arg2 parameters:(char *)arg3;
 + (void)initialize;
 - (void)dealloc;
 - (id)init;

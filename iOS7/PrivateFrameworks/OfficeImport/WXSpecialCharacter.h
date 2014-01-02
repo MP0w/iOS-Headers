@@ -6,11 +6,10 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface WXSpecialCharacter : NSObject
 {
 }
-
-+ (void)readFrom:(struct _xmlNode *)arg1 to:(id)arg2;
 
 @end
 

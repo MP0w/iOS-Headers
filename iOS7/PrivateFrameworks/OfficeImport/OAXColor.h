@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface OAXColor : NSObject
 {
 }
@@ -14,15 +15,6 @@
 + (id)readPresetColorFromAttribute:(id)arg1;
 + (id)readColorFromNode:(struct _xmlNode *)arg1;
 + (id)readColorFromParentXmlNode:(struct _xmlNode *)arg1;
-+ (id)schemeColorEnumMap;
-+ (id)systemColorEnumMap;
-+ (id)presetColorEnumMap;
-+ (id)readSchemeColorFromXmlNode:(struct _xmlNode *)arg1;
-+ (id)readSystemColorFromXmlNode:(struct _xmlNode *)arg1;
-+ (id)readPresetColorFromXmlNode:(struct _xmlNode *)arg1;
-+ (id)readHslColorFromXmlNode:(struct _xmlNode *)arg1;
-+ (id)readSRgbColorFromXmlNode:(struct _xmlNode *)arg1 attribute:(const char *)arg2;
-+ (id)readScRgbColorFromXmlNode:(struct _xmlNode *)arg1;
 
 @end
 

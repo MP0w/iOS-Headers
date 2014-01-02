@@ -8,6 +8,6 @@
 
 @protocol MFDataConsumer <NSObject>
 - (void)done;
-- (int)appendData:(id)arg1;
+- (long long)appendData:(id)arg1;
 @end
 

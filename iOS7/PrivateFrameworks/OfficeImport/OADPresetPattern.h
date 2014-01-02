@@ -6,18 +6,19 @@
 
 #import <OfficeImport/OADPattern.h>
 
+// Not exported
 @interface OADPresetPattern : OADPattern
 {
     int mType;
-    BOOL mIsTypeOverridden;
+    _Bool mIsTypeOverridden;
 }
 
 + (id)namedBitmapDataForPresetPatternType:(int)arg1;
 + (id)nameForPresetPatternType:(int)arg1;
 + (id)defaultProperties;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (BOOL)isTypeOverridden;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isTypeOverridden;
 - (void)setType:(int)arg1;
 - (int)type;
 - (id)initWithDefaults;

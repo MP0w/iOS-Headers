@@ -14,16 +14,16 @@
 }
 
 + (id)sharedInstance;
-- (int)availabilityForListenerID:(id)arg1 forService:(int)arg2;
-- (BOOL)removeListenerID:(id)arg1 forService:(int)arg2;
-- (BOOL)addListenerID:(id)arg1 forService:(int)arg2;
-- (BOOL)hasListenerID:(id)arg1 forService:(int)arg2;
-- (id)containerForService:(int)arg1 create:(BOOL)arg2;
+- (long long)availabilityForListenerID:(id)arg1 forService:(long long)arg2;
+- (_Bool)removeListenerID:(id)arg1 forService:(long long)arg2;
+- (_Bool)addListenerID:(id)arg1 forService:(long long)arg2;
+- (_Bool)hasListenerID:(id)arg1 forService:(long long)arg2;
+- (id)containerForService:(long long)arg1 create:(_Bool)arg2;
 - (void)_stopListeningToMonitor:(id)arg1;
 - (void)_startListeningToMonitor:(id)arg1;
 - (void)_handleServiceMonitorNotification:(id)arg1;
-- (void)_postNotificationForService:(int)arg1 availability:(int)arg2;
-- (BOOL)_isValidServiceType:(int)arg1;
+- (void)_postNotificationForService:(long long)arg1 availability:(long long)arg2;
+- (_Bool)_isValidServiceType:(long long)arg1;
 - (void)dealloc;
 - (id)init;
 

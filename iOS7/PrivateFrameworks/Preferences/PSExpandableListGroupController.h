@@ -12,9 +12,9 @@
 {
     PSListController *_listController;
     PSSpecifier *_groupSpecifier;
-    int _collaspeAfterCount;
+    long long _collaspeAfterCount;
     NSMutableArray *_specifiers;
-    BOOL _showAll;
+    _Bool _showAll;
     PSSpecifier *_showAllSpecifier;
     PSSpecifier *_spinnerSpecifier;
 }
@@ -26,10 +26,10 @@
 - (void)reloadSpecifier:(id)arg1;
 - (void)removeAllSpecifiers;
 - (void)addSpecifiers:(id)arg1;
-- (int)_groupIndex;
+- (long long)_groupIndex;
 - (void)dealloc;
 - (id)initWithListController:(id)arg1 groupSpecifier:(id)arg2;
-- (id)initWithListController:(id)arg1 groupSpecifier:(id)arg2 collapseAfterCount:(int)arg3;
+- (id)initWithListController:(id)arg1 groupSpecifier:(id)arg2 collapseAfterCount:(long long)arg3;
 
 @end
 

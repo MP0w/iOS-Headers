@@ -12,7 +12,7 @@
 
 + (id)openVoiceOverWithDictionary:(id)arg1 context:(id)arg2;
 + (id)openVoiceOver;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

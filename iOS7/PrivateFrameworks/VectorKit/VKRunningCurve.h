@@ -6,23 +6,24 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface VKRunningCurve : NSObject
 {
-    CDStruct_87a99b1f _p0;
+    CDStruct_972c8cd6 _p0;
     double _t0;
-    CDStruct_87a99b1f _p1;
+    CDStruct_972c8cd6 _p1;
     double _t1;
-    CDStruct_87a99b1f _pu;
+    CDStruct_972c8cd6 _pu;
     double _tu;
     struct {
         double mb[4][3];
     } _mb;
-    BOOL _mbValid;
+    _Bool _mbValid;
 }
 
 - (id).cxx_construct;
-- (CDStruct_87a99b1f)stateAtTime:(double)arg1;
-- (BOOL)hasStateAtTime:(double)arg1;
+- (CDStruct_972c8cd6)stateAtTime:(double)arg1;
+- (_Bool)hasStateAtTime:(double)arg1;
 - (void)appendPosition:(struct VKPoint)arg1 atTime:(double)arg2;
 - (void)dealloc;
 - (void)reset;

@@ -7,12 +7,12 @@
 #import "NSDictionary.h"
 
 @interface NSDictionary (MSASDefinitions)
-- (BOOL)MSASIsErrorRecovery;
-- (BOOL)MSASIsNotInteresting;
+- (_Bool)MSASIsErrorRecovery;
+- (_Bool)MSASIsNotInteresting;
 - (id)MSASEventIsDueToAssetCollectionDeletionAssetCollectionGUID;
 - (id)MSASEventIsDueToAlbumDeletionAlbumGUID;
-- (BOOL)MSASIsLocalChange;
+- (_Bool)MSASIsLocalChange;
 - (id)MSASAlbumResetSyncAlbumGUID;
-- (BOOL)MSASIsGlobalResetSync;
+- (_Bool)MSASIsGlobalResetSync;
 @end
 

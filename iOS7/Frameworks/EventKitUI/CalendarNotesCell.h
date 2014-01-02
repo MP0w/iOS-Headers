@@ -17,10 +17,10 @@
 @property(copy, nonatomic) NSString *text; // @synthesize text=_text;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSString *placeholder;
-- (BOOL)becomeFirstResponder;
+- (_Bool)becomeFirstResponder;
 @property(readonly, nonatomic) UITextView *textView;
 - (void)layoutSubviews;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

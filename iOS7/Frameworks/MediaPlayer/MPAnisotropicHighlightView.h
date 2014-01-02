@@ -10,7 +10,7 @@
 
 @interface MPAnisotropicHighlightView : UIView
 {
-    float _filteredHighlightX;
+    double _filteredHighlightX;
     UIImageView *_highlightImageView;
     id _motionManagerObserver;
 }

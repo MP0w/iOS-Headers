@@ -11,23 +11,27 @@
 @interface MKMapSnapshotter : NSObject
 {
     MKMapSnapshotOptions *_options;
-    BOOL _loading;
+    int _loadingFlag;
     NSObject<OS_dispatch_queue> *_callbackQueue;
     id _completionHandler;
     VKMapSnapshotCreator *_snapshotCreator;
+    _Bool _needsResume;
 }
 
-@property(readonly, nonatomic, getter=isLoading) BOOL loading; // @synthesize loading=_loading;
 - (void)cancel;
+- (void)_performSnapshot;
 - (void)startWithQueue:(id)arg1 completionHandler:(id)arg2;
 - (void)startWithCompletionHandler:(id)arg1;
 - (void)_succeedWithSnapshot:(id)arg1;
 - (void)_failWithError:(id)arg1;
+- (void)_cleanupSnapshotCreator;
 - (void)_cancel;
-- (BOOL)_checkIfThrottled;
+- (void)_exitBackground:(id)arg1;
+- (void)_enterBackground:(id)arg1;
 - (void)dealloc;
 - (id)initWithOptions:(id)arg1;
 - (id)init;
+@property(readonly, nonatomic, getter=isLoading) _Bool loading;
 
 @end
 

@@ -21,15 +21,15 @@
 @property(nonatomic) id <CNFRegFirstRunDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) UIBarButtonItem *customRightButton; // @dynamic customRightButton;
 @property(retain, nonatomic) UIBarButtonItem *customLeftButton; // @dynamic customLeftButton;
-@property(readonly, nonatomic) int currentAppearanceStyle; // @dynamic currentAppearanceStyle;
+@property(readonly, nonatomic) long long currentAppearanceStyle; // @dynamic currentAppearanceStyle;
 - (void)_getStartedPressed:(id)arg1;
 - (void)_learnMorePressed:(id)arg1;
 - (id)userInteractionColor;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)willBecomeActive;
 - (void)loadView;
 - (void)dealloc;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
 - (id)initWithRegController:(id)arg1 account:(id)arg2;
 - (id)init;
 

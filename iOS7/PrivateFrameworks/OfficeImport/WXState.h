@@ -8,6 +8,7 @@
 
 @class NSMutableArray, OAXDrawingState, OCPPackagePart, TSUNoCopyDictionary, WDCharacterRun, WDDocument, WXOAVState;
 
+// Not exported
 @interface WXState : NSObject
 {
     WDDocument *mDocument;
@@ -32,26 +33,26 @@
     OAXDrawingState *mDrawingState;
     int mCurrentOfficeArtTextType;
     WDCharacterRun *mReadSymbolTo;
-    BOOL mNewSectionRequested;
-    unsigned long mCurrentRowCNFStyle;
-    unsigned long mCurrentCellCNFStyle;
-    BOOL mCurrentTableWraps;
+    _Bool mNewSectionRequested;
+    unsigned long long mCurrentRowCNFStyle;
+    unsigned long long mCurrentCellCNFStyle;
+    _Bool mCurrentTableWraps;
     id <OCCancelDelegate> mCancelDelegate;
-    BOOL mIsThumbnail;
+    _Bool mIsThumbnail;
 }
 
 @property(retain, nonatomic) id <OCCancelDelegate> cancelDelegate; // @synthesize cancelDelegate=mCancelDelegate;
 @property(nonatomic) int currentOfficeArtTextType; // @synthesize currentOfficeArtTextType=mCurrentOfficeArtTextType;
-- (BOOL)isThumbnail;
-- (void)setIsThumbnail:(BOOL)arg1;
-- (BOOL)currentTableWraps;
-- (void)setCurrentTableWraps:(BOOL)arg1;
-- (void)setCurrentCellCNFStyle:(unsigned long)arg1;
-- (unsigned long)currentCellCNFStyle;
-- (void)setCurrentRowCNFStyle:(unsigned long)arg1;
-- (unsigned long)currentRowCNFStyle;
-- (void)setNewSectionRequested:(BOOL)arg1;
-- (BOOL)isNewSectionRequested;
+- (_Bool)isThumbnail;
+- (void)setIsThumbnail:(_Bool)arg1;
+- (_Bool)currentTableWraps;
+- (void)setCurrentTableWraps:(_Bool)arg1;
+- (void)setCurrentCellCNFStyle:(unsigned long long)arg1;
+- (unsigned long long)currentCellCNFStyle;
+- (void)setCurrentRowCNFStyle:(unsigned long long)arg1;
+- (unsigned long long)currentRowCNFStyle;
+- (void)setNewSectionRequested:(_Bool)arg1;
+- (_Bool)isNewSectionRequested;
 - (void)setReadSymbolTo:(id)arg1;
 - (id)readSymbolTo;
 - (id)drawingState;
@@ -73,14 +74,14 @@
 - (id)annotationPart;
 - (void)setPackagePart:(id)arg1;
 - (id)packagePart;
-- (struct _xmlNode *)xmlAnnotationWithID:(long)arg1;
-- (struct _xmlNode *)xmlEndnoteWithID:(long)arg1;
-- (struct _xmlNode *)xmlFootnoteWithID:(long)arg1;
+- (struct _xmlNode *)xmlAnnotationWithID:(long long)arg1;
+- (struct _xmlNode *)xmlEndnoteWithID:(long long)arg1;
+- (struct _xmlNode *)xmlFootnoteWithID:(long long)arg1;
 - (_Bool)hasAnnotations;
-- (id)annotationWithID:(long)arg1;
-- (void)addAnnotationID:(long)arg1 annotation:(id)arg2;
-- (id)bookmarkName:(long)arg1;
-- (void)addBookmarkId:(long)arg1 name:(id)arg2;
+- (id)annotationWithID:(long long)arg1;
+- (void)addAnnotationID:(long long)arg1 annotation:(id)arg2;
+- (id)bookmarkName:(long long)arg1;
+- (void)addBookmarkId:(long long)arg1 name:(id)arg2;
 - (void)clearOutNodesToBeAdded:(id)arg1;
 - (id)nodesToBeAdded:(id)arg1;
 - (void)addText:(id)arg1 node:(struct _xmlNode *)arg2;

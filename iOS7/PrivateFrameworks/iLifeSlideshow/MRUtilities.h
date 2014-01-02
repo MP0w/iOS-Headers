@@ -10,9 +10,9 @@
 {
 }
 
-+ (int)operatingSystemMajorVersion;
-+ (int)operatingSystemMinorVersion;
-+ (int)operationQueueConcurrentOperationCount;
++ (long long)operatingSystemMajorVersion;
++ (long long)operatingSystemMinorVersion;
++ (long long)operationQueueConcurrentOperationCount;
 + (id)executeScript:(id)arg1 withHeader:(id)arg2 andAttributes:(id)arg3;
 + (struct CGColorSpace *)newColorSpaceForDevice;
 + (double)transformTime:(double)arg1 forAnimationPath:(id)arg2 inPlug:(id)arg3;

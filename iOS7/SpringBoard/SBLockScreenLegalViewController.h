@@ -10,7 +10,7 @@
 {
 }
 
-- (BOOL)_shouldShowLegalText;
+- (_Bool)_shouldShowLegalText;
 - (id)_legalString;
 - (id)legalView;
 - (void)loadView;

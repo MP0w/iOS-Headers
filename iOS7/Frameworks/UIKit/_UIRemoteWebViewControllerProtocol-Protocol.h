@@ -9,11 +9,11 @@
 @protocol _UIRemoteWebViewControllerProtocol <NSObject>
 - (void)_dispatchDidDismissViewController;
 - (void)_dispatchWillPresentViewControllerWithCompletionHandler:(id)arg1;
-- (void)_decidePolicyForEncodedRequest:(id)arg1 inMainFrame:(BOOL)arg2 navigationType:(id)arg3 replyHandler:(id)arg4;
+- (void)_decidePolicyForEncodedRequest:(id)arg1 inMainFrame:(_Bool)arg2 navigationType:(id)arg3 replyHandler:(id)arg4;
 - (void)_setURLString:(id)arg1;
 - (void)_setTitle:(id)arg1;
-- (void)_setLoading:(BOOL)arg1 error:(id)arg2;
+- (void)_setLoading:(_Bool)arg1 error:(id)arg2;
 - (void)_setEstimatedProgress:(float)arg1;
-- (void)_setCanGoBack:(BOOL)arg1 canGoForward:(BOOL)arg2;
+- (void)_setCanGoBack:(_Bool)arg1 canGoForward:(_Bool)arg2;
 @end
 

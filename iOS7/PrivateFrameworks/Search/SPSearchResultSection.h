@@ -30,25 +30,24 @@
 @property(retain, nonatomic) NSString *displayIdentifier; // @synthesize displayIdentifier=_displayIdentifier;
 @property(retain, nonatomic) NSString *icon; // @synthesize icon=_icon;
 @property(nonatomic) unsigned int domain; // @synthesize domain=_domain;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)resultsAtIndex:(unsigned int)arg1;
-- (unsigned int)resultsCount;
+- (id)resultsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)resultsCount;
 - (void)addResults:(id)arg1;
 - (void)clearResults;
-@property(nonatomic) BOOL hasFlags;
-@property(readonly, nonatomic) BOOL hasScheme;
-@property(readonly, nonatomic) BOOL hasCategory;
-@property(readonly, nonatomic) BOOL hasDisplayIdentifier;
-@property(readonly, nonatomic) BOOL hasIcon;
-@property(nonatomic) BOOL hasDomain;
+@property(nonatomic) _Bool hasFlags;
+@property(readonly, nonatomic) _Bool hasScheme;
+@property(readonly, nonatomic) _Bool hasCategory;
+@property(readonly, nonatomic) _Bool hasDisplayIdentifier;
+@property(readonly, nonatomic) _Bool hasIcon;
+@property(nonatomic) _Bool hasDomain;
 - (void)dealloc;
-- (BOOL)hasEquivalentResults:(id)arg1;
 
 @end
 

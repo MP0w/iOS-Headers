@@ -8,7 +8,7 @@
 
 @optional
 - (id)alertViewForUIWebPDFViewHandler:(id)arg1;
-- (float)minimumVerticalContentOffsetForPDFViewHandler:(id)arg1;
+- (double)minimumVerticalContentOffsetForPDFViewHandler:(id)arg1;
 - (id)hostViewForLinkSheet:(id)arg1;
 - (id)pdfViewHandler:(id)arg1 actionsForURL:(id)arg2 suggestedActions:(id)arg3;
 - (void)pdfViewHandlerCompletedLayoutAndIsUnlocked:(id)arg1;

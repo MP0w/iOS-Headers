@@ -6,6 +6,7 @@
 
 #import <WebContentAnalysis/WFTreeXMLDocumentStripper.h>
 
+// Not exported
 @interface WFTreeHTMLStripper : WFTreeXMLDocumentStripper
 {
 }

@@ -6,15 +6,22 @@
 
 #import <UIKit/_UITextFieldRoundedRectBackgroundViewNeue.h>
 
+// Not exported
 @interface _UISearchBarSearchFieldBackgroundView : _UITextFieldRoundedRectBackgroundViewNeue
 {
-    int _barStyle;
+    _Bool _backgroundContainer;
+    long long _barStyle;
+    unsigned long long _searchBarStyle;
 }
 
-@property(nonatomic) int barStyle; // @synthesize barStyle=_barStyle;
-- (id)_fillColor:(BOOL)arg1;
-- (id)_strokeColor:(BOOL)arg1;
-- (id)initWithFrame:(struct CGRect)arg1 active:(BOOL)arg2;
+@property(nonatomic) _Bool backgroundContainer; // @synthesize backgroundContainer=_backgroundContainer;
+@property(nonatomic) unsigned long long searchBarStyle; // @synthesize searchBarStyle=_searchBarStyle;
+@property(nonatomic) long long barStyle; // @synthesize barStyle=_barStyle;
+- (void)updateView;
+- (id)_fillColor:(_Bool)arg1;
+- (id)_strokeColor:(_Bool)arg1;
+- (id)initWithFrame:(struct CGRect)arg1 active:(_Bool)arg2 updateView:(_Bool)arg3;
+- (id)initWithFrame:(struct CGRect)arg1 active:(_Bool)arg2;
 
 @end
 

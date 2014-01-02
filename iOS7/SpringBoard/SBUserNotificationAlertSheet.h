@@ -10,7 +10,7 @@
 {
 }
 
-- (void)dismissWithClickedButtonIndex:(int)arg1 animated:(BOOL)arg2;
+- (void)dismissWithClickedButtonIndex:(long long)arg1 animated:(_Bool)arg2;
 
 @end
 

@@ -23,19 +23,18 @@
 - (void)invalidate;
 - (void)stopSearching;
 - (void)searchWithTerm:(id)arg1;
-- (void)fetchDaysInBackgroundStartingFromSection:(int)arg1;
-- (int)sectionForCachedOccurrencesOnDate:(id)arg1;
+- (void)fetchDaysInBackgroundStartingFromSection:(long long)arg1;
+- (long long)sectionForCachedOccurrencesOnDate:(id)arg1;
 - (id)cachedOccurrenceAtIndexPath:(id)arg1;
-- (id)dateAtDayIndex:(int)arg1;
-- (int)countOfOccurrencesAtDayIndex:(int)arg1;
-- (int)cachedDayCount;
+- (id)dateAtDayIndex:(long long)arg1;
+- (long long)countOfOccurrencesAtDayIndex:(long long)arg1;
+- (long long)cachedDayCount;
 - (id)_cachedDays;
-- (BOOL)cachedOccurrencesAreLoaded;
-- (BOOL)cachedOccurrencesAreBeingGenerated;
-- (BOOL)supportsFakeTodaySection;
-- (BOOL)supportsInvitations;
+- (_Bool)cachedOccurrencesAreLoaded;
+- (_Bool)cachedOccurrencesAreBeingGenerated;
+- (_Bool)supportsFakeTodaySection;
+- (_Bool)supportsInvitations;
 - (void)invalidateCachedOccurrences;
-- (void)dealloc;
 - (id)initWithEventStore:(id)arg1 calendars:(id)arg2;
 
 @end

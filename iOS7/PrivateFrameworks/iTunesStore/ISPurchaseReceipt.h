@@ -34,8 +34,8 @@
     NSDate *mRenewalDate;
     NSString *mOraganizationDisplayName;
     NSString *mCancellationReason;
-    BOOL mHashIsValid;
-    BOOL _createdFromCoder;
+    _Bool mHashIsValid;
+    _Bool _createdFromCoder;
 }
 
 + (id)receiptPathForBundleAtPath:(id)arg1;
@@ -62,22 +62,22 @@
 @property(readonly) NSString *bundleIdentifier; // @synthesize bundleIdentifier=mBundleID;
 @property(readonly) NSData *receiptData; // @synthesize receiptData=mReceiptData;
 @property(readonly) NSString *receiptType; // @synthesize receiptType=mReceiptType;
-@property(readonly) BOOL isVPPLicensed; // @dynamic isVPPLicensed;
-@property(readonly) BOOL isRevoked; // @dynamic isRevoked;
-@property(readonly) BOOL isProductionReceipt; // @dynamic isProductionReceipt;
+@property(readonly) _Bool isVPPLicensed; // @dynamic isVPPLicensed;
+@property(readonly) _Bool isRevoked; // @dynamic isRevoked;
+@property(readonly) _Bool isProductionReceipt; // @dynamic isProductionReceipt;
 @property(readonly) NSString *receiptDataString; // @dynamic receiptDataString;
-- (BOOL)validateAndCheckGUIDSeparately:(char *)arg1;
-- (BOOL)validateAndCheckGUIDSepately:(char *)arg1;
-- (BOOL)isValid;
-- (int)checkSignatureAgainstCurrentDate;
-- (int)checkSignatureSkipRevocation;
-- (int)checkSignature;
+- (_Bool)validateAndCheckGUIDSeparately:(_Bool *)arg1;
+- (_Bool)validateAndCheckGUIDSepately:(_Bool *)arg1;
+- (_Bool)isValid;
+- (long long)checkSignatureAgainstCurrentDate;
+- (long long)checkSignatureSkipRevocation;
+- (long long)checkSignature;
 - (void)dealloc;
 - (id)initWithContentsOfFile:(id)arg1;
-- (BOOL)_load;
-- (int)_verifySignatureCheckRevocation:(BOOL)arg1 checkExpiration:(BOOL)arg2 useCurrentDate:(BOOL)arg3;
+- (_Bool)_load;
+- (long long)_verifySignatureCheckRevocation:(_Bool)arg1 checkExpiration:(_Bool)arg2 useCurrentDate:(_Bool)arg3;
 - (struct __CFArray *)_copySignedDataCertificates;
-- (BOOL)_checkWWDRIssuerForTrust:(struct __SecTrust *)arg1;
+- (_Bool)_checkWWDRIssuerForTrust:(struct __SecTrust *)arg1;
 
 @end
 

@@ -12,20 +12,21 @@
 {
     EKEventStore *_eventStore;
     id _eventStoreGetter;
-    BOOL _running;
+    _Bool _running;
     PCPersistentTimer *_timer;
     NSDate *_nextFireTime;
     NSTimer *_syncTimer;
-    BOOL _pendingChanges;
+    _Bool _pendingChanges;
     NSObject<OS_dispatch_queue> *_queue;
     NSObject<OS_dispatch_queue> *_timerQueue;
-    unsigned int _lastCount;
+    unsigned long long _lastCount;
     NSMutableArray *_notifications;
     NSMutableArray *_recentlyRepliedNotifications;
     NSMutableArray *_culledRecentlyRepliedNotifications;
-    BOOL _initialCheck;
-    BOOL _shouldInstallPersistentTimer;
-    BOOL _loadRecentlyRepliedNotifications;
+    _Bool _initialCheck;
+    _Bool _shouldInstallPersistentTimer;
+    _Bool _useSyncIdleTimer;
+    _Bool _loadRecentlyRepliedNotifications;
 }
 
 - (void)_syncDidEnd;
@@ -35,9 +36,8 @@
 - (void)_resetSyncTimer;
 - (void)_notifyForUnalertedNotifications:(id)arg1;
 - (void)_checkForUpdates;
-- (unsigned int)_checkForRecentlyRepliedNotifications:(id)arg1;
-- (unsigned int)_checkForNotifications:(id)arg1;
-- (int)_doesEvent:(id)arg1 occurAfterDate:(id)arg2;
+- (unsigned long long)_checkForRecentlyRepliedNotifications:(id)arg1;
+- (unsigned long long)_checkForNotifications:(id)arg1;
 - (id)_notificationFromEvent:(id)arg1;
 - (void)_timerFired;
 - (void)_databaseChanged;
@@ -45,7 +45,7 @@
 - (void)adjust;
 @property(readonly, nonatomic) NSArray *recentlyRepliedNotifications;
 @property(readonly, nonatomic) NSArray *notifications;
-@property(readonly, nonatomic) unsigned int notificationCount;
+@property(readonly, nonatomic) unsigned long long notificationCount;
 - (void)stop;
 - (void)start;
 - (void)killTimer;

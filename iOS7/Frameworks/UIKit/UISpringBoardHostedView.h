@@ -8,18 +8,19 @@
 
 @class NSString, UIWindow;
 
+// Not exported
 @interface UISpringBoardHostedView : UIView
 {
     NSString *_remoteViewIdentifier;
     UIWindow *_remoteWindow;
-    BOOL _remoteViewOpaque;
+    _Bool _remoteViewOpaque;
 }
 
 - (id)remoteViewIdentifier;
 - (void)unregister;
 - (void)dealloc;
 - (void)registerWithIdentifier:(id)arg1;
-- (void)setRemoteViewOpaque:(BOOL)arg1;
+- (void)setRemoteViewOpaque:(_Bool)arg1;
 
 @end
 

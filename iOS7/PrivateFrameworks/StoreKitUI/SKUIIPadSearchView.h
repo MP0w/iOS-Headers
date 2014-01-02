@@ -6,16 +6,16 @@
 
 #import "UIView.h"
 
-@class SKUISearchRelatedView, UICollectionView;
+@class UICollectionView;
 
 @interface SKUIIPadSearchView : UIView
 {
     UICollectionView *_collectionView;
     UIView *_noResultsView;
-    SKUISearchRelatedView *_relatedView;
+    UIView *_loadingView;
 }
 
-@property(retain, nonatomic) SKUISearchRelatedView *relatedView; // @synthesize relatedView=_relatedView;
+@property(retain, nonatomic) UIView *loadingView; // @synthesize loadingView=_loadingView;
 @property(retain, nonatomic) UIView *noResultsView; // @synthesize noResultsView=_noResultsView;
 @property(retain, nonatomic) UICollectionView *collectionView; // @synthesize collectionView=_collectionView;
 - (void).cxx_destruct;

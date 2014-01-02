@@ -6,24 +6,28 @@
 
 #import "UIView.h"
 
+#import "SBControlCenterObserver-Protocol.h"
 #import "SBUIControlCenterControlObserver-Protocol.h"
 
 @class NSMutableArray, NSMutableDictionary, SBChevronView, SBUIControlCenterLabel;
 
-@interface SBControlCenterGrabberView : UIView <SBUIControlCenterControlObserver>
+@interface SBControlCenterGrabberView : UIView <SBUIControlCenterControlObserver, SBControlCenterObserver>
 {
     SBChevronView *_chevronView;
     SBUIControlCenterLabel *_statusLabel;
     SBUIControlCenterLabel *_statusLabel2;
-    BOOL _statusBusy;
+    _Bool _statusBusy;
     NSMutableDictionary *_statusByReason;
     NSMutableArray *_statusReasonQueue;
 }
 
-+ (float)defaultHeightForOrientation:(int)arg1;
-- (void)controlConfigurationDidChangeForState:(int)arg1;
-- (void)controlAppearanceDidChangeForState:(int)arg1;
-- (id)_currentGrabberImage;
++ (double)defaultHeightForOrientation:(long long)arg1;
+- (void)controlConfigurationDidChangeForState:(long long)arg1;
+- (void)controlAppearanceDidChangeForState:(long long)arg1;
+- (void)controlCenterDidFinishTransition;
+- (void)controlCenterWillBeginTransition;
+- (void)controlCenterDidDismiss;
+- (void)controlCenterWillPresent;
 - (void)layoutSubviews;
 - (struct CGRect)_grabberRect;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
@@ -32,9 +36,7 @@
 - (void)_didPresentStatus;
 - (void)_dequeueStatus;
 - (id)_popNextStatus;
-- (BOOL)_hasPendingStatus;
-- (void)noteControlCenterDidDismiss;
-- (void)noteControlCenterWillPresent;
+- (_Bool)_hasPendingStatus;
 - (id)chevronView;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

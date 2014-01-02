@@ -23,7 +23,7 @@
 - (void).cxx_destruct;
 - (void)play;
 - (void)_playButtonTouchUpInside:(id)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLayoutSubviews;
 - (void)loadView;
 - (id)initWithGeniusMix:(id)arg1 player:(id)arg2 serviceProvider:(id)arg3;

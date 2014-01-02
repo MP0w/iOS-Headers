@@ -30,7 +30,7 @@
 @property(nonatomic) id <CNFRegRegionChooserDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSString *selectedRegionID; // @synthesize selectedRegionID=_selectedRegionID;
 @property(retain, nonatomic) NSArray *regionList; // @synthesize regionList=_regionList;
-- (void)statusBarWillAnimateByHeight:(float)arg1;
+- (void)statusBarWillAnimateByHeight:(double)arg1;
 - (void)didWake;
 - (void)didUnlock;
 - (void)willUnlock;
@@ -38,7 +38,7 @@
 - (void)suspend;
 - (void)willBecomeActive;
 - (void)willResignActive;
-- (BOOL)canBeShownFromSuspendedState;
+- (_Bool)canBeShownFromSuspendedState;
 - (void)handleURL:(id)arg1;
 - (void)pushController:(id)arg1;
 - (id)readPreferenceValue:(id)arg1;
@@ -55,22 +55,22 @@
 - (void)searchDisplayController:(id)arg1 willShowSearchResultsTableView:(id)arg2;
 - (void)_showTableViewCells;
 - (void)_hideTableViewCells;
-- (BOOL)searchDisplayController:(id)arg1 shouldReloadTableForSearchString:(id)arg2;
+- (_Bool)searchDisplayController:(id)arg1 shouldReloadTableForSearchString:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)_selectRegionID:(id)arg1;
 - (void)_selectRegionList:(id)arg1;
 - (id)drillDownControllerList;
 - (void)_drillDownControllersWithArray:(id)arg1;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
 - (void)viewDidLoad;
 - (void)loadView;
 - (void)dealloc;
 - (void)viewDidUnload;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
 - (id)initWithRegionList:(id)arg1 selectedRegionID:(id)arg2;
-- (id)initWithStyle:(int)arg1;
+- (id)initWithStyle:(long long)arg1;
 
 @end
 

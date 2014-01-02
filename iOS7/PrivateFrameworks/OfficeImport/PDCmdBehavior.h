@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface PDCmdBehavior : PDAnimateBehavior
 {
     NSString *mCmd;

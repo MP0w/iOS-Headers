@@ -6,37 +6,46 @@
 
 #import "PBRequest.h"
 
-@class NSMutableArray, NSString;
+#import "NSCopying-Protocol.h"
 
-@interface GEORPProblemCollectionRequest : PBRequest
+@class GEORPUserCredentials, NSData, NSMutableArray, NSString;
+
+@interface GEORPProblemCollectionRequest : PBRequest <NSCopying>
 {
     NSString *_countryCode;
+    NSData *_devicePushToken;
     NSString *_hwMachine;
     NSString *_inputLanguage;
     NSString *_osRelease;
     NSMutableArray *_requestElements;
+    GEORPUserCredentials *_userCredentials;
 }
 
+@property(retain, nonatomic) NSData *devicePushToken; // @synthesize devicePushToken=_devicePushToken;
+@property(retain, nonatomic) GEORPUserCredentials *userCredentials; // @synthesize userCredentials=_userCredentials;
 @property(retain, nonatomic) NSString *inputLanguage; // @synthesize inputLanguage=_inputLanguage;
 @property(retain, nonatomic) NSString *countryCode; // @synthesize countryCode=_countryCode;
 @property(retain, nonatomic) NSString *osRelease; // @synthesize osRelease=_osRelease;
 @property(retain, nonatomic) NSString *hwMachine; // @synthesize hwMachine=_hwMachine;
 @property(retain, nonatomic) NSMutableArray *requestElements; // @synthesize requestElements=_requestElements;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (Class)responseClass;
 - (unsigned int)requestTypeCode;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) BOOL hasInputLanguage;
-@property(readonly, nonatomic) BOOL hasCountryCode;
-@property(readonly, nonatomic) BOOL hasOsRelease;
-@property(readonly, nonatomic) BOOL hasHwMachine;
-- (id)requestElementAtIndex:(unsigned int)arg1;
-- (unsigned int)requestElementsCount;
+@property(readonly, nonatomic) _Bool hasDevicePushToken;
+@property(readonly, nonatomic) _Bool hasUserCredentials;
+@property(readonly, nonatomic) _Bool hasInputLanguage;
+@property(readonly, nonatomic) _Bool hasCountryCode;
+@property(readonly, nonatomic) _Bool hasOsRelease;
+@property(readonly, nonatomic) _Bool hasHwMachine;
+- (id)requestElementAtIndex:(unsigned long long)arg1;
+- (unsigned long long)requestElementsCount;
 - (void)addRequestElement:(id)arg1;
 - (void)clearRequestElements;
 - (void)dealloc;

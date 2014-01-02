@@ -8,6 +8,7 @@
 
 @class NSDictionary, NSMutableArray, PDSlideMaster;
 
+// Not exported
 @interface PBMasterInfo : NSObject
 {
     PDSlideMaster *mSlideMaster;

@@ -8,6 +8,7 @@
 
 @class NSMutableArray, OADCharacterProperties, OADParagraphProperties;
 
+// Not exported
 @interface OADParagraph : NSObject
 {
     OADParagraphProperties *mProperties;
@@ -19,7 +20,7 @@
 - (void)applyProperties:(id)arg1;
 - (void)setParentTextListStyle:(id)arg1;
 - (id)bulletCharacterProperties;
-- (BOOL)hasBulletCharacterProperties;
+- (_Bool)hasBulletCharacterProperties;
 - (void)setParagraphEndCharacterProperties:(id)arg1;
 - (id)paragraphEndCharacterProperties;
 - (id)addFooterField;
@@ -28,16 +29,13 @@
 - (id)addRegularTextRun;
 - (id)addTextLineBreak;
 - (void)removeAllTextRuns;
-- (id)textRunAtIndex:(unsigned int)arg1;
-- (unsigned int)textRunCount;
-- (BOOL)isEmpty;
+- (id)textRunAtIndex:(unsigned long long)arg1;
+- (unsigned long long)textRunCount;
+- (_Bool)isEmpty;
 - (void)setProperties:(id)arg1;
 - (id)properties;
 - (void)dealloc;
 - (id)init;
-- (id)findFirstTextRunOfClass:(Class)arg1;
-- (id)addSlideNumberField;
-- (id)plainText;
 
 @end
 

@@ -8,24 +8,25 @@
 
 @class NSMutableArray, _UIFlowLayoutSection;
 
+// Not exported
 @interface _UIFlowLayoutRow : NSObject
 {
     NSMutableArray *_items;
     _UIFlowLayoutSection *_section;
     struct CGSize _rowSize;
     struct CGRect _rowFrame;
-    int _index;
-    BOOL _isValid;
-    BOOL _complete;
+    long long _index;
+    _Bool _isValid;
+    _Bool _complete;
     int _verticalAlignement;
     int _horizontalAlignement;
-    BOOL _fixedItemSize;
+    _Bool _fixedItemSize;
 }
 
-@property(nonatomic) BOOL fixedItemSize; // @synthesize fixedItemSize=_fixedItemSize;
-@property(nonatomic) BOOL complete; // @synthesize complete=_complete;
+@property(nonatomic) _Bool fixedItemSize; // @synthesize fixedItemSize=_fixedItemSize;
+@property(nonatomic) _Bool complete; // @synthesize complete=_complete;
 @property(readonly, nonatomic) NSMutableArray *items; // @synthesize items=_items;
-@property(nonatomic) int index; // @synthesize index=_index;
+@property(nonatomic) long long index; // @synthesize index=_index;
 @property(nonatomic) struct CGRect rowFrame; // @synthesize rowFrame=_rowFrame;
 @property(nonatomic) struct CGSize rowSize; // @synthesize rowSize=_rowSize;
 @property(nonatomic) _UIFlowLayoutSection *section; // @synthesize section=_section;

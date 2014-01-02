@@ -6,6 +6,6 @@
 
 @protocol MFLockObject
 - (id)initWithName:(id)arg1 andDelegate:(id)arg2;
-- (BOOL)isLockedByMe;
+- (_Bool)isLockedByMe;
 @end
 

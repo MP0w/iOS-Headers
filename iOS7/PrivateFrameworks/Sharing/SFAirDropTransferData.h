@@ -6,20 +6,21 @@
 
 #import "NSObject.h"
 
-@class LSApplicationProxy, NSArray, NSData, NSDate, NSDictionary, NSError, NSMutableDictionary, NSNumber, NSString;
+@class LSApplicationProxy, NSArray, NSData, NSDate, NSDictionary, NSError, NSMutableDictionary, NSNumber, NSString, NSURL;
 
 @interface SFAirDropTransferData : NSObject
 {
     NSMutableDictionary *_transferData;
     NSMutableDictionary *_contentTypes;
     NSMutableDictionary *_fileExtensionsToTypes;
-    BOOL _nonFileItem;
-    BOOL _unknownScheme;
-    BOOL _unknownFileType;
-    BOOL _undesiredMixOfItems;
+    _Bool _nonFileItem;
+    _Bool _unknownScheme;
+    _Bool _unknownFileType;
+    _Bool _undesiredMixOfItems;
     NSString *_recordID;
     NSArray *_possibleApplicationDestinations;
     LSApplicationProxy *_selectedApplicationDestination;
+    NSString *_transferCompleteMessage;
 }
 
 + (id)airDropTransferDataWithRecordID:(id)arg1 dictionary:(id)arg2;
@@ -30,26 +31,24 @@
 + (id)archivedTransfers;
 + (id)archivedTransferPlistName;
 + (id)archivedTransfersBaseURL;
+@property(readonly, nonatomic) NSString *transferCompleteMessage; // @synthesize transferCompleteMessage=_transferCompleteMessage;
 @property(retain, nonatomic) LSApplicationProxy *selectedApplicationDestination; // @synthesize selectedApplicationDestination=_selectedApplicationDestination;
 @property(retain, nonatomic) NSArray *possibleApplicationDestinations; // @synthesize possibleApplicationDestinations=_possibleApplicationDestinations;
-@property(readonly, nonatomic, getter=isUndesiredMixOfItems) BOOL undesiredMixOfItems; // @synthesize undesiredMixOfItems=_undesiredMixOfItems;
-@property(nonatomic, getter=isUnknownFileType) BOOL unknownFileType; // @synthesize unknownFileType=_unknownFileType;
-@property(nonatomic, getter=isUnknownScheme) BOOL unknownScheme; // @synthesize unknownScheme=_unknownScheme;
-@property(nonatomic, getter=isNonFileItem) BOOL nonFileItem; // @synthesize nonFileItem=_nonFileItem;
+@property(readonly, nonatomic, getter=isUndesiredMixOfItems) _Bool undesiredMixOfItems; // @synthesize undesiredMixOfItems=_undesiredMixOfItems;
+@property(readonly, nonatomic, getter=isUnknownFileType) _Bool unknownFileType; // @synthesize unknownFileType=_unknownFileType;
+@property(readonly, nonatomic, getter=isUnknownScheme) _Bool unknownScheme; // @synthesize unknownScheme=_unknownScheme;
+@property(readonly, nonatomic, getter=isNonFileItem) _Bool nonFileItem; // @synthesize nonFileItem=_nonFileItem;
 @property(readonly, nonatomic) NSString *recordID; // @synthesize recordID=_recordID;
 - (void).cxx_destruct;
-- (BOOL)isMusicStoreLink:(id)arg1;
-- (BOOL)isAppStoreLink:(id)arg1;
-- (BOOL)isWebLink:(id)arg1;
-- (BOOL)isContact:(id)arg1 fileExtension:(id)arg2;
-- (BOOL)isPass:(id)arg1 fileExtension:(id)arg2;
-- (BOOL)isPDF:(id)arg1;
-- (BOOL)isPlainText:(id)arg1;
-- (BOOL)isVoiceMemo:(id)arg1;
-- (BOOL)isVideo:(id)arg1;
-- (BOOL)isImage:(id)arg1;
+@property(readonly, nonatomic) NSString *rejectedMessage;
+@property(readonly, nonatomic) NSString *searchAppStoreMessage;
+@property(readonly, nonatomic) NSString *selectAppMessage;
+- (id)messageInProgress:(_Bool)arg1 buttonTitle:(id *)arg2;
+- (id)messageLocalizedKeyWithTypes:(id)arg1 isTrustedPerson:(_Bool)arg2 isInProgress:(_Bool)arg3;
+@property(readonly, nonatomic) NSString *progressMessage;
+- (id)messageAndButtonTitle:(id *)arg1;
 - (id)typeForFileExtension:(id)arg1;
-@property(readonly, nonatomic) NSNumber *verifiableIdentity;
+@property(readonly, nonatomic, getter=isTrustedPerson) _Bool trustedPerson;
 @property(readonly, nonatomic) NSString *senderID;
 @property(readonly, nonatomic) NSString *senderLastName;
 @property(readonly, nonatomic) NSString *senderFirstName;
@@ -61,28 +60,25 @@
 @property(readonly, nonatomic) NSNumber *totalBytes;
 @property(readonly, nonatomic) NSNumber *bytesCopied;
 @property(readonly, nonatomic) NSString *itemsDescription;
+@property(readonly, nonatomic) NSDictionary *itemsDescriptionAdvanced;
 @property(readonly, nonatomic) NSArray *items;
 @property(readonly, nonatomic) NSArray *files;
 @property(readonly, nonatomic) NSNumber *filesCopied;
 @property(readonly, nonatomic) NSString *appBundleID;
 @property(readonly, nonatomic) NSData *fileIconData;
 @property(readonly, nonatomic) struct CGImage *fileIcon;
-@property(readonly, nonatomic) NSString *rejectedMessage;
-@property(readonly, nonatomic) NSString *searchAppStoreMessage;
-@property(readonly, nonatomic) NSString *selectAppMessage;
-@property(readonly, nonatomic) NSString *transferCompleteMessage;
-- (id)messageInProgress:(BOOL)arg1;
-@property(readonly, nonatomic) NSString *progressMessage;
-@property(readonly, nonatomic) NSString *message;
-- (id)itemDescriptionForType:(id)arg1 fileExtension:(id)arg2 itemCount:(int)arg3;
 @property(readonly, nonatomic) NSDictionary *contentTypes;
+@property(readonly, nonatomic) NSURL *firstURL;
+@property(readonly, nonatomic) NSString *firstFileTypeDescription;
 @property(readonly, nonatomic) NSString *firstFileExtension;
+@property(readonly, nonatomic) NSString *firstFileName;
 @property(readonly, nonatomic) NSString *senderName;
-@property(readonly, nonatomic, getter=didFail) BOOL failed;
-@property(readonly, nonatomic, getter=isValid) BOOL valid;
-@property(nonatomic) BOOL transferCompleted;
+@property(readonly, nonatomic, getter=isValid) _Bool valid;
+@property(nonatomic) _Bool soundPlayed;
+@property(nonatomic) _Bool transferCompleted;
 @property(nonatomic) NSDate *timeLastUserInteraction;
-@property(nonatomic) int transferState;
+@property(nonatomic) long long transferState;
+- (void)resetTransferState;
 - (void)updateWithDictionary:(id)arg1;
 - (id)description;
 - (id)initWithRecordID:(id)arg1;

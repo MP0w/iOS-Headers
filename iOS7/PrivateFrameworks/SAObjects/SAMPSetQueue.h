@@ -14,9 +14,9 @@
 
 + (id)setQueueWithDictionary:(id)arg1 context:(id)arg2;
 + (id)setQueue;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSArray *sort;
-@property(nonatomic) BOOL shouldShuffle;
+@property(nonatomic) _Bool shouldShuffle;
 @property(retain, nonatomic) SAMPCollection *mediaItems;
 @property(copy, nonatomic) NSArray *filters;
 - (id)encodedClassName;

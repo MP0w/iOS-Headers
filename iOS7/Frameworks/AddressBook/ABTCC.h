@@ -8,19 +8,19 @@
 
 @interface ABTCC : NSObject
 {
-    BOOL _calledExternalChangeCallbacks;
-    int _simulateType;
-    BOOL _simulateAccessPrompt;
-    BOOL _simulateAccessPromptGranted;
+    _Bool _calledExternalChangeCallbacks;
+    long long _simulateType;
+    _Bool _simulateAccessPrompt;
+    _Bool _simulateAccessPromptGranted;
     unsigned int _simulateAccessPromptDelay;
 }
 
 + (id)sharedInstance;
 - (id)_simulateQueue;
-- (void)simulateIfAccessPromptDisplayedThenUserGrantedAccess:(BOOL)arg1 withDelay:(unsigned int)arg2;
-- (void)simulate:(int)arg1;
+- (void)simulateIfAccessPromptDisplayedThenUserGrantedAccess:(_Bool)arg1 withDelay:(unsigned int)arg2;
+- (void)simulate:(long long)arg1;
 - (void)accessRequestWithCompletion:(id)arg1;
-- (void)callExternalChangeCallbacks:(BOOL)arg1;
+- (void)callExternalChangeCallbacks:(_Bool)arg1;
 - (unsigned char)isAccessRestricted;
 - (int)accessPreflight;
 - (void)dealloc;

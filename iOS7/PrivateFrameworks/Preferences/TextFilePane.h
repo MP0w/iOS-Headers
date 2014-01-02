@@ -16,7 +16,7 @@
 - (void)setPreferenceSpecifier:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)dealloc;
-- (BOOL)handlesDoneButton;
+- (_Bool)handlesDoneButton;
 
 @end
 

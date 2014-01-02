@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class GEONameInfo;
 
-@interface GEORouteName : PBCodable
+@interface GEORouteName : PBCodable <NSCopying>
 {
     int _lastZilchStitchedIndex;
     GEONameInfo *_nameInfo;
@@ -18,16 +20,17 @@
 }
 
 @property(retain, nonatomic) GEONameInfo *nameInfo; // @synthesize nameInfo=_nameInfo;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) BOOL hasLastZilchStitchedIndex;
+@property(nonatomic) _Bool hasLastZilchStitchedIndex;
 @property(nonatomic) int lastZilchStitchedIndex; // @synthesize lastZilchStitchedIndex=_lastZilchStitchedIndex;
-@property(readonly, nonatomic) BOOL hasNameInfo;
+@property(readonly, nonatomic) _Bool hasNameInfo;
 - (void)dealloc;
 
 @end

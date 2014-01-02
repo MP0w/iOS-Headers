@@ -18,7 +18,7 @@
     UIImage *_profileImageCache;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 + (id)userRecordWithDictionaryRepresentation:(id)arg1;
 @property(retain) UIImage *profileImageCache; // @synthesize profileImageCache=_profileImageCache;
 @property(retain, nonatomic) NSString *profile_image_url; // @synthesize profile_image_url=_profile_image_url;

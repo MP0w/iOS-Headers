@@ -18,18 +18,18 @@
 
 - (void)slideshowRequestAssetWithInfo:(id)arg1 sessionUUID:(const char *)arg2 completion:(id)arg3;
 - (void)_stopVideo:(struct MediaControlServerConnection *)arg1;
-- (long)_startVideo:(struct MediaControlServerConnection *)arg1 params:(id)arg2;
+- (int)_startVideo:(struct MediaControlServerConnection *)arg1 params:(id)arg2;
 - (void)_slideshowWillStop:(id)arg1;
 - (void)_slideshowWillStart:(id)arg1;
 - (void)_slideshowActivity:(id)arg1;
-- (long)_stopSlideshow:(struct MediaControlServerConnection *)arg1;
-- (long)_startSlideshow:(struct MediaControlServerConnection *)arg1 options:(id)arg2;
-- (long)_showPhoto:(struct MediaControlServerConnection *)arg1 options:(id)arg2 data:(id)arg3 path:(id)arg4;
+- (int)_stopSlideshow:(struct MediaControlServerConnection *)arg1;
+- (int)_startSlideshow:(struct MediaControlServerConnection *)arg1 options:(id)arg2;
+- (int)_showPhoto:(struct MediaControlServerConnection *)arg1 options:(id)arg2 data:(id)arg3 path:(id)arg4;
 - (void)_ensurePresentationStopped:(struct MediaControlServerConnection *)arg1 type:(id)arg2;
-- (long)_ensurePresentationStarted:(struct MediaControlServerConnection *)arg1 type:(id)arg2;
+- (int)_ensurePresentationStarted:(struct MediaControlServerConnection *)arg1 type:(id)arg2;
 - (void)postEvent:(id)arg1;
-- (long)start;
-- (long)setPassword:(id)arg1;
+- (int)start;
+- (int)setPassword:(id)arg1;
 - (void)setP2PAllow:(unsigned char)arg1;
 - (void)setDispatchQueue:(id)arg1;
 - (void)invalidate;

@@ -9,11 +9,11 @@
 @class NSString, UIBezierPath;
 
 @interface NSObject (UIAccessibility)
-@property(nonatomic) BOOL shouldGroupAccessibilityChildren; // @dynamic shouldGroupAccessibilityChildren;
+@property(nonatomic) _Bool shouldGroupAccessibilityChildren; // @dynamic shouldGroupAccessibilityChildren;
 - (void)setAccessibilityIdentifier:(id)arg1;
 @property(retain, nonatomic) NSString *accessibilityLanguage; // @dynamic accessibilityLanguage;
 - (void)setAccessibilityContainer:(id)arg1;
-@property(nonatomic) BOOL isAccessibilityElement; // @dynamic isAccessibilityElement;
+@property(nonatomic) _Bool isAccessibilityElement; // @dynamic isAccessibilityElement;
 @property(nonatomic) unsigned long long accessibilityTraits; // @dynamic accessibilityTraits;
 @property(nonatomic) struct CGPoint accessibilityActivationPoint; // @dynamic accessibilityActivationPoint;
 @property(copy, nonatomic) UIBezierPath *accessibilityPath;
@@ -21,8 +21,8 @@
 @property(copy, nonatomic) NSString *accessibilityHint; // @dynamic accessibilityHint;
 @property(copy, nonatomic) NSString *accessibilityValue; // @dynamic accessibilityValue;
 @property(copy, nonatomic) NSString *accessibilityLabel; // @dynamic accessibilityLabel;
-@property(nonatomic) BOOL accessibilityViewIsModal; // @dynamic accessibilityViewIsModal;
-@property(nonatomic) BOOL accessibilityElementsHidden; // @dynamic accessibilityElementsHidden;
+@property(nonatomic) _Bool accessibilityViewIsModal; // @dynamic accessibilityViewIsModal;
+@property(nonatomic) _Bool accessibilityElementsHidden; // @dynamic accessibilityElementsHidden;
 - (id)storedAccessibilityActivationPoint;
 - (id)storedAccessibilityFrame;
 - (id)storedIsAccessibilityElement;

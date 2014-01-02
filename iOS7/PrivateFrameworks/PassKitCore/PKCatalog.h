@@ -16,7 +16,7 @@
     NSDate *_timestamp;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 + (id)catalogWithContentsOfURL:(id)arg1;
 @property(retain, nonatomic) NSDate *timestamp; // @synthesize timestamp=_timestamp;
 @property(retain, nonatomic) NSMutableArray *groups; // @synthesize groups=_groups;
@@ -25,9 +25,9 @@
 - (id)initWithCoder:(id)arg1;
 - (id)description;
 - (id)allGroupIDs;
-- (BOOL)isNewerThanCatalog:(id)arg1;
-- (BOOL)isEquivalentToCatalog:(id)arg1;
-- (void)writeToURL:(id)arg1 atomically:(BOOL)arg2;
+- (_Bool)isNewerThanCatalog:(id)arg1;
+- (_Bool)isEquivalentToCatalog:(id)arg1;
+- (void)writeToURL:(id)arg1 atomically:(_Bool)arg2;
 - (void)dealloc;
 - (id)init;
 

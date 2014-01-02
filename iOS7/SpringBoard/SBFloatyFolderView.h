@@ -22,25 +22,26 @@
 }
 
 - (void)settings:(id)arg1 changedValueForKey:(id)arg2;
-- (BOOL)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
-- (BOOL)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
-- (BOOL)_tapToCloseGestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
+- (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
+- (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
+- (_Bool)_tapToCloseGestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 - (void)_handleLongPressGesture:(id)arg1;
 - (void)_handlePinchGesture:(id)arg1;
 - (void)_handleOutsideTap:(id)arg1;
 - (void)_configureGestures;
-- (void)fadeContentForMinificationFraction:(float)arg1;
-- (void)fadeContentForMagnificationFraction:(float)arg1;
+- (void)fadeContentForMinificationFraction:(double)arg1;
+- (void)fadeContentForMagnificationFraction:(double)arg1;
 - (void)didAnimate;
 - (void)willAnimate;
-- (BOOL)_showsTitle;
-- (BOOL)locationCountsAsInsideFolder:(struct CGPoint)arg1;
+- (double)_titleFontSize;
+- (_Bool)_showsTitle;
+- (_Bool)locationCountsAsInsideFolder:(struct CGPoint)arg1;
 - (struct CGRect)_frameForScalingView;
 - (void)_layoutSubviews;
 - (struct CGPoint)visibleFolderRelativeImageCenterForIcon:(id)arg1;
-- (void)setBackgroundAlpha:(float)arg1;
+- (void)setBackgroundAlpha:(double)arg1;
 - (void)dealloc;
-- (id)initWithFolder:(id)arg1 orientation:(int)arg2;
+- (id)initWithFolder:(id)arg1 orientation:(long long)arg2;
 
 @end
 

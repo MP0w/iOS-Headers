@@ -15,17 +15,21 @@
     MKMapCamera *_camera;
     CDStruct_02837cd9 _mapRect;
     CDStruct_feeb6407 _region;
-    unsigned int _mapType;
+    unsigned long long _mapType;
     int _mode;
+    _Bool _showsPointsOfInterest;
+    _Bool _showsBuildings;
     struct CGSize _size;
-    float _scale;
-    BOOL _usingRect;
+    double _scale;
+    _Bool _usingRect;
 }
 
-@property(nonatomic) float scale; // @synthesize scale=_scale;
-@property(readonly, nonatomic) BOOL usingRect; // @synthesize usingRect=_usingRect;
+@property(nonatomic) double scale; // @synthesize scale=_scale;
+@property(nonatomic) _Bool showsBuildings; // @synthesize showsBuildings=_showsBuildings;
+@property(nonatomic) _Bool showsPointsOfInterest; // @synthesize showsPointsOfInterest=_showsPointsOfInterest;
+@property(readonly, nonatomic) _Bool usingRect; // @synthesize usingRect=_usingRect;
 @property(nonatomic) struct CGSize size; // @synthesize size=_size;
-@property(nonatomic) unsigned int mapType; // @synthesize mapType=_mapType;
+@property(nonatomic) unsigned long long mapType; // @synthesize mapType=_mapType;
 @property(nonatomic) CDStruct_90e2a262 region; // @synthesize region=_region;
 @property(nonatomic) CDStruct_90e2a262 mapRect; // @synthesize mapRect=_mapRect;
 @property(copy, nonatomic) MKMapCamera *camera; // @synthesize camera=_camera;

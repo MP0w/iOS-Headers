@@ -10,7 +10,7 @@
 {
 }
 
-- (id)initWithStyle:(int)arg1;
+- (id)initWithStyle:(long long)arg1;
 
 @end
 

@@ -6,6 +6,7 @@
 
 #import <QuartzCore/CAMediaTimingFunction.h>
 
+// Not exported
 @interface CAMediaTimingFunctionBuiltin : CAMediaTimingFunction
 {
     unsigned int _index;

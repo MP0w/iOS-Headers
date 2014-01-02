@@ -6,23 +6,27 @@
 
 #import <VoiceMemos/RCMemoPlaybackViewController.h>
 
-@class RCAudioInputDevice;
+@class NSString, RCAudioInputDevice;
 
 @interface RCRecordMemoViewController : RCMemoPlaybackViewController
 {
+    double _middleTimePosition;
+    NSString *_defaultRecordingLabelText;
+    _Bool _commitHandled;
     RCAudioInputDevice *_audioInputDevice;
 }
 
 @property(readonly, nonatomic) RCAudioInputDevice *audioInputDevice; // @synthesize audioInputDevice=_audioInputDevice;
 - (void).cxx_destruct;
+- (void)_reloadRecordingInfoFromAudioInput:(id)arg1;
 - (void)audioInputDeviceRecordingDidEndNotification:(id)arg1;
 - (void)audioInputDeviceRecordingStateDidChange:(id)arg1;
 - (void)commitEditing;
 - (void)setDuration:(double)arg1;
-- (void)setPlaying:(BOOL)arg1;
-- (void)_setPlaying:(BOOL)arg1 updateAudioInputState:(BOOL)arg2;
-- (int)defaultControlsConfiguration;
-- (void)viewDidLoad;
+- (void)setPlaying:(_Bool)arg1;
+- (void)_setPlaying:(_Bool)arg1 updateAudioInputState:(_Bool)arg2;
+- (id)_recordingNameCustomLabel;
+- (long long)defaultControlsConfiguration;
 - (void)dealloc;
 - (id)initWithAudioInputDevice:(id)arg1;
 

@@ -11,7 +11,7 @@
 @interface PUPhotoSharingManager : NSObject
 {
     PLVideoRemaker *_remaker;
-    BOOL _remakingWasCancelled;
+    _Bool _remakingWasCancelled;
     PLManagedAsset *_currentVideo;
     PLProgressView *_publishingProgressView;
     NSTimer *_publishingProgressTimer;

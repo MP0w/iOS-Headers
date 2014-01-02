@@ -11,7 +11,7 @@
 }
 
 + (id)sharedTelephonyController;
-@property(readonly, nonatomic) BOOL isCallPresent;
+@property(readonly, nonatomic) _Bool isCallPresent;
 
 @end
 

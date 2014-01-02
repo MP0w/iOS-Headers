@@ -11,46 +11,60 @@
 #import "UITableViewDataSource-Protocol.h"
 #import "UITableViewDelegate-Protocol.h"
 
-@class RUBrowseGenresDataSource, RUPreviewSession, SKUICircleProgressIndicator, UILabel, UITableView;
+@class NSArray, NSIndexPath, NSMutableArray, RUBrowseGenresDataSource, RUMetricsController, RUParallelScrollView, RUPreviewSession, RUProxyTableView, SKUICircleProgressIndicator, SSMetricsPageEvent, UILabel, UIScrollView;
 
 @interface RUGenreListViewController : UIViewController <RUAudioPreviewViewDelegate, RUPreviewSessionObserver, UITableViewDataSource, UITableViewDelegate>
 {
     SKUICircleProgressIndicator *_activityIndicator;
-    unsigned int _addingIndex;
+    NSIndexPath *_addingIndexPath;
+    RUParallelScrollView *_containerScrollView;
     RUBrowseGenresDataSource *_dataSource;
-    BOOL _isTopLevel;
+    NSArray *_genres;
+    _Bool _isTopLevel;
+    _Bool _isVisible;
+    SSMetricsPageEvent *_lastPageEvent;
     UILabel *_loadingLabel;
-    unsigned int _previewingIndex;
+    RUMetricsController *_metricsController;
+    long long _navigationOperation;
+    NSIndexPath *_previewingIndexPath;
     RUPreviewSession *_previewSession;
-    BOOL _genresAvailable;
+    NSMutableArray *_queuedMetricsOperations;
+    RUProxyTableView *_tableView;
+    _Bool _wasLastNavigationOperationAnimated;
+    _Bool _genresAvailable;
     id <RUGenreListViewControllerDelegate> _delegate;
-    unsigned int _numberOfGenres;
-    UITableView *_tableView;
+    unsigned long long _numberOfGenres;
 }
 
 + (id)_imageCache;
-@property(readonly, nonatomic) UITableView *tableView; // @synthesize tableView=_tableView;
-@property(readonly, nonatomic) unsigned int numberOfGenres; // @synthesize numberOfGenres=_numberOfGenres;
-@property(readonly, nonatomic, getter=areGenresAvailable) BOOL genresAvailable; // @synthesize genresAvailable=_genresAvailable;
+@property(readonly, nonatomic) unsigned long long numberOfGenres; // @synthesize numberOfGenres=_numberOfGenres;
+@property(readonly, nonatomic, getter=areGenresAvailable) _Bool genresAvailable; // @synthesize genresAvailable=_genresAvailable;
 @property(nonatomic) __weak id <RUGenreListViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_updateTableViewFromDataSource;
-- (void)_endPreviewPlaybackWithOptions:(int)arg1;
+- (void)_endPreviewPlaybackWithOptions:(long long)arg1 withFinalTrack:(id)arg2 didFinalTrackPlayToCompletion:(_Bool)arg3;
 - (id)_currentPreviewTrackDescripton;
+- (void)_addMetricsControllerOperationBlock:(id)arg1;
+- (void)_applicationWillEnterForegroundNotification:(id)arg1;
 - (void)_addGenreAction:(id)arg1;
 - (void)removeAddingIndicator;
+@property(readonly, nonatomic) UIScrollView *scrollView;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (void)scrollViewDidScroll:(id)arg1;
-- (void)audioPreviewViewDidCancel:(id)arg1;
-- (void)previewSession:(id)arg1 didStopWithOptions:(int)arg2;
+- (void)audioPreviewViewDidCancel:(id)arg1 forReason:(long long)arg2;
+- (id)_mediaEventForPreviewingRadioTrack:(id)arg1;
+- (void)previewSession:(id)arg1 didStopWithOptions:(long long)arg2 withFinalTrack:(id)arg3 didFinalTrackPlayToCompletion:(_Bool)arg4;
 - (void)previewSession:(id)arg1 didChangeFromTrack:(id)arg2 toTrack:(id)arg3;
+- (void)previewSession:(id)arg1 didBeginWithTrack:(id)arg2;
 - (id)contentScrollView;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
-- (void)viewDidAppear:(BOOL)arg1;
+- (void)didRotateFromInterfaceOrientation:(long long)arg1;
 - (void)dealloc;
 - (id)initWithParentNodeID:(unsigned long long)arg1 parentNodeDictionary:(id)arg2;
 - (id)initWithParentNodeID:(unsigned long long)arg1;

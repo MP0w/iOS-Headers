@@ -27,11 +27,11 @@
     struct CGSize _outputSize;
 }
 
-- (void)renderNineUp:(id)arg1 inputPixelBuffer:(struct __CVBuffer *)arg2 mirrored:(BOOL)arg3;
+- (void)renderNineUp:(id)arg1 inputPixelBuffer:(struct __CVBuffer *)arg2 mirrored:(_Bool)arg3;
 - (void)renderNineUp:(id)arg1 inputPixelBuffer:(struct __CVBuffer *)arg2;
-- (void)renderFilter:(id)arg1 inputPixelBuffer:(struct __CVBuffer *)arg2 mirrored:(BOOL)arg3;
+- (void)renderFilter:(id)arg1 inputPixelBuffer:(struct __CVBuffer *)arg2 mirrored:(_Bool)arg3;
 - (void)renderFilter:(id)arg1 inputPixelBuffer:(struct __CVBuffer *)arg2;
-- (struct __CVBuffer *)createCVPixelBufferForFilter:(id)arg1 inputPixelBuffer:(struct __CVBuffer *)arg2 mirrored:(BOOL)arg3;
+- (struct __CVBuffer *)createCVPixelBufferForFilter:(id)arg1 inputPixelBuffer:(struct __CVBuffer *)arg2 mirrored:(_Bool)arg3;
 - (void)setOutputImageQueue:(struct _CAImageQueue *)arg1;
 - (struct _CAImageQueue *)outputImageQueue;
 - (struct CGSize)outputSize;
@@ -43,10 +43,10 @@
 - (unsigned int)outputTexture;
 - (unsigned int)inputTexture;
 - (struct __CVBuffer *)outputPixelBuffer;
-- (void)setOutputPixelBuffer:(struct __CVBuffer *)arg1 mapTexture:(BOOL)arg2;
+- (void)setOutputPixelBuffer:(struct __CVBuffer *)arg1 mapTexture:(_Bool)arg2;
 - (void)setOutputPixelBuffer:(struct __CVBuffer *)arg1;
 - (struct __CVBuffer *)inputPixelBuffer;
-- (void)setInputPixelBuffer:(struct __CVBuffer *)arg1 mapTexture:(BOOL)arg2;
+- (void)setInputPixelBuffer:(struct __CVBuffer *)arg1 mapTexture:(_Bool)arg2;
 - (void)setInputPixelBuffer:(struct __CVBuffer *)arg1;
 - (id)ciContext;
 - (void)dealloc;
@@ -55,7 +55,6 @@
 - (struct __CVPixelBufferPool *)smallPool;
 - (void)setLargePool:(struct __CVPixelBufferPool *)arg1;
 - (void)setSmallPool:(struct __CVPixelBufferPool *)arg1;
-- (void)_createPixelBuffer:(struct __CVBuffer **)arg1 withSize:(struct CGSize)arg2;
 
 @end
 

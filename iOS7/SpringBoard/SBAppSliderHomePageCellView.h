@@ -6,24 +6,38 @@
 
 #import "UIView.h"
 
-@class SBFakeStatusBarView, _UIBackdropView;
+#import "SBAppSwitcherPageContentView-Protocol.h"
+#import "SBWallpaperObserver-Protocol.h"
 
-@interface SBAppSliderHomePageCellView : UIView
+@class SBFakeStatusBarView;
+
+@interface SBAppSliderHomePageCellView : UIView <SBWallpaperObserver, SBAppSwitcherPageContentView>
 {
+    UIView *_possiblyRotatedContainer;
+    UIView *_nonRotatedContainer;
+    UIView *_homeScreenView;
     UIView *_homeSnapshot;
-    _UIBackdropView *_backdropView;
+    UIView *_wallpaperView;
     SBFakeStatusBarView *_fakeStatusBar;
+    _Bool _usesSnapshots;
+    long long _snapshotOrientation;
+    long long _orientation;
 }
 
-@property(retain, nonatomic) UIView *homeSnapshot; // @synthesize homeSnapshot=_homeSnapshot;
-- (void)_viewDidAnimate:(id)arg1;
-- (void)_viewWillAnimate:(id)arg1;
++ (id)wallpaperSnapshotForZoomFactor:(double)arg1 orientation:(long long)arg2;
+@property(nonatomic) long long orientation; // @synthesize orientation=_orientation;
+@property(retain, nonatomic) UIView *homeScreenView; // @synthesize homeScreenView=_homeScreenView;
+@property(readonly, nonatomic) UIView *homeSnapshot; // @synthesize homeSnapshot=_homeSnapshot;
+- (void)_updateWallpaperView;
+- (void)wallpaperDidChangeForVariant:(long long)arg1;
+- (void)_viewDidAnimatePresentation:(id)arg1;
 - (void)_viewDismissing:(id)arg1;
 - (void)_viewPresenting:(id)arg1;
-- (int)_layoutOrientationForBounds:(struct CGRect)arg1;
+- (void)setHomeSnapshot:(id)arg1 inOrientation:(long long)arg2;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
-- (void)setAdaptiveColorInfo:(id)arg1;
+- (void)setLegibilitySettings:(id)arg1;
+- (void)_statusBarFrameChanging;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

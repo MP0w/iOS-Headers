@@ -10,7 +10,7 @@
 
 @interface AFAccount : NSObject
 {
-    BOOL _isActive;
+    _Bool _isActive;
     NSString *_identifier;
     NSString *_label;
     NSString *_assistantIdentifier;
@@ -23,7 +23,7 @@
     NSString *_localeIdentifier;
 }
 
-@property(readonly, nonatomic) BOOL isActive; // @synthesize isActive=_isActive;
+@property(readonly, nonatomic) _Bool isActive; // @synthesize isActive=_isActive;
 @property(copy, nonatomic) NSString *localeIdentifier; // @synthesize localeIdentifier=_localeIdentifier;
 @property(copy, nonatomic) NSDictionary *lastSyncDates; // @synthesize lastSyncDates=_lastSyncDates;
 @property(copy, nonatomic) NSString *group; // @synthesize group=_group;

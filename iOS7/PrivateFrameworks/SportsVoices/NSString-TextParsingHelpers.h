@@ -9,6 +9,6 @@
 @interface NSString (TextParsingHelpers)
 - (id)_withoutExtraWhitespace;
 - (id)_firstWord;
-- (BOOL)_isWhitespace;
+- (_Bool)_isWhitespace;
 @end
 

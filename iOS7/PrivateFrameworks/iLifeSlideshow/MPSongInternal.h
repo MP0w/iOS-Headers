@@ -10,16 +10,16 @@
 {
     double duration;
     double startTime;
-    float audioVolume;
+    double audioVolume;
     double fadeInDuration;
     double fadeOutDuration;
-    BOOL assetLogging;
+    _Bool assetLogging;
 }
 
-@property(nonatomic) BOOL assetLogging; // @synthesize assetLogging;
+@property(nonatomic) _Bool assetLogging; // @synthesize assetLogging;
 @property(nonatomic) double fadeOutDuration; // @synthesize fadeOutDuration;
 @property(nonatomic) double fadeInDuration; // @synthesize fadeInDuration;
-@property(nonatomic) float audioVolume; // @synthesize audioVolume;
+@property(nonatomic) double audioVolume; // @synthesize audioVolume;
 @property(nonatomic) double startTime; // @synthesize startTime;
 @property(nonatomic) double duration; // @synthesize duration;
 

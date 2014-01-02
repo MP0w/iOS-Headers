@@ -9,7 +9,7 @@
 #pragma mark Named Structures
 
 struct CFURLProtocolImplementation_V0 {
-    int _field1;
+    long long _field1;
     void *_field2;
     void *_field3;
     void *_field4;
@@ -21,8 +21,8 @@ struct CFURLProtocolImplementation_V0 {
 };
 
 struct CGPoint {
-    float _field1;
-    float _field2;
+    double _field1;
+    double _field2;
 };
 
 struct CGRect {
@@ -31,8 +31,8 @@ struct CGRect {
 };
 
 struct CGSize {
-    float width;
-    float height;
+    double width;
+    double height;
 };
 
 struct InternalInit {
@@ -40,23 +40,23 @@ struct InternalInit {
     id _field2;
     id _field3;
     id _field4;
-    char _field5;
+    _Bool _field5;
     long long _field6;
 };
 
 struct NSSlice {
     void **items;
-    char wantsStrong;
-    char wantsWeak;
-    char wantsARC;
-    char shouldCopyIn;
-    char usesStrong;
-    char usesWeak;
-    char usesARC;
-    char usesSentinel;
-    char pointerPersonality;
-    char integerPersonality;
-    char simpleReadClear;
+    _Bool wantsStrong;
+    _Bool wantsWeak;
+    _Bool wantsARC;
+    _Bool shouldCopyIn;
+    _Bool usesStrong;
+    _Bool usesWeak;
+    _Bool usesARC;
+    _Bool usesSentinel;
+    _Bool pointerPersonality;
+    _Bool integerPersonality;
+    _Bool simpleReadClear;
     NSWeakCallback *callback;
     void *sizeFunction;
     void *hashFunction;
@@ -86,14 +86,14 @@ struct _NSLTToken {
 };
 
 struct _NSRange {
-    unsigned int location;
-    unsigned int length;
+    unsigned long long location;
+    unsigned long long length;
 };
 
 struct _NSRefCountedRunArray {
     void *_field1;
-    unsigned int _field2;
-    unsigned int _field3;
+    unsigned long long _field2;
+    unsigned long long _field3;
     unsigned int _field4;
     unsigned int _field5;
     unsigned int _field6;
@@ -102,26 +102,26 @@ struct _NSRefCountedRunArray {
 };
 
 struct _NSRunArrayItem {
-    unsigned int _field1;
+    unsigned long long _field1;
     id _field2;
 };
 
 struct _NSSimpleAttributeDictionaryElement {
-    unsigned int hash;
+    unsigned long long hash;
     id key;
     id value;
 };
 
 struct _URIParseInfo {
-    int userinfoNameOffset;
-    int userinfoPasswordOffset;
-    int hostOffset;
-    int portOffset;
-    int pathOffset;
-    int paramOffset;
-    int queryOffset;
-    int fragmentOffset;
-    int endOffset;
+    long long userinfoNameOffset;
+    long long userinfoPasswordOffset;
+    long long hostOffset;
+    long long portOffset;
+    long long pathOffset;
+    long long paramOffset;
+    long long queryOffset;
+    long long fragmentOffset;
+    long long endOffset;
     unsigned int schemeExists:1;
     unsigned int authorityExists:1;
     unsigned int userinfoNameExists:1;
@@ -137,7 +137,7 @@ struct _ftsent {
     struct _ftsent *_field1;
     struct _ftsent *_field2;
     struct _ftsent *_field3;
-    long _field4;
+    long long _field4;
     void *_field5;
     char *_field6;
     char *_field7;
@@ -182,8 +182,8 @@ struct _xmlParserCtxt {
     struct _xmlNode **_field17;
     int _field18;
     struct _xmlParserNodeInfoSeq {
-        unsigned long _field1;
-        unsigned long _field2;
+        unsigned long long _field1;
+        unsigned long long _field2;
         struct _xmlParserNodeInfo *_field3;
     } _field19;
     int _field20;
@@ -217,8 +217,8 @@ struct _xmlParserCtxt {
     int _field31;
     int _field32;
     char **_field33;
-    long _field34;
-    long _field35;
+    long long _field34;
+    long long _field35;
     int _field36;
     int _field37;
     int _field38;
@@ -279,14 +279,14 @@ struct _xmlParserCtxt {
         void *_field13;
     } _field80;
     int _field81;
-    unsigned long _field82;
-    unsigned long _field83;
+    unsigned long long _field82;
+    unsigned long long _field83;
     struct _xmlParserNodeInfo *_field84;
     int _field85;
     int _field86;
     struct _xmlParserNodeInfo *_field87;
     int _field88;
-    unsigned long _field89;
+    unsigned long long _field89;
 };
 
 struct _xmlParserInput;
@@ -372,25 +372,25 @@ struct stat {
 };
 
 struct timespec {
-    int tv_sec;
-    long tv_nsec;
+    long long tv_sec;
+    long long tv_nsec;
 };
 
 struct z_stream_s {
     char *next_in;
     unsigned int avail_in;
-    unsigned int total_in;
+    unsigned long long total_in;
     char *next_out;
     unsigned int avail_out;
-    unsigned int total_out;
+    unsigned long long total_out;
     char *msg;
     struct internal_state *state;
     void *zalloc;
     void *zfree;
     void *opaque;
     int data_type;
-    unsigned int adler;
-    unsigned int reserved;
+    unsigned long long adler;
+    unsigned long long reserved;
 };
 
 #pragma mark Typedef'd Structures
@@ -400,11 +400,11 @@ typedef struct {
     id _field2;
     id _field3;
     id _field4;
-    int _field5;
+    long long _field5;
     id _field6;
     id _field7;
     id _field8;
-} CDStruct_2b292156;
+} CDStruct_4f05a0fa;
 
 typedef struct {
     id _field1;
@@ -436,24 +436,24 @@ typedef struct {
 } CDStruct_bd2f613f;
 
 typedef struct {
-    unsigned int kind;
+    unsigned long long kind;
     NSObject *oldValue;
     NSObject *newValue;
     NSIndexSet *indexes;
     id extraData;
-} CDStruct_26283fc3;
+} CDStruct_e173081d;
 
 typedef struct {
-    unsigned int _field1;
+    unsigned long long _field1;
     id _field2[4];
-} CDStruct_e8a1eea0;
+} CDStruct_7c9a8e9f;
 
 typedef struct {
-    unsigned long _field1;
+    unsigned long long _field1;
     id *_field2;
-    unsigned long *_field3;
-    unsigned long _field4[5];
-} CDStruct_11f37819;
+    unsigned long long *_field3;
+    unsigned long long _field4[5];
+} CDStruct_70511ce9;
 
 typedef struct {
     unsigned int _field1[8];
@@ -469,26 +469,31 @@ typedef struct {
 } CDStruct_5fe7aead;
 
 typedef struct {
-    float m11;
-    float m12;
-    float m21;
-    float m22;
-    float tX;
-    float tY;
-} CDStruct_a65eae4f;
+    double m11;
+    double m12;
+    double m21;
+    double m22;
+    double tX;
+    double tY;
+} CDStruct_56a8f59f;
 
 typedef struct {
-    int _field1;
+    long long _field1;
     void *_field2;
     void *_field3;
     void *_field4;
     void *_field5;
-} CDStruct_60d14f2d;
+} CDStruct_e097db04;
 
 typedef struct {
-    int _field1;
+    long long _field1;
     int _field2;
-} CDStruct_1ef3fb1f;
+} CDStruct_87dc826d;
+
+typedef struct {
+    long long _field1;
+    long long _field2;
+} CDStruct_912cb5d2;
 
 #pragma mark Typedef'd Unions
 

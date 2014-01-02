@@ -6,14 +6,11 @@
 
 #import <iLifeSlideshow/MCObject.h>
 
-#import "MCActionSupport-Protocol.h"
-#import "MCAnimationPathSupport-Protocol.h"
+@class MCContainer, NSMutableDictionary, NSMutableSet;
 
-@class MCContainer, NSDictionary, NSMutableDictionary, NSMutableSet, NSSet;
-
-@interface MCPlug : MCObject <MCAnimationPathSupport, MCActionSupport>
+@interface MCPlug : MCObject
 {
-    unsigned long mFlags;
+    unsigned int mFlags;
     NSMutableSet *mAnimationPaths;
     NSMutableDictionary *mActions;
     MCContainer *mContainer;
@@ -30,8 +27,8 @@
 @property(nonatomic) double phaseInDuration; // @synthesize phaseInDuration=mPhaseInDuration;
 - (void)setAnimationPath:(id)arg1 forKey:(id)arg2;
 - (void)_copySelfToSnapshot:(id)arg1;
-@property(nonatomic) BOOL preactivatesWithParent;
-@property(nonatomic) BOOL startsPaused;
+@property(nonatomic) _Bool preactivatesWithParent;
+@property(nonatomic) _Bool startsPaused;
 @property(readonly, nonatomic) double fullDuration;
 @property(retain) MCContainer *container; // @synthesize container=mContainer;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
@@ -39,24 +36,6 @@
 - (void)demolish;
 - (id)initWithImprint:(id)arg1 andMontage:(id)arg2;
 - (id)init;
-- (void)removeAllAnimationPaths;
-- (void)removeAnimationPathForKey:(id)arg1;
-- (void)addAnimationPath:(id)arg1;
-- (id)animationPathForKey:(id)arg1;
-@property(readonly) unsigned int countOfAnimationPaths;
-@property(readonly) NSSet *animationPaths;
-- (id)imprintsForAnimationPaths;
-- (void)demolishAnimationPaths;
-- (void)initAnimationPathsWithImprints:(id)arg1;
-- (void)removeAllActions;
-- (void)removeActionForKey:(id)arg1;
-- (void)setAction:(id)arg1 forKey:(id)arg2;
-- (id)actionForKey:(id)arg1;
-@property(readonly, nonatomic) unsigned int countOfActions;
-@property(readonly) NSDictionary *actions;
-- (id)imprintsForActions;
-- (void)demolishActions;
-- (void)initActionsWithImprints:(id)arg1;
 
 @end
 

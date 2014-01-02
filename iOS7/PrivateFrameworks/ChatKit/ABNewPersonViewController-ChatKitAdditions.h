@@ -7,6 +7,6 @@
 #import "ABNewPersonViewController.h"
 
 @interface ABNewPersonViewController (ChatKitAdditions)
-- (BOOL)ckCanDismissWhenSuspending;
+- (_Bool)ckCanDismissWhenSuspending;
 @end
 

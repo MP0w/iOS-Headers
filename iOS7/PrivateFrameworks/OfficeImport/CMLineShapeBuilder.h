@@ -8,6 +8,7 @@
 
 @class OADStroke;
 
+// Not exported
 @interface CMLineShapeBuilder : CMShapeBuilder
 {
     OADStroke *_stroke;

@@ -10,7 +10,7 @@
 {
 }
 
-- (BOOL)isInCamera;
+- (_Bool)isInCamera;
 
 @end
 

@@ -10,9 +10,9 @@
 {
 }
 
-- (BOOL)reloadCallAction;
-- (BOOL)refreshTinyActionCell;
-- (BOOL)presentModalViewInPopover;
+- (_Bool)reloadCallAction;
+- (_Bool)refreshTinyActionCell;
+- (_Bool)presentModalViewInPopover;
 
 @end
 

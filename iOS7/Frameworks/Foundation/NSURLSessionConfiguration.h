@@ -7,32 +7,31 @@
 #import "NSObject.h"
 
 #import "NSCopying-Protocol.h"
-#import "NSSecureCoding-Protocol.h"
 
 @class NSArray, NSDictionary, NSHTTPCookieStorage, NSString, NSURLCache, NSURLCredentialStorage;
 
-@interface NSURLSessionConfiguration : NSObject <NSCopying, NSSecureCoding>
+@interface NSURLSessionConfiguration : NSObject <NSCopying>
 {
-    BOOL _allowsCellularAccess;
-    BOOL _useOpportunisticNetworking;
-    BOOL _discretionary;
-    BOOL _HTTPShouldUsePipelining;
-    BOOL _HTTPShouldSetCookies;
-    NSString *_identifier;
-    unsigned int _requestCachePolicy;
-    unsigned int _networkServiceType;
-    NSDictionary *_connectionProxyDictionary;
+    _Bool _allowsCellularAccess;
+    _Bool _discretionary;
+    _Bool _sessionSendsLaunchEvents;
+    _Bool _HTTPShouldUsePipelining;
+    _Bool _HTTPShouldSetCookies;
     int _TLSMinimumSupportedProtocol;
     int _TLSMaximumSupportedProtocol;
-    unsigned int _HTTPCookieAcceptPolicy;
+    NSString *_identifier;
+    unsigned long long _requestCachePolicy;
+    double _timeoutIntervalForRequest;
+    double _timeoutIntervalForResource;
+    unsigned long long _networkServiceType;
+    NSDictionary *_connectionProxyDictionary;
+    unsigned long long _HTTPCookieAcceptPolicy;
     NSDictionary *_HTTPAdditionalHeaders;
-    int _HTTPMaximumConnectionsPerHost;
+    long long _HTTPMaximumConnectionsPerHost;
     NSHTTPCookieStorage *_HTTPCookieStorage;
     NSURLCredentialStorage *_URLCredentialStorage;
     NSURLCache *_URLCache;
     NSArray *_protocolClasses;
-    double _timeoutIntervalForRequest;
-    double _timeoutIntervalForResource;
 }
 
 + (void)initialize;
@@ -40,21 +39,21 @@
 @property(retain) NSURLCache *URLCache; // @synthesize URLCache=_URLCache;
 @property(retain) NSURLCredentialStorage *URLCredentialStorage; // @synthesize URLCredentialStorage=_URLCredentialStorage;
 @property(retain) NSHTTPCookieStorage *HTTPCookieStorage; // @synthesize HTTPCookieStorage=_HTTPCookieStorage;
-@property int HTTPMaximumConnectionsPerHost; // @synthesize HTTPMaximumConnectionsPerHost=_HTTPMaximumConnectionsPerHost;
+@property long long HTTPMaximumConnectionsPerHost; // @synthesize HTTPMaximumConnectionsPerHost=_HTTPMaximumConnectionsPerHost;
 @property(copy) NSDictionary *HTTPAdditionalHeaders; // @synthesize HTTPAdditionalHeaders=_HTTPAdditionalHeaders;
-@property unsigned int HTTPCookieAcceptPolicy; // @synthesize HTTPCookieAcceptPolicy=_HTTPCookieAcceptPolicy;
-@property BOOL HTTPShouldSetCookies; // @synthesize HTTPShouldSetCookies=_HTTPShouldSetCookies;
-@property BOOL HTTPShouldUsePipelining; // @synthesize HTTPShouldUsePipelining=_HTTPShouldUsePipelining;
+@property unsigned long long HTTPCookieAcceptPolicy; // @synthesize HTTPCookieAcceptPolicy=_HTTPCookieAcceptPolicy;
+@property _Bool HTTPShouldSetCookies; // @synthesize HTTPShouldSetCookies=_HTTPShouldSetCookies;
+@property _Bool HTTPShouldUsePipelining; // @synthesize HTTPShouldUsePipelining=_HTTPShouldUsePipelining;
 @property int TLSMaximumSupportedProtocol; // @synthesize TLSMaximumSupportedProtocol=_TLSMaximumSupportedProtocol;
 @property int TLSMinimumSupportedProtocol; // @synthesize TLSMinimumSupportedProtocol=_TLSMinimumSupportedProtocol;
 @property(copy) NSDictionary *connectionProxyDictionary; // @synthesize connectionProxyDictionary=_connectionProxyDictionary;
-@property(getter=isDiscretionary) BOOL discretionary; // @synthesize discretionary=_discretionary;
-@property BOOL useOpportunisticNetworking; // @synthesize useOpportunisticNetworking=_useOpportunisticNetworking;
-@property BOOL allowsCellularAccess; // @synthesize allowsCellularAccess=_allowsCellularAccess;
-@property unsigned int networkServiceType; // @synthesize networkServiceType=_networkServiceType;
+@property _Bool sessionSendsLaunchEvents; // @synthesize sessionSendsLaunchEvents=_sessionSendsLaunchEvents;
+@property(getter=isDiscretionary) _Bool discretionary; // @synthesize discretionary=_discretionary;
+@property _Bool allowsCellularAccess; // @synthesize allowsCellularAccess=_allowsCellularAccess;
+@property unsigned long long networkServiceType; // @synthesize networkServiceType=_networkServiceType;
 @property double timeoutIntervalForResource; // @synthesize timeoutIntervalForResource=_timeoutIntervalForResource;
 @property double timeoutIntervalForRequest; // @synthesize timeoutIntervalForRequest=_timeoutIntervalForRequest;
-@property unsigned int requestCachePolicy; // @synthesize requestCachePolicy=_requestCachePolicy;
+@property unsigned long long requestCachePolicy; // @synthesize requestCachePolicy=_requestCachePolicy;
 @property(readonly) NSString *identifier; // @synthesize identifier=_identifier;
 
 @end

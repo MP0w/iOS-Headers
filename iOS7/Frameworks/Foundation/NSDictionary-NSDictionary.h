@@ -7,14 +7,14 @@
 #import "NSDictionary.h"
 
 @interface NSDictionary (NSDictionary)
-+ (id)newWithContentsOf:(id)arg1 immutable:(BOOL)arg2;
++ (id)newWithContentsOf:(id)arg1 immutable:(_Bool)arg2;
 + (id)dictionaryWithContentsOfURL:(id)arg1;
 + (id)dictionaryWithContentsOfFile:(id)arg1;
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 - (id)initWithContentsOfURL:(id)arg1;
 - (id)initWithContentsOfFile:(id)arg1;
-- (BOOL)writeToURL:(id)arg1 atomically:(BOOL)arg2;
-- (BOOL)writeToFile:(id)arg1 atomically:(BOOL)arg2;
+- (_Bool)writeToURL:(id)arg1 atomically:(_Bool)arg2;
+- (_Bool)writeToFile:(id)arg1 atomically:(_Bool)arg2;
 - (id)_stringToWrite;
 - (id)descriptionInStringsFileFormat;
 - (Class)classForCoder;

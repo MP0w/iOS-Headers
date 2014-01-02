@@ -9,7 +9,7 @@
 @interface ICPTPIPClientProperties : NSObject
 {
     int _pid;
-    BOOL _registered;
+    _Bool _registered;
     struct __CFFileDescriptor *_fdref;
     struct __CFMessagePort *_remotePort;
     int _remoteAddress;
@@ -20,7 +20,7 @@
 @property int remoteAddress; // @synthesize remoteAddress=_remoteAddress;
 @property struct __CFMessagePort *remotePort; // @synthesize remotePort=_remotePort;
 @property struct __CFFileDescriptor *fdref; // @synthesize fdref=_fdref;
-@property(getter=didRegister) BOOL registered; // @synthesize registered=_registered;
+@property(getter=didRegister) _Bool registered; // @synthesize registered=_registered;
 @property int pid; // @synthesize pid=_pid;
 - (void)finalize;
 - (void)dealloc;

@@ -7,8 +7,8 @@
 #pragma mark Named Structures
 
 struct CGPoint {
-    float x;
-    float y;
+    double x;
+    double y;
 };
 
 struct CGRect {
@@ -17,8 +17,8 @@ struct CGRect {
 };
 
 struct CGSize {
-    float width;
-    float height;
+    double width;
+    double height;
 };
 
 struct FunctionInterpreter<double> {
@@ -53,11 +53,11 @@ struct MRLayerRenderingStateOpaque {
     float _field13[16];
     float _field14[16];
     float _field15[16];
-    char _field16;
-    char _field17;
-    char _field18;
-    char _field19;
-    char _field20;
+    _Bool _field16;
+    _Bool _field17;
+    _Bool _field18;
+    _Bool _field19;
+    _Bool _field20;
 };
 
 struct Parser<double>;
@@ -69,8 +69,8 @@ struct ParserVariable<double>;
 struct ParserVariable<float>;
 
 struct _NSRange {
-    unsigned int location;
-    unsigned int length;
+    unsigned long long location;
+    unsigned long long length;
 };
 
 struct __sbuf {
@@ -84,14 +84,18 @@ typedef struct {
     Class _field1;
     id _field2;
     id _field3;
-    char _field4;
-    char _field5;
-} CDStruct_7b508128;
+    _Bool _field4;
+    _Bool _field5;
+} CDStruct_32b7e343;
 
 typedef struct {
     id _field1;
-    char _field2;
-} CDStruct_02fb8bfc;
+    _Bool _field2;
+} CDStruct_d55ca1ec;
+
+typedef struct {
+    _Bool _field1;
+} CDStruct_b31ca263;
 
 typedef struct {
     unsigned char length;
@@ -99,26 +103,22 @@ typedef struct {
 } CDStruct_d27e73f0;
 
 typedef struct {
-    char _field1;
-} CDStruct_2920cfb7;
+    int _field1;
+    _Bool _field2;
+    _Bool _field3;
+    _Bool _field4;
+    _Bool _field5;
+    _Bool _field6;
+} CDStruct_ad85aa33;
 
 typedef struct {
     int _field1;
-    char _field2;
-    char _field3;
-    char _field4;
-    char _field5;
-    char _field6;
-} CDStruct_2a38db39;
+    long long _field2;
+    long long _field3;
+} CDStruct_b6748e3c;
 
 typedef struct {
-    int _field1;
-    int _field2;
-} CDStruct_1ef3fb1f;
-
-typedef struct {
-    int _field1;
-    long _field2;
-    long _field3;
-} CDStruct_ac6699d7;
+    long long _field1;
+    long long _field2;
+} CDStruct_912cb5d2;
 

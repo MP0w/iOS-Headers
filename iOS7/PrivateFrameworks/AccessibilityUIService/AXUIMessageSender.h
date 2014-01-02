@@ -10,21 +10,21 @@
 
 @interface AXUIMessageSender : NSObject
 {
-    BOOL _sendingMessage;
+    _Bool _sendingMessage;
     id <AXUIMessageSenderDelegate> _delegate;
     NSMutableArray *_messageQueue;
     AXAccessQueue *_messageSchedulingSerializationQueue;
 }
 
-@property(nonatomic, getter=isSendingMessage) BOOL sendingMessage; // @synthesize sendingMessage=_sendingMessage;
+@property(nonatomic, getter=isSendingMessage) _Bool sendingMessage; // @synthesize sendingMessage=_sendingMessage;
 @property(retain, nonatomic) AXAccessQueue *messageSchedulingSerializationQueue; // @synthesize messageSchedulingSerializationQueue=_messageSchedulingSerializationQueue;
 @property(retain, nonatomic) NSMutableArray *messageQueue; // @synthesize messageQueue=_messageQueue;
 @property(nonatomic) id <AXUIMessageSenderDelegate> delegate; // @synthesize delegate=_delegate;
-- (id)sendSynchronousMessage:(id)arg1 withIdentifier:(unsigned int)arg2 context:(void *)arg3 error:(id *)arg4;
-- (void)sendAsynchronousMessage:(id)arg1 withIdentifier:(unsigned int)arg2 context:(void *)arg3 targetAccessQueue:(id)arg4 completionRequiresWritingBlock:(BOOL)arg5 completion:(id)arg6;
+- (id)sendSynchronousMessage:(id)arg1 withIdentifier:(unsigned long long)arg2 context:(void *)arg3 error:(id *)arg4;
+- (void)sendAsynchronousMessage:(id)arg1 withIdentifier:(unsigned long long)arg2 context:(void *)arg3 targetAccessQueue:(id)arg4 completionRequiresWritingBlock:(_Bool)arg5 completion:(id)arg6;
 - (void)_performBlock:(id)arg1 inAccessQueue:(void)arg2 treatAsWritingBlock:(id)arg3;
 - (void)_didFinishSendingXPCMessage:(id)arg1 replyCustomData:(void *)arg2;
-- (void)_sendXPCMessage:(id)arg1 context:(void *)arg2 remainingAttempts:(unsigned int)arg3 previousError:(id)arg4 completion:(id)arg5;
+- (void)_sendXPCMessage:(id)arg1 context:(void *)arg2 remainingAttempts:(unsigned long long)arg3 previousError:(id)arg4 completion:(id)arg5;
 - (void)dealloc;
 - (id)init;
 

@@ -28,10 +28,10 @@
 - (id)accountLogin:(id)arg1;
 - (id)registrationStatus:(id)arg1;
 - (id)accountLoginStatus:(id)arg1;
-- (BOOL)isConnectedToDaemon;
+- (_Bool)isConnectedToDaemon;
 - (id)specifierForAlias:(id)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (id)bundle;
 - (id)specifiers;
 - (void)dealloc;

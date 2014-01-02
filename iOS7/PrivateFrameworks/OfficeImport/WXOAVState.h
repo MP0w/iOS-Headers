@@ -8,6 +8,7 @@
 
 @class NSMutableDictionary, WDParagraph, WXState;
 
+// Not exported
 @interface WXOAVState : OAVState
 {
     WXState *mWxState;

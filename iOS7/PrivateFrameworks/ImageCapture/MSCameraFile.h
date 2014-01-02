@@ -16,8 +16,8 @@
 - (void)updateBasicMetadata;
 - (id)metadataDict;
 - (id)thumbData;
-- (long)writeDataToFile:(int)arg1 fromOffset:(long long)arg2 ofLength:(long long *)arg3;
-@property BOOL updatedBasicMetadata;
+- (int)writeDataToFile:(int)arg1 fromOffset:(long long)arg2 ofLength:(long long *)arg3;
+@property _Bool updatedBasicMetadata;
 @property int bitsPerPixel;
 @property int imgHeight;
 @property int imgWidth;

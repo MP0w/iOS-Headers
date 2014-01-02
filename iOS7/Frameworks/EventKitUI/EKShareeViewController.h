@@ -13,32 +13,32 @@
 @interface EKShareeViewController : UITableViewController <UIActionSheetDelegate>
 {
     UIActionSheet *_alertSheet;
-    BOOL _allowEditing;
+    _Bool _allowEditing;
     EKSharee *_sharee;
     id <EKShareeViewControllerDelegate> _delegate;
 }
 
 @property(nonatomic) __weak id <EKShareeViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) BOOL allowEditing; // @synthesize allowEditing=_allowEditing;
+@property(nonatomic) _Bool allowEditing; // @synthesize allowEditing=_allowEditing;
 @property(retain, nonatomic) EKSharee *sharee; // @synthesize sharee=_sharee;
 - (void).cxx_destruct;
-- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (void)removeClicked:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (float)tableView:(id)arg1 heightForFooterInSection:(int)arg2;
-- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
-- (id)tableView:(id)arg1 titleForFooterInSection:(int)arg2;
+- (double)tableView:(id)arg1 heightForFooterInSection:(long long)arg2;
+- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (id)tableView:(id)arg1 titleForFooterInSection:(long long)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
-- (struct CGSize)contentSizeForViewInPopover;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
+- (struct CGSize)preferredContentSize;
 - (void)_allowEditingChanged:(id)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;
 - (void)_reloadTitle;
-- (int)_rowForSubitem:(int)arg1;
-- (int)_subitemAtRow:(int)arg1;
-- (BOOL)_shouldDisplayResendInvitationButton;
+- (long long)_rowForSubitem:(int)arg1;
+- (int)_subitemAtRow:(long long)arg1;
+- (_Bool)_shouldDisplayResendInvitationButton;
 - (id)initWithSharee:(id)arg1;
 
 @end

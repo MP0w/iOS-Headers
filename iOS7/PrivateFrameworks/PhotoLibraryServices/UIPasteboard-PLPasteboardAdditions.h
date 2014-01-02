@@ -7,7 +7,7 @@
 #import "UIPasteboard.h"
 
 @interface UIPasteboard (PLPasteboardAdditions)
-- (BOOL)pl_containsAssets;
+- (_Bool)pl_containsAssets;
 - (id)pl_assetsInPhotoLibrary:(id)arg1;
 - (void)pl_setAssets:(id)arg1;
 - (void)pl_setAsset:(id)arg1;

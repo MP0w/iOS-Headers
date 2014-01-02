@@ -6,7 +6,9 @@
 
 #import "PBCodable.h"
 
-@interface GEOUIActionCapture : PBCodable
+#import "NSCopying-Protocol.h"
+
+@interface GEOUIActionCapture : PBCodable <NSCopying>
 {
     double _duration;
     int _actionType;
@@ -21,16 +23,17 @@
 @property(nonatomic) int sequenceNumber; // @synthesize sequenceNumber=_sequenceNumber;
 @property(nonatomic) double duration; // @synthesize duration=_duration;
 @property(nonatomic) int actionType; // @synthesize actionType=_actionType;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) BOOL hasSequenceNumber;
-@property(nonatomic) BOOL hasDuration;
-@property(nonatomic) BOOL hasActionType;
+@property(nonatomic) _Bool hasSequenceNumber;
+@property(nonatomic) _Bool hasDuration;
+@property(nonatomic) _Bool hasActionType;
 - (void)dealloc;
 
 @end

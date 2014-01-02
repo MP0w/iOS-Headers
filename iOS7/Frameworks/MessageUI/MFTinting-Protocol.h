@@ -7,8 +7,8 @@
 #import "NSObject-Protocol.h"
 
 @protocol MFTinting <NSObject>
-@property(nonatomic) BOOL shouldDim;
-- (void)setTintColor:(id)arg1 animated:(BOOL)arg2;
+@property(nonatomic) _Bool shouldDim;
+- (void)setTintColor:(id)arg1 animated:(_Bool)arg2;
 - (id)tintColor;
 @end
 

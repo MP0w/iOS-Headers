@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface GQDClassNameMap : NSObject
 {
 }
@@ -14,7 +15,6 @@
 + (void)registerGlobalClass:(Class)arg1 name:(const char *)arg2;
 + (void)registerClass:(Class)arg1 forName:(const char *)arg2 inRootType:(Class)arg3;
 + (void)initialize;
-+ (void)registerDefaults;
 
 @end
 

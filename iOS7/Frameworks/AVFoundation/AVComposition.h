@@ -20,7 +20,7 @@
 @property(readonly, nonatomic) struct CGSize naturalSize;
 @property(readonly, nonatomic) NSArray *tracks;
 - (id)_mutableTracks;
-- (id)_newTrackForIndex:(long)arg1;
+- (id)_newTrackForIndex:(long long)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (struct OpaqueFigFormatReader *)_formatReader;
 - (id)_assetInspector;
@@ -30,7 +30,7 @@
 - (void)dealloc;
 - (id)init;
 - (id)_initWithComposition:(id)arg1;
-- (long)_createEmptyMutableCompositionIfNeeded;
+- (int)_createEmptyMutableCompositionIfNeeded;
 
 @end
 

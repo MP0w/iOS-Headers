@@ -8,27 +8,36 @@
 
 #import "UIPageViewControllerDataSource-Protocol.h"
 
-@class MPMediaQuery, NSMutableArray, UIButton;
+@class MPAVController, MPMediaQuery, MSNowPlayingButton, NSMutableArray, UIButton;
 
 @interface MSGeniusMixesViewController : UIPageViewController <UIPageViewControllerDataSource>
 {
+    MPAVController *_player;
+    id <MSCarDisplayServiceProvider> _serviceProvider;
     MPMediaQuery *_query;
     NSMutableArray *_viewControllers;
     UIButton *_pageRightButton;
     UIButton *_pageLeftButton;
+    MSNowPlayingButton *_nowPlayingButton;
 }
 
 - (void).cxx_destruct;
+- (void)_updateNowPlayingVisibility;
 - (void)updatePageArrows;
 - (void)_wheelChangedWithEvent:(id)arg1;
 - (void)_moveWithEvent:(id)arg1;
 - (void)knobPressed:(id)arg1;
 - (void)_pageLeftButtonTouchUpInside:(id)arg1;
 - (void)_pageRightButtonTouchUpInside:(id)arg1;
-- (int)presentationIndexForPageViewController:(id)arg1;
-- (int)presentationCountForPageViewController:(id)arg1;
+- (void)_nowPlayingButtonTapped:(id)arg1;
+- (void)_itemChanged:(id)arg1;
+- (long long)presentationIndexForPageViewController:(id)arg1;
+- (long long)presentationCountForPageViewController:(id)arg1;
 - (id)pageViewController:(id)arg1 viewControllerAfterViewController:(id)arg2;
 - (id)pageViewController:(id)arg1 viewControllerBeforeViewController:(id)arg2;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)dealloc;
 - (id)initWithQuery:(id)arg1 player:(id)arg2 serviceProvider:(id)arg3;

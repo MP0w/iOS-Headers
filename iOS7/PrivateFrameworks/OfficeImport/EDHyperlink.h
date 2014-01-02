@@ -8,6 +8,7 @@
 
 @class EDReference, EDString;
 
+// Not exported
 @interface EDHyperlink : NSObject
 {
     EDString *mPath;

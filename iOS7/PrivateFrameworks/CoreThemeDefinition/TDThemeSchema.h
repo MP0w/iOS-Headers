@@ -13,7 +13,7 @@
     CoreThemeDocument *_doc;
 }
 
-+ (BOOL)loadThemeConstantsForEntity:(id)arg1 inContext:(id)arg2;
++ (_Bool)loadThemeConstantsForEntity:(id)arg1 inContext:(id)arg2;
 - (void)resetThemeConstants;
 - (void)loadSchemaDefinitions;
 - (void)loadSchemaCategories;
@@ -43,13 +43,13 @@
 - (void)loadThemeSizes;
 - (void)sanityCheckAndUpdateDocumentIfNecessary;
 - (void)_sanityCheckSchemaAssets;
-- (BOOL)_renditionKey:(const struct _renditionkeytoken *)arg1 isEqualToKeyIgnoringLook:(const struct _renditionkeytoken *)arg2;
+- (_Bool)_renditionKey:(const struct _renditionkeytoken *)arg1 isEqualToKeyIgnoringLook:(const struct _renditionkeytoken *)arg2;
 - (void)_sanityCheckSchemaDefinitionsAndUpdateIfNecessary;
 - (void)_sanityCheckSchemaCategoriesAndUpdateIfNecessary;
-- (void)_addSchemaPartDefinitionsForStandardElement:(const CDStruct_9508427b *)arg1 withElement:(id)arg2;
-- (void)_sanityCheckSchemaPartDefinitionsForStandardElement:(const CDStruct_9508427b *)arg1 withElement:(id)arg2;
+- (void)_addSchemaPartDefinitionsForStandardElement:(const CDStruct_e3362728 *)arg1 withElement:(id)arg2;
+- (void)_sanityCheckSchemaPartDefinitionsForStandardElement:(const CDStruct_e3362728 *)arg1 withElement:(id)arg2;
 - (void)_sanityCheckMetafontSizeSelectorsAndUpdateIfNecessary;
-- (void)_sanityCheckObjectsWithEntityName:(id)arg1 globalDescriptor:(void *)arg2 matchIdentifierOnly:(BOOL)arg3;
+- (void)_sanityCheckObjectsWithEntityName:(id)arg1 globalDescriptor:(void *)arg2 matchIdentifierOnly:(_Bool)arg3;
 - (void)dealloc;
 - (id)initWithThemeDocument:(id)arg1;
 

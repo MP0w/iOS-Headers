@@ -6,12 +6,13 @@
 
 #import <CoreData/_NSPropertyDescriptionProxy.h>
 
+// Not exported
 @interface _NSPropertyDescriptionProxy2 : _NSPropertyDescriptionProxy
 {
 }
 
-- (BOOL)_tryRetain;
-- (BOOL)_isDeallocating;
+- (_Bool)_tryRetain;
+- (_Bool)_isDeallocating;
 - (Class)classForCoder;
 - (Class)classForArchiver;
 - (oneway void)release;

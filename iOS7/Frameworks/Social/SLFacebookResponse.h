@@ -15,21 +15,21 @@
     NSData *_responseData;
     NSHTTPURLResponse *_urlResponse;
     id _untypedResponseParameters;
-    int _httpErrorCode;
+    long long _httpErrorCode;
 }
 
-@property(readonly) int httpErrorCode; // @synthesize httpErrorCode=_httpErrorCode;
+@property(readonly) long long httpErrorCode; // @synthesize httpErrorCode=_httpErrorCode;
 - (void).cxx_destruct;
 @property(readonly) NSDictionary *responseParameters;
 - (id)untypedResponseParameters;
-- (BOOL)isBatchResponse;
+- (_Bool)isBatchResponse;
 - (id)checkpointURL;
-- (BOOL)hasMissingTokenOrAppID;
-- (BOOL)hasBadTokenError;
-- (BOOL)hasHTTPStatusOK;
-- (BOOL)hasError;
+- (_Bool)hasMissingTokenOrAppID;
+- (_Bool)hasBadTokenError;
+- (_Bool)hasHTTPStatusOK;
+- (_Bool)hasError;
 @property(readonly) int APIresponseErrorCode;
-- (int)httpStatusCode;
+- (long long)httpStatusCode;
 @property(readonly) NSHTTPURLResponse *urlResponse;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

@@ -13,10 +13,13 @@
     id _internal;
 }
 
++ (struct CGSize)largePreviewImageSizeForSize:(struct CGSize)arg1;
 @property(retain, nonatomic) ALAssetPrivate *internal; // @synthesize internal=_internal;
+- (void)setLargePreviewImageWithImageData:(id)arg1 completionBlock:(id)arg2;
 - (void)setVideoAtPath:(id)arg1 completionBlock:(id)arg2;
 - (void)setImageData:(id)arg1 metadata:(id)arg2 completionBlock:(id)arg3;
-@property(readonly, nonatomic, getter=isEditable) BOOL editable;
+- (_Bool)isDeletable;
+@property(readonly, nonatomic, getter=isEditable) _Bool editable;
 @property(readonly, nonatomic) ALAsset *originalAsset;
 - (void)writeModifiedVideoAtPathToSavedPhotosAlbum:(id)arg1 completionBlock:(id)arg2;
 - (void)writeModifiedImageDataToSavedPhotosAlbum:(id)arg1 metadata:(id)arg2 completionBlock:(id)arg3;
@@ -24,8 +27,9 @@
 - (struct CGImage *)thumbnail;
 - (id)representationForUTI:(id)arg1;
 - (id)defaultRepresentation;
+- (void)setExternalUsageIntent:(unsigned long long)arg1;
 - (id)valueForProperty:(id)arg1;
-- (BOOL)isValid;
+- (_Bool)isValid;
 - (id)description;
 - (id)_uuid;
 - (id)_typeAsString;

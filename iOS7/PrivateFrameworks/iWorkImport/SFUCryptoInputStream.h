@@ -10,6 +10,7 @@
 
 @class SFUCryptor;
 
+// Not exported
 @interface SFUCryptoInputStream : NSObject <SFUInputStream>
 {
     id <SFUInputStream> mBaseStream;
@@ -22,8 +23,8 @@
 - (void)enableSystemCaching;
 - (void)disableSystemCaching;
 - (void)seekToOffset:(long long)arg1;
-- (BOOL)canSeek;
-- (unsigned long)readToBuffer:(char *)arg1 size:(unsigned long)arg2;
+- (_Bool)canSeek;
+- (unsigned long long)readToBuffer:(char *)arg1 size:(unsigned long long)arg2;
 - (long long)offset;
 - (void)dealloc;
 - (id)initForDecryptionWithInputStream:(id)arg1 key:(id)arg2;

@@ -9,14 +9,14 @@
 @interface SURotationImageModifier : SUImageModifier
 {
     float _degrees;
-    int _orientation;
+    long long _orientation;
 }
 
-@property(nonatomic) int orientation; // @synthesize orientation=_orientation;
+@property(nonatomic) long long orientation; // @synthesize orientation=_orientation;
 @property(nonatomic) float degrees; // @synthesize degrees=_degrees;
 - (struct CGRect)imageFrameForImage:(id)arg1 currentFrame:(struct CGRect)arg2 finalSize:(struct CGSize)arg3;
 - (void)drawBeforeImageForContext:(struct CGContext *)arg1 imageFrame:(struct CGRect)arg2 finalSize:(struct CGSize)arg3;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 
 @end
 

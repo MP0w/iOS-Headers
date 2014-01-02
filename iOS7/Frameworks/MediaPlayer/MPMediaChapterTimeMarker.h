@@ -10,14 +10,14 @@
 
 @interface MPMediaChapterTimeMarker : MPTimeMarker
 {
-    unsigned int _chapterIndex;
+    unsigned long long _chapterIndex;
     NSArray *_chapters;
-    BOOL _hasArtworkAtPlaybackTime;
+    _Bool _hasArtworkAtPlaybackTime;
 }
 
-@property(nonatomic) BOOL hasArtworkAtPlaybackTime; // @synthesize hasArtworkAtPlaybackTime=_hasArtworkAtPlaybackTime;
+@property(nonatomic) _Bool hasArtworkAtPlaybackTime; // @synthesize hasArtworkAtPlaybackTime=_hasArtworkAtPlaybackTime;
 @property(retain, nonatomic) NSArray *chapters; // @synthesize chapters=_chapters;
-@property(nonatomic) unsigned int chapterIndex; // @synthesize chapterIndex=_chapterIndex;
+@property(nonatomic) unsigned long long chapterIndex; // @synthesize chapterIndex=_chapterIndex;
 - (void).cxx_destruct;
 
 @end

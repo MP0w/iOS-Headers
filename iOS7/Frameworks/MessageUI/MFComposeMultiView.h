@@ -14,15 +14,15 @@
     MFHeaderLabelView *_imageSizeHeaderLabelView;
     UILabel *_imageSizeLabel;
     UILabel *_placeholderImageSizeLabel;
-    BOOL _imageSizeShown;
-    BOOL _accountAutoselected;
+    _Bool _imageSizeShown;
+    _Bool _accountAutoselected;
 }
 
-@property(nonatomic, getter=isAccountAutoselected) BOOL accountAutoselected; // @synthesize accountAutoselected=_accountAutoselected;
+@property(nonatomic, getter=isAccountAutoselected) _Bool accountAutoselected; // @synthesize accountAutoselected=_accountAutoselected;
 - (struct CGColor *)labelColor;
 - (void)refreshPreferredContentSize;
 - (void)layoutSubviews;
-- (void)setShowsImageSize:(BOOL)arg1;
+- (void)setShowsImageSize:(_Bool)arg1;
 - (void)setImageSizeDescription:(id)arg1;
 - (void)setAccountDescription:(id)arg1;
 - (id)imageSizeHeaderLabelView;

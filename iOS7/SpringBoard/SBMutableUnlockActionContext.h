@@ -14,12 +14,11 @@
 
 
 // Remaining properties
-@property(nonatomic) BOOL canBypassPinLock;
-@property(nonatomic) BOOL deactivateAwayController;
+@property(nonatomic) _Bool canBypassPinLock;
+@property(nonatomic) _Bool deactivateAwayController;
 @property(retain, nonatomic) NSString *identifier;
 @property(retain, nonatomic) NSString *lockLabel;
-@property(nonatomic) float lockLabelFontSize;
-@property(nonatomic) BOOL requiresUnlock;
+@property(nonatomic) _Bool requiresUnlock;
 @property(retain, nonatomic) NSString *shortLockLabel;
 @property(copy, nonatomic) id unlockAction;
 @end

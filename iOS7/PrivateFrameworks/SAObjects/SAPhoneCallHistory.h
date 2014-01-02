@@ -20,6 +20,7 @@
 @property(copy, nonatomic) NSNumber *faceTimeAudio;
 @property(copy, nonatomic) NSNumber *faceTime;
 @property(copy, nonatomic) NSNumber *callCount;
+@property(copy, nonatomic) NSNumber *blocked;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

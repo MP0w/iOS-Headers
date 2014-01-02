@@ -8,13 +8,14 @@
 
 @class NSString;
 
+// Not exported
 @interface _PFExternalReferenceData : NSData
 {
     NSData *_originalData;
     void *_bytesPtrForStore;
-    unsigned int _bytesLengthForStore;
+    unsigned long long _bytesLengthForStore;
     void *_bytesPtrForExternalReference;
-    unsigned int _bytesLengthForExternalReference;
+    unsigned long long _bytesLengthForExternalReference;
     NSString *_externalReferenceLocation;
     NSString *_safeguardLocation;
     id _ubiquitousLocation;
@@ -29,16 +30,16 @@
     } _externalDataFlags;
 }
 
-+ (BOOL)_releaseReservedMapFileDescriptor;
-+ (BOOL)_reserveMapFileDescriptor;
-+ (BOOL)_updateFileDescriptorsInUseReserveNew:(BOOL)arg1;
-- (BOOL)_createdByUbiquityImport;
-- (BOOL)isEqualToData:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)_isEqualHelper:(id)arg1;
++ (_Bool)_releaseReservedMapFileDescriptor;
++ (_Bool)_reserveMapFileDescriptor;
++ (_Bool)_updateFileDescriptorsInUseReserveNew:(_Bool)arg1;
+- (_Bool)_createdByUbiquityImport;
+- (_Bool)isEqualToData:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)_isEqualHelper:(id)arg1;
 - (id)subdataWithRange:(struct _NSRange)arg1;
 - (void)getBytes:(void *)arg1 range:(struct _NSRange)arg2;
-- (void)getBytes:(void *)arg1 length:(unsigned int)arg2;
+- (void)getBytes:(void *)arg1 length:(unsigned long long)arg2;
 - (void)doCleanupOnDealloc;
 - (id)UUID;
 - (id)databaseValue;
@@ -49,20 +50,20 @@
 - (const char *)_safeguardLocation;
 - (id)_externalReferenceLocationString;
 - (const char *)_externalReferenceLocation;
-- (unsigned int)_bytesLengthForExternalReference;
+- (unsigned long long)_bytesLengthForExternalReference;
 - (const void *)_bytesPtrForExternalReference;
-- (unsigned int)_bytesLengthForStore;
+- (unsigned long long)_bytesLengthForStore;
 - (const void *)_bytesPtrForStore;
-- (unsigned int)length;
+- (unsigned long long)length;
 - (const void *)bytes;
 - (id)description;
-- (BOOL)hasExternalReferenceContent;
+- (_Bool)hasExternalReferenceContent;
 - (void)_deleteExternalReferenceFromPermanentLocation;
 - (void)_moveExternalReferenceToPermanentLocation;
 - (void)_writeExternalReferenceToInterimLocation;
 - (const void *)_retrieveExternalData;
 - (id)_exceptionForReadError:(id)arg1;
-- (BOOL)_attemptToMapData:(id *)arg1;
+- (_Bool)_attemptToMapData:(id *)arg1;
 - (void)_setBytesForExternalReference:(const void *)arg1;
 - (id)_originalData;
 - (id)mutableCopy;
@@ -72,8 +73,8 @@
 - (Class)classForArchiver;
 - (Class)classForCoder;
 - (void)_doCleanup;
-- (id)initWithStoreBytes:(const void *)arg1 length:(unsigned int)arg2 externalLocation:(id)arg3 safeguardLocation:(id)arg4 protectionLevel:(int)arg5 ubiquitousLocation:(id)arg6;
-- (id)initWithStoreBytes:(const void *)arg1 length:(unsigned int)arg2 externalLocation:(id)arg3 safeguardLocation:(id)arg4 protectionLevel:(int)arg5;
+- (id)initWithStoreBytes:(const void *)arg1 length:(unsigned long long)arg2 externalLocation:(id)arg3 safeguardLocation:(id)arg4 protectionLevel:(int)arg5 ubiquitousLocation:(id)arg6;
+- (id)initWithStoreBytes:(const void *)arg1 length:(unsigned long long)arg2 externalLocation:(id)arg3 safeguardLocation:(id)arg4 protectionLevel:(int)arg5;
 - (id)initForExternalLocation:(id)arg1 safeguardLocation:(id)arg2 data:(id)arg3 protectionLevel:(int)arg4;
 - (id)initForUbiquityDictionary:(id)arg1 store:(id)arg2;
 - (id)constructSafeguardStringFromString:(id)arg1;

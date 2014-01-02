@@ -11,6 +11,7 @@
 
 @class OADDrawable, WDAAnchor, WDATextBox;
 
+// Not exported
 @interface WDAContent : NSObject <OADClient, OADTextClient>
 {
     WDAAnchor *mAnchor;
@@ -19,10 +20,9 @@
     int mTextType;
 }
 
-+ (Class)classForType:(unsigned short)arg1;
 @property(readonly, nonatomic) WDAAnchor *anchor; // @synthesize anchor=mAnchor;
-- (BOOL)hasText;
-- (BOOL)floating;
+- (_Bool)hasText;
+- (_Bool)floating;
 - (void)setTextType:(int)arg1;
 - (int)textType;
 - (_Bool)isTopLevelObject;
@@ -34,7 +34,7 @@
 - (id)textBox;
 - (void)setBounds:(struct CGRect)arg1;
 - (struct CGRect)bounds;
-- (BOOL)hasBounds;
+- (_Bool)hasBounds;
 - (id)createTextBoxWithDocument:(id)arg1 textType:(int)arg2;
 - (void)clearAnchor;
 - (id)createAnchor;

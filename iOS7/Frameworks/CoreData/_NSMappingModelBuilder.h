@@ -8,6 +8,7 @@
 
 @class NSEntityMapping, NSError, NSManagedObjectModel;
 
+// Not exported
 @interface _NSMappingModelBuilder : NSObject
 {
     NSManagedObjectModel *_sourceModel;
@@ -20,9 +21,9 @@
 + (int)migrationDebugLevel;
 - (id)newInferredPropertyMappingWithSourceRelationship:(id)arg1 destinationRelationship:(id)arg2;
 - (id)newInferredPropertyMappingWithSourceAttribute:(id)arg1 destinationAttribute:(id)arg2;
-- (BOOL)_canTransformSourceAttributeType:(unsigned int)arg1 toDestinationAttributeType:(unsigned int)arg2;
+- (_Bool)_canTransformSourceAttributeType:(unsigned long long)arg1 toDestinationAttributeType:(unsigned long long)arg2;
 - (id)newEntityMappingWithSource:(id)arg1 destination:(id)arg2;
-- (BOOL)inferPropertyMappingsForEntityMapping:(id)arg1;
+- (_Bool)inferPropertyMappingsForEntityMapping:(id)arg1;
 - (id)newInferredMappingModel:(id *)arg1;
 - (void)_resetCaches;
 - (void)dealloc;

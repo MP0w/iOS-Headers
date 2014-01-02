@@ -22,13 +22,6 @@
 + (id)filterNamesInCategory:(id)arg1;
 + (id)filterWithName:(id)arg1 keysAndValues:(id)arg2;
 + (id)filterWithName:(id)arg1;
-+ (id)_filterArrayFromProperties:(id)arg1;
-+ (id)_filterArrayFromImageMetadata:(struct CGImageMetadata *)arg1 inputImageExtent:(struct CGRect)arg2;
-+ (struct CGImageMetadata *)_imageMetadataFromFilters:(id)arg1 inputImageExtent:(struct CGRect)arg2;
-+ (id)_filterArrayFromProperties:(id)arg1 inputImageExtent:(struct CGRect)arg2;
-+ (id)_propertyArrayFromFilters:(id)arg1 inputImageExtent:(struct CGRect)arg2;
-+ (id)filterWithString:(id)arg1;
-+ (id)customAttributes;
 - (id)description;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -44,12 +37,8 @@
 - (id)name;
 - (id)valueForUndefinedKey:(id)arg1;
 - (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (id)_serializedXMPString;
-- (BOOL)_isIdentity;
-- (BOOL)_filterClassInCategory:(id)arg1;
-- (id)_filterClassDescription;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 
 @end
 

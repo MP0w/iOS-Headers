@@ -14,10 +14,10 @@
     NSString *_summary;
     NSString *_displayName;
     ICSDateValue *_nextInstance;
-    BOOL _hadMoreInstances;
+    _Bool _hadMoreInstances;
 }
 
-@property BOOL hadMoreInstances; // @synthesize hadMoreInstances=_hadMoreInstances;
+@property _Bool hadMoreInstances; // @synthesize hadMoreInstances=_hadMoreInstances;
 @property(retain) ICSDateValue *nextInstance; // @synthesize nextInstance=_nextInstance;
 @property(retain) NSString *displayName; // @synthesize displayName=_displayName;
 @property(retain) NSString *summary; // @synthesize summary=_summary;

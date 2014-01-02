@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface OADOrientedBounds : NSObject
 {
     struct CGRect mBounds;
@@ -16,21 +17,21 @@
     int mModeY;
 }
 
-+ (BOOL)directionCloserToVerticalThanToHorizontal:(float)arg1;
++ (_Bool)directionCloserToVerticalThanToHorizontal:(float)arg1;
 + (id)orientedBoundsWithBounds:(struct CGRect)arg1;
-+ (id)orientedBoundsWithBounds:(struct CGRect)arg1 rotation:(float)arg2 flipX:(BOOL)arg3 flipY:(BOOL)arg4;
++ (id)orientedBoundsWithBounds:(struct CGRect)arg1 rotation:(float)arg2 flipX:(_Bool)arg3 flipY:(_Bool)arg4;
 - (id).cxx_construct;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (BOOL)isEqualToOrientedBounds:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqualToOrientedBounds:(id)arg1;
 - (void)setYMode:(int)arg1;
 - (int)yMode;
 - (void)setXMode:(int)arg1;
 - (int)xMode;
-- (void)setFlipY:(BOOL)arg1;
-- (BOOL)flipY;
-- (void)setFlipX:(BOOL)arg1;
-- (BOOL)flipX;
+- (void)setFlipY:(_Bool)arg1;
+- (_Bool)flipY;
+- (void)setFlipX:(_Bool)arg1;
+- (_Bool)flipX;
 - (void)setRotation:(float)arg1;
 - (float)rotation;
 - (void)setBounds:(struct CGRect)arg1;
@@ -38,7 +39,7 @@
 - (void)setOrientedBounds:(id)arg1;
 - (id)init;
 - (id)initWithBounds:(struct CGRect)arg1;
-- (id)initWithBounds:(struct CGRect)arg1 rotation:(float)arg2 flipX:(BOOL)arg3 flipY:(BOOL)arg4;
+- (id)initWithBounds:(struct CGRect)arg1 rotation:(float)arg2 flipX:(_Bool)arg3 flipY:(_Bool)arg4;
 
 @end
 

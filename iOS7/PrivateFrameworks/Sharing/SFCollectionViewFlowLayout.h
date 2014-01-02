@@ -8,18 +8,18 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface SFCollectionViewFlowLayout : UICollectionViewFlowLayout
 {
     NSMutableArray *_insertedIndexPaths;
+    NSMutableArray *_movedIndexPaths;
     NSMutableArray *_deletedIndexPaths;
-    BOOL _updatingRowZero;
-    BOOL _showingPeople;
+    NSMutableArray *_handledIndexPaths;
 }
 
-@property(nonatomic, getter=isShowingPeople) BOOL showingPeople; // @synthesize showingPeople=_showingPeople;
 - (void).cxx_destruct;
-- (id)finalLayoutAttributesForDisappearingSupplementaryElementOfKind:(id)arg1 atIndexPath:(id)arg2;
-- (id)initialLayoutAttributesForAppearingSupplementaryElementOfKind:(id)arg1 atIndexPath:(id)arg2;
+- (void)_applyToLayoutAttributes:(id)arg1 toView:(id)arg2;
+- (id)_animationForReusableView:(SEL)arg1 toLayoutAttributes:(id)arg2 type:(id)arg3;
 - (id)finalLayoutAttributesForDisappearingItemAtIndexPath:(id)arg1;
 - (id)initialLayoutAttributesForAppearingItemAtIndexPath:(id)arg1;
 - (void)finalizeCollectionViewUpdates;

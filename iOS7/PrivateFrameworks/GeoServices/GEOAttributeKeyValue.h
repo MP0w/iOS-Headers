@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSString;
 
-@interface GEOAttributeKeyValue : PBCodable
+@interface GEOAttributeKeyValue : PBCodable <NSCopying>
 {
     NSString *_attributeKey;
     NSString *_attributeValue;
@@ -16,11 +18,12 @@
 
 @property(retain, nonatomic) NSString *attributeValue; // @synthesize attributeValue=_attributeValue;
 @property(retain, nonatomic) NSString *attributeKey; // @synthesize attributeKey=_attributeKey;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
 - (void)dealloc;

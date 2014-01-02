@@ -11,26 +11,26 @@
 @interface CUINamedImage : NSObject
 {
     CUIRenditionKey *_key;
-    unsigned int _storageRef;
+    unsigned long long _storageRef;
     NSString *_name;
 }
 
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 - (id)description;
-@property(readonly, nonatomic) BOOL hasSliceInformation;
-@property(readonly, nonatomic) int resizingMode;
+@property(readonly, nonatomic) _Bool hasSliceInformation;
+@property(readonly, nonatomic) long long resizingMode;
 @property(readonly, nonatomic) int blendMode;
-@property(readonly, nonatomic) float opacity;
-@property(readonly, nonatomic) CDStruct_818bb265 edgeInsets;
-- (float)positionOfSliceBoundary:(int)arg1;
-@property(readonly, nonatomic) float scale;
+@property(readonly, nonatomic) double opacity;
+@property(readonly, nonatomic) CDStruct_3c058996 edgeInsets;
+- (double)positionOfSliceBoundary:(int)arg1;
+@property(readonly, nonatomic) double scale;
 @property(readonly, nonatomic) struct CGSize size;
 @property(readonly, nonatomic) struct CGImage *image;
 - (id)_rendition;
 - (id)_renditionForSpecificKey:(id)arg1;
 - (id)_themeStore;
 - (void)dealloc;
-- (id)initWithName:(id)arg1 usingRenditionKey:(id)arg2 fromTheme:(unsigned int)arg3;
+- (id)initWithName:(id)arg1 usingRenditionKey:(id)arg2 fromTheme:(unsigned long long)arg3;
 
 @end
 

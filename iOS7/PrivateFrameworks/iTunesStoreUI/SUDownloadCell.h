@@ -6,23 +6,29 @@
 
 #import <iTunesStoreUI/SUGridTableViewCell.h>
 
-@class UIButton, UISlider;
+@class UIButton, UIGestureRecognizer, UIImageView, UISlider;
 
 @interface SUDownloadCell : SUGridTableViewCell
 {
     UIButton *_accessoryButton;
     UISlider *_progressBar;
+    UIImageView *_editView;
+    UIGestureRecognizer *_tapRecognizer;
 }
 
+- (id)_parentGridView;
+- (void)_reloadEditView;
 - (void)_reloadProgressBar;
 - (void)_reloadAccessoryButton;
-- (BOOL)_isDownloadResumable:(id)arg1;
-- (BOOL)handleTap;
+- (_Bool)_isDownloadResumable:(id)arg1;
+- (void)_tapGesture:(id)arg1;
+- (_Bool)handleTap;
 - (void)_accessoryButtonAction:(id)arg1;
-- (void)setSelected:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)setHighlighted:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)setSelected:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)setHighlighted:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)setConfiguration:(id)arg1;
 - (void)layoutSubviews;
+- (void)setEditState:(long long)arg1;
 - (void)reloadForStatusChange;
 - (void)dealloc;
 

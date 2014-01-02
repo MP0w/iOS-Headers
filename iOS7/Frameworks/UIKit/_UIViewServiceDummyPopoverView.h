@@ -6,11 +6,12 @@
 
 #import <UIKit/_UIPopoverView.h>
 
+// Not exported
 @interface _UIViewServiceDummyPopoverView : _UIPopoverView
 {
 }
 
-- (void)setUseToolbarShine:(BOOL)arg1;
+- (void)setUseToolbarShine:(_Bool)arg1;
 
 @end
 

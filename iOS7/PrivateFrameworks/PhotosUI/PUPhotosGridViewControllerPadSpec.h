@@ -8,24 +8,33 @@
 
 @interface PUPhotosGridViewControllerPadSpec : PUPhotosGridViewControllerSpec
 {
+    double _gridItemSideSizePortrait;
+    double _gridItemSideSizeLandscape;
+    double _gridHSpacingPortrait;
+    double _gridHSpacingLandscape;
+    double _gridVSpacingPortrait;
+    double _gridVSpacingLandscape;
+    double _gridSideMarginsPortrait;
+    double _gridSideMarginsLandscape;
 }
 
-- (void)configureCollectionViewGridLayout:(id)arg1 forWidth:(float)arg2;
-- (unsigned int)sectionHeaderStyle;
+- (_Bool)shouldPlaceDeleteInCenterToolbarPosition;
+- (void)protoSettingsDidChange;
+- (void)configureCollectionViewGridLayout:(id)arg1 forWidth:(double)arg2;
 - (id)albumPickerViewControllerSpec;
 - (id)photosPickerViewControllerSpec;
 - (id)photoBrowserSpec;
-- (BOOL)canDisplaySlideshowButton;
-- (BOOL)usesStackPopTransition;
-- (BOOL)canDisplayEditActionsInNavigationBar;
-- (BOOL)canDisplayOptionsInPopover;
-- (BOOL)canDisplayEditButton;
-- (int)cellFillMode;
+- (_Bool)canDisplaySlideshowButton;
+- (_Bool)usesStackPopTransition;
+- (_Bool)canDisplayEditActionsInNavigationBar;
+- (_Bool)canDisplayOptionsInPopover;
+- (long long)cellFillMode;
 - (int)thumbnailImageFormat;
 - (struct CGSize)baseInterItemSpacing;
-- (float)globalFooterHeight;
-- (float)sectionHeaderHeight;
-- (unsigned int)supportedInterfaceOrientations;
+- (double)globalFooterHeight;
+- (unsigned long long)supportedInterfaceOrientations;
+- (void)_reloadProtoSettings;
+- (id)init;
 
 @end
 

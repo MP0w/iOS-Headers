@@ -8,9 +8,10 @@
 
 @class NSMutableArray, WDTable, WDTableRowProperties;
 
+// Not exported
 @interface WDTableRow : NSObject
 {
-    unsigned int mIndex;
+    unsigned long long mIndex;
     WDTable *mTable;
     WDTableRowProperties *mProperties;
     NSMutableArray *mCells;
@@ -18,15 +19,15 @@
 
 - (id)newCellIterator;
 - (id)cellIterator;
-- (id)addCellWithIndex:(unsigned int)arg1;
+- (id)addCellWithIndex:(unsigned long long)arg1;
 - (id)addCell;
-- (id)cellAt:(unsigned int)arg1;
-- (unsigned int)cellCount;
+- (id)cellAt:(unsigned long long)arg1;
+- (unsigned long long)cellCount;
 - (id)properties;
 - (id)table;
-- (unsigned int)index;
+- (unsigned long long)index;
 - (void)dealloc;
-- (id)initWithTable:(id)arg1 at:(unsigned int)arg2;
+- (id)initWithTable:(id)arg1 at:(unsigned long long)arg2;
 
 @end
 

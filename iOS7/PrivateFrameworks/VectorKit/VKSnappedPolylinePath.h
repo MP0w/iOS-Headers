@@ -8,25 +8,28 @@
 
 @class GEOMapRequest, NSArray;
 
+// Not exported
 @interface VKSnappedPolylinePath : VKPolylinePath
 {
     NSArray *_edges;
     GEOMapRequest *_edgeSearchRequest;
     struct __CFSet *_observers;
     struct unique_ptr<vk::SnappedPathMapMatchingSection, std::__1::default_delete<vk::SnappedPathMapMatchingSection>> _mapMatchingSection;
+    _Bool _hasCompletedMapMatching;
 }
 
 @property(retain) NSArray *edges; // @synthesize edges=_edges;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (BOOL)hasObserver:(id)arg1;
+- (_Bool)hasObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
-- (BOOL)removeObserver:(id)arg1;
+- (_Bool)removeObserver:(id)arg1;
 @property(readonly) const struct RouteMapMatchingSection *mapMatchingSection;
 - (void)matchWithDecoder:(id)arg1 completionHandler:(id)arg2;
 - (float)_calculateEdgeLengthFrom:(const Vec2Imp_1782d7e3 *)arg1 to:(const Vec2Imp_1782d7e3 *)arg2 startCoord:(const struct PolylineCoordinate *)arg3 endCoord:(const struct PolylineCoordinate *)arg4;
-@property(readonly) BOOL isMapMatching;
-- (BOOL)isMapMatched;
+@property(readonly) _Bool isMapMatching;
+- (_Bool)isMapMatched;
+@property(readonly) _Bool hasCompletedMapMatching;
 - (void)_debugPrintEdge:(id)arg1;
 - (id)description;
 - (void)dealloc;

@@ -8,6 +8,7 @@
 
 @class PKPrinter;
 
+// Not exported
 @interface UIPrinterSetupDisplayPINViewController : UIViewController
 {
     PKPrinter *_printer;
@@ -15,10 +16,10 @@
 
 @property(retain, nonatomic) PKPrinter *printer; // @synthesize printer=_printer;
 - (void)enterPIN;
-- (void)viewDidAppear:(BOOL)arg1;
-- (unsigned int)supportedInterfaceOrientations;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (void)showDisplayMessage:(int)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
+- (unsigned long long)supportedInterfaceOrientations;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (void)showDisplayMessage:(long long)arg1;
 - (void)loadView;
 - (void)dealloc;
 - (id)initWithPrinter:(id)arg1;

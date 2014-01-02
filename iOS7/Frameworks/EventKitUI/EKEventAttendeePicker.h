@@ -16,21 +16,22 @@
 
 @class MFComposeRecipientView, MFContactsSearchManager, MFContactsSearchResultsModel, MFSearchShadowView, NSArray, NSNumber, NSString, UIKeyboard, UIScrollView, UITableView;
 
-@interface EKEventAttendeePicker : UIViewController <UITableViewDataSource, UITableViewDelegate, ABPeoplePickerNavigationControllerDelegate, MFContactsSearchConsumer, MFComposeRecipientViewDelegate, ABPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate>
+// Not exported
+@interface EKEventAttendeePicker : UIViewController <UITableViewDataSource, UITableViewDelegate, MFContactsSearchConsumer, MFComposeRecipientViewDelegate, ABPeoplePickerNavigationControllerDelegate, ABPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate>
 {
     NSArray *_recipients;
     MFComposeRecipientView *_composeRecipientView;
     UIScrollView *_recipientScrollView;
     UITableView *_searchResultsView;
     MFSearchShadowView *_shadowView;
-    BOOL _showingSearchField;
+    _Bool _showingSearchField;
     UIKeyboard *_keyboard;
     NSNumber *_lastSearchId;
-    BOOL _ABAccessDenied;
+    _Bool _ABAccessDenied;
     MFContactsSearchManager *_searchManager;
     MFContactsSearchResultsModel *_searchResultsModel;
     NSArray *_searchResults;
-    BOOL _shouldReenableAutomaticKeyboard;
+    _Bool _shouldReenableAutomaticKeyboard;
     struct CGRect _initialFrame;
     NSString *_searchAccountID;
     id <EKEventAttendeePickerDelegate> _emailValidationDelegate;
@@ -39,17 +40,18 @@
 @property(nonatomic) __weak id <EKEventAttendeePickerDelegate> emailValidationDelegate; // @synthesize emailValidationDelegate=_emailValidationDelegate;
 @property(copy, nonatomic) NSString *searchAccountID; // @synthesize searchAccountID=_searchAccountID;
 - (void).cxx_destruct;
-- (BOOL)unknownPersonViewController:(id)arg1 shouldPerformDefaultActionForPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
+- (_Bool)unknownPersonViewController:(id)arg1 shouldPerformDefaultActionForPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
 - (void)unknownPersonViewController:(id)arg1 didResolveToPerson:(void *)arg2;
-- (BOOL)personViewController:(id)arg1 shouldPerformDefaultActionForPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
+- (_Bool)personViewController:(id)arg1 shouldPerformDefaultActionForPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
+- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (BOOL)tableView:(id)arg1 canEditRowAtIndexPath:(id)arg2;
+- (_Bool)tableView:(id)arg1 canEditRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (BOOL)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
-- (BOOL)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (_Bool)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
+- (_Bool)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2;
 - (void)peoplePickerNavigationControllerDidCancel:(id)arg1;
-- (unsigned int)_atomPresentationOptionsForRecipient:(id)arg1;
+- (unsigned long long)_atomPresentationOptionsForRecipient:(id)arg1;
 - (id)composeRecipientView:(id)arg1 composeRecipientForRecord:(void *)arg2 identifier:(int)arg3;
 - (id)composeRecipientView:(id)arg1 composeRecipientForAddress:(id)arg2;
 - (void)composeRecipientViewDidFinishPickingRecipient:(id)arg1;
@@ -69,10 +71,10 @@
 - (void)finishedSearchingForType:(int)arg1;
 - (void)consumeSearchResults:(id)arg1 type:(int)arg2 taskID:(id)arg3;
 - (id)_searchManager;
-- (float)_properHeight;
-- (float)_maxScrollerHeight;
+- (double)_properHeight;
+- (double)_maxScrollerHeight;
 - (void)_showSearchField;
-- (void)_hideSearchFieldAndCancelOutstandingSearches:(BOOL)arg1;
+- (void)_hideSearchFieldAndCancelOutstandingSearches:(_Bool)arg1;
 - (id)_searchResultsView;
 - (id)_shadowView;
 - (void)_copyRecipientsFromComposeView;
@@ -80,9 +82,9 @@
 @property(copy, nonatomic) NSArray *recipients;
 @property(readonly, nonatomic) NSArray *addresses;
 @property(readonly, nonatomic) NSString *remainingText;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
 - (void)commitRemainingText;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)loadView;
 - (void)dealloc;

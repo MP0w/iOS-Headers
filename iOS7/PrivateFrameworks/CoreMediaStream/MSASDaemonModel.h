@@ -15,7 +15,7 @@
 - (void)setNextActivityDate:(id)arg1 forPersonID:(id)arg2;
 - (id)nextActivityDateByPersonID;
 - (id)earliestNextActivityDate;
-- (BOOL)dbQueueUpgradeFromDatabaseVersion:(int)arg1 currentVersion:(int)arg2;
+- (_Bool)dbQueueUpgradeFromDatabaseVersion:(int)arg1 currentVersion:(int)arg2;
 - (id)init;
 
 @end

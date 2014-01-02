@@ -8,6 +8,7 @@
 
 @class NSSQLCore;
 
+// Not exported
 @interface NSSQLRowCache : NSPersistentStoreCache
 {
     NSSQLCore *_sqlCore;

@@ -11,14 +11,14 @@
 @interface SBNewsstandShelfView : SBGradientView
 {
     UIView *_tintView;
-    float _tintAlpha;
+    double _tintAlpha;
     SBHighlightView *_highlightView;
-    unsigned int _shelfIndex;
+    unsigned long long _shelfIndex;
 }
 
-@property(nonatomic) unsigned int shelfIndex; // @synthesize shelfIndex=_shelfIndex;
+@property(nonatomic) unsigned long long shelfIndex; // @synthesize shelfIndex=_shelfIndex;
 - (void)layoutSubviews;
-@property(nonatomic) float tintAlpha;
+@property(nonatomic) double tintAlpha;
 @property(retain, nonatomic) UIColor *tintColor;
 - (void)dealloc;
 

@@ -6,19 +6,20 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
 @class NSString;
 
-@interface MPMediaQuerySection : NSObject <NSCoding, NSCopying>
+@interface MPMediaQuerySection : NSObject <NSSecureCoding, NSCopying>
 {
     NSString *_title;
-    unsigned int _sectionIndexTitleIndex;
+    unsigned long long _sectionIndexTitleIndex;
     struct _NSRange _range;
 }
 
-@property(nonatomic) unsigned int sectionIndexTitleIndex; // @synthesize sectionIndexTitleIndex=_sectionIndexTitleIndex;
++ (_Bool)supportsSecureCoding;
+@property(nonatomic) unsigned long long sectionIndexTitleIndex; // @synthesize sectionIndexTitleIndex=_sectionIndexTitleIndex;
 @property(nonatomic) struct _NSRange range; // @synthesize range=_range;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 - (void).cxx_destruct;

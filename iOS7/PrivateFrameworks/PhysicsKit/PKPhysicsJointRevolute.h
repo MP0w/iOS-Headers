@@ -19,10 +19,10 @@
 - (struct b2JointDef *)_jointDef;
 - (void)set_joint:(struct b2Joint *)arg1;
 - (struct b2Joint *)_joint;
-@property(nonatomic) float frictionTorque;
-@property(nonatomic) float upperAngleLimit;
-@property(nonatomic) float lowerAngleLimit;
-@property(nonatomic) BOOL shouldEnableLimits;
+@property(nonatomic) double frictionTorque;
+@property(nonatomic) double upperAngleLimit;
+@property(nonatomic) double lowerAngleLimit;
+@property(nonatomic) _Bool shouldEnableLimits;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithBodyA:(id)arg1 bodyB:(id)arg2 anchor:(struct CGPoint)arg3;

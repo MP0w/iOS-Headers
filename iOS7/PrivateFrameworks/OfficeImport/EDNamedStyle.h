@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface EDNamedStyle : EDStyle
 {
     NSString *mName;

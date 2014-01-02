@@ -6,21 +6,17 @@
 
 #import "NSObject.h"
 
-#import "CKPreviewDispatchCachePolicyDelegate-Protocol.h"
 #import "QLPreviewItem-Protocol.h"
 
 @class NSData, NSDictionary, NSString, NSURL;
 
-@interface CKMediaObject : NSObject <CKPreviewDispatchCachePolicyDelegate, QLPreviewItem>
+@interface CKMediaObject : NSObject <QLPreviewItem>
 {
     id <CKFileTransfer> _transfer;
 }
 
 + (id)fallbackFilenamePrefix;
 + (id)UTITypes;
-+ (id)iconCache;
-+ (id)previewDispatchCache;
-+ (BOOL)isPreviewable;
 @property(retain, nonatomic) id <CKFileTransfer> transfer; // @synthesize transfer=_transfer;
 @property(readonly) NSURL *previewItemURL;
 @property(readonly, nonatomic) int mediaType;
@@ -35,30 +31,6 @@
 - (id)initWithTransfer:(id)arg1;
 - (id)description;
 - (void)dealloc;
-- (id)PNGDataFromImage:(id)arg1;
-- (id)fileManager;
-- (id)previewDispatchCache;
-- (BOOL)previewDispatchCache:(id)arg1 shouldReplaceCachedPreview:(id)arg2 withPreview:(id)arg3;
-- (id)generateThumbnailFillToSize:(struct CGSize)arg1;
-- (id)generateThumbnail;
-- (struct CGSize)bbSize;
-- (id)bbPreviewFillToSize:(struct CGSize)arg1;
-- (id)savedPreviewFromURL:(id)arg1 forOrientation:(BOOL)arg2;
-- (void)savePreview:(id)arg1 toURL:(id)arg2 forOrientation:(BOOL)arg3;
-- (id)generatePreviewFromThumbnail:(id)arg1 forOrientation:(BOOL)arg2;
-- (void)_sampleImageEdges:(id)arg1 usingRect:(struct CGRect)arg2 forMostlyWhitePixels:(unsigned int *)arg3 otherPixels:(unsigned int *)arg4;
-- (id)previewForOrientation:(BOOL)arg1;
-- (id)fileSizeString;
-- (id)downloadProgressString;
-- (BOOL)shouldShowDisclosure;
-- (BOOL)shouldBeQuickLooked;
-- (BOOL)shouldShowViewer;
-- (id)icon;
-- (id)subtitle;
-- (id)title;
-- (Class)previewBalloonViewClass;
-- (Class)balloonViewClass;
-- (BOOL)isPreviewable;
 
 // Remaining properties
 @property(readonly) NSString *previewItemTitle;

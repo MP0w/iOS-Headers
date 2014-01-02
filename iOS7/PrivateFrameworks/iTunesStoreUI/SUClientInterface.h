@@ -15,7 +15,7 @@
     UIColor *_darkKeyColor;
     id <SUClientInterfaceDelegatePrivate> _delegate;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
-    BOOL _ignoresExpectedClientsProtocol;
+    _Bool _ignoresExpectedClientsProtocol;
     UIColor *_lightKeyColor;
     NSString *_localStoragePath;
     SUPurchaseManager *_purchaseManager;
@@ -23,27 +23,27 @@
     NSMutableDictionary *_urlBagKeys;
     NSString *_userAgent;
     SUViewControllerFactory *_viewControllerFactory;
-    BOOL _wasLaunchedFromLibrary;
+    _Bool _wasLaunchedFromLibrary;
 }
 
 @property(retain) SUViewControllerFactory *viewControllerFactory; // @synthesize viewControllerFactory=_viewControllerFactory;
 @property(copy, nonatomic) UIColor *lightKeyColor; // @synthesize lightKeyColor=_lightKeyColor;
 @property(nonatomic) id <SUClientInterfaceDelegate> delegate; // @synthesize delegate=_delegate;
 @property(copy, nonatomic) UIColor *darkKeyColor; // @synthesize darkKeyColor=_darkKeyColor;
-- (void)_showPreviewOverlayAnimated:(BOOL)arg1;
-@property(getter=_ignoresExpectedClientsProtocol, setter=_setIgnoresExpectedClientsProtocol:) BOOL _ignoresExpectedClientsProtocol;
-- (void)_setStatusBarStyle:(int)arg1 animated:(BOOL)arg2;
-- (void)_setStatusBarHidden:(BOOL)arg1 withAnimation:(int)arg2;
+- (void)_showPreviewOverlayAnimated:(_Bool)arg1;
+@property(getter=_ignoresExpectedClientsProtocol, setter=_setIgnoresExpectedClientsProtocol:) _Bool _ignoresExpectedClientsProtocol;
+- (void)_setStatusBarStyle:(long long)arg1 animated:(_Bool)arg2;
+- (void)_setStatusBarHidden:(_Bool)arg1 withAnimation:(long long)arg2;
 - (void)_returnToLibrary;
 - (id)_newScriptInterface;
 - (void)_presentViewController:(id)arg1 fromViewController:(id)arg2 withTransition:(int)arg3;
 - (void)_presentDialog:(id)arg1;
-- (void)_mediaPlayerViewControllerWillDismiss:(id)arg1 animated:(BOOL)arg2;
-- (void)_hidePreviewOverlayAnimated:(BOOL)arg1;
-- (void)_exitStoreWithReason:(int)arg1;
-- (void)_dismissViewControllerFromViewController:(id)arg1 animated:(BOOL)arg2 completion:(id)arg3;
+- (void)_mediaPlayerViewControllerWillDismiss:(id)arg1 animated:(_Bool)arg2;
+- (void)_hidePreviewOverlayAnimated:(_Bool)arg1;
+- (void)_exitStoreWithReason:(long long)arg1;
+- (void)_dismissViewControllerFromViewController:(id)arg1 animated:(_Bool)arg2 completion:(id)arg3;
 - (void)_dismissModalViewControllerFromViewController:(id)arg1 withTransition:(int)arg2;
-@property BOOL wasLaunchedFromLibrary;
+@property _Bool wasLaunchedFromLibrary;
 @property(copy) NSString *userAgent;
 - (id)URLBagKeyForIdentifier:(id)arg1;
 @property(readonly, nonatomic) SUTabBarController *tabBarController;

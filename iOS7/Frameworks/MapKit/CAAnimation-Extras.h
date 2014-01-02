@@ -7,6 +7,6 @@
 #import "CAAnimation.h"
 
 @interface CAAnimation (Extras)
-@property(readonly, nonatomic) BOOL _mapkit_isScrollingAnimation;
+@property(readonly, nonatomic) _Bool _mapkit_isScrollingAnimation;
 @end
 

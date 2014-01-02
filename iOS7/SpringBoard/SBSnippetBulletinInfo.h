@@ -10,14 +10,16 @@
 
 @interface SBSnippetBulletinInfo : SBBBBulletinInfo
 {
-    float _viewHeight;
+    double _viewHeight;
     struct CGRect _textRect;
+    struct CGSize _referenceSize;
     UIImage *_icon;
 }
 
 @property(retain, nonatomic) UIImage *icon; // @synthesize icon=_icon;
 - (void)populateReusableView:(id)arg1;
-- (float)heightForReusableViewInTableView:(id)arg1;
+- (double)heightForReusableViewInTableView:(id)arg1;
+- (_Bool)_isLayoutValidWithReferenceSize:(struct CGSize)arg1;
 - (id)_representedBulletin;
 - (void)invalidateCachedLayoutData;
 - (Class)reusableViewClass;

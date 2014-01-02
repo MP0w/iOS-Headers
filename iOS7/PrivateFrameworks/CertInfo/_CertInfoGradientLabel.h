@@ -19,7 +19,7 @@
 - (void)drawRect:(struct CGRect)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)dealloc;
-- (id)initWithTrusted:(BOOL)arg1;
+- (id)initWithTrusted:(_Bool)arg1;
 
 @end
 

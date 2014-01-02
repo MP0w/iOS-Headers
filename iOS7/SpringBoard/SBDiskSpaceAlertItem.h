@@ -8,13 +8,13 @@
 
 @interface SBDiskSpaceAlertItem : SBAlertItem
 {
-    int _usageButtonIndex;
+    long long _usageButtonIndex;
 }
 
-- (BOOL)shouldShowInEmergencyCall;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (_Bool)shouldShowInEmergencyCall;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (void)_showUsagePrefs;
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
+- (void)configure:(_Bool)arg1 requirePasscodeForActions:(_Bool)arg2;
 - (void)performUnlockAction;
 - (id)init;
 

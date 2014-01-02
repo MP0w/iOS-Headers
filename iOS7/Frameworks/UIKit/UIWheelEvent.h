@@ -6,13 +6,14 @@
 
 #import <UIKit/UIInternalEvent.h>
 
+// Not exported
 @interface UIWheelEvent : UIInternalEvent
 {
 }
 
 - (void)_sendEventToResponder:(id)arg1;
-- (int)subtype;
-- (int)type;
+- (long long)subtype;
+- (long long)type;
 
 @end
 

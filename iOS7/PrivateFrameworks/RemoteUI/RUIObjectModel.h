@@ -33,7 +33,7 @@
     int _refreshDelay;
     NSString *_refreshURL;
     NSTimer *_refreshTimer;
-    int _nextButtonStyle;
+    long long _nextButtonStyle;
     UIAlertView *_confirmationAlert;
     UIAlertView *_secondConfirmationAlert;
     NSDictionary *_confirmationAttributes;
@@ -43,7 +43,7 @@
 
 + (id)objectModelForXMLNamed:(id)arg1;
 @property(retain, nonatomic) NSDictionary *updateInfo; // @synthesize updateInfo=_updateInfo;
-@property(nonatomic) int nextButtonStyle; // @synthesize nextButtonStyle=_nextButtonStyle;
+@property(nonatomic) long long nextButtonStyle; // @synthesize nextButtonStyle=_nextButtonStyle;
 @property(retain, nonatomic) NSString *refreshURL; // @synthesize refreshURL=_refreshURL;
 @property(nonatomic) int refreshDelay; // @synthesize refreshDelay=_refreshDelay;
 @property(retain, nonatomic) NSDictionary *serverInfo; // @synthesize serverInfo=_serverInfo;
@@ -56,14 +56,14 @@
 @property(readonly, nonatomic) NSDictionary *namedPages; // @synthesize namedPages=_namedPages;
 @property(readonly, nonatomic) NSArray *defaultPages; // @synthesize defaultPages=_defaultPages;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
-- (unsigned int)supportedInterfaceOrientationsForRUIPage:(id)arg1;
-- (void)RUIPage:(id)arg1 toggledEditing:(BOOL)arg2;
+- (unsigned long long)supportedInterfaceOrientationsForRUIPage:(id)arg1;
+- (void)RUIPage:(id)arg1 toggledEditing:(_Bool)arg2;
 - (void)RUIPage:(id)arg1 pressedNavBarButton:(id)arg2;
 - (void)_nextPage;
-- (BOOL)webView:(id)arg1 shouldStartLoadWithRequest:(id)arg2 navigationType:(int)arg3;
-- (void)pinViewOM:(id)arg1 pressedLink:(id)arg2 attributes:(id)arg3;
+- (_Bool)webView:(id)arg1 shouldStartLoadWithRequest:(id)arg2 navigationType:(long long)arg3;
+- (void)passcodeViewOM:(id)arg1 pressedLink:(id)arg2 attributes:(id)arg3;
 - (void)tableViewOMDidChange:(id)arg1;
-- (BOOL)tableViewOM:(id)arg1 deleteRowAtIndexPath:(id)arg2;
+- (_Bool)tableViewOM:(id)arg1 deleteRowAtIndexPath:(id)arg2;
 - (void)tableViewOM:(id)arg1 pressedLink:(id)arg2 attributes:(id)arg3;
 - (void)tableViewOM:(id)arg1 pressedButton:(id)arg2 attributes:(id)arg3;
 - (void)remoteUIWebViewControllerDonePressed:(id)arg1;
@@ -72,22 +72,25 @@
 - (void)_handleButtonPress:(id)arg1 attributes:(id)arg2;
 - (void)_handleLinkPressConfirmed:(id)arg1 attributes:(id)arg2;
 - (void)_handleLinkPress:(id)arg1 attributes:(id)arg2;
-- (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
+- (void)alertView:(id)arg1 didDismissWithButtonIndex:(long long)arg2;
 - (void)_cleanupConfirmation;
 - (void)_presentSecondConfirmationWithAttributes:(id)arg1;
 - (void)_presentConfirmationWithAttributes:(id)arg1;
-- (BOOL)hasSecondConfirmationAttributes:(id)arg1;
-- (BOOL)hasConfirmationAttributes:(id)arg1;
+- (_Bool)hasSecondConfirmationAttributes:(id)arg1;
+- (_Bool)hasConfirmationAttributes:(id)arg1;
 - (id)stringForAttributeName:(id)arg1 withAttributes:(id)arg2;
-- (BOOL)hasAttributeOrAttributeFunctionNamed:(id)arg1 withAttributes:(id)arg2;
+- (_Bool)hasAttributeOrAttributeFunctionNamed:(id)arg1 withAttributes:(id)arg2;
 - (id)relativeURLWithString:(id)arg1;
 - (id)rowForFormField:(id)arg1;
 - (id)tableFooterViewForAttributes:(id)arg1;
 - (id)tableHeaderViewForAttributes:(id)arg1;
+- (Class)customTableCellClassForTableViewRow:(id)arg1;
 - (Class)customFooterClassForSection:(id)arg1;
 - (Class)customHeaderClassForSection:(id)arg1;
+- (void)configureSection:(id)arg1;
 - (void)configureRow:(id)arg1;
 - (void)configureTableView:(id)arg1;
+- (id)alertViewInWindow:(id)arg1;
 - (id)alertView;
 - (void)setPages:(id)arg1;
 @property(readonly, nonatomic) NSArray *allPages;
@@ -97,26 +100,20 @@
 - (id)postbackDictionary;
 - (void)populatePostbackDictionary:(id)arg1;
 - (id)postbackData;
-- (BOOL)goBack;
+- (_Bool)goBack;
 - (void)back:(id)arg1;
 - (void)_displaySupplementalPage:(id)arg1;
 - (id)newNavigationControllerForPresentation;
-- (void)presentInParentViewController:(id)arg1 animated:(BOOL)arg2;
+- (void)presentInParentViewController:(id)arg1 animated:(_Bool)arg2;
 - (void)presentWithBlock:(id)arg1;
 - (id)_firstPageForPresentation;
 - (void)refreshTimeout;
-- (void)_populatePageNavItem:(id)arg1 withNextButton:(BOOL)arg2;
+- (void)_populatePageNavItem:(id)arg1 withNextButton:(_Bool)arg2;
 - (void)setDelegate:(id)arg1;
 - (id)description;
 - (void)dealloc;
 - (void)_cleanupRefreshTimer;
 - (id)init;
-- (void)setJSGlobalContext:(struct OpaqueJSContext *)arg1;
-- (void)runScript;
-- (id)invokeScriptFunction:(id)arg1 withArguments:(id)arg2;
-- (id)objectForJSValue:(struct OpaqueJSValue *)arg1;
-- (BOOL)validateWithFunction:(id)arg1;
-- (BOOL)prepareScriptContext;
 
 @end
 

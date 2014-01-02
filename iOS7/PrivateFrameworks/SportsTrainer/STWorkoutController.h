@@ -8,20 +8,20 @@
 
 @interface STWorkoutController : NSObject
 {
-    int _workoutState;
-    int _workoutType;
-    int _calibrationType;
-    int _workoutPreset;
+    long long _workoutState;
+    long long _workoutType;
+    long long _calibrationType;
+    long long _workoutPreset;
     float _customWorkoutDuration;
     float _customWorkoutDistance;
-    int _customWorkoutCalories;
+    long long _customWorkoutCalories;
     double _elapsedWorkoutTime;
-    int _distanceUnits;
-    BOOL _skipNextEmpedSearch;
+    long long _distanceUnits;
+    _Bool _skipNextEmpedSearch;
 }
 
-+ (id)shortDescriptionForWorkoutType:(int)arg1 preset:(int)arg2;
-+ (id)stringQuantificationForWorkoutType:(int)arg1 preset:(int)arg2;
++ (id)shortDescriptionForWorkoutType:(long long)arg1 preset:(long long)arg2;
++ (id)stringQuantificationForWorkoutType:(long long)arg1 preset:(long long)arg2;
 
 @end
 

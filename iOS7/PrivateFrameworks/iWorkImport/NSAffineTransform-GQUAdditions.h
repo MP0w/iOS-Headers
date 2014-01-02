@@ -10,12 +10,12 @@
 - (struct CGAffineTransform)cgAffineTransform;
 - (id)initWithCGAffineTransform:(struct CGAffineTransform)arg1;
 - (float)angle;
-- (BOOL)isAxisAligned;
+- (_Bool)isAxisAligned;
 - (void)shearXBy:(float)arg1 yBy:(float)arg2;
 - (struct CGRect)boundsOfTransformedRect:(struct CGRect)arg1;
 - (void)transformRect:(struct CGRect)arg1 upperLeft:(struct CGPoint *)arg2 lowerLeft:(struct CGPoint *)arg3 lowerRight:(struct CGPoint *)arg4 upperRight:(struct CGPoint *)arg5;
-- (BOOL)differOnlyByTranslation:(id)arg1;
-- (BOOL)differsFrom:(id)arg1;
+- (_Bool)differOnlyByTranslation:(id)arg1;
+- (_Bool)differsFrom:(id)arg1;
 - (id)description;
 @end
 

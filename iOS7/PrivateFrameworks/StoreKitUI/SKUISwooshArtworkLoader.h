@@ -28,12 +28,12 @@
 - (void)setPlaceholderColorWithColorScheme:(id)arg1;
 - (void)setImage:(id)arg1 forRequest:(id)arg2;
 @property(readonly, nonatomic) UIImage *placeholderImage;
-- (void)loadImagesForNextPageWithReason:(int)arg1;
-- (BOOL)loadImageForObject:(id)arg1 artworkRequest:(id)arg2 reason:(int)arg3;
-- (BOOL)loadImageForObject:(id)arg1 URL:(id)arg2 reason:(int)arg3;
+- (void)loadImagesForNextPageWithReason:(long long)arg1;
+- (_Bool)loadImageForObject:(id)arg1 artworkRequest:(id)arg2 reason:(long long)arg3;
+- (_Bool)loadImageForObject:(id)arg1 URL:(id)arg2 reason:(long long)arg3;
 - (void)cancelImageLoading;
 - (id)cachedImageForObject:(id)arg1;
-- (unsigned int)artworkRequestIdentifierForObject:(id)arg1;
+- (unsigned long long)artworkRequestIdentifierForObject:(id)arg1;
 - (id)initWithArtworkLoader:(id)arg1 swoosh:(id)arg2;
 
 @end

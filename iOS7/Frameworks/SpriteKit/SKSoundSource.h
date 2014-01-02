@@ -8,6 +8,7 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface SKSoundSource : NSObject
 {
     unsigned int _sourceId;
@@ -22,10 +23,10 @@
 - (void)purgeCompletedBuffers;
 @property(readonly, nonatomic) int queuedBufferCount;
 @property(readonly, nonatomic) int completedBufferCount;
-@property(readonly, nonatomic) BOOL isPlaying;
+@property(readonly, nonatomic) _Bool isPlaying;
 @property(nonatomic) struct CGPoint position;
 @property(nonatomic) double gain;
-@property(nonatomic) BOOL shouldLoop;
+@property(nonatomic) _Bool shouldLoop;
 - (void)stop;
 - (void)pause;
 - (void)play;

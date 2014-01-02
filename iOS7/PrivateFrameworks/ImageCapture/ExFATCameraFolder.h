@@ -11,7 +11,7 @@
     void *_exFATCameraFolderProperties;
 }
 
-- (BOOL)deleteItemFromCamera:(id)arg1;
+- (_Bool)deleteItemFromCamera:(id)arg1;
 - (void)enumerateContent;
 @property(readonly) long long fsSize;
 @property(readonly) struct timespec fsModificationTime;

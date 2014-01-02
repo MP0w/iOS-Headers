@@ -5,10 +5,10 @@
  */
 
 @protocol MPAutomaticLayerSupport
-- (void)moveLayersFromIndices:(id)arg1 toIndex:(int)arg2;
+- (void)moveLayersFromIndices:(id)arg1 toIndex:(long long)arg2;
 - (void)removeLayersAtIndices:(id)arg1;
 - (void)removeAllLayers;
-- (void)insertLayers:(id)arg1 atIndex:(int)arg2;
+- (void)insertLayers:(id)arg1 atIndex:(long long)arg2;
 - (void)addLayers:(id)arg1;
 - (void)addLayer:(id)arg1;
 - (id)layers;

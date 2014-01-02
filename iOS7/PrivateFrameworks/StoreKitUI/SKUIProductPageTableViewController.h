@@ -9,7 +9,7 @@
 #import "UITableViewDataSource-Protocol.h"
 #import "UITableViewDelegate-Protocol.h"
 
-@class NSArray, SKUIClientContext, SKUIColorScheme, SKUIProductPageHeaderViewController, SKUIProductPageTableView, SKUITextLayoutCache, UIColor, UITableView;
+@class NSArray, SKUIClientContext, SKUIColorScheme, SKUILayoutCache, SKUIProductPageHeaderViewController, SKUIProductPageTableView, UIColor, UITableView;
 
 @interface SKUIProductPageTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
@@ -22,10 +22,10 @@
     UIColor *_color;
     NSArray *_sections;
     SKUIProductPageTableView *_tableView;
-    SKUITextLayoutCache *_textLayoutCache;
+    SKUILayoutCache *_textLayoutCache;
 }
 
-@property(retain, nonatomic) SKUITextLayoutCache *textLayoutCache; // @synthesize textLayoutCache=_textLayoutCache;
+@property(retain, nonatomic) SKUILayoutCache *textLayoutCache; // @synthesize textLayoutCache=_textLayoutCache;
 @property(copy, nonatomic) NSArray *sections; // @synthesize sections=_sections;
 @property(retain, nonatomic) SKUIProductPageHeaderViewController *headerViewController; // @synthesize headerViewController=_headerViewController;
 @property(nonatomic) __weak id <SKUIProductPageChildViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
@@ -37,18 +37,18 @@
 - (id)_tableView;
 - (void)_addHeaderView;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
-- (id)tableView:(id)arg1 viewForHeaderInSection:(int)arg2;
-- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
-- (float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2;
+- (id)tableView:(id)arg1 viewForHeaderInSection:(long long)arg2;
+- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (double)tableView:(id)arg1 heightForHeaderInSection:(long long)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
+- (long long)numberOfSectionsInTableView:(id)arg1;
 - (void)scrollViewDidScroll:(id)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;
 @property(readonly, nonatomic) UITableView *tableView;
-- (void)scrollToView:(id)arg1 animated:(BOOL)arg2;
+- (void)scrollToView:(id)arg1 animated:(_Bool)arg2;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (id)initWithReleaseNotes:(id)arg1 clientContext:(id)arg2;

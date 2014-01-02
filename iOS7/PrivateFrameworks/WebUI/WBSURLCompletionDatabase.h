@@ -14,7 +14,8 @@
 - (id)fakeBookmarkMatchDataWithURLString:(id)arg1 title:(id)arg2;
 - (void)enumerateMatchDataForTypedStringHint:(id)arg1 withBlock:(id)arg2;
 - (void)clearMatchesCaches;
-- (void)getBestMatchesForTypedString:(id)arg1 topHits:(id *)arg2 matches:(id *)arg3 limit:(unsigned int)arg4;
+- (void)clearBookmarkMatchesCaches;
+- (void)getBestMatchesForTypedString:(id)arg1 topHits:(id *)arg2 matches:(id *)arg3 limit:(unsigned long long)arg4;
 - (void)dealloc;
 - (id)init;
 

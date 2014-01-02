@@ -13,9 +13,10 @@
     UIScreen *_screen;
     SBAlertWindow *_alertWindow;
     SBAlertWindow *_deferredAlertWindow;
+    SBAlertWindow *_lockAlertWindow;
     NSMutableArray *_alerts;
     NSMapTable *_observers;
-    BOOL _deactivatingAllAlerts;
+    _Bool _deactivatingAllAlerts;
     id <SBAlertManagerDelegate> _delegate;
     struct {
         unsigned int deactivateDismissed:1;
@@ -25,7 +26,8 @@
 
 - (void)alertIsReadyToBeRemovedFromView:(id)arg1;
 - (void)alertIsReadyToBeDeactivated:(id)arg1;
-- (void)_makeAlertWindowOpaque:(BOOL)arg1;
+- (void)alert:(id)arg1 requestsBackgroundStyleChangeWithAnimationFactory:(id)arg2;
+- (void)_makeAlertWindowOpaque:(_Bool)arg1;
 - (void)_resetAlertWindowOpacity;
 - (void)_removeFromView:(id)arg1;
 - (void)_deactivate:(id)arg1;
@@ -36,18 +38,20 @@
 - (id)description;
 - (void)applicationFinishedAnimatingBeneathAlert;
 - (void)applicationWillAnimateActivation;
-- (int)orientation;
 - (void)deactivateAlertsAfterLaunch;
 - (void)setAlertsShouldDeactivateAfterLaunch;
 - (void)deactivateAll;
 - (void)deactivate:(id)arg1;
 - (void)activate:(id)arg1;
 - (id)allAlerts;
-- (BOOL)containsAlert:(id)arg1;
-- (id)stackedAlertsIncludingActiveAlert:(BOOL)arg1;
-- (BOOL)hasStackedAlerts;
+- (_Bool)containsAlert:(id)arg1;
+- (id)stackedAlertsIncludingActiveAlert:(_Bool)arg1;
+- (_Bool)hasStackedAlerts;
 - (id)activeAlert;
-- (id)window;
+- (id)windows;
+- (id)windowForAlert:(id)arg1;
+- (id)activeAlertWindow;
+- (id)topMostWindow;
 - (id)screen;
 @property(nonatomic) id <SBAlertManagerDelegate> delegate;
 - (void)dealloc;

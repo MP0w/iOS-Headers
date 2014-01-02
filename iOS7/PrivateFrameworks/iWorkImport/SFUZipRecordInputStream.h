@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface SFUZipRecordInputStream : NSObject
 {
     id <SFUBufferedInputStream> mInput;
@@ -14,7 +15,7 @@
     long long mBufferEnd;
 }
 
-- (const char *)dataAtOffset:(long long)arg1 size:(unsigned long)arg2 end:(long long)arg3;
+- (const char *)dataAtOffset:(long long)arg1 size:(unsigned long long)arg2 end:(long long)arg3;
 - (void)dealloc;
 - (id)initWithDataRepresentation:(id)arg1;
 

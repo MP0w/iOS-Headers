@@ -10,22 +10,22 @@
 
 @interface SBFileLogger : NSObject
 {
-    id <SBFileLoggerDelegate> _delegate;
     int _logLevel;
+    id <SBFileLoggerDelegate> _delegate;
 }
 
 @property(readonly, nonatomic) int logLevel; // @synthesize logLevel=_logLevel;
 @property(nonatomic) id <SBFileLoggerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)willBeginLoggingToPath:(id)arg1;
-- (id)consoleFormat:(id)arg1 withArguments:(char *)arg2;
-- (id)fileFormat:(id)arg1 withArguments:(char *)arg2;
+- (id)consoleFormat:(id)arg1 withArguments:(struct __va_list_tag [1])arg2;
+- (id)fileFormat:(id)arg1 withArguments:(struct __va_list_tag [1])arg2;
 - (void)reloadFromDefaults;
 @property(readonly, nonatomic) int maxLogSize;
 @property(readonly, nonatomic) int maxLogCount;
-@property(readonly, nonatomic) BOOL includeConsole;
+@property(readonly, nonatomic) _Bool includeConsole;
 @property(readonly, nonatomic) NSString *logPath;
 @property(readonly, nonatomic) NSString *name;
-@property(readonly, nonatomic, getter=isEnabled) BOOL enabled;
+@property(readonly, nonatomic, getter=isEnabled) _Bool enabled;
 - (void)dealloc;
 - (id)init;
 

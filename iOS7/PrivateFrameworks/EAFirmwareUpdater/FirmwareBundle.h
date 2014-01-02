@@ -11,13 +11,13 @@
 @interface FirmwareBundle : NSObject
 {
     NSString *_bundleDescription;
+    unsigned int _productIDCode;
+    unsigned int _firmwareImageBaseAddress;
+    unsigned int _firmwareImageSize;
     NSData *_firmwareImage;
     NSData *_hash;
     NSData *_certificate;
     NSData *_signature;
-    unsigned int _productIDCode;
-    unsigned int _firmwareImageBaseAddress;
-    unsigned int _firmwareImageSize;
 }
 
 + (id)defaultBundlePath;

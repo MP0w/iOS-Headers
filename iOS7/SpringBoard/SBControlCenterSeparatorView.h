@@ -10,7 +10,8 @@
 {
 }
 
-+ (float)defaultBreadthForOrientation:(int)arg1;
++ (double)defaultBreadthForOrientation:(long long)arg1;
+- (_Bool)_shouldAnimatePropertyWithKey:(id)arg1;
 
 @end
 

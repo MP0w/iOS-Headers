@@ -16,12 +16,10 @@
 }
 
 @property(copy, nonatomic) NSArray *previewItems; // @synthesize previewItems=_previewItems;
-- (id)previewController:(id)arg1 previewItemAtIndex:(int)arg2;
-- (int)numberOfPreviewItemsInPreviewController:(id)arg1;
+- (id)previewController:(id)arg1 previewItemAtIndex:(long long)arg2;
+- (long long)numberOfPreviewItemsInPreviewController:(id)arg1;
 - (id)currentPreviewItem;
 - (void)setDataSource:(id)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
 - (id)init;
 - (void)dealloc;
 

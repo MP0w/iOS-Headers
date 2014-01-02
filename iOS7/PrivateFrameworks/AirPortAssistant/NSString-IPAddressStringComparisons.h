@@ -7,7 +7,7 @@
 #import "NSString.h"
 
 @interface NSString (IPAddressStringComparisons)
-- (int)IPv6StringCompare:(id)arg1;
-- (int)IPv4StringCompare:(id)arg1;
+- (long long)IPv6StringCompare:(id)arg1;
+- (long long)IPv4StringCompare:(id)arg1;
 @end
 

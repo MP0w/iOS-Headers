@@ -8,17 +8,18 @@
 
 @class NSString;
 
+// Not exported
 @interface VKLabelNavRoadLabel : NSObject
 {
     shared_ptr_338aa11d _label;
     int _navLabelType;
     id <VKLabelNavFeature> _navFeature;
     NSString *_displayGroup;
-    int _alignment;
+    long long _alignment;
     unsigned int _displayID;
 }
 
-@property(nonatomic) int alignment; // @synthesize alignment=_alignment;
+@property(nonatomic) long long alignment; // @synthesize alignment=_alignment;
 @property(nonatomic) unsigned int displayID; // @synthesize displayID=_displayID;
 @property(readonly, nonatomic) const shared_ptr_338aa11d *label; // @synthesize label=_label;
 @property(nonatomic) id <VKLabelNavFeature> navFeature; // @synthesize navFeature=_navFeature;
@@ -26,9 +27,9 @@
 - (void).cxx_destruct;
 - (id)description;
 - (id)displayGroup;
-@property(readonly, nonatomic) BOOL isJunctionLabel;
-@property(readonly, nonatomic) BOOL isRoadLabel;
-@property(readonly, nonatomic) BOOL isShieldLabel;
+@property(readonly, nonatomic) _Bool isJunctionLabel;
+@property(readonly, nonatomic) _Bool isRoadLabel;
+@property(readonly, nonatomic) _Bool isShieldLabel;
 - (void)dealloc;
 - (id)initWithNavFeature:(id)arg1 label:(const shared_ptr_338aa11d *)arg2 navLabelType:(int)arg3;
 

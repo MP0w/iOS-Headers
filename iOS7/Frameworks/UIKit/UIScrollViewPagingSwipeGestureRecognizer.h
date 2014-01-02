@@ -8,6 +8,7 @@
 
 @class UIDelayedAction;
 
+// Not exported
 @interface UIScrollViewPagingSwipeGestureRecognizer : UIGestureRecognizer
 {
     UIDelayedAction *_swipeFailureDelay;

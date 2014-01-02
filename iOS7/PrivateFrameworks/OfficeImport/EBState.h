@@ -8,6 +8,7 @@
 
 @class CPTracing, EDResources, EDWorkbook;
 
+// Not exported
 @interface EBState : NSObject
 {
     struct XlLinkTable *mXlLinkTable;
@@ -22,7 +23,7 @@
 
 @property(readonly, nonatomic) id <OCCancelDelegate> cancelDelegate; // @synthesize cancelDelegate=mCancelDelegate;
 - (id)tracing;
-- (BOOL)isCancelled;
+- (_Bool)isCancelled;
 - (void)setResources:(id)arg1;
 - (id)resources;
 - (void)setWorkbook:(id)arg1;

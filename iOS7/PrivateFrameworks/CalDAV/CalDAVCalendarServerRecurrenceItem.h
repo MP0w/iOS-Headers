@@ -18,7 +18,7 @@
 @property(retain) CalDAVCalendarServerChangesItem *changes; // @synthesize changes=_changes;
 @property(retain) CoreDAVLeafItem *recurrenceID; // @synthesize recurrenceID=_recurrenceID;
 @property(retain) CoreDAVItemWithNoChildren *master; // @synthesize master=_master;
-@property(readonly) BOOL isMaster;
+@property(readonly) _Bool isMaster;
 - (id)copyParseRules;
 - (id)description;
 - (void)dealloc;

@@ -9,6 +9,6 @@
 @protocol SKUIMenuViewControllerDelegate <NSObject>
 
 @optional
-- (void)menuViewController:(id)arg1 didSelectItemAtIndex:(int)arg2;
+- (void)menuViewController:(id)arg1 didSelectItemAtIndex:(long long)arg2;
 @end
 

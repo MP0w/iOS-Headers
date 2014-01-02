@@ -14,13 +14,13 @@
     MFMessageTextAttachment *_attachment;
     MFMonitoredInvocation *_invocation;
     NSThread *_loader;
-    BOOL _stopped;
+    _Bool _stopped;
     NSMutableArray *_attachments;
 }
 
-+ (BOOL)requestIsCacheEquivalent:(id)arg1 toRequest:(id)arg2;
++ (_Bool)requestIsCacheEquivalent:(id)arg1 toRequest:(id)arg2;
 + (id)canonicalRequestForRequest:(id)arg1;
-+ (BOOL)canInitWithRequest:(id)arg1;
++ (_Bool)canInitWithRequest:(id)arg1;
 + (void)initialize;
 - (void)dealloc;
 - (void)_downloadedData:(id)arg1 mimeType:(id)arg2;

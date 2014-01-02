@@ -12,9 +12,9 @@
 {
 }
 
-- (void)controlConfigurationDidChangeForState:(int)arg1;
-- (void)controlAppearanceDidChangeForState:(int)arg1;
-- (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
+- (void)controlConfigurationDidChangeForState:(long long)arg1;
+- (void)controlAppearanceDidChangeForState:(long long)arg1;
+- (_Bool)_shouldAnimatePropertyWithKey:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

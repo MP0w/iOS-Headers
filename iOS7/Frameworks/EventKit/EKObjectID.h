@@ -11,7 +11,7 @@
 
 @interface EKObjectID : NSObject <NSCopying, NSCoding>
 {
-    BOOL _temporary;
+    _Bool _temporary;
     int _entityType;
     int _rowID;
 }
@@ -21,12 +21,12 @@
 + (id)objectIDWithEntityType:(int)arg1 rowID:(int)arg2;
 + (id)objectIDWithCADObjectID:(CDStruct_1ef3fb1f)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)URIRepresentation;
 - (id)stringRepresentation;
 - (id)description;
-- (BOOL)isTemporary;
+- (_Bool)isTemporary;
 - (CDStruct_1ef3fb1f)CADObjectID;
 - (int)rowID;
 - (int)entityType;
@@ -35,7 +35,7 @@
 - (id)initWithDictionaryRepresentation:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithEntityType:(int)arg1 rowID:(int)arg2 temporary:(BOOL)arg3;
+- (id)initWithEntityType:(int)arg1 rowID:(int)arg2 temporary:(_Bool)arg3;
 
 @end
 

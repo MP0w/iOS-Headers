@@ -6,12 +6,13 @@
 
 #import <OfficeImport/OADBackground.h>
 
+// Not exported
 @interface OADMasterBackground : OADBackground
 {
 }
 
 + (id)masterBackground;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 
 @end
 

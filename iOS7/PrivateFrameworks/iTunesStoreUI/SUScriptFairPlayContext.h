@@ -15,7 +15,7 @@
 - (id)_accountViewController;
 - (id)signData:(id)arg1;
 - (void)close;
-- (BOOL)isOpen;
+- (_Bool)isOpen;
 - (id)_className;
 
 @end

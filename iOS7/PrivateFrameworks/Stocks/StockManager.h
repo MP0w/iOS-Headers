@@ -11,13 +11,13 @@
 @interface StockManager : NSObject
 {
     NSMutableArray *_defaultListStockSymbols;
-    BOOL _shouldPostSyncNotifications;
+    _Bool _shouldPostSyncNotifications;
     NSMutableArray *_stocksList;
     NSMutableArray *_chartDataLRUCache;
     double _lastModifiedTime;
-    BOOL _needRemoteAddNotification;
-    BOOL _needRemoteDeleteNotification;
-    BOOL _needRemoteMoveNotification;
+    _Bool _needRemoteAddNotification;
+    _Bool _needRemoteDeleteNotification;
+    _Bool _needRemoteMoveNotification;
     NSUbiquitousKeyValueStore *_syncedKVStore;
 }
 
@@ -30,20 +30,20 @@
 - (void)saveDataChanges;
 - (void)saveListChanges;
 - (void)_saveDataChangesWithDictionaries:(id)arg1;
-- (BOOL)anyMarketOpen;
-- (BOOL)anyMarketOpenWithRealtimePrice;
-- (BOOL)anyPriceIsRealtime;
+- (_Bool)anyMarketOpen;
+- (_Bool)anyMarketOpenWithRealtimePrice;
+- (_Bool)anyPriceIsRealtime;
 - (void)clearCachedChartDataImageSets;
 - (void)clearCachedChartData;
 - (void)UpdateChartDataInLRU:(id)arg1;
 - (void)DeleteChartData:(id)arg1;
 - (void)RemoveChartDataFromLRU:(id)arg1;
-- (void)moveStockFromIndex:(int)arg1 toIndex:(int)arg2;
+- (void)moveStockFromIndex:(long long)arg1 toIndex:(long long)arg2;
 - (void)removeStock:(id)arg1;
 - (void)addStock:(id)arg1;
 - (id)stockWithSymbol:(id)arg1;
 - (id)stocksList;
-- (BOOL)setLocalStockListFromSyncableStockList:(id)arg1;
+- (_Bool)setLocalStockListFromSyncableStockList:(id)arg1;
 - (id)makeSyncableStockListFromList:(id)arg1;
 - (void)handleSyncedDataChanged:(id)arg1;
 - (void)reloadStocksFromDefaults;

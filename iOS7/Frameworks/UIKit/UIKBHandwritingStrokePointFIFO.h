@@ -8,6 +8,7 @@
 
 @class TIHandwritingStrokes;
 
+// Not exported
 @interface UIKBHandwritingStrokePointFIFO : UIKBHandwritingPointFIFO
 {
     TIHandwritingStrokes *_strokes;

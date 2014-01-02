@@ -20,7 +20,7 @@
 }
 
 + (void)CAMLParserStartElement:(id)arg1;
-+ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
++ (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 + (id)behaviorWithType:(id)arg1;
 + (id)behaviorTypes;
 - (id)CAMLTypeForKey:(id)arg1;
@@ -37,7 +37,7 @@
 - (id)valueForKeyPath:(id)arg1;
 - (id)valueForKey:(id)arg1;
 - (void)setValue:(id)arg1 forKey:(id)arg2;
-@property(getter=isEnabled) BOOL enabled;
+@property(getter=isEnabled) _Bool enabled;
 @property(copy) NSString *name;
 @property(readonly) NSString *type;
 - (id)initWithType:(id)arg1;

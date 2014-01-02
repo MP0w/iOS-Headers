@@ -6,20 +6,17 @@
 
 #import "UIView.h"
 
-@class UIActivityIndicatorView, UIButton;
+@class UIButton;
 
 @interface MSPlayModeControlView : UIView
 {
     UIButton *_repeatButton;
-    UIButton *_geniusButton;
     UIButton *_shuffleButton;
-    UIActivityIndicatorView *_creatingGeniusActivityView;
-    BOOL _creatingGenius;
+    _Bool _creatingGenius;
 }
 
-@property(nonatomic) BOOL creatingGenius; // @synthesize creatingGenius=_creatingGenius;
+@property(nonatomic) _Bool creatingGenius; // @synthesize creatingGenius=_creatingGenius;
 @property(readonly, nonatomic) UIButton *shuffleButton; // @synthesize shuffleButton=_shuffleButton;
-@property(readonly, nonatomic) UIButton *geniusButton; // @synthesize geniusButton=_geniusButton;
 @property(readonly, nonatomic) UIButton *repeatButton; // @synthesize repeatButton=_repeatButton;
 - (void).cxx_destruct;
 - (void)layoutSubviews;

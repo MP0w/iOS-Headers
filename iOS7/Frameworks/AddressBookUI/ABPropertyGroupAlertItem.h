@@ -13,10 +13,10 @@
 - (id)_vibrationManager;
 - (id)_toneManger;
 - (id)description;
-- (BOOL)isEquivalentToItem:(id)arg1 whenEditing:(BOOL)arg2;
-@property(readonly, nonatomic, getter=isVibration) BOOL vibration;
-@property(readonly, nonatomic, getter=isTone) BOOL tone;
-- (BOOL)canRemove;
+- (_Bool)isEquivalentToItem:(id)arg1 whenEditing:(_Bool)arg2;
+@property(readonly, nonatomic, getter=isVibration) _Bool vibration;
+@property(readonly, nonatomic, getter=isTone) _Bool tone;
+- (_Bool)canRemove;
 - (id)displayStringForValue:(id)arg1;
 - (id)displayLabel;
 

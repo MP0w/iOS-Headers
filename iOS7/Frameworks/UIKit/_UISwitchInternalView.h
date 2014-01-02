@@ -10,6 +10,7 @@
 
 @class CALayer, UIColor, UIImage, UIImageView;
 
+// Not exported
 @interface _UISwitchInternalView : UIView <_UISwitchInternalViewProtocol>
 {
     UIImage *_colorMask;
@@ -17,8 +18,8 @@
     UIImage *_shapeShadow;
     UIImage *_thumb;
     UIImage *_thumbPressed;
-    float _position;
-    BOOL _pressed;
+    double _position;
+    _Bool _pressed;
     UIImageView *_colorView;
     UIImageView *_thumbView;
     UIImageView *_labelView;
@@ -28,10 +29,10 @@
     UIColor *_nonAlternateColor;
     UIImage *_onImage;
     UIImage *_offImage;
-    BOOL _on;
-    BOOL _sendAction;
-    BOOL _useAlternateColor;
-    BOOL _animating;
+    _Bool _on;
+    _Bool _sendAction;
+    _Bool _useAlternateColor;
+    _Bool _animating;
     UIImageView *_idleImageView;
     UIView *_interactiveView;
     CALayer *_backgroundLayer;
@@ -39,8 +40,8 @@
 
 + (id)_defaultOnTintColor;
 @property(retain, nonatomic) UIColor *thumbTintColor; // @synthesize thumbTintColor=_thumbTintColor;
-@property(nonatomic) BOOL useAlternateColor; // @synthesize useAlternateColor=_useAlternateColor;
-@property(nonatomic) BOOL on; // @synthesize on=_on;
+@property(nonatomic) _Bool useAlternateColor; // @synthesize useAlternateColor=_useAlternateColor;
+@property(nonatomic) _Bool on; // @synthesize on=_on;
 @property(retain, nonatomic) UIColor *tintColor; // @synthesize tintColor=_tintColor;
 @property(retain, nonatomic) UIColor *onTintColor; // @synthesize onTintColor=_onTintColor;
 @property(retain, nonatomic) UIImage *offImage;
@@ -53,21 +54,21 @@
 - (void)_setupBackgroundLayer;
 - (id)_labelImage;
 - (id)_colorImage;
-- (BOOL)sendAction;
-- (void)setSendAction:(BOOL)arg1;
-- (void)_setPressed:(BOOL)arg1;
+- (_Bool)sendAction;
+- (void)setSendAction:(_Bool)arg1;
+- (void)_setPressed:(_Bool)arg1;
 - (void)_onAnimationDidStop:(id)arg1 finished:(id)arg2 context:(void *)arg3;
 - (void)_sendActions;
-- (void)_setOn:(BOOL)arg1 animated:(BOOL)arg2 force:(BOOL)arg3;
-- (void)_setProgress:(float)arg1 animated:(BOOL)arg2 withDuration:(float)arg3 force:(BOOL)arg4 sendAction:(BOOL)arg5;
-- (void)_setProgress:(float)arg1;
+- (void)_setOn:(_Bool)arg1 animated:(_Bool)arg2 force:(_Bool)arg3;
+- (void)_setProgress:(double)arg1 animated:(_Bool)arg2 withDuration:(double)arg3 force:(_Bool)arg4 sendAction:(_Bool)arg5;
+- (void)_setProgress:(double)arg1;
 - (void)_cleanUpAfterAnimating;
 - (void)_prepareForInteraction;
 - (id)_snapshotImage;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)_setOnTintColor:(id)arg1;
-- (void)_setPressed:(BOOL)arg1 on:(BOOL)arg2 animated:(BOOL)arg3 shouldAnimateLabels:(BOOL)arg4 completion:(id)arg5;
+- (void)_setPressed:(_Bool)arg1 on:(_Bool)arg2 animated:(_Bool)arg3 shouldAnimateLabels:(_Bool)arg4 completion:(id)arg5;
 
 @end
 

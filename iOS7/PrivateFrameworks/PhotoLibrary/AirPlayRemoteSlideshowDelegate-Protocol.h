@@ -7,7 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol AirPlayRemoteSlideshowDelegate <NSObject>
-- (BOOL)airplayRemoteSlideshow:(id)arg1 handleEvent:(id)arg2;
-- (BOOL)airplayRemoteSlideshow:(id)arg1 requestAssetWithInfo:(id)arg2 completion:(id)arg3;
+- (_Bool)airplayRemoteSlideshow:(id)arg1 handleEvent:(id)arg2;
+- (_Bool)airplayRemoteSlideshow:(id)arg1 requestAssetWithInfo:(id)arg2 completion:(id)arg3;
 @end
 

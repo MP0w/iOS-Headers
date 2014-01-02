@@ -10,12 +10,12 @@
 {
 }
 
-+ (unsigned int)maxVisibleIconRowsInterfaceOrientation:(int)arg1;
-+ (unsigned int)iconColumnsForInterfaceOrientation:(int)arg1;
++ (unsigned long long)maxVisibleIconRowsInterfaceOrientation:(long long)arg1;
++ (unsigned long long)iconColumnsForInterfaceOrientation:(long long)arg1;
 - (int)iconLocation;
-- (float)sideIconInset;
-- (float)bottomIconInset;
-- (float)topIconInset;
+- (double)sideIconInset;
+- (double)bottomIconInset;
+- (double)topIconInset;
 
 @end
 

@@ -9,21 +9,21 @@
 #import "AVAsynchronousKeyValueLoading-Protocol.h"
 #import "NSCopying-Protocol.h"
 
-@class AVAssetInternal, NSArray;
+@class AVAssetInternal;
 
 @interface AVAsset : NSObject <NSCopying, AVAsynchronousKeyValueLoading>
 {
     AVAssetInternal *_assetInternal;
 }
 
-+ (id)assetWithURL:(id)arg1 figPlaybackItem:(struct OpaqueFigPlaybackItem *)arg2 trackIDs:(id)arg3 dynamicBehavior:(BOOL)arg4;
++ (id)assetWithURL:(id)arg1 figPlaybackItem:(struct OpaqueFigPlaybackItem *)arg2 trackIDs:(id)arg3 dynamicBehavior:(_Bool)arg4;
 + (id)assetWithURL:(id)arg1;
-- (BOOL)isCompatibleWithSavedPhotosAlbum;
-- (BOOL)isComposable;
-- (BOOL)isReadable;
-- (BOOL)isExportable;
-- (BOOL)isPlayable;
-- (BOOL)hasProtectedContent;
+- (_Bool)isCompatibleWithSavedPhotosAlbum;
+- (_Bool)isComposable;
+- (_Bool)isReadable;
+- (_Bool)isExportable;
+- (_Bool)isPlayable;
+- (_Bool)hasProtectedContent;
 - (void)_serverHasDied;
 - (id)compatibleTrackForCompositionTrack:(id)arg1;
 - (id)tracksWithMediaCharacteristics:(id)arg1;
@@ -47,8 +47,8 @@
 - (id)audioAlternatesTrackGroup;
 - (id)_firstTrackGroupWithMediaType:(id)arg1;
 - (id)trackGroups;
-- (unsigned int)referenceRestrictions;
-- (BOOL)providesPreciseDurationAndTiming;
+- (unsigned long long)referenceRestrictions;
+- (_Bool)providesPreciseDurationAndTiming;
 - (int)naturalTimeScale;
 @property(readonly, nonatomic) struct CGSize naturalSize;
 @property(readonly, nonatomic) struct CGAffineTransform preferredTransform;
@@ -56,7 +56,7 @@
 @property(readonly, nonatomic) float preferredVolume;
 @property(readonly, nonatomic) float preferredRate;
 @property(readonly, nonatomic) CDStruct_1b6d18a9 duration;
-- (BOOL)_isStreaming;
+- (_Bool)_isStreaming;
 - (id)_absoluteURL;
 - (struct OpaqueFigPlaybackItem *)_playbackItem;
 - (struct OpaqueFigFormatReader *)_formatReader;
@@ -64,11 +64,11 @@
 - (void)cancelLoading;
 - (void)loadValuesAsynchronouslyForKeys:(id)arg1 keysForCollectionKeys:(id)arg2 completionHandler:(id)arg3;
 - (void)loadValuesAsynchronouslyForKeys:(id)arg1 completionHandler:(id)arg2;
-- (int)statusOfValueForKey:(id)arg1 error:(id *)arg2;
-- (int)statusOfValueForKey:(id)arg1;
+- (long long)statusOfValueForKey:(id)arg1 error:(id *)arg2;
+- (long long)statusOfValueForKey:(id)arg1;
 - (id)valueForUndefinedKey:(id)arg1;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)_comparisonToken;
 - (id)_assetInspectorLoader;
 - (id)_assetInspector;
@@ -76,14 +76,6 @@
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
-- (id)chapterMetadataGroupsBestMatchingPreferredLanguages:(id)arg1;
-- (id)chapterMetadataGroupsWithTitleLocale:(id)arg1 containingItemsWithCommonKeys:(id)arg2;
-@property(readonly) NSArray *availableChapterLocales;
-- (int)unusedTrackID;
-- (id)_exportURL;
-- (BOOL)_containsAtLeastOnePlayableVideoTrack;
-- (BOOL)_containsAtLeastOnePlayableAudioTrack;
-- (id)_chapterTracks;
 
 @end
 

@@ -6,12 +6,13 @@
 
 #import <Symbolication/VMUDyLibLoadCommand.h>
 
+// Not exported
 @interface VMUIDDyLibLoadCommand : VMUDyLibLoadCommand
 {
 }
 
 - (id)description;
-- (BOOL)isIDDyLib;
+- (_Bool)isIDDyLib;
 
 @end
 

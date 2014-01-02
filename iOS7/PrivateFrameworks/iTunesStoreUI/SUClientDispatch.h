@@ -10,23 +10,23 @@
 {
 }
 
-+ (BOOL)wasLaunchedFromLibrary;
++ (_Bool)wasLaunchedFromLibrary;
 + (id)tabBarController;
-+ (BOOL)sendActionForDialog:(id)arg1 button:(id)arg2;
++ (_Bool)sendActionForDialog:(id)arg1 button:(id)arg2;
 + (id)scriptExecutionContext;
-+ (BOOL)presentOverlayBackgroundViewController:(id)arg1;
++ (_Bool)presentOverlayBackgroundViewController:(id)arg1;
 + (id)overlayConfigurationForStorePage:(id)arg1;
 + (id)overlayBackgroundViewController;
-+ (BOOL)openClientURL:(id)arg1;
++ (_Bool)openClientURL:(id)arg1;
 + (id)newScriptInterface;
-+ (BOOL)matchesClientApplication:(id)arg1;
-+ (BOOL)isTabBarControllerLoaded;
++ (_Bool)matchesClientApplication:(id)arg1;
++ (_Bool)isTabBarControllerLoaded;
 + (id)imagePool;
 + (id)imageCache;
 + (id)exitStoreButtonTitle;
-+ (BOOL)enterAccountFlowWithViewController:(id)arg1 animated:(BOOL)arg2;
++ (_Bool)enterAccountFlowWithViewController:(id)arg1 animated:(_Bool)arg2;
 + (void)dismissOverlayBackgroundViewController;
-+ (BOOL)composeReviewWithViewController:(id)arg1 animated:(BOOL)arg2;
++ (_Bool)composeReviewWithViewController:(id)arg1 animated:(_Bool)arg2;
 + (void)composeEmailWithSubject:(id)arg1 body:(id)arg2;
 + (id)clientInterface;
 + (struct __CFArray *)assetTypes;

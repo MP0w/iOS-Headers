@@ -7,64 +7,68 @@
 #import "NSObject.h"
 
 #import "SKUICacheCoding-Protocol.h"
+#import "SSMetricsEventFieldProvider-Protocol.h"
 
-@class NSArray, NSMutableDictionary, NSString, NSURL, SKUIArtworkList, SKUIItemOffer, SKUIUber;
+@class NSArray, NSMutableDictionary, NSString, NSURL, SKUIArtworkList, SKUIItemOffer;
 
-@interface SKUIItem : NSObject <SKUICacheCoding>
+@interface SKUIItem : NSObject <SKUICacheCoding, SSMetricsEventFieldProvider>
 {
+    struct _NSRange _ageBandRange;
     NSString *_artistName;
     SKUIArtworkList *_artworks;
     NSString *_bundleID;
     NSString *_categoryName;
-    unsigned int _deviceFamilies;
+    unsigned long long _deviceFamilies;
     long long _itemIdentifier;
-    int _itemKind;
+    long long _itemKind;
     NSString *_itemKindString;
     SKUIItemOffer *_itemOffer;
-    BOOL _newsstandApp;
-    int _newsstandBindingEdge;
-    int _newsstandBindingType;
+    _Bool _newsstandApp;
+    long long _newsstandBindingEdge;
+    long long _newsstandBindingType;
     SKUIArtworkList *_newsstandArtworks;
-    int _numberOfUserRatings;
-    int _parentalControlsRank;
-    BOOL _prerenderedArtwork;
+    long long _numberOfUserRatings;
+    long long _parentalControlsRank;
+    _Bool _prerenderedArtwork;
     NSString *_productPageURLString;
     NSArray *_requiredCapabilities;
     NSString *_title;
-    SKUIUber *_uber;
     float _userRating;
     long long _versionIdentifier;
     NSString *_versionString;
 }
 
 @property(readonly, nonatomic) NSString *itemKindString; // @synthesize itemKindString=_itemKindString;
-@property(readonly, nonatomic) int itemKind; // @synthesize itemKind=_itemKind;
+@property(readonly, nonatomic) long long itemKind; // @synthesize itemKind=_itemKind;
 @property(readonly, nonatomic) NSString *versionString; // @synthesize versionString=_versionString;
 @property(readonly, nonatomic) long long versionIdentifier; // @synthesize versionIdentifier=_versionIdentifier;
 @property(readonly, nonatomic) float userRating; // @synthesize userRating=_userRating;
-@property(readonly, nonatomic) SKUIUber *uber; // @synthesize uber=_uber;
 @property(readonly, nonatomic) NSString *title; // @synthesize title=_title;
 @property(readonly, nonatomic) NSArray *requiredCapabilities; // @synthesize requiredCapabilities=_requiredCapabilities;
 @property(readonly, nonatomic) NSString *productPageURLString; // @synthesize productPageURLString=_productPageURLString;
 @property(readonly, nonatomic) SKUIItemOffer *primaryItemOffer; // @synthesize primaryItemOffer=_itemOffer;
-@property(readonly, nonatomic, getter=hasPrerenderedArtwork) BOOL prerenderedArtwork; // @synthesize prerenderedArtwork=_prerenderedArtwork;
-@property(readonly, nonatomic) int parentalControlsRank; // @synthesize parentalControlsRank=_parentalControlsRank;
-@property(readonly, nonatomic) int numberOfUserRatings; // @synthesize numberOfUserRatings=_numberOfUserRatings;
-@property(readonly, nonatomic) int newsstandBindingType; // @synthesize newsstandBindingType=_newsstandBindingType;
-@property(readonly, nonatomic) int newsstandBindingEdge; // @synthesize newsstandBindingEdge=_newsstandBindingEdge;
+@property(readonly, nonatomic, getter=hasPrerenderedArtwork) _Bool prerenderedArtwork; // @synthesize prerenderedArtwork=_prerenderedArtwork;
+@property(readonly, nonatomic) long long parentalControlsRank; // @synthesize parentalControlsRank=_parentalControlsRank;
+@property(readonly, nonatomic) long long numberOfUserRatings; // @synthesize numberOfUserRatings=_numberOfUserRatings;
+@property(readonly, nonatomic) long long newsstandBindingType; // @synthesize newsstandBindingType=_newsstandBindingType;
+@property(readonly, nonatomic) long long newsstandBindingEdge; // @synthesize newsstandBindingEdge=_newsstandBindingEdge;
 @property(readonly, nonatomic) SKUIArtworkList *newsstandArtworks; // @synthesize newsstandArtworks=_newsstandArtworks;
-@property(readonly, nonatomic, getter=isNewsstandApp) BOOL newsstandApp; // @synthesize newsstandApp=_newsstandApp;
+@property(readonly, nonatomic, getter=isNewsstandApp) _Bool newsstandApp; // @synthesize newsstandApp=_newsstandApp;
 @property(readonly, nonatomic) long long itemIdentifier; // @synthesize itemIdentifier=_itemIdentifier;
-@property(readonly, nonatomic) unsigned int deviceFamilies; // @synthesize deviceFamilies=_deviceFamilies;
+@property(readonly, nonatomic) unsigned long long deviceFamilies; // @synthesize deviceFamilies=_deviceFamilies;
 @property(readonly, nonatomic) NSString *categoryName; // @synthesize categoryName=_categoryName;
 @property(readonly, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleID;
 @property(readonly, nonatomic) SKUIArtworkList *artworks; // @synthesize artworks=_artworks;
 @property(readonly, nonatomic) NSString *artistName; // @synthesize artistName=_artistName;
+@property(readonly, nonatomic) struct _NSRange ageBandRange; // @synthesize ageBandRange=_ageBandRange;
 - (void).cxx_destruct;
+- (id)valueForMetricsField:(id)arg1;
 @property(readonly, nonatomic) NSMutableDictionary *cacheRepresentation;
 - (id)initWithCacheRepresentation:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 @property(readonly, nonatomic) NSURL *largestArtworkURL;
-- (id)artworkURLForSize:(int)arg1;
+- (id)artworkURLForSize:(long long)arg1;
 - (id)initWithLookupDictionary:(id)arg1;
 
 @end

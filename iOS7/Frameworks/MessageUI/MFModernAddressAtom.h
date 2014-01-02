@@ -23,38 +23,37 @@
     void *_addressBook;
 }
 
-+ (id)copyDisplayStringForAddress:(id)arg1 usingAddressBook:(void *)arg2 useAbbreviatedName:(BOOL)arg3;
-- (void)setOpaque:(BOOL)arg1;
-- (void)setHighlighted:(BOOL)arg1;
++ (id)copyDisplayStringForAddress:(id)arg1 usingAddressBook:(void *)arg2 useAbbreviatedName:(_Bool)arg3;
+- (void)setOpaque:(_Bool)arg1;
+- (void)setHighlighted:(_Bool)arg1;
 - (id)displayString;
 - (id)unmodifiedAddressString;
 - (int)identifier;
 - (int)ABPropertyType;
 - (void *)ABPerson;
-- (void)_updateDisplayStringIncludingABPerson:(BOOL)arg1;
+- (void)_updateDisplayStringIncludingABPerson:(_Bool)arg1;
 - (void)_displayStringDidChange;
 - (void)setAddress:(id)arg1;
-- (BOOL)isDisplayStringFromAddressBook;
+- (_Bool)isDisplayStringFromAddressBook;
 - (id)emailAddress;
 - (void)_updateABPerson;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 @property(retain, nonatomic) UIFont *atomFont;
 @property(readonly, nonatomic) struct CGPoint baselinePoint;
-@property(nonatomic) BOOL isPrimaryAddressAtom;
-@property(nonatomic) BOOL hidesVIPIndicator;
+@property(nonatomic) _Bool isPrimaryAddressAtom;
+@property(nonatomic) _Bool hidesVIPIndicator;
 @property(readonly, nonatomic) struct UIEdgeInsets edgeInsets;
 @property(nonatomic) int separatorStyle;
-@property(nonatomic) float scale;
-@property(nonatomic) unsigned int presentationOptions;
+@property(nonatomic) double scale;
+@property(nonatomic) unsigned long long presentationOptions;
 - (void)setMaxWidth:(unsigned int)arg1;
 - (void)layoutSubviews;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)dealloc;
 - (struct CGRect)_highlightBounds;
 - (void)setDelegate:(id)arg1;
-- (id)_VIPImageNameForStyle:(int)arg1 selected:(BOOL)arg2;
 - (void)addressBookDidChange:(id)arg1;
-- (id)initWithAddress:(id)arg1 presentationOptions:(unsigned int)arg2 isPhoneNumber:(BOOL)arg3 maxWidth:(float)arg4 addressBook:(void *)arg5;
+- (id)initWithAddress:(id)arg1 presentationOptions:(unsigned long long)arg2 isPhoneNumber:(_Bool)arg3 maxWidth:(double)arg4 addressBook:(void *)arg5;
 
 @end
 

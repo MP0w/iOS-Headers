@@ -8,10 +8,11 @@
 
 @class LBFSEventsWatcher, NSArray, NSMetadataQuery, NSMutableArray, NSMutableDictionary, NSMutableIndexSet, NSObject<OS_dispatch_queue>, NSOperationQueue, NSPredicate;
 
+// Not exported
 @interface LBQuery : NSObject
 {
     NSMetadataQuery *_query;
-    unsigned int _accumulatedItemCount;
+    unsigned long long _accumulatedItemCount;
     NSMutableArray *_changes;
     NSMutableDictionary *_toBeRemoved;
     NSMutableDictionary *_toBeReplaced;
@@ -23,10 +24,10 @@
     _Bool _ubiquitousGatherComplete;
     int _queryState;
     int _previousQueryState;
-    BOOL _synchronous;
+    _Bool _synchronous;
     NSArray *_values;
     NSArray *_sortingAttributes;
-    CDStruct_51932491 _batchingParameters;
+    CDStruct_37e85dac _batchingParameters;
     NSMutableArray *_results;
     NSMutableDictionary *_resultsDict;
     void *_create_result_fn;
@@ -38,7 +39,7 @@
     void *_create_value_callbacks_equal;
     void *_create_value_callbacks_release;
     NSArray *_searchScopes;
-    unsigned long _scopeOptions;
+    unsigned int _scopeOptions;
     void *_sort_fn;
     void *_sort_context;
     NSObject<OS_dispatch_queue> *_notificationQueue;
@@ -47,13 +48,13 @@
     struct __CFRunLoop *_runLoop;
     NSOperationQueue *_queryQueue;
     _Bool _pendingNote;
-    unsigned long _notifyInterval;
+    unsigned long long _notifyInterval;
     int _disableCount;
     NSMutableDictionary *_created;
     NSPredicate *_predicate;
     struct _opaque_pthread_mutex_t {
-        long __sig;
-        char __opaque[40];
+        long long __sig;
+        char __opaque[56];
     } _stateLock;
 }
 
@@ -68,22 +69,22 @@
 - (void)_willInsert:(id)arg1;
 - (void)_willReplace:(id)arg1;
 - (void)_willRemove:(id)arg1;
-- (void)_didChange:(unsigned int)arg1 inSet:(id)arg2;
-- (void)_willChange:(unsigned int)arg1 inSet:(id)arg2;
+- (void)_didChange:(unsigned long long)arg1 inSet:(id)arg2;
+- (void)_willChange:(unsigned long long)arg1 inSet:(id)arg2;
 - (id)queryQueue;
 - (void)setQueryQueue:(id)arg1;
 - (void)setSortComparator:(void *)arg1 withContext:(void *)arg2;
-- (void)setSearchScope:(id)arg1 withOptions:(unsigned long)arg2;
-- (void)setCreateValueFunction:(void *)arg1 withContext:(void *)arg2 callbacks:(const CDStruct_41c7518b *)arg3;
-- (void)setCreateResultFunction:(void *)arg1 withContext:(void *)arg2 callbacks:(const CDStruct_41c7518b *)arg3;
-- (void)setBatchingParameters:(CDStruct_51932491)arg1;
+- (void)setSearchScope:(id)arg1 withOptions:(unsigned int)arg2;
+- (void)setCreateValueFunction:(void *)arg1 withContext:(void *)arg2 callbacks:(const CDStruct_70d275a4 *)arg3;
+- (void)setCreateResultFunction:(void *)arg1 withContext:(void *)arg2 callbacks:(const CDStruct_70d275a4 *)arg3;
+- (void)setBatchingParameters:(CDStruct_37e85dac)arg1;
 - (id)predicate;
-- (unsigned int)resultCount;
-- (const void *)resultAtIndex:(int)arg1;
-- (int)indexOfResult:(const void *)arg1;
-- (unsigned int)countOfResultsForAttributeName:(id)arg1 value:(id)arg2;
-- (id)attributeValueForName:(id)arg1 forResultAtIndex:(int)arg2;
-- (unsigned char)executeWithOptions:(unsigned long)arg1;
+- (unsigned long long)resultCount;
+- (const void *)resultAtIndex:(long long)arg1;
+- (long long)indexOfResult:(const void *)arg1;
+- (unsigned long long)countOfResultsForAttributeName:(id)arg1 value:(id)arg2;
+- (id)attributeValueForName:(id)arg1 forResultAtIndex:(long long)arg2;
+- (unsigned char)executeWithOptions:(unsigned long long)arg1;
 - (void)_runQuery;
 - (void)startObserver;
 - (void)_updateQueryResultForURL:(id)arg1 info:(id)arg2 updateType:(int)arg3;

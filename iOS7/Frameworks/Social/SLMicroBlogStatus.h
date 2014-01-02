@@ -17,7 +17,7 @@
     NSString *_maskedApplicationID;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSString *maskedApplicationID; // @synthesize maskedApplicationID=_maskedApplicationID;
 @property(nonatomic) __weak NSArray *imageData; // @synthesize imageData=_imageData;
 @property(retain, nonatomic) NSString *statusText; // @synthesize statusText=_statusText;

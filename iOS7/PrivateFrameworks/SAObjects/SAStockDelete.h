@@ -14,7 +14,7 @@
 
 + (id)deleteWithDictionary:(id)arg1 context:(id)arg2;
 + (id)delete;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSArray *stocks;
 - (id)encodedClassName;
 - (id)groupIdentifier;

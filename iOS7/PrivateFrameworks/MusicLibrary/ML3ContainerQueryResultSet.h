@@ -8,21 +8,22 @@
 
 @class ML3QueryResultSet_BackingStore;
 
+// Not exported
 @interface ML3ContainerQueryResultSet : ML3QueryResultSet
 {
-    BOOL _needsSorting;
-    BOOL _needsReversing;
+    _Bool _needsSorting;
+    _Bool _needsReversing;
     ML3QueryResultSet_BackingStore *_sortedBackingStore;
     long long _containerPID;
-    unsigned int _entityLimit;
+    unsigned long long _entityLimit;
 }
 
 - (void).cxx_destruct;
-- (BOOL)_updateToLibraryCurrentRevision;
-- (unsigned int)entityLimit;
+- (_Bool)_updateToLibraryCurrentRevision;
+- (unsigned long long)entityLimit;
 - (void)enumerateSectionsUsingBlock:(id)arg1;
 - (void)enumeratePersistentIDsUsingBlock:(id)arg1;
-- (long long)persistentIDAtIndex:(unsigned int)arg1;
+- (long long)persistentIDAtIndex:(unsigned long long)arg1;
 - (id)sortedBackingStoreForDisplayOrdering;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)_loadCurrentFullResults;

@@ -6,51 +6,52 @@
 
 #import "NSObject.h"
 
-@class EnhancementHistogram;
+@class CIEnhancementHistogram;
 
+// Not exported
 @interface CIEnhancementCalculation : NSObject
 {
-    CDStruct_e04e1a92 originalFaceColor;
-    EnhancementHistogram *lumHist;
-    EnhancementHistogram *rgbSumHist;
-    EnhancementHistogram *satHist;
-    EnhancementHistogram *borderHist;
-    float exposureValue;
-    float maxShadow;
-    float minShadow;
-    float exposureValueAtZeroShadow;
-    float curvePercent;
-    BOOL faceInputSet;
-    float percentFaceChange;
+    CDStruct_bfe67ca5 originalFaceColor;
+    CIEnhancementHistogram *lumHist;
+    CIEnhancementHistogram *rgbSumHist;
+    CIEnhancementHistogram *satHist;
+    CIEnhancementHistogram *borderHist;
+    double exposureValue;
+    double maxShadow;
+    double minShadow;
+    double exposureValueAtZeroShadow;
+    double curvePercent;
+    _Bool faceInputSet;
+    double percentFaceChange;
 }
 
-+ (float)bestWarmthForI:(float)arg1 q:(float)arg2 percentChange:(float *)arg3;
-@property(readonly) EnhancementHistogram *borderHist; // @synthesize borderHist;
-@property(readonly) EnhancementHistogram *satHist; // @synthesize satHist;
-@property(readonly) EnhancementHistogram *rgbSumHist; // @synthesize rgbSumHist;
-@property(readonly) EnhancementHistogram *lumHist; // @synthesize lumHist;
++ (double)bestWarmthForI:(double)arg1 q:(double)arg2 percentChange:(double *)arg3;
+@property(readonly) CIEnhancementHistogram *borderHist; // @synthesize borderHist;
+@property(readonly) CIEnhancementHistogram *satHist; // @synthesize satHist;
+@property(readonly) CIEnhancementHistogram *rgbSumHist; // @synthesize rgbSumHist;
+@property(readonly) CIEnhancementHistogram *lumHist; // @synthesize lumHist;
 - (void)printHistogramsDownsampledTo:(unsigned int)arg1;
 - (void)printAnalysis;
 - (void)printHistogram:(id)arg1 downsampledTo:(unsigned int)arg2;
-- (void)downSampleHistogram:(id)arg1 to:(unsigned int)arg2 storeIn:(float *)arg3;
+- (void)downSampleHistogram:(id)arg1 to:(unsigned int)arg2 storeIn:(double *)arg3;
 - (id)rawShadow;
 - (id)shadow;
-- (int)putShadowsAnalysisInto:(float *)arg1;
-- (struct CGPoint)curvePointAtIndex:(unsigned long)arg1;
-- (unsigned long)curveCount;
+- (int)putShadowsAnalysisInto:(double *)arg1;
+- (struct CGPoint)curvePointAtIndex:(unsigned long long)arg1;
+- (unsigned long long)curveCount;
 - (id)vibrance;
-@property(readonly) CDStruct_e04e1a92 originalFaceColor; // @synthesize originalFaceColor;
+@property(readonly) CDStruct_bfe67ca5 originalFaceColor; // @synthesize originalFaceColor;
 - (id)faceBalanceWarmth;
 - (id)faceBalanceStrength;
-- (void)setShadowsMin:(float)arg1 max:(float)arg2 zeroExposure:(float)arg3;
-- (void)setExposureValue:(float)arg1;
+- (void)setShadowsMin:(double)arg1 max:(double)arg2 zeroExposure:(double)arg3;
+- (void)setExposureValue:(double)arg1;
 - (void)setupFaceColor:(id)arg1 redIndex:(int)arg2 greenIndex:(int)arg3 blueIndex:(int)arg4;
-- (void)setFaceColorFromChromaI:(float)arg1 andChromaQ:(float)arg2;
+- (void)setFaceColorFromChromaI:(double)arg1 andChromaQ:(double)arg2;
 - (void)setSaturationHistogram:(id)arg1;
 - (void)setBorderHistogram:(id)arg1;
 - (void)setRGBSumHistogram:(id)arg1;
 - (void)setLuminanceHistogram:(id)arg1;
-- (void)setCurvePercent:(float)arg1;
+- (void)setCurvePercent:(double)arg1;
 - (void)dealloc;
 - (id)init;
 

@@ -8,11 +8,12 @@
 
 #import "_UIAppearanceContainer-Protocol.h"
 
+// Not exported
 @interface UIDeviceAppearanceContainer : NSObject <_UIAppearanceContainer>
 {
 }
 
-+ (BOOL)_preventsAppearanceProxyCustomization;
++ (_Bool)_preventsAppearanceProxyCustomization;
 - (id)_appearanceGuideClass;
 - (id)_appearanceContainer;
 

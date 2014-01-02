@@ -10,7 +10,7 @@
 
 @interface AXReportSender : NSObject
 {
-    BOOL _shouldAnnounce;
+    _Bool _shouldAnnounce;
     NSMutableArray *_reportCache;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
 }
@@ -18,12 +18,12 @@
 + (id)sharedInstance;
 @property(nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue; // @synthesize dispatchQueue=_dispatchQueue;
 @property(retain, nonatomic) NSMutableArray *reportCache; // @synthesize reportCache=_reportCache;
-@property(nonatomic) BOOL shouldAnnounce; // @synthesize shouldAnnounce=_shouldAnnounce;
+@property(nonatomic) _Bool shouldAnnounce; // @synthesize shouldAnnounce=_shouldAnnounce;
 - (void)_announceAndLogMessage:(id)arg1;
-- (void)_sendReport:(id)arg1 asynchronously:(BOOL)arg2 timeoutInterval:(double)arg3;
+- (void)_sendReport:(id)arg1 asynchronously:(_Bool)arg2 timeoutInterval:(double)arg3;
 - (void)_sendReportWithAction:(id)arg1 route:(id)arg2 simpleParameters:(id)arg3 fileParameters:(id)arg4;
-- (void)_sendReportWithAction:(id)arg1 route:(id)arg2 simpleParameters:(id)arg3 fileParameters:(id)arg4 forceSilent:(BOOL)arg5;
-- (void)_sendReportWithAction:(id)arg1 route:(id)arg2 simpleParameters:(id)arg3 fileParameters:(id)arg4 forceSilent:(BOOL)arg5 asynchronously:(BOOL)arg6 timeoutInterval:(double)arg7;
+- (void)_sendReportWithAction:(id)arg1 route:(id)arg2 simpleParameters:(id)arg3 fileParameters:(id)arg4 forceSilent:(_Bool)arg5;
+- (void)_sendReportWithAction:(id)arg1 route:(id)arg2 simpleParameters:(id)arg3 fileParameters:(id)arg4 forceSilent:(_Bool)arg5 asynchronously:(_Bool)arg6 timeoutInterval:(double)arg7;
 - (id)_gatherDeviceInfo;
 - (void)_addDeviceInfoToSimpleParamters:(id)arg1 overrideProcessName:(id)arg2;
 - (void)_addCreatedDateToSimpleParameters:(id)arg1;
@@ -62,7 +62,7 @@
 - (void)sendFailedAssertionSynchronouslyWithErrorMessage:(id)arg1 timeoutInterval:(double)arg2 overrideProcessName:(id)arg3;
 - (void)sendFailedAssertionWithErrorMessage:(id)arg1;
 - (void)sendFailedAssertionWithErrorMessage:(id)arg1 overrideProcessName:(id)arg2;
-- (void)_sendFailedAssertionWithErrorMessage:(id)arg1 overrideProcessName:(id)arg2 asynchronously:(BOOL)arg3 timeoutInterval:(double)arg4;
+- (void)_sendFailedAssertionWithErrorMessage:(id)arg1 overrideProcessName:(id)arg2 asynchronously:(_Bool)arg3 timeoutInterval:(double)arg4;
 - (void)sendStackshot:(id)arg1 description:(id)arg2;
 - (void)sendScreenshot:(id)arg1 type:(id)arg2 description:(id)arg3;
 - (void)dealloc;

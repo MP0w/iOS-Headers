@@ -6,18 +6,22 @@
 
 #import <GameController/GCController.h>
 
+#import "NSSecureCoding-Protocol.h"
+
 @class NSString;
 
-@interface _GCController : GCController
+// Not exported
+@interface _GCController : GCController <NSSecureCoding>
 {
     id _controllerPausedHandler;
     NSString *_vendorName;
-    int _playerIndex;
+    long long _playerIndex;
     id <GCNamedProfile> _profile;
     struct __IOHIDDevice *_deviceRef;
     unsigned int _service;
 }
 
++ (_Bool)supportsSecureCoding;
 - (unsigned int)service;
 - (struct __IOHIDDevice *)deviceRef;
 - (void)setProfile:(id)arg1;
@@ -27,13 +31,15 @@
 - (void).cxx_destruct;
 - (id)extendedGamepad;
 - (id)gamepad;
-- (void)setPlayerIndex:(int)arg1;
-- (int)playerIndex;
-- (BOOL)isAttachedToDevice;
+- (void)setPlayerIndex:(long long)arg1;
+- (long long)playerIndex;
+- (_Bool)isAttachedToDevice;
 - (id)vendorName;
 - (void)clearDeviceRef;
 - (id)initWithDeviceRef:(struct __IOHIDDevice *)arg1;
-- (unsigned int)deviceHash;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (unsigned long long)deviceHash;
 
 @end
 

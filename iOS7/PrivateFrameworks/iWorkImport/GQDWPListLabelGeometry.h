@@ -8,17 +8,18 @@
 
 #import "GQDNameMappable-Protocol.h"
 
+// Not exported
 @interface GQDWPListLabelGeometry : NSObject <GQDNameMappable>
 {
     float mScale;
     float mBaselineOffset;
-    BOOL mScaleWithText;
+    _Bool mScaleWithText;
     int mLabelAlignment;
 }
 
 + (const struct StateSpec *)stateForReading;
 - (int)labelAlignment;
-- (BOOL)scaleWithText;
+- (_Bool)scaleWithText;
 - (float)baselineOffset;
 - (float)scale;
 - (int)readAttributesFromReader:(struct _xmlTextReader *)arg1;

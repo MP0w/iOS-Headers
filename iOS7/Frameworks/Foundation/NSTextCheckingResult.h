@@ -14,21 +14,6 @@
 }
 
 + (void)initialize;
-+ (id)transitInformationCheckingResultWithRange:(struct _NSRange)arg1 components:(id)arg2;
-+ (id)phoneNumberCheckingResultWithRange:(struct _NSRange)arg1 phoneNumber:(id)arg2;
-+ (id)regularExpressionCheckingResultWithRanges:(struct _NSRange *)arg1 count:(unsigned int)arg2 regularExpression:(id)arg3;
-+ (id)correctionCheckingResultWithRange:(struct _NSRange)arg1 replacementString:(id)arg2 alternativeStrings:(id)arg3;
-+ (id)correctionCheckingResultWithRange:(struct _NSRange)arg1 replacementString:(id)arg2;
-+ (id)replacementCheckingResultWithRange:(struct _NSRange)arg1 replacementString:(id)arg2;
-+ (id)dashCheckingResultWithRange:(struct _NSRange)arg1 replacementString:(id)arg2;
-+ (id)quoteCheckingResultWithRange:(struct _NSRange)arg1 replacementString:(id)arg2;
-+ (id)linkCheckingResultWithRange:(struct _NSRange)arg1 URL:(id)arg2;
-+ (id)addressCheckingResultWithRange:(struct _NSRange)arg1 components:(id)arg2;
-+ (id)dateCheckingResultWithRange:(struct _NSRange)arg1 date:(id)arg2 timeZone:(id)arg3 duration:(double)arg4;
-+ (id)dateCheckingResultWithRange:(struct _NSRange)arg1 date:(id)arg2;
-+ (id)grammarCheckingResultWithRange:(struct _NSRange)arg1 details:(id)arg2;
-+ (id)spellCheckingResultWithRange:(struct _NSRange)arg1;
-+ (id)orthographyCheckingResultWithRange:(struct _NSRange)arg1 orthography:(id)arg2;
 - (void *)underlyingResult;
 - (id)phoneNumber;
 - (id)regularExpression;
@@ -42,10 +27,10 @@
 - (id)date;
 - (id)grammarDetails;
 - (id)orthography;
-- (struct _NSRange)rangeAtIndex:(unsigned int)arg1;
-- (unsigned int)numberOfRanges;
-- (BOOL)_adjustRangesWithOffset:(int)arg1;
-- (id)resultByAdjustingRangesWithOffset:(int)arg1;
+- (struct _NSRange)rangeAtIndex:(unsigned long long)arg1;
+- (unsigned long long)numberOfRanges;
+- (_Bool)_adjustRangesWithOffset:(long long)arg1;
+- (id)resultByAdjustingRangesWithOffset:(long long)arg1;
 @property(readonly) struct _NSRange range;
 @property(readonly) unsigned long long resultType;
 - (struct _NSRange)decodeRangeWithCoder:(id)arg1;

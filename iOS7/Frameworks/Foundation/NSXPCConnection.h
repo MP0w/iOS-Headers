@@ -28,8 +28,8 @@
     NSXPCInterface *_remoteObjectInterface;
     NSString *_serviceName;
     NSXPCListenerEndpoint *_endpoint;
-    void *_eCache;
-    void *_dCache;
+    id _eCache;
+    id _dCache;
 }
 
 + (void)endTransaction;
@@ -49,6 +49,10 @@
 - (id)remoteObjectProxy;
 @property(retain) NSXPCInterface *exportedInterface;
 @property(retain) id exportedObject;
+- (void)_addClassToDecodeCache:(Class)arg1;
+- (_Bool)_decodeCacheContainsClass:(Class)arg1;
+- (void)_addClassToEncodeCache:(Class)arg1;
+- (_Bool)_encodeCacheContainsClass:(Class)arg1;
 - (id)debugDescription;
 - (id)_queue;
 - (void)_setQueue:(id)arg1;
@@ -59,7 +63,7 @@
 - (id)userInfo;
 - (id)valueForEntitlement:(id)arg1;
 - (CDStruct_6ad76789)auditToken;
-- (void)setOptions:(unsigned int)arg1;
+- (void)setOptions:(unsigned long long)arg1;
 - (id)_exportTable;
 @property(readonly) NSXPCListenerEndpoint *endpoint;
 @property(readonly) NSString *serviceName;
@@ -71,7 +75,7 @@
 - (void)_sendInvocation:(id)arg1 proxyNumber:(unsigned long long)arg2 remoteInterface:(id)arg3;
 - (void)_sendDesistForProxyNumber:(unsigned long long)arg1;
 - (void)addBarrierBlock:(id)arg1;
-- (void)_invalidate:(BOOL)arg1;
+- (void)_invalidate:(_Bool)arg1;
 - (void)invalidate;
 - (void)stop;
 - (void)start;
@@ -82,10 +86,10 @@
 - (id)initWithListenerEndpoint:(id)arg1;
 - (id)initWithEndpoint:(id)arg1;
 - (id)initWithMachServiceName:(id)arg1;
-- (id)initWithMachServiceName:(id)arg1 options:(unsigned int)arg2;
+- (id)initWithMachServiceName:(id)arg1 options:(unsigned long long)arg2;
 - (id)initWithServiceName:(id)arg1;
-- (id)initWithServiceName:(id)arg1 options:(unsigned int)arg2;
-- (id)_initWithPeerConnection:(id)arg1 name:(id)arg2 options:(unsigned int)arg3;
+- (id)initWithServiceName:(id)arg1 options:(unsigned long long)arg2;
+- (id)_initWithPeerConnection:(id)arg1 name:(id)arg2 options:(unsigned long long)arg3;
 - (id)init;
 - (void)_decodeAndInvokeMessageWithData:(id)arg1;
 - (void)_decodeAndInvokeReplyBlockWithData:(id)arg1;

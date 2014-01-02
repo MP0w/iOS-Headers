@@ -8,21 +8,22 @@
 
 #import "NSLocking-Protocol.h"
 
+// Not exported
 @interface _PFLock : NSObject <NSLocking>
 {
     int _cd_rc;
     struct _opaque_pthread_mutex_t _lock;
     struct _opaque_pthread_t {
-        long _field1;
+        long long _field1;
         struct __darwin_pthread_handler_rec *_field2;
-        char _field3[596];
+        char _field3[1168];
     } *_owner;
-    unsigned int _count;
+    unsigned long long _count;
 }
 
 + (void)initialize;
 - (void)unlock;
-- (BOOL)tryLock;
+- (_Bool)tryLock;
 - (void)lock;
 - (void)finalize;
 - (void)dealloc;

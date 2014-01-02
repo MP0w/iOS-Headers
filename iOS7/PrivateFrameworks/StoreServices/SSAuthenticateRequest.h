@@ -18,7 +18,7 @@
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)copyXPCEncoding;
 - (void)startWithCompletionBlock:(id)arg1;
-- (BOOL)start;
+- (_Bool)start;
 - (void)startWithAuthenticateResponseBlock:(id)arg1;
 @property(readonly) SSAuthenticationContext *authenticationContext;
 - (void)dealloc;

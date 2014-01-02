@@ -13,27 +13,27 @@
 
 @interface SSURLBagContext : NSObject <SSXPCCoding, NSCopying>
 {
-    int _allowedRetryCount;
-    BOOL _allowsExpiredBags;
-    int _bagType;
+    long long _allowedRetryCount;
+    _Bool _allowsExpiredBags;
+    long long _bagType;
     NSMutableDictionary *_httpHeaders;
-    BOOL _ignoresCaches;
+    _Bool _ignoresCaches;
     NSNumber *_userIdentifier;
-    BOOL _usesCachedBagsOnly;
+    _Bool _usesCachedBagsOnly;
 }
 
-+ (id)contextWithBagType:(int)arg1;
-@property(nonatomic) BOOL usesCachedBagsOnly; // @synthesize usesCachedBagsOnly=_usesCachedBagsOnly;
++ (id)contextWithBagType:(long long)arg1;
+@property(nonatomic) _Bool usesCachedBagsOnly; // @synthesize usesCachedBagsOnly=_usesCachedBagsOnly;
 @property(retain, nonatomic) NSNumber *userIdentifier; // @synthesize userIdentifier=_userIdentifier;
-@property(nonatomic) BOOL ignoresCaches; // @synthesize ignoresCaches=_ignoresCaches;
-@property(nonatomic) int bagType; // @synthesize bagType=_bagType;
-@property(nonatomic) BOOL allowsExpiredBags; // @synthesize allowsExpiredBags=_allowsExpiredBags;
-@property(nonatomic) int allowedRetryCount; // @synthesize allowedRetryCount=_allowedRetryCount;
+@property(nonatomic) _Bool ignoresCaches; // @synthesize ignoresCaches=_ignoresCaches;
+@property(nonatomic) long long bagType; // @synthesize bagType=_bagType;
+@property(nonatomic) _Bool allowsExpiredBags; // @synthesize allowsExpiredBags=_allowsExpiredBags;
+@property(nonatomic) long long allowedRetryCount; // @synthesize allowedRetryCount=_allowedRetryCount;
 - (id)copyXPCEncoding;
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)description;
 - (id)valueForHTTPHeaderField:(id)arg1;
 - (void)setValue:(id)arg1 forHTTPHeaderField:(id)arg2;

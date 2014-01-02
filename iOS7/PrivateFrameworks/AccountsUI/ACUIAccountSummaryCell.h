@@ -10,26 +10,26 @@
 
 @interface ACUIAccountSummaryCell : PSTableCell
 {
-    int _style;
+    long long _style;
     UILabel *_dataclassesLabel;
     NSSet *_enabledDataclasses;
     NSSet *_supportedDataclasses;
     ACAccount *_account;
-    BOOL _useCustomDetailsText;
+    _Bool _useCustomDetailsText;
     NSString *_desiredValue;
 }
 
 + (id)_valueForCellSpecifier:(id)arg1;
-+ (id)specifierWithStyle:(int)arg1 account:(id)arg2 valueText:(id)arg3 detailControllerClass:(Class)arg4 presentationStyle:(int)arg5;
-+ (id)specifierWithStyle:(int)arg1 account:(id)arg2 detailControllerClass:(Class)arg3 presentationStyle:(int)arg4;
++ (id)specifierWithStyle:(long long)arg1 account:(id)arg2 valueText:(id)arg3 detailControllerClass:(Class)arg4 presentationStyle:(long long)arg5;
++ (id)specifierWithStyle:(long long)arg1 account:(id)arg2 detailControllerClass:(Class)arg3 presentationStyle:(long long)arg4;
 - (void).cxx_destruct;
 - (id)_numberFormatter;
 - (id)_font;
-- (id)_enabledDataclassesTextForWidth:(float)arg1;
+- (id)_enabledDataclassesTextForWidth:(double)arg1;
 - (id)_dataclassesLabel;
 - (void)layoutSubviews;
 - (void)hideDataclass:(id)arg1;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
 
 @end
 

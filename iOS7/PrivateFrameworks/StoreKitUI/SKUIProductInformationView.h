@@ -21,7 +21,7 @@
 @property(retain, nonatomic) NSArray *informationLines; // @synthesize informationLines=_informationLines;
 @property(retain, nonatomic) SKUIColorScheme *colorScheme; // @synthesize colorScheme=_colorScheme;
 - (void).cxx_destruct;
-- (float)_keyWidth;
+- (double)_keyWidth;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)setBackgroundColor:(id)arg1;
 - (void)layoutSubviews;

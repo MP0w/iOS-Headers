@@ -12,9 +12,9 @@
 {
 }
 
-+ (BOOL)deviceSupportsCellularData;
-+ (BOOL)isEnabled;
-+ (void)setEnabled:(BOOL)arg1;
++ (_Bool)deviceSupportsCellularData;
++ (_Bool)isEnabled;
++ (void)setEnabled:(_Bool)arg1;
 + (id)iconImage;
 + (id)preferencesURL;
 

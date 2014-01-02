@@ -18,7 +18,7 @@
 }
 
 - (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
-- (void)connection:(id)arg1 connectionStateDidChange:(BOOL)arg2;
+- (void)connection:(id)arg1 connectionStateDidChange:(_Bool)arg2;
 - (void)establishSectionID:(id)arg1 completion:(id)arg2;
 - (void)invalidate;
 - (void)dealloc;

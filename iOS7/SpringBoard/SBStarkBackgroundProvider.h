@@ -12,15 +12,15 @@
 {
     NSString *_serviceName;
     NSString *_viewControllerClassName;
-    unsigned int _priority;
+    unsigned long long _priority;
 }
 
-@property(readonly, nonatomic) unsigned int priority; // @synthesize priority=_priority;
+@property(readonly, nonatomic) unsigned long long priority; // @synthesize priority=_priority;
 @property(readonly, nonatomic) NSString *viewControllerClassName; // @synthesize viewControllerClassName=_viewControllerClassName;
 @property(readonly, nonatomic) NSString *serviceName; // @synthesize serviceName=_serviceName;
 - (id)description;
 - (void)dealloc;
-- (id)initWithServiceName:(id)arg1 viewControllerClassName:(id)arg2 priority:(unsigned int)arg3;
+- (id)initWithServiceName:(id)arg1 viewControllerClassName:(id)arg2 priority:(unsigned long long)arg3;
 - (id)initWithServiceName:(id)arg1 options:(id)arg2;
 
 @end

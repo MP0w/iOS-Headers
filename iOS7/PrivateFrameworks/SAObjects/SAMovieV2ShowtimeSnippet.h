@@ -6,7 +6,7 @@
 
 #import <SAObjects/SAUISnippet.h>
 
-@class NSArray, NSString, SALocalSearchBusiness2;
+@class NSArray, NSString, SALocalSearchBusiness2, SAUIImageResource;
 
 @interface SAMovieV2ShowtimeSnippet : SAUISnippet
 {
@@ -18,6 +18,7 @@
 @property(retain, nonatomic) SALocalSearchBusiness2 *theater;
 @property(copy, nonatomic) NSArray *showtimes;
 @property(copy, nonatomic) NSString *movieName;
+@property(retain, nonatomic) SAUIImageResource *attributionLogo;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

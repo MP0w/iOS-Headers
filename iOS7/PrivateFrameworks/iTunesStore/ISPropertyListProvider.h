@@ -12,8 +12,8 @@
 {
 }
 
-- (BOOL)processPropertyList:(id)arg1 returningError:(id *)arg2;
-- (BOOL)processDialogFromPropertyList:(id)arg1 returningError:(id *)arg2;
+- (_Bool)processPropertyList:(id)arg1 returningError:(id *)arg2;
+- (_Bool)processDialogFromPropertyList:(id)arg1 returningError:(id *)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end

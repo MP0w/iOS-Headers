@@ -8,6 +8,7 @@
 
 @class NSArray;
 
+// Not exported
 @interface LKNSArrayCodingProxy : CACodingProxy
 {
     NSArray *_array;

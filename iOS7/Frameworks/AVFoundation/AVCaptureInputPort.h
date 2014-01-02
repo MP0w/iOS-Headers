@@ -13,12 +13,12 @@
     AVCaptureInputPortInternal *_internal;
 }
 
-+ (BOOL)automaticallyNotifiesObserversOfClock;
-+ (id)portWithInput:(id)arg1 mediaType:(id)arg2 formatDescription:(struct opaqueCMFormatDescription *)arg3 enabled:(BOOL)arg4;
++ (_Bool)automaticallyNotifiesObserversOfClock;
++ (id)portWithInput:(id)arg1 mediaType:(id)arg2 formatDescription:(struct opaqueCMFormatDescription *)arg3 enabled:(_Bool)arg4;
 - (id)valueForUndefinedKey:(id)arg1;
 - (void)_setClock:(struct OpaqueCMClock *)arg1;
 @property(readonly, nonatomic) struct OpaqueCMClock *clock;
-@property(nonatomic, getter=isEnabled) BOOL enabled;
+@property(nonatomic, getter=isEnabled) _Bool enabled;
 - (void)_setFormatDescription:(struct opaqueCMFormatDescription *)arg1;
 @property(readonly, nonatomic) struct opaqueCMFormatDescription *formatDescription;
 @property(readonly, nonatomic) NSString *mediaType;
@@ -26,7 +26,7 @@
 - (id)description;
 - (void)setOwner:(id)arg1;
 - (void)dealloc;
-- (id)initWithInput:(id)arg1 mediaType:(id)arg2 formatDescription:(struct opaqueCMFormatDescription *)arg3 enabled:(BOOL)arg4;
+- (id)initWithInput:(id)arg1 mediaType:(id)arg2 formatDescription:(struct opaqueCMFormatDescription *)arg3 enabled:(_Bool)arg4;
 - (id)init;
 
 @end

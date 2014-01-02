@@ -10,26 +10,21 @@
 
 @interface CUIRenditionSliceInformation : NSObject <NSCopying>
 {
-    int _renditionType;
-    float _boundaries[4];
+    long long _renditionType;
+    double _boundaries[4];
     struct CGRect _destinationRect;
-    struct {
-        float top;
-        float left;
-        float bottom;
-        float right;
-    } _edgeInsets;
+    CDStruct_3c058996 _edgeInsets;
 }
 
-@property(readonly, nonatomic) CDStruct_818bb265 edgeInsets; // @synthesize edgeInsets=_edgeInsets;
+@property(readonly, nonatomic) CDStruct_3c058996 edgeInsets; // @synthesize edgeInsets=_edgeInsets;
 @property(readonly, nonatomic) struct CGRect destinationRect; // @synthesize destinationRect=_destinationRect;
-@property(readonly, nonatomic) int renditionType; // @synthesize renditionType=_renditionType;
+@property(readonly, nonatomic) long long renditionType; // @synthesize renditionType=_renditionType;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
-- (float)positionOfSliceBoundary:(unsigned int)arg1;
+- (double)positionOfSliceBoundary:(unsigned long long)arg1;
 - (struct CGSize)_bottomRightCapSize;
 - (struct CGSize)_topLeftCapSize;
-- (id)initWithRenditionType:(int)arg1 destinationRect:(struct CGRect)arg2 topLeftInset:(struct CGSize)arg3 bottomRightInset:(struct CGSize)arg4;
+- (id)initWithRenditionType:(long long)arg1 destinationRect:(struct CGRect)arg2 topLeftInset:(struct CGSize)arg3 bottomRightInset:(struct CGSize)arg4;
 - (id)initWithSliceInformation:(id)arg1 destinationRect:(struct CGRect)arg2;
 
 @end

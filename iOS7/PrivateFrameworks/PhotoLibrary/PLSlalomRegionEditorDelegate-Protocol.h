@@ -7,9 +7,11 @@
 #import "NSObject-Protocol.h"
 
 @protocol PLSlalomRegionEditorDelegate <NSObject>
+- (void)slalomRegionEditorRequestForceUnzoom:(id)arg1;
+- (_Bool)slalomRegionEditorRequestForceZoom:(id)arg1;
 - (void)slalomRegionEditorEndValueChanged:(id)arg1;
 - (void)slalomRegionEditorStartValueChanged:(id)arg1;
 - (void)slalomRegionEditorDidEndEditing:(id)arg1;
-- (void)slalomRegionEditorDidBeginEditing:(id)arg1;
+- (void)slalomRegionEditorDidBeginEditing:(id)arg1 withStartHandle:(_Bool)arg2;
 @end
 

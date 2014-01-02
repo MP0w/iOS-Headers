@@ -10,21 +10,21 @@
 
 @interface ISStoreAuthenticationChallenge : ISAuthenticationChallenge
 {
-    int _failureCount;
-    BOOL _hasPassword;
+    long long _failureCount;
+    _Bool _hasPassword;
     NSString *_password;
     id <NSURLAuthenticationChallengeSender> _sender;
     NSString *_user;
-    BOOL _userNameIsEditable;
+    _Bool _userNameIsEditable;
 }
 
-@property BOOL userNameIsEditable; // @synthesize userNameIsEditable=_userNameIsEditable;
+@property _Bool userNameIsEditable; // @synthesize userNameIsEditable=_userNameIsEditable;
 @property(retain) NSString *user; // @synthesize user=_user;
 @property id <NSURLAuthenticationChallengeSender> sender; // @synthesize sender=_sender;
 @property(retain) NSString *password; // @synthesize password=_password;
-@property BOOL hasPassword; // @synthesize hasPassword=_hasPassword;
-@property int failureCount; // @synthesize failureCount=_failureCount;
-- (BOOL)userNameIsEmail;
+@property _Bool hasPassword; // @synthesize hasPassword=_hasPassword;
+@property long long failureCount; // @synthesize failureCount=_failureCount;
+- (_Bool)userNameIsEmail;
 - (void)dealloc;
 - (id)init;
 

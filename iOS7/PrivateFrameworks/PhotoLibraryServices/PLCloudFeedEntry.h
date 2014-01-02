@@ -16,11 +16,14 @@
 + (id)entityInManagedObjectContext:(id)arg1;
 + (id)entryWithURIRepresentation:(id)arg1 inLibrary:(id)arg2;
 + (id)allEntriesInManagedObjectContext:(id)arg1;
-+ (id)recentAssetsEntriesInLibrary:(id)arg1 limit:(int)arg2;
++ (id)firstEntryWithType:(long long)arg1 albumGUID:(id)arg2 inLibrary:(id)arg3;
++ (id)recentAssetsEntriesInLibrary:(id)arg1 limit:(long long)arg2;
++ (id)recentEntriesInLibrary:(id)arg1 earliestDate:(id)arg2 latestDate:(id)arg3 limit:(long long)arg4;
 + (id)allEntriesInLibrary:(id)arg1;
-+ (id)entriesSortDescriptorsAscending:(BOOL)arg1;
-@property(readonly, nonatomic) int entryPriority;
-@property(readonly, nonatomic) int entryType;
++ (id)entriesSortDescriptorsAscending:(_Bool)arg1;
+- (_Bool)shouldBeRemovedFromPhotoLibrary:(id)arg1;
+@property(readonly, nonatomic) long long entryPriority;
+@property(readonly, nonatomic) long long entryType;
 @property(readonly, nonatomic) NSURL *URIRepresentation;
 
 // Remaining properties

@@ -17,8 +17,8 @@
 
 - (void).cxx_destruct;
 - (void)_sendLocalChangesForWishlist:(id)arg1;
-- (BOOL)_mergeItems:(id)arg1 wishlist:(id)arg2 didChange:(char *)arg3 error:(id *)arg4;
-- (BOOL)_loadRemoteItemsForWishlist:(id)arg1 didChange:(char *)arg2 error:(id *)arg3;
+- (_Bool)_mergeItems:(id)arg1 wishlist:(id)arg2 didChange:(_Bool *)arg3 error:(id *)arg4;
+- (_Bool)_loadRemoteItemsForWishlist:(id)arg1 didChange:(_Bool *)arg2 error:(id *)arg3;
 - (void)main;
 @property(copy) id resultBlock;
 - (id)initWithClientContext:(id)arg1;

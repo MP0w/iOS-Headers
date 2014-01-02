@@ -20,7 +20,7 @@
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)setBackgroundColor:(id)arg1;
 - (void)layoutSubviews;
-- (id)initWithPlaceholderString:(id)arg1;
+- (id)initWithPlaceholderString:(id)arg1 isPad:(_Bool)arg2;
 
 @end
 

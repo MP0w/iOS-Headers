@@ -16,7 +16,7 @@
 - (void)dealloc;
 - (void)enqueueReusablePassView:(id)arg1;
 - (id)dequeueReusablePassView;
-- (id)initWithCount:(unsigned int)arg1;
+- (id)initWithCount:(unsigned long long)arg1;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "SAServerBoundCommand-Protocol.h"
 
-@class NSArray, NSData, NSString;
+@class NSArray, NSString;
 
 @interface SASSpeechPacket : SABaseCommand <SAServerBoundCommand>
 {
@@ -17,8 +17,7 @@
 + (id)speechPacketWithDictionary:(id)arg1 context:(id)arg2;
 + (id)speechPacket;
 @property(copy, nonatomic) NSArray *packets;
-@property(nonatomic) int packetNumber;
-@property(copy, nonatomic) NSData *data;
+@property(nonatomic) long long packetNumber;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

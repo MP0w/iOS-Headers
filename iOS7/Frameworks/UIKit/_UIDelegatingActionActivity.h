@@ -8,6 +8,7 @@
 
 @class UIDocumentInteractionController;
 
+// Not exported
 @interface _UIDelegatingActionActivity : UIActivity
 {
     UIDocumentInteractionController *_documentInteractionController;
@@ -15,7 +16,7 @@
 }
 
 - (void)performActivity;
-- (BOOL)canPerformWithActivityItems:(id)arg1;
+- (_Bool)canPerformWithActivityItems:(id)arg1;
 - (id)_activityImage;
 - (id)activityTitle;
 - (id)activityType;

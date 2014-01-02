@@ -8,6 +8,7 @@
 
 @class NSObject<OS_dispatch_queue>, NSString;
 
+// Not exported
 @interface ML3DispatchQueue : NSObject
 {
     NSString *_identifier;
@@ -19,13 +20,13 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) BOOL isOnQueue;
+@property(readonly, nonatomic) _Bool isOnQueue;
 - (void)dispatchAsync:(id)arg1;
 - (void)dispatchAsyncOrInvokeImmediately:(id)arg1;
 - (void)dispatchSync:(id)arg1;
 - (void)dispatchSyncOrInvokeImmediately:(id)arg1;
 - (id)init;
-- (id)initWithUniqueIdentifier:(id)arg1 serial:(BOOL)arg2;
+- (id)initWithUniqueIdentifier:(id)arg1 serial:(_Bool)arg2;
 
 @end
 

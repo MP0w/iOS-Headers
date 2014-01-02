@@ -17,26 +17,26 @@
 }
 
 + (void)initialize;
-@property(readonly, nonatomic, getter=_shouldOptimizeAccessForLinearMoviePlayback) BOOL shouldOptimizeAccessForLinearMoviePlayback;
+@property(readonly, nonatomic, getter=_shouldOptimizeAccessForLinearMoviePlayback) _Bool shouldOptimizeAccessForLinearMoviePlayback;
 - (void)_serverHasDied;
-@property(readonly, nonatomic) unsigned int referenceRestrictions;
-- (id)_mapFigErrorCodeToNSError:(long)arg1;
+@property(readonly, nonatomic) unsigned long long referenceRestrictions;
+- (id)_mapFigErrorCodeToNSError:(int)arg1;
 - (void)loadValuesAsynchronouslyForKeys:(id)arg1 keysForCollectionKeys:(id)arg2 completionHandler:(id)arg3;
 - (void)_ensureAllDependenciesOfKeyAreLoaded:(id)arg1;
-@property(readonly, nonatomic, getter=_isStreaming) BOOL streaming;
-@property(readonly, nonatomic) BOOL hasProtectedContent;
+@property(readonly, nonatomic, getter=_isStreaming) _Bool streaming;
+@property(readonly, nonatomic) _Bool hasProtectedContent;
 @property(readonly, nonatomic) unsigned long long downloadToken;
 @property(readonly, nonatomic) NSURL *downloadDestinationURL;
 @property(readonly, nonatomic) NSURL *resolvedURL;
-@property(readonly, nonatomic) BOOL shouldMatchDataInCacheByURLWithoutQueryComponent;
-@property(readonly, nonatomic) BOOL shouldMatchDataInCacheByURLPathComponentOnly;
+@property(readonly, nonatomic) _Bool shouldMatchDataInCacheByURLWithoutQueryComponent;
+@property(readonly, nonatomic) _Bool shouldMatchDataInCacheByURLPathComponentOnly;
 @property(readonly, nonatomic) AVAssetCache *assetCache;
 @property(readonly, nonatomic) NSArray *chapterGroupInfo;
-@property(readonly, nonatomic, getter=isCompatibleWithSavedPhotosAlbum) BOOL compatibleWithSavedPhotosAlbum;
-@property(readonly, nonatomic, getter=isComposable) BOOL composable;
-@property(readonly, nonatomic, getter=isReadable) BOOL readable;
-@property(readonly, nonatomic, getter=isExportable) BOOL exportable;
-@property(readonly, nonatomic, getter=isPlayable) BOOL playable;
+@property(readonly, nonatomic, getter=isCompatibleWithSavedPhotosAlbum) _Bool compatibleWithSavedPhotosAlbum;
+@property(readonly, nonatomic, getter=isComposable) _Bool composable;
+@property(readonly, nonatomic, getter=isReadable) _Bool readable;
+@property(readonly, nonatomic, getter=isExportable) _Bool exportable;
+@property(readonly, nonatomic, getter=isPlayable) _Bool playable;
 @property(readonly, nonatomic) NSString *lyrics;
 @property(readonly, nonatomic) CDStruct_1b6d18a9 duration;
 @property(readonly, nonatomic, getter=_playbackItem) struct OpaqueFigPlaybackItem *playbackItem;
@@ -46,7 +46,7 @@
 - (void)cancelLoading;
 - (id)assetInspector;
 - (void)loadValuesAsynchronouslyForKeys:(id)arg1 completionHandler:(id)arg2;
-- (int)statusOfValueForKey:(id)arg1 error:(id *)arg2;
+- (long long)statusOfValueForKey:(id)arg1 error:(id *)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 @property(readonly, nonatomic, getter=_weakReference) AVWeakReference *weakReference;

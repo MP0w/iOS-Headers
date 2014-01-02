@@ -23,9 +23,9 @@
 - (id)_dylibNameForImage:(id)arg1;
 - (id)_bundleNameForImage:(id)arg1;
 - (id)_frameworkNameForImage:(id)arg1;
-- (BOOL)_loadImageIsDylib:(id)arg1;
-- (BOOL)_loadImageIsBundle:(id)arg1;
-- (BOOL)_loadImageIsFramework:(id)arg1;
+- (_Bool)_loadImageIsDylib:(id)arg1;
+- (_Bool)_loadImageIsBundle:(id)arg1;
+- (_Bool)_loadImageIsFramework:(id)arg1;
 - (void)_addHandler:(id)arg1 withName:(id)arg2 toMap:(id *)arg3;
 - (void)addHandler:(id)arg1 forDylib:(void)arg2;
 - (void)addHandler:(id)arg1 forFramework:(void)arg2;

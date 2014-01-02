@@ -6,23 +6,29 @@
 
 #import "PBCodable.h"
 
-@class NSMutableArray;
+#import "NSCopying-Protocol.h"
 
-@interface GEOSuggestionEntryList : PBCodable
+@class NSMutableArray, NSString;
+
+@interface GEOSuggestionEntryList : PBCodable <NSCopying>
 {
+    NSString *_localizedSectionHeader;
     NSMutableArray *_suggestionEntries;
 }
 
+@property(retain, nonatomic) NSString *localizedSectionHeader; // @synthesize localizedSectionHeader=_localizedSectionHeader;
 @property(retain, nonatomic) NSMutableArray *suggestionEntries; // @synthesize suggestionEntries=_suggestionEntries;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)suggestionEntriesAtIndex:(unsigned int)arg1;
-- (unsigned int)suggestionEntriesCount;
+@property(readonly, nonatomic) _Bool hasLocalizedSectionHeader;
+- (id)suggestionEntriesAtIndex:(unsigned long long)arg1;
+- (unsigned long long)suggestionEntriesCount;
 - (void)addSuggestionEntries:(id)arg1;
 - (void)clearSuggestionEntries;
 - (void)dealloc;

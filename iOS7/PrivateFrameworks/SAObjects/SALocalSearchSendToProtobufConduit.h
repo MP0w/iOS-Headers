@@ -14,8 +14,8 @@
 
 + (id)sendToProtobufConduitWithDictionary:(id)arg1 context:(id)arg2;
 + (id)sendToProtobufConduit;
-- (BOOL)requiresResponse;
-@property(nonatomic) int timeoutInSeconds;
+- (_Bool)requiresResponse;
+@property(nonatomic) long long timeoutInSeconds;
 @property(copy, nonatomic) NSData *rawRequest;
 @property(copy, nonatomic) NSURL *endpoint;
 @property(copy, nonatomic) NSArray *attributes;

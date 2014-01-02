@@ -6,16 +6,17 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface _UIStatusBarStateStackInfo : NSObject
 {
-    int _statusBarOrientationWithoutHost;
-    float _statusBarHeightWithoutHost;
     int _hostPID;
+    long long _statusBarOrientationWithoutHost;
+    double _statusBarHeightWithoutHost;
 }
 
 @property int hostPID; // @synthesize hostPID=_hostPID;
-@property float statusBarHeightWithoutHost; // @synthesize statusBarHeightWithoutHost=_statusBarHeightWithoutHost;
-@property int statusBarOrientationWithoutHost; // @synthesize statusBarOrientationWithoutHost=_statusBarOrientationWithoutHost;
+@property double statusBarHeightWithoutHost; // @synthesize statusBarHeightWithoutHost=_statusBarHeightWithoutHost;
+@property long long statusBarOrientationWithoutHost; // @synthesize statusBarOrientationWithoutHost=_statusBarOrientationWithoutHost;
 
 @end
 

@@ -17,9 +17,9 @@
 
 @property(readonly, nonatomic) NSURL *fileURL; // @synthesize fileURL=_url;
 - (void)_close;
-- (int)read:(char *)arg1 maxLength:(unsigned int)arg2 error:(id *)arg3;
-- (BOOL)open:(id *)arg1;
-- (BOOL)hasBytesAvailable;
+- (long long)read:(char *)arg1 maxLength:(unsigned long long)arg2 error:(id *)arg3;
+- (_Bool)open:(id *)arg1;
+- (_Bool)hasBytesAvailable;
 - (long long)expectedLength;
 - (void)close;
 - (void)dealloc;

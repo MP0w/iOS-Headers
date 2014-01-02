@@ -12,28 +12,28 @@
 
 @interface SBKSyncBagContext : NSObject <NSCopying>
 {
-    BOOL _domainDisabled;
+    _Bool _domainDisabled;
+    double _pollingIntervalInSeconds;
     NSString *_domain;
     NSURL *_syncRequestURL;
     SSURLBag *_bag;
-    double _pollingIntervalInSeconds;
 }
 
 + (void)loadBagContextFromURLBag:(id)arg1 domain:(id)arg2 completionBlock:(id)arg3;
 + (void)_findFirstValueInBag:(id)arg1 keyEnumerator:(id)arg2 valueTransformer:(id)arg3 defaultValue:(void)arg4 completionBlock:(id)arg5;
 @property(retain) SSURLBag *bag; // @synthesize bag=_bag;
-@property(readonly, getter=isDomainDisabled) BOOL domainDisabled; // @synthesize domainDisabled=_domainDisabled;
+@property(readonly, getter=isDomainDisabled) _Bool domainDisabled; // @synthesize domainDisabled=_domainDisabled;
 @property(retain) NSURL *syncRequestURL; // @synthesize syncRequestURL=_syncRequestURL;
 @property(readonly) NSString *domain; // @synthesize domain=_domain;
 - (void).cxx_destruct;
 @property double pollingIntervalInSeconds; // @synthesize pollingIntervalInSeconds=_pollingIntervalInSeconds;
-- (void)setIsDomainDisabled:(BOOL)arg1;
-- (void)setDomainDisabled:(BOOL)arg1;
+- (void)setIsDomainDisabled:(_Bool)arg1;
+- (void)setDomainDisabled:(_Bool)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithBag:(id)arg1 domain:(id)arg2;
 - (id)description;
 - (id)init;
-- (id)_initWithDomain:(id)arg1 syncRequestURL:(id)arg2 domainDisabled:(BOOL)arg3;
+- (id)_initWithDomain:(id)arg1 syncRequestURL:(id)arg2 domainDisabled:(_Bool)arg3;
 
 @end
 

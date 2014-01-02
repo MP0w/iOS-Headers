@@ -5,8 +5,8 @@
  */
 
 @protocol MPEffectSupportPrivate
-- (int)maxNumberOfSecondarySlides;
-- (int)maxNumberOfSlides;
+- (long long)maxNumberOfSecondarySlides;
+- (long long)maxNumberOfSlides;
 - (double)fullDuration;
 @end
 

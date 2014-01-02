@@ -18,18 +18,17 @@
 
 @property(nonatomic) struct UIEdgeInsets contentInset; // @synthesize contentInset=_contentInset;
 - (void).cxx_destruct;
-- (unsigned int)_nextRepeatTypeAfter:(unsigned int)arg1;
+- (unsigned long long)_nextRepeatTypeAfter:(unsigned long long)arg1;
 - (void)updateShuffleState;
 - (void)updateRepeatState;
 - (void)_shuffleStateChanged:(id)arg1;
 - (void)_repeatStateChanged:(id)arg1;
 - (void)_shuffleButtonTouchUp:(id)arg1;
-- (void)_geniusButtonTouchUp:(id)arg1;
 - (void)_repeatButtonTouchUp:(id)arg1;
 - (void)viewDidLayoutSubviews;
-- (void)viewDidDisappear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)dealloc;
 - (id)initWithPlayer:(id)arg1 serviceProvider:(id)arg2;

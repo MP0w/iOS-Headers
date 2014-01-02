@@ -40,17 +40,17 @@
     NSMutableArray *_fadeInViews;
     NSMutableArray *_fadeOutViews;
     NSTimer *_layoutAnimationTimer;
-    float _maximumWidth;
+    double _maximumWidth;
 }
 
 + (id)sharedCalloutView;
-+ (float)defaultHeight;
++ (double)defaultHeight;
 + (id)_bottomAnchorImage;
 + (id)_topAnchorImage;
 + (id)_rightCapImage;
 + (id)_leftCapImage;
 + (id)_backgroundImage;
-@property(nonatomic) float maximumWidth; // @synthesize maximumWidth=_maximumWidth;
+@property(nonatomic) double maximumWidth; // @synthesize maximumWidth=_maximumWidth;
 @property(retain, nonatomic) UIView *rightView; // @synthesize rightView=_rightView;
 @property(retain, nonatomic) UIView *leftView; // @synthesize leftView=_leftView;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
@@ -63,18 +63,18 @@
 - (void)_markDidMoveCalled;
 - (void)fadeOutWithDuration:(double)arg1;
 - (void)animationDidStop:(id)arg1 finished:(id)arg2 context:(id)arg3;
-- (void)setAnchorPoint:(struct CGPoint)arg1 boundaryRect:(struct CGRect)arg2 animate:(BOOL)arg3;
-- (void)_layoutSubviews:(BOOL)arg1;
-- (void)_setOriginForScale:(float)arg1;
+- (void)setAnchorPoint:(struct CGPoint)arg1 boundaryRect:(struct CGRect)arg2 animate:(_Bool)arg3;
+- (void)_layoutSubviews:(_Bool)arg1;
+- (void)_setOriginForScale:(double)arg1;
 - (void)getActualAnchorPoint:(struct CGPoint *)arg1 frame:(struct CGRect *)arg2 position:(int *)arg3 forDesiredAnchorPoint:(struct CGPoint)arg4 boundaryRect:(struct CGRect)arg5;
-@property(nonatomic) BOOL canAnchorFromBottom;
+@property(nonatomic) _Bool canAnchorFromBottom;
 - (struct CGPoint)anchorPoint;
 - (struct CGPoint)offset;
 - (void)setOffset:(struct CGPoint)arg1;
-@property(nonatomic) int subtitleTextAlignment;
-@property(nonatomic) int titleTextAlignment;
-@property(nonatomic) int subtitleLineBreakMode;
-@property(nonatomic) int titleLineBreakMode;
+@property(nonatomic) long long subtitleTextAlignment;
+@property(nonatomic) long long titleTextAlignment;
+@property(nonatomic) long long subtitleLineBreakMode;
+@property(nonatomic) long long titleLineBreakMode;
 - (id)temporaryTitle;
 - (void)setTemporaryTitle:(id)arg1;
 - (id)subtitle;
@@ -83,25 +83,25 @@
 - (void)setTitle:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (void)_fadeViewsIn:(BOOL)arg1;
+- (void)_fadeViewsIn:(_Bool)arg1;
 - (void)_scheduleLayoutAnimation;
 - (void)_layoutAnimation;
 - (void)_setLayoutAnimationTimer:(id)arg1;
-- (void)setSubtitle:(id)arg1 animated:(BOOL)arg2;
-- (void)setRightView:(id)arg1 animated:(BOOL)arg2;
-- (void)setLeftView:(id)arg1 animated:(BOOL)arg2;
+- (void)setSubtitle:(id)arg1 animated:(_Bool)arg2;
+- (void)setRightView:(id)arg1 animated:(_Bool)arg2;
+- (void)setLeftView:(id)arg1 animated:(_Bool)arg2;
 - (void)_scheduleViewToFadeOut:(id)arg1;
 - (void)_scheduleViewToFadeIn:(id)arg1;
 - (void)_setRightView:(id)arg1;
 - (void)_setLeftView:(id)arg1;
-@property(readonly, nonatomic) float UICalloutViewMinimumWidth;
-@property(readonly, nonatomic) float UICalloutViewVerticalMargin;
-@property(readonly, nonatomic) float UICalloutViewHorizontalPadding;
-@property(readonly, nonatomic) float UICalloutViewHorizontalMargin;
-@property(readonly, nonatomic) float UICalloutViewButtonPadding;
+@property(readonly, nonatomic) double UICalloutViewMinimumWidth;
+@property(readonly, nonatomic) double UICalloutViewVerticalMargin;
+@property(readonly, nonatomic) double UICalloutViewHorizontalPadding;
+@property(readonly, nonatomic) double UICalloutViewHorizontalMargin;
+@property(readonly, nonatomic) double UICalloutViewButtonPadding;
 @property(readonly, nonatomic) double UICalloutViewLayoutDuration;
-@property(readonly, nonatomic) float UICalloutViewCapPaddingTop;
-@property(readonly, nonatomic) float UICalloutViewCapHeight;
+@property(readonly, nonatomic) double UICalloutViewCapPaddingTop;
+@property(readonly, nonatomic) double UICalloutViewCapHeight;
 
 @end
 

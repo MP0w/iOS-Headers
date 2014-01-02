@@ -5,7 +5,7 @@
  */
 
 @protocol NSURLDataDecoder
-- (BOOL)isFinishedDecoding;
+- (_Bool)isFinishedDecoding;
 - (id)decodeData:(id)arg1;
 @end
 

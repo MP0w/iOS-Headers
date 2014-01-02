@@ -8,11 +8,12 @@
 
 @class NSLock, NSString;
 
+// Not exported
 @interface _NSActivityAssertion : NSObject
 {
     unsigned long long _options;
     NSLock *_lock;
-    BOOL _ended;
+    _Bool _ended;
     NSString *_reason;
 }
 

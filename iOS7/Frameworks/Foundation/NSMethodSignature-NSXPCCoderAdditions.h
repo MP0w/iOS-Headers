@@ -7,6 +7,6 @@
 #import "NSMethodSignature.h"
 
 @interface NSMethodSignature (NSXPCCoderAdditions)
-- (BOOL)_cheapTypeString:(char *)arg1 maxLength:(long)arg2;
+- (_Bool)_cheapTypeString:(char *)arg1 maxLength:(long long)arg2;
 @end
 

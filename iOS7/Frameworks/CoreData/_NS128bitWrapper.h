@@ -8,6 +8,7 @@
 
 #import "NSCopying-Protocol.h"
 
+// Not exported
 @interface _NS128bitWrapper : NSObject <NSCopying>
 {
     struct _double_quad_uint {
@@ -18,8 +19,8 @@
 
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)initWithBytes:(char *)arg1;
 
 @end

@@ -7,7 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol SBScreenConnectionHandler <NSObject>
-- (void)screenManager:(id)arg1 didTriggerConnectionHandlerEvent:(int)arg2 forScreen:(id)arg3;
-- (BOOL)screenManager:(id)arg1 shouldBindConnectionHandlerToScreen:(id)arg2;
+- (void)screenManager:(id)arg1 didTriggerConnectionHandlerEvent:(long long)arg2 forScreen:(id)arg3;
+- (_Bool)screenManager:(id)arg1 shouldBindConnectionHandlerToScreen:(id)arg2;
 @end
 

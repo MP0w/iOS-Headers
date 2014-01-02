@@ -10,11 +10,11 @@
 
 @interface CLIntersiloInterfaceSelectorInfo : NSObject
 {
-    SEL _sel;
     int _numArguments;
     int _replyBlockIndex;
     int _returnAddressIndex;
     int _returnValueSize;
+    SEL _sel;
     NSMethodSignature *_sig;
     NSString *_str;
 }

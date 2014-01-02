@@ -16,7 +16,7 @@
 - (void)dealloc;
 - (id)description;
 - (id)name;
-- (BOOL)isDyLinker;
+- (_Bool)isDyLinker;
 - (id)initWithMemory:(id)arg1;
 
 @end

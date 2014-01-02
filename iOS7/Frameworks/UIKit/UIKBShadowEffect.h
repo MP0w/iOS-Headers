@@ -8,27 +8,31 @@
 
 #import "UIKBRenderEffect-Protocol.h"
 
+@class NSString;
+
+// Not exported
 @interface UIKBShadowEffect : NSObject <UIKBRenderEffect>
 {
-    struct CGColor *_color;
-    float _weight;
+    NSString *_colorName;
+    double _weight;
     struct CGSize _offset;
     struct UIEdgeInsets _insets;
     struct UIEdgeInsets _concaveInsets;
 }
 
-+ (id)effectWithColor:(id)arg1 offset:(struct CGSize)arg2 insets:(struct UIEdgeInsets)arg3 weight:(float)arg4;
-@property(nonatomic) float weight; // @synthesize weight=_weight;
++ (id)effectWithColor:(id)arg1 offset:(struct CGSize)arg2 insets:(struct UIEdgeInsets)arg3 weight:(double)arg4;
+@property(nonatomic) double weight; // @synthesize weight=_weight;
 @property(nonatomic) struct UIEdgeInsets concaveInsets; // @synthesize concaveInsets=_concaveInsets;
 @property(nonatomic) struct UIEdgeInsets insets; // @synthesize insets=_insets;
 @property(nonatomic) struct CGSize offset; // @synthesize offset=_offset;
-@property(readonly, nonatomic) struct CGColor *color; // @synthesize color=_color;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (struct CGColor *)CGColor;
 - (id)description;
-- (id)initWithColor:(id)arg1 offset:(struct CGSize)arg2 insets:(struct UIEdgeInsets)arg3 weight:(float)arg4;
+- (void)dealloc;
+- (id)initWithColor:(id)arg1 offset:(struct CGSize)arg2 insets:(struct UIEdgeInsets)arg3 weight:(double)arg4;
 @property(readonly, nonatomic) SEL renderSelector;
-@property(readonly, nonatomic) BOOL renderUnder;
-@property(readonly, nonatomic) BOOL isValid;
+@property(readonly, nonatomic) _Bool renderUnder;
+@property(readonly, nonatomic) _Bool isValid;
 
 @end
 

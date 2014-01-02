@@ -6,22 +6,22 @@
 
 #import "NSObject.h"
 
-@class UIViewController<SBLockOverlayViewController>;
+@class SBLockOverlayViewController;
 
 @interface SBLockOverlayContext : NSObject
 {
-    UIViewController<SBLockOverlayViewController> *_viewController;
-    unsigned int _priority;
+    SBLockOverlayViewController *_viewController;
+    unsigned long long _priority;
     id _activationBlock;
     id _deactivationBlock;
 }
 
 @property(copy, nonatomic) id deactivationBlock; // @synthesize deactivationBlock=_deactivationBlock;
 @property(copy, nonatomic) id activationBlock; // @synthesize activationBlock=_activationBlock;
-@property(readonly, nonatomic) unsigned int priority; // @synthesize priority=_priority;
-@property(readonly, nonatomic) UIViewController<SBLockOverlayViewController> *viewController; // @synthesize viewController=_viewController;
+@property(readonly, nonatomic) unsigned long long priority; // @synthesize priority=_priority;
+@property(readonly, nonatomic) SBLockOverlayViewController *viewController; // @synthesize viewController=_viewController;
 - (void)dealloc;
-- (id)initWithOverlayViewController:(id)arg1 priority:(unsigned int)arg2;
+- (id)initWithOverlayViewController:(id)arg1 priority:(unsigned long long)arg2;
 
 @end
 

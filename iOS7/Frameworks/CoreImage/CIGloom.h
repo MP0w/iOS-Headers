@@ -8,6 +8,7 @@
 
 @class CIImage, NSNumber;
 
+// Not exported
 @interface CIGloom : CIFilter
 {
     CIImage *inputImage;
@@ -20,7 +21,7 @@
 @property(retain, nonatomic) NSNumber *inputRadius; // @synthesize inputRadius;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
-- (BOOL)_isIdentity;
+- (_Bool)_isIdentity;
 - (void)setDefaults;
 - (id)_kernel;
 

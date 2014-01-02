@@ -8,6 +8,7 @@
 
 @class NSMutableSet;
 
+// Not exported
 @interface _MKUserInteractionGestureRecognizer : UIGestureRecognizer
 {
     NSMutableSet *_activeTouches;

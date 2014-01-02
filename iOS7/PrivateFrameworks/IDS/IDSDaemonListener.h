@@ -21,17 +21,16 @@
     NSObject<OS_dispatch_group> *_accountsLoadedGroup;
     NSObject<OS_dispatch_group> *_enabledAccountsLoadedGroup;
     NSObject<OS_dispatch_group> *_dependentDevicesLoadedGroup;
-    BOOL _setupComplete;
-    BOOL _postedSetupComplete;
-    BOOL _hidingDisconnect;
+    _Bool _setupComplete;
+    _Bool _postedSetupComplete;
+    _Bool _hidingDisconnect;
 }
 
 - (void)forwardInvocation:(id)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (void)_deferredSetupOnIvarQueue:(id)arg1;
-- (void)setupComplete:(BOOL)arg1 info:(id)arg2;
-- (id)dependentDevicesForAccount:(id)arg1 blocking:(BOOL)arg2;
-- (void)clearCallerIDCachesForAccount:(id)arg1;
+- (void)setupComplete:(_Bool)arg1 info:(id)arg2;
+- (id)dependentDevicesForAccount:(id)arg1 blocking:(_Bool)arg2;
 - (void)activeDevicesUpdatedForAccount:(id)arg1;
 - (void)refreshRegistrationForAccount:(id)arg1;
 - (void)registrationFailedForAccount:(id)arg1 needsDeletion:(id)arg2;
@@ -48,15 +47,15 @@
 - (void)accountRemoved:(id)arg1;
 - (void)accountAdded:(id)arg1;
 - (void)_removeAccountOnIvarQueue:(id)arg1;
-- (id)enabledAccountsForService:(id)arg1 blocking:(BOOL)arg2;
-- (id)accountDictionariesForService:(id)arg1 blocking:(BOOL)arg2;
+- (id)enabledAccountsForService:(id)arg1 blocking:(_Bool)arg2;
+- (id)accountDictionariesForService:(id)arg1 blocking:(_Bool)arg2;
 - (void)_callHandlersWithBlock:(id)arg1;
 - (void)_callHandlersWithBlockOnIvarQueue:(id)arg1;
 - (void)removeHandler:(id)arg1;
 - (void)addHandler:(id)arg1;
-@property(nonatomic, setter=_setHidingDisconnect:) BOOL _hidingDisconnect;
-@property(readonly, nonatomic) BOOL hasPostedSetupComplete;
-@property(readonly, nonatomic) BOOL isSetupComplete;
+@property(nonatomic, setter=_setHidingDisconnect:) _Bool _hidingDisconnect;
+@property(readonly, nonatomic) _Bool hasPostedSetupComplete;
+@property(readonly, nonatomic) _Bool isSetupComplete;
 - (void)_noteDisconnected;
 - (void)dealloc;
 - (id)init;

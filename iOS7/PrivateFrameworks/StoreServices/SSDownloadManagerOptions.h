@@ -13,19 +13,19 @@
 @interface SSDownloadManagerOptions : NSObject <NSCopying>
 {
     NSArray *_downloadKinds;
-    BOOL _filterExternalOriginatedDownloads;
+    _Bool _filterExternalOriginatedDownloads;
     NSString *_persistenceIdentifier;
     NSArray *_prefetchedDownloadExternalProperties;
     NSArray *_prefetchedDownloadProperties;
 }
 
-@property(nonatomic) BOOL shouldFilterExternalOriginatedDownloads; // @synthesize shouldFilterExternalOriginatedDownloads=_filterExternalOriginatedDownloads;
+@property(nonatomic) _Bool shouldFilterExternalOriginatedDownloads; // @synthesize shouldFilterExternalOriginatedDownloads=_filterExternalOriginatedDownloads;
 @property(copy, nonatomic) NSArray *prefetchedDownloadProperties; // @synthesize prefetchedDownloadProperties=_prefetchedDownloadProperties;
 @property(copy, nonatomic) NSArray *prefetchedDownloadExternalProperties; // @synthesize prefetchedDownloadExternalProperties=_prefetchedDownloadExternalProperties;
 @property(copy, nonatomic) NSString *persistenceIdentifier; // @synthesize persistenceIdentifier=_persistenceIdentifier;
 @property(copy, nonatomic) NSArray *downloadKinds; // @synthesize downloadKinds=_downloadKinds;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 

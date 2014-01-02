@@ -10,8 +10,8 @@
 {
 }
 
-+ (void)setMemoryLimit:(unsigned int)arg1;
-+ (unsigned int)memoryLimit;
++ (void)setMemoryLimit:(unsigned long long)arg1;
++ (unsigned long long)memoryLimit;
 + (void)flush;
 + (void)shrinkCacheToSize:(unsigned long long)arg1;
 + (id)symbolOwners;

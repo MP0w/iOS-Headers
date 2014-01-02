@@ -8,13 +8,14 @@
 
 #import "_UISettingsKeyObserver-Protocol.h"
 
-@class SBParallaxSettings;
+@class SBFParallaxSettings;
 
 @interface SBIconParallaxBadgeView : SBIconBadgeView <_UISettingsKeyObserver>
 {
-    SBParallaxSettings *_parallaxSettings;
+    SBFParallaxSettings *_parallaxSettings;
 }
 
+- (void)_applyParallaxSettings;
 - (void)settings:(id)arg1 changedValueForKey:(id)arg2;
 - (void)dealloc;
 - (id)init;

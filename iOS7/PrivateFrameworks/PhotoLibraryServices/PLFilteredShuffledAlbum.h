@@ -17,11 +17,10 @@
 + (struct NSObject *)_shuffledAlbumWithAlbum:(struct NSObject *)arg1 filter:(int)arg2 startingAsset:(id)arg3;
 @property(readonly, nonatomic) NSPredicate *filterPredicate; // @synthesize filterPredicate=_filterPredicate;
 @property(readonly, nonatomic) int filter; // @synthesize filter=_filter;
-- (unsigned int)count;
+- (unsigned long long)count;
 - (void)dealloc;
 - (id)initWithBackingAlbum:(struct NSObject *)arg1 filter:(int)arg2 startingAsset:(id)arg3;
 - (struct NSObject *)unshuffledAlbum;
-- (void)createShuffledIndexesMaps;
 
 @end
 

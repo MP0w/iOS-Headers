@@ -30,7 +30,7 @@
 - (void)_setResults:(id)arg1;
 - (void)_finishSearchWithResults:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)finishedTaskWithID:(id)arg1;
 - (void)finishedSearchingForType:(int)arg1;
@@ -40,8 +40,8 @@
 @property(readonly, nonatomic) UIView *searchResultsView;
 - (void)searchForText:(id)arg1;
 - (void)resetSearch;
-@property(readonly, nonatomic) int numberOfResults;
-- (BOOL)cancelSearch;
+@property(readonly, nonatomic) long long numberOfResults;
+- (_Bool)cancelSearch;
 - (void)dealloc;
 - (id)initWithAddressBook:(void *)arg1;
 

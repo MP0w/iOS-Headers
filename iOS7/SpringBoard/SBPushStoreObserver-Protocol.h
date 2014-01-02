@@ -7,6 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol SBPushStoreObserver <NSObject>
+- (void)pushStoreUserDeclinedDelivery;
 - (void)pushStoreUserAcceptedDelivery;
 - (void)pushStoreUpdatedPushSettings;
 - (void)pushStoreClearedNotifications;

@@ -11,7 +11,7 @@
 @interface _MFMailboxUidEnumerator : NSEnumerator
 {
     NSMutableArray *_mailboxes;
-    unsigned int _index;
+    unsigned long long _index;
 }
 
 - (id)nextObject;

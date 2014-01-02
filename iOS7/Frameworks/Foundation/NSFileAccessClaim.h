@@ -8,16 +8,17 @@
 
 @class NSError, NSMutableArray, NSMutableDictionary, NSMutableOrderedSet, NSMutableSet, NSObject<OS_dispatch_semaphore>, NSObject<OS_xpc_object>, NSString;
 
+// Not exported
 @interface NSFileAccessClaim : NSObject
 {
     NSObject<OS_xpc_object> *_client;
     NSString *_claimID;
     NSString *_purposeIDOrNil;
-    BOOL _cameFromSuperarbiter;
-    unsigned int _blockageCount;
-    BOOL _didWait;
-    BOOL _isRevoked;
-    unsigned int _claimerBlockageCount;
+    _Bool _cameFromSuperarbiter;
+    unsigned long long _blockageCount;
+    _Bool _didWait;
+    _Bool _isRevoked;
+    unsigned long long _claimerBlockageCount;
     NSError *_claimerError;
     NSMutableOrderedSet *_pendingClaims;
     NSMutableSet *_blockingClaims;
@@ -28,47 +29,44 @@
     id _claimerOrNil;
     NSObject<OS_dispatch_semaphore> *_claimerWaiterOrNull;
     id _sandboxToken;
-    BOOL _didMakePresentersRelinquishToWriter;
-    BOOL _revokingIsInexorable;
 }
 
-+ (BOOL)canWritingItemAtLocation:(id)arg1 options:(unsigned int)arg2 safelyOverlapWritingItemAtLocation:(id)arg3 options:(unsigned int)arg4;
-+ (BOOL)canReadingItemAtLocation:(id)arg1 options:(unsigned int)arg2 safelyOverlapWritingItemAtLocation:(id)arg3 options:(unsigned int)arg4;
++ (_Bool)canWritingItemAtLocation:(id)arg1 options:(unsigned long long)arg2 safelyOverlapWritingItemAtLocation:(id)arg3 options:(unsigned long long)arg4;
++ (_Bool)canReadingItemAtLocation:(id)arg1 options:(unsigned long long)arg2 safelyOverlapWritingItemAtLocation:(id)arg3 options:(unsigned long long)arg4;
 - (id)purposeIDOfClaimOnItemAtLocation:(id)arg1 forMessagingPresenter:(id)arg2;
-- (void)ifSymbolicLinkAtURL:(id)arg1 withResolutionCount:(int *)arg2 thenReevaluateSelf:(id)arg3 elseInvokeClaimer:(void)arg4;
+- (void)ifSymbolicLinkAtURL:(id)arg1 withResolutionCount:(long long *)arg2 thenReevaluateSelf:(id)arg3 elseInvokeClaimer:(void)arg4;
 - (id)description;
 - (id)descriptionWithIndenting:(id)arg1;
 - (void)itemAtLocation:(id)arg1 wasReplacedByItemAtLocation:(id)arg2;
-- (BOOL)isRevoked;
-- (BOOL)isGranted;
+- (_Bool)isRevoked;
+- (_Bool)isGranted;
 - (void)devalueOldClaim:(id)arg1;
 - (void)cancelled;
 - (void)devalueSelf;
 - (void)revoked;
-- (BOOL)willBeRevoked;
 - (id)newClaimerWaiter;
 - (void)invokeClaimer;
-- (void)makePresentersOfItemAtLocation:(id)arg1 orContainedItem:(BOOL)arg2 relinquishUsingProcedureGetter:(id)arg3;
+- (void)makePresentersOfItemAtLocation:(id)arg1 orContainedItem:(_Bool)arg2 relinquishUsingProcedureGetter:(id)arg3;
 - (void)makeProviderOfItemAtLocation:(id)arg1 provideThenContinue:(id)arg2;
 - (void)granted;
-- (BOOL)isBlockedByWritingItemAtLocation:(id)arg1 options:(unsigned int)arg2;
-- (BOOL)isBlockedByReadingItemAtLocation:(id)arg1 options:(unsigned int)arg2;
+- (_Bool)isBlockedByWritingItemAtLocation:(id)arg1 options:(unsigned long long)arg2;
+- (_Bool)isBlockedByReadingItemAtLocation:(id)arg1 options:(unsigned long long)arg2;
 - (void)removePendingClaims:(id)arg1;
 - (id)pendingClaims;
 - (void)addPendingClaim:(id)arg1;
 - (void)evaluateNewClaim:(id)arg1;
-- (BOOL)isBlockedByClaimWithPurposeID:(id)arg1;
-- (BOOL)claimerInvokingIsBlockedByReactorWithID:(id)arg1;
+- (_Bool)isBlockedByClaimWithPurposeID:(id)arg1;
+- (_Bool)claimerInvokingIsBlockedByReactorWithID:(id)arg1;
 - (void)whenRevokedPerformProcedure:(id)arg1;
-- (BOOL)evaluateSelfWithRootNode:(id)arg1 checkSubarbitrability:(BOOL)arg2;
+- (_Bool)evaluateSelfWithRootNode:(id)arg1 checkSubarbitrability:(_Bool)arg2;
 - (id)claimerError;
 - (void)setClaimerError:(id)arg1;
 - (void)unblockClaimer;
 - (void)blockClaimer;
-- (BOOL)didWait;
+- (_Bool)didWait;
 - (void)unblock;
 - (void)block;
-- (BOOL)cameFromSuperarbiter;
+- (_Bool)cameFromSuperarbiter;
 - (void)setCameFromSuperarbiter;
 - (void)forwardUsingMessageSender:(id)arg1 crashHandler:(void)arg2;
 - (id)purposeID;

@@ -6,19 +6,27 @@
 
 #import "UIView.h"
 
+@class UIImage;
+
 @interface STRunProgressView : UIView
 {
     float _progress;
+    UIImage *_filledProgressBar;
+    _Bool _filledProgressBarIsVertical;
+    _Bool _reverseFilledGradient;
 }
 
+@property(nonatomic) _Bool reverseFilledGradient; // @synthesize reverseFilledGradient=_reverseFilledGradient;
 @property(nonatomic) float progress; // @synthesize progress=_progress;
-- (id)_gradientImage;
-- (id)_progressDividerColor;
-- (id)_goalCompletedImage;
-- (id)_progressBarPastGoalFilledImage;
+- (id)_progressBarFilledImageVertical;
 - (id)_progressBarFilledImage;
+- (id)filledEndColor;
+- (id)filledStartColor;
+- (id)_progressBarImageVertical;
 - (id)_progressBarImage;
+- (id)_flatGradientImageWithImage:(id)arg1 startColor:(id)arg2 startPoint:(struct CGPoint)arg3 endColor:(id)arg4 endPoint:(struct CGPoint)arg5;
 - (void)drawRect:(struct CGRect)arg1;
+- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

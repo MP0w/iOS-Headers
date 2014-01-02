@@ -4,28 +4,34 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <Preferences/PSListController.h>
+#import <Preferences/PSKeychainSyncViewController.h>
 
 #import "KeychainSyncPhoneSettingsFragmentDelegate-Protocol.h"
 #import "KeychainSyncViewController-Protocol.h"
+#import "UIAlertViewDelegate-Protocol.h"
 
-@class KeychainSyncPhoneSettingsFragment;
+@class KeychainSyncPhoneSettingsFragment, UIAlertView;
 
-@interface KeychainSyncPhoneNumberController : PSListController <KeychainSyncPhoneSettingsFragmentDelegate, KeychainSyncViewController>
+@interface KeychainSyncPhoneNumberController : PSKeychainSyncViewController <KeychainSyncPhoneSettingsFragmentDelegate, UIAlertViewDelegate, KeychainSyncViewController>
 {
     KeychainSyncPhoneSettingsFragment *_phoneSettingsFragment;
-    id <KeychainSyncViewControllerDelegate> _delegate;
+    UIAlertView *_invalidPhoneNumberAlert;
 }
 
-@property(nonatomic) id <KeychainSyncViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)phoneSettingsFragment:(id)arg1 didChangePhoneNumber:(id)arg2 countryCode:(id)arg3;
+- (void)alertView:(id)arg1 didDismissWithButtonIndex:(long long)arg2;
+- (void)phoneSettingsFragment:(id)arg1 didChangePhoneNumber:(id)arg2 countryInfo:(id)arg3;
 - (void)nextPressed;
-- (void)viewDidAppear:(BOOL)arg1;
+- (void)controllerDone;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)reloadSpecifiers;
 - (id)specifiers;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;
 - (void)dealloc;
+
+// Remaining properties
+@property(nonatomic) id <KeychainSyncViewControllerDelegate> delegate;
 
 @end
 

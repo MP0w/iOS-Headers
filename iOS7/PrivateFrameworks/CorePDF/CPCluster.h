@@ -10,7 +10,7 @@
 
 @interface CPCluster : NSObject <CPDisposable>
 {
-    const CDStruct_071390ef *profile;
+    const CDStruct_1ec70fb1 *profile;
     unsigned int xCount;
     double *x;
     double *dx;
@@ -27,19 +27,17 @@
     CDStruct_2a61e2ef *xStats;
     unsigned int levels;
     CDStruct_2a61e2ef *dxStats;
-    BOOL ownData;
-    BOOL ownDifferences;
+    _Bool ownData;
+    _Bool ownDifferences;
 }
 
 + (unsigned int *)createOrderIndexFor:(double *)arg1 ofSize:(unsigned int)arg2;
-+ (void)reclusterTextLine:(id)arg1 fromWordIndex:(unsigned int)arg2 count:(unsigned int *)arg3;
-+ (void)clusterTextLine:(id)arg1;
 - (CDStruct_2a61e2ef)largestClusterStatistics;
 - (CDStruct_2a61e2ef)differenceClusterStatisticsAtIndex:(unsigned int)arg1;
 - (CDStruct_2a61e2ef)clusterStatisticsAtIndex:(unsigned int)arg1;
 - (unsigned int)levels;
 - (unsigned int)clusterCount;
-- (BOOL)applyDifferenceHints:(CDStruct_2a61e2ef *)arg1 count:(unsigned int)arg2;
+- (_Bool)applyDifferenceHints:(CDStruct_2a61e2ef *)arg1 count:(unsigned int)arg2;
 - (void)findDensityClusters:(double *)arg1 count:(unsigned int)arg2;
 - (void)findClustersFromDifferences:(double *)arg1 count:(unsigned int)arg2;
 - (void)findClusters:(double *)arg1 count:(unsigned int)arg2;
@@ -51,10 +49,10 @@
 - (void)setMinimumClusterSize:(unsigned int)arg1;
 - (void)assembleDataStats;
 - (void)analyzeDifferences;
-- (BOOL)coalesceFrom:(unsigned int)arg1 to:(unsigned int)arg2;
-- (BOOL)splitLevelAtIndex:(unsigned int)arg1 betweenValue:(double)arg2 andValue:(double)arg3;
-- (BOOL)joinClosestLevelPairFrom:(unsigned int)arg1 to:(unsigned int)arg2;
-- (BOOL)joinLevelsFrom:(unsigned int)arg1 to:(unsigned int)arg2;
+- (_Bool)coalesceFrom:(unsigned int)arg1 to:(unsigned int)arg2;
+- (_Bool)splitLevelAtIndex:(unsigned int)arg1 betweenValue:(double)arg2 andValue:(double)arg3;
+- (_Bool)joinClosestLevelPairFrom:(unsigned int)arg1 to:(unsigned int)arg2;
+- (_Bool)joinLevelsFrom:(unsigned int)arg1 to:(unsigned int)arg2;
 - (void)assembleDifferenceStats;
 - (void)splitSecondDifferences;
 - (void)computeDataFromDifferences;
@@ -62,11 +60,8 @@
 - (void)dealloc;
 - (void)finalize;
 - (void)dispose;
-- (id)initWithProfile:(const CDStruct_071390ef *)arg1;
+- (id)initWithProfile:(const CDStruct_1ec70fb1 *)arg1;
 - (id)init;
-- (void)makeWords:(CDStruct_a823b51b *)arg1 count:(unsigned int)arg2 fromCharacterSequence:(id)arg3 charOffset:(unsigned int)arg4;
-- (void)findClustersFromCharacterSequence:(id)arg1 withSpaceHint:(BOOL)arg2;
-- (void)tryLevel0SplitBetween:(double)arg1 and:(double)arg2 usingHints:(CDStruct_2a61e2ef *)arg3;
 
 @end
 

@@ -16,14 +16,14 @@
     NSHashTable *_internal_groupObservers;
 }
 
-- (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
-- (void)_sendMove:(id)arg1 fromIndex:(unsigned int)arg2 toIndex:(unsigned int)arg3;
-- (void)_sendRemove:(id)arg1 atIndex:(unsigned int)arg2;
-- (void)_sendInsert:(id)arg1 atIndex:(unsigned int)arg2;
+- (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
+- (void)_sendMove:(id)arg1 fromIndex:(unsigned long long)arg2 toIndex:(unsigned long long)arg3;
+- (void)_sendRemove:(id)arg1 atIndex:(unsigned long long)arg2;
+- (void)_sendInsert:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)settings:(id)arg1 changedValueForKeyPath:(id)arg2;
 - (void)_stopObservingPropertiesAndChildren;
 - (void)_startObservingPropertiesAndChildren;
-- (BOOL)_hasObservers;
+- (_Bool)_hasObservers;
 - (void)_addInternalEntriesToArchiveDictionary:(id)arg1;
 - (void)setValuesFromModel:(id)arg1;
 - (id)archiveDictionary;
@@ -31,16 +31,16 @@
 - (void)addGroupObserver:(id)arg1;
 - (id)valueForUndefinedKey:(id)arg1;
 - (void)enumerateSettingsUsingBlock:(id)arg1;
-- (void)moveSettingsAtIndex:(unsigned int)arg1 toIndex:(unsigned int)arg2;
-- (void)moveSettings:(id)arg1 toIndex:(unsigned int)arg2;
-- (void)removeSettingsAtIndex:(unsigned int)arg1;
+- (void)moveSettingsAtIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
+- (void)moveSettings:(id)arg1 toIndex:(unsigned long long)arg2;
+- (void)removeSettingsAtIndex:(unsigned long long)arg1;
 - (void)removeSettings:(id)arg1;
-- (void)insertSettings:(id)arg1 atIndex:(unsigned int)arg2;
+- (void)insertSettings:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)addSettings:(id)arg1;
-- (unsigned int)indexOfSettings:(id)arg1;
-- (BOOL)containsSettings:(id)arg1;
-- (id)settingsAtIndex:(unsigned int)arg1;
-- (unsigned int)count;
+- (unsigned long long)indexOfSettings:(id)arg1;
+- (_Bool)containsSettings:(id)arg1;
+- (id)settingsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)count;
 - (void)dealloc;
 - (void)_completeInitByApplyingArchiveDictionary:(id)arg1;
 - (void)_continueInitBySettingDefaultValues;

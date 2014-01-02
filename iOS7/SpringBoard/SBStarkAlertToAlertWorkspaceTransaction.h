@@ -12,17 +12,17 @@
 {
     SBAlert *_activatingAlert;
     SBAlert *_deactivatingAlert;
-    BOOL _activation;
+    _Bool _activation;
 }
 
-- (BOOL)selfStarkAlertDidDeactivate:(id)arg1;
-- (BOOL)selfStarkAlertWillDeactivate:(id)arg1;
-- (BOOL)selfStarkAlertDidActivate:(id)arg1 overAlerts:(id)arg2;
-- (BOOL)selfStarkAlertWillActivate:(id)arg1 overAlerts:(id)arg2;
+- (_Bool)selfStarkAlertDidDeactivate:(id)arg1;
+- (_Bool)selfStarkAlertWillDeactivate:(id)arg1;
+- (_Bool)selfStarkAlertDidActivate:(id)arg1 overAlerts:(id)arg2;
+- (_Bool)selfStarkAlertWillActivate:(id)arg1 overAlerts:(id)arg2;
 - (void)_commit;
 - (id)debugDescription;
 - (void)dealloc;
-- (id)_initWithWorkspace:(id)arg1 mainScreenAlertManager:(id)arg2 starkScreenController:(id)arg3 activatingAlert:(id)arg4 deactivatingAlert:(id)arg5 activation:(BOOL)arg6;
+- (id)_initWithWorkspace:(id)arg1 mainScreenAlertManager:(id)arg2 starkScreenController:(id)arg3 activatingAlert:(id)arg4 deactivatingAlert:(id)arg5 activation:(_Bool)arg6;
 - (id)initDeactivationWithWorkspace:(id)arg1 mainScreenAlertManager:(id)arg2 starkScreenController:(id)arg3 from:(id)arg4 to:(id)arg5;
 - (id)initActivationWithWorkspace:(id)arg1 mainScreenAlertManager:(id)arg2 starkScreenController:(id)arg3 from:(id)arg4 to:(id)arg5;
 

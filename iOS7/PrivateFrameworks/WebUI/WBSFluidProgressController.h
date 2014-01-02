@@ -14,7 +14,7 @@
 
 @property id <WBSFluidProgressControllerWindowDelegate> windowDelegate; // @synthesize windowDelegate=_windowDelegate;
 @property id <WBSFluidProgressControllerDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)progressStateSourceDidCommitLoad:(id)arg1 loadingSingleResource:(BOOL)arg2;
+- (void)progressStateSourceDidCommitLoad:(id)arg1 loadingSingleResource:(_Bool)arg2;
 - (void)animationStepCompleted:(id)arg1;
 - (void)frontmostTabDidChange;
 - (void)startRocketEffectWithProgressStateSource:(id)arg1;
@@ -22,7 +22,6 @@
 - (void)finishFluidProgressWithProgressStateSource:(id)arg1;
 - (void)updateFluidProgressWithProgressStateSource:(id)arg1;
 - (void)startFluidProgressWithProgressStateSource:(id)arg1;
-- (void)_updateFluidProgressWithProgressStateSource:(id)arg1;
 
 @end
 

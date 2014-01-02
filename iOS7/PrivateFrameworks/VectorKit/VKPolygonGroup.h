@@ -8,16 +8,17 @@
 
 @class GEOFeatureStyleAttributes, VGLMeshVendor, VGLTexture, VKStyle, VKVectorTile;
 
+// Not exported
 @interface VKPolygonGroup : NSObject
 {
     VKStyle *_style;
     VKVectorTile *_tile;
     VGLMeshVendor *_fillMeshVendor;
     VGLMeshVendor *_strokeMeshVendor;
-    float _contentScale;
+    double _contentScale;
     VGLTexture *_texture;
     VGLTexture *_textureVariant;
-    float _variation;
+    double _variation;
     GEOFeatureStyleAttributes *_styleAttributes;
 }
 
@@ -28,10 +29,10 @@
 @property(readonly, nonatomic) VGLTexture *texture; // @synthesize texture=_texture;
 @property(readonly, nonatomic) VKStyle *style; // @synthesize style=_style;
 - (void)updateTextures;
-- (unsigned int)triangleCount;
-- (id)_textureForName:(id)arg1 scale:(float)arg2;
+- (unsigned long long)triangleCount;
+- (id)_textureForName:(id)arg1 scale:(double)arg2;
 - (void)dealloc;
-- (id)initWithStyle:(id)arg1 tile:(id)arg2 attributes:(id)arg3 contentScale:(float)arg4;
+- (id)initWithStyle:(id)arg1 tile:(id)arg2 attributes:(id)arg3 contentScale:(double)arg4;
 
 @end
 

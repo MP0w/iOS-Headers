@@ -13,28 +13,28 @@
 @interface SKUIComposeTextField : UIView <UITextFieldDelegate>
 {
     SKUIComposeTextFieldConfiguration *_configuration;
-    int _currentTextLength;
+    long long _currentTextLength;
     id _delegate;
     UILabel *_label;
-    int _style;
+    long long _style;
     UITextField *_textField;
 }
 
-+ (id)labelColorForStyle:(int)arg1;
-+ (id)labelFontForStyle:(int)arg1;
++ (id)labelColorForStyle:(long long)arg1;
++ (id)labelFontForStyle:(long long)arg1;
 @property(readonly, nonatomic) UITextField *textField; // @synthesize textField=_textField;
 @property(nonatomic) __weak id delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) int composeReviewStyle; // @synthesize composeReviewStyle=_style;
+@property(readonly, nonatomic) long long composeReviewStyle; // @synthesize composeReviewStyle=_style;
 - (void).cxx_destruct;
 - (void)_textChanged:(id)arg1;
-- (BOOL)textField:(id)arg1 shouldInsertText:(id)arg2 replacingRange:(struct _NSRange)arg3;
+- (_Bool)textField:(id)arg1 shouldInsertText:(id)arg2 replacingRange:(struct _NSRange)arg3;
 - (void)layoutSubviews;
 - (void)drawRect:(struct CGRect)arg1;
 @property(copy, nonatomic) NSString *text;
-@property(readonly, nonatomic, getter=isValid) BOOL valid;
+@property(readonly, nonatomic, getter=isValid) _Bool valid;
 @property(readonly, nonatomic) SKUIComposeTextFieldConfiguration *configuration;
 - (void)dealloc;
-- (id)initWithConfiguration:(id)arg1 style:(int)arg2;
+- (id)initWithConfiguration:(id)arg1 style:(long long)arg2;
 
 @end
 

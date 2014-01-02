@@ -14,7 +14,7 @@
 
 + (id)listSearchWithDictionary:(id)arg1 context:(id)arg2;
 + (id)listSearch;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSString *name;
 - (id)encodedClassName;
 - (id)groupIdentifier;

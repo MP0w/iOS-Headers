@@ -8,14 +8,15 @@
 
 @class NSString, WFWhitelistSiteBuffer;
 
+// Not exported
 @interface WFWhitelistUserPreferences : NSObject
 {
     WFWhitelistSiteBuffer *filterWhitelist;
     WFWhitelistSiteBuffer *filterBlacklist;
     WFWhitelistSiteBuffer *webWhitelist;
-    BOOL filterEnabled;
-    BOOL whitelistEnabled;
-    BOOL alwaysAllowHTTPS;
+    _Bool filterEnabled;
+    _Bool whitelistEnabled;
+    _Bool alwaysAllowHTTPS;
     NSString *username;
 }
 
@@ -24,7 +25,7 @@
 + (id)_modificationDateForFileAtPath:(id)arg1;
 + (id)whitelistForUser:(id)arg1;
 + (id)whitelistWithPreferences:(id)arg1;
-+ (BOOL)_isURLMetasite:(id)arg1;
++ (_Bool)_isURLMetasite:(id)arg1;
 + (id)_sharedMetasiteDomainNamesDictionary;
 + (id)_sharedMetasiteExceptionsDomainNamesArray;
 + (id)_metasiteDomainNamesArray;
@@ -36,14 +37,14 @@
 @property(readonly) WFWhitelistSiteBuffer *filterBlacklist; // @synthesize filterBlacklist;
 @property(readonly) WFWhitelistSiteBuffer *filterWhitelist; // @synthesize filterWhitelist;
 @property(retain) NSString *username; // @synthesize username;
-@property BOOL alwaysAllowHTTPS; // @synthesize alwaysAllowHTTPS;
-@property BOOL whitelistEnabled; // @synthesize whitelistEnabled;
-@property BOOL filterEnabled; // @synthesize filterEnabled;
+@property _Bool alwaysAllowHTTPS; // @synthesize alwaysAllowHTTPS;
+@property _Bool whitelistEnabled; // @synthesize whitelistEnabled;
+@property _Bool filterEnabled; // @synthesize filterEnabled;
 - (id)description;
-- (BOOL)isURL:(id)arg1 onList:(id)arg2;
-- (id)pronounceOnPageURLString:(id)arg1 shouldFilter:(char *)arg2;
-- (BOOL)isURLAllowed:(id)arg1 reason:(id *)arg2 shouldFilter:(char *)arg3 foundOnList:(char *)arg4;
-- (BOOL)isURLAllowed:(id)arg1;
+- (_Bool)isURL:(id)arg1 onList:(id)arg2;
+- (id)pronounceOnPageURLString:(id)arg1 shouldFilter:(_Bool *)arg2;
+- (_Bool)isURLAllowed:(id)arg1 reason:(id *)arg2 shouldFilter:(_Bool *)arg3 foundOnList:(_Bool *)arg4;
+- (_Bool)isURLAllowed:(id)arg1;
 - (void)dealloc;
 - (id)initWithPreferences:(id)arg1;
 - (id)init;

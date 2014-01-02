@@ -8,7 +8,7 @@
 
 @interface NSMutableDictionary (VM)
 + (id)vmDictionaryWithObjectsAndKeys:(id)arg1;
-+ (BOOL)_processArgumentWithMutableDictionary:(id)arg1 object:(id)arg2 key:(id)arg3;
++ (_Bool)_processArgumentWithMutableDictionary:(id)arg1 object:(id)arg2 key:(id)arg3;
 - (void)vmSetObject:(id)arg1 forKey:(id)arg2;
 @end
 

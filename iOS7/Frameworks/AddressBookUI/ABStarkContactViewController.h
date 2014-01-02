@@ -13,13 +13,12 @@
     ABStarkContactContainerView *_containerView;
 }
 
-- (float)heightForHeaderInTableView:(id)arg1;
+- (double)heightForHeaderInTableView:(id)arg1;
 - (id)viewForHeaderInTableView:(id)arg1;
-- (BOOL)tableView:(id)arg1 canPerformAction:(SEL)arg2 forRowAtIndexPath:(id)arg3 withSender:(id)arg4;
-- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
-- (void)_physicalButtonsBegan:(id)arg1 withEvent:(id)arg2;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
+- (_Bool)tableView:(id)arg1 canPerformAction:(SEL)arg2 forRowAtIndexPath:(id)arg3 withSender:(id)arg4;
+- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)loadView;
 - (id)contactView;
 - (id)containerView;

@@ -6,6 +6,7 @@
 
 #import <WebCore/DOMHTMLElement.h>
 
+// Not exported
 @interface DOMHTMLMarqueeElement : DOMHTMLElement
 {
 }
@@ -16,8 +17,8 @@
 - (id)width;
 - (void)setVspace:(unsigned int)arg1;
 - (unsigned int)vspace;
-- (void)setTrueSpeed:(BOOL)arg1;
-- (BOOL)trueSpeed;
+- (void)setTrueSpeed:(_Bool)arg1;
+- (_Bool)trueSpeed;
 - (void)setScrollDelay:(int)arg1;
 - (int)scrollDelay;
 - (void)setScrollAmount:(int)arg1;

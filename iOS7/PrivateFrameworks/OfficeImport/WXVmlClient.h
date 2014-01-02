@@ -8,6 +8,7 @@
 
 #import <OfficeImport/OAVClient-Protocol.h>
 
+// Not exported
 @interface WXVmlClient : NSObject <OAVClient>
 {
 }
@@ -17,7 +18,7 @@
 + (void)readClientDataFromShape:(struct _xmlNode *)arg1 toGraphic:(id)arg2 state:(id)arg3;
 + (void)readFromDrawable:(struct _xmlNode *)arg1 toContent:(id)arg2;
 + (int)zIndex:(id)arg1;
-+ (BOOL)floating:(id)arg1;
++ (_Bool)floating:(id)arg1;
 + (double)wrapDistanceBottom:(id)arg1;
 + (double)wrapDistanceRight:(id)arg1;
 + (double)wrapDistanceTop:(id)arg1;
@@ -29,7 +30,6 @@
 + (_Bool)behindText:(id)arg1;
 + (void)copyFromDrawable:(id)arg1 toContent:(id)arg2;
 + (void)initialize;
-+ (void)readTextWrappingFromParent:(struct _xmlNode *)arg1 toAnchor:(id)arg2;
 
 @end
 

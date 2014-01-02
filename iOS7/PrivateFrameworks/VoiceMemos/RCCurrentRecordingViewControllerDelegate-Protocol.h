@@ -7,7 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol RCCurrentRecordingViewControllerDelegate <NSObject>
-- (void)currentRecordingViewController:(id)arg1 didDeterminteAvailability:(BOOL)arg2;
+- (void)currentRecordingViewController:(id)arg1 didDeterminteAvailability:(_Bool)arg2;
 - (void)currentRecordingViewControllerRecordingDidEnd:(id)arg1;
 @end
 

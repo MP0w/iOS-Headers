@@ -8,17 +8,17 @@
 
 @interface CKMovieMediaObject : CKAVMediaObject
 {
-    BOOL _hasVideoTrack;
-    BOOL _checkedVideoInfo;
+    _Bool _hasVideoTrack;
+    _Bool _checkedVideoInfo;
     struct CGSize _pxSize;
 }
 
-+ (BOOL)isPreviewable;
++ (_Bool)isPreviewable;
 + (id)fallbackFilenamePrefix;
 + (id)UTITypes;
-@property(nonatomic) BOOL checkedVideoInfo; // @synthesize checkedVideoInfo=_checkedVideoInfo;
+@property(nonatomic) _Bool checkedVideoInfo; // @synthesize checkedVideoInfo=_checkedVideoInfo;
 @property(nonatomic) struct CGSize pxSize; // @synthesize pxSize=_pxSize;
-@property(nonatomic) BOOL hasVideoTrack; // @synthesize hasVideoTrack=_hasVideoTrack;
+@property(nonatomic) _Bool hasVideoTrack; // @synthesize hasVideoTrack=_hasVideoTrack;
 - (void)updateVideoInfo;
 - (struct CGSize)bbSize;
 - (id)generateThumbnailFillToSize:(struct CGSize)arg1;

@@ -5,8 +5,8 @@
  */
 
 @protocol MFDAMailAccountRequest
-@property(readonly, nonatomic) BOOL isUserRequested;
-@property(readonly, nonatomic) BOOL shouldSend;
+@property(readonly, nonatomic) _Bool isUserRequested;
+@property(readonly, nonatomic) _Bool shouldSend;
 - (id)deferredOperation;
 - (unsigned long long)generationNumber;
 @end

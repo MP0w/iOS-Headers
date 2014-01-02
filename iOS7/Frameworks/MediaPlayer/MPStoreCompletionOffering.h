@@ -12,22 +12,22 @@
 
 @interface MPStoreCompletionOffering : NSObject <NSCopying>
 {
-    int _preferredStoreOfferVariant;
+    long long _preferredStoreOfferVariant;
     NSDictionary *_responseCollectionDictionary;
     MPMediaQuery *_localItemsQuery;
     MPStoreCollectionCompletionOffering *_collectionWithCompletionItemsOffering;
-    int _presentationStyle;
+    long long _presentationStyle;
     NSURL *_storeURL;
 }
 
 + (id)offeringWithCollectionResponseDictionary:(id)arg1 localItemsQuery:(id)arg2;
-+ (int)defaultOfferVariant;
-+ (void)setDefaultOfferVariant:(int)arg1;
++ (long long)defaultOfferVariant;
++ (void)setDefaultOfferVariant:(long long)arg1;
 @property(readonly, nonatomic) NSURL *storeURL; // @synthesize storeURL=_storeURL;
-@property(readonly, nonatomic) int presentationStyle; // @synthesize presentationStyle=_presentationStyle;
+@property(readonly, nonatomic) long long presentationStyle; // @synthesize presentationStyle=_presentationStyle;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) MPStoreOfferMediaItemCollection *collectionWithCompletionItems;
-@property(nonatomic) int preferredStoreOfferVariant;
+@property(nonatomic) long long preferredStoreOfferVariant;
 - (void)_loadOfferingData;
 - (id)copyByInvalidatingCalculatedContent;
 - (id)copyWithZone:(struct _NSZone *)arg1;

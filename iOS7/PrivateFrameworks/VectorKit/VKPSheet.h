@@ -8,6 +8,7 @@
 
 @class NSMutableArray, VKPGlobalProperties;
 
+// Not exported
 @interface VKPSheet : PBCodable
 {
     VKPGlobalProperties *_globalProperties;
@@ -21,17 +22,17 @@
 @property(retain, nonatomic) VKPGlobalProperties *globalProperties; // @synthesize globalProperties=_globalProperties;
 @property(nonatomic) unsigned int version; // @synthesize version=_version;
 @property(retain, nonatomic) NSMutableArray *styles; // @synthesize styles=_styles;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) BOOL hasGlobalProperties;
-@property(nonatomic) BOOL hasVersion;
-- (id)styleAtIndex:(unsigned int)arg1;
-- (unsigned int)stylesCount;
+@property(readonly, nonatomic) _Bool hasGlobalProperties;
+@property(nonatomic) _Bool hasVersion;
+- (id)styleAtIndex:(unsigned long long)arg1;
+- (unsigned long long)stylesCount;
 - (void)addStyle:(id)arg1;
 - (void)clearStyles;
 - (void)dealloc;

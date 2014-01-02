@@ -13,24 +13,24 @@
 @interface UIPrintFormatter : NSObject <NSCopying>
 {
     UIPrintPageRenderer *_printPageRenderer;
-    float _maximumContentHeight;
-    float _maximumContentWidth;
+    double _maximumContentHeight;
+    double _maximumContentWidth;
     struct UIEdgeInsets _contentInsets;
-    int _startPage;
-    int _pageCount;
-    BOOL _needsRecalc;
+    long long _startPage;
+    long long _pageCount;
+    _Bool _needsRecalc;
 }
 
-@property(nonatomic) int startPage; // @synthesize startPage=_startPage;
+@property(nonatomic) long long startPage; // @synthesize startPage=_startPage;
 @property(nonatomic) struct UIEdgeInsets contentInsets; // @synthesize contentInsets=_contentInsets;
-@property(nonatomic) float maximumContentWidth; // @synthesize maximumContentWidth=_maximumContentWidth;
-@property(nonatomic) float maximumContentHeight; // @synthesize maximumContentHeight=_maximumContentHeight;
+@property(nonatomic) double maximumContentWidth; // @synthesize maximumContentWidth=_maximumContentWidth;
+@property(nonatomic) double maximumContentHeight; // @synthesize maximumContentHeight=_maximumContentHeight;
 @property(nonatomic) UIPrintPageRenderer *printPageRenderer; // @synthesize printPageRenderer=_printPageRenderer;
-- (void)drawInRect:(struct CGRect)arg1 forPageAtIndex:(int)arg2;
-- (struct CGRect)rectForPageAtIndex:(int)arg1;
-- (struct CGRect)_pageContentRect:(BOOL)arg1;
-- (int)_recalcPageCount;
-@property(readonly, nonatomic) int pageCount; // @synthesize pageCount=_pageCount;
+- (void)drawInRect:(struct CGRect)arg1 forPageAtIndex:(long long)arg2;
+- (struct CGRect)rectForPageAtIndex:(long long)arg1;
+- (struct CGRect)_pageContentRect:(_Bool)arg1;
+- (long long)_recalcPageCount;
+@property(readonly, nonatomic) long long pageCount; // @synthesize pageCount=_pageCount;
 - (void)_recalcIfNecessary;
 - (void)_setNeedsRecalc;
 - (void)removeFromPrintPageRenderer;

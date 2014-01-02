@@ -8,17 +8,17 @@
 
 @interface MFProgressFilterDataConsumer : MFBaseFilterDataConsumer
 {
-    unsigned int _expectedSize;
-    unsigned int _currentBytes;
+    unsigned long long _expectedSize;
+    unsigned long long _currentBytes;
     id _progressBlock;
 }
 
-@property(readonly) unsigned int expectedSize; // @synthesize expectedSize=_expectedSize;
+@property(readonly) unsigned long long expectedSize; // @synthesize expectedSize=_expectedSize;
 @property(copy, nonatomic) id progressBlock; // @synthesize progressBlock=_progressBlock;
-- (int)appendData:(id)arg1;
+- (long long)appendData:(id)arg1;
 - (void)dealloc;
-- (id)initWithConsumers:(id)arg1 expectedSize:(unsigned int)arg2;
-- (id)initWithConsumer:(id)arg1 expectedSize:(unsigned int)arg2;
+- (id)initWithConsumers:(id)arg1 expectedSize:(unsigned long long)arg2;
+- (id)initWithConsumer:(id)arg1 expectedSize:(unsigned long long)arg2;
 
 @end
 

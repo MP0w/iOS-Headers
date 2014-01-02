@@ -8,15 +8,16 @@
 
 @class NSKeyValueGetter;
 
+// Not exported
 @interface NSKeyValueFastMutableSet2 : NSKeyValueFastMutableSet
 {
     NSKeyValueGetter *_valueGetter;
 }
 
-+ (CDStruct_e8a1eea0 *)_proxyNonGCPoolPointer;
++ (CDStruct_7c9a8e9f *)_proxyNonGCPoolPointer;
 - (id)objectEnumerator;
 - (id)member:(id)arg1;
-- (unsigned int)count;
+- (unsigned long long)count;
 - (id)_nonNilSetValueWithSelector:(SEL)arg1;
 - (void)_proxyNonGCFinalize;
 - (id)_proxyInitWithContainer:(id)arg1 getter:(id)arg2;

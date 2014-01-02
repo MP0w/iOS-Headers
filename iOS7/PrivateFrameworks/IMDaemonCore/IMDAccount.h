@@ -18,16 +18,16 @@
     IMDServiceSession *_session;
     NSMutableDictionary *_myStatus;
     NSDictionary *_lastPostedStatus;
-    BOOL _isLoading;
-    BOOL _isManaged;
+    _Bool _isLoading;
+    _Bool _isManaged;
 }
 
 @property(readonly, nonatomic) NSDictionary *accountDefaults; // @synthesize accountDefaults=_accountDefaults;
-@property(nonatomic) BOOL isManaged; // @synthesize isManaged=_isManaged;
+@property(nonatomic) _Bool isManaged; // @synthesize isManaged=_isManaged;
 @property(readonly, nonatomic) IMDService *service; // @synthesize service=_service;
 @property(readonly, nonatomic) IMDServiceSession *session; // @synthesize session=_session;
 @property(readonly, nonatomic) NSString *accountID; // @synthesize accountID=_account;
-@property(nonatomic) BOOL isLoading; // @synthesize isLoading=_isLoading;
+@property(nonatomic) _Bool isLoading; // @synthesize isLoading=_isLoading;
 @property(readonly, nonatomic) NSDictionary *registrationAlertInfo;
 @property(readonly, nonatomic) int registrationError;
 @property(readonly, nonatomic) int registrationStatus;
@@ -38,7 +38,7 @@
 - (void)systemDidBecomeIdle;
 - (void)_updateIdle;
 - (void)tunesController:(id)arg1 playerInfoChanged:(id)arg2;
-@property(readonly, nonatomic) BOOL shouldPublishNowPlaying;
+@property(readonly, nonatomic) _Bool shouldPublishNowPlaying;
 @property(readonly, nonatomic) NSDictionary *status;
 @property(readonly, nonatomic) NSDictionary *statusToSave;
 @property(readonly, nonatomic) NSDictionary *statusToPost;
@@ -49,9 +49,9 @@
 - (void)postAccountCapabilitiesToListener:(id)arg1;
 - (void)postAccountCapabilities;
 - (void)writeAccountDefaults:(id)arg1;
-@property(readonly, nonatomic) BOOL isDisabled;
-@property(nonatomic) BOOL wasDisabledAutomatically;
-@property(readonly, nonatomic) BOOL isActive;
+@property(readonly, nonatomic) _Bool isDisabled;
+@property(nonatomic) _Bool wasDisabledAutomatically;
+@property(readonly, nonatomic) _Bool isActive;
 - (void)dealloc;
 - (id)initWithAccountID:(id)arg1 defaults:(id)arg2 service:(id)arg3;
 

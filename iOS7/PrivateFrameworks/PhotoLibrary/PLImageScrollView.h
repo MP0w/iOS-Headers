@@ -8,10 +8,10 @@
 
 @interface PLImageScrollView : UIScrollView
 {
-    BOOL _adjustZoomScaleAfterRotation;
+    _Bool _adjustZoomScaleAfterRotation;
 }
 
-@property(nonatomic) BOOL adjustZoomScaleAfterRotation; // @synthesize adjustZoomScaleAfterRotation=_adjustZoomScaleAfterRotation;
+@property(nonatomic) _Bool adjustZoomScaleAfterRotation; // @synthesize adjustZoomScaleAfterRotation=_adjustZoomScaleAfterRotation;
 - (void)willAnimateRotationToInterfaceOrientation:(id)arg1;
 - (void)_centerContentIfNecessary;
 - (void)setFrame:(struct CGRect)arg1;

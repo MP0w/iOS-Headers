@@ -8,6 +8,7 @@
 
 @class NSMutableDictionary;
 
+// Not exported
 @interface ODDStyleDefinition : NSObject
 {
     NSMutableDictionary *mStyleLabels;

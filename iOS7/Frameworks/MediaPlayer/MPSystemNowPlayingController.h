@@ -10,7 +10,7 @@
 
 @interface MPSystemNowPlayingController : NSObject
 {
-    BOOL _hasSeenAnyItem;
+    _Bool _hasSeenAnyItem;
     MPAVController *_player;
     NSObject<OS_dispatch_queue> *_serialQueue;
     NSObject<OS_dispatch_queue> *_statusBarQueue;
@@ -19,9 +19,9 @@
 @property(nonatomic) __weak MPAVController *player; // @synthesize player=_player;
 - (void).cxx_destruct;
 - (id)_progressInfoForItem:(id)arg1;
-- (int)_MRShuffleModeForMPShuffleType:(unsigned int)arg1;
-- (int)_MRRepeatModeForMPRepeatType:(unsigned int)arg1;
-- (unsigned int)_chapterIndexForItem:(id)arg1 atTime:(double)arg2;
+- (int)_MRShuffleModeForMPShuffleType:(unsigned long long)arg1;
+- (int)_MRRepeatModeForMPRepeatType:(unsigned long long)arg1;
+- (unsigned long long)_chapterIndexForItem:(id)arg1 atTime:(double)arg2;
 - (void)postProgressUpdateForItem:(id)arg1;
 - (void)postNowPlayingInfoForItem:(id)arg1;
 - (id)init;

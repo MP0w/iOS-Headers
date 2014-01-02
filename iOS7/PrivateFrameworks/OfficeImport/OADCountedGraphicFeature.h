@@ -6,14 +6,15 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface OADCountedGraphicFeature : NSObject
 {
     id mFeature;
-    unsigned int mUsageCount;
+    unsigned long long mUsageCount;
 }
 
-@property(nonatomic) unsigned int usageCount; // @synthesize usageCount=mUsageCount;
-- (int)compareUsageCount:(id)arg1;
+@property(nonatomic) unsigned long long usageCount; // @synthesize usageCount=mUsageCount;
+- (long long)compareUsageCount:(id)arg1;
 - (void)incrementUsageCount;
 - (id)feature;
 - (void)dealloc;

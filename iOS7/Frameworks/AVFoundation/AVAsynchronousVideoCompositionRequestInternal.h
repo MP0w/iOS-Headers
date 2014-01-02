@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class AVVideoCompositionRenderContext, AVWeakReference, NSDictionary;
+@class AVVideoCompositionRenderContext, AVWeakReference, NSArray, NSDictionary;
 
 @interface AVAsynchronousVideoCompositionRequestInternal : NSObject
 {
@@ -15,11 +15,13 @@
     struct OpaqueFigVideoCompositorFrame *_compositionFrame;
     CDStruct_1b6d18a9 _compositionTime;
     NSDictionary *_sourcesByTrackID;
+    NSArray *_sourceTrackIDsInClientOrder;
     id <AVVideoCompositionInstruction> _instruction;
-    BOOL _isFinished;
+    _Bool _isFinished;
 }
 
-@property(nonatomic) BOOL isFinished; // @synthesize isFinished=_isFinished;
+@property(retain, nonatomic) NSArray *sourceTrackIDsInClientOrder; // @synthesize sourceTrackIDsInClientOrder=_sourceTrackIDsInClientOrder;
+@property(nonatomic) _Bool isFinished; // @synthesize isFinished=_isFinished;
 @property(retain, nonatomic) id <AVVideoCompositionInstruction> instruction; // @synthesize instruction=_instruction;
 @property(retain, nonatomic) NSDictionary *sourcesByTrackID; // @synthesize sourcesByTrackID=_sourcesByTrackID;
 @property(nonatomic) CDStruct_1b6d18a9 compositionTime; // @synthesize compositionTime=_compositionTime;

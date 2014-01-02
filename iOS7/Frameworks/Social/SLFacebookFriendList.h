@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface SLFacebookFriendList : NSObject
 {
     NSString *_identifier;

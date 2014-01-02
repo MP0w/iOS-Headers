@@ -12,10 +12,10 @@
 {
 }
 
-+ (unsigned int)guidedAccessAvailability;
++ (unsigned long long)guidedAccessAvailability;
 + (void)enterGuidedAccessMode;
-+ (void)setGuidedAccessSwitchEnabled:(BOOL)arg1;
-+ (BOOL)guidedAccessHasPasscode;
++ (void)setGuidedAccessSwitchEnabled:(_Bool)arg1;
++ (_Bool)guidedAccessHasPasscode;
 + (id)iconImage;
 + (id)preferencesURL;
 

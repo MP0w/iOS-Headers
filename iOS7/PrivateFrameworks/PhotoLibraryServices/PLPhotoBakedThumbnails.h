@@ -12,21 +12,21 @@
 {
     int _format;
     int _singleThumbnailImageLength;
-    unsigned int _count;
-    BOOL _dataIsMutable;
+    unsigned long long _count;
+    _Bool _dataIsMutable;
     NSData *_thumbnailData;
     NSMutableArray *_thumbnailImages;
     NSMutableDictionary *_options;
     NSData *_optionsData;
-    BOOL _optionsAccessed;
-    BOOL _missingHeader;
+    _Bool _optionsAccessed;
+    _Bool _missingHeader;
     struct CGSize _size;
 }
 
-+ (BOOL)saveBakedThumbnailsOfImages:(id)arg1 toFile:(id)arg2 format:(int)arg3 orientation:(int *)arg4 options:(id)arg5 delegate:(id)arg6;
++ (_Bool)saveBakedThumbnailsOfImages:(id)arg1 toFile:(id)arg2 format:(int)arg3 orientation:(int *)arg4 options:(id)arg5 delegate:(id)arg6;
 + (id)thumbnailsWithContentsOfFile:(id)arg1 format:(int)arg2;
 - (id)_thumbnailData;
-- (BOOL)writeBorderedThumbnailOfImage:(struct CGImage *)arg1 toBuffer:(void *)arg2 orientation:(int *)arg3 format:(int)arg4 formatInfo:(const CDStruct_064f6571 *)arg5 delegate:(id)arg6;
+- (_Bool)writeBorderedThumbnailOfImage:(struct CGImage *)arg1 toBuffer:(void *)arg2 orientation:(int *)arg3 format:(int)arg4 formatInfo:(const CDStruct_e5ce1f5a *)arg5 delegate:(id)arg6;
 @property(readonly, nonatomic) struct CGRect imageRect;
 @property(readonly, nonatomic) unsigned int bitmapInfo;
 @property(readonly, nonatomic) struct CGSize size;
@@ -35,20 +35,20 @@
 @property(readonly, nonatomic) NSData *optionsData;
 @property(readonly, nonatomic) NSMutableDictionary *options;
 @property(readonly, nonatomic) int format;
-- (struct CGImage *)thumbnailImageAtIndex:(int)arg1;
-- (char *)thumbnailBytesAtIndex:(int)arg1;
-- (unsigned long)thumbnailLength;
-- (id)thumbnailDataAtIndex:(int)arg1;
-- (unsigned int)count;
-- (BOOL)saveToFile:(id)arg1;
+- (struct CGImage *)thumbnailImageAtIndex:(long long)arg1;
+- (char *)thumbnailBytesAtIndex:(long long)arg1;
+- (unsigned long long)thumbnailLength;
+- (id)thumbnailDataAtIndex:(long long)arg1;
+- (unsigned long long)count;
+- (_Bool)saveToFile:(id)arg1;
 - (id)serializedData;
 - (id)description;
 - (void)dealloc;
 - (id)initWithImages:(id)arg1 format:(int)arg2 orientation:(int *)arg3 options:(id)arg4 delegate:(id)arg5;
 - (id)initWithContentsOfFile:(id)arg1 format:(int)arg2;
-- (id)initWithContentsOfFile:(id)arg1 format:(int)arg2 readOnly:(BOOL)arg3;
+- (id)initWithContentsOfFile:(id)arg1 format:(int)arg2 readOnly:(_Bool)arg3;
 - (id)initWithData:(id)arg1 format:(int)arg2;
-- (id)initWithData:(id)arg1 format:(int)arg2 readOnly:(BOOL)arg3;
+- (id)initWithData:(id)arg1 format:(int)arg2 readOnly:(_Bool)arg3;
 
 @end
 

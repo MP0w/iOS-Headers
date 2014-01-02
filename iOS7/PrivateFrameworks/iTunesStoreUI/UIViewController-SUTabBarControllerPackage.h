@@ -7,6 +7,6 @@
 #import "UIViewController.h"
 
 @interface UIViewController (SUTabBarControllerPackage)
-@property(readonly, nonatomic) int ITunesStoreUIBarStyle;
+@property(readonly, nonatomic) long long ITunesStoreUIBarStyle;
 @end
 

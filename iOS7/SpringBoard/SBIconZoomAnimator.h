@@ -6,12 +6,25 @@
 
 #import "NSObject.h"
 
-@class NSMapTable, SBFolderController, SBIconListView, SBIconZoomSettings, UIWindow;
+#import "SBIconIndexNodeObserver-Protocol.h"
 
-@interface SBIconZoomAnimator : NSObject
+@class NSMapTable, NSMutableArray, NSSet, NSString, SBFolderController, SBIconListModel, SBIconListView, SBIconZoomSettings, UIView, UIWindow;
+
+@interface SBIconZoomAnimator : NSObject <SBIconIndexNodeObserver>
 {
+    id <SBIconZoomAnimatorDelegate> _delegate;
     NSMapTable *_listIconToViewMap;
     NSMapTable *_dockIconToViewMap;
+    double _zoomFraction;
+    NSSet *_criticalIconNodeIdentifiers;
+    _Bool _invalidatedForIconModifications;
+    _Bool _startedAnimation;
+    _Bool _startAnimationAfterRotationEnds;
+    _Bool _windowIsRotating;
+    NSMutableArray *_pendedAnimateZoomContexts;
+    UIWindow *_animationWindow;
+    SBIconListModel *_iconListModel;
+    NSString *_instanceIdentifier;
     SBIconZoomSettings *_zoomSettings;
     SBFolderController *_folderController;
     SBIconListView *_iconListView;
@@ -22,22 +35,39 @@
 @property(readonly, nonatomic) SBIconListView *iconListView; // @synthesize iconListView=_iconListView;
 @property(readonly, nonatomic) SBFolderController *folderController; // @synthesize folderController=_folderController;
 @property(retain, nonatomic) SBIconZoomSettings *zoomSettings; // @synthesize zoomSettings=_zoomSettings;
+@property(readonly, nonatomic) _Bool invalidated; // @synthesize invalidated=_invalidatedForIconModifications;
+@property(retain, nonatomic) NSSet *criticalIconNodeIdentifiers; // @synthesize criticalIconNodeIdentifiers=_criticalIconNodeIdentifiers;
+@property(nonatomic) id <SBIconZoomAnimatorDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)_invalidateAnimationForSignificantIconModelChangesForReason:(id)arg1;
+- (void)_iconModelDidReload;
+- (void)_iconModelDidRelayout;
+- (void)_windowFinishedRotating;
+- (void)_invalidateCompletions;
+- (void)_clearObservers;
+- (void)_setDockListView:(id)arg1;
+- (void)_setIconListView:(id)arg1;
+- (void)node:(id)arg1 didRemoveContainedNodeIdentifiers:(id)arg2;
+- (void)node:(id)arg1 didAddContainedNodeIdentifiers:(id)arg2;
 - (id)_centralAnimationFactory;
-- (void)_animateToZoomFraction:(float)arg1 afterDelay:(double)arg2 withSharedCompletion:(id)arg3;
-- (unsigned int)_numberOfSignificantAnimations;
+- (void)_animateToZoomFraction:(double)arg1 afterDelay:(double)arg2 withSharedCompletion:(id)arg3;
+- (unsigned long long)_numberOfSignificantAnimations;
 - (void)_cleanupZoom;
-- (void)_setZoomFraction:(float)arg1;
+- (void)_setZoomFraction:(double)arg1;
 - (void)_prepareZoom;
-- (void)animateToZoomFraction:(float)arg1 afterDelay:(double)arg2 withCompletion:(id)arg3;
-- (void)setZoomFraction:(float)arg1;
+- (_Bool)_isDelayedForRotation;
+- (void)_animateToZoomFractionFromContext:(id)arg1;
+- (void)_animateToZoomFractionFromPendingContexts;
+- (void)animateToZoomFraction:(double)arg1 afterDelay:(double)arg2 withCompletion:(id)arg3;
+- (void)setZoomFraction:(double)arg1;
 - (void)cleanup;
+- (void)_cleanup:(_Bool)arg1;
 - (void)prepare;
-- (unsigned int)dockIconCount;
-- (unsigned int)listIconCount;
+- (unsigned long long)dockIconCount;
+- (unsigned long long)listIconCount;
 - (void)enumerateIconsAndIconViewsWithHandler:(id)arg1;
 - (id)iconViewForIcon:(id)arg1;
 - (id)centralAnimationFactory;
-@property(readonly, nonatomic) UIWindow *window;
+@property(readonly, nonatomic) UIView *referenceView;
 - (void)dealloc;
 - (id)initWithFolderController:(id)arg1;
 

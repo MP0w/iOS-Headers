@@ -8,6 +8,7 @@
 
 @class NSMutableArray, PDNotesSlide, PDSlideLayout;
 
+// Not exported
 @interface PDSlide : PDSlideChild
 {
     PDSlideLayout *mSlideLayout;
@@ -15,19 +16,19 @@
     PDNotesSlide *mNotesSlide;
 }
 
-- (BOOL)hasMappableSlideNumberShape;
+- (_Bool)hasMappableSlideNumberShape;
 - (id)background;
 - (void)setInheritedTextStyle:(id)arg1 placeholderType:(int)arg2 defaultTextListStyle:(id)arg3;
 - (void)doneWithContent;
 - (void)addComment:(id)arg1;
-- (id)commentAtIndex:(unsigned int)arg1;
-- (unsigned int)commentCount;
+- (id)commentAtIndex:(unsigned long long)arg1;
+- (unsigned long long)commentCount;
 - (id)parentSlideBase;
-- (id)masterGraphicForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(BOOL)arg3;
-- (id)parentShapePropertiesForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(BOOL)arg3;
+- (id)masterGraphicForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(_Bool)arg3;
+- (id)parentShapePropertiesForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(_Bool)arg3;
 - (id)parentTextStyleForTables;
-- (id)parentTextStyleForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 defaultTextListStyle:(id)arg3 overrideIndex:(BOOL)arg4;
-- (id)parentTextBodyPropertiesForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(BOOL)arg3;
+- (id)parentTextStyleForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 defaultTextListStyle:(id)arg3 overrideIndex:(_Bool)arg4;
+- (id)parentTextBodyPropertiesForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(_Bool)arg3;
 - (void)setNotesSlide:(id)arg1;
 - (id)notesSlide;
 - (id)defaultTheme;

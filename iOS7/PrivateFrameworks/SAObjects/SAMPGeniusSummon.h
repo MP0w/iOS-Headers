@@ -14,7 +14,7 @@
 
 + (id)geniusSummonWithDictionary:(id)arg1 context:(id)arg2;
 + (id)geniusSummon;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(retain, nonatomic) SAMPMediaItem *mediaItem;
 - (id)encodedClassName;
 - (id)groupIdentifier;

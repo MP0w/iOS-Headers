@@ -15,13 +15,12 @@
 + (id)movieWithDictionary:(id)arg1 context:(id)arg2;
 + (id)movie;
 - (void)updateUsingSet:(id)arg1 add:(id)arg2 remove:(id)arg3;
-@property(copy, nonatomic) NSURL *trailerUri;
 @property(copy, nonatomic) NSDate *theatricalReleaseDate;
 @property(copy, nonatomic) NSArray *theaterShowtimes;
 @property(copy, nonatomic) NSString *theaterShowtimeSearchRegionDescription;
 @property(copy, nonatomic) NSString *synopsis;
 @property(copy, nonatomic) NSArray *studios;
-@property(nonatomic) int runtimeInMinutes;
+@property(nonatomic) long long runtimeInMinutes;
 @property(copy, nonatomic) NSURL *rottenTomatoesUri;
 @property(retain, nonatomic) SALocalSearchReviewList *reviews;
 @property(copy, nonatomic) NSString *rating;
@@ -32,7 +31,7 @@
 @property(copy, nonatomic) NSURL *lowResTrailerUri;
 @property(copy, nonatomic) NSNumber *isAvailableOnItunesForRent;
 @property(copy, nonatomic) NSNumber *isAvailableOnItunesForPurchase;
-@property(nonatomic) BOOL is3d;
+@property(nonatomic) _Bool is3d;
 @property(copy, nonatomic) NSURL *iTunesUri;
 @property(copy, nonatomic) NSURL *hiResTrailerUri;
 @property(copy, nonatomic) NSArray *genres;

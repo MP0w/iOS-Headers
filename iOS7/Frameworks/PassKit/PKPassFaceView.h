@@ -6,7 +6,7 @@
 
 #import <PassKit/WLEasyToHitCustomView.h>
 
-@class NSArray, NSMutableArray, NSMutableSet, PKBarcodeStickerView, PKPass, PKPassColorProfile, PKPassFaceTemplate, UIImage, UIImageView, UIView;
+@class CAFilter, NSArray, NSMutableArray, NSMutableSet, PKBarcodeStickerView, PKPass, PKPassColorProfile, PKPassFaceTemplate, UIImage, UIImageView, UIView;
 
 @interface PKPassFaceView : WLEasyToHitCustomView
 {
@@ -16,59 +16,59 @@
     UIImageView *_backgroundView;
     UIImage *_faceImage;
     UIImage *_partialFaceImage;
-    UIImageView *_dimmingView;
+    CAFilter *_dimmingFilter;
     NSMutableArray *_headerBucketViews;
     NSMutableArray *_bodyBucketViews;
     PKBarcodeStickerView *_barcodeView;
-    int _contentViewCreatedRegions;
-    int _invariantViewCreatedRegions;
+    long long _contentViewCreatedRegions;
+    long long _invariantViewCreatedRegions;
     PKPassFaceTemplate *_faceTemplate;
-    BOOL _allowBackgroundPlaceHolders;
-    BOOL _clipsContent;
+    _Bool _allowBackgroundPlaceHolders;
+    _Bool _clipsContent;
     NSArray *_buckets;
-    int _style;
+    long long _style;
     id <PKPassFaceDelegate> _delegate;
-    int _backgroundMode;
-    int _visibleRegions;
-    float _clippedContentHeight;
+    long long _backgroundMode;
+    long long _visibleRegions;
+    double _clippedContentHeight;
     NSMutableSet *_headerInvariantViews;
     NSMutableSet *_bodyInvariantViews;
     NSMutableSet *_headerContentViews;
     NSMutableSet *_bodyContentViews;
 }
 
-+ (id)newBackFaceViewForStyle:(int)arg1 tall:(BOOL)arg2;
-+ (id)newFrontFaceViewForStyle:(int)arg1;
-+ (Class)_faceClassForStyle:(int)arg1 front:(BOOL)arg2;
++ (id)newBackFaceViewForStyle:(long long)arg1 tall:(_Bool)arg2;
++ (id)newFrontFaceViewForStyle:(long long)arg1;
++ (Class)_faceClassForStyle:(long long)arg1 front:(_Bool)arg2;
 @property(readonly, nonatomic) NSMutableSet *bodyContentViews; // @synthesize bodyContentViews=_bodyContentViews;
 @property(readonly, nonatomic) NSMutableSet *headerContentViews; // @synthesize headerContentViews=_headerContentViews;
 @property(readonly, nonatomic) NSMutableSet *bodyInvariantViews; // @synthesize bodyInvariantViews=_bodyInvariantViews;
 @property(readonly, nonatomic) NSMutableSet *headerInvariantViews; // @synthesize headerInvariantViews=_headerInvariantViews;
 @property(retain, nonatomic) NSMutableArray *headerBucketViews; // @synthesize headerBucketViews=_headerBucketViews;
-@property(nonatomic) float clippedContentHeight; // @synthesize clippedContentHeight=_clippedContentHeight;
-@property(nonatomic) BOOL clipsContent; // @synthesize clipsContent=_clipsContent;
-@property(nonatomic) int visibleRegions; // @synthesize visibleRegions=_visibleRegions;
-@property(nonatomic) int backgroundMode; // @synthesize backgroundMode=_backgroundMode;
-@property(nonatomic) BOOL allowBackgroundPlaceHolders; // @synthesize allowBackgroundPlaceHolders=_allowBackgroundPlaceHolders;
+@property(nonatomic) double clippedContentHeight; // @synthesize clippedContentHeight=_clippedContentHeight;
+@property(nonatomic) _Bool clipsContent; // @synthesize clipsContent=_clipsContent;
+@property(nonatomic) long long visibleRegions; // @synthesize visibleRegions=_visibleRegions;
+@property(nonatomic) long long backgroundMode; // @synthesize backgroundMode=_backgroundMode;
+@property(nonatomic) _Bool allowBackgroundPlaceHolders; // @synthesize allowBackgroundPlaceHolders=_allowBackgroundPlaceHolders;
 @property(nonatomic) id <PKPassFaceDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) int style; // @synthesize style=_style;
+@property(nonatomic) long long style; // @synthesize style=_style;
 @property(readonly, nonatomic) NSArray *buckets; // @synthesize buckets=_buckets;
 - (void)_handleTimeOrLocaleChange:(id)arg1;
 - (id)_relevantBuckets;
-- (void)_setShowsBackgroundView:(BOOL)arg1;
-- (void)_setContentViewsAlpha:(float)arg1;
-- (void)_setShowsBodyViews:(BOOL)arg1;
-- (void)_setShowsHeaderViews:(BOOL)arg1;
-- (void)_flushContentViewsForRegions:(int)arg1;
-- (void)_createContentViewsForRegions:(int)arg1;
-- (void)_createInvariantViewsForRegions:(int)arg1;
+- (void)_setShowsBackgroundView:(_Bool)arg1;
+- (void)_setContentViewsAlpha:(double)arg1;
+- (void)_setShowsBodyViews:(_Bool)arg1;
+- (void)_setShowsHeaderViews:(_Bool)arg1;
+- (void)_flushContentViewsForRegions:(long long)arg1;
+- (void)_createContentViewsForRegions:(long long)arg1;
+- (void)_createInvariantViewsForRegions:(long long)arg1;
 - (void)prepareForFlip;
 - (void)createBodyContentViews;
 - (void)createHeaderContentViews;
 - (void)createBodyInvariantViews;
 - (void)createHeaderInvariantViews;
 - (struct CGSize)contentSize;
-@property(readonly, nonatomic) BOOL isFrontFace;
+@property(readonly, nonatomic) _Bool isFrontFace;
 - (id)passFaceTemplate;
 - (int)_validityStateForPass:(id)arg1;
 - (void)presentDiff:(id)arg1 completion:(id)arg2;
@@ -77,9 +77,9 @@
 - (void)_positionBarcodeView;
 - (void)layoutSubviews;
 - (struct UIEdgeInsets)shadowInsets;
-- (void)createContentViewsWithFade:(BOOL)arg1;
-- (void)setDimmer:(float)arg1 animated:(BOOL)arg2;
-@property(readonly, nonatomic) BOOL bodyContentCreated;
+- (void)createContentViewsWithFade:(_Bool)arg1;
+- (void)setDimmer:(double)arg1 animated:(_Bool)arg2;
+@property(readonly, nonatomic) _Bool bodyContentCreated;
 @property(readonly, nonatomic) PKPassColorProfile *colorProfile; // @synthesize colorProfile=_colorProfile;
 @property(readonly, nonatomic) PKPass *pass; // @synthesize pass=_pass;
 @property(readonly, nonatomic) struct CGRect contentBounds;

@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface GCKEventItem : NSObject
 {
     CDStruct_68f9d01f *_event;

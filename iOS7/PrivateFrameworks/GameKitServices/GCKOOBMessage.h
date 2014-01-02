@@ -10,6 +10,7 @@
 
 @class NSData;
 
+// Not exported
 @interface GCKOOBMessage : NSObject <NSCoding>
 {
     unsigned int type;

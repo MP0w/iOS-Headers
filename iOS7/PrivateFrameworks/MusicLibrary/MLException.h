@@ -6,6 +6,7 @@
 
 #import "NSException.h"
 
+// Not exported
 @interface MLException : NSException
 {
 }

@@ -8,8 +8,8 @@
 
 @interface NSDictionary (FTRegAppleIDSetupUtilities)
 - (id)__ftreg_candidateAliases;
-- (BOOL)__ftreg_isValidSetupDictionary;
-- (BOOL)__ftreg_responseIsUpgrade;
+- (_Bool)__ftreg_isValidSetupDictionary;
+- (_Bool)__ftreg_responseIsUpgrade;
 - (id)__ftreg_responseAuthToken;
 - (id)__ftreg_responseProfileID;
 - (id)__ftreg_responseAppleID;

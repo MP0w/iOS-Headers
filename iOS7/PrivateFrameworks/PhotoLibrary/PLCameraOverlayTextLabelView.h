@@ -11,19 +11,19 @@
 @interface PLCameraOverlayTextLabelView : UIView
 {
     NSString *_text;
-    float _textSize;
-    float _textStrokeWidth;
+    double _textSize;
+    double _textStrokeWidth;
     UIColor *_textColor;
 }
 
 @property(retain, nonatomic) UIColor *textColor; // @synthesize textColor=_textColor;
-@property(nonatomic) float textStrokeWidth; // @synthesize textStrokeWidth=_textStrokeWidth;
+@property(nonatomic) double textStrokeWidth; // @synthesize textStrokeWidth=_textStrokeWidth;
 @property(retain, nonatomic) NSString *text; // @synthesize text=_text;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)dealloc;
 - (id)initWithText:(id)arg1;
-- (id)initWithText:(id)arg1 textSize:(float)arg2;
-- (id)initWithFrame:(struct CGRect)arg1 text:(id)arg2 textSize:(float)arg3;
+- (id)initWithText:(id)arg1 textSize:(double)arg2;
+- (id)initWithFrame:(struct CGRect)arg1 text:(id)arg2 textSize:(double)arg3;
 
 @end
 

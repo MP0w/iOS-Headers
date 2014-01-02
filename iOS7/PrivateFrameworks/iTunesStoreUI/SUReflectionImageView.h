@@ -10,23 +10,23 @@
 
 @interface SUReflectionImageView : UIView
 {
-    float _reflectionHeight;
-    float _spacing;
-    float _reflectionAlpha;
-    BOOL _useImageSize;
+    double _reflectionHeight;
+    double _spacing;
+    double _reflectionAlpha;
+    _Bool _useImageSize;
     unsigned int _nonSquareImage:1;
     UIImageView *_imageView;
     SUReflectionView *_reflection;
 }
 
-@property(nonatomic) float reflectionSpacing; // @synthesize reflectionSpacing=_spacing;
-- (void)setUseImageSize:(BOOL)arg1;
-- (void)setReflectionVisible:(BOOL)arg1;
-- (void)setReflectionAlphaWhenVisible:(float)arg1;
-@property(nonatomic) BOOL nonSquareImage;
+@property(nonatomic) double reflectionSpacing; // @synthesize reflectionSpacing=_spacing;
+- (void)setUseImageSize:(_Bool)arg1;
+- (void)setReflectionVisible:(_Bool)arg1;
+- (void)setReflectionAlphaWhenVisible:(double)arg1;
+@property(nonatomic) _Bool nonSquareImage;
 - (void)setImage:(id)arg1;
 - (void)dealloc;
-- (id)initWithReflectionHeight:(float)arg1 spacing:(float)arg2;
+- (id)initWithReflectionHeight:(double)arg1 spacing:(double)arg2;
 - (id)init;
 
 @end

@@ -11,6 +11,7 @@
 
 @class EDPhoneticInfo, EDRunsCollection, NSString;
 
+// Not exported
 @interface EDString : NSObject <NSCopying, EDImmutableObject>
 {
     NSString *mString;
@@ -30,17 +31,14 @@
 - (void)setString:(id)arg1;
 - (id)string;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isEqualToEDString:(id)arg1;
-- (BOOL)isEqualToString:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)isEqualToEDString:(id)arg1;
+- (_Bool)isEqualToString:(id)arg1;
 - (void)dealloc;
 - (id)initWithString:(id)arg1 runs:(id)arg2;
 - (id)initWithString:(id)arg1;
 - (id)init;
-- (_Bool)isEmpty;
-- (id)firstRunFont;
-- (_Bool)areThereRuns;
 
 @end
 

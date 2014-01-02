@@ -6,14 +6,15 @@
 
 #import <GameController/_GCControllerButtonInput.h>
 
+// Not exported
 @interface _GCACHomeButton : _GCControllerButtonInput
 {
     id <_GCACHomeButtonDelegate> _delegate;
-    BOOL needsReset;
+    _Bool needsReset;
 }
 
 - (void).cxx_destruct;
-- (BOOL)_setValue:(float)arg1;
+- (_Bool)_setValue:(float)arg1;
 - (id)initWithDelegate:(id)arg1;
 
 @end

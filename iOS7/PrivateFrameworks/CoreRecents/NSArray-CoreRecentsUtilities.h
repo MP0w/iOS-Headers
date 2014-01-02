@@ -11,7 +11,7 @@
 - (id)cr_map:(id)arg1;
 - (id)cr_firstObjectPassingTest:(id)arg1;
 - (id)cr_firstObject;
-- (unsigned int)cr_binaryInsertionIndexOfObject:(id)arg1 usingComparator:(id)arg2 match:(void)arg3;
+- (unsigned long long)cr_binaryInsertionIndexOfObject:(id)arg1 usingComparator:(id)arg2 match:(void)arg3;
 - (id)cr_copyConcurrentlyByApplyingTransform:(id)arg1;
 @end
 

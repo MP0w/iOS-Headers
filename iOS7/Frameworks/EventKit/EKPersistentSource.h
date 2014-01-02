@@ -17,10 +17,10 @@
 + (id)defaultPropertiesToLoad;
 @property(readonly, nonatomic) EKSourceConstraints *constraints; // @synthesize constraints=_constraints;
 - (void)reset;
-- (BOOL)refresh;
+- (_Bool)refresh;
 - (id)description;
-@property(nonatomic) BOOL onlyCreatorCanModify;
-@property(nonatomic, getter=isEnabled) BOOL enabled;
+@property(nonatomic) _Bool onlyCreatorCanModify;
+@property(nonatomic, getter=isEnabled) _Bool enabled;
 @property(copy, nonatomic) NSString *externalModificationTag;
 @property(copy, nonatomic) NSString *externalID;
 @property(nonatomic) NSString *UUID;

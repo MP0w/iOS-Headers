@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSString;
 
-@interface GEONamedFeature : PBCodable
+@interface GEONamedFeature : PBCodable <NSCopying>
 {
     double _value;
     NSString *_name;
@@ -16,11 +18,12 @@
 
 @property(nonatomic) double value; // @synthesize value=_value;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
 - (void)dealloc;

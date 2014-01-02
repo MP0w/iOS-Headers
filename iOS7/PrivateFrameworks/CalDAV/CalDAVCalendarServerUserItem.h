@@ -28,7 +28,7 @@
 @property(retain) CoreDAVItemWithNoChildren *inviteStatus; // @synthesize inviteStatus=_inviteStatus;
 @property(retain) CoreDAVLeafItem *commonName; // @synthesize commonName=_commonName;
 @property(retain) CoreDAVHrefItem *href; // @synthesize href=_href;
-- (int)compare:(id)arg1;
+- (long long)compare:(id)arg1;
 - (id)copyParseRules;
 - (void)setAcceptedURLItem:(id)arg1;
 - (void)setLastNameItem:(id)arg1;

@@ -6,21 +6,22 @@
 
 #import "NSArray.h"
 
+// Not exported
 @interface CALayerArray : NSArray
 {
     struct _CALayerArrayIvars _ivars;
 }
 
 - (id).cxx_construct;
-- (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
+- (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)getObjects:(id *)arg1 range:(struct _NSRange)arg2;
 - (void)getObjects:(id *)arg1;
-- (id)objectAtIndex:(unsigned int)arg1;
-- (unsigned int)count;
+- (id)objectAtIndex:(unsigned long long)arg1;
+- (unsigned long long)count;
 - (void)dealloc;
-- (id)initWithLayers:(id *)arg1 count:(unsigned long)arg2 retain:(BOOL)arg3;
+- (id)initWithLayers:(id *)arg1 count:(unsigned long long)arg2 retain:(_Bool)arg3;
 
 @end
 

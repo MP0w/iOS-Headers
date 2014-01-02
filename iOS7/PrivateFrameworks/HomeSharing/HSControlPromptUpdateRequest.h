@@ -13,7 +13,7 @@
 
 + (id)requestWithInterfaceID:(unsigned int)arg1 promptID:(unsigned int)arg2;
 - (double)timeoutInterval;
-- (BOOL)isConcurrent;
+- (_Bool)isConcurrent;
 - (id)canonicalResponseForResponse:(id)arg1;
 - (id)initWithInterfaceID:(unsigned int)arg1 promptID:(unsigned int)arg2;
 

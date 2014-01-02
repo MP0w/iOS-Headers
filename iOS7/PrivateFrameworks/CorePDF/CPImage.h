@@ -9,18 +9,17 @@
 @interface CPImage : CPGraphicObject
 {
     struct CPPDFImage *imageData;
-    BOOL renderedBoundsComputed;
+    _Bool renderedBoundsComputed;
 }
 
-- (BOOL)isVisible;
-- (long)zOrder;
+- (_Bool)isVisible;
+- (long long)zOrder;
 - (void)accept:(id)arg1;
 - (void)recomputeRenderedBounds;
 - (struct CGRect)bounds;
 - (struct CGRect)renderedBounds;
 - (struct CPPDFImage *)imageData;
 - (id)initWithBounds:(struct CGRect)arg1;
-- (id)initWithPDFImage:(struct CPPDFImage *)arg1;
 
 @end
 

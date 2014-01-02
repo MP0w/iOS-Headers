@@ -15,11 +15,11 @@
 @property(readonly) int index;
 @property(readonly) NSString *text;
 @property(copy) NSString *value;
-@property BOOL selected;
-@property BOOL defaultSelected;
+@property _Bool selected;
+@property _Bool defaultSelected;
 @property(copy) NSString *label;
 @property(readonly) DOMHTMLFormElement *form;
-@property BOOL disabled;
+@property _Bool disabled;
 
 @end
 

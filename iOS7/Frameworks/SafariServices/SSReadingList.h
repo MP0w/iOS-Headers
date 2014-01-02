@@ -15,12 +15,12 @@
     WebBookmarksXPCConnection *_connection;
     NSObject<OS_dispatch_queue> *_serialQueue;
     NSObject<OS_xpc_object> *_batchedReadingListItems;
-    BOOL _batchScheduled;
+    _Bool _batchScheduled;
 }
 
 + (id)defaultReadingList;
-+ (BOOL)supportsURL:(id)arg1;
-- (BOOL)addReadingListItemWithURL:(id)arg1 title:(id)arg2 previewText:(id)arg3 error:(id *)arg4;
++ (_Bool)supportsURL:(id)arg1;
+- (_Bool)addReadingListItemWithURL:(id)arg1 title:(id)arg2 previewText:(id)arg3 error:(id *)arg4;
 - (void)dealloc;
 - (id)_init;
 - (id)init;

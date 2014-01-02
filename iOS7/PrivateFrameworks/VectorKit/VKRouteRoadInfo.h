@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface VKRouteRoadInfo : NSObject
 {
     NSString *_name;

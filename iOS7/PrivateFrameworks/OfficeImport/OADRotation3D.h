@@ -8,6 +8,7 @@
 
 #import "NSCopying-Protocol.h"
 
+// Not exported
 @interface OADRotation3D : NSObject <NSCopying>
 {
     float mLatitude;
@@ -15,8 +16,8 @@
     float mRevolution;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (float)revolution;
 - (float)longitude;

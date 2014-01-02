@@ -23,7 +23,6 @@
 - (id)init;
 - (id)possibleShortTitles:(id)arg1;
 - (id)possibleValues:(id)arg1 titles:(id)arg2;
-- (Class)rowTableViewCellClass;
 
 @end
 

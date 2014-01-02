@@ -9,54 +9,55 @@
 @interface UITextChecker : NSObject
 {
     id _reserved;
-    int _usdt;
+    long long _usdt;
 }
 
 + (void)queryLocalUpdateAssets:(id)arg1;
 + (id)_textCheckerBackgroundQueue;
++ (void)setString:(id)arg1 isExemptFromChecker:(_Bool)arg2;
 + (void)unlearnWord:(id)arg1;
-+ (BOOL)hasLearnedWord:(id)arg1;
++ (_Bool)hasLearnedWord:(id)arg1;
 + (void)learnWord:(id)arg1;
 + (void)_setWords:(id)arg1 inDictionary:(id)arg2;
 + (id)_wordsInDictionary:(id)arg1;
-+ (BOOL)_isWord:(id)arg1 inDictionary:(id)arg2;
-+ (BOOL)_forgetWord:(id)arg1 inDictionary:(id)arg2;
-+ (BOOL)_learnWord:(id)arg1 inDictionary:(id)arg2;
++ (_Bool)_isWord:(id)arg1 inDictionary:(id)arg2;
++ (_Bool)_forgetWord:(id)arg1 inDictionary:(id)arg2;
++ (_Bool)_learnWord:(id)arg1 inDictionary:(id)arg2;
 + (id)dictionaryInfo:(id)arg1;
 + (id)openUserDictionary:(id)arg1;
-+ (struct __CFSet *)createDictHashTable:(BOOL)arg1;
++ (struct __CFSet *)createDictHashTable:(_Bool)arg1;
 + (id)bestLanguageForString:(id)arg1 fromAlternatives:(id)arg2 currentLanguage:(id)arg3;
-+ (id)bestLanguageForString:(id)arg1 fromAlternatives:(id)arg2 currentLanguage:(id)arg3 insertionPointIndex:(unsigned int)arg4 scriptForBestLanguage:(id *)arg5;
++ (id)bestLanguageForString:(id)arg1 fromAlternatives:(id)arg2 currentLanguage:(id)arg3 insertionPointIndex:(unsigned long long)arg4 scriptForBestLanguage:(id *)arg5;
 + (id)availableLanguages;
-+ (int)uniqueSpellDocumentTag;
-- (BOOL)isWordInUserDictionaries:(id)arg1 caseSensitive:(BOOL)arg2;
++ (long long)uniqueSpellDocumentTag;
+- (_Bool)isWordInUserDictionaries:(id)arg1 caseSensitive:(_Bool)arg2;
 - (void)setIgnoredWords:(id)arg1;
 - (id)ignoredWords;
 - (void)ignoreWord:(id)arg1;
 - (id)alternativesForPinyinInputString:(id)arg1;
 - (id)stringForInputString:(id)arg1 language:(id)arg2;
-- (BOOL)canChangeCaseOfFirstLetterInString:(id)arg1 toUpperCase:(BOOL)arg2 language:(id)arg3;
+- (_Bool)canChangeCaseOfFirstLetterInString:(id)arg1 toUpperCase:(_Bool)arg2 language:(id)arg3;
 - (id)suggestWordInLanguage:(id)arg1;
 - (id)completionsForPartialWordRange:(struct _NSRange)arg1 inString:(id)arg2 language:(id)arg3;
 - (id)guessesForWordRange:(struct _NSRange)arg1 inString:(id)arg2 language:(id)arg3;
 - (id)correctionForWordRange:(struct _NSRange)arg1 inString:(id)arg2 language:(id)arg3;
-- (struct _NSRange)checkGrammarOfString:(id)arg1 startingAt:(int)arg2 language:(id)arg3 wrap:(BOOL)arg4 details:(id *)arg5;
-- (struct _NSRange)checkSpellingOfString:(id)arg1 startingAt:(int)arg2 language:(id)arg3 wrap:(BOOL)arg4 correction:(id *)arg5;
-- (struct _NSRange)rangeOfMisspelledWordInString:(id)arg1 range:(struct _NSRange)arg2 startingAt:(int)arg3 wrap:(BOOL)arg4 language:(id)arg5;
-- (struct _NSRange)_chunkAndFindMisspelledWordInString:(id)arg1 language:(id)arg2 learnedDictionaries:(id)arg3 wordCount:(int *)arg4 correction:(id *)arg5 usingChecker:(id)arg6;
+- (struct _NSRange)checkGrammarOfString:(id)arg1 startingAt:(long long)arg2 language:(id)arg3 wrap:(_Bool)arg4 details:(id *)arg5;
+- (struct _NSRange)checkSpellingOfString:(id)arg1 startingAt:(long long)arg2 language:(id)arg3 wrap:(_Bool)arg4 correction:(id *)arg5;
+- (struct _NSRange)rangeOfMisspelledWordInString:(id)arg1 range:(struct _NSRange)arg2 startingAt:(long long)arg3 wrap:(_Bool)arg4 language:(id)arg5;
+- (struct _NSRange)_chunkAndFindMisspelledWordInString:(id)arg1 language:(id)arg2 learnedDictionaries:(id)arg3 wordCount:(long long *)arg4 correction:(id *)arg5 usingChecker:(id)arg6;
 - (struct _NSRange)_chunkAndCheckGrammarInString:(id)arg1 language:(id)arg2 usingChecker:(id)arg3 details:(id *)arg4;
-- (int)adjustOffsetToNextWordBoundaryInString:(id)arg1 startingAt:(int)arg2;
+- (long long)adjustOffsetToNextWordBoundaryInString:(id)arg1 startingAt:(long long)arg2;
 - (id)_checker;
 - (void)dealloc;
-- (BOOL)_doneLoading;
-- (id)_initWithAsynchronousLoading:(BOOL)arg1;
+- (_Bool)_doneLoading;
+- (id)_initWithAsynchronousLoading:(_Bool)arg1;
 - (id)init;
 - (void)initGlobals;
 - (void)queryUpdateBundle;
 - (void)initUserDictionaries;
 - (void)_setDocumentDictionaryName:(id)arg1;
 - (void)_setLanguageDictionaryName:(id)arg1;
-- (id)_nameOfDictionaryForDocumentTag:(int)arg1;
+- (id)_nameOfDictionaryForDocumentTag:(long long)arg1;
 
 @end
 

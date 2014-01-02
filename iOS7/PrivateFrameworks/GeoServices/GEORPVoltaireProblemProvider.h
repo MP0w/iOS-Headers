@@ -12,19 +12,23 @@
 
 @interface GEORPVoltaireProblemProvider : GEORPProblemProvider <PBRequesterDelegate>
 {
-    GEORequester *_requester;
-    id _errorHandler;
-    id _finishedHandler;
+    GEORequester *_submissionRequester;
+    GEORequester *_statusRequester;
+    id _submissionErrorHandler;
+    id _submissionFinishedHandler;
+    id _statusErrorHandler;
+    id _statusFinishedHandler;
 }
 
 + (unsigned short)providerID;
-+ (void)setUsePersistentConnection:(BOOL)arg1;
-+ (void)_resetURL;
++ (void)setUsePersistentConnection:(_Bool)arg1;
++ (void)_resetURLs;
 - (void)requesterDidFinish:(id)arg1;
 - (void)requesterDidCancel:(id)arg1;
 - (void)requester:(id)arg1 didFailWithError:(id)arg2;
 - (void)cancelRequest;
-- (void)startRequest:(id)arg1 finished:(id)arg2 error:(void)arg3;
+- (void)startStatusRequest:(id)arg1 finished:(id)arg2 error:(void)arg3;
+- (void)startSubmissionRequest:(id)arg1 finished:(id)arg2 error:(void)arg3;
 - (void)dealloc;
 - (id)init;
 

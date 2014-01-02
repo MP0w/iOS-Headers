@@ -7,11 +7,11 @@
 #import "DOMHTMLImageElement.h"
 
 @interface DOMHTMLImageElement (MailExtras)
-+ (float)mf_maxPhotoWidth;
++ (double)mf_maxPhotoWidth;
 + (id)mf_edgeToEdgeImageAttachmentStyle;
 - (void)mf_applyEdgeToEdgeStyle;
-- (BOOL)mf_isEdgeToEdgeFormatted;
-- (BOOL)mf_shouldFormatEdgeToEdge;
+- (_Bool)mf_isEdgeToEdgeFormatted;
+- (_Bool)mf_shouldFormatEdgeToEdge;
 - (void)recursivelyRemoveMailAttributes;
 - (void)mf_unconstrainImageSize;
 - (void)mf_constrainImageToSize:(struct CGSize)arg1;

@@ -12,7 +12,7 @@
 
 + (id)likesMediaEntityWithDictionary:(id)arg1 context:(id)arg2;
 + (id)likesMediaEntity;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

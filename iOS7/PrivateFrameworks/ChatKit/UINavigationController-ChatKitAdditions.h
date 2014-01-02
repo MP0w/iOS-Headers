@@ -7,6 +7,6 @@
 #import "UINavigationController.h"
 
 @interface UINavigationController (ChatKitAdditions)
-- (BOOL)ckCanDismissWhenSuspending;
+- (_Bool)ckCanDismissWhenSuspending;
 @end
 

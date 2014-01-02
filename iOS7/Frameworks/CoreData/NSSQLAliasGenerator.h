@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface NSSQLAliasGenerator : NSObject
 {
     unsigned int _nextTableAlias;

@@ -8,6 +8,7 @@
 
 #import "MFMessageComposeViewControllerDelegate-Protocol.h"
 
+// Not exported
 @interface DDTextMessageAction : DDTelephoneNumberAction <MFMessageComposeViewControllerDelegate>
 {
 }

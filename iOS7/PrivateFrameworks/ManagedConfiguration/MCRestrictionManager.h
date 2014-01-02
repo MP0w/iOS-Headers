@@ -18,15 +18,15 @@
     NSMutableDictionary *_memberQueueProfileRestrictions;
 }
 
-+ (BOOL)isWebContentFilterUIActiveWithRestrictionDictionary:(id)arg1;
-+ (BOOL)mayEnterPasscodeToAccessNonWhitelistedAppsWithSettingsDictionary:(id)arg1;
-+ (BOOL)isPasscodeRequiredToAccessWhitelistedAppsWithSettingsDictionary:(id)arg1;
-+ (BOOL)isInSingleAppModeWithSettingsDictionary:(id)arg1;
++ (_Bool)isWebContentFilterUIActiveWithRestrictionDictionary:(id)arg1;
++ (_Bool)mayEnterPasscodeToAccessNonWhitelistedAppsWithSettingsDictionary:(id)arg1;
++ (_Bool)isPasscodeRequiredToAccessWhitelistedAppsWithSettingsDictionary:(id)arg1;
++ (_Bool)isInSingleAppModeWithSettingsDictionary:(id)arg1;
 + (int)appWhitelistStateWithSettingsDictionary:(id)arg1;
-+ (BOOL)unionValuesSetting:(id)arg1 valueChangedBetweenOldSettings:(id)arg2 andNewSettings:(id)arg3;
-+ (BOOL)intersectedValuesSetting:(id)arg1 valueChangedBetweenOldSettings:(id)arg2 andNewSettings:(id)arg3;
-+ (BOOL)valueSetting:(id)arg1 valueChangedBetweenOldSettings:(id)arg2 andNewSettings:(id)arg3;
-+ (BOOL)boolSetting:(id)arg1 valueChangedBetweenOldSettings:(id)arg2 andNewSettings:(id)arg3;
++ (_Bool)unionValuesSetting:(id)arg1 valueChangedBetweenOldSettings:(id)arg2 andNewSettings:(id)arg3;
++ (_Bool)intersectedValuesSetting:(id)arg1 valueChangedBetweenOldSettings:(id)arg2 andNewSettings:(id)arg3;
++ (_Bool)valueSetting:(id)arg1 valueChangedBetweenOldSettings:(id)arg2 andNewSettings:(id)arg3;
++ (_Bool)boolSetting:(id)arg1 valueChangedBetweenOldSettings:(id)arg2 andNewSettings:(id)arg3;
 + (id)newEffectiveSettingsByApplyingRestrictions:(id)arg1 toSettings:(id)arg2;
 + (id)unionValuesSettingForFeature:(id)arg1 withUserSettingDictionary:(id)arg2;
 + (id)intersectedValuesSettingForFeature:(id)arg1 withUserSettingDectionary:(id)arg2;
@@ -41,10 +41,10 @@
 + (id)defaultParametersForValueSetting:(id)arg1;
 + (id)defaultParametersForBoolSetting:(id)arg1;
 + (id)defaultSettings;
-+ (BOOL)unionValuesForFeature:(id)arg1 changedBetweenOldRestrictions:(id)arg2 andNewRestrictions:(id)arg3;
-+ (BOOL)intersectedValuesForFeature:(id)arg1 changedBetweenOldRestrictions:(id)arg2 andNewRestrictions:(id)arg3;
-+ (BOOL)restrictedValue:(id)arg1 changedBetweenOldRestrictions:(id)arg2 andNewRestrictions:(id)arg3;
-+ (BOOL)restrictedBool:(id)arg1 changedBetweenOldRestrictions:(id)arg2 andNewRestrictions:(id)arg3;
++ (_Bool)unionValuesForFeature:(id)arg1 changedBetweenOldRestrictions:(id)arg2 andNewRestrictions:(id)arg3;
++ (_Bool)intersectedValuesForFeature:(id)arg1 changedBetweenOldRestrictions:(id)arg2 andNewRestrictions:(id)arg3;
++ (_Bool)restrictedValue:(id)arg1 changedBetweenOldRestrictions:(id)arg2 andNewRestrictions:(id)arg3;
++ (_Bool)restrictedBool:(id)arg1 changedBetweenOldRestrictions:(id)arg2 andNewRestrictions:(id)arg3;
 + (id)unionValuesForFeature:(id)arg1 withRestrictionsDictionary:(id)arg2;
 + (id)intersectedValuesForFeature:(id)arg1 withRestrictionsDictionary:(id)arg2;
 + (id)objectForFeature:(id)arg1 withRestrictionsDictionary:(id)arg2;
@@ -52,16 +52,16 @@
 + (int)restrictedBoolForFeature:(id)arg1 withRestrictionsDictionary:(id)arg2;
 + (id)filterUserSettingsForPublicUse:(id)arg1;
 + (id)filterRestrictionDictionaryForPublicUse:(id)arg1;
-+ (id)restrictionsWithCurrentRestrictions:(id)arg1 defaultRestrictions:(id)arg2 profileRestrictions:(id)arg3 clientRestrictions:(id)arg4 outRestrictionsChanged:(char *)arg5 outError:(id *)arg6;
-+ (id)restrictionsAfterApplyingRestrictionsDictionary:(id)arg1 toRestrictionsDictionary:(id)arg2 outChangeDetected:(char *)arg3 outError:(id *)arg4;
++ (id)restrictionsWithCurrentRestrictions:(id)arg1 defaultRestrictions:(id)arg2 profileRestrictions:(id)arg3 clientRestrictions:(id)arg4 outRestrictionsChanged:(_Bool *)arg5 outError:(id *)arg6;
++ (id)restrictionsAfterApplyingRestrictionsDictionary:(id)arg1 toRestrictionsDictionary:(id)arg2 outChangeDetected:(_Bool *)arg3 outError:(id *)arg4;
 + (id)sharedManager;
 + (id)defaultRestrictionFilePath;
 @property(retain, nonatomic) NSMutableDictionary *memberQueueProfileRestrictions; // @synthesize memberQueueProfileRestrictions=_memberQueueProfileRestrictions;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *memberQueue; // @synthesize memberQueue=_memberQueue;
 - (void).cxx_destruct;
 - (int)appWhitelistState;
-- (BOOL)isValueSettingLockedDownByRestrictions:(id)arg1;
-- (BOOL)isBoolSettingLockedDownByRestrictions:(id)arg1;
+- (_Bool)isValueSettingLockedDownByRestrictions:(id)arg1;
+- (_Bool)isBoolSettingLockedDownByRestrictions:(id)arg1;
 - (id)effectiveUnionValuesForSetting:(id)arg1;
 - (id)effectiveIntersectedValuesForSetting:(id)arg1;
 - (id)effectiveValueForSetting:(id)arg1;
@@ -88,7 +88,7 @@
 - (id)objectForFeature:(id)arg1;
 - (id)valueForFeature:(id)arg1;
 - (int)restrictedBoolForFeature:(id)arg1;
-- (id)potentialRestrictionsAfterApplyingRestrictionsDictionary:(id)arg1 outChangeDetected:(char *)arg2 outError:(id *)arg3;
+- (id)potentialRestrictionsAfterApplyingRestrictionsDictionary:(id)arg1 outChangeDetected:(_Bool *)arg2 outError:(id *)arg3;
 - (id)description;
 @property(readonly, nonatomic) NSDictionary *combinedProfileRestrictions;
 @property(readonly, nonatomic) NSMutableDictionary *memberQueueCombinedProfileRestrictions;

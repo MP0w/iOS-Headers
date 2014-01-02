@@ -8,6 +8,7 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface OADCustomShapeGeometry : OADShapeGeometry
 {
     CsRect_0aefebc6 *mGeometryCoordSpace;
@@ -18,14 +19,14 @@
 }
 
 - (void)addPath:(id)arg1;
-- (id)pathAtIndex:(unsigned int)arg1;
-- (unsigned int)pathCount;
+- (id)pathAtIndex:(unsigned long long)arg1;
+- (unsigned long long)pathCount;
 - (void)addTextBodyRect:(id)arg1;
-- (id)textBodyRectAtIndex:(unsigned int)arg1;
-- (unsigned int)textBodyRectCount;
+- (id)textBodyRectAtIndex:(unsigned long long)arg1;
+- (unsigned long long)textBodyRectCount;
 - (void)addFormula:(id)arg1;
-- (id)formulaAtIndex:(unsigned int)arg1;
-- (unsigned int)formulaCount;
+- (id)formulaAtIndex:(unsigned long long)arg1;
+- (unsigned long long)formulaCount;
 - (void)setLimo:(CsPoint_c846a6ec)arg1;
 - (CsPoint_c846a6ec)limo;
 - (void)setGeometryCoordSpace:(CsRect_0aefebc6)arg1;

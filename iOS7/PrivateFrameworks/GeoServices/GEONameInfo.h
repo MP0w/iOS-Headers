@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSString;
 
-@interface GEONameInfo : PBCodable
+@interface GEONameInfo : PBCodable <NSCopying>
 {
     NSString *_name;
     NSString *_phoneticName;
@@ -29,19 +31,20 @@
 @property(retain, nonatomic) NSString *shield; // @synthesize shield=_shield;
 @property(retain, nonatomic) NSString *phoneticName; // @synthesize phoneticName=_phoneticName;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) BOOL hasSignType;
-@property(nonatomic) BOOL hasPhoneticType;
-@property(nonatomic) BOOL hasShieldType;
-@property(readonly, nonatomic) BOOL hasShield;
-@property(readonly, nonatomic) BOOL hasPhoneticName;
-@property(readonly, nonatomic) BOOL hasName;
+@property(nonatomic) _Bool hasSignType;
+@property(nonatomic) _Bool hasPhoneticType;
+@property(nonatomic) _Bool hasShieldType;
+@property(readonly, nonatomic) _Bool hasShield;
+@property(readonly, nonatomic) _Bool hasPhoneticName;
+@property(readonly, nonatomic) _Bool hasName;
 - (void)dealloc;
 
 @end

@@ -6,6 +6,7 @@
 
 #import <OfficeImport/PMSlideMapper.h>
 
+// Not exported
 @interface PMMasterSlideMapper : PMSlideMapper
 {
 }

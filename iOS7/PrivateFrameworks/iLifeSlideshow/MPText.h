@@ -19,11 +19,11 @@
 }
 
 + (id)textWithAttributedString:(id)arg1;
-- (float)textAreaAspectRatio;
+- (double)textAreaAspectRatio;
 - (double)displayDuration;
 - (double)displayStartTime;
 - (double)displayTime;
-- (int)index;
+- (long long)index;
 - (id)subtitleSlide;
 - (id)parentEffect;
 - (void)setAttributedString:(id)arg1;
@@ -35,21 +35,6 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
 - (id)initWithAttributedString:(id)arg1;
-- (void)setPlainString:(id)arg1;
-- (id)plainString;
-- (BOOL)isOriginal;
-- (float)maxFontSize;
-- (id)defaultString;
-- (id)fullDebugLog;
-- (void)dump;
-- (id)text;
-- (void)checkForMaxFontSize;
-- (void)checkForPlacesLabel;
-- (void)setParent:(id)arg1;
-- (void)setText:(id)arg1;
-- (id)nearestPlug;
-- (void)copyStruct:(id)arg1;
-- (id)action;
 
 @end
 

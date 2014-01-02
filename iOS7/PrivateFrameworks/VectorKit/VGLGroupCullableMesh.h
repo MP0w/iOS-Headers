@@ -6,6 +6,7 @@
 
 #import <VectorKit/VGLMesh.h>
 
+// Not exported
 @interface VGLGroupCullableMesh : VGLMesh
 {
     struct vector<VGLGroupInfo, vk_allocator<VGLGroupInfo>> _groupInfoCollection;
@@ -17,23 +18,23 @@
     } _fragments[16];
     float _fragmentSize;
     struct bitset<16> _fragmentsToDrawBitset;
-    BOOL _didFreeze;
-    struct unordered_map<unsigned int, unsigned int, std::__1::hash<unsigned int>, std::__1::equal_to<unsigned int>, vk_allocator<std::__1::pair<const unsigned int, unsigned int>>> _groupIDToInfoIndex;
+    _Bool _didFreeze;
+    struct unordered_map<unsigned long, unsigned long, std::__1::hash<unsigned long>, std::__1::equal_to<unsigned long>, vk_allocator<std::__1::pair<const unsigned long, unsigned long>>> _groupIDToInfoIndex;
 }
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)groupsContainingPositionA:(CDStruct_03942939)arg1 positionB:(CDStruct_03942939)arg2 groupIDs:(unsigned int *)arg3 groupIDCount:(unsigned int *)arg4 maxGroupIDs:(unsigned int)arg5;
+- (void)groupsContainingPositionA:(CDStruct_03942939)arg1 positionB:(CDStruct_03942939)arg2 groupIDs:(unsigned long long *)arg3 groupIDCount:(unsigned long long *)arg4 maxGroupIDs:(unsigned long long)arg5;
 - (void)freeze;
-- (void)drawInRects:(const CDStruct_818bb265 *)arg1 rectCount:(unsigned int)arg2 context:(id)arg3;
-- (void)drawGroups:(const vector_81578dfd *)arg1 context:(id)arg2;
-- (void)drawInRects:(const CDStruct_818bb265 *)arg1 rectCount:(unsigned int)arg2 excludeGroups:(const vector_81578dfd *)arg3 context:(id)arg4;
-- (void)drawLinesInPreparedCulls:(id)arg1 excludeGroups:(const vector_81578dfd *)arg2;
+- (void)drawInRects:(const CDStruct_818bb265 *)arg1 rectCount:(unsigned long long)arg2 context:(id)arg3;
+- (void)drawGroups:(const vector_a3ee659f *)arg1 context:(id)arg2;
+- (void)drawInRects:(const CDStruct_818bb265 *)arg1 rectCount:(unsigned long long)arg2 excludeGroups:(const vector_a3ee659f *)arg3 context:(id)arg4;
+- (void)drawLinesInPreparedCulls:(id)arg1 excludeGroups:(const vector_a3ee659f *)arg2;
 - (void)drawLinesInPreparedCulls:(id)arg1;
 - (void)drawInPreparedCulls:(id)arg1;
-- (void)drawInPreparedCulls:(id)arg1 excludeGroups:(const vector_81578dfd *)arg2;
-- (void)prepareCullsInRects:(const CDStruct_818bb265 *)arg1 numRects:(unsigned int)arg2;
-- (BOOL)addGroupForIndexRange:(struct _NSRange)arg1 boundingBox:(CDStruct_f3463f58)arg2 center:(CDStruct_03942939)arg3 groupID:(unsigned int)arg4;
+- (void)drawInPreparedCulls:(id)arg1 excludeGroups:(const vector_a3ee659f *)arg2;
+- (void)prepareCullsInRects:(const CDStruct_818bb265 *)arg1 numRects:(unsigned long long)arg2;
+- (_Bool)addGroupForIndexRange:(struct _NSRange)arg1 boundingBox:(CDStruct_f3463f58)arg2 center:(CDStruct_03942939)arg3 groupID:(unsigned long long)arg4;
 
 @end
 

@@ -10,7 +10,7 @@
 
 @interface SSDatabaseCache : NSObject
 {
-    unsigned int _maximumInlineBlobSize;
+    unsigned long long _maximumInlineBlobSize;
     NSString *_identifier;
     NSString *_cacheName;
     NSString *_path;
@@ -20,7 +20,7 @@
     Class _cacheEntryClass;
 }
 
-@property(nonatomic) unsigned int maximumInlineBlobSize; // @synthesize maximumInlineBlobSize=_maximumInlineBlobSize;
+@property(nonatomic) unsigned long long maximumInlineBlobSize; // @synthesize maximumInlineBlobSize=_maximumInlineBlobSize;
 - (id)cacheEntryProperties:(id)arg1 forLookupKeys:(id)arg2;
 - (id)setData:(id)arg1 expiring:(double)arg2 retiring:(double)arg3 lookupKey:(id)arg4 userInfo:(id)arg5;
 - (id)cacheEntryForLookupKey:(id)arg1;
@@ -28,7 +28,7 @@
 - (void)clearCacheForLookupKey:(id)arg1;
 - (void)clear;
 - (id)statistics;
-- (BOOL)_setupDatabase;
+- (_Bool)_setupDatabase;
 - (id)description;
 - (void)dealloc;
 - (id)initWithIdentifier:(id)arg1 cacheName:(id)arg2;

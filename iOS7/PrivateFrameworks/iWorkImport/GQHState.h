@@ -8,6 +8,7 @@
 
 @class GQHTableState, GQHXML, GQSDocument;
 
+// Not exported
 @interface GQHState : NSObject
 {
     GQHXML *mHtmlDoc;
@@ -38,8 +39,8 @@
 }
 
 - (id).cxx_construct;
-- (BOOL)allowInlineWrap;
-- (BOOL)needAbsolutelyPositionedTables;
+- (_Bool)allowInlineWrap;
+- (_Bool)needAbsolutelyPositionedTables;
 - (void)invalidateTextScale;
 - (void)setTextScale:(unsigned int)arg1;
 - (unsigned int)textScale;
@@ -48,33 +49,33 @@
 - (int)outlineStyleType;
 - (void)setOutlineLevel:(int)arg1;
 - (int)outlineLevel;
-- (BOOL)useOutline;
+- (_Bool)useOutline;
 - (id)shapeContext;
-- (BOOL)shouldMapLinkWithUrl:(struct __CFString *)arg1;
+- (_Bool)shouldMapLinkWithUrl:(struct __CFString *)arg1;
 - (struct __CFString *)getColorString:(id)arg1;
-- (struct __CFString *)addCachedClassStringForTextStyle:(id)arg1 implicitStyle:(id)arg2 isColoredBackground:(BOOL)arg3 outlineLevel:(int)arg4 outlineType:(int)arg5 isSpan:(BOOL)arg6 baseClassString:(struct __CFString *)arg7 cssCachedStyle:(id)arg8;
-- (struct __CFString *)cachedClassStringForTextStyle:(id)arg1 implicitStyle:(id)arg2 isColoredBackground:(BOOL)arg3 outlineLevel:(int)arg4 outlineType:(int)arg5 isSpan:(BOOL)arg6;
-- (struct __CFString *)addCacheForCellStyle:(id)arg1 fillStyle:(id)arg2 cellClass:(Class)arg3 vectorStyles:(id *)arg4 groupLevel:(unsigned short)arg5 hasFormula:(BOOL)arg6 baseClassString:(struct __CFString *)arg7 cssCachedStyle:(id)arg8;
-- (struct __CFString *)cachedClassStringForCellStyle:(id)arg1 fillStyle:(id)arg2 cellClass:(Class)arg3 vectorStyles:(id *)arg4 groupLevel:(unsigned short)arg5 hasFormula:(BOOL)arg6;
+- (struct __CFString *)addCachedClassStringForTextStyle:(id)arg1 implicitStyle:(id)arg2 isColoredBackground:(_Bool)arg3 outlineLevel:(int)arg4 outlineType:(int)arg5 isSpan:(_Bool)arg6 baseClassString:(struct __CFString *)arg7 cssCachedStyle:(id)arg8;
+- (struct __CFString *)cachedClassStringForTextStyle:(id)arg1 implicitStyle:(id)arg2 isColoredBackground:(_Bool)arg3 outlineLevel:(int)arg4 outlineType:(int)arg5 isSpan:(_Bool)arg6;
+- (struct __CFString *)addCacheForCellStyle:(id)arg1 fillStyle:(id)arg2 cellClass:(Class)arg3 vectorStyles:(id *)arg4 groupLevel:(unsigned short)arg5 hasFormula:(_Bool)arg6 baseClassString:(struct __CFString *)arg7 cssCachedStyle:(id)arg8;
+- (struct __CFString *)cachedClassStringForCellStyle:(id)arg1 fillStyle:(id)arg2 cellClass:(Class)arg3 vectorStyles:(id *)arg4 groupLevel:(unsigned short)arg5 hasFormula:(_Bool)arg6;
 - (int)paragraphIndex;
 - (void)setParagraphIndex:(int)arg1;
 - (int)paragraphCount;
 - (void)setParagraphCount:(int)arg1;
 - (void)leaveGraphicObject;
 - (void)enterGraphicObject;
-- (BOOL)multiColumned;
-- (void)setMultiColumned:(BOOL)arg1;
-- (BOOL)coloredBackground;
-- (void)setColoredBackground:(BOOL)arg1;
+- (_Bool)multiColumned;
+- (void)setMultiColumned:(_Bool)arg1;
+- (_Bool)coloredBackground;
+- (void)setColoredBackground:(_Bool)arg1;
 - (void)popImplicitStyle;
 - (id)implicitStyle;
 - (void)pushImplicitStyle:(id)arg1;
 - (struct __CFString *)cssZOrderClassForDrawableUid:(const char *)arg1;
 - (struct __CFString *)cssZOrderClassForDrawable:(id)arg1;
-- (BOOL)drawablesNeedCssZOrdering;
+- (_Bool)drawablesNeedCssZOrdering;
 - (struct __CFString *)createStyleName:(id)arg1 type:(const char *)arg2;
 - (void)addedDrawableWithBounds:(struct CGRect)arg1;
-- (BOOL)finishMainHtml;
+- (_Bool)finishMainHtml;
 - (id)processorState;
 - (id)tableState;
 - (struct __CFString *)className:(id)arg1;
@@ -88,8 +89,7 @@
 - (void)dealloc;
 - (id)initWithState:(id)arg1 documentSize:(struct CGSize)arg2;
 - (id)initWithState:(id)arg1;
-- (id)initWithState:(id)arg1 needIndexFile:(BOOL)arg2 documentSize:(struct CGSize)arg3;
-- (int)indexForStyle:(const char *)arg1;
+- (id)initWithState:(id)arg1 needIndexFile:(_Bool)arg2 documentSize:(struct CGSize)arg3;
 
 @end
 

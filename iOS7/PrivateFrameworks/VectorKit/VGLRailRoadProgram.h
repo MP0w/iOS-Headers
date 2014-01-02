@@ -6,6 +6,7 @@
 
 #import <VectorKit/VGLRoadNoFattenProgram.h>
 
+// Not exported
 @interface VGLRailRoadProgram : VGLRoadNoFattenProgram
 {
     int _uTextureMappingGlobalScaler;

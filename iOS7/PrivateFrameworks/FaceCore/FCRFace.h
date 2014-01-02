@@ -10,35 +10,35 @@
 
 @interface FCRFace : NSObject
 {
-    CDStruct_53bda269 face;
-    CDStruct_53bda269 leftEye;
-    CDStruct_53bda269 rightEye;
-    CDStruct_53bda269 mouth;
-    float faceSize;
-    float faceAngle;
-    int trackID;
-    unsigned int trackDuration;
+    CDStruct_ac082cae face;
+    CDStruct_ac082cae leftEye;
+    CDStruct_ac082cae rightEye;
+    CDStruct_ac082cae mouth;
+    double faceSize;
+    double faceAngle;
+    long long trackID;
+    unsigned long long trackDuration;
     NSData *faceprint;
     int faceType;
     NSDictionary *faceLandmarkPoints;
     NSDictionary *expressionFeatures;
 }
 
-@property int trackID; // @synthesize trackID;
-@property unsigned int trackDuration; // @synthesize trackDuration;
-@property CDStruct_53bda269 rightEye; // @synthesize rightEye;
-@property CDStruct_53bda269 mouth; // @synthesize mouth;
-@property CDStruct_53bda269 leftEye; // @synthesize leftEye;
+@property long long trackID; // @synthesize trackID;
+@property unsigned long long trackDuration; // @synthesize trackDuration;
+@property CDStruct_ac082cae rightEye; // @synthesize rightEye;
+@property CDStruct_ac082cae mouth; // @synthesize mouth;
+@property CDStruct_ac082cae leftEye; // @synthesize leftEye;
 @property(retain) NSData *faceprint; // @synthesize faceprint;
 @property int faceType; // @synthesize faceType;
-@property float faceSize; // @synthesize faceSize;
+@property double faceSize; // @synthesize faceSize;
 @property(retain) NSDictionary *faceLandmarkPoints; // @synthesize faceLandmarkPoints;
-@property CDStruct_53bda269 face; // @synthesize face;
-@property float faceAngle; // @synthesize faceAngle;
+@property CDStruct_ac082cae face; // @synthesize face;
+@property double faceAngle; // @synthesize faceAngle;
 @property(retain) NSDictionary *expressionFeatures; // @synthesize expressionFeatures;
-@property(readonly) BOOL hasMouthBounds;
-@property(readonly) BOOL hasRightEyeBounds;
-@property(readonly) BOOL hasLeftEyeBounds;
+@property(readonly) _Bool hasMouthBounds;
+@property(readonly) _Bool hasRightEyeBounds;
+@property(readonly) _Bool hasLeftEyeBounds;
 - (void)dealloc;
 
 @end

@@ -16,8 +16,9 @@
 - (void)requestKeepAlive;
 @property(readonly, nonatomic) NSArray *devices;
 @property(readonly, nonatomic) NSSet *accounts;
-- (BOOL)sendMessage:(id)arg1 fromAccount:(id)arg2 toDestinations:(id)arg3 priority:(int)arg4 options:(id)arg5 identifier:(id *)arg6 error:(id *)arg7;
-- (BOOL)sendMessage:(id)arg1 fromAccount:(id)arg2 toDestinations:(id)arg3 options:(id)arg4 identifier:(id *)arg5 error:(id *)arg6;
+- (_Bool)sendServerMessage:(id)arg1 command:(id)arg2 fromAccount:(id)arg3;
+- (_Bool)sendMessage:(id)arg1 fromAccount:(id)arg2 toDestinations:(id)arg3 priority:(long long)arg4 options:(id)arg5 identifier:(id *)arg6 error:(id *)arg7;
+- (_Bool)sendMessage:(id)arg1 fromAccount:(id)arg2 toDestinations:(id)arg3 options:(id)arg4 identifier:(id *)arg5 error:(id *)arg6;
 - (void)removeDelegate:(id)arg1;
 - (void)addDelegate:(id)arg1 queue:(id)arg2;
 @property(readonly, nonatomic) _IDSService *_internal;

@@ -12,7 +12,7 @@
 
 + (id)setPlaybackPositionWithDictionary:(id)arg1 context:(id)arg2;
 + (id)setPlaybackPosition;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(nonatomic) int position;
 - (id)encodedClassName;
 - (id)groupIdentifier;

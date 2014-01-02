@@ -8,19 +8,19 @@
 
 @interface NSStringPredicateOperator : NSPredicateOperator
 {
-    unsigned int _flags;
+    unsigned long long _flags;
 }
 
-+ (BOOL)supportsSecureCoding;
-- (unsigned int)options;
-- (void)_setOptions:(unsigned int)arg1;
++ (_Bool)supportsSecureCoding;
+- (unsigned long long)options;
+- (void)_setOptions:(unsigned long long)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)flags;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)flags;
 - (id)_modifierString;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (id)initWithOperatorType:(unsigned int)arg1 modifier:(unsigned int)arg2 variant:(unsigned int)arg3;
+- (id)initWithOperatorType:(unsigned long long)arg1 modifier:(unsigned long long)arg2 variant:(unsigned long long)arg3;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "APSConnectionDelegate-Protocol.h"
 
-@class NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSString;
+@class NSMutableDictionary, NSMutableSet, NSString;
 
 @interface SBRemoteNotificationServer : NSObject <APSConnectionDelegate>
 {
@@ -16,7 +16,6 @@
     NSMutableDictionary *_environmentsToConnections;
     NSMutableSet *_bundleIdentifiersNeedingToken;
     NSString *_lastNotificationReceivedBundleIdentifier;
-    NSObject<OS_dispatch_queue> *_topicsQueue;
     NSMutableDictionary *_appImportanceTracker;
 }
 
@@ -28,29 +27,28 @@
 - (void)setMessageUserInfo:(id)arg1 forToken:(int)arg2 forBundleIdentifier:(id)arg3;
 - (void)setMessageUserInfo:(id)arg1 forBundleIdentifier:(id)arg2;
 - (void)postSettingsChangedNotificationForBundleIdentifier:(id)arg1;
-- (void)setSettingsTypes:(unsigned int)arg1 forBundleIdentifier:(id)arg2;
-- (unsigned int)settingsEnabledTypesForBundleIdentifier:(id)arg1;
-- (unsigned int)appEnabledTypesForBundleIdentifier:(id)arg1;
-- (void)notePermissionAlertAcceptedTypes:(unsigned int)arg1 forBundleIdentifier:(id)arg2;
-- (BOOL)hasRegisteredBundleIdentifiers;
-- (void)setSystemwideEnabled:(BOOL)arg1;
-- (BOOL)isSystemwideEnabled;
-- (unsigned int)getEffectiveEnabledTypesForApplication:(id)arg1;
+- (void)setSettingsTypes:(unsigned long long)arg1 forBundleIdentifier:(id)arg2;
+- (unsigned long long)settingsEnabledTypesForBundleIdentifier:(id)arg1;
+- (unsigned long long)appEnabledTypesForBundleIdentifier:(id)arg1;
+- (void)notePermissionAlertAcceptedTypes:(unsigned long long)arg1 forBundleIdentifier:(id)arg2;
+- (_Bool)hasRegisteredBundleIdentifiers;
+- (void)setSystemwideEnabled:(_Bool)arg1;
+- (_Bool)isSystemwideEnabled;
+- (unsigned long long)getEffectiveEnabledTypesForApplication:(id)arg1;
 - (void)unregisterApplication:(id)arg1;
-- (void)registerApplication:(id)arg1 forEnvironment:(id)arg2 withTypes:(unsigned int)arg3;
+- (void)registerApplication:(id)arg1 forEnvironment:(id)arg2 withTypes:(unsigned long long)arg3;
 - (id)_allTopicsForApplication:(id)arg1;
 - (id)_cloudDatabaseTopicsForApplication:(id)arg1;
 - (void)calculateTopics;
 - (void)_appDebugStateDidChange:(id)arg1;
 - (void)_appStateDidChange:(id)arg1;
-- (void)_topicsQueue_appImportanceDecreased:(id)arg1;
-- (void)_topicsQueue_appImportanceIncreased:(id)arg1;
-- (void)_topicsQueue_moveTopicsForApp:(id)arg1 fromList:(unsigned int)arg2 toList:(unsigned int)arg3;
+- (void)_appImportanceDecreased:(id)arg1;
+- (void)_appImportanceIncreased:(id)arg1;
+- (void)_moveTopicsForApp:(id)arg1 fromList:(unsigned long long)arg2 toList:(unsigned long long)arg3;
 - (id)allSettingsEnabledTypeValues;
 - (id)allAppEnabledTypeValues;
 - (id)lastNotificationReceivedBundleIdentifier;
 - (void)connection:(id)arg1 didReceiveIncomingMessage:(id)arg2;
-- (void)noteApplicationFinishedLaunching:(id)arg1;
 - (void)connection:(id)arg1 didReceivePublicToken:(id)arg2;
 - (void)connection:(id)arg1 didReceiveToken:(id)arg2 forTopic:(id)arg3 identifier:(id)arg4;
 - (void)run;

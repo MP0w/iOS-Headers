@@ -8,15 +8,17 @@
 
 @class ML3MusicLibrary, NSString;
 
+// Not exported
 @interface ML3SpotlightMatchingNameCache : NSObject
 {
-    unordered_set_cccfe4a5 _matchingSet;
+    unordered_set_f2692727 _matchingSet;
     NSString *_matchString;
-    BOOL _idle;
+    _Bool _idle;
     ML3MusicLibrary *_library;
 }
 
 + (void)loadFromLibrary:(id)arg1 namesMatchingString:(id)arg2 cancelHandler:(id)arg3;
++ (void)initialize;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)dealloc;

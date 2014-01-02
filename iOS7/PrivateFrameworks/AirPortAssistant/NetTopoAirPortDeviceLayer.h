@@ -10,9 +10,9 @@
 {
 }
 
-- (CDStruct_95077174)getConnectionAttachmentLocations;
+- (CDStruct_f9662865)getConnectionAttachmentLocations;
 - (void)setAssociatedNode:(id)arg1;
-- (void)pickCorrectImagesForContentsScale:(float)arg1;
+- (void)pickCorrectImagesForContentsScale:(double)arg1;
 - (void)layoutSublayers;
 - (id)debugDescription;
 - (id)description;

@@ -6,6 +6,7 @@
 
 #import <OfficeImport/OADPathElement.h>
 
+// Not exported
 @interface OADVectorArcPathElement : OADPathElement
 {
     struct OADAdjustCoord mLeft;
@@ -14,20 +15,20 @@
     struct OADAdjustCoord mBottom;
     struct OADAdjustPoint mStartVector;
     struct OADAdjustPoint mEndVector;
-    BOOL mClockwise;
-    BOOL mConnectedToPrevious;
+    _Bool mClockwise;
+    _Bool mConnectedToPrevious;
 }
 
 - (id).cxx_construct;
-- (BOOL)connectedToPrevious;
-- (BOOL)clockwise;
+- (_Bool)connectedToPrevious;
+- (_Bool)clockwise;
 - (struct OADAdjustPoint)endVector;
 - (struct OADAdjustPoint)startVector;
 - (struct OADAdjustCoord)bottom;
 - (struct OADAdjustCoord)right;
 - (struct OADAdjustCoord)top;
 - (struct OADAdjustCoord)left;
-- (id)initWithLeft:(struct OADAdjustCoord)arg1 top:(struct OADAdjustCoord)arg2 right:(struct OADAdjustCoord)arg3 bottom:(struct OADAdjustCoord)arg4 startVector:(struct OADAdjustPoint)arg5 endVector:(struct OADAdjustPoint)arg6 clockwise:(BOOL)arg7 connectedToPrevious:(BOOL)arg8;
+- (id)initWithLeft:(struct OADAdjustCoord)arg1 top:(struct OADAdjustCoord)arg2 right:(struct OADAdjustCoord)arg3 bottom:(struct OADAdjustCoord)arg4 startVector:(struct OADAdjustPoint)arg5 endVector:(struct OADAdjustPoint)arg6 clockwise:(_Bool)arg7 connectedToPrevious:(_Bool)arg8;
 
 @end
 

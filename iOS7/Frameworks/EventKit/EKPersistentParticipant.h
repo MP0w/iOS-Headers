@@ -23,7 +23,7 @@
 @property(copy, nonatomic) NSString *emailAddress;
 @property(copy, nonatomic) NSString *displayName;
 @property(readonly, nonatomic) NSString *UUID;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
 

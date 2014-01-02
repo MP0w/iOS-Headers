@@ -8,6 +8,7 @@
 
 @class GQDRoot;
 
+// Not exported
 @interface GQDWPAttachmentRef : GQDWPAttachment
 {
     GQDRoot *mRoot;

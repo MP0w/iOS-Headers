@@ -6,9 +6,11 @@
 
 #import <StoreKitUI/SKUIPageComponent.h>
 
+#import "SSMetricsEventFieldProvider-Protocol.h"
+
 @class NSArray, NSString;
 
-@interface SKUIQuicklinksPageComponent : SKUIPageComponent
+@interface SKUIQuicklinksPageComponent : SKUIPageComponent <SSMetricsEventFieldProvider>
 {
     NSArray *_links;
     NSString *_title;
@@ -18,9 +20,10 @@
 @property(readonly, nonatomic) NSArray *links; // @synthesize links=_links;
 - (void).cxx_destruct;
 - (void)_setLinksWithLinksArray:(id)arg1 context:(id)arg2;
+- (id)valueForMetricsField:(id)arg1;
 - (id)metricsElementName;
-- (int)componentType;
-- (id)initWithFeaturedContentContext:(id)arg1 kind:(int)arg2;
+- (long long)componentType;
+- (id)initWithFeaturedContentContext:(id)arg1 kind:(long long)arg2;
 - (id)initWithCustomPageContext:(id)arg1;
 
 @end

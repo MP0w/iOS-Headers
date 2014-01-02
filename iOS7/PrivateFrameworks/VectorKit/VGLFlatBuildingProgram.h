@@ -6,6 +6,7 @@
 
 #import <VectorKit/VGLProgram.h>
 
+// Not exported
 @interface VGLFlatBuildingProgram : VGLProgram
 {
     int _uColor;

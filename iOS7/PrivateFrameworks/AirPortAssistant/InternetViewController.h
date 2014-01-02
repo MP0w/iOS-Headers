@@ -57,16 +57,16 @@
     UILabel *swapCableViewRouterLabel;
     UILabel *swapCableViewSourceLabel;
     UILabel *swapCableViewTargetLabel;
-    unsigned int internetFlow;
-    BOOL pageControlIsChangingPage;
+    unsigned long long internetFlow;
+    _Bool pageControlIsChangingPage;
     NSMutableSet *recycledPages;
     NSMutableSet *visiblePages;
     NSMutableArray *images;
-    CDStruct_59eca22a targetDevice;
-    CDStruct_59eca22a sourceDevice;
+    CDStruct_152c5bab targetDevice;
+    CDStruct_152c5bab sourceDevice;
 }
 
-@property unsigned int internetFlow; // @synthesize internetFlow;
+@property unsigned long long internetFlow; // @synthesize internetFlow;
 @property(retain, nonatomic) UILabel *swapCableViewTargetLabel; // @synthesize swapCableViewTargetLabel;
 @property(retain, nonatomic) UILabel *swapCableViewSourceLabel; // @synthesize swapCableViewSourceLabel;
 @property(retain, nonatomic) UILabel *swapCableViewRouterLabel; // @synthesize swapCableViewRouterLabel;
@@ -109,9 +109,9 @@
 @property(retain, nonatomic) UIView *containerView; // @synthesize containerView;
 - (void)startAnimatingCablingForView:(id)arg1 startingOpacity:(float)arg2 endingOpacity:(float)arg3 duration:(double)arg4;
 - (id)builtInImageNamed:(id)arg1;
-- (id)insetImageForDeviceDiagramInfo:(CDStruct_59eca22a *)arg1 audioImage:(BOOL)arg2;
-- (id)deviceImageForDeviceDiagramInfo:(CDStruct_59eca22a *)arg1 audioImage:(BOOL)arg2;
-- (void)determineInfoForDevice:(id)arg1 deviceDiagramInfo:(CDStruct_59eca22a *)arg2;
+- (id)insetImageForDeviceDiagramInfo:(CDStruct_152c5bab *)arg1 audioImage:(_Bool)arg2;
+- (id)deviceImageForDeviceDiagramInfo:(CDStruct_152c5bab *)arg1 audioImage:(_Bool)arg2;
+- (void)determineInfoForDevice:(id)arg1 deviceDiagramInfo:(CDStruct_152c5bab *)arg2;
 - (void)changeDiagram:(id)arg1;
 - (void)scrollViewDidEndDecelerating:(id)arg1;
 - (void)scrollViewDidScroll:(id)arg1;
@@ -121,12 +121,8 @@
 - (void)presentInternetWANPluginUI;
 - (void)presentSwapCablingCompleteUI;
 - (void)presentSwapCablingUI;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
-- (void)addAudioPluginUI;
-- (void)addInternetNotWorkingUI;
-- (void)addInternetWANPluginUI;
-- (void)addSwapCablingUI;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 
 @end
 

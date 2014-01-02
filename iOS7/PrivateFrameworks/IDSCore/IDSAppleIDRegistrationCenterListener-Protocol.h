@@ -7,12 +7,12 @@
 @protocol IDSAppleIDRegistrationCenterListener
 
 @optional
-- (void)center:(id)arg1 failedRegionValidation:(id)arg2 error:(int)arg3 info:(id)arg4;
-- (void)center:(id)arg1 failedEmailValidationRequest:(id)arg2 emailAddress:(id)arg3 error:(int)arg4 info:(id)arg5;
-- (void)center:(id)arg1 failedUnlinkHandleRequest:(id)arg2 handle:(id)arg3 error:(int)arg4 info:(id)arg5;
-- (void)center:(id)arg1 failedLinkHandlesConfirmation:(id)arg2 emailAddress:(id)arg3 error:(int)arg4 info:(id)arg5;
-- (void)center:(id)arg1 failedAuthentication:(id)arg2 error:(int)arg3 info:(id)arg4;
-- (void)center:(id)arg1 succeededRegionValidation:(id)arg2 regionID:(id)arg3 phoneNumber:(id)arg4 extraContext:(id)arg5 verified:(BOOL)arg6;
+- (void)center:(id)arg1 failedRegionValidation:(id)arg2 error:(long long)arg3 info:(id)arg4;
+- (void)center:(id)arg1 failedEmailValidationRequest:(id)arg2 emailAddress:(id)arg3 error:(long long)arg4 info:(id)arg5;
+- (void)center:(id)arg1 failedUnlinkHandleRequest:(id)arg2 handle:(id)arg3 error:(long long)arg4 info:(id)arg5;
+- (void)center:(id)arg1 failedLinkHandlesConfirmation:(id)arg2 emailAddress:(id)arg3 error:(long long)arg4 info:(id)arg5;
+- (void)center:(id)arg1 failedAuthentication:(id)arg2 error:(long long)arg3 info:(id)arg4;
+- (void)center:(id)arg1 succeededRegionValidation:(id)arg2 regionID:(id)arg3 phoneNumber:(id)arg4 extraContext:(id)arg5 verified:(_Bool)arg6;
 - (void)center:(id)arg1 succeededInitialRegionQuery:(id)arg2;
 - (void)center:(id)arg1 succeededEmailValidationRequest:(id)arg2 emailAddress:(id)arg3;
 - (void)center:(id)arg1 succeededUnlinkHandleRequest:(id)arg2 handle:(id)arg3;

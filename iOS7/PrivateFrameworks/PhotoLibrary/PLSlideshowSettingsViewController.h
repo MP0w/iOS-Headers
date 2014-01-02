@@ -15,56 +15,56 @@
 @interface PLSlideshowSettingsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, MPMediaPickerControllerDelegate>
 {
     NSArray *_airplayRoutes;
-    unsigned int _selectedAirplayRouteIndex;
+    unsigned long long _selectedAirplayRouteIndex;
     NSArray *_transitionKeys;
     NSArray *_alternateTransitionLocalizations;
-    NSString *_selectedTransition;
-    BOOL _shouldPlayMusic;
     MPMediaPickerController *_mediaPicker;
-    MPMediaItemCollection *_selectedMusicCollection;
+    PLSlideshowTransitionsViewController *_transitionsController;
+    PLSlideshowAirPlayRoutesViewController *_airPlayRoutesController;
     UITableView *_table;
     UITableViewCell *_transitionCell;
     UITableViewCell *_selectedMusicCell;
     UITableViewCell *_playMusicSwitchCell;
-    PLSlideshowTransitionsViewController *_transitionsController;
-    PLSlideshowAirPlayRoutesViewController *_airPlayRoutesController;
+    _Bool _slideshowShouldPlayMusic;
     id <PLSlideshowSettingsViewControllerDelegate> _delegate;
+    NSString *_selectedTransition;
+    MPMediaItemCollection *_slideshowMusicCollection;
 }
 
-+ (id)_transitionKeyForUITransition:(int)arg1;
 + (int)_uiTransitionForTransitionKey:(id)arg1;
 + (id)iPadTransitions;
 + (id)iPhoneTransitions;
 + (id)TVOutTransitions;
 + (id)AppleTVPushTransitions;
+@property(retain, nonatomic) MPMediaItemCollection *slideshowMusicCollection; // @synthesize slideshowMusicCollection=_slideshowMusicCollection;
+@property(nonatomic) _Bool slideshowShouldPlayMusic; // @synthesize slideshowShouldPlayMusic=_slideshowShouldPlayMusic;
+@property(copy, nonatomic) NSString *selectedTransition; // @synthesize selectedTransition=_selectedTransition;
 @property(nonatomic) id <PLSlideshowSettingsViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)mediaPickerDidCancel:(id)arg1;
 - (void)mediaPicker:(id)arg1 didPickMediaItems:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (unsigned int)_mainSection;
-- (unsigned int)_airPlaySection;
-- (BOOL)_includeAirPlaySection;
+- (long long)numberOfSectionsInTableView:(id)arg1;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (long long)_buttonSection;
+- (long long)_mainSection;
+- (long long)_airPlaySection;
+- (_Bool)_includeAirPlaySection;
 - (void)_preheatMediaPicker;
 - (void)_playButtonWasPressed:(id)arg1;
 - (id)_selectedMusic;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (unsigned long long)supportedInterfaceOrientations;
 - (struct CGSize)contentSizeForViewInPopoverView;
 - (void)loadView;
 - (void)updateTransitionKeys:(id)arg1;
 - (void)_updateSettingsInfo;
 - (id)_selectedAirplayRoute;
-- (void)viewWillAppear:(BOOL)arg1;
-@property(nonatomic) MPMediaItemCollection *slideshowMusicCollection;
-@property(nonatomic) BOOL slideshowShouldPlayMusic;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)_playMusicSwitchValueDidChange:(id)arg1;
-@property(retain, nonatomic) NSString *selectedTransition;
 - (id)slideshowSettings;
 - (void)applySlideshowSettings:(id)arg1;
+- (id)initWithAirplayRoutes:(id)arg1 selectedRouteIndex:(unsigned long long)arg2;
 - (void)dealloc;
-- (id)initWithAirplayRoutes:(id)arg1 selectedRouteIndex:(unsigned int)arg2;
 
 @end
 

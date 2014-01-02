@@ -6,7 +6,7 @@
 
 #import <SAObjects/SADomainCommand.h>
 
-@class NSNumber, NSString, NSURL;
+@class NSURL;
 
 @interface SAPhonePlayVoiceMail : SADomainCommand
 {
@@ -14,11 +14,8 @@
 
 + (id)playVoiceMailWithDictionary:(id)arg1 context:(id)arg2;
 + (id)playVoiceMail;
-- (BOOL)requiresResponse;
-@property(copy, nonatomic) NSNumber *voiceMailIndex;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSURL *voiceMailId;
-@property(copy, nonatomic) NSString *speakableText;
-@property(copy, nonatomic) NSString *snippetViewId;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

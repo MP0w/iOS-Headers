@@ -6,15 +6,16 @@
 
 #import <VectorKit/VKTileSetBackedTileSource.h>
 
+// Not exported
 @interface VKRealisticTileSource : VKTileSetBackedTileSource
 {
 }
 
 - (id)tileForData:(id)arg1 downloadKey:(const struct _GEOTileKey *)arg2 sourceKey:(const struct VKTileKey *)arg3;
-- (unsigned int)mapLayerForZoomLevelRange;
-- (int)defaultMaximumZoomLevel;
-- (int)defaultMinimumZoomLevel;
-- (BOOL)minimumZoomLevelBoundsCamera;
+- (unsigned long long)mapLayerForZoomLevelRange;
+- (long long)defaultMaximumZoomLevel;
+- (long long)defaultMinimumZoomLevel;
+- (_Bool)minimumZoomLevelBoundsCamera;
 
 @end
 

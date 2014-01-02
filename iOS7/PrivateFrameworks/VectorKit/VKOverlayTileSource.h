@@ -8,6 +8,7 @@
 
 @class NSArray, NSMutableArray;
 
+// Not exported
 @interface VKOverlayTileSource : VKTileSource
 {
     VKTileSource *_tileSourceToMatch;
@@ -20,15 +21,15 @@
 - (struct VKTileKey)sourceKeyForDownloadKey:(const struct _GEOTileKey *)arg1;
 - (struct _GEOTileKey)downloadKeyAtX:(unsigned int)arg1 y:(unsigned int)arg2 z:(unsigned int)arg3;
 - (id)tileForKey:(const struct VKTileKey *)arg1;
-- (BOOL)canFetchTileForKey:(const struct VKTileKey *)arg1;
-- (int)maximumZoomLevel;
-- (int)minimumZoomLevel;
-- (int)zEquivalenceClass;
-- (int)maximumDownloadZoomLevel;
-- (int)minimumDownloadZoomLevel;
-- (int)tileSize;
-- (BOOL)maximumZoomLevelBoundsCamera;
-- (BOOL)minimumZoomLevelBoundsCamera;
+- (_Bool)canFetchTileForKey:(const struct VKTileKey *)arg1;
+- (long long)maximumZoomLevel;
+- (long long)minimumZoomLevel;
+- (long long)zEquivalenceClass;
+- (long long)maximumDownloadZoomLevel;
+- (long long)minimumDownloadZoomLevel;
+- (long long)tileSize;
+- (_Bool)maximumZoomLevelBoundsCamera;
+- (_Bool)minimumZoomLevelBoundsCamera;
 - (struct VKTileKey)sourceKeyForRenderKey:(const struct VKTileKey *)arg1;
 - (struct VKTileKey)nativeKeyForRenderKey:(const struct VKTileKey *)arg1;
 - (void)matchTilesFromSource:(id)arg1;

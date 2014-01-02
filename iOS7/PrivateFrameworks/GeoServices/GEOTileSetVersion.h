@@ -6,14 +6,16 @@
 
 #import "PBCodable.h"
 
-@interface GEOTileSetVersion : PBCodable
+#import "NSCopying-Protocol.h"
+
+@interface GEOTileSetVersion : PBCodable <NSCopying>
 {
     CDStruct_d66e66b9 *_availableTiles;
-    unsigned int _availableTilesCount;
-    unsigned int _availableTilesSpace;
+    unsigned long long _availableTilesCount;
+    unsigned long long _availableTilesSpace;
     CDStruct_8f5f9923 *_genericTiles;
-    unsigned int _genericTilesCount;
-    unsigned int _genericTilesSpace;
+    unsigned long long _genericTilesCount;
+    unsigned long long _genericTilesSpace;
     unsigned int _identifier;
     unsigned int _supportedLanguagesVersion;
     unsigned int _timeToLiveSeconds;
@@ -26,27 +28,28 @@
 @property(nonatomic) unsigned int supportedLanguagesVersion; // @synthesize supportedLanguagesVersion=_supportedLanguagesVersion;
 @property(nonatomic) unsigned int timeToLiveSeconds; // @synthesize timeToLiveSeconds=_timeToLiveSeconds;
 @property(nonatomic) unsigned int identifier; // @synthesize identifier=_identifier;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) BOOL hasSupportedLanguagesVersion;
-- (void)setGenericTiles:(CDStruct_8f5f9923 *)arg1 count:(unsigned int)arg2;
-- (CDStruct_8f5f9923)genericTileAtIndex:(unsigned int)arg1;
+@property(nonatomic) _Bool hasSupportedLanguagesVersion;
+- (void)setGenericTiles:(CDStruct_8f5f9923 *)arg1 count:(unsigned long long)arg2;
+- (CDStruct_8f5f9923)genericTileAtIndex:(unsigned long long)arg1;
 - (void)addGenericTile:(CDStruct_8f5f9923)arg1;
 - (void)clearGenericTiles;
 @property(readonly, nonatomic) CDStruct_8f5f9923 *genericTiles;
-@property(readonly, nonatomic) unsigned int genericTilesCount;
-@property(nonatomic) BOOL hasTimeToLiveSeconds;
-- (void)setAvailableTiles:(CDStruct_d66e66b9 *)arg1 count:(unsigned int)arg2;
-- (CDStruct_d66e66b9)availableTilesAtIndex:(unsigned int)arg1;
+@property(readonly, nonatomic) unsigned long long genericTilesCount;
+@property(nonatomic) _Bool hasTimeToLiveSeconds;
+- (void)setAvailableTiles:(CDStruct_d66e66b9 *)arg1 count:(unsigned long long)arg2;
+- (CDStruct_d66e66b9)availableTilesAtIndex:(unsigned long long)arg1;
 - (void)addAvailableTiles:(CDStruct_d66e66b9)arg1;
 - (void)clearAvailableTiles;
 @property(readonly, nonatomic) CDStruct_d66e66b9 *availableTiles;
-@property(readonly, nonatomic) unsigned int availableTilesCount;
+@property(readonly, nonatomic) unsigned long long availableTilesCount;
 - (void)dealloc;
 
 @end

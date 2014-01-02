@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class GEOLatLng, NSString;
 
-@interface GEORouteIncident : PBCodable
+@interface GEORouteIncident : PBCodable <NSCopying>
 {
     long long _endTime;
     long long _startTime;
@@ -21,7 +23,7 @@
     GEOLatLng *_position;
     NSString *_street;
     int _type;
-    BOOL _endTimeReliable;
+    _Bool _endTimeReliable;
     struct {
         unsigned int endTime:1;
         unsigned int startTime:1;
@@ -33,7 +35,7 @@
     } _has;
 }
 
-@property(nonatomic) BOOL endTimeReliable; // @synthesize endTimeReliable=_endTimeReliable;
+@property(nonatomic) _Bool endTimeReliable; // @synthesize endTimeReliable=_endTimeReliable;
 @property(nonatomic) unsigned int laneClosureCount; // @synthesize laneClosureCount=_laneClosureCount;
 @property(nonatomic) int laneClosureType; // @synthesize laneClosureType=_laneClosureType;
 @property(nonatomic) long long updateTime; // @synthesize updateTime=_updateTime;
@@ -45,25 +47,26 @@
 @property(retain, nonatomic) NSString *info; // @synthesize info=_info;
 @property(retain, nonatomic) NSString *incidentId; // @synthesize incidentId=_incidentId;
 @property(retain, nonatomic) GEOLatLng *position; // @synthesize position=_position;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) BOOL hasEndTimeReliable;
-@property(nonatomic) BOOL hasLaneClosureCount;
-@property(nonatomic) BOOL hasLaneClosureType;
-@property(nonatomic) BOOL hasUpdateTime;
-@property(nonatomic) BOOL hasEndTime;
-@property(nonatomic) BOOL hasStartTime;
-@property(readonly, nonatomic) BOOL hasCrossStreet;
-@property(readonly, nonatomic) BOOL hasStreet;
-@property(nonatomic) BOOL hasType;
-@property(readonly, nonatomic) BOOL hasInfo;
-@property(readonly, nonatomic) BOOL hasIncidentId;
-@property(readonly, nonatomic) BOOL hasPosition;
+@property(nonatomic) _Bool hasEndTimeReliable;
+@property(nonatomic) _Bool hasLaneClosureCount;
+@property(nonatomic) _Bool hasLaneClosureType;
+@property(nonatomic) _Bool hasUpdateTime;
+@property(nonatomic) _Bool hasEndTime;
+@property(nonatomic) _Bool hasStartTime;
+@property(readonly, nonatomic) _Bool hasCrossStreet;
+@property(readonly, nonatomic) _Bool hasStreet;
+@property(nonatomic) _Bool hasType;
+@property(readonly, nonatomic) _Bool hasInfo;
+@property(readonly, nonatomic) _Bool hasIncidentId;
+@property(readonly, nonatomic) _Bool hasPosition;
 - (void)dealloc;
 
 @end

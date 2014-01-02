@@ -10,6 +10,6 @@
 
 @protocol PLIndexMapperDataSource <NSObject>
 @property(readonly, nonatomic) NSIndexSet *filteredIndexes;
-- (BOOL)shouldIncludeObjectAtIndex:(unsigned int)arg1;
+- (_Bool)shouldIncludeObjectAtIndex:(unsigned long long)arg1;
 @end
 

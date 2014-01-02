@@ -10,14 +10,21 @@
 
 @interface PLRevGeoCompoundNameInfo : NSObject
 {
+    _Bool _isContinuation;
+    _Bool _suffixWhenPrefixOnly;
     NSString *_namePrefix;
     NSArray *_sortedNames;
     NSString *_nameSuffix;
 }
 
++ (id)_localizedNameForName:(id)arg1;
+@property(nonatomic) _Bool suffixWhenPrefixOnly; // @synthesize suffixWhenPrefixOnly=_suffixWhenPrefixOnly;
+@property(nonatomic) _Bool isContinuation; // @synthesize isContinuation=_isContinuation;
 @property(copy, nonatomic) NSString *nameSuffix; // @synthesize nameSuffix=_nameSuffix;
 @property(copy, nonatomic) NSArray *sortedNames; // @synthesize sortedNames=_sortedNames;
 @property(copy, nonatomic) NSString *namePrefix; // @synthesize namePrefix=_namePrefix;
+@property(readonly, nonatomic) NSString *localizedTitleForNameInfo;
+@property(readonly, nonatomic) NSArray *localizedSortedNames;
 - (id)description;
 - (id)dictionaryForInfo;
 - (id)initWithDictionary:(id)arg1;

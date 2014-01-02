@@ -8,15 +8,15 @@
 
 @interface NSContentSizeLayoutConstraint : NSLayoutConstraint
 {
-    float _huggingPriority;
-    float _compressionResistancePriority;
+    double _huggingPriority;
+    double _compressionResistancePriority;
 }
 
-@property(readonly) float compressionResistancePriority; // @synthesize compressionResistancePriority=_compressionResistancePriority;
-@property(readonly) float huggingPriority; // @synthesize huggingPriority=_huggingPriority;
+@property(readonly) double compressionResistancePriority; // @synthesize compressionResistancePriority=_compressionResistancePriority;
+@property(readonly) double huggingPriority; // @synthesize huggingPriority=_huggingPriority;
 - (id)_priorityDescription;
-- (float)priorityForVariable:(id)arg1;
-- (id)initWithLayoutItem:(id)arg1 value:(float)arg2 huggingPriority:(float)arg3 compressionResistancePriority:(float)arg4 orientation:(int)arg5;
+- (double)priorityForVariable:(id)arg1;
+- (id)initWithLayoutItem:(id)arg1 value:(double)arg2 huggingPriority:(double)arg3 compressionResistancePriority:(double)arg4 orientation:(long long)arg5;
 
 @end
 

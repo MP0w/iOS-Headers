@@ -6,6 +6,7 @@
 
 #import <CoreImage/CILumaMap.h>
 
+// Not exported
 @interface CIXRay : CILumaMap
 {
 }

@@ -14,7 +14,7 @@
 @interface IDSAppleSMSRegistrationCenter : NSObject <IMUserNotificationListener, IMSystemMonitorListener>
 {
     IDSPushHandler *_pushHandler;
-    int _status;
+    long long _status;
     struct __CTServerConnection *_ctServer;
     NSMutableArray *_handlers;
     NSMutableArray *_registrations;
@@ -31,7 +31,7 @@
 }
 
 + (id)sharedInstance;
-@property(readonly, nonatomic) int status; // @synthesize status=_status;
+@property(readonly, nonatomic) long long status; // @synthesize status=_status;
 - (void)heartbeat;
 - (void)cancelActionsForRegistrationInfo:(id)arg1;
 - (void)sendRegistration:(id)arg1;
@@ -49,7 +49,7 @@
 - (void)_tryToSendSMSIdentification;
 - (void)_sendSMSVerification;
 - (void)_setSMSDeliveryTimeout:(double)arg1;
-- (BOOL)_canDeliverSMSNow;
+- (_Bool)_canDeliverSMSNow;
 - (void)_smsDeliveryClear;
 - (void)_clearSMSDeliveryTimeout;
 - (void)systemRestoreStateDidChange;
@@ -63,12 +63,12 @@
 - (void)_unregisterForCarrierNotifications;
 - (void)_registerForCarrierNotifications;
 - (void)carrierSettingsChanged:(id)arg1;
-- (BOOL)_deviceCanRegisterPresently;
+- (_Bool)_deviceCanRegisterPresently;
 - (void)_daemonShuttingDown:(id)arg1;
-- (void)_notifySuccess;
-- (void)_notifyFailureWithError:(int)arg1 registration:(id)arg2;
+- (void)_notifySuccess:(id)arg1 token:(id)arg2;
+- (void)_notifyFailureWithError:(long long)arg1 registration:(id)arg2;
 - (void)_notifyNeedsNewIdentification:(id)arg1;
-@property(readonly, nonatomic) BOOL carrierSupportsShortCode;
+@property(readonly, nonatomic) _Bool carrierSupportsShortCode;
 - (struct __CTServerConnection *)ctServer;
 - (void)_startupCoreTelephony;
 - (void)_handleSMSAddressAvailable;
@@ -80,7 +80,7 @@
 - (void)_commCenterAlive;
 - (void)dealloc;
 - (id)init;
-- (BOOL)_failIfRegistrationIsNotSupported;
+- (_Bool)_failIfRegistrationIsNotSupported;
 - (void)_scheduleHeartbeat:(double)arg1;
 
 @end

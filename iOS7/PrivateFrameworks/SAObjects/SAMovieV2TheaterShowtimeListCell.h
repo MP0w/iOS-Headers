@@ -19,7 +19,7 @@
 @property(retain, nonatomic) SAMovieV2ShowtimeSnippet *showtimeSnippet;
 @property(retain, nonatomic) SADistance *relativeDistance;
 @property(copy, nonatomic) NSArray *displayableShowtimes;
-@property(nonatomic) BOOL bookable;
+@property(nonatomic) _Bool bookable;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

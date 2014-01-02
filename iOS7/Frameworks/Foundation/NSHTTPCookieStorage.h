@@ -16,8 +16,8 @@
 + (id)sharedHTTPCookieStorage;
 - (id)sortedCookiesUsingDescriptors:(id)arg1;
 - (id)description;
-- (void)setCookieAcceptPolicy:(unsigned int)arg1;
-- (unsigned int)cookieAcceptPolicy;
+- (void)setCookieAcceptPolicy:(unsigned long long)arg1;
+- (unsigned long long)cookieAcceptPolicy;
 - (void)setCookies:(id)arg1 forURL:(id)arg2 mainDocumentURL:(id)arg3;
 - (id)cookiesForURL:(id)arg1;
 - (void)setCookiesFromResponseHeader:(id)arg1 forURL:(id)arg2 policyBaseURL:(id)arg3;
@@ -27,11 +27,6 @@
 - (id)cookies;
 - (void)dealloc;
 - (id)init;
-- (void)_readAcceptCookiesPreference;
-- (id)_initWithCFHTTPCookieStorage:(struct OpaqueCFHTTPCookieStorage *)arg1;
-- (void)_saveCookies;
-- (struct OpaqueCFHTTPCookieStorage *)_cookieStorage;
-- (void)_setPrivateBrowsingEnabled:(BOOL)arg1;
 
 @end
 

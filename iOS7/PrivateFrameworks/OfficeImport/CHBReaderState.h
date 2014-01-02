@@ -8,6 +8,7 @@
 
 @class EBReaderSheetState, OADColorScheme;
 
+// Not exported
 @interface CHBReaderState : CHBState
 {
     EBReaderSheetState *mEBReaderSheetState;

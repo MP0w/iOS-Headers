@@ -11,11 +11,12 @@
 }
 
 + (id)_libraryImageDataProvider;
+- (id)avalancheReviewControllerSpec;
 - (id)photosSharingViewControllerSpec;
-- (BOOL)shouldUsePopovers;
-- (BOOL)shouldShowPhotoScrubber;
-- (BOOL)shouldShowToolbarItemsInNavigationBar;
-- (id)newPhotoBrowserZoomTransition;
+- (unsigned long long)supportedInterfaceOrientations;
+- (_Bool)shouldUsePopovers;
+- (_Bool)shouldShowPhotoScrubber;
+- (_Bool)shouldShowToolbarItemsInNavigationBar;
 - (id)newPhotoBrowserControllerForPhotoAtIndexPath:(id)arg1 inAssetContainerList:(id)arg2;
 
 @end

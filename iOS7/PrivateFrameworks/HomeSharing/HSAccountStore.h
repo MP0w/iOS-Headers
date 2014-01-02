@@ -21,7 +21,7 @@
 - (void)clearCaches;
 - (void)clearAllCredentials;
 - (void)determineGroupIDWithCompletionHandler:(id)arg1;
-- (BOOL)canDetermineGroupID;
+- (_Bool)canDetermineGroupID;
 @property(copy, nonatomic) NSString *password; // @dynamic password;
 @property(copy, nonatomic) NSString *appleID; // @dynamic appleID;
 - (void)dealloc;

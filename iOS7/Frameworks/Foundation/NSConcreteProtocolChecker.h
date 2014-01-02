@@ -8,6 +8,7 @@
 
 @class NSObject, Protocol;
 
+// Not exported
 @interface NSConcreteProtocolChecker : NSProtocolChecker
 {
     NSObject *_target;

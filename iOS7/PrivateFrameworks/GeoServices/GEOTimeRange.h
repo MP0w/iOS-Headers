@@ -6,11 +6,13 @@
 
 #import "PBCodable.h"
 
-@interface GEOTimeRange : PBCodable
+#import "NSCopying-Protocol.h"
+
+@interface GEOTimeRange : PBCodable <NSCopying>
 {
     unsigned int _from;
     unsigned int _to;
-    BOOL _allDay;
+    _Bool _allDay;
     struct {
         unsigned int from:1;
         unsigned int to:1;
@@ -18,19 +20,20 @@
     } _has;
 }
 
-@property(nonatomic) BOOL allDay; // @synthesize allDay=_allDay;
+@property(nonatomic) _Bool allDay; // @synthesize allDay=_allDay;
 @property(nonatomic) unsigned int to; // @synthesize to=_to;
 @property(nonatomic) unsigned int from; // @synthesize from=_from;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) BOOL hasAllDay;
-@property(nonatomic) BOOL hasTo;
-@property(nonatomic) BOOL hasFrom;
+@property(nonatomic) _Bool hasAllDay;
+@property(nonatomic) _Bool hasTo;
+@property(nonatomic) _Bool hasFrom;
 - (void)dealloc;
 
 @end

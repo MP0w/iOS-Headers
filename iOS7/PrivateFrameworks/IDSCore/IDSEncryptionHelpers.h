@@ -10,9 +10,9 @@
 {
 }
 
-+ (void)noteEncryptionErrorForToken:(id)arg1 forURI:(id)arg2 fromURI:(id)arg3 messageData:(id)arg4 type:(int)arg5 encrypt:(BOOL)arg6 remote:(BOOL)arg7;
-+ (id)decryptMessage:(id)arg1 forURI:(id)arg2 fromURI:(id)arg3 fromToken:(id)arg4 encryptionType:(int)arg5 error:(int *)arg6;
-+ (id)encryptMessage:(id)arg1 forURI:(id)arg2 fromURI:(id)arg3 forToken:(id)arg4 encryptionType:(int *)arg5 error:(int *)arg6;
++ (void)noteEncryptionErrorForToken:(id)arg1 forURI:(id)arg2 fromURI:(id)arg3 forService:(id)arg4 messageData:(id)arg5 type:(long long)arg6 encrypt:(_Bool)arg7 remote:(_Bool)arg8;
++ (id)decryptMessage:(id)arg1 forURI:(id)arg2 fromURI:(id)arg3 forService:(id)arg4 fromToken:(id)arg5 encryptionType:(long long)arg6 error:(long long *)arg7;
++ (id)encryptMessage:(id)arg1 forURI:(id)arg2 fromURI:(id)arg3 forService:(id)arg4 forToken:(id)arg5 encryptionType:(long long *)arg6 error:(long long *)arg7;
 
 @end
 

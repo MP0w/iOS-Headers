@@ -10,7 +10,7 @@
 @protocol ABContactViewDataSource <NSObject, UITableViewDataSource>
 
 @optional
-- (id)contactView:(id)arg1 cellForItemAtIndex:(int)arg2 inGroup:(id)arg3;
-- (int)contactView:(id)arg1 numberOfItemsInGroup:(id)arg2;
+- (id)contactView:(id)arg1 cellForItemAtIndex:(long long)arg2 inGroup:(id)arg3;
+- (long long)contactView:(id)arg1 numberOfItemsInGroup:(id)arg2;
 @end
 

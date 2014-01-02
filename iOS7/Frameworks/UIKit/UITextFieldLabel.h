@@ -6,12 +6,13 @@
 
 #import <UIKit/UILabel.h>
 
+// Not exported
 @interface UITextFieldLabel : UILabel
 {
 }
 
 + (id)defaultFont;
-- (BOOL)_shouldDrawUnderlinesLikeWebKit;
+- (_Bool)_shouldDrawUnderlinesLikeWebKit;
 - (void)drawTextInRect:(struct CGRect)arg1;
 - (void)_defaultDrawTextInRect:(struct CGRect)arg1;
 

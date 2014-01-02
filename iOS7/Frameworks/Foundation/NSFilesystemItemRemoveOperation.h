@@ -8,13 +8,14 @@
 
 @class NSError, NSString;
 
+// Not exported
 @interface NSFilesystemItemRemoveOperation : NSOperation
 {
     id _delegate;
     NSString *_removePath;
     NSError *_error;
     void *_state;
-    BOOL _filterUnderbars;
+    _Bool _filterUnderbars;
 }
 
 + (id)filesystemItemRemoveOperationWithPath:(id)arg1;
@@ -22,8 +23,8 @@
 - (void)dealloc;
 - (void)main;
 - (id)initWithPath:(id)arg1;
-- (BOOL)_filtersUnderbars;
-- (void)_setFilterUnderbars:(BOOL)arg1;
+- (_Bool)_filtersUnderbars;
+- (void)_setFilterUnderbars:(_Bool)arg1;
 - (void)_setError:(id)arg1;
 - (id)error;
 - (void)setDelegate:(id)arg1;

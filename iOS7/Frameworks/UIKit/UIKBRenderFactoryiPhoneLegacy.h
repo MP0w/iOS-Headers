@@ -6,6 +6,7 @@
 
 #import <UIKit/UIKBRenderFactory.h>
 
+// Not exported
 @interface UIKBRenderFactoryiPhoneLegacy : UIKBRenderFactory
 {
 }

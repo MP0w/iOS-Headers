@@ -9,7 +9,7 @@
 @protocol LSApplicationWorkspaceObserverProtocol <NSObject>
 
 @optional
-- (void)networkUsageChanged:(BOOL)arg1;
+- (void)networkUsageChanged:(_Bool)arg1;
 - (void)applicationInstallsDidPrioritize:(id)arg1;
 - (void)applicationInstallsDidCancel:(id)arg1;
 - (void)applicationInstallsDidResume:(id)arg1;

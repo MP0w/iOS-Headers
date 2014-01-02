@@ -22,12 +22,12 @@
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
 - (void)_audioPlayerStateChangeNotification:(id)arg1;
-@property(readonly) int playerStateUnplayed;
-@property(readonly) int playerStatePaused;
-@property(readonly) int playerStateFinished;
-@property(readonly) int playerStateFailed;
-@property(readonly) int playerStateBuffering;
-@property(readonly) int playerStateActive;
+@property(readonly) long long playerStateUnplayed;
+@property(readonly) long long playerStatePaused;
+@property(readonly) long long playerStateFinished;
+@property(readonly) long long playerStateFailed;
+@property(readonly) long long playerStateBuffering;
+@property(readonly) long long playerStateActive;
 @property(readonly) NSString *nowPlayingKeyTitle;
 @property(readonly) NSString *nowPlayingKeyPlaybackDuration;
 @property(readonly) NSString *nowPlayingKeyPersistentID;
@@ -41,7 +41,7 @@
 @property(readonly) NSString *nowPlayingKeyAlbumTrackCount;
 @property(readonly) NSString *nowPlayingKeyAlbumTitle;
 @property(readonly) NSString *URL;
-@property(readonly) int state;
+@property(readonly) long long state;
 @property(readonly) NSString *keyURL;
 @property(readonly) double duration;
 @property(readonly) double currentTime;

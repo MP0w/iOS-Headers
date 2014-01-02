@@ -15,13 +15,13 @@
 }
 
 + (id)geniusSummonFailedWithReason:(id)arg1;
-+ (id)geniusSummonFailedWithErrorCode:(int)arg1;
++ (id)geniusSummonFailedWithErrorCode:(long long)arg1;
 + (id)geniusSummonFailedWithDictionary:(id)arg1 context:(id)arg2;
 + (id)geniusSummonFailed;
 @property(copy, nonatomic) NSString *reason;
-@property(nonatomic) int errorCode;
+@property(nonatomic) long long errorCode;
 - (id)initWithReason:(id)arg1;
-- (id)initWithErrorCode:(int)arg1;
+- (id)initWithErrorCode:(long long)arg1;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

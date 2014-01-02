@@ -10,16 +10,16 @@
 
 @interface SBStarkLockOutAnimation : NSObject
 {
-    int _type;
+    long long _type;
     UIView *_snapshotView;
-    int _statusBarStyle;
-    BOOL _statusBarHidden;
+    long long _statusBarStyle;
+    _Bool _statusBarHidden;
 }
 
-@property(nonatomic) BOOL statusBarHidden; // @synthesize statusBarHidden=_statusBarHidden;
-@property(nonatomic) int statusBarStyle; // @synthesize statusBarStyle=_statusBarStyle;
+@property(nonatomic) _Bool statusBarHidden; // @synthesize statusBarHidden=_statusBarHidden;
+@property(nonatomic) long long statusBarStyle; // @synthesize statusBarStyle=_statusBarStyle;
 @property(retain, nonatomic) UIView *snapshotView; // @synthesize snapshotView=_snapshotView;
-@property(nonatomic) int type; // @synthesize type=_type;
+@property(nonatomic) long long type; // @synthesize type=_type;
 - (id)description;
 - (void)dealloc;
 

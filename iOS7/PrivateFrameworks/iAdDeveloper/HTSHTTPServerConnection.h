@@ -15,19 +15,19 @@
     HTSHTTPServer *_server;
     NSObject<OS_dispatch_queue> *_connectionQueue;
     NSObject<OS_dispatch_source> *_readSource;
-    BOOL _readActive;
+    _Bool _readActive;
     NSObject<OS_dispatch_source> *_writeSource;
-    BOOL _writeActive;
+    _Bool _writeActive;
     int _socket;
     int _socketRefCount;
     struct __CFHTTPMessage *_incomingMessage;
     NSMutableArray *_incomingQueue;
     NSMutableArray *_outputQueue;
-    BOOL _outputStalled;
-    BOOL _closeOnEmptyQueue;
+    _Bool _outputStalled;
+    _Bool _closeOnEmptyQueue;
     NSString *_identifier;
-    NSTimer *_idleTimer;
     double _lastActivity;
+    NSTimer *_idleTimer;
 }
 
 @property(retain, nonatomic) NSTimer *idleTimer; // @synthesize idleTimer=_idleTimer;
@@ -39,8 +39,8 @@
 - (void)_closeOutputStream;
 - (void)_processStreamOutput;
 - (void)_processStreamInput;
-- (void)_processIncomingBytes:(const char *)arg1 length:(long)arg2;
-- (void)sendResponse:(id)arg1 withLatency:(double)arg2 closeAfterSending:(BOOL)arg3;
+- (void)_processIncomingBytes:(const char *)arg1 length:(long long)arg2;
+- (void)sendResponse:(id)arg1 withLatency:(double)arg2 closeAfterSending:(_Bool)arg3;
 - (id)initWithServer:(id)arg1 socket:(int)arg2;
 - (void)dealloc;
 

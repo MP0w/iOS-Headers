@@ -10,6 +10,7 @@
 
 @class NSObject<WFWebPageProtocol>, NSString, WFImgArrayCache;
 
+// Not exported
 @interface WFWebPageDecorator : NSObject <WFWebPageProtocol>
 {
     NSObject<WFWebPageProtocol> *webPageStripper;
@@ -31,15 +32,15 @@
 - (id)plainTextAttributeWithSelector:(SEL)arg1 title:(id)arg2 weight:(int)arg3;
 - (id)plainTextAttributeWithSelector:(SEL)arg1 title:(id)arg2;
 - (id)tags;
-- (int)wordCount;
+- (long long)wordCount;
 - (id)linkTitlesText;
-- (int)numberOfKnownImagePixels;
-- (int)numberOfUnknownSizedImages;
+- (long long)numberOfKnownImagePixels;
+- (long long)numberOfUnknownSizedImages;
 - (id)imageAltsText;
-- (int)numberOfImages;
+- (long long)numberOfImages;
 - (void)_cacheImgProperties;
-- (BOOL)hasShortRefresh;
-- (BOOL)hasFrameset;
+- (_Bool)hasShortRefresh;
+- (_Bool)hasFrameset;
 - (id)links;
 - (id)pageContent;
 - (id)images;

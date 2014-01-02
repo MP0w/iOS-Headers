@@ -15,15 +15,15 @@
     NSMutableArray *_items;
     NSMutableArray *_actions;
     NSArray *_actionItems;
-    BOOL _useSplitActions;
-    BOOL _addSpacerFromPreviousGroup;
+    _Bool _useSplitActions;
+    _Bool _addSpacerFromPreviousGroup;
     CNContact *_contact;
     NSString *_title;
 }
 
 + (id)groupForContact:(id)arg1;
-@property(nonatomic) BOOL addSpacerFromPreviousGroup; // @synthesize addSpacerFromPreviousGroup=_addSpacerFromPreviousGroup;
-@property(nonatomic) BOOL useSplitActions; // @synthesize useSplitActions=_useSplitActions;
+@property(nonatomic) _Bool addSpacerFromPreviousGroup; // @synthesize addSpacerFromPreviousGroup=_addSpacerFromPreviousGroup;
+@property(nonatomic) _Bool useSplitActions; // @synthesize useSplitActions=_useSplitActions;
 @property(readonly, nonatomic) NSArray *actions; // @synthesize actions=_actions;
 @property(readonly, nonatomic) NSString *title; // @synthesize title=_title;
 @property(retain, nonatomic) CNContact *contact; // @synthesize contact=_contact;
@@ -32,7 +32,7 @@
 - (void)removeActionWithTitle:(id)arg1;
 - (void)removeActionWithTarget:(id)arg1 selector:(SEL)arg2;
 - (id)addActionWithTitle:(id)arg1 target:(id)arg2 selector:(SEL)arg3;
-- (id)addActionWithTitle:(id)arg1 target:(id)arg2 selector:(SEL)arg3 destructive:(BOOL)arg4;
+- (id)addActionWithTitle:(id)arg1 target:(id)arg2 selector:(SEL)arg3 destructive:(_Bool)arg4;
 - (void)addAction:(id)arg1 withTitle:(id)arg2;
 @property(readonly, nonatomic) NSArray *actionItems;
 @property(readonly, nonatomic) NSArray *editingItems;

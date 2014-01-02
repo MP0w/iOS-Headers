@@ -17,13 +17,13 @@
     struct CGPoint _startLocation;
     struct CGPoint _stopLocation;
     double _duration;
-    BOOL _showFinger;
+    _Bool _showFinger;
     unsigned int _port;
     NSArray *_modes;
     unsigned long long _startTimestamp;
     unsigned long long _stopTimestamp;
     unsigned long long _lastTimestamp;
-    BOOL _waitingForSmoothScrolling;
+    _Bool _waitingForSmoothScrolling;
     UIImageView *_fingerView;
 }
 

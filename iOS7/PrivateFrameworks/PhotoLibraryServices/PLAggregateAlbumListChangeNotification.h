@@ -12,25 +12,25 @@
 {
     PLAggregateAlbumList *_albumList;
     PLAssetContainerListChangeNotification *_note;
-    unsigned int _indexOffet;
+    unsigned long long _indexOffet;
 }
 
-+ (id)notificationForAggregateAlbumList:(id)arg1 fromAlbumListChangeNotification:(id)arg2 indexOffset:(unsigned int)arg3;
-- (BOOL)_getOldSet:(id *)arg1 newSet:(id *)arg2;
++ (id)notificationForAggregateAlbumList:(id)arg1 fromAlbumListChangeNotification:(id)arg2 indexOffset:(unsigned long long)arg3;
+- (_Bool)_getOldSet:(id *)arg1 newSet:(id *)arg2;
 - (id)changedObjects;
 - (id)insertedObjects;
 - (id)deletedObjects;
-- (unsigned int)snapshotIndexForContainedObject:(id)arg1;
+- (unsigned long long)snapshotIndexForContainedObject:(id)arg1;
 - (id)changedIndexesRelativeToSnapshot;
 - (id)changedIndexes;
 - (void)enumerateMovesWithBlock:(id)arg1;
 - (id)insertedIndexes;
 - (id)deletedIndexes;
-- (BOOL)shouldReload;
+- (_Bool)shouldReload;
 - (struct NSObject *)albumList;
 - (id)object;
 - (void)dealloc;
-- (id)initWithAggregateAlbumList:(id)arg1 fromAlbumListChangeNotification:(id)arg2 indexOffset:(unsigned int)arg3;
+- (id)initWithAggregateAlbumList:(id)arg1 fromAlbumListChangeNotification:(id)arg2 indexOffset:(unsigned long long)arg3;
 
 @end
 

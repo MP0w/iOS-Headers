@@ -6,24 +6,25 @@
 
 #import <CoreFoundation/__NSCFType.h>
 
+// Not exported
 @interface __NSCFError : __NSCFType
 {
 }
 
-+ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
++ (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (Class)classForCoder;
 - (id)userInfo;
 - (id)domain;
-- (int)code;
+- (long long)code;
 - (void)finalize;
-- (unsigned int)retainCount;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
+- (unsigned long long)retainCount;
+- (_Bool)_isDeallocating;
+- (_Bool)_tryRetain;
 - (oneway void)release;
 - (id)retain;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 
 @end
 

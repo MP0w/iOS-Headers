@@ -18,9 +18,9 @@
 
 - (void)alertViewCancel:(id)arg1;
 - (void)alertSheet:(id)arg1 buttonClicked:(int)arg2;
-- (void)backAlertClickedButtonAtIndex:(int)arg1;
-- (void)frontAlertClickedButtonAtIndex:(int)arg1;
-- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
+- (void)backAlertClickedButtonAtIndex:(long long)arg1;
+- (void)frontAlertClickedButtonAtIndex:(long long)arg1;
+- (void)animationDidStop:(id)arg1 finished:(_Bool)arg2;
 - (void)flip;
 - (void)dismiss;
 - (void)didPresentAlertView:(id)arg1;

@@ -14,20 +14,20 @@
 {
     SSURLRequestProperties *_requestProperties;
     SSAuthenticationContext *_authenticationContext;
-    BOOL _runsInProcess;
-    BOOL _shouldMescalSign;
+    _Bool _runsInProcess;
+    _Bool _shouldMescalSign;
 }
 
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)copyXPCEncoding;
-- (BOOL)_canRunInProcess;
-@property BOOL runsInProcess;
+- (_Bool)_canRunInProcess;
+@property _Bool runsInProcess;
 @property(copy) SSAuthenticationContext *authenticationContext;
 - (void)startWithCompletionBlock:(id)arg1;
-- (BOOL)start;
+- (_Bool)start;
 @property(readonly) NSURLRequest *URLRequest;
 - (void)startWithConnectionResponseBlock:(id)arg1;
-@property BOOL shouldMescalSign;
+@property _Bool shouldMescalSign;
 @property(readonly) SSURLRequestProperties *requestProperties;
 - (void)dealloc;
 - (id)initWithURLRequest:(id)arg1;

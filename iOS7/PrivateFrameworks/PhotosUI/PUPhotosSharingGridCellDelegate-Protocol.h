@@ -8,8 +8,8 @@
 
 @protocol PUPhotosSharingGridCellDelegate <NSObject>
 - (id)photosSharingGridCellViewForZooming:(id)arg1;
-- (id)photosSharingGridCellBadgeForZooming:(id)arg1 layoutAnchor:(unsigned int *)arg2;
+- (id)photosSharingGridCellBadgeForZooming:(id)arg1 layoutAnchor:(unsigned long long *)arg2;
 - (void)photosSharingGridCellDidEndZooming:(id)arg1;
-- (BOOL)photosSharingGridCellShouldBeginZooming:(id)arg1;
+- (_Bool)photosSharingGridCellShouldBeginZooming:(id)arg1;
 @end
 

@@ -22,7 +22,7 @@
 + (id)allContexts;
 - (void)setObject:(id)arg1 forSlot:(unsigned int)arg2;
 - (void)deleteSlot:(unsigned int)arg1;
-- (unsigned int)createImageSlot:(struct CGSize)arg1 hasAlpha:(BOOL)arg2;
+- (unsigned int)createImageSlot:(struct CGSize)arg1 hasAlpha:(_Bool)arg2;
 - (unsigned int)createSlot;
 - (void)setFence:(unsigned int)arg1 count:(unsigned int)arg2;
 - (void)setFencePort:(unsigned int)arg1 commitHandler:(id)arg2;
@@ -38,7 +38,7 @@
 @property(retain) CALayer *layer; // @dynamic layer;
 @property float level; // @dynamic level;
 @property(readonly) NSDictionary *options; // @dynamic options;
-@property(readonly) BOOL valid; // @dynamic valid;
+@property(readonly) _Bool valid; // @dynamic valid;
 
 @end
 

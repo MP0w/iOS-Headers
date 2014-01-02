@@ -11,7 +11,7 @@
 @interface SPIndex : NSObject
 {
     NSURL *_storeURL;
-    BOOL _ubiquity;
+    _Bool _ubiquity;
     NSNumber *_maxID;
     NSManagedObjectContext *_managedObjectContext;
     NSManagedObjectModel *_managedObjectModel;
@@ -19,12 +19,12 @@
 }
 
 - (void)dealloc;
-- (id)initWithPath:(id)arg1 usingUbiquity:(BOOL)arg2;
+- (id)initWithPath:(id)arg1 usingUbiquity:(_Bool)arg2;
 - (id)persistentStoreCoordinator;
 - (id)managedObjectModel;
 - (id)managedObjectContext;
 - (void)erase;
-- (BOOL)save;
+- (_Bool)save;
 - (void)deleteTopHitsWithExtIDs:(id)arg1 displayIdentifier:(id)arg2 category:(id)arg3;
 - (void)deleteRecords:(id)arg1;
 - (void)deleteRecordsWithExtIDs:(id)arg1;

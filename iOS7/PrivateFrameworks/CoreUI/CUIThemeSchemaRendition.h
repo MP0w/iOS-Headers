@@ -11,13 +11,13 @@
 @interface CUIThemeSchemaRendition : CUIThemeRendition
 {
     NSDictionary *cuiInfo;
-    unsigned long _nimages;
+    unsigned long long _nimages;
     struct CGImage *_image[9];
     struct CGRect _layoutRects[9];
     struct CGSize _intrinsicSize;
     struct CGRect _elementRect;
-    int _columnSlices;
-    int _rowSlices;
+    long long _columnSlices;
+    long long _rowSlices;
     CUIPSDGradient *_gradient;
 }
 
@@ -34,21 +34,21 @@
 - (unsigned short)direction;
 - (unsigned short)presentationState;
 - (unsigned short)state;
-- (struct CGPoint)renditionCoordinatesForPartFeatures:(int)arg1;
-- (int)rowSlices;
-- (int)columnSlices;
+- (struct CGPoint)renditionCoordinatesForPartFeatures:(long long)arg1;
+- (long long)rowSlices;
+- (long long)columnSlices;
 - (id)defaultTemplateName;
 - (id)referenceImage;
 - (id)coreUIOptions;
 - (struct CGRect)alignmentRectangle;
 - (id)slices;
-- (float)scale;
+- (double)scale;
 - (void)dealloc;
-- (id)initWithCoreUIOptions:(id)arg1 forKey:(const struct _renditionkeytoken *)arg2 artworkStatus:(int)arg3;
+- (id)initWithCoreUIOptions:(id)arg1 forKey:(const struct _renditionkeytoken *)arg2 artworkStatus:(long long)arg3;
 - (id)initWithCoreUIOptions:(id)arg1 forKey:(const struct _renditionkeytoken *)arg2;
 @property(readonly, nonatomic) CUIPSDGradient *gradient;
 @property(readonly, nonatomic) struct CGRect *sliceRects;
-@property(readonly, nonatomic) unsigned long numberOfSlices;
+@property(readonly, nonatomic) unsigned long long numberOfSlices;
 
 @end
 

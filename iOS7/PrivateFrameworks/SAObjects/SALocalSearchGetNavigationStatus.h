@@ -14,7 +14,7 @@
 
 + (id)getNavigationStatusWithDictionary:(id)arg1 context:(id)arg2;
 + (id)getNavigationStatus;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSNumber *getRoute;
 - (id)encodedClassName;
 - (id)groupIdentifier;

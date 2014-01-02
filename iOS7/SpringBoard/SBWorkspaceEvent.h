@@ -19,7 +19,7 @@
 @property(copy, nonatomic) NSArray *callStackSymbols; // @synthesize callStackSymbols=_callStackSymbols;
 @property(copy, nonatomic) id handler; // @synthesize handler=_handler;
 @property(copy, nonatomic) NSString *label; // @synthesize label=_label;
-- (BOOL)isEqualToEvent:(id)arg1;
+- (_Bool)isEqualToEvent:(id)arg1;
 - (void)execute;
 - (id)debugDescription;
 - (id)description;

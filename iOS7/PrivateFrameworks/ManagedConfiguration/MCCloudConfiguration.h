@@ -18,7 +18,7 @@
 @property(retain, nonatomic) NSDictionary *memberQueueDetails; // @synthesize memberQueueDetails=_memberQueueDetails;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *memberQueue; // @synthesize memberQueue=_memberQueue;
 - (void).cxx_destruct;
-- (BOOL)isSupervised;
+- (_Bool)isSupervised;
 @property(copy, nonatomic) NSDictionary *details;
 - (void)refreshDetailsFromDisk;
 - (id)init;

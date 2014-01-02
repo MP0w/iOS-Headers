@@ -7,13 +7,13 @@
 #import "NSDateComponents.h"
 
 @interface NSDateComponents (EventKit)
-+ (id)dateComponentsFromGregorianDate:(CDStruct_b0fa4487)arg1;
++ (id)dateComponentsFromGregorianDate:(CDStruct_79f9e052)arg1;
 - (void)clearTimeComponents;
-- (BOOL)hasTimeComponents;
-- (CDStruct_b0fa4487)gregorianDate;
+- (_Bool)hasTimeComponents;
+- (CDStruct_79f9e052)gregorianDate;
 - (id)dateComponentsForEndOfDay;
 - (id)dateComponentsForDateOnly;
-- (id)dateComponents:(unsigned int)arg1 byAddingDays:(int)arg2 calendar:(id)arg3;
-- (id)dateComponents:(unsigned int)arg1 byAddingComponents:(id)arg2 calendar:(id)arg3;
+- (id)dateComponents:(unsigned long long)arg1 byAddingDays:(int)arg2 calendar:(id)arg3;
+- (id)dateComponents:(unsigned long long)arg1 byAddingComponents:(id)arg2 calendar:(id)arg3;
 @end
 

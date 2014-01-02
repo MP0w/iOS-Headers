@@ -19,7 +19,8 @@
 }
 
 + (void)initialize;
-- (unsigned int)requestType;
+- (unsigned long long)requestType;
+- (id)description;
 - (id)lockedObjects;
 - (id)deletedObjects;
 - (id)updatedObjects;
@@ -27,8 +28,6 @@
 - (id)init;
 - (void)dealloc;
 - (id)initWithInsertedObjects:(id)arg1 updatedObjects:(id)arg2 deletedObjects:(id)arg3 lockedObjects:(id)arg4;
-- (BOOL)hasChanges;
-- (void)setDeletedObjects:(id)arg1;
 
 @end
 

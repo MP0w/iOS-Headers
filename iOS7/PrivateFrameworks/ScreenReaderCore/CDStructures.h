@@ -7,8 +7,8 @@
 #pragma mark Named Structures
 
 struct CGPoint {
-    float x;
-    float y;
+    double x;
+    double y;
 };
 
 struct CGRect {
@@ -17,20 +17,20 @@ struct CGRect {
 };
 
 struct CGSize {
-    float width;
-    float height;
+    double width;
+    double height;
 };
 
 struct SCRCFingerState {
-    unsigned int identifier;
+    unsigned long long identifier;
     int xDirection;
     int yDirection;
     struct SCRCMathAverageValue velocity;
     struct SCRCMathAverageValue slopeRise;
     struct SCRCMathAverageValue slopeRun;
     struct SCRCMathAverageValue distance;
-    float velocityDistance;
-    char dragStalled;
+    double velocityDistance;
+    _Bool dragStalled;
     struct CGPoint startPoint;
     struct CGPoint lastPoint;
     struct CGPoint lastDownPoint;
@@ -38,16 +38,16 @@ struct SCRCFingerState {
 
 struct SCRCMathAverageValue {
     unsigned int samples;
-    float fifo[50];
+    double fifo[50];
     int fifoIndex;
-    float sum;
-    float average;
-    float current;
+    double sum;
+    double average;
+    double current;
 };
 
 struct _NSRange {
-    unsigned int _field1;
-    unsigned int _field2;
+    unsigned long long _field1;
+    unsigned long long _field2;
 };
 
 struct _SCRCStackNode {

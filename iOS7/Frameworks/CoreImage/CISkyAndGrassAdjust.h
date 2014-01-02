@@ -8,6 +8,7 @@
 
 @class CIImage, NSNumber;
 
+// Not exported
 @interface CISkyAndGrassAdjust : CIFilter
 {
     CIImage *inputImage;

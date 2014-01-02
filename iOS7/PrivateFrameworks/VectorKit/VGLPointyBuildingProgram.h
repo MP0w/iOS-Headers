@@ -6,6 +6,7 @@
 
 #import <VectorKit/VGLFogProgram.h>
 
+// Not exported
 @interface VGLPointyBuildingProgram : VGLFogProgram
 {
     int _uScale;

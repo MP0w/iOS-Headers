@@ -6,6 +6,7 @@
 
 #import <WebCore/DOMCSSValue.h>
 
+// Not exported
 @interface DOMCSSValueList : DOMCSSValue
 {
 }

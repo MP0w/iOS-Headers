@@ -7,11 +7,11 @@
 #import "UIScrollView.h"
 
 @interface UIScrollView (CKUtilities)
-- (void)__ck_scrollToTop:(BOOL)arg1;
-- (BOOL)__ck_isScrolledToTop;
+- (void)__ck_scrollToTop:(_Bool)arg1;
+- (_Bool)__ck_isScrolledToTop;
 - (struct CGPoint)__ck_scrollToTopContentOffset;
-- (void)__ck_scrollToBottom:(BOOL)arg1;
-- (BOOL)__ck_isScrolledToBottom;
+- (void)__ck_scrollToBottom:(_Bool)arg1;
+- (_Bool)__ck_isScrolledToBottom;
 - (struct CGPoint)__ck_scrollToBottomContentOffset;
 - (struct CGSize)__ck_contentSize;
 @end

@@ -21,39 +21,33 @@
     NSString *_wifiPasswordVerify;
     NSString *_diskPassword;
     NSString *_diskPasswordVerify;
-    BOOL useSinglePassword;
-    BOOL hasDisk;
-    BOOL useDifferentDiskPassword;
+    _Bool useSinglePassword;
+    _Bool hasDisk;
+    _Bool useDifferentDiskPassword;
     RecommendationActionController *actionController;
 }
 
 @property(retain, nonatomic) RecommendationActionController *actionController; // @synthesize actionController;
-@property(nonatomic) BOOL useDifferentDiskPassword; // @synthesize useDifferentDiskPassword;
-@property(nonatomic) BOOL hasDisk; // @synthesize hasDisk;
+@property(nonatomic) _Bool useDifferentDiskPassword; // @synthesize useDifferentDiskPassword;
+@property(nonatomic) _Bool hasDisk; // @synthesize hasDisk;
 @property(copy, nonatomic) NSString *diskPasswordVerify; // @synthesize diskPasswordVerify=_diskPasswordVerify;
 @property(copy, nonatomic) NSString *diskPassword; // @synthesize diskPassword=_diskPassword;
 @property(copy, nonatomic) NSString *wifiPasswordVerify; // @synthesize wifiPasswordVerify=_wifiPasswordVerify;
 @property(copy, nonatomic) NSString *wifiPassword; // @synthesize wifiPassword=_wifiPassword;
 @property(copy, nonatomic) NSString *basePasswordVerify; // @synthesize basePasswordVerify=_basePasswordVerify;
 @property(copy, nonatomic) NSString *basePassword; // @synthesize basePassword=_basePassword;
-@property(nonatomic) BOOL useSinglePassword; // @synthesize useSinglePassword;
+@property(nonatomic) _Bool useSinglePassword; // @synthesize useSinglePassword;
 @property(copy, nonatomic) NSString *personalizedBaseName; // @synthesize personalizedBaseName=_personalizedBaseName;
 @property(copy, nonatomic) NSString *wifiName; // @synthesize wifiName=_wifiName;
 - (void)textFieldDidChangeAtIndexPath:(id)arg1;
-- (BOOL)shouldChangeTextField:(id)arg1 atIndexPath:(id)arg2 forTextIndex:(unsigned int)arg3 toString:(id)arg4;
-- (void)switchTouchedInCellAtIndexPath:(id)arg1 forSwitchIndex:(unsigned int)arg2 isOn:(BOOL)arg3;
+- (_Bool)shouldChangeTextField:(id)arg1 atIndexPath:(id)arg2 forTextIndex:(unsigned long long)arg3 toString:(id)arg4;
+- (void)switchTouchedInCellAtIndexPath:(id)arg1 forSwitchIndex:(unsigned long long)arg2 isOn:(_Bool)arg3;
 - (void)touchInCellAtIndexPath:(id)arg1;
 - (void)updateTableForMultiplePasswords;
 - (void)updateTableForSinglePassword;
-- (BOOL)validateAndSetValues;
-- (void)viewWillAppear:(BOOL)arg1;
+- (_Bool)validateAndSetValues;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
-- (void)addDiskPasswordSection;
-- (void)updateTable;
-- (void)setupTable;
-- (void)validateAndUpdateNextButton;
-- (void)setupInitialTableHeaderConfiguration;
-- (void)updateSinglePasswordSwitchExplanation:(BOOL)arg1;
 
 @end
 

@@ -15,33 +15,33 @@
     NSString *_text;
     NSString *_language;
     int _contractionMode;
-    BOOL _showEightDot;
-    BOOL _isFocused;
-    BOOL _isTechnical;
-    BOOL _hasTextSelection;
+    _Bool _showEightDot;
+    _Bool _isFocused;
+    _Bool _isTechnical;
+    _Bool _hasTextSelection;
     struct _NSRange _textSelection;
-    int _token;
-    BOOL _showDotsSevenAndEight;
+    long long _token;
+    _Bool _showDotsSevenAndEight;
     NSMutableAttributedString *_brailleString;
     struct _NSRange _brailleSelection;
 }
 
 + (void)initialize;
 @property(readonly, nonatomic) NSString *language; // @synthesize language=_language;
-- (id)brailleWithIBeamLocation:(int *)arg1 selection:(struct _NSRange *)arg2;
-- (int)locationForIndex:(int)arg1;
-- (int)token;
-- (BOOL)isFocusedOrSelected;
-- (BOOL)hasSelection;
-- (BOOL)focused;
-- (void)_translateAsLiteraryTextWithPrimaryTable:(BOOL)arg1;
-- (void)_translateAsTechnicalTextWithPrimaryTable:(BOOL)arg1;
+- (id)brailleWithIBeamLocation:(long long *)arg1 selection:(struct _NSRange *)arg2;
+- (long long)locationForIndex:(long long)arg1;
+- (long long)token;
+- (_Bool)isFocusedOrSelected;
+- (_Bool)hasSelection;
+- (_Bool)focused;
+- (void)_translateAsLiteraryTextWithPrimaryTable:(_Bool)arg1;
+- (void)_translateAsTechnicalTextWithPrimaryTable:(_Bool)arg1;
 - (void)translate;
 - (id)_tableIdentifierForLanguage:(id)arg1;
 - (id)description;
 - (void)dealloc;
-- (id)initWithText:(id)arg1 language:(id)arg2 selection:(struct _NSRange *)arg3 token:(int)arg4 focused:(BOOL)arg5 contractionMode:(int)arg6 showEightDot:(BOOL)arg7 showDotsSevenAndEight:(BOOL)arg8 technical:(BOOL)arg9;
-- (id)initWithText:(id)arg1 language:(id)arg2 selection:(struct _NSRange *)arg3 token:(int)arg4 focused:(BOOL)arg5 contractionMode:(int)arg6 showEightDot:(BOOL)arg7 showDotsSevenAndEight:(BOOL)arg8;
+- (id)initWithText:(id)arg1 language:(id)arg2 selection:(struct _NSRange *)arg3 token:(long long)arg4 focused:(_Bool)arg5 contractionMode:(int)arg6 showEightDot:(_Bool)arg7 showDotsSevenAndEight:(_Bool)arg8 technical:(_Bool)arg9;
+- (id)initWithText:(id)arg1 language:(id)arg2 selection:(struct _NSRange *)arg3 token:(long long)arg4 focused:(_Bool)arg5 contractionMode:(int)arg6 showEightDot:(_Bool)arg7 showDotsSevenAndEight:(_Bool)arg8;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end

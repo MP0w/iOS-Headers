@@ -19,11 +19,11 @@
     NSURL *_notificationURL;
     NSURL *_delegatePrincipalURL;
     NSURL *_updatedPrincipalURL;
-    BOOL _supportsCalendarUserSearch;
+    _Bool _supportsCalendarUserSearch;
     CalDAVServerVersion *_serverVersion;
 }
 
-@property(readonly) BOOL supportsCalendarUserSearch; // @synthesize supportsCalendarUserSearch=_supportsCalendarUserSearch;
+@property(readonly) _Bool supportsCalendarUserSearch; // @synthesize supportsCalendarUserSearch=_supportsCalendarUserSearch;
 @property(readonly) NSURL *updatedPrincipalURL; // @synthesize updatedPrincipalURL=_updatedPrincipalURL;
 @property(readonly) CalDAVServerVersion *serverVersion; // @synthesize serverVersion=_serverVersion;
 @property(readonly) NSSet *originalUserAddresses; // @synthesize originalUserAddresses=_originalUserAddresses;
@@ -35,7 +35,7 @@
 @property(retain) NSURL *delegatePrincipalURL; // @synthesize delegatePrincipalURL=_delegatePrincipalURL;
 @property(readonly) NSSet *calendarHomes; // @synthesize calendarHomes=_calendarHomes;
 - (void)processPrincipalHeaders:(id)arg1;
-- (BOOL)forceOptionsRequest;
+- (_Bool)forceOptionsRequest;
 - (void)_setPropertiesFromParsedResponses:(id)arg1;
 - (id)homeSet;
 - (void)startTaskGroup;

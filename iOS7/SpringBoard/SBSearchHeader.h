@@ -8,16 +8,22 @@
 
 #import "SBSearchGestureObserver-Protocol.h"
 
-@class UISearchField, _UIBackdropView;
+@class SBWallpaperEffectView, UIButton, UITextField;
 
 @interface SBSearchHeader : UIView <SBSearchGestureObserver>
 {
-    _UIBackdropView *_backdropView;
-    UISearchField *_searchField;
+    SBWallpaperEffectView *_blurView;
+    UIView *_container;
+    UIButton *_cancelButton;
+    UITextField *_searchField;
+    id <SBSearchHeaderDelegate> _delegate;
 }
 
-@property(readonly, nonatomic) UISearchField *searchField; // @synthesize searchField=_searchField;
-- (void)searchGesture:(id)arg1 changedOffset:(float)arg2;
+@property(nonatomic) id <SBSearchHeaderDelegate> delegate; // @synthesize delegate=_delegate;
+@property(readonly, nonatomic) UITextField *searchField; // @synthesize searchField=_searchField;
+- (void)searchGesture:(id)arg1 changedPercentComplete:(double)arg2;
+- (void)_cancelButtonPressed;
+- (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

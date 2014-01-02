@@ -9,6 +9,6 @@
 @protocol NSXPCListenerDelegate <NSObject>
 
 @optional
-- (BOOL)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
+- (_Bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
 @end
 

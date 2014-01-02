@@ -4,11 +4,12 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <Social/SLSheetPreviewImageView.h>
+#import <Social/SLSheetImagePreviewView.h>
 
 @class CALayer;
 
-@interface SLSheetBevelledImageView : SLSheetPreviewImageView
+// Not exported
+@interface SLSheetBevelledImageView : SLSheetImagePreviewView
 {
     CALayer *_frameLayer;
 }

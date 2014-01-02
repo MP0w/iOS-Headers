@@ -7,11 +7,13 @@
 #import "UITableViewDataSource-Protocol.h"
 
 @protocol MPUActionTableViewDataSource <UITableViewDataSource>
-- (Class)tableView:(id)arg1 prefixActionCellConfigurationAtIndex:(int)arg2;
-- (int)numberOfPrefixActionRowsInTableView:(id)arg1;
-- (int)prefixActionIndexForIndexPath:(id)arg1;
-- (int)indexOfFirstDataSourceSection;
-- (int)dataSourceSectionForSection:(int)arg1;
-- (int)dataSourceIndexForIndexPath:(id)arg1;
+- (Class)tableView:(id)arg1 prefixActionCellConfigurationAtIndex:(long long)arg2;
+- (long long)numberOfPrefixActionRowsInTableView:(id)arg1;
+- (id)indexPathForDataSourceIndex:(long long)arg1;
+- (long long)sectionForDataSourceSection:(long long)arg1;
+- (long long)prefixActionIndexForIndexPath:(id)arg1;
+- (long long)indexOfFirstDataSourceSection;
+- (long long)dataSourceSectionForSection:(long long)arg1;
+- (long long)dataSourceIndexForIndexPath:(id)arg1;
 @end
 

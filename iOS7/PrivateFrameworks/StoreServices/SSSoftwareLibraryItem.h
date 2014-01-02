@@ -13,17 +13,17 @@
 @interface SSSoftwareLibraryItem : NSObject <SSXPCCoding>
 {
     NSMutableDictionary *_etags;
-    BOOL _profileValidated;
+    _Bool _profileValidated;
     NSMutableDictionary *_propertyValues;
 }
 
-@property(nonatomic, getter=isProfileValidated) BOOL profileValidated; // @synthesize profileValidated=_profileValidated;
+@property(nonatomic, getter=isProfileValidated) _Bool profileValidated; // @synthesize profileValidated=_profileValidated;
 - (id)copyXPCEncoding;
 - (id)initWithXPCEncoding:(id)arg1;
 - (void)_setValue:(id)arg1 forProperty:(id)arg2;
 - (id)_initWithITunesMetadata:(id)arg1;
 - (id)valueForProperty:(id)arg1;
-- (BOOL)setETag:(id)arg1 forAssetType:(id)arg2 error:(id *)arg3;
+- (_Bool)setETag:(id)arg1 forAssetType:(id)arg2 error:(id *)arg3;
 - (id)ETagForAssetType:(id)arg1;
 - (void)dealloc;
 

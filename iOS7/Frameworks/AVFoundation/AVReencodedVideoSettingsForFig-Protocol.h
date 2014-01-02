@@ -9,6 +9,6 @@
 @protocol AVReencodedVideoSettingsForFig
 @property(readonly, nonatomic) NSDictionary *videoCompressionProperties;
 @property(readonly, nonatomic) NSDictionary *videoEncoderSpecification;
-@property(readonly, nonatomic) unsigned long videoCodecType;
+@property(readonly, nonatomic) unsigned int videoCodecType;
 @end
 

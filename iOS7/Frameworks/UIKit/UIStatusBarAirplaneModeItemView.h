@@ -6,12 +6,13 @@
 
 #import <UIKit/UIStatusBarIndicatorItemView.h>
 
+// Not exported
 @interface UIStatusBarAirplaneModeItemView : UIStatusBarIndicatorItemView
 {
 }
 
-- (void)setVisible:(BOOL)arg1 frame:(struct CGRect)arg2 duration:(double)arg3;
-- (float)extraLeftPadding;
+- (void)setVisible:(_Bool)arg1 frame:(struct CGRect)arg2 duration:(double)arg3;
+- (double)extraLeftPadding;
 
 @end
 

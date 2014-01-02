@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class ML3DatabaseConnection, ML3MusicLibrary, ML3SortMap, MLMediaLibraryServiceStatementAccumulator, NSDictionary;
+@class ML3DatabaseConnection, ML3MusicLibrary, ML3PersistentIDGenerator, ML3SortMap, MLMediaLibraryServiceStatementAccumulator, NSCache, NSDictionary;
 
 @interface MLImportSession : NSObject
 {
@@ -21,49 +21,59 @@
         double importStartTime;
     } _stats;
     int _sourceType;
-    BOOL _rebuildIndexes;
+    _Bool _rebuildIndexes;
+    _Bool _rebuildCollections;
+    ML3PersistentIDGenerator *_persistentIDGenerator;
+    NSCache *_artistPIDsForGroupingKeys;
+    NSCache *_albumArtistPIDsForGroupingKeys;
+    NSCache *_composerPIDsForGroupingKeys;
+    NSCache *_genrePIDsForGroupingKeys;
+    NSCache *_albumDataForGroupingIdentifier;
+    struct vector<MLRowDataSource *, std::__1::allocator<MLRowDataSource *>> _rowDataSources;
     ML3MusicLibrary *_library;
     ML3DatabaseConnection *_connection;
     NSDictionary *_cachedNameOrders;
 }
 
-@property(nonatomic) BOOL rebuildIndexes; // @synthesize rebuildIndexes=_rebuildIndexes;
 @property(retain, nonatomic) NSDictionary *cachedNameOrders; // @synthesize cachedNameOrders=_cachedNameOrders;
 @property(retain, nonatomic) ML3DatabaseConnection *connection; // @synthesize connection=_connection;
 @property(retain, nonatomic) ML3MusicLibrary *library; // @synthesize library=_library;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)_populateNameOrderWithNameOrderForPIDMap:(unordered_map_856d47d1 *)arg1 tableName:(id)arg2 nameSQL:(id)arg3;
+- (void)_populateNameOrderWithNameOrderForPIDMap:(unordered_map_d5cf956c *)arg1 tableName:(id)arg2 nameSQL:(id)arg3;
 - (long long)_locationKindPIDForTrack:(id)arg1;
-- (long long)_genrePIDWithSortableNames:(id)arg1 existingGenrePIDsForGroupingKeys:(id)arg2 withConnection:(id)arg3 withTrack:(id)arg4;
-- (long long)_composerPIDWithSortableNames:(id)arg1 existingComposerPIDsForGroupingKeys:(id)arg2 withConnection:(id)arg3 withTrack:(id)arg4;
-- (long long)_albumPIDWithSortableNames:(id)arg1 albumArtistPID:(long long)arg2 existingAlbumStatesForGroupingIdentifiers:(id)arg3 groupingKeysForGroupingNames:(id)arg4 withConnection:(id)arg5 withTrack:(id)arg6;
-- (id)_existingAlbumStatesForGroupingIdentifiers:(id)arg1;
-- (id)_albumGroupingIdentifierWithAlbumArtistPersistentID:(long long)arg1 groupingKeysForGroupingNames:(id)arg2 withTrack:(id)arg3;
-- (long long)_albumArtistPIDWithSortableNames:(id)arg1 existingAlbumArtistPIDsForGroupingKeys:(id)arg2 withConnection:(id)arg3 withTrack:(id)arg4;
-- (long long)_artistPIDWithSortableNames:(id)arg1 existingArtistPIDsForGroupingKeys:(id)arg2 withConnection:(id)arg3 withTrack:(id)arg4;
+- (long long)_genrePIDForTrack:(id)arg1;
+- (long long)_composerPIDForTrack:(id)arg1;
+- (_Bool)_updateAlbumEntry:(id)arg1 albumArtistPID:(long long)arg2 albumPid:(long long)arg3;
+- (long long)_albumPIDForTrack:(id)arg1 albumArtistPID:(long long)arg2 isUpdate:(_Bool)arg3;
+- (id)_existingAlbumStateForGroupingIdentifier:(id)arg1;
+- (id)_albumGroupingIdentifierWithAlbumArtistPersistentID:(long long)arg1 withTrack:(id)arg2;
+- (long long)_albumArtistPIDForTrack:(id)arg1;
+- (long long)_artistPIDForTrack:(id)arg1;
 - (id)_insertIntoGenreSQL;
 - (id)_insertIntoComposerSQL;
 - (id)_insertIntoAlbumSQL;
 - (id)_insertIntoAlbumArtistSQL;
 - (id)_insertIntoItemArtistSQL;
-- (id)_generateInsertionSQLWithInsertPart:(id)arg1 numberOfValues:(unsigned int)arg2;
-- (id)_existingCollectionPIDsForTable:(id)arg1 groupingNames:(id)arg2 groupingKeysForGroupingNames:(id)arg3 withConnection:(id)arg4;
+- (id)_generateInsertionSQLWithInsertPart:(id)arg1 numberOfValues:(unsigned long long)arg2;
+- (id)_existingCollectionPidForTable:(id)arg1 groupingKey:(id)arg2;
 - (id)_genreGroupingNameFromDataSource:(id)arg1;
 - (id)_composerGroupingNameFromDataSource:(id)arg1;
 - (id)_albumArtistGroupingNameFromDataSource:(id)arg1;
 - (id)_artistGroupingNameFromDataSource:(id)arg1;
-- (BOOL)_shouldRebuildIndices;
-- (long long)persistentIdentifierForItem:(id)arg1 existing:(char *)arg2;
-- (BOOL)updateCollections;
-- (BOOL)removeSource:(int)arg1 fromTracksWithPersistentIDs:(id)arg2;
-- (BOOL)finish;
-- (BOOL)removeTrack:(id)arg1;
-- (BOOL)prepareSortDataForTrack:(id)arg1;
-- (BOOL)_updateTrackData:(id)arg1 isUpdate:(BOOL)arg2;
-- (BOOL)updateTrack:(id)arg1;
-- (BOOL)addTrack:(id)arg1;
-- (BOOL)begin;
+- (long long)persistentIdentifierForItem:(id)arg1 existing:(_Bool *)arg2;
+- (_Bool)updateCollectionRepresentativePIDs;
+- (_Bool)updateEntityRevisionTable;
+- (_Bool)removeSource:(int)arg1 fromTracksWithPersistentIDs:(id)arg2;
+- (_Bool)finish;
+- (_Bool)removeTrack:(id)arg1;
+- (_Bool)_prepareCollectionsForTrack:(id)arg1 isUpdate:(_Bool)arg2;
+- (_Bool)_prepareSortDataForTrack:(id)arg1 isUpdate:(_Bool)arg2;
+- (_Bool)_updateTrackData:(id)arg1 isUpdate:(_Bool)arg2;
+- (_Bool)updateTrack:(id)arg1;
+- (_Bool)addTrack:(id)arg1;
+- (_Bool)begin:(unsigned long long)arg1;
+- (_Bool)begin;
 - (CDStruct_bd6d074e)collectionPIDSetForTrackPID:(long long)arg1;
 - (int)importLogLevel;
 - (void)dealloc;

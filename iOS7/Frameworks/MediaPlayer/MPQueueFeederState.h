@@ -11,14 +11,14 @@
 @interface MPQueueFeederState : NSObject
 {
     MPQueueFeeder *_feeder;
-    unsigned int _currentItemIndex;
+    unsigned long long _currentItemIndex;
     double _currentTime;
     int _feederMode;
 }
 
 @property(nonatomic) int feederMode; // @synthesize feederMode=_feederMode;
 @property(nonatomic) double currentTime; // @synthesize currentTime=_currentTime;
-@property(nonatomic) unsigned int currentItemIndex; // @synthesize currentItemIndex=_currentItemIndex;
+@property(nonatomic) unsigned long long currentItemIndex; // @synthesize currentItemIndex=_currentItemIndex;
 @property(retain, nonatomic) MPQueueFeeder *feeder; // @synthesize feeder=_feeder;
 - (void).cxx_destruct;
 - (id)description;

@@ -8,6 +8,7 @@
 
 @class NSObject<OS_dispatch_queue>, NSOperation;
 
+// Not exported
 @interface __NSOperationQueueInternal : NSObject
 {
     int __queueLock;
@@ -18,7 +19,7 @@
     NSOperation *__firstPriOperation[5];
     NSOperation *__lastPriOperation[5];
     NSObject<OS_dispatch_queue> *__pending_barrier;
-    int __maxNumOps;
+    long long __maxNumOps;
     int __actualMaxNumOps;
     int __numExecOps;
     unsigned int __unused2;

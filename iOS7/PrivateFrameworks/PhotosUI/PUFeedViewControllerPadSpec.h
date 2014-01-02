@@ -10,38 +10,39 @@
 {
 }
 
-- (BOOL)shouldUseFullscreenLayout;
-- (int)promptType;
+- (_Bool)shouldUseFullscreenLayout;
+- (long long)promptType;
 - (id)popoverFeedViewControllerSpec;
+- (id)photosPickerSpec;
 - (id)gridSpec;
 - (id)photoBrowserSpec;
-- (BOOL)shouldShowInvitationsInPopover;
-- (BOOL)shouldHideBarsInLandscape;
-- (float)spacingBetweenSectionWithInfo:(id)arg1 andHeaderWithGroupID:(id)arg2;
-- (void)configureTextCell:(id)arg1 forSectionGroupHeaderWithText:(id)arg2 collectionViewType:(int)arg3;
-- (void)configureSeparatorMetrics:(inout struct PUFeedSeparatorMetrics *)arg1 betweenSectionWithInfo:(id)arg2 andSectionWithInfo:(id)arg3 joined:(BOOL)arg4 collectionViewType:(int)arg5;
-- (void)getReferenceMaximumLength:(float *)arg1 minimumNumberOfTilesToOmit:(int *)arg2 forSectionType:(int)arg3 collectionViewType:(int)arg4;
-- (void)configureTextCell:(id)arg1 forSectionFooterWithDateText:(id)arg2 collectionViewType:(int)arg3;
-- (void)configureTextCell:(id)arg1 forSectionFooterWithActionText:(id)arg2 collectionViewType:(int)arg3;
-- (BOOL)shouldShowDatesInSectionFootersInCollectionViewType:(int)arg1;
-- (void)configureTextCell:(id)arg1 forSectionHeaderWithDescriptionPhrase:(id)arg2 streamAffordanceLabel:(id)arg3 actionText:(id)arg4 buttonType:(int)arg5 collectionViewType:(int)arg6;
-- (BOOL)shouldShowLikeButtonForCollectionViewType:(int)arg1;
-- (BOOL)shouldShowStreamAffordanceInSectionHeaderWithCollectionViewType:(int)arg1;
+- (_Bool)shouldShowInvitationsInPopover;
+- (_Bool)shouldHideBarsInLandscape;
+- (double)spacingBetweenSectionWithInfo:(id)arg1 andHeaderWithGroupID:(id)arg2;
+- (void)configureTextCell:(id)arg1 forSectionGroupHeaderWithText:(id)arg2 collectionViewType:(long long)arg3;
+- (void)configureSeparatorMetrics:(inout struct PUFeedSeparatorMetrics *)arg1 betweenSectionWithInfo:(id)arg2 andSectionWithInfo:(id)arg3 joined:(_Bool)arg4 collectionViewType:(long long)arg5;
+- (void)getReferenceMaximumLength:(double *)arg1 minimumNumberOfTilesToOmit:(long long *)arg2 forSectionType:(long long)arg3 collectionViewType:(long long)arg4;
+- (void)configureTextCell:(id)arg1 forSectionFooterWithDateText:(id)arg2 collectionViewType:(long long)arg3;
+- (void)configureTextCell:(id)arg1 forSectionFooterWithActionText:(id)arg2 collectionViewType:(long long)arg3;
+- (_Bool)shouldShowDatesInSectionFootersInCollectionViewType:(long long)arg1;
+- (void)configureTextCell:(id)arg1 forSectionHeaderWithDescriptionPhrase:(id)arg2 streamAffordanceLabel:(id)arg3 actionText:(id)arg4 buttonType:(long long)arg5 collectionViewType:(long long)arg6 animated:(_Bool)arg7;
+- (_Bool)shouldShowLikeButtonForCollectionViewType:(long long)arg1;
+- (_Bool)shouldShowStreamAffordanceInSectionHeaderWithCollectionViewType:(long long)arg1;
 - (struct CGSize)thumbnailSizeForImageSize:(struct CGSize)arg1;
-- (BOOL)shouldUseAspectThumbnails;
+- (_Bool)shouldUseAspectThumbnails;
 - (struct CGSize)thumbnailSize;
 - (void)configureCommentSeparatorMetrics:(inout struct PUFeedSeparatorMetrics *)arg1;
 - (void)configureTextCell:(id)arg1 forEventWithDescriptionPhrase:(id)arg2;
 - (void)configureTextCell:(id)arg1 forLikesWithDescriptionPhrase:(id)arg2;
-- (int)largeNumberOfSubjectsForLikes;
+- (long long)largeNumberOfSubjectsForLikes;
 - (void)configureTextCell:(id)arg1 forCommentWithDescriptionPhrase:(id)arg2;
 - (void)configureTextCell:(id)arg1 forCaption:(id)arg2;
-- (id)emphasizedTextAttributesForCollectionViewType:(int)arg1;
-- (id)defaultTextAttributesForCollectionViewType:(int)arg1;
-- (BOOL)shouldShowCommentBadgesInCollectionViewType:(int)arg1;
+- (id)emphasizedTextAttributesForCollectionViewType:(long long)arg1;
+- (id)defaultTextAttributesForCollectionViewType:(long long)arg1;
+- (_Bool)shouldShowCommentBadgesInCollectionViewType:(long long)arg1;
 - (struct CGSize)minimumVideoTileSize;
-- (struct UIEdgeInsets)contentInsetsForSectionType:(int)arg1 collectionViewType:(int)arg2;
-- (void)configureFeedCollectionViewLayout:(id)arg1 forCollectionViewType:(int)arg2;
+- (struct UIEdgeInsets)contentInsetsForSectionType:(long long)arg1 collectionViewType:(long long)arg2;
+- (void)configureFeedCollectionViewLayout:(id)arg1 forCollectionViewType:(long long)arg2;
 
 @end
 

@@ -5,23 +5,23 @@
  */
 
 @protocol ABPersonImageDataDelegate
-- (BOOL)didChangePreferredPersonForImage;
+- (_Bool)didChangePreferredPersonForImage;
 - (void)updateRecordImages;
 - (void)resetImageData;
 - (void)reloadImageData;
-- (BOOL)hasImageChanges;
+- (_Bool)hasImageChanges;
 - (void)imageWillSave;
 - (void)refreshImageData;
 - (void)removeImageDataForPerson:(id)arg1;
 - (void)setImageData:(id)arg1 withFormat:(int)arg2 cropRect:(struct CGRect)arg3 forPerson:(id)arg4;
 - (id)imageDataWithFormat:(int)arg1 cropRect:(struct CGRect *)arg2 forPerson:(id)arg3;
-- (BOOL)hasImageDataForPerson:(id)arg1;
+- (_Bool)hasImageDataForPerson:(id)arg1;
 - (void)setPersonForImageData:(id)arg1;
 - (id)personForImageData;
 - (id)writablePeople;
 - (id)people;
 
 @optional
-- (BOOL)shouldUseSourceTypeSpecificStrings;
+- (_Bool)shouldUseSourceTypeSpecificStrings;
 @end
 

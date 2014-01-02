@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class GEOStructuredAddress, NSMutableArray;
 
-@interface GEOAddress : PBCodable
+@interface GEOAddress : PBCodable <NSCopying>
 {
     NSMutableArray *_formattedAddressLines;
     int _formattedAddressType;
@@ -20,24 +22,22 @@
 
 @property(retain, nonatomic) GEOStructuredAddress *structuredAddress; // @synthesize structuredAddress=_structuredAddress;
 @property(retain, nonatomic) NSMutableArray *formattedAddressLines; // @synthesize formattedAddressLines=_formattedAddressLines;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) BOOL hasFormattedAddressType;
+@property(nonatomic) _Bool hasFormattedAddressType;
 @property(nonatomic) int formattedAddressType; // @synthesize formattedAddressType=_formattedAddressType;
-@property(readonly, nonatomic) BOOL hasStructuredAddress;
-- (id)formattedAddressLineAtIndex:(unsigned int)arg1;
-- (unsigned int)formattedAddressLinesCount;
+@property(readonly, nonatomic) _Bool hasStructuredAddress;
+- (id)formattedAddressLineAtIndex:(unsigned long long)arg1;
+- (unsigned long long)formattedAddressLinesCount;
 - (void)addFormattedAddressLine:(id)arg1;
 - (void)clearFormattedAddressLines;
 - (void)dealloc;
-- (id)addressDictionary;
-- (id)initWithAddressDictionary:(id)arg1;
-- (id)initWithAddressString:(id)arg1;
 
 @end
 

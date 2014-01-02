@@ -10,9 +10,9 @@
 {
 }
 
-+ (id)wepKeyFormatter:(unsigned int)arg1;
++ (id)wepKeyFormatter:(unsigned long long)arg1;
 + (id)sharedWEPKeyFormatter;
-- (BOOL)isPartialStringValid:(id)arg1 newEditingString:(id *)arg2 errorDescription:(id *)arg3;
+- (_Bool)isPartialStringValid:(id)arg1 newEditingString:(id *)arg2 errorDescription:(id *)arg3;
 
 @end
 

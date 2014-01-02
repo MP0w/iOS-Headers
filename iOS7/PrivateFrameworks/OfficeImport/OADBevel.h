@@ -8,6 +8,7 @@
 
 #import "NSCopying-Protocol.h"
 
+// Not exported
 @interface OADBevel : NSObject <NSCopying>
 {
     int mType;
@@ -15,8 +16,8 @@
     float mHeight;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)setHeight:(float)arg1;
 - (float)height;
 - (void)setWidth:(float)arg1;

@@ -8,11 +8,12 @@
 
 @class NSDictionary, NSString, NSURL;
 
+// Not exported
 @interface LSOpenOperation : NSOperation
 {
-    BOOL _executing;
-    BOOL _finished;
-    BOOL _sourceIsManaged;
+    _Bool _executing;
+    _Bool _finished;
+    _Bool _sourceIsManaged;
     NSURL *_resourceURL;
     NSString *_applicationIdentifier;
     NSString *_documentIdentifier;
@@ -23,14 +24,14 @@
 }
 
 - (void)start;
-- (BOOL)didSucceed;
-- (BOOL)isFinished;
-- (BOOL)isExecuting;
-- (BOOL)isConcurrent;
+- (_Bool)didSucceed;
+- (_Bool)isFinished;
+- (_Bool)isExecuting;
+- (_Bool)isConcurrent;
 - (void)completeOperation;
 - (void)main;
 - (void)dealloc;
-- (id)initForOpeningResource:(id)arg1 usingApplication:(id)arg2 uniqueDocumentIdentifier:(id)arg3 sourceIsManaged:(BOOL)arg4 userInfo:(id)arg5 options:(id)arg6 delegate:(id)arg7;
+- (id)initForOpeningResource:(id)arg1 usingApplication:(id)arg2 uniqueDocumentIdentifier:(id)arg3 sourceIsManaged:(_Bool)arg4 userInfo:(id)arg5 options:(id)arg6 delegate:(id)arg7;
 
 @end
 

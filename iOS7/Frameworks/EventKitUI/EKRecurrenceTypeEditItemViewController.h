@@ -11,22 +11,23 @@
 
 @class NSIndexPath, NSString, UITableView;
 
+// Not exported
 @interface EKRecurrenceTypeEditItemViewController : EKEditItemViewController <UITableViewDataSource, UITableViewDelegate>
 {
     UITableView *_table;
     NSString *_customString;
-    int _repeatType;
+    long long _repeatType;
     NSIndexPath *_checkedItem;
 }
 
 - (void).cxx_destruct;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
 - (void)setCustomString:(id)arg1;
-@property(nonatomic) int repeatType;
+@property(nonatomic) long long repeatType;
 - (void)_checkItemAtIndexPath:(id)arg1;
 - (void)viewDidLoad;
 - (void)loadView;

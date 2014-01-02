@@ -10,9 +10,9 @@
 {
 }
 
-- (BOOL)shouldShowDisclosure;
-- (BOOL)shouldBeQuickLooked;
-- (BOOL)shouldShowViewer;
+- (_Bool)shouldShowDisclosure;
+- (_Bool)shouldBeQuickLooked;
+- (_Bool)shouldShowViewer;
 
 @end
 

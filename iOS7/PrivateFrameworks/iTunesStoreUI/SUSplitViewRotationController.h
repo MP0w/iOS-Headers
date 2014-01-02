@@ -18,9 +18,9 @@
 
 - (id)_secondRotationController;
 - (id)_firstRotationController;
-- (void)prepareToRotateToInterfaceOrientation:(int)arg1;
-- (void)finishRotationFromInterfaceOrientation:(int)arg1;
-- (void)animateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)prepareToRotateToInterfaceOrientation:(long long)arg1;
+- (void)finishRotationFromInterfaceOrientation:(long long)arg1;
+- (void)animateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
 - (void)dealloc;
 
 @end

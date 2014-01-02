@@ -19,7 +19,7 @@
 - (void)peripheral:(id)arg1 didDiscoverIncludedServicesForService:(id)arg2 error:(id)arg3;
 - (void)peripheral:(id)arg1 didDiscoverServices:(id)arg2;
 - (void)peripheralDidUpdateRSSI:(id)arg1 error:(id)arg2;
-- (void)peripheral:(id)arg1 didInvalidateServices:(id)arg2;
+- (void)peripheral:(id)arg1 didModifyServices:(id)arg2;
 - (void)peripheralDidInvalidateServices:(id)arg1;
 - (void)peripheralDidUpdateName:(id)arg1;
 @end

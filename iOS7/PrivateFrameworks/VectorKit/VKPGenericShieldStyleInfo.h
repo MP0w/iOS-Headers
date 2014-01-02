@@ -6,9 +6,10 @@
 
 #import "PBCodable.h"
 
+// Not exported
 @interface VKPGenericShieldStyleInfo : PBCodable
 {
-    CDStruct_d570ea55 _textDropShadowOffsets;
+    CDStruct_fae3dc92 _textDropShadowOffsets;
     unsigned int _backgroundColor;
     unsigned int _borderColor;
     int _style;
@@ -32,31 +33,31 @@
 @property(nonatomic) float textDropShadowSize; // @synthesize textDropShadowSize=_textDropShadowSize;
 @property(nonatomic) unsigned int textStrokeColor; // @synthesize textStrokeColor=_textStrokeColor;
 @property(nonatomic) float textStrokeSize; // @synthesize textStrokeSize=_textStrokeSize;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) BOOL hasTextDropShadowColor;
+@property(nonatomic) _Bool hasTextDropShadowColor;
 @property(nonatomic) unsigned int textDropShadowColor; // @synthesize textDropShadowColor=_textDropShadowColor;
-@property(nonatomic) BOOL hasTextDropShadowSize;
-- (void)setTextDropShadowOffsets:(float *)arg1 count:(unsigned int)arg2;
-- (float)textDropShadowOffsetAtIndex:(unsigned int)arg1;
+@property(nonatomic) _Bool hasTextDropShadowSize;
+- (void)setTextDropShadowOffsets:(float *)arg1 count:(unsigned long long)arg2;
+- (float)textDropShadowOffsetAtIndex:(unsigned long long)arg1;
 - (void)addTextDropShadowOffset:(float)arg1;
 - (void)clearTextDropShadowOffsets;
 @property(readonly, nonatomic) float *textDropShadowOffsets;
-@property(readonly, nonatomic) unsigned int textDropShadowOffsetsCount;
-@property(nonatomic) BOOL hasTextStrokeColor;
-@property(nonatomic) BOOL hasTextStrokeSize;
-@property(nonatomic) BOOL hasTextColor;
+@property(readonly, nonatomic) unsigned long long textDropShadowOffsetsCount;
+@property(nonatomic) _Bool hasTextStrokeColor;
+@property(nonatomic) _Bool hasTextStrokeSize;
+@property(nonatomic) _Bool hasTextColor;
 @property(nonatomic) unsigned int textColor; // @synthesize textColor=_textColor;
-@property(nonatomic) BOOL hasBorderColor;
+@property(nonatomic) _Bool hasBorderColor;
 @property(nonatomic) unsigned int borderColor; // @synthesize borderColor=_borderColor;
-@property(nonatomic) BOOL hasBackgroundColor;
+@property(nonatomic) _Bool hasBackgroundColor;
 @property(nonatomic) unsigned int backgroundColor; // @synthesize backgroundColor=_backgroundColor;
-@property(nonatomic) BOOL hasStyle;
+@property(nonatomic) _Bool hasStyle;
 @property(nonatomic) int style; // @synthesize style=_style;
 - (void)dealloc;
 

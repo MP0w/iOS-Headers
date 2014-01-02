@@ -8,6 +8,7 @@
 
 @class CFXPreferencesPropertyListSourceSynchronizer;
 
+// Not exported
 @interface CFXPreferencesPropertyListSource : CFXPreferencesSource
 {
     unsigned short _mode;
@@ -15,7 +16,7 @@
     CFXPreferencesPropertyListSourceSynchronizer *_synchronizer;
     struct __CFArray *_dirtyKeys;
     struct __CFURL *_url;
-    long _formatToWrite;
+    long long _formatToWrite;
     struct _CFXPreferencesStatInfo _statInfo;
     unsigned int _group;
 }
@@ -28,7 +29,7 @@
 - (void)_reenableSuddenTermination;
 - (void)setValue:(void *)arg1 forKey:(struct __CFString *)arg2;
 - (id)description;
-- (id)initWithURL:(struct __CFURL *)arg1 mode:(unsigned short)arg2 owner:(unsigned int)arg3 group:(unsigned int)arg4 format:(long)arg5;
+- (id)initWithURL:(struct __CFURL *)arg1 mode:(unsigned short)arg2 owner:(unsigned int)arg3 group:(unsigned int)arg4 format:(long long)arg5;
 
 @end
 

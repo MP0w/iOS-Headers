@@ -13,32 +13,34 @@
 @interface RCSavedRecording : NSManagedObject <UIActivityItemSource>
 {
     AVItem *_avItem;
-    BOOL _beingMade;
+    NSString *_path;
 }
 
-+ (id)localizedStringForRecordingLabel:(int)arg1;
++ (id)localizedStringForRecordingLabel:(long long)arg1;
 - (void).cxx_destruct;
-- (id)activityViewController:(id)arg1 thumbnailImageForActivityType:(id)arg2;
+- (id)activityViewController:(id)arg1 thumbnailImageForActivityType:(id)arg2 suggestedSize:(struct CGSize)arg3;
 - (id)activityViewController:(id)arg1 subjectForActivityType:(id)arg2;
 - (id)activityViewController:(id)arg1 itemForActivityType:(id)arg2;
 - (id)activityViewControllerPlaceholderItem:(id)arg1;
-@property(nonatomic, getter=isBeingMade) BOOL beingMade;
+- (id)_activityURLCreateIfNecessary:(_Bool)arg1;
+@property(nonatomic, getter=isBeingMade) _Bool beingMade; // @dynamic beingMade;
 @property(readonly, nonatomic) AVItem *avItem;
 @property(readonly, nonatomic) NSString *detailLabel;
 @property(readonly, nonatomic) NSString *label;
 @property(readonly, nonatomic) NSURL *url;
-@property(nonatomic, getter=isSynced) BOOL synced;
-@property(nonatomic, getter=isPendingRestore) BOOL pendingRestore; // @dynamic pendingRestore;
+@property(copy, nonatomic) NSString *path; // @dynamic path;
+@property(nonatomic, getter=isSynced) _Bool synced;
+@property(nonatomic, getter=isPendingRestore) _Bool pendingRestore; // @dynamic pendingRestore;
 @property(nonatomic) long long iTunesPersistentID;
-@property(nonatomic) int labelPreset;
+@property(nonatomic) long long labelPreset;
 @property(nonatomic) double duration;
 - (void)willSave;
+- (void)awakeFromFetch;
 - (void)awakeFromInsert;
 
 // Remaining properties
 @property(copy, nonatomic) NSString *customLabel; // @dynamic customLabel;
 @property(copy, nonatomic) NSDate *date; // @dynamic date;
-@property(copy, nonatomic) NSString *path; // @dynamic path;
 
 @end
 

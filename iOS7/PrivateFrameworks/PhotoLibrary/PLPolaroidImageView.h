@@ -12,23 +12,23 @@
 {
     UIView *_posterView;
     UILabel *_nameLabel;
-    float _thinBorderWidth;
-    BOOL _polaroidBorderVisible;
+    double _thinBorderWidth;
+    _Bool _polaroidBorderVisible;
     struct CGRect _roi;
 }
 
 + (Class)layerClass;
-- (void)_updatePolaroidFramePath:(BOOL)arg1;
+- (void)_updatePolaroidFramePath:(_Bool)arg1;
 - (void)_adjustLabel;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1 allowRounding:(BOOL)arg2;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1 allowRounding:(_Bool)arg2;
 - (void)renderSnapshotInContext:(struct CGContext *)arg1;
 - (void)layoutSubviews;
 - (void)setName:(id)arg1;
 - (void)setPosterImage:(id)arg1 regionOfInterest:(struct CGRect)arg2;
 @property(retain, nonatomic) UIImage *posterImage;
-- (void)setTransitionProgress:(float)arg1;
-- (void)setBorderAndAccessoriesVisible:(BOOL)arg1;
-- (float)_tunedProgress;
+- (void)setTransitionProgress:(double)arg1;
+- (void)setBorderAndAccessoriesVisible:(_Bool)arg1;
+- (double)_tunedProgress;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

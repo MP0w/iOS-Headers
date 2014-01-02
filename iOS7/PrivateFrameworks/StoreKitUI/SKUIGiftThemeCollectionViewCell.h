@@ -6,11 +6,11 @@
 
 #import "UICollectionViewCell.h"
 
-@class SKUIClientContext, SKUIGift, SKUIGiftItemView, SKUIGiftTheme, UIImage, UIImageView, UILabel;
+@class SKUIGift, SKUIGiftConfiguration, SKUIGiftItemView, SKUIGiftTheme, UIImage, UIImageView, UILabel;
 
 @interface SKUIGiftThemeCollectionViewCell : UICollectionViewCell
 {
-    SKUIClientContext *_clientContext;
+    SKUIGiftConfiguration *_giftConfiguration;
     SKUIGift *_gift;
     UIImageView *_headerImageView;
     SKUIGiftItemView *_itemView;
@@ -23,7 +23,7 @@
 
 @property(retain, nonatomic) SKUIGiftTheme *theme; // @synthesize theme=_theme;
 @property(retain, nonatomic) SKUIGift *gift; // @synthesize gift=_gift;
-@property(retain, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
+@property(retain, nonatomic) SKUIGiftConfiguration *giftConfiguration; // @synthesize giftConfiguration=_giftConfiguration;
 - (void).cxx_destruct;
 - (void)_setSenderName:(id)arg1;
 - (void)_setPrice:(id)arg1;

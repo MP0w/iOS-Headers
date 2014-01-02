@@ -6,14 +6,15 @@
 
 #import <UIKit/UIPickerView.h>
 
+// Not exported
 @interface UIPrintRangePickerView : UIPickerView
 {
-    float _shift;
+    double _shift;
 }
 
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)layoutSubviews;
-- (float)_wheelShift;
+- (double)_wheelShift;
 
 @end
 

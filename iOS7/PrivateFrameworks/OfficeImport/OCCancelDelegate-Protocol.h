@@ -7,6 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol OCCancelDelegate <NSObject>
-- (BOOL)isCancelled;
+- (_Bool)isCancelled;
 @end
 

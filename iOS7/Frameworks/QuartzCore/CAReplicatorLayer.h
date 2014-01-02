@@ -10,8 +10,8 @@
 {
 }
 
-+ (BOOL)CA_automaticallyNotifiesObservers:(Class)arg1;
-+ (BOOL)_hasRenderLayerSubclass;
++ (_Bool)CA_automaticallyNotifiesObservers:(Class)arg1;
++ (_Bool)_hasRenderLayerSubclass;
 + (id)defaultValueForKey:(id)arg1;
 @property float instanceAlphaOffset;
 @property float instanceBlueOffset;
@@ -20,8 +20,8 @@
 @property struct CGColor *instanceColor;
 @property struct CATransform3D instanceTransform;
 @property double instanceDelay;
-@property BOOL preservesDepth;
-@property int instanceCount;
+@property _Bool preservesDepth;
+@property long long instanceCount;
 - (unsigned int)_renderLayerPropertyAnimationFlags:(unsigned int)arg1;
 - (_Bool)_renderLayerDefinesProperty:(unsigned int)arg1;
 - (struct Layer *)_copyRenderLayer:(struct Transaction *)arg1 layerFlags:(unsigned int)arg2 commitFlags:(unsigned int *)arg3;

@@ -8,18 +8,23 @@
 
 @class WebFrameView;
 
+// Not exported
 @interface WebFramePrivate : NSObject
 {
     struct Frame *coreFrame;
     WebFrameView *webFrameView;
     struct WebScriptDebugger *scriptDebugger;
     id internalLoadDelegate;
-    BOOL shouldCreateRenderers;
-    BOOL includedInWebKitStatistics;
-    BOOL isCommitting;
-    BOOL isSingleLine;
+    _Bool shouldCreateRenderers;
+    _Bool includedInWebKitStatistics;
+    struct RetainPtr<NSString> url;
+    struct RetainPtr<NSString> provisionalURL;
+    _Bool isCommitting;
+    _Bool isSingleLine;
 }
 
+- (id).cxx_construct;
+- (void).cxx_destruct;
 - (void)setWebFrameView:(id)arg1;
 - (void)finalize;
 - (void)dealloc;

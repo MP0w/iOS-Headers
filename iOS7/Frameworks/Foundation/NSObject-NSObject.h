@@ -7,14 +7,14 @@
 #import "NSObject.h"
 
 @interface NSObject (NSObject)
-+ (int)version;
-+ (void)setVersion:(int)arg1;
-+ (BOOL)implementsSelector:(SEL)arg1;
-+ (BOOL)instancesImplementSelector:(SEL)arg1;
++ (long long)version;
++ (void)setVersion:(long long)arg1;
++ (_Bool)implementsSelector:(SEL)arg1;
++ (_Bool)instancesImplementSelector:(SEL)arg1;
 + (void)load;
-- (BOOL)implementsSelector:(SEL)arg1;
+- (_Bool)implementsSelector:(SEL)arg1;
 - (id)replacementObjectForCoder:(id)arg1;
-- (BOOL)_allowsDirectEncoding;
+- (_Bool)_allowsDirectEncoding;
 - (Class)classForCoder;
 - (id)awakeAfterUsingCoder:(id)arg1;
 @end

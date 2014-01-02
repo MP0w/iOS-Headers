@@ -14,11 +14,12 @@
 
 @class NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSOperationQueue, NSPersistentStore, NSPersistentStoreCoordinator, NSRecursiveLock, NSSQLCore, NSString, PFUbiquityLocation, PFUbiquityRecordsImporterSchedulingContext, PFUbiquitySwitchboardCacheWrapper;
 
+// Not exported
 @interface _PFUbiquityRecordsImporter : NSObject <_PFUbiquityRecordImportOperationDelegate, NSManagedObjectContextFaultingDelegate, PFUbiquityBaselineRollOperationDelegate, PFUbiquityBaselineRecoveryOperationDelegate, PFUbiquityBaselineRollResponseOperationDelegate>
 {
     NSOperationQueue *_importQueue;
     NSObject<OS_dispatch_queue> *_privateQueue;
-    BOOL _isMonitoring;
+    _Bool _isMonitoring;
     NSString *_localPeerID;
     PFUbiquityLocation *_ubiquityRootLocation;
     NSString *_storeName;
@@ -29,12 +30,12 @@
     PFUbiquitySwitchboardCacheWrapper *_sideLoadCacheWrapper;
     NSObject<OS_dispatch_source> *_logRestartTimer;
     NSRecursiveLock *_schedulingLock;
-    BOOL _importOnlyActiveStores;
-    BOOL _throttleNotifications;
-    unsigned int _numPendingNotifications;
+    _Bool _importOnlyActiveStores;
+    _Bool _throttleNotifications;
+    unsigned long long _numPendingNotifications;
     NSMutableDictionary *_pendingNotificationUserInfo;
-    BOOL _allowBaselineRoll;
-    unsigned int _pendingImportOperationsCount;
+    _Bool _allowBaselineRoll;
+    unsigned long long _pendingImportOperationsCount;
 }
 
 + (void)afterDelay:(double)arg1 executeBlockOnRootQueue:(id)arg2;
@@ -42,19 +43,19 @@
 + (id)createPrivateCoordinatorAndStoreForStore:(id)arg1 atURL:(id)arg2 error:(id *)arg3;
 + (id)addPrivateStore:(id)arg1 toCoordinator:(id)arg2 atURL:(id)arg3 error:(id *)arg4;
 + (id)createPrivateCoordinatorForStore:(id)arg1 error:(id *)arg2;
-+ (BOOL)canProcessContentsOfUbiquityRootPath:(id)arg1;
++ (_Bool)canProcessContentsOfUbiquityRootPath:(id)arg1;
 + (void)initialize;
 @property(readonly, nonatomic) NSPersistentStoreCoordinator *privatePSC; // @synthesize privatePSC=_privatePSC;
 @property(readonly, nonatomic) NSPersistentStore *privateStore; // @synthesize privateStore=_privateStore;
 @property(retain, nonatomic) PFUbiquitySwitchboardCacheWrapper *sideLoadCacheWrapper; // @synthesize sideLoadCacheWrapper=_sideLoadCacheWrapper;
 @property(readonly, nonatomic) PFUbiquityRecordsImporterSchedulingContext *schedulingContext; // @synthesize schedulingContext=_schedulingContext;
-@property BOOL allowBaselineRoll; // @synthesize allowBaselineRoll=_allowBaselineRoll;
-@property BOOL importOnlyActiveStores; // @synthesize importOnlyActiveStores=_importOnlyActiveStores;
-@property BOOL throttleNotifications; // @synthesize throttleNotifications=_throttleNotifications;
+@property _Bool allowBaselineRoll; // @synthesize allowBaselineRoll=_allowBaselineRoll;
+@property _Bool importOnlyActiveStores; // @synthesize importOnlyActiveStores=_importOnlyActiveStores;
+@property _Bool throttleNotifications; // @synthesize throttleNotifications=_throttleNotifications;
 @property(readonly, nonatomic) NSRecursiveLock *schedulingLock; // @synthesize schedulingLock=_schedulingLock;
 @property NSObject<OS_dispatch_source> *logRestartTimer; // @synthesize logRestartTimer=_logRestartTimer;
 @property(retain, nonatomic) PFUbiquityLocation *ubiquityRootLocation; // @synthesize ubiquityRootLocation=_ubiquityRootLocation;
-@property(readonly) BOOL isMonitoring; // @synthesize isMonitoring=_isMonitoring;
+@property(readonly) _Bool isMonitoring; // @synthesize isMonitoring=_isMonitoring;
 @property(readonly) NSString *storeName; // @synthesize storeName=_storeName;
 @property(readonly) NSString *localPeerID; // @synthesize localPeerID=_localPeerID;
 @property(readonly) NSOperationQueue *importQueue; // @synthesize importQueue=_importQueue;
@@ -69,27 +70,24 @@
 - (void)scheduleBaselineRecoveryOperationWithActiveBaselineOperation:(id)arg1;
 - (void)scheduleBaselineRollResponseOperationForBaselineAtLocation:(id)arg1;
 - (void)requestBaselineRollForStore:(id)arg1;
-- (int)context:(id)arg1 shouldHandleInaccessibleFault:(id)arg2 forObjectID:(id)arg3 andTrigger:(id)arg4;
-- (int)compareScoreKnowledgeVector:(id)arg1 withScoreDictionary:(id)arg2;
+- (long long)context:(id)arg1 shouldHandleInaccessibleFault:(id)arg2 forObjectID:(id)arg3 andTrigger:(id)arg4;
+- (long long)compareScoreKnowledgeVector:(id)arg1 withScoreDictionary:(id)arg2;
 - (void)scheduleRecoveryTimer;
 - (void)operationWasInterruptedDuringImport:(id)arg1;
 - (void)operation:(id)arg1 failedWithError:(id)arg2;
 - (void)operationDidFinish:(id)arg1;
 - (void)postImportNotificationForStoreName:(id)arg1 andLocalPeerID:(id)arg2 withUserInfo:(id)arg3;
 - (id)createNewSetOfObjectIDsForCoordinator:(id)arg1 fromObjectIDs:(id)arg2;
-- (BOOL)shouldThrottleNotificationsWithOperation:(id)arg1;
-- (void)checkStoreAndContainer;
-- (void)_applicationResumed:(id)arg1;
-- (BOOL)batchDownloadTransactionLogsAtLocations:(id)arg1 error:(id *)arg2;
-- (BOOL)discoverAndImportAllAvailableLogs:(BOOL)arg1 error:(id *)arg2;
-- (void)recoverFailedLogs;
-- (BOOL)schedulePendingLogs:(BOOL)arg1 error:(id *)arg2;
+- (_Bool)shouldThrottleNotificationsWithOperation:(id)arg1;
+- (_Bool)batchDownloadTransactionLogsAtLocations:(id)arg1 error:(id *)arg2;
+- (_Bool)discoverAndImportAllAvailableLogs:(_Bool)arg1 error:(id *)arg2;
+- (_Bool)schedulePendingLogs:(_Bool)arg1 error:(id *)arg2;
 - (void)tearDown;
-- (BOOL)startMonitor:(id *)arg1;
-- (BOOL)scheduleTransactionLogOperations:(id)arg1 synchronous:(BOOL)arg2 error:(id *)arg3;
-- (BOOL)checkSchedulingContextForMissingLocalPeerOperations:(id)arg1 error:(id *)arg2;
-- (BOOL)canProcessTransactionLogWithScore:(id)arg1 afterLogWithScore:(id)arg2;
-- (id)createSortedOperationsArrayWithMetadata:(id)arg1 isFirstImport:(BOOL)arg2;
+- (_Bool)startMonitor:(id *)arg1;
+- (_Bool)scheduleTransactionLogOperations:(id)arg1 synchronous:(_Bool)arg2 error:(id *)arg3;
+- (_Bool)checkSchedulingContextForMissingLocalPeerOperations:(id)arg1 error:(id *)arg2;
+- (_Bool)canProcessTransactionLogWithScore:(id)arg1 afterLogWithScore:(id)arg2;
+- (id)createSortedOperationsArrayWithMetadata:(id)arg1 isFirstImport:(_Bool)arg2;
 - (id)description;
 - (void)dealloc;
 - (id)initWithLocalPeerID:(id)arg1 ubiquityRootLocation:(id)arg2 storeName:(id)arg3 andPrivateStore:(id)arg4;

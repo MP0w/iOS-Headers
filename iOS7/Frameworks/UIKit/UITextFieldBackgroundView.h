@@ -8,22 +8,23 @@
 
 @class UIColor;
 
+// Not exported
 @interface UITextFieldBackgroundView : UIView
 {
-    BOOL _active;
-    BOOL _enabled;
+    _Bool _active;
+    _Bool _enabled;
     float _progress;
     UIColor *_fillColor;
 }
 
 @property(retain, nonatomic) UIColor *fillColor; // @synthesize fillColor=_fillColor;
 - (void)setProgress:(float)arg1;
-- (void)setActive:(BOOL)arg1;
+- (void)setActive:(_Bool)arg1;
 - (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 active:(BOOL)arg2;
-- (void)setEnabled:(BOOL)arg1 animated:(BOOL)arg2;
+- (id)initWithFrame:(struct CGRect)arg1 active:(_Bool)arg2;
+- (void)setEnabled:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)_updateImages;
 
 @end

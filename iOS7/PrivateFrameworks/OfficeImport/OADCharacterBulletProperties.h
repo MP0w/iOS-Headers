@@ -8,12 +8,13 @@
 
 @class NSString;
 
+// Not exported
 @interface OADCharacterBulletProperties : OADBulletProperties
 {
     NSString *mBullet;
 }
 
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)bullet;
 - (void)dealloc;
 - (id)initWithBullet:(id)arg1;

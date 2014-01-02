@@ -6,6 +6,7 @@
 
 #import <OfficeImport/CMBordersProperty.h>
 
+// Not exported
 @interface WMBordersProperty : CMBordersProperty
 {
     unsigned int mBorderCustomWidth[5];

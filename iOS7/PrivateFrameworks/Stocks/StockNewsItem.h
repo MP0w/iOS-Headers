@@ -29,7 +29,7 @@
 - (void).cxx_destruct;
 - (id)description;
 @property(readonly, nonatomic) NSString *localizedDateString;
-- (int)chronologicalComparisonWithNewsItem:(id)arg1;
+- (long long)chronologicalComparisonWithNewsItem:(id)arg1;
 - (id)archiveDictionary;
 - (void)dealloc;
 - (id)initWithArchiveDictionary:(id)arg1;

@@ -8,6 +8,7 @@
 
 @class UIKBTree;
 
+// Not exported
 @interface UIKBKeyInterval : NSObject
 {
     UIKBTree *_key;

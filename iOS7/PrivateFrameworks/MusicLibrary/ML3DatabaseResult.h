@@ -19,11 +19,11 @@
 - (id)stringValueForFirstRowAndColumn;
 - (long long)int64ValueForFirstRowAndColumn;
 - (id)objectForFirstRowAndColumn;
-- (BOOL)hasAtLeastOneRow;
+- (_Bool)hasAtLeastOneRow;
 - (id)rows;
 - (void)enumerateRowsWithBlock:(id)arg1;
 - (id)columnNameIndexMap;
-- (unsigned int)indexForColumnName:(id)arg1;
+- (unsigned long long)indexForColumnName:(id)arg1;
 - (void)dealloc;
 - (id)initWithStatement:(id)arg1;
 - (id)init;

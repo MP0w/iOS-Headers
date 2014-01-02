@@ -11,6 +11,7 @@
 @interface PLJPEGDataImage : UIImage
 {
     NSData *_plData;
+    struct __CVBuffer *_pixelBuffer;
 }
 
 + (id)pl_imageWithStoredJPEGData:(id)arg1;

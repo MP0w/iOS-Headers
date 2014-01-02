@@ -8,7 +8,7 @@
 
 @protocol ABImagePickerControllerDelegate
 @property(readonly, nonatomic) ABImagePickerController *imagePicker;
-@property(nonatomic) BOOL popoverSizeUpdatesDisabled;
+@property(nonatomic) _Bool popoverSizeUpdatesDisabled;
 - (id)styleProvider;
 - (id)imagePickerControllerViewControllerToPresentModal:(id)arg1;
 - (id)imagePickerControllerViewForApplyImageAnimation:(id)arg1;

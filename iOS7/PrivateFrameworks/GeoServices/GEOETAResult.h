@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class GEOPlaceSearchResponse;
 
-@interface GEOETAResult : PBCodable
+@interface GEOETAResult : PBCodable <NSCopying>
 {
     unsigned int _historicTravelTime;
     unsigned int _liveTravelTime;
@@ -24,17 +26,18 @@
 @property(retain, nonatomic) GEOPlaceSearchResponse *placeSearchResponse; // @synthesize placeSearchResponse=_placeSearchResponse;
 @property(nonatomic) unsigned int historicTravelTime; // @synthesize historicTravelTime=_historicTravelTime;
 @property(nonatomic) unsigned int liveTravelTime; // @synthesize liveTravelTime=_liveTravelTime;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) BOOL hasPlaceSearchResponse;
-@property(nonatomic) BOOL hasHistoricTravelTime;
-@property(nonatomic) BOOL hasLiveTravelTime;
-@property(nonatomic) BOOL hasStatus;
+@property(readonly, nonatomic) _Bool hasPlaceSearchResponse;
+@property(nonatomic) _Bool hasHistoricTravelTime;
+@property(nonatomic) _Bool hasLiveTravelTime;
+@property(nonatomic) _Bool hasStatus;
 @property(nonatomic) int status; // @synthesize status=_status;
 - (void)dealloc;
 

@@ -6,22 +6,23 @@
 
 #import "NSObject.h"
 
-@class NSMapTable, NSString;
+@class NSMutableDictionary, NSString;
 
+// Not exported
 @interface NSFileAccessNode : NSObject
 {
     NSFileAccessNode *_parent;
     NSString *_name;
     NSString *_normalizedName;
     NSFileAccessNode *_symbolicLinkDestination;
-    unsigned int _symbolicLinkReferenceCount;
-    NSMapTable *_childrenByNormalizedName;
+    unsigned long long _symbolicLinkReferenceCount;
+    NSMutableDictionary *_childrenByNormalizedName;
     id _presenterOrPresenters;
     id _provider;
     id _accessClaimOrClaims;
-    BOOL _isArbitrationBoundary;
-    BOOL _isFilePackageIsFigured;
-    BOOL _isFilePackage;
+    _Bool _isArbitrationBoundary;
+    _Bool _isFilePackageIsFigured;
+    _Bool _isFilePackage;
     NSString *_lastRequestedChildName;
     NSFileAccessNode *_lastRequestedChild;
     id _progressPublisherOrPublishers;
@@ -43,6 +44,7 @@
 - (void)addProgressSubscriber:(id)arg1;
 - (void)removeProgressPublisher:(id)arg1;
 - (void)addProgressPublisher:(id)arg1;
+- (id)urlOfSubitemAtPath:(id)arg1 plusPath:(id)arg2;
 - (id)standardizedURL;
 - (id)pathExceptPrivate;
 - (id)url;
@@ -51,9 +53,9 @@
 - (void)setProvider:(id)arg1;
 - (void)removePresenter:(id)arg1;
 - (void)addPresenter:(id)arg1;
-- (BOOL)itemIsInItemAtLocation:(id)arg1;
-- (BOOL)itemIsItemAtLocation:(id)arg1;
-- (BOOL)itemIsSubarbitrable;
+- (_Bool)itemIsInItemAtLocation:(id)arg1;
+- (_Bool)itemIsItemAtLocation:(id)arg1;
+- (_Bool)itemIsSubarbitrable;
 - (void)setArbitrationBoundary;
 - (void)forEachAccessClaimOnItemOrContainedItemPerformProcedure:(id)arg1;
 - (void)forEachPresenterOfContainingItemPerformProcedure:(id)arg1;
@@ -68,12 +70,13 @@
 - (void)forEachAccessClaimOnItemPerformProcedure:(id)arg1;
 - (void)forEachDescendantPerformProcedure:(id)arg1;
 - (id)biggestFilePackageLocation;
-- (BOOL)itemIsFilePackage;
+- (_Bool)itemIsFilePackage;
 - (void)setParent:(id)arg1 name:(id)arg2;
 - (id)pathFromAncestor:(id)arg1;
 - (id)descendantForFileURL:(id)arg1;
 - (id)childForRange:(struct _NSRange)arg1 ofPath:(id)arg2;
-- (id)descendantAtPath:(id)arg1 componentRange:(struct _NSRange)arg2 create:(BOOL)arg3;
+- (id)descendantAtPath:(id)arg1 componentRange:(struct _NSRange)arg2 create:(_Bool)arg3;
+- (id)normalizationOfChildName:(id)arg1;
 - (void)removeSelfIfUseless;
 - (void)removeChildForNormalizedName:(id)arg1;
 - (void)setChild:(id)arg1 forName:(id)arg2 normalizedName:(id)arg3;

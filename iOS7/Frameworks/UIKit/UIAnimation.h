@@ -28,8 +28,8 @@
 - (void)setAnimationCurve:(int)arg1;
 - (id)completion;
 - (void)setCompletion:(id)arg1;
-- (BOOL)usesNSTimer;
-- (void)setUsesNSTimer:(BOOL)arg1;
+- (_Bool)usesNSTimer;
+- (void)setUsesNSTimer:(_Bool)arg1;
 - (SEL)action;
 - (void)setAction:(SEL)arg1;
 - (id)delegate;
@@ -37,12 +37,6 @@
 - (id)target;
 - (void)stopAnimation;
 - (id)initWithTarget:(id)arg1;
-- (void)markStop;
-- (void)markStart:(double)arg1;
-- (float)fractionForTime:(double)arg1;
-- (void)setDuration:(double)arg1;
-- (int)type;
-- (int)state;
 
 @end
 

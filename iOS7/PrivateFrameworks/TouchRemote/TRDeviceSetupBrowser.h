@@ -20,7 +20,7 @@
 @property(nonatomic) __weak id <TRDeviceSetupBrowserDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)stop;
-@property(readonly, nonatomic) int state;
+@property(readonly, nonatomic) long long state;
 - (void)start;
 - (void)browserDidDisconnect:(id)arg1;
 - (id)browser:(id)arg1 didReceiveData:(id)arg2;

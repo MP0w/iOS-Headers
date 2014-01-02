@@ -13,8 +13,8 @@
     struct sqlite3_stmt *_saveStmt;
     struct sqlite3_stmt *_beginStmt;
     struct sqlite3_stmt *_commitStmt;
-    BOOL _dbIsReadOnly;
-    BOOL _dbIsMissing;
+    _Bool _dbIsReadOnly;
+    _Bool _dbIsMissing;
     struct __CFRunLoopObserver *_txnObserver;
 }
 
@@ -30,11 +30,11 @@
 - (struct sqlite3_stmt *)beginStmt;
 - (struct sqlite3_stmt *)saveStmt;
 - (struct sqlite3_stmt *)findStmt;
-- (BOOL)saveImageWithKey:(id)arg1 inGroup:(id)arg2 andInfo:(struct _img *)arg3;
-- (BOOL)findImageWithKey:(id)arg1 inGroup:(id)arg2 andInfo:(struct _img *)arg3;
+- (_Bool)saveImageWithKey:(id)arg1 inGroup:(id)arg2 andInfo:(struct _img *)arg3;
+- (_Bool)findImageWithKey:(id)arg1 inGroup:(id)arg2 andInfo:(struct _img *)arg3;
 - (void)removeImagesInGroups:(id)arg1;
 - (void)commitTransaction;
-- (struct CGImage *)_copyAndStoreImageForKey:(id)arg1 inGroup:(id)arg2 withSize:(struct CGSize)arg3 opaque:(BOOL)arg4 scale:(float)arg5 fillMem:(id)arg6 alternateCompletion:(void)arg7;
+- (struct CGImage *)_copyAndStoreImageForKey:(id)arg1 inGroup:(id)arg2 withSize:(struct CGSize)arg3 opaque:(_Bool)arg4 scale:(double)arg5 fillMem:(id)arg6 alternateCompletion:(void)arg7;
 - (struct CGImage *)copyImageForKey:(id)arg1 inGroup:(id)arg2;
 - (unsigned int)memContentOffset;
 - (void *)openAndMmap:(id)arg1 withInfo:(struct _img *)arg2;

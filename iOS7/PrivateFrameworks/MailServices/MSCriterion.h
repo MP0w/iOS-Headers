@@ -22,7 +22,7 @@
 - (id)type;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithCriteria:(id)arg1 allRequired:(BOOL)arg2;
+- (id)initWithCriteria:(id)arg1 allRequired:(_Bool)arg2;
 - (id)initWithType:(id)arg1 qualifier:(id)arg2 expression:(id)arg3;
 - (id)description;
 - (void)dealloc;

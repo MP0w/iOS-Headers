@@ -8,6 +8,6 @@
 
 @interface NSString (GSExtensions)
 + (id)gs_stringWithFileSystemRepresentation:(const char *)arg1;
-- (BOOL)validateGSName:(out id *)arg1;
+- (_Bool)validateGSName:(out id *)arg1;
 @end
 

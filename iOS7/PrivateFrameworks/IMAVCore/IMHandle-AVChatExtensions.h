@@ -7,6 +7,6 @@
 #import "IMHandle.h"
 
 @interface IMHandle (AVChatExtensions)
-@property(readonly, nonatomic) BOOL hasNoConferencingCaps;
+@property(readonly, nonatomic) _Bool hasNoConferencingCaps;
 @end
 

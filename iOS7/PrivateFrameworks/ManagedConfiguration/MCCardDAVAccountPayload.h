@@ -15,7 +15,7 @@
     NSString *_username;
     NSString *_password;
     NSString *_principalURL;
-    BOOL _useSSL;
+    _Bool _useSSL;
     int _port;
     NSString *_accountPersistentUUID;
 }
@@ -25,7 +25,7 @@
 + (id)typeStrings;
 @property(copy, nonatomic) NSString *accountPersistentUUID; // @synthesize accountPersistentUUID=_accountPersistentUUID;
 @property(readonly, nonatomic) int port; // @synthesize port=_port;
-@property(readonly, nonatomic) BOOL useSSL; // @synthesize useSSL=_useSSL;
+@property(readonly, nonatomic) _Bool useSSL; // @synthesize useSSL=_useSSL;
 @property(readonly, nonatomic) NSString *principalURL; // @synthesize principalURL=_principalURL;
 @property(copy, nonatomic) NSString *password; // @synthesize password=_password;
 @property(copy, nonatomic) NSString *username; // @synthesize username=_username;

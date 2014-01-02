@@ -14,7 +14,7 @@
 
 + (id)acknowledgeAlertWithDictionary:(id)arg1 context:(id)arg2;
 + (id)acknowledgeAlert;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(retain, nonatomic) SADomainObject *object;
 - (id)encodedClassName;
 - (id)groupIdentifier;

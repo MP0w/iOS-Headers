@@ -21,14 +21,6 @@
 @property(readonly, nonatomic) PLManagedObjectContext *managedObjectContext;
 - (void)dealloc;
 - (id)init;
-- (void)addWallpaperURLsForModel:(id)arg1 toURLs:(id)arg2;
-@property(readonly, nonatomic) NSArray *allWallpaperURLs;
-- (id)allExistingWallpaperAssets;
-- (void)importAll;
-- (void)deleteAll;
-- (void)updateAsNeeded;
-- (id)wallpaperFileHash;
-- (id)initWithPhotoLibrary:(id)arg1;
 
 @end
 

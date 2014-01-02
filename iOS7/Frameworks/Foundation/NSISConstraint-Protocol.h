@@ -7,6 +7,6 @@
 #import "NSISVariableDelegate-Protocol.h"
 
 @protocol NSISConstraint <NSISVariableDelegate>
-- (float)nsis_allowedMagnitudeForIntegralizationAdjustmentOfConstraintWithMarker:(id)arg1;
+- (double)nsis_allowedMagnitudeForIntegralizationAdjustmentOfConstraintWithMarker:(id)arg1;
 @end
 

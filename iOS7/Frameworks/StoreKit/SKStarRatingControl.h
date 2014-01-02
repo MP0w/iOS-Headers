@@ -14,23 +14,23 @@
     UILabel *_explanationLabel;
     UIImageView *_foregroundImageView;
     struct CGSize _hitPadding;
-    float _starWidth;
+    double _starWidth;
     struct CGPoint _trackingLastPoint;
     struct CGPoint _trackingStartPoint;
     float _value;
 }
 
-@property(nonatomic) float starWidth; // @synthesize starWidth=_starWidth;
+@property(nonatomic) double starWidth; // @synthesize starWidth=_starWidth;
 - (void)_updateValueForPoint:(struct CGPoint)arg1;
 - (id)_newExplanationLabel;
 - (struct CGRect)_foregroundImageClipBounds;
-- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (struct CGRect)hitRect;
 - (void)endTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (BOOL)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (BOOL)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (BOOL)canHandleSwipes;
-- (BOOL)_alwaysHandleScrollerMouseEvent;
+- (_Bool)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
+- (_Bool)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
+- (_Bool)canHandleSwipes;
+- (_Bool)_alwaysHandleScrollerMouseEvent;
 @property(nonatomic) float value;
 @property(copy, nonatomic) NSString *explanationText;
 - (void)setHitPadding:(struct CGSize)arg1;

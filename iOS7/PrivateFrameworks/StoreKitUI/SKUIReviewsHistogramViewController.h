@@ -24,9 +24,9 @@
 @property(readonly, nonatomic) UIControl *writeAReviewButton;
 @property(copy, nonatomic) NSString *versionString;
 @property(readonly, nonatomic) UIControl *starRatingControl;
-@property(nonatomic) int selectedSegmentIndex;
+@property(nonatomic) long long selectedSegmentIndex;
 @property(copy, nonatomic) NSArray *segmentedControlTitles;
-@property(nonatomic) int personalStarRating;
+@property(nonatomic) long long personalStarRating;
 @property(readonly, nonatomic) UIControl *segmentedControl;
 @property(readonly, nonatomic) UIControl *appSupportButton;
 

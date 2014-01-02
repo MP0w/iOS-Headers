@@ -8,6 +8,6 @@
 - (void)placeViewController:(id)arg1 didSelectPlace:(id)arg2;
 
 @optional
-- (void)placeViewController:(id)arg1 willDisappear:(BOOL)arg2;
+- (void)placeViewController:(id)arg1 willDisappear:(_Bool)arg2;
 @end
 

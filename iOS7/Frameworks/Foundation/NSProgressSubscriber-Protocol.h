@@ -8,7 +8,7 @@
 
 @protocol NSProgressSubscriber <NSObject>
 - (oneway void)removePublisherForID:(id)arg1;
-- (oneway void)observePublisherForID:(id)arg1 value:(id)arg2 forKey:(id)arg3 inUserInfo:(BOOL)arg4;
-- (oneway void)addPublisher:(id)arg1 forID:(id)arg2 appBundleID:(id)arg3 withValues:(id)arg4 isOld:(BOOL)arg5;
+- (oneway void)observePublisherForID:(id)arg1 value:(id)arg2 forKey:(id)arg3 inUserInfo:(_Bool)arg4;
+- (oneway void)addPublisher:(id)arg1 forID:(id)arg2 withValues:(id)arg3 isOld:(_Bool)arg4;
 @end
 

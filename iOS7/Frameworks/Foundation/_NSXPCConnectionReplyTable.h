@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface _NSXPCConnectionReplyTable : NSObject
 {
     struct __CFDictionary *_replyTable;
@@ -14,8 +15,8 @@
 }
 
 - (id)replyInfoForSequence:(unsigned long long)arg1;
-- (unsigned long long)sequenceForReplyBlock:(id)arg1 errorBlock:(id)arg2 cleanupBlock:(void)arg3 protocol:(id)arg4 selector:(void)arg5 userInfo:(id)arg6;
-- (void)invokeErrorBlockForSequence:(unsigned long)arg1 withError:(id)arg2;
+- (unsigned long long)sequenceForReplyBlock:(id)arg1 errorBlock:(id)arg2 cleanupBlock:(void)arg3 protocol:(id)arg4 selector:(void)arg5 proxyNumber:(id)arg6 userInfo:(SEL)arg7;
+- (void)invokeErrorBlockForSequence:(unsigned long long)arg1 withError:(id)arg2;
 - (void)cleanupReplyBlocksWithError:(id)arg1;
 - (void)finalize;
 - (void)dealloc;

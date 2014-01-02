@@ -12,10 +12,10 @@
 {
     GEOMapRequestManager *_requestManager;
     id _completionHandler;
-    BOOL _isFinished;
+    _Bool _isFinished;
 }
 
-@property(readonly, nonatomic) BOOL isFinished; // @synthesize isFinished=_isFinished;
+@property(readonly, nonatomic) _Bool isFinished; // @synthesize isFinished=_isFinished;
 @property(copy, nonatomic) id completionHandler; // @synthesize completionHandler=_completionHandler;
 - (void)complete;
 - (void)cancel;

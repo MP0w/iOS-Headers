@@ -17,7 +17,7 @@
 
 + (id)sharedConduit;
 - (void)weeAppWithBundleID:(id)arg1 getHiddenFromUser:(id)arg2;
-- (void)weeAppWithBundleID:(id)arg1 setHiddenFromUser:(BOOL)arg2;
+- (void)weeAppWithBundleID:(id)arg1 setHiddenFromUser:(_Bool)arg2;
 - (void)sendMessageToDataProviderSectionID:(id)arg1 name:(id)arg2 userInfo:(id)arg3;
 - (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
 - (void)invalidate;

@@ -12,25 +12,31 @@
 
 @interface AFSpeechRequestOptions : NSObject <NSSecureCoding>
 {
-    BOOL _isEyesFree;
-    BOOL _useAutomaticEndpointing;
-    int _event;
+    _Bool _isEyesFree;
+    _Bool _useAutomaticEndpointing;
+    _Bool _useFreshContext;
+    _Bool _isInitialBringUp;
+    long long _event;
     NSString *_btDeviceAddress;
     NSString *_serverCommandId;
     double _activationEventTime;
+    double _expectedActivationEventTime;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool isInitialBringUp; // @synthesize isInitialBringUp=_isInitialBringUp;
+@property(nonatomic) double expectedActivationEventTime; // @synthesize expectedActivationEventTime=_expectedActivationEventTime;
 @property(nonatomic) double activationEventTime; // @synthesize activationEventTime=_activationEventTime;
-@property(nonatomic) BOOL useAutomaticEndpointing; // @synthesize useAutomaticEndpointing=_useAutomaticEndpointing;
+@property(nonatomic) _Bool useFreshContext; // @synthesize useFreshContext=_useFreshContext;
+@property(nonatomic) _Bool useAutomaticEndpointing; // @synthesize useAutomaticEndpointing=_useAutomaticEndpointing;
 @property(copy, nonatomic) NSString *serverCommandId; // @synthesize serverCommandId=_serverCommandId;
-@property(nonatomic) BOOL isEyesFree; // @synthesize isEyesFree=_isEyesFree;
+@property(nonatomic) _Bool isEyesFree; // @synthesize isEyesFree=_isEyesFree;
 @property(copy, nonatomic) NSString *btDeviceAddress; // @synthesize btDeviceAddress=_btDeviceAddress;
-@property(nonatomic) int activationEvent; // @synthesize activationEvent=_event;
+@property(nonatomic) long long activationEvent; // @synthesize activationEvent=_event;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (id)initWithActivationEvent:(int)arg1;
+- (id)initWithActivationEvent:(long long)arg1;
 
 @end
 

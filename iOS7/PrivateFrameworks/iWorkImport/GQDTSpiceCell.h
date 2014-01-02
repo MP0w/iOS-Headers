@@ -6,6 +6,7 @@
 
 #import <iWorkImport/GQDTTextCell.h>
 
+// Not exported
 @interface GQDTSpiceCell : GQDTTextCell
 {
 }

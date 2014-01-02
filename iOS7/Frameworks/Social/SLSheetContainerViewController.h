@@ -12,17 +12,17 @@
 {
     SLComposeServiceViewController *_sheetViewController;
     NSMutableArray *_constraints;
-    float _topOffset;
-    float _sheetHeight;
+    double _topOffset;
+    double _sheetHeight;
     UIView *_keyboardTrackingView;
     struct CGSize _keyboardSize;
-    int _currentOrientation;
+    long long _currentOrientation;
 }
 
 - (void).cxx_destruct;
-- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (BOOL)shouldAutorotate;
+- (void)willRotateToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (_Bool)shouldAutorotate;
 - (void)didReceiveMemoryWarning;
 - (void)updateViewConstraints;
 - (void)viewDidLoad;

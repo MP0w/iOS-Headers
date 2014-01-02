@@ -6,6 +6,7 @@
 
 #import <CoreFoundation/NSTimeZone.h>
 
+// Not exported
 @interface __NSTimeZone : NSTimeZone
 {
     struct __CFString *_name;
@@ -15,17 +16,17 @@
 }
 
 + (id)allocWithZone:(struct _NSZone *)arg1;
-+ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
-+ (id)__new:(struct __CFString *)arg1 cache:(BOOL)arg2;
++ (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
++ (id)__new:(struct __CFString *)arg1 cache:(_Bool)arg2;
 + (id)__new:(struct __CFString *)arg1 data:(struct __CFData *)arg2;
 - (void)finalize;
 - (void)dealloc;
-- (id)localizedName:(int)arg1 locale:(id)arg2;
+- (id)localizedName:(long long)arg1 locale:(id)arg2;
 - (id)nextDaylightSavingTimeTransitionAfterDate:(id)arg1;
 - (double)daylightSavingTimeOffsetForDate:(id)arg1;
-- (BOOL)isDaylightSavingTimeForDate:(id)arg1;
+- (_Bool)isDaylightSavingTimeForDate:(id)arg1;
 - (id)abbreviationForDate:(id)arg1;
-- (int)secondsFromGMTForDate:(id)arg1;
+- (long long)secondsFromGMTForDate:(id)arg1;
 - (id)data;
 - (id)name;
 

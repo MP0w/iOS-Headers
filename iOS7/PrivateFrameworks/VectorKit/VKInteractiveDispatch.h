@@ -6,6 +6,7 @@
 
 #import <VectorKit/VKDispatch.h>
 
+// Not exported
 @interface VKInteractiveDispatch : VKDispatch
 {
 }

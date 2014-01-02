@@ -14,10 +14,10 @@
 {
     NSDateFormatter *_dateFormatter;
     NSDateFormatter *_timeFormatter;
-    BOOL _useSpeechMode;
+    _Bool _useSpeechMode;
 }
 
-+ (BOOL)_shouldAutomaticallyProvideFunctions;
++ (_Bool)_shouldAutomaticallyProvideFunctions;
 - (void).cxx_destruct;
 - (id)stringForExpression:(id)arg1;
 - (id)_callFunction:(id)arg1 withArguments:(id)arg2;
@@ -29,7 +29,7 @@
 - (id)_currentLongDate:(id)arg1;
 - (id)_currentTime:(id)arg1;
 - (id)_dateFormattedWithFormatter:(id)arg1 arguments:(id)arg2;
-- (void)useSpeechMode:(BOOL)arg1;
+- (void)useSpeechMode:(_Bool)arg1;
 - (id)initWithLocale:(id)arg1;
 - (id)init;
 

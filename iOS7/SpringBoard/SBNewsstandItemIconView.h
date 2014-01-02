@@ -14,8 +14,10 @@
 + (int)_defaultIconFormat;
 - (struct CGRect)_frameForUpdatedMarkWithLabelFrame:(struct CGRect)arg1;
 - (struct CGRect)_frameForLabel;
+- (struct CGRect)_baseFrameForLabel;
 - (struct CGRect)_frameForImageView;
-- (BOOL)_showsShadow;
+- (struct CGRect)_baseFrameForImageView;
+- (_Bool)_showsShadow;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

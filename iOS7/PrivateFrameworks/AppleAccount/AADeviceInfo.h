@@ -11,7 +11,7 @@
 @interface AADeviceInfo : NSObject
 {
     APSConnection *_apsConnection;
-    BOOL _tokenDone;
+    _Bool _tokenDone;
     NSData *_token;
     NSObject<OS_dispatch_semaphore> *_tokenSema;
 }
@@ -28,19 +28,6 @@
 + (id)infoDictionary;
 - (void).cxx_destruct;
 - (id)init;
-- (id)appleIDClientIdentifier;
-- (id)deviceClass;
-- (id)apnsToken;
-- (id)regionCode;
-- (id)buildVersion;
-- (id)osName;
-- (id)productType;
-- (id)productVersion;
-- (id)wifiMacAddress;
-- (id)serialNumber;
-- (id)udid;
-- (id)osVersion;
-- (id)deviceInfoDictionary;
 
 @end
 

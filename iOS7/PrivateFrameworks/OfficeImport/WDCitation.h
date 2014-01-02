@@ -8,6 +8,7 @@
 
 @class NSMutableArray, NSString, WDDocument;
 
+// Not exported
 @interface WDCitation : NSObject
 {
     WDDocument *mDocument;

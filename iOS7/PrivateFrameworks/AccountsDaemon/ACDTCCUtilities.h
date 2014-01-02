@@ -11,11 +11,12 @@
 }
 
 + (struct __CFString *)_TCCServiceForAccountTypeID:(id)arg1;
-+ (BOOL)clearAllTCCStatesForAccountType:(id)arg1;
++ (_Bool)clearAllTCCStatesForAccountType:(id)arg1;
 + (id)allTCCStatesForAccountType:(id)arg1;
-+ (BOOL)clearTCCStateForClient:(id)arg1 accountType:(id)arg2;
-+ (BOOL)setTCCStateForClient:(id)arg1 accountType:(id)arg2 toGranted:(BOOL)arg3;
++ (_Bool)clearTCCStateForClient:(id)arg1 accountType:(id)arg2;
++ (_Bool)setTCCStateForClient:(id)arg1 accountType:(id)arg2 toGranted:(_Bool)arg3;
 + (int)TCCStateForClient:(id)arg1 accountType:(id)arg2;
++ (_Bool)TCCSupportedForAccountType:(id)arg1;
 
 @end
 

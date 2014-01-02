@@ -10,6 +10,7 @@
 
 @class UITextPosition, _UITextKitTextPosition;
 
+// Not exported
 @interface _UITextKitTextRange : UITextRange <NSCopying>
 {
     _UITextKitTextPosition *_start;
@@ -22,9 +23,9 @@
 @property(retain, nonatomic) UITextPosition *end; // @synthesize end=_end;
 @property(retain, nonatomic) UITextPosition *start; // @synthesize start=_start;
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (struct _NSRange)asRange;
-- (BOOL)isEmpty;
+- (_Bool)isEmpty;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)init;

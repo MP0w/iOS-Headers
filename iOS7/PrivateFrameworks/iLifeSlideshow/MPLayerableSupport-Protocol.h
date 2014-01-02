@@ -5,8 +5,8 @@
  */
 
 @protocol MPLayerableSupport
-- (void)setZIndex:(int)arg1;
-- (int)zIndex;
+- (void)setZIndex:(long long)arg1;
+- (long long)zIndex;
 - (id)layerKey;
 @end
 

@@ -13,8 +13,8 @@
 + (id)sharedInstance;
 - (void)receiveFileTransfer:(id)arg1 path:(id)arg2 requestURLString:(id)arg3 ownerID:(id)arg4 signature:(id)arg5 decryptionKey:(id)arg6 fileSize:(unsigned long long)arg7 progressBlock:(id)arg8 completionBlock:(void)arg9;
 - (void)_receiveFileTransfer:(id)arg1 path:(id)arg2 requestURLString:(id)arg3 ownerID:(id)arg4 signature:(id)arg5 decryptionKey:(id)arg6 retries:(int)arg7 fileSize:(unsigned long long)arg8 progressBlock:(id)arg9 completionBlock:(void)arg10;
-- (void)sendFilePath:(id)arg1 transferID:(id)arg2 encryptFile:(BOOL)arg3 progressBlock:(id)arg4 completionBlock:(void)arg5;
-- (void)_sendFilePath:(id)arg1 transferID:(id)arg2 encryptFile:(BOOL)arg3 retries:(int)arg4 progressBlock:(id)arg5 completionBlock:(void)arg6;
+- (void)sendFilePath:(id)arg1 transferID:(id)arg2 encryptFile:(_Bool)arg3 progressBlock:(id)arg4 completionBlock:(void)arg5;
+- (void)_sendFilePath:(id)arg1 transferID:(id)arg2 encryptFile:(_Bool)arg3 retries:(int)arg4 progressBlock:(id)arg5 completionBlock:(void)arg6;
 
 @end
 

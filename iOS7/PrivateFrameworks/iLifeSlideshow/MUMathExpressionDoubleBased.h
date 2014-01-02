@@ -13,8 +13,8 @@
 
 + (double)invalidResult;
 + (double)evaluateString:(id)arg1 error:(id *)arg2;
-- (BOOL)isValueIllegal:(double)arg1;
-- (BOOL)isConstant;
+- (_Bool)isValueIllegal:(double)arg1;
+- (_Bool)isConstant;
 - (id)stringValue;
 - (double)evaluate;
 - (void)replaceVariable:(id)arg1 withValue:(double)arg2;

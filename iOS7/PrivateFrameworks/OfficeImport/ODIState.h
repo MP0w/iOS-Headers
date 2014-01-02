@@ -8,12 +8,13 @@
 
 @class NSMutableArray, OADDrawingTheme, OADGroup, OADOrientedBounds, OADShapeStyle, ODDDiagram;
 
+// Not exported
 @interface ODIState : NSObject
 {
     ODDDiagram *mDiagram;
     OADOrientedBounds *mDiagramOrientedBounds;
     struct CGRect mLogicalBounds;
-    float mScale;
+    double mScale;
     OADGroup *mGroup;
     NSMutableArray *mPresentationNames;
     NSMutableArray *mDefaultStyleLabelNames;
@@ -38,8 +39,8 @@
 - (void)setGroup:(id)arg1;
 - (id)group;
 - (void)setLogicalBounds:(struct CGRect)arg1;
-- (float)scale;
-- (void)setLogicalBounds:(struct CGRect)arg1 maintainAspectRatio:(BOOL)arg2;
+- (double)scale;
+- (void)setLogicalBounds:(struct CGRect)arg1 maintainAspectRatio:(_Bool)arg2;
 - (struct CGRect)logicalBounds;
 - (id)diagramOrientedBounds;
 - (id)diagram;

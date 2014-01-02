@@ -6,6 +6,7 @@
 
 #import <OfficeImport/EDSortedCollection.h>
 
+// Not exported
 @interface EDRunsCollection : EDSortedCollection
 {
 }

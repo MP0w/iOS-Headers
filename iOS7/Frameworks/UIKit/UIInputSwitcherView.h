@@ -8,23 +8,24 @@
 
 @class NSArray, NSMutableArray;
 
+// Not exported
 @interface UIInputSwitcherView : UIKeyboardMenuView
 {
     int m_currentInputModeIndex;
-    BOOL m_keyboardSettingsFromSwitcher;
+    _Bool m_keyboardSettingsFromSwitcher;
     NSMutableArray *m_inputModes;
 }
 
 + (id)activeInstance;
 + (id)sharedInstance;
-@property(nonatomic) BOOL keyboardSettingsFromSwitcher; // @synthesize keyboardSettingsFromSwitcher=m_keyboardSettingsFromSwitcher;
+@property(nonatomic) _Bool keyboardSettingsFromSwitcher; // @synthesize keyboardSettingsFromSwitcher=m_keyboardSettingsFromSwitcher;
 @property(retain, nonatomic) NSArray *inputModes; // @synthesize inputModes=m_inputModes;
 - (void)didSelectItemAtIndex:(int)arg1;
 - (id)subtitleForItemAtIndex:(int)arg1;
 - (id)titleForItemAtIndex:(int)arg1;
-- (int)defaultSelectedIndex;
+- (long long)defaultSelectedIndex;
 - (struct CGSize)preferredSize;
-- (int)numberOfItems;
+- (long long)numberOfItems;
 - (void)show;
 - (void)selectPreviousInputMode;
 - (id)previousInputMode;

@@ -8,17 +8,15 @@
 
 @interface PTIconSettings : _UISettings
 {
-    BOOL _designMode;
-    BOOL _on;
-    float _alphaStrength;
-    float _radiusStrength;
+    _Bool _on;
+    double _alphaStrength;
+    double _radiusStrength;
 }
 
 + (id)archivedSettingsGroup;
-@property(nonatomic) float radiusStrength; // @synthesize radiusStrength=_radiusStrength;
-@property(nonatomic) float alphaStrength; // @synthesize alphaStrength=_alphaStrength;
-@property(nonatomic) BOOL on; // @synthesize on=_on;
-@property(nonatomic, setter=setDesignMode:) BOOL designMode; // @synthesize designMode=_designMode;
+@property(nonatomic) double radiusStrength; // @synthesize radiusStrength=_radiusStrength;
+@property(nonatomic) double alphaStrength; // @synthesize alphaStrength=_alphaStrength;
+@property(nonatomic) _Bool on; // @synthesize on=_on;
 - (id)settingsHUDConfiguration;
 - (void)settingsResetByHUD;
 - (void)setDefaultValues;

@@ -14,33 +14,27 @@
     UIView *_chromeView;
     UIStatusBarViewController *_statusBarViewController;
     UIZoomViewController *_zoomViewController;
-    BOOL _hidesClassicChrome;
-    BOOL _hidesStatusBarFiller;
+    _Bool _hidesClassicChrome;
+    _Bool _hidesStatusBarFiller;
 }
 
 + (id)sharedClassicController;
-- (void)setDrawsStatusBarFiller:(BOOL)arg1;
-- (BOOL)drawsStatusBarFiller;
-- (void)setZoomed:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)setDrawsClassicChrome:(BOOL)arg1;
-- (BOOL)_shouldHideStatusBar;
-- (BOOL)drawsClassicChrome;
-- (void)_classicChangeStatusBarOrientationFinished:(id)arg1 finished:(BOOL)arg2 context:(id)arg3;
+- (void)setDrawsStatusBarFiller:(_Bool)arg1;
+- (_Bool)drawsStatusBarFiller;
+- (void)setZoomed:(_Bool)arg1 animated:(_Bool)arg2;
+- (_Bool)_shouldHideStatusBar;
+- (void)_classicChangeStatusBarOrientationFinished:(id)arg1 finished:(_Bool)arg2 context:(id)arg3;
 - (void)_classicChangeStatusBarOrientation:(id)arg1;
 - (void)_initializeStatusBarOrientation;
-- (void)setZoomed:(BOOL)arg1;
-- (BOOL)isZoomed;
-- (void)_finishZoom:(BOOL)arg1;
-- (BOOL)_supportsZoom;
-- (void)_updateChromeView:(id)arg1 orientation:(int)arg2;
-- (id)_newChromeViewForOrientation:(int)arg1;
-- (id)_chromeImageWithOrientation:(int)arg1;
+- (void)setZoomed:(_Bool)arg1;
+- (_Bool)isZoomed;
+- (_Bool)_supportsZoom;
 - (id)_window;
 - (void)_setupWindow;
-- (BOOL)isClassicControlWindow:(id)arg1;
-- (void)setStatusBarOrientation:(int)arg1 animationParameters:(id)arg2;
-- (void)setStatusBarStyle:(int)arg1 animationParameters:(id)arg2;
-- (void)setStatusBarHidden:(BOOL)arg1 animationParameters:(id)arg2;
+- (_Bool)isClassicControlWindow:(id)arg1;
+- (void)setStatusBarOrientation:(long long)arg1 animationParameters:(id)arg2;
+- (void)setStatusBarStyle:(long long)arg1 animationParameters:(id)arg2;
+- (void)setStatusBarHidden:(_Bool)arg1 animationParameters:(id)arg2;
 - (void)dealloc;
 
 @end

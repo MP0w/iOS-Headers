@@ -8,23 +8,23 @@
 
 @interface NSEqualityPredicateOperator : NSPredicateOperator
 {
-    BOOL _negate;
-    unsigned int _options;
+    _Bool _negate;
+    unsigned long long _options;
 }
 
-+ (BOOL)supportsSecureCoding;
-- (BOOL)performPrimitiveOperationUsingObject:(id)arg1 andObject:(id)arg2;
-- (BOOL)isEqual:(id)arg1;
-- (void)_setOptions:(unsigned int)arg1;
-- (unsigned int)options;
-- (void)setNegation:(BOOL)arg1;
-- (BOOL)isNegation;
++ (_Bool)supportsSecureCoding;
+- (_Bool)performPrimitiveOperationUsingObject:(id)arg1 andObject:(id)arg2;
+- (_Bool)isEqual:(id)arg1;
+- (void)_setOptions:(unsigned long long)arg1;
+- (unsigned long long)options;
+- (void)setNegation:(_Bool)arg1;
+- (_Bool)isNegation;
 - (id)predicateFormat;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (id)initWithOperatorType:(unsigned int)arg1 modifier:(unsigned int)arg2 negate:(BOOL)arg3 options:(unsigned int)arg4;
-- (id)initWithOperatorType:(unsigned int)arg1 modifier:(unsigned int)arg2 negate:(BOOL)arg3;
+- (id)initWithOperatorType:(unsigned long long)arg1 modifier:(unsigned long long)arg2 negate:(_Bool)arg3 options:(unsigned long long)arg4;
+- (id)initWithOperatorType:(unsigned long long)arg1 modifier:(unsigned long long)arg2 negate:(_Bool)arg3;
 
 @end
 

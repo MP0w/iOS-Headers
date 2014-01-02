@@ -31,11 +31,8 @@
     id _reserved4;
 }
 
-+ (BOOL)_performSanityCheckForMapping:(id)arg1 fromSourceModel:(id)arg2 toDestinationModel:(id)arg3;
-+ (void)setMigrationDebugLevel:(int)arg1;
-+ (int)migrationDebugLevel;
-- (BOOL)usesStoreSpecificMigrationManager;
-- (void)setUsesStoreSpecificMigrationManager:(BOOL)arg1;
+- (_Bool)usesStoreSpecificMigrationManager;
+- (void)setUsesStoreSpecificMigrationManager:(_Bool)arg1;
 - (void)cancelMigrationWithError:(id)arg1;
 - (void)setUserInfo:(id)arg1;
 - (id)userInfo;
@@ -54,20 +51,9 @@
 - (id)sourceModel;
 - (id)mappingModel;
 - (void)reset;
-- (BOOL)migrateStoreFromURL:(id)arg1 type:(id)arg2 options:(id)arg3 withMappingModel:(id)arg4 toDestinationURL:(id)arg5 destinationType:(id)arg6 destinationOptions:(id)arg7 error:(id *)arg8;
+- (_Bool)migrateStoreFromURL:(id)arg1 type:(id)arg2 options:(id)arg3 withMappingModel:(id)arg4 toDestinationURL:(id)arg5 destinationType:(id)arg6 destinationOptions:(id)arg7 error:(id *)arg8;
 - (void)dealloc;
 - (id)initWithSourceModel:(id)arg1 destinationModel:(id)arg2;
-- (BOOL)_migrateStoreFromURL:(id)arg1 type:(id)arg2 options:(id)arg3 withMappingModel:(id)arg4 toDestinationURL:(id)arg5 destinationType:(id)arg6 destinationOptions:(id)arg7 error:(id *)arg8;
-- (BOOL)_validateAllObjectsAfterMigration:(id *)arg1;
-- (void)_doCleanupOnFailure:(id)arg1;
-- (BOOL)_doThirdPassForMapping:(id)arg1 error:(id *)arg2;
-- (BOOL)_doSecondPassForMapping:(id)arg1 error:(id *)arg2;
-- (BOOL)_doFirstPassForMapping:(id)arg1 error:(id *)arg2;
-- (id)_evaluateSourceExpressionForMapping:(id)arg1 entityPolicy:(id)arg2;
-- (id)_mappingNamed:(id)arg1;
-- (id)_migrationContext;
-- (id)fetchRequestForSourceEntityNamed:(id)arg1 predicateString:(id)arg2;
-- (id)fetchRequestForSourceEntityNamed:(id)arg1 predicateString:(id)arg2 includesSubentities:(BOOL)arg3;
 
 @end
 

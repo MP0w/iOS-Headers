@@ -8,11 +8,12 @@
 
 #import "SSXPCCoding-Protocol.h"
 
-@class NSError, NSMutableDictionary, SSPurchase, SSURLConnectionResponse;
+@class NSArray, NSError, NSMutableDictionary, SSPurchase, SSURLConnectionResponse;
 
 @interface SSPurchaseResponse : NSObject <SSXPCCoding>
 {
-    BOOL _cancelsPurchaseBatch;
+    _Bool _cancelsPurchaseBatch;
+    NSArray *_downloadIdentifiers;
     NSError *_error;
     SSPurchase *_purchase;
     SSURLConnectionResponse *_response;
@@ -22,7 +23,8 @@
 @property(retain, nonatomic) SSURLConnectionResponse *URLResponse; // @synthesize URLResponse=_response;
 @property(copy, nonatomic) SSPurchase *purchase; // @synthesize purchase=_purchase;
 @property(copy, nonatomic) NSError *error; // @synthesize error=_error;
-@property(nonatomic) BOOL cancelsPurchaseBatch; // @synthesize cancelsPurchaseBatch=_cancelsPurchaseBatch;
+@property(copy, nonatomic) NSArray *downloadIdentifiers; // @synthesize downloadIdentifiers=_downloadIdentifiers;
+@property(nonatomic) _Bool cancelsPurchaseBatch; // @synthesize cancelsPurchaseBatch=_cancelsPurchaseBatch;
 - (id)copyXPCEncoding;
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)transactionIdentifierForItemIdentifier:(long long)arg1;

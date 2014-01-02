@@ -12,8 +12,8 @@
 
 - (void)mainQueueDidReceiveAppWhitelistChangedNotification;
 - (void)cancelAllNotificationsCompletionBlock:(id)arg1;
-- (void)displayUserNotificationWithTitle:(id)arg1 message:(id)arg2 defaultButtonText:(id)arg3 alternateButtonText:(id)arg4 displayOnLockScreen:(BOOL)arg5 displayInAppWhitelistModes:(BOOL)arg6 dismissAfterTimeInterval:(double)arg7 completionBlock:(id)arg8;
-@property(readonly, nonatomic) BOOL hasOutstandingNotifications;
+- (void)displayUserNotificationWithTitle:(id)arg1 message:(id)arg2 defaultButtonText:(id)arg3 alternateButtonText:(id)arg4 displayOnLockScreen:(_Bool)arg5 displayInAppWhitelistModes:(_Bool)arg6 dismissAfterTimeInterval:(double)arg7 completionBlock:(id)arg8;
+@property(readonly, nonatomic) _Bool hasOutstandingNotifications;
 - (void)dealloc;
 - (id)init;
 

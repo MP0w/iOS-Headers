@@ -8,6 +8,7 @@
 
 @class NSMutableDictionary;
 
+// Not exported
 @interface MFPImageAttributes : NSObject
 {
     NSMutableDictionary *mColorAdjustMap;

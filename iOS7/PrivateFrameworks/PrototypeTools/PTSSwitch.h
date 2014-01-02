@@ -13,11 +13,10 @@
 
 @interface PTSSwitch : UIView <PTSHUDControl, _UISettingsKeyPathObserver>
 {
-    BOOL _enabled;
-    BOOL _autoEnablesForDesignMode;
+    _Bool _enabled;
+    int _alignment;
     _UISettings *_settings;
     NSString *_valueKeyPath;
-    int _alignment;
     id _target;
     SEL _action;
     UISwitch *_switchControl;
@@ -33,8 +32,7 @@
 @property(retain, nonatomic) UISwitch *switchControl; // @synthesize switchControl=_switchControl;
 @property(nonatomic) SEL action; // @synthesize action=_action;
 @property(nonatomic) __weak id target; // @synthesize target=_target;
-@property(nonatomic) BOOL autoEnablesForDesignMode; // @synthesize autoEnablesForDesignMode=_autoEnablesForDesignMode;
-@property(nonatomic) BOOL enabled; // @synthesize enabled=_enabled;
+@property(nonatomic) _Bool enabled; // @synthesize enabled=_enabled;
 @property(nonatomic) int alignment; // @synthesize alignment=_alignment;
 @property(copy, nonatomic) NSString *valueKeyPath; // @synthesize valueKeyPath=_valueKeyPath;
 @property(nonatomic) __weak _UISettings *settings; // @synthesize settings=_settings;

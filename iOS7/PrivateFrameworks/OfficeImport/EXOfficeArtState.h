@@ -8,6 +8,7 @@
 
 @class EXState;
 
+// Not exported
 @interface EXOfficeArtState : OAXDrawingState
 {
     EXState *mExcelState;

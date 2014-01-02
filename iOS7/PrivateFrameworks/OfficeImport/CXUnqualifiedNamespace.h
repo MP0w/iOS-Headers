@@ -6,12 +6,13 @@
 
 #import <OfficeImport/CXNamespace.h>
 
+// Not exported
 @interface CXUnqualifiedNamespace : CXNamespace
 {
 }
 
-- (BOOL)containsAttribute:(struct _xmlAttr *)arg1;
-- (BOOL)containsNode:(struct _xmlNode *)arg1;
+- (_Bool)containsAttribute:(struct _xmlAttr *)arg1;
+- (_Bool)containsNode:(struct _xmlNode *)arg1;
 - (id)initWithUri:(const char *)arg1;
 
 @end

@@ -21,8 +21,8 @@
 @property(retain, nonatomic) VSSpeechRequest *request; // @synthesize request=_request;
 @property(nonatomic) __weak id <VSSpeechConnectionDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (oneway void)speechRequestDidStopWithSuccess:(BOOL)arg1 phonemesSpoken:(id)arg2 error:(id)arg3;
-- (oneway void)speechRequestMark:(int)arg1 didStartForRange:(struct _NSRange)arg2;
+- (oneway void)speechRequestDidStopWithSuccess:(_Bool)arg1 phonemesSpoken:(id)arg2 error:(id)arg3;
+- (oneway void)speechRequestMark:(long long)arg1 didStartForRange:(struct _NSRange)arg2;
 - (oneway void)speechRequestDidContinue;
 - (oneway void)speechRequestDidPause;
 - (oneway void)speechRequestDidStart;

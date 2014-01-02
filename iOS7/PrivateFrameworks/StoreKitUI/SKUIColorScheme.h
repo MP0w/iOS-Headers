@@ -13,32 +13,22 @@
 
 @interface SKUIColorScheme : NSObject <NSCopying, NSSecureCoding>
 {
-    UIColor *_alternateCellColor;
     UIColor *_backgroundColor;
-    UIColor *_cellColor;
-    UIColor *_headerTextColor;
-    UIColor *_primaryHighlightedTextColor;
+    UIColor *_highlightedTextColor;
     UIColor *_primaryTextColor;
-    UIColor *_separatorColor;
-    UIColor *_separatorHighlightColor;
-    UIColor *_titleTextColor;
+    UIColor *_secondaryTextColor;
 }
 
-+ (BOOL)supportsSecureCoding;
-@property(copy, nonatomic) UIColor *titleTextColor; // @synthesize titleTextColor=_titleTextColor;
-@property(readonly, nonatomic) UIColor *separatorHighlightColor; // @synthesize separatorHighlightColor=_separatorHighlightColor;
-@property(readonly, nonatomic) UIColor *separatorColor; // @synthesize separatorColor=_separatorColor;
++ (_Bool)supportsSecureCoding;
+@property(copy, nonatomic) UIColor *secondaryTextColor; // @synthesize secondaryTextColor=_secondaryTextColor;
 @property(copy, nonatomic) UIColor *primaryTextColor; // @synthesize primaryTextColor=_primaryTextColor;
-@property(readonly, nonatomic) UIColor *primaryHighlightedTextColor; // @synthesize primaryHighlightedTextColor=_primaryHighlightedTextColor;
-@property(copy, nonatomic) UIColor *headerTextColor; // @synthesize headerTextColor=_headerTextColor;
-@property(copy, nonatomic) UIColor *cellColor; // @synthesize cellColor=_cellColor;
+@property(copy, nonatomic) UIColor *highlightedTextColor; // @synthesize highlightedTextColor=_highlightedTextColor;
 @property(copy, nonatomic) UIColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
-@property(copy, nonatomic) UIColor *alternateCellColor; // @synthesize alternateCellColor=_alternateCellColor;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-@property(readonly, nonatomic) int schemeStyle;
+@property(readonly, nonatomic) long long schemeStyle;
 - (id)initWithColorSchemeDictionary:(id)arg1;
 
 @end

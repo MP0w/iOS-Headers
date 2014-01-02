@@ -10,22 +10,22 @@
 
 @interface PBDataReader : NSObject
 {
-    unsigned int _pos;
-    BOOL _error;
+    unsigned long long _pos;
+    _Bool _error;
     const char *_bytes;
     NSData *_data;
-    unsigned int _length;
+    unsigned long long _length;
 }
 
-@property unsigned int position; // @synthesize position=_pos;
-@property unsigned int length; // @synthesize length=_length;
+@property unsigned long long position; // @synthesize position=_pos;
+@property unsigned long long length; // @synthesize length=_length;
 - (id)readBigEndianShortThenString;
 - (id)readBytes:(unsigned int)arg1;
-- (void)recall:(const CDStruct_c0454aff *)arg1;
-- (BOOL)mark:(CDStruct_c0454aff *)arg1;
+- (void)recall:(const CDStruct_4bcfbbae *)arg1;
+- (_Bool)mark:(CDStruct_4bcfbbae *)arg1;
 - (id)readData;
 - (id)readString;
-- (BOOL)readBOOL;
+- (_Bool)readBOOL;
 - (long long)readSfixed64;
 - (int)readSfixed32;
 - (unsigned long long)readFixed64;
@@ -44,14 +44,14 @@
 - (unsigned long long)readBigEndianFixed64;
 - (unsigned int)readBigEndianFixed32;
 - (unsigned short)readBigEndianFixed16;
-- (BOOL)skipValueWithTag:(unsigned short)arg1 andType:(unsigned char)arg2;
+- (_Bool)skipValueWithTag:(unsigned short)arg1 andType:(unsigned char)arg2;
 - (void)readTag:(unsigned short *)arg1 andType:(char *)arg2;
-- (BOOL)seekToOffset:(unsigned int)arg1;
+- (_Bool)seekToOffset:(unsigned long long)arg1;
 - (void)updateData:(id)arg1;
-- (unsigned int)offset;
-- (BOOL)hasMoreData;
-- (BOOL)hasError;
-- (BOOL)isAtEnd;
+- (unsigned long long)offset;
+- (_Bool)hasMoreData;
+- (_Bool)hasError;
+- (_Bool)isAtEnd;
 - (id)data;
 - (void)dealloc;
 - (id)initWithData:(id)arg1;

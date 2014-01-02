@@ -9,64 +9,22 @@
 #import "PLAssetContainerObserver-Protocol.h"
 #import "UIGestureRecognizerDelegate-Protocol.h"
 
-@class NSArray, PLAirTunesButton, PLExpandableImageView, PLLibraryImageDataProvider, UIBarButtonItem, UIImage, UINavigationButton, UINavigationItem;
+@class PLLibraryImageDataProvider;
 
 @interface PLWPhotoBrowserController : PLPhotoBrowserController <UIGestureRecognizerDelegate, PLAssetContainerObserver>
 {
-    PLExpandableImageView *_imageView;
-    unsigned int _originalImageIndex;
-    unsigned int _currentImageIndex;
-    UIImage *_originalImage;
-    UIImage *_fullScreenImage;
-    UINavigationItem *_customNavigationItem;
-    NSArray *_navigationButtonItems;
-    NSArray *_wallpaperItems;
-    UINavigationButton *_playPauseButton;
-    UIBarButtonItem *_modalDoneButtonItem;
-    UIBarButtonItem *_deleteButtonItem;
-    PLAirTunesButton *_airTunesButton;
-    int _previousFilter;
     PLLibraryImageDataProvider *_imageDataProvider;
-    int _previousToolbarMode;
 }
 
-- (BOOL)_isAirPlayEnabled;
-- (BOOL)wantsPhotoBrowserStyleStatusBar;
-- (id)navigationItem;
-- (void)libraryDidChange:(id)arg1;
-- (void)assetContainerDidChange:(id)arg1;
-- (void)didLoadFullScreenImage:(id)arg1 forPhotoAtIndex:(unsigned int)arg2;
-- (void)didMoveToPhotoAtIndex:(unsigned int)arg1;
-- (void)_setImageView:(id)arg1;
-- (void)_fadeToClearAnimation:(id)arg1 finished:(id)arg2;
-- (void)_fadeToClearIfNeeded;
-- (void)expandableViewDidCancelCollapsing:(id)arg1;
-- (void)expandableViewDidCompleteCollapsing:(id)arg1;
-- (void)expandableViewDidBeginCollapsing:(id)arg1;
-- (void)viewDidDisappear:(BOOL)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
-- (void)_setScrollViewInteractionEnabled:(BOOL)arg1;
-- (void)toggleVideoPlay:(id)arg1;
-- (id)airTunesButton;
-- (void)updateAirTunesButton;
-- (void)removeAirTunesButton;
-- (void)addAirTunesButton;
-- (int)_toolbarMode;
-- (float)_calculateWidthForVideoScrubber;
-- (float)videoViewScrubberWidth:(id)arg1;
-- (void)_updateVideoScrubberWidth;
-- (void)_updatePlayPauseButton;
-- (void)showFullScreenPhotoEditTools;
-- (id)_wallpaperToolbarItems;
-- (id)playPauseButton;
-- (id)editItem;
-- (void)_removeGestureRecognizers;
+- (_Bool)wantsPhotoBrowserStyleStatusBar;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;
 - (void)setAssetContainerList:(id)arg1 currentImageIndexPath:(id)arg2;
 - (void)dealloc;
-- (id)initWithAssetContainerList:(id)arg1 imageView:(id)arg2 atImageIndexPath:(id)arg3 imageDataProvider:(id)arg4 modalDoneButtonItem:(id)arg5;
+- (id)initWithAssetContainerList:(id)arg1 atImageIndexPath:(id)arg2 imageDataProvider:(id)arg3 modalDoneButtonItem:(id)arg4;
 
 @end
 

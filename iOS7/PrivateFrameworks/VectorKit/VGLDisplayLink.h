@@ -6,22 +6,25 @@
 
 #import "NSObject.h"
 
-@class CADisplayLink;
+@class CADisplay, CADisplayLink;
 
+// Not exported
 @interface VGLDisplayLink : NSObject
 {
     SEL _selector;
     id _target;
     CADisplayLink *_displayLink;
-    int _frameInterval;
-    int _skippedFrames;
-    BOOL _paused;
+    CADisplay *_display;
+    long long _frameInterval;
+    long long _skippedFrames;
+    _Bool _paused;
 }
 
+@property(retain, nonatomic) CADisplay *display; // @synthesize display=_display;
 - (void)_displayLinkFired:(id)arg1;
 @property(readonly, nonatomic) double timestamp;
-@property(nonatomic) int frameInterval;
-@property(nonatomic, getter=isPaused) BOOL paused;
+@property(nonatomic) long long frameInterval;
+@property(nonatomic, getter=isPaused) _Bool paused;
 - (void)invalidate;
 - (void)addToRunLoop:(id)arg1 forMode:(id)arg2;
 - (void)dealloc;

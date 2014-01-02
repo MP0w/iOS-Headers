@@ -5,8 +5,8 @@
  */
 
 @protocol AssistantUIDelegateResult
-- (void)presentUIForStepByStepNextStepResult:(long)arg1 withOptions:(id)arg2;
-- (void)showUIConfigPromptResult:(long)arg1 withOptions:(id)arg2;
-- (void)presentUIForConnectionVerificationResult:(long)arg1 withOptions:(id)arg2;
+- (void)presentUIForStepByStepNextStepResult:(int)arg1 withOptions:(id)arg2;
+- (void)showUIConfigPromptResult:(int)arg1 withOptions:(id)arg2;
+- (void)presentUIForConnectionVerificationResult:(int)arg1 withOptions:(id)arg2;
 @end
 

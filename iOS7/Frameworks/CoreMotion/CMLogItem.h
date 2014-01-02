@@ -14,7 +14,7 @@
     id _internalLogItem;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) double timestamp;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;

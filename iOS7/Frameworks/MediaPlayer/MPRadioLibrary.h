@@ -18,8 +18,8 @@
 - (void)addStationBasedOnTrackIDs:(id)arg1 completion:(id)arg2;
 - (id)stationWithIdentifier:(long long)arg1;
 @property(readonly, nonatomic) NSArray *stations;
-@property(readonly, nonatomic) unsigned int stationCount;
-@property(readonly, nonatomic) BOOL isEnabled;
+@property(readonly, nonatomic) unsigned long long stationCount;
+@property(readonly, nonatomic) _Bool isEnabled;
 - (void)dealloc;
 - (id)init;
 

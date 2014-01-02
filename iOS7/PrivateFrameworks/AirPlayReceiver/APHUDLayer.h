@@ -6,6 +6,7 @@
 
 #import "CALayer.h"
 
+// Not exported
 @interface APHUDLayer : CALayer
 {
     struct __CTFont *_Font;

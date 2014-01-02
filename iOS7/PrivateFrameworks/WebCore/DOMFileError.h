@@ -6,6 +6,7 @@
 
 #import <WebCore/DOMObject.h>
 
+// Not exported
 @interface DOMFileError : DOMObject
 {
 }

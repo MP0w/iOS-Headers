@@ -13,25 +13,25 @@
 @interface PKPassField : NSObject <NSSecureCoding>
 {
     NSString *_value;
-    int _type;
+    long long _type;
     NSString *_key;
     NSString *_label;
     id _unformattedValue;
     NSString *_changeMessage;
-    int _textAlignment;
-    unsigned int _dataDetectorTypes;
+    long long _textAlignment;
+    unsigned long long _dataDetectorTypes;
 }
 
-+ (BOOL)supportsSecureCoding;
-@property(nonatomic) unsigned int dataDetectorTypes; // @synthesize dataDetectorTypes=_dataDetectorTypes;
-@property(nonatomic) int textAlignment; // @synthesize textAlignment=_textAlignment;
++ (_Bool)supportsSecureCoding;
+@property(nonatomic) unsigned long long dataDetectorTypes; // @synthesize dataDetectorTypes=_dataDetectorTypes;
+@property(nonatomic) long long textAlignment; // @synthesize textAlignment=_textAlignment;
 @property(copy, nonatomic) NSString *changeMessage; // @synthesize changeMessage=_changeMessage;
 @property(copy, nonatomic) id unformattedValue; // @synthesize unformattedValue=_unformattedValue;
 @property(copy, nonatomic) NSString *label; // @synthesize label=_label;
 @property(copy, nonatomic) NSString *key; // @synthesize key=_key;
-@property(nonatomic) int type; // @synthesize type=_type;
+@property(nonatomic) long long type; // @synthesize type=_type;
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
 - (void)flushCachedValue;
 @property(readonly) NSString *value;

@@ -18,9 +18,9 @@
 @property(readonly, nonatomic) SBBBInfoOperand *referenceOperand; // @synthesize referenceOperand=_referenceOperand;
 @property(readonly, nonatomic) SBBBInfoOperand *activeOperand; // @synthesize activeOperand=_activeOperand;
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-@property(readonly, nonatomic, getter=isSectionOperand) BOOL sectionOperand;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
+@property(readonly, nonatomic, getter=isSectionOperand) _Bool sectionOperand;
 - (void)dealloc;
 - (id)initWithOperand:(id)arg1 operand:(id)arg2;
 

@@ -12,6 +12,7 @@
 
 @interface MSASAlbum : NSObject <NSCopying>
 {
+    int _relationshipState;
     NSString *_ownerEmail;
     NSString *_ownerPersonID;
     NSString *_ownerFullName;
@@ -20,7 +21,6 @@
     NSDate *_subscriptionDate;
     NSString *_GUID;
     NSString *_ctag;
-    int _relationshipState;
     NSString *_foreignCtag;
     NSString *_URLString;
     NSString *_publicURLString;
@@ -29,7 +29,7 @@
 }
 
 + (id)albumWithAlbum:(id)arg1;
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 + (id)album;
 @property(retain, nonatomic) id context; // @synthesize context=_context;
 @property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
@@ -52,9 +52,9 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)metadataValueForKey:(id)arg1;
 - (void)setMetadataValue:(id)arg1 forKey:(id)arg2;
-@property(readonly, nonatomic) BOOL useForeignCtag;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+@property(readonly, nonatomic) _Bool useForeignCtag;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 
 @end
 

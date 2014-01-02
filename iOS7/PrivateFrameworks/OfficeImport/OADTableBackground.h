@@ -10,13 +10,14 @@
 
 @class NSArray, OADFill;
 
+// Not exported
 @interface OADTableBackground : NSObject <OADEffectsParent>
 {
     OADFill *mFill;
     NSArray *mEffects;
 }
 
-- (BOOL)hasEffects;
+- (_Bool)hasEffects;
 - (void)setEffects:(id)arg1;
 - (id)effects;
 - (void)setFill:(id)arg1;

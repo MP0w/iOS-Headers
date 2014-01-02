@@ -15,9 +15,12 @@
 - (id)basicAccountIdentifier;
 - (id)collectionInfo;
 - (id)predicateForNotes;
+- (unsigned long long)minimumSequenceNumberForServerIntIds:(id)arg1;
 - (unsigned int)maximumServerIntId;
 - (id)notesForServerIntIdsInRange:(struct _NSRange)arg1;
 - (id)notesForServerIntIds:(id)arg1;
+- (id)notesForServerIntIdsInRange:(struct _NSRange)arg1 ascending:(_Bool)arg2 limit:(unsigned long long)arg3;
+- (id)notesForServerIntIds:(id)arg1 ascending:(_Bool)arg2 limit:(unsigned long long)arg3;
 - (id)notesForGUIDs:(id)arg1;
 - (id)notesForIntegerIds:(id)arg1;
 - (id)notesForServerIds:(id)arg1;

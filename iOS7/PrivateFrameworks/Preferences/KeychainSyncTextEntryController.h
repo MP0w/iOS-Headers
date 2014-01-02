@@ -4,49 +4,46 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <Preferences/PSListController.h>
+#import <Preferences/PSKeychainSyncViewController.h>
 
 #import "KeychainSyncPasscodeFieldDelegate-Protocol.h"
-#import "KeychainSyncViewController-Protocol.h"
 
 @class NSString, PSSpecifier, PSTableCell, UIView<UIKeyInput>;
 
-@interface KeychainSyncTextEntryController : PSListController <KeychainSyncPasscodeFieldDelegate, KeychainSyncViewController>
+@interface KeychainSyncTextEntryController : PSKeychainSyncViewController <KeychainSyncPasscodeFieldDelegate>
 {
     PSTableCell *_textEntryCell;
     UIView<UIKeyInput> *_textEntryView;
     PSSpecifier *_textEntrySpecifier;
-    BOOL _hidesNextButton;
-    BOOL _secureTextEntry;
-    int _type;
-    id <KeychainSyncViewControllerDelegate> _delegate;
+    _Bool _hidesNextButton;
+    _Bool _secureTextEntry;
+    int _textEntryType;
     NSString *_textValue;
-    PSSpecifier *_group;
 }
 
-@property(retain, nonatomic) PSSpecifier *group; // @synthesize group=_group;
 @property(retain, nonatomic) NSString *textValue; // @synthesize textValue=_textValue;
-@property(nonatomic) BOOL secureTextEntry; // @synthesize secureTextEntry=_secureTextEntry;
-@property(nonatomic) BOOL hidesNextButton; // @synthesize hidesNextButton=_hidesNextButton;
-@property(nonatomic) id <KeychainSyncViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) int type; // @synthesize type=_type;
-- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+@property(nonatomic) _Bool secureTextEntry; // @synthesize secureTextEntry=_secureTextEntry;
+@property(nonatomic) _Bool hidesNextButton; // @synthesize hidesNextButton=_hidesNextButton;
+@property(nonatomic) int textEntryType; // @synthesize textEntryType=_textEntryType;
+- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)passcodeField:(id)arg1 didUpdateEnteredPasscode:(id)arg2;
-- (void)didFinishEnteringPasscode:(id)arg1;
+- (unsigned long long)numberOfPasscodeFields;
 - (void)textFieldChanged:(id)arg1;
 - (void)textEntryViewDidChange:(id)arg1;
 - (id)textEntryView;
 - (id)textEntryCell;
+- (Class)textEntryCellClass;
 - (id)textEntrySpecifier;
 - (id)placeholderText;
 - (id)specifiers;
 - (id)textEntryText;
 - (void)setTextEntryText:(id)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
-- (BOOL)becomeFirstResponder;
+- (void)viewWillAppear:(_Bool)arg1;
+- (_Bool)becomeFirstResponder;
 - (id)getTextValueForSpecifier:(id)arg1;
 - (void)setTextValue:(id)arg1 forSpecifier:(id)arg2;
+- (void)didFinishEnteringText:(id)arg1;
 - (void)nextPressed;
 - (void)updateNextButton;
 - (void)loadView;

@@ -10,19 +10,20 @@
 #import <UIKit/UITableViewDataSource-Protocol.h>
 #import "UITableViewDelegate-Protocol.h"
 
-@class NSTimer, UIDimmingView, UIInputSwitcherSelectionExtraView, UIInputSwitcherShadowView, UIInputSwitcherTableView;
+@class NSTimer, UIDimmingView, UIInputSwitcherSelectionExtraView, UIInputSwitcherShadowView, UIInputSwitcherTableView, UIKBTree, UIKeyboardLayoutStar;
 
+// Not exported
 @interface UIKeyboardMenuView : UIView <UITableViewDataSource, UITableViewDelegate, UIDimmingViewDelegate>
 {
     UIInputSwitcherTableView *m_table;
     UIInputSwitcherShadowView *m_shadowView;
     UIInputSwitcherSelectionExtraView *m_selExtraView;
     struct CGRect m_referenceRect;
-    float m_pointerOffset;
-    BOOL m_scrollable;
-    BOOL m_startAutoscroll;
-    BOOL m_scrolling;
-    BOOL m_shouldFade;
+    double m_pointerOffset;
+    _Bool m_scrollable;
+    _Bool m_startAutoscroll;
+    _Bool m_scrolling;
+    _Bool m_shouldFade;
     struct CGPoint m_point;
     double m_scrollStartTime;
     int m_scrollDirection;
@@ -30,22 +31,27 @@
     int m_visibleRows;
     int m_firstVisibleRow;
     int m_mode;
-    double dismissDelay;
     UIDimmingView *m_dimmingView;
-    BOOL _usesStraightLeftEdge;
-    double _dismissDelay;
+    _Bool _usesStraightLeftEdge;
+    _Bool _usesDarkTheme;
+    UIKBTree *_referenceKey;
+    UIKeyboardLayoutStar *_layout;
 }
 
 + (id)viewThatContainsBaseKey;
-@property(nonatomic) BOOL usesStraightLeftEdge; // @synthesize usesStraightLeftEdge=_usesStraightLeftEdge;
-@property double dismissDelay; // @synthesize dismissDelay=_dismissDelay;
+@property(nonatomic) UIKeyboardLayoutStar *layout; // @synthesize layout=_layout;
+@property(nonatomic) UIKBTree *referenceKey; // @synthesize referenceKey=_referenceKey;
+@property(nonatomic) _Bool usesDarkTheme; // @synthesize usesDarkTheme=_usesDarkTheme;
+@property(nonatomic) _Bool usesStraightLeftEdge; // @synthesize usesStraightLeftEdge=_usesStraightLeftEdge;
 @property(nonatomic) int mode; // @synthesize mode=m_mode;
 - (void)didSelectItemAtIndex:(int)arg1;
 - (id)subtitleForItemAtIndex:(int)arg1;
 - (id)titleForItemAtIndex:(int)arg1;
 - (struct CGSize)preferredSize;
-- (int)defaultSelectedIndex;
-- (int)numberOfItems;
+- (long long)defaultSelectedIndex;
+- (long long)numberOfItems;
+- (struct CGRect)popupRect;
+- (void)setRenderConfig:(id)arg1;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
@@ -54,12 +60,12 @@
 - (void)scrollViewDidScroll:(id)arg1;
 - (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 willDeselectRowAtIndexPath:(id)arg2;
-- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (int)indexForIndexPath:(id)arg1;
-- (void)setHighlightForRowAtIndexPath:(id)arg1 highlight:(BOOL)arg2;
+- (void)setHighlightForRowAtIndexPath:(id)arg1 highlight:(_Bool)arg2;
 - (void)selectItemAtPoint:(struct CGPoint)arg1;
 - (void)highlightRow:(int)arg1;
 - (void)updateSelectionWithPoint:(struct CGPoint)arg1;
@@ -75,23 +81,27 @@
 - (void)fadeWithDelay:(double)arg1;
 - (void)fade;
 - (void)_delayedFade;
-- (void)showAsPopupFromRect:(struct CGRect)arg1 inView:(id)arg2 openByTap:(BOOL)arg3;
-- (void)showAsPopupFromRect:(struct CGRect)arg1 inView:(id)arg2;
-- (float)minYOfLastTableCellForSelectionExtraView;
+- (void)showAsPopupForKey:(id)arg1 inLayout:(id)arg2;
+- (int)_internationalKeyRoundedCornerInLayout:(id)arg1;
+- (double)minYOfLastTableCellForSelectionExtraView;
 - (id)maskForShadowViewBlurredBackground;
 - (void)showAsHUD;
+- (void)setupShadowViewWithSize:(struct CGSize)arg1;
 - (void)show;
-- (BOOL)usesDimmingView;
+- (void)insertSelExtraView;
+- (_Bool)usesShadowView;
+- (_Bool)usesDimmingView;
 - (void)dimmingViewWasTapped:(id)arg1;
 - (id)dimmingView;
+- (void)setKeyboardDimmed:(_Bool)arg1;
 - (void)performShowAnimation;
-- (BOOL)isVisible;
+- (_Bool)isVisible;
 - (void)setFrame:(struct CGRect)arg1;
 - (id)font;
 - (id)subtitleFont;
 - (void)applicationWillSuspend:(id)arg1;
-- (BOOL)centerPopUpOverKey;
-@property(readonly) BOOL usesTable;
+- (_Bool)centerPopUpOverKey;
+@property(readonly) _Bool usesTable;
 - (id)table;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

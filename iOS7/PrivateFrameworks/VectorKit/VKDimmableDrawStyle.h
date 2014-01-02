@@ -6,6 +6,7 @@
 
 #import <VectorKit/VKDrawStyle.h>
 
+// Not exported
 @interface VKDimmableDrawStyle : VKDrawStyle
 {
     float _brightness;

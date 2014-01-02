@@ -18,9 +18,10 @@
     SKUIClientContext *_clientContext;
     struct UIEdgeInsets _contentInset;
     id <SKUIChartsViewControllerDelegate> _delegate;
+    _Bool _delegateWantsWillDisplay;
     SKUISegmentedTableHeaderView *_headerView;
     NSOperationQueue *_operationQueue;
-    int _selectedChartIndex;
+    long long _selectedChartIndex;
     SUSegmentedControl *_segmentedControl;
 }
 
@@ -30,19 +31,21 @@
 @property(copy, nonatomic) NSArray *charts; // @synthesize charts=_charts;
 @property(retain, nonatomic) SKUIResourceLoader *artworkLoader; // @synthesize artworkLoader=_artworkLoader;
 - (void).cxx_destruct;
-- (id)_viewControllerWithIndex:(int)arg1;
+- (id)_viewControllerWithIndex:(long long)arg1;
 - (void)_showSelectedViewController;
 - (id)_selectedViewController;
 - (void)_reloadData;
 - (id)_itemListWithChart:(id)arg1;
-- (int)_chartIndexForChartViewController:(id)arg1;
+- (long long)_chartIndexForChartViewController:(id)arg1;
 - (id)_artworkContextForChart:(id)arg1;
 - (void)_segmentedControlAction:(id)arg1;
+- (void)itemList:(id)arg1 willDisplayCellForItem:(id)arg2 atIndexPath:(id)arg3;
 - (void)itemList:(id)arg1 didSelectItem:(id)arg2 atIndexPath:(id)arg3;
 - (id)itemList:(id)arg1 didConfirmItemOfferForItem:(id)arg2 atIndexPath:(id)arg3;
+- (void)viewDidLayoutSubviews;
 - (void)loadView;
-- (void)loadNextPageOfArtworkWithReason:(int)arg1;
-- (struct CGRect)frameForItemIndex:(int)arg1 chartIndex:(int)arg2;
+- (void)loadNextPageOfArtworkWithReason:(long long)arg1;
+- (struct CGRect)frameForItemIndex:(long long)arg1 chartIndex:(long long)arg2;
 - (void)enumerateVisibleItemsUsingBlock:(id)arg1;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

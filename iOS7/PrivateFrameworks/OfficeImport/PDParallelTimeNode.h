@@ -6,6 +6,7 @@
 
 #import <OfficeImport/PDTimeNode.h>
 
+// Not exported
 @interface PDParallelTimeNode : PDTimeNode
 {
 }

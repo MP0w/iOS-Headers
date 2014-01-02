@@ -14,13 +14,13 @@
     SBBulletinWindowController *_windowController;
 }
 
-- (void)didRotateFromInterfaceOrientation:(int)arg1;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (BOOL)shouldAutomaticallyForwardRotationMethods;
-- (BOOL)shouldAutomaticallyForwardAppearanceMethods;
-- (BOOL)wantsFullScreenLayout;
+- (void)didRotateFromInterfaceOrientation:(long long)arg1;
+- (void)willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (void)willRotateToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (_Bool)shouldAutomaticallyForwardRotationMethods;
+- (_Bool)shouldAutomaticallyForwardAppearanceMethods;
+- (_Bool)wantsFullScreenLayout;
 - (void)dismissViewController:(id)arg1 onView:(id)arg2;
 - (void)presentViewController:(id)arg1 onView:(id)arg2;
 - (void)dealloc;

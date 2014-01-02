@@ -8,29 +8,37 @@
 
 #import "NSSecureCoding-Protocol.h"
 
-@class NSMutableArray, NSMutableDictionary, NSString;
+@class NSMutableDictionary, NSString;
 
+// Not exported
 @interface NSProgressValues : NSObject <NSSecureCoding>
 {
     NSMutableDictionary *_userInfo;
     long long _totalUnitCount;
     long long _completedUnitCount;
+    long long _childCompletedUnitCount;
+    double _fractionCompleted;
+    double _selfFractionCompleted;
+    double _childFractionCompleted;
     NSString *_localizedDescription;
     NSString *_localizedAdditionalDescription;
-    BOOL _isCancellable;
-    BOOL _isPausable;
-    BOOL _isCancelled;
-    BOOL _isPaused;
-    NSMutableArray *_children;
+    _Bool _isCancellable;
+    _Bool _isPausable;
+    _Bool _isCancelled;
+    _Bool _isPaused;
     NSString *_kind;
-    BOOL _isPrioritizable;
+    _Bool _isPrioritizable;
+    _Bool _isFinished;
 }
 
 + (id)decodableClasses;
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
+- (void)setIndeterminate:(_Bool)arg1;
+- (_Bool)isIndeterminate;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (void)dealloc;
+- (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
 

@@ -8,31 +8,34 @@
 
 @class NSData;
 
+// Not exported
 @interface SFUDataRepresentation : NSObject
 {
-    BOOL mHasSha1Hash;
+    _Bool mHasHash;
+    unsigned int mHash;
+    _Bool mHasSha1Hash;
     NSData *mSha1Hash;
 }
 
-- (int)compare:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (long long)compare:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)sha1Hash;
 - (unsigned int)uint32Hash;
-- (unsigned int)hash;
-- (unsigned long)readIntoData:(id)arg1;
+- (unsigned long long)hash;
+- (unsigned long long)readIntoData:(id)arg1;
 - (struct CGDataProvider *)cgDataProvider;
 - (struct _xmlTextReader *)xmlReaderForGzippedDataWithInputStream:(id *)arg1;
 - (struct _xmlTextReader *)xmlReaderForGzippedData;
 - (struct _xmlTextReader *)xmlReader;
 - (struct _xmlDoc *)xmlDocument;
-- (BOOL)hasSameLocationAs:(id)arg1;
-- (id)bufferedInputStreamWithBufferSize:(unsigned long)arg1;
+- (_Bool)hasSameLocationAs:(id)arg1;
+- (id)bufferedInputStreamWithBufferSize:(unsigned long long)arg1;
 - (id)bufferedInputStream;
 - (id)inputStream;
-- (BOOL)isEncrypted;
+- (_Bool)isEncrypted;
 - (long long)encodedLength;
 - (long long)dataLength;
-- (BOOL)isReadable;
+- (_Bool)isReadable;
 
 @end
 

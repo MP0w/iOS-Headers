@@ -10,6 +10,7 @@
 {
 }
 
++ (id)_buildXPCInterface;
 + (id)XPCInterface;
 
 @end

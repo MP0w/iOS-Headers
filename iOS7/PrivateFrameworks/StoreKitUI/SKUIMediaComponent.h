@@ -6,33 +6,40 @@
 
 #import <StoreKitUI/SKUIPageComponent.h>
 
-@class NSString, SKUIArtworkList;
+#import "SSMetricsEventFieldProvider-Protocol.h"
 
-@interface SKUIMediaComponent : SKUIPageComponent
+@class NSString, SKUIArtworkList, SKUILink;
+
+@interface SKUIMediaComponent : SKUIPageComponent <SSMetricsEventFieldProvider>
 {
     NSString *_accessibilityLabel;
-    int _alignment;
+    long long _alignment;
+    double _duration;
+    SKUILink *_link;
     long long _mediaIdentifier;
-    int _mediaType;
+    long long _mediaType;
     NSString *_mediaURLString;
     SKUIArtworkList *_thumbnailArtworkList;
     NSString *_title;
     float _titleFontSize;
-    int _titleFontWeight;
+    long long _titleFontWeight;
 }
 
-@property(readonly, nonatomic) int titleFontWeight; // @synthesize titleFontWeight=_titleFontWeight;
+@property(readonly, nonatomic) long long titleFontWeight; // @synthesize titleFontWeight=_titleFontWeight;
 @property(readonly, nonatomic) float titleFontSize; // @synthesize titleFontSize=_titleFontSize;
 @property(readonly, nonatomic) NSString *title; // @synthesize title=_title;
 @property(readonly, nonatomic) SKUIArtworkList *thumbnailArtworkList; // @synthesize thumbnailArtworkList=_thumbnailArtworkList;
 @property(readonly, nonatomic) NSString *mediaURLString; // @synthesize mediaURLString=_mediaURLString;
-@property(readonly, nonatomic) int mediaType; // @synthesize mediaType=_mediaType;
+@property(readonly, nonatomic) long long mediaType; // @synthesize mediaType=_mediaType;
 @property(readonly, nonatomic) long long mediaIdentifier; // @synthesize mediaIdentifier=_mediaIdentifier;
-@property(readonly, nonatomic) int alignment; // @synthesize alignment=_alignment;
+@property(readonly, nonatomic) SKUILink *link; // @synthesize link=_link;
+@property(readonly, nonatomic) double duration; // @synthesize duration=_duration;
+@property(readonly, nonatomic) long long alignment; // @synthesize alignment=_alignment;
 @property(readonly, nonatomic) NSString *accessibilityLabel; // @synthesize accessibilityLabel=_accessibilityLabel;
 - (void).cxx_destruct;
+- (id)valueForMetricsField:(id)arg1;
 - (id)metricsElementName;
-- (int)componentType;
+- (long long)componentType;
 - (id)bestThumbnailArtwork;
 - (id)initWithCustomPageContext:(id)arg1;
 - (id)initWithArtwork:(id)arg1;

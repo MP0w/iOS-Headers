@@ -6,6 +6,7 @@
 
 #import <OfficeImport/CMMapper.h>
 
+// Not exported
 @interface EMAxisMapper : CMMapper
 {
 }

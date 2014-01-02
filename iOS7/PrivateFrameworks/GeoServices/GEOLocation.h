@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class GEOLatLng;
 
-@interface GEOLocation : PBCodable
+@interface GEOLocation : PBCodable <NSCopying>
 {
     double _course;
     double _heading;
@@ -40,25 +42,23 @@
 @property(nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
 @property(nonatomic) int type; // @synthesize type=_type;
 @property(retain, nonatomic) GEOLatLng *latLng; // @synthesize latLng=_latLng;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) BOOL hasCourse;
-@property(nonatomic) BOOL hasHeading;
-@property(nonatomic) BOOL hasSpeed;
-@property(nonatomic) BOOL hasVerticalAccuracy;
-@property(nonatomic) BOOL hasHorizontalAccuracy;
-@property(nonatomic) BOOL hasAltitude;
-@property(nonatomic) BOOL hasTimestamp;
-@property(nonatomic) BOOL hasType;
+@property(nonatomic) _Bool hasCourse;
+@property(nonatomic) _Bool hasHeading;
+@property(nonatomic) _Bool hasSpeed;
+@property(nonatomic) _Bool hasVerticalAccuracy;
+@property(nonatomic) _Bool hasHorizontalAccuracy;
+@property(nonatomic) _Bool hasAltitude;
+@property(nonatomic) _Bool hasTimestamp;
+@property(nonatomic) _Bool hasType;
 - (void)dealloc;
-- (id)initWithGEOCoordinate:(CDStruct_c3b9c2ee)arg1;
-- (id)initWithLatitude:(double)arg1 longitude:(double)arg2;
-- (id)initWithLocation:(id)arg1;
 
 @end
 

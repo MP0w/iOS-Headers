@@ -14,7 +14,7 @@
 
 + (id)sayItWithDictionary:(id)arg1 context:(id)arg2;
 + (id)sayIt;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSString *message;
 @property(copy, nonatomic) NSNumber *listenAfterSpeaking;
 @property(retain, nonatomic) id <SAAceSerializable> context;

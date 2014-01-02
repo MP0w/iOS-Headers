@@ -8,8 +8,11 @@
 
 @interface EKEventStore (MobileCal)
 - (id)stringForColor:(id)arg1;
+- (id)localizedStringForSymbolicColorName:(id)arg1;
 - (id)colorForCalendar:(id)arg1;
 - (id)defaultCalendarColorsInRainbowOrder;
-- (id)defaultCalendarColors;
+- (id)symbolicNameToUIColors;
+- (id)_uicolorFromString:(id)arg1;
+- (id)colorNamesInRainbowOrder;
 @end
 

@@ -15,7 +15,7 @@
 }
 
 + (id)operationWithKey:(id)arg1 functionalString:(id)arg2;
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) NSString *functionalString; // @synthesize functionalString=_functionalString;
 @property(readonly, nonatomic) NSString *key; // @synthesize key=_key;
 - (id)propertiesForDescription;

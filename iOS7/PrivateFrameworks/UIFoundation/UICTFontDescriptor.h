@@ -6,12 +6,13 @@
 
 #import <UIFoundation/UIFontDescriptor.h>
 
+// Not exported
 @interface UICTFontDescriptor : UIFontDescriptor
 {
 }
 
 + (id)fontDescriptorWithName:(id)arg1 matrix:(struct CGAffineTransform)arg2;
-+ (id)fontDescriptorWithName:(id)arg1 size:(float)arg2;
++ (id)fontDescriptorWithName:(id)arg1 size:(double)arg2;
 + (id)fontDescriptorWithFontAttributes:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)matchingFontDescriptorWithMandatoryKeys:(id)arg1;
@@ -20,14 +21,14 @@
 - (id)fontDescriptorByAddingAttributes:(id)arg1;
 - (id)objectForKey:(id)arg1;
 - (void)finalize;
-- (unsigned int)retainCount;
-- (BOOL)retainWeakReference;
-- (BOOL)allowsWeakReference;
+- (unsigned long long)retainCount;
+- (_Bool)retainWeakReference;
+- (_Bool)allowsWeakReference;
 - (oneway void)release;
 - (id)retain;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned long)_cfTypeID;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)_cfTypeID;
 
 @end
 

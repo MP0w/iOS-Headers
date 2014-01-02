@@ -10,8 +10,8 @@
 {
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (id)init;
 - (void)_okButtonPressed;
 - (void)_cancelButtonPressed;

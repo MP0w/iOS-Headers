@@ -9,10 +9,10 @@
 @protocol UIElementProtocol <NSObject>
 + (id)uiElementAtCoordinate:(struct CGPoint)arg1;
 + (void)applyElementAttributeCacheScheme:(int)arg1;
-- (BOOL)isMockElement;
-- (struct _NSRange)nextCursorRangeInDirection:(unsigned int)arg1 unit:(unsigned int)arg2 outputRange:(struct _NSRange *)arg3 currentCursorRange:(struct _NSRange)arg4;
-- (struct _NSRange)nextCursorRangeInDirection:(unsigned int)arg1 unit:(unsigned int)arg2 outputRange:(struct _NSRange *)arg3;
-- (void)setAXAttribute:(int)arg1 withObject:(id)arg2 synchronous:(BOOL)arg3;
+- (_Bool)isMockElement;
+- (struct _NSRange)nextCursorRangeInDirection:(unsigned long long)arg1 unit:(unsigned long long)arg2 outputRange:(struct _NSRange *)arg3 currentCursorRange:(struct _NSRange)arg4;
+- (struct _NSRange)nextCursorRangeInDirection:(unsigned long long)arg1 unit:(unsigned long long)arg2 outputRange:(struct _NSRange *)arg3;
+- (void)setAXAttribute:(int)arg1 withObject:(id)arg2 synchronous:(_Bool)arg3;
 - (void)setAXAttribute:(int)arg1 withObject:(id)arg2;
 - (void)setAXAttribute:(int)arg1 withArray:(id)arg2;
 - (void)setAXAttribute:(int)arg1 withUIElementArray:(id)arg2;
@@ -22,18 +22,18 @@
 - (void)setAXAttribute:(int)arg1 withPoint:(struct CGPoint)arg2;
 - (void)setAXAttribute:(int)arg1 withNumber:(id)arg2;
 - (void)setAXAttribute:(int)arg1 withFloat:(float)arg2;
-- (void)setAXAttribute:(int)arg1 withLong:(long)arg2;
+- (void)setAXAttribute:(int)arg1 withLong:(long long)arg2;
 - (void)setAXAttribute:(int)arg1 withString:(id)arg2;
-- (void)setAXAttribute:(int)arg1 withBOOL:(BOOL)arg2;
-- (id)previousElementsWithCount:(unsigned long)arg1;
-- (id)nextElementsWithCount:(unsigned long)arg1;
+- (void)setAXAttribute:(int)arg1 withBOOL:(_Bool)arg2;
+- (id)previousElementsWithCount:(unsigned long long)arg1;
+- (id)nextElementsWithCount:(unsigned long long)arg1;
 - (void)updateCacheWithAttributes:(id)arg1;
 - (void)updateCache:(int)arg1;
 - (void)disableCache;
-- (void)enableCache:(BOOL)arg1;
-- (BOOL)performAXAction:(int)arg1 withValue:(id)arg2;
-- (BOOL)performAXAction:(int)arg1;
-- (BOOL)canPerformAXAction:(int)arg1;
+- (void)enableCache:(_Bool)arg1;
+- (_Bool)performAXAction:(int)arg1 withValue:(id)arg2;
+- (_Bool)performAXAction:(int)arg1;
+- (_Bool)canPerformAXAction:(int)arg1;
 - (int)pid;
 - (id)objectWithAXAttribute:(int)arg1 parameter:(void *)arg2;
 - (id)uiElementsWithAttribute:(int)arg1 parameter:(void *)arg2;
@@ -44,10 +44,10 @@
 - (struct CGPath *)pathWithAXAttribute:(int)arg1;
 - (struct CGRect)rectWithAXAttribute:(int)arg1;
 - (id)numberWithAXAttribute:(int)arg1;
-- (BOOL)boolWithAXAttribute:(int)arg1;
+- (_Bool)boolWithAXAttribute:(int)arg1;
 - (id)stringWithAXAttribute:(int)arg1;
 - (id)arrayWithAXAttribute:(int)arg1;
-- (BOOL)isValidForApplication:(id)arg1;
-- (BOOL)isValid;
+- (_Bool)isValidForApplication:(id)arg1;
+- (_Bool)isValid;
 @end
 

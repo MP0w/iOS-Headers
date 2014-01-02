@@ -12,11 +12,11 @@
 {
 }
 
-- (void)initTouchEvent:(id)arg1 canBubble:(BOOL)arg2 cancelable:(BOOL)arg3 view:(id)arg4 detail:(int)arg5 screenX:(int)arg6 screenY:(int)arg7 clientX:(int)arg8 clientY:(int)arg9 ctrlKey:(BOOL)arg10 altKey:(BOOL)arg11 shiftKey:(BOOL)arg12 metaKey:(BOOL)arg13 touches:(id)arg14 targetTouches:(id)arg15 changedTouches:(id)arg16 scale:(float)arg17 rotation:(float)arg18;
-@property(readonly) BOOL metaKey;
-@property(readonly) BOOL altKey;
-@property(readonly) BOOL shiftKey;
-@property(readonly) BOOL ctrlKey;
+- (void)initTouchEvent:(id)arg1 canBubble:(_Bool)arg2 cancelable:(_Bool)arg3 view:(id)arg4 detail:(int)arg5 screenX:(int)arg6 screenY:(int)arg7 clientX:(int)arg8 clientY:(int)arg9 ctrlKey:(_Bool)arg10 altKey:(_Bool)arg11 shiftKey:(_Bool)arg12 metaKey:(_Bool)arg13 touches:(id)arg14 targetTouches:(id)arg15 changedTouches:(id)arg16 scale:(float)arg17 rotation:(float)arg18;
+@property(readonly) _Bool metaKey;
+@property(readonly) _Bool altKey;
+@property(readonly) _Bool shiftKey;
+@property(readonly) _Bool ctrlKey;
 @property(readonly) float rotation;
 @property(readonly) float scale;
 @property(readonly) DOMTouchList *changedTouches;

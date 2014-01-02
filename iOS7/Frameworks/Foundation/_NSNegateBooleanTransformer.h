@@ -6,12 +6,13 @@
 
 #import <Foundation/_NSSharedValueTransformer.h>
 
+// Not exported
 @interface _NSNegateBooleanTransformer : _NSSharedValueTransformer
 {
 }
 
 + (Class)transformedValueClass;
-- (BOOL)_isBooleanTransformer;
+- (_Bool)_isBooleanTransformer;
 - (id)description;
 - (id)transformedValue:(id)arg1;
 

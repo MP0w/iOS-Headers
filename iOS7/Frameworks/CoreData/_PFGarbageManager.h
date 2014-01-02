@@ -8,6 +8,7 @@
 
 @class NSMutableDictionary;
 
+// Not exported
 @interface _PFGarbageManager : NSObject
 {
     NSMutableDictionary *_storeLinksDirs;
@@ -18,16 +19,15 @@
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (void)initialize;
 - (void)doCleanupForURL:(id)arg1;
-- (void)removeDirectory:(id)arg1;
 - (id)temporaryLinksDirectoryForStore:(id)arg1;
-- (BOOL)registerURLForCleanup:(id)arg1;
+- (_Bool)registerURLForCleanup:(id)arg1;
 - (void)_doCleanupForDir:(id)arg1 exceptURLs:(id)arg2;
 - (void)_deleteIfNecessary:(id)arg1;
 - (id)autorelease;
-- (BOOL)_tryRetain;
-- (BOOL)_isDeallocating;
+- (_Bool)_tryRetain;
+- (_Bool)_isDeallocating;
 - (oneway void)release;
-- (unsigned int)retainCount;
+- (unsigned long long)retainCount;
 - (id)retain;
 - (id)_init__;
 

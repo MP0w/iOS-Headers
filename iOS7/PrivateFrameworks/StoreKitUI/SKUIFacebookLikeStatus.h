@@ -14,10 +14,10 @@
 {
     NSArray *_friends;
     NSURL *_url;
-    BOOL _userLiked;
+    _Bool _userLiked;
 }
 
-@property(nonatomic, getter=isUserLiked) BOOL userLiked; // @synthesize userLiked=_userLiked;
+@property(nonatomic, getter=isUserLiked) _Bool userLiked; // @synthesize userLiked=_userLiked;
 @property(copy, nonatomic) NSURL *URL; // @synthesize URL=_url;
 @property(copy, nonatomic) NSArray *friendNames; // @synthesize friendNames=_friends;
 - (void).cxx_destruct;

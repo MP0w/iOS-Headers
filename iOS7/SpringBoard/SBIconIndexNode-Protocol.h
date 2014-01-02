@@ -10,10 +10,10 @@
 - (id)nodeDescriptionWithPrefix:(id)arg1;
 - (void)removeNodeObserver:(id)arg1;
 - (void)addNodeObserver:(id)arg1;
-- (id)nodesAlongIndexPath:(id)arg1 consumedIndexes:(unsigned int)arg2;
+- (id)nodesAlongIndexPath:(id)arg1 consumedIndexes:(unsigned long long)arg2;
 - (id)indexPathsForContainedNodeIdentifier:(id)arg1 prefixPath:(id)arg2;
 - (id)containedNodeIdentifiers;
-- (BOOL)containsNodeIdentifier:(id)arg1;
+- (_Bool)containsNodeIdentifier:(id)arg1;
 - (id)nodeIdentifier;
 @end
 

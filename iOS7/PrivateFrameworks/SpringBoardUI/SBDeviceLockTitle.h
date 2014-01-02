@@ -11,16 +11,16 @@
 @interface SBDeviceLockTitle : UIView
 {
     int _style;
-    int _interfaceOrientation;
+    long long _interfaceOrientation;
 }
 
-+ (id)newWithStyle:(int)arg1 interfaceOrientation:(int)arg2;
-@property(nonatomic) int interfaceOrientation; // @synthesize interfaceOrientation=_interfaceOrientation;
++ (id)newWithStyle:(int)arg1 interfaceOrientation:(long long)arg2;
+@property(nonatomic) long long interfaceOrientation; // @synthesize interfaceOrientation=_interfaceOrientation;
 - (void)blinkSubtitle;
 @property(retain, nonatomic) NSString *subtitle;
 @property(retain, nonatomic) NSString *title;
-@property(nonatomic, getter=isHighlighted) BOOL highlighted;
-- (id)_initWithStyle:(int)arg1 interfaceOrientation:(int)arg2;
+@property(nonatomic, getter=isHighlighted) _Bool highlighted;
+- (id)_initWithStyle:(int)arg1 interfaceOrientation:(long long)arg2;
 
 @end
 

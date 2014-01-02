@@ -10,26 +10,26 @@
 
 @interface TIKeyboardTouchEvent : NSObject <NSSecureCoding>
 {
-    float _radius;
-    int _pathIndex;
     int _stage;
-    int _forcedKeyCode;
-    struct CGPoint _location;
+    double _radius;
     double _timestamp;
+    long long _pathIndex;
+    long long _forcedKeyCode;
+    struct CGPoint _location;
 }
 
-+ (id)touchEventWithStage:(int)arg1 location:(struct CGPoint)arg2 radius:(float)arg3 timestamp:(double)arg4 pathIndex:(int)arg5 forcedKeyCode:(int)arg6;
-+ (BOOL)supportsSecureCoding;
-@property(readonly, nonatomic) int forcedKeyCode; // @synthesize forcedKeyCode=_forcedKeyCode;
++ (id)touchEventWithStage:(int)arg1 location:(struct CGPoint)arg2 radius:(double)arg3 timestamp:(double)arg4 pathIndex:(long long)arg5 forcedKeyCode:(long long)arg6;
++ (_Bool)supportsSecureCoding;
+@property(readonly, nonatomic) long long forcedKeyCode; // @synthesize forcedKeyCode=_forcedKeyCode;
 @property(readonly, nonatomic) int stage; // @synthesize stage=_stage;
-@property(readonly, nonatomic) int pathIndex; // @synthesize pathIndex=_pathIndex;
+@property(readonly, nonatomic) long long pathIndex; // @synthesize pathIndex=_pathIndex;
 @property(readonly, nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
-@property(readonly, nonatomic) float radius; // @synthesize radius=_radius;
+@property(readonly, nonatomic) double radius; // @synthesize radius=_radius;
 @property(readonly, nonatomic) struct CGPoint location; // @synthesize location=_location;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithStage:(int)arg1 location:(struct CGPoint)arg2 radius:(float)arg3 timestamp:(double)arg4 pathIndex:(int)arg5 forcedKeyCode:(int)arg6;
+- (id)initWithStage:(int)arg1 location:(struct CGPoint)arg2 radius:(double)arg3 timestamp:(double)arg4 pathIndex:(long long)arg5 forcedKeyCode:(long long)arg6;
 
 @end
 

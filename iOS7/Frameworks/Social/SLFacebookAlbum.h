@@ -12,20 +12,20 @@
 
 @interface SLFacebookAlbum : NSObject <NSSecureCoding>
 {
-    BOOL _canUpload;
-    BOOL _isDefaultAlbum;
+    _Bool _canUpload;
+    _Bool _isDefaultAlbum;
     NSString *_identifier;
     NSString *_name;
     NSString *_coverPhotoIdentifier;
-    int _count;
+    long long _count;
 }
 
 + (id)albumsWithAlbumDataDictionaries:(id)arg1;
 + (id)albumWithDataDictionary:(id)arg1;
-+ (BOOL)supportsSecureCoding;
-@property BOOL isDefaultAlbum; // @synthesize isDefaultAlbum=_isDefaultAlbum;
-@property BOOL canUpload; // @synthesize canUpload=_canUpload;
-@property int count; // @synthesize count=_count;
++ (_Bool)supportsSecureCoding;
+@property _Bool isDefaultAlbum; // @synthesize isDefaultAlbum=_isDefaultAlbum;
+@property _Bool canUpload; // @synthesize canUpload=_canUpload;
+@property long long count; // @synthesize count=_count;
 @property(retain) NSString *coverPhotoIdentifier; // @synthesize coverPhotoIdentifier=_coverPhotoIdentifier;
 @property(retain) NSString *name; // @synthesize name=_name;
 @property(retain) NSString *identifier; // @synthesize identifier=_identifier;

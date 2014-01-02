@@ -14,7 +14,7 @@
 @interface SUNetworkObserver : NSObject <ISSingleton, ISStoreURLOperationDelegate>
 {
     ISStoreURLOperation *_partnerDetectOperation;
-    BOOL _partnersEnabled;
+    _Bool _partnersEnabled;
     NSString *_partnerIdentifier;
     NSTimer *_startupTimer;
 }
@@ -33,7 +33,7 @@
 - (void)_networkUsageStateChanged:(id)arg1;
 - (void)_networkTypeChanged:(id)arg1;
 - (void)startNetworkAvailabilityTimer;
-- (void)setPartnersEnabled:(BOOL)arg1;
+- (void)setPartnersEnabled:(_Bool)arg1;
 @property(retain, nonatomic) NSString *partnerIdentifier; // @synthesize partnerIdentifier=_partnerIdentifier;
 - (void)checkPartnerAvailability;
 - (void)dealloc;

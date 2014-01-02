@@ -8,35 +8,38 @@
 
 @interface NSMetadataQuery : NSObject
 {
-    unsigned int _flags;
+    unsigned long long _flags;
     double _interval;
     id _private[11];
     void *_reserved;
 }
 
-+ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
++ (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 + (id)keyPathsForValuesAffectingValueForKey:(id)arg1;
-- (id)valueOfAttribute:(id)arg1 forResultAtIndex:(unsigned int)arg2;
+- (id)valueOfAttribute:(id)arg1 forResultAtIndex:(unsigned long long)arg2;
 - (id)groupedResults;
 - (id)valueLists;
-- (unsigned int)indexOfResult:(id)arg1;
+- (unsigned long long)indexOfResult:(id)arg1;
 - (id)results;
 - (void)_zapResultArrayIfIdenticalTo:(id)arg1;
-- (void)enumerateResultsWithOptions:(unsigned int)arg1 usingBlock:(id)arg2;
+- (void)enumerateResultsWithOptions:(unsigned long long)arg1 usingBlock:(id)arg2;
 - (void)enumerateResultsUsingBlock:(id)arg1;
-- (id)resultAtIndex:(unsigned int)arg1;
-- (unsigned int)resultCount;
+- (id)resultAtIndex:(unsigned long long)arg1;
+- (unsigned long long)resultCount;
 - (void)_update;
+- (void)_enableAutoUpdates;
+- (void)_disableAutoUpdates;
 - (void)enableUpdates;
 - (void)disableUpdates;
-- (BOOL)isStopped;
-- (BOOL)isGathering;
-- (BOOL)isStarted;
+- (_Bool)isStopped;
+- (_Bool)isGathering;
+- (_Bool)isStarted;
 - (void)stopQuery;
-- (BOOL)startQuery;
+- (_Bool)startQuery;
 - (void)_recreateQuery;
 - (void)_resetQueryState;
 - (id)_queryString;
+- (void)_noteNote5:(id)arg1;
 - (void)_noteNote4:(id)arg1;
 - (void)_noteNote3:(id)arg1;
 - (void)_noteNote2:(id)arg1;

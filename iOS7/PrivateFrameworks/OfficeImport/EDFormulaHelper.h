@@ -10,6 +10,7 @@
 
 @class ECMappingContext, EDWorkbook, EDWorksheet;
 
+// Not exported
 @interface EDFormulaHelper : NSObject <EFHelper>
 {
     EDWorkbook *mWorkbook;
@@ -23,17 +24,16 @@
 - (int)rowNumber;
 - (id)workbook;
 - (int)resolveFunctionName:(id)arg1;
-- (BOOL)isCurrentSheet:(id)arg1;
-- (unsigned int)resolveTableColumn:(id)arg1 columnName:(id)arg2;
-- (unsigned int)resolveTableToSheetId:(id)arg1;
+- (_Bool)isCurrentSheet:(id)arg1;
+- (unsigned long long)resolveTableColumn:(id)arg1 columnName:(id)arg2;
+- (unsigned long long)resolveTableToSheetId:(id)arg1;
 - (id)resolveTable:(id)arg1;
-- (unsigned int)resolveFile:(id)arg1;
-- (unsigned int)resolveFirstSheet:(id)arg1 lastSheet:(id)arg2;
-- (unsigned int)resolveSheet:(id)arg1;
-- (unsigned int)resolveName:(id)arg1;
+- (unsigned long long)resolveFile:(id)arg1;
+- (unsigned long long)resolveFirstSheet:(id)arg1 lastSheet:(id)arg2;
+- (unsigned long long)resolveSheet:(id)arg1;
+- (unsigned long long)resolveName:(id)arg1;
 - (void)dealloc;
 - (id)initWithWorkbook:(id)arg1 worksheet:(id)arg2 rowNumber:(int)arg3 columnNumber:(int)arg4;
-- (unsigned int)createIndexWithType:(int)arg1 firstSheetIndex:(unsigned int)arg2 lastSheetIndex:(unsigned int)arg3;
 
 @end
 

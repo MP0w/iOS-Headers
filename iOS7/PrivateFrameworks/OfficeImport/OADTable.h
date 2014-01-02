@@ -8,6 +8,7 @@
 
 @class NSMutableArray, OADTableGrid;
 
+// Not exported
 @interface OADTable : OADDrawable
 {
     OADTableGrid *mGrid;
@@ -16,15 +17,12 @@
 
 - (void)setParentTextListStyle:(id)arg1;
 - (id)addRow;
-- (id)rowAtIndex:(unsigned int)arg1;
-- (unsigned int)rowCount;
+- (id)rowAtIndex:(unsigned long long)arg1;
+- (unsigned long long)rowCount;
 - (id)grid;
 - (id)tableProperties;
 - (void)dealloc;
 - (id)init;
-- (id)masterCellOfPos:(struct OADTMatrixPos)arg1;
-- (struct OADTMatrixPos)masterPosOfPos:(struct OADTMatrixPos)arg1;
-- (id)cellAtPos:(struct OADTMatrixPos)arg1;
 
 @end
 

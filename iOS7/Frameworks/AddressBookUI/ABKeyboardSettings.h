@@ -10,11 +10,11 @@
 {
 }
 
-+ (BOOL)usesTextSuggestionDelegate:(id)arg1;
-+ (BOOL)contentsIsSingleValue:(id)arg1;
-+ (int)autocapitalizationTypeFromDictionary:(id)arg1;
-+ (int)autocorrectionTypeFromDictionary:(id)arg1;
-+ (int)keyboardTypeFromDictionary:(id)arg1;
++ (_Bool)usesTextSuggestionDelegate:(id)arg1;
++ (_Bool)contentsIsSingleValue:(id)arg1;
++ (long long)autocapitalizationTypeFromDictionary:(id)arg1;
++ (long long)autocorrectionTypeFromDictionary:(id)arg1;
++ (long long)keyboardTypeFromDictionary:(id)arg1;
 + (id)newKeyboardSettingsForProperty:(int)arg1;
 
 @end

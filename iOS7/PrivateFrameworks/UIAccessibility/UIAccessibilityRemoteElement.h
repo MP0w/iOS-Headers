@@ -6,29 +6,30 @@
 
 #import "NSObject.h"
 
-@class NSMutableSet, NSString;
+@class NSMutableSet, NSString, UIView<UIAccessibilityRemoteElementChildrenDelegate>;
 
 @interface UIAccessibilityRemoteElement : NSObject
 {
     NSString *_uuid;
     int _remotePid;
     unsigned int _contextId;
-    BOOL _onClientSide;
+    _Bool _onClientSide;
     id _remoteChildrenDelegate;
     NSMutableSet *_allChildren;
     unsigned int _machPort;
 }
 
-+ (BOOL)registerRemoteElement:(id)arg1;
++ (_Bool)registerRemoteElement:(id)arg1;
 + (id)remoteElementForContextId:(unsigned int)arg1;
 + (id)remoteElementForBlock:(id)arg1;
 + (void)initialize;
 @property(nonatomic) unsigned int machPort; // @synthesize machPort=_machPort;
-@property(nonatomic) id <UIAccessibilityRemoteElementChildrenDelegate> remoteChildrenDelegate; // @synthesize remoteChildrenDelegate=_remoteChildrenDelegate;
-@property(nonatomic) BOOL onClientSide; // @synthesize onClientSide=_onClientSide;
+@property(nonatomic) UIView<UIAccessibilityRemoteElementChildrenDelegate> *remoteChildrenDelegate; // @synthesize remoteChildrenDelegate=_remoteChildrenDelegate;
+@property(nonatomic) _Bool onClientSide; // @synthesize onClientSide=_onClientSide;
 @property(nonatomic) unsigned int contextId; // @synthesize contextId=_contextId;
 @property(retain, nonatomic) NSString *uuid; // @synthesize uuid=_uuid;
 @property(nonatomic) int remotePid; // @synthesize remotePid=_remotePid;
+- (id)_accessibilityRemoteVisibleElementsGrouped:(_Bool)arg1;
 - (id)description;
 - (struct CGRect)accessibilityFrame;
 - (void)unregister;
@@ -37,7 +38,8 @@
 - (id)_accessibilityFirstElement;
 - (id)_accessibilityResponderElement;
 - (id)_remoteElementWithAttribute:(int)arg1;
-- (BOOL)accessibilityViewIsModal;
+- (_Bool)accessibilityViewIsModal;
+@property(readonly, nonatomic) unsigned long long uuidHash;
 - (void)dealloc;
 - (id)initWithUUID:(id)arg1 andRemotePid:(int)arg2 andContextId:(unsigned int)arg3;
 

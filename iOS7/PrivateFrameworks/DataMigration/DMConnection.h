@@ -10,7 +10,7 @@
 {
 }
 
-- (void)testMigrationUI:(id)arg1;
+- (void)testMigrationUIWithProgress:(_Bool)arg1 forceInvert:(_Bool)arg2 completion:(id)arg3;
 - (void)orderedPluginIdentifiersWithCompletion:(id)arg1;
 - (void)migrateWithCompletion:(id)arg1;
 

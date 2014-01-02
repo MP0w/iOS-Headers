@@ -6,29 +6,31 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSString, PSEditableTableCell, PSSpecifier;
+@class KeychainSyncCountryInfo, NSArray, NSString, PSEditableTableCell, PSListController, PSPhoneNumberSpecifier, PSSpecifier;
 
 @interface KeychainSyncPhoneSettingsFragment : NSObject
 {
     NSArray *_specifiers;
-    PSSpecifier *_phoneNumberSpecifier;
-    PSSpecifier *_countryCodeSpecifier;
+    PSPhoneNumberSpecifier *_phoneNumberSpecifier;
+    PSSpecifier *_countrySpecifier;
+    PSListController *_listController;
     NSString *_phoneNumber;
-    NSString *_countryCode;
+    KeychainSyncCountryInfo *_countryInfo;
     id <KeychainSyncPhoneSettingsFragmentDelegate> _delegate;
+    NSString *_title;
 }
 
+@property(retain, nonatomic) NSString *title; // @synthesize title=_title;
 @property(nonatomic) id <KeychainSyncPhoneSettingsFragmentDelegate> delegate; // @synthesize delegate=_delegate;
-@property(retain, nonatomic) NSString *countryCode; // @synthesize countryCode=_countryCode;
+@property(retain, nonatomic) KeychainSyncCountryInfo *countryInfo; // @synthesize countryInfo=_countryInfo;
 @property(retain, nonatomic) NSString *phoneNumber; // @synthesize phoneNumber=_phoneNumber;
 - (void)textFieldChanged:(id)arg1;
 @property(readonly, nonatomic) PSEditableTableCell *phoneNumberCell;
-@property(readonly, nonatomic) PSEditableTableCell *countryCodeCell;
 - (id)unformattedPhoneNumber;
 - (id)phoneNumberForSpecifier:(id)arg1;
 - (void)setPhoneNumber:(id)arg1 forSpecifier:(id)arg2;
-- (id)countryCodeForSpecifier:(id)arg1;
-- (void)setCountryCode:(id)arg1 forSpecifier:(id)arg2;
+- (id)dialingCountryInfoForSpecifier:(id)arg1;
+- (void)setDialingCountryInfo:(id)arg1 forSpecifier:(id)arg2;
 - (void)resignFirstResponder;
 - (void)reloadSpecifiers;
 @property(readonly, nonatomic) NSArray *specifiers;

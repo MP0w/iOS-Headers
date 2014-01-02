@@ -8,28 +8,28 @@
 
 @interface SBBounceSettings : _UISettings
 {
-    BOOL _resistanceAppliesAfterBounce;
-    float _gravity;
-    float _velocity;
-    float _elasticity;
-    float _friction;
-    float _resistance;
-    float _multiplier;
-    float _minVelocityToAssist;
-    float _maxVelocityToAssist;
-    float _maxVelocityAssistance;
+    _Bool _resistanceAppliesAfterBounce;
+    double _gravity;
+    double _velocity;
+    double _elasticity;
+    double _friction;
+    double _resistance;
+    double _multiplier;
+    double _minVelocityToAssist;
+    double _maxVelocityToAssist;
+    double _maxVelocityAssistance;
 }
 
-@property float maxVelocityAssistance; // @synthesize maxVelocityAssistance=_maxVelocityAssistance;
-@property float maxVelocityToAssist; // @synthesize maxVelocityToAssist=_maxVelocityToAssist;
-@property float minVelocityToAssist; // @synthesize minVelocityToAssist=_minVelocityToAssist;
-@property float multiplier; // @synthesize multiplier=_multiplier;
-@property BOOL resistanceAppliesAfterBounce; // @synthesize resistanceAppliesAfterBounce=_resistanceAppliesAfterBounce;
-@property float resistance; // @synthesize resistance=_resistance;
-@property float friction; // @synthesize friction=_friction;
-@property float elasticity; // @synthesize elasticity=_elasticity;
-@property float velocity; // @synthesize velocity=_velocity;
-@property float gravity; // @synthesize gravity=_gravity;
+@property double maxVelocityAssistance; // @synthesize maxVelocityAssistance=_maxVelocityAssistance;
+@property double maxVelocityToAssist; // @synthesize maxVelocityToAssist=_maxVelocityToAssist;
+@property double minVelocityToAssist; // @synthesize minVelocityToAssist=_minVelocityToAssist;
+@property double multiplier; // @synthesize multiplier=_multiplier;
+@property _Bool resistanceAppliesAfterBounce; // @synthesize resistanceAppliesAfterBounce=_resistanceAppliesAfterBounce;
+@property double resistance; // @synthesize resistance=_resistance;
+@property double friction; // @synthesize friction=_friction;
+@property double elasticity; // @synthesize elasticity=_elasticity;
+@property double velocity; // @synthesize velocity=_velocity;
+@property double gravity; // @synthesize gravity=_gravity;
 - (void)setDefaultValues;
 
 @end

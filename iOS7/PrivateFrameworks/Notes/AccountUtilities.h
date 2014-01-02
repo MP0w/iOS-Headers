@@ -17,7 +17,7 @@
 
 + (id)sharedAccountUtilities;
 - (void).cxx_destruct;
-- (BOOL)localNotesExist;
+- (_Bool)localNotesExist;
 - (id)defaultStoreSyncIdWithDesiredSyncId:(id)arg1;
 - (id)accountIDsEnabledForNotes;
 - (id)accountsEnabledForNotes;

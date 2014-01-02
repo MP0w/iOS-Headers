@@ -10,8 +10,9 @@
 
 @interface IDSServerBag : NSObject
 {
-    BOOL _allowSelfSignedCertificates;
-    BOOL _allowUnsignedBags;
+    _Bool _allowSelfSignedCertificates;
+    _Bool _allowUnsignedBags;
+    int _trustStatus;
     IMConnectionMonitor *_connectionMonitor;
     NSURL *_bagURL;
     NSString *_apsEnvironmentName;
@@ -21,7 +22,6 @@
     IMRemoteURLConnection *_remoteURLConnection;
     NSObject<OS_dispatch_queue> *_bagQueue;
     NSString *_cachedURLString;
-    int _trustStatus;
     NSData *_certData;
     NSString *_cachedHash;
     NSDate *_loadDate;
@@ -29,12 +29,12 @@
 }
 
 + (id)_bagCreationLock;
-+ (id)sharedInstanceForBagType:(int)arg1;
++ (id)sharedInstanceForBagType:(long long)arg1;
 + (id)_sharedInstance;
 + (id)_sharedInstanceForClass:(Class)arg1;
 + (id)sharedInstance;
-@property BOOL allowUnsignedBags; // @synthesize allowUnsignedBags=_allowUnsignedBags;
-@property BOOL allowSelfSignedCertificates; // @synthesize allowSelfSignedCertificates=_allowSelfSignedCertificates;
+@property _Bool allowUnsignedBags; // @synthesize allowUnsignedBags=_allowUnsignedBags;
+@property _Bool allowSelfSignedCertificates; // @synthesize allowSelfSignedCertificates=_allowSelfSignedCertificates;
 @property(retain) NSNumber *_cacheTime; // @synthesize _cacheTime;
 @property(retain) NSDate *_loadDate; // @synthesize _loadDate;
 @property(retain, setter=_setCachedHash:) NSString *_cachedHash; // @synthesize _cachedHash;
@@ -50,23 +50,23 @@
 @property(retain) NSURL *bagURL; // @synthesize bagURL=_bagURL;
 @property(retain) IMConnectionMonitor *_connectionMonitor; // @synthesize _connectionMonitor;
 - (void)connectionMonitorDidUpdate:(id)arg1;
-@property(readonly) BOOL isServerAvailable;
+@property(readonly) _Bool isServerAvailable;
 - (id)urlWithKey:(id)arg1;
 - (id)objectForKey:(id)arg1;
-@property(readonly) BOOL isInDebilitatedMode;
-@property(readonly) BOOL isLoaded;
-@property(readonly) BOOL isLoading;
+@property(readonly) _Bool isInDebilitatedMode;
+@property(readonly) _Bool isLoaded;
+@property(readonly) _Bool isLoading;
 - (void)forceBagLoad;
 - (void)startBagLoad;
-- (void)_startBagLoad:(BOOL)arg1;
+- (void)_startBagLoad:(_Bool)arg1;
 - (void)_cancelCurrentLoad;
-- (void)_processBagResultData:(id)arg1 response:(id)arg2 inBackground:(BOOL)arg3;
-- (BOOL)_loadFromSignedDictionary:(id)arg1 returningError:(id *)arg2;
-- (BOOL)_allowInvalid;
+- (void)_processBagResultData:(id)arg1 response:(id)arg2 inBackground:(_Bool)arg3;
+- (_Bool)_loadFromSignedDictionary:(id)arg1 returningError:(id *)arg2;
+- (_Bool)_allowInvalid;
 - (void)_invalidate;
-- (BOOL)_loadFromDictionary:(id)arg1 returningError:(id *)arg2;
+- (_Bool)_loadFromDictionary:(id)arg1 returningError:(id *)arg2;
 - (void)dealloc;
-- (id)_initWithURL:(id)arg1 apsEnvironmentName:(id)arg2 allowSelfSignedCertificates:(BOOL)arg3 allowUnsignedBags:(BOOL)arg4;
+- (id)_initWithURL:(id)arg1 apsEnvironmentName:(id)arg2 allowSelfSignedCertificates:(_Bool)arg3 allowUnsignedBags:(_Bool)arg4;
 - (void)_generateURLRequest;
 - (void)_bagExternallyReloaded;
 - (void)_saveToCache;

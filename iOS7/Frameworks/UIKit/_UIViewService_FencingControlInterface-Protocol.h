@@ -8,6 +8,6 @@
 
 @optional
 - (void)__endFencingMessagesForSendRight:(id)arg1;
-- (void)__beginFencingMessagesWithSendRight:(id)arg1 connectionCount:(unsigned int)arg2;
+- (void)__beginFencingMessagesWithSendRight:(id)arg1 connectionCount:(unsigned long long)arg2;
 @end
 

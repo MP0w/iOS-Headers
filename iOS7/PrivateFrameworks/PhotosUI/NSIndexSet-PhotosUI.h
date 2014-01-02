@@ -7,6 +7,6 @@
 #import "NSIndexSet.h"
 
 @interface NSIndexSet (PhotosUI)
-- (unsigned int)pu_indexAtIndex:(unsigned int)arg1;
+- (unsigned long long)pu_indexAtIndex:(unsigned long long)arg1;
 @end
 

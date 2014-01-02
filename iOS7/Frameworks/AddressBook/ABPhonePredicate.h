@@ -20,11 +20,11 @@
 @property(readonly, nonatomic) NSString *dbCountry; // @synthesize dbCountry=_dbCountry;
 - (void)evaluateCallbackWithSqliteContext:(struct sqlite3_context *)arg1 predicateContext:(void *)arg2 values:(struct Mem **)arg3 count:(int)arg4;
 - (void)ab_bindStatement:(struct CPSqliteStatement *)arg1 withBindingOffset:(int *)arg2 predicateIdentifier:(int)arg3;
-- (BOOL)hasCallback;
+- (_Bool)hasCallback;
 - (id)queryWhereString;
-- (id)queryJoinsInCompound:(BOOL)arg1;
+- (id)queryJoinsInCompound:(_Bool)arg1;
 - (id)predicateFormat;
-- (BOOL)isValid;
+- (_Bool)isValid;
 - (void)dealloc;
 
 @end

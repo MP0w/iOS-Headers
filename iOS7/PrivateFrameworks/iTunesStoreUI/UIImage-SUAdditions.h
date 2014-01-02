@@ -7,6 +7,6 @@
 #import "UIImage.h"
 
 @interface UIImage (SUAdditions)
-- (id)stretchableImageWithLeftCapWidth:(int)arg1 rightCapWidth:(int)arg2;
+- (id)stretchableImageWithLeftCapWidth:(long long)arg1 rightCapWidth:(long long)arg2;
 @end
 

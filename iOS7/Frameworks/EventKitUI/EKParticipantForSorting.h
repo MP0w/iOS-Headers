@@ -11,7 +11,7 @@
 @interface EKParticipantForSorting : NSObject
 {
     EKParticipant *_participant;
-    BOOL _isEmail;
+    _Bool _isEmail;
     NSString *_firstName;
     NSString *_lastName;
     NSString *_cachedDisplayName;
@@ -19,11 +19,11 @@
 
 - (void).cxx_destruct;
 - (id)description;
-- (int)compare:(id)arg1;
+- (long long)compare:(id)arg1;
 - (id)lastName;
 - (id)firstName;
 - (id)displayName;
-- (BOOL)isEmail;
+- (_Bool)isEmail;
 - (id)participant;
 - (id)initWithEKParticipant:(id)arg1;
 

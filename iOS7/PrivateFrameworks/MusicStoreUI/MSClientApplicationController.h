@@ -13,17 +13,17 @@
 @interface MSClientApplicationController : SUClientApplicationController <SSDownloadManagerObserver>
 {
     SSDownloadManager *_downloadManager;
-    BOOL _registersForPingNotifications;
+    _Bool _registersForPingNotifications;
 }
 
 + (id)sharedController;
-@property(nonatomic) BOOL registersForPingNotifications; // @synthesize registersForPingNotifications=_registersForPingNotifications;
+@property(nonatomic) _Bool registersForPingNotifications; // @synthesize registersForPingNotifications=_registersForPingNotifications;
 - (void)_updateRemoteNotificationSettings;
 - (void)_handleLibraryLinkURL:(id)arg1;
-- (void)_handleStoreSearchURL:(id)arg1;
+- (void)_handleStoreSearchURL:(id)arg1 withSourceApplication:(id)arg2 sourceURLString:(id)arg3;
 - (void)_handleGeniusLookupURL:(id)arg1;
 - (id)tabBarController:(id)arg1 viewControllerForContext:(id)arg2;
-- (BOOL)tabBarController:(id)arg1 shouldShowSection:(id)arg2;
+- (_Bool)tabBarController:(id)arg1 shouldShowSection:(id)arg2;
 - (id)tabBarController:(id)arg1 rootViewControllerForSection:(id)arg2;
 - (void)purchaseManagerWillBeginUpdates:(id)arg1;
 - (void)purchaseManagerDidEndUpdates:(id)arg1;
@@ -31,7 +31,7 @@
 - (id)purchaseManager:(id)arg1 purchaseBatchForItems:(id)arg2;
 - (void)downloadManagerDownloadsDidChange:(id)arg1;
 - (void)_accountStoreChangedNotification:(id)arg1;
-- (BOOL)displayClientURL:(id)arg1;
+- (_Bool)displayClientURL:(id)arg1 withSourceApplication:(id)arg2 sourceURLString:(id)arg3;
 - (void)becomeActive;
 - (void)dealloc;
 - (id)initWithClientInterface:(id)arg1;

@@ -10,18 +10,22 @@
 
 @interface SKUISoftwareSwooshCellLayout : SKUIItemCellLayout
 {
+    UILabel *_artistNameLabel;
     UILabel *_categoryLabel;
     struct CGSize _maxImageSize;
     UILabel *_priceLabel;
     UIColor *_primaryTextColor;
     UIColor *_titleColor;
     UILabel *_titleLabel;
+    unsigned long long _visibleFields;
 }
 
+@property(nonatomic) unsigned long long visibleFields; // @synthesize visibleFields=_visibleFields;
 @property(nonatomic) struct CGSize maxImageSize; // @synthesize maxImageSize=_maxImageSize;
 - (void).cxx_destruct;
 - (void)_reloadPriceLabel;
-- (void)setItemState:(id)arg1;
+- (id)_newDefaultLabel;
+- (void)setItemState:(id)arg1 animated:(_Bool)arg2;
 - (void)setItemOffer:(id)arg1;
 - (void)setBackgroundColor:(id)arg1;
 - (void)layoutSubviews;
@@ -29,7 +33,9 @@
 @property(copy, nonatomic) NSString *price;
 - (void)setColoringWithColorScheme:(id)arg1;
 @property(copy, nonatomic) NSString *category;
+@property(copy, nonatomic) NSString *artistName;
 - (struct CGSize)cellSizeForImageOfSize:(struct CGSize)arg1;
+- (id)initWithCollectionViewCell:(id)arg1;
 
 @end
 

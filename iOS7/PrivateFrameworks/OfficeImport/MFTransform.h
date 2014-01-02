@@ -10,6 +10,7 @@
 
 @class NSObject<MFDeviceDriver>;
 
+// Not exported
 @interface MFTransform : NSObject <NSCopying>
 {
     struct CGAffineTransform m_world;
@@ -47,7 +48,7 @@
 - (int)scaleWindowExt:(int)arg1:(int)arg2:(int)arg3:(int)arg4;
 - (int)setViewportExt:(int)arg1:(int)arg2;
 - (int)setWindowExt:(int)arg1:(int)arg2;
-- (BOOL)isUpsideDown;
+- (_Bool)isUpsideDown;
 - (void)setWorldMatrix:(struct CGAffineTransform)arg1;
 - (struct CGAffineTransform)getWorldMatrix;
 - (int)modifyWorldTransform:(const struct CGAffineTransform *)arg1:(int)arg2;

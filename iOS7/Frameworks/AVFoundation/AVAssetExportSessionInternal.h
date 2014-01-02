@@ -6,14 +6,14 @@
 
 #import "NSObject.h"
 
-@class AVAsset, AVAssetTrack, AVAudioMix, AVCustomVideoCompositorSession, AVMetadataItemFilter, AVVideoComposition, AVWeakReference, NSArray, NSError, NSObject<OS_dispatch_queue>, NSString, NSURL;
+@class AVAsset, AVAssetTrack, AVAudioMix, AVCustomVideoCompositorSession, AVMetadataItemFilter, AVVideoComposition, AVWeakReference, NSArray, NSError, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSString, NSURL;
 
 @interface AVAssetExportSessionInternal : NSObject
 {
     AVWeakReference *weakReference;
     NSObject<OS_dispatch_queue> *readWriteQueue;
     struct OpaqueFigRemaker *remaker;
-    int status;
+    long long status;
     NSError *error;
     float progress;
     AVAsset *asset;
@@ -31,11 +31,15 @@
     NSArray *metadata;
     AVMetadataItemFilter *metadataItemFilter;
     CDStruct_e83c9415 timeRange;
+    CDStruct_1b6d18a9 minVideoFrameDuration;
+    _Bool canUseFastFrameRateConversion;
+    NSString *videoFrameRateConversionAlgorithm;
+    NSObject<OS_dispatch_semaphore> *canUseFastFrameRateConversionSemaphore;
     long long maxFileSize;
     id handler;
-    BOOL optimizeForNetworkUse;
-    BOOL outputFileCreatedByRemaker;
-    long compatibleFileTypesDispatchOncePredicate;
+    _Bool optimizeForNetworkUse;
+    _Bool outputFileCreatedByRemaker;
+    long long compatibleFileTypesDispatchOncePredicate;
     NSArray *compatibleFileTypes;
     NSObject<OS_dispatch_queue> *remakerNotificationSerializationQueue;
 }

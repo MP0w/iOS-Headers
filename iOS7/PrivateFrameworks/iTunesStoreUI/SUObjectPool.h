@@ -16,7 +16,7 @@
 
 @property(readonly, nonatomic) NSArray *vendedObjects; // @synthesize vendedObjects=_vendedObjects;
 - (id)copyPoppedObjectForClass:(Class)arg1;
-- (id)addObjectsOfClass:(Class)arg1 count:(int)arg2 forClass:(Class)arg3;
+- (id)addObjectsOfClass:(Class)arg1 count:(long long)arg2 forClass:(Class)arg3;
 - (void)addObjects:(id)arg1 forClass:(Class)arg2;
 - (void)dealloc;
 

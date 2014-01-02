@@ -13,7 +13,7 @@
     ISOpenURLRequest *_request;
 }
 
-- (BOOL)_openURL:(id)arg1;
+- (_Bool)_openURL:(id)arg1;
 - (id)_newSortedTargetsArray;
 - (void)run;
 @property(readonly) ISOpenURLRequest *openURLRequest;

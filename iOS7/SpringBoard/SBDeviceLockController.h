@@ -6,52 +6,54 @@
 
 #import "NSObject.h"
 
-@class PCPersistentTimer, SBPasscodeLockAssertionManager, SBPasscodeLockDisableAssertion, SecureBackup;
+@class NSString, PCPersistentTimer, SBPasscodeLockAssertionManager, SBPasscodeLockDisableAssertion, SecureBackup;
 
 @interface SBDeviceLockController : NSObject
 {
     int _lockState;
     double _lastLockDate;
-    BOOL _isPermanentlyBlocked;
-    BOOL _isBlockedForThermalCondition;
+    _Bool _isPermanentlyBlocked;
+    _Bool _isBlockedForThermalCondition;
     double _deviceLockUnblockTime;
     PCPersistentTimer *_deviceLockUnblockTimer;
     SBPasscodeLockAssertionManager *_assertionManager;
     SBPasscodeLockDisableAssertion *_transientPasscodeCheckingAssertion;
-    BOOL _okToSendNotifications;
+    _Bool _okToSendNotifications;
     SecureBackup *_secureBackupHelper;
+    NSString *_lastIncorrectPasscodeAttempt;
 }
 
 + (id)_sharedControllerIfExists;
 + (id)sharedController;
-+ (id)_sharedControllerCreateIfNecessary:(BOOL)arg1;
++ (id)_sharedControllerCreateIfNecessary:(_Bool)arg1;
 - (id)description;
 - (void)_uncachePasscodeIfNecessary;
 - (void)_cachePassword:(id)arg1;
-- (BOOL)shouldAllowUnlockToApplication:(id)arg1;
+- (_Bool)shouldAllowUnlockToApplication:(id)arg1;
 - (void)_removeDeviceLockDisableAssertion:(id)arg1;
 - (void)_addDeviceLockDisableAssertion:(id)arg1;
-- (BOOL)attemptDeviceUnlockWithPassword:(id)arg1 appRequested:(BOOL)arg2;
+- (_Bool)attemptDeviceUnlockWithPassword:(id)arg1 appRequested:(_Bool)arg2;
 - (void)_notifyOfFirstUnlock;
 - (void)_setLockState:(int)arg1;
-- (void)_enablePasscodeLockImmediately:(BOOL)arg1;
+- (void)_enablePasscodeLockImmediately:(_Bool)arg1;
 - (void)enablePasscodeLockImmediately;
 - (void)_updateDeviceLockedState;
-- (BOOL)_shouldLockDeviceNow;
-- (BOOL)isPasscodeLockedOrBlocked;
-- (BOOL)isPasscodeLocked;
-- (BOOL)deviceHasPasscodeSet;
+- (_Bool)_shouldLockDeviceNow;
+- (_Bool)isPasscodeLockedOrBlocked;
+- (_Bool)isPasscodeLocked;
+- (_Bool)isPasscodeLockedCached;
+- (_Bool)deviceHasPasscodeSet;
 - (void)_setDeviceLockUnblockTime:(double)arg1;
 - (void)_unblockTimerFired;
 - (void)_scheduleUnblockTimer;
 - (void)_clearUnblockTimer;
 - (void)_clearBlockedState;
-- (BOOL)isPermanentlyBlocked:(double *)arg1;
-- (BOOL)isBlocked;
-- (BOOL)_temporarilyBlocked;
-- (void)setBlockedForThermalCondition:(BOOL)arg1;
+- (_Bool)isPermanentlyBlocked:(double *)arg1;
+- (_Bool)isBlocked;
+- (_Bool)_temporarilyBlocked;
+- (void)setBlockedForThermalCondition:(_Bool)arg1;
 - (void)_sendBlockStateChangeNotification;
-- (BOOL)isBlockedForThermalCondition;
+- (_Bool)isBlockedForThermalCondition;
 - (id)lastLockDate;
 - (void)dealloc;
 - (id)init;

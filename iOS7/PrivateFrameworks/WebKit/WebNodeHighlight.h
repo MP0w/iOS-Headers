@@ -8,6 +8,7 @@
 
 @class WAKView, WebHighlightLayer, WebNodeHighlightView;
 
+// Not exported
 @interface WebNodeHighlight : NSObject
 {
     WAKView *_targetView;

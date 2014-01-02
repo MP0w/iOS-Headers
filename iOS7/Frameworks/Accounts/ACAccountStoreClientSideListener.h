@@ -13,7 +13,7 @@
 }
 
 + (id)sharedClientSideListener;
-- (void)accountCredentialsDidChangeForAccountWithIdentifier:(id)arg1 handler:(id)arg2;
+- (void)accountCredentialsDidChangeForAccountWithIdentifier:(id)arg1;
 
 @end
 

@@ -13,25 +13,25 @@
     NSMutableArray *mSlides;
     NSMutableSet *mPathsInCluster;
     NSString *mName;
-    float mRating;
+    double mRating;
     NSMutableDictionary *mUsageCounterPerLayer;
 }
 
 @property(retain) NSMutableDictionary *usageCounterPerLayer; // @synthesize usageCounterPerLayer=mUsageCounterPerLayer;
-@property float rating; // @synthesize rating=mRating;
+@property double rating; // @synthesize rating=mRating;
 @property(copy) NSString *name; // @synthesize name=mName;
 @property(retain) NSMutableArray *items; // @synthesize items=mSlides;
 - (id)description;
 - (void)detailedDescription;
 - (id)usageCountDescription;
 - (void)resetAllUsageCounters;
-- (float)usageCountForLayer:(id)arg1;
-- (void)setUsageCountForLayer:(id)arg1 to:(float)arg2;
+- (double)usageCountForLayer:(id)arg1;
+- (void)setUsageCountForLayer:(id)arg1 to:(double)arg2;
 - (id)allSlidesSortedChronologically;
-- (BOOL)clusterContainsSlideAtPath:(id)arg1;
+- (_Bool)clusterContainsSlideAtPath:(id)arg1;
 - (id)allSlidesSortedByUser;
 - (id)allSlides;
-- (int)slideCount;
+- (long long)slideCount;
 - (void)removeAllSlides;
 - (void)addSlide:(id)arg1;
 - (void)dealloc;

@@ -11,31 +11,45 @@
 @interface MKModernUserLocationView : MKUserLocationView
 {
     CALayer *_innerCircleLayer;
-    BOOL _shouldInnerPulse;
+    _Bool _shouldInnerPulse;
     struct UIImage *_innerImageMask;
-    BOOL _rotateInnerImageToMatchCourse;
+    _Bool _rotateInnerImageToMatchCourse;
     CALayer *_baseLayer;
+    CALayer *_baseDimmingLayer;
 }
 
-+ (float)innerDiameter;
-+ (float)baseDiameter;
-@property(nonatomic) BOOL rotateInnerImageToMatchCourse; // @synthesize rotateInnerImageToMatchCourse=_rotateInnerImageToMatchCourse;
++ (double)innerDiameter;
++ (double)baseDiameter;
+@property(nonatomic) _Bool rotateInnerImageToMatchCourse; // @synthesize rotateInnerImageToMatchCourse=_rotateInnerImageToMatchCourse;
 @property(retain, nonatomic) UIImage *innerImageMask; // @synthesize innerImageMask=_innerImageMask;
-@property(nonatomic) BOOL shouldInnerPulse; // @synthesize shouldInnerPulse=_shouldInnerPulse;
+@property(nonatomic) _Bool shouldInnerPulse; // @synthesize shouldInnerPulse=_shouldInnerPulse;
 - (void)_setPresentationCourse:(double)arg1;
-- (void)_setMapRotationRadians:(float)arg1;
+- (void)_setMapRotationRadians:(double)arg1;
 - (void)_updateInnerCourseRotation;
+- (void)tintColorDidChange;
+- (void)_updateAccuracyColors;
 - (void)_updateLayers;
-- (void)setEffectsEnabled:(BOOL)arg1;
-- (void)_setMapPitchRadians:(float)arg1;
+- (void)setEffectsEnabled:(_Bool)arg1;
+- (struct UIImage *)_headingImageForAccuracy:(double)arg1 anchorPoint:(struct CGPoint *)arg2;
 - (void)_setupLayers;
+- (void)_updateBaseImage;
+- (void)_resetLayerToMatchAccuracyRing;
+- (id)_layerToMatchAccuracyRing;
+- (id)_pulseAnimation;
+- (void)_setMapDisplayStyle:(long long)arg1;
+- (void)_setMapType:(unsigned long long)arg1;
+- (id)_pulseLayer;
+- (void)_updatePulseColor;
 - (void)_updateInnerMaskLayer;
 - (void)didMoveToWindow;
+- (id)_animationToSynchronizePulse:(id *)arg1;
 - (void)_updatePulseAnimation;
 - (id)_innerPulseAnimation;
+- (id)_baseDimmingLayer;
 - (id)_baseLayer;
 - (void)_dealloc;
 - (id)initWithAnnotation:(id)arg1 reuseIdentifier:(id)arg2;
+- (struct CGColor *)_accuracyFillColor;
 
 @end
 

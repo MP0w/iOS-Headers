@@ -10,7 +10,7 @@
 - (void)fromMainThreadPostNotificationName:(id)arg1 object:(id)arg2 userInfo:(id)arg3;
 - (void)fromNotifySafeThreadPostNotificationName:(id)arg1 object:(id)arg2 userInfo:(id)arg3;
 - (void)fromNotifySafeThreadPerformSelector:(SEL)arg1 withObject:(id)arg2;
-- (BOOL)okToNotifyFromThisThread;
+- (_Bool)okToNotifyFromThisThread;
 - (void)disallowSafePerformSelector;
 - (void)allowSafePerformSelector;
 - (void)postNotificationWithDescription:(id)arg1;

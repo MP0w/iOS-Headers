@@ -10,8 +10,8 @@
 + (id)newUUID;
 - (id)stringByStrippingEmojiCharacters;
 - (id)canonicalQueryValue;
-- (int)compareDomain:(id)arg1;
-- (BOOL)isConfigProfileMIMEType;
+- (long long)compareDomain:(id)arg1;
+- (_Bool)isConfigProfileMIMEType;
 - (id)stringBySubstitutingHTMLEntitiesForAmpersandAndAngleBrackets;
 @end
 

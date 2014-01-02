@@ -8,6 +8,7 @@
 
 @class AirPlayControllerServer, AirPlayReceiverSimulator;
 
+// Not exported
 @interface AirPlayReceiverPlatform : NSObject
 {
     struct AirPlayReceiverUIPrivate *_ui;
@@ -22,6 +23,7 @@
     int _prefChangedNotifyToken;
     int _systemBufferSamples;
     int _systemSampleRate;
+    unsigned char _voiceIO;
     AirPlayControllerServer *_controllerServer;
 }
 

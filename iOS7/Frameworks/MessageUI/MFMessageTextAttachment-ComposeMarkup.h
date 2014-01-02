@@ -7,8 +7,8 @@
 #import "MFMessageTextAttachment.h"
 
 @interface MFMessageTextAttachment (ComposeMarkup)
-- (id)mf_markupStringForComposition:(BOOL)arg1 prependBlankLine:(BOOL)arg2 imageScale:(unsigned int)arg3;
-- (struct CGSize)mf_markupSizeForImageScale:(unsigned int)arg1;
+- (id)mf_markupStringForComposition:(_Bool)arg1 prependBlankLine:(_Bool)arg2 imageScale:(unsigned long long)arg3;
+- (struct CGSize)mf_markupSizeForImageScale:(unsigned long long)arg1;
 - (id)mf_markupURL;
 @end
 

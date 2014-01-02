@@ -13,7 +13,7 @@
     UIView *_view;
 }
 
-- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
+- (void)animationDidStop:(id)arg1 finished:(_Bool)arg2;
 - (void)dealloc;
 - (id)initWithView:(id)arg1;
 

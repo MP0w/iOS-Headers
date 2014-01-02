@@ -8,20 +8,20 @@
 
 @interface StocksPreferences : NSObject
 {
-    BOOL _changeColorSwapped;
-    unsigned int _textDirection;
-    BOOL _textAttachmentDirectionIsRightToLeft;
+    _Bool _changeColorSwapped;
+    unsigned long long _textDirection;
+    _Bool _textAttachmentDirectionIsRightToLeft;
 }
 
 + (void)clearSharedPreferences;
 + (id)sharedPreferences;
-@property(readonly, nonatomic) BOOL textAttachmentDirectionIsRightToLeft; // @synthesize textAttachmentDirectionIsRightToLeft=_textAttachmentDirectionIsRightToLeft;
-@property(readonly, nonatomic) unsigned int textDirection; // @synthesize textDirection=_textDirection;
-@property(readonly, nonatomic, getter=isChangeColorSwapped) BOOL changeColorSwapped; // @synthesize changeColorSwapped=_changeColorSwapped;
+@property(readonly, nonatomic) _Bool textAttachmentDirectionIsRightToLeft; // @synthesize textAttachmentDirectionIsRightToLeft=_textAttachmentDirectionIsRightToLeft;
+@property(readonly, nonatomic) unsigned long long textDirection; // @synthesize textDirection=_textDirection;
+@property(readonly, nonatomic, getter=isChangeColorSwapped) _Bool changeColorSwapped; // @synthesize changeColorSwapped=_changeColorSwapped;
 - (void)synchronize;
 - (void)setObject:(id)arg1 forKey:(id)arg2;
 - (id)objectForKey:(id)arg1;
-- (BOOL)boolForKey:(id)arg1;
+- (_Bool)boolForKey:(id)arg1;
 - (void)resetLocale;
 - (void)dealloc;
 - (id)init;

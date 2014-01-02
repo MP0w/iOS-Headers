@@ -10,21 +10,22 @@
 
 @class EKCalendar, EKCalendarItem, NSDate, NSNumber, NSString, NSURL;
 
+// Not exported
 @interface EKResourceChange : EKObject <EKIdentityProtocol>
 {
 }
 
 - (void)clearAlertedStatus;
 @property(readonly, nonatomic) unsigned int publicStatus;
-@property(readonly, nonatomic) BOOL alerted;
+@property(readonly, nonatomic) _Bool alerted;
 @property(readonly, nonatomic) NSString *deletedTitle;
 @property(readonly, nonatomic) NSNumber *deleteCount;
 @property(readonly, nonatomic) NSNumber *updateCount;
 @property(readonly, nonatomic) NSNumber *createCount;
-@property(readonly, nonatomic) BOOL locationChanged;
-@property(readonly, nonatomic) BOOL titleChanged;
-@property(readonly, nonatomic) BOOL timeChanged;
-@property(readonly, nonatomic) BOOL dateChanged;
+@property(readonly, nonatomic) _Bool locationChanged;
+@property(readonly, nonatomic) _Bool titleChanged;
+@property(readonly, nonatomic) _Bool timeChanged;
+@property(readonly, nonatomic) _Bool dateChanged;
 @property(readonly, nonatomic) NSDate *timestamp;
 @property(readonly, nonatomic) unsigned int changeType;
 @property(readonly, nonatomic) EKCalendarItem *calendarItem;

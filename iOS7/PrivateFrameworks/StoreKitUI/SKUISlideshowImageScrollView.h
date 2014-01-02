@@ -12,7 +12,7 @@
 {
     UIImageView *_imageView;
     struct CGPoint _centerPointBeforeResize;
-    float _scaleBeforeResize;
+    double _scaleBeforeResize;
     UIImage *_image;
 }
 
@@ -22,7 +22,7 @@
 - (void)_recoverFromResize;
 - (void)_prepareToResize;
 - (void)_resetMinMaxZoomScales;
-- (float)_computeMinimumZoomScale;
+- (double)_computeMinimumZoomScale;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)layoutSubviews;
 - (struct CGRect)visibleRect;

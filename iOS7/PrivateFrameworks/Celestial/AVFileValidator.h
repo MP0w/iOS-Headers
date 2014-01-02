@@ -16,15 +16,15 @@
 
 @property(retain) NSString *validationRules; // @synthesize validationRules=_validationRules;
 - (float)progress;
-- (BOOL)isCompleted;
+- (_Bool)isCompleted;
 - (void)cancel;
-- (BOOL)validateSyncWithError:(id *)arg1;
+- (_Bool)validateSyncWithError:(id *)arg1;
 - (void)validate;
 - (void)validateForCameraRoll;
-- (id)validateBlocking:(BOOL)arg1;
+- (id)validateBlocking:(_Bool)arg1;
 - (void)postNotificationForCallback:(id)arg1;
 - (id)notificationForFileCheckResult:(id)arg1;
-- (BOOL)isStreaming;
+- (_Bool)isStreaming;
 - (id)url;
 - (void)dealloc;
 - (id)initWithURL:(id)arg1 options:(id)arg2;

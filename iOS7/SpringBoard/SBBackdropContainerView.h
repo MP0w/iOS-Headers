@@ -15,8 +15,8 @@
 
 @property(retain, nonatomic) _UIBackdropView *backdropView; // @synthesize backdropView=_backdropView;
 - (void)layoutSubviews;
-- (void)_reallyInsertSubview:(id)arg1 atIndex:(int)arg2;
-- (void)insertSubview:(id)arg1 atIndex:(int)arg2;
+- (void)_reallyInsertSubview:(id)arg1 atIndex:(long long)arg2;
+- (void)insertSubview:(id)arg1 atIndex:(long long)arg2;
 - (void)addSubview:(id)arg1;
 @property(readonly, nonatomic) UIView *contentView;
 - (void)dealloc;

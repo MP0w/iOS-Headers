@@ -13,7 +13,7 @@
     NSString *_accessibilityLabel;
     SKUIClientContext *_clientContext;
     SKUICountdownView *_countdownView;
-    BOOL _itemImageHidden;
+    _Bool _itemImageHidden;
     struct UIEdgeInsets _itemImageInsets;
     UIImageView *_itemImageView;
     UIColor *_titleColor;
@@ -22,7 +22,7 @@
 
 @property(readonly, nonatomic) UIView *itemImageView; // @synthesize itemImageView=_itemImageView;
 @property(nonatomic) struct UIEdgeInsets itemImageInsets; // @synthesize itemImageInsets=_itemImageInsets;
-@property(nonatomic, getter=isItemImageHidden) BOOL itemImageHidden; // @synthesize itemImageHidden=_itemImageHidden;
+@property(nonatomic, getter=isItemImageHidden) _Bool itemImageHidden; // @synthesize itemImageHidden=_itemImageHidden;
 @property(retain, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
 @property(copy, nonatomic) NSString *accessibilityLabel; // @synthesize accessibilityLabel=_accessibilityLabel;
 - (void).cxx_destruct;

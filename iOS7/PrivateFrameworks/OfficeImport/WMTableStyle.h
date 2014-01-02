@@ -8,6 +8,7 @@
 
 @class WDTableProperties;
 
+// Not exported
 @interface WMTableStyle : WMStyle
 {
     WDTableProperties *mWdTableProperties;

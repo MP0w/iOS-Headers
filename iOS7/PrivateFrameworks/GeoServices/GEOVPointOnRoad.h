@@ -6,6 +6,7 @@
 
 #import "PBCodable.h"
 
+// Not exported
 @interface GEOVPointOnRoad : PBCodable
 {
     int _featureIndex;
@@ -17,14 +18,14 @@
 
 @property(nonatomic) int vertexIndex; // @synthesize vertexIndex=_vertexIndex;
 @property(nonatomic) int featureIndex; // @synthesize featureIndex=_featureIndex;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) BOOL hasVertexIndex;
+@property(nonatomic) _Bool hasVertexIndex;
 - (void)dealloc;
 
 @end

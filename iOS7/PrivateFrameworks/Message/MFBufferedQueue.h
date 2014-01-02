@@ -20,12 +20,12 @@
 @property(nonatomic) double maximumLatency; // @synthesize maximumLatency=_maximumLatency;
 @property(nonatomic) unsigned int maximumSize; // @synthesize maximumSize=_maximumSize;
 @property(readonly, nonatomic) unsigned int size; // @synthesize size=_currentSize;
-- (BOOL)handleItems:(id)arg1;
-- (unsigned int)sizeForItem:(id)arg1;
-- (BOOL)isEmpty;
-- (BOOL)flush;
+- (_Bool)handleItems:(id)arg1;
+- (unsigned long long)sizeForItem:(id)arg1;
+- (_Bool)isEmpty;
+- (_Bool)flush;
 - (void)removeAllObjects;
-- (BOOL)addItem:(id)arg1;
+- (_Bool)addItem:(id)arg1;
 - (void)dealloc;
 - (id)init;
 - (id)initWithMaximumSize:(unsigned int)arg1 latency:(double)arg2;

@@ -8,7 +8,7 @@
 
 @interface NSScanner (MFMessageBodyHTMLParserExtras)
 - (id)mf_remainingString;
-- (BOOL)mf_scanUpToRegularExpression:(id)arg1;
+- (_Bool)mf_scanUpToRegularExpression:(id)arg1;
 - (struct _NSRange)_rangeOfFirstMatchWithRegularExpression:(id)arg1;
 @end
 

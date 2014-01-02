@@ -20,9 +20,9 @@
 @property(retain) NSString *maxImageSize; // @synthesize maxImageSize=_maxImageSize;
 @property(retain) NSString *maxResourceSize; // @synthesize maxResourceSize=_maxResourceSize;
 - (void)dealloc;
-@property(readonly) BOOL isSharedAddressBook;
-@property(readonly) BOOL isSearchAddressBook;
-@property(readonly) BOOL isAddressBook;
+@property(readonly) _Bool isSharedAddressBook;
+@property(readonly) _Bool isSearchAddressBook;
+@property(readonly) _Bool isAddressBook;
 - (void)applyParsedProperties:(id)arg1;
 - (id)description;
 

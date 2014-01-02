@@ -18,30 +18,30 @@
     UIView<SUCellConfigurationView> *_view;
 }
 
-+ (float)rowHeightForContext:(id)arg1 representedObject:(id)arg2;
-+ (float)minimumRowHeight;
++ (double)rowHeightForContext:(id)arg1 representedObject:(id)arg2;
++ (double)minimumRowHeight;
 + (id)copyDefaultContext;
 @property(nonatomic) UIView<SUCellConfigurationView> *view; // @synthesize view=_view;
 @property(retain, nonatomic) id representedObject; // @synthesize representedObject=_representedObject;
 @property(nonatomic) struct CGSize layoutSize; // @synthesize layoutSize=_layoutSize;
-- (int)textAlignmentForLabelAtIndex:(unsigned int)arg1;
-@property(nonatomic) BOOL isDeleteConfirmationVisible;
-- (id)stringForLabelAtIndex:(unsigned int)arg1;
-@property(nonatomic) BOOL needsDisplay;
+- (long long)textAlignmentForLabelAtIndex:(unsigned long long)arg1;
+@property(nonatomic) _Bool isDeleteConfirmationVisible;
+- (id)stringForLabelAtIndex:(unsigned long long)arg1;
+@property(nonatomic) _Bool needsDisplay;
 @property(retain, nonatomic) id context;
 - (void)reloadData;
-@property(readonly, nonatomic) unsigned int numberOfLabels;
-@property(readonly, nonatomic) unsigned int numberOfImages;
-- (unsigned int)indexOfLabelForPurchaseAnimation;
-- (id)imageAtIndex:(unsigned int)arg1 withModifiers:(unsigned int)arg2;
-- (BOOL)getShadowColor:(id *)arg1 offset:(struct CGSize *)arg2 forLabelAtIndex:(unsigned int)arg3 withModifiers:(unsigned int)arg4;
-- (id)fontForLabelAtIndex:(unsigned int)arg1;
-- (struct CGRect)frameForLabelAtIndex:(unsigned int)arg1;
-- (struct CGRect)frameForImageAtIndex:(unsigned int)arg1;
+@property(readonly, nonatomic) unsigned long long numberOfLabels;
+@property(readonly, nonatomic) unsigned long long numberOfImages;
+- (unsigned long long)indexOfLabelForPurchaseAnimation;
+- (id)imageAtIndex:(unsigned long long)arg1 withModifiers:(unsigned long long)arg2;
+- (_Bool)getShadowColor:(id *)arg1 offset:(struct CGSize *)arg2 forLabelAtIndex:(unsigned long long)arg3 withModifiers:(unsigned long long)arg4;
+- (id)fontForLabelAtIndex:(unsigned long long)arg1;
+- (struct CGRect)frameForLabelAtIndex:(unsigned long long)arg1;
+- (struct CGRect)frameForImageAtIndex:(unsigned long long)arg1;
 - (struct CGRect)frameForAccessoryViewWithFrame:(struct CGRect)arg1;
-- (void)drawWithModifiers:(unsigned int)arg1;
-- (void)drawBackgroundWithModifiers:(unsigned int)arg1;
-- (id)colorForLabelAtIndex:(unsigned int)arg1 withModifiers:(unsigned int)arg2;
+- (void)drawWithModifiers:(unsigned long long)arg1;
+- (void)drawBackgroundWithModifiers:(unsigned long long)arg1;
+- (id)colorForLabelAtIndex:(unsigned long long)arg1 withModifiers:(unsigned long long)arg2;
 - (void)dealloc;
 
 @end

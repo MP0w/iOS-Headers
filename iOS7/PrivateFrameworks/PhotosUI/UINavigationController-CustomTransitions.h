@@ -9,7 +9,7 @@
 @interface UINavigationController (CustomTransitions)
 - (id)pu_currentNavigationTransition;
 - (id)pu_currentInteractiveTransition;
-- (void)pu_popViewControllerAnimated:(BOOL)arg1 interactive:(BOOL)arg2;
-- (void)pu_pushViewController:(id)arg1 withTransition:(id)arg2 animated:(BOOL)arg3 isInteractive:(BOOL)arg4;
+- (void)pu_popViewControllerAnimated:(_Bool)arg1 interactive:(_Bool)arg2;
+- (void)pu_pushViewController:(id)arg1 withTransition:(id)arg2 animated:(_Bool)arg3 isInteractive:(_Bool)arg4;
 @end
 

@@ -6,19 +6,20 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface GQDWPColumn : NSObject
 {
-    long mIndex;
+    long long mIndex;
     float mWidth;
     float mSpacing;
-    BOOL mHasSpacing;
+    _Bool mHasSpacing;
 }
 
 + (const struct StateSpec *)stateForReading;
 - (float)spacing;
-- (BOOL)hasSpacing;
+- (_Bool)hasSpacing;
 - (float)width;
-- (long)index;
+- (long long)index;
 - (int)readAttributesFromReader:(struct _xmlTextReader *)arg1;
 
 @end

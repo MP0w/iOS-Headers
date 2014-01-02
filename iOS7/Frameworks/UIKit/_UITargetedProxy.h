@@ -6,6 +6,7 @@
 
 #import "NSProxy.h"
 
+// Not exported
 @interface _UITargetedProxy : NSProxy
 {
     id _target;

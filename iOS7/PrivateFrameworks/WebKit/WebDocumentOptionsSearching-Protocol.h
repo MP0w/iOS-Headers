@@ -7,6 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol WebDocumentOptionsSearching <NSObject>
-- (BOOL)_findString:(id)arg1 options:(unsigned int)arg2;
+- (_Bool)_findString:(id)arg1 options:(unsigned long long)arg2;
 @end
 

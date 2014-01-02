@@ -17,18 +17,17 @@
 }
 
 - (void)_createCachesAndOptimizeState;
-- (unsigned int)_propertyType;
-- (BOOL)isReadOnly;
-- (BOOL)isTransient;
+- (unsigned long long)_propertyType;
+- (_Bool)isReadOnly;
+- (_Bool)isTransient;
 - (void)setFetchRequest:(id)arg1;
 - (id)fetchRequest;
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (void)dealloc;
-- (void)_writeIntoData:(id)arg1 propertiesDict:(id)arg2 uniquedPropertyNames:(id)arg3 uniquedStrings:(id)arg4 uniquedData:(id)arg5 entitiesSlots:(id)arg6 fetchRequests:(id)arg7;
 
 @end
 

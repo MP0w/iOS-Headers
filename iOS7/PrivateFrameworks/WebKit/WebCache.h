@@ -10,10 +10,12 @@
 {
 }
 
-+ (BOOL)isDisabled;
-+ (void)setDisabled:(BOOL)arg1;
++ (_Bool)isDisabled;
++ (void)setDisabled:(_Bool)arg1;
 + (struct CGImage *)imageForURL:(id)arg1;
++ (void)removeImageFromCacheForURL:(id)arg1 forFrame:(id)arg2;
 + (void)removeImageFromCacheForURL:(id)arg1;
++ (_Bool)addImageToCache:(struct CGImage *)arg1 forURL:(id)arg2 forFrame:(id)arg3;
 + (_Bool)addImageToCache:(struct CGImage *)arg1 forURL:(id)arg2;
 + (void)clearCachedCredentials;
 + (void)sizeOfDeadResources:(int *)arg1;

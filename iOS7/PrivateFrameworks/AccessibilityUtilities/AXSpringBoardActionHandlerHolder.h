@@ -11,12 +11,12 @@
 @interface AXSpringBoardActionHandlerHolder : NSObject
 {
     id _handler;
-    int _type;
+    long long _type;
     NSString *_identifier;
 }
 
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
-@property(nonatomic) int type; // @synthesize type=_type;
+@property(nonatomic) long long type; // @synthesize type=_type;
 @property(copy, nonatomic) id handler; // @synthesize handler=_handler;
 - (void)dealloc;
 

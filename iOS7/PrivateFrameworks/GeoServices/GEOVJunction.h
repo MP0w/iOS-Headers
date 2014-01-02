@@ -8,6 +8,7 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface GEOVJunction : PBCodable
 {
     NSMutableArray *_connectingRoads;
@@ -16,19 +17,19 @@
 
 @property(retain, nonatomic) NSMutableArray *laneConnections; // @synthesize laneConnections=_laneConnections;
 @property(retain, nonatomic) NSMutableArray *connectingRoads; // @synthesize connectingRoads=_connectingRoads;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)laneConnectionsAtIndex:(unsigned int)arg1;
-- (unsigned int)laneConnectionsCount;
+- (id)laneConnectionsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)laneConnectionsCount;
 - (void)addLaneConnections:(id)arg1;
 - (void)clearLaneConnections;
-- (id)connectingRoadAtIndex:(unsigned int)arg1;
-- (unsigned int)connectingRoadsCount;
+- (id)connectingRoadAtIndex:(unsigned long long)arg1;
+- (unsigned long long)connectingRoadsCount;
 - (void)addConnectingRoad:(id)arg1;
 - (void)clearConnectingRoads;
 - (void)dealloc;

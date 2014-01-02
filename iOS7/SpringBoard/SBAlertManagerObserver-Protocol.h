@@ -12,9 +12,10 @@
 - (void)alertManager:(id)arg1 didRemoveAlert:(id)arg2 fromWindow:(id)arg3;
 - (void)alertManager:(id)arg1 didTearDownAlertWindow:(id)arg2;
 - (void)alertManager:(id)arg1 willTearDownAlertWindow:(id)arg2;
+- (void)alertManager:(id)arg1 topAlert:(id)arg2 requestsWallpaperStyleChangeWithAnimationFactory:(id)arg3;
 - (void)alertManagerDidChangeTopAlert:(id)arg1;
-- (void)alertManager:(id)arg1 didDeactivateAlert:(id)arg2 top:(BOOL)arg3;
-- (void)alertManager:(id)arg1 willDeactivateAlert:(id)arg2 top:(BOOL)arg3;
+- (void)alertManager:(id)arg1 didDeactivateAlert:(id)arg2 top:(_Bool)arg3;
+- (void)alertManager:(id)arg1 willDeactivateAlert:(id)arg2 top:(_Bool)arg3;
 - (void)alertManager:(id)arg1 didActivateAlert:(id)arg2 overAlerts:(id)arg3;
 - (void)alertManager:(id)arg1 willActivateAlert:(id)arg2 overAlerts:(id)arg3;
 @end

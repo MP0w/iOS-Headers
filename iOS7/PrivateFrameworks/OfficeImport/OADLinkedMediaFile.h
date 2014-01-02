@@ -8,13 +8,14 @@
 
 @class NSURL;
 
+// Not exported
 @interface OADLinkedMediaFile : OADMovie
 {
     NSURL *mUrl;
-    BOOL mIsExternal;
+    _Bool mIsExternal;
 }
 
-@property BOOL isExternal; // @synthesize isExternal=mIsExternal;
+@property _Bool isExternal; // @synthesize isExternal=mIsExternal;
 @property(retain) NSURL *url; // @synthesize url=mUrl;
 - (void)dealloc;
 

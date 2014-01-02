@@ -7,6 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol AVAssetWriterInputMediaDataRequesterDelegate <NSObject>
-- (BOOL)mediaDataRequesterShouldRequestMediaData:(id)arg1;
+- (_Bool)mediaDataRequesterShouldRequestMediaData:(id)arg1;
 @end
 

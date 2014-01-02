@@ -6,6 +6,7 @@
 
 #import <OfficeImport/ODIBending.h>
 
+// Not exported
 @interface ODIBendingList2 : ODIBending
 {
 }

@@ -16,12 +16,12 @@
 @property(readonly, nonatomic) IMHandle *handle; // @synthesize handle=_handle;
 - (void)setIdentifier:(int)arg1;
 - (void)setRecord:(void *)arg1 recordID:(int)arg2 identifier:(int)arg3;
-- (BOOL)isRemovableFromSearchResults;
+- (_Bool)isRemovableFromSearchResults;
 - (id)objectForDragType:(id)arg1;
 - (id)supportedDragTypes;
 - (void)dealloc;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)uncommentedAddress;
 - (id)displayString;
 - (id)compositeName;

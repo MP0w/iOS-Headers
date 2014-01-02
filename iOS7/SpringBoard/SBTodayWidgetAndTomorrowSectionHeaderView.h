@@ -6,18 +6,18 @@
 
 #import "SBBulletinObserverSectionHeaderView.h"
 
-@class UIImageView, UILabel, UIView;
+@class SBNotificationCenterSeparatorView, UIImageView, UILabel;
 
 @interface SBTodayWidgetAndTomorrowSectionHeaderView : SBBulletinObserverSectionHeaderView
 {
     UILabel *_titleLabel;
     UIImageView *_iconImageView;
-    UIView *_separatorView;
+    SBNotificationCenterSeparatorView *_separatorView;
 }
 
-+ (id)separatorWithScreenScale:(float)arg1;
 + (id)defaultFont;
 + (id)defaultBackgroundColor;
+- (void)prepareForReuse;
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

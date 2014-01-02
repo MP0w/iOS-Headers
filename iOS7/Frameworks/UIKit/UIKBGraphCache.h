@@ -10,6 +10,7 @@
 
 @class NSMutableDictionary, UIScreen;
 
+// Not exported
 @interface UIKBGraphCache : NSObject <_UIScreenBasedObject>
 {
     UIScreen *_screen;
@@ -18,7 +19,7 @@
 
 + (id)graphCacheForScreen:(id)arg1;
 @property(readonly, nonatomic) NSMutableDictionary *graphCache; // @synthesize graphCache=_graphCache;
-- (BOOL)_matchingOptions:(id)arg1;
+- (_Bool)_matchingOptions:(id)arg1;
 @property(readonly) UIScreen *_intendedScreen;
 - (void)dealloc;
 - (id)_initWithScreen:(id)arg1 options:(id)arg2;

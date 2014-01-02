@@ -17,11 +17,11 @@
 
 - (id)effectPreset;
 - (id)referenceImage;
-- (BOOL)_generateReferenceImage;
+- (_Bool)_generateReferenceImage;
 - (void)dealloc;
 - (id)coreUIOptions;
 - (void)_initializeCoreUIOptions:(id)arg1;
-- (id)initWithCoreUIOptions:(id)arg1 forKey:(const struct _renditionkeytoken *)arg2 artworkStatus:(int)arg3;
+- (id)initWithCoreUIOptions:(id)arg1 forKey:(const struct _renditionkeytoken *)arg2 artworkStatus:(long long)arg3;
 - (id)initWithCoreUIOptions:(id)arg1 forKey:(const struct _renditionkeytoken *)arg2;
 
 @end

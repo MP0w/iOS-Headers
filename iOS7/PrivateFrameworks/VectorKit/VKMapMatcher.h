@@ -19,7 +19,7 @@
 + (id)mapMatcherOfType:(id)arg1;
 @property(retain, nonatomic) id <VKRoutePreloadSession> routePreloader; // @synthesize routePreloader=_routePreloader;
 - (id)matchLocation:(id)arg1 transportType:(int)arg2;
-@property(readonly, nonatomic) BOOL allowsNetworkTileLoad;
+@property(readonly, nonatomic) _Bool allowsNetworkTileLoad;
 - (id)tilesAround:(CDStruct_c3b9c2ee)arg1 radius:(double)arg2;
 - (void)dealloc;
 - (id)init;

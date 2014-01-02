@@ -6,6 +6,7 @@
 
 #import <Foundation/NSKeyValueProxyGetter.h>
 
+// Not exported
 @interface NSKeyValueNotifyingMutableCollectionGetter : NSKeyValueProxyGetter
 {
     NSKeyValueProxyGetter *_mutableCollectionGetter;

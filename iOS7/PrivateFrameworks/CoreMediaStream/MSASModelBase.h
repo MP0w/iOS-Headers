@@ -10,7 +10,7 @@
 
 @interface MSASModelBase : NSObject
 {
-    BOOL _dbWasRecreated;
+    _Bool _dbWasRecreated;
     struct sqlite3 *_db;
     NSString *_personID;
     struct __CFDictionary *_statements;
@@ -18,7 +18,7 @@
     NSObject<OS_dispatch_queue> *_dbQueue;
 }
 
-@property(nonatomic) BOOL dbWasRecreated; // @synthesize dbWasRecreated=_dbWasRecreated;
+@property(nonatomic) _Bool dbWasRecreated; // @synthesize dbWasRecreated=_dbWasRecreated;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *dbQueue; // @synthesize dbQueue=_dbQueue;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *statementQueue; // @synthesize statementQueue=_statementQueue;
 @property(nonatomic) struct __CFDictionary *statements; // @synthesize statements=_statements;
@@ -44,8 +44,8 @@
 - (id)persistentStringForKey:(id)arg1;
 - (struct sqlite3_stmt *)statementForString:(id)arg1;
 - (void)dealloc;
-- (void)shutDownForDestruction:(BOOL)arg1 completionBlock:(id)arg2;
-- (BOOL)dbQueueUpgradeFromDatabaseVersion:(int)arg1 currentVersion:(int)arg2;
+- (void)shutDownForDestruction:(_Bool)arg1 completionBlock:(id)arg2;
+- (_Bool)dbQueueUpgradeFromDatabaseVersion:(int)arg1 currentVersion:(int)arg2;
 - (void)dbQueueInitializeDatabasePath:(id)arg1 currentVersion:(int)arg2;
 - (struct sqlite3 *)db;
 - (id)initWithPersonID:(id)arg1 databasePath:(id)arg2 currentVersion:(int)arg3;

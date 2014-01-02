@@ -8,7 +8,7 @@
 
 @interface LSResourceProxy (LSResourceProxyIconPrivate)
 - (struct CGSize)_largestImageSize:(id)arg1;
-- (CDStruct_9b4cf30b *)_iconDefinitionForSize:(struct CGSize)arg1 style:(id)arg2;
-- (CDStruct_9b4cf30b *)_iconVariantDefinitions:(id)arg1;
+- (CDStruct_2f66a7ba *)_iconDefinitionForSize:(struct CGSize)arg1 style:(id)arg2;
+- (CDStruct_2f66a7ba *)_iconVariantDefinitions:(id)arg1;
 @end
 

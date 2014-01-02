@@ -8,6 +8,7 @@
 
 @class UIImage, UIImageView;
 
+// Not exported
 @interface UIAlertMediaButton : UIAlertButton
 {
     UIImageView *_checkmarkView;

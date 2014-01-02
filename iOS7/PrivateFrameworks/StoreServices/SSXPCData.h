@@ -14,7 +14,7 @@
 }
 
 @property(readonly, nonatomic) NSObject<OS_xpc_object> *xpcData; // @synthesize xpcData=_xpcData;
-- (unsigned int)length;
+- (unsigned long long)length;
 - (const void *)bytes;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;

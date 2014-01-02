@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface GQHStyle : NSObject
 {
     struct __CFDictionary *mStyles;
@@ -25,9 +26,9 @@
 - (void)setStyleOnCurrentNode:(id)arg1;
 - (void)setupCssClassAttribute:(id)arg1;
 - (struct __CFString *)createNamedStyle:(struct __CFString *)arg1;
-- (BOOL)getAttribute:(struct __CFString *)arg1 trblValue:(id *)arg2;
-- (BOOL)getAttribute:(struct __CFString *)arg1 value:(const struct __CFString **)arg2;
-- (BOOL)getAttribute:(struct __CFString *)arg1 intValue:(int *)arg2;
+- (_Bool)getAttribute:(struct __CFString *)arg1 trblValue:(id *)arg2;
+- (_Bool)getAttribute:(struct __CFString *)arg1 value:(const struct __CFString **)arg2;
+- (_Bool)getAttribute:(struct __CFString *)arg1 intValue:(int *)arg2;
 - (void)addAttribute:(struct __CFString *)arg1 trblValue:(id)arg2;
 - (void)addAttribute:(struct __CFString *)arg1 ptValue:(int)arg2;
 - (void)addAttribute:(struct __CFString *)arg1 pxValue:(int)arg2;

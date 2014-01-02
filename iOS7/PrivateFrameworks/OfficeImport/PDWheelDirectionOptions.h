@@ -6,6 +6,7 @@
 
 #import <OfficeImport/PDTransitionOptions.h>
 
+// Not exported
 @interface PDWheelDirectionOptions : PDTransitionOptions
 {
     int mSpokes;

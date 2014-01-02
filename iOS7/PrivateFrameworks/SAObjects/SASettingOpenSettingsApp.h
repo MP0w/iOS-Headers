@@ -12,7 +12,7 @@
 
 + (id)openSettingsAppWithDictionary:(id)arg1 context:(id)arg2;
 + (id)openSettingsApp;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

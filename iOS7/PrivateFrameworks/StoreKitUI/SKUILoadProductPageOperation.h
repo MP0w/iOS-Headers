@@ -6,23 +6,24 @@
 
 #import "NSOperation.h"
 
-@class NSObject<OS_dispatch_queue>, NSURL, SSMetricsPageEvent;
+@class NSObject<OS_dispatch_queue>, NSURLRequest, SKUIClientContext, SSMetricsPageEvent;
 
 @interface SKUILoadProductPageOperation : NSOperation
 {
+    SKUIClientContext *_clientContext;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     long long _itemID;
     SSMetricsPageEvent *_metricsPageEvent;
     id _outputBlock;
-    NSURL *_url;
+    NSURLRequest *_urlRequest;
 }
 
 - (void).cxx_destruct;
 - (void)main;
 @property(copy) id outputBlock;
 @property(readonly) SSMetricsPageEvent *metricsPageEvent;
-- (id)initWithProductPageURL:(id)arg1;
-- (id)initWithItemIdentifier:(long long)arg1;
+- (id)initWithProductPageURLRequest:(id)arg1 clientContext:(id)arg2;
+- (id)initWithItemIdentifier:(long long)arg1 clientContext:(id)arg2;
 - (id)_initSKUILoadProductPageOperation;
 
 @end

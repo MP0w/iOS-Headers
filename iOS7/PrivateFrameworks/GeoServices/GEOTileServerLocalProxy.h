@@ -10,6 +10,7 @@
 
 @class GEOTileDBReader, GEOTileDBWriter, NSLock, NSMapTable, NSMutableArray, NSString;
 
+// Not exported
 @interface GEOTileServerLocalProxy : GEOTileServerProxy <GEOResourceManifestTileGroupObserver>
 {
     GEOTileDBWriter *_dbWriter;
@@ -23,7 +24,7 @@
 - (void)resourceManifestManagerDidChangeActiveTileGroup:(id)arg1;
 - (void)resourceManifestManagerWillChangeActiveTileGroup:(id)arg1;
 - (void)flushPendingWrites;
-- (BOOL)skipNetworkForKeysWhenPreloading:(id)arg1;
+- (_Bool)skipNetworkForKeysWhenPreloading:(id)arg1;
 - (void)endPreloadSession;
 - (void)beginPreloadSessionOfSize:(unsigned long long)arg1;
 - (void)shrinkDiskCacheToSize:(unsigned long long)arg1;
@@ -31,7 +32,7 @@
 - (void)tileRequesterFinished:(id)arg1;
 - (void)tileRequester:(id)arg1 receivedError:(id)arg2;
 - (void)tileRequester:(id)arg1 receivedData:(id)arg2 tileEdition:(unsigned int)arg3 tileSet:(unsigned int)arg4 forKey:(struct _GEOTileKey)arg5 userInfo:(id)arg6;
-- (void)loadTiles:(id)arg1 priorities:(unsigned int *)arg2 options:(unsigned int)arg3 client:(id)arg4;
+- (void)loadTiles:(id)arg1 priorities:(unsigned int *)arg2 options:(unsigned long long)arg3 client:(id)arg4;
 - (void)cancel:(const struct _GEOTileKey *)arg1;
 - (void)close;
 - (void)open;

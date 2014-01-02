@@ -17,15 +17,15 @@
         unsigned short *directUniCharBuffer;
         char *directCStringBuffer;
         struct {
-            int location;
-            int length;
+            long long location;
+            long long length;
         } rangeToBuffer;
-        int bufferedRangeStart;
-        int bufferedRangeEnd;
+        long long bufferedRangeStart;
+        long long bufferedRangeEnd;
     } m_inlineBuffer;
     struct _NSRange m_tokenRange;
     struct _NSRange m_searchRange;
-    unsigned int m_bufferOffset;
+    unsigned long long m_bufferOffset;
 }
 
 - (id)allTokensForString:(id)arg1;

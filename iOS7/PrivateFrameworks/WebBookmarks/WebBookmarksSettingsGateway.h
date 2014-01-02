@@ -15,10 +15,12 @@
     WebBookmarksXPCConnection *_connection;
 }
 
+- (id)getSafariDataUsageSummary;
+- (void)deleteSafariPersistentURLCacheStorage;
 - (void)deleteSafariSecurityOrigin:(id)arg1;
 - (void)deleteAllSafariSecurityOrigins;
 - (void)getSafariWebDataUsageWithCompletion:(id)arg1;
-- (void)setCellularReadingListAllowed:(BOOL)arg1;
+- (void)setCellularReadingListAllowed:(_Bool)arg1;
 - (void)getCellularReadingListAllowedWithCompletion:(id)arg1;
 - (void)_clearConnection;
 - (void)connection:(id)arg1 didCloseWithError:(id)arg2;

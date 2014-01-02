@@ -6,6 +6,7 @@
 
 #import <OfficeImport/PDAnimationShapeTarget.h>
 
+// Not exported
 @interface PDAnimationChartTarget : PDAnimationShapeTarget
 {
     int mCatagoryIndex;
@@ -13,8 +14,8 @@
     int mBuildStep;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)setBuildStep:(int)arg1;
 - (int)buildStep;
 - (void)setSeriesIndex:(int)arg1;

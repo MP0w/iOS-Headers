@@ -20,11 +20,11 @@
 - (void).cxx_destruct;
 - (id)_deviceAuthorizationFilePath;
 - (id)_deviceAuthorizationDirectory;
-- (BOOL)removeDeviceWithIdentifier:(id)arg1 error:(id *)arg2;
-- (BOOL)isAuthorizedDeviceWithIdentifier:(id)arg1;
+- (_Bool)removeDeviceWithIdentifier:(id)arg1 error:(id *)arg2;
+- (_Bool)isAuthorizedDeviceWithIdentifier:(id)arg1;
 - (id)deviceNameForIdentifier:(id)arg1;
 @property(readonly, nonatomic) NSArray *deviceIdentifiers;
-- (BOOL)addDeviceWithIdentifier:(id)arg1 forDeviceName:(id)arg2 error:(id *)arg3;
+- (_Bool)addDeviceWithIdentifier:(id)arg1 forDeviceName:(id)arg2 error:(id *)arg3;
 - (id)init;
 
 @end

@@ -8,6 +8,7 @@
 
 #import <WebKit/WebOpenPanelResultListener-Protocol.h>
 
+// Not exported
 @interface WebOpenPanelResultListener : NSObject <WebOpenPanelResultListener>
 {
     struct FileChooser *_chooser;

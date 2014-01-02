@@ -23,8 +23,10 @@
 - (id)initWithCoder:(id)arg1;
 - (id)_cacheIDAtPlaybackTime:(double)arg1;
 - (id)_imageDataForSize:(struct CGSize)arg1 playbackTime:(double)arg2;
-- (id)_imageForSize:(struct CGSize)arg1 artworkCacheID:(id)arg2 playbackTime:(double)arg3 scaleToSize:(BOOL)arg4;
-- (id)_imageWithFormat:(int)arg1 artworkCacheID:(id)arg2 canUseSurfaceBackedImage:(BOOL)arg3 scaleToSize:(struct CGSize)arg4;
+- (id)_imageForSize:(struct CGSize)arg1 artworkCacheID:(id)arg2 playbackTime:(double)arg3 scaleToSize:(_Bool)arg4;
+- (id)_imageWithFormat:(long long)arg1 artworkCacheID:(id)arg2 canUseSurfaceBackedImage:(_Bool)arg3 scaleToSize:(struct CGSize)arg4;
+- (_Bool)shouldAsynchrounouslyLoadArtworkForItemWithIdentifier:(long long)arg1 artworkSize:(struct CGSize)arg2 artworkCacheID:(id)arg3;
+- (_Bool)shouldAsynchrounouslyLoadArtworkForItemWithIdentifier:(long long)arg1 artworkFormat:(long long)arg2 artworkCacheID:(id)arg3;
 - (struct CGRect)imageCropRect;
 - (struct CGRect)bounds;
 - (id)albumImageDataWithSize:(struct CGSize)arg1;
@@ -32,8 +34,8 @@
 - (id)imageDataWithSize:(struct CGSize)arg1 atPlaybackTime:(double)arg2;
 - (id)imageWithSize:(struct CGSize)arg1 atPlaybackTime:(double)arg2;
 - (id)imageWithSize:(struct CGSize)arg1 artworkCacheID:(id)arg2;
-- (id)imageWithFormat:(int)arg1 artworkCacheID:(id)arg2 canUseSurfaceBackedImage:(BOOL)arg3;
-- (BOOL)hasArtworkAvailable;
+- (id)imageWithFormat:(long long)arg1 artworkCacheID:(id)arg2 canUseSurfaceBackedImage:(_Bool)arg3;
+- (_Bool)hasArtworkAvailable;
 - (id)_initWithItem:(id)arg1;
 
 @end

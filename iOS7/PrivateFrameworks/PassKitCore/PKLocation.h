@@ -20,16 +20,16 @@
     NSString *_relevantText;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) NSString *relevantText; // @synthesize relevantText=_relevantText;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 - (id)CLLocation;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (BOOL)hasEqualCoordinatesToLocation:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)hasEqualCoordinatesToLocation:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
-- (BOOL)hasAltitude;
+- (_Bool)hasAltitude;
 - (double)altitude;
 - (double)maxDistance;
 - (double)longitude;

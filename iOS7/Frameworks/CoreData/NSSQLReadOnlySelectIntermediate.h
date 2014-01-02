@@ -6,13 +6,14 @@
 
 #import <CoreData/NSSQLSelectIntermediate.h>
 
+// Not exported
 @interface NSSQLReadOnlySelectIntermediate : NSSQLSelectIntermediate
 {
-    BOOL _onlyFetchesAggregates;
+    _Bool _onlyFetchesAggregates;
 }
 
 - (id)generateSQLStringInContext:(id)arg1;
-- (BOOL)onlyFetchesAggregates;
+- (_Bool)onlyFetchesAggregates;
 
 @end
 

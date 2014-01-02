@@ -16,9 +16,9 @@
     NSString *_cancelButtonTitle;
 }
 
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
-- (BOOL)shouldShowInLockScreen;
+- (void)configure:(_Bool)arg1 requirePasscodeForActions:(_Bool)arg2;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
+- (_Bool)shouldShowInLockScreen;
 - (void)dealloc;
 - (id)initWithTitle:(id)arg1 message:(id)arg2 continueButtonTitle:(id)arg3 cancelButtonTitle:(id)arg4;
 

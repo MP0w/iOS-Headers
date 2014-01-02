@@ -23,10 +23,10 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (struct Object *)CA_copyRenderValue;
-- (BOOL)apply:(const double *)arg1 result:(double *)arg2 parameterFunction:(void *)arg3 context:(void *)arg4;
-- (BOOL)apply:(const double *)arg1 result:(double *)arg2;
-- (unsigned long)outputCount;
-- (unsigned long)inputCount;
+- (_Bool)apply:(const double *)arg1 result:(double *)arg2 parameterFunction:(void *)arg3 context:(void *)arg4;
+- (_Bool)apply:(const double *)arg1 result:(double *)arg2;
+- (unsigned long long)outputCount;
+- (unsigned long long)inputCount;
 @property(readonly) NSString *name;
 - (void)dealloc;
 - (id)_initWithName:(int)arg1;

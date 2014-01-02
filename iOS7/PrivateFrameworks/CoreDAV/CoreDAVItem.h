@@ -17,12 +17,12 @@
     NSMutableSet *_attributes;
     NSMutableArray *_extraChildItems;
     NSData *_payload;
-    BOOL _useCDATA;
+    _Bool _useCDATA;
 }
 
 + (id)parseRuleCache;
 + (id)copyParseRules;
-@property BOOL useCDATA; // @synthesize useCDATA=_useCDATA;
+@property _Bool useCDATA; // @synthesize useCDATA=_useCDATA;
 @property(retain) NSData *payload; // @synthesize payload=_payload;
 @property(retain) NSMutableArray *extraChildItems; // @synthesize extraChildItems=_extraChildItems;
 @property(retain) NSMutableSet *attributes; // @synthesize attributes=_attributes;
@@ -32,7 +32,7 @@
 - (void)parserSuggestsBaseURL:(id)arg1;
 - (void)setPayloadAsString:(id)arg1;
 - (id)payloadAsString;
-- (BOOL)validate;
+- (_Bool)validate;
 - (void)write:(id)arg1;
 - (id)childrenToWrite;
 - (void)parserFoundAttributes:(id)arg1;

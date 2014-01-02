@@ -10,6 +10,7 @@
 
 @class CHDTitle, EDResources, OADGraphicProperties;
 
+// Not exported
 @interface CHDAxis : NSObject <EDKeyedObject>
 {
     _Bool mReverseOrder;
@@ -22,8 +23,8 @@
     _Bool mAutoCrossValue;
     _Bool mContentFormatDerived;
     int mAxisId;
-    unsigned int mContentFormatId;
-    unsigned int mFontIndex;
+    unsigned long long mContentFormatId;
+    unsigned long long mFontIndex;
     double mScalingMaximum;
     double mScalingMinimum;
     int mOrientation;
@@ -42,7 +43,7 @@
     int mCrosses;
     double mTickLabelRotation;
     _Bool mIsAutoRotation;
-    unsigned int mTickLabelColorIndex;
+    unsigned long long mTickLabelColorIndex;
     EDResources *mResources;
 }
 
@@ -54,7 +55,7 @@
 - (void)setDateTimeFormattingFlag:(_Bool)arg1;
 - (_Bool)isDateTimeFormattingFlag;
 - (_Bool)isDate;
-- (int)key;
+- (long long)key;
 - (void)setCrosses:(int)arg1;
 - (int)crosses;
 - (void)setCrossBetween:(int)arg1;
@@ -111,13 +112,6 @@
 - (int)axisId;
 - (void)dealloc;
 - (id)initWithResources:(id)arg1;
-- (id)tickLabelColor;
-- (void)setTickLabelColorIndex:(unsigned int)arg1;
-- (unsigned int)tickLabelColorIndex;
-- (void)setFontIndex:(unsigned int)arg1;
-- (unsigned int)fontIndex;
-- (void)setContentFormatId:(unsigned int)arg1;
-- (unsigned int)contentFormatId;
 
 @end
 

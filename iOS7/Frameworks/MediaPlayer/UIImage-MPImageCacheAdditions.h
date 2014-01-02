@@ -7,7 +7,7 @@
 #import "UIImage.h"
 
 @interface UIImage (MPImageCacheAdditions)
-@property(nonatomic) BOOL isPlaceholder;
+@property(nonatomic, setter=mp_setIsPlaceholder:) _Bool mp_isPlaceholder;
 @property(nonatomic) double mediaImageTime;
 @property(nonatomic) struct CGRect mediaImageSubRect;
 @end

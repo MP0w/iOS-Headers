@@ -27,7 +27,7 @@
 - (id)stateString;
 - (void)releasePowerAssertion:(id)arg1;
 - (void)retainPowerAssertion:(id)arg1 withGroupIdentifier:(id)arg2;
-- (unsigned int)powerAssertionRetainCount:(id)arg1;
+- (unsigned long long)powerAssertionRetainCount:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

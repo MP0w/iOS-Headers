@@ -17,14 +17,14 @@
     NSString *_bundleIdentifier;
     NSString *_bundleVersion;
     NSData *_auditToken;
-    BOOL _requireWiFi;
+    _Bool _requireWiFi;
 }
 
-+ (BOOL)skipNetworkForKeysWhenPreloading:(id)arg1;
++ (_Bool)skipNetworkForKeysWhenPreloading:(id)arg1;
 + (CDStruct_e4886f83 *)newExpiringTilesets;
-+ (unsigned int)expiringTilesetsCount;
++ (unsigned long long)expiringTilesetsCount;
 + (unsigned char)tileProviderIdentifier;
-@property(nonatomic) BOOL requireWiFi; // @synthesize requireWiFi=_requireWiFi;
+@property(nonatomic) _Bool requireWiFi; // @synthesize requireWiFi=_requireWiFi;
 @property(retain, nonatomic) NSData *auditToken; // @synthesize auditToken=_auditToken;
 @property(retain, nonatomic) NSString *bundleVersion; // @synthesize bundleVersion=_bundleVersion;
 @property(retain, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;

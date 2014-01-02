@@ -18,14 +18,16 @@
 @property(retain) NSString *logFileName; // @synthesize logFileName=_logFileName;
 @property(retain) NSData *logData; // @synthesize logData=_logData;
 @property(retain) NSMutableDictionary *deviceInfoDictionary; // @synthesize deviceInfoDictionary=_deviceInfoDictionary;
-- (BOOL)copyLogsToTempDirectory;
-- (BOOL)createTempDirectory;
-- (BOOL)collectLogs;
+- (_Bool)copyLogsToTempDirectory:(unsigned long long)arg1;
+- (_Bool)copyPowerLogsToDir:(id)arg1;
+- (_Bool)archiveLogFile:(id)arg1 toFile:(id)arg2 atDir:(id)arg3;
+- (_Bool)createTempDirectory:(unsigned long long)arg1;
+- (_Bool)collectLogs:(unsigned long long)arg1;
 - (id)collectUbiquityData;
 - (id)collectAggdData;
 - (id)collectGasGaugeData;
 - (id)collectBasicDeviceData;
-- (BOOL)collectAllDeviceInformation;
+- (_Bool)collectAllDeviceInformation;
 - (void)dealloc;
 
 @end

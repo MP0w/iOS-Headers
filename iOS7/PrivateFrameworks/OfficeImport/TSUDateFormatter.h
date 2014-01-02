@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface TSUDateFormatter : NSObject
 {
     NSString *mDateOnlyFormatString;
@@ -24,9 +25,6 @@
 + (id)defaultDateTimeFormat;
 - (void)dealloc;
 - (id)init;
-- (id)stringFromDate:(id)arg1 format:(id)arg2;
-- (id)appropriateOutputFormatStringForInputFormatString:(id)arg1;
-- (id)fullDateString:(id)arg1;
 
 @end
 

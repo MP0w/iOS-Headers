@@ -6,20 +6,27 @@
 
 #import "SBUIMainScreenAnimationController.h"
 
-@class SBAlertManager, UIView;
+@class SBAlertManager, SBUIFullscreenAlertAdapter;
 
 @interface SBUIAnimationFadeHomeToPluginAlert : SBUIMainScreenAnimationController
 {
     SBAlertManager *_alertManager;
-    UIView *_viewToAnimate;
+    SBUIFullscreenAlertAdapter *_alert;
+    _Bool _alertIsTransparent;
+    _Bool _alertViewIsAnimatingItself;
+    _Bool _finishedPrimaryFadeAnimation;
 }
 
 - (void)_cleanupAnimation;
 - (void)_startAnimation;
+- (void)_alertViewFinishedAnimatingItself;
+- (void)_fadeAnimationFinished;
+- (void)_evaluateTotalAnimationCompletion;
+- (void)_animationFinished;
 - (void)_prepareAnimation;
 - (double)animationDuration;
 - (void)dealloc;
-- (id)initWithAlertManager:(id)arg1;
+- (id)initWithAlertManager:(id)arg1 alert:(id)arg2;
 
 @end
 

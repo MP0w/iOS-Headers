@@ -13,7 +13,7 @@
     NSArray *_collections;
     NSArray *_filterPredicates;
     NSArray *_items;
-    BOOL _watchingLibrary;
+    _Bool _watchingLibrary;
 }
 
 + (void)initialize;

@@ -21,9 +21,9 @@
 + (id)webScriptNameForKeyName:(id)arg1;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
-- (BOOL)_styleIsValid:(id)arg1;
+- (_Bool)_styleIsValid:(id)arg1;
 - (id)_newTextField;
-- (float)_defaultWidth;
+- (double)_defaultWidth;
 - (id)_boxedNativeTextField;
 - (id)_keyboardType;
 - (id)_copyValue;
@@ -39,13 +39,13 @@
 @property(retain) NSString *autocorrectionType;
 @property(retain) NSString *autocapitalizationType;
 - (id)_className;
-- (BOOL)focus;
-- (BOOL)blur;
+- (_Bool)focus;
+- (_Bool)blur;
 - (id)buttonItem;
 - (void)setNativeObjectWithTextField:(id)arg1;
 - (void)setNativeObjectWithSearchBar:(id)arg1;
 - (void)setNativeObjectWithBarButtonItem:(id)arg1;
-@property(readonly, nonatomic) BOOL canBecomeFirstResponder;
+@property(readonly, nonatomic) _Bool canBecomeFirstResponder;
 - (void)dealloc;
 - (id)initWithTextFieldStyle:(id)arg1;
 - (id)init;

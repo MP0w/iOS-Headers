@@ -18,18 +18,18 @@
     NSString *_boundIconCacheKey;
     NSArray *_boundIconFileNames;
     LSApplicationProxy *_typeOwner;
-    BOOL _boundIconIsPrerendered;
-    BOOL _boundIconIsBadge;
+    _Bool _boundIconIsPrerendered;
+    _Bool _boundIconIsBadge;
 }
 
 @property(readonly, nonatomic) NSString *localizedName; // @synthesize localizedName=_localizedName;
 - (id)iconStyleDomain;
 - (id)iconDataForVariant:(int)arg1;
-- (id)iconDataForStyle:(id)arg1 width:(int)arg2 height:(int)arg3 options:(unsigned int)arg4;
-- (void)setBoundIconIsBadge:(BOOL)arg1;
-@property(readonly, nonatomic) BOOL boundIconIsBadge;
-- (void)setBoundIconIsPrerendered:(BOOL)arg1;
-- (BOOL)boundIconIsPrerendered;
+- (id)iconDataForStyle:(id)arg1 width:(long long)arg2 height:(long long)arg3 options:(unsigned long long)arg4;
+- (void)setBoundIconIsBadge:(_Bool)arg1;
+@property(readonly, nonatomic) _Bool boundIconIsBadge;
+- (void)setBoundIconIsPrerendered:(_Bool)arg1;
+- (_Bool)boundIconIsPrerendered;
 - (void)setTypeOwner:(id)arg1;
 - (id)typeOwner;
 - (void)setBoundIconFileNames:(id)arg1;
@@ -48,7 +48,7 @@
 - (void)setLocalizedName:(id)arg1;
 - (void)dealloc;
 - (id)_initWithLocalizedName:(id)arg1;
-- (id)_initWithLocalizedName:(id)arg1 boundApplicationIdentifier:(id)arg2 boundContainerURL:(id)arg3 boundResourcesDirectoryURL:(id)arg4 boundIconsDictionary:(id)arg5 boundIconCacheKey:(id)arg6 boundIconFileNames:(id)arg7 typeOwner:(id)arg8 boundIconIsPrerendered:(BOOL)arg9 boundIconIsBadge:(BOOL)arg10;
+- (id)_initWithLocalizedName:(id)arg1 boundApplicationIdentifier:(id)arg2 boundContainerURL:(id)arg3 boundResourcesDirectoryURL:(id)arg4 boundIconsDictionary:(id)arg5 boundIconCacheKey:(id)arg6 boundIconFileNames:(id)arg7 typeOwner:(id)arg8 boundIconIsPrerendered:(_Bool)arg9 boundIconIsBadge:(_Bool)arg10;
 
 @end
 

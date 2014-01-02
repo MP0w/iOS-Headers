@@ -6,6 +6,6 @@
 
 @protocol ABContentControllerProtocol
 - (void)reload;
-- (void)back:(BOOL)arg1 save:(BOOL)arg2;
+- (void)back:(_Bool)arg1 save:(_Bool)arg2;
 @end
 

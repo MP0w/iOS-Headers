@@ -14,7 +14,7 @@
 
 + (id)setSuggestedUtterancesWithDictionary:(id)arg1 context:(id)arg2;
 + (id)setSuggestedUtterances;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSArray *utterances;
 @property(copy, nonatomic) NSString *language;
 - (id)encodedClassName;

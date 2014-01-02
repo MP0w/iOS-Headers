@@ -10,8 +10,7 @@
 {
 }
 
-+ (unsigned int)pendingCountForSyncProgressForAlbums:(id)arg1 outImportOperations:(int *)arg2;
-+ (id)syncProgressAlbumsInLibrary:(id)arg1;
++ (unsigned long long)pendingCountForSyncProgressForAlbums:(id)arg1 outImportOperations:(int *)arg2;
 
 @end
 

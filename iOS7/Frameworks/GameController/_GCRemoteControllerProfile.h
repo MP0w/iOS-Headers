@@ -8,21 +8,22 @@
 
 #import "_GCACHomeButtonDelegate-Protocol.h"
 
-@class NSObject<OS_dispatch_source>, _GCACHomeButton;
+@class _GCACHomeButton;
 
+// Not exported
 @interface _GCRemoteControllerProfile : _GCGamepad <_GCACHomeButtonDelegate>
 {
     _GCACHomeButton *_acHome;
-    char *_reportBuffer;
-    NSObject<OS_dispatch_source> *_timer;
 }
 
 - (void).cxx_destruct;
 - (void)toggleSuspendResume;
 - (id)inputForElement:(struct __IOHIDElement *)arg1;
-- (void)setPlayerIndex:(int)arg1;
+- (void)setPlayerIndex:(long long)arg1;
 - (id)name;
 - (id)initWithController:(id)arg1;
+- (void)startWithController:(id)arg1;
+- (void)startHandlerThread:(id)arg1;
 - (void)handleReport:(unsigned int)arg1 data:(id)arg2;
 
 @end

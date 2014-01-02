@@ -10,6 +10,7 @@
 
 @class TSUColor;
 
+// Not exported
 @interface MFPen : NSObject <MFObject>
 {
     int m_penStyle;

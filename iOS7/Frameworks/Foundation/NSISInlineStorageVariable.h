@@ -10,19 +10,20 @@
 
 @class NSString;
 
+// Not exported
 @interface NSISInlineStorageVariable : NSISVariable <NSISVariableDelegate>
 {
     NSString *_name;
     int _valueRestriction;
-    BOOL _shouldBeMinimized;
+    _Bool _shouldBeMinimized;
 }
 
-@property BOOL shouldBeMinimized; // @synthesize shouldBeMinimized=_shouldBeMinimized;
+@property _Bool shouldBeMinimized; // @synthesize shouldBeMinimized=_shouldBeMinimized;
 @property int valueRestriction; // @synthesize valueRestriction=_valueRestriction;
 @property(copy) NSString *name; // @synthesize name=_name;
 - (oneway void)dealloc;
-- (BOOL)nsis_valueOfVariableIsUserObservable:(id)arg1;
-- (BOOL)nsis_shouldIntegralizeVariable:(id)arg1;
+- (_Bool)nsis_valueOfVariableIsUserObservable:(id)arg1;
+- (_Bool)nsis_shouldIntegralizeVariable:(id)arg1;
 - (id)nsis_descriptionOfVariable:(id)arg1;
 - (void)nsis_valueOfVariable:(id)arg1 didChangeInEngine:(id)arg2;
 - (id)markedConstraint;

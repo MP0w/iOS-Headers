@@ -8,6 +8,7 @@
 
 @class WDRubyProperties;
 
+// Not exported
 @interface WDRubyRun : WDCharacterRun
 {
     WDCharacterRun *mPhoneticRun;

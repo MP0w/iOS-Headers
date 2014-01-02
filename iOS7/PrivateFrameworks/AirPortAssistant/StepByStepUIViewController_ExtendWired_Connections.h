@@ -13,9 +13,8 @@
     int _curStep;
 }
 
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)presentAPOrRouterWANPluginUI;
-- (void)addAPOrRouterWANPluginUI;
 
 @end
 

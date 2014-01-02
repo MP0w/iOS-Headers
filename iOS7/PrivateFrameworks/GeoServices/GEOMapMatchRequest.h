@@ -6,9 +6,11 @@
 
 #import "PBRequest.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSMutableArray;
 
-@interface GEOMapMatchRequest : PBRequest
+@interface GEOMapMatchRequest : PBRequest <NSCopying>
 {
     NSMutableArray *_locations;
     NSMutableArray *_waypoints;
@@ -16,21 +18,22 @@
 
 @property(retain, nonatomic) NSMutableArray *locations; // @synthesize locations=_locations;
 @property(retain, nonatomic) NSMutableArray *waypoints; // @synthesize waypoints=_waypoints;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (Class)responseClass;
 - (unsigned int)requestTypeCode;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)locationAtIndex:(unsigned int)arg1;
-- (unsigned int)locationsCount;
+- (id)locationAtIndex:(unsigned long long)arg1;
+- (unsigned long long)locationsCount;
 - (void)addLocation:(id)arg1;
 - (void)clearLocations;
-- (id)waypointAtIndex:(unsigned int)arg1;
-- (unsigned int)waypointsCount;
+- (id)waypointAtIndex:(unsigned long long)arg1;
+- (unsigned long long)waypointsCount;
 - (void)addWaypoint:(id)arg1;
 - (void)clearWaypoints;
 - (void)dealloc;

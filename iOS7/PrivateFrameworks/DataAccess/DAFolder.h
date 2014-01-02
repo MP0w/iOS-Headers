@@ -14,22 +14,20 @@
     NSString *_folderID;
     NSString *_parentFolderID;
     int _dataclass;
-    BOOL _isDefault;
-    BOOL _hasRemoteChanges;
+    _Bool _isDefault;
+    _Bool _hasRemoteChanges;
 }
 
-@property BOOL hasRemoteChanges; // @synthesize hasRemoteChanges=_hasRemoteChanges;
-@property BOOL isDefault; // @synthesize isDefault=_isDefault;
+@property _Bool hasRemoteChanges; // @synthesize hasRemoteChanges=_hasRemoteChanges;
+@property _Bool isDefault; // @synthesize isDefault=_isDefault;
 @property int dataclass; // @synthesize dataclass=_dataclass;
 @property(copy) NSString *parentFolderID; // @synthesize parentFolderID=_parentFolderID;
 @property(copy) NSString *folderID; // @synthesize folderID=_folderID;
 @property(copy) NSString *folderName; // @synthesize folderName=_folderName;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)description;
 - (void)dealloc;
-- (id)parentMailboxID;
-- (id)mailboxID;
 
 @end
 

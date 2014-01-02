@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface AirPlayImage : NSObject
 {
     struct CGSize _unadjustedSize;
@@ -27,9 +28,9 @@
 - (struct CGAffineTransform)contentsTransformForLayer:(id)arg1;
 @property(readonly, nonatomic) id layerContents;
 - (void)dealloc;
-- (id)initWithData:(id)arg1 decode:(BOOL)arg2;
+- (id)initWithData:(id)arg1 decode:(_Bool)arg2;
 - (id)initWithData:(id)arg1;
-- (id)initWithContentsOfFile:(id)arg1 decode:(BOOL)arg2;
+- (id)initWithContentsOfFile:(id)arg1 decode:(_Bool)arg2;
 - (id)initWithContentsOfFile:(id)arg1;
 
 @end

@@ -21,7 +21,7 @@
 - (int)_transitionForString:(id)arg1;
 - (void)_presentModalViewController:(id)arg1 withTransition:(id)arg2;
 - (void)_dismissModalViewControllerWithTransition:(id)arg1;
-- (void)_dismissModalViewControllerAnimated:(BOOL)arg1;
+- (void)_dismissModalViewControllerAnimated:(_Bool)arg1;
 @property(readonly) NSString *modalPresentationStyleNameFullScreen;
 @property(readonly) NSString *modalPresentationStyleNameFormSheet;
 @property id wantsFullScreenLayout;
@@ -42,22 +42,18 @@
 @property(readonly) SUScriptViewController *modalViewController;
 - (id)_className;
 @property(readonly) NSString *contextDictionary;
-- (void)setToolbarItems:(id)arg1 animated:(BOOL)arg2;
+- (void)setToolbarItems:(id)arg1 animated:(_Bool)arg2;
 - (void)runScrollTest:(id)arg1 withDelta:(float)arg2 forIterations:(int)arg3;
 - (void)presentModalViewController:(id)arg1 withTransition:(id)arg2;
 - (void)dismissModalViewControllerWithTransition:(id)arg1;
-- (void)dismissModalViewControllerAnimated:(BOOL)arg1;
-- (void)dismissViewControllerAnimated:(BOOL)arg1 completion:(id)arg2;
+- (void)dismissModalViewControllerAnimated:(_Bool)arg1;
+- (void)dismissViewControllerAnimated:(_Bool)arg1 completion:(id)arg2;
 - (void)tearDownUserInterface;
-- (BOOL)equals:(id)arg1;
+- (_Bool)equals:(id)arg1;
 @property(retain, nonatomic) UIViewController *nativeViewController;
 - (id)newNativeViewController;
 - (id)newScriptColorWithValue:(id)arg1;
 - (void)dealloc;
-- (id)_parentViewControllerForVolumeViewController;
-- (void)presentVolumeViewController:(id)arg1 animated:(id)arg2;
-- (void)dismissVolumeViewControllerAnimated:(id)arg1;
-@property(readonly) SUScriptViewController *volumeViewController;
 
 @end
 

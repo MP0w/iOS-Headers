@@ -22,7 +22,7 @@
     MSObjectQueue *_quarantinedQueue;
     NSArray *_pendingDerivativesQueue;
     NSMutableArray *_requestAuthQueue;
-    unsigned int _sendingQueueCount;
+    unsigned long long _sendingQueueCount;
     NSMutableArray *_sendingQueue;
     NSMutableDictionary *_fileHashToAssetMap;
     MSPublishStreamsProtocol *_protocol;
@@ -35,7 +35,7 @@
     int _maxErrorCount;
 }
 
-+ (BOOL)isInRetryState;
++ (_Bool)isInRetryState;
 + (void)stopAllActivities;
 + (id)personIDsWithOutstandingActivities;
 + (id)nextActivityDateForPersonID:(id)arg1;
@@ -51,7 +51,7 @@
 @property(nonatomic) MSMediaStreamDaemon *daemon; // @synthesize daemon=_daemon;
 @property(nonatomic) id <MSPublisherDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (BOOL)_isInRetryState;
+- (_Bool)_isInRetryState;
 - (void)stop;
 - (void)abort;
 - (void)_forget;
@@ -61,7 +61,7 @@
 - (void)publishStreamsProtocol:(id)arg1 didFinishSendingUploadCompleteError:(id)arg2;
 - (void)_sendUploadComplete;
 - (void)publishStorageProtocolDidFinishPublishingAllAssets:(id)arg1;
-- (void)_categorizeError:(id)arg1 setOutIsIgnorable:(char *)arg2 setOutIsCounted:(char *)arg3 setOutIsFatal:(char *)arg4 setOutNeedsBackoff:(char *)arg5 setOutIsTemporary:(char *)arg6 setOutIsTokenAuth:(char *)arg7 setOutIsAuthError:(char *)arg8;
+- (void)_categorizeError:(id)arg1 setOutIsIgnorable:(_Bool *)arg2 setOutIsCounted:(_Bool *)arg3 setOutIsFatal:(_Bool *)arg4 setOutNeedsBackoff:(_Bool *)arg5 setOutIsTemporary:(_Bool *)arg6 setOutIsTokenAuth:(_Bool *)arg7 setOutIsAuthError:(_Bool *)arg8;
 - (void)publishStorageProtocol:(id)arg1 didFinishUsingFD:(int)arg2 forAsset:(id)arg3;
 - (int)publishStorageProtocol:(id)arg1 didRequestFDForAsset:(id)arg2;
 - (void)publishStorageProtocol:(id)arg1 didFinishUploadingAsset:(id)arg2 error:(id)arg3;
@@ -78,19 +78,20 @@
 - (void)_addAssetToFileHashMap:(id)arg1;
 - (void)_requestDerivatives;
 - (void)publish;
-- (BOOL)_isAllowedToUpload;
+- (_Bool)_isAllowedToUpload;
 - (void)reenqueueQuarantinedAssetCollections;
 - (id)_checkObjectWrappers:(id)arg1;
 - (id)_checkAssetCollectionFiles:(id)arg1;
 - (id)_collectionWithNoDerivatives:(id)arg1;
-- (BOOL)_verifyAssetFile:(id)arg1;
+- (_Bool)_verifyAssetFile:(id)arg1;
 - (void)_quarantineOrDiscardWrappers:(id)arg1 withError:(id)arg2;
 - (void)_registerAllAssetsForWrapper:(id)arg1;
 - (void)_registerAsset:(id)arg1;
 - (void)_serverSideConfigurationDidChange:(id)arg1;
 - (void)_refreshServerSideConfiguredParameters;
 - (void)computeHashForAsset:(id)arg1;
-- (BOOL)enqueueAssetCollections:(id)arg1 outError:(id *)arg2;
+- (_Bool)dequeueAssetCollectionWithGUIDs:(id)arg1 outError:(id *)arg2;
+- (_Bool)enqueueAssetCollections:(id)arg1 outError:(id *)arg2;
 - (void)_updateMasterManifest;
 - (void)dealloc;
 - (void)deactivate;

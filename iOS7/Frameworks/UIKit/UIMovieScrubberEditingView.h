@@ -8,29 +8,32 @@
 
 @class NSArray, UIImageView;
 
+// Not exported
 @interface UIMovieScrubberEditingView : UIView
 {
     UIImageView *_leftImageView;
     UIImageView *_middleImageView;
     UIImageView *_rightImageView;
     NSArray *_activeImages;
+    NSArray *_activeNoEditImages;
     NSArray *_inactiveImages;
-    unsigned int _isActive:1;
-    unsigned int _centerHandleEnabled:1;
+    _Bool _enabled;
+    _Bool _editing;
+    double _edgeInset;
 }
 
-- (float)_bounceValueForFraction:(float)arg1;
+@property(nonatomic) double edgeInset; // @synthesize edgeInset=_edgeInset;
+@property(nonatomic, getter=isEditing) _Bool editing; // @synthesize editing=_editing;
+@property(nonatomic, getter=isEnabled) _Bool enabled; // @synthesize enabled=_enabled;
+- (double)_bounceValueForFraction:(double)arg1;
 - (void)bounce;
-@property(nonatomic, getter=isEditing) BOOL editing;
-- (struct CGRect)rightHandleFrame;
-- (struct CGRect)rightHandleBounds;
-- (struct CGRect)leftHandleFrame;
-- (struct CGRect)leftHandleBounds;
-- (int)handleForPoint:(struct CGPoint)arg1 hitOffset:(float *)arg2;
-- (BOOL)pointInsideCenterHandle:(struct CGPoint)arg1;
-- (BOOL)pointInsideRightHandle:(struct CGPoint)arg1;
-- (BOOL)pointInsideLeftHandle:(struct CGPoint)arg1;
-- (void)setCenterHandleEnabled:(BOOL)arg1;
+- (void)_updateHandleImages;
+- (id)_handleImages;
+- (int)handleForPoint:(struct CGPoint)arg1 hitOffset:(double *)arg2;
+- (_Bool)pointInsideRightHandle:(struct CGPoint)arg1;
+- (struct CGRect)_rightHandleRect;
+- (_Bool)pointInsideLeftHandle:(struct CGPoint)arg1;
+- (struct CGRect)_leftHandleRect;
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

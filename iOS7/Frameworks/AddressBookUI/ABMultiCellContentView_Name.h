@@ -10,15 +10,15 @@
 {
 }
 
-+ (unsigned int)rowsForPropertyGroup:(id)arg1 info:(id)arg2;
++ (unsigned long long)rowsForPropertyGroup:(id)arg1 info:(id)arg2;
 - (void)entryField:(id)arg1 valueDidChange:(id)arg2 forKey:(id)arg3;
-- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)reloadFromModelIncludingRows:(BOOL)arg1;
+- (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)reloadFromModelIncludingRows:(_Bool)arg1;
 - (void)reloadFromModel;
 - (void)reload;
 - (void)reloadLabelFromModel;
 - (id)keyboardSettingsForKey:(id)arg1;
-- (id)labelTextColorWhenEditing:(BOOL)arg1;
+- (id)labelTextColorWhenEditing:(_Bool)arg1;
 - (id)displayTextColor;
 
 @end

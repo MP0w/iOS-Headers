@@ -17,10 +17,10 @@
     NSMutableDictionary *_userManifest;
     MSBackoffManager *_streamsBackoffManager;
     MSBackoffManager *_MMCSBackoffManager;
-    BOOL _hasDeactivated;
+    _Bool _hasDeactivated;
 }
 
-@property(nonatomic) BOOL hasDeactivated; // @synthesize hasDeactivated=_hasDeactivated;
+@property(nonatomic) _Bool hasDeactivated; // @synthesize hasDeactivated=_hasDeactivated;
 @property(readonly, nonatomic) NSString *personID; // @synthesize personID=_personID;
 @property(retain, nonatomic) NSMutableDictionary *_userManifest; // @synthesize _userManifest;
 - (void).cxx_destruct;

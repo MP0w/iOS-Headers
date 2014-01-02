@@ -8,6 +8,6 @@
 
 @protocol VSRemoteKeepAlive <NSObject>
 - (oneway void)cancel;
-- (oneway void)maintainWithAudioType:(int)arg1 keepAudioSessionActive:(BOOL)arg2;
+- (oneway void)maintainWithAudioType:(long long)arg1 keepAudioSessionActive:(_Bool)arg2;
 @end
 

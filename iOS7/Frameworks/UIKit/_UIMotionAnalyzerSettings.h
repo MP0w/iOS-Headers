@@ -8,40 +8,40 @@
 
 @interface _UIMotionAnalyzerSettings : _UISettings
 {
-    BOOL _showIdleIndicator;
-    BOOL _jumpEnabled;
-    BOOL _playJumpSound;
-    BOOL _directionalLockEnabled;
-    BOOL _showDirectionalLockIndicators;
-    BOOL _referenceShiftEnabled;
-    float _inputSmoothingFactor;
-    float _referenceShiftSpeed;
-    float _idleLeeway;
-    float _delayBeforeIdle;
-    float _jumpThreshold;
-    float _directionalLockThreshold;
-    float _directionalLockStickiness;
-    float _directionalLockSharpness;
-    float _referenceShiftDistanceDependence;
+    _Bool _showIdleIndicator;
+    _Bool _jumpEnabled;
+    _Bool _playJumpSound;
+    _Bool _directionalLockEnabled;
+    _Bool _showDirectionalLockIndicators;
+    _Bool _referenceShiftEnabled;
+    double _inputSmoothingFactor;
+    double _referenceShiftSpeed;
+    double _idleLeeway;
+    double _delayBeforeIdle;
+    double _jumpThreshold;
+    double _directionalLockThreshold;
+    double _directionalLockStickiness;
+    double _directionalLockSharpness;
+    double _referenceShiftDistanceDependence;
 }
 
-@property float referenceShiftDistanceDependence; // @synthesize referenceShiftDistanceDependence=_referenceShiftDistanceDependence;
-@property BOOL referenceShiftEnabled; // @synthesize referenceShiftEnabled=_referenceShiftEnabled;
-@property BOOL showDirectionalLockIndicators; // @synthesize showDirectionalLockIndicators=_showDirectionalLockIndicators;
-@property float directionalLockSharpness; // @synthesize directionalLockSharpness=_directionalLockSharpness;
-@property float directionalLockStickiness; // @synthesize directionalLockStickiness=_directionalLockStickiness;
-@property float directionalLockThreshold; // @synthesize directionalLockThreshold=_directionalLockThreshold;
-@property BOOL directionalLockEnabled; // @synthesize directionalLockEnabled=_directionalLockEnabled;
-@property BOOL playJumpSound; // @synthesize playJumpSound=_playJumpSound;
-@property float jumpThreshold; // @synthesize jumpThreshold=_jumpThreshold;
-@property BOOL jumpEnabled; // @synthesize jumpEnabled=_jumpEnabled;
-@property BOOL showIdleIndicator; // @synthesize showIdleIndicator=_showIdleIndicator;
-@property float delayBeforeIdle; // @synthesize delayBeforeIdle=_delayBeforeIdle;
-@property float idleLeeway; // @synthesize idleLeeway=_idleLeeway;
-@property float referenceShiftSpeed; // @synthesize referenceShiftSpeed=_referenceShiftSpeed;
-@property float inputSmoothingFactor; // @synthesize inputSmoothingFactor=_inputSmoothingFactor;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+@property double referenceShiftDistanceDependence; // @synthesize referenceShiftDistanceDependence=_referenceShiftDistanceDependence;
+@property _Bool referenceShiftEnabled; // @synthesize referenceShiftEnabled=_referenceShiftEnabled;
+@property _Bool showDirectionalLockIndicators; // @synthesize showDirectionalLockIndicators=_showDirectionalLockIndicators;
+@property double directionalLockSharpness; // @synthesize directionalLockSharpness=_directionalLockSharpness;
+@property double directionalLockStickiness; // @synthesize directionalLockStickiness=_directionalLockStickiness;
+@property double directionalLockThreshold; // @synthesize directionalLockThreshold=_directionalLockThreshold;
+@property _Bool directionalLockEnabled; // @synthesize directionalLockEnabled=_directionalLockEnabled;
+@property _Bool playJumpSound; // @synthesize playJumpSound=_playJumpSound;
+@property double jumpThreshold; // @synthesize jumpThreshold=_jumpThreshold;
+@property _Bool jumpEnabled; // @synthesize jumpEnabled=_jumpEnabled;
+@property _Bool showIdleIndicator; // @synthesize showIdleIndicator=_showIdleIndicator;
+@property double delayBeforeIdle; // @synthesize delayBeforeIdle=_delayBeforeIdle;
+@property double idleLeeway; // @synthesize idleLeeway=_idleLeeway;
+@property double referenceShiftSpeed; // @synthesize referenceShiftSpeed=_referenceShiftSpeed;
+@property double inputSmoothingFactor; // @synthesize inputSmoothingFactor=_inputSmoothingFactor;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)setDefaultValues;
 
 @end

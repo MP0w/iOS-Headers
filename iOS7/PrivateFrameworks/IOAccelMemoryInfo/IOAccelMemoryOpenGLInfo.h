@@ -12,7 +12,7 @@
 {
     int pid;
     NSString *sharegroup;
-    unsigned int objectType;
+    unsigned long long objectType;
     int name;
     int blamedProcess;
     NSString *objectDescription;
@@ -24,7 +24,7 @@
 @property(retain) NSString *objectDescription; // @synthesize objectDescription;
 @property int blamedProcess; // @synthesize blamedProcess;
 @property int name; // @synthesize name;
-@property unsigned int objectType; // @synthesize objectType;
+@property unsigned long long objectType; // @synthesize objectType;
 @property(retain) NSString *sharegroup; // @synthesize sharegroup;
 @property int pid; // @synthesize pid;
 - (void)dealloc;

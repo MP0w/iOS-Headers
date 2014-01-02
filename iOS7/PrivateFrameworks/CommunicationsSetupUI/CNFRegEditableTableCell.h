@@ -14,8 +14,8 @@
     SEL _didBeginEditingSelector;
     SEL _didEndEditingSelector;
     id _textChangeObserver;
-    BOOL _textFieldIsEmpty;
-    BOOL _skipDelegateCallback;
+    _Bool _textFieldIsEmpty;
+    _Bool _skipDelegateCallback;
     UIImage *_shadowImage;
     CNFRegShadowView *_shadowView;
     UIImage *_customCheckmarkImage;
@@ -26,10 +26,10 @@
 @property(retain, nonatomic) UIImage *customCheckmarkImage; // @synthesize customCheckmarkImage=_customCheckmarkImage;
 @property(retain, nonatomic) CNFRegShadowView *shadowView; // @synthesize shadowView=_shadowView;
 @property(retain, nonatomic) UIImage *shadowImage; // @synthesize shadowImage=_shadowImage;
-@property(nonatomic) BOOL skipDelegateCallback; // @synthesize skipDelegateCallback=_skipDelegateCallback;
+@property(nonatomic) _Bool skipDelegateCallback; // @synthesize skipDelegateCallback=_skipDelegateCallback;
 - (void)dealloc;
 - (void)layoutSubviews;
-- (void)setChecked:(BOOL)arg1;
+- (void)setChecked:(_Bool)arg1;
 - (void)textFieldDidEndEditing:(id)arg1;
 - (void)textFieldDidBeginEditing:(id)arg1;
 - (void)notifyTextFieldDidEndEditing;
@@ -37,11 +37,11 @@
 - (void)_stopListeningForTextChanges;
 - (void)_startListeningForTextChanges;
 - (void)_handleTextChanged;
-- (BOOL)_textFieldIsCurrentlyEmpty;
+- (_Bool)_textFieldIsCurrentlyEmpty;
 - (void)setValueChangedTarget:(id)arg1 action:(SEL)arg2 specifier:(id)arg3;
 - (void)textFieldChangedExternally;
 - (void)setTitle:(id)arg1;
-- (void)notifyTextFieldEmptyStateChanged:(BOOL)arg1;
+- (void)notifyTextFieldEmptyStateChanged:(_Bool)arg1;
 - (void)_updateTextFieldOffsetWithDict:(id)arg1;
 
 @end

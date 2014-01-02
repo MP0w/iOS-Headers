@@ -10,7 +10,7 @@
 
 @interface MCAirPrintPayload : MCPayload
 {
-    unsigned int _airPrintCount;
+    unsigned long long _airPrintCount;
     NSMutableArray *_ippAddresses;
 }
 
@@ -18,7 +18,7 @@
 + (id)localizedSingularForm;
 + (id)typeStrings;
 @property(retain, nonatomic) NSMutableArray *ippAddresses; // @synthesize ippAddresses=_ippAddresses;
-@property(nonatomic) unsigned int airPrintCount; // @synthesize airPrintCount=_airPrintCount;
+@property(nonatomic) unsigned long long airPrintCount; // @synthesize airPrintCount=_airPrintCount;
 - (void).cxx_destruct;
 - (id)restrictions;
 - (id)description;

@@ -6,6 +6,7 @@
 
 #import <VectorKit/VGLCullableMesh.h>
 
+// Not exported
 @interface VGLCenterLineMesh : VGLCullableMesh
 {
     int _lastRenderPass;
@@ -26,7 +27,7 @@
 - (id)initRoadMesh;
 - (id)initMeshOfType:(int)arg1;
 - (id)init;
-- (BOOL)isPrimaryIndexModeLinesWithTriangles;
+- (_Bool)isPrimaryIndexModeLinesWithTriangles;
 
 @end
 

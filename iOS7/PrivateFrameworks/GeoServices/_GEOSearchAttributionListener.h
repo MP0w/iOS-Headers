@@ -8,6 +8,7 @@
 
 @class NSMutableArray, NSString;
 
+// Not exported
 @interface _GEOSearchAttributionListener : NSObject
 {
     NSString *_identifier;
@@ -19,7 +20,7 @@
 @property(readonly, nonatomic) unsigned int version; // @synthesize version=_version;
 @property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void)handleError:(id)arg1;
-- (void)handleInfo:(id)arg1 updatedManifest:(BOOL)arg2;
+- (void)handleInfo:(id)arg1 updatedManifest:(_Bool)arg2;
 - (void)addCompletionHandler:(id)arg1 errorHandler:(void)arg2;
 - (void)dealloc;
 - (id)initWithIdentifier:(id)arg1 version:(unsigned int)arg2;

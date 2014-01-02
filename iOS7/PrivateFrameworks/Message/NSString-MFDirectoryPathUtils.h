@@ -7,7 +7,7 @@
 #import "NSString.h"
 
 @interface NSString (MFDirectoryPathUtils)
-- (BOOL)mf_isSubdirectoryOfPath:(id)arg1;
-- (BOOL)mf_makeDirectoryWithMode:(int)arg1;
+- (_Bool)mf_isSubdirectoryOfPath:(id)arg1;
+- (_Bool)mf_makeDirectoryWithMode:(int)arg1;
 @end
 

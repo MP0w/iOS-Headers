@@ -22,8 +22,8 @@
     unsigned short _numberOfValues;
     NSMutableArray *_supportedValues;
     NSMutableData *_content;
-    BOOL _dirty;
-    BOOL _readOnlyObject;
+    _Bool _dirty;
+    _Bool _readOnlyObject;
 }
 
 - (void)setSupportedValues:(id)arg1;

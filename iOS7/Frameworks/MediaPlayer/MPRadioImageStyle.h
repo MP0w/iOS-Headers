@@ -12,8 +12,8 @@
 }
 
 @property(nonatomic) struct CGSize finalSize; // @synthesize finalSize=_finalSize;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 
 @end
 

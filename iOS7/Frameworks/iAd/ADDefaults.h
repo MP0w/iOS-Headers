@@ -18,10 +18,10 @@
 + (id)stringForKey:(id)arg1;
 + (void)setDouble:(double)arg1 forKey:(id)arg2;
 + (double)doubleForKey:(id)arg1;
-+ (void)setInteger:(int)arg1 forKey:(id)arg2;
-+ (int)integerForKey:(id)arg1;
-+ (void)setBool:(BOOL)arg1 forKey:(id)arg2;
-+ (BOOL)boolForKey:(id)arg1;
++ (void)setInteger:(long long)arg1 forKey:(id)arg2;
++ (long long)integerForKey:(id)arg1;
++ (void)setBool:(_Bool)arg1 forKey:(id)arg2;
++ (_Bool)boolForKey:(id)arg1;
 + (void)_setDefaultValue:(id)arg1 forKey:(id)arg2;
 + (id)_defaultValueForKey:(id)arg1 valueClass:(Class)arg2;
 + (void)addFactoryDefaults:(id)arg1;

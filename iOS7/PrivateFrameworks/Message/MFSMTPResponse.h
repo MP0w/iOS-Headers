@@ -6,15 +6,23 @@
 
 #import "NSObject.h"
 
-@interface MFSMTPResponse : NSObject
+#import "NSCopying-Protocol.h"
+
+@class NSArray, NSString;
+
+@interface MFSMTPResponse : NSObject <NSCopying>
 {
     id _lastResponseLine;
     int _status;
     unsigned int _statusClass:10;
     unsigned int _statusSubject:10;
     unsigned int _statusDetail:10;
+    NSString *_statusString;
+    NSArray *_continuationResponses;
 }
 
+@property(retain, nonatomic) NSArray *continuationResponses; // @synthesize continuationResponses=_continuationResponses;
+@property(readonly, nonatomic) NSString *statusString; // @synthesize statusString=_statusString;
 @property(readonly, nonatomic) unsigned int statusDetail; // @synthesize statusDetail=_statusDetail;
 @property(readonly, nonatomic) unsigned int statusSubject; // @synthesize statusSubject=_statusSubject;
 @property(readonly, nonatomic) unsigned int statusClass; // @synthesize statusClass=_statusClass;
@@ -27,6 +35,7 @@
 - (void)_updateEnhancedStatusCodesFromLastResponse;
 - (void)dealloc;
 - (void)setStatus:(int)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithStatus:(int)arg1;
 
 @end

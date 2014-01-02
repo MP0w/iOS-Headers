@@ -8,6 +8,7 @@
 
 @class GKDiscoveryBonjour, NSMutableArray;
 
+// Not exported
 @interface GKDiscoveryBonjourResolveContainer : NSObject
 {
     NSMutableArray *_serviceRefList;

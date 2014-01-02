@@ -16,26 +16,26 @@
     NSMutableDictionary *_dictionary;
 }
 
-+ (id)stringForRatingSystem:(int)arg1;
-+ (int)ratingSystemFromString:(id)arg1;
++ (id)stringForRatingSystem:(long long)arg1;
++ (long long)ratingSystemFromString:(id)arg1;
 - (void)_setValue:(id)arg1 forProperty:(id)arg2;
 - (void)_setValueCopy:(id)arg1 forProperty:(id)arg2;
-- (BOOL)_isRatingSystemForTV:(int)arg1;
-- (BOOL)_isRatingSystemForMusic:(int)arg1;
-- (BOOL)_isRatingSystemForMovies:(int)arg1;
-- (BOOL)_isRatingSystemForApps:(int)arg1;
+- (_Bool)_isRatingSystemForTV:(long long)arg1;
+- (_Bool)_isRatingSystemForMusic:(long long)arg1;
+- (_Bool)_isRatingSystemForMovies:(long long)arg1;
+- (_Bool)_isRatingSystemForApps:(long long)arg1;
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)copyXPCEncoding;
 @property(readonly, nonatomic) SSItemArtworkImage *ratingSystemLogo;
 @property(readonly, nonatomic) NSDictionary *contentRatingDictionary;
 - (id)valueForProperty:(id)arg1;
-@property(nonatomic) BOOL shouldHideWhenRestricted;
-@property(nonatomic) int ratingSystem;
+@property(nonatomic) _Bool shouldHideWhenRestricted;
+@property(nonatomic) long long ratingSystem;
 @property(copy, nonatomic) NSString *ratingLabel;
 @property(copy, nonatomic) NSString *ratingDescription;
-@property(nonatomic) int rank;
-@property(readonly, nonatomic, getter=isRestricted) BOOL restricted;
-@property(readonly, nonatomic, getter=isExplicitContent) BOOL explicitContent;
+@property(nonatomic) long long rank;
+@property(readonly, nonatomic, getter=isRestricted) _Bool restricted;
+@property(readonly, nonatomic, getter=isExplicitContent) _Bool explicitContent;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)initWithDictionary:(id)arg1;

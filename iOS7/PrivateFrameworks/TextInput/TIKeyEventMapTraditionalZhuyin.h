@@ -10,9 +10,9 @@
 {
 }
 
-+ (BOOL)supportsSecureCoding;
-- (id)remapKeyWithString:(id)arg1 stringWithoutModifiers:(id)arg2 modifierFlags:(unsigned int)arg3 keyboardState:(id)arg4;
-- (BOOL)isZhuyinCharacterBeforeInsertionPointOfKeyboardState:(id)arg1;
++ (_Bool)supportsSecureCoding;
+- (id)remapKeyWithString:(id)arg1 stringWithoutModifiers:(id)arg2 modifierFlags:(unsigned long long)arg3 keyboardState:(id)arg4;
+- (_Bool)isZhuyinCharacterBeforeInsertionPointOfKeyboardState:(id)arg1;
 
 @end
 

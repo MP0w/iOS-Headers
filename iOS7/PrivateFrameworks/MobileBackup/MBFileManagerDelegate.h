@@ -14,7 +14,7 @@
 }
 
 @property(copy, nonatomic) id shouldCopyItemAtPathToPath; // @synthesize shouldCopyItemAtPathToPath=_shouldCopyItemAtPathToPath;
-- (BOOL)fileManager:(id)arg1 shouldCopyItemAtPath:(id)arg2 toPath:(id)arg3;
+- (_Bool)fileManager:(id)arg1 shouldCopyItemAtPath:(id)arg2 toPath:(id)arg3;
 
 @end
 

@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface _UIObjectPerScreen : NSObject
 {
 }
 
 + (void)removeObjectsOfClass:(Class)arg1;
-+ (id)objectOfClass:(Class)arg1 forScreen:(id)arg2 withOptions:(id)arg3 createIfNecessary:(BOOL)arg4;
++ (id)objectOfClass:(Class)arg1 forScreen:(id)arg2 withOptions:(id)arg3 createIfNecessary:(_Bool)arg4;
 + (void)screenDisconnected:(id)arg1;
 
 @end

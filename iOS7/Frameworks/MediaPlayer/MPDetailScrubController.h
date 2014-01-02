@@ -10,39 +10,41 @@
 
 @interface MPDetailScrubController : NSObject
 {
-    BOOL _didBeginTracking;
-    BOOL _needsCommit;
-    BOOL _canCommit;
+    _Bool _didBeginTracking;
+    _Bool _needsCommit;
+    float _accumulatedDelta;
     struct CGPoint _previousLocationInView;
     struct CGPoint _beginLocationInView;
     struct CGPoint _lastCommittedLocationInView;
     float _currentValue;
-    BOOL _detailedScrubbingEnabled;
-    BOOL _isTracking;
+    _Bool _detailedScrubbingEnabled;
+    _Bool _isTracking;
     UIControl<MPDetailedScrubbing> *_scrubbingControl;
     id <MPDetailScrubControllerDelegate> _delegate;
-    float _scrubbingVerticalRange;
-    int _currentScrubSpeed;
     double _duration;
+    double _scrubbingVerticalRange;
+    long long _currentScrubSpeed;
 }
 
-@property(readonly, nonatomic) int currentScrubSpeed; // @synthesize currentScrubSpeed=_currentScrubSpeed;
-@property(readonly, nonatomic) BOOL isTracking; // @synthesize isTracking=_isTracking;
-@property(nonatomic) BOOL detailedScrubbingEnabled; // @synthesize detailedScrubbingEnabled=_detailedScrubbingEnabled;
-@property(nonatomic) float scrubbingVerticalRange; // @synthesize scrubbingVerticalRange=_scrubbingVerticalRange;
+@property(readonly, nonatomic) long long currentScrubSpeed; // @synthesize currentScrubSpeed=_currentScrubSpeed;
+@property(readonly, nonatomic) _Bool isTracking; // @synthesize isTracking=_isTracking;
+@property(nonatomic) _Bool detailedScrubbingEnabled; // @synthesize detailedScrubbingEnabled=_detailedScrubbingEnabled;
+@property(nonatomic) double scrubbingVerticalRange; // @synthesize scrubbingVerticalRange=_scrubbingVerticalRange;
 @property(nonatomic) double duration; // @synthesize duration=_duration;
 @property(nonatomic) __weak id <MPDetailScrubControllerDelegate> delegate; // @synthesize delegate=_delegate;
-@property(retain, nonatomic) UIControl<MPDetailedScrubbing> *scrubbingControl; // @synthesize scrubbingControl=_scrubbingControl;
+@property(nonatomic) __weak UIControl<MPDetailedScrubbing> *scrubbingControl; // @synthesize scrubbingControl=_scrubbingControl;
 - (void).cxx_destruct;
 - (void)_commitValue:(float)arg1;
-- (float)_scaleForIdealValueForVerticalPosition:(float)arg1;
+- (void)_endScrubbing;
+- (void)_beginScrubbing;
+- (float)_scaleForIdealValueForVerticalPosition:(double)arg1;
 - (float)_minimumScale;
-- (float)scaleForVerticalPosition:(float)arg1;
-@property(readonly, nonatomic) BOOL durationAllowsForDetailedScrubbing;
+- (float)scaleForVerticalPosition:(double)arg1;
+@property(readonly, nonatomic) _Bool durationAllowsForDetailedScrubbing;
 - (void)cancelTrackingWithEvent:(id)arg1;
 - (void)endTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (BOOL)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (BOOL)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
+- (_Bool)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
+- (_Bool)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (id)init;
 - (id)initWithScrubbingControl:(id)arg1;
 

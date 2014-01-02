@@ -8,17 +8,18 @@
 
 #import "OABBasePropertiesManager-Protocol.h"
 
+// Not exported
 @interface OABShapeBaseManager : OABFillPropertiesManager <OABBasePropertiesManager>
 {
     struct EshShapeBase *mShapeBase;
 }
 
-- (long)shadowSoftness;
-- (long)shadowOffsetY;
-- (long)shadowOffsetX;
+- (int)shadowSoftness;
+- (int)shadowOffsetY;
+- (int)shadowOffsetX;
 - (int)shadowAlpha;
 - (int)shadowType;
-- (BOOL)isShadowed;
+- (_Bool)isShadowed;
 - (int)strokeEndArrowLength;
 - (int)strokeEndArrowWidth;
 - (int)strokeEndArrowType;
@@ -31,7 +32,7 @@
 - (int)strokePresetDash;
 - (int)strokeCompoundType;
 - (int)strokeMiterLimit;
-- (long)strokeWidth;
+- (int)strokeWidth;
 - (int)strokeFgAlpha;
 - (id)strokeFillBlipName;
 - (unsigned int)strokeFillBlipID;
@@ -39,7 +40,7 @@
 - (struct EshColor)shadowColor;
 - (struct EshColor)strokeBgColor;
 - (struct EshColor)strokeFgColor;
-- (BOOL)isStroked;
+- (_Bool)isStroked;
 - (void)dealloc;
 - (id)initWithShapeBase:(struct EshShapeBase *)arg1 shapeType:(int)arg2 masterShape:(struct EshShape *)arg3;
 

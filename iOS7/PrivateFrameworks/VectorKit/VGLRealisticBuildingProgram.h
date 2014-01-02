@@ -6,6 +6,7 @@
 
 #import <VectorKit/VGLBuildingProgram.h>
 
+// Not exported
 @interface VGLRealisticBuildingProgram : VGLBuildingProgram
 {
 }

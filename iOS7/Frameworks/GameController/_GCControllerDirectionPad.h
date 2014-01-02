@@ -8,6 +8,7 @@
 
 @class _GCControllerAxisInput;
 
+// Not exported
 @interface _GCControllerDirectionPad : GCControllerDirectionPad
 {
     id _valueChangedHandler;
@@ -25,9 +26,9 @@
 - (id)down;
 - (id)up;
 - (id)description;
-- (BOOL)setHIDValue:(struct __IOHIDValue *)arg1;
+- (_Bool)setHIDValue:(struct __IOHIDValue *)arg1;
 - (void)_fireValueChanged;
-- (id)initWithFlippedY:(BOOL)arg1 digital:(BOOL)arg2;
+- (id)initWithFlippedY:(_Bool)arg1 digital:(_Bool)arg2;
 
 @end
 

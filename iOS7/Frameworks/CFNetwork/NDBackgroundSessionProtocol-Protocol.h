@@ -7,11 +7,14 @@
 #import "NSObject-Protocol.h"
 
 @protocol NDBackgroundSessionProtocol <NSObject>
-- (void)setDescription:(id)arg1 forTask:(unsigned int)arg2;
-- (void)resumeTaskWithIdentifier:(unsigned int)arg1;
-- (void)suspendTaskWithIdentifier:(unsigned int)arg1;
-- (void)cancelTaskWithIdentifier:(unsigned int)arg1;
-- (void)uploadTaskWithRequest:(id)arg1 originalRequest:(id)arg2 fromFile:(id)arg3 identifier:(unsigned int)arg4;
-- (void)downloadTaskWithRequest:(id)arg1 originalRequest:(id)arg2 identifier:(unsigned int)arg3;
+- (void)resetStorageWithReply:(id)arg1;
+- (void)setDescription:(id)arg1 forTask:(unsigned long long)arg2;
+- (void)resumeTaskWithIdentifier:(unsigned long long)arg1;
+- (void)suspendTaskWithIdentifier:(unsigned long long)arg1;
+- (void)cancelTaskWithIdentifier:(unsigned long long)arg1 byProducingResumeData:(id)arg2;
+- (void)cancelTaskWithIdentifier:(unsigned long long)arg1;
+- (void)downloadTaskWithResumeData:(id)arg1 identifier:(unsigned long long)arg2 reply:(id)arg3;
+- (void)uploadTaskWithRequest:(id)arg1 originalRequest:(id)arg2 fromFile:(id)arg3 identifier:(unsigned long long)arg4 reply:(id)arg5;
+- (void)downloadTaskWithRequest:(id)arg1 originalRequest:(id)arg2 identifier:(unsigned long long)arg3 reply:(id)arg4;
 @end
 

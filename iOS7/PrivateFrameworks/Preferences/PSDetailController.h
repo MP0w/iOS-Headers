@@ -13,16 +13,17 @@
     PSEditingPane *_pane;
 }
 
-- (void)statusBarWillAnimateByHeight:(float)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
+- (void)statusBarWillAnimateByHeight:(double)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
 - (void)suspend;
 - (void)saveChanges;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 @property(nonatomic) PSEditingPane *pane;
-- (void)didRotateFromInterfaceOrientation:(int)arg1;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)viewDidLayoutSubviews;
+- (void)didRotateFromInterfaceOrientation:(long long)arg1;
+- (void)willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (void)willRotateToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
 - (struct CGRect)paneFrame;
 - (void)dealloc;
 - (void)viewDidUnload;

@@ -20,7 +20,7 @@
 - (void)__dealloc_zombie;
 - (id)__autorelease_OA;
 - (oneway void)__release_OA;
-- (BOOL)___tryRetain_OA;
+- (_Bool)___tryRetain_OA;
 - (id)__retain_OA;
 - (id)_copyDescription;
 - (id)description;

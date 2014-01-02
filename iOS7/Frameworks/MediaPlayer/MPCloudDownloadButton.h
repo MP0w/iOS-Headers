@@ -8,17 +8,17 @@
 
 @interface MPCloudDownloadButton : UIButton
 {
-    int _cloudButtonStyle;
+    long long _cloudButtonStyle;
 }
 
-+ (int)_buttonTypeForCloudDownloadButtonStyle:(int)arg1;
-+ (struct CGSize)defaultSizeForStyle:(int)arg1;
-+ (id)cloudDownloadButtonWithStyle:(int)arg1;
-@property(nonatomic) int cloudButtonStyle; // @synthesize cloudButtonStyle=_cloudButtonStyle;
++ (long long)_buttonTypeForCloudDownloadButtonStyle:(long long)arg1;
++ (struct CGSize)defaultSizeForStyle:(long long)arg1;
++ (id)cloudDownloadButtonWithStyle:(long long)arg1;
+@property(nonatomic) long long cloudButtonStyle; // @synthesize cloudButtonStyle=_cloudButtonStyle;
 - (void)_touchEndedAction:(id)arg1;
 - (void)_touchDownAction:(id)arg1;
-- (void)setHighlighted:(BOOL)arg1;
-- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (void)setHighlighted:(_Bool)arg1;
+- (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 
 @end
 

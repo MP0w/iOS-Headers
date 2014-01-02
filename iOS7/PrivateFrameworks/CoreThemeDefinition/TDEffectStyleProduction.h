@@ -11,7 +11,7 @@
 }
 
 - (id)displayName;
-- (void)deleteRenditionsInDocument:(id)arg1 shouldDeleteAssetFiles:(BOOL)arg2;
+- (void)deleteRenditionsInDocument:(id)arg1 shouldDeleteAssetFiles:(_Bool)arg2;
 - (id)associatedFileModificationDateWithDocument:(id)arg1;
 - (void)generateRenditionsWithDocument:(id)arg1;
 

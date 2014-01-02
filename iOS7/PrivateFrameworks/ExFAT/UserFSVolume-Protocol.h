@@ -9,12 +9,12 @@
 @class NSString;
 
 @protocol UserFSVolume <NSObject>
-@property(readonly, nonatomic, getter=isLocked) BOOL locked;
+@property(readonly, nonatomic, getter=isLocked) _Bool locked;
 @property(readonly, nonatomic) NSString *deviceName;
-- (BOOL)deleteFiles:(id)arg1;
+- (_Bool)deleteFiles:(id)arg1;
 - (id)itemAtPath:(id)arg1;
 - (id)rootDirectory;
-- (BOOL)close;
-- (BOOL)flush;
+- (_Bool)close;
+- (_Bool)flush;
 @end
 

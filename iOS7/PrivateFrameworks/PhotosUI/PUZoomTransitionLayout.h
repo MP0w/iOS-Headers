@@ -11,11 +11,13 @@
     struct CGSize _centerOffset;
 }
 
+- (void)_adjustLayoutAttributes:(id)arg1;
 - (id)layoutAttributesForDecorationViewOfKind:(id)arg1 atIndexPath:(id)arg2;
 - (id)layoutAttributesForSupplementaryViewOfKind:(id)arg1 atIndexPath:(id)arg2;
 - (id)layoutAttributesForItemAtIndexPath:(id)arg1;
 - (id)layoutAttributesForElementsInRect:(struct CGRect)arg1;
-- (void)setTransitionProgress:(float)arg1;
+- (struct CGPoint)targetContentOffsetForProposedContentOffset:(struct CGPoint)arg1;
+- (void)setTransitionProgress:(double)arg1;
 
 @end
 

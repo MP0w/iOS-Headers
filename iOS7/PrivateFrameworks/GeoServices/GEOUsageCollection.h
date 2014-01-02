@@ -6,15 +6,17 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSString;
 
-@interface GEOUsageCollection : PBCodable
+@interface GEOUsageCollection : PBCodable <NSCopying>
 {
     CDStruct_612aec5b _probeID;
     CDStruct_612aec5b _sessionID;
     CDStruct_8f5f9923 *_tileUsages;
-    unsigned int _tileUsagesCount;
-    unsigned int _tileUsagesSpace;
+    unsigned long long _tileUsagesCount;
+    unsigned long long _tileUsagesSpace;
     double _timestamp;
     int _cellWifi;
     NSString *_countryCode;
@@ -23,6 +25,7 @@
     int _requestDataSize;
     int _responseDataSize;
     int _responseTime;
+    _Bool _sessionIDIsPersistent;
     struct {
         unsigned int probeID:1;
         unsigned int sessionID:1;
@@ -32,6 +35,7 @@
         unsigned int requestDataSize:1;
         unsigned int responseDataSize:1;
         unsigned int responseTime:1;
+        unsigned int sessionIDIsPersistent:1;
     } _has;
 }
 
@@ -45,29 +49,32 @@
 @property(nonatomic) int responseDataSize; // @synthesize responseDataSize=_responseDataSize;
 @property(nonatomic) int requestDataSize; // @synthesize requestDataSize=_requestDataSize;
 @property(nonatomic) int geoService; // @synthesize geoService=_geoService;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) BOOL hasHwMachine;
-- (void)setTileUsages:(CDStruct_8f5f9923 *)arg1 count:(unsigned int)arg2;
-- (CDStruct_8f5f9923)tileUsageAtIndex:(unsigned int)arg1;
+@property(nonatomic) _Bool hasSessionIDIsPersistent;
+@property(nonatomic) _Bool sessionIDIsPersistent; // @synthesize sessionIDIsPersistent=_sessionIDIsPersistent;
+@property(readonly, nonatomic) _Bool hasHwMachine;
+- (void)setTileUsages:(CDStruct_8f5f9923 *)arg1 count:(unsigned long long)arg2;
+- (CDStruct_8f5f9923)tileUsageAtIndex:(unsigned long long)arg1;
 - (void)addTileUsage:(CDStruct_8f5f9923)arg1;
 - (void)clearTileUsages;
 @property(readonly, nonatomic) CDStruct_8f5f9923 *tileUsages;
-@property(readonly, nonatomic) unsigned int tileUsagesCount;
-@property(nonatomic) BOOL hasTimestamp;
-@property(nonatomic) BOOL hasProbeID;
-@property(nonatomic) BOOL hasSessionID;
-@property(readonly, nonatomic) BOOL hasCountryCode;
-@property(nonatomic) BOOL hasCellWifi;
-@property(nonatomic) BOOL hasResponseTime;
-@property(nonatomic) BOOL hasResponseDataSize;
-@property(nonatomic) BOOL hasRequestDataSize;
-@property(nonatomic) BOOL hasGeoService;
+@property(readonly, nonatomic) unsigned long long tileUsagesCount;
+@property(nonatomic) _Bool hasTimestamp;
+@property(nonatomic) _Bool hasProbeID;
+@property(nonatomic) _Bool hasSessionID;
+@property(readonly, nonatomic) _Bool hasCountryCode;
+@property(nonatomic) _Bool hasCellWifi;
+@property(nonatomic) _Bool hasResponseTime;
+@property(nonatomic) _Bool hasResponseDataSize;
+@property(nonatomic) _Bool hasRequestDataSize;
+@property(nonatomic) _Bool hasGeoService;
 - (void)dealloc;
 
 @end

@@ -8,12 +8,13 @@
 
 @class NSDate, NSString, WDCharacterRun, WDText;
 
+// Not exported
 @interface WDAnnotation : WDRun
 {
     int mType;
     WDText *mText;
     WDCharacterRun *mReference;
-    BOOL mReferencePopertiesFixed;
+    _Bool mReferencePopertiesFixed;
     NSDate *mDate;
     NSString *mOwner;
     WDAnnotation *mOtherEndOfRangedAnnotation;
@@ -29,7 +30,7 @@
 - (int)annotationType;
 - (int)runType;
 - (void)setReferencePropertiesFixed;
-- (BOOL)referencePropertiesFixed;
+- (_Bool)referencePropertiesFixed;
 - (id)reference;
 - (id)text;
 - (id)initWithParagraph:(id)arg1 type:(int)arg2;

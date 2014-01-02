@@ -30,22 +30,12 @@
 - (void)setName:(id)arg1;
 - (id)name;
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (void)dealloc;
 - (id)init;
-- (id)_transformValidations;
-- (void)_setTransformValidations:(id)arg1;
-- (id)_propertyTransforms;
-- (void)_setPropertyTransforms:(id)arg1;
-- (void)_throwIfNotEditable;
-- (void)_setIsEditable:(BOOL)arg1;
-- (void)_createCachesAndOptimizeState;
-- (BOOL)isEditable;
-- (id)initWithName:(id)arg1 valueExpression:(id)arg2;
-- (id)_initWithDestinationName:(id)arg1 valueExpression:(id)arg2;
 
 @end
 

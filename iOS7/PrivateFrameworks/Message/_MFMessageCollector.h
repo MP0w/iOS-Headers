@@ -19,7 +19,7 @@
 }
 
 @property(copy, nonatomic) id transmogrifier; // @synthesize transmogrifier=_transmogrifier;
-- (BOOL)shouldCancel;
+- (_Bool)shouldCancel;
 - (void)newMessagesAvailable:(id)arg1;
 - (id)copyMessages;
 - (id)messages;

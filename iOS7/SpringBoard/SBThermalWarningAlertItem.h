@@ -12,16 +12,16 @@
     int _actionTaken;
 }
 
-- (BOOL)unlocksScreen;
-- (BOOL)undimsScreen;
+- (_Bool)unlocksScreen;
+- (_Bool)undimsScreen;
 - (void)_playPresentationSound;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (void)didDeactivateForReason:(int)arg1;
 - (void)willActivate;
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
+- (void)configure:(_Bool)arg1 requirePasscodeForActions:(_Bool)arg2;
 - (void)_autoCoolDown;
 - (void)_tryToSendAction:(int)arg1;
-@property(readonly, nonatomic, getter=isWaitingForResponse) BOOL waitingForResponse;
+@property(readonly, nonatomic, getter=isWaitingForResponse) _Bool waitingForResponse;
 - (id)initWithDelegate:(id)arg1;
 
 @end

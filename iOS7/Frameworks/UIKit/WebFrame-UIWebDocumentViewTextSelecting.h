@@ -7,6 +7,6 @@
 #import "WebFrame.h"
 
 @interface WebFrame (UIWebDocumentViewTextSelecting)
-- (BOOL)isTexty;
+- (_Bool)isTexty;
 @end
 

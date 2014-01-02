@@ -8,6 +8,7 @@
 
 @class UIImage;
 
+// Not exported
 @interface UIButtonBarBadgeBackground : UIView
 {
     UIImage *_image;

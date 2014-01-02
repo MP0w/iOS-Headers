@@ -7,25 +7,25 @@
 #import "NSString.h"
 
 @interface NSString (WebStringDrawing)
-+ (BOOL)_web_ascentRoundingEnabled;
-+ (void)_web_setAscentRoundingEnabled:(BOOL)arg1;
-+ (BOOL)_web_wordRoundingAllowed;
-+ (void)_web_setWordRoundingAllowed:(BOOL)arg1;
-+ (BOOL)_web_wordRoundingEnabled;
-+ (void)_web_setWordRoundingEnabled:(BOOL)arg1;
++ (_Bool)_web_ascentRoundingEnabled;
++ (void)_web_setAscentRoundingEnabled:(_Bool)arg1;
++ (_Bool)_web_wordRoundingAllowed;
++ (void)_web_setWordRoundingAllowed:(_Bool)arg1;
++ (_Bool)_web_wordRoundingEnabled;
++ (void)_web_setWordRoundingEnabled:(_Bool)arg1;
 - (struct CGSize)_web_drawInRect:(struct CGRect)arg1 withAttributes:(id)arg2;
 - (struct CGSize)_web_sizeInRect:(struct CGRect)arg1 withAttributes:(id)arg2;
-- (struct CGSize)_web_drawAtPoint:(struct CGPoint)arg1 forWidth:(float)arg2 withAttributes:(id)arg3;
-- (struct CGSize)_web_sizeForWidth:(float)arg1 withAttributes:(id)arg2;
-- (id)_web_stringForWidth:(float)arg1 withFont:(struct __CTFont *)arg2 ellipsis:(int)arg3 letterSpacing:(float)arg4 includeEmoji:(BOOL)arg5;
-- (id)_web_securedStringIncludingLastCharacter:(BOOL)arg1;
+- (struct CGSize)_web_drawAtPoint:(struct CGPoint)arg1 forWidth:(double)arg2 withAttributes:(id)arg3;
+- (struct CGSize)_web_sizeForWidth:(double)arg1 withAttributes:(id)arg2;
+- (id)_web_stringForWidth:(float)arg1 withFont:(struct __CTFont *)arg2 ellipsis:(int)arg3 letterSpacing:(float)arg4 includeEmoji:(_Bool)arg5;
+- (id)_web_securedStringIncludingLastCharacter:(_Bool)arg1;
 - (struct CGSize)_web_sizeInRect:(struct CGRect)arg1 withFont:(struct __CTFont *)arg2 ellipsis:(int)arg3;
 - (struct CGSize)_web_sizeInRect:(struct CGRect)arg1 withFont:(struct __CTFont *)arg2 ellipsis:(int)arg3 lineSpacing:(int)arg4;
 - (struct CGSize)_web_drawInRect:(struct CGRect)arg1 withFont:(struct __CTFont *)arg2 ellipsis:(int)arg3 alignment:(int)arg4;
 - (struct CGSize)_web_drawInRect:(struct CGRect)arg1 withFont:(struct __CTFont *)arg2 ellipsis:(int)arg3 alignment:(int)arg4 lineSpacing:(int)arg5;
-- (struct CGSize)_web_drawInRect:(struct CGRect)arg1 withFont:(struct __CTFont *)arg2 ellipsis:(int)arg3 alignment:(int)arg4 lineSpacing:(int)arg5 includeEmoji:(BOOL)arg6 truncationRect:(struct CGRect *)arg7;
-- (struct CGSize)_web_drawInRect:(struct CGRect)arg1 withFont:(struct __CTFont *)arg2 ellipsis:(int)arg3 alignment:(int)arg4 lineSpacing:(int)arg5 includeEmoji:(BOOL)arg6 truncationRect:(struct CGRect *)arg7 measureOnly:(BOOL)arg8;
-- (struct CGSize)_web_drawAtPoint:(struct CGPoint)arg1 forWidth:(float)arg2 withFont:(struct __CTFont *)arg3 ellipsis:(int)arg4 letterSpacing:(float)arg5 includeEmoji:(BOOL)arg6;
+- (struct CGSize)_web_drawInRect:(struct CGRect)arg1 withFont:(struct __CTFont *)arg2 ellipsis:(int)arg3 alignment:(int)arg4 lineSpacing:(int)arg5 includeEmoji:(_Bool)arg6 truncationRect:(struct CGRect *)arg7;
+- (struct CGSize)_web_drawInRect:(struct CGRect)arg1 withFont:(struct __CTFont *)arg2 ellipsis:(int)arg3 alignment:(int)arg4 lineSpacing:(int)arg5 includeEmoji:(_Bool)arg6 truncationRect:(struct CGRect *)arg7 measureOnly:(_Bool)arg8;
+- (struct CGSize)_web_drawAtPoint:(struct CGPoint)arg1 forWidth:(float)arg2 withFont:(struct __CTFont *)arg3 ellipsis:(int)arg4 letterSpacing:(float)arg5 includeEmoji:(_Bool)arg6;
 - (struct CGSize)_web_drawAtPoint:(struct CGPoint)arg1 forWidth:(float)arg2 withFont:(struct __CTFont *)arg3 ellipsis:(int)arg4 letterSpacing:(float)arg5;
 - (struct CGSize)_web_drawAtPoint:(struct CGPoint)arg1 forWidth:(float)arg2 withFont:(struct __CTFont *)arg3 ellipsis:(int)arg4;
 - (struct CGSize)_web_sizeWithFont:(struct __CTFont *)arg1 forWidth:(float)arg2 ellipsis:(int)arg3 letterSpacing:(float)arg4 resultRange:(struct _NSRange *)arg5;
@@ -33,11 +33,11 @@
 - (struct CGSize)_web_sizeWithFont:(struct __CTFont *)arg1 forWidth:(float)arg2 ellipsis:(int)arg3;
 - (struct CGSize)_web_sizeWithFont:(struct __CTFont *)arg1;
 - (struct CGSize)_web_drawAtPoint:(struct CGPoint)arg1 withFont:(struct __CTFont *)arg2;
-- (struct CGSize)__web_drawInRect:(struct CGRect)arg1 withFont:(struct __CTFont *)arg2 ellipsis:(int)arg3 alignment:(int)arg4 letterSpacing:(float)arg5 lineSpacing:(float)arg6 includeEmoji:(BOOL)arg7 truncationRect:(struct CGRect *)arg8 measureOnly:(BOOL)arg9;
-- (struct CGSize)__web_drawInRect:(struct CGRect)arg1 withFont:(struct __CTFont *)arg2 ellipsis:(int)arg3 alignment:(int)arg4 letterSpacing:(float)arg5 lineSpacing:(float)arg6 includeEmoji:(BOOL)arg7 truncationRect:(struct CGRect *)arg8 measureOnly:(BOOL)arg9 renderedStringOut:(id *)arg10;
-- (struct CGSize)__web_drawInRect:(struct CGRect)arg1 withFont:(struct __CTFont *)arg2 ellipsis:(int)arg3 alignment:(int)arg4 letterSpacing:(float)arg5 lineSpacing:(float)arg6 includeEmoji:(BOOL)arg7 truncationRect:(struct CGRect *)arg8 measureOnly:(BOOL)arg9 renderedStringOut:(id *)arg10 drawUnderline:(BOOL)arg11;
-- (struct CGSize)__web_drawAtPoint:(struct CGPoint)arg1 forWidth:(float)arg2 withFont:(struct __CTFont *)arg3 ellipsis:(int)arg4 letterSpacing:(float)arg5 includeEmoji:(BOOL)arg6 measureOnly:(BOOL)arg7;
-- (struct CGSize)__web_drawAtPoint:(struct CGPoint)arg1 forWidth:(float)arg2 withFont:(struct __CTFont *)arg3 ellipsis:(int)arg4 letterSpacing:(float)arg5 includeEmoji:(BOOL)arg6 measureOnly:(BOOL)arg7 renderedStringOut:(id *)arg8;
-- (struct CGSize)__web_drawAtPoint:(struct CGPoint)arg1 forWidth:(float)arg2 withFont:(struct __CTFont *)arg3 ellipsis:(int)arg4 letterSpacing:(float)arg5 includeEmoji:(BOOL)arg6 measureOnly:(BOOL)arg7 renderedStringOut:(id *)arg8 drawUnderline:(BOOL)arg9;
+- (struct CGSize)__web_drawInRect:(struct CGRect)arg1 withFont:(struct __CTFont *)arg2 ellipsis:(int)arg3 alignment:(int)arg4 letterSpacing:(double)arg5 lineSpacing:(double)arg6 includeEmoji:(_Bool)arg7 truncationRect:(struct CGRect *)arg8 measureOnly:(_Bool)arg9;
+- (struct CGSize)__web_drawInRect:(struct CGRect)arg1 withFont:(struct __CTFont *)arg2 ellipsis:(int)arg3 alignment:(int)arg4 letterSpacing:(double)arg5 lineSpacing:(double)arg6 includeEmoji:(_Bool)arg7 truncationRect:(struct CGRect *)arg8 measureOnly:(_Bool)arg9 renderedStringOut:(id *)arg10;
+- (struct CGSize)__web_drawInRect:(struct CGRect)arg1 withFont:(struct __CTFont *)arg2 ellipsis:(int)arg3 alignment:(int)arg4 letterSpacing:(double)arg5 lineSpacing:(double)arg6 includeEmoji:(_Bool)arg7 truncationRect:(struct CGRect *)arg8 measureOnly:(_Bool)arg9 renderedStringOut:(id *)arg10 drawUnderline:(_Bool)arg11;
+- (struct CGSize)__web_drawAtPoint:(struct CGPoint)arg1 forWidth:(double)arg2 withFont:(struct __CTFont *)arg3 ellipsis:(int)arg4 letterSpacing:(float)arg5 includeEmoji:(_Bool)arg6 measureOnly:(_Bool)arg7;
+- (struct CGSize)__web_drawAtPoint:(struct CGPoint)arg1 forWidth:(double)arg2 withFont:(struct __CTFont *)arg3 ellipsis:(int)arg4 letterSpacing:(float)arg5 includeEmoji:(_Bool)arg6 measureOnly:(_Bool)arg7 renderedStringOut:(id *)arg8;
+- (struct CGSize)__web_drawAtPoint:(struct CGPoint)arg1 forWidth:(double)arg2 withFont:(struct __CTFont *)arg3 ellipsis:(int)arg4 letterSpacing:(float)arg5 includeEmoji:(_Bool)arg6 measureOnly:(_Bool)arg7 renderedStringOut:(id *)arg8 drawUnderline:(_Bool)arg9;
 @end
 

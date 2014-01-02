@@ -16,8 +16,8 @@
 - (void).cxx_destruct;
 - (void)_reloadBorderView;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (void)setSelected:(BOOL)arg1;
-- (void)setHighlighted:(BOOL)arg1;
+- (void)setSelected:(_Bool)arg1;
+- (void)setHighlighted:(_Bool)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

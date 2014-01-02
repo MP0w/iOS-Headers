@@ -14,11 +14,11 @@
 }
 
 @property(retain, nonatomic) NSArray *trustProperties; // @synthesize trustProperties=_trustProperties;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)_setupNavItem;
 - (void)dealloc;
 - (void)loadView;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
 
 @end
 

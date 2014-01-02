@@ -8,13 +8,14 @@
 
 @class UITabBar;
 
+// Not exported
 @interface UITabBarSwappableImageView : UIImageView
 {
     id _value;
     id _alternate;
-    float _scale;
-    BOOL _showAlternate;
-    BOOL _flipped;
+    double _scale;
+    _Bool _showAlternate;
+    _Bool _flipped;
     int _currentAnimation;
     UITabBar *_tabBar;
     int _buttonTag;
@@ -22,9 +23,9 @@
 
 - (void)setImage:(id)arg1;
 - (void)setAlternateImage:(id)arg1;
-- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
+- (void)animationDidStop:(id)arg1 finished:(_Bool)arg2;
 - (void)animateImage:(float)arg1 withTabBar:(id)arg2 withTag:(int)arg3;
-- (void)showAlternateImage:(BOOL)arg1;
+- (void)showAlternateImage:(_Bool)arg1;
 - (void)setCurrentImage;
 - (void)dealloc;
 - (id)initWithImage:(id)arg1 alternateImage:(id)arg2;

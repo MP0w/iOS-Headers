@@ -15,8 +15,8 @@
 {
     PKPassContent *_content;
     PKPassImages *_images[4];
-    BOOL _voided;
-    BOOL _revoked;
+    _Bool _voided;
+    _Bool _revoked;
     NSString *_uniqueID;
     NSString *_passTypeIdentifier;
     NSString *_teamID;
@@ -30,28 +30,28 @@
     NSString *_authenticationToken;
     PKPassDisplayProfile *_displayProfile;
     NSData *_manifestHash;
-    int _settings;
+    long long _settings;
     NSDate *_ingestedDate;
     NSDate *_modifiedDate;
     NSDictionary *_userInfo;
-    int _shareCount;
+    long long _shareCount;
     NSSet *_embeddedBeacons;
     NSURL *_webLocationsURL;
     NSURL *_localLocationsURL;
     PKImage *_partialFrontFaceImagePlaceholder;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) PKImage *partialFrontFaceImagePlaceholder; // @synthesize partialFrontFaceImagePlaceholder=_partialFrontFaceImagePlaceholder;
 @property(copy, nonatomic) NSURL *localLocationsURL; // @synthesize localLocationsURL=_localLocationsURL;
 @property(copy, nonatomic) NSURL *webLocationsURL; // @synthesize webLocationsURL=_webLocationsURL;
 @property(copy, nonatomic) NSSet *embeddedBeacons; // @synthesize embeddedBeacons=_embeddedBeacons;
-@property(nonatomic) int shareCount; // @synthesize shareCount=_shareCount;
+@property(nonatomic) long long shareCount; // @synthesize shareCount=_shareCount;
 @property(copy, nonatomic) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
-@property(nonatomic, getter=isRevoked) BOOL revoked; // @synthesize revoked=_revoked;
+@property(nonatomic, getter=isRevoked) _Bool revoked; // @synthesize revoked=_revoked;
 @property(retain, nonatomic) NSDate *modifiedDate; // @synthesize modifiedDate=_modifiedDate;
 @property(retain, nonatomic) NSDate *ingestedDate; // @synthesize ingestedDate=_ingestedDate;
-@property(nonatomic) int settings; // @synthesize settings=_settings;
+@property(nonatomic) long long settings; // @synthesize settings=_settings;
 @property(retain, nonatomic) NSData *manifestHash; // @synthesize manifestHash=_manifestHash;
 @property(copy, nonatomic) PKPassDisplayProfile *displayProfile; // @synthesize displayProfile=_displayProfile;
 @property(copy, nonatomic) NSString *authenticationToken; // @synthesize authenticationToken=_authenticationToken;
@@ -59,7 +59,7 @@
 @property(copy, nonatomic) NSSet *embeddedLocations; // @synthesize embeddedLocations=_embeddedLocations;
 @property(copy, nonatomic) NSDate *relevantDate; // @synthesize relevantDate=_relevantDate;
 @property(copy, nonatomic) NSString *groupingID; // @synthesize groupingID=_groupingID;
-@property(nonatomic, getter=isVoided) BOOL voided; // @synthesize voided=_voided;
+@property(nonatomic, getter=isVoided) _Bool voided; // @synthesize voided=_voided;
 @property(copy, nonatomic) NSDate *expirationDate; // @synthesize expirationDate=_expirationDate;
 @property(copy, nonatomic) NSString *organizationName; // @synthesize organizationName=_organizationName;
 @property(copy, nonatomic) NSString *serialNumber; // @synthesize serialNumber=_serialNumber;
@@ -67,24 +67,24 @@
 @property(copy, nonatomic) NSString *passTypeIdentifier; // @synthesize passTypeIdentifier=_passTypeIdentifier;
 @property(copy, nonatomic) NSString *uniqueID; // @synthesize uniqueID=_uniqueID;
 - (id)initWithData:(id)arg1 error:(id *)arg2;
-- (id)_imageSetLoadingIfNecessary:(int)arg1;
+- (id)_imageSetLoadingIfNecessary:(long long)arg1;
 - (id)_contentLoadingIfNecessary;
-- (BOOL)isExpired;
-- (BOOL)isUpdatable;
-- (BOOL)hasTimeOrLocationRelevancyInfo;
-- (void)fetchImageSet:(int)arg1 withCompletion:(id)arg2;
+- (_Bool)isExpired;
+- (_Bool)isUpdatable;
+- (_Bool)hasTimeOrLocationRelevancyInfo;
+- (void)fetchImageSet:(long long)arg1 withCompletion:(id)arg2;
 - (void)fetchContentWithCompletion:(id)arg1;
-- (BOOL)isBundled;
+- (_Bool)isBundled;
 - (id)allImageSetsLoadingIfNecessary;
-- (BOOL)imageSetIsLoaded:(int)arg1;
-- (void)loadImageSetSync:(int)arg1 preheat:(BOOL)arg2;
+- (_Bool)imageSetIsLoaded:(long long)arg1;
+- (void)loadImageSetSync:(long long)arg1 preheat:(_Bool)arg2;
 - (void)flushFormattedFieldValues;
 - (void)flushCachedImageSets;
-- (void)loadImageSetAsync:(int)arg1 preheat:(BOOL)arg2 withCompletion:(id)arg3;
-- (BOOL)contentIsLoaded;
+- (void)loadImageSetAsync:(long long)arg1 preheat:(_Bool)arg2 withCompletion:(id)arg3;
+- (_Bool)contentIsLoaded;
 - (void)loadContentSync;
 - (void)loadContentAsyncWithCompletion:(id)arg1;
-- (BOOL)isEqualToPassIncludingMetadata:(id)arg1;
+- (_Bool)isEqualToPassIncludingMetadata:(id)arg1;
 @property(readonly, nonatomic) NSData *archivedPass;
 @property(readonly, nonatomic) PKImage *backFaceImage;
 @property(readonly, nonatomic) struct CGRect stripRect;
@@ -97,7 +97,7 @@
 @property(readonly, nonatomic) NSArray *storeIdentifiers;
 @property(readonly, nonatomic) NSArray *backFieldBuckets;
 @property(readonly, nonatomic) NSArray *frontFieldBuckets;
-@property(readonly, nonatomic) int transitType;
+@property(readonly, nonatomic) long long transitType;
 @property(readonly, nonatomic) NSString *localizedDescription;
 @property(readonly, nonatomic) NSString *logoText;
 @property(readonly, nonatomic) PKImage *footerImage;
@@ -111,7 +111,7 @@
 @property(readonly, nonatomic) NSString *pluralLocalizedName;
 @property(readonly, nonatomic) NSString *lowercaseLocalizedName;
 @property(readonly, nonatomic) NSString *localizedName;
-@property(readonly, nonatomic) int style;
+@property(readonly, nonatomic) long long style;
 - (void)dealloc;
 
 // Remaining properties

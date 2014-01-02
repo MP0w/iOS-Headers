@@ -6,13 +6,14 @@
 
 #import <OfficeImport/CMTop.h>
 
+// Not exported
 @interface WMTop : CMTop
 {
 }
 
-+ (void)fillHTMLArchiveForOfficeData:(id)arg1 fileName:(id)arg2 xmlFlag:(BOOL)arg3 archiver:(id)arg4;
-+ (void)fillHTMLArchiveForOfficeFile:(id)arg1 xmlFlag:(BOOL)arg2 archiver:(id)arg3;
-+ (id)documentFromContents:(id)arg1 isXML:(BOOL)arg2 archiver:(id)arg3;
++ (void)fillHTMLArchiveForOfficeData:(id)arg1 fileName:(id)arg2 xmlFlag:(_Bool)arg3 archiver:(id)arg4;
++ (void)fillHTMLArchiveForOfficeFile:(id)arg1 xmlFlag:(_Bool)arg2 archiver:(id)arg3;
++ (id)documentFromContents:(id)arg1 isXML:(_Bool)arg2 archiver:(id)arg3;
 
 @end
 

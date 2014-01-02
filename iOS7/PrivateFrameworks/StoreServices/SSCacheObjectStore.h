@@ -19,8 +19,8 @@
 - (void)removeCacheObjectFactory:(id)arg1;
 - (void)addCacheObjectFactory:(id)arg1;
 - (id)cacheObjectWithItemIdentifier:(id)arg1;
-- (BOOL)removeObjectWithItemIdentifier:(id)arg1;
-- (BOOL)addObject:(id)arg1 withItemIdentifier:(id)arg2;
+- (_Bool)removeObjectWithItemIdentifier:(id)arg1;
+- (_Bool)addObject:(id)arg1 withItemIdentifier:(id)arg2;
 - (void)clearSession;
 - (id)_factoryForTypeIdentifier:(id)arg1;
 - (id)description;

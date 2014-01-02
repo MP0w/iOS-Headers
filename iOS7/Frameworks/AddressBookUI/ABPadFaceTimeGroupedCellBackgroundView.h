@@ -11,8 +11,8 @@
 }
 
 - (void)drawRect:(struct CGRect)arg1;
-- (BOOL)isBottomCell;
-- (BOOL)isTopCell;
+- (_Bool)isBottomCell;
+- (_Bool)isTopCell;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)setSectionLocation:(int)arg1;
 - (void)setAbCellStyle:(int)arg1;

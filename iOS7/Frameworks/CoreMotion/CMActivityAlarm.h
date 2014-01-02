@@ -10,7 +10,7 @@
 
 @interface CMActivityAlarm : NSObject
 {
-    BOOL fIsValid;
+    _Bool fIsValid;
     struct __CFRunLoop *fRunLoop;
     NSObject<OS_dispatch_queue> *fQueue;
     id fHandler;
@@ -19,11 +19,11 @@
 }
 
 + (id)activityAlarmInfo;
-+ (BOOL)activityAlarmAvailable;
++ (_Bool)activityAlarmAvailable;
 @property(nonatomic) unsigned int trigger; // @synthesize trigger=_trigger;
 @property(nonatomic) double duration; // @synthesize duration=_duration;
 - (void)fire;
-- (BOOL)isValid;
+- (_Bool)isValid;
 - (void)invalidate;
 - (void)dealloc;
 - (id)initWithTrigger:(unsigned int)arg1 duration:(double)arg2 onRunLoop:(struct __CFRunLoop *)arg3 withHandler:(id)arg4;

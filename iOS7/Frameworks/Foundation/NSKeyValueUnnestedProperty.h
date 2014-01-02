@@ -8,22 +8,23 @@
 
 @class NSArray;
 
+// Not exported
 @interface NSKeyValueUnnestedProperty : NSKeyValueProperty
 {
     NSArray *_affectingProperties;
-    BOOL _cachedIsaForAutonotifyingIsValid;
+    _Bool _cachedIsaForAutonotifyingIsValid;
     Class _cachedIsaForAutonotifying;
 }
 
-- (BOOL)matchesWithoutOperatorComponentsKeyPath:(id)arg1;
-- (void)object:(id)arg1 withObservance:(id)arg2 didChangeValueForKeyOrKeys:(id)arg3 recurse:(BOOL)arg4 forwardingValues:(CDStruct_a70f6672)arg5;
-- (BOOL)object:(id)arg1 withObservance:(id)arg2 willChangeValueForKeyOrKeys:(id)arg3 recurse:(BOOL)arg4 forwardingValues:(CDStruct_a70f6672 *)arg5;
-- (void)object:(id)arg1 didRemoveObservance:(id)arg2 recurse:(BOOL)arg3;
-- (void)object:(id)arg1 didAddObservance:(id)arg2 recurse:(BOOL)arg3;
+- (_Bool)matchesWithoutOperatorComponentsKeyPath:(id)arg1;
+- (void)object:(id)arg1 withObservance:(id)arg2 didChangeValueForKeyOrKeys:(id)arg3 recurse:(_Bool)arg4 forwardingValues:(CDStruct_a70f6672)arg5;
+- (_Bool)object:(id)arg1 withObservance:(id)arg2 willChangeValueForKeyOrKeys:(id)arg3 recurse:(_Bool)arg4 forwardingValues:(CDStruct_a70f6672 *)arg5;
+- (void)object:(id)arg1 didRemoveObservance:(id)arg2 recurse:(_Bool)arg3;
+- (void)object:(id)arg1 didAddObservance:(id)arg2 recurse:(_Bool)arg3;
 - (id)keyPathIfAffectedByValueForMemberOfKeys:(id)arg1;
 - (id)_keyPathIfAffectedByValueForMemberOfKeys:(id)arg1;
-- (id)keyPathIfAffectedByValueForKey:(id)arg1 exactMatch:(char *)arg2;
-- (id)_keyPathIfAffectedByValueForKey:(id)arg1 exactMatch:(char *)arg2;
+- (id)keyPathIfAffectedByValueForKey:(id)arg1 exactMatch:(_Bool *)arg2;
+- (id)_keyPathIfAffectedByValueForKey:(id)arg1 exactMatch:(_Bool *)arg2;
 - (Class)isaForAutonotifying;
 - (Class)_isaForAutonotifying;
 - (void)_addDependentValueKey:(id)arg1;

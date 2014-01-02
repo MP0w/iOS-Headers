@@ -8,6 +8,7 @@
 
 @class NSMutableDictionary, NSMutableString;
 
+// Not exported
 @interface RTF_CMProgressiveArchiveManager : RTF_CMArchiveManager
 {
     const void *mClient;
@@ -15,7 +16,7 @@
     NSMutableDictionary *mDataCache;
     NSMutableDictionary *mStyleCache;
     NSMutableString *mCssString;
-    BOOL mMainDataInited;
+    _Bool mMainDataInited;
     NSMutableString *mHtmlLogString;
 }
 
@@ -28,7 +29,7 @@
 - (void)pushText:(id)arg1 toPath:(id)arg2;
 - (void)pushData:(id)arg1 toPath:(id)arg2;
 - (id)newResourceWithName:(id)arg1;
-- (BOOL)isProgressive;
+- (_Bool)isProgressive;
 - (void)dealloc;
 - (id)initWithClient:(const void *)arg1 andCallBacks:(CDStruct_4e53fc95 *)arg2;
 

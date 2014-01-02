@@ -10,7 +10,7 @@
 {
 }
 
-+ (void)addYouTubeHeadersToRequest:(id)arg1 includingHostHeader:(BOOL)arg2;
++ (void)addYouTubeHeadersToRequest:(id)arg1 includingHostHeader:(_Bool)arg2;
 
 @end
 

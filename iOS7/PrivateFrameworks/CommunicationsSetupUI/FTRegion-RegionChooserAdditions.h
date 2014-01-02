@@ -7,7 +7,7 @@
 #import "FTRegion.h"
 
 @interface FTRegion (RegionChooserAdditions)
-- (BOOL)search:(id)arg1 withResults:(id)arg2;
-- (BOOL)isLeafNode;
+- (_Bool)search:(id)arg1 withResults:(id)arg2;
+- (_Bool)isLeafNode;
 @end
 

@@ -9,18 +9,18 @@
 @interface SBPasscodeField : UIPasscodeField
 {
     int _style;
-    float _okFontSize;
-    float _cancelFontSize;
-    float _buttonWidth;
-    BOOL _showsCancelButton;
-    BOOL _isAlphanumericField;
+    double _okFontSize;
+    double _cancelFontSize;
+    double _buttonWidth;
+    _Bool _showsCancelButton;
+    _Bool _isAlphanumericField;
 }
 
 + (Class)textFieldClass;
-@property(nonatomic) BOOL showsCancelButton; // @synthesize showsCancelButton=_showsCancelButton;
-@property(nonatomic) BOOL isAlphanumericField; // @synthesize isAlphanumericField=_isAlphanumericField;
+@property(nonatomic) _Bool showsCancelButton; // @synthesize showsCancelButton=_showsCancelButton;
+@property(nonatomic) _Bool isAlphanumericField; // @synthesize isAlphanumericField=_isAlphanumericField;
 - (void)_textDidChange;
-- (BOOL)textFieldShouldClear:(id)arg1;
+- (_Bool)textFieldShouldClear:(id)arg1;
 - (void)_updateFields;
 - (void)_updateButtonFrame;
 - (void)_updateButtonTitle;
@@ -28,10 +28,10 @@
 - (id)_localizedCancelString;
 - (id)_localizedOKString;
 - (id)textInputTraits;
-@property(nonatomic) int clearButtonMode;
-- (void)setShowsOKButton:(BOOL)arg1;
-@property(nonatomic, getter=isOkayButtonEnabled) BOOL okayButtonEnabled;
-- (void)setNumberOfEntryFields:(int)arg1 opaqueBackground:(BOOL)arg2;
+@property(nonatomic) long long clearButtonMode;
+- (void)setShowsOKButton:(_Bool)arg1;
+@property(nonatomic, getter=isOkayButtonEnabled) _Bool okayButtonEnabled;
+- (void)setNumberOfEntryFields:(int)arg1 opaqueBackground:(_Bool)arg2;
 - (id)_entryField;
 - (id)_initWithStyle:(int)arg1;
 

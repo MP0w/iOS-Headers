@@ -10,9 +10,9 @@
 {
 }
 
-+ (char *)convertCGImageToGrayscale:(struct CGImage *)arg1 usingGCD:(BOOL)arg2 cacheContext:(BOOL)arg3;
-+ (char *)convertCGImageToBufferUsingRGBDevice:(struct CGImage *)arg1 usingGCD:(BOOL)arg2 cacheContext:(BOOL)arg3;
-+ (char *)convertCGImageToBufferUsingDataProvider:(struct CGImage *)arg1 usingGCD:(BOOL)arg2;
++ (char *)convertCGImageToGrayscale:(struct CGImage *)arg1 usingGCD:(_Bool)arg2 cacheContext:(_Bool)arg3;
++ (char *)convertCGImageToBufferUsingRGBDevice:(struct CGImage *)arg1 usingGCD:(_Bool)arg2 cacheContext:(_Bool)arg3;
++ (char *)convertCGImageToBufferUsingDataProvider:(struct CGImage *)arg1 usingGCD:(_Bool)arg2;
 + (char *)convertCGImageToBufferUsingGrayDevice:(struct CGImage *)arg1;
 
 @end

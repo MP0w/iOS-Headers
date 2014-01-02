@@ -16,25 +16,27 @@
     SKUIIPadChartsViewController *_ipadViewController;
     SKUIIPhoneChartsViewController *_iphoneViewController;
     SKUIProductPageOverlayController *_overlayController;
-    int _selectedChartIndex;
-    int _selectedItemIndex;
+    long long _selectedChartIndex;
+    long long _selectedItemIndex;
 }
 
 - (void).cxx_destruct;
-- (void)_recordClickEvent:(id)arg1 withItemIndex:(int)arg2 chartIndex:(int)arg3;
+- (void)_recordClickEvent:(id)arg1 withItem:(id)arg2 itemIndex:(long long)arg3 chartIndex:(long long)arg4;
 - (id)_chartsViewController;
 - (void)productPageOverlayDidDismiss:(id)arg1;
 - (id)productPageOverlay:(id)arg1 flipSourceViewToPresentItem:(id)arg2;
 - (id)productPageOverlay:(id)arg1 flipSourceViewToDismissItem:(id)arg2;
-- (void)chartsViewController:(id)arg1 didSelectItem:(id)arg2 atIndex:(int)arg3 chartIndex:(int)arg4;
-- (id)chartsViewController:(id)arg1 didConfirmItemOfferForItem:(id)arg2 atIndex:(int)arg3 chartIndex:(int)arg4;
-- (void)prefetchResourcesWithReason:(int)arg1;
-- (int)numberOfCells;
-- (BOOL)fitsToHeight;
-- (BOOL)collectionViewShouldSelectItemAtIndexPath:(id)arg1;
-- (BOOL)collectionViewShouldHighlightItemAtIndexPath:(id)arg1;
+- (void)chartsViewController:(id)arg1 willDisplayItem:(id)arg2 atIndex:(long long)arg3 chartIndex:(long long)arg4;
+- (void)chartsViewController:(id)arg1 didSelectItem:(id)arg2 atIndex:(long long)arg3 chartIndex:(long long)arg4;
+- (id)chartsViewController:(id)arg1 didConfirmItemOfferForItem:(id)arg2 atIndex:(long long)arg3 chartIndex:(long long)arg4;
+- (void)prefetchResourcesWithReason:(long long)arg1;
+- (long long)numberOfCells;
+- (_Bool)fitsToHeight;
+- (_Bool)collectionViewShouldSelectItemAtIndexPath:(id)arg1;
+- (_Bool)collectionViewShouldHighlightItemAtIndexPath:(id)arg1;
 - (struct CGSize)cellSizeForIndexPath:(id)arg1;
 - (id)cellForIndexPath:(id)arg1;
+- (void)willAppearInContext:(id)arg1;
 - (void)addImpressionsForIndexPath:(id)arg1 toSession:(id)arg2;
 - (void)dealloc;
 - (id)initWithPageComponent:(id)arg1;

@@ -25,7 +25,7 @@
 @property(readonly, nonatomic) NSArray *downloads;
 @property(readonly, nonatomic) SSDownloadManager *downloadManager;
 - (id)downloadForDownloadIdentifier:(long long)arg1;
-- (BOOL)deleteDownload:(id)arg1;
+- (_Bool)deleteDownload:(id)arg1;
 - (void)dealloc;
 - (id)initWithDownloadManager:(id)arg1 clientInterface:(id)arg2;
 - (id)initWithDownloadManager:(id)arg1;

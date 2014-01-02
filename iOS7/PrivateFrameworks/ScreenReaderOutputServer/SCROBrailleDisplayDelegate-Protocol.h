@@ -14,8 +14,8 @@
 - (void)brailleDisplay:(id)arg1 willMemorizeKey:(id)arg2;
 - (void)brailleDisplay:(id)arg1 pressedKeys:(id)arg2;
 - (void)configurationChangedForBrailleDisplay:(id)arg1;
-- (void)brailleDisplay:(id)arg1 isSleeping:(BOOL)arg2;
+- (void)brailleDisplay:(id)arg1 isSleeping:(_Bool)arg2;
 - (void)brailleDriverDisconnected:(id)arg1;
-- (void)brailleDisplay:(id)arg1 driverDidLoad:(BOOL)arg2;
+- (void)brailleDisplay:(id)arg1 driverDidLoad:(_Bool)arg2;
 @end
 

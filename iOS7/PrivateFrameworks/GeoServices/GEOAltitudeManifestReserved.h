@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface GEOAltitudeManifestReserved : NSObject
 {
     struct map<unsigned int, _GEOAltitudeTriggerData, std::__1::less<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, _GEOAltitudeTriggerData>>> _reservedTriggerData;

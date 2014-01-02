@@ -10,6 +10,7 @@
 
 @class EBReaderSheetState;
 
+// Not exported
 @interface EBSheetContext : NSObject <OCDDelayedNodeContext>
 {
     EBReaderSheetState *mSheetState;

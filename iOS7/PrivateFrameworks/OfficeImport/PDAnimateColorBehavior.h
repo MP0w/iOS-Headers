@@ -8,6 +8,7 @@
 
 @class OADColor;
 
+// Not exported
 @interface PDAnimateColorBehavior : PDAnimateBehavior
 {
     OADColor *mBy;

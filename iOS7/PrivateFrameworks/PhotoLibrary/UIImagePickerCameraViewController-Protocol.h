@@ -8,19 +8,19 @@
 
 @protocol UIImagePickerCameraViewController <NSObject>
 - (void)_stopVideoCapture;
-- (BOOL)_startVideoCapture;
-- (void)_setCameraFlashMode:(int)arg1;
-- (int)_cameraFlashMode;
-- (void)_setCameraCaptureMode:(int)arg1;
-- (int)_cameraCaptureMode;
-- (void)_setCameraDevice:(int)arg1;
-- (int)_cameraDevice;
+- (_Bool)_startVideoCapture;
+- (void)_setCameraFlashMode:(long long)arg1;
+- (long long)_cameraFlashMode;
+- (void)_setCameraCaptureMode:(long long)arg1;
+- (long long)_cameraCaptureMode;
+- (void)_setCameraDevice:(long long)arg1;
+- (long long)_cameraDevice;
 - (void)_takePicture;
 - (void)_setCameraViewTransform:(struct CGAffineTransform)arg1;
 - (struct CGAffineTransform)_cameraViewTransform;
 - (void)_setCameraOverlayView:(id)arg1;
 - (id)_cameraOverlayView;
-- (void)_setShowsCameraControls:(BOOL)arg1;
-- (BOOL)_showsCameraControls;
+- (void)_setShowsCameraControls:(_Bool)arg1;
+- (_Bool)_showsCameraControls;
 @end
 

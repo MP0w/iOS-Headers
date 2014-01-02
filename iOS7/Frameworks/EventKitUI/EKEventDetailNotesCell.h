@@ -6,25 +6,23 @@
 
 #import <EventKitUI/EKEventDetailCell.h>
 
-@class UIFont, UILabel, UITextView;
+@class UILabel, UITextView;
 
+// Not exported
 @interface EKEventDetailNotesCell : EKEventDetailCell
 {
     UILabel *_notesTitleView;
     UITextView *_notesView;
-    BOOL _isTruncatingNotes;
-    UIFont *_font;
+    _Bool _isTruncatingNotes;
 }
 
-@property(readonly, nonatomic) BOOL isTruncatingNotes; // @synthesize isTruncatingNotes=_isTruncatingNotes;
-@property(retain, nonatomic) UIFont *_font; // @synthesize _font;
+@property(readonly, nonatomic) _Bool isTruncatingNotes; // @synthesize isTruncatingNotes=_isTruncatingNotes;
 - (void).cxx_destruct;
-- (void)layoutForWidth:(float)arg1 position:(int)arg2;
-- (struct CGSize)_truncatedNotesViewSize:(float)arg1;
+- (void)layoutForWidth:(double)arg1 position:(int)arg2;
+- (struct CGSize)_truncatedNotesViewSize:(double)arg1;
 - (id)_notesView;
 - (id)_notesTitleView;
-- (BOOL)update;
-- (id)init;
+- (_Bool)update;
 
 @end
 

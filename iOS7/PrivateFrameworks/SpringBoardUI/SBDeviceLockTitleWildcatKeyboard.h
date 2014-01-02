@@ -10,7 +10,7 @@
 
 @interface SBDeviceLockTitleWildcatKeyboard : SBDeviceLockTitle
 {
-    BOOL _highlighted;
+    _Bool _highlighted;
     UILabel *_titleLabel;
     UILabel *_subtitleLabel;
 }
@@ -20,12 +20,12 @@
 - (id)subtitle;
 - (void)setTitle:(id)arg1;
 - (id)title;
-- (void)setHighlighted:(BOOL)arg1;
-- (BOOL)isHighlighted;
+- (void)setHighlighted:(_Bool)arg1;
+- (_Bool)isHighlighted;
 - (id)_backgroundImage;
 - (void)layoutSubviews;
 - (void)dealloc;
-- (id)_initWithStyle:(int)arg1 interfaceOrientation:(int)arg2;
+- (id)_initWithStyle:(int)arg1 interfaceOrientation:(long long)arg2;
 
 @end
 

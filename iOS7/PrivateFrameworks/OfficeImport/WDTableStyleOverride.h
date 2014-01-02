@@ -10,6 +10,7 @@
 
 @class WDCharacterProperties, WDDocument, WDParagraphProperties, WDStyle, WDTableCellProperties, WDTableRowProperties;
 
+// Not exported
 @interface WDTableStyleOverride : NSObject <NSCopying>
 {
     WDDocument *mDocument;
@@ -26,22 +27,22 @@
 }
 
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)setTableCellStylePropertiesOverridden:(BOOL)arg1;
-- (BOOL)isTableCellStylePropertiesOverridden;
+- (void)setTableCellStylePropertiesOverridden:(_Bool)arg1;
+- (_Bool)isTableCellStylePropertiesOverridden;
 - (id)mutableTableCellStyleProperties;
 - (id)tableCellStyleProperties;
-- (void)setTableRowPropertiesOverridden:(BOOL)arg1;
-- (BOOL)isTableRowPropertiesOverridden;
+- (void)setTableRowPropertiesOverridden:(_Bool)arg1;
+- (_Bool)isTableRowPropertiesOverridden;
 - (id)mutableTableRowProperties;
 - (id)tableRowProperties;
-- (BOOL)isTablePropertiesOverridden;
+- (_Bool)isTablePropertiesOverridden;
 - (id)tableProperties;
-- (void)setCharacterPropertiesOverridden:(BOOL)arg1;
-- (BOOL)isCharacterPropertiesOverridden;
+- (void)setCharacterPropertiesOverridden:(_Bool)arg1;
+- (_Bool)isCharacterPropertiesOverridden;
 - (id)mutableCharacterProperties;
 - (id)characterProperties;
-- (void)setParagraphPropertiesOverridden:(BOOL)arg1;
-- (BOOL)isParagraphPropertiesOverridden;
+- (void)setParagraphPropertiesOverridden:(_Bool)arg1;
+- (_Bool)isParagraphPropertiesOverridden;
 - (id)mutableParagraphProperties;
 - (id)paragraphProperties;
 - (void)setPart:(int)arg1;

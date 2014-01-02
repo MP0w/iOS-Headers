@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface UIKBHandwritingPointFIFO : NSObject
 {
     UIKBHandwritingPointFIFO *_nextFIFO;

@@ -6,21 +6,27 @@
 
 #import <UIKit/UIView.h>
 
-@class CALayer, UIKBRenderConfig;
+#import "_UIBasicAnimationFactory-Protocol.h"
 
-@interface UIKeyboardDicationBackgroundGradientView : UIView
+@class UIDictationView, UIKBRenderConfig;
+
+// Not exported
+@interface UIKeyboardDicationBackgroundGradientView : UIView <_UIBasicAnimationFactory>
 {
     UIKBRenderConfig *_renderConfig;
-    CALayer *_whiteOverlay;
-    CALayer *_coloredOverlay;
+    UIDictationView *_dictationView;
 }
 
-@property(retain, nonatomic) CALayer *coloredOverlay; // @synthesize coloredOverlay=_coloredOverlay;
-@property(retain, nonatomic) CALayer *whiteOverlay; // @synthesize whiteOverlay=_whiteOverlay;
+@property(nonatomic) UIDictationView *dictationView; // @synthesize dictationView=_dictationView;
 @property(retain, nonatomic) UIKBRenderConfig *renderConfig; // @synthesize renderConfig=_renderConfig;
 - (void)layoutSubviews;
 - (void)drawRect:(struct CGRect)arg1;
 - (struct CGRect)_backgroundFillFrame;
+- (id)_timingFunctionForAnimation;
+- (id)_basicAnimationForView:(id)arg1 withKeyPath:(id)arg2;
+- (void)startColorTransitionOut;
+- (void)startColorTransitionIn;
+- (id)backgroundColorForCurrentRenderConfig;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

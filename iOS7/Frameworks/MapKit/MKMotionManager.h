@@ -10,25 +10,26 @@
 
 @class CMMotionManager;
 
+// Not exported
 @interface MKMotionManager : NSObject <VKMotionProvider>
 {
     CMMotionManager *_motionManager;
     CDStruct_91d2e2b9 _interfaceOrientationQuaternion;
-    BOOL _motionAvailable;
-    BOOL _motionUpdating;
-    BOOL _usingReference;
+    _Bool _motionAvailable;
+    _Bool _motionUpdating;
+    _Bool _usingReference;
     CDStruct_91d2e2b9 _referenceRotation;
     CDStruct_31142d93 _filteredAcceleration;
-    int interfaceOrientation;
+    long long interfaceOrientation;
     CDStruct_aa5aacbc rotationMatrix;
 }
 
 + (id)sharedMotionManager;
-@property(nonatomic) int interfaceOrientation; // @synthesize interfaceOrientation;
-@property(readonly, nonatomic) BOOL isMotionUpdating; // @synthesize isMotionUpdating=_motionUpdating;
-@property(readonly, nonatomic) BOOL isMotionAvailable; // @synthesize isMotionAvailable=_motionAvailable;
-- (BOOL)computeReferenceFromGravity;
-- (BOOL)computeReferenceFromDevice;
+@property(nonatomic) long long interfaceOrientation; // @synthesize interfaceOrientation;
+@property(readonly, nonatomic) _Bool isMotionUpdating; // @synthesize isMotionUpdating=_motionUpdating;
+@property(readonly, nonatomic) _Bool isMotionAvailable; // @synthesize isMotionAvailable=_motionAvailable;
+- (_Bool)computeReferenceFromGravity;
+- (_Bool)computeReferenceFromDevice;
 - (void)stopMotionUpdates;
 - (void)startMotionUpdates;
 @property(readonly, nonatomic) CDStruct_31142d93 gravity;

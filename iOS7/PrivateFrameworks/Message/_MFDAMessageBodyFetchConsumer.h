@@ -14,7 +14,7 @@
 @interface _MFDAMessageBodyFetchConsumer : NSObject <MFRequestQueueResponseConsumer, DAMailAccountStreamConsumerFactory>
 {
     id <MFDAStreamingContentConsumer> _streamConsumer;
-    BOOL _succeeded;
+    _Bool _succeeded;
     MFError *_error;
     NSData *_data;
 }
@@ -24,9 +24,9 @@
 @property(retain, nonatomic) id <MFDAStreamingContentConsumer> streamConsumer; // @synthesize streamConsumer=_streamConsumer;
 - (void)dealloc;
 - (id)streamingContentConsumer;
-@property(readonly, nonatomic) BOOL succeeded; // @synthesize succeeded=_succeeded;
+@property(readonly, nonatomic) _Bool succeeded; // @synthesize succeeded=_succeeded;
 - (void)handleResponse:(id)arg1 error:(id)arg2;
-- (BOOL)wantsData;
+- (_Bool)wantsData;
 
 @end
 

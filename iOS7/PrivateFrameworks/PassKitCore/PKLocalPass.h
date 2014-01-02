@@ -13,27 +13,28 @@
 
 @interface PKLocalPass : PKPass <PKLocalPassFileAccessor, NSCopying>
 {
-    BOOL _removeOnDiskRepresentationOnDealloc;
+    _Bool _removeOnDiskRepresentationOnDealloc;
     NSURL *_fileURL;
     id <PKLocalPassFileAccessor> _fileAccessor;
     NSData *_passData;
 }
 
-+ (BOOL)supportsSecureCoding;
-@property(nonatomic) BOOL removeOnDiskRepresentationOnDealloc; // @synthesize removeOnDiskRepresentationOnDealloc=_removeOnDiskRepresentationOnDealloc;
++ (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool removeOnDiskRepresentationOnDealloc; // @synthesize removeOnDiskRepresentationOnDealloc=_removeOnDiskRepresentationOnDealloc;
 @property(readonly, nonatomic) NSData *passData; // @synthesize passData=_passData;
 @property(retain, nonatomic) NSURL *fileURL; // @synthesize fileURL=_fileURL;
+- (id)_localizationKeyForMultipleDiff;
 - (id)_beaconsFromPassDictionary:(id)arg1;
 - (id)_locationsFromPassDictionary:(id)arg1;
 - (id)_groupingIDFromPassDictionary:(id)arg1;
 - (id)displayProfileWithPassDictionary:(id)arg1 passURL:(id)arg2;
 - (id)serializedFileWrapperFromPassURL:(id)arg1;
 - (id)manifestHashFromPassURL:(id)arg1;
-- (BOOL)getResourceValue:(id *)arg1 forKey:(id)arg2 forPassAtURL:(id)arg3 error:(id *)arg4;
-- (BOOL)removePassAtURL:(id)arg1 error:(id *)arg2;
-- (BOOL)movePassAtURL:(id)arg1 toURL:(id)arg2 error:(id *)arg3;
-- (BOOL)copyPassAtURL:(id)arg1 toURL:(id)arg2 error:(id *)arg3;
-- (id)loadImageSet:(int)arg1 fromPassURL:(id)arg2 displayProfile:(id)arg3;
+- (_Bool)getResourceValue:(id *)arg1 forKey:(id)arg2 forPassAtURL:(id)arg3 error:(id *)arg4;
+- (_Bool)removePassAtURL:(id)arg1 error:(id *)arg2;
+- (_Bool)movePassAtURL:(id)arg1 toURL:(id)arg2 error:(id *)arg3;
+- (_Bool)copyPassAtURL:(id)arg1 toURL:(id)arg2 error:(id *)arg3;
+- (id)loadImageSet:(long long)arg1 fromPassURL:(id)arg2 displayProfile:(id)arg3;
 - (id)loadContentFromPassURL:(id)arg1;
 - (void)checkRevocationStatusForPassAtURL:(id)arg1 completion:(id)arg2;
 - (id)validatePassURL:(id)arg1;
@@ -41,8 +42,8 @@
 - (id)loadDictionaryFromPassURL:(id)arg1;
 - (id)localizedDescriptionForDiff:(id)arg1;
 - (id)diff:(id)arg1;
-- (BOOL)moveToTemporaryURL;
-- (BOOL)moveToFileURL:(id)arg1;
+- (_Bool)moveToTemporaryURL;
+- (_Bool)moveToFileURL:(id)arg1;
 - (id)serializedFileWrapper;
 - (id)copyWithFileAccessor:(id)arg1;
 - (id)copyWithFileURL:(id)arg1 fileAccessor:(id)arg2;
@@ -51,7 +52,7 @@
 - (id)initWithCoder:(id)arg1;
 - (id)localLocationsURL;
 - (id)archivedPass;
-- (void)fetchImageSet:(int)arg1 withCompletion:(id)arg2;
+- (void)fetchImageSet:(long long)arg1 withCompletion:(id)arg2;
 - (void)fetchContentWithCompletion:(id)arg1;
 - (void)checkRevocationStatusWithCompletion:(id)arg1;
 - (id)modificationDate;

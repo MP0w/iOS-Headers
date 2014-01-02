@@ -8,7 +8,10 @@
 
 @protocol MKAnnotationCalloutControllerDelegate <NSObject>
 - (void)calloutController:(id)arg1 annotationView:(id)arg2 calloutAccessoryControlTapped:(id)arg3;
-- (void)calloutController:(id)arg1 scrollToRevealCalloutWithOffset:(struct CGPoint)arg2 completionHandler:(id)arg3;
+- (void)calloutController:(id)arg1 scrollToRevealCalloutWithOffset:(struct CGPoint)arg2 annotationCoordinate:(CDStruct_c3b9c2ee)arg3 completionHandler:(id)arg4;
 - (struct CGRect)calloutController:(id)arg1 visibleCenteringRectInAnnotationView:(id)arg2;
+
+@optional
+- (void)calloutControllerDidFinishMapsTransitionExpanding:(id)arg1;
 @end
 

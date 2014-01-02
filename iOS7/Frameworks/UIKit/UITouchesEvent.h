@@ -8,6 +8,7 @@
 
 @class NSMutableSet;
 
+// Not exported
 @interface UITouchesEvent : UIInternalEvent
 {
     NSMutableSet *_touches;
@@ -25,9 +26,9 @@
 - (void)_invalidateGestureRecognizerForWindowCache;
 - (id)_gestureRecognizersForWindow:(id)arg1;
 - (id)_windows;
-- (void)_touchesForGesture:(id)arg1 withPhase:(int)arg2 intoSet:(id)arg3;
-- (id)_touchesForGesture:(id)arg1 withPhase:(int)arg2;
-- (id)_touchesForView:(id)arg1 withPhase:(int)arg2;
+- (void)_touchesForGesture:(id)arg1 withPhase:(long long)arg2 intoSet:(id)arg3;
+- (id)_touchesForGesture:(id)arg1 withPhase:(long long)arg2;
+- (id)_touchesForView:(id)arg1 withPhase:(long long)arg2;
 - (void)_clearTouches;
 - (void)_removeTouchesForWindow:(id)arg1;
 - (void)_removeTouchesForKey:(id)arg1;
@@ -36,8 +37,8 @@
 - (void)_removeTouch:(id)arg1 fromGestureRecognizer:(id)arg2;
 - (void)_removeTouch:(id)arg1;
 - (void)_clearViewForTouch:(id)arg1;
-- (void)_addTouch:(id)arg1 forDelayedDelivery:(BOOL)arg2;
-- (BOOL)_addGestureRecognizersForView:(id)arg1 toTouch:(id)arg2 currentTouchMap:(struct __CFDictionary *)arg3 newTouchMap:(struct __CFDictionary *)arg4;
+- (void)_addTouch:(id)arg1 forDelayedDelivery:(_Bool)arg2;
+- (_Bool)_addGestureRecognizersForView:(id)arg1 toTouch:(id)arg2 currentTouchMap:(struct __CFDictionary *)arg3 newTouchMap:(struct __CFDictionary *)arg4;
 - (id)touchesForGestureRecognizer:(id)arg1;
 - (id)_touchesForGestureRecognizer:(id)arg1;
 - (id)touchesForView:(id)arg1;
@@ -47,7 +48,7 @@
 - (void)dealloc;
 - (id)_initWithEvent:(struct __GSEvent *)arg1 touches:(id)arg2;
 - (id)_init;
-- (int)type;
+- (long long)type;
 
 @end
 

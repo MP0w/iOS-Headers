@@ -22,7 +22,7 @@
 @property(nonatomic) double radius;
 @property(retain, nonatomic) CLLocation *geoLocation;
 @property(retain, nonatomic) NSString *title;
-@property(readonly, nonatomic) BOOL isStructured;
+@property(readonly, nonatomic) _Bool isStructured;
 - (id)_persistentLocation;
 - (id)init;
 

@@ -4,36 +4,34 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <UIKit/UITextFieldBackgroundView.h>
+#import <UIKit/UIImageView.h>
 
-@class UIBezierPath, UIColor;
+@class UIColor;
 
-@interface _UITextFieldRoundedRectBackgroundViewNeue : UITextFieldBackgroundView
+@interface _UITextFieldRoundedRectBackgroundViewNeue : UIImageView
 {
-    BOOL _customStrokeColor;
-    BOOL _customFillColor;
-    UIBezierPath *_customPath;
+    _Bool _disabled;
+    UIColor *_strokeColor;
+    UIColor *_fillColor;
+    double _lineWidth;
+    double _cornerRadius;
 }
 
-+ (Class)layerClass;
-@property(copy, nonatomic) UIBezierPath *customPath; // @synthesize customPath=_customPath;
-- (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
-- (void)setEnabled:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)setActive:(BOOL)arg1;
-- (void)setFrame:(struct CGRect)arg1;
-- (void)setBounds:(struct CGRect)arg1;
-@property(nonatomic) float lineWidth;
-- (void)setLineWidth:(float)arg1 updatePath:(BOOL)arg2;
-@property(copy, nonatomic) UIColor *fillColor;
-@property(copy, nonatomic) UIColor *strokeColor;
-- (void)_updatePath;
-- (float)_pixelAlignment;
-- (float)_pathInset;
+@property(nonatomic) double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
+@property(nonatomic) double lineWidth; // @synthesize lineWidth=_lineWidth;
+@property(retain, nonatomic) UIColor *fillColor; // @synthesize fillColor=_fillColor;
+@property(retain, nonatomic) UIColor *strokeColor; // @synthesize strokeColor=_strokeColor;
+- (void)setActive:(_Bool)arg1;
+- (void)setEnabled:(_Bool)arg1 animated:(_Bool)arg2;
+- (id)_fillColor:(_Bool)arg1;
+- (id)_strokeColor:(_Bool)arg1;
+- (void)updateView;
+- (id)_initWithFrame:(struct CGRect)arg1 active:(_Bool)arg2 lineWidth:(double)arg3 updateView:(_Bool)arg4;
+- (id)_initWithFrame:(struct CGRect)arg1 active:(_Bool)arg2 lineWidth:(double)arg3;
+- (id)initWithFrame:(struct CGRect)arg1 active:(_Bool)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (id)initWithFrame:(struct CGRect)arg1 active:(BOOL)arg2;
-- (id)_layer;
-- (id)_fillColor:(BOOL)arg1;
-- (id)_strokeColor:(BOOL)arg1;
+- (double)_pixelAlignment;
+- (double)_pathInset;
 
 @end
 

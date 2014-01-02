@@ -8,6 +8,7 @@
 
 @class NSDictionary;
 
+// Not exported
 @interface UIStateRestorationKeyedUnarchiver : NSKeyedUnarchiver
 {
     NSDictionary *_defaultValues;

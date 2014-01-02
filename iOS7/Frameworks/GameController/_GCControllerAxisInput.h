@@ -8,30 +8,31 @@
 
 @class GCControllerButtonInput, GCControllerElement;
 
+// Not exported
 @interface _GCControllerAxisInput : GCControllerAxisInput
 {
     float _value;
     id _valueChangedHandler;
     GCControllerButtonInput *_positive;
     GCControllerButtonInput *_negative;
-    BOOL _flipped;
-    BOOL _digital;
+    _Bool _flipped;
+    _Bool _digital;
     GCControllerElement *_collection;
 }
 
-- (BOOL)isDigital;
-- (BOOL)isFlipped;
+- (_Bool)isDigital;
+- (_Bool)isFlipped;
 - (id)positive;
 - (id)negative;
 - (void)setValueChangedHandler:(id)arg1;
 - (id)valueChangedHandler;
 - (float)value;
 - (void).cxx_destruct;
-- (BOOL)setHIDValue:(struct __IOHIDValue *)arg1;
-- (BOOL)_setValue:(float)arg1;
-- (BOOL)isAnalog;
+- (_Bool)setHIDValue:(struct __IOHIDValue *)arg1;
+- (_Bool)_setValue:(float)arg1;
+- (_Bool)isAnalog;
 - (id)collection;
-- (id)initWithCollection:(id)arg1 flipped:(BOOL)arg2 digital:(BOOL)arg3;
+- (id)initWithCollection:(id)arg1 flipped:(_Bool)arg2 digital:(_Bool)arg3;
 
 @end
 

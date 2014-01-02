@@ -15,23 +15,23 @@
 - (id)enclosingDocument;
 - (struct CGRect)boundingRectAndInsideFixedPosition:(int *)arg1;
 - (struct CGRect)boundingRect;
-- (BOOL)canShrinkDirectlyToTextOnly;
+- (_Bool)canShrinkDirectlyToTextOnly;
 - (id)rangeOfContents;
-- (BOOL)containsRange:(id)arg1;
+- (_Bool)containsRange:(id)arg1;
 - (id)asDomRange;
 - (id)asDomNode;
-- (BOOL)rendersAsBlock;
+- (_Bool)rendersAsBlock;
 - (id)largerParent;
-- (BOOL)strictlyContainsBlock:(id)arg1;
-- (BOOL)containsBlock:(id)arg1;
-- (BOOL)isSameBlock:(id)arg1;
-- (BOOL)hasCustomLineHeight;
-- (BOOL)selectable;
+- (_Bool)strictlyContainsBlock:(id)arg1;
+- (_Bool)containsBlock:(id)arg1;
+- (_Bool)isSameBlock:(id)arg1;
+- (_Bool)hasCustomLineHeight;
+- (_Bool)selectable;
 - (id)parentBlock;
 - (id)webFrame;
 - (id)enclosingElementIncludingSelf;
 - (id)asElement;
-- (BOOL)strictlyContainsNode:(id)arg1;
-- (BOOL)containsNode:(id)arg1;
+- (_Bool)strictlyContainsNode:(id)arg1;
+- (_Bool)containsNode:(id)arg1;
 @end
 

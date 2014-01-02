@@ -24,7 +24,7 @@
 - (Class)accountClassForACAccount:(id)arg1;
 - (void)loadDaemonBundleForACAccountType:(id)arg1;
 - (void)loadFrameworkForACAccountType:(id)arg1;
-- (BOOL)_loadFrameworkAtSubpath:(id)arg1;
+- (_Bool)_loadFrameworkAtSubpath:(id)arg1;
 - (id)init;
 - (void)_addAccountInfo:(id)arg1 forFrameworkNamed:(id)arg2;
 

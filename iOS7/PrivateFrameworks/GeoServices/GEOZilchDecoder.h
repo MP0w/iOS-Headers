@@ -11,23 +11,21 @@
 @interface GEOZilchDecoder : GEOMapRequestManager
 {
     NSObject<OS_dispatch_queue> *_decoderQueue;
-    NSObject<OS_dispatch_queue> *_mapDataQueue;
+    NSObject<OS_dispatch_queue> *_requestQueue;
     struct mutex _lock;
     id <GEOMapAccessRestrictions> _mapAccessRestrictions;
-    id _tileErrorHandler;
 }
 
-+ (BOOL)decodingSupported;
-@property(copy, nonatomic) id tileErrorHandler; // @synthesize tileErrorHandler=_tileErrorHandler;
++ (_Bool)decodingSupported;
 @property(nonatomic) id <GEOMapAccessRestrictions> mapAccessRestrictions; // @synthesize mapAccessRestrictions=_mapAccessRestrictions;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *decoderQueue; // @synthesize decoderQueue=_decoderQueue;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)requestComplete:(id)arg1;
 - (void)trackRequest:(id)arg1;
-- (id)decodeZilchMessage:(shared_ptr_27244a92)arg1 pathHandler:(id)arg2;
-- (void)setMapDataQueue:(id)arg1;
-- (id)mapDataQueue;
+- (id)decodeZilchMessage:(shared_ptr_27244a92)arg1 pathHandler:(id)arg2 errorHandler:(void)arg3;
+- (void)setRequestQueue:(id)arg1;
+- (id)requestQueue;
 - (void)dealloc;
 - (id)init;
 

@@ -11,6 +11,7 @@
 
 @class EDAnchor, EDComment, EDSheet, EDTextBox, NSMutableDictionary;
 
+// Not exported
 @interface EDOfficeArtClient : NSObject <OADClient, OADTextClient>
 {
     EDSheet *mSheet;
@@ -24,7 +25,7 @@
 }
 
 - (id).cxx_construct;
-- (BOOL)hasText;
+- (_Bool)hasText;
 - (void)setComment:(id)arg1;
 - (id)comment;
 - (void)setTextBox:(id)arg1;
@@ -34,7 +35,7 @@
 - (void)setSheet:(id)arg1;
 - (id)sheet;
 - (struct CGRect)bounds;
-- (BOOL)hasBounds;
+- (_Bool)hasBounds;
 - (void)setBounds:(struct CGRect)arg1;
 - (_Bool)areBoundsSet;
 - (void)setAnchor:(id)arg1;

@@ -18,8 +18,10 @@
 + (id)speechCorrectionStatistics;
 @property(copy, nonatomic) NSString *sessionId;
 @property(copy, nonatomic) NSString *interactionId;
-@property(nonatomic) int characterChangeCount;
-@property(nonatomic) int alternativeSelectCount;
+@property(copy, nonatomic) NSString *correctionText;
+@property(copy, nonatomic) NSString *correctionSource;
+@property(nonatomic) long long characterChangeCount;
+@property(nonatomic) long long alternativeSelectCount;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

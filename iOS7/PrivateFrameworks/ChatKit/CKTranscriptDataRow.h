@@ -10,17 +10,17 @@
 
 @interface CKTranscriptDataRow : NSObject
 {
-    BOOL _hasTail;
+    _Bool _hasTail;
     NSString *_guid;
     id <CKTranscriptDataRowObject> _object;
     id <CKMessage> _message;
     struct CGRect _frame;
 }
 
-+ (id)rowAttributesLock;
++ (void)contentSizeCategoryDidChange:(id)arg1;
 + (id)rowAttributes;
 + (id)rowWithObject:(id)arg1 forMessage:(id)arg2;
-@property(nonatomic) BOOL hasTail; // @synthesize hasTail=_hasTail;
+@property(nonatomic) _Bool hasTail; // @synthesize hasTail=_hasTail;
 @property(nonatomic) struct CGRect frame; // @synthesize frame=_frame;
 @property(retain, nonatomic) id <CKMessage> message; // @synthesize message=_message;
 @property(retain, nonatomic) id <CKTranscriptDataRowObject> object; // @synthesize object=_object;
@@ -33,21 +33,24 @@
 - (id)rowSize;
 - (struct UIEdgeInsets)textAlignmentInsets;
 - (struct CGSize)size;
-- (BOOL)containsHyperlink;
-- (BOOL)isEditable;
-- (BOOL)isTypingIndicator;
-- (BOOL)displayDuringSend;
+- (id)attributedTimestamp;
+- (_Bool)containsHyperlink;
+- (_Bool)wantsDrawerLayout;
+- (_Bool)isEditable;
+- (_Bool)isTypingIndicator;
+- (_Bool)displayDuringSend;
+- (_Bool)transcriptUsesTextAlignmentInsets;
 - (BOOL)transcriptOrientation;
 - (struct UIEdgeInsets)contentAlignmentInsets;
-- (BOOL)wantsContactImageLayout;
+- (_Bool)wantsContactImageLayout;
 - (id)contactImage;
 - (void)prewarmForDisplay;
-- (BOOL)wantsPrewarmForDisplay;
+- (_Bool)wantsPrewarmForDisplay;
 - (id)cellIdentifier;
 - (Class)cellClass;
 @property(readonly, nonatomic) NSString *guid; // @synthesize guid=_guid;
 - (id)initWithObject:(id)arg1 forMessage:(id)arg2;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (void)dealloc;
 

@@ -10,28 +10,28 @@
 
 @interface SUWebView : UIWebView
 {
-    BOOL _isPinned;
+    _Bool _isPinned;
     UIColor *_originalBackgroundColor;
     BOOL _originalShowsBackgroundShadow;
-    float _pinnedHeaderInsetAdjustment;
+    double _pinnedHeaderInsetAdjustment;
     UIView *_pinnedHeaderView;
     unsigned int _scrollingDisabled:1;
-    BOOL _showsTopBackgroundShadow;
-    int _synchronousLayoutCount;
+    _Bool _showsTopBackgroundShadow;
+    long long _synchronousLayoutCount;
     UIColor *_topBackgroundColor;
 }
 
 @property(retain, nonatomic) UIColor *topBackgroundColor; // @synthesize topBackgroundColor=_topBackgroundColor;
-@property(nonatomic) BOOL showsTopBackgroundShadow; // @synthesize showsTopBackgroundShadow=_showsTopBackgroundShadow;
+@property(nonatomic) _Bool showsTopBackgroundShadow; // @synthesize showsTopBackgroundShadow=_showsTopBackgroundShadow;
 - (void)view:(id)arg1 didSetFrame:(struct CGRect)arg2 oldFrame:(struct CGRect)arg3;
 - (void)scrollViewDidScroll:(id)arg1;
 - (void)_setRichTextReaderViewportSettings;
-- (void)_setPinnedHeaderView:(id)arg1 withTopInsetAdjustment:(float)arg2;
+- (void)_setPinnedHeaderView:(id)arg1 withTopInsetAdjustment:(double)arg2;
 @property(readonly, nonatomic) id windowScriptObject;
 @property(readonly, nonatomic) NSString *title;
-@property(nonatomic, getter=isScrollingEnabled) BOOL scrollingEnabled;
+@property(nonatomic, getter=isScrollingEnabled) _Bool scrollingEnabled;
 - (void)loadArchive:(id)arg1;
-- (BOOL)getStatusBarStyle:(int *)arg1;
+- (_Bool)getStatusBarStyle:(long long *)arg1;
 - (void)endSynchronousLayout;
 - (void)beginSynchronousLayout;
 - (void)dealloc;

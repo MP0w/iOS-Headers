@@ -16,9 +16,9 @@
     NSUUID *_uuid;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
-- (void)networkUsageChanged:(BOOL)arg1;
+- (void)networkUsageChanged:(_Bool)arg1;
 - (void)applicationInstallsDidPrioritize:(id)arg1;
 - (void)applicationInstallsDidCancel:(id)arg1;
 - (void)applicationInstallsDidResume:(id)arg1;

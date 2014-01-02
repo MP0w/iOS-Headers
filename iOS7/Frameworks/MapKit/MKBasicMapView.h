@@ -8,30 +8,39 @@
 
 @class VKMapView;
 
+// Not exported
 @interface MKBasicMapView : UIView
 {
     UIView *_hostView;
     VKMapView *_mapView;
+    double _mapModeStartTime;
 }
 
+@property(nonatomic) double mapModeStartTime; // @synthesize mapModeStartTime=_mapModeStartTime;
 @property(readonly, nonatomic) VKMapView *mapView; // @synthesize mapView=_mapView;
-- (void)setHidden:(BOOL)arg1;
+- (void)_updateStatsForTimeSpentInCurrentMapTypeIsShowingFlyover:(_Bool)arg1 ignoreIfViewInWindow:(_Bool)arg2;
+- (void)updateStatsForTimeSpentInCurrentMapTypeIsShowingFlyover:(_Bool)arg1;
+- (void)updateStatsForSwitchingToMapType:(long long)arg1;
+- (void)setHidden:(_Bool)arg1;
 - (void)didMoveToWindow;
+- (void)willMoveToWindow:(id)arg1;
+- (void)_updateForCurrentScreen;
 - (void)_updateMapViewHidden;
-- (BOOL)isPointValidForGesturing:(struct CGPoint)arg1;
+- (_Bool)isPointValidForGesturing:(struct CGPoint)arg1;
 - (struct CGPoint)convertCoordinate:(CDStruct_c3b9c2ee)arg1 toCameraModelPointToView:(id)arg2;
 - (struct CGPoint)convertCoordinate:(CDStruct_c3b9c2ee)arg1 toPointToView:(id)arg2;
 - (CDStruct_c3b9c2ee)convertPoint:(struct CGPoint)arg1 toCoordinateFromView:(id)arg2;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)setBounds:(struct CGRect)arg1;
 - (void)_animateCanvasForBounds:(struct CGRect)arg1;
-@property(nonatomic) BOOL rendersInBackground;
-- (float)calloutContainerCanvasScale;
+@property(nonatomic) _Bool rendersInBackground;
+- (double)calloutContainerCanvasScale;
 - (struct CGSize)calloutContainerCanvasSize;
 - (void)addCalloutSubview:(id)arg1;
 @property(readonly, nonatomic) struct UIEdgeInsets edgeInsets;
+- (_Bool)_isThirdPartyApp;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 andGlobe:(BOOL)arg2 shouldRasterize:(BOOL)arg3;
+- (id)initWithFrame:(struct CGRect)arg1 andGlobe:(_Bool)arg2 shouldRasterize:(_Bool)arg3;
 - (void)_enterBackground:(id)arg1;
 - (void)_enterForeground:(id)arg1;
 

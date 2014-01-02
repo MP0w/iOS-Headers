@@ -8,20 +8,21 @@
 
 @class EBReaderState, EDSheet;
 
+// Not exported
 @interface EBReaderSheetState : NSObject
 {
     EBReaderState *mReaderState;
     EDSheet *mEDSheet;
-    struct map<int, unsigned int, std::__1::less<int>, std::__1::allocator<std::__1::pair<const int, unsigned int>>> mSharedFormulas;
-    unsigned int mChartIndex;
+    struct map<int, unsigned long, std::__1::less<int>, std::__1::allocator<std::__1::pair<const int, unsigned long>>> mSharedFormulas;
+    unsigned long long mChartIndex;
 }
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)reportWorksheetWarning:(struct CPTaggedMessageStructure *)arg1;
-- (unsigned int)nextChartIndex;
-- (void)setSharedFormulaIndex:(unsigned int)arg1 forRowCol:(int)arg2;
-- (unsigned int)sharedFormulaIndexForRowCol:(int)arg1;
+- (unsigned long long)nextChartIndex;
+- (void)setSharedFormulaIndex:(unsigned long long)arg1 forRowCol:(int)arg2;
+- (unsigned long long)sharedFormulaIndexForRowCol:(int)arg1;
 - (void)setEDSheet:(id)arg1;
 - (id)edSheet;
 - (id)resources;

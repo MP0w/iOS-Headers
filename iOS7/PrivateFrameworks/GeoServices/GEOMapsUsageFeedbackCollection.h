@@ -6,28 +6,39 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class GEOPlaceActionDetails;
 
-@interface GEOMapsUsageFeedbackCollection : PBCodable
+@interface GEOMapsUsageFeedbackCollection : PBCodable <NSCopying>
 {
     CDStruct_612aec5b _sessionID;
     double _sessionRelativeTimestamp;
     int _actionType;
     GEOPlaceActionDetails *_placeActionDetails;
+    struct {
+        unsigned int sessionID:1;
+        unsigned int sessionRelativeTimestamp:1;
+        unsigned int actionType:1;
+    } _has;
 }
 
 @property(retain, nonatomic) GEOPlaceActionDetails *placeActionDetails; // @synthesize placeActionDetails=_placeActionDetails;
 @property(nonatomic) double sessionRelativeTimestamp; // @synthesize sessionRelativeTimestamp=_sessionRelativeTimestamp;
 @property(nonatomic) int actionType; // @synthesize actionType=_actionType;
 @property(nonatomic) CDStruct_612aec5b sessionID; // @synthesize sessionID=_sessionID;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) BOOL hasPlaceActionDetails;
+@property(readonly, nonatomic) _Bool hasPlaceActionDetails;
+@property(nonatomic) _Bool hasSessionRelativeTimestamp;
+@property(nonatomic) _Bool hasActionType;
+@property(nonatomic) _Bool hasSessionID;
 - (void)dealloc;
 
 @end

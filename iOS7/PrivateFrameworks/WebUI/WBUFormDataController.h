@@ -9,55 +9,73 @@
 #import "UIActionSheetDelegate-Protocol.h"
 #import "UIWebAutoFillDelegate-Protocol.h"
 
-@class WBUFormAutoCompleteState;
+@class NSMapTable, WBUFormAutoCompleteState;
 
 @interface WBUFormDataController : WBSFormDataController <UIActionSheetDelegate, UIWebAutoFillDelegate>
 {
     WBUFormAutoCompleteState *_autoCompleteState;
-    BOOL _savePending;
+    NSMapTable *_formMetadataForLastSubmitEventByFrame;
+    _Bool _savePending;
+    _Bool _showsAutocompleteOffHints;
 }
 
++ (void)_getUsernameAndPasswordFieldAutofillStatesInForm:(id)arg1 frame:(id)arg2 isUsernameAutofilled:(_Bool *)arg3 isPasswordAutofilled:(_Bool *)arg4;
++ (id)autoFillValuesForCredentialMatch:(id)arg1 inLoginForm:(id)arg2;
++ (_Bool)_isKeychainSyncEnabled;
++ (id)autocompleteOffHintsHistoryDefaultsKey;
 + (id)sharedFormDataController;
-@property BOOL savePending; // @synthesize savePending=_savePending;
+@property(nonatomic) _Bool showsAutocompleteOffHints; // @synthesize showsAutocompleteOffHints=_showsAutocompleteOffHints;
+@property _Bool savePending; // @synthesize savePending=_savePending;
 - (void)webBrowserView:(id)arg1 clearFormAutoFillStateForFrame:(id)arg2;
 - (void)webBrowserView:(id)arg1 acceptedAutoFillWord:(id)arg2;
 - (id)webBrowserView:(id)arg1 suggestionsForString:(id)arg2;
-- (BOOL)hasCurrentSuggestionsForWebBrowserView:(id)arg1;
+- (_Bool)hasCurrentSuggestionsForWebBrowserView:(id)arg1;
 - (void)webBrowserView:(id)arg1 didFocusTextField:(id)arg2 inFrame:(id)arg3;
 - (void)webBrowserView:(id)arg1 didEndEditingTextField:(id)arg2 inFrame:(id)arg3;
 - (void)webBrowserView:(id)arg1 didBeginEditingTextField:(id)arg2 inFrame:(id)arg3;
 - (void)webBrowserView:(id)arg1 willSubmitForm:(id)arg2 toFrame:(id)arg3 fromFrame:(id)arg4 withValues:(id)arg5 submissionHandler:(id)arg6;
+- (void)webBrowserView:(id)arg1 willSendSubmitEventToForm:(id)arg2 inFrame:(id)arg3 withValues:(id)arg4;
 - (void)webBrowserView:(id)arg1 preFillInFrame:(id)arg2;
 - (void)autoFillInWebBrowserView:(id)arg1;
 - (void)webBrowserView:(id)arg1 updateAutoFillButton:(id)arg2;
-- (BOOL)webBrowserViewShouldShowAutoFillButton:(id)arg1;
+- (_Bool)webBrowserViewShouldShowAutoFillButton:(id)arg1;
 - (id)titleOfAutoFillButtonInWebBrowserView:(id)arg1;
 - (void)_clearFormAutoFillStateForFrame:(id)arg1;
-- (BOOL)_webBrowserView:(id)arg1 willSubmitForm:(id)arg2 fromFrame:(id)arg3 withValues:(id)arg4 submissionHandler:(id)arg5;
-- (BOOL)_webBrowserView:(id)arg1 willSubmitLoginFormWithMetadata:(id)arg2 fromFrame:(id)arg3 submissionHandler:(id)arg4;
-- (void)_showPasswordPromptForWebBrowserView:(id)arg1 replacingOldPassword:(BOOL)arg2 completionHandler:(id)arg3;
-- (BOOL)_webBrowserView:(id)arg1 willSubmitStandardFormWithMetadata:(id)arg2 fromFrame:(id)arg3 submissionHandler:(id)arg4;
-- (BOOL)_webBrowserView:(id)arg1 willSubmitNewAccountOrChangePasswordFormWithMetadata:(id)arg2 fromFrame:(id)arg3 submissionHandler:(id)arg4;
-- (void)_saveUsernameAndGeneratedPasswordFromForm:(id)arg1 inFrame:(id)arg2;
-- (BOOL)_webBrowserView:(id)arg1 willSubmitFormContainingCreditCardData:(id)arg2 fromFrame:(id)arg3 submissionHandler:(id)arg4;
+- (_Bool)_webBrowserView:(id)arg1 willSubmitForm:(id)arg2 fromFrame:(id)arg3 submissionHandler:(id)arg4;
+- (_Bool)_webBrowserView:(id)arg1 willSubmitLoginFormWithMetadata:(id)arg2 fromFrame:(id)arg3 submissionHandler:(id)arg4;
+- (void)_showPasswordNotSavedBecauseNotAllowedAlertIfNeededForURL:(id)arg1 webBrowserView:(id)arg2;
+- (void)_showPasswordPromptForWebBrowserView:(id)arg1 formType:(unsigned long long)arg2 username:(id)arg3 isGeneratedPassword:(_Bool)arg4 host:(id)arg5 hasCredentialForCurrentHost:(_Bool)arg6 existingCredentialMatchesForCurrentHost:(id)arg7 otherSubdomainCredentialMatches:(id)arg8 completionHandler:(id)arg9;
+- (_Bool)_webBrowserView:(id)arg1 willSubmitStandardFormWithMetadata:(id)arg2 fromFrame:(id)arg3 submissionHandler:(id)arg4;
+- (_Bool)_webBrowserView:(id)arg1 willSubmitNewAccountOrChangePasswordFormWithMetadata:(id)arg2 fromFrame:(id)arg3 submissionHandler:(id)arg4;
+- (_Bool)_webBrowserView:(id)arg1 saveUsernameAndGeneratedPasswordFromForm:(id)arg2 inFrame:(id)arg3 submissionHandler:(id)arg4;
+- (_Bool)_webBrowserView:(id)arg1 willSubmitFormContainingCreditCardData:(id)arg2 fromFrame:(id)arg3 submissionHandler:(id)arg4;
 - (void)_showCreditCardPromptForWebBrowserView:(id)arg1 completionHandler:(id)arg2;
+- (id)decisionListenerForAction:(id)arg1 frame:(id)arg2 originalListener:(id)arg3;
+- (id)_formMetadataForPolicyAction:(id)arg1 frame:(id)arg2;
 - (void)clearAllFormCredentials;
 - (void)gatherValuesForForm:(id)arg1 inFrame:(id)arg2 completionHandler:(id)arg3;
 - (void)_autoFillLoginForm:(id)arg1 inFrame:(id)arg2;
-- (id)_autoFillValuesForLoginForm:(id)arg1 inFrame:(id)arg2;
-- (BOOL)shouldAutoFillFromCreditCardData;
-- (BOOL)shouldAutoFillPasswords;
-- (BOOL)shouldAutoFillFromPreviousData;
-- (BOOL)shouldAutoFillFromAddressBook;
-- (BOOL)shouldSaveCreditCardData;
-- (BOOL)shouldSaveUsernamesAndPasswords;
-- (BOOL)shouldSaveFormData;
-- (BOOL)shouldAutoGeneratePasswords;
+- (id)_autoFillValuesForLoginForm:(id)arg1 inFrame:(id)arg2 potentialMatches:(id *)arg3;
+- (void)_autoFillPreferencesDidChange;
+- (void)_applicationWillEnterForeground:(id)arg1;
+- (_Bool)shouldAutoFillFromCreditCardDataInFrame:(id)arg1;
+- (void)setAllowsBypassingAutocompleteOffWhenPasscodeIsSet:(_Bool)arg1;
+@property(readonly, nonatomic) _Bool allowsBypassingAutocompleteOff;
+@property(nonatomic) _Bool shouldAutoFillFromAddressBook;
+@property(nonatomic) _Bool shouldAutoFillFromCreditCardData;
+@property(nonatomic) _Bool shouldAutoFillPasswords;
+- (_Bool)shouldAutoFillFromPreviousData;
+- (_Bool)_shouldSaveCreditCardDataInFrame:(id)arg1;
+- (_Bool)shouldSaveUsernamesAndPasswords;
+- (_Bool)shouldSaveFormData;
+- (_Bool)shouldAutoGeneratePasswords;
 - (id)addressBookMatchesForProperty:(id)arg1 key:(id)arg2 label:(id)arg3;
 - (id)_addressBookMatchesForProxyProperty:(id)arg1;
 - (id)_meCard;
 - (void)saveCompletionDBSoon;
 - (id)completionDBPath;
+- (void)dealloc;
+- (id)init;
 
 @end
 

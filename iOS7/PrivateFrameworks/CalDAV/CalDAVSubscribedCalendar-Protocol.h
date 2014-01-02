@@ -10,14 +10,14 @@
 
 @protocol CalDAVSubscribedCalendar <CalDAVCalendar>
 @property double refreshInterval;
-@property BOOL hasTaskFilter;
-@property BOOL hasAttachmentFilter;
-@property BOOL hasAlarmFilter;
+@property _Bool hasTaskFilter;
+@property _Bool hasAttachmentFilter;
+@property _Bool hasAlarmFilter;
 @property(retain) NSURL *subscriptionURL;
 
 @optional
 @property(retain) NSString *languageCode;
 @property(retain) NSString *locationCode;
-@property BOOL autoprovisioned;
+@property _Bool autoprovisioned;
 @end
 

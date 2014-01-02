@@ -8,7 +8,7 @@
 
 @protocol CAMediaTiming
 @property(copy) NSString *fillMode;
-@property BOOL autoreverses;
+@property _Bool autoreverses;
 @property double repeatDuration;
 @property float repeatCount;
 @property double timeOffset;

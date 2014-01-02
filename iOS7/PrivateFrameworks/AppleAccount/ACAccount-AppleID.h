@@ -7,7 +7,7 @@
 #import "ACAccount.h"
 
 @interface ACAccount (AppleID)
-- (BOOL)canRemoveAccount;
+- (_Bool)canRemoveAccount;
 - (id)_registeredBundles;
 - (id)dsid;
 - (void)setDSID:(id)arg1;

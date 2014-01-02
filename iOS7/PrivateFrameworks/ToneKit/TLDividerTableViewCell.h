@@ -14,10 +14,10 @@
 }
 
 - (void)dealloc;
-- (void)setSeparatorStyle:(int)arg1;
+- (void)setSeparatorStyle:(long long)arg1;
 @property(retain, nonatomic) UIColor *contentBackgroundColor;
 @property(retain, nonatomic) UIColor *contentFillColor;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

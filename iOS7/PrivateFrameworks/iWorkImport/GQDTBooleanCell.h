@@ -6,14 +6,14 @@
 
 #import <iWorkImport/GQDTNumberCell.h>
 
+// Not exported
 @interface GQDTBooleanCell : GQDTNumberCell
 {
     struct __CFBundle *mProcessorBundle;
 }
 
 - (struct __CFString *)createStringValue;
-- (BOOL)boolValue;
-- (void)setProcessorBundle:(struct __CFBundle *)arg1;
+- (_Bool)boolValue;
 
 @end
 

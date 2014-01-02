@@ -8,11 +8,12 @@
 
 #import "NSFastEnumeration-Protocol.h"
 
+// Not exported
 @interface VKLRUCache : NSObject <NSFastEnumeration>
 {
-    unsigned int _reservedCapacity;
-    unsigned int _maximumCapacity;
-    unsigned int _count;
+    unsigned long long _reservedCapacity;
+    unsigned long long _maximumCapacity;
+    unsigned long long _count;
     void *_table;
     id _head;
     id _tail;
@@ -20,11 +21,11 @@
 }
 
 @property(nonatomic) id <VKLRUCacheDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) unsigned int count; // @synthesize count=_count;
-@property(readonly, nonatomic) unsigned int maximumCapacity; // @synthesize maximumCapacity=_maximumCapacity;
-@property(readonly, nonatomic) unsigned int reservedCapacity; // @synthesize reservedCapacity=_reservedCapacity;
+@property(readonly, nonatomic) unsigned long long count; // @synthesize count=_count;
+@property(readonly, nonatomic) unsigned long long maximumCapacity; // @synthesize maximumCapacity=_maximumCapacity;
+@property(readonly, nonatomic) unsigned long long reservedCapacity; // @synthesize reservedCapacity=_reservedCapacity;
 - (void)removeObjectsMatchingPredicate:(id)arg1;
-- (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
+- (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
 - (void)insertNodeAtHead:(id)arg1;
 - (void)removeNode:(id)arg1;
 - (void)purge;
@@ -32,13 +33,13 @@
 - (void)setObject:(id)arg1 forKey:(const struct VKCacheKey *)arg2;
 - (id)objectWithoutPromotingForKey:(const struct VKCacheKey *)arg1;
 - (id)objectForKey:(const struct VKCacheKey *)arg1;
-- (void)setReservedCapacity:(unsigned int)arg1 maximumCapacity:(unsigned int)arg2;
+- (void)setReservedCapacity:(unsigned long long)arg1 maximumCapacity:(unsigned long long)arg2;
 - (void)evictIfNecessary;
 - (void)dropTail;
 - (void)dealloc;
 - (id)contentsDescription;
 - (id)description;
-- (id)initWithReservedCapacity:(unsigned int)arg1 maximumCapacity:(unsigned int)arg2;
+- (id)initWithReservedCapacity:(unsigned long long)arg1 maximumCapacity:(unsigned long long)arg2;
 - (id)init;
 - (void)consistencyCheck;
 

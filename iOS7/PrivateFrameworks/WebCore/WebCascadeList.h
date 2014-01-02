@@ -6,18 +6,19 @@
 
 #import "NSArray.h"
 
+// Not exported
 @interface WebCascadeList : NSArray
 {
     const struct Font *_font;
     int _character;
-    unsigned int _count;
+    unsigned long long _count;
     struct Vector<WTF::RetainPtr<const __CTFontDescriptor *>, 16, WTF::CrashOnOverflow> _fontDescriptors;
 }
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (id)objectAtIndex:(unsigned int)arg1;
-- (unsigned int)count;
+- (id)objectAtIndex:(unsigned long long)arg1;
+- (unsigned long long)count;
 - (id)initWithFont:(const struct Font *)arg1 character:(int)arg2;
 
 @end

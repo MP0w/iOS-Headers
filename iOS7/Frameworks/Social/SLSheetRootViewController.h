@@ -11,6 +11,7 @@
 
 @class NSArray, SLComposeServiceViewController, SLSheetTitleView, UIImage, UINavigationItem, UITableView, UITableViewController, UIView;
 
+// Not exported
 @interface SLSheetRootViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
     NSArray *_sheetActions;
@@ -31,9 +32,9 @@
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)_updateCell:(id)arg1 withSheetAction:(id)arg2;
-- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
+- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
 - (void)_updateCellForSheetAction:(id)arg1;
 - (id)sheetActions;
 - (void)setSheetActions:(id)arg1;
@@ -41,12 +42,14 @@
 - (void)observeSheetActions:(id)arg1;
 - (void)resetSheetActions;
 - (void)dismissAutoCompletionViewControllerWithContentViewChangeBlock:(id)arg1;
-- (void)presentAutoCompletionViewController:(id)arg1 apparentContentHeight:(float)arg2 contentViewChangeBlock:(id)arg3;
+- (void)presentAutoCompletionViewController:(id)arg1 apparentContentHeight:(double)arg2 contentViewChangeBlock:(id)arg3;
 - (void)updateContentViewSize:(struct CGSize)arg1;
 - (id)navigationItem;
-- (void)setPostButtonEnabled:(BOOL)arg1;
+- (double)_preferredTableViewHeight;
+- (void)setPostButtonEnabled:(_Bool)arg1;
 - (void)setTitle:(id)arg1;
 @property(readonly, nonatomic) UITableView *tableView;
+- (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
 - (void)loadView;
 - (void)dealloc;

@@ -7,13 +7,13 @@
 #import "NSObject-Protocol.h"
 
 @protocol SUGridViewDataSource <NSObject>
-- (int)gridView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (int)gridView:(id)arg1 numberOfColumnsInSection:(int)arg2;
+- (long long)gridView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (long long)gridView:(id)arg1 numberOfColumnsInSection:(long long)arg2;
 - (id)gridView:(id)arg1 gridCellForRowAtIndexPath:(id)arg2;
 
 @optional
-- (int)numberOfSectionsInGridView:(id)arg1;
-- (id)gridView:(id)arg1 titleForHeaderInSection:(int)arg2;
-- (void)gridView:(id)arg1 commitEditingStyle:(int)arg2 forCellAtIndexPath:(id)arg3;
+- (long long)numberOfSectionsInGridView:(id)arg1;
+- (id)gridView:(id)arg1 titleForHeaderInSection:(long long)arg2;
+- (void)gridView:(id)arg1 commitEditingStyle:(long long)arg2 forCellAtIndexPath:(id)arg3;
 @end
 

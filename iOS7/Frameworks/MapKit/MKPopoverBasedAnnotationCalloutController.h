@@ -9,37 +9,47 @@
 #import "UIPopoverControllerDelegate-Protocol.h"
 #import "UIPopoverControllerDelegatePrivate-Protocol.h"
 #import "_MKPopoverEmbeddingViewWindowDelegate-Protocol.h"
+#import "_UIPopoverControllerMapsTransitionDelegate-Protocol.h"
 
 @class MKSmallCalloutViewController, UIPopoverController, UIView, _MKPopoverEmbeddingView;
 
-@interface MKPopoverBasedAnnotationCalloutController : MKAnnotationCalloutController <_MKPopoverEmbeddingViewWindowDelegate, UIPopoverControllerDelegate, UIPopoverControllerDelegatePrivate>
+// Not exported
+@interface MKPopoverBasedAnnotationCalloutController : MKAnnotationCalloutController <_MKPopoverEmbeddingViewWindowDelegate, _UIPopoverControllerMapsTransitionDelegate, UIPopoverControllerDelegate, UIPopoverControllerDelegatePrivate>
 {
     UIPopoverController *_popoverController;
     MKSmallCalloutViewController *_calloutViewController;
     id _afterMoveToWindowBlock;
     UIView *_layoutConstraintsView;
     _MKPopoverEmbeddingView *_embeddingView;
-    BOOL _isHidingForImplementationReasons;
-    BOOL _allowsPopoverWhenNotInWindow;
+    _Bool _isHidingForImplementationReasons;
+    _Bool _allowsPopoverWhenNotInWindow;
+    _Bool _animatingIn;
+    _Bool _isShowingPopover;
+    _Bool _isCalloutExpanded;
 }
 
-@property(nonatomic) BOOL allowsPopoverWhenNotInWindow; // @synthesize allowsPopoverWhenNotInWindow=_allowsPopoverWhenNotInWindow;
+@property(nonatomic) _Bool allowsPopoverWhenNotInWindow; // @synthesize allowsPopoverWhenNotInWindow=_allowsPopoverWhenNotInWindow;
 @property(readonly, nonatomic) UIPopoverController *popoverController; // @synthesize popoverController=_popoverController;
 - (void)embeddingView:(id)arg1 didMoveToWindow:(id)arg2;
 - (void)embeddingView:(id)arg1 willMoveToWindow:(id)arg2;
-- (void)popoverController:(id)arg1 animationCompleted:(int)arg2;
-- (void)_setDetailAccessoryView:(id)arg1 animated:(BOOL)arg2;
-- (void)_setRightAccessoryView:(id)arg1 animated:(BOOL)arg2;
-- (void)_setLeftAccessoryView:(id)arg1 animated:(BOOL)arg2;
-- (void)_setSubtitle:(id)arg1 animated:(BOOL)arg2;
+- (void)_popoverControllerDidFinishMapsTransitionExpanding:(id)arg1;
+- (void)_popoverControllerWillBeginMapsTransitionMovingSideways:(id)arg1;
+- (void)popoverController:(id)arg1 animationCompleted:(long long)arg2;
+- (void)setMapDisplayStyle:(long long)arg1;
+- (void)_setDetailAccessoryView:(id)arg1 animated:(_Bool)arg2;
+- (void)_setRightAccessoryView:(id)arg1 animated:(_Bool)arg2;
+- (void)_setLeftAccessoryView:(id)arg1 animated:(_Bool)arg2;
+- (void)_setSubtitle:(id)arg1 animated:(_Bool)arg2;
 - (id)_subtitle;
 - (void)_setTitle:(id)arg1;
-- (BOOL)_isShowingCallout;
-- (BOOL)isCalloutExpanded;
-- (BOOL)calloutContainsPoint:(struct CGPoint)arg1;
-- (void)_updateCalloutAnimated:(BOOL)arg1;
-- (void)hideCalloutAnimated:(BOOL)arg1;
-- (void)showCalloutForAnnotationView:(id)arg1 animated:(BOOL)arg2 scrollToFit:(BOOL)arg3 avoid:(struct CGRect)arg4;
+- (_Bool)_isShowingCallout;
+- (_Bool)isCalloutExpanded;
+- (_Bool)calloutContainsPoint:(struct CGPoint)arg1;
+- (void)_updateCalloutAnimated:(_Bool)arg1;
+- (void)_updatePopoverContentSize:(_Bool)arg1;
+- (void)hideCalloutAnimated:(_Bool)arg1;
+- (void)_showCalloutAnimated:(_Bool)arg1 scrollToFit:(_Bool)arg2 avoid:(struct CGRect)arg3;
+- (void)showCalloutForAnnotationView:(id)arg1 animated:(_Bool)arg2 scrollToFit:(_Bool)arg3 avoid:(struct CGRect)arg4;
 - (void)_snapLayoutConstraintsViewToContainerBounds;
 - (void)dealloc;
 

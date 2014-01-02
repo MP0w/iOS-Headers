@@ -21,7 +21,7 @@
     NSNumber *_timeRemaining;
 }
 
-+ (id)changesetWithDownloadID:(id)arg1 state:(int)arg2;
++ (id)changesetWithDownloadID:(id)arg1 state:(long long)arg2;
 @property(copy, nonatomic) NSNumber *timeRemaining; // @synthesize timeRemaining=_timeRemaining;
 @property(copy, nonatomic) NSNumber *progress; // @synthesize progress=_progress;
 @property(copy, nonatomic) NSError *error; // @synthesize error=_error;

@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface SLAbsintheSigningSession : NSObject
 {
     struct NACContextOpaque_ *_context;
@@ -18,7 +19,7 @@
 - (void).cxx_destruct;
 - (id)_urlEncodedString:(id)arg1;
 - (id)signatureForData:(id)arg1;
-- (BOOL)establish;
+- (_Bool)establish;
 - (void)dealloc;
 - (id)initWithCertURL:(id)arg1 sessionURL:(id)arg2;
 

@@ -15,6 +15,7 @@
 - (id)imageDataForResultIdentifier:(unsigned long long)arg1 domain:(unsigned int)arg2 size:(struct CGSize)arg3;
 - (id)resultForIdentifier:(id)arg1 domain:(unsigned int)arg2;
 - (id)categoryForDomain:(unsigned int)arg1;
-- (BOOL)wantsEveryResultInItsOwnSection;
+- (_Bool)wantsEveryResultInItsOwnSection;
+- (void)preheat;
 @end
 

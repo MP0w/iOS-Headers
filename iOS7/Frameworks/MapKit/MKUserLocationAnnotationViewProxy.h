@@ -12,6 +12,7 @@
 
 @class MKAnnotationView, VKAttributedRouteMatch;
 
+// Not exported
 @interface MKUserLocationAnnotationViewProxy : NSObject <VKPuckAnimatorTarget, VKTrackableAnnotationPresentation, VKRouteMatchedAnnotationPresentation>
 {
     MKAnnotationView *_annotationView;
@@ -19,8 +20,8 @@
 
 @property(nonatomic) MKAnnotationView *annotationView; // @synthesize annotationView=_annotationView;
 @property(retain, nonatomic) VKAttributedRouteMatch *routeMatch;
-@property(nonatomic, getter=isTracking) BOOL tracking;
-- (void)setAnimatingToCoordinate:(BOOL)arg1;
+@property(nonatomic, getter=isTracking) _Bool tracking;
+- (void)setAnimatingToCoordinate:(_Bool)arg1;
 @property(nonatomic) double presentationCourse;
 @property(nonatomic) CDStruct_c3b9c2ee presentationCoordinate;
 

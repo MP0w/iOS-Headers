@@ -6,17 +6,29 @@
 
 #import "PBCodable.h"
 
-@interface GEORPProblemCollectionResponse : PBCodable
+#import "NSCopying-Protocol.h"
+
+@class NSString;
+
+@interface GEORPProblemCollectionResponse : PBCodable <NSCopying>
 {
+    NSString *_problemID;
+    int _statusCode;
+    CDStruct_bcb1eac0 _has;
 }
 
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+@property(retain, nonatomic) NSString *problemID; // @synthesize problemID=_problemID;
+@property(nonatomic) int statusCode; // @synthesize statusCode=_statusCode;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasProblemID;
+@property(nonatomic) _Bool hasStatusCode;
 - (void)dealloc;
 
 @end

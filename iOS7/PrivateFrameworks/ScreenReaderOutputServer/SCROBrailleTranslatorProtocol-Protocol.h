@@ -8,13 +8,13 @@
 
 @protocol SCROBrailleTranslatorProtocol <NSObject>
 - (id)printBrailleForTechnicalText:(id)arg1 locations:(id *)arg2;
-- (id)textForPrintBraille:(id)arg1 contracted:(BOOL)arg2 eightDot:(BOOL)arg3 locations:(id *)arg4;
-- (id)printBrailleForText:(id)arg1 contracted:(BOOL)arg2 eightDot:(BOOL)arg3 locations:(id *)arg4;
-- (BOOL)activeTableSupportsTechnicalBraille;
-- (BOOL)activeTableSupportsEightDotBraille;
-- (BOOL)activeTableSupportsContractedBraille;
+- (id)textForPrintBraille:(id)arg1 contracted:(_Bool)arg2 eightDot:(_Bool)arg3 locations:(id *)arg4;
+- (id)printBrailleForText:(id)arg1 contracted:(_Bool)arg2 eightDot:(_Bool)arg3 locations:(id *)arg4;
+- (_Bool)activeTableSupportsTechnicalBraille;
+- (_Bool)activeTableSupportsEightDotBraille;
+- (_Bool)activeTableSupportsContractedBraille;
 - (id)activeTable;
 - (void)setActiveTable:(id)arg1;
-- (unsigned int)interfaceVersion;
+- (unsigned long long)interfaceVersion;
 @end
 

@@ -19,7 +19,7 @@
 - (void)markAsRead;
 - (void)resetIMPerson;
 - (void)dealloc;
-- (id)initWithRecordID:(int)arg1;
+- (id)initWithRecordID:(long long)arg1;
 
 @end
 

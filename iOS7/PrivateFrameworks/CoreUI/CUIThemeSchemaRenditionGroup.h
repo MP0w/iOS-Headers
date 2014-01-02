@@ -12,21 +12,21 @@
 {
     CUIRenditionKey *_baseKey;
     NSArray *_renditions;
-    int _partFeatures;
+    long long _partFeatures;
 }
 
-+ (id)renditionGroupsForRenditions:(id)arg1 partFeatures:(int)arg2;
++ (id)renditionGroupsForRenditions:(id)arg1 partFeatures:(long long)arg2;
 @property(retain, nonatomic) NSArray *renditions; // @synthesize renditions=_renditions;
 - (void)dealloc;
-- (int)partFeatures;
+- (long long)partFeatures;
 - (id)themeSchemaLayers;
-- (id)_layerNameForDrawingLayer:(int)arg1;
-- (id)_layerNameForState:(int)arg1;
+- (id)_layerNameForDrawingLayer:(long long)arg1;
+- (id)_layerNameForState:(long long)arg1;
 - (id)_renditionsSortedIntoLayers;
 - (id)description;
 - (id)mutablePSDImageRef;
 - (id)baseKey;
-- (id)initWithRenditions:(id)arg1 partFeatures:(int)arg2;
+- (id)initWithRenditions:(id)arg1 partFeatures:(long long)arg2;
 
 @end
 

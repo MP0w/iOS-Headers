@@ -8,10 +8,12 @@
 
 @interface SBUIPluginAppearanceContext : NSObject
 {
-    unsigned int _uiEnvironment;
+    unsigned long long _uiEnvironment;
+    _Bool _hideOtherWindowsDuringAppearance;
 }
 
-@property(nonatomic) unsigned int uiEnvironment; // @synthesize uiEnvironment=_uiEnvironment;
+@property(nonatomic) _Bool hideOtherWindowsDuringAppearance; // @synthesize hideOtherWindowsDuringAppearance=_hideOtherWindowsDuringAppearance;
+@property(nonatomic) unsigned long long uiEnvironment; // @synthesize uiEnvironment=_uiEnvironment;
 
 @end
 

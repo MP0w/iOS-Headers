@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface EXCellFormatTable : NSObject
 {
 }
@@ -13,7 +14,6 @@
 + (void)readFromCellStylesElement:(struct _xmlNode *)arg1 state:(id)arg2;
 + (void)readFromCellStyleXfsElement:(struct _xmlNode *)arg1 state:(id)arg2;
 + (void)readFromCellXfsElement:(struct _xmlNode *)arg1 state:(id)arg2;
-+ (void)readCellFormatsFrom:(struct _xmlNode *)arg1 isStyle:(_Bool)arg2 state:(id)arg3;
 
 @end
 

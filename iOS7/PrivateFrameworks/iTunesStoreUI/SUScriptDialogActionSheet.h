@@ -12,7 +12,7 @@
 {
 }
 
-- (BOOL)clearsWeakScriptReferences;
+- (_Bool)clearsWeakScriptReferences;
 - (void)dealloc;
 
 @end

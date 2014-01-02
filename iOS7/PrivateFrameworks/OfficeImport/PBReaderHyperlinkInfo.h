@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface PBReaderHyperlinkInfo : NSObject
 {
     NSString *mHyperlink1;

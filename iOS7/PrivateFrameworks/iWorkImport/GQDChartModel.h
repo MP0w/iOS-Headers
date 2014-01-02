@@ -6,40 +6,39 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface GQDChartModel : NSObject
 {
     struct __CFArray *mChartData;
     struct __CFArray *mColumnNames;
     struct __CFArray *mRowNames;
     struct __CFDictionary *mPropertyBag;
-    long mDirection;
+    long long mDirection;
     struct __CFString *mTitle;
     struct __CFString *mCatagoryTitle;
     struct __CFString *mValueTitle;
     struct __CFString *mValue2Title;
     struct __CFBundle *mProcessorBundle;
-    BOOL mIsFormulaChart;
+    _Bool mIsFormulaChart;
 }
 
 - (void)dealloc;
-- (BOOL)isFormulaChart;
+- (_Bool)isFormulaChart;
 - (struct __CFString *)value2Title;
 - (struct __CFString *)valueTitle;
 - (struct __CFString *)catagoryTitle;
 - (struct __CFString *)title;
-- (long)direction;
-- (BOOL)hasFloatValueForProperty:(struct __CFString *)arg1 forSeriesAtIndex:(long)arg2 value:(float *)arg3;
-- (BOOL)hasIntValueForProperty:(struct __CFString *)arg1 forSeriesAtIndex:(long)arg2 value:(int *)arg3;
-- (BOOL)hasStringValueForProperty:(struct __CFString *)arg1 forSeriesAtIndex:(long)arg2 value:(const struct __CFString **)arg3;
-- (BOOL)hasValueForProperty:(struct __CFString *)arg1 forSeriesAtIndex:(long)arg2 value:(const void **)arg3;
-- (struct __CFDictionary *)propertiesForSeriesAtIndex:(long)arg1;
+- (long long)direction;
+- (_Bool)hasFloatValueForProperty:(struct __CFString *)arg1 forSeriesAtIndex:(long long)arg2 value:(float *)arg3;
+- (_Bool)hasIntValueForProperty:(struct __CFString *)arg1 forSeriesAtIndex:(long long)arg2 value:(int *)arg3;
+- (_Bool)hasStringValueForProperty:(struct __CFString *)arg1 forSeriesAtIndex:(long long)arg2 value:(const struct __CFString **)arg3;
+- (_Bool)hasValueForProperty:(struct __CFString *)arg1 forSeriesAtIndex:(long long)arg2 value:(const void **)arg3;
+- (struct __CFDictionary *)propertiesForSeriesAtIndex:(long long)arg1;
 - (struct __CFArray *)seriesArray;
 - (struct __CFDictionary *)propertyBag;
 - (struct __CFArray *)rowNames;
 - (struct __CFArray *)columnNames;
 - (struct __CFArray *)chartData;
-- (void)setProcessorBundle:(struct __CFBundle *)arg1;
-- (void)transpose;
 
 @end
 

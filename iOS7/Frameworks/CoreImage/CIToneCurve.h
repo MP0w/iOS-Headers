@@ -10,6 +10,7 @@
 
 @class CIImage, CIVector;
 
+// Not exported
 @interface CIToneCurve : CIFilter <_CIFilterProperties>
 {
     CIImage *inputImage;
@@ -21,9 +22,9 @@
     CIImage *_curveImage;
 }
 
-+ (void)splineCurveTable:(float *)arg1 tableSize:(int)arg2 gamma:(float)arg3 from:(const struct CGPoint *)arg4;
++ (void)splineCurveTable:(double *)arg1 tableSize:(int)arg2 gamma:(double)arg3 from:(const struct CGPoint *)arg4;
 + (id)curveImageFromPoints:(const struct CGPoint *)arg1;
-+ (id)curveImageFromPoints:(const struct CGPoint *)arg1 linear:(BOOL)arg2;
++ (id)curveImageFromPoints:(const struct CGPoint *)arg1 linear:(_Bool)arg2;
 + (id)customAttributes;
 @property(copy, nonatomic) CIVector *inputPoint4; // @synthesize inputPoint4;
 @property(copy, nonatomic) CIVector *inputPoint3; // @synthesize inputPoint3;
@@ -34,7 +35,7 @@
 - (id)_initFromProperties:(id)arg1;
 - (id)_outputProperties;
 - (id)outputImage;
-- (BOOL)_isIdentity;
+- (_Bool)_isIdentity;
 - (id)_kernel16;
 - (void)setDefaults;
 - (void)dealloc;

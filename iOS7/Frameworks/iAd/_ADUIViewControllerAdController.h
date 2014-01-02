@@ -15,16 +15,16 @@
 @interface _ADUIViewControllerAdController : NSObject <_UIViewControllerContentViewEmbedding, ADBannerViewDelegate, ADInterstitialAdDelegate>
 {
     UIViewController *_contentViewController;
-    BOOL _canDisplayBannerAds;
-    BOOL _presentingFullScreenAd;
-    BOOL _displayingBannerAd;
+    _Bool _canDisplayBannerAds;
+    _Bool _canOwnSharedBanner;
+    _Bool _presentingFullScreenAd;
     NSURL *_bannerServerURL;
     NSString *_bannerAdSection;
     NSString *_bannerAuthUserName;
     NSURL *_interstitialServerURL;
     NSString *_interstitialAdSection;
     NSString *_interstitialAuthUserName;
-    int _interstitialPresentationPolicy;
+    long long _interstitialPresentationPolicy;
     ADBannerView *_bannerView;
     ADInterstitialAd *_interstitialAd;
 }
@@ -33,10 +33,10 @@
 + (void)prepareInterstitialAds;
 @property(retain, nonatomic) ADInterstitialAd *interstitialAd; // @synthesize interstitialAd=_interstitialAd;
 @property(retain, nonatomic) ADBannerView *bannerView; // @synthesize bannerView=_bannerView;
-@property(nonatomic, getter=isDisplayingBannerAd) BOOL displayingBannerAd; // @synthesize displayingBannerAd=_displayingBannerAd;
-@property(nonatomic, getter=isPresentingFullScreenAd) BOOL presentingFullScreenAd; // @synthesize presentingFullScreenAd=_presentingFullScreenAd;
-@property(nonatomic) BOOL canDisplayBannerAds; // @synthesize canDisplayBannerAds=_canDisplayBannerAds;
-@property(nonatomic) int interstitialPresentationPolicy; // @synthesize interstitialPresentationPolicy=_interstitialPresentationPolicy;
+@property(nonatomic, getter=isPresentingFullScreenAd) _Bool presentingFullScreenAd; // @synthesize presentingFullScreenAd=_presentingFullScreenAd;
+@property(nonatomic) _Bool canOwnSharedBanner; // @synthesize canOwnSharedBanner=_canOwnSharedBanner;
+@property(nonatomic) _Bool canDisplayBannerAds; // @synthesize canDisplayBannerAds=_canDisplayBannerAds;
+@property(nonatomic) long long interstitialPresentationPolicy; // @synthesize interstitialPresentationPolicy=_interstitialPresentationPolicy;
 @property(copy, nonatomic) NSString *interstitialAuthUserName; // @synthesize interstitialAuthUserName=_interstitialAuthUserName;
 @property(copy, nonatomic) NSString *interstitialAdSection; // @synthesize interstitialAdSection=_interstitialAdSection;
 @property(copy, nonatomic) NSURL *interstitialServerURL; // @synthesize interstitialServerURL=_interstitialServerURL;
@@ -44,23 +44,24 @@
 @property(copy, nonatomic) NSString *bannerAdSection; // @synthesize bannerAdSection=_bannerAdSection;
 @property(copy, nonatomic) NSURL *bannerServerURL; // @synthesize bannerServerURL=_bannerServerURL;
 - (void)bannerViewActionDidFinish:(id)arg1;
-- (BOOL)bannerViewActionShouldBegin:(id)arg1 willLeaveApplication:(BOOL)arg2;
+- (_Bool)bannerViewActionShouldBegin:(id)arg1 willLeaveApplication:(_Bool)arg2;
 - (void)bannerView:(id)arg1 didFailToReceiveAdWithError:(id)arg2;
 - (void)bannerViewDidLoadAd:(id)arg1;
-- (void)_layoutContentAndBannerView;
+@property(readonly, nonatomic, getter=isDisplayingBannerAd) _Bool displayingBannerAd;
+- (void)_layoutContentAndBannerViewAnimated:(_Bool)arg1;
 - (void)_hideBannerView;
 - (void)_considerTakingBannerView;
 - (void)interstitialAdActionDidFinish:(id)arg1;
 - (void)interstitialAd:(id)arg1 didFailWithError:(id)arg2;
 - (void)interstitialAdDidUnload:(id)arg1;
-- (BOOL)_presentInterstitialIfReady;
-- (BOOL)requestInterstitialAdPresentation;
+- (_Bool)_presentInterstitialIfReady;
+- (_Bool)requestInterstitialAdPresentation;
 - (void)viewControllerViewDidLayoutSubviews:(id)arg1;
-- (void)viewController:(id)arg1 viewDidDisappear:(BOOL)arg2;
-- (void)viewController:(id)arg1 viewWillDisappear:(BOOL)arg2;
-- (void)viewController:(id)arg1 viewDidAppear:(BOOL)arg2;
+- (void)viewController:(id)arg1 viewDidDisappear:(_Bool)arg2;
+- (void)viewController:(id)arg1 viewWillAppear:(_Bool)arg2;
+- (void)viewController:(id)arg1 viewWillDisappear:(_Bool)arg2;
+- (void)viewController:(id)arg1 viewDidAppear:(_Bool)arg2;
 - (void)viewControllerViewWillLayoutSubviews:(id)arg1;
-- (void)viewController:(id)arg1 viewWillAppear:(BOOL)arg2;
 @property(readonly, nonatomic) UIViewController *contentViewController;
 - (id)initWithContentViewController:(id)arg1;
 - (void)dealloc;

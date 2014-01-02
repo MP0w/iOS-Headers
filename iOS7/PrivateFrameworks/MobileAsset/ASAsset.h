@@ -24,31 +24,26 @@
 @property(readonly, nonatomic) NSString *assetType; // @synthesize assetType=_assetType;
 - (id)_getLocalAttribute:(id)arg1;
 - (struct __MobileAsset *)mobileAsset;
-- (BOOL)purgeAndReturnError:(id *)arg1;
+- (_Bool)purgeAndReturnError:(id *)arg1;
 - (void)purge:(id)arg1;
-- (BOOL)cancelDownloadAndReturnError:(id *)arg1;
+- (_Bool)cancelDownloadAndReturnError:(id *)arg1;
 - (void)cancelDownload:(id)arg1;
-- (BOOL)resumeDownloadAndReturnError:(id *)arg1;
+- (_Bool)resumeDownloadAndReturnError:(id *)arg1;
 - (void)resumeDownload:(id)arg1;
-- (BOOL)pauseDownloadAndReturnError:(id *)arg1;
+- (_Bool)pauseDownloadAndReturnError:(id *)arg1;
 - (void)pauseDownload:(id)arg1;
 - (void)beginDownloadWithOptions:(id)arg1;
-- (void)_downloadWithOptions:(id)arg1 shouldFireCallback:(BOOL)arg2;
+- (void)_downloadWithOptions:(id)arg1 shouldFireCallback:(_Bool)arg2;
 - (void)adjustDownloadOptions:(id)arg1 completion:(id)arg2;
-- (BOOL)requiredDiskSpaceIsAvailable:(long long *)arg1 error:(id *)arg2;
-@property(nonatomic) int garbageCollectionBehavior;
-@property(readonly, nonatomic) int state;
+- (_Bool)requiredDiskSpaceIsAvailable:(long long *)arg1 error:(id *)arg2;
+@property(nonatomic) long long garbageCollectionBehavior;
+@property(readonly, nonatomic) long long state;
 @property(readonly, nonatomic) NSDictionary *attributes;
 @property(readonly, nonatomic) NSURL *localURL;
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)dealloc;
-- (BOOL)isPresentOnDisk;
-- (id)identifier;
-@property(readonly, nonatomic) NSDictionary *fullAttributes;
-@property(retain, nonatomic) NSString *clientName;
-- (id)initWithAssetType:(id)arg1 attributes:(id)arg2;
 
 @end
 

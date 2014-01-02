@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface PFUbiquityFileCoordinator : NSFileCoordinator
 {
     NSString *_localPeerID;
@@ -17,8 +18,8 @@
 + (id)newFileCoordinatorForUbiquityRootLocation:(id)arg1 andLocalPeerID:(id)arg2;
 + (id)newFileCoordinatorForUbiquityRootLocation:(id)arg1;
 @property(readonly, nonatomic) NSString *localPeerID; // @synthesize localPeerID=_localPeerID;
-- (BOOL)shouldRetryForError:(id)arg1 ignoreFile:(char *)arg2;
-- (void)coordinateReadingItemAtLocation:(id)arg1 options:(unsigned int)arg2 retryOnError:(BOOL)arg3 error:(id *)arg4 byAccessor:(id)arg5;
+- (_Bool)shouldRetryForError:(id)arg1 ignoreFile:(_Bool *)arg2;
+- (void)coordinateReadingItemAtLocation:(id)arg1 options:(unsigned long long)arg2 retryOnError:(_Bool)arg3 error:(id *)arg4 byAccessor:(id)arg5;
 - (void)dealloc;
 - (id)initWithFilePresenter:(id)arg1;
 

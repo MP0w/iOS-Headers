@@ -8,17 +8,18 @@
 
 @class GQDTTable;
 
+// Not exported
 @interface GQHTableState : NSObject
 {
     int mPrevRowIndex;
     int mPrevColumnIndex;
     GQDTTable *mTable;
-    vector_195fe69b *mCellCountInColumns;
+    vector_eef16772 *mCellCountInColumns;
     int mGroupLevel;
     _Bool mSplitTable;
     double mCurrentTablePosition;
     double mLastAttachmentPosition;
-    long mSplitTableIndex;
+    long long mSplitTableIndex;
     double mOriginalTableHeight;
 }
 
@@ -28,13 +29,13 @@
 - (double)lastAttachmentPosition;
 - (void)addRowHeight:(float)arg1;
 - (double)currentTablePosition;
-- (long)nextSplitTableIndex;
-- (void)setSplitTableIndex:(long)arg1;
+- (long long)nextSplitTableIndex;
+- (void)setSplitTableIndex:(long long)arg1;
 - (void)setSplitTable:(_Bool)arg1;
 - (_Bool)splitTable;
 - (void)setGroupLevel:(int)arg1;
 - (int)groupLevel;
-- (vector_195fe69b *)cellCountInColumns;
+- (vector_eef16772 *)cellCountInColumns;
 - (void)setTable:(id)arg1;
 - (id)table;
 - (void)setPrevRowIndex:(int)arg1 columnIndex:(int)arg2;

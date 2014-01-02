@@ -10,8 +10,8 @@
 {
 }
 
++ (Class)imageDataClass;
 + (id)UTITypes;
-- (id)imageData;
 
 @end
 

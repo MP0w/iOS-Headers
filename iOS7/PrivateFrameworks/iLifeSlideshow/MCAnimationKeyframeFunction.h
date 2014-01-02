@@ -10,11 +10,11 @@
 
 @interface MCAnimationKeyframeFunction : MCAnimationKeyframe
 {
-    NSString *mFunction;
-    NSDictionary *mFunctionParameters;
     float mInnerEaseInControl;
     float mInnerEaseOutControl;
     double mDuration;
+    NSString *mFunction;
+    NSDictionary *mFunctionParameters;
     double mFunctionTimeOffset;
     double mFunctionTimeFactor;
 }

@@ -7,16 +7,17 @@
 #import "UIViewController.h"
 
 #import "SKUIArtworkRequestDelegate-Protocol.h"
+#import "SKUILayoutCacheDelegate-Protocol.h"
+#import "SKUIMetricsViewController-Protocol.h"
 #import "SKUIProductPageOverlayDelegate-Protocol.h"
 #import "SKUIResourceLoaderDelegate-Protocol.h"
 #import "SKUIStorePageCollectionViewDelegate-Protocol.h"
-#import "SKUITextLayoutCacheDelegate-Protocol.h"
 #import "UICollectionViewDataSource-Protocol.h"
 #import "UIViewControllerRestoration-Protocol.h"
 
-@class NSArray, NSMapTable, NSMutableArray, NSOperationQueue, NSString, NSURLRequest, SKUIArtworkRequest, SKUIClientContext, SKUIColorScheme, SKUILoadURLOperation, SKUIMetricsController, SKUIProductPageOverlayController, SKUIResourceLoader, SKUIStorePage, SKUITextLayoutCache, UICollectionView, UIImage, UIRefreshControl, UIView;
+@class NSArray, NSMapTable, NSMutableArray, NSOperationQueue, NSString, NSURLRequest, SKUIArtworkRequest, SKUIClientContext, SKUIColorScheme, SKUILayoutCache, SKUIMetricsController, SKUIProductPageOverlayController, SKUIResourceLoader, SKUIStorePage, SSMetricsPageEvent, SSVLoadURLOperation, UICollectionView, UIImage, UIRefreshControl, UIView;
 
-@interface SKUIStorePageViewController : UIViewController <SKUIArtworkRequestDelegate, SKUIProductPageOverlayDelegate, SKUIResourceLoaderDelegate, SKUIStorePageCollectionViewDelegate, SKUITextLayoutCacheDelegate, UICollectionViewDataSource, UIViewControllerRestoration>
+@interface SKUIStorePageViewController : UIViewController <SKUIArtworkRequestDelegate, SKUIProductPageOverlayDelegate, SKUIResourceLoaderDelegate, SKUIStorePageCollectionViewDelegate, SKUILayoutCacheDelegate, UICollectionViewDataSource, SKUIMetricsViewController, UIViewControllerRestoration>
 {
     SKUIProductPageOverlayController *_activeOverlayController;
     SKUIArtworkRequest *_backgroundArtworkRequest;
@@ -26,12 +27,13 @@
     struct UIEdgeInsets _contentInsetAdjustments;
     id <SKUIStorePageDataSource> _dataSource;
     id <SKUIStorePageDelegate> _delegate;
-    int _disappearOrientation;
+    long long _disappearOrientation;
     NSArray *_initialOverlayURLs;
     NSString *_lastDataConsumerClassName;
+    SSMetricsPageEvent *_lastPageEvent;
     NSURLRequest *_lastRequest;
-    BOOL _loadOnAppear;
-    SKUILoadURLOperation *_loadOperation;
+    _Bool _loadOnAppear;
+    SSVLoadURLOperation *_loadOperation;
     NSMapTable *_menuSectionContexts;
     NSOperationQueue *_operationQueue;
     SKUIMetricsController *_metricsController;
@@ -42,7 +44,7 @@
     SKUIResourceLoader *_resourceLoader;
     NSMutableArray *_sections;
     SKUIStorePage *_storePage;
-    SKUITextLayoutCache *_textLayoutCache;
+    SKUILayoutCache *_textLayoutCache;
 }
 
 + (id)viewControllerWithRestorationIdentifierPath:(id)arg1 coder:(id)arg2;
@@ -53,7 +55,9 @@
 @property(nonatomic) __weak id <SKUIStorePageDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(retain, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
 - (void).cxx_destruct;
+- (void)_updateSectionsAfterMenuChange;
 - (id)_textLayoutCache;
+- (void)_showProductPage:(id)arg1 withPageEvent:(id)arg2;
 - (void)_setStorePage:(id)arg1 error:(id)arg2;
 - (void)_setMetricsController:(id)arg1;
 - (void)_setBackgroundImage:(id)arg1;
@@ -71,40 +75,45 @@
 - (id)_defaultSectionForGridComponent:(id)arg1;
 - (id)_colorScheme;
 - (id)_collectionView;
-- (id)_childSectionsForMenuComponent:(id)arg1 selectedIndex:(int)arg2;
-- (id)_visibleMetricsImpressionsDictionary;
-- (void)_setSelectedIndex:(int)arg1 forMenuSection:(id)arg2;
+- (id)_childSectionsForMenuComponent:(id)arg1 selectedIndex:(long long)arg2;
+- (void)_metricsEnterEventNotification:(id)arg1;
+- (id)_visibleMetricsImpressionsString;
+- (void)_updateSectionsForIndex:(long long)arg1 menuSection:(id)arg2;
+- (void)_setSelectedIndex:(long long)arg1 forMenuSection:(id)arg2;
 - (void)_setActiveProductPageOverlayController:(id)arg1;
+- (void)_pageSectionDidDismissOverlayController:(id)arg1;
 - (void)scrollViewDidScroll:(id)arg1;
 - (void)scrollViewDidEndDecelerating:(id)arg1;
 - (void)itemCollectionView:(id)arg1 didConfirmItemOfferForCell:(id)arg2;
-- (BOOL)collectionView:(id)arg1 shouldSelectItemAtIndexPath:(id)arg2;
-- (BOOL)collectionView:(id)arg1 shouldHighlightItemAtIndexPath:(id)arg2;
+- (_Bool)collectionView:(id)arg1 shouldSelectItemAtIndexPath:(id)arg2;
+- (_Bool)collectionView:(id)arg1 shouldHighlightItemAtIndexPath:(id)arg2;
 - (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
 - (void)collectionView:(id)arg1 didEndDisplayingCell:(id)arg2 forItemAtIndexPath:(id)arg3;
-- (int)numberOfSectionsInCollectionView:(id)arg1;
-- (int)collectionView:(id)arg1 numberOfItemsInSection:(int)arg2;
+- (long long)numberOfSectionsInCollectionView:(id)arg1;
+- (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
-- (void)textLayoutCacheDidFinishBatch:(id)arg1;
+- (void)layoutCacheDidFinishBatch:(id)arg1;
 - (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 sizeForItemAtIndexPath:(id)arg3;
 - (id)collectionView:(id)arg1 layout:(id)arg2 pageSectionForIndexPath:(id)arg3;
 - (void)artworkLoaderDidIdle:(id)arg1;
 - (void)productPageOverlayDidDismiss:(id)arg1;
+- (id)activeMetricsController;
+- (void)collectionView:(id)arg1 editorialView:(id)arg2 didSelectLink:(id)arg3;
 - (void)artworkRequest:(id)arg1 didLoadImage:(id)arg2;
-- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)didRotateFromInterfaceOrientation:(int)arg1;
+- (void)willRotateToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)loadView;
 - (void)encodeRestorableStateWithCoder:(id)arg1;
+- (void)didRotateFromInterfaceOrientation:(long long)arg1;
 - (void)decodeRestorableStateWithCoder:(id)arg1;
 - (void)setMetricsController:(id)arg1;
 - (void)loadURLRequest:(id)arg1 withDataConsumer:(id)arg2 completionBlock:(id)arg3;
 - (void)loadURLRequest:(id)arg1 withCompletionBlock:(id)arg2;
 - (void)loadURL:(id)arg1 withDataConsumer:(id)arg2 completionBlock:(id)arg3;
 - (void)loadURL:(id)arg1 withCompletionBlock:(id)arg2;
-@property(readonly, nonatomic, getter=isLoading) BOOL loading;
+@property(readonly, nonatomic, getter=isLoading) _Bool loading;
 - (id)defaultSectionForComponent:(id)arg1;
 - (void)cancelPageLoad;
 - (void)dealloc;

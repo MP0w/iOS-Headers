@@ -6,21 +6,12 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface OAXStroke : NSObject
 {
 }
 
 + (id)readStrokeFromXmlNode:(struct _xmlNode *)arg1 packagePart:(id)arg2 drawingState:(id)arg3;
-+ (id)readCustomDashFromXmlNode:(struct _xmlNode *)arg1;
-+ (id)readPresetDashFromXmlNode:(struct _xmlNode *)arg1;
-+ (void)readLineEnd:(id)arg1 fromXmlNode:(struct _xmlNode *)arg2;
-+ (id)presetDashEnumMap;
-+ (id)lineEndLengthEnumMap;
-+ (id)lineEndWidthEnumMap;
-+ (id)lineEndTypeEnumMap;
-+ (id)penAlignmentEnumMap;
-+ (id)lineCapEnumMap;
-+ (id)compoundLineEnumMap;
 
 @end
 

@@ -10,7 +10,7 @@
 #import "SKUIProductPageChildViewController-Protocol.h"
 #import "SKUIScreenshotsDelegate-Protocol.h"
 
-@class NSMutableArray, NSOperationQueue, SKUIClientContext, SKUIProductPageHeaderViewController, SKUIProductPageItem, SKUIProductPageTableHeaderOnlySection, SKUIProductPageTableTextBoxSection, SKUIProductPageTableViewController, SKUITextLayoutCache, UIScrollView;
+@class NSMutableArray, NSOperationQueue, SKUIClientContext, SKUILayoutCache, SKUIProductPage, SKUIProductPageHeaderViewController, SKUIProductPageTableHeaderOnlySection, SKUIProductPageTableTextBoxSection, SKUIProductPageTableViewController, UIScrollView;
 
 @interface SKUIProductPageDetailsViewController : UIViewController <SKUIScreenshotsDelegate, SKUIItemStateCenterObserver, SKUIProductPageChildViewController>
 {
@@ -18,24 +18,24 @@
     SKUIProductPageTableHeaderOnlySection *_copyrightSection;
     id <SKUIProductPageChildViewControllerDelegate> _delegate;
     SKUIProductPageTableTextBoxSection *_descriptionSection;
-    SKUIProductPageItem *_item;
     NSOperationQueue *_operationQueue;
+    SKUIProductPage *_productPage;
     SKUIProductPageTableHeaderOnlySection *_screenshotsSection;
     NSMutableArray *_sections;
     SKUIProductPageTableTextBoxSection *_storeNotesSection;
     SKUIProductPageTableViewController *_tableViewController;
-    SKUITextLayoutCache *_textLayoutCache;
+    SKUILayoutCache *_textLayoutCache;
     SKUIProductPageTableTextBoxSection *_whatsNewSection;
 }
 
-+ (float)defaultPageWidth;
++ (double)defaultPageWidthForUserInterfaceIdiom:(long long)arg1;
+@property(readonly, nonatomic) SKUIProductPage *productPage; // @synthesize productPage=_productPage;
 @property(retain, nonatomic) NSOperationQueue *operationQueue; // @synthesize operationQueue=_operationQueue;
-@property(readonly, nonatomic) SKUIProductPageItem *item; // @synthesize item=_item;
 @property(nonatomic) __weak id <SKUIProductPageChildViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
 - (void).cxx_destruct;
 - (id)_whatsNewSection;
-- (id)_textLayoutRequestWithText:(id)arg1 widthOffset:(float)arg2;
+- (id)_textLayoutRequestWithText:(id)arg1 widthOffset:(double)arg2;
 - (id)_tableViewController;
 - (id)_screenshotsSection;
 - (id)_infoSection;
@@ -51,7 +51,7 @@
 @property(retain, nonatomic) SKUIProductPageHeaderViewController *headerViewController;
 - (void)loadView;
 - (void)dealloc;
-- (id)initWithItem:(id)arg1;
+- (id)initWithProductPage:(id)arg1;
 
 @end
 

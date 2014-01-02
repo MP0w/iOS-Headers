@@ -11,26 +11,26 @@
 @interface SBSoftwareUpdateForcedInstallAlertItem : SBBaseSoftwareUpdateAlertItem
 {
     NSTimer *_timer;
-    unsigned int _timeLeftUntilInstall;
-    BOOL _delayOnDismissForNonUserAction;
-    BOOL _delayAfterNextUnlock;
+    unsigned long long _timeLeftUntilInstall;
+    _Bool _delayOnDismissForNonUserAction;
+    _Bool _delayAfterNextUnlock;
 }
 
-@property(nonatomic) BOOL delayAfterNextUnlock; // @synthesize delayAfterNextUnlock=_delayAfterNextUnlock;
-@property(nonatomic) BOOL delayOnDismissForNonUserAction; // @synthesize delayOnDismissForNonUserAction=_delayOnDismissForNonUserAction;
-- (BOOL)dismissOnLock;
+@property(nonatomic) _Bool delayAfterNextUnlock; // @synthesize delayAfterNextUnlock=_delayAfterNextUnlock;
+@property(nonatomic) _Bool delayOnDismissForNonUserAction; // @synthesize delayOnDismissForNonUserAction=_delayOnDismissForNonUserAction;
+- (_Bool)dismissOnLock;
 - (void)performUnlockAction;
-- (BOOL)shouldShowInLockScreen;
+- (_Bool)shouldShowInLockScreen;
 - (id)shortLockLabel;
 - (id)lockLabel;
-- (BOOL)allowMenuButtonDismissal;
-- (BOOL)undimsScreen;
+- (_Bool)allowMenuButtonDismissal;
+- (_Bool)undimsScreen;
 - (void)_timerFired;
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
+- (void)configure:(_Bool)arg1 requirePasscodeForActions:(_Bool)arg2;
 - (void)willDeactivateForReason:(int)arg1;
 - (void)willPresentAlertView:(id)arg1;
 - (void)updateBodyText;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (void)_installUpdate;
 - (void)dealloc;
 - (id)initWithDescriptor:(id)arg1;

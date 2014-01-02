@@ -9,9 +9,9 @@
 @protocol AVAudioSessionDelegate <NSObject>
 
 @optional
-- (void)inputIsAvailableChanged:(BOOL)arg1;
+- (void)inputIsAvailableChanged:(_Bool)arg1;
 - (void)endInterruption;
-- (void)endInterruptionWithFlags:(unsigned int)arg1;
+- (void)endInterruptionWithFlags:(unsigned long long)arg1;
 - (void)beginInterruption;
 @end
 

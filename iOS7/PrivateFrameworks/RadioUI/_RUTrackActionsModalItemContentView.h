@@ -6,38 +6,35 @@
 
 #import "_UIModalItemContentView.h"
 
-@class NSString, UIImage, UITableView, _RUTrackActionsHeaderView, _UIBackdropView;
+#import "RUTrackActioning-Protocol.h"
+#import "RUTrackActionsDelegate-Protocol.h"
 
-@interface _RUTrackActionsModalItemContentView : _UIModalItemContentView
+@class NSString, RUTrackActionsView, UIImage, _UIBackdropView;
+
+@interface _RUTrackActionsModalItemContentView : _UIModalItemContentView <RUTrackActioning, RUTrackActionsDelegate>
 {
     _UIBackdropView *_backdropView;
-    _RUTrackActionsHeaderView *_headerView;
-    UITableView *_tableView;
-    int _enabledActions;
-    int _onActions;
+    RUTrackActionsView *_trackActionsView;
+    id <RUTrackActionsDelegate> _trackActionsDelegate;
 }
 
-@property(nonatomic) int onActions; // @synthesize onActions=_onActions;
-@property(nonatomic) int enabledActions; // @synthesize enabledActions=_enabledActions;
++ (struct CGSize)artworkSize;
+@property(nonatomic) __weak id <RUTrackActionsDelegate> trackActionsDelegate; // @synthesize trackActionsDelegate=_trackActionsDelegate;
 - (void).cxx_destruct;
-- (id)_titleForAction:(int)arg1;
-- (void)_layoutViewHierarchy;
-- (struct UIOffset)_accessoryImageOffsetForAction:(int)arg1;
-- (id)_accessoryImageForAction:(int)arg1 highlighted:(BOOL)arg2;
+- (void)trackActioningObjectDidChangeContentSize:(id)arg1;
+- (void)trackActioningObject:(id)arg1 didSelectAction:(long long)arg2 atIndex:(long long)arg3;
 @property(copy, nonatomic) NSString *songText;
+@property(nonatomic) long long onActions;
+@property(nonatomic) long long enabledActions;
 @property(retain, nonatomic) UIImage *artworkImage;
 @property(copy, nonatomic) NSString *artistText;
-- (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;
-- (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
-- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
-- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (void)scrollViewDidScroll:(id)arg1;
+@property(readonly, nonatomic) struct CGSize contentSize;
+@property(readonly, nonatomic) long long cancelIndex;
+- (long long)actionForButtonIndex:(long long)arg1;
+- (void)_layoutViewHierarchy;
 - (void)setPresentingViewController:(id)arg1;
 - (void)setModalItem:(id)arg1;
 - (void)layoutSubviews;
-- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

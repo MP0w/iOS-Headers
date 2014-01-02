@@ -8,7 +8,7 @@
 
 @protocol VKPuckAnimatorTarget <NSObject>
 @property(nonatomic) double presentationCourse;
-- (void)setAnimatingToCoordinate:(BOOL)arg1;
+- (void)setAnimatingToCoordinate:(_Bool)arg1;
 - (void)setPresentationCoordinate:(CDStruct_c3b9c2ee)arg1;
 @end
 

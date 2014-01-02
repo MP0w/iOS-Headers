@@ -10,8 +10,8 @@
 + (struct USet *)_japaneseLetterSet;
 + (struct USet *)_ideographSet;
 + (struct USet *)_characterSetWithPattern:(id)arg1;
-- (BOOL)_isJapanesePhrase;
-- (BOOL)_isOnlyIdeographs;
-- (BOOL)_contentsExclusivelyInCharacterSet:(struct USet *)arg1;
+- (_Bool)_isJapanesePhrase;
+- (_Bool)_isOnlyIdeographs;
+- (_Bool)_contentsExclusivelyInCharacterSet:(struct USet *)arg1;
 @end
 

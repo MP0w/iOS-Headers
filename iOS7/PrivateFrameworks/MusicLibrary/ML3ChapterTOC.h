@@ -8,6 +8,7 @@
 
 @class ML3Track;
 
+// Not exported
 @interface ML3ChapterTOC : MLITChapterTOC
 {
     ML3Track *_track;

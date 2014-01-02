@@ -8,19 +8,20 @@
 
 @class NSMutableArray, NSMutableSet, NSTimer;
 
+// Not exported
 @interface _UIViewServiceFencingController : NSObject
 {
     int _lock;
     NSMutableSet *_pendingFenceSendRights;
     NSMutableArray *_resumeActions;
-    unsigned int _expectedParticipatingFencingProxyCount;
+    unsigned long long _expectedParticipatingFencingProxyCount;
     NSTimer *_fencingControlTimeoutTimer;
 }
 
 + (id)activeFencePort;
 - (void)_fencingControlTimedOut;
 - (void)fencingControlProxy:(id)arg1 didEndFencingWithSendRight:(id)arg2;
-- (void)fencingControlProxy:(id)arg1 didBeginFencingWithSendRight:(id)arg2 expectedParticipatingFencingProxyCount:(unsigned int)arg3;
+- (void)fencingControlProxy:(id)arg1 didBeginFencingWithSendRight:(id)arg2 expectedParticipatingFencingProxyCount:(unsigned long long)arg3;
 - (void)dealloc;
 - (id)init;
 

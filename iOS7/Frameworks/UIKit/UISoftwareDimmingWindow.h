@@ -6,6 +6,7 @@
 
 #import <UIKit/UIWindow.h>
 
+// Not exported
 @interface UISoftwareDimmingWindow : UIWindow
 {
     float _overlayLevel;
@@ -13,7 +14,7 @@
 
 @property(nonatomic) float overlayLevel; // @synthesize overlayLevel=_overlayLevel;
 - (void)updateOverlayColor;
-- (BOOL)_ignoresHitTest;
+- (_Bool)_ignoresHitTest;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

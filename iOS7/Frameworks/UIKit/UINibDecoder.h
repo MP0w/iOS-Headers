@@ -8,6 +8,7 @@
 
 @class UINibStringIDTable;
 
+// Not exported
 @interface UINibDecoder : NSCoder
 {
     Class arrayClass;
@@ -19,32 +20,32 @@
     struct UINibDecoderValue *values;
     char *valueTypes;
     void *valueData;
-    unsigned long valueDataSize;
+    unsigned long long valueDataSize;
     struct UINibDecoderHeader header;
     id *objectsByObjectID;
     unsigned int *longObjectClassIDs;
     char *shortObjectClassIDs;
     unsigned int *keyMasks;
-    long inlinedValueKey;
+    long long inlinedValueKey;
     struct UINibDecoderRecursiveState recursiveState;
     UINibStringIDTable *keyIDTable;
     id delegate;
     struct UIKeyToKeyIDCache keyIDCache;
     struct UIKeyAndScopeToValueCache valueCache;
-    int lookupRounds;
-    int maxPossibleLookupRounds;
-    int failedByKeyMask;
-    int savedByKeyMask;
+    long long lookupRounds;
+    long long maxPossibleLookupRounds;
+    long long failedByKeyMask;
+    long long savedByKeyMask;
 }
 
 + (id)unarchiveObjectWithFile:(id)arg1;
 + (id)unarchiveObjectWithData:(id)arg1;
 @property id delegate; // @synthesize delegate;
 - (void)finishDecoding;
-- (int)versionForClassName:(id)arg1;
+- (long long)versionForClassName:(id)arg1;
 - (unsigned int)systemVersion;
-- (void *)decodeBytesWithReturnedLength:(unsigned int *)arg1;
-- (void)decodeArrayOfObjCType:(const char *)arg1 count:(unsigned int)arg2 at:(void *)arg3;
+- (void *)decodeBytesWithReturnedLength:(unsigned long long *)arg1;
+- (void)decodeArrayOfObjCType:(const char *)arg1 count:(unsigned long long)arg2 at:(void *)arg3;
 - (void)decodeValuesOfObjCTypes:(const char *)arg1;
 - (id)decodePropertyList;
 - (id)decodeObject;
@@ -56,27 +57,27 @@
 - (struct CGRect)decodeCGRectForKey:(id)arg1;
 - (struct CGSize)decodeCGSizeForKey:(id)arg1;
 - (struct CGPoint)decodeCGPointForKey:(id)arg1;
-- (BOOL)decodeArrayOfCGFloats:(float *)arg1 count:(int)arg2 forKey:(id)arg3;
-- (BOOL)decodeArrayOfDoubles:(double *)arg1 count:(int)arg2 forKey:(id)arg3;
-- (BOOL)decodeArrayOfFloats:(float *)arg1 count:(int)arg2 forKey:(id)arg3;
+- (_Bool)decodeArrayOfCGFloats:(double *)arg1 count:(long long)arg2 forKey:(id)arg3;
+- (_Bool)decodeArrayOfDoubles:(double *)arg1 count:(long long)arg2 forKey:(id)arg3;
+- (_Bool)decodeArrayOfFloats:(float *)arg1 count:(long long)arg2 forKey:(id)arg3;
 - (int)decodeInt32ForKey:(id)arg1;
 - (int)decodeIntForKey:(id)arg1;
-- (int)decodeIntegerForKey:(id)arg1;
+- (long long)decodeIntegerForKey:(id)arg1;
 - (long long)decodeInt64ForKey:(id)arg1;
 - (double)decodeDoubleForKey:(id)arg1;
 - (float)decodeFloatForKey:(id)arg1;
-- (BOOL)decodeBoolForKey:(id)arg1;
-- (const char *)decodeBytesForKey:(id)arg1 returnedLength:(unsigned int *)arg2;
+- (_Bool)decodeBoolForKey:(id)arg1;
+- (const char *)decodeBytesForKey:(id)arg1 returnedLength:(unsigned long long *)arg2;
 - (id)decodeObjectForKey:(id)arg1;
-- (BOOL)containsValueForKey:(id)arg1;
-- (BOOL)allowsKeyedCoding;
+- (_Bool)containsValueForKey:(id)arg1;
+- (_Bool)allowsKeyedCoding;
 - (void)replaceObject:(id)arg1 withObject:(id)arg2;
 - (id)nextGenericKey;
-- (BOOL)validateAndIndexKeys:(const void *)arg1 length:(unsigned long)arg2;
-- (BOOL)validateAndIndexValues:(const void *)arg1 length:(unsigned long)arg2;
-- (BOOL)validateAndIndexObjects:(const void *)arg1 length:(unsigned long)arg2;
-- (BOOL)validateAndIndexClasses:(const void *)arg1 length:(unsigned long)arg2;
-- (BOOL)validateAndIndexData:(id)arg1 error:(id *)arg2;
+- (_Bool)validateAndIndexKeys:(const void *)arg1 length:(unsigned long long)arg2;
+- (_Bool)validateAndIndexValues:(const void *)arg1 length:(unsigned long long)arg2;
+- (_Bool)validateAndIndexObjects:(const void *)arg1 length:(unsigned long long)arg2;
+- (_Bool)validateAndIndexClasses:(const void *)arg1 length:(unsigned long long)arg2;
+- (_Bool)validateAndIndexData:(id)arg1 error:(id *)arg2;
 - (void)dealloc;
 - (id)initForReadingWithData:(id)arg1;
 - (id)initForReadingWithData:(id)arg1 error:(id *)arg2;

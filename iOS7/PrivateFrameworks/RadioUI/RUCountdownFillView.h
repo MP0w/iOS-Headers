@@ -10,16 +10,16 @@
 
 @interface RUCountdownFillView : UIView
 {
-    float _value;
+    double _value;
     struct CGSize _shadowOffset;
 }
 
 + (Class)layerClass;
-@property(nonatomic) float value; // @synthesize value=_value;
+@property(nonatomic) double value; // @synthesize value=_value;
 @property(nonatomic) struct CGSize shadowOffset; // @synthesize shadowOffset=_shadowOffset;
 @property(retain, nonatomic) UIColor *shadowColor;
-@property(nonatomic) float shadowBlur;
-- (void)setValue:(float)arg1 animated:(BOOL)arg2;
+@property(nonatomic) double shadowBlur;
+- (void)setValue:(double)arg1 animated:(_Bool)arg2;
 @property(retain, nonatomic) UIImage *fillImage;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 

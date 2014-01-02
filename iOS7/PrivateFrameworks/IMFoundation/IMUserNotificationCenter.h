@@ -25,10 +25,11 @@
 @property(retain, nonatomic) NSMutableDictionary *identifierToIMUserNotificationQueueMap; // @synthesize identifierToIMUserNotificationQueueMap=_identifierToIMUserNotificationQueueMap;
 - (void)removeAllListeners;
 - (void)removeListener:(id)arg1;
-- (unsigned int)countForIdentifier:(id)arg1;
+- (void)removeNotificationsForServiceIdentifier:(id)arg1;
+- (unsigned long long)countForIdentifier:(id)arg1;
 - (void)addUserNotification:(id)arg1 listener:(id)arg2 completionHandler:(id)arg3;
 - (void)addUserNotification:(id)arg1 listener:(id)arg2;
-- (void)_handleUserNotification:(struct __CFUserNotification *)arg1 responseFlags:(unsigned long)arg2;
+- (void)_handleUserNotification:(struct __CFUserNotification *)arg1 responseFlags:(unsigned long long)arg2;
 - (void)_displayNextUserNotificationForIdentifier:(id)arg1;
 - (void)_cancelActiveUserNotificationForIdentifier:(id)arg1;
 - (void)_enqueueBlock:(id)arg1 forIdentifier:(void)arg2;

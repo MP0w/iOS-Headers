@@ -7,10 +7,10 @@
 #import "UIViewController.h"
 
 @interface UIViewController (PLNavigationControllerInterface)
-- (void)revertStatusBarStyle:(int)arg1 currentStatusBarStyle:(int)arg2 animated:(BOOL)arg3;
-- (int)setStatusBarStyleForFullScreenViewAnimated:(BOOL)arg1 useTelephonyUI:(BOOL)arg2 canHideStatusBar:(BOOL)arg3 newStatusBarStyle:(int *)arg4;
+- (void)revertStatusBarStyle:(long long)arg1 currentStatusBarStyle:(long long)arg2 animated:(_Bool)arg3;
+- (long long)setStatusBarStyleForFullScreenViewAnimated:(_Bool)arg1 useTelephonyUI:(_Bool)arg2 canHideStatusBar:(_Bool)arg3 newStatusBarStyle:(long long *)arg4;
 - (int)uiipc_filterForMediaTypes:(id)arg1;
-- (BOOL)uiipc_useTelephonyUI;
+- (_Bool)uiipc_useTelephonyUI;
 - (id)uiipc_imagePickerOptions;
 - (id)uiipc_imagePickerController;
 @end

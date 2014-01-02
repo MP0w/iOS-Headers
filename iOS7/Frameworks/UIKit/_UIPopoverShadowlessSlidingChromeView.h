@@ -6,12 +6,13 @@
 
 #import <UIKit/_UIPopoverSlidingChromeView.h>
 
+// Not exported
 @interface _UIPopoverShadowlessSlidingChromeView : _UIPopoverSlidingChromeView
 {
 }
 
-+ (float)cornerRadius;
-- (id)_shadowPathForRect:(struct CGRect)arg1 arrowDirection:(unsigned int)arg2;
++ (double)cornerRadius;
+- (id)_shadowPathForRect:(struct CGRect)arg1 arrowDirection:(unsigned long long)arg2;
 
 @end
 

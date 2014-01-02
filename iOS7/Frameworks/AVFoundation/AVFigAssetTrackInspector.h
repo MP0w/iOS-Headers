@@ -16,29 +16,30 @@
     struct OpaqueFigSimpleMutex *_validationMutex;
     struct OpaqueFigSemaphore *_playabilityValidationSemaphore;
     NSObject<OS_dispatch_queue> *_completionHandlerQueue;
-    int _playableStatus;
-    long _playableResult;
-    long _playabilityValidationResult;
-    BOOL _playable;
+    long long _playableStatus;
+    int _playableResult;
+    int _playabilityValidationResult;
+    _Bool _playable;
     NSMutableArray *_loadingBatches;
     AVWeakReference *_weakReferenceToAsset;
 }
 
 - (void)_invokeCompletionHandlerForLoadingBatches:(id)arg1;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)hasProtectedContent;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)hasProtectedContent;
 - (id)_trackReferences;
-- (BOOL)isExcludedFromAutoselectionInTrackGroup;
+- (_Bool)isExcludedFromAutoselectionInTrackGroup;
 - (id)metadataForFormat:(id)arg1;
 - (id)availableMetadataFormats;
 - (id)commonMetadata;
 - (id)segmentForTrackTime:(CDStruct_1b6d18a9)arg1;
 - (id)segments;
+- (CDStruct_1b6d18a9)minSampleDuration;
 - (float)nominalFrameRate;
 - (id)loudnessInfo;
 - (float)preferredVolume;
-- (int)layer;
+- (long long)layer;
 - (struct CGAffineTransform)preferredTransform;
 - (struct CGSize)dimensions;
 - (struct CGSize)naturalSize;
@@ -48,15 +49,15 @@
 - (int)naturalTimeScale;
 - (CDStruct_e83c9415)timeRange;
 - (long long)totalSampleDataLength;
-- (BOOL)isSelfContained;
-- (BOOL)isEnabled;
-- (long)playabilityValidationResult;
-- (BOOL)isPlayable;
-- (BOOL)_loadValueOfPlayableByWaitingForAsyncValidationIfNeeded:(BOOL)arg1;
+- (_Bool)isSelfContained;
+- (_Bool)isEnabled;
+- (int)playabilityValidationResult;
+- (_Bool)isPlayable;
+- (_Bool)_loadValueOfPlayableByWaitingForAsyncValidationIfNeeded:(_Bool)arg1;
 - (id)formatDescriptions;
 - (void *)_valueAsCFTypeForProperty:(struct __CFString *)arg1;
 - (id)mediaType;
-- (unsigned long)_figMediaType;
+- (unsigned int)_figMediaType;
 - (int)trackID;
 - (struct OpaqueFigSemaphore *)_playabilityValidationSemaphore;
 - (id)_loadingBatches;
@@ -65,13 +66,13 @@
 - (id)asset;
 - (void)_ensureAllDependenciesOfKeyAreLoaded:(id)arg1;
 - (void)loadValuesAsynchronouslyForKeys:(id)arg1 completionHandler:(id)arg2;
-- (int)statusOfValueForKey:(id)arg1 error:(id *)arg2;
-- (int)_loadStatusForFigAssetTrackProperty:(id)arg1 returningError:(int *)arg2;
+- (long long)statusOfValueForKey:(id)arg1 error:(id *)arg2;
+- (long long)_loadStatusForFigAssetTrackProperty:(id)arg1 returningError:(int *)arg2;
 - (void)_removeFigNotifications;
 - (void)_addFigNotifications;
 - (void)finalize;
 - (void)dealloc;
-- (id)_initWithAsset:(id)arg1 trackID:(int)arg2 trackIndex:(long)arg3;
+- (id)_initWithAsset:(id)arg1 trackID:(int)arg2 trackIndex:(long long)arg3;
 
 @end
 

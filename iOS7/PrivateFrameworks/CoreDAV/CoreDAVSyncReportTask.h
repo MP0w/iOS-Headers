@@ -12,12 +12,12 @@
 {
     NSString *_previousSyncToken;
     NSString *_nextSyncToken;
-    BOOL _moreToSync;
-    BOOL _wasInvalidSyncToken;
+    _Bool _moreToSync;
+    _Bool _wasInvalidSyncToken;
 }
 
-@property(readonly) BOOL wasInvalidSyncToken; // @synthesize wasInvalidSyncToken=_wasInvalidSyncToken;
-@property(readonly) BOOL moreToSync; // @synthesize moreToSync=_moreToSync;
+@property(readonly) _Bool wasInvalidSyncToken; // @synthesize wasInvalidSyncToken=_wasInvalidSyncToken;
+@property(readonly) _Bool moreToSync; // @synthesize moreToSync=_moreToSync;
 @property(readonly) NSString *nextSyncToken; // @synthesize nextSyncToken=_nextSyncToken;
 - (void)finishCoreDAVTaskWithError:(id)arg1;
 - (id)copyDefaultParserForContentType:(id)arg1;

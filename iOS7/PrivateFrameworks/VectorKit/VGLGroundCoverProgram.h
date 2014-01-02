@@ -6,6 +6,7 @@
 
 #import <VectorKit/VGLProgram.h>
 
+// Not exported
 @interface VGLGroundCoverProgram : VGLProgram
 {
     int _uVegetationAlpha;

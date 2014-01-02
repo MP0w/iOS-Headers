@@ -12,14 +12,14 @@
 {
     UIImageView *_bufferingImageView;
     NSObject<OS_dispatch_source> *_bufferingTimer;
-    BOOL _highlighted;
+    _Bool _highlighted;
     SUPlayerStatus *_playerStatus;
     MSPieImageView *_progressView;
     UIImageView *_stopImageView;
 }
 
 @property(copy, nonatomic) SUPlayerStatus *playerStatus; // @synthesize playerStatus=_playerStatus;
-@property(nonatomic, getter=isHighlighted) BOOL highlighted; // @synthesize highlighted=_highlighted;
+@property(nonatomic, getter=isHighlighted) _Bool highlighted; // @synthesize highlighted=_highlighted;
 - (void)_showBufferingImageView;
 - (id)_newProgressView;
 - (id)_newBufferingImageView;

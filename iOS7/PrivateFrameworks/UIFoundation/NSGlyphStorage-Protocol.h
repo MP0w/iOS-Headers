@@ -7,8 +7,8 @@
 #import "NSObject-Protocol.h"
 
 @protocol NSGlyphStorage <NSObject>
-- (unsigned int)layoutOptions;
+- (unsigned long long)layoutOptions;
 - (id)attributedString;
-- (void)setGlyphs:(const unsigned short *)arg1 properties:(const int *)arg2 characterIndexes:(const unsigned int *)arg3 font:(id)arg4 forGlyphRange:(struct _NSRange)arg5;
+- (void)setGlyphs:(const unsigned short *)arg1 properties:(const long long *)arg2 characterIndexes:(const unsigned long long *)arg3 font:(id)arg4 forGlyphRange:(struct _NSRange)arg5;
 @end
 

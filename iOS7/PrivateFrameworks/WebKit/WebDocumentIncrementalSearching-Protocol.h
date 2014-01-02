@@ -5,6 +5,6 @@
  */
 
 @protocol WebDocumentIncrementalSearching
-- (BOOL)searchFor:(id)arg1 direction:(BOOL)arg2 caseSensitive:(BOOL)arg3 wrap:(BOOL)arg4 startInSelection:(BOOL)arg5;
+- (_Bool)searchFor:(id)arg1 direction:(_Bool)arg2 caseSensitive:(_Bool)arg3 wrap:(_Bool)arg4 startInSelection:(_Bool)arg5;
 @end
 

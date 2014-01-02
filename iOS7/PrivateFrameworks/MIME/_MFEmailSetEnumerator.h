@@ -11,11 +11,11 @@
 @interface _MFEmailSetEnumerator : NSEnumerator
 {
     MFEmailSet *_set;
-    CDStruct_c73467ff _state;
+    CDStruct_58648341 _state;
 }
 
 - (id)nextObject;
-- (unsigned int)countByEnumeratingWithState:(CDStruct_c73467ff *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
+- (unsigned long long)countByEnumeratingWithState:(CDStruct_58648341 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
 - (void)dealloc;
 - (id)initWithSet:(id)arg1;
 

@@ -7,6 +7,6 @@
 #import "NSURL.h"
 
 @interface NSURL (MSAdditions)
-- (int)MUStoreURLType;
+- (long long)MUStoreURLType;
 @end
 

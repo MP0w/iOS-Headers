@@ -7,6 +7,6 @@
 #import "NSInvocation.h"
 
 @interface NSInvocation (IMInvocationQueueAdditions)
-- (BOOL)wantsReturnValue;
+- (_Bool)wantsReturnValue;
 @end
 

@@ -7,7 +7,7 @@
 #import <MessageUI/MFMessageBodyElement-Protocol.h>
 
 @protocol MFMessageBodyElement_Private <MFMessageBodyElement>
-- (BOOL)isExternallyRetained;
+- (_Bool)isExternallyRetained;
 - (void)releaseExternally;
 - (id)retainExternally;
 @end

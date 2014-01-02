@@ -13,13 +13,13 @@
 @interface _CLLocationManagerRoutineProxy : NSObject <CLLocationManagerRoutineClientInterface>
 {
     NSObject<OS_dispatch_queue> *_queue;
-    BOOL _updating;
+    _Bool _updating;
     NSXPCConnection *_connection;
     id <CLLocationManagerDelegate> _delegate;
     CLLocationManagerRoutine *_locationManagerRoutine;
 }
 
-@property(nonatomic) BOOL updating; // @synthesize updating=_updating;
+@property(nonatomic) _Bool updating; // @synthesize updating=_updating;
 @property(nonatomic) CLLocationManagerRoutine *locationManagerRoutine; // @synthesize locationManagerRoutine=_locationManagerRoutine;
 @property(nonatomic) id <CLLocationManagerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSXPCConnection *connection; // @synthesize connection=_connection;

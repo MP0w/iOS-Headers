@@ -10,7 +10,7 @@
 
 @interface PLUIPrivacyViewController : UIViewController
 {
-    BOOL _showingAccessDeniedView;
+    _Bool _showingAccessDeniedView;
     _UIAccessDeniedView *_accessDeniedView;
 }
 
@@ -19,7 +19,7 @@
 - (void)_updateAccessDeniedView;
 - (void)loadView;
 - (void)_setImagePickerMediaTypes:(id)arg1;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
 - (void)dealloc;
 
 @end

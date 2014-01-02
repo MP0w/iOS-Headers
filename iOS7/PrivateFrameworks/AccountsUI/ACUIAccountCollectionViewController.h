@@ -10,9 +10,9 @@
 {
 }
 
-- (void)removeContiguousSpecifiers:(id)arg1 animated:(BOOL)arg2;
+- (void)removeContiguousSpecifiers:(id)arg1 animated:(_Bool)arg2;
 - (id)specifiers;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 
 @end
 

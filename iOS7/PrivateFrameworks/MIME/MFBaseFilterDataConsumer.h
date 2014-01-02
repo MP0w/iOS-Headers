@@ -13,16 +13,16 @@
 @interface MFBaseFilterDataConsumer : NSObject <MFDataConsumer>
 {
     NSMutableArray *_consumers;
-    BOOL _serialAppend;
+    _Bool _serialAppend;
 }
 
 + (id)filterWithConsumer:(id)arg1;
 + (id)filterWithConsumers:(id)arg1;
 @property(readonly, nonatomic) NSArray *consumers; // @synthesize consumers=_consumers;
-@property(nonatomic, getter=isSerialAppend) BOOL serialAppend; // @synthesize serialAppend=_serialAppend;
+@property(nonatomic, getter=isSerialAppend) _Bool serialAppend; // @synthesize serialAppend=_serialAppend;
 - (void)dealloc;
 - (void)done;
-- (int)appendData:(id)arg1;
+- (long long)appendData:(id)arg1;
 - (id)initWithConsumer:(id)arg1;
 - (id)initWithConsumers:(id)arg1;
 

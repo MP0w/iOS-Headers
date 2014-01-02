@@ -17,14 +17,14 @@
     MFMessage *message;
     MFMimePart *part;
     int format;
-    BOOL partial;
+    _Bool partial;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)deferredOperation;
-@property(readonly, nonatomic) BOOL isUserRequested;
-@property(readonly, nonatomic) BOOL shouldSend;
+@property(readonly, nonatomic) _Bool isUserRequested;
+@property(readonly, nonatomic) _Bool shouldSend;
 - (unsigned long long)generationNumber;
 
 @end

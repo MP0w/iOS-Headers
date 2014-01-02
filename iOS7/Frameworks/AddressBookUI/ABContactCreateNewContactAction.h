@@ -8,13 +8,15 @@
 
 #import "ABNewPersonViewControllerDelegate-Protocol.h"
 
-@class CNContact;
+@class CNContact, UIViewController;
 
 @interface ABContactCreateNewContactAction : ABContactAction <ABNewPersonViewControllerDelegate>
 {
     CNContact *_createdContact;
+    UIViewController *_presentingViewController;
 }
 
+@property(nonatomic) UIViewController *presentingViewController; // @synthesize presentingViewController=_presentingViewController;
 @property(retain, nonatomic) CNContact *createdContact; // @synthesize createdContact=_createdContact;
 - (void)newPersonViewController:(id)arg1 didCompleteWithNewPerson:(void *)arg2;
 - (void)performActionWithSender:(id)arg1;

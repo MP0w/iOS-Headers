@@ -5,8 +5,8 @@
  */
 
 @protocol ABPeoplePickerHostViewControllerDelegate
-- (BOOL)shouldContinueAfterSelectingPerson:(int)arg1 vcard:(id)arg2 property:(int)arg3 identifier:(int)arg4;
-- (BOOL)shouldContinueAfterSelectingPerson:(int)arg1 vcard:(id)arg2;
+- (_Bool)shouldContinueAfterSelectingPerson:(int)arg1 vcard:(id)arg2 property:(int)arg3 identifier:(int)arg4;
+- (_Bool)shouldContinueAfterSelectingPerson:(int)arg1 vcard:(id)arg2;
 - (void)didCancel;
 @end
 

@@ -11,6 +11,6 @@
 - (void)vibrationRecorderTouchSurface:(id)arg1 didExitRecordingModeWithContextObject:(id)arg2;
 - (void)vibrationComponentDidEndForVibrationRecorderTouchSurface:(id)arg1;
 - (void)vibrationComponentDidStartForVibrationRecorderTouchSurface:(id)arg1;
-- (BOOL)vibrationRecorderTouchSurfaceDidEnterRecordingMode:(id)arg1;
+- (_Bool)vibrationRecorderTouchSurfaceDidEnterRecordingMode:(id)arg1;
 @end
 

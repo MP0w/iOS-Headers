@@ -13,7 +13,7 @@
 @interface CPPDFAnnotationParserDelegate : NSObject <NSXMLParserDelegate>
 {
     NSMutableString *_characters;
-    BOOL _parseError;
+    _Bool _parseError;
     struct CGPoint _p[4];
     struct __CFArray *_quadPoints;
     struct CGRect _rect;
@@ -29,7 +29,7 @@
 @property(readonly, nonatomic) struct __CFString *otherId; // @synthesize otherId=_otherId;
 @property(readonly, nonatomic) struct __CFString *annotationId; // @synthesize annotationId=_id;
 @property(nonatomic) struct __CFDictionary *annotationDictionary; // @synthesize annotationDictionary=_annotationDictionary;
-@property(readonly, nonatomic) BOOL parseError; // @synthesize parseError=_parseError;
+@property(readonly, nonatomic) _Bool parseError; // @synthesize parseError=_parseError;
 - (void)parser:(id)arg1 didEndElement:(id)arg2 namespaceURI:(id)arg3 qualifiedName:(id)arg4;
 - (void)parser:(id)arg1 didStartElement:(id)arg2 namespaceURI:(id)arg3 qualifiedName:(id)arg4 attributes:(id)arg5;
 - (void)parser:(id)arg1 foundCharacters:(id)arg2;

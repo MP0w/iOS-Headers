@@ -10,7 +10,7 @@
 {
 }
 
-+ (void)setHiddenUntilMouseMoves:(BOOL)arg1;
++ (void)setHiddenUntilMouseMoves:(_Bool)arg1;
 
 @end
 

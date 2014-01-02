@@ -21,12 +21,12 @@
 + (id)cookieWithProperties:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
-- (BOOL)_isExpired;
+- (_Bool)_isExpired;
 - (id)_key;
-- (int)_compareForHeaderOrder:(id)arg1;
+- (long long)_compareForHeaderOrder:(id)arg1;
 - (id)MaxAge;
 - (id)Port;
 - (id)Discard;
@@ -48,17 +48,16 @@
 - (id)value;
 - (id)name;
 - (id)expiresDate;
-- (BOOL)isHTTPOnly;
-- (BOOL)isSecure;
-- (BOOL)isSessionOnly;
-- (unsigned int)version;
+- (_Bool)isHTTPOnly;
+- (_Bool)isSecure;
+- (_Bool)isSessionOnly;
+- (unsigned long long)version;
 - (struct OpaqueCFHTTPCookie *)_GetInternalCFHTTPCookie;
 - (id)properties;
 - (void)dealloc;
 - (id)init;
 - (id)initWithCFHTTPCookie:(struct OpaqueCFHTTPCookie *)arg1;
 - (id)initWithProperties:(id)arg1;
-- (id)replacementObjectForPortCoder:(id)arg1;
 
 @end
 

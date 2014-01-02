@@ -12,7 +12,7 @@
 {
 }
 
-- (BOOL)containsAttachments;
+- (_Bool)containsAttachments;
 - (id)contentAsPlainTextPreservingNewlines;
 @property(readonly, nonatomic) NSString *contentAsPlainText;
 

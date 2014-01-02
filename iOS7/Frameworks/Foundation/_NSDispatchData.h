@@ -6,29 +6,30 @@
 
 #import "NSData.h"
 
+// Not exported
 @interface _NSDispatchData : NSData
 {
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 - (Class)classForCoder;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (BOOL)_allowsDirectEncoding;
-- (BOOL)_isDispatchData;
+- (_Bool)_allowsDirectEncoding;
+- (_Bool)_isDispatchData;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
-- (struct _NSRange)rangeOfData:(id)arg1 options:(unsigned int)arg2 range:(struct _NSRange)arg3;
+- (struct _NSRange)rangeOfData:(id)arg1 options:(unsigned long long)arg2 range:(struct _NSRange)arg3;
 - (id)subdataWithRange:(struct _NSRange)arg1;
-- (unsigned int)hash;
-- (BOOL)isEqualToData:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqualToData:(id)arg1;
 - (void)getBytes:(void *)arg1 range:(struct _NSRange)arg2;
 - (void)enumerateByteRangesUsingBlock:(id)arg1;
-- (void)getBytes:(void *)arg1 length:(unsigned int)arg2;
+- (void)getBytes:(void *)arg1 length:(unsigned long long)arg2;
 - (void)getBytes:(void *)arg1;
 - (const void *)bytes;
 - (const void *)_bytesIfCompact;
-- (unsigned int)length;
+- (unsigned long long)length;
 
 @end
 

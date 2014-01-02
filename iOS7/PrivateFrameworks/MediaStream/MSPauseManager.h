@@ -22,7 +22,7 @@
 - (void)_removeTimerUUID:(id)arg1;
 - (void)pingPauseUUID:(id)arg1;
 - (void)_addPauseUUID:(id)arg1;
-- (BOOL)isPaused;
+- (_Bool)isPaused;
 - (void)dealloc;
 - (id)init;
 

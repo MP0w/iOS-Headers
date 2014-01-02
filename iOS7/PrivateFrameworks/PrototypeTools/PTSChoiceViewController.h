@@ -22,8 +22,8 @@
 - (void)_checkAppropriateCell;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
 - (void)row:(id)arg1 didChangeValue:(id)arg2;
 - (void)dealloc;
 - (id)initWithPresentingRow:(id)arg1;

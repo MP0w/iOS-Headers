@@ -8,24 +8,24 @@
 
 @interface AXElementGrouper : NSObject
 {
-    unsigned int _minimumGroupSize;
-    unsigned int _maximumGroupSize;
-    unsigned int _preferredGroupSize;
-    float _thresholdForDeterminingEqualSize;
+    unsigned long long _minimumGroupSize;
+    unsigned long long _maximumGroupSize;
+    unsigned long long _preferredGroupSize;
+    double _thresholdForDeterminingEqualSize;
 }
 
-@property(nonatomic) float thresholdForDeterminingEqualSize; // @synthesize thresholdForDeterminingEqualSize=_thresholdForDeterminingEqualSize;
-@property(nonatomic) unsigned int preferredGroupSize; // @synthesize preferredGroupSize=_preferredGroupSize;
-@property(nonatomic) unsigned int maximumGroupSize; // @synthesize maximumGroupSize=_maximumGroupSize;
-@property(nonatomic) unsigned int minimumGroupSize; // @synthesize minimumGroupSize=_minimumGroupSize;
+@property(nonatomic) double thresholdForDeterminingEqualSize; // @synthesize thresholdForDeterminingEqualSize=_thresholdForDeterminingEqualSize;
+@property(nonatomic) unsigned long long preferredGroupSize; // @synthesize preferredGroupSize=_preferredGroupSize;
+@property(nonatomic) unsigned long long maximumGroupSize; // @synthesize maximumGroupSize=_maximumGroupSize;
+@property(nonatomic) unsigned long long minimumGroupSize; // @synthesize minimumGroupSize=_minimumGroupSize;
 - (id)_groupablesForItems:(id)arg1;
 - (void)_preprocessTraitsInGroup:(id)arg1;
-- (id)_buildHierarchyForGroup:(id)arg1 indexOfKeyboard:(unsigned int *)arg2;
-- (id)_flattenHierarchyForGroup:(id)arg1 rootLevel:(BOOL)arg2;
-- (BOOL)_frame:(struct CGRect)arg1 isApproximatelySameSizeAsFrame:(struct CGRect)arg2;
-- (id)_groupRemovingTooSmallGroups:(id)arg1 isRootLevel:(BOOL)arg2;
+- (id)_buildHierarchyForGroup:(id)arg1 indexOfKeyboard:(unsigned long long *)arg2;
+- (id)_flattenHierarchyForGroup:(id)arg1 rootLevel:(_Bool)arg2;
+- (_Bool)_frame:(struct CGRect)arg1 isApproximatelySameSizeAsFrame:(struct CGRect)arg2;
+- (id)_groupRemovingTooSmallGroups:(id)arg1 isRootLevel:(_Bool)arg2;
 - (id)groupElementsInRootGroup:(id)arg1;
-- (id)initWithPadInterfaceHeuristics:(BOOL)arg1;
+- (id)initWithPadInterfaceHeuristics:(_Bool)arg1;
 
 @end
 

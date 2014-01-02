@@ -7,7 +7,7 @@
 #import "NSString.h"
 
 @interface NSString (MimeEnrichedReader)
-+ (id)mf_stringFromMimeEnrichedString:(id)arg1 asHTML:(BOOL)arg2;
-+ (id)mf_stringFromMimeRichTextString:(id)arg1 asHTML:(BOOL)arg2;
++ (id)mf_stringFromMimeEnrichedString:(id)arg1 asHTML:(_Bool)arg2;
++ (id)mf_stringFromMimeRichTextString:(id)arg1 asHTML:(_Bool)arg2;
 @end
 

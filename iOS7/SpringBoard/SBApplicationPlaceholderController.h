@@ -19,8 +19,8 @@
     NSMutableSet *_pendingAdded;
     NSMutableSet *_pendingInstalled;
     NSMutableSet *_pendingCancelled;
-    BOOL _hasDownloadedFromStore;
-    BOOL _usingNetwork;
+    _Bool _hasDownloadedFromStore;
+    _Bool _usingNetwork;
 }
 
 + (id)sharedInstance;
@@ -29,19 +29,19 @@
 - (void)_downloadsEnded;
 - (void)_finishPlaceholder:(id)arg1;
 - (void)_dropGrabbedIconIfNecessary:(id)arg1 completion:(id)arg2;
-- (void)_removeDownloadingIcons:(id)arg1 saveState:(BOOL)arg2;
+- (void)_removeDownloadingIcons:(id)arg1 saveState:(_Bool)arg2;
 - (void)_swapDownloadingIcon:(id)arg1 forApplicationIcon:(id)arg2;
-- (void)_removePlaceholders:(id)arg1 forInstall:(BOOL)arg2;
+- (void)_removePlaceholders:(id)arg1 forInstall:(_Bool)arg2;
 - (void)_addPlaceholders:(id)arg1;
 - (void)_processPendingProxies;
-- (void)applicationPlaceholdersNetworkUsageChanged:(BOOL)arg1;
+- (void)applicationPlaceholdersNetworkUsageChanged:(_Bool)arg1;
 - (void)applicationPlaceholdersIconUpdated:(id)arg1;
 - (void)applicationPlaceholdersModified:(id)arg1;
 - (void)applicationPlaceholdersCancelled:(id)arg1;
 - (void)applicationPlaceholdersInstalled:(id)arg1;
 - (void)applicationPlaceholdersAdded:(id)arg1;
-- (BOOL)isUsingNetwork;
-- (BOOL)hasDownloadedStoreApplication;
+- (_Bool)isUsingNetwork;
+- (_Bool)hasDownloadedStoreApplication;
 - (id)placeholderForDisplayID:(id)arg1;
 - (id)placeholdersByDisplayID;
 - (void)dealloc;

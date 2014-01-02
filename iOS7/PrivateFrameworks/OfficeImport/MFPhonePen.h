@@ -6,6 +6,7 @@
 
 #import <OfficeImport/MFPen.h>
 
+// Not exported
 @interface MFPhonePen : MFPen
 {
     float m_PixelSize;

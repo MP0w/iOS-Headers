@@ -8,11 +8,13 @@
 
 @interface CKEditableCollectionView : UICollectionView
 {
-    BOOL _editing;
+    _Bool _editing;
+    double _transcriptDrawerWidth;
 }
 
-@property(nonatomic, getter=isEditing) BOOL editing; // @synthesize editing=_editing;
-- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
+@property(nonatomic) double transcriptDrawerWidth; // @synthesize transcriptDrawerWidth=_transcriptDrawerWidth;
+@property(nonatomic, getter=isEditing) _Bool editing; // @synthesize editing=_editing;
+- (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
 - (id)dequeueReusableCellWithReuseIdentifier:(id)arg1 forIndexPath:(id)arg2;
 - (id)initWithFrame:(struct CGRect)arg1 collectionViewLayout:(id)arg2;
 

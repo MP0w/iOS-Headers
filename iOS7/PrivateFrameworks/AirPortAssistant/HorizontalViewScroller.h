@@ -13,15 +13,15 @@
 @interface HorizontalViewScroller : UIScrollView <UIScrollViewDelegate>
 {
     UIView *view;
-    unsigned int index;
+    unsigned long long index;
 }
 
-@property(nonatomic) unsigned int index; // @synthesize index;
+@property(nonatomic) unsigned long long index; // @synthesize index;
 @property(retain, nonatomic) UIView *view; // @synthesize view;
-- (void)restoreCenterPoint:(struct CGPoint)arg1 scale:(float)arg2;
+- (void)restoreCenterPoint:(struct CGPoint)arg1 scale:(double)arg2;
 - (struct CGPoint)minimumContentOffset;
 - (struct CGPoint)maximumContentOffset;
-- (float)scaleToRestoreAfterRotation;
+- (double)scaleToRestoreAfterRotation;
 - (struct CGPoint)pointToCenterAfterRotation;
 - (void)setMaxMinZoomScalesForCurrentBounds;
 - (void)displayImage:(id)arg1;

@@ -19,15 +19,15 @@
     NSObject<OS_dispatch_queue> *replyQueue;
     id messageHandler;
     int notifyToken;
-    BOOL didStop;
+    _Bool didStop;
 }
 
 - (void)sendMessageToFud:(id)arg1 reply:(id)arg2;
 - (void)sendMessageToFud:(id)arg1;
 - (void)stop;
-- (BOOL)createSession;
+- (_Bool)createSession;
 - (void)createConnection;
-- (BOOL)registerForBSDNotifications;
+- (_Bool)registerForBSDNotifications;
 - (void)dealloc;
 - (id)initWithClientName:(id)arg1 replyHandlerQueue:(id)arg2 messageHandler:(id)arg3;
 

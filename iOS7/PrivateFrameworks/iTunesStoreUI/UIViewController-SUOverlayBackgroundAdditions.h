@@ -7,9 +7,9 @@
 #import "UIViewController.h"
 
 @interface UIViewController (SUOverlayBackgroundAdditions)
-- (BOOL)presentViewController:(id)arg1 inOverlayWithConfiguration:(id)arg2;
-- (BOOL)presentOverlayViewController:(id)arg1 withTransition:(id)arg2;
-- (BOOL)presentOverlayBackgroundViewController:(id)arg1;
+- (_Bool)presentViewController:(id)arg1 inOverlayWithConfiguration:(id)arg2;
+- (_Bool)presentOverlayViewController:(id)arg1 withTransition:(id)arg2;
+- (_Bool)presentOverlayBackgroundViewController:(id)arg1;
 - (id)overlayBackgroundViewController;
 - (void)dismissOverlayBackgroundViewController;
 @end

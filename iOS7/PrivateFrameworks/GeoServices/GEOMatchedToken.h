@@ -6,11 +6,13 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSString;
 
-@interface GEOMatchedToken : PBCodable
+@interface GEOMatchedToken : PBCodable <NSCopying>
 {
-    CDStruct_cb16bb10 _geoIds;
+    CDStruct_62a50c50 _geoIds;
     int _geoType;
     NSString *_matchedToken;
     struct {
@@ -20,20 +22,21 @@
 
 @property(nonatomic) int geoType; // @synthesize geoType=_geoType;
 @property(retain, nonatomic) NSString *matchedToken; // @synthesize matchedToken=_matchedToken;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (void)setGeoIds:(unsigned long long *)arg1 count:(unsigned int)arg2;
-- (unsigned long long)geoIdAtIndex:(unsigned int)arg1;
+- (void)setGeoIds:(unsigned long long *)arg1 count:(unsigned long long)arg2;
+- (unsigned long long)geoIdAtIndex:(unsigned long long)arg1;
 - (void)addGeoId:(unsigned long long)arg1;
 - (void)clearGeoIds;
 @property(readonly, nonatomic) unsigned long long *geoIds;
-@property(readonly, nonatomic) unsigned int geoIdsCount;
-@property(nonatomic) BOOL hasGeoType;
+@property(readonly, nonatomic) unsigned long long geoIdsCount;
+@property(nonatomic) _Bool hasGeoType;
 - (void)dealloc;
 
 @end

@@ -12,19 +12,19 @@
 
 @interface SSDownloadManifestRequest : SSRequest <SSXPCCoding>
 {
-    int _manifestFormat;
-    BOOL _shouldHideUserPrompts;
+    long long _manifestFormat;
+    _Bool _shouldHideUserPrompts;
     NSURLRequest *_urlRequest;
 }
 
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)copyXPCEncoding;
 - (void)startWithCompletionBlock:(id)arg1;
-- (BOOL)start;
-@property int manifestFormat;
+- (_Bool)start;
+@property long long manifestFormat;
 @property(readonly) NSURLRequest *URLRequest;
 - (void)startWithManifestResponseBlock:(id)arg1;
-@property BOOL shouldHideUserPrompts;
+@property _Bool shouldHideUserPrompts;
 - (void)dealloc;
 - (id)initWithURLRequest:(id)arg1;
 - (id)init;

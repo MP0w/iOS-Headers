@@ -12,8 +12,8 @@
 {
 }
 
-- (void)initUIEvent:(id)arg1:(BOOL)arg2:(BOOL)arg3:(id)arg4:(int)arg5;
-- (void)initUIEvent:(id)arg1 canBubble:(BOOL)arg2 cancelable:(BOOL)arg3 view:(id)arg4 detail:(int)arg5;
+- (void)initUIEvent:(id)arg1:(_Bool)arg2:(_Bool)arg3:(id)arg4:(int)arg5;
+- (void)initUIEvent:(id)arg1 canBubble:(_Bool)arg2 cancelable:(_Bool)arg3 view:(id)arg4 detail:(int)arg5;
 @property(readonly) int which;
 @property(readonly) int pageY;
 @property(readonly) int pageX;

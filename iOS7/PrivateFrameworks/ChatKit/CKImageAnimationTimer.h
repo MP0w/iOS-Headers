@@ -10,7 +10,7 @@
 
 @interface CKImageAnimationTimer : NSObject
 {
-    unsigned int _frame;
+    unsigned long long _frame;
     NSMutableSet *_observers;
     CADisplayLink *_displayLink;
 }
@@ -21,7 +21,7 @@
 - (void)animationTimerFired;
 - (void)removeAnimationTimerObserver:(id)arg1;
 - (void)addAnimationTimerObserver:(id)arg1;
-- (unsigned int)frame;
+- (unsigned long long)frame;
 - (id)init;
 - (void)dealloc;
 

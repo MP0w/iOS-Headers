@@ -8,6 +8,7 @@
 
 @class OADBaseStyles, OADDefaultProperties;
 
+// Not exported
 @interface OADTheme : NSObject
 {
     OADBaseStyles *mBaseStyles;

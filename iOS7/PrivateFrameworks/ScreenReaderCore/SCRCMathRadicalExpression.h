@@ -6,6 +6,7 @@
 
 #import <ScreenReaderCore/SCRCMathExpression.h>
 
+// Not exported
 @interface SCRCMathRadicalExpression : SCRCMathExpression
 {
     SCRCMathExpression *_radicand;
@@ -16,12 +17,12 @@
 @property(retain, nonatomic) SCRCMathExpression *radicand; // @synthesize radicand=_radicand;
 - (id)latexMathModeDescription;
 - (id)mathMLString;
-- (id)dollarCodeDescriptionWithNumberOfOuterRadicals:(unsigned int)arg1 treePosition:(id)arg2;
-- (id)speakableSegmentsWithSpeakingStyle:(int)arg1 upToDepth:(unsigned int)arg2 treePosition:(id)arg3;
-- (id)speakableDescriptionWithSpeakingStyle:(int)arg1 arePausesAllowed:(BOOL)arg2;
-- (unsigned int)fractionLevel;
-- (BOOL)_isCubeRoot;
-- (BOOL)_isSquareRoot;
+- (id)dollarCodeDescriptionWithNumberOfOuterRadicals:(unsigned long long)arg1 treePosition:(id)arg2;
+- (id)speakableSegmentsWithSpeakingStyle:(int)arg1 upToDepth:(unsigned long long)arg2 treePosition:(id)arg3;
+- (id)speakableDescriptionWithSpeakingStyle:(int)arg1 arePausesAllowed:(_Bool)arg2;
+- (unsigned long long)fractionLevel;
+- (_Bool)_isCubeRoot;
+- (_Bool)_isSquareRoot;
 - (id)subExpressions;
 - (id)description;
 - (void)dealloc;

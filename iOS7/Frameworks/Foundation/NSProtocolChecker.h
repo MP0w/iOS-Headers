@@ -18,8 +18,8 @@
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (struct objc_method_description *)methodDescriptionForSelector:(SEL)arg1;
 - (id)forwardingTargetForSelector:(SEL)arg1;
-- (BOOL)conformsToProtocol:(id)arg1;
-- (BOOL)respondsToSelector:(SEL)arg1;
+- (_Bool)conformsToProtocol:(id)arg1;
+- (_Bool)respondsToSelector:(SEL)arg1;
 - (void)doesNotRecognizeSelector:(SEL)arg1;
 - (id)target;
 - (id)protocol;

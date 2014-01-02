@@ -13,7 +13,7 @@
 }
 
 - (id)cachedObjectWithDataRepresentation:(id)arg1 typeIdentifier:(id)arg2;
-- (BOOL)supportsTypeIdentifier:(id)arg1;
+- (_Bool)supportsTypeIdentifier:(id)arg1;
 
 @end
 

@@ -16,7 +16,6 @@
 @property id <WKConnectionDelegate> delegate;
 - (void)sendMessageWithName:(id)arg1 body:(id)arg2;
 - (void)dealloc;
-- (id)_initWithConnectionRef:(struct OpaqueWKConnection *)arg1;
 
 @end
 

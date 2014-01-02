@@ -18,7 +18,7 @@
 - (id)description;
 @property(retain, nonatomic) EKPersistentCalendarItem *owner;
 - (int)entityType;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 @property(readonly, nonatomic) NSDate *date; // @synthesize date=_date;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithExceptionDate:(id)arg1;

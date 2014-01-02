@@ -12,9 +12,9 @@
 
 @interface SBKTransactionController : NSObject <ISStoreURLOperationDelegate>
 {
-    BOOL _enabled;
-    BOOL _shouldAuthenticateIfNecessary;
-    BOOL _isResolvingError;
+    _Bool _enabled;
+    _Bool _shouldAuthenticateIfNecessary;
+    _Bool _isResolvingError;
     id <SBKTransactionControllerDelegate> _delegate;
     NSString *_domain;
     NSURL *_requestURL;
@@ -26,21 +26,21 @@
     SBKTransaction *_currentTransaction;
     SBKTaskAssertion *_backgroundTaskAssertion;
     id _networkTypeObserver;
-    int _conflictResolutionAttempts;
+    long long _conflictResolutionAttempts;
 }
 
-@property int conflictResolutionAttempts; // @synthesize conflictResolutionAttempts=_conflictResolutionAttempts;
+@property long long conflictResolutionAttempts; // @synthesize conflictResolutionAttempts=_conflictResolutionAttempts;
 @property __weak id networkTypeObserver; // @synthesize networkTypeObserver=_networkTypeObserver;
 @property(retain) SBKTaskAssertion *backgroundTaskAssertion; // @synthesize backgroundTaskAssertion=_backgroundTaskAssertion;
-@property BOOL isResolvingError; // @synthesize isResolvingError=_isResolvingError;
+@property _Bool isResolvingError; // @synthesize isResolvingError=_isResolvingError;
 @property(retain) SBKTransaction *currentTransaction; // @synthesize currentTransaction=_currentTransaction;
 @property(retain) NSMutableArray *pendingTransactions; // @synthesize pendingTransactions=_pendingTransactions;
 @property(retain) NSOperationQueue *operationQueue; // @synthesize operationQueue=_operationQueue;
 @property(retain) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(retain) SSAccount *account; // @synthesize account=_account;
-@property BOOL shouldAuthenticateIfNecessary; // @synthesize shouldAuthenticateIfNecessary=_shouldAuthenticateIfNecessary;
+@property _Bool shouldAuthenticateIfNecessary; // @synthesize shouldAuthenticateIfNecessary=_shouldAuthenticateIfNecessary;
 @property(retain) SBKStoreAuthenticationController *authenticationController; // @synthesize authenticationController=_authenticationController;
-@property(readonly, getter=isEnabled) BOOL enabled; // @synthesize enabled=_enabled;
+@property(readonly, getter=isEnabled) _Bool enabled; // @synthesize enabled=_enabled;
 @property(readonly) NSURL *requestURL; // @synthesize requestURL=_requestURL;
 @property(readonly) NSString *domain; // @synthesize domain=_domain;
 @property __weak id <SBKTransactionControllerDelegate> delegate; // @synthesize delegate=_delegate;
@@ -50,25 +50,25 @@
 - (void)operation:(id)arg1 finishedWithOutput:(id)arg2;
 - (void)_delegateTransactionDidFinish:(id)arg1;
 - (void)_delegateTransactionDidCancel:(id)arg1 withError:(id)arg2;
-- (BOOL)_delegateTransactionDidFail:(id)arg1 withError:(id)arg2;
-- (BOOL)_sendFinishedBlockForTransaction:(id)arg1 success:(BOOL)arg2 cancelled:(BOOL)arg3 error:(id)arg4 handledAsFinishedBlock:(char *)arg5;
-- (BOOL)_delegateShouldScheduleTransaction:(id)arg1 error:(id *)arg2;
+- (_Bool)_delegateTransactionDidFail:(id)arg1 withError:(id)arg2;
+- (_Bool)_sendFinishedBlockForTransaction:(id)arg1 success:(_Bool)arg2 cancelled:(_Bool)arg3 error:(id)arg4 handledAsFinishedBlock:(_Bool *)arg5;
+- (_Bool)_delegateShouldScheduleTransaction:(id)arg1 error:(id *)arg2;
 - (void)_onQueue_performDefaultErrorHandlingForError:(id)arg1;
 - (void)_onQueue_performCancelErrorHandlingForError:(id)arg1;
 - (void)_onQueue_performRetryErrorHandlingForError:(id)arg1;
 - (void)_onQueue_resolveError:(id)arg1 resolution:(int)arg2;
-- (void)_onQueue_processOperationOutput:(id)arg1 operation:(id)arg2 operationAuthenticated:(BOOL)arg3;
+- (void)_onQueue_processOperationOutput:(id)arg1 operation:(id)arg2 operationAuthenticated:(_Bool)arg3;
 - (void)_processDataInResponse:(id)arg1;
 - (void)_onQueue_transactionDidCancel:(id)arg1 withError:(id)arg2;
 - (void)_onQueue_transactionDidFail:(id)arg1 withError:(id)arg2;
 - (void)_onQueue_currentTransactionDidFinish;
-- (BOOL)_onQueue_authenticationCanProcessTransaction:(id)arg1 error:(id *)arg2;
-- (BOOL)_onQueue_clampsCanScheduleTransaction:(id)arg1 error:(id *)arg2;
-- (BOOL)_onQueue_isTransactionValid:(id)arg1 error:(id *)arg2;
-- (BOOL)_onQueue_isEnabledForTransaction:(id)arg1 error:(id *)arg2;
-- (BOOL)_onQueue_canScheduleTransaction:(id)arg1 error:(id *)arg2;
+- (_Bool)_onQueue_authenticationCanProcessTransaction:(id)arg1 error:(id *)arg2;
+- (_Bool)_onQueue_clampsCanScheduleTransaction:(id)arg1 error:(id *)arg2;
+- (_Bool)_onQueue_isTransactionValid:(id)arg1 error:(id *)arg2;
+- (_Bool)_onQueue_isEnabledForTransaction:(id)arg1 error:(id *)arg2;
+- (_Bool)_onQueue_canScheduleTransaction:(id)arg1 error:(id *)arg2;
 - (void)_onQueue_addPendingTransaction:(id)arg1;
-- (void)_onQueue_scheduleTransaction:(id)arg1 isRetry:(BOOL)arg2;
+- (void)_onQueue_scheduleTransaction:(id)arg1 isRetry:(_Bool)arg2;
 - (void)_onQueue_processCurrentTransaction;
 - (void)_onQueue_processPendingTransactions;
 - (void)_onQueue_cancelTransaction:(id)arg1 error:(id)arg2;
@@ -78,17 +78,20 @@
 - (void)_endBackgroundTask;
 - (void)_beginBackgroundTask;
 - (void)_resolveError:(id)arg1 resolution:(int)arg2;
-- (void)_becomeDelegateForOperation:(id)arg1;
-- (void)_resignDelegateForOperation:(id)arg1;
-- (void)cancelAllTransactionsCancelCode:(int)arg1;
+- (void)_storeOperationDidComplete:(id)arg1;
+- (void)_enqueueStoreOperation:(id)arg1;
+- (void)cancelAllTransactionsCancelCode:(long long)arg1;
 - (void)cancelAllTransactions;
 - (void)cancelScheduledTransaction:(id)arg1;
 - (void)scheduleTransaction:(id)arg1;
 - (void)scheduleTransaction:(id)arg1 withTransactionFinishedBlock:(id)arg2;
-@property(readonly, getter=isIdle) BOOL idle;
-- (BOOL)_onQueue_isIdle;
+@property(readonly, getter=isIdle) _Bool idle;
+- (_Bool)_onQueue_isIdle;
 - (id)_onQueue_clampsController;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)_networkTypeChangedNotification:(id)arg1;
+- (void)setEnabled:(_Bool)arg1;
+- (void)setRequestURL:(id)arg1;
+- (void)setDomain:(id)arg1;
 - (void)dealloc;
 - (id)initWithDomain:(id)arg1 requestURL:(id)arg2;
 

@@ -12,12 +12,11 @@
     id _internal;
 }
 
-+ (id)_defaultPaperForOutputType:(int)arg1;
-+ (id)_defaultPaperListForOutputType:(int)arg1;
-+ (id)_defaultPKPaperForOuptutType:(int)arg1;
-+ (id)_paperListForPrinter:(id)arg1 withDuplexMode:(int)arg2;
-+ (id)_readyPaperListForPrinter:(id)arg1 withDuplexMode:(int)arg2 forContentType:(int)arg3 contentSize:(struct CGSize)arg4;
-+ (id)_readyPaperListForPrinter:(id)arg1 withDuplexMode:(int)arg2 contentSize:(struct CGSize)arg3;
++ (id)_defaultPaperForOutputType:(long long)arg1;
++ (id)_defaultPaperListForOutputType:(long long)arg1;
++ (id)_defaultPKPaperForOuptutType:(long long)arg1;
++ (id)_paperListForPrinter:(id)arg1 withDuplexMode:(long long)arg2;
++ (id)_readyPaperListForPrinter:(id)arg1 withDuplexMode:(long long)arg2 forContentType:(long long)arg3 contentSize:(struct CGSize)arg4;
 + (id)bestPaperForPageSize:(struct CGSize)arg1 withPapersFromArray:(id)arg2;
 - (int)_paperOrientation;
 - (void)_setPaperOrientation:(int)arg1;
@@ -25,14 +24,13 @@
 - (id)_localizedName;
 - (id)description;
 - (id)_pkPaper;
-- (struct CGRect)_printableRectForDuplex:(BOOL)arg1;
+- (struct CGRect)_printableRectForDuplex:(_Bool)arg1;
 @property(readonly) struct CGRect printableRect;
 @property(readonly) struct CGSize paperSize;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
 - (void)_updatePKPaper:(id)arg1;
 - (id)_initWithPrintKitPaper:(id)arg1;
-- (struct CGRect)printRect;
 
 @end
 

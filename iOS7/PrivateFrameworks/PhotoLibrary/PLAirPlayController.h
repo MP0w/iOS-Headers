@@ -23,13 +23,13 @@
 - (void)audioDeviceControllerMediaServerDied:(id)arg1;
 - (void)audioDeviceControllerAudioRoutesChanged:(id)arg1;
 - (id)pickableAirplayRoutes;
-- (BOOL)airplayRouteIsAvailable;
-- (BOOL)isDeviceCurrentlyMirroring;
-- (unsigned int)indexOfPickedRoute;
+- (_Bool)airplayRouteIsAvailable;
+- (_Bool)isDeviceCurrentlyMirroring;
+- (unsigned long long)indexOfPickedRoute;
 - (id)systemPickedRouteSupportingAirPlayOrMirroring;
 - (id)pickedAirplayRoute;
 - (void)userPickedRoute:(id)arg1;
-- (void)setRouteDiscoveryEnabled:(BOOL)arg1;
+- (void)setRouteDiscoveryEnabled:(_Bool)arg1;
 - (void)dealloc;
 - (id)init;
 

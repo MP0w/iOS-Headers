@@ -32,19 +32,19 @@
 - (void)_queryUpdated;
 - (void)_initialGatherFinished;
 - (void)_resetQuery;
-- (void)_storeUserICloudChoice:(BOOL)arg1 forIdentityToken:(id)arg2;
+- (void)_storeUserICloudChoice:(_Bool)arg1 forIdentityToken:(id)arg2;
 - (id)_userICloudChoiceForIdentityToken:(id)arg1;
 - (id)_userICloudChoiceArray;
 - (void)_setStorage:(id)arg1;
 - (void)_loadUserICloudChoiceWithCompletionHandler:(id)arg1;
-- (void)_finishSetupWithDecision:(BOOL)arg1 completionHandler:(id)arg2;
+- (void)_finishSetupWithDecision:(_Bool)arg1 completionHandler:(id)arg2;
 - (void)runSetupProcessWithCompletionHandler:(id)arg1;
 - (void)_appActivated:(id)arg1;
 - (void)_ubiquityIdentityTokenChanged;
 - (id)_identifierToURLMap;
 @property(readonly) NSURL *dataStorageURL;
 @property(readonly) NSURL *documentStorageURL;
-@property(readonly) BOOL usesUbiquitousStorage;
+@property(readonly) _Bool usesUbiquitousStorage;
 - (id)_initWithCompletionHandler:(id)arg1;
 - (id)init;
 

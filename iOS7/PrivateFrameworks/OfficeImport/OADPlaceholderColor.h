@@ -6,12 +6,13 @@
 
 #import <OfficeImport/OADColor.h>
 
+// Not exported
 @interface OADPlaceholderColor : OADColor
 {
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)colorForStyleColor:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 

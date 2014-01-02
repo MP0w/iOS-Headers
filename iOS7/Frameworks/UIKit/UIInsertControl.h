@@ -6,6 +6,7 @@
 
 #import <UIKit/UIRemoveControl.h>
 
+// Not exported
 @interface UIInsertControl : UIRemoveControl
 {
 }

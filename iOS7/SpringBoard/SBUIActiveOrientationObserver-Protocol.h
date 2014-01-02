@@ -7,7 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol SBUIActiveOrientationObserver <NSObject>
-- (void)activeInterfaceOrientationDidChangeToOrientation:(int)arg1 willAnimateWithDuration:(double)arg2 fromOrientation:(int)arg3;
-- (void)activeInterfaceOrientationWillChangeToOrientation:(int)arg1;
+- (void)activeInterfaceOrientationDidChangeToOrientation:(long long)arg1 willAnimateWithDuration:(double)arg2 fromOrientation:(long long)arg3;
+- (void)activeInterfaceOrientationWillChangeToOrientation:(long long)arg1;
 @end
 

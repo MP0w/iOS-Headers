@@ -10,12 +10,12 @@
 
 @interface AXPostConnectionTask : NSObject
 {
-    BOOL _didTimeout;
+    _Bool _didTimeout;
     id _postConnectionBlock;
     AXTimer *_timeoutTimer;
 }
 
-@property(nonatomic) BOOL didTimeout; // @synthesize didTimeout=_didTimeout;
+@property(nonatomic) _Bool didTimeout; // @synthesize didTimeout=_didTimeout;
 @property(retain, nonatomic) AXTimer *timeoutTimer; // @synthesize timeoutTimer=_timeoutTimer;
 @property(copy, nonatomic) id postConnectionBlock; // @synthesize postConnectionBlock=_postConnectionBlock;
 - (void)_performTask;

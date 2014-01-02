@@ -17,8 +17,8 @@
 - (id)itemAtIndex:(int)arg1;
 - (int)forwardListCount;
 - (int)backListCount;
-- (unsigned int)pageCacheSize;
-- (void)setPageCacheSize:(unsigned int)arg1;
+- (unsigned long long)pageCacheSize;
+- (void)setPageCacheSize:(unsigned long long)arg1;
 - (id)description;
 - (void)setCapacity:(int)arg1;
 - (int)capacity;
@@ -30,7 +30,7 @@
 - (void)goToItem:(id)arg1;
 - (void)goForward;
 - (void)goBack;
-- (BOOL)containsItem:(id)arg1;
+- (_Bool)containsItem:(id)arg1;
 - (void)setToMatchDictionaryRepresentation:(id)arg1;
 - (id)dictionaryRepresentation;
 - (void)removeItem:(id)arg1;
@@ -39,7 +39,6 @@
 - (void)finalize;
 - (void)dealloc;
 - (id)init;
-- (id)initWithBackForwardList:(PassRefPtr_a2d75529)arg1;
 
 @end
 

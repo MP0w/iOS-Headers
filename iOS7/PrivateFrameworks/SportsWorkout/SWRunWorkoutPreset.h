@@ -13,7 +13,7 @@
 @interface SWRunWorkoutPreset : NSObject <SWRunWorkoutObserver>
 {
     NSString *_presetGoal;
-    unsigned int _templateId;
+    unsigned long long _templateId;
     NSString *_templateName;
     NSString *_workoutName;
     float _goal;
@@ -31,7 +31,7 @@
 + (id)presetForCustomGoalWithAmount:(id)arg1 units:(id)arg2;
 @property(readonly, nonatomic) NSString *workoutName; // @synthesize workoutName=_workoutName;
 @property(readonly, nonatomic) NSString *templateName; // @synthesize templateName=_templateName;
-@property(readonly, nonatomic) unsigned int templateId; // @synthesize templateId=_templateId;
+@property(readonly, nonatomic) unsigned long long templateId; // @synthesize templateId=_templateId;
 @property(readonly, nonatomic) NSString *goalType; // @synthesize goalType=_goalType;
 @property(readonly, nonatomic) float goal; // @synthesize goal=_goal;
 @property(readonly, nonatomic) NSString *presetGoal; // @synthesize presetGoal=_presetGoal;
@@ -59,10 +59,10 @@
 - (void)_addTimeObservationTarget:(id)arg1;
 - (void)observeRunWorkoutUserEvent:(id)arg1 userEvent:(id)arg2;
 - (void)observeRunWorkoutStateChange:(id)arg1 oldState:(id)arg2 newState:(id)arg3;
-- (void)observeRunWorkoutControllerDataChange:(id)arg1 elapsedTime:(unsigned int)arg2 pace:(float)arg3 distance:(float)arg4 calories:(float)arg5 location:(id)arg6;
+- (void)observeRunWorkoutControllerDataChange:(id)arg1 elapsedTime:(unsigned long long)arg2 pace:(float)arg3 distance:(float)arg4 calories:(float)arg5 location:(id)arg6;
 @property(readonly, nonatomic) NSString *distanceDisplayUnits; // @dynamic distanceDisplayUnits;
 - (void)dealloc;
-- (id)initWithPresetGoal:(id)arg1 goal:(float)arg2 goalType:(id)arg3 goalInDisplayUnits:(id)arg4 templateId:(unsigned int)arg5 templateName:(id)arg6 workoutName:(id)arg7;
+- (id)initWithPresetGoal:(id)arg1 goal:(float)arg2 goalType:(id)arg3 goalInDisplayUnits:(id)arg4 templateId:(unsigned long long)arg5 templateName:(id)arg6 workoutName:(id)arg7;
 
 @end
 

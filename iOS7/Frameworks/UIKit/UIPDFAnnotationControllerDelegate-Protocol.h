@@ -15,6 +15,6 @@
 - (void)annotation:(id)arg1 isBeingPressedAtPoint:(struct CGPoint)arg2 controller:(id)arg3;
 - (void)annotation:(id)arg1 wasTouchedAtPoint:(struct CGPoint)arg2 controller:(id)arg3;
 - (void)annotation:(id)arg1 didEndTrackingAtPoint:(struct CGPoint)arg2 controller:(id)arg3;
-- (BOOL)willTrackAnnotationAtPoint:(struct CGPoint)arg1 controller:(id)arg2;
+- (_Bool)willTrackAnnotationAtPoint:(struct CGPoint)arg1 controller:(id)arg2;
 @end
 

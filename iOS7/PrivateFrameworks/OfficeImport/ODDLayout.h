@@ -8,6 +8,7 @@
 
 @class ODDLayoutNode;
 
+// Not exported
 @interface ODDLayout : NSObject
 {
     ODDLayoutNode *mRootNode;

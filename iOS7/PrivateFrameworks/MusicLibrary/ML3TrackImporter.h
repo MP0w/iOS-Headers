@@ -12,21 +12,21 @@
 {
     NSDictionary *_nameOrders;
     ML3MusicLibrary *_library;
-    BOOL _updateSmartPlaylists;
+    _Bool _updateSmartPlaylists;
 }
 
-@property(nonatomic) BOOL updateSmartPlaylists; // @synthesize updateSmartPlaylists=_updateSmartPlaylists;
+@property(nonatomic) _Bool updateSmartPlaylists; // @synthesize updateSmartPlaylists=_updateSmartPlaylists;
 @property(retain, nonatomic) NSDictionary *nameOrders; // @synthesize nameOrders=_nameOrders;
 - (void).cxx_destruct;
-- (BOOL)_shouldInsertITMediaKindIntoPurchasedPlaylist:(unsigned long)arg1;
-- (id)_newTrackPropertiesByProcessingImportTrack:(id)arg1 insertStringsIntoSortMap:(BOOL)arg2;
+- (_Bool)_shouldInsertITMediaKindIntoPurchasedPlaylist:(unsigned int)arg1;
+- (id)_newTrackPropertiesByProcessingImportTrack:(id)arg1 insertStringsIntoSortMap:(_Bool)arg2;
 - (id)_addStoreLinkForImportTrackProperties:(id)arg1;
 - (id)_addGenreForImportTrackProperties:(id)arg1;
 - (id)_addComposerForImportTrackProperties:(id)arg1;
 - (id)_addArtistForImportTrackProperties:(id)arg1;
 - (id)_addAlbumForImportTrackProperties:(id)arg1;
 - (id)_addAlbumArtistForImportTrackProperties:(id)arg1;
-- (BOOL)updateTrack:(id)arg1 withImportTrack:(id)arg2;
+- (_Bool)updateTrack:(id)arg1 withImportTrack:(id)arg2;
 - (void)importTrack:(id)arg1 withCompletionBlock:(id)arg2;
 - (id)initWithMusicLibrary:(id)arg1;
 

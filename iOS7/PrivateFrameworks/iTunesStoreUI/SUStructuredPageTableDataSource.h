@@ -13,39 +13,39 @@
     SUItem *_activeLoadMoreItem;
     NSMutableArray *_cachedHeaderViews;
     SUClientInterface *_clientInterface;
-    float _offerButtonWidth;
+    double _offerButtonWidth;
     SUStructuredPage *_structuredPage;
-    int _style;
+    long long _style;
 }
 
-@property(nonatomic) int style; // @synthesize style=_style;
+@property(nonatomic) long long style; // @synthesize style=_style;
 @property(retain, nonatomic) SUStructuredPage *structuredPage; // @synthesize structuredPage=_structuredPage;
 @property(retain, nonatomic) SUClientInterface *clientInterface; // @synthesize clientInterface=_clientInterface;
 @property(retain, nonatomic) SUItem *activeLoadMoreItem; // @synthesize activeLoadMoreItem=_activeLoadMoreItem;
-- (BOOL)_shouldShowItemOfferButtonForItem:(id)arg1;
+- (_Bool)_shouldShowItemOfferButtonForItem:(id)arg1;
 - (id)_itemOfferButtonForCell:(id)arg1 item:(id)arg2;
 - (void)_configureLoadMoreCell:(id)arg1 forItem:(id)arg2;
-- (id)titleForHeaderInSection:(int)arg1;
+- (id)titleForHeaderInSection:(long long)arg1;
 - (id)titleForDeleteConfirmationForIndexPath:(id)arg1;
-- (int)tableViewStyle;
+- (long long)tableViewStyle;
 - (id)sectionIndexTitles;
-- (int)sectionIndexForIndexTitle:(id)arg1 atIndex:(int)arg2;
+- (long long)sectionIndexForIndexTitle:(id)arg1 atIndex:(long long)arg2;
 - (void)reloadData;
 - (void)reloadCellContexts;
-- (int)numberOfRowsInSection:(int)arg1;
-- (int)numberOfSections;
-- (id)headerViewForSection:(int)arg1;
-- (BOOL)deleteIndexPath:(id)arg1;
+- (long long)numberOfRowsInSection:(long long)arg1;
+- (long long)numberOfSections;
+- (id)headerViewForSection:(long long)arg1;
+- (_Bool)deleteIndexPath:(id)arg1;
 - (void)configureCell:(id)arg1 forIndexPath:(id)arg2;
-- (float)cellHeightForIndexPath:(id)arg1;
+- (double)cellHeightForIndexPath:(id)arg1;
 - (id)cellForIndexPath:(id)arg1;
-- (BOOL)canSelectIndexPath:(id)arg1;
-- (BOOL)canDeleteIndexPath:(id)arg1;
-- (id)newHeaderViewForSection:(int)arg1;
-- (id)cellConfigurationForIndex:(int)arg1 item:(id)arg2;
+- (_Bool)canSelectIndexPath:(id)arg1;
+- (_Bool)canDeleteIndexPath:(id)arg1;
+- (id)newHeaderViewForSection:(long long)arg1;
+- (id)cellConfigurationForIndex:(long long)arg1 item:(id)arg2;
 - (Class)cellConfigurationClassForItem:(id)arg1;
 - (Class)cellClassForItem:(id)arg1 reuseIdentifier:(id *)arg2;
-- (BOOL)canShowItemOfferButtonForItem:(id)arg1;
+- (_Bool)canShowItemOfferButtonForItem:(id)arg1;
 - (void)dealloc;
 
 @end

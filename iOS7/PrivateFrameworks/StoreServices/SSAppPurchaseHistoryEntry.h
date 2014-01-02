@@ -12,7 +12,7 @@
 
 + (id)predicateForNotHidden;
 + (id)predicateForAccountIdentifier:(id)arg1;
-+ (id)supportsPlatformPredicate:(BOOL)arg1;
++ (id)supportsPlatformPredicate:(_Bool)arg1;
 + (id)databaseTable;
 
 @end

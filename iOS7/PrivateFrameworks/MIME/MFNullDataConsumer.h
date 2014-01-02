@@ -14,7 +14,7 @@
 
 - (void)done;
 - (id)description;
-- (int)appendData:(id)arg1;
+- (long long)appendData:(id)arg1;
 
 @end
 

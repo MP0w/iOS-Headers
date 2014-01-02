@@ -10,11 +10,11 @@
 {
     struct __CFRunLoop *_runLoop;
     struct __CFRunLoopSource *_signalSource;
-    BOOL _signaled;
+    _Bool _signaled;
 }
 
 + (id)runLoopStateWithRunLoop:(struct __CFRunLoop *)arg1;
-@property(nonatomic) BOOL signaled; // @synthesize signaled=_signaled;
+@property(nonatomic) _Bool signaled; // @synthesize signaled=_signaled;
 @property(nonatomic) struct __CFRunLoopSource *signalSource; // @synthesize signalSource=_signalSource;
 @property(readonly, nonatomic) struct __CFRunLoop *runLoop; // @synthesize runLoop=_runLoop;
 - (void)dealloc;

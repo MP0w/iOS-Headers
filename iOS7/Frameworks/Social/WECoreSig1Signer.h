@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface WECoreSig1Signer : NSObject
 {
 }

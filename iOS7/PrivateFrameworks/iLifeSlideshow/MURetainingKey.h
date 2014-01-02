@@ -16,11 +16,11 @@
 }
 
 + (id)retainingKeyWithObject:(id)arg1;
-+ (BOOL)clearVars;
-+ (CDStruct_7b508128 *)poolInfo;
++ (_Bool)clearVars;
++ (CDStruct_32b7e343 *)poolInfo;
 @property(readonly) NSObject *object; // @synthesize object=_object;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (void)purge;

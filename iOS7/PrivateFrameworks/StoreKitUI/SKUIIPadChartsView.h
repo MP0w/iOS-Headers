@@ -11,25 +11,27 @@
 @interface SKUIIPadChartsView : UIView
 {
     NSArray *_allViewControllers;
-    int _animatingToNumberOfVisibleColumns;
+    long long _animatingToNumberOfVisibleColumns;
     UIView *_borderView0;
     UIView *_borderView1;
-    UIView *_headerBackgroundView;
-    int _columnChangeAnimationCount;
+    long long _columnChangeAnimationCount;
     NSArray *_columnViews;
+    struct UIEdgeInsets _contentInset;
+    UIView *_headerBackgroundView;
     NSArray *_headerViews;
-    int _numberOfVisibleColumns;
+    long long _numberOfVisibleColumns;
 }
 
-@property(nonatomic) int numberOfVisibleColumns; // @synthesize numberOfVisibleColumns=_numberOfVisibleColumns;
+@property(nonatomic) long long numberOfVisibleColumns; // @synthesize numberOfVisibleColumns=_numberOfVisibleColumns;
 @property(copy, nonatomic) NSArray *chartTableViewControllers; // @synthesize chartTableViewControllers=_allViewControllers;
+@property(nonatomic) struct UIEdgeInsets contentInset; // @synthesize contentInset=_contentInset;
 - (void).cxx_destruct;
 - (void)_reloadColumnViews;
 - (id)_headerViewWithViewControllers:(id)arg1;
 - (void)_headerViewAction:(id)arg1;
 - (void)layoutSubviews;
 - (void)endColumnChangeAnimation;
-- (void)beginColumnChangeAnimationToNumberOfVisibleColumns:(int)arg1;
+- (void)beginColumnChangeAnimationToNumberOfVisibleColumns:(long long)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

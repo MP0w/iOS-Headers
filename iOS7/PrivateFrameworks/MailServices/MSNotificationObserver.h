@@ -14,14 +14,14 @@
     NSObject<MSNotificationDelegate> *_delegate;
 }
 
-+ (id)registerNotificationObserver:(id)arg1 shouldLaunchMobileMail:(BOOL)arg2 queue:(id)arg3;
++ (id)registerNotificationObserver:(id)arg1 shouldLaunchMobileMail:(_Bool)arg2 queue:(id)arg3;
 @property(nonatomic) NSObject<MSNotificationDelegate> *delegate; // @synthesize delegate=_delegate;
 - (void)_didReceiveNotificationData:(id)arg1;
 - (void)responseConnection:(id)arg1 handleResponse:(id)arg2;
 - (void)responseConnection:(id)arg1 handleError:(id)arg2;
 - (void)_registerObserverClient;
-- (id)copyActiveAccounts;
-- (id)messagesForAccountIDs:(id)arg1 count:(unsigned int)arg2 cutOffDates:(id)arg3;
+- (id)activeAccountsHadLoadError:(_Bool *)arg1;
+- (id)messagesForAccountIDs:(id)arg1 count:(unsigned long long)arg2 cutOffDates:(id)arg3;
 - (void)_delegateDidShutdownWithError:(id)arg1;
 - (void)dealloc;
 - (id)_initWithDelegate:(id)arg1 queue:(id)arg2;

@@ -11,10 +11,10 @@
 @interface BBSyncDelayedDismissal : NSObject
 {
     BBBulletin *_bulletin;
-    unsigned int _feeds;
+    unsigned long long _feeds;
 }
 
-@property(nonatomic) unsigned int feeds; // @synthesize feeds=_feeds;
+@property(nonatomic) unsigned long long feeds; // @synthesize feeds=_feeds;
 @property(retain, nonatomic) BBBulletin *bulletin; // @synthesize bulletin=_bulletin;
 
 @end

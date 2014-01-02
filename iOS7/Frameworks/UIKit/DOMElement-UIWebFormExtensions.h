@@ -7,6 +7,6 @@
 #import "DOMElement.h"
 
 @interface DOMElement (UIWebFormExtensions)
-- (void)getTextWritingDirection:(int *)arg1 override:(char *)arg2;
+- (void)getTextWritingDirection:(long long *)arg1 override:(_Bool *)arg2;
 @end
 

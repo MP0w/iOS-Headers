@@ -6,31 +6,32 @@
 
 #import <UIKit/_UIDatePickerMode.h>
 
+// Not exported
 @interface _UIDatePickerMode_TimeInterval : _UIDatePickerMode
 {
-    float _componentWidth;
+    double _componentWidth;
 }
 
-+ (unsigned int)extractableCalendarUnits;
-+ (int)datePickerMode;
-- (unsigned int)nextUnitSmallerThanUnit:(unsigned int)arg1;
-- (unsigned int)nextUnitLargerThanUnit:(unsigned int)arg1;
-- (BOOL)_shouldEnableValueForRow:(int)arg1 inComponent:(int)arg2 calendarUnit:(unsigned int)arg3;
-- (int)valueForDate:(id)arg1 dateComponents:(id)arg2 calendarUnit:(unsigned int)arg3;
-- (id)dateComponentsByRestrictingSelectedComponents:(id)arg1 withLastManipulatedColumn:(int)arg2;
-- (BOOL)areValidDateComponents:(id)arg1 comparingUnits:(int)arg2;
-- (float)widthForCalendarUnit:(unsigned int)arg1 font:(id)arg2 maxWidth:(float)arg3;
-- (struct _NSRange)rangeForCalendarUnit:(unsigned int)arg1;
-- (int)titleAlignmentForCalendarUnit:(unsigned int)arg1;
-- (id)titleForRow:(int)arg1 inComponent:(int)arg2;
-- (int)hourForRow:(int)arg1;
++ (unsigned long long)extractableCalendarUnits;
++ (long long)datePickerMode;
+- (unsigned long long)nextUnitSmallerThanUnit:(unsigned long long)arg1;
+- (unsigned long long)nextUnitLargerThanUnit:(unsigned long long)arg1;
+- (_Bool)_shouldEnableValueForRow:(long long)arg1 inComponent:(long long)arg2 calendarUnit:(unsigned long long)arg3;
+- (long long)valueForDate:(id)arg1 dateComponents:(id)arg2 calendarUnit:(unsigned long long)arg3;
+- (id)dateComponentsByRestrictingSelectedComponents:(id)arg1 withLastManipulatedColumn:(long long)arg2;
+- (_Bool)areValidDateComponents:(id)arg1 comparingUnits:(long long)arg2;
+- (double)widthForCalendarUnit:(unsigned long long)arg1 font:(id)arg2 maxWidth:(double)arg3;
+- (struct _NSRange)rangeForCalendarUnit:(unsigned long long)arg1;
+- (long long)titleAlignmentForCalendarUnit:(unsigned long long)arg1;
+- (id)titleForRow:(long long)arg1 inComponent:(long long)arg2;
+- (long long)hourForRow:(long long)arg1;
 - (id)font;
-- (int)numberOfRowsForCalendarUnit:(unsigned int)arg1;
+- (long long)numberOfRowsForCalendarUnit:(unsigned long long)arg1;
 - (void)resetComponentWidths;
-- (float)rowHeight;
+- (double)rowHeight;
 - (void)takeExtremesFromMinimumDate:(id)arg1 maximumDate:(id)arg2;
 - (id)localizedFormatString;
-- (BOOL)isTimeIntervalMode;
+- (_Bool)isTimeIntervalMode;
 
 @end
 

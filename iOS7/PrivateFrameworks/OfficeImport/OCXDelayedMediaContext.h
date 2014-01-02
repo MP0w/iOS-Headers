@@ -10,6 +10,7 @@
 
 @class NSURL, OCPPackage;
 
+// Not exported
 @interface OCXDelayedMediaContext : NSObject <OCDDelayedMediaContext>
 {
     OCPPackage *mPackage;

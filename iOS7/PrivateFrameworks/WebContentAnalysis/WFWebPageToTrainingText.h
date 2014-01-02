@@ -8,12 +8,13 @@
 
 @class NSString;
 
+// Not exported
 @interface WFWebPageToTrainingText : WFWebPageDecorator
 {
     NSString *categorySignature;
 }
 
-+ (id)signatureForCategory:(unsigned int)arg1;
++ (id)signatureForCategory:(unsigned long long)arg1;
 + (id)documentSignature;
 - (void)dealloc;
 - (id)rawPlainText;

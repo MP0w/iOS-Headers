@@ -6,24 +6,27 @@
 
 #import "UIView.h"
 
-@class NSArray, SKUIColorScheme, UIControl, UISegmentedControl, _UIBackdropView;
+@class SKUIColorScheme, UIControl, UISegmentedControl, _UIBackdropView;
 
 @interface SKUIProductPageHeaderFloatingView : UIView
 {
     UISegmentedControl *_sectionControl;
     SKUIColorScheme *_colorScheme;
     UIView *_separatorView;
+    UIView *_backdropAlphaView;
     _UIBackdropView *_backdropView;
+    _Bool _isPad;
 }
 
 @property(readonly, nonatomic) UIControl *sectionControl; // @synthesize sectionControl=_sectionControl;
 @property(retain, nonatomic) SKUIColorScheme *colorScheme; // @synthesize colorScheme=_colorScheme;
 - (void).cxx_destruct;
-@property(copy, nonatomic) NSArray *sectionTitles;
-@property(readonly, nonatomic) int selectedSectionIndex;
+- (void)_reloadBackdropView;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
-- (id)initWithFrame:(struct CGRect)arg1;
+@property(readonly, nonatomic) long long selectedSectionIndex;
+@property(nonatomic) double backdropAlpha;
+- (id)initWithSectionTitles:(id)arg1 isPad:(_Bool)arg2;
 
 @end
 

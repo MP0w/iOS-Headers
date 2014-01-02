@@ -6,6 +6,7 @@
 
 #import <iWorkImport/GQDTDateCell.h>
 
+// Not exported
 @interface GQDTDCell : GQDTDateCell
 {
 }

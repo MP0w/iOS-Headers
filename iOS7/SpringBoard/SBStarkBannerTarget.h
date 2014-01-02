@@ -14,13 +14,13 @@
 {
     id <SBStarkBannerTargetObserver> _observer;
     NSHashTable *_sources;
-    BOOL _invalidated;
+    _Bool _invalidated;
     NSMutableArray *_pendedContexts;
     SBUIBannerContext *_currentContext;
     SBUISound *_currentSound;
-    int _displayAssertions;
-    BOOL _suspended;
-    BOOL _suspendedForAssistant;
+    long long _displayAssertions;
+    _Bool _suspended;
+    _Bool _suspendedForAssistant;
 }
 
 @property(readonly, nonatomic) SBUIBannerContext *currentContext; // @synthesize currentContext=_currentContext;
@@ -30,21 +30,21 @@
 - (void)signalSource:(id)arg1;
 - (void)unregisterSource:(id)arg1;
 - (void)registerSource:(id)arg1;
-@property(readonly, nonatomic) int bannerTargetIdiom;
+@property(readonly, nonatomic) long long bannerTargetIdiom;
 - (void)_killIntervalElapsed:(id)arg1;
 - (void)_dismissIntervalElapsed:(id)arg1;
 - (void)_replaceIntervalElapsed:(id)arg1;
-- (void)_dismissContext:(id)arg1 withOptions:(int)arg2 dismissReason:(int)arg3;
-- (void)_dequeueWithOptions:(int)arg1 dismissReason:(int)arg2;
-- (BOOL)_canDequeueWithOptions:(int)arg1;
-- (BOOL)_canDismissWithOptions:(int)arg1;
+- (void)_dismissContext:(id)arg1 withOptions:(long long)arg2 dismissReason:(int)arg3;
+- (void)_dequeueWithOptions:(long long)arg1 dismissReason:(int)arg2;
+- (_Bool)_canDequeueWithOptions:(long long)arg1;
+- (_Bool)_canDismissWithOptions:(long long)arg1;
 - (void)invalidate;
 - (void)noteContextCanceled:(id)arg1;
-- (void)noteContext:(id)arg1 subActionSelected:(unsigned int)arg2;
+- (void)noteContext:(id)arg1 subActionSelected:(unsigned long long)arg2;
 - (void)noteContextSelected:(id)arg1;
-@property(nonatomic, getter=isSuspendedForAssistant) BOOL suspendedForAssistant;
-@property(nonatomic, getter=isSuspended) BOOL suspended;
-@property(nonatomic, getter=isPausedForUserInteraction) BOOL pausedForUserInteraction;
+@property(nonatomic, getter=isSuspendedForAssistant) _Bool suspendedForAssistant;
+@property(nonatomic, getter=isSuspended) _Bool suspended;
+@property(nonatomic, getter=isPausedForUserInteraction) _Bool pausedForUserInteraction;
 - (void)dealloc;
 - (id)init;
 

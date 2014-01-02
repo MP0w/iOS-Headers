@@ -17,24 +17,24 @@
     _MFParsedHTMLNode *_parentNode;
     _MFParsedHTMLNode *_nextSibling;
     NSString *_htmlString;
-    unsigned int _startLocation;
-    unsigned int _endLocation;
+    unsigned long long _startLocation;
+    unsigned long long _endLocation;
 }
 
-@property(nonatomic) unsigned int endLocation; // @synthesize endLocation=_endLocation;
-@property(nonatomic) unsigned int startLocation; // @synthesize startLocation=_startLocation;
+@property(nonatomic) unsigned long long endLocation; // @synthesize endLocation=_endLocation;
+@property(nonatomic) unsigned long long startLocation; // @synthesize startLocation=_startLocation;
 @property(retain, nonatomic) NSString *htmlString; // @synthesize htmlString=_htmlString;
 @property(nonatomic) _MFParsedHTMLNode *nextSibling; // @synthesize nextSibling=_nextSibling;
 @property(nonatomic) _MFParsedHTMLNode *parentNode; // @synthesize parentNode=_parentNode;
 - (id)recursiveDescription;
-- (void)addRecursiveDescriptionWithLevel:(unsigned int)arg1 toString:(id)arg2;
+- (void)addRecursiveDescriptionWithLevel:(unsigned long long)arg1 toString:(id)arg2;
 - (void)collectDescendanceIntoArray:(id)arg1;
 - (id)copyMutableConsumableNodesAndAppendInnerTextToStringAccumulator:(id)arg1;
 - (id)copyConsumableNodesAndAppendInnerTextToStringAccumulator:(id)arg1;
 @property(readonly, nonatomic) NSString *tagName;
 @property(readonly, nonatomic) _MFParsedHTMLNode *lastChild;
 @property(readonly, nonatomic) _MFParsedHTMLNode *firstChild;
-@property(readonly, nonatomic) BOOL hasChildNodes;
+@property(readonly, nonatomic) _Bool hasChildNodes;
 - (void)appendChild:(id)arg1;
 - (void)dealloc;
 - (id)init;

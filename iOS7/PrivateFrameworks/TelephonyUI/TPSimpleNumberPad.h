@@ -11,13 +11,14 @@
 @interface TPSimpleNumberPad : TPNumberPad
 {
     UIButton *_deleteButton;
-    BOOL _showsDeleteButton;
+    _Bool _showsDeleteButton;
     id <TPSimpleNumberPadDelegate> _delegate;
 }
 
 + (id)_numberPadCharacters;
-@property(nonatomic) BOOL showsDeleteButton; // @synthesize showsDeleteButton=_showsDeleteButton;
+@property(nonatomic) _Bool showsDeleteButton; // @synthesize showsDeleteButton=_showsDeleteButton;
 @property id <TPSimpleNumberPadDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)setNumberButtonsEnabled:(_Bool)arg1;
 - (void)_updateDeleteButton;
 - (void)_deleteButtonClicked:(id)arg1 withEvent:(id)arg2;
 - (void)buttonUp:(id)arg1;

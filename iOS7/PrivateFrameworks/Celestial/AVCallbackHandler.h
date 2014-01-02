@@ -20,7 +20,7 @@
 @property SEL mainThreadAction; // @synthesize mainThreadAction=_mainThreadAction;
 @property SEL action; // @synthesize action=_action;
 @property id target; // @synthesize target=_target;
-- (BOOL)hasParams;
+- (_Bool)hasParams;
 - (id)waitForCallbackParams;
 - (void)setCallbackParams:(id)arg1;
 - (void)dealloc;

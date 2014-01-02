@@ -12,9 +12,9 @@
 
 @interface MSASAssetCollection : NSObject <NSCopying>
 {
-    BOOL _hasComments;
-    BOOL _isDeletable;
-    BOOL _isMine;
+    _Bool _hasComments;
+    _Bool _isDeletable;
+    _Bool _isMine;
     NSString *_GUID;
     NSString *_ctag;
     NSString *_albumGUID;
@@ -23,26 +23,25 @@
     NSString *_path;
     id <NSCoding> _userInfo;
     NSDictionary *_metadata;
+    long long _photoNumber;
     NSDate *_timestamp;
     NSString *_personID;
     NSString *_fullName;
     NSString *_firstName;
     NSString *_lastName;
     NSString *_email;
-    long long _photoNumber;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 + (id)assetCollectionWithAssetCollection:(id)arg1;
-+ (id)MSASPAssetCollectionFromProtocolDictionary:(id)arg1;
-@property(nonatomic) BOOL isMine; // @synthesize isMine=_isMine;
-@property(nonatomic) BOOL isDeletable; // @synthesize isDeletable=_isDeletable;
+@property(nonatomic) _Bool isMine; // @synthesize isMine=_isMine;
+@property(nonatomic) _Bool isDeletable; // @synthesize isDeletable=_isDeletable;
 @property(retain, nonatomic) NSString *email; // @synthesize email=_email;
 @property(retain, nonatomic) NSString *lastName; // @synthesize lastName=_lastName;
 @property(retain, nonatomic) NSString *firstName; // @synthesize firstName=_firstName;
 @property(retain, nonatomic) NSString *fullName; // @synthesize fullName=_fullName;
 @property(retain, nonatomic) NSString *personID; // @synthesize personID=_personID;
-@property(nonatomic) BOOL hasComments; // @synthesize hasComments=_hasComments;
+@property(nonatomic) _Bool hasComments; // @synthesize hasComments=_hasComments;
 @property(retain, nonatomic) NSDate *timestamp; // @synthesize timestamp=_timestamp;
 @property(nonatomic) long long photoNumber; // @synthesize photoNumber=_photoNumber;
 @property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
@@ -56,15 +55,14 @@
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)mediaAssetType;
-- (BOOL)hasVideoAsset;
+- (_Bool)hasVideoAsset;
 - (void)setMetadataValue:(id)arg1 forKey:(id)arg2;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)description;
 - (id)initWithFileName:(id)arg1 path:(id)arg2;
-- (id)MSASPProtocolDictionary;
 
 @end
 

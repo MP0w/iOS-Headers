@@ -6,15 +6,16 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface _NSXPCConnectionIncomingReplyBlockTable : NSObject
 {
     struct __CFDictionary *_replyTable;
     int _replyTableLock;
-    unsigned long _sequence;
+    unsigned long long _sequence;
 }
 
-- (unsigned long)sequenceForIncomingReplyBlockWithCleanupBlock:(id)arg1;
-- (BOOL)removeIncomingReplyBlockForSequence:(unsigned long)arg1;
+- (unsigned long long)sequenceForIncomingReplyBlockWithCleanupBlock:(id)arg1;
+- (_Bool)removeIncomingReplyBlockForSequence:(unsigned long long)arg1;
 - (void)cleanupIncomingReplyBlocks;
 - (void)finalize;
 - (void)dealloc;

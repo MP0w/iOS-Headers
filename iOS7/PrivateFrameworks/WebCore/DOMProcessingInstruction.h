@@ -8,6 +8,7 @@
 
 @class DOMStyleSheet, NSString;
 
+// Not exported
 @interface DOMProcessingInstruction : DOMNode
 {
 }

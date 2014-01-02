@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface ECMappingInfo : NSObject
 {
     NSString *mSheetName;

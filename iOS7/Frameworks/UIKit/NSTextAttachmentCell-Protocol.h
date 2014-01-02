@@ -11,11 +11,11 @@
 - (void)setAttachment:(id)arg1;
 - (struct CGPoint)cellBaselineOffset;
 - (struct CGSize)cellSize;
-- (void)drawWithFrame:(struct CGRect)arg1 inView:(id)arg2 characterIndex:(unsigned int)arg3 layoutManager:(id)arg4;
+- (void)drawWithFrame:(struct CGRect)arg1 inView:(id)arg2 characterIndex:(unsigned long long)arg3 layoutManager:(id)arg4;
 
 @optional
 - (void)drawWithFrame:(struct CGRect)arg1 inView:(id)arg2;
-- (void)drawWithFrame:(struct CGRect)arg1 inView:(id)arg2 characterIndex:(unsigned int)arg3;
-- (struct CGRect)cellFrameForTextContainer:(id)arg1 proposedLineFragment:(struct CGRect)arg2 glyphPosition:(struct CGPoint)arg3 characterIndex:(unsigned int)arg4;
+- (void)drawWithFrame:(struct CGRect)arg1 inView:(id)arg2 characterIndex:(unsigned long long)arg3;
+- (struct CGRect)cellFrameForTextContainer:(id)arg1 proposedLineFragment:(struct CGRect)arg2 glyphPosition:(struct CGPoint)arg3 characterIndex:(unsigned long long)arg4;
 @end
 

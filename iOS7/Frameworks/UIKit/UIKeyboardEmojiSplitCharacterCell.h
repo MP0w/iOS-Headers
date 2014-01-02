@@ -8,6 +8,7 @@
 
 @class NSArray, NSString, UIKeyboardEmojiInputController, UIView<UIKeyboardEmojiPressIndicationDelegate>;
 
+// Not exported
 @interface UIKeyboardEmojiSplitCharacterCell : UITableViewCell
 {
     NSArray *_characters;
@@ -25,7 +26,7 @@
 - (void)drawRect:(struct CGRect)arg1;
 @property(retain) NSArray *characters;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

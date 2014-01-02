@@ -8,6 +8,7 @@
 
 @class NSData;
 
+// Not exported
 @interface GEOTileDBWriteEntry : NSObject
 {
     struct _GEOTileKey _key;

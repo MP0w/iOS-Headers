@@ -8,26 +8,16 @@
 
 #import <OfficeImport/OABReaderClient-Protocol.h>
 
+// Not exported
 @interface WBOfficeArtReaderClient : NSObject <OABReaderClient>
 {
 }
 
-+ (BOOL)tablesAreAllowed;
-+ (BOOL)escherIsFullySupported;
++ (_Bool)tablesAreAllowed;
++ (_Bool)escherIsFullySupported;
 + (void)readClientDataFromTableCell:(id)arg1 toTableCell:(id)arg2 state:(id)arg3;
 + (void)readClientDataFromGroup:(id)arg1 toGroup:(id)arg2 state:(id)arg3;
 + (void)readClientDataFromShape:(id)arg1 toGraphic:(id)arg2 state:(id)arg3;
-+ (double)wrapDistanceBottom:(struct EshContentProperties *)arg1;
-+ (double)wrapDistanceRight:(struct EshContentProperties *)arg1;
-+ (double)wrapDistanceTop:(struct EshContentProperties *)arg1;
-+ (double)wrapDistanceLeft:(struct EshContentProperties *)arg1;
-+ (int)relativeVerticalPosition:(struct EshContentProperties *)arg1;
-+ (int)verticalPosition:(struct EshContentProperties *)arg1;
-+ (int)relativeHorizontalPosition:(struct EshContentProperties *)arg1;
-+ (int)horizontalPosition:(struct EshContentProperties *)arg1;
-+ (_Bool)allowOverlap:(struct EshContentProperties *)arg1;
-+ (_Bool)behindText:(struct EshContentProperties *)arg1;
-+ (void)readFrom:(struct EshContentProperties *)arg1 to:(id)arg2;
 
 @end
 

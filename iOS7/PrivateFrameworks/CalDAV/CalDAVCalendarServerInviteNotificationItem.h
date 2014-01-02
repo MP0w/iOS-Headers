@@ -30,7 +30,7 @@
 @property(retain) CoreDAVItemWithNoChildren *inviteStatus; // @synthesize inviteStatus=_inviteStatus;
 @property(retain) CoreDAVHrefItem *href; // @synthesize href=_href;
 @property(retain) CoreDAVLeafItem *uid; // @synthesize uid=_uid;
-- (BOOL)isComponentSupportedForString:(id)arg1;
+- (_Bool)isComponentSupportedForString:(id)arg1;
 - (id)copyParseRules;
 - (id)description;
 - (void)dealloc;

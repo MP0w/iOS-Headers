@@ -6,11 +6,10 @@
 
 #import "UIView.h"
 
-@class NSDateFormatter, UILabel;
+@class UILabel;
 
 @interface SBTodayTableHeaderView : UIView
 {
-    NSDateFormatter *_formatter;
     UILabel *_dateLabel;
 }
 
@@ -19,7 +18,7 @@
 + (id)defaultBackgroundColor;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (BOOL)hasMultiplelines;
+- (struct CGRect)dateLabelFrame;
 - (void)updateContent;
 - (id)dateHeaderAttributedString;
 - (id)dateHeader;

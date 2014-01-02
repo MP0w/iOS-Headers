@@ -8,6 +8,7 @@
 
 @class CIImage, CIVector, NSNumber;
 
+// Not exported
 @interface CITriangleKaleidoscope : CIFilter
 {
     CIImage *inputImage;
@@ -15,8 +16,7 @@
     NSNumber *inputSize;
     NSNumber *inputRotation;
     NSNumber *inputDecay;
-    CIImage *_decayPowerLUTImage;
-    float _previousInputDecay;
+    CIImage *_decayImage;
 }
 
 + (id)customAttributes;
@@ -29,6 +29,7 @@
 - (id)_geomKernel;
 - (id)_colorKernel;
 - (void)setDefaults;
+- (void)dealloc;
 
 @end
 

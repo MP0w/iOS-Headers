@@ -6,20 +6,22 @@
 
 #import <UIKit/UIView.h>
 
-@class NSLayoutConstraint, NSString, UIButton, UILabel, _UIBackdropView, _UITextFieldRoundedRectBackgroundViewNeue;
+@class NSLayoutConstraint, NSString, UIButton, UILabel, _UIBackdropView;
 
 @interface _UIContentUnavailableView : UIView
 {
-    unsigned int _style;
+    unsigned long long _style;
     NSString *_title;
     _UIBackdropView *_backdrop;
     UIView *_containerView;
     UILabel *_titleLabel;
     UILabel *_messageLabel;
     UIButton *_actionButton;
-    _UITextFieldRoundedRectBackgroundViewNeue *_buttonBackground;
     NSLayoutConstraint *titleToMessageConstraint;
     NSLayoutConstraint *messageToButtonConstraint;
+    UIView *_fromSnapshot;
+    UIView *_toSnapshot;
+    struct CGSize _fromSnapshotSize;
     NSString *_message;
     NSString *_buttonTitle;
     id _buttonAction;
@@ -28,18 +30,17 @@
 @property(copy, nonatomic) id buttonAction; // @synthesize buttonAction=_buttonAction;
 @property(copy, nonatomic) NSString *buttonTitle; // @synthesize buttonTitle=_buttonTitle;
 @property(copy, nonatomic) NSString *message; // @synthesize message=_message;
-- (void)tintColorDidChange;
+@property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 - (void)windowDidRotateNotification:(id)arg1;
+- (void)windowWillAnimateRotateNotification:(id)arg1;
 - (void)windowWillRotateNotification:(id)arg1;
-- (void)layoutSubviews;
 - (void)didMoveToWindow;
-- (void)didMoveToSuperview;
 - (void)updateConstraints;
-- (void)_updateAllMaskViews;
 - (void)_actionButtonPressed:(id)arg1;
 - (void)_updateViewHierarchy;
+- (id)_buttonBackgroundImageForStyle:(unsigned long long)arg1;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 title:(id)arg2 style:(unsigned int)arg3;
+- (id)initWithFrame:(struct CGRect)arg1 title:(id)arg2 style:(unsigned long long)arg3;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

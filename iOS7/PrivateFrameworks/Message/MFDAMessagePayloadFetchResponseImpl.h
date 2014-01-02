@@ -12,16 +12,16 @@
 
 @interface MFDAMessagePayloadFetchResponseImpl : NSObject <MFDAMessagePayloadFetchResponse>
 {
-    BOOL streaming;
-    BOOL streamingDone;
+    _Bool streaming;
+    _Bool streamingDone;
     NSData *data;
 }
 
 - (void)dealloc;
 - (id)data;
-- (BOOL)streamingDone;
-- (BOOL)streaming;
-- (id)initWithData:(id)arg1 streaming:(BOOL)arg2 streamingDone:(BOOL)arg3;
+- (_Bool)streamingDone;
+- (_Bool)streaming;
+- (id)initWithData:(id)arg1 streaming:(_Bool)arg2 streamingDone:(_Bool)arg3;
 
 @end
 

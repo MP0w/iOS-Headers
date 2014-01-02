@@ -8,18 +8,20 @@
 
 @class UIColor;
 
+// Not exported
 @interface UIStatusBarNewUIStyleAttributes : UIStatusBarStyleAttributes
 {
     UIColor *_backgroundColor;
     UIColor *_foregroundColor;
 }
 
-- (id)newForegroundStyleWithHeight:(float)arg1;
+- (id)newForegroundStyleWithHeight:(double)arg1;
 - (Class)foregroundStyleClass;
 - (id)backgroundColorWithTintColor:(id)arg1;
-- (BOOL)shouldUseVisualAltitude;
-- (BOOL)isTransparent;
-- (BOOL)isTranslucent;
+- (_Bool)shouldUseVisualAltitude;
+- (_Bool)isTransparent;
+- (_Bool)isTranslucent;
+- (long long)legibilityStyle;
 - (void)dealloc;
 - (id)initWithRequest:(id)arg1;
 - (id)initWithRequest:(id)arg1 backgroundColor:(id)arg2 foregroundColor:(id)arg3;

@@ -28,10 +28,10 @@
 @property(readonly, nonatomic) Class cellConfigurationClass;
 @property(readonly, nonatomic) Class cellClass;
 - (void)reloadData;
-- (BOOL)collectionView:(id)arg1 shouldSelectItemAtIndexPath:(id)arg2;
-- (BOOL)collectionView:(id)arg1 shouldHighlightItemAtIndexPath:(id)arg2;
+- (_Bool)collectionView:(id)arg1 shouldSelectItemAtIndexPath:(id)arg2;
+- (_Bool)collectionView:(id)arg1 shouldHighlightItemAtIndexPath:(id)arg2;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
-- (int)collectionView:(id)arg1 numberOfItemsInSection:(int)arg2;
+- (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
 - (void)viewDidLoad;
 - (void)encodeRestorableStateWithCoder:(id)arg1;
 - (void)dealloc;

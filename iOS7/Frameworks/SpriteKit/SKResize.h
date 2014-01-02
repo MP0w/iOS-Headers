@@ -6,15 +6,16 @@
 
 #import <SpriteKit/SKAction.h>
 
+// Not exported
 @interface SKResize : SKAction
 {
     struct SKCResize *_mycaction;
 }
 
-+ (id)resizeToWidth:(float)arg1 height:(float)arg2 duration:(double)arg3;
-+ (id)resizeByWidth:(float)arg1 height:(float)arg2 duration:(double)arg3;
-+ (id)resizeToHeight:(float)arg1 duration:(double)arg2;
-+ (id)resizeToWidth:(float)arg1 duration:(double)arg2;
++ (id)resizeByWidth:(double)arg1 height:(double)arg2 duration:(double)arg3;
++ (id)resizeToHeight:(double)arg1 duration:(double)arg2;
++ (id)resizeToWidth:(double)arg1 height:(double)arg2 duration:(double)arg3;
++ (id)resizeToWidth:(double)arg1 duration:(double)arg2;
 - (id)reversedAction;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;

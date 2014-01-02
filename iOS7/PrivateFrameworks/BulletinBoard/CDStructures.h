@@ -7,8 +7,8 @@
 #pragma mark Named Structures
 
 struct CGSize {
-    float width;
-    float height;
+    double width;
+    double height;
 };
 
 #pragma mark Typedef'd Structures
@@ -19,6 +19,7 @@ typedef struct {
     unsigned int bulletinsWithRequestParameters:1;
     unsigned int bulletinsFilteredByDEPRECATED:1;
     unsigned int bulletinsFilteredByEnabledSectionsDEPRECATED:1;
+    unsigned int clearedInfoAndBulletinsForClearingAllBulletins:1;
     unsigned int clearedInfoForBulletins:1;
     unsigned int clearedInfoForBulletinsDEPRECATED:1;
     unsigned int attachmentPNGDataForRecordID:1;
@@ -35,5 +36,5 @@ typedef struct {
     unsigned int noteSectionInfoDidChange:1;
     unsigned int syncBulletinDismissal:1;
     unsigned int handleBulletinActionResponse:1;
-} CDStruct_c264898c;
+} CDStruct_c6add5c3;
 

@@ -18,7 +18,7 @@
 - (unsigned int)stroff;
 - (unsigned int)nsyms;
 - (unsigned int)symoff;
-- (BOOL)isSymTab;
+- (_Bool)isSymTab;
 - (id)initWithMemory:(id)arg1;
 
 @end

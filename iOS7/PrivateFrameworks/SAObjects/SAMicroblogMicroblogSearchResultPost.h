@@ -6,7 +6,7 @@
 
 #import <SAObjects/SAMicroblogMicroblogSearchResultBase.h>
 
-@class NSArray, NSDate, NSString, NSURL, SAMicroblogTwitterPostAuthor, SAUIAppPunchOut;
+@class NSArray, NSDate, NSString, NSURL, SADecoratedString, SAMicroblogTwitterPostAuthor, SAUIAppPunchOut;
 
 @interface SAMicroblogMicroblogSearchResultPost : SAMicroblogMicroblogSearchResultBase
 {
@@ -16,17 +16,17 @@
 + (id)microblogSearchResultPost;
 - (void)updateUsingSet:(id)arg1 add:(id)arg2 remove:(id)arg3;
 @property(copy, nonatomic) NSURL *webAddress;
-@property(nonatomic) int retweetCount;
+@property(nonatomic) long long retweetCount;
 @property(retain, nonatomic) SAMicroblogTwitterPostAuthor *retweetAuthor;
 @property(retain, nonatomic) SAUIAppPunchOut *punchOut;
 @property(copy, nonatomic) NSString *location;
-@property(nonatomic) int favoritesCount;
+@property(nonatomic) long long favoritesCount;
 @property(copy, nonatomic) NSArray *embeddedMentions;
 @property(copy, nonatomic) NSArray *embeddedLinks;
 @property(copy, nonatomic) NSArray *embeddedImages;
 @property(copy, nonatomic) NSArray *embeddedHashtags;
+@property(retain, nonatomic) SADecoratedString *decoratedContent;
 @property(copy, nonatomic) NSDate *creationTime;
-@property(copy, nonatomic) NSString *content;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

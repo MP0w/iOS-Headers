@@ -11,12 +11,12 @@
 
 @interface BKSApplicationExitInfo : NSObject <NSCopying, BKSXPCCoding>
 {
-    BOOL _wasReceiver;
+    _Bool _wasReceiver;
     int _terminationReason;
     long long _status;
 }
 
-@property(nonatomic) BOOL wasReceiver; // @synthesize wasReceiver=_wasReceiver;
+@property(nonatomic) _Bool wasReceiver; // @synthesize wasReceiver=_wasReceiver;
 @property(nonatomic) int terminationReason; // @synthesize terminationReason=_terminationReason;
 @property(nonatomic) long long status; // @synthesize status=_status;
 - (void)encodeWithXPCDictionary:(id)arg1;

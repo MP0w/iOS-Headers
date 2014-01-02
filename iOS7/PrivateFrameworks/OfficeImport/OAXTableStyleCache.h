@@ -8,6 +8,7 @@
 
 @class NSMutableDictionary, NSString;
 
+// Not exported
 @interface OAXTableStyleCache : NSObject
 {
     NSString *mDefaultStyleId;

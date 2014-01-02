@@ -11,19 +11,22 @@
 @interface AVCaptureStillImageOutputInternal : NSObject
 {
     NSMutableArray *stillImageRequests;
+    _Bool squareCropEnabled;
     struct CGSize previewImageSize;
-    unsigned long imageDataFormatType;
+    unsigned int imageDataFormatType;
     float jpegQuality;
-    BOOL jpegQualitySpecified;
-    int HDRCaptureMode;
-    BOOL EV0CaptureEnabled;
-    BOOL chromaNoiseReductionEnabled;
-    BOOL suspendsVideoProcessingDuringCapture;
+    _Bool jpegQualitySpecified;
+    long long HDRCaptureMode;
+    _Bool EV0CaptureEnabled;
+    _Bool chromaNoiseReductionEnabled;
+    _Bool suspendsVideoProcessingDuringCapture;
     NSDictionary *outputSettings;
-    BOOL isCapturingPhoto;
-    BOOL rawCaptureEnabled;
-    BOOL yoMamaWearsCombatBootsSupported;
-    BOOL yoMamaWearsCombatBootsEnabled;
+    _Bool isCapturingPhoto;
+    _Bool rawCaptureEnabled;
+    _Bool SISSupported;
+    _Bool SISEnabled;
+    _Bool SISActive;
+    unsigned int shutterSoundID;
 }
 
 - (void)dealloc;

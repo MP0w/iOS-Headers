@@ -7,6 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol PLNavigablePhotoStreamViewController <NSObject>
-- (void)navigateToPhotoStreamMode:(int)arg1 animated:(BOOL)arg2 completion:(id)arg3;
+- (void)navigateToPhotoStreamMode:(long long)arg1 animated:(_Bool)arg2 completion:(id)arg3;
 @end
 

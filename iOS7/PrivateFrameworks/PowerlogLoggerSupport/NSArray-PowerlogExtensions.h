@@ -7,6 +7,7 @@
 #import "NSArray.h"
 
 @interface NSArray (PowerlogExtensions)
+- (_Bool)containsString:(id)arg1;
 - (id)arrayByRemovingObjectsFromArray:(id)arg1;
 @end
 

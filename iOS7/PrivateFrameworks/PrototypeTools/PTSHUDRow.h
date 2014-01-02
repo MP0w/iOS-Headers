@@ -10,13 +10,13 @@
 
 @interface PTSHUDRow : NSObject
 {
-    float _height;
+    double _height;
     NSArray *_controls;
 }
 
-+ (id)rowWithHeight:(float)arg1 controls:(id)arg2;
++ (id)rowWithHeight:(double)arg1 controls:(id)arg2;
 @property(retain, nonatomic) NSArray *controls; // @synthesize controls=_controls;
-@property(nonatomic) float height; // @synthesize height=_height;
+@property(nonatomic) double height; // @synthesize height=_height;
 - (void).cxx_destruct;
 
 @end

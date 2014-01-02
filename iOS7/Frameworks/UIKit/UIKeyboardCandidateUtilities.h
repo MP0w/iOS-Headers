@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface UIKeyboardCandidateUtilities : NSObject
 {
 }
 
-+ (id)candidateScrollViewBackgroundWithHeight:(float)arg1;
-+ (id)candidateBarBackgroundWithHighlight:(BOOL)arg1;
++ (id)candidateScrollViewBackgroundWithHeight:(double)arg1;
++ (id)candidateBarBackgroundWithHighlight:(_Bool)arg1;
 
 @end
 

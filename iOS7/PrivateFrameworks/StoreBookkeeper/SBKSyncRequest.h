@@ -8,13 +8,14 @@
 
 @class SBKSyncTransaction;
 
+// Not exported
 @interface SBKSyncRequest : SBKRequest
 {
     SBKSyncTransaction *_transaction;
 }
 
-+ (int)bodyContentEncodingType;
-+ (int)bodyContentType;
++ (long long)bodyContentEncodingType;
++ (long long)bodyContentType;
 + (id)requestForTransaction:(id)arg1;
 @property(retain, nonatomic) SBKSyncTransaction *transaction; // @synthesize transaction=_transaction;
 - (void).cxx_destruct;

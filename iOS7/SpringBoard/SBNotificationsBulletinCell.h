@@ -6,21 +6,27 @@
 
 #import "SBNotificationCell.h"
 
-@class UIView;
+@class SBNotificationCenterSeparatorView;
 
 @interface SBNotificationsBulletinCell : SBNotificationCell
 {
-    UIView *_separator;
-    BOOL _missed;
+    SBNotificationCenterSeparatorView *_separator;
+    _Bool _missed;
 }
 
++ (id)defaultColorForRelevanceDate;
 + (struct CGSize)_preferredSizeForRelevanceDateLabel:(id)arg1;
-+ (float)iconPaddingLeft;
-@property(nonatomic, getter=isMissed) BOOL missed; // @synthesize missed=_missed;
-- (void)setSectionLocation:(int)arg1 animated:(BOOL)arg2;
++ (double)iconPaddingLeft;
+@property(nonatomic, getter=isMissed) _Bool missed; // @synthesize missed=_missed;
+- (struct CGRect)_separatorFrame;
+- (void)setSectionLocation:(int)arg1 animated:(_Bool)arg2;
+- (void)prepareForReuse;
 - (void)layoutSubviews;
-@property(nonatomic) BOOL showsSeparator;
+@property(nonatomic) _Bool showsSeparator;
+- (void)setEventDateLabel:(id)arg1;
+- (void)setRelevanceDateLabel:(id)arg1;
 - (void)dealloc;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

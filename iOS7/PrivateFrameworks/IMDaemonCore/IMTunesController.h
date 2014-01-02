@@ -25,7 +25,7 @@
 - (void)_playerChangedNotification:(id)arg1;
 - (void)_playerChanged:(id)arg1;
 - (void)_updateMessage;
-@property(readonly, nonatomic) BOOL isEnabled;
+@property(readonly, nonatomic) _Bool isEnabled;
 - (void)dealloc;
 - (id)init;
 

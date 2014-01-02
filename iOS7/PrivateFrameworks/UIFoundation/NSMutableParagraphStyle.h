@@ -6,33 +6,35 @@
 
 #import <UIFoundation/NSParagraphStyle.h>
 
+@class NSArray;
+
 @interface NSMutableParagraphStyle : NSParagraphStyle
 {
 }
 
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)setHeaderLevel:(int)arg1;
+- (void)setHeaderLevel:(long long)arg1;
 - (void)setTighteningFactorForTruncation:(float)arg1;
 @property float hyphenationFactor;
-@property int baseWritingDirection;
-- (void)setTabStops:(id)arg1;
+@property long long baseWritingDirection;
+@property(copy, nonatomic) NSArray *tabStops;
 - (void)removeTabStop:(id)arg1;
 - (void)addTabStop:(id)arg1;
 - (void)_mutateTabStops;
 - (void)setTextLists:(id)arg1;
 - (void)setTextBlocks:(id)arg1;
-- (void)setDefaultTabInterval:(float)arg1;
-@property float paragraphSpacingBefore;
-@property float lineHeightMultiple;
-@property int lineBreakMode;
-@property float maximumLineHeight;
-@property float minimumLineHeight;
-@property float firstLineHeadIndent;
-@property float tailIndent;
-@property float headIndent;
-@property int alignment;
-@property float paragraphSpacing;
-@property float lineSpacing;
+@property(nonatomic) double defaultTabInterval;
+@property double paragraphSpacingBefore;
+@property double lineHeightMultiple;
+@property long long lineBreakMode;
+@property double maximumLineHeight;
+@property double minimumLineHeight;
+@property double firstLineHeadIndent;
+@property double tailIndent;
+@property double headIndent;
+@property long long alignment;
+@property double paragraphSpacing;
+@property double lineSpacing;
 - (void)setParagraphStyle:(id)arg1;
 
 @end

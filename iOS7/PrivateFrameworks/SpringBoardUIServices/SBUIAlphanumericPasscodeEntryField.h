@@ -16,9 +16,10 @@
     UIView *_springViewParent;
 }
 
+- (void)_resetForFailedPasscode:(_Bool)arg1 playUnlockFailedSound:(_Bool)arg2;
 - (void)notePasscodeFieldTextDidChange;
-- (void)resetForFailedPasscode;
-- (void)setBackgroundAlpha:(float)arg1;
+- (void)_autofillForMesaWithCompletion:(id)arg1;
+- (void)setBackgroundAlpha:(double)arg1;
 - (void)setCustomBackgroundColor:(id)arg1;
 @property(readonly, nonatomic) UITextInputTraits *textInputTraits;
 - (void)layoutSubviews;

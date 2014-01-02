@@ -15,13 +15,13 @@
 
 @property(retain, nonatomic) SBNewsstandApplication *fakeApp; // @synthesize fakeApp=_fakeApp;
 - (id)getGenericIconImage:(int)arg1;
-- (BOOL)iconAppearsInNewsstand;
-- (BOOL)isNewsstandApplicationIcon;
+- (_Bool)iconAppearsInNewsstand;
+- (_Bool)isNewsstandApplicationIcon;
 - (int)iconFormatForLocation:(int)arg1;
-- (void)launch:(int)arg1;
-- (BOOL)launchEnabled;
+- (void)launchFromLocation:(int)arg1;
+- (_Bool)launchEnabled;
 - (id)application;
-- (BOOL)shouldWarmUp;
+- (_Bool)shouldWarmUp;
 - (void)dealloc;
 - (id)initWithApplication:(id)arg1;
 - (Class)iconImageViewClassForLocation:(int)arg1;

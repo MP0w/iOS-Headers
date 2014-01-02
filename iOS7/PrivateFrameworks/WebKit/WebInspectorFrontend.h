@@ -6,19 +6,20 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface WebInspectorFrontend : NSObject
 {
     struct WebInspectorFrontendClient *m_frontendClient;
 }
 
 - (void)showConsole;
-- (void)setTimelineProfilingEnabled:(BOOL)arg1;
-- (BOOL)isTimelineProfilingEnabled;
+- (void)setTimelineProfilingEnabled:(_Bool)arg1;
+- (_Bool)isTimelineProfilingEnabled;
 - (void)stopProfilingJavaScript;
 - (void)startProfilingJavaScript;
-- (BOOL)isProfilingJavaScript;
-- (void)setDebuggingEnabled:(BOOL)arg1;
-- (BOOL)isDebuggingEnabled;
+- (_Bool)isProfilingJavaScript;
+- (void)setDebuggingEnabled:(_Bool)arg1;
+- (_Bool)isDebuggingEnabled;
 - (void)detach;
 - (void)attach;
 - (id)initWithFrontendClient:(struct WebInspectorFrontendClient *)arg1;

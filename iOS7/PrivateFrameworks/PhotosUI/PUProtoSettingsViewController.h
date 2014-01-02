@@ -10,10 +10,12 @@
 
 @interface PUProtoSettingsViewController : UITableViewController
 {
+    _Bool _showsDoneButton;
     NSArray *_settingsBySection;
     NSArray *_sectionNames;
 }
 
+@property(nonatomic) _Bool showsDoneButton; // @synthesize showsDoneButton=_showsDoneButton;
 @property(readonly, nonatomic) NSArray *sectionNames; // @synthesize sectionNames=_sectionNames;
 @property(readonly, nonatomic) NSArray *settingsBySection; // @synthesize settingsBySection=_settingsBySection;
 - (void).cxx_destruct;
@@ -21,18 +23,18 @@
 - (void)_handleResetButton:(id)arg1;
 - (void)_handleToggleSwitch:(id)arg1;
 - (void)_settingsDidChange:(id)arg1;
-- (BOOL)tableView:(id)arg1 shouldHighlightRowAtIndexPath:(id)arg2;
+- (_Bool)tableView:(id)arg1 shouldHighlightRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)_configureCell:(id)arg1 atIndexPath:(id)arg2;
-- (id)tableView:(id)arg1 titleForHeaderInSection:(int)arg2;
+- (id)tableView:(id)arg1 titleForHeaderInSection:(long long)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
-- (id)_indexPathForTag:(int)arg1;
-- (int)_tagForIndexPath:(id)arg1;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
+- (id)_indexPathForTag:(long long)arg1;
+- (long long)_tagForIndexPath:(id)arg1;
 - (id)_settingAtIndexPath:(id)arg1;
 - (void)viewDidLoad;
-- (unsigned int)supportedInterfaceOrientations;
+- (unsigned long long)supportedInterfaceOrientations;
 - (void)dealloc;
 - (id)initWithSettingsBySection:(id)arg1 sectionNames:(id)arg2;
 

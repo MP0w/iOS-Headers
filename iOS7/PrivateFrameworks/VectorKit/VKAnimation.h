@@ -40,7 +40,7 @@
 - (void)onTimerFired:(double)arg1;
 - (void)resume;
 - (void)pause;
-- (void)_stopAnimation:(BOOL)arg1;
+- (void)_stopAnimation:(_Bool)arg1;
 - (id)description;
 - (void)dealloc;
 - (id)initWithName:(id)arg1;
@@ -50,8 +50,8 @@
 - (id)initWithPriority:(int)arg1;
 - (id)initWithPriority:(int)arg1 name:(id)arg2;
 - (id)initWithDuration:(double)arg1 priority:(int)arg2 name:(id)arg3;
-@property(nonatomic) BOOL runsForever;
-@property(readonly, nonatomic) BOOL running;
+@property(nonatomic) _Bool runsForever;
+@property(readonly, nonatomic) _Bool running;
 
 @end
 

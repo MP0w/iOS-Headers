@@ -12,9 +12,9 @@
 {
 }
 
-+ (BOOL)supportsUSBInterfaceProtocol:(unsigned char)arg1;
++ (_Bool)supportsUSBInterfaceProtocol:(unsigned char)arg1;
 - (void)didChangeValueForElement:(id)arg1;
-- (void)setButton:(id)arg1 pressed:(BOOL)arg2;
+- (void)setButton:(id)arg1 pressed:(_Bool)arg2;
 - (void)setButton:(id)arg1 value:(double)arg2;
 - (void)setDpad:(id)arg1 x:(double)arg2 y:(double)arg3;
 - (id)inputForElement:(struct __IOHIDElement *)arg1;
@@ -32,6 +32,7 @@
 @property(readonly) GCControllerDirectionPad *dpad;
 @property(copy) id valueChangedHandler;
 @property(readonly) GCController *controller;
+- (id)initWithController:(id)arg1;
 
 @end
 

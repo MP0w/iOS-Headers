@@ -7,8 +7,8 @@
 #import "NSString.h"
 
 @interface NSString (AXExtensions)
-- (struct _NSRange)ax_wordFromPosition:(int)arg1 inDirection:(unsigned int)arg2;
-- (struct _NSRange)ax_lineFromPosition:(int)arg1 inDirection:(unsigned int)arg2;
-- (struct _NSRange)_ax_rangeOfNextUnitWithStartPosition:(int)arg1 direction:(unsigned int)arg2 withCharacterSet:(id)arg3;
+- (struct _NSRange)ax_wordFromPosition:(long long)arg1 inDirection:(unsigned long long)arg2;
+- (struct _NSRange)ax_lineFromPosition:(long long)arg1 inDirection:(unsigned long long)arg2;
+- (struct _NSRange)_ax_rangeOfNextUnitWithStartPosition:(long long)arg1 direction:(unsigned long long)arg2 withCharacterSet:(id)arg3;
 @end
 

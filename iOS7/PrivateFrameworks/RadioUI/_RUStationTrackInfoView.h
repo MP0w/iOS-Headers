@@ -8,7 +8,7 @@
 
 #import "RUTrackDownloadViewDelegate-Protocol.h"
 
-@class MPImageCache, MPRadioTrackImageCacheRequest, RUTrackDownloadView, RadioTrack, UIButton, UIImageView, UILabel;
+@class MPImageCache, MPRadioTrackImageCacheRequest, NSString, RUTrackDownloadView, RadioTrack, UIButton, UIImageView, UILabel, UIViewController;
 
 @interface _RUStationTrackInfoView : UIView <RUTrackDownloadViewDelegate>
 {
@@ -20,12 +20,18 @@
     UIButton *_storeButton;
     UILabel *_titleLabel;
     RUTrackDownloadView *_trackDownloadView;
+    id <_RUStationTrackInfoViewDelegate> _delegate;
     RadioTrack *_track;
 }
 
 @property(retain, nonatomic) RadioTrack *track; // @synthesize track=_track;
+@property(nonatomic) __weak id <_RUStationTrackInfoViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)_newTrackDownloadView;
+@property(nonatomic) __weak UIViewController *trackDownloadPresentingViewController;
+@property(nonatomic) long long stationID;
+@property(copy, nonatomic) NSString *stationHash;
+- (void)_imageViewTapAction:(id)arg1;
 - (void)trackDownloadViewWillTransition:(id)arg1;
 - (void)layoutSubviews;
 - (void)dealloc;

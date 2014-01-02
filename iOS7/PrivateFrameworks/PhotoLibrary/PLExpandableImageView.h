@@ -6,22 +6,20 @@
 
 #import <PhotoLibrary/PLExpandableView.h>
 
-#import "PLStackableImage-Protocol.h"
+@class NSString, PLImageView, PLManagedAsset, PLVideoView;
 
-@class NSString, PLImageView, PLManagedAsset, PLVideoView, UIImageView;
-
-@interface PLExpandableImageView : PLExpandableView <PLStackableImage>
+@interface PLExpandableImageView : PLExpandableView
 {
     PLImageView *_imageView;
     int _imageID;
     struct CGSize _originalSize;
-    float _originalWidth;
-    float _originalAngle;
+    double _originalWidth;
+    double _originalAngle;
     struct CGPoint _anchorPoint;
-    float _imageRotationAngle;
-    float _pinchWidth;
-    float _pinchAngle;
-    float _pinchScale;
+    double _imageRotationAngle;
+    double _pinchWidth;
+    double _pinchAngle;
+    double _pinchScale;
     struct CGRect _initialExpandingFrame;
     struct CGRect _originalBounds;
     float _currentAngle;
@@ -38,26 +36,28 @@
     } _exImageFlags;
 }
 
-+ (float)imageBorderWidth;
++ (double)imageBorderWidth;
 @property(retain, nonatomic) PLManagedAsset *photo; // @synthesize photo=_photo;
 - (void)renderSnapshotInContext:(struct CGContext *)arg1;
 - (void)setTextBadgeString:(id)arg1;
-@property(readonly, nonatomic) BOOL isBeingManipulated;
-@property(nonatomic) float transitionProgress;
-@property(nonatomic, getter=isShadowEnabled) BOOL shadowEnabled;
-- (float)imageRotationAngle;
+- (_Bool)isBeingManipulated;
+- (double)transitionProgress;
+- (void)setTransitionProgress:(double)arg1;
+- (_Bool)isShadowEnabled;
+- (void)setShadowEnabled:(_Bool)arg1;
+- (double)imageRotationAngle;
 @property(retain, nonatomic) PLVideoView *videoView;
-@property(readonly, nonatomic) struct CGRect frameOfImage;
+- (struct CGRect)frameOfImage;
 @property(readonly, nonatomic) struct CGSize imageSize;
-@property(readonly, nonatomic) UIImageView *imageView;
-- (void)setShowsPlaceholder:(BOOL)arg1 withOpaqueState:(BOOL)arg2;
-@property(readonly, nonatomic) BOOL showsPlaceholder;
+- (id)imageView;
+- (void)setShowsPlaceholder:(_Bool)arg1 withOpaqueState:(_Bool)arg2;
+@property(readonly, nonatomic) _Bool showsPlaceholder;
 @property(copy, nonatomic) NSString *name;
 - (void)setPosterImage:(id)arg1 regionOfInterest:(struct CGRect)arg2;
 - (id)image;
 - (void)setImage:(id)arg1;
-- (void)setImage:(id)arg1 isFullscreen:(BOOL)arg2;
-@property(nonatomic, getter=isBorderAndAccessoriesVisible) BOOL borderAndAccessoriesVisible;
+- (void)setImage:(id)arg1 isFullscreen:(_Bool)arg2;
+@property(nonatomic, getter=isBorderAndAccessoriesVisible) _Bool borderAndAccessoriesVisible;
 - (void)setCenter:(struct CGPoint)arg1;
 - (void)setFrame:(struct CGRect)arg1;
 - (id)_contentView;
@@ -79,12 +79,12 @@
 - (float)_expansionFraction;
 - (float)_expandedScale;
 - (float)_currentScale;
-- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 frameStyle:(int)arg2;
-- (id)initWithFrame:(struct CGRect)arg1 frameStyle:(int)arg2 withBorder:(BOOL)arg3;
+- (id)initWithFrame:(struct CGRect)arg1 frameStyle:(int)arg2 withBorder:(_Bool)arg3;
 
 @end
 

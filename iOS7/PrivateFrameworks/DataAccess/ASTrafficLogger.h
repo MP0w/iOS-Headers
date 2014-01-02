@@ -12,14 +12,16 @@
 {
     NSFileHandle *_lookasideFileHandle;
     NSString *_lookasideFilePath;
-    BOOL _isOutgoingTraffic;
+    _Bool _isOutgoingTraffic;
+    _Bool _didFlushLogs;
 }
 
 + (id)_logQueue;
-@property(nonatomic) BOOL isOutgoingTraffic; // @synthesize isOutgoingTraffic=_isOutgoingTraffic;
+@property(nonatomic) _Bool isOutgoingTraffic; // @synthesize isOutgoingTraffic=_isOutgoingTraffic;
 - (void)logPlainTextData:(id)arg1;
 - (void)logWBXMLData:(id)arg1;
 - (void)dealloc;
+- (void)flushLogs;
 - (void)_moveLogFileContentsAtPath:(id)arg1;
 - (void)_openLookasideFile;
 

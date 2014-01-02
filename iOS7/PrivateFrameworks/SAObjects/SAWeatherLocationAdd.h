@@ -14,7 +14,7 @@
 
 + (id)locationAddWithDictionary:(id)arg1 context:(id)arg2;
 + (id)locationAdd;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(retain, nonatomic) SAWeatherLocation *weatherLocation;
 - (id)encodedClassName;
 - (id)groupIdentifier;

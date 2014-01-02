@@ -8,6 +8,7 @@
 
 @class WebNodeHighlight, WebView;
 
+// Not exported
 @interface WebNodeHighlighter : NSObject
 {
     WebView *_inspectedWebView;

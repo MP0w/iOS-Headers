@@ -7,7 +7,6 @@
 #import "SBUnlockActionHandler-Protocol.h"
 
 @protocol SBLockScreenNotificationViewDelegate <SBUnlockActionHandler>
-- (double)lastSlideToUnlockAnimationStartTime;
 - (id)lockScreenScrollView;
 - (void)noteUnlockActionChanged:(id)arg1;
 @end

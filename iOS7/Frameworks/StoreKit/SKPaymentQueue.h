@@ -13,7 +13,7 @@
     id _internal;
 }
 
-+ (BOOL)canMakePayments;
++ (_Bool)canMakePayments;
 + (id)defaultQueue;
 - (void)_updatePaymentsForMessage:(id)arg1;
 - (void)_updateDownloadsForMessage:(id)arg1;
@@ -21,13 +21,13 @@
 - (void)_sendCommand:(long long)arg1 forDownloads:(id)arg2;
 - (void)_removePaymentsForMessage:(id)arg1;
 - (void)_removeLocalTransaction:(id)arg1;
-- (void)_refreshPaymentsWithPolicy:(int)arg1;
-- (void)_processUpdates:(id)arg1 trimUnmatched:(BOOL)arg2 sendUpdatedDownloads:(BOOL)arg3;
+- (void)_refreshPaymentsWithPolicy:(long long)arg1;
+- (void)_processUpdates:(id)arg1 trimUnmatched:(_Bool)arg2 sendUpdatedDownloads:(_Bool)arg3;
 - (void)_notifyObserversRestoreTransactionsFinished;
 - (void)_notifyObserversRestoreTransactionsFailedWithError:(id)arg1;
 - (void)_notifyObserversAboutRemovals:(id)arg1;
 - (void)_notifyObserversAboutDownloadChanges:(id)arg1;
-- (void)_notifyObserversAboutChanges:(id)arg1 sendUpdatedDownloads:(BOOL)arg2;
+- (void)_notifyObserversAboutChanges:(id)arg1 sendUpdatedDownloads:(_Bool)arg2;
 - (void)_handleMessage:(id)arg1 connection:(id)arg2;
 - (void)_handleConnectionDisconnect;
 - (void)_finishRefreshPayments;

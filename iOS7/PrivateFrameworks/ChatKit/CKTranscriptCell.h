@@ -10,8 +10,5 @@
 {
 }
 
-- (void)configureForRow:(id)arg1;
-- (void)configureForRowObject:(id)arg1;
-
 @end
 

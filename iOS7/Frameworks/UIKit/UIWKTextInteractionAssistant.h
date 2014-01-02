@@ -12,7 +12,7 @@
 
 - (void)selectAll:(id)arg1;
 - (void)selectWord;
-- (BOOL)tapOnLinkWithGesture:(id)arg1;
+- (_Bool)tapOnLinkWithGesture:(id)arg1;
 - (void)twoFingerRangedSelectGesture:(id)arg1;
 - (void)twoFingerSingleTap:(id)arg1;
 - (void)oneFingerTripleTap:(id)arg1;
@@ -23,13 +23,13 @@
 - (void)tapAndAHalf:(id)arg1;
 - (void)loupeGesture:(id)arg1;
 - (void)oneFingerTap:(id)arg1;
-- (void)selectionChangedWithGestureAt:(struct CGPoint)arg1 withGesture:(int)arg2 withState:(int)arg3;
+- (void)selectionChangedWithGestureAt:(struct CGPoint)arg1 withGesture:(long long)arg2 withState:(long long)arg3;
 - (void)scrollSelectionToVisible;
-- (BOOL)containerIsBrowserView;
-- (BOOL)containerAllowsSelectionTintOnly;
-- (BOOL)containerAllowsSelection;
-- (BOOL)containerIsPlainStyleAtom;
-- (BOOL)containerIsAtom;
+- (_Bool)containerIsBrowserView;
+- (_Bool)containerAllowsSelectionTintOnly;
+- (_Bool)containerAllowsSelection;
+- (_Bool)containerIsPlainStyleAtom;
+- (_Bool)containerIsAtom;
 
 @end
 

@@ -9,7 +9,7 @@
 @protocol MPAVQueuePlayerFeederSource <NSObject>
 - (void)queuePlayerFeederFailedToQueueAnyItems:(id)arg1;
 - (void)queuePlayerFeederDidUpdateQueue:(id)arg1 queuedItems:(id)arg2 dequeuedItems:(id)arg3;
-- (BOOL)queuePlayerFeeder:(id)arg1 willInsertItem:(id)arg2;
+- (_Bool)queuePlayerFeeder:(id)arg1 willInsertItem:(id)arg2;
 - (void)queuePlayerFeeder:(id)arg1 willRemoveItem:(id)arg2;
 - (id)queuePlayerFeeder:(id)arg1 itemToFollowItem:(id)arg2;
 @end

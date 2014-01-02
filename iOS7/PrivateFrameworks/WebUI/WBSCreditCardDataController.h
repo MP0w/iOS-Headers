@@ -6,32 +6,32 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSMutableArray, NSMutableSet;
+@class NSArray, NSMapTable;
 
 @interface WBSCreditCardDataController : NSObject
 {
-    NSMutableArray *_creditCardData;
-    NSMutableSet *_neverSavedCardNumbers;
+    NSMapTable *_creditCardDataKeychainReferences;
 }
 
-@property(retain, nonatomic) NSMutableSet *neverSavedCardNumbers; // @synthesize neverSavedCardNumbers=_neverSavedCardNumbers;
++ (_Bool)hasCreditCardData;
 - (void)invalidateCreditCardData;
+- (void)clearCreditCardData;
 - (void)creditCardDataDidChange;
 - (void)neverSaveCreditCardData:(id)arg1;
 - (void)_removeNeverSaveCreditCardData:(id)arg1;
-- (id)_neverSaveCreditCardSuffixFromCard:(id)arg1;
+- (id)_neverSavedCreditCardSuffixFromCardNumber:(id)arg1;
+- (id)_neverSavedCreditCardSuffixFromCard:(id)arg1;
+- (_Bool)isCreditCardDataSaved:(id)arg1;
 - (void)saveCreditCardDataIfAllowed:(id)arg1;
 - (void)saveCreditCardData:(id)arg1;
-- (void)_loadCreditCardDataIfNeeded;
-- (void)_loadCreditCardAutoFillMetadataIfNeeded;
-- (void)_saveCreditCardAutoFillMetadata;
 - (void)replaceCreditCardData:(id)arg1 withCard:(id)arg2;
 - (void)removeCreditCardData:(id)arg1;
 - (id)savableCreditCardDataInForm:(id)arg1;
+- (id)defaultNameForCardOfType:(unsigned long long)arg1 cardholderName:(id)arg2;
 - (id)_uniqueCardNameForCardName:(id)arg1;
-- (BOOL)shouldAddCardWithNumber:(id)arg1;
+- (_Bool)shouldAddCardWithNumber:(id)arg1;
 - (id)existingCardWithNumber:(id)arg1;
-- (BOOL)shouldNeverSaveCardWithNumber:(id)arg1;
+- (_Bool)shouldNeverSaveCardWithNumber:(id)arg1;
 @property(readonly, nonatomic) NSArray *creditCardData;
 - (void)dealloc;
 - (id)init;

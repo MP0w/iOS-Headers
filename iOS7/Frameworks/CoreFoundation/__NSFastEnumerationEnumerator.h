@@ -10,8 +10,8 @@
 {
     id <NSFastEnumeration> _obj;
     id _origObj;
-    unsigned int _count;
-    unsigned int _mut;
+    unsigned long long _count;
+    unsigned long long _mut;
 }
 
 + (id)allocWithZone:(struct _NSZone *)arg1;

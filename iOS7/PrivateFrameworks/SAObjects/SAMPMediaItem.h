@@ -15,17 +15,13 @@
 + (id)mediaItemWithDictionary:(id)arg1 context:(id)arg2;
 + (id)mediaItem;
 - (void)updateUsingSet:(id)arg1 add:(id)arg2 remove:(id)arg3;
-@property(nonatomic) int trackNumber;
 @property(copy, nonatomic) NSString *sortArtist;
 @property(copy, nonatomic) NSString *sortAlbum;
 @property(retain, nonatomic) SAMPReleaseInfo *releaseInfo;
 @property(retain, nonatomic) SAMPPlaybackInfo *playbackInfo;
-@property(nonatomic) int rating;
-@property(nonatomic) int playCount;
 @property(copy, nonatomic) NSString *genre;
 @property(retain, nonatomic) SACalendar *datePurchased;
 @property(retain, nonatomic) SACalendar *dateAdded;
-@property(copy, nonatomic) NSString *composer;
 @property(copy, nonatomic) NSString *artist;
 @property(copy, nonatomic) NSString *album;
 - (id)encodedClassName;

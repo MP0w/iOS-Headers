@@ -6,28 +6,34 @@
 
 #import <CFNetwork/__NSCFSessionBridge.h>
 
-@class __NSCFURLSession;
+@class NSObject<OS_dispatch_queue>, __NSCFURLSession;
 
+// Not exported
 @interface __NSCFLocalSessionBridge : __NSCFSessionBridge
 {
     __NSCFURLSession *_session;
-    unsigned int _identSeed;
+    unsigned long long _identSeed;
     struct __CFURLConnectionSession *_connectionSession;
     struct __CFDictionary *_tasks;
+    NSObject<OS_dispatch_queue> *_invalidateQueue;
+    id _invalidateCallback;
 }
 
 - (const struct ClassicConnectionSession *)classicConnectionSession;
+- (void)invalidateSession:(_Bool)arg1 withQueue:(id)arg2 completion:(id)arg3;
 - (void)flushStorageWithCompletionHandler:(id)arg1;
 - (void)resetStorageWithCompletionHandler:(id)arg1;
 - (void)task:(id)arg1 didReceiveData:(id)arg2;
 - (void)task:(id)arg1 challenged:(struct _CFURLAuthChallenge *)arg2 authCallback:(id)arg3;
 - (void)task:(id)arg1 request:(struct _CFURLRequest *)arg2 needsNewBodyStreamCallback:(id)arg3;
-- (void)task:(id)arg1 didFinishLoadingWithError:(id)arg2;
+- (void)task:(id)arg1 didFinishLoadingWithError:(struct __CFError *)arg2;
 - (void)taskDidFinishLoading:(id)arg1;
 - (void)task:(id)arg1 willCacheResponse:(struct _CFCachedURLResponse *)arg2 responseCallback:(id)arg3;
 - (void)task:(id)arg1 didReceiveResponse:(struct _CFURLResponse *)arg2;
 - (void)task:(id)arg1 wasRedirected:(struct _CFURLResponse *)arg2 newRequest:(struct _CFURLRequest *)arg3 responseCallback:(id)arg4;
 - (void)taskTerminating:(id)arg1;
+- (void)_onqueue_checkForCompletion;
+- (void)_onqueue_invokeInvalidateCallback;
 - (void)taskCreated:(id)arg1;
 - (void)operationCompleted:(id)arg1;
 - (void)bridgeInvalidated:(id)arg1;
@@ -43,9 +49,8 @@
 - (id)copyTasks;
 - (void)replaceTask:(id)arg1 withDownloadTask:(id)arg2;
 - (void)dealloc;
-- (void)disavowSession;
 - (id)initWithConfiguration:(id)arg1 session:(id)arg2 queue:(id)arg3;
-- (void)demuxv:(struct __CFString *)arg1 args:(void *)arg2;
+- (void)demuxv:(struct __CFString *)arg1 args:(char *)arg2;
 - (id)connToTask:(struct _CFURLConnection *)arg1;
 
 @end

@@ -6,18 +6,19 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface WFCategoryJudgement : NSObject
 {
     float score;
-    long category;
+    long long category;
 }
 
-+ (id)categoryJudgementWithCategory:(long)arg1 score:(float)arg2;
++ (id)categoryJudgementWithCategory:(long long)arg1 score:(float)arg2;
 - (id)description;
-- (int)compareByScore:(id)arg1;
-- (int)compareByCategory:(id)arg1;
-- (void)setCategory:(long)arg1;
-- (long)category;
+- (long long)compareByScore:(id)arg1;
+- (long long)compareByCategory:(id)arg1;
+- (void)setCategory:(long long)arg1;
+- (long long)category;
 - (void)setScore:(float)arg1;
 - (float)score;
 

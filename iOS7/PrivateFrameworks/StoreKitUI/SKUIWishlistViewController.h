@@ -8,37 +8,37 @@
 
 #import "SKUIItemListTableDelegate-Protocol.h"
 
-@class SKUIEmptyContentPlaceholderView, SKUIItemListTableViewController, SKUISyncWishlistOperation, SKUIWishlist, UIBarButtonItem, _UIBackdropView;
+@class SKUIItemListTableViewController, SKUISyncWishlistOperation, SKUIWishlist, UIBarButtonItem, _UIBackdropView, _UIContentUnavailableView;
 
 @interface SKUIWishlistViewController : SKUIViewController <SKUIItemListTableDelegate>
 {
     _UIBackdropView *_backdropView;
     id <SKUIWishlistDelegate> _delegate;
     UIBarButtonItem *_deleteButton;
-    BOOL _editing;
-    SKUIEmptyContentPlaceholderView *_emptyWishlistView;
+    _Bool _editing;
+    _UIContentUnavailableView *_emptyWishlistView;
     SKUIItemListTableViewController *_itemListViewController;
-    BOOL _reloadOnNextAppear;
+    _Bool _reloadOnNextAppear;
     SKUISyncWishlistOperation *_syncOperation;
     SKUIWishlist *_wishlist;
-    int _wishlistState;
+    long long _wishlistState;
 }
 
 + (id)wishlistBarButtonItemWithClientContext:(id)arg1;
 @property(nonatomic) __weak id <SKUIWishlistDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (int)_wishlistState;
+- (long long)_wishlistState;
 - (id)_wishlist;
 - (void)_updateDeleteButton;
 - (void)_syncWishlist;
-- (void)_setEditing:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)_setEditing:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)_reloadWishlist;
-- (void)_reloadNavigationBarAnimated:(BOOL)arg1;
+- (void)_reloadNavigationBarAnimated:(_Bool)arg1;
 - (void)_reloadForAccountsChanged;
 - (void)_reloadChildView;
 - (id)_itemListViewController;
-- (BOOL)_isEditingEnabled;
-- (void)_finishSyncWithResult:(BOOL)arg1 didChange:(BOOL)arg2 error:(id)arg3;
+- (_Bool)_isEditingEnabled;
+- (void)_finishSyncWithResult:(_Bool)arg1 didChange:(_Bool)arg2 error:(id)arg3;
 - (void)_finishSignInWithResponse:(id)arg1 error:(id)arg2;
 - (id)_emptyWishlistView;
 - (void)_destroyEmptyWishlistView;
@@ -51,10 +51,10 @@
 - (void)itemList:(id)arg1 didSelectItem:(id)arg2 atIndexPath:(id)arg3;
 - (void)itemList:(id)arg1 didRemoveItemAtIndexPath:(id)arg2;
 - (void)itemList:(id)arg1 didDeselectItem:(id)arg2 atIndexPath:(id)arg3;
-- (id)contentScrollView;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLayoutSubviews;
 - (void)loadView;
+- (id)contentScrollView;
 - (void)setClientContext:(id)arg1;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

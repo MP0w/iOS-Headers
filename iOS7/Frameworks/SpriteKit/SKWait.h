@@ -6,6 +6,7 @@
 
 #import <SpriteKit/SKAction.h>
 
+// Not exported
 @interface SKWait : SKAction
 {
     struct SKCWait *_mycaction;

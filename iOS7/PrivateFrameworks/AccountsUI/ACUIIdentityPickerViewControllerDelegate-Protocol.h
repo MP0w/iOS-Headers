@@ -7,13 +7,13 @@
 #import "NSObject-Protocol.h"
 
 @protocol ACUIIdentityPickerViewControllerDelegate <NSObject>
-- (BOOL)allowEditingForIdentityPickerController:(id)arg1;
+- (_Bool)allowEditingForIdentityPickerController:(id)arg1;
 - (id)emailAddressesForIdentityPickerController:(id)arg1;
 - (struct __SecTrust *)copyTrustForIdentityPickerController:(id)arg1 identity:(struct __SecIdentity *)arg2;
 - (id)copyIdentitiesForIdentityPickerController:(id)arg1;
 - (id)localizedSwitchNameForIdentityPickerController:(id)arg1;
-- (void)identityPickerController:(id)arg1 setPropertyEnabled:(BOOL)arg2 withIdentity:(struct __SecIdentity *)arg3;
+- (void)identityPickerController:(id)arg1 setPropertyEnabled:(_Bool)arg2 withIdentity:(struct __SecIdentity *)arg3;
 - (struct __SecIdentity *)selectedIdentityForIdentityPickerController:(id)arg1;
-- (BOOL)isPropertyEnabledForIdentityPickerController:(id)arg1;
+- (_Bool)isPropertyEnabledForIdentityPickerController:(id)arg1;
 @end
 

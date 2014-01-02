@@ -10,9 +10,9 @@
 {
     int _type;
     double _startTime;
-    BOOL _hasActiveRequest;
-    BOOL _sessionIsRetrying;
-    BOOL _retryPrefersWWAN;
+    _Bool _hasActiveRequest;
+    _Bool _sessionIsRetrying;
+    _Bool _retryPrefersWWAN;
 }
 
 + (void)logDictationCancelled;
@@ -29,18 +29,17 @@
 + (void)missedAlertContextForRequest;
 + (void)missedAppContextForRequest;
 + (void)logRequestCompletedWithDuration:(double)arg1;
-+ (void)logTimeToBeepWithDuration:(double)arg1;
-@property BOOL hasActiveRequest; // @synthesize hasActiveRequest=_hasActiveRequest;
-@property int connectionType; // @synthesize connectionType=_type;
+@property(nonatomic) _Bool hasActiveRequest; // @synthesize hasActiveRequest=_hasActiveRequest;
+@property(nonatomic) int connectionType; // @synthesize connectionType=_type;
 - (void)speechResponseFailure;
 - (void)speechResponseReceived;
 - (void)startWaitingForSpeechResponse;
-- (void)beginSessionRetryPreferringWWAN:(BOOL)arg1;
+- (void)beginSessionRetryPreferringWWAN:(_Bool)arg1;
 - (void)connectionDidDrop;
 - (void)connectionDidFail;
 - (void)recordSessionRetrySuccess;
 - (void)recordFailure:(int)arg1 forConnectionType:(int)arg2;
-- (void)recordSuccessForConnectionType:(int)arg1 isWarm:(BOOL)arg2 forTimeInterval:(double)arg3;
+- (void)recordSuccessForConnectionType:(int)arg1 isWarm:(_Bool)arg2 forTimeInterval:(double)arg3;
 
 @end
 

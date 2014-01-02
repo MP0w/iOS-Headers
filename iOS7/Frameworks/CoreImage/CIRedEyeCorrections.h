@@ -10,6 +10,7 @@
 
 @class CIImage, NSArray, NSString;
 
+// Not exported
 @interface CIRedEyeCorrections : CIFilter <_CIFilterProperties>
 {
     CIImage *inputImage;
@@ -23,7 +24,7 @@
 - (id)_initFromProperties:(id)arg1;
 - (id)_outputProperties;
 - (id)outputImage;
-- (BOOL)_isIdentity;
+- (_Bool)_isIdentity;
 - (void)setDefaults;
 
 @end

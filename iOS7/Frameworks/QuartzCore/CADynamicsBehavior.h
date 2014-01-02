@@ -13,13 +13,13 @@
 }
 
 + (id)defaultValueForKey:(id)arg1;
-@property BOOL reactsToCollisions;
-@property float angularDrag;
-@property float drag;
-@property float springScale;
+@property _Bool reactsToCollisions;
+@property double angularDrag;
+@property double drag;
+@property double springScale;
 @property double collisionInterval;
-@property float stoppedAngularVelocity;
-@property float stoppedVelocity;
+@property double stoppedAngularVelocity;
+@property double stoppedVelocity;
 @property double minimumTimeStep;
 @property double timeStep;
 @property(copy) NSArray *forceFields;

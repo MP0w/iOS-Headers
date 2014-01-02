@@ -22,13 +22,12 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)description;
 - (id)userInfo;
 - (id)object;
 - (id)name;
-- (id)replacementObjectForPortCoder:(id)arg1;
 
 @end
 

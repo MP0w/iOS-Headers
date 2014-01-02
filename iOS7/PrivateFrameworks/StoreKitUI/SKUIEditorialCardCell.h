@@ -6,16 +6,20 @@
 
 #import <StoreKitUI/SKUICollectionViewCell.h>
 
+#import "SKUICellLayoutParentView-Protocol.h"
+
 @class SKUIEditorialCardCellLayout;
 
-@interface SKUIEditorialCardCell : SKUICollectionViewCell
+@interface SKUIEditorialCardCell : SKUICollectionViewCell <SKUICellLayoutParentView>
 {
     SKUIEditorialCardCellLayout *_layout;
+    _Bool _layoutNeedsLayout;
 }
 
 @property(readonly, nonatomic) SKUIEditorialCardCellLayout *layout; // @synthesize layout=_layout;
 - (void).cxx_destruct;
 - (void)layoutSubviews;
+- (void)setCellLayoutNeedsLayout;
 - (void)configureForSearchEditorial:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 

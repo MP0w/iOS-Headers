@@ -7,11 +7,11 @@
 #import "DOMHTMLInputElement.h"
 
 @interface DOMHTMLInputElement (UITextInputAdditions)
-- (BOOL)isEditing;
+- (_Bool)isEditing;
 - (void)setSelectionWithPoint:(struct CGPoint)arg1;
-- (int)keyboardType;
-- (BOOL)isTextControl;
-- (BOOL)isSecure;
+- (long long)keyboardType;
+- (_Bool)isTextControl;
+- (_Bool)isSecure;
 - (id)text;
 - (id)textInputTraits;
 @end

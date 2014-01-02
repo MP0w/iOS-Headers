@@ -12,8 +12,8 @@
 
 @interface SBUIControlCenterSlider : UISlider <SBUIControlCenterControl>
 {
-    float _valueImagePadding;
-    BOOL _highlightMinimumTrackImage;
+    double _valueImagePadding;
+    _Bool _highlightMinimumTrackImage;
     UIImage *_minValueMaskImage;
     UIImage *_maxValueMaskImage;
     UIImage *_trackMaskImage;
@@ -24,23 +24,23 @@
 @property(retain) UIImage *trackMaskImage; // @synthesize trackMaskImage=_trackMaskImage;
 @property(retain) UIImage *maxValueMaskImage; // @synthesize maxValueMaskImage=_maxValueMaskImage;
 @property(retain) UIImage *minValueMaskImage; // @synthesize minValueMaskImage=_minValueMaskImage;
-@property(nonatomic) BOOL highlightMinimumTrackImage; // @synthesize highlightMinimumTrackImage=_highlightMinimumTrackImage;
-- (void)controlConfigurationDidChangeForState:(int)arg1;
-- (void)controlAppearanceDidChangeForState:(int)arg1;
+@property(nonatomic) _Bool highlightMinimumTrackImage; // @synthesize highlightMinimumTrackImage=_highlightMinimumTrackImage;
+- (void)controlConfigurationDidChangeForState:(long long)arg1;
+- (void)controlAppearanceDidChangeForState:(long long)arg1;
 - (void)layoutSubviews;
 - (struct CGRect)trackRectForBounds:(struct CGRect)arg1;
 - (struct CGRect)maximumValueImageRectForBounds:(struct CGRect)arg1;
 - (struct CGRect)minimumValueImageRectForBounds:(struct CGRect)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (float)_valueImagePadding;
-- (float)_valueImageCenterTrackOffset;
-- (float)_naturalTrackWidth;
+- (double)_valueImagePadding;
+- (double)_valueImageCenterTrackOffset;
+- (double)_naturalTrackWidth;
 - (void)setMaximumValueImage:(id)arg1;
 - (void)setMinimumValueImage:(id)arg1;
 - (void)setTrackImage:(id)arg1;
 - (void)_updateMaximumTrackImage;
 - (void)_updateMinimumTrackImage;
-- (struct UIEdgeInsets)_trackInsetsWithShadow:(BOOL)arg1;
+- (struct UIEdgeInsets)_trackInsetsWithShadow:(_Bool)arg1;
 - (void)_updateMaximumValueImage;
 - (void)_updateMinimumValueImage;
 - (id)_valueImageForImage:(id)arg1;

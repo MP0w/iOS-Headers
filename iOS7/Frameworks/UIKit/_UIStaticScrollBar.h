@@ -8,6 +8,7 @@
 
 @class NSInvocation, UIButton;
 
+// Not exported
 @interface _UIStaticScrollBar : UIView
 {
     UIButton *_upButton;

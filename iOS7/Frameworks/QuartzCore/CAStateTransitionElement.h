@@ -16,11 +16,11 @@
     CALayer *_target;
     CAAnimation *_animation;
     NSString *_key;
-    BOOL _enabled;
+    _Bool _enabled;
 }
 
 + (void)CAMLParserStartElement:(id)arg1;
-@property(getter=isEnabled) BOOL enabled; // @synthesize enabled=_enabled;
+@property(getter=isEnabled) _Bool enabled; // @synthesize enabled=_enabled;
 @property(copy, nonatomic) NSString *key; // @synthesize key=_key;
 @property(retain, nonatomic) CAAnimation *animation; // @synthesize animation=_animation;
 @property(nonatomic) CALayer *target; // @synthesize target=_target;

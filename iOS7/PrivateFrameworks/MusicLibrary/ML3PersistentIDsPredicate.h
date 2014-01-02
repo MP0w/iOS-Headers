@@ -8,21 +8,21 @@
 
 @interface ML3PersistentIDsPredicate : ML3Predicate
 {
-    unsigned int _count;
+    unsigned long long _count;
     long long *_persistentIDs;
-    BOOL _shouldContain;
+    _Bool _shouldContain;
 }
 
-+ (id)predicateWithPersistentIDs:(const long long *)arg1 count:(unsigned int)arg2 shouldContain:(BOOL)arg3;
-@property(readonly, nonatomic) BOOL shouldContain; // @synthesize shouldContain=_shouldContain;
++ (id)predicateWithPersistentIDs:(const long long *)arg1 count:(unsigned long long)arg2 shouldContain:(_Bool)arg3;
+@property(readonly, nonatomic) _Bool shouldContain; // @synthesize shouldContain=_shouldContain;
 - (id)databaseStatementParameters;
 - (void)appendSQLToMutableString:(id)arg1 entityClass:(Class)arg2;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)dealloc;
-- (id)initWithPersistentIDs:(const long long *)arg1 count:(unsigned int)arg2 shouldContain:(BOOL)arg3;
+- (id)initWithPersistentIDs:(const long long *)arg1 count:(unsigned long long)arg2 shouldContain:(_Bool)arg3;
 
 @end
 

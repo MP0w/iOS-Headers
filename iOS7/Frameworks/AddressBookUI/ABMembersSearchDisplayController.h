@@ -10,7 +10,7 @@
 {
 }
 
-- (void)setActive:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)setActive:(_Bool)arg1 animated:(_Bool)arg2;
 
 @end
 

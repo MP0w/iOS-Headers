@@ -10,17 +10,17 @@
 
 @interface UIWebClipIcon : NSObject
 {
-    BOOL _precomposed;
-    BOOL _siteWide;
+    _Bool _precomposed;
+    _Bool _siteWide;
     struct CGSize _bestSize;
     NSURL *_url;
 }
 
 @property(retain, nonatomic) NSURL *url; // @synthesize url=_url;
 @property(nonatomic) struct CGSize bestSize; // @synthesize bestSize=_bestSize;
-@property(nonatomic, getter=isSiteWide) BOOL siteWide; // @synthesize siteWide=_siteWide;
-@property(nonatomic, getter=isPrecomposed) BOOL precomposed; // @synthesize precomposed=_precomposed;
-- (int)compare:(id)arg1 preferringDeviceIconSizes:(BOOL)arg2;
+@property(nonatomic, getter=isSiteWide) _Bool siteWide; // @synthesize siteWide=_siteWide;
+@property(nonatomic, getter=isPrecomposed) _Bool precomposed; // @synthesize precomposed=_precomposed;
+- (long long)compare:(id)arg1 preferringDeviceIconSizes:(_Bool)arg2;
 - (void)dealloc;
 
 @end

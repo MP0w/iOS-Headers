@@ -20,10 +20,10 @@
     NSArray *_clientCertificates;
     int _lowThroughputCounter;
     int _numTimeoutSecs;
-    BOOL _allowsTrustPrompt;
-    BOOL _usesOpportunisticSockets;
-    BOOL _canRead;
-    BOOL _canWrite;
+    _Bool _allowsTrustPrompt;
+    _Bool _usesOpportunisticSockets;
+    _Bool _socketCanRead;
+    _Bool _socketCanWrite;
     NSString *_sourceApplicationBundleIdentifier;
     NSString *_accountIdentifier;
 }
@@ -31,31 +31,31 @@
 @property(copy, nonatomic) NSString *accountIdentifier; // @synthesize accountIdentifier=_accountIdentifier;
 @property(copy, nonatomic) NSString *sourceApplicationBundleIdentifier; // @synthesize sourceApplicationBundleIdentifier=_sourceApplicationBundleIdentifier;
 @property(retain, nonatomic) NSArray *clientCertificates; // @synthesize clientCertificates=_clientCertificates;
-@property(nonatomic) BOOL usesOpportunisticSockets; // @synthesize usesOpportunisticSockets=_usesOpportunisticSockets;
-@property(nonatomic) BOOL allowsTrustPrompt; // @synthesize allowsTrustPrompt=_allowsTrustPrompt;
+@property(nonatomic) _Bool usesOpportunisticSockets; // @synthesize usesOpportunisticSockets=_usesOpportunisticSockets;
+@property(nonatomic) _Bool allowsTrustPrompt; // @synthesize allowsTrustPrompt=_allowsTrustPrompt;
 @property(nonatomic) int timeout; // @synthesize timeout=_numTimeoutSecs;
-- (void)enableExcessiveKeepaliveDetection:(BOOL)arg1;
-- (void)enableThroughputMonitoring:(BOOL)arg1;
-@property(readonly, nonatomic) BOOL isCellularConnection;
+- (void)enableExcessiveKeepaliveDetection:(_Bool)arg1;
+- (void)enableThroughputMonitoring:(_Bool)arg1;
+@property(readonly, nonatomic) _Bool isCellularConnection;
 @property(readonly, nonatomic) NSData *sourceIPAddress;
 @property(readonly, nonatomic) unsigned int remotePortNumber;
 @property(readonly, nonatomic) NSString *remoteHostname;
 - (void)setEventHandler:(id)arg1;
-- (int)readBytes:(char *)arg1 length:(unsigned long)arg2;
-- (int)writeBytes:(const char *)arg1 length:(unsigned long)arg2;
+- (long long)readBytes:(char *)arg1 length:(unsigned long long)arg2;
+- (long long)writeBytes:(const char *)arg1 length:(unsigned long long)arg2;
 - (unsigned int)_bufferedByteCount;
-- (BOOL)connectToHost:(id)arg1 withPort:(unsigned int)arg2 service:(id)arg3;
-@property(readonly, nonatomic) BOOL isValid;
-@property(readonly, nonatomic) BOOL isWritable;
-@property(readonly, nonatomic) BOOL isReadable;
+- (_Bool)connectToHost:(id)arg1 withPort:(unsigned int)arg2 service:(id)arg3;
+@property(readonly, nonatomic) _Bool isValid;
+@property(readonly, nonatomic) _Bool isWritable;
+@property(readonly, nonatomic) _Bool isReadable;
 - (void)abort;
 - (void)dealloc;
 - (id)init;
 - (void)setConnectionServiceType:(struct __CFString *)arg1;
 @property(readonly, nonatomic) NSArray *serverCertificates;
-- (BOOL)setSecurityProtocol:(id)arg1;
+- (_Bool)setSecurityProtocol:(id)arg1;
 - (id)securityProtocol;
-- (BOOL)_startSSLHandshakeWithProtocol:(id)arg1 disableSSL2:(BOOL)arg2 errorPtr:(id *)arg3;
+- (_Bool)_startSSLHandshakeWithProtocol:(id)arg1 disableSSL2:(_Bool)arg2 errorPtr:(id *)arg3;
 
 @end
 

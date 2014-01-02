@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface NSStringDrawingTextStorageSettings : NSObject
 {
     struct {
@@ -22,7 +23,7 @@
     } _settings;
 }
 
-+ (id)threadSpecificStringDrawingTextStorageSettings:(BOOL)arg1;
++ (id)threadSpecificStringDrawingTextStorageSettings:(_Bool)arg1;
 
 @end
 

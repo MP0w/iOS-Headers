@@ -11,7 +11,7 @@
 - (void)replaceAllSubstr:(id)arg1 with:(id)arg2 range:(struct _NSRange)arg3;
 - (void)replaceAllSubstr:(id)arg1 with:(id)arg2 escStr:(id)arg3;
 - (void)replaceAllSubstr:(id)arg1 with:(id)arg2;
-- (BOOL)replaceSubstr:(id)arg1 with:(id)arg2 range:(struct _NSRange)arg3;
-- (BOOL)replaceSubstr:(id)arg1 with:(id)arg2;
+- (_Bool)replaceSubstr:(id)arg1 with:(id)arg2 range:(struct _NSRange)arg3;
+- (_Bool)replaceSubstr:(id)arg1 with:(id)arg2;
 @end
 

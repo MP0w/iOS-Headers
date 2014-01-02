@@ -10,16 +10,17 @@
 
 @class NSString, UIViewController;
 
+// Not exported
 @interface UIStoryboardSegueTemplate : NSObject <NSCoding>
 {
     NSString *_identifier;
     NSString *_segueClassName;
     UIViewController *_viewController;
     NSString *_destinationViewControllerIdentifier;
-    BOOL _performOnViewLoad;
+    _Bool _performOnViewLoad;
 }
 
-@property(nonatomic) BOOL performOnViewLoad; // @synthesize performOnViewLoad=_performOnViewLoad;
+@property(nonatomic) _Bool performOnViewLoad; // @synthesize performOnViewLoad=_performOnViewLoad;
 @property(nonatomic) UIViewController *viewController; // @synthesize viewController=_viewController;
 @property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void)perform:(id)arg1;

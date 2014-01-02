@@ -6,23 +6,28 @@
 
 #import <VectorKit/VKDrawStyle.h>
 
+// Not exported
 @interface VKPuckDrawStyle : VKDrawStyle
 {
-    BOOL hasCircleBrightness;
-    BOOL hasArrowColor;
-    BOOL hasArrowColorStale;
+    _Bool hasCircleBrightness;
+    _Bool hasArrowBrightness;
+    _Bool hasArrowColor;
+    _Bool hasArrowColorStale;
     float circleBrightness;
+    float arrowBrightness;
     struct _VGLColor arrowColor;
     struct _VGLColor arrowColorStale;
 }
 
+@property(readonly, nonatomic) _Bool hasArrowColorStale; // @synthesize hasArrowColorStale;
+@property(readonly, nonatomic) _Bool hasArrowColor; // @synthesize hasArrowColor;
+@property(readonly, nonatomic) _Bool hasArrowBrightness; // @synthesize hasArrowBrightness;
+@property(readonly, nonatomic) _Bool hasCircleBrightness; // @synthesize hasCircleBrightness;
+- (id).cxx_construct;
 @property(readonly, nonatomic) struct _VGLColor arrowColorStale; // @synthesize arrowColorStale;
 @property(readonly, nonatomic) struct _VGLColor arrowColor; // @synthesize arrowColor;
+@property(readonly, nonatomic) float arrowBrightness; // @synthesize arrowBrightness;
 @property(readonly, nonatomic) float circleBrightness; // @synthesize circleBrightness;
-@property(readonly, nonatomic) BOOL hasArrowColorStale; // @synthesize hasArrowColorStale;
-@property(readonly, nonatomic) BOOL hasArrowColor; // @synthesize hasArrowColor;
-@property(readonly, nonatomic) BOOL hasCircleBrightness; // @synthesize hasCircleBrightness;
-- (id).cxx_construct;
 - (void)takeFromZoomInvariantProperties:(id)arg1;
 - (id)variant;
 

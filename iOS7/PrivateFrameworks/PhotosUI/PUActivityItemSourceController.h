@@ -18,7 +18,7 @@
 @property(copy, nonatomic) NSOrderedSet *assets; // @synthesize assets=_assets;
 @property(nonatomic) __weak PUActivityViewController *activityViewController; // @synthesize activityViewController=_activityViewController;
 - (void).cxx_destruct;
-- (int)countOfAssetType:(short)arg1;
+- (long long)countOfAssetType:(short)arg1;
 - (void)removeAsset:(id)arg1;
 - (void)addAsset:(id)arg1;
 @property(readonly, nonatomic) NSOrderedSet *assetItemSources;

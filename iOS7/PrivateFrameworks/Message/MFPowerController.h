@@ -25,7 +25,7 @@
 - (void)_destroyAssertionWithIdentifier_nts:(id)arg1;
 - (void)_createAssertionWithIdentifier_nts:(id)arg1;
 - (void)log:(id)arg1 message:(id)arg2;
-- (BOOL)isPluggedIn;
+- (_Bool)isPluggedIn;
 - (void)_setPluggedIn:(unsigned int)arg1;
 - (void)dealloc;
 - (id)init;

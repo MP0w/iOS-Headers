@@ -12,7 +12,7 @@
 
 @interface SBUIFullscreenAlertController : UIViewController <NSCopying>
 {
-    BOOL _shouldAnimateIn;
+    _Bool _shouldAnimateIn;
     NSNumber *_animationStartTime;
     NSString *_activationContext;
     NSInvocation *_pendingDeactivationInvocation;
@@ -20,36 +20,40 @@
 
 @property(retain, nonatomic) NSString *activationContext; // @synthesize activationContext=_activationContext;
 @property(retain, nonatomic) NSNumber *animationStartTime; // @synthesize animationStartTime=_animationStartTime;
-@property(nonatomic) BOOL shouldAnimateIn; // @synthesize shouldAnimateIn=_shouldAnimateIn;
+@property(nonatomic) _Bool shouldAnimateIn; // @synthesize shouldAnimateIn=_shouldAnimateIn;
 - (id)pendingDeactivationInvocation;
 - (void)setPendingDeactivationInvocation:(id)arg1;
 - (void)didFinishLaunchingFrontmost;
 - (void)handleAutoLock;
-- (BOOL)handleHeadsetButtonPressed:(BOOL)arg1;
-- (BOOL)handleMenuButtonTap;
-- (BOOL)handleVolumeDownButtonPressed;
-- (BOOL)handleVolumeUpButtonPressed;
-- (BOOL)handleLockButtonPressed;
-- (BOOL)allowStackingOfAlert:(id)arg1;
-- (BOOL)hasTranslucentBackground;
-- (BOOL)viewIsReadyToBeRemoved;
+- (_Bool)handleHeadsetButtonPressed:(_Bool)arg1;
+- (_Bool)handleMenuButtonTap;
+- (_Bool)handleVolumeDownButtonPressed;
+- (_Bool)handleVolumeUpButtonPressed;
+- (_Bool)handleLockButtonPressed;
+- (_Bool)allowStackingOfAlert:(id)arg1;
+- (_Bool)hasTranslucentBackground;
+- (_Bool)viewIsReadyToBeRemoved;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (void)viewDidUnload;
 - (void)didReceiveMemoryWarning;
 - (void)finishedAnimatingOut;
-- (void)finishedAnimatingIn;
 - (void)animateViewOut;
-- (void)presentViewController:(id)arg1 animated:(BOOL)arg2 completion:(id)arg3;
-- (BOOL)definesPresentationContext;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)finishedAnimatingIn;
+- (void)animateViewIn;
+- (void)presentViewController:(id)arg1 animated:(_Bool)arg2 completion:(id)arg3;
+- (_Bool)definesPresentationContext;
+- (void)willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
 - (void)viewDidLoad;
 - (void)viewWillAnimateOut;
-- (BOOL)allowSuspension;
-- (BOOL)isSlidingViewController;
-- (void)setWallpaperTunnelActive:(BOOL)arg1;
-- (void)requestDeactivationAnimated:(BOOL)arg1 animateOldDisplayInWithStyle:(int)arg2;
-- (void)requestActivationAnimated:(BOOL)arg1 animateCurrentDisplayOut:(BOOL)arg2 withDelay:(BOOL)arg3;
+- (void)viewWillAnimateIn;
+- (_Bool)allowSuspension;
+- (_Bool)isSlidingViewController;
+- (void)removeBackgroundStyleWithDuration:(double)arg1;
+- (void)setBackgroundStyle:(long long)arg1 withDuration:(double)arg2;
+- (void)setWallpaperTunnelActive:(_Bool)arg1;
+- (void)requestDeactivationAnimated:(_Bool)arg1 animateOldDisplayInWithStyle:(int)arg2;
+- (void)requestActivationAnimated:(_Bool)arg1 animateCurrentDisplayOut:(_Bool)arg2 withDelay:(_Bool)arg3;
 - (id)init;
 
 @end

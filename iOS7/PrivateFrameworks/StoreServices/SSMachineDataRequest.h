@@ -15,11 +15,13 @@
     NSNumber *_accountID;
     NSData *_actionData;
     NSString *_actionName;
+    _Bool _waitsForPurchaseOperations;
 }
 
 - (id)copyXPCEncoding;
 - (id)initWithXPCEncoding:(id)arg1;
 - (void)startWithCompletionBlock:(id)arg1;
+@property _Bool waitsForPurchaseOperations;
 @property(copy) NSString *actionName;
 @property(copy) NSData *actionData;
 @property(copy) NSNumber *accountIdentifier;

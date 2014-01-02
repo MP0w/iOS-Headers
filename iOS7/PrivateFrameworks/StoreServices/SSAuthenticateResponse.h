@@ -15,12 +15,12 @@
     SSAccount *_authenticatedAccount;
     NSError *_error;
     NSDictionary *_responseDictionary;
-    int _responseType;
+    long long _responseType;
 }
 
 @property(copy, nonatomic) NSDictionary *responseDictionary; // @synthesize responseDictionary=_responseDictionary;
 @property(readonly, nonatomic) NSError *error; // @synthesize error=_error;
-@property(nonatomic) int authenticateResponseType; // @synthesize authenticateResponseType=_responseType;
+@property(nonatomic) long long authenticateResponseType; // @synthesize authenticateResponseType=_responseType;
 @property(retain, nonatomic) SSAccount *authenticatedAccount; // @synthesize authenticatedAccount=_authenticatedAccount;
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)copyXPCEncoding;

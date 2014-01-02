@@ -8,25 +8,27 @@
 
 @class UIButton;
 
+// Not exported
 @interface UIButtonLabel : UILabel
 {
-    BOOL _reverseShadow;
+    _Bool _reverseShadow;
     UIButton *_button;
 }
 
-- (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
+- (_Bool)_shouldAnimatePropertyWithKey:(id)arg1;
 - (id)_defaultAttributes;
 - (struct CGSize)intrinsicContentSize;
-- (void)setReverseShadow:(BOOL)arg1;
+- (void)setReverseShadow:(_Bool)arg1;
 - (struct CGSize)shadowOffset;
-- (void)setTextAlignment:(int)arg1;
-- (void)setAdjustsFontSizeToFitWidth:(BOOL)arg1;
-- (void)setMinimumScaleFactor:(float)arg1;
-- (void)_setMinimumFontSize:(float)arg1;
+- (void)setTextAlignment:(long long)arg1;
+- (void)setAdjustsFontSizeToFitWidth:(_Bool)arg1;
+- (void)setMinimumScaleFactor:(double)arg1;
+- (void)_setMinimumFontSize:(double)arg1;
 - (void)setShadowOffset:(struct CGSize)arg1;
-- (void)setLineBreakMode:(int)arg1;
+- (void)setLineBreakMode:(long long)arg1;
 - (void)setFont:(id)arg1;
 - (id)_initWithFrame:(struct CGRect)arg1 button:(id)arg2;
+- (void)_setWantsAutolayout;
 
 @end
 

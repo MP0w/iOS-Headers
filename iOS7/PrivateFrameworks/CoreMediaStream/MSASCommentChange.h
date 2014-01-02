@@ -10,9 +10,9 @@
 
 @interface MSASCommentChange : NSObject
 {
-    MSASComment *_comment;
     int _deletionIndex;
     int _type;
+    MSASComment *_comment;
 }
 
 @property(nonatomic) int type; // @synthesize type=_type;

@@ -14,6 +14,6 @@
 - (void)selectedDeviceUpdated;
 - (void)updateNavigationButtons;
 - (void)prepareParams;
-- (void)primaryActionSelected:(BOOL)arg1;
+- (void)primaryActionSelected:(_Bool)arg1;
 @end
 

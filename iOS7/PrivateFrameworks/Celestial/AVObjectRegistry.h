@@ -27,7 +27,7 @@
 - (void)safeInvokeWithDescription:(id)arg1;
 - (void)unregisterObject:(id)arg1;
 - (void)registerObject:(id)arg1;
-- (BOOL)safeRetainObject:(id)arg1;
+- (_Bool)safeRetainObject:(id)arg1;
 - (void)registerObjectForSafeRetain:(id)arg1;
 - (void)dealloc;
 - (id)init;

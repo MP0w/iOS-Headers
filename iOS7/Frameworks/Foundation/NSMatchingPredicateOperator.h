@@ -6,20 +6,21 @@
 
 #import <Foundation/NSStringPredicateOperator.h>
 
+// Not exported
 @interface NSMatchingPredicateOperator : NSStringPredicateOperator
 {
     int _contextLock;
     CDStruct_c69bce23 *_regexContext;
 }
 
-- (BOOL)performPrimitiveOperationUsingObject:(id)arg1 andObject:(id)arg2;
-- (BOOL)_shouldEscapeForLike;
+- (_Bool)performPrimitiveOperationUsingObject:(id)arg1 andObject:(id)arg2;
+- (_Bool)_shouldEscapeForLike;
 - (SEL)selector;
 - (id)symbol;
 - (void)finalize;
 - (void)dealloc;
 - (void)_clearContext;
-- (id)initWithOperatorType:(unsigned int)arg1 modifier:(unsigned int)arg2 variant:(unsigned int)arg3;
+- (id)initWithOperatorType:(unsigned long long)arg1 modifier:(unsigned long long)arg2 variant:(unsigned long long)arg3;
 
 @end
 

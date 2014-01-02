@@ -16,20 +16,19 @@
 {
     long long _identifier;
     MPMediaQuery *_itemsQuery;
-    int _grouping;
+    long long _grouping;
     MPMediaItem *_representativeItem;
     MPConcreteMediaEntityPropertiesCache *_propertiesCache;
 }
 
-+ (void)didChangeEntityWithDataProviderEntityClass:(Class)arg1 persistentID:(unsigned long long)arg2 deleted:(BOOL)arg3;
++ (void)didChangeEntityWithDataProviderEntityClass:(Class)arg1 persistentID:(unsigned long long)arg2 deleted:(_Bool)arg3;
 - (void).cxx_destruct;
-- (unsigned int)mediaTypes;
-- (unsigned int)count;
+- (unsigned long long)count;
 - (id)representativeItem;
 - (id)items;
 - (id)itemsQuery;
 - (void)setValue:(id)arg1 forProperty:(id)arg2 withCompletionBlock:(id)arg3;
-- (BOOL)setValue:(id)arg1 forProperty:(id)arg2;
+- (_Bool)setValue:(id)arg1 forProperty:(id)arg2;
 - (id)valuesForProperties:(id)arg1;
 - (id)valueForProperty:(id)arg1;
 - (void)enumerateValuesForProperties:(id)arg1 usingBlock:(id)arg2;
@@ -41,11 +40,11 @@
 - (void)invalidateCachedProperties;
 @property(readonly, nonatomic) MPConcreteMediaEntityPropertiesCache *cachedPropertyValues;
 - (void)dealloc;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (id)initWithIdentifier:(long long)arg1 itemsQuery:(id)arg2 grouping:(int)arg3;
-- (id)initWithIdentifier:(long long)arg1 valuesForProperties:(id)arg2 itemsQuery:(id)arg3 grouping:(int)arg4 representativeItemIdentifier:(long long)arg5;
-- (id)_initWithIdentifier:(long long)arg1 valuesForProperties:(id)arg2 itemsQuery:(id)arg3 grouping:(int)arg4 representativeItemIdentifier:(long long)arg5 propertiesCache:(id)arg6;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)initWithIdentifier:(long long)arg1 itemsQuery:(id)arg2 grouping:(long long)arg3;
+- (id)initWithIdentifier:(long long)arg1 valuesForProperties:(id)arg2 itemsQuery:(id)arg3 grouping:(long long)arg4 representativeItemIdentifier:(long long)arg5;
+- (id)_initWithIdentifier:(long long)arg1 valuesForProperties:(id)arg2 itemsQuery:(id)arg3 grouping:(long long)arg4 representativeItemIdentifier:(long long)arg5 propertiesCache:(id)arg6;
 
 @end
 

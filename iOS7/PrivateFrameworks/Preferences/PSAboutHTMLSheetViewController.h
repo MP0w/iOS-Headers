@@ -13,9 +13,9 @@
 }
 
 + (void)presentAboutSheetTitled:(id)arg1 HTMLContent:(id)arg2 fromViewController:(id)arg3;
-- (void)setHTMLContent:(id)arg1 isFragment:(BOOL)arg2;
+- (void)setHTMLContent:(id)arg1 isFragment:(_Bool)arg2;
 - (void)donePressed;
-- (BOOL)webView:(id)arg1 shouldStartLoadWithRequest:(id)arg2 navigationType:(int)arg3;
+- (_Bool)webView:(id)arg1 shouldStartLoadWithRequest:(id)arg2 navigationType:(long long)arg3;
 - (void)viewDidBecomeVisible;
 - (void)dealloc;
 - (void)loadView;

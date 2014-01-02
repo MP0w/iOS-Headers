@@ -10,7 +10,5 @@
 {
 }
 
-- (BOOL)wantsUnlockActionText;
-
 @end
 

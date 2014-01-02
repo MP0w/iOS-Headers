@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface _UISwappableImageViewAnimationProxy : NSObject
 {
     id _originalObject;
 }
 
-- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
+- (void)animationDidStop:(id)arg1 finished:(_Bool)arg2;
 
 @end
 

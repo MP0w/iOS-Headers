@@ -10,20 +10,21 @@
 
 @interface AXBackBoardServer : AXServer
 {
-    BOOL _overrideGestureRecognition;
+    _Bool _overrideGestureRecognition;
     NSMutableArray *_eventListeners;
     NSMutableArray *_zoomListeners;
 }
 
 + (id)server;
 - (void)toggleGuidedAccess;
-- (BOOL)isGuidedAccessSelfLockedToApp:(id)arg1;
-- (BOOL)requestGuidedAccessSession:(BOOL)arg1 appID:(id)arg2;
-- (unsigned int)guidedAccessAvailability;
-- (void)setHearingAidControlIsVisible:(BOOL)arg1;
+- (_Bool)isGuidedAccessSelfLockedToApp:(id)arg1;
+- (_Bool)requestGuidedAccessSession:(_Bool)arg1 appID:(id)arg2;
+- (unsigned long long)guidedAccessAvailability;
+- (id)_springboardParametersForGuidedAccessAvailability;
+- (void)setHearingAidControlIsVisible:(_Bool)arg1;
 - (void)removeEventListener:(id)arg1;
 - (void)registerEventListener:(id)arg1 withIdentifierCallback:(void)arg2;
-- (void)setVoiceOverItemChooserVisible:(BOOL)arg1;
+- (void)setVoiceOverItemChooserVisible:(_Bool)arg1;
 - (void)wakeUpDeviceIfNecessary;
 - (void)userEventOccurred;
 - (struct CGRect)convertFrame:(struct CGRect)arg1 forContextId:(unsigned int)arg2;
@@ -34,14 +35,14 @@
 - (void)zoomWillBeginAppSwitcherReveal;
 - (float)zoomAppSwitcherRevealAnimationDelay;
 - (double)zoomDeactivationAnimationStartDelay;
-- (void)postEvent:(id)arg1 systemEvent:(BOOL)arg2;
+- (void)postEvent:(id)arg1 systemEvent:(_Bool)arg2;
 - (void)postEvent:(id)arg1 afterNamedTap:(id)arg2 includeTaps:(id)arg3;
-@property(nonatomic) BOOL invertColorsEnabled; // @dynamic invertColorsEnabled;
+@property(nonatomic) _Bool invertColorsEnabled; // @dynamic invertColorsEnabled;
 - (double)zoomActivationAnimationStartDelay;
 - (void)registerAssistiveTouchPID:(int)arg1;
 - (void)registerAccessibilityUIServicePID:(int)arg1;
 - (void)registerSiriViewServicePID:(int)arg1;
-- (void)setLockScreenDimTimerEnabled:(BOOL)arg1;
+- (void)setLockScreenDimTimerEnabled:(_Bool)arg1;
 - (void)zoomFocusChanged:(id)arg1;
 - (void)adjustSystemZoom:(int)arg1;
 - (void)registerGestureConflictWithZoom:(id)arg1;

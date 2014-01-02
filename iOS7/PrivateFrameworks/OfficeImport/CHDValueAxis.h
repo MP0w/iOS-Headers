@@ -6,6 +6,7 @@
 
 #import <OfficeImport/CHDAxis.h>
 
+// Not exported
 @interface CHDValueAxis : CHDAxis
 {
     _Bool mPercentageFormattingFlag;

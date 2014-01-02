@@ -6,11 +6,12 @@
 
 #import <VectorKit/VKIconArtwork.h>
 
+// Not exported
 @interface _VKPOIIconArtwork : VKIconArtwork
 {
     struct CGImage *_glyphImage;
-    CDStruct_44473e2f _style;
-    float _contentScale;
+    CDStruct_cf20f7af _style;
+    double _contentScale;
 }
 
 - (id).cxx_construct;
@@ -18,7 +19,7 @@
 - (id)_newIcon;
 - (struct CGSize)size;
 - (void)dealloc;
-- (id)initWithGlyph:(struct CGImage *)arg1 style:(CDStruct_44473e2f *)arg2 contentScale:(float)arg3;
+- (id)initWithGlyph:(struct CGImage *)arg1 style:(CDStruct_cf20f7af *)arg2 contentScale:(double)arg3;
 
 @end
 

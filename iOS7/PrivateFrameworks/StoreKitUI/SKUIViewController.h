@@ -20,7 +20,7 @@
     NSOperationQueue *_operationQueue;
     SKUIProductPageOverlayController *_productPageOverlayController;
     SKUIIPadSearchController *_searchController;
-    BOOL _wishlistButtonHidden;
+    _Bool _wishlistButtonHidden;
     UIBarButtonItem *_wishlistButtonItem;
     SKUIPopoverObserver *_wishlistPopoverObserver;
     SKUIWishlistViewController *_wishlistViewController;
@@ -30,13 +30,16 @@
 @property(retain, nonatomic) NSOperationQueue *operationQueue; // @synthesize operationQueue=_operationQueue;
 @property(retain, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
 - (void).cxx_destruct;
+- (void)_reloadForOrientation:(long long)arg1;
 - (void)_showDialogWithError:(id)arg1;
 - (void)_wishlistAction:(id)arg1;
-- (void)_setWishlistButtonHidden:(BOOL)arg1;
+- (void)_setWishlistButtonHidden:(_Bool)arg1;
 - (void)wishlist:(id)arg1 didSelectItem:(id)arg2 atIndexPath:(id)arg3;
 - (void)productPageOverlayDidDismiss:(id)arg1;
 - (void)_wishlistPopoverDidDismiss;
 - (void)networkErrorViewControllerInvalidated:(id)arg1;
+- (void)willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)showError:(id)arg1;
 - (void)showDefaultNavigationItems;
 - (void)reloadData;

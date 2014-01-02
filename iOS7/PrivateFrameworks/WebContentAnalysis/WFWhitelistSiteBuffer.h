@@ -8,24 +8,24 @@
 
 @class NSMutableArray, NSMutableSet;
 
+// Not exported
 @interface WFWhitelistSiteBuffer : NSObject
 {
     NSMutableSet *siteSet;
     NSMutableArray *siteBuffer;
-    unsigned int maxSize;
+    unsigned long long maxSize;
 }
 
 @property(retain) NSMutableArray *siteBuffer; // @synthesize siteBuffer;
 @property(retain) NSMutableSet *siteSet; // @synthesize siteSet;
-@property unsigned int maxSize;
+@property unsigned long long maxSize;
 - (id)description;
-- (unsigned int)count;
-- (BOOL)containsMetasitePrefixOfURLString:(id)arg1;
-- (BOOL)containsURLString:(id)arg1;
+- (unsigned long long)count;
+- (_Bool)containsMetasitePrefixOfURLString:(id)arg1;
+- (_Bool)containsURLString:(id)arg1;
 - (void)addURLString:(id)arg1;
 - (void)dealloc;
 - (id)init;
-- (void)trimToSize:(unsigned int)arg1;
 
 @end
 

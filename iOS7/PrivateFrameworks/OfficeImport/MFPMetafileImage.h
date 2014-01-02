@@ -8,6 +8,7 @@
 
 @class NSData;
 
+// Not exported
 @interface MFPMetafileImage : MFPImage
 {
     NSData *mMetafileData;

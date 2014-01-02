@@ -14,11 +14,11 @@
 
 + (id)UUIDString;
 - (const char *)UTF8String;
-- (int)compare:(id)arg1 options:(unsigned int)arg2 range:(struct _NSRange)arg3 locale:(id)arg4;
-- (BOOL)isEqualToString:(id)arg1;
+- (long long)compare:(id)arg1 options:(unsigned long long)arg2 range:(struct _NSRange)arg3 locale:(id)arg4;
+- (_Bool)isEqualToString:(id)arg1;
 - (void)getCharacters:(unsigned short *)arg1 range:(struct _NSRange)arg2;
-- (unsigned short)characterAtIndex:(unsigned int)arg1;
-- (unsigned int)length;
+- (unsigned short)characterAtIndex:(unsigned long long)arg1;
+- (unsigned long long)length;
 - (CDStruct_bd2f613f)UUIDBytes;
 - (id)UUIDData;
 - (id)initWithUUID:(unsigned char [16])arg1;

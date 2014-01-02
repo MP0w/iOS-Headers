@@ -13,14 +13,14 @@
 }
 
 + (id)animationWithKeyPath:(id)arg1;
-- (BOOL)cumulative;
-- (BOOL)additive;
+- (_Bool)cumulative;
+- (_Bool)additive;
 @property(retain) CAValueFunction *valueFunction;
-@property(getter=isCumulative) BOOL cumulative;
+@property(getter=isCumulative) _Bool cumulative;
 @property(copy) NSString *keyPath;
-@property(getter=isAdditive) BOOL additive;
+@property(getter=isAdditive) _Bool additive;
 - (unsigned int)_propertyFlagsForLayer:(id)arg1;
-- (BOOL)_setCARenderAnimation:(struct Animation *)arg1 layer:(id)arg2;
+- (_Bool)_setCARenderAnimation:(struct Animation *)arg1 layer:(id)arg2;
 - (void)applyForTime:(double)arg1 presentationObject:(id)arg2 modelObject:(id)arg3;
 
 @end

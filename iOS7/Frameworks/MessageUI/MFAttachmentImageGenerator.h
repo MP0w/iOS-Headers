@@ -13,6 +13,7 @@
     struct CGSize _textSize;
     NSString *_displayString;
     UIImage *_image;
+    double _maxImageHeight;
 }
 
 + (id)pngDataForAttachment:(id)arg1 dimensions:(struct CGSize *)arg2;

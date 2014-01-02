@@ -8,29 +8,29 @@
 
 @interface SUManualDownloadPolicy : SUDefaultDownloadPolicy
 {
-    BOOL _downloadFreeForCellular;
-    BOOL _downloadAllowableForCellular;
-    BOOL _downloadAllowableForCellular2G;
-    BOOL _downloadAllowableForCellularRoaming;
-    BOOL _downloadAllowableForWiFi;
-    BOOL _autoDownloadAllowableForCellular;
-    BOOL _hasEnoughDiskSpace;
-    BOOL _powerRequired;
-    BOOL _downloadable;
+    _Bool _downloadFreeForCellular;
+    _Bool _downloadAllowableForCellular;
+    _Bool _downloadAllowableForCellular2G;
+    _Bool _downloadAllowableForCellularRoaming;
+    _Bool _downloadAllowableForWiFi;
+    _Bool _autoDownloadAllowableForCellular;
+    _Bool _hasEnoughDiskSpace;
+    _Bool _powerRequired;
+    _Bool _downloadable;
     Class _fakeClass;
 }
 
-@property(nonatomic, getter=isDownloadAllowableForWiFi) BOOL downloadAllowableForWiFi; // @synthesize downloadAllowableForWiFi=_downloadAllowableForWiFi;
-@property(nonatomic, getter=isDownloadAllowableForCellularRoaming) BOOL downloadAllowableForCellularRoaming; // @synthesize downloadAllowableForCellularRoaming=_downloadAllowableForCellularRoaming;
-@property(nonatomic, getter=isDownloadAllowableForCellular2G) BOOL downloadAllowableForCellular2G; // @synthesize downloadAllowableForCellular2G=_downloadAllowableForCellular2G;
-@property(nonatomic, getter=isDownloadAllowableForCellular) BOOL downloadAllowableForCellular; // @synthesize downloadAllowableForCellular=_downloadAllowableForCellular;
-@property(nonatomic, getter=isDownloadFreeForCellular) BOOL downloadFreeForCellular; // @synthesize downloadFreeForCellular=_downloadFreeForCellular;
-@property(nonatomic, getter=hasEnoughDiskSpace) BOOL hasEnoughDiskSpace; // @synthesize hasEnoughDiskSpace=_hasEnoughDiskSpace;
-@property(nonatomic, getter=isPowerRequired) BOOL powerRequired; // @synthesize powerRequired=_powerRequired;
-@property(nonatomic, getter=isDownloadable) BOOL downloadable; // @synthesize downloadable=_downloadable;
+@property(nonatomic, getter=isDownloadAllowableForWiFi) _Bool downloadAllowableForWiFi; // @synthesize downloadAllowableForWiFi=_downloadAllowableForWiFi;
+@property(nonatomic, getter=isDownloadAllowableForCellularRoaming) _Bool downloadAllowableForCellularRoaming; // @synthesize downloadAllowableForCellularRoaming=_downloadAllowableForCellularRoaming;
+@property(nonatomic, getter=isDownloadAllowableForCellular2G) _Bool downloadAllowableForCellular2G; // @synthesize downloadAllowableForCellular2G=_downloadAllowableForCellular2G;
+@property(nonatomic, getter=isDownloadAllowableForCellular) _Bool downloadAllowableForCellular; // @synthesize downloadAllowableForCellular=_downloadAllowableForCellular;
+@property(nonatomic, getter=isDownloadFreeForCellular) _Bool downloadFreeForCellular; // @synthesize downloadFreeForCellular=_downloadFreeForCellular;
+@property(nonatomic, getter=hasEnoughDiskSpace) _Bool hasEnoughDiskSpace; // @synthesize hasEnoughDiskSpace=_hasEnoughDiskSpace;
+@property(nonatomic, getter=isPowerRequired) _Bool powerRequired; // @synthesize powerRequired=_powerRequired;
+@property(nonatomic, getter=isDownloadable) _Bool downloadable; // @synthesize downloadable=_downloadable;
 @property(retain, nonatomic) Class fakeClass; // @synthesize fakeClass=_fakeClass;
 - (Class)class;
-- (BOOL)superIsDownloadable;
+- (_Bool)superIsDownloadable;
 - (id)init;
 
 @end

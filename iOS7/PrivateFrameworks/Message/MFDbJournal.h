@@ -12,18 +12,18 @@
 {
     NSString *_path;
     struct _opaque_pthread_mutex_t {
-        long __sig;
-        char __opaque[40];
+        long long __sig;
+        char __opaque[56];
     } _lock;
     int _fd;
     NSMutableData *_buffer;
 }
 
-- (BOOL)mergeWithDatabase:(struct sqlite3 *)arg1;
-- (BOOL)_processJournalFile:(id)arg1 db:(struct sqlite3 *)arg2;
+- (_Bool)mergeWithDatabase:(struct sqlite3 *)arg1;
+- (_Bool)_processJournalFile:(id)arg1 db:(struct sqlite3 *)arg2;
 - (void)clear;
-- (BOOL)flush;
-- (BOOL)append:(const char *)arg1;
+- (_Bool)flush;
+- (_Bool)append:(const char *)arg1;
 - (void)_resetBuffer;
 - (void)dealloc;
 - (id)initWithPath:(id)arg1;

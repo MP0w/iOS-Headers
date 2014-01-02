@@ -14,24 +14,24 @@
 {
     NSDate *mCaptureDate;
     NSString *mPath;
-    int mReferenceCounter;
+    long long mReferenceCounter;
     NSMutableDictionary *mUsageCounterPerLayer;
     NSMutableArray *mUsableSlideClusters;
-    int mIndex;
+    long long mIndex;
 }
 
 @property(retain) NSMutableArray *usableSlideClusters; // @synthesize usableSlideClusters=mUsableSlideClusters;
 @property(retain) NSMutableDictionary *usageCounterPerLayer; // @synthesize usageCounterPerLayer=mUsageCounterPerLayer;
-@property int index; // @synthesize index=mIndex;
-@property int referenceCounter; // @synthesize referenceCounter=mReferenceCounter;
+@property long long index; // @synthesize index=mIndex;
+@property long long referenceCounter; // @synthesize referenceCounter=mReferenceCounter;
 @property(copy) NSDate *captureDate; // @synthesize captureDate=mCaptureDate;
 @property(copy) NSString *path; // @synthesize path=mPath;
 - (id)description;
 - (id)usageCountDescription;
 - (void)resetAllUsageCounters;
-- (int)overallUsageCounter;
-- (void)setUsageCounterForLayer:(id)arg1 to:(int)arg2;
-- (int)usageCounterForLayer:(id)arg1;
+- (long long)overallUsageCounter;
+- (void)setUsageCounterForLayer:(id)arg1 to:(long long)arg2;
+- (long long)usageCounterForLayer:(id)arg1;
 - (void)increaseUsageCounterForLayer:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;

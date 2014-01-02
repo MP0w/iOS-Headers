@@ -8,6 +8,7 @@
 
 @class NSArray;
 
+// Not exported
 @interface WDArrayIterator : WDIterator
 {
     NSArray *mArray;
@@ -15,7 +16,7 @@
 }
 
 - (id)next;
-- (BOOL)hasNext;
+- (_Bool)hasNext;
 - (id)initWithArray:(id)arg1;
 
 @end

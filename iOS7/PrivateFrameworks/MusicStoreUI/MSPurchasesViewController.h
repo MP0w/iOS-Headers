@@ -10,14 +10,14 @@
 
 @interface MSPurchasesViewController : SUViewController
 {
-    int _activeViewControllerIndex;
+    long long _activeViewControllerIndex;
     UIView *_containerView;
     SUSegmentedControl *_segmentedControl;
     NSArray *_viewControllers;
 }
 
 - (void)_showActiveViewController;
-- (void)_setActiveViewControllerIndex:(int)arg1;
+- (void)_setActiveViewControllerIndex:(long long)arg1;
 - (void)_reloadViewControllersWithSection:(id)arg1;
 - (void)_reloadSegmentedControlPlacement;
 - (id)_newViewControllerForPageSection:(id)arg1;
@@ -25,7 +25,7 @@
 - (id)_activeViewController;
 - (void)_tabConfigurationChangedNotification:(id)arg1;
 - (void)_segmentedControlAction:(id)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)tabBarControllerDidReselectTabBarItem:(id)arg1;
 - (void)restoreArchivableContext:(id)arg1;
 - (void)loadView;

@@ -7,6 +7,6 @@
 #import "UITabBar.h"
 
 @interface UITabBar (ActionSheet)
-- (void)showActionSheet:(id)arg1 animated:(BOOL)arg2;
+- (void)showActionSheet:(id)arg1 animated:(_Bool)arg2;
 @end
 

@@ -11,13 +11,13 @@
 @interface SBKUniversalPlaybackPositionStore : NSObject
 {
     NSObject<OS_dispatch_queue> *_queue;
-    BOOL _isActive;
-    BOOL _hasLocalChangesToSync;
-    unsigned int _automaticSynchronizeOptions;
+    _Bool _isActive;
+    _Bool _hasLocalChangesToSync;
+    unsigned long long _automaticSynchronizeOptions;
     double _initialAutosyncInterval;
     double _pollingLimitFromBag;
     double _autorefreshInterval;
-    BOOL _refreshTimerActive;
+    _Bool _refreshTimerActive;
     id _accountsObserver;
     id _prefsObserver;
     id <SBKUniversalPlaybackPositionDataSource> _dataSource;
@@ -44,9 +44,9 @@
 - (void)_onQueueResumeTimer;
 - (void)_onQueueSuspendTimer;
 - (void)_onQueueScheduleTimer;
-- (BOOL)_timerIsStopped;
+- (_Bool)_timerIsStopped;
 - (void)_timerFired:(id)arg1;
-- (void)_updateAutorefreshRateSettingAndRestartTimer:(BOOL)arg1;
+- (void)_updateAutorefreshRateSettingAndRestartTimer:(_Bool)arg1;
 - (double)_effectiveAutorefreshRate;
 - (void)_updateForStoreAccountsChange;
 - (void)_onQueueLoadBagContextWithCompletionHandler:(id)arg1;
@@ -54,30 +54,30 @@
 - (id)_accountForSyncing;
 - (void)_onQueueSynchronizeImmediatelyWithCompletionHandler:(id)arg1;
 - (void)_onQueueLoadRemoteDomainVersionWithCompletionBlock:(id)arg1;
-- (void)_onQueueSynchronizeWithAutosynchronizeMask:(unsigned int)arg1 withCompletionBlock:(id)arg2;
+- (void)_onQueueSynchronizeWithAutosynchronizeMask:(unsigned long long)arg1 withCompletionBlock:(id)arg2;
 - (void)loadSyncBagContextWithCompletionBlock:(id)arg1;
 - (void)loadRemoteDomainVersionWithCompletionBlock:(id)arg1;
 - (void)checkForAvailabilityWithCompletionBlock:(id)arg1;
 - (void)synchronizeImmediatelyWithCompletionBlock:(id)arg1;
 - (void)synchronizeImmediatelyWithCompletionHandler:(id)arg1;
-- (BOOL)automaticallySynchronizeOnBecomeActive;
-- (BOOL)_automaticallySynchronizeOnBecomeActive;
-- (void)setAutomaticallySynchronizeOnBecomeActive:(BOOL)arg1;
-- (BOOL)automaticallySynchronizeLocalChangesOnResignActive;
-- (BOOL)_automaticallySynchronizeLocalChangesOnResignActive;
-- (void)setAutomaticallySynchronizeLocalChangesOnResignActive:(BOOL)arg1;
-@property BOOL hasLocalChangesToSync;
-@property unsigned int automaticSynchronizeOptions;
+- (_Bool)automaticallySynchronizeOnBecomeActive;
+- (_Bool)_automaticallySynchronizeOnBecomeActive;
+- (void)setAutomaticallySynchronizeOnBecomeActive:(_Bool)arg1;
+- (_Bool)automaticallySynchronizeLocalChangesOnResignActive;
+- (_Bool)_automaticallySynchronizeLocalChangesOnResignActive;
+- (void)setAutomaticallySynchronizeLocalChangesOnResignActive:(_Bool)arg1;
+@property _Bool hasLocalChangesToSync;
+@property unsigned long long automaticSynchronizeOptions;
 - (void)resignActive;
 - (void)becomeActive;
 - (void)_onQueueUpdateTimerForAutomaticSyncOptionChanges;
 - (void)_onQueueUpdateTimerForActiveChanges;
 - (void)dealloc;
 - (id)initWithInitialUpdateDelay:(double)arg1;
-- (id)initWithInitialUpdateDelay:(double)arg1 isActive:(BOOL)arg2;
-- (id)initWithInitialUpdateDelay:(double)arg1 allowAutorefresh:(BOOL)arg2 isActive:(BOOL)arg3;
+- (id)initWithInitialUpdateDelay:(double)arg1 isActive:(_Bool)arg2;
+- (id)initWithInitialUpdateDelay:(double)arg1 allowAutorefresh:(_Bool)arg2 isActive:(_Bool)arg3;
 - (id)init;
-- (id)initWithDataSource:(id)arg1 automaticSynchronizeOptions:(unsigned int)arg2 isActive:(BOOL)arg3;
+- (id)initWithDataSource:(id)arg1 automaticSynchronizeOptions:(unsigned long long)arg2 isActive:(_Bool)arg3;
 - (void)deprecated_setDataSource:(id)arg1;
 
 @end

@@ -9,10 +9,10 @@
 @interface SBAlertManagerObserverWrapper : NSObject
 {
     id <SBAlertManagerObserver> _observer;
-    CDStruct_8a76bf7f _flags;
+    CDStruct_6031b1ff _flags;
 }
 
-- (id)initWithObserver:(id)arg1 flags:(CDStruct_8a76bf7f)arg2;
+- (id)initWithObserver:(id)arg1 flags:(CDStruct_6031b1ff)arg2;
 
 @end
 

@@ -20,10 +20,10 @@
 - (void)removeCachedResponseForRequest:(id)arg1;
 - (void)removeAllCachedResponses;
 - (void)purgeMemoryCache;
-@property(readonly, nonatomic) unsigned int memoryCapacity;
-@property(readonly, nonatomic) unsigned int diskCapacity;
-@property(readonly, nonatomic) unsigned int currentMemoryUsage;
-@property(readonly, nonatomic) unsigned int currentDiskUsage;
+@property(readonly, nonatomic) unsigned long long memoryCapacity;
+@property(readonly, nonatomic) unsigned long long diskCapacity;
+@property(readonly, nonatomic) unsigned long long currentMemoryUsage;
+@property(readonly, nonatomic) unsigned long long currentDiskUsage;
 - (id)cachedResponseForRequest:(id)arg1;
 - (void)reloadWithCacheConfiguration:(id)arg1;
 @property(readonly) NSString *persistentIdentifier;

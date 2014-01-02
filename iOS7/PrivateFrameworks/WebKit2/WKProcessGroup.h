@@ -17,7 +17,6 @@
 - (void)dealloc;
 - (id)initWithInjectedBundleURL:(id)arg1;
 - (id)init;
-@property(readonly) struct OpaqueWKContext *_contextRef;
 
 @end
 

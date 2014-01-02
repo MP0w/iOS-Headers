@@ -12,7 +12,7 @@
 
 - (void)didReceiveMemoryWarning;
 - (void)viewDidLoad;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 @end

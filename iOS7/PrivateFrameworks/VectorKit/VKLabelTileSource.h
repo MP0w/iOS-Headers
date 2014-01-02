@@ -6,22 +6,23 @@
 
 #import <VectorKit/VKTileSetBackedTileSource.h>
 
+// Not exported
 @interface VKLabelTileSource : VKTileSetBackedTileSource
 {
     shared_ptr_dd1f7020 _labelManager;
-    BOOL _localizeLabels;
-    int _labelScaleFactor;
+    _Bool _localizeLabels;
+    long long _labelScaleFactor;
 }
 
-@property(nonatomic) int labelScaleFactor; // @synthesize labelScaleFactor=_labelScaleFactor;
-@property(nonatomic) BOOL localizeLabels; // @synthesize localizeLabels=_localizeLabels;
+@property(nonatomic) long long labelScaleFactor; // @synthesize labelScaleFactor=_labelScaleFactor;
+@property(nonatomic) _Bool localizeLabels; // @synthesize localizeLabels=_localizeLabels;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (id)tileForData:(id)arg1 downloadKey:(const struct _GEOTileKey *)arg2 sourceKey:(const struct VKTileKey *)arg3;
 - (int)_labelTileType;
-- (int)defaultMaximumZoomLevel;
-- (BOOL)maximumZoomLevelBoundsCamera;
-- (BOOL)minimumZoomLevelBoundsCamera;
+- (long long)defaultMaximumZoomLevel;
+- (_Bool)maximumZoomLevelBoundsCamera;
+- (_Bool)minimumZoomLevelBoundsCamera;
 - (void)dealloc;
 - (id)initWithTileSet:(id)arg1 labelManager:(const shared_ptr_dd1f7020 *)arg2;
 

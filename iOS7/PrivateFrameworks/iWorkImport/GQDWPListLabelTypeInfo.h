@@ -10,6 +10,7 @@
 
 @class GQDWPTextLabel;
 
+// Not exported
 @interface GQDWPListLabelTypeInfo : NSObject <GQDNameMappable>
 {
     int mType;

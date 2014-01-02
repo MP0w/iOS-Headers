@@ -15,11 +15,11 @@
 + (void)_accessibilityStartServer;
 + (void)_accessibilityInitializeRuntimeOverrides;
 + (void)_accessibilityLoadSubbundles:(id)arg1;
-+ (id)_loadAXBundleForBundle:(id)arg1 didLoad:(char *)arg2;
-+ (id)_loadAXBundleForBundle:(id)arg1 didLoad:(char *)arg2 forceLoad:(BOOL)arg3 loadSubbundles:(BOOL)arg4;
-+ (id)loadAccessibilityBundle:(id)arg1 didLoad:(char *)arg2 force:(BOOL)arg3;
-+ (id)loadAccessibilityBundle:(id)arg1 didLoad:(char *)arg2;
-+ (void)loadActualAccessibilityBundle:(id)arg1 didLoad:(char *)arg2 loadSubbundles:(BOOL)arg3;
++ (id)_loadAXBundleForBundle:(id)arg1 didLoad:(_Bool *)arg2;
++ (id)_loadAXBundleForBundle:(id)arg1 didLoad:(_Bool *)arg2 forceLoad:(_Bool)arg3 loadSubbundles:(_Bool)arg4;
++ (id)loadAccessibilityBundle:(id)arg1 didLoad:(_Bool *)arg2 force:(_Bool)arg3;
++ (id)loadAccessibilityBundle:(id)arg1 didLoad:(_Bool *)arg2;
++ (void)loadActualAccessibilityBundle:(id)arg1 didLoad:(_Bool *)arg2 loadSubbundles:(_Bool)arg3;
 + (id)_axBundleForBundle:(id)arg1;
 + (id)_accessibilityBundlesForBundle:(id)arg1;
 + (void)initialize;

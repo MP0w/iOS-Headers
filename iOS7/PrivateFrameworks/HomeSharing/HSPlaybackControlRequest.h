@@ -8,13 +8,13 @@
 
 @interface HSPlaybackControlRequest : HSRequest
 {
-    int _controlCommand;
     unsigned int _interfaceID;
+    long long _controlCommand;
 }
 
 @property(readonly, nonatomic) unsigned int interfaceID; // @synthesize interfaceID=_interfaceID;
-@property(readonly, nonatomic) int controlCommand; // @synthesize controlCommand=_controlCommand;
-- (id)initWithInterfaceID:(unsigned int)arg1 controlCommand:(int)arg2;
+@property(readonly, nonatomic) long long controlCommand; // @synthesize controlCommand=_controlCommand;
+- (id)initWithInterfaceID:(unsigned int)arg1 controlCommand:(long long)arg2;
 
 @end
 

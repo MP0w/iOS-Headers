@@ -10,7 +10,7 @@
 {
 }
 
-- (BOOL)shouldUseFullscreenLayout;
+- (_Bool)shouldUseFullscreenLayout;
 
 @end
 

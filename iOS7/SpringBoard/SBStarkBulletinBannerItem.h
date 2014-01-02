@@ -18,8 +18,8 @@
 - (id)subActionLabels;
 - (id)sound;
 - (id)action;
-- (BOOL)matchesContext:(id)arg1;
-- (int)actionType;
+- (_Bool)matchesContext:(id)arg1;
+- (long long)actionType;
 - (id)categoryImage;
 - (id)subTitle;
 - (id)title;

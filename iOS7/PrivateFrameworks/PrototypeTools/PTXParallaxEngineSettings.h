@@ -8,43 +8,43 @@
 
 @interface PTXParallaxEngineSettings : _UISettings
 {
-    BOOL _shiftEnabled;
-    BOOL _showIdleIndicator;
-    BOOL _jumpEnabled;
-    BOOL _playJumpSound;
-    BOOL _directionalLockEnabled;
-    BOOL _showDirectionalLockIndicators;
-    unsigned int _frameInterval;
-    float _inputSmoothing;
-    float _sigmoidDegree;
-    float _shiftSpeed;
-    float _shiftDistanceDependence;
-    float _idleLeeway;
-    float _delayBeforeIdle;
-    float _jumpThreshold;
-    float _directionalLockThreshold;
-    float _directionalLockStickiness;
-    float _directionalLockSharpness;
+    _Bool _shiftEnabled;
+    _Bool _showIdleIndicator;
+    _Bool _jumpEnabled;
+    _Bool _playJumpSound;
+    _Bool _directionalLockEnabled;
+    _Bool _showDirectionalLockIndicators;
+    unsigned long long _frameInterval;
+    double _inputSmoothing;
+    double _sigmoidDegree;
+    double _shiftSpeed;
+    double _shiftDistanceDependence;
+    double _idleLeeway;
+    double _delayBeforeIdle;
+    double _jumpThreshold;
+    double _directionalLockThreshold;
+    double _directionalLockStickiness;
+    double _directionalLockSharpness;
 }
 
 + (id)settingsControllerModule;
-@property BOOL showDirectionalLockIndicators; // @synthesize showDirectionalLockIndicators=_showDirectionalLockIndicators;
-@property float directionalLockSharpness; // @synthesize directionalLockSharpness=_directionalLockSharpness;
-@property float directionalLockStickiness; // @synthesize directionalLockStickiness=_directionalLockStickiness;
-@property float directionalLockThreshold; // @synthesize directionalLockThreshold=_directionalLockThreshold;
-@property BOOL directionalLockEnabled; // @synthesize directionalLockEnabled=_directionalLockEnabled;
-@property BOOL playJumpSound; // @synthesize playJumpSound=_playJumpSound;
-@property float jumpThreshold; // @synthesize jumpThreshold=_jumpThreshold;
-@property BOOL jumpEnabled; // @synthesize jumpEnabled=_jumpEnabled;
-@property BOOL showIdleIndicator; // @synthesize showIdleIndicator=_showIdleIndicator;
-@property float delayBeforeIdle; // @synthesize delayBeforeIdle=_delayBeforeIdle;
-@property float idleLeeway; // @synthesize idleLeeway=_idleLeeway;
-@property float shiftDistanceDependence; // @synthesize shiftDistanceDependence=_shiftDistanceDependence;
-@property float shiftSpeed; // @synthesize shiftSpeed=_shiftSpeed;
-@property BOOL shiftEnabled; // @synthesize shiftEnabled=_shiftEnabled;
-@property float sigmoidDegree; // @synthesize sigmoidDegree=_sigmoidDegree;
-@property float inputSmoothing; // @synthesize inputSmoothing=_inputSmoothing;
-@property unsigned int frameInterval; // @synthesize frameInterval=_frameInterval;
+@property _Bool showDirectionalLockIndicators; // @synthesize showDirectionalLockIndicators=_showDirectionalLockIndicators;
+@property double directionalLockSharpness; // @synthesize directionalLockSharpness=_directionalLockSharpness;
+@property double directionalLockStickiness; // @synthesize directionalLockStickiness=_directionalLockStickiness;
+@property double directionalLockThreshold; // @synthesize directionalLockThreshold=_directionalLockThreshold;
+@property _Bool directionalLockEnabled; // @synthesize directionalLockEnabled=_directionalLockEnabled;
+@property _Bool playJumpSound; // @synthesize playJumpSound=_playJumpSound;
+@property double jumpThreshold; // @synthesize jumpThreshold=_jumpThreshold;
+@property _Bool jumpEnabled; // @synthesize jumpEnabled=_jumpEnabled;
+@property _Bool showIdleIndicator; // @synthesize showIdleIndicator=_showIdleIndicator;
+@property double delayBeforeIdle; // @synthesize delayBeforeIdle=_delayBeforeIdle;
+@property double idleLeeway; // @synthesize idleLeeway=_idleLeeway;
+@property double shiftDistanceDependence; // @synthesize shiftDistanceDependence=_shiftDistanceDependence;
+@property double shiftSpeed; // @synthesize shiftSpeed=_shiftSpeed;
+@property _Bool shiftEnabled; // @synthesize shiftEnabled=_shiftEnabled;
+@property double sigmoidDegree; // @synthesize sigmoidDegree=_sigmoidDegree;
+@property double inputSmoothing; // @synthesize inputSmoothing=_inputSmoothing;
+@property unsigned long long frameInterval; // @synthesize frameInterval=_frameInterval;
 - (void)setDefaultValues;
 
 @end

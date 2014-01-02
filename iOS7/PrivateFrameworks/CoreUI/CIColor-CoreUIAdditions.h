@@ -7,7 +7,7 @@
 #import "CIColor.h"
 
 @interface CIColor (CoreUIAdditions)
-+ (id)colorWithSRGBRed:(float)arg1 green:(float)arg2 blue:(float)arg3;
-+ (id)colorWithSRGBRed:(float)arg1 green:(float)arg2 blue:(float)arg3 alpha:(float)arg4;
++ (id)colorWithSRGBRed:(double)arg1 green:(double)arg2 blue:(double)arg3;
++ (id)colorWithSRGBRed:(double)arg1 green:(double)arg2 blue:(double)arg3 alpha:(double)arg4;
 @end
 

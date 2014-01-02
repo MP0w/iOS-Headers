@@ -11,18 +11,21 @@
 
 @protocol PLAssetContainer <NSObject, PLDiagnosticsProvider>
 @property(readonly, nonatomic) NSArray *localizedLocationNames;
-@property(readonly, nonatomic) BOOL canShowComments;
+@property(readonly, nonatomic) _Bool canShowAvalancheStacks;
+@property(readonly, nonatomic) _Bool canShowComments;
+@property(retain, nonatomic) PLManagedAsset *tertiaryKeyAsset;
+@property(retain, nonatomic) PLManagedAsset *secondaryKeyAsset;
 @property(retain, nonatomic) PLManagedAsset *keyAsset;
-@property(readonly, nonatomic) BOOL isEmpty;
-@property(readonly, nonatomic) unsigned int videosCount;
-@property(readonly, nonatomic) unsigned int photosCount;
-@property(readonly, nonatomic) unsigned int assetsCount;
-@property(readonly, nonatomic) unsigned int approximateCount;
+@property(readonly, nonatomic) _Bool isEmpty;
+@property(readonly, nonatomic) unsigned long long videosCount;
+@property(readonly, nonatomic) unsigned long long photosCount;
+@property(readonly, nonatomic) unsigned long long assetsCount;
+@property(readonly, nonatomic) unsigned long long approximateCount;
 @property(readonly, nonatomic) NSOrderedSet *assets;
 @property(readonly, nonatomic) NSString *localizedTitle;
 @property(readonly, nonatomic) NSString *title;
 @property(readonly, nonatomic) NSString *uuid;
-- (BOOL)canPerformEditOperation:(int)arg1;
+- (_Bool)canPerformEditOperation:(int)arg1;
 
 @optional
 @property(readonly, nonatomic) NSDate *endDate;

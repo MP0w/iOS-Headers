@@ -7,36 +7,36 @@
 #pragma mark Named Structures
 
 struct CATransform3D {
-    float m11;
-    float m12;
-    float m13;
-    float m14;
-    float m21;
-    float m22;
-    float m23;
-    float m24;
-    float m31;
-    float m32;
-    float m33;
-    float m34;
-    float m41;
-    float m42;
-    float m43;
-    float m44;
+    double m11;
+    double m12;
+    double m13;
+    double m14;
+    double m21;
+    double m22;
+    double m23;
+    double m24;
+    double m31;
+    double m32;
+    double m33;
+    double m34;
+    double m41;
+    double m42;
+    double m43;
+    double m44;
 };
 
 struct CGAffineTransform {
-    float a;
-    float b;
-    float c;
-    float d;
-    float tx;
-    float ty;
+    double a;
+    double b;
+    double c;
+    double d;
+    double tx;
+    double ty;
 };
 
 struct CGPoint {
-    float x;
-    float y;
+    double x;
+    double y;
 };
 
 struct CGRect {
@@ -45,8 +45,8 @@ struct CGRect {
 };
 
 struct CGSize {
-    float width;
-    float height;
+    double width;
+    double height;
 };
 
 struct NSObject {
@@ -60,10 +60,10 @@ struct PUAlbumListCellContentView {
     id _field4;
     id _field5;
     float _field6;
-    int _field7;
+    long long _field7;
     id _field8;
     id _field9;
-    unsigned int _field10;
+    unsigned long long _field10;
     struct {
         unsigned int :1;
         unsigned int :1;
@@ -123,14 +123,13 @@ struct PUAlbumListCellContentView {
         unsigned int :1;
         unsigned int :1;
         unsigned int :1;
-        unsigned int :1;
-        unsigned int :1;
         unsigned int :3;
         unsigned int :1;
         unsigned int :1;
         unsigned int :1;
         unsigned int :2;
         unsigned int :2;
+        unsigned int :1;
     } _field11;
 };
 
@@ -140,39 +139,58 @@ struct PUFeedSeparatorMetrics {
 };
 
 struct PUGridCoordinates {
-    int row;
-    int column;
+    long long row;
+    long long column;
 };
 
 struct PUSimpleIndexPath {
-    int _field1;
-    int _field2;
+    long long _field1;
+    long long _field2;
 };
 
 struct UIEdgeInsets {
-    float top;
-    float left;
-    float bottom;
-    float right;
+    double top;
+    double left;
+    double bottom;
+    double right;
 };
 
 struct UIOffset {
-    float horizontal;
-    float vertical;
+    double horizontal;
+    double vertical;
 };
 
 struct _NSRange {
-    unsigned int _field1;
-    unsigned int _field2;
+    unsigned long long location;
+    unsigned long long length;
 };
 
 #pragma mark Typedef'd Structures
 
 typedef struct {
-    int index;
+    long long index;
     struct CGSize imageSize;
     struct CGSize minimumSize;
-    char hasCaption;
-    char isBatchStart;
-} CDStruct_2e802c68;
+    _Bool hasCaption;
+    _Bool isBatchStart;
+} CDStruct_1417b155;
+
+typedef struct {
+    CDStruct_2c43369c center;
+    struct {
+        double latitudeDelta;
+        double longitudeDelta;
+    } span;
+} CDStruct_feeb6407;
+
+// Ambiguous groups
+typedef struct {
+    double _field1;
+    double _field2;
+} CDStruct_c3b9c2ee;
+
+typedef struct {
+    double latitude;
+    double longitude;
+} CDStruct_2c43369c;
 

@@ -11,7 +11,7 @@
 @interface MPMotionManager : NSObject
 {
     NSMutableSet *_accelerometerHandlerClients;
-    BOOL _accelerometerUpdatesActive;
+    _Bool _accelerometerUpdatesActive;
     CMAttitude *_attitude;
     CMMotionManager *_motionManager;
     NSOperationQueue *_operationQueue;

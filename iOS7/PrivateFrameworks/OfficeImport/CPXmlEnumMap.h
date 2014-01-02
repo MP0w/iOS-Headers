@@ -6,14 +6,15 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface CPXmlEnumMap : NSObject
 {
     struct __CFDictionary *mNameToValueMap;
 }
 
-- (long)readFromNode:(struct _xmlNode *)arg1 ns:(const char *)arg2 name:(const char *)arg3 def:(long)arg4;
-- (long)readFromNode:(struct _xmlNode *)arg1 ns:(const char *)arg2 name:(const char *)arg3;
-- (BOOL)readFromNode:(struct _xmlNode *)arg1 ns:(const char *)arg2 name:(const char *)arg3 value:(long *)arg4;
+- (long long)readFromNode:(struct _xmlNode *)arg1 ns:(const char *)arg2 name:(const char *)arg3 def:(long long)arg4;
+- (long long)readFromNode:(struct _xmlNode *)arg1 ns:(const char *)arg2 name:(const char *)arg3;
+- (_Bool)readFromNode:(struct _xmlNode *)arg1 ns:(const char *)arg2 name:(const char *)arg3 value:(long long *)arg4;
 - (void)dealloc;
 - (id)initWithDescriptions:(const struct CPXmlEnumDescription *)arg1;
 

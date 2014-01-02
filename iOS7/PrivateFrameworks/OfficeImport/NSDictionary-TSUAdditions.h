@@ -8,6 +8,6 @@
 
 @interface NSDictionary (TSUAdditions)
 - (id)objectOfClass:(Class)arg1 forKey:(id)arg2;
-- (BOOL)boolValueForKey:(id)arg1;
+- (_Bool)boolValueForKey:(id)arg1;
 @end
 

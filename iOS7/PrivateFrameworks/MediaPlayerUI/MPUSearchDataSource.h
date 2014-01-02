@@ -6,10 +6,11 @@
 
 #import <MediaPlayerUI/MPUQueryDataSource.h>
 
-@class NSArray, NSMutableArray, NSString;
+@class NSArray, NSMutableArray, NSOperationQueue, NSString;
 
 @interface MPUSearchDataSource : MPUQueryDataSource
 {
+    NSOperationQueue *_operationQueue;
     NSMutableArray *_operations;
     NSArray *_searchResults;
     MPUQueryDataSource *_dataSource;
@@ -19,12 +20,12 @@
 @property(readonly, nonatomic) NSString *searchString; // @synthesize searchString=_searchString;
 @property(readonly, nonatomic) MPUQueryDataSource *dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
-- (id)_searchPropertiesForGroupingType:(int)arg1;
+- (id)_searchPropertiesForGroupingType:(long long)arg1;
 - (void)_searchOperation:(id)arg1 didFinishWithResults:(id)arg2;
-@property(readonly, nonatomic, getter=isSearchInProgress) BOOL searchInProgress;
+@property(readonly, nonatomic, getter=isSearchInProgress) _Bool searchInProgress;
 - (void)filterResultsUsingSearchString:(id)arg1;
 - (id)entities;
-- (unsigned int)count;
+- (unsigned long long)count;
 - (void)dealloc;
 - (id)initWithDataSource:(id)arg1;
 

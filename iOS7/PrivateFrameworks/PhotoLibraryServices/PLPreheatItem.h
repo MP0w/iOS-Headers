@@ -11,11 +11,11 @@
     int _useCount;
 }
 
-- (int)decrementUseCount;
-- (int)incrementUseCount;
+- (long long)decrementUseCount;
+- (long long)incrementUseCount;
 - (void)cancelPreheatRequest;
 - (void)startPreheatRequest;
-- (BOOL)addImageHandler:(id)arg1;
+- (_Bool)addImageHandler:(id)arg1;
 - (id)cachedImageIfAvailable;
 - (id)cachedImage;
 

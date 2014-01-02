@@ -16,9 +16,9 @@
 }
 
 - (id)identifier;
-- (id)alternativeAtIndex:(unsigned int)arg1;
+- (id)alternativeAtIndex:(unsigned long long)arg1;
 - (id)alternatives;
-- (unsigned int)numberOfAlternatives;
+- (unsigned long long)numberOfAlternatives;
 - (id)originalText;
 - (void)noteSelectedAlternativeString:(id)arg1;
 @property(readonly) NSArray *alternativeStrings;

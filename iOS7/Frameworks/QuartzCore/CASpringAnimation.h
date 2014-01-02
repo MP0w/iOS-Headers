@@ -11,15 +11,15 @@
 }
 
 + (id)defaultValueForKey:(id)arg1;
-@property float velocity;
-@property float damping;
-@property float stiffness;
-@property float mass;
+@property double velocity;
+@property double damping;
+@property double stiffness;
+@property double mass;
 - (double)durationForEpsilon:(double)arg1;
 - (double)_timeFunction:(double)arg1;
 - (unsigned int)_propertyFlagsForLayer:(id)arg1;
 - (struct Animation *)_copyRenderAnimationForLayer:(id)arg1;
-- (BOOL)_setCARenderAnimation:(struct Animation *)arg1 layer:(id)arg2;
+- (_Bool)_setCARenderAnimation:(struct Animation *)arg1 layer:(id)arg2;
 
 @end
 

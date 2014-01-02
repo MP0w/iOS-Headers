@@ -8,6 +8,7 @@
 
 @class CIImage, NSNumber;
 
+// Not exported
 @interface CIStraightenFilter : CIFilter
 {
     CIImage *inputImage;
@@ -18,6 +19,7 @@
 @property(retain, nonatomic) NSNumber *inputAngle; // @synthesize inputAngle;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
+- (void)setDefaults;
 
 @end
 

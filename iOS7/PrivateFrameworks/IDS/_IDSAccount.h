@@ -20,12 +20,12 @@
     id _delegateContext;
     NSMapTable *_delegateToInfo;
     NSMapTable *_registrationDelegateToInfo;
-    BOOL _devicesLoaded;
-    BOOL _isEnabled;
+    _Bool _devicesLoaded;
+    _Bool _isEnabled;
 }
 
 - (void)deactivateAndPurgeIdentify;
-- (void)_reregisterAndReidentify:(BOOL)arg1;
+- (void)_reregisterAndReidentify:(_Bool)arg1;
 - (void)unregisterAccount;
 - (void)registerAccount;
 - (void)unvalidateAliases:(id)arg1;
@@ -36,7 +36,6 @@
 - (void)updateAuthorizationCredentials:(id)arg1 token:(id)arg2;
 - (void)passwordUpdated;
 - (void)authenticateAccount;
-- (void)clearCallerIDCachesForAccount:(id)arg1;
 - (void)activeDevicesUpdatedForAccount:(id)arg1;
 - (void)refreshRegistrationForAccount:(id)arg1;
 - (void)account:(id)arg1 dependentDevicesUpdated:(id)arg2;
@@ -64,21 +63,21 @@
 - (void)setAuthToken:(id)arg1;
 - (void)setPassword:(id)arg1;
 @property(readonly, nonatomic) int accountType;
-@property(nonatomic, setter=_setIsEnabled:) BOOL _isEnabled;
+@property(nonatomic, setter=_setIsEnabled:) _Bool _isEnabled;
 @property(readonly, nonatomic) NSString *uniqueID;
 @property(readonly, nonatomic) NSString *serviceName;
 @property(retain, nonatomic) NSString *loginID;
 @property(readonly, nonatomic) NSArray *vettedAliases;
 @property(readonly, nonatomic) NSArray *aliases;
 @property(readonly, nonatomic) NSArray *aliasStrings;
-@property(readonly, nonatomic) BOOL canSend;
+@property(readonly, nonatomic) _Bool canSend;
 @property(readonly, nonatomic) NSDictionary *regionServerContext;
 @property(readonly, nonatomic) NSString *regionBasePhoneNumber;
 @property(readonly, nonatomic) NSString *regionID;
 @property(readonly, nonatomic) NSDictionary *profileInfo;
 - (void)updateAccountWithAccountInfo:(id)arg1;
 @property(retain, nonatomic) NSDictionary *accountInfo;
-@property(readonly, nonatomic) BOOL isActive;
+@property(readonly, nonatomic) _Bool isActive;
 - (void)_setObject:(id)arg1 forKey:(id)arg2;
 - (id)_objectForKey:(id)arg1;
 - (void)_callRegistrationDelegatesWithBlock:(id)arg1;

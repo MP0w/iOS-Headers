@@ -8,13 +8,14 @@
 
 @class NSMutableArray, WDParagraphProperties;
 
+// Not exported
 @interface WDParagraph : WDBlock
 {
     WDParagraphProperties *mProperties;
     NSMutableArray *mRuns;
 }
 
-- (BOOL)isEmpty;
+- (_Bool)isEmpty;
 - (int)blockType;
 - (id)newRunIterator;
 - (id)runIterator;
@@ -33,18 +34,16 @@
 - (id)addCharacterRun;
 - (void)clearRuns;
 - (void)removeRun:(id)arg1;
-- (void)insertRun:(id)arg1 atIndex:(unsigned int)arg2;
+- (void)insertRun:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)addRun:(id)arg1;
-- (id)runAt:(unsigned int)arg1;
-- (unsigned int)runCount;
+- (id)runAt:(unsigned long long)arg1;
+- (unsigned long long)runCount;
 - (id)runs;
 - (void)clearProperties;
 - (id)properties;
 - (void)dealloc;
 - (id)initWithText:(id)arg1 string:(id)arg2;
 - (id)initWithText:(id)arg1;
-- (BOOL)isContinuationOf:(id)arg1;
-- (BOOL)isTextFrame;
 
 @end
 

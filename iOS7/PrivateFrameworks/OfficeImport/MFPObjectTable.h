@@ -8,6 +8,7 @@
 
 @class NSMutableDictionary;
 
+// Not exported
 @interface MFPObjectTable : NSObject
 {
     NSMutableDictionary *mObjects;

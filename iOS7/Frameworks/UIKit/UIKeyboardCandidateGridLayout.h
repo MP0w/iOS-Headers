@@ -8,17 +8,20 @@
 
 @class NSArray, NSMutableArray, NSMutableDictionary;
 
+// Not exported
 @interface UIKeyboardCandidateGridLayout : UICollectionViewLayout
 {
     struct CGSize _contentSize;
-    BOOL _expanded;
-    BOOL _needsPaddingForIndexScrubber;
-    BOOL _supportsNumberKeySelection;
-    BOOL _needsLayout;
+    _Bool _expanded;
+    _Bool _needsPaddingForIndexScrubber;
+    _Bool _supportsNumberKeySelection;
+    _Bool _hasSecondaryCandidates;
+    _Bool _needsLayout;
+    int _candidatesVisualStyle;
     NSArray *_candidateGroups;
-    unsigned int _columnsCount;
-    int _visualStyle;
-    float _headerViewHeight;
+    unsigned long long _columnsCount;
+    CDStruct_961fb75c _visualStyling;
+    double _headerViewHeight;
     NSMutableArray *_cellAttributes;
     NSMutableDictionary *_supplementaryAttributes;
 }
@@ -27,27 +30,28 @@
 + (id)layout;
 @property(retain, nonatomic) NSMutableDictionary *supplementaryAttributes; // @synthesize supplementaryAttributes=_supplementaryAttributes;
 @property(retain, nonatomic) NSMutableArray *cellAttributes; // @synthesize cellAttributes=_cellAttributes;
-@property(nonatomic) BOOL needsLayout; // @synthesize needsLayout=_needsLayout;
-@property(nonatomic) BOOL supportsNumberKeySelection; // @synthesize supportsNumberKeySelection=_supportsNumberKeySelection;
-@property(nonatomic) float headerViewHeight; // @synthesize headerViewHeight=_headerViewHeight;
-@property(nonatomic) BOOL needsPaddingForIndexScrubber; // @synthesize needsPaddingForIndexScrubber=_needsPaddingForIndexScrubber;
-@property(nonatomic) BOOL expanded; // @synthesize expanded=_expanded;
-@property(nonatomic) int visualStyle; // @synthesize visualStyle=_visualStyle;
-@property(nonatomic) unsigned int columnsCount; // @synthesize columnsCount=_columnsCount;
+@property(nonatomic) _Bool needsLayout; // @synthesize needsLayout=_needsLayout;
+@property(nonatomic) _Bool hasSecondaryCandidates; // @synthesize hasSecondaryCandidates=_hasSecondaryCandidates;
+@property(nonatomic) _Bool supportsNumberKeySelection; // @synthesize supportsNumberKeySelection=_supportsNumberKeySelection;
+@property(nonatomic) double headerViewHeight; // @synthesize headerViewHeight=_headerViewHeight;
+@property(nonatomic) _Bool needsPaddingForIndexScrubber; // @synthesize needsPaddingForIndexScrubber=_needsPaddingForIndexScrubber;
+@property(nonatomic) _Bool expanded; // @synthesize expanded=_expanded;
+@property(nonatomic) int candidatesVisualStyle; // @synthesize candidatesVisualStyle=_candidatesVisualStyle;
+@property(nonatomic) CDStruct_961fb75c visualStyling; // @synthesize visualStyling=_visualStyling;
+@property(nonatomic) unsigned long long columnsCount; // @synthesize columnsCount=_columnsCount;
 @property(retain, nonatomic) NSArray *candidateGroups; // @synthesize candidateGroups=_candidateGroups;
 - (id)previousCandidateIndexPathFromIndexPath:(id)arg1;
 - (id)nextCandidateIndexPathFromIndexPath:(id)arg1;
 @property(readonly, nonatomic) struct CGSize rowSize;
-- (void)reloadBackground;
 - (id)layoutAttributesForCandidateIndexPath:(id)arg1;
-- (void)finishLayoutForRowWithAttributes:(id)arg1 cellsTotalWidth:(float)arg2 rowOrigin:(struct CGPoint)arg3 isLastCandidateInGroup:(BOOL)arg4 isFirstRow:(BOOL)arg5 isLastRow:(BOOL)arg6 zIndex:(int)arg7;
+- (void)finishLayoutForRowWithAttributes:(id)arg1 cellsTotalWidth:(double)arg2 rowOrigin:(struct CGPoint)arg3 isLastCandidateInGroup:(_Bool)arg4 isFirstRow:(_Bool)arg5 isLastRow:(_Bool)arg6 zIndex:(long long)arg7;
 - (void)prepareLayout;
-- (void)getGroupBarWidth:(float *)arg1 headerAttributes:(id *)arg2;
-@property(readonly, nonatomic) float groupBarWidth;
+- (void)getGroupBarWidth:(double *)arg1 headerAttributes:(id *)arg2;
+@property(readonly, nonatomic) double groupBarWidth;
 - (id)attributesWithFrame:(struct CGRect)arg1;
-- (unsigned int)numberOfItemsInSection:(int)arg1;
-- (unsigned int)numberOfCandidateSections;
-- (unsigned int)numberOfSections;
+- (unsigned long long)numberOfItemsInSection:(long long)arg1;
+- (unsigned long long)numberOfCandidateSections;
+- (unsigned long long)numberOfSections;
 - (struct CGSize)collectionViewContentSize;
 - (id)layoutAttributesForSupplementaryViewOfKind:(id)arg1 atIndexPath:(id)arg2;
 - (id)layoutAttributesForItemAtIndexPath:(id)arg1;

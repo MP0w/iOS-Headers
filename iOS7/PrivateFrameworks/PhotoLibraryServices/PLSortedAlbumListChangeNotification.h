@@ -16,10 +16,10 @@
 
 + (id)notificationForDerivedObject:(id)arg1 priorChangeState:(id)arg2 forBackingObjectNotification:(id)arg3;
 - (id)_changedObjects;
-- (BOOL)_getOldSet:(id *)arg1 newSet:(id *)arg2;
+- (_Bool)_getOldSet:(id *)arg1 newSet:(id *)arg2;
 - (id)description;
-- (BOOL)countDidChange;
-- (BOOL)shouldReload;
+- (_Bool)countDidChange;
+- (_Bool)shouldReload;
 - (id)albumList;
 - (id)object;
 - (void)dealloc;

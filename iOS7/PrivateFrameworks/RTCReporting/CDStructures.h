@@ -6,34 +6,24 @@
 
 #pragma mark Named Structures
 
-struct in_addr {
-    unsigned int s_addr;
-};
-
-struct sockaddr_in {
-    unsigned char sin_len;
-    unsigned char sin_family;
-    unsigned short sin_port;
-    struct in_addr sin_addr;
-    char sin_zero[8];
-};
-
 struct tagReportingPacket {
     struct tagReportingPacketHeader _field1;
     char _field2[1024];
 };
 
 struct tagReportingPacketHeader {
-    unsigned short _field1;
-    unsigned short _field2;
-    unsigned int _field3;
-    unsigned int _field4;
-    unsigned short _field5;
-    unsigned short _field6;
+    unsigned char _field1;
+    unsigned char _field2;
+    unsigned char _field3;
+    unsigned char _field4;
+    unsigned int _field5;
+    unsigned int _field6;
     unsigned short _field7;
     unsigned short _field8;
-    unsigned char _field9[40];
+    unsigned short _field9;
     unsigned short _field10;
-    unsigned short _field11;
+    unsigned char _field11[40];
+    unsigned short _field12;
+    unsigned short _field13;
 };
 

@@ -6,29 +6,37 @@
 
 #import "NSObject.h"
 
-@class NSXPCConnection;
+@class NSMutableSet, NSXPCConnection;
 
 @interface ADAdSheetProxy : NSObject
 {
-    BOOL _serviceLaunchThrottled;
+    _Bool _serviceLaunchThrottled;
     int _bootstrapState;
-    unsigned int _adSheetBootstrapAttempts;
-    NSXPCConnection *_adSheetConnection;
     int _classicUnavailableToken;
     double _lastTermination;
+    double _lastBootstrap;
+    unsigned long long _adSheetBootstrapAttempts;
+    NSXPCConnection *_adSheetConnection;
+    NSMutableSet *_connectionAssertions;
 }
 
 + (id)sharedInstance;
+@property(retain, nonatomic) NSMutableSet *connectionAssertions; // @synthesize connectionAssertions=_connectionAssertions;
 @property(nonatomic) int classicUnavailableToken; // @synthesize classicUnavailableToken=_classicUnavailableToken;
 @property(retain, nonatomic) NSXPCConnection *adSheetConnection; // @synthesize adSheetConnection=_adSheetConnection;
-@property(nonatomic) unsigned int adSheetBootstrapAttempts; // @synthesize adSheetBootstrapAttempts=_adSheetBootstrapAttempts;
+@property(nonatomic) unsigned long long adSheetBootstrapAttempts; // @synthesize adSheetBootstrapAttempts=_adSheetBootstrapAttempts;
+@property(nonatomic) double lastBootstrap; // @synthesize lastBootstrap=_lastBootstrap;
 @property(nonatomic) double lastTermination; // @synthesize lastTermination=_lastTermination;
 @property(nonatomic) int bootstrapState; // @synthesize bootstrapState=_bootstrapState;
-@property(nonatomic) BOOL serviceLaunchThrottled; // @synthesize serviceLaunchThrottled=_serviceLaunchThrottled;
-- (void)_bootstrap;
+@property(nonatomic) _Bool serviceLaunchThrottled; // @synthesize serviceLaunchThrottled=_serviceLaunchThrottled;
+- (void)_adSheetConnectionLost;
+- (void)_considerConnectingToAdSheet;
+- (void)_considerLaunchingAdSheet;
 - (void)resetAdSheetThrottle;
-- (BOOL)isBootstrapped;
+@property(readonly, nonatomic) _Bool connectionAvailable;
 @property(readonly, nonatomic) id <ADSSession_RPC> rpcProxy;
+- (void)releaseConnectionAssertion:(id)arg1;
+- (void)takeConnectionAssertion:(id)arg1;
 - (id)init;
 
 @end

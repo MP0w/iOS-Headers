@@ -5,9 +5,9 @@
  */
 
 @protocol PKPassGroupStackViewDatasource
-- (float)groupHeightAtIndex:(unsigned int)arg1;
-- (unsigned int)indexOfGroup:(id)arg1;
-- (id)groupAtIndex:(unsigned int)arg1;
-- (unsigned int)numberOfGroups;
+- (double)groupHeightAtIndex:(unsigned long long)arg1;
+- (unsigned long long)indexOfGroup:(id)arg1;
+- (id)groupAtIndex:(unsigned long long)arg1;
+- (unsigned long long)numberOfGroups;
 @end
 

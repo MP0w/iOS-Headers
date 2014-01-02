@@ -13,11 +13,11 @@
 + (void)releaseSharedManager;
 + (id)sharedManager;
 - (id)resolveAliasPath:(id)arg1;
-- (void)checkFileExtension:(id)arg1 isAudio:(char *)arg2 isImage:(char *)arg3 isVideo:(char *)arg4;
-- (BOOL)validateFiles:(id)arg1 allowAudio:(BOOL)arg2 allowImages:(BOOL)arg3 allowMovies:(BOOL)arg4 extensionsOnly:(BOOL)arg5;
-- (BOOL)validateFilesForMovies:(id)arg1 extensionsOnly:(BOOL)arg2;
-- (BOOL)validateFilesForImages:(id)arg1 extensionsOnly:(BOOL)arg2;
-- (BOOL)validateFilesForAudio:(id)arg1 extensionsOnly:(BOOL)arg2;
+- (void)checkFileExtension:(id)arg1 isAudio:(_Bool *)arg2 isImage:(_Bool *)arg3 isVideo:(_Bool *)arg4;
+- (_Bool)validateFiles:(id)arg1 allowAudio:(_Bool)arg2 allowImages:(_Bool)arg3 allowMovies:(_Bool)arg4 extensionsOnly:(_Bool)arg5;
+- (_Bool)validateFilesForMovies:(id)arg1 extensionsOnly:(_Bool)arg2;
+- (_Bool)validateFilesForImages:(id)arg1 extensionsOnly:(_Bool)arg2;
+- (_Bool)validateFilesForAudio:(id)arg1 extensionsOnly:(_Bool)arg2;
 
 @end
 

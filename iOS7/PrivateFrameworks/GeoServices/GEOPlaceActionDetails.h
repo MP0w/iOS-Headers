@@ -6,7 +6,9 @@
 
 #import "PBCodable.h"
 
-@interface GEOPlaceActionDetails : PBCodable
+#import "NSCopying-Protocol.h"
+
+@interface GEOPlaceActionDetails : PBCodable <NSCopying>
 {
     unsigned long long _businessID;
     long long _placeID;
@@ -30,19 +32,20 @@
 @property(nonatomic) int localSearchProviderID; // @synthesize localSearchProviderID=_localSearchProviderID;
 @property(nonatomic) long long placeID; // @synthesize placeID=_placeID;
 @property(nonatomic) unsigned long long businessID; // @synthesize businessID=_businessID;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) BOOL hasResultIndex;
-@property(nonatomic) BOOL hasSearchResponseRelativeTimestamp;
-@property(nonatomic) BOOL hasSequenceNumber;
-@property(nonatomic) BOOL hasLocalSearchProviderID;
-@property(nonatomic) BOOL hasPlaceID;
-@property(nonatomic) BOOL hasBusinessID;
+@property(nonatomic) _Bool hasResultIndex;
+@property(nonatomic) _Bool hasSearchResponseRelativeTimestamp;
+@property(nonatomic) _Bool hasSequenceNumber;
+@property(nonatomic) _Bool hasLocalSearchProviderID;
+@property(nonatomic) _Bool hasPlaceID;
+@property(nonatomic) _Bool hasBusinessID;
 - (void)dealloc;
 
 @end

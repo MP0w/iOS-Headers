@@ -10,26 +10,26 @@
 
 @interface MCEmailAccountPayloadBase : MCPayload
 {
-    BOOL _preventMove;
-    BOOL _preventAppSheet;
-    BOOL _SMIMEEnabled;
-    BOOL _SMIMEEncryptionEnabled;
+    _Bool _preventMove;
+    _Bool _preventAppSheet;
+    _Bool _SMIMEEnabled;
+    _Bool _SMIMEEncryptionEnabled;
     NSString *_SMIMESigningIdentityUUID;
     NSString *_SMIMEEncryptionIdentityUUID;
     NSData *_SMIMESigningIdentityPersistentID;
     NSData *_SMIMEEncryptionIdentityPersistentID;
-    BOOL _isRecentsSyncingDisabled;
+    _Bool _isRecentsSyncingDisabled;
 }
 
 @property(retain, nonatomic) NSData *SMIMEEncryptionIdentityPersistentID; // @synthesize SMIMEEncryptionIdentityPersistentID=_SMIMEEncryptionIdentityPersistentID;
 @property(retain, nonatomic) NSData *SMIMESigningIdentityPersistentID; // @synthesize SMIMESigningIdentityPersistentID=_SMIMESigningIdentityPersistentID;
 @property(readonly, nonatomic) NSString *SMIMEEncryptionIdentityUUID; // @synthesize SMIMEEncryptionIdentityUUID=_SMIMEEncryptionIdentityUUID;
 @property(readonly, nonatomic) NSString *SMIMESigningIdentityUUID; // @synthesize SMIMESigningIdentityUUID=_SMIMESigningIdentityUUID;
-@property(readonly, nonatomic) BOOL isRecentsSyncingDisabled; // @synthesize isRecentsSyncingDisabled=_isRecentsSyncingDisabled;
-@property(readonly, nonatomic) BOOL SMIMEEncryptionEnabled; // @synthesize SMIMEEncryptionEnabled=_SMIMEEncryptionEnabled;
-@property(readonly, nonatomic) BOOL SMIMEEnabled; // @synthesize SMIMEEnabled=_SMIMEEnabled;
-@property(readonly, nonatomic) BOOL preventAppSheet; // @synthesize preventAppSheet=_preventAppSheet;
-@property(readonly, nonatomic) BOOL preventMove; // @synthesize preventMove=_preventMove;
+@property(readonly, nonatomic) _Bool isRecentsSyncingDisabled; // @synthesize isRecentsSyncingDisabled=_isRecentsSyncingDisabled;
+@property(readonly, nonatomic) _Bool SMIMEEncryptionEnabled; // @synthesize SMIMEEncryptionEnabled=_SMIMEEncryptionEnabled;
+@property(readonly, nonatomic) _Bool SMIMEEnabled; // @synthesize SMIMEEnabled=_SMIMEEnabled;
+@property(readonly, nonatomic) _Bool preventAppSheet; // @synthesize preventAppSheet=_preventAppSheet;
+@property(readonly, nonatomic) _Bool preventMove; // @synthesize preventMove=_preventMove;
 - (void).cxx_destruct;
 - (id)description;
 - (id)stubDictionary;

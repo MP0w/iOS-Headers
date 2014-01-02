@@ -14,16 +14,16 @@
 {
     MFBufferedDataConsumer *_consumer;
     NSData *_rawData;
-    unsigned long _count;
-    BOOL _lastNewLine;
+    unsigned long long _count;
+    _Bool _lastNewLine;
 }
 
 - (id)data;
 - (void)done;
-- (int)appendData:(id)arg1;
+- (long long)appendData:(id)arg1;
 - (id)rawData;
-- (BOOL)isLastCharacterNewLine;
-- (unsigned long)count;
+- (_Bool)isLastCharacterNewLine;
+- (unsigned long long)count;
 - (void)dealloc;
 - (id)init;
 

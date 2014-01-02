@@ -10,6 +10,7 @@
 
 @class NSArray, NSString;
 
+// Not exported
 @interface _UIActivityIndicatorViewArtworkItem : NSObject <NSDiscardableContent>
 {
     NSString *_artKey;
@@ -22,11 +23,11 @@
 
 @property(retain, nonatomic) NSArray *images; // @synthesize images=_images;
 @property(readonly, nonatomic) NSString *artKey; // @synthesize artKey=_artKey;
-- (BOOL)isContentDiscarded;
+- (_Bool)isContentDiscarded;
 - (void)discardContentIfPossible;
 - (void)endContentAccess;
-- (BOOL)beginContentAccess;
-- (unsigned int)hash;
+- (_Bool)beginContentAccess;
+- (unsigned long long)hash;
 - (void)dealloc;
 - (id)initWithArtKey:(id)arg1;
 

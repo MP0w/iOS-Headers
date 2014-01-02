@@ -8,7 +8,7 @@
 
 @protocol UserFSFolder <UserFSItem>
 - (int)readChildrenIntoArray:(id)arg1 withState:(id *)arg2;
-- (BOOL)deleteChildNamed:(id)arg1;
+- (_Bool)deleteChildNamed:(id)arg1;
 - (id)childNamed:(id)arg1;
 @end
 

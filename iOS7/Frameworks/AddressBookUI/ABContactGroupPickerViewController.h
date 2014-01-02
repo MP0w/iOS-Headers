@@ -20,15 +20,18 @@
 
 + (id)pickableGroupsWithPickedGroups:(id)arg1;
 + (id)propertySections;
-+ (BOOL)propertiesLeftToPickWithPickedGroups:(id)arg1;
++ (_Bool)propertiesLeftToPickWithPickedGroups:(id)arg1;
 @property(nonatomic) id <ABContactGroupPickerDelegate> groupPickerDelegate; // @synthesize groupPickerDelegate=_groupPickerDelegate;
 - (id)_loadPickableGroupsWithPickedGroups:(id)arg1;
 - (void)cancel:(id)arg1;
+- (void)tableView:(id)arg1 willDisplayHeaderView:(id)arg2 forSection:(long long)arg3;
+- (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;
 - (void)dealloc;
 - (id)initWithGroups:(id)arg1;

@@ -11,9 +11,9 @@
 }
 
 @property(copy) id valueChangedHandler;
-@property(readonly, getter=isPressed) BOOL pressed;
-- (BOOL)setHIDValue:(struct __IOHIDValue *)arg1;
-- (BOOL)_setValue:(float)arg1;
+@property(readonly, getter=isPressed) _Bool pressed;
+- (_Bool)setHIDValue:(struct __IOHIDValue *)arg1;
+- (_Bool)_setValue:(float)arg1;
 @property(readonly) float value;
 
 @end

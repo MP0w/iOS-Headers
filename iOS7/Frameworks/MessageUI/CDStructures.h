@@ -7,8 +7,8 @@
 #pragma mark Named Structures
 
 struct CGPoint {
-    float x;
-    float y;
+    double x;
+    double y;
 };
 
 struct CGRect {
@@ -17,30 +17,30 @@ struct CGRect {
 };
 
 struct CGSize {
-    float width;
-    float height;
+    double width;
+    double height;
 };
 
 struct UIEdgeInsets {
-    float top;
-    float left;
-    float bottom;
-    float right;
+    double _field1;
+    double _field2;
+    double _field3;
+    double _field4;
 };
 
 struct _NSRange {
-    unsigned int location;
-    unsigned int length;
+    unsigned long long location;
+    unsigned long long length;
 };
 
 #pragma mark Typedef'd Structures
 
 typedef struct {
-    char _field1;
-    char _field2;
-    char _field3;
-    char _field4;
-    float _field5;
+    _Bool _field1;
+    _Bool _field2;
+    _Bool _field3;
+    _Bool _field4;
+    double _field5;
     int _field6;
-} CDStruct_af7d35ee;
+} CDStruct_ebaa735e;
 

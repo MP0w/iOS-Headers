@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface _NSFaultingMutableSetMutationMethods : NSObject
 {
     struct objc_method *_addObjectMethod;

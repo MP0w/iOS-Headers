@@ -8,6 +8,7 @@
 
 @class TSUColor;
 
+// Not exported
 @interface CMColorProperty : CMProperty
 {
     TSUColor *wdValue;
@@ -23,12 +24,9 @@
 + (id)cssStringFromOADGradientFill:(id)arg1 state:(id)arg2;
 + (struct CGColor *)copyCGColorFromOADFill:(id)arg1 state:(id)arg2;
 + (struct CGColor *)copyCGColorFromOADColor:(id)arg1 state:(id)arg2;
-+ (float)resolveColorValueWithPercentage:(float)arg1 foregroundComponent:(float)arg2 backgroundComponent:(float)arg3;
-+ (id)resolveStyleColorWithPercentage:(float)arg1 foregroundColor:(id)arg2 backgroundColor:(id)arg3;
-+ (id)resolveStyleColorWithPercentage:(float)arg1 shading:(id)arg2;
 - (id)cssStringForName:(id)arg1;
 - (id)cssString;
-- (BOOL)isEqualTo:(id)arg1;
+- (_Bool)isEqualTo:(id)arg1;
 - (id)initWithColor:(id)arg1;
 - (id)value;
 

@@ -17,7 +17,6 @@
 + (id)scriptWorldForGlobalContext:(struct OpaqueJSContext *)arg1;
 + (id)world;
 + (id)standardWorld;
-+ (id)findOrCreateWorld:(struct DOMWrapperWorld *)arg1;
 - (void)dealloc;
 - (void)unregisterWorld;
 - (id)init;

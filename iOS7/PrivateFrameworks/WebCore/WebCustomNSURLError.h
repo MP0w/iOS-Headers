@@ -6,6 +6,7 @@
 
 #import "NSError.h"
 
+// Not exported
 @interface WebCustomNSURLError : NSError
 {
 }

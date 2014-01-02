@@ -7,7 +7,7 @@
 #import "NSObject.h"
 
 @interface NSObject (NSKeyValueObservingPrivate)
-+ (BOOL)_shouldAddObservationForwardersForKey:(id)arg1;
++ (_Bool)_shouldAddObservationForwardersForKey:(id)arg1;
 - (id)_implicitObservationInfo;
 - (void)_changeValueForKey:(id)arg1 usingBlock:(id)arg2;
 - (void)_changeValueForKey:(id)arg1 key:(id)arg2 key:(id)arg3 usingBlock:(id)arg4;

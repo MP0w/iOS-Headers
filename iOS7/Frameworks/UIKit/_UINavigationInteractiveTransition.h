@@ -8,6 +8,7 @@
 
 @class UIScreenEdgePanGestureRecognizer;
 
+// Not exported
 @interface _UINavigationInteractiveTransition : _UINavigationInteractiveTransitionBase
 {
     UIScreenEdgePanGestureRecognizer *_edgePanRecognizer;
@@ -17,10 +18,10 @@
 - (void)setNotInteractiveTransition;
 - (void)startInteractiveTransition;
 - (id)gestureRecognizerView;
-- (BOOL)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
-- (BOOL)_gestureRecognizer:(id)arg1 shouldBeRequiredToFailByGestureRecognizer:(id)arg2;
-- (BOOL)gestureRecognizerShouldBegin:(id)arg1;
-- (BOOL)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
+- (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
+- (_Bool)_gestureRecognizer:(id)arg1 shouldBeRequiredToFailByGestureRecognizer:(id)arg2;
+- (_Bool)gestureRecognizerShouldBegin:(id)arg1;
+- (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 - (void)dealloc;
 - (void)_configureNavigationGesture;
 - (id)initWithViewController:(id)arg1 animator:(id)arg2;

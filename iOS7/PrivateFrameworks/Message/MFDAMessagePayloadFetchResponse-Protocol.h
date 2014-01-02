@@ -5,8 +5,8 @@
  */
 
 @protocol MFDAMessagePayloadFetchResponse
-- (BOOL)streamingDone;
-- (BOOL)streaming;
+- (_Bool)streamingDone;
+- (_Bool)streaming;
 - (id)data;
 @end
 

@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface NSExternalRefCountedData : NSObject
 {
     int _cd_rc;
@@ -29,6 +30,7 @@
 - (double)timestampForProperty:(id)arg1;
 - (id)relatedObjectIDsForProperty:(id)arg1;
 - (void)updateMissingRelationshipCachesFromOriginal:(id)arg1;
+- (void)releaseRelationshipCaches;
 - (void)copyRelationshipCachesFrom:(id)arg1;
 - (void)_initializeRelationshipCaches;
 - (void)incrementExternalReferenceCount:(int)arg1;
@@ -40,9 +42,9 @@
 - (void)setTimestamp:(double)arg1;
 - (double)timestamp;
 - (void)dealloc;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
-- (unsigned int)retainCount;
+- (_Bool)_isDeallocating;
+- (_Bool)_tryRetain;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;
 - (id)initWithOptions:(unsigned int)arg1 andTimestamp:(double)arg2;

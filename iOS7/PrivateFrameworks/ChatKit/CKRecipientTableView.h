@@ -10,6 +10,7 @@
 {
 }
 
+- (double)_maxNumberOfRows;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 
 @end

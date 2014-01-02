@@ -8,6 +8,7 @@
 
 @class NSDictionary;
 
+// Not exported
 @interface NSURLFileTypeMappingsInternal : NSObject
 {
     NSDictionary *MIMETypeToExtensionList;

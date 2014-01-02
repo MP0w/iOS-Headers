@@ -7,6 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol SFAirDropActivityViewControllerDelegate <NSObject>
+- (void)airDropActivityDidSuccessfullyStartTransfer;
 - (void)airDropActivityDidSuccessfullyCompleteTransfer;
 - (void)airDropActivityRequestingSharedItemsWithCompletionHandler:(id)arg1;
 @end

@@ -8,36 +8,42 @@
 
 #import "VKMapLayer-Protocol.h"
 
-@class NSMutableArray, VGLRenderState, VGLTexture, VKPolygonDrawStyle;
+@class NSMutableArray, VGLMesh, VGLRenderState, VGLTexture, VKPolygonDrawStyle;
 
+// Not exported
 @interface VKGroundCoverMapModel : VKMapTileModel <VKMapLayer>
 {
     NSMutableArray *_sortedTiles;
     VKPolygonDrawStyle *_landStyle;
-    BOOL _usePlainFillColor;
+    _Bool _usePlainFillColor;
+    _Bool _hasVegetationSettings;
     float _alpha;
     float _brightness;
-    BOOL _showVegetation;
+    _Bool _showVegetation;
     VGLRenderState *_renderState;
     VGLTexture *_landTexture;
     VGLTexture *_landTextureVariant;
-    float _layoutMaxZ;
-    float _layoutContentScale;
-    BOOL _needsLandSettingsUpdate;
+    double _layoutMaxZ;
+    double _layoutContentScale;
+    _Bool _needsLandSettingsUpdate;
+    VGLMesh *_groundMesh;
+    int _groundMeshCapacity;
 }
 
-+ (BOOL)reloadOnActiveTileGroupChange;
-+ (BOOL)reloadOnStylesheetChange;
++ (_Bool)reloadOnActiveTileGroupChange;
++ (_Bool)reloadOnStylesheetChange;
 - (void)stylesheetDidChange;
 - (void)stylesheetWillChange;
-- (void)setActive:(BOOL)arg1;
+- (void)activeTileGroupChanged;
+- (void)setActive:(_Bool)arg1;
+- (id)groundMeshForTiles:(id)arg1 relativeToTile:(id)arg2;
 - (void)drawScene:(id)arg1 withContext:(id)arg2;
 - (void)layoutScene:(id)arg1 withContext:(id)arg2;
 - (void)updateVegetationSettingsFromStylesheet;
 - (void)reset;
 - (unsigned int)supportedRenderPasses;
-- (unsigned int)mapLayerPosition;
-- (void)loadLandSettingsForLevelOfDetail:(unsigned int)arg1 scale:(float)arg2;
+- (unsigned long long)mapLayerPosition;
+- (void)loadLandSettingsForLevelOfDetail:(unsigned long long)arg1 scale:(double)arg2;
 - (void)dealloc;
 - (id)init;
 

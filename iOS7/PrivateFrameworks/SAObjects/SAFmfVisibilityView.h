@@ -14,7 +14,7 @@
 
 + (id)visibilityViewWithDictionary:(id)arg1 context:(id)arg2;
 + (id)visibilityView;
-@property(nonatomic) BOOL visible;
+@property(nonatomic) _Bool visible;
 @property(copy, nonatomic) NSURL *searchContext;
 - (id)encodedClassName;
 - (id)groupIdentifier;

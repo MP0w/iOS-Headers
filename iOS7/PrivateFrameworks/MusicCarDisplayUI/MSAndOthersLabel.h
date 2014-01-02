@@ -25,10 +25,10 @@
 @property(retain, nonatomic) UIFont *font; // @synthesize font=_font;
 - (void).cxx_destruct;
 - (id)_textAttributes;
-- (int)_stringDrawingOptions;
+- (long long)_stringDrawingOptions;
 - (void)_truncateItemsToFit;
-@property(readonly, nonatomic) float desiredHeight;
-@property(readonly, nonatomic) float actualHeight;
+@property(readonly, nonatomic) double desiredHeight;
+@property(readonly, nonatomic) double actualHeight;
 - (void)setBounds:(struct CGRect)arg1;
 - (void)drawRect:(struct CGRect)arg1;
 

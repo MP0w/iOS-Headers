@@ -14,14 +14,14 @@
 @property(readonly, nonatomic) UIColor *vibrationPickerHeaderTextShadowColor;
 @property(readonly, nonatomic) UIColor *vibrationPickerHeaderTextColor;
 @property(readonly, nonatomic) UIFont *vibrationPickerHeaderTextFont;
-@property(readonly, nonatomic) BOOL wantsCustomVibrationPickerHeaderView;
+@property(readonly, nonatomic) _Bool wantsCustomVibrationPickerHeaderView;
 @property(readonly, nonatomic) UIColor *vibrationPickerCellBackgroundColor;
 @property(readonly, nonatomic) UIColor *vibrationPickerCellHighlightedTextColor;
 @property(readonly, nonatomic) UIColor *vibrationPickerCellTextColor;
 @property(readonly, nonatomic) UIFont *vibrationPickerCellTextFont;
-@property(readonly, nonatomic) int vibrationPickerTableViewSeparatorStyle;
-@property(readonly, nonatomic) BOOL vibrationPickerUsesOpaqueBackground;
+@property(readonly, nonatomic) long long vibrationPickerTableViewSeparatorStyle;
+@property(readonly, nonatomic) _Bool vibrationPickerUsesOpaqueBackground;
 - (id)newAccessoryDisclosureIndicatorViewForVibrationPickerCell;
-- (id)newBackgroundViewForSelectedVibrationPickerCell:(BOOL)arg1;
+- (id)newBackgroundViewForSelectedVibrationPickerCell:(_Bool)arg1;
 @end
 

@@ -8,6 +8,7 @@
 
 @class NSTextTableBlock;
 
+// Not exported
 @interface NSTextBlockLayoutHelper : NSObject
 {
     NSTextTableBlock *_block;
@@ -15,28 +16,28 @@
     struct _NSRange _glyphRange;
     struct CGRect _layoutRect;
     struct CGRect _boundsRect;
-    float _lMargin;
-    float _lBorder;
-    float _lPadding;
-    float _tMargin;
-    float _tBorder;
-    float _tPadding;
-    float _width;
-    float _height;
-    float _rPadding;
-    float _rBorder;
-    float _rMargin;
-    float _bPadding;
-    float _bBorder;
-    float _bMargin;
+    double _lMargin;
+    double _lBorder;
+    double _lPadding;
+    double _tMargin;
+    double _tBorder;
+    double _tPadding;
+    double _width;
+    double _height;
+    double _rPadding;
+    double _rBorder;
+    double _rMargin;
+    double _bPadding;
+    double _bBorder;
+    double _bMargin;
 }
 
 - (void)dealloc;
 - (id)description;
-- (id)initWithTextTable:(id)arg1 charIndex:(unsigned int)arg2 text:(id)arg3 layoutManager:(id)arg4 containerWidth:(float)arg5 collapseBorders:(BOOL)arg6;
-- (id)initWithTextBlock:(id)arg1 charIndex:(unsigned int)arg2 text:(id)arg3 layoutManager:(id)arg4 containerWidth:(float)arg5 collapseBorders:(BOOL)arg6;
-- (id)initWithTextBlock:(id)arg1 charRange:(struct _NSRange)arg2 text:(id)arg3 layoutManager:(id)arg4 containerWidth:(float)arg5 collapseBorders:(BOOL)arg6;
-- (id)initWithTextBlock:(id)arg1 charRange:(struct _NSRange)arg2 glyphRange:(struct _NSRange)arg3 layoutRect:(struct CGRect)arg4 boundsRect:(struct CGRect)arg5 containerWidth:(float)arg6 allowMargins:(BOOL)arg7 collapseBorders:(BOOL)arg8 allowPadding:(BOOL)arg9;
+- (id)initWithTextTable:(id)arg1 charIndex:(unsigned long long)arg2 text:(id)arg3 layoutManager:(id)arg4 containerWidth:(double)arg5 collapseBorders:(_Bool)arg6;
+- (id)initWithTextBlock:(id)arg1 charIndex:(unsigned long long)arg2 text:(id)arg3 layoutManager:(id)arg4 containerWidth:(double)arg5 collapseBorders:(_Bool)arg6;
+- (id)initWithTextBlock:(id)arg1 charRange:(struct _NSRange)arg2 text:(id)arg3 layoutManager:(id)arg4 containerWidth:(double)arg5 collapseBorders:(_Bool)arg6;
+- (id)initWithTextBlock:(id)arg1 charRange:(struct _NSRange)arg2 glyphRange:(struct _NSRange)arg3 layoutRect:(struct CGRect)arg4 boundsRect:(struct CGRect)arg5 containerWidth:(double)arg6 allowMargins:(_Bool)arg7 collapseBorders:(_Bool)arg8 allowPadding:(_Bool)arg9;
 
 @end
 

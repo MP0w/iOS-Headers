@@ -5,6 +5,6 @@
  */
 
 @protocol SlotProtocol
-- (BOOL)matches:(id)arg1;
+- (_Bool)matches:(id)arg1;
 @end
 

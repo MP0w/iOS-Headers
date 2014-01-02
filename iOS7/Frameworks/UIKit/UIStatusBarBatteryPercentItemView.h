@@ -8,17 +8,19 @@
 
 @class NSString;
 
+// Not exported
 @interface UIStatusBarBatteryPercentItemView : UIStatusBarItemView
 {
     NSString *_percentString;
 }
 
-- (int)textStyle;
-- (int)textAlignment;
-- (BOOL)animatesDataChange;
-- (float)extraRightPadding;
+- (long long)textStyle;
+- (long long)textAlignment;
+- (_Bool)animatesDataChange;
+- (double)extraRightPadding;
+- (_Bool)cachesImage;
 - (id)contentsImage;
-- (BOOL)updateForNewData:(id)arg1 actions:(int)arg2;
+- (_Bool)updateForNewData:(id)arg1 actions:(int)arg2;
 - (void)dealloc;
 
 @end

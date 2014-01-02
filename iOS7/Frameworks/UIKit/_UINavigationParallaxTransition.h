@@ -13,9 +13,9 @@
 
 @interface _UINavigationParallaxTransition : NSObject <_UIBasicAnimationFactory, UIViewControllerAnimatedTransitioningEx>
 {
-    BOOL _interactionAborted;
-    BOOL _clipUnderlapWhileTransitioning;
-    int _operation;
+    _Bool _interactionAborted;
+    _Bool _clipUnderlapWhileTransitioning;
+    long long _operation;
     id <UIViewControllerContextTransitioning> _transitionContext;
     _UINavigationInteractiveTransitionBase *_interactionController;
     _UIParallaxDimmingView *_borderDimmingView;
@@ -23,31 +23,31 @@
     UIView *_containerFromView;
     UIView *_containerToView;
     UIView *_clipUnderView;
-    int _transitionStyle;
-    float _transitionGap;
+    long long _transitionStyle;
+    double _transitionGap;
 }
 
-@property(nonatomic) float transitionGap; // @synthesize transitionGap=_transitionGap;
-@property(nonatomic) int transitionStyle; // @synthesize transitionStyle=_transitionStyle;
-@property(nonatomic) BOOL clipUnderlapWhileTransitioning; // @synthesize clipUnderlapWhileTransitioning=_clipUnderlapWhileTransitioning;
+@property(nonatomic) double transitionGap; // @synthesize transitionGap=_transitionGap;
+@property(nonatomic) long long transitionStyle; // @synthesize transitionStyle=_transitionStyle;
+@property(nonatomic) _Bool clipUnderlapWhileTransitioning; // @synthesize clipUnderlapWhileTransitioning=_clipUnderlapWhileTransitioning;
 @property(retain, nonatomic) UIView *clipUnderView; // @synthesize clipUnderView=_clipUnderView;
 @property(retain, nonatomic) UIView *containerToView; // @synthesize containerToView=_containerToView;
 @property(retain, nonatomic) UIView *containerFromView; // @synthesize containerFromView=_containerFromView;
 @property(retain, nonatomic) _UIParallaxDimmingView *contentDimmingView; // @synthesize contentDimmingView=_contentDimmingView;
 @property(retain, nonatomic) _UIParallaxDimmingView *borderDimmingView; // @synthesize borderDimmingView=_borderDimmingView;
 @property(nonatomic) _UINavigationInteractiveTransitionBase *interactionController; // @synthesize interactionController=_interactionController;
-@property(nonatomic) BOOL interactionAborted; // @synthesize interactionAborted=_interactionAborted;
+@property(nonatomic) _Bool interactionAborted; // @synthesize interactionAborted=_interactionAborted;
 @property(retain, nonatomic) id <UIViewControllerContextTransitioning> transitionContext; // @synthesize transitionContext=_transitionContext;
-@property(nonatomic) int operation; // @synthesize operation=_operation;
+@property(nonatomic) long long operation; // @synthesize operation=_operation;
 - (id)_timingFunctionForAnimation;
 - (id)_basicAnimationForView:(id)arg1 withKeyPath:(id)arg2;
 - (void)animateTransition:(id)arg1;
-- (void)_revealTransitionWithContext:(id)arg1;
-- (void)_revealTransitionWithContext:(id)arg1 withPop:(BOOL)arg2;
-- (void)animationEnded:(BOOL)arg1;
+- (void)animationEnded:(_Bool)arg1;
 - (double)transitionDuration:(id)arg1;
 - (void)dealloc;
-- (id)initWithCurrentOperation:(int)arg1;
+- (id)resizedFromContainerView;
+- (id)resizedToContainerView;
+- (id)initWithCurrentOperation:(long long)arg1;
 
 @end
 

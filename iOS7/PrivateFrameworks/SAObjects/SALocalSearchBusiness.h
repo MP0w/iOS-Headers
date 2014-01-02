@@ -16,7 +16,7 @@
 
 + (id)businessWithDictionary:(id)arg1 context:(id)arg2;
 + (id)business;
-@property(nonatomic) int totalNumberOfReviews;
+@property(nonatomic) long long totalNumberOfReviews;
 @property(copy, nonatomic) NSArray *reviews;
 @property(retain, nonatomic) SALocalSearchRating *rating;
 @property(copy, nonatomic) NSURL *photo;

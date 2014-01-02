@@ -8,6 +8,7 @@
 
 @class UIDocumentInteractionController;
 
+// Not exported
 @interface _UIDocumentActivityItemProvider : UIActivityItemProvider
 {
     UIDocumentInteractionController *_documentInteractionController;

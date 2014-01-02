@@ -16,8 +16,8 @@
     unsigned char _masksInitialized;
     char *_vshSource;
     char *_fshSource;
-    GLKEffect *_effect;
     unsigned long long _dirtyUniforms;
+    GLKEffect *_effect;
 }
 
 + (void)logSetMasksWithLabel:(id)arg1 obj:(id)arg2 typeStr:(id)arg3;

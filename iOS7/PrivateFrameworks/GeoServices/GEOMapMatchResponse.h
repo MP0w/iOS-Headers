@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSData;
 
-@interface GEOMapMatchResponse : PBCodable
+@interface GEOMapMatchResponse : PBCodable <NSCopying>
 {
     int _matchingStatus;
     int _status;
@@ -22,16 +24,17 @@
 @property(retain, nonatomic) NSData *zilchPoints; // @synthesize zilchPoints=_zilchPoints;
 @property(nonatomic) int matchingStatus; // @synthesize matchingStatus=_matchingStatus;
 @property(nonatomic) int status; // @synthesize status=_status;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) BOOL hasZilchPoints;
-@property(nonatomic) BOOL hasMatchingStatus;
-@property(nonatomic) BOOL hasStatus;
+@property(readonly, nonatomic) _Bool hasZilchPoints;
+@property(nonatomic) _Bool hasMatchingStatus;
+@property(nonatomic) _Bool hasStatus;
 - (void)dealloc;
 
 @end

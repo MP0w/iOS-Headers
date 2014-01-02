@@ -10,8 +10,9 @@ struct CTServerState;
 
 struct __CTServerConnection {
     struct __CFRuntimeBase {
-        unsigned int _field1;
+        unsigned long long _field1;
         unsigned char _field2[4];
+        unsigned int _field3;
     } _field1;
     struct dispatch_queue_s *_field2;
     struct CTServerState *_field3;

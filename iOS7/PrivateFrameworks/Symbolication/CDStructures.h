@@ -12,8 +12,8 @@ struct VMULabelUniquingDataForStringType {
 };
 
 struct _CSTypeRef {
-    unsigned int _opaque_1;
-    unsigned int _opaque_2;
+    unsigned long long _opaque_1;
+    unsigned long long _opaque_2;
 };
 
 struct _VMUBlockNode {
@@ -61,11 +61,11 @@ struct _VMURegionNode {
     unsigned int _field4;
     void *_field5;
     unsigned long long _field6;
-    _Bool _field7;
+    struct _VMURegionNode *_field7;
     _Bool _field8;
     _Bool _field9;
-    struct *_field10;
-    unsigned int _field11;
+    _Bool _field10;
+    struct *_field11;
     unsigned int _field12;
     unsigned long long _field13;
     unsigned long long _field14;
@@ -80,7 +80,7 @@ struct _VMUThreadNode {
     unsigned long long _field1;
     unsigned int _field2;
     unsigned int _field3;
-    unsigned int *_field4;
+    unsigned long long *_field4;
 };
 
 struct _VMUZoneNode {
@@ -90,8 +90,9 @@ struct _VMUZoneNode {
 };
 
 struct __CFRuntimeBase {
-    unsigned int _field1;
+    unsigned long long _field1;
     unsigned char _field2[4];
+    unsigned int _field3;
 };
 
 struct __sFILE {
@@ -141,7 +142,7 @@ struct nlist_64 {
 };
 
 struct timeval {
-    int tv_sec;
+    long long tv_sec;
     int tv_usec;
 };
 

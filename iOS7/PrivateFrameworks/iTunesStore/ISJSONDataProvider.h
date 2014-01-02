@@ -8,11 +8,11 @@
 
 @interface ISJSONDataProvider : ISDataProvider
 {
-    unsigned int _options;
+    unsigned long long _options;
 }
 
-@property unsigned int parserOptions; // @synthesize parserOptions=_options;
-- (BOOL)parseData:(id)arg1 returningError:(id *)arg2;
+@property unsigned long long parserOptions; // @synthesize parserOptions=_options;
+- (_Bool)parseData:(id)arg1 returningError:(id *)arg2;
 
 @end
 

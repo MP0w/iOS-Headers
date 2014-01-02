@@ -26,10 +26,10 @@
 - (void)passcodeField:(id)arg1 enteredPasscode:(id)arg2;
 - (void)remoteUILinkFooterActivatedLink:(id)arg1;
 - (void)viewDidLayout;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)populatePostbackDictionary:(id)arg1;
-- (id)pinView;
+- (id)passcodeView;
 
 @end
 

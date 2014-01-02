@@ -15,6 +15,6 @@
 - (id)youTubeURL;
 - (id)fmfURL;
 - (id)mapsURL;
-- (BOOL)conformsToOverridePatternWithKey:(id)arg1;
+- (_Bool)conformsToOverridePatternWithKey:(id)arg1;
 @end
 

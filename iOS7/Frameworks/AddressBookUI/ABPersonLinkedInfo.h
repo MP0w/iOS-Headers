@@ -13,17 +13,17 @@
     NSString *_type;
     NSString *_name;
     ABUIPerson *_person;
-    BOOL _unified;
+    _Bool _unified;
 }
 
-@property(getter=isUnified) BOOL unified; // @synthesize unified=_unified;
+@property(getter=isUnified) _Bool unified; // @synthesize unified=_unified;
 @property(retain) ABUIPerson *person; // @synthesize person=_person;
 @property(retain) NSString *name; // @synthesize name=_name;
 @property(retain) NSString *type; // @synthesize type=_type;
 - (id)description;
 - (void)dealloc;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 
 @end
 

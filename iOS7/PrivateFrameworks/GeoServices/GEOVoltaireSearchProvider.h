@@ -16,12 +16,12 @@
     id _finished;
     id _spellingSuggestion;
     id _refinement;
-    BOOL _cancelled;
+    _Bool _cancelled;
 }
 
 + (id)_searchURLForRequest:(id)arg1;
 + (unsigned short)provider;
-+ (void)setUsePersistentConnection:(BOOL)arg1;
++ (void)setUsePersistentConnection:(_Bool)arg1;
 + (int)defaultLocalSearchProviderID;
 + (int)localSearchProviderID;
 + (void)_resetURL;
@@ -30,7 +30,7 @@
 - (void)requesterDidCancel:(id)arg1;
 - (void)requesterDidFinish:(id)arg1;
 - (void)cancel;
-- (void)search:(id)arg1 timeout:(int)arg2 useBackgroundConnection:(BOOL)arg3 finished:(id)arg4 spellingSuggestion:(void)arg5 refinement:(id)arg6 error:(void)arg7 isCompletions:(id)arg8;
+- (void)search:(id)arg1 timeout:(long long)arg2 useBackgroundConnection:(_Bool)arg3 finished:(id)arg4 spellingSuggestion:(void)arg5 refinement:(id)arg6 error:(void)arg7 isCompletions:(id)arg8;
 - (void)dealloc;
 - (id)init;
 

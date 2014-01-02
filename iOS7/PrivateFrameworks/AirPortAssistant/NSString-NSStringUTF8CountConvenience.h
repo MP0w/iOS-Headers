@@ -7,7 +7,7 @@
 #import "NSString.h"
 
 @interface NSString (NSStringUTF8CountConvenience)
-- (id)prefixStringWithByteCount:(unsigned int)arg1;
-- (unsigned int)UTF8ByteCount;
+- (id)prefixStringWithByteCount:(unsigned long long)arg1;
+- (unsigned long long)UTF8ByteCount;
 @end
 

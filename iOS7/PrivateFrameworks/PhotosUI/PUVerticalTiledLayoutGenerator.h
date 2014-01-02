@@ -9,33 +9,42 @@
 @interface PUVerticalTiledLayoutGenerator : PUTiledLayoutGenerator
 {
     struct CGPoint _origin;
-    CDStruct_2e802c68 _enqueuedCaptionTileInfo;
-    BOOL _shouldDisplayCaptionsBelowBatches;
-    float _referenceWidth;
+    CDStruct_1417b155 _enqueuedCaptionTileInfo;
+    _Bool _shouldDisplayCaptionsBelowBatches;
+    double _referenceWidth;
 }
 
-@property(nonatomic) BOOL shouldDisplayCaptionsBelowBatches; // @synthesize shouldDisplayCaptionsBelowBatches=_shouldDisplayCaptionsBelowBatches;
-@property(nonatomic) float referenceWidth; // @synthesize referenceWidth=_referenceWidth;
-- (void)_willAddRowWithFirstTileInfo:(CDStruct_2e802c68)arg1;
-- (BOOL)_addRowWithTiles:(CDStruct_2e802c68 *)arg1 imageFrames:(struct CGRect *)arg2 count:(int)arg3;
-- (void)_enumerateRowFramesWithContiguousTiles:(CDStruct_2e802c68 *)arg1 count:(int)arg2 useMagneticGuidelines:(BOOL)arg3 block:(id)arg4;
-- (BOOL)_addRowWithContiguousTiles:(CDStruct_2e802c68 *)arg1 count:(int)arg2;
-- (void)_dequeueCaption;
-- (BOOL)_hasEnqueuedCaption;
-- (void)_enqueueCaptionWithTileInfo:(CDStruct_2e802c68)arg1;
-- (BOOL)_hasLeftSuboptimalRow;
-- (BOOL)_scanTileTriplet:(CDStruct_2e802c68 *)arg1;
-- (BOOL)_scanTilePair:(CDStruct_2e802c68 *)arg1;
-- (BOOL)_scanTileRequiringNewRow:(CDStruct_2e802c68 *)arg1;
-- (BOOL)_scanTileRequiringFullWidth:(CDStruct_2e802c68 *)arg1;
-- (BOOL)_parseSpecialTileTriplet;
-- (BOOL)_parseTileRequiringFullWidth;
-- (BOOL)_parseTileTriplet;
-- (BOOL)_parseTilePair;
-- (BOOL)_parseSingleTile;
-- (float)referenceDistanceForMagneticGuidelines;
+@property(nonatomic) _Bool shouldDisplayCaptionsBelowBatches; // @synthesize shouldDisplayCaptionsBelowBatches=_shouldDisplayCaptionsBelowBatches;
+@property(nonatomic) double referenceWidth; // @synthesize referenceWidth=_referenceWidth;
+- (void)_willAddRowWithFirstTileInfo:(CDStruct_1417b155)arg1;
+- (_Bool)_addSpecialSequenceBlock:(CDStruct_1417b155 *)arg1;
+- (_Bool)_addRowWithTiles:(CDStruct_1417b155 *)arg1 imageFrames:(struct CGRect *)arg2 count:(long long)arg3;
+- (void)_enumerateRowFramesWithContiguousTiles:(CDStruct_1417b155 *)arg1 count:(long long)arg2 useMagneticGuidelines:(_Bool)arg3 block:(id)arg4;
+- (_Bool)_addRowWithContiguousTiles:(CDStruct_1417b155 *)arg1 count:(long long)arg2;
+- (_Bool)_dequeueCaption;
+- (_Bool)_hasEnqueuedCaption;
+- (void)_enqueueCaptionWithTileInfo:(CDStruct_1417b155)arg1;
+- (_Bool)_isAtEndOfRow;
+- (_Bool)_hasLeftSuboptimalRow;
+- (_Bool)_scanTripletWithRearrangment:(CDStruct_1417b155 *)arg1;
+- (_Bool)_scanTripletWithLargeLead:(CDStruct_1417b155 *)arg1;
+- (_Bool)_scanNonPanoramaSequence:(CDStruct_1417b155 *)arg1 count:(long long)arg2;
+- (_Bool)_scanSpecialSequenceRow:(CDStruct_1417b155 *)arg1 count:(long long *)arg2;
+- (_Bool)_scanSpecialSequenceBlock:(CDStruct_1417b155 *)arg1;
+- (_Bool)_scanTileTriplet:(CDStruct_1417b155 *)arg1;
+- (_Bool)_scanTilePair:(CDStruct_1417b155 *)arg1;
+- (_Bool)_scanTileRequiringNewRow:(CDStruct_1417b155 *)arg1;
+- (_Bool)_scanTileRequiringFullWidth:(CDStruct_1417b155 *)arg1;
+- (_Bool)_parseSpecialSubsequenceWithRowRequired:(_Bool)arg1 rowParsed:(_Bool *)arg2;
+- (_Bool)_parseSpecialSequence;
+- (_Bool)_parseSpecialTileTriplet;
+- (_Bool)_parseTileRequiringFullWidth;
+- (_Bool)_parseTileTriplet;
+- (_Bool)_parseTilePair;
+- (_Bool)_parseSingleTile;
+- (double)referenceDistanceForMagneticGuidelines;
 - (void)didParseTiles;
-- (BOOL)parseNextTiles;
+- (_Bool)parseNextTiles;
 - (void)willParseTiles;
 
 @end

@@ -14,19 +14,19 @@
 {
     UIColor *_fillColor;
     struct CGSize _finalSize;
-    float _inputImageScale;
+    double _inputImageScale;
     SUImageModifier *_modifier;
 }
 
 @property(retain) SUImageModifier *modifier; // @synthesize modifier=_modifier;
-@property float inputImageScale; // @synthesize inputImageScale=_inputImageScale;
+@property double inputImageScale; // @synthesize inputImageScale=_inputImageScale;
 @property struct CGSize finalSize; // @synthesize finalSize=_finalSize;
 @property(retain) UIColor *fillColor; // @synthesize fillColor=_fillColor;
 - (void)_getFinalSize:(struct CGSize *)arg1 imageFrame:(struct CGRect *)arg2 forImage:(id)arg3 withModifier:(id)arg4;
-- (BOOL)parseData:(id)arg1 returningError:(id *)arg2;
+- (_Bool)parseData:(id)arg1 returningError:(id *)arg2;
 - (id)newImageFromImage:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 

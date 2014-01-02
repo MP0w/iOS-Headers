@@ -11,12 +11,12 @@
 @interface PLVideoPreviewView : UIView
 {
     NSString *_videoGravity;
-    BOOL _disableLayoutForPreviewView;
-    BOOL _disableLayoutForEffectsFullsizeView;
-    BOOL _disableLayoutForEffectsGridViews;
-    BOOL _square;
+    _Bool _disableLayoutForPreviewView;
+    _Bool _disableLayoutForEffectsFullsizeView;
+    _Bool _disableLayoutForEffectsGridViews;
+    _Bool _square;
     AVCaptureVideoPreviewLayer *_previewLayer;
-    int _orientation;
+    long long _orientation;
     UIView *_previewLayerView;
     PLEffectsFullsizeView *_effectsFullsizeView;
     PLEffectsGridView *_effectsGridView;
@@ -24,30 +24,30 @@
     UIView *_fadeOutView;
 }
 
-@property(nonatomic, getter=isSquare) BOOL square; // @synthesize square=_square;
-@property(nonatomic, getter=isDisabledLayoutForEffectsGridViews) BOOL disableLayoutForEffectsGridViews; // @synthesize disableLayoutForEffectsGridViews=_disableLayoutForEffectsGridViews;
-@property(nonatomic, getter=isDisabledLayoutForEffectsFullsizeView) BOOL disableLayoutForEffectsFullsizeView; // @synthesize disableLayoutForEffectsFullsizeView=_disableLayoutForEffectsFullsizeView;
-@property(nonatomic, getter=isDisabledLayoutForPreviewView) BOOL disableLayoutForPreviewView; // @synthesize disableLayoutForPreviewView=_disableLayoutForPreviewView;
+@property(nonatomic, getter=isSquare) _Bool square; // @synthesize square=_square;
+@property(nonatomic, getter=isDisabledLayoutForEffectsGridViews) _Bool disableLayoutForEffectsGridViews; // @synthesize disableLayoutForEffectsGridViews=_disableLayoutForEffectsGridViews;
+@property(nonatomic, getter=isDisabledLayoutForEffectsFullsizeView) _Bool disableLayoutForEffectsFullsizeView; // @synthesize disableLayoutForEffectsFullsizeView=_disableLayoutForEffectsFullsizeView;
+@property(nonatomic, getter=isDisabledLayoutForPreviewView) _Bool disableLayoutForPreviewView; // @synthesize disableLayoutForPreviewView=_disableLayoutForPreviewView;
 @property(readonly, nonatomic) UIView *fadeOutView; // @synthesize fadeOutView=_fadeOutView;
 @property(readonly, nonatomic) PLEffectsGridLabelsView *effectsGridLabelsView; // @synthesize effectsGridLabelsView=_effectsGridLabelsView;
 @property(readonly, nonatomic) PLEffectsGridView *effectsGridView; // @synthesize effectsGridView=_effectsGridView;
 @property(readonly, nonatomic) PLEffectsFullsizeView *effectsFullsizeView; // @synthesize effectsFullsizeView=_effectsFullsizeView;
 @property(readonly, nonatomic) UIView *previewLayerView; // @synthesize previewLayerView=_previewLayerView;
-@property(nonatomic) int orientation; // @synthesize orientation=_orientation;
+@property(nonatomic) long long orientation; // @synthesize orientation=_orientation;
 @property(retain, nonatomic) AVCaptureVideoPreviewLayer *previewLayer; // @synthesize previewLayer=_previewLayer;
 - (void)layoutSubviews;
 - (struct CGRect)convertRect:(struct CGRect)arg1 toSublayer:(id)arg2;
 - (struct CGRect)frameForView:(id)arg1;
-- (struct CGRect)_frameForSubviewsAccountForSquare:(BOOL)arg1;
+- (struct CGRect)_frameForSubviewsAccountForSquare:(_Bool)arg1;
 - (struct CGRect)rectForCaptureDeviceFaceRect:(struct CGRect)arg1;
-- (void)destroyEffectsGridViews;
+- (void)destroyEffectsGridViewsRemoveFromSuperview:(_Bool)arg1;
 - (void)createEffectsGridViews;
-- (void)destroyEffectsFullsizeView;
+- (void)destroyEffectsFullsizeViewRemoveFromSuperview:(_Bool)arg1;
 - (void)createEffectsFullsizeView;
 - (void)_updateGravityForLayers;
-- (void)setOrientation:(int)arg1 animated:(BOOL)arg2;
+- (void)setOrientation:(long long)arg1 animated:(_Bool)arg2;
 @property(copy, nonatomic) NSString *videoGravity;
-- (void)setSquare:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)setSquare:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

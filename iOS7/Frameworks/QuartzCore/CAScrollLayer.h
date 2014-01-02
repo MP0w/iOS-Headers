@@ -12,7 +12,7 @@
 {
 }
 
-+ (BOOL)CA_automaticallyNotifiesObservers:(Class)arg1;
++ (_Bool)CA_automaticallyNotifiesObservers:(Class)arg1;
 + (id)defaultValueForKey:(id)arg1;
 @property(copy) NSString *scrollMode;
 - (struct CGRect)_visibleRectOfLayer:(id)arg1;

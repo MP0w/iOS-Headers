@@ -14,8 +14,8 @@
 }
 
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)configure:(_Bool)arg1 requirePasscodeForActions:(_Bool)arg2;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (void)dealloc;
 
 @end

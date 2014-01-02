@@ -13,14 +13,14 @@
 @interface SSKeybagRequest : SSRequest <SSXPCCoding>
 {
     NSNumber *_accountID;
-    int _options;
+    long long _options;
 }
 
 @property(readonly) NSNumber *accountID; // @synthesize accountID=_accountID;
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)copyXPCEncoding;
 - (void)startWithCompletionBlock:(id)arg1;
-@property int keybagOptions; // @synthesize keybagOptions=_options;
+@property long long keybagOptions; // @synthesize keybagOptions=_options;
 - (id)accountIdentifier;
 - (void)dealloc;
 - (id)initWithAccountIdentifier:(id)arg1;

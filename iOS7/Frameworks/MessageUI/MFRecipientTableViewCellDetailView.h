@@ -8,34 +8,33 @@
 
 #import "MFTinting-Protocol.h"
 
-@class NSArray, UIColor, UILabel;
+@class UIColor, UILabel;
 
 @interface MFRecipientTableViewCellDetailView : UIView <MFTinting>
 {
     UIColor *_tintColor;
-    BOOL _labelIsHidden;
-    NSArray *_withLabelLayoutConstraints;
-    NSArray *_sansLabelLayoutConstraints;
-    BOOL _shouldDim;
-    BOOL _highlighted;
+    _Bool _labelIsHidden;
+    _Bool _shouldDim;
+    _Bool _highlighted;
     UILabel *_labelLabel;
     UILabel *_detailLabel;
 }
 
-+ (float)lineHeight;
++ (double)lineHeight;
++ (id)labelStringAttributes;
 + (id)groupStringAttributes;
++ (id)highlightedStringAttributes;
 + (id)defaultStringAttributes;
-@property(nonatomic) BOOL highlighted; // @synthesize highlighted=_highlighted;
+@property(nonatomic) _Bool highlighted; // @synthesize highlighted=_highlighted;
 @property(readonly, nonatomic) UILabel *detailLabel; // @synthesize detailLabel=_detailLabel;
 @property(readonly, nonatomic) UILabel *labelLabel; // @synthesize labelLabel=_labelLabel;
-@property(nonatomic) BOOL shouldDim; // @synthesize shouldDim=_shouldDim;
+@property(nonatomic) _Bool shouldDim; // @synthesize shouldDim=_shouldDim;
 - (void)setBackgroundColor:(id)arg1;
-- (void)setTintColor:(id)arg1 animated:(BOOL)arg2;
+- (void)setTintColor:(id)arg1 animated:(_Bool)arg2;
 - (id)tintColor;
 - (void)_recalculateLabelColors;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (id)_layoutConstraintsWithLabelText:(BOOL)arg1;
 - (void)dealloc;
 
 @end

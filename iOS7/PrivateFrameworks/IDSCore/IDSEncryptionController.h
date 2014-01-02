@@ -17,14 +17,14 @@
 }
 
 + (id)sharedInstance;
-- (void)noteRemoteEncryptionErrorForToken:(id)arg1 forURI:(id)arg2 fromURI:(id)arg3 messageData:(id)arg4 type:(int)arg5;
-- (void)noteRemoteDecryptionErrorForToken:(id)arg1 forURI:(id)arg2 fromURI:(id)arg3 messageData:(id)arg4 type:(int)arg5;
-- (void)noteEncryptionErrorForToken:(id)arg1 forURI:(id)arg2 fromURI:(id)arg3 messageData:(id)arg4 type:(int)arg5;
-- (void)noteDecryptionErrorForToken:(id)arg1 forURI:(id)arg2 fromURI:(id)arg3 messageData:(id)arg4 type:(int)arg5;
+- (void)noteRemoteEncryptionErrorForToken:(id)arg1 forURI:(id)arg2 fromURI:(id)arg3 forService:(id)arg4 messageData:(id)arg5 type:(long long)arg6;
+- (void)noteRemoteDecryptionErrorForToken:(id)arg1 forURI:(id)arg2 fromURI:(id)arg3 forService:(id)arg4 messageData:(id)arg5 type:(long long)arg6;
+- (void)noteEncryptionErrorForToken:(id)arg1 forURI:(id)arg2 fromURI:(id)arg3 forService:(id)arg4 messageData:(id)arg5 type:(long long)arg6;
+- (void)noteDecryptionErrorForToken:(id)arg1 forURI:(id)arg2 fromURI:(id)arg3 forService:(id)arg4 messageData:(id)arg5 type:(long long)arg6;
 - (void)performBlock:(id)arg1 waitUntilDone:(void)arg2;
 - (void)performBlock:(id)arg1;
-- (void)decryptMessageData:(id)arg1 myURI:(id)arg2 myIdentity:(id)arg3 fromURI:(id)arg4 token:(id)arg5 type:(int)arg6 completionBlock:(id)arg7;
-- (void)encryptMessageData:(id)arg1 myURI:(id)arg2 myIdentity:(id)arg3 toURI:(id)arg4 toToken:(id)arg5 completionBlock:(id)arg6;
+- (void)decryptMessageData:(id)arg1 myURI:(id)arg2 myIdentity:(id)arg3 fromURI:(id)arg4 token:(id)arg5 service:(id)arg6 type:(long long)arg7 completionBlock:(id)arg8;
+- (void)encryptMessageData:(id)arg1 myURI:(id)arg2 myIdentity:(id)arg3 toURI:(id)arg4 toToken:(id)arg5 service:(id)arg6 completionBlock:(id)arg7;
 - (void)checkThread;
 - (void)dealloc;
 - (id)init;

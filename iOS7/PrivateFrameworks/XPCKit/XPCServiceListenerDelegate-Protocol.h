@@ -10,6 +10,6 @@
 - (void)XPCServiceListener:(id)arg1 didReceiveNewConnection:(id)arg2;
 
 @optional
-- (BOOL)XPCServiceListener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
+- (_Bool)XPCServiceListener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
 @end
 

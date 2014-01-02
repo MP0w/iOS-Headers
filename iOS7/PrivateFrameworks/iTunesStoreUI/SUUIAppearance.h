@@ -17,7 +17,7 @@
     SUControlAppearance *_destructiveButtonAppearance;
     SUControlAppearance *_exitStoreButtonAppearance;
     SUControlAppearance *_forwardButtonAppearance;
-    BOOL _isDefaultAppearance;
+    _Bool _isDefaultAppearance;
     NSMutableDictionary *_navigationBarBackgroundImages;
     NSDictionary *_navigationBarTitleTextAttributes;
     NSMutableDictionary *_navigationButtonAppearance;
@@ -44,24 +44,24 @@
 @property(copy, nonatomic) SUControlAppearance *confirmationButtonAppearance; // @synthesize confirmationButtonAppearance=_confirmationButtonAppearance;
 @property(copy, nonatomic) SUControlAppearance *backButtonAppearance; // @synthesize backButtonAppearance=_backButtonAppearance;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)_copySegmentedControlKeyWithStyle:(int)arg1 tintStyle:(int)arg2;
+- (id)_copySegmentedControlKeyWithStyle:(long long)arg1 tintStyle:(long long)arg2;
 - (void)_styleBackBarButtonItem:(id)arg1;
 - (void)styleToolbar:(id)arg1;
 - (void)styleTabBarItem:(id)arg1;
 - (void)styleTabBar:(id)arg1;
-- (void)styleSegmentedControl:(id)arg1 tintStyle:(int)arg2;
+- (void)styleSegmentedControl:(id)arg1 tintStyle:(long long)arg2;
 - (void)styleNavigationBar:(id)arg1;
 - (void)styleForwardButtonItem:(id)arg1;
 - (void)styleExitStoreButtonItem:(id)arg1;
 - (void)styleDestructiveButton:(id)arg1;
 - (void)styleConfirmationButtonItem:(id)arg1;
 - (void)styleBarButtonItem:(id)arg1;
-- (void)setSegmentedControlAppearance:(id)arg1 forStyle:(int)arg2 tintStyle:(int)arg3;
-- (void)setNavigationButtonAppearance:(id)arg1 forStyle:(int)arg2;
-- (void)setNavigationBarBackgroundImage:(id)arg1 forBarMetrics:(int)arg2;
-- (id)segmentedControlAppearanceForStyle:(int)arg1 tintStyle:(int)arg2;
-- (id)navigationButtonAppearanceForStyle:(int)arg1;
-- (id)navigationBarBackgroundImageForBarMetrics:(int)arg1;
+- (void)setSegmentedControlAppearance:(id)arg1 forStyle:(long long)arg2 tintStyle:(long long)arg3;
+- (void)setNavigationButtonAppearance:(id)arg1 forStyle:(long long)arg2;
+- (void)setNavigationBarBackgroundImage:(id)arg1 forBarMetrics:(long long)arg2;
+- (id)segmentedControlAppearanceForStyle:(long long)arg1 tintStyle:(long long)arg2;
+- (id)navigationButtonAppearanceForStyle:(long long)arg1;
+- (id)navigationBarBackgroundImageForBarMetrics:(long long)arg1;
 - (void)dealloc;
 
 @end

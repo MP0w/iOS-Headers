@@ -13,15 +13,15 @@
     struct CATextLayerPrivate *_state;
 }
 
-+ (BOOL)CA_automaticallyNotifiesObservers:(Class)arg1;
-+ (BOOL)needsDisplayForKey:(id)arg1;
++ (_Bool)CA_automaticallyNotifiesObservers:(Class)arg1;
++ (_Bool)needsDisplayForKey:(id)arg1;
 + (id)defaultValueForKey:(id)arg1;
 @property(copy) NSString *alignmentMode;
 @property(copy) NSString *truncationMode;
-@property(getter=isWrapped) BOOL wrapped;
+@property(getter=isWrapped) _Bool wrapped;
 @property struct CGColor *foregroundColor;
 @property void *font;
-@property float fontSize;
+@property double fontSize;
 @property(copy) id string;
 - (void)_prepareContext:(struct CGContext *)arg1;
 - (void)drawInContext:(struct CGContext *)arg1;
@@ -36,9 +36,6 @@
 - (id)initWithLayer:(id)arg1;
 - (id)init;
 - (id)implicitAnimationForKeyPath:(id)arg1;
-@property BOOL allowsFontSubpixelQuantization;
-@property(copy) id truncationString;
-- (BOOL)wrapped;
 
 @end
 

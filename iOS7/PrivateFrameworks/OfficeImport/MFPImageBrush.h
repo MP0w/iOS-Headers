@@ -8,6 +8,7 @@
 
 @class TSUColor, TSUImage;
 
+// Not exported
 @interface MFPImageBrush : MFPBrush
 {
     TSUImage *mPhoneImage;

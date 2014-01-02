@@ -8,24 +8,26 @@
 
 @class NSArray, NSError, NSObject<OS_dispatch_queue>, NSString, _UIAsyncInvocation, _UIRemoteViewControllerConnectionInfo;
 
+// Not exported
 @interface _UIRemoteViewControllerConnectionRequest : NSObject
 {
-    BOOL _useXPCObjects;
+    _Bool _useXPCObjects;
     id _handler;
     NSString *_viewServiceBundleIdentifier;
     NSString *_viewControllerClassName;
     NSArray *_serializedAppearanceCustomizations;
+    _Bool _legacyAppearance;
     id _exportedHostingObject;
     id <_UIViewServiceDeputyXPCInterface> _serviceViewControllerDeputyInterface;
     _UIAsyncInvocation *_cancelInvocationForCurrentOperation;
     _UIRemoteViewControllerConnectionInfo *_connectionInfo;
     NSObject<OS_dispatch_queue> *_queue;
-    BOOL _isCancelledOrComplete;
+    _Bool _isCancelledOrComplete;
     NSError *_error;
     _UIAsyncInvocation *_requestCancellationInvocation;
 }
 
-+ (id)requestViewController:(id)arg1 fromServiceWithBundleIdentifier:(id)arg2 serializedAppearanceCustomizations:(id)arg3 useXPCObjects:(BOOL)arg4 exportedHostingObject:(id)arg5 serviceViewControllerDeputyInterface:(id)arg6 connectionHandler:(id)arg7;
++ (id)requestViewController:(id)arg1 fromServiceWithBundleIdentifier:(id)arg2 serializedAppearanceCustomizations:(id)arg3 legacyAppearance:(_Bool)arg4 useXPCObjects:(_Bool)arg5 exportedHostingObject:(id)arg6 serviceViewControllerDeputyInterface:(id)arg7 connectionHandler:(id)arg8;
 - (id)_cancelWithError:(id)arg1;
 - (void)_didFinishEstablishingConnection;
 - (void)_connectToViewControllerControlMessageDeputy;

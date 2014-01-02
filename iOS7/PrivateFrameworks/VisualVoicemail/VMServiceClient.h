@@ -27,7 +27,7 @@
 - (void)removeObserver:(id)arg1 name:(id)arg2 object:(id)arg3;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1 selector:(SEL)arg2 name:(id)arg3 object:(id)arg4;
-- (BOOL)sharedServiceIsSubscribed;
+- (_Bool)sharedServiceIsSubscribed;
 - (id)sharedAccount;
 - (void)dealloc;
 - (id)init;

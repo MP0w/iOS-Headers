@@ -8,14 +8,15 @@
 
 @class AVCaptureDeviceInput, AVCaptureSession, AVCaptureVideoDataOutput, AVCaptureVideoPreviewLayer, NSString;
 
+// Not exported
 @interface CaptureSessionManager : NSObject
 {
-    int _cameraPosition;
+    long long _cameraPosition;
     NSString *_cameraMode;
-    int _whiteBalanceMode;
-    int _focusMode;
-    int _exposureMode;
-    int _torchMode;
+    long long _whiteBalanceMode;
+    long long _focusMode;
+    long long _exposureMode;
+    long long _torchMode;
     id <AVCaptureVideoDataOutputSampleBufferDelegate> _captureSessionDelegate;
     AVCaptureSession *_captureSession;
     AVCaptureVideoPreviewLayer *_previewLayer;
@@ -30,29 +31,29 @@
 @property(retain, nonatomic) AVCaptureVideoPreviewLayer *previewLayer; // @synthesize previewLayer=_previewLayer;
 @property(retain, nonatomic) AVCaptureSession *captureSession; // @synthesize captureSession=_captureSession;
 @property(nonatomic) __weak id <AVCaptureVideoDataOutputSampleBufferDelegate> captureSessionDelegate; // @synthesize captureSessionDelegate=_captureSessionDelegate;
-@property(nonatomic) int torchMode; // @synthesize torchMode=_torchMode;
-@property(nonatomic) int exposureMode; // @synthesize exposureMode=_exposureMode;
-@property(nonatomic) int focusMode; // @synthesize focusMode=_focusMode;
-@property(nonatomic) int whiteBalanceMode; // @synthesize whiteBalanceMode=_whiteBalanceMode;
+@property(nonatomic) long long torchMode; // @synthesize torchMode=_torchMode;
+@property(nonatomic) long long exposureMode; // @synthesize exposureMode=_exposureMode;
+@property(nonatomic) long long focusMode; // @synthesize focusMode=_focusMode;
+@property(nonatomic) long long whiteBalanceMode; // @synthesize whiteBalanceMode=_whiteBalanceMode;
 @property(copy, nonatomic) NSString *cameraMode; // @synthesize cameraMode=_cameraMode;
-@property(nonatomic) int cameraPosition; // @synthesize cameraPosition=_cameraPosition;
+@property(nonatomic) long long cameraPosition; // @synthesize cameraPosition=_cameraPosition;
 - (void).cxx_destruct;
 - (struct CGPoint)convertCameraPoint:(struct CGPoint)arg1 toLayer:(id)arg2;
 - (struct CGPoint)convertCameraPoint:(struct CGPoint)arg1 fromLayer:(id)arg2;
-- (void)setPreviewOrientation:(int)arg1;
+- (void)setPreviewOrientation:(long long)arg1;
 - (void)resetFocus;
 - (void)refocusOnPoint:(struct CGPoint)arg1;
-- (void)_refocusOnPoint:(struct CGPoint)arg1 focusMode:(int)arg2;
-- (BOOL)toggleCamera;
-- (id)captureDeviceWithPosition:(int)arg1;
+- (void)_refocusOnPoint:(struct CGPoint)arg1 focusMode:(long long)arg2;
+- (_Bool)toggleCamera;
+- (id)captureDeviceWithPosition:(long long)arg1;
 - (id)backFacingCamera;
 - (id)frontFacingCamera;
-- (unsigned int)cameraCount;
-- (BOOL)isRearCamera;
+- (unsigned long long)cameraCount;
+- (_Bool)isRearCamera;
 - (void)changeCameraConfiguration;
 - (void)teardownCameraSession;
 - (void)setupCameraSession;
-- (BOOL)isRunning;
+- (_Bool)isRunning;
 - (void)startRunning;
 - (void)stopRunning;
 

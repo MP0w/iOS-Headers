@@ -10,7 +10,7 @@
 - (void)viewDidMoveToHostWindow;
 - (void)viewWillMoveToHostWindow:(id)arg1;
 - (void)layout;
-- (void)setNeedsLayout:(BOOL)arg1;
+- (void)setNeedsLayout:(_Bool)arg1;
 - (void)dataSourceUpdated:(id)arg1;
 - (void)setDataSource:(id)arg1;
 @end

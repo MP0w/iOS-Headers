@@ -8,6 +8,7 @@
 
 #import <OfficeImport/CHAutoStyling-Protocol.h>
 
+// Not exported
 @interface CHXAutoStyling : CHAutoStyling <CHAutoStyling>
 {
 }
@@ -18,12 +19,12 @@
 + (id)colorWithSchemeColorId:(int)arg1 shade:(float)arg2;
 + (id)colorWithSchemeColorId:(int)arg1 tint:(float)arg2;
 + (id)colorWithSchemeColorId:(int)arg1 transformType:(int)arg2 transformValue:(float)arg3;
-- (void)resolveMarker:(id)arg1 withSeriesGraphicProperties:(id)arg2 forSeriesIndex:(unsigned int)arg3;
-- (void)resolveGraphicPropertiesOfErrorBar:(id)arg1 forSeriesIndex:(unsigned int)arg2 colorMap:(id)arg3 colorScheme:(id)arg4;
-- (void)resolveGraphicPropertiesOfTrendline:(id)arg1 forSeriesIndex:(unsigned int)arg2;
-- (void)resolveGraphicPropertiesOfSeries:(id)arg1 forSeriesIndex:(unsigned int)arg2 isLine:(_Bool)arg3 colorMap:(id)arg4 colorScheme:(id)arg5;
-- (void)resolveGraphicPropertiesOfSeries:(id)arg1 forSeriesIndex:(unsigned int)arg2 colorMap:(id)arg3 colorScheme:(id)arg4;
-- (id)autoStrokeForSeriesIndex:(unsigned int)arg1;
+- (void)resolveMarker:(id)arg1 withSeriesGraphicProperties:(id)arg2 forSeriesIndex:(unsigned long long)arg3;
+- (void)resolveGraphicPropertiesOfErrorBar:(id)arg1 forSeriesIndex:(unsigned long long)arg2 colorMap:(id)arg3 colorScheme:(id)arg4;
+- (void)resolveGraphicPropertiesOfTrendline:(id)arg1 forSeriesIndex:(unsigned long long)arg2;
+- (void)resolveGraphicPropertiesOfSeries:(id)arg1 forSeriesIndex:(unsigned long long)arg2 isLine:(_Bool)arg3 colorMap:(id)arg4 colorScheme:(id)arg5;
+- (void)resolveGraphicPropertiesOfSeries:(id)arg1 forSeriesIndex:(unsigned long long)arg2 colorMap:(id)arg3 colorScheme:(id)arg4;
+- (id)autoStrokeForSeriesIndex:(unsigned long long)arg1;
 - (id)autoAxisStroke;
 - (void)resolveLegendGraphicProperties:(id)arg1;
 - (void)resolveMinorGridLinesGraphicProperties:(id)arg1;
@@ -33,8 +34,8 @@
 - (void)resolveFloorGraphicProperties:(id)arg1;
 - (void)resolveWallGraphicProperties:(id)arg1;
 - (void)resolveChartAreaGraphicProperties:(id)arg1;
-- (id)autoColorOfSeriesWithIndex:(unsigned int)arg1 colorMap:(id)arg2 colorScheme:(id)arg3;
-- (id)autoColorOfFirstColumnSeriesWithIndex:(unsigned int)arg1 seriesCount:(unsigned int)arg2;
+- (id)autoColorOfSeriesWithIndex:(unsigned long long)arg1 colorMap:(id)arg2 colorScheme:(id)arg3;
+- (id)autoColorOfFirstColumnSeriesWithIndex:(unsigned long long)arg1 seriesCount:(unsigned long long)arg2;
 - (void)setDefaultErrorBarPropertiesInGraphicProperties:(id)arg1;
 - (id)autoChartAreaColor;
 - (id)autoPlotAreaColor;

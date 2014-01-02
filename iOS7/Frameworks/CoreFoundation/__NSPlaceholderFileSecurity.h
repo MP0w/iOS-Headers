@@ -9,6 +9,7 @@
 #import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
 
+// Not exported
 @interface __NSPlaceholderFileSecurity : NSFileSecurity <NSCopying, NSCoding>
 {
 }
@@ -19,7 +20,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)dealloc;
-- (unsigned int)retainCount;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;
 - (id)init;

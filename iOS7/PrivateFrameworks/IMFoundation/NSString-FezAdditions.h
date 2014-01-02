@@ -9,9 +9,11 @@
 @interface NSString (FezAdditions)
 + (id)generatedRoomNameForGroupChat;
 + (id)randomString;
++ (id)copyStringGUIDForObject:(id)arg1;
 + (id)stringGUIDForObject:(id)arg1;
 + (id)stringGUID;
-- (BOOL)roomNameIsProbablyAutomaticallyGenerated;
++ (id)copyStringGUID;
+- (_Bool)roomNameIsProbablyAutomaticallyGenerated;
 - (id)stringByRemovingCharactersFromSet:(id)arg1;
 - (id)stringWithLTREmbedding;
 - (id)pathStringForDisplay;
@@ -21,13 +23,13 @@
 - (id)stringByRemovingWhitespace;
 - (struct _NSRange)__rangeOfNewlineInRange:(struct _NSRange)arg1;
 - (id)stringByResolvingAndStandardizingPath;
-- (BOOL)_appearsToBeDSID;
-- (BOOL)_appearsToBePhoneNumber;
-- (BOOL)_appearsToBeEmail;
-- (id)_IDFromFZIDType:(int)arg1;
-- (id)_URIFromFZIDType:(int)arg1;
-- (id)_URIFromCanonicalizedFZIDType:(int)arg1;
-- (int)_FZBestGuessFZIDType;
+- (_Bool)_appearsToBeDSID;
+- (_Bool)_appearsToBePhoneNumber;
+- (_Bool)_appearsToBeEmail;
+- (id)_IDFromFZIDType:(long long)arg1;
+- (id)_URIFromFZIDType:(long long)arg1;
+- (id)_URIFromCanonicalizedFZIDType:(long long)arg1;
+- (long long)_FZBestGuessFZIDType;
 - (id)_bestGuessURIFromCanicalizedID;
 - (id)_URIFromCanonicalizedDSID;
 - (id)_URIFromCanonicalizedPhoneNumber;
@@ -36,7 +38,7 @@
 - (id)_URIFromDSID;
 - (id)_URIFromPhoneNumber;
 - (id)_URIFromEmail;
-- (int)_FZIDType;
+- (long long)_FZIDType;
 - (id)_FZIDFromPhoneNumber;
 - (id)_FZIDFromEmail;
 - (id)_stripFZIDPrefix;
@@ -44,10 +46,10 @@
 - (id)stringByAddingURLEscapes;
 - (id)stringByRemovingURLEscapes;
 - (id)trimmedString;
-- (int)localizedCompareToString:(id)arg1;
+- (long long)localizedCompareToString:(id)arg1;
 - (unsigned int)unsignedIntValue;
 - (unsigned int)hexValue;
-- (BOOL)isDirectory;
-- (BOOL)isEqualToIgnoringCase:(id)arg1;
+- (_Bool)isDirectory;
+- (_Bool)isEqualToIgnoringCase:(id)arg1;
 @end
 

@@ -8,6 +8,7 @@
 
 @class VGLMesh;
 
+// Not exported
 @interface VKMeshAnnotationMarker : VKAnnotationMarker
 {
     VGLMesh *_mesh;

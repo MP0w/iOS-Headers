@@ -8,6 +8,7 @@
 
 @class UIImageView;
 
+// Not exported
 @interface UITextFieldRoundedRectBackgroundView : UITextFieldBackgroundView
 {
     UIImageView *_leftCap;

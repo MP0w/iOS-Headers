@@ -8,6 +8,7 @@
 
 @class NSMutableDictionary, NSString, OADColorMap, OADColorScheme;
 
+// Not exported
 @interface CMState : NSObject
 {
     NSMutableDictionary *components;
@@ -17,19 +18,19 @@
     OADColorScheme *mColorScheme;
     id mResources;
     int mSrcFormat;
-    BOOL mIsThumbnail;
-    BOOL mIsOnPhone;
-    int _textLevel;
+    _Bool mIsThumbnail;
+    _Bool mIsOnPhone;
+    long long _textLevel;
 }
 
-- (int)textLevel;
+- (long long)textLevel;
 - (void)popTextLevel;
 - (void)pushTextLevel;
-- (BOOL)isOnPhone;
-- (void)setIsOnPhone:(BOOL)arg1;
-- (BOOL)isThumbnail;
-- (void)setIsThumbnail:(BOOL)arg1;
-- (BOOL)isOffice12;
+- (_Bool)isOnPhone;
+- (void)setIsOnPhone:(_Bool)arg1;
+- (_Bool)isThumbnail;
+- (void)setIsThumbnail:(_Bool)arg1;
+- (_Bool)isOffice12;
 - (void)copyFromCMStateWithoutComponents:(id)arg1;
 - (void)setResources:(id)arg1;
 - (id)resources;

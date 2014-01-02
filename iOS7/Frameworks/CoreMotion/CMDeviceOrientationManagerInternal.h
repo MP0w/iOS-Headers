@@ -15,7 +15,7 @@
     id fDeviceOrientationHandler;
     NSOperationQueue *fDeviceOrientationQueue;
     NSObject<OS_dispatch_semaphore> *fDeviceOrientationSemaphore;
-    BOOL fDidSignalSemaphore;
+    _Bool fDidSignalSemaphore;
     int fOrientationCallbackMode;
     struct Sample {
         double timestamp;

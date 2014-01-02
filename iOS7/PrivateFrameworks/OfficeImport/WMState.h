@@ -8,6 +8,7 @@
 
 @class CMOutlineState, NSMutableDictionary, WDText;
 
+// Not exported
 @interface WMState : CMState
 {
     CMOutlineState *currentListState;
@@ -21,21 +22,21 @@
     float mTopMargin;
     float mLeftMargin;
     float mPageHeight;
-    BOOL mIsFrame;
-    BOOL mIsFrameStart;
-    BOOL mIsFrameEnd;
-    BOOL mIsHeaderOrFooter;
+    _Bool mIsFrame;
+    _Bool mIsFrameStart;
+    _Bool mIsFrameEnd;
+    _Bool mIsHeaderOrFooter;
     float mTotalPageHeight;
 }
 
-- (BOOL)isHeaderOrFooter;
-- (void)setIsHeaderOrFooter:(BOOL)arg1;
-- (BOOL)isFrameEnd;
-- (void)setIsFrameEnd:(BOOL)arg1;
-- (BOOL)isFrameStart;
-- (void)setIsFrameStart:(BOOL)arg1;
-- (BOOL)isFrame;
-- (void)setIsFrame:(BOOL)arg1;
+- (_Bool)isHeaderOrFooter;
+- (void)setIsHeaderOrFooter:(_Bool)arg1;
+- (_Bool)isFrameEnd;
+- (void)setIsFrameEnd:(_Bool)arg1;
+- (_Bool)isFrameStart;
+- (void)setIsFrameStart:(_Bool)arg1;
+- (_Bool)isFrame;
+- (void)setIsFrame:(_Bool)arg1;
 - (id)lastFooter;
 - (void)setLastFooter:(id)arg1;
 - (id)lastHeader;
@@ -58,8 +59,8 @@
 - (void)setListState:(id)arg1 forListId:(int)arg2;
 - (id)listStateForListId:(int)arg1;
 - (void)clearCurrentListState;
-- (BOOL)isCurrentListId:(int)arg1;
-- (BOOL)isCurrentListStateOverridden;
+- (_Bool)isCurrentListId:(int)arg1;
+- (_Bool)isCurrentListStateOverridden;
 - (void)setCurrentListState:(id)arg1;
 - (id)outlineState;
 - (id)currentListState;

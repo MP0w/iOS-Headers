@@ -8,18 +8,19 @@
 
 @class NSATSTypesetter;
 
+// Not exported
 @interface NSATSLineFragment : NSObject
 {
     void *_line;
     NSATSTypesetter *_typesetter;
     struct _NSRange _glyphRange;
     struct _NSRange _characterRange;
-    float _minPosition;
-    float _maxPosition;
-    long _elasticCharIndex;
-    float _elasticRangeWidth;
+    double _minPosition;
+    double _maxPosition;
+    long long _elasticCharIndex;
+    double _elasticRangeWidth;
     unsigned int _hyphenGlyph;
-    float _hyphenGlyphWidth;
+    double _hyphenGlyphWidth;
     struct {
         unsigned int _directionState:2;
         unsigned int _drawsOutside:1;
@@ -28,21 +29,21 @@
     } _flags;
 }
 
-- (BOOL)hasElasticRange;
-- (void)justifyWithFactor:(float)arg1;
-- (void)saveWithGlyphOrigin:(float)arg1;
+- (_Bool)hasElasticRange;
+- (void)justifyWithFactor:(double)arg1;
+- (void)saveWithGlyphOrigin:(double)arg1;
 - (void)saveMorphedGlyphs:(struct _NSRange *)arg1;
-- (void)getTypographicLineHeight:(float *)arg1 baselineOffset:(float *)arg2 leading:(float *)arg3;
-- (float)lineWidthForType:(int)arg1;
+- (void)getTypographicLineHeight:(double *)arg1 baselineOffset:(double *)arg2 leading:(double *)arg3;
+- (double)lineWidthForType:(int)arg1;
 - (struct _NSRange)characterRange;
 - (struct _NSRange)glyphRange;
-- (void)layoutForStartingGlyphAtIndex:(unsigned int)arg1 characterIndex:(unsigned int)arg2 minPosition:(float)arg3 maxPosition:(float)arg4 lineFragmentRect:(struct CGRect)arg5;
-- (int)resolvedLineBreakMode:(BOOL)arg1;
+- (void)layoutForStartingGlyphAtIndex:(unsigned long long)arg1 characterIndex:(unsigned long long)arg2 minPosition:(double)arg3 maxPosition:(double)arg4 lineFragmentRect:(struct CGRect)arg5;
+- (long long)resolvedLineBreakMode:(_Bool)arg1;
 - (id)initWithTypesetter:(id)arg1;
 - (void)finalize;
 - (void)dealloc;
-- (long)_charIndexToBreakLineByWordWrappingAtIndex:(long)arg1 lineFragmentWidth:(float)arg2 hyphenate:(char *)arg3;
-- (id)_copyRenderingContextWithGlyphOrigin:(float)arg1;
+- (long long)_charIndexToBreakLineByWordWrappingAtIndex:(long long)arg1 lineFragmentWidth:(double)arg2 hyphenate:(_Bool *)arg3;
+- (id)_copyRenderingContextWithGlyphOrigin:(double)arg1;
 - (void)_invalidate;
 - (void)_flushCachedObjects;
 

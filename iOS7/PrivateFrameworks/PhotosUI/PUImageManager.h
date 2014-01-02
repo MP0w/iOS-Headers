@@ -16,17 +16,17 @@
 }
 
 - (void).cxx_destruct;
-- (BOOL)_isSuspendingFetchesForFormat:(int)arg1;
-- (id)_preheatItemForAsset:(id)arg1 format:(int)arg2 createIfNeeded:(BOOL)arg3;
-- (id)_preheatItemsByAssetForFormat:(int)arg1 createIfNeeded:(BOOL)arg2;
+- (_Bool)_isSuspendingFetchesForFormat:(int)arg1;
+- (id)_preheatItemForAsset:(id)arg1 format:(int)arg2 options:(unsigned int)arg3 createIfNeeded:(_Bool)arg4;
+- (id)_preheatItemsByAssetForFormat:(int)arg1 createIfNeeded:(_Bool)arg2;
 - (id)_preheatSourceForFormat:(int)arg1;
 - (id)_keyForFormat:(int)arg1;
 - (void)resumeFetchesForFormat:(int)arg1;
 - (void)suspendFetchesForFormat:(int)arg1;
 - (void)cancelAllFetches;
 - (void)stopFetchingImagesForAssets:(id)arg1 format:(int)arg2;
-- (void)startPrefetchingImagesForAssets:(id)arg1 format:(int)arg2;
-- (void)fetchImageForAsset:(id)arg1 fastFormat:(int)arg2 qualityFormat:(int)arg3 handler:(id)arg4;
+- (void)startPrefetchingImagesForAssets:(id)arg1 format:(int)arg2 options:(unsigned int)arg3;
+- (void)fetchImageForAsset:(id)arg1 fastFormat:(int)arg2 qualityFormat:(int)arg3 options:(unsigned int)arg4 handler:(id)arg5;
 - (id)init;
 
 @end

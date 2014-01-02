@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface WebAccessibilityObjectWrapperBase : NSObject
 {
     struct AccessibilityObject {
@@ -20,19 +21,23 @@
     } *m_object;
 }
 
-+ (void)accessibilitySetShouldRepostNotifications:(BOOL)arg1;
++ (void)accessibilitySetShouldRepostNotifications:(_Bool)arg1;
 - (void)accessibilityPostedNotification:(id)arg1;
+- (id)accessibilityMathPrescriptPairs;
+- (id)accessibilityMathPostscriptPairs;
+- (id)accessibilityPlatformMathSuperscriptKey;
+- (id)accessibilityPlatformMathSubscriptKey;
 - (id)ariaLandmarkRoleDescription;
 - (struct CGPoint)convertPointToScreenSpace:(struct FloatPoint *)arg1;
 - (struct CGPath *)convertPathToScreenSpace:(struct Path *)arg1;
 - (id)accessibilityHelpText;
 - (id)accessibilityDescription;
 - (id)accessibilityTitle;
-- (BOOL)fileUploadButtonReturnsValueInTitle;
-- (BOOL)titleTagShouldBeUsedInDescriptionField;
+- (_Bool)fileUploadButtonReturnsValueInTitle;
+- (_Bool)titleTagShouldBeUsedInDescriptionField;
 - (AccessibilityObject_acca7b3e *)accessibilityObject;
 - (id)attachmentView;
-- (BOOL)updateObjectBackingStore;
+- (_Bool)updateObjectBackingStore;
 - (void)detach;
 - (id)initWithAccessibilityObject:(AccessibilityObject_acca7b3e *)arg1;
 

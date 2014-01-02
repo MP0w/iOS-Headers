@@ -12,14 +12,14 @@
 {
 }
 
-+ (BOOL)CA_automaticallyNotifiesObservers:(Class)arg1;
-+ (BOOL)_hasRenderLayerSubclass;
++ (_Bool)CA_automaticallyNotifiesObservers:(Class)arg1;
++ (_Bool)_hasRenderLayerSubclass;
 + (id)defaultValueForKey:(id)arg1;
 @property struct CGColor *foregroundColor;
-@property float sharpness;
-@property float offset;
-@property float lineWidth;
-@property BOOL invertsShape;
+@property double sharpness;
+@property double offset;
+@property double lineWidth;
+@property _Bool invertsShape;
 @property(copy) NSString *renderMode;
 - (unsigned int)_renderLayerPropertyAnimationFlags:(unsigned int)arg1;
 - (_Bool)_renderLayerDefinesProperty:(unsigned int)arg1;

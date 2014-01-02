@@ -7,8 +7,8 @@
 #import "NSNumber.h"
 
 @interface NSNumber (TSUAdditions)
-+ (id)numberWithCGFloat:(float)arg1;
++ (id)numberWithCGFloat:(double)arg1;
 + (id)numberWithFloatZero;
-- (float)CGFloatValue;
+- (double)CGFloatValue;
 @end
 

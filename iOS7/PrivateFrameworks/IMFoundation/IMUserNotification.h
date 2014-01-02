@@ -14,21 +14,21 @@
 }
 
 + (id)userNotificationWithIdentifier:(id)arg1 title:(id)arg2 message:(id)arg3 defaultButton:(id)arg4 alternateButton:(id)arg5 otherButton:(id)arg6;
-+ (id)userNotificationWithIdentifier:(id)arg1 timeout:(double)arg2 alertLevel:(unsigned int)arg3 displayFlags:(unsigned int)arg4 displayInformation:(id)arg5;
-- (void)_setResponseFlags:(unsigned int)arg1 responseInformation:(id)arg2;
++ (id)userNotificationWithIdentifier:(id)arg1 timeout:(double)arg2 alertLevel:(unsigned long long)arg3 displayFlags:(unsigned long long)arg4 displayInformation:(id)arg5;
+- (void)_setResponseFlags:(unsigned long long)arg1 responseInformation:(id)arg2;
 @property(readonly, nonatomic) NSDictionary *responseInformation;
-@property(readonly, nonatomic) unsigned int responseFlags;
+@property(readonly, nonatomic) unsigned long long responseFlags;
 @property(retain, nonatomic) NSDictionary *userInfo;
-@property(nonatomic) BOOL usesNotificationCenter;
-@property(nonatomic) BOOL showInLockScreen;
+@property(nonatomic) _Bool usesNotificationCenter;
+@property(nonatomic) _Bool showInLockScreen;
 @property(retain, nonatomic) NSString *representedApplicationBundle;
-@property(readonly, nonatomic) unsigned int response;
+@property(readonly, nonatomic) unsigned long long response;
 @property(readonly, nonatomic) NSDictionary *displayInformation;
-@property(readonly, nonatomic) unsigned int displayFlags;
+@property(readonly, nonatomic) unsigned long long displayFlags;
 @property(readonly, nonatomic) double timeout;
 @property(readonly, nonatomic) id identifier;
 - (void)dealloc;
-- (id)_initWithIdentifier:(id)arg1 timeout:(double)arg2 displayFlags:(unsigned int)arg3 displayInformation:(id)arg4;
+- (id)_initWithIdentifier:(id)arg1 timeout:(double)arg2 displayFlags:(unsigned long long)arg3 displayInformation:(id)arg4;
 
 @end
 

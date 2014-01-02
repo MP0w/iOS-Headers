@@ -10,6 +10,7 @@
 
 @class UIModalView;
 
+// Not exported
 @interface UISystemAlertRequest : NSObject <UIModalViewDelegate>
 {
     int _alertID;

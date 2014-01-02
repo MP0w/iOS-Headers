@@ -6,16 +6,18 @@
 
 #import <UIKit/UIStatusBarNewUIForegroundStyleAttributes.h>
 
+// Not exported
 @interface UIStatusBarLockScreenForegroundStyleAttributes : UIStatusBarNewUIForegroundStyleAttributes
 {
 }
 
 - (struct CGPoint)positionForMoonMaskInBounds:(struct CGRect)arg1;
-- (float)sizeForMoonMaskVisible:(BOOL)arg1;
-- (id)makeTextFontForStyle:(int)arg1;
+- (double)sizeForMoonMaskVisible:(_Bool)arg1;
+- (double)textOffsetForStyle:(long long)arg1;
+- (id)makeTextFontForStyle:(long long)arg1;
 - (struct UIEdgeInsets)edgeInsetsForBluetoothBatteryInsides;
 - (struct UIEdgeInsets)edgeInsetsForBatteryInsides;
-- (int)activityIndicatorStyleWithSyncActivity:(BOOL)arg1;
+- (long long)activityIndicatorStyleWithSyncActivity:(_Bool)arg1;
 - (id)expandedNameForImageName:(id)arg1;
 
 @end

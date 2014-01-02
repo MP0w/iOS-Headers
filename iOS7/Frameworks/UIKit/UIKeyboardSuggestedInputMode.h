@@ -8,12 +8,12 @@
 
 @interface UIKeyboardSuggestedInputMode : UIKeyboardInputMode
 {
-    BOOL enabled;
+    _Bool enabled;
 }
 
-@property(nonatomic) BOOL enabled; // @synthesize enabled;
+@property(nonatomic) _Bool enabled; // @synthesize enabled;
 - (id)description;
-- (id)initWithIdentifier:(id)arg1 enabled:(BOOL)arg2;
+- (id)initWithIdentifier:(id)arg1 enabled:(_Bool)arg2;
 
 @end
 

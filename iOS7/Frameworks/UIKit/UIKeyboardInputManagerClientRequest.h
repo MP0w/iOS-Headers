@@ -8,13 +8,14 @@
 
 @class NSInvocation;
 
+// Not exported
 @interface UIKeyboardInputManagerClientRequest : NSObject
 {
     NSInvocation *_invocation;
-    unsigned int _errorCount;
+    unsigned long long _errorCount;
 }
 
-@property(nonatomic) unsigned int errorCount; // @synthesize errorCount=_errorCount;
+@property(nonatomic) unsigned long long errorCount; // @synthesize errorCount=_errorCount;
 - (id)untargetedInvocationWithInvocation:(id)arg1;
 @property(readonly, nonatomic) NSInvocation *invocation;
 - (id)initWithInvocation:(id)arg1;

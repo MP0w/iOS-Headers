@@ -14,20 +14,20 @@
 @interface MBRestoreInfo : NSObject <NSCoding, NSCopying>
 {
     NSDate *_date;
-    BOOL _wasCloudRestore;
+    _Bool _wasCloudRestore;
     NSString *_deviceBuildVersion;
     NSString *_backupBuildVersion;
 }
 
 @property(readonly) NSString *backupBuildVersion; // @synthesize backupBuildVersion=_backupBuildVersion;
 @property(readonly) NSString *deviceBuildVersion; // @synthesize deviceBuildVersion=_deviceBuildVersion;
-@property(readonly) BOOL wasCloudRestore; // @synthesize wasCloudRestore=_wasCloudRestore;
+@property(readonly) _Bool wasCloudRestore; // @synthesize wasCloudRestore=_wasCloudRestore;
 @property(readonly) NSDate *date; // @synthesize date=_date;
 - (id)description;
 - (id)dictionaryRepresentation;
 - (void)setBackupBuildVersion:(id)arg1;
 - (void)setDeviceBuildVersion:(id)arg1;
-- (void)setWasCloudRestore:(BOOL)arg1;
+- (void)setWasCloudRestore:(_Bool)arg1;
 - (void)setDate:(id)arg1;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;

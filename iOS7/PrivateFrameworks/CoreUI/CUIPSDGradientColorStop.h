@@ -13,16 +13,16 @@
     struct _psdGradientColor gradientColor;
 }
 
-+ (id)colorStopWithLocation:(float)arg1 gradientColor:(struct _psdGradientColor)arg2;
++ (id)colorStopWithLocation:(double)arg1 gradientColor:(struct _psdGradientColor)arg2;
 + (void)initialize;
 - (id)description;
-- (BOOL)isColorStop;
-- (float)colorLocation;
+- (_Bool)isColorStop;
+- (double)colorLocation;
 - (struct _psdGradientColor)gradientColor;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithLocation:(float)arg1 gradientColor:(struct _psdGradientColor)arg2;
+- (id)initWithLocation:(double)arg1 gradientColor:(struct _psdGradientColor)arg2;
 
 @end
 

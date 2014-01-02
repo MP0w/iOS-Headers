@@ -6,27 +6,37 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class GEOLatLng, NSString;
 
-@interface GEOTransitAppLaunchFeedbackCollection : PBCodable
+@interface GEOTransitAppLaunchFeedbackCollection : PBCodable <NSCopying>
 {
     double _timestamp;
     NSString *_bundleIdentifier;
     GEOLatLng *_destination;
     GEOLatLng *_source;
+    struct {
+        unsigned int timestamp:1;
+    } _has;
 }
 
 @property(nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
 @property(retain, nonatomic) GEOLatLng *destination; // @synthesize destination=_destination;
 @property(retain, nonatomic) GEOLatLng *source; // @synthesize source=_source;
 @property(retain, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasTimestamp;
+@property(readonly, nonatomic) _Bool hasDestination;
+@property(readonly, nonatomic) _Bool hasSource;
+@property(readonly, nonatomic) _Bool hasBundleIdentifier;
 - (void)dealloc;
 
 @end

@@ -11,9 +11,9 @@
     void *_msCameraProperties;
 }
 
-- (BOOL)eject;
+- (_Bool)eject;
 - (void)enumerateContent;
-- (unsigned int)itemsInFolder:(char *)arg1;
+- (unsigned long long)itemsInFolder:(char *)arg1;
 - (void)finalize;
 - (void)dealloc;
 - (id)initWithVolumePath:(id)arg1 mediaPaths:(id)arg2;

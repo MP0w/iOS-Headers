@@ -16,7 +16,7 @@
 
 + (id)domainObjectUpdateWithDictionary:(id)arg1 context:(id)arg2;
 + (id)domainObjectUpdate;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(retain, nonatomic) SADomainObject *setFields;
 @property(retain, nonatomic) SADomainObject *removeFields;
 @property(retain, nonatomic) SADomainObject *identifier;

@@ -9,7 +9,7 @@
 @class SUStorePageProtocol;
 
 @interface UIViewController (SUStorePageChildViewController)
-- (BOOL)viewIsReady;
+- (_Bool)viewIsReady;
 - (void)storePageProtocolDidChange;
 @property(retain, nonatomic) SUStorePageProtocol *storePageProtocol;
 - (void)storePageCleanupBeforeTearDown;

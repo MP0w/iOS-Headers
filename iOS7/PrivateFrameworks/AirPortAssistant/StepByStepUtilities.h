@@ -13,9 +13,9 @@
 + (id)productIDForNetworkOrDevice:(id)arg1;
 + (id)nameForNetworkOrDevice:(id)arg1;
 + (void)formatRecommendation:(id)arg1 fromParamDict:(id)arg2 forStep:(int)arg3 restoreString:(id *)arg4 restoreSpecificString:(id *)arg5 dontRecommendString:(id *)arg6;
-+ (int)autoGuessRecommendationToMatrixTag:(id)arg1;
-+ (int)matrixTagToSelectorChoice:(int)arg1;
-+ (int)selectorChoiceToMatrixTag:(int)arg1;
++ (long long)autoGuessRecommendationToMatrixTag:(id)arg1;
++ (int)matrixTagToSelectorChoice:(long long)arg1;
++ (long long)selectorChoiceToMatrixTag:(int)arg1;
 + (id)selectorChoiceToReplaceOption:(int)arg1;
 + (id)findSourceConfigByName:(id)arg1 fromParamDict:(id)arg2;
 + (id)findSourceNetworkByName:(id)arg1 fromParamDict:(id)arg2;

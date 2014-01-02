@@ -6,6 +6,7 @@
 
 #import <OfficeImport/ODDLayoutObject.h>
 
+// Not exported
 @interface ODDAlgorithm : ODDLayoutObject
 {
     int mType;

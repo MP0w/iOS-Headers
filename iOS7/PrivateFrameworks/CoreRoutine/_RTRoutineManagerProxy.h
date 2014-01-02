@@ -10,6 +10,7 @@
 
 @class RTRoutineManager;
 
+// Not exported
 @interface _RTRoutineManagerProxy : NSObject <RTFrameworkProtocol>
 {
     RTRoutineManager *_routineManager;
@@ -17,7 +18,6 @@
 
 @property(nonatomic) __weak RTRoutineManager *routineManager; // @synthesize routineManager=_routineManager;
 - (void).cxx_destruct;
-- (void)dealloc;
 - (id)initWithRoutineManager:(id)arg1;
 
 @end

@@ -8,7 +8,7 @@
 
 #import "PLManagedObjectContextPTPNotificationDelegate-Protocol.h"
 
-@class NSArray, NSFileManager, NSMutableArray, NSObject<PhotoLibraryPTPDelegate>, NSString, PLManagedObjectContext, PLPhotoLibrary;
+@class NSArray, NSFileManager, NSMutableArray, NSObject<PhotoLibraryPTPDelegate>, NSString, PLPhotoLibrary;
 
 @interface PLPTPdAssetManager : NSObject <PLManagedObjectContextPTPNotificationDelegate>
 {
@@ -16,11 +16,10 @@
     NSArray *_albumObjectIDs;
     NSString *_firstDCIMFolderServiced;
     NSMutableArray *_inflightAssets;
+    PLPhotoLibrary *_photoLibrary;
     NSFileManager *fileManager;
-    PLPhotoLibrary *photoLibrary;
 }
 
-@property(retain, nonatomic) PLPhotoLibrary *photoLibrary; // @synthesize photoLibrary;
 @property(retain, nonatomic) NSFileManager *fileManager; // @synthesize fileManager;
 - (void)managedObjectContext:(id)arg1 libraryChangedWithInsertedAssets:(id)arg2 deletedAssets:(id)arg3 changedAssets:(id)arg4;
 - (void)deleteAsset:(struct NSObject *)arg1;
@@ -29,24 +28,10 @@
 - (id)associationsInAlbum:(struct NSObject *)arg1;
 - (id)infoForAlbum:(struct NSObject *)arg1;
 - (id)albumHandles;
+@property(readonly, nonatomic) PLPhotoLibrary *photoLibrary;
+- (void)photoLibraryAvailabilityChangedNotification;
 - (void)dealloc;
 - (id)init;
-- (BOOL)libraryIsAvailable;
-- (BOOL)ptpCanDeleteFiles;
-- (id)ptpInformationForPhotosWithPrimaryKeys:(id)arg1;
-- (id)ptpInformationForPhotoWithObjectID:(id)arg1;
-@property(nonatomic) NSObject<PhotoLibraryPTPDelegate> *delegate;
-- (void)setPtpDelegate:(id)arg1;
-- (BOOL)ptpDeletePhotoWithKey:(struct NSObject *)arg1 andExtension:(id)arg2;
-- (id)ptpThumbnailForPhotoWithKey:(struct NSObject *)arg1;
-- (id)ptpInformationForFilesInDirectory:(id)arg1;
-- (id)_ptpInformationForAllAssets;
-- (id)_allAssetObjectIDs;
-- (BOOL)_isPTPAlbum:(id)arg1;
-@property(readonly, nonatomic) NSArray *albumObjectIDs;
-@property(readonly) PLManagedObjectContext *managedObjectContext;
-- (void)_performBlockAndWait:(id)arg1;
-- (void)_performTransactionAndWait:(id)arg1;
 
 @end
 

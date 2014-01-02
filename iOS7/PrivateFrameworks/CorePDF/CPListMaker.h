@@ -24,7 +24,7 @@
 + (void)makeListsInLayoutArea:(id)arg1;
 - (void)makeLists;
 - (void)makeListsInColumn:(id)arg1;
-- (BOOL)makeListFrom:(struct CPListInfo *)arg1;
+- (_Bool)makeListFrom:(struct CPListInfo *)arg1;
 - (void)makeListItemFrom:(struct CPListInfo *)arg1 stopAt:(unsigned int)arg2;
 - (void)fetchTextLinesInColumn:(id)arg1;
 - (void)fetchTextLine:(id)arg1;

@@ -8,8 +8,9 @@
 
 #import "VKTileHeightInformation-Protocol.h"
 
-@class GEOVectorTile, NSArray, VGLMeshVendor, VGLTexture, VKAnimation, VKHeightfield, VKStylesheet;
+@class GEOVectorTile, VGLMeshVendor, VGLTexture, VKAnimation, VKHeightfield, VKStylesheet;
 
+// Not exported
 @interface VKBuildingFootprintMaker : NSObject <VKTileHeightInformation>
 {
     float _maxHeight;
@@ -18,7 +19,7 @@
     VKAnimation *_animateIn;
     float _alpha;
     float _scale;
-    float _contentScale;
+    double _contentScale;
     GEOVectorTile *_geotile;
     VKStylesheet *_stylesheet;
     VKAnimation *_animateBuildingMode;
@@ -32,10 +33,10 @@
     CDStruct_aa5aacbc _shadowTextureMatrix;
     struct vector<VKBuildingHeightMap, vk_allocator<VKBuildingHeightMap>> _landmarkHeights;
     VGLMeshVendor *_landmarksMeshVendor;
-    struct DiscontinuityEdgeInfo _sharedDiscontinuityEdgeInfo;
-    struct DiscontinuityEdgeInfo _regularDiscontinuityEdgeInfo;
-    struct DiscontinuityEdgeInfo _realisticDiscontinuityEdgeInfo;
-    struct unordered_map<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>, std::__1::hash<int>, std::__1::equal_to<int>, vk_allocator<std::__1::pair<const int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>>>> _discontinuityEdgeInfoMap;
+    struct DiscontinuityEdgeInfo *_sharedDiscontinuityEdgeInfo;
+    struct DiscontinuityEdgeInfo *_regularDiscontinuityEdgeInfo;
+    struct DiscontinuityEdgeInfo *_realisticDiscontinuityEdgeInfo;
+    struct unordered_map<long, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>, std::__1::hash<long>, std::__1::equal_to<long>, vk_allocator<std::__1::pair<const long, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>>>> _discontinuityEdgeInfoMap;
     struct BuildingTopMeshFactory *_topMeshFactory;
     VGLMeshVendor *_footprintStrokeMeshVendor;
     float _minLayeringHeight;
@@ -50,26 +51,13 @@
 @property(readonly, nonatomic) float maxHeight; // @synthesize maxHeight=_maxHeight;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (BOOL)heightAtX:(float)arg1 Y:(float)arg2 outZ:(float *)arg3;
-- (void)_makeShadowTextureWithVectorTile:(id)arg1 skipLandmarks:(BOOL)arg2 pointyFootprints:(const unordered_map_2e8bbe9f *)arg3 useHiResFootprints:(BOOL)arg4 landmarks:(const CDStruct_0f5ec4c6 *)arg5 landmarkCount:(unsigned int)arg6;
-- (BOOL)_makeThreeDBuildingsMesh:(const CDStruct_0f5ec4c6 *)arg1 buildingCount:(unsigned int)arg2;
-- (void)_makeMeshesWithLandmarksPresent:(BOOL)arg1 makeFacades:(BOOL)arg2 pointyFootprints:(unordered_map_2e8bbe9f *)arg3 useHiResFootprints:(BOOL)arg4;
+- (_Bool)heightAtX:(float)arg1 Y:(float)arg2 outZ:(float *)arg3;
+- (void)_makeShadowTextureWithVectorTile:(id)arg1 skipLandmarks:(_Bool)arg2 pointyFootprints:(const unordered_map_93d329bc *)arg3 useHiResFootprints:(_Bool)arg4 landmarks:(const CDStruct_9c9be310 *)arg5 landmarkCount:(unsigned long long)arg6;
+- (_Bool)_makeThreeDBuildingsMesh:(const CDStruct_9c9be310 *)arg1 buildingCount:(unsigned long long)arg2;
+- (void)_makeMeshesWithLandmarksPresent:(_Bool)arg1 makeFacades:(_Bool)arg2 pointyFootprints:(unordered_map_93d329bc *)arg3 useHiResFootprints:(_Bool)arg4;
 - (void)_makeFootprintsMesh;
 - (void)dealloc;
-- (id)initWithVectorTile:(id)arg1 stylesheet:(id)arg2 makeFacades:(BOOL)arg3;
-@property(readonly, nonatomic) float maxLayeringHeight;
-@property(readonly, nonatomic) float minLayeringHeight;
-@property(readonly, nonatomic) const CDStruct_aa5aacbc *shadowTextureMatrix;
-@property(readonly, nonatomic) VGLTexture *shadowTexture;
-@property(readonly, nonatomic) NSArray *pointyBuildingsMeshes;
-- (const vector_f457f7ad *)facadeCollectionsWithVectorType:(int)arg1;
-- (void)forEachTopStrokeMesh:(id)arg1 forVectorType:(void)arg2 atLayer:(int)arg3;
-- (void)forEachTopMesh:(id)arg1 forVectorType:(void)arg2 atLayer:(int)arg3;
-- (void)forEachTopMesh:(id)arg1 topStrokeMesh:(void)arg2 forVectorType:(id)arg3;
-@property(readonly, nonatomic) NSArray *footprintsMeshes;
-@property(readonly, nonatomic) NSArray *footprintStrokeMeshes;
-@property(readonly, nonatomic) NSArray *landmarksMeshes;
-- (const vector_9adfa044 *)discontinuityEdgeInfoWithVectorType:(int)arg1;
+- (id)initWithVectorTile:(id)arg1 stylesheet:(id)arg2 makeFacades:(_Bool)arg3;
 
 @end
 

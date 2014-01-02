@@ -22,8 +22,8 @@
 - (id)_dictionaryPlistRepresentation;
 @property(readonly, nonatomic) NSString *textSelector;
 @property(readonly, nonatomic) NSDictionary *textMarkupAttributes;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)finalize;
 - (void)dealloc;

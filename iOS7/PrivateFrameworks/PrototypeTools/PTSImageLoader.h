@@ -11,11 +11,11 @@
 @interface PTSImageLoader : NSObject
 {
     NSString *_path;
-    BOOL _loading;
+    _Bool _loading;
     id <PTSImageLoaderDelegate> _delegate;
 }
 
-@property(getter=isLoading) BOOL loading; // @synthesize loading=_loading;
+@property(getter=isLoading) _Bool loading; // @synthesize loading=_loading;
 @property(nonatomic) __weak id <PTSImageLoaderDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)stopLoading;

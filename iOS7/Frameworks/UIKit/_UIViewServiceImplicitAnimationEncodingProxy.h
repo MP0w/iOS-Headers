@@ -6,6 +6,7 @@
 
 #import <UIKit/_UITargetedProxy.h>
 
+// Not exported
 @interface _UIViewServiceImplicitAnimationEncodingProxy : _UITargetedProxy
 {
     id _controlMessageTarget;

@@ -6,19 +6,19 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSDictionary, NSMutableDictionary;
+@class NSArray, NSMutableDictionary;
 
 @interface IMDAccountController : NSObject
 {
     NSMutableDictionary *_accounts;
     NSMutableDictionary *_activeAccounts;
-    BOOL _isLoading;
-    BOOL _isFirstLoad;
+    _Bool _isLoading;
+    _Bool _isFirstLoad;
 }
 
 + (id)sharedAccountController;
 + (id)sharedInstance;
-@property(readonly, nonatomic) BOOL isLoading; // @synthesize isLoading=_isLoading;
+@property(readonly, nonatomic) _Bool isLoading; // @synthesize isLoading=_isLoading;
 - (void)_checkPowerAssertion;
 - (id)anySessionForServiceName:(id)arg1;
 - (id)sessionForAccount:(id)arg1;
@@ -37,12 +37,12 @@
 - (void)setupAccount:(id)arg1;
 - (void)removeAccount:(id)arg1;
 - (void)addAccount:(id)arg1;
-- (BOOL)isAccountActive:(id)arg1;
-- (BOOL)_isAccountActive:(id)arg1 forService:(id)arg2;
-- (void)deactivateAccount:(id)arg1 force:(BOOL)arg2;
+- (_Bool)isAccountActive:(id)arg1;
+- (_Bool)_isAccountActive:(id)arg1 forService:(id)arg2;
+- (void)deactivateAccount:(id)arg1 force:(_Bool)arg2;
 - (void)deactivateAccounts:(id)arg1;
 - (void)deactivateAccount:(id)arg1;
-- (void)deactivateAccounts:(id)arg1 force:(BOOL)arg2;
+- (void)deactivateAccounts:(id)arg1 force:(_Bool)arg2;
 - (void)activateAccounts:(id)arg1;
 - (void)activateAccount:(id)arg1;
 - (void)save;
@@ -51,8 +51,6 @@
 - (void)_daemonWillShutdown:(id)arg1;
 - (void)dealloc;
 - (id)init;
-@property(readonly, nonatomic) NSDictionary *loadOldStatusStore;
-- (id)_superFormatFromAIML:(id)arg1;
 
 @end
 

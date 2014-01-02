@@ -7,13 +7,13 @@
 #import "MFMessageFileWrapper.h"
 
 @interface MFMessageFileWrapper (WebKitAdditions)
-- (id)preferredFilenameStrippingZipIfNeededUseApplications:(BOOL)arg1;
+- (id)preferredFilenameStrippingZipIfNeededUseApplications:(_Bool)arg1;
 - (float)minimumZoomFontSize;
-- (BOOL)isZip;
-- (BOOL)isRFC822;
-- (BOOL)_pathExtensionEquals:(id)arg1;
-- (BOOL)isMedia;
-- (BOOL)isDisplayableImage;
-- (BOOL)isDisplayableByWebKit;
+- (_Bool)isZip;
+- (_Bool)isRFC822;
+- (_Bool)_pathExtensionEquals:(id)arg1;
+- (_Bool)isMedia;
+- (_Bool)isDisplayableImage;
+- (_Bool)isDisplayableByWebKit;
 @end
 

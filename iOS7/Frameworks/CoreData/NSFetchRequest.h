@@ -14,13 +14,13 @@
 {
     NSArray *_groupByProperties;
     NSPredicate *_havingPredicate;
-    unsigned int _offset;
+    unsigned long long _offset;
     NSArray *_valuesToFetch;
     NSEntityDescription *_entity;
     NSPredicate *_predicate;
     NSArray *_sortDescriptors;
-    unsigned int _batchSize;
-    unsigned long _fetchLimit;
+    unsigned long long _batchSize;
+    unsigned long long _fetchLimit;
     NSArray *_relationshipKeyPathsForPrefetching;
     struct _fetchRequestFlags {
         unsigned int distinctValuesOnly:1;
@@ -39,7 +39,7 @@
 }
 
 + (id)fetchRequestWithEntityName:(id)arg1;
-+ (BOOL)accessInstanceVariablesDirectly;
++ (_Bool)accessInstanceVariablesDirectly;
 + (void)initialize;
 - (void)setHavingPredicate:(id)arg1;
 - (id)havingPredicate;
@@ -49,33 +49,33 @@
 - (id)groupByProperties;
 - (id)entityName;
 - (id)initWithEntityName:(id)arg1;
-- (void)setShouldRefreshRefetchedObjects:(BOOL)arg1;
-- (BOOL)shouldRefreshRefetchedObjects;
+- (void)setShouldRefreshRefetchedObjects:(_Bool)arg1;
+- (_Bool)shouldRefreshRefetchedObjects;
 - (void)setAffectedStores:(id)arg1;
 - (id)affectedStores;
-- (void)setFetchBatchSize:(unsigned int)arg1;
-- (unsigned int)fetchBatchSize;
-- (void)setFetchOffset:(unsigned int)arg1;
-- (unsigned int)fetchOffset;
+- (void)setFetchBatchSize:(unsigned long long)arg1;
+- (unsigned long long)fetchBatchSize;
+- (void)setFetchOffset:(unsigned long long)arg1;
+- (unsigned long long)fetchOffset;
 - (void)setPropertiesToFetch:(id)arg1;
-- (id)_newValidatedProperties:(id)arg1 groupBy:(BOOL)arg2 error:(id *)arg3;
+- (id)_newValidatedProperties:(id)arg1 groupBy:(_Bool)arg2 error:(id *)arg3;
 - (id)propertiesToFetch;
-- (void)setReturnsDistinctResults:(BOOL)arg1;
-- (BOOL)returnsDistinctResults;
-- (void)setIncludesPendingChanges:(BOOL)arg1;
-- (BOOL)includesPendingChanges;
-- (void)setResultType:(unsigned int)arg1;
-- (unsigned int)resultType;
-- (void)setIncludesPropertyValues:(BOOL)arg1;
-- (BOOL)includesPropertyValues;
-- (void)setIncludesSubentities:(BOOL)arg1;
-- (BOOL)includesSubentities;
-- (void)setReturnsObjectsAsFaults:(BOOL)arg1;
-- (BOOL)returnsObjectsAsFaults;
+- (void)setReturnsDistinctResults:(_Bool)arg1;
+- (_Bool)returnsDistinctResults;
+- (void)setIncludesPendingChanges:(_Bool)arg1;
+- (_Bool)includesPendingChanges;
+- (void)setResultType:(unsigned long long)arg1;
+- (unsigned long long)resultType;
+- (void)setIncludesPropertyValues:(_Bool)arg1;
+- (_Bool)includesPropertyValues;
+- (void)setIncludesSubentities:(_Bool)arg1;
+- (_Bool)includesSubentities;
+- (void)setReturnsObjectsAsFaults:(_Bool)arg1;
+- (_Bool)returnsObjectsAsFaults;
 - (void)setRelationshipKeyPathsForPrefetching:(id)arg1;
 - (id)relationshipKeyPathsForPrefetching;
-- (void)setFetchLimit:(unsigned int)arg1;
-- (unsigned int)fetchLimit;
+- (void)setFetchLimit:(unsigned long long)arg1;
+- (unsigned long long)fetchLimit;
 - (void)setSortDescriptors:(id)arg1;
 - (id)sortDescriptors;
 - (void)setPredicate:(id)arg1;
@@ -83,23 +83,13 @@
 - (void)setEntity:(id)arg1;
 - (id)entity;
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (void)dealloc;
 - (id)init;
-- (void)_writeIntoData:(id)arg1 propertiesDict:(id)arg2 uniquedPropertyNames:(id)arg3 uniquedStrings:(id)arg4 uniquedData:(id)arg5 uniquedMappings:(id)arg6 entities:(id)arg7;
-- (BOOL)hasChanges;
-- (id)stores;
-- (unsigned int)requestType;
-- (void)_throwIfNotEditable;
-- (BOOL)_isEditable;
-- (void)_incrementInUseCounter;
-- (void)_resolveEntityWithContext:(id)arg1;
-- (void)_setDisablePersistentStoreResultCaching:(BOOL)arg1;
-- (BOOL)_disablePersistentStoreResultCaching;
 
 @end
 

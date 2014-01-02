@@ -8,6 +8,7 @@
 
 @class NSArray, NSTimer, UITextInteractionAssistant, UITextRangeView, UITextSelection;
 
+// Not exported
 @interface UITextSelectionView : UIView
 {
     UITextInteractionAssistant *m_interactionAssistant;
@@ -15,16 +16,16 @@
     NSTimer *m_caretTimer;
     UIView *m_caretView;
     UITextRangeView *m_rangeView;
-    BOOL m_caretBlinks;
-    BOOL m_caretShowingNow;
-    BOOL m_visible;
-    BOOL m_activated;
-    BOOL m_wasShowingCommands;
-    BOOL m_delayShowingCommands;
-    BOOL m_dictationReplacementsMode;
+    _Bool m_caretBlinks;
+    _Bool m_caretShowingNow;
+    _Bool m_visible;
+    _Bool m_activated;
+    _Bool m_wasShowingCommands;
+    _Bool m_delayShowingCommands;
+    _Bool m_dictationReplacementsMode;
     int m_showingCommandsCounter;
     NSArray *m_replacements;
-    BOOL m_deferSelectionCommands;
+    _Bool m_deferSelectionCommands;
     struct __CFRunLoopObserver *m_observer;
 }
 
@@ -40,7 +41,7 @@
 - (void)scaleWillChange:(id)arg1;
 - (void)doneMagnifying;
 - (void)prepareForMagnification;
-- (void)layoutChangedByScrolling:(BOOL)arg1;
+- (void)layoutChangedByScrolling:(_Bool)arg1;
 - (struct CGRect)selectionBoundingBox;
 @property(readonly, nonatomic) UITextSelection *selection;
 @property(readonly, nonatomic) UITextRangeView *rangeView;
@@ -56,10 +57,10 @@
 - (void)configureForHighlightMode;
 - (void)configureForSelectionMode;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
-@property(readonly, nonatomic) BOOL selectionCommandsShowing;
+@property(readonly, nonatomic) _Bool selectionCommandsShowing;
 - (void)hideSelectionCommands;
 - (void)hideSelectionCommandsAfterDelay:(double)arg1;
-- (void)showReplacementsWithGenerator:(id)arg1 forDictation:(void)arg2 afterDelay:(BOOL)arg3;
+- (void)showReplacementsWithGenerator:(id)arg1 forDictation:(void)arg2 afterDelay:(_Bool)arg3;
 - (void)calculateAndShowReplacements:(id)arg1;
 - (void)showSelectionCommands;
 - (void)showSelectionCommandsAfterDelay:(double)arg1;
@@ -67,11 +68,11 @@
 - (void)cancelDelayedCommandRequests;
 - (void)updateSelectionCommands;
 - (void)showCommandsWithReplacements:(id)arg1;
-- (BOOL)updateCalloutBarRects:(id)arg1 effectsWindow:(id)arg2;
-@property(nonatomic) BOOL caretBlinks; // @synthesize caretBlinks=m_caretBlinks;
-@property(nonatomic) BOOL visible; // @synthesize visible=m_visible;
+- (_Bool)updateCalloutBarRects:(id)arg1 effectsWindow:(id)arg2;
+@property(nonatomic) _Bool caretBlinks; // @synthesize caretBlinks=m_caretBlinks;
+@property(nonatomic) _Bool visible; // @synthesize visible=m_visible;
 - (void)appearOrFadeIfNecessary;
-- (BOOL)shouldBeVisible;
+- (_Bool)shouldBeVisible;
 - (void)updateSelectionDots;
 - (void)updateSelectionRectsIfNeeded;
 - (void)deferredUpdateSelectionCommands;
@@ -88,7 +89,7 @@
 - (void)inputViewWillMove;
 - (void)inputViewDidChange;
 - (void)inputViewWillChange;
-- (BOOL)affectedByScrollerNotification:(id)arg1;
+- (_Bool)affectedByScrollerNotification:(id)arg1;
 - (void)selectionDidScroll:(id)arg1;
 - (void)selectionWillScroll:(id)arg1;
 - (void)viewAnimate:(id)arg1;

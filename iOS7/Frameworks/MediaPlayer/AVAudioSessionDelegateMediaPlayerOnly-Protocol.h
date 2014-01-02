@@ -9,6 +9,6 @@
 @protocol AVAudioSessionDelegateMediaPlayerOnly <AVAudioSessionDelegate>
 
 @optional
-- (void)endInterruptionFromInterruptor:(id)arg1 category:(id)arg2 flags:(unsigned int)arg3;
+- (void)endInterruptionFromInterruptor:(id)arg1 category:(id)arg2 flags:(unsigned long long)arg3;
 @end
 

@@ -6,26 +6,31 @@
 
 #import "NSObject.h"
 
-@class GEOPlace, PLRevGeoCompoundNameInfo;
+@class GEOPlaceResult, NSString, PLRevGeoCompoundNameInfo;
 
 @interface PLRevGeoLocationInfo : NSObject
 {
-    BOOL _isValid;
-    BOOL _isHome;
-    GEOPlace *_geoPlace;
+    _Bool _isValid;
+    _Bool _isHome;
+    GEOPlaceResult *_geoPlaceResult;
     PLRevGeoCompoundNameInfo *_compoundNameInfo;
     PLRevGeoCompoundNameInfo *_compoundSecondaryNameInfo;
+    NSString *_providerId;
+    unsigned long long _providerVersion;
 }
 
-+ (id)titleForLocationData:(id)arg1;
-+ (id)sortedNameInfoArray:(id)arg1;
-+ (id)sortedNameInfoArray:(id)arg1 homeAtEnd:(BOOL)arg2;
-@property(nonatomic) BOOL isHome; // @synthesize isHome=_isHome;
++ (unsigned long long)currentVersion;
++ (unsigned long long)qualityTypeForPointInCountryCode:(id)arg1 withDataProviderId:(id)arg2;
++ (id)sortedNameInfoComparatorWithHomeAtEnd:(SEL)arg1;
+@property(nonatomic) unsigned long long providerVersion; // @synthesize providerVersion=_providerVersion;
+@property(retain, nonatomic) NSString *providerId; // @synthesize providerId=_providerId;
+@property(nonatomic) _Bool isHome; // @synthesize isHome=_isHome;
 @property(retain, nonatomic) PLRevGeoCompoundNameInfo *compoundSecondaryNameInfo; // @synthesize compoundSecondaryNameInfo=_compoundSecondaryNameInfo;
 @property(retain, nonatomic) PLRevGeoCompoundNameInfo *compoundNameInfo; // @synthesize compoundNameInfo=_compoundNameInfo;
-@property(retain, nonatomic) GEOPlace *geoPlace; // @synthesize geoPlace=_geoPlace;
-@property(readonly, nonatomic) BOOL isValid; // @synthesize isValid=_isValid;
-- (void)_addNameInfo:(id)arg1 inPlaceInfoMap:(id)arg2 totalPlaceCount:(int *)arg3;
+@property(retain, nonatomic) GEOPlaceResult *geoPlaceResult; // @synthesize geoPlaceResult=_geoPlaceResult;
+@property(readonly, nonatomic) _Bool isValid; // @synthesize isValid=_isValid;
+@property(readonly, nonatomic) NSString *countryCode;
+- (void)_addNameInfo:(id)arg1 inPlaceInfoMap:(id)arg2 totalPlaceCount:(long long *)arg3;
 - (id)dataForInfo;
 - (id)description;
 - (id)initWithData:(id)arg1;

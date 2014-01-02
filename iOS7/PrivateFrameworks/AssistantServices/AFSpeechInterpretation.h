@@ -15,7 +15,7 @@
     NSArray *_tokens;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSArray *tokens; // @synthesize tokens=_tokens;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;

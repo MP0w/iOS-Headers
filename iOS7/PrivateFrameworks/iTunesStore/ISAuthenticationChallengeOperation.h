@@ -17,7 +17,7 @@
 @property(retain) ISAuthenticationChallenge *challenge; // @synthesize challenge=_challenge;
 - (id)_copyCredentialForSignInResponseDictionary:(id)arg1;
 - (void)run;
-- (void)handleButtonSelected:(int)arg1 withResponseDictionary:(id)arg2;
+- (void)handleButtonSelected:(long long)arg1 withResponseDictionary:(id)arg2;
 - (void)dealloc;
 
 @end

@@ -11,7 +11,7 @@
 }
 
 - (id)openStreamWithOptions:(unsigned int)arg1 error:(id *)arg2;
-- (BOOL)isDirectory;
+- (_Bool)isDirectory;
 
 @end
 

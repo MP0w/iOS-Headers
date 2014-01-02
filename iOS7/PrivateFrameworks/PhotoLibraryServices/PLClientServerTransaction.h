@@ -22,6 +22,7 @@
 + (id)_outstandingTransactionPaths;
 + (id)beginServerTransactionWithToken:(id)arg1;
 + (id)beginClientTransaction;
++ (id)_queue;
 + (id)_fileManager;
 + (id)_transactionsDirectory;
 @property(copy, nonatomic) NSString *transactionToken; // @synthesize transactionToken=_transactionToken;

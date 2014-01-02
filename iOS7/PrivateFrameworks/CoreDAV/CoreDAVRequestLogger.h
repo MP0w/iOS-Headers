@@ -19,7 +19,7 @@
 - (void)finishCoreDAVResponse;
 - (void)logCoreDAVResponseSnippet:(id)arg1 withTaskIdentifier:(id)arg2;
 - (void)logCoreDAVResponseSnippet:(id)arg1;
-- (void)logCoreDAVResponseHeaders:(id)arg1 andStatusCode:(int)arg2 withTaskIdentifier:(id)arg3;
+- (void)logCoreDAVResponseHeaders:(id)arg1 andStatusCode:(long long)arg2 withTaskIdentifier:(id)arg3;
 - (void)logCoreDAVRequest:(id)arg1 withTaskIdentifier:(id)arg2;
 - (id)_inflateRequestBody:(id)arg1;
 - (void)dealloc;

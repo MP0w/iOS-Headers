@@ -8,6 +8,7 @@
 
 @class EDColorReference, EDResources;
 
+// Not exported
 @interface EDBorder : NSObject
 {
     EDResources *mResources;
@@ -19,19 +20,16 @@
 + (id)borderWithType:(int)arg1 color:(id)arg2 diagonalType:(int)arg3 resources:(id)arg4;
 + (id)borderWithType:(int)arg1 color:(id)arg2 resources:(id)arg3;
 + (id)borderWithType:(int)arg1 resources:(id)arg2;
-+ (id)borderWithType:(int)arg1 colorReference:(id)arg2 diagonalType:(int)arg3 resources:(id)arg4;
-+ (id)borderWithType:(int)arg1 colorReference:(id)arg2 resources:(id)arg3;
 - (id)color;
 - (void)setDiagonalType:(int)arg1;
 - (int)diagonalType;
 - (void)setType:(int)arg1;
 - (int)type;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isEqualToBorder:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)isEqualToBorder:(id)arg1;
 - (void)dealloc;
 - (id)initWithResources:(id)arg1;
-- (id)colorReference;
 
 @end
 

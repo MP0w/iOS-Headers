@@ -11,8 +11,8 @@
 @interface UserFSStream : NSObject
 {
     UserFSItem *_item;
-    NSObject<OS_xpc_object> *_connection;
     unsigned long long _length;
+    NSObject<OS_xpc_object> *_connection;
 }
 
 @property(retain, nonatomic) NSObject<OS_xpc_object> *connection; // @synthesize connection=_connection;
@@ -20,11 +20,11 @@
 @property(retain, nonatomic) UserFSItem *item; // @synthesize item=_item;
 - (void).cxx_destruct;
 - (void)dealloc;
-- (BOOL)closeAndReturnError:(id *)arg1;
+- (_Bool)closeAndReturnError:(id *)arg1;
 - (void)_cancelConnection;
-- (long)readBytesOfLength:(unsigned long)arg1 atOffset:(unsigned long long)arg2 toBuffer:(void *)arg3 error:(id *)arg4;
-- (long)_readBytesUpToLength:(unsigned long)arg1 atOffset:(unsigned long long)arg2 toBuffer:(void *)arg3 error:(id *)arg4;
-@property(readonly, nonatomic) BOOL writable;
+- (long long)readBytesOfLength:(unsigned long long)arg1 atOffset:(unsigned long long)arg2 toBuffer:(void *)arg3 error:(id *)arg4;
+- (long long)_readBytesUpToLength:(unsigned long long)arg1 atOffset:(unsigned long long)arg2 toBuffer:(void *)arg3 error:(id *)arg4;
+@property(readonly, nonatomic) _Bool writable;
 - (id)initWithUserFSItem:(id)arg1 length:(unsigned long long)arg2 connection:(id)arg3;
 
 @end

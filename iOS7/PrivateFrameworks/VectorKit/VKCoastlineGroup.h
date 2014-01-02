@@ -8,10 +8,11 @@
 
 @class VGLMeshVendor, VKStyle;
 
+// Not exported
 @interface VKCoastlineGroup : NSObject
 {
     VKStyle *_style;
-    BOOL _visible;
+    _Bool _visible;
     CDStruct_03942939 _offsetDirection;
     struct _VGLColor _shadowColor;
     struct _VGLColor _antialiasingBrushColor;
@@ -27,10 +28,10 @@
 @property(nonatomic) struct _VGLColor antialiasingBrushColor; // @synthesize antialiasingBrushColor=_antialiasingBrushColor;
 @property(nonatomic) struct _VGLColor shadowColor; // @synthesize shadowColor=_shadowColor;
 @property(nonatomic) CDStruct_03942939 offsetDirection; // @synthesize offsetDirection=_offsetDirection;
-@property(nonatomic) BOOL visible; // @synthesize visible=_visible;
+@property(nonatomic) _Bool visible; // @synthesize visible=_visible;
 @property(readonly, nonatomic) VKStyle *style; // @synthesize style=_style;
 - (id).cxx_construct;
-- (unsigned int)triangleCount;
+- (unsigned long long)triangleCount;
 - (void)dealloc;
 - (id)initWithStyle:(id)arg1 tilePointSize:(unsigned int)arg2;
 

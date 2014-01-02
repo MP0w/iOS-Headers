@@ -19,7 +19,7 @@
 }
 
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)sendBeforeDate:(id)arg1;
+- (_Bool)sendBeforeDate:(id)arg1;
 - (id)components;
 - (void)setMsgid:(unsigned int)arg1;
 - (unsigned int)msgid;

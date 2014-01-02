@@ -10,7 +10,7 @@
 {
 }
 
-- (int)barStyle;
+- (long long)barStyle;
 
 @end
 

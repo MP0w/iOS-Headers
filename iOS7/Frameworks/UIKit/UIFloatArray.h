@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface UIFloatArray : NSObject
 {
     int _count;
@@ -24,26 +25,26 @@
     } _floatArrayFlags;
 }
 
-- (void)hideGaps:(BOOL)arg1;
+- (void)hideGaps:(_Bool)arg1;
 - (int)indexForGapIndex:(int)arg1;
-- (CDStruct_03799eb3)indexesFromOffset:(float)arg1 toOffset:(float)arg2;
-- (CDStruct_03799eb3)_indexesViaArrayFromOffset:(float)arg1 toOffset:(float)arg2;
-- (CDStruct_03799eb3)_indexesViaSingletonFromOffset:(float)arg1 toOffset:(float)arg2;
+- (CDStruct_3eb7d77a)indexesFromOffset:(float)arg1 toOffset:(float)arg2;
+- (CDStruct_3eb7d77a)_indexesViaArrayFromOffset:(float)arg1 toOffset:(float)arg2;
+- (CDStruct_3eb7d77a)_indexesViaSingletonFromOffset:(float)arg1 toOffset:(float)arg2;
 - (CDStruct_b2fbf00d)offsetsForGapIndex:(int)arg1;
 - (CDStruct_b2fbf00d)offsetsForIndex:(int)arg1;
 - (float)sum;
 - (int)valueCount;
 - (float)minValue;
 - (float)singleValue;
-- (BOOL)refreshWithDataProvider:(id)arg1;
-- (BOOL)refreshWithDataProvider:(id)arg1 singleValue:(float)arg2;
+- (_Bool)refreshWithDataProvider:(id)arg1;
+- (_Bool)refreshWithDataProvider:(id)arg1 singleValue:(float)arg2;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
-- (BOOL)_setupWithDataProvider:(id)arg1 valueIsSingleton:(BOOL)arg2 singletonValue:(float)arg3 isRefresh:(BOOL)arg4;
-- (BOOL)_setupGapIndexesWithCount:(int)arg1 dataProvider:(id)arg2 isRefresh:(BOOL)arg3;
-- (BOOL)_setupValuesWithCount:(int)arg1 dataProvider:(id)arg2 isRefresh:(BOOL)arg3;
-- (BOOL)_setupValuesWithCount:(int)arg1 singleValue:(float)arg2 isRefresh:(BOOL)arg3;
+- (_Bool)_setupWithDataProvider:(id)arg1 valueIsSingleton:(_Bool)arg2 singletonValue:(float)arg3 isRefresh:(_Bool)arg4;
+- (_Bool)_setupGapIndexesWithCount:(int)arg1 dataProvider:(id)arg2 isRefresh:(_Bool)arg3;
+- (_Bool)_setupValuesWithCount:(int)arg1 dataProvider:(id)arg2 isRefresh:(_Bool)arg3;
+- (_Bool)_setupValuesWithCount:(int)arg1 singleValue:(float)arg2 isRefresh:(_Bool)arg3;
 
 @end
 

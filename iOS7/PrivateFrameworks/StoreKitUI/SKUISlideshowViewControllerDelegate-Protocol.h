@@ -7,7 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol SKUISlideshowViewControllerDelegate <NSObject>
-- (id)slideshowViewController:(id)arg1 poppedImageViewAtIndex:(int)arg2;
-- (void)slideshowViewController:(id)arg1 scrollToImageAtIndex:(int)arg2;
+- (id)slideshowViewController:(id)arg1 poppedImageViewAtIndex:(long long)arg2;
+- (void)slideshowViewController:(id)arg1 scrollToImageAtIndex:(long long)arg2;
 @end
 

@@ -17,6 +17,9 @@
 - (oneway void)addFMFAccount:(id)arg1 usingCallback:(id)arg2;
 - (oneway void)didExitFMFRegion:(id)arg1 atLocation:(id)arg2 usingCallback:(id)arg3;
 - (oneway void)didEnterFMFRegion:(id)arg1 atLocation:(id)arg2 usingCallback:(id)arg3;
+- (oneway void)disableActivationLockUsingToken:(id)arg1 usingCallback:(id)arg2;
+- (oneway void)enableActivationLockUsingCallback:(id)arg1;
+- (oneway void)getActivationLockStateUsingCallback:(id)arg1;
 - (oneway void)disableFMIPUsingToken:(id)arg1 inContext:(int)arg2 usingCallback:(id)arg3;
 - (oneway void)enableFMIPInContext:(int)arg1 usingCallback:(id)arg2;
 - (oneway void)getiCloudAccountUsingCallback:(id)arg1;

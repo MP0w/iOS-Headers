@@ -19,7 +19,7 @@
 + (id)blank;
 @property(retain) Cell *cell; // @synthesize cell=_cell;
 - (id)description;
-- (BOOL)matches:(id)arg1;
+- (_Bool)matches:(id)arg1;
 - (id)attributeForKey:(id)arg1;
 - (id)overlayedOn:(id)arg1;
 - (id)reversed;

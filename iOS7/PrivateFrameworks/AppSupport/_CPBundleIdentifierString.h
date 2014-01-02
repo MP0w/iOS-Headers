@@ -10,13 +10,13 @@
 {
     NSString *_executablePath;
     NSString *_bundleIdentifierOrProcessName;
-    BOOL _isProcessName;
+    _Bool _isProcessName;
 }
 
 - (void)getCharacters:(unsigned short *)arg1 range:(struct _NSRange)arg2;
-- (unsigned short)characterAtIndex:(unsigned int)arg1;
-- (unsigned int)length;
-- (BOOL)_isProcessName;
+- (unsigned short)characterAtIndex:(unsigned long long)arg1;
+- (unsigned long long)length;
+- (_Bool)_isProcessName;
 - (void)_loadBundleIdentifierOrProcessName;
 - (void)dealloc;
 - (id)_initWithExecutablePath:(id)arg1;

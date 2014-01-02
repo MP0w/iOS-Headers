@@ -7,12 +7,12 @@
 #import "NSObject-Protocol.h"
 
 @protocol MFMessageBodyStringAccumulator <NSObject>
-- (void)appendCustomEntityWithTag:(unsigned int)arg1 stringRepresentation:(id)arg2;
+- (void)appendCustomEntityWithTag:(unsigned long long)arg1 stringRepresentation:(id)arg2;
 - (id)accumulatedString;
 - (void)appendInnerTextWithConsumableNode:(id)arg1;
-- (void)appendCharacters:(const unsigned short *)arg1 length:(unsigned int)arg2;
+- (void)appendCharacters:(const unsigned short *)arg1 length:(unsigned long long)arg2;
 - (void)appendRange:(struct _NSRange)arg1 ofString:(id)arg2;
 - (void)appendString:(id)arg1;
-- (BOOL)isFull;
+- (_Bool)isFull;
 @end
 

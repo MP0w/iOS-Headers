@@ -6,12 +6,13 @@
 
 #import <UIKit/UIStatusBarNewUIStyleAttributes.h>
 
+// Not exported
 @interface UIStatusBarNewUIDoubleHeightStyleAttributes : UIStatusBarNewUIStyleAttributes
 {
 }
 
-- (BOOL)isDoubleHeight;
-- (float)heightForMetrics:(int)arg1;
+- (_Bool)isDoubleHeight;
+- (double)heightForMetrics:(long long)arg1;
 
 @end
 

@@ -6,6 +6,7 @@
 
 #import "NSInvocationOperation.h"
 
+// Not exported
 @interface UIDictationStreamingOperation : NSInvocationOperation
 {
 }

@@ -8,23 +8,24 @@
 
 @class PDAnimationTarget;
 
+// Not exported
 @interface PDMediaNode : PDTimeNode
 {
     PDAnimationTarget *mTarget;
-    BOOL mIsMuted;
-    BOOL mIsShowWhenStopped;
-    long mNumberOfSlides;
-    long mVolume;
+    _Bool mIsMuted;
+    _Bool mIsShowWhenStopped;
+    long long mNumberOfSlides;
+    long long mVolume;
 }
 
-- (void)setVolume:(long)arg1;
-- (long)volume;
-- (void)setNumberOfSlides:(long)arg1;
-- (long)numberOfSlides;
-- (void)setIsShowWhenStopped:(BOOL)arg1;
-- (BOOL)isShowWhenStopped;
-- (void)setIsMuted:(BOOL)arg1;
-- (BOOL)isMuted;
+- (void)setVolume:(long long)arg1;
+- (long long)volume;
+- (void)setNumberOfSlides:(long long)arg1;
+- (long long)numberOfSlides;
+- (void)setIsShowWhenStopped:(_Bool)arg1;
+- (_Bool)isShowWhenStopped;
+- (void)setIsMuted:(_Bool)arg1;
+- (_Bool)isMuted;
 - (void)setTarget:(id)arg1;
 - (id)target;
 - (void)dealloc;

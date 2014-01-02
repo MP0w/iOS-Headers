@@ -11,12 +11,12 @@
 @interface SBCCButtonLayoutView : SBControlCenterSectionView
 {
     NSMutableArray *_buttons;
-    float _edgePadding;
-    float _interButtonPadding;
+    double _interButtonPadding;
+    struct UIEdgeInsets _contentEdgeInsets;
 }
 
-@property(nonatomic) float interButtonPadding; // @synthesize interButtonPadding=_interButtonPadding;
-@property(nonatomic) float edgePadding; // @synthesize edgePadding=_edgePadding;
+@property(nonatomic) struct UIEdgeInsets contentEdgeInsets; // @synthesize contentEdgeInsets=_contentEdgeInsets;
+@property(nonatomic) double interButtonPadding; // @synthesize interButtonPadding=_interButtonPadding;
 - (void)layoutSubviews;
 - (id)buttons;
 - (void)removeButton:(id)arg1;

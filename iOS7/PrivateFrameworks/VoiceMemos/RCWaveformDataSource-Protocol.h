@@ -6,11 +6,11 @@
 
 #import "NSObject-Protocol.h"
 
-@class NSArray;
+@class RCWaveform;
 
 @protocol RCWaveformDataSource <NSObject>
-@property(readonly, nonatomic) NSArray *loadedSegments;
-- (void)endLoadingBeforeDate:(id)arg1 withCompletionHandler:(id)arg2;
+@property(readonly, nonatomic) RCWaveform *waveform;
+- (void)finishLoadingBeforeDate:(id)arg1 loadingFinishedBlock:(id)arg2;
 - (void)beginLoadingForRecordingOutputURL:(id)arg1;
 - (void)reload;
 - (double)duration;

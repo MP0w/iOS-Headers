@@ -10,6 +10,7 @@
 
 @class NSLock, NSMutableArray, NSObject<OS_dispatch_source>;
 
+// Not exported
 @interface _GEOURLManifestListener : NSObject <GEOResourceManifestTileGroupObserver>
 {
     NSMutableArray *_handlers;
@@ -21,7 +22,7 @@
 - (void)resourceManifestManagerDidChangeActiveTileGroup:(id)arg1;
 - (void)resourceManifestManagerWillChangeActiveTileGroup:(id)arg1;
 - (void)waitForManifestWithHandler:(id)arg1;
-- (void)_finish:(BOOL)arg1;
+- (void)_finish:(_Bool)arg1;
 - (void)dealloc;
 - (id)init;
 

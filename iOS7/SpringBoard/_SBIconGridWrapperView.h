@@ -14,7 +14,8 @@
 }
 
 @property(retain, nonatomic) _SBFolderPageElement *element; // @synthesize element=_element;
-- (void)positionAtRow:(unsigned int)arg1;
+- (void)dealloc;
+- (void)positionAtRow:(unsigned long long)arg1;
 - (void)reposition;
 
 @end

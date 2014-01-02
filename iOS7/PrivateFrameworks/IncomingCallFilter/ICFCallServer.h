@@ -12,7 +12,7 @@
 {
     NSObject<OS_xpc_object> *_connection;
     NSMutableArray *_clients;
-    BOOL _hasRegistered;
+    _Bool _hasRegistered;
 }
 
 + (id)sharedInstance;
@@ -22,7 +22,7 @@
 - (void)_cleanupClient:(id)arg1;
 - (void)_cleanup;
 - (void)_clientConnected;
-- (void)_requestCallGrantForIdentifier:(id)arg1 forService:(id)arg2 waitForResponse:(BOOL)arg3 completionBlock:(id)arg4;
+- (void)_requestCallGrantForIdentifier:(id)arg1 forService:(id)arg2 waitForResponse:(_Bool)arg3 completionBlock:(id)arg4;
 - (id)init;
 
 @end

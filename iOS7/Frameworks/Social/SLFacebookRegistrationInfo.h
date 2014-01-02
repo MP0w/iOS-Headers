@@ -28,7 +28,7 @@
 @property(retain, nonatomic) NSString *firstName; // @synthesize firstName=_firstName;
 - (void).cxx_destruct;
 - (id)debugDescription;
-- (BOOL)hasAllRequiredValues;
+- (_Bool)hasAllRequiredValues;
 
 @end
 

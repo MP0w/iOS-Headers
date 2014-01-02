@@ -8,9 +8,11 @@
 
 @interface SBControlCenterSectionView : UIView
 {
+    double _edgePadding;
 }
 
-- (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
+@property(nonatomic) double edgePadding; // @synthesize edgePadding=_edgePadding;
+- (_Bool)_shouldAnimatePropertyWithKey:(id)arg1;
 
 @end
 

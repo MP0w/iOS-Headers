@@ -6,21 +6,22 @@
 
 #import <UIKit/UITextSelectionRect.h>
 
+// Not exported
 @interface _UITextKitSelectionRect : UITextSelectionRect
 {
     struct CGRect _rect;
-    BOOL _containsEnd;
-    BOOL _containsStart;
-    BOOL _vertical;
+    _Bool _containsEnd;
+    _Bool _containsStart;
+    _Bool _vertical;
 }
 
 + (id)selectionRectWithRect:(struct CGRect)arg1;
-@property(nonatomic, getter=isVertical) BOOL vertical; // @synthesize vertical=_vertical;
-@property(nonatomic) BOOL containsStart; // @synthesize containsStart=_containsStart;
-@property(nonatomic) BOOL containsEnd; // @synthesize containsEnd=_containsEnd;
+@property(nonatomic, getter=isVertical) _Bool vertical; // @synthesize vertical=_vertical;
+@property(nonatomic) _Bool containsStart; // @synthesize containsStart=_containsStart;
+@property(nonatomic) _Bool containsEnd; // @synthesize containsEnd=_containsEnd;
 @property(nonatomic) struct CGRect rect; // @synthesize rect=_rect;
 - (id)description;
-- (int)writingDirection;
+- (long long)writingDirection;
 
 @end
 

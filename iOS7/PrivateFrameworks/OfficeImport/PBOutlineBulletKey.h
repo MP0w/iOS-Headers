@@ -8,17 +8,18 @@
 
 #import "NSCopying-Protocol.h"
 
+// Not exported
 @interface PBOutlineBulletKey : NSObject <NSCopying>
 {
-    unsigned long mSlideId;
+    unsigned int mSlideId;
     int mTextType;
-    unsigned long mPlaceholderIndex;
+    unsigned int mPlaceholderIndex;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithSlideId:(unsigned long)arg1 textType:(int)arg2 placeholderIndex:(unsigned long)arg3;
+- (id)initWithSlideId:(unsigned int)arg1 textType:(int)arg2 placeholderIndex:(unsigned int)arg3;
 - (id)initWithOutlineBullet:(id)arg1;
 
 @end

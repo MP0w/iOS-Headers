@@ -7,8 +7,8 @@
 #pragma mark Named Structures
 
 struct CGPoint {
-    float _field1;
-    float _field2;
+    double _field1;
+    double _field2;
 };
 
 struct CGRect {
@@ -17,8 +17,8 @@ struct CGRect {
 };
 
 struct CGSize {
-    float _field1;
-    float _field2;
+    double _field1;
+    double _field2;
 };
 
 struct MLArtworkFormatSpec {
@@ -28,7 +28,7 @@ struct MLArtworkFormatSpec {
     unsigned int _field4;
     int _field5;
     int _field6;
-    char _field7;
+    _Bool _field7;
 };
 
 struct MLArtworkInstanceInfo {
@@ -36,13 +36,15 @@ struct MLArtworkInstanceInfo {
     struct CGRect _field2;
 };
 
+struct MLRowDataSource;
+
 struct NSNumber {
     Class _field1;
 };
 
 struct _NSRange {
-    unsigned int location;
-    unsigned int length;
+    unsigned long long location;
+    unsigned long long length;
 };
 
 struct __hash_node<long long, void *>;
@@ -52,6 +54,20 @@ struct __hash_node<std::__1::pair<long long, CollectionPIDSet>, void *>;
 struct __hash_node<std::__1::pair<long long, ML3NameOrder>, void *>;
 
 struct __hash_node<std::__1::pair<long long, NSString *>, void *>;
+
+struct map<unsigned int, unsigned long, std::__1::less<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, unsigned long>>> {
+    struct __tree<std::__1::pair<unsigned int, unsigned long>, std::__1::__map_value_compare<unsigned int, unsigned long, std::__1::less<unsigned int>, true>, std::__1::allocator<std::__1::pair<unsigned int, unsigned long>>> {
+        struct __tree_node<std::__1::pair<unsigned int, unsigned long>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<unsigned int, unsigned long>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> {
+                struct __tree_node_base<void *> *__left_;
+            } __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, unsigned long, std::__1::less<unsigned int>, true>> {
+            unsigned long long __first_;
+        } __pair3_;
+    } __tree_;
+};
 
 struct sqlite3_module {
     int _field1;
@@ -84,7 +100,7 @@ struct unique_ptr<std::__1::__hash_node<long long, void *>*[], std::__1::__bucke
         struct __hash_node<long long, void *> **__first_;
         struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<long long, void *>*>> {
             struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<long long, void *>*>> {
-                unsigned long __first_;
+                unsigned long long __first_;
             } __data_;
         } __second_;
     } __ptr_;
@@ -95,7 +111,7 @@ struct unique_ptr<std::__1::__hash_node<std::__1::pair<long long, CollectionPIDS
         struct __hash_node<std::__1::pair<long long, CollectionPIDSet>, void *> **__first_;
         struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<long long, CollectionPIDSet>, void *>*>> {
             struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<std::__1::pair<long long, CollectionPIDSet>, void *>*>> {
-                unsigned long __first_;
+                unsigned long long __first_;
             } __data_;
         } __second_;
     } __ptr_;
@@ -106,7 +122,7 @@ struct unique_ptr<std::__1::__hash_node<std::__1::pair<long long, ML3NameOrder>,
         struct __hash_node<std::__1::pair<long long, ML3NameOrder>, void *> **_field1;
         struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<long long, ML3NameOrder>, void *>*>> {
             struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<std::__1::pair<long long, ML3NameOrder>, void *>*>> {
-                unsigned long _field1;
+                unsigned long long _field1;
             } _field1;
         } _field2;
     } _field1;
@@ -117,7 +133,7 @@ struct unique_ptr<std::__1::__hash_node<std::__1::pair<long long, NSString *>, v
         struct __hash_node<std::__1::pair<long long, NSString *>, void *> **__first_;
         struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<long long, NSString *>, void *>*>> {
             struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<std::__1::pair<long long, NSString *>, void *>*>> {
-                unsigned long __first_;
+                unsigned long long __first_;
             } __data_;
         } __second_;
     } __ptr_;
@@ -132,7 +148,7 @@ struct unordered_map<long long, CollectionPIDSet, std::__1::hash<long long>, std
             } __first_;
         } __p1_;
         struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<long long, CollectionPIDSet, std::__1::hash<long long>, true>> {
-            unsigned long __first_;
+            unsigned long long __first_;
         } __p2_;
         struct __compressed_pair<float, std::__1::__unordered_map_equal<long long, CollectionPIDSet, std::__1::equal_to<long long>, true>> {
             float __first_;
@@ -149,7 +165,7 @@ struct unordered_map<long long, ML3NameOrder, std::__1::hash<long long>, std::__
             } _field1;
         } _field2;
         struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<long long, ML3NameOrder, std::__1::hash<long long>, true>> {
-            unsigned long _field1;
+            unsigned long long _field1;
         } _field3;
         struct __compressed_pair<float, std::__1::__unordered_map_equal<long long, ML3NameOrder, std::__1::equal_to<long long>, true>> {
             float _field1;
@@ -166,7 +182,7 @@ struct unordered_map<long long, NSString *, std::__1::hash<long long>, std::__1:
             } __first_;
         } __p1_;
         struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<long long, NSString *, std::__1::hash<long long>, true>> {
-            unsigned long __first_;
+            unsigned long long __first_;
         } __p2_;
         struct __compressed_pair<float, std::__1::__unordered_map_equal<long long, NSString *, std::__1::equal_to<long long>, true>> {
             float __first_;
@@ -183,12 +199,20 @@ struct unordered_set<long long, std::__1::hash<long long>, std::__1::equal_to<lo
             } __first_;
         } __p1_;
         struct __compressed_pair<unsigned long, std::__1::hash<long long>> {
-            unsigned long __first_;
+            unsigned long long __first_;
         } __p2_;
         struct __compressed_pair<float, std::__1::equal_to<long long>> {
             float __first_;
         } __p3_;
     } __table_;
+};
+
+struct vector<MLRowDataSource *, std::__1::allocator<MLRowDataSource *>> {
+    struct MLRowDataSource **__begin_;
+    struct MLRowDataSource **__end_;
+    struct __compressed_pair<MLRowDataSource **, std::__1::allocator<MLRowDataSource *>> {
+        struct MLRowDataSource **__first_;
+    } __end_cap_;
 };
 
 struct vector<long long, std::__1::allocator<long long>> {
@@ -210,21 +234,24 @@ struct vector<unsigned char, std::__1::allocator<unsigned char>> {
 #pragma mark Typedef'd Structures
 
 typedef struct {
-    unsigned int _field1;
+    _Bool _field1;
     unsigned int _field2;
-    unsigned int _field3;
-    unsigned int _field4;
-    char _field5;
-    char _field6;
-    char _field7;
-    char _field8;
-    char _field9;
-} CDStruct_04bf612f;
+} CDStruct_06d3d77b;
 
 typedef struct {
-    long long _field1;
-    int _field2;
-} CDStruct_87dc826d;
+    unsigned int _field1;
+    char *_field2;
+    unsigned int _field3;
+    unsigned long long _field4;
+    unsigned long long _field5;
+    unsigned int _field6;
+    long long _field7;
+    _Bool _field8;
+    _Bool _field9;
+    _Bool _field10;
+    _Bool _field11;
+    _Bool _field12;
+} CDStruct_ce55d3fc;
 
 typedef struct {
     long long _field1;
@@ -236,6 +263,11 @@ typedef struct {
     long long _field7;
 } CDStruct_bd6d074e;
 
+typedef struct {
+    long long _field1;
+    long long _field2;
+} CDStruct_912cb5d2;
+
 // Template types
 typedef struct unordered_map<long long, ML3NameOrder, std::__1::hash<long long>, std::__1::equal_to<long long>, std::__1::allocator<std::__1::pair<const long long, ML3NameOrder>>> {
     struct __hash_table<std::__1::pair<long long, ML3NameOrder>, std::__1::__unordered_map_hasher<long long, ML3NameOrder, std::__1::hash<long long>, true>, std::__1::__unordered_map_equal<long long, ML3NameOrder, std::__1::equal_to<long long>, true>, std::__1::allocator<std::__1::pair<long long, ML3NameOrder>>> {
@@ -246,13 +278,13 @@ typedef struct unordered_map<long long, ML3NameOrder, std::__1::hash<long long>,
             } _field1;
         } _field2;
         struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<long long, ML3NameOrder, std::__1::hash<long long>, true>> {
-            unsigned long _field1;
+            unsigned long long _field1;
         } _field3;
         struct __compressed_pair<float, std::__1::__unordered_map_equal<long long, ML3NameOrder, std::__1::equal_to<long long>, true>> {
             float _field1;
         } _field4;
     } _field1;
-} unordered_map_856d47d1;
+} unordered_map_d5cf956c;
 
 typedef struct unordered_set<long long, std::__1::hash<long long>, std::__1::equal_to<long long>, std::__1::allocator<long long>> {
     struct __hash_table<long long, std::__1::hash<long long>, std::__1::equal_to<long long>, std::__1::allocator<long long>> {
@@ -263,13 +295,13 @@ typedef struct unordered_set<long long, std::__1::hash<long long>, std::__1::equ
             } __first_;
         } __p1_;
         struct __compressed_pair<unsigned long, std::__1::hash<long long>> {
-            unsigned long __first_;
+            unsigned long long __first_;
         } __p2_;
         struct __compressed_pair<float, std::__1::equal_to<long long>> {
             float __first_;
         } __p3_;
     } __table_;
-} unordered_set_cccfe4a5;
+} unordered_set_f2692727;
 
 typedef struct vector<long long, std::__1::allocator<long long>> {
     long long *__begin_;

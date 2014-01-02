@@ -12,7 +12,7 @@
 {
     NSArray *_items;
     SUScriptMediaItem *_representativeItem;
-    BOOL _watchingLibrary;
+    _Bool _watchingLibrary;
 }
 
 + (void)initialize;
@@ -24,7 +24,7 @@
 @property(readonly) SUScriptMediaItem *representativeItem;
 @property(readonly) NSArray *mediaTypes;
 @property(readonly) NSArray *items;
-@property(readonly) int count;
+@property(readonly) long long count;
 - (id)_className;
 @property(readonly, nonatomic) MPMediaItemCollection *nativeCollection;
 - (void)dealloc;

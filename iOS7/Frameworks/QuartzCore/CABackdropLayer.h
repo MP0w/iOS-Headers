@@ -12,23 +12,23 @@
 {
 }
 
-+ (BOOL)CA_automaticallyNotifiesObservers:(Class)arg1;
-+ (BOOL)_hasRenderLayerSubclass;
++ (_Bool)CA_automaticallyNotifiesObservers:(Class)arg1;
++ (_Bool)_hasRenderLayerSubclass;
 + (id)defaultValueForKey:(id)arg1;
 @property double statisticsInterval;
 @property(copy) NSString *statisticsType;
 @property(copy) NSArray *groupFilters;
-@property float marginWidth;
+@property double marginWidth;
 @property struct CGRect backdropRect;
-@property float scale;
+@property double scale;
 @property(copy) NSString *groupName;
-@property(getter=isEnabled) BOOL enabled;
+@property(getter=isEnabled) _Bool enabled;
 - (unsigned int)_renderLayerPropertyAnimationFlags:(unsigned int)arg1;
 - (_Bool)_renderLayerDefinesProperty:(unsigned int)arg1;
 - (struct Layer *)_copyRenderLayer:(struct Transaction *)arg1 layerFlags:(unsigned int)arg2 commitFlags:(unsigned int *)arg3;
 - (void)didChangeValueForKey:(id)arg1;
 - (id)statisticsValues;
-- (void)layerDidBecomeVisible:(BOOL)arg1;
+- (void)layerDidBecomeVisible:(_Bool)arg1;
 
 @end
 

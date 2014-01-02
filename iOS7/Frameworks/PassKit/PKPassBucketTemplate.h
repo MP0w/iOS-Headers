@@ -10,23 +10,23 @@
 
 @interface PKPassBucketTemplate : NSObject
 {
-    BOOL _sitsOnStripImage;
-    int _bucketAlignment;
-    float _minFieldPadding;
+    _Bool _sitsOnStripImage;
+    long long _bucketAlignment;
+    double _minFieldPadding;
     PKPassFieldTemplate *_defaultFieldTemplate;
-    unsigned int _maxFields;
+    unsigned long long _maxFields;
     NSMutableArray *_fieldTemplates;
     struct CGRect _bucketRect;
 }
 
-@property(nonatomic) BOOL sitsOnStripImage; // @synthesize sitsOnStripImage=_sitsOnStripImage;
+@property(nonatomic) _Bool sitsOnStripImage; // @synthesize sitsOnStripImage=_sitsOnStripImage;
 @property(retain, nonatomic) NSMutableArray *fieldTemplates; // @synthesize fieldTemplates=_fieldTemplates;
-@property(nonatomic) unsigned int maxFields; // @synthesize maxFields=_maxFields;
+@property(nonatomic) unsigned long long maxFields; // @synthesize maxFields=_maxFields;
 @property(retain, nonatomic) PKPassFieldTemplate *defaultFieldTemplate; // @synthesize defaultFieldTemplate=_defaultFieldTemplate;
-@property(nonatomic) float minFieldPadding; // @synthesize minFieldPadding=_minFieldPadding;
+@property(nonatomic) double minFieldPadding; // @synthesize minFieldPadding=_minFieldPadding;
 @property(nonatomic) struct CGRect bucketRect; // @synthesize bucketRect=_bucketRect;
-@property(nonatomic) int bucketAlignment; // @synthesize bucketAlignment=_bucketAlignment;
-- (id)templateForFieldAtIndex:(unsigned int)arg1;
+@property(nonatomic) long long bucketAlignment; // @synthesize bucketAlignment=_bucketAlignment;
+- (id)templateForFieldAtIndex:(unsigned long long)arg1;
 - (void)addFieldTemplate:(id)arg1;
 - (void)dealloc;
 

@@ -10,6 +10,8 @@
 
 @interface MCGlobalHTTPProxyPayload : MCPayload
 {
+    _Bool _proxyPACFallbackAllowed;
+    _Bool _proxyCaptiveLoginAllowed;
     int _proxyType;
     NSString *_proxyServer;
     NSNumber *_proxyServerPort;
@@ -22,6 +24,8 @@
 + (id)localizedPluralForm;
 + (id)localizedSingularForm;
 + (id)typeStrings;
+@property(nonatomic) _Bool proxyCaptiveLoginAllowed; // @synthesize proxyCaptiveLoginAllowed=_proxyCaptiveLoginAllowed;
+@property(nonatomic) _Bool proxyPACFallbackAllowed; // @synthesize proxyPACFallbackAllowed=_proxyPACFallbackAllowed;
 @property(retain, nonatomic) NSString *credentialUUID; // @synthesize credentialUUID=_credentialUUID;
 @property(retain, nonatomic) NSString *proxyPACURLString; // @synthesize proxyPACURLString=_proxyPACURLString;
 @property(retain, nonatomic) NSString *proxyPassword; // @synthesize proxyPassword=_proxyPassword;

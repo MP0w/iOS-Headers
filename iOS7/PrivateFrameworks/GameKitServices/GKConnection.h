@@ -6,13 +6,11 @@
 
 #import "NSObject.h"
 
-@class RTCReporting;
-
 @interface GKConnection : NSObject
 {
 }
 
-+ (BOOL)isRelayEnabled;
++ (_Bool)isRelayEnabled;
 + (id)externalAddressForCDXSelfConnectionData:(id)arg1;
 + (id)externalAddressForSelfConnectionData:(id)arg1;
 + (id)allocWithZone:(struct _NSZone *)arg1;
@@ -20,17 +18,17 @@
 - (id)networkStatistics;
 - (id)networkStatisticsDictionaryForGCKStats:(void *)arg1;
 - (void)cancelConnectParticipant:(id)arg1;
-- (void)updateRelayWithParticipant:(id)arg1 withConnectionData:(id)arg2 withRelayInfo:(id)arg3 didInitiate:(BOOL)arg4;
-- (void)initiateRelayWithParticipant:(id)arg1 withConnectionData:(id)arg2 withRelayInfo:(id)arg3 didInitiate:(BOOL)arg4;
+- (void)updateRelayWithParticipant:(id)arg1 withConnectionData:(id)arg2 withRelayInfo:(id)arg3 didInitiate:(_Bool)arg4;
+- (void)initiateRelayWithParticipant:(id)arg1 withConnectionData:(id)arg2 withRelayInfo:(id)arg3 didInitiate:(_Bool)arg4;
 - (void)connectParticipantsWithConnectionData:(id)arg1 withSessionInfo:(id)arg2;
 - (void)setParticipantID:(id)arg1 forPeerID:(id)arg2;
-- (BOOL)convertPeerID:(id)arg1 toParticipantID:(id *)arg2;
-- (BOOL)convertParticipantID:(id)arg1 toPeerID:(id *)arg2;
+- (_Bool)convertPeerID:(id)arg1 toParticipantID:(id *)arg2;
+- (_Bool)convertParticipantID:(id)arg1 toPeerID:(id *)arg2;
 - (void)getLocalConnectionDataWithCompletionHandler:(id)arg1;
 - (void)connect;
 - (unsigned int)gckPID;
 @property id eventDelegate;
-@property(nonatomic) RTCReporting *reportingAgent;
+@property(nonatomic) struct opaqueRTCReporting *reportingAgent;
 - (struct OpaqueGCKSession *)gckSession;
 - (void)preRelease;
 - (id)initWithParticipantID:(id)arg1;

@@ -6,6 +6,7 @@
 
 #import <OfficeImport/MFPEffect.h>
 
+// Not exported
 @interface MFPColorCurveEffect : MFPEffect
 {
     int mAdjustment;

@@ -8,10 +8,11 @@
 
 @class NSString;
 
+// Not exported
 @interface PDTransitionOptions : NSObject
 {
-    BOOL mHasSound;
-    BOOL mIsStartSoundAction;
+    _Bool mHasSound;
+    _Bool mIsStartSoundAction;
     NSString *mSoundFile;
 }
 

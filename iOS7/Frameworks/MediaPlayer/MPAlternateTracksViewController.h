@@ -21,24 +21,24 @@
 }
 
 - (void).cxx_destruct;
-- (void)_setCell:(id)arg1 isChecked:(BOOL)arg2;
-- (void)_exitAnimated:(BOOL)arg1;
+- (void)_setCell:(id)arg1 isChecked:(_Bool)arg2;
+- (void)_exitAnimated:(_Bool)arg1;
 - (void)removeLoadingUI;
 - (void)addLoadingUI;
 - (void)reloadData;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
-- (id)tableView:(id)arg1 viewForHeaderInSection:(int)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2;
+- (id)tableView:(id)arg1 viewForHeaderInSection:(long long)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (double)tableView:(id)arg1 heightForHeaderInSection:(long long)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
+- (long long)numberOfSectionsInTableView:(id)arg1;
 - (void)_doneButtonAction:(id)arg1;
 - (void)_cancelButtonAction:(id)arg1;
 - (void)loadView;
-- (void)viewWillAppear:(BOOL)arg1;
-- (void)willChangeToInterfaceOrientation:(int)arg1;
-- (void)didChangeToInterfaceOrientation:(int)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
+- (void)willChangeToInterfaceOrientation:(long long)arg1;
+- (void)didChangeToInterfaceOrientation:(long long)arg1;
 - (void)dealloc;
 
 @end

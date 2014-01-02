@@ -22,7 +22,7 @@
 @property(retain, nonatomic) NSString *action; // @synthesize action=_action;
 @property(retain, nonatomic) NSString *route; // @synthesize route=_route;
 @property(retain, nonatomic) NSString *baseURL; // @synthesize baseURL=_baseURL;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)renderPOSTBody;
 - (void)addSimpleParameter:(id)arg1 forName:(id)arg2;
 - (void)addFile:(id)arg1 parameterName:(id)arg2 contentType:(id)arg3 contentEncoding:(id)arg4 data:(id)arg5;

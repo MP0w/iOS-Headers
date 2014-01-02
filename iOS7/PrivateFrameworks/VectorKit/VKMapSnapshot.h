@@ -8,22 +8,23 @@
 
 @class VKCamera;
 
+// Not exported
 @interface VKMapSnapshot : NSObject
 {
     struct CGImage *_image;
-    unsigned long _width;
-    unsigned long _height;
-    float _scale;
+    unsigned long long _width;
+    unsigned long long _height;
+    double _scale;
     VKCamera *_camera;
 }
 
-@property(readonly, nonatomic) float scale; // @synthesize scale=_scale;
+@property(readonly, nonatomic) double scale; // @synthesize scale=_scale;
 @property(readonly, nonatomic) struct CGImage *image; // @synthesize image=_image;
 - (CDStruct_c3b9c2ee)coordinateForPoint:(struct CGPoint)arg1;
 - (struct CGPoint)pointForCoordinate:(CDStruct_c3b9c2ee)arg1;
 - (id)description;
 - (void)dealloc;
-- (id)_initWithImage:(struct CGImage *)arg1 scale:(float)arg2 camera:(id)arg3;
+- (id)_initWithImage:(struct CGImage *)arg1 scale:(double)arg2 camera:(id)arg3;
 
 @end
 

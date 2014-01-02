@@ -6,47 +6,52 @@
 
 #import "UIControl.h"
 
-@class NSString, SKUICircleProgressIndicator, SKUIFocusedTouchGestureRecognizer, SKUIItemOfferButtonAppearance, UIColor, UIImage, UIImageView, UILabel, UIView;
+@class NSString, SKUICircleProgressIndicator, SKUIFocusedTouchGestureRecognizer, UIColor, UIImage, UIImageView, UILabel, UIView;
 
 @interface SKUIItemOfferButton : UIControl
 {
-    SKUIItemOfferButtonAppearance *_appearance;
     UIView *_borderView;
     SKUIFocusedTouchGestureRecognizer *_cancelGestureRecognizer;
-    UIImageView *_cloudArrowImageView;
+    UIImage *_cloudImage;
     UIColor *_confirmationColor;
     NSString *_confirmationTitle;
     id <SKUIItemOfferButtonDelegate> _delegate;
     UIView *_emphasisView;
-    int _fillStyle;
+    long long _fillStyle;
     UIImageView *_imageView;
     UIColor *_originalBackgroundColor;
-    float _progress;
+    double _progress;
     SKUICircleProgressIndicator *_progressIndicator;
-    int _progressType;
-    BOOL _showsConfirmationState;
-    unsigned int _state;
+    long long _progressType;
+    _Bool _showsConfirmationState;
+    unsigned long long _state;
     NSString *_title;
+    struct CGSize _titleFitSize;
     UILabel *_titleLabel;
-    BOOL _universal;
+    _Bool _universal;
+    UIImageView *_universalImageView;
 }
 
-+ (struct UIEdgeInsets)_imageInsetsForProgressType:(int)arg1;
-+ (id)_imageForProgressType:(int)arg1;
++ (id)_universalPlusImageWithTintColor:(id)arg1;
++ (struct UIEdgeInsets)_imageInsetsForProgressType:(long long)arg1;
++ (id)_imageForProgressType:(long long)arg1;
++ (id)_cloudImageForTint:(id)arg1;
 + (id)_cloudBackgroundImage;
 + (id)_cloudArrowImage;
 + (id)itemOfferButtonWithAppearance:(id)arg1;
-@property(nonatomic) float progress; // @synthesize progress=_progress;
-@property(nonatomic, getter=isUniversal) BOOL universal; // @synthesize universal=_universal;
+@property(nonatomic) double progress; // @synthesize progress=_progress;
+@property(nonatomic, getter=isUniversal) _Bool universal; // @synthesize universal=_universal;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
-@property(nonatomic) BOOL showsConfirmationState; // @synthesize showsConfirmationState=_showsConfirmationState;
-@property(nonatomic) int progressType; // @synthesize progressType=_progressType;
-@property(nonatomic) int fillStyle; // @synthesize fillStyle=_fillStyle;
+@property(nonatomic) _Bool showsConfirmationState; // @synthesize showsConfirmationState=_showsConfirmationState;
+@property(nonatomic) long long progressType; // @synthesize progressType=_progressType;
+@property(nonatomic) long long fillStyle; // @synthesize fillStyle=_fillStyle;
 @property(nonatomic) __weak id <SKUIItemOfferButtonDelegate> delegate; // @synthesize delegate=_delegate;
 @property(copy, nonatomic) NSString *confirmationTitle; // @synthesize confirmationTitle=_confirmationTitle;
-@property(retain, nonatomic) SKUIItemOfferButtonAppearance *appearance; // @synthesize appearance=_appearance;
 - (void).cxx_destruct;
-- (void)_setProgressVisible:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)_removeAllAnimations:(_Bool)arg1;
+- (void)_updateForProgressFinished:(_Bool)arg1;
+- (_Bool)_shouldHideUniversalIndicator;
+- (void)_setProgressVisible:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)_setImage:(id)arg1;
 - (void)_sendWillAnimate;
 - (void)_removeCancelGestureRecognizer;
@@ -56,22 +61,24 @@
 - (void)_animateToCancelTracking;
 - (id)_activeTintColor;
 - (void)_cancelGestureAction:(id)arg1;
-- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
 - (void)tintColorDidChange;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)setBackgroundColor:(id)arg1;
 - (void)layoutSubviews;
+- (void)didMoveToWindow;
 - (void)endTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (void)cancelTrackingWithEvent:(id)arg1;
-- (BOOL)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (BOOL)setValuesUsingItemOffer:(id)arg1 itemState:(id)arg2 clientContext:(id)arg3 animated:(BOOL)arg4;
-- (void)setShowingConfirmation:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)setProgressType:(int)arg1 animated:(BOOL)arg2;
-- (void)_updateForProgressFinished:(BOOL)arg1;
-- (void)setProgress:(float)arg1 animated:(BOOL)arg2;
-@property(retain, nonatomic) UIImage *image;
+- (_Bool)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
+- (_Bool)setValuesUsingItemOffer:(id)arg1 itemState:(id)arg2 clientContext:(id)arg3 animated:(_Bool)arg4;
+- (void)setColoringWithAppearance:(id)arg1;
 - (void)showCloudImage;
-@property(readonly, nonatomic, getter=isShowingConfirmation) BOOL showingConfirmation;
+- (void)setShowingConfirmation:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)setProgressType:(long long)arg1 animated:(_Bool)arg2;
+- (void)setProgress:(double)arg1 animated:(_Bool)arg2;
+@property(retain, nonatomic) UIImage *image;
+- (void)removeButtonStateAnimations;
+@property(readonly, nonatomic, getter=isShowingConfirmation) _Bool showingConfirmation;
+- (struct CGSize)layoutSizeThatFits:(struct CGSize)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

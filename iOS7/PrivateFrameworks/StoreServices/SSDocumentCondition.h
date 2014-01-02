@@ -10,7 +10,7 @@
 {
 }
 
-- (BOOL)evaluateWithContext:(id)arg1;
+- (_Bool)evaluateWithContext:(id)arg1;
 
 @end
 

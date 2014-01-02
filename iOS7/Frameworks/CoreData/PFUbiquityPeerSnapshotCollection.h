@@ -8,16 +8,17 @@
 
 @class NSMutableArray, NSMutableDictionary;
 
+// Not exported
 @interface PFUbiquityPeerSnapshotCollection : NSObject
 {
     NSMutableDictionary *_peerIDToTransactionNumberToSnapshot;
     NSMutableDictionary *_peerIDToTranasctionNumberToKnowledgeVector;
     NSMutableDictionary *_kvToSnapshot;
     NSMutableArray *_peerSnapshots;
-    BOOL _needSort;
+    _Bool _needSort;
 }
 
-- (BOOL)calculateSnapshotDiffsWithError:(id *)arg1;
+- (_Bool)calculateSnapshotDiffsWithError:(id *)arg1;
 - (id)snapshotForPeerID:(id)arg1 andTransactionNumber:(id)arg2;
 - (id)knowledgeVectorsForTransactionNumber:(id)arg1 exportedByPeerWithID:(id)arg2;
 - (id)snapshotForKnowledgeVector:(id)arg1;

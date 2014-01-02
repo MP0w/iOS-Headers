@@ -16,19 +16,21 @@
     UIView *_appView;
     double _animationDelay;
     double _animationDuration;
-    BOOL _fromCC;
-    BOOL _fromNC;
-    BOOL _finishedSliding;
+    _Bool _fromCC;
+    _Bool _fromNC;
+    _Bool _finishedSliding;
+    _Bool _waitForAppActivationForContextHostView;
+    _Bool _useContextHostView;
 }
 
-- (BOOL)_canUseContextHostViewForActivationState:(int)arg1;
 - (void)_maybeReportAnimationFinished;
 - (void)_finishedSliding;
-- (BOOL)_isApplicationLaunchFinished;
+- (_Bool)_isApplicationLaunchFinished;
 - (void)_applicationDependencyStateChanged;
 - (void)_cleanupAnimation;
 - (void)_startAnimation;
 - (void)_prepareAnimation;
+- (_Bool)_animationShouldStart;
 - (id)_animationProgressDependency;
 - (void)dealloc;
 - (id)initWithActivatingApp:(id)arg1 deactivatingLockscreen:(id)arg2;

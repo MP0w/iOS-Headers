@@ -8,6 +8,7 @@
 
 #import <WebKit/WebGeolocationProviderInitializationListener-Protocol.h>
 
+// Not exported
 @interface WebGeolocationProviderInitializationListener : NSObject <WebGeolocationProviderInitializationListener>
 {
     struct RefPtr<WebCore::Geolocation> m_geolocation;

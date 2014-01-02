@@ -16,11 +16,9 @@
 
 + (void)releaseSharedManager;
 + (id)sharedManager;
-+ (void)loadAnimationManagerWithPaths:(id)arg1;
 - (id)animationDescriptionForAnimationID:(id)arg1;
 - (id)animationDescriptionForAnimationSetID:(id)arg1;
 - (void)dealloc;
-- (id)initWithPaths:(id)arg1;
 
 @end
 

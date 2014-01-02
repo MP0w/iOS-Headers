@@ -10,28 +10,28 @@
 
 @interface MPWeighterConstraint : NSObject
 {
-    int numOfImages;
+    long long numOfImages;
     NSDictionary *nextConstraints;
     NSString *presetID;
-    int movieCount;
-    BOOL moviesOnly;
-    BOOL ignoreMovies;
-    int wideLandscape;
-    int square;
-    int landscape;
-    int portrait;
-    int hBreaks;
-    int vBreaks;
-    int supportsHBreaks;
-    int supportsVBreaks;
-    int supportsAllBreaks;
-    int allBreaks;
-    BOOL hasBreak;
+    long long movieCount;
+    _Bool moviesOnly;
+    _Bool ignoreMovies;
+    long long wideLandscape;
+    long long square;
+    long long landscape;
+    long long portrait;
+    long long hBreaks;
+    long long vBreaks;
+    long long supportsHBreaks;
+    long long supportsVBreaks;
+    long long supportsAllBreaks;
+    long long allBreaks;
+    _Bool hasBreak;
     NSArray *maxAspectRatios;
     NSArray *minAspectRatios;
     NSArray *tags;
-    BOOL tagsOnSourceOnly;
-    BOOL shelf;
+    _Bool tagsOnSourceOnly;
+    _Bool shelf;
 }
 
 @property(retain, nonatomic) NSArray *tags; // @synthesize tags;

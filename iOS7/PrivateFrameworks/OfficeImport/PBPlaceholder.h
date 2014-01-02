@@ -6,13 +6,14 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface PBPlaceholder : NSObject
 {
 }
 
-+ (void)writePlaceholder:(id)arg1 toPlaceholderAtom:(struct PptOEPlaceholderAtom *)arg2 isMaster:(BOOL)arg3 isNotes:(BOOL)arg4;
-+ (BOOL)isTitlePlaceholder:(int)arg1;
-+ (BOOL)isBodyPlaceholder:(int)arg1;
++ (void)writePlaceholder:(id)arg1 toPlaceholderAtom:(struct PptOEPlaceholderAtom *)arg2 isMaster:(_Bool)arg3 isNotes:(_Bool)arg4;
++ (_Bool)isTitlePlaceholder:(int)arg1;
++ (_Bool)isBodyPlaceholder:(int)arg1;
 + (int)placeholderTypeFromTextType:(int)arg1;
 + (int)readPlaceholderOrientation:(int)arg1;
 + (int)readPlaceholderSize:(int)arg1;

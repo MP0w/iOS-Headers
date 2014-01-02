@@ -15,17 +15,17 @@
 {
     NSString *_text;
     SBDarkeningImageView *_incomingTextView;
-    BOOL _animating;
+    _Bool _animating;
     id _queuedAnimation;
-    BOOL _displayingAccessory;
+    _Bool _displayingAccessory;
     SBIconAccessoryImage *_backgroundImage;
     SBDarkeningImageView *_backgroundView;
     SBIconAccessoryImage *_textImage;
     SBDarkeningImageView *_textView;
 }
 
-+ (id)_createImageForText:(id)arg1 highlighted:(BOOL)arg2;
-+ (id)_checkoutImageForText:(id)arg1 highlighted:(BOOL)arg2;
++ (id)_createImageForText:(id)arg1 highlighted:(_Bool)arg2;
++ (id)_checkoutImageForText:(id)arg1 highlighted:(_Bool)arg2;
 + (id)_checkoutBackgroundImage;
 + (id)checkoutAccessoryImagesForIcon:(id)arg1 location:(int)arg2;
 - (void)_resizeForTextImage:(id)arg1;
@@ -33,14 +33,14 @@
 - (void)_zoomOutWithPreparation:(id)arg1 animation:(void)arg2 completion:(id)arg3;
 - (void)_zoomInWithTextImage:(id)arg1 preparation:(id)arg2 animation:(void)arg3 completion:(id)arg4;
 - (void)_crossfadeToTextImage:(id)arg1 withPreparation:(id)arg2 animation:(void)arg3 completion:(id)arg4;
-- (void)_configureAnimatedForText:(id)arg1 highlighted:(BOOL)arg2 withPreparation:(id)arg3 animation:(void)arg4 completion:(id)arg5;
+- (void)_configureAnimatedForText:(id)arg1 highlighted:(_Bool)arg2 withPreparation:(id)arg3 animation:(void)arg4 completion:(id)arg5;
 - (id)darkeningImageView:(id)arg1 settableImageForImage:(id)arg2;
-- (void)setAccessoryBrightness:(float)arg1;
+- (void)setAccessoryBrightness:(double)arg1;
 - (struct CGPoint)accessoryOriginForIconBounds:(struct CGRect)arg1;
 - (void)prepareForReuse;
-- (BOOL)displayingAccessory;
-- (void)configureForIcon:(id)arg1 location:(int)arg2 highlighted:(BOOL)arg3;
-- (void)configureAnimatedForIcon:(id)arg1 location:(int)arg2 highlighted:(BOOL)arg3 withPreparation:(id)arg4 animation:(void)arg5 completion:(id)arg6;
+- (_Bool)displayingAccessory;
+- (void)configureForIcon:(id)arg1 location:(int)arg2 highlighted:(_Bool)arg3;
+- (void)configureAnimatedForIcon:(id)arg1 location:(int)arg2 highlighted:(_Bool)arg3 withPreparation:(id)arg4 animation:(void)arg5 completion:(id)arg6;
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)init;

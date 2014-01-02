@@ -11,16 +11,16 @@
 @interface MPMediaCollectionDownloadObserver : MPMediaDownloadObserver
 {
     NSMutableArray *_downloadObservers;
-    BOOL _callingProgressHandler;
+    _Bool _callingProgressHandler;
 }
 
 - (void).cxx_destruct;
 - (void)_callProgressHandler;
-- (BOOL)isPurchasing;
-- (BOOL)isCurrentlyPlayable;
+- (_Bool)isPurchasing;
+- (_Bool)isCurrentlyPlayable;
 - (void)invalidate;
 - (double)downloadProgress;
-- (unsigned int)downloadsCount;
+- (unsigned long long)downloadsCount;
 - (void)dealloc;
 - (id)initWithCollection:(id)arg1;
 

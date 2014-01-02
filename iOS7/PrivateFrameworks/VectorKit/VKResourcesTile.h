@@ -8,6 +8,7 @@
 
 @class NSArray;
 
+// Not exported
 @interface VKResourcesTile : VKTile
 {
     NSArray *_resourceNames;

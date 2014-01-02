@@ -8,29 +8,30 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface __NSOrderedSetM : NSMutableOrderedSet
 {
-    unsigned int _used;
+    unsigned long long _used;
     struct __CFBasicHash *_set;
     NSMutableArray *_array;
 }
 
 + (id)allocWithZone:(struct _NSZone *)arg1;
-+ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
-+ (id)__new:(const id *)arg1:(unsigned int)arg2:(BOOL)arg3;
++ (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
++ (id)__new:(const id *)arg1:(unsigned long long)arg2:(_Bool)arg3;
 - (void)finalize;
 - (void)dealloc;
-- (void)setObject:(id)arg1 atIndex:(unsigned int)arg2;
-- (void)replaceObjectAtIndex:(unsigned int)arg1 withObject:(id)arg2;
-- (void)removeObjectAtIndex:(unsigned int)arg1;
-- (void)insertObject:(id)arg1 atIndex:(unsigned int)arg2;
+- (void)setObject:(id)arg1 atIndex:(unsigned long long)arg2;
+- (void)replaceObjectAtIndex:(unsigned long long)arg1 withObject:(id)arg2;
+- (void)removeObjectAtIndex:(unsigned long long)arg1;
+- (void)insertObject:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)_mutate;
-- (void)enumerateObjectsWithOptions:(unsigned int)arg1 usingBlock:(id)arg2;
-- (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
+- (void)enumerateObjectsWithOptions:(unsigned long long)arg1 usingBlock:(id)arg2;
+- (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
 - (void)getObjects:(id *)arg1 range:(struct _NSRange)arg2;
-- (id)objectAtIndex:(unsigned int)arg1;
-- (unsigned int)indexOfObject:(id)arg1;
-- (unsigned int)count;
+- (id)objectAtIndex:(unsigned long long)arg1;
+- (unsigned long long)indexOfObject:(id)arg1;
+- (unsigned long long)count;
 
 @end
 

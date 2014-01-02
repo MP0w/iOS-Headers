@@ -10,6 +10,7 @@
 
 @class SKComposeReviewViewController;
 
+// Not exported
 @interface SKRemoteComposeReviewViewController : _UIRemoteViewController <SKUIClientComposeReviewViewController>
 {
     SKComposeReviewViewController *_composeReviewViewController;
@@ -22,7 +23,7 @@
 - (void)didPrepareWithResult:(id)arg1 error:(id)arg2;
 - (void)didFinishWithResult:(id)arg1 error:(id)arg2;
 - (void)viewServiceDidTerminateWithError:(id)arg1;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
 
 @end
 

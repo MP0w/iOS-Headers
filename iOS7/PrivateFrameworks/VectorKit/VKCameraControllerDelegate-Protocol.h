@@ -8,12 +8,12 @@
 
 @protocol VKCameraControllerDelegate <NSObject>
 - (id)cameraController:(id)arg1 presentationForAnnotation:(id)arg2;
-- (void)cameraController:(id)arg1 canEnter3DModeDidChange:(BOOL)arg2;
-- (void)cameraController:(id)arg1 didBecomePitched:(BOOL)arg2;
-- (void)cameraControllerDidStopRegionAnimation:(id)arg1 completed:(BOOL)arg2;
+- (void)cameraController:(id)arg1 canEnter3DModeDidChange:(_Bool)arg2;
+- (void)cameraController:(id)arg1 didBecomePitched:(_Bool)arg2;
+- (void)cameraControllerDidStopRegionAnimation:(id)arg1 completed:(_Bool)arg2;
 - (void)cameraControllerWillStartRegionAnimation:(id)arg1;
 - (void)cameraControllerDidChangeCameraState:(id)arg1;
-- (void)cameraController:(id)arg1 requestsDisplayRate:(int)arg2;
+- (void)cameraController:(id)arg1 requestsDisplayRate:(long long)arg2;
 - (void)runAnimation:(id)arg1;
 @end
 

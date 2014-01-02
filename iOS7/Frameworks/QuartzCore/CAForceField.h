@@ -17,7 +17,7 @@
     NSString *_name;
     CALayer *_layer;
     CAValueFunction *_function;
-    BOOL _enabled;
+    _Bool _enabled;
     void *_priv;
 }
 
@@ -39,7 +39,7 @@
 - (void)dealloc;
 @property(retain) CAValueFunction *function;
 @property(retain) CALayer *layer;
-@property(getter=isEnabled) BOOL enabled;
+@property(getter=isEnabled) _Bool enabled;
 @property(copy) NSString *name;
 - (id)init;
 

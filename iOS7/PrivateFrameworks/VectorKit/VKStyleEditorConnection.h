@@ -8,6 +8,7 @@
 
 @class VKMapView;
 
+// Not exported
 @interface VKStyleEditorConnection : NSObject
 {
     VKMapView *_mapView;

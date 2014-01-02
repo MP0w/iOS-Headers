@@ -8,16 +8,18 @@
 
 @class UIKeyboardCandidateBarSegmentControl;
 
+// Not exported
 @interface UIKeyboardCandidatePageControl : UIView
 {
     UIKeyboardCandidateBarSegmentControl *_pageControl;
-    BOOL _usingVerticalArrows;
+    _Bool _usingVerticalArrows;
 }
 
 - (void)layoutSubviews;
-- (void)updatePageControlWithStatus:(BOOL)arg1 rightControlButtonEnabled:(BOOL)arg2;
+- (void)updatePageControlWithStatus:(_Bool)arg1 rightControlButtonEnabled:(_Bool)arg2;
 - (void)_changePage:(id)arg1;
-- (void)setUseVerticalArrows:(BOOL)arg1;
+- (void)setUseVerticalArrows:(_Bool)arg1;
+- (void)_setRenderConfig:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

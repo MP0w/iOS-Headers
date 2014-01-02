@@ -8,14 +8,15 @@
 
 #import "SFUOutputStream-Protocol.h"
 
-@class SFUCryptor;
+@class OISFUCryptor;
 
+// Not exported
 @interface SFUCryptoOutputStream : NSObject <SFUOutputStream>
 {
     id <SFUOutputStream> mBaseStream;
-    SFUCryptor *mCryptor;
-    BOOL mIsClosed;
-    BOOL mComputeCrc32;
+    OISFUCryptor *mCryptor;
+    _Bool mIsClosed;
+    _Bool mComputeCrc32;
     unsigned int mCrc32;
 }
 
@@ -24,13 +25,13 @@
 - (void)close;
 - (unsigned int)crc32;
 - (id)inputStream;
-- (BOOL)canCreateInputStream;
+- (_Bool)canCreateInputStream;
 - (long long)offset;
 - (void)seekToOffset:(long long)arg1 whence:(int)arg2;
-- (BOOL)canSeek;
-- (void)writeBuffer:(const char *)arg1 size:(unsigned long)arg2;
+- (_Bool)canSeek;
+- (void)writeBuffer:(const char *)arg1 size:(unsigned long long)arg2;
 - (void)dealloc;
-- (id)initForEncryptionWithOutputStream:(id)arg1 key:(id)arg2 computeCrc32:(BOOL)arg3;
+- (id)initForEncryptionWithOutputStream:(id)arg1 key:(id)arg2 computeCrc32:(_Bool)arg3;
 - (id)initForEncryptionWithOutputStream:(id)arg1 key:(id)arg2;
 
 @end

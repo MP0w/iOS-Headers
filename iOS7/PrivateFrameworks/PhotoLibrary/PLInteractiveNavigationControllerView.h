@@ -19,7 +19,7 @@
     UINavigationBar *_navBar;
     UIView *_header;
     UIView *_footer;
-    int _orientation;
+    long long _orientation;
     struct {
         unsigned int transitioning:1;
         unsigned int headerViewIsVisible:1;
@@ -32,20 +32,20 @@
 @property(retain, nonatomic) UIView *bottomView; // @synthesize bottomView=_bottom;
 @property(retain, nonatomic) UIView *topView; // @synthesize topView=_top;
 @property(readonly, nonatomic) UINavigationBar *navigationBar; // @synthesize navigationBar=_navBar;
-- (void)setInterfaceOrientation:(int)arg1;
-- (void)setTopViewAlpha:(float)arg1;
+- (void)setInterfaceOrientation:(long long)arg1;
+- (void)setTopViewAlpha:(double)arg1;
 - (void)setOverlayView:(id)arg1;
 - (id)interactiveView;
 - (void)setInteractiveView:(id)arg1;
-- (void)setInteractiveView:(id)arg1 removePrevious:(BOOL)arg2;
+- (void)setInteractiveView:(id)arg1 removePrevious:(_Bool)arg2;
 - (void)transitionDidEnd;
 - (void)transitionWillBegin;
 - (void)layoutSubviews;
 - (void)_adjustViewFrame:(id)arg1;
-@property(nonatomic, getter=footerViewIsHidden) BOOL footerViewHidden;
-@property(nonatomic, getter=headerViewIsHidden) BOOL headerViewHidden;
-- (void)setFooterViewHidden:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)setHeaderViewHidden:(BOOL)arg1 animated:(BOOL)arg2;
+@property(nonatomic, getter=footerViewIsHidden) _Bool footerViewHidden;
+@property(nonatomic, getter=headerViewIsHidden) _Bool headerViewHidden;
+- (void)setFooterViewHidden:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)setHeaderViewHidden:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

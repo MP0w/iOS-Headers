@@ -10,6 +10,7 @@
 
 @class EXState, NSString, NSURL;
 
+// Not exported
 @interface EXSheetContext : NSObject <OCDDelayedNodeContext>
 {
     EXState *mSheetState;

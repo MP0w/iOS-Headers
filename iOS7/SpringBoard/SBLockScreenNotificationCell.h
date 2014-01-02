@@ -6,61 +6,58 @@
 
 #import "SBNotificationCell.h"
 
-#import "SBGlintyStringViewDelegate-Protocol.h"
+@class SBLockScreenNotificationScrollView, SBUnlockActionContext, UIButton, UILabel, UIView;
 
-@class NSArray, NSTimer, SBGlintyStringView, SBLockScreenNotificationScrollView, SBUnlockActionContext, UIView;
-
-@interface SBLockScreenNotificationCell : SBNotificationCell <SBGlintyStringViewDelegate>
+@interface SBLockScreenNotificationCell : SBNotificationCell
 {
-    BOOL _isTopCell;
-    BOOL _drawsSeparators;
-    float _currentContentAlpha;
+    _Bool _isTopCell;
+    _Bool _drawsSeparators;
+    double _currentContentAlpha;
     UIView *_topSeparatorView;
     UIView *_bottomSeparatorView;
-    NSArray *_actionButtons;
     id <SBAwayListCellButtonHandler> _actionButtonHandler;
     SBLockScreenNotificationScrollView *_contentScrollView;
     SBUnlockActionContext *_unlockActionContext;
-    SBGlintyStringView *_unlockTextView;
-    NSTimer *_unlockTextRevealTimer;
-    id <SBLockScreenNotificationCellDelegate><UIScrollViewDelegate> _delegate;
+    UILabel *_unlockTextLabel;
+    id <UIScrollViewDelegate> _delegate;
+    _Bool _resetsScrollOnPluginWillDisable;
+    double _contentScrollViewWidth;
 }
 
-+ (float)primaryPaddingLeft;
-+ (float)rowHeightForTitle:(id)arg1 body:(id)arg2 maxLines:(unsigned int)arg3 attachmentSize:(struct CGSize)arg4 datesVisible:(BOOL)arg5 rowWidth:(float)arg6;
++ (double)primaryPaddingLeft;
++ (_Bool)wantsUnlockActionText;
++ (double)rowHeightForTitle:(id)arg1 subtitle:(id)arg2 body:(id)arg3 maxLines:(unsigned long long)arg4 attachmentSize:(struct CGSize)arg5 datesVisible:(_Bool)arg6 rowWidth:(double)arg7 includeUnlockActionText:(_Bool)arg8;
 + (id)defaultColorForEventDate;
 + (id)defaultColorForRelevanceDate;
 + (id)defaultColorForSecondaryText;
++ (id)defaultColorForSubtitleText;
 + (id)defaultColorForPrimaryText;
 + (id)defaultFontForEventDate;
 + (id)defaultFontForRelevanceDate;
 + (id)defaultFontForSecondaryText;
++ (id)defaultFontForSubtitleText;
 + (id)defaultFontForPrimaryText;
-@property(nonatomic) id <SBLockScreenNotificationCellDelegate><UIScrollViewDelegate> delegate; // @synthesize delegate=_delegate;
-@property(retain, nonatomic) NSArray *actionButtons; // @synthesize actionButtons=_actionButtons;
+@property(nonatomic) _Bool resetsScrollOnPluginWillDisable; // @synthesize resetsScrollOnPluginWillDisable=_resetsScrollOnPluginWillDisable;
+@property(nonatomic) id <UIScrollViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) SBUnlockActionContext *unlockActionContext; // @synthesize unlockActionContext=_unlockActionContext;
-@property(nonatomic) BOOL drawsSeparators; // @synthesize drawsSeparators=_drawsSeparators;
-@property(nonatomic) BOOL isTopCell; // @synthesize isTopCell=_isTopCell;
+@property(nonatomic) double contentScrollViewWidth; // @synthesize contentScrollViewWidth=_contentScrollViewWidth;
+@property(nonatomic) _Bool drawsSeparators; // @synthesize drawsSeparators=_drawsSeparators;
+@property(nonatomic) _Bool isTopCell; // @synthesize isTopCell=_isTopCell;
 - (void)layoutSubviews;
-- (void)glintyAnimationDidStop;
-- (void)glintyAnimationDidStart;
 - (void)_handleActionButtonPress:(id)arg1;
 - (id)_buttonWithLabel:(id)arg1;
-- (id)_buttonsWithLabels:(id)arg1;
-- (void)setButtonLabels:(id)arg1 handler:(id)arg2;
-- (void)_animateToUnlockTextVisible:(BOOL)arg1 duration:(float)arg2;
-- (void)_unlockTextRevealTimerFired:(id)arg1;
-- (void)_setUnlockTextRevealTimer;
-- (void)_clearUnlockTextRevealTimer;
-- (void)hideUnlockTextImmediately;
-- (void)showUnlockTextImmediately;
-- (void)prepareUnlockText;
-@property(readonly, nonatomic) BOOL wantsUnlockActionText;
-- (void)setContentAlpha:(float)arg1;
-- (void)scrollToOriginAnimated:(BOOL)arg1;
-- (void)resetScrollViewWithWidth:(float)arg1;
+- (void)setButtonLabel:(id)arg1 handler:(id)arg2;
+- (void)_updateUnlockText:(id)arg1;
+- (void)setContentAlpha:(double)arg1;
+- (void)scrollToOriginAnimated:(_Bool)arg1;
+- (void)resetScrollView;
+- (void)_notePluginWillDisable:(id)arg1;
+- (void)prepareForReuse;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
+
+// Remaining properties
+@property(retain, nonatomic) UIButton *actionButton;
 
 @end
 

@@ -20,6 +20,7 @@
     NSMutableData *_responseData;
     NSHTTPURLResponse *_urlResponse;
     NSString *_authURLBase;
+    NSString *_clientUUID;
 }
 
 + (id)sharedAuthenticator;
@@ -42,12 +43,13 @@
 - (void)_getNewTokenForAccount:(id)arg1 password:(id)arg2;
 - (id)_authRequestForAccount:(id)arg1 password:(id)arg2;
 - (id)_authRequestWithURL:(id)arg1;
-- (BOOL)_isTokenExpired:(id)arg1;
+- (id)_clientUUID;
+- (_Bool)_isTokenExpired:(id)arg1;
 - (void)validateAccount:(id)arg1 password:(id)arg2;
 - (id)tokenForCurrentAccount;
-- (BOOL)readyToRequestToken;
-- (BOOL)loadStoredCredentials;
-- (BOOL)cachedCredentialsValid;
+- (_Bool)readyToRequestToken;
+- (_Bool)loadStoredCredentials;
+- (_Bool)cachedCredentialsValid;
 - (void)dealloc;
 - (id)init;
 

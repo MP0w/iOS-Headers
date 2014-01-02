@@ -17,7 +17,7 @@
 
 - (void)dealloc;
 - (id)description;
-- (BOOL)isLoadDyLib;
+- (_Bool)isLoadDyLib;
 - (unsigned int)compatibilityVersion;
 - (unsigned int)currentVersion;
 - (id)path;

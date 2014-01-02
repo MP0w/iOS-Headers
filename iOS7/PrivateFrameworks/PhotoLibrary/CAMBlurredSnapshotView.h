@@ -8,29 +8,37 @@
 
 @interface CAMBlurredSnapshotView : UIView
 {
-    BOOL _blurred;
-    BOOL _dimmed;
-    int _style;
+    _Bool _blurred;
+    _Bool _dimmed;
+    _Bool __supportsBlur;
+    long long _style;
     UIView *_snapshotView;
+    UIView *__lowQualityBlurView;
     UIView *__dimmingView;
     struct CGRect _targetFrame;
 }
 
 @property(readonly, nonatomic) UIView *_dimmingView; // @synthesize _dimmingView=__dimmingView;
+@property(readonly, nonatomic) UIView *_lowQualityBlurView; // @synthesize _lowQualityBlurView=__lowQualityBlurView;
+@property(readonly, nonatomic) _Bool _supportsBlur; // @synthesize _supportsBlur=__supportsBlur;
 @property(nonatomic) struct CGRect targetFrame; // @synthesize targetFrame=_targetFrame;
-@property(nonatomic) BOOL dimmed; // @synthesize dimmed=_dimmed;
-@property(nonatomic) BOOL blurred; // @synthesize blurred=_blurred;
+@property(nonatomic) _Bool dimmed; // @synthesize dimmed=_dimmed;
+@property(nonatomic) _Bool blurred; // @synthesize blurred=_blurred;
 @property(readonly, nonatomic) UIView *snapshotView; // @synthesize snapshotView=_snapshotView;
-@property(nonatomic) int style; // @synthesize style=_style;
-- (void)_removeSnapshotDimAnimated:(BOOL)arg1 withCompletionBlock:(id)arg2;
-- (void)_applySnapshotDimAnimated:(BOOL)arg1 withCompletionBlock:(id)arg2;
+@property(nonatomic) long long style; // @synthesize style=_style;
+- (void)_removeSnapshotDimAnimated:(_Bool)arg1 withCompletionBlock:(id)arg2;
+- (void)_applySnapshotDimAnimated:(_Bool)arg1 withCompletionBlock:(id)arg2;
 - (void)_setupDimOnSnapshot;
-- (void)_removeSnapshotBlurAnimated:(BOOL)arg1 withCompletionBlock:(id)arg2;
-- (void)_applySnapshotBlurAnimated:(BOOL)arg1 withCompletionBlock:(id)arg2;
+- (void)_removeLowQualityBlurAnimated:(_Bool)arg1 withCompletionBlock:(id)arg2;
+- (void)_applyLowQualityBlurAnimated:(_Bool)arg1 withCompletionBlock:(id)arg2;
+- (void)_prepareForApplyingLowQualityBlurAnimation:(_Bool)arg1 opacityAmount:(double *)arg2 opacityDuration:(double *)arg3 opacityDelay:(double *)arg4 opacityTimingFunction:(id *)arg5 targetView:(id *)arg6;
+- (void)_setupLowQualityBlurOnSnapshot;
+- (void)_removeSnapshotBlurAnimated:(_Bool)arg1 withCompletionBlock:(id)arg2;
+- (void)_applySnapshotBlurAnimated:(_Bool)arg1 withCompletionBlock:(id)arg2;
 - (void)_setupBlurOnSnapshot;
-- (void)_prepareForApplyingBlurAnimation:(BOOL)arg1 inputRadiusAmount:(float *)arg2 inputRadiusDuration:(double *)arg3 inputRadiusDelay:(double *)arg4 inputRadiusTimingFunction:(id *)arg5 opacityAmount:(float *)arg6 opacityDuration:(double *)arg7 opacityDelay:(double *)arg8 opacityTimingFunction:(id *)arg9;
-- (void)setDimmed:(BOOL)arg1 animated:(BOOL)arg2 withCompletionBlock:(id)arg3;
-- (void)setBlurred:(BOOL)arg1 animated:(BOOL)arg2 withCompletionBlock:(id)arg3;
+- (void)_prepareForApplyingBlurAnimation:(_Bool)arg1 inputRadiusAmount:(double *)arg2 inputRadiusDuration:(double *)arg3 inputRadiusDelay:(double *)arg4 inputRadiusTimingFunction:(id *)arg5 opacityAmount:(double *)arg6 opacityDuration:(double *)arg7 opacityDelay:(double *)arg8 opacityTimingFunction:(id *)arg9;
+- (void)setDimmed:(_Bool)arg1 animated:(_Bool)arg2 withCompletionBlock:(id)arg3;
+- (void)setBlurred:(_Bool)arg1 animated:(_Bool)arg2 withCompletionBlock:(id)arg3;
 - (void)dealloc;
 - (id)initWithView:(id)arg1;
 

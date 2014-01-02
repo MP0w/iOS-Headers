@@ -10,7 +10,7 @@
 {
 }
 
-- (BOOL)gestureRecognizerShouldBegin:(id)arg1;
+- (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (id)initWithImage:(id)arg1;
 
 @end

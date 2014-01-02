@@ -8,6 +8,7 @@
 
 @class PKPrinter;
 
+// Not exported
 @interface UIPrintInfoRequest : NSObject
 {
     PKPrinter *_printer;

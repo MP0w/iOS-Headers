@@ -19,8 +19,8 @@
 - (id)srcdoc;
 @property(copy) NSString *src;
 @property(copy) NSString *scrolling;
-- (void)setSeamless:(BOOL)arg1;
-- (BOOL)seamless;
+- (void)setSeamless:(_Bool)arg1;
+- (_Bool)seamless;
 - (void)setSandbox:(id)arg1;
 - (id)sandbox;
 @property(copy) NSString *name;
@@ -30,7 +30,6 @@
 @property(copy) NSString *height;
 @property(copy) NSString *frameBorder;
 @property(copy) NSString *align;
-- (int)structuralComplexityContribution;
 
 @end
 

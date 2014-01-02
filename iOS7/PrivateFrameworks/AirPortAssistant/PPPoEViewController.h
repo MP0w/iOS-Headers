@@ -23,16 +23,17 @@
     id previousNavDelegate;
 }
 
+@property(nonatomic) UILabel *justTextLabel; // @synthesize justTextLabel;
 @property(retain, nonatomic) UIView *spinnerWithStatusAdjacentView; // @synthesize spinnerWithStatusAdjacentView;
 @property(retain, nonatomic) UIView *justTextContainerView; // @synthesize justTextContainerView;
 @property(retain, nonatomic) UIView *tableHeaderContainerView; // @synthesize tableHeaderContainerView;
 @property(retain) PPPoEConnectionUIViewController *pppoeConnectionUIViewController; // @synthesize pppoeConnectionUIViewController;
-- (void)navigationController:(id)arg1 willShowViewController:(id)arg2 animated:(BOOL)arg3;
+- (void)navigationController:(id)arg1 willShowViewController:(id)arg2 animated:(_Bool)arg3;
 - (void)touchInCellAtIndexPath:(id)arg1;
-- (BOOL)shouldChangeTextField:(id)arg1 atIndexPath:(id)arg2 forTextIndex:(unsigned int)arg3 toString:(id)arg4;
-- (id)valueForItemOfType:(id)arg1 atTypeIndex:(unsigned int)arg2 inCellWithTag:(int)arg3;
+- (_Bool)shouldChangeTextField:(id)arg1 atIndexPath:(id)arg2 forTextIndex:(unsigned long long)arg3 toString:(id)arg4;
+- (id)valueForItemOfType:(id)arg1 atTypeIndex:(unsigned long long)arg2 inCellWithTag:(long long)arg3;
 - (void)dealloc;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)setupInitialTableHeaderConfiguration;
 

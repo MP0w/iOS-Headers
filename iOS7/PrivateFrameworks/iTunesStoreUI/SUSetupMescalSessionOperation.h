@@ -16,7 +16,7 @@
 
 - (id)_setupSAPWithData:(id)arg1 error:(id *)arg2;
 - (id)_setupSAPCertificate:(id *)arg1;
-- (BOOL)_isMescalEnabled;
+- (_Bool)_isMescalEnabled;
 - (void)run;
 @property(readonly) SUMescalSession *mescalSession;
 - (void)dealloc;

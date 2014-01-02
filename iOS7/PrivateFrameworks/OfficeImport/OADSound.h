@@ -8,16 +8,17 @@
 
 @class NSData, NSString;
 
+// Not exported
 @interface OADSound : OCDDelayedMedia
 {
     NSData *mSoundData;
     NSString *mName;
-    long mSizeInBytes;
+    int mSizeInBytes;
 }
 
 - (_Bool)isLoaded;
-- (void)setSizeInBytes:(long)arg1;
-- (long)sizeInBytes;
+- (void)setSizeInBytes:(int)arg1;
+- (int)sizeInBytes;
 - (void)setName:(id)arg1;
 - (id)name;
 - (void)setSoundData:(id)arg1;

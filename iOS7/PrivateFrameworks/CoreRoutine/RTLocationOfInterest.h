@@ -9,33 +9,32 @@
 #import "NSCopying-Protocol.h"
 #import "NSSecureCoding-Protocol.h"
 
-@class CLLocation, NSArray, NSDate, NSString, NSUUID;
+@class CLLocation, GEOPlaceResult, NSArray, NSDate, NSUUID;
 
 @interface RTLocationOfInterest : NSObject <NSCopying, NSSecureCoding>
 {
     CLLocation *_location;
     NSUUID *_identifier;
-    int _type;
-    NSString *_name;
+    long long _type;
+    GEOPlaceResult *_placeResult;
     NSDate *_nextEntryTime;
     NSArray *_visits;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) NSArray *visits; // @synthesize visits=_visits;
 @property(readonly, nonatomic) NSDate *nextEntryTime; // @synthesize nextEntryTime=_nextEntryTime;
-@property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
-@property(readonly, nonatomic) int type; // @synthesize type=_type;
+@property(readonly, nonatomic) GEOPlaceResult *placeResult; // @synthesize placeResult=_placeResult;
+@property(readonly, nonatomic) long long type; // @synthesize type=_type;
 @property(readonly, nonatomic) NSUUID *identifier; // @synthesize identifier=_identifier;
 @property(readonly, nonatomic) CLLocation *location; // @synthesize location=_location;
 - (void).cxx_destruct;
 - (id)description;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithLocation:(id)arg1 identifier:(id)arg2 type:(int)arg3 name:(id)arg4 nextEntryTime:(id)arg5 visits:(id)arg6;
-- (void)preferredGeocodedNameHandler:(id)arg1;
-- (id)localizedTodayDescriptionWithAlternateName:(id)arg1 liveETA:(unsigned int)arg2 historicalETA:(unsigned int)arg3 loggingEnabled:(BOOL)arg4;
+- (id)initWithLocation:(id)arg1 identifier:(id)arg2 type:(long long)arg3 placeResult:(id)arg4 nextEntryTime:(id)arg5 visits:(id)arg6;
 
 @end
 

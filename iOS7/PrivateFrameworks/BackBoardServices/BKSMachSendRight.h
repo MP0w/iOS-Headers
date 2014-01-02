@@ -15,14 +15,14 @@
 }
 
 + (id)wrapSendRight:(unsigned int)arg1;
-+ (BOOL)portRightIsUsable:(unsigned int)arg1;
++ (_Bool)portRightIsUsable:(unsigned int)arg1;
 @property(nonatomic) unsigned int sendRight; // @synthesize sendRight=_sendRight;
 - (void)encodeWithXPCDictionary:(id)arg1;
 - (id)initWithXPCDictionary:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isUsable;
+- (_Bool)isUsable;
 - (void)dealloc;
-- (id)_initWithSendRight:(unsigned int)arg1 insertRight:(BOOL)arg2;
+- (id)_initWithSendRight:(unsigned int)arg1 insertRight:(_Bool)arg2;
 
 @end
 

@@ -10,22 +10,22 @@
 
 @interface PLPublishCloudSharedAssetsJob : PLCloudSharingJob
 {
-    BOOL _isNewAlbum;
+    _Bool _isNewAlbum;
     NSString *_publishAlbumCloudGUID;
     NSArray *_originalAssetUUIDs;
     NSDictionary *_trimmedVideoPathInfo;
     NSString *_batchCommentText;
 }
 
-+ (void)publishBatchOfOriginalAssets:(id)arg1 toSharedAlbum:(id)arg2 withTrimmedVideoPathInfo:(id)arg3 isNewAlbum:(BOOL)arg4 batchCommentText:(id)arg5;
++ (void)publishBatchOfOriginalAssets:(id)arg1 toSharedAlbum:(id)arg2 withTrimmedVideoPathInfo:(id)arg3 isNewAlbum:(_Bool)arg4 batchCommentText:(id)arg5;
 @property(retain, nonatomic) NSString *batchCommentText; // @synthesize batchCommentText=_batchCommentText;
-@property(nonatomic) BOOL isNewAlbum; // @synthesize isNewAlbum=_isNewAlbum;
+@property(nonatomic) _Bool isNewAlbum; // @synthesize isNewAlbum=_isNewAlbum;
 @property(retain, nonatomic) NSDictionary *trimmedVideoPathInfo; // @synthesize trimmedVideoPathInfo=_trimmedVideoPathInfo;
 @property(retain, nonatomic) NSArray *originalAssetUUIDs; // @synthesize originalAssetUUIDs=_originalAssetUUIDs;
 @property(retain, nonatomic) NSString *publishAlbumCloudGUID; // @synthesize publishAlbumCloudGUID=_publishAlbumCloudGUID;
 - (void)executeDaemonOperation;
 - (void)runDaemonSide;
-- (BOOL)shouldArchiveXPCToDisk;
+- (_Bool)shouldArchiveXPCToDisk;
 - (void)run;
 - (long long)daemonOperation;
 - (void)dealloc;

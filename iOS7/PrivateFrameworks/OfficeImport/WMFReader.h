@@ -10,6 +10,7 @@
 
 @class WMFPlayer;
 
+// Not exported
 @interface WMFReader : NSObject <MFReader>
 {
     int m_recordsRead;

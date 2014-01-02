@@ -13,7 +13,7 @@
     struct VKPoint _worldPoint;
     NSString *_title;
     NSString *_subtitle;
-    int _type;
+    long long _type;
     CDStruct_2c43369c _location;
     NSString *_street;
     NSString *_crossStreet;
@@ -21,10 +21,12 @@
     NSDate *_startDate;
     NSDate *_endDate;
     NSDate *_lastUpdatedDate;
-    NSString *_uniqueString;
+    float _minZoom;
     unsigned long long _uniqueID;
+    NSString *_uniqueString;
 }
 
+@property(readonly, nonatomic) float minZoom; // @synthesize minZoom=_minZoom;
 @property(readonly, nonatomic) struct VKPoint worldPoint; // @synthesize worldPoint=_worldPoint;
 @property(readonly, nonatomic) NSDate *lastUpdatedDate; // @synthesize lastUpdatedDate=_lastUpdatedDate;
 @property(readonly, nonatomic) NSDate *endDate; // @synthesize endDate=_endDate;
@@ -32,7 +34,7 @@
 @property(readonly, nonatomic) NSString *info; // @synthesize info=_info;
 @property(readonly, nonatomic) NSString *crossStreet; // @synthesize crossStreet=_crossStreet;
 @property(readonly, nonatomic) NSString *street; // @synthesize street=_street;
-@property(readonly, nonatomic) int type; // @synthesize type=_type;
+@property(readonly, nonatomic) long long type; // @synthesize type=_type;
 @property(readonly, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
 @property(readonly, nonatomic) NSString *title; // @synthesize title=_title;
 @property(readonly, nonatomic) NSString *uniqueString; // @synthesize uniqueString=_uniqueString;
@@ -40,9 +42,10 @@
 - (id).cxx_construct;
 - (void)dealloc;
 - (id)initWithRouteIncident:(id)arg1;
-- (id)initWithIncident:(id)arg1 vertices:(CDStruct_1ef3fb1f *)arg2 tileRect:(CDStruct_d2b197d1)arg3 tileSize:(double)arg4;
+- (id)initWithIncident:(id)arg1 vertices:(CDStruct_912cb5d2 *)arg2 tileRect:(CDStruct_d2b197d1)arg3 tileSize:(double)arg4;
 - (id)initWithIncidentData:(const struct Incident *)arg1 worldPoint:(struct VKPoint *)arg2;
-- (BOOL)hasSameIdentifier:(id)arg1;
+- (id)initWithIncidentData:(const struct Incident *)arg1 worldPoint:(struct VKPoint *)arg2 minZoom:(float)arg3;
+- (_Bool)hasSameIdentifier:(id)arg1;
 
 @end
 

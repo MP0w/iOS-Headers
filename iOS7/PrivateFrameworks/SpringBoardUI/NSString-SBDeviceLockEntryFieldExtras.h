@@ -7,7 +7,7 @@
 #import "NSString.h"
 
 @interface NSString (SBDeviceLockEntryFieldExtras)
-- (BOOL)isNewline;
-- (BOOL)isSingleCharacterAndMemberOfSet:(struct __CFCharacterSet *)arg1;
+- (_Bool)isNewline;
+- (_Bool)isSingleCharacterAndMemberOfSet:(struct __CFCharacterSet *)arg1;
 @end
 

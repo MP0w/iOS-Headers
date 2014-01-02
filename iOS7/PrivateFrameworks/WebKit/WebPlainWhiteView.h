@@ -9,16 +9,17 @@
 #import "WebDocumentElement-Protocol.h"
 #import "WebDocumentView-Protocol.h"
 
+// Not exported
 @interface WebPlainWhiteView : WAKView <WebDocumentView, WebDocumentElement>
 {
 }
 
-- (id)elementAtPoint:(struct CGPoint)arg1 allowShadowContent:(BOOL)arg2;
+- (id)elementAtPoint:(struct CGPoint)arg1 allowShadowContent:(_Bool)arg2;
 - (id)elementAtPoint:(struct CGPoint)arg1;
 - (void)viewDidMoveToHostWindow;
 - (void)viewWillMoveToHostWindow:(id)arg1;
 - (void)layout;
-- (void)setNeedsLayout:(BOOL)arg1;
+- (void)setNeedsLayout:(_Bool)arg1;
 - (void)dataSourceUpdated:(id)arg1;
 - (void)setDataSource:(id)arg1;
 - (void)drawRect:(struct CGRect)arg1;

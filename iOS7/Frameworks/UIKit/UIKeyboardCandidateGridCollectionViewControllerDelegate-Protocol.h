@@ -7,14 +7,14 @@
 #import "UIKeyboardCandidateList-Protocol.h"
 
 @protocol UIKeyboardCandidateGridCollectionViewControllerDelegate <UIKeyboardCandidateList>
-- (unsigned int)gridCollectionViewNumberOfColumns:(id)arg1;
-- (unsigned int)gridCollectionViewSelectedSortMethodIndex:(id)arg1;
+- (unsigned long long)gridCollectionViewNumberOfColumns:(id)arg1;
+- (unsigned long long)gridCollectionViewSelectedSortMethodIndex:(id)arg1;
 
 @optional
 - (void)scrollViewDidScroll:(id)arg1;
 - (void)scrollViewWillBeginDragging:(id)arg1;
 - (void)padInlineFloatingViewExpand:(id)arg1;
-- (BOOL)padInlineFloatingViewIsExpanded:(id)arg1;
+- (_Bool)padInlineFloatingViewIsExpanded:(id)arg1;
 - (id)headerViewForCandidateSet:(id)arg1;
 @end
 

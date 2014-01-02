@@ -7,7 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol UIStatusBarStateProvider <NSObject>
-- (void)getStatusBarData:(CDStruct_87a532be *)arg1;
+- (void)getStatusBarData:(CDStruct_0e61b686 *)arg1;
 - (void)removeStatusBarStateObserver:(id)arg1;
 - (void)addStatusBarStateObserver:(id)arg1;
 @end

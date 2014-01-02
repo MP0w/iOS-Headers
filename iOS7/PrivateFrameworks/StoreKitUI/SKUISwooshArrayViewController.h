@@ -6,22 +6,24 @@
 
 #import "UIViewController.h"
 
+#import "SKUIMetricsViewController-Protocol.h"
 #import "SKUIProductPageChildViewController-Protocol.h"
 #import "SKUIResourceLoaderDelegate-Protocol.h"
 #import "SKUISwooshViewControllerDelegate-Protocol.h"
 #import "UIScrollViewDelegate-Protocol.h"
 
-@class NSArray, NSMutableArray, NSOperationQueue, SKUIClientContext, SKUIColorScheme, SKUIPlatformRequestOperation, SKUIProductPageHeaderViewController, SKUIResourceLoader, UIScrollView;
+@class NSArray, NSMutableArray, NSOperationQueue, SKUIClientContext, SKUIColorScheme, SKUIMetricsController, SKUIProductPageHeaderViewController, SKUIResourceLoader, SSVPlatformRequestOperation, UIScrollView;
 
-@interface SKUISwooshArrayViewController : UIViewController <SKUIResourceLoaderDelegate, SKUISwooshViewControllerDelegate, UIScrollViewDelegate, SKUIProductPageChildViewController>
+@interface SKUISwooshArrayViewController : UIViewController <SKUIMetricsViewController, SKUIResourceLoaderDelegate, SKUISwooshViewControllerDelegate, UIScrollViewDelegate, SKUIProductPageChildViewController>
 {
     SKUIResourceLoader *_artworkLoader;
     SKUIClientContext *_clientContext;
     SKUIColorScheme *_colorScheme;
-    id <SKUISwooshViewControllerDelegate> _delegate;
+    id <SKUIProductPageChildViewControllerDelegate> _delegate;
     SKUIProductPageHeaderViewController *_headerViewController;
+    SKUIMetricsController *_metricsController;
     NSOperationQueue *_operationQueue;
-    SKUIPlatformRequestOperation *_platformOperation;
+    SSVPlatformRequestOperation *_platformOperation;
     UIScrollView *_scrollView;
     NSMutableArray *_swooshArtworkLoaders;
     NSArray *_swooshComponents;
@@ -30,8 +32,9 @@
 
 @property(copy, nonatomic) NSArray *swooshComponents; // @synthesize swooshComponents=_swooshComponents;
 @property(retain, nonatomic) NSOperationQueue *operationQueue; // @synthesize operationQueue=_operationQueue;
+@property(retain, nonatomic) SKUIMetricsController *metricsController; // @synthesize metricsController=_metricsController;
 @property(retain, nonatomic) SKUIProductPageHeaderViewController *headerViewController; // @synthesize headerViewController=_headerViewController;
-@property(nonatomic) __weak id delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <SKUIProductPageChildViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) SKUIColorScheme *colorScheme; // @synthesize colorScheme=_colorScheme;
 @property(retain, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
 - (void).cxx_destruct;
@@ -39,22 +42,22 @@
 - (void)_reloadChildViewControllers;
 - (void)_loadMissingItemsIfNecessary;
 - (void)_layoutSwooshViews;
+- (id)_clickEventWithItem:(id)arg1;
+- (id)_clickEventForSeeAllForViewController:(id)arg1;
 - (id)_artworkLoader;
 - (void)_addMissingItemsWithResponse:(id)arg1 error:(id)arg2;
 - (void)_addHeaderView;
 - (void)scrollViewDidScroll:(id)arg1;
 - (void)artworkLoaderDidIdle:(id)arg1;
 - (void)swooshDidSelectSeeAll:(id)arg1;
-- (id)swoosh:(id)arg1 imageForCellAtIndex:(int)arg2;
-- (void)swoosh:(id)arg1 didSelectCellAtIndex:(int)arg2;
-- (void)viewWillAppear:(BOOL)arg1;
+- (id)swoosh:(id)arg1 imageForCellAtIndex:(long long)arg2;
+- (void)swoosh:(id)arg1 didSelectCellAtIndex:(long long)arg2;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;
+- (id)activeMetricsController;
 @property(readonly, nonatomic) UIScrollView *scrollView;
-- (void)unhideIcons;
-- (id)popIconImageViewForItem:(id)arg1;
+- (_Bool)isLoaded;
 - (void)loadMissingItemData;
-- (id)clickEventWithItem:(id)arg1 metricsController:(id)arg2;
-- (id)clickEventForSeeAllForViewController:(id)arg1 metricsController:(id)arg2;
 - (void)dealloc;
 - (id)initWithSwooshComponents:(id)arg1;
 

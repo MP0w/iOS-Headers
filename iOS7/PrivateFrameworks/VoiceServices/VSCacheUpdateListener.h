@@ -14,7 +14,7 @@
     NSMutableArray *_updateRequestQueue;
     NSDictionary *_dataProviders;
     NSTimer *_flushTimer;
-    BOOL _isListening;
+    _Bool _isListening;
 }
 
 + (id)sharedListenerIfExists;

@@ -8,18 +8,19 @@
 
 #import "SLSheetViewHostProtocol-Protocol.h"
 
+// Not exported
 @interface SLRemoteComposeViewController : _UIRemoteViewController <SLSheetViewHostProtocol>
 {
     id <SLComposeViewControllerServiceProtocol> _serviceProxy;
-    int _controllerResult;
-    BOOL _hasAppeared;
+    long long _controllerResult;
+    _Bool _hasAppeared;
     id <SLSheetViewHostProtocol> _hostDelegate;
 }
 
 + (id)serviceViewControllerInterface;
 + (id)exportedInterface;
 @property(nonatomic) __weak id <SLSheetViewHostProtocol> hostDelegate; // @synthesize hostDelegate=_hostDelegate;
-@property BOOL hasAppeared; // @synthesize hasAppeared=_hasAppeared;
+@property _Bool hasAppeared; // @synthesize hasAppeared=_hasAppeared;
 - (void).cxx_destruct;
 - (void)viewServiceDidTerminateWithError:(id)arg1;
 - (void)removeAllURLs;
@@ -27,8 +28,8 @@
 - (void)updateAttachment:(id)arg1;
 - (void)addAttachment:(id)arg1;
 - (void)setInitialText:(id)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewDidDisappear:(BOOL)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
+- (void)viewDidDisappear:(_Bool)arg1;
 - (void)sheetDidSendWithSucess:(id)arg1 error:(id)arg2;
 - (void)sheetFailedWithError:(id)arg1;
 - (void)userDidPost;

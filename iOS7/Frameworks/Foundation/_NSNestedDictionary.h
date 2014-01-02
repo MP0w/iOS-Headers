@@ -6,6 +6,7 @@
 
 #import "NSMutableDictionary.h"
 
+// Not exported
 @interface _NSNestedDictionary : NSMutableDictionary
 {
     id _locals;
@@ -17,7 +18,7 @@
 - (id)objectEnumerator;
 - (id)keyEnumerator;
 - (id)objectForKey:(id)arg1;
-- (unsigned int)count;
+- (unsigned long long)count;
 - (id)_recursiveAllValues;
 - (id)_recursiveAllKeys;
 

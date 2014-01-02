@@ -8,13 +8,14 @@
 
 @class UIActivityIndicatorView;
 
+// Not exported
 @interface UIPrintStatusJobTableViewCell : UITableViewCell
 {
     UIActivityIndicatorView *_activityIndicator;
 }
 
 - (void)layoutSubviews;
-@property(nonatomic) BOOL showActive;
+@property(nonatomic) _Bool showActive;
 - (void)dealloc;
 - (id)initWithReuseIdentifier:(id)arg1;
 

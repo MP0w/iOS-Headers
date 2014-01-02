@@ -8,6 +8,7 @@
 
 @class NSString, SKSoundSource;
 
+// Not exported
 @interface SKPlaySound : SKAction
 {
     NSString *_filePath;
@@ -16,7 +17,7 @@
     SKSoundSource *_soundSource;
 }
 
-+ (id)playSoundFileNamed:(id)arg1 atPosition:(struct CGPoint)arg2 waitForCompletion:(BOOL)arg3;
++ (id)playSoundFileNamed:(id)arg1 atPosition:(struct CGPoint)arg2 waitForCompletion:(_Bool)arg3;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (id)reversedAction;

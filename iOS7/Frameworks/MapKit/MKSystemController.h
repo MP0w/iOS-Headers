@@ -11,20 +11,19 @@
 }
 
 + (id)sharedInstance;
-- (BOOL)openURL:(id)arg1;
-- (BOOL)shouldRateLimitSearchCompletions;
-- (BOOL)supportsNavigation;
-- (BOOL)supports3DImagery;
-- (BOOL)supportsPitchAPI;
-- (BOOL)supports3DMaps;
-- (BOOL)isInternalInstall;
-- (BOOL)_featureFreedomEnabled;
+- (_Bool)overrideBlurStyle;
+- (_Bool)openURL:(id)arg1;
+- (_Bool)shouldRateLimitSearchCompletions;
+- (_Bool)supports3DImagery;
+- (_Bool)supportsPitchAPI;
+- (_Bool)supports3DMaps;
+- (_Bool)isInternalInstall;
 - (int)userInterfaceIdiom;
-- (BOOL)isHiDPI;
+- (_Bool)isHiDPI;
 - (struct CGSize)screenSize;
-- (float)screenScale;
-- (BOOL)isWifiEnabled;
-- (unsigned int)retainCount;
+- (double)screenScale;
+- (_Bool)isWifiEnabled;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 
 @end

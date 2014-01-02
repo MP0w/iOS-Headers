@@ -10,17 +10,17 @@
 
 @interface SKUIResourceRequest : NSObject <NSCopying>
 {
-    unsigned int _requestID;
+    unsigned long long _requestID;
 }
 
-@property(nonatomic) unsigned int requestIdentifier; // @synthesize requestIdentifier=_requestID;
+@property(nonatomic) unsigned long long requestIdentifier; // @synthesize requestIdentifier=_requestID;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)description;
 - (id)newLoadOperation;
 - (void)finishWithResource:(id)arg1;
-@property(readonly, nonatomic) BOOL cachesInMemory;
+@property(readonly, nonatomic) _Bool cachesInMemory;
 - (id)_initSKUIResourceRequest;
 - (id)init;
 

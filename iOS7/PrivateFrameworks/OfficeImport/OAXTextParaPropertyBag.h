@@ -6,16 +6,12 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface OAXTextParaPropertyBag : NSObject
 {
 }
 
 + (void)readParagraphProperties:(struct _xmlNode *)arg1 paragraphProperties:(id)arg2 drawingState:(id)arg3;
-+ (int)readBulletScheme:(id)arg1;
-+ (void)readFontAlign:(id)arg1 paragraphProperties:(id)arg2;
-+ (void)readAlign:(id)arg1 paragraphProperties:(id)arg2;
-+ (void)readTabList:(struct _xmlNode *)arg1 paragraphProperties:(id)arg2;
-+ (id)readSpacing:(struct _xmlNode *)arg1;
 
 @end
 

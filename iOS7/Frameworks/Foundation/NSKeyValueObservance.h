@@ -8,30 +8,31 @@
 
 @class NSKeyValueProperty, NSObject, NSPointerArray;
 
+// Not exported
 @interface NSKeyValueObservance : NSWeakCallback
 {
     int _retainCountMinusOne;
     NSObject *_observer;
     NSKeyValueProperty *_property;
-    unsigned int _options;
+    unsigned long long _options;
     void *_context;
     NSObject *_originalObservable;
-    unsigned int _cachedUnrotatedHashComponent;
-    BOOL _cachedIsShareable;
+    unsigned long long _cachedUnrotatedHashComponent;
+    _Bool _cachedIsShareable;
     NSPointerArray *_observationInfos;
 }
 
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)dealloc;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
-- (unsigned int)retainCount;
+- (_Bool)_isDeallocating;
+- (_Bool)_tryRetain;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;
-- (id)_initWithObserver:(id)arg1 property:(id)arg2 options:(unsigned int)arg3 context:(void *)arg4 originalObservable:(id)arg5;
+- (id)_initWithObserver:(id)arg1 property:(id)arg2 options:(unsigned long long)arg3 context:(void *)arg4 originalObservable:(id)arg5;
 
 @end
 

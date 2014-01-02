@@ -24,9 +24,9 @@
     unsigned int _vao;
     unsigned int _positionVBO;
     unsigned int _texCoordVBO;
+    unsigned int _programName;
     NSMutableArray *_propertyArray;
     GLKEffect *_effect;
-    unsigned int _programName;
 }
 
 @property(nonatomic) unsigned char centerChanged; // @synthesize centerChanged=_centerChanged;

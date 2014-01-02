@@ -8,21 +8,22 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface GEOVCharacteristics : PBCodable
 {
     NSMutableArray *_pointCharacteristics;
 }
 
 @property(retain, nonatomic) NSMutableArray *pointCharacteristics; // @synthesize pointCharacteristics=_pointCharacteristics;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)pointCharacteristicAtIndex:(unsigned int)arg1;
-- (unsigned int)pointCharacteristicsCount;
+- (id)pointCharacteristicAtIndex:(unsigned long long)arg1;
+- (unsigned long long)pointCharacteristicsCount;
 - (void)addPointCharacteristic:(id)arg1;
 - (void)clearPointCharacteristics;
 - (void)dealloc;

@@ -16,10 +16,10 @@
 }
 
 + (id)phoneNumberWithStringValue:(id)arg1;
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) NSString *stringValue; // @synthesize stringValue=_stringValue;
 - (void).cxx_destruct;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSString *formattedStringValue; // @dynamic formattedStringValue;

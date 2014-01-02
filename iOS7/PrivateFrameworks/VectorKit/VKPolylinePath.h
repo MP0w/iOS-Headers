@@ -8,13 +8,14 @@
 
 @class VKPolylineOverlay, VKPolylineOverlaySection;
 
+// Not exported
 @interface VKPolylinePath : NSObject
 {
     VKPolylineOverlay *_overlay;
     VKPolylineOverlaySection *_section;
     Vec2Imp_1782d7e3 *_points;
     unsigned int _pointCount;
-    BOOL _ownsPoints;
+    _Bool _ownsPoints;
     struct PolylineCoordinate _routeStart;
     struct PolylineCoordinate _routeEnd;
     BOOL _trafficSpeed;
@@ -33,7 +34,8 @@
 - (struct PolylineCoordinate)pathIndexFromRouteIndex:(struct PolylineCoordinate)arg1;
 - (void)assignPoints:(Vec2Imp_1782d7e3 *)arg1 count:(unsigned int)arg2;
 - (id)description;
-@property(readonly) BOOL isMapMatched;
+@property(readonly) _Bool isMapMatched;
+@property(readonly) _Bool hasCompletedMapMatching;
 - (void)dealloc;
 - (id)initWithOverlay:(id)arg1 section:(id)arg2 routeStartIndex:(unsigned int)arg3 routeEndIndex:(unsigned int)arg4;
 - (id)initWithOverlay:(id)arg1 section:(id)arg2;

@@ -13,7 +13,7 @@
     int state;
     double timeUpdated;
     int responseListCount;
-    BOOL metadataParser;
+    _Bool metadataParser;
     Stock *_stock;
     NSMutableDictionary *_dictionary;
     NSString *_bufferString;

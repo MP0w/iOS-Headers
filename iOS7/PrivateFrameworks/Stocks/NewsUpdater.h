@@ -11,7 +11,7 @@
 @interface NewsUpdater : XMLHTTPRequest
 {
     id <NewsUpdaterDelegate> _delegate;
-    BOOL _firstLoad;
+    _Bool _firstLoad;
     double _lastResponseTimestamp;
     StockNewsItemCollection *_lastNewsItemCollection;
     Stock *_stock;
@@ -30,10 +30,10 @@
 - (int)parseData:(id)arg1;
 - (void)fetchNewsForStock:(id)arg1 withCompletion:(id)arg2;
 - (void)saveLastResponse;
-- (BOOL)fetchNewsForStock:(id)arg1;
+- (_Bool)fetchNewsForStock:(id)arg1;
 - (void)loadNewsCacheFromDiskForSymbol:(id)arg1;
 - (void)clearNewsCacheOnDisk;
-- (BOOL)shouldReloadOnResume;
+- (_Bool)shouldReloadOnResume;
 - (void)cancel;
 - (id)init;
 

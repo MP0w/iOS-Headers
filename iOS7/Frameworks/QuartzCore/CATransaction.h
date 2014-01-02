@@ -14,8 +14,8 @@
 + (id)valueForKey:(id)arg1;
 + (void)setCompletionBlock:(id)arg1;
 + (id)completionBlock;
-+ (void)setDisableActions:(BOOL)arg1;
-+ (BOOL)disableActions;
++ (void)setDisableActions:(_Bool)arg1;
++ (_Bool)disableActions;
 + (void)setAnimationTimingFunction:(id)arg1;
 + (id)animationTimingFunction;
 + (void)setAnimationDuration:(double)arg1;
@@ -24,22 +24,8 @@
 + (void)lock;
 + (void)flush;
 + (void)commit;
-+ (BOOL)beginWithoutBlocking;
++ (_Bool)beginWithoutBlocking;
 + (void)begin;
-+ (void)setInputTime:(double)arg1;
-+ (double)inputTime;
-+ (void)setCommitTime:(double)arg1;
-+ (double)commitTime;
-+ (void)setAnimatesFromModelValues:(BOOL)arg1;
-+ (BOOL)animatesFromModelValues;
-+ (unsigned int)currentState;
-+ (void)synchronize;
-+ (void)activateBackground:(BOOL)arg1;
-+ (void)activate;
-+ (id)animator;
-+ (void)popAnimator;
-+ (void)pushAnimator:(id)arg1;
-+ (id)_implicitAnimationForLayer:(id)arg1 keyPath:(id)arg2;
 
 @end
 

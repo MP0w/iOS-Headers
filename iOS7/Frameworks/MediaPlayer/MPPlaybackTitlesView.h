@@ -13,21 +13,21 @@
     UIView *_contentView;
     NSArray *_labels;
     NSArray *_titles;
-    BOOL _showingLoadingUI;
-    unsigned int _marqueeScrollableIndex;
-    BOOL _marqueeScrollingActive;
+    _Bool _showingLoadingUI;
+    unsigned long long _marqueeScrollableIndex;
+    _Bool _marqueeScrollingActive;
 }
 
-@property(nonatomic) BOOL marqueeScrollingActive; // @synthesize marqueeScrollingActive=_marqueeScrollingActive;
-@property(nonatomic) unsigned int marqueeScrollableIndex; // @synthesize marqueeScrollableIndex=_marqueeScrollableIndex;
-@property(nonatomic) BOOL showingLoadingUI; // @synthesize showingLoadingUI=_showingLoadingUI;
+@property(nonatomic) _Bool marqueeScrollingActive; // @synthesize marqueeScrollingActive=_marqueeScrollingActive;
+@property(nonatomic) unsigned long long marqueeScrollableIndex; // @synthesize marqueeScrollableIndex=_marqueeScrollableIndex;
+@property(nonatomic) _Bool showingLoadingUI; // @synthesize showingLoadingUI=_showingLoadingUI;
 @property(retain, nonatomic) NSArray *titles; // @synthesize titles=_titles;
 - (void).cxx_destruct;
 - (void)_tearDownLabels;
 - (void)_updateLabelMarqueeScrolling;
 - (void)_layoutLabels;
 - (void)_layoutLoadingUI;
-- (id)_addLabel:(unsigned int)arg1;
+- (id)_addLabel:(unsigned long long)arg1;
 - (id)_addLoadingLabel;
 - (void)_applicationDidEnterBackgroundNotification:(id)arg1;
 - (void)_applicationDidBecomeActiveNotification:(id)arg1;

@@ -14,14 +14,14 @@
     UIView *m_view;
     NSArray *m_animatingSubviews;
     double m_duration;
-    float m_percentage;
+    double m_percentage;
     CADisplayLink *m_displayLink;
     double m_finishBackwardTimestamp;
     double m_finishBackwardDuration;
-    float m_finishBackwardPercentage;
+    double m_finishBackwardPercentage;
 }
 
-@property(nonatomic) float percentage; // @synthesize percentage=m_percentage;
+@property(nonatomic) double percentage; // @synthesize percentage=m_percentage;
 @property(nonatomic) double duration; // @synthesize duration=m_duration;
 @property(copy, nonatomic) NSArray *animatingSubviews; // @synthesize animatingSubviews=m_animatingSubviews;
 @property(retain, nonatomic) UIView *view; // @synthesize view=m_view;

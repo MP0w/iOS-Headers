@@ -10,19 +10,19 @@
 
 @interface QLPageNumberView : UIView
 {
-    int _pageNumber;
-    int _pageCount;
+    long long _pageNumber;
+    long long _pageCount;
     UILabel *_backgroundLabel;
     UILabel *_label;
     NSNumberFormatter *_indexFormatter;
 }
 
 - (void)drawRect:(struct CGRect)arg1;
-- (struct CGPath *)_copyMutablePathForRoundedRect:(struct CGRect)arg1 radius:(float)arg2 inverted:(BOOL)arg3;
+- (struct CGPath *)_copyMutablePathForRoundedRect:(struct CGRect)arg1 radius:(double)arg2 inverted:(_Bool)arg3;
 - (void)layoutSubviews;
 - (void)sizeToFit;
-@property int pageCount;
-@property int pageNumber;
+@property long long pageCount;
+@property long long pageNumber;
 - (void)_updateString;
 - (id)_indexFormatter;
 - (void)dealloc;

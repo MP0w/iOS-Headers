@@ -15,8 +15,8 @@
 }
 
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (id)specifiers;
 - (void)setTracingEnabled:(id)arg1 specifier:(id)arg2;
 - (void)updateDefaults;

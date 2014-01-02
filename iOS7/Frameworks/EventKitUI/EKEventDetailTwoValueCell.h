@@ -8,6 +8,7 @@
 
 @class UILabel;
 
+// Not exported
 @interface EKEventDetailTwoValueCell : EKEventDetailCell
 {
     int _style;
@@ -17,14 +18,14 @@
 }
 
 - (void).cxx_destruct;
-- (void)layoutForWidth:(float)arg1 position:(int)arg2;
+- (void)layoutForWidth:(double)arg1 position:(int)arg2;
 - (int)style;
 - (id)value2View;
 - (id)valueView;
 - (id)titleView;
-- (BOOL)update;
+- (_Bool)update;
 @property(readonly, nonatomic) unsigned int visibleItems;
-- (id)initWithEvent:(id)arg1 editable:(BOOL)arg2 platformStyle:(int)arg3;
+- (id)initWithEvent:(id)arg1 editable:(_Bool)arg2 platformStyle:(int)arg3;
 
 @end
 

@@ -13,7 +13,7 @@
     AVWeakReference *weakReference;
     struct OpaqueFigAssetImageGenerator *generator;
     AVAsset *asset;
-    BOOL appliesPreferredTrackTransform;
+    _Bool appliesPreferredTrackTransform;
     struct CGSize maximumSize;
     NSString *apertureMode;
     CDStruct_1b6d18a9 requestedTimeToleranceBefore;

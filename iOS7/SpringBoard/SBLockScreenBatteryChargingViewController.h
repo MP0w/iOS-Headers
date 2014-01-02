@@ -12,13 +12,17 @@
 {
     SBLockScreenBatteryChargingView *_chargingView;
     NSTimer *_visibilityTimer;
+    _Bool _displayDetailedCharge;
+    long long _chargePercentage;
     id <SBLockScreenBatteryChargingViewControllerDelegate> _delegate;
 }
 
 @property(nonatomic) id <SBLockScreenBatteryChargingViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)_batteryStatusChanged:(id)arg1;
 - (void)_visibilityTimerFired:(id)arg1;
-- (void)updateChargingStatusWithBatteryVisible:(BOOL)arg1;
-- (BOOL)batteryVisible;
+- (void)showChargeLevelWithBatteryVisible:(_Bool)arg1;
+- (id)chargingView;
+- (_Bool)batteryVisible;
 - (void)_clearVisibilityTimer;
 - (void)prepareForDismissal;
 - (void)loadView;

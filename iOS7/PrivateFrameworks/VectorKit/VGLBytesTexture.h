@@ -8,6 +8,7 @@
 
 @class NSData;
 
+// Not exported
 @interface VGLBytesTexture : VGLTexture
 {
     NSData *_data;
@@ -18,8 +19,8 @@
     unsigned int _pixelType;
 }
 
-- (BOOL)loadTexture;
-- (BOOL)decodeTexture;
+- (_Bool)loadTexture;
+- (_Bool)decodeTexture;
 - (void)dealloc;
 - (id)initWithData:(id)arg1 internalFormat:(int)arg2 size:(struct CGSize)arg3 pixelFormat:(unsigned int)arg4 pixelType:(unsigned int)arg5;
 

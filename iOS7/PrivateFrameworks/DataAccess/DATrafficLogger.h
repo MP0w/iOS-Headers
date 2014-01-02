@@ -13,7 +13,7 @@
     NSString *_filename;
 }
 
-+ (BOOL)enabled;
++ (_Bool)enabled;
 - (void)slurpAndRemoveLookasideFile:(id)arg1 prefixString:(id)arg2 suffixString:(id)arg3;
 - (void)logSnippet:(id)arg1;
 - (void)dealloc;

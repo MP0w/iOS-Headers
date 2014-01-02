@@ -14,20 +14,20 @@
 {
     double _fireTime;
     NSTimer *_tickTimer;
-    BOOL _allDay;
-    id <SBDateLabelDelegate> _delegate;
+    _Bool _allDay;
     int _labelType;
+    id <SBDateLabelDelegate> _delegate;
 }
 
 + (id)unitFont;
 + (id)digitFont;
-@property(nonatomic, getter=isAllDay) BOOL allDay; // @synthesize allDay=_allDay;
+@property(nonatomic, getter=isAllDay) _Bool allDay; // @synthesize allDay=_allDay;
 @property(nonatomic) int labelType; // @synthesize labelType=_labelType;
 @property(nonatomic) id <SBDateLabelDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)stopCoalescingUpdates;
 - (void)startCoalescingUpdates;
 - (void)prepareForReuse;
-@property(nonatomic) BOOL isTimestamp;
+@property(nonatomic) _Bool isTimestamp;
 - (void)setEndDate:(id)arg1 withTimeZone:(id)arg2;
 - (void)_tickTimerFired:(id)arg1;
 - (void)setStartDate:(id)arg1 withTimeZone:(id)arg2;

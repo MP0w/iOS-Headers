@@ -12,7 +12,7 @@
 {
     NSObject<OS_dispatch_queue> *_queue;
     NSObject<OS_xpc_object> *_serverConnection;
-    BOOL _valid;
+    _Bool _valid;
     BKSSignal *_invalidationSignal;
     int _pid;
     NSString *_bundleIdentifier;
@@ -24,11 +24,11 @@
 }
 
 + (id)NameForReason:(unsigned int)arg1;
-- (void)queue_notifyAssertionAcquired:(BOOL)arg1;
+- (void)queue_notifyAssertionAcquired:(_Bool)arg1;
 - (void)queue_updateAssertion;
 - (void)queue_acquireAssertion;
 - (void)queue_registerWithServer;
-- (void)queue_invalidate:(BOOL)arg1;
+- (void)queue_invalidate:(_Bool)arg1;
 - (void)invalidate;
 @property(copy, nonatomic) NSString *name; // @dynamic name;
 @property(nonatomic) unsigned int flags; // @dynamic flags;
@@ -36,8 +36,8 @@
 @property(copy, nonatomic) id acquisitionHandler; // @dynamic acquisitionHandler;
 - (void)setReason:(unsigned int)arg1;
 @property(readonly, nonatomic) unsigned int reason; // @dynamic reason;
-- (void)setValid:(BOOL)arg1;
-@property(readonly, nonatomic) BOOL valid; // @dynamic valid;
+- (void)setValid:(_Bool)arg1;
+@property(readonly, nonatomic) _Bool valid; // @dynamic valid;
 - (id)initWithPID:(int)arg1 flags:(unsigned int)arg2 reason:(unsigned int)arg3 name:(id)arg4 withHandler:(id)arg5;
 - (id)initWithBundleIdentifier:(id)arg1 flags:(unsigned int)arg2 reason:(unsigned int)arg3 name:(id)arg4 withHandler:(id)arg5;
 - (void)dealloc;

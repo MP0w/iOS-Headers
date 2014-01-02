@@ -13,14 +13,14 @@
 
 @interface AFVoiceInfo : NSObject <NSSecureCoding, NSCopying>
 {
-    BOOL _isCustom;
+    _Bool _isCustom;
     NSString *_languageCode;
-    int _gender;
+    long long _gender;
 }
 
-+ (BOOL)supportsSecureCoding;
-@property(nonatomic) BOOL isCustom; // @synthesize isCustom=_isCustom;
-@property(readonly, nonatomic) int gender; // @synthesize gender=_gender;
++ (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool isCustom; // @synthesize isCustom=_isCustom;
+@property(nonatomic) long long gender; // @synthesize gender=_gender;
 @property(readonly, nonatomic) NSString *languageCode; // @synthesize languageCode=_languageCode;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -29,9 +29,9 @@
 - (id)initWithDictionaryRepresentation:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (id)initWithLanguageCode:(id)arg1 gender:(int)arg2 isCustom:(BOOL)arg3;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)initWithLanguageCode:(id)arg1 gender:(long long)arg2 isCustom:(_Bool)arg3;
 
 @end
 

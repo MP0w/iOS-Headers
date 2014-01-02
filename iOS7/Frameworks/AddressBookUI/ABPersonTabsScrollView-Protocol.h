@@ -11,6 +11,6 @@
 @protocol ABPersonTabsScrollView <NSObject>
 @property(retain, nonatomic) id <ABPersonTabsLayoutManager> tabsLayoutManager;
 @property(retain, nonatomic) UIView *backgroundView;
-@property(nonatomic) float minimumBottomInset;
+@property(nonatomic) double minimumBottomInset;
 @end
 

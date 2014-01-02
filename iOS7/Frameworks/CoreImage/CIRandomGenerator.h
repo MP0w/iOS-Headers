@@ -6,6 +6,7 @@
 
 #import <CoreImage/CIFilter.h>
 
+// Not exported
 @interface CIRandomGenerator : CIFilter
 {
 }

@@ -8,6 +8,7 @@
 
 @class NSMutableSet, VGLTextureCanvas, VGLTexturePool, VKCamera, VKLayoutContext, VKMapModel, VKScene, VKTileProvider;
 
+// Not exported
 @interface VKMapRasterizer : VKModelObject
 {
     VKModelObject *_root;
@@ -20,11 +21,11 @@
     VGLTexturePool *_pool;
     VKTileProvider *_tileProvider;
     struct _VGLColor _backgroundColor;
-    unsigned int _rasterizingScaleFactor;
+    unsigned long long _rasterizingScaleFactor;
     VKMapModel *_mapModel;
 }
 
-@property(nonatomic) unsigned int rasterizingScaleFactor; // @synthesize rasterizingScaleFactor=_rasterizingScaleFactor;
+@property(nonatomic) unsigned long long rasterizingScaleFactor; // @synthesize rasterizingScaleFactor=_rasterizingScaleFactor;
 @property(nonatomic) struct _VGLColor backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 @property(nonatomic) VKTileProvider *tileProvider; // @synthesize tileProvider=_tileProvider;
 @property(nonatomic) VKMapModel *mapModel; // @synthesize mapModel=_mapModel;

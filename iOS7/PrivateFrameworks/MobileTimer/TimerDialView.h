@@ -11,36 +11,36 @@
 @interface TimerDialView : UIView
 {
     double _currentDuration;
-    BOOL _running;
+    _Bool _running;
     double _remainingTime;
     double _fireTime;
     double _currentTime;
     struct __CFNumberFormatter *_formatter;
     NSMutableArray *_graduatedSections;
-    unsigned int _graduatedSectionCount;
-    float _graduatedSectionWidth;
+    unsigned long long _graduatedSectionCount;
+    double _graduatedSectionWidth;
     NSMutableArray *_graduatedSectionLabels;
     NSMutableArray *_graduatedSectionValues;
-    float _tickHorizontalSpacing;
-    unsigned int _minorTicksPerSection;
-    float _majorTickHeight;
-    float _minorTickHeight;
+    double _tickHorizontalSpacing;
+    unsigned long long _minorTicksPerSection;
+    double _majorTickHeight;
+    double _minorTickHeight;
     UIFont *_labelFont;
 }
 
 @property(retain, nonatomic) UIFont *labelFont; // @synthesize labelFont=_labelFont;
-@property(nonatomic) float minorTickHeight; // @synthesize minorTickHeight=_minorTickHeight;
-@property(nonatomic) float majorTickHeight; // @synthesize majorTickHeight=_majorTickHeight;
-@property(nonatomic) unsigned int minorTicksPerSection; // @synthesize minorTicksPerSection=_minorTicksPerSection;
-@property(nonatomic) float tickHorizontalSpacing; // @synthesize tickHorizontalSpacing=_tickHorizontalSpacing;
-- (void)makeGraduatedSurfaceAtLeastWidth:(float)arg1;
+@property(nonatomic) double minorTickHeight; // @synthesize minorTickHeight=_minorTickHeight;
+@property(nonatomic) double majorTickHeight; // @synthesize majorTickHeight=_majorTickHeight;
+@property(nonatomic) unsigned long long minorTicksPerSection; // @synthesize minorTicksPerSection=_minorTicksPerSection;
+@property(nonatomic) double tickHorizontalSpacing; // @synthesize tickHorizontalSpacing=_tickHorizontalSpacing;
+- (void)makeGraduatedSurfaceAtLeastWidth:(double)arg1;
 - (id)graduatedSection;
-- (float)pointsPerMinute;
+- (double)pointsPerMinute;
 - (void)layoutSubviews;
 - (void)setupWithDuration:(double)arg1;
 - (void)markStaleWithTime:(double)arg1;
-- (BOOL)updateDisplayWithTime:(double)arg1;
-- (double)updatedDurationForPointOffset:(float)arg1;
+- (_Bool)updateDisplayWithTime:(double)arg1;
+- (double)updatedDurationForPointOffset:(double)arg1;
 - (void)setFireTime:(double)arg1 withTime:(double)arg2;
 - (void)setRemainingTime:(double)arg1;
 - (void)willMoveToSuperview:(id)arg1;

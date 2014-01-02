@@ -6,49 +6,56 @@
 
 #import "PBRequest.h"
 
+#import "NSCopying-Protocol.h"
+
 @class GEOWaypoint, NSMutableArray;
 
-@interface GEOETARequest : PBRequest
+@interface GEOETARequest : PBRequest <NSCopying>
 {
     CDStruct_4db06779 _timepoint;
     NSMutableArray *_destinations;
     GEOWaypoint *_origin;
     NSMutableArray *_serviceTags;
     int _transportType;
-    BOOL _includeHistoricTravelTime;
+    _Bool _allowPartialResults;
+    _Bool _includeHistoricTravelTime;
     struct {
         unsigned int timepoint:1;
         unsigned int transportType:1;
+        unsigned int allowPartialResults:1;
         unsigned int includeHistoricTravelTime:1;
     } _has;
 }
 
 @property(retain, nonatomic) NSMutableArray *serviceTags; // @synthesize serviceTags=_serviceTags;
+@property(nonatomic) _Bool allowPartialResults; // @synthesize allowPartialResults=_allowPartialResults;
+@property(nonatomic) _Bool includeHistoricTravelTime; // @synthesize includeHistoricTravelTime=_includeHistoricTravelTime;
 @property(retain, nonatomic) NSMutableArray *destinations; // @synthesize destinations=_destinations;
 @property(retain, nonatomic) GEOWaypoint *origin; // @synthesize origin=_origin;
 @property(nonatomic) CDStruct_4db06779 timepoint; // @synthesize timepoint=_timepoint;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (Class)responseClass;
 - (unsigned int)requestTypeCode;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)serviceTagAtIndex:(unsigned int)arg1;
-- (unsigned int)serviceTagsCount;
+- (id)serviceTagAtIndex:(unsigned long long)arg1;
+- (unsigned long long)serviceTagsCount;
 - (void)addServiceTag:(id)arg1;
 - (void)clearServiceTags;
-@property(nonatomic) BOOL hasIncludeHistoricTravelTime;
-@property(nonatomic) BOOL includeHistoricTravelTime; // @synthesize includeHistoricTravelTime=_includeHistoricTravelTime;
-- (id)destinationAtIndex:(unsigned int)arg1;
-- (unsigned int)destinationsCount;
+@property(nonatomic) _Bool hasAllowPartialResults;
+@property(nonatomic) _Bool hasIncludeHistoricTravelTime;
+- (id)destinationAtIndex:(unsigned long long)arg1;
+- (unsigned long long)destinationsCount;
 - (void)addDestination:(id)arg1;
 - (void)clearDestinations;
-@property(readonly, nonatomic) BOOL hasOrigin;
-@property(nonatomic) BOOL hasTimepoint;
-@property(nonatomic) BOOL hasTransportType;
+@property(readonly, nonatomic) _Bool hasOrigin;
+@property(nonatomic) _Bool hasTimepoint;
+@property(nonatomic) _Bool hasTransportType;
 @property(nonatomic) int transportType; // @synthesize transportType=_transportType;
 - (void)dealloc;
 

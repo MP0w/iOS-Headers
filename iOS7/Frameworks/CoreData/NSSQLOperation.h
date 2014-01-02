@@ -8,6 +8,7 @@
 
 @class NSManagedObject, NSMutableArray, NSMutableDictionary, NSSQLRow;
 
+// Not exported
 @interface NSSQLOperation : NSObject
 {
     unsigned int _databaseOperator;

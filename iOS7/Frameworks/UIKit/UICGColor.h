@@ -6,24 +6,25 @@
 
 #import <UIKit/UIColor.h>
 
+// Not exported
 @interface UICGColor : UIColor
 {
     struct CGColor *cachedColor;
 }
 
-- (BOOL)_getRed:(float *)arg1 green:(float *)arg2 blue:(float *)arg3 alpha:(float *)arg4;
-- (BOOL)_getWhite:(float *)arg1 alpha:(float *)arg2;
-- (BOOL)isPatternColor;
-- (float)alphaComponent;
+- (_Bool)_getRed:(double *)arg1 green:(double *)arg2 blue:(double *)arg3 alpha:(double *)arg4;
+- (_Bool)_getWhite:(double *)arg1 alpha:(double *)arg2;
+- (_Bool)isPatternColor;
+- (double)alphaComponent;
 - (struct CGColor *)CGColor;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (id)colorSpaceName;
 - (void)setStroke;
 - (void)setFill;
 - (void)set;
-- (id)colorWithAlphaComponent:(float)arg1;
+- (id)colorWithAlphaComponent:(double)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)initWithCGColor:(struct CGColor *)arg1;

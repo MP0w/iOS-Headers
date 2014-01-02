@@ -10,30 +10,29 @@
 
 @interface FTServerBag : NSObject
 {
-    int _type;
+    long long _type;
 }
 
-+ (id)sharedInstanceForBagType:(int)arg1;
++ (id)sharedInstanceForBagType:(long long)arg1;
 + (id)_sharedInstance;
-+ (id)_sharedInstanceForType:(int)arg1;
++ (id)_sharedInstanceForType:(long long)arg1;
 + (id)sharedInstance;
-@property(readonly) BOOL isServerAvailable;
+@property(readonly) _Bool isServerAvailable;
 - (id)urlWithKey:(id)arg1;
 - (id)objectForKey:(id)arg1;
-@property(readonly) BOOL isInDebilitatedMode;
-@property(readonly) BOOL allowUnsignedBags;
-@property(readonly) BOOL allowSelfSignedCertificates;
+@property(readonly) _Bool isInDebilitatedMode;
+@property(readonly) _Bool allowUnsignedBags;
+@property(readonly) _Bool allowSelfSignedCertificates;
 @property(readonly) NSString *apsEnvironmentName;
 @property(readonly) NSURL *bagURL;
 - (id)_bag;
 - (id)_cachedBag;
-@property(readonly) BOOL isLoaded;
-@property(readonly) BOOL isLoading;
+@property(readonly) _Bool isLoaded;
+@property(readonly) _Bool isLoading;
 - (void)forceBagLoad;
 - (void)startBagLoad;
-- (void)_bagFinishedLoading;
 - (void)dealloc;
-- (id)initWithBagType:(int)arg1;
+- (id)initWithBagType:(long long)arg1;
 
 @end
 

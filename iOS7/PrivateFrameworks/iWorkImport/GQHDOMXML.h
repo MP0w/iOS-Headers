@@ -8,6 +8,7 @@
 
 #import "GQHXMLOutput-Protocol.h"
 
+// Not exported
 @interface GQHDOMXML : NSObject <GQHXMLOutput>
 {
     struct _xmlDoc *mXMLDoc;
@@ -26,7 +27,6 @@
 - (void)dealloc;
 - (id)initWithHead;
 - (id)initEmpty;
-- (void)removeStyleSheetLinkNodeAndAddStyle:(struct __CFString *)arg1;
 
 @end
 

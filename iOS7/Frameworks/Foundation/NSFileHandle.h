@@ -21,7 +21,7 @@
 + (id)fileHandleForUpdatingAtPath:(id)arg1;
 + (id)fileHandleForWritingAtPath:(id)arg1;
 + (id)fileHandleForReadingAtPath:(id)arg1;
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (id)fileHandleWithNullDevice;
 + (id)fileHandleWithStandardError;
@@ -40,12 +40,12 @@
 - (unsigned long long)seekToEndOfFile;
 - (unsigned long long)offsetInFile;
 - (void)writeData:(id)arg1;
-- (id)readDataOfLength:(unsigned int)arg1;
+- (id)readDataOfLength:(unsigned long long)arg1;
 - (id)readDataToEndOfFile;
 - (id)availableData;
-- (id)initWithPath:(id)arg1 flags:(int)arg2 createMode:(int)arg3 error:(id *)arg4;
-- (id)initWithURL:(id)arg1 flags:(int)arg2 createMode:(int)arg3 error:(id *)arg4;
-- (id)initWithPath:(id)arg1 flags:(int)arg2 createMode:(int)arg3;
+- (id)initWithPath:(id)arg1 flags:(long long)arg2 createMode:(long long)arg3 error:(id *)arg4;
+- (id)initWithURL:(id)arg1 flags:(long long)arg2 createMode:(long long)arg3 error:(id *)arg4;
+- (id)initWithPath:(id)arg1 flags:(long long)arg2 createMode:(long long)arg3;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (Class)classForCoder;

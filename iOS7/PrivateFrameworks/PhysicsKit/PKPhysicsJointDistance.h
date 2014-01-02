@@ -17,9 +17,10 @@
 + (id)jointWithBodyA:(id)arg1 bodyB:(id)arg2 anchorA:(struct CGPoint)arg3 anchorB:(struct CGPoint)arg4;
 + (id)jointWithBodyA:(id)arg1 bodyB:(id)arg2 localAnchorA:(struct CGPoint)arg3 localAnchorB:(struct CGPoint)arg4;
 - (id).cxx_construct;
-@property(nonatomic) float frequency;
-@property(nonatomic) float length;
-@property(nonatomic) float damping;
+@property(nonatomic) _Bool collideConnected;
+@property(nonatomic) double frequency;
+@property(nonatomic) double length;
+@property(nonatomic) double damping;
 - (void)create;
 - (struct b2JointDef *)_jointDef;
 - (void)set_joint:(struct b2Joint *)arg1;

@@ -17,22 +17,22 @@
     void **_unsymbolicatedBacktrace;
     int _unsymbolicatedBacktraceLength;
     struct _opaque_pthread_mutex_t _symbolicateLock;
-    BOOL _shouldSymbolicate;
+    _Bool _shouldSymbolicate;
 }
 
 + (id)dyldContext;
 + (void)_rebuildDyldContext;
-@property BOOL shouldSymbolicate; // @synthesize shouldSymbolicate=_shouldSymbolicate;
+@property _Bool shouldSymbolicate; // @synthesize shouldSymbolicate=_shouldSymbolicate;
 - (void)dealloc;
 @property(readonly) NSDictionary *dyldContext;
 @property(readonly) NSArray *symbolicatedBacktraceStrings;
 @property(readonly) NSArray *unsymbolicatedBacktraceStrings;
 - (void)symbolicate;
 - (id)initWithSymbolicatedBacktraceStrings:(id)arg1 dyldContext:(id)arg2;
-- (id)initWithExistingBacktrace:(void **)arg1 length:(int)arg2 symbolicateImmediately:(BOOL)arg3;
-- (id)initIgnoringTopEntries:(int)arg1 symbolicateImmediately:(BOOL)arg2;
+- (id)initWithExistingBacktrace:(void **)arg1 length:(int)arg2 symbolicateImmediately:(_Bool)arg3;
+- (id)initIgnoringTopEntries:(int)arg1 symbolicateImmediately:(_Bool)arg2;
 - (id)init;
-- (void)_initWithBacktrace:(void **)arg1 length:(int)arg2 ignoreTopEntries:(int)arg3 symbolicateImmediately:(BOOL)arg4;
+- (void)_initWithBacktrace:(void **)arg1 length:(int)arg2 ignoreTopEntries:(int)arg3 symbolicateImmediately:(_Bool)arg4;
 
 @end
 

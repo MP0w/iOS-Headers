@@ -11,33 +11,33 @@
 @interface VKImageAnnotationMarkerLayer : VKAnnotationMarkerLayer
 {
     VKImage *_image;
-    BOOL _drawsOnGround;
+    _Bool _drawsOnGround;
     double _rotationRadians;
-    BOOL _shouldDraw;
-    BOOL _hasCustomShaderMatrix;
+    _Bool _shouldDraw;
+    _Bool _hasCustomShaderMatrix;
     CDUnion_f5b85e25 _shaderMatrix;
-    BOOL _hasCustomModelMatrix;
+    _Bool _hasCustomModelMatrix;
     CDStruct_aa5aacbc _modelMatrix;
     float _scale;
     float _brightness;
-    BOOL _isMask;
+    _Bool _isMask;
     struct _VGLColor _color;
     VGLRenderState *_imageRenderState;
     float _opacity;
 }
 
 @property(nonatomic) struct _VGLColor color; // @synthesize color=_color;
-@property(nonatomic) BOOL isMask; // @synthesize isMask=_isMask;
+@property(nonatomic) _Bool isMask; // @synthesize isMask=_isMask;
 @property(nonatomic) float brightness; // @synthesize brightness=_brightness;
 @property(nonatomic) float opacity; // @synthesize opacity=_opacity;
 @property(nonatomic) float scale; // @synthesize scale=_scale;
 @property(nonatomic) double rotationRadians; // @synthesize rotationRadians=_rotationRadians;
-@property(nonatomic) BOOL drawsOnGround; // @synthesize drawsOnGround=_drawsOnGround;
+@property(nonatomic) _Bool drawsOnGround; // @synthesize drawsOnGround=_drawsOnGround;
 - (id).cxx_construct;
 - (void)drawWithContext:(id)arg1;
 - (id)_configuredProgramWithContext:(id)arg1;
 - (void)layoutWithContext:(id)arg1;
-- (BOOL)shouldSnapToPixelsWithContext:(id)arg1;
+- (_Bool)shouldSnapToPixelsWithContext:(id)arg1;
 - (void)updateWithStyle:(id)arg1;
 - (void)setImage:(id)arg1;
 - (void)dealloc;

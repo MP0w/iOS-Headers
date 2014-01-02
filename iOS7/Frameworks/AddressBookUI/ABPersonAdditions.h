@@ -12,15 +12,15 @@
 
 + (struct __CFArray *)newCFArrayByUnwrappingIntegersInArray:(id)arg1;
 + (id)arrayByWrappingIntegersInCFArray:(struct __CFArray *)arg1;
-+ (void)person:(void *)arg1 allowsLabels:(char *)arg2 customLabels:(char *)arg3 forProperty:(int)arg4;
-+ (struct __CFArray *)copyNamePropertiesForEditing:(BOOL)arg1 includeRequiredNameProperties:(BOOL)arg2 person:(id)arg3;
-+ (struct __CFArray *)copyNamePropertiesForEditing:(BOOL)arg1 includeRequiredNameProperties:(BOOL)arg2 people:(id)arg3;
-+ (struct __CFArray *)copyNamePropertiesForEditing:(BOOL)arg1 person:(id)arg2;
++ (void)person:(void *)arg1 allowsLabels:(_Bool *)arg2 customLabels:(_Bool *)arg3 forProperty:(int)arg4;
++ (struct __CFArray *)copyNamePropertiesForEditing:(_Bool)arg1 includeRequiredNameProperties:(_Bool)arg2 person:(id)arg3;
++ (struct __CFArray *)copyNamePropertiesForEditing:(_Bool)arg1 includeRequiredNameProperties:(_Bool)arg2 people:(id)arg3;
++ (struct __CFArray *)copyNamePropertiesForEditing:(_Bool)arg1 person:(id)arg2;
 + (struct __CFArray *)copyProperties:(struct __CFArray *)arg1 excludingProperties:(struct __CFArray *)arg2;
 + (struct __CFArray *)copyOptionalNameAffixProperties;
 + (struct __CFArray *)copyOptionalJobProperties;
 + (struct __CFArray *)copyOptionalNameProperties;
-+ (BOOL)isNameProperty:(int)arg1;
++ (_Bool)isNameProperty:(int)arg1;
 + (void)cloneNamePropertiesFromPerson:(void *)arg1 toPerson:(void *)arg2;
 + (struct __CFArray *)copyNamePropertiesWithCurrentNameFormat;
 + (struct __CFArray *)copyOptionalProperties;

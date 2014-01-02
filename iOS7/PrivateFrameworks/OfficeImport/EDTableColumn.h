@@ -8,12 +8,13 @@
 
 @class EDResources, EDString;
 
+// Not exported
 @interface EDTableColumn : NSObject
 {
     EDResources *mResources;
-    unsigned int mHeaderRowDxfIndex;
-    unsigned int mTotalsRowDxfIndex;
-    unsigned int mDataAreaDxfIndex;
+    unsigned long long mHeaderRowDxfIndex;
+    unsigned long long mTotalsRowDxfIndex;
+    unsigned long long mDataAreaDxfIndex;
     EDString *mName;
     EDString *mUniqueName;
     EDString *mTotalsRowLabel;
@@ -34,12 +35,6 @@
 - (id)headerRowDxf;
 - (void)dealloc;
 - (id)initWithResources:(id)arg1;
-- (void)setDataAreaDxfIndex:(unsigned int)arg1;
-- (unsigned int)dataAreaDxfIndex;
-- (void)setTotalsRowDxfIndex:(unsigned int)arg1;
-- (unsigned int)totalsRowDxfIndex;
-- (void)setHeaderRowDxfIndex:(unsigned int)arg1;
-- (unsigned int)headerRowDxfIndex;
 
 @end
 

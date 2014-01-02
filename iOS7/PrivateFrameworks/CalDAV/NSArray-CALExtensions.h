@@ -7,7 +7,7 @@
 #import "NSArray.h"
 
 @interface NSArray (CALExtensions)
-- (BOOL)containsObjectIdenticalTo:(id)arg1;
+- (_Bool)containsObjectIdenticalTo:(id)arg1;
 - (id)allObjectsWithClass:(Class)arg1;
 @end
 

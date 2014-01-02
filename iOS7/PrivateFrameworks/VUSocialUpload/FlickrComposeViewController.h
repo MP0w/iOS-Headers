@@ -8,12 +8,17 @@
 
 #import "FlickrComposeOptionViewDelegate-Protocol.h"
 
-@class ACAccount, ACAccountStore, FlickrAudienceController, SLSheetAction, UIImageView;
+@class ACAccount, ACAccountStore, FlickrAudienceController, FlickrPhotoSetController, FlickrPhotoSetManager, NSString, SLSheetAction, UIImageView;
 
 @interface FlickrComposeViewController : SLComposeServiceViewController <FlickrComposeOptionViewDelegate>
 {
     UIImageView *_logoView;
-    BOOL _hasFlickrAccount;
+    _Bool _hasFlickrAccount;
+    SLSheetAction *_photoSetAction;
+    FlickrPhotoSetController *_photoSetController;
+    NSString *_photoSetTitle;
+    long long _photoSetID;
+    FlickrPhotoSetManager *_manager;
     SLSheetAction *_audienceAction;
     FlickrAudienceController *_audienceController;
     int _audience;
@@ -25,7 +30,7 @@
 @property(retain, nonatomic) ACAccountStore *accountStore; // @synthesize accountStore=_accountStore;
 - (void)send;
 - (unsigned int)postVisibility;
-- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)flickrComposeOptionView:(id)arg1 didFinishWithSelection:(id)arg2;
 - (id)sheetActions;
 - (void)dealloc;

@@ -6,6 +6,7 @@
 
 #import <OfficeImport/EDProcessor.h>
 
+// Not exported
 @interface CHPScatterWithStringValueX : EDProcessor
 {
 }

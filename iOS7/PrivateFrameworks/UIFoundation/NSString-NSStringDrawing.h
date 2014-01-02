@@ -7,20 +7,20 @@
 #import "NSString.h"
 
 @interface NSString (NSStringDrawing)
-+ (float)defaultBaselineOffsetForFont:(id)arg1;
-+ (float)defaultLineHeightForFont:(id)arg1;
-+ (void)setTypesetterBehavior:(int)arg1;
-+ (int)typesetterBehavior;
++ (double)defaultBaselineOffsetForFont:(id)arg1;
++ (double)defaultLineHeightForFont:(id)arg1;
++ (void)setTypesetterBehavior:(long long)arg1;
++ (long long)typesetterBehavior;
 + (float)hyphenationFactor;
 + (void)setHyphenationFactor:(float)arg1;
-+ (BOOL)showsControlCharacters;
-+ (void)setShowsControlCharacters:(BOOL)arg1;
-+ (BOOL)showsInvisibleCharacters;
-+ (void)setShowsInvisibleCharacters:(BOOL)arg1;
-+ (void)setUsesScreenFonts:(BOOL)arg1;
-+ (BOOL)usesScreenFonts;
-+ (void)setUsesFontLeading:(BOOL)arg1;
-+ (BOOL)usesFontLeading;
++ (_Bool)showsControlCharacters;
++ (void)setShowsControlCharacters:(_Bool)arg1;
++ (_Bool)showsInvisibleCharacters;
++ (void)setShowsInvisibleCharacters:(_Bool)arg1;
++ (void)setUsesScreenFonts:(_Bool)arg1;
++ (_Bool)usesScreenFonts;
++ (void)setUsesFontLeading:(_Bool)arg1;
++ (_Bool)usesFontLeading;
 - (struct CGSize)sizeWithAttributes:(id)arg1;
 - (void)drawInRect:(struct CGRect)arg1 withAttributes:(id)arg2;
 - (void)drawAtPoint:(struct CGPoint)arg1 withAttributes:(id)arg2;

@@ -6,6 +6,7 @@
 
 #import <OfficeImport/CHDChartType.h>
 
+// Not exported
 @interface CHDScatterType : CHDChartType
 {
 }

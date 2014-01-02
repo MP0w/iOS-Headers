@@ -6,14 +6,15 @@
 
 #import <OfficeImport/OCPPackagePart.h>
 
-@class SFUZipEntry;
+@class OISFUZipEntry;
 
+// Not exported
 @interface OCPZipPackagePart : OCPPackagePart
 {
-    SFUZipEntry *mEntry;
+    OISFUZipEntry *mEntry;
 }
 
-@property(readonly, nonatomic) SFUZipEntry *zipEntry; // @synthesize zipEntry=mEntry;
+@property(readonly, nonatomic) OISFUZipEntry *zipEntry; // @synthesize zipEntry=mEntry;
 - (struct _xmlTextReader *)xmlReader;
 - (struct _xmlDoc *)xmlDocument;
 - (void)copyToFile:(id)arg1;

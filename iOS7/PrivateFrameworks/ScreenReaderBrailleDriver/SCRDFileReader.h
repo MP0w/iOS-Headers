@@ -17,9 +17,9 @@
 }
 
 - (void)_readHandler:(id)arg1;
-- (BOOL)isValid;
+- (_Bool)isValid;
 - (void)invalidate;
-- (BOOL)hasStarted;
+- (_Bool)hasStarted;
 - (void)start;
 - (void)dealloc;
 - (id)initWithDelegate:(id)arg1 fileHandle:(id)arg2;

@@ -15,10 +15,10 @@
 
 + (id)searchSetWithProperties:(id)arg1;
 @property(readonly) NSSet *stringProperties; // @synthesize stringProperties=_properties;
-- (BOOL)isEqualToPropertySet:(id)arg1;
-@property(readonly) BOOL supportsPropertySearch;
-- (BOOL)supportsWellKnownType:(int)arg1;
-- (BOOL)supportsPropertyTypeWithNameSpace:(id)arg1 andName:(id)arg2;
+- (_Bool)isEqualToPropertySet:(id)arg1;
+@property(readonly) _Bool supportsPropertySearch;
+- (_Bool)supportsWellKnownType:(int)arg1;
+- (_Bool)supportsPropertyTypeWithNameSpace:(id)arg1 andName:(id)arg2;
 - (id)initWithStringProperties:(id)arg1;
 - (id)initWithSearchProperties:(id)arg1;
 - (void)dealloc;

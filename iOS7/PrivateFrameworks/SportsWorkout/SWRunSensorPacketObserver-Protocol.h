@@ -7,6 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol SWRunSensorPacketObserver <NSObject>
-- (void)sensor:(id)arg1 didReceivePacketPayload:(const char *)arg2 timestamp:(unsigned long)arg3;
+- (void)sensor:(id)arg1 didReceivePacketPayload:(const char *)arg2 timestamp:(unsigned long long)arg3;
 @end
 

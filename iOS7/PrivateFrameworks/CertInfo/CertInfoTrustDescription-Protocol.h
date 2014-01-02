@@ -7,13 +7,13 @@
 #import "NSObject-Protocol.h"
 
 @protocol CertInfoTrustDescription <NSObject>
-- (id)certificateExpirationDateAtIndex:(unsigned int)arg1;
-- (id)certificateIssuerSummaryAtIndex:(unsigned int)arg1;
-- (id)certificateSubjectSummaryAtIndex:(unsigned int)arg1;
-- (id)certificatePropertiesAtIndex:(unsigned int)arg1;
-- (unsigned int)certificateCount;
+- (id)certificateExpirationDateAtIndex:(unsigned long long)arg1;
+- (id)certificateIssuerSummaryAtIndex:(unsigned long long)arg1;
+- (id)certificateSubjectSummaryAtIndex:(unsigned long long)arg1;
+- (id)certificatePropertiesAtIndex:(unsigned long long)arg1;
+- (unsigned long long)certificateCount;
 - (id)summaryDescriptionItems;
-- (BOOL)isTrusted;
+- (_Bool)isTrusted;
 - (id)summarySubtitle;
 - (id)summaryTitle;
 @end

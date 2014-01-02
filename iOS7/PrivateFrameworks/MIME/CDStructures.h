@@ -7,8 +7,8 @@
 #pragma mark Named Structures
 
 struct _NSRange {
-    unsigned int location;
-    unsigned int length;
+    unsigned long long location;
+    unsigned long long length;
 };
 
 struct __CFDictionary;
@@ -16,9 +16,9 @@ struct __CFDictionary;
 #pragma mark Typedef'd Structures
 
 typedef struct {
-    unsigned long state;
+    unsigned long long state;
     id *itemsPtr;
-    unsigned long *mutationsPtr;
-    unsigned long extra[5];
-} CDStruct_c73467ff;
+    unsigned long long *mutationsPtr;
+    unsigned long long extra[5];
+} CDStruct_58648341;
 

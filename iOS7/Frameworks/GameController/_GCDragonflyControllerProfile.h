@@ -8,12 +8,14 @@
 
 #import "_GCACHomeButtonDelegate-Protocol.h"
 
-@class NSObject<OS_dispatch_source>, _GCACHomeButton;
+@class NSObject<OS_dispatch_source>, _GCACHomeButton, _GCUserHIDDevice;
 
+// Not exported
 @interface _GCDragonflyControllerProfile : _GCGamepad <_GCACHomeButtonDelegate>
 {
     _GCACHomeButton *_acHome;
     NSObject<OS_dispatch_source> *_inputSource;
+    _GCUserHIDDevice *_emulatedHIDDevice;
 }
 
 - (void).cxx_destruct;

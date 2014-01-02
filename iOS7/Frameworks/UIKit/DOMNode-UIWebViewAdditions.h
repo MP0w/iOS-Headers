@@ -7,9 +7,9 @@
 #import "DOMNode.h"
 
 @interface DOMNode (UIWebViewAdditions)
-- (int)keyboardType;
-- (BOOL)isSecure;
-- (BOOL)isTextControl;
+- (long long)keyboardType;
+- (_Bool)isSecure;
+- (_Bool)isTextControl;
 - (struct CGRect)convertRect:(struct CGRect)arg1 toView:(id)arg2;
 @end
 

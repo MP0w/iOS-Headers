@@ -8,27 +8,29 @@
 
 #import "SBUIActiveOrientationObserver-Protocol.h"
 
-@class SBAppSliderWindow, UIViewController, UIWindow;
+@class NSMutableSet, SBAppSliderWindow, UIViewController, UIWindow;
 
 @interface SBAppSliderWindowController : NSObject <SBUIActiveOrientationObserver>
 {
     SBAppSliderWindow *_window;
     UIViewController *_rootViewController;
-    int _trueWindowOrientation;
-    int _overrideWindowOrientation;
+    long long _trueWindowOrientation;
+    long long _overrideWindowOrientation;
+    NSMutableSet *_rotationPreventionReasons;
 }
 
-- (void)activeInterfaceOrientationDidChangeToOrientation:(int)arg1 willAnimateWithDuration:(double)arg2 fromOrientation:(int)arg3;
-- (void)activeInterfaceOrientationWillChangeToOrientation:(int)arg1;
-- (void)_rotateIfNecessaryTo:(int)arg1 withDuration:(double)arg2 forOverride:(BOOL)arg3;
-- (void)_setTrueWindowOrientation:(int)arg1;
-- (void)_setOverrideWindowOrientation:(int)arg1;
-- (BOOL)_shouldAllowRotation:(BOOL)arg1;
-- (BOOL)_hasOrientationOverride;
+- (void)activeInterfaceOrientationDidChangeToOrientation:(long long)arg1 willAnimateWithDuration:(double)arg2 fromOrientation:(long long)arg3;
+- (void)activeInterfaceOrientationWillChangeToOrientation:(long long)arg1;
+- (void)_rotateIfNecessaryTo:(long long)arg1 withDuration:(double)arg2 forOverride:(_Bool)arg3;
+- (void)_setTrueWindowOrientation:(long long)arg1;
+- (void)_setOverrideWindowOrientation:(long long)arg1;
+- (_Bool)_shouldAllowRotation:(_Bool)arg1;
+- (_Bool)_hasOrientationOverride;
+- (void)setAllowRotation:(_Bool)arg1 forReason:(id)arg2;
 - (void)clearOverrideWindowOrientation;
-- (void)overrideWindowOrientation:(int)arg1;
-- (int)windowOrientationWithoutOverrides;
-- (int)windowOrientation;
+- (void)overrideWindowOrientation:(long long)arg1;
+- (long long)windowOrientationWithoutOverrides;
+- (long long)windowOrientation;
 - (void)_windowDidBecomeVisible:(id)arg1;
 @property(readonly, nonatomic) UIWindow *window;
 @property(retain, nonatomic) UIViewController *rootViewController;

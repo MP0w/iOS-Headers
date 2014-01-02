@@ -8,6 +8,7 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface VKPShieldPack : PBCodable
 {
     NSMutableArray *_atlas;
@@ -16,19 +17,19 @@
 
 @property(retain, nonatomic) NSMutableArray *shields; // @synthesize shields=_shields;
 @property(retain, nonatomic) NSMutableArray *atlas; // @synthesize atlas=_atlas;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)shieldsAtIndex:(unsigned int)arg1;
-- (unsigned int)shieldsCount;
+- (id)shieldsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)shieldsCount;
 - (void)addShields:(id)arg1;
 - (void)clearShields;
-- (id)atlasAtIndex:(unsigned int)arg1;
-- (unsigned int)atlasCount;
+- (id)atlasAtIndex:(unsigned long long)arg1;
+- (unsigned long long)atlasCount;
 - (void)addAtlas:(id)arg1;
 - (void)clearAtlas;
 - (void)dealloc;

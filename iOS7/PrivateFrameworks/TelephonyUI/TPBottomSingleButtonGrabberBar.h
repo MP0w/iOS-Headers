@@ -15,7 +15,7 @@
     UIView *_grabberView;
     UIImage *_grabberImage;
     NSArray *_grabberGestureRecognizers;
-    BOOL _isAnimatingOutGrabber;
+    _Bool _isAnimatingOutGrabber;
 }
 
 + (id)answerButtonImage;
@@ -26,8 +26,8 @@
 - (void)animateGrabberOutWithCompletion:(id)arg1;
 - (void)layoutSubviews;
 - (void)_updateButtonAndWellWidths;
-- (float)buttonWidth;
-- (void)setButton:(id)arg1 andStyle:(BOOL)arg2;
+- (double)buttonWidth;
+- (void)setButton:(id)arg1 andStyle:(_Bool)arg2;
 - (void)dealloc;
 - (id)initForIncomingCallWaitingWithFrame:(struct CGRect)arg1;
 

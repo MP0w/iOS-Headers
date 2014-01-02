@@ -15,7 +15,7 @@
 
 - (id)_bulletinListItem;
 - (id)unlockActionContext;
-- (BOOL)isVIP;
+- (_Bool)isVIP;
 - (id)attachmentImage;
 - (id)attachmentText;
 - (id)iconImage;

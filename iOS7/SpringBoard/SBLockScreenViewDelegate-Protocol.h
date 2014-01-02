@@ -7,11 +7,12 @@
 #import "NSObject-Protocol.h"
 
 @protocol SBLockScreenViewDelegate <NSObject>
-- (void)lockScreenView:(id)arg1 didChangeTopLegibleColor:(id)arg2;
-- (void)lockScreenView:(id)arg1 didEndScrollingOnPage:(int)arg2;
-- (void)lockScreenViewWillEndDraggingWithPercentScrolled:(float)arg1 percentScrolledVelocity:(float)arg2 targetScrollPercentage:(float)arg3;
-- (void)lockScreenViewDidScrollWithNewScrollPercentage:(float)arg1 tracking:(BOOL)arg2;
+- (id)effectiveCustomSlideToUnlockText;
+- (_Bool)lockScreenViewPhonePluginIsActive;
+- (void)lockScreenView:(id)arg1 didEndScrollingOnPage:(long long)arg2;
+- (void)lockScreenViewWillEndDraggingWithPercentScrolled:(double)arg1 percentScrolledVelocity:(double)arg2 targetScrollPercentage:(double)arg3;
+- (void)lockScreenViewDidScrollWithNewScrollPercentage:(double)arg1 tracking:(_Bool)arg2;
 - (void)lockScreenViewDidBeginScrolling:(id)arg1;
-- (void)lockScreenView:(id)arg1 didScrollToPage:(int)arg2;
+- (void)lockScreenView:(id)arg1 didScrollToPage:(long long)arg2;
 @end
 

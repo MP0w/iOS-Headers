@@ -8,6 +8,7 @@
 
 @class EDReferenceCollection, NSMutableArray;
 
+// Not exported
 @interface EDConditionalFormatting : NSObject
 {
     NSMutableArray *mRules;
@@ -16,13 +17,13 @@
 
 + (id)conditionalFormatting;
 - (void)addRange:(id)arg1;
-- (id)rangeAtIndex:(unsigned int)arg1;
-- (unsigned int)rangeCount;
+- (id)rangeAtIndex:(unsigned long long)arg1;
+- (unsigned long long)rangeCount;
 - (void)sortRulesByPriority;
-- (void)insertRule:(id)arg1 atIndex:(unsigned int)arg2;
+- (void)insertRule:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)addRule:(id)arg1;
-- (id)ruleAtIndex:(unsigned int)arg1;
-- (unsigned int)ruleCount;
+- (id)ruleAtIndex:(unsigned long long)arg1;
+- (unsigned long long)ruleCount;
 - (void)dealloc;
 - (id)init;
 

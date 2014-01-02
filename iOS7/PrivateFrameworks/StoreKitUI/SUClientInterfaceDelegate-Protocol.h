@@ -13,11 +13,11 @@
 - (id)scriptInterfaceForClientInterface:(id)arg1;
 - (id)previewOverlayForClientInterface:(id)arg1;
 - (void)returnToLibraryForClientInterface:(id)arg1;
-- (void)clientInterface:(id)arg1 setStatusBarStyle:(int)arg2 animated:(BOOL)arg3;
-- (void)clientInterface:(id)arg1 setStatusBarHidden:(BOOL)arg2 withAnimation:(int)arg3;
-- (void)clientInterface:(id)arg1 showPreviewOverlayAnimated:(BOOL)arg2;
-- (void)clientInterface:(id)arg1 hidePreviewOverlayAnimated:(BOOL)arg2;
+- (void)clientInterface:(id)arg1 setStatusBarStyle:(long long)arg2 animated:(_Bool)arg3;
+- (void)clientInterface:(id)arg1 setStatusBarHidden:(_Bool)arg2 withAnimation:(long long)arg3;
+- (void)clientInterface:(id)arg1 showPreviewOverlayAnimated:(_Bool)arg2;
+- (void)clientInterface:(id)arg1 hidePreviewOverlayAnimated:(_Bool)arg2;
 - (void)clientInterface:(id)arg1 presentDialog:(id)arg2;
-- (void)clientInterface:(id)arg1 exitStoreWithReason:(int)arg2;
+- (void)clientInterface:(id)arg1 exitStoreWithReason:(long long)arg2;
 @end
 

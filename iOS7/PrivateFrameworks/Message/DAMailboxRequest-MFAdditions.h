@@ -7,6 +7,6 @@
 #import "DAMailboxRequest.h"
 
 @interface DAMailboxRequest (MFAdditions)
-- (BOOL)mf_alwaysReportFailures;
+- (_Bool)mf_alwaysReportFailures;
 @end
 

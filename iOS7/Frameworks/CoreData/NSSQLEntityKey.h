@@ -6,6 +6,7 @@
 
 #import <CoreData/NSSQLColumn.h>
 
+// Not exported
 @interface NSSQLEntityKey : NSSQLColumn
 {
 }

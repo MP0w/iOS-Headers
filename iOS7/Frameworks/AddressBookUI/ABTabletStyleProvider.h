@@ -10,35 +10,35 @@
 {
 }
 
-- (BOOL)membersSearchBarIsInTableHeader;
+- (_Bool)membersSearchBarIsInTableHeader;
 - (id)membersHeaderBackgroundColor;
 - (struct UIEdgeInsets)cardActionButtonImageInsets;
 - (struct UIEdgeInsets)cardActionButtonTitleSingleLineInsets;
-- (BOOL)labelPickerShouldPushCustomLabelCreator;
+- (_Bool)labelPickerShouldPushCustomLabelCreator;
 - (id)editorViewColor;
 - (id)editorViewSmallFont;
 - (id)editorViewLargeFont;
-- (float)personEditorFieldVerticalInset;
+- (double)personEditorFieldVerticalInset;
 - (id)personActionColor;
 - (id)personActionFont;
 - (id)personValueImportantColor;
 - (id)personValueEmphasizedColor;
 - (id)personValueHighlightColor;
 - (id)personValueColor;
-- (float)personValueFontMinSize;
+- (double)personValueFontMinSize;
 - (id)personLabelColor;
 - (id)personLabelFont;
-- (float)personLabelFontMinSize;
-- (float)personViewHorizontalCellInset;
+- (double)personLabelFontMinSize;
+- (double)personViewHorizontalCellInset;
 - (id)personHeaderShadowColor;
 - (id)personHeaderPasteboardColor;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (int)composeModalPresentationStyle;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (long long)composeModalPresentationStyle;
 - (id)cardTableCellBorderColor;
-- (BOOL)searchControllerForceKeyboardDisplayEnabled;
-- (BOOL)serverSearchNavigationBarHidingEnabled;
-- (BOOL)searchIsAlwaysActive;
-- (int)separatorStyleForCellStyle:(int)arg1;
+- (_Bool)searchControllerForceKeyboardDisplayEnabled;
+- (_Bool)serverSearchNavigationBarHidingEnabled;
+- (_Bool)searchIsAlwaysActive;
+- (long long)separatorStyleForCellStyle:(int)arg1;
 - (int)abCellStyleForMembersTable;
 - (int)abCellStyleForGroupsTablePlain;
 

@@ -8,6 +8,7 @@
 
 @class UITabBarItem, UIView;
 
+// Not exported
 @interface UITabBarItemProxy : NSObject
 {
     UITabBarItem *_item;
@@ -17,6 +18,7 @@
 - (id)view;
 - (id)item;
 - (void)dealloc;
+- (void)setSelected:(_Bool)arg1;
 - (id)initWithItem:(id)arg1 inTabBar:(id)arg2;
 
 @end

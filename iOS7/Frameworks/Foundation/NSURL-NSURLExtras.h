@@ -7,11 +7,11 @@
 #import "NSURL.h"
 
 @interface NSURL (NSURLExtras)
-+ (id)_web_URLWithComponents:(CDStruct_2b292156)arg1;
++ (id)_web_URLWithComponents:(CDStruct_4f05a0fa)arg1;
 + (id)_web_URLWithString:(id)arg1 relativeToURL:(id)arg2;
-- (BOOL)_web_isJavaScriptURL;
+- (_Bool)_web_isJavaScriptURL;
 - (id)_web_suggestedFilenameWithMIMEType:(id)arg1;
 - (id)_web_scriptIfJavaScriptURL;
-- (CDStruct_2b292156)_web_URLComponents;
+- (CDStruct_4f05a0fa)_web_URLComponents;
 @end
 

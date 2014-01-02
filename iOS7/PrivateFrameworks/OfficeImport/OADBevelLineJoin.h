@@ -6,12 +6,13 @@
 
 #import <OfficeImport/OADLineJoin.h>
 
+// Not exported
 @interface OADBevelLineJoin : OADLineJoin
 {
 }
 
 + (id)defaultProperties;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)initWithDefaults;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 

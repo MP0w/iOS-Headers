@@ -17,10 +17,10 @@
 
 @property(retain, nonatomic) ExFATItem *item; // @synthesize item=_item;
 - (void).cxx_destruct;
-- (long)readBytesUpToLength:(unsigned long)arg1 atOffset:(unsigned long long)arg2 toBuffer:(void *)arg3;
+- (long long)readBytesUpToLength:(unsigned long long)arg1 atOffset:(unsigned long long)arg2 toBuffer:(void *)arg3;
 @property(readonly, nonatomic) unsigned long long length;
-@property(readonly, nonatomic) BOOL writable;
-- (BOOL)close;
+@property(readonly, nonatomic) _Bool writable;
+- (_Bool)close;
 - (void)dealloc;
 - (id)initWithItem:(id)arg1;
 

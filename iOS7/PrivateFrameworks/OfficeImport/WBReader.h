@@ -8,6 +8,7 @@
 
 @class NSMutableArray, TSUNoCopyDictionary, WBOfficeArtReaderState, WDDocument;
 
+// Not exported
 @interface WBReader : OCBReader
 {
     struct WrdNoteTable *mFootnoteTable;
@@ -29,19 +30,19 @@
     WDDocument *mTargetDocument;
     WBOfficeArtReaderState *mOfficeArtState;
     struct vector<WBTextBoxReaderInfo, std::__1::allocator<WBTextBoxReaderInfo>> *mTextBoxes;
-    BOOL mReportProgress;
+    _Bool mReportProgress;
     id mAnnotationRangeStart;
 }
 
 @property(nonatomic) WDDocument *targetDocument; // @synthesize targetDocument=mTargetDocument;
-- (struct WBTextBoxReaderInfo)textBoxInfoAtIndex:(unsigned int)arg1;
-- (unsigned int)textBoxCount;
+- (struct WBTextBoxReaderInfo)textBoxInfoAtIndex:(unsigned long long)arg1;
+- (unsigned long long)textBoxCount;
 - (void)cacheTextBox:(id)arg1 withChainIndex:(unsigned short)arg2;
 - (id)drawableForShapeId:(unsigned int)arg1;
 - (void)setOfficeArtState:(id)arg1;
 - (id)officeArtState;
-- (void)setReportProgress:(BOOL)arg1;
-- (BOOL)reportProgress;
+- (void)setReportProgress:(_Bool)arg1;
+- (_Bool)reportProgress;
 - (void)addFont:(id)arg1 index:(int)arg2;
 - (id)fontAtIndex:(int)arg1;
 - (void)addStyle:(id)arg1 index:(int)arg2;
@@ -67,12 +68,9 @@
 - (struct OCCBinaryStreamer *)allocBinaryStreamerWithCryptoKey:(struct OCCCryptoKey *)arg1 baseOutputFilenameInUTF8:(const char *)arg2;
 - (struct OCCEncryptionInfoReader *)encryptionInfoReader;
 - (id)read;
-- (BOOL)start;
+- (_Bool)start;
 - (void)dealloc;
 - (id)initWithCancelDelegate:(id)arg1 tracing:(id)arg2;
-- (void)initialize;
-- (void)setAnnotationRangeStart:(id)arg1;
-- (id)annotationRangeStart;
 
 @end
 

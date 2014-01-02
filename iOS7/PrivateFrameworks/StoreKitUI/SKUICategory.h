@@ -11,6 +11,7 @@
 @interface SKUICategory : NSObject
 {
     SKUIArtworkList *_artworkList;
+    long long _categoryIdentifier;
     NSArray *_children;
     NSString *_name;
     NSString *_parentLabel;
@@ -21,10 +22,11 @@
 @property(readonly, nonatomic) NSString *parentLabel; // @synthesize parentLabel=_parentLabel;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, nonatomic) NSArray *children; // @synthesize children=_children;
+@property(readonly, nonatomic) long long categoryIdentifier; // @synthesize categoryIdentifier=_categoryIdentifier;
 @property(readonly, nonatomic) SKUIArtworkList *artworkList; // @synthesize artworkList=_artworkList;
 - (void).cxx_destruct;
 - (id)subcategoryContainingURL:(id)arg1;
-- (BOOL)containsURL:(id)arg1;
+- (_Bool)containsURL:(id)arg1;
 - (id)initWithCategoryDictionary:(id)arg1;
 
 @end

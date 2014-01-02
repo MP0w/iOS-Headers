@@ -10,7 +10,7 @@
 
 @interface NSDocInfo : NSObject <NSCopying>
 {
-    long time;
+    long long time;
     unsigned short mode;
     struct {
         unsigned int isDir:1;

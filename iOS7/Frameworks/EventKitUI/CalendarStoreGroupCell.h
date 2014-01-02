@@ -8,6 +8,7 @@
 
 @class UILabel;
 
+// Not exported
 @interface CalendarStoreGroupCell : UIView
 {
     UILabel *_nameLabel;
@@ -15,7 +16,7 @@
     id <EKStyleProvider> _styleProvider;
 }
 
-+ (float)standardHeightForStyleProvider:(id)arg1;
++ (double)standardHeightForStyleProvider:(id)arg1;
 - (void).cxx_destruct;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)layoutSubviews;

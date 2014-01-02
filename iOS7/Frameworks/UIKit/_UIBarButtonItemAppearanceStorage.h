@@ -8,6 +8,7 @@
 
 @class NSMutableDictionary, NSValue, UIColor, _UIBarBackButtonItemAppearanceStorage;
 
+// Not exported
 @interface _UIBarButtonItemAppearanceStorage : _UIBarItemAppearanceStorage
 {
     NSMutableDictionary *backgroundImages;
@@ -25,15 +26,15 @@
 @property(retain, nonatomic) NSValue *miniBackButtonTitlePositionOffset;
 @property(retain, nonatomic) NSValue *backButtonTitlePositionOffset;
 - (id)anyBackButtonBackgroundImage;
-- (id)backButtonBackgroundImageForState:(unsigned int)arg1 isMini:(BOOL)arg2;
-- (void)setBackButtonBackgroundImage:(id)arg1 forState:(unsigned int)arg2 isMini:(BOOL)arg3;
-- (float)backButtonBackgroundVerticalAdjustmentForBarMetrics:(int)arg1;
-- (void)setBackButtonBackgroundVerticalAdjustment:(float)arg1 forBarMetrics:(int)arg2;
-- (float)backgroundVerticalAdjustmentForBarMetrics:(int)arg1;
-- (void)setBackgroundVerticalAdjustment:(float)arg1 forBarMetrics:(int)arg2;
+- (id)backButtonBackgroundImageForState:(unsigned long long)arg1 isMini:(_Bool)arg2;
+- (void)setBackButtonBackgroundImage:(id)arg1 forState:(unsigned long long)arg2 isMini:(_Bool)arg3;
+- (double)backButtonBackgroundVerticalAdjustmentForBarMetrics:(long long)arg1;
+- (void)setBackButtonBackgroundVerticalAdjustment:(double)arg1 forBarMetrics:(long long)arg2;
+- (double)backgroundVerticalAdjustmentForBarMetrics:(long long)arg1;
+- (void)setBackgroundVerticalAdjustment:(double)arg1 forBarMetrics:(long long)arg2;
 - (id)anyBackgroundImage;
-- (id)backgroundImageForState:(unsigned int)arg1 style:(int)arg2 isMini:(BOOL)arg3;
-- (void)setBackgroundImage:(id)arg1 forState:(unsigned int)arg2 style:(int)arg3 isMini:(BOOL)arg4;
+- (id)backgroundImageForState:(unsigned long long)arg1 style:(long long)arg2 isMini:(_Bool)arg3;
+- (void)setBackgroundImage:(id)arg1 forState:(unsigned long long)arg2 style:(long long)arg3 isMini:(_Bool)arg4;
 - (void)dealloc;
 
 @end

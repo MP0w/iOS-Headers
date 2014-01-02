@@ -8,6 +8,7 @@
 
 @class TSUColor;
 
+// Not exported
 @interface MFPLinearGradientBrush : MFPGradientBrush
 {
     struct CGRect mBounds;

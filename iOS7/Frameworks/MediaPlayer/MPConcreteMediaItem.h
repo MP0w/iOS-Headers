@@ -7,40 +7,44 @@
 #import <MediaPlayer/MPMediaItem.h>
 
 #import "MPCacheableConcreteMediaEntity-Protocol.h"
+#import "MPMediaItemArrayPIDEncodableItem-Protocol.h"
 #import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
 
 @class MPConcreteMediaEntityPropertiesCache, MPMediaLibrary;
 
-@interface MPConcreteMediaItem : MPMediaItem <NSCoding, NSCopying, MPCacheableConcreteMediaEntity>
+@interface MPConcreteMediaItem : MPMediaItem <NSCoding, NSCopying, MPMediaItemArrayPIDEncodableItem, MPCacheableConcreteMediaEntity>
 {
     MPMediaLibrary *_library;
     unsigned long long _persistentID;
     MPConcreteMediaEntityPropertiesCache *_propertiesCache;
 }
 
-+ (void)didChangeEntityWithDataProviderEntityClass:(Class)arg1 persistentID:(unsigned long long)arg2 deleted:(BOOL)arg3;
++ (_Bool)supportsSecureCoding;
++ (void)didChangeEntityWithDataProviderEntityClass:(Class)arg1 persistentID:(unsigned long long)arg2 deleted:(_Bool)arg3;
 + (id)concreteMediaItemWithPersistentID:(unsigned long long)arg1 library:(id)arg2;
 + (id)concreteMediaItemWithPersistentID:(unsigned long long)arg1;
 - (void).cxx_destruct;
 - (void)updateDateAccessedToCurrentDateWithWriteCompletionBlock:(id)arg1;
-- (BOOL)incrementPlayCountForStopTime:(double)arg1;
+- (_Bool)incrementPlayCountForStopTime:(double)arg1;
 - (void)incrementPlayCountForPlayingToEnd;
 - (void)incrementSkipCount;
-- (void)noteWasPlayedToTime:(double)arg1 skipped:(BOOL)arg2;
-- (BOOL)didSkipWithPlayedToTime:(double)arg1;
+- (void)noteWasPlayedToTime:(double)arg1 skipped:(_Bool)arg2;
+- (_Bool)didSkipWithPlayedToTime:(double)arg1;
 - (double)nominalHasBeenPlayedThreshold;
 - (void)markNominalAmountHasBeenPlayed;
 - (void)reallyIncrementPlayCount;
 - (void)enumerateValuesForProperties:(id)arg1 usingBlock:(id)arg2;
 - (void)setValue:(id)arg1 forProperty:(id)arg2 withCompletionBlock:(id)arg3;
-- (BOOL)setValue:(id)arg1 forProperty:(id)arg2;
+- (_Bool)setValue:(id)arg1 forProperty:(id)arg2;
 - (id)valuesForProperties:(id)arg1;
 - (id)valueForProperty:(id)arg1;
-- (id)_nonBatchableOrCachedValueForProperty:(id)arg1 needsFetch:(char *)arg2;
+- (id)_nonBatchableOrCachedValueForProperty:(id)arg1 needsFetch:(_Bool *)arg2;
 - (unsigned long long)persistentID;
 - (id)mediaLibrary;
-- (BOOL)existsInLibrary;
+- (_Bool)existsInLibrary;
+- (Class)itemArrayCoderPIDDataCodingClass;
+- (Class)classForCoder;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

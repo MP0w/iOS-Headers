@@ -14,7 +14,7 @@
 }
 
 @property(retain, nonatomic) SBBBWidgetBulletinInfo *widgetBulletinInfo; // @synthesize widgetBulletinInfo=_widgetBulletinInfo;
-- (BOOL)isWidgetSection;
+- (_Bool)isWidgetSection;
 - (id)identifier;
 - (void)dealloc;
 

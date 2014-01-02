@@ -15,49 +15,49 @@
     void *_appearanceStream;
     struct CGPDFString *_pdfContents;
     NSString *_annotationID;
-    BOOL _hidden;
+    _Bool _hidden;
     UIPDFAnnotationView *_annotationView;
     UIPDFAnnotationController *_annotationController;
     NSMutableArray *_quadPoints;
     CALayer *_drawingLayer;
     UIPDFSelection *_selection;
-    BOOL editable;
+    _Bool editable;
     id data;
     NSString *_contents;
-    int _index;
+    long long _index;
     UIPDFPopupAnnotation *_popup;
     NSString *_associatedAnnotationID;
     UIPDFPage *_page;
-    unsigned int _tag;
+    unsigned long long _tag;
 }
 
 + (id)newAnnotationWithPage:(id)arg1 fromArchive:(id)arg2;
-@property(nonatomic) unsigned int tag; // @synthesize tag=_tag;
+@property(nonatomic) unsigned long long tag; // @synthesize tag=_tag;
 @property(nonatomic) UIPDFPage *page; // @synthesize page=_page;
 @property(retain, nonatomic) CALayer *drawingLayer; // @synthesize drawingLayer=_drawingLayer;
 @property(retain, nonatomic) NSString *associatedAnnotationID; // @synthesize associatedAnnotationID=_associatedAnnotationID;
 @property(nonatomic) UIPDFPopupAnnotation *popup; // @synthesize popup=_popup;
-@property(nonatomic) int index; // @synthesize index=_index;
+@property(nonatomic) long long index; // @synthesize index=_index;
 @property(retain, nonatomic) NSString *contents; // @synthesize contents=_contents;
 @property(retain, nonatomic) id data; // @synthesize data;
-@property(nonatomic) BOOL editable; // @synthesize editable;
+@property(nonatomic) _Bool editable; // @synthesize editable;
 @property(nonatomic) UIPDFAnnotationController *annotationController; // @synthesize annotationController=_annotationController;
 @property(retain, nonatomic) UIPDFAnnotationView *annotationView; // @synthesize annotationView=_annotationView;
 @property(nonatomic) UIPDFSelection *selection; // @dynamic selection;
 - (id)descriptionHOLD;
 - (struct CGRect)popUpAnnotationRect;
 - (const char *)pdfContents;
-- (BOOL)hasPopUp;
+- (_Bool)hasPopUp;
 - (void)drawLayer:(id)arg1 inContext:(struct CGContext *)arg2;
 - (void)drawInContext:(struct CGContext *)arg1;
 - (struct CGColor *)color;
 - (void)setColor:(struct CGColor *)arg1;
-- (BOOL)containsPoint:(struct CGPoint)arg1;
+- (_Bool)containsPoint:(struct CGPoint)arg1;
 - (struct CGRect)bounds;
 - (struct CGRect)frame;
 - (struct CGRect)Rect;
 - (struct CGRect)rectIn:(struct CGPDFArray *)arg1;
-- (BOOL)hidden;
+- (_Bool)hidden;
 - (id)getImageNamed:(id)arg1 ofType:(id)arg2;
 - (id)archive;
 - (int)annotationType;
@@ -68,10 +68,9 @@
 - (void)dealloc;
 - (id)initWithAnnotationDictionary:(struct CGPDFDictionary *)arg1;
 - (id)init;
-@property(readonly, nonatomic) BOOL recognizeGestures; // @dynamic recognizeGestures;
-- (struct CGPath *)newPathFromQuadPoints;
-- (void)makeQuadpointsFrom:(id)arg1;
-- (id)newSelection;
+
+// Remaining properties
+@property(readonly, nonatomic) _Bool recognizeGestures; // @dynamic recognizeGestures;
 
 @end
 

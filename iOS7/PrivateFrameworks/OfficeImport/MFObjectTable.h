@@ -8,6 +8,7 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface MFObjectTable : NSObject
 {
     NSMutableArray *m_objects;

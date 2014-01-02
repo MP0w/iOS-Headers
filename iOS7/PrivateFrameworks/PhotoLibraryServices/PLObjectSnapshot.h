@@ -16,7 +16,7 @@
 }
 
 + (struct __CFDictionary *)_createIndexMapsSnapshotForManagedObject:(id)arg1 changeNotificationCenter:(id)arg2;
-+ (id)snapshotForManagedObject:(id)arg1 changeNotificationCenter:(id)arg2 useCommitedValues:(BOOL)arg3;
++ (id)snapshotForManagedObject:(id)arg1 changeNotificationCenter:(id)arg2 useCommitedValues:(_Bool)arg3;
 @property(readonly, nonatomic) PLManagedObject *managedObject; // @synthesize managedObject=_managedObject;
 - (void)setAssetsSnapshot:(id)arg1;
 - (id)_allSnapshotValuesDescription;
@@ -24,9 +24,9 @@
 - (id)description;
 - (id)filteredIndexesForFilter:(id)arg1;
 - (id)indexMapStateForDerivedObject:(id)arg1;
-- (BOOL)hasSnapshotValueForProperty:(id)arg1;
+- (_Bool)hasSnapshotValueForProperty:(id)arg1;
 - (id)snapshotValueForProperty:(id)arg1;
-- (id)initWithManagedObject:(id)arg1 properties:(id)arg2 toOneRelationships:(id)arg3 indexMaps:(struct __CFDictionary *)arg4 useCommitedValues:(BOOL)arg5;
+- (id)initWithManagedObject:(id)arg1 properties:(id)arg2 toOneRelationships:(id)arg3 indexMaps:(struct __CFDictionary *)arg4 useCommitedValues:(_Bool)arg5;
 - (void)dealloc;
 - (id)init;
 

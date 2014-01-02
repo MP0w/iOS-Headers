@@ -10,15 +10,15 @@
 {
 }
 
-+ (float)rowHeightForContext:(id)arg1 representedObject:(id)arg2;
++ (double)rowHeightForContext:(id)arg1 representedObject:(id)arg2;
 + (id)copyDefaultContext;
-- (int)mediaIconType;
-- (BOOL)showContentRating;
+- (long long)mediaIconType;
+- (_Bool)showContentRating;
 - (void)reloadStrings;
 - (void)reloadLayoutInformation;
 - (void)reloadImages;
-- (id)fontForLabelAtIndex:(unsigned int)arg1;
-- (id)colorForLabelAtIndex:(unsigned int)arg1 withModifiers:(unsigned int)arg2;
+- (id)fontForLabelAtIndex:(unsigned long long)arg1;
+- (id)colorForLabelAtIndex:(unsigned long long)arg1 withModifiers:(unsigned long long)arg2;
 - (id)init;
 
 @end

@@ -7,6 +7,6 @@
 #import "ABPeoplePickerNavigationController.h"
 
 @interface ABPeoplePickerNavigationController (ChatKitAdditions)
-- (BOOL)ckCanDismissWhenSuspending;
+- (_Bool)ckCanDismissWhenSuspending;
 @end
 

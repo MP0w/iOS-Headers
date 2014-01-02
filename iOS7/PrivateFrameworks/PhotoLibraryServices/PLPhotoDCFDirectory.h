@@ -14,27 +14,27 @@
     struct __CFDictionary *_fileGroupsByNumber;
     int _maxFileGroupNumber;
     int _lastUsedFileGroupNumber;
-    BOOL _considerInvalidFileGroups;
+    _Bool _considerInvalidFileGroups;
 }
 
 + (id)fileGroupRequiredEmptyExtensions;
 + (id)fileGroupRequiredEmptyPrefixes;
 + (void)initializeFileGroupPrefixAndExtensions;
-@property BOOL considerInvalidFileGroups; // @synthesize considerInvalidFileGroups=_considerInvalidFileGroups;
-- (void)setWriteIsPending:(BOOL)arg1;
+@property _Bool considerInvalidFileGroups; // @synthesize considerInvalidFileGroups=_considerInvalidFileGroups;
+- (void)setWriteIsPending:(_Bool)arg1;
 - (void)removeFileGroup:(id)arg1;
 - (id)nextAvailableVideoFileGroupWithExtension:(id)arg1;
 - (id)nextAvailableFileGroup;
 - (id)_nextAvailableFileGroupWithPrefix:(id)arg1 extension:(id)arg2;
 - (id)fileGroups;
-- (BOOL)isEntensionValid:(id)arg1;
+- (_Bool)isEntensionValid:(id)arg1;
 - (void)ensureDirectoryExists;
 - (id)fullPath;
-- (BOOL)canAddVideo;
-- (BOOL)canAddImage;
-- (BOOL)_canAddItemWithPrefix:(id)arg1;
-- (BOOL)_canAddItemWithPrefix:(id)arg1 minimumFileGroupNumber:(int)arg2;
-- (BOOL)canAddFileGroupWithGroupNumber:(int)arg1;
+- (_Bool)canAddVideo;
+- (_Bool)canAddImage;
+- (_Bool)_canAddItemWithPrefix:(id)arg1;
+- (_Bool)_canAddItemWithPrefix:(id)arg1 minimumFileGroupNumber:(int)arg2;
+- (_Bool)canAddFileGroupWithGroupNumber:(int)arg1;
 - (unsigned int)_calculateBaseDirectoryValue;
 - (id)dcimDirectory;
 - (void)dealloc;

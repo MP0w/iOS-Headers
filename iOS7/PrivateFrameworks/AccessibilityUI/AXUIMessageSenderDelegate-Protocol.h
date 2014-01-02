@@ -11,7 +11,7 @@
 
 @optional
 - (void)messageSender:(id)arg1 processCustomDataFromXPCReply:(void *)arg2;
-- (void *)messageSender:(id)arg1 extractCustomDataFromXPCReply:(id)arg2 numberOfKeyValuePairsForCustomData:(unsigned int *)arg3;
+- (void *)messageSender:(id)arg1 extractCustomDataFromXPCReply:(id)arg2 numberOfKeyValuePairsForCustomData:(unsigned long long *)arg3;
 - (void)messageSender:(id)arg1 willSendXPCMessage:(id)arg2 context:(void *)arg3;
 @end
 

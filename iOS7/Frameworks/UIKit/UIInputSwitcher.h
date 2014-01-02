@@ -8,6 +8,7 @@
 
 @class NSString, UIDelayedAction, UIInputSwitcherView;
 
+// Not exported
 @interface UIInputSwitcher : NSObject
 {
     UIDelayedAction *m_switcherDelay;
@@ -18,10 +19,10 @@
 
 + (id)activeInstance;
 + (id)sharedInstance;
-- (BOOL)handleModifiersChangedEvent:(id)arg1;
-- (BOOL)switchMode:(id)arg1 withDelay:(BOOL)arg2;
-- (BOOL)handleSwitchCommand:(BOOL)arg1;
-- (BOOL)isVisible;
+- (_Bool)handleModifiersChangedEvent:(id)arg1;
+- (_Bool)switchMode:(id)arg1 withDelay:(_Bool)arg2;
+- (_Bool)handleSwitchCommand:(_Bool)arg1;
+- (_Bool)isVisible;
 - (void)clearSwitcherTimer;
 - (void)cancelSwitcherTimer;
 - (void)touchSwitcherTimer;

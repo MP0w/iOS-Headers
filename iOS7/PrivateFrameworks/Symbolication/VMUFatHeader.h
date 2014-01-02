@@ -21,7 +21,7 @@
 - (id)fatArchs;
 - (id)timestamp;
 - (id)path;
-- (BOOL)isFat;
+- (_Bool)isFat;
 - (id)initWithMemory:(id)arg1 path:(id)arg2 timestamp:(id)arg3;
 
 @end

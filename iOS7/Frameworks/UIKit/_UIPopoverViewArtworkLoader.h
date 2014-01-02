@@ -8,13 +8,14 @@
 
 @class NSString;
 
+// Not exported
 @interface _UIPopoverViewArtworkLoader : NSObject
 {
-    int _backgroundStyle;
+    long long _backgroundStyle;
     NSString *_backgroundSelector;
 }
 
-+ (id)backgroundSelectorForBackgroundStyle:(int)arg1;
++ (id)backgroundSelectorForBackgroundStyle:(long long)arg1;
 - (id)shortBottomArrowRightEndCapView;
 - (id)shortBottomArrowLeftEndCapView;
 - (id)shortBottomArrowPinnedView;
@@ -37,12 +38,25 @@
 - (id)topArrowLeftEndCapView;
 - (id)topArrowPinnedView;
 - (id)topArrowView;
+- (double)shortArtRightArrowBase;
+- (double)shortArtArrowTopGradientEnd;
+- (double)shortArtNoArrowTopGradientEnd;
+- (double)bottomEndCapHeight;
+- (double)capCornerRadius;
+- (double)noArrowTopGradientEnd;
+- (double)arrowTopGradientEnd;
+- (double)clampArrowBase;
+- (double)sideArrowStart;
+- (double)topArrowStart;
+- (double)arrowBase;
+- (double)arrowHeight;
 - (id)viewWithContentsImage:(id)arg1 rect:(struct CGRect)arg2 center:(struct CGRect)arg3 antialiasingMask:(unsigned int)arg4 directionSelector:(id)arg5;
 - (struct CGRect)contentsCenterForRect:(struct CGRect)arg1 inImageOfSize:(struct CGSize)arg2;
 - (struct CGRect)contentRectForRect:(struct CGRect)arg1 inImageOfSize:(struct CGSize)arg2;
-- (id)templateImageForDirection:(id)arg1 shortArtwork:(BOOL)arg2;
+- (id)templateImageForDirection:(id)arg1 shortArtwork:(_Bool)arg2;
+- (_Bool)modern;
 - (void)dealloc;
-- (id)initWithBackgroundStyle:(int)arg1;
+- (id)initWithBackgroundStyle:(long long)arg1;
 
 @end
 

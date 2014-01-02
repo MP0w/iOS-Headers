@@ -18,6 +18,9 @@
 @property(readonly, nonatomic) NSString *label; // @synthesize label=_label;
 @property(readonly, nonatomic) NSString *component; // @synthesize component=_component;
 @property(readonly, nonatomic) NSString *property; // @synthesize property=_property;
+- (id)description;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)dealloc;
 - (id)initWithProperty:(id)arg1 component:(id)arg2 label:(id)arg3;
 

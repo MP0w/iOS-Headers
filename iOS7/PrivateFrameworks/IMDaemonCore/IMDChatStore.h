@@ -21,8 +21,7 @@
 - (id)chatsGUIDsForMessageWithGUID:(id)arg1;
 - (id)chatsWithRoomname:(id)arg1 onService:(id)arg2;
 - (id)chatsWithHandle:(id)arg1 onService:(id)arg2;
-- (unsigned int)unreadCountForChat:(id)arg1;
-- (id)updateChat:(id)arg1;
+- (unsigned long long)unreadCountForChat:(id)arg1;
 - (id)storeChat:(id)arg1;
 - (id)loadAllChats;
 - (void)unarchiveChat:(id)arg1;

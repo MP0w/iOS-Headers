@@ -13,7 +13,7 @@
 }
 
 + (void)deallocImageCache;
-+ (long)initImageCache;
++ (int)initImageCache;
 @property(nonatomic) float progressValue; // @synthesize progressValue=_progressValue;
 - (struct CGImage *)composeProgressBar;
 - (void)layoutSublayers;

@@ -8,6 +8,7 @@
 
 @class VKModelObject;
 
+// Not exported
 @interface VKWorld : NSObject
 {
     id <VKWorldDelegate> _delegate;

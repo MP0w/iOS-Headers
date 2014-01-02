@@ -8,14 +8,14 @@
 
 @interface PUAbstractTransitionLayoutAttributes : UICollectionViewLayoutAttributes
 {
-    struct CGPoint _extrapolationReferencePoint;
     double _progress;
+    struct CGPoint _extrapolationReferencePoint;
 }
 
 @property(nonatomic) double progress; // @synthesize progress=_progress;
 @property(nonatomic) struct CGPoint extrapolationReferencePoint; // @synthesize extrapolationReferencePoint=_extrapolationReferencePoint;
 - (struct CGPoint)rubberbandFromInitialPoint:(struct CGPoint)arg1 toPoint:(struct CGPoint)arg2 withExtrapolatedPoint:(struct CGPoint)arg3;
-- (float)_rubberbandFromFloat:(float)arg1 toFloat:(float)arg2 withExtrapolatedFloat:(float)arg3;
+- (double)_rubberbandFromFloat:(double)arg1 toFloat:(double)arg2 withExtrapolatedFloat:(double)arg3;
 - (struct CGPoint)extrapolatedPointFromReferencePointToPoint:(struct CGPoint)arg1 forProgress:(double)arg2;
 - (void)updateForProgress;
 

@@ -7,6 +7,6 @@
 #import "UIToolbar.h"
 
 @interface UIToolbar (PhotoLibraryAdditions)
-- (id)itemWithTag:(int)arg1;
+- (id)itemWithTag:(long long)arg1;
 @end
 

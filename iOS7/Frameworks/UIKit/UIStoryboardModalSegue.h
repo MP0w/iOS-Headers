@@ -6,20 +6,21 @@
 
 #import <UIKit/UIStoryboardSegue.h>
 
+// Not exported
 @interface UIStoryboardModalSegue : UIStoryboardSegue
 {
-    BOOL _useDefaultModalPresentationStyle;
-    BOOL _useDefaultModalTransitionStyle;
-    BOOL _animates;
-    int _modalPresentationStyle;
-    int _modalTransitionStyle;
+    _Bool _useDefaultModalPresentationStyle;
+    _Bool _useDefaultModalTransitionStyle;
+    _Bool _animates;
+    long long _modalPresentationStyle;
+    long long _modalTransitionStyle;
 }
 
-@property(nonatomic) BOOL animates; // @synthesize animates=_animates;
-@property(nonatomic) int modalTransitionStyle; // @synthesize modalTransitionStyle=_modalTransitionStyle;
-@property(nonatomic) int modalPresentationStyle; // @synthesize modalPresentationStyle=_modalPresentationStyle;
-@property(nonatomic) BOOL useDefaultModalTransitionStyle; // @synthesize useDefaultModalTransitionStyle=_useDefaultModalTransitionStyle;
-@property(nonatomic) BOOL useDefaultModalPresentationStyle; // @synthesize useDefaultModalPresentationStyle=_useDefaultModalPresentationStyle;
+@property(nonatomic) _Bool animates; // @synthesize animates=_animates;
+@property(nonatomic) long long modalTransitionStyle; // @synthesize modalTransitionStyle=_modalTransitionStyle;
+@property(nonatomic) long long modalPresentationStyle; // @synthesize modalPresentationStyle=_modalPresentationStyle;
+@property(nonatomic) _Bool useDefaultModalTransitionStyle; // @synthesize useDefaultModalTransitionStyle=_useDefaultModalTransitionStyle;
+@property(nonatomic) _Bool useDefaultModalPresentationStyle; // @synthesize useDefaultModalPresentationStyle=_useDefaultModalPresentationStyle;
 - (void)perform;
 
 @end

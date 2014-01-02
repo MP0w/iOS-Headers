@@ -13,14 +13,14 @@
 @interface EKExpandingTextView : UITextView <UITextViewDelegate>
 {
     UILabel *_placeholderLabel;
-    BOOL _allowEnclosingViewScroll;
+    _Bool _allowEnclosingViewScroll;
 }
 
 - (void).cxx_destruct;
 - (void)setContentSize:(struct CGSize)arg1;
 - (void)setContentOffset:(struct CGPoint)arg1;
 - (void)setBackgroundColor:(id)arg1;
-- (void)setTextAlignment:(int)arg1;
+- (void)setTextAlignment:(long long)arg1;
 - (void)setFont:(id)arg1;
 - (void)setText:(id)arg1;
 - (void)_updatePlaceholder;

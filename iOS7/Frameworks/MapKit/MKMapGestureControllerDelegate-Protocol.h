@@ -8,18 +8,18 @@
 
 @protocol MKMapGestureControllerDelegate <NSObject>
 - (void)gestureControllerDidStopTiltingDecelerating:(id)arg1;
-- (void)gestureControllerDidStopTilting:(id)arg1 willDecelerate:(BOOL)arg2;
+- (void)gestureControllerDidStopTilting:(id)arg1 willDecelerate:(_Bool)arg2;
 - (void)gestureControllerWillStartTilting:(id)arg1;
 - (void)gestureControllerDidStopRotatingDecelerating:(id)arg1;
-- (void)gestureControllerDidStopRotating:(id)arg1 willDecelerate:(BOOL)arg2;
+- (void)gestureControllerDidStopRotating:(id)arg1 willDecelerate:(_Bool)arg2;
 - (void)gestureControllerWillStartRotating:(id)arg1;
 - (void)gestureControllerDidStopTwoFingerLongPress:(id)arg1;
 - (void)gestureControllerWillStartTwoFingerLongPress:(id)arg1;
-- (void)gestureControllerDidStopZoomingDecelerating:(id)arg1 direction:(int)arg2;
-- (void)gestureControllerDidStopZooming:(id)arg1 direction:(int)arg2 willDecelerate:(BOOL)arg3;
-- (void)gestureControllerWillStartZooming:(id)arg1 animated:(BOOL)arg2;
+- (void)gestureControllerDidStopZoomingDecelerating:(id)arg1 direction:(long long)arg2;
+- (void)gestureControllerDidStopZooming:(id)arg1 direction:(long long)arg2 willDecelerate:(_Bool)arg3;
+- (void)gestureControllerWillStartZooming:(id)arg1 animated:(_Bool)arg2;
 - (void)gestureControllerDidStopPanningDecelerating:(id)arg1;
-- (void)gestureControllerDidStopPanning:(id)arg1 willDecelerate:(BOOL)arg2;
+- (void)gestureControllerDidStopPanning:(id)arg1 willDecelerate:(_Bool)arg2;
 - (void)gestureControllerWillStartPanning:(id)arg1;
 - (void)gestureControllerDidStopUserInteraction:(id)arg1;
 - (void)gestureControllerWillStartUserInteraction:(id)arg1;

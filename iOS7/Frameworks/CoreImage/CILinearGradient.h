@@ -8,6 +8,7 @@
 
 @class CIColor, CIVector;
 
+// Not exported
 @interface CILinearGradient : CIFilter
 {
     CIVector *inputPoint0;

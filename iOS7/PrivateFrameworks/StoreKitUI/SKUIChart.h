@@ -11,17 +11,17 @@
 @interface SKUIChart : NSObject
 {
     NSArray *_items;
-    BOOL _newsstand;
+    _Bool _newsstand;
     NSURL *_seeAllURL;
-    BOOL _showsIndexNumbers;
+    _Bool _showsIndexNumbers;
     NSString *_title;
 }
 
 @property(readonly, nonatomic) NSURL *seeAllURL; // @synthesize seeAllURL=_seeAllURL;
 @property(readonly, nonatomic) NSString *title; // @synthesize title=_title;
-@property(readonly, nonatomic) BOOL showsIndexNumbers; // @synthesize showsIndexNumbers=_showsIndexNumbers;
+@property(readonly, nonatomic) _Bool showsIndexNumbers; // @synthesize showsIndexNumbers=_showsIndexNumbers;
 @property(readonly, nonatomic) NSArray *items; // @synthesize items=_items;
-@property(readonly, nonatomic, getter=isNewsstand) BOOL newsstand; // @synthesize newsstand=_newsstand;
+@property(readonly, nonatomic, getter=isNewsstand) _Bool newsstand; // @synthesize newsstand=_newsstand;
 - (void).cxx_destruct;
 - (id)description;
 - (id)initWithCustomPageContext:(id)arg1;

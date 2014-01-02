@@ -10,34 +10,37 @@
 
 @interface SBDownloadingIcon : SBLeafIcon
 {
-    BOOL _wasUninstalledByUser;
-    BOOL _isNewsstandDownload;
+    _Bool _wasUninstalledByUser;
+    _Bool _isNewsstandDownload;
     SBApplicationPlaceholder *_appPlaceholder;
 }
 
 + (id)leafIdentifierForApplicationPlaceholder:(id)arg1;
 + (id)leafIdentifierForApplicationPlaceholderBundleID:(id)arg1;
 - (void)cancelDownload;
-- (BOOL)iconAppearsInNewsstand;
+- (_Bool)iconAppearsInNewsstand;
 - (void)_showAlertForError:(id)arg1;
 - (id)uninstallAlertCancelTitle;
 - (id)uninstallAlertConfirmTitle;
 - (id)uninstallAlertBody;
 - (id)uninstallAlertTitle;
-- (void)setUninstalledByUser:(BOOL)arg1;
-- (BOOL)uninstalledByUser;
-- (void)setNewsstandDownload:(BOOL)arg1;
-- (BOOL)isNewsstandDownload;
+- (void)setUninstalledByUser:(_Bool)arg1;
+- (_Bool)uninstalledByUser;
+- (void)setNewsstandDownload:(_Bool)arg1;
+- (_Bool)isNewsstandDownload;
+- (_Bool)matchesApplicationIcon:(id)arg1;
 - (id)appPlaceholder;
 - (void)setApplicationPlaceholder:(id)arg1;
 - (void)reloadForStatusChange;
 - (void)completeUninstall;
 - (id)realDisplayName;
-- (id)undarkenedHomeScreenIconImage;
+- (id)homescreenIconImage;
+- (id)_darkenedIconImageForImage:(id)arg1;
+- (id)gridCellImage;
 - (id)identifierForCorrespondingApplicationIcon;
 - (id)description;
 - (id)representation;
-- (BOOL)matchesRepresentation:(id)arg1;
+- (_Bool)matchesRepresentation:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)initWithApplicationPlaceholder:(id)arg1;

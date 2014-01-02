@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface GQDWPTocContent : NSObject
 {
     struct __CFArray *mChildren;

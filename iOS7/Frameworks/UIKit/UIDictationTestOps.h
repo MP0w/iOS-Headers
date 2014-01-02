@@ -8,6 +8,7 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface UIDictationTestOps : NSObject
 {
     double _timeAfterInsertion;
@@ -17,9 +18,9 @@
 }
 
 @property(retain, nonatomic) NSMutableArray *operations; // @synthesize operations=_operations;
-- (unsigned int)selectionChangeDelta;
-- (BOOL)isNotEmpty;
-- (BOOL)isEmpty;
+- (unsigned long long)selectionChangeDelta;
+- (_Bool)isNotEmpty;
+- (_Bool)isEmpty;
 - (void)willEndEditingInInputDelegate:(id)arg1;
 - (void)pushReplaceSelectionWithText:(id)arg1;
 - (void)_performReplaceSelectedText:(id)arg1;
@@ -33,7 +34,7 @@
 - (void)popAndInvoke;
 - (double)delayAfterSelector:(SEL)arg1;
 - (id)pop;
-- (BOOL)hasOperations;
+- (_Bool)hasOperations;
 - (void)clearOperations;
 - (void)dealloc;
 - (id)init;

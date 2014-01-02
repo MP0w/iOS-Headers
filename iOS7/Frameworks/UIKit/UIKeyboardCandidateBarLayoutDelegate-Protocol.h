@@ -7,6 +7,7 @@
 #import "UICollectionViewDelegate-Protocol.h"
 
 @protocol UIKeyboardCandidateBarLayoutDelegate <UICollectionViewDelegate>
+- (void)candidateBarLayoutDidFinishPreparingLayout;
 - (struct CGSize)sizeOfDummyItemForCollectionView:(id)arg1 layout:(id)arg2;
 - (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 sizeForItemAtIndexPath:(id)arg3;
 @end

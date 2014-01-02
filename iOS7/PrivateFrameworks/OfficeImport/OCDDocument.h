@@ -8,6 +8,7 @@
 
 @class NSData, OADBlipCollection, OADGraphicStyleCache, OADTextListStyle, OCDReader, OCDSummary, OCDWriter;
 
+// Not exported
 @interface OCDDocument : NSObject
 {
     OCDReader *mReader;

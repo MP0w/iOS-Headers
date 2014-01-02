@@ -14,7 +14,7 @@
     NSArray *_contentRatingAdvisories;
     NSString *_contentRatingName;
     NSString *_copyrightString;
-    BOOL _hasInAppPurchases;
+    _Bool _hasInAppPurchases;
     NSArray *_inAppPurchases;
     NSString *_installationRequirementsDescription;
     NSString *_itemDescription;
@@ -26,7 +26,7 @@
     NSArray *_screenshots;
     NSString *_shortenedProductPageURLString;
     SKUIStoreNotes *_storeNotes;
-    int _supportedFeatures;
+    long long _supportedFeatures;
     NSString *_supportURLString;
     NSArray *_trailers;
     NSString *_updateDescription;
@@ -36,7 +36,7 @@
 @property(readonly, nonatomic) NSString *updateDescription; // @synthesize updateDescription=_updateDescription;
 @property(readonly, nonatomic) NSArray *trailers; // @synthesize trailers=_trailers;
 @property(readonly, nonatomic) NSString *supportURLString; // @synthesize supportURLString=_supportURLString;
-@property(readonly, nonatomic) int supportedFeatures; // @synthesize supportedFeatures=_supportedFeatures;
+@property(readonly, nonatomic) long long supportedFeatures; // @synthesize supportedFeatures=_supportedFeatures;
 @property(readonly, nonatomic) SKUIStoreNotes *storeNotes; // @synthesize storeNotes=_storeNotes;
 @property(readonly, nonatomic) NSString *shortenedProductPageURLString; // @synthesize shortenedProductPageURLString=_shortenedProductPageURLString;
 @property(readonly, nonatomic) NSArray *screenshots; // @synthesize screenshots=_screenshots;
@@ -47,12 +47,13 @@
 @property(readonly, nonatomic) NSString *lastUpdateDateString; // @synthesize lastUpdateDateString=_lastUpdateDateString;
 @property(readonly, nonatomic) NSString *itemDescription; // @synthesize itemDescription=_itemDescription;
 @property(readonly, nonatomic) NSArray *inAppPurchases; // @synthesize inAppPurchases=_inAppPurchases;
-@property(readonly, nonatomic) BOOL hasInAppPurchases; // @synthesize hasInAppPurchases=_hasInAppPurchases;
+@property(readonly, nonatomic) _Bool hasInAppPurchases; // @synthesize hasInAppPurchases=_hasInAppPurchases;
 @property(readonly, nonatomic) NSString *copyrightString; // @synthesize copyrightString=_copyrightString;
 @property(readonly, nonatomic) NSString *contentRatingName; // @synthesize contentRatingName=_contentRatingName;
 @property(readonly, nonatomic) NSArray *contentRatingAdvisories; // @synthesize contentRatingAdvisories=_contentRatingAdvisories;
 @property(readonly, nonatomic) NSURL *artistPageURL; // @synthesize artistPageURL=_artistPageURL;
 - (void).cxx_destruct;
+- (void)_setInAppPurchases:(id)arg1;
 - (void)_setVersionHistory:(id)arg1;
 - (id)initWithLookupDictionary:(id)arg1;
 

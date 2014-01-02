@@ -10,22 +10,22 @@
 {
 }
 
-+ (BOOL)disconnect;
-+ (BOOL)isConnected;
-+ (BOOL)connect;
-+ (BOOL)connect:(BOOL)arg1;
++ (_Bool)disconnect;
++ (_Bool)isConnected;
++ (_Bool)connect;
++ (_Bool)connect:(_Bool)arg1;
 + (void)_daemonConnectedNotification:(id)arg1;
 + (void)_accountRegistrationStatusChanged:(id)arg1;
-+ (BOOL)faceTimeIsAvailable;
-+ (void)updateConferenceCapabilitiesForControllerType:(int)arg1;
++ (_Bool)faceTimeIsAvailable;
++ (void)updateConferenceCapabilitiesForControllerType:(long long)arg1;
 + (void)setCapabilities:(unsigned int)arg1;
 + (unsigned int)capabilities;
 + (int)activationState;
 + (void)activateFaceTime;
-+ (BOOL)callingIsSupported;
-+ (BOOL)faceTimeIsSupported;
++ (_Bool)callingIsSupported;
++ (_Bool)faceTimeIsSupported;
 + (id)faceTimeSourceAccount;
-+ (BOOL)_isValidProcess;
++ (_Bool)_isValidProcess;
 
 @end
 

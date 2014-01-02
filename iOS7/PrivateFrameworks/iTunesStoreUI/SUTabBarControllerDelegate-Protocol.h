@@ -10,7 +10,7 @@
 
 @optional
 - (id)tabBarController:(id)arg1 viewControllerForContext:(id)arg2;
-- (BOOL)tabBarController:(id)arg1 shouldShowSection:(id)arg2;
+- (_Bool)tabBarController:(id)arg1 shouldShowSection:(id)arg2;
 - (id)tabBarController:(id)arg1 rootViewControllerForSection:(id)arg2;
 @end
 

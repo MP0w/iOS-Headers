@@ -12,20 +12,20 @@
 {
     NSString *_text;
     UIImage *_image;
-    BOOL _labelIsVisible;
+    _Bool _labelIsVisible;
     struct CGImage *_labelVisibleContents;
     struct CGImage *_labelHiddenContents;
     struct CGSize _contentsSize;
-    float backgroundAlpha;
+    double backgroundAlpha;
 }
 
-@property(nonatomic) float backgroundAlpha; // @synthesize backgroundAlpha;
-- (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
+@property(nonatomic) double backgroundAlpha; // @synthesize backgroundAlpha;
+- (_Bool)_shouldAnimatePropertyWithKey:(id)arg1;
 - (void)updateLabelContents;
-- (struct CGImage *)_newLabelImage:(BOOL)arg1;
+- (struct CGImage *)_newLabelImage:(_Bool)arg1;
 - (void)sizeToFit;
 @property(nonatomic) struct CGSize contentsSize;
-@property(nonatomic) BOOL labelIsVisible;
+@property(nonatomic) _Bool labelIsVisible;
 @property(retain, nonatomic) UIImage *image;
 @property(retain, nonatomic) NSString *text;
 - (void)_reloadLabelContents;

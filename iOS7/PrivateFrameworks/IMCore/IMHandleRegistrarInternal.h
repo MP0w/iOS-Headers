@@ -19,7 +19,8 @@
     NSMutableDictionary *_candidateNamesMap;
     NSMutableDictionary *_usedUniqueNames;
     NSMutableSet *_knownConflictingNames;
-    int _nameStyle;
+    long long _nameStyle;
+    _Bool _buildingChatSiblings;
 }
 
 - (void)dealloc;

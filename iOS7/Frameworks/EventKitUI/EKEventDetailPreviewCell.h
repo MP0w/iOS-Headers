@@ -6,14 +6,15 @@
 
 #import <EventKitUI/EKEventDetailCell.h>
 
+// Not exported
 @interface EKEventDetailPreviewCell : EKEventDetailCell
 {
-    BOOL _alwaysVisible;
+    _Bool _alwaysVisible;
 }
 
-@property(nonatomic) BOOL alwaysVisible; // @synthesize alwaysVisible=_alwaysVisible;
-- (BOOL)update;
-- (id)initWithEvent:(id)arg1 editable:(BOOL)arg2;
+@property(nonatomic) _Bool alwaysVisible; // @synthesize alwaysVisible=_alwaysVisible;
+- (_Bool)update;
+- (id)initWithEvent:(id)arg1 editable:(_Bool)arg2;
 
 @end
 

@@ -13,28 +13,28 @@
     NSArray *_lineInfos;
     NSMutableArray *_lineSubviews;
     struct _NSRange _streetRange;
-    unsigned int _entryFieldIndexOfFirstStreetField;
+    unsigned long long _entryFieldIndexOfFirstStreetField;
     NSMutableArray *_verticalDividers;
 }
 
 + (id)lineInfosForPropertyGroup:(id)arg1 info:(id)arg2;
 + (id)streetTextForPropertyGroup:(id)arg1 info:(id)arg2;
-+ (int)calculateStreetRowsForText:(id)arg1;
-+ (unsigned int)rowsForPropertyGroup:(id)arg1 info:(id)arg2;
-+ (struct CGSize)layoutSubviewsForView:(id)arg1 usingSize:(struct CGSize)arg2 propertyGroup:(id)arg3 info:(id)arg4 styleProvider:(id)arg5 whenEditing:(BOOL)arg6;
++ (long long)calculateStreetRowsForText:(id)arg1;
++ (unsigned long long)rowsForPropertyGroup:(id)arg1 info:(id)arg2;
++ (struct CGSize)layoutSubviewsForView:(id)arg1 usingSize:(struct CGSize)arg2 propertyGroup:(id)arg3 info:(id)arg4 styleProvider:(id)arg5 whenEditing:(_Bool)arg6;
 - (void)textFieldDidEndEditing:(id)arg1;
 - (void)textFieldTextDidChange:(id)arg1;
-- (void)addStreetFieldAnimated:(BOOL)arg1;
-- (void)removeStreetFieldAtIndex:(unsigned int)arg1 animated:(BOOL)arg2;
-- (id)streetFieldAtLineIndex:(unsigned int)arg1;
-- (unsigned int)lineIndexOfStreetField:(id)arg1;
+- (void)addStreetFieldAnimated:(_Bool)arg1;
+- (void)removeStreetFieldAtIndex:(unsigned long long)arg1 animated:(_Bool)arg2;
+- (id)streetFieldAtLineIndex:(unsigned long long)arg1;
+- (unsigned long long)lineIndexOfStreetField:(id)arg1;
 - (void)removeTextFieldAnimationDidStop:(id)arg1 finished:(id)arg2 context:(void *)arg3;
 - (id)pickerView;
 - (void)reloadFromModel;
 - (void)reload;
-- (id)propertyKeyForTag:(int)arg1;
-- (int)tagForPropertyKey:(id)arg1;
-- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
+- (id)propertyKeyForTag:(long long)arg1;
+- (long long)tagForPropertyKey:(id)arg1;
+- (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)setPropertyGroupInfo:(id)arg1;
 - (void)dealloc;
 

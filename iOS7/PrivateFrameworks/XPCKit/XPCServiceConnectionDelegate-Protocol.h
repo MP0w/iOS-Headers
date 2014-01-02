@@ -8,6 +8,6 @@
 
 @protocol XPCServiceConnectionDelegate <NSObject>
 - (void)XPCServiceConnectionDidDisconnect:(id)arg1;
-- (void)XPCServiceConnection:(id)arg1 didReceiveRequest:(id)arg2 sequenceNumber:(unsigned int)arg3;
+- (void)XPCServiceConnection:(id)arg1 didReceiveRequest:(id)arg2 sequenceNumber:(unsigned long long)arg3;
 @end
 

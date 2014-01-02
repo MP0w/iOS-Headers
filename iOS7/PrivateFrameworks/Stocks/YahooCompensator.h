@@ -12,7 +12,7 @@
 
 @interface YahooCompensator : NSObject <SymbolValidatorDelegate>
 {
-    BOOL _compensatedForAllStocks;
+    _Bool _compensatedForAllStocks;
     SymbolValidator *_validator;
     NSMutableArray *_stockQueue;
     NSLock *_stockQueueLock;
@@ -20,7 +20,7 @@
 }
 
 + (id)fixOverEncodedXml:(id)arg1;
-+ (BOOL)compensationRequired;
++ (_Bool)compensationRequired;
 + (id)sharedCompensator;
 - (void).cxx_destruct;
 - (void)symbolValidator:(id)arg1 didFailWithError:(id)arg2;

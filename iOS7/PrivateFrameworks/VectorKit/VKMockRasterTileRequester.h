@@ -6,6 +6,7 @@
 
 #import "GEOTileRequester.h"
 
+// Not exported
 @interface VKMockRasterTileRequester : GEOTileRequester
 {
 }

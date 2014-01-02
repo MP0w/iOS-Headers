@@ -8,6 +8,7 @@
 
 @class UIDelayedAction;
 
+// Not exported
 @interface UIScrollViewDelayedTouchesBeganGestureRecognizer : UIGestureRecognizer
 {
     UIDelayedAction *_touchDelay;

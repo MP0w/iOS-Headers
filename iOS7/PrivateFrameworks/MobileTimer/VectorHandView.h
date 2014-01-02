@@ -13,13 +13,11 @@
 @interface VectorHandView : UIView <HandView>
 {
     RenderedHandViewFactory *_factory;
-    float _handAngle;
 }
 
-@property(nonatomic) float handAngle; // @synthesize handAngle=_handAngle;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)dealloc;
-- (id)initWithPDFFile:(id)arg1 offset:(struct CGPoint)arg2 scale:(struct CGSize)arg3 bundle:(id)arg4 allowCaching:(BOOL)arg5;
+- (id)initWithPDFFile:(id)arg1 offset:(struct CGPoint)arg2 scale:(struct CGSize)arg3 bundle:(id)arg4 allowCaching:(_Bool)arg5;
 
 @end
 

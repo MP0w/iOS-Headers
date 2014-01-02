@@ -10,10 +10,13 @@
 
 @interface MSPowerBudget : NSObject
 {
-    BOOL _workQueueIsFileTransferAllowed;
-    BOOL _workQueueIsExternalPowered;
-    BOOL _workQueueIsForeground;
+    _Bool _workQueueIsFileTransferAllowed;
+    _Bool _workQueueIsExternalPowered;
+    _Bool _workQueueIsForeground;
     id <MSPowerBudgetDelegate> _delegate;
+    double _maxActiveTimeAfterPush;
+    double _maxActiveTimeAfterLossOfForeground;
+    double _maxActiveTimeAfterGlobalResetSync;
     NSString *_focusAlbumGUID;
     NSString *_focusAssetCollectionGUID;
     NSString *_personID;
@@ -21,18 +24,15 @@
     MSPBTimerContext *_workQueuePostForegroundTimerContext;
     MSPBTimerContext *_workQueueGlobalResetSyncTimerContext;
     NSObject<OS_dispatch_queue> *_workQueue;
-    double _maxActiveTimeAfterPush;
-    double _maxActiveTimeAfterLossOfForeground;
-    double _maxActiveTimeAfterGlobalResetSync;
 }
 
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
 @property(retain, nonatomic) MSPBTimerContext *workQueueGlobalResetSyncTimerContext; // @synthesize workQueueGlobalResetSyncTimerContext=_workQueueGlobalResetSyncTimerContext;
 @property(retain, nonatomic) MSPBTimerContext *workQueuePostForegroundTimerContext; // @synthesize workQueuePostForegroundTimerContext=_workQueuePostForegroundTimerContext;
 @property(retain, nonatomic) MSPBTimerContext *workQueuePushTimerContext; // @synthesize workQueuePushTimerContext=_workQueuePushTimerContext;
-@property(nonatomic, setter=workQueueSetForeground:) BOOL workQueueIsForeground; // @synthesize workQueueIsForeground=_workQueueIsForeground;
-@property(nonatomic, setter=workQueueSetExternalPowered:) BOOL workQueueIsExternalPowered; // @synthesize workQueueIsExternalPowered=_workQueueIsExternalPowered;
-@property(nonatomic, setter=workQueueSetFileTransferAllowed:) BOOL workQueueIsFileTransferAllowed; // @synthesize workQueueIsFileTransferAllowed=_workQueueIsFileTransferAllowed;
+@property(nonatomic, setter=workQueueSetForeground:) _Bool workQueueIsForeground; // @synthesize workQueueIsForeground=_workQueueIsForeground;
+@property(nonatomic, setter=workQueueSetExternalPowered:) _Bool workQueueIsExternalPowered; // @synthesize workQueueIsExternalPowered=_workQueueIsExternalPowered;
+@property(nonatomic, setter=workQueueSetFileTransferAllowed:) _Bool workQueueIsFileTransferAllowed; // @synthesize workQueueIsFileTransferAllowed=_workQueueIsFileTransferAllowed;
 @property(retain, nonatomic) NSString *personID; // @synthesize personID=_personID;
 @property(retain, nonatomic) NSString *focusAssetCollectionGUID; // @synthesize focusAssetCollectionGUID=_focusAssetCollectionGUID;
 @property(retain, nonatomic) NSString *focusAlbumGUID; // @synthesize focusAlbumGUID=_focusAlbumGUID;
@@ -47,11 +47,11 @@
 - (void)didBeginForegroundFocus;
 - (void)didReceivePushNotification;
 - (void)workQueueCommitPersistedValues;
-- (void)setIsFileTransferAllowed:(BOOL)arg1;
-- (void)workQueueSetIsFileTransferAllowed:(BOOL)arg1;
-@property(readonly, nonatomic) BOOL hasActiveTimers;
-@property(readonly, nonatomic, getter=hasForegroundFocus) BOOL foregroundFocus;
-@property(readonly, nonatomic, getter=isFileTransferAllowed) BOOL fileTransferAllowed;
+- (void)setIsFileTransferAllowed:(_Bool)arg1;
+- (void)workQueueSetIsFileTransferAllowed:(_Bool)arg1;
+@property(readonly, nonatomic) _Bool hasActiveTimers;
+@property(readonly, nonatomic, getter=hasForegroundFocus) _Bool foregroundFocus;
+@property(readonly, nonatomic, getter=isFileTransferAllowed) _Bool fileTransferAllowed;
 - (void)workQueueRecomputeFileTransferAllowed;
 - (double)workQueueMaxActiveTimeAfterLossOfForeground;
 @property(nonatomic) double maxActiveTimeAfterLossOfForeground; // @synthesize maxActiveTimeAfterLossOfForeground=_maxActiveTimeAfterLossOfForeground;

@@ -17,7 +17,7 @@
     UILabel *_legalTextLabel;
     UILabel *_legalText2Label;
     UIImageView *_logoImageView;
-    int _selectedAmountIndex;
+    long long _selectedAmountIndex;
     UIView *_separatorView;
     UIScrollView *_scrollView;
 }

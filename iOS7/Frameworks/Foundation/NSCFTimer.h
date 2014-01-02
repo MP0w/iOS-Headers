@@ -6,15 +6,16 @@
 
 #import "NSTimer.h"
 
+// Not exported
 @interface NSCFTimer : NSTimer
 {
 }
 
 + (id)allocWithZone:(struct _NSZone *)arg1;
-+ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
++ (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 - (id)init;
-- (id)initWithFireDate:(id)arg1 interval:(double)arg2 target:(id)arg3 selector:(SEL)arg4 userInfo:(id)arg5 repeats:(BOOL)arg6;
-- (unsigned long)_cfTypeID;
+- (id)initWithFireDate:(id)arg1 interval:(double)arg2 target:(id)arg3 selector:(SEL)arg4 userInfo:(id)arg5 repeats:(_Bool)arg6;
+- (unsigned long long)_cfTypeID;
 - (void)fire;
 - (id)userInfo;
 - (void)setFireDate:(id)arg1;
@@ -23,15 +24,15 @@
 - (void)setTolerance:(double)arg1;
 - (double)tolerance;
 - (double)timeInterval;
-- (BOOL)isValid;
+- (_Bool)isValid;
 - (void)finalize;
-- (unsigned int)retainCount;
-- (BOOL)retainWeakReference;
-- (BOOL)allowsWeakReference;
+- (unsigned long long)retainCount;
+- (_Bool)retainWeakReference;
+- (_Bool)allowsWeakReference;
 - (oneway void)release;
 - (id)retain;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 
 @end
 

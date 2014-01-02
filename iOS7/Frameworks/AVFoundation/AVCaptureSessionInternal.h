@@ -12,7 +12,7 @@
 {
     AVWeakReference *weakReference;
     NSString *sessionPreset;
-    BOOL adjustingDeviceActiveFormat;
+    _Bool adjustingDeviceActiveFormat;
     int sessionPresetChangeSeed;
     int resolvedSessionPresetChangeSeed;
     int videoDeviceChangeSeed;
@@ -29,17 +29,17 @@
     NSMutableArray *liveConnections;
     AVCaptureVideoPreviewLayer *videoPreviewLayer;
     NSError *stopError;
-    BOOL running;
-    BOOL interrupted;
-    BOOL recording;
-    BOOL usesApplicationAudioSession;
-    BOOL automaticallyConfiguresApplicationAudioSession;
+    _Bool running;
+    _Bool interrupted;
+    _Bool recording;
+    _Bool usesApplicationAudioSession;
+    _Bool automaticallyConfiguresApplicationAudioSession;
     AVRunLoopCondition *runLoopCondition;
-    BOOL waitingForRecorderDidStartPreviewing;
-    BOOL waitingForRecorderDidStartRecording;
-    BOOL waitingForRecorderDidStopSource;
-    BOOL waitingForRecorderDidStopPreviewing;
-    BOOL waitingForRecorderDidStopRecording;
+    _Bool waitingForRecorderDidStartPreviewing;
+    _Bool waitingForRecorderDidStartRecording;
+    _Bool waitingForRecorderDidStopSource;
+    _Bool waitingForRecorderDidStopPreviewing;
+    _Bool waitingForRecorderDidStopRecording;
     struct OpaqueCMClock *masterClock;
 }
 

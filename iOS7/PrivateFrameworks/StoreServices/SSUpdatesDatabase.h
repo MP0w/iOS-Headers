@@ -14,7 +14,7 @@
 }
 
 - (void)_dispatchBlockAsync:(id)arg1;
-@property(readonly) BOOL requiresMigration;
+@property(readonly) _Bool requiresMigration;
 - (void)readUsingSessionBlock:(id)arg1;
 - (void)readAsyncUsingSessionBlock:(id)arg1;
 - (void)modifyUsingTransactionBlock:(id)arg1;
@@ -22,7 +22,7 @@
 - (void)dealloc;
 - (id)initReadOnly;
 - (id)init;
-- (id)_initReadOnly:(BOOL)arg1;
+- (id)_initReadOnly:(_Bool)arg1;
 
 @end
 

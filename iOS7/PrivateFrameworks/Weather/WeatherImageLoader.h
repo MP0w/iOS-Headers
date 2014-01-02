@@ -6,20 +6,26 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary;
+@class CPBitmapStore;
 
 @interface WeatherImageLoader : NSObject
 {
-    NSMutableDictionary *_cache;
+    double _scale;
+    CPBitmapStore *_store;
 }
 
 + (id)yahooButtonImage;
 + (id)twcButtonImage;
 + (id)conditionImageNamed:(id)arg1;
-+ (id)conditionImageWithConditionIndex:(int)arg1;
++ (id)conditionImageWithConditionIndex:(long long)arg1;
 + (void)preCacheMiniIcons;
++ (void)cacheImageIfNecessary:(id)arg1;
 + (id)sharedImageLoader;
-@property(retain, nonatomic) NSMutableDictionary *cache; // @synthesize cache=_cache;
+@property(retain, nonatomic) CPBitmapStore *store; // @synthesize store=_store;
+- (void)setImage:(id)arg1 forKey:(id)arg2;
+- (id)cachedImageForKey:(id)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

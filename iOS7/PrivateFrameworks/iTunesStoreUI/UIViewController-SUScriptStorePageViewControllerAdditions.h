@@ -7,7 +7,7 @@
 #import "UIViewController.h"
 
 @interface UIViewController (SUScriptStorePageViewControllerAdditions)
-- (BOOL)showsBackgroundShadow;
-- (void)setShowsBackgroundShadow:(BOOL)arg1;
+- (_Bool)showsBackgroundShadow;
+- (void)setShowsBackgroundShadow:(_Bool)arg1;
 @end
 

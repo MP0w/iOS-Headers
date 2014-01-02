@@ -8,17 +8,18 @@
 
 @class NSMutableString;
 
+// Not exported
 @interface WFImgArrayCache : NSObject
 {
     NSMutableString *imageAlternativeDescriptions;
-    int numberOfUnknownSizedImages;
-    int numberOfKnownImagePixels;
+    long long numberOfUnknownSizedImages;
+    long long numberOfKnownImagePixels;
 }
 
 + (id)imgArrayCacheWithArray:(id)arg1;
 - (void)dealloc;
-- (int)numberOfKnownImagePixels;
-- (int)numberOfUnknownSizedImages;
+- (long long)numberOfKnownImagePixels;
+- (long long)numberOfUnknownSizedImages;
 - (id)imageAlternativeDescriptions;
 - (id)initWithArray:(id)arg1;
 

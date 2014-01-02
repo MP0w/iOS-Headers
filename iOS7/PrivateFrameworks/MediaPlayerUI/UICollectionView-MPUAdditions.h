@@ -7,6 +7,6 @@
 #import "UICollectionView.h"
 
 @interface UICollectionView (MPUAdditions)
-- (int)MPU_globalRowForRowAtIndexPath:(id)arg1;
+- (long long)MPU_globalRowForRowAtIndexPath:(id)arg1;
 @end
 

@@ -8,12 +8,13 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface NSSQLCompoundWhereIntermediate : NSSQLWhereIntermediate
 {
     NSMutableArray *_subclauses;
 }
 
-- (BOOL)isOrScoped;
+- (_Bool)isOrScoped;
 - (id)generateSQLStringInContext:(id)arg1;
 - (id)_generateMulticlauseStringInContext:(id)arg1;
 - (void)dealloc;

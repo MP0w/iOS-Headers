@@ -17,11 +17,11 @@
 
 - (void).cxx_destruct;
 - (void)textFieldDidEndEditing:(id)arg1;
-- (BOOL)textFieldShouldBeginEditing:(id)arg1;
-- (BOOL)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
-- (BOOL)becomeFirstResponder;
-- (BOOL)saveStateToCalendar:(id)arg1;
-- (id)cellForSubitemAtIndex:(unsigned int)arg1;
+- (_Bool)textFieldShouldBeginEditing:(id)arg1;
+- (_Bool)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
+- (_Bool)becomeFirstResponder;
+- (_Bool)saveStateToCalendar:(id)arg1;
+- (id)cellForSubitemAtIndex:(unsigned long long)arg1;
 - (void)reset;
 
 @end

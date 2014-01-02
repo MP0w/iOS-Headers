@@ -10,47 +10,48 @@
 
 @class UITableViewRowData;
 
+// Not exported
 @interface UISectionRowData : NSObject <NSCopying>
 {
-    BOOL _valid;
-    float _headerHeight;
-    float _maxHeaderTitleWidth;
-    float _footerHeight;
-    float _maxFooterTitleWidth;
-    float _headerOffset;
-    float _footerOffset;
-    unsigned int _numRows;
-    unsigned int _arrayLength;
+    _Bool _valid;
+    double _headerHeight;
+    double _maxHeaderTitleWidth;
+    double _footerHeight;
+    double _maxFooterTitleWidth;
+    double _headerOffset;
+    double _footerOffset;
+    unsigned long long _numRows;
+    unsigned long long _arrayLength;
     float *_rowHeights;
-    float *_rowOffsets;
-    float _sectionHeight;
-    int _headerAlignment;
-    int _footerAlignment;
+    double *_rowOffsets;
+    double _sectionHeight;
+    long long _headerAlignment;
+    long long _footerAlignment;
     UITableViewRowData *_rowData;
-    BOOL _sectionOffsetValid;
-    float _sectionOffset;
-    int _sectionRowOffset;
+    _Bool _sectionOffsetValid;
+    double _sectionOffset;
+    long long _sectionRowOffset;
 }
 
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (int)rowForPoint:(struct CGPoint)arg1;
-- (int)_rowForPoint:(struct CGPoint)arg1 beginningWithRow:(int)arg2 numberOfRows:(int)arg3;
-- (int)sectionLocationForReorderedRow:(int)arg1;
-- (int)sectionLocationForRow:(int)arg1;
-- (float)offsetForRow:(int)arg1;
-- (void)deleteRowAtIndex:(int)arg1;
-- (void)insertRowAtIndex:(int)arg1 inSection:(int)arg2 rowHeight:(float)arg3 tableViewRowData:(id)arg4;
-- (void)refreshWithSection:(int)arg1 tableView:(id)arg2 tableViewRowData:(id)arg3;
-- (float)_defaultSectionFooterHeightForSection:(int)arg1 tableView:(id)arg2 tableViewRowData:(id)arg3;
-- (float)_defaultSectionHeaderHeightForSection:(int)arg1 tableView:(id)arg2 tableViewRowData:(id)arg3;
-- (float)heightForEmptySection:(int)arg1 inTableView:(id)arg2 rowData:(id)arg3;
-- (float)heightForFooterInSection:(int)arg1 canGuess:(BOOL)arg2;
-- (float)heightForHeaderInSection:(int)arg1 canGuess:(BOOL)arg2;
-- (float)heightForRow:(int)arg1 inSection:(int)arg2 canGuess:(BOOL)arg3;
-- (void)updateSectionHeightWithDelta:(float)arg1 updateFooterOffset:(BOOL)arg2;
-- (void)setHeight:(float)arg1 forRow:(int)arg2;
-- (void)addOffset:(float)arg1 fromRow:(int)arg2;
-- (float)_headerOrFooterSizeForTable:(id)arg1 title:(id)arg2 detailText:(id)arg3 isHeader:(BOOL)arg4 stripPaddingForAbuttingView:(BOOL)arg5 isTopHeader:(BOOL)arg6;
+- (long long)rowForPoint:(struct CGPoint)arg1;
+- (long long)_rowForPoint:(struct CGPoint)arg1 beginningWithRow:(long long)arg2 numberOfRows:(long long)arg3;
+- (int)sectionLocationForReorderedRow:(long long)arg1;
+- (int)sectionLocationForRow:(long long)arg1;
+- (double)offsetForRow:(long long)arg1;
+- (void)deleteRowAtIndex:(long long)arg1;
+- (void)insertRowAtIndex:(long long)arg1 inSection:(long long)arg2 rowHeight:(double)arg3 tableViewRowData:(id)arg4;
+- (void)refreshWithSection:(long long)arg1 tableView:(id)arg2 tableViewRowData:(id)arg3;
+- (double)_defaultSectionFooterHeightForSection:(long long)arg1 tableView:(id)arg2 tableViewRowData:(id)arg3;
+- (double)_defaultSectionHeaderHeightForSection:(long long)arg1 tableView:(id)arg2 tableViewRowData:(id)arg3;
+- (double)heightForEmptySection:(long long)arg1 inTableView:(id)arg2 rowData:(id)arg3;
+- (double)heightForFooterInSection:(long long)arg1 canGuess:(_Bool)arg2;
+- (double)heightForHeaderInSection:(long long)arg1 canGuess:(_Bool)arg2;
+- (double)heightForRow:(long long)arg1 inSection:(long long)arg2 canGuess:(_Bool)arg3;
+- (void)updateSectionHeightWithDelta:(double)arg1 updateFooterOffset:(_Bool)arg2;
+- (void)setHeight:(double)arg1 forRow:(long long)arg2;
+- (void)addOffset:(double)arg1 fromRow:(long long)arg2;
+- (double)_headerOrFooterSizeForTable:(id)arg1 title:(id)arg2 detailText:(id)arg3 isHeader:(_Bool)arg4 stripPaddingForAbuttingView:(_Bool)arg5 isTopHeader:(_Bool)arg6;
 - (void)invalidateSectionOffset;
 - (void)invalidate;
 - (void)dealloc;

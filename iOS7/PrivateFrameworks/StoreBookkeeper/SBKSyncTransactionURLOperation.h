@@ -8,9 +8,10 @@
 
 @class SBKRequest;
 
+// Not exported
 @interface SBKSyncTransactionURLOperation : ISStoreURLOperation
 {
-    BOOL _shouldAuthenticate;
+    _Bool _shouldAuthenticate;
     SBKRequest *_SBKRequest;
 }
 
@@ -18,7 +19,7 @@
 @property(retain, nonatomic) SBKRequest *SBKRequest; // @synthesize SBKRequest=_SBKRequest;
 - (void).cxx_destruct;
 - (id)description;
-@property(nonatomic) BOOL shouldAuthenticate; // @synthesize shouldAuthenticate=_shouldAuthenticate;
+@property(nonatomic) _Bool shouldAuthenticate; // @synthesize shouldAuthenticate=_shouldAuthenticate;
 - (id)_init;
 - (id)init;
 

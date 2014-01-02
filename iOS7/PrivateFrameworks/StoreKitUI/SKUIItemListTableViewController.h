@@ -8,45 +8,45 @@
 
 #import "SKUIItemCollectionDelegate-Protocol.h"
 
-@class NSMutableIndexSet, NSOperationQueue, SKUIClientContext, SKUIIconDataConsumer, SKUIItemArtworkContext, SKUIItemCollectionController, SKUIItemList, SKUILoadURLOperation, SKUIResourceLoader, SKUIUber;
+@class NSMutableIndexSet, NSOperationQueue, NSString, SKUIClientContext, SKUIIconDataConsumer, SKUIItemArtworkContext, SKUIItemCollectionController, SKUIItemList, SKUIResourceLoader, SKUIUber, SSVLoadURLOperation;
 
 @interface SKUIItemListTableViewController : UITableViewController <SKUIItemCollectionDelegate>
 {
     SKUIClientContext *_clientContext;
     id <SKUIItemListTableDelegate> _delegate;
-    BOOL _delegateWantsDidRemove;
-    BOOL _delegateWantsWillDisplay;
-    BOOL _didLoadMore;
+    _Bool _delegateWantsDidRemove;
+    _Bool _delegateWantsWillDisplay;
+    _Bool _didLoadMore;
     NSMutableIndexSet *_hiddenIconIndexSet;
     struct CGSize _imageBoundingSize;
     SKUIItemArtworkContext *_artworkContext;
     SKUIItemCollectionController *_itemCollectionController;
     SKUIItemList *_itemList;
-    SKUILoadURLOperation *_loadMoreOperation;
-    BOOL _loadsMoreItems;
+    SSVLoadURLOperation *_loadMoreOperation;
+    _Bool _loadsMoreItems;
     NSOperationQueue *_operationQueue;
-    float _rowHeight;
-    int _selectionStyle;
-    int _separatorStyle;
-    BOOL _suspended;
+    double _rowHeight;
+    long long _selectionStyle;
+    long long _separatorStyle;
+    _Bool _suspended;
     SKUIUber *_uber;
-    BOOL _requestedLoadMore;
+    _Bool _requestedLoadMore;
 }
 
 @property(retain, nonatomic) SKUIItemArtworkContext *artworkContext; // @synthesize artworkContext=_artworkContext;
 @property(retain, nonatomic) SKUIUber *uber; // @synthesize uber=_uber;
-@property(nonatomic, getter=isSuspended) BOOL suspended; // @synthesize suspended=_suspended;
-@property(nonatomic) int separatorStyle; // @synthesize separatorStyle=_separatorStyle;
-@property(nonatomic) int selectionStyle; // @synthesize selectionStyle=_selectionStyle;
-@property(nonatomic) float rowHeight; // @synthesize rowHeight=_rowHeight;
+@property(nonatomic, getter=isSuspended) _Bool suspended; // @synthesize suspended=_suspended;
+@property(nonatomic) long long separatorStyle; // @synthesize separatorStyle=_separatorStyle;
+@property(nonatomic) long long selectionStyle; // @synthesize selectionStyle=_selectionStyle;
+@property(nonatomic) double rowHeight; // @synthesize rowHeight=_rowHeight;
 @property(retain, nonatomic) NSOperationQueue *operationQueue; // @synthesize operationQueue=_operationQueue;
-@property(nonatomic) BOOL loadsMoreItems; // @synthesize loadsMoreItems=_loadsMoreItems;
+@property(nonatomic) _Bool loadsMoreItems; // @synthesize loadsMoreItems=_loadsMoreItems;
 @property(retain, nonatomic) SKUIItemList *itemList; // @synthesize itemList=_itemList;
 @property(nonatomic) struct CGSize imageBoundingSize; // @synthesize imageBoundingSize=_imageBoundingSize;
 @property(nonatomic) __weak id <SKUIItemListTableDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
 - (void).cxx_destruct;
-- (void)_loadRemainingItemsWithPriority:(int)arg1;
+- (void)_loadRemainingItemsWithPriority:(long long)arg1;
 - (id)_loadMoreCellForTableView:(id)arg1 indexPath:(id)arg2;
 - (id)_itemListCellForTableView:(id)arg1 indexPath:(id)arg2;
 - (id)_itemCollectionController;
@@ -57,29 +57,29 @@
 - (void)tableView:(id)arg1 didDeselectRowAtIndexPath:(id)arg2;
 - (void)itemTableView:(id)arg1 didRemoveCell:(id)arg2;
 - (void)itemTableView:(id)arg1 didConfirmItemOfferForTableViewCell:(id)arg2;
-- (void)tableView:(id)arg1 commitEditingStyle:(int)arg2 forRowAtIndexPath:(id)arg3;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (void)tableView:(id)arg1 commitEditingStyle:(long long)arg2 forRowAtIndexPath:(id)arg3;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (BOOL)tableView:(id)arg1 canEditRowAtIndexPath:(id)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
+- (_Bool)tableView:(id)arg1 canEditRowAtIndexPath:(id)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
 - (void)scrollViewWillEndDragging:(id)arg1 withVelocity:(struct CGPoint)arg2 targetContentOffset:(inout struct CGPoint *)arg3;
 - (void)scrollViewWillBeginDragging:(id)arg1;
 - (void)scrollViewDidEndDecelerating:(id)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)loadView;
 - (struct _NSRange)visibleItemRangeForItemCollectionController:(id)arg1;
-- (BOOL)shouldCacheAheadWhenIdleForItemCollectionController:(id)arg1;
+- (_Bool)shouldCacheAheadWhenIdleForItemCollectionController:(id)arg1;
 - (struct _NSRange)itemCollectionController:(id)arg1 itemPageRangeForOffset:(struct CGPoint)arg2;
-- (id)itemCollectionController:(id)arg1 cellLayoutForItemIndex:(int)arg2;
-- (id)visibleMetricsImpressionsWithLocationPrefix:(id)arg1;
+- (id)itemCollectionController:(id)arg1 cellLayoutForItemIndex:(long long)arg2;
+@property(readonly, nonatomic) NSString *visibleMetricsImpressions;
 - (void)unhideIcons;
 - (void)setItemCellClass:(Class)arg1;
 - (void)setItemArtworkContext:(id)arg1;
 @property(retain, nonatomic) SKUIIconDataConsumer *iconDataConsumer;
 @property(retain, nonatomic) SKUIResourceLoader *artworkLoader;
-- (id)popIconImageViewForItemAtIndex:(int)arg1;
-- (void)loadNextPageOfArtworkWithReason:(int)arg1;
-- (struct CGRect)frameForItemAtIndex:(int)arg1;
+- (id)popIconImageViewForItemAtIndex:(long long)arg1;
+- (void)loadNextPageOfArtworkWithReason:(long long)arg1;
+- (struct CGRect)frameForItemAtIndex:(long long)arg1;
 - (void)deleteRowsAtIndexPaths:(id)arg1;
 - (void)addItems:(id)arg1;
 - (void)dealloc;

@@ -8,32 +8,33 @@
 
 @class NSMutableData;
 
+// Not exported
 @interface MFBitmap : NSObject
 {
     int m_width;
     int m_height;
     unsigned int m_bitsPerPixel;
     int m_compression;
-    BOOL m_isOS2;
+    _Bool m_isOS2;
     unsigned int m_infoHeaderSize;
     unsigned int m_paletteSize;
     NSMutableData *m_bmpData;
 }
 
-- (BOOL)isEmpty;
+- (_Bool)isEmpty;
 - (void)setMonoPalette:(id)arg1;
 - (void)dealloc;
 - (id)initWithBitmap:(id)arg1:(int)arg2:(int)arg3:(int)arg4:(int)arg5:(const char *)arg6:(unsigned int)arg7;
 - (id)initWithDIBitmap:(id)arg1:(const char *)arg2:(unsigned int)arg3:(const char *)arg4:(unsigned int)arg5:(int)arg6;
 - (id)initWithDIBitmap:(id)arg1:(const char *)arg2:(unsigned int)arg3:(int)arg4;
 - (id)init;
-- (BOOL)processDIBHeader:(id)arg1:(const char *)arg2:(unsigned int)arg3:(int)arg4;
+- (_Bool)processDIBHeader:(id)arg1:(const char *)arg2:(unsigned int)arg3:(int)arg4;
 - (void)appendDIBPalette:(id)arg1:(const char *)arg2:(unsigned int)arg3:(int)arg4;
 - (void)setNull;
 - (void)writeInfoHeader;
 - (void)writeFileHeader;
 - (void)writePaletteEntry:(id)arg1:(int)arg2;
-- (BOOL)parseHeader:(const char *)arg1:(unsigned int)arg2;
+- (_Bool)parseHeader:(const char *)arg1:(unsigned int)arg2;
 
 @end
 

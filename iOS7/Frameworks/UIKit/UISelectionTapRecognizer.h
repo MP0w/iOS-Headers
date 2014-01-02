@@ -8,14 +8,15 @@
 
 @class UIResponder<UITextInput>;
 
+// Not exported
 @interface UISelectionTapRecognizer : UITextTapRecognizer
 {
     UIResponder<UITextInput> *_textView;
 }
 
 @property UIResponder<UITextInput> *textView; // @synthesize textView=_textView;
-- (void)setState:(int)arg1;
-- (BOOL)isCloseToSelection;
+- (void)setState:(long long)arg1;
+- (_Bool)isCloseToSelection;
 
 @end
 

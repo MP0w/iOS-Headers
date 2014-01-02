@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface OCPPackageProperties : NSObject
 {
     NSString *mCreator;
@@ -21,8 +22,6 @@
 - (id)description;
 - (id)creator;
 - (void)dealloc;
-- (id)initWithXml:(struct _xmlDoc *)arg1;
-- (void)readFromXml:(struct _xmlDoc *)arg1;
 
 @end
 

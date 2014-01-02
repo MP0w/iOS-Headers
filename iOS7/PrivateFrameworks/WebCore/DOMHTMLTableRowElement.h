@@ -8,6 +8,7 @@
 
 @class DOMHTMLCollection, NSString;
 
+// Not exported
 @interface DOMHTMLTableRowElement : DOMHTMLElement
 {
 }

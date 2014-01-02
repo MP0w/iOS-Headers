@@ -7,58 +7,72 @@
 #import <PhotosUI/PUPhotosAlbumViewController.h>
 
 #import "PLAlbumStreamingOptionsViewControllerDelegate-Protocol.h"
+#import "PUPhotoStreamComposeServiceDelegate-Protocol.h"
+#import "PUVideoTrimQueueControllerDelegate-Protocol.h"
 #import "UIPopoverControllerDelegate-Protocol.h"
 
-@class PLCloudSharedAlbum, UIBarButtonItem, UIPopoverController, UISegmentedControl, UIViewController;
+@class PLCloudSharedAlbum, PUPhotoStreamComposeServiceViewController, PUPhotosPickerViewController, PUVideoTrimQueueController, UIBarButtonItem, UIPopoverController, UISegmentedControl, UIViewController;
 
-@interface PUCloudSharedAlbumViewController : PUPhotosAlbumViewController <PLAlbumStreamingOptionsViewControllerDelegate, UIPopoverControllerDelegate>
+@interface PUCloudSharedAlbumViewController : PUPhotosAlbumViewController <PLAlbumStreamingOptionsViewControllerDelegate, UIPopoverControllerDelegate, PUVideoTrimQueueControllerDelegate, PUPhotoStreamComposeServiceDelegate>
 {
-    BOOL __displayingOptions;
-    BOOL __canContributeToCloudSharedAlbum;
+    PUPhotosPickerViewController *_activePhotosPickerViewController;
+    PUVideoTrimQueueController *_trimController;
+    PUPhotoStreamComposeServiceViewController *_composeServiceController;
+    _Bool _displayingOptions;
+    _Bool __canContributeToCloudSharedAlbum;
     UIViewController *__optionsViewController;
     UIBarButtonItem *__optionsBarButtonItem;
     UIPopoverController *__optionsPopoverController;
     UISegmentedControl *__switcherSegmentedControl;
     UIBarButtonItem *__switcherBarButtonItem;
+    long long __selectedItemIndex;
 }
 
+@property(nonatomic, setter=_setSelectedItemIndex:) long long _selectedItemIndex; // @synthesize _selectedItemIndex=__selectedItemIndex;
 @property(retain, nonatomic, setter=_setSwitcherBarButtonItem:) UIBarButtonItem *_switcherBarButtonItem; // @synthesize _switcherBarButtonItem=__switcherBarButtonItem;
 @property(retain, nonatomic, setter=_setSwitcherSegmentedControl:) UISegmentedControl *_switcherSegmentedControl; // @synthesize _switcherSegmentedControl=__switcherSegmentedControl;
-@property(nonatomic, setter=_setCanContributeToCloudSharedAlbum:) BOOL _canContributeToCloudSharedAlbum; // @synthesize _canContributeToCloudSharedAlbum=__canContributeToCloudSharedAlbum;
+@property(nonatomic, setter=_setCanContributeToCloudSharedAlbum:) _Bool _canContributeToCloudSharedAlbum; // @synthesize _canContributeToCloudSharedAlbum=__canContributeToCloudSharedAlbum;
 @property(retain, nonatomic, setter=_setOptionsPopoverController:) UIPopoverController *_optionsPopoverController; // @synthesize _optionsPopoverController=__optionsPopoverController;
 @property(retain, nonatomic, setter=_setOptionsBarButtonItem:) UIBarButtonItem *_optionsBarButtonItem; // @synthesize _optionsBarButtonItem=__optionsBarButtonItem;
 @property(retain, nonatomic, setter=_setOptionsViewController:) UIViewController *_optionsViewController; // @synthesize _optionsViewController=__optionsViewController;
-@property(nonatomic, getter=_isDisplayingOptions, setter=_setDisplayingOptions:) BOOL _displayingOptions; // @synthesize _displayingOptions=__displayingOptions;
+@property(nonatomic, getter=isDisplayingOptions, setter=setDisplayingOptions:) _Bool displayingOptions; // @synthesize displayingOptions=_displayingOptions;
 - (void).cxx_destruct;
+- (void)photoStreamComposeServiceDidCancel:(id)arg1;
+- (void)photoStreamComposeService:(id)arg1 didPostComment:(id)arg2;
+- (void)controller:(id)arg1 didCancelTrimmingAssets:(id)arg2;
+- (void)controller:(id)arg1 didFinishTrimmingAssets:(id)arg2;
+- (void)handleAddToAlbum:(id)arg1 pickedAssets:(id)arg2;
 - (void)albumStreamingOptionsViewController:(id)arg1 didCompleteWithReason:(int)arg2;
 - (id)_newOptionsViewController;
 - (void)popoverControllerDidDismissPopover:(id)arg1;
-- (BOOL)prepareForDismissingForced:(BOOL)arg1;
+- (_Bool)prepareForDismissingForced:(_Bool)arg1;
 - (void)_handleSwitcherSegmentedControl:(id)arg1;
-- (void)_dismissOptionsPopoverAnimated:(BOOL)arg1;
+- (void)_dismissOptionsPopoverAnimated:(_Bool)arg1;
 - (void)_optionsBarButtonItemPressed:(id)arg1;
-- (void)getTitle:(out id *)arg1 prompt:(out id *)arg2 shouldHideBackButton:(out char *)arg3 leftBarButtonItems:(out id *)arg4 rightBarButtonItems:(out id *)arg5;
+- (void)getTitle:(out id *)arg1 prompt:(out id *)arg2 shouldHideBackButton:(out _Bool *)arg3 leftBarButtonItems:(out id *)arg4 rightBarButtonItems:(out id *)arg5;
 - (void)_updateOptionsViewInsets;
 - (void)_updateOptionsView;
-- (void)updatePeripheralInterfaceAnimated:(BOOL)arg1;
-- (BOOL)_canDisplayOptions;
+- (void)updatePeripheralInterfaceAnimated:(_Bool)arg1;
+- (_Bool)_canDisplayOptions;
+- (_Bool)_shouldShowOptionsSwitcherInToolbar;
 - (void)configureGlobalFooterView:(id)arg1;
-- (BOOL)wantsGlobalFooter;
+- (_Bool)wantsGlobalFooter;
 - (id)newToolbarItems;
-- (BOOL)shouldShowToolbar;
-- (BOOL)shouldShowTabBar;
-- (void)didSelectAddPlaceholderInSection:(int)arg1;
-- (BOOL)wantsAddPlaceholderAtEndOfSection:(int)arg1;
-- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
+- (_Bool)shouldShowToolbar;
+- (_Bool)shouldShowTabBar;
+- (void)didSelectAddPlaceholderInSection:(long long)arg1;
+- (_Bool)wantsAddPlaceholderAtEndOfSection:(long long)arg1;
+- (_Bool)wantsAddContentInToolbar;
+- (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)viewDidLayoutSubviews;
-- (void)viewDidDisappear:(BOOL)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;
-- (BOOL)canDeleteContent;
-- (BOOL)canAddToOtherAlbumContent;
+- (_Bool)canDeleteContent;
+- (_Bool)canAddToOtherAlbumContent;
 - (id)_suppressionContexts;
-- (BOOL)_appAllowsSupressionOfAlerts;
+- (_Bool)_appAllowsSupressionOfAlerts;
 @property(retain, nonatomic) PLCloudSharedAlbum *album;
 
 @end

@@ -6,6 +6,7 @@
 
 #import <VectorKit/VGLGroundCoverProgram.h>
 
+// Not exported
 @interface VGLAnimatableGroundCoverProgram : VGLGroundCoverProgram
 {
     int _uLandVariantSampler;

@@ -7,7 +7,7 @@
 #import "NSString.h"
 
 @interface NSString (FaceTime)
-- (BOOL)destinationIdIsPhoneNumber;
-- (BOOL)destinationIdIsEmailAddress;
+- (_Bool)destinationIdIsPhoneNumber;
+- (_Bool)destinationIdIsEmailAddress;
 @end
 

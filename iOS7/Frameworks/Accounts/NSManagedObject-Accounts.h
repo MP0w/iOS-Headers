@@ -7,7 +7,7 @@
 #import "NSManagedObject.h"
 
 @interface NSManagedObject (Accounts)
-- (BOOL)validateRequiredAttributesForObject:(id)arg1 error:(id *)arg2;
+- (_Bool)validateRequiredAttributesForObject:(id)arg1 error:(id *)arg2;
 - (void)setValuesWithObject:(id)arg1;
 - (id)_removeObsoleteKeysFromDictionary:(id)arg1;
 - (id)_obsoleteAttributes;

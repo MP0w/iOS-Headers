@@ -14,8 +14,8 @@
 + (id)operationWithOperand:(id)arg1;
 @property(readonly, nonatomic) id operand; // @synthesize operand=_operand;
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)dealloc;
 - (id)initWithOperand:(id)arg1;
 

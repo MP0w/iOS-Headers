@@ -10,14 +10,14 @@
 
 @interface IMFileCopier : NSObject
 {
-    BOOL _shouldCancel;
-    BOOL _didErrorOccur;
-    BOOL _inProgress;
+    _Bool _shouldCancel;
+    _Bool _didErrorOccur;
+    _Bool _inProgress;
     id <IMFileCopierDelegate> _delegate;
     NSURL *_inputURL;
     NSURL *_outputURL;
     id _identifier;
-    unsigned int _operation;
+    unsigned long long _operation;
     void *_BOMCopier;
     NSObject<OS_dispatch_queue> *_queue;
     id _callback;
@@ -26,10 +26,10 @@
 @property id _callback; // @synthesize _callback;
 @property NSObject<OS_dispatch_queue> *_queue; // @synthesize _queue;
 @property void *_BOMCopier; // @synthesize _BOMCopier;
-@property unsigned int operation; // @synthesize operation=_operation;
-@property BOOL inProgress; // @synthesize inProgress=_inProgress;
-@property(readonly, nonatomic) BOOL didErrorOccur; // @synthesize didErrorOccur=_didErrorOccur;
-@property(readonly, nonatomic) BOOL wasCancelled; // @synthesize wasCancelled=_shouldCancel;
+@property unsigned long long operation; // @synthesize operation=_operation;
+@property _Bool inProgress; // @synthesize inProgress=_inProgress;
+@property(readonly, nonatomic) _Bool didErrorOccur; // @synthesize didErrorOccur=_didErrorOccur;
+@property(readonly, nonatomic) _Bool wasCancelled; // @synthesize wasCancelled=_shouldCancel;
 @property(readonly) id identifier; // @synthesize identifier=_identifier;
 @property(readonly) NSURL *outputURL; // @synthesize outputURL=_outputURL;
 @property(readonly) NSURL *inputURL; // @synthesize inputURL=_inputURL;
@@ -42,8 +42,8 @@
 - (void)_fillOutputURLFromInputURL;
 - (id)_temporaryCopierPath;
 - (void)dealloc;
-- (id)initWithInputURL:(id)arg1 outputURL:(id)arg2 identifier:(id)arg3 operation:(unsigned int)arg4 completionBlock:(id)arg5 queue:(void)arg6;
-- (id)initWithInputURL:(id)arg1 outputURL:(id)arg2 identifier:(id)arg3 operation:(unsigned int)arg4 delegate:(id)arg5;
+- (id)initWithInputURL:(id)arg1 outputURL:(id)arg2 identifier:(id)arg3 operation:(unsigned long long)arg4 completionBlock:(id)arg5 queue:(void)arg6;
+- (id)initWithInputURL:(id)arg1 outputURL:(id)arg2 identifier:(id)arg3 operation:(unsigned long long)arg4 delegate:(id)arg5;
 
 @end
 

@@ -16,12 +16,12 @@
 
 + (id)sharedManager;
 + (void)initialize;
-- (BOOL)needsTargetLayerToBeOpaqueForSimple3DTransitionSubtype:(int)arg1;
-- (BOOL)needsSourceLayerToBeOpaqueForSimple3DTransitionSubtype:(int)arg1;
-- (BOOL)needsTargetLayerImageForPrecomputingForTransitionID:(id)arg1;
-- (BOOL)needsSourceLayerImageForPrecomputingForTransitionID:(id)arg1;
-- (BOOL)noContentsMotionForTransitionID:(id)arg1;
-- (BOOL)canHandleKenBurnsForTransitionID:(id)arg1;
+- (_Bool)needsTargetLayerToBeOpaqueForSimple3DTransitionSubtype:(long long)arg1;
+- (_Bool)needsSourceLayerToBeOpaqueForSimple3DTransitionSubtype:(long long)arg1;
+- (_Bool)needsTargetLayerImageForPrecomputingForTransitionID:(id)arg1;
+- (_Bool)needsSourceLayerImageForPrecomputingForTransitionID:(id)arg1;
+- (_Bool)noContentsMotionForTransitionID:(id)arg1;
+- (_Bool)canHandleKenBurnsForTransitionID:(id)arg1;
 - (id)resourcePathForTransitionID:(id)arg1 andResource:(id)arg2;
 - (id)descriptionForTransitionID:(id)arg1;
 - (void)recycleTransition:(id)arg1;

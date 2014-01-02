@@ -8,45 +8,50 @@
 
 #import "SKUIMenuViewControllerDelegate-Protocol.h"
 #import "SKUIPopupMenuDelegate-Protocol.h"
+#import "SKUISortDataRequestDelegate-Protocol.h"
 #import "UIPickerViewDataSource-Protocol.h"
 #import "UIPickerViewDelegate-Protocol.h"
 #import "UIPopoverControllerDelegate-Protocol.h"
 
-@class SKUIFocusedTouchGestureRecognizer, SKUIMenuPageComponent, SKUIMenuViewController, SKUIPillsControl, SKUIPopupMenuHeaderView, UIPickerView, UIPopoverController;
+@class NSMutableIndexSet, SKUIFocusedTouchGestureRecognizer, SKUIMenuPageComponent, SKUIMenuViewController, SKUIPickerWrapperView, SKUIPillsControl, SKUIPopupMenuHeaderView, UIPopoverController, UIView;
 
-@interface SKUIMenuPageSection : SKUIStorePageSection <SKUIMenuViewControllerDelegate, SKUIPopupMenuDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UIPopoverControllerDelegate>
+@interface SKUIMenuPageSection : SKUIStorePageSection <SKUIMenuViewControllerDelegate, SKUIPopupMenuDelegate, SKUISortDataRequestDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UIPopoverControllerDelegate>
 {
     SKUIPillsControl *_pillsControl;
     SKUIMenuViewController *_moreListMenuViewController;
     UIPopoverController *_moreListPopoverController;
     SKUIFocusedTouchGestureRecognizer *_pickerDismissGestureRecognizer;
-    UIPickerView *_pickerView;
-    BOOL _pinned;
+    SKUIPickerWrapperView *_pickerWrapper;
+    UIView *_pickerBackgroundView;
+    _Bool _pinned;
     SKUIPopupMenuHeaderView *_popupHeaderView;
-    int _selectedIndex;
+    long long _selectedIndex;
+    NSMutableIndexSet *_sortRequestIndexSet;
 }
 
 - (void).cxx_destruct;
 - (void)_showPopoverController;
 - (void)_showPickerView;
 - (void)_showMoreList;
-- (void)_setSelectedIndex:(int)arg1;
+- (void)_setSelectedIndex:(long long)arg1;
 - (id)_popupHeaderView;
 - (id)_pillsControl;
+- (void)_loadSortDataIfNecessaryForMenuIndex:(long long)arg1 reason:(long long)arg2;
 - (id)_contentChildView;
 - (void)_pillAction:(id)arg1;
 - (void)_dismissPickerViewAction:(id)arg1;
 - (void)popoverControllerDidDismissPopover:(id)arg1;
-- (id)pickerView:(id)arg1 titleForRow:(int)arg2 forComponent:(int)arg3;
-- (BOOL)pickerView:(id)arg1 shouldUseCheckSelectionForRow:(int)arg2 forComponent:(int)arg3;
-- (void)pickerView:(id)arg1 didSelectRow:(int)arg2 inComponent:(int)arg3;
-- (int)pickerView:(id)arg1 numberOfRowsInComponent:(int)arg2;
-- (int)numberOfComponentsInPickerView:(id)arg1;
-- (void)popupMenuHeader:(id)arg1 didSelectMenuItemAtIndex:(int)arg2;
-- (void)menuViewController:(id)arg1 didSelectItemAtIndex:(int)arg2;
+- (id)pickerView:(id)arg1 titleForRow:(long long)arg2 forComponent:(long long)arg3;
+- (void)pickerView:(id)arg1 didSelectRow:(long long)arg2 inComponent:(long long)arg3;
+- (long long)pickerView:(id)arg1 numberOfRowsInComponent:(long long)arg2;
+- (long long)numberOfComponentsInPickerView:(id)arg1;
+- (void)sortDataRequest:(id)arg1 didFinishWithLockups:(id)arg2;
+- (void)popupMenuHeader:(id)arg1 didSelectMenuItemAtIndex:(long long)arg2;
+- (void)menuViewController:(id)arg1 didSelectItemAtIndex:(long long)arg2;
+- (void)willAppearInContext:(id)arg1;
 - (void)restorePinnedHeaderView:(id)arg1;
 - (id)popPinnedHeaderView;
-- (int)numberOfCells;
+- (long long)numberOfCells;
 - (void)collectionViewWillApplyLayoutAttributes:(id)arg1;
 - (struct CGSize)cellSizeForIndexPath:(id)arg1;
 - (id)cellForIndexPath:(id)arg1;

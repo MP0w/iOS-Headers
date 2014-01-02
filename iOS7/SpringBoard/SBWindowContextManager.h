@@ -21,7 +21,7 @@
 - (id)description;
 - (id)contextWithIdentifier:(unsigned int)arg1 screen:(id)arg2;
 - (id)contextsForScreen:(id)arg1;
-- (unsigned int)numberOfContextsForScreen:(id)arg1;
+- (unsigned long long)numberOfContextsForScreen:(id)arg1;
 - (id)trackedScreens;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;

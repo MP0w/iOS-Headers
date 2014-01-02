@@ -14,8 +14,8 @@
     NSArray *mCachedOrderedPlugs;
     double mCachedDuration;
     NSString *_initialTransitionID;
-    NSDictionary *_initialTransitionAttributes;
     double _initialTransitionDuration;
+    NSDictionary *_initialTransitionAttributes;
 }
 
 + (id)keyPathsForValuesAffectingValueForKey:(id)arg1;
@@ -25,14 +25,14 @@
 - (double)timeInForPlug:(id)arg1;
 @property(readonly) NSArray *orderedPlugs;
 - (void)removeAllPlugs;
-- (void)movePlugsAtIndices:(id)arg1 toIndex:(unsigned int)arg2;
+- (void)movePlugsAtIndices:(id)arg1 toIndex:(unsigned long long)arg2;
 - (void)removePlugsAtIndices:(id)arg1;
-- (id)insertPlugsForContainers:(id)arg1 atIndex:(unsigned int)arg2;
-- (id)insertPlugForContainer:(id)arg1 atIndex:(unsigned int)arg2;
+- (id)insertPlugsForContainers:(id)arg1 atIndex:(unsigned long long)arg2;
+- (id)insertPlugForContainer:(id)arg1 atIndex:(unsigned long long)arg2;
 - (id)addPlugsForContainers:(id)arg1;
 - (id)addPlugForContainer:(id)arg1;
-- (id)plugAtIndex:(unsigned int)arg1;
-@property(readonly, nonatomic) unsigned int countOfPlugs;
+- (id)plugAtIndex:(unsigned long long)arg1;
+@property(readonly, nonatomic) unsigned long long countOfPlugs;
 @property(readonly) NSSet *plugs;
 @property(readonly) double duration;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;

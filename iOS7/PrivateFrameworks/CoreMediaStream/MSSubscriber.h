@@ -17,7 +17,7 @@
 {
     id <MSSubscriberDelegate> _delegate;
     MSMediaStreamDaemon *_daemon;
-    BOOL _checkOneMoreTime;
+    _Bool _checkOneMoreTime;
     int _state;
     MSSubscribeStreamsProtocol *_protocol;
     NSMutableDictionary *_newSubscriptionsByStreamID;
@@ -28,12 +28,12 @@
     NSMutableArray *_assetsBeingRetrieved;
     long long _targetRetrievalByteCount;
     int _retrievalBatchSize;
-    int _maxErrorCount;
+    long long _maxErrorCount;
 }
 
 + (id)_descriptionForRetrievalState:(int)arg1;
 + (id)_descriptionForState:(int)arg1;
-+ (BOOL)isInRetryState;
++ (_Bool)isInRetryState;
 + (void)stopAllActivities;
 + (id)personIDsWithOutstandingActivities;
 + (id)nextActivityDateForPersonID:(id)arg1;
@@ -53,7 +53,7 @@
 - (void)subscribeStorageProtocolDidFinishRetrievingAllAssets:(id)arg1;
 - (void)subscribeStorageProtocol:(id)arg1 didFinishRetrievingAsset:(id)arg2 error:(id)arg3;
 - (void)_finishedRetrievingAsset:(id)arg1;
-- (BOOL)_isInRetryState;
+- (_Bool)_isInRetryState;
 - (void)_forget;
 - (void)abort;
 - (void)_abort;
@@ -72,16 +72,16 @@
 - (void)subscribeStreamsProtocol:(id)arg1 didFindDisappearedSubscriptionForPersonID:(id)arg2;
 - (void)subscribeStreamsProtocol:(id)arg1 didFinishReceivingUpdatesForPersonID:(id)arg2 ctag:(id)arg3;
 - (void)subscribeStreamsProtocol:(id)arg1 didReceiveAssetCollections:(id)arg2 forPersonID:(id)arg3;
-- (void)subscribeStreamsProtocol:(id)arg1 willReceiveUpdatesForPersonID:(id)arg2 wasReset:(BOOL)arg3 metadata:(id)arg4;
+- (void)subscribeStreamsProtocol:(id)arg1 willReceiveUpdatesForPersonID:(id)arg2 wasReset:(_Bool)arg3 metadata:(id)arg4;
 - (void)_didFinishRetrievingSubscriptionUpdate;
 - (void)_checkForNewAssetCollections;
 - (void)checkForNewAssetCollections;
-- (BOOL)_isAllowedToDownload;
+- (_Bool)_isAllowedToDownload;
 - (void)resetSync;
 - (void)_setSubscriptionsByStreamID:(id)arg1;
 - (id)_subscriptionsByStreamID;
-- (void)_setHasOutstandingPoll:(BOOL)arg1;
-- (BOOL)_hasOutstandingPoll;
+- (void)_setHasOutstandingPoll:(_Bool)arg1;
+- (_Bool)_hasOutstandingPoll;
 - (void)_updateMasterManifest;
 - (void)_serverSideConfigurationDidChange:(id)arg1;
 - (void)_refreshServerSideConfigurationParameters;

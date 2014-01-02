@@ -8,12 +8,13 @@
 
 @class NSObject<PFUbiquityBaselineRollResponseOperationDelegate>;
 
+// Not exported
 @interface PFUbiquityBaselineRollResponseOperation : PFUbiquityBaselineRollOperation
 {
 }
 
 - (void)main;
-- (BOOL)canAdoptBaseline:(id)arg1 byReplacingLocalStoreFile:(char *)arg2 withStack:(id)arg3 withError:(id *)arg4;
+- (_Bool)canAdoptBaseline:(id)arg1 byReplacingLocalStoreFile:(_Bool *)arg2 withStack:(id)arg3 withError:(id *)arg4;
 - (id)retainedDelegate;
 @property NSObject<PFUbiquityBaselineRollResponseOperationDelegate> *delegate;
 

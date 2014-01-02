@@ -8,6 +8,7 @@
 
 @class GEOTileKeyList, GEOTileRequester;
 
+// Not exported
 @interface GEOTileServerLocalProxyBatchContext : NSObject
 {
     GEOTileKeyList *_fullList;

@@ -8,6 +8,7 @@
 
 @class NSError, NSMutableArray, NSString;
 
+// Not exported
 @interface NSDirectoryTraversalOperation : NSOperation
 {
     id _delegate;
@@ -16,23 +17,23 @@
     void *_stream;
     int _optionsFlags;
     int _lastDeviceInode;
-    BOOL _shouldFilterUnderbars;
-    BOOL _stopped;
+    _Bool _shouldFilterUnderbars;
+    _Bool _stopped;
     NSMutableArray *_deviceEntryPoints;
     NSMutableArray *_deviceNumbers;
 }
 
 + (id)directoryTraversalOperationAtPath:(id)arg1;
-+ (BOOL)_needsStatInfo;
++ (_Bool)_needsStatInfo;
 + (id)_errorWithErrno:(int)arg1 atPath:(id)arg2;
 - (void)dealloc;
 - (void)main;
-- (BOOL)_validatePaths:(id *)arg1;
+- (_Bool)_validatePaths:(id *)arg1;
 - (void)_handleFTSEntry:(struct _ftsent *)arg1;
-- (BOOL)shouldProceedAfterError:(id)arg1;
+- (_Bool)shouldProceedAfterError:(id)arg1;
 - (void)_setError:(id)arg1;
 - (id)error;
-- (BOOL)_shouldFilterEntry:(struct _ftsent *)arg1;
+- (_Bool)_shouldFilterEntry:(struct _ftsent *)arg1;
 - (void)handlePathname:(id)arg1;
 - (void)setDelegate:(id)arg1;
 - (id)delegate;

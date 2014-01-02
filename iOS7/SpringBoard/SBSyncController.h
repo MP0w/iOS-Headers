@@ -14,28 +14,30 @@
     int _resetState;
     int _restoreTimerState;
     NSTimer *_restoreTimer;
-    BOOL _showingResetUI;
-    BOOL _appsChangedDuringSync;
+    NSTimer *_progressTimer;
+    _Bool _showingResetUI;
+    _Bool _appsChangedDuringSync;
     int _restoreStartedNotifyToken;
     int _restoreEndedNotifyToken;
     SBPasscodeLockDisableAssertion *_disableDeviceLockAssertion;
 }
 
 + (id)sharedInstance;
-- (BOOL)isInUse;
+- (_Bool)isInUse;
 - (void)_appInstallationNotification;
 - (void)_setupRestoreTimer;
 - (void)_restoreTimerFired:(id)arg1;
-- (BOOL)_isBackupAgentRunning;
+- (_Bool)_isBackupAgentRunning;
 - (void)_invalidateRestoreTimer;
 - (void)_resetEnded:(id)arg1;
 - (void)_resetStarted:(id)arg1;
 - (void)didEndResetting;
-- (void)beginResetting:(BOOL)arg1;
+- (void)beginResetting:(_Bool)arg1;
 - (void)_delayedBeginReset;
+- (void)_updateProgress;
 - (void)_delayedQuitApplications;
 - (int)resetState;
-- (BOOL)isResetting;
+- (_Bool)isResetting;
 - (void)didEndRestoring:(int)arg1;
 - (void)finishEndRestoring;
 - (void)_rebootNow;
@@ -45,10 +47,9 @@
 - (void)_killApplications;
 - (void)_notifyRestoreCanProceed;
 - (int)restoreState;
-- (BOOL)isRestoring;
+- (_Bool)isRestoring;
 - (void)_wirelessSyncEnded:(id)arg1;
 - (void)syncSessionDidEnd;
-- (void)frontLockedWhenPossible;
 - (void)_setRestoreState:(int)arg1;
 - (void)stopObserving;
 - (void)startObserving;

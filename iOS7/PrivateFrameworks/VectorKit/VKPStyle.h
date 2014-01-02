@@ -8,9 +8,10 @@
 
 @class NSData, NSMutableArray, NSString, VKPStyleProperties;
 
+// Not exported
 @interface VKPStyle : PBCodable
 {
-    CDStruct_084d6ede _inherits;
+    CDStruct_9f2792e4 _inherits;
     NSMutableArray *_attributes;
     NSData *_contents;
     NSString *_name;
@@ -23,30 +24,30 @@
 @property(retain, nonatomic) NSMutableArray *zooms; // @synthesize zooms=_zooms;
 @property(retain, nonatomic) VKPStyleProperties *properties; // @synthesize properties=_properties;
 @property(retain, nonatomic) NSMutableArray *attributes; // @synthesize attributes=_attributes;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) BOOL hasName;
-@property(readonly, nonatomic) BOOL hasContents;
-- (id)zoomsAtIndex:(unsigned int)arg1;
-- (unsigned int)zoomsCount;
+@property(readonly, nonatomic) _Bool hasName;
+@property(readonly, nonatomic) _Bool hasContents;
+- (id)zoomsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)zoomsCount;
 - (void)addZooms:(id)arg1;
 - (void)clearZooms;
-@property(readonly, nonatomic) BOOL hasProperties;
-- (id)attributesAtIndex:(unsigned int)arg1;
-- (unsigned int)attributesCount;
+@property(readonly, nonatomic) _Bool hasProperties;
+- (id)attributesAtIndex:(unsigned long long)arg1;
+- (unsigned long long)attributesCount;
 - (void)addAttributes:(id)arg1;
 - (void)clearAttributes;
-- (void)setInherits:(unsigned int *)arg1 count:(unsigned int)arg2;
-- (unsigned int)inheritAtIndex:(unsigned int)arg1;
+- (void)setInherits:(unsigned int *)arg1 count:(unsigned long long)arg2;
+- (unsigned int)inheritAtIndex:(unsigned long long)arg1;
 - (void)addInherit:(unsigned int)arg1;
 - (void)clearInherits;
 @property(readonly, nonatomic) unsigned int *inherits;
-@property(readonly, nonatomic) unsigned int inheritsCount;
+@property(readonly, nonatomic) unsigned long long inheritsCount;
 - (void)dealloc;
 
 @end

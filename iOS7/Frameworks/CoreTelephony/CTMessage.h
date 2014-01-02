@@ -44,7 +44,7 @@
 - (id)allContentTypeParameterNames;
 - (void)addContentTypeParameterWithName:(id)arg1 value:(id)arg2;
 - (id)contentTypeParameterWithName:(id)arg1;
-- (void)removePartAtIndex:(unsigned int)arg1;
+- (void)removePartAtIndex:(unsigned long long)arg1;
 - (id)addPart:(id)arg1;
 - (id)addData:(id)arg1 withContentType:(id)arg2;
 - (id)addText:(id)arg1;

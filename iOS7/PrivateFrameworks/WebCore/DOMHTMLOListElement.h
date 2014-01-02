@@ -8,15 +8,16 @@
 
 @class NSString;
 
+// Not exported
 @interface DOMHTMLOListElement : DOMHTMLElement
 {
 }
 
 @property(copy) NSString *type;
-- (void)setReversed:(BOOL)arg1;
-- (BOOL)reversed;
+- (void)setReversed:(_Bool)arg1;
+- (_Bool)reversed;
 @property int start;
-@property BOOL compact;
+@property _Bool compact;
 
 @end
 

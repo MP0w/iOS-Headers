@@ -6,9 +6,10 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface SCROConnection : NSObject
 {
-    BOOL _isConnectionStarted;
+    _Bool _isConnectionStarted;
     unsigned int _pingPort;
     struct __CFRunLoopSource *_pingSource;
     struct __CFRunLoopSource *_invalidationSource;
@@ -18,7 +19,7 @@
 }
 
 + (void)_addConnectionToRunLoop:(id)arg1;
-+ (void)_unconfigServerAndRetry:(BOOL)arg1;
++ (void)_unconfigServerAndRetry:(_Bool)arg1;
 + (void)_configServer;
 + (void)_createConnectionRunLoop;
 + (void)initialize;

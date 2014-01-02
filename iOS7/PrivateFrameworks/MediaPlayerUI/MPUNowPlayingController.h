@@ -6,21 +6,24 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, UIImage;
+@class NSDictionary, NSObject<OS_dispatch_source>, NSString, UIImage;
 
 @interface MPUNowPlayingController : NSObject
 {
-    NSObject<OS_dispatch_queue> *_mediaRemoteNotificationsQueue;
     NSObject<OS_dispatch_source> *_timeInformationTimer;
     NSDictionary *_currentNowPlayingInfo;
     double _currentElapsed;
     double _currentDuration;
-    int _isPlaying;
+    long long _isPlaying;
     int _currentNowPlayingAppPID;
     int _nowPlayingPIDForCachedDisplayID;
     NSString *_cachedNowPlayingAppDisplayID;
+    _Bool _isRegisteredForNowPlayingNotifications;
+    _Bool _isUpdatingNowPlayingInfo;
+    _Bool _isUpdatingPlaybackState;
+    _Bool _isUpdatingNowPlayingApp;
     UIImage *_cachedNowPlayingArtwork;
-    BOOL _cachedArtworkDirty;
+    _Bool _cachedArtworkDirty;
     id <MPUNowPlayingDelegate> _delegate;
     double _timeInformationUpdateInterval;
 }
@@ -29,8 +32,8 @@
 @property(readonly, nonatomic) double currentElapsed; // @synthesize currentElapsed=_currentElapsed;
 @property(nonatomic) __weak id <MPUNowPlayingDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)_updateNowPlayingApp;
 - (void)_updateTimeInformation;
+- (void)_updateNowPlayingApp;
 - (void)_updatePlaybackState;
 - (void)_updateCurrentNowPlaying;
 - (void)_stopUpdatingTimeInformation;
@@ -42,7 +45,7 @@
 - (void)startUpdating;
 @property(readonly, nonatomic) double currentDuration;
 @property(readonly, nonatomic) NSString *nowPlayingAppDisplayID;
-@property(readonly, nonatomic) BOOL isPlaying;
+@property(readonly, nonatomic) _Bool isPlaying;
 @property(readonly, nonatomic) UIImage *currentNowPlayingArtwork;
 @property(readonly, nonatomic) NSDictionary *currentNowPlayingInfo;
 - (void)dealloc;

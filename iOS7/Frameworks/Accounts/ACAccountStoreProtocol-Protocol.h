@@ -7,6 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol ACAccountStoreProtocol <NSObject>
-- (void)accountCredentialsDidChangeForAccountWithIdentifier:(id)arg1 handler:(id)arg2;
+- (void)accountCredentialsDidChangeForAccountWithIdentifier:(id)arg1;
 @end
 

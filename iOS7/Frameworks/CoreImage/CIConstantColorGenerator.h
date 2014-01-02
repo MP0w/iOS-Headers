@@ -8,6 +8,7 @@
 
 @class CIColor;
 
+// Not exported
 @interface CIConstantColorGenerator : CIFilter
 {
     CIColor *inputColor;

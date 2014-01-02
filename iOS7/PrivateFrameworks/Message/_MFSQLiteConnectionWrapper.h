@@ -11,15 +11,15 @@
 @interface _MFSQLiteConnectionWrapper : NSObject
 {
     MFSQLiteConnection *_connection;
-    unsigned int _generation;
-    unsigned int _type;
+    unsigned long long _generation;
+    unsigned long long _type;
 }
 
-@property(nonatomic) unsigned int type; // @synthesize type=_type;
-@property(readonly, nonatomic) unsigned int generation; // @synthesize generation=_generation;
+@property(nonatomic) unsigned long long type; // @synthesize type=_type;
+@property(readonly, nonatomic) unsigned long long generation; // @synthesize generation=_generation;
 @property(readonly, nonatomic) MFSQLiteConnection *connection; // @synthesize connection=_connection;
 - (void)dealloc;
-- (id)initWithConnection:(id)arg1 generation:(unsigned int)arg2;
+- (id)initWithConnection:(id)arg1 generation:(unsigned long long)arg2;
 
 @end
 

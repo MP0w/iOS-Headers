@@ -14,14 +14,14 @@
 {
     double _fireTime;
     NSTimer *_tickTimer;
-    BOOL _allDay;
-    BOOL isTimestamp;
-    id <SBDateLabelDelegate> _delegate;
+    _Bool _allDay;
+    _Bool isTimestamp;
     int _labelType;
+    id <SBDateLabelDelegate> _delegate;
 }
 
-@property(nonatomic) BOOL isTimestamp; // @synthesize isTimestamp;
-@property(nonatomic, getter=isAllDay) BOOL allDay; // @synthesize allDay=_allDay;
+@property(nonatomic) _Bool isTimestamp; // @synthesize isTimestamp;
+@property(nonatomic, getter=isAllDay) _Bool allDay; // @synthesize allDay=_allDay;
 @property(nonatomic) int labelType; // @synthesize labelType=_labelType;
 @property(nonatomic) id <SBDateLabelDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)stopCoalescingUpdates;

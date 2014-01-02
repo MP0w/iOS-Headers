@@ -35,7 +35,7 @@
 - (id)description;
 @property(readonly, nonatomic) double packetLossRate; // @synthesize packetLossRate=_packetLossRate;
 - (void)_addReceivedPacket:(double)arg1;
-- (void)_addTransmittedPacket:(BOOL)arg1;
+- (void)_addTransmittedPacket:(_Bool)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithMaxRTT:(double)arg1 medianRTT:(double)arg2 avgRTT:(double)arg3 minRTT:(double)arg4 transmitted:(int)arg5 successful:(int)arg6 received:(int)arg7;
 

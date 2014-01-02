@@ -6,14 +6,15 @@
 
 #import <OfficeImport/MFPEffect.h>
 
+// Not exported
 @interface MFPBlurEffect : MFPEffect
 {
     float mRadius;
-    BOOL mExpandEdge;
+    _Bool mExpandEdge;
 }
 
 + (id)GUID;
-- (id)initWithRadius:(float)arg1 expandEdge:(BOOL)arg2;
+- (id)initWithRadius:(float)arg1 expandEdge:(_Bool)arg2;
 
 @end
 

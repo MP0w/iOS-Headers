@@ -10,6 +10,7 @@
 
 @class NSString;
 
+// Not exported
 @interface NSKeyValueProxyShareKey : NSObject <NSKeyValueProxyCaching>
 {
     NSObject *_container;
@@ -17,7 +18,7 @@
 }
 
 + (id)_proxyShare;
-+ (CDStruct_e8a1eea0 *)_proxyNonGCPoolPointer;
++ (CDStruct_7c9a8e9f *)_proxyNonGCPoolPointer;
 - (void)_proxyNonGCFinalize;
 - (id)_proxyInitWithContainer:(id)arg1 getter:(id)arg2;
 - (CDStruct_a70f6672)_proxyLocator;

@@ -14,22 +14,22 @@
 }
 
 @property(retain, nonatomic) ALAssetsGroupPrivate *internal; // @synthesize internal=_internal;
-- (BOOL)addAsset:(id)arg1;
-@property(readonly, nonatomic, getter=isEditable) BOOL editable;
-- (void)enumerateAssetsAtIndexes:(id)arg1 options:(unsigned int)arg2 usingBlock:(id)arg3;
-- (void)enumerateAssetsWithOptions:(unsigned int)arg1 usingBlock:(id)arg2;
+- (_Bool)addAsset:(id)arg1;
+@property(readonly, nonatomic, getter=isEditable) _Bool editable;
+- (void)enumerateAssetsAtIndexes:(id)arg1 options:(unsigned long long)arg2 usingBlock:(id)arg3;
+- (void)enumerateAssetsWithOptions:(unsigned long long)arg1 usingBlock:(id)arg2;
 - (void)enumerateAssetsUsingBlock:(id)arg1;
-- (void)_enumerateAssetsAtIndexes:(id)arg1 options:(unsigned int)arg2 usingBlock:(id)arg3;
-- (int)numberOfAssets;
+- (void)_enumerateAssetsAtIndexes:(id)arg1 options:(unsigned long long)arg2 usingBlock:(id)arg3;
+- (long long)numberOfAssets;
 - (void)setAssetsFilter:(id)arg1;
 - (struct CGImage *)posterImage;
 - (id)valueForProperty:(id)arg1;
-- (BOOL)isValid;
+- (_Bool)isValid;
 - (id)description;
 - (id)_uuid;
 - (id)_typeAsString;
 - (void)dealloc;
-- (id)initWithPhotoAlbum:(struct NSObject *)arg1 library:(id)arg2 type:(unsigned int)arg3;
+- (id)initWithPhotoAlbum:(struct NSObject *)arg1 library:(id)arg2 type:(unsigned long long)arg3;
 
 @end
 

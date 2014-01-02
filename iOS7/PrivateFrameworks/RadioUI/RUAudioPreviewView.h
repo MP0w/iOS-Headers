@@ -8,7 +8,7 @@
 
 #import "RUPreviewSessionObserver-Protocol.h"
 
-@class MPDownloadProgressIndicator, NSObject<OS_dispatch_source>, RUPreviewSession, UIImage, UIImageView;
+@class MPDownloadProgressIndicator, NSObject<OS_dispatch_source>, RUPreviewSession, SKUIItemOfferButton, UIImage, UIImageView;
 
 @interface RUAudioPreviewView : UIView <RUPreviewSessionObserver>
 {
@@ -16,8 +16,9 @@
     UIImageView *_artworkImageView;
     UIImageView *_artworkOverlayImageView;
     double _currentItemDuration;
-    MPDownloadProgressIndicator *_progressIndicator;
-    int _style;
+    SKUIItemOfferButton *_circleProgressIndicator;
+    MPDownloadProgressIndicator *_downloadProgressIndicator;
+    long long _style;
     id <RUAudioPreviewViewDelegate> _delegate;
     UIImage *_artworkImage;
     UIImage *_artworkOverlayImage;
@@ -34,21 +35,21 @@
 @property(retain, nonatomic) UIImage *artworkImage; // @synthesize artworkImage=_artworkImage;
 @property(nonatomic) struct UIEdgeInsets artworkEdgeInsets; // @synthesize artworkEdgeInsets=_artworkEdgeInsets;
 @property(nonatomic) __weak id <RUAudioPreviewViewDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) int style; // @synthesize style=_style;
+@property(readonly, nonatomic) long long style; // @synthesize style=_style;
 - (void).cxx_destruct;
 - (void)_stopAnimating;
 - (void)_startAnimating;
 - (void)_setProgress:(float)arg1;
 - (void)_cancelAnimationTimer;
-- (void)previewSession:(id)arg1 didStopWithOptions:(int)arg2;
+- (void)previewSession:(id)arg1 didStopWithOptions:(long long)arg2 withFinalTrack:(id)arg3 didFinalTrackPlayToCompletion:(_Bool)arg4;
 - (void)previewSession:(id)arg1 didBeginWithTrack:(id)arg2;
-- (void)flipToPreviewProgressAnimated:(BOOL)arg1 withCompletionHandler:(id)arg2;
-- (void)flipFromPreviewProgressAnimated:(BOOL)arg1 withCompletionHandler:(id)arg2;
+- (void)flipToPreviewProgressAnimated:(_Bool)arg1 withCompletionHandler:(id)arg2;
+- (void)flipFromPreviewProgressAnimated:(_Bool)arg1 withCompletionHandler:(id)arg2;
 - (void)_cancelAction:(id)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 style:(int)arg2;
+- (id)initWithFrame:(struct CGRect)arg1 style:(long long)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

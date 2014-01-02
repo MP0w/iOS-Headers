@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface _NSUndoObject : NSObject
 {
     _NSUndoObject *next;
@@ -15,8 +16,8 @@
 
 - (id)target;
 - (void)invoke;
-- (BOOL)isEndMark;
-- (BOOL)isBeginMark;
+- (_Bool)isEndMark;
+- (_Bool)isBeginMark;
 - (id)initWithTarget:(id)arg1;
 - (id)init;
 

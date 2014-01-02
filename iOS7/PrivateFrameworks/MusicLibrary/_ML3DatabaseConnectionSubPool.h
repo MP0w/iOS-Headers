@@ -8,6 +8,7 @@
 
 @class NSMutableSet, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSString;
 
+// Not exported
 @interface _ML3DatabaseConnectionSubPool : NSObject
 {
     NSObject<OS_dispatch_queue> *_checkoutQueue;
@@ -17,24 +18,29 @@
     NSMutableSet *_availableConnections;
     NSMutableSet *_busyConnections;
     int _connectionsProfilingLevel;
-    BOOL _useReadOnlyConnections;
-    BOOL _useDistantConnections;
+    int _willDeleteDatabaseNotifyToken;
+    int _homeSharingCachesClearedNotifyToken;
+    _Bool _useReadOnlyConnections;
+    _Bool _useDistantConnections;
     NSString *_databasePath;
-    unsigned int _maxConcurrentConnections;
+    unsigned long long _maxConcurrentConnections;
+    unsigned long long _connectionsJournalingMode;
 }
 
-@property(nonatomic) BOOL useDistantConnections; // @synthesize useDistantConnections=_useDistantConnections;
-@property(nonatomic) BOOL useReadOnlyConnections; // @synthesize useReadOnlyConnections=_useReadOnlyConnections;
-@property(readonly, nonatomic) unsigned int maxConcurrentConnections; // @synthesize maxConcurrentConnections=_maxConcurrentConnections;
+@property(nonatomic) unsigned long long connectionsJournalingMode; // @synthesize connectionsJournalingMode=_connectionsJournalingMode;
+@property(nonatomic) _Bool useDistantConnections; // @synthesize useDistantConnections=_useDistantConnections;
+@property(nonatomic) _Bool useReadOnlyConnections; // @synthesize useReadOnlyConnections=_useReadOnlyConnections;
+@property(readonly, nonatomic) unsigned long long maxConcurrentConnections; // @synthesize maxConcurrentConnections=_maxConcurrentConnections;
 @property(readonly, nonatomic) NSString *databasePath; // @synthesize databasePath=_databasePath;
 - (void).cxx_destruct;
+- (void)_handleDatabaseDeletion;
 - (void)closeConnections;
 - (void)checkInConnection:(id)arg1;
-- (id)checkoutConnection:(char *)arg1;
+- (id)checkoutConnection:(_Bool *)arg1;
 @property(nonatomic) int connectionsProfilingLevel;
 - (void)dealloc;
 - (id)init;
-- (id)initWithDatabasePath:(id)arg1 maxConcurrentConnections:(unsigned int)arg2;
+- (id)initWithDatabasePath:(id)arg1 maxConcurrentConnections:(unsigned long long)arg2;
 
 @end
 

@@ -11,16 +11,19 @@
 @interface PUUIPhotosAlbumViewController : PUPhotosAlbumViewController
 {
     UIBarButtonItem *_imagePickerCancelButton;
+    UIBarButtonItem *_imagePickerMultipleSelectionDoneButton;
     NSArray *__imagePickerMediaTypes;
 }
 
 @property(copy, nonatomic, setter=_setImagePickerMediaTypes:) NSArray *_imagePickerMediaTypes; // @synthesize _imagePickerMediaTypes=__imagePickerMediaTypes;
 - (void).cxx_destruct;
-- (void)viewWillAppear:(BOOL)arg1;
+- (_Bool)pu_wantsNavigationBarVisible;
+- (void)viewDidLoad;
 - (void)loadView;
 - (void)handleNavigateToAsset:(id)arg1 inContainer:(id)arg2;
-- (void)getTitle:(out id *)arg1 prompt:(out id *)arg2 shouldHideBackButton:(out char *)arg3 leftBarButtonItems:(out id *)arg4 rightBarButtonItems:(out id *)arg5;
+- (void)getTitle:(out id *)arg1 prompt:(out id *)arg2 shouldHideBackButton:(out _Bool *)arg3 leftBarButtonItems:(out id *)arg4 rightBarButtonItems:(out id *)arg5;
 - (void)setAlbum:(id)arg1;
+- (void)_handleImagePickerMultipleSelectionDone:(id)arg1;
 - (void)_handleImagePickerCancel:(id)arg1;
 - (void)_setAlbum:(struct NSObject *)arg1 mediaTypes:(id)arg2;
 - (id)init;

@@ -8,22 +8,23 @@
 
 @class NSString;
 
+// Not exported
 @interface RTFNSFont : NSObject
 {
     NSString *_fontName;
-    float _fontSize;
-    float _pointSize;
+    double _fontSize;
+    double _pointSize;
 }
 
-+ (id)fontWithName:(id)arg1 size:(float)arg2;
-+ (id)systemFontOfSize:(float)arg1;
-+ (id)userFontOfSize:(float)arg1;
-+ (id)userFixedPitchFontOfSize:(float)arg1;
-@property float pointSize; // @synthesize pointSize=_pointSize;
-@property float fontSize; // @synthesize fontSize=_fontSize;
++ (id)fontWithName:(id)arg1 size:(double)arg2;
++ (id)systemFontOfSize:(double)arg1;
++ (id)userFontOfSize:(double)arg1;
++ (id)userFixedPitchFontOfSize:(double)arg1;
+@property double pointSize; // @synthesize pointSize=_pointSize;
+@property double fontSize; // @synthesize fontSize=_fontSize;
 @property(retain) NSString *fontName; // @synthesize fontName=_fontName;
-- (unsigned int)mostCompatibleStringEncoding;
-- (id)initWithName:(id)arg1 size:(float)arg2;
+- (unsigned long long)mostCompatibleStringEncoding;
+- (id)initWithName:(id)arg1 size:(double)arg2;
 
 @end
 

@@ -10,6 +10,7 @@
 
 @class CHDDefaultTextProperties, CHDLegend, CHDPlotArea, CHDTitle, CHDView3D, EDSheet, EDWorkbook, NSMutableArray, OADGraphicProperties;
 
+// Not exported
 @interface CHDChart : OADGraphic <OADDrawableContainer>
 {
     EDSheet *mSheet;
@@ -34,14 +35,14 @@
     NSMutableArray *mDrawables;
 }
 
-+ (id)binaryEffects:(BOOL)arg1;
++ (id)binaryEffects:(_Bool)arg1;
 - (id).cxx_construct;
 - (void)setDirectionChanged:(_Bool)arg1;
 - (_Bool)isDirectionChanged;
 - (void)setMSGraph:(_Bool)arg1;
 - (_Bool)isMSGraph;
-- (unsigned int)categoryCount;
-- (unsigned int)seriesCount;
+- (unsigned long long)categoryCount;
+- (unsigned long long)seriesCount;
 - (_Bool)isBinary;
 - (_Bool)isPie;
 - (_Bool)is3D;
@@ -50,7 +51,7 @@
 - (int)defaultLabelPosition;
 - (id)defaultFontWithResources:(id)arg1;
 - (id)defaultContentFormat;
-- (unsigned int)defaultFontIndex;
+- (unsigned long long)defaultFontIndex;
 - (id)defaultSeriesTitleFont;
 - (id)defaultDataLabelFont;
 - (id)defaultTextFont;
@@ -58,10 +59,10 @@
 - (void)setParentTextListStyle:(id)arg1;
 - (void)replaceChild:(id)arg1 with:(id)arg2;
 - (id)children;
-- (id)childAtIndex:(unsigned int)arg1;
+- (id)childAtIndex:(unsigned long long)arg1;
 - (void)addChildren:(id)arg1;
 - (void)addChild:(id)arg1;
-- (unsigned int)childCount;
+- (unsigned long long)childCount;
 - (void)setLogicalBounds:(struct CGRect)arg1;
 - (struct CGRect)logicalBounds;
 - (void)setDirection:(int)arg1;

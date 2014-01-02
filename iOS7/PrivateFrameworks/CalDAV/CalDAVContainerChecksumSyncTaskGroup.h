@@ -16,19 +16,19 @@
     CoreDAVItemParserMapping *_bestServerChecksumVersion;
     NSMutableDictionary *_serverURLsToChecksums;
     NSDictionary *_localURLsToChecksums;
-    BOOL _mismatchDetected;
+    _Bool _mismatchDetected;
 }
 
-@property(readonly) BOOL mismatchDetected; // @synthesize mismatchDetected=_mismatchDetected;
+@property(readonly) _Bool mismatchDetected; // @synthesize mismatchDetected=_mismatchDetected;
 @property(retain, nonatomic) CoreDAVItemParserMapping *bestServerChecksumVersion; // @synthesize bestServerChecksumVersion=_bestServerChecksumVersion;
 @property(retain, nonatomic) NSArray *preferredChecksumVersions; // @synthesize preferredChecksumVersions=_preferredChecksumVersions;
 - (void)deleteResourceURLs:(id)arg1;
-- (BOOL)shouldDownloadResource:(id)arg1 localETag:(id)arg2 serverETag:(id)arg3;
+- (_Bool)shouldDownloadResource:(id)arg1 localETag:(id)arg2 serverETag:(id)arg3;
 - (void)receivedPropertiesToValues:(id)arg1 forURL:(id)arg2;
 - (id)copyAdditionalResourcePropertiesToFetch;
 - (void)startTaskGroup;
 - (void)_serverChecksumSupportPropfind;
-- (BOOL)_hadOutOfDateCollectionToken;
+- (_Bool)_hadOutOfDateCollectionToken;
 - (id)_calculatedCalendarHome;
 - (void)_handleResponseToChecksumPropfind:(id)arg1;
 - (void)dealloc;

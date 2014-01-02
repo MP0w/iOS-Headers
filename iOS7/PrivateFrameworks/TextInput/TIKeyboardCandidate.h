@@ -10,7 +10,7 @@
 #import "NSSecureCoding-Protocol.h"
 #import "TIKeyboardCandidateCoding-Protocol.h"
 
-@class NSArray, NSString;
+@class NSString;
 
 @interface TIKeyboardCandidate : NSObject <NSCopying, NSSecureCoding, TIKeyboardCandidateCoding>
 {
@@ -18,20 +18,21 @@
 }
 
 + (int)type;
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSString *alternativeText; // @synthesize alternativeText=_alternativeText;
 - (void)encodeWithCandidateResultSetCoder:(id)arg1;
 - (id)initWithCandidateResultSetCoder:(id)arg1;
 @property(readonly, nonatomic) unsigned int usageTrackingMask;
-@property(readonly, nonatomic) NSArray *usageTrackingTypes;
-@property(readonly, nonatomic, getter=isEmojiCandidate) BOOL emojiCandidate;
-@property(readonly, nonatomic, getter=isExtensionCandidate) BOOL extensionCandidate;
-@property(readonly, nonatomic) BOOL isAutocorrection;
-@property(readonly, nonatomic) BOOL isForShortcutConversion;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-@property(readonly, nonatomic) unsigned int deleteCount;
-@property(readonly, nonatomic) unsigned int wordOriginFeedbackID;
+@property(readonly, nonatomic, getter=isInlineCompletionCandidate) _Bool inlineCompletionCandidate;
+@property(readonly, nonatomic, getter=isCompletionCandidate) _Bool completionCandidate;
+@property(readonly, nonatomic, getter=isEmojiCandidate) _Bool emojiCandidate;
+@property(readonly, nonatomic, getter=isExtensionCandidate) _Bool extensionCandidate;
+@property(readonly, nonatomic) _Bool isAutocorrection;
+@property(readonly, nonatomic) _Bool isForShortcutConversion;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+@property(readonly, nonatomic) unsigned long long deleteCount;
+@property(readonly, nonatomic) unsigned long long wordOriginFeedbackID;
 @property(readonly, nonatomic) NSString *label;
 @property(readonly, nonatomic) NSString *input;
 @property(readonly, nonatomic) NSString *candidate;

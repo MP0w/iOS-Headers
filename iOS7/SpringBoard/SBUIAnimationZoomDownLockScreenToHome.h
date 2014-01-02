@@ -16,7 +16,7 @@
 }
 
 - (id)_zoomSettings;
-- (BOOL)_shouldTakeActivationAssertionForDeactivatingApp;
+- (_Bool)_shouldTakeActivationAssertionForDeactivatingApp;
 - (void)animateZoomWithCompletion:(id)arg1;
 - (void)cleanupZoom;
 - (void)prepareZoom;

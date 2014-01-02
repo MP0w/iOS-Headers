@@ -6,15 +6,19 @@
 
 #import <UIKit/UIViewAnimationState.h>
 
+// Not exported
 @interface UIViewSpringAnimationState : UIViewAnimationState
 {
-    float _mass;
-    float _stiffness;
-    float _damping;
-    float _velocity;
+    double _mass;
+    double _stiffness;
+    double _damping;
+    double _velocity;
 }
 
++ (id)defaultSpringAnimationForKey:(id)arg1 mass:(double)arg2 stiffness:(double)arg3 damping:(double)arg4 velocity:(double)arg5;
 - (id)_defaultAnimationForKey:(id)arg1;
+- (id)actionForLayer:(id)arg1 forKey:(id)arg2 forView:(id)arg3;
+- (void)generateSpringPropertiesForDuration:(double)arg1 damping:(double)arg2 velocity:(double)arg3;
 
 @end
 

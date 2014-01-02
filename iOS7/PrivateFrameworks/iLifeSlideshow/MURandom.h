@@ -8,18 +8,18 @@
 
 @interface MURandom : MUPoolObject
 {
-    long _state[31];
-    long *_frontPtr;
-    long *_rearPtr;
-    long *_endPtr;
+    long long _state[31];
+    long long *_frontPtr;
+    long long *_rearPtr;
+    long long *_endPtr;
 }
 
-+ (id)randomGeneratorWithSeed:(unsigned long)arg1;
-+ (BOOL)clearVars;
-+ (CDStruct_7b508128 *)poolInfo;
-- (float)randomFloatInRange:(float)arg1:(float)arg2;
-- (long)randomInt;
-- (void)_seed:(unsigned long)arg1;
++ (id)randomGeneratorWithSeed:(unsigned long long)arg1;
++ (_Bool)clearVars;
++ (CDStruct_32b7e343 *)poolInfo;
+- (double)randomFloatInRange:(double)arg1:(double)arg2;
+- (long long)randomInt;
+- (void)_seed:(unsigned long long)arg1;
 
 @end
 

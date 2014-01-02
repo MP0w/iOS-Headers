@@ -24,10 +24,10 @@
 - (id)_searchFieldController;
 - (id)_existingSharedResultsViewController;
 - (void)_termDidChangeNotification:(id)arg1;
-- (BOOL)searchFieldControllerShouldBeginEditing:(id)arg1;
+- (_Bool)searchFieldControllerShouldBeginEditing:(id)arg1;
 - (void)searchFieldController:(id)arg1 requestSearchWithURL:(id)arg2;
 - (id)URLForSearchTerm:(id)arg1;
-- (void)setNumberOfSearchResults:(int)arg1;
+- (void)setNumberOfSearchResults:(long long)arg1;
 - (id)newSearchFieldBarItem;
 - (void)setSearchFieldText:(id)arg1;
 - (void)setSearchFieldPlaceholderText:(id)arg1;

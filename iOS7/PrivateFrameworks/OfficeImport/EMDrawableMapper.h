@@ -6,16 +6,16 @@
 
 #import <OfficeImport/CMDrawableMapper.h>
 
+// Not exported
 @interface EMDrawableMapper : CMDrawableMapper
 {
     double *mRowGrid;
     double *mColumnGrid;
 }
 
-+ (BOOL)isAnchorRelative:(id)arg1;
 - (void)mapTextBoxAt:(id)arg1 withState:(id)arg2;
 - (struct CGRect)mapAnchorToRect:(id)arg1 rowGrid:(double *)arg2 columnGrid:(double *)arg3;
-- (struct CGPoint)anchorMarkerToPosition:(struct EDCellAnchorMarker)arg1 rowGrid:(double *)arg2 columnGrid:(double *)arg3 start:(BOOL)arg4 relative:(BOOL)arg5;
+- (struct CGPoint)anchorMarkerToPosition:(struct EDCellAnchorMarker)arg1 rowGrid:(double *)arg2 columnGrid:(double *)arg3 start:(_Bool)arg4 relative:(_Bool)arg5;
 - (struct CGRect)getImageRect;
 - (void)mapBounds;
 - (void)setBoundingBox;
@@ -23,12 +23,6 @@
 - (id)initWithOADDrawable:(id)arg1 rowGrid:(double *)arg2 columnGrid:(double *)arg3;
 - (id)initWithChartDrawable:(id)arg1 box:(struct CGRect)arg2 parent:(id)arg3;
 - (id)initWithOADDrawable:(id)arg1 parent:(id)arg2;
-- (void)mapDiagramAt:(id)arg1 withState:(id)arg2;
-- (void)mapChartAt:(id)arg1 withState:(id)arg2;
-- (void)mapOfficeArtGroupAt:(id)arg1 withState:(id)arg2;
-- (void)mapOfficeArtShapeAt:(id)arg1 withState:(id)arg2;
-- (id)workbookMapper;
-- (id)worksheetMapper;
 
 @end
 

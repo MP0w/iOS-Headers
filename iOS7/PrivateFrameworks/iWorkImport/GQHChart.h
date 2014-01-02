@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface GQHChart : NSObject
 {
 }
@@ -14,9 +15,6 @@
 + (int)handleFloatingChart:(id)arg1 state:(id)arg2;
 + (id)geometry:(id)arg1;
 + (char *)pdfId:(id)arg1;
-+ (int)handleInlineChart:(id)arg1 state:(id)arg2 imageUrl:(struct __CFString *)arg3;
-+ (struct __CFString *)createChartImageUrlString:(id)arg1 state:(id)arg2;
-+ (struct __CFData *)renderChart:(id)arg1;
 
 @end
 

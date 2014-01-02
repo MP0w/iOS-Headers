@@ -7,6 +7,11 @@
 #import "NSObject-Protocol.h"
 
 @protocol PUGridRenderedStripDataSource <NSObject>
-- (id)renderedStrip:(id)arg1 imageDataForPhotoAtIndexPath:(id)arg2 imageWidth:(int *)arg3 imageHeight:(int *)arg4 bytesPerRow:(int *)arg5 dataWidth:(int *)arg6 dataHeight:(int *)arg7 imageDataOffset:(int *)arg8;
+- (id)renderedStrip:(id)arg1 imageDataForPhotoAtIndexPath:(struct PUSimpleIndexPath)arg2 imageWidth:(int *)arg3 imageHeight:(int *)arg4 bytesPerRow:(int *)arg5 dataWidth:(int *)arg6 dataHeight:(int *)arg7 imageDataOffset:(int *)arg8;
+- (void)renderedStrip:(id)arg1 didEndRenderingPhotosInSection:(long long)arg2;
+- (void)renderedStrip:(id)arg1 willBeginRenderingPhotosInSection:(long long)arg2;
+- (void)renderedStripDidEndRendering:(id)arg1;
+- (void)renderedStripWillBeginRendering:(id)arg1;
+- (void)renderedStrip:(id)arg1 enumerateItemIndexPathsForVisualSection:(long long)arg2 inVisualItemRange:(struct _NSRange)arg3 usingBlock:(id)arg4;
 @end
 

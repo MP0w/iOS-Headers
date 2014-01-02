@@ -6,48 +6,71 @@
 
 #import <UIKit/UIViewController.h>
 
-@class NSMutableArray, UIModalItem, UIView;
+@class NSMutableArray, UIView, UIWindow, _UIModalItem;
 
 @interface _UIModalItemsPresentingViewController : UIViewController
 {
     NSMutableArray *_items;
     NSMutableArray *_itemsViews;
+    NSMutableArray *_occludedWindows;
     UIView *_backgroundView;
-    UIModalItem *_currentItem;
+    _UIModalItem *_currentItem;
     UIView *_currentItemView;
-    id _itemsTransitionCompletion;
     UIView *_dimmingView;
     struct CGRect _keyboardFrame;
-    BOOL _isInTransition;
-    UIModalItem *_itemBeingPresented;
-    UIModalItem *_itemBeingDismissed;
+    double _keyboardHeight;
+    _Bool _isInTransition;
+    _UIModalItem *_itemBeingPresented;
+    _UIModalItem *_itemBeingDismissed;
+    UIWindow *_rotationDelegate;
+    id _itemsTransitionCompletion;
 }
 
-@property(readonly, nonatomic) UIModalItem *itemBeingPresented; // @synthesize itemBeingPresented=_itemBeingPresented;
-@property(readonly, nonatomic) UIModalItem *itemBeingDismissed; // @synthesize itemBeingDismissed=_itemBeingDismissed;
-@property(nonatomic) UIModalItem *currentItem; // @synthesize currentItem=_currentItem;
-@property(nonatomic) BOOL isInTransition; // @synthesize isInTransition=_isInTransition;
-- (void)_dismissItem:(id)arg1 andPresentItem:(id)arg2 animated:(BOOL)arg3 completion:(id)arg4;
-- (void)_applyPresentingAnimationEndingStateForModalItem:(id)arg1 view:(id)arg2 forceCenter:(BOOL)arg3;
+@property(copy) id itemsTransitionCompletion; // @synthesize itemsTransitionCompletion=_itemsTransitionCompletion;
+@property(retain, nonatomic) UIWindow *rotationDelegate; // @synthesize rotationDelegate=_rotationDelegate;
+@property(retain, nonatomic) _UIModalItem *itemBeingPresented; // @synthesize itemBeingPresented=_itemBeingPresented;
+@property(retain, nonatomic) _UIModalItem *itemBeingDismissed; // @synthesize itemBeingDismissed=_itemBeingDismissed;
+@property(retain, nonatomic) _UIModalItem *currentItem; // @synthesize currentItem=_currentItem;
+@property(nonatomic) _Bool isInTransition; // @synthesize isInTransition=_isInTransition;
+- (void)_updateItem:(id)arg1 animated:(_Bool)arg2;
+- (void)_showItem:(id)arg1 animated:(_Bool)arg2 undimmSpotlight:(_Bool)arg3;
+- (void)_showDimmingView:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)_hideAnimated:(_Bool)arg1 dimmSpotlight:(_Bool)arg2;
+- (void)_hide;
+- (void)_showDimmingViewAnimated:(_Bool)arg1;
+- (void)_hideDimmingViewAnimated:(_Bool)arg1;
+- (void)_enqueueAdditionalTransitionCompletion:(id)arg1;
+- (void)_dismissItem:(id)arg1 andPresentItem:(id)arg2 animated:(_Bool)arg3 completion:(id)arg4;
+- (void)_dismissItem:(id)arg1 andPresentItem:(id)arg2 animated:(_Bool)arg3 completion:(id)arg4 keepDimmingView:(void)arg5;
+- (void)_applyPresentingAnimationEndingStateForModalItem:(id)arg1 view:(id)arg2 forceCenter:(_Bool)arg3;
 - (void)_applyPresentingAnimationEndingStateForModalItem:(id)arg1 view:(id)arg2;
+- (void)_applyDismissingAnimationEndingStateForModalItem:(id)arg1 view:(id)arg2 forceCenter:(_Bool)arg3;
 - (void)_applyDismissingAnimationEndingStateForModalItem:(id)arg1 view:(id)arg2;
 - (void)_applyPresentingAnimationStartingStateForModalItem:(id)arg1 view:(id)arg2;
+- (void)_applyPresentingViewMetricsStateForModalItem:(id)arg1;
+- (void)_resaturateUI;
+- (void)_desaturateUI;
 - (id)_createViewForItem:(id)arg1;
-- (void)_dismissMe:(id)arg1 animated:(BOOL)arg2;
-- (void)hideModalItem:(id)arg1 animated:(BOOL)arg2;
-- (void)displayModalItem:(id)arg1 animated:(BOOL)arg2;
-- (void)_hideItem:(id)arg1 animated:(BOOL)arg2;
+- (void)_dismissMe:(id)arg1 animated:(_Bool)arg2;
+- (void)hideModalItem:(id)arg1 animated:(_Bool)arg2;
+- (void)displayModalItem:(id)arg1 animated:(_Bool)arg2;
+- (void)_hideItem:(id)arg1 animated:(_Bool)arg2;
+- (_Bool)shouldAutorotate;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (unsigned long long)supportedInterfaceOrientations;
+- (long long)preferredInterfaceOrientationForPresentation;
 - (void)didReceiveMemoryWarning;
-- (unsigned int)supportedInterfaceOrientations;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (void)viewWillLayoutSubviews;
-- (void)viewWillDisappear:(BOOL)arg1;
+- (void)willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (void)didRotateFromInterfaceOrientation:(long long)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidLoad;
-- (BOOL)wantsFullScreenLayout;
+- (_Bool)wantsFullScreenLayout;
 - (void)keyboardChanged:(id)arg1;
+- (void)keyfirstResponderChanged:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)dealloc;
-- (id)initWithModalItemType:(int)arg1;
+- (id)initWithModalItemType:(long long)arg1;
 
 @end
 

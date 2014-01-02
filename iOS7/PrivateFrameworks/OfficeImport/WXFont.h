@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface WXFont : NSObject
 {
 }
 
 + (void)initialize;
-+ (void)readFrom:(struct _xmlNode *)arg1 to:(id)arg2;
 
 @end
 

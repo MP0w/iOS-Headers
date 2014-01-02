@@ -12,7 +12,7 @@ struct AVAudioPlayerCpp {
     struct __CFDictionary *_field3;
     struct AudioStreamBasicDescription _field4;
     struct AudioStreamBasicDescription _field5;
-    unsigned int _field6;
+    unsigned long long _field6;
     char *_field7;
     unsigned int _field8;
     struct AudioFormatListItem *_field9;
@@ -39,34 +39,34 @@ struct AVAudioPlayerCpp {
     _Bool _field30;
     _Bool _field31;
     _Bool _field32;
-    double _field33;
+    _Bool _field33;
     double _field34;
     double _field35;
     double _field36;
     double _field37;
     double _field38;
-    unsigned int _field39;
-    struct AudioQueueLevelMeterState *_field40;
-    struct AudioQueueBuffer *_field41[3];
-    struct AudioQueueBuffer *_field42;
-    int _field43;
-    _Bool _field44;
+    double _field39;
+    unsigned int _field40;
+    struct AudioQueueLevelMeterState *_field41;
+    struct AudioQueueBuffer *_field42[3];
+    struct AudioQueueBuffer *_field43;
+    int _field44;
     _Bool _field45;
     _Bool _field46;
     _Bool _field47;
     _Bool _field48;
-    struct AudioQueueBuffer *_field49;
-    _Bool _field50;
-    unsigned long long _field51;
-    _Bool _field52;
+    _Bool _field49;
+    struct AudioQueueBuffer *_field50;
+    _Bool _field51;
+    unsigned long long _field52;
     _Bool _field53;
     _Bool _field54;
     _Bool _field55;
-    long long _field56;
-    int _field57;
-    unsigned int _field58;
+    _Bool _field56;
+    long long _field57;
+    int _field58;
     unsigned int _field59;
-    struct _opaque_pthread_mutex_t _field60;
+    unsigned int _field60;
     void *_field61;
     void *_field62;
     unsigned int _field63;
@@ -83,11 +83,13 @@ struct AVAudioSessionImpl {
     struct KVOProperty<float> _field5;
     struct KVONSArrayProperty _field6;
     struct KVONSArrayProperty _field7;
-    struct KVOProperty<unsigned long> _field8;
+    struct KVOProperty<unsigned int> _field8;
     struct KVONSObjectProperty<NSArray *> _field9;
-    struct KVOProperty<unsigned long> _field10;
+    struct KVOProperty<unsigned int> _field10;
     id _field11;
-    char _field12;
+    _Bool _field12;
+    struct KVOProperty<unsigned int> _field13;
+    struct KVOProperty<unsigned int> _field14;
 };
 
 struct AudioChannelLayout;
@@ -128,7 +130,7 @@ struct AudioRecorderImpl {
     double _field13;
     double _field14;
     double _field15;
-    unsigned int _field16;
+    unsigned long long _field16;
     char *_field17;
     _Bool _field18;
     _Bool _field19;
@@ -141,7 +143,7 @@ struct AudioRecorderImpl {
     struct AudioQueueBuffer *_field26[4];
     struct AudioQueueBuffer *_field27;
     _Bool _field28;
-    unsigned int _field29;
+    unsigned long long _field29;
     _Bool _field30;
 };
 
@@ -243,7 +245,7 @@ struct ControllerImpl {
     unsigned int _field58;
     struct AudioFormatListItem *_field59;
     unsigned int _field60;
-    unsigned int _field61;
+    unsigned long long _field61;
     char *_field62;
     struct AudioFilePacketTableInfo _field63;
     long long _field64;
@@ -269,9 +271,11 @@ struct ControllerImpl {
     int _field84;
     _Bool _field85;
     _Bool _field86;
-    struct _opaque_pthread_mutex_t _field87[5];
+    struct _opaque_pthread_mutex_t {
+        long long _field1;
+        char _field2[56];
+    } _field87[5];
     int _field88;
-    _Bool _field89;
 };
 
 struct DataSourceDescriptionImpl {
@@ -307,9 +311,9 @@ struct KVOProperty<float> {
     id _field4;
 };
 
-struct KVOProperty<unsigned long> {
+struct KVOProperty<unsigned int> {
     void **_field1;
-    unsigned long _field2;
+    unsigned int _field2;
     _Bool _field3;
     id _field4;
 };
@@ -356,11 +360,6 @@ struct __tree_end_node<std::__1::__tree_node_base<void *>*> {
     struct __tree_node_base<void *> *_field1;
 };
 
-struct _opaque_pthread_mutex_t {
-    long _field1;
-    char _field2[40];
-};
-
 struct map<AVVoiceAlertType, AudioQueueBuffer *, std::__1::less<AVVoiceAlertType>, std::__1::allocator<std::__1::pair<const AVVoiceAlertType, AudioQueueBuffer *>>> {
     struct __tree<std::__1::pair<AVVoiceAlertType, AudioQueueBuffer *>, std::__1::__map_value_compare<AVVoiceAlertType, AudioQueueBuffer *, std::__1::less<AVVoiceAlertType>, true>, std::__1::allocator<std::__1::pair<AVVoiceAlertType, AudioQueueBuffer *>>> {
         struct __tree_node<std::__1::pair<AVVoiceAlertType, AudioQueueBuffer *>, void *> *_field1;
@@ -368,7 +367,7 @@ struct map<AVVoiceAlertType, AudioQueueBuffer *, std::__1::less<AVVoiceAlertType
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
         } _field2;
         struct __compressed_pair<unsigned long, std::__1::__map_value_compare<AVVoiceAlertType, AudioQueueBuffer *, std::__1::less<AVVoiceAlertType>, true>> {
-            unsigned long _field1;
+            unsigned long long _field1;
         } _field3;
     } _field1;
 };
@@ -380,7 +379,7 @@ struct map<AVVoiceAlertType, NSURL *, std::__1::less<AVVoiceAlertType>, std::__1
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
         } _field2;
         struct __compressed_pair<unsigned long, std::__1::__map_value_compare<AVVoiceAlertType, NSURL *, std::__1::less<AVVoiceAlertType>, true>> {
-            unsigned long _field1;
+            unsigned long long _field1;
         } _field3;
     } _field1;
 };

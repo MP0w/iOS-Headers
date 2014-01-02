@@ -7,7 +7,7 @@
 #import "UICollectionView.h"
 
 @interface UICollectionView (PhotosUI)
-- (void)pu_scrollToItemAtIndexPath:(id)arg1 atScrollPosition:(unsigned int)arg2 animated:(BOOL)arg3;
-- (void)pu_scrollToRect:(struct CGRect)arg1 atScrollPosition:(unsigned int)arg2 animated:(BOOL)arg3;
+- (void)pu_scrollToItemAtIndexPath:(id)arg1 atScrollPosition:(unsigned long long)arg2 animated:(_Bool)arg3;
+- (void)pu_scrollToRect:(struct CGRect)arg1 atScrollPosition:(unsigned long long)arg2 animated:(_Bool)arg3;
 @end
 

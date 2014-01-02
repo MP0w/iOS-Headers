@@ -6,23 +6,26 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSMutableArray;
 
-@interface GEOSupportedTileSets : PBCodable
+@interface GEOSupportedTileSets : PBCodable <NSCopying>
 {
     NSMutableArray *_tileSets;
 }
 
 @property(retain, nonatomic) NSMutableArray *tileSets; // @synthesize tileSets=_tileSets;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)tileSetAtIndex:(unsigned int)arg1;
-- (unsigned int)tileSetsCount;
+- (id)tileSetAtIndex:(unsigned long long)arg1;
+- (unsigned long long)tileSetsCount;
 - (void)addTileSet:(id)arg1;
 - (void)clearTileSets;
 - (void)dealloc;

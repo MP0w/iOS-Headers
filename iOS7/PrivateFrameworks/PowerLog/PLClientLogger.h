@@ -12,7 +12,7 @@
 
 + (id)sharedInstance;
 - (void)PLXPCinvalidationHandler;
-- (BOOL)logEvent:(id)arg1 withContent:(id)arg2 withContentOrder:(id)arg3 forClientID:(short)arg4;
+- (_Bool)logEvent:(id)arg1 withContent:(id)arg2 withContentOrder:(id)arg3 forClientID:(short)arg4;
 
 @end
 

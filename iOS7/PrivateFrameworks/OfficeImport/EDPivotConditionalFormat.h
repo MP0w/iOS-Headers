@@ -8,9 +8,10 @@
 
 @class EDCollection;
 
+// Not exported
 @interface EDPivotConditionalFormat : NSObject
 {
-    unsigned long mPriority;
+    unsigned long long mPriority;
     int mType;
     int mScope;
     EDCollection *mPivotAreas;
@@ -22,8 +23,8 @@
 - (int)scope;
 - (void)setType:(int)arg1;
 - (int)type;
-- (void)setPriority:(unsigned long)arg1;
-- (unsigned long)priority;
+- (void)setPriority:(unsigned long long)arg1;
+- (unsigned long long)priority;
 - (void)dealloc;
 - (id)init;
 

@@ -6,7 +6,7 @@
 
 #import <SAObjects/SADomainCommand.h>
 
-@class NSArray, NSString, NSURL;
+@class NSArray;
 
 @interface SAMPSearch : SADomainCommand
 {
@@ -14,14 +14,11 @@
 
 + (id)searchWithDictionary:(id)arg1 context:(id)arg2;
 + (id)search;
-- (BOOL)requiresResponse;
-@property(nonatomic) BOOL strict;
-@property(copy, nonatomic) NSString *searchValue;
+- (_Bool)requiresResponse;
+@property(nonatomic) _Bool strict;
 @property(copy, nonatomic) NSArray *searchTypes;
-@property(copy, nonatomic) NSArray *searchProperties;
-@property(nonatomic) int maxResults;
+@property(nonatomic) long long maxResults;
 @property(copy, nonatomic) NSArray *constraints;
-@property(copy, nonatomic) NSURL *targetAppId;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

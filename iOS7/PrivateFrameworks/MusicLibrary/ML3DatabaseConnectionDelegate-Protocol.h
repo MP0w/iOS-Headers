@@ -9,6 +9,7 @@
 @protocol ML3DatabaseConnectionDelegate <NSObject>
 
 @optional
+- (_Bool)connectionDetectedDatabaseCorruption:(id)arg1;
 - (void)connection:(id)arg1 didFailToCloseDatabaseWithError:(id)arg2;
 - (void)connectionDidCloseDatabase:(id)arg1;
 - (void)connectionWillCloseDatabase:(id)arg1;

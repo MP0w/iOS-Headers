@@ -6,13 +6,14 @@
 
 #import <WebCore/DOMEvent.h>
 
+// Not exported
 @interface DOMOverflowEvent : DOMEvent
 {
 }
 
-- (void)initOverflowEvent:(unsigned short)arg1 horizontalOverflow:(BOOL)arg2 verticalOverflow:(BOOL)arg3;
-@property(readonly) BOOL verticalOverflow;
-@property(readonly) BOOL horizontalOverflow;
+- (void)initOverflowEvent:(unsigned short)arg1 horizontalOverflow:(_Bool)arg2 verticalOverflow:(_Bool)arg3;
+@property(readonly) _Bool verticalOverflow;
+@property(readonly) _Bool horizontalOverflow;
 @property(readonly) unsigned short orient;
 
 @end

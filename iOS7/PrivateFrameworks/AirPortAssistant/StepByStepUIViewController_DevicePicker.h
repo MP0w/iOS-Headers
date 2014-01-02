@@ -20,20 +20,20 @@
     NSArray *sortedDevices;
     NSString *connectionMedium;
     RecommendationActionController *actionController;
-    BOOL _showSingleBaseTopo;
-    BOOL showFullList;
+    _Bool _showSingleBaseTopo;
+    _Bool showFullList;
 }
 
 @property(retain, nonatomic) RecommendationActionController *actionController; // @synthesize actionController;
 @property(nonatomic) NSString *connectionMedium; // @synthesize connectionMedium;
 @property(retain, nonatomic) NSArray *sortedDevices; // @synthesize sortedDevices;
 - (id)pickerContent;
-- (BOOL)showMoreOptions;
+- (_Bool)showMoreOptions;
 - (void)updateSelections;
 - (void)setupPickerTable;
 - (void)touchInCellAtIndexPath:(id)arg1;
-- (id)valueForItemOfType:(id)arg1 atTypeIndex:(unsigned int)arg2 inCellWithTag:(int)arg3;
-- (void)viewWillAppear:(BOOL)arg1;
+- (id)valueForItemOfType:(id)arg1 atTypeIndex:(unsigned long long)arg2 inCellWithTag:(long long)arg3;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 

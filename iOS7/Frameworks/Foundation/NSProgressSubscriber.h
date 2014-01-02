@@ -8,25 +8,23 @@
 
 #import <Foundation/NSProgressSubscriber-Protocol.h>
 
-@class NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, NSXPCConnection;
+@class NSLock, NSMutableDictionary, NSString, NSXPCConnection;
 
 @interface NSProgressSubscriber : NSObject <NSProgressSubscriber>
 {
     id _publishingHandler;
     NSString *_subscriberID;
-    NSObject<OS_dispatch_queue> *_queue;
     NSMutableDictionary *_proxiesByPublisherID;
     NSXPCConnection *_connection;
+    NSLock *_lock;
 }
 
 - (oneway void)removePublisherForID:(id)arg1;
-- (oneway void)observePublisherForID:(id)arg1 value:(id)arg2 forKey:(id)arg3 inUserInfo:(BOOL)arg4;
-- (oneway void)addPublisher:(id)arg1 forID:(id)arg2 appBundleID:(id)arg3 withValues:(id)arg4 isOld:(BOOL)arg5;
+- (oneway void)observePublisherForID:(id)arg1 value:(id)arg2 forKey:(id)arg3 inUserInfo:(_Bool)arg4;
+- (oneway void)addPublisher:(id)arg1 forID:(id)arg2 withValues:(id)arg3 isOld:(_Bool)arg4;
 - (void)stop;
-- (void)startForGeneral;
 - (void)startForFileURL:(id)arg1;
 - (void)startForCategory:(id)arg1;
-- (void)finalize;
 - (void)dealloc;
 - (id)initWithPublishingHandler:(id)arg1;
 

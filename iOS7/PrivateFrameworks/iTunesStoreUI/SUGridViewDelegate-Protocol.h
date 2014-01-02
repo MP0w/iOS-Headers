@@ -9,10 +9,11 @@
 @protocol SUGridViewDelegate <NSObject>
 
 @optional
-- (float)marginForGridView:(id)arg1;
+- (void)gridViewEditSelectionDidChange:(id)arg1;
+- (double)marginForGridView:(id)arg1;
 - (void)gridView:(id)arg1 willDisplayCell:(id)arg2 forIndexPath:(id)arg3;
-- (id)gridView:(id)arg1 viewForHeaderInSection:(int)arg2;
-- (float)gridView:(id)arg1 heightForHeaderInSection:(int)arg2;
-- (int)gridView:(id)arg1 editingStyleForCellAtIndexPath:(id)arg2;
+- (id)gridView:(id)arg1 viewForHeaderInSection:(long long)arg2;
+- (double)gridView:(id)arg1 heightForHeaderInSection:(long long)arg2;
+- (long long)gridView:(id)arg1 editingStyleForCellAtIndexPath:(id)arg2;
 @end
 

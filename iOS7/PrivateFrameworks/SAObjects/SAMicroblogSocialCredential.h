@@ -18,6 +18,7 @@
 + (id)socialCredential;
 @property(copy, nonatomic) NSString *tokenSecret;
 @property(copy, nonatomic) NSString *socialNetwork;
+@property(copy, nonatomic) NSString *personalizationPermission;
 @property(copy, nonatomic) NSString *accessToken;
 - (id)encodedClassName;
 - (id)groupIdentifier;

@@ -8,6 +8,7 @@
 
 @class EDFormula, EFTableData, NSString;
 
+// Not exported
 @interface EFormula : NSObject
 {
     id <EFHelper> mHelper;
@@ -22,10 +23,10 @@
 + (id)singletonEFormula;
 - (void)setTableData:(id)arg1;
 - (id)tableData;
-- (id)resolveTable:(const char *)arg1 sheetIndex:(unsigned int *)arg2;
-- (unsigned int)resolveFirstSheet:(id)arg1 lastSheet:(id)arg2;
-- (unsigned int)resolveSheet:(const char *)arg1 isCurrentSheet:(char *)arg2;
-- (unsigned int)resolveName:(const char *)arg1;
+- (id)resolveTable:(const char *)arg1 sheetIndex:(unsigned long long *)arg2;
+- (unsigned long long)resolveFirstSheet:(id)arg1 lastSheet:(id)arg2;
+- (unsigned long long)resolveSheet:(const char *)arg1 isCurrentSheet:(_Bool *)arg2;
+- (unsigned long long)resolveName:(const char *)arg1;
 - (id)stringToTokens:(id)arg1;
 - (void)setFormulaClass:(Class)arg1;
 - (Class)formulaClass;

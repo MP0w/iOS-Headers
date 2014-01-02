@@ -16,16 +16,16 @@
 
 - (void)alertWindowViewControllerResizedFromContentFrame:(struct CGRect)arg1 toContentFrame:(struct CGRect)arg2;
 - (void)setAlert:(id)arg1;
-- (BOOL)shouldAddClippingViewDuringRotation;
-- (void)didRotateFromInterfaceOrientation:(int)arg1;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (BOOL)isSupportedInterfaceOrientation:(int)arg1;
-- (void)layoutForInterfaceOrientation:(int)arg1;
-- (BOOL)isAnimatingOut;
-- (BOOL)shouldAnimateIn;
-- (void)setShouldAnimateIn:(BOOL)arg1;
-- (BOOL)isReadyToBeRemovedFromView;
+- (_Bool)shouldAddClippingViewDuringRotation;
+- (void)didRotateFromInterfaceOrientation:(long long)arg1;
+- (void)willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (void)willRotateToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (_Bool)isSupportedInterfaceOrientation:(long long)arg1;
+- (void)layoutForInterfaceOrientation:(long long)arg1;
+- (_Bool)isAnimatingOut;
+- (_Bool)shouldAnimateIn;
+- (void)setShouldAnimateIn:(_Bool)arg1;
+- (_Bool)isReadyToBeRemovedFromView;
 - (void)alertDisplayBecameVisible;
 - (void)alertDisplayWillBecomeVisible;
 - (void)dismiss;

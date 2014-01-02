@@ -31,6 +31,10 @@ struct ANGLEWebKitBridge {
     } _field6;
 };
 
+struct AVSpeechSynthesizer {
+    Class _field1;
+};
+
 struct AXComputedObjectAttributeCache;
 
 struct AXObjectCache {
@@ -87,8 +91,12 @@ struct AccessibilityTableCell {
     int _field14;
 };
 
-struct AlignedBuffer<64, 4> {
-    char buffer[64];
+struct AlignedBuffer<128, 8> {
+    char buffer[128];
+};
+
+struct AlignedBuffer<8, 8> {
+    char _field1[8];
 };
 
 struct AnimationController;
@@ -137,8 +145,8 @@ struct CGImage;
 struct CGPath;
 
 struct CGPoint {
-    float x;
-    float y;
+    double x;
+    double y;
 };
 
 struct CGRect {
@@ -147,8 +155,8 @@ struct CGRect {
 };
 
 struct CGSize {
-    float width;
-    float height;
+    double width;
+    double height;
 };
 
 struct Color {
@@ -159,8 +167,8 @@ struct Color {
 struct ContainerNode;
 
 struct Deque<WebCore::TileController::TileCohortInfo, 0> {
-    unsigned int _field1;
-    unsigned int _field2;
+    unsigned long long _field1;
+    unsigned long long _field2;
     struct VectorBuffer<WebCore::TileController::TileCohortInfo, 0> _field3;
 };
 
@@ -265,16 +273,15 @@ struct FloatSize {
 
 struct Font {
     struct FontDescription _field1;
-    struct RefPtr<WebCore::FontFallbackList> _field2;
+    struct RefPtr<WebCore::FontGlyphs> _field2;
     float _field3;
     float _field4;
     _Bool _field5;
-    _Bool _field6;
-    unsigned int _field7;
+    unsigned int :2;
 };
 
 struct FontDescription {
-    struct FontFamily _field1;
+    struct Vector<WTF::AtomicString, 1, WTF::CrashOnOverflow> _field1;
     struct RefPtr<WebCore::FontFeatureSettings> _field2;
     float _field3;
     float _field4;
@@ -299,14 +306,9 @@ struct FontDescription {
     unsigned int :7;
 };
 
-struct FontFallbackList;
-
-struct FontFamily {
-    struct AtomicString _field1;
-    struct ListRefPtr<WebCore::SharedFontFamily> _field2;
-};
-
 struct FontFeatureSettings;
+
+struct FontGlyphs;
 
 struct Frame {
     unsigned int _field1;
@@ -380,11 +382,13 @@ struct FrameLoader {
     _Bool _field34;
     _Bool _field35;
     _Bool _field36;
-    int _field37;
-    struct RefPtr<WebCore::FrameNetworkingContext> _field38;
-    struct KURL _field39;
-    struct RefPtr<WebCore::HistoryItem> _field40;
-    _Bool _field41;
+    _Bool _field37;
+    int _field38;
+    struct RefPtr<WebCore::FrameNetworkingContext> _field39;
+    struct KURL _field40;
+    struct RefPtr<WebCore::HistoryItem> _field41;
+    struct OwnPtr<WebCore::PageActivityAssertionToken> _field42;
+    _Bool _field43;
 };
 
 struct FrameLoaderClient;
@@ -803,10 +807,6 @@ struct ListHashSetNode<unsigned int, 256>;
 
 struct ListHashSetNodeAllocator<unsigned int, 256>;
 
-struct ListRefPtr<WebCore::SharedFontFamily> {
-    struct SharedFontFamily *_field1;
-};
-
 struct MediaPlayer;
 
 struct MediaPlayerPrivateIOS {
@@ -840,8 +840,8 @@ struct MixedContentChecker {
 
 struct Mutex {
     struct _opaque_pthread_mutex_t {
-        long _field1;
-        char _field2[40];
+        long long _field1;
+        char _field2[56];
     } _field1;
 };
 
@@ -915,6 +915,10 @@ struct OwnPtr<WebCore::IconController> {
     struct IconController *_field1;
 };
 
+struct OwnPtr<WebCore::PageActivityAssertionToken> {
+    struct PageActivityAssertionToken *_field1;
+};
+
 struct OwnPtr<WebCore::PolicyChecker> {
     struct PolicyChecker *_field1;
 };
@@ -949,8 +953,14 @@ struct OwnPtr<WebCore::TileGrid> {
 
 struct Page;
 
+struct PageActivityAssertionToken;
+
 struct PassRefPtr<JSC::Bindings::RootObject> {
     struct RootObject *_field1;
+};
+
+struct PassRefPtr<WebCore::PlatformSpeechSynthesisUtterance> {
+    struct PlatformSpeechSynthesisUtterance *_field1;
 };
 
 struct PassRefPtr<WebCore::Range> {
@@ -971,6 +981,18 @@ struct PlatformCALayer {
 };
 
 struct PlatformCALayerClient;
+
+struct PlatformSpeechSynthesisUtterance;
+
+struct PlatformSpeechSynthesizer {
+    void **_field1;
+    struct Vector<WTF::RefPtr<WebCore::PlatformSpeechSynthesisVoice>, 0, WTF::CrashOnOverflow> _field2;
+    _Bool _field3;
+    struct PlatformSpeechSynthesizerClient *_field4;
+    struct RetainPtr<WebSpeechSynthesisWrapper> _field5;
+};
+
+struct PlatformSpeechSynthesizerClient;
 
 struct PlatformTextTrackMenuInterfaceIOS;
 
@@ -1036,12 +1058,12 @@ struct RefPtr<WebCore::ElementData> {
 
 struct RefPtr<WebCore::FilterOperation>;
 
-struct RefPtr<WebCore::FontFallbackList> {
-    struct FontFallbackList *_field1;
-};
-
 struct RefPtr<WebCore::FontFeatureSettings> {
     struct FontFeatureSettings *_field1;
+};
+
+struct RefPtr<WebCore::FontGlyphs> {
+    struct FontGlyphs *_field1;
 };
 
 struct RefPtr<WebCore::Frame> {
@@ -1070,6 +1092,12 @@ struct RefPtr<WebCore::Node> {
     struct Node *_field1;
 };
 
+struct RefPtr<WebCore::PlatformSpeechSynthesisUtterance> {
+    struct PlatformSpeechSynthesisUtterance *m_ptr;
+};
+
+struct RefPtr<WebCore::PlatformSpeechSynthesisVoice>;
+
 struct RefPtr<WebCore::SerializedScriptValue> {
     struct SerializedScriptValue *_field1;
 };
@@ -1091,6 +1119,10 @@ struct ResourceHandleInternal;
 
 struct ResourceLoadNotifier {
     struct Frame *_field1;
+};
+
+struct RetainPtr<AVSpeechSynthesizer> {
+    struct AVSpeechSynthesizer *m_ptr;
 };
 
 struct RetainPtr<CALayer> {
@@ -1123,6 +1155,10 @@ struct RetainPtr<WebCoreMediaPlayerNotificationHelper> {
 
 struct RetainPtr<WebCoreTextTrackRepresentationIOSHelper> {
     struct WebCoreTextTrackRepresentationIOSHelper *_field1;
+};
+
+struct RetainPtr<WebSpeechSynthesisWrapper> {
+    struct WebSpeechSynthesisWrapper *_field1;
 };
 
 struct RetainPtr<const __CFData *> {
@@ -1163,8 +1199,6 @@ struct SharedBuffer {
     struct RetainPtr<const __CFData *> _field12;
 };
 
-struct SharedFontFamily;
-
 struct String {
     struct RefPtr<WTF::StringImpl> _field1;
 };
@@ -1178,6 +1212,10 @@ struct Strong<JSC::JSGlobalObject> {
 struct SubframeLoader {
     _Bool _field1;
     struct Frame *_field2;
+};
+
+struct TCMalloc_SpinLock {
+    unsigned int lockword_;
 };
 
 struct TextMarkerData {
@@ -1211,21 +1249,54 @@ struct TileCache {
     _Bool _field12;
     _Bool _field13;
     _Bool _field14;
-    struct OwnPtr<WebCore::TileGrid> _field15;
+    _Bool _field15;
     struct OwnPtr<WebCore::TileGrid> _field16;
-    struct Timer<WebCore::TileCache> _field17;
-    struct Vector<WebCore::IntRect, 0, WTF::CrashOnOverflow> _field18;
-    float _field19;
+    struct OwnPtr<WebCore::TileGrid> _field17;
+    struct Timer<WebCore::TileCache> _field18;
+    struct Vector<WebCore::IntRect, 0, WTF::CrashOnOverflow> _field19;
     float _field20;
     float _field21;
-    struct Mutex _field22;
+    float _field22;
     struct Mutex _field23;
     struct Mutex _field24;
+    struct Mutex _field25;
 };
 
 struct TileCacheTombstone;
 
 struct TileCohortInfo;
+
+struct TileController {
+    void **_field1;
+    id _field2;
+    struct RetainPtr<CALayer> _field3;
+    struct RetainPtr<WebTiledScrollingIndicatorLayer> {
+        struct WebTiledScrollingIndicatorLayer *_field1;
+    } _field4;
+    struct IntSize _field5;
+    struct FloatRect _field6;
+    struct FloatRect _field7;
+    struct FloatRect _field8;
+    struct IntRect _field9;
+    struct HashMap<WebCore::IntPoint, WebCore::TileController::TileInfo, WTF::IntPointHash, WTF::HashTraits<WebCore::IntPoint>, WTF::HashTraits<WebCore::TileController::TileInfo>> _field10;
+    struct Timer<WebCore::TileController> _field11;
+    struct Timer<WebCore::TileController> _field12;
+    struct Deque<WebCore::TileController::TileCohortInfo, 0> _field13;
+    struct IntRect _field14;
+    double _field15;
+    double _field16;
+    unsigned int _field17;
+    _Bool _field18;
+    _Bool _field19;
+    _Bool _field20;
+    _Bool _field21;
+    _Bool _field22;
+    _Bool _field23;
+    _Bool _field24;
+    struct RetainPtr<CGColor *> _field25;
+    float _field26;
+    int _field27;
+};
 
 struct TileGrid {
     struct TileCache *_field1;
@@ -1313,6 +1384,13 @@ struct TransformationMatrix {
 
 struct TreeScope;
 
+struct Vector<WTF::AtomicString, 1, WTF::CrashOnOverflow> {
+    struct AtomicString *_field1;
+    unsigned int _field2;
+    unsigned int _field3;
+    struct AlignedBuffer<8, 8> _field4;
+};
+
 struct Vector<WTF::RefPtr<WebCore::AccessibilityObject>, 0, WTF::CrashOnOverflow> {
     struct RefPtr<WebCore::AccessibilityObject> *_field1;
     unsigned int _field2;
@@ -1333,6 +1411,12 @@ struct Vector<WTF::RefPtr<WebCore::InbandTextTrackPrivateAVFIOS>, 0, WTF::CrashO
 
 struct Vector<WTF::RefPtr<WebCore::PlatformCALayer>, 0, WTF::CrashOnOverflow>;
 
+struct Vector<WTF::RefPtr<WebCore::PlatformSpeechSynthesisVoice>, 0, WTF::CrashOnOverflow> {
+    struct RefPtr<WebCore::PlatformSpeechSynthesisVoice> *_field1;
+    unsigned int _field2;
+    unsigned int _field3;
+};
+
 struct Vector<WTF::RetainPtr<const __CFData *>, 0, WTF::CrashOnOverflow> {
     struct RetainPtr<const __CFData *> *_field1;
     unsigned int _field2;
@@ -1342,8 +1426,8 @@ struct Vector<WTF::RetainPtr<const __CFData *>, 0, WTF::CrashOnOverflow> {
 struct Vector<WTF::RetainPtr<const __CTFontDescriptor *>, 16, WTF::CrashOnOverflow> {
     struct RetainPtr<const __CTFontDescriptor *> *m_buffer;
     unsigned int m_capacity;
-    struct AlignedBuffer<64, 4> m_inlineBuffer;
     unsigned int m_size;
+    struct AlignedBuffer<128, 8> m_inlineBuffer;
 };
 
 struct Vector<WTF::Vector<float, 0, WTF::CrashOnOverflow>, 0, WTF::CrashOnOverflow> {
@@ -1389,6 +1473,7 @@ struct Vector<std::__1::pair<WTF::RefPtr<WebCore::AccessibilityObject>, WebCore:
 struct VectorBuffer<WebCore::TileController::TileCohortInfo, 0> {
     struct TileCohortInfo *_field1;
     unsigned int _field2;
+    unsigned int _field3;
 };
 
 struct ViewportArguments {
@@ -1451,12 +1536,19 @@ struct WebAccessibilityObjectWrapper {
 struct WebCoreMediaPlayerNotificationHelper {
     Class _field1;
     struct MediaPlayerPrivateIOS *_field2;
-    char _field3;
+    _Bool _field3;
 };
 
 struct WebCoreTextTrackRepresentationIOSHelper {
     Class _field1;
     struct TextTrackRepresentationIOS *_field2;
+};
+
+struct WebSpeechSynthesisWrapper {
+    Class _field1;
+    struct PlatformSpeechSynthesizer *_field2;
+    struct RefPtr<WebCore::PlatformSpeechSynthesisUtterance> _field3;
+    struct RetainPtr<AVSpeechSynthesizer> _field4;
 };
 
 struct WebTiledScrollingIndicatorLayer {
@@ -1474,12 +1566,11 @@ struct _CALayerIvars {
     int _field1;
     unsigned int _field2;
     void *_field3;
-    void *_field4[8];
 };
 
 struct _NSRange {
-    unsigned int _field1;
-    unsigned int _field2;
+    unsigned long long _field1;
+    unsigned long long _field2;
 };
 
 struct _WKClassInfo;
@@ -1523,7 +1614,7 @@ typedef struct ?<WebAccessibilityObjectWrapper> {
 
 typedef struct ?<WebTiledScrollingIndicatorLayer> {
     struct WebTiledScrollingIndicatorLayer *_field1;
-} RetainPtr_11121e71;
+} RetainPtr_dcd9ecbb;
 
 typedef struct {
     void **_field1;
@@ -1537,70 +1628,6 @@ typedef struct {
         struct WebAccessibilityObjectWrapper *_field1;
     } _field8;
 } AccessibilityObject_acca7b3e;
-
-typedef struct {
-    void **_field1;
-    id _field2;
-    struct RetainPtr<CALayer> _field3;
-    struct RetainPtr<WebTiledScrollingIndicatorLayer> {
-        struct WebTiledScrollingIndicatorLayer *_field1;
-    } _field4;
-    struct IntSize _field5;
-    struct FloatRect _field6;
-    struct FloatRect _field7;
-    struct FloatRect _field8;
-    struct IntRect _field9;
-    struct HashMap<WebCore::IntPoint, WebCore::TileController::TileInfo, WTF::IntPointHash, WTF::HashTraits<WebCore::IntPoint>, WTF::HashTraits<WebCore::TileController::TileInfo>> _field10;
-    struct Timer<WebCore::TileController> _field11;
-    struct Timer<WebCore::TileController> _field12;
-    struct Deque<WebCore::TileController::TileCohortInfo, 0> _field13;
-    struct IntRect _field14;
-    float _field15;
-    float _field16;
-    unsigned int _field17;
-    _Bool _field18;
-    _Bool _field19;
-    _Bool _field20;
-    _Bool _field21;
-    _Bool _field22;
-    _Bool _field23;
-    _Bool _field24;
-    struct RetainPtr<CGColor *> _field25;
-    float _field26;
-    int _field27;
-} TileController_fc2949d0;
-
-typedef struct {
-    void **_field1;
-    id _field2;
-    struct RetainPtr<CALayer> _field3;
-    struct RetainPtr<WebTiledScrollingIndicatorLayer> {
-        struct WebTiledScrollingIndicatorLayer *_field1;
-    } _field4;
-    struct IntSize _field5;
-    struct FloatRect _field6;
-    struct FloatRect _field7;
-    struct FloatRect _field8;
-    struct IntRect _field9;
-    struct HashMap<WebCore::IntPoint, WebCore::TileController::TileInfo, WTF::IntPointHash, WTF::HashTraits<WebCore::IntPoint>, WTF::HashTraits<WebCore::TileController::TileInfo>> _field10;
-    struct Timer<WebCore::TileController> _field11;
-    struct Timer<WebCore::TileController> _field12;
-    struct Deque<WebCore::TileController::TileCohortInfo, 0> _field13;
-    struct IntRect _field14;
-    float _field15;
-    float _field16;
-    unsigned int _field17;
-    _Bool _field18;
-    _Bool _field19;
-    _Bool _field20;
-    _Bool _field21;
-    _Bool _field22;
-    _Bool _field23;
-    _Bool _field24;
-    struct RetainPtr<CGColor *> _field25;
-    float _field26;
-    int _field27;
-} TileController_b19e9b86;
 
 typedef struct {
     void **_field1;
@@ -1624,6 +1651,10 @@ typedef struct PassRefPtr<JSC::Bindings::RootObject> {
     struct RootObject *_field1;
 } PassRefPtr_8e019d1c;
 
+typedef struct PassRefPtr<WebCore::PlatformSpeechSynthesisUtterance> {
+    struct PlatformSpeechSynthesisUtterance *_field1;
+} PassRefPtr_be564a52;
+
 typedef struct PassRefPtr<WebCore::Range> {
     struct Range *_field1;
 } PassRefPtr_d7fc6f43;
@@ -1637,7 +1668,7 @@ union DataUnion {
 
 union EncodedValueDescriptor {
     long long _field1;
-    double _field2;
+    struct JSCell *_field2;
     struct {
         int _field1;
         int _field2;

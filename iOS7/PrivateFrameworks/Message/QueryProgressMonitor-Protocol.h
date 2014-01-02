@@ -5,6 +5,6 @@
  */
 
 @protocol QueryProgressMonitor
-- (BOOL)shouldCancel;
+- (_Bool)shouldCancel;
 @end
 

@@ -7,6 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol SUStorePageViewControllerResponder <NSObject>
-- (void)storePage:(id)arg1 finishedWithSuccess:(BOOL)arg2;
+- (void)storePage:(id)arg1 finishedWithSuccess:(_Bool)arg2;
 @end
 

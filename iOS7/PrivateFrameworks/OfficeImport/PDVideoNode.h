@@ -6,13 +6,14 @@
 
 #import <OfficeImport/PDMediaNode.h>
 
+// Not exported
 @interface PDVideoNode : PDMediaNode
 {
-    BOOL mIsFullScreen;
+    _Bool mIsFullScreen;
 }
 
-- (void)setIsFullScreen:(BOOL)arg1;
-- (BOOL)isFullScreen;
+- (void)setIsFullScreen:(_Bool)arg1;
+- (_Bool)isFullScreen;
 
 @end
 

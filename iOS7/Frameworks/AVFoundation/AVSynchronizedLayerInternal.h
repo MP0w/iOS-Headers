@@ -11,7 +11,7 @@
 @interface AVSynchronizedLayerInternal : NSObject
 {
     AVPlayerItem *playerItem;
-    BOOL isVisible;
+    _Bool isVisible;
     NSObject<OS_dispatch_queue> *serialQueue;
 }
 

@@ -8,9 +8,10 @@
 
 @class NSConditionLock, NSMutableArray, UIKeyboardTaskExecutionContext;
 
+// Not exported
 @interface UIKeyboardTaskQueue : NSObject
 {
-    BOOL _executingOnMainThread;
+    _Bool _executingOnMainThread;
     NSConditionLock *_lock;
     NSMutableArray *_tasks;
     NSMutableArray *_deferredTasks;
@@ -19,7 +20,7 @@
 }
 
 @property(retain, nonatomic) UIKeyboardTaskExecutionContext *executionContext; // @synthesize executionContext=_executionContext;
-- (BOOL)isMainThreadExecutingTask;
+- (_Bool)isMainThreadExecutingTask;
 - (void)performTask:(id)arg1;
 - (void)waitUntilAllTasksAreFinished;
 - (void)addDeferredTask:(id)arg1;
@@ -30,7 +31,7 @@
 - (void)finishExecution;
 - (void)continueExecutionOnMainThread;
 - (void)unlock;
-- (BOOL)tryLockWhenReadyForMainThread;
+- (_Bool)tryLockWhenReadyForMainThread;
 - (void)lockWhenReadyForMainThread;
 - (void)lock;
 - (id)init;

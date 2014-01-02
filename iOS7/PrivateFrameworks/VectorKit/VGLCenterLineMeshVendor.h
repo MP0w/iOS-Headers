@@ -6,6 +6,7 @@
 
 #import <VectorKit/VGLMeshVendor.h>
 
+// Not exported
 @interface VGLCenterLineMeshVendor : VGLMeshVendor
 {
     int _centerLineMeshType;

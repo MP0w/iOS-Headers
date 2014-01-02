@@ -14,7 +14,7 @@
 - (void)_copySelfToSnapshot:(id)arg1;
 - (id)snapshot;
 - (id)imprint;
-@property(readonly, nonatomic) BOOL isSnapshot;
+@property(readonly, nonatomic) _Bool isSnapshot;
 - (void)demolish;
 - (void)dealloc;
 - (void)finalize;

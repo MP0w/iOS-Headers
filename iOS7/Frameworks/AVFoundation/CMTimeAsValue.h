@@ -13,13 +13,13 @@
 
 + (id)valueWithCMTime:(CDStruct_1b6d18a9)arg1;
 - (id)description;
-- (unsigned int)unsignedIntegerValue;
-- (int)integerValue;
-- (BOOL)boolValue;
+- (unsigned long long)unsignedIntegerValue;
+- (long long)integerValue;
+- (_Bool)boolValue;
 - (unsigned long long)unsignedLongLongValue;
 - (long long)longLongValue;
-- (unsigned long)unsignedLongValue;
-- (long)longValue;
+- (unsigned long long)unsignedLongValue;
+- (long long)longValue;
 - (unsigned int)unsignedIntValue;
 - (int)intValue;
 - (unsigned short)unsignedShortValue;

@@ -13,14 +13,14 @@
 
 @interface MPAnimationPath : NSObject <NSCoding, NSCopying>
 {
-    BOOL _isTriggered;
+    _Bool _isTriggered;
     NSObject<MPAnimationSupport> *_parentObject;
     MCAnimationPath *_animationPath;
 }
 
 + (id)animationPath;
 - (id)parent;
-@property BOOL isTriggered;
+@property _Bool isTriggered;
 - (id)key;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -28,13 +28,6 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)init;
-- (id)animationPath;
-- (void)cleanup;
-- (void)setAnimationPath:(id)arg1;
-- (id)parentDocument;
-- (id)animatedKey;
-- (id)animatedParent;
-- (void)setParent:(id)arg1;
 
 @end
 

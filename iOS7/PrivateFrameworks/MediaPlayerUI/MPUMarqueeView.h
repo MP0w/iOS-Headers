@@ -6,30 +6,28 @@
 
 #import "UIView.h"
 
-@class CAKeyframeAnimation;
-
 @interface MPUMarqueeView : UIView
 {
-    CAKeyframeAnimation *_marqueeAnimation;
-    BOOL _marqueeEnabled;
-    float _contentGap;
+    _Bool _marqueeEnabled;
+    double _contentGap;
     UIView *_contentView;
-    struct CGSize _contentSize;
     double _marqueeDelay;
     double _marqueeScrollRate;
+    struct CGSize _contentSize;
 }
 
-@property(nonatomic, getter=isMarqueeEnabled) BOOL marqueeEnabled; // @synthesize marqueeEnabled=_marqueeEnabled;
+@property(nonatomic, getter=isMarqueeEnabled) _Bool marqueeEnabled; // @synthesize marqueeEnabled=_marqueeEnabled;
 @property(nonatomic) double marqueeScrollRate; // @synthesize marqueeScrollRate=_marqueeScrollRate;
 @property(nonatomic) double marqueeDelay; // @synthesize marqueeDelay=_marqueeDelay;
 @property(readonly, nonatomic) UIView *contentView; // @synthesize contentView=_contentView;
 @property(nonatomic) struct CGSize contentSize; // @synthesize contentSize=_contentSize;
-@property(nonatomic) float contentGap; // @synthesize contentGap=_contentGap;
+@property(nonatomic) double contentGap; // @synthesize contentGap=_contentGap;
 - (void).cxx_destruct;
-- (void)_createMarqueeAnimationIfNeeded;
 - (void)_tearDownMarqueeAnimation;
+- (void)_createMarqueeAnimationIfNeeded;
 - (void)resetMarqueePosition;
-- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
+- (void)setMarqueeEnabled:(_Bool)arg1 allowCurrentMarqueeToFinish:(_Bool)arg2;
+- (void)animationDidStop:(id)arg1 finished:(_Bool)arg2;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)setBounds:(struct CGRect)arg1;
 - (void)layoutSubviews;

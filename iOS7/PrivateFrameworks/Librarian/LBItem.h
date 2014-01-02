@@ -8,6 +8,7 @@
 
 @class NSMutableDictionary, NSString, NSURL;
 
+// Not exported
 @interface LBItem : NSObject
 {
     NSURL *_url;

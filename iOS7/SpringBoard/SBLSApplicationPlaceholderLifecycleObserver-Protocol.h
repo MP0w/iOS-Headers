@@ -5,7 +5,7 @@
  */
 
 @protocol SBLSApplicationPlaceholderLifecycleObserver
-- (void)applicationPlaceholdersNetworkUsageChanged:(BOOL)arg1;
+- (void)applicationPlaceholdersNetworkUsageChanged:(_Bool)arg1;
 - (void)applicationPlaceholdersIconUpdated:(id)arg1;
 - (void)applicationPlaceholdersInstalled:(id)arg1;
 - (void)applicationPlaceholdersCancelled:(id)arg1;

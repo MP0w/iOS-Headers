@@ -8,6 +8,7 @@
 
 @class NSArray, NSEntityDescription, NSKnownKeysMappingStrategy, NSMutableArray, NSMutableDictionary, NSSQLEntityKey, NSSQLModel, NSSQLOptLockKey, NSSQLPrimaryKey, NSSQLStatement, NSSQLStoreMappingGenerator, NSString;
 
+// Not exported
 @interface NSSQLEntity : NSStoreMapping
 {
     NSSQLModel *_model;
@@ -49,7 +50,7 @@
 }
 
 - (id)propertyMapping;
-- (BOOL)addPropertiesForReadOnlyFetch:(id)arg1 keys:(id)arg2 context:(id)arg3;
+- (_Bool)addPropertiesForReadOnlyFetch:(id)arg1 keys:(id)arg2 context:(id)arg3;
 - (void)copyValuesForReadOnlyFetch:(id)arg1;
 - (id)mappingGenerator;
 - (struct _NSRange)_toOneRange;
@@ -70,9 +71,9 @@
 - (unsigned int)_pkCount;
 - (id)rootEntity;
 - (id)model;
-- (BOOL)hasAttributesWithExternalDataReferences;
-- (BOOL)_entityIsBroken:(id *)arg1;
-- (BOOL)_collectFKSlots:(id)arg1 error:(id *)arg2;
+- (_Bool)hasAttributesWithExternalDataReferences;
+- (_Bool)_entityIsBroken:(id *)arg1;
+- (_Bool)_collectFKSlots:(id)arg1 error:(id *)arg2;
 - (void *)_odiousHashHack;
 - (void)_doPostModelGenerationCleanup;
 - (unsigned int)_generateIDWithSuperEntity:(id)arg1 nextID:(unsigned int)arg2;
@@ -86,16 +87,16 @@
 - (id)relationshipNamed:(id)arg1;
 - (id)attributeNamed:(id)arg1;
 - (id)propertyNamed:(id)arg1;
-- (BOOL)isKindOfSQLEntity:(id)arg1;
+- (_Bool)isKindOfSQLEntity:(id)arg1;
 - (unsigned int)subentityMaxID;
 - (unsigned int)entityID;
 - (void)setSuperentity:(id)arg1;
 - (void)_addSubentity:(id)arg1;
 - (id)superentity;
-- (BOOL)isRootEntity;
+- (_Bool)isRootEntity;
 - (void)setSubentities:(id)arg1;
-- (BOOL)hasInheritance;
-- (BOOL)hasSubentities;
+- (_Bool)hasInheritance;
+- (_Bool)hasSubentities;
 - (id)subentities;
 - (id)optLockKey;
 - (id)primaryKey;
@@ -119,8 +120,6 @@
 - (void)finalize;
 - (id)_propertySearchMapping;
 - (id)initWithModel:(id)arg1 entityDescription:(id)arg2;
-- (id)attributes;
-- (id)externalName;
 
 @end
 

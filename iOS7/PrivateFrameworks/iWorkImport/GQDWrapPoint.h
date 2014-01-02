@@ -8,6 +8,7 @@
 
 @class GQDDrawable;
 
+// Not exported
 @interface GQDWrapPoint : NSObject
 {
     struct CGPoint mPoint;
@@ -19,7 +20,7 @@
 
 - (id).cxx_construct;
 - (int)zIndex;
-- (int)comparePoint:(id)arg1;
+- (long long)comparePoint:(id)arg1;
 - (id)initWithX:(float)arg1 y:(float)arg2 flowType:(int)arg3 drawable:(id)arg4;
 
 @end

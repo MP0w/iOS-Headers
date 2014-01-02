@@ -6,11 +6,15 @@
 
 #import "NSObject.h"
 
+@class NSDate;
+
 @interface SBWorkItem : NSObject
 {
     id _workBlock;
+    NSDate *_creationDate;
 }
 
+@property(readonly, nonatomic) NSDate *creationDate; // @synthesize creationDate=_creationDate;
 @property(readonly, nonatomic) id work; // @synthesize work=_workBlock;
 - (void)dealloc;
 - (id)initWithWork:(id)arg1;

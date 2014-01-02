@@ -7,40 +7,53 @@
 #import <PhotosUI/PUNavigationTransition.h>
 
 #import "PUCollectionViewLayoutTransitioningDelegate-Protocol.h"
+#import "PUTransitionViewAnimatorDelegate-Protocol.h"
 
-@class NSSet, PUStackedAlbumLayout, PUStackedAlbumTransitionLayout, UIViewController<PUStackedAlbumControllerTransition>;
+@class NSSet, PUPhotoPinchGestureRecognizer, PUStackedAlbumLayout, PUStackedAlbumTransitionLayout, PUTransitionViewAnimator, UIView, UIViewController<PUStackedAlbumControllerTransition>;
 
-@interface PUStackedAlbumTransition : PUNavigationTransition <PUCollectionViewLayoutTransitioningDelegate>
+@interface PUStackedAlbumTransition : PUNavigationTransition <PUCollectionViewLayoutTransitioningDelegate, PUTransitionViewAnimatorDelegate>
 {
-    BOOL _isPushTransition;
     struct CGRect _popTransitionInitialVisibleBounds;
     NSSet *_popTransitionInitialVisibleStackedAssetIndexPaths;
+    UIView *_animatorView;
+    _Bool _isExpanding;
+    _Bool _isForStandInAlbum;
     id <PLAssetContainer> _photoCollection;
     id <PUStackedAlbumTransitionDelegate> _delegate;
-    UIViewController<PUStackedAlbumControllerTransition> *__interactiveViewController;
     PUStackedAlbumLayout *__transitionLayout;
     PUStackedAlbumTransitionLayout *__interactiveTransitionLayout;
+    PUTransitionViewAnimator *__transitionViewAnimator;
+    PUPhotoPinchGestureRecognizer *__photoPinchGestureRecognizer;
     id __disableToken;
     struct CGPoint _interactionCenter;
 }
 
 @property(retain, nonatomic, setter=_setDisableToken:) id _disableToken; // @synthesize _disableToken=__disableToken;
+@property(retain, nonatomic, setter=_setPhotoPinchGestureRecognizer:) PUPhotoPinchGestureRecognizer *_photoPinchGestureRecognizer; // @synthesize _photoPinchGestureRecognizer=__photoPinchGestureRecognizer;
+@property(retain, nonatomic, setter=_setTransitionViewAnimator:) PUTransitionViewAnimator *_transitionViewAnimator; // @synthesize _transitionViewAnimator=__transitionViewAnimator;
 @property(retain, nonatomic, setter=_setInteractiveTransitionLayout:) PUStackedAlbumTransitionLayout *_interactiveTransitionLayout; // @synthesize _interactiveTransitionLayout=__interactiveTransitionLayout;
-@property(retain, nonatomic, setter=_setTransitionLayout:) PUStackedAlbumLayout *_transitionLayout; // @synthesize _transitionLayout=__transitionLayout;
-@property(nonatomic, setter=_setInteractiveViewController:) __weak UIViewController<PUStackedAlbumControllerTransition> *_interactiveViewController; // @synthesize _interactiveViewController=__interactiveViewController;
+@property(nonatomic, setter=_setTransitionLayout:) __weak PUStackedAlbumLayout *_transitionLayout; // @synthesize _transitionLayout=__transitionLayout;
 @property(nonatomic) struct CGPoint interactionCenter; // @synthesize interactionCenter=_interactionCenter;
+@property(nonatomic, setter=setForStandInAlbum:) _Bool isForStandInAlbum; // @synthesize isForStandInAlbum=_isForStandInAlbum;
+- (void)_setExpanding:(_Bool)arg1;
+@property(nonatomic) _Bool isExpanding; // @synthesize isExpanding=_isExpanding;
 @property(nonatomic) __weak id <PUStackedAlbumTransitionDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) id <PLAssetContainer> photoCollection; // @synthesize photoCollection=_photoCollection;
 - (void).cxx_destruct;
+- (void)transitionViewAnimatorDidEnd:(id)arg1 finished:(_Bool)arg2;
+- (void)transitionViewAnimatorWillEnd:(id)arg1 withTargetTranslation:(inout struct CGPoint *)arg2;
+- (void)transitionViewAnimatorDidUpdate:(id)arg1;
+- (_Bool)collectionViewLayoutShouldProvideCustomAnimations:(id)arg1;
 - (void)collectionViewLayout:(id)arg1 willSupplyLayoutAttributes:(id)arg2;
 - (void)animatePopTransition;
 - (void)animatePushTransition;
-- (void)completeInteractivePopTransitionFinished:(BOOL)arg1;
-- (void)completeInteractivePushTransitionFinished:(BOOL)arg1;
-- (void)updateInteractiveTransitionProgress:(float)arg1 interactionCenterOffset:(struct CGSize)arg2;
-- (void)_commonCompleteInteractiveTransitionFinished:(BOOL)arg1;
+- (void)completeInteractiveOperation:(long long)arg1 finished:(_Bool)arg2;
+- (void)updateInteractiveTransitionWithPhotoPinchGestureRecognizer:(id)arg1;
+- (void)startInteractiveTransitionWithPhotoPinchGestureRecognizer:(id)arg1 isExpanding:(_Bool)arg2;
 - (id)_popTransitionInitialVisibleStackedAssetIndexPaths:(id)arg1;
-- (id)_newTransitionLayoutWithStackedAlbumLayout:(id)arg1 otherLayout:(id)arg2 forPush:(BOOL)arg3;
+- (id)_newTransitionLayoutWithStackedAlbumLayout:(id)arg1 otherLayout:(id)arg2 forPush:(_Bool)arg3;
+- (id)_newInteractiveTransitionViewAnimatorForLayout:(id)arg1 collectionView:(id)arg2;
+- (id)init;
 
 // Remaining properties
 @property(readonly, nonatomic) UIViewController<PUStackedAlbumControllerTransition> *fromViewController;

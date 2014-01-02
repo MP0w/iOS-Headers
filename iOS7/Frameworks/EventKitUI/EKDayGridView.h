@@ -6,18 +6,21 @@
 
 #import "UIView.h"
 
-@class EKCurrentTimeMarkerView, NSMutableArray, NSTimer, UIColor, UIImageView;
+#import "EKCurrentTimeMarkerViewUpdating-Protocol.h"
 
-@interface EKDayGridView : UIView
+@class EKCurrentTimeMarkerView, NSMutableArray, UIColor, UIImageView;
+
+// Not exported
+@interface EKDayGridView : UIView <EKCurrentTimeMarkerViewUpdating>
 {
-    float _timeInset;
-    float _hourHeight;
-    float _timeWidth;
+    double _timeInset;
+    double _hourHeight;
+    double _timeWidth;
     unsigned int _leftBorder:1;
     unsigned int _rightBorder:1;
     int _selected;
-    float _fixedDayWidth;
-    int _orientation;
+    double _fixedDayWidth;
+    long long _orientation;
     struct CGRect _lastBounds;
     UIColor *_backgroundColor;
     UIView *_leftBorderView;
@@ -25,60 +28,57 @@
     UIView *_rightBorderView;
     UIView *_topPattern;
     UIView *_bottomPattern;
-    unsigned int _daysToDisplay;
+    unsigned long long _daysToDisplay;
     EKCurrentTimeMarkerView *_timeMarker;
     UIImageView *_timeDot;
-    NSTimer *_timeMarkerTimer;
-    BOOL _rightBorderInsetsOccurrences;
-    BOOL _showsTimeLine;
-    BOOL _showsTimeMarker;
+    _Bool _rightBorderInsetsOccurrences;
+    _Bool _showsTimeLine;
+    _Bool _showsTimeMarker;
+    _Bool _usesVibrantGridDrawing;
     UIColor *_lineColor;
-    int _timeMarkerDotDay;
-    float _eventHorizontalInset;
-    int _hoursToPadTop;
-    int _hoursToPadBottom;
+    long long _timeMarkerDotDay;
+    double _eventHorizontalInset;
+    double _hoursToPadTop;
+    double _hoursToPadBottom;
 }
 
 + (void)cacheBackgroundImage:(id)arg1 forKey:(id)arg2;
 + (id)cachedBackgroundImageForKey:(id)arg1;
 @property(readonly, nonatomic) EKCurrentTimeMarkerView *timeMarker; // @synthesize timeMarker=_timeMarker;
-@property(nonatomic) int hoursToPadBottom; // @synthesize hoursToPadBottom=_hoursToPadBottom;
-@property(nonatomic) int hoursToPadTop; // @synthesize hoursToPadTop=_hoursToPadTop;
-@property(nonatomic) float eventHorizontalInset; // @synthesize eventHorizontalInset=_eventHorizontalInset;
-@property(nonatomic) int timeMarkerDotDay; // @synthesize timeMarkerDotDay=_timeMarkerDotDay;
-@property(nonatomic) BOOL showsTimeMarker; // @synthesize showsTimeMarker=_showsTimeMarker;
-@property(nonatomic) BOOL showsTimeLine; // @synthesize showsTimeLine=_showsTimeLine;
-@property(nonatomic) BOOL rightBorderInsetsOccurrences; // @synthesize rightBorderInsetsOccurrences=_rightBorderInsetsOccurrences;
+@property(nonatomic) _Bool usesVibrantGridDrawing; // @synthesize usesVibrantGridDrawing=_usesVibrantGridDrawing;
+@property(nonatomic) double hoursToPadBottom; // @synthesize hoursToPadBottom=_hoursToPadBottom;
+@property(nonatomic) double hoursToPadTop; // @synthesize hoursToPadTop=_hoursToPadTop;
+@property(nonatomic) double eventHorizontalInset; // @synthesize eventHorizontalInset=_eventHorizontalInset;
+@property(nonatomic) long long timeMarkerDotDay; // @synthesize timeMarkerDotDay=_timeMarkerDotDay;
+@property(nonatomic) _Bool showsTimeMarker; // @synthesize showsTimeMarker=_showsTimeMarker;
+@property(nonatomic) _Bool showsTimeLine; // @synthesize showsTimeLine=_showsTimeLine;
+@property(nonatomic) _Bool rightBorderInsetsOccurrences; // @synthesize rightBorderInsetsOccurrences=_rightBorderInsetsOccurrences;
 - (void).cxx_destruct;
 - (id)_generateGridImage;
 - (void)layoutSubviews;
-- (float)_dayWidth;
+- (double)_dayWidth;
 @property(retain, nonatomic) UIColor *lineColor; // @synthesize lineColor=_lineColor;
-@property(nonatomic) float fixedDayWidth;
-@property(nonatomic, getter=isSelected) BOOL selected;
-- (int)secondAtPosition:(float)arg1;
-- (float)positionOfSecond:(int)arg1;
-@property(readonly, nonatomic) float timeWidth;
-@property(readonly, nonatomic) float widthForOccurrences;
+@property(nonatomic) double fixedDayWidth;
+@property(nonatomic, getter=isSelected) _Bool selected;
+- (int)secondAtPosition:(double)arg1;
+- (double)positionOfSecond:(int)arg1;
+@property(readonly, nonatomic) double timeWidth;
+@property(readonly, nonatomic) double widthForOccurrences;
 - (struct CGRect)rectForStartSeconds:(int)arg1 endSeconds:(int)arg2;
-@property(nonatomic) BOOL showsRightBorder;
-@property(nonatomic) BOOL showsLeftBorder;
+@property(nonatomic) _Bool showsRightBorder;
+@property(nonatomic) _Bool showsLeftBorder;
 - (void)_updateTimeMarker;
 - (id)timeDotImage;
 - (void)updateMarkerPosition;
-- (void)removeFromSuperview;
-- (void)_invalidateMarkerTimer;
-- (void)_setMarkerTimer;
-- (void)dealloc;
-- (float)hourHeight;
-@property(readonly, nonatomic) float timeInset;
+- (double)hourHeight;
+@property(readonly, nonatomic) double timeInset;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (float)bottomPadding;
-- (float)topPadding;
-- (void)setOrientation:(int)arg1;
+- (double)bottomPadding;
+- (double)topPadding;
+- (void)setOrientation:(long long)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)addSubview:(id)arg1;
-- (id)initWithFrame:(struct CGRect)arg1 backgroundColor:(id)arg2 opaque:(BOOL)arg3 numberOfDaysToDisplay:(unsigned int)arg4;
+- (id)initWithFrame:(struct CGRect)arg1 backgroundColor:(id)arg2 opaque:(_Bool)arg3 numberOfDaysToDisplay:(unsigned long long)arg4;
 
 @end
 

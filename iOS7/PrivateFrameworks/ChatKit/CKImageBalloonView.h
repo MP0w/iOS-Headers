@@ -17,15 +17,15 @@
     UIImageView *_tailMask;
 }
 
-+ (BOOL)fixedWidth;
 @property(retain, nonatomic) UIImageView *tailMask; // @synthesize tailMask=_tailMask;
 @property(copy, nonatomic) NSArray *frames; // @synthesize frames=_frames;
 @property(retain, nonatomic) CKAnimatedImage *animatedImage; // @synthesize animatedImage=_animatedImage;
 - (void)updateAnimationTimerObserving;
-- (void)animationTimerFired:(unsigned int)arg1;
-- (void)setCanUseOpaqueMask:(BOOL)arg1;
-- (void)setHasTail:(BOOL)arg1;
+- (void)animationTimerFired:(unsigned long long)arg1;
+- (void)setCanUseOpaqueMask:(_Bool)arg1;
+- (void)setHasTail:(_Bool)arg1;
 - (void)prepareForReuse;
+- (id)overlayColor;
 - (void)prepareForDisplay;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1 textAlignmentInsets:(struct UIEdgeInsets *)arg2;
 - (void)didMoveToWindow;
@@ -33,7 +33,6 @@
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)description;
 - (void)dealloc;
-- (void)configureForMessagePart:(id)arg1;
 
 @end
 

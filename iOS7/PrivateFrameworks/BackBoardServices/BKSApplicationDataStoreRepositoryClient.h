@@ -21,12 +21,12 @@
 - (void)fireCompletion:(id)arg1 error:(void)arg2;
 - (id)clientCallbackQueue;
 - (void)_sendMessageType:(int)arg1 withMessage:(id)arg2 withReplyHandler:(void)arg3 waitForReply:(id)arg4;
-- (BOOL)_prefetchedObjectIfAvailableForKey:(id)arg1 application:(id)arg2 outObject:(id *)arg3;
+- (_Bool)_prefetchedObjectIfAvailableForKey:(id)arg1 application:(id)arg2 outObject:(id *)arg3;
 - (void)_setPrefetchedObjectIfNecessary:(id)arg1 forKey:(id)arg2 application:(id)arg3;
 - (void)_handleStoreInvalidated:(id)arg1;
 - (id)_allPrefetchedChangesInFlightForApplication:(id)arg1;
-- (BOOL)_isChangeInFlightForPrefetchedKey:(id)arg1 application:(id)arg2;
-- (void)_setChangeInFlight:(BOOL)arg1 forPrefetchedKey:(id)arg2 application:(id)arg3;
+- (_Bool)_isChangeInFlightForPrefetchedKey:(id)arg1 application:(id)arg2;
+- (void)_setChangeInFlight:(_Bool)arg1 forPrefetchedKey:(id)arg2 application:(id)arg3;
 - (void)_handleValueChanged:(id)arg1;
 - (void)queue_handleMessage:(id)arg1;
 - (void)queue_connectionWasCreated;

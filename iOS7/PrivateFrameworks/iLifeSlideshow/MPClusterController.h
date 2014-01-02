@@ -13,7 +13,7 @@
     NSMutableDictionary *mSlides;
     NSMutableDictionary *mSlideClusters;
     MPCluster *mAllSlidesCluster;
-    float mMinimumRequiredClusterRating;
+    double mMinimumRequiredClusterRating;
     MPDocument *mAuthoredDocument;
     NSDate *mOldestSlideTimestamp;
     NSDate *mNewestSlideTimestamp;
@@ -69,7 +69,7 @@
 - (void)removeAllSingleSlideClusters;
 - (id)findBestClusterBasedOnUserDefinedSlideOrder:(id)arg1 startingWithSlide:(id)arg2;
 - (id)findBestChronologicalCluster:(id)arg1 startingWithSlide:(id)arg2;
-- (id)findBestCluster:(id)arg1 withMaxEffectSize:(int)arg2 idealEffectSize:(int)arg3;
+- (id)findBestCluster:(id)arg1 withMaxEffectSize:(long long)arg2 idealEffectSize:(long long)arg3;
 - (id)findBestCluster:(id)arg1;
 - (void)flushClusters;
 - (void)resetAllUsageCounters;
@@ -78,18 +78,17 @@
 - (id)clusterSlidesSortedByUserDefinedSortOrder:(id)arg1 userDefinedSlideOrder:(id)arg2;
 - (id)clusterSlidesSortedChronologically:(id)arg1;
 - (id)allSlidesSortedChronologically;
-- (id)nextLeastUsedSlides:(int)arg1 forLayer:(id)arg2 markAsUsed:(BOOL)arg3;
+- (id)nextLeastUsedSlides:(long long)arg1 forLayer:(id)arg2 markAsUsed:(_Bool)arg3;
 - (id)allSlidesSortedByPaths:(id)arg1;
 - (id)allSlidesSortedByUsage;
 - (id)slideForPath:(id)arg1;
 - (id)allSlides;
 - (void)addKeywords:(id)arg1 forSlide:(id)arg2;
-- (int)addSlideForPath:(id)arg1 withIndex:(int)arg2;
+- (long long)addSlideForPath:(id)arg1 withIndex:(long long)arg2;
 - (void)setAuthoredDocument:(id)arg1;
 - (void)flush;
 - (void)dealloc;
 - (id)init;
-- (void)_removeAllSingleSlideClustersForClusterCategory:(id)arg1;
 
 @end
 

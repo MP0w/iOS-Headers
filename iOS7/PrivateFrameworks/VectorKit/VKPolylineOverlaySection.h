@@ -6,10 +6,11 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface VKPolylineOverlaySection : NSObject
 {
-    unsigned int _startPointIndex;
-    unsigned int _pointCount;
+    unsigned long long _startPointIndex;
+    unsigned long long _pointCount;
     Vec2Imp_1782d7e3 *_points;
     CDStruct_aca18c62 _bounds;
     int _transportType;
@@ -18,12 +19,12 @@
 @property(readonly, nonatomic) int transportType; // @synthesize transportType=_transportType;
 @property(readonly, nonatomic) CDStruct_d2b197d1 bounds; // @synthesize bounds=_bounds;
 @property(readonly, nonatomic) Vec2Imp_1782d7e3 *points; // @synthesize points=_points;
-@property(readonly, nonatomic) unsigned int pointCount; // @synthesize pointCount=_pointCount;
-@property(readonly, nonatomic) unsigned int startPointIndex; // @synthesize startPointIndex=_startPointIndex;
+@property(readonly, nonatomic) unsigned long long pointCount; // @synthesize pointCount=_pointCount;
+@property(readonly, nonatomic) unsigned long long startPointIndex; // @synthesize startPointIndex=_startPointIndex;
 - (id).cxx_construct;
-@property(readonly, nonatomic) unsigned int endPointIndex;
+@property(readonly, nonatomic) unsigned long long endPointIndex;
 - (void)dealloc;
-- (id)initWithRoute:(id)arg1 startPoint:(unsigned int)arg2 pointCount:(unsigned int)arg3 bounds:(CDStruct_d2b197d1)arg4 transportType:(int)arg5;
+- (id)initWithRoute:(id)arg1 startPoint:(unsigned long long)arg2 pointCount:(unsigned long long)arg3 bounds:(CDStruct_d2b197d1)arg4 transportType:(int)arg5;
 
 @end
 

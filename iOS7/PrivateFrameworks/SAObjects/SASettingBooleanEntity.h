@@ -12,13 +12,13 @@
 {
 }
 
-+ (id)booleanEntityWithValue:(BOOL)arg1;
++ (id)booleanEntityWithValue:(_Bool)arg1;
 + (id)booleanEntityWithDictionary:(id)arg1 context:(id)arg2;
 + (id)booleanEntity;
 - (void)updateUsingSet:(id)arg1 add:(id)arg2 remove:(id)arg3;
-@property(nonatomic) BOOL value;
+@property(nonatomic) _Bool value;
 @property(copy, nonatomic) NSNumber *previousValue;
-- (id)initWithValue:(BOOL)arg1;
+- (id)initWithValue:(_Bool)arg1;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

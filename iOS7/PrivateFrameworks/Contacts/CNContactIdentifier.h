@@ -16,7 +16,7 @@
     NSString *_stringValue;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 + (id)identifierWithString:(id)arg1;
 @property(readonly) NSString *stringValue; // @synthesize stringValue=_stringValue;
 - (void).cxx_destruct;

@@ -16,12 +16,12 @@
 }
 
 + (id)sharedInstance;
-+ (BOOL)_setupCookieDatabase:(id)arg1;
++ (_Bool)_setupCookieDatabase:(id)arg1;
 + (id)sharedStorage;
 - (void)synchronizeCookies;
 - (id)_copyPrivateCookiesForURL:(id)arg1 userIdentifier:(id)arg2;
 - (id)_columnNameForCookieProperty:(id)arg1;
-- (BOOL)_bindStatement:(struct sqlite3_stmt *)arg1 withValues:(id)arg2;
+- (_Bool)_bindStatement:(struct sqlite3_stmt *)arg1 withValues:(id)arg2;
 - (void)_bindInsertStatement:(struct sqlite3_stmt *)arg1 forCookie:(id)arg2 userIdentifier:(id)arg3;
 @property(readonly) NSURL *storageLocation;
 - (void)removeCookiesWithProperties:(id)arg1;

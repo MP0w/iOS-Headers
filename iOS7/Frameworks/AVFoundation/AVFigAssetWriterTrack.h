@@ -16,7 +16,7 @@
     NSString *_mediaType;
     AVMediaFileType *_mediaFileType;
     NSObject<OS_dispatch_queue> *_aboveHighWaterLevelQueue;
-    BOOL _aboveHighWaterLevel;
+    _Bool _aboveHighWaterLevel;
     CDStruct_1b6d18a9 _sampleBufferCoalescingInterval;
 }
 
@@ -27,22 +27,22 @@
 @property(readonly, nonatomic) struct OpaqueFigAssetWriter *figAssetWriter; // @synthesize figAssetWriter=_figAssetWriter;
 @property(nonatomic) CDStruct_1b6d18a9 sampleBufferCoalescingInterval; // @synthesize sampleBufferCoalescingInterval=_sampleBufferCoalescingInterval;
 - (int)_attachToFigAssetWriterUsingFormatSpecification:(id)arg1 sourcePixelBufferAttributes:(id)arg2 error:(id *)arg3;
-- (void)setExcludeFromAutoSelection:(BOOL)arg1;
+- (void)setExcludeFromAutoSelection:(_Bool)arg1;
 - (void)setAlternateGroupID:(short)arg1;
-- (void)setLayer:(int)arg1;
+- (void)setLayer:(long long)arg1;
 - (void)setTrackVolume:(float)arg1;
-- (void)setMarksOutputTrackAsEnabled:(BOOL)arg1;
+- (void)setMarksOutputTrackAsEnabled:(_Bool)arg1;
 - (void)setExtendedLanguageTag:(id)arg1;
 - (void)setLanguageCode:(id)arg1;
 - (void)setFigDimensions:(id)arg1;
 - (void)setMediaTimeScale:(int)arg1;
 - (void)setFigTrackMatrix:(id)arg1;
 - (void)setFigMetadata:(id)arg1;
-- (BOOL)markEndOfDataReturningError:(id *)arg1;
+- (_Bool)markEndOfDataReturningError:(id *)arg1;
 - (void)prepareToEndSession;
-- (BOOL)addPixelBuffer:(struct __CVBuffer *)arg1 atPresentationTime:(CDStruct_1b6d18a9)arg2 error:(id *)arg3;
-- (BOOL)addSampleBuffer:(struct opaqueCMSampleBuffer *)arg1 error:(id *)arg2;
-@property(readonly, getter=isAboveHighWaterLevel) BOOL aboveHighWaterLevel;
+- (_Bool)addPixelBuffer:(struct __CVBuffer *)arg1 atPresentationTime:(CDStruct_1b6d18a9)arg2 error:(id *)arg3;
+- (_Bool)addSampleBuffer:(struct opaqueCMSampleBuffer *)arg1 error:(id *)arg2;
+@property(readonly, getter=isAboveHighWaterLevel) _Bool aboveHighWaterLevel;
 - (void)_refreshAboveHighWaterLevel;
 - (void)_figAssetWriterDidDropBelowLowWaterLevelForTrackID:(int)arg1;
 @property(readonly, nonatomic) struct __CVPixelBufferPool *pixelBufferPool;

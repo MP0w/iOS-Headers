@@ -8,6 +8,7 @@
 
 @class UIPickerView;
 
+// Not exported
 @interface _UIPickerViewSelectionBar : UIView
 {
     UIPickerView *_pickerView;

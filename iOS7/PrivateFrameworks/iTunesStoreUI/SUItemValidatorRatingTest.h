@@ -12,7 +12,7 @@
 {
 }
 
-- (BOOL)validateItems:(id)arg1 error:(id *)arg2;
+- (_Bool)validateItems:(id)arg1 error:(id *)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end

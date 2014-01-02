@@ -6,33 +6,33 @@
 
 #import "_UISettings.h"
 
-@class NSValue, SBAnimationSettings;
+@class SBFAnimationSettings;
 
 @interface SBFadeAnimationSettings : _UISettings
 {
-    float _backlightFadeDuration;
-    SBAnimationSettings *_dateInSettings;
-    SBAnimationSettings *_overlayInSettings;
-    SBAnimationSettings *_contentInSettings;
-    SBAnimationSettings *_wallpaperInSettings;
-    NSValue *_wallpaperInContentsRect;
-    SBAnimationSettings *_dateOutSettings;
-    SBAnimationSettings *_overlayOutSettings;
-    SBAnimationSettings *_wallpaperOutSettings;
-    NSValue *_wallpaperOutContentsRect;
+    double _backlightFadeDuration;
+    SBFAnimationSettings *_dateInSettings;
+    SBFAnimationSettings *_overlayInSettings;
+    SBFAnimationSettings *_contentInSettings;
+    SBFAnimationSettings *_wallpaperInSettings;
+    SBFAnimationSettings *_dateOutSettings;
+    SBFAnimationSettings *_overlayOutSettings;
+    SBFAnimationSettings *_wallpaperOutSettings;
+    struct CGRect _wallpaperInContentsRect;
+    struct CGRect _wallpaperOutContentsRect;
 }
 
 + (id)settingsControllerModule;
-@property(retain, nonatomic) NSValue *wallpaperOutContentsRect; // @synthesize wallpaperOutContentsRect=_wallpaperOutContentsRect;
-@property(retain, nonatomic) SBAnimationSettings *wallpaperOutSettings; // @synthesize wallpaperOutSettings=_wallpaperOutSettings;
-@property(retain, nonatomic) SBAnimationSettings *overlayOutSettings; // @synthesize overlayOutSettings=_overlayOutSettings;
-@property(retain, nonatomic) SBAnimationSettings *dateOutSettings; // @synthesize dateOutSettings=_dateOutSettings;
-@property(retain, nonatomic) NSValue *wallpaperInContentsRect; // @synthesize wallpaperInContentsRect=_wallpaperInContentsRect;
-@property(retain, nonatomic) SBAnimationSettings *wallpaperInSettings; // @synthesize wallpaperInSettings=_wallpaperInSettings;
-@property(retain, nonatomic) SBAnimationSettings *contentInSettings; // @synthesize contentInSettings=_contentInSettings;
-@property(retain, nonatomic) SBAnimationSettings *overlayInSettings; // @synthesize overlayInSettings=_overlayInSettings;
-@property(retain, nonatomic) SBAnimationSettings *dateInSettings; // @synthesize dateInSettings=_dateInSettings;
-@property(nonatomic) float backlightFadeDuration; // @synthesize backlightFadeDuration=_backlightFadeDuration;
+@property(nonatomic) struct CGRect wallpaperOutContentsRect; // @synthesize wallpaperOutContentsRect=_wallpaperOutContentsRect;
+@property(retain, nonatomic) SBFAnimationSettings *wallpaperOutSettings; // @synthesize wallpaperOutSettings=_wallpaperOutSettings;
+@property(retain, nonatomic) SBFAnimationSettings *overlayOutSettings; // @synthesize overlayOutSettings=_overlayOutSettings;
+@property(retain, nonatomic) SBFAnimationSettings *dateOutSettings; // @synthesize dateOutSettings=_dateOutSettings;
+@property(nonatomic) struct CGRect wallpaperInContentsRect; // @synthesize wallpaperInContentsRect=_wallpaperInContentsRect;
+@property(retain, nonatomic) SBFAnimationSettings *wallpaperInSettings; // @synthesize wallpaperInSettings=_wallpaperInSettings;
+@property(retain, nonatomic) SBFAnimationSettings *contentInSettings; // @synthesize contentInSettings=_contentInSettings;
+@property(retain, nonatomic) SBFAnimationSettings *overlayInSettings; // @synthesize overlayInSettings=_overlayInSettings;
+@property(retain, nonatomic) SBFAnimationSettings *dateInSettings; // @synthesize dateInSettings=_dateInSettings;
+@property(nonatomic) double backlightFadeDuration; // @synthesize backlightFadeDuration=_backlightFadeDuration;
 - (void)setDefaultValues;
 
 @end

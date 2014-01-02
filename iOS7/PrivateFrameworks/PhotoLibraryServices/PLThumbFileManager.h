@@ -16,38 +16,39 @@
     struct CGSize _thumbnailSize;
     NSString *_path;
     NSString *_filename;
-    BOOL _readOnly;
+    _Bool _readOnly;
     int _imageRowBytes;
     int _imageLength;
     int _entryLength;
 }
 
 + (struct __CFDictionary *)decodeSessionOptions;
++ (_Bool)_deviceShouldUseBGRAThumbs;
 + (void)deleteAllEntriesWithIdentifier:(id)arg1 basePath:(id)arg2;
 @property(readonly, nonatomic) int imageLength; // @synthesize imageLength=_imageLength;
 @property(readonly, nonatomic) int imageRowBytes; // @synthesize imageRowBytes=_imageRowBytes;
 @property(readonly, nonatomic) int imageFormat; // @synthesize imageFormat=_format;
 @property(readonly, nonatomic) NSString *path; // @synthesize path=_path;
 - (id)_debugDescription;
-- (id)preheatItemForAsset:(id)arg1;
+- (id)preheatItemForAsset:(id)arg1 options:(unsigned int)arg2;
 - (id)imageWithIdentifier:(id)arg1;
-- (id)imageDataWithIdentifier:(id)arg1 orIndex:(unsigned int)arg2 width:(int *)arg3 height:(int *)arg4 bytesPerRow:(int *)arg5 dataWidth:(int *)arg6 dataHeight:(int *)arg7 dataOffset:(int *)arg8;
-- (void)setImageDataForEntry:(const void *)arg1 withIdentifier:(id)arg2 orIndex:(unsigned int)arg3 asset:(id)arg4;
-- (void)setImageForEntry:(id)arg1 withIdentifier:(id)arg2 orIndex:(unsigned int)arg3 videoDuration:(id)arg4 photoUUID:(id)arg5;
+- (id)imageDataWithIdentifier:(id)arg1 orIndex:(unsigned long long)arg2 width:(int *)arg3 height:(int *)arg4 bytesPerRow:(int *)arg5 dataWidth:(int *)arg6 dataHeight:(int *)arg7 dataOffset:(int *)arg8;
+- (void)setImageDataForEntry:(const void *)arg1 withIdentifier:(id)arg2 orIndex:(unsigned long long)arg3 asset:(id)arg4;
+- (void)setImageForEntry:(id)arg1 withIdentifier:(id)arg2 orIndex:(unsigned long long)arg3 videoDuration:(id)arg4 photoUUID:(id)arg5;
 - (id)thumbnailForImage:(id)arg1 videoDuration:(id)arg2;
 @property(readonly, nonatomic) struct CGSize imageSize;
-- (BOOL)copyEntryFromOriginalAsset:(id)arg1 toAsset:(id)arg2;
+- (_Bool)copyEntryFromOriginalAsset:(id)arg1 toAsset:(id)arg2;
 - (void)_writeImage:(id)arg1 forThumbIdentifier:(id)arg2;
 - (void)_writeData:(id)arg1 forThumbIdentifier:(id)arg2;
 - (id)thumbnailPathForThumbIdentifier:(id)arg1;
-- (BOOL)usesThumbIdentifiers;
-@property(readonly, nonatomic) BOOL isReadOnly;
+- (_Bool)usesThumbIdentifiers;
+@property(readonly, nonatomic) _Bool isReadOnly;
 - (void)dealloc;
 @property(readonly, nonatomic) int imageHeight;
 @property(readonly, nonatomic) int imageWidth;
 - (id)description;
 - (id)initWithPath:(id)arg1 imageFormat:(int)arg2;
-- (id)initWithPath:(id)arg1 imageFormat:(int)arg2 readOnly:(BOOL)arg3;
+- (id)initWithPath:(id)arg1 imageFormat:(int)arg2 readOnly:(_Bool)arg3;
 
 @end
 

@@ -6,56 +6,59 @@
 
 #import "SBUIPluginHost.h"
 
-@class NSHashTable, NSMutableSet, NSString, SBAssistantWindow, SBPasscodeLockDisableAssertion, UIViewController<SBUIPluginViewControllerInterface>;
+@class NSHashTable, NSMutableSet, NSString, SBAssistantWindow, SBOperationQueue, SBPasscodeLockDisableAssertion, UIViewController<SBUIPluginViewControllerInterface>;
 
 @interface SBAssistantController : SBUIPluginHost
 {
+    SBOperationQueue *_operationQueue;
     NSString *_appDisplayIDBeingHosted;
     SBAssistantWindow *_assistantWindow;
-    BOOL _unlockedDevice;
-    BOOL _launchedInStark;
+    _Bool _unlockedDevice;
+    _Bool _launchedInStark;
+    _Bool _isHidingOtherWindows;
     int _activationEvent;
     SBPasscodeLockDisableAssertion *_disableAssertion;
     NSMutableSet *_dismissingReasons;
-    int _pendingDismissViewType;
+    long long _pendingDismissViewType;
     NSHashTable *_observers;
     UIViewController<SBUIPluginViewControllerInterface> *_mainScreenViewController;
 }
 
-+ (BOOL)_runActivateAssistantTest:(id)arg1;
-+ (BOOL)isAssistantRunningHidden;
-+ (BOOL)isAssistantViewVisible:(int)arg1;
-+ (BOOL)isAssistantVisible;
-+ (BOOL)shouldEnterAssistant;
-+ (BOOL)supportedAndEnabled;
++ (_Bool)isAssistantRunningHidden;
++ (_Bool)isAssistantViewVisible:(long long)arg1;
++ (_Bool)isAssistantVisible;
++ (_Bool)shouldEnterAssistant;
++ (_Bool)supportedAndEnabled;
 + (id)sharedInstanceIfExists;
 + (id)sharedInstance;
-- (void)uiPlugin:(id)arg1 forceUpdateToInterfaceOrientation:(int)arg2 animated:(BOOL)arg3;
-- (void)uiPlugin:(id)arg1 isNowRunning:(BOOL)arg2;
+@property(nonatomic) _Bool unlockedDevice; // @synthesize unlockedDevice=_unlockedDevice;
+- (void)uiPlugin:(id)arg1 forceUpdateToInterfaceOrientation:(long long)arg2 animated:(_Bool)arg3;
+- (void)uiPlugin:(id)arg1 isNowRunning:(_Bool)arg2;
 - (void)uiPluginUserEventOccurred:(id)arg1;
-- (BOOL)uiPlugin:(id)arg1 openURL:(id)arg2;
-- (BOOL)uiPlugin:(id)arg1 launchApplicationWithBundleID:(id)arg2 openURL:(id)arg3;
-- (BOOL)uiPluginAttemptDeviceUnlock:(id)arg1 withPassword:(id)arg2 lockViewOwner:(id)arg3;
-- (BOOL)uiPluginWantsActivation:(id)arg1 forEvent:(int)arg2 completion:(id)arg3;
-- (void)_dismissUIPlugin:(id)arg1 animated:(BOOL)arg2;
+- (_Bool)uiPlugin:(id)arg1 openURL:(id)arg2;
+- (_Bool)uiPlugin:(id)arg1 launchApplicationWithBundleID:(id)arg2 openURL:(id)arg3;
+- (_Bool)uiPluginAttemptDeviceUnlock:(id)arg1 withPassword:(id)arg2 lockViewOwner:(id)arg3;
+- (_Bool)uiPluginWantsActivation:(id)arg1 forEvent:(int)arg2 completion:(id)arg3;
+- (void)_dismissUIPlugin:(id)arg1 animated:(_Bool)arg2;
 - (void)dismissPluginForEvent:(int)arg1;
-- (BOOL)pluginSuppressesNotifications;
-- (BOOL)pluginWantsScreenDimInterval:(double *)arg1;
-- (BOOL)pluginWantsInterfaceOrientation:(int *)arg1;
+- (_Bool)pluginSuppressesNotifications;
+- (_Bool)pluginWantsScreenDimInterval:(double *)arg1;
+- (_Bool)pluginWantsInterfaceOrientation:(long long *)arg1;
 - (void)preparePluginForActivationEvent:(int)arg1 afterInterval:(double)arg2;
-- (BOOL)pluginWantsActivationEvent:(int)arg1 interval:(double *)arg2;
+- (_Bool)pluginWantsActivationEvent:(int)arg1 interval:(double *)arg2;
 - (void)_viewController:(id)arg1 animateDisappearanceWithContext:(id)arg2;
 - (void)_viewController:(id)arg1 willAnimateDisappearanceWithContext:(id)arg2;
 - (void)_viewController:(id)arg1 animateAppearanceWithContext:(id)arg2;
 - (void)_viewController:(id)arg1 willAnimateAppearanceWithContext:(id)arg2;
-- (void)_viewController:(id)arg1 setShowsStatusBar:(BOOL)arg2;
-- (void)_dismissForMainScreenAnimated:(BOOL)arg1 duration:(double)arg2 completion:(id)arg3;
-- (id)_fakeStatusBarForOrientation:(int)arg1;
-- (void)_presentForMainScreenAnimated:(BOOL)arg1 completion:(id)arg2;
-- (void)_notifyObserversViewDidDisappear:(int)arg1;
-- (void)_notifyObserversViewWillDisappear:(int)arg1;
-- (void)_notifyObserversViewDidAppear:(int)arg1;
-- (void)_notifyObserversViewWillAppear:(int)arg1;
+- (void)_viewController:(id)arg1 setShowsStatusBar:(_Bool)arg2;
+- (void)_dismissForMainScreenAnimated:(_Bool)arg1 duration:(double)arg2 completion:(id)arg3;
+- (id)_fakeStatusBarForOrientation:(long long)arg1;
+- (void)_presentForMainScreenAnimated:(_Bool)arg1 completion:(id)arg2;
+- (void)_notifyObserversViewDidDisappear:(long long)arg1;
+- (void)_notifyObserversViewWillDisappear:(long long)arg1;
+- (void)_notifyObserversViewDidAppear:(long long)arg1;
+- (void)_notifyObserversViewWillAppear:(long long)arg1;
+- (void)_bioAuthenticated:(id)arg1;
 - (void)_starkSiriDidDisappear:(id)arg1;
 - (void)_starkSiriWillDisappear:(id)arg1;
 - (void)_starkSiriDidAppear:(id)arg1;
@@ -66,25 +69,28 @@
 - (void)_viewWillAppearOnMainScreen;
 - (void)_cleanupContextHosting;
 - (id)_activationFlags;
-- (BOOL)_isPluginLoaded;
+- (_Bool)_isPluginLoaded;
 - (void)_loadPlugin;
-- (BOOL)_isDismissingAllViews;
+- (_Bool)_isDismissingAllViews;
+- (double)_defaultAnimatedDismissDurationForMainScreen;
+- (id)transferOwnershipOfPasscodeLockDisableAssertion;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
 - (id)mainScreenView;
-- (BOOL)activateIgnoringTouches;
-- (BOOL)shouldShowLockStatusBarTime;
-@property(nonatomic) BOOL unlockedDevice; // @dynamic unlockedDevice;
+- (_Bool)activateIgnoringTouches;
+- (_Bool)shouldShowLockStatusBarTime;
 - (void)dismissAssistantForAlertActivation:(id)arg1;
-- (void)dismissAssistantViewIfNecessaryWithFade:(int)arg1 ofDuration:(double)arg2 completion:(id)arg3;
-- (void)dismissAssistantViewIfNecessaryWithFade:(int)arg1 ofDuration:(double)arg2;
-- (void)dismissAssistantViewIfNecessaryWithFade:(int)arg1;
-- (void)dismissAssistantViewIfNecessary:(int)arg1;
+- (void)dismissAssistantViewIfNecessaryWithFade:(long long)arg1 ofDuration:(double)arg2 completion:(id)arg3;
+- (void)dismissAssistantViewIfNecessaryWithFade:(long long)arg1 ofDuration:(double)arg2;
+- (void)dismissAssistantViewIfNecessaryWithFade:(long long)arg1;
+- (void)dismissAssistantViewIfNecessary:(long long)arg1;
 - (void)addActivationFlagsToDisplay:(id)arg1;
 - (void)_notePluginVisibilityDidChange;
 - (void)dealloc;
 - (id)init;
-- (BOOL)isAssistantViewVisible:(int)arg1;
+- (_Bool)_runActivateAssistantTest:(id)arg1;
+- (void)_activateSiriForPPT;
+- (_Bool)isAssistantViewVisible:(long long)arg1;
 
 @end
 

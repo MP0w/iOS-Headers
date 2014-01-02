@@ -8,23 +8,24 @@
 
 @class NSData;
 
+// Not exported
 @interface OADSubBlip : OCDDelayedMedia
 {
     int mType;
     NSData *mData;
     struct CGSize mSizeInPoints;
-    long mSizeInBytes;
+    int mSizeInBytes;
     struct CGRect mFrame;
 }
 
 - (id).cxx_construct;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (_Bool)isLoaded;
 - (void)setFrame:(struct CGRect)arg1;
 - (struct CGRect)frame;
-- (void)setSizeInBytes:(long)arg1;
-- (long)sizeInBytes;
+- (void)setSizeInBytes:(int)arg1;
+- (int)sizeInBytes;
 - (void)setSizeInPoints:(struct CGSize)arg1;
 - (struct CGSize)sizeInPoints;
 - (int)type;

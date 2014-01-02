@@ -8,19 +8,20 @@
 
 @class CIColor;
 
+// Not exported
 @interface UICIColor : UIColor
 {
     CIColor *_ciColor;
     UIColor *_rgbColor;
 }
 
-- (BOOL)_getWhite:(float *)arg1 alpha:(float *)arg2;
-- (BOOL)getRed:(float *)arg1 green:(float *)arg2 blue:(float *)arg3 alpha:(float *)arg4;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)_getWhite:(double *)arg1 alpha:(double *)arg2;
+- (_Bool)getRed:(double *)arg1 green:(double *)arg2 blue:(double *)arg3 alpha:(double *)arg4;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)CIColor;
 - (struct CGColor *)CGColor;
-- (id)colorWithAlphaComponent:(float)arg1;
+- (id)colorWithAlphaComponent:(double)arg1;
 - (void)setStroke;
 - (void)setFill;
 - (void)set;

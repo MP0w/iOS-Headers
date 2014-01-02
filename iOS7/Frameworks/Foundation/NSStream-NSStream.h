@@ -8,10 +8,10 @@
 
 @interface NSStream (NSStream)
 - (id)streamError;
-- (unsigned int)streamStatus;
+- (unsigned long long)streamStatus;
 - (void)removeFromRunLoop:(id)arg1 forMode:(id)arg2;
 - (void)scheduleInRunLoop:(id)arg1 forMode:(id)arg2;
-- (BOOL)setProperty:(id)arg1 forKey:(id)arg2;
+- (_Bool)setProperty:(id)arg1 forKey:(id)arg2;
 - (id)propertyForKey:(id)arg1;
 - (void)setDelegate:(id)arg1;
 - (id)delegate;

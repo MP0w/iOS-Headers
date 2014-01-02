@@ -15,29 +15,29 @@
         unsigned int _evaluationBlocked:1;
         unsigned int _reservedPredicateFlags:31;
     } _predicateFlags;
+    unsigned int reserved;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 + (id)predicateWithBlock:(id)arg1;
-+ (id)predicateWithValue:(BOOL)arg1;
-+ (id)predicateWithFormat:(id)arg1 arguments:(void *)arg2;
++ (id)predicateWithValue:(_Bool)arg1;
++ (id)predicateWithFormat:(id)arg1 arguments:(char *)arg2;
 + (id)predicateWithFormat:(id)arg1;
 + (id)predicateWithFormat:(id)arg1 argumentArray:(id)arg2;
 + (struct __CFLocale *)retainedLocale;
-+ (id)newStringFrom:(id)arg1 usingUnicodeTransforms:(unsigned int)arg2;
++ (id)newStringFrom:(id)arg1 usingUnicodeTransforms:(unsigned long long)arg2;
 + (void)initialize;
 - (id)predicateFormat;
 - (id)description;
 - (id)predicateWithSubstitutionVariables:(id)arg1;
-- (void)acceptVisitor:(id)arg1 flags:(unsigned int)arg2;
-- (BOOL)evaluateWithObject:(id)arg1 substitutionVariables:(id)arg2;
-- (BOOL)evaluateWithObject:(id)arg1;
+- (void)acceptVisitor:(id)arg1 flags:(unsigned long long)arg2;
+- (_Bool)evaluateWithObject:(id)arg1 substitutionVariables:(id)arg2;
+- (_Bool)evaluateWithObject:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (void)allowEvaluation;
-- (BOOL)_allowsEvaluation;
-- (id)generateMetadataDescription;
+- (_Bool)_allowsEvaluation;
 
 @end
 

@@ -8,7 +8,7 @@
 
 @interface NSManagedObjectContext (PLManagedObjectContext)
 - (id)photoLibrary;
-- (BOOL)isUserInterfaceContext;
+- (_Bool)isUserInterfaceContext;
 - (void)pl_refresh;
 @end
 

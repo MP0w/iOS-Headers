@@ -6,12 +6,13 @@
 
 #import <VectorKit/VKTileSetBackedTileSource.h>
 
+// Not exported
 @interface VKVectorTileSource : VKTileSetBackedTileSource
 {
 }
 
-- (int)defaultMaximumZoomLevel;
-- (BOOL)minimumZoomLevelBoundsCamera;
+- (long long)defaultMaximumZoomLevel;
+- (_Bool)minimumZoomLevelBoundsCamera;
 
 @end
 

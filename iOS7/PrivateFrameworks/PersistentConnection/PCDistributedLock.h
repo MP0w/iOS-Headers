@@ -10,6 +10,7 @@
 
 @class NSString;
 
+// Not exported
 @interface PCDistributedLock : NSObject <NSLocking>
 {
     NSString *_path;
@@ -18,8 +19,8 @@
 
 - (void)unlock;
 - (void)lock;
-- (BOOL)tryLock;
-- (BOOL)_lockBlocking:(BOOL)arg1;
+- (_Bool)tryLock;
+- (_Bool)_lockBlocking:(_Bool)arg1;
 - (void)dealloc;
 - (id)initWithName:(id)arg1;
 - (id)initWithPath:(id)arg1;

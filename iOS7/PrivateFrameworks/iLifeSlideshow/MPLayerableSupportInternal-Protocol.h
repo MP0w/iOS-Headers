@@ -6,6 +6,6 @@
 
 @protocol MPLayerableSupportInternal
 - (void)configureActions;
-- (BOOL)layersCanPositionZIndex;
+- (_Bool)layersCanPositionZIndex;
 @end
 

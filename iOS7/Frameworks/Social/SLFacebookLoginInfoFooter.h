@@ -8,6 +8,7 @@
 
 @class NSString, UIFont, UILabel;
 
+// Not exported
 @interface SLFacebookLoginInfoFooter : UIView
 {
     UIFont *_font;
@@ -22,7 +23,7 @@
 }
 
 - (void).cxx_destruct;
-- (float)preferredHeightForWidth:(float)arg1;
+- (double)preferredHeightForWidth:(double)arg1;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 

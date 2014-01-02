@@ -6,16 +6,19 @@
 
 #import <WebUI/WBSFormAutoFillItem.h>
 
-@class NSURLCredential;
+@class NSURLCredential, NSURLProtectionSpace;
 
 @interface WBSCredentialMatch : WBSFormAutoFillItem
 {
     NSURLCredential *_credential;
+    NSURLProtectionSpace *_protectionSpace;
 }
 
+@property(readonly, nonatomic) NSURLProtectionSpace *protectionSpace; // @synthesize protectionSpace=_protectionSpace;
 @property(readonly, nonatomic) NSURLCredential *credential; // @synthesize credential=_credential;
 - (id)completion;
 - (void)dealloc;
+- (id)initWithCredential:(id)arg1 protectionSpace:(id)arg2;
 - (id)initWithCredential:(id)arg1;
 
 @end

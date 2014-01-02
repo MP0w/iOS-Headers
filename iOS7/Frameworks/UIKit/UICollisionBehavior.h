@@ -10,12 +10,12 @@
 
 @interface UICollisionBehavior : UIDynamicBehavior
 {
-    BOOL _usesImplicitBounds;
+    _Bool _usesImplicitBounds;
     struct UIEdgeInsets _implicitBoundsInsets;
     PKExtendedPhysicsBody *_implicitBoundsBody;
     NSMutableDictionary *_boundaryBodies;
     NSMutableDictionary *_boundaryPaths;
-    unsigned int _collisionMode;
+    unsigned long long _collisionMode;
     id <UICollisionBehaviorDelegate> _collisionDelegate;
     unsigned int _groupVID;
     unsigned int _groupBID;
@@ -25,10 +25,8 @@
         unsigned int delegateBeganWithBoundary:1;
         unsigned int delegateEndedWithBoundary:1;
     } _collisionBehaviorFlags;
-    NSArray *_items;
 }
 
-@property(readonly, nonatomic) NSArray *items; // @synthesize items=_items;
 - (id)description;
 - (void)_removeExplicitBoundaries;
 - (void)_setupExplicitBoundaries;
@@ -40,22 +38,23 @@
 - (void)addBoundaryWithIdentifier:(id)arg1 forPath:(id)arg2;
 - (void)_setupImplicitBoundaries;
 - (void)_removeImplicitBoundaries;
-@property(nonatomic) BOOL translatesReferenceBoundsIntoBoundary;
-- (void)_setTranslatesReferenceItemBounds:(BOOL)arg1 intoBoundaryWithInsets:(struct UIEdgeInsets)arg2;
+@property(nonatomic) _Bool translatesReferenceBoundsIntoBoundary;
+- (void)_setTranslatesReferenceItemBounds:(_Bool)arg1 intoBoundaryWithInsets:(struct UIEdgeInsets)arg2;
 - (void)setTranslatesReferenceBoundsIntoBoundaryWithInsets:(struct UIEdgeInsets)arg1;
 - (void)_dissociate;
 - (void)_associate;
-- (void)_reevaluate:(unsigned int)arg1;
+- (void)_reevaluate:(unsigned long long)arg1;
 - (void)_didEndContact:(id)arg1;
 @property(nonatomic) id <UICollisionBehaviorDelegate> collisionDelegate;
 - (void)_didBeginContact:(id)arg1;
-- (void)_setCollisions:(BOOL)arg1 forBody:(id)arg2 isEdge:(BOOL)arg3;
-@property(nonatomic) unsigned int collisionMode;
+- (void)_setCollisions:(_Bool)arg1 forBody:(id)arg2 isEdge:(_Bool)arg3;
+@property(nonatomic) unsigned long long collisionMode;
 - (void)_applySettings;
 - (void)removeItem:(id)arg1;
 - (void)addItem:(id)arg1;
 - (void)_addItem:(id)arg1;
 - (void)dealloc;
+@property(readonly, nonatomic) NSArray *items;
 - (id)initWithItems:(id)arg1;
 - (id)init;
 

@@ -7,11 +7,11 @@
 #import "NSObject.h"
 
 @interface NSObject (AccessibilityAccessors)
-+ (id)_accessibilityStringForDate:(CDStruct_b0fa4487)arg1;
++ (id)_accessibilityStringForDate:(CDStruct_79f9e052)arg1;
 + (id)_accessibilityStringForDayOfWeek:(int)arg1;
-+ (BOOL)_accessibilityCalShow24Hours;
-+ (BOOL)_accessibilityCalHourDesignatorsAreBeforeHour;
-+ (BOOL)_accessibilityCalSpaceBetweenDesignatorsAndHour;
++ (_Bool)_accessibilityCalShow24Hours;
++ (_Bool)_accessibilityCalHourDesignatorsAreBeforeHour;
++ (_Bool)_accessibilityCalSpaceBetweenDesignatorsAndHour;
 + (void)_accessibilityCalGetHourDesignatorsForAM:(id *)arg1 andPM:(id *)arg2;
 @end
 

@@ -8,34 +8,35 @@
 
 @class NSAttributeDictionary;
 
+// Not exported
 @interface _NSCachedAttributedString : NSMutableAttributedString
 {
     id _contents;
     NSAttributeDictionary *_baseAttributes;
-    long _length;
-    unsigned long _hashValue;
+    long long _length;
+    unsigned long long _hashValue;
     struct {
         id _field1;
-        int _field2;
+        long long _field2;
     } *_runs;
-    long _numRuns;
-    long _allocedRunsSize;
-    long _numHits;
+    long long _numRuns;
+    long long _allocedRunsSize;
+    long long _numHits;
 }
 
 + (void)initialize;
 + (id)allocWithZone:(struct _NSZone *)arg1;
 - (id)copyCachedInstance;
 - (void)cache;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)_baselineMode;
-- (BOOL)_isStringDrawingTextStorage;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)_baselineMode;
+- (_Bool)_isStringDrawingTextStorage;
 - (void)setAttributes:(id)arg1 range:(struct _NSRange)arg2;
-- (id)attributesAtIndex:(unsigned int)arg1 longestEffectiveRange:(struct _NSRange *)arg2 inRange:(struct _NSRange)arg3;
-- (id)attributesAtIndex:(unsigned int)arg1 effectiveRange:(struct _NSRange *)arg2;
+- (id)attributesAtIndex:(unsigned long long)arg1 longestEffectiveRange:(struct _NSRange *)arg2 inRange:(struct _NSRange)arg3;
+- (id)attributesAtIndex:(unsigned long long)arg1 effectiveRange:(struct _NSRange *)arg2;
 - (id)string;
-- (unsigned int)length;
+- (unsigned long long)length;
 - (void)finalize;
 - (void)dealloc;
 - (id)init;
@@ -43,8 +44,8 @@
 - (id)initWithString:(id)arg1 attributes:(id)arg2;
 - (id)initWithAttributedString:(id)arg1;
 - (oneway void)release;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
+- (_Bool)_isDeallocating;
+- (_Bool)_tryRetain;
 
 @end
 

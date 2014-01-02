@@ -10,6 +10,7 @@
 
 @class CIImage, NSNumber;
 
+// Not exported
 @interface CIVibrance : CIFilter <_CIFilterProperties>
 {
     CIImage *inputImage;
@@ -24,7 +25,7 @@
 - (id)outputImage;
 - (id)_kernelPos;
 - (id)_kernelNeg;
-- (BOOL)_isIdentity;
+- (_Bool)_isIdentity;
 - (void)setDefaults;
 
 @end

@@ -10,26 +10,26 @@
 
 @interface PUPhotosGlobalFooterView : UICollectionReusableView
 {
-    unsigned int _imageCount;
-    unsigned int _videoCount;
-    unsigned int _otherCount;
-    unsigned int _pendingCount;
+    unsigned long long _imageCount;
+    unsigned long long _videoCount;
+    unsigned long long _otherCount;
+    unsigned long long _pendingCount;
     int _importOperation;
     UILabel *_titleLabel;
     UILabel *_subtitleLabel;
     PLSyncProgressView *_syncProgressView;
-    int _style;
+    long long _style;
     NSString *_subtitle;
 }
 
 @property(retain, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
-@property(nonatomic) int style; // @synthesize style=_style;
+@property(nonatomic) long long style; // @synthesize style=_style;
 - (void).cxx_destruct;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)_updateSubviews;
-- (void)setPendingCount:(unsigned int)arg1 importOperation:(int)arg2;
-- (void)setImageCount:(unsigned int)arg1 videoCount:(unsigned int)arg2 otherCount:(unsigned int)arg3;
+- (void)setPendingCount:(unsigned long long)arg1 importOperation:(int)arg2;
+- (void)setImageCount:(unsigned long long)arg1 videoCount:(unsigned long long)arg2 otherCount:(unsigned long long)arg3;
 
 @end
 

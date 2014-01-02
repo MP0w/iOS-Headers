@@ -7,6 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol CNFRegWizardControllerDelegate <NSObject>
-- (void)firstRunControllerDidFinish:(id)arg1 finished:(BOOL)arg2;
+- (void)firstRunControllerDidFinish:(id)arg1 finished:(_Bool)arg2;
 @end
 

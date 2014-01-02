@@ -14,13 +14,13 @@
 {
     GLKEffectPropertyTexture *_textureCubeMap;
     union _GLKMatrix3 _matrix;
-    BOOL _dirtyUniforms;
+    _Bool _dirtyUniforms;
     int _matrixLoc;
 }
 
 @property(nonatomic) int matrixLoc; // @synthesize matrixLoc=_matrixLoc;
 @property(nonatomic) union _GLKMatrix3 matrix; // @synthesize matrix=_matrix;
-@property(nonatomic) BOOL dirtyUniforms; // @synthesize dirtyUniforms=_dirtyUniforms;
+@property(nonatomic) _Bool dirtyUniforms; // @synthesize dirtyUniforms=_dirtyUniforms;
 @property(readonly, nonatomic) GLKEffectPropertyTexture *textureCubeMap; // @synthesize textureCubeMap=_textureCubeMap;
 - (id)description;
 - (void)dealloc;

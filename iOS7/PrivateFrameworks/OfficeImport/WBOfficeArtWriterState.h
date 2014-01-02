@@ -8,12 +8,13 @@
 
 @class TSUPointerKeyDictionary;
 
+// Not exported
 @interface WBOfficeArtWriterState : OABWriterState
 {
     TSUPointerKeyDictionary *mZIndicesInProgress;
 }
 
-- (unsigned int)indexForChild:(id)arg1 parentContainer:(id)arg2;
+- (unsigned long long)indexForChild:(id)arg1 parentContainer:(id)arg2;
 - (void)dealloc;
 - (id)initWithClient:(id)arg1;
 

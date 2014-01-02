@@ -23,18 +23,18 @@
 @property(copy, nonatomic) NSArray *links; // @synthesize links=_links;
 @property(nonatomic) __weak id <SKUIQuicklinksViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)_reloadForInterfaceOrientation:(int)arg1;
-- (int)_numberOfRows;
+- (void)_reloadForInterfaceOrientation:(long long)arg1;
+- (long long)_numberOfRows;
 - (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
-- (int)collectionView:(id)arg1 numberOfItemsInSection:(int)arg2;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (void)viewWillAppear:(BOOL)arg1;
+- (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
+- (void)willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)setTitle:(id)arg1;
 - (void)loadView;
 - (void)setColoringWithColorScheme:(id)arg1;
 @property(readonly, nonatomic) NSArray *indexPathsForVisibleItems;
-- (struct CGRect)frameForLinkAtIndex:(int)arg1;
+- (struct CGRect)frameForLinkAtIndex:(long long)arg1;
 - (void)dealloc;
 
 @end

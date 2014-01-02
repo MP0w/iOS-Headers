@@ -8,6 +8,7 @@
 
 @class GQDRoot;
 
+// Not exported
 @interface GQDSStylesheet : NSObject
 {
     GQDRoot *mRoot;
@@ -19,10 +20,10 @@
 
 - (struct __CFArray *)retainedArrayOfIdentifiedStyles;
 - (void)resolveStyleParents;
-- (void)addStyle:(id)arg1 needingParentResolution:(const char *)arg2 resolveInParent:(BOOL)arg3;
+- (void)addStyle:(id)arg1 needingParentResolution:(const char *)arg2 resolveInParent:(_Bool)arg3;
 - (id)styleWithXmlUid:(const char *)arg1;
 - (id)styleWithIdentifier:(const char *)arg1;
-- (BOOL)addStyle:(id)arg1 withOwnedXmlUid:(char *)arg2;
+- (_Bool)addStyle:(id)arg1 withOwnedXmlUid:(char *)arg2;
 - (void)addStyle:(id)arg1 withOwnedIdentifier:(char *)arg2;
 - (id)parent;
 - (void)dealloc;

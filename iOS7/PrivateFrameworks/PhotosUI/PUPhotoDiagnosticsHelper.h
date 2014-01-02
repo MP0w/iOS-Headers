@@ -23,9 +23,9 @@
 @property(nonatomic) __weak id <PUPhotoDiagnosticsHelperDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)mailComposeController:(id)arg1 didFinishWithResult:(int)arg2 error:(id)arg3;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
-- (void)_composeMessageForDiagnosticInformation:(id)arg1 withProblemType:(int)arg2;
-- (void)_finishedWithDataSent:(BOOL)arg1;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
+- (void)_composeMessageForDiagnosticInformation:(id)arg1 withProblemType:(long long)arg2;
+- (void)_finishedWithDataSent:(_Bool)arg1;
 - (void)collectDiagnosticsWithInformation:(id)arg1;
 - (id)initWithReferenceViewController:(id)arg1;
 

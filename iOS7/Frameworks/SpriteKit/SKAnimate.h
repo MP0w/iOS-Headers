@@ -8,13 +8,14 @@
 
 @class NSArray;
 
+// Not exported
 @interface SKAnimate : SKAction
 {
     struct SKCAnimate *_mycaction;
     NSArray *_textures;
 }
 
-+ (id)animateWithTextures:(id)arg1 timePerFrame:(double)arg2 resize:(BOOL)arg3 restore:(BOOL)arg4;
++ (id)animateWithTextures:(id)arg1 timePerFrame:(double)arg2 resize:(_Bool)arg3 restore:(_Bool)arg4;
 - (void).cxx_destruct;
 - (id)reversedAction;
 - (id)copyWithZone:(struct _NSZone *)arg1;

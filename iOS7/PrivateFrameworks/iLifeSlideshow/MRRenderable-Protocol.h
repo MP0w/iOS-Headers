@@ -5,13 +5,13 @@
  */
 
 @protocol MRRenderable
-@property(readonly, nonatomic) BOOL isInfinite;
-@property(readonly, nonatomic) BOOL isAlphaFriendly;
-@property(readonly, nonatomic) BOOL isOpaque;
-@property(readonly, nonatomic) BOOL isNative3D;
+@property(readonly, nonatomic) _Bool isInfinite;
+@property(readonly, nonatomic) _Bool isAlphaFriendly;
+@property(readonly, nonatomic) _Bool isOpaque;
+@property(readonly, nonatomic) _Bool isNative3D;
 - (id)patchworkAtTime:(double)arg1 inContext:(id)arg2 withArguments:(id)arg3;
 - (id)retainedByUserRenderedImageAtTime:(double)arg1 inContext:(id)arg2 withArguments:(id)arg3;
 - (void)renderAtTime:(double)arg1 inContext:(id)arg2 withArguments:(id)arg3;
-- (BOOL)prerenderForTime:(double)arg1 inContext:(id)arg2 withArguments:(id)arg3;
+- (_Bool)prerenderForTime:(double)arg1 inContext:(id)arg2 withArguments:(id)arg3;
 @end
 

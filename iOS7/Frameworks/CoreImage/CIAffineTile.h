@@ -8,6 +8,7 @@
 
 @class CIImage, NSValue;
 
+// Not exported
 @interface CIAffineTile : CIFilter
 {
     CIImage *inputImage;

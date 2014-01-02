@@ -8,17 +8,17 @@
 
 @interface GEOTileKeyMap : NSObject
 {
-    int _type;
+    long long _type;
     void *_map;
 }
 
-- (unsigned int)count;
+- (unsigned long long)count;
 - (void)removeObjectForKey:(const struct _GEOTileKey *)arg1;
 - (void)setObject:(id)arg1 forKey:(const struct _GEOTileKey *)arg2;
 - (id)objectForKey:(const struct _GEOTileKey *)arg1;
 - (id)contentsDescription;
 - (void)dealloc;
-- (id)initWithMapType:(int)arg1;
+- (id)initWithMapType:(long long)arg1;
 
 @end
 

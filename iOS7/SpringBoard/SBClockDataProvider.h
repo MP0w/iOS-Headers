@@ -8,7 +8,7 @@
 
 #import "BBRemoteDataProvider-Protocol.h"
 
-@class BBBulletinRequest, BBDataProviderProxy, NSTimer, UILocalNotification;
+@class BBBulletinRequest, BBDataProviderProxy, NSDate, NSTimer, UILocalNotification;
 
 @interface SBClockDataProvider : NSObject <BBRemoteDataProvider>
 {
@@ -17,18 +17,21 @@
     UILocalNotification *_nextAlarmForToday;
     BBBulletinRequest *_nextTodayAlarmBulletin;
     UILocalNotification *_firstAlarmForTomorrow;
+    NSDate *_nextTomorrowFireDate;
     BBBulletinRequest *_nextTomorrowAlarmBulletin;
 }
 
 + (id)sharedInstance;
 - (id)sortDescriptors;
 - (id)bulletinsWithRequestParameters:(id)arg1 lastCleared:(id)arg2;
-- (id)bulletinsFilteredBy:(unsigned int)arg1 count:(unsigned int)arg2 lastCleared:(id)arg3;
+- (id)bulletinsFilteredBy:(unsigned long long)arg1 count:(unsigned long long)arg2 lastCleared:(id)arg3;
 - (id)defaultSectionInfo;
 - (id)sectionIdentifier;
-- (id)_alarmMessageForNotification:(id)arg1 withSingleAlarmFormat:(BOOL)arg2;
+- (id)_alarmMessageForNotification:(id)arg1 withSingleAlarmFormat:(_Bool)arg2;
 - (void)_publishAlarmsWithScheduledNotifications:(id)arg1;
-- (id)_nextAlarmForDate:(id)arg1 withNotifications:(id)arg2;
+- (void)_calculateNextTomorrowAlarmAndBulletinWithScheduledNotifications:(id)arg1;
+- (void)_calculateNextTodayAlarmAndBulletinWithScheduledNotifications:(id)arg1;
+- (id)_nextAlarmForFeed:(unsigned long long)arg1 withNotifications:(id)arg2;
 - (void)_snoozedAlarmRefired:(id)arg1;
 - (id)_bulletinRequestForSnoozedAlarm:(id)arg1;
 - (void)_handleAlarmSnoozedNotification:(id)arg1;

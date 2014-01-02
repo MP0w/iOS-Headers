@@ -10,6 +10,6 @@
 
 @optional
 - (void)account:(id)arg1 devicesChanged:(id)arg2;
-- (void)account:(id)arg1 isActiveChanged:(BOOL)arg2;
+- (void)account:(id)arg1 isActiveChanged:(_Bool)arg2;
 @end
 

@@ -7,11 +7,10 @@
 #import "IMChat.h"
 
 @interface IMChat (CKAdditions)
-- (void)__ck_targetToService:(id)arg1;
-- (BOOL)__ck_hasValidAccountForService:(id)arg1;
-- (BOOL)__ck_accountIsOperational:(id)arg1 forService:(id)arg2;
-- (void)__ck_setAndIncrementDowngradeMarkersForManual:(BOOL)arg1;
-- (BOOL)__ck_hasDowngradeMarkers;
+- (_Bool)__ck_hasValidAccountForService:(id)arg1;
+- (_Bool)__ck_accountIsOperational:(id)arg1 forService:(id)arg2;
+- (void)__ck_setAndIncrementDowngradeMarkersForManual:(_Bool)arg1;
+- (_Bool)__ck_hasDowngradeMarkers;
 - (void)__ck_clearDowngradeMarkers;
 - (void)__ck_setPreviousAccount:(id)arg1 forService:(id)arg2;
 - (id)__ck_previousAccountForService:(id)arg1;

@@ -8,40 +8,44 @@
 
 @class NSString;
 
+// Not exported
 @interface UIStatusBarServiceItemView : UIStatusBarItemView
 {
     NSString *_serviceString;
     NSString *_crossfadeString;
-    unsigned int _crossfadeStep;
-    float _maxWidth;
-    float _serviceWidth;
-    float _crossfadeWidth;
+    unsigned long long _crossfadeStep;
+    double _maxWidth;
+    double _serviceWidth;
+    double _crossfadeWidth;
     int _contentType;
-    BOOL _loopingNecessaryForString;
-    BOOL _loopNowIfNecessary;
-    float _letterSpacing;
+    _Bool _loopingNecessaryForString;
+    _Bool _loopNowIfNecessary;
+    _Bool _loopingNow;
+    double _letterSpacing;
 }
 
 - (void)dealloc;
-- (BOOL)_loopingNecessary;
+- (_Bool)_loopingNecessary;
 - (void)_crossfadeStepAnimation;
-- (BOOL)_crossfaded;
+- (_Bool)_crossfaded;
+- (void)_finalAnimationDidStop:(id)arg1 finished:(id)arg2 context:(id)arg3;
 - (void)_loopAnimationDidStop:(id)arg1 finished:(id)arg2 context:(id)arg3;
 - (void)performPendedActions;
-- (float)extraRightPadding;
-- (BOOL)animatesDataChange;
-- (void)setVisible:(BOOL)arg1 frame:(struct CGRect)arg2 duration:(double)arg3;
+- (double)extraRightPadding;
+- (_Bool)animatesDataChange;
+- (void)setVisible:(_Bool)arg1 frame:(struct CGRect)arg2 duration:(double)arg3;
 - (id)contentsImage;
 - (id)_crossfadeContentsImage;
 - (id)_serviceContentsImage;
-- (id)_contentsImageFromString:(id)arg1 withWidth:(float)arg2 letterSpacing:(float)arg3;
-- (float)updateContentsAndWidth;
-- (int)legibilityStyle;
-- (BOOL)updateForNewData:(id)arg1 actions:(int)arg2;
-- (BOOL)updateForContentType:(int)arg1 serviceString:(id)arg2 serviceCrossfadeString:(id)arg3 maxWidth:(float)arg4 actions:(int)arg5;
-- (float)addContentOverlap:(float)arg1;
-- (float)resetContentOverlap;
-- (float)standardPadding;
+- (id)_contentsImageFromString:(id)arg1 withWidth:(double)arg2 letterSpacing:(double)arg3;
+- (id)_cachedContentImageForString:(id)arg1 withWidth:(double)arg2 letterSpacing:(double)arg3;
+- (double)updateContentsAndWidth;
+- (long long)legibilityStyle;
+- (_Bool)updateForNewData:(id)arg1 actions:(int)arg2;
+- (_Bool)updateForContentType:(int)arg1 serviceString:(id)arg2 serviceCrossfadeString:(id)arg3 maxWidth:(double)arg4 actions:(int)arg5;
+- (double)addContentOverlap:(double)arg1;
+- (double)resetContentOverlap;
+- (double)standardPadding;
 
 @end
 

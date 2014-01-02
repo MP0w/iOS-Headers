@@ -12,8 +12,8 @@
 
 @interface WPTransfer : NSObject <XPCClientDelegate>
 {
-    int _advertiserState;
-    int _scannerState;
+    long long _advertiserState;
+    long long _scannerState;
     id <WPTransferDelegate> _delegate;
     NSObject<OS_dispatch_queue> *_queue;
     XPCClient *_connection;
@@ -22,11 +22,11 @@
 @property(retain) XPCClient *connection; // @synthesize connection=_connection;
 @property(retain) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property __weak id <WPTransferDelegate> delegate; // @synthesize delegate=_delegate;
-@property int scannerState; // @synthesize scannerState=_scannerState;
-@property int advertiserState; // @synthesize advertiserState=_advertiserState;
+@property long long scannerState; // @synthesize scannerState=_scannerState;
+@property long long advertiserState; // @synthesize advertiserState=_advertiserState;
 - (void).cxx_destruct;
-- (void)updateAdvertiserState:(int)arg1;
-- (void)updateScannerState:(int)arg1;
+- (void)updateAdvertiserState:(long long)arg1;
+- (void)updateScannerState:(long long)arg1;
 - (void)connectionDied;
 - (void)connectionInterrupted;
 - (void)messageArrived:(id)arg1;
@@ -34,6 +34,8 @@
 - (void)startAdvertising;
 - (void)stopScan;
 - (void)startScan;
+- (id)description;
+- (id)stateToString:(long long)arg1;
 - (void)dealloc;
 - (id)initWithDelegate:(id)arg1 queue:(id)arg2;
 

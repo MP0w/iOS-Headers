@@ -14,11 +14,11 @@
     SSSQLiteDatabase *_database;
 }
 
-+ (BOOL)existsForAccountIdentifier:(long long)arg1;
++ (_Bool)existsForAccountIdentifier:(long long)arg1;
 @property(readonly, nonatomic) long long accountIdentifier; // @synthesize accountIdentifier=_accountIdentifier;
 @property(copy, nonatomic) NSNumber *lastSyncTime;
 - (void)performTransactionWithBlock:(id)arg1;
-- (BOOL)deleteBackingStore;
+- (_Bool)deleteBackingStore;
 - (void)dealloc;
 - (id)initWithAccountIdentifier:(long long)arg1;
 

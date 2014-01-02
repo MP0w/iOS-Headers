@@ -6,6 +6,7 @@
 
 #import <UIKit/UINavigationButton.h>
 
+// Not exported
 @interface _UIToolbarNavigationButton : UINavigationButton
 {
 }

@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface EKAlarmWrapper : NSObject
 {
     struct CalAlarmOccurrence *_alarm;
@@ -13,8 +14,8 @@
 
 + (id)wrapperWithAlarmOccurrence:(struct CalAlarmOccurrence *)arg1;
 - (id)description;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)occurrence;
 - (double)fireDate;
 - (void)dealloc;

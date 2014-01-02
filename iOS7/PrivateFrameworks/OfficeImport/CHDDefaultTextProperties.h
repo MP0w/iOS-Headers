@@ -6,6 +6,7 @@
 
 #import <OfficeImport/EDKeyedCollection.h>
 
+// Not exported
 @interface CHDDefaultTextProperties : EDKeyedCollection
 {
 }

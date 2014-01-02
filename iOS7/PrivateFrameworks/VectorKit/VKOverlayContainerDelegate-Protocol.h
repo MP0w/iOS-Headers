@@ -7,7 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol VKOverlayContainerDelegate <NSObject>
-- (BOOL)overlayContainerIsInRealisticMode:(id)arg1;
+- (_Bool)overlayContainerIsInRealisticMode:(id)arg1;
 - (id)overlayContainer:(id)arg1 roadTileForTile:(id)arg2;
 - (id)overlayContainer:(id)arg1 painterForOverlay:(id)arg2;
 @end

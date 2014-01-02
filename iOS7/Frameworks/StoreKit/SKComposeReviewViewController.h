@@ -22,9 +22,9 @@
 - (void)_requestRemoteViewController;
 - (void)_addRemoteView;
 - (void)_tearDownAfterError:(id)arg1;
-- (void)_didPrepareWithResult:(BOOL)arg1 error:(id)arg2;
-- (void)_didFinishWithResult:(BOOL)arg1 error:(id)arg2;
-- (void)viewDidAppear:(BOOL)arg1;
+- (void)_didPrepareWithResult:(_Bool)arg1 error:(id)arg2;
+- (void)_didFinishWithResult:(_Bool)arg1 error:(id)arg2;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)prepareWithCompletionBlock:(id)arg1;
 - (void)loadView;
 - (void)dealloc;

@@ -8,25 +8,26 @@
 
 @class NSString;
 
+// Not exported
 @interface _UIDatePickerComponent : NSObject
 {
-    unsigned int _equivalentUnit;
+    unsigned long long _equivalentUnit;
     NSString *_formatString;
-    unsigned int _calendarUnit;
-    float _width;
+    unsigned long long _calendarUnit;
+    double _width;
     struct _NSRange _unitRange;
 }
 
-+ (id)componentsFromDateFormatString:(id)arg1 locale:(id)arg2 desiredUnits:(int)arg3;
++ (id)componentsFromDateFormatString:(id)arg1 locale:(id)arg2 desiredUnits:(long long)arg3;
 + (id)componentsFromDateFormatString:(id)arg1 locale:(id)arg2;
-@property(nonatomic) float width; // @synthesize width=_width;
+@property(nonatomic) double width; // @synthesize width=_width;
 @property(nonatomic) struct _NSRange unitRange; // @synthesize unitRange=_unitRange;
-@property(readonly, nonatomic) unsigned int calendarUnit; // @synthesize calendarUnit=_calendarUnit;
+@property(readonly, nonatomic) unsigned long long calendarUnit; // @synthesize calendarUnit=_calendarUnit;
 @property(readonly, nonatomic) NSString *formatString; // @synthesize formatString=_formatString;
-@property(readonly, nonatomic) unsigned int equivalentUnit;
+@property(readonly, nonatomic) unsigned long long equivalentUnit;
 - (id)description;
 - (void)dealloc;
-- (id)_initWithFormatString:(id)arg1 calendarUnit:(unsigned int)arg2;
+- (id)_initWithFormatString:(id)arg1 calendarUnit:(unsigned long long)arg2;
 
 @end
 

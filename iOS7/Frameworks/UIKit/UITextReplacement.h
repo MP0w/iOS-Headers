@@ -8,6 +8,7 @@
 
 @class NSString, UITextRange;
 
+// Not exported
 @interface UITextReplacement : NSObject
 {
     UITextRange *_range;

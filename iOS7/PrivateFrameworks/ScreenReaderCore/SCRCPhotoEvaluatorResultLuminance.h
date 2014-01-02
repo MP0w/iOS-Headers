@@ -6,18 +6,19 @@
 
 #import <ScreenReaderCore/SCRCPhotoEvaluatorResult.h>
 
+// Not exported
 @interface SCRCPhotoEvaluatorResultLuminance : SCRCPhotoEvaluatorResult
 {
-    float _darknessLevel;
-    float _brightnessLevel;
-    float _averageLevel;
+    double _darknessLevel;
+    double _brightnessLevel;
+    double _averageLevel;
 }
 
-@property(readonly, nonatomic) float averageLevel; // @synthesize averageLevel=_averageLevel;
-@property(readonly, nonatomic) float brightnessLevel; // @synthesize brightnessLevel=_brightnessLevel;
-@property(readonly, nonatomic) float darknessLevel; // @synthesize darknessLevel=_darknessLevel;
+@property(readonly, nonatomic) double averageLevel; // @synthesize averageLevel=_averageLevel;
+@property(readonly, nonatomic) double brightnessLevel; // @synthesize brightnessLevel=_brightnessLevel;
+@property(readonly, nonatomic) double darknessLevel; // @synthesize darknessLevel=_darknessLevel;
 - (id)humanReadableResult;
-- (id)initWithDarknessLevel:(float)arg1 brightnessLevel:(float)arg2 averageLevel:(float)arg3;
+- (id)initWithDarknessLevel:(double)arg1 brightnessLevel:(double)arg2 averageLevel:(double)arg3;
 
 @end
 

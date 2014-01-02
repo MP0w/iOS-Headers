@@ -12,11 +12,11 @@
 {
     NSString *_matchPattern;
     NSString *_replacement;
-    BOOL _caseSensitive;
-    BOOL _eatPunctuation;
+    _Bool _caseSensitive;
+    _Bool _eatPunctuation;
 }
 
-- (id)matchedString:(id)arg1 forTokenInRange:(CDStruct_1ef3fb1f *)arg2;
+- (id)matchedString:(id)arg1 forTokenInRange:(CDStruct_912cb5d2 *)arg2;
 - (void)dealloc;
 - (id)initWithDictionaryRepresentation:(id)arg1;
 

@@ -32,9 +32,9 @@
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 @property(retain, nonatomic) NSString *fullName;
 @property(nonatomic) int sharingTheirPhotostream;
 @property(nonatomic) int sharingOurPhotostream;

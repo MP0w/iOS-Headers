@@ -14,22 +14,22 @@
 {
     NSMutableArray *_maskArray;
     NSString *_identifier;
-    long _routerIndex;
-    int _routerToken;
-    long _routerLocation;
-    BOOL _hasRouterInfo;
+    long long _routerIndex;
+    long long _routerToken;
+    long long _routerLocation;
+    _Bool _hasRouterInfo;
     id _appToken;
-    long _displayToken;
+    int _displayToken;
 }
 
-- (BOOL)getRouterIndex:(int *)arg1 token:(int *)arg2 location:(int *)arg3 appToken:(id *)arg4;
-- (void)setRouterIndex:(long)arg1 token:(int)arg2 location:(long)arg3 appToken:(id)arg4;
+- (_Bool)getRouterIndex:(long long *)arg1 token:(long long *)arg2 location:(long long *)arg3 appToken:(id *)arg4;
+- (void)setRouterIndex:(long long)arg1 token:(long long)arg2 location:(long long)arg3 appToken:(id)arg4;
 - (id)identifier;
 - (id)keyMasks;
-- (void)addKeyMask:(unsigned long)arg1;
+- (void)addKeyMask:(unsigned int)arg1;
 - (id)description;
-- (long)displayToken;
-- (void)setDisplayToken:(long)arg1;
+- (int)displayToken;
+- (void)setDisplayToken:(int)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)dealloc;

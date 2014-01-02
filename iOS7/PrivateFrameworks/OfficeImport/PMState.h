@@ -8,6 +8,7 @@
 
 @class CMOutlineState, OADTablePartStyle;
 
+// Not exported
 @interface PMState : CMState
 {
     CMOutlineState *mListState;

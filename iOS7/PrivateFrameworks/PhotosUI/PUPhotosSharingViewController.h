@@ -8,27 +8,31 @@
 
 #import "PLDismissableViewController-Protocol.h"
 #import "PUActivityViewControllerDelegate-Protocol.h"
-#import "PUHorizontalCollectionViewLayoutDelegate-Protocol.h"
+#import "PUPhotosSharingCollectionViewLayoutDelegate-Protocol.h"
 #import "PUPhotosSharingGridCellDelegate-Protocol.h"
+#import "PUPhotosSharingTransitionViewController-Protocol.h"
+#import "UIActivityViewControllerDelegate-Protocol.h"
 #import "UICollectionViewDataSource-Protocol.h"
 #import "UICollectionViewDelegate-Protocol.h"
 #import "UIGestureRecognizerDelegate-Protocol.h"
 
-@class NSIndexPath, NSMutableArray, PUActivityViewController, PUImageManager, PUPhotoSelectionManager, PUPhotosSharingCollectionViewLayout, PUPhotosSharingTransitionContext, PUPhotosSharingViewControllerSpec, UIBarButtonItem, UICollectionView, UICollectionViewLayout, UITapGestureRecognizer, UIView;
+@class NSIndexPath, NSMutableArray, NSMutableSet, PLManagedAsset, PUActivityViewController, PUImageManager, PUPhotoSelectionManager, PUPhotosSharingCollectionViewLayout, PUPhotosSharingTransitionContext, PUPhotosSharingViewControllerSpec, UIBarButtonItem, UICollectionView, UICollectionViewLayout, UITapGestureRecognizer, UIView;
 
-@interface PUPhotosSharingViewController : UIViewController <PLDismissableViewController, UIGestureRecognizerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, PUActivityViewControllerDelegate, PUPhotosSharingGridCellDelegate, PUHorizontalCollectionViewLayoutDelegate>
+@interface PUPhotosSharingViewController : UIViewController <PLDismissableViewController, UIGestureRecognizerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, PUActivityViewControllerDelegate, PUPhotosSharingGridCellDelegate, PUPhotosSharingCollectionViewLayoutDelegate, UIActivityViewControllerDelegate, PUPhotosSharingTransitionViewController>
 {
     NSMutableArray *_pendingCollectionListChangeNotifications;
     NSMutableArray *_pendingSingleCollectionChangeNotifications;
     UITapGestureRecognizer *_tapGestureRecognizer;
-    NSIndexPath *_inFlightRotationIndexPath;
-    BOOL _shouldScrollToSelection;
-    float _cachedEmbeddedActivityViewHeight;
+    NSIndexPath *_inFlightReferenceIndexPath;
+    double _cachedEmbeddedActivityViewHeight;
     UIBarButtonItem *_nextButton;
     UIBarButtonItem *_cancelButton;
-    BOOL __embedsActivityView;
-    BOOL __viewInSyncWithModel;
-    PUActivityViewController *__activityViewController;
+    UIBarButtonItem *_doneButton;
+    NSMutableSet *_preheatedAssets;
+    _Bool _shouldScrollToSelection;
+    _Bool _didAttemptShareViaAirDrop;
+    _Bool __embedsActivityView;
+    _Bool __viewInSyncWithModel;
     id <PLAssetContainerList> _photoCollections;
     PUPhotoSelectionManager *_photoSelectionManager;
     id <PUPhotosSharingViewControllerDelegate> _delegate;
@@ -37,16 +41,22 @@
     UIView *_embeddedActivityView;
     PUPhotosSharingCollectionViewLayout *_mainCollectionViewLayout;
     PUImageManager *__imageManager;
+    PUActivityViewController *__activityViewController;
     UICollectionViewLayout *__transitionLayout;
     PUPhotosSharingTransitionContext *_photosSharingTransitionContext;
+    PLManagedAsset *__lastKnownReferenceAsset;
+    NSIndexPath *__lastKnownReferenceIndexPath;
 }
 
+@property(retain, nonatomic, setter=_setLastKnownReferenceIndexPath:) NSIndexPath *_lastKnownReferenceIndexPath; // @synthesize _lastKnownReferenceIndexPath=__lastKnownReferenceIndexPath;
+@property(retain, nonatomic, setter=_setLastKnownReferenceAsset:) PLManagedAsset *_lastKnownReferenceAsset; // @synthesize _lastKnownReferenceAsset=__lastKnownReferenceAsset;
 @property(retain, nonatomic) PUPhotosSharingTransitionContext *photosSharingTransitionContext; // @synthesize photosSharingTransitionContext=_photosSharingTransitionContext;
 @property(retain, nonatomic, setter=_setTransitionLayout:) UICollectionViewLayout *_transitionLayout; // @synthesize _transitionLayout=__transitionLayout;
+@property(retain, nonatomic, setter=_setActivityViewController:) PUActivityViewController *_activityViewController; // @synthesize _activityViewController=__activityViewController;
 @property(readonly, nonatomic) PUImageManager *_imageManager; // @synthesize _imageManager=__imageManager;
-@property(nonatomic, getter=_isViewInSyncWithModel, setter=_setViewInSyncWithModel:) BOOL _viewInSyncWithModel; // @synthesize _viewInSyncWithModel=__viewInSyncWithModel;
+@property(nonatomic, getter=_isViewInSyncWithModel, setter=_setViewInSyncWithModel:) _Bool _viewInSyncWithModel; // @synthesize _viewInSyncWithModel=__viewInSyncWithModel;
 @property(retain, nonatomic, setter=_setMainCollectionViewLayout:) PUPhotosSharingCollectionViewLayout *mainCollectionViewLayout; // @synthesize mainCollectionViewLayout=_mainCollectionViewLayout;
-@property(readonly, nonatomic) BOOL _embedsActivityView; // @synthesize _embedsActivityView=__embedsActivityView;
+@property(readonly, nonatomic) _Bool _embedsActivityView; // @synthesize _embedsActivityView=__embedsActivityView;
 @property(retain, nonatomic, setter=_setEmbeddedActivityView:) UIView *embeddedActivityView; // @synthesize embeddedActivityView=_embeddedActivityView;
 @property(retain, nonatomic, setter=_setMainCollectionView:) UICollectionView *mainCollectionView; // @synthesize mainCollectionView=_mainCollectionView;
 @property(retain, nonatomic) PUPhotosSharingViewControllerSpec *spec; // @synthesize spec=_spec;
@@ -54,69 +64,79 @@
 @property(retain, nonatomic) PUPhotoSelectionManager *photoSelectionManager; // @synthesize photoSelectionManager=_photoSelectionManager;
 @property(readonly, nonatomic) id <PLAssetContainerList> photoCollections; // @synthesize photoCollections=_photoCollections;
 - (void).cxx_destruct;
-- (BOOL)prepareForDismissingForced:(BOOL)arg1;
-- (void)activityViewControllerDidDismiss:(id)arg1;
+- (_Bool)prepareForDismissingForced:(_Bool)arg1;
+- (void)activityViewControllerWillStartAirdropTransfer:(id)arg1;
 - (void)activityViewController:(id)arg1 displayVideoRemakerProgressView:(id)arg2;
 - (id)photosSharingGridCellViewForZooming:(id)arg1;
-- (id)photosSharingGridCellBadgeForZooming:(id)arg1 layoutAnchor:(unsigned int *)arg2;
+- (id)photosSharingGridCellBadgeForZooming:(id)arg1 layoutAnchor:(unsigned long long *)arg2;
 - (void)photosSharingGridCellDidEndZooming:(id)arg1;
-- (BOOL)photosSharingGridCellShouldBeginZooming:(id)arg1;
-- (BOOL)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
-- (void)scrollViewDidEndDecelerating:(id)arg1;
-- (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(BOOL)arg2;
+- (_Bool)photosSharingGridCellShouldBeginZooming:(id)arg1;
+- (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (void)scrollViewWillEndDragging:(id)arg1 withVelocity:(struct CGPoint)arg2 targetContentOffset:(inout struct CGPoint *)arg3;
 - (void)scrollViewDidScroll:(id)arg1;
+- (struct CGRect)layout:(id)arg1 collectionView:(id)arg2 selectionBadgeFrameForItemFrame:(struct CGRect)arg3 atIndexPath:(id)arg4;
 - (struct CGSize)layout:(id)arg1 collectionView:(id)arg2 sizeForItemAtIndexPath:(id)arg3;
+- (id)layout:(id)arg1 collectionView:(id)arg2 referenceIndexPathWithOffsetX:(double *)arg3;
+- (_Bool)collectionView:(id)arg1 shouldSelectItemAtIndexPath:(id)arg2;
 - (id)collectionView:(id)arg1 viewForSupplementaryElementOfKind:(id)arg2 atIndexPath:(id)arg3;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
-- (int)collectionView:(id)arg1 numberOfItemsInSection:(int)arg2;
-- (int)numberOfSectionsInCollectionView:(id)arg1;
-- (BOOL)automaticallyAdjustsScrollViewInsets;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
+- (long long)numberOfSectionsInCollectionView:(id)arg1;
+- (_Bool)automaticallyAdjustsScrollViewInsets;
+- (void)didRotateFromInterfaceOrientation:(long long)arg1;
+- (void)willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (void)willRotateToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
 - (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
-- (void)_updateMainViewAnimated:(BOOL)arg1;
-- (void)_updateActivityViewAnimated:(BOOL)arg1;
-- (void)_updateNavigationBarAnimated:(BOOL)arg1;
-- (void)_updatePeripheralInterfaceAnimated:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
+- (void)_updateMainViewAnimated:(_Bool)arg1;
+- (void)_updateActivityViewAnimated:(_Bool)arg1;
+- (void)_updateNavigationBarAnimated:(_Bool)arg1;
+- (void)_updatePeripheralInterfaceAnimated:(_Bool)arg1;
 - (void)_updateEmbeddedActivityViewAppearance;
+- (void)_statusBarFrameDidChange:(id)arg1;
+- (void)_statusBarFrameWillChange:(id)arg1;
 - (void)_didFinishPostingNotifications:(id)arg1;
 - (void)assetContainerDidChange:(id)arg1;
 - (void)assetContainerListDidChange:(id)arg1;
-- (void)_scrollViewDidStopScrolling:(id)arg1;
+- (struct CGRect)selectionBadgeFrameForItemFrame:(struct CGRect)arg1 atIndexPath:(id)arg2;
+- (void)_updatePreheatedAssets;
+- (void)_setPreheatedAssets:(id)arg1;
 - (id)_selectionViewAtIndexPath:(id)arg1 forCollectionView:(id)arg2;
-- (void)setPhotosSharingTransitionLayout:(id)arg1 animated:(BOOL)arg2;
-- (struct CGRect)embeddedActivityViewFrameWhenShowing:(BOOL)arg1;
+- (void)setPhotosSharingTransitionLayout:(id)arg1 animated:(_Bool)arg2;
+- (id)transitionCollectionView;
+- (struct CGRect)embeddedActivityViewFrameWhenShowing:(_Bool)arg1;
 @property(readonly, nonatomic) NSIndexPath *currentIndexPath;
+- (void)_setLastKnownReferenceAsset:(id)arg1 indexPath:(id)arg2;
+- (void)_updateLastKnownReferenceIndexPath;
+- (id)_validIndexPathFromIndexPath:(id)arg1;
 - (void)_getMainCollectionViewFrame:(struct CGRect *)arg1 collectionViewLayoutInsets:(struct UIEdgeInsets *)arg2 embeddedActivityViewFrame:(struct CGRect *)arg3;
 - (void)_handleTapInMainCollectionView:(id)arg1;
+- (void)_handleTapAtIndexPath:(id)arg1;
 - (id)_localizedSelectionTitle;
-- (BOOL)_isAnyAssetSelected;
-- (void)_setSelected:(BOOL)arg1 atIndexPath:(id)arg2 animated:(BOOL)arg3;
-- (void)_activityViewControllerDidComplete:(BOOL)arg1 withActivityType:(id)arg2;
-- (void)_prepareActivityViewControllerForReuse;
-@property(readonly, nonatomic) PUActivityViewController *_activityViewController; // @synthesize _activityViewController=__activityViewController;
+- (_Bool)_isAnyAssetSelected;
+- (void)_setSelected:(_Bool)arg1 atIndexPath:(id)arg2 animated:(_Bool)arg3;
+- (void)_activityViewControllerDidDismissWithActivityType:(id)arg1 didComplete:(_Bool)arg2;
+- (void)_prepareActivityViewControllerForUse;
 - (void)_next:(id)arg1;
 - (void)_cancel:(id)arg1;
 - (id)_currentSelectedAssets;
 - (id)_currentSelectedAssetItemSources;
+- (id)_indexPathOfAsset:(id)arg1 sectionHint:(long long)arg2;
 - (id)_assetAtIndexPath:(id)arg1;
-- (id)_photoCollectionAtIndex:(int)arg1;
-- (unsigned int)_indexForPhotoCollection:(id)arg1;
-- (int)_numberOfItemsInSection:(int)arg1;
-- (int)_numberOfSections;
+- (id)_photoCollectionAtIndex:(long long)arg1;
+- (unsigned long long)_indexForPhotoCollection:(id)arg1;
+- (long long)_numberOfItemsInSection:(long long)arg1;
+- (long long)_numberOfSections;
 - (id)_indexPathInCollectionView:(id)arg1 closestToPoint:(struct CGPoint)arg2 excludingIndexPath:(id)arg3;
 - (id)_indexPathOfCenterVisibleItemInCollectionView:(id)arg1;
-- (void)_pageToIndexPath:(id)arg1 animated:(BOOL)arg2;
+- (void)_pageToIndexPath:(id)arg1 animated:(_Bool)arg2;
 - (void)_updateCell:(id)arg1 forItemAtIndexPath:(id)arg2;
-- (float)_horizontalOffsetInCollectionView:(id)arg1 forCenteringOnItemAtIndexPath:(id)arg2;
+- (double)_horizontalOffsetInCollectionView:(id)arg1 forCenteringOnItemAtIndexPath:(id)arg2;
 - (struct CGSize)_sizeForItemAtIndexPath:(id)arg1;
 - (void)_getFirstValidIndexPath:(id *)arg1 lastValidIndexPath:(id *)arg2;
-- (void)_updateInterfaceForModelReloadAnimated:(BOOL)arg1;
+- (void)_updateInterfaceForModelReloadAnimated:(_Bool)arg1;
+- (_Bool)_shouldShowAsset:(id)arg1;
 - (void)dealloc;
 - (id)init;
 - (id)initWithSpec:(id)arg1 photoCollections:(id)arg2 selection:(id)arg3;

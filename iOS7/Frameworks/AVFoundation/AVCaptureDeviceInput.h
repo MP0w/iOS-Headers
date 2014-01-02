@@ -17,7 +17,7 @@
 + (void)initialize;
 - (void)_checkForFigCameraAccess;
 - (int)_requestCameraRecordPermission;
-- (BOOL)_authorizedToUseDevice:(id)arg1;
+- (_Bool)_authorizedToUseDevice:(id)arg1;
 - (struct OpaqueCMClock *)clock;
 - (void)handleNotification:(id)arg1 payload:(id)arg2;
 - (void)_applyOverridesToCaptureOptions:(id)arg1;

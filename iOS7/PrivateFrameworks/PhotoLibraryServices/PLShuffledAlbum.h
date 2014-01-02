@@ -7,11 +7,10 @@
 #import "NSObject.h"
 
 #import "PLAlbumProtocol-Protocol.h"
-#import "PLIndexMappingCache-Protocol.h"
 
-@class NSArray, NSDate, NSDictionary, NSMutableOrderedSet, NSNumber, NSObject<PLAlbumProtocol>, NSOrderedSet, NSString, NSURL, PLManagedAsset, UIImage;
+@class NSArray, NSDate, NSDictionary, NSMutableOrderedSet, NSNumber, NSOrderedSet, NSString, NSURL, PLManagedAsset, UIImage;
 
-@interface PLShuffledAlbum : NSObject <PLIndexMappingCache, PLAlbumProtocol>
+@interface PLShuffledAlbum : NSObject <PLAlbumProtocol>
 {
     struct __CFArray *_toBackingMap;
     struct __CFArray *_fromBackingMap;
@@ -24,42 +23,44 @@
 + (struct NSObject *)shuffledAlbum:(struct NSObject *)arg1 startingAsset:(id)arg2;
 @property(retain, nonatomic) NSMutableOrderedSet *_assets; // @synthesize _assets;
 - (void)batchFetchAssets:(id)arg1;
-- (id)displayableIndexesForCount:(unsigned int)arg1;
-- (id)titleForSectionStartingAtIndex:(unsigned int)arg1;
+- (id)displayableIndexesForCount:(unsigned long long)arg1;
+- (id)titleForSectionStartingAtIndex:(unsigned long long)arg1;
 @property(readonly, nonatomic) id sectioningComparator;
 @property(readonly, nonatomic) id sortingComparator;
 @property(readonly, nonatomic) NSURL *groupURL;
 @property(retain, nonatomic) NSString *importSessionID;
 @property(retain, nonatomic) NSDictionary *slideshowSettings;
-@property(readonly, nonatomic) BOOL shouldDeleteWhenEmpty;
-- (BOOL)canPerformEditOperation:(int)arg1;
+@property(readonly, nonatomic) _Bool shouldDeleteWhenEmpty;
+- (_Bool)canPerformEditOperation:(int)arg1;
 @property(readonly, nonatomic) NSArray *localizedLocationNames;
-@property(readonly, nonatomic) BOOL canShowComments;
-@property(readonly, nonatomic) BOOL canContributeToCloudSharedAlbum;
-@property(readonly, nonatomic) BOOL isMultipleContributorCloudSharedAlbum;
-@property(readonly, nonatomic) BOOL isOwnedCloudSharedAlbum;
-@property(readonly, nonatomic) BOOL isStandInAlbum;
-@property(readonly, nonatomic) BOOL isPendingPhotoStreamAlbum;
-@property(readonly, nonatomic) BOOL isCloudSharedAlbum;
-@property(readonly, nonatomic) BOOL isPhotoStreamAlbum;
-@property(readonly, nonatomic) BOOL isWallpaperAlbum;
-@property(readonly, nonatomic) BOOL isPanoramasAlbum;
-@property(readonly, nonatomic) BOOL isCameraAlbum;
-@property(readonly, nonatomic) BOOL isLibrary;
+@property(readonly, nonatomic) _Bool canShowAvalancheStacks;
+@property(readonly, nonatomic) _Bool canShowComments;
+@property(readonly, nonatomic) _Bool canContributeToCloudSharedAlbum;
+@property(readonly, nonatomic) _Bool isMultipleContributorCloudSharedAlbum;
+@property(readonly, nonatomic) _Bool isOwnedCloudSharedAlbum;
+@property(readonly, nonatomic) _Bool isStandInAlbum;
+@property(readonly, nonatomic) _Bool isPendingPhotoStreamAlbum;
+@property(readonly, nonatomic) _Bool isCloudSharedAlbum;
+@property(readonly, nonatomic) _Bool isPhotoStreamAlbum;
+@property(readonly, nonatomic) _Bool isWallpaperAlbum;
+@property(readonly, nonatomic) _Bool isPanoramasAlbum;
+@property(readonly, nonatomic) _Bool isCameraAlbum;
+@property(readonly, nonatomic) _Bool isLibrary;
 @property(readonly, nonatomic) UIImage *posterImage;
+@property(retain, nonatomic) PLManagedAsset *tertiaryKeyAsset;
+@property(retain, nonatomic) PLManagedAsset *secondaryKeyAsset;
 @property(retain, nonatomic) PLManagedAsset *keyAsset;
 @property(readonly, nonatomic) NSString *name;
-- (void)updateStackedImageShouldNotifyImmediately:(BOOL)arg1;
-- (void)reducePendingItemsCountBy:(unsigned int)arg1;
+- (void)reducePendingItemsCountBy:(unsigned long long)arg1;
 @property(nonatomic) int pendingItemsType;
 @property(nonatomic) int pendingItemsCount;
-@property(nonatomic) BOOL hasUnseenContentBoolValue;
-@property(readonly, nonatomic) unsigned int videosCount;
-@property(readonly, nonatomic) unsigned int photosCount;
-@property(readonly, nonatomic) BOOL isEmpty;
-- (unsigned int)count;
-@property(readonly, nonatomic) unsigned int assetsCount;
-@property(readonly, nonatomic) unsigned int approximateCount;
+@property(nonatomic) _Bool hasUnseenContentBoolValue;
+@property(readonly, nonatomic) unsigned long long videosCount;
+@property(readonly, nonatomic) unsigned long long photosCount;
+@property(readonly, nonatomic) _Bool isEmpty;
+- (unsigned long long)count;
+@property(readonly, nonatomic) unsigned long long assetsCount;
+@property(readonly, nonatomic) unsigned long long approximateCount;
 @property(readonly, nonatomic) NSMutableOrderedSet *mutableAssets;
 @property(readonly, nonatomic) NSOrderedSet *assets;
 @property(readonly, nonatomic) NSString *localizedTitle;
@@ -69,22 +70,6 @@
 @property(readonly, nonatomic) NSString *uuid;
 - (void)dealloc;
 - (id)init;
-@property(readonly, nonatomic) PLManagedAsset *startingAsset;
-@property(readonly, nonatomic) NSObject<PLAlbumProtocol> *backingAlbum;
-- (id)initWithBackingAlbum:(struct NSObject *)arg1 startingAsset:(id)arg2;
-- (id)description;
-- (Class)derivedChangeNotificationClass;
-- (BOOL)mappedDataSourceChanged:(id)arg1 remoteNotificationData:(id)arg2;
-@property(readonly, nonatomic) id <NSObject><NSCopying> cachedIndexMapState;
-- (void)createShuffledIndexesMaps;
-- (void)createShuffledIndexesMapsIfNeeded;
-- (struct __CFArray *)fromBackingMap;
-- (void)replaceObjectInShuffledAssetsAtIndex:(unsigned int)arg1 withObject:(id)arg2;
-- (void)removeObjectFromShuffledAssetsAtIndex:(unsigned int)arg1;
-- (void)insertObject:(id)arg1 inShuffledAssetsAtIndex:(unsigned int)arg2;
-- (id)objectInShuffledAssetsAtIndex:(unsigned int)arg1;
-- (unsigned int)indexInShuffledAssetsOfObject:(id)arg1;
-- (unsigned int)countOfShuffledAssets;
 
 // Remaining properties
 @property(readonly, nonatomic) NSDate *endDate;

@@ -13,18 +13,18 @@
 @interface MFDAMailAccountConsumer : NSObject <DAActionConsumer>
 {
     NSConditionLock *_doneCondition;
-    BOOL _shouldRetryRequest;
-    BOOL _alwaysReportFailures;
+    _Bool _shouldRetryRequest;
+    _Bool _alwaysReportFailures;
 }
 
 - (void)dealloc;
-- (BOOL)shouldRetryRequest;
+- (_Bool)shouldRetryRequest;
 - (void)taskFailed:(id)arg1 statusCode:(int)arg2 error:(id)arg3;
 - (void)actionFailed:(int)arg1 forTask:(id)arg2 error:(id)arg3;
 - (void)waitUntilDone;
-- (BOOL)waitUntilDoneBeforeDate:(id)arg1;
-- (void)setDone:(BOOL)arg1;
-- (id)initWithAlwaysReportFailures:(BOOL)arg1;
+- (_Bool)waitUntilDoneBeforeDate:(id)arg1;
+- (void)setDone:(_Bool)arg1;
+- (id)initWithAlwaysReportFailures:(_Bool)arg1;
 - (id)init;
 
 @end

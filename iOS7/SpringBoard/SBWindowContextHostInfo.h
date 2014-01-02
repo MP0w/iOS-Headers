@@ -24,7 +24,7 @@
 @property(retain, nonatomic) NSDictionary *realContextHostViewChangedProperties; // @synthesize realContextHostViewChangedProperties=_realContextHostViewChangedProperties;
 @property(readonly, nonatomic) NSMutableSet *hiddenContexts; // @synthesize hiddenContexts=_hiddenContexts;
 @property(readonly, nonatomic) SBWindowContextHostWrapperView *wrapperView; // @synthesize wrapperView=_wrapperView;
-- (void)windowContextManager:(id)arg1 didRepositionContext:(id)arg2 from:(unsigned int)arg3 to:(unsigned int)arg4 forScreen:(id)arg5;
+- (void)windowContextManager:(id)arg1 didRepositionContext:(id)arg2 from:(unsigned long long)arg3 to:(unsigned long long)arg4 forScreen:(id)arg5;
 - (void)dealloc;
 - (id)initWithContextManager:(id)arg1 hostManager:(id)arg2 screen:(id)arg3 jailBehavior:(int)arg4;
 

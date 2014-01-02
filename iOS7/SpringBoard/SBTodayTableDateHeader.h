@@ -10,17 +10,17 @@
 
 @interface SBTodayTableDateHeader : NSObject
 {
-    BOOL _shouldSuperscriptOrdinal;
+    _Bool _shouldSuperscriptOrdinal;
     NSString *_dateString;
     struct _NSRange _ordinalRange;
 }
 
 + (id)dateHeaderWithDate:(id)arg1 locale:(id)arg2;
-@property(readonly) BOOL shouldSuperscriptOrdinal; // @synthesize shouldSuperscriptOrdinal=_shouldSuperscriptOrdinal;
+@property(readonly) _Bool shouldSuperscriptOrdinal; // @synthesize shouldSuperscriptOrdinal=_shouldSuperscriptOrdinal;
 @property(readonly) struct _NSRange ordinalRange; // @synthesize ordinalRange=_ordinalRange;
 @property(readonly) NSString *dateString; // @synthesize dateString=_dateString;
 - (void)dealloc;
-- (id)initWithDateString:(id)arg1 ordinalRange:(struct _NSRange)arg2 shouldSuperscriptOrdinal:(BOOL)arg3;
+- (id)initWithDateString:(id)arg1 ordinalRange:(struct _NSRange)arg2 shouldSuperscriptOrdinal:(_Bool)arg3;
 
 @end
 

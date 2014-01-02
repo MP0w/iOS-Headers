@@ -9,9 +9,9 @@
 @protocol ABPersonEditDelegate <NSObject>
 
 @optional
-- (BOOL)shouldBeRemovedFromNavigationStack;
+- (_Bool)shouldBeRemovedFromNavigationStack;
 - (struct CGSize)adjustedPopoverContentSizeForPersonView:(id)arg1 suggestedSize:(struct CGSize)arg2;
-- (BOOL)personViewController:(id)arg1 shouldContinueAfterEditingConfirmed:(BOOL)arg2 forPerson:(void *)arg3;
+- (_Bool)personViewController:(id)arg1 shouldContinueAfterEditingConfirmed:(_Bool)arg2 forPerson:(void *)arg3;
 - (void)insertProperty:(int *)arg1 insertValue:(id *)arg2 insertLabel:(id *)arg3;
 - (void)preferredPersonDidChangeToPerson:(void *)arg1;
 - (void)didRemoveDeleteButtonAtIndexPath:(id)arg1;

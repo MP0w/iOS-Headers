@@ -9,19 +9,28 @@
 @interface PUHorizontalTiledLayoutGenerator : PUTiledLayoutGenerator
 {
     struct CGPoint _origin;
-    float _referenceHeight;
+    double _referenceHeight;
 }
 
-@property(nonatomic) float referenceHeight; // @synthesize referenceHeight=_referenceHeight;
-- (BOOL)_addColumnWithTiles:(CDStruct_2e802c68 *)arg1 imageFrames:(struct CGRect *)arg2 count:(int)arg3;
-- (void)_enumerateColumnFramesWithContiguousTiles:(CDStruct_2e802c68 *)arg1 count:(int)arg2 useMagneticGuidelines:(BOOL)arg3 block:(id)arg4;
-- (BOOL)_addColumnWithContiguousTiles:(CDStruct_2e802c68 *)arg1 count:(int)arg2;
-- (BOOL)_hasLeftSuboptimalColumn;
-- (BOOL)_parseTileTriplet;
-- (BOOL)_parseTilePair;
-- (BOOL)_parseSingleTile;
-- (float)referenceDistanceForMagneticGuidelines;
-- (BOOL)parseNextTiles;
+@property(nonatomic) double referenceHeight; // @synthesize referenceHeight=_referenceHeight;
+- (_Bool)_addSpecialSequenceBlock:(CDStruct_1417b155 *)arg1;
+- (_Bool)_addColumnWithTiles:(CDStruct_1417b155 *)arg1 imageFrames:(struct CGRect *)arg2 count:(long long)arg3;
+- (void)_enumerateColumnFramesWithContiguousTiles:(CDStruct_1417b155 *)arg1 count:(long long)arg2 useMagneticGuidelines:(_Bool)arg3 block:(id)arg4;
+- (_Bool)_addColumnWithContiguousTiles:(CDStruct_1417b155 *)arg1 count:(long long)arg2;
+- (_Bool)_isAtEndOfColumn;
+- (_Bool)_hasLeftSuboptimalColumn;
+- (_Bool)_scanNonPanoramaSequence:(CDStruct_1417b155 *)arg1 count:(long long)arg2;
+- (_Bool)_scanSpecialSequenceColumn:(CDStruct_1417b155 *)arg1 count:(long long *)arg2;
+- (_Bool)_scanSpecialSequenceBlock:(CDStruct_1417b155 *)arg1;
+- (_Bool)_scanTripletWithLargeLead:(CDStruct_1417b155 *)arg1;
+- (_Bool)_parseSpecialSubsequenceWithColumnRequired:(_Bool)arg1 columnParsed:(_Bool *)arg2;
+- (_Bool)_parseSpecialSequence;
+- (_Bool)_parseSpecialTileTriplet;
+- (_Bool)_parseTileTriplet;
+- (_Bool)_parseTilePair;
+- (_Bool)_parseSingleTile;
+- (double)referenceDistanceForMagneticGuidelines;
+- (_Bool)parseNextTiles;
 - (void)willParseTiles;
 
 @end

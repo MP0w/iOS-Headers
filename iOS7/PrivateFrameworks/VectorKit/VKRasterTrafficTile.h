@@ -8,6 +8,7 @@
 
 @class GEOVoltaireRasterTileTrafficData, NSArray, NSMutableArray, VKIntObjectMap;
 
+// Not exported
 @interface VKRasterTrafficTile : VKTile
 {
     GEOVoltaireRasterTileTrafficData *_modelTile;

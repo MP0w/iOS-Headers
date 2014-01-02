@@ -12,38 +12,38 @@
 
 @interface SBOffscreenSwipeGestureRecognizer : SBPanGestureRecognizer <_UIScreenEdgePanRecognizerDelegate>
 {
-    int m_offscreenEdge;
-    BOOL m_shouldUseUIKitHeuristics;
-    float m_edgeMargin;
-    float m_falseEdge;
+    unsigned long long m_offscreenEdge;
+    _Bool m_shouldUseUIKitHeuristics;
+    double m_edgeMargin;
+    double m_falseEdge;
     int m_touchesChecked;
     struct CGPoint m_firstTouch;
-    float m_edgeCenter;
-    float m_allowableDistanceFromEdgeCenter;
-    BOOL m_requiresSecondTouchInRange;
+    double m_edgeCenter;
+    double m_allowableDistanceFromEdgeCenter;
+    _Bool m_requiresSecondTouchInRange;
     _UIScreenEdgePanRecognizer *m_recognizer;
 }
 
 + (void)reloadDefaults;
-@property(nonatomic) float edgeCenter; // @synthesize edgeCenter=m_edgeCenter;
-@property(nonatomic) BOOL requiresSecondTouchInRange; // @synthesize requiresSecondTouchInRange=m_requiresSecondTouchInRange;
-@property(nonatomic) float allowableDistanceFromEdgeCenter; // @synthesize allowableDistanceFromEdgeCenter=m_allowableDistanceFromEdgeCenter;
-@property(nonatomic) float falseEdge; // @synthesize falseEdge=m_falseEdge;
-@property(nonatomic) float edgeMargin; // @synthesize edgeMargin=m_edgeMargin;
-@property(nonatomic) BOOL shouldUseUIKitHeuristics; // @synthesize shouldUseUIKitHeuristics=m_shouldUseUIKitHeuristics;
+@property(nonatomic) double edgeCenter; // @synthesize edgeCenter=m_edgeCenter;
+@property(nonatomic) _Bool requiresSecondTouchInRange; // @synthesize requiresSecondTouchInRange=m_requiresSecondTouchInRange;
+@property(nonatomic) double allowableDistanceFromEdgeCenter; // @synthesize allowableDistanceFromEdgeCenter=m_allowableDistanceFromEdgeCenter;
+@property(nonatomic) double falseEdge; // @synthesize falseEdge=m_falseEdge;
+@property(nonatomic) double edgeMargin; // @synthesize edgeMargin=m_edgeMargin;
+@property(nonatomic) _Bool shouldUseUIKitHeuristics; // @synthesize shouldUseUIKitHeuristics=m_shouldUseUIKitHeuristics;
 - (void)screenEdgePanRecognizerStateDidChange:(id)arg1;
 - (void)updateForBeganOrMovedTouches:(struct __SBGestureContext *)arg1;
 - (void)setState:(int)arg1;
 - (void)_updateAnimationDistanceAndEdgeCenter;
-- (BOOL)secondTouchQualifies:(const CDStruct_9bf48c9a *)arg1;
+- (_Bool)secondTouchQualifies:(const CDStruct_bab9d11d *)arg1;
 - (struct CGRect)activeScreenBounds;
-- (BOOL)firstTouchQualifies:(const CDStruct_9bf48c9a *)arg1;
-- (BOOL)_firstTouchInRange:(const CDStruct_9bf48c9a *)arg1;
+- (_Bool)firstTouchQualifies:(const CDStruct_bab9d11d *)arg1;
+- (_Bool)_firstTouchInRange:(const CDStruct_bab9d11d *)arg1;
 - (void)dealloc;
 - (void)reset;
-- (BOOL)isHandlingLongPress;
+- (_Bool)isHandlingLongPress;
 @property(retain, nonatomic) _UIScreenEdgePanRecognizerSettings *settings;
-- (id)initForOffscreenEdge:(int)arg1;
+- (id)initForOffscreenEdge:(unsigned long long)arg1;
 
 @end
 

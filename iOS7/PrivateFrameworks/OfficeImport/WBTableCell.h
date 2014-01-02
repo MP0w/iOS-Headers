@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface WBTableCell : NSObject
 {
 }
 
-+ (void)readFrom:(id)arg1 textRun:(struct WrdTextRun *)arg2 with:(struct WrdTableProperties *)arg3 tracked:(struct WrdTableProperties *)arg4 row:(id)arg5 index:(unsigned int)arg6 cell:(id)arg7;
++ (void)readFrom:(id)arg1 textRun:(struct WrdTextRun *)arg2 with:(struct WrdTableProperties *)arg3 tracked:(struct WrdTableProperties *)arg4 row:(id)arg5 index:(unsigned long long)arg6 cell:(id)arg7;
 
 @end
 

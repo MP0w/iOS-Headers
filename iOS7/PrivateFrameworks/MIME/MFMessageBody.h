@@ -17,15 +17,15 @@
 - (id)textHtmlPart;
 - (id)attachmentURLs;
 - (id)attachments;
-- (unsigned int)numberOfAttachmentsSigned:(char *)arg1 encrypted:(char *)arg2;
+- (unsigned int)numberOfAttachmentsSigned:(_Bool *)arg1 encrypted:(_Bool *)arg2;
 - (id)message;
 - (void)setMessage:(id)arg1;
-- (BOOL)isRich;
-- (BOOL)isHTML;
+- (_Bool)isRich;
+- (_Bool)isHTML;
 - (id)htmlContent;
-- (id)contentToOffset:(unsigned int)arg1 resultOffset:(unsigned int *)arg2 asHTML:(BOOL)arg3 isComplete:(char *)arg4;
-- (id)htmlContentToOffset:(unsigned int)arg1 resultOffset:(unsigned int *)arg2;
-- (id)contentToOffset:(unsigned int)arg1 resultOffset:(unsigned int *)arg2 asHTML:(BOOL)arg3;
+- (id)contentToOffset:(unsigned long long)arg1 resultOffset:(unsigned long long *)arg2 asHTML:(_Bool)arg3 isComplete:(_Bool *)arg4;
+- (id)htmlContentToOffset:(unsigned long long)arg1 resultOffset:(unsigned long long *)arg2;
+- (id)contentToOffset:(unsigned long long)arg1 resultOffset:(unsigned long long *)arg2 asHTML:(_Bool)arg3;
 - (id)rawData;
 
 @end

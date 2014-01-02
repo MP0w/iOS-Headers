@@ -10,15 +10,15 @@
 {
 }
 
-- (id)_subtitleForSectionIndex:(int)arg1;
-- (int)tableViewStyle;
+- (id)_subtitleForSectionIndex:(long long)arg1;
+- (long long)tableViewStyle;
 - (void)reloadCellContexts;
-- (id)newHeaderViewForSection:(int)arg1;
-- (float)heightForFooterInSection:(int)arg1;
+- (id)newHeaderViewForSection:(long long)arg1;
+- (double)heightForFooterInSection:(long long)arg1;
 - (void)configureCell:(id)arg1 forIndexPath:(id)arg2;
 - (Class)cellConfigurationClassForItem:(id)arg1;
 - (Class)cellClassForItem:(id)arg1 reuseIdentifier:(id *)arg2;
-- (BOOL)canShowItemOfferButtonForItem:(id)arg1;
+- (_Bool)canShowItemOfferButtonForItem:(id)arg1;
 
 @end
 

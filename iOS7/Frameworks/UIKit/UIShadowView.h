@@ -8,6 +8,7 @@
 
 @class UIImage;
 
+// Not exported
 @interface UIShadowView : UIView
 {
     UIImage *_image;
@@ -17,7 +18,7 @@
 + (id)topShadowImage;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)dealloc;
-- (void)setShadowImage:(id)arg1 forEdge:(int)arg2 inside:(BOOL)arg3;
+- (void)setShadowImage:(id)arg1 forEdge:(unsigned long long)arg2 inside:(_Bool)arg3;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

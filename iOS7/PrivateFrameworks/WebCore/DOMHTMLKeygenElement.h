@@ -8,23 +8,24 @@
 
 @class DOMHTMLFormElement, DOMNodeList, DOMValidityState, NSString;
 
+// Not exported
 @interface DOMHTMLKeygenElement : DOMHTMLElement
 {
 }
 
 - (void)setCustomValidity:(id)arg1;
-- (BOOL)checkValidity;
+- (_Bool)checkValidity;
 @property(readonly) DOMNodeList *labels;
 @property(readonly) NSString *validationMessage;
 @property(readonly) DOMValidityState *validity;
-@property(readonly) BOOL willValidate;
+@property(readonly) _Bool willValidate;
 @property(readonly) NSString *type;
 @property(copy) NSString *name;
 @property(copy) NSString *keytype;
 @property(readonly) DOMHTMLFormElement *form;
-@property BOOL disabled;
+@property _Bool disabled;
 @property(copy) NSString *challenge;
-@property BOOL autofocus;
+@property _Bool autofocus;
 
 @end
 

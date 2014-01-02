@@ -8,6 +8,6 @@
 
 @protocol OADClient <NSObject>
 - (struct CGRect)bounds;
-- (BOOL)hasBounds;
+- (_Bool)hasBounds;
 @end
 

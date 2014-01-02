@@ -10,9 +10,9 @@
 
 @interface NSError (MapKitAdditions)
 @property(readonly, nonatomic) NSURL *_mapkit_locationErrorSettingsURL;
-@property(readonly, nonatomic, getter=_mapkit_isCLErrorNetwork) BOOL _mapkit_CLErrorNetwork;
-@property(readonly, nonatomic, getter=_mapkit_isCLHeadingFailure) BOOL _mapkit_CLHeadingFailure;
-@property(readonly, nonatomic, getter=_mapkit_isCLLocationUnknown) BOOL _mapkit_CLLocationUnknown;
-@property(readonly, nonatomic, getter=_mapkit_isCLDenied) BOOL _mapkit_CLDenied;
+@property(readonly, nonatomic, getter=_mapkit_isCLErrorNetwork) _Bool _mapkit_CLErrorNetwork;
+@property(readonly, nonatomic, getter=_mapkit_isCLHeadingFailure) _Bool _mapkit_CLHeadingFailure;
+@property(readonly, nonatomic, getter=_mapkit_isCLLocationUnknown) _Bool _mapkit_CLLocationUnknown;
+@property(readonly, nonatomic, getter=_mapkit_isCLDenied) _Bool _mapkit_CLDenied;
 @end
 

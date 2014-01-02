@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface CHXTitle : NSObject
 {
 }
 
-+ (id)chdTitleFromXmlTitleElement:(struct _xmlNode *)arg1 isChartTitle:(BOOL)arg2 state:(id)arg3;
++ (id)chdTitleFromXmlTitleElement:(struct _xmlNode *)arg1 isChartTitle:(_Bool)arg2 state:(id)arg3;
 
 @end
 

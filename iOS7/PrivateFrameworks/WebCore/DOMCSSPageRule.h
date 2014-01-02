@@ -8,6 +8,7 @@
 
 @class DOMCSSStyleDeclaration, NSString;
 
+// Not exported
 @interface DOMCSSPageRule : DOMCSSRule
 {
 }

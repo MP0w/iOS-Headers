@@ -8,6 +8,7 @@
 
 @class NSSQLEntity;
 
+// Not exported
 @interface NSSQLRelationship : NSSQLProperty
 {
     NSSQLEntity *_destinationEntity;
@@ -15,7 +16,7 @@
 }
 
 - (void)copyValuesForReadOnlyFetch:(id)arg1;
-- (BOOL)isOrdered;
+- (_Bool)isOrdered;
 - (void)_setInverseRelationship:(id)arg1;
 - (id)inverseRelationship;
 - (void)_setForeignOrderKey:(id)arg1;

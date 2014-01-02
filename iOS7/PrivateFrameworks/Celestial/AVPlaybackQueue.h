@@ -15,10 +15,10 @@
     NSMutableArray *_pbItemQueue;
     struct OpaqueFigPlayer *_figPlayer;
     int _ignoreAVQueueModifications;
-    BOOL _hasBuiltPlaybackQueue;
-    BOOL _waitingToAddFirstItem;
+    _Bool _hasBuiltPlaybackQueue;
+    _Bool _waitingToAddFirstItem;
     int _avQueueTransactionCount;
-    int _repeatMode;
+    long long _repeatMode;
 }
 
 - (void)playbackItemInspectionComplete:(id)arg1;
@@ -30,8 +30,8 @@
 - (void)queueItemWasAddedNotification:(id)arg1;
 - (void)endAVQueueTransaction;
 - (void)beginAVQueueTransaction;
-- (void)updateBookmarkTimesIncludeFirst:(BOOL)arg1 updateFirst:(BOOL)arg2;
-- (void)setRepeatMode:(int)arg1;
+- (void)updateBookmarkTimesIncludeFirst:(_Bool)arg1 updateFirst:(_Bool)arg2;
+- (void)setRepeatMode:(long long)arg1;
 - (id)currentPlaybackItem;
 - (void)ensurePlaybackQueue;
 - (void)setAVItemQueue:(id)arg1;

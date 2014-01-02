@@ -15,9 +15,9 @@
 @interface SKUIGallerySwooshViewController : SKUISwooshViewController <SKUIEmbeddedMediaViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 {
     UICollectionView *_collectionView;
-    BOOL _delegateWantsWillDisplay;
+    _Bool _delegateWantsWillDisplay;
     SKUISwooshPageComponent *_gallerySwoosh;
-    float _itemHeight;
+    double _itemHeight;
     SKUISwooshView *_swooshView;
 }
 
@@ -25,18 +25,18 @@
 - (void).cxx_destruct;
 - (id)_newViewWithMediaComponent:(id)arg1;
 - (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 sizeForItemAtIndexPath:(id)arg3;
-- (struct UIEdgeInsets)collectionView:(id)arg1 layout:(id)arg2 insetForSectionAtIndex:(int)arg3;
+- (struct UIEdgeInsets)collectionView:(id)arg1 layout:(id)arg2 insetForSectionAtIndex:(long long)arg3;
 - (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
-- (int)collectionView:(id)arg1 numberOfItemsInSection:(int)arg2;
+- (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
-- (void)mediaView:(id)arg1 playbackStateDidChange:(int)arg2;
+- (void)mediaView:(id)arg1 playbackStateDidChange:(long long)arg2;
 - (void)loadView;
-- (void)setImage:(id)arg1 forItemAtIndex:(int)arg2;
+- (void)setImage:(id)arg1 forItemAtIndex:(long long)arg2;
 @property(nonatomic) __weak id <SKUIGallerySwooshViewControllerDelegate> delegate; // @dynamic delegate;
 - (id)indexPathsForVisibleItems;
 - (void)setColorScheme:(id)arg1;
-- (void)performActionForItemAtIndex:(int)arg1 animated:(BOOL)arg2;
-- (id)artworkForItemAtIndex:(int)arg1;
+- (void)performActionForItemAtIndex:(long long)arg1 animated:(_Bool)arg2;
+- (id)artworkForItemAtIndex:(long long)arg1;
 - (id)initWithGallerySwoosh:(id)arg1;
 
 @end

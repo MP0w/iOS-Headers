@@ -8,14 +8,15 @@
 
 #import "NSCopying-Protocol.h"
 
+// Not exported
 @interface OADDashStop : NSObject <NSCopying>
 {
     float mDash;
     float mSpace;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (float)space;
 - (float)dash;
 - (id)copyWithZone:(struct _NSZone *)arg1;

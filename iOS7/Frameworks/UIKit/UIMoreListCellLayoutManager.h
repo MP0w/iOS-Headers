@@ -6,12 +6,13 @@
 
 #import <UIKit/UITableViewCellLayoutManager.h>
 
+// Not exported
 @interface UIMoreListCellLayoutManager : UITableViewCellLayoutManager
 {
-    float _widestImageWidth;
+    double _widestImageWidth;
 }
 
-- (float)setWidestImageWidthFromViewControllers:(id)arg1;
+- (double)setWidestImageWidthFromViewControllers:(id)arg1;
 - (void)layoutSubviewsOfCell:(id)arg1;
 
 @end

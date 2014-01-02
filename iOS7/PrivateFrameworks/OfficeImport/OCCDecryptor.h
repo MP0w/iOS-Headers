@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface OCCDecryptor : NSObject
 {
     NSString *mOutputFilename;
@@ -16,14 +17,12 @@
 }
 
 + (id)allocTempFileWithBase:(id)arg1 outFilename:(id *)arg2;
-+ (id)agilePasswordKeyEncryptorNamespace;
-+ (id)agileDescriptorNamespace;
 @property(readonly, nonatomic) NSString *outputFilename; // @synthesize outputFilename=mOutputFilename;
-- (BOOL)decryptIntoOutputFile;
-- (BOOL)verifyPassphrase:(id)arg1;
-- (BOOL)decrypt;
+- (_Bool)decryptIntoOutputFile;
+- (_Bool)verifyPassphrase:(id)arg1;
+- (_Bool)decrypt;
 - (void)deleteOutputFile;
-- (BOOL)isReadProtectedUsingDefaultPassphrase;
+- (_Bool)isReadProtectedUsingDefaultPassphrase;
 - (id)initWithStreamer:(struct OCCStreamer *)arg1;
 - (void)dealloc;
 

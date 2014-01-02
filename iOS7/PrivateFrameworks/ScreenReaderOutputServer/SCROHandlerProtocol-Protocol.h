@@ -5,10 +5,10 @@
  */
 
 @protocol SCROHandlerProtocol
-- (int)handlePerformActionForKey:(int)arg1 trusted:(BOOL)arg2;
-- (int)handleGetValue:(id *)arg1 forKey:(int)arg2 withObject:(id)arg3 trusted:(BOOL)arg4;
-- (int)handleGetValue:(id *)arg1 forKey:(int)arg2 trusted:(BOOL)arg3;
-- (int)handleSetValue:(id)arg1 forKey:(int)arg2 trusted:(BOOL)arg3;
-- (int)handleRegisterCallbackForKey:(int)arg1 trusted:(BOOL)arg2;
+- (int)handlePerformActionForKey:(int)arg1 trusted:(_Bool)arg2;
+- (int)handleGetValue:(id *)arg1 forKey:(int)arg2 withObject:(id)arg3 trusted:(_Bool)arg4;
+- (int)handleGetValue:(id *)arg1 forKey:(int)arg2 trusted:(_Bool)arg3;
+- (int)handleSetValue:(id)arg1 forKey:(int)arg2 trusted:(_Bool)arg3;
+- (int)handleRegisterCallbackForKey:(int)arg1 trusted:(_Bool)arg2;
 @end
 

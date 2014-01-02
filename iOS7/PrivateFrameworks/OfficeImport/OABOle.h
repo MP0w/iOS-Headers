@@ -6,18 +6,19 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface OABOle : NSObject
 {
 }
 
-+ (id)readFromStream:(struct SsrwOOStream *)arg1 size:(unsigned long)arg2 cancel:(id)arg3;
-+ (id)readCompressedFromStream:(struct SsrwOOStream *)arg1 compressedSize:(unsigned long)arg2 uncompressedSize:(unsigned long)arg3 cancel:(id)arg4;
++ (id)readFromStream:(struct SsrwOOStream *)arg1 size:(unsigned int)arg2 cancel:(id)arg3;
++ (id)readCompressedFromStream:(struct SsrwOOStream *)arg1 compressedSize:(unsigned int)arg2 uncompressedSize:(unsigned int)arg3 cancel:(id)arg4;
 + (id)readFromData:(id)arg1 cancel:(id)arg2;
 + (id)readFromParentStorage:(struct SsrwOOStorage *)arg1 storageName:(id)arg2 cancel:(id)arg3;
-+ (BOOL)readSharedInfoFor:(id)arg1 fromStorage:(struct SsrwOOStorage *)arg2;
++ (_Bool)readSharedInfoFor:(id)arg1 fromStorage:(struct SsrwOOStorage *)arg2;
 + (id)readUnicodeStringFromStream:(struct SsrwOOStream *)arg1;
-+ (BOOL)isChart:(id)arg1;
-+ (BOOL)isBiffCLSID:(id)arg1;
++ (_Bool)isChart:(id)arg1;
++ (_Bool)isBiffCLSID:(id)arg1;
 + (id)readCLSIDFromStream:(struct SsrwOOStream *)arg1;
 + (id)stringForCLSID:(struct _SsrwOO_GUID)arg1;
 + (id)readAnsiStringFromStream:(struct SsrwOOStream *)arg1;

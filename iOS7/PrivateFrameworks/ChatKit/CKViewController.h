@@ -8,25 +8,25 @@
 
 @interface CKViewController : UIViewController
 {
-    BOOL _appeared;
-    BOOL _appearing;
+    _Bool _appeared;
+    _Bool _appearing;
 }
 
-@property(nonatomic) BOOL appearing; // @synthesize appearing=_appearing;
-@property(nonatomic) BOOL appeared; // @synthesize appeared=_appeared;
+@property(nonatomic) _Bool appearing; // @synthesize appearing=_appearing;
+@property(nonatomic) _Bool appeared; // @synthesize appeared=_appeared;
 - (void)childViewControllersPerform:(SEL)arg1;
 - (void)viewDidAppearDeferredSetup;
 - (void)performResumeDeferredSetup;
 - (void)systemApplicationWillEnterForeground;
 - (void)parentControllerDidBecomeActive;
-- (void)parentControllerDidResume:(BOOL)arg1 animating:(BOOL)arg2;
+- (void)parentControllerDidResume:(_Bool)arg1 animating:(_Bool)arg2;
 - (void)prepareForResume;
 - (void)prepareForSuspend;
 - (void)significantTimeChange;
-- (void)viewDidDisappear:(BOOL)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 
 @end
 

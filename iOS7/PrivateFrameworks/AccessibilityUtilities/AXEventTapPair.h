@@ -10,9 +10,9 @@
 
 @interface AXEventTapPair : NSObject
 {
+    int priority;
     id handler;
     NSString *identifier;
-    int priority;
 }
 
 @property(nonatomic) int priority; // @synthesize priority;

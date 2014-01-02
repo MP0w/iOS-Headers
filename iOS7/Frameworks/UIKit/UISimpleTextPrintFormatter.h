@@ -6,28 +6,21 @@
 
 #import <UIKit/UIPrintFormatter.h>
 
-@class NSAttributedString, NSString, UIColor, UIFont, UITextView, UITextViewPrintFormatter;
+@class NSAttributedString, NSString, UIColor, UIFont;
 
 @interface UISimpleTextPrintFormatter : UIPrintFormatter
 {
-    UITextView *_textView;
-    UITextViewPrintFormatter *_textViewPrintFormatter;
 }
 
-- (void)drawInRect:(struct CGRect)arg1 forPageAtIndex:(int)arg2;
-- (struct CGRect)rectForPageAtIndex:(int)arg1;
-- (int)_recalcPageCount;
-- (void)removeFromPrintPageRenderer;
-- (id)_textViewPrintFormatter;
-@property(nonatomic) int textAlignment; // @dynamic textAlignment;
-@property(retain, nonatomic) UIColor *color; // @dynamic color;
-@property(retain, nonatomic) UIFont *font; // @dynamic font;
-@property(copy, nonatomic) NSAttributedString *attributedText;
-@property(copy, nonatomic) NSString *text; // @dynamic text;
-- (void)dealloc;
-- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithAttributedText:(id)arg1;
 - (id)initWithText:(id)arg1;
+
+// Remaining properties
+@property(copy, nonatomic) NSAttributedString *attributedText; // @dynamic attributedText;
+@property(retain, nonatomic) UIColor *color; // @dynamic color;
+@property(retain, nonatomic) UIFont *font; // @dynamic font;
+@property(copy, nonatomic) NSString *text; // @dynamic text;
+@property(nonatomic) long long textAlignment; // @dynamic textAlignment;
 
 @end
 

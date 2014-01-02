@@ -10,7 +10,7 @@
 
 @interface RUGradientLabel : UILabel
 {
-    float _internalShadowBlur;
+    double _internalShadowBlur;
     UIColor *_internalShadowColor;
     struct CGSize _internalShadowOffset;
     UIColor *_internalTextColor;
@@ -24,7 +24,7 @@
 - (void)setTextColor:(id)arg1;
 - (void)setShadowOffset:(struct CGSize)arg1;
 - (void)setShadowColor:(id)arg1;
-- (void)setShadowBlur:(float)arg1;
+- (void)setShadowBlur:(double)arg1;
 - (void)drawTextInRect:(struct CGRect)arg1;
 
 @end

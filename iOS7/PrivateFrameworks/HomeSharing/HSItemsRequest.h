@@ -8,14 +8,14 @@
 
 @interface HSItemsRequest : HSRequest
 {
-    BOOL _shouldParseResponse;
-    BOOL _includeHiddenItems;
+    _Bool _shouldParseResponse;
+    _Bool _includeHiddenItems;
 }
 
 + (id)requestWithDatabaseID:(unsigned int)arg1 containerID:(unsigned int)arg2;
 + (id)requestWithDatabaseID:(unsigned int)arg1;
-@property(nonatomic) BOOL includeHiddenItems; // @synthesize includeHiddenItems=_includeHiddenItems;
-@property(nonatomic) BOOL shouldParseResponse; // @synthesize shouldParseResponse=_shouldParseResponse;
+@property(nonatomic) _Bool includeHiddenItems; // @synthesize includeHiddenItems=_includeHiddenItems;
+@property(nonatomic) _Bool shouldParseResponse; // @synthesize shouldParseResponse=_shouldParseResponse;
 - (void)setSongsRequestWithSessonID:(unsigned int)arg1 metadataFilter:(id)arg2 purchaseTokenListing:(id)arg3 queryFilter:(id)arg4;
 - (id)canonicalResponseForResponse:(id)arg1;
 - (id)initWithDatabaseID:(unsigned int)arg1 containerID:(unsigned int)arg2;

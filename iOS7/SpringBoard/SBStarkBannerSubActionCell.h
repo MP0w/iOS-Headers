@@ -11,13 +11,13 @@
 @interface SBStarkBannerSubActionCell : SBCollectionViewCell
 {
     UILabel *_label;
-    BOOL _roundedCorners;
+    _Bool _roundedCorners;
 }
 
 - (void)layoutSubviews;
 - (void)prepareForReuse;
-- (void)_didSetHighlighted:(BOOL)arg1;
-@property(nonatomic) BOOL roundedCorners;
+- (void)_didSetHighlighted:(_Bool)arg1;
+@property(nonatomic) _Bool roundedCorners;
 @property(copy, nonatomic) NSString *labelText;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

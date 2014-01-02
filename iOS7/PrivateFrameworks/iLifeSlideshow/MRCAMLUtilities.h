@@ -10,7 +10,7 @@
 {
 }
 
-+ (float)valueAtIndex:(int)arg1 forAnimationPath:(id)arg2 atTime:(double)arg3;
++ (double)valueAtIndex:(long long)arg1 forAnimationPath:(id)arg2 atTime:(double)arg3;
 
 @end
 

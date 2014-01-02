@@ -17,7 +17,7 @@
 }
 
 - (void)dealloc;
-- (id)decomposer:(id)arg1 decompositionOf:(id)arg2 isSubsetOfWhole:(BOOL)arg3;
+- (id)decomposer:(id)arg1 decompositionOf:(id)arg2 isSubsetOfWhole:(_Bool)arg3;
 - (id)initWithWholeOverrides:(id)arg1 partOverrides:(id)arg2;
 
 @end

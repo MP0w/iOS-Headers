@@ -7,8 +7,8 @@
 #pragma mark Named Structures
 
 struct CGPoint {
-    float x;
-    float y;
+    double x;
+    double y;
 };
 
 struct CGRect {
@@ -17,15 +17,15 @@ struct CGRect {
 };
 
 struct CGSize {
-    float width;
-    float height;
+    double width;
+    double height;
 };
 
 struct TDNamedAssetImportEdgeInsets {
-    float top;
-    float left;
-    float bottom;
-    float right;
+    double top;
+    double left;
+    double bottom;
+    double right;
 };
 
 struct _PSDImageInfo {
@@ -60,27 +60,27 @@ typedef struct {
     char *_field1;
     char *_field2;
     struct _renditionkeytoken _field3[5];
-    int _field4;
-    int _field5;
+    long long _field4;
+    long long _field5;
     struct {
         char *_field1;
         char *_field2;
-        int _field3;
-        unsigned int _field4;
+        long long _field3;
+        unsigned long long _field4;
     } _field6[12];
-} CDStruct_77d6184b;
+} CDStruct_26b2aa83;
 
 typedef struct {
     struct CGSize _field1;
     struct CGSize _field2;
     struct CGSize _field3;
-} CDStruct_29e12816;
+} CDStruct_1ba92a5e;
 
 typedef struct {
     char *_field1;
     char *_field2;
-    char _field3;
-    int _field4;
-    CDStruct_77d6184b _field5[7];
-} CDStruct_9508427b;
+    _Bool _field3;
+    long long _field4;
+    CDStruct_26b2aa83 _field5[7];
+} CDStruct_e3362728;
 

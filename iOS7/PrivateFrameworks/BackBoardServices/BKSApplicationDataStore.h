@@ -12,7 +12,7 @@
 {
     NSString *_bundleId;
     BKSApplicationDataStoreRepositoryClient *_client;
-    BOOL _clientNeedsCheckin;
+    _Bool _clientNeedsCheckin;
 }
 
 + (void)_setClassClient:(id)arg1;

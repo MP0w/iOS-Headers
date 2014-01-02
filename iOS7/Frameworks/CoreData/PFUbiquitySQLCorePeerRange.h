@@ -8,6 +8,7 @@
 
 @class NSNumber, NSString;
 
+// Not exported
 @interface PFUbiquitySQLCorePeerRange : NSObject
 {
     NSString *_owningPeerID;

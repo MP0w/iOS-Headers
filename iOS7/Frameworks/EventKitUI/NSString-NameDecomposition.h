@@ -11,6 +11,6 @@
 + (id)_attendeeNameExtensions;
 - (void)attendeeFirstName:(id *)arg1 middleName:(id *)arg2 lastName:(id *)arg3 extension:(id *)arg4;
 - (id)_attendeeTrimCommasSpacesQuotes;
-- (BOOL)_attendeeAppearsToBeAnInitial;
+- (_Bool)_attendeeAppearsToBeAnInitial;
 @end
 

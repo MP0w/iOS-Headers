@@ -8,7 +8,7 @@
 
 #import "SBNumberPadDelegate-Protocol.h"
 
-@class SBNumberPadWithDelegate, UIColor, UIControl<SBUIPasscodeNumberPadButton>, UILabel;
+@class NSArray, SBNumberPadWithDelegate, SBUIButton, UIColor, UIControl<SBUIPasscodeNumberPadButton>;
 
 @interface SBUIPasscodeLockNumberPad : UIView <SBNumberPadDelegate>
 {
@@ -17,37 +17,40 @@
     UIView *_leftPaddingView;
     UIView *_rightPaddingView;
     UIView *_bottomPaddingView;
-    UILabel *_emergencyCallButton;
-    UILabel *_backspaceButton;
-    UILabel *_cancelButton;
+    SBUIButton *_emergencyCallButton;
+    SBUIButton *_backspaceButton;
+    SBUIButton *_cancelButton;
     UIControl<SBUIPasscodeNumberPadButton> *_downButton;
-    BOOL _showsBackspaceButton;
-    BOOL _showsEmergencyCallButton;
-    BOOL _showsCancelButton;
+    _Bool _showsBackspaceButton;
+    _Bool _showsEmergencyCallButton;
+    _Bool _showsCancelButton;
     UIColor *_customBackgroundColor;
 }
 
++ (struct UIEdgeInsets)_inputButtonCircleSpacing;
++ (struct CGSize)_inputButtonCircleSize;
 + (id)_buttonForCharacter:(unsigned int)arg1;
 @property(retain, nonatomic) UIControl<SBUIPasscodeNumberPadButton> *downButton; // @synthesize downButton=_downButton;
-@property(nonatomic) BOOL showsCancelButton; // @synthesize showsCancelButton=_showsCancelButton;
-@property(nonatomic) BOOL showsEmergencyCallButton; // @synthesize showsEmergencyCallButton=_showsEmergencyCallButton;
-@property(nonatomic) BOOL showsBackspaceButton; // @synthesize showsBackspaceButton=_showsBackspaceButton;
+@property(nonatomic) _Bool showsCancelButton; // @synthesize showsCancelButton=_showsCancelButton;
+@property(nonatomic) _Bool showsEmergencyCallButton; // @synthesize showsEmergencyCallButton=_showsEmergencyCallButton;
+@property(nonatomic) _Bool showsBackspaceButton; // @synthesize showsBackspaceButton=_showsBackspaceButton;
 @property(nonatomic) id <SBUIPasscodeLockNumberPadDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)_emergencyCallButtonHit;
 - (void)_backspaceButtonHit;
 - (void)_cancelButtonHit;
 - (void)_configureAdditionalButtons;
 - (id)_fontForAncillaryButton;
-- (void)_setLuminosityBoost:(float)arg1;
-- (float)_distanceToTopOfFirstButton;
+- (void)_setLuminosityBoost:(double)arg1;
+- (double)_distanceToTopOfFirstButton;
 - (void)_numberPadTouchDrag:(id)arg1 forEvent:(id)arg2;
 - (void)_numberPadTouchCancelled:(id)arg1 forEvent:(id)arg2;
 - (void)_numberPadTouchUp:(id)arg1 forEvent:(id)arg2;
 - (void)_numberPadTouchDown:(id)arg1 forEvent:(id)arg2;
 - (void)setCustomBackgroundColor:(id)arg1;
-- (void)setBackgroundAlpha:(float)arg1;
+- (void)setBackgroundAlpha:(double)arg1;
 - (void)dealloc;
 - (id)initWithDefaultSize;
+@property(readonly, nonatomic) NSArray *buttons;
 
 @end
 

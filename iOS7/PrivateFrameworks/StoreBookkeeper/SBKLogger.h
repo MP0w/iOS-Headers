@@ -21,8 +21,8 @@
 }
 
 + (id)sharedLogger;
-+ (BOOL)debugLoggingEnabled;
-+ (BOOL)verboseLoggingEnabled;
++ (_Bool)debugLoggingEnabled;
++ (_Bool)verboseLoggingEnabled;
 @property(copy) NSString *runtimeOverride; // @synthesize runtimeOverride=_runtimeOverride;
 @property(copy) NSString *filter; // @synthesize filter=_filter;
 - (void).cxx_destruct;
@@ -32,7 +32,7 @@
 - (void)logFunction:(const char *)arg1 format:(id)arg2;
 - (void)logFile:(const char *)arg1 lineNumber:(int)arg2 format:(id)arg3;
 - (void)performLoggingBlock:(id)arg1;
-- (BOOL)shouldOverrideCondition:(id)arg1 file:(id)arg2;
+- (_Bool)shouldOverrideCondition:(id)arg1 file:(id)arg2;
 - (id)auxPath;
 - (void)setAuxPath:(id)arg1;
 - (void)dealloc;

@@ -32,8 +32,7 @@
 
 // Remaining properties
 @property(nonatomic) int alignment;
-@property(nonatomic) BOOL autoEnablesForDesignMode;
-@property(nonatomic) BOOL enabled;
+@property(nonatomic) _Bool enabled;
 @property(nonatomic) __weak _UISettings *settings;
 @property(copy, nonatomic) NSString *valueKeyPath;
 

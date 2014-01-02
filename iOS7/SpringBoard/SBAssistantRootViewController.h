@@ -17,13 +17,13 @@
 
 @property(readonly, nonatomic) UIView *contentView; // @synthesize contentView=_contentView;
 @property(retain, nonatomic) UIViewController *assistantController; // @synthesize assistantController=_assistantViewController;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (unsigned int)supportedInterfaceOrientations;
-- (BOOL)shouldAutorotate;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (BOOL)shouldAutomaticallyForwardRotationMethods;
-- (BOOL)shouldAutomaticallyForwardAppearanceMethods;
-- (BOOL)wantsFullScreenLayout;
+- (void)willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (unsigned long long)supportedInterfaceOrientations;
+- (_Bool)shouldAutorotate;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (_Bool)shouldAutomaticallyForwardRotationMethods;
+- (_Bool)shouldAutomaticallyForwardAppearanceMethods;
+- (_Bool)wantsFullScreenLayout;
 - (void)loadView;
 @property(readonly, nonatomic) UIView *clippingView; // @dynamic clippingView;
 - (void)dealloc;

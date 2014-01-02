@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
+#import "RCAVPreviewControllerObserver-Protocol.h"
 #import "RCTrimControlDelegate-Protocol.h"
 
-@class AVAssetExportSession, AVController, AVItem, AVQueue, NSString, NSTimer, RCSavedRecording, RCTrimControl, UIButton, UIView, UIWindow;
+@class AVAssetExportSession, AVItem, NSString, RCAVPreviewController, RCSavedRecording, RCTrimControl, UIButton, UIView, UIWindow;
 
-@interface RCTrimController : NSObject <RCTrimControlDelegate>
+@interface RCTrimController : NSObject <RCTrimControlDelegate, RCAVPreviewControllerObserver>
 {
     id _completionHandler;
     NSString *_confirmButtonTitle;
@@ -23,16 +24,14 @@
     AVItem *_recordingItem;
     NSString *_recordingPath;
     NSString *_remadeRecordingPath;
-    BOOL _playing;
-    AVController *_previewAVController;
-    AVQueue *_previewAVQueue;
+    _Bool _playing;
+    RCAVPreviewController *_previewController;
     double _startTimeInterval;
     double _endTimeInterval;
     double _minTrimmedDuration;
     double _maxTrimmedDuration;
     UIWindow *_statusBarDimmingWindow;
     RCTrimControl *_trimControl;
-    NSTimer *_updateScrubberTimer;
     UIView *_view;
     id <RCTrimControllerDelegate> _delegate;
     RCSavedRecording *_recording;
@@ -47,10 +46,11 @@
 @property(nonatomic) __weak id <RCTrimControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_applicationWillResignActive:(id)arg1;
-- (void)_previewControllerDidInvalidate:(id)arg1;
-- (void)_itemPlaybackDidEnd:(id)arg1;
+- (void)previewController:(id)arg1 playbackTimeDidUpdateToCurrentTime:(double)arg2;
+- (void)previewController:(id)arg1 playbackTimeDidJumpWithPreviousTime:(double)arg2;
+- (void)previewController:(id)arg1 playbackDidStopPlayingWithError:(id)arg2;
+- (void)previewController:(id)arg1 playbackDidBeginWithRate:(float)arg2;
 - (void)_dismiss;
-- (void)_updateScrubber:(id)arg1;
 - (void)_resumePreview;
 - (void)_pausePreview;
 - (void)_endPreview;
@@ -61,10 +61,10 @@
 - (id)_recordingPath;
 - (double)_recordingDuration;
 - (id)_recordingAVItem;
-- (id)_newButtonWithStyle:(int)arg1;
+- (id)_newButtonWithStyle:(long long)arg1;
 - (id)_view;
 @property(readonly, nonatomic) float trimmingProgress;
-@property(readonly, nonatomic) BOOL isTrimming;
+@property(readonly, nonatomic) _Bool isTrimming;
 @property(copy, nonatomic) NSString *confirmButtonTitle;
 - (void)presentInWindow:(id)arg1 completionHandler:(id)arg2;
 - (void)trimControlDidEndScrubbing:(id)arg1;

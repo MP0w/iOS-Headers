@@ -8,20 +8,20 @@
 
 @interface MSTrackListCellConfiguration : SUMediaItemCellConfiguration
 {
-    CDStruct_b08558f4 _position;
+    CDStruct_3e55db63 _position;
 }
 
-+ (float)rowHeightForContext:(id)arg1 representedObject:(id)arg2;
++ (double)rowHeightForContext:(id)arg1 representedObject:(id)arg2;
 + (id)copyDefaultContext;
-@property(nonatomic) CDStruct_b08558f4 position; // @synthesize position=_position;
-- (BOOL)showContentRating;
+@property(nonatomic) CDStruct_3e55db63 position; // @synthesize position=_position;
+- (_Bool)showContentRating;
 - (void)reloadStrings;
 - (void)reloadLayoutInformation;
 - (void)reloadImages;
-- (unsigned int)indexOfLabelForPurchaseAnimation;
-- (id)fontForLabelAtIndex:(unsigned int)arg1;
-- (void)drawBackgroundWithModifiers:(unsigned int)arg1;
-- (id)colorForLabelAtIndex:(unsigned int)arg1 withModifiers:(unsigned int)arg2;
+- (unsigned long long)indexOfLabelForPurchaseAnimation;
+- (id)fontForLabelAtIndex:(unsigned long long)arg1;
+- (void)drawBackgroundWithModifiers:(unsigned long long)arg1;
+- (id)colorForLabelAtIndex:(unsigned long long)arg1 withModifiers:(unsigned long long)arg2;
 - (id)init;
 
 @end

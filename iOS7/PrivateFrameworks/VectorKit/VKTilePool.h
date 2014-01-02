@@ -8,6 +8,7 @@
 
 @class NSLock;
 
+// Not exported
 @interface VKTilePool : VKTileKeyMap
 {
     NSLock *_lock;
@@ -21,7 +22,7 @@
 - (void)setObject:(id)arg1 forKey:(const struct VKTileKey *)arg2;
 - (id)objectForKey:(const struct VKTileKey *)arg1;
 - (void)dealloc;
-- (id)initWithMapType:(int)arg1;
+- (id)initWithMapType:(long long)arg1;
 - (id)init;
 
 @end

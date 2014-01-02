@@ -11,7 +11,8 @@
     id _internal;
 }
 
-@property(readonly, nonatomic, getter=isActivityAvailable) BOOL activityAvailable;
+- (long long)overrideOscarSideband:(_Bool)arg1 withState:(long long)arg2;
+@property(readonly, nonatomic, getter=isActivityAvailable) _Bool activityAvailable;
 @property(copy) id activityHandler;
 - (void)dealloc;
 - (id)init;

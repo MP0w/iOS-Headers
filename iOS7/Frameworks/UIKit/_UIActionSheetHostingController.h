@@ -6,6 +6,7 @@
 
 #import <UIKit/UIViewController.h>
 
+// Not exported
 @interface _UIActionSheetHostingController : UIViewController
 {
     struct CGSize _actionSheetSize;

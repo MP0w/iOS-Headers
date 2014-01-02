@@ -6,6 +6,7 @@
 
 #import <Foundation/NSKeyValueMutatingCollectionMethodSet.h>
 
+// Not exported
 @interface NSKeyValueMutatingSetMethodSet : NSKeyValueMutatingCollectionMethodSet
 {
     struct objc_method *addObject;

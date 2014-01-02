@@ -13,21 +13,21 @@
 + (id)allPropertyKeys;
 + (id)sortByNameKey;
 + (id)databaseTable;
-+ (id)itemsFromDatabase:(id)arg1 forAccount:(long long)arg2 matching:(id)arg3 sortedBy:(id)arg4 sortAscending:(BOOL)arg5;
-+ (id)allItemsFromDatabase:(id)arg1 forAccount:(long long)arg2 sortedBy:(id)arg3 sortAscending:(BOOL)arg4;
++ (id)itemsFromDatabase:(id)arg1 forAccount:(long long)arg2 matching:(id)arg3 sortedBy:(id)arg4 sortAscending:(_Bool)arg5;
++ (id)allItemsFromDatabase:(id)arg1 forAccount:(long long)arg2 sortedBy:(id)arg3 sortAscending:(_Bool)arg4;
 - (id)description;
 - (long long)iTunesVersion;
 - (id)humanReadableVersion;
 - (id)redownloadParams;
-- (BOOL)supportsIPhone;
-- (BOOL)supportsIPad;
+- (_Bool)supportsIPhone;
+- (_Bool)supportsIPad;
 - (unsigned int)minimumOS;
 - (id)longTitle;
-- (BOOL)isNewsstand;
+- (_Bool)isNewsstand;
 - (id)iconURL;
 - (id)iconTitle;
 - (id)bundleID;
-- (unsigned char)contentRatingFlags;
+- (long long)contentRatingFlags;
 - (id)companyName;
 - (id)category;
 

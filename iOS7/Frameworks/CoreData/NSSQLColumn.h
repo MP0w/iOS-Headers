@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface NSSQLColumn : NSSQLProperty
 {
     NSString *_columnName;
@@ -21,8 +22,8 @@
 
 - (void)copyValuesForReadOnlyFetch:(id)arg1;
 - (id)cloneForReadOnlyFetching;
-- (void)setAllowAliasing:(BOOL)arg1;
-- (BOOL)allowAliasing;
+- (void)setAllowAliasing:(_Bool)arg1;
+- (_Bool)allowAliasing;
 - (id)columnName;
 - (void)_setSlotIfDefault:(unsigned int)arg1;
 - (unsigned int)slot;

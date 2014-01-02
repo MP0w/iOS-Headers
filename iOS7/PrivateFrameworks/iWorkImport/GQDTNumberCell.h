@@ -8,6 +8,7 @@
 
 @class GQDTComputedFormatSpec;
 
+// Not exported
 @interface GQDTNumberCell : GQDTCell
 {
     double mValue;

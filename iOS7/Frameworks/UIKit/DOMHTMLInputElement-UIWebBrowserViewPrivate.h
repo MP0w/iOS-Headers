@@ -9,10 +9,10 @@
 @interface DOMHTMLInputElement (UIWebBrowserViewPrivate)
 - (id)_textFormElement;
 - (void)_accessoryClear;
-- (BOOL)_supportsAccessoryClear;
-- (BOOL)_supportsAutoFill;
-- (BOOL)_requiresInputView;
-- (BOOL)_requiresAccessoryView;
+- (_Bool)_supportsAccessoryClear;
+- (_Bool)_supportsAutoFill;
+- (_Bool)_requiresInputView;
+- (_Bool)_requiresAccessoryView;
 - (void)_stopAssistingDocumentView:(id)arg1;
 - (void)_startAssistingDocumentView:(id)arg1;
 @end

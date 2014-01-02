@@ -7,6 +7,7 @@
 #import "UIView.h"
 
 @interface UIView (MKAdditions)
-+ (BOOL)_mapkit_shouldAdoptImplicitAnimationParameters;
++ (id)_mapkit_currentAnimationTimingFunction;
++ (_Bool)_mapkit_shouldAdoptImplicitAnimationParameters;
 @end
 

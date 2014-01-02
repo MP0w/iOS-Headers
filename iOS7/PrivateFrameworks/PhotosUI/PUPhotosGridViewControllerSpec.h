@@ -10,12 +10,10 @@
 
 @interface PUPhotosGridViewControllerSpec : NSObject
 {
-    BOOL _wantsSpecialEmptyPlaceholderImageForLandscape;
-    BOOL _canDisplayEditButton;
-    BOOL _canDisplayOptionsInPopover;
-    BOOL _canDisplaySlideshowButton;
-    BOOL _canDisplayEditActionsInNavigationBar;
-    BOOL _usesStackPopTransition;
+    _Bool _canDisplayOptionsInPopover;
+    _Bool _canDisplaySlideshowButton;
+    _Bool _canDisplayEditActionsInNavigationBar;
+    _Bool _usesStackPopTransition;
     PUPhotosPickerViewControllerSpec *_photosPickerViewControllerSpec;
     PUAlbumPickerViewControllerSpec *_albumPickerViewControllerSpec;
     struct CGSize _baseInterItemSpacing;
@@ -23,24 +21,21 @@
 
 @property(readonly, nonatomic) PUAlbumPickerViewControllerSpec *albumPickerViewControllerSpec; // @synthesize albumPickerViewControllerSpec=_albumPickerViewControllerSpec;
 @property(readonly, nonatomic) PUPhotosPickerViewControllerSpec *photosPickerViewControllerSpec; // @synthesize photosPickerViewControllerSpec=_photosPickerViewControllerSpec;
-@property(readonly, nonatomic) BOOL usesStackPopTransition; // @synthesize usesStackPopTransition=_usesStackPopTransition;
-@property(readonly, nonatomic) BOOL canDisplayEditActionsInNavigationBar; // @synthesize canDisplayEditActionsInNavigationBar=_canDisplayEditActionsInNavigationBar;
-@property(readonly, nonatomic) BOOL canDisplaySlideshowButton; // @synthesize canDisplaySlideshowButton=_canDisplaySlideshowButton;
-@property(readonly, nonatomic) BOOL canDisplayOptionsInPopover; // @synthesize canDisplayOptionsInPopover=_canDisplayOptionsInPopover;
-@property(readonly, nonatomic) BOOL canDisplayEditButton; // @synthesize canDisplayEditButton=_canDisplayEditButton;
-@property(readonly, nonatomic) BOOL wantsSpecialEmptyPlaceholderImageForLandscape; // @synthesize wantsSpecialEmptyPlaceholderImageForLandscape=_wantsSpecialEmptyPlaceholderImageForLandscape;
+@property(readonly, nonatomic) _Bool usesStackPopTransition; // @synthesize usesStackPopTransition=_usesStackPopTransition;
+@property(readonly, nonatomic) _Bool canDisplayEditActionsInNavigationBar; // @synthesize canDisplayEditActionsInNavigationBar=_canDisplayEditActionsInNavigationBar;
+@property(readonly, nonatomic) _Bool canDisplaySlideshowButton; // @synthesize canDisplaySlideshowButton=_canDisplaySlideshowButton;
+@property(readonly, nonatomic) _Bool canDisplayOptionsInPopover; // @synthesize canDisplayOptionsInPopover=_canDisplayOptionsInPopover;
 @property(readonly, nonatomic) struct CGSize baseInterItemSpacing; // @synthesize baseInterItemSpacing=_baseInterItemSpacing;
 - (void).cxx_destruct;
-- (void)configureCollectionViewGridLayout:(id)arg1 forWidth:(float)arg2;
-@property(readonly, nonatomic) struct UIEdgeInsets sectionHeaderContentInset;
-@property(readonly, nonatomic) unsigned int sectionHeaderStyle;
-@property(readonly, nonatomic) int cellFillMode;
+@property(readonly, nonatomic) _Bool displaysAvalancheStacks;
+@property(readonly, nonatomic) _Bool shouldPlaceDeleteInCenterToolbarPosition;
+- (void)protoSettingsDidChange;
+- (void)configureCollectionViewGridLayout:(id)arg1 forWidth:(double)arg2;
+@property(readonly, nonatomic) long long cellFillMode;
 @property(readonly, nonatomic) int thumbnailImageFormat;
-@property(readonly, nonatomic) float globalFooterHeight;
-@property(readonly, nonatomic) float sectionHeaderHeight;
+@property(readonly, nonatomic) double globalFooterHeight;
 - (id)photoBrowserSpec;
-- (unsigned int)supportedInterfaceOrientations;
-- (id)backgroundFixedImageForOrientation:(int)arg1;
+- (unsigned long long)supportedInterfaceOrientations;
 @property(readonly, nonatomic) struct CGSize contentSizeForViewInPopover;
 
 @end

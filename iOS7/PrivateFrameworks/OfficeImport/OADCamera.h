@@ -10,6 +10,7 @@
 
 @class OADRotation3D;
 
+// Not exported
 @interface OADCamera : NSObject <NSCopying>
 {
     OADRotation3D *mRotation;
@@ -18,8 +19,8 @@
     float mZoom;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)setZoom:(float)arg1;
 - (float)zoom;
 - (void)setFieldOfView:(float)arg1;

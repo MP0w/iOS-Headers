@@ -7,8 +7,8 @@
 #import "NSArray.h"
 
 @interface NSArray (CKUtilities)
-- (id)__ck_indexSetForIndexPathItemsInSection:(int)arg1;
-- (id)__ck_indexSetForIndexPathRowsInSection:(int)arg1;
+- (id)__ck_indexSetForIndexPathItemsInSection:(long long)arg1;
+- (id)__ck_indexSetForIndexPathRowsInSection:(long long)arg1;
 - (id)__ck_commaJoinedValueForKey:(id)arg1;
 @end
 

@@ -6,6 +6,7 @@
 
 #import <VectorKit/VGLTextureProgram.h>
 
+// Not exported
 @interface VGLTextureWithBrightnessProgram : VGLTextureProgram
 {
     int _uBrightness;

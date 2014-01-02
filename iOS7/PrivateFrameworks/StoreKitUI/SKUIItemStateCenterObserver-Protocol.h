@@ -9,6 +9,7 @@
 @protocol SKUIItemStateCenterObserver <NSObject>
 
 @optional
+- (void)itemStateCenter:(id)arg1 didFinishPurchases:(id)arg2;
 - (void)itemStateCenterRestrictionsChanged:(id)arg1;
 - (void)itemStateCenter:(id)arg1 itemStatesChanged:(id)arg2;
 @end

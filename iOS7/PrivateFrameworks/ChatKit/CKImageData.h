@@ -11,24 +11,24 @@
 @interface CKImageData : NSObject
 {
     struct CGImageSource *_imageSource;
-    unsigned int _count;
-    int _orientation;
+    unsigned long long _count;
+    long long _orientation;
     NSData *_data;
 }
 
 + (id)UTITypeForData:(id)arg1;
 @property(retain, nonatomic) NSData *data; // @synthesize data=_data;
-- (id)_thumbnailFillToSize:(struct CGSize)arg1 atIndex:(unsigned int)arg2;
-- (id)_thumbnailFitToSize:(struct CGSize)arg1 atIndex:(unsigned int)arg2;
-@property(readonly, nonatomic) unsigned int count; // @dynamic count;
-@property(readonly, nonatomic) int orientation; // @dynamic orientation;
+- (id)_thumbnailFillToSize:(struct CGSize)arg1 atIndex:(unsigned long long)arg2;
+- (id)_thumbnailFitToSize:(struct CGSize)arg1 atIndex:(unsigned long long)arg2;
+@property(readonly, nonatomic) unsigned long long count; // @dynamic count;
+@property(readonly, nonatomic) long long orientation; // @dynamic orientation;
 @property(readonly, nonatomic) struct CGSize pxSize; // @dynamic pxSize;
 @property(readonly, nonatomic) struct CGSize ptSize; // @dynamic ptSize;
 @property(readonly, nonatomic) NSString *UTIType; // @dynamic UTIType;
 @property(readonly, nonatomic) NSString *MIMEType; // @dynamic MIMEType;
-- (id)durationsWithMaxCount:(unsigned int)arg1;
-- (id)thumbnailsFillToSize:(struct CGSize)arg1 maxCount:(unsigned int)arg2;
-- (id)thumbnailsFitToSize:(struct CGSize)arg1 maxCount:(unsigned int)arg2;
+- (id)durationsWithMaxCount:(unsigned long long)arg1;
+- (id)thumbnailsFillToSize:(struct CGSize)arg1 maxCount:(unsigned long long)arg2;
+- (id)thumbnailsFitToSize:(struct CGSize)arg1 maxCount:(unsigned long long)arg2;
 - (id)thumbnailFillToSize:(struct CGSize)arg1;
 - (id)thumbnailFitToSize:(struct CGSize)arg1;
 @property(readonly, nonatomic) UIImage *image; // @dynamic image;

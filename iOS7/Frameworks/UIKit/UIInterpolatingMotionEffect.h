@@ -10,27 +10,24 @@
 
 @interface UIInterpolatingMotionEffect : UIMotionEffect
 {
-    float _horizontalAccelerationBoostFactor;
-    float _verticalAccelerationBoostFactor;
+    double _horizontalAccelerationBoostFactor;
+    double _verticalAccelerationBoostFactor;
     NSString *_keyPath;
-    int _type;
+    long long _type;
     id _minimumRelativeValue;
     id _maximumRelativeValue;
 }
 
 @property(retain, nonatomic) id maximumRelativeValue; // @synthesize maximumRelativeValue=_maximumRelativeValue;
 @property(retain, nonatomic) id minimumRelativeValue; // @synthesize minimumRelativeValue=_minimumRelativeValue;
-@property(readonly, nonatomic) int type; // @synthesize type=_type;
+@property(readonly, nonatomic) long long type; // @synthesize type=_type;
 @property(readonly, nonatomic) NSString *keyPath; // @synthesize keyPath=_keyPath;
-- (void)setObservedMotionType:(int)arg1;
-- (int)observedMotionType;
-- (void)setKeyPath:(id)arg1;
-- (void)_setType:(int)arg1;
+- (void)_setType:(long long)arg1;
 - (void)_setKeyPath:(id)arg1;
-- (void)_setVerticalAccelerationBoostFactor:(float)arg1;
-- (float)_verticalAccelerationBoostFactor;
-- (void)_setHorizontalAccelerationBoostFactor:(float)arg1;
-- (float)_horizontalAccelerationBoostFactor;
+- (void)_setVerticalAccelerationBoostFactor:(double)arg1;
+- (double)_verticalAccelerationBoostFactor;
+- (void)_setHorizontalAccelerationBoostFactor:(double)arg1;
+- (double)_horizontalAccelerationBoostFactor;
 - (id)description;
 - (void)dealloc;
 - (id)initWithCoder:(id)arg1;
@@ -38,7 +35,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)keyPathsAndRelativeValuesForViewerOffset:(struct UIOffset)arg1;
 - (id)_keyPathsAndRelativeValuesForPose:(id)arg1;
-- (id)initWithKeyPath:(id)arg1 type:(int)arg2;
+- (id)initWithKeyPath:(id)arg1 type:(long long)arg2;
 
 @end
 

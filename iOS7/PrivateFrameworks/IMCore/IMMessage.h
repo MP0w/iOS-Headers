@@ -25,10 +25,11 @@
     NSError *_error;
     NSArray *_parts;
     unsigned long long _flags;
-    BOOL _isInvitationMessage;
+    _Bool _isInvitationMessage;
     long long _messageID;
 }
 
++ (id)messageFromFZMessageDictionary:(id)arg1 sender:(id)arg2 subject:(id)arg3;
 + (id)messageFromFZMessage:(id)arg1 sender:(id)arg2 subject:(id)arg3;
 + (id)fromMeIMHandle:(id)arg1 withText:(id)arg2 fileTransferGUIDs:(id)arg3 flags:(unsigned long long)arg4;
 + (id)instantMessageWithText:(id)arg1 messageSubject:(id)arg2 fileTransferGUIDs:(id)arg3 flags:(unsigned long long)arg4;
@@ -41,7 +42,7 @@
 @property(retain, nonatomic) NSDate *timeDelivered; // @synthesize timeDelivered=_timeDelivered;
 - (void)_updateFileTransferGUIDs:(id)arg1;
 @property(copy, nonatomic) NSArray *fileTransferGUIDs; // @synthesize fileTransferGUIDs=_fileTransferGUIDs;
-@property(nonatomic) BOOL isInvitationMessage; // @synthesize isInvitationMessage=_isInvitationMessage;
+@property(nonatomic) _Bool isInvitationMessage; // @synthesize isInvitationMessage=_isInvitationMessage;
 - (void)_updateError:(id)arg1;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 - (void)_updateFlags:(unsigned long long)arg1;
@@ -60,32 +61,32 @@
 @property(retain, nonatomic) IMHandle *sender; // @synthesize sender=_sender;
 - (void)_flushMessageParts;
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 @property(readonly, nonatomic) FZMessage *_fzMessage;
-- (int)compare:(id)arg1 comparisonType:(int)arg2;
-- (int)compare:(id)arg1;
-- (int)_compareIMMessageIDs:(id)arg1;
-- (int)_compareIMMessageDates:(id)arg1;
-- (int)_compareIMMessageGUIDs:(id)arg1;
-@property(readonly, nonatomic) BOOL wasDataDetected;
-@property(readonly, nonatomic) BOOL wasDowngraded;
-@property(readonly, nonatomic) BOOL isAlert;
-@property(readonly, nonatomic) BOOL isAddressedToMe;
-- (void)setIsAddressedToMe:(BOOL)arg1;
-@property(readonly, nonatomic) BOOL isSystemMessage;
-@property(readonly, nonatomic) BOOL isRead;
-@property(readonly, nonatomic) BOOL isDelivered;
-@property(readonly, nonatomic) BOOL isAutoReply;
-@property(readonly, nonatomic) BOOL isDelayed;
-@property(readonly, nonatomic) BOOL isEmpty;
-@property(readonly, nonatomic) BOOL isFromMe;
-@property(readonly, nonatomic) BOOL isEmote;
+- (long long)compare:(id)arg1 comparisonType:(long long)arg2;
+- (long long)compare:(id)arg1;
+- (long long)_compareIMMessageIDs:(id)arg1;
+- (long long)_compareIMMessageDates:(id)arg1;
+- (long long)_compareIMMessageGUIDs:(id)arg1;
+@property(readonly, nonatomic) _Bool wasDataDetected;
+@property(readonly, nonatomic) _Bool wasDowngraded;
+@property(readonly, nonatomic) _Bool isAlert;
+@property(readonly, nonatomic) _Bool isAddressedToMe;
+- (void)setIsAddressedToMe:(_Bool)arg1;
+@property(readonly, nonatomic) _Bool isSystemMessage;
+@property(readonly, nonatomic) _Bool isRead;
+@property(readonly, nonatomic) _Bool isDelivered;
+@property(readonly, nonatomic) _Bool isAutoReply;
+@property(readonly, nonatomic) _Bool isDelayed;
+@property(readonly, nonatomic) _Bool isEmpty;
+@property(readonly, nonatomic) _Bool isFromMe;
+@property(readonly, nonatomic) _Bool isEmote;
 @property(readonly, nonatomic) NSArray *inlineAttachmentAttributesArray;
-@property(readonly, nonatomic) BOOL hasInlineAttachments;
-@property(readonly, nonatomic) BOOL isSent;
-@property(readonly, nonatomic) BOOL isTypingMessage;
-@property(readonly, nonatomic) BOOL isFinished;
-@property(readonly, nonatomic) BOOL hasDataDetectorResults;
+@property(readonly, nonatomic) _Bool hasInlineAttachments;
+@property(readonly, nonatomic) _Bool isSent;
+@property(readonly, nonatomic) _Bool isTypingMessage;
+@property(readonly, nonatomic) _Bool isFinished;
+@property(readonly, nonatomic) _Bool hasDataDetectorResults;
 @property(readonly, nonatomic) NSString *summaryString;
 @property(readonly, nonatomic) NSString *senderName;
 @property(readonly, nonatomic) NSString *plainBody;
@@ -96,9 +97,6 @@
 - (id)_initWithSender:(id)arg1 time:(id)arg2 timeRead:(id)arg3 timeDelivered:(id)arg4 plainText:(id)arg5 text:(id)arg6 messageSubject:(id)arg7 fileTransferGUIDs:(id)arg8 flags:(unsigned long long)arg9 error:(id)arg10 guid:(id)arg11 messageID:(long long)arg12 subject:(id)arg13;
 - (id)_copyWithFlags:(unsigned long long)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-@property(readonly, nonatomic) NSArray *parts;
-- (void)_loadParts;
-- (void)_parseIMMessagePartsWithTextProcessingBlock:(id)arg1 fileTransferProcessingBlock:(void)arg2;
 
 @end
 

@@ -15,15 +15,15 @@
     NSArray *_arguments;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 - (id)_expressionWithSubstitutionVariables:(id)arg1;
-- (void)acceptVisitor:(id)arg1 flags:(unsigned int)arg2;
-- (BOOL)_shouldUseParensWithDescription;
+- (void)acceptVisitor:(id)arg1 flags:(unsigned long long)arg2;
+- (_Bool)_shouldUseParensWithDescription;
 - (id)predicateFormat;
 - (id)binaryOperatorForSelector;
 - (id)expressionValueWithObject:(id)arg1 context:(id)arg2;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)arguments;
 - (SEL)selector;
 - (id)operand;
@@ -33,7 +33,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (void)allowEvaluation;
 - (id)initWithTarget:(id)arg1 selectorName:(id)arg2 arguments:(id)arg3;
-- (id)initWithExpressionType:(unsigned int)arg1 operand:(id)arg2 selector:(SEL)arg3 argumentArray:(id)arg4;
+- (id)initWithExpressionType:(unsigned long long)arg1 operand:(id)arg2 selector:(SEL)arg3 argumentArray:(id)arg4;
 - (id)initWithSelector:(SEL)arg1 argumentArray:(id)arg2;
 - (void)dealloc;
 

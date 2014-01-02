@@ -29,7 +29,6 @@
 - (void)dealloc;
 - (id)initWithObjectID:(id)arg1 withValues:(id)arg2 version:(unsigned long long)arg3;
 - (id)initWithObjectID:(id)arg1 fromSQLRow:(id)arg2;
-- (id)_propertyCache;
 
 @end
 

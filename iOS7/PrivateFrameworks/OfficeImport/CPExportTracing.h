@@ -6,6 +6,7 @@
 
 #import <OfficeImport/CPTracing.h>
 
+// Not exported
 @interface CPExportTracing : CPTracing
 {
 }

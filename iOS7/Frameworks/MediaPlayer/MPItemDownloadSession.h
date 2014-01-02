@@ -10,25 +10,25 @@
 
 @interface MPItemDownloadSession : NSObject
 {
-    AVAsset *_asset;
+    AVAsset *_AVAsset;
+    float _percentComplete;
+    int _sessionState;
     MPItemDownloadProperties *_downloadProperties;
     SSDownloadHandlerSession *_downloadSession;
-    float _percentComplete;
     NSError *_sessionError;
-    int _sessionState;
 }
 
 @property(nonatomic) int sessionState; // @synthesize sessionState=_sessionState;
 @property(retain, nonatomic) NSError *sessionError; // @synthesize sessionError=_sessionError;
 @property(nonatomic) float percentComplete; // @synthesize percentComplete=_percentComplete;
 @property(retain, nonatomic) SSDownloadHandlerSession *downloadSession; // @synthesize downloadSession=_downloadSession;
-@property(nonatomic) __weak AVAsset *AVAsset; // @synthesize AVAsset=_asset;
+@property(nonatomic) AVAsset *AVAsset; // @synthesize AVAsset=_AVAsset;
+@property(retain, nonatomic) MPItemDownloadProperties *downloadProperties; // @synthesize downloadProperties=_downloadProperties;
 - (void).cxx_destruct;
 - (id)description;
 - (void)snapshotProgressForItem:(id)arg1;
 - (void)reloadNetworkConstraints;
-- (BOOL)isNetworkConstrainedForNetworkType:(int)arg1;
-@property(readonly, nonatomic) MPItemDownloadProperties *downloadProperties;
+- (_Bool)isNetworkConstrainedForNetworkType:(long long)arg1;
 - (id)initWithItemDownloadProperties:(id)arg1;
 
 @end

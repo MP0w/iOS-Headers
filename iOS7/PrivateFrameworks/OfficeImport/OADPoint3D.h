@@ -8,6 +8,7 @@
 
 #import "NSCopying-Protocol.h"
 
+// Not exported
 @interface OADPoint3D : NSObject <NSCopying>
 {
     float mX;
@@ -15,8 +16,8 @@
     float mZ;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (float)z;
 - (float)y;

@@ -14,16 +14,16 @@
 - (void)photoTileViewControllerCancelImageRequests:(id)arg1;
 - (void)photoTileViewControllerRequestsFullSizeImage:(id)arg1;
 - (void)photoTileViewControllerRequestsFullScreenImage:(id)arg1;
-- (void)photoTileViewController:(id)arg1 didDisappear:(BOOL)arg2;
-- (void)photoTileViewController:(id)arg1 didAppear:(BOOL)arg2;
-- (void)photoTileViewController:(id)arg1 willAppear:(BOOL)arg2;
+- (void)photoTileViewController:(id)arg1 didDisappear:(_Bool)arg2;
+- (void)photoTileViewController:(id)arg1 didAppear:(_Bool)arg2;
+- (void)photoTileViewController:(id)arg1 willAppear:(_Bool)arg2;
 
 @optional
 - (void)photoTileViewController:(id)arg1 commentsControllerWillBeginScrolling:(id)arg2;
 - (void)photoTileViewController:(id)arg1 didExitEditModeInCommentsController:(id)arg2;
 - (void)photoTileViewController:(id)arg1 willEnterEditModeInCommentsController:(id)arg2;
 - (void)photoTileViewControllerDidSetHDRTypeForPhoto:(id)arg1;
-- (BOOL)isPhotoTileParentPageControllerAnimating:(id)arg1;
-- (BOOL)photoTileViewControllerAllowsEditing:(id)arg1;
+- (_Bool)isPhotoTileParentPageControllerAnimating:(id)arg1;
+- (_Bool)photoTileViewControllerAllowsEditing:(id)arg1;
 @end
 

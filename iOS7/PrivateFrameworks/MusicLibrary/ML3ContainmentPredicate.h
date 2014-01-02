@@ -8,6 +8,7 @@
 
 @class NSSet;
 
+// Not exported
 @interface ML3ContainmentPredicate : ML3PropertyPredicate
 {
     NSSet *_values;
@@ -19,9 +20,9 @@
 - (id)databaseStatementParameters;
 - (void)appendSQLToMutableString:(id)arg1 entityClass:(Class)arg2;
 - (id)description;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)_orderedValues;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithProperty:(id)arg1 values:(id)arg2;

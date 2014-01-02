@@ -12,13 +12,13 @@
 {
 }
 
-@property(readonly, nonatomic) int statusType;
+@property(readonly, nonatomic) long long statusType;
 - (id)description;
 @property(readonly, nonatomic) NSArray *handles;
 @property(readonly, nonatomic) NSString *formatString;
 - (id)stringValue;
-- (id)initWithFormat:(id)arg1 handles:(id)arg2 date:(id)arg3 statusType:(int)arg4;
-- (id)initWithString:(id)arg1 date:(id)arg2 statusType:(int)arg3;
+- (id)initWithFormat:(id)arg1 handles:(id)arg2 date:(id)arg3 statusType:(long long)arg4;
+- (id)initWithString:(id)arg1 date:(id)arg2 statusType:(long long)arg3;
 
 @end
 

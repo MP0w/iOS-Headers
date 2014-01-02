@@ -18,14 +18,13 @@
 }
 
 + (id)recurrenceRuleFromICSString:(id)arg1;
-+ (id)recurrenceRuleFromICSCString:(const char *)arg1 withTokenizer:(id)arg2;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)propertiesThatIfPresentExcludeThisComponentFromChecksummingForVersion:(int)arg1;
 - (id)parametersToIncludeForChecksumVersion:(int)arg1;
 - (id)propertiesToIncludeForChecksumVersion:(int)arg1;
-- (void)ICSStringWithOptions:(unsigned int)arg1 appendingToString:(id)arg2;
-- (id)ICSStringWithOptions:(unsigned int)arg1;
+- (void)ICSStringWithOptions:(unsigned long long)arg1 appendingToString:(id)arg2;
+- (id)ICSStringWithOptions:(unsigned long long)arg1;
 @property NSNumber *wkst;
 @property(retain) NSArray *bysetpos;
 @property(retain) NSArray *bymonth;
@@ -45,9 +44,6 @@
 - (id)parameterValueForName:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrequency:(int)arg1;
-- (void)_ICSStringWithOptions:(unsigned int)arg1 appendingToString:(id)arg2;
-- (void)cleanUpForStartDate:(id)arg1;
-- (id)occurrencesForStartDate:(id)arg1 fromDate:(id)arg2 toDate:(id)arg3 inTimeZone:(id)arg4;
 
 @end
 

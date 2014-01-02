@@ -9,7 +9,7 @@
 @protocol IDSConnectionDelegatePrivate <IDSConnectionDelegate>
 
 @optional
-- (void)connection:(id)arg1 incomingTopLevelMessage:(id)arg2 fromID:(id)arg3;
-- (void)connection:(id)arg1 messageIdentifier:(id)arg2 updatedWithResponseCode:(int)arg3 error:(id)arg4 lastCall:(BOOL)arg5;
+- (void)connection:(id)arg1 incomingTopLevelMessage:(id)arg2 fromID:(id)arg3 messageContext:(id)arg4;
+- (void)connection:(id)arg1 messageIdentifier:(id)arg2 updatedWithResponseCode:(long long)arg3 error:(id)arg4 lastCall:(_Bool)arg5;
 @end
 

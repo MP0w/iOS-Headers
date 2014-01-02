@@ -7,7 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol BBSyncServiceDelegate <NSObject>
-- (BOOL)syncService:(id)arg1 shouldAbortDelayedDismissalForBulletin:(id)arg2;
-- (void)syncService:(id)arg1 receivedDismissalDictionaries:(id)arg2 dismissalIDs:(id)arg3 inSection:(id)arg4 forFeeds:(unsigned int)arg5;
+- (_Bool)syncService:(id)arg1 shouldAbortDelayedDismissalForBulletin:(id)arg2;
+- (void)syncService:(id)arg1 receivedDismissalDictionaries:(id)arg2 dismissalIDs:(id)arg3 inSection:(id)arg4 forFeeds:(unsigned long long)arg5;
 @end
 

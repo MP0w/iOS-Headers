@@ -10,22 +10,22 @@
 {
 }
 
-- (BOOL)shouldCreateZoomSliderOnLaunch;
-- (BOOL)shouldCreatePanoramaViewOnLaunch;
-- (BOOL)shouldCreateHDRButtonOnLaunch;
-- (BOOL)shouldCreateModeDialOnLaunch;
-- (BOOL)shouldCreateFiltersButtonOnLaunch;
-- (BOOL)shouldCreateShutterButtonOnLaunch;
-- (BOOL)shouldCreateImageWellOnLaunch;
-- (BOOL)shouldCreateStillDuringVideoOnLaunch;
-- (BOOL)shouldCreateFlipButtonOnLaunch;
-- (BOOL)shouldCreateElapsedTimeViewOnLaunch;
-- (BOOL)shouldCreateFlashButtonOnLaunch;
-- (BOOL)shouldCreateTopBarOnLaunch;
-- (BOOL)shouldCreateBottomBarOnLaunch;
+- (_Bool)shouldCreateZoomSlider;
+- (_Bool)shouldCreatePanoramaView;
+- (_Bool)shouldCreateHDRButton;
+- (_Bool)shouldCreateModeDial;
+- (_Bool)shouldCreateFiltersButton;
+- (_Bool)shouldCreateShutterButton;
+- (_Bool)shouldCreateImageWell;
+- (_Bool)shouldCreateStillDuringVideo;
+- (_Bool)shouldCreateFlipButton;
+- (_Bool)shouldCreateElapsedTimeView;
+- (_Bool)shouldCreateFlashButton;
+- (_Bool)shouldCreateTopBar;
+- (_Bool)shouldCreateBottomBar;
 - (int)rotationStyle;
-- (int)modeDialOrientation;
-- (int)bottomBarOrientation;
+- (long long)modeDialOrientation;
+- (long long)bottomBarOrientation;
 
 @end
 

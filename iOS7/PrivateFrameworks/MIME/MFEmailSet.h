@@ -19,20 +19,20 @@
 - (void)removeAllObjects;
 - (void)removeObject:(id)arg1;
 - (void)addObject:(id)arg1;
-- (unsigned int)countByEnumeratingWithState:(CDStruct_c73467ff *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
+- (unsigned long long)countByEnumeratingWithState:(CDStruct_58648341 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
 - (id)objectEnumerator;
 - (id)allObjects;
 - (id)allCommentedAddresses;
 - (id)_generateAllObjectsFromSelector:(SEL)arg1;
-- (BOOL)isEqualToSet:(id)arg1;
-- (BOOL)isSubsetOfSet:(id)arg1;
-- (BOOL)intersectsSet:(id)arg1;
+- (_Bool)isEqualToSet:(id)arg1;
+- (_Bool)isSubsetOfSet:(id)arg1;
+- (_Bool)intersectsSet:(id)arg1;
 - (id)member:(id)arg1;
-- (unsigned int)count;
+- (unsigned long long)count;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
-- (id)initWithCapacity:(unsigned int)arg1;
+- (id)initWithCapacity:(unsigned long long)arg1;
 - (id)init;
 
 @end

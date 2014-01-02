@@ -8,34 +8,35 @@
 
 #import "BBObserverDelegate-Protocol.h"
 
-@class BBObserver, NSDate, NSString, NSTimer;
+@class BBBulletin, BBObserver, NSDate, NSTimer;
 
 @interface SBLockScreenTimerViewController : UIViewController <BBObserverDelegate>
 {
-    BOOL _enabled;
+    _Bool _enabled;
     NSTimer *_updateTimer;
     NSDate *_endDate;
     BBObserver *_observer;
-    NSString *_timerBulletinID;
     id <SBLockScreenTimerViewControllerDelegate> _delegate;
+    BBBulletin *_timerBulletin;
 }
 
-@property(retain) NSString *timerBulletinID; // @synthesize timerBulletinID=_timerBulletinID;
+@property(retain) BBBulletin *timerBulletin; // @synthesize timerBulletin=_timerBulletin;
 @property id <SBLockScreenTimerViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)observer:(id)arg1 purgeReferencesToBulletinID:(id)arg2;
 - (void)observer:(id)arg1 noteInvalidatedBulletinIDs:(id)arg2;
 - (void)observer:(id)arg1 removeBulletin:(id)arg2;
-- (void)observer:(id)arg1 addBulletin:(id)arg2 forFeed:(unsigned int)arg3;
-- (void)setContentAlpha:(float)arg1;
+- (void)observer:(id)arg1 addBulletin:(id)arg2 forFeed:(unsigned long long)arg3;
+- (void)setContentAlpha:(double)arg1;
 - (void)_updateTimerLabelView;
 - (void)_updateTimerFired;
 - (void)_startTimer;
 - (void)_stopTimer;
-- (BOOL)_isEndDateValid;
+- (_Bool)_isEndDateValid;
 - (id)timerView;
 - (void)setEndDate:(id)arg1;
-- (void)setTimerHidden:(BOOL)arg1;
-- (BOOL)isTimerActive;
-- (void)setEnabled:(BOOL)arg1;
+- (void)setTimerHidden:(_Bool)arg1;
+- (_Bool)isTimerActive;
+- (void)setEnabled:(_Bool)arg1;
 - (void)loadView;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

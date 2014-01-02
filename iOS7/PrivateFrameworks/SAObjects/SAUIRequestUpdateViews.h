@@ -14,7 +14,7 @@
 
 + (id)requestUpdateViewsWithDictionary:(id)arg1 context:(id)arg2;
 + (id)requestUpdateViews;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSArray *viewIds;
 @property(copy, nonatomic) NSNumber *timeInSeconds;
 @property(copy, nonatomic) NSArray *commands;

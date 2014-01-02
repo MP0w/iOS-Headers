@@ -5,6 +5,6 @@
  */
 
 @protocol DDAddToRecentsInterface
-- (void)addResultToRecents:(id)arg1 eventDate:(id)arg2 subject:(id)arg3 weight:(id)arg4 metadata:(id)arg5 userInitiated:(BOOL)arg6 completionBlock:(id)arg7;
+- (void)addResultToRecents:(id)arg1 eventDate:(id)arg2 subject:(id)arg3 weight:(id)arg4 metadata:(id)arg5 userInitiated:(_Bool)arg6 completionBlock:(id)arg7;
 @end
 

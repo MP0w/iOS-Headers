@@ -10,7 +10,7 @@
 
 @interface MSASAssetUploader : MSASAssetTransferer
 {
-    BOOL _didEncounterNetworkConditionError;
+    _Bool _didEncounterNetworkConditionError;
     int _state;
     NSMutableArray *_itemsInFlight;
     NSMutableDictionary *_assetCollectionsToItemInFlightMap;
@@ -22,7 +22,7 @@
 
 @property(retain, nonatomic) NSMutableDictionary *assetCollectionGUIDToRequestorContext; // @synthesize assetCollectionGUIDToRequestorContext=_assetCollectionGUIDToRequestorContext;
 @property(retain, nonatomic) NSMutableSet *assetCollectionsWithAuthorizationError; // @synthesize assetCollectionsWithAuthorizationError=_assetCollectionsWithAuthorizationError;
-@property(nonatomic) BOOL didEncounterNetworkConditionError; // @synthesize didEncounterNetworkConditionError=_didEncounterNetworkConditionError;
+@property(nonatomic) _Bool didEncounterNetworkConditionError; // @synthesize didEncounterNetworkConditionError=_didEncounterNetworkConditionError;
 @property(retain, nonatomic) NSMutableArray *finishedAssetCollections; // @synthesize finishedAssetCollections=_finishedAssetCollections;
 @property(retain, nonatomic) NSMutableDictionary *assetToAssetCollectionMap; // @synthesize assetToAssetCollectionMap=_assetToAssetCollectionMap;
 @property(retain, nonatomic) NSMutableDictionary *assetCollectionsToItemInFlightMap; // @synthesize assetCollectionsToItemInFlightMap=_assetCollectionsToItemInFlightMap;
@@ -42,8 +42,8 @@
 - (void)unregisterAssetCollections:(id)arg1 completionBlock:(id)arg2;
 - (void)unregisterAssetCollections:(id)arg1;
 - (void)registerAssetCollections:(id)arg1 completionBlock:(id)arg2;
-- (void)workQueueRegisterAssetCollections:(id)arg1 index:(unsigned int)arg2 results:(id)arg3 completionBlock:(id)arg4;
-- (void)workQueueRegisterAssets:(id)arg1 index:(unsigned int)arg2 completionBlock:(id)arg3;
+- (void)workQueueRegisterAssetCollections:(id)arg1 index:(unsigned long long)arg2 results:(id)arg3 completionBlock:(id)arg4;
+- (void)workQueueRegisterAssets:(id)arg1 index:(unsigned long long)arg2 completionBlock:(id)arg3;
 - (void)workQueueCancelAssetCollections:(id)arg1;
 - (void)workQueueUploadNextBatch;
 - (id)_orphanedAssetCollectionError;

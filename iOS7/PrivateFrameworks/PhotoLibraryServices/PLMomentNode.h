@@ -10,22 +10,22 @@
 
 @interface PLMomentNode : NSObject
 {
-    BOOL _marked;
-    BOOL _visited;
+    _Bool _marked;
+    _Bool _visited;
     NSManagedObjectID *__objectID;
     CLLocation *__location;
     NSDate *__creationDate;
     PLMomentCluster *__cluster;
 }
 
-+ (id)partialAssetRepresentingNodeFetchRequestInManagedObjectContext:(id)arg1;
-@property(nonatomic, getter=isVisited) BOOL visited; // @synthesize visited=_visited;
-@property(nonatomic, getter=isMarked) BOOL marked; // @synthesize marked=_marked;
+@property(nonatomic, getter=isVisited) _Bool visited; // @synthesize visited=_visited;
+@property(nonatomic, getter=isMarked) _Bool marked; // @synthesize marked=_marked;
 @property(nonatomic) PLMomentCluster *cluster; // @synthesize cluster=__cluster;
 @property(readonly, nonatomic) NSDate *creationDate; // @synthesize creationDate=__creationDate;
 @property(readonly, nonatomic) CLLocation *location; // @synthesize location=__location;
 @property(readonly, nonatomic) NSManagedObjectID *objectID; // @synthesize objectID=__objectID;
 @property(readonly, nonatomic) CDStruct_c3b9c2ee coordinate;
+- (id)description;
 - (void)dealloc;
 - (id)initWithPartialFetchDictionary:(id)arg1;
 - (id)initWithManagedAsset:(id)arg1;

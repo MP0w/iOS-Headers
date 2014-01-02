@@ -8,6 +8,7 @@
 
 @class NSMapTable;
 
+// Not exported
 @interface VKIntObjectMap : NSObject
 {
     NSMapTable *_mapTable;

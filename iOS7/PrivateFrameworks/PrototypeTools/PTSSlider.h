@@ -13,17 +13,16 @@
 
 @interface PTSSlider : UIView <PTSHUDControl, _UISettingsKeyPathObserver>
 {
-    BOOL _enabled;
-    BOOL _showsValueLabel;
-    BOOL _autoEnablesForDesignMode;
+    _Bool _enabled;
+    _Bool _showsValueLabel;
+    int _alignment;
+    float _increment;
     _UISettings *_settings;
     NSString *_valueKeyPath;
-    int _alignment;
     UISlider *_sliderControl;
     UILabel *_titleLabel;
     NSNumberFormatter *_valueLabelFormatter;
     NSArray *_valueLabelStrings;
-    float _increment;
     UILabel *_valueLabel;
     UIButton *_upIncrementButton;
     UIButton *_downIncrementButton;
@@ -46,17 +45,16 @@
 @property(retain, nonatomic) NSNumberFormatter *valueLabelFormatter; // @synthesize valueLabelFormatter=_valueLabelFormatter;
 @property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(retain, nonatomic) UISlider *sliderControl; // @synthesize sliderControl=_sliderControl;
-@property(nonatomic) BOOL autoEnablesForDesignMode; // @synthesize autoEnablesForDesignMode=_autoEnablesForDesignMode;
 @property(nonatomic) int alignment; // @synthesize alignment=_alignment;
 @property(copy, nonatomic) NSString *valueKeyPath; // @synthesize valueKeyPath=_valueKeyPath;
 @property(nonatomic) __weak _UISettings *settings; // @synthesize settings=_settings;
-@property(nonatomic) BOOL showsValueLabel; // @synthesize showsValueLabel=_showsValueLabel;
-@property(nonatomic) BOOL enabled; // @synthesize enabled=_enabled;
+@property(nonatomic) _Bool showsValueLabel; // @synthesize showsValueLabel=_showsValueLabel;
+@property(nonatomic) _Bool enabled; // @synthesize enabled=_enabled;
 - (void).cxx_destruct;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (id)forwardingTargetForSelector:(SEL)arg1;
 - (void)layoutSubviews;
-- (void)setValue:(float)arg1 animated:(BOOL)arg2;
+- (void)setValue:(float)arg1 animated:(_Bool)arg2;
 @property(nonatomic) float value; // @dynamic value;
 - (id)makeValueLabel;
 - (id)makeTitleLabel;

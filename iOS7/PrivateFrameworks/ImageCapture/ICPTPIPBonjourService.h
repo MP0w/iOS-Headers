@@ -13,7 +13,7 @@
 
 - (void)disconnectClient:(id)arg1;
 - (void)unlockDeviceForClient:(id)arg1;
-- (void)handleNetServiceError:(CDStruct_1ef3fb1f *)arg1;
+- (void)handleNetServiceError:(CDStruct_87dc826d *)arg1;
 - (void)clientTerminated:(id)arg1;
 - (int)numClients;
 - (void)removeClient:(id)arg1;
@@ -21,19 +21,19 @@
 - (int)destroyPTPDIPInstance:(id)arg1;
 - (int)messagePTPDIPInstance:(id)arg1 withSocket:(int)arg2;
 - (id)clientForAddress:(struct __CFData *)arg1;
-- (id)clientForPID:(unsigned long)arg1;
+- (id)clientForPID:(unsigned long long)arg1;
 - (int)createPTPDIPInstanceWithAddress:(struct __CFData *)arg1 fileDescriptor:(int)arg2;
 - (void)releaseSocket;
-- (BOOL)createSocket;
+- (_Bool)createSocket;
 - (void)dispatchConnectionFromSocket:(int)arg1 withAddress:(struct __CFData *)arg2;
 - (void)releaseNetService;
 - (struct __CFNetService *)publishedService;
-- (BOOL)createAndPublishNetService;
-- (BOOL)startService;
+- (_Bool)createAndPublishNetService;
+- (_Bool)startService;
 - (void)dealloc;
 - (void)setDelegate:(id)arg1;
 - (id)delegate;
-- (id)initWithHostPort:(unsigned long)arg1 hostName:(id)arg2 hostGUID:(id)arg3 bonjourServiceType:(id)arg4 bonjourTXTRecords:(id)arg5;
+- (id)initWithHostPort:(unsigned int)arg1 hostName:(id)arg2 hostGUID:(id)arg3 bonjourServiceType:(id)arg4 bonjourTXTRecords:(id)arg5;
 
 @end
 

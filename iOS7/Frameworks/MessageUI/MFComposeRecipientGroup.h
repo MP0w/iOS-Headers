@@ -16,15 +16,15 @@
 
 - (id)childrenWithCompleteMatches;
 - (id)completelyMatchedAttributedStrings;
-- (BOOL)wasCompleteMatch;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)wasCompleteMatch;
+- (_Bool)isEqual:(id)arg1;
 - (id)commentedAddress;
 - (id)address;
 - (int)recordID;
 - (void *)record;
 - (int)property;
-- (BOOL)isRemovableFromSearchResults;
-- (BOOL)isGroup;
+- (_Bool)isRemovableFromSearchResults;
+- (_Bool)isGroup;
 - (id)sortedChildren;
 - (void)_populateSortedChildren;
 - (id)children;

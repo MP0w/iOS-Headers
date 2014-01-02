@@ -8,10 +8,10 @@
 
 @interface PLCameraFaceTrackingView : PLCameraFocusView
 {
-    BOOL _isInFrame;
+    _Bool _isInFrame;
 }
 
-@property(nonatomic) BOOL isInFrame; // @synthesize isInFrame=_isInFrame;
+@property(nonatomic) _Bool isInFrame; // @synthesize isInFrame=_isInFrame;
 - (void)animateToFrame:(struct CGRect)arg1;
 - (void)fadeOut;
 - (void)fadeIn;

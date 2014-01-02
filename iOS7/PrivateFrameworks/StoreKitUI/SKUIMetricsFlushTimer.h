@@ -22,6 +22,7 @@
 - (void)_applicationDidEnterBackgroundNotification:(id)arg1;
 - (void)removeMetricsController:(id)arg1;
 - (void)reloadFlushInterval;
+- (void)flushAllMetricsControllers;
 - (void)addMetricsController:(id)arg1;
 - (void)dealloc;
 - (id)init;

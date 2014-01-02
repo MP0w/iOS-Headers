@@ -7,10 +7,10 @@
 #import "NSFileManager.h"
 
 @interface NSFileManager (PhotoLibraryAdditions)
-- (BOOL)removeDirectoryAtPathIfEmpty:(id)arg1 ancestors:(int)arg2;
-- (BOOL)removeItemsAtPaths:(id)arg1;
+- (_Bool)removeDirectoryAtPathIfEmpty:(id)arg1 ancestors:(int)arg2;
+- (_Bool)removeItemsAtPaths:(id)arg1;
 - (id)pathsAtDirectory:(id)arg1 withNameFamily:(id)arg2;
-- (BOOL)directoryExistsAtPath:(id)arg1;
+- (_Bool)directoryExistsAtPath:(id)arg1;
 - (id)tmpFileForVideoTranscodeWithExtension:(id)arg1;
 - (id)makeUniqueDirectoryWithPath:(id)arg1;
 @end

@@ -6,37 +6,38 @@
 
 #import <CoreFoundation/__NSCFType.h>
 
+// Not exported
 @interface __NSCFAttributedString : __NSCFType
 {
 }
 
-+ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
++ (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 - (void)removeAttribute:(id)arg1 range:(struct _NSRange)arg2;
 - (void)addAttribute:(id)arg1 value:(id)arg2 range:(struct _NSRange)arg3;
 - (void)addAttributes:(id)arg1 range:(struct _NSRange)arg2;
 - (void)setAttributedString:(id)arg1;
 - (void)deleteCharactersInRange:(struct _NSRange)arg1;
 - (void)appendAttributedString:(id)arg1;
-- (void)insertAttributedString:(id)arg1 atIndex:(unsigned int)arg2;
+- (void)insertAttributedString:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)replaceCharactersInRange:(struct _NSRange)arg1 withAttributedString:(id)arg2;
 - (void)setAttributes:(id)arg1 range:(struct _NSRange)arg2;
 - (void)replaceCharactersInRange:(struct _NSRange)arg1 withString:(id)arg2;
 - (Class)classForCoder;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isEqualToAttributedString:(id)arg1;
-- (id)attribute:(id)arg1 atIndex:(unsigned int)arg2 longestEffectiveRange:(struct _NSRange *)arg3 inRange:(struct _NSRange)arg4;
-- (id)attributesAtIndex:(unsigned int)arg1 longestEffectiveRange:(struct _NSRange *)arg2 inRange:(struct _NSRange)arg3;
+- (_Bool)isEqualToAttributedString:(id)arg1;
+- (id)attribute:(id)arg1 atIndex:(unsigned long long)arg2 longestEffectiveRange:(struct _NSRange *)arg3 inRange:(struct _NSRange)arg4;
+- (id)attributesAtIndex:(unsigned long long)arg1 longestEffectiveRange:(struct _NSRange *)arg2 inRange:(struct _NSRange)arg3;
 - (id)attributedSubstringFromRange:(struct _NSRange)arg1;
-- (id)attribute:(id)arg1 atIndex:(unsigned int)arg2 effectiveRange:(struct _NSRange *)arg3;
-- (unsigned int)length;
-- (id)attributesAtIndex:(unsigned int)arg1 effectiveRange:(struct _NSRange *)arg2;
+- (id)attribute:(id)arg1 atIndex:(unsigned long long)arg2 effectiveRange:(struct _NSRange *)arg3;
+- (unsigned long long)length;
+- (id)attributesAtIndex:(unsigned long long)arg1 effectiveRange:(struct _NSRange *)arg2;
 - (id)string;
 - (void)finalize;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)retainCount;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)retainCount;
+- (_Bool)_isDeallocating;
+- (_Bool)_tryRetain;
 - (oneway void)release;
 - (id)retain;
 

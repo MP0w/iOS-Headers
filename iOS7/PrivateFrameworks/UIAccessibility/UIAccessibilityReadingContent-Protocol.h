@@ -6,8 +6,8 @@
 
 @protocol UIAccessibilityReadingContent
 - (id)accessibilityPageContent;
-- (struct CGRect)accessibilityFrameForLineNumber:(int)arg1;
-- (id)accessibilityContentForLineNumber:(int)arg1;
-- (int)accessibilityLineNumberForPoint:(struct CGPoint)arg1;
+- (struct CGRect)accessibilityFrameForLineNumber:(long long)arg1;
+- (id)accessibilityContentForLineNumber:(long long)arg1;
+- (long long)accessibilityLineNumberForPoint:(struct CGPoint)arg1;
 @end
 

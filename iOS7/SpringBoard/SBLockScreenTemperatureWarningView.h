@@ -14,9 +14,9 @@
 }
 
 - (void)layoutSubviews;
-- (float)_iconYPosition;
-- (float)_subtitleBaseline;
-- (float)_titleBaseline;
+- (double)_iconYPosition;
+- (double)_subtitleBaseline;
+- (double)_titleBaseline;
 - (id)_subtitleFont;
 - (id)_titleFont;
 - (void)dealloc;

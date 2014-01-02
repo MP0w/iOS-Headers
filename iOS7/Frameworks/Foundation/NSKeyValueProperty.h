@@ -10,21 +10,22 @@
 
 @class NSKeyValueContainerClass, NSString;
 
+// Not exported
 @interface NSKeyValueProperty : NSObject <NSCopying>
 {
     NSKeyValueContainerClass *_containerClass;
     NSString *_keyPath;
 }
 
-- (BOOL)matchesWithoutOperatorComponentsKeyPath:(id)arg1;
+- (_Bool)matchesWithoutOperatorComponentsKeyPath:(id)arg1;
 - (id)restOfKeyPathIfContainedByValueForKeyPath:(id)arg1;
-- (id)dependentValueKeyOrKeysIsASet:(char *)arg1;
-- (void)object:(id)arg1 withObservance:(id)arg2 didChangeValueForKeyOrKeys:(id)arg3 recurse:(BOOL)arg4 forwardingValues:(CDStruct_a70f6672)arg5;
-- (BOOL)object:(id)arg1 withObservance:(id)arg2 willChangeValueForKeyOrKeys:(id)arg3 recurse:(BOOL)arg4 forwardingValues:(CDStruct_a70f6672 *)arg5;
-- (void)object:(id)arg1 didRemoveObservance:(id)arg2 recurse:(BOOL)arg3;
-- (void)object:(id)arg1 didAddObservance:(id)arg2 recurse:(BOOL)arg3;
+- (id)dependentValueKeyOrKeysIsASet:(_Bool *)arg1;
+- (void)object:(id)arg1 withObservance:(id)arg2 didChangeValueForKeyOrKeys:(id)arg3 recurse:(_Bool)arg4 forwardingValues:(CDStruct_a70f6672)arg5;
+- (_Bool)object:(id)arg1 withObservance:(id)arg2 willChangeValueForKeyOrKeys:(id)arg3 recurse:(_Bool)arg4 forwardingValues:(CDStruct_a70f6672 *)arg5;
+- (void)object:(id)arg1 didRemoveObservance:(id)arg2 recurse:(_Bool)arg3;
+- (void)object:(id)arg1 didAddObservance:(id)arg2 recurse:(_Bool)arg3;
 - (id)keyPathIfAffectedByValueForMemberOfKeys:(id)arg1;
-- (id)keyPathIfAffectedByValueForKey:(id)arg1 exactMatch:(char *)arg2;
+- (id)keyPathIfAffectedByValueForKey:(id)arg1 exactMatch:(_Bool *)arg2;
 - (Class)isaForAutonotifying;
 - (id)keyPath;
 - (id)copyWithZone:(struct _NSZone *)arg1;

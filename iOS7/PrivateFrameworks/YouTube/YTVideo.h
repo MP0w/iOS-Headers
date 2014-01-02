@@ -32,7 +32,7 @@
     NSURL *_captionsURL;
     NSString *_shortID;
     NSString *_unplayable;
-    BOOL _isProcessing;
+    _Bool _isProcessing;
     NSMutableArray *_captions;
     int _privacy;
     NSString *_restrictedCountries;
@@ -46,27 +46,27 @@
 + (id)unsupportedVideoError;
 + (void)enableNotifications;
 + (void)disableNotifications;
-- (BOOL)ownVideo;
+- (_Bool)ownVideo;
 - (id)privacyString;
 - (id)captions;
-- (BOOL)isProcessing;
-- (BOOL)isPlayable;
-- (BOOL)isBookmarked;
+- (_Bool)isProcessing;
+- (_Bool)isPlayable;
+- (_Bool)isBookmarked;
 - (id)anyVideoReference;
 - (id)bestVideoReference;
 - (void)carrierBundleDidChangeNotification:(id)arg1;
-- (BOOL)allowsHighQuality3GPlayback;
+- (_Bool)allowsHighQuality3GPlayback;
 - (id)videoReferenceForProfile:(int)arg1;
 - (void)loadThumbnailWithCallback:(id)arg1;
-- (struct CGImage *)pluginThumbnailLoadIfAbsent:(BOOL)arg1;
-- (struct CGImage *)largeThumbnailLoadIfAbsent:(BOOL)arg1;
-- (struct CGImage *)roundedThumbnailLoadIfAbsent:(BOOL)arg1;
-- (struct CGImage *)thumbnailLoadIfAbsent:(BOOL)arg1;
+- (struct CGImage *)pluginThumbnailLoadIfAbsent:(_Bool)arg1;
+- (struct CGImage *)largeThumbnailLoadIfAbsent:(_Bool)arg1;
+- (struct CGImage *)roundedThumbnailLoadIfAbsent:(_Bool)arg1;
+- (struct CGImage *)thumbnailLoadIfAbsent:(_Bool)arg1;
 - (int)batchStatus;
 - (id)restrictedCountries;
 - (unsigned int)numberOfViews;
 - (id)ratingPercentageString;
-- (BOOL)positiveRating;
+- (_Bool)positiveRating;
 - (unsigned int)numDislikes;
 - (unsigned int)numLikes;
 - (double)age;
@@ -90,13 +90,13 @@
 - (id)ID;
 - (id)description;
 - (void)dealloc;
-- (id)initWithID:(id)arg1 title:(id)arg2 dateUpdated:(id)arg3 dateAdded:(id)arg4 videoReferences:(id)arg5 infoURL:(id)arg6 videoDescription:(id)arg7 category:(id)arg8 tags:(id)arg9 author:(id)arg10 thumbnailURL:(id)arg11 numLikes:(unsigned int)arg12 numDislikes:(unsigned int)arg13 numberOfViews:(unsigned int)arg14 batchStatus:(int)arg15 commentsURL:(id)arg16 editURL:(id)arg17 ratingsURL:(id)arg18 captionsURL:(id)arg19 shortID:(id)arg20 unplayable:(id)arg21 isProcessing:(BOOL)arg22 privacy:(int)arg23 restrictedCountries:(id)arg24;
+- (id)initWithID:(id)arg1 title:(id)arg2 dateUpdated:(id)arg3 dateAdded:(id)arg4 videoReferences:(id)arg5 infoURL:(id)arg6 videoDescription:(id)arg7 category:(id)arg8 tags:(id)arg9 author:(id)arg10 thumbnailURL:(id)arg11 numLikes:(unsigned int)arg12 numDislikes:(unsigned int)arg13 numberOfViews:(unsigned int)arg14 batchStatus:(int)arg15 commentsURL:(id)arg16 editURL:(id)arg17 ratingsURL:(id)arg18 captionsURL:(id)arg19 shortID:(id)arg20 unplayable:(id)arg21 isProcessing:(_Bool)arg22 privacy:(int)arg23 restrictedCountries:(id)arg24;
 - (void)_thumbnailDidLoad;
 - (void)_postVideoDidChange;
 - (id)archiveDictionary;
 - (id)initFromArchiveDictionary:(id)arg1;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 
 @end
 

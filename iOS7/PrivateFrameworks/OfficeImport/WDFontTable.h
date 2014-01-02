@@ -8,6 +8,7 @@
 
 @class NSMutableArray, TSUNoCopyDictionary;
 
+// Not exported
 @interface WDFontTable : NSObject
 {
     TSUNoCopyDictionary *mFontTable;
@@ -16,10 +17,10 @@
 
 - (id)fonts;
 - (id)createFontWithName:(id)arg1;
-- (id)fontWithName:(id)arg1 create:(BOOL)arg2;
+- (id)fontWithName:(id)arg1 create:(_Bool)arg2;
 - (id)fontWithName:(id)arg1;
 - (void)clear;
-- (unsigned int)count;
+- (unsigned long long)count;
 - (void)dealloc;
 - (id)init;
 

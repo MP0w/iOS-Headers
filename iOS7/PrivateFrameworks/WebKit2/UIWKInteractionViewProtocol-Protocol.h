@@ -5,6 +5,6 @@
  */
 
 @protocol UIWKInteractionViewProtocol
-- (void)changeSelectionWithGesture:(struct CGPoint)arg1 withGesture:(int)arg2 withState:(int)arg3;
+- (void)changeSelectionWithGesture:(struct CGPoint)arg1 withGesture:(long long)arg2 withState:(long long)arg3;
 @end
 

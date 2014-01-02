@@ -8,16 +8,17 @@
 
 @class CPImportTracing, ECColumnWidthConvertor, EDReference, EDResources, EDSheet, EDWorkbook, EXOAVState, EXOfficeArtState, NSMutableArray, NSMutableDictionary, OCPPackagePart;
 
+// Not exported
 @interface EXState : OAVState
 {
     unsigned int mCurrentSheetIndex;
     EDSheet *mCurrentSheet;
-    unsigned long mCellStyleXfsOffset;
+    unsigned long long mCellStyleXfsOffset;
     double mDefaultColumnWidth;
     double mDefaultRowHeight;
     OCPPackagePart *mCurrentPart;
     OCPPackagePart *mWorkbookPart;
-    struct map<long, unsigned int, std::__1::less<long>, std::__1::allocator<std::__1::pair<const long, unsigned int>>> mSharedFormulasMap;
+    struct map<long, unsigned long, std::__1::less<long>, std::__1::allocator<std::__1::pair<const long, unsigned long>>> mSharedFormulasMap;
     NSMutableArray *mArrayedFormulas;
     EDReference *mSheetDimension;
     EXOfficeArtState *mOfficeArtState;
@@ -41,7 +42,7 @@
 @property(readonly, nonatomic) id <OCCancelDelegate> cancelDelegate; // @synthesize cancelDelegate=mCancelDelegate;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (BOOL)isCancelled;
+- (_Bool)isCancelled;
 - (void)reportWorksheetWarning:(struct CPTaggedMessageStructure *)arg1;
 - (void)reportWarning:(struct CPTaggedMessageStructure *)arg1;
 - (id)legacyDrawables;
@@ -64,8 +65,8 @@
 - (void)setSheetDimension:(id)arg1;
 - (id)sheetDimension;
 - (id)arrayedFormulas;
-- (void)addSharedBaseFormulaIndex:(unsigned int)arg1 withIndex:(long)arg2;
-- (unsigned int)sharedBaseFormulaIndexWithIndex:(long)arg1;
+- (void)addSharedBaseFormulaIndex:(unsigned long long)arg1 withIndex:(long long)arg2;
+- (unsigned long long)sharedBaseFormulaIndexWithIndex:(long long)arg1;
 - (id)workbookPart;
 - (void)setCurrentPart:(id)arg1;
 - (id)currentPart;
@@ -73,8 +74,8 @@
 - (double)defaultRowHeight;
 - (void)setDefaultColumnWidth:(double)arg1;
 - (double)defaultColumnWidth;
-- (void)setCellStyleXfsOffset:(unsigned long)arg1;
-- (unsigned long)cellStyleXfsOffset;
+- (void)setCellStyleXfsOffset:(unsigned long long)arg1;
+- (unsigned long long)cellStyleXfsOffset;
 - (void)setCurrentSheet:(id)arg1;
 - (id)currentSheet;
 - (void)setResources:(id)arg1;

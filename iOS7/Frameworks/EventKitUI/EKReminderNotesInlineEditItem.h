@@ -10,12 +10,12 @@
 {
 }
 
-- (BOOL)saveAndDismissWithForce:(BOOL)arg1;
-- (int)cellStyle;
+- (_Bool)saveAndDismissWithForce:(_Bool)arg1;
+- (long long)cellStyle;
 - (id)textFromReminder;
 - (id)newCell;
-- (BOOL)shouldAppearWithVisibility:(int)arg1;
-- (void)addStylingToCell:(id)arg1 forSubitemAtIndex:(unsigned int)arg2 inSubsection:(unsigned int)arg3;
+- (_Bool)shouldAppearWithVisibility:(int)arg1;
+- (void)addStylingToCell:(id)arg1 forSubitemAtIndex:(unsigned long long)arg2 inSubsection:(unsigned long long)arg3;
 
 @end
 

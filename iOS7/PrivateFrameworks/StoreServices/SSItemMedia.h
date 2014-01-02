@@ -10,23 +10,23 @@
 
 @interface SSItemMedia : NSObject
 {
-    int _duration;
-    int _fullDuration;
+    long long _duration;
+    long long _fullDuration;
     long long _mediaFileSize;
     NSString *_mediaKind;
-    BOOL _protected;
+    _Bool _protected;
     NSURL *_url;
 }
 
 @property(readonly, nonatomic) NSURL *URL; // @synthesize URL=_url;
-@property(readonly, nonatomic, getter=isProtectedMedia) BOOL protectedMedia; // @synthesize protectedMedia=_protected;
+@property(readonly, nonatomic, getter=isProtectedMedia) _Bool protectedMedia; // @synthesize protectedMedia=_protected;
 @property(copy, nonatomic) NSString *mediaKind; // @synthesize mediaKind=_mediaKind;
 @property(readonly, nonatomic) long long mediaFileSize; // @synthesize mediaFileSize=_mediaFileSize;
-@property(readonly, nonatomic) int fullDurationInMilliseconds; // @synthesize fullDurationInMilliseconds=_fullDuration;
-@property(readonly, nonatomic) int durationInMilliseconds; // @synthesize durationInMilliseconds=_duration;
+@property(readonly, nonatomic) long long fullDurationInMilliseconds; // @synthesize fullDurationInMilliseconds=_fullDuration;
+@property(readonly, nonatomic) long long durationInMilliseconds; // @synthesize durationInMilliseconds=_duration;
 - (id)initWithStoreOfferDictionary:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)description;
 - (void)dealloc;
 - (id)init;

@@ -6,6 +6,7 @@
 
 #import <CoreImage/CIColorCube.h>
 
+// Not exported
 @interface CIColorCubeWithColorSpace : CIColorCube
 {
     id inputColorSpace;

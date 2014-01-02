@@ -26,7 +26,7 @@
 @property(copy, nonatomic) NSString *bundleId; // @synthesize bundleId=_bundleId;
 @property(nonatomic) id <AITXPCConnectionDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) int pid;
-@property(readonly, nonatomic) BOOL available;
+@property(readonly, nonatomic) _Bool available;
 - (void)barrierWithCompletionHandler:(id)arg1;
 - (void)sendMessage:(id)arg1 userInfo:(id)arg2 replyHandler:(id)arg3;
 - (void)sendMessage:(id)arg1 userInfo:(id)arg2;

@@ -8,43 +8,44 @@
 
 @class UISelectionGrabberDot, UITextRangeView;
 
+// Not exported
 @interface UISelectionGrabber : UIView
 {
     UISelectionGrabberDot *m_dotView;
-    BOOL m_isDotted;
-    BOOL m_activeFlattened;
-    BOOL m_alertFlattened;
-    BOOL m_navigationTransitionFlattened;
-    BOOL m_animating;
+    _Bool m_isDotted;
+    _Bool m_activeFlattened;
+    _Bool m_alertFlattened;
+    _Bool m_navigationTransitionFlattened;
+    _Bool m_animating;
     int m_orientation;
     int _applicationDeactivationReason;
 }
 
-+ (id)_grabberDot;
 @property(nonatomic) int orientation; // @synthesize orientation=m_orientation;
-@property(nonatomic) BOOL animating; // @synthesize animating=m_animating;
-@property(nonatomic) BOOL navigationTransitionFlattened; // @synthesize navigationTransitionFlattened=m_navigationTransitionFlattened;
-@property(nonatomic) BOOL activeFlattened; // @synthesize activeFlattened=m_activeFlattened;
-@property(nonatomic) BOOL alertFlattened; // @synthesize alertFlattened=m_alertFlattened;
-@property(nonatomic) BOOL isDotted; // @synthesize isDotted=m_isDotted;
+@property(nonatomic) _Bool animating; // @synthesize animating=m_animating;
+@property(nonatomic) _Bool navigationTransitionFlattened; // @synthesize navigationTransitionFlattened=m_navigationTransitionFlattened;
+@property(nonatomic) _Bool activeFlattened; // @synthesize activeFlattened=m_activeFlattened;
+@property(nonatomic) _Bool alertFlattened; // @synthesize alertFlattened=m_alertFlattened;
+@property(nonatomic) _Bool isDotted; // @synthesize isDotted=m_isDotted;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)didMoveToSuperview;
-- (BOOL)isPointedLeft;
-- (BOOL)isPointedRight;
-- (BOOL)isPointedUp;
-- (BOOL)isPointedDown;
-- (BOOL)isVertical;
+- (_Bool)isPointedLeft;
+- (_Bool)isPointedRight;
+- (_Bool)isPointedUp;
+- (_Bool)isPointedDown;
+- (_Bool)isVertical;
 - (void)updateDot;
-- (BOOL)dotIsVisbleInDocument:(struct CGRect)arg1;
-- (BOOL)clipDot:(struct CGRect)arg1;
+- (_Bool)scroller:(id)arg1 fullyContainSelectionRect:(struct CGRect)arg2;
+- (_Bool)dotIsVisbleInDocument:(struct CGRect)arg1;
+- (_Bool)clipDot:(struct CGRect)arg1;
 - (void)removeFromSuperview;
-- (void)setHidden:(BOOL)arg1;
-- (BOOL)autoscrolled;
-- (BOOL)inputViewIsChanging;
-- (BOOL)isRotating;
-- (BOOL)isScaling;
-- (BOOL)isScrolling;
+- (void)setHidden:(_Bool)arg1;
+- (_Bool)autoscrolled;
+- (_Bool)inputViewIsChanging;
+- (_Bool)isRotating;
+- (_Bool)isScaling;
+- (_Bool)isScrolling;
 - (void)canExpandAfterNavigationTransition:(id)arg1;
 - (void)mustFlattenForNavigationTransition:(id)arg1;
 - (void)canExpandAfterBecomeActive:(id)arg1;

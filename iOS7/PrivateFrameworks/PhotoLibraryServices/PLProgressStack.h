@@ -10,17 +10,17 @@
 
 @interface PLProgressStack : NSObject
 {
-    BOOL notifyUsingAssetsdNotificationCenter;
-    id delegate;
+    _Bool notifyUsingAssetsdNotificationCenter;
     float currentMultiplier;
-    NSMutableArray *multipliers;
     float currentTotal;
+    id delegate;
+    NSMutableArray *multipliers;
     NSString *mediaPathString;
 }
 
 + (id)unarchiveFromDictionary:(id)arg1;
 @property(retain, nonatomic) NSString *mediaPathString; // @synthesize mediaPathString;
-@property(nonatomic) BOOL notifyUsingAssetsdNotificationCenter; // @synthesize notifyUsingAssetsdNotificationCenter;
+@property(nonatomic) _Bool notifyUsingAssetsdNotificationCenter; // @synthesize notifyUsingAssetsdNotificationCenter;
 @property(nonatomic) float currentTotal; // @synthesize currentTotal;
 @property(retain, nonatomic) NSMutableArray *multipliers; // @synthesize multipliers;
 @property(nonatomic) float currentMultiplier; // @synthesize currentMultiplier;

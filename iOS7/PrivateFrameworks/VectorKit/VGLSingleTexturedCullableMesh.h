@@ -8,14 +8,15 @@
 
 @class VGLTexture;
 
+// Not exported
 @interface VGLSingleTexturedCullableMesh : VGLCullableMesh
 {
     VGLTexture *_texture;
 }
 
 @property(retain, nonatomic) VGLTexture *texture; // @synthesize texture=_texture;
-- (void)drawInRects:(const CDStruct_818bb265 *)arg1 numRects:(unsigned int)arg2 context:(id)arg3;
-- (void)_drawInRects:(const CDStruct_818bb265 *)arg1 numRects:(unsigned int)arg2 context:(id)arg3;
+- (void)drawInRects:(const CDStruct_818bb265 *)arg1 numRects:(unsigned long long)arg2 context:(id)arg3;
+- (void)_drawInRects:(const CDStruct_818bb265 *)arg1 numRects:(unsigned long long)arg2 context:(id)arg3;
 - (void)drawTrianglesWithContext:(id)arg1;
 - (void)_drawTrianglesWithContext:(id)arg1;
 - (void)dealloc;

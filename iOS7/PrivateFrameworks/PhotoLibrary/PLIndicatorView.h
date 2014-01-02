@@ -15,7 +15,7 @@
 - (void)fadeOut:(id)arg1;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)didMoveToWindow;
-- (BOOL)isOpaque;
+- (_Bool)isOpaque;
 - (void)dealloc;
 - (id)initWithLocation:(struct CGPoint)arg1;
 

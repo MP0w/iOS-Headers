@@ -14,12 +14,12 @@
     const char *dataPtr;
     unsigned int offset;
     unsigned int fontDataLength;
-    BOOL valid;
+    _Bool valid;
 }
 
 - (struct __CFData *)newKernData;
 - (int)kernUnitsPerEm;
-- (BOOL)getDescriptor:(CDStruct_8bce2348 *)arg1;
+- (_Bool)getDescriptor:(CDStruct_05724ab2 *)arg1;
 - (struct CGRect)readRect;
 - (float)readFloat;
 - (int)readLong;

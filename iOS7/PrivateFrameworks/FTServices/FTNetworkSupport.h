@@ -13,27 +13,27 @@
     Class _APSConnectionClass;
     APSConnection *_apsConnection;
     NSTimer *_reliabilityAttemptTimer;
-    BOOL _enableCriticalReliability;
-    BOOL _criticalReliabilityEnabledState;
+    _Bool _enableCriticalReliability;
+    _Bool _criticalReliabilityEnabledState;
 }
 
 + (id)sharedInstance;
-@property(nonatomic) BOOL enableCriticalReliability;
+@property(nonatomic) _Bool enableCriticalReliability;
 - (void)_tryToEnableReliability;
-- (void)_reallySetCriticalReliability:(BOOL)arg1;
+- (void)_reallySetCriticalReliability:(_Bool)arg1;
 - (void)_setReliabilityTimeoutInterval;
 - (void)_clearReliabilityTimeoutInterval;
 - (void)_createAPSConnectionIfNeeded;
-@property(readonly, nonatomic) BOOL networkReachable;
-@property(readonly, nonatomic) BOOL networkActive;
-@property(readonly, nonatomic) BOOL networkEnabled;
-@property(readonly, nonatomic) BOOL dataActiveAndReachable;
-@property(readonly, nonatomic) BOOL willSearchForNetwork;
-@property(readonly, nonatomic) BOOL wiFiActiveAndReachable;
-@property(readonly, nonatomic) BOOL validNetworkReachable;
-@property(readonly, nonatomic) BOOL validNetworkActive;
-@property(readonly, nonatomic) BOOL validNetworkEnabled;
-@property(readonly, nonatomic) BOOL allowAnyNetwork;
+@property(readonly, nonatomic) _Bool networkReachable;
+@property(readonly, nonatomic) _Bool networkActive;
+@property(readonly, nonatomic) _Bool networkEnabled;
+@property(readonly, nonatomic) _Bool dataActiveAndReachable;
+@property(readonly, nonatomic) _Bool willSearchForNetwork;
+@property(readonly, nonatomic) _Bool wiFiActiveAndReachable;
+@property(readonly, nonatomic) _Bool validNetworkReachable;
+@property(readonly, nonatomic) _Bool validNetworkActive;
+@property(readonly, nonatomic) _Bool validNetworkEnabled;
+@property(readonly, nonatomic) _Bool allowAnyNetwork;
 
 @end
 

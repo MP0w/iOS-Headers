@@ -8,11 +8,12 @@
 
 @class EKEventStore, NSPredicate;
 
+// Not exported
 @interface EKPredicateCount : NSObject
 {
     NSPredicate *_predicate;
     EKEventStore *_store;
-    BOOL _finished;
+    _Bool _finished;
     id _callback;
     unsigned int _previous;
 }

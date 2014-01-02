@@ -18,14 +18,14 @@
     struct __CFArray *_nodesStackCache;
     struct __CFDictionary *_nodesLevelCache;
     struct __CFDictionary *_nodesQuoteLevelCache;
-    unsigned int _options;
+    unsigned long long _options;
 }
 
-+ (BOOL)isLinebreakImpliedAfterTagName:(id)arg1;
-+ (BOOL)isLinebreakImpliedBeforeTagName:(id)arg1;
-@property(nonatomic) unsigned int options; // @synthesize options=_options;
-- (void)getLevel:(int *)arg1 quoteLevel:(int *)arg2 forBodyNode:(id)arg3;
-- (unsigned int)quoteLevelForBodyNode:(id)arg1;
++ (_Bool)isLinebreakImpliedAfterTagName:(id)arg1;
++ (_Bool)isLinebreakImpliedBeforeTagName:(id)arg1;
+@property(nonatomic) unsigned long long options; // @synthesize options=_options;
+- (void)getLevel:(long long *)arg1 quoteLevel:(long long *)arg2 forBodyNode:(id)arg3;
+- (unsigned long long)quoteLevelForBodyNode:(id)arg1;
 - (void)didFindError:(id)arg1;
 - (void)didFinishParsing;
 - (void)willBeginParsing;
@@ -35,17 +35,17 @@
 - (Class)messageBodyElementClass;
 - (int)messageBodyStringAccumulatorDefaultOptions;
 - (Class)messageBodyStringAccumulatorClass;
-- (BOOL)shouldIgnoreTagWithTagName:(id)arg1;
-- (BOOL)isLandmarkTagName:(id)arg1;
+- (_Bool)shouldIgnoreTagWithTagName:(id)arg1;
+- (_Bool)isLandmarkTagName:(id)arg1;
 - (id)getAvailableMessageBodyElement;
 - (void)removeSubparser:(id)arg1;
 - (void)addSubparser:(id)arg1;
 - (void)setFoundMessageBodyElementBlock:(id)arg1;
-- (id)newStringAccumulatorWithOptions:(int)arg1 lengthLimit:(unsigned int)arg2;
+- (id)newStringAccumulatorWithOptions:(int)arg1 lengthLimit:(unsigned long long)arg2;
 - (id)parserError;
 - (void)copyBlocks;
-- (BOOL)shouldProceedParsing;
-- (BOOL)parse;
+- (_Bool)shouldProceedParsing;
+- (_Bool)parse;
 - (void)dealloc;
 - (id)init;
 

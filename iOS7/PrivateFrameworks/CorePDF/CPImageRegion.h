@@ -11,7 +11,7 @@
 }
 
 - (void)accept:(id)arg1;
-- (BOOL)isImageRegion;
+- (_Bool)isImageRegion;
 
 @end
 

@@ -11,16 +11,16 @@
 @interface FCRLandmark : NSObject
 {
     NSString *type;
-    unsigned int pointCount;
+    unsigned long long pointCount;
     struct CGPoint *points;
 }
 
-+ (id)landmarkWithType:(id)arg1 pointCount:(unsigned int)arg2 points:(struct CGPoint *)arg3;
++ (id)landmarkWithType:(id)arg1 pointCount:(unsigned long long)arg2 points:(struct CGPoint *)arg3;
 @property(readonly) struct CGPoint *points; // @synthesize points;
-@property(readonly) unsigned int pointCount; // @synthesize pointCount;
+@property(readonly) unsigned long long pointCount; // @synthesize pointCount;
 @property(readonly) NSString *type; // @synthesize type;
 - (void)dealloc;
-- (id)initWithType:(id)arg1 pointCount:(unsigned int)arg2 points:(struct CGPoint *)arg3;
+- (id)initWithType:(id)arg1 pointCount:(unsigned long long)arg2 points:(struct CGPoint *)arg3;
 
 @end
 

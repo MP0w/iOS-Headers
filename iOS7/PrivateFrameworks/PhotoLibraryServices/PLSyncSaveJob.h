@@ -10,8 +10,9 @@
 
 @interface PLSyncSaveJob : NSObject
 {
-    BOOL isVideo;
-    BOOL isSyncComplete;
+    _Bool isVideo;
+    _Bool isSyncComplete;
+    _Bool _cleanupSyncState;
     NSArray *facesInfo;
     NSURL *originalAssetURL;
     NSString *uuid;
@@ -21,9 +22,14 @@
     CLLocation *location;
     NSNumber *sortToken;
     NSString *originalFileName;
+    NSDate *_cleanupBeforeDate;
+    id _finishedBlock;
 }
 
-@property(nonatomic) BOOL isSyncComplete; // @synthesize isSyncComplete;
+@property(copy, nonatomic) id finishedBlock; // @synthesize finishedBlock=_finishedBlock;
+@property(copy, nonatomic) NSDate *cleanupBeforeDate; // @synthesize cleanupBeforeDate=_cleanupBeforeDate;
+@property(nonatomic) _Bool cleanupSyncState; // @synthesize cleanupSyncState=_cleanupSyncState;
+@property(nonatomic) _Bool isSyncComplete; // @synthesize isSyncComplete;
 @property(retain, nonatomic) NSString *originalFileName; // @synthesize originalFileName;
 @property(retain, nonatomic) NSNumber *sortToken; // @synthesize sortToken;
 @property(copy, nonatomic) CLLocation *location; // @synthesize location;
@@ -31,7 +37,7 @@
 @property(copy, nonatomic) NSDate *modificationDate; // @synthesize modificationDate;
 @property(copy, nonatomic) NSDate *creationDate; // @synthesize creationDate;
 @property(copy, nonatomic) NSString *uuid; // @synthesize uuid;
-@property(nonatomic) BOOL isVideo; // @synthesize isVideo;
+@property(nonatomic) _Bool isVideo; // @synthesize isVideo;
 @property(retain, nonatomic) NSURL *originalAssetURL; // @synthesize originalAssetURL;
 @property(retain, nonatomic) NSArray *facesInfo; // @synthesize facesInfo;
 - (id)description;

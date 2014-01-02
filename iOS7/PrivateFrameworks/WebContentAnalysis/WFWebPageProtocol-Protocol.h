@@ -5,8 +5,8 @@
  */
 
 @protocol WFWebPageProtocol
-- (BOOL)hasShortRefresh;
-- (BOOL)hasFrameset;
+- (_Bool)hasShortRefresh;
+- (_Bool)hasFrameset;
 - (id)links;
 - (id)pageContent;
 - (id)images;

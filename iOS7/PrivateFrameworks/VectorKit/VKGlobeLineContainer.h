@@ -11,14 +11,15 @@
 
 @class NSMutableArray, NSMutableSet, VKGlobeViewWrapper, VKPolylineOverlay;
 
+// Not exported
 @interface VKGlobeLineContainer : NSObject <VKPolylineGroupOverlayObserver, VKPolylineObserver>
 {
-    BOOL _trafficEnabled;
+    _Bool _trafficEnabled;
     id <VKRouteMatchedAnnotationPresentation> _routeLineSplitAnnotation;
     id <VKGlobeLineContainerDelegate> _delegate;
     NSMutableArray *_overlays;
     VKGlobeViewWrapper *_wrapper;
-    struct map<VKPolylineOverlay *, altitude::RouteLineData *, std::__1::less<VKPolylineOverlay *>, vk_allocator<std::__1::pair<VKPolylineOverlay *const, altitude::RouteLineData *>>> _polylinesToRoutes;
+    struct map<VKPolylineOverlay *, std::__1::weak_ptr<altitude::RouteLineData>, std::__1::less<VKPolylineOverlay *>, vk_allocator<std::__1::pair<VKPolylineOverlay *const, std::__1::weak_ptr<altitude::RouteLineData>>>> _polylinesToRoutes;
     VKPolylineOverlay *_selectedPolyline;
     NSMutableSet *_persistentOverlays;
     struct VKGlobeRouteSplit *_routeSplit;
@@ -32,14 +33,13 @@
 - (void)polylineGroup:(id)arg1 didSelectPolyline:(id)arg2;
 - (void)polylineGroup:(id)arg1 didRemovePolyline:(id)arg2;
 - (void)polylineGroup:(id)arg1 didAddPolyline:(id)arg2;
-- (void)clearRouteLines;
 - (void)setStylesheet:(id)arg1;
 - (void)update;
 - (void)_recreateLinesIfNeeded;
 - (void)_updateRouteSplit;
 @property(retain, nonatomic) id <VKRouteMatchedAnnotationPresentation> routeLineSplitAnnotation;
-- (void)setTrafficEnabled:(BOOL)arg1;
-- (void)setSelected:(id)arg1 selected:(BOOL)arg2;
+- (void)setTrafficEnabled:(_Bool)arg1;
+- (void)setSelected:(id)arg1 selected:(_Bool)arg2;
 - (void)clearLineSelection;
 - (void)removeLine:(id)arg1;
 - (void)addLine:(id)arg1;

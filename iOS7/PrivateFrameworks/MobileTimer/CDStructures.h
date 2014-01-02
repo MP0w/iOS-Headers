@@ -7,8 +7,8 @@
 #pragma mark Named Structures
 
 struct CGPoint {
-    float x;
-    float y;
+    double x;
+    double y;
 };
 
 struct CGRect {
@@ -17,21 +17,21 @@ struct CGRect {
 };
 
 struct CGSize {
-    float width;
-    float height;
+    double width;
+    double height;
 };
 
 struct ShadowInfo {
     id _field1;
-    float _field2;
+    double _field2;
     struct CGSize _field3;
-    float _field4;
+    double _field4;
 };
 
 struct UIEdgeInsets {
-    float _field1;
-    float _field2;
-    float _field3;
-    float _field4;
+    double _field1;
+    double _field2;
+    double _field3;
+    double _field4;
 };
 

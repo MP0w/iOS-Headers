@@ -14,7 +14,7 @@
     int _handlerCalled;
 }
 
-- (BOOL)shouldHelperPrepareInputs;
+- (_Bool)shouldHelperPrepareInputs;
 - (void)_callHandlerIfNotCalled;
 - (void)finishWritingHelperDidFail:(id)arg1;
 - (void)finishWritingHelperDidCancelFinishWriting:(id)arg1;

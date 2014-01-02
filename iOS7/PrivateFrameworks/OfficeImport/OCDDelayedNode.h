@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface OCDDelayedNode : NSObject
 {
     id <OCDDelayedNodeContext> mDelayedContext;

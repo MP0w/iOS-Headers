@@ -8,6 +8,7 @@
 
 @class NSMutableArray, NSMutableDictionary, WDCharacterProperties, WDDocument, WDParagraphProperties, WDStyle;
 
+// Not exported
 @interface WDStyleSheet : NSObject
 {
     NSMutableDictionary *mStyleDictionary;
@@ -43,12 +44,11 @@
 - (id)paragraphStyleWithStartingName:(id)arg1;
 - (id)styleWithName:(id)arg1;
 - (id)styleWithId:(id)arg1;
-- (unsigned int)styleCount;
+- (unsigned long long)styleCount;
 - (id)styles;
 - (id)document;
 - (void)dealloc;
 - (id)initWithDocument:(id)arg1;
-- (void)initializeDefaultProperties;
 
 @end
 

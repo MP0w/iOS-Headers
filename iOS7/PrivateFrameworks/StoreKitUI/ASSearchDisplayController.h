@@ -15,7 +15,7 @@
 }
 
 - (void).cxx_destruct;
-- (void)setActive:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)setActive:(_Bool)arg1 animated:(_Bool)arg2;
 - (id)_createPopoverController;
 - (void)_setSuffix:(id)arg1;
 - (void)_noEventSetSearchFieldText:(id)arg1;

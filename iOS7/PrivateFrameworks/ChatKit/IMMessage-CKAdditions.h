@@ -7,6 +7,6 @@
 #import "IMMessage.h"
 
 @interface IMMessage (CKAdditions)
-- (BOOL)__ck_isEqualToMessageUsingGUID:(id)arg1;
+- (_Bool)__ck_isEqualToMessageUsingGUID:(id)arg1;
 @end
 

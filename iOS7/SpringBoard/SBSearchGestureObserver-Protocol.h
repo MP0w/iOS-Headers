@@ -7,9 +7,9 @@
 #import "NSObject-Protocol.h"
 
 @protocol SBSearchGestureObserver <NSObject>
-- (void)searchGesture:(id)arg1 changedOffset:(float)arg2;
+- (void)searchGesture:(id)arg1 changedPercentComplete:(double)arg2;
 
 @optional
-- (void)searchGesture:(id)arg1 completedShowing:(BOOL)arg2;
+- (void)searchGesture:(id)arg1 completedShowing:(_Bool)arg2;
 @end
 

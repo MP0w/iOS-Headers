@@ -15,15 +15,15 @@
     ICDeviceBrowser *_deviceBrowser;
     NSMutableArray *_importers;
     NSMutableArray *_importersToEject;
-    BOOL _wantsToStopListening;
+    _Bool _wantsToStopListening;
     id _stopListeningCallbackTarget;
     SEL _stopListeningCallbackSelector;
 }
 
 + (id)sharedCameraImportManager;
 @property(retain, nonatomic) NSMutableArray *importers; // @synthesize importers=_importers;
-- (void)deviceBrowser:(id)arg1 didRemoveDevice:(id)arg2 moreGoing:(BOOL)arg3;
-- (void)deviceBrowser:(id)arg1 didAddDevice:(id)arg2 moreComing:(BOOL)arg3;
+- (void)deviceBrowser:(id)arg1 didRemoveDevice:(id)arg2 moreGoing:(_Bool)arg3;
+- (void)deviceBrowser:(id)arg1 didAddDevice:(id)arg2 moreComing:(_Bool)arg3;
 - (id)importerMatchingDevice:(id)arg1;
 - (void)ejectCameras;
 - (void)removeImporter:(id)arg1;
@@ -32,7 +32,7 @@
 - (void)stopListeningWithCallbackTarget:(id)arg1 selector:(SEL)arg2;
 - (void)stopListening;
 - (void)_stopListening;
-- (unsigned int)startListening;
+- (unsigned long long)startListening;
 - (id)importerForDevice:(id)arg1 withDelegate:(id)arg2;
 - (void)dealloc;
 - (id)init;

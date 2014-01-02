@@ -13,7 +13,7 @@
     NSXPCConnection *_unzipServiceConnection;
     StreamingUnzipper *_inProcessUnzipper;
     NSObject<OS_dispatch_queue> *_inProcessUnzipQueue;
-    BOOL _errorOccurred;
+    _Bool _errorOccurred;
 }
 
 - (void).cxx_destruct;

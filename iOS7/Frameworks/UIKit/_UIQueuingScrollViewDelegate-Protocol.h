@@ -7,11 +7,11 @@
 #import "NSObject-Protocol.h"
 
 @protocol _UIQueuingScrollViewDelegate <NSObject>
-- (BOOL)queuingScrollViewShouldLayoutSubviews:(id)arg1;
+- (_Bool)queuingScrollViewShouldLayoutSubviews:(id)arg1;
 - (void)queuingScrollViewDidFinishScrolling:(id)arg1;
 - (void)queuingScrollView:(id)arg1 didBailoutOfScrollAndRevealedView:(id)arg2;
-- (void)queuingScrollView:(id)arg1 didEndManualScroll:(BOOL)arg2 toRevealView:(id)arg3 direction:(int)arg4 animated:(BOOL)arg5 didFinish:(BOOL)arg6 didComplete:(BOOL)arg7;
-- (void)queuingScrollView:(id)arg1 didCommitManualScroll:(BOOL)arg2 toRevealView:(id)arg3 concealView:(id)arg4 direction:(int)arg5 animated:(BOOL)arg6 canComplete:(BOOL)arg7;
-- (void)queuingScrollView:(id)arg1 willManuallyScroll:(BOOL)arg2 toRevealView:(id)arg3 concealView:(id)arg4 animated:(BOOL)arg5;
+- (void)queuingScrollView:(id)arg1 didEndManualScroll:(_Bool)arg2 toRevealView:(id)arg3 direction:(long long)arg4 animated:(_Bool)arg5 didFinish:(_Bool)arg6 didComplete:(_Bool)arg7;
+- (void)queuingScrollView:(id)arg1 didCommitManualScroll:(_Bool)arg2 toRevealView:(id)arg3 concealView:(id)arg4 direction:(long long)arg5 animated:(_Bool)arg6 canComplete:(_Bool)arg7;
+- (void)queuingScrollView:(id)arg1 willManuallyScroll:(_Bool)arg2 toRevealView:(id)arg3 concealView:(id)arg4 animated:(_Bool)arg5;
 @end
 

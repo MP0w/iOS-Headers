@@ -11,7 +11,7 @@
 @interface MPTimeMarker : NSObject
 {
     double _duration;
-    unsigned int _index;
+    unsigned long long _index;
     double _time;
     NSString *_title;
     NSURL *_url;
@@ -24,11 +24,11 @@
 @property(retain, nonatomic) NSURL *url; // @synthesize url=_url;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
 @property(nonatomic) double time; // @synthesize time=_time;
-@property(nonatomic) unsigned int index; // @synthesize index=_index;
+@property(nonatomic) unsigned long long index; // @synthesize index=_index;
 @property(nonatomic) double duration; // @synthesize duration=_duration;
 - (void).cxx_destruct;
 - (id)urlTitleTrimmingCharacterSet;
-@property(readonly, nonatomic) BOOL hasArtworkAtPlaybackTime;
+@property(readonly, nonatomic) _Bool hasArtworkAtPlaybackTime;
 @property(readonly, nonatomic) double maxTime;
 @property(readonly, nonatomic) double comparableTime;
 - (id)description;

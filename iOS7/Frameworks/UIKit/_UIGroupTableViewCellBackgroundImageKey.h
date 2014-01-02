@@ -10,42 +10,47 @@
 
 @class UIColor;
 
+// Not exported
 @interface _UIGroupTableViewCellBackgroundImageKey : NSObject <NSCopying>
 {
-    BOOL _opaque;
-    BOOL _selected;
+    _Bool _opaque;
+    _Bool _selected;
     struct CGSize _size;
     UIColor *_backgroundColor;
     UIColor *_sectionBorderColor;
+    double _sectionBorderWidth;
     UIColor *_separatorColor;
     UIColor *_topShadowColor;
     UIColor *_bottomShadowColor;
     UIColor *_fillColor;
     UIColor *_selectionColor;
-    float _leftPhase;
-    float _rightPhase;
+    double _leftPhase;
+    double _rightPhase;
     int _sectionLocation;
-    int _selectionStyle;
+    long long _selectionStyle;
+    struct UIEdgeInsets _separatorInset;
 }
 
-@property(nonatomic) int selectionStyle; // @synthesize selectionStyle=_selectionStyle;
+@property(nonatomic) struct UIEdgeInsets separatorInset; // @synthesize separatorInset=_separatorInset;
+@property(nonatomic) long long selectionStyle; // @synthesize selectionStyle=_selectionStyle;
 @property(nonatomic) int sectionLocation; // @synthesize sectionLocation=_sectionLocation;
-@property(nonatomic) float rightPhase; // @synthesize rightPhase=_rightPhase;
-@property(nonatomic) float leftPhase; // @synthesize leftPhase=_leftPhase;
+@property(nonatomic) double rightPhase; // @synthesize rightPhase=_rightPhase;
+@property(nonatomic) double leftPhase; // @synthesize leftPhase=_leftPhase;
 @property(retain, nonatomic) UIColor *fillColor; // @synthesize fillColor=_fillColor;
 @property(retain, nonatomic) UIColor *bottomShadowColor; // @synthesize bottomShadowColor=_bottomShadowColor;
 @property(retain, nonatomic) UIColor *topShadowColor; // @synthesize topShadowColor=_topShadowColor;
 @property(retain, nonatomic) UIColor *selectionColor; // @synthesize selectionColor=_selectionColor;
 @property(retain, nonatomic) UIColor *separatorColor; // @synthesize separatorColor=_separatorColor;
+@property(nonatomic) double sectionBorderWidth; // @synthesize sectionBorderWidth=_sectionBorderWidth;
 @property(retain, nonatomic) UIColor *sectionBorderColor; // @synthesize sectionBorderColor=_sectionBorderColor;
 @property(retain, nonatomic) UIColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 @property(nonatomic) struct CGSize size; // @synthesize size=_size;
-@property(nonatomic) BOOL selected; // @synthesize selected=_selected;
-@property(nonatomic) BOOL opaque; // @synthesize opaque=_opaque;
+@property(nonatomic) _Bool selected; // @synthesize selected=_selected;
+@property(nonatomic) _Bool opaque; // @synthesize opaque=_opaque;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
 
 @end

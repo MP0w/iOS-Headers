@@ -20,8 +20,8 @@
 @property(copy, nonatomic) NSString *stationName; // @synthesize stationName=_stationName;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)description;
 
 @end

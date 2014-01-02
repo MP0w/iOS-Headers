@@ -9,7 +9,7 @@
 @class NSString;
 
 @interface MPMediaItem (CarDisplay)
-- (id)albumImageWithFallbackForSize:(struct CGSize)arg1;
+- (id)albumImageWithFallbackForSize:(struct CGSize)arg1 doubleLineRow:(_Bool)arg2;
 @property(readonly, nonatomic) NSString *artistWithFallback;
 @property(readonly, nonatomic) NSString *albumArtistWithFallback;
 @property(readonly, nonatomic) NSString *albumTitleWithFallback;

@@ -8,11 +8,11 @@
 
 @interface SSLookupResponse (MPStoreOfferCMC)
 + (id)mpLoadDebugCompletionsResponseWithStoreLookupID:(id)arg1;
-+ (BOOL)mpFakeCompletionDataForBuys;
-+ (BOOL)mpShowBuysWithNoCompletionOffer;
-+ (BOOL)mpVerboseCMCLogging;
++ (_Bool)mpFakeCompletionDataForBuys;
++ (_Bool)mpShowBuysWithNoCompletionOffer;
++ (_Bool)mpVerboseCMCLogging;
 - (void)mpSaveCompletionsResponseForDebuggingIfNecessaryWithExpectedStoreLookupID:(id)arg1;
 - (id)mpCompletionOfferResponseDictionaryWithLocalAlbumsCollection:(id)arg1;
-@property(readonly, nonatomic) BOOL mpIsPersonalizedOffer;
+@property(readonly, nonatomic) _Bool mpIsPersonalizedOffer;
 @end
 

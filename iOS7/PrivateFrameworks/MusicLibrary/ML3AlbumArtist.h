@@ -12,11 +12,11 @@
 
 + (id)artworkCacheIDProperty;
 + (id)trackForeignPersistentID;
-+ (id)effectiveAlbumArtistSortNameForAlbumArtistSortName:(id)arg1 albumArtistName:(id)arg2 artistSortName:(id)arg3 artistName:(id)arg4 compilation:(BOOL)arg5;
-+ (id)effectiveAlbumArtistNameForAlbumArtistName:(id)arg1 artistName:(id)arg2 seriesName:(id)arg3 compilation:(BOOL)arg4;
++ (id)effectiveAlbumArtistSortNameForAlbumArtistSortName:(id)arg1 albumArtistName:(id)arg2 artistSortName:(id)arg3 artistName:(id)arg4 compilation:(_Bool)arg5;
++ (id)effectiveAlbumArtistNameForAlbumArtistName:(id)arg1 artistName:(id)arg2 seriesName:(id)arg3 compilation:(_Bool)arg4;
 + (id)propertiesForGroupingKey;
 + (id)countingQueryForBaseQuery:(id)arg1 countProperty:(id)arg2 forIdentifier:(long long)arg3;
-+ (BOOL)propertyIsCountProperty:(id)arg1;
++ (_Bool)propertyIsCountProperty:(id)arg1;
 + (id)foreignPropertyForProperty:(id)arg1 entityClass:(Class)arg2;
 + (id)allProperties;
 + (id)predisambiguatedProperties;

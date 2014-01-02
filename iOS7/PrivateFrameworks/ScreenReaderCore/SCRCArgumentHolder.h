@@ -8,13 +8,14 @@
 
 @class SCRCArgumentHolderPrivate;
 
+// Not exported
 @interface SCRCArgumentHolder : NSObject
 {
     SCRCArgumentHolderPrivate *_private;
 }
 
-- (BOOL)isRequired;
-- (void)setIsRequired:(BOOL)arg1;
+- (_Bool)isRequired;
+- (void)setIsRequired:(_Bool)arg1;
 - (id)argumentDescription;
 - (void)setArgumentDescription:(id)arg1;
 - (SEL)action;
@@ -25,10 +26,10 @@
 - (void)setArgument:(id)arg1;
 - (id)option;
 - (void)setOption:(id)arg1;
-- (int)compare:(id)arg1;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)process;
+- (long long)compare:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)process;
 - (void)dealloc;
 - (id)init;
 

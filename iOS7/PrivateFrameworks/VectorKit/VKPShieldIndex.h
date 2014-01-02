@@ -8,25 +8,31 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface VKPShieldIndex : PBCodable
 {
     NSMutableArray *_entries;
+    NSMutableArray *_textEntries;
 }
 
+@property(retain, nonatomic) NSMutableArray *textEntries; // @synthesize textEntries=_textEntries;
 @property(retain, nonatomic) NSMutableArray *entries; // @synthesize entries=_entries;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)entriesAtIndex:(unsigned int)arg1;
-- (unsigned int)entriesCount;
+- (id)textEntriesAtIndex:(unsigned long long)arg1;
+- (unsigned long long)textEntriesCount;
+- (void)addTextEntries:(id)arg1;
+- (void)clearTextEntries;
+- (id)entriesAtIndex:(unsigned long long)arg1;
+- (unsigned long long)entriesCount;
 - (void)addEntries:(id)arg1;
 - (void)clearEntries;
 - (void)dealloc;
-- (id)artworkIdentifierForShieldType:(int)arg1;
 
 @end
 

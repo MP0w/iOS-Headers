@@ -14,23 +14,21 @@
     NSString *_shortLockLabel;
     id _unlockAction;
     NSString *_identifier;
-    float _fontSize;
-    BOOL _requiresUnlock;
-    BOOL _deactivateAwayController;
-    BOOL _canBypassPinLock;
+    double _fontSize;
+    _Bool _requiresUnlock;
+    _Bool _deactivateAwayController;
+    _Bool _canBypassPinLock;
 }
 
-@property(nonatomic) BOOL canBypassPinLock; // @synthesize canBypassPinLock=_canBypassPinLock;
-@property(nonatomic) BOOL deactivateAwayController; // @synthesize deactivateAwayController=_deactivateAwayController;
-@property(nonatomic) BOOL requiresUnlock; // @synthesize requiresUnlock=_requiresUnlock;
-@property(nonatomic) float lockLabelFontSize; // @synthesize lockLabelFontSize=_fontSize;
+@property(nonatomic) _Bool canBypassPinLock; // @synthesize canBypassPinLock=_canBypassPinLock;
+@property(nonatomic) _Bool deactivateAwayController; // @synthesize deactivateAwayController=_deactivateAwayController;
+@property(nonatomic) _Bool requiresUnlock; // @synthesize requiresUnlock=_requiresUnlock;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(copy, nonatomic) id unlockAction; // @synthesize unlockAction=_unlockAction;
 @property(retain, nonatomic) NSString *shortLockLabel; // @synthesize shortLockLabel=_shortLockLabel;
 @property(retain, nonatomic) NSString *lockLabel; // @synthesize lockLabel=_lockLabel;
-@property(readonly, nonatomic) BOOL hasCustomUnlockLabel;
+@property(readonly, nonatomic) _Bool hasCustomUnlockLabel;
 - (void)dealloc;
-- (id)initWithLockLabel:(id)arg1 shortLockLabel:(id)arg2 unlockAction:(id)arg3 identifier:(void)arg4 fontSize:(id)arg5;
 - (id)initWithLockLabel:(id)arg1 shortLockLabel:(id)arg2 unlockAction:(id)arg3 identifier:(void)arg4;
 
 @end

@@ -8,18 +8,19 @@
 
 @class NSString;
 
+// Not exported
 @interface GEOResourceInfo : NSObject
 {
     NSString *_name;
-    int _type;
+    long long _type;
     NSString *_checksum;
 }
 
 @property(readonly, nonatomic) NSString *checksum; // @synthesize checksum=_checksum;
-@property(readonly, nonatomic) int type; // @synthesize type=_type;
+@property(readonly, nonatomic) long long type; // @synthesize type=_type;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 - (void)dealloc;
-- (id)initWithName:(id)arg1 type:(int)arg2 checksum:(id)arg3;
+- (id)initWithName:(id)arg1 type:(long long)arg2 checksum:(id)arg3;
 
 @end
 

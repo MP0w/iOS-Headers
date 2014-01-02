@@ -6,6 +6,7 @@
 
 #import <UIKit/UITableViewCell.h>
 
+// Not exported
 @interface UIInputSwitcherTableCell : UITableViewCell
 {
 }

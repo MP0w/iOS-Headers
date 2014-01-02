@@ -4,38 +4,34 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "UIView.h"
+#import "UIControl.h"
 
-@class NSMutableArray, UIColor;
+@class NSMutableArray;
 
-@interface MPUNowPlayingIndicatorView : UIView
+@interface MPUNowPlayingIndicatorView : UIControl
 {
     NSMutableArray *_levelViews;
-    UIColor *_bottomGradientColor;
-    float _interLevelSpacing;
-    float _levelCornerRadius;
-    float _levelWidth;
-    float _maximumLevelHeight;
-    float _minimumLevelHeight;
-    int _numberOfLevels;
-    int _playbackState;
-    UIColor *_topGradientColor;
+    double _interLevelSpacing;
+    double _levelCornerRadius;
+    double _levelWidth;
+    double _maximumLevelHeight;
+    double _minimumLevelHeight;
+    long long _numberOfLevels;
+    long long _playbackState;
 }
 
-@property(retain, nonatomic) UIColor *topGradientColor; // @synthesize topGradientColor=_topGradientColor;
-@property(nonatomic) int playbackState; // @synthesize playbackState=_playbackState;
-@property(nonatomic) int numberOfLevels; // @synthesize numberOfLevels=_numberOfLevels;
-@property(nonatomic) float minimumLevelHeight; // @synthesize minimumLevelHeight=_minimumLevelHeight;
-@property(nonatomic) float maximumLevelHeight; // @synthesize maximumLevelHeight=_maximumLevelHeight;
-@property(nonatomic) float levelWidth; // @synthesize levelWidth=_levelWidth;
-@property(nonatomic) float levelCornerRadius; // @synthesize levelCornerRadius=_levelCornerRadius;
-@property(nonatomic) float interLevelSpacing; // @synthesize interLevelSpacing=_interLevelSpacing;
-@property(retain, nonatomic) UIColor *bottomGradientColor; // @synthesize bottomGradientColor=_bottomGradientColor;
+@property(nonatomic) long long playbackState; // @synthesize playbackState=_playbackState;
+@property(nonatomic) long long numberOfLevels; // @synthesize numberOfLevels=_numberOfLevels;
+@property(nonatomic) double minimumLevelHeight; // @synthesize minimumLevelHeight=_minimumLevelHeight;
+@property(nonatomic) double maximumLevelHeight; // @synthesize maximumLevelHeight=_maximumLevelHeight;
+@property(nonatomic) double levelWidth; // @synthesize levelWidth=_levelWidth;
+@property(nonatomic) double levelCornerRadius; // @synthesize levelCornerRadius=_levelCornerRadius;
+@property(nonatomic) double interLevelSpacing; // @synthesize interLevelSpacing=_interLevelSpacing;
 - (void).cxx_destruct;
-- (void)_updateLevelGradients;
 - (void)_updateLevelAnimations;
 - (void)_reloadLevelViews;
-- (void)_removeAllAnimations:(BOOL)arg1;
+- (void)_removeAllAnimations:(_Bool)arg1;
+- (void)tintColorDidChange;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;

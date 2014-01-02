@@ -6,6 +6,7 @@
 
 #import <Foundation/NSKeyValueNonmutatingCollectionMethodSet.h>
 
+// Not exported
 @interface NSKeyValueNonmutatingOrderedSetMethodSet : NSKeyValueNonmutatingCollectionMethodSet
 {
     struct objc_method *count;

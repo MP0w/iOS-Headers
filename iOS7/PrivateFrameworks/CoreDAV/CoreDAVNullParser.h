@@ -15,8 +15,8 @@
     NSError *_parserError;
 }
 
-+ (BOOL)canHandleContentType:(id)arg1;
-- (BOOL)processData:(id)arg1 forTask:(id)arg2;
++ (_Bool)canHandleContentType:(id)arg1;
+- (_Bool)processData:(id)arg1 forTask:(id)arg2;
 @property(readonly) NSError *parserError;
 - (void)dealloc;
 

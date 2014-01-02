@@ -8,12 +8,13 @@
 
 @class NSString;
 
+// Not exported
 @interface NSSQLiteAdapter : NSSQLAdapter
 {
     NSString *_dbpath;
 }
 
-- (BOOL)supportsCorrelatedSubqueries;
+- (_Bool)supportsCorrelatedSubqueries;
 - (id)sqliteVersion;
 - (Class)statementClass;
 - (id)type;

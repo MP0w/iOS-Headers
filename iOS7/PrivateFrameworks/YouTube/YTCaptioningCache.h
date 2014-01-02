@@ -20,7 +20,7 @@
     YTCaptionTrackRequest *_captionTrackRequest;
 }
 
-+ (BOOL)closedCaptionsEnabled;
++ (_Bool)closedCaptionsEnabled;
 + (id)sharedManager;
 + (void)initialize;
 - (void)loadCaptionsForVideo:(id)arg1;

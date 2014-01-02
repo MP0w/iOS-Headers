@@ -10,6 +10,6 @@
 - (void)setClientBundleID:(id)arg1 withHandler:(id)arg2;
 - (void)signURLRequest:(id)arg1 withAccount:(id)arg2 applicationID:(id)arg3 timestamp:(id)arg4 handler:(id)arg5;
 - (void)signURLRequest:(id)arg1 withAccount:(id)arg2 callingPID:(id)arg3 timestamp:(id)arg4 handler:(id)arg5;
-- (void)setShouldIncludeAppIdInRequest:(BOOL)arg1;
+- (void)setShouldIncludeAppIdInRequest:(_Bool)arg1;
 @end
 

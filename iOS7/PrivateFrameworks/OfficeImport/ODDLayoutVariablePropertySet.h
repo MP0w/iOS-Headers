@@ -6,14 +6,15 @@
 
 #import <OfficeImport/OADProperties.h>
 
+// Not exported
 @interface ODDLayoutVariablePropertySet : OADProperties
 {
     int mDirection;
-    BOOL mHasDirection;
+    _Bool mHasDirection;
 }
 
 + (id)defaultProperties;
-- (BOOL)hasDirection;
+- (_Bool)hasDirection;
 - (void)setDirection:(int)arg1;
 - (int)direction;
 - (id)initWithDefaults;

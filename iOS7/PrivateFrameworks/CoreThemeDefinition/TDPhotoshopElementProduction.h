@@ -17,19 +17,19 @@
     NSDate *_cachedImageDate;
     CUIImage *_edgeMetricsMask;
     CUIImage *_textMetricsMask;
-    BOOL _didCheckForMetricsMasks;
+    _Bool _didCheckForMetricsMasks;
 }
 
-+ (unsigned int)sliceColumnsPerRendition:(int)arg1;
-+ (unsigned int)sliceRowsPerRendition:(int)arg1;
++ (unsigned int)sliceColumnsPerRendition:(long long)arg1;
++ (unsigned int)sliceRowsPerRendition:(long long)arg1;
 - (void)setAttributesFromCopyData:(id)arg1;
 - (id)copyDataFromAttributes;
 - (void)setAttributesFromData:(id)arg1;
-- (id)_layerMappingForPhotoshopLayer:(int)arg1 drawingLayer:(int)arg2;
+- (id)_layerMappingForPhotoshopLayer:(long long)arg1 drawingLayer:(long long)arg2;
 - (id)dataFromAttributes;
 - (void)copyAttributesInto:(id)arg1;
-- (void)deleteRenditionsInDocument:(id)arg1 shouldDeleteAssetFiles:(BOOL)arg2;
-- (BOOL)generateRenditionsWithEntityName:(id)arg1 document:(id)arg2 errorDescription:(id *)arg3;
+- (void)deleteRenditionsInDocument:(id)arg1 shouldDeleteAssetFiles:(_Bool)arg2;
+- (_Bool)generateRenditionsWithEntityName:(id)arg1 document:(id)arg2 errorDescription:(id *)arg3;
 - (void)appendToLog:(id)arg1;
 - (id)log;
 - (id)textMetricsMaskWithDocument:(id)arg1;
@@ -37,8 +37,8 @@
 - (void)_loadMetricsMasksWithDocument:(id)arg1;
 - (id)psdImageRefWithDocument:(id)arg1;
 - (void)fillIterationKeyAttribute:(id)arg1 iteration:(int)arg2 rowOrColumn:(int)arg3 document:(id)arg4;
-- (void)getDrawingLayerIndices:(id *)arg1 themeLayers:(id *)arg2 lowestIndex:(int *)arg3;
-- (void)addDrawingLayerIndex:(id)arg1 themeLayer:(id)arg2 toIndices:(id)arg3 layers:(id)arg4 lowestIndex:(int *)arg5;
+- (void)getDrawingLayerIndices:(id *)arg1 themeLayers:(id *)arg2 lowestIndex:(long long *)arg3;
+- (void)addDrawingLayerIndex:(id)arg1 themeLayer:(id)arg2 toIndices:(id)arg3 layers:(id)arg4 lowestIndex:(long long *)arg5;
 - (id)associatedFileURLWithDocument:(id)arg1;
 - (id)relativePath;
 - (void)setRowIterationType:(id)arg1;

@@ -26,9 +26,9 @@
 - (void)resetPreorderState;
 @property(readonly, nonatomic) NSString *phaseIdentifier;
 @property(readonly, nonatomic) double percentComplete;
-@property(readonly, nonatomic, getter=isPurchase) BOOL purchase;
-@property(readonly, nonatomic, getter=isPausable) BOOL pausable;
-@property(readonly, nonatomic, getter=isContentRestricted) BOOL contentRestricted;
+@property(readonly, nonatomic, getter=isPurchase) _Bool purchase;
+@property(readonly, nonatomic, getter=isPausable) _Bool pausable;
+@property(readonly, nonatomic, getter=isContentRestricted) _Bool contentRestricted;
 @property(readonly, nonatomic) double estimatedSecondsRemaining;
 - (id)copyLocalizedStatusString;
 @property(readonly, nonatomic) long long bytesTotal;

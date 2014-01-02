@@ -11,7 +11,7 @@
 }
 
 + (id)formattedServiceType:(id)arg1;
-+ (BOOL)isServiceTypeValid:(id)arg1;
++ (_Bool)isServiceTypeValid:(id)arg1;
 
 @end
 

@@ -8,13 +8,15 @@
 
 #import "DuetLoggerProtocol-Protocol.h"
 
-@class AppLaunchStatsSaveAndRestore, NSMutableDictionary, NSObject<OS_dispatch_queue>;
+@class AppLaunchStatsSaveAndRestore, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSUserDefaults;
 
 @interface AppLaunchStatsSBSettings : NSObject <DuetLoggerProtocol>
 {
     NSObject<OS_dispatch_queue> *aplsSettingsQueue;
+    id callbackBlock;
     AppLaunchStatsSaveAndRestore *saveAndRestoreContext;
     NSMutableDictionary *settingsBlacklist;
+    NSUserDefaults *aplsSBSettingsDefault;
 }
 
 - (void).cxx_destruct;
@@ -24,7 +26,7 @@
 - (_Bool)isManagedConfigurationSettingOn;
 - (void)loadSettingsBlacklist;
 - (_Bool)isAppDisabledInSettingsList:(id)arg1;
-- (id)init;
+- (id)init:(id)arg1;
 
 @end
 

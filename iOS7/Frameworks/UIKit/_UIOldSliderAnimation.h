@@ -6,11 +6,12 @@
 
 #import <UIKit/UIAnimation.h>
 
+// Not exported
 @interface _UIOldSliderAnimation : UIAnimation
 {
     float _startValue;
     float _endValue;
-    BOOL _sendAction;
+    _Bool _sendAction;
 }
 
 - (void)setProgress:(float)arg1;

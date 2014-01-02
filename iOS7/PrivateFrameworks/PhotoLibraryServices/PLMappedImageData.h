@@ -12,26 +12,26 @@
 {
     PLImageTableSegment *_segment;
     void *_bytes;
-    unsigned long _length;
-    BOOL _freeBytes;
+    unsigned long long _length;
+    _Bool _freeBytes;
     NSData *_pl_data;
 }
 
 - (void)dealloc;
-- (BOOL)pl_writeToPath:(id)arg1;
-- (unsigned int)pl_advisoryLength;
+- (_Bool)pl_writeToPath:(id)arg1;
+- (unsigned long long)pl_advisoryLength;
 @property(copy, nonatomic) NSString *photoUUID;
 @property(nonatomic) unsigned int imageHeight;
 @property(nonatomic) unsigned int imageWidth;
-- (int)lengthIncludingFooter;
-- (unsigned int)length;
+- (unsigned long long)lengthIncludingFooter;
+- (unsigned long long)length;
 - (void *)mutableBytes;
 - (const void *)bytes;
 - (struct PLImageTableEntryFooter_s *)_footer;
 - (id)brokencopy;
-- (id)initWithEntryLength:(unsigned int)arg1;
+- (id)initWithEntryLength:(unsigned long long)arg1;
 - (id)initWithThumbnailPath:(id)arg1;
-- (id)initWithImageTableSegment:(id)arg1 bytes:(void *)arg2 length:(unsigned long)arg3;
+- (id)initWithImageTableSegment:(id)arg1 bytes:(void *)arg2 length:(unsigned long long)arg3;
 
 @end
 

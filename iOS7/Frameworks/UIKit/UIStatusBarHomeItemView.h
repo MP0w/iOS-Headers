@@ -6,12 +6,13 @@
 
 #import <UIKit/UIStatusBarButtonActionItemView.h>
 
+// Not exported
 @interface UIStatusBarHomeItemView : UIStatusBarButtonActionItemView
 {
 }
 
-- (BOOL)usesAdvancedActions;
-- (int)buttonType;
+- (_Bool)usesAdvancedActions;
+- (long long)buttonType;
 - (id)contentsImage;
 
 @end

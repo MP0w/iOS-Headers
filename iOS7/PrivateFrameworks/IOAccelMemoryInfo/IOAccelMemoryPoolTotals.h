@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface IOAccelMemoryPoolTotals : NSObject
 {
     NSString *device_name;

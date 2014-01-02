@@ -6,6 +6,7 @@
 
 #import <UIKit/UIRemoveControl.h>
 
+// Not exported
 @interface _UITableViewCellRemoveControl : UIRemoveControl
 {
     float _verticalOffset;

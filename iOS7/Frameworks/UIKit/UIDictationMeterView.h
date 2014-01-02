@@ -8,6 +8,7 @@
 
 @class CADisplayLink, CALayer, NSMutableArray, NSTimer, UIImageView;
 
+// Not exported
 @interface UIDictationMeterView : UIButton
 {
     UIImageView *_background;
@@ -26,7 +27,7 @@
     int _cachedViewMode;
 }
 
-- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
+- (void)animationDidStop:(id)arg1 finished:(_Bool)arg2;
 - (void)_startListening;
 - (void)_clearDisplayLink;
 - (void)_updateListeningAnimation:(id)arg1;
@@ -38,7 +39,7 @@
 - (id)_decayKeyFrameAnimation;
 - (void)_startAttack;
 - (id)_attackKeyFrameAnimation;
-- (id)imageForMicLevel:(float)arg1;
+- (id)imageForMicLevel:(double)arg1;
 - (id)_keyframeAnimationForCGImages:(id)arg1 duration:(double)arg2;
 - (void)_removeAnimationsAndClearLayers;
 - (float)_adjustedDuration:(float)arg1;

@@ -11,8 +11,8 @@
 - (id)viewsAbove;
 - (id)siblingViewsAbove;
 - (id)siblingViewsUnder;
-- (int)indexInSuperview;
-- (int)levelInHierarchy;
+- (long long)indexInSuperview;
+- (long long)levelInHierarchy;
 - (id)descendantViews;
 - (id)ancestorViews;
 @end

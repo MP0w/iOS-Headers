@@ -13,15 +13,15 @@
 @interface GEOVoltaireGeocodeProvider : GEOGeocodeProvider <PBRequesterDelegate>
 {
     GEORequester *_requester;
-    BOOL _isForwardGeocodeRequest;
-    BOOL _isBatchRequest;
-    BOOL _cancelled;
+    _Bool _isForwardGeocodeRequest;
+    _Bool _isBatchRequest;
+    _Bool _cancelled;
 }
 
 + (id)batchReverseGeocoderURL;
 + (id)reverseGeocoderURL;
 + (id)forwardGeocoderURL;
-+ (void)setUsePersistentConnection:(BOOL)arg1;
++ (void)setUsePersistentConnection:(_Bool)arg1;
 + (id)providerName;
 + (unsigned short)provider;
 - (void)cancel;

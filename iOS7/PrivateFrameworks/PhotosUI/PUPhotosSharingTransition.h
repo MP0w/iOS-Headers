@@ -6,11 +6,11 @@
 
 #import <PhotosUI/PUModalTransition.h>
 
-@class PUPhotosSharingTransitionContext, PUPhotosSharingViewController, UICollectionViewLayout;
+@class PUPhotosSharingTransitionContext, UICollectionViewLayout, UIViewController<PUPhotosSharingTransitionViewController>;
 
 @interface PUPhotosSharingTransition : PUModalTransition
 {
-    PUPhotosSharingViewController *_sharingViewController;
+    UIViewController<PUPhotosSharingTransitionViewController> *_sharingTransitionViewController;
     PUPhotosSharingTransitionContext *_photosSharingTransitionContext;
     id <PUPhotosSharingTransitionDelegate> _delegate;
     UICollectionViewLayout *__transitionLayout;
@@ -19,7 +19,7 @@
 @property(retain, nonatomic, setter=_setTransitionLayout:) UICollectionViewLayout *_transitionLayout; // @synthesize _transitionLayout=__transitionLayout;
 @property(nonatomic) __weak id <PUPhotosSharingTransitionDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) PUPhotosSharingTransitionContext *photosSharingTransitionContext; // @synthesize photosSharingTransitionContext=_photosSharingTransitionContext;
-@property(retain, nonatomic) PUPhotosSharingViewController *sharingViewController; // @synthesize sharingViewController=_sharingViewController;
+@property(retain, nonatomic) UIViewController<PUPhotosSharingTransitionViewController> *sharingTransitionViewController; // @synthesize sharingTransitionViewController=_sharingTransitionViewController;
 - (void).cxx_destruct;
 - (void)animateDismissTransition;
 - (void)animatePresentTransition;

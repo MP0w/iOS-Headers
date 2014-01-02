@@ -7,7 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol BKSWorkspaceDelegate <NSObject>
-- (void)workspace:(id)arg1 applicationDebugStateChanged:(id)arg2 newState:(BOOL)arg3;
+- (void)workspace:(id)arg1 applicationDebugStateChanged:(id)arg2 newState:(_Bool)arg3;
 - (void)workspace:(id)arg1 handleStatusBarReturnActionFromApplication:(id)arg2 statusBarStyle:(id)arg3;
 - (void)workspace:(id)arg1 applicationSuspensionSettingsUpdated:(id)arg2 withSettings:(id)arg3;
 - (void)workspace:(id)arg1 applicationExited:(id)arg2 withInfo:(id)arg3;

@@ -8,6 +8,7 @@
 
 @class VKTilePool;
 
+// Not exported
 @interface VKTile : NSObject
 {
     struct VKTileKey _key;
@@ -33,7 +34,7 @@
 @property(readonly, nonatomic) struct VKTileKey key; // @synthesize key=_key;
 - (id).cxx_construct;
 - (void)updateViewDependentStateWithContext:(id)arg1;
-- (unsigned int)geometryCount;
+- (unsigned long long)geometryCount;
 @property(readonly, nonatomic) double tileWidth;
 @property(readonly, nonatomic) const CDStruct_aa5aacbc *inverseMatrix;
 @property(readonly, nonatomic) const CDStruct_aa5aacbc *matrix;

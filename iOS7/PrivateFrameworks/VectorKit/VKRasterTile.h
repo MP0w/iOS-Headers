@@ -8,17 +8,18 @@
 
 @class NSData, VGLTexture, VKStylesheet;
 
+// Not exported
 @interface VKRasterTile : VKTile
 {
     NSData *_data;
     VKStylesheet *_stylesheet;
     VGLTexture *_texture;
     int _genericTileType;
-    BOOL _hasGenericTileType;
+    _Bool _hasGenericTileType;
 }
 
 @property(readonly, nonatomic) int genericTileType; // @synthesize genericTileType=_genericTileType;
-@property(readonly, nonatomic) BOOL hasGenericTileType; // @synthesize hasGenericTileType=_hasGenericTileType;
+@property(readonly, nonatomic) _Bool hasGenericTileType; // @synthesize hasGenericTileType=_hasGenericTileType;
 @property(retain, nonatomic) VGLTexture *texture; // @synthesize texture=_texture;
 - (void)dealloc;
 - (void)buildTexture;

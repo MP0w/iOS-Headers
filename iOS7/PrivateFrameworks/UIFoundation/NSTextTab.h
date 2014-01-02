@@ -9,6 +9,8 @@
 #import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
 
+@class NSDictionary;
+
 @interface NSTextTab : NSObject <NSCopying, NSCoding>
 {
     struct {
@@ -16,31 +18,32 @@
         unsigned int refCount:24;
         unsigned int unused:4;
     } _flags;
-    float _location;
+    double _location;
     id _reserved;
 }
 
++ (id)columnTerminatorsForLocale:(id)arg1;
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (void)initialize;
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)accessibilityRulerMarkerTypeDescription;
 - (id)accessibilityRulerMarkerType;
-- (unsigned int)tabStopType;
-- (float)location;
+- (unsigned long long)tabStopType;
+@property(readonly) double location;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (unsigned int)retainCount;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
+- (_Bool)_isDeallocating;
+- (_Bool)_tryRetain;
 - (void)dealloc;
-- (id)options;
-- (int)alignment;
-- (id)initWithTextAlignment:(int)arg1 location:(float)arg2 options:(id)arg3;
-- (id)initWithType:(unsigned int)arg1 location:(float)arg2;
+@property(readonly) NSDictionary *options;
+@property(readonly) long long alignment;
+- (id)initWithTextAlignment:(long long)arg1 location:(double)arg2 options:(id)arg3;
+- (id)initWithType:(unsigned long long)arg1 location:(double)arg2;
 
 @end
 

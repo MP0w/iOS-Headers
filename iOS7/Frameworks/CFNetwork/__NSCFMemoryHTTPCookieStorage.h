@@ -6,14 +6,16 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface __NSCFMemoryHTTPCookieStorage : NSObject
 {
+    id _internal;
 }
 
 + (void)initialize;
 - (id)sortedCookiesUsingDescriptors:(id)arg1;
-- (void)setCookieAcceptPolicy:(unsigned int)arg1;
-- (unsigned int)cookieAcceptPolicy;
+- (void)setCookieAcceptPolicy:(unsigned long long)arg1;
+- (unsigned long long)cookieAcceptPolicy;
 - (void)setCookies:(id)arg1 forURL:(id)arg2 mainDocumentURL:(id)arg3;
 - (id)cookiesForURL:(id)arg1;
 - (void)deleteCookie:(id)arg1;

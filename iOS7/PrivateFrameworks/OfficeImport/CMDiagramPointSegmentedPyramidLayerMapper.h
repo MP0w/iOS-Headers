@@ -6,13 +6,14 @@
 
 #import <OfficeImport/CMDiagramPointMapper.h>
 
+// Not exported
 @interface CMDiagramPointSegmentedPyramidLayerMapper : CMDiagramPointMapper
 {
-    BOOL mPlaceholder;
+    _Bool mPlaceholder;
 }
 
 - (void)mapAt:(id)arg1 withState:(id)arg2;
-- (void)setIsPlaceholder:(BOOL)arg1;
+- (void)setIsPlaceholder:(_Bool)arg1;
 
 @end
 

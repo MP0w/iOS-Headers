@@ -7,7 +7,7 @@
 #import "NSMutableString.h"
 
 @interface NSMutableString (TSUtilityAdditions)
-- (void)insertCharacter:(unsigned short)arg1 atIndex:(unsigned int)arg2;
+- (void)insertCharacter:(unsigned short)arg1 atIndex:(unsigned long long)arg2;
 - (void)appendCharacter:(unsigned short)arg1;
 @end
 

@@ -18,8 +18,8 @@
 + (id)token;
 @property(copy, nonatomic) NSString *text;
 @property(copy, nonatomic) NSNumber *startTime;
-@property(nonatomic) BOOL removeSpaceBefore;
-@property(nonatomic) BOOL removeSpaceAfter;
+@property(nonatomic) _Bool removeSpaceBefore;
+@property(nonatomic) _Bool removeSpaceAfter;
 @property(copy, nonatomic) NSNumber *endTime;
 @property(copy, nonatomic) NSNumber *confidenceScore;
 - (id)encodedClassName;

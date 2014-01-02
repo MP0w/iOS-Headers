@@ -10,8 +10,8 @@
 {
 }
 
-+ (float)defaultHeight;
-- (BOOL)_shouldSendContentChangedNotificationsIfOnlyMarkedTextChanged;
++ (double)defaultHeight;
+- (_Bool)_shouldSendContentChangedNotificationsIfOnlyMarkedTextChanged;
 - (id)_scriptingInfo;
 - (void)setPaddingTop:(float)arg1 paddingLeft:(float)arg2;
 - (struct CGRect)rightViewRectForBounds:(struct CGRect)arg1;

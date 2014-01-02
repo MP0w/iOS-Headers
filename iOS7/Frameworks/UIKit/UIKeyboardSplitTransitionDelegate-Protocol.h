@@ -5,9 +5,9 @@
  */
 
 @protocol UIKeyboardSplitTransitionDelegate
-- (void)transitionDidFinish:(BOOL)arg1;
+- (void)transitionDidFinish:(_Bool)arg1;
 - (void)transitionDidFinish;
-- (void)updateFrame:(struct CGRect)arg1 withProgress:(float)arg2 withDuration:(float)arg3 splitHeightDelta:(float)arg4;
-- (void)updateFrame:(struct CGRect)arg1 withDuration:(float)arg2 splitHeightDelta:(float)arg3;
+- (void)updateFrame:(struct CGRect)arg1 withProgress:(double)arg2 withDuration:(double)arg3 splitHeightDelta:(double)arg4;
+- (void)updateFrame:(struct CGRect)arg1 withDuration:(double)arg2 splitHeightDelta:(double)arg3;
 @end
 

@@ -17,19 +17,19 @@
 
 + (id)sharedInstance;
 @property(retain) SBUIPluginHost *hostPendingActivation; // @synthesize hostPendingActivation=_hostPendingActivation;
-- (BOOL)overrideScreenDimInterval:(double *)arg1;
-- (BOOL)suppressingNotifications;
-- (BOOL)overrideInterfaceOrientation:(int *)arg1;
-- (BOOL)handleActivationEvent:(int)arg1;
+- (_Bool)overrideScreenDimInterval:(double *)arg1;
+- (_Bool)suppressingNotifications;
+- (_Bool)overrideInterfaceOrientation:(long long *)arg1;
+- (_Bool)handleActivationEvent:(int)arg1;
 - (void)cancelPendingActivationEvent:(int)arg1;
 - (void)prepareForActivationEvent:(int)arg1 afterInterval:(double)arg2;
-- (BOOL)wantsActivationEvent:(int)arg1 interval:(double *)arg2;
-- (BOOL)handleMenuButtonTap;
-- (BOOL)handleMenuButtonDownEvent;
+- (_Bool)wantsActivationEvent:(int)arg1 interval:(double *)arg2;
+- (_Bool)handleMenuButtonTap;
+- (_Bool)handleMenuButtonDownEvent;
 - (id)loadedUIPluginHosts;
-- (id)_loadedUIPluginHostsVisible:(BOOL)arg1;
+- (id)_loadedUIPluginHostsVisible:(_Bool)arg1;
 - (id)loadedUIPlugins;
-- (BOOL)unloadUIPlugin:(id)arg1 forHost:(id)arg2;
+- (_Bool)unloadUIPlugin:(id)arg1 forHost:(id)arg2;
 - (id)loadUIPluginNamed:(id)arg1 withHost:(id)arg2;
 
 @end

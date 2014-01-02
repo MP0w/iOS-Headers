@@ -14,9 +14,9 @@
 }
 
 - (void)segmentedControlChanged;
-- (void)setScale:(unsigned int)arg1;
-- (void)setSizeDescription:(id)arg1 forScale:(unsigned int)arg2;
-- (unsigned long)_segmentIndexForScale:(unsigned int)arg1;
+- (void)setScale:(unsigned long long)arg1;
+- (void)setSizeDescription:(id)arg1 forScale:(unsigned long long)arg2;
+- (unsigned long long)_segmentIndexForScale:(unsigned long long)arg1;
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

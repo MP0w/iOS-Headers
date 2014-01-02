@@ -16,9 +16,9 @@
 
 + (id)playbackInfoWithDictionary:(id)arg1 context:(id)arg2;
 + (id)playbackInfo;
-@property(nonatomic) BOOL rememberPlaybackPosition;
-@property(nonatomic) int plays;
-@property(nonatomic) int playbackPositionMillis;
+@property(nonatomic) _Bool rememberPlaybackPosition;
+@property(nonatomic) long long plays;
+@property(nonatomic) long long playbackPositionMillis;
 @property(retain, nonatomic) SACalendar *lastPlayedDate;
 - (id)encodedClassName;
 - (id)groupIdentifier;

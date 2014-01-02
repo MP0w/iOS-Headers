@@ -10,14 +10,16 @@
 
 @interface CKTextBalloonView : CKColoredBalloonView
 {
+    _Bool _centerTextWhenSkinny;
     CKBalloonTextView *_textView;
     NSAttributedString *_attributedText;
 }
 
+@property(nonatomic) _Bool centerTextWhenSkinny; // @synthesize centerTextWhenSkinny=_centerTextWhenSkinny;
 @property(copy, nonatomic) NSAttributedString *attributedText; // @synthesize attributedText=_attributedText;
 @property(retain, nonatomic) CKBalloonTextView *textView; // @synthesize textView=_textView;
-@property(nonatomic) BOOL containsHyperlink;
-@property(readonly, nonatomic) BOOL isInteractingWithLink;
+@property(nonatomic) _Bool containsHyperlink;
+@property(readonly, nonatomic) _Bool isInteractingWithLink;
 - (void)touchCanceled:(id)arg1;
 - (void)touchDraggedInside:(id)arg1 forEvent:(id)arg2;
 - (void)touchUpOutside:(id)arg1 forEvent:(id)arg2;
@@ -27,13 +29,15 @@
 - (void)tap:(id)arg1 forEvent:(id)arg2;
 - (void)touchDown:(id)arg1 forEvent:(id)arg2;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1 textAlignmentInsets:(struct UIEdgeInsets *)arg2;
-- (struct UIEdgeInsets)entryFieldInsets;
 - (void)prepareForDisplay;
+- (void)prepareForReuse;
 - (void)layoutSubviews;
+- (double)textViewOffsetBetweenNormalAndSkinny:(struct CGRect)arg1;
+- (double)textViewWidthForWidth:(double)arg1;
+- (struct CGRect)_textFrameForBounds:(struct CGRect)arg1 forceSkinny:(_Bool)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)description;
 - (void)dealloc;
-- (void)configureForMessagePart:(id)arg1;
 
 @end
 

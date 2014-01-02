@@ -6,21 +6,26 @@
 
 #import <UIKit/_UIBackdropView.h>
 
-@class NSMutableArray;
+@class NSMutableArray, UIKeyboardBackdropCornerView;
 
+// Not exported
 @interface UIKBBackdropView : _UIBackdropView
 {
-    BOOL _suppressSettingsUpdate;
-    BOOL _primaryBackdrop;
+    _Bool _primaryBackdrop;
     NSMutableArray *_secondaryBackdrops;
+    UIKeyboardBackdropCornerView *_backdropCornerView;
+    _Bool _hasUpdatedFrame;
 }
 
+@property(readonly, nonatomic) _Bool _hasUpdatedFrame; // @synthesize _hasUpdatedFrame;
 - (void)applySettings:(id)arg1;
 - (void)triggerUpdate:(id)arg1;
+- (void)transitionToStyle:(long long)arg1;
 - (int)textEffectsVisibilityLevel;
+- (void)updateFrame:(struct CGRect)arg1 withCorners:(int)arg2;
 - (void)addSecondaryBackdropView:(id)arg1;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 style:(int)arg2 primaryBackdrop:(BOOL)arg3;
+- (id)initWithFrame:(struct CGRect)arg1 style:(long long)arg2 primaryBackdrop:(_Bool)arg3;
 
 @end
 

@@ -12,8 +12,8 @@
 
 @interface MPSwipableView : UIView <UIGestureRecognizerDelegate>
 {
-    int _enabledGestureTypes;
-    int _simultaneousGestureTypes;
+    long long _enabledGestureTypes;
+    long long _simultaneousGestureTypes;
     id <MPSwipableViewDelegate> _swipeDelegate;
     MPTapGestureRecognizer *_tapGestureRecognizer;
     MPSwipeGestureRecognizer *_swipeGestureRecognizer;
@@ -21,12 +21,12 @@
     UIPinchGestureRecognizer *_pinchGestureRecognizer;
 }
 
-@property(nonatomic) int simultaneousGestureTypes; // @synthesize simultaneousGestureTypes=_simultaneousGestureTypes;
-@property(nonatomic) int enabledGestureTypes; // @synthesize enabledGestureTypes=_enabledGestureTypes;
+@property(nonatomic) long long simultaneousGestureTypes; // @synthesize simultaneousGestureTypes=_simultaneousGestureTypes;
+@property(nonatomic) long long enabledGestureTypes; // @synthesize enabledGestureTypes=_enabledGestureTypes;
 @property(nonatomic) __weak id <MPSwipableViewDelegate> swipeDelegate; // @synthesize swipeDelegate=_swipeDelegate;
 - (void).cxx_destruct;
 - (void)_updateGestureRecognizersForEnabledTypes;
-- (BOOL)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
+- (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (void)_pinchGestureRecognized:(id)arg1;
 - (void)_activityGestureRecognized:(id)arg1;
 - (void)_tapGestureRecognized:(id)arg1;

@@ -15,16 +15,16 @@
     NSURL *_outputURL;
     TDLogger *_logger;
     NSString *_assetStoreVersionString;
-    int _assetStoreVersionNumber;
+    long long _assetStoreVersionNumber;
 }
 
-@property int assetStoreVersionNumber; // @synthesize assetStoreVersionNumber=_assetStoreVersionNumber;
+@property long long assetStoreVersionNumber; // @synthesize assetStoreVersionNumber=_assetStoreVersionNumber;
 @property(copy) NSString *assetStoreVersionString; // @synthesize assetStoreVersionString=_assetStoreVersionString;
 @property(retain, nonatomic) TDLogger *logger; // @synthesize logger=_logger;
 @property(copy, nonatomic) NSURL *outputURL; // @synthesize outputURL=_outputURL;
 - (void)dealloc;
-- (BOOL)runDistillWithDocumentURL:(id)arg1 outputURL:(id)arg2 attemptIncremental:(BOOL)arg3 forceDistill:(BOOL)arg4;
-- (BOOL)_isDistillUnnecessaryForDocument:(id)arg1;
+- (_Bool)runDistillWithDocumentURL:(id)arg1 outputURL:(id)arg2 attemptIncremental:(_Bool)arg3 forceDistill:(_Bool)arg4;
+- (_Bool)_isDistillUnnecessaryForDocument:(id)arg1;
 - (void)_moveScratchToOutputPath;
 - (void)_removeScratchPath;
 - (id)carScratchURL;

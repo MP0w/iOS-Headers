@@ -10,7 +10,7 @@
 {
 }
 
-+ (float)rowHeightForContext:(id)arg1 representedObject:(id)arg2;
++ (double)rowHeightForContext:(id)arg1 representedObject:(id)arg2;
 + (id)copyDefaultContext;
 - (void)reloadStrings;
 - (void)reloadLayoutInformation;

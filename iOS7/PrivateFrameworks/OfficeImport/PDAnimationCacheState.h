@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface PDAnimationCacheState : NSObject
 {
 }
 
-- (BOOL)isValid:(id)arg1;
+- (_Bool)isValid:(id)arg1;
 
 @end
 

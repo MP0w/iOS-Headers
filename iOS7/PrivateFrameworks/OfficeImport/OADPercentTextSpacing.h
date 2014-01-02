@@ -6,13 +6,14 @@
 
 #import <OfficeImport/OADTextSpacing.h>
 
+// Not exported
 @interface OADPercentTextSpacing : OADTextSpacing
 {
     float mPercent;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (float)percent;
 - (id)initWithPercent:(float)arg1;
 

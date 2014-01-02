@@ -6,17 +6,18 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface VoiceChatSessionBeaconState : NSObject
 {
     struct tagVoiceChatBeacon *lastReceivedBeacon;
     unsigned int sentState;
     unsigned int receivedState;
-    BOOL needsSend;
+    _Bool needsSend;
     unsigned int typeToSend;
 }
 
 @property(nonatomic) unsigned int typeToSend; // @synthesize typeToSend;
-@property(nonatomic) BOOL needsSend; // @synthesize needsSend;
+@property(nonatomic) _Bool needsSend; // @synthesize needsSend;
 @property(nonatomic) unsigned int receivedState; // @synthesize receivedState;
 @property(nonatomic) unsigned int sentState; // @synthesize sentState;
 - (void)setLastReceivedBeacon:(struct tagVoiceChatBeacon *)arg1;

@@ -10,7 +10,7 @@
 {
 }
 
-- (BOOL)disablesAutomaticKeyboardDismissal;
+- (_Bool)disablesAutomaticKeyboardDismissal;
 
 @end
 

@@ -8,11 +8,11 @@
 
 #import "VKObjectPoolObject-Protocol.h"
 
-@class NSCache, NSDictionary, NSString, VKObjectPool, VKPShieldVariant;
+@class NSCache, NSDictionary, NSMutableDictionary, NSString, VKObjectPool, VKPShieldVariant;
 
 @interface VKShieldArtwork : NSObject <VKObjectPoolObject>
 {
-    float _scale;
+    double _scale;
     struct CGImage *_image;
     VKPShieldVariant *_variantData;
     VKObjectPool *_pool;
@@ -24,15 +24,16 @@
     float _extraScale;
     struct CGRect _rectInAtlas;
     struct CGPoint _center;
+    NSMutableDictionary *_textSpecificArtworks;
 }
 
 - (id).cxx_construct;
 - (struct CGImage *)newImageWithShieldText:(id)arg1 centerPoint:(struct CGPoint *)arg2;
-@property(readonly) struct CGSize size;
 - (void)setPool:(id)arg1 withKey:(id)arg2;
 - (id)imageWithShieldText:(id)arg1;
+- (void)setTextSpecificArtwork:(id)arg1 forStrings:(id)arg2;
 - (void)dealloc;
-- (id)initWithPackedVariant:(id)arg1 imageAtlas:(id)arg2 quadSize:(struct CGSize)arg3 scale:(float)arg4 extraScale:(float)arg5;
+- (id)initWithPackedVariant:(id)arg1 imageAtlas:(id)arg2 quadSize:(struct CGSize)arg3 scale:(double)arg4 extraScale:(double)arg5;
 
 @end
 

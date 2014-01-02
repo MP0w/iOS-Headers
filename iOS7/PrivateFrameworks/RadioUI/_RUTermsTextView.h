@@ -10,7 +10,7 @@
 {
 }
 
-- (BOOL)canBecomeFirstResponder;
+- (_Bool)canBecomeFirstResponder;
 
 @end
 

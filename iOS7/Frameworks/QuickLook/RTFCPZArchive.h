@@ -8,6 +8,7 @@
 
 @class NSMutableDictionary, NSString;
 
+// Not exported
 @interface RTFCPZArchive : NSObject
 {
     NSMutableDictionary *mEntries;
@@ -19,10 +20,6 @@
 - (id)entryWithName:(id)arg1;
 - (void)dealloc;
 - (id)initWithData:(id)arg1;
-- (id)readFilenameFromBuffer:(const char *)arg1 size:(unsigned long)arg2;
-- (const char *)searchForEndOfCentralDirectory;
-- (struct RTFCPZEndOfCentralDirectory)readEndOfCentralDirectory;
-- (void)readEntries;
 
 @end
 

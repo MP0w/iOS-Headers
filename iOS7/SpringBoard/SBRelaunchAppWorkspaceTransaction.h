@@ -13,30 +13,30 @@
 @interface SBRelaunchAppWorkspaceTransaction : SBToAppWorkspaceTransaction <SBUIAnimationControllerDelegate>
 {
     SBUIAnimationController *_animationController;
-    BOOL _relaunchSuspended;
-    BOOL _keepWorkspaceSuspended;
-    BOOL _waitForReceiverChange;
+    _Bool _relaunchSuspended;
+    _Bool _keepWorkspaceSuspended;
+    _Bool _waitForReceiverChange;
     SBDisableActiveInterfaceOrientationChangeAssertion *_disableActiveOrientationChangeAssertion;
     SBStarkScreenController *_starkScreenController;
 }
 
 @property(retain, nonatomic) SBStarkScreenController *starkScreenController; // @synthesize starkScreenController=_starkScreenController;
 - (void)animationControllerDidFinishAnimation:(id)arg1;
-- (void)animationController:(id)arg1 willBeginAnimation:(BOOL)arg2;
+- (void)animationController:(id)arg1 willBeginAnimation:(_Bool)arg2;
 - (void)_handleAppRelaunch:(id)arg1;
-- (BOOL)selfApplicationExited:(id)arg1;
-- (BOOL)selfApplicationLaunchDidFail:(id)arg1;
-- (BOOL)selfApplicationActivated:(id)arg1;
-- (BOOL)selfApplicationDidFinishLaunching:(id)arg1 withInfo:(id)arg2;
-- (BOOL)selfApplicationDidStartLaunching:(id)arg1 withInfo:(id)arg2;
-- (BOOL)selfApplicationDidBecomeReceiver:(id)arg1 fromApplication:(id)arg2;
-- (BOOL)selfApplicationWillBecomeReceiver:(id)arg1 fromApplication:(id)arg2;
+- (_Bool)selfApplicationExited:(id)arg1;
+- (_Bool)selfApplicationLaunchDidFail:(id)arg1;
+- (_Bool)selfApplicationActivated:(id)arg1;
+- (_Bool)selfApplicationDidFinishLaunching:(id)arg1 withInfo:(id)arg2;
+- (_Bool)selfApplicationDidStartLaunching:(id)arg1 withInfo:(id)arg2;
+- (_Bool)selfApplicationDidBecomeReceiver:(id)arg1 fromApplication:(id)arg2;
+- (_Bool)selfApplicationWillBecomeReceiver:(id)arg1 fromApplication:(id)arg2;
 - (void)_transactionComplete;
 - (void)_commit;
 - (void)_endAnimation;
 - (id)_setupAnimationForApp:(id)arg1;
 - (id)_animationForApp:(id)arg1;
-- (BOOL)shouldToggleSpringBoardStatusBarOnCleanup;
+- (_Bool)shouldToggleSpringBoardStatusBarOnCleanup;
 - (id)debugDescription;
 - (void)dealloc;
 - (id)initWithWorkspace:(id)arg1 alertManager:(id)arg2 application:(id)arg3;

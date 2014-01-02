@@ -17,25 +17,26 @@
     NSMapTable *_delegateMap;
 }
 
-+ (BOOL)isPoorLinkQuality:(int)arg1;
++ (_Bool)isPoorLinkQuality:(int)arg1;
 + (id)stringForLinkQuality:(int)arg1;
-+ (id)sharedInstanceForIdentifier:(int)arg1;
++ (id)sharedInstanceForIdentifier:(long long)arg1;
+@property(readonly, nonatomic) _Bool isLTEWithCDRX;
 @property(readonly, nonatomic) struct __CFString *currentRAT;
-@property(readonly, nonatomic) BOOL isRadioHot;
-@property(readonly, nonatomic) BOOL isPoorLinkQuality;
+@property(readonly, nonatomic) _Bool isRadioHot;
+@property(readonly, nonatomic) _Bool isPoorLinkQuality;
 @property(readonly, nonatomic) NSString *linkQualityString;
-@property(readonly, nonatomic) BOOL isInternetReachable;
-@property(readonly, nonatomic) BOOL isInterfaceHistoricallyUsable;
-@property(readonly, nonatomic) BOOL isInterfaceUsable;
+@property(readonly, nonatomic) _Bool isInternetReachable;
+@property(readonly, nonatomic) _Bool isInterfaceHistoricallyUsable;
+@property(readonly, nonatomic) _Bool isInterfaceUsable;
 @property(readonly, nonatomic) int linkQuality;
-@property(readonly, nonatomic) int interfaceIdentifier;
+@property(readonly, nonatomic) long long interfaceIdentifier;
 - (void)interfaceRadioHotnessChanged:(id)arg1;
 - (void)interfaceReachabilityChanged:(id)arg1;
 - (void)interfaceLinkQualityChanged:(id)arg1 previousLinkQuality:(int)arg2;
 - (void)removeDelegate:(id)arg1;
 - (void)addDelegate:(id)arg1 queue:(struct dispatch_queue_s *)arg2;
 - (void)dealloc;
-- (id)initWithInterfaceIdentifier:(int)arg1;
+- (id)initWithInterfaceIdentifier:(long long)arg1;
 
 @end
 

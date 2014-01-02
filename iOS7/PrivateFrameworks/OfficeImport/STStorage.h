@@ -6,6 +6,7 @@
 
 #import <OfficeImport/STSStgObject.h>
 
+// Not exported
 @interface STStorage : STSStgObject
 {
     struct _Storage *m_pCStorage;

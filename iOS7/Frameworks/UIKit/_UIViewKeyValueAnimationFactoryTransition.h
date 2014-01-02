@@ -8,6 +8,7 @@
 
 @class CABasicAnimation;
 
+// Not exported
 @interface _UIViewKeyValueAnimationFactoryTransition : NSObject
 {
     CABasicAnimation *_fromAnimation;

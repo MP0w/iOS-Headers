@@ -7,7 +7,7 @@
 #import "NSData.h"
 
 @interface NSData (FezAdditions)
-+ (id)dataWithRandomBytes:(unsigned int)arg1;
++ (id)dataWithRandomBytes:(unsigned long long)arg1;
 + (id)dataWithHexString:(id)arg1;
 - (id)hexString;
 - (id)hexStringOfBytes:(char *)arg1 withLength:(int)arg2;

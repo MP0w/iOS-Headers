@@ -24,13 +24,12 @@
 + (int)scheduleStatusFromICSString:(id)arg1;
 + (int)participationStatusFromICSString:(id)arg1;
 + (int)calendarUserFromICSString:(id)arg1;
-+ (id)URLForNoMail;
 - (id)x_calendarserver_email;
 - (void)setX_calendarserver_email:(id)arg1;
 @property(retain) NSString *email;
-@property BOOL x_apple_self_invited;
+@property _Bool x_apple_self_invited;
 @property(retain) ICSDateValue *partstatModified;
-@property BOOL rsvp;
+@property _Bool rsvp;
 @property int role;
 @property int scheduleforcesend;
 @property int scheduleagent;
@@ -41,14 +40,12 @@
 @property(retain) NSString *cn;
 - (id)displayName;
 - (id)emailAddress;
-- (BOOL)isHTTPSAddress;
-- (BOOL)isHTTPAddress;
-- (BOOL)isEmailAddress;
-- (BOOL)hasEmailAddress;
+- (_Bool)isHTTPSAddress;
+- (_Bool)isHTTPAddress;
+- (_Bool)isEmailAddress;
+- (_Bool)hasEmailAddress;
 - (id)initWithEmailAddress:(id)arg1;
 - (id)initWithURL:(id)arg1;
-- (void)fixAddress;
-- (void)setURL:(id)arg1;
 
 @end
 

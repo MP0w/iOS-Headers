@@ -8,6 +8,7 @@
 
 @class NSObject<OS_dispatch_queue>, NSString, PFUbiquityContainerIdentifier, PFUbiquityLocation;
 
+// Not exported
 @interface PFUbiquityContainerMonitor : NSObject
 {
     PFUbiquityLocation *_ubiquityRootLocation;
@@ -15,7 +16,7 @@
     NSString *_storeName;
     int _containerState;
     int _monitorState;
-    BOOL _hasScheduledCheckBlock;
+    _Bool _hasScheduledCheckBlock;
     int _scheduleSpinLock;
     NSObject<OS_dispatch_queue> *_processingQueue;
     id <NSObject><NSCopying><NSCoding> _currentIdentityToken;
@@ -33,14 +34,14 @@
 - (void)_applicationResumed:(id)arg1;
 - (void)containerDeleteDetected:(id)arg1;
 - (void)stopMonitor;
-- (BOOL)startMonitor:(id *)arg1;
-- (void)didChangeContainerIdentifier;
-- (void)willChangeContainerIdentifier;
+- (_Bool)startMonitor:(id *)arg1;
+- (void)didChangeContainerIdentifier:(unsigned long long)arg1;
+- (void)willChangeContainerIdentifier:(unsigned long long)arg1;
 - (void)didChangeMonitorState;
 - (void)willChangeMonitorState;
 - (void)didChangeContainerState;
 - (void)willChangeContainerState;
-- (void)setContainerIdentifier:(id)arg1;
+- (void)setContainerIdentifier:(id)arg1 transitionType:(unsigned long long)arg2;
 - (id)description;
 - (void)dealloc;
 - (id)initWithProcessingQueue:(id)arg1 localPeerID:(id)arg2 storeName:(id)arg3 andUbiquityRootLocation:(id)arg4;

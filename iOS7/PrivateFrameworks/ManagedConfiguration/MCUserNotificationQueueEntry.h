@@ -10,22 +10,22 @@
 
 @interface MCUserNotificationQueueEntry : NSObject
 {
-    BOOL _displayOnLockScreen;
-    BOOL _displayInAppWhitelistModes;
+    _Bool _displayOnLockScreen;
+    _Bool _displayInAppWhitelistModes;
     NSString *_title;
     NSString *_message;
     NSString *_defaultButtonText;
     NSString *_alternateButtonText;
+    double _dismissAfterTimeInterval;
     id _completionBlock;
     id _notification;
-    double _dismissAfterTimeInterval;
 }
 
 @property(retain, nonatomic) id notification; // @synthesize notification=_notification;
 @property(copy, nonatomic) id completionBlock; // @synthesize completionBlock=_completionBlock;
 @property(nonatomic) double dismissAfterTimeInterval; // @synthesize dismissAfterTimeInterval=_dismissAfterTimeInterval;
-@property(nonatomic) BOOL displayInAppWhitelistModes; // @synthesize displayInAppWhitelistModes=_displayInAppWhitelistModes;
-@property(nonatomic) BOOL displayOnLockScreen; // @synthesize displayOnLockScreen=_displayOnLockScreen;
+@property(nonatomic) _Bool displayInAppWhitelistModes; // @synthesize displayInAppWhitelistModes=_displayInAppWhitelistModes;
+@property(nonatomic) _Bool displayOnLockScreen; // @synthesize displayOnLockScreen=_displayOnLockScreen;
 @property(retain, nonatomic) NSString *alternateButtonText; // @synthesize alternateButtonText=_alternateButtonText;
 @property(retain, nonatomic) NSString *defaultButtonText; // @synthesize defaultButtonText=_defaultButtonText;
 @property(retain, nonatomic) NSString *message; // @synthesize message=_message;

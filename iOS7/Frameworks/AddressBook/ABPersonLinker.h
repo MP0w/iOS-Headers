@@ -16,20 +16,20 @@
     NSMutableDictionary *_peopleByOrganization;
 }
 
-+ (void)startAutoLinkingNewPeopleInAddressBook:(void *)arg1 inProcess:(BOOL)arg2;
-+ (BOOL)isLinkDataValidForAddressBook:(void *)arg1;
++ (void)startAutoLinkingNewPeopleInAddressBook:(void *)arg1 inProcess:(_Bool)arg2;
++ (_Bool)isLinkDataValidForAddressBook:(void *)arg1;
 - (void)linkNewlyAddedPerson:(void *)arg1;
 - (void)linkRecentlyAddedPeople;
-- (BOOL)linkRecentlyAddedPeopleWithLimit:(int)arg1;
-- (id)copyArrayOfAllPeopleWithROWIDGreatThan:(int)arg1 withLimit:(int)arg2;
+- (_Bool)linkRecentlyAddedPeopleWithLimit:(long long)arg1;
+- (id)copyArrayOfAllPeopleWithROWIDGreatThan:(int)arg1 withLimit:(long long)arg2;
 - (void)makeInitialLinks;
-- (void)makeInitialLinksCountingOuterIterations:(unsigned int *)arg1;
+- (void)makeInitialLinksCountingOuterIterations:(unsigned long long *)arg1;
 - (void)removeAllLinks;
-- (void)makeLinksForAddedPeople:(id)arg1 inInitialLinking:(BOOL)arg2 countingOuterIterations:(unsigned int *)arg3;
+- (void)makeLinksForAddedPeople:(id)arg1 inInitialLinking:(_Bool)arg2 countingOuterIterations:(unsigned long long *)arg3;
 - (void)presortPeople:(id)arg1;
 - (void)addPerson:(void *)arg1 toDictionary:(id)arg2 withProperty:(int)arg3;
-- (id)suggestedPeopleToLinkWithPerson:(void *)arg1 isInitialLinking:(BOOL)arg2;
-- (BOOL)shouldLinkPerson:(void *)arg1 toPeopleInDatabase:(id)arg2 andNewlyAddedPeople:(id)arg3 inInitialLinking:(BOOL)arg4;
+- (id)suggestedPeopleToLinkWithPerson:(void *)arg1 isInitialLinking:(_Bool)arg2;
+- (_Bool)shouldLinkPerson:(void *)arg1 toPeopleInDatabase:(id)arg2 andNewlyAddedPeople:(id)arg3 inInitialLinking:(_Bool)arg4;
 - (id)otherPeopleInArray:(id)arg1 matchingPerson:(void *)arg2;
 - (id)otherPeopleInDatabaseMatchingPerson:(void *)arg1 notIncludingPeople:(id)arg2;
 - (void)dealloc;

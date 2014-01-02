@@ -14,8 +14,8 @@
     NSMutableArray *connections;
     int changeSeed;
     struct CGAffineTransform metadataTransform;
-    float rollAdjustment;
-    BOOL physicallyMirrorsVideo;
+    double rollAdjustment;
+    _Bool physicallyMirrorsVideo;
 }
 
 - (void)dealloc;

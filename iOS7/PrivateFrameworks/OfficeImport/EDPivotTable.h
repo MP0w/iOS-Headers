@@ -8,6 +8,7 @@
 
 @class EDCollection, EDReference, EDResources, NSString;
 
+// Not exported
 @interface EDPivotTable : NSObject
 {
     EDResources *mResources;
@@ -52,15 +53,15 @@
     NSString *mRowHeaderCaption;
     NSString *mPageStyleName;
     EDReference *mPivotTableRange;
-    unsigned int mStyleIndex;
-    long mFirstHeaderRow;
-    long mFirstDataRow;
-    long mFirstDataColumn;
-    unsigned long mRowPageCount;
-    unsigned long mColumnPageCount;
-    unsigned long mPageWrap;
-    unsigned long mAutoFormatId;
-    unsigned long mDataPosition;
+    unsigned long long mStyleIndex;
+    long long mFirstHeaderRow;
+    long long mFirstDataRow;
+    long long mFirstDataColumn;
+    unsigned long long mRowPageCount;
+    unsigned long long mColumnPageCount;
+    unsigned long long mPageWrap;
+    unsigned long long mAutoFormatId;
+    unsigned long long mDataPosition;
     EDCollection *mRowFields;
     EDCollection *mColumnFields;
     EDCollection *mRowItems;
@@ -152,22 +153,22 @@
 - (_Bool)showRowStripes;
 - (void)setShowLastColumn:(_Bool)arg1;
 - (_Bool)showLastColumn;
-- (void)setDataPosition:(unsigned long)arg1;
-- (unsigned long)dataPosition;
-- (void)setAutoFormatId:(unsigned long)arg1;
-- (unsigned long)autoFormatId;
-- (void)setPageWrap:(unsigned long)arg1;
-- (unsigned long)pageWrap;
-- (void)setFirstDataColumn:(long)arg1;
-- (long)firstDataColumn;
-- (void)setFirstDataRow:(long)arg1;
-- (long)firstDataRow;
-- (void)setFirstHeaderRow:(long)arg1;
-- (long)firstHeaderRow;
-- (void)setColumnPageCount:(unsigned long)arg1;
-- (unsigned long)columnPageCount;
-- (void)setRowPageCount:(unsigned long)arg1;
-- (unsigned long)rowPageCount;
+- (void)setDataPosition:(unsigned long long)arg1;
+- (unsigned long long)dataPosition;
+- (void)setAutoFormatId:(unsigned long long)arg1;
+- (unsigned long long)autoFormatId;
+- (void)setPageWrap:(unsigned long long)arg1;
+- (unsigned long long)pageWrap;
+- (void)setFirstDataColumn:(long long)arg1;
+- (long long)firstDataColumn;
+- (void)setFirstDataRow:(long long)arg1;
+- (long long)firstDataRow;
+- (void)setFirstHeaderRow:(long long)arg1;
+- (long long)firstHeaderRow;
+- (void)setColumnPageCount:(unsigned long long)arg1;
+- (unsigned long long)columnPageCount;
+- (void)setRowPageCount:(unsigned long long)arg1;
+- (unsigned long long)rowPageCount;
 - (void)setPivotTableRange:(id)arg1;
 - (id)pivotTableRange;
 - (void)setName:(id)arg1;
@@ -184,8 +185,6 @@
 - (id)style;
 - (void)dealloc;
 - (id)initWithResources:(id)arg1;
-- (void)setStyleIndex:(unsigned int)arg1;
-- (unsigned int)styleIndex;
 
 @end
 

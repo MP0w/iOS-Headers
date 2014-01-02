@@ -10,7 +10,7 @@
 - (void)balloonViewWillResignFirstResponder:(id)arg1;
 - (void)balloonViewTapped:(id)arg1 withEvent:(id)arg2;
 - (void)balloonViewTouchedDown:(id)arg1 withEvent:(id)arg2;
-- (BOOL)balloonView:(id)arg1 canPerformAction:(SEL)arg2 withSender:(id)arg3;
+- (_Bool)balloonView:(id)arg1 canPerformAction:(SEL)arg2 withSender:(id)arg3;
 - (struct CGRect)calloutTargetRectForBalloonView:(id)arg1;
 - (id)menuItemsForBalloonView:(id)arg1;
 - (void)balloonViewDidFinishDataDetectorAction:(id)arg1;

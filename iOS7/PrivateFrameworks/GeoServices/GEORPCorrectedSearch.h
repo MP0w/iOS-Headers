@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class GEOPlaceSearchRequest, GEOPlaceSearchResponse, NSString;
 
-@interface GEORPCorrectedSearch : PBCodable
+@interface GEORPCorrectedSearch : PBCodable <NSCopying>
 {
     unsigned int _correctedSearchResultIndex;
     unsigned int _originalSearchResultIndex;
@@ -26,18 +28,19 @@
 @property(nonatomic) unsigned int originalSearchResultIndex; // @synthesize originalSearchResultIndex=_originalSearchResultIndex;
 @property(retain, nonatomic) GEOPlaceSearchResponse *placeSearchResponse; // @synthesize placeSearchResponse=_placeSearchResponse;
 @property(retain, nonatomic) GEOPlaceSearchRequest *placeSearchRequest; // @synthesize placeSearchRequest=_placeSearchRequest;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) BOOL hasPreferredSearchDisplayLocation;
-@property(nonatomic) BOOL hasCorrectedSearchResultIndex;
-@property(nonatomic) BOOL hasOriginalSearchResultIndex;
-@property(readonly, nonatomic) BOOL hasPlaceSearchResponse;
-@property(readonly, nonatomic) BOOL hasPlaceSearchRequest;
+@property(readonly, nonatomic) _Bool hasPreferredSearchDisplayLocation;
+@property(nonatomic) _Bool hasCorrectedSearchResultIndex;
+@property(nonatomic) _Bool hasOriginalSearchResultIndex;
+@property(readonly, nonatomic) _Bool hasPlaceSearchResponse;
+@property(readonly, nonatomic) _Bool hasPlaceSearchRequest;
 - (void)dealloc;
 
 @end

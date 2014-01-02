@@ -6,20 +6,19 @@
 
 #import <MessageUI/MFComposeRecipientGroup.h>
 
-@class CRRecentContact, NSString;
+@class CRRecentContact;
 
 @interface MFRecentComposeRecipientGroup : MFComposeRecipientGroup
 {
-    NSString *_displayString;
-    CRRecentContact *_recent;
     CRRecentContact *_recentContact;
 }
 
-@property(retain, nonatomic) CRRecentContact *recentContact; // @synthesize recentContact=_recentContact;
+@property(readonly, nonatomic) CRRecentContact *recentContact; // @synthesize recentContact=_recentContact;
 - (id)unlocalizedLabel;
 - (id)placeholderName;
 - (id)label;
-- (id)initWithRecentContact:(id)arg1;
+- (void)dealloc;
+- (id)initWithChildren:(id)arg1 displayString:(id)arg2 recentContact:(id)arg3;
 
 @end
 

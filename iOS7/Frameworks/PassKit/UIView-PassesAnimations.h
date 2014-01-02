@@ -7,13 +7,13 @@
 #import "UIView.h"
 
 @interface UIView (PassesAnimations)
-- (void)addTranslationAnimationWithStartTime:(float)arg1 duration:(float)arg2 timing:(id)arg3;
-- (void)addTransformSpringWithMass:(float)arg1 stiffness:(float)arg2 damping:(float)arg3 startTime:(float)arg4 timing:(id)arg5;
-- (void)addDefaultTransformSpringWithStartTime:(float)arg1;
-- (void)addTransformAnimationWithStartTime:(float)arg1 duration:(float)arg2 timing:(id)arg3;
-- (void)addTranslationSpringWithMass:(float)arg1 stiffness:(float)arg2 damping:(float)arg3 startTime:(float)arg4 velocity:(float)arg5 timing:(id)arg6;
-- (void)addTranslationSpringWithMass:(float)arg1 stiffness:(float)arg2 damping:(float)arg3 startTime:(float)arg4 timing:(id)arg5;
-- (void)addDefaultTranslationSpringWithVelocity:(float)arg1 startTime:(float)arg2;
+- (void)addTranslationAnimationWithStartTime:(double)arg1 duration:(double)arg2 timing:(id)arg3;
+- (void)addTransformSpringWithMass:(double)arg1 stiffness:(double)arg2 damping:(double)arg3 startTime:(double)arg4 timing:(id)arg5;
+- (void)addDefaultTransformSpringWithStartTime:(double)arg1;
+- (void)addTransformAnimationWithStartTime:(double)arg1 duration:(double)arg2 timing:(id)arg3;
+- (void)addTranslationSpringWithMass:(double)arg1 stiffness:(double)arg2 damping:(double)arg3 startTime:(double)arg4 velocity:(double)arg5 timing:(id)arg6;
+- (void)addTranslationSpringWithMass:(double)arg1 stiffness:(double)arg2 damping:(double)arg3 startTime:(double)arg4 timing:(id)arg5;
+- (void)addDefaultTranslationSpringWithVelocity:(double)arg1 startTime:(double)arg2;
 - (id)translationAnimation;
 @end
 

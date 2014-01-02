@@ -10,15 +10,15 @@
 
 @interface PLCloudSharedCommentsJob : PLCloudSharingJob
 {
+    long long _jobType;
     NSArray *_msASComments;
     NSString *_commentGUID;
     NSString *_assetGUID;
     NSString *_albumGUID;
     NSDictionary *_mstreamdInfoDictionary;
-    long long _jobType;
 }
 
-+ (id)directoryPathForInFlightComments:(BOOL)arg1;
++ (id)directoryPathForInFlightComments:(_Bool)arg1;
 + (void)locallyProcessDeletedComments:(id)arg1 info:(id)arg2;
 + (void)locallyProcessAddedComments:(id)arg1 assetGUID:(id)arg2 albumGUID:(id)arg3 info:(id)arg4;
 + (void)deleteSharedCommentFromServer:(id)arg1;
@@ -33,7 +33,7 @@
 - (void)executePublishCommentToServer;
 - (void)executeProcessServerNotificationOfCommentChanges;
 - (void)runDaemonSide;
-- (BOOL)shouldArchiveXPCToDisk;
+- (_Bool)shouldArchiveXPCToDisk;
 - (void)run;
 - (long long)daemonOperation;
 - (void)dealloc;

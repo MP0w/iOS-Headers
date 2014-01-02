@@ -8,13 +8,14 @@
 
 @class NSMutableDictionary;
 
+// Not exported
 @interface OADColorMap : NSObject
 {
     NSMutableDictionary *mMappings;
 }
 
-- (void)addDefaultMappings:(BOOL)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (void)addDefaultMappings:(_Bool)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (void)addMapping:(int)arg1 index:(int)arg2;
 - (int)mappingForIndex:(int)arg1;
 - (void)dealloc;

@@ -10,8 +10,8 @@
 
 @protocol MKCalloutSource <NSObject>
 - (id)debugAnchorPointString;
-- (struct CGPoint)screenPointToScrollRelativeToWithCanvasSize:(struct CGSize)arg1 canvasScale:(float)arg2;
-- (struct CGPoint)calloutAnchorPointWithCanvasSize:(struct CGSize)arg1 canvasScale:(float)arg2 snapToPixels:(BOOL)arg3;
+- (struct CGPoint)screenPointToScrollRelativeToWithCanvasSize:(struct CGSize)arg1 canvasScale:(double)arg2;
+- (struct CGPoint)calloutAnchorPointWithCanvasSize:(struct CGSize)arg1 canvasScale:(double)arg2 snapToPixels:(_Bool)arg3;
 - (id)title;
 
 @optional

@@ -7,8 +7,8 @@
 #import "NSObject.h"
 
 @interface NSObject (MKAbstractAnnotationContainerViewExtras)
-- (BOOL)_mapkit_isInternalAnnotationView;
-- (BOOL)_mapkit_isInternalAnnotation;
-- (BOOL)_mapkit_internalAnnotationAllowsCustomView;
+- (_Bool)_mapkit_isInternalAnnotationView;
+- (_Bool)_mapkit_isInternalAnnotation;
+- (_Bool)_mapkit_internalAnnotationAllowsCustomView;
 @end
 

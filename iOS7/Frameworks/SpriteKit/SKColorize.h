@@ -6,13 +6,14 @@
 
 #import <SpriteKit/SKAction.h>
 
+// Not exported
 @interface SKColorize : SKAction
 {
     struct SKCColorize *_mycaction;
 }
 
-+ (id)colorizeWithColorBlendFactor:(float)arg1 duration:(double)arg2;
-+ (id)colorizeWithColor:(id)arg1 colorBlendFactor:(float)arg2 duration:(double)arg3;
++ (id)colorizeWithColorBlendFactor:(double)arg1 duration:(double)arg2;
++ (id)colorizeWithColor:(id)arg1 colorBlendFactor:(double)arg2 duration:(double)arg3;
 - (id)reversedAction;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;

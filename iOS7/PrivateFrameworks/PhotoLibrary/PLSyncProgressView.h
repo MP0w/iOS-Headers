@@ -15,18 +15,18 @@
     NSNumberFormatter *_countFormatter;
     int _style;
     int _progressType;
-    unsigned int _currentCount;
-    unsigned int _totalCount;
+    unsigned long long _currentCount;
+    unsigned long long _totalCount;
 }
 
-@property(readonly, nonatomic) unsigned int totalCount; // @synthesize totalCount=_totalCount;
-@property(readonly, nonatomic) unsigned int currentCount; // @synthesize currentCount=_currentCount;
+@property(readonly, nonatomic) unsigned long long totalCount; // @synthesize totalCount=_totalCount;
+@property(readonly, nonatomic) unsigned long long currentCount; // @synthesize currentCount=_currentCount;
 @property(readonly, nonatomic) int progressType; // @synthesize progressType=_progressType;
 @property(readonly, nonatomic) int style; // @synthesize style=_style;
 - (id)_progressDescription;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (void)setCurrentCount:(unsigned int)arg1 totalCount:(unsigned int)arg2 progressType:(int)arg3;
+- (void)setCurrentCount:(unsigned long long)arg1 totalCount:(unsigned long long)arg2 progressType:(int)arg3;
 - (void)dealloc;
 - (id)initWithStyle:(int)arg1;
 

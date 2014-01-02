@@ -8,13 +8,13 @@
 
 @interface BBBulletin (SBUIUtilities)
 + (void)killSounds;
-- (BOOL)bulletinAlertShouldOverrideQuietMode;
+- (_Bool)bulletinAlertShouldOverrideQuietMode;
 - (id)actionBlockForButton:(SEL)arg1;
 - (id)defaultActionBlock;
 - (id)actionBlockForButton:(SEL)arg1 withOrigin:(id)arg2;
 - (id)defaultActionBlockWithOrigin:(SEL)arg1;
-- (id)defaultActionBlockWithOrigin:(SEL)arg1 canBypassPinLock:(int)arg2 requiresUnlock:(char *)arg3 shouldDeactivateAwayController:(char *)arg4 suitabilityFilter:(char *)arg5;
+- (id)defaultActionBlockWithOrigin:(SEL)arg1 canBypassPinLock:(int)arg2 requiresUnlock:(_Bool *)arg3 shouldDeactivateAwayController:(_Bool *)arg4 suitabilityFilter:(_Bool *)arg5;
 - (void)killSound;
-- (BOOL)playSound;
+- (_Bool)playSound;
 @end
 

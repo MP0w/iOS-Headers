@@ -8,6 +8,7 @@
 
 #import "NSCoding-Protocol.h"
 
+// Not exported
 @interface NSDictionaryMapNode : NSStoreMapNode <NSCoding>
 {
     id *_attributes;

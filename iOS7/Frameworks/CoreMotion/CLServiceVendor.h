@@ -12,12 +12,12 @@
 
 + (id)getSiloForService:(id)arg1;
 + (id)proxyForService:(id)arg1;
-+ (BOOL)ensureServiceIsRunning:(id)arg1;
-+ (BOOL)isServiceRunning:(id)arg1;
-+ (BOOL)isServiceEnabled:(id)arg1;
++ (_Bool)ensureServiceIsRunning:(id)arg1;
++ (_Bool)isServiceRunning:(id)arg1;
++ (_Bool)isServiceEnabled:(id)arg1;
 + (void)retireServiceWithName:(id)arg1;
 + (id)getServiceWithName:(id)arg1;
-+ (BOOL)getKeyClass:(Class *)arg1 andSilo:(id *)arg2 forServiceWithName:(id)arg3;
++ (_Bool)getKeyClass:(Class *)arg1 andSilo:(id *)arg2 forServiceWithName:(id)arg3;
 + (void)rereadConfiguration;
 + (void)initialize;
 

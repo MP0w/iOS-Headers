@@ -11,17 +11,18 @@
 
 @class EDProtection, EDResources;
 
+// Not exported
 @interface EDStyle : NSObject <NSCopying, EDImmutableObject>
 {
     EDResources *mResources;
-    unsigned int mParentIndex;
-    unsigned int mContentFormatId;
-    unsigned int mFontIndex;
-    unsigned int mFillIndex;
-    unsigned int mAlignmentInfoIndex;
-    unsigned int mBordersIndex;
+    unsigned long long mParentIndex;
+    unsigned long long mContentFormatId;
+    unsigned long long mFontIndex;
+    unsigned long long mFillIndex;
+    unsigned long long mAlignmentInfoIndex;
+    unsigned long long mBordersIndex;
     EDProtection *mProtection;
-    unsigned int mIndex;
+    unsigned long long mIndex;
     _Bool mContentFormatOverridden;
     _Bool mFontOverridden;
     _Bool mFillOverridden;
@@ -33,7 +34,7 @@
 
 + (id)styleWithResources:(id)arg1;
 - (void)setDoNotModify:(_Bool)arg1;
-- (unsigned int)index;
+- (unsigned long long)index;
 - (void)setParent:(id)arg1;
 - (id)parent;
 - (void)setProtection:(id)arg1;
@@ -60,26 +61,13 @@
 - (id)contentFormat;
 - (void)setContentFormatOverridden:(_Bool)arg1;
 - (_Bool)isContentFormatOverridden;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isEqualToStyle:(id)arg1;
-- (BOOL)isEquivalentToStyle:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)isEqualToStyle:(id)arg1;
+- (_Bool)isEquivalentToStyle:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)initWithResources:(id)arg1;
-- (void)setAlignmentInfoIndex:(unsigned int)arg1;
-- (unsigned int)alignmentInfoIndex;
-- (void)setFillIndex:(unsigned int)arg1;
-- (unsigned int)fillIndex;
-- (void)setBordersIndex:(unsigned int)arg1;
-- (unsigned int)bordersIndex;
-- (void)setParentIndex:(unsigned int)arg1;
-- (unsigned int)parentIndex;
-- (void)setContentFormatId:(unsigned int)arg1;
-- (unsigned int)contentFormatId;
-- (void)setFontIndex:(unsigned int)arg1;
-- (unsigned int)fontIndex;
-- (void)setIndex:(unsigned int)arg1;
 
 @end
 

@@ -14,32 +14,32 @@
 {
     SBAlert *_alert;
     SBUIAnimationController *_animation;
-    BOOL _animatedAppActivation;
-    BOOL _animatingAlertSuspension;
-    BOOL _deactivateAfterNextLaunch;
-    BOOL _activatingLauncher;
-    BOOL _fromAssistant;
+    _Bool _animatedAppActivation;
+    _Bool _animatingAlertSuspension;
+    _Bool _deactivateAfterNextLaunch;
+    _Bool _activatingLauncher;
+    _Bool _fromAssistant;
 }
 
 @property(readonly, nonatomic) SBAlert *alert; // @synthesize alert=_alert;
 - (void)animationControllerDidFinishAnimation:(id)arg1;
-- (void)animationController:(id)arg1 willBeginAnimation:(BOOL)arg2;
+- (void)animationController:(id)arg1 willBeginAnimation:(_Bool)arg2;
 - (void)_handleFailure;
 - (void)_deactivateAlertIfNecessary;
 - (void)_alertAnimationComplete:(id)arg1;
 - (void)_transactionComplete;
 - (void)_endAnimation;
-- (BOOL)selfStarkAlertDidDeactivate:(id)arg1;
-- (BOOL)selfStarkAlertWillDeactivate:(id)arg1;
-- (BOOL)selfApplicationExited:(id)arg1;
-- (BOOL)selfApplicationLaunchDidFail:(id)arg1;
-- (BOOL)selfApplicationDidFinishLaunching:(id)arg1 withInfo:(id)arg2;
-- (BOOL)selfApplicationDidBecomeReceiver:(id)arg1 fromApplication:(id)arg2;
-- (BOOL)selfApplicationWillBecomeReceiver:(id)arg1 fromApplication:(id)arg2;
-- (BOOL)selfApplicationActivated:(id)arg1;
+- (_Bool)selfStarkAlertDidDeactivate:(id)arg1;
+- (_Bool)selfStarkAlertWillDeactivate:(id)arg1;
+- (_Bool)selfApplicationExited:(id)arg1;
+- (_Bool)selfApplicationLaunchDidFail:(id)arg1;
+- (_Bool)selfApplicationDidFinishLaunching:(id)arg1 withInfo:(id)arg2;
+- (_Bool)selfApplicationDidBecomeReceiver:(id)arg1 fromApplication:(id)arg2;
+- (_Bool)selfApplicationWillBecomeReceiver:(id)arg1 fromApplication:(id)arg2;
+- (_Bool)selfApplicationActivated:(id)arg1;
 - (int)_setupMilestonesFrom:(id)arg1 to:(id)arg2;
 - (id)_newAnimationControllerFrom:(id)arg1 to:(id)arg2;
-- (BOOL)_hasAnimation;
+- (_Bool)_hasAnimation;
 - (void)_beginAnimation;
 - (void)_commit;
 - (id)debugDescription;

@@ -10,16 +10,17 @@
 
 @interface MPRadioStationImageCacheRequest : MPImageCacheRequest
 {
-    BOOL _usePlaceholderAsFallback;
+    _Bool _usePlaceholderAsFallback;
     RadioStation *_radioStation;
 }
 
-@property(nonatomic) BOOL usePlaceholderAsFallback; // @synthesize usePlaceholderAsFallback=_usePlaceholderAsFallback;
+@property(nonatomic) _Bool usePlaceholderAsFallback; // @synthesize usePlaceholderAsFallback=_usePlaceholderAsFallback;
 @property(readonly, nonatomic) RadioStation *radioStation; // @synthesize radioStation=_radioStation;
 - (void).cxx_destruct;
 - (id)uniqueKey;
 - (id)placeholderImage;
 - (id)copyRawImageReturningError:(id *)arg1;
+- (_Bool)canRequestSynchronously;
 - (id)initWithRadioStation:(id)arg1;
 
 @end

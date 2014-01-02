@@ -18,8 +18,8 @@
 - (id).cxx_construct;
 - (double)intervalForNextAstronomicalChangeFromTime:(double)arg1;
 - (double)intervalForNextAstronomicalChange;
-- (BOOL)isDayLightForTime:(double)arg1;
-@property(readonly, nonatomic) BOOL isDayLight;
+- (_Bool)isDayLightForTime:(double)arg1;
+@property(readonly, nonatomic) _Bool isDayLight;
 - (void)calculateGeocentricDirectionForSunX:(double *)arg1 Y:(double *)arg2 Z:(double *)arg3;
 - (void)calculateAstronomicalTimeForLocation:(CDStruct_c3b9c2ee)arg1 time:(double)arg2;
 - (void)calculateAstronomicalTimeForLocation:(CDStruct_c3b9c2ee)arg1;

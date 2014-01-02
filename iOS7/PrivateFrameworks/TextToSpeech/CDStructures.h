@@ -7,14 +7,14 @@
 #pragma mark Named Structures
 
 struct _NSRange {
-    unsigned int _field1;
-    unsigned int _field2;
+    unsigned long long _field1;
+    unsigned long long _field2;
 };
 
 #pragma mark Typedef'd Structures
 
 typedef struct {
-    int category;
-    long activity;
-} CDStruct_4e36ff54;
+    long long category;
+    long long activity;
+} CDStruct_a87a0d46;
 

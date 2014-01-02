@@ -8,6 +8,7 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface VKPIconPack : PBCodable
 {
     NSMutableArray *_atlas;
@@ -18,19 +19,19 @@
 @property(retain, nonatomic) NSMutableArray *icons; // @synthesize icons=_icons;
 @property(retain, nonatomic) NSMutableArray *atlas; // @synthesize atlas=_atlas;
 @property(nonatomic) unsigned int identifier; // @synthesize identifier=_identifier;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)iconsAtIndex:(unsigned int)arg1;
-- (unsigned int)iconsCount;
+- (id)iconsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)iconsCount;
 - (void)addIcons:(id)arg1;
 - (void)clearIcons;
-- (id)atlasAtIndex:(unsigned int)arg1;
-- (unsigned int)atlasCount;
+- (id)atlasAtIndex:(unsigned long long)arg1;
+- (unsigned long long)atlasCount;
 - (void)addAtlas:(id)arg1;
 - (void)clearAtlas;
 - (void)dealloc;

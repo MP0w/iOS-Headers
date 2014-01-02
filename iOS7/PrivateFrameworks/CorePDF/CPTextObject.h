@@ -9,12 +9,12 @@
 @interface CPTextObject : CPChunk
 {
     struct CGPoint anchor;
-    BOOL metricInfoCalculated;
+    _Bool metricInfoCalculated;
     float maxFontSize;
     double maxFontLineHeight;
 }
 
-- (void)translateObjectYBy:(float)arg1;
+- (void)translateObjectYBy:(double)arg1;
 - (void)clearCachedInfo;
 - (double)maxFontLineHeight;
 - (float)maxFontSize;

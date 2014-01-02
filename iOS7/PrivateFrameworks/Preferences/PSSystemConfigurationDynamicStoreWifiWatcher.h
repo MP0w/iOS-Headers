@@ -14,7 +14,7 @@
     struct __CFString *_tetheringLink;
 }
 
-+ (BOOL)wifiEnabled;
++ (_Bool)wifiEnabled;
 + (void)releaseSharedInstance;
 + (id)sharedInstance;
 - (void)dealloc;

@@ -8,13 +8,14 @@
 
 @class NSString;
 
+// Not exported
 @interface OADOle : NSObject
 {
-    BOOL mIconic;
+    _Bool mIconic;
     NSString *mCLSID;
     NSString *mAnsiUserType;
     NSString *mAnsiClipboardFormatName;
-    unsigned long mWinClipboardFormat;
+    unsigned int mWinClipboardFormat;
     NSString *mMacClipboardFormat;
     NSString *mAnsiProgID;
     NSString *mUnicodeUserType;
@@ -23,8 +24,8 @@
     id mObject;
 }
 
-+ (BOOL)isCLSIDSupported:(id)arg1;
-+ (BOOL)isProgIDSupported:(id)arg1;
++ (_Bool)isCLSIDSupported:(id)arg1;
++ (_Bool)isProgIDSupported:(id)arg1;
 - (void)setObject:(id)arg1;
 - (id)object;
 - (void)setUnicodeProgID:(id)arg1;
@@ -37,16 +38,16 @@
 - (id)ansiProgID;
 - (void)setMacClipboardFormat:(id)arg1;
 - (id)macClipboardFormat;
-- (void)setWinClipboardFormat:(unsigned long)arg1;
-- (unsigned long)winClipboardFormat;
+- (void)setWinClipboardFormat:(unsigned int)arg1;
+- (unsigned int)winClipboardFormat;
 - (void)setAnsiClipboardFormatName:(id)arg1;
 - (id)ansiClipboardFormatName;
 - (void)setAnsiUserType:(id)arg1;
 - (id)ansiUserType;
 - (void)setCLSID:(id)arg1;
 - (id)CLSID;
-- (void)setIconic:(BOOL)arg1;
-- (BOOL)iconic;
+- (void)setIconic:(_Bool)arg1;
+- (_Bool)iconic;
 - (void)dealloc;
 - (id)init;
 

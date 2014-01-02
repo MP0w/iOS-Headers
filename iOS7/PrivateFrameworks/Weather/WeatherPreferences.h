@@ -12,10 +12,10 @@
 
 @interface WeatherPreferences : NSObject <NSURLConnectionDelegate>
 {
-    BOOL _isCelsius;
+    _Bool _isCelsius;
     NSString *_UUID;
     NSString *_serviceHost;
-    BOOL _serviceDebugging;
+    _Bool _serviceDebugging;
     NSArray *_lastUbiquitousWrittenDefaults;
     id <SynchronizedDefaultsDelegate> _syncDelegate;
     NSString *_yahooWeatherURLString;
@@ -26,21 +26,20 @@
 + (void)clearSharedPreferences;
 + (id)sharedPreferences;
 @property(copy, nonatomic) NSString *twcURLString; // @synthesize twcURLString=_twcURLString;
-@property(copy, nonatomic) NSString *yahooWeatherURLString; // @synthesize yahooWeatherURLString=_yahooWeatherURLString;
 @property(nonatomic) id <SynchronizedDefaultsDelegate> syncDelegate; // @synthesize syncDelegate=_syncDelegate;
 - (void)_clearCachedObjects;
 - (void)resetLocale;
 - (void)saveToUbiquitousStore;
-- (id)combineCloudCities:(id)arg1 withExisting:(id)arg2 byAppending:(BOOL)arg3;
+- (id)combineCloudCities:(id)arg1 withExisting:(id)arg2 byAppending:(_Bool)arg3;
 - (void)_saveUbiquitousDefaults:(id)arg1;
-- (void)_setLastUbiquitousWrittenDefaults:(id)arg1 isCloudCityArray:(BOOL)arg2;
+- (void)_setLastUbiquitousWrittenDefaults:(id)arg1 isCloudCityArray:(_Bool)arg2;
 - (void)_synchronizedDefaultsDidChange:(id)arg1;
 - (void)_syncToCloudIfNotDefaultCities:(id)arg1;
-- (BOOL)_areDefaultCities:(id)arg1;
+- (_Bool)_areDefaultCities:(id)arg1;
 - (id)_cityArrayToCloudCityArray:(id)arg1;
-- (BOOL)serviceDebugging;
-- (BOOL)isLocalWeatherEnabled;
-- (void)setLocalWeatherEnabled:(BOOL)arg1;
+- (_Bool)serviceDebugging;
+- (_Bool)isLocalWeatherEnabled;
+- (void)setLocalWeatherEnabled:(_Bool)arg1;
 - (id)readDefaultValueForKey:(id)arg1;
 - (void)writeDefaultValue:(id)arg1 forKey:(id)arg2;
 - (id)secondBacksideLogoImage;
@@ -52,25 +51,26 @@
 - (id)serviceHost;
 - (id)UUID;
 - (void)synchronizeStateToDisk;
-- (void)setActiveCity:(unsigned int)arg1;
+- (void)setActiveCity:(unsigned long long)arg1;
 - (int)loadActiveCity;
 - (id)loadSavedCities;
 - (id)_defaultCities;
 - (id)_ppt_addFakeTestCities;
-- (void)saveToDiskWithCities:(id)arg1 activeCity:(unsigned int)arg2;
+- (void)saveToDiskWithCities:(id)arg1 activeCity:(unsigned long long)arg2;
 - (void)saveToDiskWithCities:(id)arg1;
-- (void)saveToDiskWithCity:(id)arg1 forActiveIndex:(unsigned int)arg2;
-- (id)loadSavedCityAtIndex:(int)arg1;
+- (void)saveToDiskWithCity:(id)arg1 forActiveIndex:(unsigned long long)arg2;
+- (id)loadSavedCityAtIndex:(long long)arg1;
 - (void)saveToDiskWithLocalWeatherCity:(id)arg1;
 - (id)localWeatherCity;
 - (id)cityFromPreferencesDictionary:(id)arg1;
 - (id)preferencesDictionaryForCity:(id)arg1;
-- (BOOL)_defaultsCurrent;
-- (BOOL)_defaultsAreValid;
-- (BOOL)isCelsius;
-- (void)setCelsius:(BOOL)arg1;
+- (_Bool)_defaultsCurrent;
+- (_Bool)_defaultsAreValid;
+- (_Bool)isCelsius;
+@property(copy, nonatomic) NSString *yahooWeatherURLString;
+- (void)setCelsius:(_Bool)arg1;
 - (void)dealloc;
-- (BOOL)readTemperatureUnits;
+- (_Bool)readTemperatureUnits;
 - (void)registerTemperatureUnits;
 - (id)init;
 

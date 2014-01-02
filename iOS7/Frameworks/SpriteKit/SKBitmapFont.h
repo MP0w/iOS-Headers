@@ -10,32 +10,31 @@
 
 @class NSDictionary, NSString;
 
+// Not exported
 @interface SKBitmapFont : NSObject <NSCoding>
 {
     NSString *_fontName;
     NSString *_filePath;
-    float _lineHeight;
-    float _baseLine;
+    double _lineHeight;
+    double _baseLine;
     NSDictionary *_characterSprites;
     NSDictionary *_characterAdvances;
     NSDictionary *_characterKerning;
-    BOOL _internal;
+    _Bool _internal;
     NSString *_fileName;
 }
 
 + (id)fontWithTexture:(id)arg1 fontDataString:(id)arg2;
 + (id)fontForFileNamed:(id)arg1;
-+ (id)_fontForFileNamed:(id)arg1;
 - (void).cxx_destruct;
-- (float)kerningForCharacterNamed:(id)arg1 followedBy:(id)arg2;
-- (float)advanceForCharacterNamed:(id)arg1;
-- (float)lineHeight;
+- (double)kerningForCharacterNamed:(id)arg1 followedBy:(id)arg2;
+- (double)advanceForCharacterNamed:(id)arg1;
+- (double)lineHeight;
 - (id)spriteForCharacterNamed:(id)arg1;
-- (BOOL)loadFontWithTexture:(id)arg1 fontDataString:(id)arg2;
+- (_Bool)loadFontWithTexture:(id)arg1 fontDataString:(id)arg2;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)init;
-- (id)fontName;
 
 @end
 

@@ -8,6 +8,7 @@
 
 @class NSArray, UISnapshotView, UIView, UIWindow;
 
+// Not exported
 @interface UIClientRotationContext : NSObject
 {
     UIView *_headerView;
@@ -17,47 +18,47 @@
     UIView *_rotatingSnapshotView;
     UIView *_footerStartSnapshotView;
     UIView *_footerEndSnapshotView;
-    BOOL _headerWasHidden;
-    BOOL _footerWasHidden;
-    BOOL _contentWasHidden;
-    BOOL _snapshotTargetWasHidden;
-    BOOL _orderKeyboardInAfterRotating;
-    BOOL _skipFooterRotation;
-    BOOL _skipHeaderRotation;
-    int _fromOrientation;
-    int _toOrientation;
+    _Bool _headerWasHidden;
+    _Bool _footerWasHidden;
+    _Bool _contentWasHidden;
+    _Bool _snapshotTargetWasHidden;
+    _Bool _orderKeyboardInAfterRotating;
+    _Bool _skipFooterRotation;
+    _Bool _skipHeaderRotation;
+    long long _fromOrientation;
+    long long _toOrientation;
     double _duration;
     UISnapshotView *_headerSnapshotViewStart;
     UISnapshotView *_footerSnapshotViewStart;
     UISnapshotView *_contentSnapshotViewStart;
-    float _contentTopAdjustmentStart;
+    double _contentTopAdjustmentStart;
     id _rotatingClient;
-    CDStruct_19ba41f1 _rotationSettings;
-    float contentBottomInset;
+    CDStruct_010f855d _rotationSettings;
+    double contentBottomInset;
     UIWindow *_window;
-    BOOL _skipClientRotationCallbacks;
+    _Bool _skipClientRotationCallbacks;
     NSArray *_backdropViews;
 }
 
-@property(nonatomic) BOOL skipClientRotationCallbacks; // @synthesize skipClientRotationCallbacks=_skipClientRotationCallbacks;
-@property(readonly, nonatomic) int toOrientation; // @synthesize toOrientation=_toOrientation;
-@property(readonly, nonatomic) int fromOrientation; // @synthesize fromOrientation=_fromOrientation;
+@property(nonatomic) _Bool skipClientRotationCallbacks; // @synthesize skipClientRotationCallbacks=_skipClientRotationCallbacks;
+@property(readonly, nonatomic) long long toOrientation; // @synthesize toOrientation=_toOrientation;
+@property(readonly, nonatomic) long long fromOrientation; // @synthesize fromOrientation=_fromOrientation;
 @property(readonly, nonatomic) double duration; // @synthesize duration=_duration;
 @property(readonly, nonatomic) UIView *contentView; // @synthesize contentView=_contentView;
 @property(readonly, nonatomic) id rotatingClient; // @synthesize rotatingClient=_rotatingClient;
-- (void)disableBackdropViewUpdates:(BOOL)arg1;
-- (void)finishFullRotateUsingOnePartAnimation:(BOOL)arg1;
+- (void)disableBackdropViewUpdates:(_Bool)arg1;
+- (void)finishFullRotateUsingOnePartAnimation:(_Bool)arg1;
 - (void)finishFirstHalfRotation;
 - (void)rotateSnapshots;
-- (void)setupRotationOrderingKeyboardInAfterRotation:(BOOL)arg1;
-- (BOOL)_isFooterTranslucent;
-- (BOOL)_isHeaderTranslucent;
+- (void)setupRotationOrderingKeyboardInAfterRotation:(_Bool)arg1;
+- (_Bool)_isFooterTranslucent;
+- (_Bool)_isHeaderTranslucent;
 - (void)_slideFooterWithStartSnapshot:(id)arg1 endSnapshot:(id)arg2 duration:(double)arg3;
-- (void)_positionHeaderView:(id)arg1 andFooterView:(id)arg2 outsideContentViewForInterfaceOrientation:(int)arg3;
-- (void)slideHeaderViewAndFooterViewOffScreen:(BOOL)arg1 forInterfaceOrientation:(int)arg2;
-- (void)_slideHeaderView:(id)arg1 andFooterView:(id)arg2 offScreen:(BOOL)arg3 forInterfaceOrientation:(int)arg4;
+- (void)_positionHeaderView:(id)arg1 andFooterView:(id)arg2 outsideContentViewForInterfaceOrientation:(long long)arg3;
+- (void)slideHeaderViewAndFooterViewOffScreen:(_Bool)arg1 forInterfaceOrientation:(long long)arg2;
+- (void)_slideHeaderView:(id)arg1 andFooterView:(id)arg2 offScreen:(_Bool)arg3 forInterfaceOrientation:(long long)arg4;
 - (void)dealloc;
-- (id)initWithClient:(id)arg1 toOrientation:(int)arg2 duration:(double)arg3 andWindow:(id)arg4;
+- (id)initWithClient:(id)arg1 toOrientation:(long long)arg2 duration:(double)arg3 andWindow:(id)arg4;
 
 @end
 

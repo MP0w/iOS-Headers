@@ -14,7 +14,6 @@
 + (void)endDisablingUserInteraction:(id)arg1;
 + (id)beginDisablingUserInteraction;
 + (id)currentTheme;
-+ (void)initializeWithInterfaceEnvironment:(unsigned int)arg1;
 
 @end
 

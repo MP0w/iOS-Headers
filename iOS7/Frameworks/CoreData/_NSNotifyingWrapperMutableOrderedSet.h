@@ -8,6 +8,7 @@
 
 @class NSManagedObject, NSString;
 
+// Not exported
 @interface _NSNotifyingWrapperMutableOrderedSet : NSMutableOrderedSet
 {
     NSManagedObject *_container;
@@ -15,8 +16,8 @@
     NSMutableOrderedSet *_mutableOrderedSet;
 }
 
-- (void)sortRange:(struct _NSRange)arg1 options:(unsigned int)arg2 usingComparator:(id)arg3;
-- (void)sortWithOptions:(unsigned int)arg1 usingComparator:(id)arg2;
+- (void)sortRange:(struct _NSRange)arg1 options:(unsigned long long)arg2 usingComparator:(id)arg3;
+- (void)sortWithOptions:(unsigned long long)arg1 usingComparator:(id)arg2;
 - (void)sortUsingComparator:(id)arg1;
 - (void)unionSet:(id)arg1;
 - (void)minusSet:(id)arg1;
@@ -30,55 +31,55 @@
 - (void)removeObjectsAtIndexes:(id)arg1;
 - (void)removeObjectsInRange:(struct _NSRange)arg1;
 - (void)replaceObjectsAtIndexes:(id)arg1 withObjects:(id)arg2;
-- (void)replaceObjectsInRange:(struct _NSRange)arg1 withObjects:(const id *)arg2 count:(unsigned int)arg3;
-- (void)setObject:(id)arg1 atIndex:(unsigned int)arg2;
+- (void)replaceObjectsInRange:(struct _NSRange)arg1 withObjects:(const id *)arg2 count:(unsigned long long)arg3;
+- (void)setObject:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)insertObjects:(id)arg1 atIndexes:(id)arg2;
-- (void)insertObjects:(id *)arg1 count:(unsigned int)arg2 atIndex:(unsigned int)arg3;
-- (void)moveObjectsAtIndexes:(id)arg1 toIndex:(unsigned int)arg2;
-- (void)exchangeObjectAtIndex:(unsigned int)arg1 withObjectAtIndex:(unsigned int)arg2;
+- (void)insertObjects:(id *)arg1 count:(unsigned long long)arg2 atIndex:(unsigned long long)arg3;
+- (void)moveObjectsAtIndexes:(id)arg1 toIndex:(unsigned long long)arg2;
+- (void)exchangeObjectAtIndex:(unsigned long long)arg1 withObjectAtIndex:(unsigned long long)arg2;
 - (void)addObjectsFromArray:(id)arg1;
-- (void)addObjects:(const id *)arg1 count:(unsigned int)arg2;
+- (void)addObjects:(const id *)arg1 count:(unsigned long long)arg2;
 - (void)addObject:(id)arg1;
-- (void)replaceObjectAtIndex:(unsigned int)arg1 withObject:(id)arg2;
-- (void)removeObjectAtIndex:(unsigned int)arg1;
-- (void)insertObject:(id)arg1 atIndex:(unsigned int)arg2;
-- (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
-- (unsigned int)count;
+- (void)replaceObjectAtIndex:(unsigned long long)arg1 withObject:(id)arg2;
+- (void)removeObjectAtIndex:(unsigned long long)arg1;
+- (void)insertObject:(id)arg1 atIndex:(unsigned long long)arg2;
+- (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
+- (unsigned long long)count;
 - (id)valueForKeyPath:(id)arg1;
 - (id)valueForKey:(id)arg1;
 - (void)setValue:(id)arg1 forKey:(id)arg2;
-- (id)descriptionWithLocale:(id)arg1 indent:(unsigned int)arg2;
+- (id)descriptionWithLocale:(id)arg1 indent:(unsigned long long)arg2;
 - (id)descriptionWithLocale:(id)arg1;
 - (id)description;
-- (id)sortedArrayWithOptions:(unsigned int)arg1 usingComparator:(id)arg2;
+- (id)sortedArrayWithOptions:(unsigned long long)arg1 usingComparator:(id)arg2;
 - (id)sortedArrayUsingComparator:(id)arg1;
-- (unsigned int)indexOfObject:(id)arg1 inSortedRange:(struct _NSRange)arg2 options:(unsigned int)arg3 usingComparator:(id)arg4;
-- (id)indexesOfObjectsAtIndexes:(id)arg1 options:(unsigned int)arg2 passingTest:(id)arg3;
-- (id)indexesOfObjectsWithOptions:(unsigned int)arg1 passingTest:(id)arg2;
+- (unsigned long long)indexOfObject:(id)arg1 inSortedRange:(struct _NSRange)arg2 options:(unsigned long long)arg3 usingComparator:(id)arg4;
+- (id)indexesOfObjectsAtIndexes:(id)arg1 options:(unsigned long long)arg2 passingTest:(id)arg3;
+- (id)indexesOfObjectsWithOptions:(unsigned long long)arg1 passingTest:(id)arg2;
 - (id)indexesOfObjectsPassingTest:(id)arg1;
-- (unsigned int)indexOfObjectAtIndexes:(id)arg1 options:(unsigned int)arg2 passingTest:(id)arg3;
-- (unsigned int)indexOfObjectWithOptions:(unsigned int)arg1 passingTest:(id)arg2;
-- (unsigned int)indexOfObjectPassingTest:(id)arg1;
-- (void)enumerateObjectsAtIndexes:(id)arg1 options:(unsigned int)arg2 usingBlock:(id)arg3;
-- (void)enumerateObjectsWithOptions:(unsigned int)arg1 usingBlock:(id)arg2;
+- (unsigned long long)indexOfObjectAtIndexes:(id)arg1 options:(unsigned long long)arg2 passingTest:(id)arg3;
+- (unsigned long long)indexOfObjectWithOptions:(unsigned long long)arg1 passingTest:(id)arg2;
+- (unsigned long long)indexOfObjectPassingTest:(id)arg1;
+- (void)enumerateObjectsAtIndexes:(id)arg1 options:(unsigned long long)arg2 usingBlock:(id)arg3;
+- (void)enumerateObjectsWithOptions:(unsigned long long)arg1 usingBlock:(id)arg2;
 - (void)enumerateObjectsUsingBlock:(id)arg1;
 - (id)set;
 - (id)array;
 - (id)reversedOrderedSet;
 - (id)reverseObjectEnumerator;
 - (id)objectEnumerator;
-- (BOOL)isSubsetOfOrderedSet:(id)arg1;
-- (BOOL)isSubsetOfSet:(id)arg1;
-- (BOOL)intersectsSet:(id)arg1;
-- (BOOL)intersectsOrderedSet:(id)arg1;
-- (BOOL)containsObject:(id)arg1;
-- (BOOL)isEqualToOrderedSet:(id)arg1;
+- (_Bool)isSubsetOfOrderedSet:(id)arg1;
+- (_Bool)isSubsetOfSet:(id)arg1;
+- (_Bool)intersectsSet:(id)arg1;
+- (_Bool)intersectsOrderedSet:(id)arg1;
+- (_Bool)containsObject:(id)arg1;
+- (_Bool)isEqualToOrderedSet:(id)arg1;
 - (id)lastObject;
 - (id)firstObject;
 - (id)objectsAtIndexes:(id)arg1;
 - (void)getObjects:(id *)arg1;
-- (unsigned int)indexOfObject:(id)arg1;
-- (id)objectAtIndex:(unsigned int)arg1;
+- (unsigned long long)indexOfObject:(id)arg1;
+- (id)objectAtIndex:(unsigned long long)arg1;
 - (void)getObjects:(id *)arg1 range:(struct _NSRange)arg2;
 - (id)allObjects;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;

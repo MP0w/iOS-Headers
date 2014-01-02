@@ -14,7 +14,7 @@
 
 + (id)getRequestOriginWithDictionary:(id)arg1 context:(id)arg2;
 + (id)getRequestOrigin;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSNumber *searchTimeout;
 @property(copy, nonatomic) NSNumber *maxAge;
 @property(copy, nonatomic) NSString *desiredAccuracy;

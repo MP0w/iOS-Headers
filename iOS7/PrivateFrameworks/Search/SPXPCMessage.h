@@ -13,17 +13,17 @@
     SPXPCConnection *_receivingConnection;
     NSString *_name;
     NSDictionary *_info;
-    unsigned int _shmemPtr;
+    unsigned long long _shmemPtr;
     unsigned int _shmemLen;
     NSObject<OS_xpc_object> *_x_reply_connection;
     NSObject<OS_xpc_object> *_x_reply;
 }
 
 @property(nonatomic) unsigned int sharedMemoryLength; // @synthesize sharedMemoryLength=_shmemLen;
-@property(nonatomic) unsigned int sharedMemoryRegion; // @synthesize sharedMemoryRegion=_shmemPtr;
+@property(nonatomic) unsigned long long sharedMemoryRegion; // @synthesize sharedMemoryRegion=_shmemPtr;
 @property(copy, nonatomic) NSDictionary *info; // @synthesize info=_info;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
-- (BOOL)needsReply;
+- (_Bool)needsReply;
 - (void)sendReply:(id)arg1;
 - (id)_createXPCMessage;
 - (id)_initWithXPCMessage:(id)arg1 onConnection:(id)arg2;

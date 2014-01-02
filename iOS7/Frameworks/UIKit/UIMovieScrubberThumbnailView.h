@@ -6,13 +6,14 @@
 
 #import <UIKit/UIImageView.h>
 
+// Not exported
 @interface UIMovieScrubberThumbnailView : UIImageView
 {
     unsigned int _hasPlaceholderImage:1;
 }
 
-- (BOOL)hasPlaceholderImage;
-- (void)setHasPlaceholderImage:(BOOL)arg1;
+- (_Bool)hasPlaceholderImage;
+- (void)setHasPlaceholderImage:(_Bool)arg1;
 
 @end
 

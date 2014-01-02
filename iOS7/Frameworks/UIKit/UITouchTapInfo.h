@@ -6,9 +6,10 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface UITouchTapInfo : NSObject
 {
-    unsigned int _tapCount;
+    unsigned long long _tapCount;
     float _multiTapDelay;
     float _rejectAsTapThrehold;
     float _viewTouchPauseThreshold;
@@ -16,10 +17,10 @@
     double _startTime;
 }
 
-- (BOOL)cancelTouchTracking;
+- (_Bool)cancelTouchTracking;
 - (void)touchEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchMoved:(id)arg1 withEvent:(id)arg2;
-- (BOOL)_touchLocationConsideredMovement:(id)arg1;
+- (_Bool)_touchLocationConsideredMovement:(id)arg1;
 - (void)touchBegan:(id)arg1 withEvent:(id)arg2;
 - (void)clearTapState;
 - (void)releaseAndClearWeakRefs;

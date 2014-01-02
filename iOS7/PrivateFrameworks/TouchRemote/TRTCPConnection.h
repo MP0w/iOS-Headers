@@ -13,7 +13,7 @@
 @interface TRTCPConnection : NSObject <TRTCPConnectionStreamDelegate>
 {
     NSObject<OS_dispatch_queue> *_accessQueue;
-    BOOL _closed;
+    _Bool _closed;
     TRTCPConnectionStream *_connectionStream;
     id <TRTCPConnectionDelegate> _delegate;
     NSObject<OS_dispatch_queue> *_delegateQueue;

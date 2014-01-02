@@ -13,7 +13,7 @@
 {
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 + (id)null;
 + (id)allocWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
@@ -21,10 +21,10 @@
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
-- (unsigned int)retainCount;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;
-- (unsigned long)_cfTypeID;
+- (unsigned long long)_cfTypeID;
 
 @end
 

@@ -12,11 +12,11 @@
 
 @interface AXTimer : NSObject <AXTimer>
 {
-    BOOL _automaticallyCancelPendingBlockUponSchedulingNewBlock;
-    BOOL _active;
-    BOOL _accessQueueIsExternal;
-    NSString *_label;
+    _Bool _automaticallyCancelPendingBlockUponSchedulingNewBlock;
+    _Bool _active;
+    _Bool _accessQueueIsExternal;
     int _state;
+    NSString *_label;
     AXAccessQueue *_accessQueue;
     NSObject<OS_dispatch_source> *_dispatchTimer;
 }
@@ -24,11 +24,11 @@
 + (id)timerTargettingMainAccessQueue;
 + (void)initialize;
 @property(retain, nonatomic) NSObject<OS_dispatch_source> *dispatchTimer; // @synthesize dispatchTimer=_dispatchTimer;
-@property(nonatomic) BOOL accessQueueIsExternal; // @synthesize accessQueueIsExternal=_accessQueueIsExternal;
+@property(nonatomic) _Bool accessQueueIsExternal; // @synthesize accessQueueIsExternal=_accessQueueIsExternal;
 @property(retain, nonatomic) AXAccessQueue *accessQueue; // @synthesize accessQueue=_accessQueue;
 @property(nonatomic) int state; // @synthesize state=_state;
-@property(nonatomic, getter=isActive) BOOL active; // @synthesize active=_active;
-@property(nonatomic) BOOL automaticallyCancelPendingBlockUponSchedulingNewBlock; // @synthesize automaticallyCancelPendingBlockUponSchedulingNewBlock=_automaticallyCancelPendingBlockUponSchedulingNewBlock;
+@property(nonatomic, getter=isActive) _Bool active; // @synthesize active=_active;
+@property(nonatomic) _Bool automaticallyCancelPendingBlockUponSchedulingNewBlock; // @synthesize automaticallyCancelPendingBlockUponSchedulingNewBlock=_automaticallyCancelPendingBlockUponSchedulingNewBlock;
 @property(copy) NSString *label; // @synthesize label=_label;
 - (id)description;
 - (void)_warnAboutAsynchronousCancelling;
@@ -41,7 +41,7 @@
 - (void)afterDelay:(double)arg1 processReadingBlock:(id)arg2;
 - (void)afterDelay:(double)arg1 processBlock:(id)arg2;
 - (void)_performEnqueuedWritingBlock:(id)arg1 asynchronousExecutionWarningHandler:(void)arg2;
-@property(readonly, nonatomic, getter=isPending) BOOL pending;
+@property(readonly, nonatomic, getter=isPending) _Bool pending;
 - (void)dealloc;
 - (id)initWithTargetAccessQueue:(id)arg1;
 - (id)init;

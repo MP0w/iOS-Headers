@@ -11,6 +11,7 @@
 
 @class NSAttributedString, NSNumber, NSString, UIColor, UIImage, _UIGraphicsLetterpressStyle;
 
+// Not exported
 @interface UIButtonContent : NSObject <NSCoding, NSCopying>
 {
     NSString *title;
@@ -18,12 +19,14 @@
     UIImage *image;
     UIImage *background;
     UIColor *titleColor;
+    UIColor *imageColor;
     UIColor *shadowColor;
     NSNumber *drawingStroke;
 }
 
 @property(retain, nonatomic) NSNumber *drawingStroke; // @synthesize drawingStroke;
 @property(retain, nonatomic) UIColor *shadowColor; // @synthesize shadowColor;
+@property(retain, nonatomic) UIColor *imageColor; // @synthesize imageColor;
 @property(retain, nonatomic) UIColor *titleColor; // @synthesize titleColor;
 @property(retain, nonatomic) UIImage *background; // @synthesize background;
 @property(retain, nonatomic) UIImage *image; // @synthesize image;
@@ -35,7 +38,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-@property(readonly, nonatomic) BOOL isEmpty; // @dynamic isEmpty;
+@property(readonly, nonatomic) _Bool isEmpty; // @dynamic isEmpty;
 
 @end
 

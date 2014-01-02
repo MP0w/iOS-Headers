@@ -7,8 +7,8 @@
 #pragma mark Named Structures
 
 struct CGPoint {
-    float x;
-    float y;
+    double x;
+    double y;
 };
 
 struct CGRect {
@@ -17,44 +17,45 @@ struct CGRect {
 };
 
 struct CGSize {
-    float width;
-    float height;
+    double width;
+    double height;
 };
 
 struct UIEdgeInsets {
-    float top;
-    float left;
-    float bottom;
-    float right;
+    double top;
+    double left;
+    double bottom;
+    double right;
 };
 
 struct _NSRange {
-    unsigned int location;
-    unsigned int length;
+    unsigned long long location;
+    unsigned long long length;
 };
 
 #pragma mark Typedef'd Structures
 
 typedef struct {
-    unsigned int listIsFlat:1;
-    unsigned int showAll:1;
-    unsigned int showColors:1;
-    unsigned int allSelected:1;
-    unsigned int allowsRotation:1;
-    unsigned int allowsEdit:1;
-    unsigned int showsDoneButton:1;
-    unsigned int showsCancelButton:1;
-    unsigned int showsWritableCalendarsOnly:1;
-    unsigned int showsRefreshButton:1;
-    unsigned int allowsPullToRefresh:1;
-} CDStruct_a7a51b3b;
+    int _field1;
+    char _field2;
+    char _field3;
+    char _field4;
+    char _field5;
+    double _field6;
+} CDStruct_79f9e052;
 
+// Ambiguous groups
 typedef struct {
-    int year;
-    char month;
-    char day;
-    char hour;
-    char minute;
-    double second;
-} CDStruct_b0fa4487;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+} CDStruct_52e1c6c6;
 

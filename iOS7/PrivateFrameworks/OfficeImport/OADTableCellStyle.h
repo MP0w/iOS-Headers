@@ -8,6 +8,7 @@
 
 @class OADFill, OADTableCellBorderStyle;
 
+// Not exported
 @interface OADTableCellStyle : NSObject
 {
     OADTableCellBorderStyle *mBorderStyle;

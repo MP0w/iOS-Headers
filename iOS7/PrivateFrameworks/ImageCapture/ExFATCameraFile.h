@@ -16,11 +16,11 @@
 - (void)updateBasicMetadata;
 - (id)metadataDict;
 - (id)thumbData;
-- (long)writeDataToFile:(int)arg1 fromOffset:(long long)arg2 ofLength:(long long *)arg3;
+- (int)writeDataToFile:(int)arg1 fromOffset:(long long)arg2 ofLength:(long long *)arg3;
 - (struct CGDataProviderSequentialCallbacks)dpCallbacks;
 - (void)setdpOffset:(long long)arg1;
 - (long long)dpOffset;
-@property BOOL updatedBasicMetadata;
+@property _Bool updatedBasicMetadata;
 @property int bitsPerPixel;
 @property int imgHeight;
 @property int imgWidth;
@@ -39,7 +39,7 @@
 - (void)releaseProvider;
 - (void)rewind;
 - (long long)skipBytes:(long long)arg1;
-- (unsigned long)getBytes:(void *)arg1 ofSize:(unsigned long)arg2;
+- (unsigned long long)getBytes:(void *)arg1 ofSize:(unsigned long long)arg2;
 - (void)finalize;
 - (void)dealloc;
 - (id)initWithName:(id)arg1 parentFolder:(id)arg2 device:(id)arg3 object:(id)arg4 fsCreationTime:(struct timespec)arg5 fsModificationTime:(struct timespec)arg6 fsSize:(long long)arg7;

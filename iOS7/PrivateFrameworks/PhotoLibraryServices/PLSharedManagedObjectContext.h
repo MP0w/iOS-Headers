@@ -10,10 +10,10 @@
 {
 }
 
-- (void)_mergeChangesFromDidSaveDictionary:(id)arg1 usingObjectIDs:(BOOL)arg2;
+- (void)_mergeChangesFromDidSaveDictionary:(id)arg1 usingObjectIDs:(_Bool)arg2;
 - (void)tearDownLocalChangeNotifications;
 - (void)setupLocalChangeNotifications;
-- (BOOL)isUserInterfaceContext;
+- (_Bool)isUserInterfaceContext;
 
 @end
 

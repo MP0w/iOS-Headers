@@ -13,7 +13,8 @@
 @interface SKUIOverlayContainerViewController : UIViewController <UIGestureRecognizerDelegate>
 {
     UIControl *_backstopView;
-    int _selectedViewControllerIndex;
+    _Bool _isAdjustingViewsForDismiss;
+    long long _selectedViewControllerIndex;
     UITapGestureRecognizer *_tapGestureRecognizer;
     NSMutableArray *_viewControllers;
 }
@@ -25,21 +26,24 @@
 - (id)_selectedViewController;
 - (void)_removeChildren;
 - (void)_pushViewController:(id)arg1;
-- (void)_positionViewControllersForOrientation:(int)arg1;
+- (void)_positionViewControllersForOrientation:(long long)arg1;
 - (void)_popViewControllers;
-- (float)_overlaySpacingForOrientation:(int)arg1;
-- (int)_indexOfViewControllerForPoint:(struct CGPoint)arg1;
+- (double)_overlaySpacingForOrientation:(long long)arg1;
+- (long long)_indexOfViewControllerForPoint:(struct CGPoint)arg1;
 - (struct CGRect)_frameToCenterViewController:(id)arg1;
 - (void)_fadeInViewController:(id)arg1 withCompletionBlock:(id)arg2;
+- (void)_frameAction:(id)arg1;
 - (void)_tapAction:(id)arg1;
-- (BOOL)gestureRecognizerShouldBegin:(id)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (unsigned int)supportedInterfaceOrientations;
+- (_Bool)gestureRecognizerShouldBegin:(id)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
+- (void)willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (unsigned long long)supportedInterfaceOrientations;
+- (_Bool)shouldAutomaticallyForwardAppearanceMethods;
 - (void)loadView;
 - (void)showViewController:(id)arg1 withFlipTransition:(id)arg2 completionBlock:(id)arg3;
 - (void)showViewControllers:(id)arg1;
 - (void)showViewController:(id)arg1 withCompletionBlock:(id)arg2;
+- (void)dismissWithFadeTransitionCompletionBlock:(id)arg1;
 - (void)dismissWithFlipTransition:(id)arg1 completionBlock:(id)arg2;
 @property(readonly, nonatomic) UIControl *backstopControl;
 - (void)dealloc;

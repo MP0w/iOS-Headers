@@ -26,7 +26,7 @@
 + (void)initialize;
 - (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
 - (void)ping:(id)arg1;
-- (void)connection:(id)arg1 connectionStateDidChange:(BOOL)arg2;
+- (void)connection:(id)arg1 connectionStateDidChange:(_Bool)arg2;
 - (void)invalidate;
 - (void)removeDataProviderWithSectionID:(id)arg1;
 - (id)addDataProvider:(id)arg1;

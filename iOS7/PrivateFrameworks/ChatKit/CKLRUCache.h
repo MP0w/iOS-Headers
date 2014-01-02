@@ -12,7 +12,7 @@
 {
 }
 
-- (id)initWithMaximumCapacity:(unsigned int)arg1;
+- (id)initWithMaximumCapacity:(unsigned long long)arg1;
 - (void)dealloc;
 
 @end

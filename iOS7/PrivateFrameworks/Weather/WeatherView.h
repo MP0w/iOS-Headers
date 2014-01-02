@@ -13,27 +13,27 @@
 @interface WeatherView : UIView <CityUpdaterDelegate>
 {
     City *_city;
-    BOOL _showingDay;
+    _Bool _showingDay;
     UIImage *_bigIcon;
     UIImage *_secondaryBigIcon;
-    unsigned int _bigIconIndex;
-    BOOL _showWind;
+    unsigned long long _bigIconIndex;
+    _Bool _showWind;
     UIView *_windView;
 }
 
 @property(retain, nonatomic, setter=showCity:) City *city; // @synthesize city=_city;
 - (id)_secondaryBigIcon;
 - (id)_bigIcon;
-- (void)setBigIcon:(unsigned int)arg1 dayNightChanged:(BOOL)arg2;
+- (void)setBigIcon:(unsigned long long)arg1 dayNightChanged:(_Bool)arg2;
 - (id)bigImageBundle;
 - (void)cleanupWindView;
 - (id)bundle;
-- (void)setupSecondaryBigIconOffset:(unsigned int)arg1;
-- (void)setupBigIconOffset:(unsigned int)arg1;
+- (void)setupSecondaryBigIconOffset:(unsigned long long)arg1;
+- (void)setupBigIconOffset:(unsigned long long)arg1;
 - (void)refreshLocalization;
 - (void)cityDidStartWeatherUpdate:(id)arg1;
-- (BOOL)updateWeatherDisplayForCity:(id)arg1;
-- (BOOL)_setCity:(id)arg1 associateAsDelegate:(BOOL)arg2;
+- (_Bool)updateWeatherDisplayForCity:(id)arg1;
+- (_Bool)_setCity:(id)arg1 associateAsDelegate:(_Bool)arg2;
 - (void)cityDidFinishWeatherUpdate:(id)arg1;
 - (void)resetLocale:(id)arg1;
 - (void)dealloc;

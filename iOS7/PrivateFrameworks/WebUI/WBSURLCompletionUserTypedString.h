@@ -14,9 +14,9 @@
     const unsigned short *_unichars;
     const char *_chars;
     int _length;
-    BOOL _containsAnySpaces;
-    BOOL _ownsUnichars;
-    BOOL _ownsChars;
+    _Bool _containsAnySpaces;
+    _Bool _ownsUnichars;
+    _Bool _ownsChars;
 }
 
 + (void)initialize;

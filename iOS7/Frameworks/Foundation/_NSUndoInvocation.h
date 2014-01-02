@@ -8,6 +8,7 @@
 
 @class NSInvocation;
 
+// Not exported
 @interface _NSUndoInvocation : _NSUndoObject
 {
     NSInvocation *_invocation;

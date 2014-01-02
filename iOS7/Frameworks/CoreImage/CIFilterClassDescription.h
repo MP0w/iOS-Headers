@@ -8,6 +8,7 @@
 
 @class NSArray, NSMutableDictionary;
 
+// Not exported
 @interface CIFilterClassDescription : NSObject
 {
     NSMutableDictionary *attributes;

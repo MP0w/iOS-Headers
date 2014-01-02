@@ -9,7 +9,7 @@
 @protocol AXUIContentViewControllerDelegate <NSObject>
 
 @optional
-- (BOOL)shouldPreventAutorotatingAllContentViewControllers;
-- (float)desiredWindowLevelForContentViewController:(id)arg1 userInteractionEnabled:(BOOL)arg2;
+- (_Bool)shouldPreventAutorotatingAllContentViewControllers;
+- (double)desiredWindowLevelForContentViewController:(id)arg1 userInteractionEnabled:(_Bool)arg2;
 @end
 

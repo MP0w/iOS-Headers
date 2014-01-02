@@ -7,12 +7,12 @@
 #pragma mark Named Structures
 
 struct CGAffineTransform {
-    float a;
-    float b;
-    float c;
-    float d;
-    float tx;
-    float ty;
+    double a;
+    double b;
+    double c;
+    double d;
+    double tx;
+    double ty;
 };
 
 struct CGColor;
@@ -30,8 +30,8 @@ struct CGPDFStream;
 struct CGPath;
 
 struct CGPoint {
-    float x;
-    float y;
+    double x;
+    double y;
 };
 
 struct CGRect {
@@ -40,8 +40,8 @@ struct CGRect {
 };
 
 struct CGSize {
-    float width;
-    float height;
+    double width;
+    double height;
 };
 
 struct CPInlineContainer {
@@ -74,7 +74,7 @@ struct CPPDFChar {
     struct CGPoint _field4;
     struct CGSize _field5;
     struct CPPDFStyle *_field6;
-    float _field7;
+    double _field7;
     int _field8;
 };
 
@@ -106,11 +106,11 @@ struct CPPDFContext {
     unsigned int _field18;
     int _field19;
     struct CPMultiUnicodes *_field20;
-    int _field21;
-    int _field22;
+    long long _field21;
+    long long _field22;
     unsigned int *_field23;
     struct CGPath **_field24;
-    char _field25;
+    _Bool _field25;
 };
 
 struct CPPDFGraphicState;
@@ -123,7 +123,7 @@ struct CPPDFImage {
     struct CGImage *_field5;
     struct CGAffineTransform _field6;
     struct CGPDFDictionary *_field7;
-    float _field8;
+    double _field8;
     struct CGColor *_field9;
 };
 
@@ -139,7 +139,7 @@ struct CPPDFShape {
     struct CPPDFStyle *_field3;
     int _field4;
     struct CGPath *_field5;
-    char _field6;
+    _Bool _field6;
     struct CGAffineTransform _field7;
     struct CGAffineTransform _field8;
 };
@@ -149,14 +149,14 @@ struct CPPDFStyle {
     struct CGColorSpace *_field2;
     struct CGColor *_field3;
     struct CGColorSpace *_field4;
-    float _field5;
-    float _field6;
+    double _field5;
+    double _field6;
     unsigned char _field7;
     unsigned char _field8;
     int _field9;
-    float _field10;
+    double _field10;
     id _field11;
-    float _field12;
+    double _field12;
     union CGPDFObject *_field13;
     union CGPDFObject *_field14;
     struct CGColor *_field15;
@@ -175,8 +175,8 @@ struct PrimitiveBuffer {
 };
 
 struct _NSRange {
-    unsigned int _field1;
-    unsigned int _field2;
+    unsigned long long _field1;
+    unsigned long long _field2;
 };
 
 struct __CFDictionary;
@@ -198,7 +198,7 @@ typedef struct {
     unsigned int _field5;
     double _field6;
     double _field7;
-    char _field8;
+    _Bool _field8;
     double _field9;
     double _field10;
     double _field11;
@@ -210,37 +210,37 @@ typedef struct {
     double _field17;
     double _field18;
     double _field19;
-    char _field20;
-} CDStruct_071390ef;
+    _Bool _field20;
+} CDStruct_1ec70fb1;
 
 typedef struct {
-    float _field1;
-    float _field2;
-} CDStruct_b2fbf00d;
+    double _field1;
+    double _field2;
+} CDStruct_c3b9c2ee;
 
 typedef struct {
-    int location;
-    int length;
-} CDStruct_dff5684f;
+    long long location;
+    long long length;
+} CDStruct_627e0f85;
 
 typedef struct CDStruct_183601bc;
 
 typedef struct {
-    float _field1;
-    float _field2;
-    float _field3;
-    float _field4;
+    double _field1;
+    double _field2;
+    double _field3;
+    double _field4;
     int _field5;
     int *_field6;
     struct CPPDFStyle *_field7;
-} CDStruct_efade31e;
+} CDStruct_8db92b66;
 
 typedef struct {
     struct CGPoint _field1;
     struct CGPoint _field2;
     struct CGPoint _field3;
     struct CGPoint _field4;
-} CDStruct_95077174;
+} CDStruct_f9662865;
 
 typedef struct {
     unsigned int _field1;
@@ -248,28 +248,28 @@ typedef struct {
     int _field3;
     int _field4;
     struct CGRect _field5;
-} CDStruct_a823b51b;
+} CDStruct_2e2afed4;
 
 typedef struct {
-    float fontStretch;
-    float fontWeight;
+    double fontStretch;
+    double fontWeight;
     unsigned int flags;
     struct CGRect fontBBox;
-    float italicAngle;
-    float ascent;
-    float descent;
-    float leading;
-    float capHeight;
-    float xHeight;
-    float stemV;
-    float stemH;
-    float avgWidth;
-    float maxWidth;
-    float missingWidth;
-    float spaceWidth;
-    float underlinePosition;
-    float underlineThickness;
-} CDStruct_8bce2348;
+    double italicAngle;
+    double ascent;
+    double descent;
+    double leading;
+    double capHeight;
+    double xHeight;
+    double stemV;
+    double stemH;
+    double avgWidth;
+    double maxWidth;
+    double missingWidth;
+    double spaceWidth;
+    double underlinePosition;
+    double underlineThickness;
+} CDStruct_05724ab2;
 
 #pragma mark Named Unions
 

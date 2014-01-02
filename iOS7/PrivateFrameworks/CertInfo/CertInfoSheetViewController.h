@@ -26,15 +26,15 @@
 @property(retain, nonatomic) NSString *trustSubtitle; // @synthesize trustSubtitle=_trustSubtitle;
 @property(retain, nonatomic) NSString *trustTitle; // @synthesize trustTitle=_trustTitle;
 @property(retain, nonatomic) NSString *serviceName; // @synthesize serviceName=_serviceName;
-- (void)viewDidDisappear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;
 - (void)_pushDetailsView;
 - (void)_setupNavItem;
 - (void)_accept;
 - (void)_cancel;
 - (void)_dismissWithResult:(int)arg1;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
 - (void)dealloc;
 
 @end

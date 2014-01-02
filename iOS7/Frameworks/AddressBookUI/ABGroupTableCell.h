@@ -8,16 +8,19 @@
 
 #import "ABGroupWrapperDelegate-Protocol.h"
 
-@class ABGroupWrapper;
+@class ABGroupWrapper, ABStyleProvider;
 
 @interface ABGroupTableCell : UITableViewCell <ABGroupWrapperDelegate>
 {
     ABGroupWrapper *_groupWrapper;
+    ABStyleProvider *_styleProvider;
 }
 
+@property(retain, nonatomic) ABStyleProvider *styleProvider; // @synthesize styleProvider=_styleProvider;
 @property(retain, nonatomic) ABGroupWrapper *groupWrapper; // @synthesize groupWrapper=_groupWrapper;
-- (void)groupWrapper:(id)arg1 didBecomeSelected:(BOOL)arg2;
+- (void)groupWrapper:(id)arg1 didBecomeSelected:(_Bool)arg2;
 - (void)updateFromGroupWrapper;
+- (void)tintColorDidChange;
 - (void)dealloc;
 
 @end

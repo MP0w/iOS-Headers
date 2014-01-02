@@ -11,10 +11,12 @@
 }
 
 - (id)_longNumericEntryField;
-- (BOOL)_showsPromptLabelOnEntryField;
-- (float)_entryFieldBottomYDistanceFromNumberPadTopButton;
-- (void)_setHasInput:(BOOL)arg1;
-- (BOOL)_includesStatusView;
+- (_Bool)_showsPromptLabelOnEntryField;
+- (void)_updateStatusText:(id)arg1 animated:(_Bool)arg2;
+- (double)_statusTitleViewHeight;
+- (double)_entryFieldBottomYDistanceFromNumberPadTopButton;
+- (void)_setHasInput:(_Bool)arg1;
+- (_Bool)_includesStatusView;
 - (id)_newEntryField;
 - (id)init;
 

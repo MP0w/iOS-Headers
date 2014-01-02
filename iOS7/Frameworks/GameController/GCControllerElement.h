@@ -10,9 +10,9 @@
 {
 }
 
-- (BOOL)setHIDValue:(struct __IOHIDValue *)arg1;
-- (BOOL)_setValue:(float)arg1;
-@property(readonly, getter=isAnalog) BOOL analog;
+- (_Bool)setHIDValue:(struct __IOHIDValue *)arg1;
+- (_Bool)_setValue:(float)arg1;
+@property(readonly, getter=isAnalog) _Bool analog;
 @property(readonly) GCControllerElement *collection;
 - (float)value;
 

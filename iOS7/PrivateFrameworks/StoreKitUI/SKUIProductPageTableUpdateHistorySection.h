@@ -6,30 +6,31 @@
 
 #import <StoreKitUI/SKUIProductPageTableSection.h>
 
-@class NSArray, NSMutableIndexSet, SKUIClientContext, SKUIColorScheme, SKUIProductPageTableExpandableHeaderView, SKUITextLayoutCache;
+@class NSArray, NSDateFormatter, NSMutableIndexSet, SKUIClientContext, SKUIColorScheme, SKUILayoutCache, SKUIProductPageTableExpandableHeaderView;
 
 @interface SKUIProductPageTableUpdateHistorySection : SKUIProductPageTableSection
 {
     SKUIClientContext *_clientContext;
     NSMutableIndexSet *_expandedIndexSet;
-    int _firstStringIndex;
+    long long _firstStringIndex;
     SKUIProductPageTableExpandableHeaderView *_headerView;
     NSArray *_releaseNotes;
-    SKUITextLayoutCache *_textLayoutCache;
+    SKUILayoutCache *_textLayoutCache;
     SKUIColorScheme *_colorScheme;
+    NSDateFormatter *_dateFormatter;
 }
 
 @property(retain, nonatomic) SKUIColorScheme *colorScheme; // @synthesize colorScheme=_colorScheme;
-@property(retain, nonatomic) SKUITextLayoutCache *textLayoutCache; // @synthesize textLayoutCache=_textLayoutCache;
+@property(retain, nonatomic) SKUILayoutCache *textLayoutCache; // @synthesize textLayoutCache=_textLayoutCache;
 @property(copy, nonatomic) NSArray *releaseNotes; // @synthesize releaseNotes=_releaseNotes;
-@property(nonatomic) int firstStringIndex; // @synthesize firstStringIndex=_firstStringIndex;
+@property(nonatomic) long long firstStringIndex; // @synthesize firstStringIndex=_firstStringIndex;
 - (void).cxx_destruct;
 - (void)_reloadHeaderView;
 - (id)tableViewCellForTableView:(id)arg1 indexPath:(id)arg2;
-- (void)setExpanded:(BOOL)arg1;
+- (void)setExpanded:(_Bool)arg1;
 - (id)selectionActionForTableView:(id)arg1 indexPath:(id)arg2;
-- (int)numberOfRowsInSection;
-- (float)heightForCellInTableView:(id)arg1 indexPath:(id)arg2;
+- (long long)numberOfRowsInSection;
+- (double)heightForCellInTableView:(id)arg1 indexPath:(id)arg2;
 - (id)headerViewForTableView:(id)arg1;
 - (id)initWithClientContext:(id)arg1;
 

@@ -8,11 +8,12 @@
 
 @class NSString;
 
+// Not exported
 @interface DOMStyleMedia : DOMObject
 {
 }
 
-- (BOOL)matchMedium:(id)arg1;
+- (_Bool)matchMedium:(id)arg1;
 @property(readonly) NSString *type;
 - (void)finalize;
 - (void)dealloc;

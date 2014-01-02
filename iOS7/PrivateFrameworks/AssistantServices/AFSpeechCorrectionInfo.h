@@ -8,15 +8,20 @@
 
 #import "NSSecureCoding-Protocol.h"
 
+@class NSString;
+
 @interface AFSpeechCorrectionInfo : NSObject <NSSecureCoding>
 {
-    int _alternativeSelectionCount;
-    int _characterModificationCount;
+    long long _alternativeSelectionCount;
+    long long _characterModificationCount;
+    NSString *_correctedText;
 }
 
-+ (BOOL)supportsSecureCoding;
-@property(nonatomic) int characterModificationCount; // @synthesize characterModificationCount=_characterModificationCount;
-@property(nonatomic) int alternativeSelectionCount; // @synthesize alternativeSelectionCount=_alternativeSelectionCount;
++ (_Bool)supportsSecureCoding;
+@property(copy, nonatomic) NSString *correctedText; // @synthesize correctedText=_correctedText;
+@property(nonatomic) long long characterModificationCount; // @synthesize characterModificationCount=_characterModificationCount;
+@property(nonatomic) long long alternativeSelectionCount; // @synthesize alternativeSelectionCount=_alternativeSelectionCount;
+- (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 

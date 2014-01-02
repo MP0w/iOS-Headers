@@ -10,6 +10,7 @@
 
 @class NSMutableData, NSURLConnection, NSURLResponse;
 
+// Not exported
 @interface _GEONSURLConnectionWaiter : NSObject <NSURLConnectionDelegate>
 {
     NSURLConnection *_conn;

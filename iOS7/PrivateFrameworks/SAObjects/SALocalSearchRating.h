@@ -20,7 +20,7 @@
 @property(copy, nonatomic) NSString *providerId;
 @property(nonatomic) double maxValue;
 @property(copy, nonatomic) NSString *description;
-@property(nonatomic) int count;
+@property(nonatomic) long long count;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

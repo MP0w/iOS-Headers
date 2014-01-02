@@ -17,7 +17,7 @@
 + (int)type;
 + (id)candidateWithUnchangedInput:(id)arg1;
 + (id)candidateWithCandidate:(id)arg1 forInput:(id)arg2;
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSString *input; // @synthesize input=_input;
 @property(copy, nonatomic) NSString *candidate; // @synthesize candidate=_candidate;
 - (void)encodeWithCandidateResultSetCoder:(id)arg1;

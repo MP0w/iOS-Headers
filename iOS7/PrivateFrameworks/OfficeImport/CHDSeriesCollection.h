@@ -8,6 +8,7 @@
 
 @class CHDChart;
 
+// Not exported
 @interface CHDSeriesCollection : EDSortedCollection
 {
     CHDChart *mChart;
@@ -15,8 +16,8 @@
 
 + (id)seriesCollectionWithChart:(id)arg1;
 - (id)firstNonEmptySeries;
-- (unsigned int)nonEmptySeriesCount;
-- (unsigned int)addObject:(id)arg1;
+- (unsigned long long)nonEmptySeriesCount;
+- (unsigned long long)addObject:(id)arg1;
 - (id)initWithChart:(id)arg1;
 
 @end

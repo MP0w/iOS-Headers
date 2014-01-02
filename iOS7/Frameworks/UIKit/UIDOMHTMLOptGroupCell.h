@@ -6,12 +6,13 @@
 
 #import <UIKit/UIDOMHTMLOptionPickerCell.h>
 
+// Not exported
 @interface UIDOMHTMLOptGroupCell : UIDOMHTMLOptionPickerCell
 {
 }
 
 - (void)layoutSubviews;
-- (float)labelWidthForBounds:(struct CGRect)arg1;
+- (double)labelWidthForBounds:(struct CGRect)arg1;
 - (id)initWithHTMLOptGroupNode:(id)arg1;
 
 @end

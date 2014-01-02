@@ -10,9 +10,9 @@
 {
 }
 
-- (BOOL)showBackgroundMatte;
-- (BOOL)showUpdateDateLabel;
-- (BOOL)showsDelete;
+- (_Bool)showBackgroundMatte;
+- (_Bool)showUpdateDateLabel;
+- (_Bool)showsDelete;
 
 @end
 

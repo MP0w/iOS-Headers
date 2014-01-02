@@ -62,11 +62,6 @@ struct extent {
     unsigned long long _field2;
 };
 
-struct timespec {
-    int tv_sec;
-    long tv_nsec;
-};
-
 struct uint16le {
     unsigned short _field1;
 };

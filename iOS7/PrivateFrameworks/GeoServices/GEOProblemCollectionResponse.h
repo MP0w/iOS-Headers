@@ -6,15 +6,18 @@
 
 #import "PBCodable.h"
 
-@interface GEOProblemCollectionResponse : PBCodable
+#import "NSCopying-Protocol.h"
+
+@interface GEOProblemCollectionResponse : PBCodable <NSCopying>
 {
 }
 
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
 - (void)dealloc;

@@ -12,20 +12,20 @@
 {
     NSMutableData *_leftovers;
     unsigned int _decodedBits;
-    unsigned long _validBytes;
-    unsigned long _equalCount;
+    unsigned long long _validBytes;
+    unsigned long long _equalCount;
     const char *_table;
-    BOOL _bound;
+    _Bool _bound;
 }
 
-+ (BOOL)isValidBase64:(id)arg1;
-@property(nonatomic) BOOL isBound; // @synthesize isBound=_bound;
-@property(readonly, nonatomic) unsigned long unconverted; // @synthesize unconverted=_validBytes;
-@property(nonatomic) BOOL convertCommas;
++ (_Bool)isValidBase64:(id)arg1;
+@property(nonatomic) _Bool isBound; // @synthesize isBound=_bound;
+@property(readonly, nonatomic) unsigned long long unconverted; // @synthesize unconverted=_validBytes;
+@property(nonatomic) _Bool convertCommas;
 - (void)dealloc;
 - (void)done;
-- (int)appendData:(id)arg1;
-- (unsigned long)_decodeBytes:(const char *)arg1 end:(const char *)arg2 into:(char *)arg3 length:(unsigned long)arg4 startingAt:(unsigned long)arg5 outEncodedOffset:(unsigned int *)arg6;
+- (long long)appendData:(id)arg1;
+- (unsigned long long)_decodeBytes:(const char *)arg1 end:(const char *)arg2 into:(char *)arg3 length:(unsigned long long)arg4 startingAt:(unsigned long long)arg5 outEncodedOffset:(unsigned long long *)arg6;
 - (id)initWithConsumers:(id)arg1;
 
 @end

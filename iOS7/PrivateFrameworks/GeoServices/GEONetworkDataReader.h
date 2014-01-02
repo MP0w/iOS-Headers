@@ -11,18 +11,18 @@
 @interface GEONetworkDataReader : NSObject
 {
     NSMutableData *_data;
-    unsigned int _dataLength;
+    unsigned long long _dataLength;
     const void *_bytes;
-    unsigned int _bookmarkOffset;
-    unsigned int _offset;
+    unsigned long long _bookmarkOffset;
+    unsigned long long _offset;
 }
 
-- (BOOL)hasUnreadData;
+- (_Bool)hasUnreadData;
 - (void)seekToMarkedOffset;
 - (void)markOffset;
 - (id)readData:(unsigned int)arg1;
-- (BOOL)readUnsignedInt:(unsigned int *)arg1;
-- (BOOL)readUnsignedShort:(unsigned short *)arg1;
+- (_Bool)readUnsignedInt:(unsigned int *)arg1;
+- (_Bool)readUnsignedShort:(unsigned short *)arg1;
 - (id)readString;
 - (void)appendNetworkData:(id)arg1;
 - (id)allData;

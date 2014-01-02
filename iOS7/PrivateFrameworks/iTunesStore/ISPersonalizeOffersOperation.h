@@ -14,7 +14,7 @@
     SSPersonalizeOffersResponse *_response;
 }
 
-- (BOOL)_runWithURLDictionary:(id)arg1 error:(id *)arg2;
+- (_Bool)_runWithURLDictionary:(id)arg1 error:(id *)arg2;
 - (id)_copyResponseForURL:(id)arg1 requestString:(id)arg2 error:(id *)arg3;
 - (void)_addDictionaryToResponse:(id)arg1;
 - (void)run;

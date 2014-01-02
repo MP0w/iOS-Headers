@@ -7,8 +7,8 @@
 #import "NSIndexPath.h"
 
 @interface NSIndexPath (UITableView)
-+ (id)indexPathForRow:(int)arg1 inSection:(int)arg2;
-@property(readonly, nonatomic) int row;
-@property(readonly, nonatomic) int section;
++ (id)indexPathForRow:(long long)arg1 inSection:(long long)arg2;
+@property(readonly, nonatomic) long long row;
+@property(readonly, nonatomic) long long section;
 @end
 

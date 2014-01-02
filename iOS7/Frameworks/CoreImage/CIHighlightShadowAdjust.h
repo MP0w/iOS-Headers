@@ -10,6 +10,7 @@
 
 @class CIImage, NSNumber;
 
+// Not exported
 @interface CIHighlightShadowAdjust : CIFilter <_CIFilterProperties>
 {
     CIImage *inputImage;
@@ -31,7 +32,7 @@
 - (id)_kernelSH;
 - (id)_kernelSHnoB_v1;
 - (id)_kernelSH_v1;
-- (BOOL)_isIdentity;
+- (_Bool)_isIdentity;
 - (void)setDefaults;
 
 @end

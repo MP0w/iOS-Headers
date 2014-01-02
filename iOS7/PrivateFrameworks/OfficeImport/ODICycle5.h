@@ -6,14 +6,15 @@
 
 #import <OfficeImport/ODICycle.h>
 
+// Not exported
 @interface ODICycle5 : ODICycle
 {
 }
 
-+ (BOOL)map2NodeWithState:(id)arg1;
-+ (BOOL)map1NodeWithState:(id)arg1;
++ (_Bool)map2NodeWithState:(id)arg1;
++ (_Bool)map1NodeWithState:(id)arg1;
 + (void)mapTransition:(id)arg1 index:(unsigned int)arg2 state:(id)arg3;
-+ (float)intersectionAngleNextToAngle:(float)arg1 isAfter:(BOOL)arg2 state:(id)arg3;
++ (float)intersectionAngleNextToAngle:(float)arg1 isAfter:(_Bool)arg2 state:(id)arg3;
 + (void)mapStyleForTransition:(id)arg1 shape:(id)arg2 state:(id)arg3;
 + (void)addShapeForTransition:(id)arg1 startAngle:(float)arg2 endAngle:(float)arg3 state:(id)arg4;
 + (float)normalizedAngle:(float)arg1;

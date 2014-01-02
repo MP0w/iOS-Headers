@@ -17,11 +17,11 @@
 
 + (id)sharedClient;
 + (void)initialize;
-- (BOOL)unregisterFrom:(id)arg1;
-- (BOOL)registerTo:(id)arg1 onQueue:(id)arg2 block:(id)arg3;
-- (void)sendNotificationRegistrationMessage:(id)arg1 isRegister:(BOOL)arg2;
-- (BOOL)precacheHint:(id)arg1 onQueue:(id)arg2 responseBlock:(id)arg3;
-- (BOOL)executeAsynchronousQuery:(id)arg1 onQueue:(id)arg2 responseBlock:(id)arg3;
+- (_Bool)unregisterFrom:(id)arg1;
+- (_Bool)registerTo:(id)arg1 onQueue:(id)arg2 block:(id)arg3;
+- (void)sendNotificationRegistrationMessage:(id)arg1 isRegister:(_Bool)arg2;
+- (_Bool)precacheHint:(id)arg1 onQueue:(id)arg2 responseBlock:(id)arg3;
+- (_Bool)executeAsynchronousQuery:(id)arg1 onQueue:(id)arg2 responseBlock:(id)arg3;
 - (void)dealloc;
 - (id)init;
 - (void)onNotificationReceived:(id)arg1;

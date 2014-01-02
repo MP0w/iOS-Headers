@@ -10,17 +10,18 @@
 
 @class GQDSStyle, GQDTTableModel;
 
+// Not exported
 @interface GQDTTable : GQDGraphic <GQDNameMappable>
 {
     GQDTTableModel *mModel;
     GQDSStyle *mStyle;
-    BOOL mIsStreamed;
+    _Bool mIsStreamed;
 }
 
 + (const struct StateSpec *)stateForReading;
 - (int)walkTableWithGenerator:(Class)arg1 state:(id)arg2;
 - (id)defaultVectorStyleForVectorType:(int)arg1;
-- (BOOL)isStreamed;
+- (_Bool)isStreamed;
 - (void)setTableStyle:(id)arg1;
 - (id)tableStyle;
 - (void)setModel:(id)arg1;

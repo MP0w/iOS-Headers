@@ -8,18 +8,19 @@
 
 @class NSMutableArray, NSMutableDictionary, SLSheetTextComposeView, UILabel, UITextView, UIView<SLSheetPreviewView>;
 
+// Not exported
 @interface SLSheetContentView : UIView
 {
     SLSheetTextComposeView *_textComposeView;
     NSMutableArray *_constraints;
     NSMutableDictionary *_intrinsicSizes;
-    float _previewTopMargin;
-    float _textViewTopMargin;
+    double _previewTopMargin;
+    double _textViewTopMargin;
     UIView *_bottomSeparator;
     UIView *_autoCompletionModeSeparator;
-    int _currentBarMetrics;
-    BOOL _autoCompletionMode;
-    float _autoCompletionTextViewHeight;
+    long long _currentBarMetrics;
+    _Bool _autoCompletionMode;
+    double _autoCompletionTextViewHeight;
     UIView<SLSheetPreviewView> *_previewView;
     UIView *_accessoryView;
 }
@@ -29,19 +30,19 @@
 - (void).cxx_destruct;
 - (void)endAutoCompletionMode;
 - (void)beginAutoCompletionMode;
-- (void)preflightAutoCompletionModeWithApparentHeight:(float)arg1;
+- (void)preflightAutoCompletionModeWithApparentHeight:(double)arg1;
 - (void)adjustComposeViewForPreview;
 - (void)layoutSubviews;
 - (void)updateTextViewMargin;
 - (void)updatePreviewMargin;
-- (float)_textTopMarginForContentSize:(struct CGSize)arg1;
-- (float)_previewMarginForContentSize:(struct CGSize)arg1;
+- (double)_textTopMarginForContentSize:(struct CGSize)arg1;
+- (double)_previewMarginForContentSize:(struct CGSize)arg1;
 - (void)resetPreview;
 - (void)_resetAccessoryView;
 @property(readonly, nonatomic) UILabel *placeholderLabel;
 @property(readonly, nonatomic) UITextView *textView;
-- (void)setCurrentBarMetrics:(int)arg1;
-- (void)setIntrinsicSize:(struct CGSize)arg1 forBarMetrics:(int)arg2;
+- (void)setCurrentBarMetrics:(long long)arg1;
+- (void)setIntrinsicSize:(struct CGSize)arg1 forBarMetrics:(long long)arg2;
 - (void)_setConstraints;
 - (void)updateConstraints;
 - (struct CGSize)intrinsicContentSize;

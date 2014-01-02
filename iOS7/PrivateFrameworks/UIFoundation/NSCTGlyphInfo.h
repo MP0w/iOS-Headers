@@ -6,25 +6,26 @@
 
 #import <UIFoundation/NSGlyphInfo.h>
 
+// Not exported
 @interface NSCTGlyphInfo : NSGlyphInfo
 {
 }
 
 - (void)encodeWithCoder:(id)arg1;
-- (unsigned int)characterCollection;
-- (unsigned int)characterIdentifier;
+- (unsigned long long)characterCollection;
+- (unsigned long long)characterIdentifier;
 - (id)glyphName;
 - (id)_baseString;
 - (unsigned int)_glyphForFont:(id)arg1 baseString:(id)arg2;
 - (void)finalize;
-- (unsigned int)retainCount;
-- (BOOL)retainWeakReference;
-- (BOOL)allowsWeakReference;
+- (unsigned long long)retainCount;
+- (_Bool)retainWeakReference;
+- (_Bool)allowsWeakReference;
 - (oneway void)release;
 - (id)retain;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned long)_cfTypeID;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)_cfTypeID;
 
 @end
 

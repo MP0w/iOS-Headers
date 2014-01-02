@@ -8,6 +8,7 @@
 
 @class NSOperation, NSOperationQueue;
 
+// Not exported
 @interface __NSOperationInternal : NSObject
 {
     unsigned char __pad1[16];
@@ -32,17 +33,17 @@
     unsigned char __isBarrier;
     unsigned char __pad2[4];
     struct _opaque_pthread_mutex_t {
-        long __sig;
-        char __opaque[40];
+        long long __sig;
+        char __opaque[56];
     } __wait_mutex;
     struct _opaque_pthread_cond_t {
-        long __sig;
-        char __opaque[24];
+        long long __sig;
+        char __opaque[40];
     } __wait_cond;
     unsigned char __pad3[40];
 }
 
-+ (void)_observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 changeKind:(unsigned int)arg3 oldValue:(id)arg4 newValue:(id)arg5 indexes:(id)arg6 context:(void *)arg7;
++ (void)_observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 changeKind:(unsigned long long)arg3 oldValue:(id)arg4 newValue:(id)arg5 indexes:(id)arg6 context:(void *)arg7;
 - (id)__;
 - (void)_start:(id)arg1;
 - (id)_dependencies;
@@ -54,13 +55,13 @@
 - (id)_completionBlock;
 - (void)_setThreadPriority:(double)arg1;
 - (double)_threadPriority;
-- (void)_setQueuePriority:(int)arg1 outer:(id)arg2;
-- (int)_queuePriority;
-- (BOOL)_isReady;
-- (BOOL)_isFinished;
-- (BOOL)_isExecuting;
+- (void)_setQueuePriority:(long long)arg1 outer:(id)arg2;
+- (long long)_queuePriority;
+- (_Bool)_isReady;
+- (_Bool)_isFinished;
+- (_Bool)_isExecuting;
 - (void)_cancel:(id)arg1;
-- (BOOL)_isCancelled;
+- (_Bool)_isCancelled;
 - (void)finalize;
 - (void)dealloc;
 - (void)_invalidate;

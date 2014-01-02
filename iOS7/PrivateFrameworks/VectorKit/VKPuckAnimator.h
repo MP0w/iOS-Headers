@@ -15,8 +15,8 @@
     VKRunningCurve *_curve;
     VKPuckAnimatorLocationProjector *_locationProjector;
     id <VKPuckAnimatorDelegate> _delegate;
-    int _pausedCount;
-    BOOL _suspended;
+    long long _pausedCount;
+    _Bool _suspended;
     double _tracePlaybackSpeedMultiplier;
     VKAttributedRouteMatch *_lastProjectedLocation;
 }

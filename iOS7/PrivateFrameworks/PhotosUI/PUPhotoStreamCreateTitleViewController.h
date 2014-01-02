@@ -24,11 +24,12 @@
 
 @property(nonatomic) id <PUPhotoStreamCreateTitleDelegate> titleDelegate; // @synthesize titleDelegate=_titleDelegate;
 - (void).cxx_destruct;
+- (void)willRotateToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
 - (void)_setTitle:(id)arg1;
 - (void)_cancelPost:(id)arg1;
 - (id)navigationItem;
-- (void)_addConstraints;
-- (void)viewDidAppear:(BOOL)arg1;
+- (void)_addConstraintsForInterfaceOrientation:(long long)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (struct CGSize)contentSizeForViewInPopover;
 - (id)_placeholderColor;
 - (void)textViewDidChange:(id)arg1;

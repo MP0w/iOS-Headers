@@ -8,6 +8,7 @@
 
 @class NSMutableDictionary, NSRecursiveLock, NSString, PFUbiquityGlobalObjectIDCache;
 
+// Not exported
 @interface PFUbiquityTransactionLogCache : NSObject
 {
     NSString *_localPeerID;
@@ -18,7 +19,7 @@
 
 - (void)removeLogsCachedForStoreNamed:(id)arg1 withUbiquityRootLocation:(id)arg2;
 - (void)cacheExportedLog:(id)arg1;
-- (id)retainedCachedLogForLocation:(id)arg1 loadWithRetry:(BOOL)arg2 error:(id *)arg3;
+- (id)retainedCachedLogForLocation:(id)arg1 loadWithRetry:(_Bool)arg2 error:(id *)arg3;
 - (void)dealloc;
 - (id)initWithLocalPeerID:(id)arg1 andGlobalIDCache:(id)arg2;
 - (id)init;

@@ -8,6 +8,7 @@
 
 @class MFDeviceContext, MFObjectTable, NSDictionary, NSMutableArray, NSObject<MFDeviceDriver>;
 
+// Not exported
 @interface MFGraphicsDevice : NSObject
 {
     MFDeviceContext *m_currentDC;
@@ -21,7 +22,7 @@
 
 - (int)plgBlt:(struct CGPoint *)arg1:(id)arg2:(int)arg3:(int)arg4:(int)arg5:(int)arg6:(id)arg7:(int)arg8:(int)arg9:(struct CGAffineTransform *)arg10:(unsigned int)arg11;
 - (int)maskBlt:(int)arg1:(int)arg2:(int)arg3:(int)arg4:(id)arg5:(int)arg6:(int)arg7:(id)arg8:(int)arg9:(int)arg10:(unsigned int)arg11:(struct CGAffineTransform *)arg12:(unsigned int)arg13;
-- (int)stretchBlt:(int)arg1:(int)arg2:(int)arg3:(int)arg4:(id)arg5:(int)arg6:(int)arg7:(int)arg8:(int)arg9:(unsigned int)arg10:(struct CGAffineTransform *)arg11:(unsigned int)arg12 usePaletteForBilevel:(BOOL)arg13;
+- (int)stretchBlt:(int)arg1:(int)arg2:(int)arg3:(int)arg4:(id)arg5:(int)arg6:(int)arg7:(int)arg8:(int)arg9:(unsigned int)arg10:(struct CGAffineTransform *)arg11:(unsigned int)arg12 usePaletteForBilevel:(_Bool)arg13;
 - (int)stretchBlt:(int)arg1:(int)arg2:(int)arg3:(int)arg4:(id)arg5:(int)arg6:(int)arg7:(int)arg8:(int)arg9:(unsigned int)arg10:(struct CGAffineTransform *)arg11:(unsigned int)arg12;
 - (int)bitBlt:(int)arg1:(int)arg2:(int)arg3:(int)arg4:(id)arg5:(int)arg6:(int)arg7:(unsigned int)arg8:(struct CGAffineTransform *)arg9:(unsigned int)arg10;
 - (int)patBlt:(int)arg1:(int)arg2:(int)arg3:(int)arg4:(unsigned int)arg5;
@@ -60,7 +61,7 @@
 - (int)setWindowOrg:(int)arg1:(int)arg2;
 - (int)setWindowExt:(int)arg1:(int)arg2;
 - (void)createStockObjects;
-- (int)createPatternBrush:(id)arg1:(unsigned int)arg2 usePaletteForBilevel:(BOOL)arg3;
+- (int)createPatternBrush:(id)arg1:(unsigned int)arg2 usePaletteForBilevel:(_Bool)arg3;
 - (int)createPalette:(id)arg1:(unsigned int)arg2;
 - (int)resizePalette:(unsigned int)arg1:(unsigned int)arg2;
 - (int)setPaletteEntries:(unsigned int)arg1:(id)arg2:(unsigned int)arg3;
@@ -112,8 +113,8 @@
 - (int)description:(id)arg1;
 - (int)comment:(id)arg1;
 - (void)done;
-- (id)recolor:(unsigned char)arg1:(unsigned char)arg2:(unsigned char)arg3 fill:(BOOL)arg4;
-- (id)recolor:(id)arg1 fill:(BOOL)arg2;
+- (id)recolor:(unsigned char)arg1:(unsigned char)arg2:(unsigned char)arg3 fill:(_Bool)arg4;
+- (id)recolor:(id)arg1 fill:(_Bool)arg2;
 - (void)setColorMap:(id)arg1 fillMap:(id)arg2;
 - (id)getCurrentFont;
 - (struct CGRect)getCanvas;

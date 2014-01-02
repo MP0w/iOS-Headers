@@ -6,6 +6,7 @@
 
 #import "OS_object.h"
 
+// Not exported
 @interface OS_ldap_operation : OS_object
 {
 }

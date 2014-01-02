@@ -8,6 +8,7 @@
 
 #import "GEOSearchAttributionServerProxy-Protocol.h"
 
+// Not exported
 @interface GEOSearchAttributionServerRemoteProxy : NSObject <GEOSearchAttributionServerProxy>
 {
 }

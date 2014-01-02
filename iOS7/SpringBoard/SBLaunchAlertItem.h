@@ -13,18 +13,18 @@
     SBApplication *_associatedDisplay;
     int _type;
     NSString *_bundleID;
-    BOOL _isDataAlert;
-    BOOL _usesCellNetwork;
+    _Bool _isDataAlert;
+    _Bool _usesCellNetwork;
 }
 
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (id)alertSheet;
 - (id)_customAirplaneModeAlertPrompt;
-- (BOOL)dismissOnLock;
+- (_Bool)dismissOnLock;
 - (void)_displayDeactivated:(id)arg1;
 - (void)setAssociatedWithDisplay:(id)arg1;
 - (void)dealloc;
-- (id)initWithLaunchAlertType:(int)arg1 dataAlert:(BOOL)arg2 usesCellNetwork:(BOOL)arg3 bundleID:(id)arg4;
+- (id)initWithLaunchAlertType:(int)arg1 dataAlert:(_Bool)arg2 usesCellNetwork:(_Bool)arg3 bundleID:(id)arg4;
 
 @end
 

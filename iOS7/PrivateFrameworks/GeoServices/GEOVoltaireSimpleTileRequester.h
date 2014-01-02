@@ -8,6 +8,7 @@
 
 #import "NSURLConnectionDelegate-Protocol.h"
 
+// Not exported
 @interface GEOVoltaireSimpleTileRequester : GEOSimpleTileRequester <NSURLConnectionDelegate>
 {
 }

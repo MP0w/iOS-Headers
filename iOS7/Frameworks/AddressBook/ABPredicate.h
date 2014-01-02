@@ -17,13 +17,13 @@
 + (id)personPredicateWithGroup:(void *)arg1 source:(void *)arg2 account:(id)arg3;
 + (id)personPredicateWithPhoneLike:(id)arg1 countryHint:(id)arg2 addressBook:(void *)arg3;
 + (id)personPredicateWithAnyValueForProperty:(int)arg1;
-+ (id)personPredicateWithValue:(id)arg1 comparison:(long)arg2 forProperty:(int)arg3;
++ (id)personPredicateWithValue:(id)arg1 comparison:(long long)arg2 forProperty:(int)arg3;
 + (id)personPredicateWithNameOnly:(id)arg1 account:(id)arg2 addressBook:(void *)arg3;
 + (id)personPredicateWithName:(id)arg1 addressBook:(void *)arg2;
-+ (id)personPredicateWithNameLike:(id)arg1 groups:(id)arg2 sources:(id)arg3 includeSourceInResults:(BOOL)arg4 includePhotosInResults:(BOOL)arg5 addressBook:(void *)arg6;
-+ (id)personPredicateWithNameLike:(id)arg1 groups:(id)arg2 sources:(id)arg3 includeSourceInResults:(BOOL)arg4 addressBook:(void *)arg5;
++ (id)personPredicateWithNameLike:(id)arg1 groups:(id)arg2 sources:(id)arg3 includeSourceInResults:(_Bool)arg4 includePhotosInResults:(_Bool)arg5 addressBook:(void *)arg6;
++ (id)personPredicateWithNameLike:(id)arg1 groups:(id)arg2 sources:(id)arg3 includeSourceInResults:(_Bool)arg4 addressBook:(void *)arg5;
 + (id)personPredicateWithNameLike:(id)arg1 groups:(id)arg2 sources:(id)arg3 addressBook:(void *)arg4;
-+ (id)personPredicateWithNameLike:(id)arg1 group:(void *)arg2 source:(void *)arg3 account:(id)arg4 includeSourceInResults:(BOOL)arg5 addressBook:(void *)arg6;
++ (id)personPredicateWithNameLike:(id)arg1 group:(void *)arg2 source:(void *)arg3 account:(id)arg4 includeSourceInResults:(_Bool)arg5 addressBook:(void *)arg6;
 + (id)personPredicateWithNameLike:(id)arg1 group:(void *)arg2 source:(void *)arg3 account:(id)arg4 addressBook:(void *)arg5;
 + (id)personPredicateWithNameLike:(id)arg1 addressBook:(void *)arg2;
 - (void)bindDouble:(double)arg1 toStatement:(struct CPSqliteStatement *)arg2 withBindingOffset:(int *)arg3;
@@ -31,18 +31,15 @@
 - (void)ab_bindStatement:(struct CPSqliteStatement *)arg1 withBindingOffset:(int *)arg2 predicateIdentifier:(int)arg3;
 - (void)evaluateCallbackWithSqliteContext:(struct sqlite3_context *)arg1 predicateContext:(void *)arg2 values:(struct Mem **)arg3 count:(int)arg4;
 - (void *)callbackContext;
-- (BOOL)hasCallback;
+- (_Bool)hasCallback;
 - (id)queryWhereString;
 - (id)queryGroupByProperties;
-- (id)queryJoinsInCompound:(BOOL)arg1;
+- (id)queryJoinsInCompound:(_Bool)arg1;
 - (id)querySelectProperties;
-- (BOOL)isValid;
+- (_Bool)isValid;
 - (id)predicateFormat;
 - (void)dealloc;
 - (id)init;
-- (id)ab_newQueryWithSortOrder:(unsigned int)arg1 addressBook:(void *)arg2 propertyIndices:(const struct __CFDictionary **)arg3;
-- (void)ab_addCallbackContextToArray:(struct __CFArray *)arg1;
-- (BOOL)ab_hasCallback;
 
 @end
 

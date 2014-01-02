@@ -10,17 +10,17 @@
 
 @interface CUIStyleEffectConfiguration : NSObject <NSCopying>
 {
-    int _state;
-    int _presentationState;
-    int _value;
-    BOOL _useSimplifiedEffect;
+    long long _state;
+    long long _presentationState;
+    long long _value;
+    _Bool _useSimplifiedEffect;
 }
 
-@property(nonatomic) BOOL useSimplifiedEffect; // @synthesize useSimplifiedEffect=_useSimplifiedEffect;
-@property(nonatomic) int value; // @synthesize value=_value;
-@property(nonatomic) int presentationState; // @synthesize presentationState=_presentationState;
-@property(nonatomic) int state; // @synthesize state=_state;
-- (BOOL)shouldIgnoreForegroundColor;
+@property(nonatomic) _Bool useSimplifiedEffect; // @synthesize useSimplifiedEffect=_useSimplifiedEffect;
+@property(nonatomic) long long value; // @synthesize value=_value;
+@property(nonatomic) long long presentationState; // @synthesize presentationState=_presentationState;
+@property(nonatomic) long long state; // @synthesize state=_state;
+- (_Bool)shouldIgnoreForegroundColor;
 - (id)init;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 

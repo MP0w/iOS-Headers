@@ -8,9 +8,10 @@
 
 @class NSArray, NSMutableDictionary, NSObject<OS_dispatch_source>;
 
+// Not exported
 @interface SFAirDropBrowser : NSObject
 {
-    BOOL _didDelay;
+    _Bool _didDelay;
     struct __SFBrowser *_browser;
     NSObject<OS_dispatch_source> *_timer;
     double _startTime;
@@ -22,11 +23,10 @@
 @property __weak id <SFAirDropBrowserDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) NSArray *people; // @synthesize people=_people;
 - (void).cxx_destruct;
+- (void)updateDiscoveredPeople;
+- (void)handleBrowserCallBack;
 - (void)stop;
 - (void)start;
-- (void)handleBrowserCallBack;
-- (void)updateDiscoveredPeople;
-- (void)issueUpdatesForTransformFromArray:(id)arg1 toArray:(id)arg2 insertUpdateBlock:(id)arg3 deleteUpdateBlock:(void)arg4;
 - (void)dealloc;
 - (id)init;
 

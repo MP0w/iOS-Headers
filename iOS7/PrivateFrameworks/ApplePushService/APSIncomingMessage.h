@@ -12,9 +12,9 @@
 {
 }
 
-@property(nonatomic) int priority;
-@property(nonatomic, getter=wasLastMessageFromStorage) BOOL lastMessageFromStorage;
-@property(nonatomic, getter=wasFromStorage) BOOL fromStorage;
+@property(nonatomic) long long priority;
+@property(nonatomic, getter=wasLastMessageFromStorage) _Bool lastMessageFromStorage;
+@property(nonatomic, getter=wasFromStorage) _Bool fromStorage;
 @property(copy, nonatomic) NSDate *timestamp;
 
 @end

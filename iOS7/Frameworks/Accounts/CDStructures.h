@@ -7,10 +7,10 @@
 #pragma mark Typedef'd Structures
 
 typedef struct {
-    int _field1;
+    long long _field1;
     void *_field2;
     void *_field3;
     void *_field4;
     void *_field5;
-} CDStruct_60d14f2d;
+} CDStruct_e097db04;
 

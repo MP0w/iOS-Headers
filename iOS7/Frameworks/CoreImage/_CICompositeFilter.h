@@ -8,6 +8,7 @@
 
 @class CIImage;
 
+// Not exported
 @interface _CICompositeFilter : CIFilter
 {
     CIImage *inputImage;

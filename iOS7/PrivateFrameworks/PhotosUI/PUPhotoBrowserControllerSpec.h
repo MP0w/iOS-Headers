@@ -6,25 +6,26 @@
 
 #import "NSObject.h"
 
-@class PUPhotosSharingViewControllerSpec;
+@class PUAvalancheReviewControllerSpec, PUPhotosSharingViewControllerSpec;
 
 @interface PUPhotoBrowserControllerSpec : NSObject
 {
     PUPhotosSharingViewControllerSpec *_photosSharingViewControllerSpec;
+    PUAvalancheReviewControllerSpec *_avalancheReviewControllerSpec;
 }
 
+@property(readonly, nonatomic) PUAvalancheReviewControllerSpec *avalancheReviewControllerSpec; // @synthesize avalancheReviewControllerSpec=_avalancheReviewControllerSpec;
 @property(readonly, nonatomic) PUPhotosSharingViewControllerSpec *photosSharingViewControllerSpec; // @synthesize photosSharingViewControllerSpec=_photosSharingViewControllerSpec;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) float commentsButtonLandscapeVerticalOffset;
-@property(readonly, nonatomic) BOOL shouldUsePopovers;
-@property(readonly, nonatomic) BOOL shouldShowPhotoScrubber;
-@property(readonly, nonatomic) BOOL isInCamera;
-@property(readonly, nonatomic) BOOL shouldShowDeleteItem;
-@property(readonly, nonatomic) BOOL shouldShowShareItem;
-@property(readonly, nonatomic) BOOL shouldShowEditItem;
-@property(readonly, nonatomic) BOOL shouldShowAirplayItem;
-@property(readonly, nonatomic) BOOL shouldShowSlideshowItem;
-@property(readonly, nonatomic) BOOL shouldShowToolbarItemsInNavigationBar;
+@property(readonly, nonatomic) unsigned long long supportedInterfaceOrientations;
+@property(readonly, nonatomic) _Bool shouldUsePopovers;
+@property(readonly, nonatomic) _Bool shouldShowPhotoScrubber;
+@property(readonly, nonatomic) _Bool isInCamera;
+@property(readonly, nonatomic) _Bool shouldShowDeleteItem;
+@property(readonly, nonatomic) _Bool shouldShowShareItem;
+@property(readonly, nonatomic) _Bool shouldShowEditItem;
+@property(readonly, nonatomic) _Bool shouldShowAirplayItem;
+@property(readonly, nonatomic) _Bool shouldShowSlideshowItem;
 - (id)newPhotoBrowserZoomTransition;
 - (id)newPhotoBrowserControllerForPhotoAtIndexPath:(id)arg1 inAssetContainerList:(id)arg2;
 

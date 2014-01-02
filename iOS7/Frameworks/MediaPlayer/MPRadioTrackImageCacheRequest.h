@@ -11,11 +11,11 @@
 @interface MPRadioTrackImageCacheRequest : MPImageCacheRequest
 {
     long long _trackStoreID;
-    BOOL _usePlaceholderAsFallback;
+    _Bool _usePlaceholderAsFallback;
     RadioTrack *_radioTrack;
 }
 
-@property(nonatomic) BOOL usePlaceholderAsFallback; // @synthesize usePlaceholderAsFallback=_usePlaceholderAsFallback;
+@property(nonatomic) _Bool usePlaceholderAsFallback; // @synthesize usePlaceholderAsFallback=_usePlaceholderAsFallback;
 @property(readonly, nonatomic) RadioTrack *radioTrack; // @synthesize radioTrack=_radioTrack;
 - (void).cxx_destruct;
 - (id)uniqueKey;

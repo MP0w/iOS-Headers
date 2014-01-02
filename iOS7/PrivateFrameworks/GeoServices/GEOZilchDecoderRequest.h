@@ -6,22 +6,27 @@
 
 #import <GeoServices/GEOMapRequest.h>
 
-@class GEOZilchDecoder, NSObject<OS_dispatch_semaphore>;
+@class GEOZilchDecoder, NSError, NSObject<OS_dispatch_semaphore>;
 
+// Not exported
 @interface GEOZilchDecoderRequest : GEOMapRequest
 {
     struct unique_ptr<geo::ZilchMapModel, std::__1::default_delete<geo::ZilchMapModel>> _mapModel;
     GEOZilchDecoder *_decoder;
     shared_ptr_27244a92 _message;
     id _pathHandler;
+    id _errorHandler;
+    NSError *_firstTileLoadingError;
     NSObject<OS_dispatch_semaphore> *_finishedSemaphore;
 }
 
+@property(copy) id errorHandler; // @synthesize errorHandler=_errorHandler;
 @property(copy) id pathHandler; // @synthesize pathHandler=_pathHandler;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)cancel;
-- (void)decodeWithPathHandler:(id)arg1;
+- (void)decodeWithPathHandler:(id)arg1 errorHandler:(void)arg2;
+- (void)_finishedDecodingWithPath:(Path_7b702847)arg1;
 - (void)dealloc;
 - (id)initWithDecoder:(id)arg1 message:(shared_ptr_27244a92)arg2;
 

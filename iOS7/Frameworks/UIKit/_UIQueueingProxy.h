@@ -6,14 +6,13 @@
 
 #import <UIKit/_UITargetedProxy.h>
 
-#import "XPCProxyTarget-Protocol.h"
-
 @class NSMutableArray;
 
-@interface _UIQueueingProxy : _UITargetedProxy <XPCProxyTarget>
+// Not exported
+@interface _UIQueueingProxy : _UITargetedProxy
 {
     int _lock;
-    unsigned int _suspensionCount;
+    unsigned long long _suspensionCount;
     NSMutableArray *_queuedInvocations;
     id _shouldSuspendInvocationBlock;
 }
@@ -21,14 +20,13 @@
 + (id)proxyWithTarget:(id)arg1;
 + (id)proxyWithTarget:(id)arg1 shouldSuspendInvocationBlock:(id)arg2;
 - (id)description;
-- (BOOL)respondsToSelector:(SEL)arg1;
+- (_Bool)respondsToSelector:(SEL)arg1;
 - (void)removeAllEnqueuedInvocations;
 - (void)resume;
 - (void)_dispatchSuspendedMessages;
 - (void)suspend;
 - (void)forwardInvocation:(id)arg1;
 - (void)dealloc;
-- (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
 
 @end
 

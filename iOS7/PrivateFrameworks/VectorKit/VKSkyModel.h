@@ -11,6 +11,7 @@
 
 @class VGLRenderState, VKMapModel, VKStylesheet;
 
+// Not exported
 @interface VKSkyModel : VKModelObject <VKMapLayer, VKStylesheetObserver>
 {
     VKMapModel *_mapModel;
@@ -20,7 +21,7 @@
     struct _VGLColor _horizonColor;
 }
 
-+ (BOOL)reloadOnStylesheetChange;
++ (_Bool)reloadOnStylesheetChange;
 @property(readonly, nonatomic) struct _VGLColor horizonColor; // @synthesize horizonColor=_horizonColor;
 @property(readonly, nonatomic) struct _VGLColor fillColor; // @synthesize fillColor=_fillColor;
 @property(nonatomic) VKMapModel *mapModel; // @synthesize mapModel=_mapModel;
@@ -32,7 +33,7 @@
 - (void)stylesheetDidChange;
 @property(readonly, nonatomic) VKStylesheet *stylesheet;
 - (unsigned int)supportedRenderPasses;
-- (unsigned int)mapLayerPosition;
+- (unsigned long long)mapLayerPosition;
 
 @end
 

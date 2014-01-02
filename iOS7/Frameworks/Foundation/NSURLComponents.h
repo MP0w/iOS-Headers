@@ -15,7 +15,7 @@
 }
 
 + (id)componentsWithString:(id)arg1;
-+ (id)componentsWithURL:(id)arg1 resolvingAgainstBaseURL:(BOOL)arg2;
++ (id)componentsWithURL:(id)arg1 resolvingAgainstBaseURL:(_Bool)arg2;
 + (id)allocWithZone:(struct _NSZone *)arg1;
 @property(copy) NSString *percentEncodedFragment;
 @property(copy) NSString *percentEncodedQuery;
@@ -34,7 +34,7 @@
 - (id)URLRelativeToURL:(id)arg1;
 - (id)URL;
 - (id)initWithString:(id)arg1;
-- (id)initWithURL:(id)arg1 resolvingAgainstBaseURL:(BOOL)arg2;
+- (id)initWithURL:(id)arg1 resolvingAgainstBaseURL:(_Bool)arg2;
 - (id)init;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 

@@ -8,6 +8,7 @@
 
 #import "GQHXMLOutput-Protocol.h"
 
+// Not exported
 @interface GQHStreamedXML : NSObject <GQHXMLOutput>
 {
     struct _xmlOutputBuffer {
@@ -23,7 +24,7 @@
     struct __CFData *mData;
     struct __CFArray *mElementNameStack;
     int mLastOp;
-    BOOL mNeedNewlineBeforeNextElement;
+    _Bool mNeedNewlineBeforeNextElement;
     struct _xmlDoc *mXMLDoc;
 }
 
@@ -39,9 +40,6 @@
 - (void)dealloc;
 - (id)initWithHead;
 - (id)initEmpty;
-- (const char *)peekElementName;
-- (char *)popElementName;
-- (void)pushElementName:(const char *)arg1;
 
 @end
 

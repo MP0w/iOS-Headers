@@ -29,15 +29,15 @@
 - (void)finishTearingDownImagePickerController;
 - (void)removeImagePickerControllerFromUI;
 - (id)imagePickerControllerViewControllerToPresentModal:(id)arg1;
-@property(nonatomic) BOOL popoverSizeUpdatesDisabled;
+@property(nonatomic) _Bool popoverSizeUpdatesDisabled;
 - (id)imagePickerControllerViewForApplyImageAnimation:(id)arg1;
 - (void)imagePicker:(id)arg1 pickedPhoto:(id)arg2;
 - (void)imagePickerWillBeRemoved:(id)arg1;
 - (void)imagePickerWillBeShown:(id)arg1;
 - (id)personImageView;
 - (id)selectedPeople;
-- (BOOL)pickerViewControllerShouldDismissKeyboard:(id)arg1;
-- (BOOL)pickerViewController:(id)arg1 shouldDismissAfterSelectingItem:(id)arg2;
+- (_Bool)pickerViewControllerShouldDismissKeyboard:(id)arg1;
+- (_Bool)pickerViewController:(id)arg1 shouldDismissAfterSelectingItem:(id)arg2;
 - (void)_dismissPropertyPicker:(id)arg1 afterSelectingItem:(id)arg2;
 - (void)_dismissProfilesPicker:(id)arg1 afterSelectingItem:(id)arg2;
 - (void)_dismissCountryPicker:(id)arg1 afterSelectingItem:(id)arg2;
@@ -45,7 +45,7 @@
 - (id)_propertyGroupForPicker:(id)arg1;
 - (id)_contentViewForPicker:(id)arg1;
 - (void)labelPickerViewController:(id)arg1 didDeleteLabel:(id)arg2;
-- (BOOL)labelPickerViewController:(id)arg1 shouldDismissAfterSelectingLabel:(id)arg2;
+- (_Bool)labelPickerViewController:(id)arg1 shouldDismissAfterSelectingLabel:(id)arg2;
 - (void)dealloc;
 
 @end

@@ -8,12 +8,12 @@
 
 @protocol ACUIAccountOperationsDelegate <NSObject>
 - (id)operationsHelper:(id)arg1 desiredDataclassActionFromPicker:(id)arg2;
-- (void)operationsHelper:(id)arg1 didRemoveAccount:(id)arg2 withSuccess:(BOOL)arg3 error:(id)arg4;
+- (void)operationsHelper:(id)arg1 didRemoveAccount:(id)arg2 withSuccess:(_Bool)arg3 error:(id)arg4;
 - (void)operationsHelper:(id)arg1 willRemoveAccount:(id)arg2;
-- (void)operationsHelper:(id)arg1 didSaveAccount:(id)arg2 withSuccess:(BOOL)arg3 error:(id)arg4;
+- (void)operationsHelper:(id)arg1 didSaveAccount:(id)arg2 withSuccess:(_Bool)arg3 error:(id)arg4;
 - (void)operationsHelper:(id)arg1 willSaveAccount:(id)arg2;
 
 @optional
-- (BOOL)operationsHelper:(id)arg1 shouldRemoveAccount:(id)arg2;
+- (_Bool)operationsHelper:(id)arg1 shouldRemoveAccount:(id)arg2;
 @end
 

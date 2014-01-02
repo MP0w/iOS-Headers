@@ -15,7 +15,7 @@
 }
 
 @property(nonatomic) long long isInList; // @synthesize isInList=_isInList;
-- (BOOL)matchesItem:(id)arg1;
+- (_Bool)matchesItem:(id)arg1;
 - (void)dealloc;
 - (id)initWithFilterItem:(id)arg1 isInList:(long long)arg2;
 

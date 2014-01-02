@@ -8,6 +8,7 @@
 
 @class NSMutableDictionary;
 
+// Not exported
 @interface WFTagFactory : NSObject
 {
     NSMutableDictionary *sharedTags;

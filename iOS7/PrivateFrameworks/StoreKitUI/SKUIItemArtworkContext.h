@@ -10,6 +10,7 @@
 
 @interface SKUIItemArtworkContext : NSObject
 {
+    UIColor *_backgroundColor;
     SKUIColorScheme *_colorScheme;
     SKUIProductImageDataConsumer *_generalImageConsumer;
     SKUIIconDataConsumer *_iconConsumer;
@@ -17,19 +18,18 @@
     SKUINewsstandImageDataConsumer *_newsstandConsumer;
     NSMutableDictionary *_placeholders;
     SKUIProductImageDataConsumer *_posterConsumer;
-    UIColor *_backgroundColor;
 }
 
 + (id)wishlistContext;
 + (id)roomContext;
-+ (id)lockupContextWithSize:(int)arg1;
-@property(retain, nonatomic) UIColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
++ (id)lockupContextWithSize:(long long)arg1;
 @property(retain, nonatomic) SKUIProductImageDataConsumer *posterConsumer; // @synthesize posterConsumer=_posterConsumer;
 @property(retain, nonatomic) SKUINewsstandImageDataConsumer *newsstandConsumer; // @synthesize newsstandConsumer=_newsstandConsumer;
 @property(retain, nonatomic) SKUIProductImageDataConsumer *letterboxConsumer; // @synthesize letterboxConsumer=_letterboxConsumer;
 @property(retain, nonatomic) SKUIIconDataConsumer *iconConsumer; // @synthesize iconConsumer=_iconConsumer;
 @property(retain, nonatomic) SKUIProductImageDataConsumer *generalConsumer; // @synthesize generalConsumer=_generalImageConsumer;
 @property(retain, nonatomic) SKUIColorScheme *colorScheme; // @synthesize colorScheme=_colorScheme;
+@property(retain, nonatomic) UIColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 - (void).cxx_destruct;
 - (id)artworkForItem:(id)arg1;
 - (id)URLForItem:(id)arg1;

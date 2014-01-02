@@ -10,8 +10,8 @@
 {
 }
 
-- (BOOL)hasEncryption;
-- (BOOL)sendsPlainTextPasswords;
+- (_Bool)hasEncryption;
+- (_Bool)sendsPlainTextPasswords;
 - (id)humanReadableName;
 - (id)name;
 - (Class)authenticatorClass;

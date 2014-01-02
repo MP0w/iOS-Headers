@@ -11,19 +11,21 @@
 #import "SBWidgetViewControllerHostDelegate-Protocol.h"
 #import "_UISettingsKeyObserver-Protocol.h"
 
-@class NSArray, SBApplication, SBNotificationCenterSettings, SBNotificationCenterViewController, SBUnlockActionContext, UIView;
+@class NSArray, SBApplication, SBChevronView, SBNotificationCenterSettings, SBNotificationCenterViewController, SBUnlockActionContext, SBWindow, UIView;
 
 @interface SBNotificationCenterController : NSObject <SBBulletinWindowClient, SBNotificationCenterViewControllerDelegate, SBWidgetViewControllerHostDelegate, _UISettingsKeyObserver>
 {
     SBNotificationCenterViewController *_viewController;
+    UIView *_coveredContentSnapshot;
     SBApplication *_coveredApplication;
-    UIView *_borrowedGrabberView;
+    SBChevronView *_borrowedGrabberView;
     id _borrowedGrabberWillPresentBlock;
+    id _borrowedGrabberHideBlock;
     id _borrowedGrabberCompletionBlock;
     NSArray *_dataProviders;
     id _keyboardNotificationObserverToken;
     SBUnlockActionContext *_unlockActionContext;
-    int _presentationState;
+    long long _presentationState;
     SBNotificationCenterSettings *_settings;
     struct {
         unsigned int isPresentingOrDismissing:1;
@@ -32,44 +34,50 @@
 }
 
 + (double)transitionAnimationDuration;
-+ (id)newDynamicAnimationForShow:(BOOL)arg1 targetValue:(double)arg2 withInitialValue:(double)arg3 velocity:(double)arg4 extraPull:(BOOL)arg5;
++ (id)newDynamicAnimationForShow:(_Bool)arg1 targetValue:(double)arg2 withInitialValue:(double)arg3 velocity:(double)arg4 extraPull:(_Bool)arg5;
 + (id)sharedInstanceIfExists;
 + (id)sharedInstance;
-+ (id)_sharedInstanceCreateIfNecessary:(BOOL)arg1;
++ (id)_sharedInstanceCreateIfNecessary:(_Bool)arg1;
+@property(readonly, nonatomic) SBNotificationCenterSettings *settings; // @synthesize settings=_settings;
 @property(readonly, nonatomic) SBUnlockActionContext *unlockActionContext; // @synthesize unlockActionContext=_unlockActionContext;
 @property(readonly, nonatomic) SBNotificationCenterViewController *viewController; // @synthesize viewController=_viewController;
+- (void)finishedScrollTest;
+- (void)runScrollTest:(id)arg1 iterations:(long long)arg2 delta:(long long)arg3;
 - (void)settings:(id)arg1 changedValueForKey:(id)arg2;
+- (void)buddyCompleted:(id)arg1;
 - (void)publishSectionInfoIfNecessary;
 - (id)_widgetSections;
-- (id)_sectionWithIdentifier:(id)arg1 forCategory:(int)arg2;
-- (id)_sectionForWidgetBundle:(id)arg1 forCategory:(int)arg2;
+- (id)_sectionWithIdentifier:(id)arg1 forCategory:(long long)arg2;
+- (id)_sectionForWidgetBundle:(id)arg1 forCategory:(long long)arg2;
 - (id)_copyDefaultEnabledWidgetIDs;
-- (void)widget:(id)arg1 requestsPresentationOfViewController:(id)arg2 presentationStyle:(int)arg3 context:(id)arg4 completion:(id)arg5;
+- (void)widget:(id)arg1 requestsPresentationOfViewController:(id)arg2 presentationStyle:(long long)arg3 context:(id)arg4 completion:(id)arg5;
 - (void)widget:(id)arg1 requestsLaunchOfURL:(id)arg2;
-- (void)bulletinWindowDidRotateFromOrientation:(int)arg1;
-- (void)bulletinWindowIsAnimatingRotationToOrientation:(int)arg1 duration:(double)arg2;
-- (void)bulletinWindowWillRotateToOrientation:(int)arg1 duration:(double)arg2;
+- (void)bulletinWindowDidRotateFromOrientation:(long long)arg1;
+- (void)bulletinWindowIsAnimatingRotationToOrientation:(long long)arg1 duration:(double)arg2;
+- (void)bulletinWindowWillRotateToOrientation:(long long)arg1 duration:(double)arg2;
 - (void)invalidateUnlockActionContext;
-- (BOOL)handleActionForBulletin:(id)arg1;
+- (_Bool)handleActionForBulletin:(id)arg1;
 - (id)widgetViewControllerHostDelegate:(id)arg1;
+- (_Bool)_handleActionOrRequestWithDefaultAction:(id)arg1 lockedAction:(void)arg2;
+- (void)biometricEventMonitorDidAuthenticate:(id)arg1;
+- (void)_updateForChangeInMessagePrivacy;
 - (void)reloadAllWidgets;
-- (void)adjustViewForShowcaseOffset:(float)arg1;
-@property(readonly, nonatomic, getter=isGrabberVisible) BOOL grabberVisible;
-- (void)hideGrabberAnimated:(BOOL)arg1;
-- (void)showGrabberAnimated:(BOOL)arg1;
-- (BOOL)canShowHideGrabberView;
-@property(nonatomic, getter=isGrabberEnabled) BOOL grabberEnabled;
-- (void)_setGrabberEnabled:(BOOL)arg1;
+@property(readonly, nonatomic, getter=isGrabberVisible) _Bool grabberVisible;
+- (void)hideGrabberAnimated:(_Bool)arg1 completion:(id)arg2;
+- (void)showGrabberAnimated:(_Bool)arg1;
+- (_Bool)canShowHideGrabberView;
+@property(nonatomic, getter=isGrabberEnabled) _Bool grabberEnabled;
+- (void)_setGrabberEnabled:(_Bool)arg1;
 - (void)unregisterSharedGrabberView;
-- (void)registerSharedGrabberView:(id)arg1 withWillPresentBlock:(id)arg2 andCompletion:(void)arg3;
-- (void)dismissPresentedWidgetContentAnimated:(BOOL)arg1;
-- (void)dismissAnimated:(BOOL)arg1 withStepper:(id)arg2 completion:(void)arg3 fromCurrentState:(id)arg4;
-- (void)dismissAnimated:(BOOL)arg1 completion:(id)arg2;
-- (void)dismissAnimated:(BOOL)arg1;
-- (void)presentAnimated:(BOOL)arg1 completion:(id)arg2;
-- (void)presentAnimated:(BOOL)arg1;
-- (void)_present:(BOOL)arg1 withStandardAnimation:(BOOL)arg2 stepper:(id)arg3 completion:(void)arg4 fromCurrentState:(id)arg5;
-- (void)_present:(BOOL)arg1 stepper:(id)arg2;
+- (void)registerSharedGrabberView:(id)arg1 withWillPresentBlock:(id)arg2 hideBlock:(void)arg3 andCompletion:(id)arg4;
+- (void)dismissPresentedWidgetContentAnimated:(_Bool)arg1;
+- (void)dismissAnimated:(_Bool)arg1 withStepper:(id)arg2 completion:(void)arg3 fromCurrentState:(id)arg4;
+- (void)dismissAnimated:(_Bool)arg1 completion:(id)arg2;
+- (void)dismissAnimated:(_Bool)arg1;
+- (void)presentAnimated:(_Bool)arg1 completion:(id)arg2;
+- (void)presentAnimated:(_Bool)arg1;
+- (void)_present:(_Bool)arg1 withStandardAnimation:(_Bool)arg2 stepper:(id)arg3 completion:(void)arg4 fromCurrentState:(id)arg5;
+- (void)_present:(_Bool)arg1 stepper:(id)arg2;
 - (void)cancelTransition;
 - (void)endTransitionWithVelocity:(struct CGPoint)arg1 completion:(id)arg2;
 - (void)endTransitionWithVelocity:(struct CGPoint)arg1 additionalValueApplier:(id)arg2 completion:(void)arg3;
@@ -77,17 +85,22 @@
 - (void)beginDismissalWithTouchLocation:(struct CGPoint)arg1;
 - (void)beginPresentationWithTouchLocation:(struct CGPoint)arg1;
 - (void)prepareLayoutForPresentation;
-- (void)_cleanupAfterTransition:(BOOL)arg1;
+- (void)_cleanupAfterTransition:(_Bool)arg1;
 - (void)_setupForDismissalWithTouchLocation:(struct CGPoint)arg1;
 - (void)_setupForPresentationWithTouchLocation:(struct CGPoint)arg1;
-- (BOOL)_shouldSelectViewControllerAtTouchLocation;
-- (BOOL)handleMenuButtonTap;
-@property(nonatomic) BOOL blursBackground;
-@property(readonly, nonatomic, getter=isPresentingWidgetContent) BOOL presentingWidgetContent;
-@property(readonly, nonatomic, getter=isTodayViewEnabledOnLockScreen) BOOL todayViewEnabledOnLockScreen;
-@property(readonly, nonatomic, getter=isNotificationsViewEnabledOnLockScreen) BOOL notificationsViewEnabledOnLockScreen;
-@property(readonly, nonatomic, getter=isEnabledOnLockScreen) BOOL enabledOnLockScreen;
-@property(readonly, nonatomic, getter=isVisible) BOOL visible;
+- (void)_setupForViewPresentation;
+- (_Bool)_shouldSelectViewControllerAtTouchLocation;
+- (_Bool)doesSectionWithIdentifierUpdateMessagePrivacyViaSectionParameters:(id)arg1;
+- (_Bool)handleMenuButtonTap;
+@property(nonatomic) _Bool blursBackground;
+@property(readonly, nonatomic, getter=isPresentingWidgetContent) _Bool presentingWidgetContent;
+@property(readonly, nonatomic, getter=isNotificationsViewAvailableWhileLocked) _Bool notificationsViewAvailableWhileLocked;
+@property(readonly, nonatomic, getter=isTodayViewAvailableWhileLocked) _Bool todayViewAvailableWhileLocked;
+- (_Bool)_isNotificationCenterViewAvailableWhileLockedWithProfileBlock:(id)arg1 counterpartBlock:(void)arg2;
+- (_Bool)_isNotificationCenterViewWithFeatureKeyAvailableWhileLocked:(id)arg1 isLockedDownByRestrictions:(_Bool *)arg2;
+@property(readonly, nonatomic, getter=isAvailableWhileLocked) _Bool availableWhileLocked;
+@property(readonly, nonatomic, getter=isVisible) _Bool visible;
+@property(readonly, nonatomic) SBWindow *window;
 - (void)dealloc;
 - (id)init;
 

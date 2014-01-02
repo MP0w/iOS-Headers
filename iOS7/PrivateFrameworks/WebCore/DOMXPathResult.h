@@ -8,6 +8,7 @@
 
 @class DOMNode, NSString;
 
+// Not exported
 @interface DOMXPathResult : DOMObject
 {
 }
@@ -15,9 +16,9 @@
 - (id)snapshotItem:(unsigned int)arg1;
 - (id)iterateNext;
 @property(readonly) unsigned int snapshotLength;
-@property(readonly) BOOL invalidIteratorState;
+@property(readonly) _Bool invalidIteratorState;
 @property(readonly) DOMNode *singleNodeValue;
-@property(readonly) BOOL booleanValue;
+@property(readonly) _Bool booleanValue;
 @property(readonly) NSString *stringValue;
 @property(readonly) double numberValue;
 @property(readonly) unsigned short resultType;

@@ -11,6 +11,9 @@
 - (void)updateTime;
 
 @optional
+- (double)coarseUpdateInterval;
+- (double)updateInterval;
+- (void)updateTimeContinuously:(long long)arg1;
 - (void)updateFlutter;
 @end
 

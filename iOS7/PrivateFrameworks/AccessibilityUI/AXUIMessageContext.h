@@ -10,7 +10,7 @@
 
 @interface AXUIMessageContext : NSObject
 {
-    BOOL _completionRequiresWritingBlock;
+    _Bool _completionRequiresWritingBlock;
     NSObject<OS_xpc_object> *_xpcMessage;
     void *_context;
     AXAccessQueue *_targetAccessQueue;
@@ -18,7 +18,7 @@
 }
 
 @property(copy, nonatomic) id completion; // @synthesize completion=_completion;
-@property(nonatomic) BOOL completionRequiresWritingBlock; // @synthesize completionRequiresWritingBlock=_completionRequiresWritingBlock;
+@property(nonatomic) _Bool completionRequiresWritingBlock; // @synthesize completionRequiresWritingBlock=_completionRequiresWritingBlock;
 @property(retain, nonatomic) AXAccessQueue *targetAccessQueue; // @synthesize targetAccessQueue=_targetAccessQueue;
 @property(nonatomic) void *context; // @synthesize context=_context;
 @property(retain, nonatomic) NSObject<OS_xpc_object> *xpcMessage; // @synthesize xpcMessage=_xpcMessage;

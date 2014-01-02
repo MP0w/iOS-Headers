@@ -13,26 +13,26 @@
 @interface PUViewDecoration : NSObject <NSCopying>
 {
     UIColor *_shadowColor;
-    float _shadowRadius;
+    double _shadowRadius;
     UIColor *_borderColor;
-    float _borderWidth;
+    double _borderWidth;
     UIColor *_edgeColor;
     struct CGSize _shadowOffset;
 }
 
 @property(retain, nonatomic) UIColor *edgeColor; // @synthesize edgeColor=_edgeColor;
-@property(nonatomic) float borderWidth; // @synthesize borderWidth=_borderWidth;
+@property(nonatomic) double borderWidth; // @synthesize borderWidth=_borderWidth;
 @property(retain, nonatomic) UIColor *borderColor; // @synthesize borderColor=_borderColor;
 @property(nonatomic) struct CGSize shadowOffset; // @synthesize shadowOffset=_shadowOffset;
-@property(nonatomic) float shadowRadius; // @synthesize shadowRadius=_shadowRadius;
+@property(nonatomic) double shadowRadius; // @synthesize shadowRadius=_shadowRadius;
 @property(retain, nonatomic) UIColor *shadowColor; // @synthesize shadowColor=_shadowColor;
 - (void).cxx_destruct;
-- (BOOL)_displayEdges;
-- (BOOL)_displayBorder;
-- (BOOL)_displayShadow;
+- (_Bool)_displayEdges;
+- (_Bool)_displayBorder;
+- (_Bool)_displayShadow;
 @property(readonly, nonatomic) UIImage *overlayImage;
 @property(readonly, nonatomic) struct UIEdgeInsets overlayInsets;
-- (id)decorationVariantsWithDecreasingBrightness:(int)arg1;
+- (id)decorationVariantsWithDecreasingBrightness:(long long)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end

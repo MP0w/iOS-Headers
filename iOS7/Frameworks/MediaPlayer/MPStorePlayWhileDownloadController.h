@@ -22,19 +22,19 @@
 
 + (id)sharedController;
 - (void).cxx_destruct;
-- (BOOL)_showNoNetworkDialogForMediaItem:(id)arg1;
-- (BOOL)_showCellularRestrictedDialogForMediaItem:(id)arg1;
-- (id)_openSessionWithProperties:(id)arg1 style:(int *)arg2;
+- (_Bool)_showNoNetworkDialogForMediaItem:(id)arg1;
+- (_Bool)_showCellularRestrictedDialogForMediaItem:(id)arg1;
+- (id)_openSessionWithProperties:(id)arg1 style:(long long *)arg2;
 - (id)_openSessionWithProperties:(id)arg1 options:(id)arg2;
 - (id)_downloadSessionWithID:(id)arg1;
 - (void)_closeSessionForAsset:(id)arg1;
-- (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
+- (void)alertView:(id)arg1 didDismissWithButtonIndex:(long long)arg2;
 - (void)downloadHandler:(id)arg1 handleSession:(id)arg2;
 - (void)downloadHandler:(id)arg1 cancelSession:(id)arg2;
-- (BOOL)showNetworkConstraintDialogForMediaItem:(id)arg1;
+- (_Bool)showNetworkConstraintDialogForMediaItem:(id)arg1;
 - (id)openSessionWithMediaItem:(id)arg1 options:(id)arg2;
-- (BOOL)isSessionRequiredToPlayMediaItem:(id)arg1;
-- (BOOL)canOpenSessionWithMediaItem:(id)arg1;
+- (_Bool)isSessionRequiredToPlayMediaItem:(id)arg1;
+- (_Bool)canOpenSessionWithMediaItem:(id)arg1;
 - (void)dealloc;
 - (id)_init;
 - (id)init;

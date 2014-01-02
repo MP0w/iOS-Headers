@@ -19,7 +19,7 @@
 - (void)requestThumbnail;
 - (id)metadata;
 - (struct CGImage *)thumbnail;
-- (BOOL)hasThumbnail;
+- (_Bool)hasThumbnail;
 - (id)folders;
 - (id)files;
 - (id)valueForUndefinedKey:(id)arg1;

@@ -14,8 +14,8 @@
 - (void)setFillColor:(id)arg1 state:(id)arg2;
 - (void)setStrokeColor:(id)arg1 width:(float)arg2 state:(id)arg3;
 - (void)setContextOpacity:(float)arg1 state:(id)arg2;
-- (void)createMaskedImageWithId:(struct __CFString *)arg1 path:(id)arg2 geometry:(id)arg3 cropGeometry:(id)arg4 imageBinary:(id)arg5 graphicStyle:(id)arg6 isFloating:(BOOL)arg7 state:(id)arg8;
-- (void)createShapeWithId:(struct __CFString *)arg1 path:(id)arg2 geometry:(id)arg3 graphicStyle:(id)arg4 isFloating:(BOOL)arg5 state:(id)arg6;
+- (void)createMaskedImageWithId:(struct __CFString *)arg1 geometry:(id)arg2 imageBinary:(id)arg3 cropGeometry:(id)arg4 maskingShapePath:(id)arg5 alphaMaskBezier:(struct CGPath *)arg6 graphicStyle:(id)arg7 isFloating:(_Bool)arg8 state:(id)arg9;
+- (void)createShapeWithId:(struct __CFString *)arg1 path:(id)arg2 geometry:(id)arg3 graphicStyle:(id)arg4 isFloating:(_Bool)arg5 state:(id)arg6;
 - (void)teardownContext:(id)arg1;
 - (void)prepareContext:(id)arg1;
 - (void)addScriptTagToHtml:(id)arg1 state:(id)arg2;

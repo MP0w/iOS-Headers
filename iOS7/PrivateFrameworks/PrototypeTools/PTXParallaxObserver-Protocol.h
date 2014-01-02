@@ -8,6 +8,6 @@
 
 @protocol PTXParallaxObserver <NSObject>
 - (void)clearParallaxOffset;
-- (void)handleParallaxOffset:(struct CGPoint)arg1 lockStatus:(int)arg2 strength:(float)arg3;
+- (void)handleParallaxOffset:(struct CGPoint)arg1 lockStatus:(long long)arg2 strength:(double)arg3;
 @end
 

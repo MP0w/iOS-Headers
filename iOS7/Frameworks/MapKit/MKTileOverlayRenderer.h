@@ -11,8 +11,8 @@
 }
 
 - (void)reloadData;
-- (void)drawMapRect:(CDStruct_90e2a262)arg1 zoomScale:(float)arg2 inContext:(struct CGContext *)arg3;
-- (BOOL)canDrawMapRect:(CDStruct_90e2a262)arg1 zoomScale:(float)arg2;
+- (void)drawMapRect:(CDStruct_90e2a262)arg1 zoomScale:(double)arg2 inContext:(struct CGContext *)arg3;
+- (_Bool)canDrawMapRect:(CDStruct_90e2a262)arg1 zoomScale:(double)arg2;
 - (id)initWithTileOverlay:(id)arg1;
 - (id)initWithOverlay:(id)arg1;
 

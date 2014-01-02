@@ -7,6 +7,6 @@
 #import "NSString.h"
 
 @interface NSString (CalendarPathExtensions)
-+ (id)stringWithContentsOfFile:(id)arg1 usingEncoding:(unsigned int)arg2;
++ (id)stringWithContentsOfFile:(id)arg1 usingEncoding:(unsigned long long)arg2;
 @end
 

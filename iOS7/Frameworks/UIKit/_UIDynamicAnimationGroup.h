@@ -22,7 +22,7 @@
 - (void)runWithGroupApplier:(id)arg1 completion:(void)arg2 forScreen:(id)arg3 runLoopMode:(void)arg4;
 - (void)removeAnimation:(id)arg1;
 - (void)addAnimation:(id)arg1;
-- (BOOL)_animateForInterval:(double)arg1;
+- (_Bool)_animateForInterval:(double)arg1;
 - (void)_stopAnimation;
 - (void)dealloc;
 

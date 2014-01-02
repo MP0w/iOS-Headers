@@ -6,29 +6,41 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface SKTextureCache : NSObject
 {
     unsigned int texId;
+    int texInternalFormat;
+    unsigned int texFormat;
+    unsigned int texType;
     struct CGSize size;
     struct CGSize pixelSize;
-    BOOL isLoaded;
-    BOOL hasAlpha;
-    BOOL isPOT;
+    _Bool isLoaded;
+    _Bool hasAlpha;
+    _Bool isPOT;
     char *pixelData;
     unsigned int *alphaMap;
     struct CGSize alphaMapSize;
+    int state;
+    int lock;
+    struct CGImage *collisionMask;
 }
 
+@property(nonatomic) int state; // @synthesize state;
+@property(nonatomic) unsigned int texType; // @synthesize texType;
+@property(nonatomic) unsigned int texFormat; // @synthesize texFormat;
+@property(nonatomic) int texInternalFormat; // @synthesize texInternalFormat;
 @property(nonatomic) struct CGSize alphaMapSize; // @synthesize alphaMapSize;
 @property(nonatomic) unsigned int *alphaMap; // @synthesize alphaMap;
 @property(nonatomic) struct CGSize pixelSize; // @synthesize pixelSize;
 @property(nonatomic) char *pixelData; // @synthesize pixelData;
-@property(nonatomic) BOOL hasAlpha; // @synthesize hasAlpha;
-@property(nonatomic) BOOL isPOT; // @synthesize isPOT;
-@property(nonatomic) BOOL isLoaded; // @synthesize isLoaded;
+@property(nonatomic) _Bool hasAlpha; // @synthesize hasAlpha;
+@property(nonatomic) _Bool isPOT; // @synthesize isPOT;
+@property(nonatomic) _Bool isLoaded; // @synthesize isLoaded;
 @property(nonatomic) struct CGSize size; // @synthesize size;
 @property(nonatomic) unsigned int texId; // @synthesize texId;
 - (id).cxx_construct;
+@property(readonly, nonatomic, getter=getLock) int *lock;
 - (void)dealloc;
 - (id)init;
 

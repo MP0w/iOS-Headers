@@ -6,6 +6,7 @@
 
 #import <CoreData/NSKnownKeysDictionary1.h>
 
+// Not exported
 @interface NSKnownKeysDictionary2 : NSKnownKeysDictionary1
 {
 }

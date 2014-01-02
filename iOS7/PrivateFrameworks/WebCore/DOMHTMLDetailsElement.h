@@ -6,11 +6,12 @@
 
 #import <WebCore/DOMHTMLElement.h>
 
+// Not exported
 @interface DOMHTMLDetailsElement : DOMHTMLElement
 {
 }
 
-@property BOOL open;
+@property _Bool open;
 
 @end
 

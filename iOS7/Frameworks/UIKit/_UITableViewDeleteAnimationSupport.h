@@ -8,6 +8,7 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface _UITableViewDeleteAnimationSupport : NSObject
 {
     NSMutableArray *_cellsToDeleteAfterAnimation;

@@ -8,6 +8,7 @@
 
 @class NSSQLForeignKey;
 
+// Not exported
 @interface NSSQLForeignEntityKey : NSSQLColumn
 {
     NSSQLForeignKey *_foreignKey;

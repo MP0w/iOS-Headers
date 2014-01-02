@@ -10,24 +10,25 @@
 
 @interface MFModernAtomView : UIDefaultKeyboardInput
 {
-    UIView *_background;
-    UIView *_compositingView;
-    UILabel *_label;
-    UIActivityIndicatorView *_activityIndicator;
-    float _scalingFactor;
     MFModernAtomIconView *_badgeIconView;
     MFModernAtomIconView *_accessoryIconView;
     UIColor *_effectiveTintColor;
-    unsigned int _disabledPresentationOptions;
+    unsigned long long _disabledPresentationOptions;
     UIView *_baselineView;
-    BOOL _isPrimaryAddressAtom;
-    BOOL _selected;
-    BOOL _separatorHidden;
+    MFModernAtomBackgroundView *_background;
+    UIView *_compositingView;
+    UIView *_titleLabelFillView;
+    UILabel *_label;
+    UIActivityIndicatorView *_activityIndicator;
+    double _scalingFactor;
+    _Bool _isPrimaryAddressAtom;
+    _Bool _separatorHidden;
+    _Bool _selected;
     UIFont *_titleFont;
-    unsigned int _presentationOptions;
+    unsigned long long _presentationOptions;
 }
 
-+ (id)_badgeImagesForPresentationOptions:(unsigned int)arg1 iconOrder:(const unsigned int *)arg2 orderingLength:(unsigned int)arg3 tintColor:(id)arg4 large:(BOOL)arg5 variant:(int)arg6;
++ (id)_badgeImagesForPresentationOptions:(unsigned long long)arg1 iconOrder:(const unsigned long long *)arg2 orderingLength:(unsigned long long)arg3 tintColor:(id)arg4 large:(_Bool)arg5 variant:(int)arg6;
 + (id)_defaultLabelAttributesWithFont:(id)arg1;
 + (id)_defaultLabelAttributes;
 + (id)_SMSTintColor;
@@ -35,39 +36,40 @@
 + (id)_defaultTintColor;
 + (id)primaryAtomFont;
 + (id)defaultFont;
-+ (float)horizontalPadding;
++ (double)horizontalPadding;
 + (struct CGPoint)defaultBaselinePoint;
-+ (float)defaultHeight;
-@property(nonatomic) BOOL separatorHidden; // @synthesize separatorHidden=_separatorHidden;
-@property(nonatomic) unsigned int presentationOptions; // @synthesize presentationOptions=_presentationOptions;
-@property(nonatomic, getter=isSelected) BOOL selected; // @synthesize selected=_selected;
-@property(nonatomic) BOOL isPrimaryAddressAtom; // @synthesize isPrimaryAddressAtom=_isPrimaryAddressAtom;
++ (double)defaultHeight;
+@property(nonatomic) unsigned long long presentationOptions; // @synthesize presentationOptions=_presentationOptions;
+@property(nonatomic, getter=isSelected) _Bool selected; // @synthesize selected=_selected;
+@property(readonly, nonatomic) UIActivityIndicatorView *activityIndicator; // @synthesize activityIndicator=_activityIndicator;
+@property(nonatomic) _Bool isPrimaryAddressAtom; // @synthesize isPrimaryAddressAtom=_isPrimaryAddressAtom;
 @property(readonly, nonatomic) MFModernAtomIconView *badgeIconView; // @synthesize badgeIconView=_badgeIconView;
 @property(readonly, nonatomic) MFModernAtomIconView *accessoryIconView; // @synthesize accessoryIconView=_accessoryIconView;
 @property(readonly, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_label;
 - (struct CGSize)intrinsicContentSize;
 - (id)viewForBaselineLayout;
 @property(readonly, nonatomic) struct CGPoint baselinePoint;
-- (void)setScalingFactor:(float)arg1;
-- (float)scalingFactor;
-- (float)_leftPadding;
-- (float)_rightPadding;
-- (float)_rightInset;
-- (float)_leftInset;
+- (void)setScalingFactor:(double)arg1;
+- (double)scalingFactor;
+- (double)_leftPadding;
+- (double)_rightPadding;
+- (double)_rightInset;
+- (double)_leftInset;
 - (struct UIEdgeInsets)edgeInsets;
 - (void)layoutSubviews;
-- (float)preferredWidthWithSizeConstraints:(struct CGSize)arg1;
-- (float)preferredWidth;
+- (double)preferredWidthWithSizeConstraints:(struct CGSize)arg1;
+- (double)preferredWidth;
 - (void)_updateFontIfNecessary;
 - (void)_updateActivityIndicator;
 - (void)_updateCompositingFilters;
-@property(nonatomic) BOOL hidesVIPIndicator;
-- (void)setSelected:(BOOL)arg1 animated:(BOOL)arg2;
+@property(nonatomic) _Bool hidesVIPIndicator;
+- (void)setSelected:(_Bool)arg1 animated:(_Bool)arg2;
 @property(nonatomic) int separatorStyle;
-@property(readonly, nonatomic) unsigned int effectivePresentationOptions;
-- (void)_setPresentationOption:(unsigned int)arg1 enabled:(BOOL)arg2;
-- (void)clearPresentationOption:(unsigned int)arg1;
-- (void)appendPresentationOption:(unsigned int)arg1;
+@property(nonatomic) _Bool separatorHidden; // @synthesize separatorHidden=_separatorHidden;
+@property(readonly, nonatomic) unsigned long long effectivePresentationOptions;
+- (void)_setPresentationOption:(unsigned long long)arg1 enabled:(_Bool)arg2;
+- (void)clearPresentationOption:(unsigned long long)arg1;
+- (void)appendPresentationOption:(unsigned long long)arg1;
 - (void)_invalidatePresentationOptions;
 @property(copy, nonatomic) NSString *title;
 @property(retain, nonatomic) UIFont *titleFont; // @synthesize titleFont=_titleFont;
@@ -77,7 +79,7 @@
 @property(readonly, nonatomic) MFModernAtomBackgroundView *backgroundView;
 - (int)_preferredIconVariant;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 presentationOptions:(unsigned int)arg2 separatorStyle:(int)arg3;
+- (id)initWithFrame:(struct CGRect)arg1 presentationOptions:(unsigned long long)arg2 separatorStyle:(int)arg3;
 
 @end
 

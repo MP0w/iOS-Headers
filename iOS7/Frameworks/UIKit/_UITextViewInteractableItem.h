@@ -11,6 +11,7 @@
 
 @class NSArray, NSDictionary, NSString, UITextView, _UIRotatingActionSheet;
 
+// Not exported
 @interface _UITextViewInteractableItem : NSObject <_UIRotatingActionSheetDelegate, UIActionSheetDelegate>
 {
     _UIRotatingActionSheet *_linkInteractionSheet;
@@ -24,14 +25,14 @@
 @property(readonly, nonatomic) NSArray *actions; // @synthesize actions=_actions;
 @property(nonatomic) UITextView *textView; // @synthesize textView=_textView;
 @property(nonatomic) struct _NSRange range; // @synthesize range=_range;
-- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (void)_handleActionAndFinish:(id)arg1;
 - (struct CGRect)presentationRectInHostViewForSheet:(id)arg1;
 - (struct CGRect)initialPresentationRectInHostViewForSheet:(id)arg1;
 - (id)hostViewForSheet:(id)arg1;
 - (void)_showActionSheet;
 @property(readonly, nonatomic) NSString *localizedTitle;
-- (BOOL)allowInteraction;
+- (_Bool)allowInteraction;
 - (void)handleLongPress;
 - (void)handleTap;
 - (id)_actionSheet;

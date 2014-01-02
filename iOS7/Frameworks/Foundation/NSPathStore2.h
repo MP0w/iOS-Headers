@@ -6,6 +6,7 @@
 
 #import <Foundation/NSString.h>
 
+// Not exported
 @interface NSPathStore2 : NSString
 {
     unsigned int _lengthAndRefCount;
@@ -13,11 +14,11 @@
 }
 
 + (id)pathWithComponents:(id)arg1;
-+ (id)pathStoreWithCharacters:(const unsigned short *)arg1 length:(unsigned int)arg2;
++ (id)pathStoreWithCharacters:(const unsigned short *)arg1 length:(unsigned long long)arg2;
 - (id)stringByResolvingSymlinksInPath;
-- (id)_stringByResolvingSymlinksInPathUsingCache:(BOOL)arg1;
+- (id)_stringByResolvingSymlinksInPathUsingCache:(_Bool)arg1;
 - (id)stringByStandardizingPath;
-- (id)_stringByStandardizingPathUsingCache:(BOOL)arg1;
+- (id)_stringByStandardizingPathUsingCache:(_Bool)arg1;
 - (id)stringByExpandingTildeInPath;
 - (id)stringByAbbreviatingWithTildeInPath;
 - (id)stringByAppendingPathExtension:(id)arg1;
@@ -26,14 +27,14 @@
 - (id)stringByAppendingPathComponent:(id)arg1;
 - (id)stringByDeletingLastPathComponent;
 - (id)lastPathComponent;
-- (BOOL)isAbsolutePath;
+- (_Bool)isAbsolutePath;
 - (id)pathComponents;
-- (BOOL)isEqualToString:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqualToString:(id)arg1;
+- (unsigned long long)hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)getCharacters:(unsigned short *)arg1 range:(struct _NSRange)arg2;
-- (unsigned short)characterAtIndex:(unsigned int)arg1;
-- (unsigned int)length;
+- (unsigned short)characterAtIndex:(unsigned long long)arg1;
+- (unsigned long long)length;
 
 @end
 

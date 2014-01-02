@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface ECUtils : NSObject
 {
 }
@@ -16,8 +17,7 @@
 + (id)dateFromXlDateTimeNumber:(double)arg1 edWorkbook:(id)arg2;
 + (id)lassoStyleTableReferenceFromTableId:(id)arg1;
 + (id)renameFunction:(id)arg1;
-+ (BOOL)isRenameFunction:(id)arg1;
-+ (double)timeIntervalFromXlDateTimeNumber:(double)arg1 edWorkbook:(id)arg2;
++ (_Bool)isRenameFunction:(id)arg1;
 
 @end
 

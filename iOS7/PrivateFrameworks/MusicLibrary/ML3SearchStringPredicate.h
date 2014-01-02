@@ -18,13 +18,13 @@
 @property(copy, nonatomic) NSString *searchString; // @synthesize searchString=_searchString;
 @property(copy, nonatomic) NSArray *properties; // @synthesize properties=_properties;
 - (void).cxx_destruct;
-- (BOOL)isDynamicForEntityClass:(Class)arg1;
+- (_Bool)isDynamicForEntityClass:(Class)arg1;
 - (id)databaseStatementParameters;
 - (void)appendSQLToMutableString:(id)arg1 entityClass:(Class)arg2;
 - (id)SQLJoinClausesForClass:(Class)arg1;
 - (id)description;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithConcatenatedProperties:(id)arg1 searchString:(id)arg2;

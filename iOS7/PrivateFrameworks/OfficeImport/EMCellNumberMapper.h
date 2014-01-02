@@ -8,6 +8,7 @@
 
 @class EDStyle;
 
+// Not exported
 @interface EMCellNumberMapper : CMMapper
 {
     double edValue;

@@ -7,28 +7,28 @@
 #import "NSObject-Protocol.h"
 
 @protocol MSASPlatform <NSObject>
-- (BOOL)MSASPersonIDIsAllowedToDownloadAssets:(id)arg1;
-- (BOOL)MSASIsAllowedToUploadAssets;
-- (BOOL)MSASIsAllowedToTransferMetadata;
+- (_Bool)MSASPersonIDIsAllowedToDownloadAssets:(id)arg1;
+- (_Bool)MSASIsAllowedToUploadAssets;
+- (_Bool)MSASIsAllowedToTransferMetadata;
 - (id)personIDsEnabledForAlbumSharing;
 - (id)pushTokenForPersonID:(id)arg1;
-- (BOOL)personIDUsesProductionPushEnvironment:(id)arg1;
+- (_Bool)personIDUsesProductionPushEnvironment:(id)arg1;
 - (id)baseSharingURLForPersonID:(id)arg1;
 - (Class)pluginClass;
 - (id)pathAlbumSharingDir;
 - (id)albumSharingDaemon;
 - (void)logLevel:(int)arg1 personID:(id)arg2 albumGUID:(id)arg3 format:(id)arg4;
-- (BOOL)shouldLogAtLevel:(int)arg1;
+- (_Bool)shouldLogAtLevel:(int)arg1;
 
 @optional
 - (id)MMCSUploadSocketOptionsForPersonID:(id)arg1;
 - (id)MMCSDownloadSocketOptionsForPersonID:(id)arg1;
 - (id)metadataSocketOptionsForPersonID:(id)arg1;
-- (BOOL)personIDEnabledForAlbumSharing:(id)arg1;
-- (BOOL)shouldEnableNewFeatures;
-- (BOOL)deviceHasEnoughDiskSpaceRemainingToOperate;
-- (BOOL)shouldDownloadEarliestPhotosFirst;
+- (_Bool)personIDEnabledForAlbumSharing:(id)arg1;
+- (_Bool)shouldEnableNewFeatures;
+- (_Bool)deviceHasEnoughDiskSpaceRemainingToOperate;
+- (_Bool)shouldDownloadEarliestPhotosFirst;
 - (int)MMCSConcurrentConnectionsCount;
-- (void)setSuppressCellular:(BOOL)arg1;
+- (void)setSuppressCellular:(_Bool)arg1;
 @end
 

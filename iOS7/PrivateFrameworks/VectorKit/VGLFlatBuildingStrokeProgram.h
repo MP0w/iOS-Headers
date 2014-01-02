@@ -6,6 +6,7 @@
 
 #import <VectorKit/VGLStrokePolygonProgram.h>
 
+// Not exported
 @interface VGLFlatBuildingStrokeProgram : VGLStrokePolygonProgram
 {
     int _uMaxLayeringHeight;

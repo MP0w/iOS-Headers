@@ -6,20 +6,21 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class NSDate, NSString;
 
 @interface SKUIReleaseNote : NSObject
 {
     NSString *_changeNotes;
-    NSString *_dateString;
+    NSDate *_date;
     NSString *_versionString;
 }
 
++ (id)dateFormatter;
 @property(readonly, nonatomic) NSString *versionString; // @synthesize versionString=_versionString;
-@property(readonly, nonatomic) NSString *dateString; // @synthesize dateString=_dateString;
+@property(readonly, nonatomic) NSDate *date; // @synthesize date=_date;
 @property(readonly, nonatomic) NSString *changeNotes; // @synthesize changeNotes=_changeNotes;
 - (void).cxx_destruct;
-- (id)initWithReleaseNoteDictionary:(id)arg1;
+- (id)initWithReleaseNoteDictionary:(id)arg1 dateFormatter:(id)arg2;
 
 @end
 

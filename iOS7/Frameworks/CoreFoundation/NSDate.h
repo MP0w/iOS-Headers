@@ -13,7 +13,7 @@
 {
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 + (id)dateWithString:(id)arg1;
 + (id)dateWithDate:(id)arg1;
 + (id)dateWithTimeInterval:(double)arg1 sinceDate:(id)arg2;
@@ -38,17 +38,17 @@
 - (id)initWithTimeIntervalSinceReferenceDate:(double)arg1;
 - (id)description;
 - (id)descriptionWithLocale:(id)arg1;
-- (BOOL)isEqualToDate:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqualToDate:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (double)timeIntervalSince1970;
 - (double)timeIntervalSinceNow;
 - (double)timeIntervalSinceDate:(id)arg1;
 - (id)laterDate:(id)arg1;
 - (id)earlierDate:(id)arg1;
-- (int)compare:(id)arg1;
-- (unsigned long)_cfTypeID;
-- (BOOL)isNSDate__;
+- (long long)compare:(id)arg1;
+- (unsigned long long)_cfTypeID;
+- (_Bool)isNSDate__;
 - (double)timeIntervalSinceReferenceDate;
 
 @end

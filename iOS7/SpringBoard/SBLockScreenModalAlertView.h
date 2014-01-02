@@ -11,11 +11,11 @@
 @interface SBLockScreenModalAlertView : UIView
 {
     UIAlertView *_alertView;
+    UIView *_realModalAlertView;
 }
 
 - (void)layoutSubviews;
 - (void)removeAlertView;
-- (BOOL)replaceAlertView:(id)arg1 withAlertView:(id)arg2;
 - (void)showAlertView:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

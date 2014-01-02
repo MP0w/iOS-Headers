@@ -19,10 +19,10 @@
 - (id)valueForUndefinedKey:(id)arg1;
 - (void)requestCloseSession;
 - (void)requestOpenSession;
-@property BOOL closeSessionPending;
-@property BOOL openSessionPending;
-@property BOOL autoOpenSession;
-@property BOOL hasOpenSession;
+@property _Bool closeSessionPending;
+@property _Bool openSessionPending;
+@property _Bool autoOpenSession;
+@property _Bool hasOpenSession;
 @property(copy) NSString *UUIDString;
 @property int usbVendorID;
 @property int usbProductID;

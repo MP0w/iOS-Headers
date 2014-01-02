@@ -8,25 +8,27 @@
 
 @class CADisplayLink, NSObject<OS_dispatch_queue>, NSTimer;
 
+// Not exported
 @interface SKDisplayLink : NSObject
 {
     NSTimer *_timer;
     CADisplayLink *_caDisplayLink;
-    unsigned int _mode;
-    BOOL _paused;
-    BOOL _asynchronous;
-    int _frameInterval;
+    unsigned long long _mode;
+    _Bool _paused;
+    _Bool _asynchronous;
+    long long _frameInterval;
     double _previousFrameTime;
     id _block;
     NSObject<OS_dispatch_queue> *_queue;
     float _averageFrameTime;
-    int _frameCount;
+    long long _frameCount;
     double _frameCountBeginTime;
-    unsigned int _maxQueuedFrameCount;
+    int _queuedFrameCount;
+    unsigned long long _maxQueuedFrameCount;
 }
 
 + (id)displayLinkWithBlock:(id)arg1 queue:(void)arg2;
-@property unsigned int maxQueuedFrameCount; // @synthesize maxQueuedFrameCount=_maxQueuedFrameCount;
+@property unsigned long long maxQueuedFrameCount; // @synthesize maxQueuedFrameCount=_maxQueuedFrameCount;
 - (void).cxx_destruct;
 - (void)_nsTimerCallback;
 - (void)_caDisplayLinkCallback;
@@ -36,10 +38,10 @@
 - (void)_teardown;
 - (void)_start;
 - (void)_setup;
-@property(nonatomic) unsigned int mode;
-@property(nonatomic) int frameInterval;
-@property(nonatomic, getter=isPaused) BOOL paused;
-@property(nonatomic) BOOL asynchronous;
+@property(nonatomic) unsigned long long mode;
+@property(nonatomic) long long frameInterval;
+@property(nonatomic, getter=isPaused) _Bool paused;
+@property(nonatomic) _Bool asynchronous;
 - (id)init;
 - (id)initWithBlock:(id)arg1 queue:(void)arg2;
 

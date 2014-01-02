@@ -24,12 +24,12 @@
     NSNotificationCenter *_notificationCenter;
     NSTimer *_loadStatusNotificationTimer;
     struct _opaque_pthread_mutex_t {
-        long __sig;
-        char __opaque[40];
+        long long __sig;
+        char __opaque[56];
     } _startupLock;
     struct _opaque_pthread_cond_t {
-        long __sig;
-        char __opaque[24];
+        long long __sig;
+        char __opaque[40];
     } _startupCondition;
 }
 
@@ -37,27 +37,14 @@
 - (void)loadCache:(id)arg1;
 - (void)saveCache:(id)arg1;
 - (id)notificationCenter;
-- (struct CGImage *)pluginImageForURL:(id)arg1 videoID:(id)arg2 loadIfAbsent:(BOOL)arg3;
-- (struct CGImage *)largeImageForURL:(id)arg1 videoID:(id)arg2 loadIfAbsent:(BOOL)arg3;
-- (struct CGImage *)imageForURL:(id)arg1 rounded:(BOOL)arg2 videoID:(id)arg3 loadIfAbsent:(BOOL)arg4;
+- (struct CGImage *)pluginImageForURL:(id)arg1 videoID:(id)arg2 loadIfAbsent:(_Bool)arg3;
+- (struct CGImage *)largeImageForURL:(id)arg1 videoID:(id)arg2 loadIfAbsent:(_Bool)arg3;
+- (struct CGImage *)imageForURL:(id)arg1 rounded:(_Bool)arg2 videoID:(id)arg3 loadIfAbsent:(_Bool)arg4;
 - (struct CGImage *)createSheenedThumbnailWithImage:(struct CGImage *)arg1 overlay:(struct CGImage *)arg2 width:(int)arg3 height:(int)arg4;
 - (struct CGImage *)_largeThumbnailOverlay;
 - (struct CGImage *)createRoundedThumbnailWithImage:(struct CGImage *)arg1;
-- (BOOL)isLoadingImages;
+- (_Bool)isLoadingImages;
 - (id)init;
-- (id)_locked_loadImageCache:(id)arg1;
-- (id)_locked_saveImageCache:(id)arg1;
-- (void)_imageLoadFinished:(id)arg1;
-- (void)_locked_imageLoadStarted:(id)arg1;
-- (void)_postImageLoadedNotification:(id)arg1;
-- (void)_setImageData:(id)arg1 videoID:(id)arg2 forURL:(id)arg3 cacheLocked:(BOOL)arg4;
-- (void)_loadImageURL:(id)arg1 videoID:(id)arg2;
-- (void)_locked_loadImageForURL:(id)arg1 videoID:(id)arg2;
-- (BOOL)_locked_URLIsLoading:(id)arg1;
-- (void)_startLoader;
-- (void)_loadingStatusChanged;
-- (void)_postLoadingStatusChanged;
-- (void)_mainThread_postLoadingStatusChanged;
 
 @end
 

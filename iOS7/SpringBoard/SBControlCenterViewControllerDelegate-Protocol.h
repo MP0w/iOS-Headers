@@ -7,9 +7,10 @@
 #import "NSObject-Protocol.h"
 
 @protocol SBControlCenterViewControllerDelegate <NSObject>
+- (void)controlCenterViewController:(id)arg1 backdropViewDidUpdate:(id)arg2;
 - (void)controlCenterViewController:(id)arg1 handlePan:(id)arg2;
 - (void)controlCenterViewController:(id)arg1 handleTap:(id)arg2;
-- (BOOL)controlCenterViewController:(id)arg1 canHandleGestureRecognizer:(id)arg2;
+- (_Bool)controlCenterViewController:(id)arg1 canHandleGestureRecognizer:(id)arg2;
 - (void)controlCenterViewControllerWantsDismissal:(id)arg1;
 @end
 

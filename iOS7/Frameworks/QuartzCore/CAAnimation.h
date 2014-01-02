@@ -8,41 +8,34 @@
 
 #import "CAAction-Protocol.h"
 #import "CAMediaTiming-Protocol.h"
-#import "CAPropertyInfo-Protocol.h"
 #import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
-#import "NSMutableCopying-Protocol.h"
 
-@class CAMediaTimingFunction, CAStateControllerTransition, NSString;
+@class CAMediaTimingFunction, NSString;
 
-@interface CAAnimation : NSObject <NSMutableCopying, CAPropertyInfo, NSCoding, NSCopying, CAMediaTiming, CAAction>
+@interface CAAnimation : NSObject <NSCoding, NSCopying, CAMediaTiming, CAAction>
 {
     void *_attr;
     unsigned int _flags;
 }
 
-+ (BOOL)CA_automaticallyNotifiesObservers:(Class)arg1;
-+ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
-+ (BOOL)CA_encodesPropertyConditionally:(unsigned int)arg1 type:(int)arg2;
++ (_Bool)CA_automaticallyNotifiesObservers:(Class)arg1;
++ (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
++ (_Bool)CA_encodesPropertyConditionally:(unsigned int)arg1 type:(int)arg2;
 + (id)animation;
 + (id)defaultValueForKey:(id)arg1;
-+ (void)CAMLParserStartElement:(id)arg1;
-+ (BOOL)resolveInstanceMethod:(SEL)arg1;
-+ (void *)CA_getterForProperty:(const struct _CAPropertyInfo *)arg1;
-+ (void *)CA_setterForProperty:(const struct _CAPropertyInfo *)arg1;
-+ (id)properties;
 @property(retain) id delegate;
 @property(retain) CAMediaTimingFunction *timingFunction;
-@property(getter=isRemovedOnCompletion) BOOL removedOnCompletion;
+@property(getter=isRemovedOnCompletion) _Bool removedOnCompletion;
 @property(copy) NSString *fillMode;
-@property BOOL autoreverses;
+@property _Bool autoreverses;
 @property double repeatDuration;
 @property float repeatCount;
 @property float speed;
 @property double duration;
 @property double timeOffset;
 @property double beginTime;
-- (BOOL)removedOnCompletion;
+- (_Bool)removedOnCompletion;
 - (id)debugDescription;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)setValue:(id)arg1 forKeyPath:(id)arg2;
@@ -53,24 +46,11 @@
 - (id)valueForKey:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (BOOL)shouldArchiveValueForKey:(id)arg1;
+- (_Bool)shouldArchiveValueForKey:(id)arg1;
 - (void)runActionForKey:(id)arg1 object:(id)arg2 arguments:(id)arg3;
 - (void)dealloc;
 - (unsigned int)_propertyFlagsForLayer:(id)arg1;
-- (BOOL)_setCARenderAnimation:(struct Animation *)arg1 layer:(id)arg2;
-@property(copy) NSString *beginTimeMode;
-@property double frameInterval;
-@property(getter=isEnabled) BOOL enabled;
-- (id)CAMLTypeForKey:(id)arg1;
-- (void)encodeWithCAMLWriter:(id)arg1;
-- (void)CAMLParser:(id)arg1 setValue:(id)arg2 forKey:(id)arg3;
-- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
-- (struct Object *)CA_copyRenderValue;
-- (void)applyForTime:(double)arg1 presentationObject:(id)arg2 modelObject:(id)arg3;
-- (void)setDefaultDuration:(double)arg1;
-
-// Remaining properties
-@property CAStateControllerTransition *CAStateControllerTransition; // @dynamic CAStateControllerTransition;
+- (_Bool)_setCARenderAnimation:(struct Animation *)arg1 layer:(id)arg2;
 
 @end
 

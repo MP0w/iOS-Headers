@@ -8,6 +8,7 @@
 
 @class EAGLSharegroup, VGLResourceFactory;
 
+// Not exported
 @interface VGLSharegroup : NSObject
 {
     EAGLSharegroup *_eaglSharegroup;

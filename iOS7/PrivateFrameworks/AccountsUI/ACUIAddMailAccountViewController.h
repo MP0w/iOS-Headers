@@ -12,7 +12,7 @@
 
 - (id)specifierForOtherAccounts;
 - (id)giantSpecifierWithName:(id)arg1 forAccountTypeID:(id)arg2;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 
 @end
 

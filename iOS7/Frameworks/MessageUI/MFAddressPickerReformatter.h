@@ -12,33 +12,33 @@
 {
     NSArray *_addresses;
     NSArray *_reformattedAddresses;
-    float _maximumWidth;
-    float _minimumFontSize;
-    float _maximumFontSize;
-    float _fontSize;
-    BOOL _attributesDisabled;
+    double _maximumWidth;
+    double _minimumFontSize;
+    double _maximumFontSize;
+    double _fontSize;
+    _Bool _attributesDisabled;
 }
 
 - (void)_restoreMiddleTruncationRanges:(id)arg1;
 - (id)_saveMiddleTruncationRanges;
-- (BOOL)_reformattedAddressesByDisplayedStringsAreUnique:(id)arg1;
+- (_Bool)_reformattedAddressesByDisplayedStringsAreUnique:(id)arg1;
 - (void)_expandAllLocalParts;
 - (id)_reformattedAddressesByDisplayedStrings;
-- (BOOL)_attemptUniquingDisplayedStringsUsingBlock:(id)arg1;
+- (_Bool)_attemptUniquingDisplayedStringsUsingBlock:(id)arg1;
 - (void)_attemptUniquingDisplayedStrings;
-- (void)_truncateIdenticalLocalPartsWithDifferentDomainPartsWithTailLength:(unsigned int)arg1 options:(unsigned int)arg2;
+- (void)_truncateIdenticalLocalPartsWithDifferentDomainPartsWithTailLength:(unsigned long long)arg1 options:(unsigned long long)arg2;
 - (void)_truncateIdenticalLocalPartsWithDifferentDomainParts;
-- (void)_determineFontSize:(char *)arg1;
+- (void)_determineFontSize:(_Bool *)arg1;
 - (void)_updateReformattedAddressesIfNecessary;
 - (void)_invalidateReformattedAddresses;
-- (unsigned int)_defaultOptions;
-- (id)reformattedAddressStringAtIndex:(unsigned int)arg1;
-- (id)reformattedAddressAtIndex:(unsigned int)arg1;
-- (unsigned int)numberOfReformattedAddresses;
-- (void)setMinimumFontSize:(float)arg1 maximumFontSize:(float)arg2;
-- (void)setFontSize:(float)arg1;
-- (void)setAttributesDisabled:(BOOL)arg1;
-- (void)setMaximumWidth:(float)arg1;
+- (unsigned long long)_defaultOptions;
+- (id)reformattedAddressStringAtIndex:(unsigned long long)arg1;
+- (id)reformattedAddressAtIndex:(unsigned long long)arg1;
+- (unsigned long long)numberOfReformattedAddresses;
+- (void)setMinimumFontSize:(double)arg1 maximumFontSize:(double)arg2;
+- (void)setFontSize:(double)arg1;
+- (void)setAttributesDisabled:(_Bool)arg1;
+- (void)setMaximumWidth:(double)arg1;
 - (void)setAddresses:(id)arg1;
 - (void)dealloc;
 

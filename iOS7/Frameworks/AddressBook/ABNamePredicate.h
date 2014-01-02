@@ -12,9 +12,9 @@
 {
     void *_addressBook;
     NSString *_name;
-    BOOL _matchWholeWords;
-    BOOL _matchPersonOrCompanyNamesExclusively;
-    BOOL _matchPreferredName;
+    _Bool _matchWholeWords;
+    _Bool _matchPersonOrCompanyNamesExclusively;
+    _Bool _matchPreferredName;
     void *_tokenizations;
     struct __CFArray *_tokenizationSortKeys;
     NSArray *_groups;
@@ -23,17 +23,17 @@
 
 @property(retain, nonatomic) NSArray *sources; // @synthesize sources=_sources;
 @property(retain, nonatomic) NSArray *groups; // @synthesize groups=_groups;
-@property(nonatomic) BOOL matchPreferredName; // @synthesize matchPreferredName=_matchPreferredName;
-@property(nonatomic) BOOL matchPersonOrCompanyNamesExclusively; // @synthesize matchPersonOrCompanyNamesExclusively=_matchPersonOrCompanyNamesExclusively;
-@property(nonatomic) BOOL matchWholeWords; // @synthesize matchWholeWords=_matchWholeWords;
+@property(nonatomic) _Bool matchPreferredName; // @synthesize matchPreferredName=_matchPreferredName;
+@property(nonatomic) _Bool matchPersonOrCompanyNamesExclusively; // @synthesize matchPersonOrCompanyNamesExclusively=_matchPersonOrCompanyNamesExclusively;
+@property(nonatomic) _Bool matchWholeWords; // @synthesize matchWholeWords=_matchWholeWords;
 @property(nonatomic) void *addressBook; // @synthesize addressBook=_addressBook;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 - (id)predicateFormat;
 - (void)ab_bindStatement:(struct CPSqliteStatement *)arg1 withBindingOffset:(int *)arg2 predicateIdentifier:(int)arg3;
 - (id)queryWhereString;
 - (id)_personNameKeys;
-- (id)queryJoinsInCompound:(BOOL)arg1;
-- (BOOL)isValid;
+- (id)queryJoinsInCompound:(_Bool)arg1;
+- (_Bool)isValid;
 - (void *)tokenizations;
 @property(copy, nonatomic) NSString *accountIdentifier;
 @property(nonatomic) void *group;

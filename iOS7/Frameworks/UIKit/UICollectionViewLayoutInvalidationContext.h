@@ -6,16 +6,25 @@
 
 #import "NSObject.h"
 
-@class NSDictionary;
+@class NSArray, NSMutableDictionary;
 
 @interface UICollectionViewLayoutInvalidationContext : NSObject
 {
-    BOOL _invalidateDataSource;
-    NSDictionary *_invalidatedSupplementaryViews;
+    NSMutableDictionary *_invalidatedSupplementaryViews;
+    NSArray *_updateItems;
+    struct {
+        unsigned int invalidateDataSource:1;
+        unsigned int invalidateEverything:1;
+    } _invalidationContextFlags;
 }
 
-- (void)_setInvalidateDataSourceCounts:(BOOL)arg1;
-@property(readonly, nonatomic) BOOL invalidateDataSourceCounts;
+- (id)_updateItems;
+- (void)_setUpdateItems:(id)arg1;
+- (void)_setInvalidateEverything:(_Bool)arg1;
+@property(readonly, nonatomic) _Bool invalidateEverything;
+- (void)_setInvalidateDataSourceCounts:(_Bool)arg1;
+@property(readonly, nonatomic) _Bool invalidateDataSourceCounts;
+- (void)_invalidateSupplementaryElementsOfKind:(id)arg1 atIndexPaths:(id)arg2;
 - (void)_setInvalidatedSupplementaryViews:(id)arg1;
 - (id)_invalidatedSupplementaryViews;
 - (void)dealloc;

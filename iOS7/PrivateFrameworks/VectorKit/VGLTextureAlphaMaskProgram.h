@@ -6,6 +6,7 @@
 
 #import <VectorKit/VGLTextureProgram.h>
 
+// Not exported
 @interface VGLTextureAlphaMaskProgram : VGLTextureProgram
 {
     int _uColor;

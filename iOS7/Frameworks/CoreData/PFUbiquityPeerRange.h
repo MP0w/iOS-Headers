@@ -8,11 +8,11 @@
 
 @class NSNumber, NSString, PFUbiquityPeer, PFUbiquityStoreMetadata;
 
+// Not exported
 @interface PFUbiquityPeerRange : NSManagedObject
 {
 }
 
-- (void)loadFromBaselineDictionary:(id)arg1;
 
 // Remaining properties
 @property(retain, nonatomic) NSNumber *end; // @dynamic end;
@@ -22,6 +22,5 @@
 @property(retain, nonatomic) NSNumber *peerStart; // @dynamic peerStart;
 @property(retain, nonatomic) NSNumber *start; // @dynamic start;
 @property(retain, nonatomic) PFUbiquityStoreMetadata *storeMetadata; // @dynamic storeMetadata;
-
 @end
 

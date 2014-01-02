@@ -15,16 +15,18 @@
 + (id)serverInterface;
 + (void)setClassesForSelectorsReplyingWithCandidatesInInterface:(id)arg1;
 + (void)setClassesForSelectorsReplyingWithOperationsInInterface:(id)arg1;
++ (id)inputManagerForInputMode:(id)arg1 isHardwareKeyboardMode:(_Bool)arg2;
 - (void)removeAllDynamicDictionaries;
 - (void)lastAcceptedCandidateCorrected;
 - (void)candidateRejected:(id)arg1;
 - (void)textAccepted:(id)arg1;
 - (void)setOriginalInput:(id)arg1;
+- (void)adjustPhraseBoundaryInForwardDirection:(_Bool)arg1 keyboardState:(id)arg2 continuation:(id)arg3;
 - (void)skipHitTestForTouchEvent:(id)arg1 keyboardState:(id)arg2;
 - (void)performHitTestForTouchEvent:(id)arg1 keyboardState:(id)arg2 continuation:(id)arg3;
 - (void)generateReplacementsForString:(id)arg1 keyLayout:(id)arg2 continuation:(id)arg3;
 - (void)handleAcceptedCandidate:(id)arg1 keyboardState:(id)arg2 continuation:(id)arg3;
-- (void)generateCandidatesWithKeyboardState:(id)arg1 maxCandidateCount:(unsigned int)arg2 continuation:(id)arg3;
+- (void)generateCandidatesWithKeyboardState:(id)arg1 candidateRange:(struct _NSRange)arg2 continuation:(id)arg3;
 - (void)handleKeyboardInput:(id)arg1 keyboardState:(id)arg2 continuation:(id)arg3;
 - (void)syncToKeyboardState:(id)arg1 continuation:(id)arg2;
 

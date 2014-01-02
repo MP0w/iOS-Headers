@@ -12,7 +12,7 @@
 {
     id <iAUPServerDelegate> _delegate;
     int _parserState;
-    BOOL _escapeInProgress;
+    _Bool _escapeInProgress;
     unsigned int _telegramLength;
     unsigned char _telegramChecksum;
     NSMutableData *_telegramDataIn;

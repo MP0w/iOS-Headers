@@ -12,7 +12,9 @@
 {
 }
 
+- (_Bool)isOpaque;
 @property(readonly, nonatomic) SBAssistantRootViewController *assistantRootViewController; // @dynamic assistantRootViewController;
+- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

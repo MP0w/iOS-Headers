@@ -14,8 +14,10 @@
     NSIndexPath *_itemIndexPath;
     UIImage *_itemImage;
     struct CGSize _magnifiedImageSize;
+    struct UIEdgeInsets _magnifiedDragEdgeInsets;
 }
 
+@property(nonatomic) struct UIEdgeInsets magnifiedDragEdgeInsets; // @synthesize magnifiedDragEdgeInsets=_magnifiedDragEdgeInsets;
 @property(retain, nonatomic) UIImage *itemImage; // @synthesize itemImage=_itemImage;
 @property(retain, nonatomic) NSIndexPath *itemIndexPath; // @synthesize itemIndexPath=_itemIndexPath;
 @property(nonatomic) struct CGSize magnifiedImageSize; // @synthesize magnifiedImageSize=_magnifiedImageSize;
@@ -26,13 +28,13 @@
 - (struct CGRect)viewFrameForPhotoFrame:(struct CGRect)arg1;
 - (struct CGRect)imageWindFrame;
 - (struct CGRect)magnifiedFrameForParentLocation:(struct CGPoint)arg1;
-- (void)setShadowOpacity:(float)arg1;
-- (void)setShadowRadius:(float)arg1;
+- (void)setShadowOpacity:(double)arg1;
+- (void)setShadowRadius:(double)arg1;
 - (void)setShadowOffset:(struct CGSize)arg1;
-- (void)hideAnimate:(BOOL)arg1;
-- (void)setImageAnimate:(BOOL)arg1;
-- (void)moveToLocation:(struct CGPoint)arg1 animate:(BOOL)arg2;
-- (void)magnifyFromImageFrame:(struct CGRect)arg1 toLocation:(struct CGPoint)arg2 animate:(BOOL)arg3;
+- (void)hideAnimate:(_Bool)arg1;
+- (void)setImageAnimate:(_Bool)arg1;
+- (void)moveToLocation:(struct CGPoint)arg1 animate:(_Bool)arg2;
+- (void)magnifyFromImageFrame:(struct CGRect)arg1 toLocation:(struct CGPoint)arg2 animate:(_Bool)arg3;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

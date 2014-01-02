@@ -19,8 +19,8 @@
 + (id)_outputSettingsWithOutputSettingsDictionary:(id)arg1 exceptionReason:(id *)arg2;
 + (id)registeredOutputSettingsClasses;
 + (id)_validValuesForScalingMode;
-- (BOOL)validateUsingOutputSettingsValidator:(id)arg1 reason:(id *)arg2;
-@property(readonly, nonatomic) BOOL dimensionsAreBoundingBox;
+- (_Bool)validateUsingOutputSettingsValidator:(id)arg1 reason:(id *)arg2;
+@property(readonly, nonatomic) _Bool dimensionsAreBoundingBox;
 @property(readonly, nonatomic) NSDictionary *pixelTransferProperties;
 @property(readonly, nonatomic) NSDictionary *cleanApertureDictionary;
 @property(readonly, nonatomic) NSDictionary *pixelAspectRatioDictionary;

@@ -21,7 +21,7 @@
 - (struct CGRect)currentRectForEditedText;
 - (id)_renderer;
 - (void)updateWithString:(id)arg1;
-- (int)lineCount;
+- (long long)lineCount;
 - (id)textRenderer;
 - (void)dealloc;
 - (id)init;

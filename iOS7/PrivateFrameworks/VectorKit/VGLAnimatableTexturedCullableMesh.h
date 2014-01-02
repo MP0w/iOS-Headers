@@ -8,6 +8,7 @@
 
 @class VGLTexture, VKPolygonDrawStyle;
 
+// Not exported
 @interface VGLAnimatableTexturedCullableMesh : VGLSingleTexturedCullableMesh
 {
     VKPolygonDrawStyle *_style;
@@ -16,11 +17,11 @@
 
 @property(retain, nonatomic) VKPolygonDrawStyle *style; // @synthesize style=_style;
 @property(retain, nonatomic) VGLTexture *textureVariant; // @synthesize textureVariant=_textureVariant;
-- (void)drawInRects:(const CDStruct_818bb265 *)arg1 numRects:(unsigned int)arg2 context:(id)arg3;
+- (void)drawInRects:(const CDStruct_818bb265 *)arg1 numRects:(unsigned long long)arg2 context:(id)arg3;
 - (void)drawTrianglesWithContext:(id)arg1;
 - (void)_setupTexturesInContext:(id)arg1;
-- (void)updateTexturesForTileKey:(struct VKTileKey)arg1 contentScale:(float)arg2;
-- (id)_textureForTileKey:(struct VKTileKey)arg1 contentScale:(float)arg2 useVariant:(BOOL)arg3;
+- (void)updateTexturesForTileKey:(struct VKTileKey)arg1 contentScale:(double)arg2;
+- (id)_textureForTileKey:(struct VKTileKey)arg1 contentScale:(double)arg2 useVariant:(_Bool)arg3;
 - (void)dealloc;
 
 @end

@@ -7,7 +7,7 @@
 @protocol ImageRowReading
 - (unsigned int)bytesPerPixel;
 - (const char *)rowAtIndex:(unsigned int)arg1;
-- (unsigned long)height;
-- (unsigned long)width;
+- (unsigned long long)height;
+- (unsigned long long)width;
 @end
 

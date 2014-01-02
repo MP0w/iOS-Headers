@@ -17,8 +17,8 @@
     struct __CFRunLoopTimer *_deathTimer;
     unsigned int _serverPort;
     unsigned int _deathPort;
-    long _clientCount;
-    BOOL _isRegisteredWithMach;
+    long long _clientCount;
+    _Bool _isRegisteredWithMach;
 }
 
 + (id)allocWithZone:(struct _NSZone *)arg1;
@@ -26,18 +26,18 @@
 + (id)sharedServer;
 - (struct __CFRunLoopSource *)serverSource;
 - (void)unregisterWithMach;
-- (BOOL)registerWithMach;
-- (BOOL)isRegisteredWithMach;
+- (_Bool)registerWithMach;
+- (_Bool)isRegisteredWithMach;
 - (id)delegate;
 - (void)setDelegate:(id)arg1;
 - (int)_registerForNotificationOnDeathPort:(unsigned int)arg1;
 - (struct __CFRunLoopTimer *)_deathTimer;
-- (void)_setClientCount:(long)arg1;
-- (long)_incrementClientCount;
-- (long)_clientCount;
+- (void)_setClientCount:(long long)arg1;
+- (long long)_incrementClientCount;
+- (long long)_clientCount;
 - (id)autorelease;
 - (oneway void)release;
-- (unsigned int)retainCount;
+- (unsigned long long)retainCount;
 - (id)retain;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;

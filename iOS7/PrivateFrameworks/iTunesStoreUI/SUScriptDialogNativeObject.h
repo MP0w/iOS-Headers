@@ -13,11 +13,11 @@
 {
 }
 
-- (void)_tearDownForDismissWithButtonIndex:(int)arg1;
+- (void)_tearDownForDismissWithButtonIndex:(long long)arg1;
 - (id)_newActionSheetForDialog:(id)arg1;
-- (void)_addScriptButton:(id)arg1 toAlert:(id)arg2 atIndex:(int)arg3;
-- (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
-- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)_addScriptButton:(id)arg1 toAlert:(id)arg2 atIndex:(long long)arg3;
+- (void)alertView:(id)arg1 didDismissWithButtonIndex:(long long)arg2;
+- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (void)destroyNativeObject;
 - (void)showSheetInViewController:(id)arg1;
 - (void)showSheet;

@@ -10,14 +10,14 @@
 
 @optional
 - (void)textContentView:(id)arg1 didChangeSize:(struct CGSize)arg2;
-- (BOOL)textContentView:(id)arg1 shouldChangeSizeForContentSize:(struct CGSize)arg2;
-- (BOOL)textContentView:(id)arg1 shouldScrollForPendingContentSize:(struct CGSize)arg2;
+- (_Bool)textContentView:(id)arg1 shouldChangeSizeForContentSize:(struct CGSize)arg2;
+- (_Bool)textContentView:(id)arg1 shouldScrollForPendingContentSize:(struct CGSize)arg2;
 - (void)textContentViewDidChangeSelection:(id)arg1;
 - (void)textContentViewDidChange:(id)arg1;
-- (BOOL)textContentView:(id)arg1 shouldChangeTextInRange:(struct _NSRange)arg2 replacementText:(id)arg3;
+- (_Bool)textContentView:(id)arg1 shouldChangeTextInRange:(struct _NSRange)arg2 replacementText:(id)arg3;
 - (void)textContentViewDidEndEditing:(id)arg1;
 - (void)textContentViewDidBeginEditing:(id)arg1;
-- (BOOL)textContentViewShouldEndEditing:(id)arg1;
-- (BOOL)textContentViewShouldBeginEditing:(id)arg1;
+- (_Bool)textContentViewShouldEndEditing:(id)arg1;
+- (_Bool)textContentViewShouldBeginEditing:(id)arg1;
 @end
 

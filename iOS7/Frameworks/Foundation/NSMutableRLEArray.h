@@ -11,9 +11,9 @@
 }
 
 - (void)deleteObjectsInRange:(struct _NSRange)arg1;
-- (void)replaceObjectsInRange:(struct _NSRange)arg1 withObject:(id)arg2 length:(unsigned int)arg3;
+- (void)replaceObjectsInRange:(struct _NSRange)arg1 withObject:(id)arg2 length:(unsigned long long)arg3;
 - (void)insertObject:(id)arg1 range:(struct _NSRange)arg2;
-- (void)_setBlockCapacity:(unsigned int)arg1;
+- (void)_setBlockCapacity:(unsigned long long)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end

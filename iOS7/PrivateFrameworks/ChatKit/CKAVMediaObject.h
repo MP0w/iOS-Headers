@@ -8,7 +8,7 @@
 
 @interface CKAVMediaObject : CKMediaObject
 {
-    BOOL _durationLoaded;
+    _Bool _durationLoaded;
     double _duration;
 }
 

@@ -10,6 +10,6 @@
 + (id)mf_invocationWithSelector:(SEL)arg1 target:(id)arg2 object1:(id)arg3 object2:(id)arg4;
 + (id)mf_invocationWithSelector:(SEL)arg1 target:(id)arg2 object:(id)arg3;
 + (id)mf_invocationWithSelector:(SEL)arg1 target:(id)arg2;
-- (BOOL)mf_shouldLogInvocation;
+- (_Bool)mf_shouldLogInvocation;
 @end
 

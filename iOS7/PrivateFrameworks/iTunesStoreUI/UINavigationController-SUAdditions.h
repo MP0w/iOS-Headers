@@ -8,7 +8,7 @@
 
 @interface UINavigationController (SUAdditions)
 - (void)invalidate;
-- (unsigned int)indexOfViewController:(id)arg1;
+- (unsigned long long)indexOfViewController:(id)arg1;
 - (id)firstViewController;
 @end
 

@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSString;
 
-@interface GEOClientCapabilities : PBCodable
+@interface GEOClientCapabilities : PBCodable <NSCopying>
 {
     NSString *_appMajorVersion;
     NSString *_appMinorVersion;
@@ -22,18 +24,19 @@
 @property(retain, nonatomic) NSString *hardwareModel; // @synthesize hardwareModel=_hardwareModel;
 @property(retain, nonatomic) NSString *appMinorVersion; // @synthesize appMinorVersion=_appMinorVersion;
 @property(retain, nonatomic) NSString *appMajorVersion; // @synthesize appMajorVersion=_appMajorVersion;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) BOOL hasMaxManeuverTypeSupported;
+@property(nonatomic) _Bool hasMaxManeuverTypeSupported;
 @property(nonatomic) int maxManeuverTypeSupported; // @synthesize maxManeuverTypeSupported=_maxManeuverTypeSupported;
-@property(readonly, nonatomic) BOOL hasHardwareModel;
-@property(readonly, nonatomic) BOOL hasAppMinorVersion;
-@property(readonly, nonatomic) BOOL hasAppMajorVersion;
+@property(readonly, nonatomic) _Bool hasHardwareModel;
+@property(readonly, nonatomic) _Bool hasAppMinorVersion;
+@property(readonly, nonatomic) _Bool hasAppMajorVersion;
 - (void)dealloc;
 
 @end

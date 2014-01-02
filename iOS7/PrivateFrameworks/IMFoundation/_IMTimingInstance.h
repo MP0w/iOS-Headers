@@ -11,11 +11,11 @@
     double _startTiming;
     double _stopTiming;
     double _totalTime;
-    BOOL _isRunning;
+    _Bool _isRunning;
 }
 
 + (id)createTimingInstanceWithStartTime:(float)arg1;
-@property(nonatomic) BOOL isRunning; // @synthesize isRunning=_isRunning;
+@property(nonatomic) _Bool isRunning; // @synthesize isRunning=_isRunning;
 @property(nonatomic) double totalTime; // @synthesize totalTime=_totalTime;
 - (id)description;
 - (void)stopUsingTime:(double)arg1;

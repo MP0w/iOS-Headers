@@ -7,7 +7,7 @@
 #import "NSMutableArray.h"
 
 @interface NSMutableArray (MPMediaQueryAdditions)
-- (void)moveItemFromIndex:(unsigned int)arg1 toIndex:(unsigned int)arg2;
-- (void)removeItemAtIndex:(unsigned int)arg1;
+- (void)moveItemFromIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
+- (void)removeItemAtIndex:(unsigned long long)arg1;
 @end
 

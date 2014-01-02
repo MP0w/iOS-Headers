@@ -8,18 +8,19 @@
 
 @class NSLock;
 
+// Not exported
 @interface MKCanDrawCache : NSObject
 {
-    struct Cache<_MKCanDrawCacheKey, int> **_caches;
-    unsigned int _lodCount;
+    struct Cache<_MKCanDrawCacheKey, long> **_caches;
+    unsigned long long _lodCount;
     NSLock *_cacheLock;
 }
 
 - (void)invalidateCache;
-- (void)invalidateCacheInMapRect:(CDStruct_90e2a262)arg1 atLOD:(unsigned int)arg2;
+- (void)invalidateCacheInMapRect:(CDStruct_90e2a262)arg1 atLOD:(unsigned long long)arg2;
 - (void)invalidateCacheInMapRect:(CDStruct_90e2a262)arg1;
-- (int)canDrawInMapRect:(CDStruct_90e2a262)arg1 atScale:(float)arg2;
-- (void)setCanDraw:(int)arg1 forMapRect:(CDStruct_90e2a262)arg2 atScale:(float)arg3;
+- (long long)canDrawInMapRect:(CDStruct_90e2a262)arg1 atScale:(double)arg2;
+- (void)setCanDraw:(long long)arg1 forMapRect:(CDStruct_90e2a262)arg2 atScale:(double)arg3;
 - (void)dealloc;
 - (id)init;
 

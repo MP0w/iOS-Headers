@@ -12,9 +12,9 @@
 {
     ACUIAppDescription *_app;
     NSDate *_dateOfLastReachabilityCheck;
-    BOOL _resultOfLastReachabilityCheck;
+    _Bool _resultOfLastReachabilityCheck;
     NSDate *_dateOfLastInstallationCheck;
-    BOOL _resultOfLastInstallationCheck;
+    _Bool _resultOfLastInstallationCheck;
     NSURL *_publisherURL;
     id <ACUIAppInstallerDelegate> _delegate;
 }
@@ -22,9 +22,10 @@
 @property(nonatomic) __weak id <ACUIAppInstallerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSURL *publisherURL; // @synthesize publisherURL=_publisherURL;
 - (void).cxx_destruct;
+- (void)checkAvailabilityInStore:(id)arg1;
 - (void)start;
-@property(readonly, nonatomic) BOOL isDownloadable;
-@property(readonly, nonatomic) BOOL isInstalled;
+@property(readonly, nonatomic) _Bool isDownloadable;
+@property(readonly, nonatomic) _Bool isInstalled;
 - (id)initForAppWithDescription:(id)arg1;
 
 @end

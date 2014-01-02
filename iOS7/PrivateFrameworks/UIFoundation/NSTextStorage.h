@@ -11,7 +11,7 @@
 @interface NSTextStorage : NSMutableAttributedString
 {
     struct _NSRange _editedRange;
-    int _editedDelta;
+    long long _editedDelta;
     struct {
         unsigned int editedMask:8;
         unsigned int postWillProcess:1;
@@ -21,38 +21,41 @@
     } _flags;
     NSMutableArray *_layoutManagers;
     id _sideData;
-    unsigned int _editedMask;
-    int _changeInLength;
+    unsigned long long _editedMask;
+    long long _changeInLength;
 }
 
 + (id)allocWithZone:(struct _NSZone *)arg1;
-@property(nonatomic) int changeInLength; // @synthesize changeInLength=_changeInLength;
+@property(nonatomic) long long changeInLength; // @synthesize changeInLength=_changeInLength;
 @property(nonatomic) struct _NSRange editedRange; // @synthesize editedRange=_editedRange;
-@property(nonatomic) unsigned int editedMask; // @synthesize editedMask=_editedMask;
-- (BOOL)_usesSimpleTextEffects;
-- (void)_setUsesSimpleTextEffects:(BOOL)arg1;
+@property(nonatomic) unsigned long long editedMask; // @synthesize editedMask=_editedMask;
+- (_Bool)_usesSimpleTextEffects;
+- (void)_setUsesSimpleTextEffects:(_Bool)arg1;
 - (id)cuiStyleEffects;
 - (id)cuiCatalog;
+- (_Bool)_shouldSetOriginalFontAttribute;
 @property(nonatomic) id <NSTextStorageDelegate> delegate;
 - (void)fontSetChanged;
-- (void)_notifyEdited:(unsigned int)arg1 range:(struct _NSRange)arg2 changeInLength:(int)arg3 invalidatedRange:(struct _NSRange)arg4;
-@property(readonly, nonatomic) BOOL fixesAttributesLazily;
+- (void)_notifyEdited:(unsigned long long)arg1 range:(struct _NSRange)arg2 changeInLength:(long long)arg3 invalidatedRange:(struct _NSRange)arg4;
+@property(readonly, nonatomic) _Bool fixesAttributesLazily;
 - (void)ensureAttributesAreFixedInRange:(struct _NSRange)arg1;
 - (void)invalidateAttributesInRange:(struct _NSRange)arg1;
+- (void)_setAttributeFixingInProgress:(_Bool)arg1;
+- (_Bool)_attributeFixingInProgress;
 - (struct _NSRange)_rangeByEstimatingAttributeFixingForRange:(struct _NSRange)arg1;
 - (void)processEditing;
-- (void)edited:(unsigned int)arg1 range:(struct _NSRange)arg2 changeInLength:(int)arg3;
-- (BOOL)_isEditing;
+- (void)edited:(unsigned long long)arg1 range:(struct _NSRange)arg2 changeInLength:(long long)arg3;
+- (_Bool)_isEditing;
 - (void)coordinateEditing:(id)arg1;
 - (void)endEditing;
 - (void)beginEditing;
-- (BOOL)_forceFixAttributes;
-- (void)_setForceFixAttributes:(BOOL)arg1;
+- (_Bool)_forceFixAttributes;
+- (void)_setForceFixAttributes:(_Bool)arg1;
 - (void)coordinateReading:(id)arg1;
 - (void)_unlock;
-- (BOOL)_lockForWritingWithExceptionHandler:(BOOL)arg1;
-- (BOOL)_lockForWriting;
-- (BOOL)_lockForReading;
+- (_Bool)_lockForWritingWithExceptionHandler:(_Bool)arg1;
+- (_Bool)_lockForWriting;
+- (_Bool)_lockForReading;
 @property(readonly, nonatomic) NSArray *layoutManagers;
 - (void)removeLayoutManager:(id)arg1;
 - (void)addLayoutManager:(id)arg1;
@@ -62,7 +65,6 @@
 - (void)finalize;
 - (void)dealloc;
 - (id)init;
-- (void)coordinateAccess:(id)arg1;
 
 @end
 

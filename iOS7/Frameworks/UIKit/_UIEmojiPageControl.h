@@ -6,13 +6,14 @@
 
 #import <UIKit/UIPageControl.h>
 
+// Not exported
 @interface _UIEmojiPageControl : UIPageControl
 {
 }
 
-- (void)_setCurrentPage:(int)arg1;
-- (id)_pageIndicatorCurrentImageForPage:(int)arg1;
-- (id)_pageIndicatorImageForPage:(int)arg1;
+- (void)_setCurrentPage:(long long)arg1;
+- (id)_pageIndicatorCurrentImageForPage:(long long)arg1;
+- (id)_pageIndicatorImageForPage:(long long)arg1;
 
 @end
 

@@ -8,12 +8,12 @@
 
 @interface MSTrackListCellContext : SUMediaItemCellContext
 {
-    BOOL _shouldHideContentRating;
-    BOOL _showSubtitle;
+    _Bool _shouldHideContentRating;
+    _Bool _showSubtitle;
 }
 
-@property(nonatomic) BOOL showSubtitle; // @synthesize showSubtitle=_showSubtitle;
-@property(nonatomic) BOOL shouldHideContentRating; // @synthesize shouldHideContentRating=_shouldHideContentRating;
+@property(nonatomic) _Bool showSubtitle; // @synthesize showSubtitle=_showSubtitle;
+@property(nonatomic) _Bool shouldHideContentRating; // @synthesize shouldHideContentRating=_shouldHideContentRating;
 
 @end
 

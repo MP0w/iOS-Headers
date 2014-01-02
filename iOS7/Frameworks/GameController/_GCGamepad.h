@@ -7,10 +7,12 @@
 #import <GameController/GCGamepad.h>
 
 #import "GCNamedProfile-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
 @class GCController, NSString, _GCControllerButtonInput, _GCControllerDirectionPad;
 
-@interface _GCGamepad : GCGamepad <GCNamedProfile>
+// Not exported
+@interface _GCGamepad : GCGamepad <GCNamedProfile, NSSecureCoding>
 {
     GCController *_controller;
     id _valueChangedHandler;
@@ -23,6 +25,7 @@
     _GCControllerButtonInput *_rightShoulder;
 }
 
++ (_Bool)supportsSecureCoding;
 - (id)rightShoulder;
 - (id)leftShoulder;
 - (id)buttonY;
@@ -34,10 +37,14 @@
 - (id)valueChangedHandler;
 - (id)controller;
 - (void).cxx_destruct;
-- (void)setPlayerIndex:(int)arg1;
+- (void)setController:(id)arg1;
+- (void)setPlayerIndex:(long long)arg1;
 @property(readonly) NSString *name;
-- (id)initWithController:(id)arg1 dpadFlippedY:(BOOL)arg2;
+- (id)initWithController:(id)arg1 dpadFlippedY:(_Bool)arg2;
 - (id)initWithController:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (id)init;
 
 @end
 

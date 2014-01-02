@@ -13,7 +13,7 @@
 }
 
 @property(copy) NSString *label;
-@property BOOL disabled;
+@property _Bool disabled;
 
 @end
 

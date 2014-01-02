@@ -23,10 +23,10 @@
     NSNumber *_falseMoreAvailableCount;
     NSDate *_creationDate;
     int _numHBIDataPoints;
-    BOOL _syncingAllowed;
+    _Bool _syncingAllowed;
 }
 
-@property BOOL syncingAllowed; // @synthesize syncingAllowed=_syncingAllowed;
+@property _Bool syncingAllowed; // @synthesize syncingAllowed=_syncingAllowed;
 @property(retain) NSNumber *falseMoreAvailableCount; // @synthesize falseMoreAvailableCount=_falseMoreAvailableCount;
 @property(retain) NSNumber *downloadedElements; // @synthesize downloadedElements=_downloadedElements;
 @property(retain) NSNumber *failedProtocolRequests; // @synthesize failedProtocolRequests=_failedProtocolRequests;

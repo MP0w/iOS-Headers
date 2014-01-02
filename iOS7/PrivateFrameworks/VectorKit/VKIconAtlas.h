@@ -6,16 +6,20 @@
 
 #import "NSObject.h"
 
-@class VKObjectPool, VKPIconPack;
+@class NSMapTable, VKObjectPool, VKPIconPack;
 
+// Not exported
 @interface VKIconAtlas : NSObject
 {
     VKPIconPack *_iconPack;
     VKObjectPool *_artworkPool;
+    NSMapTable *_atlasToImages;
 }
 
-- (struct CGImage *)_createImageForName:(id)arg1 contentScale:(float)arg2;
-- (id)artworkForName:(id)arg1 style:(CDStruct_44473e2f *)arg2 contentScale:(float)arg3;
+- (struct CGImage *)_createImageForIconInfo:(id)arg1 contentScale:(double)arg2;
+- (struct CGImage *)_createImageForStyleAttributeKey:(unsigned int)arg1 value:(int)arg2 contentScale:(double)arg3;
+- (struct CGImage *)_createImageForName:(id)arg1 contentScale:(double)arg2;
+- (id)artworkForName:(id)arg1 style:(CDStruct_cf20f7af *)arg2 contentScale:(double)arg3 styleAttributes:(id)arg4;
 - (void)dealloc;
 - (id)initWithIconPack:(id)arg1;
 

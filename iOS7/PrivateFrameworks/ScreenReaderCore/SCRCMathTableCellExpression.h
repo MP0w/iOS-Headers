@@ -6,19 +6,23 @@
 
 #import <ScreenReaderCore/SCRCMathRowExpression.h>
 
+// Not exported
 @interface SCRCMathTableCellExpression : SCRCMathRowExpression
 {
-    BOOL _didGetTablePosition;
-    unsigned int _rowIndex;
-    unsigned int _columnIndex;
-    unsigned int _tableRowCount;
-    unsigned int _tableColumnCount;
+    _Bool _didGetTablePosition;
+    unsigned long long _rowIndex;
+    unsigned long long _columnIndex;
+    unsigned long long _tableRowCount;
+    unsigned long long _tableColumnCount;
 }
 
 - (id)mathMLTag;
-- (id)suffixForChildAtIndex:(unsigned int)arg1;
-- (id)prefixForChildAtIndex:(unsigned int)arg1;
-- (id)speakableDescriptionWithSpeakingStyle:(int)arg1 arePausesAllowed:(BOOL)arg2;
+- (id)suffixForChildAtIndex:(unsigned long long)arg1;
+- (id)prefixForChildAtIndex:(unsigned long long)arg1;
+- (id)_suffixForCell;
+- (id)_prefixForCell;
+- (id)speakableSegmentsWithSpeakingStyle:(int)arg1 upToDepth:(unsigned long long)arg2 treePosition:(id)arg3;
+- (id)speakableDescriptionWithSpeakingStyle:(int)arg1 arePausesAllowed:(_Bool)arg2;
 - (void)_getTableDataIfNecessary;
 
 @end

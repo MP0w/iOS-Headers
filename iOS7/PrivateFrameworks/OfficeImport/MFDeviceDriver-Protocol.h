@@ -18,7 +18,7 @@
 - (id)createPen;
 - (id)createNullBrush;
 - (id)createSolidBrush:(id)arg1;
-- (id)createPatternBrush:(id)arg1 usePaletteForBilevel:(BOOL)arg2;
+- (id)createPatternBrush:(id)arg1 usePaletteForBilevel:(_Bool)arg2;
 - (id)createHatchBrush:(id)arg1:(int)arg2;
 - (int)plgBlt:(id)arg1:(struct CGPoint *)arg2:(id)arg3:(int)arg4:(int)arg5:(int)arg6:(int)arg7:(id)arg8:(int)arg9:(int)arg10:(struct CGAffineTransform *)arg11:(unsigned int)arg12;
 - (int)maskBlt:(id)arg1:(int)arg2:(int)arg3:(int)arg4:(int)arg5:(id)arg6:(int)arg7:(int)arg8:(id)arg9:(int)arg10:(int)arg11:(unsigned int)arg12:(struct CGAffineTransform *)arg13:(unsigned int)arg14;

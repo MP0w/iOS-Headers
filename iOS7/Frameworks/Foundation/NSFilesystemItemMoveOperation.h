@@ -8,6 +8,7 @@
 
 @class NSError, NSString;
 
+// Not exported
 @interface NSFilesystemItemMoveOperation : NSOperation
 {
     id _delegate;
@@ -23,7 +24,7 @@
 - (id)error;
 - (void)setDelegate:(id)arg1;
 - (id)delegate;
-- (BOOL)filesystemItemCopyOperation:(id)arg1 shouldProceedAfterError:(id)arg2 copyingItemAtPath:(id)arg3 toPath:(id)arg4;
+- (_Bool)filesystemItemCopyOperation:(id)arg1 shouldProceedAfterError:(id)arg2 copyingItemAtPath:(id)arg3 toPath:(id)arg4;
 - (void)dealloc;
 - (void)initWithSourcePath:(id)arg1 destinationPath:(id)arg2;
 

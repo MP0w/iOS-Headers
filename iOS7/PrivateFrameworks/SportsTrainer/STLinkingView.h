@@ -11,11 +11,11 @@
 @interface STLinkingView : UIView
 {
     id <STLinkingViewDelegate> _delegate;
-    int _linkingType;
+    long long _linkingType;
     UIView *_pulseView;
-    BOOL _animating;
-    BOOL _animateLayout;
-    BOOL _bordered;
+    _Bool _animating;
+    _Bool _animateLayout;
+    _Bool _bordered;
     UIButton *_rescanButton;
     UIButton *_cancelButton;
     UIButton *_linkNewButton;
@@ -26,9 +26,9 @@
     NSString *_fgsnSerialNumber;
 }
 
-@property(nonatomic) BOOL bordered; // @synthesize bordered=_bordered;
+@property(nonatomic) _Bool bordered; // @synthesize bordered=_bordered;
 @property(nonatomic) id <STLinkingViewDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) int linkingType; // @synthesize linkingType=_linkingType;
+@property(nonatomic) long long linkingType; // @synthesize linkingType=_linkingType;
 - (id)_newButton;
 - (void)_unlinkRemote;
 - (void)_linkNewRemote;
@@ -38,11 +38,13 @@
 - (void)_rescanForEmped;
 - (void)_stopAnimation;
 - (void)_startAnimation;
+- (id)_haloImageOfSize:(struct CGSize)arg1 color:(id)arg2 strokeWidth:(double)arg3;
 @property(copy, nonatomic) NSString *serialNumber;
-- (void)setLinkingType:(int)arg1 animated:(BOOL)arg2;
+- (void)setLinkingType:(long long)arg1 animated:(_Bool)arg2;
 - (void)_receiverHideAnimationDidStop;
 - (void)_sensorHideAnimationDidStop;
 - (void)layoutSubviews;
+- (id)_sensorImageName;
 - (void)willMoveToSuperview:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

@@ -8,12 +8,12 @@
 
 @class NSArray, NSSQLAdapter, NSSQLStatement;
 
+// Not exported
 @interface NSSQLConnection : NSObject
 {
     NSSQLAdapter *_adapter;
-    BOOL _transactionIsOpen;
-    BOOL _useSyntaxColoredLogging;
-    int _debug;
+    _Bool _transactionIsOpen;
+    _Bool _useSyntaxColoredLogging;
     NSSQLStatement *_sqlStatement;
     NSArray *_columnsToFetch;
     NSArray *_metadataColumns;
@@ -34,15 +34,15 @@
 - (void)updateUbiquityKnowledgeVector:(id)arg1;
 - (id)fetchUbiquityKnowledgeVector;
 - (void)_performPostSaveTasks;
-- (void)createPrimaryKeyTableForModel:(id)arg1 knownEmpty:(BOOL)arg2;
-- (BOOL)hasPrimaryKeyTable;
+- (void)createPrimaryKeyTableForModel:(id)arg1 knownEmpty:(_Bool)arg2;
+- (_Bool)hasPrimaryKeyTable;
 - (void)endPrimaryKeyGeneration;
 - (void)prepareForPrimaryKeyGeneration;
 - (long long)generatePrimaryKeysForEntity:(id)arg1 batch:(unsigned int)arg2;
 - (id)fetchMetadata;
 - (id)metadataColumns;
 - (void)saveMetadata:(id)arg1;
-- (BOOL)hasMetadataTable;
+- (_Bool)hasMetadataTable;
 - (id)newFetchUUIDSForSubentitiesRootedAt:(id)arg1;
 - (id)fetchTableCreationSQL;
 - (id)fetchTableNames;
@@ -64,8 +64,8 @@
 - (int)fetchResultSet:(void *)arg1 usingFetchPlan:(id)arg2;
 - (id)newFetchedArray;
 - (id)describeResults;
-- (BOOL)isFetchInProgress;
-- (void)setExclusiveLockingMode:(BOOL)arg1;
+- (_Bool)isFetchInProgress;
+- (void)setExclusiveLockingMode:(_Bool)arg1;
 - (id)sqlStatement;
 - (void)prepareAndExecuteSQLStatement:(id)arg1;
 - (void)releaseSQLStatement;
@@ -73,22 +73,22 @@
 - (void)execute;
 - (void)prepareSQLStatement:(id)arg1;
 - (void)bindTempTableForBindIntarray:(id)arg1;
-- (void)selectAttributes:(id)arg1 fetchRequest:(id)arg2 lock:(BOOL)arg3 entity:(id)arg4;
+- (void)selectAttributes:(id)arg1 fetchRequest:(id)arg2 lock:(_Bool)arg3 entity:(id)arg4;
 - (void)deleteRow:(id)arg1;
 - (void)updateRow:(id)arg1;
 - (void)deleteCorrelation:(id)arg1;
 - (void)updateCorrelation:(id)arg1;
 - (void)insertCorrelation:(id)arg1;
 - (void)insertRow:(id)arg1;
-- (BOOL)isOpen;
-- (BOOL)databaseIsEmpty;
-- (BOOL)canConnect;
+- (_Bool)isOpen;
+- (_Bool)databaseIsEmpty;
+- (_Bool)canConnect;
 - (void)transactionDidRollback;
 - (void)transactionDidCommit;
 - (void)transactionDidBegin;
 - (void)_forceDisconnectOnError;
 - (void)forceTransactionClosed;
-- (BOOL)hasOpenTransaction;
+- (_Bool)hasOpenTransaction;
 - (void)disconnect;
 - (void)sleep;
 - (void)awake;

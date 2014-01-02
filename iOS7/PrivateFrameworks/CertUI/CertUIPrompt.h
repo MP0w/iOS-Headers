@@ -18,7 +18,6 @@
 }
 
 + (id)promptQueue;
-+ (id)stringForResponse:(int)arg1;
 @property(copy, nonatomic) NSString *connectionDisplayName; // @synthesize connectionDisplayName=_connectionDisplayName;
 @property(retain, nonatomic) NSString *service; // @synthesize service=_service;
 @property(retain, nonatomic) NSString *host; // @synthesize host=_host;

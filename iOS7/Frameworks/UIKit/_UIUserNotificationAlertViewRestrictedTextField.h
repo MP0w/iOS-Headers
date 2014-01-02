@@ -6,6 +6,7 @@
 
 #import <UIKit/_UITargetedProxy.h>
 
+// Not exported
 @interface _UIUserNotificationAlertViewRestrictedTextField : _UITargetedProxy
 {
 }

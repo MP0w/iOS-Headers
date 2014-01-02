@@ -8,6 +8,7 @@
 
 @class NSManagedObject, NSString;
 
+// Not exported
 @interface _NSNotifyingWrapperMutableSet : NSMutableSet
 {
     NSManagedObject *_container;
@@ -23,21 +24,21 @@
 - (void)intersectSet:(id)arg1;
 - (void)addObjectsFromArray:(id)arg1;
 - (void)addObject:(id)arg1;
-- (id)objectsWithOptions:(unsigned int)arg1 passingTest:(id)arg2;
-- (void)enumerateObjectsWithOptions:(unsigned int)arg1 usingBlock:(id)arg2;
-- (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
+- (id)objectsWithOptions:(unsigned long long)arg1 passingTest:(id)arg2;
+- (void)enumerateObjectsWithOptions:(unsigned long long)arg1 usingBlock:(id)arg2;
+- (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
 - (id)objectEnumerator;
 - (id)member:(id)arg1;
-- (unsigned int)count;
+- (unsigned long long)count;
 - (id)valueForKeyPath:(id)arg1;
 - (id)valueForKey:(id)arg1;
 - (void)setValue:(id)arg1 forKey:(id)arg2;
 - (void)makeObjectsPerformSelector:(SEL)arg1 withObject:(id)arg2;
 - (void)makeObjectsPerformSelector:(SEL)arg1;
-- (BOOL)isSubsetOfSet:(id)arg1;
+- (_Bool)isSubsetOfSet:(id)arg1;
 - (void)getObjects:(id *)arg1;
-- (BOOL)isEqualToSet:(id)arg1;
-- (BOOL)containsObject:(id)arg1;
+- (_Bool)isEqualToSet:(id)arg1;
+- (_Bool)containsObject:(id)arg1;
 - (id)anyObject;
 - (id)allObjects;
 - (id)descriptionWithLocale:(id)arg1;

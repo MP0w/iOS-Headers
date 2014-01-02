@@ -10,20 +10,21 @@
 
 @interface EKCurrentTimeMarkerView : UIView
 {
-    BOOL _showsThumb;
-    BOOL _showsLine;
+    _Bool _showsThumb;
+    _Bool _showsLine;
     UILabel *_currentTimeLabel;
 }
 
 @property(retain, nonatomic) UILabel *currentTimeLabel; // @synthesize currentTimeLabel=_currentTimeLabel;
-@property(nonatomic) BOOL showsLine; // @synthesize showsLine=_showsLine;
-@property(nonatomic) BOOL showsThumb; // @synthesize showsThumb=_showsThumb;
+@property(nonatomic) _Bool showsLine; // @synthesize showsLine=_showsLine;
+@property(nonatomic) _Bool showsThumb; // @synthesize showsThumb=_showsThumb;
 - (void).cxx_destruct;
 - (void)drawRect:(struct CGRect)arg1;
+- (struct CGRect)_lineFrame;
 @property(readonly, nonatomic) struct CGRect currentTimeFrame;
 - (void)updateTime;
-@property(readonly, nonatomic) float markerMidHeight;
-@property(readonly, nonatomic) float markerWidth;
+@property(readonly, nonatomic) double markerMidHeight;
+@property(readonly, nonatomic) double markerWidth;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

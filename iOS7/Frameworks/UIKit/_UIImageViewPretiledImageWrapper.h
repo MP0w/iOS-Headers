@@ -8,6 +8,7 @@
 
 @class UIImage, _UIImageViewPretiledImageCacheKey;
 
+// Not exported
 @interface _UIImageViewPretiledImageWrapper : NSObject
 {
     UIImage *_pretiledImage;
@@ -17,8 +18,8 @@
 + (id)cacheValueWithPretiledImage:(id)arg1 cacheKey:(id)arg2;
 @property(readonly, nonatomic) UIImage *pretiledImage; // @synthesize pretiledImage=_pretiledImage;
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)dealloc;
 
 @end

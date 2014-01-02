@@ -15,7 +15,7 @@
 
 @property(retain) CoreDAVItemWithNoChildren *transparent; // @synthesize transparent=_transparent;
 - (id)copyParseRules;
-@property(readonly) BOOL isScheduleTransparent;
+@property(readonly) _Bool isScheduleTransparent;
 - (void)dealloc;
 - (id)initWithNameSpace:(id)arg1 andName:(id)arg2;
 

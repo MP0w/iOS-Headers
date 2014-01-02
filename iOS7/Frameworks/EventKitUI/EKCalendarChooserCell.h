@@ -10,10 +10,10 @@
 
 @interface EKCalendarChooserCell : UITableViewCell
 {
-    BOOL _showCheckmarksOnLeft;
-    BOOL _checked;
-    BOOL _shouldAnimate;
-    BOOL _showsColorDot;
+    _Bool _showCheckmarksOnLeft;
+    _Bool _checked;
+    _Bool _shouldAnimate;
+    _Bool _showsColorDot;
     UIImage *_colorDot;
     UIImage *_colorDotHighlighted;
     UIImageView *_colorDotView;
@@ -22,18 +22,18 @@
     UILabel *_customDetailTextLabel;
 }
 
-@property(nonatomic) BOOL showsColorDot; // @synthesize showsColorDot=_showsColorDot;
-@property(nonatomic) BOOL shouldAnimate; // @synthesize shouldAnimate=_shouldAnimate;
-@property(nonatomic) BOOL checked; // @synthesize checked=_checked;
-@property(nonatomic) BOOL showCheckmarksOnLeft; // @synthesize showCheckmarksOnLeft=_showCheckmarksOnLeft;
+@property(nonatomic) _Bool showsColorDot; // @synthesize showsColorDot=_showsColorDot;
+@property(nonatomic) _Bool shouldAnimate; // @synthesize shouldAnimate=_shouldAnimate;
+@property(nonatomic) _Bool checked; // @synthesize checked=_checked;
+@property(nonatomic) _Bool showCheckmarksOnLeft; // @synthesize showCheckmarksOnLeft=_showCheckmarksOnLeft;
 - (void).cxx_destruct;
 - (void)layoutSubviews;
-- (void)setHighlighted:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)setHighlighted:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)setColorDotHighlightedImage:(id)arg1;
 - (void)setColorDotImage:(id)arg1;
+- (void)setShowCheckmarksOnLeft:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)prepareForReuse;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
-- (void)setContentAlpha:(float)arg1;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

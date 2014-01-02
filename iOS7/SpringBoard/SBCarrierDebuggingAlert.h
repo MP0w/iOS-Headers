@@ -10,7 +10,7 @@
 {
 }
 
-+ (BOOL)haveShownAlert;
++ (_Bool)haveShownAlert;
 - (void)didDeactivateForReason:(int)arg1;
 
 @end

@@ -6,6 +6,7 @@
 
 #import <GameController/GCControllerButtonInput.h>
 
+// Not exported
 @interface _GCControllerButtonInput : GCControllerButtonInput
 {
     id _valueChangedHandler;
@@ -16,7 +17,7 @@
 - (id)valueChangedHandler;
 - (float)value;
 - (void).cxx_destruct;
-- (BOOL)_setValue:(float)arg1;
+- (_Bool)_setValue:(float)arg1;
 
 @end
 

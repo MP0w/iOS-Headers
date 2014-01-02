@@ -15,13 +15,13 @@
 
 @property(retain) UIViewController *wrapperViewController; // @synthesize wrapperViewController=_wrapperViewController;
 - (id)printInteractionControllerParentViewController:(id)arg1;
-- (void)activityDidFinish:(BOOL)arg1;
+- (void)activityDidFinish:(_Bool)arg1;
 - (id)printInteractionController;
 - (void)cancelPrintOptions;
 - (void)performActivity;
 - (id)_embeddedActivityViewController;
 - (void)prepareWithActivityItems:(id)arg1;
-- (BOOL)canPerformWithActivityItems:(id)arg1;
+- (_Bool)canPerformWithActivityItems:(id)arg1;
 - (id)activityTitle;
 - (id)_activityImage;
 - (id)activityType;

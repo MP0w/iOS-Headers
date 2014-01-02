@@ -18,13 +18,13 @@
     MFLock *_lock;
     NSMutableDictionary *_partsByURL;
     NSMutableDictionary *_partsByFilename;
-    unsigned long _preferredEncoding;
+    unsigned int _preferredEncoding;
     MFAttachmentManager *_attachmentManager;
 }
 
 + (id)sourceForURL:(id)arg1;
 @property(retain, nonatomic) MFAttachmentManager *attachmentManager; // @synthesize attachmentManager=_attachmentManager;
-@property unsigned long preferredEncoding; // @synthesize preferredEncoding=_preferredEncoding;
+@property unsigned int preferredEncoding; // @synthesize preferredEncoding=_preferredEncoding;
 @property(readonly) NSData *htmlData; // @synthesize htmlData=_htmlData;
 @property(readonly) MFMimePart *mimePart; // @synthesize mimePart=_htmlPart;
 @property(readonly) MFMimeBody *mimeBody; // @synthesize mimeBody=_mimeBody;
@@ -36,7 +36,7 @@
 - (id)attachmentForURL:(id)arg1;
 - (id)mimePartForURL:(id)arg1;
 - (void)dealloc;
-- (id)initWithMimePart:(id)arg1 htmlData:(id)arg2 encoding:(unsigned long)arg3;
+- (id)initWithMimePart:(id)arg1 htmlData:(id)arg2 encoding:(unsigned int)arg3;
 - (id)initWithMimePart:(id)arg1;
 - (id)_initWithMimePart:(id)arg1 htmlData:(id)arg2;
 - (id)initWithMimeBody:(id)arg1;

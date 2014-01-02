@@ -7,20 +7,20 @@
 #import "NSMutableData.h"
 
 @interface NSMutableData (NSMutableData)
-+ (id)dataWithLength:(unsigned int)arg1;
-+ (id)dataWithCapacity:(unsigned int)arg1;
++ (id)dataWithLength:(unsigned long long)arg1;
++ (id)dataWithCapacity:(unsigned long long)arg1;
 + (id)allocWithZone:(struct _NSZone *)arg1;
-- (id)initWithLength:(unsigned int)arg1;
-- (id)initWithCapacity:(unsigned int)arg1;
+- (id)initWithLength:(unsigned long long)arg1;
+- (id)initWithCapacity:(unsigned long long)arg1;
 - (void)setData:(id)arg1;
 - (void)resetBytesInRange:(struct _NSRange)arg1;
 - (void)replaceBytesInRange:(struct _NSRange)arg1 withBytes:(const void *)arg2;
-- (void)increaseLengthBy:(unsigned int)arg1;
+- (void)increaseLengthBy:(unsigned long long)arg1;
 - (void)appendData:(id)arg1;
-- (void)appendBytes:(const void *)arg1 length:(unsigned int)arg2;
-- (void)replaceBytesInRange:(struct _NSRange)arg1 withBytes:(const void *)arg2 length:(unsigned int)arg3;
+- (void)appendBytes:(const void *)arg1 length:(unsigned long long)arg2;
+- (void)replaceBytesInRange:(struct _NSRange)arg1 withBytes:(const void *)arg2 length:(unsigned long long)arg3;
 - (Class)classForCoder;
-- (void)setLength:(unsigned int)arg1;
+- (void)setLength:(unsigned long long)arg1;
 - (void *)mutableBytes;
 @end
 

@@ -9,6 +9,6 @@
 @protocol BBRemoteDataProviderConnectionDelegate <NSObject>
 - (void)dataProviderConnection:(id)arg1 removeDataProviderWithSectionID:(id)arg2;
 - (void)dataProviderConnection:(id)arg1 addDataProviderWithSectionID:(id)arg2;
-- (void)dataProviderConnection:(id)arg1 connectionStateDidChange:(BOOL)arg2;
+- (void)dataProviderConnection:(id)arg1 connectionStateDidChange:(_Bool)arg2;
 @end
 

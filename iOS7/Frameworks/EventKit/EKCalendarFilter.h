@@ -10,6 +10,7 @@
 
 @class NSMutableDictionary, NSMutableSet, NSString;
 
+// Not exported
 @interface EKCalendarFilter : NSObject <NSCopying>
 {
     struct _opaque_pthread_mutex_t _lock;
@@ -31,10 +32,10 @@
 - (void)validate;
 - (id)_calendarUIDsFromPersistentIdentifier:(id)arg1;
 - (id)persistentIdentifier;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)removeCalendarWithUID:(id)arg1;
-- (BOOL)isCalendarUIDVisible:(id)arg1;
+- (_Bool)isCalendarUIDVisible:(id)arg1;
 - (int)visibleCalendarCountWithOptions:(int)arg1;
 - (id)visibleCalendarsWithOptions:(int)arg1;
 - (id)filteredCalendars;
@@ -44,9 +45,9 @@
 - (id)_generateUIDSetToShowCalendars:(id)arg1;
 - (id)_UIDAntiSetWithCalendars:(id)arg1;
 - (id)_UIDSetWithCalendars:(id)arg1;
-- (BOOL)isFilteringAll;
-- (BOOL)_isFilteringAllWhileLocked;
-- (BOOL)isShowingAll;
+- (_Bool)isFilteringAll;
+- (_Bool)_isFilteringAllWhileLocked;
+- (_Bool)isShowingAll;
 - (void)_databaseChanged;
 - (void)dealloc;
 - (id)initWithDatabase:(struct CalDatabase *)arg1 entityType:(int)arg2 calendarUIDs:(id)arg3;

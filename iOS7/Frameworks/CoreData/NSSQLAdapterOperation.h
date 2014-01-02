@@ -8,6 +8,7 @@
 
 @class NSSQLCorrelation, NSSQLRow;
 
+// Not exported
 @interface NSSQLAdapterOperation : NSObject
 {
     unsigned int _adapterOperator;
@@ -17,7 +18,7 @@
 
 - (id)description;
 - (id)_opString;
-- (int)compareAdapterOperation:(id)arg1;
+- (long long)compareAdapterOperation:(id)arg1;
 - (id)row;
 - (id)correlation;
 - (id)entity;

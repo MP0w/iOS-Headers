@@ -8,14 +8,14 @@
 
 @interface SUMediaItemCellContext : SUItemCellContext
 {
-    float _artworkWidth;
-    int _hiddenMediaIconTypes;
-    BOOL _itemsHaveArtwork;
+    double _artworkWidth;
+    long long _hiddenMediaIconTypes;
+    _Bool _itemsHaveArtwork;
 }
 
-@property(nonatomic) BOOL itemsHaveArtwork; // @synthesize itemsHaveArtwork=_itemsHaveArtwork;
-@property(nonatomic) int hiddenMediaIconTypes; // @synthesize hiddenMediaIconTypes=_hiddenMediaIconTypes;
-@property(nonatomic) float artworkWidth; // @synthesize artworkWidth=_artworkWidth;
+@property(nonatomic) _Bool itemsHaveArtwork; // @synthesize itemsHaveArtwork=_itemsHaveArtwork;
+@property(nonatomic) long long hiddenMediaIconTypes; // @synthesize hiddenMediaIconTypes=_hiddenMediaIconTypes;
+@property(nonatomic) double artworkWidth; // @synthesize artworkWidth=_artworkWidth;
 - (id)init;
 
 @end

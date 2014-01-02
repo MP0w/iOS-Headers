@@ -6,6 +6,7 @@
 
 #import "NSEnumerator.h"
 
+// Not exported
 @interface _SCRCStackQueueEnumerator : NSEnumerator
 {
     struct _SCRCStackNode *_currentListMemeber;

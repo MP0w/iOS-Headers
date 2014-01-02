@@ -25,21 +25,21 @@
 }
 
 + (id)keySetWithKeys:(id)arg1;
-- (unsigned int)keySetCount;
+- (unsigned long long)keySetCount;
 - (void)finalize;
 - (void)dealloc;
-- (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
-- (id)keyAtIndex:(unsigned int)arg1;
-- (unsigned int)indexForKey:(id)arg1;
+- (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
+- (id)keyAtIndex:(unsigned long long)arg1;
+- (unsigned long long)indexForKey:(id)arg1;
 - (id)allKeys;
-- (unsigned int)maximumIndex;
-- (BOOL)isEmpty;
-- (unsigned int)count;
+- (unsigned long long)maximumIndex;
+- (_Bool)isEmpty;
+- (unsigned long long)count;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
-- (id)initWithKeys:(id *)arg1 count:(unsigned int)arg2;
+- (id)initWithKeys:(id *)arg1 count:(unsigned long long)arg2;
 - (void)createSubclassCode:(id)arg1 interface:(const struct __CFString **)arg2 implementation:(const struct __CFString **)arg3;
 
 @end

@@ -8,13 +8,14 @@
 
 @class NSMutableSet;
 
+// Not exported
 @interface PBAnimationCacheState : PDAnimationCacheState
 {
     NSMutableSet *mEntranceDrawables;
     NSMutableSet *mExitDrawables;
 }
 
-- (BOOL)isValid:(id)arg1;
+- (_Bool)isValid:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

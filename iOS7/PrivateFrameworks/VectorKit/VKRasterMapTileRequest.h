@@ -10,19 +10,19 @@
 
 @interface VKRasterMapTileRequest : NSObject <NSCopying>
 {
-    BOOL _localizeLabels;
-    int _mapType;
+    _Bool _localizeLabels;
     unsigned int _scale;
+    long long _mapType;
     struct VKRasterTileKey _tileKey;
 }
 
-@property(nonatomic) BOOL localizeLabels; // @synthesize localizeLabels=_localizeLabels;
+@property(nonatomic) _Bool localizeLabels; // @synthesize localizeLabels=_localizeLabels;
 @property(nonatomic) unsigned int scale; // @synthesize scale=_scale;
-@property(nonatomic) int mapType; // @synthesize mapType=_mapType;
+@property(nonatomic) long long mapType; // @synthesize mapType=_mapType;
 @property(nonatomic) struct VKRasterTileKey tileKey; // @synthesize tileKey=_tileKey;
 @property(readonly, nonatomic) struct VKCacheKey cacheKey;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)description;
 @property(readonly, nonatomic) struct VKTileKey tk;
 @property(readonly, nonatomic) const struct VKRasterTileKey *tileKeyPtr;

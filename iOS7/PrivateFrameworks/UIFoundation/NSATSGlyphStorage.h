@@ -8,60 +8,61 @@
 
 @class NSATSTypesetter, NSString;
 
+// Not exported
 @interface NSATSGlyphStorage : CTGlyphStorageInterface
 {
     struct __CTGlyphStorage *_glyphStorage;
     struct __CFArray *_masterRuns;
     NSATSTypesetter *_typesetter;
-    CDStruct_0de91d73 *_runs;
-    long _numRuns;
-    long _runBufferSize;
+    CDStruct_33c5d873 *_runs;
+    long long _numRuns;
+    long long _runBufferSize;
     struct _NSRange _glyphRange;
     struct _NSRange _characterRange;
-    long _bufferSize;
+    long long _bufferSize;
     NSATSGlyphStorage *_parent;
     struct __CFSet *_children;
-    long _paraEndElasticCharIndex;
-    float _paraEndElasticCharWidth;
+    long long _paraEndElasticCharIndex;
+    double _paraEndElasticCharWidth;
     NSString *_textString;
     struct {
-        int _field1;
+        long long _field1;
         struct {
             unsigned short _field1;
             struct CGSize _field2;
             unsigned int _field3;
-            int _field4;
-            int _field5;
+            long long _field4;
+            long long _field5;
         } _field2[0];
     } *_stack;
-    const CDStruct_0de91d73 *_lastElasticRun;
-    long _lastElasticRunLocation;
-    long _totalAbsorbedCount;
+    const CDStruct_33c5d873 *_lastElasticRun;
+    long long _lastElasticRunLocation;
+    long long _totalAbsorbedCount;
     CDStruct_9f69489a _gFlags;
 }
 
 + (id)allocWithZone:(struct _NSZone *)arg1;
 - (void)disposeGlyphStack;
-- (void)popGlyph:(long)arg1;
-- (void)pushGlyph:(long)arg1;
-- (void)initGlyphStack:(long)arg1;
-- (void)insertGlyphs:(CDStruct_dff5684f)arg1;
-- (void)moveGlyphsTo:(long)arg1 from:(CDStruct_dff5684f)arg2;
-- (void)swapGlyph:(long)arg1 withIndex:(long)arg2;
-- (void)setStringIndex:(long)arg1 forIndex:(long)arg2;
-- (void)setAbsorbedCount:(long)arg1 forIndex:(long)arg2;
-- (void)setProps:(unsigned int)arg1 forIndex:(long)arg2;
-- (void)setAdvance:(struct CGSize)arg1 forIndex:(long)arg2;
-- (void)setGlyphID:(unsigned short)arg1 forIndex:(long)arg2;
-- (void)getCustomAdvance:(struct CGSize *)arg1 forIndex:(long)arg2;
-- (struct __CTGlyphStorage *)createCopy:(CDStruct_dff5684f)arg1;
+- (void)popGlyph:(long long)arg1;
+- (void)pushGlyph:(long long)arg1;
+- (void)initGlyphStack:(long long)arg1;
+- (void)insertGlyphs:(CDStruct_627e0f85)arg1;
+- (void)moveGlyphsTo:(long long)arg1 from:(CDStruct_627e0f85)arg2;
+- (void)swapGlyph:(long long)arg1 withIndex:(long long)arg2;
+- (void)setStringIndex:(long long)arg1 forIndex:(long long)arg2;
+- (void)setAbsorbedCount:(long long)arg1 forIndex:(long long)arg2;
+- (void)setProps:(unsigned int)arg1 forIndex:(long long)arg2;
+- (void)setAdvance:(struct CGSize)arg1 forIndex:(long long)arg2;
+- (void)setGlyphID:(unsigned short)arg1 forIndex:(long long)arg2;
+- (void)getCustomAdvance:(struct CGSize *)arg1 forIndex:(long long)arg2;
+- (struct __CTGlyphStorage *)createCopy:(CDStruct_627e0f85)arg1;
 - (void)finalize;
 - (void)dealloc;
-- (const CDStruct_0de91d73 *)_attributeRunForCharacterAtIndex:(long)arg1;
-- (float)_widthForStringRange:(struct _NSRange)arg1;
-- (struct _NSRange)_collectElasticRangeSurroundingCharacterAtIndex:(long)arg1 minimumCharacterIndex:(long)arg2;
-- (_Bool)_resolvePositionalStakeGlyphsForLineFragment:(struct __CTLine *)arg1 lineFragmentRect:(struct CGRect)arg2 minPosition:(float)arg3 maxPosition:(float)arg4 maxLineFragmentWidth:(float)arg5 breakHint:(int *)arg6;
-- (struct __CTRun *)_createEllipsisRunWithStringRange:(CDStruct_dff5684f)arg1 attributes:(struct __CFDictionary *)arg2;
+- (const CDStruct_33c5d873 *)_attributeRunForCharacterAtIndex:(long long)arg1;
+- (double)_widthForStringRange:(struct _NSRange)arg1;
+- (struct _NSRange)_collectElasticRangeSurroundingCharacterAtIndex:(long long)arg1 minimumCharacterIndex:(long long)arg2;
+- (_Bool)_resolvePositionalStakeGlyphsForLineFragment:(struct __CTLine *)arg1 lineFragmentRect:(struct CGRect)arg2 minPosition:(double)arg3 maxPosition:(double)arg4 maxLineFragmentWidth:(double)arg5 breakHint:(long long *)arg6;
+- (struct __CTRun *)_createEllipsisRunWithStringRange:(CDStruct_627e0f85)arg1 attributes:(struct __CFDictionary *)arg2;
 - (id)childGlyphStorageWithCharacterRange:(struct _NSRange)arg1;
 - (struct __CTTypesetter *)createCTTypesetter;
 - (void)setGlyphRange:(struct _NSRange)arg1 characterRange:(struct _NSRange)arg2;
@@ -70,8 +71,8 @@
 - (void)_invalidate;
 - (void)_flushCachedObjects;
 - (oneway void)release;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
+- (_Bool)_isDeallocating;
+- (_Bool)_tryRetain;
 
 @end
 

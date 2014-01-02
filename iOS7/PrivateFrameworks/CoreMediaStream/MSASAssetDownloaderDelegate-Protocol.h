@@ -9,6 +9,6 @@
 @protocol MSASAssetDownloaderDelegate <NSObject>
 - (void)MSASAssetDownloaderDidFinishBatch:(id)arg1;
 - (void)MSASAssetDownloader:(id)arg1 didFinishDownloadingAsset:(id)arg2 inAlbumGUID:(id)arg3 error:(id)arg4;
-- (void)MSASAssetDownloader:(id)arg1 willBeginBatchCount:(unsigned int)arg2;
+- (void)MSASAssetDownloader:(id)arg1 willBeginBatchCount:(unsigned long long)arg2;
 @end
 

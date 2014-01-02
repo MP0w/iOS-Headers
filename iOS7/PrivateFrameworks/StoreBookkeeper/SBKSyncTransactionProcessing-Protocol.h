@@ -8,14 +8,14 @@
 
 @protocol SBKSyncTransactionProcessing <NSObject>
 - (id)transaction:(id)arg1 keyValuePairForUpdatedKey:(id)arg2;
-- (void)transaction:(id)arg1 processDeletedKey:(id)arg2 isDirty:(char *)arg3;
-- (void)transaction:(id)arg1 processUpdatedKey:(id)arg2 data:(id)arg3 conflict:(BOOL)arg4 isDirty:(char *)arg5;
+- (void)transaction:(id)arg1 processDeletedKey:(id)arg2 isDirty:(_Bool *)arg3;
+- (void)transaction:(id)arg1 processUpdatedKey:(id)arg2 data:(id)arg3 conflict:(_Bool)arg4 isDirty:(_Bool *)arg5;
 - (void)transaction:(id)arg1 didProcessResponseData:(id)arg2;
 - (void)transaction:(id)arg1 willProcessResponseData:(id)arg2;
 
 @optional
 - (id)transaction:(id)arg1 conflictDetectionOrdinalForKey:(id)arg2;
-- (int)transaction:(id)arg1 conflictDetectionTypeForTransactionDetectionType:(int)arg2;
+- (long long)transaction:(id)arg1 conflictDetectionTypeForTransactionDetectionType:(long long)arg2;
 - (id)transaction:(id)arg1 keysForTransactionForTransactionKeysToDelete:(id)arg2;
 - (id)transaction:(id)arg1 keysForTransactionForTransactionKeysToUpdate:(id)arg2;
 - (id)transaction:(id)arg1 syncAnchorForTransactionSyncAnchor:(id)arg2;

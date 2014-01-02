@@ -13,6 +13,6 @@
 - (id)safari_dataForKey:(id)arg1;
 - (id)safari_numberForKey:(id)arg1;
 - (id)safari_stringForKey:(id)arg1;
-- (BOOL)safari_boolForKey:(id)arg1;
+- (_Bool)safari_boolForKey:(id)arg1;
 @end
 

@@ -7,6 +7,6 @@
 #import "NSData.h"
 
 @interface NSData (NSKindOfAdditions)
-- (BOOL)isNSData__;
+- (_Bool)isNSData__;
 @end
 

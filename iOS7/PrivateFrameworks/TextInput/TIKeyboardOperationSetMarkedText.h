@@ -12,19 +12,21 @@
 {
     NSString *_markedText;
     NSString *_inputForMarkedText;
+    NSString *_searchStringForMarkedText;
     struct _NSRange _selectedRange;
 }
 
-+ (id)operationWithMarkedTextBeforeSelection:(id)arg1 selectedText:(id)arg2 markedTextAfterSelection:(id)arg3 inputString:(id)arg4;
-+ (id)operationWithMarkedText:(id)arg1 selectedRange:(struct _NSRange)arg2 inputString:(id)arg3;
-+ (BOOL)supportsSecureCoding;
++ (id)operationWithMarkedTextBeforeSelection:(id)arg1 selectedText:(id)arg2 markedTextAfterSelection:(id)arg3 inputString:(id)arg4 searchString:(id)arg5;
++ (id)operationWithMarkedText:(id)arg1 selectedRange:(struct _NSRange)arg2 inputString:(id)arg3 searchString:(id)arg4;
++ (_Bool)supportsSecureCoding;
+@property(readonly, nonatomic) NSString *searchStringForMarkedText; // @synthesize searchStringForMarkedText=_searchStringForMarkedText;
 @property(readonly, nonatomic) NSString *inputForMarkedText; // @synthesize inputForMarkedText=_inputForMarkedText;
 @property(readonly, nonatomic) struct _NSRange selectedRange; // @synthesize selectedRange=_selectedRange;
 @property(readonly, nonatomic) NSString *markedText; // @synthesize markedText=_markedText;
 - (id)propertiesForDescription;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithMarkedText:(id)arg1 selectedRange:(struct _NSRange)arg2 inputString:(id)arg3;
+- (id)initWithMarkedText:(id)arg1 selectedRange:(struct _NSRange)arg2 inputString:(id)arg3 searchString:(id)arg4;
 - (void)dealloc;
 
 @end

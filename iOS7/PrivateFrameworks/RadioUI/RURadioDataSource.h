@@ -6,45 +6,37 @@
 
 #import "NSObject.h"
 
-#import "MCProfileConnectionObserver-Protocol.h"
 #import "RadioPushNotificationControllerDelegate-Protocol.h"
 
-@class NSArray, NSMutableSet, RadioPushNotificationController, RadioStation;
+@class NSArray, NSMutableSet, RadioPushNotificationController;
 
-@interface RURadioDataSource : NSObject <MCProfileConnectionObserver, RadioPushNotificationControllerDelegate>
+@interface RURadioDataSource : NSObject <RadioPushNotificationControllerDelegate>
 {
     id <RURadioDataSourceDelegate> _delegate;
-    BOOL _isExplicitContentRestricted;
-    RadioStation *_playingStation;
     RadioPushNotificationController *_pushNotificationController;
-    int _stationCountToRefresh;
+    long long _stationCountToRefresh;
     NSMutableSet *_stationsBeingRefreshed;
     NSArray *_stations;
 }
 
-+ (BOOL)isRadioAvailable;
-@property(retain, nonatomic) RadioStation *playingStation; // @synthesize playingStation=_playingStation;
++ (_Bool)isRadioAvailable;
++ (_Bool)isOptedInToRadio;
 @property(nonatomic) __weak id <RURadioDataSourceDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)_updateIsExplicitContentRestrictedForProfileConnection:(id)arg1;
 - (void)_sendDelegateShouldPrefetchArtwork;
 - (void)_scheduleArtworkPrefetch;
 - (void)_notifyAssistantOfStationChanges;
 - (void)_deauthenticate;
-- (void)synchronizeStationsAsAutomaticUpdate:(BOOL)arg1 withCompletionHandler:(id)arg2;
+- (void)synchronizeStationsAsAutomaticUpdate:(_Bool)arg1 withCompletionHandler:(id)arg2;
 @property(readonly, nonatomic) NSArray *stations;
-- (void)refreshTracksForStation:(id)arg1 withCompletionHandler:(id)arg2;
-- (void)refreshStationTracks;
 - (void)refreshFeaturedStations;
 - (void)optInWithActiveAccountWithCompletionHandler:(id)arg1;
-@property(readonly, nonatomic) BOOL isOptedInToRadio;
 - (id)featuredStations;
 - (void)deauthenticateIfNecessary;
 - (void)checkAcceptedTermsWithCompletionHandler:(id)arg1;
+- (void)_radioRequestDidFinishNotification:(id)arg1;
 - (void)_radioModelDidChangeNotification:(id)arg1;
 - (void)_accountsDidChangeNotification:(id)arg1;
-- (void)profileConnectionDidReceiveRestrictionChangedNotification:(id)arg1 userInfo:(id)arg2;
-- (void)profileConnectionDidReceiveEffectiveSettingsChangedNotification:(id)arg1 userInfo:(id)arg2;
 - (void)pushNotificationControllerDidReceiveSyncRequest:(id)arg1 toGlobalVersion:(unsigned long long)arg2;
 - (void)dealloc;
 - (id)init;

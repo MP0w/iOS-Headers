@@ -10,6 +10,7 @@
 
 @class AVAudioPlayer;
 
+// Not exported
 @interface MediaControlAudioPlayer : NSObject <AVAudioPlayerDelegate>
 {
     AVAudioPlayer *_audioPlayer;
@@ -17,7 +18,7 @@
 
 - (void)audioPlayerBeginInterruption:(id)arg1;
 - (void)audioPlayerDecodeErrorDidOccur:(id)arg1 error:(id)arg2;
-- (void)audioPlayerDidFinishPlaying:(id)arg1 successfully:(BOOL)arg2;
+- (void)audioPlayerDidFinishPlaying:(id)arg1 successfully:(_Bool)arg2;
 - (int)playPath:(id)arg1;
 - (void)dealloc;
 

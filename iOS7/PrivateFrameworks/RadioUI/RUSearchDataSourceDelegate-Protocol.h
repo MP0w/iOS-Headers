@@ -9,6 +9,7 @@
 @protocol RUSearchDataSourceDelegate <NSObject>
 
 @optional
-- (void)searchDataSource:(id)arg1 didFinishUpdatingResults:(id)arg2 forSearchTerm:(id)arg3;
+- (void)searchDataSource:(id)arg1 willStartSearchRequestForSearchTerm:(id)arg2;
+- (void)searchDataSource:(id)arg1 didFinishUpdatingResults:(id)arg2 forSearchTerm:(id)arg3 withError:(id)arg4 metricsConfiguration:(id)arg5 metricsPageEvent:(id)arg6;
 @end
 

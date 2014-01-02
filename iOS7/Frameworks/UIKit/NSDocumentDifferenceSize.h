@@ -6,14 +6,15 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface NSDocumentDifferenceSize : NSObject
 {
-    int _generationCount;
-    int _changeCount;
+    long long _generationCount;
+    long long _changeCount;
 }
 
-@property(nonatomic) int changeCount; // @synthesize changeCount=_changeCount;
-@property(nonatomic) int generationCount; // @synthesize generationCount=_generationCount;
+@property(nonatomic) long long changeCount; // @synthesize changeCount=_changeCount;
+@property(nonatomic) long long generationCount; // @synthesize generationCount=_generationCount;
 - (id)description;
 
 @end

@@ -6,29 +6,29 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface VGLRenderState : NSObject
 {
-    BOOL _enableDepthTest;
+    _Bool _enableDepthTest;
     int _depthMode;
-    BOOL _depthMask;
-    BOOL _enableCullFace;
+    _Bool _depthMask;
+    _Bool _enableCullFace;
     int _blendMode;
-    BOOL _stencilTest;
-    BOOL _enablePolygonFillOffset;
+    _Bool _stencilTest;
+    _Bool _enablePolygonFillOffset;
     CDStruct_e5f4ed30 _polygonOffset;
-    BOOL _scissorTest;
+    _Bool _scissorTest;
 }
 
-+ (id)sharedSimpleState;
-@property(nonatomic) BOOL scissorTest; // @synthesize scissorTest=_scissorTest;
+@property(nonatomic) _Bool scissorTest; // @synthesize scissorTest=_scissorTest;
 @property(nonatomic) CDStruct_e5f4ed30 polygonOffset; // @synthesize polygonOffset=_polygonOffset;
-@property(nonatomic) BOOL enablePolygonFillOffset; // @synthesize enablePolygonFillOffset=_enablePolygonFillOffset;
-@property(nonatomic) BOOL stencilTest; // @synthesize stencilTest=_stencilTest;
+@property(nonatomic) _Bool enablePolygonFillOffset; // @synthesize enablePolygonFillOffset=_enablePolygonFillOffset;
+@property(nonatomic) _Bool stencilTest; // @synthesize stencilTest=_stencilTest;
 @property(nonatomic) int blendMode; // @synthesize blendMode=_blendMode;
-@property(nonatomic) BOOL enableCullFace; // @synthesize enableCullFace=_enableCullFace;
-@property(nonatomic) BOOL depthMask; // @synthesize depthMask=_depthMask;
+@property(nonatomic) _Bool enableCullFace; // @synthesize enableCullFace=_enableCullFace;
+@property(nonatomic) _Bool depthMask; // @synthesize depthMask=_depthMask;
 @property(nonatomic) int depthMode; // @synthesize depthMode=_depthMode;
-@property(nonatomic) BOOL enableDepthTest; // @synthesize enableDepthTest=_enableDepthTest;
+@property(nonatomic) _Bool enableDepthTest; // @synthesize enableDepthTest=_enableDepthTest;
 - (id).cxx_construct;
 - (void)pushStateIntoContext:(id)arg1;
 - (void)loadStateFromContext:(id)arg1;

@@ -8,6 +8,7 @@
 
 @class NSDictionary;
 
+// Not exported
 @interface UIKBTreeLocalizedKeylistEnumerator : NSEnumerator
 {
     NSDictionary *_keyplaneCache;

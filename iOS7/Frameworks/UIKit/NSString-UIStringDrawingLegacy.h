@@ -7,28 +7,28 @@
 #import "NSString.h"
 
 @interface NSString (UIStringDrawingLegacy)
-- (id)_legacy_securedStringIncludingLastCharacter:(BOOL)arg1;
-- (struct CGSize)_legacy_drawAtPoint:(struct CGPoint)arg1 forWidth:(float)arg2 withFont:(id)arg3 minFontSize:(float)arg4 actualFontSize:(float *)arg5 lineBreakMode:(int)arg6 baselineAdjustment:(int)arg7;
-- (struct CGSize)_legacy_drawAtPoint:(struct CGPoint)arg1 forWidth:(float)arg2 withFont:(id)arg3 minFontSize:(float)arg4 actualFontSize:(float *)arg5 lineBreakMode:(int)arg6 baselineAdjustment:(int)arg7 includeEmoji:(BOOL)arg8;
-- (struct CGSize)_legacy_drawAtPoint:(struct CGPoint)arg1 forWidth:(float)arg2 withFont:(id)arg3 fontSize:(float)arg4 lineBreakMode:(int)arg5 baselineAdjustment:(int)arg6;
-- (struct CGSize)_legacy_drawAtPoint:(struct CGPoint)arg1 forWidth:(float)arg2 withFont:(id)arg3 fontSize:(float)arg4 lineBreakMode:(int)arg5 baselineAdjustment:(int)arg6 includeEmoji:(BOOL)arg7;
-- (struct CGSize)_legacy_sizeWithFont:(id)arg1 minFontSize:(float)arg2 actualFontSize:(float *)arg3 forWidth:(float)arg4 lineBreakMode:(int)arg5;
-- (struct CGSize)_legacy_drawInRect:(struct CGRect)arg1 withFont:(id)arg2 lineBreakMode:(int)arg3 alignment:(int)arg4 lineSpacing:(int)arg5 includeEmoji:(BOOL)arg6 truncationRect:(struct CGRect *)arg7;
-- (struct CGSize)_legacy_drawInRect:(struct CGRect)arg1 withFont:(id)arg2 lineBreakMode:(int)arg3 alignment:(int)arg4 lineSpacing:(int)arg5 includeEmoji:(BOOL)arg6;
-- (struct CGSize)_legacy_drawInRect:(struct CGRect)arg1 withFont:(id)arg2 lineBreakMode:(int)arg3 alignment:(int)arg4 lineSpacing:(int)arg5;
-- (struct CGSize)_legacy_drawInRect:(struct CGRect)arg1 withFont:(id)arg2 lineBreakMode:(int)arg3 alignment:(int)arg4;
-- (struct CGSize)_legacy_drawInRect:(struct CGRect)arg1 withFont:(id)arg2 lineBreakMode:(int)arg3;
+- (id)_legacy_securedStringIncludingLastCharacter:(_Bool)arg1;
+- (struct CGSize)_legacy_drawAtPoint:(struct CGPoint)arg1 forWidth:(double)arg2 withFont:(id)arg3 minFontSize:(double)arg4 actualFontSize:(double *)arg5 lineBreakMode:(long long)arg6 baselineAdjustment:(long long)arg7;
+- (struct CGSize)_legacy_drawAtPoint:(struct CGPoint)arg1 forWidth:(double)arg2 withFont:(id)arg3 minFontSize:(double)arg4 actualFontSize:(double *)arg5 lineBreakMode:(long long)arg6 baselineAdjustment:(long long)arg7 includeEmoji:(_Bool)arg8;
+- (struct CGSize)_legacy_drawAtPoint:(struct CGPoint)arg1 forWidth:(double)arg2 withFont:(id)arg3 fontSize:(double)arg4 lineBreakMode:(long long)arg5 baselineAdjustment:(long long)arg6;
+- (struct CGSize)_legacy_drawAtPoint:(struct CGPoint)arg1 forWidth:(double)arg2 withFont:(id)arg3 fontSize:(double)arg4 lineBreakMode:(long long)arg5 baselineAdjustment:(long long)arg6 includeEmoji:(_Bool)arg7;
+- (struct CGSize)_legacy_sizeWithFont:(id)arg1 minFontSize:(double)arg2 actualFontSize:(double *)arg3 forWidth:(double)arg4 lineBreakMode:(long long)arg5;
+- (struct CGSize)_legacy_drawInRect:(struct CGRect)arg1 withFont:(id)arg2 lineBreakMode:(long long)arg3 alignment:(long long)arg4 lineSpacing:(int)arg5 includeEmoji:(_Bool)arg6 truncationRect:(struct CGRect *)arg7;
+- (struct CGSize)_legacy_drawInRect:(struct CGRect)arg1 withFont:(id)arg2 lineBreakMode:(long long)arg3 alignment:(long long)arg4 lineSpacing:(int)arg5 includeEmoji:(_Bool)arg6;
+- (struct CGSize)_legacy_drawInRect:(struct CGRect)arg1 withFont:(id)arg2 lineBreakMode:(long long)arg3 alignment:(long long)arg4 lineSpacing:(int)arg5;
+- (struct CGSize)_legacy_drawInRect:(struct CGRect)arg1 withFont:(id)arg2 lineBreakMode:(long long)arg3 alignment:(long long)arg4;
+- (struct CGSize)_legacy_drawInRect:(struct CGRect)arg1 withFont:(id)arg2 lineBreakMode:(long long)arg3;
 - (struct CGSize)_legacy_drawInRect:(struct CGRect)arg1 withFont:(id)arg2;
-- (struct CGSize)_legacy_sizeWithFont:(id)arg1 constrainedToSize:(struct CGSize)arg2 lineBreakMode:(int)arg3 lineSpacing:(int)arg4;
-- (struct CGSize)_legacy_sizeWithFont:(id)arg1 constrainedToSize:(struct CGSize)arg2 lineBreakMode:(int)arg3;
+- (struct CGSize)_legacy_sizeWithFont:(id)arg1 constrainedToSize:(struct CGSize)arg2 lineBreakMode:(long long)arg3 lineSpacing:(int)arg4;
+- (struct CGSize)_legacy_sizeWithFont:(id)arg1 constrainedToSize:(struct CGSize)arg2 lineBreakMode:(long long)arg3;
 - (struct CGSize)_legacy_sizeWithFont:(id)arg1 constrainedToSize:(struct CGSize)arg2;
-- (id)_legacy_stringWithFont:(id)arg1 forWidth:(float)arg2 lineBreakMode:(int)arg3;
-- (struct CGSize)_legacy_drawAtPoint:(struct CGPoint)arg1 forWidth:(float)arg2 withFont:(id)arg3 lineBreakMode:(int)arg4 letterSpacing:(float)arg5 includeEmoji:(BOOL)arg6;
-- (struct CGSize)_legacy_drawAtPoint:(struct CGPoint)arg1 forWidth:(float)arg2 withFont:(id)arg3 lineBreakMode:(int)arg4 letterSpacing:(float)arg5;
-- (struct CGSize)_legacy_drawAtPoint:(struct CGPoint)arg1 forWidth:(float)arg2 withFont:(id)arg3 lineBreakMode:(int)arg4;
+- (id)_legacy_stringWithFont:(id)arg1 forWidth:(double)arg2 lineBreakMode:(long long)arg3;
+- (struct CGSize)_legacy_drawAtPoint:(struct CGPoint)arg1 forWidth:(double)arg2 withFont:(id)arg3 lineBreakMode:(long long)arg4 letterSpacing:(double)arg5 includeEmoji:(_Bool)arg6;
+- (struct CGSize)_legacy_drawAtPoint:(struct CGPoint)arg1 forWidth:(double)arg2 withFont:(id)arg3 lineBreakMode:(long long)arg4 letterSpacing:(double)arg5;
+- (struct CGSize)_legacy_drawAtPoint:(struct CGPoint)arg1 forWidth:(double)arg2 withFont:(id)arg3 lineBreakMode:(long long)arg4;
 - (struct CGSize)_legacy_drawAtPoint:(struct CGPoint)arg1 withFont:(id)arg2;
-- (struct CGSize)_legacy_sizeWithFont:(id)arg1 forWidth:(float)arg2 lineBreakMode:(int)arg3 letterSpacing:(float)arg4;
-- (struct CGSize)_legacy_sizeWithFont:(id)arg1 forWidth:(float)arg2 lineBreakMode:(int)arg3;
+- (struct CGSize)_legacy_sizeWithFont:(id)arg1 forWidth:(double)arg2 lineBreakMode:(long long)arg3 letterSpacing:(double)arg4;
+- (struct CGSize)_legacy_sizeWithFont:(id)arg1 forWidth:(double)arg2 lineBreakMode:(long long)arg3;
 - (struct CGSize)_legacy_sizeWithFont:(id)arg1;
 @end
 

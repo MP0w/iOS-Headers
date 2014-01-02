@@ -8,6 +8,7 @@
 
 @class NSArray;
 
+// Not exported
 @interface SKKeyedUnarchiver : NSKeyedUnarchiver
 {
     NSArray *searchPaths;

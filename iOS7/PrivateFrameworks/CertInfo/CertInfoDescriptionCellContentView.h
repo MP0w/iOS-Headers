@@ -11,14 +11,14 @@
 @interface CertInfoDescriptionCellContentView : UIView
 {
     NSArray *_labelsAndValues;
-    float _idealHeight;
+    double _idealHeight;
     int _sizesCount;
     struct CGSize *_sizes;
 }
 
 - (void)layoutSubviews;
 - (void)drawRect:(struct CGRect)arg1;
-- (float)rowHeight;
+- (double)rowHeight;
 - (void)setLabelsAndValues:(id)arg1;
 - (void)_recalculateIdealHeight;
 - (id)_valueFont;

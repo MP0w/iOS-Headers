@@ -6,16 +6,19 @@
 
 #import <UIKit/UIDictationView.h>
 
+// Not exported
 @interface UIDictationiPhoneLayoutView : UIDictationView
 {
 }
 
+- (_Bool)isShowing;
 - (void)returnToKeyboard;
+- (void)finishReturnToKeyboard;
 - (void)layoutSubviews;
 - (void)setState:(int)arg1;
 - (void)setRenderConfig:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (id)doneButtonTitleForLightBackground:(BOOL)arg1;
+- (id)doneButtonTitleForLightBackground:(_Bool)arg1;
 
 @end
 

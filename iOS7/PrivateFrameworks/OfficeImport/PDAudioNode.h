@@ -6,13 +6,14 @@
 
 #import <OfficeImport/PDMediaNode.h>
 
+// Not exported
 @interface PDAudioNode : PDMediaNode
 {
-    BOOL mIsNarration;
+    _Bool mIsNarration;
 }
 
-- (void)setIsNarration:(BOOL)arg1;
-- (BOOL)isNarration;
+- (void)setIsNarration:(_Bool)arg1;
+- (_Bool)isNarration;
 
 @end
 

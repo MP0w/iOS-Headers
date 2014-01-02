@@ -6,10 +6,13 @@
 
 #import <UIKit/UIView.h>
 
+// Not exported
 @interface UICollectionViewControllerWrapperView : UIView
 {
 }
 
+- (void)didMoveToSuperview;
+- (id)_collectionViewController;
 - (id)_viewControllerToNotifyOnLayoutSubviews;
 
 @end

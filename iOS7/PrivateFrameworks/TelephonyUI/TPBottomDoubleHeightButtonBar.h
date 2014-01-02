@@ -17,7 +17,7 @@
     TPButton *_bottomButton;
 }
 
-+ (float)defaultHeightForOrientation:(int)arg1;
++ (double)defaultHeightForOrientation:(long long)arg1;
 + (id)_backgroundImage;
 @property(readonly, nonatomic) TPButton *bottomButton; // @synthesize bottomButton=_bottomButton;
 @property(readonly, nonatomic) TPButton *topButton; // @synthesize topButton=_topButton;

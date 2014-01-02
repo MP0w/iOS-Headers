@@ -21,8 +21,8 @@ struct ASContact {
     id _field12;
     id _field13;
     id _field14;
-    char _field15;
-    char _field16;
+    _Bool _field15;
+    _Bool _field16;
     id _field17;
     void *_field18;
     id _field19;
@@ -31,7 +31,7 @@ struct ASContact {
     id _field22;
     id _field23;
     int _field24;
-    char _field25;
+    _Bool _field25;
     id _field26;
     id _field27;
     id _field28;
@@ -106,8 +106,8 @@ struct ASEvent {
     id _field12;
     id _field13;
     id _field14;
-    char _field15;
-    char _field16;
+    _Bool _field15;
+    _Bool _field16;
     id _field17;
     void *_field18;
     id _field19;
@@ -134,12 +134,12 @@ struct ASEvent {
     id _field40;
     id _field41;
     int _field42;
-    char _field43;
-    char _field44;
-    char _field45;
-    char _field46;
-    char _field47;
-    char _field48;
+    _Bool _field43;
+    _Bool _field44;
+    _Bool _field45;
+    _Bool _field46;
+    _Bool _field47;
+    _Bool _field48;
     id _field49;
 };
 
@@ -158,13 +158,13 @@ struct ASNote {
     id _field12;
     id _field13;
     id _field14;
-    char _field15;
-    char _field16;
+    _Bool _field15;
+    _Bool _field16;
     id _field17;
     id _field18;
     id _field19;
     id _field20;
-    char _field21;
+    _Bool _field21;
     id _field22;
     id _field23;
     id _field24;
@@ -186,8 +186,8 @@ struct ASToDo {
     id _field12;
     id _field13;
     id _field14;
-    char _field15;
-    char _field16;
+    _Bool _field15;
+    _Bool _field16;
     id _field17;
     void *_field18;
     id _field19;
@@ -210,14 +210,6 @@ struct ASToDo {
 #pragma mark Typedef'd Structures
 
 typedef struct {
-    int version;
-    void *info;
-    void *retain;
-    void *release;
-    void *copyDescription;
-} CDStruct_304912e7;
-
-typedef struct {
     int _field1;
     int _field2;
     int _field3;
@@ -228,4 +220,12 @@ typedef struct {
     int _field1;
     int _field2;
 } CDStruct_1ef3fb1f;
+
+typedef struct {
+    long long version;
+    void *info;
+    void *retain;
+    void *release;
+    void *copyDescription;
+} CDStruct_4210025a;
 

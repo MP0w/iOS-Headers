@@ -8,7 +8,7 @@
 
 #import "NSSecureCoding-Protocol.h"
 
-@class NSNumber, NSSet, NSString;
+@class BBSectionIcon, NSNumber, NSSet, NSString;
 
 @interface BBSectionSubtypeParameters : NSObject <NSSecureCoding>
 {
@@ -18,6 +18,7 @@
     NSString *_fullUnlockActionLabel;
     NSString *_unlockActionLabel;
     NSSet *_alertSuppressionAppIDs;
+    BBSectionIcon *_sectionIconOverride;
     NSNumber *_boxedCoalescesWhenLocked;
     NSNumber *_boxedSuppressesMessageForPrivacy;
     NSNumber *_boxedRealertCount;
@@ -29,7 +30,7 @@
     NSNumber *_boxedIPodOutAlertType;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSNumber *boxedIPodOutAlertType; // @synthesize boxedIPodOutAlertType=_boxedIPodOutAlertType;
 @property(retain, nonatomic) NSNumber *boxedSubtypePriority; // @synthesize boxedSubtypePriority=_boxedSubtypePriority;
 @property(retain, nonatomic) NSNumber *boxedVisuallyIndicatesWhenDateIsInFuture; // @synthesize boxedVisuallyIndicatesWhenDateIsInFuture=_boxedVisuallyIndicatesWhenDateIsInFuture;
@@ -47,15 +48,16 @@
 @property(nonatomic) BBSectionSubtypeParameters *fallbackParameters; // @synthesize fallbackParameters=_fallbackParameters;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-@property(nonatomic) int iPodOutAlertType;
-@property(nonatomic) unsigned int subtypePriority;
-@property(nonatomic) BOOL visuallyIndicatesWhenDateIsInFuture;
-@property(nonatomic) BOOL bannerShowsSubtitle;
-@property(nonatomic) BOOL preservesUnlockActionCase;
-@property(nonatomic) BOOL inertWhenLocked;
-@property(nonatomic) unsigned int realertCount;
-@property(nonatomic) BOOL suppressesMessageForPrivacy;
-@property(nonatomic) BOOL coalescesWhenLocked;
+@property(nonatomic) long long iPodOutAlertType;
+@property(nonatomic) unsigned long long subtypePriority;
+@property(nonatomic) _Bool visuallyIndicatesWhenDateIsInFuture;
+@property(nonatomic) _Bool bannerShowsSubtitle;
+@property(nonatomic) _Bool preservesUnlockActionCase;
+@property(nonatomic) _Bool inertWhenLocked;
+@property(nonatomic) unsigned long long realertCount;
+@property(nonatomic) _Bool suppressesMessageForPrivacy;
+@property(nonatomic) _Bool coalescesWhenLocked;
+@property(copy, nonatomic) BBSectionIcon *sectionIconOverride; // @synthesize sectionIconOverride=_sectionIconOverride;
 - (void)dealloc;
 - (id)initWithFallbackParameters:(id)arg1;
 

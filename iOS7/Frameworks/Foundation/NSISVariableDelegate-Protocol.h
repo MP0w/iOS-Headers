@@ -7,8 +7,8 @@
 #import "NSObject-Protocol.h"
 
 @protocol NSISVariableDelegate <NSObject>
-- (BOOL)nsis_valueOfVariableIsUserObservable:(id)arg1;
-- (BOOL)nsis_shouldIntegralizeVariable:(id)arg1;
+- (_Bool)nsis_valueOfVariableIsUserObservable:(id)arg1;
+- (_Bool)nsis_shouldIntegralizeVariable:(id)arg1;
 - (id)nsis_descriptionOfVariable:(id)arg1;
 - (void)nsis_valueOfVariable:(id)arg1 didChangeInEngine:(id)arg2;
 @end

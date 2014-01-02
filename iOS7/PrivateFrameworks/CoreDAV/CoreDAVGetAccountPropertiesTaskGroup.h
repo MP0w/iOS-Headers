@@ -21,16 +21,16 @@
     NSSet *_emailAddresses;
     NSSet *_collections;
     NSSet *_principalSearchProperties;
-    BOOL _isExpandPropertyReportSupported;
-    BOOL _fetchPrincipalSearchProperties;
-    BOOL _shouldIgnoreHomeSetOnDifferentHost;
+    _Bool _isExpandPropertyReportSupported;
+    _Bool _fetchPrincipalSearchProperties;
+    _Bool _shouldIgnoreHomeSetOnDifferentHost;
     NSMutableSet *_redirectHistory;
 }
 
-@property(nonatomic) BOOL shouldIgnoreHomeSetOnDifferentHost; // @synthesize shouldIgnoreHomeSetOnDifferentHost=_shouldIgnoreHomeSetOnDifferentHost;
+@property(nonatomic) _Bool shouldIgnoreHomeSetOnDifferentHost; // @synthesize shouldIgnoreHomeSetOnDifferentHost=_shouldIgnoreHomeSetOnDifferentHost;
 @property(readonly) NSSet *principalSearchProperties; // @synthesize principalSearchProperties=_principalSearchProperties;
-@property BOOL fetchPrincipalSearchProperties; // @synthesize fetchPrincipalSearchProperties=_fetchPrincipalSearchProperties;
-@property(readonly) BOOL isExpandPropertyReportSupported; // @synthesize isExpandPropertyReportSupported=_isExpandPropertyReportSupported;
+@property _Bool fetchPrincipalSearchProperties; // @synthesize fetchPrincipalSearchProperties=_fetchPrincipalSearchProperties;
+@property(readonly) _Bool isExpandPropertyReportSupported; // @synthesize isExpandPropertyReportSupported=_isExpandPropertyReportSupported;
 @property(readonly) NSSet *collections; // @synthesize collections=_collections;
 @property(readonly) NSSet *emailAddresses; // @synthesize emailAddresses=_emailAddresses;
 @property(readonly) NSURL *resourceID; // @synthesize resourceID=_resourceID;
@@ -41,7 +41,7 @@
 - (void)processPrincipalHeaders:(id)arg1;
 - (void)coaxServerForPrincipalHeaders;
 - (void)propFindTask:(id)arg1 parsedResponses:(id)arg2 error:(id)arg3;
-- (BOOL)forceOptionsRequest;
+- (_Bool)forceOptionsRequest;
 - (void)_taskCompleted:(id)arg1 withError:(id)arg2;
 - (void)_setPropertiesFromParsedResponses:(id)arg1;
 - (void)startTaskGroup;

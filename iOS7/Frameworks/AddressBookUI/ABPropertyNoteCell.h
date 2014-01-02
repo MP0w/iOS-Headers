@@ -16,16 +16,20 @@
 @property(retain, nonatomic) UITextView *textView; // @synthesize textView=_textView;
 - (id)contentViewEditingConstraints;
 - (id)contentViewConstraints;
-- (void)setAllowsEditing:(BOOL)arg1;
+- (void)setAllowsEditing:(_Bool)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)updateWithPropertyItem:(id)arg1;
+- (void)_updateDisplayAndEditingControls;
 - (void)textViewEditingDidEnd:(id)arg1;
 - (void)textViewChanged:(id)arg1;
 - (void)setValueTextAttributes:(id)arg1;
 - (void)setLabelTextAttributes:(id)arg1;
+- (void)tintColorDidChange;
 - (void)setBackgroundColor:(id)arg1;
+- (void)performDefaultAction;
+- (_Bool)shouldPerformDefaultAction;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

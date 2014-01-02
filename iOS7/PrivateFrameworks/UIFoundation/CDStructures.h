@@ -9,17 +9,17 @@
 #pragma mark Named Structures
 
 struct CGAffineTransform {
-    float _field1;
-    float _field2;
-    float _field3;
-    float _field4;
-    float _field5;
-    float _field6;
+    double _field1;
+    double _field2;
+    double _field3;
+    double _field4;
+    double _field5;
+    double _field6;
 };
 
 struct CGPoint {
-    float x;
-    float y;
+    double x;
+    double y;
 };
 
 struct CGRect {
@@ -28,8 +28,8 @@ struct CGRect {
 };
 
 struct CGSize {
-    float width;
-    float height;
+    double width;
+    double height;
 };
 
 struct RTFColor;
@@ -39,7 +39,7 @@ struct RTFFont;
 struct RTFStyle;
 
 struct _NSAttributeDictionaryElement {
-    unsigned int hash;
+    unsigned long long hash;
     id key;
     id value;
 };
@@ -48,8 +48,8 @@ struct _NSAttributeInfo {
     unsigned int toUniCharEncoding;
     unsigned int codePageEncoding;
     UIFont *font;
-    float fontSize;
-    float kern;
+    double fontSize;
+    double kern;
     NSMutableParagraphStyle *paraStyle;
     unsigned int bold:1;
     unsigned int italic:1;
@@ -76,8 +76,8 @@ struct _NSGlyphNode;
 struct _NSGlyphTree {
     struct _NSGlyphNode *rootNode;
     struct _NSGlyphNode *curNode;
-    unsigned int curCharIndex;
-    unsigned int curGlyphIndex;
+    unsigned long long curCharIndex;
+    unsigned long long curGlyphIndex;
 };
 
 struct _NSLayoutNode;
@@ -85,20 +85,20 @@ struct _NSLayoutNode;
 struct _NSLayoutTree {
     struct _NSLayoutNode *rootNode;
     struct _NSLayoutNode *curNode;
-    unsigned int curGlyphIndex;
-    float curLongitudinalOrigin;
+    unsigned long long curGlyphIndex;
+    double curLongitudinalOrigin;
     struct CGRect extraLineFragmentRect;
     struct CGRect extraLineFragmentUsedRect;
-    unsigned int glyphsPerLineEstimate;
-    float offsetPerLineEstimate;
+    unsigned long long glyphsPerLineEstimate;
+    double offsetPerLineEstimate;
 };
 
 struct _NSRTFPriv {
     void *reader;
     char *rtfInput;
-    unsigned int rtfInputLength;
-    unsigned int rtfInputLocation;
-    unsigned int rtfHeaderEndLocation;
+    unsigned long long rtfInputLength;
+    unsigned long long rtfInputLocation;
+    unsigned long long rtfHeaderEndLocation;
     int pushedChar;
     int pushedClass;
     int pushedMajor;
@@ -122,30 +122,25 @@ struct _NSRTFPriv {
     int major;
     int minor;
     int param;
-    int lineNum;
-    int linePos;
+    long long lineNum;
+    long long linePos;
     int groupState;
 };
 
 struct _NSRange {
-    unsigned int location;
-    unsigned int length;
+    unsigned long long location;
+    unsigned long long length;
 };
 
 struct _NSRunBlock {
-    unsigned int _field1;
+    unsigned long long _field1;
     unsigned char _field2[0];
 };
 
 struct _NSStoredContainerUsage {
     struct CGRect _field1;
     struct CGRect _field2;
-    struct {
-        unsigned int :1;
-        unsigned int :1;
-        unsigned int :1;
-        unsigned int :29;
-    } _field3;
+    CDStruct_cfe5321f _field3;
     struct CGRect _field4;
     struct _NSRange _field5;
 };
@@ -185,22 +180,29 @@ typedef struct {
 } CDStruct_9f69489a;
 
 typedef struct {
-    int location;
-    int length;
-} CDStruct_dff5684f;
+    unsigned int _forceColorWrite:1;
+    unsigned int _activeFontFeatures:1;
+    unsigned int _preserveNaturalAlignment:1;
+    unsigned int _reserved:29;
+} CDStruct_cfe5321f;
+
+typedef struct {
+    long long location;
+    long long length;
+} CDStruct_627e0f85;
 
 typedef struct {
     id _field1;
     id _field2;
-    int _field3;
-    int _field4;
-    float _field5;
-    float _field6;
-    float _field7;
-    float _field8;
+    long long _field3;
+    long long _field4;
+    double _field5;
+    double _field6;
+    double _field7;
+    double _field8;
     struct CGRect _field9;
     CDStruct_9f69489a _field10;
-} CDStruct_0de91d73;
+} CDStruct_33c5d873;
 
 typedef struct {
     struct *_field1;
@@ -210,18 +212,18 @@ typedef struct {
     float _field5;
     void *_field6;
     void *_field7;
-    float _field8;
-    float _field9;
-    float _field10;
-    float _field11;
-    float _field12;
-    float _field13;
+    double _field8;
+    double _field9;
+    double _field10;
+    double _field11;
+    double _field12;
+    double _field13;
     struct CGRect _field14;
     struct CGRect _field15;
     struct _NSRange _field16;
     id _field17;
-    float _field18;
-    int _field19;
+    double _field18;
+    long long _field19;
     struct {
         unsigned int :4;
         unsigned int :1;
@@ -238,19 +240,19 @@ typedef struct {
         unsigned int :10;
     } _field20;
     void *_field21[0];
-} CDStruct_6c9b9d05;
+} CDStruct_9b8416ed;
 
 #pragma mark Typedef'd Unions
 
 typedef union {
     struct {
-        float _field1;
-        float _field2;
-        float _field3;
-        int _field4;
+        double _field1;
+        double _field2;
+        double _field3;
+        long long _field4;
     } _field1;
     struct {
         struct CGRect _field1;
     } _field2;
-} CDUnion_a04c68c6;
+} CDUnion_09a75e3c;
 

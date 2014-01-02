@@ -9,7 +9,7 @@
 @protocol ISStoreURLOperationDelegate <ISURLOperationDelegate>
 
 @optional
-- (BOOL)operation:(id)arg1 shouldSetStoreFrontID:(id)arg2;
+- (_Bool)operation:(id)arg1 shouldSetStoreFrontID:(id)arg2;
 - (void)operation:(id)arg1 didAuthenticateWithDSID:(id)arg2;
 @end
 

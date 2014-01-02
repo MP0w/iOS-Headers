@@ -23,7 +23,7 @@
 @property(readonly, nonatomic) NSArray *topoDeviceLayers; // @synthesize topoDeviceLayers=_topoDeviceLayers;
 - (void)createLayoutForDevices:(id)arg1;
 - (void)performLayout;
-- (struct CGImage *)imageForDeviceSpec:(id)arg1 wantSmall:(BOOL)arg2 forContentsScale:(float)arg3;
+- (struct CGImage *)imageForDeviceSpec:(id)arg1 wantSmall:(_Bool)arg2 forContentsScale:(double)arg3;
 @property(retain, nonatomic) id owningView;
 @property(retain, nonatomic) CALayer *containerLayer; // @synthesize containerLayer=_containerLayer;
 - (void)dealloc;

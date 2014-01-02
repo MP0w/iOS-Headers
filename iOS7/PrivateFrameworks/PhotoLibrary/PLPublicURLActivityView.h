@@ -16,7 +16,7 @@
 
 - (void)layoutSubviews;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 turningPublicURLON:(BOOL)arg2;
+- (id)initWithFrame:(struct CGRect)arg1 turningPublicURLON:(_Bool)arg2;
 
 @end
 

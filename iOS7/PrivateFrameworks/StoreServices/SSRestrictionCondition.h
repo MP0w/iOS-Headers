@@ -13,7 +13,7 @@
     NSString *_restrictionName;
 }
 
-- (BOOL)evaluateWithContext:(id)arg1;
+- (_Bool)evaluateWithContext:(id)arg1;
 - (void)dealloc;
 - (id)initWithDictionary:(id)arg1;
 

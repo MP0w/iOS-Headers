@@ -11,10 +11,10 @@
 
 @interface CIVector : NSObject <NSCopying, NSCoding>
 {
-    unsigned long _count;
+    unsigned long long _count;
     union {
-        float vec[4];
-        float *ptr;
+        double vec[4];
+        double *ptr;
     } _u;
 }
 
@@ -22,40 +22,39 @@
 + (id)vectorWithCGAffineTransform:(struct CGAffineTransform)arg1;
 + (id)vectorWithCGRect:(struct CGRect)arg1;
 + (id)vectorWithCGPoint:(struct CGPoint)arg1;
-+ (id)vectorWithX:(float)arg1 Y:(float)arg2 Z:(float)arg3 W:(float)arg4;
-+ (id)vectorWithX:(float)arg1 Y:(float)arg2 Z:(float)arg3;
-+ (id)vectorWithX:(float)arg1 Y:(float)arg2;
-+ (id)vectorWithX:(float)arg1;
-+ (id)vectorWithValues:(const float *)arg1 count:(unsigned long)arg2;
++ (id)vectorWithX:(double)arg1 Y:(double)arg2 Z:(double)arg3 W:(double)arg4;
++ (id)vectorWithX:(double)arg1 Y:(double)arg2 Z:(double)arg3;
++ (id)vectorWithX:(double)arg1 Y:(double)arg2;
++ (id)vectorWithX:(double)arg1;
++ (id)vectorWithValues:(const double *)arg1 count:(unsigned long long)arg2;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (id)stringRepresentation;
 - (struct CGAffineTransform)CGAffineTransformValue;
 - (struct CGRect)CGRectValue;
 - (struct CGPoint)CGPointValue;
-- (float)W;
-- (float)Z;
-- (float)Y;
-- (float)X;
-- (float)valueAtIndex:(unsigned long)arg1;
-- (unsigned long)count;
+- (double)W;
+- (double)Z;
+- (double)Y;
+- (double)X;
+- (double)valueAtIndex:(unsigned long long)arg1;
+- (unsigned long long)count;
 - (void)finalize;
 - (void)dealloc;
 - (id)initWithString:(id)arg1;
-- (id)initWithValues:(const float *)arg1 count:(unsigned long)arg2;
+- (id)initWithValues:(const double *)arg1 count:(unsigned long long)arg2;
 - (id)initWithCGAffineTransform:(struct CGAffineTransform)arg1;
 - (id)initWithCGRect:(struct CGRect)arg1;
 - (id)initWithCGPoint:(struct CGPoint)arg1;
-- (id)initWithX:(float)arg1 Y:(float)arg2 Z:(float)arg3 W:(float)arg4;
-- (id)initWithX:(float)arg1 Y:(float)arg2 Z:(float)arg3;
-- (id)initWithX:(float)arg1 Y:(float)arg2;
-- (id)initWithX:(float)arg1;
+- (id)initWithX:(double)arg1 Y:(double)arg2 Z:(double)arg3 W:(double)arg4;
+- (id)initWithX:(double)arg1 Y:(double)arg2 Z:(double)arg3;
+- (id)initWithX:(double)arg1 Y:(double)arg2;
+- (id)initWithX:(double)arg1;
 - (id)init;
-- (float *)_values;
 
 @end
 

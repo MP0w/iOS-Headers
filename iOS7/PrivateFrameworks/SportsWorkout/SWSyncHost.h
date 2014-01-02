@@ -10,14 +10,14 @@
 
 @interface SWSyncHost : NSObject
 {
-    BOOL _secure;
+    _Bool _secure;
     NSString *_hostName;
 }
 
 + (id)developmentSyncHost;
 + (id)productionLandingPageHost;
 + (id)productionSyncHost;
-@property(nonatomic, getter=isSecure) BOOL secure; // @synthesize secure=_secure;
+@property(nonatomic, getter=isSecure) _Bool secure; // @synthesize secure=_secure;
 @property(readonly, nonatomic) NSString *hostName; // @synthesize hostName=_hostName;
 @property(readonly, nonatomic) NSString *scheme;
 - (id)syncServiceURL;
@@ -27,7 +27,7 @@
 - (id)generatePINServiceURL;
 - (id)loginURLForToken:(id)arg1;
 - (void)dealloc;
-- (id)initWithHostName:(id)arg1 secure:(BOOL)arg2;
+- (id)initWithHostName:(id)arg1 secure:(_Bool)arg2;
 
 @end
 

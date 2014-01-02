@@ -34,6 +34,7 @@
 - (id)initWithRedownloadToken:(id)arg1;
 - (id)initWithOfferDictionary:(id)arg1;
 - (id)initWithLookupDictionary:(id)arg1;
+- (id)initWithButtonText:(id)arg1;
 
 @end
 

@@ -20,13 +20,13 @@
 
 @property(copy, nonatomic) NSString *xpcName; // @synthesize xpcName=_xpcName;
 - (void)setProperty:(id)arg1 qualifier:(id)arg2 value:(id)arg3 completion:(id)arg4;
-- (long)setProperty:(id)arg1 qualifier:(id)arg2 value:(id)arg3;
+- (int)setProperty:(id)arg1 qualifier:(id)arg2 value:(id)arg3;
 - (void)getProperty:(id)arg1 qualifier:(id)arg2 completion:(id)arg3;
 - (id)getProperty:(id)arg1 qualifier:(id)arg2 status:(int *)arg3;
 - (void)postEvent:(id)arg1 qualifier:(id)arg2 params:(id)arg3 completion:(id)arg4;
 - (void)postEvent:(id)arg1 qualifier:(id)arg2 params:(id)arg3;
 - (void)performCommand:(id)arg1 qualifier:(id)arg2 params:(id)arg3 completion:(id)arg4;
-- (long)performCommand:(id)arg1 qualifier:(id)arg2 params:(id)arg3 response:(id *)arg4;
+- (int)performCommand:(id)arg1 qualifier:(id)arg2 params:(id)arg3 response:(id *)arg4;
 - (id)_setupConnection;
 - (void)invalidate;
 - (void)dealloc;

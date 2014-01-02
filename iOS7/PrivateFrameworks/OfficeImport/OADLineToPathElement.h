@@ -6,6 +6,7 @@
 
 #import <OfficeImport/OADToPointPathElement.h>
 
+// Not exported
 @interface OADLineToPathElement : OADToPointPathElement
 {
 }

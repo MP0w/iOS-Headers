@@ -6,18 +6,19 @@
 
 #import "SBAlert.h"
 
-#import "SBPasscodeEntryAlertViewDelegate-Protocol.h"
 #import "SBUIPasscodeLockViewDelegate-Protocol.h"
 
-@interface SBPasscodeEntryAlertViewController : SBAlert <SBPasscodeEntryAlertViewDelegate, SBUIPasscodeLockViewDelegate>
+@interface SBPasscodeEntryAlertViewController : SBAlert <SBUIPasscodeLockViewDelegate>
 {
+    _Bool _attemptingUnlock;
 }
 
 - (void)passcodeLockViewCancelButtonPressed:(id)arg1;
+- (void)passcodeLockViewPasscodeEnteredViaMesa:(id)arg1;
 - (void)passcodeLockViewPasscodeEntered:(id)arg1;
 - (void)passcodeLockViewPasscodeDidChange:(id)arg1;
-- (void)passcodeEntryViewAnimatedOut:(id)arg1;
-- (BOOL)hasTranslucentBackground;
+- (void)deactivate;
+- (_Bool)hasTranslucentBackground;
 - (id)alertDisplayViewWithSize:(struct CGSize)arg1;
 
 @end

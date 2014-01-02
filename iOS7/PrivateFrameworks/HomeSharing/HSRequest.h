@@ -15,23 +15,23 @@
     NSDictionary *_headers;
     NSDictionary *_arguments;
     struct __CFHTTPMessage *_message;
-    int _method;
-    BOOL _excludeSessionIDFromURL;
+    long long _method;
+    _Bool _excludeSessionIDFromURL;
     NSMutableArray *_cachedBodyDataBlocks;
-    BOOL _concurrent;
+    _Bool _concurrent;
 }
 
 + (id)request;
-@property(readonly, nonatomic, getter=isConcurrent) BOOL concurrent; // @synthesize concurrent=_concurrent;
-@property(nonatomic) BOOL excludeSessionIDFromURL; // @synthesize excludeSessionIDFromURL=_excludeSessionIDFromURL;
-@property(nonatomic) int method; // @synthesize method=_method;
+@property(readonly, nonatomic, getter=isConcurrent) _Bool concurrent; // @synthesize concurrent=_concurrent;
+@property(nonatomic) _Bool excludeSessionIDFromURL; // @synthesize excludeSessionIDFromURL=_excludeSessionIDFromURL;
+@property(nonatomic) long long method; // @synthesize method=_method;
 @property(copy, nonatomic) NSData *bodyData; // @synthesize bodyData=_bodyData;
 @property(readonly, nonatomic) NSString *action; // @synthesize action=_action;
-- (id)_methodStringForMethod:(int)arg1;
+- (id)_methodStringForMethod:(long long)arg1;
 - (id)_defaultHeaderFields;
-- (BOOL)acceptsGzipEncoding;
+- (_Bool)acceptsGzipEncoding;
 - (unsigned int)cachedBodyDataBlocksLength;
-- (void)appendCachedBodyDataBlocksIntoData:(id)arg1 clearCache:(BOOL)arg2;
+- (void)appendCachedBodyDataBlocksIntoData:(id)arg1 clearCache:(_Bool)arg2;
 - (void)cacheBodyDataBlock:(id)arg1;
 - (id)canonicalResponseForResponse:(id)arg1;
 - (struct __CFHTTPMessage *)CFHTTPMessageForBaseURL:(id)arg1 sessionID:(unsigned int)arg2;
@@ -43,7 +43,6 @@
 - (id)description;
 - (void)dealloc;
 - (id)initWithAction:(id)arg1;
-- (id)requestURLForConnection:(id)arg1;
 
 @end
 

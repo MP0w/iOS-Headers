@@ -8,20 +8,21 @@
 
 @class NSExpression, NSString;
 
+// Not exported
 @interface NSPropertyTransform : NSObject
 {
     NSExpression *_valueExpression;
     NSString *_propertyName;
     NSPropertyTransform *_prerequisiteTransform;
-    BOOL _replaceMissingValueOnly;
+    _Bool _replaceMissingValueOnly;
 }
 
-@property BOOL replaceMissingValueOnly; // @synthesize replaceMissingValueOnly=_replaceMissingValueOnly;
+@property _Bool replaceMissingValueOnly; // @synthesize replaceMissingValueOnly=_replaceMissingValueOnly;
 @property(retain, nonatomic) NSPropertyTransform *prerequisiteTransform; // @synthesize prerequisiteTransform=_prerequisiteTransform;
 @property(retain, nonatomic) NSExpression *valueExpression; // @synthesize valueExpression=_valueExpression;
 @property(retain, nonatomic) NSString *propertyName; // @synthesize propertyName=_propertyName;
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

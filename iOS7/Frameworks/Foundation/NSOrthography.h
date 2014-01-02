@@ -31,8 +31,8 @@
 - (void)encodeWithCoder:(id)arg1;
 - (Class)classForCoder;
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithDominantScript:(id)arg1 languageMap:(id)arg2;
 

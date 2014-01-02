@@ -12,10 +12,9 @@
 
 @interface GLKView : UIView <NSCoding>
 {
-    BOOL _inDraw;
-    BOOL _shouldDeleteFramebuffer;
-    BOOL _enableSetNeedsDisplay;
-    NSMutableDictionary *_drawableProperties;
+    _Bool _inDraw;
+    _Bool _shouldDeleteFramebuffer;
+    _Bool _enableSetNeedsDisplay;
     unsigned int _resolveFramebuffer;
     unsigned int _resolveColorRenderbuffer;
     unsigned int _multisampleFramebuffer;
@@ -23,21 +22,22 @@
     unsigned int _depthRenderbuffer;
     unsigned int _stencilRenderbuffer;
     unsigned int _depthStencilRenderbuffer;
-    id <GLKViewDelegate> _delegate;
-    EAGLContext *_context;
-    int _drawableWidth;
-    int _drawableHeight;
     int _drawableColorFormat;
     int _drawableDepthFormat;
     int _drawableStencilFormat;
     int _drawableMultisample;
+    NSMutableDictionary *_drawableProperties;
+    id <GLKViewDelegate> _delegate;
+    EAGLContext *_context;
+    long long _drawableWidth;
+    long long _drawableHeight;
     void *_drawRectIMP;
 }
 
 + (Class)layerClass;
 @property(nonatomic) void *drawRectIMP; // @synthesize drawRectIMP=_drawRectIMP;
-@property(readonly, nonatomic) int drawableHeight; // @synthesize drawableHeight=_drawableHeight;
-@property(readonly, nonatomic) int drawableWidth; // @synthesize drawableWidth=_drawableWidth;
+@property(readonly, nonatomic) long long drawableHeight; // @synthesize drawableHeight=_drawableHeight;
+@property(readonly, nonatomic) long long drawableWidth; // @synthesize drawableWidth=_drawableWidth;
 @property(nonatomic) id <GLKViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) unsigned int depthStencilRenderbuffer; // @synthesize depthStencilRenderbuffer=_depthStencilRenderbuffer;
 @property(nonatomic) unsigned int stencilRenderbuffer; // @synthesize stencilRenderbuffer=_stencilRenderbuffer;
@@ -46,16 +46,16 @@
 @property(nonatomic) unsigned int multisampleFramebuffer; // @synthesize multisampleFramebuffer=_multisampleFramebuffer;
 @property(nonatomic) unsigned int resolveColorRenderbuffer; // @synthesize resolveColorRenderbuffer=_resolveColorRenderbuffer;
 @property(nonatomic) unsigned int resolveFramebuffer; // @synthesize resolveFramebuffer=_resolveFramebuffer;
-@property(nonatomic) BOOL shouldDeleteFramebuffer; // @synthesize shouldDeleteFramebuffer=_shouldDeleteFramebuffer;
+@property(nonatomic) _Bool shouldDeleteFramebuffer; // @synthesize shouldDeleteFramebuffer=_shouldDeleteFramebuffer;
 @property(retain, nonatomic) NSMutableDictionary *drawableProperties; // @synthesize drawableProperties=_drawableProperties;
-@property(nonatomic) BOOL inDraw; // @synthesize inDraw=_inDraw;
+@property(nonatomic) _Bool inDraw; // @synthesize inDraw=_inDraw;
 - (void)layoutSubviews;
-- (void)setContentScaleFactor:(float)arg1;
+- (void)setContentScaleFactor:(double)arg1;
 - (void)display;
-- (BOOL)_controlsOwnScaleFactor;
-- (BOOL)_canDrawContent;
+- (_Bool)_controlsOwnScaleFactor;
+- (_Bool)_canDrawContent;
 - (void)displayLayer:(id)arg1;
-@property(nonatomic) BOOL enableSetNeedsDisplay; // @synthesize enableSetNeedsDisplay=_enableSetNeedsDisplay;
+@property(nonatomic) _Bool enableSetNeedsDisplay; // @synthesize enableSetNeedsDisplay=_enableSetNeedsDisplay;
 - (id)snapshot;
 - (void)bindDrawable;
 @property(nonatomic) int drawableMultisample; // @synthesize drawableMultisample=_drawableMultisample;
@@ -63,10 +63,10 @@
 @property(nonatomic) int drawableDepthFormat; // @synthesize drawableDepthFormat=_drawableDepthFormat;
 @property(nonatomic) int drawableColorFormat; // @synthesize drawableColorFormat=_drawableColorFormat;
 @property(retain, nonatomic) EAGLContext *context; // @synthesize context=_context;
-- (void)_display:(BOOL)arg1;
-- (BOOL)_presentFramebuffer;
+- (void)_display:(_Bool)arg1;
+- (_Bool)_presentFramebuffer;
 - (void)_resolveAndDiscard;
-- (void)_setFramebuffer:(char *)arg1;
+- (void)_setFramebuffer:(_Bool *)arg1;
 - (void)_deleteFramebuffer;
 - (void)deleteDrawable;
 - (void)_createFramebuffer;

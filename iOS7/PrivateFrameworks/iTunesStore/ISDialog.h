@@ -10,60 +10,60 @@
 
 @interface ISDialog : NSObject
 {
-    BOOL _allowDuplicates;
+    _Bool _allowsBioAuthorization;
+    _Bool _allowDuplicates;
     SSAuthenticationContext *_authenticationContext;
-    BOOL _authorizationIsForced;
+    _Bool _authorizationIsForced;
     NSArray *_buttons;
-    int _defaultButtonIndex;
+    long long _defaultButtonIndex;
     NSString *_displayCountKey;
-    BOOL _dismissOnHomeButton;
-    BOOL _dismissOnLock;
-    BOOL _expectsResponse;
-    BOOL _groupsTextFields;
-    int _kind;
+    _Bool _dismissOnHomeButton;
+    _Bool _dismissOnLock;
+    _Bool _expectsResponse;
+    _Bool _groupsTextFields;
+    long long _kind;
     NSLock *_lock;
-    int _maxDisplayCount;
+    long long _maxDisplayCount;
     NSString *_message;
-    BOOL _oneButtonPerLine;
-    BOOL _shouldDismissAfterUnlock;
-    BOOL _shouldDisplayAsTopMost;
-    BOOL _shouldHideButtonsInAwayView;
-    BOOL _shouldPendInSetupIfNotAllowed;
+    _Bool _oneButtonPerLine;
+    _Bool _shouldDismissAfterUnlock;
+    _Bool _shouldDisplayAsTopMost;
+    _Bool _shouldPendInSetupIfNotAllowed;
     NSArray *_textFields;
     NSString *_title;
-    int _unlockActionButtonIndex;
+    long long _unlockActionButtonIndex;
     NSMutableDictionary *_userInfo;
     struct __CFDictionary *_userNotificationValues;
 }
 
-+ (int)displayCountForKey:(id)arg1;
-@property int unlockActionButtonIndex; // @synthesize unlockActionButtonIndex=_unlockActionButtonIndex;
++ (long long)displayCountForKey:(id)arg1;
+@property long long unlockActionButtonIndex; // @synthesize unlockActionButtonIndex=_unlockActionButtonIndex;
 @property(retain) NSString *title; // @synthesize title=_title;
 @property(retain) NSArray *textFields; // @synthesize textFields=_textFields;
-@property BOOL shouldPendInSetupIfNotAllowed; // @synthesize shouldPendInSetupIfNotAllowed=_shouldPendInSetupIfNotAllowed;
-@property BOOL shouldHideButtonsInAwayView; // @synthesize shouldHideButtonsInAwayView=_shouldHideButtonsInAwayView;
-@property BOOL shouldDisplayAsTopMost; // @synthesize shouldDisplayAsTopMost=_shouldDisplayAsTopMost;
-@property BOOL shouldDismissAfterUnlock; // @synthesize shouldDismissAfterUnlock=_shouldDismissAfterUnlock;
-@property BOOL oneButtonPerLine; // @synthesize oneButtonPerLine=_oneButtonPerLine;
+@property _Bool shouldPendInSetupIfNotAllowed; // @synthesize shouldPendInSetupIfNotAllowed=_shouldPendInSetupIfNotAllowed;
+@property _Bool shouldDisplayAsTopMost; // @synthesize shouldDisplayAsTopMost=_shouldDisplayAsTopMost;
+@property _Bool shouldDismissAfterUnlock; // @synthesize shouldDismissAfterUnlock=_shouldDismissAfterUnlock;
+@property _Bool oneButtonPerLine; // @synthesize oneButtonPerLine=_oneButtonPerLine;
 @property(retain) NSString *message; // @synthesize message=_message;
-@property int kind; // @synthesize kind=_kind;
-@property BOOL groupsTextFields; // @synthesize groupsTextFields=_groupsTextFields;
-@property BOOL expectsResponse; // @synthesize expectsResponse=_expectsResponse;
-@property BOOL dismissOnLock; // @synthesize dismissOnLock=_dismissOnLock;
-@property BOOL dismissOnHomeButton; // @synthesize dismissOnHomeButton=_dismissOnHomeButton;
-@property int defaultButtonIndex; // @synthesize defaultButtonIndex=_defaultButtonIndex;
+@property long long kind; // @synthesize kind=_kind;
+@property _Bool groupsTextFields; // @synthesize groupsTextFields=_groupsTextFields;
+@property _Bool expectsResponse; // @synthesize expectsResponse=_expectsResponse;
+@property _Bool dismissOnLock; // @synthesize dismissOnLock=_dismissOnLock;
+@property _Bool dismissOnHomeButton; // @synthesize dismissOnHomeButton=_dismissOnHomeButton;
+@property long long defaultButtonIndex; // @synthesize defaultButtonIndex=_defaultButtonIndex;
 @property(retain) NSArray *buttons; // @synthesize buttons=_buttons;
-@property BOOL authorizationIsForced; // @synthesize authorizationIsForced=_authorizationIsForced;
+@property _Bool authorizationIsForced; // @synthesize authorizationIsForced=_authorizationIsForced;
 @property(copy) SSAuthenticationContext *authenticationContext; // @synthesize authenticationContext=_authenticationContext;
-@property BOOL allowDuplicates; // @synthesize allowDuplicates=_allowDuplicates;
-- (int)_kindForString:(id)arg1;
+@property _Bool allowDuplicates; // @synthesize allowDuplicates=_allowDuplicates;
+- (long long)_kindForString:(id)arg1;
+@property(readonly) _Bool allowsBioAuthorization;
 - (id)valueForUserInfoKey:(id)arg1;
 - (void)setValue:(void *)arg1 forCFUserNotificationKey:(struct __CFString *)arg2;
 - (void)setValue:(id)arg1 forUserInfoKey:(id)arg2;
-@property int maximumDisplayCount;
+@property long long maximumDisplayCount;
 @property(copy) NSString *displayCountKey;
-- (BOOL)isEqual:(id)arg1;
-@property(readonly, getter=isDisplayable) BOOL displayable;
+- (_Bool)isEqual:(id)arg1;
+@property(readonly, getter=isDisplayable) _Bool displayable;
 - (void)incrementDisplayCount;
 - (void *)copyValueForCFUserNotificationKey:(struct __CFString *)arg1;
 - (id)copyUserNotification;
@@ -73,7 +73,6 @@
 - (id)initWithError:(id)arg1;
 - (id)initWithDialogDictionary:(id)arg1;
 - (id)init;
-- (id)initWithAuthenticationChallege:(id)arg1;
 
 @end
 

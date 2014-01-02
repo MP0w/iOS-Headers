@@ -5,7 +5,7 @@
  */
 
 @protocol PKPrinterBrowserDelegate
-- (void)removePrinter:(id)arg1 moreGoing:(BOOL)arg2;
-- (void)addPrinter:(id)arg1 moreComing:(BOOL)arg2;
+- (void)removePrinter:(id)arg1 moreGoing:(_Bool)arg2;
+- (void)addPrinter:(id)arg1 moreComing:(_Bool)arg2;
 @end
 

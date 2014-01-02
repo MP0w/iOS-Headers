@@ -21,11 +21,13 @@
     NSArray *defaultRawInputModes;
     NSArray *defaultInputModes;
     NSArray *defaultNormalizedInputModes;
+    NSString *_inputModeContextIdentifier;
     id <UIKeyboardInputModeControllerDelegate> _delegate;
 }
 
 + (id)sharedInputModeController;
 @property(nonatomic) id <UIKeyboardInputModeControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(copy, nonatomic) NSString *inputModeContextIdentifier; // @synthesize inputModeContextIdentifier=_inputModeContextIdentifier;
 @property(retain) NSArray *defaultNormalizedInputModes; // @synthesize defaultNormalizedInputModes;
 @property(retain) NSArray *defaultInputModes; // @synthesize defaultInputModes;
 @property(copy, nonatomic) NSArray *defaultRawInputModes; // @synthesize defaultRawInputModes;
@@ -38,22 +40,16 @@
 - (void)startConnectionForFileAtURL:(id)arg1 forInputModeIdentifier:(id)arg2;
 - (void)startDictationConnectionForFileAtURL:(id)arg1 forInputModeIdentifier:(id)arg2;
 - (id)suggestedInputModesForCurrentLocale;
-- (id)suggestedInputModesForCurrentLocale:(BOOL)arg1 fallbackToDefaultInputModes:(BOOL)arg2;
-- (id)defaultEnabledInputModesForCurrentLocale:(BOOL)arg1;
-- (BOOL)currentLocaleRequiresExtendedSetup;
+- (id)suggestedInputModesForCurrentLocale:(_Bool)arg1 fallbackToDefaultInputModes:(_Bool)arg2;
+- (id)defaultEnabledInputModesForCurrentLocale:(_Bool)arg1;
+- (_Bool)currentLocaleRequiresExtendedSetup;
 - (void)updateCurrentInputMode:(id)arg1;
 @property(retain) UIKeyboardInputMode *currentInputMode;
-@property(readonly, nonatomic) BOOL containsDictationSupportedInputMode;
+@property(readonly, nonatomic) _Bool containsDictationSupportedInputMode;
 @property(readonly, nonatomic) UIKeyboardInputMode *currentPublicInputMode;
 - (id)activeInputModes;
 - (id)inputModeWithIdentifier:(id)arg1;
 - (void)dealloc;
-@property(readonly) NSArray *enabledInputModeLanguages;
-@property(readonly) NSArray *normalizedEnabledInputModeIdentifiers;
-@property(readonly) NSArray *enabledInputModeIdentifiers;
-- (id)enabledInputModeIdentifiers:(BOOL)arg1;
-@property(readonly) NSArray *inputModesWithoutHardwareSupport;
-@property(readonly) NSArray *supportedInputModeIdentifiers;
 
 @end
 

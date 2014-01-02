@@ -6,29 +6,28 @@
 
 #import "UIView.h"
 
-@class MPUChronologicalProgressView, MPUTransportControlsView, UISlider, _MPUMarqueeContainerView;
+@class MPUChronologicalProgressView, MPUMediaControlsTitlesView, MPUMediaControlsVolumeView, MPUTransportControlsView;
 
 @interface _MPUSystemMediaControlsView : UIView
 {
-    int _style;
+    long long _style;
     MPUTransportControlsView *_transportControlsView;
     MPUChronologicalProgressView *_timeInformationView;
-    _MPUMarqueeContainerView *_trackInformationView;
-    UISlider *_volumeSliderView;
+    MPUMediaControlsTitlesView *_trackInformationView;
+    MPUMediaControlsVolumeView *_volumeView;
 }
 
-@property(retain, nonatomic) UISlider *volumeSliderView; // @synthesize volumeSliderView=_volumeSliderView;
-@property(retain, nonatomic) _MPUMarqueeContainerView *trackInformationView; // @synthesize trackInformationView=_trackInformationView;
+@property(retain, nonatomic) MPUMediaControlsVolumeView *volumeView; // @synthesize volumeView=_volumeView;
+@property(retain, nonatomic) MPUMediaControlsTitlesView *trackInformationView; // @synthesize trackInformationView=_trackInformationView;
 @property(retain, nonatomic) MPUChronologicalProgressView *timeInformationView; // @synthesize timeInformationView=_timeInformationView;
 @property(retain, nonatomic) MPUTransportControlsView *transportControlsView; // @synthesize transportControlsView=_transportControlsView;
-@property(readonly, nonatomic) int style; // @synthesize style=_style;
+@property(readonly, nonatomic) long long style; // @synthesize style=_style;
 - (void).cxx_destruct;
-- (id)_createVolumeSliderView;
-- (id)_volumeSliderLockscreenMinimumTrackImage;
-- (void)updatePlaybackState:(BOOL)arg1;
+- (void)updatePlaybackState:(_Bool)arg1;
+- (void)_layoutSubviewsControlCenteriPad;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (id)initWithStyle:(int)arg1;
+- (id)initWithStyle:(long long)arg1;
 
 @end
 

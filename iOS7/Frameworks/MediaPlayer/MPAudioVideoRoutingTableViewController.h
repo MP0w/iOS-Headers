@@ -13,22 +13,22 @@
 @interface MPAudioVideoRoutingTableViewController : UITableViewController <MPAudioDeviceControllerDelegate>
 {
     int _airPlayPasswordAlertDidAppearToken;
-    BOOL _airPlayPasswordAlertDidAppearTokenIsValid;
+    _Bool _airPlayPasswordAlertDidAppearTokenIsValid;
     int _airPlayPasswordAlertDidCancelToken;
     MPAudioDeviceController *_audioDeviceController;
-    unsigned int _avItemType;
-    BOOL _displayMirroringRoutes;
+    unsigned long long _avItemType;
+    _Bool _displayMirroringRoutes;
     NSArray *_displayedRoutes;
-    BOOL _wirelessDisplayCapableRouteIsPicked;
-    BOOL _wirelessDisplayRouteIsPendingAsPicked;
+    _Bool _wirelessDisplayCapableRouteIsPicked;
+    _Bool _wirelessDisplayRouteIsPendingAsPicked;
 }
 
 + (id)routesPreferringMirroring;
 @property(readonly, nonatomic) MPAudioDeviceController *audioDeviceController; // @synthesize audioDeviceController=_audioDeviceController;
 - (void).cxx_destruct;
-- (BOOL)_wirelessDisplayCapableRouteIsPicked;
+- (_Bool)_wirelessDisplayCapableRouteIsPicked;
 - (id)_pickedRoute;
-- (id)_effectivePickedRouteReturningActualPickedRouteType:(int *)arg1;
+- (id)_effectivePickedRouteReturningActualPickedRouteType:(long long *)arg1;
 - (id)_displayedRoutes;
 - (id)_availableRoutes;
 - (void)_mirroringSwitchValueDidChange:(id)arg1;
@@ -36,11 +36,11 @@
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (void)viewDidAppear:(BOOL)arg1;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)audioDeviceControllerAudioRoutesChanged:(id)arg1;
 - (void)dealloc;
-- (id)initWithType:(unsigned int)arg1 displayMirroringRoutes:(BOOL)arg2;
+- (id)initWithType:(unsigned long long)arg1 displayMirroringRoutes:(_Bool)arg2;
 
 @end
 

@@ -10,27 +10,31 @@
 
 @class VKRasterTile;
 
+// Not exported
 @interface VKMapTile : VKTile <NSCopying>
 {
-    VKTile *_tiles[28];
-    unsigned int _states[28];
-    double _stateDates[28];
-    id _stateMetas[28];
-    CDStruct_ff03d24e _localBounds[28];
+    VKTile *_tiles[29];
+    unsigned long long _states[29];
+    double _stateDates[29];
+    id _stateMetas[29];
+    CDStruct_ff03d24e _localBounds[29];
     VKRasterTile *_rasterized;
-    BOOL _needsRasterization;
+    _Bool _needsRasterization;
     float _maximumStyleZ;
+    shared_ptr_a619b154 _infoMapTile;
 }
 
-@property(nonatomic) BOOL needsRasterization; // @synthesize needsRasterization=_needsRasterization;
+@property(nonatomic) shared_ptr_a619b154 infoMapTile; // @synthesize infoMapTile=_infoMapTile;
+@property(nonatomic) _Bool needsRasterization; // @synthesize needsRasterization=_needsRasterization;
 @property(retain, nonatomic) VKRasterTile *rasterized; // @synthesize rasterized=_rasterized;
 @property(readonly, nonatomic) float maximumStyleZ; // @synthesize maximumStyleZ=_maximumStyleZ;
 - (id).cxx_construct;
+- (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (CDStruct_818bb265)localBoundsForLayer:(unsigned int)arg1;
-- (void)setTile:(id)arg1 state:(unsigned int)arg2 metadata:(id)arg3 forLayer:(unsigned int)arg4;
-- (unsigned int)tileStateForLayer:(unsigned int)arg1;
-- (id)tileForLayer:(unsigned int)arg1;
+- (CDStruct_818bb265)localBoundsForLayer:(unsigned long long)arg1;
+- (void)setTile:(id)arg1 state:(unsigned long long)arg2 metadata:(id)arg3 forLayer:(unsigned long long)arg4;
+- (unsigned long long)tileStateForLayer:(unsigned long long)arg1;
+- (id)tileForLayer:(unsigned long long)arg1;
 - (void)updateViewDependentStateWithContext:(id)arg1;
 - (id)detailedDescription;
 - (id)description;

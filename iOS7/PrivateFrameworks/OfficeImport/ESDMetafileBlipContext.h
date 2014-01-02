@@ -6,15 +6,16 @@
 
 #import <OfficeImport/ESDBlipContext.h>
 
+// Not exported
 @interface ESDMetafileBlipContext : ESDBlipContext
 {
-    unsigned long mCb;
-    unsigned long defaultHeaderSize;
+    unsigned int mCb;
+    unsigned int defaultHeaderSize;
 }
 
-@property unsigned long defaultHeaderSize; // @synthesize defaultHeaderSize;
+@property unsigned int defaultHeaderSize; // @synthesize defaultHeaderSize;
 - (_Bool)loadDelayedNode:(id)arg1;
-- (id)initWithOffset:(unsigned int)arg1 byteCount:(unsigned int)arg2 uncompressed:(unsigned long)arg3 stream:(struct SsrwOOStream *)arg4 streamID:(unsigned int)arg5;
+- (id)initWithOffset:(unsigned int)arg1 byteCount:(unsigned int)arg2 uncompressed:(unsigned int)arg3 stream:(struct SsrwOOStream *)arg4 streamID:(unsigned int)arg5;
 
 @end
 

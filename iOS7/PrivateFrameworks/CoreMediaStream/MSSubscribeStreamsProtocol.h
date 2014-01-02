@@ -16,10 +16,10 @@
         void *didReceiveServerSideConfigurationVersionCallback;
         void *didReceiveRetryAfterCallback;
         double connectionTimeout;
-        int __state;
+        long long __state;
         struct __CFData *__chunkLengthData;
         struct __CFData *__currentChunkData;
-        int __chunkBytesRemaining;
+        long long __chunkBytesRemaining;
     } _context;
     int _chunkIndex;
     struct __MSSSPCChunkParsingContext {
@@ -48,7 +48,7 @@
 - (void)_chunkDidFindSubscriptionGoneForPersonID:(id)arg1;
 - (void)_chunkDidEndStreamForPersonID:(id)arg1 ctag:(id)arg2;
 - (void)_chunkDidParseAssetCollections:(id)arg1 forPersonID:(id)arg2;
-- (void)_chunkDidBeginStreamForPersonID:(id)arg1 wasReset:(BOOL)arg2 metadata:(id)arg3;
+- (void)_chunkDidBeginStreamForPersonID:(id)arg1 wasReset:(_Bool)arg2 metadata:(id)arg3;
 - (void)_parseNextChunk;
 - (void)_parseChunks;
 - (void)_coreProtocolDidFailAuthentication:(id)arg1;

@@ -8,14 +8,15 @@
 
 @class NSURL;
 
+// Not exported
 @interface GEOThrottleKey : NSObject
 {
     NSURL *_serverURL;
     unsigned int _requestType;
 }
 
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)initWithRequestType:(unsigned int)arg1 serverURL:(id)arg2;
 

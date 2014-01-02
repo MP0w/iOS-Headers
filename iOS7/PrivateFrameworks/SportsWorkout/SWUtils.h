@@ -15,12 +15,12 @@
 + (void)nikeUserDefaultsSetString:(id)arg1 forKey:(id)arg2;
 + (id)nikeUserDefaultsNumberForKey:(id)arg1;
 + (id)nikeUserDefaultsStringForKey:(id)arg1;
-+ (BOOL)nikeUserDefaultsBoolForKey:(id)arg1;
++ (_Bool)nikeUserDefaultsBoolForKey:(id)arg1;
 + (void)resetLogs;
-+ (void)__logToFileForMessageType:(id)arg1 message:(id)arg2 arguments:(void *)arg3;
++ (void)__logToFileForMessageType:(id)arg1 message:(id)arg2 arguments:(char *)arg3;
 + (void)forDefault:(id)arg1 log:(id)arg2;
 + (void)log:(id)arg1;
-+ (void)setShouldUseNikeAppPreferenceKeyForLogging:(BOOL)arg1;
++ (void)setShouldUseNikeAppPreferenceKeyForLogging:(_Bool)arg1;
 + (void)setShouldLogToFilesInDirectory:(id)arg1;
 + (id)__dateStringForDate:(id)arg1;
 

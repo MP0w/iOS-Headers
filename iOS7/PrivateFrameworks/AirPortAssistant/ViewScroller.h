@@ -15,10 +15,10 @@
     NSMutableSet *recycledViews;
     NSMutableSet *visibleViews;
     NSMutableArray *views;
-    unsigned int currentViewIndex;
+    unsigned long long currentViewIndex;
 }
 
-@property(nonatomic) unsigned int currentViewIndex; // @synthesize currentViewIndex;
+@property(nonatomic) unsigned long long currentViewIndex; // @synthesize currentViewIndex;
 @property(retain, nonatomic) NSMutableArray *views; // @synthesize views;
 @property(retain, nonatomic) NSMutableSet *visibleViews; // @synthesize visibleViews;
 @property(retain, nonatomic) NSMutableSet *recycledViews; // @synthesize recycledViews;
@@ -30,11 +30,6 @@
 - (void)awakeFromNib;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)initializeCommon;
-- (struct CGSize)viewScrollerContentSize;
-- (struct CGRect)frameForViewAtIndex:(unsigned int)arg1;
-- (void)configureView:(id)arg1 forIndex:(unsigned int)arg2;
-- (BOOL)isDisplayingViewForIndex:(unsigned int)arg1;
-- (id)dequeueRecycledView;
 
 @end
 

@@ -12,12 +12,15 @@
 {
     UILabel *_titleLabel;
     UIImageView *__avatarPreview;
+    struct UIEdgeInsets _overlayEdgeInsets;
 }
 
 @property(readonly, nonatomic) UIImageView *_avatarPreview; // @synthesize _avatarPreview=__avatarPreview;
+@property(nonatomic) struct UIEdgeInsets overlayEdgeInsets; // @synthesize overlayEdgeInsets=_overlayEdgeInsets;
 @property(readonly, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 - (void)endAvatarTracking;
 - (void)beginAvatarTrackingFromImageView:(id)arg1;
+- (struct CGRect)inscribingBounds;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)layoutSubviews;
 - (void)dealloc;

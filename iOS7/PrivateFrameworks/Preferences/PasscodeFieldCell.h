@@ -19,24 +19,25 @@
 
 @property(nonatomic) id <KeychainSyncPasscodeFieldDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)layoutSubviews;
-@property(nonatomic) int keyboardType;
+@property(nonatomic) long long keyboardType;
 - (void)deleteBackward;
 - (void)insertText:(id)arg1;
-- (BOOL)hasText;
+- (_Bool)hasText;
 - (id)passcodeText;
 - (void)setPasscodeText:(id)arg1;
 - (void)passcodeField:(id)arg1 enteredPasscode:(id)arg2;
+- (void)_setSecureTextEntry:(_Bool)arg1;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
 
 // Remaining properties
-@property(nonatomic) int autocapitalizationType;
-@property(nonatomic) int autocorrectionType;
-@property(nonatomic) BOOL enablesReturnKeyAutomatically;
-@property(nonatomic) int keyboardAppearance;
-@property(nonatomic) int returnKeyType;
-@property(nonatomic, getter=isSecureTextEntry) BOOL secureTextEntry;
-@property(nonatomic) int spellCheckingType;
+@property(nonatomic) long long autocapitalizationType;
+@property(nonatomic) long long autocorrectionType;
+@property(nonatomic) _Bool enablesReturnKeyAutomatically;
+@property(nonatomic) long long keyboardAppearance;
+@property(nonatomic) long long returnKeyType;
+@property(nonatomic, getter=isSecureTextEntry) _Bool secureTextEntry;
+@property(nonatomic) long long spellCheckingType;
 
 @end
 

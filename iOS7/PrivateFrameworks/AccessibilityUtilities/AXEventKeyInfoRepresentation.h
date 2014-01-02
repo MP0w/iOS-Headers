@@ -13,20 +13,20 @@
 
 @interface AXEventKeyInfoRepresentation : NSObject <NSSecureCoding, NSCopying>
 {
-    BOOL _keyDown;
+    _Bool _keyDown;
     unsigned short _keyCode;
+    unsigned int _modifierState;
     NSString *_unmodifiedInput;
     NSString *_modifiedInput;
     NSString *_shiftModifiedInput;
-    unsigned int _modifierState;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) unsigned int modifierState; // @synthesize modifierState=_modifierState;
 @property(retain, nonatomic) NSString *shiftModifiedInput; // @synthesize shiftModifiedInput=_shiftModifiedInput;
 @property(retain, nonatomic) NSString *modifiedInput; // @synthesize modifiedInput=_modifiedInput;
 @property(retain, nonatomic) NSString *unmodifiedInput; // @synthesize unmodifiedInput=_unmodifiedInput;
-@property(nonatomic) BOOL keyDown; // @synthesize keyDown=_keyDown;
+@property(nonatomic) _Bool keyDown; // @synthesize keyDown=_keyDown;
 @property(nonatomic) unsigned short keyCode; // @synthesize keyCode=_keyCode;
 - (void)translateKeycode;
 - (id)_hardwareKeyboardLayout;

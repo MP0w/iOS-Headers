@@ -19,13 +19,13 @@
 - (id)controlValue;
 - (void)layoutSubviews;
 - (void)setValues:(id)arg1 titleDictionary:(id)arg2;
-- (BOOL)canReload;
+- (_Bool)canReload;
 - (void)setBackgroundView:(id)arg1;
 - (id)titleLabel;
 - (id)newControl;
 - (void)prepareForReuse;
 - (void)refreshCellContentsWithSpecifier:(id)arg1;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
 
 @end
 

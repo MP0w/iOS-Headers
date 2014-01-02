@@ -19,7 +19,7 @@
     NSMutableArray *_sharesWithLocalModifications;
     MSSharingProtocol *_protocol;
     int _state;
-    BOOL _requestCurrentStateRequested;
+    _Bool _requestCurrentStateRequested;
     NSMutableArray *_invitationQueue;
     NSMutableArray *_invitationResponseQueue;
     NSMutableDictionary *_manageShareByPersonID;
@@ -54,7 +54,7 @@
 - (void)removeShare:(id)arg1;
 - (void)modifyShare:(id)arg1;
 - (void)_shareDebounceTimerDidFire:(id)arg1;
-- (void)respondToInvitation:(id)arg1 accept:(BOOL)arg2;
+- (void)respondToInvitation:(id)arg1 accept:(_Bool)arg2;
 - (void)sendInvitationsForShares:(id)arg1;
 @property(retain, nonatomic) NSArray *shares;
 - (void)dealloc;

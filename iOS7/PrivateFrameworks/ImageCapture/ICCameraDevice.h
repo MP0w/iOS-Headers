@@ -13,7 +13,7 @@
     void *_cameraProperties;
 }
 
-+ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
++ (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 - (void)receivedDeviceCommandCompletion;
 - (void)addToMetadataFetchQ:(id)arg1;
 - (void)addToThumbnailFetchQ:(id)arg1;
@@ -35,22 +35,22 @@
 - (void)notifyDelegateOfAddedItem:(id)arg1;
 - (struct dispatch_semaphore_s *)deviceQSemaphore;
 - (struct dispatch_queue_s *)generalQ;
-@property(getter=isAccessRestrictedAppleDevice) BOOL accessRestrictedAppleDevice;
-@property unsigned int contentCatalogPercentCompleted;
+@property(getter=isAccessRestrictedAppleDevice) _Bool accessRestrictedAppleDevice;
+@property unsigned long long contentCatalogPercentCompleted;
 - (void)incrementNumberOfDownloadableItems;
 - (void)decrementNumberOfDownloadableItems;
-@property unsigned int numberOfDownloadableItems;
+@property unsigned long long numberOfDownloadableItems;
 - (void)incrementEstimatedNumberOfDownloadableItems;
 - (void)decrementEstimatedNumberOfDownloadableItems;
-@property unsigned int estimatedNumberOfDownloadableItems;
+@property unsigned long long estimatedNumberOfDownloadableItems;
 - (double)downloadCancelTimestamp;
 @property(readonly) double timeOffset;
-@property(readonly) unsigned int batteryLevel;
-@property(readonly) BOOL batteryLevelAvailable;
-@property BOOL allowsSyncingClock;
-@property(getter=isLocked) BOOL locked;
-@property BOOL beingEjected;
-@property(getter=isEjectable) BOOL ejectable;
+@property(readonly) unsigned long long batteryLevel;
+@property(readonly) _Bool batteryLevelAvailable;
+@property _Bool allowsSyncingClock;
+@property(getter=isLocked) _Bool locked;
+@property _Bool beingEjected;
+@property(getter=isEjectable) _Bool ejectable;
 @property(copy) NSString *volumePath;
 - (void)finalize;
 - (void)dealloc;

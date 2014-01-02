@@ -6,14 +6,15 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface PipelineJPEGDecoder : NSObject
 {
-    CDStruct_632c0709 pool420;
-    CDStruct_632c0709 poolJPEG;
+    CDStruct_7d855afc pool420;
+    CDStruct_7d855afc poolJPEG;
     struct CGSize imageSize;
-    unsigned int requestedImageCount;
+    unsigned long long requestedImageCount;
     int current420SurfaceCount;
-    unsigned int maxJPEGSize;
+    unsigned long long maxJPEGSize;
 }
 
 + (id)_hardwareSemaphoreWaitQueue;
@@ -21,24 +22,24 @@
 + (struct __IOSurfaceAccelerator *)_getPooledSurfaceAccelerator;
 + (void)_poolSurfaceAccelerator:(struct __IOSurfaceAccelerator *)arg1;
 + (struct __IOSurfaceAccelerator *)_createAccelerator;
-+ (CDStruct_632c0709 *)_transferSessionPool;
-@property unsigned int maxJPEGSize; // @synthesize maxJPEGSize;
++ (CDStruct_7d855afc *)_transferSessionPool;
+@property unsigned long long maxJPEGSize; // @synthesize maxJPEGSize;
 - (void)_receivedMemoryWarning:(id)arg1;
 - (void)_decodeJPEG:(id)arg1 withInputSurface:(struct __IOSurface *)arg2 toIOSurface:(struct __IOSurface *)arg3;
 - (void)_poolJPEGSurface:(struct __IOSurface *)arg1;
-- (struct __IOSurface *)_getPooledJPEGSurfaceOfSize:(unsigned int)arg1;
+- (struct __IOSurface *)_getPooledJPEGSurfaceOfSize:(unsigned long long)arg1;
 - (void)_pool420Surface:(struct __IOSurface *)arg1;
 - (struct __IOSurface *)_getPooled420Surface;
-- (BOOL)_removeJPEGSurface;
+- (_Bool)_removeJPEGSurface;
 - (struct __IOSurface *)_createJPEGSurface;
-- (BOOL)_remove420Surface;
+- (_Bool)_remove420Surface;
 - (struct __IOSurface *)_create420Surface;
 - (void)dealloc;
 - (void)decodeSurfaceFromJPEGPath:(id)arg1 completionQueue:(id)arg2 completionBlock:(id)arg3;
 - (void)decodeSurfaceFromJPEGData:(id)arg1 completionQueue:(id)arg2 completionBlock:(id)arg3;
 - (void)returnToPool:(struct __IOSurface *)arg1;
 - (struct __IOSurface *)newSurfaceFromJPEGData:(id)arg1;
-- (id)initWithSize:(struct CGSize)arg1 cachedCount:(int)arg2;
+- (id)initWithSize:(struct CGSize)arg1 cachedCount:(long long)arg2;
 
 @end
 

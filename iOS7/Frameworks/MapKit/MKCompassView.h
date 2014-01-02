@@ -6,23 +6,17 @@
 
 #import "UIView.h"
 
-@class NSAttributedString, NSDictionary, UIColor;
+@class CALayer;
 
 @interface MKCompassView : UIView
 {
-    float _yaw;
-    float _degrees;
-    float _scale;
-    UIColor *_discColor;
-    UIColor *_ticColor;
-    UIColor *_arrowColor;
-    NSAttributedString *_nString;
-    struct CGPoint _nStringDrawPoint;
-    NSDictionary *_degreeFontAttributes;
+    CALayer *_imageLayer;
 }
 
-- (void)drawRect:(struct CGRect)arg1;
-@property(nonatomic) float yaw; // @dynamic yaw;
+- (void)layoutSublayersOfLayer:(id)arg1;
+@property(nonatomic) double yaw; // @dynamic yaw;
+- (void)layoutSubviews;
+- (void)updateLocale:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

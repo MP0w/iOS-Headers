@@ -14,7 +14,7 @@
 }
 
 @property(retain) NSFileHandle *fileHandle; // @synthesize fileHandle=_fileHandle;
-- (BOOL)processData:(id)arg1 forTask:(id)arg2;
+- (_Bool)processData:(id)arg1 forTask:(id)arg2;
 - (void)dealloc;
 - (id)initWithFileHandle:(id)arg1;
 

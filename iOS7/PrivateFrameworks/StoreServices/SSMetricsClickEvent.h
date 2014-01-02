@@ -18,8 +18,9 @@
 @property(retain, nonatomic) NSString *targetIdentifier;
 @property(retain, nonatomic) NSNumber *positionY;
 @property(retain, nonatomic) NSNumber *positionX;
+- (void)setLocationWithEventLocations:(id)arg1;
 @property(retain, nonatomic) NSString *locationDescription;
-@property(retain, nonatomic) NSString *impressions;
+@property(retain, nonatomic) id impressions;
 @property(retain, nonatomic) NSString *actionType;
 @property(retain, nonatomic) id actionDetails;
 - (id)init;

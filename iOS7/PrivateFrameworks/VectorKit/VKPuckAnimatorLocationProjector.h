@@ -8,6 +8,7 @@
 
 @class VKAttributedRouteMatch;
 
+// Not exported
 @interface VKPuckAnimatorLocationProjector : NSObject
 {
     VKAttributedRouteMatch *_routeMatch;
@@ -21,7 +22,7 @@
 @property(retain, nonatomic) VKAttributedRouteMatch *projectedRouteMatch; // @synthesize projectedRouteMatch=_projectedRouteMatch;
 @property(retain, nonatomic) VKAttributedRouteMatch *routeMatch; // @synthesize routeMatch=_routeMatch;
 - (id).cxx_construct;
-@property(readonly, nonatomic) BOOL projectedLocationOnRoute;
+@property(readonly, nonatomic) _Bool projectedLocationOnRoute;
 @property(readonly, nonatomic) CDStruct_c3b9c2ee projectedLocation;
 - (void)projectFromLocation:(id)arg1 routeMatch:(id)arg2 speedMultiplier:(double)arg3;
 - (void)_updateCourseAndPositionFromRouteMatch;

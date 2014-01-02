@@ -7,6 +7,6 @@
 #import "NSOutputStream.h"
 
 @interface NSOutputStream (NSCFOutputStreamAdditions)
-- (CDStruct_1ef3fb1f)_cfStreamError;
+- (CDStruct_87dc826d)_cfStreamError;
 @end
 

@@ -8,11 +8,14 @@
 
 @class UIThreePartImageView;
 
+// Not exported
 @interface UIAlertSheetTextField : UITextField
 {
     UIThreePartImageView *_sheetBackgroundView;
 }
 
+- (struct CGRect)editingRectForBounds:(struct CGRect)arg1;
+- (struct CGRect)textRectForBounds:(struct CGRect)arg1;
 - (struct CGRect)clearButtonRectForBounds:(struct CGRect)arg1;
 - (id)backgroundView;
 - (void)setBackgroundView:(id)arg1;

@@ -8,6 +8,7 @@
 
 @class NSMutableArray, NSMutableDictionary;
 
+// Not exported
 @interface _UIWebFormDelegateEditedFormsMap : NSObject
 {
     NSMutableDictionary *_map;

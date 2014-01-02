@@ -7,20 +7,20 @@
 #import "NSObject-Protocol.h"
 
 @protocol SCROBrailleDriverProtocol <NSObject>
-- (BOOL)setStatusCells:(const char *)arg1 length:(int)arg2;
-- (BOOL)setMainCells:(const char *)arg1 length:(int)arg2;
-- (int)statusSize;
-- (int)mainSize;
+- (_Bool)setStatusCells:(const char *)arg1 length:(long long)arg2;
+- (_Bool)setMainCells:(const char *)arg1 length:(long long)arg2;
+- (long long)statusSize;
+- (long long)mainSize;
 - (id)getInputEvents;
 - (int)brailleInputMode;
-- (BOOL)postsKeyboardEvents;
-- (BOOL)isInputEnabled;
-- (BOOL)supportsBlinkingCursor;
+- (_Bool)postsKeyboardEvents;
+- (_Bool)isInputEnabled;
+- (_Bool)supportsBlinkingCursor;
 - (id)modelIdentifier;
-- (BOOL)isSleeping;
-- (BOOL)isDriverLoaded;
-- (BOOL)unloadDriver;
+- (_Bool)isSleeping;
+- (_Bool)isDriverLoaded;
+- (_Bool)unloadDriver;
 - (int)loadDriverWithIOElement:(id)arg1;
-- (unsigned int)interfaceVersion;
+- (unsigned long long)interfaceVersion;
 @end
 

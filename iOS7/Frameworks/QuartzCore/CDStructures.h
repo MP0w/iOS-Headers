@@ -65,21 +65,6 @@ struct CAColorMatrix {
     float m45;
 };
 
-struct CADoublePoint {
-    double x;
-    double y;
-};
-
-struct CADoubleRect {
-    struct CADoublePoint origin;
-    struct CADoubleSize size;
-};
-
-struct CADoubleSize {
-    double width;
-    double height;
-};
-
 struct CAEAGLBuffer;
 
 struct CAMediaTimingFunctionPrivate {
@@ -98,9 +83,9 @@ struct CAMeshVertex {
 };
 
 struct CAPoint3D {
-    float x;
-    float y;
-    float z;
+    double x;
+    double y;
+    double z;
 };
 
 struct CARendererPriv {
@@ -116,27 +101,27 @@ struct CARendererPriv {
     unsigned int _field10[2];
     unsigned int _field11;
     unsigned int :8;
-    unsigned int _field12;
+    unsigned long long _field12;
     char _field13[0];
 };
 
 struct CATransform3D {
-    float m11;
-    float m12;
-    float m13;
-    float m14;
-    float m21;
-    float m22;
-    float m23;
-    float m24;
-    float m31;
-    float m32;
-    float m33;
-    float m34;
-    float m41;
-    float m42;
-    float m43;
-    float m44;
+    double m11;
+    double m12;
+    double m13;
+    double m14;
+    double m21;
+    double m22;
+    double m23;
+    double m24;
+    double m31;
+    double m32;
+    double m33;
+    double m34;
+    double m41;
+    double m42;
+    double m43;
+    double m44;
 };
 
 struct CAWindowServerImpl {
@@ -145,12 +130,12 @@ struct CAWindowServerImpl {
 };
 
 struct CGAffineTransform {
-    float _field1;
-    float _field2;
-    float _field3;
-    float _field4;
-    float _field5;
-    float _field6;
+    double _field1;
+    double _field2;
+    double _field3;
+    double _field4;
+    double _field5;
+    double _field6;
 };
 
 struct CGColorSpace;
@@ -161,8 +146,8 @@ struct CGPathElement {
 };
 
 struct CGPoint {
-    float x;
-    float y;
+    double x;
+    double y;
 };
 
 struct CGRect {
@@ -171,8 +156,8 @@ struct CGRect {
 };
 
 struct CGSize {
-    float width;
-    float height;
+    double width;
+    double height;
 };
 
 struct CVSMPTETime {
@@ -193,8 +178,8 @@ struct Commit;
 
 struct Condition {
     struct _opaque_pthread_cond_t {
-        long _field1;
-        char _field2[24];
+        long long _field1;
+        char _field2[40];
     } _field1;
 };
 
@@ -374,8 +359,8 @@ struct ModeSet {
 
 struct Mutex {
     struct _opaque_pthread_mutex_t {
-        long _field1;
-        char _field2[40];
+        long long _field1;
+        char _field2[56];
     } _field1;
 };
 
@@ -450,8 +435,8 @@ struct Server {
     struct Display *_field4;
     struct __CFString *_field5;
     struct ContextItem *_field6;
-    unsigned int _field7;
-    unsigned int _field8;
+    unsigned long long _field7;
+    unsigned long long _field8;
     struct SpinLock _field9;
     struct PendingOperation *_field10;
     struct Context *_field11;
@@ -493,7 +478,6 @@ struct Transaction {
     struct __CFRunLoop *_field13;
     struct __CFRunLoopObserver *_field14;
     struct LayoutList *_field15;
-    unsigned int :1;
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
@@ -561,17 +545,16 @@ struct _CAImageQueue;
 
 struct _CALayerArrayIvars {
     id *layers;
-    unsigned int count;
-    unsigned int capacity;
-    unsigned long mutations;
-    char retained;
+    unsigned long long count;
+    unsigned long long capacity;
+    unsigned long long mutations;
+    _Bool retained;
 };
 
 struct _CALayerIvars {
     int refcount;
     unsigned int magic;
     void *layer;
-    void *unused1[8];
 };
 
 struct _CAMLWriterAttribute;
@@ -636,17 +619,18 @@ struct _CAStateControllerData {
 
 struct _EAGLNativeWindowObject {
     int _field1;
-    void *_field2;
+    unsigned int _field2;
     void *_field3;
     void *_field4;
     void *_field5;
     void *_field6;
     void *_field7;
+    void *_field8;
 };
 
 struct _NSRange {
-    unsigned int _field1;
-    unsigned int _field2;
+    unsigned long long _field1;
+    unsigned long long _field2;
 };
 
 struct __CFDictionary;
@@ -658,11 +642,11 @@ struct x_list_struct;
 #pragma mark Typedef'd Structures
 
 typedef struct {
-    unsigned long _field1;
+    unsigned long long _field1;
     id *_field2;
-    unsigned long *_field3;
-    unsigned long _field4[5];
-} CDStruct_11f37819;
+    unsigned long long *_field3;
+    unsigned long long _field4[5];
+} CDStruct_70511ce9;
 
 typedef struct {
     int _field1;

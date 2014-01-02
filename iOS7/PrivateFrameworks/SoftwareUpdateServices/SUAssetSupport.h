@@ -15,7 +15,7 @@
 + (id)defaultAssetDownloadOptionsWithPriority:(int)arg1;
 + (id)getInstalledDocumentationAssetFromSoftwareUpdateAssetIfExists:(id)arg1;
 + (id)getLocalDefaultSoftwareUpdateAssetIfExists;
-+ (id)findAssetWithMatcher:(id)arg1 localSearch:(BOOL)arg2 error:(id *)arg3;
++ (id)findAssetWithMatcher:(id)arg1 localSearch:(_Bool)arg2 error:(id *)arg3;
 + (void)cleanupAllSoftwareUpdateAndRelatedAssets;
 + (void)cleanupAllSoftwareUpdateAssets;
 + (void)_cleanupAllAssetsOfType:(id)arg1;

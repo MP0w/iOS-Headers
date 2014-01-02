@@ -10,24 +10,24 @@
 
 @interface SKSpriteNode : SKNode
 {
-    BOOL _shouldRepeatTexture;
+    _Bool _shouldRepeatTexture;
 }
 
 + (id)spriteNodeWithColor:(id)arg1 size:(struct CGSize)arg2;
 + (id)spriteNodeWithTexture:(id)arg1 size:(struct CGSize)arg2;
 + (id)spriteNodeWithTexture:(id)arg1;
 + (id)spriteNodeWithImageNamed:(id)arg1;
-@property(nonatomic) BOOL shouldRepeatTexture; // @synthesize shouldRepeatTexture=_shouldRepeatTexture;
-- (BOOL)containsPoint:(struct CGPoint)arg1;
-@property(nonatomic) int blendMode;
+@property(nonatomic) _Bool shouldRepeatTexture; // @synthesize shouldRepeatTexture=_shouldRepeatTexture;
+- (_Bool)containsPoint:(struct CGPoint)arg1;
+@property(nonatomic) long long blendMode;
 @property(nonatomic) struct CGSize repeatTextureSize;
-- (void)setRepeatTexture:(BOOL)arg1;
-- (BOOL)repeatTexture;
+- (void)setRepeatTexture:(_Bool)arg1;
+- (_Bool)repeatTexture;
 @property(nonatomic) struct CGRect centerRect;
 @property(nonatomic) struct CGSize size;
 @property(nonatomic) struct CGPoint anchorPoint;
 @property(retain, nonatomic) UIColor *color;
-@property(nonatomic) float colorBlendFactor;
+@property(nonatomic) double colorBlendFactor;
 @property(retain, nonatomic) SKTexture *texture;
 - (id)description;
 - (id)initWithTexture:(id)arg1;

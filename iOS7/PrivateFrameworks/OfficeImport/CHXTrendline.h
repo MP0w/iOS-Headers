@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface CHXTrendline : NSObject
 {
 }
 
 + (id)chdTrendlineFromXmlTrendlineElement:(struct _xmlNode *)arg1 state:(id)arg2;
-+ (int)chdTrendlineTypeFromXmlTrendlineTypeElement:(struct _xmlNode *)arg1;
 
 @end
 

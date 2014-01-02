@@ -9,7 +9,7 @@
 #import "SKUICategoryArtworkLoaderObserver-Protocol.h"
 #import "SKUICategoryTableViewControllerDelegate-Protocol.h"
 
-@class NSURL, SKUICategory, SKUICategoryArtworkLoader, SKUIClientContext;
+@class NSArray, NSURL, SKUICategory, SKUICategoryArtworkLoader, SKUIClientContext;
 
 @interface SKUICategoryTableViewController : UITableViewController <SKUICategoryArtworkLoaderObserver, SKUICategoryTableViewControllerDelegate>
 {
@@ -17,33 +17,39 @@
     SKUICategory *_category;
     SKUIClientContext *_clientContext;
     id <SKUICategoryTableViewControllerDelegate> _delegate;
-    int _hiddenRows;
+    NSArray *_metricsLocations;
+    long long _numberOfHiddenRows;
     NSURL *_selectedURL;
     NSURL *_defaultURL;
-    BOOL _isRoot;
+    _Bool _isRoot;
+    _Bool _childrenHaveArtwork;
 }
 
 @property(retain, nonatomic) NSURL *selectedURL; // @synthesize selectedURL=_selectedURL;
-@property(nonatomic, getter=isRoot) BOOL root; // @synthesize root=_isRoot;
-@property(nonatomic) int numberOfHiddenRows; // @synthesize numberOfHiddenRows=_hiddenRows;
+@property(nonatomic, getter=isRoot) _Bool root; // @synthesize root=_isRoot;
+@property(nonatomic) long long numberOfHiddenRows; // @synthesize numberOfHiddenRows=_numberOfHiddenRows;
+@property(copy, nonatomic) NSArray *metricsLocations; // @synthesize metricsLocations=_metricsLocations;
 @property(nonatomic) __weak id <SKUICategoryTableViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSURL *defaultURL; // @synthesize defaultURL=_defaultURL;
 @property(retain, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
 @property(retain, nonatomic) SKUICategory *category; // @synthesize category=_category;
 @property(retain, nonatomic) SKUICategoryArtworkLoader *artworkLoader; // @synthesize artworkLoader=_artworkLoader;
 - (void).cxx_destruct;
+- (void)_recordClickEventForIndexPath:(id)arg1 category:(id)arg2 actionType:(id)arg3;
+- (id)_metricsLocationsToPushIndexPath:(id)arg1;
+- (long long)_metricsLocationPostionForIndexPath:(id)arg1;
 - (id)_categoryAtIndexPath:(id)arg1;
 - (void)_doneButtonAction:(id)arg1;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (id)metricsPageContextForCategoryTableView:(id)arg1;
 - (void)categoryTableView:(id)arg1 didSelectCategory:(id)arg2;
 - (void)categoryArtworkLoader:(id)arg1 didLoadImage:(id)arg2 forCategory:(id)arg3;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;
-- (void)setHiddenRows:(int)arg1;
 - (void)dealloc;
 
 @end

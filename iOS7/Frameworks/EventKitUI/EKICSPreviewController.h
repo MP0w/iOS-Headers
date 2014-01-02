@@ -14,24 +14,24 @@
     EKEventStore *_eventStore;
     EKEventViewController *_currentImport;
     UIViewController *_contentViewController;
-    BOOL _importing;
-    BOOL _hasCustomCancelButton;
-    int _cancelButtonType;
-    BOOL _allowsImport;
-    BOOL _allowsEditing;
-    BOOL _allowsSubitems;
-    BOOL _actionsDisabled;
-    BOOL _allowsInvalidProperties;
-    BOOL _allowsToDos;
+    _Bool _importing;
+    _Bool _hasCustomCancelButton;
+    long long _cancelButtonType;
+    _Bool _allowsImport;
+    _Bool _allowsEditing;
+    _Bool _allowsSubitems;
+    _Bool _allowsInvalidProperties;
+    _Bool _allowsToDos;
+    int _actionsState;
     id <EKICSPreviewControllerDelegate> _previewDelegate;
 }
 
-@property(nonatomic) BOOL allowsToDos; // @synthesize allowsToDos=_allowsToDos;
-@property(nonatomic) BOOL allowsInvalidProperties; // @synthesize allowsInvalidProperties=_allowsInvalidProperties;
-@property(nonatomic) BOOL actionsDisabled; // @synthesize actionsDisabled=_actionsDisabled;
-@property(nonatomic) BOOL allowsSubitems; // @synthesize allowsSubitems=_allowsSubitems;
-@property(nonatomic) BOOL allowsEditing; // @synthesize allowsEditing=_allowsEditing;
-@property(nonatomic) BOOL allowsImport; // @synthesize allowsImport=_allowsImport;
+@property(nonatomic) _Bool allowsToDos; // @synthesize allowsToDos=_allowsToDos;
+@property(nonatomic) _Bool allowsInvalidProperties; // @synthesize allowsInvalidProperties=_allowsInvalidProperties;
+@property(nonatomic) int actionsState; // @synthesize actionsState=_actionsState;
+@property(nonatomic) _Bool allowsSubitems; // @synthesize allowsSubitems=_allowsSubitems;
+@property(nonatomic) _Bool allowsEditing; // @synthesize allowsEditing=_allowsEditing;
+@property(nonatomic) _Bool allowsImport; // @synthesize allowsImport=_allowsImport;
 @property(nonatomic) __weak id <EKICSPreviewControllerDelegate> previewDelegate; // @synthesize previewDelegate=_previewDelegate;
 - (void).cxx_destruct;
 - (void)importEventFromController:(id)arg1 intoCalendar:(id)arg2;
@@ -46,18 +46,18 @@
 - (void)removeCancelButton;
 - (void)setCancelButtonWithTarget:(id)arg1 action:(SEL)arg2;
 - (void)_updateCancelButton;
-- (void)_createCancelButtonWithType:(int)arg1 target:(id)arg2 action:(SEL)arg3;
+- (void)_createCancelButtonWithType:(long long)arg1 target:(id)arg2 action:(SEL)arg3;
 - (id)popoverContentController;
 - (id)viewController;
-- (id)detailViewForEvent:(id)arg1 eventInRealStore:(BOOL)arg2;
-@property(readonly, nonatomic) BOOL isImporting;
-@property(readonly, nonatomic) unsigned int unimportedEventCount;
-@property(readonly, nonatomic) unsigned int totalEventCount;
+- (id)detailViewForEvent:(id)arg1 eventInRealStore:(_Bool)arg2;
+@property(readonly, nonatomic) _Bool isImporting;
+@property(readonly, nonatomic) unsigned long long unimportedEventCount;
+@property(readonly, nonatomic) unsigned long long totalEventCount;
 - (void)_databaseChanged:(id)arg1;
 - (void)dealloc;
-- (id)initWithData:(id)arg1 eventStore:(id)arg2 options:(unsigned int)arg3;
+- (id)initWithData:(id)arg1 eventStore:(id)arg2 options:(unsigned long long)arg3;
 - (id)initWithData:(id)arg1 eventStore:(id)arg2;
-- (id)initWithURL:(id)arg1 eventStore:(id)arg2 options:(unsigned int)arg3;
+- (id)initWithURL:(id)arg1 eventStore:(id)arg2 options:(unsigned long long)arg3;
 - (id)initWithURL:(id)arg1 eventStore:(id)arg2;
 
 @end

@@ -10,6 +10,7 @@
 
 @class NSObject<OS_dispatch_queue>, _UIQueueRedirectingProxy;
 
+// Not exported
 @interface _UIViewServiceXPCProxy : XPCProxy <_UIRemoteProtocolSettingViewServiceXPCProxyTarget>
 {
     int _connectionPID;
@@ -17,7 +18,7 @@
     NSObject<OS_dispatch_queue> *_queue;
     int _lock;
     int __automatic_invalidation_retainCount;
-    BOOL __automatic_invalidation_invalidated;
+    _Bool __automatic_invalidation_invalidated;
 }
 
 + (id)activeFencePort;
@@ -31,9 +32,9 @@
 - (void)restrictDecodingToWhitelistedClassNames:(id)arg1;
 - (void)dealloc;
 - (id)initWithConnection:(id)arg1 queue:(id)arg2 target:(id)arg3;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
-- (unsigned int)retainCount;
+- (_Bool)_isDeallocating;
+- (_Bool)_tryRetain;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;
 - (int)__automatic_invalidation_logic;

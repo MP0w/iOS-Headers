@@ -6,23 +6,25 @@
 
 #import "PBRequest.h"
 
-@interface GEOLocationShiftRequest : PBRequest
+#import "NSCopying-Protocol.h"
+
+@interface GEOLocationShiftRequest : PBRequest <NSCopying>
 {
     CDStruct_bddcf505 _pixel;
 }
 
 @property(nonatomic) CDStruct_bddcf505 pixel; // @synthesize pixel=_pixel;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (Class)responseClass;
 - (unsigned int)requestTypeCode;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
 - (void)dealloc;
-- (CDStruct_c3b9c2ee)coordinate;
 
 @end
 

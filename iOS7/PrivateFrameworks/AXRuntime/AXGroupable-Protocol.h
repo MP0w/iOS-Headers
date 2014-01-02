@@ -11,7 +11,7 @@
 @protocol AXGroupable <NSObject>
 @property(nonatomic) AXElementGroup *parentGroup;
 @property(readonly, nonatomic) struct CGRect frame;
-- (BOOL)isGroup;
+- (_Bool)isGroup;
 - (id)highestAncestorGroup;
 @end
 

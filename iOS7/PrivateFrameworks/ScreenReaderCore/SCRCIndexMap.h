@@ -16,19 +16,19 @@
 - (id)description;
 - (void)addObjectsFromIndexMap:(id)arg1;
 - (id)indexes;
-- (unsigned int *)_createIndexesWithSize:(unsigned int *)arg1;
-- (unsigned long)count;
-- (id)objectForIndex:(unsigned long)arg1;
+- (unsigned long long *)_createIndexesWithSize:(unsigned long long *)arg1;
+- (unsigned long long)count;
+- (id)objectForIndex:(unsigned long long)arg1;
 - (void)removeAllObjects;
-- (void)removeObjectForIndex:(unsigned long)arg1;
-- (void)setObject:(id)arg1 forIndex:(unsigned long)arg2;
+- (void)removeObjectForIndex:(unsigned long long)arg1;
+- (void)setObject:(id)arg1 forIndex:(unsigned long long)arg2;
 - (void)dealloc;
 - (id)deepCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)_initAndDeepCopyIndexMap:(id)arg1;
 - (id)_initWithIndexMap:(id)arg1;
 - (id)init;
-- (id)initWithObjects:(id *)arg1 andIndexes:(unsigned int *)arg2 count:(unsigned long)arg3;
+- (id)initWithObjects:(id *)arg1 andIndexes:(unsigned long long *)arg2 count:(unsigned long long)arg3;
 
 @end
 

@@ -8,7 +8,7 @@
 
 @interface SBConferenceManager : NSObject
 {
-    BOOL _hasFaceTimeCapability;
+    _Bool _hasFaceTimeCapability;
     struct MGNotificationTokenStruct *_faceTimeCapabilityUpdateToken;
 }
 
@@ -24,12 +24,12 @@
 - (void)_faceTimeStateChanged:(id)arg1;
 - (void)invitedToIMAVChat:(id)arg1;
 - (void)dealloc;
-- (BOOL)canStartFaceTime;
-- (BOOL)inFaceTime;
-- (BOOL)activeFaceTimeCallExists;
-- (BOOL)faceTimeInvitationExists;
-- (BOOL)faceTimeIsAvailable;
-- (BOOL)hasFaceTimeCapability;
+- (_Bool)canStartFaceTime;
+- (_Bool)inFaceTime;
+- (_Bool)activeFaceTimeCallExists;
+- (_Bool)faceTimeInvitationExists;
+- (_Bool)faceTimeIsAvailable;
+- (_Bool)hasFaceTimeCapability;
 - (id)_faceTimeApp;
 - (id)init;
 

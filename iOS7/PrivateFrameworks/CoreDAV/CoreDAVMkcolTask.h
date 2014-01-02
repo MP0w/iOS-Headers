@@ -11,7 +11,7 @@
 @interface CoreDAVMkcolTask : CoreDAVActionBackedTask
 {
     NSSet *_propertiesToSet;
-    BOOL _sendOrder;
+    _Bool _sendOrder;
     int _absoluteOrder;
     NSURL *_priorOrderedURL;
 }

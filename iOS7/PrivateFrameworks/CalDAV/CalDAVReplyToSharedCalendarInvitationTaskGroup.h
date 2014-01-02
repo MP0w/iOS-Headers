@@ -13,21 +13,21 @@
 @interface CalDAVReplyToSharedCalendarInvitationTaskGroup : CoreDAVTaskGroup <CoreDAVPostTaskDelegate>
 {
     CalDAVCalendarServerInviteNotificationItem *_invitation;
-    BOOL _acceptInvitation;
+    _Bool _acceptInvitation;
     NSURL *_calendarHomeURL;
     NSURL *_sharedAs;
 }
 
 @property(retain, nonatomic) NSURL *sharedAs; // @synthesize sharedAs=_sharedAs;
 @property(retain) NSURL *calendarHomeURL; // @synthesize calendarHomeURL=_calendarHomeURL;
-@property BOOL acceptInvitation; // @synthesize acceptInvitation=_acceptInvitation;
+@property _Bool acceptInvitation; // @synthesize acceptInvitation=_acceptInvitation;
 @property(retain) CalDAVCalendarServerInviteNotificationItem *invitation; // @synthesize invitation=_invitation;
 - (void)task:(id)arg1 didFinishWithError:(id)arg2;
 - (id)generateReply;
 - (void)startTaskGroup;
 - (id)description;
 - (void)dealloc;
-- (id)initWithInvitation:(id)arg1 acceptInvitation:(BOOL)arg2 atCalendarHomeURL:(id)arg3 accountInfoProvider:(id)arg4 taskManager:(id)arg5;
+- (id)initWithInvitation:(id)arg1 acceptInvitation:(_Bool)arg2 atCalendarHomeURL:(id)arg3 accountInfoProvider:(id)arg4 taskManager:(id)arg5;
 - (id)initWithAccountInfoProvider:(id)arg1 taskManager:(id)arg2;
 
 // Remaining properties

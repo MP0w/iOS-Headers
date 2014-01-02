@@ -8,6 +8,7 @@
 
 #import "OCDDelayedMediaContext-Protocol.h"
 
+// Not exported
 @interface ESDBlipContext : NSObject <OCDDelayedMediaContext>
 {
     struct SsrwOOStream *mStream;

@@ -16,20 +16,18 @@
     SBNotificationsSectionHeaderView *_headerViewCurrentlyInClearState;
 }
 
-- (void)hostWillPresent;
-- (void)updateSection:(id)arg1 withInfo:(id)arg2;
-- (void)_updateSection:(id)arg1 withUILockState:(BOOL)arg2;
 - (void)commitReloadOfSections:(id)arg1;
 - (id)infoForBulletin:(id)arg1 inSection:(id)arg2;
 - (id)infoForBulletinSection:(id)arg1;
-- (BOOL)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
+- (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 - (void)_handleEatenTouch:(id)arg1;
 - (void)_setHeaderViewCurrentlyInClearState:(id)arg1;
-- (struct UIEdgeInsets)bulletinViewControllerContentInsetsForMode:(int)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
+- (id)_headerViewCurrentlyInClearState;
+- (struct UIEdgeInsets)bulletinViewControllerContentInsetsForMode:(long long)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)_installClearButtonTouchEater;
-- (int)widgetIdiomForCategory:(int)arg1;
+- (long long)widgetIdiomForCategory:(long long)arg1;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 

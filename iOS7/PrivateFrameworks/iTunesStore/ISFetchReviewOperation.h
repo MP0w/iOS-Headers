@@ -10,20 +10,20 @@
 
 @interface ISFetchReviewOperation : ISOperation
 {
-    int _assetType;
-    BOOL _backgroundReview;
+    long long _assetType;
+    _Bool _backgroundReview;
     unsigned long long _itemIdentifier;
-    unsigned int _softwareVersionIdentifier;
+    unsigned long long _softwareVersionIdentifier;
     ISReview *_review;
     NSURL *_url;
 }
 
 @property(retain) NSURL *url; // @synthesize url=_url;
-@property unsigned int softwareVersionIdentifier; // @synthesize softwareVersionIdentifier=_softwareVersionIdentifier;
+@property unsigned long long softwareVersionIdentifier; // @synthesize softwareVersionIdentifier=_softwareVersionIdentifier;
 @property(retain) ISReview *review; // @synthesize review=_review;
 @property unsigned long long itemIdentifier; // @synthesize itemIdentifier=_itemIdentifier;
-@property(getter=isBackgroundReview) BOOL backgroundReview; // @synthesize backgroundReview=_backgroundReview;
-@property int assetType; // @synthesize assetType=_assetType;
+@property(getter=isBackgroundReview) _Bool backgroundReview; // @synthesize backgroundReview=_backgroundReview;
+@property long long assetType; // @synthesize assetType=_assetType;
 - (void)_fetchReviewInformation;
 - (void)run;
 - (void)dealloc;

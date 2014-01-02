@@ -9,8 +9,8 @@
 #pragma mark Named Structures
 
 struct CGPoint {
-    float x;
-    float y;
+    double x;
+    double y;
 };
 
 struct CGRect {
@@ -19,8 +19,8 @@ struct CGRect {
 };
 
 struct CGSize {
-    float width;
-    float height;
+    double width;
+    double height;
 };
 
 struct RTFCPZEndOfCentralDirectory {
@@ -39,8 +39,8 @@ struct _NSAttributeInfo {
     unsigned int toUniCharEncoding;
     unsigned int codePageEncoding;
     RTFNSFont *font;
-    float fontSize;
-    float kern;
+    double fontSize;
+    double kern;
     RTFNSMutableParagraphStyle *paraStyle;
     unsigned int bold:1;
     unsigned int italic:1;
@@ -60,9 +60,9 @@ struct _NSAttributeInfo {
 struct _NSRTFPriv {
     void *reader;
     char *rtfInput;
-    unsigned int rtfInputLength;
-    unsigned int rtfInputLocation;
-    unsigned int rtfHeaderEndLocation;
+    unsigned long long rtfInputLength;
+    unsigned long long rtfInputLocation;
+    unsigned long long rtfHeaderEndLocation;
     int pushedChar;
     int pushedClass;
     int pushedMajor;
@@ -86,14 +86,14 @@ struct _NSRTFPriv {
     int major;
     int minor;
     int param;
-    int lineNum;
-    int linePos;
+    long long lineNum;
+    long long linePos;
     int groupState;
 };
 
 struct _NSRange {
-    unsigned int _field1;
-    unsigned int _field2;
+    unsigned long long _field1;
+    unsigned long long _field2;
 };
 
 struct internal_state;
@@ -101,18 +101,18 @@ struct internal_state;
 struct z_stream_s {
     char *next_in;
     unsigned int avail_in;
-    unsigned int total_in;
+    unsigned long long total_in;
     char *next_out;
     unsigned int avail_out;
-    unsigned int total_out;
+    unsigned long long total_out;
     char *msg;
     struct internal_state *state;
     void *zalloc;
     void *zfree;
     void *opaque;
     int data_type;
-    unsigned int adler;
-    unsigned int reserved;
+    unsigned long long adler;
+    unsigned long long reserved;
 };
 
 #pragma mark Typedef'd Structures
@@ -125,18 +125,18 @@ typedef struct {
 } CDStruct_4e53fc95;
 
 typedef struct {
-    int version;
+    long long version;
     void *retain;
     void *release;
     void *copyDescription;
     void *equal;
-} CDStruct_6a83575d;
+} CDStruct_b3b3fc87;
 
 typedef struct {
-    int pid;
+    long long pid;
     struct {
         unsigned int val[8];
     } audit_token;
     struct CGRect contentFrame;
-} CDStruct_6904a77d;
+} CDStruct_0109ef53;
 

@@ -14,9 +14,9 @@
 
 + (id)showMapPointsWithDictionary:(id)arg1 context:(id)arg2;
 + (id)showMapPoints;
-- (BOOL)requiresResponse;
-@property(nonatomic) BOOL showTraffic;
-@property(nonatomic) BOOL showDirections;
+- (_Bool)requiresResponse;
+@property(nonatomic) _Bool showTraffic;
+@property(nonatomic) _Bool showDirections;
 @property(copy, nonatomic) NSNumber *regionOfInterestRadiusInMiles;
 @property(retain, nonatomic) SALocalSearchMapItem *itemSource;
 @property(retain, nonatomic) SALocalSearchMapItem *itemDestination;

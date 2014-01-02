@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class GEOAddress, GEOPlace, GEOPlaceSearchRequest, NSMutableArray, NSString;
 
-@interface GEOPlaceResult : PBCodable
+@interface GEOPlaceResult : PBCodable <NSCopying>
 {
     double _confidence;
     NSMutableArray *_additionalPlaces;
@@ -38,35 +40,36 @@
 @property(retain, nonatomic) NSMutableArray *additionalPlaces; // @synthesize additionalPlaces=_additionalPlaces;
 @property(nonatomic) double confidence; // @synthesize confidence=_confidence;
 @property(retain, nonatomic) GEOPlace *place; // @synthesize place=_place;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)matchedTokenAtIndex:(unsigned int)arg1;
-- (unsigned int)matchedTokensCount;
+- (id)matchedTokenAtIndex:(unsigned long long)arg1;
+- (unsigned long long)matchedTokensCount;
 - (void)addMatchedToken:(id)arg1;
 - (void)clearMatchedTokens;
-@property(readonly, nonatomic) BOOL hasRevgeoRequestTemplate;
-- (id)namedFeatureAtIndex:(unsigned int)arg1;
-- (unsigned int)namedFeaturesCount;
+@property(readonly, nonatomic) _Bool hasRevgeoRequestTemplate;
+- (id)namedFeatureAtIndex:(unsigned long long)arg1;
+- (unsigned long long)namedFeaturesCount;
 - (void)addNamedFeature:(id)arg1;
 - (void)clearNamedFeatures;
-- (id)unmatchedStringAtIndex:(unsigned int)arg1;
-- (unsigned int)unmatchedStringsCount;
+- (id)unmatchedStringAtIndex:(unsigned long long)arg1;
+- (unsigned long long)unmatchedStringsCount;
 - (void)addUnmatchedString:(id)arg1;
 - (void)clearUnmatchedStrings;
-@property(readonly, nonatomic) BOOL hasQuad;
-@property(readonly, nonatomic) BOOL hasTokenEntity;
-@property(nonatomic) BOOL hasTravelTime;
-@property(readonly, nonatomic) BOOL hasSuggestedQuery;
-- (id)additionalPlaceAtIndex:(unsigned int)arg1;
-- (unsigned int)additionalPlacesCount;
+@property(readonly, nonatomic) _Bool hasQuad;
+@property(readonly, nonatomic) _Bool hasTokenEntity;
+@property(nonatomic) _Bool hasTravelTime;
+@property(readonly, nonatomic) _Bool hasSuggestedQuery;
+- (id)additionalPlaceAtIndex:(unsigned long long)arg1;
+- (unsigned long long)additionalPlacesCount;
 - (void)addAdditionalPlace:(id)arg1;
 - (void)clearAdditionalPlaces;
-@property(nonatomic) BOOL hasConfidence;
+@property(nonatomic) _Bool hasConfidence;
 - (void)dealloc;
 
 @end

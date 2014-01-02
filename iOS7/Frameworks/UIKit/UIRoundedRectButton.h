@@ -8,6 +8,7 @@
 
 @class UIBezierPath, UIColor, UIGroupTableViewCellBackground, UIView;
 
+// Not exported
 @interface UIRoundedRectButton : UIButton
 {
     UIBezierPath *_fillPath;
@@ -18,8 +19,8 @@
 
 - (void)drawRect:(struct CGRect)arg1;
 - (void)setTintColor:(id)arg1;
-- (void)setHighlighted:(BOOL)arg1;
-- (int)buttonType;
+- (void)setHighlighted:(_Bool)arg1;
+- (long long)buttonType;
 - (struct CGSize)_intrinsicSizeWithinSize:(struct CGSize)arg1;
 - (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
@@ -28,9 +29,9 @@
 - (void)_updateState;
 - (id)_backgroundView;
 - (id)_setupBackgroundView;
-- (BOOL)_wantsTableViewStyleBackground;
+- (_Bool)_wantsTableViewStyleBackground;
 - (id)_contentBackgroundColor;
-- (BOOL)_canDrawContent;
+- (_Bool)_canDrawContent;
 - (void)_populateArchivedSubviews:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 fillColor:(id)arg2;

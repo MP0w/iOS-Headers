@@ -13,7 +13,7 @@
     id <AVPlayerItemLegibleOutputDependencyFactory> dependencyFactory;
     id <AVLegibleOutputDataSource> dataSource;
     AVWeakReference *weakReferenceToHost;
-    BOOL suppressesPlayerRendering;
+    _Bool suppressesPlayerRendering;
     NSString *figLegibleOutputsDictionaryKey;
     NSArray *nativeRepresentationSubtypes;
     double advanceInterval;

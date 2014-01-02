@@ -12,7 +12,7 @@
 - (void)locationProvider:(id)arg1 didEnterRegion:(id)arg2;
 - (void)locationProviderDidResumeLocationUpdates:(id)arg1;
 - (void)locationProviderDidPauseLocationUpdates:(id)arg1;
-- (BOOL)locationProviderShouldPauseLocationUpdates:(id)arg1;
+- (_Bool)locationProviderShouldPauseLocationUpdates:(id)arg1;
 - (void)locationProviderDidChangeAuthorizationStatus:(id)arg1;
 - (void)locationProvider:(id)arg1 didReceiveError:(id)arg2;
 - (void)locationProvider:(id)arg1 didUpdateHeading:(id)arg2;

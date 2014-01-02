@@ -19,9 +19,10 @@
 - (id)_accountButtonsViewController;
 - (void)accountButtonsViewControllerDidSignOut:(id)arg1;
 - (void)accountButtonsViewControllerDidSignIn:(id)arg1;
-- (int)numberOfCells;
+- (long long)numberOfCells;
 - (struct CGSize)cellSizeForIndexPath:(id)arg1;
 - (id)cellForIndexPath:(id)arg1;
+- (void)willAppearInContext:(id)arg1;
 - (void)dealloc;
 - (id)initWithPageComponent:(id)arg1;
 

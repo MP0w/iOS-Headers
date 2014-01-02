@@ -11,17 +11,17 @@
 @interface MPReflectionImageView : _UIReflectingView
 {
     UIImageView *_imageView;
-    BOOL _squareImage;
+    _Bool _squareImage;
 }
 
-+ (float)defaultReflectionHeight;
-@property(nonatomic) BOOL squareImage; // @synthesize squareImage=_squareImage;
++ (double)defaultReflectionHeight;
+@property(nonatomic) _Bool squareImage; // @synthesize squareImage=_squareImage;
 @property(readonly, nonatomic) UIImageView *imageView; // @synthesize imageView=_imageView;
 - (void).cxx_destruct;
-- (void)setReflectionVisible:(BOOL)arg1 withDuration:(float)arg2;
-- (void)setFrame:(struct CGRect)arg1 withReflectionHeight:(float)arg2;
+- (void)setReflectionVisible:(_Bool)arg1 withDuration:(float)arg2;
+- (void)setFrame:(struct CGRect)arg1 withReflectionHeight:(double)arg2;
 @property(retain, nonatomic) UIImage *image;
-- (void)setAlbumVisible:(BOOL)arg1 reflectionVisible:(BOOL)arg2;
+- (void)setAlbumVisible:(_Bool)arg1 reflectionVisible:(_Bool)arg2;
 - (id)albumArtImage;
 - (id)initWithFrame:(struct CGRect)arg1;
 

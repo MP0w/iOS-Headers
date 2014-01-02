@@ -7,6 +7,6 @@
 #import "CALayer.h"
 
 @interface CALayer (UIPageCurlAdditions)
-- (BOOL)uiHasFilterWithName:(id)arg1;
+- (_Bool)uiHasFilterWithName:(id)arg1;
 @end
 

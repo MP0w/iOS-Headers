@@ -16,12 +16,12 @@
     VMUClassInfoMap *_isaToClassInfo;
     VMUClassInfoMap *_cfTypeIDtoClassInfo;
     VMUClassInfoMap *_unrealizedClassInfos;
-    unsigned long _coreFoundationCFTypeIsa;
-    unsigned long _foundationCFTypeIsa;
+    unsigned long long _coreFoundationCFTypeIsa;
+    unsigned long long _foundationCFTypeIsa;
     id _isaTranslator;
-    unsigned int *_nonPointerIndexMapping;
+    unsigned long long *_nonPointerIndexMapping;
     void *_remoteObjectBuffer;
-    unsigned long _remoteObjectBufferSize;
+    unsigned long long _remoteObjectBufferSize;
     NSMapTable *_isaToObjectLabelHandlerMap;
     NSMapTable *_itemCountToLabelStringUniquingMap;
     struct VMULabelUniquingDataForStringType *_stringToLabelStringUniquingData;
@@ -31,16 +31,16 @@
 }
 
 - (id)classInfoForCFType:(struct __CFRuntimeBase *)arg1;
-- (id)classInfoForIsaPointer:(unsigned int)arg1;
+- (id)classInfoForIsaPointer:(unsigned long long)arg1;
 - (id)classInfoForObject:(unsigned long long)arg1;
 - (id)initWithTask:(unsigned int)arg1;
-- (id)labelForMemory:(void *)arg1 length:(unsigned int)arg2;
+- (id)labelForMemory:(void *)arg1 length:(unsigned long long)arg2;
 - (id)labelForMallocBlock:(struct _VMURange)arg1;
 - (id)labelForNSSet:(id)arg1;
 - (id)labelForNSConcreteHashTable:(id)arg1;
 - (id)labelForNSDictionary:(id)arg1;
 - (id)labelForNSArray:(id)arg1;
-- (id)labelForItemCount:(long)arg1;
+- (id)labelForItemCount:(long long)arg1;
 - (id)labelForNSDate:(id)arg1;
 - (id)labelForNSNumber:(id)arg1;
 - (id)labelForNSPathStore2:(id)arg1;
@@ -54,15 +54,15 @@
 - (struct _VMURange)vmRegionRangeForAddress:(unsigned long long)arg1;
 - (void)findObjCclasses;
 - (void)findCFTypes;
-- (id)_faultClass:(unsigned long)arg1 ofType:(int)arg2;
-- (id)classInfoForMemory:(void *)arg1 length:(unsigned int)arg2;
+- (id)_faultClass:(unsigned long long)arg1 ofType:(int)arg2;
+- (id)classInfoForMemory:(void *)arg1 length:(unsigned long long)arg2;
 - (id)classInfoForObjectWithRange:(struct _VMURange)arg1;
 - (id)nullClassInfo;
 - (void)enumerateAllClassInfosWithBlock:(id)arg1;
 - (void)enumerateRealizedClassInfosWithBlock:(id)arg1;
 - (id)objcRuntimeMallocBlocksHash;
-- (unsigned int)ObjCclassCount;
-- (unsigned int)CFTypeCount;
+- (unsigned long long)ObjCclassCount;
+- (unsigned long long)CFTypeCount;
 - (void)dealloc;
 - (id)initWithTask:(unsigned int)arg1 symbolicator:(struct _CSTypeRef)arg2;
 

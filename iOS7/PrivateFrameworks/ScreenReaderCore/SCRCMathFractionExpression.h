@@ -6,6 +6,7 @@
 
 #import <ScreenReaderCore/SCRCMathExpression.h>
 
+// Not exported
 @interface SCRCMathFractionExpression : SCRCMathExpression
 {
     SCRCMathExpression *_numerator;
@@ -20,19 +21,19 @@
 @property(retain, nonatomic) SCRCMathExpression *numerator; // @synthesize numerator=_numerator;
 - (id)latexMathModeDescription;
 - (id)mathMLString;
-- (id)_dollarCodeDescriptionAsBinomialCoefficient:(BOOL)arg1 orMixedNumberFraction:(BOOL)arg2 withNumberOfOuterRadicals:(unsigned int)arg3 treePosition:(id)arg4;
-- (id)dollarCodeDescriptionAsBinomialCoefficientWithTreePosition:(id)arg1 numberOfOuterRadicals:(unsigned int)arg2;
+- (id)_dollarCodeDescriptionAsBinomialCoefficient:(_Bool)arg1 orMixedNumberFraction:(_Bool)arg2 withNumberOfOuterRadicals:(unsigned long long)arg3 treePosition:(id)arg4;
+- (id)dollarCodeDescriptionAsBinomialCoefficientWithTreePosition:(id)arg1 numberOfOuterRadicals:(unsigned long long)arg2;
 - (id)dollarCodeDescriptionAsMixedNumberFractionWithTreePosition:(id)arg1;
-- (id)dollarCodeDescriptionWithNumberOfOuterRadicals:(unsigned int)arg1 treePosition:(id)arg2;
-- (id)speakableSegmentsAsBinomialCoefficientWithSpeakingStyle:(int)arg1 upToDepth:(unsigned int)arg2 treePosition:(id)arg3;
-- (id)speakableSegmentsWithSpeakingStyle:(int)arg1 upToDepth:(unsigned int)arg2 treePosition:(id)arg3;
-- (id)_speakableSegmentsWithSpeakingStyle:(int)arg1 upToDepth:(unsigned int)arg2 treePosition:(id)arg3 asBinomialCoefficient:(BOOL)arg4;
+- (id)dollarCodeDescriptionWithNumberOfOuterRadicals:(unsigned long long)arg1 treePosition:(id)arg2;
+- (id)speakableSegmentsAsBinomialCoefficientWithSpeakingStyle:(int)arg1 upToDepth:(unsigned long long)arg2 treePosition:(id)arg3;
+- (id)speakableSegmentsWithSpeakingStyle:(int)arg1 upToDepth:(unsigned long long)arg2 treePosition:(id)arg3;
+- (id)_speakableSegmentsWithSpeakingStyle:(int)arg1 upToDepth:(unsigned long long)arg2 treePosition:(id)arg3 asBinomialCoefficient:(_Bool)arg4;
 - (id)speakableDescriptionAsBinomialCoefficientWithSpeakingStyle:(int)arg1;
-- (id)speakableDescriptionWithSpeakingStyle:(int)arg1 arePausesAllowed:(BOOL)arg2;
-- (id)_speakableDescriptionWithSpeakingStyle:(int)arg1 arePausesAllowed:(BOOL)arg2 asBinomialCoefficient:(BOOL)arg3;
-- (BOOL)isSimpleNumericalFraction;
-- (unsigned int)fractionLevel;
-- (BOOL)isUnlinedFraction;
+- (id)speakableDescriptionWithSpeakingStyle:(int)arg1 arePausesAllowed:(_Bool)arg2;
+- (id)_speakableDescriptionWithSpeakingStyle:(int)arg1 arePausesAllowed:(_Bool)arg2 asBinomialCoefficient:(_Bool)arg3;
+- (_Bool)isSimpleNumericalFraction;
+- (unsigned long long)fractionLevel;
+- (_Bool)isUnlinedFraction;
 - (id)subExpressions;
 - (id)description;
 - (void)dealloc;

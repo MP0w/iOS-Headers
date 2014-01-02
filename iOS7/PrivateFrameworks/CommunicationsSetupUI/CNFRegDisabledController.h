@@ -15,7 +15,7 @@
 }
 
 - (id)getAccountNameForSpecifier:(id)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
 - (void)_setupAccountHandlersForDisabledOperation;
 - (void)turnOnTapped:(id)arg1;
 - (void)_deactivateSpinner;

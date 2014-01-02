@@ -7,14 +7,15 @@
 #import "UIViewController.h"
 
 #import "SKComposeReviewDelegate-Protocol.h"
+#import "SKUILayoutCacheDelegate-Protocol.h"
 #import "SKUIProductPageChildViewController-Protocol.h"
-#import "SKUITextLayoutCacheDelegate-Protocol.h"
+#import "SKUIReviewsFacebookViewControllerDelegate-Protocol.h"
 #import "UITableViewDataSource-Protocol.h"
 #import "UITableViewDelegate-Protocol.h"
 
-@class NSMutableIndexSet, NSOperationQueue, SKComposeReviewViewController, SKUIClientContext, SKUIFacebookLikeStatus, SKUIIPadCustomerReviewsHeaderView, SKUILoadURLOperation, SKUIProductPageHeaderViewController, SKUIProductPageItem, SKUIProductPageTableView, SKUIReviewConfiguration, SKUIReviewList, SKUIReviewsFacebookViewController, SKUIReviewsHistogramViewController, SKUIStarRatingQueue, SKUITextLayoutCache, UIScrollView;
+@class NSMutableIndexSet, NSOperationQueue, SKComposeReviewViewController, SKUIClientContext, SKUIFacebookLikeStatus, SKUIIPadCustomerReviewsHeaderView, SKUILayoutCache, SKUIProductPage, SKUIProductPageHeaderViewController, SKUIProductPageTableView, SKUIReviewList, SKUIReviewsFacebookViewController, SKUIReviewsHistogramViewController, SKUIStarRatingQueue, SSVLoadURLOperation, UIScrollView;
 
-@interface SKUIProductPageReviewsViewController : UIViewController <SKUITextLayoutCacheDelegate, SKComposeReviewDelegate, UITableViewDataSource, UITableViewDelegate, SKUIProductPageChildViewController>
+@interface SKUIProductPageReviewsViewController : UIViewController <SKUILayoutCacheDelegate, SKComposeReviewDelegate, SKUIReviewsFacebookViewControllerDelegate, UITableViewDataSource, UITableViewDelegate, SKUIProductPageChildViewController>
 {
     SKUIClientContext *_clientContext;
     SKComposeReviewViewController *_composeViewController;
@@ -23,36 +24,31 @@
     SKUIReviewsFacebookViewController *_facebookViewController;
     SKUIProductPageHeaderViewController *_headerViewController;
     SKUIReviewsHistogramViewController *_histogramViewController;
-    BOOL _isPad;
-    SKUIProductPageItem *_item;
-    SKUITextLayoutCache *_layoutCache;
-    int _loadedPageCount;
-    SKUILoadURLOperation *_loadOperation;
+    _Bool _isPad;
+    SKUILayoutCache *_layoutCache;
+    long long _loadedPageCount;
+    SSVLoadURLOperation *_loadOperation;
     NSOperationQueue *_operationQueue;
-    SKUIReviewConfiguration *_reviewConfiguration;
+    SKUIProductPage *_productPage;
     SKUIReviewList *_reviewList;
     SKUIIPadCustomerReviewsHeaderView *_reviewsHeaderView;
-    int _sortOrder;
-    BOOL _showAllVersions;
+    long long _sortOrder;
+    _Bool _showAllVersions;
     SKUIStarRatingQueue *_starRatingQueue;
     SKUIProductPageTableView *_tableView;
 }
 
-@property(readonly, nonatomic) SKUIReviewConfiguration *reviewConfiguration; // @synthesize reviewConfiguration=_reviewConfiguration;
-@property(readonly, nonatomic) SKUIProductPageItem *productPageItem; // @synthesize productPageItem=_item;
+@property(readonly, nonatomic) SKUIProductPage *productPage; // @synthesize productPage=_productPage;
 @property(retain, nonatomic) SKUIProductPageHeaderViewController *headerViewController; // @synthesize headerViewController=_headerViewController;
 @property(nonatomic) __weak id <SKUIProductPageChildViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
 - (void).cxx_destruct;
-- (id)_urlStringWithPageNumber:(int)arg1;
+- (id)_urlStringWithPageNumber:(long long)arg1;
 - (id)_textLayoutRequestWithText:(id)arg1;
 - (id)_textBoxCellForTableView:(id)arg1 indexPath:(id)arg2;
 - (id)_tableView;
-- (BOOL)_shouldShowLoadMoreCell;
+- (_Bool)_shouldShowLoadMoreCell;
 - (void)_setReviewListWithResponse:(id)arg1 error:(id)arg2;
-- (int)_sectionIndexForReviews;
-- (int)_sectionIndexForHistogram;
-- (int)_sectionIndexForFacebook;
 - (id)_reviewsHeaderView;
 - (void)_resetPersonalStarRating;
 - (void)_reloadData;
@@ -68,27 +64,28 @@
 - (void)_sortSelectionAction:(id)arg1;
 - (void)_appSupportAction:(id)arg1;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
-- (id)tableView:(id)arg1 viewForHeaderInSection:(int)arg2;
-- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
-- (float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2;
+- (id)tableView:(id)arg1 viewForHeaderInSection:(long long)arg2;
+- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (double)tableView:(id)arg1 heightForHeaderInSection:(long long)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didEndDisplayingCell:(id)arg2 forRowAtIndexPath:(id)arg3;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
+- (long long)numberOfSectionsInTableView:(id)arg1;
 - (void)reviewComposeViewControllerDidFinish:(id)arg1;
-- (void)textLayoutCacheDidFinishBatch:(id)arg1;
+- (void)layoutCacheDidFinishBatch:(id)arg1;
+- (void)reviewsFacebookViewControllerDidChange:(id)arg1;
 - (void)scrollViewWillEndDragging:(id)arg1 withVelocity:(struct CGPoint)arg2 targetContentOffset:(inout struct CGPoint *)arg3;
 - (void)scrollViewDidScroll:(id)arg1;
 @property(readonly, nonatomic) UIScrollView *scrollView;
-- (void)viewWillAppear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)loadView;
 @property(copy, nonatomic) SKUIFacebookLikeStatus *facebookLikeStatus;
 - (void)reloadData;
 @property(readonly, nonatomic) NSOperationQueue *operationQueue; // @synthesize operationQueue=_operationQueue;
 - (void)dealloc;
-- (id)initWithProductPageItem:(id)arg1 reviewConfiguration:(id)arg2;
+- (id)initWithProductPage:(id)arg1;
 
 @end
 

@@ -23,7 +23,7 @@ struct map<std::__1::basic_string<char>, std::__1::set<EventCallbackData *, std:
             } __first_;
         } __pair1_;
         struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::set<EventCallbackData *, std::__1::less<EventCallbackData *>, std::__1::allocator<EventCallbackData *>>, std::__1::less<std::__1::basic_string<char>>, true>> {
-            unsigned long __first_;
+            unsigned long long __first_;
         } __pair3_;
     } __tree_;
 };

@@ -6,13 +6,15 @@
 
 #import "NSObject.h"
 
+#import "NSXPCConnectionDelegate-Protocol.h"
 #import "_UIViewServiceDeputyDelegate-Protocol.h"
 #import "_UIViewServiceSession_HostInterface-Protocol.h"
 #import "_UIViewServiceViewControllerOperatorDelegate-Protocol.h"
 
 @class NSLock, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSXPCConnection, _UIAsyncInvocation;
 
-@interface _UIViewServiceSession : NSObject <_UIViewServiceDeputyDelegate, _UIViewServiceViewControllerOperatorDelegate, _UIViewServiceSession_HostInterface>
+// Not exported
+@interface _UIViewServiceSession : NSObject <_UIViewServiceDeputyDelegate, NSXPCConnectionDelegate, _UIViewServiceViewControllerOperatorDelegate, _UIViewServiceSession_HostInterface>
 {
     NSObject<OS_dispatch_queue> *_queue;
     NSXPCConnection *_connection;
@@ -22,7 +24,7 @@
     NSMutableSet *_deputies;
     id _terminationHandler;
     int __automatic_invalidation_retainCount;
-    BOOL __automatic_invalidation_invalidated;
+    _Bool __automatic_invalidation_invalidated;
 }
 
 + (id)exportedInterfaceSupportingDeputyInterfaces:(id)arg1;
@@ -40,10 +42,11 @@
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (void)__prototype_requestConnectionToDeputyFromHostObject:(id)arg1 replyHandler:(id)arg2;
 - (Class)_deputyClassForConnectionSelector:(SEL)arg1;
+- (void)connection:(id)arg1 handleInvocation:(id)arg2 isReply:(_Bool)arg3;
 - (void)dealloc;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
-- (unsigned int)retainCount;
+- (_Bool)_isDeallocating;
+- (_Bool)_tryRetain;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;
 - (int)__automatic_invalidation_logic;

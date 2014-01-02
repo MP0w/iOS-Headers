@@ -16,7 +16,7 @@
 - (void)stopAnimating;
 - (void)startAnimating;
 - (void)dealloc;
-- (id)initWithActivityIndicatorStyle:(int)arg1;
+- (id)initWithActivityIndicatorStyle:(long long)arg1;
 
 @end
 

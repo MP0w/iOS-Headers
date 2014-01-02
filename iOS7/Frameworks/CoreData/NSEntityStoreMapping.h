@@ -8,12 +8,13 @@
 
 @class NSArray, NSDictionary, NSEntityDescription, NSString;
 
+// Not exported
 @interface NSEntityStoreMapping : NSStoreMapping
 {
     NSEntityDescription *_entity;
     NSDictionary *_propertyMappings;
     NSArray *_primaryKeys;
-    BOOL _isSingleTableEntity;
+    _Bool _isSingleTableEntity;
     NSString *_subentityColumn;
     unsigned int _subentityID;
 }
@@ -29,15 +30,15 @@
 - (unsigned int)subentityID;
 - (void)setSubentityColumn:(id)arg1;
 - (id)subentityColumn;
-- (void)setSingleTableEntity:(BOOL)arg1;
-- (BOOL)isSingleTableEntity;
+- (void)setSingleTableEntity:(_Bool)arg1;
+- (_Bool)isSingleTableEntity;
 - (void)setPrimaryKeys:(id)arg1;
 - (id)primaryKeys;
 - (void)setPropertyMappings:(id)arg1;
 - (id)propertyMappings;
 - (void)setEntity:(id)arg1;
 - (id)entity;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (void)dealloc;
 - (id)initWithEntity:(id)arg1;

@@ -8,6 +8,7 @@
 
 @class OCCancel, TSUTemporaryDirectory;
 
+// Not exported
 @interface OCMapper : NSObject
 {
     OCCancel *mCancel;
@@ -19,7 +20,7 @@
 - (void)teardown;
 - (void)setup;
 - (void)quit;
-- (BOOL)isCancelled;
+- (_Bool)isCancelled;
 - (void)cancel;
 - (void)dealloc;
 - (id)init;

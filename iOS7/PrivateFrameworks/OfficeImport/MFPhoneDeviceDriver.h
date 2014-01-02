@@ -8,6 +8,7 @@
 
 #import "MFDeviceDriver-Protocol.h"
 
+// Not exported
 @interface MFPhoneDeviceDriver : NSObject <MFDeviceDriver>
 {
     struct CGRect m_canvas;
@@ -32,7 +33,7 @@
 - (id)createPen;
 - (id)createNullBrush;
 - (id)createSolidBrush:(id)arg1;
-- (id)createPatternBrush:(id)arg1 usePaletteForBilevel:(BOOL)arg2;
+- (id)createPatternBrush:(id)arg1 usePaletteForBilevel:(_Bool)arg2;
 - (id)createHatchBrush:(id)arg1:(int)arg2;
 - (int)plgBlt:(id)arg1:(struct CGPoint *)arg2:(id)arg3:(int)arg4:(int)arg5:(int)arg6:(int)arg7:(id)arg8:(int)arg9:(int)arg10:(struct CGAffineTransform *)arg11:(unsigned int)arg12;
 - (int)maskBlt:(id)arg1:(int)arg2:(int)arg3:(int)arg4:(int)arg5:(id)arg6:(int)arg7:(int)arg8:(id)arg9:(int)arg10:(int)arg11:(unsigned int)arg12:(struct CGAffineTransform *)arg13:(unsigned int)arg14;
@@ -65,7 +66,7 @@
 - (int)arc:(id)arg1:(int)arg2:(int)arg3:(int)arg4:(int)arg5:(int)arg6:(int)arg7:(int)arg8:(int)arg9;
 - (int)extTextOut:(id)arg1:(int *)arg2:(int *)arg3:(id)arg4:(int)arg5:(int)arg6:(int)arg7:(int)arg8:(int)arg9:(int *)arg10:(int)arg11;
 - (int)textOut:(id)arg1:(int *)arg2:(int *)arg3:(id)arg4;
-- (void)drawBezierPath:(id)arg1 dc:(id)arg2 fill:(BOOL)arg3 stroke:(BOOL)arg4;
+- (void)drawBezierPath:(id)arg1 dc:(id)arg2 fill:(_Bool)arg3 stroke:(_Bool)arg4;
 - (struct CGRect)getCanvas;
 - (void)dealloc;
 - (id)initWithCanvas:(struct CGRect)arg1;

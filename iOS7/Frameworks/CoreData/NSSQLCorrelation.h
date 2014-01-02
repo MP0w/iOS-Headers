@@ -8,6 +8,7 @@
 
 @class NSSQLManyToMany;
 
+// Not exported
 @interface NSSQLCorrelation : NSObject
 {
     NSSQLManyToMany *_manyToMany;

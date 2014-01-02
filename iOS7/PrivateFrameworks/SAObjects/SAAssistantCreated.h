@@ -14,7 +14,7 @@
 
 + (id)assistantCreatedWithDictionary:(id)arg1 context:(id)arg2;
 + (id)assistantCreated;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSString *speechId;
 @property(copy, nonatomic) NSString *assistantId;
 - (id)encodedClassName;

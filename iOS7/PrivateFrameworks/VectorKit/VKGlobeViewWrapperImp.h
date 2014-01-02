@@ -6,6 +6,7 @@
 
 #import <VectorKit/VKGlobeViewWrapper.h>
 
+// Not exported
 @interface VKGlobeViewWrapperImp : VKGlobeViewWrapper
 {
     struct GlobeView *_globeView;

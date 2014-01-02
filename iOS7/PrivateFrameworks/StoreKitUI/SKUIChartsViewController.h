@@ -7,13 +7,14 @@
 #import <StoreKitUI/SKUIViewController.h>
 
 #import "SKUICategoryControllerDelegate-Protocol.h"
+#import "SKUIMetricsViewController-Protocol.h"
 
 @class NSURL, SKUICategoryController, SKUIStorePageViewController;
 
-@interface SKUIChartsViewController : SKUIViewController <SKUICategoryControllerDelegate>
+@interface SKUIChartsViewController : SKUIViewController <SKUICategoryControllerDelegate, SKUIMetricsViewController>
 {
     SKUICategoryController *_categoryController;
-    BOOL _hasCategoryButton;
+    _Bool _hasCategoryButton;
     SKUIStorePageViewController *_storePageViewController;
     NSURL *_url;
 }
@@ -24,11 +25,12 @@
 - (void)_reloadNavigationItem;
 - (void)_loadStorePage;
 - (void)_loadCategoriesWithURL:(id)arg1;
-- (void)_finishLoadWithResult:(BOOL)arg1 error:(id)arg2;
+- (void)_finishLoadWithResult:(_Bool)arg1 error:(id)arg2;
 - (id)_categoryController;
+- (id)activeMetricsController;
 - (void)categoryController:(id)arg1 didSelectCategory:(id)arg2;
-- (void)viewWillAppear:(BOOL)arg1;
-- (unsigned int)supportedInterfaceOrientations;
+- (void)viewWillAppear:(_Bool)arg1;
+- (unsigned long long)supportedInterfaceOrientations;
 - (void)loadView;
 - (void)encodeRestorableStateWithCoder:(id)arg1;
 - (void)decodeRestorableStateWithCoder:(id)arg1;

@@ -9,7 +9,7 @@
 struct _EAGLContextPrivate {
     id _field1;
     id _field2;
-    unsigned int _field3;
+    unsigned long long _field3;
     unsigned int _field4;
     struct __GLIContextRec *_field5;
     struct __GLIFunctionDispatchRec _field6;
@@ -17,7 +17,7 @@ struct _EAGLContextPrivate {
 };
 
 struct _EAGLSharegroupPrivate {
-    unsigned int _field1;
+    unsigned long long _field1;
     int _field2;
     _Bool _field3;
     struct __GLDPixelFormatRec _field4;

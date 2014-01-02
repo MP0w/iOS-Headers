@@ -5,9 +5,9 @@
  */
 
 @protocol NSDiscardableContent
-- (BOOL)isContentDiscarded;
+- (_Bool)isContentDiscarded;
 - (void)discardContentIfPossible;
 - (void)endContentAccess;
-- (BOOL)beginContentAccess;
+- (_Bool)beginContentAccess;
 @end
 

@@ -9,6 +9,6 @@
 @protocol SUScriptNativeObject <NSObject>
 
 @optional
-- (BOOL)clearsWeakScriptReferences;
+- (_Bool)clearsWeakScriptReferences;
 @end
 

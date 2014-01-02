@@ -8,6 +8,7 @@
 
 @class MKAnnotationView;
 
+// Not exported
 @interface _MKAnnotationViewAnchor : VKAnchorWrapper
 {
     MKAnnotationView *_annotationView;

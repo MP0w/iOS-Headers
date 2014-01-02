@@ -6,6 +6,7 @@
 
 #import <WebCore/DOMCharacterData.h>
 
+// Not exported
 @interface DOMComment : DOMCharacterData
 {
 }

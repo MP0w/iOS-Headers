@@ -22,13 +22,13 @@
 - (void)removeTileForKey:(const struct _GEOTileKey *)arg1;
 - (void)_removeTileForKey:(const struct _GEOTileKey *)arg1;
 - (void)setNullForKey:(const struct _GEOTileKey *)arg1;
-- (void)setTile:(id)arg1 forKey:(const struct _GEOTileKey *)arg2 cost:(unsigned int)arg3;
-- (BOOL)containsKey:(const struct _GEOTileKey *)arg1 cost:(unsigned int *)arg2;
+- (void)setTile:(id)arg1 forKey:(const struct _GEOTileKey *)arg2 cost:(unsigned long long)arg3;
+- (_Bool)containsKey:(const struct _GEOTileKey *)arg1 cost:(unsigned long long *)arg2;
 - (id)tileForKey:(const struct _GEOTileKey *)arg1;
-@property unsigned int maxCost;
-@property unsigned int maxCapacity;
+@property unsigned long long maxCost;
+@property unsigned long long maxCapacity;
 - (void)_receivedMemoryNotification;
-- (void)_evictWithMaxCost:(unsigned int)arg1 maxCapacity:(unsigned int)arg2;
+- (void)_evictWithMaxCost:(unsigned long long)arg1 maxCapacity:(unsigned long long)arg2;
 - (id)description;
 - (id)_description;
 - (void)dealloc;

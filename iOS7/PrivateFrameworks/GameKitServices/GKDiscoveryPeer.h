@@ -10,6 +10,7 @@
 
 @class GKDiscoveryPeerConnection, GKSimpleTimer, NSMutableArray, NSMutableSet, NSNumber, NSObject<OS_dispatch_queue>, NSString;
 
+// Not exported
 @interface GKDiscoveryPeer : NSObject <GKSimpleTimerDelegate>
 {
     NSString *_serviceName;
@@ -20,7 +21,7 @@
     NSMutableArray *_attemptedInterfaces;
     GKDiscoveryPeerConnection *_trialConnection;
     NSNumber *_chosenInterface;
-    BOOL _shouldSignalDiscovery;
+    _Bool _shouldSignalDiscovery;
     NSMutableArray *_sendDataBuffer;
     GKDiscoveryPeerConnection *_connection;
     GKSimpleTimer *_resolveTimer;
@@ -37,7 +38,7 @@
 @property(nonatomic) int state; // @synthesize state=_state;
 @property(retain, nonatomic) NSMutableArray *sendDataBuffer; // @synthesize sendDataBuffer=_sendDataBuffer;
 @property(retain, nonatomic) GKDiscoveryPeerConnection *connection; // @synthesize connection=_connection;
-@property(nonatomic) BOOL shouldSignalDiscovery; // @synthesize shouldSignalDiscovery=_shouldSignalDiscovery;
+@property(nonatomic) _Bool shouldSignalDiscovery; // @synthesize shouldSignalDiscovery=_shouldSignalDiscovery;
 @property(retain, nonatomic) GKDiscoveryPeerConnection *trialConnection; // @synthesize trialConnection=_trialConnection;
 @property(retain, nonatomic) NSNumber *chosenInterface; // @synthesize chosenInterface=_chosenInterface;
 @property(retain, nonatomic) NSMutableArray *attemptedInterfaces; // @synthesize attemptedInterfaces=_attemptedInterfaces;
@@ -59,7 +60,7 @@
 - (id)stringForState:(int)arg1;
 - (void)dealloc;
 - (id)initWithServiceName:(id)arg1;
-- (BOOL)parseServiceNameForInit:(id)arg1;
+- (_Bool)parseServiceNameForInit:(id)arg1;
 
 @end
 

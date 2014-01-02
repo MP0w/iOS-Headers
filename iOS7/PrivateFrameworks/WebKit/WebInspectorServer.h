@@ -11,9 +11,11 @@
 
 @class WebInspectorServerWebViewConnectionController, WebInspectorXPCWrapper;
 
+// Not exported
 @interface WebInspectorServer : NSObject <WebInspectorXPCWrapperDelegate, WebInspectorClientRegistryDelegate>
 {
-    BOOL _isEnabled;
+    _Bool _isEnabled;
+    _Bool _hasActiveDebugSession;
     int _notifyToken;
     WebInspectorXPCWrapper *_xpcConnection;
     WebInspectorServerWebViewConnectionController *_connectionController;
@@ -23,10 +25,12 @@
 - (void)didRegisterClient:(struct WebInspectorClient *)arg1;
 - (void)xpcConnectionFailed:(id)arg1;
 - (void)xpcConnection:(id)arg1 receivedMessage:(id)arg2 userInfo:(id)arg3;
+- (void)setHasActiveDebugSession:(_Bool)arg1;
+- (_Bool)hasActiveDebugSession;
 - (void)pushListing;
 - (void)setupXPCConnectionIfNeeded;
 - (id)xpcConnection;
-- (BOOL)isEnabled;
+- (_Bool)isEnabled;
 - (void)stop;
 - (void)start;
 - (void)dealloc;

@@ -6,6 +6,7 @@
 
 #import <OfficeImport/PDAnimationTarget.h>
 
+// Not exported
 @interface PDSlideTarget : PDAnimationTarget
 {
 }

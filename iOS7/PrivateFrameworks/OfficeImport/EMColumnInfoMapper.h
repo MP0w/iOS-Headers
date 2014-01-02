@@ -8,6 +8,7 @@
 
 @class EDColumnInfo;
 
+// Not exported
 @interface EMColumnInfoMapper : CMMapper
 {
     EDColumnInfo *edColumnInfo;

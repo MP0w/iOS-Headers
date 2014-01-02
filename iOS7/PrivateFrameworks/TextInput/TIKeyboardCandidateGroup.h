@@ -18,18 +18,18 @@
     NSArray *_nonExtensionCandidates;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(copy) NSOrderedSet *candidates; // @synthesize candidates=_candidates;
 @property(copy) NSString *title; // @synthesize title=_title;
 - (id)description;
 @property(retain) NSArray *nonExtensionCandidates; // @synthesize nonExtensionCandidates=_nonExtensionCandidates;
-- (void)sortWithOptions:(unsigned int)arg1 usingComparator:(id)arg2;
+- (void)sortWithOptions:(unsigned long long)arg1 usingComparator:(id)arg2;
 - (void)sortUsingComparator:(id)arg1;
 - (void)addCandidate:(id)arg1;
-- (BOOL)hasAlternativeText;
+- (_Bool)hasAlternativeText;
 - (id)mutableCandidates;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)initWithTitle:(id)arg1 candidates:(id)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;

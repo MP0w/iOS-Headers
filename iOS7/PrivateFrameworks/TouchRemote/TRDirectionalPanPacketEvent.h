@@ -8,18 +8,18 @@
 
 @interface TRDirectionalPanPacketEvent : TRPacketEvent
 {
-    int _gestureState;
+    long long _gestureState;
     struct CGPoint _location;
     struct CGPoint _velocity;
 }
 
 + (unsigned int)_packetEventType;
 @property(readonly, nonatomic) struct CGPoint velocity; // @synthesize velocity=_velocity;
-@property(readonly, nonatomic) int gestureState; // @synthesize gestureState=_gestureState;
+@property(readonly, nonatomic) long long gestureState; // @synthesize gestureState=_gestureState;
 @property(readonly, nonatomic) struct CGPoint location; // @synthesize location=_location;
 - (id)_initWithVersion:(unsigned int)arg1 payloadDictionary:(id)arg2;
 - (id)description;
-- (id)initWithGestureState:(int)arg1 location:(struct CGPoint)arg2 velocity:(struct CGPoint)arg3;
+- (id)initWithGestureState:(long long)arg1 location:(struct CGPoint)arg2 velocity:(struct CGPoint)arg3;
 
 @end
 

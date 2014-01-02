@@ -8,17 +8,18 @@
 
 @class NSArray, NSData, NSMutableDictionary, NSString;
 
+// Not exported
 @interface NSHTTPURLRequestParameters : NSObject
 {
     NSString *method;
     NSMutableDictionary *fields;
     NSArray *extraCookies;
     NSData *data;
-    unsigned int pageNotFoundCacheLifetime;
-    BOOL shouldHandleCookies;
-    BOOL _pad1;
-    BOOL _pad2;
-    BOOL _pad3;
+    unsigned long long pageNotFoundCacheLifetime;
+    _Bool shouldHandleCookies;
+    _Bool _pad1;
+    _Bool _pad2;
+    _Bool _pad3;
 }
 
 - (void)dealloc;

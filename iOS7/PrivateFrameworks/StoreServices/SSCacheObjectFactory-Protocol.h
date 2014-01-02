@@ -7,7 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol SSCacheObjectFactory <NSObject>
-- (BOOL)supportsTypeIdentifier:(id)arg1;
+- (_Bool)supportsTypeIdentifier:(id)arg1;
 - (id)cachedObjectWithDataRepresentation:(id)arg1 typeIdentifier:(id)arg2;
 @end
 

@@ -33,9 +33,9 @@
     _Bool hasOuterGlow;
     CDStruct_6c93046c outerGlow;
     _Bool hasEngraveShadow;
-    CDStruct_3d83e6a4 engraveShadow;
+    CDStruct_265d9cdf engraveShadow;
     _Bool hasExtraShadow;
-    CDStruct_3d83e6a4 extraShadow;
+    CDStruct_265d9cdf extraShadow;
     _Bool hasBevelEmboss;
     struct {
         float embossSize;
@@ -55,7 +55,7 @@
     int renderStrategy;
 }
 
-+ (id)shapeEffectSingleBlurFrom:(id)arg1 withInteriorFill:(id)arg2 offset:(struct CGPoint)arg3 blurSize:(float)arg4 innerGlowRed:(float)arg5 innerGlowGreen:(float)arg6 innerGlowBlue:(float)arg7 innerGlowOpacity:(float)arg8 innerShadowRed:(float)arg9 innerShadowGreen:(float)arg10 innerShadowBlue:(float)arg11 innerShadowOpacity:(float)arg12 outerGlowRed:(float)arg13 outerGlowGreen:(float)arg14 outerGlowBlue:(float)arg15 outerGlowOpacity:(float)arg16 outerShadowRed:(float)arg17 outerShadowGreen:(float)arg18 outerShadowBlue:(float)arg19 outerShadowOpacity:(float)arg20 hasInsideShadowBlur:(BOOL)arg21 hasOutsideShadowBlur:(BOOL)arg22;
++ (id)shapeEffectSingleBlurFrom:(id)arg1 withInteriorFill:(id)arg2 offset:(struct CGPoint)arg3 blurSize:(float)arg4 innerGlowRed:(float)arg5 innerGlowGreen:(float)arg6 innerGlowBlue:(float)arg7 innerGlowOpacity:(float)arg8 innerShadowRed:(float)arg9 innerShadowGreen:(float)arg10 innerShadowBlue:(float)arg11 innerShadowOpacity:(float)arg12 outerGlowRed:(float)arg13 outerGlowGreen:(float)arg14 outerGlowBlue:(float)arg15 outerGlowOpacity:(float)arg16 outerShadowRed:(float)arg17 outerShadowGreen:(float)arg18 outerShadowBlue:(float)arg19 outerShadowOpacity:(float)arg20 hasInsideShadowBlur:(_Bool)arg21 hasOutsideShadowBlur:(_Bool)arg22;
 + (id)bevelEmbossFrom:(id)arg1 withSize:(unsigned int)arg2 soften:(unsigned int)arg3 angle:(float)arg4 altitude:(float)arg5 highlightRed:(float)arg6 highlightGreen:(float)arg7 highlightBlue:(float)arg8 highlightOpacity:(float)arg9 shadowRed:(float)arg10 shadowGreen:(float)arg11 shadowBlue:(float)arg12 shadowOpacity:(float)arg13;
 + (id)outerShadowFrom:(id)arg1 withOffset:(struct CGPoint)arg2 radius:(float)arg3 red:(float)arg4 green:(float)arg5 blue:(float)arg6 opacity:(float)arg7;
 + (id)outerGlowFrom:(id)arg1 withRadius:(float)arg2 red:(float)arg3 green:(float)arg4 blue:(float)arg5 opacity:(float)arg6;
@@ -82,17 +82,17 @@
 + (id)preferredCIContextOptions;
 - (id)processedImageFromShapePath:(struct CGPath *)arg1 inRect:(struct CGRect)arg2;
 - (struct CGImage *)newFlattenedImageFromShapeCGImage:(struct CGImage *)arg1;
-- (struct CGImage *)newFlattenedImageFromShapeCGImage:(struct CGImage *)arg1 withScale:(float)arg2 ciContext:(id)arg3;
-- (struct CGImage *)newFlattenedImageFromShapeCGImage:(struct CGImage *)arg1 withScale:(float)arg2;
-- (id)processedImageFromShapeImage:(id)arg1 withScale:(float)arg2;
+- (struct CGImage *)newFlattenedImageFromShapeCGImage:(struct CGImage *)arg1 withScale:(double)arg2 ciContext:(id)arg3;
+- (struct CGImage *)newFlattenedImageFromShapeCGImage:(struct CGImage *)arg1 withScale:(double)arg2;
+- (id)processedImageFromShapeImage:(id)arg1 withScale:(double)arg2;
 - (id)processedImageFromShapeImage:(id)arg1;
-- (CDStruct_818bb265)effectInsetsWithScale:(float)arg1;
-- (struct CGRect)effectPaddingWithScale:(float)arg1;
-- (id)compositeEffectStackWithShapeImage:(id)arg1 withScale:(float)arg2;
+- (CDStruct_3c058996)effectInsetsWithScale:(double)arg1;
+- (struct CGRect)effectPaddingWithScale:(double)arg1;
+- (id)compositeEffectStackWithShapeImage:(id)arg1 withScale:(double)arg2;
 - (id)optimizedSingleBlurEffectCompositeWithShapeImage:(id)arg1;
 - (id)standardEffectCompositeWithShapeImage:(id)arg1;
 - (void)applyCustomForegroundColor:(struct CGColor *)arg1;
-- (void)scaleEffectParametersBy:(float)arg1;
+- (void)scaleEffectParametersBy:(double)arg1;
 - (id)imageWithBevelEmbossOfImage:(id)arg1;
 - (id)imageWithExtraShadowOfImage:(id)arg1;
 - (id)imageWithEngraveShadowOfImage:(id)arg1;

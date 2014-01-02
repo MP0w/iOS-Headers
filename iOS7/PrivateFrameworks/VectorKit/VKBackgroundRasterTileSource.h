@@ -6,13 +6,14 @@
 
 #import <VectorKit/VKRasterTileSource.h>
 
+// Not exported
 @interface VKBackgroundRasterTileSource : VKRasterTileSource
 {
 }
 
-- (unsigned int)mapLayerForZoomLevelRange;
-- (int)defaultMaximumZoomLevel;
-- (BOOL)maximumZoomLevelBoundsCamera;
+- (unsigned long long)mapLayerForZoomLevelRange;
+- (long long)defaultMaximumZoomLevel;
+- (_Bool)maximumZoomLevelBoundsCamera;
 
 @end
 

@@ -12,31 +12,31 @@
 
 @interface UIPercentDrivenInteractiveTransition : NSObject <UIViewControllerInteractiveTransitioning>
 {
-    float _duration;
-    BOOL _didCommitAnimations;
-    BOOL __transitionInterrupted;
-    float _completionSpeed;
-    int _completionCurve;
+    double _duration;
+    _Bool _didCommitAnimations;
+    _Bool __transitionInterrupted;
+    double _completionSpeed;
+    long long _completionCurve;
     NSString *__originalFillMode;
     NSUUID *__uuid;
 }
 
-@property(nonatomic, getter=_isTransitionInterrupted, setter=_setTransitionInterrupted:) BOOL _transitionInterrupted; // @synthesize _transitionInterrupted=__transitionInterrupted;
+@property(nonatomic, getter=_isTransitionInterrupted, setter=_setTransitionInterrupted:) _Bool _transitionInterrupted; // @synthesize _transitionInterrupted=__transitionInterrupted;
 @property(retain, nonatomic, setter=_setUuid:) NSUUID *_uuid; // @synthesize _uuid=__uuid;
 @property(retain, nonatomic, setter=_setOriginalFillMode:) NSString *_originalFillMode; // @synthesize _originalFillMode=__originalFillMode;
-@property(nonatomic) int completionCurve; // @synthesize completionCurve=_completionCurve;
-@property(nonatomic) float completionSpeed; // @synthesize completionSpeed=_completionSpeed;
+@property(nonatomic) long long completionCurve; // @synthesize completionCurve=_completionCurve;
+@property(nonatomic) double completionSpeed; // @synthesize completionSpeed=_completionSpeed;
 - (void)finishInteractiveTransition;
 - (void)cancelInteractiveTransition;
-- (void)updateInteractiveTransition:(float)arg1;
+- (void)updateInteractiveTransition:(double)arg1;
 - (void)startInteractiveTransition:(id)arg1 containerViews:(id)arg2 animation:(id)arg3;
 - (void)startInteractiveTransition:(id)arg1;
 - (void)_stopInteractiveTransition;
 - (void)_stopInteractiveTransition:(id)arg1;
-- (void)_updateInteractiveTransition:(id)arg1 percent:(float)arg2 isFinished:(BOOL)arg3 didComplete:(BOOL)arg4;
-- (void)_setDuration:(float)arg1;
-@property(readonly) float duration;
-@property(readonly) float percentComplete;
+- (void)_updateInteractiveTransition:(id)arg1 percent:(double)arg2 isFinished:(_Bool)arg3 didComplete:(_Bool)arg4;
+- (void)_setDuration:(double)arg1;
+@property(readonly) double duration;
+@property(readonly) double percentComplete;
 - (void)_resetInteractionController;
 - (void)dealloc;
 - (id)init;

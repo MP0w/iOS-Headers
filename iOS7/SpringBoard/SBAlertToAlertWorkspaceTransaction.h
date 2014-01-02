@@ -14,26 +14,26 @@
 {
     SBAlert *_activatingAlert;
     SBAlert *_deactivatingAlert;
-    BOOL _activation;
+    _Bool _activation;
     SBUIAnimationController *_animation;
-    BOOL _animatingAlertDeactivation;
+    _Bool _animatingAlertDeactivation;
 }
 
 - (void)animationControllerDidFinishAnimation:(id)arg1;
-- (void)animationController:(id)arg1 willBeginAnimation:(BOOL)arg2;
+- (void)animationController:(id)arg1 willBeginAnimation:(_Bool)arg2;
 - (void)_deactivateAlertIfNecessary;
 - (void)_alertAnimationComplete:(id)arg1;
 - (void)_handleFailure;
 - (void)_transactionComplete;
 - (void)_endAnimation;
-- (BOOL)selfAlertDidDeactivate:(id)arg1;
-- (BOOL)selfAlertWillDeactivate:(id)arg1;
-- (BOOL)selfAlertDidActivate:(id)arg1 overAlerts:(id)arg2;
-- (BOOL)selfAlertWillActivate:(id)arg1 overAlerts:(id)arg2;
+- (_Bool)selfAlertDidDeactivate:(id)arg1;
+- (_Bool)selfAlertWillDeactivate:(id)arg1;
+- (_Bool)selfAlertDidActivate:(id)arg1 overAlerts:(id)arg2;
+- (_Bool)selfAlertWillActivate:(id)arg1 overAlerts:(id)arg2;
 - (void)_commit;
 - (id)debugDescription;
 - (void)dealloc;
-- (id)_initWithWorkspace:(id)arg1 alertManager:(id)arg2 activatingAlert:(id)arg3 deactivatingAlert:(id)arg4 activation:(BOOL)arg5;
+- (id)_initWithWorkspace:(id)arg1 alertManager:(id)arg2 activatingAlert:(id)arg3 deactivatingAlert:(id)arg4 activation:(_Bool)arg5;
 - (id)initDeactivationWithWorkspace:(id)arg1 alertManager:(id)arg2 from:(id)arg3 to:(id)arg4;
 - (id)initActivationWithWorkspace:(id)arg1 alertManager:(id)arg2 from:(id)arg3 to:(id)arg4;
 

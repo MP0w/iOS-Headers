@@ -16,31 +16,31 @@
 @property(readonly, nonatomic) NSURL *groupURL;
 @property(retain, nonatomic) NSString *importSessionID;
 @property(retain, nonatomic) NSDictionary *slideshowSettings;
-@property(readonly, nonatomic) BOOL shouldDeleteWhenEmpty;
-@property(readonly, nonatomic) BOOL canContributeToCloudSharedAlbum;
-@property(readonly, nonatomic) BOOL isMultipleContributorCloudSharedAlbum;
-@property(readonly, nonatomic) BOOL isOwnedCloudSharedAlbum;
-@property(readonly, nonatomic) BOOL isStandInAlbum;
-@property(readonly, nonatomic) BOOL isPendingPhotoStreamAlbum;
-@property(readonly, nonatomic) BOOL isCloudSharedAlbum;
-@property(readonly, nonatomic) BOOL isPhotoStreamAlbum;
-@property(readonly, nonatomic) BOOL isWallpaperAlbum;
-@property(readonly, nonatomic) BOOL isPanoramasAlbum;
-@property(readonly, nonatomic) BOOL isCameraAlbum;
-@property(readonly, nonatomic) BOOL isLibrary;
+@property(readonly, nonatomic) _Bool shouldDeleteWhenEmpty;
+@property(readonly, nonatomic) _Bool canContributeToCloudSharedAlbum;
+@property(readonly, nonatomic) _Bool isMultipleContributorCloudSharedAlbum;
+@property(readonly, nonatomic) _Bool isOwnedCloudSharedAlbum;
+@property(readonly, nonatomic) _Bool isStandInAlbum;
+@property(readonly, nonatomic) _Bool isPendingPhotoStreamAlbum;
+@property(readonly, nonatomic) _Bool isCloudSharedAlbum;
+@property(readonly, nonatomic) _Bool isPhotoStreamAlbum;
+@property(readonly, nonatomic) _Bool isWallpaperAlbum;
+@property(readonly, nonatomic) _Bool isPanoramasAlbum;
+@property(readonly, nonatomic) _Bool isCameraAlbum;
+@property(readonly, nonatomic) _Bool isLibrary;
 @property(readonly, nonatomic) UIImage *posterImage;
-@property(nonatomic) BOOL hasUnseenContentBoolValue;
+@property(nonatomic) _Bool hasUnseenContentBoolValue;
 @property(readonly, nonatomic) NSMutableOrderedSet *mutableAssets;
 @property(readonly, nonatomic) int kindValue;
 @property(readonly, nonatomic) NSNumber *kind;
 - (void)batchFetchAssets:(id)arg1;
-- (void)updateStackedImageShouldNotifyImmediately:(BOOL)arg1;
-- (void)reducePendingItemsCountBy:(unsigned int)arg1;
-- (id)displayableIndexesForCount:(unsigned int)arg1;
-- (id)titleForSectionStartingAtIndex:(unsigned int)arg1;
+- (void)reducePendingItemsCountBy:(unsigned long long)arg1;
+- (id)displayableIndexesForCount:(unsigned long long)arg1;
+- (id)titleForSectionStartingAtIndex:(unsigned long long)arg1;
 
 @optional
 @property(readonly, nonatomic) NSString *name;
+- (void)setUINotificationsEnabled:(_Bool)arg1;
 - (id)filteredIndexesForPredicate:(id)arg1;
 @end
 

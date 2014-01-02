@@ -9,8 +9,8 @@
 @interface PBUnknownFields : NSObject
 {
     char *_buf;
-    unsigned int _bufSpace;
-    unsigned int _bufLen;
+    unsigned long long _bufSpace;
+    unsigned long long _bufLen;
 }
 
 - (void)dealloc;

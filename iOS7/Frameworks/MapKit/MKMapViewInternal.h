@@ -8,6 +8,7 @@
 
 @class MKMapView;
 
+// Not exported
 @interface MKMapViewInternal : NSObject
 {
     MKMapView *view;

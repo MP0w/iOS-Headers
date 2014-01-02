@@ -22,7 +22,7 @@
 - (void)setDeniedAction:(id)arg1;
 - (id)confirmedAction;
 - (void)setConfirmedAction:(id)arg1;
-- (void)_setConfirmed:(BOOL)arg1;
+- (void)_setConfirmed:(_Bool)arg1;
 - (int)completionType;
 - (void)dealloc;
 - (id)initWithModelIdentifier:(id)arg1;

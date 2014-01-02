@@ -6,8 +6,9 @@
 
 #import "NSObject.h"
 
-@class CMMotionManager, NSArray, NSMapTable, NSMutableSet, NSOperationQueue, _UIAssociationTable, _UILazyMapTable, _UIMotionEffectEngineLogger;
+@class CADisplayLink, CMMotionManager, NSArray, NSMapTable, NSMutableSet, NSOperationQueue, _UIAssociationTable, _UILazyMapTable, _UIMotionEffectEngineLogger;
 
+// Not exported
 @interface _UIMotionEffectEngine : NSObject
 {
     _UIAssociationTable *_effectViewAssociationTable;
@@ -17,46 +18,55 @@
     NSMapTable *_suspendedViewsToEffectSets;
     CMMotionManager *_motionManager;
     NSOperationQueue *_motionEventQueue;
+    _Bool _hasReceivedAtLeastOneMotionEventSinceStarting;
     CDStruct_04e8b4cd _pendingDeviceMotionStruct;
     double _pendingDeviceMotionTimestamp;
     int _pendingDeviceMotionLock;
-    BOOL _generatingUpdates;
+    CADisplayLink *_displayLink;
+    _Bool _generatingUpdates;
     NSMutableSet *_suspendReasons;
     CDStruct_bf7dff04 _lastDeviceQuaternion;
     double _lastUpdateTimestamp;
-    BOOL _slowUpdatesEnabled;
-    BOOL _pendingSlowDown;
+    _Bool _slowUpdatesEnabled;
+    _Bool _pendingSlowDown;
+    long long _sensorStatus;
+    _Bool _allAnalyzersAreCentered;
+    _Bool _hasAppliedAtLeastOneUpdateSinceStarting;
+    _Bool _isPendingReset;
     _UIMotionEffectEngineLogger *_motionLogger;
-    int _targetInterfaceOrientation;
+    int _thermalNotificationToken;
+    int _screenDimmingNotificationToken;
+    long long _targetInterfaceOrientation;
 }
 
-+ (BOOL)_motionEffectsAreSupported;
-@property(nonatomic, setter=_setTargetInterfaceOrientation:) int _targetInterfaceOrientation; // @synthesize _targetInterfaceOrientation;
++ (_Bool)_motionEffectsSupported;
++ (_Bool)_motionEffectsEnabled;
+@property(nonatomic, setter=_setTargetInterfaceOrientation:) long long _targetInterfaceOrientation; // @synthesize _targetInterfaceOrientation;
 - (id)debugDescription;
 - (void)_unapplyAllEffects;
-- (BOOL)_hasMotionEffectsForView:(id)arg1;
+- (_Bool)_hasMotionEffectsForView:(id)arg1;
 - (id)_motionEffectsForView:(id)arg1;
 - (void)_unregisterAllMotionEffectsForView:(id)arg1;
 - (void)endApplyingMotionEffect:(id)arg1 toView:(id)arg2;
 - (void)_unregisterMotionEffect:(id)arg1 fromView:(id)arg2;
 - (void)beginApplyingMotionEffect:(id)arg1 toView:(id)arg2;
-- (void)_reconsiderMotionEffectsEnabledSetting;
 @property(readonly, nonatomic) NSArray *suspensionReasons;
-- (BOOL)_motionEffectsAreSuspendedForView:(id)arg1;
+- (_Bool)_motionEffectsAreSuspendedForView:(id)arg1;
 - (void)endSuspendingMotionEffectsForView:(id)arg1;
 - (void)beginSuspendingMotionEffectsForView:(id)arg1;
-- (BOOL)_isSuspended;
-- (void)_clearHistoricMotionData;
+- (_Bool)_isSuspended;
+- (void)_updateDisplayLinkInterval;
 - (void)_stopGeneratingUpdates;
 - (void)_startGeneratingUpdates;
 - (void)_startOrStopGeneratingUpdates;
-- (BOOL)_shouldGenerateUpdates;
+- (_Bool)_shouldGenerateUpdates;
 - (void)endSuspendingForReason:(id)arg1;
 - (void)beginSuspendingForReason:(id)arg1;
+- (void)_setMotionManagerSensorStatus:(long long)arg1;
 - (void)_scheduleUpdateWithDeviceMotion:(const CDStruct_04e8b4cd *)arg1 timestamp:(double)arg2;
 - (void)resetMotionAnalysis;
 - (void)_applyEffectsFromAnalyzer:(id)arg1;
-- (BOOL)_shouldSuspendApplicationForHysteresisGivenLastAppliedViewerOffset:(struct UIOffset)arg1 newViewerOffset:(struct UIOffset)arg2 wasSuspendingApplicationForHysteresis:(BOOL)arg3;
+- (_Bool)_shouldSuspendApplicationForHysteresisGivenLastAppliedViewerOffset:(struct UIOffset)arg1 newViewerOffset:(struct UIOffset)arg2 wasSuspendingApplicationForHysteresis:(_Bool)arg3;
 - (void)_handleLatestDeviceMotion;
 - (void)_toggleSlowUpdates;
 - (void)dealloc;

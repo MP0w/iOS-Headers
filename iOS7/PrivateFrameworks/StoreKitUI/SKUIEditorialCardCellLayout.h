@@ -14,7 +14,7 @@
     UIButton *_button;
     UILabel *_messageLabel;
     UILabel *_messageTitleLabel;
-    BOOL _room;
+    _Bool _room;
     UILabel *_subtitleLabel;
     UILabel *_titleLabel;
 }
@@ -22,7 +22,7 @@
 - (void).cxx_destruct;
 - (void)_buttonAction:(id)arg1;
 - (void)layoutSubviews;
-@property(nonatomic, getter=isRoom) BOOL room;
+@property(nonatomic, getter=isRoom) _Bool room;
 @property(copy, nonatomic) NSString *messageTitle;
 @property(copy, nonatomic) NSString *message;
 @property(copy, nonatomic) NSString *subtitle;

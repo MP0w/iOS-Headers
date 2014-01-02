@@ -8,7 +8,7 @@
 
 #import "SKUIProductPageChildViewController-Protocol.h"
 
-@class NSOperationQueue, SKUIIncompatibleAppView, SKUIItemArtworkContext, SKUILoadURLOperation, SKUIProductPageHeaderViewController, SKUIProductPageItem, UIImage, UIScrollView;
+@class NSOperationQueue, SKUIIncompatibleAppView, SKUIItemArtworkContext, SKUIProductPageHeaderViewController, SKUIProductPageItem, SSVLoadURLOperation, UIImage, UIScrollView;
 
 @interface SKUIIncompatibleAppViewController : SKUIViewController <SKUIProductPageChildViewController>
 {
@@ -17,7 +17,7 @@
     SKUIProductPageHeaderViewController *_headerViewController;
     UIImage *_iconImage;
     SKUIProductPageItem *_incompatibleItem;
-    SKUILoadURLOperation *_loadIconOperation;
+    SSVLoadURLOperation *_loadIconOperation;
     SKUIIncompatibleAppView *_incompatibleView;
     NSOperationQueue *_operationQueue;
 }
@@ -31,7 +31,7 @@
 - (id)_artworkContext;
 - (void)_learnMoreAboutIPad:(id)arg1;
 - (void)_learnMoreAboutApp:(id)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;
 - (void)reloadData;
 @property(readonly, nonatomic) UIScrollView *scrollView;

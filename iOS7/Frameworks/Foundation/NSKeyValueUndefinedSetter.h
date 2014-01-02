@@ -6,6 +6,7 @@
 
 #import <Foundation/NSKeyValueSetter.h>
 
+// Not exported
 @interface NSKeyValueUndefinedSetter : NSKeyValueSetter
 {
 }

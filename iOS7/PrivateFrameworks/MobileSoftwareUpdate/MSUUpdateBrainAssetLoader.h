@@ -17,7 +17,7 @@
 - (long long)requiredDiskSpace:(id *)arg1;
 - (_Bool)purgeUpdateBrains:(id *)arg1;
 - (void)adjustOptions:(id)arg1 completion:(id)arg2;
-- (BOOL)cancel:(id *)arg1;
+- (_Bool)cancel:(id *)arg1;
 - (void)loadUpdateBrainWithOptions:(id)arg1 progressHandler:(id)arg2;
 - (void)dealloc;
 - (id)initWithUpdateAsset:(id)arg1;

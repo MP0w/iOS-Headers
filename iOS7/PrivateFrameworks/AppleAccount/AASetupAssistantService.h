@@ -26,6 +26,7 @@
 @property(copy, nonatomic) NSString *password; // @synthesize password=_password;
 @property(copy, nonatomic) NSString *appleID; // @synthesize appleID=_appleID;
 - (void).cxx_destruct;
+- (void)_doHSADeviceReprovisioningWithDSID:(id)arg1;
 - (void)_doHSADeviceProvisioningSynchronizationWithDSID:(id)arg1 data:(id)arg2;
 - (void)_doHSADeviceProvisioningWithDSID:(id)arg1 data:(id)arg2;
 - (id)_signingSession;

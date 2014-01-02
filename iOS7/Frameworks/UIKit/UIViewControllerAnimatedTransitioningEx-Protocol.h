@@ -7,10 +7,10 @@
 #import "UIViewControllerAnimatedTransitioning-Protocol.h"
 
 @protocol UIViewControllerAnimatedTransitioningEx <UIViewControllerAnimatedTransitioning>
-- (void)setOperation:(int)arg1;
-- (int)operation;
-- (void)setInteractionAborted:(BOOL)arg1;
-- (BOOL)interactionAborted;
+- (void)setOperation:(long long)arg1;
+- (long long)operation;
+- (void)setInteractionAborted:(_Bool)arg1;
+- (_Bool)interactionAborted;
 - (void)setInteractionController:(id)arg1;
 - (id)interactionController;
 @end

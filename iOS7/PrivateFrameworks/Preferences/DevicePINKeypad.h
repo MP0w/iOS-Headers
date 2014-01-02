@@ -10,8 +10,8 @@
 {
 }
 
-- (void)setMinimized:(BOOL)arg1;
-- (BOOL)isMinimized;
+- (void)setMinimized:(_Bool)arg1;
+- (_Bool)isMinimized;
 
 @end
 

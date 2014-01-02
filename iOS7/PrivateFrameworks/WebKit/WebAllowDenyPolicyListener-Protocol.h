@@ -7,7 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol WebAllowDenyPolicyListener <NSObject>
-- (BOOL)shouldClearCache;
+- (_Bool)shouldClearCache;
 - (void)denyOnlyThisRequest;
 - (void)deny;
 - (void)allow;

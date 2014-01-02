@@ -8,10 +8,11 @@
 
 #import "NSCopying-Protocol.h"
 
-@class NSData, NSDictionary, NSString;
+@class NSData, NSDictionary, NSNumber, NSString;
 
 @interface IDSPeerMessage : IDSMessage <NSCopying>
 {
+    NSNumber *_priority;
     NSString *_encryptionType;
     NSData *_encryptedData;
     NSData *_targetToken;
@@ -30,11 +31,12 @@
 @property(copy) NSData *targetToken; // @synthesize targetToken=_targetToken;
 @property(copy) NSData *encryptedData; // @synthesize encryptedData=_encryptedData;
 @property(copy) NSString *encryptionType; // @synthesize encryptionType=_encryptionType;
+@property(copy) NSNumber *priority; // @synthesize priority=_priority;
 - (id)messageBody;
 - (id)requiredKeys;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithHighPriority:(BOOL)arg1;
+- (id)initWithHighPriority:(_Bool)arg1;
 - (id)init;
 
 @end

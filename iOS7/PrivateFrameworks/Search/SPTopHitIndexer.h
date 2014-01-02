@@ -19,7 +19,7 @@
 + (id)indexerForTopHits;
 - (void)dealloc;
 - (id)init;
-- (BOOL)nextSearchResults:(id *)arg1;
+- (_Bool)nextSearchResults:(id *)arg1;
 - (void)beginSearch:(id)arg1 domains:(id)arg2;
 - (id)_fetchAndCleanQueryResults:(id)arg1;
 - (void)setTopHit:(id)arg1 domain:(unsigned int)arg2 queryString:(id)arg3;

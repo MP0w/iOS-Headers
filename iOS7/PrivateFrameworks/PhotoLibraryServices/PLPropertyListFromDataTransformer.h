@@ -10,7 +10,7 @@
 {
 }
 
-+ (BOOL)allowsReverseTransformation;
++ (_Bool)allowsReverseTransformation;
 + (Class)transformedValueClass;
 - (id)reverseTransformedValue:(id)arg1;
 - (id)transformedValue:(id)arg1;

@@ -20,19 +20,19 @@
     SBIcon *_lastHighlightedIcon;
 }
 
-- (BOOL)starkKnobLauncherCellDisplaysBadges:(id)arg1;
+- (_Bool)starkKnobLauncherCellDisplaysBadges:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (BOOL)iconShowsDisclosureIndicator:(id)arg1;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (_Bool)iconShowsDisclosureIndicator:(id)arg1;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewWillLayoutSubviews;
 - (void)loadView;
 - (void)relayoutIcons;
 - (id)prefixFakeIcons;
-- (BOOL)obscuresControlBar;
-- (BOOL)hidesAutomatically;
+- (_Bool)obscuresControlBar;
+- (_Bool)hidesAutomatically;
 - (id)_rowIndexPathForIcon:(id)arg1;
 - (void)_launchIcon:(id)arg1;
 - (void)dealloc;

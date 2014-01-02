@@ -6,29 +6,32 @@
 
 #import "NSObject.h"
 
-@class UIColor;
+@class UIColor, _UIBackdropViewSettings;
 
 @interface SBLockOverlayStyleProperties : NSObject
 {
-    UIColor *_legibleColor;
+    UIColor *_primaryColor;
+    UIColor *_secondaryColor;
     UIColor *_tintColor;
-    float _tintAlpha;
-    float _blurRadius;
-    unsigned int _style;
+    double _tintAlpha;
+    double _blurRadius;
+    unsigned long long _style;
+    long long _quality;
+    _UIBackdropViewSettings *_settings;
 }
 
-+ (id)overlayPropertiesWithStyle:(unsigned int)arg1;
-@property(readonly, nonatomic) UIColor *legibleColor; // @synthesize legibleColor=_legibleColor;
-@property(readonly, nonatomic) float blurRadius; // @synthesize blurRadius=_blurRadius;
+@property(readonly, nonatomic) double blurRadius; // @synthesize blurRadius=_blurRadius;
 @property(readonly, nonatomic) UIColor *tintColor; // @synthesize tintColor=_tintColor;
-@property(readonly, nonatomic) float tintAlpha; // @synthesize tintAlpha=_tintAlpha;
-@property(readonly, nonatomic) unsigned int style; // @synthesize style=_style;
-- (id)stringForStyle;
+@property(readonly, nonatomic) double tintAlpha; // @synthesize tintAlpha=_tintAlpha;
+@property(readonly, nonatomic) long long graphicsQuality; // @synthesize graphicsQuality=_quality;
+@property(readonly, nonatomic) unsigned long long style; // @synthesize style=_style;
+- (id)_stringForStyle;
+- (id)_stringForQuality;
 - (id)_settingsForStyle;
 - (void)_configure;
 - (id)description;
 - (void)dealloc;
-- (id)initWithStyle:(unsigned int)arg1;
+- (id)initWithStyle:(unsigned long long)arg1 quality:(long long)arg2;
 
 @end
 

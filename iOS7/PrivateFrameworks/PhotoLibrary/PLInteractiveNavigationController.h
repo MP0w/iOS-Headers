@@ -38,20 +38,20 @@
 }
 
 @property(nonatomic) id <PLInteractiveNavigationControllerDelegate> delegate; // @synthesize delegate;
-@property(nonatomic) BOOL shouldPropagateEditingMode;
+@property(nonatomic) _Bool shouldPropagateEditingMode;
 - (id)viewControllers;
 - (id)topViewController;
 - (id)bottomViewController;
-- (void)setFooterViewHidden:(BOOL)arg1 animated:(BOOL)arg2;
-@property(nonatomic, getter=footerViewIsHidden) BOOL footerViewHidden;
+- (void)setFooterViewHidden:(_Bool)arg1 animated:(_Bool)arg2;
+@property(nonatomic, getter=footerViewIsHidden) _Bool footerViewHidden;
 @property(retain, nonatomic) UIView *footerView;
-- (void)setHeaderViewHidden:(BOOL)arg1 animated:(BOOL)arg2;
-@property(nonatomic, getter=headerViewIsHidden) BOOL headerViewHidden;
+- (void)setHeaderViewHidden:(_Bool)arg1 animated:(_Bool)arg2;
+@property(nonatomic, getter=headerViewIsHidden) _Bool headerViewHidden;
 @property(retain, nonatomic) UIView *headerView;
 - (void)navigationBar:(id)arg1 didPopItem:(id)arg2;
 - (void)navigationBar:(id)arg1 didPushItem:(id)arg2;
 - (void)_processNavBarPushPopQueue;
-- (BOOL)navigationBar:(id)arg1 shouldPopItem:(id)arg2;
+- (_Bool)navigationBar:(id)arg1 shouldPopItem:(id)arg2;
 - (void)_notifyAction:(SEL)arg1 expandableView:(id)arg2 duration:(double)arg3;
 - (void)_notifyAction:(SEL)arg1 expandableView:(id)arg2;
 - (void)_setInteractiveController:(id)arg1 interactiveView:(id)arg2;
@@ -66,30 +66,30 @@
 - (void)expandableViewDidCompleteExpanding:(id)arg1;
 - (void)expandableView:(id)arg1 willCompleteExpandingWithDuration:(double)arg2;
 - (void)expandableViewWillBeginExpanding:(id)arg1;
-- (void)_getRotationContentSettings:(CDStruct_af7d35ee *)arg1;
-- (void)didRotateFromInterfaceOrientation:(int)arg1;
+- (void)_getRotationContentSettings:(CDStruct_ebaa735e *)arg1;
+- (void)didRotateFromInterfaceOrientation:(long long)arg1;
 - (id)rotatingFooterView;
 - (id)rotatingHeaderView;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (void)popToRootViewControllerAnimated:(BOOL)arg1 completion:(id)arg2;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (void)popToRootViewControllerAnimated:(_Bool)arg1 completion:(id)arg2;
 - (void)popToRootViewController;
-- (void)popViewControllerAnimated:(BOOL)arg1 completion:(id)arg2;
+- (void)popViewControllerAnimated:(_Bool)arg1 completion:(id)arg2;
 - (void)popToViewController:(id)arg1;
 - (void)popViewController;
-- (BOOL)isPoppingViewController;
-- (BOOL)isPushingViewController;
+- (_Bool)isPoppingViewController;
+- (_Bool)isPushingViewController;
 - (void)cancelPoppingViewController;
 - (void)cancelPushingViewController;
 - (void)_finishCurrentOperationBeforePushingViewController:(id)arg1;
 - (void)_finishCurrentOperation;
 - (void)finishPoppingViewController;
 - (void)finishPushingViewController;
-- (BOOL)_validateOperation:(int)arg1 errorString:(id)arg2;
+- (_Bool)_validateOperation:(int)arg1 errorString:(id)arg2;
 - (void)_finishedAnimatingTopAlpha:(id)arg1 finished:(id)arg2 topItem:(id)arg3;
-- (void)setTransitionProgress:(float)arg1 withDuration:(double)arg2;
+- (void)setTransitionProgress:(double)arg1 withDuration:(double)arg2;
 - (void)_performNavBarPushPop:(int)arg1 transition:(int)arg2;
-- (void)setTopViewControllerAlpha:(float)arg1;
-- (BOOL)automaticallyForwardAppearanceAndRotationMethodsToChildViewControllers;
+- (void)setTopViewControllerAlpha:(double)arg1;
+- (_Bool)automaticallyForwardAppearanceAndRotationMethodsToChildViewControllers;
 - (void)beginPoppingViewControllerInteractivelyUsingView:(id)arg1;
 - (void)beginPushingViewController:(id)arg1 interactivelyUsingView:(id)arg2;
 - (void)_setOverlayView:(id)arg1;
@@ -98,8 +98,8 @@
 - (void)replaceTopViewControllerWithViewController:(id)arg1;
 - (void)_removeTopViewController;
 - (void)_addViewController:(id)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (id)viewControllerNavigationItems;
 - (id)navigationBar;
 - (id)_contentView;
@@ -107,7 +107,7 @@
 - (void)dealloc;
 - (id)initWithRootViewController:(id)arg1;
 - (id)init;
-- (BOOL)pl_behavesLikeNavigationControllerForNotifications;
+- (_Bool)pl_behavesLikeNavigationControllerForNotifications;
 
 @end
 

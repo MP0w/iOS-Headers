@@ -11,7 +11,7 @@
 - (id)__im_afterDelay:(double)arg1 modes:(id)arg2;
 - (id)__im_afterDelay:(double)arg1;
 - (id)__im_onThread:(id)arg1;
-- (id)__im_onThread:(id)arg1 immediateForMatchingThread:(BOOL)arg2;
+- (id)__im_onThread:(id)arg1 immediateForMatchingThread:(_Bool)arg2;
 - (id)__im_onDetachedThread;
 - (id)__im_onMainThreadIfNecessary;
 - (id)__im_onMainThread;

@@ -8,10 +8,10 @@
 
 @interface SWRemote : SWAccessory
 {
-    BOOL _isListeningToRemote;
+    _Bool _isListeningToRemote;
 }
 
-@property(readonly, nonatomic) BOOL isListeningToRemote; // @synthesize isListeningToRemote=_isListeningToRemote;
+@property(readonly, nonatomic) _Bool isListeningToRemote; // @synthesize isListeningToRemote=_isListeningToRemote;
 - (void)stopListeningToRemoteCommands;
 - (void)beginListeningToRemoteCommands;
 

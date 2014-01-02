@@ -8,12 +8,13 @@
 
 @class NSMutableDictionary;
 
+// Not exported
 @interface PBOutlineBulletDictionary : NSObject
 {
     NSMutableDictionary *mDictionary;
 }
 
-- (id)objectForSlideId:(unsigned long)arg1 textType:(int)arg2 placeholderIndex:(unsigned long)arg3;
+- (id)objectForSlideId:(unsigned int)arg1 textType:(int)arg2 placeholderIndex:(unsigned int)arg3;
 - (void)dealloc;
 - (id)initFromContainer:(id)arg1 objectType:(unsigned int)arg2;
 

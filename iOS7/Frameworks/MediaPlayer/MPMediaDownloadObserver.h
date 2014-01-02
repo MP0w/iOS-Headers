@@ -12,28 +12,28 @@
 {
     id _progressHandler;
     NSObject<OS_dispatch_queue> *_queue;
-    BOOL _hasPendingProgressHandlerExecution;
-    BOOL _invalidated;
+    _Bool _hasPendingProgressHandlerExecution;
+    _Bool _invalidated;
     long long _pid;
 }
 
 + (id)sharedITunesStoreDownloadManager;
-+ (id)newObserverForRadioTrack:(id)arg1;
++ (id)newObserverForRadioTrackStoreID:(long long)arg1;
 + (id)newObserverForMediaCollection:(id)arg1;
 + (id)newObserverForMediaItem:(id)arg1;
-+ (id)newObserverForMediaItemPersistentID:(unsigned long long)arg1 isPendingSync:(BOOL)arg2 storeID:(long long)arg3;
++ (id)newObserverForMediaItemPersistentID:(unsigned long long)arg1 isPendingSync:(_Bool)arg2 storeID:(long long)arg3;
 @property(readonly, nonatomic) long long persistentID; // @synthesize persistentID=_pid;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) double rawDownloadTotal;
 @property(readonly, nonatomic) double rawDownloadProgress;
-@property(readonly, nonatomic, getter=isPurchasing) BOOL purchasing;
+@property(readonly, nonatomic, getter=isPurchasing) _Bool purchasing;
 - (void)invalidate;
 - (void)_onQueue_invalidate;
 @property(copy) id progressHandler;
-@property(readonly, getter=isRestoreDownload) BOOL restoreDownload;
+@property(readonly, getter=isRestoreDownload) _Bool restoreDownload;
 - (void)cancelDownload;
-@property(readonly) BOOL canCancel;
-@property(readonly, getter=isCurrentlyPlayable) BOOL currentlyPlayable;
+@property(readonly) _Bool canCancel;
+@property(readonly, getter=isCurrentlyPlayable) _Bool currentlyPlayable;
 @property(readonly) double downloadProgress;
 - (void)_onQueue_setShouldFireProgressHandler;
 - (void)dealloc;

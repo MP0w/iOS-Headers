@@ -14,27 +14,27 @@
 {
     NSString *_URLTemplate;
     struct CGSize _tileSize;
-    BOOL _geometryFlipped;
-    int _minimumZ;
-    int _maximumZ;
-    BOOL _canReplaceMapContent;
+    _Bool _geometryFlipped;
+    long long _minimumZ;
+    long long _maximumZ;
+    _Bool _canReplaceMapContent;
     unsigned int _providerID;
 }
 
-@property(nonatomic) BOOL canReplaceMapContent; // @synthesize canReplaceMapContent=_canReplaceMapContent;
-@property int maximumZ; // @synthesize maximumZ=_maximumZ;
-@property int minimumZ; // @synthesize minimumZ=_minimumZ;
-@property(getter=isGeometryFlipped) BOOL geometryFlipped; // @synthesize geometryFlipped=_geometryFlipped;
+@property(nonatomic) _Bool canReplaceMapContent; // @synthesize canReplaceMapContent=_canReplaceMapContent;
+@property long long maximumZ; // @synthesize maximumZ=_maximumZ;
+@property long long minimumZ; // @synthesize minimumZ=_minimumZ;
+@property(getter=isGeometryFlipped) _Bool geometryFlipped; // @synthesize geometryFlipped=_geometryFlipped;
 @property(readonly) NSString *URLTemplate; // @synthesize URLTemplate=_URLTemplate;
 @property struct CGSize tileSize; // @synthesize tileSize=_tileSize;
 - (id).cxx_construct;
 - (void)_flushCaches;
-- (id)_tilesInMapRect:(CDStruct_90e2a262)arg1 zoomScale:(float)arg2 contentScale:(float)arg3;
-- (int)_zoomLevelForScale:(float)arg1;
+- (id)_tilesInMapRect:(CDStruct_90e2a262)arg1 zoomScale:(double)arg2 contentScale:(double)arg3;
+- (int)_zoomLevelForScale:(double)arg1;
 - (void)_loadTile:(id)arg1 result:(id)arg2;
-- (struct _GEOTileKey)_keyForPath:(CDStruct_a1199def)arg1;
-- (void)loadTileAtPath:(CDStruct_a1199def)arg1 result:(id)arg2;
-- (id)URLForTilePath:(CDStruct_a1199def)arg1;
+- (struct _GEOTileKey)_keyForPath:(CDStruct_cbb88d5e)arg1;
+- (void)loadTileAtPath:(CDStruct_cbb88d5e)arg1 result:(id)arg2;
+- (id)URLForTilePath:(CDStruct_cbb88d5e)arg1;
 @property(readonly, nonatomic) CDStruct_c3b9c2ee coordinate;
 @property(readonly, nonatomic) CDStruct_90e2a262 boundingMapRect;
 - (void)dealloc;

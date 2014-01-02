@@ -25,12 +25,12 @@
 - (id)tripleTouchTapRecognizer;
 - (void)didChangeOrientation:(id)arg1;
 - (void)layoutWindow;
-@property(nonatomic) BOOL shouldShowUI;
-- (BOOL)canShowUI;
+@property(nonatomic) _Bool shouldShowUI;
+- (_Bool)canShowUI;
 - (void)addObserver:(id)arg1 forPref:(id)arg2 handler:(id)arg3;
 - (id)valueForPref:(id)arg1;
-- (void)registerSwitchPref:(id)arg1 default:(BOOL)arg2;
-- (void)registerSliderPref:(id)arg1 default:(float)arg2 minimumValue:(float)arg3 maximumValue:(float)arg4;
+- (void)registerSwitchPref:(id)arg1 default:(_Bool)arg2;
+- (void)registerSliderPref:(id)arg1 default:(double)arg2 minimumValue:(double)arg3 maximumValue:(double)arg4;
 - (void)dealloc;
 - (id)init;
 

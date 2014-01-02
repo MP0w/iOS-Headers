@@ -23,7 +23,7 @@
 - (void)requestVCWithPerson:(id)arg1 properties:(id)arg2 conference:(id)arg3 account:(id)arg4;
 - (void)sendCommand:(id)arg1 withProperties:(id)arg2 toPerson:(id)arg3 account:(id)arg4;
 - (void)passwordUpdatedAccount:(id)arg1;
-- (void)setBlockIdleStatus:(BOOL)arg1 account:(id)arg2;
+- (void)setBlockIdleStatus:(_Bool)arg1 account:(id)arg2;
 - (void)setBlockList:(id)arg1 account:(id)arg2;
 - (void)setAllowList:(id)arg1 account:(id)arg2;
 - (void)setBlockingMode:(unsigned int)arg1 account:(id)arg2;
@@ -40,7 +40,7 @@
 - (void)stopWatchingBuddy:(id)arg1 account:(id)arg2;
 - (void)startWatchingBuddy:(id)arg1 account:(id)arg2;
 - (void)requestSubscriptionTo:(id)arg1 account:(id)arg2;
-- (void)acceptSubscriptionRequest:(BOOL)arg1 from:(id)arg2 account:(id)arg3;
+- (void)acceptSubscriptionRequest:(_Bool)arg1 from:(id)arg2 account:(id)arg3;
 - (void)renameGroup:(id)arg1 to:(id)arg2 account:(id)arg3;
 - (void)changeGroup:(id)arg1 changes:(id)arg2 account:(id)arg3;
 - (void)changeGroups:(id)arg1 account:(id)arg2;
@@ -65,13 +65,13 @@
 - (void)clearHistoryForIDs:(id)arg1 style:(unsigned char)arg2 onServices:(id)arg3 beforeGUID:(id)arg4 afterGUID:(id)arg5 chatID:(id)arg6 queryID:(id)arg7;
 - (void)deleteMessageWithGUIDs:(id)arg1 queryID:(id)arg2;
 - (void)requestPendingMessages;
-- (void)loadHistoryForIDs:(id)arg1 style:(unsigned char)arg2 onServices:(id)arg3 limit:(unsigned int)arg4 beforeGUID:(id)arg5 afterGUID:(id)arg6 chatID:(id)arg7 queryID:(id)arg8;
+- (void)loadHistoryForIDs:(id)arg1 style:(unsigned char)arg2 onServices:(id)arg3 limit:(unsigned long long)arg4 beforeGUID:(id)arg5 afterGUID:(id)arg6 chatID:(id)arg7 queryID:(id)arg8;
 - (void)loadMessageWithGUID:(id)arg1 queryID:(id)arg2;
 - (void)setListenerCapabilities:(unsigned int)arg1;
-- (void)account:(id)arg1 avAction:(unsigned int)arg2 withArguments:(id)arg3 toAVChat:(id)arg4 isVideo:(BOOL)arg5;
+- (void)account:(id)arg1 avAction:(unsigned int)arg2 withArguments:(id)arg3 toAVChat:(id)arg4 isVideo:(_Bool)arg5;
 - (void)fileTransferRemoved:(id)arg1;
 - (void)fileTransferStopped:(id)arg1;
-- (void)fileTransfer:(id)arg1 acceptedWithPath:(id)arg2 autoRename:(BOOL)arg3 overwrite:(BOOL)arg4;
+- (void)fileTransfer:(id)arg1 acceptedWithPath:(id)arg2 autoRename:(_Bool)arg3 overwrite:(_Bool)arg4;
 - (void)fileTransfer:(id)arg1 updatedWithProperties:(id)arg2;
 - (void)fileTransfer:(id)arg1 createdWithProperties:(id)arg2;
 - (void)deleteFileTransferWithGUID:(id)arg1;

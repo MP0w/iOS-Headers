@@ -15,20 +15,19 @@
     PSTextView *_textView;
 }
 
-- (void)drawTitleInRect:(struct CGRect)arg1 selected:(BOOL)arg2;
-- (struct UIEdgeInsets)textViewInsets;
+- (void)drawTitleInRect:(struct CGRect)arg1 selected:(_Bool)arg2;
 @property(retain, nonatomic) PSTextView *textView;
-- (BOOL)resignFirstResponder;
-- (BOOL)canBecomeFirstResponder;
-- (BOOL)becomeFirstResponder;
+- (_Bool)resignFirstResponder;
+- (_Bool)canBecomeFirstResponder;
+- (_Bool)becomeFirstResponder;
 - (void)textContentViewDidEndEditing:(id)arg1;
-- (void)_adjustTextView:(id)arg1 updateTable:(BOOL)arg2 withSpecifier:(id)arg3;
+- (void)_adjustTextView:(id)arg1 updateTable:(_Bool)arg2 withSpecifier:(id)arg3;
 - (void)layoutSubviews;
 - (void)cellRemovedFromView;
 - (void)textContentViewDidChange:(id)arg1;
 - (void)setValue:(id)arg1;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
 
 @end
 

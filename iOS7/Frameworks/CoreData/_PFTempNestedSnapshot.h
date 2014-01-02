@@ -8,10 +8,11 @@
 
 @class NSKnownKeysDictionary;
 
+// Not exported
 @interface _PFTempNestedSnapshot : NSObject
 {
     NSKnownKeysDictionary *_snapshot;
-    unsigned long _version;
+    unsigned long long _version;
 }
 
 - (id)valueForKey:(id)arg1;
@@ -19,7 +20,7 @@
 - (unsigned int)_versionNumber;
 - (id)_snapshot_;
 - (const id *)knownKeyValuesPointer;
-- (id)initWithOwnedKKsD:(id)arg1 andVersion:(unsigned long)arg2;
+- (id)initWithOwnedKKsD:(id)arg1 andVersion:(unsigned long long)arg2;
 
 @end
 

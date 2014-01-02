@@ -6,29 +6,28 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface CHDDataValuesCollection : NSObject
 {
     struct __CFData *mPackedValues;
-    unsigned int mDataValueCount;
+    unsigned long long mDataValueCount;
     struct __CFDictionary *mIndexToDataValueMap;
     _Bool mContainsStringValue;
 }
 
 - (_Bool)containsStringValue;
 - (void)finishReading;
-- (id)dataValueWithIndex:(unsigned int)arg1;
-- (id)dataValueAtIndex:(unsigned int)arg1;
-- (struct CHDDataPoint *)dataPointWithIndex:(unsigned int)arg1;
-- (struct CHDDataPoint *)dataPointAtIndex:(unsigned int)arg1;
+- (id)dataValueWithIndex:(unsigned long long)arg1;
+- (id)dataValueAtIndex:(unsigned long long)arg1;
+- (struct CHDDataPoint *)dataPointWithIndex:(unsigned long long)arg1;
+- (struct CHDDataPoint *)dataPointAtIndex:(unsigned long long)arg1;
 - (_Bool)addDataValue:(id)arg1;
 - (_Bool)addDataPoint:(struct CHDDataPoint *)arg1;
-- (unsigned int)count;
+- (unsigned long long)count;
 - (void)dealloc;
-- (void)resetWithDataPointCount:(unsigned int)arg1;
-- (id)initWithDataPointCount:(unsigned int)arg1;
+- (void)resetWithDataPointCount:(unsigned long long)arg1;
+- (id)initWithDataPointCount:(unsigned long long)arg1;
 - (id)init;
-- (void)cleanup;
-- (void)setupBufferForValues:(unsigned int)arg1;
 
 @end
 

@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface EXPane : NSObject
 {
 }
 
 + (id)edPaneFromXMLPaneElement:(struct _xmlNode *)arg1;
-+ (int)edActivePaneEnumFromString:(id)arg1;
 
 @end
 

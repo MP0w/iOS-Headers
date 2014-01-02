@@ -18,8 +18,8 @@
 - (id)messageID;
 - (void)dealloc;
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)initWithAttachmentName:(id)arg1 andMessageServerID:(id)arg2;
 
 @end

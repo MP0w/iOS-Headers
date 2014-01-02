@@ -10,30 +10,34 @@
 
 @interface MKCalloutBackgroundView : UIPopoverBackgroundView
 {
-    float _arrowOffset;
-    unsigned int _arrowDirection;
+    double _arrowOffset;
+    unsigned long long _arrowDirection;
     UIView *_containerView;
+    UIView *_baseBorderView;
     _MKCalloutBackgroundMaskView *_mainMaskView;
     NSMutableArray *_vendedMaskViews;
-    UIImageView *_bottomArrowExtraShadow;
+    long long _mapDisplayStyle;
+    UIImageView *_currentArrowShadow;
 }
 
 + (struct UIEdgeInsets)contentViewInsets;
-+ (float)arrowHeight;
-+ (float)arrowBase;
-+ (BOOL)wantsDefaultContentAppearance;
++ (double)arrowHeight;
++ (double)arrowBase;
++ (_Bool)wantsDefaultContentAppearance;
++ (double)_contentViewCornerRadiusForArrowDirection:(unsigned long long)arg1;
 + (void)setBeingCreatedForSmallCalloutController:(id)arg1;
+@property(nonatomic) long long mapDisplayStyle; // @synthesize mapDisplayStyle=_mapDisplayStyle;
 - (void)_extendLeftRightArrow;
 - (void)_retractUpDownArrow;
 - (void)_showArrow;
 - (void)_hideArrow;
-- (void)setArrowDirection:(unsigned int)arg1;
-- (unsigned int)arrowDirection;
-- (void)setArrowOffset:(float)arg1;
-- (float)arrowOffset;
+- (void)setArrowDirection:(unsigned long long)arg1;
+- (unsigned long long)arrowDirection;
+- (void)setArrowOffset:(double)arg1;
+- (double)arrowOffset;
 - (id)_shadowPath;
 - (void)layoutSubviews;
-- (void)_layoutMaskView:(id)arg1;
+- (void)_layoutMaskView:(id)arg1 withArrowShadow:(_Bool)arg2;
 - (id)newMaskLayer;
 - (void)dealloc;
 - (void)_setupViews;

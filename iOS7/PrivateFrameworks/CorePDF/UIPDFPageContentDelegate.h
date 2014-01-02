@@ -11,7 +11,7 @@
 @interface UIPDFPageContentDelegate : NSObject
 {
     UIPDFDocument *_document;
-    unsigned int _pageIndex;
+    unsigned long long _pageIndex;
     UIPDFPageView *_view;
     struct CGRect _bounds;
     struct CGAffineTransform _transform;
@@ -19,25 +19,25 @@
     struct CGColor *_highlightColor;
     CALayer *_owner;
     struct CGRect _box;
-    unsigned int _pageRotation;
+    unsigned long long _pageRotation;
     int _lock;
-    unsigned int _threadCount;
-    BOOL _isCancelled;
+    unsigned long long _threadCount;
+    _Bool _isCancelled;
 }
 
 @property(readonly) struct CGAffineTransform transform; // @synthesize transform=_transform;
-@property unsigned int pageIndex; // @synthesize pageIndex=_pageIndex;
+@property unsigned long long pageIndex; // @synthesize pageIndex=_pageIndex;
 @property(retain) UIPDFDocument *document; // @synthesize document=_document;
 @property struct CGColor *highlightColor; // @synthesize highlightColor=_highlightColor;
-@property unsigned int pageRotation; // @synthesize pageRotation=_pageRotation;
+@property unsigned long long pageRotation; // @synthesize pageRotation=_pageRotation;
 @property struct CGRect box; // @synthesize box=_box;
 @property CALayer *owner; // @synthesize owner=_owner;
 - (void)drawSelectionLayer:(id)arg1 inContext:(struct CGContext *)arg2;
-- (BOOL)pageHasSelection;
+- (_Bool)pageHasSelection;
 - (void)addRect:(struct CGRect)arg1 toPath:(struct CGPath *)arg2 transform:(struct CGAffineTransform *)arg3 view:(id)arg4 owner:(id)arg5;
 - (void)drawSelectionLayerBlockMode:(id)arg1 inContext:(struct CGContext *)arg2;
 - (void)drawLayer:(id)arg1 inContext:(struct CGContext *)arg2;
-@property BOOL isCancelled; // @dynamic isCancelled;
+@property _Bool isCancelled; // @dynamic isCancelled;
 @property UIPDFPageView *view; // @dynamic view;
 - (void)computeTransform;
 - (void)dealloc;

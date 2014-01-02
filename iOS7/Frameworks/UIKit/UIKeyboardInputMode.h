@@ -27,7 +27,7 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 @property(readonly, nonatomic) NSArray *normalizedIdentifierLevels;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)initWithIdentifier:(id)arg1;
 

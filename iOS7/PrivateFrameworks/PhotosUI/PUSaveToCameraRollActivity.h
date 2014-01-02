@@ -19,7 +19,7 @@
 - (void).cxx_destruct;
 - (void)performActivity;
 - (void)prepareWithActivityItems:(id)arg1;
-- (BOOL)canPerformWithActivityItems:(id)arg1;
+- (_Bool)canPerformWithActivityItems:(id)arg1;
 - (id)activityTitle;
 
 @end

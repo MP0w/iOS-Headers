@@ -14,26 +14,23 @@
 @interface CLRegion : NSObject <NSCopying, NSSecureCoding>
 {
     CDStruct_f756f8ea fRegion;
-    BOOL _notifyOnEntry;
-    BOOL _notifyOnExit;
-    NSString *_identifier;
-    double _radius;
-    CDStruct_2c43369c _center;
 }
 
-+ (BOOL)supportsSecureCoding;
-@property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
-@property(readonly, nonatomic) double radius; // @synthesize radius=_radius;
-@property(readonly, nonatomic) CDStruct_2c43369c center; // @synthesize center=_center;
++ (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) CDStruct_f756f8ea clientRegion;
-- (BOOL)containsCoordinate:(CDStruct_2c43369c)arg1;
-@property(nonatomic) BOOL notifyOnExit; // @synthesize notifyOnExit=_notifyOnExit;
-@property(nonatomic) BOOL notifyOnEntry; // @synthesize notifyOnEntry=_notifyOnEntry;
+- (_Bool)containsCoordinate:(CDStruct_2c43369c)arg1;
+@property(nonatomic) _Bool notifyOnExit;
+@property(nonatomic) _Bool notifyOnEntry;
+@property(readonly, nonatomic) NSString *identifier;
+@property(readonly, nonatomic) double radius;
+@property(readonly, nonatomic) CDStruct_2c43369c center;
 - (id)description;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)_encodeWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (id)_initWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)dealloc;
 - (id)initWithIdentifier:(id)arg1;

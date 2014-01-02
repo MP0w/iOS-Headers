@@ -8,20 +8,21 @@
 
 @class NSArray, NSString;
 
+// Not exported
 @interface UIKeyboardEmojiCategory : NSObject
 {
     int _categoryType;
     NSArray *_emoji;
-    int _lastVisibleFirstEmojiIndex;
+    long long _lastVisibleFirstEmojiIndex;
 }
 
 + (id)localizedStringForKey:(id)arg1;
 + (id)categoryForType:(int)arg1;
 + (id)emojiRecentsFromPreferences;
-+ (BOOL)hasVariantsForEmoji:(id)arg1;
++ (_Bool)hasVariantsForEmoji:(id)arg1;
 + (id)categories;
-+ (int)numberOfCategories;
-@property(nonatomic) int lastVisibleFirstEmojiIndex; // @synthesize lastVisibleFirstEmojiIndex=_lastVisibleFirstEmojiIndex;
++ (long long)numberOfCategories;
+@property(nonatomic) long long lastVisibleFirstEmojiIndex; // @synthesize lastVisibleFirstEmojiIndex=_lastVisibleFirstEmojiIndex;
 @property(retain) NSArray *emoji; // @synthesize emoji=_emoji;
 @property int categoryType; // @synthesize categoryType=_categoryType;
 - (id)description;

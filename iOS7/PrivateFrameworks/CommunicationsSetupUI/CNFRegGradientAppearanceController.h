@@ -10,12 +10,12 @@
 {
 }
 
-- (BOOL)webViewDrawsShadows;
-- (BOOL)webViewIsOpaque;
+- (_Bool)webViewDrawsShadows;
+- (_Bool)webViewIsOpaque;
 - (id)webViewBackgroundColor;
-- (BOOL)actionSheetsUsePopoverStyle;
-- (int)navigationBarActivityIndicatorStyle;
-- (int)modalPresentationStyle;
+- (_Bool)actionSheetsUsePopoverStyle;
+- (long long)navigationBarActivityIndicatorStyle;
+- (long long)modalPresentationStyle;
 
 @end
 

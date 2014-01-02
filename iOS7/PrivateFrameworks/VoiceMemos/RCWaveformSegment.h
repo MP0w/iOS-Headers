@@ -16,8 +16,6 @@
     CDStruct_73a5d3ca _timeRange;
 }
 
-+ (id)segmentsFromTime:(double)arg1 inSortedSegments:(id)arg2;
-+ (id)segmentsInTimeRange:(CDStruct_73a5d3ca)arg1 inSortedSegments:(id)arg2;
 + (void)initialize;
 @property(readonly, nonatomic) CDStruct_73a5d3ca timeRange; // @synthesize timeRange=_timeRange;
 - (id).cxx_construct;
@@ -28,12 +26,12 @@
 - (id)segmentByClippingToTimeRange:(CDStruct_73a5d3ca)arg1;
 - (id)_segmentsByMergingIfNecessaryGreaterSegment:(id)arg1;
 - (id)_segmentWithValuesInContainedTimeRange:(CDStruct_73a5d3ca)arg1;
-@property(readonly, nonatomic) int averagePowerLevelsCount;
+@property(readonly, nonatomic) long long averagePowerLevelsCount;
 @property(readonly, nonatomic) const float *averagePowerLevels;
 - (id)description;
 - (id)copyWithTimeRangeOffsetByTimeOffset:(double)arg1;
 - (id)initWithTimeRange:(CDStruct_73a5d3ca)arg1 averagePowerLevelVector:(vector_ec52ae8c *)arg2;
-- (id)initWithTimeRange:(CDStruct_73a5d3ca)arg1 averagePowerLevelData:(id)arg2 copyData:(BOOL)arg3;
+- (id)initWithTimeRange:(CDStruct_73a5d3ca)arg1 averagePowerLevelData:(id)arg2 copyData:(_Bool)arg3;
 
 @end
 

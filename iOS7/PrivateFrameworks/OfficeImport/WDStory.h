@@ -8,14 +8,15 @@
 
 @class OADDrawable;
 
+// Not exported
 @interface WDStory : NSObject
 {
     OADDrawable *mHead;
-    BOOL mOle;
+    _Bool mOle;
 }
 
-- (BOOL)isOle;
-- (void)setOle:(BOOL)arg1;
+- (_Bool)isOle;
+- (void)setOle:(_Bool)arg1;
 - (id)text;
 - (id)head;
 - (void)dealloc;

@@ -8,6 +8,7 @@
 
 @class VKRasterMapTileRequest;
 
+// Not exported
 @interface VKRasterMapTileServerCallback : NSObject
 {
     VKRasterMapTileRequest *request;

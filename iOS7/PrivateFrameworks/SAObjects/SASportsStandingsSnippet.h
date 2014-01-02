@@ -14,7 +14,7 @@
 
 + (id)standingsSnippetWithDictionary:(id)arg1 context:(id)arg2;
 + (id)standingsSnippet;
-@property(nonatomic) BOOL showCardinalPositions;
+@property(nonatomic) _Bool showCardinalPositions;
 @property(copy, nonatomic) NSArray *selectedEntities;
 @property(copy, nonatomic) NSArray *entities;
 @property(copy, nonatomic) NSArray *columns;

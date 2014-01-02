@@ -8,37 +8,37 @@
 
 @interface PLReorientingButton : UIButton
 {
-    BOOL _autorotationEnabled;
-    BOOL _watchingOrientationChanges;
-    int _orientation;
+    _Bool _autorotationEnabled;
+    _Bool _watchingOrientationChanges;
+    long long _orientation;
     float _hitRectExtension;
-    BOOL _isInButtonBar;
-    BOOL _isAnimatingAlpha;
-    BOOL _animatingOrientationChange;
+    _Bool _isInButtonBar;
+    _Bool _isAnimatingAlpha;
+    _Bool _animatingOrientationChange;
     float _endCapRadius;
     struct CGPoint _defaultAnchorCenter;
     struct CGAffineTransform _defaultAnchorTransform;
 }
 
-@property(nonatomic) BOOL isInButtonBar; // @synthesize isInButtonBar=_isInButtonBar;
+@property(nonatomic) _Bool isInButtonBar; // @synthesize isInButtonBar=_isInButtonBar;
 @property(nonatomic) float endCapRadius; // @synthesize endCapRadius=_endCapRadius;
 @property(nonatomic) float hitRectExtension; // @synthesize hitRectExtension=_hitRectExtension;
-- (int)_modeForRotationFromOrientation:(int)arg1 toOrientation:(int)arg2;
-- (void)setButtonOrientation:(int)arg1 animated:(BOOL)arg2;
+- (int)_modeForRotationFromOrientation:(long long)arg1 toOrientation:(long long)arg2;
+- (void)setButtonOrientation:(long long)arg1 animated:(_Bool)arg2;
 - (void)rotationAnimationDidStop;
 - (void)_setAnchorPoint:(struct CGPoint)arg1 rotationMode:(int)arg2;
-- (struct CGAffineTransform)transformForOrientation:(int)arg1;
-- (struct CGAffineTransform)_transformForOrientation:(int)arg1 rotationMode:(int)arg2;
+- (struct CGAffineTransform)transformForOrientation:(long long)arg1;
+- (struct CGAffineTransform)_transformForOrientation:(long long)arg1 rotationMode:(int)arg2;
 - (void)_deviceOrientationChanged:(id)arg1;
 - (void)stopWatchingDeviceOrientationChanges;
 - (void)startWatchingDeviceOrientationChanges;
-- (void)setHidden:(BOOL)arg1;
-- (void)setHidden:(BOOL)arg1 animationDuration:(double)arg2;
-- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (void)setHidden:(_Bool)arg1;
+- (void)setHidden:(_Bool)arg1 animationDuration:(double)arg2;
+- (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (struct CGRect)hitRect;
-@property(nonatomic) BOOL autorotationEnabled; // @synthesize autorotationEnabled=_autorotationEnabled;
+@property(nonatomic) _Bool autorotationEnabled; // @synthesize autorotationEnabled=_autorotationEnabled;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (id)initWithFrame:(struct CGRect)arg1 isInButtonBar:(BOOL)arg2;
+- (id)initWithFrame:(struct CGRect)arg1 isInButtonBar:(_Bool)arg2;
 
 @end
 

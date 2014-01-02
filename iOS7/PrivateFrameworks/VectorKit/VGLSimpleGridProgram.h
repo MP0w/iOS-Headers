@@ -6,6 +6,7 @@
 
 #import <VectorKit/VGLProgram.h>
 
+// Not exported
 @interface VGLSimpleGridProgram : VGLProgram
 {
     int _uColor;

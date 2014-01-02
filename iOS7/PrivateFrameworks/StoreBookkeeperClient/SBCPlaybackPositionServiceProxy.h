@@ -20,7 +20,7 @@
 - (void).cxx_destruct;
 - (oneway void)synchronizeImmediately;
 - (oneway void)synchronizeLocalChangesSoon;
-- (oneway void)noteChangedPlaybackPositionMetadataForTrackPersistentID:(long long)arg1 isCheckpoint:(BOOL)arg2;
+- (oneway void)noteChangedPlaybackPositionMetadataForTrackPersistentID:(long long)arg1 isCheckpoint:(_Bool)arg2;
 - (oneway void)noteChangedNowPlayingTrackPersistentID:(long long)arg1;
 - (oneway void)endUsingPlaybackPositions;
 - (oneway void)beginUsingPlaybackPositions;

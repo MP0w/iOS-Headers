@@ -10,37 +10,38 @@
 
 @class GEOSimpleTileRequester, NSData, NSMutableData, NSString, NSURL, NSURLConnection;
 
+// Not exported
 @interface _GEOTileDownloadOp : NSObject <NSURLConnectionDelegate>
 {
     NSURL *_url;
-    BOOL _requireWiFi;
+    _Bool _requireWiFi;
     NSMutableData *_data;
     NSURLConnection *_conn;
     struct _GEOTileKey _key;
-    BOOL _finished;
+    _Bool _finished;
     NSString *_editionHeader;
     unsigned int _tileEdition;
     NSString *_userAgent;
     NSData *_auditToken;
-    BOOL _useCookies;
+    _Bool _useCookies;
     _GEOTileDownloadOp *_baseTile;
     _GEOTileDownloadOp *_localizationTile;
-    unsigned int _contentLength;
+    unsigned long long _contentLength;
     GEOSimpleTileRequester *_delegate;
-    BOOL _gotData;
+    _Bool _gotData;
     int _attempts;
     double _startTime;
     double _timeout;
 }
 
 @property(nonatomic) double timeout; // @synthesize timeout=_timeout;
-@property(nonatomic) BOOL requireWiFi; // @synthesize requireWiFi=_requireWiFi;
+@property(nonatomic) _Bool requireWiFi; // @synthesize requireWiFi=_requireWiFi;
 @property(nonatomic) GEOSimpleTileRequester *delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) BOOL finished; // @synthesize finished=_finished;
-@property(readonly, nonatomic) unsigned int contentLength; // @synthesize contentLength=_contentLength;
+@property(readonly, nonatomic) _Bool finished; // @synthesize finished=_finished;
+@property(readonly, nonatomic) unsigned long long contentLength; // @synthesize contentLength=_contentLength;
 @property(retain, nonatomic) _GEOTileDownloadOp *localizationTile; // @synthesize localizationTile=_localizationTile;
 @property(retain, nonatomic) _GEOTileDownloadOp *baseTile; // @synthesize baseTile=_baseTile;
-@property(nonatomic) BOOL useCookies; // @synthesize useCookies=_useCookies;
+@property(nonatomic) _Bool useCookies; // @synthesize useCookies=_useCookies;
 @property(retain, nonatomic) NSData *auditToken; // @synthesize auditToken=_auditToken;
 @property(retain, nonatomic) NSString *userAgent; // @synthesize userAgent=_userAgent;
 @property unsigned int tileEdition; // @synthesize tileEdition=_tileEdition;

@@ -8,19 +8,20 @@
 
 @class GEOMapAccess;
 
+// Not exported
 @interface GEOMapTileFinder : GEOMapRequest
 {
     CDStruct_2c43369c _center;
     double _radius;
     id _tileHandler;
-    BOOL _isCanceling;
+    _Bool _isCanceling;
 }
 
 @property(copy, nonatomic) id tileHandler; // @synthesize tileHandler=_tileHandler;
 - (id).cxx_construct;
 - (void)findTiles:(id)arg1;
 - (void)findTiles:(id)arg1 excludingKey:(void)arg2;
-- (void)_fetchDataForKeys:(const unordered_set_2ba6858f *)arg1;
+- (void)_fetchDataForKeys:(const unordered_set_4cb294f7 *)arg1;
 @property(readonly, nonatomic) GEOMapAccess *map;
 - (void)cancel;
 - (void)dealloc;

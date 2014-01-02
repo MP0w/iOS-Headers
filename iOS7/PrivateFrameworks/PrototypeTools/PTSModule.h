@@ -33,7 +33,7 @@
 @property(retain, nonatomic) NSMutableArray *allSections; // @synthesize allSections=_allSections;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
 - (void).cxx_destruct;
-- (BOOL)_shouldEnableSection:(id)arg1;
+- (_Bool)_shouldEnableSection:(id)arg1;
 - (id)_settingsForSection:(id)arg1;
 - (void)_updateEnabledSections;
 - (void)_addSubmodule:(id)arg1;
@@ -48,11 +48,11 @@
 - (void)moveRowAtIndexPath:(id)arg1 toIndexPath:(id)arg2;
 - (id)destinationForRowAtIndexPath:(id)arg1 withProposedDestination:(id)arg2;
 - (void)deleteRowAtIndexPath:(id)arg1;
-- (BOOL)hasEnabledEditableRows;
+- (_Bool)hasEnabledEditableRows;
 - (id)indexPathForRow:(id)arg1;
 - (id)rowAtIndexPath:(id)arg1;
-- (id)sectionAtIndex:(unsigned int)arg1;
-- (unsigned int)numberOfSections;
+- (id)sectionAtIndex:(unsigned long long)arg1;
+- (unsigned long long)numberOfSections;
 - (void)dealloc;
 - (id)initWithContents:(id)arg1;
 

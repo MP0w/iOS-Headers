@@ -11,19 +11,19 @@
 @interface ABMultipleImagePickerViewController : UITableViewController
 {
     NSMutableArray *_imageCellData;
-    unsigned int _selectedImageIndex;
+    unsigned long long _selectedImageIndex;
     id <ABMultipleSourceImagePickerDelegate> _delegate;
 }
 
 @property(nonatomic) id <ABMultipleSourceImagePickerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
-- (void)addImageData:(id)arg1 title:(id)arg2 isSelectedImage:(BOOL)arg3 person:(id)arg4;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
+- (void)addImageData:(id)arg1 title:(id)arg2 isSelectedImage:(_Bool)arg3 person:(id)arg4;
 - (void)viewDidLoad;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1;
+- (id)initWithStyle:(long long)arg1;
 
 @end
 

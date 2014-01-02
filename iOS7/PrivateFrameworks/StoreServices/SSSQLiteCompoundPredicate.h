@@ -16,14 +16,14 @@
     NSArray *_predicates;
 }
 
-+ (id)predicateWithProperty:(id)arg1 values:(id)arg2 comparisonType:(int)arg3;
++ (id)predicateWithProperty:(id)arg1 values:(id)arg2 comparisonType:(long long)arg3;
 + (id)predicateMatchingAnyPredicates:(id)arg1;
 + (id)predicateMatchingAllPredicates:(id)arg1;
 @property(readonly, nonatomic) NSArray *predicates; // @synthesize predicates=_predicates;
 - (id)SQLJoinClausesForEntityClass:(Class)arg1;
 - (id)SQLForEntityClass:(Class)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)bindToStatement:(struct sqlite3_stmt *)arg1 bindingIndex:(inout int *)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;

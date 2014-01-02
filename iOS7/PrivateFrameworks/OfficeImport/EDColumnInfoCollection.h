@@ -8,6 +8,7 @@
 
 @class EDResources, EDWorksheet;
 
+// Not exported
 @interface EDColumnInfoCollection : EDSortedCollection
 {
     EDResources *mResources;

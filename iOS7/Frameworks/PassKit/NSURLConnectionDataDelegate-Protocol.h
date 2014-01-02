@@ -11,7 +11,7 @@
 @optional
 - (void)connectionDidFinishLoading:(id)arg1;
 - (id)connection:(id)arg1 willCacheResponse:(id)arg2;
-- (void)connection:(id)arg1 didSendBodyData:(int)arg2 totalBytesWritten:(int)arg3 totalBytesExpectedToWrite:(int)arg4;
+- (void)connection:(id)arg1 didSendBodyData:(long long)arg2 totalBytesWritten:(long long)arg3 totalBytesExpectedToWrite:(long long)arg4;
 - (id)connection:(id)arg1 needNewBodyStream:(id)arg2;
 - (void)connection:(id)arg1 didReceiveData:(id)arg2;
 - (void)connection:(id)arg1 didReceiveResponse:(id)arg2;

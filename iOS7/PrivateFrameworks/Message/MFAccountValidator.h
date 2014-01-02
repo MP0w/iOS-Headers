@@ -31,15 +31,15 @@
 
 @property(nonatomic) id delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) MFError *error;
-@property(readonly, nonatomic) BOOL accountSupportsSSL;
-@property(readonly, nonatomic) BOOL accountIsValid;
+@property(readonly, nonatomic) _Bool accountSupportsSSL;
+@property(readonly, nonatomic) _Bool accountIsValid;
 @property(readonly, nonatomic) MFMonitoredInvocation *validationInvocation;
-@property(readonly, nonatomic) BOOL performsValidationInBackground;
-- (void)_validateAccount:(id)arg1 withFallbacks:(BOOL)arg2;
-- (BOOL)accountValidationCanceled;
+@property(readonly, nonatomic) _Bool performsValidationInBackground;
+- (void)_validateAccount:(id)arg1 withFallbacks:(_Bool)arg2;
+- (_Bool)accountValidationCanceled;
 - (void)stop;
-- (BOOL)_outgoingServerValid;
-- (BOOL)_incomingServerValid;
+- (_Bool)_outgoingServerValid;
+- (_Bool)_incomingServerValid;
 - (void)_validateAccountWithoutFallbacks:(id)arg1;
 - (void)_validateAccount:(id)arg1;
 - (void)_backgroundValidateAccountFinished:(id)arg1 authSchemes:(id)arg2;
@@ -48,10 +48,10 @@
 @property(readonly, nonatomic) MFAccount *account;
 - (void)validateAccountWithoutFallbacks:(id)arg1 withCompletion:(id)arg2;
 - (void)validateAccountWithoutFallbacks:(id)arg1;
-- (void)validateAccount:(id)arg1 useSSL:(BOOL)arg2 withCompletion:(id)arg3;
-- (void)validateAccount:(id)arg1 useSSL:(BOOL)arg2;
+- (void)validateAccount:(id)arg1 useSSL:(_Bool)arg2 withCompletion:(id)arg3;
+- (void)validateAccount:(id)arg1 useSSL:(_Bool)arg2;
 - (void)dealloc;
-- (id)initWithPerformsValidationInBackground:(BOOL)arg1;
+- (id)initWithPerformsValidationInBackground:(_Bool)arg1;
 - (id)init;
 
 @end

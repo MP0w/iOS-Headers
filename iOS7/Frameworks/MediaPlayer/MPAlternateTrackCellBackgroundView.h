@@ -19,8 +19,8 @@
 - (void).cxx_destruct;
 - (void)layoutSubviews;
 - (void)drawRect:(struct CGRect)arg1;
-- (void)_createBezierPathWithCornerRadius:(float)arg1 bottomRadius:(float)arg2 animating:(BOOL)arg3;
-- (void)setSectionLocation:(int)arg1 animated:(BOOL)arg2;
+- (void)_createBezierPathWithCornerRadius:(double)arg1 bottomRadius:(double)arg2 animating:(_Bool)arg3;
+- (void)setSectionLocation:(int)arg1 animated:(_Bool)arg2;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)_invalidatePaths;
 - (id)initWithFrame:(struct CGRect)arg1;

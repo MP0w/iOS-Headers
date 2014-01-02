@@ -6,12 +6,13 @@
 
 #import <Social/SLService.h>
 
+// Not exported
 @interface SLTudouService : SLService
 {
 }
 
-- (BOOL)isFirstClassService;
-- (int)authenticationStyle;
+- (_Bool)isFirstClassService;
+- (long long)authenticationStyle;
 - (id)accountTypeIdentifier;
 - (id)serviceType;
 

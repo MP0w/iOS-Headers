@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSMutableArray;
 
-@interface GEOMapRegion : PBCodable
+@interface GEOMapRegion : PBCodable <NSCopying>
 {
     double _eastLng;
     double _northLat;
@@ -28,32 +30,23 @@
 @property(nonatomic) double northLat; // @synthesize northLat=_northLat;
 @property(nonatomic) double westLng; // @synthesize westLng=_westLng;
 @property(nonatomic) double southLat; // @synthesize southLat=_southLat;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)vertexAtIndex:(unsigned int)arg1;
-- (unsigned int)vertexsCount;
+- (id)vertexAtIndex:(unsigned long long)arg1;
+- (unsigned long long)vertexsCount;
 - (void)addVertex:(id)arg1;
 - (void)clearVertexs;
-@property(nonatomic) BOOL hasEastLng;
-@property(nonatomic) BOOL hasNorthLat;
-@property(nonatomic) BOOL hasWestLng;
-@property(nonatomic) BOOL hasSouthLat;
+@property(nonatomic) _Bool hasEastLng;
+@property(nonatomic) _Bool hasNorthLat;
+@property(nonatomic) _Bool hasWestLng;
+@property(nonatomic) _Bool hasSouthLat;
 - (void)dealloc;
-- (BOOL)containsCoordinate:(CDStruct_c3b9c2ee)arg1;
-@property(readonly, nonatomic) double spanLng;
-@property(readonly, nonatomic) double spanLat;
-@property(readonly, nonatomic) double centerLng;
-@property(readonly, nonatomic) double centerLat;
-- (void)setSpannedRegion:(CDStruct_e4d5fc44)arg1;
-- (void)setMapRect:(CDStruct_90e2a262)arg1;
-- (id)initWithSpannedRegion:(CDStruct_e4d5fc44)arg1;
-- (id)initWithMapRect:(CDStruct_90e2a262)arg1;
-- (id)initWithLatitude:(double)arg1 longitude:(double)arg2;
 
 @end
 

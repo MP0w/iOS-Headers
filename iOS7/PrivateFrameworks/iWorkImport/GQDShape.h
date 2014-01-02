@@ -10,6 +10,7 @@
 
 @class GQDPath, GQDWPLayoutFrame;
 
+// Not exported
 @interface GQDShape : GQDGraphic <GQDNameMappable>
 {
     GQDPath *mPath;
@@ -19,11 +20,10 @@
 + (const struct StateSpec *)stateForReading;
 - (struct CGPath *)createBezierPath;
 - (id)path;
-- (BOOL)isRectangularAndAxisAlignedToAngle:(float)arg1;
-- (BOOL)isBlank;
+- (_Bool)isRectangularAndAxisAlignedToAngle:(float)arg1;
+- (_Bool)isBlank;
 - (id)layoutFrame;
 - (void)dealloc;
-- (id)initWithGraphic:(id)arg1 path:(id)arg2 geometry:(id)arg3;
 
 @end
 

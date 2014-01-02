@@ -15,13 +15,13 @@
     NSPredicate *_subpredicate;
 }
 
-+ (BOOL)supportsSecureCoding;
-- (void)acceptVisitor:(id)arg1 flags:(unsigned int)arg2;
-- (BOOL)_shouldUseParensWithDescription;
++ (_Bool)supportsSecureCoding;
+- (void)acceptVisitor:(id)arg1 flags:(unsigned long long)arg2;
+- (_Bool)_shouldUseParensWithDescription;
 - (id)_expressionWithSubstitutionVariables:(id)arg1;
 - (id)expressionValueWithObject:(id)arg1 context:(id)arg2;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)predicate;
 - (id)variable;
 - (id)variableExpression;

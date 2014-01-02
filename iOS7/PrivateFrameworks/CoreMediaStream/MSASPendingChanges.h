@@ -21,7 +21,7 @@
 @property(retain, nonatomic) NSMutableSet *pendingAlbumChanges; // @synthesize pendingAlbumChanges=_pendingAlbumChanges;
 @property(retain, nonatomic) NSMutableSet *pendingAlbumGUIDsWithKeyValueChanges; // @synthesize pendingAlbumGUIDsWithKeyValueChanges=_pendingAlbumGUIDsWithKeyValueChanges;
 - (void).cxx_destruct;
-- (BOOL)hasPendingChanges;
+- (_Bool)hasPendingChanges;
 - (void)removePendingSharingInfoChangesForAlbumGUID:(id)arg1;
 - (void)removePendingAssetCollection:(id)arg1 forAlbumGUID:(id)arg2;
 - (void)addPendingAssetCollectionChanges:(id)arg1 forAlbumGUID:(id)arg2;

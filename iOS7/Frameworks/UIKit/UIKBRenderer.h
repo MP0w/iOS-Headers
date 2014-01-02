@@ -6,22 +6,28 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class NSData, NSString, UIImage;
 
+// Not exported
 @interface UIKBRenderer : NSObject
 {
     struct CGContext *_cachingContext;
+    id _cachingContextCompletion;
+    _Bool _opaque;
     struct CGContext *_ctx;
-    float _scale;
-    int _renderFlags;
+    double _scale;
+    long long _renderFlags;
     NSString *_cacheKey;
+    UIImage *_renderedImage;
     struct CGSize _size;
 }
 
-+ (id)rendererWithContext:(struct CGContext *)arg1 withSize:(struct CGSize)arg2 withScale:(float)arg3 renderFlags:(int)arg4;
++ (struct CGContext *)imageContextWithSize:(struct CGSize)arg1 scale:(double)arg2 opaque:(_Bool)arg3 invert:(_Bool)arg4;
++ (id)rendererWithContext:(struct CGContext *)arg1 withSize:(struct CGSize)arg2 withScale:(double)arg3 opaque:(_Bool)arg4 renderFlags:(long long)arg5;
 @property(retain, nonatomic) NSString *cacheKey; // @synthesize cacheKey=_cacheKey;
-@property(readonly, nonatomic) int renderFlags; // @synthesize renderFlags=_renderFlags;
-@property(readonly, nonatomic) float scale; // @synthesize scale=_scale;
+@property(readonly, nonatomic) long long renderFlags; // @synthesize renderFlags=_renderFlags;
+@property(readonly, nonatomic) _Bool opaque; // @synthesize opaque=_opaque;
+@property(readonly, nonatomic) double scale; // @synthesize scale=_scale;
 @property(readonly, nonatomic) struct CGSize size; // @synthesize size=_size;
 - (id)pathForSplitGeometry:(id)arg1;
 - (id)pathForFlickPopupGeometries:(id)arg1;
@@ -32,28 +38,34 @@
 - (void)addPathForFlickGeometry:(id)arg1;
 - (void)addPathForRenderGeometry:(id)arg1;
 - (void)addPathForTraits:(id)arg1 displayRect:(struct CGRect *)arg2;
-- (void)addRoundRect:(struct CGRect)arg1 radius:(float)arg2 corners:(unsigned int)arg3;
+- (void)addRoundRect:(struct CGRect)arg1 radius:(double)arg2 corners:(unsigned long long)arg3;
 - (void)renderKeyPathContents:(id)arg1 withTraits:(id)arg2;
-- (void)drawShiftPath:(BOOL)arg1 weight:(float)arg2 transform:(struct CGAffineTransform)arg3 color:(struct CGColor *)arg4;
-- (void)drawPath:(struct CGPath *)arg1 weight:(float)arg2 transform:(struct CGAffineTransform)arg3 color:(struct CGColor *)arg4 fill:(BOOL)arg5;
+- (void)drawShiftPath:(_Bool)arg1 weight:(double)arg2 transform:(struct CGAffineTransform)arg3 color:(struct CGColor *)arg4;
+- (void)drawPath:(struct CGPath *)arg1 weight:(double)arg2 transform:(struct CGAffineTransform)arg3 color:(struct CGColor *)arg4 fill:(_Bool)arg5;
 - (struct CGPath *)_deleteGlyphPaths;
 - (struct CGPath *)_thickShiftGlyphPath;
 - (struct CGPath *)_thinShiftGlyphPath;
 - (void)renderKeyStringContents:(id)arg1 withTraits:(id)arg2;
-- (BOOL)_drawKeyString:(id)arg1 inRect:(struct CGRect)arg2 withStyle:(id)arg3;
+- (_Bool)_drawKeyString:(id)arg1 inRect:(struct CGRect)arg2 withStyle:(id)arg3;
+- (_Bool)_drawSingleSymbol:(id)arg1 inRect:(struct CGRect)arg2 withStyle:(id)arg3;
 - (void)renderKeyImageContents:(id)arg1 withTraits:(id)arg2;
 - (void)_drawKeyImage:(id)arg1 inRect:(struct CGRect)arg2 withStyle:(id)arg3;
 - (void)_renderVariantsFromKeyContents:(id)arg1 withTraits:(id)arg2;
 - (void)renderKeyContents:(id)arg1 withTraits:(id)arg2;
 - (void)renderBackgroundTraits:(id)arg1;
+- (void)_completeCacheImageWithTraitsIfNecessary:(id)arg1;
+- (_Bool)loadCachedImageForHashString:(id)arg1;
 - (struct CGContext *)_contextForCacheImageSize:(struct CGSize)arg1;
-- (void)renderBackgroundTraits:(id)arg1 allowCaching:(BOOL)arg2;
-- (void)_drawLinearGradient:(id)arg1 inRect:(struct CGRect)arg2 horizontally:(BOOL)arg3;
+- (void)renderBackgroundTraits:(id)arg1 allowCaching:(_Bool)arg2;
+- (void)_drawLinearGradient:(id)arg1 inRect:(struct CGRect)arg2;
 - (void)renderShadowEffect:(id)arg1 withTraits:(id)arg2;
 - (void)renderEdgeEffect:(id)arg1 withTraits:(id)arg2;
+@property(readonly, nonatomic) NSData *contextData;
+@property(readonly, nonatomic) UIImage *renderedImage; // @synthesize renderedImage=_renderedImage;
 @property(readonly, nonatomic) struct CGContext *context; // @synthesize context=_ctx;
+- (void)ensureContext;
 - (void)dealloc;
-- (id)initWithContext:(struct CGContext *)arg1 withSize:(struct CGSize)arg2 withScale:(float)arg3 renderFlags:(int)arg4;
+- (id)initWithContext:(struct CGContext *)arg1 withSize:(struct CGSize)arg2 withScale:(double)arg3 opaque:(_Bool)arg4 renderFlags:(long long)arg5;
 
 @end
 

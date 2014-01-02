@@ -6,6 +6,7 @@
 
 #import <iWorkImport/GQDWPStorage.h>
 
+// Not exported
 @interface GQDWPLayoutStorage : GQDWPStorage
 {
 }

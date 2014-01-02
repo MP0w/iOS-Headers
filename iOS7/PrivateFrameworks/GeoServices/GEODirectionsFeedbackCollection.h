@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class GEOLocation, NSMutableArray;
 
-@interface GEODirectionsFeedbackCollection : PBCodable
+@interface GEODirectionsFeedbackCollection : PBCodable <NSCopying>
 {
     double _endTimeStamp;
     double _startTimeStamp;
@@ -24,18 +26,19 @@
 @property(nonatomic) double startTimeStamp; // @synthesize startTimeStamp=_startTimeStamp;
 @property(retain, nonatomic) GEOLocation *routeCancelledLocation; // @synthesize routeCancelledLocation=_routeCancelledLocation;
 @property(retain, nonatomic) NSMutableArray *directionsFeedbacks; // @synthesize directionsFeedbacks=_directionsFeedbacks;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) BOOL hasEndTimeStamp;
-@property(nonatomic) BOOL hasStartTimeStamp;
-@property(readonly, nonatomic) BOOL hasRouteCancelledLocation;
-- (id)directionsFeedbackAtIndex:(unsigned int)arg1;
-- (unsigned int)directionsFeedbacksCount;
+@property(nonatomic) _Bool hasEndTimeStamp;
+@property(nonatomic) _Bool hasStartTimeStamp;
+@property(readonly, nonatomic) _Bool hasRouteCancelledLocation;
+- (id)directionsFeedbackAtIndex:(unsigned long long)arg1;
+- (unsigned long long)directionsFeedbacksCount;
 - (void)addDirectionsFeedback:(id)arg1;
 - (void)clearDirectionsFeedbacks;
 - (void)dealloc;

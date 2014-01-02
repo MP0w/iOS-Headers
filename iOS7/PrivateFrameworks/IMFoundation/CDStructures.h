@@ -7,8 +7,8 @@
 #pragma mark Named Structures
 
 struct _NSRange {
-    unsigned int _field1;
-    unsigned int _field2;
+    unsigned long long _field1;
+    unsigned long long _field2;
 };
 
 struct _TidyDoc {
@@ -28,7 +28,16 @@ struct sockaddr_in {
 };
 
 struct timeval {
-    int tv_sec;
+    long long tv_sec;
     int tv_usec;
 };
+
+#pragma mark Typedef'd Structures
+
+typedef struct {
+    unsigned long long _field1;
+    id *_field2;
+    unsigned long long *_field3;
+    unsigned long long _field4[5];
+} CDStruct_70511ce9;
 

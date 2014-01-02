@@ -8,6 +8,7 @@
 
 #import "NSCopying-Protocol.h"
 
+// Not exported
 @interface OADLineEnd : OADProperties <NSCopying>
 {
     unsigned char mType;
@@ -19,17 +20,17 @@
 }
 
 + (id)defaultProperties;
-- (BOOL)isLengthOverridden;
+- (_Bool)isLengthOverridden;
 - (void)setLength:(int)arg1;
 - (int)length;
-- (BOOL)isWidthOverridden;
+- (_Bool)isWidthOverridden;
 - (void)setWidth:(int)arg1;
 - (int)width;
-- (BOOL)isTypeOverridden;
+- (_Bool)isTypeOverridden;
 - (void)setType:(int)arg1;
 - (int)type;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)initWithType:(int)arg1 width:(int)arg2 length:(int)arg3;
 - (id)initWithDefaults;
 - (id)copyWithZone:(struct _NSZone *)arg1;

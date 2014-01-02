@@ -12,49 +12,49 @@
 @interface MFMutableData : NSMutableData <NSCopying, NSMutableCopying>
 {
     void *_bytes;
-    unsigned int _length;
-    unsigned int _mappedLength;
-    unsigned int _capacity;
-    unsigned int _threshold;
+    unsigned long long _length;
+    unsigned long long _mappedLength;
+    unsigned long long _capacity;
+    unsigned long long _threshold;
     char *_path;
     int _fd;
-    unsigned int _flushFrom;
-    BOOL _flush;
-    BOOL _immutable;
-    BOOL _vm;
+    unsigned long long _flushFrom;
+    _Bool _flush;
+    _Bool _immutable;
+    _Bool _vm;
 }
 
-- (BOOL)mf_immutable;
-- (void)_mapMutableData:(BOOL)arg1;
-- (void)_flushToDisk:(unsigned int)arg1 capacity:(unsigned int)arg2;
-- (BOOL)writeToURL:(id)arg1 options:(unsigned int)arg2 error:(id *)arg3;
-- (BOOL)writeToFile:(id)arg1 options:(unsigned int)arg2 error:(id *)arg3;
-- (BOOL)writeToURL:(id)arg1 atomically:(BOOL)arg2;
-- (BOOL)writeToFile:(id)arg1 atomically:(BOOL)arg2;
+- (_Bool)mf_immutable;
+- (void)_mapMutableData:(_Bool)arg1;
+- (void)_flushToDisk:(unsigned long long)arg1 capacity:(unsigned long long)arg2;
+- (_Bool)writeToURL:(id)arg1 options:(unsigned long long)arg2 error:(id *)arg3;
+- (_Bool)writeToFile:(id)arg1 options:(unsigned long long)arg2 error:(id *)arg3;
+- (_Bool)writeToURL:(id)arg1 atomically:(_Bool)arg2;
+- (_Bool)writeToFile:(id)arg1 atomically:(_Bool)arg2;
 - (void)mf_makeImmutable;
 - (void)setMappingThreshold:(unsigned int)arg1;
-- (void)setLength:(unsigned int)arg1;
+- (void)setLength:(unsigned long long)arg1;
 - (id)subdataWithRange:(struct _NSRange)arg1;
 - (void)appendData:(id)arg1;
-- (void)appendBytes:(const void *)arg1 length:(unsigned int)arg2;
+- (void)appendBytes:(const void *)arg1 length:(unsigned long long)arg2;
 - (void *)mutableBytes;
 - (const void *)bytes;
-- (unsigned int)length;
+- (unsigned long long)length;
 - (void)dealloc;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithLength:(unsigned int)arg1;
-- (id)initWithCapacity:(unsigned int)arg1;
+- (id)initWithLength:(unsigned long long)arg1;
+- (id)initWithCapacity:(unsigned long long)arg1;
 - (id)initWithData:(id)arg1;
 - (id)initWithContentsOfFile:(id)arg1;
-- (id)initWithContentsOfFile:(id)arg1 options:(unsigned int)arg2 error:(id *)arg3;
+- (id)initWithContentsOfFile:(id)arg1 options:(unsigned long long)arg2 error:(id *)arg3;
 - (id)initWithContentsOfMappedFile:(id)arg1;
 - (id)initWithContentsOfURL:(id)arg1;
-- (id)initWithContentsOfURL:(id)arg1 options:(unsigned int)arg2 error:(id *)arg3;
-- (id)initWithBytesNoCopy:(void *)arg1 length:(unsigned int)arg2 freeWhenDone:(BOOL)arg3;
-- (id)initWithBytesNoCopy:(void *)arg1 length:(unsigned int)arg2;
-- (id)_initWithFd:(int)arg1 path:(id)arg2 mutable:(BOOL)arg3;
-- (id)initWithBytes:(const void *)arg1 length:(unsigned int)arg2;
+- (id)initWithContentsOfURL:(id)arg1 options:(unsigned long long)arg2 error:(id *)arg3;
+- (id)initWithBytesNoCopy:(void *)arg1 length:(unsigned long long)arg2 freeWhenDone:(_Bool)arg3;
+- (id)initWithBytesNoCopy:(void *)arg1 length:(unsigned long long)arg2;
+- (id)_initWithFd:(int)arg1 path:(id)arg2 mutable:(_Bool)arg3;
+- (id)initWithBytes:(const void *)arg1 length:(unsigned long long)arg2;
 - (id)init;
 
 @end

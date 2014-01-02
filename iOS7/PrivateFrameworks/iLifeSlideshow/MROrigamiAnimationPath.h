@@ -9,16 +9,16 @@
 @interface MROrigamiAnimationPath : NSObject
 {
     id *_curves;
-    float *_keyTimes;
-    float *_values;
-    int _length;
+    double *_keyTimes;
+    double *_values;
+    long long _length;
     float _timeFirstAtRestValue;
 }
 
 @property(readonly, nonatomic) float timeFirstAtRestValue; // @synthesize timeFirstAtRestValue=_timeFirstAtRestValue;
 - (float)valueAtTime:(float)arg1;
 - (void)dealloc;
-- (id)initWithControlPoints:(double (*)[4])arg1 keyTimes:(float *)arg2 values:(float *)arg3 length:(int)arg4;
+- (id)initWithControlPoints:(double (*)[4])arg1 keyTimes:(double *)arg2 values:(double *)arg3 length:(long long)arg4;
 - (id)initWithSwingType:(int)arg1;
 
 @end

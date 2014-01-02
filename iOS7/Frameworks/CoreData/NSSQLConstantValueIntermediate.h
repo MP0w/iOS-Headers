@@ -6,6 +6,7 @@
 
 #import <CoreData/NSSQLIntermediate.h>
 
+// Not exported
 @interface NSSQLConstantValueIntermediate : NSSQLIntermediate
 {
     unsigned int _type;
@@ -13,10 +14,10 @@
 }
 
 - (id)generateSQLStringInContext:(id)arg1;
-- (BOOL)_addBindVarForConstVal1:(id)arg1 inContext:(id)arg2;
+- (_Bool)_addBindVarForConstVal1:(id)arg1 inContext:(id)arg2;
 - (unsigned int)sqlTypeForProperty:(id)arg1;
 - (id)propertyAtEndOfKeyPathExpression:(id)arg1;
-- (BOOL)_addBindVarForConstId:(id)arg1 ofType:(unsigned int)arg2 inContext:(id)arg3;
+- (_Bool)_addBindVarForConstId:(id)arg1 ofType:(unsigned int)arg2 inContext:(id)arg3;
 - (void)dealloc;
 - (id)initWithConstantValue:(id)arg1 inScope:(id)arg2;
 - (id)initWithConstantValue:(id)arg1 ofType:(unsigned int)arg2 inScope:(id)arg3;

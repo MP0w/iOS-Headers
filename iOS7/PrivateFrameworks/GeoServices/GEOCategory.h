@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSMutableArray, NSString;
 
-@interface GEOCategory : PBCodable
+@interface GEOCategory : PBCodable <NSCopying>
 {
     long long _geoOntologyId;
     NSString *_alias;
@@ -23,18 +25,19 @@
 @property(nonatomic) long long geoOntologyId; // @synthesize geoOntologyId=_geoOntologyId;
 @property(nonatomic) int level; // @synthesize level=_level;
 @property(retain, nonatomic) NSString *alias; // @synthesize alias=_alias;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)localizedNamesAtIndex:(unsigned int)arg1;
-- (unsigned int)localizedNamesCount;
+- (id)localizedNamesAtIndex:(unsigned long long)arg1;
+- (unsigned long long)localizedNamesCount;
 - (void)addLocalizedNames:(id)arg1;
 - (void)clearLocalizedNames;
-@property(nonatomic) BOOL hasGeoOntologyId;
+@property(nonatomic) _Bool hasGeoOntologyId;
 - (void)dealloc;
 
 @end

@@ -8,6 +8,7 @@
 
 @class GQDDrawable;
 
+// Not exported
 @interface GQDWPAttachment : NSObject
 {
     GQDDrawable *mDrawable;

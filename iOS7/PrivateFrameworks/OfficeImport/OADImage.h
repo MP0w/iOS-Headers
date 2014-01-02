@@ -8,6 +8,7 @@
 
 @class OADMovie, OADOle, OADShapeGeometry;
 
+// Not exported
 @interface OADImage : OADGraphic
 {
     OADShapeGeometry *mGeometry;

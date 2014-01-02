@@ -10,12 +10,12 @@
 
 @interface PUAlbumPickerViewControllerSpec : NSObject
 {
-    unsigned int _supportedInterfaceOrientations;
+    unsigned long long _supportedInterfaceOrientations;
     PUAlbumListViewControllerSpec *_albumListViewControllerSpec;
 }
 
 @property(readonly, nonatomic) PUAlbumListViewControllerSpec *albumListViewControllerSpec; // @synthesize albumListViewControllerSpec=_albumListViewControllerSpec;
-@property(readonly, nonatomic) unsigned int supportedInterfaceOrientations; // @synthesize supportedInterfaceOrientations=_supportedInterfaceOrientations;
+@property(readonly, nonatomic) unsigned long long supportedInterfaceOrientations; // @synthesize supportedInterfaceOrientations=_supportedInterfaceOrientations;
 - (void).cxx_destruct;
 - (void)configureSessionInfo:(id)arg1;
 @property(readonly, nonatomic) PUAbstractAlbumListViewController *newAlbumListViewController;

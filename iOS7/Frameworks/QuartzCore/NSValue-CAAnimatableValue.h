@@ -7,7 +7,7 @@
 #import "NSValue.h"
 
 @interface NSValue (CAAnimatableValue)
-- (float)CA_distanceToValue:(id)arg1;
+- (double)CA_distanceToValue:(id)arg1;
 - (id)CA_roundToIntegerFromValue:(id)arg1;
 - (id)CA_interpolateValues:(id)arg1:(id)arg2:(id)arg3 interpolator:(const struct ValueInterpolator *)arg4;
 - (id)CA_interpolateValue:(id)arg1 byFraction:(float)arg2;

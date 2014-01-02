@@ -6,15 +6,16 @@
 
 #import <UIKit/_UITextServiceSession.h>
 
+// Not exported
 @interface _UIHostedTextServiceSession : _UITextServiceSession
 {
     id <_UIHostedTextServiceSessionDelegate> _delegate;
 }
 
-+ (id)showServiceForText:(id)arg1 type:(int)arg2 fromRect:(struct CGRect)arg3 inView:(id)arg4;
++ (id)showServiceForText:(id)arg1 type:(long long)arg2 fromRect:(struct CGRect)arg3 inView:(id)arg4;
 @property(nonatomic) id <_UIHostedTextServiceSessionDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)remoteSessionDidDismiss;
-- (void)dismissTextServiceAnimated:(BOOL)arg1;
+- (void)dismissTextServiceAnimated:(_Bool)arg1;
 
 @end
 

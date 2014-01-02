@@ -12,13 +12,13 @@
 
 @interface IDSProfileGetDefaultInvitationContext : IDSProfileMessage <NSCopying>
 {
-    BOOL _responseValidated;
+    _Bool _responseValidated;
     NSString *_responseBasePhoneNumber;
     NSString *_responseRegionID;
     NSDictionary *_responseExtraInfo;
 }
 
-@property BOOL responseValidated; // @synthesize responseValidated=_responseValidated;
+@property _Bool responseValidated; // @synthesize responseValidated=_responseValidated;
 @property(copy) NSDictionary *responseExtraInfo; // @synthesize responseExtraInfo=_responseExtraInfo;
 @property(copy) NSString *responseRegionID; // @synthesize responseRegionID=_responseRegionID;
 @property(copy) NSString *responseBasePhoneNumber; // @synthesize responseBasePhoneNumber=_responseBasePhoneNumber;

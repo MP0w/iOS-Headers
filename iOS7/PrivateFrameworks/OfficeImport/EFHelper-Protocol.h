@@ -10,13 +10,13 @@
 - (int)columnNumber;
 - (int)rowNumber;
 - (int)resolveFunctionName:(id)arg1;
-- (BOOL)isCurrentSheet:(id)arg1;
-- (unsigned int)resolveTableColumn:(id)arg1 columnName:(id)arg2;
-- (unsigned int)resolveTableToSheetId:(id)arg1;
+- (_Bool)isCurrentSheet:(id)arg1;
+- (unsigned long long)resolveTableColumn:(id)arg1 columnName:(id)arg2;
+- (unsigned long long)resolveTableToSheetId:(id)arg1;
 - (id)resolveTable:(id)arg1;
-- (unsigned int)resolveFile:(id)arg1;
-- (unsigned int)resolveFirstSheet:(id)arg1 lastSheet:(id)arg2;
-- (unsigned int)resolveSheet:(id)arg1;
-- (unsigned int)resolveName:(id)arg1;
+- (unsigned long long)resolveFile:(id)arg1;
+- (unsigned long long)resolveFirstSheet:(id)arg1 lastSheet:(id)arg2;
+- (unsigned long long)resolveSheet:(id)arg1;
+- (unsigned long long)resolveName:(id)arg1;
 @end
 

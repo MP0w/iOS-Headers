@@ -5,6 +5,6 @@
  */
 
 @protocol VKLRUCacheDelegate
-- (BOOL)cache:(id)arg1 willEvictObject:(id)arg2 forKey:(const struct VKCacheKey *)arg3;
+- (_Bool)cache:(id)arg1 willEvictObject:(id)arg2 forKey:(const struct VKCacheKey *)arg3;
 @end
 

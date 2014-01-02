@@ -6,6 +6,7 @@
 
 #import <OfficeImport/TSUPair.h>
 
+// Not exported
 @interface TSUMutablePair : TSUPair
 {
 }

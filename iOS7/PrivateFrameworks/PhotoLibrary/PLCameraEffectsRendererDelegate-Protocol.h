@@ -7,11 +7,11 @@
 #import "NSObject-Protocol.h"
 
 @protocol PLCameraEffectsRendererDelegate <NSObject>
-- (void)cameraEffectsRenderer:(id)arg1 didFinishTransitionToShowGrid:(BOOL)arg2;
-- (void)cameraEffectsRenderer:(id)arg1 didStartTransitionToShowGrid:(BOOL)arg2 animated:(BOOL)arg3;
-- (void)cameraEffectsRenderer:(id)arg1 willTransitionToShowGrid:(BOOL)arg2;
-- (void)cameraEffectsRenderer:(id)arg1 requestsVideoDataOutputEnabled:(BOOL)arg2;
-- (void)cameraEffectsRenderer:(id)arg1 requestsPreviewLayerEnabled:(BOOL)arg2;
+- (void)cameraEffectsRenderer:(id)arg1 didFinishTransitionToShowGrid:(_Bool)arg2;
+- (void)cameraEffectsRenderer:(id)arg1 didStartTransitionToShowGrid:(_Bool)arg2 animated:(_Bool)arg3;
+- (void)cameraEffectsRenderer:(id)arg1 willTransitionToShowGrid:(_Bool)arg2;
+- (void)cameraEffectsRenderer:(id)arg1 requestsVideoDataOutputEnabled:(_Bool)arg2;
+- (void)cameraEffectsRenderer:(id)arg1 requestsPreviewLayerEnabled:(_Bool)arg2;
 - (void)cameraEffectsRendererDidStartPreview:(id)arg1;
 @end
 

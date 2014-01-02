@@ -8,6 +8,7 @@
 
 #import "EDFormulaBuilding-Protocol.h"
 
+// Not exported
 @interface EDFormula : NSObject <EDFormulaBuilding>
 {
     struct __CFData *mPackedData;
@@ -15,19 +16,19 @@
 
 + (id)messageForWarning:(int)arg1;
 + (id)formula;
-- (BOOL)shrinkSpanningRefAtArgIndex:(unsigned int)arg1;
-- (void)markLastTokenAsSpanningRefVertically:(BOOL)arg1 withMin:(unsigned short)arg2 andMax:(unsigned short)arg3;
+- (_Bool)shrinkSpanningRefAtArgIndex:(unsigned int)arg1;
+- (void)markLastTokenAsSpanningRefVertically:(_Bool)arg1 withMin:(unsigned short)arg2 andMax:(unsigned short)arg3;
 - (void)markLastTokenAsDuration;
-- (id)lastTokenRefOrArea3dLinkRefIsValid:(char *)arg1 withEDLinks:(id)arg2;
-- (BOOL)convertRefs:(unsigned int)arg1 toTypes:(int *)arg2;
-- (BOOL)convertLastRefsToArea;
-- (BOOL)convertToIntersect:(unsigned int)arg1;
-- (BOOL)convertToList:(unsigned int)arg1 withFinalParen:(BOOL)arg2;
-- (BOOL)convertToList:(unsigned int)arg1;
+- (id)lastTokenRefOrArea3dLinkRefIsValid:(_Bool *)arg1 withEDLinks:(id)arg2;
+- (_Bool)convertRefs:(unsigned int)arg1 toTypes:(int *)arg2;
+- (_Bool)convertLastRefsToArea;
+- (_Bool)convertToIntersect:(unsigned int)arg1;
+- (_Bool)convertToList:(unsigned int)arg1 withFinalParen:(_Bool)arg2;
+- (_Bool)convertToList:(unsigned int)arg1;
 - (char *)setExtendedDataForLastTokenAtIndex:(unsigned int)arg1 length:(unsigned int)arg2;
-- (BOOL)addArrayWithCol:(int)arg1 andRow:(int)arg2;
-- (BOOL)insertExternalName:(unsigned int)arg1 withLink:(unsigned int)arg2 atIndex:(unsigned int)arg3;
-- (id)saveArgs:(unsigned int)arg1 andDelete:(BOOL)arg2;
+- (_Bool)addArrayWithCol:(int)arg1 andRow:(int)arg2;
+- (_Bool)insertExternalName:(unsigned long long)arg1 withLink:(unsigned long long)arg2 atIndex:(unsigned int)arg3;
+- (id)saveArgs:(unsigned int)arg1 andDelete:(_Bool)arg2;
 - (unsigned int)firstTokenIndexForArgAtIndex:(unsigned int)arg1;
 - (_Bool)isBaseFormula;
 - (_Bool)isSharedFormula;
@@ -67,9 +68,6 @@
 - (void)dealloc;
 - (id)initWithFormula:(id)arg1;
 - (id)init;
-- (struct EDToken *)tokenAtIndex:(unsigned int)arg1;
-- (void)archiveByAppendingToMutableData:(struct __CFData *)arg1;
-- (void)unarchiveFromData:(struct __CFData *)arg1 offset:(unsigned int *)arg2;
 
 @end
 

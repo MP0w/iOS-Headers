@@ -6,16 +6,17 @@
 
 #import "UIView.h"
 
-@class NSMutableArray;
+@class NSMutableArray, UIImageView;
 
 @interface SBNewsstandBackgroundView : UIView
 {
     NSMutableArray *_shelfViews;
+    UIImageView *_overlayGradientView;
     UIView *_bottomView;
 }
 
-+ (float)shelfHeightForOrientation:(int)arg1;
-+ (float)baselineForShelfAtIndex:(unsigned int)arg1 withOrientation:(int)arg2;
++ (double)shelfHeightForOrientation:(long long)arg1;
++ (double)baselineForShelfAtIndex:(unsigned long long)arg1 withOrientation:(long long)arg2;
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

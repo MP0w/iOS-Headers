@@ -10,6 +10,7 @@
 
 @class UIImage;
 
+// Not exported
 @interface _UIImageSerializationWrapper : NSObject <NSCoding>
 {
     UIImage *_image;

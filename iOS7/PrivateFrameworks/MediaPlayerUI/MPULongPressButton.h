@@ -11,8 +11,7 @@
 @interface MPULongPressButton : UIButton
 {
     NSObject<OS_dispatch_source> *_longPressTimer;
-    BOOL _longPress;
-    unsigned int _touchCount;
+    _Bool _longPress;
     double _minimumPressDuration;
 }
 
@@ -22,7 +21,7 @@
 - (void)_longPressTimerAction;
 - (void)endTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (void)cancelTrackingWithEvent:(id)arg1;
-- (BOOL)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
+- (_Bool)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

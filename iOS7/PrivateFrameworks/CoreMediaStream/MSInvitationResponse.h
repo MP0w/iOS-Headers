@@ -11,14 +11,14 @@
 @interface MSInvitationResponse : NSObject
 {
     MSShare *_invitation;
-    BOOL _accept;
+    _Bool _accept;
 }
 
-+ (id)responseWithInvitation:(id)arg1 accept:(BOOL)arg2;
-@property(nonatomic) BOOL accept; // @synthesize accept=_accept;
++ (id)responseWithInvitation:(id)arg1 accept:(_Bool)arg2;
+@property(nonatomic) _Bool accept; // @synthesize accept=_accept;
 @property(retain, nonatomic) MSShare *invitation; // @synthesize invitation=_invitation;
 - (void).cxx_destruct;
-- (id)initWithInvitation:(id)arg1 accept:(BOOL)arg2;
+- (id)initWithInvitation:(id)arg1 accept:(_Bool)arg2;
 
 @end
 

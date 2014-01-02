@@ -8,37 +8,39 @@
 
 @interface ABCapabilitiesManager : NSObject
 {
-    BOOL _isListeningToIDSServiceAvailability;
+    _Bool _isListeningToIDSServiceAvailability;
 }
 
 + (void)_setDefaultCapabilitiesManager:(id)arg1;
 + (id)defaultCapabilitiesManager;
-- (BOOL)_isAppAvailable:(id)arg1;
-- (BOOL)isFaceTimeAppAvailable;
-- (BOOL)isMessagesAppAvailable;
-- (BOOL)isMailAppAvailable;
-- (BOOL)isPhoneAppAvailable;
-- (BOOL)isWeiboServiceAvailable;
-- (BOOL)isTwitterServiceAvailable;
-- (BOOL)hasAdditionalTextTones;
+- (_Bool)_isAppAvailable:(id)arg1;
+- (_Bool)isFaceTimeAppAvailable;
+- (_Bool)isMessagesAppAvailable;
+- (_Bool)isMailAppAvailable;
+- (_Bool)isPhoneAppAvailable;
+- (_Bool)isFaceTimeAudioAvailable;
+- (_Bool)isWeiboServiceAvailable;
+- (_Bool)isTwitterServiceAvailable;
+- (_Bool)hasAdditionalTextTones;
 - (void)_startListeningToIDSServiceAvailabilityIfNecessary;
 - (void)removeIDSServiceAvailabilityListener:(id)arg1;
 - (void)addIDSServiceAvailabilityListener:(id)arg1 selector:(SEL)arg2;
 - (id)conferenceURLForDestinationID:(id)arg1;
 - (id)conferenceURLForPhoneNumber:(id)arg1;
-- (BOOL)hasPreviouslyConferencedWithID:(id)arg1;
-- (BOOL)isConferencingEverGonnaBeAvailable;
-- (BOOL)isConferencingAvailable;
-- (BOOL)isMadridConfigured;
-- (BOOL)isMMSConfigured;
-- (BOOL)isEmailConfigured;
-- (BOOL)hasCameraCapability;
-- (BOOL)hasVibratorCapability;
-- (BOOL)hasSMSCapability;
-- (BOOL)hasCellularDataCapability;
-- (BOOL)hasCellularTelephonyCapability;
-- (BOOL)hasTelephonyCapability;
-- (BOOL)isSensitiveUIAllowed;
+- (_Bool)hasPreviouslyConferencedWithID:(id)arg1;
+- (_Bool)isConferencingEverGonnaBeAvailable;
+- (_Bool)isConferencingAvailable;
+- (_Bool)isMadridConfigured;
+- (_Bool)isMMSConfigured;
+- (_Bool)isEmailConfigured;
+- (_Bool)hasCameraCapability;
+- (_Bool)hasSiriCapability;
+- (_Bool)hasVibratorCapability;
+- (_Bool)hasSMSCapability;
+- (_Bool)hasCellularDataCapability;
+- (_Bool)hasCellularTelephonyCapability;
+- (_Bool)hasTelephonyCapability;
+- (_Bool)isSensitiveUIAllowed;
 - (void)dealloc;
 
 @end

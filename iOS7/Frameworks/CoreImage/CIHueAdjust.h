@@ -8,6 +8,7 @@
 
 @class CIImage, NSNumber;
 
+// Not exported
 @interface CIHueAdjust : CIFilter
 {
     CIImage *inputImage;

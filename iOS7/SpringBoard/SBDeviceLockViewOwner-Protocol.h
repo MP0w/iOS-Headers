@@ -10,11 +10,11 @@
 
 @optional
 - (void)animateToEmergencyCall;
-- (BOOL)shouldUseTransparentStatusBar;
-- (BOOL)isDisplayingErrorStatus;
+- (_Bool)shouldUseTransparentStatusBar;
+- (_Bool)isDisplayingErrorStatus;
 - (void)deviceUnlockFailed;
 - (void)deviceUnlockSucceeded;
-- (void)setShowingDeviceLock:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)setShowingDeviceLock:(BOOL)arg1;
+- (void)setShowingDeviceLock:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)setShowingDeviceLock:(_Bool)arg1;
 @end
 

@@ -8,16 +8,17 @@
 
 @class ALAssetsLibrary, NSHashTable, NSMutableDictionary, PLPhotoLibrary;
 
+// Not exported
 @interface ALAssetsLibraryPrivate : NSObject
 {
     ALAssetsLibrary *_assetsLibrary;
     PLPhotoLibrary *_photoLibrary;
     NSHashTable *_assetGroupInternals;
     NSMutableDictionary *_groupURLSByAlbumOID;
-    BOOL _isValid;
+    _Bool _isValid;
 }
 
-@property(nonatomic) BOOL isValid; // @synthesize isValid=_isValid;
+@property(nonatomic) _Bool isValid; // @synthesize isValid=_isValid;
 @property(nonatomic) ALAssetsLibrary *assetsLibrary; // @synthesize assetsLibrary=_assetsLibrary;
 - (void)dealloc;
 - (void)registerAlbum:(struct NSObject *)arg1 assetGroupPrivate:(id)arg2;

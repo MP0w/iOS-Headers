@@ -20,7 +20,7 @@
 @property(nonatomic) NSObject<OS_xpc_object> *connection; // @synthesize connection=_connection;
 @property(copy, nonatomic) NSString *tag; // @synthesize tag=_tag;
 @property(nonatomic) id <WebInspectorXPCWrapperDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) BOOL available;
+@property(readonly, nonatomic) _Bool available;
 - (void)barrierWithCompletionHandler:(id)arg1;
 - (void)sendMessage:(id)arg1 userInfo:(id)arg2 replyHandler:(id)arg3;
 - (void)sendMessage:(id)arg1 userInfo:(id)arg2;

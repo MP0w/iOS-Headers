@@ -8,6 +8,7 @@
 
 @class CIImage;
 
+// Not exported
 @interface CILumaMap : CIFilter
 {
     CIImage *inputImage;

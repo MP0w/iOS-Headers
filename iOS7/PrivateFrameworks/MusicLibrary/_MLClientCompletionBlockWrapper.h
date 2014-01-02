@@ -6,17 +6,21 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface _MLClientCompletionBlockWrapper : NSObject
 {
     id _libraryCompletionHandler;
     id _transactionCompletionHandler;
     id _queryCompletionHandler;
+    id _progressCompletionHandler;
 }
 
 + (id)emptyClientCompletionBlock;
++ (id)clientCompletionBlockWithImportStatusHandler:(id)arg1;
 + (id)clientCompletionBlockWithQueryResultHandler:(id)arg1;
 + (id)clientCompletionBlockWithTransactionHandler:(id)arg1;
 + (id)clientCompletionBlockWithLibraryHandler:(id)arg1;
+@property(copy, nonatomic) id progressCompletionHandler; // @synthesize progressCompletionHandler=_progressCompletionHandler;
 @property(copy, nonatomic) id queryCompletionHandler; // @synthesize queryCompletionHandler=_queryCompletionHandler;
 @property(copy, nonatomic) id transactionCompletionHandler; // @synthesize transactionCompletionHandler=_transactionCompletionHandler;
 @property(copy, nonatomic) id libraryCompletionHandler; // @synthesize libraryCompletionHandler=_libraryCompletionHandler;

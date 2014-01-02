@@ -8,6 +8,7 @@
 
 @class TSUImage;
 
+// Not exported
 @interface MFPhoneBitmap : MFBitmap
 {
     TSUImage *m_image;

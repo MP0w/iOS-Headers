@@ -12,7 +12,7 @@
 }
 
 @property(nonatomic) int sharingInvitationResponse; // @synthesize sharingInvitationResponse=_sharingInvitationResponse;
-- (BOOL)needsAlert;
+- (_Bool)needsAlert;
 - (id)calendarFromEventStore:(id)arg1;
 - (id)initWithType:(int)arg1;
 

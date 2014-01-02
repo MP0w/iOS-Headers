@@ -14,7 +14,7 @@
 }
 
 @property(nonatomic) PLCameraView *cameraView; // @synthesize cameraView;
-- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 
 @end
 

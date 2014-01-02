@@ -6,17 +6,18 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface CPEnumerationMap : NSObject
 {
     struct __CFDictionary *m_valueToString;
     struct __CFDictionary *m_stringToValue;
-    BOOL m_caseSensitive;
+    _Bool m_caseSensitive;
 }
 
 - (id)stringForValue:(int)arg1;
-- (long)valueForString:(id)arg1;
+- (long long)valueForString:(id)arg1;
 - (void)dealloc;
-- (id)initWithStructs:(const struct CPEnumerationStruct *)arg1 count:(int)arg2 caseSensitive:(BOOL)arg3;
+- (id)initWithStructs:(const struct CPEnumerationStruct *)arg1 count:(int)arg2 caseSensitive:(_Bool)arg3;
 - (id)initWithStructs:(const struct CPEnumerationStruct *)arg1 count:(int)arg2;
 
 @end

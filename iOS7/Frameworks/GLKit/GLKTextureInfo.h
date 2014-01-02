@@ -16,10 +16,10 @@
     unsigned int height;
     int alphaState;
     int textureOrigin;
-    BOOL containsMipmaps;
+    _Bool containsMipmaps;
 }
 
-@property(readonly) BOOL containsMipmaps; // @synthesize containsMipmaps;
+@property(readonly) _Bool containsMipmaps; // @synthesize containsMipmaps;
 @property(readonly) int textureOrigin; // @synthesize textureOrigin;
 @property(readonly) int alphaState; // @synthesize alphaState;
 @property(readonly) unsigned int height; // @synthesize height;

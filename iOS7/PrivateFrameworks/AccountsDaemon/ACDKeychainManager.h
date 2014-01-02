@@ -12,9 +12,9 @@
 
 + (void)_removeAllItemsForUsername:(id)arg1;
 + (void)_removeAllItemsForService:(id)arg1;
-+ (BOOL)_removeItemForService:(id)arg1 username:(id)arg2 accessGroup:(id)arg3 error:(id *)arg4;
-+ (void)_setItem:(id)arg1 forServiceName:(id)arg2 username:(id)arg3 accessGroup:(id)arg4 accessibility:(id)arg5 syncable:(BOOL)arg6 error:(id *)arg7;
-+ (BOOL)_shouldSyncCredentialForAccountType:(id)arg1;
++ (_Bool)_removeItemForService:(id)arg1 username:(id)arg2 accessGroup:(id)arg3 error:(id *)arg4;
++ (void)_setItem:(id)arg1 forServiceName:(id)arg2 username:(id)arg3 accessGroup:(id)arg4 accessibility:(id)arg5 syncable:(_Bool)arg6 error:(id *)arg7;
++ (_Bool)_shouldSyncCredentialForAccountType:(id)arg1;
 + (id)_itemForServiceName:(id)arg1 username:(id)arg2 accessGroup:(id)arg3 error:(id *)arg4;
 + (void)_migrateCredential:(id)arg1 forAccount:(id)arg2 clientID:(id)arg3;
 + (id)_keychainServiceNameForClientID:(id)arg1 accountTypeIdentifier:(id)arg2 key:(id)arg3;
@@ -28,7 +28,7 @@
 + (void)removeCredentialForAccount:(id)arg1;
 + (void)_setNonPersistentCredentialTimerForAccount:(id)arg1;
 + (void)_saveCredential:(id)arg1 forAccount:(id)arg2 clientID:(id)arg3 error:(id *)arg4;
-+ (void)_setCredentialForAccount:(id)arg1 clientID:(id)arg2 handleCredentialItemRemovals:(BOOL)arg3 error:(id *)arg4;
++ (void)_setCredentialForAccount:(id)arg1 clientID:(id)arg2 handleCredentialItemRemovals:(_Bool)arg3 error:(id *)arg4;
 + (void)setCredentialForNewAccount:(id)arg1 clientID:(id)arg2 error:(id *)arg3;
 + (void)setCredentialForAccount:(id)arg1 clientID:(id)arg2 error:(id *)arg3;
 + (void)setCredentialForAccount:(id)arg1 error:(id *)arg2;

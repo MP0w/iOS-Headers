@@ -17,7 +17,7 @@
 
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSArray *events;
-@property(readonly, nonatomic) unsigned int extendedLogDataStringEncoding;
+@property(readonly, nonatomic) unsigned long long extendedLogDataStringEncoding;
 @property(readonly, nonatomic) NSData *extendedLogData;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)_initWithAVItemErrorLog:(id)arg1;

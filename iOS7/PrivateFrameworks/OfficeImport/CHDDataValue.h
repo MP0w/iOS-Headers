@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface CHDDataValue : NSObject
 {
     struct CHDDataPoint mDataPoint;
 }
 
-+ (id)dataValueWithIndex:(int)arg1 value:(struct EDValue *)arg2;
++ (id)dataValueWithIndex:(long long)arg1 value:(struct EDValue *)arg2;
 + (id)dataValue;
 - (id).cxx_construct;
 - (void).cxx_destruct;
@@ -21,12 +22,10 @@
 - (struct CHDDataPoint *)dataPoint;
 - (void)setValue:(struct EDValue *)arg1;
 - (struct EDValue *)value;
-- (void)setIndex:(int)arg1;
-- (int)index;
-- (id)initWithIndex:(int)arg1 value:(struct EDValue *)arg2;
+- (void)setIndex:(long long)arg1;
+- (long long)index;
+- (id)initWithIndex:(long long)arg1 value:(struct EDValue *)arg2;
 - (id)init;
-- (void)setContentFormatId:(unsigned int)arg1;
-- (unsigned int)contentFormatId;
 
 @end
 

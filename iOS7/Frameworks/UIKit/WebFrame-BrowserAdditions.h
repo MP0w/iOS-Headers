@@ -7,12 +7,6 @@
 #import "WebFrame.h"
 
 @interface WebFrame (BrowserAdditions)
-- (BOOL)isOrphaned;
-- (BOOL)containsAnyFocusedFormFields;
-- (BOOL)containsAnyFormFields;
-- (id)allFormFields;
-- (void)_collectFormFieldElementsIntoArray:(id)arg1 upToLimit:(unsigned int)arg2 onlyIncludeFocusedElements:(BOOL)arg3;
-- (id)_topFrame;
-- (BOOL)isMainFrame;
+- (_Bool)isMainFrame;
 @end
 

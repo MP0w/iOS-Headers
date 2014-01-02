@@ -8,48 +8,57 @@
 
 #import "UITableViewDataSource-Protocol.h"
 #import "UITableViewDelegate-Protocol.h"
+#import "UITextViewDelegate-Protocol.h"
 
-@class NSArray, NSMutableDictionary, NSTimer, PKLinkedAppView, PKSettingTableCell, UIAlertView, UIButton, UILabel, UIRefreshControl, UITableView;
+@class BluetoothManager, NSArray, NSMutableDictionary, NSTimer, PKLinkedAppView, PKSettingTableCell, UIAlertView, UIButton, UILabel, UIRefreshControl, UITableView, UIView;
 
-@interface PKPassBackFaceView : PKPassFaceView <UITableViewDataSource, UITableViewDelegate>
+@interface PKPassBackFaceView : PKPassFaceView <UITableViewDataSource, UITableViewDelegate, UITextViewDelegate>
 {
     UIRefreshControl *_refreshControl;
-    BOOL _tall;
+    _Bool _tall;
     UILabel *_updateDateLabel;
     UIButton *_doneButton;
     PKLinkedAppView *_linkedApp;
     UIAlertView *_storeDemoRefuseDeleteAlert;
+    UIView *_locationHelpView;
     UITableView *_bodyTable;
     PKSettingTableCell *_automaticUpdates;
     PKSettingTableCell *_showInLockScreen;
     NSArray *_rowCountBySection;
-    unsigned int _settingsSection;
-    unsigned int _linkedAppSection;
-    unsigned int _fieldsSection;
+    unsigned long long _settingsSection;
+    unsigned long long _linkedAppSection;
+    unsigned long long _fieldsSection;
     NSMutableDictionary *_fieldCellsByIndexPath;
     NSTimer *_refreshTimeoutTimer;
-    BOOL _showsDelete;
-    BOOL _showsLinkedApp;
-    BOOL _showsSettings;
-    BOOL _showsLinks;
+    BluetoothManager *_btManager;
+    _Bool _isBluetoothEnabled;
+    _Bool _isLocationEnabled;
+    _Bool _isWifiEnabled;
+    _Bool _showsDelete;
+    _Bool _showsLinkedApp;
+    _Bool _showsSettings;
+    _Bool _showsLinks;
 }
 
++ (_Bool)isWifiEnabled;
++ (id)_linkColor;
++ (id)_linkTextAttributes;
 @property(retain, nonatomic) UIAlertView *storeDemoRefuseDeleteAlert; // @synthesize storeDemoRefuseDeleteAlert=_storeDemoRefuseDeleteAlert;
 @property(nonatomic) PKLinkedAppView *linkedApp; // @synthesize linkedApp=_linkedApp;
-@property(nonatomic) BOOL showsLinks; // @synthesize showsLinks=_showsLinks;
-@property(nonatomic) BOOL showsSettings; // @synthesize showsSettings=_showsSettings;
-@property(nonatomic) BOOL showsLinkedApp; // @synthesize showsLinkedApp=_showsLinkedApp;
-@property(nonatomic) BOOL showsDelete; // @synthesize showsDelete=_showsDelete;
+@property(nonatomic) _Bool showsLinks; // @synthesize showsLinks=_showsLinks;
+@property(nonatomic) _Bool showsSettings; // @synthesize showsSettings=_showsSettings;
+@property(nonatomic) _Bool showsLinkedApp; // @synthesize showsLinkedApp=_showsLinkedApp;
+@property(nonatomic) _Bool showsDelete; // @synthesize showsDelete=_showsDelete;
 - (void)layoutSubviews;
 - (void)pushSettingsFromViewToModel;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (void)_deleteButtonPressed:(id)arg1;
 - (void)applicationDidEnterBackground:(id)arg1;
 - (void)unregisterForEnterBackgroundNotification;
 - (void)registerForEnterBackgroundNotification;
-- (BOOL)showBackgroundMatte;
-- (BOOL)showUpdateDateLabel;
-- (BOOL)deleteEnabled;
+- (_Bool)showBackgroundMatte;
+- (_Bool)showUpdateDateLabel;
+- (_Bool)deleteEnabled;
 - (void)willMoveToSuperview:(id)arg1;
 - (void)_doneButtonPressed:(id)arg1;
 - (id)_relevantBuckets;
@@ -57,25 +66,33 @@
 - (id)_formattedUpdateDate:(id)arg1;
 - (id)_updateLabelAttributedStringWithString:(id)arg1;
 - (void)setupRefreshControl:(id)arg1;
-- (BOOL)shouldAllowRefresh;
+- (_Bool)shouldAllowRefresh;
 - (void)_refreshTimeoutFired;
 - (void)refreshControlValueChanged:(id)arg1;
 - (id)_fieldForIndexPath:(id)arg1;
 - (id)_fieldCellForIndexPath:(id)arg1;
-- (id)_settingsCellForRow:(unsigned int)arg1;
-- (BOOL)_settingsAvailable;
-- (BOOL)_linkedAppAvailable;
-- (float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2;
-- (float)tableView:(id)arg1 estimatedHeightForRowAtIndexPath:(id)arg2;
-- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
-- (id)tableView:(id)arg1 titleForFooterInSection:(int)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
+- (id)_settingsCellForRow:(unsigned long long)arg1;
+- (_Bool)_settingsAvailable;
+- (_Bool)_linkedAppAvailable;
+- (double)tableView:(id)arg1 heightForHeaderInSection:(long long)arg2;
+- (double)tableView:(id)arg1 estimatedHeightForRowAtIndexPath:(id)arg2;
+- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (id)tableView:(id)arg1 viewForFooterInSection:(long long)arg2;
+- (double)tableView:(id)arg1 heightForFooterInSection:(long long)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (_Bool)textView:(id)arg1 shouldInteractWithURL:(id)arg2 inRange:(struct _NSRange)arg3;
+- (id)_locationHelpViewForTableView:(id)arg1;
+- (id)_locationRelevancyHelpText;
+- (void)didMoveToWindow;
+- (void)_bluetoothPowerChanged:(id)arg1;
+- (_Bool)_isBluetoothEnabled;
+- (void)_wifiChanged:(id)arg1;
 - (struct CGSize)contentSize;
-- (BOOL)isFrontFace;
+- (_Bool)isFrontFace;
 - (void)dealloc;
-- (id)initTall:(BOOL)arg1;
+- (id)initTall:(_Bool)arg1;
 
 @end
 

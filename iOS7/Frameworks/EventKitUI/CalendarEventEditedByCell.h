@@ -20,10 +20,10 @@
 - (void).cxx_destruct;
 - (void)layoutSubviews;
 - (void)_checkValueWidth;
-- (BOOL)detailText2IsPlaceholder;
-- (BOOL)detailTextIsPlaceholder;
-- (void)setDetailText2IsPlaceholder:(BOOL)arg1;
-- (void)setDetailTextIsPlaceholder:(BOOL)arg1;
+- (_Bool)detailText2IsPlaceholder;
+- (_Bool)detailTextIsPlaceholder;
+- (void)setDetailText2IsPlaceholder:(_Bool)arg1;
+- (void)setDetailTextIsPlaceholder:(_Bool)arg1;
 @property(readonly, nonatomic) UILabel *detailTextLabel2;
 @property(readonly, nonatomic) UILabel *textLabel2;
 - (void)_copyTextLabelAttributesFrom:(id)arg1 to:(id)arg2;

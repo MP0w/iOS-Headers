@@ -6,19 +6,23 @@
 
 #import <StoreKitUI/SKUITableViewCell.h>
 
+#import "SKUICellLayoutParentView-Protocol.h"
+
 @class SKUIItemCellLayout;
 
-@interface SKUIItemTableViewCell : SKUITableViewCell
+@interface SKUIItemTableViewCell : SKUITableViewCell <SKUICellLayoutParentView>
 {
+    _Bool _layoutNeedsLayout;
 }
 
 - (void)setBackgroundColor:(id)arg1;
 - (void)layoutSubviews;
-- (void)setSelected:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)setHighlighted:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)setSelected:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)setHighlighted:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)prepareForReuse;
+- (void)setCellLayoutNeedsLayout;
 @property(readonly, nonatomic) SKUIItemCellLayout *layout;
-- (void)configureForItem:(id)arg1 rowIndex:(int)arg2;
+- (void)configureForItem:(id)arg1 rowIndex:(long long)arg2;
 
 @end
 

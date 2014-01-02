@@ -10,11 +10,12 @@
 
 @class EDResources, EDRunsCollection;
 
+// Not exported
 @interface CHDDefaultTextProperty : NSObject <EDKeyedObject>
 {
     EDResources *mResources;
     int mDefaultTextType;
-    unsigned int mContentFormatId;
+    unsigned long long mContentFormatId;
     EDRunsCollection *mRuns;
     int mLabelPosition;
     _Bool mShowCategoryLabel;
@@ -34,7 +35,7 @@
 - (_Bool)isShowCategoryLabel;
 - (void)setLabelPosition:(int)arg1;
 - (int)labelPosition;
-- (int)key;
+- (long long)key;
 - (void)setContentFormat:(id)arg1;
 - (id)contentFormat;
 - (void)setRuns:(id)arg1;
@@ -43,8 +44,6 @@
 - (int)defaultTextType;
 - (void)dealloc;
 - (id)initWithResources:(id)arg1;
-- (void)setContentFormatId:(unsigned int)arg1;
-- (unsigned int)contentFormatId;
 
 @end
 

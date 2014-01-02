@@ -7,7 +7,9 @@
 #import "NSObject-Protocol.h"
 
 @protocol RCMemoPlaybackViewControllerDelegate <NSObject>
+- (void)audioMemoViewController:(id)arg1 wantToRenameCurrentLabel:(id)arg2 completionBlock:(id)arg3;
 - (void)audioMemoViewControllerDidUpdateNavigationItem:(id)arg1;
+- (void)audioMemoViewControllerDidChangeDismissOptions:(id)arg1;
 - (void)audioMemoViewControllerDidFinish:(id)arg1;
 @end
 

@@ -11,18 +11,18 @@
 @interface RemoteUITableViewCell : UITableViewCell
 {
     UIImageView *_invalidRowView;
-    BOOL _forceFullDetailLabel;
-    BOOL _leftAlignDetailLabel;
-    int _remoteUIAccessoryType;
+    _Bool _forceFullDetailLabel;
+    _Bool _leftAlignDetailLabel;
+    long long _remoteUIAccessoryType;
     UIView *_remoteUIAccessoryView;
 }
 
 @property(retain, nonatomic) UIView *remoteUIAccessoryView; // @synthesize remoteUIAccessoryView=_remoteUIAccessoryView;
-@property(nonatomic) int remoteUIAccessoryType; // @synthesize remoteUIAccessoryType=_remoteUIAccessoryType;
-@property(nonatomic) BOOL leftAlignDetailLabel; // @synthesize leftAlignDetailLabel=_leftAlignDetailLabel;
-@property(nonatomic) BOOL forceFullSizeDetailLabel; // @synthesize forceFullSizeDetailLabel=_forceFullDetailLabel;
+@property(nonatomic) long long remoteUIAccessoryType; // @synthesize remoteUIAccessoryType=_remoteUIAccessoryType;
+@property(nonatomic) _Bool leftAlignDetailLabel; // @synthesize leftAlignDetailLabel=_leftAlignDetailLabel;
+@property(nonatomic) _Bool forceFullSizeDetailLabel; // @synthesize forceFullSizeDetailLabel=_forceFullDetailLabel;
 - (void)dealloc;
-- (void)setRowInvalid:(BOOL)arg1;
+- (void)setRowInvalid:(_Bool)arg1;
 - (void)layoutSubviews;
 - (void)_accessoriesChanged;
 

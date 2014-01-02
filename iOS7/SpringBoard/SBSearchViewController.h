@@ -7,14 +7,15 @@
 #import "UIViewController.h"
 
 #import "SBSearchGestureObserver-Protocol.h"
+#import "SBSearchHeaderDelegate-Protocol.h"
 #import "SPSearchAgentDelegate-Protocol.h"
+#import "UISearchBarDelegate-Protocol.h"
 #import "UITableViewDataSource-Protocol.h"
 #import "UITableViewDelegate-Protocol.h"
-#import "UITextFieldDelegate-Protocol.h"
 
 @class SBSearchHeader, SBSearchResultsBackdropView, UIImage, UILabel, UIPanGestureRecognizer, UITableView, UITapGestureRecognizer, UIView;
 
-@interface SBSearchViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, SPSearchAgentDelegate, SBSearchGestureObserver, UITextFieldDelegate>
+@interface SBSearchViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, SPSearchAgentDelegate, SBSearchGestureObserver, UISearchBarDelegate, SBSearchHeaderDelegate>
 {
     SBSearchHeader *_searchHeader;
     SBSearchResultsBackdropView *_tableBackdrop;
@@ -25,49 +26,52 @@
     UIPanGestureRecognizer *_panRecognizer;
     void *_addressBook;
     UIImage *_placeHolderImages[15];
-    BOOL _hasResults;
+    double _lastContentOffsetY;
+    _Bool _scrollDown;
+    _Bool _hasShownBackgroundSinceLastClear;
     id _fadeOutCompletionBlock;
-    BOOL _expanded;
-    BOOL _fadingOut;
+    _Bool _fadingOut;
 }
 
-@property(readonly, nonatomic, getter=isFadingOut) BOOL fadingOut; // @synthesize fadingOut=_fadingOut;
-@property(readonly, nonatomic, getter=isExpanded) BOOL expanded; // @synthesize expanded=_expanded;
++ (id)sharedInstance;
+@property(readonly, nonatomic, getter=isFadingOut) _Bool fadingOut; // @synthesize fadingOut=_fadingOut;
+- (void)cancelButtonPressed;
 - (void)scrollViewWillBeginDragging:(id)arg1;
 - (void)scrollViewDidScroll:(id)arg1;
+- (void)_searchFieldReturnPressed;
 - (void)_searchFieldEditingChanged;
-- (BOOL)textFieldShouldReturn:(id)arg1;
-- (void)textFieldDidBeginEditing:(id)arg1;
-- (void)searchGesture:(id)arg1 completedShowing:(BOOL)arg2;
-- (void)searchGesture:(id)arg1 changedOffset:(float)arg2;
-- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
-- (id)tableView:(id)arg1 viewForHeaderInSection:(int)arg2;
-- (BOOL)tableView:(id)arg1 wantsHeaderForSection:(int)arg2;
+- (void)searchGesture:(id)arg1 completedShowing:(_Bool)arg2;
+- (void)searchGesture:(id)arg1 changedPercentComplete:(double)arg2;
+- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (id)tableView:(id)arg1 viewForHeaderInSection:(long long)arg2;
+- (_Bool)tableView:(id)arg1 wantsHeaderForSection:(long long)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didUnhighlightRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didHighlightRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
 - (void)searchAgentClearedResults:(id)arg1;
 - (void)searchAgentUpdatedResults:(id)arg1;
 - (void)_resizeTableViewForPreferredContentSizeChange:(id)arg1;
-- (void)_keyboardWillHide:(id)arg1;
+- (void)_keyboardWillChangeFrame:(id)arg1;
 - (void)_handlePanRecognizer:(id)arg1;
 - (void)_handleTapRecognizer:(id)arg1;
+- (void)_handleDismissGesture;
 - (void)_fadeOutAndHideKeyboardIfNecessary:(id)arg1;
 - (void)_fadeForLaunchWithDuration:(double)arg1 completion:(id)arg2;
 - (void)_deselectTableViewCell;
 - (void)_updateTableContents;
 - (void)_startDownloadingAppForStoreIdentifier:(unsigned long long)arg1 bundleIdentifier:(id)arg2;
 - (void)_populateCell:(id)arg1 atIndexPath:(id)arg2 inTableView:(id)arg3;
+- (_Bool)_shouldDisplayImagesForDomain:(unsigned int)arg1;
 - (id)_auxiliaryTitleForABRecordID:(int)arg1;
 - (id)_placeHolderImageForDomain:(unsigned int)arg1;
-- (void)_updateHasResults;
-- (void)_setExpanded:(BOOL)arg1;
-- (BOOL)_showingKeyboard;
-- (void)_setShowingKeyboard:(BOOL)arg1;
+- (_Bool)_hasNoResultsForQuery;
+- (_Bool)_hasResults;
+- (_Bool)_showingKeyboard;
+- (void)_setShowingKeyboard:(_Bool)arg1;
 - (void)dismiss;
 - (void)viewDidLayoutSubviews;
 - (void)loadView;

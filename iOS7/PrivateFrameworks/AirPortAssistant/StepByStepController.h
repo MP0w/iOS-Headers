@@ -21,11 +21,11 @@
 + (id)stepByStepController;
 @property(retain) NSDictionary *restoreRecommendation; // @synthesize restoreRecommendation=_restoreRecommendation;
 @property id <StepByStepUIDelegate> delegate; // @synthesize delegate=_delegate;
-- (long)setupFromAutoguessRecommendation:(id)arg1 withOptions:(id)arg2;
-- (void)stepByStepNextStepResult:(long)arg1 withOptions:(id)arg2;
-- (long)resume;
-- (long)cancelStepByStep;
-- (long)subclassAssistantCallback:(struct AssistantCallbackContext *)arg1;
+- (int)setupFromAutoguessRecommendation:(id)arg1 withOptions:(id)arg2;
+- (void)stepByStepNextStepResult:(int)arg1 withOptions:(id)arg2;
+- (int)resume;
+- (int)cancelStepByStep;
+- (int)subclassAssistantCallback:(struct AssistantCallbackContext *)arg1;
 - (void)dealloc;
 - (id)init;
 

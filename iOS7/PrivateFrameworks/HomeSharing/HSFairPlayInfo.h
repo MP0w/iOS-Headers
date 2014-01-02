@@ -16,10 +16,10 @@
 }
 
 - (id)_hexStringForData:(id)arg1;
-- (BOOL)_getHardwareInfo:(struct FairPlayHWInfo_ *)arg1;
+- (_Bool)_getHardwareInfo:(struct FairPlayHWInfo_ *)arg1;
 - (id)securityInfoForURL:(id)arg1;
 - (void)endSecuritySession;
-- (id)continueNegotationWithSAPVersion:(unsigned int)arg1 data:(id)arg2 isComplete:(char *)arg3;
+- (id)continueNegotationWithSAPVersion:(unsigned int)arg1 data:(id)arg2 isComplete:(_Bool *)arg3;
 - (id)beginNegotiationWithSAPVersion:(unsigned int)arg1;
 @property(readonly, nonatomic) NSString *deviceGUID;
 - (void)dealloc;

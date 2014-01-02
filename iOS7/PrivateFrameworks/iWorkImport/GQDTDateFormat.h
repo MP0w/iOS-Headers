@@ -8,6 +8,7 @@
 
 #import "GQDNameMappable-Protocol.h"
 
+// Not exported
 @interface GQDTDateFormat : NSObject <GQDNameMappable>
 {
     struct __CFString *mFormatString;
@@ -17,7 +18,6 @@
 - (struct __CFString *)formatString;
 - (void)dealloc;
 - (id)initWithFormatString:(struct __CFString *)arg1;
-- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1;
 
 @end
 

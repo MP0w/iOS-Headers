@@ -15,9 +15,9 @@
     struct OpaqueFigPlaybackItem *playbackItem;
     struct OpaqueFigAsset *asset;
     NSObject<OS_dispatch_queue> *readWriteQueue;
-    int status;
+    long long status;
     NSError *error;
-    int priority;
+    long long priority;
     NSURL *URL;
     NSURL *destinationURL;
     unsigned long long downloadToken;

@@ -16,10 +16,10 @@
     NSError *_parserError;
 }
 
-+ (BOOL)canHandleContentType:(id)arg1;
++ (_Bool)canHandleContentType:(id)arg1;
 @property(retain) NSMutableData *octetStreamData; // @synthesize octetStreamData=_octetStreamData;
 @property(readonly) NSError *parserError;
-- (BOOL)processData:(id)arg1 forTask:(id)arg2;
+- (_Bool)processData:(id)arg1 forTask:(id)arg2;
 - (id)description;
 - (void)dealloc;
 - (id)init;

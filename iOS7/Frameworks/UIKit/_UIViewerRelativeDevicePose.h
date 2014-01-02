@@ -11,14 +11,15 @@
 
 @class _UIMotionEffectAcceleratedOutputRange;
 
+// Not exported
 @interface _UIViewerRelativeDevicePose : NSObject <NSCopying, NSCoding>
 {
     _UIMotionEffectAcceleratedOutputRange *_acceleratedOutputRange;
-    float _planarRotationAngle;
+    double _planarRotationAngle;
     struct UIOffset _viewerOffset;
 }
 
-@property(nonatomic) float planarRotationAngle; // @synthesize planarRotationAngle=_planarRotationAngle;
+@property(nonatomic) double planarRotationAngle; // @synthesize planarRotationAngle=_planarRotationAngle;
 @property(nonatomic) struct UIOffset viewerOffset; // @synthesize viewerOffset=_viewerOffset;
 - (struct UIOffset)_acceleratedOutputForViewerOffset:(struct UIOffset)arg1 accelerationBoostFactor:(struct CGPoint)arg2;
 - (void)_setAcceleration:(struct CGPoint)arg1 fixingOutputForViewerOffset:(struct UIOffset)arg2;
@@ -28,8 +29,8 @@
 - (void)encodeWithCoder:(id)arg1;
 - (void)dealloc;
 - (id)initWithCoder:(id)arg1;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 
 @end
 

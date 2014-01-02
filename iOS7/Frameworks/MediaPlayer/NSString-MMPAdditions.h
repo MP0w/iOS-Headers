@@ -7,7 +7,7 @@
 #import "NSString.h"
 
 @interface NSString (MMPAdditions)
-+ (float)widthFittingMaximumInteger:(int)arg1 withFont:(id)arg2;
++ (double)widthFittingMaximumInteger:(long long)arg1 withFont:(id)arg2;
 - (id)displayableStringByStrippingOffCommonPrefixWithString:(id)arg1;
 - (id)displayableStringByTrimmingPrefixString:(id)arg1;
 @end

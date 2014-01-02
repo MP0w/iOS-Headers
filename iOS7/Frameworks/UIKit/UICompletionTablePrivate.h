@@ -8,6 +8,7 @@
 
 @class UIShadowView, UITableView, UIView;
 
+// Not exported
 @interface UICompletionTablePrivate : NSObject
 {
     id _delegate;

@@ -8,14 +8,15 @@
 
 @class OADColor;
 
+// Not exported
 @interface OADColorChangeEffect : OADBlipEffect
 {
     OADColor *mFromColor;
     OADColor *mToColor;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)setStyleColor:(id)arg1;
 - (void)setToColor:(id)arg1;
 - (id)toColor;

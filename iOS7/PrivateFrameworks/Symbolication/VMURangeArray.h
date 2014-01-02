@@ -13,7 +13,7 @@
     unsigned int _count;
     struct _VMURange *_ranges;
     unsigned int _max;
-    BOOL _sorted;
+    _Bool _sorted;
 }
 
 - (id)description;
@@ -24,13 +24,13 @@
 - (struct _VMURange)range;
 - (struct _VMURange)largestSubrangeNotExcludedBySelfForRange:(struct _VMURange)arg1 andLargerThan:(unsigned long long)arg2 startIndex:(unsigned int *)arg3;
 - (struct _VMURange)subrangeNotExcludedBySelfForRange:(struct _VMURange)arg1;
-- (BOOL)intersectsRange:(struct _VMURange)arg1;
-- (BOOL)intersectsLocation:(unsigned long long)arg1;
+- (_Bool)intersectsRange:(struct _VMURange)arg1;
+- (_Bool)intersectsLocation:(unsigned long long)arg1;
 - (void)removeAllRanges;
 - (void)removeRangeAtIndex:(unsigned int)arg1;
 - (void)insertRange:(struct _VMURange)arg1 atIndex:(unsigned int)arg2;
 - (struct _VMURange)rangeForLocation:(unsigned long long)arg1;
-- (unsigned int)indexForLocation:(unsigned long long)arg1;
+- (unsigned long long)indexForLocation:(unsigned long long)arg1;
 - (struct _VMURange)rangeAtIndex:(unsigned int)arg1;
 - (void)addRanges:(id)arg1;
 - (void)addRange:(struct _VMURange)arg1;

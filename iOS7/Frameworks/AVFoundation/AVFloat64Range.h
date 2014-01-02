@@ -20,8 +20,8 @@
 @property(readonly, nonatomic) double minimum; // @synthesize minimum=_minimum;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)initWithAudioValueRange:(struct AudioValueRange)arg1;
 - (id)initWithMinimum:(double)arg1 maximum:(double)arg2;
 

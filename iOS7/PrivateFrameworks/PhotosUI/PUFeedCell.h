@@ -12,7 +12,7 @@
 
 @interface PUFeedCell : UICollectionViewCell <UIGestureRecognizerDelegate>
 {
-    BOOL _tappable;
+    _Bool _tappable;
     id <PUFeedCellDelegate> _delegate;
     NSIndexPath *_indexPath;
     NSString *_representedElementKind;
@@ -22,14 +22,15 @@
 @property(retain, nonatomic, setter=_setTapGestureRecognizer:) UITapGestureRecognizer *_tapGestureRecognizer; // @synthesize _tapGestureRecognizer=__tapGestureRecognizer;
 @property(retain, nonatomic) NSString *representedElementKind; // @synthesize representedElementKind=_representedElementKind;
 @property(retain, nonatomic) NSIndexPath *indexPath; // @synthesize indexPath=_indexPath;
-@property(nonatomic, getter=isTappable) BOOL tappable; // @synthesize tappable=_tappable;
+@property(nonatomic, getter=isTappable) _Bool tappable; // @synthesize tappable=_tappable;
 @property(nonatomic) __weak id <PUFeedCellDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (BOOL)shouldRecognizerTap:(id)arg1;
-- (BOOL)gestureRecognizerShouldBegin:(id)arg1;
+- (_Bool)shouldRecognizerTap:(id)arg1;
+- (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (void)_handleTap:(id)arg1;
 - (void)_updateTapGestureRecognizer;
 - (void)applyLayoutAttributes:(id)arg1;
+- (void)dealloc;
 
 @end
 

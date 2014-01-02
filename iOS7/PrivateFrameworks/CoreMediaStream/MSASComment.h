@@ -10,13 +10,13 @@
 
 @interface MSASComment : NSObject
 {
-    BOOL _isLike;
-    BOOL _isCaption;
-    BOOL _isBatchComment;
-    BOOL _isDeletable;
-    BOOL _isMine;
-    NSString *_GUID;
+    _Bool _isLike;
+    _Bool _isCaption;
+    _Bool _isBatchComment;
+    _Bool _isDeletable;
+    _Bool _isMine;
     int _ID;
+    NSString *_GUID;
     NSDate *_timestamp;
     NSDate *_clientTimestamp;
     NSString *_personID;
@@ -27,20 +27,19 @@
     NSString *_content;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 + (id)comment;
-+ (id)MSASPCommentFromProtocolDictionary:(id)arg1;
 @property(retain, nonatomic) NSString *content; // @synthesize content=_content;
-@property(nonatomic) BOOL isMine; // @synthesize isMine=_isMine;
-@property(nonatomic) BOOL isDeletable; // @synthesize isDeletable=_isDeletable;
+@property(nonatomic) _Bool isMine; // @synthesize isMine=_isMine;
+@property(nonatomic) _Bool isDeletable; // @synthesize isDeletable=_isDeletable;
 @property(retain, nonatomic) NSString *email; // @synthesize email=_email;
 @property(retain, nonatomic) NSString *fullName; // @synthesize fullName=_fullName;
 @property(retain, nonatomic) NSString *lastName; // @synthesize lastName=_lastName;
 @property(retain, nonatomic) NSString *firstName; // @synthesize firstName=_firstName;
 @property(retain, nonatomic) NSString *personID; // @synthesize personID=_personID;
-@property(nonatomic) BOOL isBatchComment; // @synthesize isBatchComment=_isBatchComment;
-@property(nonatomic) BOOL isCaption; // @synthesize isCaption=_isCaption;
-@property(nonatomic) BOOL isLike; // @synthesize isLike=_isLike;
+@property(nonatomic) _Bool isBatchComment; // @synthesize isBatchComment=_isBatchComment;
+@property(nonatomic) _Bool isCaption; // @synthesize isCaption=_isCaption;
+@property(nonatomic) _Bool isLike; // @synthesize isLike=_isLike;
 @property(retain, nonatomic) NSDate *clientTimestamp; // @synthesize clientTimestamp=_clientTimestamp;
 @property(retain, nonatomic) NSDate *timestamp; // @synthesize timestamp=_timestamp;
 @property(nonatomic) int ID; // @synthesize ID=_ID;
@@ -49,8 +48,8 @@
 - (id)description;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)init;
 
 @end

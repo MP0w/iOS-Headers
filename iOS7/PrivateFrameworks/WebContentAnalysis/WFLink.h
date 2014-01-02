@@ -6,6 +6,7 @@
 
 #import <WebContentAnalysis/XMLNode.h>
 
+// Not exported
 @interface WFLink : XMLNode
 {
 }

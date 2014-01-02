@@ -10,7 +10,7 @@
 
 @protocol PLThumbPersistenceManager <PLPreheatItemSource>
 @property(readonly, nonatomic) struct CGSize imageSize;
-@property(readonly, nonatomic) BOOL isReadOnly;
+@property(readonly, nonatomic) _Bool isReadOnly;
 @property(readonly, nonatomic) int imageLength;
 @property(readonly, nonatomic) int imageRowBytes;
 @property(readonly, nonatomic) int imageHeight;
@@ -18,18 +18,18 @@
 @property(readonly, nonatomic) int imageFormat;
 @property(readonly, nonatomic) NSString *path;
 - (id)_debugDescription;
-- (BOOL)usesThumbIdentifiers;
-- (BOOL)copyEntryFromOriginalAsset:(id)arg1 toAsset:(id)arg2;
-- (id)imageDataWithIdentifier:(id)arg1 orIndex:(unsigned int)arg2 width:(int *)arg3 height:(int *)arg4 bytesPerRow:(int *)arg5 dataWidth:(int *)arg6 dataHeight:(int *)arg7 dataOffset:(int *)arg8;
-- (void)setImageDataForEntry:(const void *)arg1 withIdentifier:(id)arg2 orIndex:(unsigned int)arg3 asset:(id)arg4;
-- (void)setImageForEntry:(id)arg1 withIdentifier:(id)arg2 orIndex:(unsigned int)arg3 videoDuration:(id)arg4 photoUUID:(id)arg5;
+- (_Bool)usesThumbIdentifiers;
+- (_Bool)copyEntryFromOriginalAsset:(id)arg1 toAsset:(id)arg2;
+- (id)imageDataWithIdentifier:(id)arg1 orIndex:(unsigned long long)arg2 width:(int *)arg3 height:(int *)arg4 bytesPerRow:(int *)arg5 dataWidth:(int *)arg6 dataHeight:(int *)arg7 dataOffset:(int *)arg8;
+- (void)setImageDataForEntry:(const void *)arg1 withIdentifier:(id)arg2 orIndex:(unsigned long long)arg3 asset:(id)arg4;
+- (void)setImageForEntry:(id)arg1 withIdentifier:(id)arg2 orIndex:(unsigned long long)arg3 videoDuration:(id)arg4 photoUUID:(id)arg5;
 
 @optional
-- (int)entryCount;
-- (void)ensureIndexExists:(int)arg1;
+- (long long)entryCount;
 - (void)preheatImageDataAtIndexes:(id)arg1;
-- (void)preheatImageDataAtIndex:(unsigned int)arg1;
+- (void)preheatImageDataAtIndex:(unsigned long long)arg1;
+- (id)thumbnailPathForThumbIdentifier:(id)arg1;
 - (id)imageWithIdentifier:(id)arg1;
-- (void)deleteEntryWithIdentifier:(id)arg1 orIndex:(unsigned int)arg2 uuid:(id)arg3;
+- (void)deleteEntryWithIdentifier:(id)arg1 orIndex:(unsigned long long)arg2 uuid:(id)arg3;
 @end
 

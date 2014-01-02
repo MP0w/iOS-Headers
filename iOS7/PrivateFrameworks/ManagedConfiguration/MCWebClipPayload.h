@@ -13,9 +13,9 @@
     NSURL *_URL;
     NSString *_label;
     NSData *_iconData;
-    BOOL _isRemovable;
-    BOOL _precomposed;
-    BOOL _fullScreen;
+    _Bool _isRemovable;
+    _Bool _precomposed;
+    _Bool _fullScreen;
     NSString *_savedIdentifier;
 }
 
@@ -23,9 +23,9 @@
 + (id)localizedSingularForm;
 + (id)typeStrings;
 @property(retain, nonatomic) NSString *savedIdentifier; // @synthesize savedIdentifier=_savedIdentifier;
-@property(readonly, nonatomic) BOOL fullScreen; // @synthesize fullScreen=_fullScreen;
-@property(readonly, nonatomic) BOOL precomposed; // @synthesize precomposed=_precomposed;
-@property(readonly, nonatomic) BOOL isRemovable; // @synthesize isRemovable=_isRemovable;
+@property(readonly, nonatomic) _Bool fullScreen; // @synthesize fullScreen=_fullScreen;
+@property(readonly, nonatomic) _Bool precomposed; // @synthesize precomposed=_precomposed;
+@property(readonly, nonatomic) _Bool isRemovable; // @synthesize isRemovable=_isRemovable;
 @property(readonly, nonatomic) NSData *iconData; // @synthesize iconData=_iconData;
 @property(readonly, nonatomic) NSString *label; // @synthesize label=_label;
 @property(readonly, nonatomic) NSURL *URL; // @synthesize URL=_URL;

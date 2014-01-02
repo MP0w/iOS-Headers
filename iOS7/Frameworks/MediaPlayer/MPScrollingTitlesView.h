@@ -12,15 +12,15 @@
 {
     UILabel *_albumLabel;
     UILabel *_artistLabel;
-    float _idealWidth;
-    BOOL _marqueeEnabled;
+    double _idealWidth;
+    _Bool _marqueeEnabled;
     UIImageView *_marqueeView;
     CALayer *_maskLayer;
     UILabel *_titleLabel;
-    int _style;
+    long long _style;
 }
 
-@property(nonatomic) int style; // @synthesize style=_style;
+@property(nonatomic) long long style; // @synthesize style=_style;
 - (void).cxx_destruct;
 - (void)_updateMarqueeView;
 - (void)_stopMarquee;

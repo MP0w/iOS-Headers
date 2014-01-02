@@ -9,15 +9,14 @@
 #import "RCWaveformDataSource-Protocol.h"
 #import "RCWaveformGeneratorSegmentOutputObserver-Protocol.h"
 
-@class NSArray, NSMutableArray, NSURL, RCWaveform, RCWaveformGenerator;
+@class NSURL, RCMutableWaveform, RCWaveform, RCWaveformGenerator;
 
 @interface RCAudioFileWaveformDataSource : NSObject <RCWaveformGeneratorSegmentOutputObserver, RCWaveformDataSource>
 {
     NSURL *_savedRecordingURL;
     NSURL *_waveformURL;
-    NSMutableArray *_waveformSegmentsToSave;
-    RCWaveform *_waveform;
-    BOOL _wasSaved;
+    _Bool _wasSaved;
+    RCMutableWaveform *_waveform;
     RCWaveformGenerator *_waveformGenerator;
     double _cachedDuration;
     NSURL *_cachedWaveformsDirectoryPath;
@@ -28,13 +27,15 @@
 - (void)_saveWaveformIfNecessary;
 - (id)_waveformURL;
 - (void)waveformGenerator:(id)arg1 didLoadWaveformSegment:(id)arg2;
-- (void)waveformGeneratorDidFinishLoading:(id)arg1;
-- (void)endLoadingBeforeDate:(id)arg1 withCompletionHandler:(id)arg2;
+- (void)waveformGeneratorDidFinishLoading:(id)arg1 error:(id)arg2;
+- (void)terminateLoadingImmediately;
+- (void)finishLoadingBeforeDate:(id)arg1 loadingFinishedBlock:(id)arg2;
+- (void)_handleFinishedLoadingWithClientBlock:(id)arg1 finished:(void)arg2 error:(_Bool)arg3;
 - (void)beginLoadingForRecordingOutputURL:(id)arg1;
 - (void)beginLoading;
 - (void)reload;
 - (double)duration;
-@property(readonly, nonatomic) NSArray *loadedSegments;
+@property(readonly, nonatomic) RCWaveform *waveform;
 - (id)waveformGenerator;
 - (id)dataSourceByReloading;
 - (void)dealloc;

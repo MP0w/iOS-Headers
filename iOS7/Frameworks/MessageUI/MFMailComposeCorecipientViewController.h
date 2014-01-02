@@ -21,14 +21,14 @@
 
 @property(retain, nonatomic) MFMailComposeRecipientView *recipientView; // @synthesize recipientView=_recipientView;
 @property(readonly, nonatomic) NSArray *recipients; // @synthesize recipients=_recipients;
-- (id)tableView:(id)arg1 titleForFooterInSection:(int)arg2;
+- (id)tableView:(id)arg1 titleForFooterInSection:(long long)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
-- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
-- (struct CGSize)contentSizeForViewInPopover;
-- (void)viewWillAppear:(BOOL)arg1;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
+- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (struct CGSize)preferredContentSize;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;
 - (void)_didTapDoneButton:(id)arg1;
 - (void)_dismissAndAddSelectedContacts;

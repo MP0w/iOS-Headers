@@ -14,6 +14,7 @@
 
 @interface FZMessage : NSObject <NSCoding, NSCopying, IMRemoteObjectCoding>
 {
+    unsigned int _error;
     NSString *_handle;
     NSString *_service;
     NSString *_account;
@@ -23,18 +24,17 @@
     NSString *_roomName;
     NSDictionary *_senderInfo;
     NSString *_plainBody;
-    unsigned int _error;
     NSString *_guid;
     NSDate *_time;
     NSArray *_fileTransferGUIDs;
     NSString *_countryCode;
+    unsigned long long _flags;
     NSAttributedString *_body;
     NSData *_bodyData;
-    NSDate *_timeRead;
-    NSDate *_timeDelivered;
-    unsigned long long _flags;
     long long _replaceID;
     long long _messageID;
+    NSDate *_timeRead;
+    NSDate *_timeDelivered;
 }
 
 @property(retain, nonatomic) NSDate *timeDelivered; // @synthesize timeDelivered=_timeDelivered;
@@ -58,7 +58,7 @@
 @property(retain, nonatomic) NSString *service; // @synthesize service=_service;
 @property(retain, nonatomic) NSString *handle; // @synthesize handle=_handle;
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 @property(retain, nonatomic) NSAttributedString *body; // @synthesize body=_body;
 - (void)_clearBodyData;
 - (void)_regenerateBodyData;
@@ -68,20 +68,20 @@
 - (void)adjustIsEmptyFlag;
 - (void)_updateFlags:(unsigned long long)arg1;
 @property(retain, nonatomic) NSString *sender;
-- (void)setWasDataDetected:(BOOL)arg1;
-@property(readonly, nonatomic) BOOL wasDataDetected;
-@property(nonatomic) BOOL hasDataDetectorResults;
-@property(readonly, nonatomic) BOOL wasDowngraded;
-@property(readonly, nonatomic) BOOL isSent;
-- (BOOL)isEmote;
-@property(readonly, nonatomic) BOOL isTypingMessage;
-@property(readonly, nonatomic) BOOL isPrepared;
-@property(readonly, nonatomic) BOOL isDelivered;
-@property(readonly, nonatomic) BOOL isFromMe;
-@property(readonly, nonatomic) BOOL isRead;
-@property(readonly, nonatomic) BOOL isEmpty;
-@property(readonly, nonatomic) BOOL isFinished;
-@property(readonly, nonatomic) BOOL isAlert;
+- (void)setWasDataDetected:(_Bool)arg1;
+@property(readonly, nonatomic) _Bool wasDataDetected;
+@property(nonatomic) _Bool hasDataDetectorResults;
+@property(readonly, nonatomic) _Bool wasDowngraded;
+@property(readonly, nonatomic) _Bool isSent;
+- (_Bool)isEmote;
+@property(readonly, nonatomic) _Bool isTypingMessage;
+@property(readonly, nonatomic) _Bool isPrepared;
+@property(readonly, nonatomic) _Bool isDelivered;
+@property(readonly, nonatomic) _Bool isFromMe;
+@property(readonly, nonatomic) _Bool isRead;
+@property(readonly, nonatomic) _Bool isEmpty;
+@property(readonly, nonatomic) _Bool isFinished;
+@property(readonly, nonatomic) _Bool isAlert;
 - (void)dealloc;
 - (id)initWithSenderInfo:(id)arg1 time:(id)arg2 timeRead:(id)arg3 timeDelivered:(id)arg4 subject:(id)arg5 body:(id)arg6 bodyData:(id)arg7 attributes:(id)arg8 fileTransferGUIDs:(id)arg9 flags:(unsigned long long)arg10 guid:(id)arg11 messageID:(long long)arg12 account:(id)arg13 accountID:(id)arg14 service:(id)arg15 handle:(id)arg16 roomName:(id)arg17 unformattedID:(id)arg18 countryCode:(id)arg19 errorType:(unsigned int)arg20;
 - (id)initWithSender:(id)arg1 time:(id)arg2 body:(id)arg3 attributes:(id)arg4 fileTransferGUIDs:(id)arg5 flags:(unsigned long long)arg6 error:(id)arg7 guid:(id)arg8;

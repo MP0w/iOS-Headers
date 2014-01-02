@@ -6,19 +6,19 @@
 
 #import "SBIconZoomSettings.h"
 
-@class SBAnimationSettings;
+@class SBFAnimationSettings;
 
 @interface SBScaleZoomSettings : SBIconZoomSettings
 {
-    BOOL _crossfadeWithZoom;
-    SBAnimationSettings *_outerFolderFadeSettings;
-    SBAnimationSettings *_crossfadeSettings;
+    _Bool _crossfadeWithZoom;
+    SBFAnimationSettings *_outerFolderFadeSettings;
+    SBFAnimationSettings *_crossfadeSettings;
 }
 
 + (id)settingsControllerModule;
-@property(retain) SBAnimationSettings *crossfadeSettings; // @synthesize crossfadeSettings=_crossfadeSettings;
-@property BOOL crossfadeWithZoom; // @synthesize crossfadeWithZoom=_crossfadeWithZoom;
-@property(retain) SBAnimationSettings *outerFolderFadeSettings; // @synthesize outerFolderFadeSettings=_outerFolderFadeSettings;
+@property(retain) SBFAnimationSettings *crossfadeSettings; // @synthesize crossfadeSettings=_crossfadeSettings;
+@property _Bool crossfadeWithZoom; // @synthesize crossfadeWithZoom=_crossfadeWithZoom;
+@property(retain) SBFAnimationSettings *outerFolderFadeSettings; // @synthesize outerFolderFadeSettings=_outerFolderFadeSettings;
 - (id)effectiveCrossfadeAnimationSettings;
 - (void)setDefaultValues;
 

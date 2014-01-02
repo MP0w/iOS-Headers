@@ -16,29 +16,8 @@
 - (id)touchesForWindow:(id)arg1;
 - (id)allTouches;
 @property(readonly, nonatomic) double timestamp;
-@property(readonly, nonatomic) int subtype;
-@property(readonly, nonatomic) int type;
-- (BOOL)_isKeyDown;
-- (int)_modifierFlags;
-- (id)_unmodifiedInput;
-- (id)_modifiedInput;
-- (id)_triggeringPhysicalButton;
-- (id)_physicalButtonsForGestureRecognizer:(id)arg1;
-- (id)_physicalButtonsForResponder:(id)arg1;
-- (id)_physicalButtonsForWindow:(id)arg1;
-- (id)_allPhysicalButtons;
-- (int)_moveDirection;
-- (int)_shakeState;
-- (id)_touchesForGestureRecognizer:(id)arg1;
-- (struct __IOHIDEvent *)_hidEvent;
-- (struct __GSEvent *)_gsEvent;
-- (id)_initWithEvent:(struct __GSEvent *)arg1 touches:(id)arg2;
-- (BOOL)isKeyDown;
-- (void)_sendEventToResponder:(id)arg1;
-- (id)_windows;
-- (id)_screen;
-- (void)_setTimestamp:(double)arg1;
-- (id)_init;
+@property(readonly, nonatomic) long long subtype;
+@property(readonly, nonatomic) long long type;
 
 @end
 

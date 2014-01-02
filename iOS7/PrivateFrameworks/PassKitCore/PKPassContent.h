@@ -14,7 +14,7 @@
 @interface PKPassContent : NSObject <NSCoding, NSSecureCoding>
 {
     PKBarcode *_barcode;
-    int _transitType;
+    long long _transitType;
     PKImage *_footerImage;
     NSArray *_storeIdentifiers;
     NSURL *_appLaunchURL;
@@ -24,7 +24,7 @@
     NSArray *_backFieldBuckets;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSArray *backFieldBuckets; // @synthesize backFieldBuckets=_backFieldBuckets;
 @property(copy, nonatomic) NSArray *frontFieldBuckets; // @synthesize frontFieldBuckets=_frontFieldBuckets;
 @property(copy, nonatomic) NSString *localizedDescription; // @synthesize localizedDescription=_localizedDescription;
@@ -32,7 +32,7 @@
 @property(copy, nonatomic) NSURL *appLaunchURL; // @synthesize appLaunchURL=_appLaunchURL;
 @property(copy, nonatomic) NSArray *storeIdentifiers; // @synthesize storeIdentifiers=_storeIdentifiers;
 @property(retain, nonatomic) PKImage *footerImage; // @synthesize footerImage=_footerImage;
-@property(nonatomic) int transitType; // @synthesize transitType=_transitType;
+@property(nonatomic) long long transitType; // @synthesize transitType=_transitType;
 @property(retain, nonatomic) PKBarcode *barcode; // @synthesize barcode=_barcode;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

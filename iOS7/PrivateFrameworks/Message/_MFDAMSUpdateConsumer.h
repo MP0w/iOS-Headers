@@ -15,7 +15,7 @@
 - (void)handleResponse:(id)arg1 error:(id)arg2;
 - (void)commitSyncActions;
 - (void)receiveSyncActions:(id)arg1;
-- (BOOL)handleItems:(id)arg1;
+- (_Bool)handleItems:(id)arg1;
 - (void)drainMailbox;
 
 @end

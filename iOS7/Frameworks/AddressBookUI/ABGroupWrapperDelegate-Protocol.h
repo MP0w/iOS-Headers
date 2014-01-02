@@ -7,6 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol ABGroupWrapperDelegate <NSObject>
-- (void)groupWrapper:(id)arg1 didBecomeSelected:(BOOL)arg2;
+- (void)groupWrapper:(id)arg1 didBecomeSelected:(_Bool)arg2;
 @end
 

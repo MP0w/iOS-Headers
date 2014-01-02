@@ -6,7 +6,7 @@
 
 #import <QuartzCore/CAAnimation.h>
 
-@class NSDictionary, NSString;
+@class NSString;
 
 @interface CATransition : CAAnimation
 {
@@ -19,9 +19,7 @@
 @property(copy) NSString *type;
 - (unsigned int)_propertyFlagsForLayer:(id)arg1;
 - (struct Animation *)_copyRenderAnimationForLayer:(id)arg1;
-- (BOOL)_setCARenderAnimation:(struct Animation *)arg1 layer:(id)arg2;
-@property unsigned int transitionFlags;
-@property(copy) NSDictionary *options;
+- (_Bool)_setCARenderAnimation:(struct Animation *)arg1 layer:(id)arg2;
 
 @end
 

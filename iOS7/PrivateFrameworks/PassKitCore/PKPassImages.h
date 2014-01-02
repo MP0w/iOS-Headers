@@ -12,22 +12,22 @@
 
 @interface PKPassImages : NSObject <NSSecureCoding>
 {
-    unsigned int _version;
+    unsigned long long _version;
     NSURL *_originCacheURL;
 }
 
 + (id)_archivedImages:(id)arg1;
 + (id)_archiveURL:(id)arg1;
-+ (BOOL)supportsSecureCoding;
-+ (int)imageSet;
-+ (int)currentVersion;
++ (_Bool)supportsSecureCoding;
++ (long long)imageSet;
++ (long long)currentVersion;
 + (id)archiveName;
-+ (id)imageSet:(int)arg1 withCacheURL:(id)arg2 cardURL:(id)arg3 displayProfile:(id)arg4;
-+ (Class)classForImageSet:(int)arg1;
++ (id)imageSet:(long long)arg1 withCacheURL:(id)arg2 cardURL:(id)arg3 displayProfile:(id)arg4;
++ (Class)classForImageSet:(long long)arg1;
 @property(copy, nonatomic) NSURL *originCacheURL; // @synthesize originCacheURL=_originCacheURL;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (int)version;
+- (long long)version;
 - (void)preheatImages;
 - (void)saveCache:(id)arg1;
 - (void)dealloc;

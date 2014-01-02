@@ -8,6 +8,7 @@
 
 @class OADDrawable;
 
+// Not exported
 @interface CMDrawableStyle : EMCellStyle
 {
     OADDrawable *mDrawable;

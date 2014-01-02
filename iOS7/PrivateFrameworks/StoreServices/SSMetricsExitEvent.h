@@ -14,7 +14,7 @@
 
 - (id)description;
 @property(retain, nonatomic) NSString *exitURL;
-- (void)setExitTypeWithSuspendReason:(int)arg1;
+- (void)setExitTypeWithSuspendReason:(long long)arg1;
 @property(retain, nonatomic) NSString *exitType;
 - (id)init;
 

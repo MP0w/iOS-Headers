@@ -6,14 +6,15 @@
 
 #import <ScreenReaderCore/SCRCMathExpression.h>
 
+// Not exported
 @interface SCRCMathSpaceExpression : SCRCMathExpression
 {
 }
 
-- (BOOL)endsWithSpace;
-- (BOOL)beginsWithSpace;
+- (_Bool)endsWithSpace;
+- (_Bool)beginsWithSpace;
 - (id)mathMLString;
-- (id)dollarCodeDescriptionWithNumberOfOuterRadicals:(unsigned int)arg1 treePosition:(id)arg2;
+- (id)dollarCodeDescriptionWithNumberOfOuterRadicals:(unsigned long long)arg1 treePosition:(id)arg2;
 - (id)initWithDictionary:(id)arg1;
 
 @end

@@ -7,6 +7,6 @@
 #import "WebFrame.h"
 
 @interface WebFrame (UIWebSelectionAdditions)
-- (BOOL)containsOnlySelectableElements;
+- (_Bool)containsOnlySelectableElements;
 @end
 

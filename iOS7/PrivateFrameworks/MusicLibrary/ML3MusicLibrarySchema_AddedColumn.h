@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface ML3MusicLibrarySchema_AddedColumn : NSObject
 {
     NSString *_columnName;
@@ -21,7 +22,7 @@
 @property(readonly, nonatomic) NSString *foreignTableName; // @synthesize foreignTableName=_foreignTableName;
 @property(readonly, nonatomic) NSString *columnName; // @synthesize columnName=_columnName;
 - (void).cxx_destruct;
-- (BOOL)importFromForeignTable;
+- (_Bool)importFromForeignTable;
 - (id)initWithName:(id)arg1 foreignTable:(id)arg2 foreignColumn:(id)arg3 joinColumn:(id)arg4;
 
 @end

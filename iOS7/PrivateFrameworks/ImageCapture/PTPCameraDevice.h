@@ -14,7 +14,7 @@
 }
 
 - (void)addToEventHandlerQ:(id)arg1;
-- (BOOL)eject;
+- (_Bool)eject;
 - (void)enumerateContent;
 @property(readonly) PTPInitiator *initiator;
 - (void)finalize;

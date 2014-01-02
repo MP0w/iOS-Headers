@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class GEOUser, NSString;
 
-@interface GEOReview : PBCodable
+@interface GEOReview : PBCodable <NSCopying>
 {
     double _reviewTime;
     double _score;
@@ -26,18 +28,19 @@
 @property(nonatomic) double reviewTime; // @synthesize reviewTime=_reviewTime;
 @property(nonatomic) double score; // @synthesize score=_score;
 @property(retain, nonatomic) NSString *snippet; // @synthesize snippet=_snippet;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) BOOL hasUid;
-@property(readonly, nonatomic) BOOL hasReviewer;
-@property(nonatomic) BOOL hasReviewTime;
-@property(nonatomic) BOOL hasScore;
-@property(readonly, nonatomic) BOOL hasSnippet;
+@property(readonly, nonatomic) _Bool hasUid;
+@property(readonly, nonatomic) _Bool hasReviewer;
+@property(nonatomic) _Bool hasReviewTime;
+@property(nonatomic) _Bool hasScore;
+@property(readonly, nonatomic) _Bool hasSnippet;
 - (void)dealloc;
 
 @end

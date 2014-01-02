@@ -6,6 +6,7 @@
 
 #import <OfficeImport/CHDLineType.h>
 
+// Not exported
 @interface CHDLine3DType : CHDLineType
 {
     int mGapDepth;

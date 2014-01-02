@@ -30,16 +30,18 @@
 - (void)prepareToActivateWorkout;
 
 // Remaining properties
+@property(readonly, nonatomic) NSString *currentAlbumName; // @dynamic currentAlbumName;
+@property(readonly, nonatomic) NSString *currentArtistName; // @dynamic currentArtistName;
 @property(readonly, nonatomic) NSString *currentSongName; // @dynamic currentSongName;
 @property(readonly, nonatomic) float goal; // @dynamic goal;
 @property(readonly, nonatomic) NSString *goalType; // @dynamic goalType;
-@property(readonly, nonatomic) BOOL hasEverStarted; // @dynamic hasEverStarted;
-@property(readonly, nonatomic) BOOL hasPowerSong; // @dynamic hasPowerSong;
-@property(readonly, nonatomic) int musicSelection; // @dynamic musicSelection;
+@property(readonly, nonatomic) _Bool hasEverStarted; // @dynamic hasEverStarted;
+@property(readonly, nonatomic) _Bool hasPowerSong; // @dynamic hasPowerSong;
+@property(readonly, nonatomic) long long musicSelection; // @dynamic musicSelection;
 @property(readonly, nonatomic) NSString *powerSongName; // @dynamic powerSongName;
 @property(readonly, nonatomic) NSString *presetGoal; // @dynamic presetGoal;
 @property(readonly, nonatomic) NSString *sensorSearchState; // @dynamic sensorSearchState;
-@property(readonly, nonatomic) BOOL shouldControlMusic; // @dynamic shouldControlMusic;
+@property(readonly, nonatomic) _Bool shouldControlMusic; // @dynamic shouldControlMusic;
 @property(readonly, nonatomic) NSDictionary *workoutData; // @dynamic workoutData;
 @property(readonly, nonatomic) NSString *workoutState; // @dynamic workoutState;
 

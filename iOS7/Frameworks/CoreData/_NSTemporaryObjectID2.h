@@ -8,6 +8,7 @@
 
 @class _NS128bitWrapper;
 
+// Not exported
 @interface _NSTemporaryObjectID2 : NSTemporaryObjectID
 {
     id _store;
@@ -16,12 +17,12 @@
 
 + (id)initWithEntity:(id)arg1 andUUIDString:(id)arg2;
 - (id)_referenceData;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (void)_setPersistentStore:(id)arg1;
-- (BOOL)_isPersistentStoreAlive;
+- (_Bool)_isPersistentStoreAlive;
 - (id)persistentStore;
 - (id)_storeIdentifier;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (void)finalize;
 - (void)dealloc;
 

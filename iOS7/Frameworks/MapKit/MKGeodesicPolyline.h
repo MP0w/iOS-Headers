@@ -10,8 +10,8 @@
 {
 }
 
-+ (id)polylineWithCoordinates:(CDStruct_c3b9c2ee *)arg1 count:(unsigned int)arg2;
-+ (id)polylineWithPoints:(CDStruct_c3b9c2ee *)arg1 count:(unsigned int)arg2;
++ (id)polylineWithCoordinates:(CDStruct_c3b9c2ee *)arg1 count:(unsigned long long)arg2;
++ (id)polylineWithPoints:(CDStruct_c3b9c2ee *)arg1 count:(unsigned long long)arg2;
 
 @end
 

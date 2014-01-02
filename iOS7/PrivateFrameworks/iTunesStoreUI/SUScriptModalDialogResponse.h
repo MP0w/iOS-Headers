@@ -10,12 +10,12 @@
 
 @interface SUScriptModalDialogResponse : NSObject
 {
-    int _buttonIndex;
+    long long _buttonIndex;
     NSString *_textFieldValue;
 }
 
 @property(retain, nonatomic) NSString *textFieldValue; // @synthesize textFieldValue=_textFieldValue;
-@property(nonatomic) int buttonIndex; // @synthesize buttonIndex=_buttonIndex;
+@property(nonatomic) long long buttonIndex; // @synthesize buttonIndex=_buttonIndex;
 - (void)dealloc;
 
 @end

@@ -8,6 +8,7 @@
 
 @class DOMCSSRule, DOMCSSRuleList;
 
+// Not exported
 @interface DOMCSSStyleSheet : DOMStyleSheet
 {
 }

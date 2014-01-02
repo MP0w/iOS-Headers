@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class GEOPlace, GEORPDirectionsProblem, GEORPMapLocation, NSMutableArray, NSString;
 
-@interface GEORPProblemContext : PBCodable
+@interface GEORPProblemContext : PBCodable <NSCopying>
 {
     CDStruct_612aec5b _sessionID;
     GEORPDirectionsProblem *_directionsProblem;
@@ -30,23 +32,24 @@
 @property(retain, nonatomic) GEOPlace *originalPlace; // @synthesize originalPlace=_originalPlace;
 @property(nonatomic) int pinType; // @synthesize pinType=_pinType;
 @property(nonatomic) CDStruct_612aec5b sessionID; // @synthesize sessionID=_sessionID;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) BOOL hasTileStateLog;
-- (id)visibleTileSetsAtIndex:(unsigned int)arg1;
-- (unsigned int)visibleTileSetsCount;
+@property(readonly, nonatomic) _Bool hasTileStateLog;
+- (id)visibleTileSetsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)visibleTileSetsCount;
 - (void)addVisibleTileSets:(id)arg1;
 - (void)clearVisibleTileSets;
-@property(readonly, nonatomic) BOOL hasDirectionsProblem;
-@property(readonly, nonatomic) BOOL hasMapLocation;
-@property(readonly, nonatomic) BOOL hasOriginalPlace;
-@property(nonatomic) BOOL hasPinType;
-@property(nonatomic) BOOL hasSessionID;
+@property(readonly, nonatomic) _Bool hasDirectionsProblem;
+@property(readonly, nonatomic) _Bool hasMapLocation;
+@property(readonly, nonatomic) _Bool hasOriginalPlace;
+@property(nonatomic) _Bool hasPinType;
+@property(nonatomic) _Bool hasSessionID;
 - (void)dealloc;
 
 @end

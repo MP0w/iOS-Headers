@@ -8,11 +8,12 @@
 
 @class WAKScrollView, WebFrame;
 
+// Not exported
 @interface WebFrameViewPrivate : NSObject
 {
     WebFrame *webFrame;
     WAKScrollView *frameScrollView;
-    BOOL includedInWebKitStatistics;
+    _Bool includedInWebKitStatistics;
 }
 
 - (void)dealloc;

@@ -10,19 +10,19 @@
 
 @interface VolumeControl : NSObject
 {
-    BOOL _debounce;
+    _Bool _debounce;
     int _numberOfVolumeDecreasesSinceDownButtonDown;
     int _mode;
     NSMutableSet *_alwaysHiddenCategories;
     NSString *_lastDisplayedCategory;
     NSString *_lastEventCategory;
-    BOOL _hudHandledLastVolumeChange;
-    BOOL _euDevice;
+    _Bool _hudHandledLastVolumeChange;
+    _Bool _euDevice;
     float _euVolumeLimit;
-    BOOL _euVolumeLimitEnforced;
-    BOOL _lastVolumeChangedWasBlocked;
-    BOOL _volumeDownButtonIsDown;
-    BOOL _volumeUpButtonIsDown;
+    _Bool _euVolumeLimitEnforced;
+    _Bool _lastVolumeChangedWasBlocked;
+    _Bool _volumeDownButtonIsDown;
+    _Bool _volumeUpButtonIsDown;
 }
 
 + (id)sharedVolumeControl;
@@ -31,13 +31,13 @@
 - (void)sendEUVolumeLimitAcknowledgementIfNecessary;
 - (void)_EUVolumeEnforcementChanged:(id)arg1;
 - (void)_EUVolumeLimitChanged:(id)arg1;
-- (BOOL)_isVolumeHUDVisibleOrFading;
-- (BOOL)_isVolumeHUDVisible;
+- (_Bool)_isVolumeHUDVisibleOrFading;
+- (_Bool)_isVolumeHUDVisible;
 - (void)hideVolumeHUDIfVisible;
 - (id)volumeHUDForCurrentCategory;
 - (void)_presentVolumeHUDWithMode:(int)arg1 volume:(float)arg2;
 - (id)_volumeHUDViewWithMode:(int)arg1 volume:(float)arg2;
-- (BOOL)headphonesPresent;
+- (_Bool)headphonesPresent;
 - (void)_effectiveVolumeChanged:(id)arg1;
 - (int)_volumeModeForCategory:(id)arg1;
 - (void)_serverConnectionDied:(id)arg1;
@@ -45,18 +45,19 @@
 - (void)_registerForAVSystemControllerNotifications;
 - (void)cancelVolumeEvent;
 - (void)handleVolumeEvent:(struct __IOHIDEvent *)arg1;
-- (void)_turnOnScreenIfNecessaryForEULimit;
+- (_Bool)_turnOnScreenIfNecessaryForEULimit:(_Bool)arg1;
 - (id)lastDisplayedCategory;
 - (void)decreaseVolume;
 - (void)increaseVolume;
 - (float)_calcButtonRepeatDelay;
 - (void)_changeVolumeBy:(float)arg1;
-- (BOOL)_isMusicPlayingSomewhere;
+- (_Bool)_isMusicPlayingSomewhere;
 - (void)_userAcknowledgedEUEnforcement;
 - (float)volume;
 - (void)toggleMute;
-- (BOOL)_HUDIsDisplayableForCategory:(id)arg1;
-- (BOOL)_isCategoryAlwaysHidden:(id)arg1;
+- (_Bool)_HUDIsDisplayableForCategory:(id)arg1;
+- (_Bool)_isCategoryAlwaysHidden:(id)arg1;
+- (void)clearAlwaysHiddenCategories;
 - (void)removeAlwaysHiddenCategory:(id)arg1;
 - (void)addAlwaysHiddenCategory:(id)arg1;
 - (void)dealloc;

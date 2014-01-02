@@ -8,11 +8,11 @@
 
 @interface SBSystemLocalNotificationAlertSheet : UIAlertView
 {
-    BOOL _lockToPortrait;
+    _Bool _lockToPortrait;
 }
 
-- (BOOL)requiresPortraitOrientation;
-- (void)setLockToPortrait:(BOOL)arg1;
+- (_Bool)requiresPortraitOrientation;
+- (void)setLockToPortrait:(_Bool)arg1;
 
 @end
 

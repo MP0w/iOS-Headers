@@ -12,6 +12,7 @@
 
 @class NSMutableArray, UIKeyboardEmojiCategory, UIKeyboardEmojiInputController, UILabel, UIPageControl, UIScrollView, UIView;
 
+// Not exported
 @interface UIKeyboardEmojiScrollView : UIKBKeyView <UIScrollViewDelegate, UIKeyboardEmojiInput, UIKeyboardEmojiPressIndicationDelegate>
 {
     UIKeyboardEmojiInputController *_inputController;
@@ -23,10 +24,10 @@
     NSMutableArray *_pages;
     int _currentPage;
     UIView *_pressIndicator;
-    BOOL _whiteText;
+    _Bool _whiteText;
 }
 
-@property BOOL whiteText; // @synthesize whiteText=_whiteText;
+@property _Bool whiteText; // @synthesize whiteText=_whiteText;
 @property(retain, nonatomic) UIView *pressIndicator; // @synthesize pressIndicator=_pressIndicator;
 - (void)goToFirstPage;
 - (void)setScrollDelay:(double)arg1;
@@ -38,7 +39,7 @@
 - (void)pageChanged;
 - (void)saveFirstVisibleEmojiIndex;
 - (void)reloadForCategory:(id)arg1;
-- (int)emojiCountPerPageForRotation;
+- (long long)emojiCountPerPageForRotation;
 - (void)clearPages;
 - (void)interruptScrolling;
 - (void)scrollViewWillBeginDragging:(id)arg1;
@@ -47,7 +48,7 @@
 - (void)layoutRecents;
 - (void)doLayout;
 - (void)forceLayout;
-- (BOOL)shouldCache;
+- (_Bool)shouldCache;
 - (void)setRenderConfig:(id)arg1;
 - (void)removePressIndicator;
 - (void)installPressIndicatorAtPoint:(struct CGPoint)arg1;

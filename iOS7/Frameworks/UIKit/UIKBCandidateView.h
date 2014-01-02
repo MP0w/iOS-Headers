@@ -10,42 +10,50 @@
 
 @class TIKeyboardCandidateResultSet, UIKeyboardCandidateGridCollectionViewController, UIKeyboardCandidateSortControl, UIView;
 
+// Not exported
 @interface UIKBCandidateView : UIKBKeyView <UIKeyboardCandidateGridCollectionViewControllerDelegate>
 {
     UIView *_clippingView;
     UIView *_topBorder;
-    unsigned int _selectedSortIndex;
+    unsigned long long _selectedSortIndex;
     UIKeyboardCandidateGridCollectionViewController *_collectionViewController;
     UIKeyboardCandidateSortControl *_scrollViewSortControl;
+    CDStruct_961fb75c _visualStyling;
 }
 
+@property(nonatomic) CDStruct_961fb75c visualStyling; // @synthesize visualStyling=_visualStyling;
 @property(retain, nonatomic) UIKeyboardCandidateSortControl *scrollViewSortControl; // @synthesize scrollViewSortControl=_scrollViewSortControl;
 @property(retain, nonatomic) UIKeyboardCandidateGridCollectionViewController *collectionViewController; // @synthesize collectionViewController=_collectionViewController;
-@property(nonatomic) unsigned int selectedSortIndex; // @synthesize selectedSortIndex=_selectedSortIndex;
+@property(nonatomic) unsigned long long selectedSortIndex; // @synthesize selectedSortIndex=_selectedSortIndex;
+- (id).cxx_construct;
 @property(readonly, nonatomic) TIKeyboardCandidateResultSet *candidateResultSet;
 - (id)headerViewForCandidateSet:(id)arg1;
-- (unsigned int)gridCollectionViewNumberOfColumns:(id)arg1;
-- (unsigned int)gridCollectionViewSelectedSortMethodIndex:(id)arg1;
-- (id)groupedCandidatesFromCandidateSet:(id)arg1 forSortIndex:(unsigned int)arg2;
+- (unsigned long long)gridCollectionViewNumberOfColumns:(id)arg1;
+- (unsigned long long)gridCollectionViewSelectedSortMethodIndex:(id)arg1;
+- (id)groupedCandidatesFromCandidateSet:(id)arg1 forSortIndex:(unsigned long long)arg2;
 - (void)sortSelectionBarAction:(id)arg1;
 - (void)clearCollectionViewController;
-- (void)updateCollectionViewController:(BOOL)arg1;
+- (void)updateCollectionViewController:(_Bool)arg1;
 - (void)updateCollectionViewController;
+- (id)statisticsIdentifier;
 - (id)keyboardBehaviors;
-- (BOOL)hasCandidates;
-- (void)candidateAcceptedAtIndex:(unsigned int)arg1;
-- (unsigned int)currentIndex;
+- (_Bool)hasCandidates;
+- (void)candidateAcceptedAtIndex:(unsigned long long)arg1;
+- (unsigned long long)currentIndex;
 - (id)currentCandidate;
+- (void)showPreviousRow;
+- (void)showNextRow;
 - (void)showPreviousPage;
 - (void)showNextPage;
 - (void)showPreviousCandidate;
 - (void)showNextCandidate;
 - (void)showCandidate:(id)arg1;
-- (void)showCandidateAtIndex:(unsigned int)arg1;
+- (void)showCandidateAtIndex:(unsigned long long)arg1;
 - (void)setUIKeyboardCandidateListDelegate:(id)arg1;
-- (void)setCandidates:(id)arg1 inlineText:(id)arg2 inlineRect:(struct CGRect)arg3 maxX:(float)arg4 layout:(BOOL)arg5;
-- (BOOL)isExtendedList;
-- (BOOL)isTenKey;
+- (void)setCandidates:(id)arg1 inlineText:(id)arg2 inlineRect:(struct CGRect)arg3 maxX:(double)arg4 layout:(_Bool)arg5;
+- (_Bool)isHiddenCandidatesList;
+- (_Bool)isExtendedList;
+- (_Bool)isTenKey;
 - (id)candidateList;
 - (void)setRenderConfig:(id)arg1;
 - (void)displayLayer:(id)arg1;

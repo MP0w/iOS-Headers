@@ -10,13 +10,14 @@
 
 @class VGLContext, VGLResource, VGLTexture, VGLTextureFramebuffer;
 
+// Not exported
 @interface VGLTextureCanvas : NSObject <VGLCanvas>
 {
     VGLContext *_targetContext;
     VGLTexture *_targetTexture;
     struct CGSize _size;
     struct CGSize _sizeInPixels;
-    float _contentScale;
+    double _contentScale;
     struct _VGLColor _glClearColor;
     VGLResource *_framebufferResource;
     VGLResource *_depthbufferResource;
@@ -27,7 +28,7 @@
 @property(retain, nonatomic) VGLTexture *targetTexture; // @synthesize targetTexture=_targetTexture;
 @property(readonly, nonatomic) struct CGSize sizeInPixels; // @synthesize sizeInPixels=_sizeInPixels;
 @property(readonly, nonatomic) struct CGSize size; // @synthesize size=_size;
-@property(readonly, nonatomic) float contentScale; // @synthesize contentScale=_contentScale;
+@property(readonly, nonatomic) double contentScale; // @synthesize contentScale=_contentScale;
 @property(nonatomic) struct _VGLColor glClearColor; // @synthesize glClearColor=_glClearColor;
 @property(readonly, nonatomic) VGLContext *vglContext; // @synthesize vglContext=_targetContext;
 - (id).cxx_construct;
@@ -39,7 +40,7 @@
 - (void)setRasterizedContext:(id)arg1;
 - (id)description;
 - (void)dealloc;
-- (id)initWithSize:(struct CGSize)arg1 scale:(float)arg2;
+- (id)initWithSize:(struct CGSize)arg1 scale:(double)arg2;
 
 @end
 

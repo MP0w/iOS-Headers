@@ -6,15 +6,16 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface ML3DatabaseBlob : NSObject
 {
     struct sqlite3_blob *_sqliteHandle;
 }
 
 - (id)data;
-- (int)writeData:(id)arg1 numberOfBytes:(unsigned int)arg2 offset:(unsigned int)arg3;
-- (int)readData:(id)arg1 numberOfBytes:(unsigned int)arg2 offset:(unsigned int)arg3;
-- (unsigned int)length;
+- (int)writeData:(id)arg1 numberOfBytes:(unsigned long long)arg2 offset:(unsigned long long)arg3;
+- (int)readData:(id)arg1 numberOfBytes:(unsigned long long)arg2 offset:(unsigned long long)arg3;
+- (unsigned long long)length;
 - (void)dealloc;
 - (id)initWithSQLiteHandle:(struct sqlite3_blob *)arg1;
 - (id)init;

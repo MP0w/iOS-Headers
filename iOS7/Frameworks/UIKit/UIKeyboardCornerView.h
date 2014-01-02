@@ -6,15 +6,16 @@
 
 #import <UIKit/UIView.h>
 
+// Not exported
 @interface UIKeyboardCornerView : UIView
 {
-    BOOL _leftSide;
-    float _radius;
+    _Bool _leftSide;
+    double _radius;
 }
 
 - (void)drawRect:(struct CGRect)arg1;
 - (int)textEffectsVisibilityLevel;
-- (id)initWithFrame:(struct CGRect)arg1 left:(BOOL)arg2;
+- (id)initWithFrame:(struct CGRect)arg1 left:(_Bool)arg2;
 
 @end
 

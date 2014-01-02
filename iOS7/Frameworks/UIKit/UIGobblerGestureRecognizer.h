@@ -8,14 +8,15 @@
 
 @class UIView;
 
+// Not exported
 @interface UIGobblerGestureRecognizer : UIGestureRecognizer
 {
     UIView *_excludedView;
 }
 
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
-- (BOOL)canPreventGestureRecognizer:(id)arg1;
-- (BOOL)canBePreventedByGestureRecognizer:(id)arg1;
+- (_Bool)canPreventGestureRecognizer:(id)arg1;
+- (_Bool)canBePreventedByGestureRecognizer:(id)arg1;
 - (void)dealloc;
 - (id)initWithTarget:(id)arg1 action:(SEL)arg2 excludedView:(id)arg3;
 

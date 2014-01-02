@@ -10,12 +10,13 @@
 
 @class GKAsyncSocket, GKSimpleTimer, NSMutableArray, NSMutableData, NSObject<OS_dispatch_queue>, NSString;
 
+// Not exported
 @interface GKDiscoveryPeerConnection : NSObject <GKSimpleTimerDelegate>
 {
     NSString *_remoteServiceName;
     NSString *_localServiceName;
     id _peer;
-    BOOL _connected;
+    _Bool _connected;
     GKAsyncSocket *_connectionSocket;
     NSMutableData *_dataReceived;
     unsigned int _currentSequenceNumber;
@@ -34,8 +35,8 @@
     double _heartbeatIntervalInSeconds;
 }
 
-+ (unsigned int)receiveDataLimit;
-+ (unsigned int)sendDataLimit;
++ (unsigned long long)receiveDataLimit;
++ (unsigned long long)sendDataLimit;
 + (void)checkConstants;
 @property(copy, nonatomic) id receiveDataHandler; // @synthesize receiveDataHandler=_receiveDataHandler;
 @property(copy, nonatomic) id connectedHandler; // @synthesize connectedHandler=_connectedHandler;
@@ -55,10 +56,10 @@
 - (void)syncSendAccept;
 - (void)syncSendHello;
 - (void)syncSendMessage:(int)arg1 data:(id)arg2 withCompletionHandler:(id)arg3;
-- (BOOL)shouldDecideAboutConnection;
+- (_Bool)shouldDecideAboutConnection;
 - (void)attachSocketDescriptor:(int)arg1;
 - (void)connectToSockAddr:(const struct sockaddr *)arg1 port:(unsigned short)arg2;
-- (BOOL)syncSetupNewSocket;
+- (_Bool)syncSetupNewSocket;
 - (void)syncConnected:(id)arg1;
 - (id)initWithLocalServiceName:(id)arg1;
 

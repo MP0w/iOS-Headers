@@ -6,11 +6,12 @@
 
 #import <UIKit/UIWindow.h>
 
+// Not exported
 @interface UIStatusBarAdornmentWindow : UIWindow
 {
 }
 
-- (BOOL)_shouldZoom;
+- (_Bool)_shouldZoom;
 
 @end
 

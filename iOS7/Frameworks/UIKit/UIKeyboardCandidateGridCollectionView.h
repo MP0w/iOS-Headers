@@ -4,40 +4,40 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <UIKit/UICollectionView.h>
+#import <UIKit/UIKBCandidateCollectionView.h>
 
 @class NSArray, UIKeyboardCandidateGridCollectionViewController, UITableViewIndex, UIView;
 
-@interface UIKeyboardCandidateGridCollectionView : UICollectionView
+// Not exported
+@interface UIKeyboardCandidateGridCollectionView : UIKBCandidateCollectionView
 {
-    float _indexMaximumHeight;
+    double _indexMaximumHeight;
     UIKeyboardCandidateGridCollectionViewController *_parentViewController;
-    float _previousGroupBarStartingY;
+    double _previousGroupBarStartingY;
     UITableViewIndex *_index;
     UIView *_headerView;
-    NSArray *_indexTitles;
 }
 
-@property(retain, nonatomic) NSArray *indexTitles; // @synthesize indexTitles=_indexTitles;
 @property(retain, nonatomic) UIView *headerView; // @synthesize headerView=_headerView;
 @property(readonly, nonatomic) UITableViewIndex *index; // @synthesize index=_index;
-@property(nonatomic) float previousGroupBarStartingY; // @synthesize previousGroupBarStartingY=_previousGroupBarStartingY;
+@property(nonatomic) double previousGroupBarStartingY; // @synthesize previousGroupBarStartingY=_previousGroupBarStartingY;
 @property(nonatomic) UIKeyboardCandidateGridCollectionViewController *parentViewController; // @synthesize parentViewController=_parentViewController;
+@property(retain, nonatomic) NSArray *indexTitles;
 - (void)keyboardWillShowNotification:(id)arg1;
 - (void)keyboardDidHideNotification:(id)arg1;
-- (void)selectItemAtIndexPath:(id)arg1 animated:(BOOL)arg2 scrollPosition:(unsigned int)arg3;
+- (void)selectItemAtIndexPath:(id)arg1 animated:(_Bool)arg2 scrollPosition:(unsigned long long)arg3;
 - (void)setContentOffset:(struct CGPoint)arg1;
-- (BOOL)shouldShowIndex;
-- (void)showIndex:(BOOL)arg1;
+- (_Bool)shouldShowIndex;
+- (void)showIndex:(_Bool)arg1;
 - (void)delayUpdateIndex;
 - (void)updateIndex;
-- (void)updateIndex:(BOOL)arg1;
-- (float)groupBarStartingY;
+- (void)updateIndex:(_Bool)arg1;
+- (double)groupBarStartingY;
 - (void)drawRect:(struct CGRect)arg1;
-- (BOOL)isCellVisible:(id)arg1;
-- (void)scrollToBottomWithAnimation:(BOOL)arg1;
-- (void)scrollToOffsetFromTop:(float)arg1 withAnimation:(BOOL)arg2;
-- (void)scrollToTopWithAnimation:(BOOL)arg1;
+- (_Bool)isCellVisible:(id)arg1;
+- (void)scrollToBottomWithAnimation:(_Bool)arg1;
+- (void)scrollToOffsetFromTop:(double)arg1 withAnimation:(_Bool)arg2;
+- (void)scrollToTopWithAnimation:(_Bool)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

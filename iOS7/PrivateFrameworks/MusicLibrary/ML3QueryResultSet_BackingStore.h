@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface ML3QueryResultSet_BackingStore : NSObject
 {
     vector_c1c297d2 _persistentIDs;
@@ -14,14 +15,14 @@
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (id)backingStoreByRemovingPersistentIDs:(const unordered_set_cccfe4a5 *)arg1;
+- (id)backingStoreByRemovingPersistentIDs:(const unordered_set_f2692727 *)arg1;
 - (void)reverseEnumerateSectionsUsingBlock:(id)arg1;
 - (void)enumerateSectionsUsingBlock:(id)arg1;
-- (BOOL)containsPersistentIDs:(const unordered_set_cccfe4a5 *)arg1;
+- (_Bool)containsPersistentIDs:(const unordered_set_f2692727 *)arg1;
 - (void)reverseEnumeratePersistentIDsUsingBlock:(id)arg1;
 - (void)enumeratePersistentIDsUsingBlock:(id)arg1;
-- (long long)persistentIDAtIndex:(unsigned int)arg1;
-@property(readonly, nonatomic) unsigned int count;
+- (long long)persistentIDAtIndex:(unsigned long long)arg1;
+@property(readonly, nonatomic) unsigned long long count;
 
 @end
 

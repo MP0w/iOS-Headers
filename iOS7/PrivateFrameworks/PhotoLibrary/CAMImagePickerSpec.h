@@ -12,7 +12,7 @@
 
 + (id)specForPad;
 + (id)specForPhone;
-- (BOOL)isCameraApp;
+- (_Bool)isCameraApp;
 
 @end
 

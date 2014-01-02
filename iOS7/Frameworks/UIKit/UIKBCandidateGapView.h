@@ -6,12 +6,13 @@
 
 #import <UIKit/UIKBKeyView.h>
 
+// Not exported
 @interface UIKBCandidateGapView : UIKBKeyView
 {
 }
 
 - (void)drawRect:(struct CGRect)arg1;
-- (BOOL)shouldCache;
+- (_Bool)shouldCache;
 - (id)cacheKeysForRenderFlags:(id)arg1;
 - (id)cacheKey;
 - (id)initWithFrame:(struct CGRect)arg1 keyplane:(id)arg2;

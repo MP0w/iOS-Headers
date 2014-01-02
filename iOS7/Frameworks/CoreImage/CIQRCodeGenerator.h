@@ -6,12 +6,18 @@
 
 #import <CoreImage/CICodeGenerator.h>
 
+@class NSString;
+
+// Not exported
 @interface CIQRCodeGenerator : CICodeGenerator
 {
+    NSString *inputCorrectionLevel;
 }
 
 + (id)customAttributes;
+@property(copy, nonatomic) NSString *inputCorrectionLevel; // @synthesize inputCorrectionLevel;
 - (struct CGImage *)outputCGImage;
+- (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
 - (void)setDefaults;
 
 @end

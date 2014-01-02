@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface GQDWPText : NSObject
 {
     char *mContent;
 }
 
-- (BOOL)isBlank;
+- (_Bool)isBlank;
 - (const char *)content;
 - (void)dealloc;
 - (id)initWithContent:(const char *)arg1;

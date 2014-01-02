@@ -11,12 +11,12 @@
 @interface AXGestureOverrideHandler : NSObject
 {
     id _handler;
-    int _type;
+    unsigned long long _type;
     NSString *_identifier;
 }
 
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
-@property(nonatomic) int type; // @synthesize type=_type;
+@property(nonatomic) unsigned long long type; // @synthesize type=_type;
 @property(copy, nonatomic) id handler; // @synthesize handler=_handler;
 - (void)dealloc;
 

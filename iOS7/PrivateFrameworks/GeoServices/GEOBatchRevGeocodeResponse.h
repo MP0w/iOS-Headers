@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
-@class NSDictionary, NSMutableArray;
+#import "NSCopying-Protocol.h"
 
-@interface GEOBatchRevGeocodeResponse : PBCodable
+@class NSMutableArray;
+
+@interface GEOBatchRevGeocodeResponse : PBCodable <NSCopying>
 {
     NSMutableArray *_batchPlaceResults;
     NSMutableArray *_clusters;
@@ -19,24 +21,24 @@
 @property(retain, nonatomic) NSMutableArray *batchPlaceResults; // @synthesize batchPlaceResults=_batchPlaceResults;
 @property(retain, nonatomic) NSMutableArray *clusters; // @synthesize clusters=_clusters;
 @property(nonatomic) int statusCode; // @synthesize statusCode=_statusCode;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)batchPlaceResultAtIndex:(unsigned int)arg1;
-- (unsigned int)batchPlaceResultsCount;
+- (id)batchPlaceResultAtIndex:(unsigned long long)arg1;
+- (unsigned long long)batchPlaceResultsCount;
 - (void)addBatchPlaceResult:(id)arg1;
 - (void)clearBatchPlaceResults;
-- (id)clusterAtIndex:(unsigned int)arg1;
-- (unsigned int)clustersCount;
+- (id)clusterAtIndex:(unsigned long long)arg1;
+- (unsigned long long)clustersCount;
 - (void)addCluster:(id)arg1;
 - (void)clearClusters;
-@property(nonatomic) BOOL hasStatusCode;
+@property(nonatomic) _Bool hasStatusCode;
 - (void)dealloc;
-@property(retain, nonatomic) NSDictionary *httpHeaders;
 
 @end
 

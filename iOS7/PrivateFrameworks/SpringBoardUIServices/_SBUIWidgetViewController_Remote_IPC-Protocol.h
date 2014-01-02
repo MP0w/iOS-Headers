@@ -10,7 +10,7 @@
 - (void)__hostDidPresent;
 - (void)__hostWillPresent;
 - (void)__requestPreferredViewSizeWithReplyHandler:(id)arg1;
-- (void)__setWidgetIdiom:(int)arg1;
+- (void)__setWidgetIdiom:(long long)arg1;
 - (void)__setWidgetIdentifier:(id)arg1;
 @end
 

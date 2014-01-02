@@ -15,8 +15,8 @@
     id _key;
     NSString *_keySpace;
     NSLocale *_locale;
-    long _count;
-    long _index;
+    long long _count;
+    long long _index;
 }
 
 + (id)metadataEnumeratorWithArray:(id)arg1 key:(id)arg2 keySpace:(id)arg3 locale:(id)arg4;

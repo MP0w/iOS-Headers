@@ -8,6 +8,7 @@
 
 @class NSCachedURLResponse, NSString, NSURLRequest;
 
+// Not exported
 @interface NSURLCacheNode : NSObject
 {
     NSCachedURLResponse *cachedResponse;
@@ -15,12 +16,12 @@
     NSString *key;
     NSURLCacheNode *prev;
     NSURLCacheNode *next;
-    unsigned long hash;
+    unsigned long long hash;
 }
 
 - (void)dealloc;
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)initWithCachedResponse:(id)arg1 request:(id)arg2 key:(id)arg3;
 
 @end

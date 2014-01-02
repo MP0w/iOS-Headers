@@ -8,8 +8,8 @@
 
 @protocol SUCellConfigurationView <NSObject>
 - (void)reloadView;
-- (void)setHighlighted:(BOOL)arg1;
-- (BOOL)isHighlighted;
-- (BOOL)highlightsOnlyContentView;
+- (void)setHighlighted:(_Bool)arg1;
+- (_Bool)isHighlighted;
+- (_Bool)highlightsOnlyContentView;
 @end
 

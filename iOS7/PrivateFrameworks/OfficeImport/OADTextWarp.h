@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface OADTextWarp : NSObject
 {
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 
 @end
 

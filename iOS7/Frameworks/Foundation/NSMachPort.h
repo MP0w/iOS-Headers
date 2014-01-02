@@ -9,14 +9,14 @@
 @interface NSMachPort : NSPort
 {
     id _delegate;
-    unsigned int _flags;
+    unsigned long long _flags;
     unsigned int _machPort;
-    unsigned int _reserved;
+    unsigned long long _reserved;
 }
 
-+ (BOOL)sendBeforeTime:(double)arg1 streamData:(id)arg2 components:(id)arg3 to:(id)arg4 from:(id)arg5 msgid:(unsigned int)arg6 reserved:(unsigned int)arg7;
++ (_Bool)sendBeforeTime:(double)arg1 streamData:(id)arg2 components:(id)arg3 to:(id)arg4 from:(id)arg5 msgid:(unsigned int)arg6 reserved:(unsigned long long)arg7;
 + (void)_fixNSMachPortLeak;
-+ (id)portWithMachPort:(unsigned int)arg1 options:(unsigned int)arg2;
++ (id)portWithMachPort:(unsigned int)arg1 options:(unsigned long long)arg2;
 + (id)portWithMachPort:(unsigned int)arg1;
 + (id)port;
 + (void)resetAllPorts;
@@ -24,27 +24,27 @@
 - (void)dealloc;
 - (id)init;
 - (id)initWithMachPort:(unsigned int)arg1;
-- (id)initWithMachPort:(unsigned int)arg1 options:(unsigned int)arg2;
+- (id)initWithMachPort:(unsigned int)arg1 options:(unsigned long long)arg2;
 - (void)removeFromRunLoop:(id)arg1 forMode:(id)arg2;
 - (void)scheduleInRunLoop:(id)arg1 forMode:(id)arg2;
-- (BOOL)sendBeforeDate:(id)arg1 msgid:(unsigned int)arg2 components:(id)arg3 from:(id)arg4 reserved:(unsigned int)arg5;
-- (BOOL)sendBeforeDate:(id)arg1 components:(id)arg2 from:(id)arg3 reserved:(unsigned int)arg4;
-- (BOOL)sendBeforeTime:(double)arg1 streamData:(void *)arg2 components:(id)arg3 from:(id)arg4 msgid:(unsigned int)arg5;
+- (_Bool)sendBeforeDate:(id)arg1 msgid:(unsigned long long)arg2 components:(id)arg3 from:(id)arg4 reserved:(unsigned long long)arg5;
+- (_Bool)sendBeforeDate:(id)arg1 components:(id)arg2 from:(id)arg3 reserved:(unsigned long long)arg4;
+- (_Bool)sendBeforeTime:(double)arg1 streamData:(void *)arg2 components:(id)arg3 from:(id)arg4 msgid:(unsigned int)arg5;
 - (id)delegate;
 - (void)setDelegate:(id)arg1;
 - (unsigned int)machPort;
 - (void)invalidate;
-- (BOOL)isValid;
-- (BOOL)isMemberOfClass:(Class)arg1;
-- (BOOL)isKindOfClass:(Class)arg1;
-- (unsigned int)retainCount;
-- (BOOL)_tryRetain;
-- (BOOL)_isDeallocating;
+- (_Bool)isValid;
+- (_Bool)isMemberOfClass:(Class)arg1;
+- (_Bool)isKindOfClass:(Class)arg1;
+- (unsigned long long)retainCount;
+- (_Bool)_tryRetain;
+- (_Bool)_isDeallocating;
 - (oneway void)release;
 - (id)retain;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned long)_cfTypeID;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)_cfTypeID;
 
 @end
 

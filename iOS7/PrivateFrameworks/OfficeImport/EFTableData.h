@@ -8,6 +8,7 @@
 
 @class EDReference, EDTable;
 
+// Not exported
 @interface EFTableData : NSObject
 {
     struct EFRefTok mRefTok;

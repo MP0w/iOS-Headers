@@ -23,12 +23,14 @@
 @property(readonly, nonatomic) SKUIGift *gift; // @synthesize gift=_gift;
 @property(retain, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
 - (void).cxx_destruct;
+- (id)_localizedString:(id)arg1;
 - (void)_loadGiftConfiguration;
-- (void)_finishGiftingWithResult:(BOOL)arg1;
+- (void)_finishGiftingWithResult:(_Bool)arg1;
 - (void)_finishAuthenticateWithResponse:(id)arg1 error:(id)arg2;
-- (void)_configurationDidLoadWithResult:(BOOL)arg1 error:(id)arg2;
+- (void)_configurationDidLoadWithResult:(_Bool)arg1 error:(id)arg2;
+- (void)_clientContextDidLoadWithContext:(id)arg1 error:(id)arg2;
 - (void)_cancelButtonAction:(id)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 @property(retain, nonatomic) NSOperationQueue *operationQueue; // @synthesize operationQueue=_operationQueue;
 - (id)initWithGift:(id)arg1;
 

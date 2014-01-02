@@ -6,15 +6,16 @@
 
 #import <UIKit/UIView.h>
 
+// Not exported
 @interface _UIDebugAlignmentRectView : UIView
 {
-    float _baselineOffset;
+    double _baselineOffset;
 }
 
-- (BOOL)isOpaque;
-- (id)_alignmentDebuggingOverlayCreateIfNecessary:(BOOL)arg1;
+- (_Bool)isOpaque;
+- (id)_alignmentDebuggingOverlayCreateIfNecessary:(_Bool)arg1;
 - (void)drawRect:(struct CGRect)arg1;
-- (id)initWithFrame:(struct CGRect)arg1 baselineOffset:(float)arg2;
+- (id)initWithFrame:(struct CGRect)arg1 baselineOffset:(double)arg2;
 
 @end
 

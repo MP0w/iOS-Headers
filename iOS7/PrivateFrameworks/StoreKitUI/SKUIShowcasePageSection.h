@@ -14,27 +14,27 @@
 @interface SKUIShowcasePageSection : SKUIStorePageSection <SKUIMissingItemDelegate, SKUIShowcaseDelegate>
 {
     SKUIMissingItemLoader *_missingItemLoader;
-    BOOL _pinned;
+    _Bool _pinned;
     SKUIShowcaseViewController *_showcaseViewController;
 }
 
 - (void).cxx_destruct;
 - (id)_showcaseViewController;
 - (id)_missingItemLoader;
-- (void)_loadMissingItemsFromIndex:(int)arg1 withReason:(int)arg2;
-- (void)_addImpressionForIndex:(int)arg1 toSession:(id)arg2;
-- (void)showcase:(id)arg1 didSelectItem:(id)arg2 atIndex:(int)arg3;
-- (void)showcase:(id)arg1 didDisplayItemAtIndex:(int)arg2;
+- (void)_loadMissingItemsFromIndex:(long long)arg1 withReason:(long long)arg2;
+- (void)_addImpressionForIndex:(long long)arg1 toSession:(id)arg2;
+- (void)showcase:(id)arg1 didSelectItem:(id)arg2 atIndex:(long long)arg3;
+- (void)showcase:(id)arg1 didDisplayItemAtIndex:(long long)arg2;
 - (void)missingItemLoader:(id)arg1 didLoadItems:(id)arg2;
 - (void)restorePinnedHeaderView:(id)arg1;
-- (void)prefetchResourcesWithReason:(int)arg1;
+- (void)prefetchResourcesWithReason:(long long)arg1;
 - (id)popPinnedHeaderView;
-- (int)numberOfCells;
-- (float)contentInsetAdjustmentForCollectionView:(id)arg1;
-- (int)coloringOffset;
-- (id)clickEventWithLink:(id)arg1 elementName:(id)arg2 index:(int)arg3;
+- (long long)numberOfCells;
+- (double)contentInsetAdjustmentForCollectionView:(id)arg1;
+- (id)clickEventWithLink:(id)arg1 elementName:(id)arg2 index:(long long)arg3;
 - (struct CGSize)cellSizeForIndexPath:(id)arg1;
 - (id)cellForIndexPath:(id)arg1;
+- (void)willAppearInContext:(id)arg1;
 - (void)addImpressionsForIndexPath:(id)arg1 toSession:(id)arg2;
 - (void)dealloc;
 - (id)initWithPageComponent:(id)arg1;

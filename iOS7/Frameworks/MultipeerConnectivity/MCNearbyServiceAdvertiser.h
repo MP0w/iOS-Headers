@@ -12,28 +12,30 @@
 
 @interface MCNearbyServiceAdvertiser : NSObject <NSNetServiceDelegate>
 {
-    BOOL _isAdvertising;
-    BOOL _wasAdvertising;
+    _Bool _isAdvertising;
+    _Bool _wasAdvertising;
     id <MCNearbyServiceAdvertiserDelegate> _delegate;
     MCPeerID *_myPeerID;
     NSDictionary *_discoveryInfo;
     NSString *_serviceType;
+    NSString *_formattedServiceType;
     NSMutableDictionary *_peers;
-    int _outgoingInviteID;
+    long long _outgoingInviteID;
     NSObject<OS_dispatch_queue> *_syncQueue;
     NSMutableDictionary *_invites;
     NSNetService *_networkServer;
 }
 
 @property(retain, nonatomic) NSNetService *networkServer; // @synthesize networkServer=_networkServer;
-@property(nonatomic) BOOL wasAdvertising; // @synthesize wasAdvertising=_wasAdvertising;
-@property(nonatomic) BOOL isAdvertising; // @synthesize isAdvertising=_isAdvertising;
+@property(nonatomic) _Bool wasAdvertising; // @synthesize wasAdvertising=_wasAdvertising;
+@property(nonatomic) _Bool isAdvertising; // @synthesize isAdvertising=_isAdvertising;
 @property(retain, nonatomic) NSMutableDictionary *invites; // @synthesize invites=_invites;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *syncQueue; // @synthesize syncQueue=_syncQueue;
-@property(nonatomic) int outgoingInviteID; // @synthesize outgoingInviteID=_outgoingInviteID;
+@property(nonatomic) long long outgoingInviteID; // @synthesize outgoingInviteID=_outgoingInviteID;
 @property(retain, nonatomic) NSMutableDictionary *peers; // @synthesize peers=_peers;
+@property(copy, nonatomic) NSString *formattedServiceType; // @synthesize formattedServiceType=_formattedServiceType;
 @property(copy, nonatomic) NSString *serviceType; // @synthesize serviceType=_serviceType;
-@property(retain, nonatomic) NSDictionary *discoveryInfo; // @synthesize discoveryInfo=_discoveryInfo;
+@property(copy, nonatomic) NSDictionary *discoveryInfo; // @synthesize discoveryInfo=_discoveryInfo;
 @property(readonly, nonatomic) MCPeerID *myPeerID; // @synthesize myPeerID=_myPeerID;
 @property(nonatomic) id <MCNearbyServiceAdvertiserDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)netService:(id)arg1 didNotPublish:(id)arg2;
@@ -57,6 +59,7 @@
 - (void)syncStartAdvertisingPeer;
 - (void)parseIDString:(id *)arg1 displayName:(id *)arg2 fromIdentifier:(id)arg3;
 - (void)insertTXTRecord;
+- (id)description;
 - (void)dealloc;
 - (id)initWithPeer:(id)arg1 discoveryInfo:(id)arg2 serviceType:(id)arg3;
 - (id)init;

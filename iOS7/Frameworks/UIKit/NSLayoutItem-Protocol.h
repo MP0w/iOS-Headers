@@ -7,13 +7,13 @@
 #import "NSObject-Protocol.h"
 
 @protocol NSLayoutItem <NSObject>
-- (BOOL)nsli_isFlipped;
-- (unsigned int)nsli_autoresizingMask;
-- (BOOL)nsli_descriptionIncludesPointer;
+- (_Bool)nsli_isFlipped;
+- (unsigned long long)nsli_autoresizingMask;
+- (_Bool)nsli_descriptionIncludesPointer;
 - (id)nsli_description;
-- (BOOL)nsli_resolvedValue:(float *)arg1 forSymbolicConstant:(id)arg2 inConstraint:(id)arg3 error:(id *)arg4;
-- (BOOL)nsli_lowerAttribute:(int)arg1 intoExpression:(id)arg2 withCoefficient:(float)arg3 container:(id)arg4;
-- (BOOL)nsli_lowerAttribute:(int)arg1 intoExpression:(id)arg2 withCoefficient:(float)arg3 forConstraint:(id)arg4;
+- (_Bool)nsli_resolvedValue:(double *)arg1 forSymbolicConstant:(id)arg2 inConstraint:(id)arg3 error:(id *)arg4;
+- (_Bool)nsli_lowerAttribute:(int)arg1 intoExpression:(id)arg2 withCoefficient:(double)arg3 container:(id)arg4;
+- (_Bool)nsli_lowerAttribute:(int)arg1 intoExpression:(id)arg2 withCoefficient:(double)arg3 forConstraint:(id)arg4;
 - (id)nsli_superitem;
 - (struct CGSize)nsli_convertSizeFromEngineSpace:(struct CGSize)arg1;
 - (struct CGSize)nsli_convertSizeToEngineSpace:(struct CGSize)arg1;

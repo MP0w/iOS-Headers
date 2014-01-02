@@ -8,7 +8,7 @@
 
 @interface NSData (hexString)
 + (id)dataWithHexString:(id)arg1;
-+ (id)dataWithHexString:(id)arg1 stringIsUppercase:(BOOL)arg2;
++ (id)dataWithHexString:(id)arg1 stringIsUppercase:(_Bool)arg2;
 - (id)uppercaseHexStringWithoutSpaces;
 - (id)lowercaseHexStringWithoutSpaces;
 - (id)hexString;

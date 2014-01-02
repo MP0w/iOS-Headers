@@ -6,6 +6,7 @@
 
 #import <OfficeImport/STSStgObject.h>
 
+// Not exported
 @interface STStream : STSStgObject
 {
     struct _Stream *m_pCStream;

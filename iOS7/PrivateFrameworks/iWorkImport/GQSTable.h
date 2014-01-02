@@ -8,33 +8,34 @@
 
 @class GQDTCell, GQDTOverlapCell, GQDTTable;
 
+// Not exported
 @interface GQSTable : NSObject
 {
     GQDTTable *mTable;
     GQDTOverlapCell *mCurrentOverlapCell;
     GQDTCell *mLastCellRead;
-    BOOL mIsStreaming;
-    BOOL mAlwaysPutReadCellsInArray;
-    long mCellCount;
-    BOOL mIsCounting;
+    _Bool mIsStreaming;
+    _Bool mAlwaysPutReadCellsInArray;
+    long long mCellCount;
+    _Bool mIsCounting;
 }
 
-- (BOOL)isCounting;
-- (void)setIsCountingCount:(BOOL)arg1;
+- (_Bool)isCounting;
+- (void)setIsCountingCount:(_Bool)arg1;
 - (void)incrementCellPosition;
-- (void)skipCells:(long)arg1;
-- (long)column;
-- (long)row;
-- (void)setAlwaysPutReadCellsInArray:(BOOL)arg1;
-- (BOOL)alwaysPutReadCellsInArray;
+- (void)skipCells:(long long)arg1;
+- (long long)column;
+- (long long)row;
+- (void)setAlwaysPutReadCellsInArray:(_Bool)arg1;
+- (_Bool)alwaysPutReadCellsInArray;
 - (id)table;
-- (BOOL)isStreaming;
+- (_Bool)isStreaming;
 - (void)setLastCellRead:(id)arg1;
 - (id)lastCellRead;
 - (void)setCurrentOverlapCell:(id)arg1;
 - (id)currentOverlapCell;
 - (void)dealloc;
-- (id)initWithStreaming:(BOOL)arg1 table:(id)arg2;
+- (id)initWithStreaming:(_Bool)arg1 table:(id)arg2;
 
 @end
 

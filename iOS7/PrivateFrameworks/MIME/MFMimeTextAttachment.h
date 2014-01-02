@@ -12,7 +12,7 @@
 
 - (id)persistentUniqueIdentifier;
 - (unsigned int)approximateSize;
-- (BOOL)hasBeenDownloaded;
+- (_Bool)hasBeenDownloaded;
 - (void)download;
 - (id)_displayedMimePart;
 - (id)initWithMimePart:(id)arg1;

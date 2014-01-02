@@ -15,10 +15,10 @@
 }
 
 + (id)sharedLogging;
-- (void)logDiagnosticForProvider:(id)arg1 withLevel:(int)arg2 format:(id)arg3 args:(void *)arg4;
+- (void)logDiagnosticForProvider:(id)arg1 withLevel:(long long)arg2 format:(id)arg3 args:(char *)arg4;
 - (id)delegatesToLogTransmittedDataForAccountInfoProvider:(id)arg1;
-- (BOOL)_shouldOutputAtLevel:(int)arg1 forAccountInfoProvider:(id)arg2;
-- (BOOL)shouldLogAtLevel:(int)arg1 forAccountInfoProvider:(id)arg2;
+- (_Bool)_shouldOutputAtLevel:(long long)arg1 forAccountInfoProvider:(id)arg2;
+- (_Bool)shouldLogAtLevel:(long long)arg1 forAccountInfoProvider:(id)arg2;
 - (id)_delegatesToLogForProvider:(id)arg1;
 - (void)removeLogDelegate:(id)arg1 forAccountInfoProvider:(id)arg2;
 - (void)addLogDelegate:(id)arg1 forAccountInfoProvider:(id)arg2;

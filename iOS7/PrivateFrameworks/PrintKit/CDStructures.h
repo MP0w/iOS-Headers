@@ -7,8 +7,8 @@
 #pragma mark Named Structures
 
 struct CGPoint {
-    float _field1;
-    float _field2;
+    double _field1;
+    double _field2;
 };
 
 struct CGRect {
@@ -17,8 +17,8 @@ struct CGRect {
 };
 
 struct CGSize {
-    float _field1;
-    float _field2;
+    double _field1;
+    double _field2;
 };
 
 struct SSLContext;
@@ -77,18 +77,18 @@ struct sockaddr_in {
 struct z_stream_s {
     char *_field1;
     unsigned int _field2;
-    unsigned int _field3;
+    unsigned long long _field3;
     char *_field4;
     unsigned int _field5;
-    unsigned int _field6;
+    unsigned long long _field6;
     char *_field7;
     struct internal_state *_field8;
     void *_field9;
     void *_field10;
     void *_field11;
     int _field12;
-    unsigned int _field13;
-    unsigned int _field14;
+    unsigned long long _field13;
+    unsigned long long _field14;
 };
 
 #pragma mark Typedef'd Structures

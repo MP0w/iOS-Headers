@@ -11,8 +11,8 @@
 @interface CPTableCell : CPChunk <CPDisposable>
 {
     struct CGRect cellBounds;
-    CDStruct_dff5684f rowSpan;
-    CDStruct_dff5684f columnSpan;
+    CDStruct_627e0f85 rowSpan;
+    CDStruct_627e0f85 columnSpan;
     struct {
         struct CGRect _field1;
         struct CGColor *_field2;
@@ -25,10 +25,10 @@
 }
 
 @property(readonly, nonatomic) unsigned int backgroundGraphicCount; // @synthesize backgroundGraphicCount;
-@property(nonatomic) CDStruct_dff5684f columnSpan; // @synthesize columnSpan;
-@property(nonatomic) CDStruct_dff5684f rowSpan; // @synthesize rowSpan;
+@property(nonatomic) CDStruct_627e0f85 columnSpan; // @synthesize columnSpan;
+@property(nonatomic) CDStruct_627e0f85 rowSpan; // @synthesize rowSpan;
 @property(readonly, nonatomic) struct CGRect cellBounds; // @synthesize cellBounds;
-- (int)compareCellOrdinal:(id)arg1;
+- (long long)compareCellOrdinal:(id)arg1;
 - (id)graphicObjectOfBorder:(int)arg1 atIndex:(unsigned int)arg2;
 - (unsigned int)graphicCountOfBorder:(int)arg1;
 - (struct CGColor *)colorOfBorder:(int)arg1;

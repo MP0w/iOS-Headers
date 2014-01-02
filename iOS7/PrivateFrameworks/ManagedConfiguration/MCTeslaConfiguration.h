@@ -10,12 +10,12 @@
 
 @interface MCTeslaConfiguration : NSObject
 {
-    BOOL _fetching;
+    _Bool _fetching;
     id _callback;
     NSXPCConnection *_connection;
 }
 
-@property(nonatomic, getter=isFetching) BOOL fetching; // @synthesize fetching=_fetching;
+@property(nonatomic, getter=isFetching) _Bool fetching; // @synthesize fetching=_fetching;
 @property(retain, nonatomic) NSXPCConnection *connection; // @synthesize connection=_connection;
 @property(copy, nonatomic) id callback; // @synthesize callback=_callback;
 - (void).cxx_destruct;

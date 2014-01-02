@@ -8,6 +8,7 @@
 
 @class EDResources, EDWorkbook, NSMutableArray;
 
+// Not exported
 @interface EDProcessor : NSObject
 {
     EDWorkbook *mWorkbook;

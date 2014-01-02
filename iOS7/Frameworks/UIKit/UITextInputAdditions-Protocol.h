@@ -6,15 +6,15 @@
 
 @protocol UITextInputAdditions
 @property(readonly, nonatomic, getter=_caretRect) struct CGRect caretRect;
-@property(readonly, nonatomic, getter=isEditing) BOOL editing;
-@property(readonly, nonatomic, getter=isEditable) BOOL editable;
+@property(readonly, nonatomic, getter=isEditing) _Bool editing;
+@property(readonly, nonatomic, getter=isEditable) _Bool editable;
 - (void)endSelectionChange;
 - (void)beginSelectionChange;
 - (id)interactionAssistant;
 - (id)textInputView;
 
 @optional
-- (BOOL)_useGesturesForEditableContent;
+- (_Bool)_useGesturesForEditableContent;
 - (id)_textInputViewForAddingGestureRecognizers;
 @end
 

@@ -10,7 +10,7 @@
 
 @optional
 - (void)flowcaseDidChangeVisibleViews:(id)arg1;
-- (id)flowcase:(id)arg1 imageForItem:(id)arg2 index:(int)arg3 orientation:(int)arg4;
-- (void)flowcase:(id)arg1 didSelectItem:(id)arg2 atIndex:(int)arg3;
+- (id)flowcase:(id)arg1 imageForItem:(id)arg2 index:(long long)arg3 orientation:(long long)arg4;
+- (void)flowcase:(id)arg1 didSelectItem:(id)arg2 atIndex:(long long)arg3;
 @end
 

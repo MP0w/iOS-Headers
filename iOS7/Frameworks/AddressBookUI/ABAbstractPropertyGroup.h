@@ -12,15 +12,15 @@
 {
     NSArray *_people;
     id <ABStyleProvider> _styleProvider;
-    BOOL _hasChanges;
+    _Bool _hasChanges;
     ABUIPerson *_preinsertedPerson;
 }
 
 @property(retain, nonatomic) id <ABStyleProvider> styleProvider; // @synthesize styleProvider=_styleProvider;
-@property(nonatomic) BOOL hasChanges; // @synthesize hasChanges=_hasChanges;
+@property(nonatomic) _Bool hasChanges; // @synthesize hasChanges=_hasChanges;
 @property(retain, nonatomic) ABUIPerson *preinsertedPerson; // @synthesize preinsertedPerson=_preinsertedPerson;
 @property(retain, nonatomic) NSArray *people; // @synthesize people=_people;
-- (BOOL)canSave;
+- (_Bool)canSave;
 - (void)reloadFromModel;
 - (void)updateRecord;
 - (int)property;

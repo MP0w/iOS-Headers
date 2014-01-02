@@ -10,16 +10,16 @@
 
 @interface MPUSeparatorView : UIView
 {
-    float _leftMarginWidth;
+    double _leftMarginWidth;
     UIColor *_marginColor;
-    float _rightMarginWidth;
+    double _rightMarginWidth;
     UIColor *_separatorColor;
 }
 
 @property(retain, nonatomic) UIColor *separatorColor; // @synthesize separatorColor=_separatorColor;
-@property(nonatomic) float rightMarginWidth; // @synthesize rightMarginWidth=_rightMarginWidth;
+@property(nonatomic) double rightMarginWidth; // @synthesize rightMarginWidth=_rightMarginWidth;
 @property(retain, nonatomic) UIColor *marginColor; // @synthesize marginColor=_marginColor;
-@property(nonatomic) float leftMarginWidth; // @synthesize leftMarginWidth=_leftMarginWidth;
+@property(nonatomic) double leftMarginWidth; // @synthesize leftMarginWidth=_leftMarginWidth;
 - (void).cxx_destruct;
 - (void)drawRect:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

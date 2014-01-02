@@ -10,20 +10,20 @@
 
 @interface UserFSVolume : NSObject
 {
-    BOOL _isLocked;
+    _Bool _isLocked;
     NSString *_deviceName;
     NSObject<OS_xpc_object> *_connection;
 }
 
-+ (BOOL)prepareToAccessDeviceName:(id)arg1 error:(id *)arg2;
++ (_Bool)prepareToAccessDeviceName:(id)arg1 error:(id *)arg2;
 + (id)volumeWithDeviceName:(id)arg1 error:(id *)arg2;
 @property(retain, nonatomic) NSObject<OS_xpc_object> *connection; // @synthesize connection=_connection;
-@property(readonly, nonatomic) BOOL isLocked; // @synthesize isLocked=_isLocked;
+@property(readonly, nonatomic) _Bool isLocked; // @synthesize isLocked=_isLocked;
 @property(readonly, nonatomic) NSString *deviceName; // @synthesize deviceName=_deviceName;
 - (void).cxx_destruct;
-- (BOOL)closeAndReturnError:(id *)arg1;
-- (BOOL)flushAndReturnError:(id *)arg1;
-- (BOOL)deleteFiles:(id)arg1 error:(id *)arg2;
+- (_Bool)closeAndReturnError:(id *)arg1;
+- (_Bool)flushAndReturnError:(id *)arg1;
+- (_Bool)deleteFiles:(id)arg1 error:(id *)arg2;
 - (id)itemAtPath:(id)arg1 error:(id *)arg2;
 - (id)rootDirectoryAndReturnError:(id *)arg1;
 - (void)dealloc;

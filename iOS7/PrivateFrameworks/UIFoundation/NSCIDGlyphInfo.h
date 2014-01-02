@@ -6,20 +6,21 @@
 
 #import <UIFoundation/NSGlyphInfo.h>
 
+// Not exported
 @interface NSCIDGlyphInfo : NSGlyphInfo
 {
     unsigned short _cid;
-    unsigned int _collection;
+    unsigned long long _collection;
 }
 
 + (void)initialize;
-+ (id)glyphInfoWithCharacterIdentifier:(unsigned int)arg1 collection:(unsigned int)arg2 baseString:(id)arg3;
++ (id)glyphInfoWithCharacterIdentifier:(unsigned long long)arg1 collection:(unsigned long long)arg2 baseString:(id)arg3;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
-- (unsigned int)characterCollection;
-- (unsigned int)characterIdentifier;
+- (unsigned long long)characterCollection;
+- (unsigned long long)characterIdentifier;
 - (unsigned int)_glyphForFont:(id)arg1 baseString:(id)arg2;
-- (id)initWithCharacterIdentifier:(unsigned int)arg1 collection:(unsigned int)arg2 baseString:(id)arg3;
+- (id)initWithCharacterIdentifier:(unsigned long long)arg1 collection:(unsigned long long)arg2 baseString:(id)arg3;
 
 @end
 

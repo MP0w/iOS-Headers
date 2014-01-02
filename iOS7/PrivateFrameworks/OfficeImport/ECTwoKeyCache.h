@@ -8,6 +8,7 @@
 
 @class TSUPointerKeyDictionary;
 
+// Not exported
 @interface ECTwoKeyCache : NSObject
 {
     TSUPointerKeyDictionary *mCache;

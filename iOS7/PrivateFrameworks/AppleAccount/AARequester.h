@@ -17,22 +17,22 @@
     NSMutableData *_data;
     NSHTTPURLResponse *_httpResponse;
     Class _responseClass;
-    BOOL _isExecuting;
-    BOOL _isFinished;
-    BOOL _canceled;
-    BOOL _isCanceled;
+    _Bool _isExecuting;
+    _Bool _isFinished;
+    _Bool _canceled;
+    _Bool _isCanceled;
 }
 
-@property(getter=isCanceled) BOOL canceled; // @synthesize canceled=_isCanceled;
-@property(getter=isFinished) BOOL finished; // @synthesize finished=_isFinished;
-@property(nonatomic, getter=isExecuting) BOOL executing; // @synthesize executing=_isExecuting;
+@property(getter=isCanceled) _Bool canceled; // @synthesize canceled=_isCanceled;
+@property(getter=isFinished) _Bool finished; // @synthesize finished=_isFinished;
+@property(nonatomic, getter=isExecuting) _Bool executing; // @synthesize executing=_isExecuting;
 - (void).cxx_destruct;
 - (void)connection:(id)arg1 didFailWithError:(id)arg2;
 - (void)connectionDidFinishLoading:(id)arg1;
 - (void)connection:(id)arg1 didReceiveData:(id)arg2;
 - (void)connection:(id)arg1 didReceiveResponse:(id)arg2;
 - (void)connection:(id)arg1 didReceiveAuthenticationChallenge:(id)arg2;
-- (BOOL)connection:(id)arg1 canAuthenticateAgainstProtectionSpace:(id)arg2;
+- (_Bool)connection:(id)arg1 canAuthenticateAgainstProtectionSpace:(id)arg2;
 - (void)_callHandler;
 - (void)start;
 - (void)cancel;

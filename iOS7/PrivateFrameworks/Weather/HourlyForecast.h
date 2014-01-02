@@ -10,20 +10,20 @@
 
 @interface HourlyForecast : NSObject
 {
-    unsigned int _eventType;
-    NSString *_time;
-    int _hourIndex;
-    NSString *_detail;
-    int _conditionCode;
     float _percentPrecipitation;
+    unsigned long long _eventType;
+    NSString *_time;
+    long long _hourIndex;
+    NSString *_detail;
+    long long _conditionCode;
 }
 
 @property(nonatomic) float percentPrecipitation; // @synthesize percentPrecipitation=_percentPrecipitation;
-@property(nonatomic) int conditionCode; // @synthesize conditionCode=_conditionCode;
+@property(nonatomic) long long conditionCode; // @synthesize conditionCode=_conditionCode;
 @property(copy, nonatomic) NSString *detail; // @synthesize detail=_detail;
-@property(nonatomic) int hourIndex; // @synthesize hourIndex=_hourIndex;
+@property(nonatomic) long long hourIndex; // @synthesize hourIndex=_hourIndex;
 @property(copy, nonatomic) NSString *time; // @synthesize time=_time;
-@property(nonatomic) unsigned int eventType; // @synthesize eventType=_eventType;
+@property(nonatomic) unsigned long long eventType; // @synthesize eventType=_eventType;
 - (id)description;
 - (void)dealloc;
 

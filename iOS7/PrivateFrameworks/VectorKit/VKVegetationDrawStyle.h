@@ -6,12 +6,13 @@
 
 #import <VectorKit/VKDimmableDrawStyle.h>
 
+// Not exported
 @interface VKVegetationDrawStyle : VKDimmableDrawStyle
 {
-    BOOL visible;
+    _Bool visible;
 }
 
-@property(readonly, nonatomic) BOOL visible; // @synthesize visible;
+@property(readonly, nonatomic) _Bool visible; // @synthesize visible;
 - (void)takeFromZoomInvariantProperties:(id)arg1;
 - (id)variant;
 

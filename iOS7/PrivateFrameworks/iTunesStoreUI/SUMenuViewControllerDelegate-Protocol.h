@@ -11,6 +11,6 @@
 @optional
 - (void)menuViewControllerDidCancel:(id)arg1;
 - (void)menuViewController:(id)arg1 didTapButton:(id)arg2;
-- (void)menuViewController:(id)arg1 didSelectItemAtIndex:(int)arg2;
+- (void)menuViewController:(id)arg1 didSelectItemAtIndex:(long long)arg2;
 @end
 

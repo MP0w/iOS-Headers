@@ -10,8 +10,8 @@
 {
 }
 
-- (BOOL)webViewDrawsShadows;
-- (BOOL)webViewIsOpaque;
+- (_Bool)webViewDrawsShadows;
+- (_Bool)webViewIsOpaque;
 - (id)webViewBackgroundColor;
 - (id)webViewBackgroundView;
 

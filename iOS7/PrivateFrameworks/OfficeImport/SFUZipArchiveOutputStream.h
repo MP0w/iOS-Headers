@@ -8,12 +8,13 @@
 
 #import "SFUSimpleOutputStream-Protocol.h"
 
-@class NSData, NSMutableArray, SFUCryptoKey, SFUMoveableFileOutputStream, SFUZipFreeSpaceEntry, SFUZipOutputEntry;
+@class NSData, NSMutableArray, OISFUCryptoKey, SFUMoveableFileOutputStream, SFUZipFreeSpaceEntry, SFUZipOutputEntry;
 
+// Not exported
 @interface SFUZipArchiveOutputStream : NSObject <SFUSimpleOutputStream>
 {
     SFUMoveableFileOutputStream *mOutputStream;
-    SFUCryptoKey *mCryptoKey;
+    OISFUCryptoKey *mCryptoKey;
     NSData *mPassphraseHint;
     NSData *mEncryptedDocumentUuid;
     NSMutableArray *mEntries;
@@ -26,7 +27,7 @@
     unsigned long long mFreeBytes;
 }
 
-+ (unsigned long)approximateBytesForEntryHeaderWithName:(id)arg1;
++ (unsigned long long)approximateBytesForEntryHeaderWithName:(id)arg1;
 - (unsigned int)crc32ForEntry:(id)arg1;
 - (void)reset;
 - (unsigned long long)freeBytes;
@@ -37,23 +38,16 @@
 - (void)close;
 - (void)setEncryptedDocumentUuid:(id)arg1;
 - (void)removeEntryWithName:(id)arg1;
-- (BOOL)canRemoveEntryWithName:(id)arg1;
-- (void)writeBuffer:(const char *)arg1 size:(unsigned long)arg2;
+- (_Bool)canRemoveEntryWithName:(id)arg1;
+- (void)writeBuffer:(const char *)arg1 size:(unsigned long long)arg2;
 - (void)setCrc32ForCurrentEntry:(unsigned int)arg1;
 - (id)beginUncompressedUnknownSizeEntryWithName:(id)arg1;
-- (void)beginUnknownSizeEntryWithName:(id)arg1 isCompressed:(BOOL)arg2;
-- (void)beginEntryWithName:(id)arg1 isCompressed:(BOOL)arg2 uncompressedSize:(unsigned long long)arg3;
+- (void)beginUnknownSizeEntryWithName:(id)arg1 isCompressed:(_Bool)arg2;
+- (void)beginEntryWithName:(id)arg1 isCompressed:(_Bool)arg2 uncompressedSize:(unsigned long long)arg3;
 - (void)dealloc;
 - (id)initWithPath:(id)arg1 cryptoKey:(id)arg2 passphraseHint:(id)arg3;
 - (id)initWithPath:(id)arg1;
 - (id)initWithOutputStream:(id)arg1 cryptoKey:(id)arg2 passphraseHint:(id)arg3;
-- (void)writeZip64EndOfCentralDirectoryLocatorWithOffset:(long long)arg1;
-- (void)writeZip64EndOfCentralDirectoryWithOffset:(long long)arg1;
-- (void)writeEndOfCentralDirectoryWithOffset:(long long)arg1;
-- (void)writeCentralFileHeaderUsingEntry:(id)arg1 isFirstEntry:(BOOL)arg2;
-- (unsigned long)writeLocalFileHeaderForEntry:(id)arg1;
-- (void)coalesceAndTruncateFreeSpace;
-- (void)finishEntry;
 
 @end
 

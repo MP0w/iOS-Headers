@@ -10,10 +10,10 @@
 
 @interface MKStarRatingView : UIView
 {
-    float _rating;
-    int _numLevels;
-    float _padding;
-    BOOL _highlighted;
+    double _rating;
+    long long _numLevels;
+    double _padding;
+    _Bool _highlighted;
     UIImage *_fullStarImage;
     UIImage *_halfStarImage;
     UIImage *_emptyStarImage;
@@ -21,7 +21,7 @@
     UIImage *_halfStarHighlightedImage;
     UIImage *_emptyStarHighlightedImage;
     NSMutableArray *_ratingViews;
-    int _numReviews;
+    long long _numReviews;
 }
 
 @property(retain, nonatomic) UIImage *emptyStarHighlightedImage; // @synthesize emptyStarHighlightedImage=_emptyStarHighlightedImage;
@@ -30,10 +30,10 @@
 @property(retain, nonatomic) UIImage *emptyStarImage; // @synthesize emptyStarImage=_emptyStarImage;
 @property(retain, nonatomic) UIImage *halfStarImage; // @synthesize halfStarImage=_halfStarImage;
 @property(retain, nonatomic) UIImage *fullStarImage; // @synthesize fullStarImage=_fullStarImage;
-@property(nonatomic, getter=isHighlighted) BOOL highlighted; // @synthesize highlighted=_highlighted;
-@property(nonatomic) float rating; // @synthesize rating=_rating;
-@property(nonatomic) int numberOfRatingLevels; // @synthesize numberOfRatingLevels=_numLevels;
-- (void)setPadding:(float)arg1;
+@property(nonatomic, getter=isHighlighted) _Bool highlighted; // @synthesize highlighted=_highlighted;
+@property(nonatomic) double rating; // @synthesize rating=_rating;
+@property(nonatomic) long long numberOfRatingLevels; // @synthesize numberOfRatingLevels=_numLevels;
+- (void)setPadding:(double)arg1;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)dealloc;

@@ -22,8 +22,8 @@
 - (void)invokeSuper;
 - (void)invokeUsingIMP:(void *)arg1;
 - (void)invoke;
-- (void)setArgument:(void *)arg1 atIndex:(int)arg2;
-- (void)getArgument:(void *)arg1 atIndex:(int)arg2;
+- (void)setArgument:(void *)arg1 atIndex:(long long)arg2;
+- (void)getArgument:(void *)arg1 atIndex:(long long)arg2;
 - (void)setReturnValue:(void *)arg1;
 - (void)getReturnValue:(void *)arg1;
 - (void)setSelector:(SEL)arg1;
@@ -32,7 +32,7 @@
 - (id)target;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)_addAttachedObject:(id)arg1;
-- (BOOL)argumentsRetained;
+- (_Bool)argumentsRetained;
 - (void)retainArguments;
 - (id)methodSignature;
 - (void)dealloc;

@@ -6,6 +6,7 @@
 
 #import "PBCodable.h"
 
+// Not exported
 @interface GEOVLaneConnection : PBCodable
 {
     unsigned int _firstLaneIndex;
@@ -18,11 +19,11 @@
 @property(nonatomic) unsigned int secondRoadIndex; // @synthesize secondRoadIndex=_secondRoadIndex;
 @property(nonatomic) unsigned int firstLaneIndex; // @synthesize firstLaneIndex=_firstLaneIndex;
 @property(nonatomic) unsigned int firstRoadIndex; // @synthesize firstRoadIndex=_firstRoadIndex;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
 - (void)dealloc;

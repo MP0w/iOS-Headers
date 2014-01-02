@@ -10,6 +10,7 @@
 
 @class NSManagedObjectContext, NSMutableArray, NSMutableDictionary, NSMutableSet, NSOperationQueue, NSSQLAdapter, NSSQLConnection, NSSQLEntity, NSSQLModel, NSSQLRow, NSSQLRowCache, NSSaveChangesRequest, NSSet, NSString, NSURL;
 
+// Not exported
 @interface NSSQLCore : NSPersistentStore <NSFilePresenter>
 {
     NSSQLModel *_model;
@@ -38,7 +39,7 @@
     NSString *_externalDataReferencesDirectory;
     NSString *_externalDataLinksDirectory;
     int _transactionInMemorySequence;
-    int _debug;
+    int _moreOtherReserved;
     struct _sqlCoreFlags {
         unsigned int preparingForSave:1;
         unsigned int beganTransaction:1;
@@ -52,19 +53,19 @@
     } _sqlCoreFlags;
 }
 
-+ (BOOL)_replacePersistentStoreAtURL:(id)arg1 destinationOptions:(id)arg2 withPersistentStoreFromURL:(id)arg3 sourceOptions:(id)arg4 error:(id *)arg5;
-+ (BOOL)_destroyPersistentStoreAtURL:(id)arg1 options:(id)arg2 error:(id *)arg3;
-+ (BOOL)setMetadata:(id)arg1 forPersistentStoreWithURL:(id)arg2 error:(id *)arg3;
++ (_Bool)_replacePersistentStoreAtURL:(id)arg1 destinationOptions:(id)arg2 withPersistentStoreFromURL:(id)arg3 sourceOptions:(id)arg4 error:(id *)arg5;
++ (_Bool)_destroyPersistentStoreAtURL:(id)arg1 options:(id)arg2 error:(id *)arg3;
++ (_Bool)setMetadata:(id)arg1 forPersistentStoreWithURL:(id)arg2 error:(id *)arg3;
 + (id)metadataForPersistentStoreWithURL:(id)arg1 error:(id *)arg2;
-+ (BOOL)sanityCheckFileAtURL:(id)arg1 error:(id *)arg2;
++ (_Bool)sanityCheckFileAtURL:(id)arg1 error:(id *)arg2;
 + (id)_figureOutWhereExternalReferencesEndedUpRelativeTo:(id)arg1;
 + (Class)migrationManagerClass;
 + (void)initialize;
-+ (BOOL)SQLGenerationV1Default;
-+ (BOOL)coloredLoggingDefault;
++ (_Bool)SQLGenerationV1Default;
++ (_Bool)coloredLoggingDefault;
 + (int)debugDefault;
-+ (void)setSQLGenerationV1Default:(BOOL)arg1;
-+ (void)setColoredLoggingDefault:(BOOL)arg1;
++ (void)setSQLGenerationV1Default:(_Bool)arg1;
++ (void)setColoredLoggingDefault:(_Bool)arg1;
 + (void)setDebugDefault:(int)arg1;
 - (void)accommodatePresentedItemDeletionWithCompletionHandler:(id)arg1;
 @property(readonly) NSOperationQueue *presentedItemOperationQueue;
@@ -84,22 +85,22 @@
 - (id)newSortDescriptorForOrderedRelationship:(id)arg1;
 - (id)newObjectIDSetsForToManyPrefetchingRequest:(id)arg1 andSourceObjectIDs:(id)arg2 orderColumnName:(id)arg3;
 - (id)hackQueryForManyToManyPrefetching:(id)arg1 andSourceObjectIDs:(id)arg2 orderColumnName:(id)arg3;
-- (id)rawSQLTextForToManyFaultStatement:(id)arg1 stripBindVariables:(BOOL)arg2 swapEKPK:(BOOL)arg3;
+- (id)rawSQLTextForToManyFaultStatement:(id)arg1 stripBindVariables:(_Bool)arg2 swapEKPK:(_Bool)arg3;
 - (id)fetchRowForObjectID:(struct _NSScalarObjectID *)arg1;
 - (int)fileProtectionLevel;
 - (void)setDatabaseUUID:(id)arg1;
 - (id)databaseUUID;
 - (id)metadata;
-- (BOOL)loadMetadata:(id *)arg1;
+- (_Bool)loadMetadata:(id *)arg1;
 - (id)_loadAndSetMetadataReadOnly;
 - (id)_loadAndSetMetadata;
 - (void)setMetadata:(id)arg1;
 - (void)_setMetadata:(id)arg1;
 - (void)_ensureDatabaseMatchesModel;
-- (void)_checkAndRepairCorrelationTables:(BOOL)arg1 storeVersionNumber:(id)arg2;
+- (void)_checkAndRepairCorrelationTables:(_Bool)arg1 storeVersionNumber:(id)arg2;
 - (id)_collectSkewedComponents:(id *)arg1;
 - (id)_dissectCorrelationTableCreationSQL:(id)arg1;
-- (void)_repairDatabaseCorrelationTables:(id)arg1 brokenHashModel:(id)arg2 storeVersionNumber:(id)arg3 recurse:(BOOL)arg4;
+- (void)_repairDatabaseCorrelationTables:(id)arg1 brokenHashModel:(id)arg2 storeVersionNumber:(id)arg3 recurse:(_Bool)arg4;
 - (id)executeRequest:(id)arg1 withContext:(id)arg2 error:(id *)arg3;
 - (id)refreshObjects:(id)arg1;
 - (id)saveChanges:(id)arg1;
@@ -110,6 +111,7 @@
 - (id)writeExternalDataReferences;
 - (id)externalDataReferencesToDelete;
 - (id)externalDataReferencesToSave;
+- (id)_externalDataLinksDirectory;
 - (id)externalDataLinksDirectory;
 - (id)safeguardLocationForFileWithUUID:(id)arg1;
 - (id)externalLocationForFileWithUUID:(id)arg1;
@@ -123,15 +125,15 @@
 - (id)_performExhaustiveConflictDetectionForObjects:(id)arg1 withChannel:(id)arg2;
 - (id)_newConflictRecordForObject:(id)arg1 originalRow:(id)arg2 newRow:(id)arg3;
 - (id)_newObjectGraphStyleForSQLRow:(id)arg1 withObject:(id)arg2;
-- (BOOL)_performFastConflictDetectionForObjects:(id)arg1 withChannel:(id)arg2;
+- (_Bool)_performFastConflictDetectionForObjects:(id)arg1 withChannel:(id)arg2;
 - (struct __CFArray *)_rowsForConflictDetection:(id)arg1 withChannel:(id)arg2;
 - (void)recordChangesInContext:(id)arg1;
 - (id)_entityForObject:(id)arg1;
 - (void)prepareForSave:(id)arg1;
 - (void)generatePrimaryKeysForEntity:(id)arg1;
-- (BOOL)handlesFetchRequest:(id)arg1;
-- (BOOL)ownsObject:(id)arg1;
-- (BOOL)ownsGlobalID:(id)arg1;
+- (_Bool)handlesFetchRequest:(id)arg1;
+- (_Bool)ownsObject:(id)arg1;
+- (_Bool)ownsGlobalID:(id)arg1;
 - (id)orderAdapterOperations;
 - (id)entityNameOrderingArrayForEntities:(id)arg1;
 - (void)insertEntity:(id)arg1 intoOrderingArray:(id)arg2 withDependencies:(id)arg3 processingSet:(id)arg4;
@@ -144,7 +146,7 @@
 - (void)recordValuesForInsertedObject:(id)arg1;
 - (void)recordUpdateForObject:(id)arg1;
 - (void)recordToManyUpdatesForObject:(id)arg1 withOperation:(id)arg2;
-- (id)_newRowCacheRowForToManyUpdatesForRelationship:(id)arg1 rowCacheOriginal:(id)arg2 originalSnapshot:(id)arg3 value:(id)arg4 added:(id)arg5 deleted:(id)arg6 sourceRowPK:(long long)arg7 properties:(id)arg8 sourceObject:(id)arg9 newIndexes:(unsigned int **)arg10 reorderedIndexes:(char **)arg11;
+- (id)_newRowCacheRowForToManyUpdatesForRelationship:(id)arg1 rowCacheOriginal:(id)arg2 originalSnapshot:(id)arg3 value:(id)arg4 added:(id)arg5 deleted:(id)arg6 sourceRowPK:(long long)arg7 properties:(id)arg8 sourceObject:(id)arg9 newIndexes:(unsigned long long **)arg10 reorderedIndexes:(char **)arg11;
 - (void)recordToManyInsertsForObject:(id)arg1 withOperation:(id)arg2;
 - (id)databaseOperationForObject:(id)arg1;
 - (id)permanentObjectIDForObjectInTransaction:(id)arg1;
@@ -156,7 +158,7 @@
 - (unsigned int)_knownOrderKeyForObject:(id)arg1 from:(id)arg2 orderedManyToMany:(id)arg3;
 - (unsigned int)_knownOrderKeyForObject:(id)arg1 from:(id)arg2 inverseToMany:(id)arg3;
 - (unsigned int)_orderKeyForObject:(id)arg1 fromSourceObjectID:(id)arg2 inverseRelationship:(id)arg3 inOrderedSet:(id)arg4;
-- (void)_populateOrderKeysInOrderedSet:(id)arg1 usingSourceObjectID:(id)arg2 inverseRelationship:(id)arg3 newIndexes:(unsigned int **)arg4 reorderedIndexes:(char **)arg5;
+- (void)_populateOrderKeysInOrderedSet:(id)arg1 usingSourceObjectID:(id)arg2 inverseRelationship:(id)arg3 newIndexes:(unsigned long long **)arg4 reorderedIndexes:(char **)arg5;
 - (unsigned int)_knownEntityKeyForObject:(id)arg1;
 - (unsigned int)_knownEntityKeyForObjectID:(id)arg1;
 - (long long)_knownPrimaryKeyForObject:(id)arg1;
@@ -168,9 +170,9 @@
 - (void)invalidateObjectsWithGlobalIDs:(id)arg1;
 - (id)countForFetchRequest:(id)arg1 inContext:(id)arg2;
 - (id)_newRowsForFetchPlan:(id)arg1 selectedBy:(SEL)arg2 withArgument:(id)arg3;
-- (id)_processRawRows:(CDStruct_576b85d7 *)arg1 forFetchPlan:(id)arg2 selectedBy:(SEL)arg3 withArgument:(id)arg4;
-- (id)_prepareResultsFromResultSet:(CDStruct_576b85d7 *)arg1 usingFetchPlan:(id)arg2 withMatchingRows:(id *)arg3;
-- (id)_prepareDictionaryResultsFromResultSet:(CDStruct_576b85d7 *)arg1 usingFetchPlan:(id)arg2;
+- (id)_processRawRows:(CDStruct_ef1b9d9f *)arg1 forFetchPlan:(id)arg2 selectedBy:(SEL)arg3 withArgument:(id)arg4;
+- (id)_prepareResultsFromResultSet:(CDStruct_ef1b9d9f *)arg1 usingFetchPlan:(id)arg2 withMatchingRows:(id *)arg3;
+- (id)_prepareDictionaryResultsFromResultSet:(CDStruct_ef1b9d9f *)arg1 usingFetchPlan:(id)arg2;
 - (void)forgetSnapshotsForGlobalIDs:(id)arg1;
 - (id)availableChannel;
 - (id)_obtainOpenChannel;
@@ -205,11 +207,13 @@
 - (void)managedObjectContextDidUnregisterObjectsWithIDs:(id)arg1;
 - (void)managedObjectContextDidRegisterObjectsWithIDs:(id)arg1;
 - (id)newAdapterForModel:(id)arg1;
-- (BOOL)load:(id *)arg1;
-- (void)setExclusiveLockingMode:(BOOL)arg1;
+- (_Bool)load:(id *)arg1;
+- (void)setExclusiveLockingMode:(_Bool)arg1;
 - (id)channels;
 - (void)setCurrentContext:(id)arg1;
 - (id)currentContext;
+- (void)_uncacheRows:(id)arg1;
+- (void)_cacheRows:(id)arg1;
 - (void)_useModel:(id)arg1;
 - (id)model;
 - (id)adapter;

@@ -10,6 +10,7 @@
 
 @class NSMapTable, _VKLocalIconAtlas;
 
+// Not exported
 @interface VKIconManager : NSObject <GEOResourceManifestTileGroupObserver>
 {
     NSMapTable *_defaultAtlases;
@@ -18,10 +19,10 @@
 }
 
 + (id)sharedManager;
-- (id)artworkForFeatureID:(unsigned long long)arg1 withResourceNames:(id)arg2 style:(CDStruct_44473e2f *)arg3 contentScale:(float)arg4;
+- (id)artworkForFeatureID:(unsigned long long)arg1 withResourceNames:(id)arg2 style:(CDStruct_cf20f7af *)arg3 contentScale:(double)arg4;
 - (id)_atlasForName:(id)arg1;
-- (id)artworkForName:(id)arg1 withResourceNames:(id)arg2 style:(CDStruct_44473e2f *)arg3 contentScale:(float)arg4;
-- (id)_defaultAtlasForScale:(float)arg1;
+- (id)artworkForName:(id)arg1 withResourceNames:(id)arg2 style:(CDStruct_cf20f7af *)arg3 contentScale:(double)arg4 styleAttributes:(id)arg5;
+- (id)_defaultAtlasForScale:(double)arg1;
 - (void)_didReceiveMemoryWarning:(id)arg1;
 - (void)resourceManifestManagerDidChangeActiveTileGroup:(id)arg1;
 - (void)resourceManifestManagerWillChangeActiveTileGroup:(id)arg1;

@@ -11,21 +11,21 @@
     id <QLDelayedScrollViewDelegate> _delayedScrollViewDelegate;
     struct CGRect _newFrame;
     struct CGRect _newBounds;
-    BOOL _isRotating;
+    _Bool _isRotating;
     struct CGRect _oldScrollerBounds;
     struct CGRect _rotationRect;
     unsigned int _rotationEdgePin;
     float _oldWidth;
 }
 
-- (void)_setIsRotating:(BOOL)arg1;
+- (void)_setIsRotating:(_Bool)arg1;
 - (void)setDelayedScrollViewDelegate:(id)arg1;
 - (void)layoutSubviews;
-- (void)didRotateToInterfaceOrientation:(int)arg1;
-- (void)_redrawWebView:(id)arg1 withOldWidth:(float)arg2 andNewSize:(struct CGSize)arg3 enablingTileDrawing:(BOOL)arg4;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)didRotateToInterfaceOrientation:(long long)arg1;
+- (void)_redrawWebView:(id)arg1 withOldWidth:(float)arg2 andNewSize:(struct CGSize)arg3 enablingTileDrawing:(_Bool)arg4;
+- (void)willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
 - (void)_centerRotationRectWithWebViewToScale:(id)arg1;
-- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)willRotateToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
 
 @end
 

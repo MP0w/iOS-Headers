@@ -10,31 +10,34 @@
 
 @class NSString;
 
+// Not exported
 @interface UIKBTextStyle : NSObject <NSCopying>
 {
     NSString *_fontName;
-    float _fontSize;
-    float _minFontSize;
-    float _kerning;
-    float _textOpacity;
+    double _fontSize;
+    double _minFontSize;
+    double _kerning;
+    double _textOpacity;
     NSString *_textColor;
     NSString *_etchColor;
-    float _pathWeight;
+    double _pathWeight;
+    long long _selector;
     struct CGPoint _textOffset;
     struct CGPoint _etchOffset;
 }
 
 + (id)styleWithTextColor:(id)arg1;
-+ (id)styleWithFontName:(id)arg1 withFontSize:(float)arg2;
-@property(nonatomic) float pathWeight; // @synthesize pathWeight=_pathWeight;
++ (id)styleWithFontName:(id)arg1 withFontSize:(double)arg2;
+@property(nonatomic) long long selector; // @synthesize selector=_selector;
+@property(nonatomic) double pathWeight; // @synthesize pathWeight=_pathWeight;
 @property(nonatomic) struct CGPoint etchOffset; // @synthesize etchOffset=_etchOffset;
 @property(nonatomic) struct CGPoint textOffset; // @synthesize textOffset=_textOffset;
 @property(retain, nonatomic) NSString *etchColor; // @synthesize etchColor=_etchColor;
 @property(retain, nonatomic) NSString *textColor; // @synthesize textColor=_textColor;
-@property(nonatomic) float textOpacity; // @synthesize textOpacity=_textOpacity;
-@property(nonatomic) float kerning; // @synthesize kerning=_kerning;
-@property(nonatomic) float minFontSize; // @synthesize minFontSize=_minFontSize;
-@property(nonatomic) float fontSize; // @synthesize fontSize=_fontSize;
+@property(nonatomic) double textOpacity; // @synthesize textOpacity=_textOpacity;
+@property(nonatomic) double kerning; // @synthesize kerning=_kerning;
+@property(nonatomic) double minFontSize; // @synthesize minFontSize=_minFontSize;
+@property(nonatomic) double fontSize; // @synthesize fontSize=_fontSize;
 @property(retain, nonatomic) NSString *fontName; // @synthesize fontName=_fontName;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)overlayWithStyle:(id)arg1;

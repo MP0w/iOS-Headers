@@ -9,24 +9,32 @@
 @protocol PLPhotoBrowserControllerDelegate <NSObject>
 
 @optional
+- (_Bool)photoBrowserControllerOverlaysVisible:(id)arg1;
+- (void)photoBrowserControllerWillBeginPlayingVideo:(id)arg1;
+- (void)photoBrowserControllerDidDeleteCurrentAsset:(id)arg1;
+- (void)photoBrowserControllerWillDeleteCurrentAsset:(id)arg1;
+- (void)photoBrowserController:(id)arg1 scrubberDidEndScrubbing:(id)arg2;
+- (void)photoBrowserController:(id)arg1 scrubberDidBeginScrubbing:(id)arg2;
+- (void)photoBrowserController:(id)arg1 tileController:(id)arg2 didAppear:(_Bool)arg3;
+- (void)photoBrowserController:(id)arg1 tileController:(id)arg2 willAppear:(_Bool)arg3;
 - (void)photoBrowserController:(id)arg1 willDisplayTileController:(id)arg2;
 - (void)photoBrowserController:(id)arg1 commentControllerDidExitEditMode:(id)arg2;
 - (void)photoBrowserController:(id)arg1 commentControllerWillEnterEditMode:(id)arg2;
-- (void)photoBrowserController:(id)arg1 didPrepareVideoScrubber:(id)arg2 slalomRegionEditor:(id)arg3;
+- (void)photoBrowserController:(id)arg1 tileController:(id)arg2 videoViewDidCreateAttachments:(id)arg3;
 - (void)photoBrowserControllerDidChangeVideoEditingMode:(id)arg1;
-- (void)photoBrowserControllerDidUpdateBars:(id)arg1 animated:(BOOL)arg2;
-- (void)photoBrowserControllerWillEndSlideshow:(id)arg1 playingOnExternalDisplay:(BOOL)arg2;
-- (void)photoBrowserControllerWillBeginSlideshow:(id)arg1 playingOnExternalDisplay:(BOOL)arg2;
+- (void)photoBrowserControllerDidUpdateBars:(id)arg1 animated:(_Bool)arg2;
+- (void)photoBrowserControllerWillEndSlideshow:(id)arg1 playingOnExternalDisplay:(_Bool)arg2;
+- (void)photoBrowserControllerWillBeginSlideshow:(id)arg1 playingOnExternalDisplay:(_Bool)arg2;
 - (void)photoBrowserController:(id)arg1 photoTileViewControllerSingleTap:(id)arg2;
-- (void)photoBrowserController:(id)arg1 setUsesPhotoBrowserStyleStatusBar:(BOOL)arg2 animated:(BOOL)arg3;
+- (void)photoBrowserController:(id)arg1 setUsesPhotoBrowserStyleStatusBar:(_Bool)arg2 animated:(_Bool)arg3;
 - (id)photoBrowserControllerMakeToolbar:(id)arg1;
 - (id)photoBrowserControllerMakeNavigationBar:(id)arg1;
 - (void)photoBrowserControllerDidScroll:(id)arg1;
-- (void)photoBrowserController:(id)arg1 photoTile:(id)arg2 didCompleteZoomWithScale:(float)arg3;
+- (void)photoBrowserControllerWillBeginDragging:(id)arg1;
+- (void)photoBrowserController:(id)arg1 photoTile:(id)arg2 didCompleteZoomWithScale:(double)arg3;
 - (void)photoBrowserControllerDidEndPaging:(id)arg1;
 - (void)photoBrowserControllerWillBeginPaging:(id)arg1;
 - (void)photoBrowserController:(id)arg1 willShowActionSheetInView:(id)arg2;
-- (BOOL)photoBrowserControllerShouldShowActionItem:(id)arg1;
-- (void)photoBrowserController:(id)arg1 didMoveToPhotoAtIndex:(unsigned int)arg2;
+- (_Bool)photoBrowserControllerShouldShowActionItem:(id)arg1;
 @end
 

@@ -14,15 +14,15 @@
     int _currentAutoGuessUISelector;
     NSString *_lastParamString;
     NSString *_currentParamString;
-    BOOL _onShortTimer;
+    _Bool _onShortTimer;
     struct ACPBrowserSession *_acpBrowserSession;
     struct AutoGuessContext *_guessContext;
     NSDictionary *_lastInstrumentation;
     NSTimer *_browseReadyTimer;
     int _wifiScanStatus;
     int _bonjourBrowseStatus;
-    BOOL _autoJoinState;
-    BOOL _updatedTargetInfo;
+    _Bool _autoJoinState;
+    _Bool _updatedTargetInfo;
     NSString *_targetMACAddress;
     NSDictionary *_targetScanRecord;
     NSDictionary *_targetBrowseRecord;
@@ -34,21 +34,6 @@
     NSThread *_autoGuessThread;
 }
 
-+ (id)fullAutoGuessDictionaryFromCompletionDict:(id)arg1;
-+ (id)restoreRecommendationDictionaryFromCompletionDict:(id)arg1;
-+ (id)primaryRecommendationDictionaryFromCompletionDict:(id)arg1;
-+ (id)unconfiguredBaseStationCanBeConfiguredFromCompletionDict:(id)arg1;
-+ (id)recommendationStringFromCompletionDict:(id)arg1;
-+ (id)restoreOfferFromCompletionDict:(id)arg1;
-+ (BOOL)shouldShowPasswordUIForRecommendation:(id)arg1;
-+ (id)unconfiguredBaseStationFromRecommendation:(id)arg1;
-+ (id)unconfiguredBaseStationFromGuessCompleteDict:(id)arg1;
-+ (id)sourceNetworkFromRecommendation:(id)arg1;
-+ (id)sourceBaseStationFromRecommendation:(id)arg1;
-+ (id)shortProductNameForUnconfiguredDeviceFromAutoGuessResults:(id)arg1;
-+ (id)shortProductNameFromBaseStationDictionary:(id)arg1;
-+ (BOOL)isRestoreAnOptionForTheRecommendations:(id)arg1;
-+ (id)recommendationToActionChoice:(id)arg1;
 @property(retain, nonatomic) NSDictionary *guessCompletionDict; // @synthesize guessCompletionDict=_guessCompletionDict;
 @property(retain) NSDictionary *lastInstrumentation; // @synthesize lastInstrumentation=_lastInstrumentation;
 @property(retain) NSDictionary *unconfiguredDeviceThatIsBeingSetup; // @synthesize unconfiguredDeviceThatIsBeingSetup;
@@ -63,31 +48,11 @@
 @property(retain) NSDictionary *targetBrowseRecord; // @synthesize targetBrowseRecord=_targetBrowseRecord;
 @property(retain) NSDictionary *targetScanRecord; // @synthesize targetScanRecord=_targetScanRecord;
 @property(retain) NSString *targetMACAddress; // @synthesize targetMACAddress=_targetMACAddress;
-- (long)cancelAutoGuess;
-- (long)runAutoGuessWithWifiScanInfos:(id)arg1;
-- (long)startWiFiScanner;
+- (int)cancelAutoGuess;
+- (int)runAutoGuessWithWifiScanInfos:(id)arg1;
+- (int)startWiFiScanner;
 - (void)dealloc;
 - (id)init;
-- (void)runAutoGuessThread:(id)arg1;
-- (void)bonjourTXTRemoved:(id)arg1;
-- (void)bonjourTXTUpdated:(id)arg1;
-- (void)browseReadyTimerCallback:(id)arg1;
-- (void)stopWiFiScanner;
-- (void)cancelWiFiScanner;
-- (void)wirelessScanDone:(id)arg1;
-- (void)stopBonjourBrowser;
-- (void)cancelBonjourBrowser;
-- (long)startBonjourBrowser;
-- (int)bonjourBrowseStatus;
-- (void)setBonjourBrowseStatus:(int)arg1;
-- (int)wifiScanStatus;
-- (void)setWiFiScanStatus:(int)arg1;
-- (BOOL)okToSwitchToShortBonjourTimeout:(id)arg1;
-- (id)targetInfo;
-- (void)autoGuessEngineComplete;
-- (void)startAutoGuessIfReady;
-- (long)startAutoGuessForUnconfiguredMACAddress:(id)arg1 withWifiScanInfos:(id)arg2;
-- (id)createCompletionDictFromAutoGuessResults:(id)arg1;
 
 @end
 

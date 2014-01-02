@@ -14,23 +14,23 @@
     NSDictionary *_options;
 }
 
-+ (BOOL)isSafeRequest:(id)arg1;
-+ (BOOL)isSafeURL:(id)arg1;
-+ (BOOL)canConvertDocumentType:(id)arg1;
-+ (BOOL)isSpreadSheetDocumentType:(id)arg1;
-+ (BOOL)isRTFDocumentType:(id)arg1;
-+ (BOOL)isLPDFDocumentType:(id)arg1;
-+ (BOOL)isCSVDocumentType:(id)arg1;
-+ (BOOL)isIWorkDocumentType:(id)arg1;
-+ (BOOL)isOfficeDocumentType:(id)arg1;
++ (_Bool)isSafeRequest:(id)arg1;
++ (_Bool)isSafeURL:(id)arg1;
++ (_Bool)canConvertDocumentType:(id)arg1;
++ (_Bool)isSpreadSheetDocumentType:(id)arg1;
++ (_Bool)isRTFDocumentType:(id)arg1;
++ (_Bool)isLPDFDocumentType:(id)arg1;
++ (_Bool)isCSVDocumentType:(id)arg1;
++ (_Bool)isIWorkDocumentType:(id)arg1;
++ (_Bool)isOfficeDocumentType:(id)arg1;
 + (id)_spreadSheetUTIs;
 + (id)_csvUTIs;
 + (id)_lpdfUTIs;
 + (id)_rtfUTIs;
 + (id)_iWorkUTIs;
 + (id)_officeUTIs;
-- (BOOL)htmlErrorDisabled;
-- (void)setHtmlErrorDisabled:(BOOL)arg1;
+- (_Bool)htmlErrorDisabled;
+- (void)setHtmlErrorDisabled:(_Bool)arg1;
 - (void)finishedAppendingData;
 - (void)appendDataArray:(id)arg1;
 - (void)appendData:(id)arg1;
@@ -40,8 +40,8 @@
 @property(readonly, nonatomic) QLPreviewParts *previewParts;
 @property(readonly, nonatomic) NSString *previewUTI;
 @property(readonly, nonatomic) NSString *previewFileName;
-- (BOOL)isComputed;
-- (BOOL)isCancelled;
+- (_Bool)isComputed;
+- (_Bool)isCancelled;
 - (void)cancel;
 - (void)finishConverting;
 - (void)_register;

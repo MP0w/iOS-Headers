@@ -4,13 +4,15 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-@protocol MFComposeTypeFactoryDelegate
-- (BOOL)hasAnyHiddenTrailingEmptyQuote;
+#import "NSObject-Protocol.h"
+
+@protocol MFComposeTypeFactoryDelegate <NSObject>
+- (_Bool)hasAnyHiddenTrailingEmptyQuote;
 - (id)attachmentStore;
-- (id)addInlinedElementToStore:(id)arg1 onlyIfNecessary:(BOOL)arg2;
+- (id)addInlinedElementToStore:(id)arg1 onlyIfNecessary:(_Bool)arg2;
 - (id)sendingAccountProxy;
 - (id)sendingEmailAddress;
-- (void)setSendingEmailAddress:(id)arg1 addIfNotPresent:(BOOL)arg2;
+- (void)setSendingEmailAddress:(id)arg1 addIfNotPresent:(_Bool)arg2;
 - (id)savedHeaders;
 - (void)setSavedHeaders:(id)arg1;
 - (id)subject;
@@ -23,5 +25,8 @@
 - (void)setToRecipients:(id)arg1;
 - (id)bodyField;
 - (id)accountProxyGenerator;
+
+@optional
+- (void)addSignature:(_Bool)arg1;
 @end
 

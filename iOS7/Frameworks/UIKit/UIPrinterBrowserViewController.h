@@ -10,6 +10,7 @@
 
 @class NSArray, NSMutableArray, PKPrinter, PKPrinterBrowser, UIPrintPanelViewController, UIPrinterSearchingView;
 
+// Not exported
 @interface UIPrinterBrowserViewController : UITableViewController <PKPrinterBrowserDelegate>
 {
     UIPrintPanelViewController *_printPanelViewController;
@@ -18,23 +19,24 @@
     NSMutableArray *_otherPrinters;
     NSArray *_lastUsedPrinters;
     PKPrinter *_lockedPrinter;
-    BOOL _loaded;
+    _Bool _loaded;
     UIPrinterSearchingView *_searchingView;
-    BOOL _clearCurrentPrinter;
+    _Bool _clearCurrentPrinter;
 }
 
-- (void)removePrinter:(id)arg1 moreGoing:(BOOL)arg2;
-- (void)addPrinter:(id)arg1 moreComing:(BOOL)arg2;
+- (void)removePrinter:(id)arg1 moreGoing:(_Bool)arg2;
+- (void)addPrinter:(id)arg1 moreComing:(_Bool)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (id)tableView:(id)arg1 titleForHeaderInSection:(int)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
-- (unsigned int)supportedInterfaceOrientations;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (void)viewDidDisappear:(BOOL)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (id)printerAtIndexPath:(id)arg1;
+- (id)tableView:(id)arg1 titleForHeaderInSection:(long long)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
+- (unsigned long long)supportedInterfaceOrientations;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)willEnterForeground;
 - (void)updateSearching;
 - (void)stopPrinterBrowser;

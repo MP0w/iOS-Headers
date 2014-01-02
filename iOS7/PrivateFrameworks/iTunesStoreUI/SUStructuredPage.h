@@ -12,41 +12,41 @@
 
 @interface SUStructuredPage : NSObject <NSCopying>
 {
-    BOOL _artworkShouldFitWidth;
-    float _artworkWidth;
-    BOOL _didShowDialog;
-    int _displayStyle;
+    _Bool _artworkShouldFitWidth;
+    double _artworkWidth;
+    _Bool _didShowDialog;
+    long long _displayStyle;
     SUItem *_item;
     SUItemList *_itemList;
     SUStorePageProtocol *_protocol;
     SUPageSectionGroup *_sectionsGroup;
-    BOOL _shouldHideSignInButton;
+    _Bool _shouldHideSignInButton;
     NSString *_title;
-    int _type;
-    BOOL _wantsIndexBar;
+    long long _type;
+    _Bool _wantsIndexBar;
 }
 
-+ (int)pageTypeForStorePageString:(id)arg1;
-+ (int)pageTypeForStorePageDictionary:(id)arg1;
-@property(readonly, nonatomic) BOOL wantsIndexBar; // @synthesize wantsIndexBar=_wantsIndexBar;
-@property(nonatomic) int type; // @synthesize type=_type;
++ (long long)pageTypeForStorePageString:(id)arg1;
++ (long long)pageTypeForStorePageDictionary:(id)arg1;
+@property(readonly, nonatomic) _Bool wantsIndexBar; // @synthesize wantsIndexBar=_wantsIndexBar;
+@property(nonatomic) long long type; // @synthesize type=_type;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
-@property(readonly, nonatomic) BOOL shouldHideSignInButton; // @synthesize shouldHideSignInButton=_shouldHideSignInButton;
+@property(readonly, nonatomic) _Bool shouldHideSignInButton; // @synthesize shouldHideSignInButton=_shouldHideSignInButton;
 @property(retain, nonatomic) SUPageSectionGroup *sectionsGroup; // @synthesize sectionsGroup=_sectionsGroup;
 @property(retain, nonatomic) SUStorePageProtocol *protocol; // @synthesize protocol=_protocol;
 @property(retain, nonatomic) SUItemList *itemList; // @synthesize itemList=_itemList;
 @property(retain, nonatomic) SUItem *item; // @synthesize item=_item;
-@property(readonly, nonatomic) int displayStyle; // @synthesize displayStyle=_displayStyle;
-@property(readonly, nonatomic) BOOL didShowDialog; // @synthesize didShowDialog=_didShowDialog;
-@property(readonly, nonatomic) float artworkWidth; // @synthesize artworkWidth=_artworkWidth;
-@property(readonly, nonatomic) BOOL artworkShouldFitWidth; // @synthesize artworkShouldFitWidth=_artworkShouldFitWidth;
+@property(readonly, nonatomic) long long displayStyle; // @synthesize displayStyle=_displayStyle;
+@property(readonly, nonatomic) _Bool didShowDialog; // @synthesize didShowDialog=_didShowDialog;
+@property(readonly, nonatomic) double artworkWidth; // @synthesize artworkWidth=_artworkWidth;
+@property(readonly, nonatomic) _Bool artworkShouldFitWidth; // @synthesize artworkShouldFitWidth=_artworkShouldFitWidth;
 - (void)_parseTemplateParametersFromDictionary:(id)arg1;
 - (void)_parseProtocolFromDictionary:(id)arg1;
 - (void)_parseItemsFromDictionary:(id)arg1;
-- (int)_displayStyleForString:(id)arg1;
+- (long long)_displayStyleForString:(id)arg1;
 - (id)_copyItemFromDictionary:(id)arg1;
-@property(readonly, nonatomic) BOOL hasDisplayableContent;
-- (BOOL)loadFromDictionary:(id)arg1;
+@property(readonly, nonatomic) _Bool hasDisplayableContent;
+- (_Bool)loadFromDictionary:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 

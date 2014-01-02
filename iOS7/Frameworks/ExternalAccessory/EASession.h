@@ -15,7 +15,7 @@
     NSString *_protocolString;
     NSInputStream *_inputStream;
     NSOutputStream *_outputStream;
-    BOOL _openCompleted;
+    _Bool _openCompleted;
     int _sock;
 }
 
@@ -23,8 +23,8 @@
 @property(readonly, nonatomic) NSInputStream *inputStream; // @synthesize inputStream=_inputStream;
 @property(readonly, nonatomic) NSString *protocolString; // @synthesize protocolString=_protocolString;
 @property(readonly, nonatomic) EAAccessory *accessory; // @synthesize accessory=_accessory;
-- (void)setOpenCompleted:(BOOL)arg1;
-- (BOOL)isOpenCompleted;
+- (void)setOpenCompleted:(_Bool)arg1;
+- (_Bool)isOpenCompleted;
 - (void)_endStreams;
 - (void)_streamClosed;
 - (unsigned int)_sessionID;

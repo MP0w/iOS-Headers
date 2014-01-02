@@ -7,12 +7,12 @@
 #import "UIView.h"
 
 @interface UIView (MPAdditions)
-- (void)setFrameHeight:(float)arg1;
-- (void)setFrameWidth:(float)arg1;
+- (void)setFrameHeight:(double)arg1;
+- (void)setFrameWidth:(double)arg1;
 - (void)setFrameSize:(struct CGSize)arg1;
-- (void)setFrameY:(float)arg1;
-- (void)setFrameEndX:(float)arg1 y:(float)arg2;
-- (void)setFrameX:(float)arg1;
+- (void)setFrameY:(double)arg1;
+- (void)setFrameEndX:(double)arg1 y:(double)arg2;
+- (void)setFrameX:(double)arg1;
 - (void)setFrameOrigin:(struct CGPoint)arg1;
 @end
 

@@ -8,6 +8,7 @@
 
 @class GQDSStyle;
 
+// Not exported
 @interface GQDTCell : NSObject
 {
     unsigned short mColumnIndex;

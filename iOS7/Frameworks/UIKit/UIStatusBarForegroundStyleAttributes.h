@@ -8,47 +8,53 @@
 
 @class NSMutableDictionary;
 
+// Not exported
 @interface UIStatusBarForegroundStyleAttributes : NSObject
 {
-    float _height;
-    int _legibilityStyle;
+    double _height;
+    long long _legibilityStyle;
     NSMutableDictionary *_cachedFonts;
 }
 
-- (float)airplaneItemExtraMargin;
+- (double)airplaneItemExtraMargin;
 - (void)setThermalColorShadow;
 - (int)legacyStyle;
 - (struct CGPoint)positionForMoonMaskInBounds:(struct CGRect)arg1;
-- (float)sizeForMoonMaskVisible:(BOOL)arg1;
+- (double)sizeForMoonMaskVisible:(_Bool)arg1;
 - (id)textForNetworkType:(int)arg1;
-- (float)bluetoothBatteryExtraPadding;
-- (id)bluetoothImageForConnected:(BOOL)arg1;
+- (double)bluetoothBatteryExtraPadding;
 - (id)homeImageName;
 - (id)tintColor;
-- (id)textColorForStyle:(int)arg1;
-- (id)makeTextFontForStyle:(int)arg1;
-- (id)textFontForStyle:(int)arg1;
+- (id)textColorForStyle:(long long)arg1;
+- (id)makeTextFontForStyle:(long long)arg1;
+- (id)textFontForStyle:(long long)arg1;
 - (id)expandedNameForImageName:(id)arg1;
+- (id)cachedImageWithText:(id)arg1 forWidth:(double)arg2 lineBreakMode:(long long)arg3 letterSpacing:(double)arg4 bounds:(struct CGRect)arg5 textAlignment:(long long)arg6 style:(long long)arg7;
+- (id)imageWithText:(id)arg1 forWidth:(double)arg2 lineBreakMode:(long long)arg3 letterSpacing:(double)arg4 bounds:(struct CGRect)arg5 textAlignment:(long long)arg6 style:(long long)arg7 cacheImage:(_Bool)arg8 withLegibilityStyle:(long long)arg9 legibilityStrength:(double)arg10;
+- (id)shadowImageForImage:(id)arg1 withIdentifier:(id)arg2 forStyle:(long long)arg3 withStrength:(double)arg4 cachesImage:(_Bool)arg5;
+- (id)imageNamed:(id)arg1 withLegibilityStyle:(long long)arg2 legibilityStrength:(double)arg3;
 - (id)imageNamed:(id)arg1;
 - (id)untintedImageNamed:(id)arg1;
-- (float)shadowPadding;
-- (float)edgePadding;
-- (float)standardPadding;
-- (float)scale;
+- (id)uncachedImageNamed:(id)arg1;
+- (void)_cacheImage:(id)arg1 named:(id)arg2;
+- (id)_cachedImageNamed:(id)arg1;
+- (double)shadowPadding;
+- (double)edgePadding;
+- (double)standardPadding;
+- (double)scale;
 - (void)drawTextInRect:(struct CGRect)arg1 withColor:(id)arg2 withBlock:(id)arg3;
-- (void)drawText:(id)arg1 forWidth:(float)arg2 lineBreakMode:(int)arg3 letterSpacing:(float)arg4 bounds:(struct CGRect)arg5 textAlignment:(int)arg6 style:(int)arg7 textSize:(struct CGSize)arg8;
-- (float)textOffsetForStyle:(int)arg1;
-- (void)_drawText:(id)arg1 inRect:(struct CGRect)arg2 withFont:(id)arg3 lineBreakMode:(int)arg4 letterSpacing:(float)arg5 textAlignment:(int)arg6;
-- (void)drawBluetoothBatteryInsidesWithSize:(struct CGSize)arg1 capacity:(float)arg2;
-- (void)drawBatteryInsidesWithSize:(struct CGSize)arg1 capacity:(float)arg2 charging:(BOOL)arg3;
-- (BOOL)shouldAnimateBattery;
-- (float)batteryAccessoryMargin;
-- (BOOL)useModernChargingEffect;
-- (int)activityIndicatorStyleWithSyncActivity:(BOOL)arg1;
-- (int)legibilityStyle;
-- (float)height;
+- (void)drawText:(id)arg1 forWidth:(double)arg2 lineBreakMode:(long long)arg3 letterSpacing:(double)arg4 bounds:(struct CGRect)arg5 textAlignment:(long long)arg6 style:(long long)arg7 textSize:(struct CGSize)arg8;
+- (double)textOffsetForStyle:(long long)arg1;
+- (void)_drawText:(id)arg1 inRect:(struct CGRect)arg2 withFont:(id)arg3 lineBreakMode:(long long)arg4 letterSpacing:(double)arg5 textAlignment:(long long)arg6;
+- (void)drawBluetoothBatteryInsidesWithSize:(struct CGSize)arg1 capacity:(double)arg2;
+- (void)drawBatteryInsidesWithSize:(struct CGSize)arg1 capacity:(double)arg2 charging:(_Bool)arg3;
+- (double)batteryAccessoryMargin;
+- (long long)activityIndicatorStyleWithSyncActivity:(_Bool)arg1;
+- (long long)legibilityStyle;
+- (double)height;
+- (id)uniqueIdentifier;
 - (void)dealloc;
-- (id)initWithHeight:(float)arg1 legibilityStyle:(int)arg2;
+- (id)initWithHeight:(double)arg1 legibilityStyle:(long long)arg2;
 
 @end
 

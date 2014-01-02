@@ -16,7 +16,7 @@
 
 + (id)releaseInfoWithDictionary:(id)arg1 context:(id)arg2;
 + (id)releaseInfo;
-@property(nonatomic) int releaseYear;
+@property(nonatomic) long long releaseYear;
 @property(retain, nonatomic) SACalendar *releaseDate;
 - (id)encodedClassName;
 - (id)groupIdentifier;

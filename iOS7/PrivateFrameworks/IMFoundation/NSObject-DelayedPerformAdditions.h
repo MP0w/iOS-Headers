@@ -7,6 +7,6 @@
 #import "NSObject.h"
 
 @interface NSObject (DelayedPerformAdditions)
-- (void)performSelector:(SEL)arg1 withObject:(id)arg2 afterDelay:(double)arg3 ignoreMenuTracking:(BOOL)arg4;
+- (void)performSelector:(SEL)arg1 withObject:(id)arg2 afterDelay:(double)arg3 ignoreMenuTracking:(_Bool)arg4;
 @end
 

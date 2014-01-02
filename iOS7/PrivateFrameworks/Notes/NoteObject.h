@@ -12,16 +12,17 @@
 {
 }
 
-- (BOOL)containsAttachments;
+@property(nonatomic) unsigned long long sequenceNumber;
+- (_Bool)containsAttachments;
 @property(retain, nonatomic) NSString *externalContentRef;
 @property(retain, nonatomic) NSData *externalRepresentation;
-@property(readonly, nonatomic) BOOL hasValidServerIntId;
+@property(readonly, nonatomic) _Bool hasValidServerIntId;
 @property(nonatomic) long long serverIntId;
 @property(nonatomic) unsigned long long flags;
 @property(readonly, nonatomic) NSURL *noteId;
-@property(readonly, nonatomic) BOOL isMarkedForDeletion;
+@property(readonly, nonatomic) _Bool isMarkedForDeletion;
 - (void)markForDeletion;
-@property(nonatomic) BOOL isPlainText;
+@property(nonatomic) _Bool isPlainText;
 - (id)contentAsPlainTextPreservingNewlines;
 @property(readonly, nonatomic) NSString *contentAsPlainText;
 @property(retain, nonatomic) NSString *content;
@@ -32,9 +33,6 @@
 @property(retain, nonatomic) NSNumber *containsCJK; // @dynamic containsCJK;
 @property(retain, nonatomic) NSNumber *contentType; // @dynamic contentType;
 @property(retain, nonatomic) NSDate *creationDate; // @dynamic creationDate;
-@property(retain, nonatomic) NSNumber *deletedFlag; // @dynamic deletedFlag;
-@property(retain, nonatomic) NSNumber *externalFlags; // @dynamic externalFlags;
-@property(retain, nonatomic) NSNumber *externalServerIntId; // @dynamic externalServerIntId;
 @property(retain, nonatomic) NSString *guid; // @dynamic guid;
 @property(retain, nonatomic) NSNumber *integerId; // @dynamic integerId;
 @property(retain, nonatomic) NSNumber *isBookkeepingEntry; // @dynamic isBookkeepingEntry;

@@ -6,33 +6,18 @@
 
 #pragma mark Named Structures
 
-struct CADoublePoint {
-    double _field1;
-    double _field2;
-};
-
-struct CADoubleRect {
-    struct CADoublePoint _field1;
-    struct CADoubleSize _field2;
-};
-
-struct CADoubleSize {
-    double _field1;
-    double _field2;
-};
-
 struct CGAffineTransform {
-    float a;
-    float b;
-    float c;
-    float d;
-    float tx;
-    float ty;
+    double a;
+    double b;
+    double c;
+    double d;
+    double tx;
+    double ty;
 };
 
 struct CGPoint {
-    float x;
-    float y;
+    double x;
+    double y;
 };
 
 struct CGRect {
@@ -41,21 +26,21 @@ struct CGRect {
 };
 
 struct CGSize {
-    float width;
-    float height;
+    double width;
+    double height;
 };
 
 struct UIEdgeInsets {
-    float _field1;
-    float _field2;
-    float _field3;
-    float _field4;
+    double _field1;
+    double _field2;
+    double _field3;
+    double _field4;
 };
 
 struct UIImage {
     Class _field1;
     void *_field2;
-    float _field3;
+    double _field3;
     struct {
         unsigned int :1;
         unsigned int :3;
@@ -74,10 +59,10 @@ struct UIView {
     id _field4;
     id _field5;
     float _field6;
-    int _field7;
+    long long _field7;
     id _field8;
     id _field9;
-    unsigned int _field10;
+    unsigned long long _field10;
     struct {
         unsigned int :1;
         unsigned int :1;
@@ -137,14 +122,13 @@ struct UIView {
         unsigned int :1;
         unsigned int :1;
         unsigned int :1;
-        unsigned int :1;
-        unsigned int :1;
         unsigned int :3;
         unsigned int :1;
         unsigned int :1;
         unsigned int :1;
         unsigned int :2;
         unsigned int :2;
+        unsigned int :1;
     } _field11;
 };
 
@@ -162,22 +146,22 @@ struct _GEOTileKey {
 };
 
 struct _NSRange {
-    unsigned int _field1;
-    unsigned int _field2;
+    unsigned long long _field1;
+    unsigned long long _field2;
 };
 
-struct deque<float, std::__1::allocator<float>> {
-    struct __split_buffer<float *, std::__1::allocator<float *>> {
-        float **__first_;
-        float **__begin_;
-        float **__end_;
-        struct __compressed_pair<float **, std::__1::allocator<float *>> {
-            float **__first_;
+struct deque<double, std::__1::allocator<double>> {
+    struct __split_buffer<double *, std::__1::allocator<double *>> {
+        double **__first_;
+        double **__begin_;
+        double **__end_;
+        struct __compressed_pair<double **, std::__1::allocator<double *>> {
+            double **__first_;
         } __end_cap_;
     } __map_;
-    unsigned int __start_;
-    struct __compressed_pair<unsigned long, std::__1::allocator<float>> {
-        unsigned long __first_;
+    unsigned long long __start_;
+    struct __compressed_pair<unsigned long, std::__1::allocator<double>> {
+        unsigned long long __first_;
     } __size_;
 };
 
@@ -195,9 +179,9 @@ typedef struct {
 
 typedef struct {
     char *_field1;
-    unsigned int _field2;
-    unsigned int _field3;
-} CDStruct_b337ead5;
+    unsigned long long _field2;
+    unsigned long long _field3;
+} CDStruct_8bf61218;
 
 typedef struct {
     double x;
@@ -213,30 +197,31 @@ typedef struct {
 } CDStruct_31142d93;
 
 typedef struct {
-    int x;
-    int y;
-    int z;
-    float contentScaleFactor;
-} CDStruct_a1199def;
+    long long x;
+    long long y;
+    long long z;
+    double contentScaleFactor;
+} CDStruct_cbb88d5e;
 
 typedef struct {
-    int _field1;
-    int _field2;
-    int _field3;
-    int _field4;
-    float _field5;
-} CDStruct_1fbca27c;
-
-typedef struct {
-    float _field1;
+    double _field1;
     struct {
         double _field1;
         double _field2;
     } _field2;
-} CDStruct_0c7fa811;
+} CDStruct_46f4fb6f;
 
 typedef struct {
     int _field1;
+    int _field2;
+    struct {
+        unsigned int :1;
+        unsigned int :1;
+    } _field3;
+} CDStruct_c55e649d;
+
+typedef struct {
+    long long _field1;
     struct {
         double _field1;
         double _field2;
@@ -244,8 +229,8 @@ typedef struct {
     struct CGPoint _field3;
     struct CGPoint _field4;
     id _field5;
-    char _field6;
-} CDStruct_dc034332;
+    _Bool _field6;
+} CDStruct_e1db73fe;
 
 // Ambiguous groups
 typedef struct {

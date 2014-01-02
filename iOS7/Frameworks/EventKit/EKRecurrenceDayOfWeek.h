@@ -10,23 +10,23 @@
 
 @interface EKRecurrenceDayOfWeek : NSObject <NSCopying>
 {
-    int _dayOfTheWeek;
-    int _weekNumber;
+    long long _dayOfTheWeek;
+    long long _weekNumber;
 }
 
-+ (id)dayOfWeek:(int)arg1 weekNumber:(int)arg2;
-+ (id)dayOfWeek:(int)arg1;
-@property(readonly, nonatomic) int weekNumber; // @synthesize weekNumber=_weekNumber;
-@property(readonly, nonatomic) int dayOfTheWeek; // @synthesize dayOfTheWeek=_dayOfTheWeek;
++ (id)dayOfWeek:(long long)arg1 weekNumber:(long long)arg2;
++ (id)dayOfWeek:(long long)arg1;
+@property(readonly, nonatomic) long long weekNumber; // @synthesize weekNumber=_weekNumber;
+@property(readonly, nonatomic) long long dayOfTheWeek; // @synthesize dayOfTheWeek=_dayOfTheWeek;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)description;
 - (id)iCalendarDescription;
-- (id)iCalendarValueFromDayOfTheWeek:(unsigned int)arg1;
+- (id)iCalendarValueFromDayOfTheWeek:(unsigned long long)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithDayOfTheWeek:(int)arg1 weekNumber:(int)arg2;
+- (id)initWithDayOfTheWeek:(long long)arg1 weekNumber:(long long)arg2;
 
 @end
 

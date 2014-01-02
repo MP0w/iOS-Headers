@@ -9,12 +9,12 @@
 @protocol UIGestureRecognizerDelegatePrivate <UIGestureRecognizerDelegate>
 
 @optional
-- (BOOL)_gestureRecognizer:(id)arg1 canBePreventedByGestureRecognizer:(id)arg2;
-- (BOOL)_gestureRecognizer:(id)arg1 canPreventGestureRecognizer:(id)arg2;
-- (BOOL)_gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
-- (BOOL)_gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
-- (BOOL)_gestureRecognizerShouldBegin:(id)arg1;
-- (BOOL)_gestureRecognizer:(id)arg1 shouldBeRequiredToFailByGestureRecognizer:(id)arg2;
-- (BOOL)_gestureRecognizer:(id)arg1 shouldRequireFailureOfGestureRecognizer:(id)arg2;
+- (_Bool)_gestureRecognizer:(id)arg1 canBePreventedByGestureRecognizer:(id)arg2;
+- (_Bool)_gestureRecognizer:(id)arg1 canPreventGestureRecognizer:(id)arg2;
+- (_Bool)_gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
+- (_Bool)_gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
+- (_Bool)_gestureRecognizerShouldBegin:(id)arg1;
+- (_Bool)_gestureRecognizer:(id)arg1 shouldBeRequiredToFailByGestureRecognizer:(id)arg2;
+- (_Bool)_gestureRecognizer:(id)arg1 shouldRequireFailureOfGestureRecognizer:(id)arg2;
 @end
 

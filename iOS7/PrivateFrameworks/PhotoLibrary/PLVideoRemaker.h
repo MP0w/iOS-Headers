@@ -6,17 +6,18 @@
 
 #import "NSObject.h"
 
-@class AVRemaker, NSString, NSTimer, NSURL, PLProgressView;
+@class AVAsset, AVAssetExportSession, AVAudioMix, NSString, NSTimer, PLProgressView;
 
 @interface PLVideoRemaker : NSObject
 {
-    NSURL *_sourceURL;
+    AVAsset *_asset;
+    AVAudioMix *_audioMix;
     NSString *_trimmedPath;
     double _duration;
     double _trimStartTime;
     double _trimEndTime;
     int _mode;
-    AVRemaker *_remaker;
+    AVAssetExportSession *_exportSession;
     float _percentComplete;
     NSTimer *_progressTimer;
     PLProgressView *_progressView;
@@ -27,9 +28,11 @@
 + (int)getHDRemakerModeForMode:(int)arg1;
 + (long long)approximateByteSizeForMode:(int)arg1 duration:(double)arg2;
 + (double)maximumDurationForTrimMode:(int)arg1;
-- (void)_remakerDidFinish:(id)arg1;
++ (long long)fileLengthLimitForRemakerMode:(int)arg1;
+- (void)_exportCompletedWithSuccess:(_Bool)arg1;
 - (void)cancel;
 - (void)_didEndRemakingWithTemporaryPath:(id)arg1;
+- (id)_fileFormatForURL:(id)arg1;
 - (void)remake;
 - (void)_updateProgress;
 - (void)_removeProgressTimer;
@@ -47,7 +50,8 @@
 - (id)progressView;
 - (id)messageForRemakingProgress;
 - (void)dealloc;
-- (id)initWithURL:(id)arg1;
+- (id)initWithManagedAsset:(id)arg1 applySlalomRegions:(_Bool)arg2;
+- (id)initWithAVAsset:(id)arg1;
 
 @end
 

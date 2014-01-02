@@ -10,11 +10,12 @@
 
 @interface SKUIRedeem : NSObject
 {
-    BOOL _hideItemView;
+    _Bool _hideItemView;
     NSArray *_items;
+    NSString *_inAppPurchase;
     NSString *_credit;
     NSString *_balance;
-    NSDictionary *_thankYouParameters;
+    NSDictionary *_thankYouDictionary;
     NSURL *_redirectURL;
     UIImage *_headerImage;
     SKUIArtworkList *_headerArtworkList;
@@ -23,16 +24,17 @@
     NSArray *_links;
 }
 
-@property(nonatomic) BOOL hideItemView; // @synthesize hideItemView=_hideItemView;
+@property(nonatomic) _Bool hideItemView; // @synthesize hideItemView=_hideItemView;
 @property(retain, nonatomic) NSArray *links; // @synthesize links=_links;
 @property(copy, nonatomic) NSString *message; // @synthesize message=_message;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(retain, nonatomic) SKUIArtworkList *headerArtworkList; // @synthesize headerArtworkList=_headerArtworkList;
 @property(retain, nonatomic) UIImage *headerImage; // @synthesize headerImage=_headerImage;
 @property(retain, nonatomic) NSURL *redirectURL; // @synthesize redirectURL=_redirectURL;
-@property(retain, nonatomic) NSDictionary *thankYouParameters; // @synthesize thankYouParameters=_thankYouParameters;
+@property(retain, nonatomic) NSDictionary *thankYouDictionary; // @synthesize thankYouDictionary=_thankYouDictionary;
 @property(copy, nonatomic) NSString *balance; // @synthesize balance=_balance;
 @property(copy, nonatomic) NSString *credit; // @synthesize credit=_credit;
+@property(retain, nonatomic) NSString *inAppPurchase; // @synthesize inAppPurchase=_inAppPurchase;
 @property(retain, nonatomic) NSArray *items; // @synthesize items=_items;
 - (void).cxx_destruct;
 

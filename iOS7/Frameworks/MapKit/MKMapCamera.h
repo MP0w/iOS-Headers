@@ -15,20 +15,20 @@
 {
     CDStruct_2c43369c _centerCoordinate;
     double _heading;
-    float _pitch;
+    double _pitch;
     double _altitude;
     MKMapView *_mapView;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 + (id)_cameraLookingAtGEOMapRect:(const CDStruct_90e2a262 *)arg1 aspectRatio:(float)arg2;
 + (id)cameraLookingAtCenterCoordinate:(CDStruct_c3b9c2ee)arg1 fromEyeCoordinate:(CDStruct_c3b9c2ee)arg2 eyeAltitude:(double)arg3;
 + (id)camera;
 @property(nonatomic) double altitude; // @synthesize altitude=_altitude;
-@property(nonatomic) float pitch; // @synthesize pitch=_pitch;
+@property(nonatomic) double pitch; // @synthesize pitch=_pitch;
 @property(nonatomic) double heading; // @synthesize heading=_heading;
 @property(nonatomic) CDStruct_c3b9c2ee centerCoordinate; // @synthesize centerCoordinate=_centerCoordinate;
-- (BOOL)_validate;
+- (_Bool)_validate;
 - (id)description;
 - (void)_updateState;
 - (void)_setMapView:(id)arg1;

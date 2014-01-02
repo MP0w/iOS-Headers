@@ -13,7 +13,7 @@
 
 @property(nonatomic) __weak id <MPAVErrorResolverDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)sendDidResolveError:(id)arg1 withResolution:(int)arg2;
+- (void)sendDidResolveError:(id)arg1 withResolution:(long long)arg2;
 - (void)resolveError:(id)arg1;
 
 @end

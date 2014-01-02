@@ -8,28 +8,29 @@
 
 #import "OABPropertiesManager-Protocol.h"
 
+// Not exported
 @interface OABShapeManager : OABShapeBaseManager <OABPropertiesManager>
 {
     struct EshShape *mShape;
 }
 
-- (BOOL)hidden;
-- (BOOL)textPathStrikethrough;
-- (BOOL)textPathSmallcaps;
-- (BOOL)textPathUnderline;
-- (BOOL)textPathItalic;
-- (BOOL)textPathBold;
+- (_Bool)hidden;
+- (_Bool)textPathStrikethrough;
+- (_Bool)textPathSmallcaps;
+- (_Bool)textPathUnderline;
+- (_Bool)textPathItalic;
+- (_Bool)textPathBold;
 - (id)textPathFontFamily;
 - (int)textPathFontSize;
 - (int)textPathTextAlignment;
 - (id)textPathUnicodeString;
-- (BOOL)isTextPath;
-- (BOOL)isShadowed;
-- (BOOL)isStroked;
-- (BOOL)isFilled;
-- (BOOL)isShadowOK;
-- (BOOL)isStrokeOK;
-- (BOOL)isFillOK;
+- (_Bool)isTextPath;
+- (_Bool)isShadowed;
+- (_Bool)isStroked;
+- (_Bool)isFilled;
+- (_Bool)isShadowOK;
+- (_Bool)isStrokeOK;
+- (_Bool)isFillOK;
 - (id)initWithShape:(struct EshShape *)arg1;
 - (id)initWithShape:(struct EshShape *)arg1 masterShape:(struct EshShape *)arg2;
 

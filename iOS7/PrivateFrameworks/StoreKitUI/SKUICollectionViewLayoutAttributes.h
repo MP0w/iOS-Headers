@@ -13,10 +13,10 @@
 @interface SKUICollectionViewLayoutAttributes : UICollectionViewLayoutAttributes <NSCopying>
 {
     UIColor *_backgroundColor;
-    int _position;
+    long long _position;
 }
 
-@property(nonatomic) int position; // @synthesize position=_position;
+@property(nonatomic) long long position; // @synthesize position=_position;
 @property(copy, nonatomic) UIColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;

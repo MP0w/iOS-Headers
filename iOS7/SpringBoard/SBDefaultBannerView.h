@@ -19,6 +19,8 @@
     UILabel<SBBulletinDateLabel> *_relevanceDateLabel;
     SBDefaultBannerTextView *_textView;
     UIImageView *_attachmentImageView;
+    struct CGSize _grabberImageSize;
+    UIImageView *_grabberImageView;
 }
 
 - (void)dateLabelDidChange:(id)arg1;

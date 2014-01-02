@@ -6,13 +6,12 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface CHBChart : NSObject
 {
 }
 
 + (void)readWithState:(id)arg1;
-+ (int)emptyCellsPlottedEnumsFrom:(int)arg1;
-+ (int)readCHDDisplayBlanksAsEnumFrom:(int)arg1;
 
 @end
 

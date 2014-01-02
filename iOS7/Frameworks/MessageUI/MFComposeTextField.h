@@ -8,11 +8,11 @@
 
 @interface MFComposeTextField : UITextField
 {
-    BOOL _isShowingDictationPlaceholder;
+    _Bool _isShowingDictationPlaceholder;
 }
 
-@property(readonly, nonatomic) BOOL isShowingDictationPlaceholder; // @synthesize isShowingDictationPlaceholder=_isShowingDictationPlaceholder;
-- (void)removeDictationResultPlaceholder:(id)arg1 willInsertResult:(BOOL)arg2;
+@property(readonly, nonatomic) _Bool isShowingDictationPlaceholder; // @synthesize isShowingDictationPlaceholder=_isShowingDictationPlaceholder;
+- (void)removeDictationResultPlaceholder:(id)arg1 willInsertResult:(_Bool)arg2;
 - (id)insertDictationResultPlaceholder;
 
 @end

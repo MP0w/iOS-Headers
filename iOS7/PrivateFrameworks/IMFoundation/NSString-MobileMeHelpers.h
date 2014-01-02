@@ -8,7 +8,7 @@
 
 @interface NSString (MobileMeHelpers)
 @property(readonly, nonatomic) NSString *stripMobileMSuffixIfPresent;
-@property(readonly, nonatomic) BOOL hasMobileMeSuffix;
+@property(readonly, nonatomic) _Bool hasMobileMeSuffix;
 @property(readonly, nonatomic) NSString *mobileMeDomain;
 @end
 

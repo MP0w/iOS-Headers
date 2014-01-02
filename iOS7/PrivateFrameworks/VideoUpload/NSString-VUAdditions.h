@@ -7,7 +7,7 @@
 #import "NSString.h"
 
 @interface NSString (VUAdditions)
-- (id)dictionaryWithResponseStringUsingSeparator:(id)arg1 unescape:(BOOL)arg2;
+- (id)dictionaryWithResponseStringUsingSeparator:(id)arg1 unescape:(_Bool)arg2;
 - (id)urlParameterEscapedString;
 @end
 

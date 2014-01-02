@@ -9,10 +9,11 @@
 @interface UIColor (ABUIDefaultColors)
 + (id)cardCellSeparatorColor;
 + (id)cardCellReadonlyBackgroundColor;
++ (id)cardBackgroundInPopoverColor;
 + (id)cardCellBackgroundColor;
 + (id)cardValueReadonlyTextColor;
 + (id)cardValueTextColor;
 + (id)cardLabelReadonlyTextColor;
-+ (id)ab_colorWithR:(float)arg1 G:(float)arg2 B:(float)arg3 A:(float)arg4;
++ (id)ab_colorWithR:(double)arg1 G:(double)arg2 B:(double)arg3 A:(double)arg4;
 @end
 

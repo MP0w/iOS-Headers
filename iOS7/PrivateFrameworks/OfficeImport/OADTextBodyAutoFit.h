@@ -6,13 +6,14 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface OADTextBodyAutoFit : NSObject
 {
     int mType;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (int)type;
 - (id)initWithType:(int)arg1;
 

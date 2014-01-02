@@ -8,6 +8,7 @@
 
 @class DOMCSSRuleList, DOMMediaList;
 
+// Not exported
 @interface DOMCSSMediaRule : DOMCSSRule
 {
 }

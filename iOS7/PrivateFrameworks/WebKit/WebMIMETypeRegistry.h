@@ -10,8 +10,8 @@
 {
 }
 
-+ (BOOL)isSupportedMediaMIMEType:(id)arg1;
-+ (BOOL)isSupportedImageMIMEType:(id)arg1;
++ (_Bool)isSupportedMediaMIMEType:(id)arg1;
++ (_Bool)isSupportedImageMIMEType:(id)arg1;
 + (id)preferredExtensionForMIMEType:(id)arg1;
 + (id)mimeTypeForExtension:(id)arg1;
 

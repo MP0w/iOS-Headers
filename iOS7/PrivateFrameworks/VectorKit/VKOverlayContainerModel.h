@@ -11,6 +11,7 @@
 
 @class NSMapTable, NSMutableArray, NSMutableSet, NSSet, VKSkyModel, VKStylesheet;
 
+// Not exported
 @interface VKOverlayContainerModel : VKMapTileModel <VKMapLayer, VKStylesheetObserver>
 {
     NSMutableSet *_visibleOverlays;
@@ -19,26 +20,24 @@
     NSMutableSet *_overlaysToAdd;
     NSMutableSet *_overlaysToRemove;
     id <VKOverlayContainerDelegate> _delegate;
-    BOOL _shouldCheckForOcclusion;
-    BOOL _shouldOccludeTraffic;
-    BOOL _shouldShowTraffic;
+    _Bool _shouldCheckForOcclusion;
+    _Bool _shouldOccludeTraffic;
+    _Bool _shouldShowTraffic;
     NSMapTable *_persistentOverlaysToPainters;
     NSMutableSet *_persistentOverlays;
     id <VKRouteMatchedAnnotationPresentation> _routeLineSplitAnnotation;
-    float _brightness;
     VKSkyModel *_skyModel;
-    CDStruct_cc67e4ef _puckPosition;
+    CDStruct_b926a728 _puckPosition;
 }
 
-+ (BOOL)reloadOnStylesheetChange;
++ (_Bool)reloadOnStylesheetChange;
 @property(retain, nonatomic) VKSkyModel *skyModel; // @synthesize skyModel=_skyModel;
-@property(nonatomic) float brightness; // @synthesize brightness=_brightness;
-@property(nonatomic) BOOL shouldOccludeTraffic; // @synthesize shouldOccludeTraffic=_shouldOccludeTraffic;
+@property(nonatomic) _Bool shouldOccludeTraffic; // @synthesize shouldOccludeTraffic=_shouldOccludeTraffic;
 @property(readonly, nonatomic) NSSet *persistentOverlays; // @synthesize persistentOverlays=_persistentOverlays;
 @property(retain, nonatomic) id <VKRouteMatchedAnnotationPresentation> routeLineSplitAnnotation; // @synthesize routeLineSplitAnnotation=_routeLineSplitAnnotation;
-@property(nonatomic) BOOL shouldShowTraffic; // @synthesize shouldShowTraffic=_shouldShowTraffic;
-@property(nonatomic) BOOL shouldCheckForOcclusion; // @synthesize shouldCheckForOcclusion=_shouldCheckForOcclusion;
-@property(readonly, nonatomic) CDStruct_cc67e4ef puckPosition; // @synthesize puckPosition=_puckPosition;
+@property(nonatomic) _Bool shouldShowTraffic; // @synthesize shouldShowTraffic=_shouldShowTraffic;
+@property(nonatomic) _Bool shouldCheckForOcclusion; // @synthesize shouldCheckForOcclusion=_shouldCheckForOcclusion;
+@property(readonly, nonatomic) CDStruct_b926a728 puckPosition; // @synthesize puckPosition=_puckPosition;
 @property(nonatomic) id <VKOverlayContainerDelegate> delegate; // @synthesize delegate=_delegate;
 - (id).cxx_construct;
 - (void)stylesheetDidChange;
@@ -48,9 +47,9 @@
 - (void)drawScene:(id)arg1 withContext:(id)arg2;
 - (void)layoutScene:(id)arg1 withContext:(id)arg2;
 - (void)_updatePainterOrdering;
-@property(readonly, nonatomic, getter=isInRealisticMode) BOOL inRealisticMode;
+@property(readonly, nonatomic, getter=isInRealisticMode) _Bool inRealisticMode;
 - (unsigned int)supportedRenderPasses;
-- (unsigned int)mapLayerPosition;
+- (unsigned long long)mapLayerPosition;
 - (void)dealloc;
 - (id)init;
 

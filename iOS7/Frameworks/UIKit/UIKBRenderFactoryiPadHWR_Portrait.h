@@ -6,20 +6,26 @@
 
 #import <UIKit/UIKBRenderFactory10Key.h>
 
+// Not exported
 @interface UIKBRenderFactoryiPadHWR_Portrait : UIKBRenderFactory10Key
 {
 }
 
 - (void)setupLayoutSegments;
-- (float)controlColumnWidthFactor;
+- (double)controlColumnWidthFactor;
 - (id)_traitsForKey:(id)arg1 onKeyplane:(id)arg2;
+- (void)_customizeTraits:(id)arg1 forPopupForKey:(id)arg2 withRenderConfig:(id)arg3 keycapsFontName:(id)arg4;
+- (struct CGPoint)spaceReturnKeyTextOffset;
 - (struct CGPoint)dismissKeyOffset;
-- (float)dismissKeyFontSize;
-- (float)spaceKeyFontSize;
-- (float)dictationKeyFontSize;
-- (float)internationalKeyFontSize;
-- (float)moreKeyFontSize;
-- (float)deleteKeyFontSize;
+- (double)dismissKeyFontSize;
+- (double)spaceKeyFontSize;
+- (double)dictationKeyFontSize;
+- (double)internationalKeyFontSize;
+- (double)moreKeyFontSize;
+- (double)deleteKeyFontSize;
+- (double)keyCornerRadius;
+- (id)thinKeycapsFontName;
+- (id)lightKeycapsFontName;
 
 @end
 

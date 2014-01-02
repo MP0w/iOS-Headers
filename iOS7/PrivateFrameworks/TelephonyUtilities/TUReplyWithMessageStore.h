@@ -11,14 +11,14 @@
 }
 
 - (void)_handleMessagesStoreChanged;
-- (void)setCustomReply:(id)arg1 atIndex:(unsigned int)arg2;
+- (void)setCustomReply:(id)arg1 atIndex:(unsigned long long)arg2;
 - (id)cannedReplySettingsPrefix;
 - (id)cannedRepliesForSending;
 - (id)cannedReplyActionSheetOptions;
 - (id)cannedReplyActionSheetPrefix;
-- (id)cannedRepliesWithCapitalization:(BOOL)arg1;
+- (id)cannedRepliesWithCapitalization:(_Bool)arg1;
 - (id)customReplies;
-- (id)defaultRepliesWithCapitalization:(BOOL)arg1;
+- (id)defaultRepliesWithCapitalization:(_Bool)arg1;
 - (id)cannedReplyPrefixForSending;
 - (id)cannedReplyPrefix;
 - (int)count;

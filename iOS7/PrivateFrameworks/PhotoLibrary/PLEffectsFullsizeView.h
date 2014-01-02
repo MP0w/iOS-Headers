@@ -11,13 +11,13 @@
 @interface PLEffectsFullsizeView : PLGLView
 {
     CIFilter *_selectedFilter;
-    unsigned int _selectedFilterIndex;
-    unsigned int _filterIndex;
+    unsigned long long _selectedFilterIndex;
+    unsigned long long _filterIndex;
 }
 
-@property unsigned int filterIndex; // @synthesize filterIndex=_filterIndex;
-- (void)_renderWithInputImage:(id)arg1 ciContext:(id)arg2 mirrorRendering:(BOOL)arg3;
-- (void)renderPixelBuffer:(struct __CVBuffer *)arg1 ciContext:(id)arg2 mirrorRendering:(BOOL)arg3;
+@property unsigned long long filterIndex; // @synthesize filterIndex=_filterIndex;
+- (void)_renderWithInputImage:(id)arg1 ciContext:(id)arg2 mirrorRendering:(_Bool)arg3;
+- (void)renderPixelBuffer:(struct __CVBuffer *)arg1 ciContext:(id)arg2 mirrorRendering:(_Bool)arg3;
 - (id)_updateSelectedFilter;
 - (void)setFixedSize:(struct CGSize)arg1;
 - (void)_layoutGLLayer;

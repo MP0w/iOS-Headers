@@ -13,14 +13,14 @@
     UIView *_activityAccessoryView;
 }
 
-- (BOOL)dismissOnLock;
-- (BOOL)allowMenuButtonDismissal;
-- (BOOL)shouldShowInLockScreen;
-- (BOOL)undimsScreen;
-- (BOOL)behavesSuperModally;
-- (BOOL)reappearsAfterLock;
-- (BOOL)reappearsAfterUnlock;
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
+- (_Bool)dismissOnLock;
+- (_Bool)allowMenuButtonDismissal;
+- (_Bool)shouldShowInLockScreen;
+- (_Bool)undimsScreen;
+- (_Bool)behavesSuperModally;
+- (_Bool)reappearsAfterLock;
+- (_Bool)reappearsAfterUnlock;
+- (void)configure:(_Bool)arg1 requirePasscodeForActions:(_Bool)arg2;
 - (void)dealloc;
 - (id)initWithDescriptor:(id)arg1;
 

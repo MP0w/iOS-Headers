@@ -17,7 +17,7 @@
 + (id)predicateWithStartDate:(id)arg1 endDate:(id)arg2;
 @property(readonly, nonatomic) NSDate *endDate; // @synthesize endDate=_endDate;
 @property(readonly, nonatomic) NSDate *startDate; // @synthesize startDate=_startDate;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (void)dealloc;

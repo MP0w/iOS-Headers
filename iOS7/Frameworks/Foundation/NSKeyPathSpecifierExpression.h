@@ -13,9 +13,9 @@
     NSString *_value;
 }
 
-+ (BOOL)supportsSecureCoding;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
++ (_Bool)supportsSecureCoding;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)expressionValueWithObject:(id)arg1 context:(id)arg2;
 - (id)keyPath;
 - (id)constantValue;

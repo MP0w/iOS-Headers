@@ -15,10 +15,11 @@
         unsigned int _evaluationBlocked:1;
         unsigned int _reservedExpressionFlags:31;
     } _expressionFlags;
-    unsigned int _expressionType;
+    unsigned int reserved;
+    unsigned long long _expressionType;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 + (id)expressionForAnyKey;
 + (id)expressionForBlock:(id)arg1 arguments:(void)arg2;
 + (id)expressionForMinusSet:(id)arg1 with:(id)arg2;
@@ -36,12 +37,12 @@
 + (id)expressionForVariable:(id)arg1;
 + (id)expressionForEvaluatedObject;
 + (id)expressionForConstantValue:(id)arg1;
-+ (id)expressionWithFormat:(id)arg1 arguments:(void *)arg2;
++ (id)expressionWithFormat:(id)arg1 arguments:(char *)arg2;
 + (id)expressionWithFormat:(id)arg1;
 + (id)expressionWithFormat:(id)arg1 argumentArray:(id)arg2;
 - (id)_expressionWithSubstitutionVariables:(id)arg1;
-- (void)acceptVisitor:(id)arg1 flags:(unsigned int)arg2;
-- (BOOL)_shouldUseParensWithDescription;
+- (void)acceptVisitor:(id)arg1 flags:(unsigned long long)arg2;
+- (_Bool)_shouldUseParensWithDescription;
 - (id)expressionBlock;
 - (id)falseExpression;
 - (id)trueExpression;
@@ -57,7 +58,7 @@
 - (id)variable;
 - (id)constantValue;
 - (id)keyPath;
-- (unsigned int)expressionType;
+- (unsigned long long)expressionType;
 - (id)predicateFormat;
 - (id)description;
 - (id)expressionValueWithObject:(id)arg1 context:(id)arg2;
@@ -65,8 +66,8 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (void)allowEvaluation;
-- (BOOL)_allowsEvaluation;
-- (id)initWithExpressionType:(unsigned int)arg1;
+- (_Bool)_allowsEvaluation;
+- (id)initWithExpressionType:(unsigned long long)arg1;
 
 @end
 

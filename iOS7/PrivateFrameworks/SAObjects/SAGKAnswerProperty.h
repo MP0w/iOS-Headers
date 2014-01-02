@@ -8,7 +8,7 @@
 
 #import "SAAceSerializable-Protocol.h"
 
-@class NSNumber, NSString, SAUIAppPunchOut;
+@class NSNumber, NSString, SAUIAppPunchOut, SAUIDecoratedText;
 
 @interface SAGKAnswerProperty : AceObject <SAAceSerializable>
 {
@@ -21,6 +21,8 @@
 @property(copy, nonatomic) NSNumber *selected;
 @property(retain, nonatomic) SAUIAppPunchOut *punchOut;
 @property(copy, nonatomic) NSString *name;
+@property(retain, nonatomic) SAUIDecoratedText *decoratedValueAnnotation;
+@property(retain, nonatomic) SAUIDecoratedText *decoratedValue;
 @property(retain, nonatomic) id <SAClientBoundCommand> command;
 - (id)encodedClassName;
 - (id)groupIdentifier;

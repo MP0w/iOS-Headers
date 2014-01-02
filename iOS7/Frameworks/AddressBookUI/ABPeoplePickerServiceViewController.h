@@ -18,9 +18,9 @@
 - (void)setDisplayedProperties:(id)arg1;
 - (void)setupAsAddressBook:(id)arg1 withStyle:(id)arg2;
 - (void)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4 replyHandler:(id)arg5;
-- (BOOL)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
+- (_Bool)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
 - (void)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2 replyHandler:(id)arg3;
-- (BOOL)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2;
+- (_Bool)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2;
 - (void)peoplePickerNavigationControllerDidCancel:(id)arg1;
 - (void)_willAppearInRemoteViewController;
 - (id)remoteViewControllerProxy;

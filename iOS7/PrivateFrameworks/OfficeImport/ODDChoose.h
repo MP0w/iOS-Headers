@@ -8,6 +8,7 @@
 
 @class NSMutableArray, ODDOtherwise;
 
+// Not exported
 @interface ODDChoose : ODDLayoutObject
 {
     NSMutableArray *mWhens;

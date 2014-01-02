@@ -10,6 +10,7 @@
 
 @class CMArchiveManager, NSMutableArray, NSString, OIXMLDocument, OIXMLElement, PDPresentation;
 
+// Not exported
 @interface PMPresentationMapper : CMMapper <CMMapperRoot>
 {
     int mWidth;
@@ -23,12 +24,12 @@
     OIXMLElement *mBodyElement;
     unsigned int mNextCommit;
     unsigned int mCurrentSlide;
-    BOOL mHasPushedFirstSlides;
+    _Bool mHasPushedFirstSlides;
     float mSlideOriginY;
 }
 
 - (void)finishMappingWithState:(id)arg1;
-- (void)mapElement:(id)arg1 atIndex:(unsigned int)arg2 withState:(id)arg3 isLastElement:(BOOL)arg4;
+- (void)mapElement:(id)arg1 atIndex:(unsigned long long)arg2 withState:(id)arg3 isLastElement:(_Bool)arg4;
 - (void)_pushEmptySlideWithMessage:(id)arg1;
 - (void)startMappingWithState:(id)arg1;
 - (struct CGSize)slideSize;
@@ -38,8 +39,6 @@
 - (id)archiver;
 - (void)dealloc;
 - (id)initWithPDPresentation:(id)arg1 archiver:(id)arg2;
-- (void)setHtmlDocumentSizeInArchiver;
-- (void)mapDefaultCssStylesAt:(id)arg1;
 
 @end
 

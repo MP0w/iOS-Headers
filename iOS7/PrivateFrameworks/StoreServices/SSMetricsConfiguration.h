@@ -15,19 +15,21 @@
     NSDictionary *_config;
     NSMutableDictionary *_eventFieldsUnion;
     NSDictionary *_fields;
-    BOOL _disabled;
-    BOOL _sendDisabled;
+    _Bool _disabled;
+    _Bool _sendDisabled;
 }
 
 @property(retain, nonatomic) SSMetricsConfiguration *childConfiguration; // @synthesize childConfiguration=_childConfiguration;
-- (BOOL)_configBooleanForKey:(id)arg1 defaultValue:(BOOL)arg2;
+- (_Bool)_configBooleanForKey:(id)arg1 defaultValue:(_Bool)arg2;
+- (id)valueForConfigurationKey:(id)arg1;
 - (id)tokenStringWithElements:(id)arg1;
 - (id)reportingURLString;
 - (double)reportingFrequency;
 - (id)pingURLs;
-- (BOOL)isSendDisabled;
-- (BOOL)isEventTypeBlacklisted:(id)arg1;
-- (BOOL)isDisabled;
+- (_Bool)isSendDisabled;
+- (_Bool)isEventTypeBlacklisted:(id)arg1;
+- (_Bool)isDisabled;
+@property(readonly, nonatomic) NSDictionary *fieldsMap;
 - (id)compoundStringWithElements:(id)arg1;
 - (id)eventFields;
 - (id)blacklistedEventFields;

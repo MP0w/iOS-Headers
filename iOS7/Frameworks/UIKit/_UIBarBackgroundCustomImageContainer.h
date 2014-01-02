@@ -6,6 +6,7 @@
 
 #import <UIKit/UIImageView.h>
 
+// Not exported
 @interface _UIBarBackgroundCustomImageContainer : UIImageView
 {
 }

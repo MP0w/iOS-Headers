@@ -14,21 +14,21 @@
     SBDisableActiveInterfaceOrientationChangeAssertion *_disableActiveOrientationChangeAssertion;
 }
 
-- (BOOL)selfApplicationExited:(id)arg1;
-- (BOOL)selfApplicationLaunchDidFail:(id)arg1;
-- (BOOL)selfWorkspaceDidResume;
+- (_Bool)selfApplicationExited:(id)arg1;
+- (_Bool)selfApplicationLaunchDidFail:(id)arg1;
+- (_Bool)selfWorkspaceDidResume;
 - (void)_suspendWorkspaceIfNecessary;
-- (BOOL)_shouldWorkspaceBeSuspended;
-- (BOOL)selfApplicationDidBecomeReceiver:(id)arg1 fromApplication:(id)arg2;
-- (BOOL)selfApplicationActivated:(id)arg1;
-- (BOOL)selfAlertDidActivate:(id)arg1 overAlerts:(id)arg2;
+- (_Bool)_shouldWorkspaceBeSuspended;
+- (_Bool)selfApplicationDidBecomeReceiver:(id)arg1 fromApplication:(id)arg2;
+- (_Bool)selfApplicationActivated:(id)arg1;
+- (_Bool)selfAlertDidActivate:(id)arg1 overAlerts:(id)arg2;
 - (void)_alertDidActivate;
 - (void)_handleAppActivationFailure;
 - (void)_setupAndActivate;
 - (void)_transactionComplete;
 - (void)_commit;
-- (BOOL)shouldPerformToAppStateCleanupOnCompletion;
-- (BOOL)shouldToggleSpringBoardStatusBarOnCleanup;
+- (_Bool)shouldPerformToAppStateCleanupOnCompletion;
+- (_Bool)shouldToggleSpringBoardStatusBarOnCleanup;
 - (void)dealloc;
 - (id)initWithWorkspace:(id)arg1 alertManager:(id)arg2 application:(id)arg3 lockScreenController:(id)arg4 activationHandler:(id)arg5;
 - (id)initWithWorkspace:(id)arg1 alertManager:(id)arg2 application:(id)arg3 lockScreenController:(id)arg4;

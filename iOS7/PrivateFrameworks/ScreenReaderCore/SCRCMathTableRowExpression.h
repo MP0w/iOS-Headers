@@ -6,14 +6,15 @@
 
 #import <ScreenReaderCore/SCRCMathArrayExpression.h>
 
+// Not exported
 @interface SCRCMathTableRowExpression : SCRCMathArrayExpression
 {
 }
 
-- (BOOL)canBeWrappedInLatexMathIndicators;
-- (id)latexDescriptionInMathMode:(BOOL)arg1;
+- (_Bool)canBeWrappedInLatexMathIndicators;
+- (id)latexDescriptionInMathMode:(_Bool)arg1;
 - (id)mathMLTag;
-- (id)dollarCodeDescriptionWithNumberOfOuterRadicals:(unsigned int)arg1 treePosition:(id)arg2;
+- (id)dollarCodeDescriptionWithNumberOfOuterRadicals:(unsigned long long)arg1 treePosition:(id)arg2;
 
 @end
 

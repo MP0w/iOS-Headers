@@ -8,23 +8,25 @@
 
 @class UILabel;
 
+// Not exported
 @interface UIDatePickerContentView : UIView
 {
     struct {
         unsigned int isAmPm:1;
     } _datePickerContentViewFlags;
-    BOOL _isModern;
+    _Bool _isModern;
     UILabel *_titleLabel;
-    float _titleLabelMaxX;
-    int _titleAlignment;
+    double _titleLabelMaxX;
+    long long _titleAlignment;
 }
 
-@property(nonatomic) BOOL isModern; // @synthesize isModern=_isModern;
-@property(nonatomic) int titleAlignment; // @synthesize titleAlignment=_titleAlignment;
-@property(nonatomic) float titleLabelMaxX; // @synthesize titleLabelMaxX=_titleLabelMaxX;
+@property(nonatomic) _Bool isModern; // @synthesize isModern=_isModern;
+@property(nonatomic) long long titleAlignment; // @synthesize titleAlignment=_titleAlignment;
+@property(nonatomic) double titleLabelMaxX; // @synthesize titleLabelMaxX=_titleLabelMaxX;
 @property(readonly, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 - (void)layoutSubviews;
-@property(nonatomic) BOOL isAmPm;
+@property(nonatomic) _Bool isAmPm;
+- (_Bool)_canBeReusedInPickerView;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

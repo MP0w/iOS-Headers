@@ -6,15 +6,16 @@
 
 #import <iWorkImport/GQPProcessor.h>
 
+// Not exported
 @interface GQPBGProcessor : GQPProcessor
 {
     Class mGenerator;
 }
 
 - (Class)generator;
-- (BOOL)go;
+- (_Bool)go;
 - (void)pushInitialState;
-- (id)initWithZipArchive:(id)arg1 indexFileName:(id)arg2 outputType:(int)arg3 outputPath:(struct __CFString *)arg4 previewRequest:(struct __QLPreviewRequest *)arg5 progressiveHelper:(id)arg6 generator:(Class)arg7;
+- (id)initWithPath:(id)arg1 zipArchive:(id)arg2 indexFileName:(id)arg3 outputType:(int)arg4 outputPath:(struct __CFString *)arg5 previewRequest:(struct __QLPreviewRequest *)arg6 progressiveHelper:(id)arg7 generator:(Class)arg8 cryptoKey:(id)arg9;
 - (id)initWithPath:(id)arg1 indexFileName:(id)arg2 outputType:(int)arg3 outputPath:(struct __CFString *)arg4 previewRequest:(struct __QLPreviewRequest *)arg5 progressiveHelper:(id)arg6 generator:(Class)arg7 zipArchive:(id)arg8 cryptoKey:(id)arg9;
 
 @end

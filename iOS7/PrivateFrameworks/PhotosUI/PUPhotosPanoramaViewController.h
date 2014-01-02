@@ -6,12 +6,9 @@
 
 #import <PhotosUI/PUPhotosGridViewController.h>
 
-#import "PUCollectionViewFlowLayoutDelegate-Protocol.h"
-#import "UICollectionViewDelegateFlowLayout-Protocol.h"
+@class PLFetchingAlbum, PUPhotosPanoramaViewControllerSpec, PUSectionedGridLayout;
 
-@class PLFetchingAlbum, PUCollectionViewFlowLayout, PUPhotosPanoramaViewControllerSpec;
-
-@interface PUPhotosPanoramaViewController : PUPhotosGridViewController <UICollectionViewDelegateFlowLayout, PUCollectionViewFlowLayoutDelegate>
+@interface PUPhotosPanoramaViewController : PUPhotosGridViewController
 {
     PUPhotosPanoramaViewControllerSpec *_panoramaSpec;
     PLFetchingAlbum *_userPanoAlbum;
@@ -20,27 +17,24 @@
 @property(retain, nonatomic) PLFetchingAlbum *userPanoAlbum; // @synthesize userPanoAlbum=_userPanoAlbum;
 @property(retain, nonatomic) PUPhotosPanoramaViewControllerSpec *panoramaSpec; // @synthesize panoramaSpec=_panoramaSpec;
 - (void).cxx_destruct;
-- (void)_updatePhotoDecorationForCell:(id)arg1 animated:(BOOL)arg2;
-- (void)updateMainCollectionViewAnimated:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (void)sectionedGridLayoutWillPrepareLayout:(id)arg1;
-- (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 sizeForItemAtIndexPath:(id)arg3;
+- (void)_updatePhotoDecorationForCell:(id)arg1 animated:(_Bool)arg2;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)rotatePhotoViewToHorizontalIfNeeded:(id)arg1 withAsset:(id)arg2;
 - (void)updatePhotoView:(id)arg1 withThumbnailImage:(id)arg2;
 - (void)configureGridCell:(id)arg1 forItemAtIndexPath:(id)arg2;
-- (void)configureCollectionViewGridLayout:(id)arg1;
+- (_Bool)canBeginStackCollapseTransition;
+- (long long)cellFillMode;
 - (void)configureGlobalFooterView:(id)arg1;
-- (void)configureSupplementaryView:(id)arg1 ofKind:(id)arg2 forIndexPath:(id)arg3 animated:(BOOL)arg4;
-- (BOOL)_hasScrollableContent;
-- (BOOL)wantsGlobalFooter;
+- (void)configureSupplementaryView:(id)arg1 ofKind:(id)arg2 forIndexPath:(id)arg3 animated:(_Bool)arg4;
+- (_Bool)_hasScrollableContent;
+- (_Bool)wantsGlobalFooter;
+- (void)updateLayoutMetrics;
 - (id)newGridLayout;
 - (id)newPanoPhotoCollections;
 - (id)initWithSpec:(id)arg1;
 
 // Remaining properties
-@property(retain, nonatomic) PUCollectionViewFlowLayout *mainGridLayout;
+@property(retain, nonatomic) PUSectionedGridLayout *mainGridLayout;
 
 @end
 

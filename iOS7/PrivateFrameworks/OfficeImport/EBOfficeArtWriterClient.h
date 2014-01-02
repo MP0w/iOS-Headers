@@ -6,6 +6,7 @@
 
 #import <OfficeImport/OABWriterClient.h>
 
+// Not exported
 @interface EBOfficeArtWriterClient : OABWriterClient
 {
 }

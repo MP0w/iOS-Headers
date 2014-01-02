@@ -10,10 +10,10 @@
 
 @interface GEOLocationShifter : NSObject
 {
-    BOOL _hasCheckedLocationShiftEnabled;
-    BOOL _locationShiftEnabled;
+    _Bool _hasCheckedLocationShiftEnabled;
+    _Bool _locationShiftEnabled;
     GEOLocationShiftFunctionResponse *_shiftFunction;
-    BOOL _isRequestingShiftFunction;
+    _Bool _isRequestingShiftFunction;
     CDStruct_2c43369c _coordinateToShift;
     double _coordinateAccuracy;
     GEOLocationShiftFunctionRequest *_shiftRequest;
@@ -31,7 +31,7 @@
 - (void)shiftCoordinate:(CDStruct_c3b9c2ee)arg1 accuracy:(double)arg2 withCompletionHandler:(id)arg3;
 - (void)_requestShiftFunctionForLocation:(CDStruct_c3b9c2ee)arg1 accuracy:(double)arg2;
 - (void)_countryProvidersDidChange:(id)arg1;
-@property(nonatomic) BOOL locationShiftEnabled;
+@property(nonatomic) _Bool locationShiftEnabled;
 - (void)_updateLocationShiftEnabled;
 - (void)dealloc;
 - (id)init;

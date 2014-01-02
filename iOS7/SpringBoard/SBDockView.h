@@ -6,33 +6,28 @@
 
 #import "UIView.h"
 
-#import "SBWallpaperColorObserver-Protocol.h"
-#import "_UISettingsKeyObserver-Protocol.h"
+#import "SBWallpaperObserver-Protocol.h"
 
-@class SBDockIconListView, SBDockSettings, SBHighlightView, _UIBackdropView;
+@class SBDockIconListView, SBHighlightView, UIImageView, _SBDockBackgroundView;
 
-@interface SBDockView : UIView <_UISettingsKeyObserver, SBWallpaperColorObserver>
+@interface SBDockView : UIView <SBWallpaperObserver>
 {
     SBDockIconListView *_iconListView;
     SBHighlightView *_highlightView;
-    _UIBackdropView *_backdropView;
-    UIView *_alternativeBackgroundView;
-    SBDockSettings *_dockSettings;
+    _SBDockBackgroundView *_backgroundView;
+    UIImageView *_backgroundImageView;
 }
 
-+ (float)defaultHeight;
-- (void)_configureBackground;
-- (void)wallpaperColorDidChange:(id)arg1;
-- (void)didAnimate;
-- (void)willAnimate;
-- (void)setVerticalBackgroundStretch:(float)arg1;
-- (void)setBackgroundAlpha:(float)arg1;
-- (void)settings:(id)arg1 changedValueForKey:(id)arg2;
-- (float)heightForOrientation:(int)arg1;
++ (double)defaultHeight;
+- (void)wallpaperDidChangeForVariant:(long long)arg1;
+- (id)_newBackgroundImage;
+- (void)setVerticalBackgroundStretch:(double)arg1;
+- (void)setBackgroundAlpha:(double)arg1;
+- (double)heightForOrientation:(long long)arg1;
 - (void)layoutSubviews;
 - (id)dockListView;
 - (void)dealloc;
-- (id)initWithDockListView:(id)arg1;
+- (id)initWithDockListView:(id)arg1 forSnapshot:(_Bool)arg2;
 
 @end
 

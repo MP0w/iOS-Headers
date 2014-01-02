@@ -11,12 +11,12 @@
 @interface ICDeviceBrowserPrivateData : NSObject
 {
     id _delegate;
-    BOOL _browsing;
+    _Bool _browsing;
     NSMutableArray *_internalDevices;
 }
 
 @property(retain) NSMutableArray *internalDevices; // @synthesize internalDevices=_internalDevices;
-@property(getter=isBrowsing) BOOL browsing; // @synthesize browsing=_browsing;
+@property(getter=isBrowsing) _Bool browsing; // @synthesize browsing=_browsing;
 @property id delegate; // @synthesize delegate=_delegate;
 - (void)finalize;
 - (void)dealloc;

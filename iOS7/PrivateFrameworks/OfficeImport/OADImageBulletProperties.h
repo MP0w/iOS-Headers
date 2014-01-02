@@ -8,12 +8,13 @@
 
 @class OADBlipRef;
 
+// Not exported
 @interface OADImageBulletProperties : OADBulletProperties
 {
     OADBlipRef *mImage;
 }
 
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)image;
 - (void)dealloc;
 - (id)initWithBlipRef:(id)arg1;

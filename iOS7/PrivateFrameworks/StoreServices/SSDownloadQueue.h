@@ -12,7 +12,7 @@
 
 @interface SSDownloadQueue : NSObject <SSDownloadManagerObserverPrivate>
 {
-    BOOL _autoFinishDownloads;
+    _Bool _autoFinishDownloads;
     SSDownloadManager *_downloadManager;
     struct __CFSet *_observers;
 }
@@ -23,35 +23,35 @@
 + (id)cachedArtworkForDownload:(id)arg1;
 + (id)softwareApplicationDownloadKinds;
 + (id)mediaDownloadKinds;
-@property(nonatomic) BOOL shouldAutomaticallyFinishDownloads; // @synthesize shouldAutomaticallyFinishDownloads=_autoFinishDownloads;
+@property(nonatomic) _Bool shouldAutomaticallyFinishDownloads; // @synthesize shouldAutomaticallyFinishDownloads=_autoFinishDownloads;
 - (void)_handleDownloadsRemoved:(id)arg1;
 - (void)_handleDownloadsDidChange:(id)arg1;
 - (void)_sendQueuePreOrdersChanged;
 - (void)_sendQueueNetworkUsageChanged;
 - (void)_sendQueueChangedWithRemovals:(id)arg1;
-- (void)_sendDownloadStatusChangedAtIndex:(int)arg1;
+- (void)_sendDownloadStatusChangedAtIndex:(long long)arg1;
 - (void)_messageObserversWithFunction:(void *)arg1 context:(void *)arg2;
 - (void)downloadManagerNetworkUsageDidChange:(id)arg1;
 - (void)downloadManagerDownloadsDidChange:(id)arg1;
 - (void)downloadManager:(id)arg1 downloadStatesDidChange:(id)arg2;
 - (void)downloadManager:(id)arg1 downloadsDidChange:(id)arg2;
-- (BOOL)startPreOrderDownload:(id)arg1;
+- (_Bool)startPreOrderDownload:(id)arg1;
 - (void)removePlaceholderDownload:(id)arg1;
 @property(readonly, nonatomic) NSArray *preorders;
 @property(readonly, nonatomic) NSArray *placeholderDownloads;
 - (id)downloadForItemIdentifier:(unsigned long long)arg1;
 - (void)addPlaceholderDownloads:(id)arg1;
 - (void)removeObserver:(id)arg1;
-- (BOOL)reloadFromServer;
-@property(readonly, getter=isUsingNetwork) BOOL usingNetwork;
+- (_Bool)reloadFromServer;
+@property(readonly, getter=isUsingNetwork) _Bool usingNetwork;
 - (void)getDownloadsUsingBlock:(id)arg1;
 @property(readonly, nonatomic) NSArray *downloads;
 @property(readonly) SSDownloadManager *downloadManager;
 @property(readonly) NSSet *downloadKinds;
-- (BOOL)canCancelDownload:(id)arg1;
-- (BOOL)cancelDownload:(id)arg1;
+- (_Bool)canCancelDownload:(id)arg1;
+- (_Bool)cancelDownload:(id)arg1;
 - (void)addObserver:(id)arg1;
-- (BOOL)addDownload:(id)arg1;
+- (_Bool)addDownload:(id)arg1;
 - (void)dealloc;
 - (id)initWithDownloadManagerOptions:(id)arg1;
 - (id)initWithDownloadKinds:(id)arg1;

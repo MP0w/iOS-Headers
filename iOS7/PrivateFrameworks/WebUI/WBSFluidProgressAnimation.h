@@ -11,14 +11,14 @@
 @interface WBSFluidProgressAnimation : NSObject
 {
     CAMediaTimingFunction *_timingFunction;
-    float _initialPosition;
-    float _destinationPosition;
+    double _initialPosition;
+    double _destinationPosition;
     double _animationDuration;
 }
 
 @property(nonatomic) double animationDuration; // @synthesize animationDuration=_animationDuration;
-@property(nonatomic) float destinationPosition; // @synthesize destinationPosition=_destinationPosition;
-@property(nonatomic) float initialPosition; // @synthesize initialPosition=_initialPosition;
+@property(nonatomic) double destinationPosition; // @synthesize destinationPosition=_destinationPosition;
+@property(nonatomic) double initialPosition; // @synthesize initialPosition=_initialPosition;
 @property(retain, nonatomic) CAMediaTimingFunction *timingFunction; // @synthesize timingFunction=_timingFunction;
 - (void)dealloc;
 

@@ -10,11 +10,11 @@
 {
     int _restoreStateChangedToken;
     int _attachmentRestoredToken;
-    BOOL _restoring;
+    _Bool _restoring;
 }
 
 + (id)sharedInstance;
-@property(nonatomic, getter=isRestoring) BOOL restoring; // @synthesize restoring=_restoring;
+@property(nonatomic, getter=isRestoring) _Bool restoring; // @synthesize restoring=_restoring;
 - (void)postAttachmentRestored;
 - (void)attachmentRestored;
 - (void)updateRestoreState;

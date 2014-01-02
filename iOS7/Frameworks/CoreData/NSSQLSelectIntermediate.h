@@ -8,25 +8,26 @@
 
 @class NSArray, NSSQLEntity, NSString;
 
+// Not exported
 @interface NSSQLSelectIntermediate : NSSQLIntermediate
 {
     NSSQLEntity *_entity;
     NSString *_entityAlias;
     NSString *_correlationTarget;
     NSArray *_fetchColumns;
-    BOOL _useDistinct;
+    _Bool _useDistinct;
     NSString *_columnAlias;
-    BOOL _isCount;
+    _Bool _isCount;
 }
 
 - (id)generateSQLStringInContext:(id)arg1;
-- (void)setIsCount:(BOOL)arg1;
+- (void)setIsCount:(_Bool)arg1;
 - (void)setFetchEntity:(id)arg1;
 - (void)setFetchColumns:(id)arg1;
 - (void)setColumnAlias:(id)arg1;
-- (void)setUseDistinct:(BOOL)arg1;
-- (BOOL)onlyFetchesAggregates;
-- (BOOL)isSelectTargetScoped;
+- (void)setUseDistinct:(_Bool)arg1;
+- (_Bool)onlyFetchesAggregates;
+- (_Bool)isSelectTargetScoped;
 - (void)dealloc;
 - (id)initForCorrelationTarget:(id)arg1 alias:(id)arg2 fetchColumns:(id)arg3 inScope:(id)arg4;
 - (id)initWithEntity:(id)arg1 alias:(id)arg2 fetchColumns:(id)arg3 inScope:(id)arg4;

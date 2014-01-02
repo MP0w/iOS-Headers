@@ -15,8 +15,8 @@
     unsigned int offset;
     unsigned int kernTableLength;
     struct __CFDictionary *kernDictionary;
-    BOOL override;
-    BOOL valid;
+    _Bool override;
+    _Bool valid;
 }
 
 - (struct __CFDictionary *)createKernTable;

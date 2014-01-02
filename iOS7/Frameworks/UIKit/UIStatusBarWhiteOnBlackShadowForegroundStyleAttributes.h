@@ -6,16 +6,17 @@
 
 #import <UIKit/UIStatusBarWhiteOnBlackEtchForegroundStyleAttributes.h>
 
+// Not exported
 @interface UIStatusBarWhiteOnBlackShadowForegroundStyleAttributes : UIStatusBarWhiteOnBlackEtchForegroundStyleAttributes
 {
 }
 
 - (void)setThermalColorShadow;
-- (float)bluetoothBatteryExtraLeftPadding;
+- (double)bluetoothBatteryExtraLeftPadding;
 - (int)legacyStyle;
 - (id)expandedNameForImageName:(id)arg1;
 - (void)drawTextInRect:(struct CGRect)arg1 withColor:(id)arg2 withBlock:(id)arg3;
-- (float)shadowPadding;
+- (double)shadowPadding;
 
 @end
 

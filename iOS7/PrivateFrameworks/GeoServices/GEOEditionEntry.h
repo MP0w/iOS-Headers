@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface GEOEditionEntry : NSObject
 {
     unsigned int _tileset;

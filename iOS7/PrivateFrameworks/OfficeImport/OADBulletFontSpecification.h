@@ -8,13 +8,14 @@
 
 @class NSString;
 
+// Not exported
 @interface OADBulletFontSpecification : OADBulletFont
 {
     NSString *mFont;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)font;
 - (void)dealloc;
 - (id)initWithFont:(id)arg1;

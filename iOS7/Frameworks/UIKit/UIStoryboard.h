@@ -28,7 +28,7 @@
 - (id)nibForViewControllerWithIdentifier:(id)arg1;
 - (id)nibForStoryboardNibNamed:(id)arg1;
 - (id)identifierForStringsFile;
-- (BOOL)containsNibNamed:(id)arg1;
+- (_Bool)containsNibNamed:(id)arg1;
 @property(readonly) NSString *name;
 - (id)initWithBundle:(id)arg1 storyboardFileName:(id)arg2 identifierToNibNameMap:(id)arg3 designatedEntryPointIdentifier:(id)arg4;
 - (void)dealloc;

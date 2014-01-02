@@ -6,6 +6,7 @@
 
 #import "NSEnumerator.h"
 
+// Not exported
 @interface NSKeyValueNilSetEnumerator : NSEnumerator
 {
 }

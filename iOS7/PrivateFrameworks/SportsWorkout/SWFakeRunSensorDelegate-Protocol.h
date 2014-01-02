@@ -11,6 +11,6 @@
 - (void)beginSearchingForFakeSensor:(id)arg1;
 - (void)cancelLinkingForFakeSensor:(id)arg1;
 - (void)beginLinkingForFakeSensor:(id)arg1;
-- (unsigned int)remainingBatteryLifetimeInHoursForFakeSensor:(id)arg1;
+- (unsigned long long)remainingBatteryLifetimeInHoursForFakeSensor:(id)arg1;
 @end
 

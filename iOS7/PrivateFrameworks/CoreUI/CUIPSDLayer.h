@@ -10,14 +10,14 @@
 
 @interface CUIPSDLayer : NSObject
 {
-    float _opacity;
+    double _opacity;
     int _blendMode;
     NSString *_name;
 }
 
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(nonatomic) int blendMode; // @synthesize blendMode=_blendMode;
-@property(nonatomic) float opacity; // @synthesize opacity=_opacity;
+@property(nonatomic) double opacity; // @synthesize opacity=_opacity;
 - (void)dealloc;
 - (id)init;
 

@@ -15,34 +15,44 @@
     NSString *_videoID;
     NSString *_ticketID;
     NSURL *_uploadEndpoint;
-    BOOL _continuingUpload;
-    unsigned int _lastByteStored;
+    _Bool _continuingUpload;
+    unsigned long long _lastByteStored;
     int _retryCount;
+    _Bool _canUploadOverCellular;
     ALAssetsLibrary *_assetsLibrary;
     id <VimeoPostDelegate> _delegate;
+    NSURL *_assetURL;
+    NSData *_assetData;
     NSString *_title;
     NSString *_description;
     NSArray *_tags;
-    unsigned int _accessType;
-    NSURL *_assetURL;
+    unsigned long long _accessType;
+    long long _videoSize;
+    long long _privacySettings;
     ACAccount *_account;
     ALAsset *_asset;
-    NSData *_assetData;
+    NSURL *_exportedVideoURL;
 }
 
 + (id)dictionaryWithResponseData:(id)arg1 error:(id *)arg2;
 + (void)getAvailableQuotaForAccount:(id)arg1 completion:(id)arg2;
-@property(retain, nonatomic) NSData *assetData; // @synthesize assetData=_assetData;
++ (_Bool)_isUsingCellular;
+@property(retain, nonatomic) NSURL *exportedVideoURL; // @synthesize exportedVideoURL=_exportedVideoURL;
 @property(retain, nonatomic) ALAsset *asset; // @synthesize asset=_asset;
 @property(retain, nonatomic) ACAccount *account; // @synthesize account=_account;
-@property(retain, nonatomic) NSURL *assetURL; // @synthesize assetURL=_assetURL;
-@property(nonatomic) unsigned int accessType; // @synthesize accessType=_accessType;
+@property(nonatomic) long long privacySettings; // @synthesize privacySettings=_privacySettings;
+@property(nonatomic) long long videoSize; // @synthesize videoSize=_videoSize;
+@property(nonatomic) unsigned long long accessType; // @synthesize accessType=_accessType;
 @property(retain, nonatomic) NSArray *tags; // @synthesize tags=_tags;
 @property(retain, nonatomic) NSString *description; // @synthesize description=_description;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
+@property(retain, nonatomic) NSData *assetData; // @synthesize assetData=_assetData;
+@property(retain, nonatomic) NSURL *assetURL; // @synthesize assetURL=_assetURL;
 @property(nonatomic) id <VimeoPostDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)_errorWithCode:(int)arg1;
+- (void)_warningWithCode:(int)arg1;
 - (id)_tags;
+- (void)_setPrivacy;
 - (void)_setTags;
 - (void)_setDescription;
 - (void)_setTitle;
@@ -56,8 +66,9 @@
 - (id)serializedDictionary;
 - (id)initWithDictionary:(id)arg1;
 - (id)assetsLibrary;
+- (void)_cleanup;
 - (void)dealloc;
-- (id)initWithAssetURL:(id)arg1;
+- (id)init;
 
 @end
 

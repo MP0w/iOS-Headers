@@ -42,14 +42,13 @@
         _Bool fsync;
     } fLatestDeviceMotionSample;
     int fAttitudeReferenceFrame;
-    void *fCompassCalibrationHud;
+    _Bool fCompassCalibrationHud;
     _Bool fShowCompassCalibrationHudOnResume;
     _Bool fHaveSentDeviceRequiresMovementError;
-    struct shared_ptr<CLGeomagneticModelProvider_Type::Client> fGeomagneticModelProviderClient;
+    struct unique_ptr<CLGeomagneticModelProvider_Type::Client, std::__1::default_delete<CLGeomagneticModelProvider_Type::Client>> fGeomagneticModelProviderClient;
     CDStruct_3e502cbb fGeomagneticModel;
     _Bool fHaveSentTrueNorthUnavailableError;
     double fDeviceMotionStartTimestamp;
-    _Bool fPrivateWantsPowerConservativeDeviceMotion;
     struct Dispatcher *fMagnetometerDispatcher;
     double fMagnetometerUpdateInterval;
     id fMagnetometerHandler;
@@ -71,6 +70,11 @@
     void *fPrivateDeviceMotionCallbackInfo;
     _Bool fPrivateDeviceMotionUse9Axis;
     _Bool fPrivateUseAccelerometer;
+    _Bool fPrivateWantsPowerConservativeDeviceMotion;
+    void *fPrivateNotificationCallback;
+    void *fPrivateNotificationCallbackInfo;
+    struct Dispatcher *fPrivateDeviceMotionSensorStatusDispatcher;
+    struct Dispatcher *fPrivateDeviceMotionAlgorithmDidResetDispatcher;
     _Bool fInactive;
 }
 

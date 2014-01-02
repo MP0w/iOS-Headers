@@ -12,8 +12,8 @@ struct _CommandStackEntry {
 };
 
 struct _NSRange {
-    unsigned int location;
-    unsigned int length;
+    unsigned long long location;
+    unsigned long long length;
 };
 
 struct internal_state;
@@ -21,18 +21,18 @@ struct internal_state;
 struct z_stream_s {
     char *_field1;
     unsigned int _field2;
-    unsigned int _field3;
+    unsigned long long _field3;
     char *_field4;
     unsigned int _field5;
-    unsigned int _field6;
+    unsigned long long _field6;
     char *_field7;
     struct internal_state *_field8;
     void *_field9;
     void *_field10;
     void *_field11;
     int _field12;
-    unsigned int _field13;
-    unsigned int _field14;
+    unsigned long long _field13;
+    unsigned long long _field14;
 };
 
 #pragma mark Typedef'd Structures
@@ -42,10 +42,10 @@ typedef struct {
     id _field2;
     unsigned int _field3;
     unsigned int _field4;
-    char _field5;
-    char _field6;
-    char _field7;
-} CDStruct_6bb6060a;
+    _Bool _field5;
+    _Bool _field6;
+    _Bool _field7;
+} CDStruct_f28f5ac0;
 
 typedef struct {
     id _field1;
@@ -56,7 +56,7 @@ typedef struct {
 } CDStruct_3441fd00;
 
 typedef struct {
-    int location;
-    int length;
-} CDStruct_dff5684f;
+    int _field1;
+    int _field2;
+} CDStruct_1ef3fb1f;
 

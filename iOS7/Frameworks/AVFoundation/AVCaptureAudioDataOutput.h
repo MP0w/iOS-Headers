@@ -20,11 +20,13 @@
 - (void)handleEnabledChangedForConnection:(id)arg1;
 - (void)_applyOverridesToCaptureOptions:(id)arg1;
 - (id)connectionMediaTypes;
+- (id)recommendedAudioSettingsForAssetWriterWithOutputFileType:(id)arg1;
+- (id)supportedAssetWriterOutputFileTypes;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *sampleBufferCallbackQueue;
 @property(readonly, nonatomic) id <AVCaptureAudioDataOutputSampleBufferDelegate> sampleBufferDelegate;
 - (void)setSampleBufferDelegate:(id)arg1 queue:(id)arg2;
 - (void)setSession:(id)arg1;
-- (BOOL)isTheOnlyDataOutput;
+- (_Bool)isTheOnlyDataOutput;
 - (void)dealloc;
 - (id)init;
 

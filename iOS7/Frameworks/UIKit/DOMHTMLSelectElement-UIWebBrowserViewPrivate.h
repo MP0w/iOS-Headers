@@ -7,9 +7,9 @@
 #import "DOMHTMLSelectElement.h"
 
 @interface DOMHTMLSelectElement (UIWebBrowserViewPrivate)
-- (BOOL)_supportsAutoFill;
-- (BOOL)_requiresInputView;
-- (BOOL)_requiresAccessoryView;
+- (_Bool)_supportsAutoFill;
+- (_Bool)_requiresInputView;
+- (_Bool)_requiresAccessoryView;
 - (void)_stopAssistingDocumentView:(id)arg1;
 - (void)_startAssistingDocumentView:(id)arg1;
 @end

@@ -8,6 +8,7 @@
 
 @class NSMutableArray, WDDocument;
 
+// Not exported
 @interface WDListTable : NSObject
 {
     NSMutableArray *mLists;
@@ -18,8 +19,8 @@
 - (id)initWithDocument:(id)arg1;
 - (id)addList:(id)arg1;
 - (id)lists;
-- (id)listAt:(unsigned int)arg1;
-- (unsigned int)listCount;
+- (id)listAt:(unsigned long long)arg1;
+- (unsigned long long)listCount;
 - (id)document;
 
 @end

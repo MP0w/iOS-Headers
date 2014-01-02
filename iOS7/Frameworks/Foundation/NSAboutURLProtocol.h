@@ -6,12 +6,13 @@
 
 #import <Foundation/NSURLProtocol.h>
 
+// Not exported
 @interface NSAboutURLProtocol : NSURLProtocol
 {
 }
 
 + (id)canonicalRequestForRequest:(id)arg1;
-+ (BOOL)canInitWithRequest:(id)arg1;
++ (_Bool)canInitWithRequest:(id)arg1;
 - (void)stopLoading;
 - (void)startLoading;
 

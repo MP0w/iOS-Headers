@@ -9,9 +9,10 @@
 @protocol ABContactViewControllerDelegate <NSObject>
 
 @optional
-- (void)contactViewController:(id)arg1 didChangeToEditMode:(BOOL)arg2;
+- (void)contactViewController:(id)arg1 didDeleteContact:(id)arg2;
+- (void)contactViewController:(id)arg1 didChangeToEditMode:(_Bool)arg2;
 - (void)contactViewController:(id)arg1 didCompleteWithContact:(id)arg2;
 - (id)contactViewController:(id)arg1 highlightColorForPropertyItem:(id)arg2 contact:(id)arg3;
-- (BOOL)contactViewController:(id)arg1 shouldPerformDefaultActionForContact:(id)arg2 property:(id)arg3 labeledValue:(id)arg4;
+- (_Bool)contactViewController:(id)arg1 shouldPerformDefaultActionForContact:(id)arg2 property:(id)arg3 labeledValue:(id)arg4;
 @end
 

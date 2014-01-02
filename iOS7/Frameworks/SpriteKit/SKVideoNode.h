@@ -10,7 +10,7 @@
 
 @interface SKVideoNode : SKNode
 {
-    BOOL _isLoaded;
+    _Bool _isLoaded;
     NSString *_videoFileName;
     NSURL *_videoFileURL;
     AVPlayer *_player;
@@ -25,8 +25,8 @@
 @property(nonatomic) struct CGSize size;
 - (void)pause;
 - (void)play;
-- (void)setPaused:(BOOL)arg1;
-- (BOOL)isPaused;
+- (void)setPaused:(_Bool)arg1;
+- (_Bool)isPaused;
 - (id)initWithAVPlayer:(id)arg1;
 - (id)initWithVideoFileNamed:(id)arg1;
 - (id)initWithVideoURL:(id)arg1;

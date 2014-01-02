@@ -25,8 +25,8 @@
 - (id)_persistentAttendee;
 - (id)owner;
 - (id)lazyLoadRelationForKey:(id)arg1;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;

@@ -6,15 +6,17 @@
 
 #import <CFNetwork/__NSCFBackgroundSessionTask.h>
 
+// Not exported
 @interface __NSCFBackgroundDownloadTask : __NSCFBackgroundSessionTask
 {
-    BOOL _finished;
+    _Bool _finished;
 }
 
-@property BOOL finished; // @synthesize finished=_finished;
+@property _Bool finished; // @synthesize finished=_finished;
+- (void)cancelByProducingResumeData:(id)arg1;
 - (void)_onqueue_didFinishDownloadingToURL:(id)arg1;
 - (void)_onqueue_didWriteData:(long long)arg1 totalBytesWritten:(long long)arg2 totalBytesExpectedToWrite:(long long)arg3;
-- (BOOL)isKindOfClass:(Class)arg1;
+- (_Bool)isKindOfClass:(Class)arg1;
 
 @end
 

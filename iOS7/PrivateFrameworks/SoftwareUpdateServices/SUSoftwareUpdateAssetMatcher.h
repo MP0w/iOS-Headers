@@ -14,23 +14,23 @@
     NSString *_fromVersion;
     NSString *_fromProductType;
     NSString *_fromReleaseType;
-    BOOL _checkTatsu;
+    _Bool _checkTatsu;
     SUPreferences *_preferences;
 }
 
 + (id)matcherForCurrentDeviceWithInterestedStates:(int)arg1;
 + (id)matcherForCurrentDevice;
 @property(retain, nonatomic) SUPreferences *preferences; // @synthesize preferences=_preferences;
-@property(nonatomic) BOOL compareWithTatsuForEligibility; // @synthesize compareWithTatsuForEligibility=_checkTatsu;
+@property(nonatomic) _Bool compareWithTatsuForEligibility; // @synthesize compareWithTatsuForEligibility=_checkTatsu;
 @property(readonly, nonatomic) NSString *fromReleaseType; // @synthesize fromReleaseType=_fromReleaseType;
 @property(readonly, nonatomic) NSString *fromProductType; // @synthesize fromProductType=_fromProductType;
 @property(readonly, nonatomic) NSString *fromVersion; // @synthesize fromVersion=_fromVersion;
 @property(readonly, nonatomic) NSString *fromBuild; // @synthesize fromBuild=_fromBuild;
-- (BOOL)_isPossibleSoftwareUpdate:(id)arg1;
-- (BOOL)_isDeviceEligibleForUpdate:(id)arg1;
+- (_Bool)_isPossibleSoftwareUpdate:(id)arg1;
+- (_Bool)_isDeviceEligibleForUpdate:(id)arg1;
 - (id)_copyMatchingAssetsAfterSortingAndFiltering:(id)arg1;
 - (id)_createSortedAndFilteredAssetResults:(id)arg1 usingFirstKey:(id)arg2 secondKey:(id)arg3;
-- (unsigned int)_getIndexOfHighestVersionedAsset:(id)arg1 usingFirstKey:(id)arg2 secondKey:(id)arg3;
+- (unsigned long long)_getIndexOfHighestVersionedAsset:(id)arg1 usingFirstKey:(id)arg2 secondKey:(id)arg3;
 - (id)_findMatchFromCandidates:(id)arg1 error:(id *)arg2;
 - (void)dealloc;
 - (id)initWithVersion:(id)arg1 build:(id)arg2 productType:(id)arg3 releaseType:(id)arg4 interestedStates:(int)arg5;

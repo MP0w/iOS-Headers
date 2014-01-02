@@ -7,6 +7,6 @@
 #import "NSArray.h"
 
 @interface NSArray (AXExtensions)
-+ (id)axArrayByIgnoringNilElementsWithCount:(unsigned int)arg1;
++ (id)axArrayByIgnoringNilElementsWithCount:(unsigned long long)arg1;
 @end
 

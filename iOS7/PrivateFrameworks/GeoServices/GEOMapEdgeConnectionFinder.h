@@ -8,12 +8,13 @@
 
 @class GEOMapAccess, GEOMapTileFinder, NSMutableArray;
 
+// Not exported
 @interface GEOMapEdgeConnectionFinder : GEOMapRequest
 {
     GEOMapAccess *_map;
     GEOMapTileFinder *_tileFinder;
     NSMutableArray *_builders;
-    CDStruct_b4689c16 _edgeFrom;
+    CDStruct_f8e839fc _edgeFrom;
     CDStruct_2c43369c _coordinateFrom;
 }
 
@@ -22,7 +23,7 @@
 - (void)_findOutgoingEdges:(id)arg1;
 - (void)cancel;
 - (void)dealloc;
-- (id)initWithMap:(id)arg1 edgeFrom:(const CDStruct_b4689c16 *)arg2 coordinateFrom:(CDStruct_c3b9c2ee)arg3;
+- (id)initWithMap:(id)arg1 edgeFrom:(const CDStruct_f8e839fc *)arg2 coordinateFrom:(CDStruct_c3b9c2ee)arg3;
 
 @end
 

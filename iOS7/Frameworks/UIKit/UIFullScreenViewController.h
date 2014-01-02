@@ -6,11 +6,12 @@
 
 #import <UIKit/UIViewController.h>
 
+// Not exported
 @interface UIFullScreenViewController : UIViewController
 {
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
 
 @end
 

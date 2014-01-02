@@ -6,11 +6,12 @@
 
 #import <CFNetwork/__NSCFLocalDataTask.h>
 
+// Not exported
 @interface __NSCFLocalUploadTask : __NSCFLocalDataTask
 {
 }
 
-- (BOOL)isKindOfClass:(Class)arg1;
+- (_Bool)isKindOfClass:(Class)arg1;
 
 @end
 

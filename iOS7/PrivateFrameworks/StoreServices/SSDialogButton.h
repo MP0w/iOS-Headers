@@ -14,6 +14,7 @@
     NSString *_title;
 }
 
++ (id)buttonWithTitle:(id)arg1;
 - (id)valueForActionProperty:(id)arg1;
 @property(readonly, nonatomic) NSString *URLTarget;
 @property(readonly, nonatomic) NSString *buttonAction;

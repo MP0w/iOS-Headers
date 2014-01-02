@@ -6,15 +6,17 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSMutableArray;
 
-@interface GEOBusinessOptions : PBCodable
+@interface GEOBusinessOptions : PBCodable <NSCopying>
 {
     NSMutableArray *_attributeKeys;
     int _maxBusinessResults;
     NSMutableArray *_photoOptions;
-    BOOL _includeBusinessHours;
-    BOOL _includeCenter;
+    _Bool _includeBusinessHours;
+    _Bool _includeCenter;
     struct {
         unsigned int maxBusinessResults:1;
         unsigned int includeBusinessHours:1;
@@ -22,27 +24,28 @@
     } _has;
 }
 
-@property(nonatomic) BOOL includeCenter; // @synthesize includeCenter=_includeCenter;
-@property(nonatomic) BOOL includeBusinessHours; // @synthesize includeBusinessHours=_includeBusinessHours;
+@property(nonatomic) _Bool includeCenter; // @synthesize includeCenter=_includeCenter;
+@property(nonatomic) _Bool includeBusinessHours; // @synthesize includeBusinessHours=_includeBusinessHours;
 @property(retain, nonatomic) NSMutableArray *attributeKeys; // @synthesize attributeKeys=_attributeKeys;
 @property(retain, nonatomic) NSMutableArray *photoOptions; // @synthesize photoOptions=_photoOptions;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) BOOL hasIncludeCenter;
-@property(nonatomic) BOOL hasMaxBusinessResults;
+@property(nonatomic) _Bool hasIncludeCenter;
+@property(nonatomic) _Bool hasMaxBusinessResults;
 @property(nonatomic) int maxBusinessResults; // @synthesize maxBusinessResults=_maxBusinessResults;
-@property(nonatomic) BOOL hasIncludeBusinessHours;
-- (id)attributeKeyAtIndex:(unsigned int)arg1;
-- (unsigned int)attributeKeysCount;
+@property(nonatomic) _Bool hasIncludeBusinessHours;
+- (id)attributeKeyAtIndex:(unsigned long long)arg1;
+- (unsigned long long)attributeKeysCount;
 - (void)addAttributeKey:(id)arg1;
 - (void)clearAttributeKeys;
-- (id)photoOptionsAtIndex:(unsigned int)arg1;
-- (unsigned int)photoOptionsCount;
+- (id)photoOptionsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)photoOptionsCount;
 - (void)addPhotoOptions:(id)arg1;
 - (void)clearPhotoOptions;
 - (void)dealloc;

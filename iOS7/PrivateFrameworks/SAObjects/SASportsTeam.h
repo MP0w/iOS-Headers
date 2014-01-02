@@ -46,6 +46,7 @@
 @property(copy, nonatomic) NSString *awayWins;
 @property(copy, nonatomic) NSString *awayLosses;
 @property(copy, nonatomic) NSArray *athletes;
+@property(nonatomic) _Bool alwaysUseAthleteFullName;
 @property(copy, nonatomic) NSString *abbreviatedName;
 - (id)encodedClassName;
 - (id)groupIdentifier;

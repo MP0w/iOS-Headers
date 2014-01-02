@@ -21,9 +21,9 @@
 - (void).cxx_destruct;
 - (void)_reloadHeaderView;
 - (id)tableViewCellForTableView:(id)arg1 indexPath:(id)arg2;
-- (void)setExpanded:(BOOL)arg1;
-- (int)numberOfRowsInSection;
-- (float)heightForCellInTableView:(id)arg1 indexPath:(id)arg2;
+- (void)setExpanded:(_Bool)arg1;
+- (long long)numberOfRowsInSection;
+- (double)heightForCellInTableView:(id)arg1 indexPath:(id)arg2;
 - (id)headerViewForTableView:(id)arg1;
 - (id)initWithInAppPurchases:(id)arg1 clientContext:(id)arg2;
 

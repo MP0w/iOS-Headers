@@ -12,7 +12,7 @@
 
 @interface TPDialerNumberPad : TPNumberPad <TPDialerKeypadProtocol>
 {
-    BOOL _playsSounds;
+    _Bool _playsSounds;
     id <TPDialerKeypadDelegate> _delegate;
     TPDialerSoundController *_soundController;
 }
@@ -21,11 +21,11 @@
 + (id)dialerNumberPadFullCharacters;
 @property(retain) TPDialerSoundController *soundController; // @synthesize soundController=_soundController;
 @property id <TPDialerKeypadDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) BOOL playsSounds; // @synthesize playsSounds=_playsSounds;
-- (void)setSupportsHardPause:(BOOL)arg1;
-- (BOOL)supportsHardPause;
-- (int)indexForHighlightedKey;
-- (void)highlightKeyAtIndex:(int)arg1;
+@property(nonatomic) _Bool playsSounds; // @synthesize playsSounds=_playsSounds;
+- (void)setSupportsHardPause:(_Bool)arg1;
+- (_Bool)supportsHardPause;
+- (long long)indexForHighlightedKey;
+- (void)highlightKeyAtIndex:(long long)arg1;
 - (void)buttonLongPressed:(id)arg1;
 - (void)buttonDown:(id)arg1;
 - (void)buttonUp:(id)arg1;

@@ -6,6 +6,7 @@
 
 #import <WebCore/DOMCSSRule.h>
 
+// Not exported
 @interface DOMCSSUnknownRule : DOMCSSRule
 {
 }

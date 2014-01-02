@@ -10,25 +10,35 @@
 
 @interface EKCalendarEventInvitationNotification : EKCalendarNotification
 {
-    BOOL _allDay;
-    BOOL _hasRecurrenceRules;
+    _Bool _allDay;
+    _Bool _hasRecurrenceRules;
+    _Bool _timeChanged;
+    _Bool _dateChanged;
+    _Bool _locationChanged;
+    int _participationStatus;
+    int _status;
     NSString *_location;
     NSString *_calendarName;
     NSDate *_startDate;
+    NSDate *_startDateForNextOccurrence;
     NSDate *_endDate;
     NSDate *_participationStatusModifiedDate;
-    int _status;
 }
 
-@property(nonatomic) BOOL hasRecurrenceRules; // @synthesize hasRecurrenceRules=_hasRecurrenceRules;
-@property(nonatomic, getter=isAllDay) BOOL allDay; // @synthesize allDay=_allDay;
+@property(nonatomic) _Bool locationChanged; // @synthesize locationChanged=_locationChanged;
+@property(nonatomic) _Bool dateChanged; // @synthesize dateChanged=_dateChanged;
+@property(nonatomic) _Bool timeChanged; // @synthesize timeChanged=_timeChanged;
+@property(nonatomic) _Bool hasRecurrenceRules; // @synthesize hasRecurrenceRules=_hasRecurrenceRules;
+@property(nonatomic, getter=isAllDay) _Bool allDay; // @synthesize allDay=_allDay;
 @property(nonatomic) int status; // @synthesize status=_status;
+@property(nonatomic) int participationStatus; // @synthesize participationStatus=_participationStatus;
 @property(retain, nonatomic) NSDate *participationStatusModifiedDate; // @synthesize participationStatusModifiedDate=_participationStatusModifiedDate;
 @property(retain, nonatomic) NSDate *endDate; // @synthesize endDate=_endDate;
+@property(retain, nonatomic) NSDate *startDateForNextOccurrence; // @synthesize startDateForNextOccurrence=_startDateForNextOccurrence;
 @property(retain, nonatomic) NSDate *startDate; // @synthesize startDate=_startDate;
 @property(retain, nonatomic) NSString *calendarName; // @synthesize calendarName=_calendarName;
 @property(retain, nonatomic) NSString *location; // @synthesize location=_location;
-- (BOOL)needsAlert;
+- (_Bool)needsAlert;
 - (id)eventFromEventStore:(id)arg1;
 - (void)dealloc;
 - (id)initWithType:(int)arg1;

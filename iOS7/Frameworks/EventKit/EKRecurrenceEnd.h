@@ -13,22 +13,22 @@
 @interface EKRecurrenceEnd : NSObject <NSCopying>
 {
     NSDate *_endDate;
-    unsigned int _occurrenceCount;
+    unsigned long long _occurrenceCount;
 }
 
-+ (id)recurrenceEndWithOccurrenceCount:(unsigned int)arg1;
++ (id)recurrenceEndWithOccurrenceCount:(unsigned long long)arg1;
 + (id)recurrenceEndWithEndDate:(id)arg1;
-@property(readonly, nonatomic) unsigned int occurrenceCount; // @synthesize occurrenceCount=_occurrenceCount;
+@property(readonly, nonatomic) unsigned long long occurrenceCount; // @synthesize occurrenceCount=_occurrenceCount;
 @property(readonly, nonatomic) NSDate *endDate; // @synthesize endDate=_endDate;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)description;
-@property(readonly, nonatomic) BOOL usesEndDate;
+@property(readonly, nonatomic) _Bool usesEndDate;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithOccurrenceCount:(unsigned int)arg1;
+- (id)initWithOccurrenceCount:(unsigned long long)arg1;
 - (id)initWithEndDate:(id)arg1;
 
 @end

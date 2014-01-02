@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface WXCharacterProperties : NSObject
 {
 }
@@ -13,10 +14,6 @@
 + (void)applyDeletionInsertionProperties:(id)arg1 state:(id)arg2;
 + (void)readFrom:(struct _xmlNode *)arg1 to:(id)arg2 state:(id)arg3;
 + (void)initialize;
-+ (BOOL)readBooleanCharacterMultipleProperty:(struct _xmlNode *)arg1 propertyName:(const char *)arg2 attributeName:(const char *)arg3 outValue:(int *)arg4;
-+ (BOOL)readBooleanCharacterProperty:(struct _xmlNode *)arg1 propertyName:(const char *)arg2 attributeName:(const char *)arg3 outValue:(int *)arg4;
-+ (void)readReflection:(id)arg1 fromXmlNode:(struct _xmlNode *)arg2;
-+ (void)readShadowForTarget:(id)arg1 fromXmlNode:(struct _xmlNode *)arg2;
 
 @end
 

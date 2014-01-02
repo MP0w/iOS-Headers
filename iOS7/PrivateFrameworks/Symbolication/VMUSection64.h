@@ -11,7 +11,7 @@
     unsigned int _reserved3;
 }
 
-- (BOOL)isSection64;
+- (_Bool)isSection64;
 - (id)initWithMemory:(id)arg1;
 
 @end

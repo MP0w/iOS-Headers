@@ -7,6 +7,6 @@
 #import "NSArray.h"
 
 @interface NSArray (MPMediaQueryAdditions)
-- (BOOL)MPIsEmpty;
+- (_Bool)MPIsEmpty;
 @end
 

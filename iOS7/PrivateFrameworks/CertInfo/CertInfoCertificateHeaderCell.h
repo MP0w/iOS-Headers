@@ -18,8 +18,8 @@
 }
 
 - (void)layoutSubviews;
-- (float)rowHeight;
-- (void)setExpired:(BOOL)arg1;
+- (double)rowHeight;
+- (void)setExpired:(_Bool)arg1;
 - (void)setTrustSubtitle:(id)arg1;
 - (void)setTrustTitle:(id)arg1;
 - (id)_trustedLabel;
@@ -28,7 +28,7 @@
 - (id)_titleLabel;
 - (id)_certificateImage;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

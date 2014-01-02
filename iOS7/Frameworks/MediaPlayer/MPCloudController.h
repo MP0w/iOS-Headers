@@ -12,17 +12,17 @@
 {
     HSCloudClient *_cloudClient;
     NSObject<HSCloudAvailability> *_cloudAvailabilityController;
-    BOOL _isUpdateInProgress;
+    _Bool _isUpdateInProgress;
     int _preferencesChangedNotifyToken;
-    BOOL _preferencesChangedNotifyTokenIsValid;
-    BOOL _isInitialImport;
-    BOOL _isCloudEnabled;
+    _Bool _preferencesChangedNotifyTokenIsValid;
+    _Bool _isInitialImport;
+    _Bool _isCloudEnabled;
 }
 
 + (void)migrateCellularDataPreferencesIfNeeded;
-+ (BOOL)isMediaApplication;
++ (_Bool)isMediaApplication;
 + (id)sharedCloudController;
-@property(readonly, nonatomic) BOOL isCloudEnabled; // @synthesize isCloudEnabled=_isCloudEnabled;
+@property(readonly, nonatomic) _Bool isCloudEnabled; // @synthesize isCloudEnabled=_isCloudEnabled;
 - (void).cxx_destruct;
 - (void)_initializeUpdateInProgressState;
 - (void)updatePlaylistWithSagaID:(unsigned long long)arg1 itemSagaIDs:(id)arg2 completionHandler:(id)arg3;
@@ -32,21 +32,22 @@
 - (void)removePlaylistWithSagaID:(unsigned long long)arg1 completionHandler:(id)arg2;
 - (void)loadUpdateProgressWithCompletionHandler:(id)arg1;
 - (void)loadGeniusItemsForSagaID:(unsigned long long)arg1 completionHandler:(id)arg2;
-@property(readonly, nonatomic) BOOL isUpdateInProgress; // @synthesize isUpdateInProgress=_isUpdateInProgress;
-@property(readonly, nonatomic) BOOL isInitialImport; // @synthesize isInitialImport=_isInitialImport;
-@property(readonly, nonatomic) BOOL isGeniusEnabled;
+@property(readonly, nonatomic) _Bool isUpdateInProgress; // @synthesize isUpdateInProgress=_isUpdateInProgress;
+@property(readonly, nonatomic) _Bool isInitialImport; // @synthesize isInitialImport=_isInitialImport;
+@property(readonly, nonatomic) _Bool isGeniusEnabled;
 - (void)incrementItemProperty:(id)arg1 forSagaID:(unsigned long long)arg2;
-@property(readonly, nonatomic) BOOL hasCloudLockerAccount;
-@property(readonly, nonatomic) BOOL hasPurchaseHistoryAccount;
+@property(readonly, nonatomic) _Bool hasCloudLockerAccount;
+@property(readonly, nonatomic) _Bool hasPurchaseHistoryAccount;
 - (void)becomeActive;
 - (void)addGeniusPlaylistWithName:(id)arg1 seedItemSagaIDs:(id)arg2 itemSagaIDs:(id)arg3 completionHandler:(id)arg4;
 - (void)addPlaylistWithName:(id)arg1 completionHandler:(id)arg2;
-@property(readonly, nonatomic) BOOL canShowCloudVideo;
-@property(readonly, nonatomic) BOOL canShowCloudMusic;
-@property(readonly, nonatomic) BOOL canShowCloudDownloadButtons;
-- (BOOL)shouldProhibitActionsForCurrentNetworkConditions;
-- (BOOL)isCellularDataRestricted;
-- (BOOL)hasProperNetworkConditionsToPlayMedia;
+@property(readonly, nonatomic) _Bool canShowCloudVideo;
+@property(readonly, nonatomic) _Bool canShowCloudMusic;
+@property(readonly, nonatomic) _Bool canDefaultMediaLibraryShowCloudContent;
+@property(readonly, nonatomic) _Bool canShowCloudDownloadButtons;
+- (_Bool)shouldProhibitActionsForCurrentNetworkConditions;
+- (_Bool)isCellularDataRestricted;
+- (_Bool)hasProperNetworkConditionsToPlayMedia;
 - (void)isCellularDataRestrictedDidChangeNotification:(id)arg1;
 - (void)canShowCloudTracksDidChangeNotification:(id)arg1;
 - (void)canShowCloudDownloadButtonsDidChangeNotification:(id)arg1;

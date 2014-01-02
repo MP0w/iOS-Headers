@@ -8,10 +8,10 @@
 
 @interface PLLabel : UILabel
 {
-    float shadowBlurRadius;
+    double shadowBlurRadius;
 }
 
-@property(nonatomic) float shadowBlurRadius; // @synthesize shadowBlurRadius;
+@property(nonatomic) double shadowBlurRadius; // @synthesize shadowBlurRadius;
 - (void)drawTextInRect:(struct CGRect)arg1;
 
 @end

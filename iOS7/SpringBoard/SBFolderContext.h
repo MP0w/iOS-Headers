@@ -8,10 +8,10 @@
 
 @interface SBFolderContext : NSObject
 {
-    unsigned int _currentPageIndex;
+    unsigned long long _currentPageIndex;
 }
 
-@property(nonatomic) unsigned int currentPageIndex; // @synthesize currentPageIndex=_currentPageIndex;
+@property(nonatomic) unsigned long long currentPageIndex; // @synthesize currentPageIndex=_currentPageIndex;
 - (id)description;
 
 @end

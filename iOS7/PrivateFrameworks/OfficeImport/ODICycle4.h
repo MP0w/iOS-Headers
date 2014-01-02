@@ -6,11 +6,12 @@
 
 #import <OfficeImport/ODICycle3.h>
 
+// Not exported
 @interface ODICycle4 : ODICycle3
 {
 }
 
-+ (unsigned int)nodeCountWithState:(id)arg1;
++ (unsigned long long)nodeCountWithState:(id)arg1;
 
 @end
 

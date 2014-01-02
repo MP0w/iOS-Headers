@@ -13,15 +13,15 @@
 }
 
 + (id)loadCommandWithMemory:(id)arg1;
-- (BOOL)isSegment64;
-- (BOOL)isSegment32;
-- (BOOL)isSegment;
-- (BOOL)isIDDyLib;
-- (BOOL)isLoadDyLib;
-- (BOOL)isDyLinker;
-- (BOOL)isDySymTab;
-- (BOOL)isSymTab;
-- (BOOL)isUUID;
+- (_Bool)isSegment64;
+- (_Bool)isSegment32;
+- (_Bool)isSegment;
+- (_Bool)isIDDyLib;
+- (_Bool)isLoadDyLib;
+- (_Bool)isDyLinker;
+- (_Bool)isDySymTab;
+- (_Bool)isSymTab;
+- (_Bool)isUUID;
 - (unsigned long long)cmdSize;
 - (id)initWithMemory:(id)arg1;
 

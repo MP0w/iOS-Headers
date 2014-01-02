@@ -17,9 +17,9 @@
 + (id)logger;
 @property(nonatomic) int verbosity; // @synthesize verbosity=_verbosity;
 - (void)waitForLoggingToComplete;
-- (BOOL)isVerbosityLogEverything;
-- (BOOL)isVerbosityLogWarningsAndErrors;
-- (BOOL)isVerbosityLogErrorsOnly;
+- (_Bool)isVerbosityLogEverything;
+- (_Bool)isVerbosityLogWarningsAndErrors;
+- (_Bool)isVerbosityLogErrorsOnly;
 - (void)logErrorWithFormat:(id)arg1;
 - (void)logWarningWithFormat:(id)arg1;
 - (void)logInfoWithFormat:(id)arg1;

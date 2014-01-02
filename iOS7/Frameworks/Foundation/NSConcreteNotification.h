@@ -8,12 +8,13 @@
 
 @class NSDictionary, NSString;
 
+// Not exported
 @interface NSConcreteNotification : NSNotification
 {
     NSString *name;
     id object;
     NSDictionary *userInfo;
-    BOOL dyingObject;
+    _Bool dyingObject;
 }
 
 + (id)newTempNotificationWithName:(id)arg1 object:(id)arg2 userInfo:(id)arg3;

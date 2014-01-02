@@ -11,15 +11,15 @@
 @interface CalDAVCalendarUserSearchTask : CoreDAVPropertyFindBaseTask
 {
     NSSet *_searchStrings;
-    BOOL _findAttendees;
-    BOOL _findLocations;
-    unsigned int _resultLimit;
+    _Bool _findAttendees;
+    _Bool _findLocations;
+    unsigned long long _resultLimit;
 }
 
-+ (BOOL)tokensAreLegal:(id)arg1;
-@property unsigned int resultLimit; // @synthesize resultLimit=_resultLimit;
-@property BOOL findLocations; // @synthesize findLocations=_findLocations;
-@property BOOL findAttendees; // @synthesize findAttendees=_findAttendees;
++ (_Bool)tokensAreLegal:(id)arg1;
+@property unsigned long long resultLimit; // @synthesize resultLimit=_resultLimit;
+@property _Bool findLocations; // @synthesize findLocations=_findLocations;
+@property _Bool findAttendees; // @synthesize findAttendees=_findAttendees;
 @property(retain) NSSet *searchStrings; // @synthesize searchStrings=_searchStrings;
 - (void)finishCoreDAVTaskWithError:(id)arg1;
 - (id)requestBody;

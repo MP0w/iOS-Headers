@@ -8,22 +8,23 @@
 
 @class DOMHTMLFormElement;
 
+// Not exported
 @interface DOMHTMLFieldSetElement : DOMHTMLElement
 {
 }
 
 - (void)setCustomValidity:(id)arg1;
-- (BOOL)checkValidity;
+- (_Bool)checkValidity;
 - (id)validationMessage;
 - (id)validity;
-- (BOOL)willValidate;
+- (_Bool)willValidate;
 - (id)elements;
 - (id)type;
 - (void)setName:(id)arg1;
 - (id)name;
 @property(readonly) DOMHTMLFormElement *form;
-- (void)setDisabled:(BOOL)arg1;
-- (BOOL)disabled;
+- (void)setDisabled:(_Bool)arg1;
+- (_Bool)disabled;
 
 @end
 

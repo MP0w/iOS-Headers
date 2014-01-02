@@ -8,6 +8,7 @@
 
 @class NSArray;
 
+// Not exported
 @interface MFPGradientBrush : MFPBrush
 {
     struct CGAffineTransform mTransform;
@@ -29,14 +30,6 @@
 - (void)setTransform:(struct CGAffineTransform)arg1;
 - (void)dealloc;
 - (id)init;
-- (void)createShading;
-- (void)createShadingFunction;
-- (void)createStopsFromStartAndEndColors;
-- (void)createStopsFromBlend;
-- (void)createStopsFromColorBlend;
-- (id)colorAtPosition:(float)arg1;
-- (id)endColor;
-- (id)startColor;
 
 @end
 

@@ -10,27 +10,28 @@
 
 @class NSData, NSString;
 
+// Not exported
 @interface ML3AlbumGroupingIdentifier : NSObject <NSCopying>
 {
     long long _albumArtistPersisentID;
     NSData *_groupingKey;
     NSString *_feedURL;
-    int _seasonNumber;
-    BOOL _compilation;
+    long long _seasonNumber;
+    _Bool _compilation;
 }
 
-@property(readonly, nonatomic) BOOL compilation; // @synthesize compilation=_compilation;
-@property(readonly, nonatomic) int seasonNumber; // @synthesize seasonNumber=_seasonNumber;
+@property(readonly, nonatomic) _Bool compilation; // @synthesize compilation=_compilation;
+@property(readonly, nonatomic) long long seasonNumber; // @synthesize seasonNumber=_seasonNumber;
 @property(readonly, nonatomic) NSString *feedURL; // @synthesize feedURL=_feedURL;
 @property(readonly, nonatomic) NSData *groupingKey; // @synthesize groupingKey=_groupingKey;
 @property(readonly, nonatomic) long long albumArtistPersisentID; // @synthesize albumArtistPersisentID=_albumArtistPersisentID;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
-- (id)initWithAlbumArtistPersistentID:(long long)arg1 groupingKey:(id)arg2 feedURL:(id)arg3 seasonNumber:(int)arg4 compilation:(BOOL)arg5;
-- (id)initWithAlbumArtistPersistentID:(long long)arg1 albumName:(id)arg2 feedURL:(id)arg3 seasonNumber:(int)arg4 compilation:(BOOL)arg5 inLibrary:(id)arg6;
+- (id)initWithAlbumArtistPersistentID:(long long)arg1 groupingKey:(id)arg2 feedURL:(id)arg3 seasonNumber:(long long)arg4 compilation:(_Bool)arg5;
+- (id)initWithAlbumArtistPersistentID:(long long)arg1 albumName:(id)arg2 feedURL:(id)arg3 seasonNumber:(long long)arg4 compilation:(_Bool)arg5 inLibrary:(id)arg6;
 
 @end
 

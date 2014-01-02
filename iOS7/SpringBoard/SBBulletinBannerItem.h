@@ -21,10 +21,10 @@
 
 + (id)itemWithSeedBulletin:(id)arg1 additionalBulletins:(id)arg2 andObserver:(id)arg3;
 + (id)itemWithBulletin:(id)arg1 andObserver:(id)arg2;
-- (BOOL)overridesQuietMode;
-- (BOOL)isCritical;
-- (BOOL)inertWhenLocked;
-- (BOOL)isVIP;
+- (_Bool)overridesQuietMode;
+- (_Bool)isCritical;
+- (_Bool)inertWhenLocked;
+- (_Bool)isVIP;
 - (id)attachmentImage;
 - (id)attachmentText;
 - (id)iconImage;
@@ -32,13 +32,13 @@
 - (id)message;
 - (id)title;
 - (id)pullDownNotification;
-- (BOOL)canShowInAssistant;
+- (_Bool)canShowInAssistant;
 - (id)sortDate;
 - (id)seedBulletin;
 - (id)action;
 - (id)sound;
 - (void)_setSound;
-- (unsigned int)accessoryStyle;
+- (unsigned long long)accessoryStyle;
 - (id)_appName;
 - (id)additionalBulletins;
 - (void)dealloc;

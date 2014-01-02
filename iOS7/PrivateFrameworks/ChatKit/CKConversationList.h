@@ -11,40 +11,39 @@
 @interface CKConversationList : NSObject
 {
     NSMutableArray *_trackedConversations;
-    BOOL _loadingConversations;
-    BOOL _loadedConversations;
+    _Bool _loadingConversations;
+    _Bool _loadedConversations;
     CKConversation *_pendingConversation;
 }
 
 + (id)conversationThumbnailCache;
 + (id)sharedConversationList;
 @property(retain, nonatomic) CKConversation *pendingConversation; // @synthesize pendingConversation=_pendingConversation;
-@property(readonly, nonatomic) BOOL loadingConversations; // @synthesize loadingConversations=_loadingConversations;
+@property(readonly, nonatomic) _Bool loadingConversations; // @synthesize loadingConversations=_loadingConversations;
 - (void)_handleMemoryWarning:(id)arg1;
 - (id)pendingConversationCreatingIfNecessary;
 - (void)_abChanged:(id)arg1;
 - (void)deleteConversation:(id)arg1;
-- (void)deleteConversationAtIndex:(unsigned int)arg1;
-- (int)unreadFilteredConversationCount;
-- (int)unreadConversationCount;
-- (int)_unreadConversationCount:(BOOL)arg1;
-- (int)unreadCount;
+- (void)deleteConversationAtIndex:(unsigned long long)arg1;
+- (id)unreadLastMessages;
+- (long long)unreadFilteredConversationCountIgnoringMessages:(id)arg1;
+- (long long)unreadCount;
 - (void)unpendConversation;
 - (void)beginTrackingConversation:(id)arg1 forChat:(id)arg2;
 - (void)_postConversationListChangedNotification;
 - (void)resort;
 - (id)conversations;
-- (BOOL)reloadStaleConversations;
-- (BOOL)hasActiveConversations;
+- (_Bool)reloadStaleConversations;
+- (_Bool)hasActiveConversations;
 - (id)activeConversations;
-@property(readonly, nonatomic) CKConversation *firstUnreadFilteredConversation;
-@property(readonly, nonatomic) CKConversation *firstUnreadConversation;
-- (id)_firstUnreadConversationWithFiltering:(BOOL)arg1;
-- (BOOL)_shouldFilterForParticipants:(id)arg1;
+- (id)firstUnreadFilteredConversationIgnoringMessages:(id)arg1;
+- (_Bool)_shouldFilterForParticipants:(id)arg1;
 - (void)resetCaches;
+- (void)resetCachesAndRegenerateThumbnails;
+- (id)conversationForExistingChat:(id)arg1;
 - (id)conversationForExistingChatWithAddresses:(id)arg1;
-- (id)conversationForRecipients:(id)arg1 create:(BOOL)arg2;
-- (id)conversationForHandles:(id)arg1 create:(BOOL)arg2;
+- (id)conversationForRecipients:(id)arg1 create:(_Bool)arg2;
+- (id)conversationForHandles:(id)arg1 create:(_Bool)arg2;
 - (id)_copyEntitiesForAddressStrings:(id)arg1;
 - (void)_handleRegistryWillUnregisterChatNotification:(id)arg1;
 - (void)_handleRegistryDidRegisterChatNotification:(id)arg1;

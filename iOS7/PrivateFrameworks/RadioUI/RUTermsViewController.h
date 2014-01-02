@@ -11,8 +11,8 @@
 @interface RUTermsViewController : UIViewController
 {
     NSString *_terms;
-    id <RUTermsViewControllerDelegate> _delegate;
     unsigned long long _currentTermsVersion;
+    id <RUTermsViewControllerDelegate> _delegate;
 }
 
 @property(nonatomic) __weak id <RUTermsViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
@@ -20,9 +20,9 @@
 - (void).cxx_destruct;
 - (void)_cancelAction:(id)arg1;
 - (void)_acceptAction:(id)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
-- (unsigned int)supportedInterfaceOrientations;
-- (BOOL)shouldAutorotate;
+- (void)viewDidAppear:(_Bool)arg1;
+- (unsigned long long)supportedInterfaceOrientations;
+- (_Bool)shouldAutorotate;
 - (void)loadView;
 - (id)initWithCurrentTermsVersion:(unsigned long long)arg1 terms:(id)arg2;
 

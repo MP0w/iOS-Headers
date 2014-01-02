@@ -10,6 +10,7 @@
 
 @class GQDAffineGeometry, GQDBezierPath;
 
+// Not exported
 @interface GQDDrawable : NSObject <GQWrapPointGenerator>
 {
     GQDAffineGeometry *mGeometry;
@@ -17,17 +18,17 @@
     char *mUid;
     GQDBezierPath *mWrapPath;
     GQDAffineGeometry *mWrapGeometry;
-    set_a2165b2d *mInnerWrapPoints;
-    BOOL mHasPagesOrder;
-    long mPagesOrder;
+    set_80ec8016 *mInnerWrapPoints;
+    _Bool mHasPagesOrder;
+    long long mPagesOrder;
 }
 
 - (int)pagesOrder;
-- (BOOL)hasPagesOrder;
+- (_Bool)hasPagesOrder;
 - (struct CGPath *)createBezierPath;
 - (void)clearWrapPoints;
 - (vector_dadce35e *)createListOfWrapPointsAlongY:(float)arg1 minX:(float)arg2 maxX:(float)arg3 zIndex:(int)arg4;
-- (const set_a2165b2d *)wrapPoints;
+- (const set_80ec8016 *)wrapPoints;
 - (void)addWrapPoint:(id)arg1;
 - (int)collectWrapPointsForState:(id)arg1 graphicStyle:(id)arg2;
 - (const char *)uid;
@@ -35,7 +36,6 @@
 - (struct __CFURL *)url;
 - (id)geometry;
 - (void)dealloc;
-- (void)collectWrapPoints:(id)arg1 forPath:(struct CGPath *)arg2 context:(struct FindLinesContext *)arg3;
 
 @end
 

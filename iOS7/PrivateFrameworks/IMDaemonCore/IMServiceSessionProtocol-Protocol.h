@@ -24,7 +24,7 @@
 - (void)sendCommand:(id)arg1 withProperties:(id)arg2 toPerson:(id)arg3;
 - (void)sendFileTransfer:(id)arg1 toPerson:(id)arg2;
 - (void)passwordUpdated;
-- (void)setBlockIdleStatus:(BOOL)arg1;
+- (void)setBlockIdleStatus:(_Bool)arg1;
 - (void)setBlockList:(id)arg1;
 - (void)setAllowList:(id)arg1;
 - (void)setBlockingMode:(unsigned int)arg1;
@@ -42,7 +42,7 @@
 - (void)stopWatchingBuddy:(id)arg1;
 - (void)startWatchingBuddy:(id)arg1;
 - (void)requestSubscriptionTo:(id)arg1;
-- (void)acceptSubscriptionRequest:(BOOL)arg1 from:(id)arg2;
+- (void)acceptSubscriptionRequest:(_Bool)arg1 from:(id)arg2;
 - (void)renameGroup:(id)arg1 to:(id)arg2;
 - (void)changeGroup:(id)arg1 changes:(id)arg2;
 - (void)changeGroups:(id)arg1;

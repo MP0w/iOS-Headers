@@ -6,6 +6,7 @@
 
 #import <WebContentAnalysis/WFLSMMap.h>
 
+// Not exported
 @interface WFLSMScoreNormalizedMap : WFLSMMap
 {
     float *maxScore;

@@ -14,17 +14,17 @@
 }
 
 - (id)allObjects;
-- (void)setEvictsObjectsWhenApplicationEntersBackground:(BOOL)arg1;
-- (BOOL)evictsObjectsWhenApplicationEntersBackground;
-- (void)setEvictsObjectsWithDiscardedContent:(BOOL)arg1;
-- (BOOL)evictsObjectsWithDiscardedContent;
-- (unsigned int)countLimit;
-- (void)setCountLimit:(unsigned int)arg1;
-- (unsigned int)totalCostLimit;
-- (void)setTotalCostLimit:(unsigned int)arg1;
+- (void)setEvictsObjectsWhenApplicationEntersBackground:(_Bool)arg1;
+- (_Bool)evictsObjectsWhenApplicationEntersBackground;
+- (void)setEvictsObjectsWithDiscardedContent:(_Bool)arg1;
+- (_Bool)evictsObjectsWithDiscardedContent;
+- (unsigned long long)countLimit;
+- (void)setCountLimit:(unsigned long long)arg1;
+- (unsigned long long)totalCostLimit;
+- (void)setTotalCostLimit:(unsigned long long)arg1;
 - (void)removeAllObjects;
 - (void)removeObjectForKey:(id)arg1;
-- (void)setObject:(id)arg1 forKey:(id)arg2 cost:(unsigned int)arg3;
+- (void)setObject:(id)arg1 forKey:(id)arg2 cost:(unsigned long long)arg3;
 - (void)setObject:(id)arg1 forKey:(id)arg2;
 - (id)objectForKey:(id)arg1;
 - (id)delegate;

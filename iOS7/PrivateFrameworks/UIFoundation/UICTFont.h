@@ -6,19 +6,20 @@
 
 #import <UIFoundation/UIFont.h>
 
+// Not exported
 @interface UICTFont : UIFont
 {
 }
 
 - (void)finalize;
-- (unsigned int)retainCount;
-- (BOOL)retainWeakReference;
-- (BOOL)allowsWeakReference;
+- (unsigned long long)retainCount;
+- (_Bool)retainWeakReference;
+- (_Bool)allowsWeakReference;
 - (oneway void)release;
 - (id)retain;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned long)_cfTypeID;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)_cfTypeID;
 
 @end
 

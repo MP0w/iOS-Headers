@@ -7,7 +7,7 @@
 @protocol MRMarimbaPlayback
 - (void)removeEffectContainersBeforeTime:(double)arg1;
 - (void)whenTransitionIsFinishedSendAction:(SEL)arg1 toTarget:(id)arg2;
-- (BOOL)isInTransition;
+- (_Bool)isInTransition;
 - (void)gotoSlide:(id)arg1;
 - (void)gotoPreviousSlide;
 - (void)gotoNextSlide;
@@ -17,7 +17,7 @@
 - (void)moveToTitleSlide;
 - (void)moveToPreviousEffectContainer;
 - (void)moveToNextEffectContainer;
-- (void)moveToEffectContainer:(id)arg1 withStartOffset:(double)arg2 toStopOffset:(double)arg3 blocking:(BOOL)arg4;
+- (void)moveToEffectContainer:(id)arg1 withStartOffset:(double)arg2 toStopOffset:(double)arg3 blocking:(_Bool)arg4;
 - (id)displayedEffectContainers;
 - (double)relativeTimeForLayer:(id)arg1;
 - (double)relativeTimeForBackgroundAudio;

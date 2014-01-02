@@ -8,6 +8,7 @@
 
 @class NSString, SBKProcessAssertion;
 
+// Not exported
 @interface SBKTaskAssertion : NSObject
 {
     id _expireHandler;

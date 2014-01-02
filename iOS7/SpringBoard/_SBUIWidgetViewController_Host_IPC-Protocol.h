@@ -7,6 +7,6 @@
 @protocol _SBUIWidgetViewController_Host_IPC
 - (void)__invalidatePreferredViewSize;
 - (void)__requestLaunchOfURL:(id)arg1;
-- (void)__requestPresentationOfViewController:(id)arg1 presentationStyle:(int)arg2 context:(id)arg3 replyHandler:(id)arg4;
+- (void)__requestPresentationOfViewController:(id)arg1 presentationStyle:(long long)arg2 context:(id)arg3 replyHandler:(id)arg4;
 @end
 

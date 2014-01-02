@@ -13,17 +13,17 @@
 @interface BBBulletinUpdate : NSObject <NSCoding>
 {
     BBBulletin *_bulletin;
-    unsigned int _transactionID;
-    int _updateType;
+    unsigned long long _transactionID;
+    long long _updateType;
 }
 
-@property(readonly, nonatomic) int updateType; // @synthesize updateType=_updateType;
-@property(readonly, nonatomic) unsigned int transactionID; // @synthesize transactionID=_transactionID;
+@property(readonly, nonatomic) long long updateType; // @synthesize updateType=_updateType;
+@property(readonly, nonatomic) unsigned long long transactionID; // @synthesize transactionID=_transactionID;
 @property(readonly, nonatomic) BBBulletin *bulletin; // @synthesize bulletin=_bulletin;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)dealloc;
-- (id)initWithBulletin:(id)arg1 updateType:(int)arg2 transactionID:(unsigned int)arg3;
+- (id)initWithBulletin:(id)arg1 updateType:(long long)arg2 transactionID:(unsigned long long)arg3;
 
 @end
 

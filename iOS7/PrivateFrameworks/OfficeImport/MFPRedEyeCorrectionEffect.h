@@ -6,6 +6,7 @@
 
 #import <OfficeImport/MFPEffect.h>
 
+// Not exported
 @interface MFPRedEyeCorrectionEffect : MFPEffect
 {
     vector_ea45b3ba *mAreas;

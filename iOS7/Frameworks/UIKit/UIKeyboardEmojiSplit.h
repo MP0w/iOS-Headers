@@ -12,6 +12,7 @@
 
 @class UITableView, UIView;
 
+// Not exported
 @interface UIKeyboardEmojiSplit : UIKBKeyView <UITableViewDelegate, UITableViewDataSource, UIKeyboardEmojiPressIndicationDelegate>
 {
     UITableView *_picker;
@@ -21,13 +22,13 @@
 @property(retain, nonatomic) UIView *pressIndicator; // @synthesize pressIndicator=_pressIndicator;
 @property(readonly) UITableView *picker; // @synthesize picker=_picker;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
-- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
 - (void)removePressIndicator;
 - (void)installPressIndicatorAtPoint:(struct CGPoint)arg1;
-- (BOOL)shouldCache;
+- (_Bool)shouldCache;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)defaultIndexPath;

@@ -7,9 +7,9 @@
 #import "NSMutableData.h"
 
 @interface NSMutableData (OCMutableDataAdditions)
-- (void)appendString:(id)arg1 encoding:(unsigned int)arg2;
+- (void)appendString:(id)arg1 encoding:(unsigned long long)arg2;
 - (void)appendLEShort:(short)arg1;
-- (void)replaceBytesInRange:(struct _NSRange)arg1 withLELong:(long)arg2;
-- (void)appendLELong:(long)arg1;
+- (void)replaceBytesInRange:(struct _NSRange)arg1 withLELong:(int)arg2;
+- (void)appendLELong:(int)arg1;
 @end
 

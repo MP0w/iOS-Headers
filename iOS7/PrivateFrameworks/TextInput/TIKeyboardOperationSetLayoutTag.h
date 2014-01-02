@@ -14,7 +14,7 @@
 }
 
 + (id)operationWithLayoutTag:(id)arg1;
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) NSString *layoutTag; // @synthesize layoutTag=_layoutTag;
 - (id)propertiesForDescription;
 - (void)encodeWithCoder:(id)arg1;

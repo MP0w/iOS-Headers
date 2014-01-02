@@ -10,7 +10,5 @@
 {
 }
 
-- (Class)rowTableViewCellClass;
-
 @end
 

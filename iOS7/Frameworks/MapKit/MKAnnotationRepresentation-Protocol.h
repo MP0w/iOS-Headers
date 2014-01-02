@@ -7,8 +7,8 @@
 #import "NSObject-Protocol.h"
 
 @protocol MKAnnotationRepresentation <NSObject>
-- (void)_setHiddenForOffscreen:(BOOL)arg1;
-- (BOOL)isPersistent;
+- (void)_setHiddenForOffscreen:(_Bool)arg1;
+- (_Bool)isPersistent;
 - (void)prepareForReuse;
 - (id)reuseIdentifier;
 @end

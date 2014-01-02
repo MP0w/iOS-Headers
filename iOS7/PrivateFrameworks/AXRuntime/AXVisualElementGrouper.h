@@ -8,14 +8,14 @@
 
 @interface AXVisualElementGrouper : AXElementGrouper
 {
-    float _maximumNeighbourDistance;
-    float _maximumDistanceForAligningEdges;
+    double _maximumNeighbourDistance;
+    double _maximumDistanceForAligningEdges;
 }
 
-@property(nonatomic) float maximumDistanceForAligningEdges; // @synthesize maximumDistanceForAligningEdges=_maximumDistanceForAligningEdges;
-@property(nonatomic) float maximumNeighbourDistance; // @synthesize maximumNeighbourDistance=_maximumNeighbourDistance;
+@property(nonatomic) double maximumDistanceForAligningEdges; // @synthesize maximumDistanceForAligningEdges=_maximumDistanceForAligningEdges;
+@property(nonatomic) double maximumNeighbourDistance; // @synthesize maximumNeighbourDistance=_maximumNeighbourDistance;
 - (id)_groupablesForItems:(id)arg1;
-- (id)initWithPadInterfaceHeuristics:(BOOL)arg1;
+- (id)initWithPadInterfaceHeuristics:(_Bool)arg1;
 - (id)init;
 
 @end

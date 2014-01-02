@@ -23,7 +23,7 @@
 - (void)setAddressListForSender:(id)arg1;
 - (void)setAddressList:(id)arg1 forKey:(id)arg2;
 - (id)encodedHeaders;
-- (id)_copyHeaderValueForKey:(id)arg1 offset:(unsigned int *)arg2 decoded:(BOOL)arg3;
+- (id)_copyHeaderValueForKey:(id)arg1 offset:(unsigned long long *)arg2 decoded:(_Bool)arg3;
 - (id)_copyHeaderValueForKey:(id)arg1;
 - (void)_appendAddedHeaderKey:(id)arg1 value:(id)arg2 toData:(id)arg3;
 - (void)_appendHeaderKey:(id)arg1 value:(id)arg2 toData:(id)arg3;
@@ -32,7 +32,7 @@
 - (void)removeHeaderForKey:(id)arg1;
 - (id)firstHeaderForKey:(id)arg1;
 - (id)_headerValueForKey:(id)arg1;
-- (BOOL)hasHeaderForKey:(id)arg1;
+- (_Bool)hasHeaderForKey:(id)arg1;
 - (id)allHeaderKeys;
 - (void)dealloc;
 - (id)mutableCopy;

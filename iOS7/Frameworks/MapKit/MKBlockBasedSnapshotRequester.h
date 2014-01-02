@@ -8,6 +8,7 @@
 
 #import "MKMapSnapshotCreatorRequester-Protocol.h"
 
+// Not exported
 @interface MKBlockBasedSnapshotRequester : NSObject <MKMapSnapshotCreatorRequester>
 {
     id handler;

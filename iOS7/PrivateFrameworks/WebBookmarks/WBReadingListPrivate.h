@@ -10,6 +10,7 @@
 
 @class NSObject<OS_xpc_object>, NSTimer, WebBookmarksXPCConnection;
 
+// Not exported
 @interface WBReadingListPrivate : NSObject <WebBookmarksXPCConnectionDelegate>
 {
     WebBookmarksXPCConnection *_connection;

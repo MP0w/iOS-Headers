@@ -14,26 +14,26 @@
 @interface SUMenuViewController : SUViewController <UITableViewDataSource, UITableViewDelegate>
 {
     id <SUMenuViewControllerDelegate> _delegate;
-    int _selectedIndex;
+    long long _selectedIndex;
     UITableView *_tableView;
 }
 
-@property(nonatomic) int selectedIndex; // @synthesize selectedIndex=_selectedIndex;
+@property(nonatomic) long long selectedIndex; // @synthesize selectedIndex=_selectedIndex;
 @property(nonatomic) id <SUMenuViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (id)_tableView;
-- (BOOL)_sendDidCancel;
+- (_Bool)_sendDidCancel;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)reload;
 - (struct CGSize)minimumViewSize;
 - (struct CGSize)maximumViewSize;
 - (void)loadView;
-- (id)titleOfMenuItemAtIndex:(int)arg1;
-- (void)performActionForMenuItemAtIndex:(int)arg1;
-- (int)numberOfMenuItems;
-- (BOOL)isMenuItemEnabledAtIndex:(int)arg1;
+- (id)titleOfMenuItemAtIndex:(long long)arg1;
+- (void)performActionForMenuItemAtIndex:(long long)arg1;
+- (long long)numberOfMenuItems;
+- (_Bool)isMenuItemEnabledAtIndex:(long long)arg1;
 - (void)dealloc;
 - (id)init;
 

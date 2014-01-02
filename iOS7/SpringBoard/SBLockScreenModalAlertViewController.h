@@ -18,14 +18,13 @@
 
 - (void)pendOrDeactivateCurrentAlertItem;
 - (void)_pendAlertItem:(id)arg1;
-- (void)noteAlertSheetWasReplaced:(id)arg1 withAlertSheet:(id)arg2;
 - (id)allPendingAlertItems;
-- (BOOL)hasSuperModalAlertItems;
+- (_Bool)hasSuperModalAlertItems;
 - (id)dequeueAllPendingSuperModalAlertItems;
 @property(readonly, nonatomic) SBAlertItem *currentAlertItem; // @synthesize currentAlertItem=_currentAlertItem;
 - (id)dequeueAllPendingAlertItems;
 - (void)deactivateAlertItem:(id)arg1;
-- (BOOL)activateAlertItem:(id)arg1 pended:(BOOL)arg2;
+- (_Bool)activateAlertItem:(id)arg1 pended:(_Bool)arg2;
 - (void)loadView;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

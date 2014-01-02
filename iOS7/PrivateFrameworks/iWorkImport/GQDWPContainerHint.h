@@ -6,13 +6,14 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface GQDWPContainerHint : NSObject
 {
-    long mPageIndex;
-    long mCIndex;
-    long mSIndex;
-    long mLIndex;
-    long mAnchorLocation;
+    long long mPageIndex;
+    long long mCIndex;
+    long long mSIndex;
+    long long mLIndex;
+    long long mAnchorLocation;
     double mAttachmentPosition;
     struct CGRect mFrame;
 }
@@ -20,13 +21,12 @@
 - (id).cxx_construct;
 - (struct CGRect)frame;
 - (double)attachmentPosition;
-- (long)anchorLocation;
-- (long)lIndex;
-- (long)sIndex;
-- (long)cIndex;
-- (long)pageIndex;
-- (id)initWithPageIndex:(long)arg1 cIndex:(long)arg2 sIndex:(long)arg3 lIndex:(long)arg4 anchorLocation:(long)arg5 frame:(struct CGRect)arg6;
-- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1;
+- (long long)anchorLocation;
+- (long long)lIndex;
+- (long long)sIndex;
+- (long long)cIndex;
+- (long long)pageIndex;
+- (id)initWithPageIndex:(long long)arg1 cIndex:(long long)arg2 sIndex:(long long)arg3 lIndex:(long long)arg4 anchorLocation:(long long)arg5 frame:(struct CGRect)arg6;
 
 @end
 

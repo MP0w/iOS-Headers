@@ -11,8 +11,8 @@
 @interface ABVCardCardDAVParser : ABVCardParser
 {
     NSMutableDictionary *_unknownAttributes;
-    BOOL _removeExistingProperties;
-    BOOL _localRecordHasAdditionalProperties;
+    _Bool _removeExistingProperties;
+    _Bool _localRecordHasAdditionalProperties;
     int _lastCropRectX;
     int _lastCropRectY;
     int _lastCropRectWidth;
@@ -25,22 +25,22 @@
 @property(readonly) int lastCropRectWidth; // @synthesize lastCropRectWidth=_lastCropRectWidth;
 @property(readonly) int lastCropRectY; // @synthesize lastCropRectY=_lastCropRectY;
 @property(readonly) int lastCropRectX; // @synthesize lastCropRectX=_lastCropRectX;
-@property(readonly) BOOL localRecordHasAdditionalProperties; // @synthesize localRecordHasAdditionalProperties=_localRecordHasAdditionalProperties;
+@property(readonly) _Bool localRecordHasAdditionalProperties; // @synthesize localRecordHasAdditionalProperties=_localRecordHasAdditionalProperties;
 - (void)cleanUpCardState;
 - (void)noteLackOfValueForImageData;
 - (void)noteLackOfValueForProperty:(unsigned int)arg1;
 - (void *)createRecordInSource:(void *)arg1 outRecordType:(unsigned int *)arg2;
-- (BOOL)importToGroup:(void *)arg1 removeExistingProperties:(BOOL)arg2;
-- (BOOL)importToPerson:(void *)arg1 removeExistingProperties:(BOOL)arg2;
-- (BOOL)_handleUnknownTag:(id)arg1 withValue:(id)arg2;
-- (BOOL)parseUID;
+- (_Bool)importToGroup:(void *)arg1 removeExistingProperties:(_Bool)arg2;
+- (_Bool)importToPerson:(void *)arg1 removeExistingProperties:(_Bool)arg2;
+- (_Bool)_handleUnknownTag:(id)arg1 withValue:(id)arg2;
+- (_Bool)parseUID;
 - (id)defaultURLLabel;
 - (id)defaultADRLabel;
 - (id)defaultLabel;
 - (id)genericLabel;
 - (void)dealloc;
 - (id)initWithData:(id)arg1;
-- (void)setLocalRecordHasAdditionalProperties:(BOOL)arg1;
+- (void)setLocalRecordHasAdditionalProperties:(_Bool)arg1;
 
 @end
 

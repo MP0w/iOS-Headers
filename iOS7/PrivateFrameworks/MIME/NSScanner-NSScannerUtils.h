@@ -7,7 +7,7 @@
 #import "NSScanner.h"
 
 @interface NSScanner (NSScannerUtils)
-- (BOOL)mf_scanUpAndOverString:(id)arg1;
+- (_Bool)mf_scanUpAndOverString:(id)arg1;
 - (id)mf_nextTokenWithPunctuation:(struct __CFCharacterSet *)arg1;
 @end
 

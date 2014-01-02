@@ -14,11 +14,11 @@
     NSMutableSet *_displayReasons;
 }
 
-- (BOOL)isStarkBannerItem;
-- (BOOL)matchesContext:(id)arg1;
+- (_Bool)isStarkBannerItem;
+- (_Bool)matchesContext:(id)arg1;
 - (void)reloadDisplayProperties;
 @property(readonly, nonatomic) NSArray *subActionLabels;
-@property(readonly, nonatomic) int actionType;
+@property(readonly, nonatomic) long long actionType;
 @property(readonly, nonatomic) UIImage *categoryImage;
 @property(readonly, nonatomic) NSString *subTitle;
 @property(readonly, nonatomic) NSString *title;

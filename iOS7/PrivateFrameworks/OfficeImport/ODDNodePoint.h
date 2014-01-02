@@ -8,6 +8,7 @@
 
 @class NSMutableArray, ODDTransitionPoint;
 
+// Not exported
 @interface ODDNodePoint : ODDDataPoint
 {
     ODDNodePoint *mParent;
@@ -20,7 +21,7 @@
 - (id)siblingTransition;
 - (void)setParentTransition:(id)arg1;
 - (id)parentTransition;
-- (void)addChild:(id)arg1 order:(unsigned int)arg2;
+- (void)addChild:(id)arg1 order:(unsigned long long)arg2;
 - (id)children;
 - (id)parent;
 - (void)setType:(int)arg1;

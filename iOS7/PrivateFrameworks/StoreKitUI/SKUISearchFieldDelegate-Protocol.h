@@ -9,7 +9,7 @@
 @protocol SKUISearchFieldDelegate <NSObject>
 
 @optional
-- (BOOL)searchFieldControllerShouldBeginEditing:(id)arg1;
+- (_Bool)searchFieldControllerShouldBeginEditing:(id)arg1;
 - (void)searchFieldController:(id)arg1 requestSearchWithURL:(id)arg2;
 @end
 

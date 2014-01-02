@@ -10,7 +10,7 @@
 @protocol ABPersonTableActionDelegate <NSObject, ABStyleProviding>
 
 @optional
-- (void)action:(id)arg1 willShowButton:(id)arg2 forValueAtIndex:(int)arg3 inPropertyGroup:(id)arg4;
+- (void)action:(id)arg1 willShowButton:(id)arg2 forValueAtIndex:(long long)arg3 inPropertyGroup:(id)arg4;
 - (void)presentDifferentiationSheetForAction:(id)arg1;
 @end
 

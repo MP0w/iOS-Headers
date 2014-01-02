@@ -15,7 +15,7 @@
     NSURLRequest *_request;
     NSURLConnection *_connection;
     NSMutableData *_rawData;
-    BOOL _invalidResponse;
+    _Bool _invalidResponse;
     struct _xmlSAXHandler {
         void *internalSubset;
         void *isStandalone;
@@ -53,9 +53,9 @@
 }
 
 + (unsigned int)uniqueQueryID;
-+ (BOOL)anyRequestLoading;
++ (_Bool)anyRequestLoading;
 + (id)serviceUnavailableError;
-- (BOOL)receivedValidResponse:(id)arg1;
+- (_Bool)receivedValidResponse:(id)arg1;
 - (void)failWithError:(id)arg1;
 - (int)parseData:(id)arg1;
 - (void)didParseData;
@@ -66,7 +66,7 @@
 - (void)connection:(id)arg1 didReceiveResponse:(id)arg2;
 - (id)request;
 - (void)loadStatusChanged;
-- (BOOL)isLoading;
+- (_Bool)isLoading;
 - (void)cancel;
 - (void)loadRequest:(id)arg1;
 - (void)_finishedLoading;

@@ -10,16 +10,16 @@
 
 @interface MPNetworkPlayabilityMonitor : NSObject
 {
-    int _effectiveNetworkTypeForPlayback;
-    int _networkType;
+    long long _effectiveNetworkTypeForPlayback;
+    long long _networkType;
     NSObject<OS_dispatch_queue> *_queue;
 }
 
 + (id)sharedNetworkPlayabilityMonitor;
 - (void).cxx_destruct;
-- (int)_onQueueEffectiveNetworkTypeForAverageBitrate:(double)arg1;
-@property(readonly, nonatomic) int networkType;
-@property(readonly, nonatomic) int effectiveNetworkTypeForPlayback;
+- (long long)_onQueueEffectiveNetworkTypeForAverageBitrate:(double)arg1;
+@property(readonly, nonatomic) long long networkType;
+@property(readonly, nonatomic) long long effectiveNetworkTypeForPlayback;
 - (void)adjustEffectiveNetworkTypeUsingPreviouslyPlayedItem:(id)arg1;
 - (void)_networkTypeDidChangeNotification:(id)arg1;
 - (void)dealloc;

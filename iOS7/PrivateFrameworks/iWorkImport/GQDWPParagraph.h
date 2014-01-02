@@ -8,23 +8,23 @@
 
 @class GQDSStyle;
 
+// Not exported
 @interface GQDWPParagraph : GQDWPInlineList
 {
     GQDSStyle *mParaStyle;
-    long mListLevel;
-    BOOL mRestartList;
-    BOOL mContinue;
-    BOOL mIsHidden;
+    long long mListLevel;
+    _Bool mRestartList;
+    _Bool mContinue;
+    _Bool mIsHidden;
 }
 
-- (BOOL)isHidden;
-- (BOOL)isBlank;
-- (BOOL)cont;
-- (BOOL)restartList;
-- (long)listLevel;
+- (_Bool)isHidden;
+- (_Bool)isBlank;
+- (_Bool)cont;
+- (_Bool)restartList;
+- (long long)listLevel;
 - (id)paragraphStyle;
 - (void)dealloc;
-- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1 processor:(id)arg2;
 
 @end
 

@@ -8,12 +8,13 @@
 
 @class VGLRenderState;
 
+// Not exported
 @interface VKRoadPainter : NSObject
 {
     VGLRenderState *_renderState;
 }
 
-- (void)drawRoadTiles:(id)arg1 context:(id)arg2 layer:(unsigned int)arg3 withModel:(id)arg4 scene:(id)arg5 stencilOffset:(int)arg6 needsTileStencil:(BOOL)arg7 atopTransparent:(BOOL)arg8 includeBorders:(int)arg9;
+- (void)drawRoadTiles:(id)arg1 context:(id)arg2 layer:(unsigned long long)arg3 withModel:(id)arg4 scene:(id)arg5 stencilOffset:(int)arg6 needsTileStencil:(_Bool)arg7 atopTransparent:(_Bool)arg8 includeBorders:(long long)arg9;
 - (void)dealloc;
 - (id)init;
 

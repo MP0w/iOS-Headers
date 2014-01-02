@@ -6,6 +6,7 @@
 
 #import <UIKit/UITextMagnifier.h>
 
+// Not exported
 @interface UITextMagnifierCaret : UITextMagnifier
 {
     struct CGPoint _offset;
@@ -15,8 +16,8 @@
 + (id)sharedCaretMagnifier;
 @property(nonatomic) float yOffset; // @synthesize yOffset=_yOffset;
 @property(nonatomic) struct CGPoint offset; // @synthesize offset=_offset;
-- (void)stopMagnifying:(BOOL)arg1;
-- (void)beginMagnifyingTarget:(id)arg1 text:(id)arg2 magnificationPoint:(struct CGPoint)arg3 offset:(struct CGPoint)arg4 animated:(BOOL)arg5;
+- (void)stopMagnifying:(_Bool)arg1;
+- (void)beginMagnifyingTarget:(id)arg1 text:(id)arg2 magnificationPoint:(struct CGPoint)arg3 offset:(struct CGPoint)arg4 animated:(_Bool)arg5;
 - (void)updateFrameAndOffset;
 - (void)remove;
 - (void)zoomDownAnimationDidStop:(id)arg1 finished:(id)arg2;
@@ -24,7 +25,7 @@
 - (void)zoomUpAnimationDidStop:(id)arg1 finished:(id)arg2;
 - (void)zoomUpAnimation;
 - (void)setAutoscrollDirections:(int)arg1;
-- (BOOL)terminalPointPlacedCarefully;
+- (_Bool)terminalPointPlacedCarefully;
 - (void)setMagnificationPoint:(struct CGPoint)arg1;
 - (void)setAnimationPoint:(struct CGPoint)arg1;
 - (struct CGPoint)animationPoint;

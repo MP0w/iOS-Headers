@@ -11,13 +11,13 @@
 @interface AWDMetricContainer : NSObject
 {
     PBCodable *_metric;
-    unsigned long _metricId;
+    unsigned int _metricId;
 }
 
-@property(readonly, nonatomic) unsigned long metricId; // @synthesize metricId=_metricId;
+@property(readonly, nonatomic) unsigned int metricId; // @synthesize metricId=_metricId;
 @property(retain, nonatomic) PBCodable *metric; // @synthesize metric=_metric;
 - (void)dealloc;
-- (id)initWithMetricId:(unsigned long)arg1;
+- (id)initWithMetricId:(unsigned int)arg1;
 
 @end
 

@@ -6,22 +6,23 @@
 
 #import <UIKit/UIStatusBarItemView.h>
 
+// Not exported
 @interface UIStatusBarDataNetworkItemView : UIStatusBarItemView
 {
     int _dataNetworkType;
     int _wifiStrengthRaw;
     int _wifiStrengthBars;
-    BOOL _enableRSSI;
-    BOOL _showRSSI;
+    _Bool _enableRSSI;
+    _Bool _showRSSI;
 }
 
 - (id)_stringForRSSI;
 - (id)_dataNetworkImage;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (id)contentsImage;
-- (BOOL)updateForNewData:(id)arg1 actions:(int)arg2;
-- (float)maximumOverlap;
-- (float)extraLeftPadding;
+- (_Bool)updateForNewData:(id)arg1 actions:(int)arg2;
+- (double)maximumOverlap;
+- (double)extraLeftPadding;
 
 @end
 

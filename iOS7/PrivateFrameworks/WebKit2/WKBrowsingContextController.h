@@ -15,33 +15,30 @@
 
 + (void)unregisterSchemeForCustomProtocol:(id)arg1;
 + (void)registerSchemeForCustomProtocol:(id)arg1;
-+ (id)customSchemes;
-+ (id)_browsingContextControllerForPageRef:(struct OpaqueWKPage *)arg1;
-@property float pageZoom;
-@property float textZoom;
+@property double pageZoom;
+@property double textZoom;
 @property(readonly) NSString *title;
 @property(readonly) NSURL *committedURL;
 @property(readonly) NSURL *provisionalURL;
 @property(readonly) NSURL *activeURL;
-@property(readonly) BOOL canGoBack;
+@property(readonly) _Bool canGoBack;
 - (void)goBack;
-@property(readonly) BOOL canGoForward;
+@property(readonly) _Bool canGoForward;
 - (void)goForward;
 - (void)reloadFromOrigin;
 - (void)reload;
 - (void)stopLoading;
+- (void)loadData:(id)arg1 MIMEType:(id)arg2 textEncodingName:(id)arg3 baseURL:(id)arg4 userData:(id)arg5;
+- (void)loadData:(id)arg1 MIMEType:(id)arg2 textEncodingName:(id)arg3 baseURL:(id)arg4;
+- (void)loadHTMLString:(id)arg1 baseURL:(id)arg2 userData:(id)arg3;
 - (void)loadHTMLString:(id)arg1 baseURL:(id)arg2;
+- (void)loadFileURL:(id)arg1 restrictToFilesWithin:(id)arg2 userData:(id)arg3;
 - (void)loadFileURL:(id)arg1 restrictToFilesWithin:(id)arg2;
+- (void)loadRequest:(id)arg1 userData:(id)arg2;
 - (void)loadRequest:(id)arg1;
 @property id <WKBrowsingContextLoadDelegate> loadDelegate;
-@property(readonly) struct OpaqueWKPage *_pageRef;
+- (struct OpaqueWKPage *)_pageRef;
 - (void)dealloc;
-@property(readonly) unsigned int pageCount;
-@property float gapBetweenPages;
-@property float pageLength;
-@property BOOL paginationBehavesLikeColumns;
-@property unsigned int paginationMode;
-- (id)_initWithPageRef:(struct OpaqueWKPage *)arg1;
 
 @end
 

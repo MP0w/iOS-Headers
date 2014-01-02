@@ -8,13 +8,14 @@
 
 @class EKCalendar, NSDate, NSString;
 
+// Not exported
 @interface EKInviteReplyNotification : EKObject
 {
 }
 
 @property(readonly, nonatomic) EKCalendar *calendar;
 - (void)clearAlertedStatus;
-@property(readonly, nonatomic) BOOL alerted;
+@property(readonly, nonatomic) _Bool alerted;
 @property(readonly, nonatomic) NSDate *creationDate;
 @property(readonly, nonatomic) int status;
 @property(readonly, nonatomic) NSString *shareeLastName;

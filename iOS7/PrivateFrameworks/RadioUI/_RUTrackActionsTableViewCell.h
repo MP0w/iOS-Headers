@@ -11,20 +11,19 @@
 @interface _RUTrackActionsTableViewCell : UITableViewCell
 {
     UIImageView *_accessoryImageView;
-    UIView *_bottomSeparatorView;
     UIView *_topSeparatorView;
-    BOOL _displaysAsDisabled;
+    _Bool _displaysAsDisabled;
     struct UIOffset _accessoryImageOffset;
 }
 
-@property(nonatomic) BOOL displaysAsDisabled; // @synthesize displaysAsDisabled=_displaysAsDisabled;
+@property(nonatomic) _Bool displaysAsDisabled; // @synthesize displaysAsDisabled=_displaysAsDisabled;
 @property(nonatomic) struct UIOffset accessoryImageOffset; // @synthesize accessoryImageOffset=_accessoryImageOffset;
 - (void).cxx_destruct;
-@property(nonatomic) BOOL showsTopSeparator;
+@property(nonatomic) _Bool showsTopSeparator;
 @property(retain, nonatomic) UIImage *highlightedAccessoryImage;
 @property(retain, nonatomic) UIImage *accessoryImage;
 - (void)layoutSubviews;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

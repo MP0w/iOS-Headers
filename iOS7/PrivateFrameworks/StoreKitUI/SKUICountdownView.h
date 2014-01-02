@@ -29,25 +29,25 @@
     UILabel *_numberLabel;
     NSNumberFormatter *_numberFormatter;
     NSOperationQueue *_operationQueue;
-    float _factor;
+    double _factor;
 }
 
 @property(readonly, nonatomic) SKUICountdown *countdown; // @synthesize countdown=_countdown;
 @property(readonly, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
 - (void).cxx_destruct;
 - (void)_setCountdownWithResponse:(id)arg1 error:(id)arg2;
-- (void)_currentRemainingDays:(int *)arg1 hours:(int *)arg2 minutes:(int *)arg3 seconds:(int *)arg4;
+- (void)_currentRemainingDays:(long long *)arg1 hours:(long long *)arg2 minutes:(long long *)arg3 seconds:(long long *)arg4;
 - (long long)_currentValue;
 - (void)_reloadFontSizes;
 - (void)_reloadTimeFlapped;
 - (void)_reloadTime;
-- (void)_reloadDateDescriptions:(BOOL)arg1;
+- (void)_reloadDateDescriptions:(_Bool)arg1;
 - (void)_reloadNumberFlapped;
 - (void)_reloadNumber;
 - (void)_reload;
 - (id)_newNumberSeparatorLabel;
 - (id)_newDateDescriptionLabel;
-- (id)_newFlapLabelWithPosition:(int)arg1;
+- (id)_newFlapLabelWithPosition:(long long)arg1;
 - (id)_newDateLabel;
 - (void)layoutSubviews;
 - (void)setFrame:(struct CGRect)arg1;

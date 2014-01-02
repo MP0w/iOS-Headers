@@ -6,26 +6,20 @@
 
 #import "UIView.h"
 
-@class CADisplayLink, NSDate, UIImageView;
+#import "SBLegibility-Protocol.h"
 
-@interface SBLockScreenTimerDialView : UIView
+@class _UILegibilityView;
+
+@interface SBLockScreenTimerDialView : UIView <SBLegibility>
 {
-    UIImageView *_faceView;
-    UIImageView *_dialView;
-    CADisplayLink *_displayLink;
-    float _secondsPerRotation;
-    NSDate *_endDate;
+    _UILegibilityView *_dialView;
+    double _strength;
 }
 
-@property float secondsPerRotation; // @synthesize secondsPerRotation=_secondsPerRotation;
-@property(retain) NSDate *endDate; // @synthesize endDate=_endDate;
+@property(nonatomic) double strength; // @synthesize strength=_strength;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (void)layoutSubviews;
-- (void)_displayLinkFired:(id)arg1;
-- (void)stopAnimating;
-- (void)startAnimating;
-- (id)_newFaceView;
-- (id)_newDialView;
+- (id)_newDialViewForSettings:(id)arg1;
+- (void)updateForChangedSettings:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

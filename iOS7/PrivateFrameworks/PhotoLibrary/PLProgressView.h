@@ -6,27 +6,41 @@
 
 #import "UIView.h"
 
-@class NSNumberFormatter, UIImageView, UILabel;
+@class NSNumberFormatter, UILabel, UIProgressView, _UIBackdropView;
 
 @interface PLProgressView : UIView
 {
-    UIImageView *_backgroundView;
     UILabel *_labelView;
-    UIImageView *_progressView;
-    UIImageView *_wellView;
+    UIProgressView *_progressView;
+    UIView *_topDivider;
     unsigned int _didLayout:1;
     unsigned int _didSetPermanantTextOnLabelView:1;
     NSNumberFormatter *_progressFormatter;
+    long long _backgroundType;
+    UIView *_backgroundView;
+    UIView *_backgroundTintedView;
+    _UIBackdropView *_backgroundBlurredView;
     float _percentComplete;
 }
 
-@property(nonatomic) float percentComplete;
+@property(retain, nonatomic) UILabel *labelView; // @synthesize labelView=_labelView;
+@property(retain, nonatomic) _UIBackdropView *backgroundBlurredView; // @synthesize backgroundBlurredView=_backgroundBlurredView;
+@property(retain, nonatomic) UIView *backgroundTintedView; // @synthesize backgroundTintedView=_backgroundTintedView;
+@property(retain, nonatomic) UIView *backgroundView; // @synthesize backgroundView=_backgroundView;
+@property(nonatomic) long long backgroundType; // @synthesize backgroundType=_backgroundType;
+@property(nonatomic) float percentComplete; // @synthesize percentComplete=_percentComplete;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)setLabelText:(id)arg1;
-- (void)_updateProgressView;
 - (void)updateUIForPublishingAgent:(id)arg1;
+- (void)_removeBackgroundTintedView;
+- (void)_installBackgroundTintedView;
+- (void)_removeBackgroundBlurredView;
+- (void)_installBackgroundBlurredView;
+- (void)_installBackgroundView;
+- (void)_syncToBackgroundType;
 - (void)layoutSubviews;
 - (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

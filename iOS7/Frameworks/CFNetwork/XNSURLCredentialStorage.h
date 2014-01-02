@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface XNSURLCredentialStorage : NSObject
 {
     struct _CFURLCredentialStorage *_cfInternal;

@@ -12,12 +12,12 @@
 {
     struct CGSize _constraintSize;
     UIColor *_backgroundColor;
-    BOOL _forcesPortrait;
+    _Bool _forcesPortrait;
 }
 
 @property(retain, nonatomic) UIColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 @property(nonatomic) struct CGSize constraintSize; // @synthesize constraintSize=_constraintSize;
-@property(nonatomic) BOOL forcesPortrait; // @synthesize forcesPortrait=_forcesPortrait;
+@property(nonatomic) _Bool forcesPortrait; // @synthesize forcesPortrait=_forcesPortrait;
 - (void).cxx_destruct;
 - (id)imageForImage:(id)arg1;
 - (id)imageForColor:(id)arg1 size:(struct CGSize)arg2;

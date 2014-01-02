@@ -10,15 +10,15 @@
 {
 }
 
-- (BOOL)webViewDrawsShadows;
-- (BOOL)webViewIsOpaque;
+- (_Bool)webViewDrawsShadows;
+- (_Bool)webViewIsOpaque;
 - (id)webViewBackgroundColor;
 - (id)webViewBackgroundView;
-- (int)modalPresentationStyle;
+- (long long)modalPresentationStyle;
 - (id)tableCellCheckmarkImageDisabled;
 - (id)tableCellCheckmarkImage;
-- (int)tableFooterTextAlignment;
-- (int)tableHeaderTextAlignment;
+- (long long)tableFooterTextAlignment;
+- (long long)tableHeaderTextAlignment;
 - (id)tableFooterTextColor;
 - (id)tableHeaderTextColor;
 - (id)tableFooterFont;
@@ -27,11 +27,11 @@
 - (id)tableCellDetailLabelColor;
 - (id)tableCellTextLabelColor;
 - (id)tableCellTextLabelBackgroundColor;
-- (BOOL)navigationBarHidesShadow;
-- (BOOL)navigationBarHidesTitle;
-- (BOOL)firstNavigationBarHidden;
+- (_Bool)navigationBarHidesShadow;
+- (_Bool)navigationBarHidesTitle;
+- (_Bool)firstNavigationBarHidden;
 - (id)tableBackgroundColor;
-- (BOOL)styleUsesCustomTableStyle;
+- (_Bool)styleUsesCustomTableStyle;
 
 @end
 

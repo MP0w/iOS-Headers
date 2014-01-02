@@ -15,14 +15,14 @@
     NSArray *_accounts;
     NSDictionary *_accountsToTrackedRecordsInfoMap;
     NSTimer *_minimumTimeBetweenRequestsTimer;
-    unsigned int _numberOfRequestsInProgressForNewerItems;
+    unsigned long long _numberOfRequestsInProgressForNewerItems;
     NSXPCConnection *_socialHelperConnection;
 }
 
 + (id)itemsFromAllSocialSourcesByDate;
 + (id)allSocialSources;
 @property(retain, nonatomic) NSXPCConnection *socialHelperConnection; // @synthesize socialHelperConnection=_socialHelperConnection;
-@property(nonatomic) unsigned int numberOfRequestsInProgressForNewerItems; // @synthesize numberOfRequestsInProgressForNewerItems=_numberOfRequestsInProgressForNewerItems;
+@property(nonatomic) unsigned long long numberOfRequestsInProgressForNewerItems; // @synthesize numberOfRequestsInProgressForNewerItems=_numberOfRequestsInProgressForNewerItems;
 @property(retain, nonatomic) NSTimer *minimumTimeBetweenRequestsTimer; // @synthesize minimumTimeBetweenRequestsTimer=_minimumTimeBetweenRequestsTimer;
 @property(retain, nonatomic) NSDictionary *accountsToTrackedRecordsInfoMap; // @synthesize accountsToTrackedRecordsInfoMap=_accountsToTrackedRecordsInfoMap;
 @property(copy, nonatomic) NSArray *accounts; // @synthesize accounts=_accounts;
@@ -34,10 +34,10 @@
 @property(readonly, nonatomic) NSString *accountTypeIdentifier;
 - (Class)itemClass;
 - (id)recordRange:(id)arg1 withOldestFromItem:(id)arg2;
-- (int)compareItem:(id)arg1 toItem:(id)arg2;
-- (int)compareOldestRecordInRange:(id)arg1 toOldestRecordInRange:(id)arg2;
-- (int)compareNewestRecordInRange:(id)arg1 toNewestRecordInRange:(id)arg2;
-- (int)compareNewestRecordInRange:(id)arg1 toOldestRecordInRange:(id)arg2;
+- (long long)compareItem:(id)arg1 toItem:(id)arg2;
+- (long long)compareOldestRecordInRange:(id)arg1 toOldestRecordInRange:(id)arg2;
+- (long long)compareNewestRecordInRange:(id)arg1 toNewestRecordInRange:(id)arg2;
+- (long long)compareNewestRecordInRange:(id)arg1 toOldestRecordInRange:(id)arg2;
 - (void)updateMinimumTimeBetweenRequestsFromResponseHeaders:(id)arg1;
 - (double)minimumTimeBetweenRequests;
 - (id)requestParametersForRecordsWithAge:(int)arg1 relativeTo:(id)arg2;

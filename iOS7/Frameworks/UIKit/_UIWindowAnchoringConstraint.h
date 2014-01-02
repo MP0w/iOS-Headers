@@ -8,13 +8,14 @@
 
 @class UIWindow;
 
+// Not exported
 @interface _UIWindowAnchoringConstraint : NSAutoresizingMaskLayoutConstraint
 {
     UIWindow *_window;
 }
 
 @property(nonatomic) UIWindow *window; // @synthesize window=_window;
-- (BOOL)_addToEngine:(id)arg1 integralizationAdjustment:(float)arg2 mutuallyExclusiveConstraints:(id *)arg3;
+- (_Bool)_addToEngine:(id)arg1 integralizationAdjustment:(double)arg2 mutuallyExclusiveConstraints:(id *)arg3;
 
 @end
 

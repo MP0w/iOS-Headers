@@ -6,6 +6,7 @@
 
 #import "CALayer.h"
 
+// Not exported
 @interface _UIWebDocumentViewRotationLayer : CALayer
 {
 }

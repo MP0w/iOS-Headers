@@ -18,11 +18,11 @@
 @property(readonly, nonatomic) unsigned long long downloadToken;
 @property(readonly, nonatomic) unsigned long long availableFileSize;
 @property(readonly, nonatomic) unsigned long long fileSize;
-@property(readonly, nonatomic) int priority;
+@property(readonly, nonatomic) long long priority;
 @property(readonly, nonatomic) NSURL *destinationURL;
 @property(readonly, nonatomic) NSURL *URL;
 @property(readonly, nonatomic) NSError *error;
-@property(readonly, nonatomic) int status;
+@property(readonly, nonatomic) long long status;
 - (void)stop;
 - (void)pause;
 - (void)start;
@@ -31,21 +31,6 @@
 - (id)initWithDownloadToken:(unsigned long long)arg1;
 - (id)initWithURL:(id)arg1 destinationURL:(id)arg2 options:(id)arg3;
 - (id)init;
-- (void)_removeFigPlaybackItemListeners;
-- (void)_addFigPlaybackItemListeners;
-- (id)_figPlaybackItemNotificationNames;
-- (void)_removeFigAssetListeners;
-- (void)_addFigAssetListeners;
-- (id)_figAssetNotificationNames;
-- (long)_readyForInspection;
-- (long)_primeCache;
-- (void)_primeCacheOnDispatchQueue;
-- (id)_errorForFigNotificationPayload:(struct __CFDictionary *)arg1 key:(struct __CFString *)arg2;
-- (void)_transitionToTerminalStatus:(int)arg1 error:(id)arg2;
-- (struct OpaqueFigPlaybackItem *)_playbackItem;
-- (BOOL)_setFigAsset:(struct OpaqueFigAsset *)arg1;
-- (struct OpaqueFigAsset *)_figAsset;
-- (id)_weakReference;
 
 @end
 

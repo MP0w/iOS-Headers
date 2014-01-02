@@ -7,6 +7,6 @@
 #import "WebTextIterator.h"
 
 @interface WebTextIterator (DDExtensions_Private)
-- (BOOL)dd_checkCurrentRangeAgainstString:(struct __CFString *)arg1;
+- (_Bool)dd_checkCurrentRangeAgainstString:(struct __CFString *)arg1;
 @end
 

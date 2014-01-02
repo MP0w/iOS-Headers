@@ -6,12 +6,13 @@
 
 #import <UIKit/UIView.h>
 
+// Not exported
 @interface _UIScrollsToTopInitiatorView : UIView
 {
 }
 
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
-- (BOOL)_shouldSeekHigherPriorityTouchTarget;
+- (_Bool)_shouldSeekHigherPriorityTouchTarget;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 
 @end

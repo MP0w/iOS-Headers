@@ -14,8 +14,8 @@
 {
     NSMutableArray *_waiting;
     NSMutableSet *_running;
-    BOOL _cancelled;
-    BOOL _subclassImplementsTileEdition;
+    _Bool _cancelled;
+    _Bool _subclassImplementsTileEdition;
     NSMutableArray *_errors;
 }
 
@@ -24,7 +24,7 @@
 - (void)_cleanup;
 - (unsigned int)tileEditionForKey:(struct _GEOTileKey *)arg1;
 - (void)start;
-- (BOOL)isRunning;
+- (_Bool)isRunning;
 - (void)_doWorkOrFinish;
 - (void)_operationFinished:(id)arg1;
 - (void)_operationFailed:(id)arg1 error:(id)arg2;
@@ -32,7 +32,7 @@
 - (id)mergeBaseTile:(id)arg1 withLocalizationTile:(id)arg2;
 - (id)localizationURLForTileKey:(struct _GEOTileKey *)arg1;
 - (id)urlForTileKey:(struct _GEOTileKey *)arg1;
-- (BOOL)allowsCookies;
+- (_Bool)allowsCookies;
 - (id)initWithKeyList:(id)arg1;
 
 @end

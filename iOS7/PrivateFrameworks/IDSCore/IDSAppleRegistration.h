@@ -12,16 +12,17 @@
 
 @interface IDSAppleRegistration : NSObject <NSCopying>
 {
-    BOOL _needsMigration;
-    BOOL _needsProvisioning;
-    BOOL _runningSimpleAuthentication;
-    BOOL _isDisabled;
-    BOOL _shouldRegisterUsingDSHandle;
-    BOOL _shouldAutoRegisterAllHandles;
+    _Bool _needsMigration;
+    _Bool _needsProvisioning;
+    _Bool _runningSimpleAuthentication;
+    _Bool _isDisabled;
+    _Bool _shouldRegisterUsingDSHandle;
+    _Bool _shouldAutoRegisterAllHandles;
+    int _retries;
+    int _absintheRetries;
     NSArray *_vettedEmails;
     NSString *_dsHandle;
     NSString *_profileID;
-    NSString *_authenticationToken;
     NSNumber *_IDSVersion;
     NSNumber *_applicationVersion;
     NSString *_environment;
@@ -29,17 +30,14 @@
     NSDate *_nextRegistrationDate;
     NSData *_pushToken;
     NSNumber *_isC2K;
-    int _registrationStatus;
-    int _registrationType;
-    int _retries;
-    int _absintheRetries;
+    long long _registrationStatus;
+    long long _registrationType;
     NSString *_mainID;
     NSArray *_dependantRegistrations;
     NSString *_regionID;
     NSString *_deviceName;
     NSString *_regionBasePhoneNumber;
     NSDictionary *_regionServerContext;
-    NSData *_authenticationCert;
     NSData *_registrationCert;
     NSDictionary *_userInfo;
     NSString *_serviceType;
@@ -49,16 +47,18 @@
     NSNumber *_identityVersion;
     NSString *_keyPairSignature;
     NSString *_idsUserID;
+    NSString *_serviceIdentifier;
     NSArray *_uris;
 }
 
-@property(nonatomic) BOOL shouldAutoRegisterAllHandles; // @synthesize shouldAutoRegisterAllHandles=_shouldAutoRegisterAllHandles;
-@property(nonatomic) BOOL shouldRegisterUsingDSHandle; // @synthesize shouldRegisterUsingDSHandle=_shouldRegisterUsingDSHandle;
+@property(nonatomic) _Bool shouldAutoRegisterAllHandles; // @synthesize shouldAutoRegisterAllHandles=_shouldAutoRegisterAllHandles;
+@property(nonatomic) _Bool shouldRegisterUsingDSHandle; // @synthesize shouldRegisterUsingDSHandle=_shouldRegisterUsingDSHandle;
 @property(copy, nonatomic) NSArray *uris; // @synthesize uris=_uris;
+@property(retain, nonatomic) NSString *serviceIdentifier; // @synthesize serviceIdentifier=_serviceIdentifier;
 @property(copy, nonatomic) NSString *idsUserID; // @synthesize idsUserID=_idsUserID;
 @property(copy, nonatomic) NSString *keyPairSignature; // @synthesize keyPairSignature=_keyPairSignature;
-@property(nonatomic) BOOL isDisabled; // @synthesize isDisabled=_isDisabled;
-@property(nonatomic) BOOL runningSimpleAuthentication; // @synthesize runningSimpleAuthentication=_runningSimpleAuthentication;
+@property(nonatomic) _Bool isDisabled; // @synthesize isDisabled=_isDisabled;
+@property(nonatomic) _Bool runningSimpleAuthentication; // @synthesize runningSimpleAuthentication=_runningSimpleAuthentication;
 @property(copy, nonatomic) NSNumber *identityVersion; // @synthesize identityVersion=_identityVersion;
 @property(retain, nonatomic) NSDictionary *migrationContext; // @synthesize migrationContext=_migrationContext;
 @property(copy, nonatomic) NSMutableArray *_candidateEmails; // @synthesize _candidateEmails;
@@ -66,7 +66,6 @@
 @property(retain, nonatomic) NSString *serviceType; // @synthesize serviceType=_serviceType;
 @property(copy, nonatomic) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
 @property(copy, nonatomic) NSData *registrationCert; // @synthesize registrationCert=_registrationCert;
-@property(copy, nonatomic) NSData *authenticationCert; // @synthesize authenticationCert=_authenticationCert;
 @property(copy, nonatomic) NSDictionary *regionServerContext; // @synthesize regionServerContext=_regionServerContext;
 @property(copy, nonatomic) NSString *regionBasePhoneNumber; // @synthesize regionBasePhoneNumber=_regionBasePhoneNumber;
 @property(copy, nonatomic) NSString *deviceName; // @synthesize deviceName=_deviceName;
@@ -75,10 +74,10 @@
 @property(copy, nonatomic) NSString *mainID; // @synthesize mainID=_mainID;
 @property(nonatomic) int absintheRetries; // @synthesize absintheRetries=_absintheRetries;
 @property(nonatomic) int retries; // @synthesize retries=_retries;
-@property(nonatomic) int registrationType; // @synthesize registrationType=_registrationType;
-@property(nonatomic) int registrationStatus; // @synthesize registrationStatus=_registrationStatus;
-@property(nonatomic) BOOL needsProvisioning; // @synthesize needsProvisioning=_needsProvisioning;
-@property(nonatomic) BOOL needsMigration; // @synthesize needsMigration=_needsMigration;
+@property(nonatomic) long long registrationType; // @synthesize registrationType=_registrationType;
+@property(nonatomic) long long registrationStatus; // @synthesize registrationStatus=_registrationStatus;
+@property(nonatomic) _Bool needsProvisioning; // @synthesize needsProvisioning=_needsProvisioning;
+@property(nonatomic) _Bool needsMigration; // @synthesize needsMigration=_needsMigration;
 @property(copy, nonatomic) NSNumber *isCDMA; // @synthesize isCDMA=_isC2K;
 @property(copy, nonatomic) NSData *pushToken; // @synthesize pushToken=_pushToken;
 @property(copy, nonatomic) NSDate *nextRegistrationDate; // @synthesize nextRegistrationDate=_nextRegistrationDate;
@@ -89,32 +88,31 @@
 @property(copy, nonatomic) NSString *profileID; // @synthesize profileID=_profileID;
 @property(retain, nonatomic, setter=setDSHandle:) NSString *dsHandle; // @synthesize dsHandle=_dsHandle;
 @property(retain, nonatomic) NSArray *vettedEmails; // @synthesize vettedEmails=_vettedEmails;
-@property(readonly, nonatomic) BOOL canSendRegistration;
-@property(readonly, nonatomic) BOOL canRegister;
-@property(readonly, nonatomic) BOOL hasSentinel;
+@property(copy, nonatomic) NSData *authenticationCert;
+@property(readonly, nonatomic) _Bool canSendRegistration;
+@property(readonly, nonatomic) _Bool canRegister;
+@property(readonly, nonatomic) _Bool hasSentinel;
 @property(readonly, nonatomic) NSArray *emailsToRegister;
 - (id)description;
-@property(copy, nonatomic) NSString *authenticationToken; // @synthesize authenticationToken=_authenticationToken;
-- (BOOL)isEqual:(id)arg1;
+@property(copy, nonatomic) NSString *authenticationToken;
+- (_Bool)isEqual:(id)arg1;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation; // @dynamic dictionaryRepresentation;
 @property(readonly, nonatomic) NSString *signaturePrefix;
 @property(copy, nonatomic) NSString *phoneNumber;
 @property(copy, nonatomic) NSString *email;
 @property(readonly, nonatomic) NSString *userID;
-- (BOOL)removeBinding:(id)arg1;
+- (_Bool)removeBinding:(id)arg1;
 - (id)_userID;
 @property(readonly, nonatomic) NSArray *confirmedEmails;
 - (void)removeCandidateEmail:(id)arg1;
 - (void)addCandidateEmail:(id)arg1;
 @property(readonly, nonatomic) NSArray *candidateEmails;
-- (BOOL)saveToKeychain;
-- (BOOL)removeFromKeychain;
+- (_Bool)saveToKeychain;
+- (_Bool)removeFromKeychain;
 - (void)dealloc;
 - (id)initWithDictionary:(id)arg1;
 - (id)init;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)_keychain_comparisonValue;
-- (BOOL)_keychain_isEqual:(id)arg1;
 
 @end
 

@@ -14,11 +14,11 @@
 }
 
 + (long long)outputLengthForInputLength:(long long)arg1;
-+ (int)maxConsumeLengthForReadLength:(int)arg1;
++ (long long)maxConsumeLengthForReadLength:(long long)arg1;
 @property(retain, nonatomic) id <SUDataConsumer> dataConsumer; // @synthesize dataConsumer=_consumer;
 - (void)finish;
 - (int)consumeData:(id)arg1;
-- (unsigned int)minimumConsumeLength;
+- (unsigned long long)minimumConsumeLength;
 - (void)dealloc;
 - (id)initWithDataConsumer:(id)arg1;
 - (id)init;

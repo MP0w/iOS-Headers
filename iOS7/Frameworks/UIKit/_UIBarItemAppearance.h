@@ -8,6 +8,7 @@
 
 @class NSArray;
 
+// Not exported
 @interface _UIBarItemAppearance : _UIAppearance
 {
     NSArray *_blindViewAppearances;

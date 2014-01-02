@@ -12,14 +12,14 @@
 
 @interface SUDeferredUISearchField : UISearchField <SUDeferredUIView>
 {
-    int _deferredClearButtonMode;
+    long long _deferredClearButtonMode;
     id _deferredFont;
     struct CGRect _deferredFrame;
     float _deferredPaddingLeft;
     float _deferredPaddingTop;
     NSString *_deferredPlaceholder;
     NSString *_deferredText;
-    BOOL _isDeferringInterfaceUpdates;
+    _Bool _isDeferringInterfaceUpdates;
 }
 
 - (void)_saveCurrentStateAsDeferred;
@@ -30,14 +30,14 @@
 - (void)setPaddingTop:(float)arg1 paddingLeft:(float)arg2;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)setFont:(id)arg1;
-- (void)setClearButtonMode:(int)arg1;
+- (void)setClearButtonMode:(long long)arg1;
 - (id)placeholder;
 - (float)paddingTop;
 - (float)paddingLeft;
 - (struct CGRect)frame;
 - (id)font;
-- (int)clearButtonMode;
-@property(nonatomic, getter=isDeferringInterfaceUpdates) BOOL deferringInterfaceUpdates;
+- (long long)clearButtonMode;
+@property(nonatomic, getter=isDeferringInterfaceUpdates) _Bool deferringInterfaceUpdates;
 - (void)dealloc;
 
 @end

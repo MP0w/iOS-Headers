@@ -11,8 +11,8 @@
 @interface PLCameraFocusLockView : PLCameraFocusView
 {
     CAKeyframeAnimation *_lockBoundsAnimation;
-    BOOL _scalingDown;
-    BOOL _shouldEndFocus;
+    _Bool _scalingDown;
+    _Bool _shouldEndFocus;
     struct CGAffineTransform _defaultTransform;
 }
 

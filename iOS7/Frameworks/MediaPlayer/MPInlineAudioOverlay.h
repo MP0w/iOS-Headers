@@ -11,7 +11,7 @@
 @interface MPInlineAudioOverlay : MPPlaybackControlsView
 {
     id <MPVideoControllerProtocol> _videoViewController;
-    int _style;
+    long long _style;
     UIView *_backgroundView;
     MPInlineAudioTransportControls *_transportControls;
     UILabel *_streamingLabel;
@@ -20,12 +20,14 @@
 }
 
 @property(nonatomic) __weak id <MPVideoControllerProtocol> videoViewController; // @synthesize videoViewController=_videoViewController;
-@property(nonatomic) int style; // @synthesize style=_style;
+@property(nonatomic) long long style; // @synthesize style=_style;
 @property(copy, nonatomic) NSString *playbackErrorDescription; // @synthesize playbackErrorDescription=_playbackErrorDescription;
 - (void).cxx_destruct;
 - (struct CGRect)_frameInBackgroundViewForDescriptionLabel:(id)arg1;
 - (id)_newDescriptionLabel;
 - (void)_updateVisiblePartsForAvailableRoutes;
+- (void)setHidden:(_Bool)arg1 animated:(_Bool)arg2 completionBlock:(id)arg3;
+- (void)setHidden:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)_itemDurationDidChangeNotification:(id)arg1;
 - (void)_availableRoutesDidChangeNotification:(id)arg1;
 - (void)setPlayer:(id)arg1;

@@ -7,8 +7,8 @@
 #import "NSArray.h"
 
 @interface NSArray (TSUAdditions)
-+ (id)arrayWithInts:(int *)arg1 count:(unsigned int)arg2;
-+ (id)arrayWithCGFloats:(float *)arg1 count:(unsigned int)arg2;
++ (id)arrayWithInts:(int *)arg1 count:(unsigned long long)arg2;
++ (id)arrayWithCGFloats:(double *)arg1 count:(unsigned long long)arg2;
 - (id)firstObjectPassingTest:(id)arg1;
 - (void)enumerateSnapshotObjectsUsingBlock:(id)arg1;
 - (id)arrayByReversingOrder;
@@ -17,9 +17,9 @@
 - (id)intersectionWithArray:(id)arg1;
 - (id)arrayWithObjectsInSet:(id)arg1;
 - (id)indexesOfObjects:(id)arg1;
-- (unsigned int)indexOfSmallestObject;
+- (unsigned long long)indexOfSmallestObject;
 - (id)firstObject;
-- (id)initWithInts:(int *)arg1 count:(unsigned int)arg2;
-- (id)initWithCGFloats:(float *)arg1 count:(unsigned int)arg2;
+- (id)initWithInts:(int *)arg1 count:(unsigned long long)arg2;
+- (id)initWithCGFloats:(double *)arg1 count:(unsigned long long)arg2;
 @end
 

@@ -8,14 +8,15 @@
 
 @class NSArray, NSString, UIView, _UIBadgeView, _UISegmentedControlAppearanceStorage;
 
+// Not exported
 @interface UISegment : UIImageView
 {
     UIView *_info;
     _UISegmentedControlAppearanceStorage *_appearanceStorage;
-    float _width;
+    double _width;
     struct CGSize _contentOffset;
-    int _barStyle;
-    unsigned int _rightSegmentState;
+    long long _barStyle;
+    unsigned long long _rightSegmentState;
     NSString *_badgeValue;
     _UIBadgeView *_badgeView;
     id _objectValue;
@@ -32,14 +33,16 @@
         unsigned int wasSelected:1;
     } _segmentFlags;
     NSArray *_infoConstraints;
+    double _requestedScaleFactor;
 }
 
-+ (id)_backgroundImageWithStorage:(id)arg1 style:(int)arg2 mini:(BOOL)arg3 state:(unsigned int)arg4 position:(unsigned int)arg5 drawMode:(int *)arg6 defaultBlock:(id)arg7;
++ (id)_backgroundImageWithStorage:(id)arg1 style:(long long)arg2 mini:(_Bool)arg3 state:(unsigned long long)arg4 position:(unsigned int)arg5 drawMode:(int *)arg6 defaultBlock:(id)arg7;
+@property(nonatomic) double requestedScaleFactor; // @synthesize requestedScaleFactor=_requestedScaleFactor;
 @property(copy, nonatomic, setter=_setInfoConstraints:) NSArray *_infoConstraints; // @synthesize _infoConstraints;
 - (id)viewForBaselineLayout;
-- (float)_idealWidth;
+- (double)_idealWidth;
 - (struct UIEdgeInsets)_paddingInsets;
-- (BOOL)useBlockyMagnificationInClassic;
+- (_Bool)useBlockyMagnificationInClassic;
 - (id)hitTest:(struct CGPoint)arg1 forEvent:(struct __GSEvent *)arg2;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (id)infoName;
@@ -47,6 +50,7 @@
 - (id)objectValue;
 - (void)setObjectValue:(id)arg1;
 - (void)setContentOffset:(struct CGSize)arg1;
+- (id)label;
 - (void)setPosition:(unsigned int)arg1;
 - (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
@@ -55,33 +59,33 @@
 - (void)_invalidateInfoConstraints;
 - (struct CGSize)contentSize;
 - (struct CGSize)_maximumTextSize;
-- (float)_barHeight;
+- (double)_barHeight;
 - (struct CGRect)contentRect;
 - (struct CGRect)_contentRectForBounds:(struct CGRect)arg1;
-- (void)animateRemoveForWidth:(float)arg1;
-- (void)animateAdd:(BOOL)arg1;
-- (BOOL)_shouldUsePadMomentaryAppearance;
-- (void)setShowDivider:(BOOL)arg1;
-- (BOOL)showDivider;
+- (void)animateRemoveForWidth:(double)arg1;
+- (void)animateAdd:(_Bool)arg1;
+- (_Bool)_shouldUsePadMomentaryAppearance;
+- (void)setShowDivider:(_Bool)arg1;
+- (_Bool)showDivider;
 @property int controlSize;
-@property(getter=isMomentary) BOOL momentary;
+@property(getter=isMomentary) _Bool momentary;
 @property(readonly) UIView *badgeView;
 @property(copy, nonatomic) NSString *badgeValue;
 - (void)tintColorDidChange;
-- (void)setHighlighted:(BOOL)arg1;
-- (BOOL)isHighlighted;
-@property(getter=isSelected) BOOL selected;
-- (void)setEnabled:(BOOL)arg1;
-- (void)_setEnabledAppearance:(BOOL)arg1;
-- (void)setAutosizeText:(BOOL)arg1;
+- (void)setHighlighted:(_Bool)arg1;
+- (_Bool)isHighlighted;
+@property(getter=isSelected) _Bool selected;
+- (void)setEnabled:(_Bool)arg1;
+- (void)_setEnabledAppearance:(_Bool)arg1;
+- (void)setAutosizeText:(_Bool)arg1;
 - (void)setTintColor:(id)arg1;
-- (void)setBarStyle:(int)arg1;
+- (void)setBarStyle:(long long)arg1;
 - (id)disabledTextColor;
-- (id)_attributedTextForState:(unsigned int)arg1 selected:(BOOL)arg2;
+- (id)_attributedTextForState:(unsigned long long)arg1 selected:(_Bool)arg2;
 - (void)_updateTextColors;
-- (void)setWasSelected:(BOOL)arg1;
+- (void)setWasSelected:(_Bool)arg1;
 - (void)updateMasking;
-- (BOOL)_hasSelectedColor;
+- (_Bool)_hasSelectedColor;
 - (id)_currentOptionsStyleTextShadowColor;
 - (id)_currentOptionsStyleTextColor;
 - (void)_updateBackgroundImage;
@@ -89,15 +93,15 @@
 - (void)insertDividerView;
 - (id)_dividerImage;
 - (void)updateForAppearance:(id)arg1 style:(int)arg2;
-- (id)_dividerImageIsCustom:(char *)arg1;
-- (unsigned int)_segmentState;
-- (BOOL)_isInMiniBar;
+- (id)_dividerImageIsCustom:(_Bool *)arg1;
+- (unsigned long long)_segmentState;
+- (_Bool)_isInMiniBar;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (void)_populateArchivedSubviews:(id)arg1;
 - (id)_tintColorArchivingKey;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithInfo:(id)arg1 style:(int)arg2 size:(int)arg3 barStyle:(int)arg4 tintColor:(id)arg5 appearanceStorage:(id)arg6 position:(unsigned int)arg7 autosizeText:(BOOL)arg8;
+- (id)initWithInfo:(id)arg1 style:(long long)arg2 size:(int)arg3 barStyle:(long long)arg4 tintColor:(id)arg5 appearanceStorage:(id)arg6 position:(unsigned int)arg7 autosizeText:(_Bool)arg8;
 - (void)_commonSegmentInit;
 
 @end

@@ -10,7 +10,7 @@
 {
 }
 
-+ (BOOL)canUseCoordinate:(CDStruct_c3b9c2ee)arg1;
++ (_Bool)canUseCoordinate:(CDStruct_c3b9c2ee)arg1;
 
 @end
 

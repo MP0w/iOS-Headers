@@ -22,14 +22,14 @@
     PLCameraImportQueue *_deleteQueue;
     NSMutableArray *_orphanItems;
     NSMutableArray *_coalescedDeletedItems;
-    BOOL _importInProgress;
+    _Bool _importInProgress;
     NSMutableDictionary *_parentFolderMapping;
-    BOOL _autosplitEvents;
-    int _eventSplitGranularity;
+    _Bool _autosplitEvents;
+    long long _eventSplitGranularity;
     ICCameraDevice *_camera;
     PLImportFileManager *_importFileManager;
-    BOOL _stopAfterNextItemImport;
-    BOOL _importItemInProgress;
+    _Bool _stopAfterNextItemImport;
+    _Bool _importItemInProgress;
     NSString *importSessionIdentifier;
 }
 
@@ -64,7 +64,7 @@
 - (void)importImportItem:(id)arg1;
 - (void)_downloadImportItems:(id)arg1;
 - (void)_clearImportItemsForDownload:(id)arg1;
-- (void)_separateItems:(id)arg1 intoEventsWithGranularity:(int)arg2;
+- (void)_separateItems:(id)arg1 intoEventsWithGranularity:(long long)arg2;
 - (unsigned long long)approximateBytesRequiredToImportItem:(id)arg1;
 - (void)didDownloadFile:(id)arg1 error:(id)arg2 options:(id)arg3 contextInfo:(void *)arg4;
 - (void)didReceiveThumbnail:(struct CGImage *)arg1 forCameraFile:(id)arg2 error:(id)arg3;
@@ -79,11 +79,11 @@
 - (void)addImportItemsFromCameraFiles:(id)arg1;
 - (void)_addImportItemFromCameraFile:(id)arg1;
 - (id)allImportItems;
-- (BOOL)isImporting;
-- (BOOL)deviceIsLocked;
+- (_Bool)isImporting;
+- (_Bool)deviceIsLocked;
 - (void)cameraDidError:(id)arg1;
-- (unsigned int)contentPercentCompleted;
-- (unsigned int)estimatedNumberOfItems;
+- (unsigned long long)contentPercentCompleted;
+- (unsigned long long)estimatedNumberOfItems;
 - (void)ejectCamera;
 - (id)cameraKind;
 - (id)cameraName;

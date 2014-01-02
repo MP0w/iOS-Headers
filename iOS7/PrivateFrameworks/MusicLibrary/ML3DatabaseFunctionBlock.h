@@ -6,6 +6,7 @@
 
 #import <MusicLibrary/ML3DatabaseFunction.h>
 
+// Not exported
 @interface ML3DatabaseFunctionBlock : ML3DatabaseFunction
 {
     id _block;
@@ -13,7 +14,7 @@
 
 @property(copy, nonatomic) id block; // @synthesize block=_block;
 - (void).cxx_destruct;
-- (BOOL)registerWithConnection:(id)arg1;
+- (_Bool)registerWithConnection:(id)arg1;
 
 @end
 

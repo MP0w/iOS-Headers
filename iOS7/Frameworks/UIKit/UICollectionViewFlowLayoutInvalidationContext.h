@@ -14,8 +14,8 @@
     } _flowLayoutInvalidationFlags;
 }
 
-@property(nonatomic) BOOL invalidateFlowLayoutDelegateMetrics;
-@property(nonatomic) BOOL invalidateFlowLayoutAttributes;
+@property(nonatomic) _Bool invalidateFlowLayoutDelegateMetrics;
+@property(nonatomic) _Bool invalidateFlowLayoutAttributes;
 - (id)init;
 
 @end

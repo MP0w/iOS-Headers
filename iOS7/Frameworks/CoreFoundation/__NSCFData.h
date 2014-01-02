@@ -6,29 +6,31 @@
 
 #import <CoreFoundation/NSMutableData.h>
 
+// Not exported
 @interface __NSCFData : NSMutableData
 {
     unsigned char _cfinfo[4];
-    long _length;
-    long _capacity;
+    unsigned int _rc;
+    long long _length;
+    long long _capacity;
     struct __CFAllocator *_bytesDeallocator;
     char *_bytes;
 }
 
-+ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
-- (void)setLength:(unsigned int)arg1;
++ (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
+- (void)setLength:(unsigned long long)arg1;
 - (void *)mutableBytes;
 - (const void *)bytes;
-- (unsigned int)length;
+- (unsigned long long)length;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)finalize;
-- (unsigned int)retainCount;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
+- (unsigned long long)retainCount;
+- (_Bool)_isDeallocating;
+- (_Bool)_tryRetain;
 - (oneway void)release;
 - (id)retain;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 
 @end
 

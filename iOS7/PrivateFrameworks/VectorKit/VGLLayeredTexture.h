@@ -8,30 +8,31 @@
 
 @class NSString;
 
+// Not exported
 @interface VGLLayeredTexture : VGLTexture
 {
     char *_imageData;
-    BOOL _hasFillColor;
+    _Bool _hasFillColor;
     struct _VGLColor _baseColor;
     NSString *_fillTextureName;
     struct CGImage *_fillImage;
-    CDStruct_c0b8bb23 _textureLayerProperties;
+    CDStruct_ce289cdd _textureLayerProperties;
     NSString *_secondFillTextureName;
     struct CGImage *_secondFillImage;
-    CDStruct_c0b8bb23 _secondTextureLayerProperties;
+    CDStruct_ce289cdd _secondTextureLayerProperties;
     NSString *_thirdFillTextureName;
     struct CGImage *_thirdFillImage;
-    CDStruct_c0b8bb23 _thirdTextureLayerProperties;
+    CDStruct_ce289cdd _thirdTextureLayerProperties;
 }
 
 + (void)purge;
-+ (id)textureWithName:(id)arg1 style:(id)arg2 levelOfDetail:(unsigned int)arg3 scale:(float)arg4;
++ (id)textureWithName:(id)arg1 style:(id)arg2 levelOfDetail:(unsigned long long)arg3 scale:(double)arg4;
 - (id).cxx_construct;
-- (BOOL)loadTexture;
-- (BOOL)decodeTexture;
-- (void)_buildWithStyle:(id)arg1 levelOfDetail:(unsigned int)arg2 scale:(float)arg3;
-- (id)_createVKImageForName:(id)arg1 scale:(float)arg2;
-- (void)_addTextureLayerWithName:(id)arg1 properties:(CDStruct_c0b8bb23)arg2;
+- (_Bool)loadTexture;
+- (_Bool)decodeTexture;
+- (void)_buildWithStyle:(id)arg1 levelOfDetail:(unsigned long long)arg2 scale:(double)arg3;
+- (id)_createVKImageForName:(id)arg1 scale:(double)arg2;
+- (void)_addTextureLayerWithName:(id)arg1 properties:(CDStruct_ce289cdd)arg2;
 - (void)_addColor:(struct _VGLColor)arg1;
 - (void)dealloc;
 - (id)initWithName:(id)arg1;

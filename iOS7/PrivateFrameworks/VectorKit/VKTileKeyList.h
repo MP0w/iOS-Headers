@@ -11,33 +11,34 @@
 
 @class VKTileKeyMap;
 
+// Not exported
 @interface VKTileKeyList : NSObject <NSFastEnumeration, NSCopying>
 {
     void *_head;
     void *_tail;
     VKTileKeyMap *_map;
-    unsigned int _count;
-    unsigned int _maxCount;
+    unsigned long long _count;
+    unsigned long long _maxCount;
 }
 
-- (BOOL)isEqualToList:(id)arg1;
-- (BOOL)removeKey:(const struct VKTileKey *)arg1;
+- (_Bool)isEqualToList:(id)arg1;
+- (_Bool)removeKey:(const struct VKTileKey *)arg1;
 - (void)removeKeysMatchingPredicate:(id)arg1;
 - (void)sort:(id)arg1;
 - (id)listWithout:(id)arg1;
-- (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
-- (unsigned int)count;
-- (unsigned int)capacity;
-- (BOOL)containsKey:(const struct VKTileKey *)arg1;
+- (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
+- (unsigned long long)count;
+- (unsigned long long)capacity;
+- (_Bool)containsKey:(const struct VKTileKey *)arg1;
 - (void)_addKeyToBack:(const struct VKTileKey *)arg1;
 - (void)addKey:(const struct VKTileKey *)arg1;
-- (BOOL)addKey:(const struct VKTileKey *)arg1 lostKey:(struct VKTileKey *)arg2;
+- (_Bool)addKey:(const struct VKTileKey *)arg1 lostKey:(struct VKTileKey *)arg2;
 - (struct VKTileKey *)firstKey;
 - (id)description;
 - (void)dealloc;
-- (id)copyWithMaxCapacity:(unsigned int)arg1;
+- (id)copyWithMaxCapacity:(unsigned long long)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithMaxCapacity:(unsigned int)arg1;
+- (id)initWithMaxCapacity:(unsigned long long)arg1;
 - (id)init;
 
 @end

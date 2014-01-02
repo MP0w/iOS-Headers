@@ -7,12 +7,12 @@
 #import "DOMNode.h"
 
 @interface DOMNode (UIWebInteraction)
-- (BOOL)nodeCanBecomeFirstResponder;
-- (BOOL)isLikelyToBeginPageLoad;
+- (_Bool)nodeCanBecomeFirstResponder;
+- (_Bool)isLikelyToBeginPageLoad;
 - (id)absoluteQuadsAtPoint:(struct CGPoint)arg1;
-- (BOOL)touchCalloutEnabled;
+- (_Bool)touchCalloutEnabled;
 - (id)tapHighlightColor;
-- (BOOL)alwaysAttemptToShowTapHighlight;
-- (BOOL)showsTapHighlight;
+- (_Bool)alwaysAttemptToShowTapHighlight;
+- (_Bool)showsTapHighlight;
 @end
 

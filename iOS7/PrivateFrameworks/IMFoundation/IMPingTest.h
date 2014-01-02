@@ -11,9 +11,9 @@
 @interface IMPingTest : NSObject
 {
     NSString *_address;
-    BOOL _usesWifi;
+    _Bool _usesWifi;
     id _collector;
-    BOOL _isRunning;
+    _Bool _isRunning;
     NSObject<OS_dispatch_source> *_sendTimer;
     NSObject<OS_dispatch_source> *_socketReadSource;
     double _secondsToRun;
@@ -24,13 +24,13 @@
 - (void)_setupReadSource:(int)arg1 address:(struct sockaddr_in)arg2 icmID:(unsigned short)arg3 queue:(id)arg4 completionHander:(id)arg5;
 - (void)_doPingWithSocket:(int)arg1 address:(struct sockaddr_in)arg2 timeToRunTestInSeconds:(double)arg3 pingTimeout:(double)arg4 queue:(id)arg5 completionHandler:(id)arg6;
 - (int)_setupAndPerformPing:(double)arg1 queue:(id)arg2 completionHandler:(id)arg3;
-- (BOOL)writeResultsToFile:(id)arg1 error:(id *)arg2;
+- (_Bool)writeResultsToFile:(id)arg1 error:(id *)arg2;
 - (id)pingStats:(double)arg1;
 - (id)pingStats;
 - (void)stop;
 - (void)startWithTimeout:(double)arg1 queue:(id)arg2 completionHandler:(id)arg3;
 - (void)dealloc;
-- (id)initWithAddress:(id)arg1 wifi:(BOOL)arg2;
+- (id)initWithAddress:(id)arg1 wifi:(_Bool)arg2;
 
 @end
 

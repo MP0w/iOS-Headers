@@ -10,12 +10,12 @@
 
 @interface VMUSampler : NSObject
 {
-    unsigned int _options;
+    unsigned long long _options;
     int _pid;
     unsigned int _task;
-    BOOL _needTaskPortDealloc;
-    BOOL _recordThreadStates;
-    BOOL _taskIs64Bit;
+    _Bool _needTaskPortDealloc;
+    _Bool _recordThreadStates;
+    _Bool _taskIs64Bit;
     NSString *_processName;
     VMUProcessDescription *_processDescription;
     struct _CSTypeRef _symbolicator;
@@ -33,11 +33,11 @@
     double _interval;
     double _timeLimit;
     unsigned int _sampleLimit;
-    BOOL _sampling;
+    _Bool _sampling;
     unsigned int _samplingThreadPort;
     unsigned int _numberOfSamples;
     NSMutableArray *_samples;
-    BOOL _stacksFixed;
+    _Bool _stacksFixed;
     void *_cfi;
     id _delegate;
     double _timeSpentSamplingWithoutCFI;
@@ -48,14 +48,14 @@
     unsigned int _dispatchThreadHardLimitCount;
 }
 
-+ (id)sampleAllThreadsOfTask:(unsigned int)arg1 withSymbolicator:(id)arg2 symbolicate:(BOOL)arg3;
-+ (id)sampleAllThreadsOfTask:(unsigned int)arg1 symbolicate:(BOOL)arg2;
++ (id)sampleAllThreadsOfTask:(unsigned int)arg1 withSymbolicator:(id)arg2 symbolicate:(_Bool)arg3;
++ (id)sampleAllThreadsOfTask:(unsigned int)arg1 symbolicate:(_Bool)arg2;
 + (id)sampleAllThreadsOfTask:(unsigned int)arg1 withSymbolicator:(id)arg2;
 + (id)sampleAllThreadsOfTask:(unsigned int)arg1;
 + (id)sampleAllThreadsOfPID:(int)arg1 withSymbolicator:(id)arg2;
 + (id)sampleAllThreadsOfPID:(int)arg1;
 + (void)initialize;
-- (void)writeOutput:(id)arg1 append:(BOOL)arg2;
+- (void)writeOutput:(id)arg1 append:(_Bool)arg2;
 - (id)createOutput;
 - (id)outputString;
 - (id)stopSamplingAndReturnCallNode;
@@ -66,7 +66,7 @@
 - (id)delegate;
 - (void)setDelegate:(id)arg1;
 - (id)dispatchQueueNameForSerialNumber:(unsigned long long)arg1;
-- (id)dispatchQueueNameForSerialNumber:(unsigned long long)arg1 returnedConcurrentFlag:(char *)arg2 returnedThreadId:(unsigned long long *)arg3;
+- (id)dispatchQueueNameForSerialNumber:(unsigned long long)arg1 returnedConcurrentFlag:(_Bool *)arg2 returnedThreadId:(unsigned long long *)arg3;
 - (id)threadNameForThread:(unsigned int)arg1;
 - (id)threadNameForThread:(unsigned int)arg1 returnedThreadId:(unsigned long long *)arg2 returnedDispatchQueueSerialNum:(unsigned long long *)arg3;
 - (unsigned int)mainThread;
@@ -75,34 +75,34 @@
 - (id)samples;
 - (int)pid;
 - (struct _CSTypeRef)symbolicator;
-- (BOOL)shouldOutputSignature;
-- (void)setShouldOutputSignature:(BOOL)arg1;
-- (void)setRecordThreadStates:(BOOL)arg1;
+- (_Bool)shouldOutputSignature;
+- (void)setShouldOutputSignature:(_Bool)arg1;
+- (void)setRecordThreadStates:(_Bool)arg1;
 - (unsigned int)sampleLimit;
 - (void)setSampleLimit:(unsigned int)arg1;
 - (double)timeLimit;
 - (void)setTimeLimit:(double)arg1;
 - (double)samplingInterval;
 - (void)setSamplingInterval:(double)arg1;
-- (BOOL)waitUntilDone;
-- (BOOL)stop;
-- (BOOL)start;
+- (_Bool)waitUntilDone;
+- (_Bool)stop;
+- (_Bool)start;
 - (id)sampleThread:(unsigned int)arg1;
 - (id)sampleAllThreadsOnce;
 - (void)_runSamplingThread;
 - (void)_fixupStacks:(id)arg1;
 - (unsigned int)recordSampleTo:(id)arg1 beginTime:(double)arg2 endTime:(double)arg3 thread:(unsigned int)arg4;
 - (void)_checkDispatchThreadLimits;
-- (void)initializeSamplingContext:(BOOL)arg1;
+- (void)initializeSamplingContext:(_Bool)arg1;
 - (void)_makeTimeshare;
 - (void)_makeHighPriority;
 - (void)finalize;
 - (void)dealloc;
-- (id)initWithTask:(unsigned int)arg1 options:(unsigned int)arg2;
-- (id)initWithPID:(int)arg1 options:(unsigned int)arg2;
+- (id)initWithTask:(unsigned int)arg1 options:(unsigned long long)arg2;
+- (id)initWithPID:(int)arg1 options:(unsigned long long)arg2;
 - (id)initWithTask:(unsigned int)arg1;
 - (id)initWithPID:(int)arg1;
-- (id)initWithPID:(int)arg1 orTask:(unsigned int)arg2 options:(unsigned int)arg3;
+- (id)initWithPID:(int)arg1 orTask:(unsigned int)arg2 options:(unsigned long long)arg3;
 
 @end
 

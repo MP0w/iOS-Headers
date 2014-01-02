@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface WebAnimationDelegate : NSObject
 {
     struct PlatformCALayer *m_owner;

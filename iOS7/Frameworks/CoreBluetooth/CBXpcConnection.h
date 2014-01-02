@@ -19,7 +19,7 @@
     NSObject<OS_xpc_object> *_xpcConnection;
 }
 
-@property(nonatomic) id <CBXpcConnectionDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <CBXpcConnectionDelegate> delegate; // @synthesize delegate=_delegate;
 - (id)nsDictionaryFromXpcDictionary:(id)arg1;
 - (id)nsArrayWithXpcArray:(id)arg1;
 - (id)nsObjectWithXpcObject:(id)arg1;
@@ -32,12 +32,12 @@
 - (void)handleMsg:(int)arg1 args:(id)arg2;
 - (id)sendSyncMsg:(int)arg1 args:(id)arg2;
 - (void)sendMsg:(int)arg1 args:(id)arg2;
+- (void)sendAsyncMsg:(int)arg1 args:(id)arg2;
 - (id)allocXpcMsg:(int)arg1 args:(id)arg2;
 - (void)checkOut;
 - (void)checkIn;
-- (BOOL)isMainQueue;
+- (_Bool)isMainQueue;
 - (void)disconnect;
-- (BOOL)bluetoothExists;
 - (void)dealloc;
 - (id)initWithDelegate:(id)arg1 queue:(id)arg2 options:(id)arg3 sessionType:(int)arg4;
 

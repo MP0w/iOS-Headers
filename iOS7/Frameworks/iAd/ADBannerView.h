@@ -14,13 +14,13 @@
 {
     id <ADBannerViewDelegate> _weakDelegate;
     id <ADBannerViewInternalDelegate> _weakInternalDelegate;
-    BOOL _bannerViewActionInProgress;
-    BOOL _createdForIBInternal;
-    BOOL _hasFailedHitTest;
-    BOOL _dimmed;
-    int _options;
+    _Bool _bannerViewActionInProgress;
+    _Bool _createdForIBInternal;
+    _Bool _hasFailedHitTest;
+    _Bool _dimmed;
     int _internalAdType;
-    int _adType;
+    long long _options;
+    long long _adType;
     NSString *_advertisingSection;
     ADRemoteView *_remoteView;
     UIView *_dimmerView;
@@ -33,16 +33,16 @@
     ADAdSpace *_adSpace;
 }
 
-+ (struct CGSize)_sizeThatFitsSize:(struct CGSize)arg1 adType:(int)arg2 statusBarOrientationIsPortrait:(BOOL)arg3;
-+ (struct CGRect)_frameThatFits:(struct CGRect)arg1 adType:(int)arg2 statusBarOrientationIsPortrait:(BOOL)arg3;
++ (struct CGSize)_sizeThatFitsSize:(struct CGSize)arg1 adType:(int)arg2 statusBarOrientationIsPortrait:(_Bool)arg3;
++ (struct CGRect)_frameThatFits:(struct CGRect)arg1 adType:(int)arg2 statusBarOrientationIsPortrait:(_Bool)arg3;
 + (struct CGSize)_landscapeBannerSize;
 + (struct CGSize)_portraitBannerSize;
 + (struct CGSize)sizeFromBannerContentSizeIdentifier:(id)arg1;
 + (void)setServerURL:(id)arg1;
-@property(nonatomic) BOOL dimmed; // @synthesize dimmed=_dimmed;
+@property(nonatomic) _Bool dimmed; // @synthesize dimmed=_dimmed;
 @property(retain, nonatomic) ADAdSpace *adSpace; // @synthesize adSpace=_adSpace;
-@property(nonatomic) BOOL hasFailedHitTest; // @synthesize hasFailedHitTest=_hasFailedHitTest;
-@property(readonly, nonatomic) BOOL createdForIBInternal; // @synthesize createdForIBInternal=_createdForIBInternal;
+@property(nonatomic) _Bool hasFailedHitTest; // @synthesize hasFailedHitTest=_hasFailedHitTest;
+@property(readonly, nonatomic) _Bool createdForIBInternal; // @synthesize createdForIBInternal=_createdForIBInternal;
 @property(copy, nonatomic) NSURL *serverURL; // @synthesize serverURL=_serverURL;
 @property(copy, nonatomic) NSString *authenticationUserName; // @synthesize authenticationUserName=_authenticationUserName;
 @property(retain, nonatomic) ADTapGestureRecognizer *gestureRecognizer; // @synthesize gestureRecognizer=_gestureRecognizer;
@@ -52,10 +52,10 @@
 @property(retain, nonatomic) UIView *dimmerView; // @synthesize dimmerView=_dimmerView;
 @property(retain, nonatomic) ADRemoteView *remoteView; // @synthesize remoteView=_remoteView;
 @property(copy, nonatomic) NSString *advertisingSection; // @synthesize advertisingSection=_advertisingSection;
-@property(nonatomic, getter=isBannerViewActionInProgress) BOOL bannerViewActionInProgress; // @synthesize bannerViewActionInProgress=_bannerViewActionInProgress;
-@property(readonly, nonatomic) int adType; // @synthesize adType=_adType;
+@property(nonatomic, getter=isBannerViewActionInProgress) _Bool bannerViewActionInProgress; // @synthesize bannerViewActionInProgress=_bannerViewActionInProgress;
+@property(readonly, nonatomic) long long adType; // @synthesize adType=_adType;
 @property(readonly, nonatomic) int internalAdType; // @synthesize internalAdType=_internalAdType;
-@property(readonly, nonatomic) int options; // @synthesize options=_options;
+@property(readonly, nonatomic) long long options; // @synthesize options=_options;
 - (void)cancelScheduledAd;
 - (void)playbackFailed:(id)arg1;
 - (void)playbackFinished:(id)arg1;
@@ -69,6 +69,9 @@
 - (id)staticImageURL;
 - (id)videoAssets;
 - (id)audioURL;
+- (void)reportPreRollImpression;
+- (_Bool)adHasAction;
+- (id)uniqueIdentifier;
 - (double)videoCountdownDuration;
 - (void)resumeImpressionCycling;
 - (void)suspendImpressionCycling;
@@ -97,26 +100,26 @@
 - (void)presentStoryboardForVideoAd;
 - (void)didMoveToWindow;
 - (void)setCenter:(struct CGPoint)arg1;
-- (void)setAlpha:(float)arg1;
-- (void)setHidden:(BOOL)arg1;
+- (void)setAlpha:(double)arg1;
+- (void)setHidden:(_Bool)arg1;
 - (void)setTransform:(struct CGAffineTransform)arg1;
 - (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (void)setAutoresizingMask:(unsigned int)arg1;
+- (void)setAutoresizingMask:(unsigned long long)arg1;
 - (void)resizeWithOldSuperviewSize:(struct CGSize)arg1;
-@property(readonly, nonatomic, getter=isBannerLoaded) BOOL bannerLoaded;
+@property(readonly, nonatomic, getter=isBannerLoaded) _Bool bannerLoaded;
 - (void)cycleImpressionImmediately;
 - (void)encodeWithCoder:(id)arg1;
 - (id)_accessibilityUserTestingElementAttributes;
 @property(readonly, nonatomic) UIView *adSpaceView;
 - (void)_commonInit;
-- (id)initFromIBWithFrame:(struct CGRect)arg1 adType:(int)arg2;
+- (id)initFromIBWithFrame:(struct CGRect)arg1 adType:(long long)arg2;
 - (id)initFromIBWithFrame:(struct CGRect)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (id)_initWithInternalAdType:(int)arg1 options:(int)arg2;
-- (id)initWithAdType:(int)arg1;
+- (id)_initWithInternalAdType:(int)arg1 options:(long long)arg2;
+- (id)initWithAdType:(long long)arg1;
 - (void)dealloc;
 
 @end

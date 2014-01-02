@@ -16,29 +16,35 @@
 
 + (id)_localizedGeniusErrorForError:(id)arg1;
 + (id)_localizedCloudGeniusErrorForError:(id)arg1;
-+ (BOOL)_isGeniusEnabled;
++ (_Bool)_isGeniusEnabled;
 - (void).cxx_destruct;
-- (BOOL)supportsEntityChangeTrackingForMediaEntityType:(int)arg1 collectionGroupingType:(int)arg2 dataProviderClass:(out Class *)arg3;
+- (_Bool)supportsEntityChangeTrackingForMediaEntityType:(long long)arg1 collectionGroupingType:(long long)arg2 dataProviderClass:(out Class *)arg3;
 - (void)updateEntitesToCurrentRevision;
 - (id)errorResolverForMediaItem:(id)arg1;
-- (BOOL)isArtworkImageIdenticalForItemWithIdentifier:(long long)arg1 otherItemWithIdentifier:(long long)arg2 compareRepresentativeItemArtwork:(BOOL)arg3 missingAlwaysComparesEqual:(BOOL)arg4;
-- (BOOL)hasArtworkImageForItemWithIdentifier:(long long)arg1;
+- (_Bool)isArtworkImageIdenticalForItemWithIdentifier:(long long)arg1 otherItemWithIdentifier:(long long)arg2 compareRepresentativeItemArtwork:(_Bool)arg3 missingAlwaysComparesEqual:(_Bool)arg4;
+- (_Bool)hasArtworkImageForItemWithIdentifier:(long long)arg1;
 - (id)artworkCacheIDForItemWithIdentifier:(long long)arg1 atPlaybackTime:(double)arg2;
+- (_Bool)shouldAsynchrounouslyLoadArtworkForItemWithIdentifier:(long long)arg1 artworkSize:(struct CGSize)arg2 artworkCacheID:(id)arg3;
+- (_Bool)shouldAsynchrounouslyLoadArtworkForItemWithIdentifier:(long long)arg1 artworkFormat:(long long)arg2 artworkCacheID:(id)arg3;
 - (void)loadBestArtworkImageForSize:(struct CGSize)arg1 forArtworkCacheID:(id)arg2 completionBlock:(id)arg3;
-- (void)loadArtworkImageForFormat:(int)arg1 ofItemWithArtworkCacheID:(id)arg2 canUseSurfaceBackedImage:(BOOL)arg3 completionBlock:(id)arg4;
-- (void)loadArtworkImageForFormat:(int)arg1 ofItemWithIdentifier:(long long)arg2 completionBlock:(id)arg3;
+- (void)loadArtworkImageForFormat:(long long)arg1 ofItemWithArtworkCacheID:(id)arg2 canUseSurfaceBackedImage:(_Bool)arg3 completionBlock:(id)arg4;
+- (void)loadArtworkImageForFormat:(long long)arg1 ofItemWithIdentifier:(long long)arg2 completionBlock:(id)arg3;
 - (void)loadBestArtworkImageDataForSize:(struct CGSize)arg1 ofItemWithIdentifier:(long long)arg2 atPlaybackTime:(double)arg3 completionBlock:(id)arg4;
 - (id)_itemArtworkCacheIDForItemIdentifier:(long long)arg1 atPlaybackTime:(double)arg2;
 - (id)_itemArtworkCacheIDForItemIdentifier:(long long)arg1;
 - (id)_screenshotCacheIDForItemIdentifier:(long long)arg1;
-- (void)_loadArtworkImageForMLArtworkFormatID:(unsigned int)arg1 artworkCacheID:(id)arg2 canUseSurfaceBackedImage:(BOOL)arg3 completionBlock:(id)arg4;
+- (void)_loadArtworkImageForMLArtworkFormatID:(unsigned int)arg1 artworkCacheID:(id)arg2 canUseSurfaceBackedImage:(_Bool)arg3 completionBlock:(id)arg4;
+- (_Bool)_formatShouldUseNativeSize:(unsigned int)arg1;
+- (_Bool)_formatCanUsePipeline:(unsigned int)arg1;
 - (void)_loadArtworkImageDataForMLArtworkFormatID:(unsigned int)arg1 artworkCacheID:(id)arg2 completionBlock:(id)arg3;
 - (void)_seedCloudPlaylistWithTrack:(id)arg1 container:(id)arg2 completionBlock:(id)arg3;
 - (void)releaseGeniusClusterPlaylist:(void *)arg1;
-- (long long *)generateItemIdentifiersForGeniusClusterPlaylist:(void *)arg1 count:(unsigned int *)arg2 error:(id *)arg3;
-- (void *)createGeniusClusterPlaylistWithSeedItemIdentifiers:(long long *)arg1 count:(unsigned int)arg2 error:(id *)arg3;
+- (long long *)generateItemIdentifiersForGeniusClusterPlaylist:(void *)arg1 count:(unsigned long long *)arg2 error:(id *)arg3;
+- (void *)createGeniusClusterPlaylistWithSeedItemIdentifiers:(long long *)arg1 count:(unsigned long long)arg2 error:(id *)arg3;
 - (void)seedPlaylistWithIdentifier:(long long)arg1 withItemWithIdentifier:(long long)arg2 completionBlock:(id)arg3;
-- (BOOL)isGeniusEnabled;
+- (_Bool)isGeniusEnabled;
+- (void)_initInstanceVariableOnce;
+- (id)initWithLibrary:(id)arg1;
 
 @end
 

@@ -12,20 +12,20 @@
 {
     EKDayViewContentItem *_temporaryOccurrenceAtBeginning;
     EKDayViewContentItem *_temporaryOccurrenceAtEnd;
-    BOOL _useTemporaryFitnessLevel;
-    BOOL _temporaryFitnessLevelRequiresCalculation;
+    _Bool _useTemporaryFitnessLevel;
+    _Bool _temporaryFitnessLevelRequiresCalculation;
     double _temporaryFitnessLevel;
-    BOOL _originalFitnessLevelRequiresCalculation;
+    _Bool _originalFitnessLevelRequiresCalculation;
     double _originalFitnessLevel;
-    BOOL _ignoreFirstOccurrenceInFitnessCalculations;
-    BOOL _ignoreLastOccurrenceInFitnessCalculations;
-    BOOL _isOnlyBucket;
+    _Bool _ignoreFirstOccurrenceInFitnessCalculations;
+    _Bool _ignoreLastOccurrenceInFitnessCalculations;
+    _Bool _isOnlyBucket;
     EKUISingleDayTimelineLayoutPartition *_correspondingPartition;
     NSMutableArray *_currentOccurrences;
 }
 
 @property(retain, nonatomic) NSMutableArray *currentOccurrences; // @synthesize currentOccurrences=_currentOccurrences;
-@property(nonatomic) BOOL isOnlyBucket; // @synthesize isOnlyBucket=_isOnlyBucket;
+@property(nonatomic) _Bool isOnlyBucket; // @synthesize isOnlyBucket=_isOnlyBucket;
 @property(retain, nonatomic) EKUISingleDayTimelineLayoutPartition *correspondingPartition; // @synthesize correspondingPartition=_correspondingPartition;
 - (void).cxx_destruct;
 - (void)stampFramesOntoOccurrences;

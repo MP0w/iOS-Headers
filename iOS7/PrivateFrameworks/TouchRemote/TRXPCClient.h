@@ -20,7 +20,7 @@
 - (void).cxx_destruct;
 - (id)remoteDaemonProxyWithErrorHandler:(id)arg1;
 @property(readonly, nonatomic) id <TRXPCDaemonExportedInterface> remoteDaemonProxy;
-- (void)connection:(id)arg1 handleInvocation:(id)arg2 isReply:(BOOL)arg3;
+- (void)connection:(id)arg1 handleInvocation:(id)arg2 isReply:(_Bool)arg3;
 - (void)dealloc;
 - (id)_init;
 - (id)init;

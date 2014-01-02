@@ -13,14 +13,16 @@
     UIView *_cell;
     SKUIClientContext *_clientContext;
     UIView *_contentView;
+    _Bool _parentWantsCellNeedsLayout;
 }
 
 @property(readonly, nonatomic) UIView *parentCellView; // @synthesize parentCellView=_cell;
 @property(readonly, nonatomic) UIView *contentView; // @synthesize contentView=_contentView;
 @property(retain, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
 - (void).cxx_destruct;
-- (void)setSelected:(BOOL)arg1;
-- (void)setHighlighted:(BOOL)arg1;
+- (void)setSelected:(_Bool)arg1;
+- (void)setNeedsLayout;
+- (void)setHighlighted:(_Bool)arg1;
 - (void)setColoringWithColorScheme:(id)arg1;
 - (void)setBackgroundColor:(id)arg1;
 - (void)prepareForReuse;

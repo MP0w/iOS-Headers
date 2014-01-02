@@ -9,7 +9,7 @@
 @class NSSet;
 
 @protocol CoreDAVContainerMultiGetSubmittable <CoreDAVSubmittable>
-@property(nonatomic) BOOL shouldIgnoreResponseErrors;
+@property(nonatomic) _Bool shouldIgnoreResponseErrors;
 @property(readonly, nonatomic) NSSet *parsedContents;
 @property(readonly, nonatomic) NSSet *deletedURLs;
 @property(readonly, nonatomic) NSSet *missingURLs;

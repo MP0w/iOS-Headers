@@ -8,10 +8,10 @@
 
 @interface UINavigationController (CKAdditions)
 - (void)__ck_callDelegateBlocks;
-- (id)__ck_popToRootViewControllerAnimated:(BOOL)arg1 completion:(id)arg2;
-- (id)__ck_popToViewController:(id)arg1 animated:(BOOL)arg2 completion:(id)arg3;
-- (id)__ck_popViewControllerAnimated:(BOOL)arg1 completion:(id)arg2;
-- (void)__ck_pushViewController:(id)arg1 animated:(BOOL)arg2 completion:(id)arg3;
+- (id)__ck_popToRootViewControllerAnimated:(_Bool)arg1 completion:(id)arg2;
+- (id)__ck_popToViewController:(id)arg1 animated:(_Bool)arg2 completion:(id)arg3;
+- (id)__ck_popViewControllerAnimated:(_Bool)arg1 completion:(id)arg2;
+- (void)__ck_pushViewController:(id)arg1 animated:(_Bool)arg2 completion:(id)arg3;
 - (void)__ck_enqueueCompletionBlock:(id)arg1;
 @end
 

@@ -8,6 +8,7 @@
 
 @class EBReaderState;
 
+// Not exported
 @interface EBOfficeArtReaderState : OABReaderState
 {
     EBReaderState *mReaderState;

@@ -14,11 +14,11 @@
 {
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 + (id)voiceWithLanguage:(id)arg1;
 + (id)currentLanguageCode;
 + (id)speechVoices;
-+ (void)load;
++ (void)initialize;
 - (void)dealloc;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

@@ -12,7 +12,7 @@
 
 @interface ABPersonOverlayingContainerView : UIScrollView <ABPersonTabsScrollView>
 {
-    float _minimumBottomInset;
+    double _minimumBottomInset;
     struct UIEdgeInsets _savedContentInset;
     UIView *_backgroundView;
     UIView *_abContentView;
@@ -26,7 +26,7 @@
 - (void)setFrame:(struct CGRect)arg1;
 - (void)dealloc;
 - (void)setContentInset:(struct UIEdgeInsets)arg1;
-@property(nonatomic) float minimumBottomInset;
+@property(nonatomic) double minimumBottomInset;
 - (void)setContentOffset:(struct CGPoint)arg1;
 - (void)_updateContentFrameAndSize;
 

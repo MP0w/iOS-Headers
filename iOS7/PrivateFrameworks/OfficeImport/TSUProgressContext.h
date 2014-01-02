@@ -8,6 +8,7 @@
 
 @class NSDate, TSUProgressStage;
 
+// Not exported
 @interface TSUProgressContext : NSObject
 {
     TSUProgressStage *m_currentStage;
@@ -29,10 +30,6 @@
 - (id)addProgressObserverBlock:(id)arg1;
 - (void)addProgressObserver:(id)arg1 selector:(SEL)arg2;
 - (void)reset;
-- (void)reportProgress:(double)arg1 overallProgress:(double)arg2;
-- (id)currentStage;
-- (void)dealloc;
-- (id)init;
 
 @end
 

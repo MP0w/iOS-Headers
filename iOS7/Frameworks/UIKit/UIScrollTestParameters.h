@@ -8,6 +8,7 @@
 
 @class CADisplayLink, NSString;
 
+// Not exported
 @interface UIScrollTestParameters : NSObject
 {
     int _iterations;

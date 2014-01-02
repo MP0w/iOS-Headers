@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface WMListLevelTextToken : NSObject
 {
     NSString *m_string;

@@ -9,7 +9,7 @@
 @interface UIFont (CKUtilities)
 + (id)__ck_shortEmphasizedPreferredFontForTextStyle:(id)arg1;
 + (id)__ck_emphasizedPreferredFontForTextStyle:(id)arg1;
++ (id)__ck_shortDefaultFontForTextStyle:(id)arg1;
 + (id)__ck_shortPreferredFontForTextStyle:(id)arg1;
-- (float)__ck_hiLeading;
 @end
 

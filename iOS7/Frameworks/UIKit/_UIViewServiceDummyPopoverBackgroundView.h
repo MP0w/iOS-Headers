@@ -6,23 +6,24 @@
 
 #import <UIKit/UIPopoverBackgroundView.h>
 
+// Not exported
 @interface _UIViewServiceDummyPopoverBackgroundView : UIPopoverBackgroundView
 {
-    float arrowOffset;
-    unsigned int arrowDirection;
+    double arrowOffset;
+    unsigned long long arrowDirection;
 }
 
-+ (BOOL)wantsDefaultContentAppearance;
++ (_Bool)wantsDefaultContentAppearance;
 + (struct UIEdgeInsets)contentViewInsets;
-+ (float)arrowBase;
-+ (float)arrowHeight;
-- (void)setArrowDirection:(unsigned int)arg1;
-- (unsigned int)arrowDirection;
-- (void)setArrowOffset:(float)arg1;
-- (float)arrowOffset;
++ (double)arrowBase;
++ (double)arrowHeight;
+- (void)setArrowDirection:(unsigned long long)arg1;
+- (unsigned long long)arrowDirection;
+- (void)setArrowOffset:(double)arg1;
+- (double)arrowOffset;
 - (struct CGSize)_shadowOffset;
-- (float)_shadowRadius;
-- (float)_shadowOpacity;
+- (double)_shadowRadius;
+- (double)_shadowOpacity;
 
 @end
 

@@ -8,6 +8,7 @@
 
 @class UILabel, UITextView;
 
+// Not exported
 @interface EKEventDetailURLCell : EKEventDetailCell
 {
     UILabel *_URLTitleView;
@@ -17,10 +18,10 @@
 - (void).cxx_destruct;
 - (id)_URLView;
 - (id)_URLTitleView;
-- (void)layoutForWidth:(float)arg1 position:(int)arg2;
-- (BOOL)update;
+- (void)layoutForWidth:(double)arg1 position:(int)arg2;
+- (_Bool)update;
 - (void)setURL:(id)arg1;
-- (id)initWithEvent:(id)arg1 editable:(BOOL)arg2 style:(int)arg3;
+- (id)initWithEvent:(id)arg1 editable:(_Bool)arg2 style:(long long)arg3;
 
 @end
 

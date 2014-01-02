@@ -18,7 +18,7 @@
         unsigned int immutable:1;
         unsigned int :27;
     } flags;
-    unsigned int length;
+    unsigned long long length;
     union {
         struct {
             NSData *data;
@@ -30,27 +30,26 @@
     } contents;
 }
 
-+ (void)initialize;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)_createSubstringWithRange:(struct _NSRange)arg1;
 - (id)_newSubstringWithRange:(struct _NSRange)arg1 zone:(struct _NSZone *)arg2;
-- (id)_newBigSubstringWithRange:(struct _NSRange)arg1 wantsMutable:(BOOL)arg2 zone:(struct _NSZone *)arg3;
+- (id)_newBigSubstringWithRange:(struct _NSRange)arg1 wantsMutable:(_Bool)arg2 zone:(struct _NSZone *)arg3;
 - (id)_newSmallImmutableSubstringWithRange:(struct _NSRange)arg1 zone:(struct _NSZone *)arg2;
-- (BOOL)_isCString;
+- (_Bool)_isCString;
 - (void)replaceCharactersInRange:(struct _NSRange)arg1 withString:(id)arg2;
 - (void)getCharacters:(unsigned short *)arg1 range:(struct _NSRange)arg2;
-- (unsigned short)characterAtIndex:(unsigned int)arg1;
-- (unsigned int)length;
-- (BOOL)_setData:(id)arg1 encoding:(unsigned int)arg2;
-- (BOOL)_setStorage:(struct __CFStorage *)arg1 encoding:(unsigned int)arg2;
-- (BOOL)_copyStorage:(struct __CFStorage **)arg1 encoding:(unsigned int *)arg2;
-- (BOOL)_getData:(id *)arg1 encoding:(unsigned int *)arg2;
-- (BOOL)_isMarkedAsImmutable;
+- (unsigned short)characterAtIndex:(unsigned long long)arg1;
+- (unsigned long long)length;
+- (_Bool)_setData:(id)arg1 encoding:(unsigned long long)arg2;
+- (_Bool)_setStorage:(struct __CFStorage *)arg1 encoding:(unsigned long long)arg2;
+- (_Bool)_copyStorage:(struct __CFStorage **)arg1 encoding:(unsigned long long *)arg2;
+- (_Bool)_getData:(id *)arg1 encoding:(unsigned long long *)arg2;
+- (_Bool)_isMarkedAsImmutable;
 - (void)_markAsImmutable;
 - (void)_checkForInvalidMutationWithSelector:(SEL)arg1;
 - (void)dealloc;
-- (id)initWithStorage:(struct __CFStorage *)arg1 length:(unsigned int)arg2 isUnicode:(BOOL)arg3;
+- (id)initWithStorage:(struct __CFStorage *)arg1 length:(unsigned long long)arg2 isUnicode:(_Bool)arg3;
 - (id)initWithString:(id)arg1;
 
 @end

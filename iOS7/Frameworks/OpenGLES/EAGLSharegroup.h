@@ -16,12 +16,12 @@
 
 @property(copy, nonatomic) NSString *debugLabel; // @synthesize debugLabel;
 - (struct __GLISharedRec *)getGLIShared;
-- (unsigned int)APIs;
+- (unsigned long long)APIs;
 - (void)dealloc;
-- (id)initWithAPI:(unsigned int)arg1 sharedWithCompute:(BOOL)arg2;
-- (id)initWithAPI:(unsigned int)arg1;
+- (id)initWithAPI:(unsigned long long)arg1 sharedWithCompute:(_Bool)arg2;
+- (id)initWithAPI:(unsigned long long)arg1;
 - (id)init;
-- (void)loadGLIPlugin:(struct __GLDPixelFormatRec *)arg1 sharedWithCompute:(BOOL)arg2;
+- (void)loadGLIPlugin:(struct __GLDPixelFormatRec *)arg1 sharedWithCompute:(_Bool)arg2;
 
 @end
 

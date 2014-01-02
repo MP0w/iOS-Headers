@@ -33,9 +33,9 @@
 - (id)copyMkcolTask;
 - (id)copyPropPatchTask;
 - (id)_appleAttributesString;
-@property BOOL isBookmarkMenuFolder; // @dynamic isBookmarkMenuFolder;
-@property BOOL isBookmarkBarFolder; // @dynamic isBookmarkBarFolder;
-@property BOOL isBookmarkFolder; // @dynamic isBookmarkFolder;
+@property _Bool isBookmarkMenuFolder; // @dynamic isBookmarkMenuFolder;
+@property _Bool isBookmarkBarFolder; // @dynamic isBookmarkBarFolder;
+@property _Bool isBookmarkFolder; // @dynamic isBookmarkFolder;
 - (void)_faultResourceType;
 - (void)applyParsedProperties:(id)arg1;
 - (void)dealloc;

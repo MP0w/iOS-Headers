@@ -15,7 +15,7 @@
 
 @property(readonly) NSAttributedString *inString; // @synthesize inString=_inString;
 - (id)parser:(id)arg1 preprocessedAttributesForAttributes:(id)arg2 range:(struct _NSRange)arg3;
-@property(readonly) BOOL shouldPreprocess;
+@property(readonly) _Bool shouldPreprocess;
 - (void)parserDidEnd:(id)arg1;
 - (void)parser:(id)arg1 foundAttributes:(id)arg2 inRange:(struct _NSRange)arg3;
 - (void)parserDidStart:(id)arg1;

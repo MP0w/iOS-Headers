@@ -11,7 +11,7 @@
 @interface SKProductInternal : NSObject
 {
     NSString *_contentVersion;
-    BOOL _downloadable;
+    _Bool _downloadable;
     NSArray *_downloadContentLengths;
     NSString *_localeIdentifier;
     NSString *_localizedDescription;

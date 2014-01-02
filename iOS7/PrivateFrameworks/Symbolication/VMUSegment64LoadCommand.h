@@ -10,7 +10,7 @@
 {
 }
 
-- (BOOL)isSegment64;
+- (_Bool)isSegment64;
 - (id)initWithMemory:(id)arg1;
 
 @end

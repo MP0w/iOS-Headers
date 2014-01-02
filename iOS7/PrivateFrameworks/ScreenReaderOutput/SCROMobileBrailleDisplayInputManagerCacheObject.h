@@ -8,6 +8,7 @@
 
 @class NSBundle, NSMutableArray, NSMutableDictionary, NSString;
 
+// Not exported
 @interface SCROMobileBrailleDisplayInputManagerCacheObject : NSObject
 {
     NSString *_driverIdentifier;

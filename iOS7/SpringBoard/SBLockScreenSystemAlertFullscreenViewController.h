@@ -4,14 +4,13 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "UIViewController.h"
+#import "SBLockOverlayViewController.h"
 
-#import "SBLockOverlayViewController-Protocol.h"
 #import "SBLockOverlayViewDelegate-Protocol.h"
 
 @class NSString, SBLockOverlayView, SBSystemLocalNotificationAlert;
 
-@interface SBLockScreenSystemAlertFullscreenViewController : UIViewController <SBLockOverlayViewDelegate, SBLockOverlayViewController>
+@interface SBLockScreenSystemAlertFullscreenViewController : SBLockOverlayViewController <SBLockOverlayViewDelegate>
 {
     SBSystemLocalNotificationAlert *_alertItem;
     SBLockOverlayView *_fullscreenAlertView;
@@ -25,7 +24,6 @@
 - (void)handleTapGestureFromView:(id)arg1;
 - (void)deactivateAlertItem;
 - (void)performUnlockAction;
-- (id)overlayView;
 - (void)loadView;
 - (void)dealloc;
 - (id)initWithSystemNotification:(id)arg1 title:(id)arg2 subtitle:(id)arg3;

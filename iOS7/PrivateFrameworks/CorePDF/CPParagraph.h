@@ -10,39 +10,39 @@
 
 @interface CPParagraph : CPRegion
 {
-    BOOL noIndentation;
-    BOOL below;
-    unsigned int alignment;
-    BOOL hasDropCap;
+    _Bool noIndentation;
+    _Bool below;
+    unsigned long long alignment;
+    _Bool hasDropCap;
     id flowProperties;
     CPListItem *listItem;
-    float preformatWidth;
+    double preformatWidth;
 }
 
 @property(retain, nonatomic) CPListItem *listItem; // @synthesize listItem;
-- (BOOL)isPreformattedWithUnitWidth:(float *)arg1;
-- (void)setAlignment:(unsigned int)arg1;
-- (unsigned int)alignment;
-- (BOOL)below;
-- (void)setBelow:(BOOL)arg1;
-- (float)selectionBottom;
+- (_Bool)isPreformattedWithUnitWidth:(double *)arg1;
+- (void)setAlignment:(unsigned long long)arg1;
+- (unsigned long long)alignment;
+- (_Bool)below;
+- (void)setBelow:(_Bool)arg1;
+- (double)selectionBottom;
 - (struct CGRect)reducedBounds;
 - (void)explode;
-- (void)setHasDropCap:(BOOL)arg1;
-- (BOOL)hasDropCap;
-- (BOOL)noIndentation;
-- (void)setNoIndentation:(BOOL)arg1;
-- (BOOL)isShapeRegion;
-- (BOOL)isImageRegion;
-- (void)setIsImageRegion:(BOOL)arg1;
-- (BOOL)isRowRegion;
-- (BOOL)isGraphicalRegion;
-- (BOOL)isBoxRegion;
-- (void)setIsTextRegion:(BOOL)arg1;
-- (BOOL)isTextRegion;
-- (unsigned int)index;
-- (BOOL)isListItemRegion;
-- (BOOL)isParagraphRegion;
+- (void)setHasDropCap:(_Bool)arg1;
+- (_Bool)hasDropCap;
+- (_Bool)noIndentation;
+- (void)setNoIndentation:(_Bool)arg1;
+- (_Bool)isShapeRegion;
+- (_Bool)isImageRegion;
+- (void)setIsImageRegion:(_Bool)arg1;
+- (_Bool)isRowRegion;
+- (_Bool)isGraphicalRegion;
+- (_Bool)isBoxRegion;
+- (void)setIsTextRegion:(_Bool)arg1;
+- (_Bool)isTextRegion;
+- (unsigned long long)index;
+- (_Bool)isListItemRegion;
+- (_Bool)isParagraphRegion;
 - (void)accept:(id)arg1;
 - (void)setFlowProperties:(id)arg1;
 - (id)flowProperties;

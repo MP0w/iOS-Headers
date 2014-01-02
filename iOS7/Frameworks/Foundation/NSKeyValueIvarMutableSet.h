@@ -6,12 +6,13 @@
 
 #import <Foundation/NSKeyValueMutableSet.h>
 
+// Not exported
 @interface NSKeyValueIvarMutableSet : NSKeyValueMutableSet
 {
     struct objc_ivar *_ivar;
 }
 
-+ (CDStruct_e8a1eea0 *)_proxyNonGCPoolPointer;
++ (CDStruct_7c9a8e9f *)_proxyNonGCPoolPointer;
 - (void)unionSet:(id)arg1;
 - (void)setSet:(id)arg1;
 - (void)removeObject:(id)arg1;
@@ -22,7 +23,7 @@
 - (void)addObject:(id)arg1;
 - (id)objectEnumerator;
 - (id)member:(id)arg1;
-- (unsigned int)count;
+- (unsigned long long)count;
 - (void)_proxyNonGCFinalize;
 - (id)_proxyInitWithContainer:(id)arg1 getter:(id)arg2;
 

@@ -10,6 +10,7 @@
 
 @class CIImage, NSNumber;
 
+// Not exported
 @interface CIFaceBalance : CIFilter <_CIFilterProperties>
 {
     CIImage *inputImage;
@@ -28,7 +29,7 @@
 - (id)_initFromProperties:(id)arg1;
 - (id)_outputProperties;
 - (id)outputImage;
-- (BOOL)_isIdentity;
+- (_Bool)_isIdentity;
 - (id)_kernel;
 - (void)setDefaults;
 

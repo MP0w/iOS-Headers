@@ -16,9 +16,9 @@
     ABContactAction *_sendingAction;
 }
 
-@property(nonatomic) ABContactAction *sendingAction; // @synthesize sendingAction=_sendingAction;
+@property(retain, nonatomic) ABContactAction *sendingAction; // @synthesize sendingAction=_sendingAction;
 @property(retain, nonatomic) ABPropertyGroupItem *propertyItem; // @synthesize propertyItem=_propertyItem;
-- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (void)saveFavoriteWithType:(int)arg1;
 
 @end

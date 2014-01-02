@@ -36,8 +36,8 @@
 - (unsigned long long)addr;
 - (id)segmentName;
 - (id)sectionName;
-- (BOOL)isSection64;
-- (BOOL)isSection32;
+- (_Bool)isSection64;
+- (_Bool)isSection32;
 
 @end
 

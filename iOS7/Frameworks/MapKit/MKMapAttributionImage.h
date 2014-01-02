@@ -8,15 +8,16 @@
 
 @class NSString;
 
+// Not exported
 @interface MKMapAttributionImage : NSObject
 {
     NSString *_hidpiImageName;
     NSString *_lodpiImageName;
 }
 
-- (id)imageNameForScale:(float)arg1;
+- (id)imageNameForScale:(double)arg1;
 - (void)dealloc;
-- (id)initWithAttributions:(id)arg1 type:(int)arg2;
+- (id)initWithAttributions:(id)arg1 type:(long long)arg2;
 
 @end
 

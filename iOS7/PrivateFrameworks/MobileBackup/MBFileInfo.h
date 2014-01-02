@@ -13,16 +13,16 @@
 
 @interface MBFileInfo : NSObject <NSCopying, NSCoding>
 {
-    BOOL _isDirectory;
+    _Bool _isDirectory;
     NSString *_path;
-    int _priority;
+    long long _priority;
     NSDictionary *_extendedAttributes;
 }
 
 + (id)fileInfoWithPath:(id)arg1 extendedAttributes:(id)arg2;
 @property(copy, nonatomic) NSDictionary *extendedAttributes; // @synthesize extendedAttributes=_extendedAttributes;
-@property(nonatomic) int priority; // @synthesize priority=_priority;
-@property(nonatomic) BOOL isDirectory; // @synthesize isDirectory=_isDirectory;
+@property(nonatomic) long long priority; // @synthesize priority=_priority;
+@property(nonatomic) _Bool isDirectory; // @synthesize isDirectory=_isDirectory;
 @property(copy, nonatomic) NSString *path; // @synthesize path=_path;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;

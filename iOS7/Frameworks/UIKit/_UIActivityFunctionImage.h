@@ -6,6 +6,7 @@
 
 #import <UIKit/UIImage.h>
 
+// Not exported
 @interface _UIActivityFunctionImage : UIImage
 {
 }

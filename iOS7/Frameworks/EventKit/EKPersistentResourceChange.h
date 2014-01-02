@@ -8,6 +8,7 @@
 
 @class EKPersistentCalendar, EKPersistentCalendarItem, NSDate, NSNumber, NSString, NSURL;
 
+// Not exported
 @interface EKPersistentResourceChange : EKPersistentObject
 {
 }
@@ -15,7 +16,7 @@
 + (id)relations;
 + (id)defaultPropertiesToLoad;
 @property(readonly, nonatomic) unsigned int publicStatus;
-@property(readonly, nonatomic) BOOL alerted;
+@property(readonly, nonatomic) _Bool alerted;
 @property(readonly, nonatomic) NSString *deletedTitle;
 @property(readonly, nonatomic) unsigned int changedProperties;
 @property(readonly, nonatomic) NSNumber *deleteCount;

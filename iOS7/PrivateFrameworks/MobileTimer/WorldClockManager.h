@@ -10,7 +10,7 @@
 
 @interface WorldClockManager : NSObject
 {
-    BOOL _dirty;
+    _Bool _dirty;
     NSMutableArray *_cities;
     NSDate *lastModified;
 }
@@ -18,14 +18,14 @@
 + (id)sharedManager;
 @property(retain, nonatomic) NSDate *lastModified; // @synthesize lastModified;
 @property(readonly, nonatomic) NSArray *cities; // @synthesize cities=_cities;
-- (void)moveCityFromIndex:(unsigned int)arg1 toIndex:(unsigned int)arg2;
+- (void)moveCityFromIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
 - (void)removeAllCities;
-- (void)removeCityAtIndex:(unsigned int)arg1;
+- (void)removeCityAtIndex:(unsigned long long)arg1;
 - (void)removeCity:(id)arg1;
-- (unsigned int)addCity:(id)arg1;
-- (BOOL)canAddCity;
+- (unsigned long long)addCity:(id)arg1;
+- (_Bool)canAddCity;
 - (id)cityWithIdUrl:(id)arg1;
-- (BOOL)checkIfCitiesModified;
+- (_Bool)checkIfCitiesModified;
 - (void)saveCities;
 - (void)loadCities;
 - (void)dealloc;

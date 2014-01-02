@@ -6,6 +6,7 @@
 
 #import <OfficeImport/MFPEffect.h>
 
+// Not exported
 @interface MFPTintEffect : MFPEffect
 {
     int mHue;

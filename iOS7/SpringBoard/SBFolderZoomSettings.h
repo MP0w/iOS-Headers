@@ -6,15 +6,15 @@
 
 #import "SBScaleZoomSettings.h"
 
-@class SBAnimationSettings;
+@class SBFAnimationSettings;
 
 @interface SBFolderZoomSettings : SBScaleZoomSettings
 {
-    SBAnimationSettings *_innerFolderFadeSettings;
+    SBFAnimationSettings *_innerFolderFadeSettings;
 }
 
 + (id)settingsControllerModule;
-@property(retain) SBAnimationSettings *innerFolderFadeSettings; // @synthesize innerFolderFadeSettings=_innerFolderFadeSettings;
+@property(retain) SBFAnimationSettings *innerFolderFadeSettings; // @synthesize innerFolderFadeSettings=_innerFolderFadeSettings;
 - (void)setDefaultValues;
 
 @end

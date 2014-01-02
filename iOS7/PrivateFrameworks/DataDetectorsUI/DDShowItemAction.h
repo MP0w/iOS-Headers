@@ -6,6 +6,7 @@
 
 #import <DataDetectorsUI/DDAction.h>
 
+// Not exported
 @interface DDShowItemAction : DDAction
 {
 }

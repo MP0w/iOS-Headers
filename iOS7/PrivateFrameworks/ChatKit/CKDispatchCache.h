@@ -17,10 +17,10 @@
     NSMutableDictionary *_pendingGroups;
     CKDispatchQueue *_dispatchQueue;
     NSObject<OS_dispatch_queue> *_lockQueue;
-    long _dispatchPriority;
+    long long _dispatchPriority;
 }
 
-@property(nonatomic) long dispatchPriority; // @synthesize dispatchPriority=_dispatchPriority;
+@property(nonatomic) long long dispatchPriority; // @synthesize dispatchPriority=_dispatchPriority;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *lockQueue; // @synthesize lockQueue=_lockQueue;
 @property(retain, nonatomic) CKDispatchQueue *dispatchQueue; // @synthesize dispatchQueue=_dispatchQueue;
 @property(retain, nonatomic) NSMutableDictionary *pendingGroups; // @synthesize pendingGroups=_pendingGroups;
@@ -30,18 +30,18 @@
 - (void)systemApplicationDidSuspend;
 - (void)clearQueue;
 - (void)resume;
-- (BOOL)waitOnGenerationForKey:(id)arg1;
+- (_Bool)waitOnGenerationForKey:(id)arg1;
 - (void)endGeneratingForKey:(id)arg1;
 - (void)_endGeneratingForKeyUnlocked:(id)arg1;
 - (void)beginGeneratingForKey:(id)arg1;
 - (void)_beginGeneratingForKeyUnlocked:(id)arg1;
-- (BOOL)isGeneratingForKey:(id)arg1;
+- (_Bool)isGeneratingForKey:(id)arg1;
 - (void)enqueueGenerationBlock:(id)arg1 completion:(void)arg2 withPriority:(id)arg3 forKey:(void)arg4;
 - (void)enqueueBlock:(id)arg1 withPriority:(void)arg2;
 - (void)setCachedObject:(id)arg1 forKey:(id)arg2;
 - (id)cachedObjectForKey:(id)arg1;
 - (void)dealloc;
-- (id)initWithCacheLimit:(unsigned int)arg1 dispatchPriority:(long)arg2;
+- (id)initWithCacheLimit:(unsigned long long)arg1 dispatchPriority:(long long)arg2;
 - (id)init;
 
 @end

@@ -10,32 +10,26 @@
 
 @class EDResources;
 
+// Not exported
 @interface EDColorReference : NSObject <NSCopying>
 {
     EDResources *mResources;
     int mSystemColorID;
-    unsigned int mColorIndex;
-    unsigned int mThemeIndex;
+    unsigned long long mColorIndex;
+    unsigned long long mThemeIndex;
     double mTint;
 }
 
 + (id)colorReferenceWithColor:(id)arg1 resources:(id)arg2;
 + (id)colorReferenceWithResources:(id)arg1;
-+ (id)colorReferenceWithThemeIndex:(unsigned int)arg1 tint:(double)arg2 resources:(id)arg3;
-+ (id)colorReferenceWithColorIndex:(unsigned int)arg1 resources:(id)arg2;
-+ (id)colorReferenceWithSystemColorID:(int)arg1 resources:(id)arg2;
 - (_Bool)isValid;
 - (id)color;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isEqualToColorReference:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)isEqualToColorReference:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithColor:(id)arg1 resources:(id)arg2;
 - (id)initWithResources:(id)arg1;
-- (double)tint;
-- (unsigned int)themeIndex;
-- (unsigned int)colorIndex;
-- (int)systemColorID;
 
 @end
 

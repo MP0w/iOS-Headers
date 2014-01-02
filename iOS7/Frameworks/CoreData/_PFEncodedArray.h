@@ -8,6 +8,7 @@
 
 @class NSData;
 
+// Not exported
 @interface _PFEncodedArray : NSArray
 {
     NSData *_sourceData;
@@ -16,17 +17,17 @@
 }
 
 - (const id *)_values;
-- (void)_replaceObject:(id)arg1 atIndex:(unsigned int)arg2;
-- (id)objectAtIndex:(unsigned int)arg1;
-- (unsigned int)count;
+- (void)_replaceObject:(id)arg1 atIndex:(unsigned long long)arg2;
+- (id)objectAtIndex:(unsigned long long)arg1;
+- (unsigned long long)count;
 - (id)mutableCopy;
 - (Class)classForArchiver;
 - (Class)classForCoder;
 - (id)copy;
 - (id)description;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
-- (unsigned int)retainCount;
+- (_Bool)_isDeallocating;
+- (_Bool)_tryRetain;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;
 - (void)dealloc;

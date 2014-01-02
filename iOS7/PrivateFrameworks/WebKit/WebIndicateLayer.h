@@ -8,6 +8,7 @@
 
 @class WebView;
 
+// Not exported
 @interface WebIndicateLayer : CALayer
 {
     WebView *_webView;

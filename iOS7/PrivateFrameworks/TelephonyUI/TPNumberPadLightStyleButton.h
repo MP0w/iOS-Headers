@@ -10,20 +10,19 @@
 {
 }
 
-+ (BOOL)usesTelephonyGlyphsWhereAvailable;
-+ (float)unhighlightCrossfadeHighlightFadeDuration;
-+ (float)unhighlightCrossfadeNormalFadeDuration;
-+ (float)unhighlightCrossfadeHighlightBeginTime;
-+ (float)unhighlightCrossfadeNormalBeginTime;
-+ (float)highlightCrossfadeHighlightFadeDuration;
-+ (float)highlightCrossfadeNormalFadeDuration;
-+ (float)highlightCrossfadeHighlightBeginTime;
-+ (float)highlightCrossfadeNormalBeginTime;
-+ (id)imageKeyForCharacter:(unsigned int)arg1;
-+ (id)colorForHighlightedKeypadGlyphs;
-+ (id)colorForKeypadGlyphs;
-+ (float)horizontalPadding;
-+ (float)verticalPadding;
++ (_Bool)usesTelephonyGlyphsWhereAvailable;
++ (double)unhighlightCrossfadeHighlightFadeDuration;
++ (double)unhighlightCrossfadeNormalFadeDuration;
++ (double)unhighlightCrossfadeHighlightBeginTime;
++ (double)unhighlightCrossfadeNormalBeginTime;
++ (double)highlightCrossfadeHighlightFadeDuration;
++ (double)highlightCrossfadeNormalFadeDuration;
++ (double)highlightCrossfadeHighlightBeginTime;
++ (double)highlightCrossfadeNormalBeginTime;
++ (double)horizontalPadding;
++ (double)verticalPadding;
++ (id)imageForCharacter:(unsigned int)arg1 highlighted:(_Bool)arg2;
++ (id)imageForCharacter:(unsigned int)arg1;
 - (id)initForCharacter:(unsigned int)arg1;
 - (id)defaultColor;
 

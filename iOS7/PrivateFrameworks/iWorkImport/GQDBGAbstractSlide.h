@@ -8,6 +8,7 @@
 
 @class GQDBGBodyPlaceholder, GQDBGObjectPlaceholder, GQDBGSlideNumberPlaceholder, GQDBGTitlePlaceholder, GQDSStyle, GQDSStylesheet;
 
+// Not exported
 @interface GQDBGAbstractSlide : NSObject
 {
     GQDSStylesheet *mStylesheet;
@@ -16,14 +17,14 @@
     GQDBGBodyPlaceholder *mBodyPlaceholder;
     GQDBGObjectPlaceholder *mObjectPlaceholder;
     GQDBGSlideNumberPlaceholder *mSlideNumberPlaceholder;
-    BOOL mHidden;
+    _Bool mHidden;
     char *mID;
-    BOOL mCallGenerator;
+    _Bool mCallGenerator;
 }
 
 - (int)readAttributesForSlide:(struct _xmlTextReader *)arg1;
 - (char *)ID;
-- (BOOL)isHidden;
+- (_Bool)isHidden;
 - (id)stylesheet;
 - (id)slideStyle;
 - (void)dealloc;

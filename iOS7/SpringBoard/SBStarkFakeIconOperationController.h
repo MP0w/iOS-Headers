@@ -14,7 +14,7 @@
 }
 
 - (void)addLaunchOperation:(id)arg1 withDisplayID:(void)arg2;
-- (BOOL)performOperationForFakeIconWithDisplayID:(id)arg1;
+- (_Bool)performOperationForFakeIconWithDisplayID:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

@@ -6,22 +6,19 @@
 
 #import "SBZoomView.h"
 
-@class NSMutableArray;
-
 @interface SBFullscreenZoomView : SBZoomView
 {
-    BOOL _hasImage;
-    BOOL _hasFullSizedImage;
-    int _corners;
-    NSMutableArray *_cornerViews;
+    _Bool _hasImage;
+    _Bool _hasFullSizedImage;
+    id _surface;
 }
 
-- (void)setRoundedCorners:(int)arg1 withCornersFrame:(struct CGRect)arg2;
 - (void)dealloc;
+- (id)surface;
 - (id)initWithView:(id)arg1 screen:(id)arg2;
 - (id)initWithImage:(id)arg1 screen:(id)arg2;
-- (id)initWithSnapshotFrame:(struct CGRect)arg1 screen:(id)arg2 ioSurface:(void *)arg3 snapshotTransform:(struct CGAffineTransform)arg4;
-- (id)initWithSnapshotFrame:(struct CGRect)arg1 screen:(id)arg2 image:(id)arg3 originalImageOrientation:(int)arg4 currentImageOrientation:(int)arg5 interfaceOrientation:(int)arg6 doubleHeightStatusBar:(BOOL)arg7 preventSplit:(BOOL)arg8 chrome:(id)arg9 chromeStatusBarHidden:(BOOL)arg10 needsZoomFilter:(BOOL)arg11 asyncDecodeImage:(BOOL)arg12;
+- (id)initWithSnapshotFrame:(struct CGRect)arg1 screen:(id)arg2 ioSurface:(void *)arg3 opaque:(_Bool)arg4 snapshotTransform:(struct CGAffineTransform)arg5;
+- (id)initWithSnapshotFrame:(struct CGRect)arg1 screen:(id)arg2 image:(id)arg3 originalImageOrientation:(long long)arg4 currentImageOrientation:(long long)arg5 interfaceOrientation:(long long)arg6 doubleHeightStatusBar:(_Bool)arg7 preventSplit:(_Bool)arg8 needsZoomFilter:(_Bool)arg9 asyncDecodeImage:(_Bool)arg10 blackMatForJail:(_Bool)arg11;
 - (id)_initWithFrame:(struct CGRect)arg1;
 
 @end

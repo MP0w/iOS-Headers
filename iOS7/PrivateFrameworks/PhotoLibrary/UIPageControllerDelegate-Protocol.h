@@ -13,6 +13,6 @@
 - (void)pageControllerWillBeginPaging:(id)arg1;
 - (id)pageController:(id)arg1 viewControllerRightOfController:(id)arg2;
 - (id)pageController:(id)arg1 viewControllerLeftOfController:(id)arg2;
-- (id)pageController:(id)arg1 viewControllerAtIndex:(int)arg2;
+- (id)pageController:(id)arg1 viewControllerAtIndex:(long long)arg2;
 @end
 

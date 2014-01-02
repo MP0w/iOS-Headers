@@ -13,38 +13,37 @@
 
 @interface SKKeyframeSequence : NSObject <NSCoding, NSCopying>
 {
-    unsigned int _count;
+    unsigned long long _count;
     NSMutableArray *_values;
     NSMutableArray *_times;
-    int _interpolationMode;
-    int _repeatMode;
+    long long _interpolationMode;
+    long long _repeatMode;
     struct SKCKeyframeSequence *_cKeyframeSequence;
 }
 
 - (void).cxx_destruct;
-- (float)getKeyframeTimeForIndex:(unsigned int)arg1;
-- (id)sampleAtTime:(float)arg1;
+- (double)getKeyframeTimeForIndex:(unsigned long long)arg1;
+- (id)sampleAtTime:(double)arg1;
 - (void)_dirtySKCKeyframeSequence;
 - (struct SKCKeyframeSequence *)_createSKCKeyframeSequence;
 - (Class)_valueClass;
-- (id)getKeyframeValueForIndex:(unsigned int)arg1;
-- (void)setKeyframeValue:(id)arg1 time:(float)arg2 forIndex:(unsigned int)arg3;
-- (void)setKeyframeTime:(float)arg1 forIndex:(unsigned int)arg2;
-- (void)setKeyframeValue:(id)arg1 forIndex:(unsigned int)arg2;
-- (void)removeKeyframeAtIndex:(unsigned int)arg1;
+- (id)getKeyframeValueForIndex:(unsigned long long)arg1;
+- (void)setKeyframeValue:(id)arg1 time:(double)arg2 forIndex:(unsigned long long)arg3;
+- (void)setKeyframeTime:(double)arg1 forIndex:(unsigned long long)arg2;
+- (void)setKeyframeValue:(id)arg1 forIndex:(unsigned long long)arg2;
+- (void)removeKeyframeAtIndex:(unsigned long long)arg1;
 - (void)removeAllKeyframes;
 - (void)removeLastKeyframe;
-- (void)addKeyframeValue:(id)arg1 time:(float)arg2;
-@property(nonatomic) int repeatMode;
-@property(nonatomic) int interpolationMode;
-- (unsigned int)count;
+- (void)addKeyframeValue:(id)arg1 time:(double)arg2;
+@property(nonatomic) long long repeatMode;
+@property(nonatomic) long long interpolationMode;
+- (unsigned long long)count;
 - (id)initWithKeyframeValues:(id)arg1 times:(id)arg2;
-- (id)initWithCapacity:(unsigned int)arg1;
+- (id)initWithCapacity:(unsigned long long)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)copy;
-- (id)initWithCount:(unsigned int)arg1;
 
 @end
 

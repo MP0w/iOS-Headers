@@ -15,20 +15,20 @@
     id <SKUIComposeReviewHeaderDelegate> _delegate;
     SKStarRatingControl *_ratingControl;
     SKUIReviewMetadata *_review;
-    BOOL _showNicknameField;
-    int _style;
+    _Bool _showNicknameField;
+    long long _style;
     SKUIComposeTextFieldListView *_textFieldListView;
 }
 
 @property(retain, nonatomic) SKUIReviewMetadata *review; // @synthesize review=_review;
 @property(nonatomic) __weak id <SKUIComposeReviewHeaderDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) int composeReviewStyle; // @synthesize composeReviewStyle=_style;
+@property(readonly, nonatomic) long long composeReviewStyle; // @synthesize composeReviewStyle=_style;
 - (void).cxx_destruct;
 - (void)textFieldListValuesDidChange:(id)arg1;
 - (void)textFieldListValidityDidChange:(id)arg1;
-- (id)textFieldList:(id)arg1 configurationForFieldAtIndex:(unsigned int)arg2;
-- (int)numberOfFieldsInTextFieldList:(id)arg1;
-- (int)numberOfColumnsInTextFieldList:(id)arg1;
+- (id)textFieldList:(id)arg1 configurationForFieldAtIndex:(unsigned long long)arg2;
+- (long long)numberOfFieldsInTextFieldList:(id)arg1;
+- (long long)numberOfColumnsInTextFieldList:(id)arg1;
 @property(readonly, nonatomic) NSString *title;
 @property(nonatomic) float rating;
 @property(readonly, nonatomic) NSString *nickname;
@@ -36,7 +36,7 @@
 - (void)sizeToFit;
 - (void)layoutSubviews;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 style:(int)arg2;
+- (id)initWithFrame:(struct CGRect)arg1 style:(long long)arg2;
 
 @end
 

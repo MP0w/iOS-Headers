@@ -22,7 +22,7 @@
 @property(retain) ICSDuration *duration; // @dynamic duration;
 @property(retain) ICSDate *last_modified; // @dynamic last_modified;
 @property(retain) ICSUserAddress *organizer; // @dynamic organizer;
-@property unsigned int sequence; // @dynamic sequence;
+@property unsigned long long sequence; // @dynamic sequence;
 @property(retain) NSString *summary; // @dynamic summary;
 @property(retain) NSString *uid; // @dynamic uid;
 @property(retain) NSURL *url; // @dynamic url;

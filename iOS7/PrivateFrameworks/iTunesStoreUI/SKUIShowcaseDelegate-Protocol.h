@@ -9,7 +9,7 @@
 @protocol SKUIShowcaseDelegate <NSObject>
 
 @optional
-- (void)showcase:(id)arg1 didSelectItem:(id)arg2 atIndex:(int)arg3;
-- (void)showcase:(id)arg1 didDisplayItemAtIndex:(int)arg2;
+- (void)showcase:(id)arg1 didSelectItem:(id)arg2 atIndex:(long long)arg3;
+- (void)showcase:(id)arg1 didDisplayItemAtIndex:(long long)arg2;
 @end
 

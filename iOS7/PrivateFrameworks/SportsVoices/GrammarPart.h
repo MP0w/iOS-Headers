@@ -23,7 +23,7 @@
 - (id)description;
 - (void)dealloc;
 - (void)genericSetUpFromPlist:(id)arg1;
-- (int)orderComparedTo:(id)arg1;
+- (long long)orderComparedTo:(id)arg1;
 
 @end
 

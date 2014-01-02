@@ -8,22 +8,24 @@
 
 @class NSAttributedString, NSString, UIColor, UILabel;
 
+// Not exported
 @interface UIPickerTableViewTitledCell : UIPickerTableViewCell
 {
     UILabel *_titleLabel;
-    BOOL _isAttributed;
-    BOOL _usesModernStyle;
+    _Bool _isAttributed;
+    _Bool _usesModernStyle;
     UIColor *_textColor;
 }
 
-@property(readonly, nonatomic) BOOL _isAttributed; // @synthesize _isAttributed;
+@property(readonly, nonatomic) _Bool _isAttributed; // @synthesize _isAttributed;
 @property(readonly, nonatomic) UILabel *_titleLabel; // @synthesize _titleLabel;
 - (void)prepareForReuse;
 @property(retain, nonatomic) NSAttributedString *attributedTitle;
 @property(retain, nonatomic) NSString *title;
+- (_Bool)_canBeReusedInPickerView;
 - (void)dealloc;
-- (void)_setIsCenterCell:(BOOL)arg1;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 isModern:(BOOL)arg3 textColor:(id)arg4;
+- (void)_setIsCenterCell:(_Bool)arg1 shouldModifyAlphaOfView:(_Bool)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 isModern:(_Bool)arg3 textColor:(id)arg4;
 
 @end
 

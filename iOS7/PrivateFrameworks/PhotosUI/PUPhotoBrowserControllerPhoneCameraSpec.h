@@ -10,7 +10,8 @@
 {
 }
 
-- (BOOL)isInCamera;
+- (unsigned long long)supportedInterfaceOrientations;
+- (_Bool)isInCamera;
 
 @end
 

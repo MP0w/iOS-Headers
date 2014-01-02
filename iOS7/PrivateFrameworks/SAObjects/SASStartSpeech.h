@@ -24,9 +24,11 @@
 @property(copy, nonatomic) NSString *headsetId;
 @property(copy, nonatomic) NSString *headsetAddress;
 @property(copy, nonatomic) NSString *dspStatus;
+@property(nonatomic) _Bool disableAutoEndpointing;
 @property(copy, nonatomic) NSString *deviceModel;
 @property(copy, nonatomic) NSString *deviceIdentifier;
 @property(nonatomic) int codec;
+@property(nonatomic) _Bool clearContext;
 @property(copy, nonatomic) NSString *audioSource;
 - (id)encodedClassName;
 - (id)groupIdentifier;

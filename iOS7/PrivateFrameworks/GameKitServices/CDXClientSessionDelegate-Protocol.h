@@ -5,6 +5,6 @@
  */
 
 @protocol CDXClientSessionDelegate
-- (void)CDXClientSession:(id)arg1 receivedData:(id)arg2 from:(int)arg3;
+- (void)CDXClientSession:(id)arg1 receivedData:(id)arg2 from:(long long)arg3;
 @end
 

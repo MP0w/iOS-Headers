@@ -6,12 +6,13 @@
 
 #import <UIKit/UIView.h>
 
+// Not exported
 @interface _UIReflectingContainerView : UIView
 {
 }
 
 + (Class)layerClass;
-- (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
+- (_Bool)_shouldAnimatePropertyWithKey:(id)arg1;
 
 @end
 

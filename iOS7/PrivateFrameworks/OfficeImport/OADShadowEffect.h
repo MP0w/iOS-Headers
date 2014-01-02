@@ -8,6 +8,7 @@
 
 @class OADColor;
 
+// Not exported
 @interface OADShadowEffect : OADEffect
 {
     OADColor *mColor;
@@ -16,8 +17,8 @@
     float mAngle;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)setStyleColor:(id)arg1;
 - (void)setAngle:(float)arg1;
 - (float)angle;

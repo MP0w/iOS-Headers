@@ -6,6 +6,7 @@
 
 #import <CoreData/NSManagedObjectID.h>
 
+// Not exported
 @interface _NSCoreManagedObjectID : NSManagedObjectID
 {
 }
@@ -15,28 +16,28 @@
 + (void)_setStoreInfo1:(id)arg1;
 + (void)setObjectStoreIdentifier:(id)arg1;
 + (id)managedObjectIDFromURIRepresentation:(id)arg1;
-+ (id)managedObjectIDFromUTF8String:(const char *)arg1 length:(unsigned int)arg2;
++ (id)managedObjectIDFromUTF8String:(const char *)arg1 length:(unsigned long long)arg2;
 + (void)_release_1;
 + (void)release;
 + (id)_retain_1;
 + (id)retain;
-+ (int)version;
-+ (BOOL)accessInstanceVariablesDirectly;
++ (long long)version;
++ (_Bool)accessInstanceVariablesDirectly;
 + (id)alloc;
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (unsigned int)allocateBatch:(id *)arg1 count:(unsigned int)arg2;
 + (Class)classWithStore:(id)arg1 andEntity:(id)arg2;
 + (void)initialize;
 + (char *)generatedNameSuffix;
-+ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
++ (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)URIRepresentation;
-- (unsigned int)retainCount;
-- (BOOL)_isPersistentStoreAlive;
+- (unsigned long long)retainCount;
+- (_Bool)_isPersistentStoreAlive;
 - (id)_storeInfo1;
 - (id)_storeIdentifier;
-- (BOOL)isTemporaryID;
+- (_Bool)isTemporaryID;
 - (id)persistentStore;
 - (id)entityName;
 - (id)entity;

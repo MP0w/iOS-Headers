@@ -18,14 +18,15 @@
     UIButton *_rightScrollButton;
 }
 
-+ (float)desiredHeightForBounds:(struct CGRect)arg1;
++ (double)desiredHeightForBounds:(struct CGRect)arg1;
 - (void)touchLauncherDidScroll:(id)arg1;
 - (void)touchLauncherDidChangeScrollButtonInsets:(id)arg1;
+@property(nonatomic) id <SBStarkAutoHideControlBarDelegate> autoHideDelegate;
 @property(retain, nonatomic) SBStarkFakeIconOperationController *fakeIconOperationController;
-@property(readonly, nonatomic) BOOL obscuresControlBar;
-@property(readonly, nonatomic) BOOL hidesAutomatically;
+@property(readonly, nonatomic) _Bool obscuresControlBar;
+@property(readonly, nonatomic) _Bool hidesAutomatically;
 @property(readonly, nonatomic) SBStarkIconListModel *iconList;
-@property(nonatomic) float height;
+@property(nonatomic) double height;
 - (void)_scrollRight;
 - (void)_scrollLeft;
 - (void)viewDidLayoutSubviews;

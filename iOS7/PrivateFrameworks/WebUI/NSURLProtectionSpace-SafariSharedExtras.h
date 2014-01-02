@@ -8,6 +8,7 @@
 
 @interface NSURLProtectionSpace (SafariSharedExtras)
 + (id)safari_HTMLFormProtectionSpaceForURL:(id)arg1;
+- (id)safari_addressString;
 - (id)safari_protectionSpaceByReplacingHostWithHighlevelDomain;
 @end
 

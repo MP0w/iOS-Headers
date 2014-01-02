@@ -11,13 +11,13 @@
 }
 
 + (id)sharedInstance;
-- (BOOL)deleteAttachmentWithGUID:(id)arg1;
-- (BOOL)deleteAttachmentDataForTransfer:(id)arg1;
-- (BOOL)deleteAttachmentsWithGUIDs:(id)arg1;
+- (_Bool)deleteAttachmentWithGUID:(id)arg1;
+- (_Bool)deleteAttachmentDataForTransfer:(id)arg1;
+- (_Bool)deleteAttachmentsWithGUIDs:(id)arg1;
 - (id)attachmentWithGUID:(id)arg1;
-- (BOOL)updateAttachment:(id)arg1;
-- (BOOL)removeAttachment:(id)arg1 fromMessageWithGUID:(id)arg2;
-- (BOOL)storeAttachment:(id)arg1 associateWithMessageWithGUID:(id)arg2;
+- (_Bool)updateAttachment:(id)arg1;
+- (_Bool)removeAttachment:(id)arg1 fromMessageWithGUID:(id)arg2;
+- (_Bool)storeAttachment:(id)arg1 associateWithMessageWithGUID:(id)arg2;
 
 @end
 

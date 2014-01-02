@@ -11,27 +11,27 @@
 @interface EKCalendarInfo : NSObject
 {
     NSString *_title;
-    BOOL _selected;
+    _Bool _selected;
+    int _customGroupType;
     EKCalendar *_calendar;
     UIColor *_color;
     EKGroupInfo *_group;
-    int _customGroupType;
 }
 
 @property(nonatomic) int customGroupType; // @synthesize customGroupType=_customGroupType;
 @property(nonatomic) __weak EKGroupInfo *group; // @synthesize group=_group;
-@property(nonatomic) BOOL selected; // @synthesize selected=_selected;
+@property(nonatomic) _Bool selected; // @synthesize selected=_selected;
 @property(retain, nonatomic) UIColor *color; // @synthesize color=_color;
 @property(retain, nonatomic) EKCalendar *calendar; // @synthesize calendar=_calendar;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) UIImage *highlightedIcon;
 @property(readonly, nonatomic) UIImage *icon;
 - (id)description;
-@property(readonly, nonatomic) BOOL excludeFromSelectAll;
-@property(readonly, nonatomic) BOOL isEditable;
-@property(readonly, nonatomic) BOOL isPublished;
-@property(readonly, nonatomic) BOOL isShared;
-@property(readonly, nonatomic) BOOL isSubscribed;
+@property(readonly, nonatomic) _Bool excludeFromSelectAll;
+@property(readonly, nonatomic) _Bool isEditable;
+@property(readonly, nonatomic) _Bool isPublished;
+@property(readonly, nonatomic) _Bool isShared;
+@property(readonly, nonatomic) _Bool isSubscribed;
 @property(readonly, nonatomic) int displayOrder;
 @property(readonly, nonatomic) NSString *title;
 - (id)initWithCalendar:(id)arg1;

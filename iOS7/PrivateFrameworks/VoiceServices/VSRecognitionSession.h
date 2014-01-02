@@ -21,7 +21,7 @@
     NSString *_debugDumpPath;
     NSString *_audioInputPath;
     double _levelInterval;
-    unsigned int _keywordPhase;
+    unsigned long long _keywordPhase;
     struct {
         unsigned int delegateWillBegin:1;
         unsigned int delegateBegin:1;
@@ -43,13 +43,13 @@
     } _sessionFlags;
 }
 
-- (void)setPerformRecognitionHandlerActions:(BOOL)arg1;
-- (BOOL)setPreferredEngine:(int)arg1;
-- (BOOL)setNextRecognitionRequiresReset:(BOOL)arg1;
-- (BOOL)setNextRecognitionAudioInputPath:(id)arg1;
+- (void)setPerformRecognitionHandlerActions:(_Bool)arg1;
+- (_Bool)setPreferredEngine:(int)arg1;
+- (_Bool)setNextRecognitionRequiresReset:(_Bool)arg1;
+- (_Bool)setNextRecognitionAudioInputPath:(id)arg1;
 - (id)debugDumpPath;
-- (BOOL)setDebugDumpEnabled:(BOOL)arg1;
-- (void)speechSynthesizer:(id)arg1 didFinishSpeaking:(BOOL)arg2 withError:(id)arg3;
+- (_Bool)setDebugDumpEnabled:(_Bool)arg1;
+- (void)speechSynthesizer:(id)arg1 didFinishSpeaking:(_Bool)arg2 withError:(id)arg3;
 - (void)_notifyDelegateFinishedSpeakingWithError:(id)arg1;
 - (id)_beginSpeakingString:(id)arg1 attributedString:(id)arg2;
 - (id)_beginSpeakingAttributedString:(id)arg1;
@@ -60,9 +60,9 @@
 - (id)_topLevelKeywords;
 - (id)_createPhaseSortedKeywordsFromArray:(id)arg1;
 - (struct __CFDictionary *)_createKeywordIndex;
-- (int)keywordCount;
-- (id)keywordAtIndex:(int)arg1;
-- (void)setKeywordPhase:(unsigned int)arg1;
+- (long long)keywordCount;
+- (id)keywordAtIndex:(long long)arg1;
+- (void)setKeywordPhase:(unsigned long long)arg1;
 - (float)inputLevelDB;
 - (float)inputLevel;
 - (void)setInputLevelUpdateInterval:(double)arg1;
@@ -76,21 +76,21 @@
 - (void)_setAction:(id)arg1;
 - (id)_notifyDelegateOpenURL:(id)arg1;
 - (void)_notifyDelegateActionStarted;
-- (BOOL)_actionStarted:(id)arg1;
+- (_Bool)_actionStarted:(id)arg1;
 - (void)_actionCompleted:(id)arg1 nextAction:(id)arg2 error:(id)arg3;
 - (id)cancel;
-- (id)cancelMaintainingKeepAlive:(BOOL)arg1;
-- (BOOL)setBluetoothInputAllowed:(BOOL)arg1;
-- (BOOL)sensitiveActionsEnabled;
-- (void)setSensitiveActionsEnabled:(BOOL)arg1;
-- (BOOL)nextActionWillRecognize;
-- (BOOL)nextActionWillTerminateSession;
-- (BOOL)isBusy;
-- (BOOL)hasDeferredAction;
-- (BOOL)isValid;
-- (BOOL)isFinished;
-- (BOOL)isActivelyRecognizing;
-- (BOOL)isRecognizing;
+- (id)cancelMaintainingKeepAlive:(_Bool)arg1;
+- (_Bool)setBluetoothInputAllowed:(_Bool)arg1;
+- (_Bool)sensitiveActionsEnabled;
+- (void)setSensitiveActionsEnabled:(_Bool)arg1;
+- (_Bool)nextActionWillRecognize;
+- (_Bool)nextActionWillTerminateSession;
+- (_Bool)isBusy;
+- (_Bool)hasDeferredAction;
+- (_Bool)isValid;
+- (_Bool)isFinished;
+- (_Bool)isActivelyRecognizing;
+- (_Bool)isRecognizing;
 - (id)reset;
 - (id)beginNextAction;
 - (void)setDelegate:(id)arg1;

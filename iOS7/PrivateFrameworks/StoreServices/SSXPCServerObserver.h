@@ -14,8 +14,8 @@
 
 @property(nonatomic) SEL selector; // @synthesize selector=_selector;
 @property(nonatomic) id observer; // @synthesize observer=_observer;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 
 @end
 

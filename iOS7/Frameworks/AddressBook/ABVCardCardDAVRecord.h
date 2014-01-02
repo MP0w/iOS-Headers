@@ -10,11 +10,11 @@
 {
 }
 
-+ (BOOL)includeABClipRectInVCardPhotos;
-+ (BOOL)includeImageURIInVCards;
-+ (BOOL)includeNotesInVCards;
-+ (BOOL)includeREVInVCards;
-- (BOOL)useThumbnailImageFormatIfAvailable;
++ (_Bool)includeABClipRectInVCardPhotos;
++ (_Bool)includeImageURIInVCards;
++ (_Bool)includeNotesInVCards;
++ (_Bool)includeREVInVCards;
+- (_Bool)useThumbnailImageFormatIfAvailable;
 
 @end
 

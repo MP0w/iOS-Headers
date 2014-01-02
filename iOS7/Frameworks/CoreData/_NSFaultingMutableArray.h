@@ -8,6 +8,7 @@
 
 @class NSManagedObject, NSPropertyDescription;
 
+// Not exported
 @interface _NSFaultingMutableArray : NSMutableArray
 {
     int _cd_rc;
@@ -19,27 +20,27 @@
 
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (id)alloc;
-+ (BOOL)accessInstanceVariablesDirectly;
++ (_Bool)accessInstanceVariablesDirectly;
 - (id)valueForKeyPath:(id)arg1;
 - (id)valueForKey:(id)arg1;
 - (void)setValue:(id)arg1 forKey:(id)arg2;
 - (void)getObjects:(id *)arg1;
-- (void)replaceObjectAtIndex:(unsigned int)arg1 withObject:(id)arg2;
-- (void)removeObjectAtIndex:(unsigned int)arg1;
+- (void)replaceObjectAtIndex:(unsigned long long)arg1 withObject:(id)arg2;
+- (void)removeObjectAtIndex:(unsigned long long)arg1;
 - (void)removeLastObject;
-- (void)insertObject:(id)arg1 atIndex:(unsigned int)arg2;
+- (void)insertObject:(id)arg1 atIndex:(unsigned long long)arg2;
 - (id)objectEnumerator;
-- (id)indexesOfObjectsAtIndexes:(id)arg1 options:(unsigned int)arg2 passingTest:(id)arg3;
-- (id)indexesOfObjectsWithOptions:(unsigned int)arg1 passingTest:(id)arg2;
-- (unsigned int)indexOfObjectAtIndexes:(id)arg1 options:(unsigned int)arg2 passingTest:(id)arg3;
-- (unsigned int)indexOfObjectWithOptions:(unsigned int)arg1 passingTest:(id)arg2;
-- (void)enumerateObjectsAtIndexes:(id)arg1 options:(unsigned int)arg2 usingBlock:(id)arg3;
-- (void)enumerateObjectsWithOptions:(unsigned int)arg1 usingBlock:(id)arg2;
-- (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
+- (id)indexesOfObjectsAtIndexes:(id)arg1 options:(unsigned long long)arg2 passingTest:(id)arg3;
+- (id)indexesOfObjectsWithOptions:(unsigned long long)arg1 passingTest:(id)arg2;
+- (unsigned long long)indexOfObjectAtIndexes:(id)arg1 options:(unsigned long long)arg2 passingTest:(id)arg3;
+- (unsigned long long)indexOfObjectWithOptions:(unsigned long long)arg1 passingTest:(id)arg2;
+- (void)enumerateObjectsAtIndexes:(id)arg1 options:(unsigned long long)arg2 usingBlock:(id)arg3;
+- (void)enumerateObjectsWithOptions:(unsigned long long)arg1 usingBlock:(id)arg2;
+- (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
 - (void)addObject:(id)arg1;
-- (id)objectAtIndex:(unsigned int)arg1;
-- (unsigned int)count;
-- (id)descriptionWithLocale:(id)arg1 indent:(unsigned int)arg2;
+- (id)objectAtIndex:(unsigned long long)arg1;
+- (unsigned long long)count;
+- (id)descriptionWithLocale:(id)arg1 indent:(unsigned long long)arg2;
 - (id)descriptionWithLocale:(id)arg1;
 - (id)description;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
@@ -48,12 +49,12 @@
 - (id)source;
 - (void)turnIntoFault;
 - (void)willRead;
-- (BOOL)isFault;
+- (_Bool)isFault;
 - (void)dealloc;
-- (id)initWithSource:(id)arg1 forRelationship:(id)arg2 asFault:(BOOL)arg3;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
-- (unsigned int)retainCount;
+- (id)initWithSource:(id)arg1 forRelationship:(id)arg2 asFault:(_Bool)arg3;
+- (_Bool)_isDeallocating;
+- (_Bool)_tryRetain;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;
 

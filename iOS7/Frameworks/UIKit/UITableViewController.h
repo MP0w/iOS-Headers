@@ -9,11 +9,11 @@
 #import <UIKit/UITableViewDataSource-Protocol.h>
 #import "UITableViewDelegate-Protocol.h"
 
-@class UIRefreshControl, UITableView, UITableViewDataSource;
+@class UIRefreshControl, UITableView;
 
 @interface UITableViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 {
-    int _tableViewStyle;
+    long long _tableViewStyle;
     id _keyboardSupport;
     id _staticDataSource;
     struct {
@@ -25,35 +25,34 @@
 
 - (void)tableView:(id)arg1 didEndEditingRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 willBeginEditingRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 indentationLevelForRowAtIndexPath:(id)arg2;
-- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
-- (float)tableView:(id)arg1 heightForFooterInSection:(int)arg2;
-- (float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2;
-- (id)tableView:(id)arg1 viewForFooterInSection:(int)arg2;
-- (id)tableView:(id)arg1 viewForHeaderInSection:(int)arg2;
-- (id)tableView:(id)arg1 titleForFooterInSection:(int)arg2;
-- (id)tableView:(id)arg1 titleForHeaderInSection:(int)arg2;
+- (long long)tableView:(id)arg1 indentationLevelForRowAtIndexPath:(id)arg2;
+- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (double)tableView:(id)arg1 heightForFooterInSection:(long long)arg2;
+- (double)tableView:(id)arg1 heightForHeaderInSection:(long long)arg2;
+- (id)tableView:(id)arg1 viewForFooterInSection:(long long)arg2;
+- (id)tableView:(id)arg1 viewForHeaderInSection:(long long)arg2;
+- (id)tableView:(id)arg1 titleForFooterInSection:(long long)arg2;
+- (id)tableView:(id)arg1 titleForHeaderInSection:(long long)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
-- (BOOL)respondsToSelector:(SEL)arg1;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
+- (_Bool)respondsToSelector:(SEL)arg1;
 - (void)_adjustTableForKeyboardInfo:(id)arg1;
 @property(retain, nonatomic) UIRefreshControl *refreshControl;
-- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;
-@property(nonatomic) BOOL clearsSelectionOnViewWillAppear;
+@property(nonatomic) _Bool clearsSelectionOnViewWillAppear;
 @property(retain, nonatomic) UITableView *tableView;
 - (id)_existingTableView;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithStyle:(int)arg1;
+- (id)initWithStyle:(long long)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (id)init;
-@property(retain, nonatomic, getter=_staticDataSource, setter=_setStaticDataSource:) UITableViewDataSource *staticDataSource;
 
 @end
 

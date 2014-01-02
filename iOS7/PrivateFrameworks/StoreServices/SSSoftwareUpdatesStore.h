@@ -14,19 +14,20 @@
     SSXPCConnection *_connection;
     SSUpdatesDatabase *_database;
     id <SSSoftwareUpdateStoreDelegate> _delegate;
-    BOOL _didMigration;
+    _Bool _didMigration;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     void *_mobileCoreServices;
-    BOOL _useLocalRead;
-    BOOL _useLocalWrite;
+    _Bool _useLocalRead;
+    _Bool _useLocalWrite;
 }
 
 - (void)_sendStoreDidChange;
-- (BOOL)_migrateReadOnlyDatabase;
+- (_Bool)_migrateReadOnlyDatabase;
 - (id)_copyUpdatesWithSession:(id)arg1;
 - (id)_copyUpdates;
 - (void)showApplicationBadgeForPendingUpdates;
 @property id <SSSoftwareUpdateStoreDelegate> delegate;
+- (void)removeUpdateBulletins;
 - (void)reloadFromServerWithCompletionBlock:(id)arg1;
 - (void)hideApplicationBadgeForPendingUpdates;
 - (void)getUpdatesWithCompletionBlock:(id)arg1;

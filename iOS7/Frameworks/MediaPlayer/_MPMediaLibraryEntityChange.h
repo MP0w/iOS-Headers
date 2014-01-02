@@ -10,9 +10,9 @@
 
 @interface _MPMediaLibraryEntityChange : NSObject
 {
+    int _deletionType;
     MPMediaEntity *_entity;
     NSString *_anchor;
-    int _deletionType;
 }
 
 @property(readonly, nonatomic) int deletionType; // @synthesize deletionType=_deletionType;

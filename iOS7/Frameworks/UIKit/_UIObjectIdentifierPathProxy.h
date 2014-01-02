@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface _UIObjectIdentifierPathProxy : NSObject
 {
     NSString *_identifierPath;

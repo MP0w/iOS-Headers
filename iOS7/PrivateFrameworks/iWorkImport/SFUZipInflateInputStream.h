@@ -8,6 +8,7 @@
 
 #import "SFUInputStream-Protocol.h"
 
+// Not exported
 @interface SFUZipInflateInputStream : NSObject <SFUInputStream>
 {
     struct z_stream_s mStream;
@@ -15,10 +16,10 @@
     id <SFUBufferedInputStream> mInput;
     char *mOutBuffer;
     unsigned long long mOutBufferSize;
-    BOOL mReachedEnd;
-    BOOL mIsFromZip;
-    unsigned long mCalculatedCrc;
-    unsigned long mCheckCrc;
+    _Bool mReachedEnd;
+    _Bool mIsFromZip;
+    unsigned long long mCalculatedCrc;
+    unsigned long long mCheckCrc;
 }
 
 - (long long)totalCompressedBytesConsumed;
@@ -27,14 +28,13 @@
 - (void)enableSystemCaching;
 - (void)disableSystemCaching;
 - (long long)offset;
-- (BOOL)canSeek;
+- (_Bool)canSeek;
 - (void)seekToOffset:(long long)arg1;
-- (unsigned long)readToBuffer:(char *)arg1 size:(unsigned long)arg2;
-- (unsigned long)readToOwnBuffer:(const char **)arg1 size:(unsigned long)arg2;
+- (unsigned long long)readToBuffer:(char *)arg1 size:(unsigned long long)arg2;
+- (unsigned long long)readToOwnBuffer:(const char **)arg1 size:(unsigned long long)arg2;
 - (void)dealloc;
 - (id)initWithInput:(id)arg1;
-- (id)initWithOffset:(long long)arg1 end:(long long)arg2 uncompressedSize:(unsigned long long)arg3 crc:(unsigned long)arg4 dataRepresentation:(id)arg5;
-- (void)setupInflateStream;
+- (id)initWithOffset:(long long)arg1 end:(long long)arg2 uncompressedSize:(unsigned long long)arg3 crc:(unsigned long long)arg4 dataRepresentation:(id)arg5;
 
 @end
 

@@ -6,21 +6,22 @@
 
 #import <OfficeImport/OADShade.h>
 
+// Not exported
 @interface OADLinearShade : OADShade
 {
     float mAngle;
-    BOOL mIsAngleOverridden;
-    BOOL mScaled;
-    BOOL mIsScaledOverridden;
+    _Bool mIsAngleOverridden;
+    _Bool mScaled;
+    _Bool mIsScaledOverridden;
 }
 
 + (id)defaultProperties;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (BOOL)isScaledOverridden;
-- (void)setScaled:(BOOL)arg1;
-- (BOOL)scaled;
-- (BOOL)isAngleOverridden;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isScaledOverridden;
+- (void)setScaled:(_Bool)arg1;
+- (_Bool)scaled;
+- (_Bool)isAngleOverridden;
 - (void)setAngle:(float)arg1;
 - (float)angle;
 - (id)initWithDefaults;

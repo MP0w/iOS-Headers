@@ -6,6 +6,7 @@
 
 #import <OfficeImport/OCDEncryptedReader.h>
 
+// Not exported
 @interface OCBReader : OCDEncryptedReader
 {
     struct OcBinaryReader *mBinaryReader;
@@ -15,9 +16,9 @@
 @property(nonatomic) struct __sFILE *file; // @synthesize file=mFile;
 @property(nonatomic) struct OcBinaryReader *binaryReader; // @synthesize binaryReader=mBinaryReader;
 - (id)read;
-- (BOOL)start;
+- (_Bool)start;
 - (void)restartReaderToUseDecryptedDocument;
-- (BOOL)retainDecryptorWithErrorCode:(int *)arg1;
+- (_Bool)retainDecryptorWithErrorCode:(int *)arg1;
 - (id)allocDecryptorWithCryptoKey:(struct OCCCryptoKey *)arg1 baseOutputFilename:(id)arg2;
 - (struct OCCBinaryStreamer *)allocBinaryStreamerWithCryptoKey:(struct OCCCryptoKey *)arg1 baseOutputFilenameInUTF8:(const char *)arg2;
 - (_Bool)isBinaryReader;

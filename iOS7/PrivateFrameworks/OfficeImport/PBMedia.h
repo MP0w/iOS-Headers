@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface PBMedia : NSObject
 {
 }
 
 + (void)writeMediaFromDrawable:(id)arg1 toObject:(id)arg2 state:(id)arg3;
-+ (BOOL)readEmbeddedSoundFromClientDataHolder:(id)arg1 toImage:(id)arg2 state:(id)arg3;
++ (_Bool)readEmbeddedSoundFromClientDataHolder:(id)arg1 toImage:(id)arg2 state:(id)arg3;
 
 @end
 

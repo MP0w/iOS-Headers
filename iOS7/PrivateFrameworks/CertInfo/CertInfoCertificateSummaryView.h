@@ -30,12 +30,12 @@
 @property(retain, nonatomic) NSString *trustSubtitle; // @synthesize trustSubtitle=_trustSubtitle;
 @property(retain, nonatomic) NSString *trustTitle; // @synthesize trustTitle=_trustTitle;
 @property(readonly, nonatomic) UITableView *tableView; // @synthesize tableView=_tableView;
-- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)_configureCell:(id)arg1;
 - (id)_cellForReuseIdentifier:(id)arg1;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (void)setMoreDetailsSelectedBlock:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

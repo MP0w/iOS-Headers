@@ -12,7 +12,7 @@
 }
 
 + (id)sharedSession;
-- (BOOL)uploadPosts:(id)arg1 error:(id *)arg2;
+- (_Bool)uploadPosts:(id)arg1 error:(id *)arg2;
 - (id)init;
 
 @end

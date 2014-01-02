@@ -10,6 +10,7 @@
 
 @class EDBorders, TSUColor;
 
+// Not exported
 @interface EMBordersProperty : CMProperty <NSCopying>
 {
     EDBorders *edValue;
@@ -25,26 +26,14 @@
 - (id)cssString;
 - (id)cssStringForName:(id)arg1;
 - (void)setNoneAtLocation:(int)arg1;
-- (BOOL)isNoneAtLocation:(int)arg1;
+- (_Bool)isNoneAtLocation:(int)arg1;
 - (int *)borderWidths;
 - (int *)borderStyles;
 - (id)borderColor;
 - (id)initWithEDBorders:(id)arg1;
 - (id)initWithOADStroke:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (id)widthHashNumber;
-- (id)styleHashNumber;
-- (BOOL)hasSameColorsAs:(id)arg1;
-- (BOOL)hasSameWidthsAs:(id)arg1;
-- (BOOL)hasSameStylesAs:(id)arg1;
-- (id)colorString;
-- (id)widthString;
-- (id)styleString;
-- (id)stringFromColor:(id)arg1;
-- (id)stringFromWidthEnum:(int)arg1;
-- (id)stringFromStyleEnum:(int)arg1;
-- (void)setBorderStyleAndWidth:(int)arg1 location:(unsigned int)arg2;
+- (_Bool)isEqual:(id)arg1;
 
 @end
 

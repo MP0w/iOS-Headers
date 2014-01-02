@@ -8,19 +8,23 @@
 
 #import "NSCopying-Protocol.h"
 
-@class NSArray, NSString, SKUIProductPageItem, SKUIReviewConfiguration, SSMetricsConfiguration;
+@class NSArray, NSString, NSURL, SKUIProductPageItem, SKUIReviewConfiguration, SKUIUber, SSMetricsConfiguration;
 
 @interface SKUIProductPage : NSObject <NSCopying>
 {
     SKUIProductPageItem *_item;
     SSMetricsConfiguration *_metricsConfiguration;
     NSString *_metricsPageDescription;
+    NSURL *_pageURL;
     NSArray *_relatedContentSwooshes;
     SKUIReviewConfiguration *_reviewConfiguration;
+    SKUIUber *_uber;
 }
 
+@property(retain, nonatomic) SKUIUber *uber; // @synthesize uber=_uber;
 @property(retain, nonatomic) SKUIReviewConfiguration *reviewConfiguration; // @synthesize reviewConfiguration=_reviewConfiguration;
 @property(copy, nonatomic) NSArray *relatedContentSwooshes; // @synthesize relatedContentSwooshes=_relatedContentSwooshes;
+@property(copy, nonatomic) NSURL *pageURL; // @synthesize pageURL=_pageURL;
 @property(copy, nonatomic) NSString *metricsPageDescription; // @synthesize metricsPageDescription=_metricsPageDescription;
 @property(retain, nonatomic) SSMetricsConfiguration *metricsConfiguration; // @synthesize metricsConfiguration=_metricsConfiguration;
 @property(retain, nonatomic) SKUIProductPageItem *item; // @synthesize item=_item;

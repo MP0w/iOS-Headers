@@ -10,9 +10,8 @@
 - (void)dismissFullscreenBulletinAlertWithItem:(id)arg1;
 - (void)modifyFullscreenBulletinAlertWithItem:(id)arg1;
 - (void)presentFullscreenBulletinAlertWithItem:(id)arg1;
-- (double)lastSlideToUnlockAnimationStartTime;
 - (id)lockScreenScrollView;
-- (void)notificationListBecomingVisible:(BOOL)arg1;
+- (void)notificationListBecomingVisible:(_Bool)arg1;
 - (void)attemptToUnlockUIFromNotification;
 - (void)bannerEnablementChanged;
 @end

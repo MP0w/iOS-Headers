@@ -8,16 +8,18 @@
 
 @class NSString;
 
+// Not exported
 @interface UIStatusBarDoubleHeightItemView : UIStatusBarItemView
 {
     NSString *_contentsString;
-    float _letterSpacing;
-    BOOL _ellipsize;
+    double _letterSpacing;
+    _Bool _ellipsize;
 }
 
-- (float)extraRightPadding;
+- (_Bool)cachesImage;
+- (double)extraRightPadding;
 - (id)contentsImage;
-- (BOOL)updateForNewData:(id)arg1 actions:(int)arg2;
+- (_Bool)updateForNewData:(id)arg1 actions:(int)arg2;
 - (void)dealloc;
 
 @end

@@ -15,13 +15,13 @@
     SBApplication *_fromApp;
     SBUIAnimationController *_animationController;
     BKSApplicationActivationAssertion *_suspendingAppAssertion;
-    BOOL _animatedActivation;
-    BOOL _animatedDeactivation;
+    _Bool _animatedActivation;
+    _Bool _animatedDeactivation;
 }
 
 @property(readonly, nonatomic) SBApplication *fromApp; // @synthesize fromApp=_fromApp;
 - (void)animationControllerDidFinishAnimation:(id)arg1;
-- (void)animationController:(id)arg1 willBeginAnimation:(BOOL)arg2;
+- (void)animationController:(id)arg1 willBeginAnimation:(_Bool)arg2;
 - (id)_newAnimationFromLauncherToApp;
 - (id)_newAnimationFromAppToLauncher;
 - (id)_newAnimationFromAppToApp;
@@ -31,16 +31,16 @@
 - (id)_setupAnimationFrom:(id)arg1 to:(id)arg2;
 - (void)_transactionComplete;
 - (void)_interruptWithReason:(int)arg1;
-- (BOOL)_canBeInterrupted;
+- (_Bool)_canBeInterrupted;
 - (void)_endAnimation;
-- (BOOL)selfStarkAlertDidDeactivate:(id)arg1;
-- (BOOL)selfAlertDidDeactivate:(id)arg1;
-- (BOOL)selfApplicationExited:(id)arg1;
-- (BOOL)selfApplicationLaunchDidFail:(id)arg1;
-- (BOOL)selfApplicationActivated:(id)arg1;
-- (BOOL)selfApplicationDidFinishLaunching:(id)arg1 withInfo:(id)arg2;
-- (BOOL)selfApplicationDidBecomeReceiver:(id)arg1 fromApplication:(id)arg2;
-- (BOOL)selfApplicationWillBecomeReceiver:(id)arg1 fromApplication:(id)arg2;
+- (_Bool)selfStarkAlertDidDeactivate:(id)arg1;
+- (_Bool)selfAlertDidDeactivate:(id)arg1;
+- (_Bool)selfApplicationExited:(id)arg1;
+- (_Bool)selfApplicationLaunchDidFail:(id)arg1;
+- (_Bool)selfApplicationActivated:(id)arg1;
+- (_Bool)selfApplicationDidFinishLaunching:(id)arg1 withInfo:(id)arg2;
+- (_Bool)selfApplicationDidBecomeReceiver:(id)arg1 fromApplication:(id)arg2;
+- (_Bool)selfApplicationWillBecomeReceiver:(id)arg1 fromApplication:(id)arg2;
 - (void)_commit;
 - (void)_beginAnimation;
 - (int)_setupMilestonesFrom:(id)arg1 to:(id)arg2;

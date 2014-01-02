@@ -12,14 +12,14 @@
 {
     NSDictionary *_dictionary;
     NSDate *_installDate;
-    int _updateState;
+    long long _updateState;
 }
 
-@property(nonatomic) int updateState; // @synthesize updateState=_updateState;
+@property(nonatomic) long long updateState; // @synthesize updateState=_updateState;
 @property(readonly, nonatomic) NSDictionary *updateDictionary; // @synthesize updateDictionary=_dictionary;
 @property(copy, nonatomic) NSDate *installDate; // @synthesize installDate=_installDate;
 @property(readonly, nonatomic) long long storeItemIdentifier;
-@property(readonly, nonatomic) int parentalControlsRank;
+@property(readonly, nonatomic) long long parentalControlsRank;
 @property(readonly, nonatomic) NSString *bundleIdentifier;
 - (void)dealloc;
 - (id)initWithUpdateDictionary:(id)arg1;

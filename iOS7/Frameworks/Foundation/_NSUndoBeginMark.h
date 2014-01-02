@@ -6,16 +6,17 @@
 
 #import <Foundation/_NSUndoObject.h>
 
+// Not exported
 @interface _NSUndoBeginMark : _NSUndoObject
 {
     id _groupIdentifier;
-    BOOL _isDiscardable;
+    _Bool _isDiscardable;
 }
 
 - (id)description;
-- (BOOL)isBeginMark;
-- (void)setDiscardable:(BOOL)arg1;
-- (BOOL)isDiscardable;
+- (_Bool)isBeginMark;
+- (void)setDiscardable:(_Bool)arg1;
+- (_Bool)isDiscardable;
 - (id)groupIdentifier;
 - (void)setGroupIdentifier:(id)arg1;
 - (void)dealloc;

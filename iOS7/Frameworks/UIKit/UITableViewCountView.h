@@ -8,17 +8,18 @@
 
 @class NSString;
 
+// Not exported
 @interface UITableViewCountView : UILabel
 {
     NSString *_countString;
     int _count;
 }
 
-- (int)count;
-- (void)setCount:(int)arg1;
-- (void)setCountString:(id)arg1 withCount:(int)arg2;
+- (long long)count;
+- (void)setCount:(long long)arg1;
+- (void)setCountString:(id)arg1 withCount:(long long)arg2;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 withCountString:(id)arg2 withCount:(int)arg3;
+- (id)initWithFrame:(struct CGRect)arg1 withCountString:(id)arg2 withCount:(long long)arg3;
 
 @end
 

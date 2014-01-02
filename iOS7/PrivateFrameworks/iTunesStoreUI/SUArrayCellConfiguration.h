@@ -8,29 +8,29 @@
 
 @interface SUArrayCellConfiguration : SUCellConfiguration
 {
-    unsigned int _numberOfStrings;
+    unsigned long long _numberOfStrings;
     struct CGRect *_stringFrames;
     id *_strings;
-    unsigned int _numberOfImages;
+    unsigned long long _numberOfImages;
     struct CGRect *_imageFrames;
     id *_images;
     id *_selectedImages;
 }
 
 - (id)_accessibilityStringsArrayPointer;
-- (id)stringForLabelAtIndex:(unsigned int)arg1;
+- (id)stringForLabelAtIndex:(unsigned long long)arg1;
 - (void)setLayoutSize:(struct CGSize)arg1;
 - (void)reloadData;
-- (unsigned int)numberOfLabels;
-- (unsigned int)numberOfImages;
-- (id)imageAtIndex:(unsigned int)arg1 withModifiers:(unsigned int)arg2;
-- (struct CGRect)frameForLabelAtIndex:(unsigned int)arg1;
-- (struct CGRect)frameForImageAtIndex:(unsigned int)arg1;
+- (unsigned long long)numberOfLabels;
+- (unsigned long long)numberOfImages;
+- (id)imageAtIndex:(unsigned long long)arg1 withModifiers:(unsigned long long)arg2;
+- (struct CGRect)frameForLabelAtIndex:(unsigned long long)arg1;
+- (struct CGRect)frameForImageAtIndex:(unsigned long long)arg1;
 - (void)reloadStrings;
 - (void)reloadLayoutInformation;
 - (void)reloadImages;
 - (void)dealloc;
-- (id)initWithStringCount:(unsigned int)arg1 imageCount:(unsigned int)arg2;
+- (id)initWithStringCount:(unsigned long long)arg1 imageCount:(unsigned long long)arg2;
 
 @end
 

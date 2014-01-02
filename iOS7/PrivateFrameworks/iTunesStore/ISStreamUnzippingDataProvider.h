@@ -12,38 +12,38 @@
 {
     unsigned long long _expectedUncompressedSize;
     SZExtractor *_extractor;
-    BOOL _extractorComplete;
+    _Bool _extractorComplete;
     NSString *_localFilePath;
     long long _streamedBytes;
     NSArray *_hashes;
     long long _numberOfBytesToHash;
     NSError *_unzipError;
-    BOOL _shouldResumeFromLocalBytes;
+    _Bool _shouldResumeFromLocalBytes;
 }
 
-+ (BOOL)isHashMismatchError:(id)arg1;
++ (_Bool)isHashMismatchError:(id)arg1;
 @property(readonly) NSError *unzipError; // @synthesize unzipError=_unzipError;
 @property long long numberOfBytesToHash; // @synthesize numberOfBytesToHash=_numberOfBytesToHash;
 @property(retain) NSArray *hashes; // @synthesize hashes=_hashes;
 @property long long streamedBytes; // @synthesize streamedBytes=_streamedBytes;
-@property BOOL shouldResumeFromLocalBytes; // @synthesize shouldResumeFromLocalBytes=_shouldResumeFromLocalBytes;
+@property _Bool shouldResumeFromLocalBytes; // @synthesize shouldResumeFromLocalBytes=_shouldResumeFromLocalBytes;
 @property(retain) NSString *localFilePath; // @synthesize localFilePath=_localFilePath;
-@property(getter=isExtractorComplete) BOOL extractorComplete; // @synthesize extractorComplete=_extractorComplete;
+@property(getter=isExtractorComplete) _Bool extractorComplete; // @synthesize extractorComplete=_extractorComplete;
 @property(readonly) SZExtractor *extractor; // @synthesize extractor=_extractor;
 @property(readonly) unsigned long long expectedUncompressedSize; // @synthesize expectedUncompressedSize=_expectedUncompressedSize;
 - (void)_suspendStream;
-- (BOOL)_openExtractor;
+- (_Bool)_openExtractor;
 - (void)_completeStream;
 - (void)streamDidFailWithError:(id)arg1;
 - (void)streamCancelled;
 - (void)setup;
 - (void)resetStream;
-- (BOOL)parseData:(id)arg1 returningError:(id *)arg2;
-- (BOOL)isStreamComplete;
-- (BOOL)isStream;
+- (_Bool)parseData:(id)arg1 returningError:(id *)arg2;
+- (_Bool)isStreamComplete;
+- (_Bool)isStream;
 - (id)hashFailureHeaderStringForUnzipError;
 - (id)closeStream;
-- (BOOL)canStreamContentLength:(long long)arg1 error:(id *)arg2;
+- (_Bool)canStreamContentLength:(long long)arg1 error:(id *)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)init;

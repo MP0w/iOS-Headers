@@ -21,7 +21,7 @@
     unsigned int _attributionRequirementsMask;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) unsigned int requirementsMask; // @synthesize requirementsMask=_attributionRequirementsMask;
 @property(retain, nonatomic) NSArray *attributionApps; // @synthesize attributionApps=_attributionApps;
 @property(retain, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
@@ -29,9 +29,9 @@
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void)dealloc;
 - (void)addLogoPath:(id)arg1;
-- (id)snippetLogoPathForScale:(float)arg1;
-- (id)logoPathForScale:(float)arg1;
-- (BOOL)hasAttributionRequirement:(int)arg1;
+- (id)snippetLogoPathForScale:(double)arg1;
+- (id)logoPathForScale:(double)arg1;
+- (_Bool)hasAttributionRequirement:(int)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;

@@ -8,10 +8,10 @@
 
 @interface SBImageAlertView : UIAlertView
 {
-    BOOL _showingImage;
+    _Bool _showingImage;
 }
 
-- (BOOL)isShowingImage;
+- (_Bool)isShowingImage;
 - (void)setImage:(id)arg1;
 - (void)layout;
 

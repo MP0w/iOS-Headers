@@ -12,27 +12,27 @@
 {
     NSMutableArray *_headerViews;
     NSMutableArray *_sources;
-    int _tableViewStyle;
+    long long _tableViewStyle;
 }
 
-@property(nonatomic) int tableViewStyle; // @synthesize tableViewStyle=_tableViewStyle;
+@property(nonatomic) long long tableViewStyle; // @synthesize tableViewStyle=_tableViewStyle;
 @property(readonly, nonatomic) NSArray *sources; // @synthesize sources=_sources;
-- (int)_localIndexForSectionIndex:(int)arg1;
+- (long long)_localIndexForSectionIndex:(long long)arg1;
 - (void)setCellReuseSource:(id)arg1;
 - (void)reloadData;
 - (void)reloadCellContexts;
-- (int)numberOfSections;
-- (int)numberOfRowsInSection:(int)arg1;
-- (int)numberOfColumnsInSection:(int)arg1;
-- (id)headerViewForSection:(int)arg1;
-- (BOOL)deleteIndexPath:(id)arg1;
+- (long long)numberOfSections;
+- (long long)numberOfRowsInSection:(long long)arg1;
+- (long long)numberOfColumnsInSection:(long long)arg1;
+- (id)headerViewForSection:(long long)arg1;
+- (_Bool)deleteIndexPath:(id)arg1;
 - (void)configureCell:(id)arg1 forIndexPath:(id)arg2;
-- (float)cellHeightForIndexPath:(id)arg1;
+- (double)cellHeightForIndexPath:(id)arg1;
 - (id)cellForIndexPath:(id)arg1;
-- (BOOL)canSelectIndexPath:(id)arg1;
-- (BOOL)canDoubleTapIndexPath:(id)arg1;
-- (BOOL)canDeleteIndexPath:(id)arg1;
-- (id)indexPathForRowIndex:(unsigned int)arg1 inSectionIndex:(unsigned int)arg2;
+- (_Bool)canSelectIndexPath:(id)arg1;
+- (_Bool)canDoubleTapIndexPath:(id)arg1;
+- (_Bool)canDeleteIndexPath:(id)arg1;
+- (id)indexPathForRowIndex:(unsigned long long)arg1 inSectionIndex:(unsigned long long)arg2;
 - (id)dataSourceForIndexPath:(id)arg1;
 - (void)addDataSource:(id)arg1 withHeaderView:(id)arg2;
 - (void)dealloc;

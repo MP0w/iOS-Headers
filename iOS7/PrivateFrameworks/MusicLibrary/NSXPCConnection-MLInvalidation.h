@@ -7,6 +7,6 @@
 #import "NSXPCConnection.h"
 
 @interface NSXPCConnection (MLInvalidation)
-@property(nonatomic, getter=ml_isValid, setter=ml_setValid:) BOOL ml_valid;
+@property(nonatomic, getter=ml_isValid, setter=ml_setValid:) _Bool ml_valid;
 @end
 

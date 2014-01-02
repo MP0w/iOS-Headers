@@ -6,6 +6,7 @@
 
 #import <VectorKit/VGLLookupTexture.h>
 
+// Not exported
 @interface VGLFogExpTexture : VGLLookupTexture
 {
 }

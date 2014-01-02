@@ -21,7 +21,7 @@
 - (void)mergeQualifyingRectanglesIn:(id)arg1;
 - (unsigned int)categorizeGraphicsIn:(id)arg1;
 - (void)makeZonesIn:(id)arg1;
-- (BOOL)overlap:(id)arg1 with:(id)arg2;
+- (_Bool)overlap:(id)arg1 with:(id)arg2;
 - (void)dealloc;
 
 @end

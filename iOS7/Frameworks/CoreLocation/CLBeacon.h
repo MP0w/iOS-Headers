@@ -16,15 +16,15 @@
     NSUUID *_proximityUUID;
     NSNumber *_major;
     NSNumber *_minor;
-    int _proximity;
-    int _rssi;
+    long long _proximity;
     double _accuracy;
+    long long _rssi;
 }
 
-+ (BOOL)supportsSecureCoding;
-@property(readonly, nonatomic) int rssi; // @synthesize rssi=_rssi;
++ (_Bool)supportsSecureCoding;
+@property(readonly, nonatomic) long long rssi; // @synthesize rssi=_rssi;
 @property(readonly, nonatomic) double accuracy; // @synthesize accuracy=_accuracy;
-@property(readonly, nonatomic) int proximity; // @synthesize proximity=_proximity;
+@property(readonly, nonatomic) long long proximity; // @synthesize proximity=_proximity;
 @property(readonly, nonatomic) NSNumber *minor; // @synthesize minor=_minor;
 @property(readonly, nonatomic) NSNumber *major; // @synthesize major=_major;
 @property(readonly, nonatomic) NSUUID *proximityUUID; // @synthesize proximityUUID=_proximityUUID;
@@ -33,7 +33,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)dealloc;
-- (id)initWithProximityUUID:(id)arg1 major:(id)arg2 minor:(id)arg3 proximity:(int)arg4 accuracy:(double)arg5 rssi:(int)arg6;
+- (id)initWithProximityUUID:(id)arg1 major:(id)arg2 minor:(id)arg3 proximity:(long long)arg4 accuracy:(double)arg5 rssi:(long long)arg6;
 
 @end
 

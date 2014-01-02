@@ -7,7 +7,7 @@
 @class NSSet;
 
 @protocol MCAnimationPathSupport
-@property(readonly) unsigned int countOfAnimationPaths;
+@property(readonly) unsigned long long countOfAnimationPaths;
 @property(readonly) NSSet *animationPaths;
 - (void)removeAllAnimationPaths;
 - (void)removeAnimationPathForKey:(id)arg1;

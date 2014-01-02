@@ -32,6 +32,10 @@
 - (id)addFMFAccount:(id)arg1;
 - (void)didExitFMFRegion:(id)arg1 atLocation:(id)arg2;
 - (void)didEnterFMFRegion:(id)arg1 atLocation:(id)arg2;
+- (id)disableActivationLockUsingToken:(id)arg1;
+- (id)enableActivationLock;
+- (void)activationLockStateWithCompletion:(id)arg1;
+- (void)isActivationLockStateChangeInProgressWithCompletion:(id)arg1;
 - (id)disableFMIPUsingToken:(id)arg1 inContext:(int)arg2;
 - (id)enableFMIPInContext:(int)arg1;
 - (id)iCloudAccount;
@@ -42,13 +46,13 @@
 - (void)fmipStateWithCompletion:(id)arg1;
 - (void)isFMIPStateChangeInProgressWithCompletion:(id)arg1;
 - (void)deviceActivationDidSucceed;
-- (BOOL)lockdownShouldDisableDevicePairing;
-- (BOOL)lockdownShouldDisableDeviceRestore;
+- (_Bool)lockdownShouldDisableDevicePairing;
+- (_Bool)lockdownShouldDisableDeviceRestore;
 - (void)disableLostMode;
 - (id)enableLostModeWithInfo:(id)arg1;
 - (id)lostModeParams;
 - (id)lostModeInfo;
-- (BOOL)lostModeIsActive;
+- (_Bool)lostModeIsActive;
 - (id)cancelEmailVet;
 - (id)vetEmailAccount:(id)arg1;
 - (id)initWithDelegate:(id)arg1;

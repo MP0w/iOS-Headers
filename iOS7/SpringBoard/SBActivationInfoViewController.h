@@ -13,13 +13,13 @@
     NSString *_meid;
     NSString *_imei;
     NSString *_iccid;
-    float _alertHeight;
+    double _alertHeight;
 }
 
 - (id)_formattedIMEI;
 - (id)_formattedICCID;
 - (void)_simStatusChanged:(id)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;
 - (void)_updateTextView;
 - (id)textView;

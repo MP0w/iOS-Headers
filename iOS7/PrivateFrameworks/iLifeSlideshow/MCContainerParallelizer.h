@@ -24,7 +24,7 @@
 - (id)setPlugProxyForPlug:(id)arg1;
 - (id)setPlugForContainer:(id)arg1 forID:(id)arg2;
 - (id)plugForID:(id)arg1;
-@property(readonly, nonatomic) unsigned int countOfPlugs;
+@property(readonly, nonatomic) unsigned long long countOfPlugs;
 @property(readonly) NSSet *plugs;
 @property struct CGColor *backgroundColor;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;

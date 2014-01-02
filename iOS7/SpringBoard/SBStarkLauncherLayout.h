@@ -11,23 +11,23 @@
 @interface SBStarkLauncherLayout : UICollectionViewLayout
 {
     id <SBStarkLauncherLayoutDelegate> _delegate;
-    unsigned int _numberOfItems;
+    unsigned long long _numberOfItems;
     struct CGSize _itemSize;
     NSArray *_attributesByItem;
-    BOOL _layoutForScrollButtons;
+    _Bool _layoutForScrollButtons;
     struct UIEdgeInsets _scrollButtonInsets;
 }
 
 + (Class)layoutAttributesClass;
-+ (float)desiredItemHeightForWidth:(float)arg1;
++ (double)desiredItemHeightForWidth:(double)arg1;
 @property(readonly, nonatomic) struct UIEdgeInsets scrollButtonInsets; // @synthesize scrollButtonInsets=_scrollButtonInsets;
 @property(nonatomic) id <SBStarkLauncherLayoutDelegate> delegate; // @synthesize delegate=_delegate;
 - (struct CGSize)collectionViewContentSize;
 - (id)layoutAttributesForItemAtIndexPath:(id)arg1;
 - (id)layoutAttributesForElementsInRect:(struct CGRect)arg1;
 - (void)prepareLayout;
-@property(nonatomic) BOOL layoutForScrollButtons;
-@property(nonatomic) float itemHeight;
+@property(nonatomic) _Bool layoutForScrollButtons;
+@property(nonatomic) double itemHeight;
 - (void)dealloc;
 
 @end

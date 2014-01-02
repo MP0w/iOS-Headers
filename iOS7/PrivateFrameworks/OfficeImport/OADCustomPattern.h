@@ -8,16 +8,17 @@
 
 @class OADBlipRef;
 
+// Not exported
 @interface OADCustomPattern : OADPattern
 {
     OADBlipRef *mBlipRef;
-    BOOL mIsBlipRefOverridden;
+    _Bool mIsBlipRefOverridden;
 }
 
 + (id)defaultProperties;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (BOOL)isBlipRefOverridden;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isBlipRefOverridden;
 - (void)setBlipRef:(id)arg1;
 - (id)blipRef;
 - (id)initWithDefaults;

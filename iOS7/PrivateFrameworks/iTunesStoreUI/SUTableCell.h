@@ -14,32 +14,34 @@
     SUTableCellContentView *_configurationView;
     unsigned int _hideHighlight:1;
     SUItemOfferButton *_itemOfferButton;
-    CDStruct_b08558f4 _position;
+    CDStruct_3e55db63 _position;
     UIColor *_topBorderColor;
+    long long _editState;
 }
 
+@property(nonatomic) long long editState; // @synthesize editState=_editState;
 @property(retain, nonatomic) UIColor *topBorderColor; // @synthesize topBorderColor=_topBorderColor;
-@property(nonatomic) CDStruct_b08558f4 position; // @synthesize position=_position;
+@property(nonatomic) CDStruct_3e55db63 position; // @synthesize position=_position;
 @property(retain, nonatomic) UIColor *bottomBorderColor; // @synthesize bottomBorderColor=_bottomBorderColor;
-@property(nonatomic) BOOL usesSubviews;
-@property(nonatomic) BOOL showHighlight;
-@property(nonatomic) BOOL highlightsOnlyContentView;
-@property(nonatomic) BOOL drawAsDisabled;
+@property(nonatomic) _Bool usesSubviews;
+@property(nonatomic) _Bool showHighlight;
+@property(nonatomic) _Bool highlightsOnlyContentView;
+@property(nonatomic) _Bool drawAsDisabled;
 @property(retain, nonatomic) SUCellConfiguration *configuration;
 @property(nonatomic) int clipCorners;
 @property(readonly, nonatomic) SUItemOfferButton *itemOfferButton;
 @property(readonly, nonatomic) UIBezierPath *clippingPath;
-- (void)setShowingDeleteConfirmation:(BOOL)arg1;
-- (void)setSelected:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)setHighlighted:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)setShowingDeleteConfirmation:(_Bool)arg1;
+- (void)setSelected:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)setHighlighted:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)layoutSubviews;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)drawRect:(struct CGRect)arg1;
-- (BOOL)_canDrawContent;
+- (_Bool)_canDrawContent;
 - (id)copyPurchaseAnimationView;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

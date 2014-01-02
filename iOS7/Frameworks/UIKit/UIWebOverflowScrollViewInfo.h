@@ -8,6 +8,7 @@
 
 @class CALayer, UIView, UIWebOverflowScrollView;
 
+// Not exported
 @interface UIWebOverflowScrollViewInfo : NSObject
 {
     UIWebOverflowScrollView *_scrollView;

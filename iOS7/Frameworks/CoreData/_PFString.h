@@ -6,38 +6,37 @@
 
 #import "NSString.h"
 
+// Not exported
 @interface _PFString : NSString
 {
-    int _reserved1;
     int _cd_rc;
     unsigned int _length;
     id _sourceData;
-    int _reserved2;
 }
 
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (id)alloc;
-+ (BOOL)accessInstanceVariablesDirectly;
++ (_Bool)accessInstanceVariablesDirectly;
 - (id)description;
-- (BOOL)isEqualToString:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (unsigned int)cStringLength;
+- (_Bool)isEqualToString:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (unsigned long long)cStringLength;
 - (void)getCString:(char *)arg1;
 - (const char *)UTF8String;
-- (const char *)_fastCStringContents:(BOOL)arg1;
+- (const char *)_fastCStringContents:(_Bool)arg1;
 - (const char *)cString;
 - (void)getCharacters:(unsigned short *)arg1 range:(struct _NSRange)arg2;
 - (void)getCharacters:(unsigned short *)arg1;
-- (unsigned short)characterAtIndex:(unsigned int)arg1;
-- (unsigned int)length;
+- (unsigned short)characterAtIndex:(unsigned long long)arg1;
+- (unsigned long long)length;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)copy;
 - (void)encodeWithCoder:(id)arg1;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
-- (unsigned int)retainCount;
+- (_Bool)_isDeallocating;
+- (_Bool)_tryRetain;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;
 - (void)dealloc;

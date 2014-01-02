@@ -8,17 +8,17 @@
 
 @interface WBSURLCompletionMatch : NSObject
 {
-    int _matchLocation;
+    long long _matchLocation;
 }
 
-+ (int)matchLocationForString:(id)arg1 inTitle:(id)arg2;
-+ (int)matchLocationForString:(id)arg1 inURLString:(id)arg2;
-@property(readonly, nonatomic) int matchLocation; // @synthesize matchLocation=_matchLocation;
++ (long long)matchLocationForString:(id)arg1 inTitle:(id)arg2;
++ (long long)matchLocationForString:(id)arg1 inURLString:(id)arg2;
+@property(readonly, nonatomic) long long matchLocation; // @synthesize matchLocation=_matchLocation;
 - (id)matchingStringWithUserTypedPrefix:(id)arg1;
 - (id)userVisibleURLString;
 - (id)title;
 - (id)originalURLString;
-- (id)initWithMatchLocation:(int)arg1;
+- (id)initWithMatchLocation:(long long)arg1;
 
 @end
 

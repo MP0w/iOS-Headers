@@ -12,7 +12,7 @@
 
 @interface HangTracerController : PSListController <UITextFieldDelegate>
 {
-    BOOL _enabled;
+    _Bool _enabled;
     float _duration;
     float _launchDuration;
     PSSpecifier *_textSpec;
@@ -32,7 +32,7 @@
 - (id)launchDurationText:(id)arg1;
 - (id)launchDuration:(id)arg1;
 - (void)setLaunchDuration:(id)arg1 specifier:(id)arg2;
-- (BOOL)textFieldShouldReturn:(id)arg1;
+- (_Bool)textFieldShouldReturn:(id)arg1;
 - (id)durationText:(id)arg1;
 - (id)duration:(id)arg1;
 - (void)setDuration:(id)arg1 specifier:(id)arg2;

@@ -8,6 +8,7 @@
 
 @class WebNavigationDataPrivate;
 
+// Not exported
 @interface WebNavigationData : NSObject
 {
     WebNavigationDataPrivate *_private;
@@ -15,12 +16,12 @@
 
 - (void)dealloc;
 - (id)clientRedirectSource;
-- (BOOL)hasSubstituteData;
+- (_Bool)hasSubstituteData;
 - (id)response;
 - (id)originalRequest;
 - (id)title;
 - (id)url;
-- (id)initWithURLString:(id)arg1 title:(id)arg2 originalRequest:(id)arg3 response:(id)arg4 hasSubstituteData:(BOOL)arg5 clientRedirectSource:(id)arg6;
+- (id)initWithURLString:(id)arg1 title:(id)arg2 originalRequest:(id)arg3 response:(id)arg4 hasSubstituteData:(_Bool)arg5 clientRedirectSource:(id)arg6;
 
 @end
 

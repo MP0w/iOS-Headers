@@ -8,6 +8,7 @@
 
 @class TSUColor;
 
+// Not exported
 @interface MFPGradientStop : NSObject
 {
     TSUColor *mColor;

@@ -17,8 +17,8 @@
     NSString *_title;
     unsigned int _service;
     NSPredicate *_predicate;
-    BOOL _showingAlert;
-    BOOL _checkingPaired;
+    _Bool _showingAlert;
+    _Bool _checkingPaired;
     PSSpecifierStub *_connectingSpec;
     Class _btSSPRequestClass;
     Class _btAlertClass;
@@ -28,7 +28,7 @@
 
 @property(nonatomic) id <BTDevicePickerDelegate> delegate; // @synthesize delegate=_delegate;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)alertSheetDismissed:(id)arg1;
 - (void)deviceConnectionCompleteHandler:(id)arg1;
@@ -42,12 +42,12 @@
 - (void)deviceFoundHandler:(id)arg1;
 - (void)deviceDiscoveryStoppedHandler:(id)arg1;
 - (void)powerChanged:(id)arg1;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (void)applicationWillResignActive:(id)arg1;
 - (void)startScanning;
 - (void)checkAttachTimeout;
 - (void)cleanupPairing;
-- (void)dismissAnimated:(BOOL)arg1;
+- (void)dismissAnimated:(_Bool)arg1;
 - (void)showInternal;
 - (void)show;
 - (void)dealloc;

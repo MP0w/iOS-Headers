@@ -13,10 +13,10 @@
 @interface UIMultiColumnsNavigationTransitionView : UIView <NSCoding>
 {
     id _delegate;
-    int _transition;
+    long long _transition;
     UIView *_firstResponderViewToRestore;
     unsigned int _isTransitioning:1;
-    float _columnWidth;
+    double _columnWidth;
     int _columnCount;
     NSArray *_fromViews;
     NSArray *_toViews;
@@ -26,22 +26,22 @@
     struct __CFDictionary *_dividerViews;
     struct __CFDictionary *_containerViews;
     UIColor *_dividersColor;
-    float _dividersWidth;
+    double _dividersWidth;
 }
 
-+ (double)defaultDurationForTransition:(int)arg1;
++ (double)defaultDurationForTransition:(long long)arg1;
 @property(nonatomic) int columnCount; // @synthesize columnCount=_columnCount;
-@property(nonatomic) float columnWidth; // @synthesize columnWidth=_columnWidth;
+@property(nonatomic) double columnWidth; // @synthesize columnWidth=_columnWidth;
 @property(nonatomic) id delegate; // @synthesize delegate=_delegate;
 - (void)_removeContainerViewForView:(id)arg1;
 - (id)_containerViewForView:(id)arg1;
 - (void)_removeDividerViewForView:(id)arg1;
 - (id)_dividerViewForView:(id)arg1;
 - (void)_navigationTransitionDidStop;
-- (BOOL)_isTransitioningFromView:(id)arg1;
-- (BOOL)isTransitioning;
-- (BOOL)transition:(int)arg1 fromViews:(id)arg2 toViews:(id)arg3;
-- (BOOL)transition:(int)arg1 toViews:(id)arg2;
+- (_Bool)_isTransitioningFromView:(id)arg1;
+- (_Bool)isTransitioning;
+- (_Bool)transition:(long long)arg1 fromViews:(id)arg2 toViews:(id)arg3;
+- (_Bool)transition:(long long)arg1 toViews:(id)arg2;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

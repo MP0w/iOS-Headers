@@ -8,16 +8,18 @@
 
 @class VKStyle;
 
+// Not exported
 @interface VKDrawStyle : NSObject
 {
     VKStyle *_sourceStyle;
 }
 
-- (void)takeFromStyleProperties:(id)arg1 atZoom:(unsigned int)arg2 globals:(id)arg3;
+- (void)takeFromStyleProperties:(id)arg1 atZoom:(unsigned long long)arg2 globals:(id)arg3;
 - (void)takeFromZoomInvariantProperties:(id)arg1;
 @property(readonly, nonatomic) id variant;
 @property(readonly, nonatomic) float blendingFactor;
 - (id)styleName;
+- (void)clearSourceStyle;
 - (id)sourceStyle;
 - (id)initWithStyle:(id)arg1;
 

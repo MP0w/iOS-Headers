@@ -15,10 +15,10 @@
     NSMutableSet *_urlsToExamine;
     NSMutableSet *_principalURLs;
     NSURL *_urlBeingExamined;
-    BOOL _authError;
+    _Bool _authError;
 }
 
-@property(readonly) BOOL didReceiveAuthenticationError; // @synthesize didReceiveAuthenticationError=_authError;
+@property(readonly) _Bool didReceiveAuthenticationError; // @synthesize didReceiveAuthenticationError=_authError;
 @property(retain) NSURL *urlBeingExamined; // @synthesize urlBeingExamined=_urlBeingExamined;
 @property(retain) NSMutableSet *principalURLs; // @synthesize principalURLs=_principalURLs;
 @property(retain) NSMutableSet *urlsToExamine; // @synthesize urlsToExamine=_urlsToExamine;

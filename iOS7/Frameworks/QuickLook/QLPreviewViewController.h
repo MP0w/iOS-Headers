@@ -7,40 +7,39 @@
 #import "UIViewController.h"
 
 #import "QLPreviewItemInteractionDelegate-Protocol.h"
-#import "QLProgressViewDelegate-Protocol.h"
 #import "QLSwippableItemProtocol-Protocol.h"
 #import "UIDocumentPasswordViewDelegate-Protocol.h"
 
 @class NSString, NSTimer, QLDisplayBundle, QLGenericView, QLProgressView, UIDocumentPasswordView, UIView;
 
-@interface QLPreviewViewController : UIViewController <QLPreviewItemInteractionDelegate, UIDocumentPasswordViewDelegate, QLProgressViewDelegate, QLSwippableItemProtocol>
+@interface QLPreviewViewController : UIViewController <QLPreviewItemInteractionDelegate, UIDocumentPasswordViewDelegate, QLSwippableItemProtocol>
 {
     id <QLPreviewItemInteractionDelegate> _displayBundleDelegate;
     id <QLPreviewItem> _previewItem;
-    int _index;
-    CDStruct_6904a77d _clientContext;
+    long long _index;
+    CDStruct_0109ef53 _clientContext;
     int _previewMode;
-    BOOL _needsReload;
-    BOOL _swiping;
-    BOOL _shouldSwapDisplayBundles;
+    _Bool _needsReload;
+    _Bool _swiping;
+    _Bool _shouldSwapDisplayBundles;
     UIView *_scalingView;
     UIView *_contentContainerView;
     UIView *_accessoryContainerView;
-    float _aspectRatio;
-    float _scaleFactor;
+    double _aspectRatio;
+    double _scaleFactor;
+    double _navigationBarVerticalOffset;
     QLDisplayBundle *_displayBundle;
     QLDisplayBundle *_newDisplayBundle;
     NSTimer *_progressTimer;
     QLProgressView *_progressView;
-    BOOL _loadingProgressVisible;
     NSString *_loadingTextForMissingFiles;
-    BOOL _overlayHidden;
+    _Bool _overlayHidden;
     UIDocumentPasswordView *_documentPasswordView;
     QLGenericView *_airPlayPasswordView;
-    BOOL _loadedWithPassword;
+    _Bool _loadedWithPassword;
 }
 
-@property int index; // @synthesize index=_index;
+@property long long index; // @synthesize index=_index;
 @property id <QLPreviewItemInteractionDelegate> displayBundleDelegate; // @synthesize displayBundleDelegate=_displayBundleDelegate;
 - (void)previewItemDidExitFullScreen:(id)arg1;
 - (void)previewItem:(id)arg1 willEnterFullScreenWithHostedWindow:(id)arg2;
@@ -48,7 +47,7 @@
 - (id)clientProcessAlertViewForPreviewItem:(id)arg1;
 - (void)previewItem:(id)arg1 receivedTapOnURL:(id)arg2;
 - (id)previewItem:(id)arg1 willSendRequest:(id)arg2;
-- (void)previewItemDidLoad:(id)arg1 atIndex:(int)arg2 withError:(id)arg3;
+- (void)previewItemDidLoad:(id)arg1 atIndex:(long long)arg2 withError:(id)arg3;
 - (void)previewItem:(id)arg1 requiresDisplayBundle:(id)arg2 withHints:(id)arg3;
 - (void)previewItemWillLoad:(id)arg1;
 - (void)previewItem:(id)arg1 willHideOverlayWithDuration:(double)arg2;
@@ -68,10 +67,10 @@
 - (void)setupAirPlayView;
 @property(readonly) UIView *airPlayView;
 @property(readonly) int airPlayMode;
-- (void)_refreshPreviewItem:(BOOL)arg1 withPassword:(id)arg2;
+- (void)_refreshPreviewItem:(_Bool)arg1 withPassword:(id)arg2;
 - (void)refreshPreviewItem;
-- (void)_prepareDisplayBundle:(id)arg1 preload:(BOOL)arg2 withHints:(id)arg3;
-- (void)progressViewWasTapped:(id)arg1;
+- (void)_prepareDisplayBundle:(id)arg1 preload:(_Bool)arg2 withHints:(id)arg3;
+- (void)_updateProgressUIWithDuration:(double)arg1;
 - (void)_hideProgressiveUI;
 - (void)_showProgressUI;
 - (void)_scheduleShowProgressiveUI;
@@ -86,13 +85,14 @@
 - (void)_showGenericDisplayBundleForPreviewItem:(id)arg1;
 - (void)_removeDisplayBundles;
 - (void)_swapDisplayBundles;
-- (void)setOverlayHidden:(BOOL)arg1 duration:(double)arg2;
+- (void)setOverlayHidden:(_Bool)arg1 duration:(double)arg2;
 @property int previewMode;
-@property CDStruct_6904a77d clientContext;
+@property CDStruct_0109ef53 clientContext;
 - (void)setLoadingTextForMissingFiles:(id)arg1;
 @property(readonly) QLDisplayBundle *displayBundle;
 @property(retain) id <QLPreviewItem> previewItem;
-- (void)setAspectRatio:(float)arg1 scaleFactor:(float)arg2;
+- (void)setNavigationBarVerticalOffset:(double)arg1;
+- (void)setAspectRatio:(double)arg1 scaleFactor:(double)arg2;
 - (void)_layoutViews;
 - (void)willMoveToParentViewController:(id)arg1;
 - (void)loadView;

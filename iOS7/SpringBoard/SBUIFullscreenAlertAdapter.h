@@ -8,35 +8,44 @@
 
 @interface SBUIFullscreenAlertAdapter : SBAlertAdapter
 {
-    BOOL _animatingDeactivation;
+    _Bool _animatingDeactivation;
+    _Bool _animatingActivation;
 }
 
 + (id)_adapterForController:(id)arg1;
 + (void)alertAdapterDisplayDidDisappear:(id)arg1;
-+ (void)deactivateAlertForController:(id)arg1 animated:(BOOL)arg2 animateOldDisplayInWithStyle:(int)arg3 isSlidingDisplay:(BOOL)arg4;
-+ (void)activateAlertForController:(id)arg1 animated:(BOOL)arg2 animateCurrentDisplayOut:(BOOL)arg3 withDelay:(BOOL)arg4 isSlidingDisplay:(BOOL)arg5;
++ (void)deactivateAlertForController:(id)arg1 animated:(_Bool)arg2 animateOldDisplayInWithStyle:(int)arg3 isSlidingDisplay:(_Bool)arg4;
++ (void)activateAlertForController:(id)arg1 animated:(_Bool)arg2 animateCurrentDisplayOut:(_Bool)arg3 withDelay:(_Bool)arg4 isSlidingDisplay:(_Bool)arg5;
 - (id)effectiveViewController;
 - (void)setDisplay:(id)arg1;
-- (void)launchSucceeded:(BOOL)arg1;
+- (void)deactivate;
+- (void)activate;
+- (void)setDisplaySetting:(unsigned int)arg1 flag:(_Bool)arg2;
 - (void)handleAutoLock;
-- (BOOL)handleHeadsetButtonPressed:(BOOL)arg1;
-- (BOOL)handleVolumeDownButtonPressed;
-- (BOOL)handleVolumeUpButtonPressed;
-- (BOOL)handleLockButtonPressed;
-- (BOOL)handleMenuButtonTap;
+- (_Bool)handleHeadsetButtonPressed:(_Bool)arg1;
+- (_Bool)handleVolumeDownButtonPressed;
+- (_Bool)handleVolumeUpButtonPressed;
+- (_Bool)handleLockButtonPressed;
+- (_Bool)handleMenuButtonTap;
 - (void)displayDidDisappear;
 - (void)_updateForTransparentDismiss:(id)arg1;
+- (void)_pluginViewDidAnimatedIn:(id)arg1;
+- (void)animateViewIn;
+- (void)prepareViewToAnimateIn;
+- (_Bool)isCurrentlyAnimatingActivation;
+- (void)setViewShouldAnimateIn:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)_pluginViewAnimatedOut:(id)arg1;
 - (void)animateViewOut;
 - (void)prepareViewToAnimateOut;
-- (BOOL)currentlyAnimatingDeactivation;
-- (void)setViewShouldAnimateIn:(BOOL)arg1;
-- (BOOL)viewIsReadyToBeRemoved;
+- (_Bool)currentlyAnimatingDeactivation;
+- (_Bool)viewIsReadyToBeRemoved;
+- (_Bool)_shouldDismissSwitcherOnActivation;
 - (id)display;
 - (id)alertDisplayViewWithSize:(struct CGSize)arg1;
-- (BOOL)allowsStackingOfAlert:(id)arg1;
-- (BOOL)hasTranslucentBackground;
-- (BOOL)allowsEventOnlySuspension;
+- (_Bool)allowsStackingOfAlert:(id)arg1;
+- (_Bool)hasTranslucentBackground;
+- (_Bool)allowsEventOnlySuspension;
 - (void)dealloc;
 - (id)initWithAlertController:(id)arg1;
 

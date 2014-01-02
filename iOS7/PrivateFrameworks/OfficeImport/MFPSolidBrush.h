@@ -8,12 +8,13 @@
 
 @class TSUColor;
 
+// Not exported
 @interface MFPSolidBrush : MFPBrush
 {
     TSUColor *mColor;
 }
 
-- (void)fillPath:(id)arg1 evenOddRule:(BOOL)arg2;
+- (void)fillPath:(id)arg1 evenOddRule:(_Bool)arg2;
 - (void)setColor:(id)arg1;
 - (id)color;
 - (void)dealloc;

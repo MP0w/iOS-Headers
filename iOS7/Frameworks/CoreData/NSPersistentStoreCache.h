@@ -6,10 +6,11 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface NSPersistentStoreCache : NSObject
 {
     id _externalData;
-    unsigned int _capacity;
+    unsigned long long _capacity;
 }
 
 + (void)initialize;
@@ -27,7 +28,7 @@
 - (void)forgetAllExternalData;
 - (void)_doForgetAllExternalData:(void *)arg1;
 - (void)dealloc;
-- (void)_growRegistrationCollectionTo:(unsigned int)arg1;
+- (void)_growRegistrationCollectionTo:(unsigned long long)arg1;
 - (id)init;
 - (id)_initWithValueCallbacks:(void *)arg1;
 - (void)_createExternalDataDictWithValueCallbacks:(void *)arg1;

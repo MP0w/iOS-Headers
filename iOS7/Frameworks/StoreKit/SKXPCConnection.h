@@ -8,6 +8,7 @@
 
 @class NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>;
 
+// Not exported
 @interface SKXPCConnection : NSObject
 {
     NSObject<OS_xpc_object> *_connection;

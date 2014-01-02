@@ -12,8 +12,8 @@
 
 + (id)_keychainPasswordForRestrictions;
 + (void)_removeKeychainPasswordForRestrictions;
-+ (BOOL)validatePIN:(id)arg1;
-+ (BOOL)settingEnabled;
++ (_Bool)validatePIN:(id)arg1;
++ (_Bool)settingEnabled;
 + (void)setPIN:(id)arg1;
 + (void)removePasswordForRestrictions;
 + (void)setPasswordForRestrictions:(id)arg1;
@@ -22,7 +22,7 @@
 + (id)newHashDataForPassword:(id)arg1 andSalt:(id)arg2;
 + (id)_restrictionPasswordDictionary;
 + (id)_generateSalt;
-+ (BOOL)legacyRestrictionsInEffect;
++ (_Bool)legacyRestrictionsInEffect;
 + (void)migrateRestrictionsPasscode;
 
 @end

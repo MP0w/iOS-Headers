@@ -12,20 +12,20 @@
 {
     id <WebGeolocationCoreLocationUpdateListener> _positionListener;
     struct RetainPtr<CLLocationManager> _locationManager;
-    BOOL _isWaitingForAuthorization;
+    _Bool _isWaitingForAuthorization;
     int _lastAuthorizationStatus;
 }
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)setEnableHighAccuracy:(BOOL)arg1;
+- (void)setEnableHighAccuracy:(_Bool)arg1;
 - (void)locationManager:(id)arg1 didFailWithError:(id)arg2;
 - (void)locationManager:(id)arg1 didUpdateLocations:(id)arg2;
 - (void)sendLocation:(id)arg1;
 - (void)locationManager:(id)arg1 didChangeAuthorizationStatus:(int)arg2;
 - (void)stop;
 - (void)start;
-- (BOOL)handleExternalAuthorizationStatusChange:(int)arg1;
+- (_Bool)handleExternalAuthorizationStatusChange:(int)arg1;
 - (void)dealloc;
 - (id)initWithListener:(id)arg1;
 - (void)createLocationManager;

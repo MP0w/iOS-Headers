@@ -7,9 +7,9 @@
 #import "NSObject-Protocol.h"
 
 @protocol PKGroupDelegate <NSObject>
-- (void)group:(id)arg1 didMovePassFromIndex:(unsigned int)arg2 toIndex:(unsigned int)arg3;
-- (void)group:(id)arg1 didRemovePass:(id)arg2 atIndex:(unsigned int)arg3;
-- (void)group:(id)arg1 didUpdatePass:(id)arg2 atIndex:(unsigned int)arg3;
-- (void)group:(id)arg1 didInsertPass:(id)arg2 atIndex:(unsigned int)arg3;
+- (void)group:(id)arg1 didMovePassFromIndex:(unsigned long long)arg2 toIndex:(unsigned long long)arg3;
+- (void)group:(id)arg1 didRemovePass:(id)arg2 atIndex:(unsigned long long)arg3;
+- (void)group:(id)arg1 didUpdatePass:(id)arg2 atIndex:(unsigned long long)arg3;
+- (void)group:(id)arg1 didInsertPass:(id)arg2 atIndex:(unsigned long long)arg3;
 @end
 

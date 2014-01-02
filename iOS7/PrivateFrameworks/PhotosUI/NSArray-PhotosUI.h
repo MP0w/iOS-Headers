@@ -7,7 +7,7 @@
 #import "NSArray.h"
 
 @interface NSArray (PhotosUI)
-- (id)pu_localizedComposedStringThatFitsWidth:(float)arg1 withFont:(id)arg2 uppercase:(BOOL)arg3;
-- (id)pu_localizedComposedStringWithCount:(unsigned int)arg1 uppercase:(BOOL)arg2;
+- (id)pu_localizedComposedStringThatFitsWidth:(double)arg1 withFont:(id)arg2 uppercase:(_Bool)arg3;
+- (id)pu_localizedComposedStringWithCount:(unsigned long long)arg1 uppercase:(_Bool)arg2;
 @end
 

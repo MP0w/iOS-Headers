@@ -6,6 +6,7 @@
 
 #import <UIKit/UIEvent.h>
 
+// Not exported
 @interface UIInternalEvent : UIEvent
 {
     struct __GSEvent *_gsEvent;

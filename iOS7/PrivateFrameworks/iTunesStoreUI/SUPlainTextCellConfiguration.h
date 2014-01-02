@@ -10,14 +10,14 @@
 {
 }
 
-+ (float)rowHeightForContext:(id)arg1 representedObject:(id)arg2;
-- (int)textAlignmentForLabelAtIndex:(unsigned int)arg1;
++ (double)rowHeightForContext:(id)arg1 representedObject:(id)arg2;
+- (long long)textAlignmentForLabelAtIndex:(unsigned long long)arg1;
 - (void)reloadStrings;
 - (void)reloadLayoutInformation;
 - (void)reloadImages;
-- (BOOL)getShadowColor:(id *)arg1 offset:(struct CGSize *)arg2 forLabelAtIndex:(unsigned int)arg3 withModifiers:(unsigned int)arg4;
-- (id)fontForLabelAtIndex:(unsigned int)arg1;
-- (id)colorForLabelAtIndex:(unsigned int)arg1 withModifiers:(unsigned int)arg2;
+- (_Bool)getShadowColor:(id *)arg1 offset:(struct CGSize *)arg2 forLabelAtIndex:(unsigned long long)arg3 withModifiers:(unsigned long long)arg4;
+- (id)fontForLabelAtIndex:(unsigned long long)arg1;
+- (id)colorForLabelAtIndex:(unsigned long long)arg1 withModifiers:(unsigned long long)arg2;
 - (id)init;
 
 @end

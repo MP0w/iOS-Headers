@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface OAVClient : NSObject
 {
 }
 
-+ (BOOL)sourceDrawableIsTopLevel:(struct _xmlNode *)arg1;
++ (_Bool)sourceDrawableIsTopLevel:(struct _xmlNode *)arg1;
 
 @end
 

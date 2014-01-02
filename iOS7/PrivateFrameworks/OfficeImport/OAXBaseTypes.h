@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface OAXBaseTypes : NSObject
 {
 }
@@ -23,8 +24,8 @@
 + (double)readRequiredAngleFromXmlNode:(struct _xmlNode *)arg1 name:(const char *)arg2;
 + (float)readOptionalLengthFromXmlNode:(struct _xmlNode *)arg1 name:(const char *)arg2;
 + (float)readRequiredLengthFromXmlNode:(struct _xmlNode *)arg1 name:(const char *)arg2;
-+ (long)readOptionalLongFromXmlNode:(struct _xmlNode *)arg1 name:(const char *)arg2;
-+ (long)readRequiredLongFromXmlNode:(struct _xmlNode *)arg1 name:(const char *)arg2;
++ (long long)readOptionalLongFromXmlNode:(struct _xmlNode *)arg1 name:(const char *)arg2;
++ (long long)readRequiredLongFromXmlNode:(struct _xmlNode *)arg1 name:(const char *)arg2;
 + (id)rectAlignmentEnumMap;
 
 @end

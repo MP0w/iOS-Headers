@@ -8,6 +8,7 @@
 
 @class NSHashTable, NSLock, NSObject<OS_dispatch_queue>;
 
+// Not exported
 @interface _GEOResourceManifestTileGroupObserverProxy : NSObject
 {
     NSHashTable *_observers;
@@ -16,7 +17,7 @@
 }
 
 @property(nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
-- (unsigned int)observersCount;
+- (unsigned long long)observersCount;
 - (void)forEachObserver:(id)arg1 finished:(void)arg2;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;

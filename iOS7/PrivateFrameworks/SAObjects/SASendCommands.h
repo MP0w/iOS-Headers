@@ -14,7 +14,7 @@
 
 + (id)sendCommandsWithDictionary:(id)arg1 context:(id)arg2;
 + (id)sendCommands;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSArray *commands;
 - (id)encodedClassName;
 - (id)groupIdentifier;

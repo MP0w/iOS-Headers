@@ -12,14 +12,14 @@
 {
     UIColor *_bottomBorderColor;
     struct UIEdgeInsets _edgeInsets;
-    int _index;
-    int _style;
+    long long _index;
+    long long _style;
     UILabel *_subtitleLabel;
     UILabel *_titleLabel;
 }
 
-@property(nonatomic) int style; // @synthesize style=_style;
-@property(nonatomic) int index; // @synthesize index=_index;
+@property(nonatomic) long long style; // @synthesize style=_style;
+@property(nonatomic) long long index; // @synthesize index=_index;
 @property(nonatomic) struct UIEdgeInsets edgeInsets; // @synthesize edgeInsets=_edgeInsets;
 @property(retain, nonatomic) UIColor *bottomBorderColor; // @synthesize bottomBorderColor=_bottomBorderColor;
 @property(retain, nonatomic) UIFont *titleFont;

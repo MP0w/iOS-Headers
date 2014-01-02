@@ -11,13 +11,13 @@
 @interface MCChaperonePayload : MCPayload
 {
     NSData *_pairingCertificateData;
-    BOOL _nonChaperonePairingAllowed;
+    _Bool _nonChaperonePairingAllowed;
 }
 
 + (id)localizedPluralForm;
 + (id)localizedSingularForm;
 + (id)typeStrings;
-@property(readonly, nonatomic) BOOL nonChaperonePairingAllowed; // @synthesize nonChaperonePairingAllowed=_nonChaperonePairingAllowed;
+@property(readonly, nonatomic) _Bool nonChaperonePairingAllowed; // @synthesize nonChaperonePairingAllowed=_nonChaperonePairingAllowed;
 @property(readonly, nonatomic) NSData *pairingCertificateData; // @synthesize pairingCertificateData=_pairingCertificateData;
 - (void).cxx_destruct;
 - (id)description;

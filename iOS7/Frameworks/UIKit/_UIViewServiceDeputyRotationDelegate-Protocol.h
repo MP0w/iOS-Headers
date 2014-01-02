@@ -8,8 +8,8 @@
 
 @protocol _UIViewServiceDeputyRotationDelegate <NSObject>
 - (void)finishRotation;
-- (void)rotateToInterfaceOrientation:(int)arg1;
-- (void)willRotateToInterfaceOrientation:(int)arg1;
+- (void)rotateToInterfaceOrientation:(long long)arg1;
+- (void)willRotateToInterfaceOrientation:(long long)arg1;
 - (void)setHostedWindow:(id)arg1;
 @end
 

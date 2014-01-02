@@ -7,6 +7,6 @@
 #import "UILabel.h"
 
 @interface UILabel (SpringBoard)
-- (float)sb_yPositionForLabelWithContainerBounds:(struct CGRect)arg1 lineHeight:(float)arg2 baselineOffset:(float)arg3 font:(id)arg4;
+- (double)sb_yPositionForLabelWithContainerBounds:(struct CGRect)arg1 lineHeight:(double)arg2 baselineOffset:(double)arg3 font:(id)arg4;
 @end
 

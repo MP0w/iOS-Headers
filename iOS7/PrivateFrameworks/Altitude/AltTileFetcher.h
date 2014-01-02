@@ -8,6 +8,7 @@
 
 @class GEOTileLoader;
 
+// Not exported
 @interface AltTileFetcher : NSObject
 {
     GEOTileLoader *_geoTileLoader;
@@ -18,11 +19,14 @@
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (BOOL)isDownloading;
+- (_Bool)isDownloading;
 - (void)purgeExpired:(double)arg1;
 - (void)reportCorruptTile:(const struct _GEOTileKey *)arg1;
 - (void)cancelRequests;
-- (_Bool)fetchDataForJob:(shared_ptr_3813db34 *)arg1;
+- (void)updateJobPriority:(shared_ptr_3813db34 *)arg1;
+- (void)cancelJob:(shared_ptr_3813db34 *)arg1;
+- (void)fetchDataForJob:(shared_ptr_3813db34 *)arg1;
+- (shared_ptr_3813db34)getJobForKey:(const struct _GEOTileKey *)arg1;
 - (void)dealloc;
 - (id)init;
 

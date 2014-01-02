@@ -14,18 +14,18 @@
     NSURLCredential *_credentials;
     UIAlertView *_authenticationView;
     id _delegate;
-    BOOL _isShowingAuthenticationPanel;
+    _Bool _isShowingAuthenticationPanel;
 }
 
 - (void)removeAuthenticationChallenge:(id)arg1;
-- (void)addAuthenticationChallenge:(id)arg1 displayPanel:(BOOL)arg2;
+- (void)addAuthenticationChallenge:(id)arg1 displayPanel:(_Bool)arg2;
 - (void)addAuthenticationChallenge:(id)arg1;
 - (void)setDelegate:(id)arg1;
 - (void)cancelAuthentication;
 - (void)dealloc;
-- (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
+- (void)alertView:(id)arg1 didDismissWithButtonIndex:(long long)arg2;
 - (void)sheetReturnKeyPressed:(id)arg1;
-- (void)setShowingAuthentication:(BOOL)arg1;
+- (void)setShowingAuthentication:(_Bool)arg1;
 - (id)authenticationChallenge;
 
 @end

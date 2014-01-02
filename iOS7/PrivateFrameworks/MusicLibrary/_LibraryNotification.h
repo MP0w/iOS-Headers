@@ -8,11 +8,12 @@
 
 @class NSString;
 
+// Not exported
 @interface _LibraryNotification : NSObject
 {
+    int _token;
     NSString *_distributedName;
     NSString *_localName;
-    int _token;
 }
 
 @property int token; // @synthesize token=_token;

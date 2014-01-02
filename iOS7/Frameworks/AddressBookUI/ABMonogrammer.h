@@ -6,32 +6,50 @@
 
 #import "NSObject.h"
 
-@class UIColor, UIFont, UIImage;
+@class NSString, UIColor, UIFont, UIImage;
 
 @interface ABMonogrammer : NSObject
 {
-    UIImage *_defaultMonogram;
-    BOOL _textKnockout;
-    float _diameter;
+    UIImage *_silhouetteMonogram;
+    UIImage *_questionMarkMonogram;
+    UIImage *_knockoutMaskMonogram;
+    double _innerBorderWidth;
+    NSString *_silhouetteImageName;
+    long long _monogrammerStyle;
+    _Bool _textKnockout;
+    double _diameter;
     UIColor *_backgroundColor;
     UIFont *_font;
     UIColor *_textColor;
 }
 
-@property(nonatomic) BOOL textKnockout; // @synthesize textKnockout=_textKnockout;
+@property(nonatomic) _Bool textKnockout; // @synthesize textKnockout=_textKnockout;
 @property(retain, nonatomic) UIColor *textColor; // @synthesize textColor=_textColor;
 @property(retain, nonatomic) UIFont *font; // @synthesize font=_font;
 @property(retain, nonatomic) UIColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
-@property(nonatomic) float diameter; // @synthesize diameter=_diameter;
-- (id)monogramWithInitials:(id)arg1;
-- (id)monogramWithImageData:(struct __CFData *)arg1;
-- (id)initialsForFirstName:(id)arg1 lastName:(id)arg2;
-- (id)initialsForPerson:(void *)arg1;
-- (void)clearMonogramCache;
+@property(nonatomic) double diameter; // @synthesize diameter=_diameter;
+- (id)_copyMonogramWithKnockoutMask;
+- (id)_copyMonogramWithSilhouette;
+- (id)_copyMonogramWithInitials:(id)arg1;
+- (id)_copyMonogramWithImageData:(struct __CFData *)arg1;
+- (id)_initialsForFirstName:(id)arg1 lastName:(id)arg2;
+- (id)_initialsForPerson:(void *)arg1;
+- (void)_clearMonogramCache;
 - (id)defaultMonogram;
+- (id)maskForMonogram;
+- (id)knockoutMaskMonogram;
+- (id)questionMarkMonogram;
+- (id)silhouetteMonogram;
 - (id)monogramForPersonWithFirstName:(id)arg1 lastName:(id)arg2;
 - (id)monogramForPerson:(void *)arg1;
-- (BOOL)hasMonogramForPerson:(void *)arg1;
+- (id)monogramForPerson:(void *)arg1 isPersonImage:(_Bool *)arg2;
+- (_Bool)hasMonogramForPerson:(void *)arg1;
+- (_Bool)hasImageOrInitialsForPerson:(void *)arg1;
+- (id)silhouetteImageName;
+- (double)innerBorderWidth;
+- (void)monogramsAsFlatImages;
+- (void)dealloc;
+- (id)initWithStyle:(long long)arg1 diameter:(double)arg2;
 - (id)init;
 
 @end

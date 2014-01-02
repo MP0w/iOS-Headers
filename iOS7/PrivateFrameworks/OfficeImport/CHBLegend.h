@@ -6,14 +6,13 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface CHBLegend : NSObject
 {
 }
 
 + (id)readCHDLegendEntryFrom:(const struct XlChartCustomLegend *)arg1 state:(id)arg2;
 + (id)readFrom:(struct XlChartLegendFrame *)arg1 state:(id)arg2;
-+ (int)xlLegendPositionEnumFromCHDLegendPosition:(int)arg1;
-+ (int)chdLegendPositionEnumFromXlLegendPosition:(int)arg1;
 
 @end
 

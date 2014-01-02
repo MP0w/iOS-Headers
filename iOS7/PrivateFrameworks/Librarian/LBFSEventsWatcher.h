@@ -8,24 +8,25 @@
 
 @class NSMutableDictionary, NSObject<OS_dispatch_queue>, NSOperationQueue, NSURL;
 
+// Not exported
 @interface LBFSEventsWatcher : NSObject
 {
     struct __FSEventStream *_streamRef;
-    BOOL _started;
+    _Bool _started;
     NSURL *_url;
     NSObject<OS_dispatch_queue> *_eventQueue;
     NSOperationQueue *_messageQueue;
-    int _disableCount;
+    long long _disableCount;
     NSMutableDictionary *_inodeMap;
     id _updateHandler;
 }
 
 @property(copy, nonatomic) id updateHandler; // @synthesize updateHandler=_updateHandler;
 @property(readonly) NSURL *url; // @synthesize url=_url;
-- (id)messageForURL:(id)arg1 inode:(long long)arg2 exists:(BOOL)arg3 flags:(unsigned long)arg4;
-- (void)scanDirectory:(id)arg1 isGathering:(BOOL)arg2;
+- (id)messageForURL:(id)arg1 inode:(long long)arg2 exists:(_Bool)arg3 flags:(unsigned int)arg4;
+- (void)scanDirectory:(id)arg1 isGathering:(_Bool)arg2;
 - (void)sendMessage:(id)arg1;
-- (void)processEventForPath:(id)arg1 flags:(unsigned long)arg2;
+- (void)processEventForPath:(id)arg1 flags:(unsigned int)arg2;
 - (void)enableUpdates;
 - (void)disableUpdates;
 - (void)stop;

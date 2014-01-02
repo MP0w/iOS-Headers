@@ -6,35 +6,36 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface _UIAlertManager : NSObject
 {
 }
 
 + (void)sizeAlertWindowForCurrentOrientation;
-+ (void)createAlertWindowIfNeeded:(BOOL)arg1 deferDisplay:(BOOL)arg2;
-+ (void)createAlertWindowIfNeeded:(BOOL)arg1;
++ (void)createAlertWindowIfNeeded:(_Bool)arg1 deferDisplay:(_Bool)arg2;
++ (void)createAlertWindowIfNeeded:(_Bool)arg1;
 + (void)alertPopoutCompleted;
-+ (void)tellSpringboardHidingAlert:(id)arg1 animated:(BOOL)arg2 forSpringBoardAlertTransition:(BOOL)arg3;
-+ (void)tellSpringboardShowingAlert:(id)arg1 animated:(BOOL)arg2 forSpringBoardAlertTransition:(BOOL)arg3;
-+ (void)showDimmingViewAnimated:(BOOL)arg1;
-+ (void)hideDimmingViewAnimated:(BOOL)arg1;
-+ (BOOL)stackContainsAlert:(id)arg1;
++ (void)tellSpringboardHidingAlert:(id)arg1 animated:(_Bool)arg2 forSpringBoardAlertTransition:(_Bool)arg3;
++ (void)tellSpringboardShowingAlert:(id)arg1 animated:(_Bool)arg2 forSpringBoardAlertTransition:(_Bool)arg3;
++ (void)showDimmingViewAnimated:(_Bool)arg1;
++ (void)hideDimmingViewAnimated:(_Bool)arg1;
++ (_Bool)stackContainsAlert:(id)arg1;
 + (void)removeFromStack:(id)arg1;
-+ (void)addToStack:(id)arg1 dontDimBackground:(BOOL)arg2;
-+ (void)reorientAlertWindowTo:(int)arg1 animated:(BOOL)arg2 keyboard:(id)arg3;
++ (void)addToStack:(id)arg1 dontDimBackground:(_Bool)arg2;
++ (void)reorientAlertWindowTo:(long long)arg1 animated:(_Bool)arg2 keyboard:(id)arg3;
 + (void)applyClientWindowTransform:(struct CGAffineTransform)arg1;
 + (void)applyInternalWindowTransform:(struct CGAffineTransform)arg1;
 + (void)_applyAlertTransforms;
 + (struct CGAffineTransform)calculatedAlertTransform;
-+ (struct CGAffineTransform)_alertTranslationForInterfaceOrientation:(int)arg1 andTranslation:(float)arg2;
++ (struct CGAffineTransform)_alertTranslationForInterfaceOrientation:(long long)arg1 andTranslation:(double)arg2;
 + (void)alertWindowAnimationDidStop:(id)arg1 finished:(id)arg2 context:(void *)arg3;
-+ (void)noteOrientationChangingTo:(int)arg1;
-+ (void)noteOrientationChangingTo:(int)arg1 animated:(BOOL)arg2;
++ (void)noteOrientationChangingTo:(long long)arg1;
++ (void)noteOrientationChangingTo:(long long)arg1 animated:(_Bool)arg2;
 + (id)visibleAlert;
 + (id)topMostAlert;
-+ (BOOL)cancelAlertsAnimated:(BOOL)arg1;
-+ (BOOL)cancelTopMostAlertAnimated:(BOOL)arg1;
-+ (BOOL)hideTopMostAlertAnimated:(BOOL)arg1;
++ (_Bool)cancelAlertsAnimated:(_Bool)arg1;
++ (_Bool)cancelTopMostAlertAnimated:(_Bool)arg1;
++ (_Bool)hideTopMostAlertAnimated:(_Bool)arg1;
 + (void)showTopmostMiniAlertWithSynchronizationPort:(unsigned int)arg1;
 + (void)hideAlertsForTermination;
 + (void)hideTopmostMiniAlert;

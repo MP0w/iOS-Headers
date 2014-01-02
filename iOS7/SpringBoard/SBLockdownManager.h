@@ -11,10 +11,10 @@
 @interface SBLockdownManager : NSObject
 {
     int _state;
-    BOOL _settingUpActivationState;
-    BOOL _isBricked;
-    BOOL _isDeveloperDevice;
-    BOOL _hasShownMismatchedSIM;
+    _Bool _settingUpActivationState;
+    _Bool _isBricked;
+    _Bool _isDeveloperDevice;
+    _Bool _hasShownMismatchedSIM;
     SBDismissOnlyAlertItem *_activatingAlertItem;
     NSString *_unqiueDeviceIdentifier;
 }
@@ -22,18 +22,18 @@
 + (id)sharedInstance;
 - (void)dealloc;
 - (int)lockdownState;
-- (BOOL)isDeveloperDevice;
-- (BOOL)brickedDevice;
+- (_Bool)isDeveloperDevice;
+- (_Bool)brickedDevice;
 - (void)_setupActivationState;
 - (void)_serviceAvailabilityChanged:(id)arg1;
 - (void)_activationFailed;
 - (void)_resetActivationState;
 - (void)_postAlertsIfNeeded;
-- (BOOL)_shouldShowTelephonyAlerts;
+- (_Bool)_shouldShowTelephonyAlerts;
 - (void)_setCurrentAlertItem:(id)arg1;
-- (BOOL)_isRegisteredToNetwork;
-- (void)_setHasEverRegistered:(BOOL)arg1;
-- (BOOL)_hasEverRegistered;
+- (_Bool)_isRegisteredToNetwork;
+- (void)_setHasEverRegistered:(_Bool)arg1;
+- (_Bool)_hasEverRegistered;
 - (id)init;
 
 @end

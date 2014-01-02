@@ -7,6 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol SBWorkspaceTransactionDelegate <NSObject>
-- (void)transactionDidFinish:(id)arg1 success:(BOOL)arg2;
+- (void)transactionDidFinish:(id)arg1 success:(_Bool)arg2;
 @end
 

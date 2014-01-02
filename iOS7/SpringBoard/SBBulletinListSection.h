@@ -6,55 +6,71 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSDate, NSMutableArray, NSMutableSet, NSString, UIImage;
+@class BBSectionInfo, NSArray, NSDate, NSMutableArray, NSMutableSet, NSSet, NSString, UIImage;
 
 @interface SBBulletinListSection : NSObject
 {
     NSString *_sectionID;
-    int _sectionType;
-    int _sectionCategory;
+    long long _sectionType;
+    long long _sectionCategory;
     id _widget;
     NSMutableArray *_bulletins;
     NSMutableSet *_bulletinIDs;
     NSArray *_sortDescriptors;
     NSString *_displayName;
     UIImage *_iconImage;
-    unsigned int _notificationCenterLimit;
-    BOOL _showsInLockScreen;
-    BOOL _displaysCriticalBulletins;
+    _Bool _showsInLockScreen;
+    _Bool _showsMessagePreview;
+    unsigned long long _messageNumberOfLines;
+    _Bool _displaysCriticalBulletins;
     NSDate *_lastSortDate;
+    NSMutableSet *_subsections;
+    UIImage *_largeIconImage;
+    BBSectionInfo *_sectionInfo;
 }
 
-@property(nonatomic) BOOL showsInLockScreen; // @synthesize showsInLockScreen=_showsInLockScreen;
-@property(nonatomic) unsigned int notificationCenterLimit; // @synthesize notificationCenterLimit=_notificationCenterLimit;
+@property(retain, nonatomic) BBSectionInfo *sectionInfo; // @synthesize sectionInfo=_sectionInfo;
+@property(nonatomic) unsigned long long messageNumberOfLines; // @synthesize messageNumberOfLines=_messageNumberOfLines;
+@property(nonatomic) _Bool showsMessagePreview; // @synthesize showsMessagePreview=_showsMessagePreview;
+@property(nonatomic) _Bool showsInLockScreen; // @synthesize showsInLockScreen=_showsInLockScreen;
 @property(copy, nonatomic) NSString *sectionID; // @synthesize sectionID=_sectionID;
+@property(retain, nonatomic) UIImage *largeIconImage; // @synthesize largeIconImage=_largeIconImage;
 @property(retain, nonatomic) UIImage *iconImage; // @synthesize iconImage=_iconImage;
 @property(copy, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 @property(retain, nonatomic) NSArray *sortDescriptors; // @synthesize sortDescriptors=_sortDescriptors;
 @property(retain, nonatomic) id widget; // @synthesize widget=_widget;
 @property(readonly, nonatomic) NSArray *bulletins; // @synthesize bulletins=_bulletins;
-@property(nonatomic) int sectionCategory; // @synthesize sectionCategory=_sectionCategory;
-- (BOOL)hasBulletinWithID:(id)arg1;
+@property(nonatomic) long long sectionCategory; // @synthesize sectionCategory=_sectionCategory;
+- (void)setShowsMessagePreview:(_Bool)arg1 forSubsectionID:(id)arg2;
+- (_Bool)showsMessagePreviewForBulletinsInSubsectionID:(id)arg1;
+- (_Bool)showsMessagePreviewForBulletinID:(id)arg1;
+- (void)setShowsInLockScreen:(_Bool)arg1 forSubsectionID:(id)arg2;
+- (_Bool)showsBulletinsInSubsectionIDInLockScreen:(id)arg1;
+- (_Bool)showsBulletinIDInLockScreen:(id)arg1;
+- (id)_subsectionWithIDCreatingIfNecessary:(id)arg1;
+@property(readonly, nonatomic) NSSet *subsectionIDs;
+- (_Bool)hasBulletinWithID:(id)arg1;
 - (id)bulletinWithBulletinID:(id)arg1;
-- (id)bulletinAtIndex:(unsigned int)arg1;
-- (unsigned int)replaceBulletin:(id)arg1 withBulletin:(id)arg2;
-- (unsigned int)removeBulletin:(id)arg1;
-- (unsigned int)_removeBulletin:(id)arg1;
-- (unsigned int)addBulletin:(id)arg1;
-- (unsigned int)indexOfBulletinWithLocalNotification:(id)arg1;
-- (unsigned int)indexOfBulletinID:(id)arg1;
-- (unsigned int)_indexForNewBulletin:(id)arg1;
-- (int)compareSection:(id)arg1 forOrder:(int)arg2;
-- (int)compare:(id)arg1;
+- (id)bulletinAtIndex:(unsigned long long)arg1;
+- (unsigned long long)replaceBulletin:(id)arg1 withBulletin:(id)arg2;
+- (unsigned long long)removeBulletin:(id)arg1;
+- (unsigned long long)_removeBulletin:(id)arg1;
+- (unsigned long long)addBulletin:(id)arg1;
+- (unsigned long long)indexOfBulletinWithLocalNotification:(id)arg1;
+- (unsigned long long)indexOfBulletinID:(id)arg1;
+- (unsigned long long)_indexForNewBulletin:(id)arg1;
+- (long long)compareSection:(id)arg1 forOrder:(long long)arg2;
+- (long long)compare:(id)arg1;
+- (void)_updateWithSectionInfo:(id)arg1;
+- (void)updateWithSectionInfo:(id)arg1;
 - (void)dealloc;
 - (id)initWithSectionInfo:(id)arg1;
-- (BOOL)showsTodaysDate;
-- (BOOL)displaysCriticalBulletins;
+- (_Bool)displaysCriticalBulletins;
 - (id)lastSortDate;
-- (BOOL)hasClearableBulletins;
-- (unsigned int)bulletinCount;
-- (BOOL)isBulletinSection;
-- (BOOL)isWidgetSection;
+- (_Bool)hasClearableBulletins;
+- (unsigned long long)bulletinCount;
+- (_Bool)isBulletinSection;
+- (_Bool)isWidgetSection;
 - (id)description;
 
 @end

@@ -17,9 +17,9 @@
 - (void)insertAdjacentHTML:(id)arg1 html:(id)arg2;
 - (id)insertAdjacentElement:(id)arg1 element:(id)arg2;
 @property(readonly) NSString *titleDisplayString;
-- (void)setSpellcheck:(BOOL)arg1;
-- (BOOL)spellcheck;
-@property(readonly) BOOL isContentEditable;
+- (void)setSpellcheck:(_Bool)arg1;
+- (_Bool)spellcheck;
+@property(readonly) _Bool isContentEditable;
 @property(copy) NSString *contentEditable;
 @property(readonly) DOMHTMLCollection *children;
 @property(copy) NSString *outerText;
@@ -27,25 +27,19 @@
 @property(copy) NSString *innerText;
 @property(copy) NSString *innerHTML;
 @property(copy) NSString *accessKey;
-- (void)setHidden:(BOOL)arg1;
-- (BOOL)hidden;
+- (void)setHidden:(_Bool)arg1;
+- (_Bool)hidden;
 - (void)setWebkitdropzone:(id)arg1;
 - (id)webkitdropzone;
-- (void)setDraggable:(BOOL)arg1;
-- (BOOL)draggable;
+- (void)setDraggable:(_Bool)arg1;
+- (_Bool)draggable;
 @property int tabIndex;
 @property(copy) NSString *dir;
-- (void)setTranslate:(BOOL)arg1;
-- (BOOL)translate;
+- (void)setTranslate:(_Bool)arg1;
+- (_Bool)translate;
 @property(copy) NSString *lang;
 @property(copy) NSString *title;
 @property(copy) NSString *idName;
-- (void)absolutePosition:(int *)arg1:(int *)arg2:(int *)arg3:(int *)arg4;
-- (void)setScrollXOffset:(int)arg1 scrollYOffset:(int)arg2 adjustForPurpleCaret:(BOOL)arg3;
-- (void)setScrollXOffset:(int)arg1 scrollYOffset:(int)arg2;
-- (int)scrollYOffset;
-- (int)scrollXOffset;
-- (int)structuralComplexityContribution;
 
 @end
 

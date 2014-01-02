@@ -6,11 +6,11 @@
 
 #import "UIView.h"
 
-@class NSString, UILabel, _UILegibilityView;
+@class NSString, UIColor, UILabel, _UILegibilityView;
 
 @interface CAMButtonLabel : UIView
 {
-    BOOL _useLegibilityView;
+    _Bool _useLegibilityView;
     UILabel *__label;
     _UILegibilityView *__legibilityView;
     struct CGSize _contentSize;
@@ -18,13 +18,14 @@
 
 @property(readonly, nonatomic) _UILegibilityView *_legibilityView; // @synthesize _legibilityView=__legibilityView;
 @property(readonly, nonatomic) UILabel *_label; // @synthesize _label=__label;
-@property(nonatomic, getter=isUsingLegibilityView) BOOL useLegibilityView; // @synthesize useLegibilityView=_useLegibilityView;
+@property(nonatomic, getter=isUsingLegibilityView) _Bool useLegibilityView; // @synthesize useLegibilityView=_useLegibilityView;
 @property(readonly, nonatomic) struct CGSize contentSize; // @synthesize contentSize=_contentSize;
 - (void)layoutSubviews;
-- (id)_imageFromLabel:(id)arg1;
 - (void)_createLegibilityView;
 - (void)_updateViewAlphas;
+@property(retain, nonatomic) UIColor *textColor;
 @property(copy, nonatomic) NSString *text;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

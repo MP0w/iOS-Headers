@@ -12,26 +12,21 @@
 
 @interface PLPhonePhotoScrollerViewController : PLPhotoScrollerViewController <UINavigationControllerDelegate>
 {
-    UIView *_savedButtonBarSuperview;
-    unsigned int _isModalTransition:1;
-    unsigned int _didDisappearUnderModalTransition:1;
+    _Bool _isModalTransition;
+    _Bool _didDisappearUnderModalTransition;
     UIView *_viewToRemoveForSlideShow;
 }
 
-- (BOOL)_isAirPlayEnabled;
-- (float)videoViewScrubberYOrigin:(id)arg1 forOrientation:(int)arg2;
-- (BOOL)_isPerformingModalTransitionFromCamera;
-- (BOOL)isModalTransitioning;
+- (_Bool)_isPerformingModalTransitionFromCamera;
+- (_Bool)isModalTransitioning;
 - (void)beginSlideshowByRemovingView:(id)arg1;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (void)viewDidDisappear:(BOOL)arg1;
+- (void)viewDidDisappear:(_Bool)arg1;
 - (void)_emailComposeSheetIsReady;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
-- (void)didMoveToPhotoAtIndex:(unsigned int)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)dealloc;
-- (id)initWithPhotoAtIndexPath:(id)arg1 inAssetContainerList:(id)arg2 lockStatusBar:(BOOL)arg3 delayImageLoading:(BOOL)arg4;
+- (id)initWithPhotoAtIndexPath:(id)arg1 inAssetContainerList:(id)arg2 lockStatusBar:(_Bool)arg3 delayImageLoading:(_Bool)arg4;
 
 @end
 

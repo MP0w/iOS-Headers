@@ -10,6 +10,7 @@
 
 @class EMFPlayer;
 
+// Not exported
 @interface EMFReader : NSObject <MFReader>
 {
     EMFPlayer *m_player;

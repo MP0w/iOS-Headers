@@ -8,13 +8,14 @@
 
 @class SCRCMathExpression;
 
+// Not exported
 @interface SCRCMathLongDivisionExpression : SCRCMathArrayExpression
 {
     SCRCMathExpression *_divisor;
 }
 
 @property(retain, nonatomic) SCRCMathExpression *divisor; // @synthesize divisor=_divisor;
-- (id)speakableDescriptionWithSpeakingStyle:(int)arg1 arePausesAllowed:(BOOL)arg2;
+- (id)speakableDescriptionWithSpeakingStyle:(int)arg1 arePausesAllowed:(_Bool)arg2;
 - (void)dealloc;
 - (id)initWithDictionary:(id)arg1;
 

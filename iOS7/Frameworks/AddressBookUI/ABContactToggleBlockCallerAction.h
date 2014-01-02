@@ -12,12 +12,12 @@
 {
 }
 
-- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (void)unblock;
 - (void)block;
 - (id)allNumbersAndEmails;
 - (void)performActionWithSender:(id)arg1;
-@property(readonly, nonatomic) BOOL isBlocked;
+@property(readonly, nonatomic) _Bool isBlocked;
 
 @end
 

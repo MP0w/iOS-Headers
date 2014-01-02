@@ -10,6 +10,7 @@
 
 @class NSString;
 
+// Not exported
 @interface UIImageNibPlaceholder : UIImage <NSCoding>
 {
     NSString *runtimeResourceName;

@@ -10,18 +10,18 @@
 {
 }
 
-- (BOOL)writeToDisk;
-- (BOOL)writeToDiskAndCompact:(BOOL)arg1;
-- (void)setZeroCodeBezelInformation:(CDStruct_c0454aff)arg1 forKey:(const void *)arg2 withLength:(unsigned long)arg3;
-- (void)setZeroCodeGlyphInformation:(CDStruct_c0454aff)arg1 forKey:(const void *)arg2 withLength:(unsigned long)arg3;
-- (void)_setZeroCodeInfo:(CDStruct_c0454aff)arg1 forKey:(const void *)arg2 withLength:(unsigned long)arg3 inTree:(const void *)arg4;
+- (_Bool)writeToDisk;
+- (_Bool)writeToDiskAndCompact:(_Bool)arg1;
+- (void)setZeroCodeBezelInformation:(CDStruct_c0454aff)arg1 forKey:(const void *)arg2 withLength:(unsigned long long)arg3;
+- (void)setZeroCodeGlyphInformation:(CDStruct_c0454aff)arg1 forKey:(const void *)arg2 withLength:(unsigned long long)arg3;
+- (void)_setZeroCodeInfo:(CDStruct_c0454aff)arg1 forKey:(const void *)arg2 withLength:(unsigned long long)arg3 inTree:(const void *)arg4;
 - (void)setRenditionKey:(const struct _renditionkeytoken *)arg1 hotSpot:(struct CGPoint)arg2 forName:(const char *)arg3;
-- (void)removeAssetForKey:(const void *)arg1 withLength:(unsigned long)arg2;
+- (void)removeAssetForKey:(const void *)arg1 withLength:(unsigned long long)arg2;
 - (void)removeAssetForKey:(id)arg1;
 - (void)setFontSize:(float)arg1 forFontSizeSelector:(id)arg2;
 - (void)setFontName:(id)arg1 baselineOffset:(float)arg2 forFontSelector:(id)arg3;
-- (void)setColor:(struct _rgbquad)arg1 forName:(const char *)arg2 excludeFromFilter:(BOOL)arg3;
-- (void)setAsset:(id)arg1 forKey:(const void *)arg2 withLength:(unsigned long)arg3;
+- (void)setColor:(struct _rgbquad)arg1 forName:(const char *)arg2 excludeFromFilter:(_Bool)arg3;
+- (void)setAsset:(id)arg1 forKey:(const void *)arg2 withLength:(unsigned long long)arg3;
 - (void)setAsset:(id)arg1 forKey:(id)arg2;
 - (void)setColorSpaceID:(unsigned int)arg1;
 - (void)setAssociatedChecksum:(unsigned int)arg1;
@@ -33,9 +33,6 @@
 - (void)setKeySemantics:(int)arg1;
 - (void)setKeyFormatData:(id)arg1;
 - (id)initWithPath:(id)arg1;
-- (void)setConstantName:(id)arg1 displayName:(id)arg2 forPartID:(int)arg3;
-- (void)setConstantName:(id)arg1 displayName:(id)arg2 forElementID:(int)arg3;
-- (void)_setConstantName:(id)arg1 displayName:(id)arg2 forID:(unsigned int)arg3 inDebugTree:(void *)arg4;
 
 @end
 

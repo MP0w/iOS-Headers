@@ -9,6 +9,6 @@
 @protocol NSStreamDelegate <NSObject>
 
 @optional
-- (void)stream:(id)arg1 handleEvent:(unsigned int)arg2;
+- (void)stream:(id)arg1 handleEvent:(unsigned long long)arg2;
 @end
 

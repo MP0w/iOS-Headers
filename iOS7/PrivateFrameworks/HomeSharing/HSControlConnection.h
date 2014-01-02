@@ -15,25 +15,25 @@
     unsigned int _key;
     NSOutputStream *_outputStream;
     double _timestamp;
-    id <HSControlConnectionDelegate> _delegate;
     unsigned int _protocolVersion;
+    id <HSControlConnectionDelegate> _delegate;
 }
 
 @property(nonatomic) unsigned int protocolVersion; // @synthesize protocolVersion=_protocolVersion;
 @property(nonatomic) id <HSControlConnectionDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)_sendTouchEvent:(int)arg1 locations:(const unsigned int *)arg2 count:(unsigned int)arg3 velocity:(CDStruct_b2fbf00d)arg4;
+- (void)_sendTouchEvent:(long long)arg1 locations:(const unsigned int *)arg2 count:(unsigned long long)arg3 velocity:(CDStruct_b2fbf00d)arg4;
 - (id)_newDataForControlTouchEventMessage_v1_1:(CDStruct_9a46e3d5)arg1;
 - (id)_newDataForControlTouchEventMessage_v1:(CDStruct_16f720f6)arg1;
 - (id)_newDataForControlExtendedMessage:(CDStruct_cc4e5495)arg1 withData:(id)arg2;
 - (id)_newDataForControlEventMessage:(CDStruct_cc4e5495)arg1;
-- (void)sendTouchesMoved:(const unsigned int *)arg1 count:(unsigned int)arg2 velocity:(CDStruct_b2fbf00d)arg3;
-- (void)sendTouchesEnded:(const unsigned int *)arg1 count:(unsigned int)arg2;
-- (void)sendTouchesBegan:(const unsigned int *)arg1 count:(unsigned int)arg2;
+- (void)sendTouchesMoved:(const unsigned int *)arg1 count:(unsigned long long)arg2 velocity:(CDStruct_b2fbf00d)arg3;
+- (void)sendTouchesEnded:(const unsigned int *)arg1 count:(unsigned long long)arg2;
+- (void)sendTouchesBegan:(const unsigned int *)arg1 count:(unsigned long long)arg2;
 - (void)sendShowItemDetailWithDictionary:(id)arg1;
-- (void)sendEvent:(int)arg1 value:(unsigned int)arg2;
+- (void)sendEvent:(long long)arg1 value:(unsigned int)arg2;
 - (void)open;
 - (void)close;
-- (void)stream:(id)arg1 handleEvent:(unsigned int)arg2;
+- (void)stream:(id)arg1 handleEvent:(unsigned long long)arg2;
 - (void)dealloc;
 - (id)initWithHost:(id)arg1 port:(unsigned int)arg2 key:(unsigned int)arg3;
 

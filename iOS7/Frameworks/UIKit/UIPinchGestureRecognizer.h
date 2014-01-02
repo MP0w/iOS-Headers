@@ -10,35 +10,35 @@
 
 @interface UIPinchGestureRecognizer : UIGestureRecognizer
 {
-    float _initialTouchDistance;
-    float _initialTouchScale;
+    double _initialTouchDistance;
+    double _initialTouchScale;
     double _lastTouchTime;
-    float _velocity;
-    float _previousVelocity;
-    float _scaleThreshold;
+    double _velocity;
+    double _previousVelocity;
+    double _scaleThreshold;
     struct CGAffineTransform _transform;
     struct CGPoint _anchorPoint;
     UITouch *_touches[2];
-    float _hysteresis;
+    double _hysteresis;
     id _transformAnalyzer;
     unsigned int _endsOnSingleTouch:1;
 }
 
-@property(nonatomic, getter=_hysteresis, setter=_setHysteresis:) float hysteresis; // @synthesize hysteresis=_hysteresis;
-@property(nonatomic) float scaleThreshold; // @synthesize scaleThreshold=_scaleThreshold;
+@property(nonatomic, getter=_hysteresis, setter=_setHysteresis:) double hysteresis; // @synthesize hysteresis=_hysteresis;
+@property(nonatomic) double scaleThreshold; // @synthesize scaleThreshold=_scaleThreshold;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
-@property(readonly, nonatomic) float velocity;
-@property(nonatomic) float scale;
+@property(readonly, nonatomic) double velocity;
+@property(nonatomic) double scale;
 @property(readonly, nonatomic) struct CGPoint anchorPoint;
 - (void)_resetGestureRecognizer;
 - (void)dealloc;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithTarget:(id)arg1 action:(SEL)arg2;
-- (void)_setEndsOnSingleTouch:(BOOL)arg1;
-- (BOOL)_endsOnSingleTouch;
+- (void)_setEndsOnSingleTouch:(_Bool)arg1;
+- (_Bool)_endsOnSingleTouch;
 
 @end
 

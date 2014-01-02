@@ -8,13 +8,14 @@
 
 @class NSString, TIWordTokenizer;
 
+// Not exported
 @interface WebBookmarkTitleWordTokenizer : NSObject
 {
     NSString *_string;
-    unsigned int _stringLength;
+    unsigned long long _stringLength;
     TIWordTokenizer *_wordTokenizer;
     struct _NSRange _rangeOfNextToken;
-    unsigned int _startOfUnclassifiedRangeBeforeNextToken;
+    unsigned long long _startOfUnclassifiedRangeBeforeNextToken;
 }
 
 + (void)initialize;

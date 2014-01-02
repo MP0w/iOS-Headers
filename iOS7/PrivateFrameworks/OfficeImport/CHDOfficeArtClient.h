@@ -10,13 +10,14 @@
 
 @class CHDAnchor;
 
+// Not exported
 @interface CHDOfficeArtClient : NSObject <OADClient>
 {
     CHDAnchor *mAnchor;
 }
 
 - (struct CGRect)bounds;
-- (BOOL)hasBounds;
+- (_Bool)hasBounds;
 - (void)setAnchor:(id)arg1;
 - (id)anchor;
 - (void)dealloc;

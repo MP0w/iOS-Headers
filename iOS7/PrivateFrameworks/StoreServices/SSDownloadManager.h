@@ -12,12 +12,12 @@
 {
     NSObject<OS_dispatch_queue> *_accessQueue;
     NSArray *_activeDownloads;
-    BOOL _activeDownloadsChanged;
+    _Bool _activeDownloadsChanged;
     NSObject<OS_dispatch_queue> *_backgroundQueue;
     SSXPCConnection *_connection;
     NSArray *_downloads;
-    BOOL _downloadsChanged;
-    BOOL _isUsingNetwork;
+    _Bool _downloadsChanged;
+    _Bool _isUsingNetwork;
     SSXPCConnection *_observerConnection;
     NSObject<OS_dispatch_queue> *_observerQueue;
     struct __CFArray *_observers;
@@ -43,12 +43,12 @@
 - (void)_sendMessage:(id)arg1 withCompletionBlock:(id)arg2;
 - (void)_sendDownloadsChanged:(id)arg1;
 - (void)_reloadIsUsingNetworkWithDownloadKinds:(id)arg1;
-- (void)_pauseDownloads:(id)arg1 forced:(BOOL)arg2 completionBlock:(id)arg3;
+- (void)_pauseDownloads:(id)arg1 forced:(_Bool)arg2 completionBlock:(id)arg3;
 - (id)_newOptionsDictionary;
 - (void)_moveDownload:(id)arg1 before:(id)arg2 after:(id)arg3 completionBlock:(id)arg4;
 - (void)_loadDownloadKindsUsingNetwork;
 - (void)_insertDownloads:(id)arg1 before:(id)arg2 after:(id)arg3 completionBlock:(id)arg4;
-- (void)_handleReply:(id)arg1 forDownloads:(id)arg2 message:(id)arg3 isRetry:(BOOL)arg4 block:(id)arg5;
+- (void)_handleReply:(id)arg1 forDownloads:(id)arg2 message:(id)arg3 isRetry:(_Bool)arg4 block:(id)arg5;
 - (void)_handleMessage:(id)arg1 fromServerConnection:(id)arg2;
 - (void)_handleDownloadStatesChanged:(id)arg1;
 - (void)_handleDownloadsRemoved:(id)arg1;
@@ -71,7 +71,7 @@
 - (void)moveDownload:(id)arg1 beforeDownload:(id)arg2 completionBlock:(id)arg3;
 - (void)moveDownload:(id)arg1 afterDownload:(id)arg2 completionBlock:(id)arg3;
 @property(readonly) SSDownloadManagerOptions *managerOptions;
-@property(readonly, getter=isUsingNetwork) BOOL usingNetwork;
+@property(readonly, getter=isUsingNetwork) _Bool usingNetwork;
 - (void)insertDownloads:(id)arg1 beforeDownload:(id)arg2 completionBlock:(id)arg3;
 - (void)insertDownloads:(id)arg1 afterDownload:(id)arg2 completionBlock:(id)arg3;
 - (void)getDownloadsUsingBlock:(id)arg1;
@@ -79,7 +79,7 @@
 @property(readonly) NSArray *downloads;
 - (void)cancelDownloads:(id)arg1 completionBlock:(id)arg2;
 - (void)cancelAllDownloadsWithCompletionBlock:(id)arg1;
-- (BOOL)canCancelDownload:(id)arg1;
+- (_Bool)canCancelDownload:(id)arg1;
 - (void)addObserver:(id)arg1;
 - (void)addDownloads:(id)arg1 completionBlock:(id)arg2;
 @property(readonly) NSArray *activeDownloads;

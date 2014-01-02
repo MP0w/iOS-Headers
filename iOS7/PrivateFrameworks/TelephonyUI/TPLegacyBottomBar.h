@@ -10,33 +10,33 @@
 
 @interface TPLegacyBottomBar : UIView
 {
-    int _orientation;
-    int _style;
-    BOOL _suppressDrawingBackground;
+    long long _orientation;
+    long long _style;
+    _Bool _suppressDrawingBackground;
     UIImageView *_shadowView;
 }
 
-+ (int)overlayStyle;
-+ (int)fullscreenStyle;
-+ (float)defaultHeight;
-+ (float)defaultHeightForOrientation:(int)arg1;
-+ (float)defaultHeightForStyle:(int)arg1;
-+ (float)defaultHeightForStyle:(int)arg1 orientation:(int)arg2;
++ (long long)overlayStyle;
++ (long long)fullscreenStyle;
++ (double)defaultHeight;
++ (double)defaultHeightForOrientation:(long long)arg1;
++ (double)defaultHeightForStyle:(long long)arg1;
++ (double)defaultHeightForStyle:(long long)arg1 orientation:(long long)arg2;
 + (id)upsideDownShadowImage;
 + (id)_backgroundImage;
 @property(readonly) UIImageView *shadowView; // @synthesize shadowView=_shadowView;
-@property(nonatomic) BOOL suppressDrawingBackground; // @synthesize suppressDrawingBackground=_suppressDrawingBackground;
-- (void)setWellAlpha:(float)arg1;
+@property(nonatomic) _Bool suppressDrawingBackground; // @synthesize suppressDrawingBackground=_suppressDrawingBackground;
+- (void)setWellAlpha:(double)arg1;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)layoutSubviews;
-- (int)orientation;
-- (void)setOrientation:(int)arg1;
-- (void)setOrientation:(int)arg1 updateFrame:(BOOL)arg2;
+- (long long)orientation;
+- (void)setOrientation:(long long)arg1;
+- (void)setOrientation:(long long)arg1 updateFrame:(_Bool)arg2;
 - (void)dealloc;
 - (id)init;
-- (id)initWithFrame:(struct CGRect)arg1 style:(int)arg2;
+- (id)initWithFrame:(struct CGRect)arg1 style:(long long)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (id)initWithDefaultSizeForOrientation:(int)arg1;
+- (id)initWithDefaultSizeForOrientation:(long long)arg1;
 - (id)initWithDefaultSize;
 
 @end

@@ -6,14 +6,15 @@
 
 #import <CoreUI/CUICatalog.h>
 
+// Not exported
 @interface CUISystemCatalog : CUICatalog
 {
 }
 
 - (id)temporaryFallbackCatalog;
-- (BOOL)hasStylePresetWithName:(id)arg1;
-- (id)newShapeEffectPresetWithStylePresetName:(id)arg1 state:(int)arg2 presentationState:(int)arg3 value:(int)arg4 resolution:(unsigned int)arg5;
-- (id)newShapeEffectPresetWithStyleID:(unsigned int)arg1 state:(int)arg2 presentationState:(int)arg3 value:(int)arg4 resolution:(unsigned int)arg5;
+- (_Bool)hasStylePresetWithName:(id)arg1;
+- (id)newShapeEffectPresetWithStylePresetName:(id)arg1 state:(long long)arg2 presentationState:(long long)arg3 value:(long long)arg4 resolution:(unsigned long long)arg5;
+- (id)newShapeEffectPresetWithStyleID:(unsigned long long)arg1 state:(long long)arg2 presentationState:(long long)arg3 value:(long long)arg4 resolution:(unsigned long long)arg5;
 
 @end
 

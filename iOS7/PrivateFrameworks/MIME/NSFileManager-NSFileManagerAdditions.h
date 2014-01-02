@@ -7,14 +7,14 @@
 #import "NSFileManager.h"
 
 @interface NSFileManager (NSFileManagerAdditions)
-- (BOOL)mf_setValue:(id)arg1 forExtendedAttribute:(id)arg2 ofItemAtPath:(id)arg3 error:(id *)arg4;
-- (BOOL)mf_setValue:(id)arg1 forAttribute:(id)arg2 ofItemAtPath:(id)arg3 error:(id *)arg4;
-- (BOOL)mf_protectFileAtPath:(id)arg1 withClass:(int)arg2 error:(id *)arg3;
+- (_Bool)mf_setValue:(id)arg1 forExtendedAttribute:(id)arg2 ofItemAtPath:(id)arg3 error:(id *)arg4;
+- (_Bool)mf_setValue:(id)arg1 forAttribute:(id)arg2 ofItemAtPath:(id)arg3 error:(id *)arg4;
+- (_Bool)mf_protectFileAtPath:(id)arg1 withClass:(int)arg2 error:(id *)arg3;
 - (void)mf_deleteFilesInSortedArray:(id)arg1 matchingPrefix:(id)arg2 fromDirectory:(id)arg3;
 - (id)mf_pathsAtDirectory:(id)arg1 beginningWithString:(id)arg2;
-- (id)mf_fileModificationDateAtPath:(id)arg1 traverseLink:(BOOL)arg2;
-- (BOOL)mf_canWriteToDirectoryAtPath:(id)arg1;
-- (BOOL)mf_makeCompletePath:(id)arg1 mode:(int)arg2;
+- (id)mf_fileModificationDateAtPath:(id)arg1 traverseLink:(_Bool)arg2;
+- (_Bool)mf_canWriteToDirectoryAtPath:(id)arg1;
+- (_Bool)mf_makeCompletePath:(id)arg1 mode:(int)arg2;
 - (id)mf_makeUniqueFileInDirectory:(id)arg1;
 @end
 

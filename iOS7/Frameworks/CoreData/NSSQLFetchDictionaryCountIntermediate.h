@@ -8,6 +8,7 @@
 
 @class NSSQLFetchIntermediate;
 
+// Not exported
 @interface NSSQLFetchDictionaryCountIntermediate : NSSQLIntermediate
 {
     NSSQLFetchIntermediate *_realFetch;

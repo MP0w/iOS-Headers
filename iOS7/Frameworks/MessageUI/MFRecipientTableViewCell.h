@@ -15,22 +15,29 @@
     MFComposeRecipient *_recipient;
     UIImageView *_cellImageView;
     UIColor *_tintColor;
-    BOOL _shouldHighlightCompleteMatches;
-    BOOL _shouldDimIrrelevantInformation;
+    _Bool _shouldVerticallyCenterTitleLabel;
+    _Bool _shouldHighlightCompleteMatches;
+    _Bool _shouldDimIrrelevantInformation;
 }
 
 + (id)_defaultTintColor;
-+ (float)heightWithRecipient:(id)arg1 width:(float)arg2;
-+ (float)height;
-+ (id)_tintedAttributedString:(id)arg1 toColor:(id)arg2 shouldDim:(BOOL)arg3;
++ (double)heightWithRecipient:(id)arg1 width:(double)arg2;
++ (double)height;
++ (id)_tintedAttributedString:(id)arg1 toColor:(id)arg2 shouldDim:(_Bool)arg3;
++ (id)_attributedStringRepresentationOfPartialEmailMatchForSingleRecipient:(id)arg1 useHighlighting:(_Bool)arg2;
++ (id)_copyAttributedStringRepresentationOfGroupRecipient:(id)arg1 withSortedRecipientList:(id)arg2;
++ (id)_attributedStringRepresentationOfCompleteMatchesForRecipient:(id)arg1 constrainedToWidth:(double)arg2 overflowRecipients:(out id *)arg3 useHighlighting:(_Bool)arg4;
++ (double)_realDetailButtonAccessoryMargin;
++ (double)_constrainedWidthForDetailViewWithAccessoryWidth:(double)arg1 containerWidth:(double)arg2;
++ (double)_constrainedWidthForTitleViewWithAccessoryWidth:(double)arg1 containerWidth:(double)arg2;
 + (id)cellForRecipient:(id)arg1;
 + (id)identifier;
-@property(nonatomic) BOOL shouldDimIrrelevantInformation; // @synthesize shouldDimIrrelevantInformation=_shouldDimIrrelevantInformation;
-@property(nonatomic) BOOL shouldHighlightCompleteMatches; // @synthesize shouldHighlightCompleteMatches=_shouldHighlightCompleteMatches;
-- (void)setTintColor:(id)arg1 animated:(BOOL)arg2;
+@property(nonatomic) _Bool shouldDimIrrelevantInformation; // @synthesize shouldDimIrrelevantInformation=_shouldDimIrrelevantInformation;
+@property(nonatomic) _Bool shouldHighlightCompleteMatches; // @synthesize shouldHighlightCompleteMatches=_shouldHighlightCompleteMatches;
+- (void)setTintColor:(id)arg1 animated:(_Bool)arg2;
 - (id)tintColor;
 - (void)setBackgroundColor:(id)arg1;
-- (void)setOpaque:(BOOL)arg1;
+- (void)setOpaque:(_Bool)arg1;
 - (void)setCellImage:(id)arg1 highlightedImage:(id)arg2;
 - (void)setRecipient:(id)arg1;
 - (id)recipient;
@@ -38,7 +45,7 @@
 - (struct CGRect)_frameForDetailView;
 - (struct CGRect)_frameForTitleView;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

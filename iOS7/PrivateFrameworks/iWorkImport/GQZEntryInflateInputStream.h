@@ -8,23 +8,24 @@
 
 #import "GQZEntryInputStream-Protocol.h"
 
+// Not exported
 @interface GQZEntryInflateInputStream : NSObject <GQZEntryInputStream>
 {
     struct z_stream_s mStream;
     long long mOffset;
     long long mEnd;
-    unsigned long mCalculatedCrc;
-    unsigned long mCheckCrc;
+    unsigned long long mCalculatedCrc;
+    unsigned long long mCheckCrc;
     id <GQZArchiveInputStream> mInput;
     char *mOutBuffer;
-    unsigned long mOutBufferSize;
+    unsigned long long mOutBufferSize;
 }
 
 - (id).cxx_construct;
-- (unsigned long)readToBuffer:(char *)arg1 size:(unsigned long)arg2;
-- (void)readToOwnBuffer:(const char **)arg1 size:(unsigned int *)arg2;
+- (unsigned long long)readToBuffer:(char *)arg1 size:(unsigned long long)arg2;
+- (void)readToOwnBuffer:(const char **)arg1 size:(unsigned long long *)arg2;
 - (void)dealloc;
-- (id)initWithOffset:(long long)arg1 end:(long long)arg2 uncompressedSize:(unsigned long long)arg3 crc:(unsigned long)arg4 input:(id)arg5;
+- (id)initWithOffset:(long long)arg1 end:(long long)arg2 uncompressedSize:(unsigned long long)arg3 crc:(unsigned long long)arg4 input:(id)arg5;
 
 @end
 

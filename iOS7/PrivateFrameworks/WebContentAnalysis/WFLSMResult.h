@@ -8,6 +8,7 @@
 
 @class NSMutableArray, NSNumber;
 
+// Not exported
 @interface WFLSMResult : NSObject
 {
     NSMutableArray *categoryJudgements;
@@ -19,12 +20,12 @@
 @property(copy) NSNumber *threshold; // @synthesize threshold;
 - (void)dealloc;
 - (id)description;
-- (BOOL)isRestricted;
+- (_Bool)isRestricted;
 - (id)debugDescription;
-- (void)setScore:(float)arg1 forCategory:(long)arg2;
-- (float)scoreForCategory:(long)arg1;
-- (long)bestMatchingCategory;
-- (long)numberOfCategories;
+- (void)setScore:(float)arg1 forCategory:(long long)arg2;
+- (float)scoreForCategory:(long long)arg1;
+- (long long)bestMatchingCategory;
+- (long long)numberOfCategories;
 - (id)initWithLSMResultRef:(struct __LSMResult *)arg1 threshold:(id)arg2;
 
 @end

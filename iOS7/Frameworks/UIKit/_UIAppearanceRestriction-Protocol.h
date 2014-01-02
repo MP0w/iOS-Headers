@@ -7,6 +7,6 @@
 #import "UIAppearanceContainer-Protocol.h"
 
 @protocol _UIAppearanceRestriction <UIAppearanceContainer>
-+ (BOOL)_preventsAppearanceProxyCustomization;
++ (_Bool)_preventsAppearanceProxyCustomization;
 @end
 

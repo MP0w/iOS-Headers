@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface GEOSearchAttributionLoader : NSObject
 {
 }
 
-- (void)loadAttributionInfoForIdentifier:(id)arg1 version:(unsigned int)arg2 allowNetwork:(BOOL)arg3 completionHandler:(id)arg4;
+- (void)loadAttributionInfoForIdentifier:(id)arg1 version:(unsigned int)arg2 allowNetwork:(_Bool)arg3 completionHandler:(id)arg4;
 
 @end
 

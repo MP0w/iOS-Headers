@@ -7,10 +7,12 @@
 #import "UIFont.h"
 
 @interface UIFont (ABFonts)
++ (_Bool)ab_preferredContentSizeCategoryIsAccessibilityCategory;
 + (id)ab_preferredContentSizeCategoryName;
-+ (id)ab_preferredFontForTextStyle:(id)arg1 emphasized:(BOOL)arg2;
 + (id)ab_preferredFontForTextStyle:(id)arg1;
-+ (BOOL)_shouldUseDefaultFont;
-+ (void)ab_setIgnoreUserFontSize:(BOOL)arg1;
++ (_Bool)_shouldUseDefaultFont;
++ (void)ab_setIgnoreUserFontSize:(_Bool)arg1;
+- (id)ab_italicFont;
+- (id)ab_boldFont;
 @end
 

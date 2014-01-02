@@ -8,6 +8,7 @@
 
 @class JSContext, NSMapTable, NSMutableDictionary;
 
+// Not exported
 @interface JSWrapperMap : NSObject
 {
     JSContext *m_context;

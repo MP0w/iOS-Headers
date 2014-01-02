@@ -8,6 +8,7 @@
 
 @class DOMHTMLFormElement, NSString;
 
+// Not exported
 @interface DOMHTMLLabelElement : DOMHTMLElement
 {
 }

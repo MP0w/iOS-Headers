@@ -14,7 +14,7 @@
 }
 
 @property(nonatomic) int format; // @synthesize format=_format;
-- (id)preheatItemForAsset:(id)arg1;
+- (id)preheatItemForAsset:(id)arg1 options:(unsigned int)arg2;
 - (id)initWithFormat:(int)arg1;
 
 @end

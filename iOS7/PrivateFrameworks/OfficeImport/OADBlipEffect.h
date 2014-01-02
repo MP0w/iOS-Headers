@@ -8,13 +8,14 @@
 
 #import "NSCopying-Protocol.h"
 
+// Not exported
 @interface OADBlipEffect : NSObject <NSCopying>
 {
     int mType;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)setStyleColor:(id)arg1;
 - (int)type;
 - (id)copyWithZone:(struct _NSZone *)arg1;

@@ -19,18 +19,18 @@
 + (id)lazySymbolOwnerWithName:(id)arg1 signature:(id)arg2 regions:(id)arg3 flags:(unsigned int)arg4;
 - (void)dealloc;
 - (id)description;
-- (BOOL)validate;
+- (_Bool)validate;
 - (void)slideToSegmentAddresses:(id)arg1;
 - (unsigned int)flags;
-- (BOOL)hasRegionsForName:(id)arg1;
-- (BOOL)overlapsAddressRange:(struct _VMURange)arg1;
-- (BOOL)containsAddress:(unsigned long long)arg1;
+- (_Bool)hasRegionsForName:(id)arg1;
+- (_Bool)overlapsAddressRange:(struct _VMURange)arg1;
+- (_Bool)containsAddress:(unsigned long long)arg1;
 - (id)architecture;
 - (id)path;
 - (id)signature;
 - (id)name;
-- (BOOL)isProtected;
-- (BOOL)isLazy;
+- (_Bool)isProtected;
+- (_Bool)isLazy;
 - (id)regions;
 - (id)initWithName:(id)arg1 signature:(id)arg2 regions:(id)arg3 flags:(unsigned int)arg4;
 

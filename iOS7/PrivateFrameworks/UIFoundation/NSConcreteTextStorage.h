@@ -12,31 +12,36 @@
 {
     NSConcreteNotifyingMutableAttributedString *_contents;
     struct _opaque_pthread_rwlock_t {
-        long __sig;
-        char __opaque[124];
+        long long __sig;
+        char __opaque[192];
     } _lock;
     struct {
         unsigned int _forceFixAttributes:1;
         unsigned int _needLock:1;
         unsigned int _lockInitialized:1;
-        unsigned int _reserved:29;
+        unsigned int _inFixingAttributes:1;
+        unsigned int _reserved:28;
     } _pFlags;
 }
 
-+ (unsigned long)_writerCountTSDKey;
++ (unsigned long long)_writerCountTSDKey;
+- (void)addAttributes:(id)arg1 range:(struct _NSRange)arg2;
+- (void)removeAttribute:(id)arg1 range:(struct _NSRange)arg2;
 - (void)addAttribute:(id)arg1 value:(id)arg2 range:(struct _NSRange)arg3;
 - (void)replaceCharactersInRange:(struct _NSRange)arg1 withAttributedString:(id)arg2;
 - (void)setAttributes:(id)arg1 range:(struct _NSRange)arg2;
 - (void)replaceCharactersInRange:(struct _NSRange)arg1 withString:(id)arg2;
-- (id)attribute:(id)arg1 atIndex:(unsigned int)arg2 longestEffectiveRange:(struct _NSRange *)arg3 inRange:(struct _NSRange)arg4;
-- (id)attribute:(id)arg1 atIndex:(unsigned int)arg2 effectiveRange:(struct _NSRange *)arg3;
-- (id)attributesAtIndex:(unsigned int)arg1 longestEffectiveRange:(struct _NSRange *)arg2 inRange:(struct _NSRange)arg3;
-- (id)attributesAtIndex:(unsigned int)arg1 effectiveRange:(struct _NSRange *)arg2;
-- (BOOL)_forceFixAttributes;
-- (void)_setForceFixAttributes:(BOOL)arg1;
+- (id)attribute:(id)arg1 atIndex:(unsigned long long)arg2 longestEffectiveRange:(struct _NSRange *)arg3 inRange:(struct _NSRange)arg4;
+- (id)attribute:(id)arg1 atIndex:(unsigned long long)arg2 effectiveRange:(struct _NSRange *)arg3;
+- (id)attributesAtIndex:(unsigned long long)arg1 longestEffectiveRange:(struct _NSRange *)arg2 inRange:(struct _NSRange)arg3;
+- (id)attributesAtIndex:(unsigned long long)arg1 effectiveRange:(struct _NSRange *)arg2;
+- (void)_setAttributeFixingInProgress:(_Bool)arg1;
+- (_Bool)_attributeFixingInProgress;
+- (_Bool)_forceFixAttributes;
+- (void)_setForceFixAttributes:(_Bool)arg1;
 - (id)string;
-- (unsigned int)length;
-- (BOOL)fixesAttributesLazily;
+- (unsigned long long)length;
+- (_Bool)fixesAttributesLazily;
 - (void)dealloc;
 - (id)init;
 - (id)initWithString:(id)arg1 attributes:(id)arg2;
@@ -44,8 +49,8 @@
 - (id)initWithAttributedString:(id)arg1;
 - (void)_initLocks;
 - (void)_unlock;
-- (BOOL)_lockForWritingWithExceptionHandler:(BOOL)arg1;
-- (BOOL)_lockForReading;
+- (_Bool)_lockForWritingWithExceptionHandler:(_Bool)arg1;
+- (_Bool)_lockForReading;
 - (Class)classForCoder;
 
 @end

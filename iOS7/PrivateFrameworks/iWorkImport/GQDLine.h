@@ -8,6 +8,7 @@
 
 #import "GQDNameMappable-Protocol.h"
 
+// Not exported
 @interface GQDLine : GQDGraphic <GQDNameMappable>
 {
 }

@@ -6,6 +6,7 @@
 
 #import <VectorKit/VGLProgram.h>
 
+// Not exported
 @interface VGLFogProgram : VGLProgram
 {
     int _uModelViewMatrix;

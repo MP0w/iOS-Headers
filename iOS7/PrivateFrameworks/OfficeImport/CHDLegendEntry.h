@@ -8,9 +8,10 @@
 
 @class EDResources;
 
+// Not exported
 @interface CHDLegendEntry : NSObject
 {
-    unsigned int mFontIndex;
+    unsigned long long mFontIndex;
     unsigned int mEntryIndex;
     EDResources *mResources;
 }
@@ -21,8 +22,6 @@
 - (id)font;
 - (void)dealloc;
 - (id)initWithResources:(id)arg1;
-- (void)setFontIndex:(unsigned int)arg1;
-- (unsigned int)fontIndex;
 
 @end
 

@@ -13,23 +13,25 @@
     NSNumber *_authenticatedAccountDSID;
     SSAuthenticationContext *_authenticationContext;
     ISDialog *_dialog;
-    BOOL _performsButtonAction;
+    _Bool _performsButtonAction;
+    ISDialogButton *_performedButton;
     NSURL *_redirectURL;
     ISDialogButton *_selectedButton;
 }
 
+@property(retain) ISDialogButton *performedButton; // @synthesize performedButton=_performedButton;
 @property(retain) ISDialogButton *selectedButton; // @synthesize selectedButton=_selectedButton;
 @property(retain) NSURL *redirectURL; // @synthesize redirectURL=_redirectURL;
-@property BOOL performsButtonAction; // @synthesize performsButtonAction=_performsButtonAction;
+@property _Bool performsButtonAction; // @synthesize performsButtonAction=_performsButtonAction;
 @property(retain) ISDialog *dialog; // @synthesize dialog=_dialog;
 @property(retain) NSNumber *authenticatedAccountDSID; // @synthesize authenticatedAccountDSID=_authenticatedAccountDSID;
 @property(retain) SSAuthenticationContext *authenticationContext; // @synthesize authenticationContext=_authenticationContext;
-- (BOOL)_shouldAuthenticateForButton:(id)arg1;
-- (BOOL)_handleSelectedButton:(id)arg1;
-- (BOOL)_copySelectedButton:(id *)arg1 returningError:(id *)arg2;
+- (_Bool)_shouldAuthenticateForButton:(id)arg1;
+- (_Bool)_handleSelectedButton:(id)arg1;
+- (_Bool)_copySelectedButton:(id *)arg1 returningError:(id *)arg2;
 - (id)_copyButtonForDialogSkip;
 - (id)_copyAuthenticationContext;
-- (BOOL)_copyAccountIdentifier:(id *)arg1 returningError:(id *)arg2;
+- (_Bool)_copyAccountIdentifier:(id *)arg1 returningError:(id *)arg2;
 - (void)run;
 - (void)dealloc;
 - (id)init;

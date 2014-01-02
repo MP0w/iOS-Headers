@@ -13,12 +13,12 @@
     WLEasyToHitCustomButton *_flipButton;
     WLEasyToHitCustomButton *_shareButton;
     UILabel *_logoLabel;
-    BOOL _showsInfo;
-    BOOL _showsShare;
+    _Bool _showsInfo;
+    _Bool _showsShare;
 }
 
-@property(nonatomic) BOOL showsShare; // @synthesize showsShare=_showsShare;
-@property(nonatomic) BOOL showsInfo; // @synthesize showsInfo=_showsInfo;
+@property(nonatomic) _Bool showsShare; // @synthesize showsShare=_showsShare;
+@property(nonatomic) _Bool showsInfo; // @synthesize showsInfo=_showsInfo;
 - (void)_shareButtonPressed;
 - (void)_flipButtonPressed;
 - (id)_relevantBuckets;
@@ -31,9 +31,9 @@
 - (id)shortFaceTemplate;
 - (id)shortScrunchedFaceTemplate;
 - (id)passFaceTemplate;
-- (void)setClipsContent:(BOOL)arg1;
+- (void)setClipsContent:(_Bool)arg1;
 - (struct CGSize)contentSize;
-- (BOOL)isFrontFace;
+- (_Bool)isFrontFace;
 - (void)dealloc;
 - (id)init;
 

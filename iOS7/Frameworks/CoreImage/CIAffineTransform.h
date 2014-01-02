@@ -10,6 +10,7 @@
 
 @class CIImage, NSValue;
 
+// Not exported
 @interface CIAffineTransform : CIFilter <_CIFilterProperties>
 {
     CIImage *inputImage;

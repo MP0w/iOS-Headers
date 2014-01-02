@@ -10,28 +10,28 @@
 
 @interface ABUITextView : UITextView
 {
-    float _lastContentHeight;
-    BOOL _isHighlighted;
+    double _lastContentHeight;
+    _Bool _isHighlighted;
     UIColor *_savedTextColor;
     UIColor *_highlightedTextColor;
     UIColor *_shadowColor;
     struct CGSize _shadowOffset;
-    BOOL _disallowsSetContentOffset;
-    BOOL _informParentOfContentSizeChange;
+    _Bool _disallowsSetContentOffset;
+    _Bool _informParentOfContentSizeChange;
     struct _NSRange _pinnedCursorPosition;
     ABSwellTextView *_parent;
 }
 
 @property(nonatomic) struct CGSize shadowOffset; // @synthesize shadowOffset=_shadowOffset;
 @property(retain, nonatomic) UIColor *shadowColor; // @synthesize shadowColor=_shadowColor;
-@property(nonatomic) BOOL disallowsSetContentOffset; // @synthesize disallowsSetContentOffset=_disallowsSetContentOffset;
+@property(nonatomic) _Bool disallowsSetContentOffset; // @synthesize disallowsSetContentOffset=_disallowsSetContentOffset;
 @property(retain, nonatomic) UIColor *highlightedTextColor; // @synthesize highlightedTextColor=_highlightedTextColor;
-@property(nonatomic, getter=isHighlighted) BOOL highlighted; // @synthesize highlighted=_isHighlighted;
+@property(nonatomic, getter=isHighlighted) _Bool highlighted; // @synthesize highlighted=_isHighlighted;
 @property(nonatomic) ABSwellTextView *parent; // @synthesize parent=_parent;
 - (void)_updateStylesheet;
 - (void)_endPinningInputViews;
 - (void)_beginPinningInputViews;
-- (BOOL)becomeFirstResponder;
+- (_Bool)becomeFirstResponder;
 - (void)setTextColor:(id)arg1;
 - (void)setContentSize:(struct CGSize)arg1;
 - (void)setContentOffset:(struct CGPoint)arg1;

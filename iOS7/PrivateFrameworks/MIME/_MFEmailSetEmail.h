@@ -10,15 +10,15 @@
 
 @interface _MFEmailSetEmail : NSObject
 {
-    unsigned long _hash;
+    unsigned long long _hash;
     NSString *_encodedAddress;
     NSString *_comment;
 }
 
 @property(readonly, nonatomic) NSString *commentedAddress;
 @property(retain, nonatomic) NSString *address;
-- (BOOL)isEqualToEmail:(id)arg1;
-@property(readonly, nonatomic) unsigned long hash;
+- (_Bool)isEqualToEmail:(id)arg1;
+@property(readonly, nonatomic) unsigned long long hash;
 - (id)description;
 - (void)dealloc;
 - (id)initWithAddress:(id)arg1;

@@ -14,24 +14,24 @@
 {
     MFMessageBodyParser *_parser;
     NSArray *_nodes;
-    unsigned int _quoteLevel;
-    unsigned int _externalRetainCount;
+    unsigned long long _quoteLevel;
+    unsigned long long _externalRetainCount;
     int _validAttributes;
     int _attributes;
 }
 
 @property(nonatomic) MFMessageBodyParser *parser; // @synthesize parser=_parser;
 - (id)description;
-- (BOOL)isExternallyRetained;
+- (_Bool)isExternallyRetained;
 - (void)releaseExternally;
 - (id)retainExternally;
-- (unsigned int)quoteLevel;
+- (unsigned long long)quoteLevel;
 - (int)valueForAttributes:(int)arg1;
 - (void)_setValue:(int)arg1 forAttributes:(int)arg2;
-- (BOOL)_hasValueForAttributes:(int)arg1;
+- (_Bool)_hasValueForAttributes:(int)arg1;
 - (id)copyConsumableNodesAndAppendInnerTextToStringAccumulator:(id)arg1;
 @property(retain, nonatomic) NSArray *nodes;
-- (unsigned int)getQuoteLevel;
+- (unsigned long long)getQuoteLevel;
 - (void)reset;
 - (void)dealloc;
 - (id)init;

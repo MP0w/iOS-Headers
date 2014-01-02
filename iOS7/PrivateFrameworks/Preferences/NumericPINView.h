@@ -17,7 +17,7 @@
 - (void)deleteLastCharacter;
 - (void)setStringValue:(id)arg1;
 - (id)stringValue;
-- (void)hidePasscodeField:(BOOL)arg1;
+- (void)hidePasscodeField:(_Bool)arg1;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 

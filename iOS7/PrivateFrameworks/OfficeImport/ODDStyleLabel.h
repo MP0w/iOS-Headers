@@ -8,6 +8,7 @@
 
 @class OADShapeStyle;
 
+// Not exported
 @interface ODDStyleLabel : NSObject
 {
     OADShapeStyle *mShapeStyle;

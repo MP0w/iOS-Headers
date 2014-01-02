@@ -11,7 +11,7 @@
 }
 
 + (id)valueTransformer;
-- (id)transformValue:(id)arg1 inverse:(BOOL)arg2;
+- (id)transformValue:(id)arg1 inverse:(_Bool)arg2;
 
 @end
 

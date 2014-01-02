@@ -6,23 +6,24 @@
 
 #import <CoreFoundation/NSLocale.h>
 
+// Not exported
 @interface __NSCFLocale : NSLocale
 {
 }
 
-+ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
++ (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 - (id)_prefs;
 - (id)initWithLocaleIdentifier:(id)arg1;
 - (id)displayNameForKey:(id)arg1 value:(id)arg2;
 - (id)objectForKey:(id)arg1;
 - (void)finalize;
-- (unsigned int)retainCount;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
+- (unsigned long long)retainCount;
+- (_Bool)_isDeallocating;
+- (_Bool)_tryRetain;
 - (oneway void)release;
 - (id)retain;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 
 @end
 

@@ -6,7 +6,6 @@
 
 @protocol SKUIRedeemCameraViewDelegate
 - (void)presentFullScreenCameraViewForSKUIRedeemCameraView:(id)arg1;
-- (void)flipRedeemerViewForSKUIRedeemCameraView:(id)arg1;
 - (void)cancelRedeemerViewForSKUIRedeemCameraView:(id)arg1;
 - (void)startRedeemerViewForSKUIRedeemCameraView:(id)arg1;
 - (id)redeemerViewForSKUIRedeemCameraView:(id)arg1;

@@ -35,8 +35,8 @@
 @property(readonly, nonatomic) NSString *artistName; // @synthesize artistName=_artistName;
 - (id)copyXPCEncoding;
 - (id)initWithXPCEncoding:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)description;
 - (void)_setTitle:(id)arg1;
 - (void)_setStorePreorderIdentifier:(long long)arg1;
@@ -48,7 +48,7 @@
 - (void)_setImageCollection:(id)arg1;
 - (void)_setArtistName:(id)arg1;
 @property(readonly, nonatomic) NSDate *releaseDate;
-- (id)copyReleaseDateStringWithStyle:(long)arg1;
+- (id)copyReleaseDateStringWithStyle:(long long)arg1;
 - (void)dealloc;
 - (id)_initWithPersistentIdentifier:(long long)arg1;
 

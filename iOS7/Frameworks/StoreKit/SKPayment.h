@@ -20,9 +20,10 @@
 + (id)paymentWithProduct:(id)arg1;
 @property(readonly, nonatomic) NSDictionary *requestParameters;
 @property(readonly, nonatomic) NSData *requestData;
-@property(readonly, nonatomic) int quantity;
+@property(readonly, nonatomic) long long quantity;
 @property(readonly, nonatomic) NSString *productIdentifier;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 @property(readonly, nonatomic) NSString *applicationUsername;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

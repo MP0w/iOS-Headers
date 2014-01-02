@@ -8,10 +8,11 @@
 
 @class UIView;
 
+// Not exported
 @interface UIKeyboardLayoutCursor : UIKeyboardLayoutStar
 {
     UIView *_selectionView;
-    int _selectedKeyIndex;
+    long long _selectedKeyIndex;
 }
 
 - (void)physicalKeyDownWithEvent:(id)arg1;
@@ -19,13 +20,13 @@
 - (void)handleDirectionalInput:(int)arg1;
 - (void)takeKeyAction:(id)arg1;
 - (void)setSelectionPoint:(struct CGPoint)arg1;
-- (void)setSelectedKeyIndex:(int)arg1;
-- (struct CGRect)selectionFrameForKeyIndex:(int)arg1;
+- (void)setSelectedKeyIndex:(long long)arg1;
+- (struct CGRect)selectionFrameForKeyIndex:(long long)arg1;
 - (void)updateSelectionForCurrentKeyplane;
 - (id)keyplaneKeyForCurrentKeyplane;
-- (BOOL)acceptsDirectionInput;
-- (void)setKeyboardAppearance:(int)arg1;
-- (void)showKeyboardWithInputTraits:(id)arg1 screenTraits:(id)arg2;
+- (_Bool)acceptsDirectionInput;
+- (void)setKeyboardAppearance:(long long)arg1;
+- (void)showKeyboardWithInputTraits:(id)arg1 screenTraits:(id)arg2 splitTraits:(id)arg3;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

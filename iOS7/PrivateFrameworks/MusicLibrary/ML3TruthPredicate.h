@@ -6,18 +6,19 @@
 
 #import <MusicLibrary/ML3Predicate.h>
 
+// Not exported
 @interface ML3TruthPredicate : ML3Predicate
 {
-    BOOL _truthValue;
+    _Bool _truthValue;
 }
 
 + (id)falsePredicate;
 + (id)truePredicate;
-- (BOOL)isFalseAlways;
-- (BOOL)isTrueAlways;
+- (_Bool)isFalseAlways;
+- (_Bool)isTrueAlways;
 - (void)appendSQLToMutableString:(id)arg1 entityClass:(Class)arg2;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (id)_predicateString;
 - (void)encodeWithCoder:(id)arg1;

@@ -17,7 +17,7 @@
 
 - (id)_requestForContext:(id)arg1;
 - (void)_hideLockContent;
-- (void)performTransitionAnimated:(BOOL)arg1 completion:(id)arg2;
+- (void)performTransitionAnimated:(_Bool)arg1 completion:(id)arg2;
 - (void)dealloc;
 - (id)initFromOverlay:(id)arg1 toOverlay:(id)arg2 inside:(id)arg3;
 

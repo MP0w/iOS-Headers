@@ -6,11 +6,12 @@
 
 #import "NSString.h"
 
+// Not exported
 @interface __NSATSStringSegment : NSString
 {
     struct __CFString *_originalString;
-    long _originalStringLength;
-    CDStruct_dff5684f _range;
+    long long _originalStringLength;
+    CDStruct_627e0f85 _range;
     const unsigned short *_characters;
     unsigned short _buffer[128];
 }
@@ -18,14 +19,14 @@
 + (id)allocWithZone:(struct _NSZone *)arg1;
 - (const unsigned short *)_fastCharacterContents;
 - (void)getCharacters:(unsigned short *)arg1 range:(struct _NSRange)arg2;
-- (unsigned short)characterAtIndex:(unsigned int)arg1;
-- (unsigned int)length;
+- (unsigned short)characterAtIndex:(unsigned long long)arg1;
+- (unsigned long long)length;
 - (void)dealloc;
 - (id)initWithOriginalString:(id)arg1 range:(struct _NSRange)arg2;
 - (void)_setOriginalString:(id)arg1 range:(struct _NSRange)arg2;
 - (oneway void)release;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
+- (_Bool)_isDeallocating;
+- (_Bool)_tryRetain;
 
 @end
 

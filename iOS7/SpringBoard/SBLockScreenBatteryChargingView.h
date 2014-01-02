@@ -6,21 +6,25 @@
 
 #import "UIView.h"
 
-@class SBLockScreenBatteryFillView, UILabel;
+@class SBLockScreenBatteryFillView, _UIBackdropView, _UILegibilityLabel, _UILegibilitySettings;
 
 @interface SBLockScreenBatteryChargingView : UIView
 {
     UIView *_batteryContainerView;
-    UIView *_batteryBlurView;
+    _UIBackdropView *_batteryBlurView;
     SBLockScreenBatteryFillView *_batteryFillView;
-    UILabel *_chargePercentLabel;
+    _UILegibilityLabel *_chargePercentLabel;
+    _UILegibilitySettings *_legibilitySettings;
 }
 
-- (float)_chargingTextBaselineOffset;
+@property(retain, nonatomic) _UILegibilitySettings *legibilitySettings; // @synthesize legibilitySettings=_legibilitySettings;
+- (double)_chargingTextBaselineOffset;
 - (id)_chargePercentFont;
 - (void)layoutSubviews;
-@property(nonatomic) BOOL batteryVisible;
-- (void)setChargePercentage:(int)arg1 detailed:(BOOL)arg2;
+- (struct CGPoint)_batteryOrigin;
+@property(nonatomic) _Bool batteryVisible;
+- (void)_setChargeString:(id)arg1;
+- (void)setChargePercentage:(long long)arg1 detailed:(_Bool)arg2;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

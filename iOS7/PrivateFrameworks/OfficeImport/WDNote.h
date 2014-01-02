@@ -8,18 +8,19 @@
 
 @class WDCharacterRun, WDText;
 
+// Not exported
 @interface WDNote : WDRun
 {
     WDText *mText;
     WDCharacterRun *mReference;
-    BOOL mAutomaticNumbering;
+    _Bool mAutomaticNumbering;
 }
 
 - (void)dealloc;
-- (id)initWithParagraph:(id)arg1 footnote:(BOOL)arg2;
+- (id)initWithParagraph:(id)arg1 footnote:(_Bool)arg2;
 - (int)runType;
-- (void)setAutomaticNumbering:(BOOL)arg1;
-- (BOOL)automaticNumbering;
+- (void)setAutomaticNumbering:(_Bool)arg1;
+- (_Bool)automaticNumbering;
 - (id)reference;
 - (id)text;
 

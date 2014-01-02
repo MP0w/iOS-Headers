@@ -6,32 +6,38 @@
 
 #import "UIView.h"
 
-@class NSDictionary, NSMutableArray, NSMutableDictionary, NSString;
+@class NSDictionary, NSMapTable, NSMutableArray, NSMutableDictionary, NSNumberFormatter, NSString;
 
+// Not exported
 @interface _MKScaleUnitsView : UIView
 {
-    BOOL _useLightText;
+    _Bool _useLightText;
     double _segmentLengthInPixels;
-    float _unitsWidth;
-    float _justUnitsWidth;
-    unsigned int _previousNumberOfSegments;
+    double _unitsWidth;
+    double _justUnitsWidth;
     NSDictionary *_legendAttributes;
     NSMutableArray *_strings;
     NSString *_legendBaseString;
     NSString *_unitsString;
-    NSMutableDictionary *_legendStringWidthCache;
+    NSString *_unpaddedUnitsString;
+    NSMapTable *_legendStringWidthCache;
+    NSMutableDictionary *_legendStringForDistanceStringCache;
+    NSNumberFormatter *_floatNumberFormatter;
 }
 
+@property(retain, nonatomic) NSNumberFormatter *floatNumberFormatter; // @synthesize floatNumberFormatter=_floatNumberFormatter;
 @property(retain, nonatomic) NSString *legendBaseString; // @synthesize legendBaseString=_legendBaseString;
+@property(copy, nonatomic) NSString *unpaddedUnitsString; // @synthesize unpaddedUnitsString=_unpaddedUnitsString;
 @property(retain, nonatomic) NSString *unitsString; // @synthesize unitsString=_unitsString;
-@property(readonly, nonatomic) float unitsWidth; // @synthesize unitsWidth=_unitsWidth;
-- (id)_legendStringForDistanceString:(id)arg1 appendUnits:(BOOL)arg2 index:(int)arg3;
-@property(nonatomic) BOOL useLightText; // @dynamic useLightText;
+@property(readonly, nonatomic) double unitsWidth; // @synthesize unitsWidth=_unitsWidth;
+- (id)_legendStringForDistanceString:(id)arg1 appendUnits:(_Bool)arg2 index:(int)arg3;
+- (id)_uncachedLegendStringsForDistanceString:(id)arg1;
+@property(nonatomic) _Bool useLightText; // @dynamic useLightText;
 @property(nonatomic) double segmentLengthInPixels; // @dynamic segmentLengthInPixels;
-- (void)drawRect:(struct CGRect)arg1;
-- (void)_calculateLegend:(BOOL)arg1;
+- (_Bool)canDisplaySegment:(long long)arg1;
+- (void)_calculateLegend:(_Bool)arg1;
 - (void)setUnits:(id)arg1;
-- (float)_widthForString:(id)arg1 attributes:(id)arg2;
+- (double)_widthForString:(id)arg1 attributes:(id)arg2;
 - (void)clearCaches:(id)arg1;
 - (void)dealloc;
 - (id)init;

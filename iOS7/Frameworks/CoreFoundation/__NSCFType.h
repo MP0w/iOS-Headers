@@ -6,21 +6,22 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface __NSCFType : NSObject
 {
 }
 
-+ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
++ (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 - (void)finalize;
 - (void)dealloc;
 - (id)description;
-- (unsigned int)retainCount;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
+- (unsigned long long)retainCount;
+- (_Bool)_isDeallocating;
+- (_Bool)_tryRetain;
 - (oneway void)release;
 - (id)retain;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 
 @end
 

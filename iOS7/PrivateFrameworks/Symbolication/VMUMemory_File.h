@@ -13,7 +13,7 @@
 @interface VMUMemory_File : VMUMemory_Base <VMUMemory>
 {
     char *_mappedAddress;
-    unsigned long _mappedSize;
+    unsigned long long _mappedSize;
     NSDate *_lastModifiedTimestamp;
     struct _VMURange _addressRange;
     struct _VMURange _fileRange;
@@ -30,13 +30,13 @@
 - (id)view;
 - (id)memoryFromSubRange:(struct _VMURange)arg1 mapToAddress:(unsigned long long)arg2 architecture:(id)arg3;
 - (id)memoryAtAddress:(unsigned long long)arg1 maxSize:(unsigned long long)arg2;
-- (BOOL)isContiguous;
+- (_Bool)isContiguous;
 - (id)architecture;
 - (struct _VMURange)addressRange;
 - (void)finalize;
 - (void)dealloc;
 - (id)description;
-- (BOOL)map;
+- (_Bool)map;
 - (unsigned long long)sharedCacheHeaderOffsetForPath:(id)arg1;
 - (void)buildSharedCacheMap;
 - (id)lastModifiedTimestamp;

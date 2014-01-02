@@ -8,12 +8,13 @@
 
 @class NSString;
 
+// Not exported
 @interface DOMHTMLUListElement : DOMHTMLElement
 {
 }
 
 @property(copy) NSString *type;
-@property BOOL compact;
+@property _Bool compact;
 
 @end
 

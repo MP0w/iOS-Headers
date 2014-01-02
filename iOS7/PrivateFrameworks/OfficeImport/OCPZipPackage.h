@@ -6,11 +6,12 @@
 
 #import <OfficeImport/OCPPackage.h>
 
-@class NSMutableDictionary, SFUZipArchive;
+@class NSMutableDictionary, OISFUZipArchive;
 
+// Not exported
 @interface OCPZipPackage : OCPPackage
 {
-    SFUZipArchive *mArchive;
+    OISFUZipArchive *mArchive;
     NSMutableDictionary *mParts;
 }
 
@@ -19,7 +20,6 @@
 - (void)dealloc;
 - (id)initWithData:(id)arg1;
 - (id)initWithPath:(id)arg1;
-- (id)initWithArchive:(id)arg1;
 
 @end
 

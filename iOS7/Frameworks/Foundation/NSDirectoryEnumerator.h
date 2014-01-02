@@ -12,7 +12,7 @@
 
 - (void)skipDescendants;
 - (void)skipDescendents;
-- (unsigned int)level;
+- (unsigned long long)level;
 - (id)directoryAttributes;
 - (id)fileAttributes;
 - (id)nextObject;

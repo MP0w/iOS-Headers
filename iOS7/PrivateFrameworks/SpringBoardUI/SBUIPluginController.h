@@ -11,23 +11,23 @@
 @interface SBUIPluginController : NSObject <SBPluginBundleController>
 {
     id <SBUIPluginControllerHost> _host;
-    BOOL _isVisible;
+    _Bool _isVisible;
 }
 
-@property(nonatomic, getter=isVisible) BOOL visible; // @synthesize visible=_isVisible;
+@property(nonatomic, getter=isVisible) _Bool visible; // @synthesize visible=_isVisible;
 @property(nonatomic) id <SBUIPluginControllerHost> host; // @synthesize host=_host;
 - (id)viewControllerForActivationContext:(id)arg1;
 - (void)noteInterruption;
-- (BOOL)handledWiredMicButtonTap;
+- (_Bool)handledWiredMicButtonTap;
 - (void)handleBluetoothDismissal;
-- (BOOL)handledMenuButtonTap;
-- (BOOL)handledMenuButtonDownEvent;
-- (BOOL)handledPasscodeUnlockWithCompletion:(id)arg1;
-- (BOOL)handleActivationEvent:(int)arg1 context:(void *)arg2;
+- (_Bool)handledMenuButtonTap;
+- (_Bool)handledMenuButtonDownEvent;
+- (_Bool)handledPasscodeUnlockWithCompletion:(id)arg1;
+- (_Bool)handleActivationEvent:(int)arg1 context:(void *)arg2;
 - (void)cancelPendingActivationEvent:(int)arg1;
 - (void)prepareForActivationEvent:(int)arg1 afterInterval:(double)arg2;
-- (BOOL)wantsActivationEvent:(int)arg1 interval:(double *)arg2;
-- (BOOL)supportedAndEnabled;
+- (_Bool)wantsActivationEvent:(int)arg1 interval:(double *)arg2;
+- (_Bool)supportedAndEnabled;
 - (void)registeredWithHost;
 
 @end

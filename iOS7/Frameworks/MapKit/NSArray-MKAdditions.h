@@ -7,7 +7,7 @@
 #import "NSArray.h"
 
 @interface NSArray (MKAdditions)
-- (unsigned int)_mapkit_indexForObject:(id)arg1 usingSortFunction:(void *)arg2 context:(void *)arg3;
+- (unsigned long long)_mapkit_indexForObject:(id)arg1 usingSortFunction:(void *)arg2 context:(void *)arg3;
 - (id)_mapkit_arrayByRemovingObject:(id)arg1;
 - (id)_mapkit_initWithObjectsFromArray:(id)arg1 range:(struct _NSRange)arg2;
 @end

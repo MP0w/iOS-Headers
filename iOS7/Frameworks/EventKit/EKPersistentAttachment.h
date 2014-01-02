@@ -20,8 +20,8 @@
 @property(readonly, nonatomic) NSString *UUID;
 @property(copy, nonatomic) NSNumber *fileSize;
 @property(copy, nonatomic) NSURL *localURL;
-- (void)setIsBinary:(BOOL)arg1;
-@property(readonly, nonatomic) BOOL isBinary;
+- (void)setIsBinary:(_Bool)arg1;
+@property(readonly, nonatomic) _Bool isBinary;
 @property(copy, nonatomic) NSString *fileFormat;
 @property(copy, nonatomic) NSString *fileName;
 @property(copy, nonatomic) NSURL *URL;

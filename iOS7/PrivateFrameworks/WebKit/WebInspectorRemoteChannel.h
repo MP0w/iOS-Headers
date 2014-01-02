@@ -8,6 +8,7 @@
 
 @class WebInspectorServerWebViewConnection;
 
+// Not exported
 @interface WebInspectorRemoteChannel : NSObject
 {
     WebInspectorServerWebViewConnection *_remote;

@@ -11,7 +11,7 @@
     struct JSObject *imp;
     struct RootObject *rootObject;
     struct RootObject *originRootObject;
-    BOOL isCreatedByDOMWrapper;
+    _Bool isCreatedByDOMWrapper;
 }
 
 @end

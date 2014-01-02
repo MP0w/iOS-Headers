@@ -11,14 +11,14 @@
 @interface MCMotionTrigger : MCAction
 {
     NSString *_key;
-    float _easeIn;
-    float _easeOut;
     double _duration;
+    double _easeIn;
+    double _easeOut;
 }
 
 + (id)motionTriggerForTargetPlugObjectID:(id)arg1 withKey:(id)arg2 andDuration:(double)arg3;
-@property(nonatomic) float easeOut; // @synthesize easeOut=_easeOut;
-@property(nonatomic) float easeIn; // @synthesize easeIn=_easeIn;
+@property(nonatomic) double easeOut; // @synthesize easeOut=_easeOut;
+@property(nonatomic) double easeIn; // @synthesize easeIn=_easeIn;
 @property(nonatomic) double duration; // @synthesize duration=_duration;
 @property(copy) NSString *key; // @synthesize key=_key;
 - (id)description;

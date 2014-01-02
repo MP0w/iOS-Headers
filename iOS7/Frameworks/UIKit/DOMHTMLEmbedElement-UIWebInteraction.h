@@ -7,6 +7,6 @@
 #import "DOMHTMLEmbedElement.h"
 
 @interface DOMHTMLEmbedElement (UIWebInteraction)
-- (BOOL)showsTapHighlight;
+- (_Bool)showsTapHighlight;
 @end
 

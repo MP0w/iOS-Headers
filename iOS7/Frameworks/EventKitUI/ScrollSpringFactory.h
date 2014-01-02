@@ -8,11 +8,11 @@
 
 @interface ScrollSpringFactory : SpringFactory
 {
-    float _initialVelocity;
+    double _initialVelocity;
 }
 
 + (id)sharedFactory;
-@property(nonatomic) float initialVelocity; // @synthesize initialVelocity=_initialVelocity;
+@property(nonatomic) double initialVelocity; // @synthesize initialVelocity=_initialVelocity;
 - (id)_basicAnimationForView:(id)arg1 withKeyPath:(id)arg2;
 
 @end

@@ -6,13 +6,14 @@
 
 #import <SpriteKit/SKAction.h>
 
+// Not exported
 @interface SKFollowPath : SKAction
 {
     struct SKCFollowPath *_mycaction;
     struct CGPath *_cgPath;
 }
 
-+ (id)followPath:(struct CGPath *)arg1 asOffset:(BOOL)arg2 orientToPath:(BOOL)arg3 duration:(double)arg4;
++ (id)followPath:(struct CGPath *)arg1 asOffset:(_Bool)arg2 orientToPath:(_Bool)arg3 duration:(double)arg4;
 + (id)followPath:(struct CGPath *)arg1 duration:(double)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)reversedAction;

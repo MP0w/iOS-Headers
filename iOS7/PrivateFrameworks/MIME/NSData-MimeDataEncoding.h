@@ -15,6 +15,6 @@
 - (id)mf_decodeBase64InRange:(struct _NSRange *)arg1;
 - (id)mf_decodeBase64;
 - (id)mf_decodeUuencoded;
-- (id)mf_decodeQuotedPrintableForText:(BOOL)arg1;
+- (id)mf_decodeQuotedPrintableForText:(_Bool)arg1;
 @end
 

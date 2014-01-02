@@ -17,23 +17,23 @@
     NSArray *_downloadPhasesToIgnore;
     long long _handlerID;
     SSXPCConnection *_observerConnection;
-    BOOL _sessionsNeedPowerAssertion;
-    BOOL _sessionsShouldBlockOtherDownloads;
+    _Bool _sessionsNeedPowerAssertion;
+    _Bool _sessionsShouldBlockOtherDownloads;
 }
 
 - (void)_setValue:(id)arg1 forProperty:(const char *)arg2;
-- (BOOL)_sendSessionPauseWithMessage:(id)arg1;
-- (BOOL)_sendSessionHandleWithMessage:(id)arg1;
-- (BOOL)_sendSessionCancelWithMessage:(id)arg1;
+- (_Bool)_sendSessionPauseWithMessage:(id)arg1;
+- (_Bool)_sendSessionHandleWithMessage:(id)arg1;
+- (_Bool)_sendSessionCancelWithMessage:(id)arg1;
 - (void)_sendDisconnectMessage;
-- (BOOL)_sendAuthenticationSessionWithMessage:(id)arg1;
+- (_Bool)_sendAuthenticationSessionWithMessage:(id)arg1;
 - (id)_newSessionWithMessage:(id)arg1;
 - (void)_handleMessage:(id)arg1 fromServerConnection:(id)arg2;
 - (id)_controlConnection;
 - (void)_connectToDaemon;
 - (id)description;
-@property BOOL sessionsShouldBlockOtherDownloads;
-@property BOOL sessionsNeedPowerAssertion;
+@property _Bool sessionsShouldBlockOtherDownloads;
+@property _Bool sessionsNeedPowerAssertion;
 @property(copy) NSArray *downloadPhasesToIgnore;
 @property id <SSDownloadHandlerDelegate> delegate;
 - (void)resetDisavowedSessions;

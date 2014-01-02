@@ -9,7 +9,7 @@
 #import "DuetLoggerProtocol-Protocol.h"
 #import "DuetSaveAndRestore-Protocol.h"
 
-@class AppLaunchStatsSaveAndRestore, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>;
+@class AppLaunchStatsSaveAndRestore, NSDate, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>;
 
 @interface AppLaunchStatsState : NSObject <DuetLoggerProtocol, DuetSaveAndRestore>
 {
@@ -27,6 +27,8 @@
     long long globalPowerBudgetCap;
     long long BGDataBudgetCap;
     AppLaunchStatsSaveAndRestore *saveAndRestoreContext;
+    NSDate *startTimeStamp;
+    NSDate *startTimeStampOOB;
     NSMutableDictionary *appsAliveInLSTDict;
     NSMutableArray *fireDates;
     NSMutableArray *cacheAppsforFullDebug;
@@ -42,13 +44,18 @@
     NSMutableArray *dailyAppForecastSlots;
     NSMutableArray *dailyDataBudgetSlots;
     NSMutableArray *dailyDataBGBudgetSlots;
+    NSMutableArray *dailyDataNDISCBudgetSlots;
     NSMutableArray *dailyPowerFetchBudgetSlots;
     NSMutableArray *dailyPowerPushBudgetSlots;
-    BOOL _enableLiveListCheck;
-    BOOL _enableBlackListCheck;
-    BOOL _enableOpportunisticFetchCheck;
-    BOOL _enableForeGroundAppCheck;
-    BOOL _enableBudgetCheck;
+    NSMutableArray *dailyPowerNDISCBudgetSlots;
+    long long endofdayDataBudget;
+    long long endofdayBGDataBudget;
+    long long endofdayNDISCDataBudget;
+    _Bool _enableLiveListCheck;
+    _Bool _enableBlackListCheck;
+    _Bool _enableOpportunisticFetchCheck;
+    _Bool _enableForeGroundAppCheck;
+    _Bool _enableBudgetCheck;
     float _globalNonactivePWPC;
     float _globalFetchPWPC;
     float _globalPushPWPC;
@@ -61,11 +68,11 @@
     long long _globalTimeThreshold;
 }
 
-@property(readonly, nonatomic) BOOL enableBudgetCheck; // @synthesize enableBudgetCheck=_enableBudgetCheck;
-@property(readonly, nonatomic) BOOL enableForeGroundAppCheck; // @synthesize enableForeGroundAppCheck=_enableForeGroundAppCheck;
-@property(readonly, nonatomic) BOOL enableOpportunisticFetchCheck; // @synthesize enableOpportunisticFetchCheck=_enableOpportunisticFetchCheck;
-@property(nonatomic) BOOL enableBlackListCheck; // @synthesize enableBlackListCheck=_enableBlackListCheck;
-@property(readonly, nonatomic) BOOL enableLiveListCheck; // @synthesize enableLiveListCheck=_enableLiveListCheck;
+@property(readonly, nonatomic) _Bool enableBudgetCheck; // @synthesize enableBudgetCheck=_enableBudgetCheck;
+@property(readonly, nonatomic) _Bool enableForeGroundAppCheck; // @synthesize enableForeGroundAppCheck=_enableForeGroundAppCheck;
+@property(readonly, nonatomic) _Bool enableOpportunisticFetchCheck; // @synthesize enableOpportunisticFetchCheck=_enableOpportunisticFetchCheck;
+@property(nonatomic) _Bool enableBlackListCheck; // @synthesize enableBlackListCheck=_enableBlackListCheck;
+@property(readonly, nonatomic) _Bool enableLiveListCheck; // @synthesize enableLiveListCheck=_enableLiveListCheck;
 @property(readonly, nonatomic) float dataCellMultiplier; // @synthesize dataCellMultiplier=_dataCellMultiplier;
 @property(readonly, nonatomic) float dataWifiMultiplier; // @synthesize dataWifiMultiplier=_dataWifiMultiplier;
 @property(readonly, nonatomic) float globalPushPWPC; // @synthesize globalPushPWPC=_globalPushPWPC;
@@ -74,10 +81,15 @@
 @property(readonly, nonatomic) long long globalTimeThreshold; // @synthesize globalTimeThreshold=_globalTimeThreshold;
 @property(readonly, nonatomic) long long BGMinSlotData; // @synthesize BGMinSlotData=_BGMinSlotData;
 @property(readonly, nonatomic) long long globalMinSlotData; // @synthesize globalMinSlotData=_globalMinSlotData;
+@property long long endofdayNDISCDataBudget; // @synthesize endofdayNDISCDataBudget;
+@property long long endofdayBGDataBudget; // @synthesize endofdayBGDataBudget;
+@property long long endofdayDataBudget; // @synthesize endofdayDataBudget;
 @property(readonly, nonatomic) long long BGDataCarryCap; // @synthesize BGDataCarryCap;
 @property(readonly, nonatomic) long long BGDataBudgetCap; // @synthesize BGDataBudgetCap;
 @property(readonly, nonatomic) long long globalDataBudgetCap; // @synthesize globalDataBudgetCap;
 @property(readonly, nonatomic) long long globalDataCarryCap; // @synthesize globalDataCarryCap;
+@property(retain, nonatomic) NSMutableArray *dailyDataNDISCBudgetSlots; // @synthesize dailyDataNDISCBudgetSlots;
+@property(retain, nonatomic) NSMutableArray *dailyPowerNDISCBudgetSlots; // @synthesize dailyPowerNDISCBudgetSlots;
 @property(retain, nonatomic) NSMutableArray *dailyPowerPushBudgetSlots; // @synthesize dailyPowerPushBudgetSlots;
 @property(retain, nonatomic) NSMutableArray *dailyPowerFetchBudgetSlots; // @synthesize dailyPowerFetchBudgetSlots;
 @property(retain, nonatomic) NSMutableArray *dailyDataBGBudgetSlots; // @synthesize dailyDataBGBudgetSlots;
@@ -96,12 +108,12 @@
 @property(retain) NSMutableArray *fireDates; // @synthesize fireDates;
 @property(retain) NSMutableDictionary *appsAliveInLSTDict; // @synthesize appsAliveInLSTDict;
 @property _Bool isBatteryChargerConnected; // @synthesize isBatteryChargerConnected;
-@property _Bool isWIFIConnected; // @synthesize isWIFIConnected;
+@property(readonly) _Bool isWIFIConnected; // @synthesize isWIFIConnected;
 @property _Bool doUniformBudget; // @synthesize doUniformBudget;
 @property _Bool isFetchPushPowerResourceAvailable; // @synthesize isFetchPushPowerResourceAvailable;
 @property _Bool isFetchPowerResourceAvailable; // @synthesize isFetchPowerResourceAvailable;
 @property _Bool isDataResourceAvailable; // @synthesize isDataResourceAvailable;
-@property _Bool isDeviceInGoodCellularCondition; // @synthesize isDeviceInGoodCellularCondition;
+@property(readonly) _Bool isDeviceInGoodCellularCondition; // @synthesize isDeviceInGoodCellularCondition;
 @property _Bool isDeviceUnderThermalPressure; // @synthesize isDeviceUnderThermalPressure;
 @property _Bool isDeviceInCall; // @synthesize isDeviceInCall;
 - (void).cxx_destruct;
@@ -111,12 +123,21 @@
 - (void)save:(id)arg1;
 - (void)restore:(id)arg1;
 - (id)popFirstSlotInDailyBudgetQueue:(id)arg1;
+- (_Bool)isChargeOnWifiOn;
 - (_Bool)hasResourcesAvailable:(_Bool)arg1 forTriggerType:(int)arg2;
+- (int)addToOutOfBandAppList:(long long)arg1 withCacheDict:(id)arg2 withAppList:(id)arg3;
+- (id)getOutOfBandAppList;
+- (_Bool)isOutOfBand;
+- (void)updateAppsAliveInLSTList:(id)arg1;
+- (void)resetAppsAliveInLSTList;
 - (_Bool)getAppsAliveInLSTList:(id)arg1;
 - (void)addPredictedSlotsToDailyPowerBudgetQueue:(id)arg1 forcastquality:(long long)arg2 batteryCapacity:(id)arg3;
 - (void)convertPCdistributionToInt:(id)arg1 fetchOver:(float)arg2 array:(id)arg3 dailyInt:(int)arg4;
 - (void)addPredictedSlotsToDailyDataBudgetQueue:(id)arg1 forcastquality:(long long)arg2;
+- (long long)calculateSlotMinDataBudget:(const char *)arg1;
+- (long long)calculateDailyDataBudgetFor:(const char *)arg1;
 - (void)addPredictedSlotsToDailyAppForecastQueue:(id)arg1;
+- (void)addPredictedSlotsToDailyOutOfBandQueue:(id)arg1;
 - (int)reloadConfiguration;
 - (id)init;
 

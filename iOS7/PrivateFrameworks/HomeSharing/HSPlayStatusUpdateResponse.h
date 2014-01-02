@@ -11,11 +11,11 @@
 @interface HSPlayStatusUpdateResponse : HSResponse
 {
     unsigned int _nextRevisionID;
-    NSDictionary *_playStatusInformation;
     unsigned long long _nowPlayingContainerID;
     unsigned long long _nowPlayingContainerItemID;
     unsigned long long _nowPlayingDatabaseID;
     unsigned long long _nowPlayingItemID;
+    NSDictionary *_playStatusInformation;
 }
 
 @property(copy, nonatomic) NSDictionary *playStatusInformation; // @synthesize playStatusInformation=_playStatusInformation;

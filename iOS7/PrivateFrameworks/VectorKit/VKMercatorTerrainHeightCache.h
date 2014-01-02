@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface VKMercatorTerrainHeightCache : NSObject
 {
     id <VKMercatorTerrainHeightProvider> _heightProvider;

@@ -12,17 +12,17 @@
 {
     SBPolygon *m_template;
     SBPolygon *m_candidate;
-    unsigned int m_transformType;
+    unsigned long long m_transformType;
     float m_acceptFactor;
 }
 
 @property(nonatomic) float acceptFactor; // @synthesize acceptFactor=m_acceptFactor;
-@property(nonatomic) unsigned int transformType; // @synthesize transformType=m_transformType;
-- (BOOL)acceptPolygon:(id)arg1;
-- (BOOL)acceptPoints:(struct CGPoint *)arg1 count:(unsigned int)arg2;
-@property(readonly, nonatomic) unsigned int pointCount;
+@property(nonatomic) unsigned long long transformType; // @synthesize transformType=m_transformType;
+- (_Bool)acceptPolygon:(id)arg1;
+- (_Bool)acceptPoints:(struct CGPoint *)arg1 count:(unsigned long long)arg2;
+@property(readonly, nonatomic) unsigned long long pointCount;
 - (void)dealloc;
-- (id)initWithPoints:(struct CGPoint *)arg1 count:(unsigned int)arg2;
+- (id)initWithPoints:(struct CGPoint *)arg1 count:(unsigned long long)arg2;
 
 @end
 

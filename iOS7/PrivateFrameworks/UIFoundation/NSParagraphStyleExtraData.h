@@ -8,13 +8,14 @@
 
 @class NSArray;
 
+// Not exported
 @interface NSParagraphStyleExtraData : NSObject
 {
-    float _lineHeightMultiple;
-    float _paragraphSpacingBefore;
-    float _hyphenationFactor;
-    float _tighteningFactor;
-    int _headerLevel;
+    double _lineHeightMultiple;
+    double _paragraphSpacingBefore;
+    double _hyphenationFactor;
+    double _tighteningFactor;
+    long long _headerLevel;
     NSArray *_textBlocks;
     NSArray *_textLists;
 }

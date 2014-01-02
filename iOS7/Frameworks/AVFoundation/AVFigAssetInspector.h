@@ -12,22 +12,22 @@
 {
     struct OpaqueFigAsset *_figAsset;
     struct OpaqueFigFormatReader *_formatReader;
-    long _formatReaderOnce;
-    BOOL didCheckForSaveRestriction;
-    BOOL hasSaveRestriction;
+    long long _formatReaderOnce;
+    _Bool didCheckForSaveRestriction;
+    _Bool hasSaveRestriction;
 }
 
 - (id)SHA1Digest;
-@property(readonly, nonatomic, getter=_isStreaming) BOOL streaming;
-@property(readonly, nonatomic) BOOL hasProtectedContent;
+@property(readonly, nonatomic, getter=_isStreaming) _Bool streaming;
+@property(readonly, nonatomic) _Bool hasProtectedContent;
 @property(readonly, nonatomic) unsigned long long downloadToken;
 @property(readonly, nonatomic) NSURL *resolvedURL;
 @property(readonly, nonatomic) NSURL *URL;
 @property(readonly, nonatomic) NSArray *chapterGroupInfo;
-- (BOOL)isComposable;
-- (BOOL)isReadable;
-- (BOOL)isExportable;
-- (BOOL)_hasQTSaveRestriction;
+- (_Bool)isComposable;
+- (_Bool)isReadable;
+- (_Bool)isExportable;
+- (_Bool)_hasQTSaveRestriction;
 - (id)metadataForFormat:(id)arg1;
 - (id)availableMetadataFormats;
 - (id)commonMetadata;
@@ -36,8 +36,8 @@
 - (id)mediaSelectionGroups;
 - (id)trackReferences;
 - (id)alternateTrackGroups;
-- (long)trackCount;
-- (BOOL)providesPreciseDurationAndTiming;
+- (long long)trackCount;
+- (_Bool)providesPreciseDurationAndTiming;
 - (int)naturalTimeScale;
 - (struct CGSize)naturalSize;
 - (struct CGAffineTransform)preferredTransform;
@@ -48,8 +48,8 @@
 - (void *)_valueAsCFTypeForProperty:(struct __CFString *)arg1;
 @property(readonly, nonatomic, getter=_formatReader) struct OpaqueFigFormatReader *formatReader;
 @property(readonly, nonatomic, getter=_figAsset) struct OpaqueFigAsset *figAsset;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)finalize;
 - (void)dealloc;
 - (id)initWithFigAsset:(struct OpaqueFigAsset *)arg1;

@@ -8,6 +8,7 @@
 
 @class UIImage, UIImageView;
 
+// Not exported
 @interface SLTwitterMentionImageView : UIView
 {
     UIImageView *_chromeView;

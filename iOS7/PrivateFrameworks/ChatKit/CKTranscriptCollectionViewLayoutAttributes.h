@@ -9,14 +9,18 @@
 @interface CKTranscriptCollectionViewLayoutAttributes : UICollectionViewLayoutAttributes
 {
     struct CGRect _targetFrame;
-    float _easing;
-    float _targetEasing;
+    struct CGRect _currentFrame;
+    double _easing;
+    double _targetEasing;
     BOOL _orientation;
+    _Bool _wantsDrawerLayout;
 }
 
+@property(nonatomic) _Bool wantsDrawerLayout; // @synthesize wantsDrawerLayout=_wantsDrawerLayout;
 @property(nonatomic) BOOL orientation; // @synthesize orientation=_orientation;
-@property(nonatomic) float targetEasing; // @synthesize targetEasing=_targetEasing;
-@property(nonatomic) float easing; // @synthesize easing=_easing;
+@property(nonatomic) double targetEasing; // @synthesize targetEasing=_targetEasing;
+@property(nonatomic) double easing; // @synthesize easing=_easing;
+@property(nonatomic) struct CGRect currentFrame; // @synthesize currentFrame=_currentFrame;
 @property(nonatomic) struct CGRect targetFrame; // @synthesize targetFrame=_targetFrame;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 

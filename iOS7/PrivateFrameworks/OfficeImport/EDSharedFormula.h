@@ -8,9 +8,10 @@
 
 @class EDReference;
 
+// Not exported
 @interface EDSharedFormula : EDFormula
 {
-    unsigned int mBaseFormulaIndex;
+    unsigned long long mBaseFormulaIndex;
     int mRowBaseOrOffset;
     int mColumnBaseOrOffset;
     EDReference *mBaseFormulaRange;
@@ -24,15 +25,11 @@
 - (int)rowBaseOrOffset;
 - (_Bool)isBaseFormula;
 - (id)baseFormulaWithRowBlocks:(id)arg1;
-- (void)setBaseFormulaIndex:(unsigned int)arg1;
-- (unsigned int)baseFormulaIndex;
+- (void)setBaseFormulaIndex:(unsigned long long)arg1;
+- (unsigned long long)baseFormulaIndex;
 - (void)dealloc;
 - (id)init;
 - (id)initWithFormula:(id)arg1;
-- (void)updateBaseFormulaRangeWithRow:(int)arg1 column:(int)arg2;
-- (id)baseFormulaRange;
-- (void)archiveByAppendingToMutableData:(struct __CFData *)arg1;
-- (void)unarchiveFromData:(struct __CFData *)arg1 offset:(unsigned int *)arg2;
 
 @end
 

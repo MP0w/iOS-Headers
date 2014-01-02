@@ -13,11 +13,11 @@
     PLCameraView *_cameraView;
 }
 
-- (void)_getRotationContentSettings:(CDStruct_af7d35ee *)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
+- (void)_getRotationContentSettings:(CDStruct_ebaa735e *)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
 - (void)dealloc;
-- (BOOL)_displaysFullScreen;
+- (_Bool)_displaysFullScreen;
 
 @end
 

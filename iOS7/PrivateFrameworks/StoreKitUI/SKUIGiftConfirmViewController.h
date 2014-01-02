@@ -11,17 +11,17 @@
 @interface SKUIGiftConfirmViewController : SKUIGiftStepViewController
 {
     SKUIGiftConfirmView *_confirmView;
-    BOOL _isShowingConfirmation;
+    _Bool _isShowingConfirmation;
     SKUIGiftPurchaseRequest *_purchaseRequest;
     SKUIFocusedTouchGestureRecognizer *_touchRecognizer;
 }
 
 - (void).cxx_destruct;
 - (void)_showSuccessPage;
-- (void)_setShowingConfirmation:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)_setShowingConfirmation:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)_removeCancelGestureRecognizer;
 - (void)_purchaseGift;
-- (void)_finishPurchaseWithResult:(BOOL)arg1 errorMessage:(id)arg2;
+- (void)_finishPurchaseWithResult:(_Bool)arg1 errorMessage:(id)arg2;
 - (void)_termsButtonAction:(id)arg1;
 - (void)_cancelBuyConfirmation:(id)arg1;
 - (void)_buyButtonAction:(id)arg1;

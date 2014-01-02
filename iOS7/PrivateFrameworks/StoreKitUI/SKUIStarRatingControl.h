@@ -10,23 +10,23 @@
 
 @interface SKUIStarRatingControl : UIControl
 {
-    int _previousUserRating;
+    long long _previousUserRating;
     UIImageView *_emptyStarsImageView;
     UIImageView *_filledStarsImageView;
-    int _userRating;
+    long long _userRating;
 }
 
-@property(nonatomic) int userRating; // @synthesize userRating=_userRating;
+@property(nonatomic) long long userRating; // @synthesize userRating=_userRating;
 - (void).cxx_destruct;
 - (void)_updateUserRatingWithTouch:(id)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)setBackgroundColor:(id)arg1;
-- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)layoutSubviews;
 - (void)cancelTrackingWithEvent:(id)arg1;
 - (void)endTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (BOOL)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (BOOL)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
+- (_Bool)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
+- (_Bool)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 @property(retain, nonatomic) UIImage *filledStarsImage;
 @property(retain, nonatomic) UIImage *emptyStarsImage;
 

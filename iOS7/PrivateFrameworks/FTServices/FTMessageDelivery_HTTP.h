@@ -13,18 +13,22 @@
 @interface FTMessageDelivery_HTTP : FTMessageDelivery <FTMessageQueueDelegate>
 {
     IMRemoteURLConnection *_remoteConnection;
+    _Bool _pendingRetryAfterAirplaneMode;
+    double _retryTimeAfterAirplaneMode;
 }
 
+- (void)networkStateChanged;
 - (void)_serverBagLoaded:(id)arg1;
-- (BOOL)sendMessage:(id)arg1;
+- (_Bool)sendMessage:(id)arg1;
 - (void)cancelMessage:(id)arg1;
 - (void)queue:(id)arg1 hitTimeoutForMessage:(id)arg2;
-- (BOOL)_tryRetryMessageWithTimeInterval:(double)arg1;
-- (BOOL)busy;
+- (_Bool)_tryRetryMessageWithTimeInterval:(double)arg1;
+- (_Bool)busy;
 - (void)_cleanupURLConnection;
 - (void)_dequeueIfNeeded;
-- (BOOL)_sendMessageAsynchronously:(id)arg1 error:(id *)arg2;
+- (_Bool)_sendMessageAsynchronously:(id)arg1 error:(id *)arg2;
 - (void)invalidate;
+- (void)_clearRetryTimer;
 - (void)_notifyDelegateAboutError:(id)arg1 forMessage:(id)arg2;
 - (void)_updateWiFiAssertions;
 - (id)_processResultData:(id)arg1 forMessage:(id)arg2 error:(id *)arg3;

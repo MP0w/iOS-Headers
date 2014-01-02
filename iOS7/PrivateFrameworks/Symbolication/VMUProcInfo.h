@@ -13,7 +13,7 @@
 @interface VMUProcInfo : NSObject <SafeVMUProcInfoProtocol>
 {
     unsigned int _task;
-    BOOL _needTaskPortDealloc;
+    _Bool _needTaskPortDealloc;
     NSString *_name;
     int _cpuType;
     NSArray *_arguments;
@@ -28,21 +28,21 @@
 }
 
 + (int)processParentId:(int)arg1;
-+ (BOOL)isProcessRunning:(int)arg1;
++ (_Bool)isProcessRunning:(int)arg1;
 + (id)getProcessIds;
-- (unsigned int)hash;
-- (int)compareByUserAppName:(id)arg1;
-- (int)compareByName:(id)arg1;
-- (int)compare:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)signal:(int)arg1;
-- (BOOL)terminate;
-- (BOOL)isRunning;
-- (BOOL)isNative;
+- (unsigned long long)hash;
+- (long long)compareByUserAppName:(id)arg1;
+- (long long)compareByName:(id)arg1;
+- (long long)compare:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)signal:(int)arg1;
+- (_Bool)terminate;
+- (_Bool)isRunning;
+- (_Bool)isNative;
 - (int)cpuType;
-- (BOOL)isCFM;
-- (BOOL)isMachO;
-- (BOOL)isApp;
+- (_Bool)isCFM;
+- (_Bool)isMachO;
+- (_Bool)isApp;
 - (void)update;
 - (unsigned int)task;
 - (int)ppid;

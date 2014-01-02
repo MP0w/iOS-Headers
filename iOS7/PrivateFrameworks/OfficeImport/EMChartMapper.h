@@ -8,6 +8,7 @@
 
 @class CHDAxis, CHDChart, CHDChartType, CHDSeries, CMState, EDResources;
 
+// Not exported
 @interface EMChartMapper : CMMapper
 {
     CHDChart *mChart;
@@ -18,19 +19,19 @@
     CHDAxis *mBaseAxis;
     CHDAxis *mPrimaryAxis;
     CHDAxis *mSecondaryAxis;
-    BOOL mIsHorizontal;
-    BOOL mIsStacked;
-    BOOL mIsPercentStacked;
-    unsigned int mPieIndex;
+    _Bool mIsHorizontal;
+    _Bool mIsStacked;
+    _Bool mIsPercentStacked;
+    unsigned long long mPieIndex;
     struct {
-        char primaryCategoryHasDates;
-        char secondaryCategoryHasDates;
-        char primaryAxisHasDates;
-        char secondaryAxisHasDates;
+        _Bool primaryCategoryHasDates;
+        _Bool secondaryCategoryHasDates;
+        _Bool primaryAxisHasDates;
+        _Bool secondaryAxisHasDates;
     } mPlotInfos;
-    BOOL mHasDateCategory;
-    BOOL mHasPrimaryDateAxis;
-    BOOL mHasSecondaryDateAxis;
+    _Bool mHasDateCategory;
+    _Bool mHasPrimaryDateAxis;
+    _Bool mHasSecondaryDateAxis;
 }
 
 + (struct CGColor *)newColorWithCalibratedRed:(float)arg1 green:(float)arg2 blue:(float)arg3 alpha:(float)arg4;

@@ -9,14 +9,14 @@
 @protocol UIViewControllerTransitionCoordinatorContext <NSObject>
 - (id)containerView;
 - (id)viewControllerForKey:(id)arg1;
-- (int)completionCurve;
-- (float)completionVelocity;
-- (float)percentComplete;
+- (long long)completionCurve;
+- (double)completionVelocity;
+- (double)percentComplete;
 - (double)transitionDuration;
-- (BOOL)isCancelled;
-- (BOOL)isInteractive;
-- (BOOL)initiallyInteractive;
-- (int)presentationStyle;
-- (BOOL)isAnimated;
+- (_Bool)isCancelled;
+- (_Bool)isInteractive;
+- (_Bool)initiallyInteractive;
+- (long long)presentationStyle;
+- (_Bool)isAnimated;
 @end
 

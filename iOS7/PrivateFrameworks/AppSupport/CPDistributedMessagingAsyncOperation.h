@@ -18,7 +18,7 @@
     id _target;
     SEL _selector;
     void *_context;
-    BOOL _makeServer;
+    _Bool _makeServer;
     NSThread *_calloutThread;
     NSDictionary *_reply;
     NSError *_error;
@@ -28,7 +28,7 @@
 - (void)main;
 - (void)_releaseSendingData;
 - (void)dealloc;
-- (id)initWithCenter:(id)arg1 messageName:(id)arg2 userInfoData:(id)arg3 oolKey:(id)arg4 oolData:(id)arg5 target:(id)arg6 selector:(SEL)arg7 context:(void *)arg8 makeServer:(BOOL)arg9;
+- (id)initWithCenter:(id)arg1 messageName:(id)arg2 userInfoData:(id)arg3 oolKey:(id)arg4 oolData:(id)arg5 target:(id)arg6 selector:(SEL)arg7 context:(void *)arg8 makeServer:(_Bool)arg9;
 
 @end
 

@@ -6,16 +6,17 @@
 
 #import "NSObject.h"
 
-@class MediaControlClient, NSDictionary, NSObject<OS_dispatch_queue>;
+@class MediaControlClient, NSDictionary, NSObject<OS_dispatch_queue>, NSString;
 
 @interface FigCPEFPAirPlaySession : NSObject
 {
-    BOOL _invalid;
-    unsigned long _fairPlayContext;
+    _Bool _invalid;
+    unsigned int _fairPlayContext;
     NSDictionary *_protectionInfo;
     NSDictionary *_contentInfo;
     MediaControlClient *_mediaControlClient;
-    unsigned long _vodkaVersion;
+    NSString *_mediaControlUUID;
+    unsigned int _vodkaVersion;
     struct FPStreamOpaque_ *_fairPlaySession;
     NSObject<OS_dispatch_queue> *_serializationQueue;
 }
@@ -28,9 +29,9 @@
 - (id)createPicRequest;
 - (void)finalize;
 - (void)dealloc;
-- (id)initWithFairPlayContext:(unsigned long)arg1 routeInfo:(id)arg2 mediaControlClient:(id)arg3;
-- (id)initWithFairPlayContext:(unsigned long)arg1 contentInfo:(id)arg2 routeInfo:(id)arg3 mediaControlClient:(id)arg4;
-- (id)initWithFairPlayContext:(unsigned long)arg1 protectionInfo:(id)arg2 routeInfo:(id)arg3 mediaControlClient:(id)arg4;
+- (id)initWithFairPlayContext:(unsigned int)arg1 routeInfo:(id)arg2 mediaControlClient:(id)arg3 mediaControlUUID:(id)arg4;
+- (id)initWithFairPlayContext:(unsigned int)arg1 contentInfo:(id)arg2 routeInfo:(id)arg3 mediaControlClient:(id)arg4 mediaControlUUID:(id)arg5;
+- (id)initWithFairPlayContext:(unsigned int)arg1 protectionInfo:(id)arg2 routeInfo:(id)arg3 mediaControlClient:(id)arg4 mediaControlUUID:(id)arg5;
 
 @end
 

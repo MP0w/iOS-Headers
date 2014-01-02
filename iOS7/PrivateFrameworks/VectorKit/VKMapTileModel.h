@@ -11,6 +11,7 @@
 
 @class NSMutableSet, NSSet, VKMapModel, VKStylesheet;
 
+// Not exported
 @interface VKMapTileModel : VKModelObject <VKMapLayer, VKStylesheetObserver>
 {
     NSMutableSet *_tilesWillEnterScene;
@@ -24,11 +25,11 @@
     unsigned char _maximumZ;
 }
 
-+ (BOOL)reloadOnActiveTileGroupChange;
-+ (BOOL)reloadOnStylesheetChange;
++ (_Bool)reloadOnActiveTileGroupChange;
++ (_Bool)reloadOnStylesheetChange;
 @property(nonatomic) VKMapModel *mapModel; // @synthesize mapModel=_mapModel;
 @property(readonly, nonatomic) NSSet *tilesInScene; // @synthesize tilesInScene=_tilesInScene;
-- (void)updateTilesInScene:(id)arg1 withContext:(id)arg2 categorize:(BOOL)arg3;
+- (void)updateTilesInScene:(id)arg1 withContext:(id)arg2 categorize:(_Bool)arg3;
 - (void)activeTileGroupChanged;
 - (void)stylesheetDidChange;
 - (void)stylesheetWillChange;
@@ -42,10 +43,10 @@
 - (void)createCollections;
 - (void)createCollectionsIfNecessary;
 - (void)clearCollections;
-- (BOOL)maximumZoomLevelBoundsCamera;
-- (BOOL)minimumZoomLevelBoundsCamera;
+- (_Bool)maximumZoomLevelBoundsCamera;
+- (_Bool)minimumZoomLevelBoundsCamera;
 @property(readonly, nonatomic) VKStylesheet *stylesheet;
-- (unsigned int)mapLayerPosition;
+- (unsigned long long)mapLayerPosition;
 
 @end
 

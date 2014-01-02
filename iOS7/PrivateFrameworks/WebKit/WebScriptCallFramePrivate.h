@@ -8,6 +8,7 @@
 
 @class WebScriptCallFrame, WebScriptObject;
 
+// Not exported
 @interface WebScriptCallFramePrivate : NSObject
 {
     WebScriptObject *globalObject;

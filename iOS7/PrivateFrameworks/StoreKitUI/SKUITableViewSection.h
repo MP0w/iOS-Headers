@@ -8,16 +8,16 @@
 
 @interface SKUITableViewSection : NSObject
 {
-    BOOL _hidesHeaderView;
-    int _sectionIndex;
+    _Bool _hidesHeaderView;
+    long long _sectionIndex;
 }
 
-@property(nonatomic) int sectionIndex; // @synthesize sectionIndex=_sectionIndex;
-@property(nonatomic) BOOL hidesHeaderView; // @synthesize hidesHeaderView=_hidesHeaderView;
+@property(nonatomic) long long sectionIndex; // @synthesize sectionIndex=_sectionIndex;
+@property(nonatomic) _Bool hidesHeaderView; // @synthesize hidesHeaderView=_hidesHeaderView;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forIndexPath:(id)arg3;
 - (id)tableViewCellForTableView:(id)arg1 indexPath:(id)arg2;
-@property(readonly, nonatomic) int numberOfRowsInSection;
-- (float)heightForCellInTableView:(id)arg1 indexPath:(id)arg2;
+@property(readonly, nonatomic) long long numberOfRowsInSection;
+- (double)heightForCellInTableView:(id)arg1 indexPath:(id)arg2;
 - (id)headerViewForTableView:(id)arg1;
 
 @end

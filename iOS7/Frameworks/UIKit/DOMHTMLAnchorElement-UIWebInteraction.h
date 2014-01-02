@@ -7,6 +7,6 @@
 #import "DOMHTMLAnchorElement.h"
 
 @interface DOMHTMLAnchorElement (UIWebInteraction)
-- (BOOL)alwaysAttemptToShowTapHighlight;
+- (_Bool)alwaysAttemptToShowTapHighlight;
 @end
 

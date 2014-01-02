@@ -7,6 +7,6 @@
 #import "NSObject.h"
 
 @interface NSObject (CALExtensions)
-- (BOOL)isNull;
+- (_Bool)isNull;
 @end
 

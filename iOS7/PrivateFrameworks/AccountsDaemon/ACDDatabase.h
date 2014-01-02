@@ -14,10 +14,15 @@
     NSManagedObjectContext *_context;
     NSManagedObjectModel *_model;
     NSPersistentStore *_store;
+    id _contextDidSaveNotificationObserver;
 }
 
-+ (void)resetPeristentStoreCoordinator;
-+ (void)_removeFilesAtURL:(id)arg1 forStoreCoordinator:(id)arg2;
++ (void)_resetPeristentStoreCoordinator;
++ (id)_optionsForOpeningPersistentStore;
++ (_Bool)_isUnrecoverableDatabaseError:(id)arg1;
++ (void)_removePersistentStoreAtURL:(id)arg1 forStoreCoordinator:(id)arg2;
++ (void)_replacePersistentStoreAtURL:(id)arg1 withCleanStoreForCoordinator:(id)arg2;
++ (_Bool)_addPersistentStoreWithURL:(id)arg1 toStoreCoordinator:(id)arg2 withOptions:(id)arg3 error:(id *)arg4;
 + (id)_sharedPersistentCoordinatorForStoreAtPath:(id)arg1;
 + (id)_managedObjectModel;
 + (struct __CFString *)_copyRootPath;
@@ -25,19 +30,20 @@
 @property(readonly, nonatomic) NSString *path; // @synthesize path=_path;
 - (void).cxx_destruct;
 - (void)_handleManagedObjectContextDidSaveNotification:(id)arg1;
-- (BOOL)_databaseFileExists;
+- (_Bool)_databaseFileExists;
 - (id)_store;
 - (void)_setupManagedObjectContext;
+- (id)managedObjectIDForURI:(id)arg1;
 - (void)setAccountPropertyWithKey:(id)arg1 value:(id)arg2 owner:(id)arg3;
 - (void)deleteAccountPropertyWithKey:(id)arg1 owner:(id)arg2;
 - (id)_accountPropertyWithKey:(id)arg1 owner:(id)arg2;
-- (unsigned int)countOfEntityNamed:(id)arg1 withPredicate:(id)arg2;
+- (unsigned long long)countOfEntityNamed:(id)arg1 withPredicate:(id)arg2;
 - (id)existingObjectWithURI:(id)arg1;
 - (id)objectForObjectURI:(id)arg1;
 - (id)fetchObjectsForEntityNamed:(id)arg1 withPredicate:(id)arg2 sortDescriptor:(id)arg3;
 - (id)fetchObjectsForEntityNamed:(id)arg1 withPredicate:(id)arg2;
 - (id)fetchObjectsForEntityNamed:(id)arg1;
-@property(nonatomic) int version; // @dynamic version;
+@property(nonatomic) long long version; // @dynamic version;
 @property(readonly, nonatomic) NSManagedObjectContext *managedObjectContext; // @dynamic managedObjectContext;
 - (void)dealloc;
 - (id)initWithPath:(id)arg1;

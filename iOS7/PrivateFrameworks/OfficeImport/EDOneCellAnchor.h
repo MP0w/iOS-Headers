@@ -6,16 +6,17 @@
 
 #import <OfficeImport/EDAnchor.h>
 
+// Not exported
 @interface EDOneCellAnchor : EDAnchor
 {
     struct EDCellAnchorMarker mFrom;
     struct CGSize mSize;
-    BOOL mIsRelative;
+    _Bool mIsRelative;
 }
 
 - (id).cxx_construct;
-- (void)setRelative:(BOOL)arg1;
-- (BOOL)isRelative;
+- (void)setRelative:(_Bool)arg1;
+- (_Bool)isRelative;
 - (void)setSize:(struct CGSize)arg1;
 - (struct CGSize)size;
 - (void)setFrom:(struct EDCellAnchorMarker)arg1;

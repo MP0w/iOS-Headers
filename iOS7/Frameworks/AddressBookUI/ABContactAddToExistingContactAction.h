@@ -19,8 +19,8 @@
 
 @property(retain, nonatomic) ABPeoplePickerNavigationController *peoplePicker; // @synthesize peoplePicker=_peoplePicker;
 @property(retain, nonatomic) CNContact *chosenContact; // @synthesize chosenContact=_chosenContact;
-- (BOOL)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
-- (BOOL)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2;
+- (_Bool)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
+- (_Bool)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2;
 - (void)peoplePickerNavigationControllerDidCancel:(id)arg1;
 - (void)newPersonViewController:(id)arg1 didCompleteWithNewPerson:(void *)arg2;
 - (void)performActionWithSender:(id)arg1;

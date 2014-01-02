@@ -6,28 +6,30 @@
 
 #import <StoreKitUI/SKUIPageComponent.h>
 
-@class NSArray;
+@class NSArray, UIColor;
 
 @interface SKUIRowComponent : SKUIPageComponent
 {
+    UIColor *_backgroundColor;
     NSArray *_childComponents;
     NSArray *_columnWidths;
-    int _missingItemCount;
-    int _numberOfColumns;
+    long long _missingItemCount;
+    long long _numberOfColumns;
 }
 
-@property(readonly, nonatomic) int numberOfColumns; // @synthesize numberOfColumns=_numberOfColumns;
+@property(readonly, nonatomic) long long numberOfColumns; // @synthesize numberOfColumns=_numberOfColumns;
 @property(readonly, nonatomic) NSArray *columnWidths; // @synthesize columnWidths=_columnWidths;
 @property(readonly, nonatomic) NSArray *childComponents; // @synthesize childComponents=_childComponents;
+@property(readonly, nonatomic) UIColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 - (void).cxx_destruct;
 - (id)description;
-- (BOOL)_isChildMissingItemData:(id)arg1;
+- (_Bool)_isChildMissingItemData:(id)arg1;
 - (id)_childComponentWithContext:(id)arg1;
 - (id)_updateWithMissingItems:(id)arg1;
 - (id)metricsElementName;
-- (BOOL)isMissingItemData;
-- (void)enumerateMissingItemIdentifiersFromIndex:(int)arg1 usingBlock:(id)arg2;
-- (int)componentType;
+- (_Bool)isMissingItemData;
+- (void)enumerateMissingItemIdentifiersFromIndex:(long long)arg1 usingBlock:(id)arg2;
+- (long long)componentType;
 - (id)initWithCustomPageContext:(id)arg1;
 
 @end

@@ -10,10 +10,10 @@
 
 @interface PUInterpolatingLayoutAttributes : PUAbstractTransitionLayoutAttributes
 {
-    BOOL _interpolatesCenter;
-    BOOL _interpolatesSize;
-    BOOL _interpolatesTransform;
-    BOOL _interpolatesAlpha;
+    _Bool _interpolatesCenter;
+    _Bool _interpolatesSize;
+    _Bool _interpolatesTransform;
+    _Bool _interpolatesAlpha;
     UICollectionViewLayoutAttributes *_sourceLayoutAttributes;
     UICollectionViewLayoutAttributes *_destinationLayoutAttributes;
 }

@@ -6,6 +6,7 @@
 
 #import "UIView.h"
 
+// Not exported
 @interface UIWKRemoteView : UIView
 {
 }

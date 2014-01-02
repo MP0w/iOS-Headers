@@ -6,9 +6,10 @@
 
 #import <SpriteKit/SKAction.h>
 
+// Not exported
 @interface SKRemove : SKAction
 {
-    BOOL _hasFired;
+    _Bool _hasFired;
 }
 
 + (id)removeFromParent;

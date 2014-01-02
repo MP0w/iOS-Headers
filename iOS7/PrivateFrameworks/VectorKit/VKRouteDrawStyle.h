@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface VKRouteDrawStyle : VKDrawStyle
 {
     float _width;
@@ -22,24 +23,32 @@
     float _enlargementStartZoom;
     float _enlargementScale;
     float _enlargementMaxScale;
+    float _brightness;
+    _Bool _hasBrightness;
+    float _arrowMinZoom;
+    float _selectedArrowMinZoom;
 }
 
-@property(readonly, nonatomic) float enlargementMaxScale; // @synthesize enlargementMaxScale=_enlargementMaxScale;
-@property(readonly, nonatomic) float enlargementScale; // @synthesize enlargementScale=_enlargementScale;
-@property(readonly, nonatomic) float enlargementStartZoom; // @synthesize enlargementStartZoom=_enlargementStartZoom;
+@property(readonly, nonatomic) _Bool hasBrightness; // @synthesize hasBrightness=_hasBrightness;
 @property(readonly, nonatomic) NSString *travelledTexture; // @synthesize travelledTexture=_travelledTexture;
 @property(readonly, nonatomic) NSString *obscuredTexture; // @synthesize obscuredTexture=_obscuredTexture;
 @property(readonly, nonatomic) NSString *texture; // @synthesize texture=_texture;
+- (id).cxx_construct;
+- (void)dealloc;
+@property(readonly, nonatomic) float selectedArrowMinZoom; // @synthesize selectedArrowMinZoom=_selectedArrowMinZoom;
+@property(readonly, nonatomic) float arrowMinZoom; // @synthesize arrowMinZoom=_arrowMinZoom;
+@property(readonly, nonatomic) float brightness; // @synthesize brightness=_brightness;
+@property(readonly, nonatomic) float enlargementMaxScale; // @synthesize enlargementMaxScale=_enlargementMaxScale;
+@property(readonly, nonatomic) float enlargementScale; // @synthesize enlargementScale=_enlargementScale;
+@property(readonly, nonatomic) float enlargementStartZoom; // @synthesize enlargementStartZoom=_enlargementStartZoom;
 @property(readonly, nonatomic) struct _VGLColor glossColor; // @synthesize glossColor=_glossColor;
 @property(readonly, nonatomic) struct _VGLColor travelledColor; // @synthesize travelledColor=_travelledColor;
 @property(readonly, nonatomic) struct _VGLColor fillColor; // @synthesize fillColor=_fillColor;
 @property(readonly, nonatomic) struct _VGLColor strokeColor; // @synthesize strokeColor=_strokeColor;
 @property(readonly, nonatomic) float strokeWidth; // @synthesize strokeWidth=_strokeWidth;
 @property(readonly, nonatomic) float width; // @synthesize width=_width;
-- (id).cxx_construct;
-- (void)dealloc;
 - (void)takeFromZoomInvariantProperties:(id)arg1;
-- (void)takeFromStyleProperties:(id)arg1 atZoom:(unsigned int)arg2 globals:(id)arg3;
+- (void)takeFromStyleProperties:(id)arg1 atZoom:(unsigned long long)arg2 globals:(id)arg3;
 - (id)variant;
 
 @end

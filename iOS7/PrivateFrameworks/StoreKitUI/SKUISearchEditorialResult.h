@@ -17,14 +17,14 @@
     long long _editorialIdentifier;
     NSString *_message;
     NSString *_messageTitle;
-    BOOL _room;
+    _Bool _room;
     NSString *_subtitle;
     NSString *_title;
 }
 
 @property(readonly, nonatomic) NSString *title; // @synthesize title=_title;
 @property(readonly, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
-@property(readonly, nonatomic, getter=isRoom) BOOL room; // @synthesize room=_room;
+@property(readonly, nonatomic, getter=isRoom) _Bool room; // @synthesize room=_room;
 @property(readonly, nonatomic) NSString *message; // @synthesize message=_message;
 @property(readonly, nonatomic) NSString *messageTitle; // @synthesize messageTitle=_messageTitle;
 @property(readonly, nonatomic) long long editorialIdentifier; // @synthesize editorialIdentifier=_editorialIdentifier;
@@ -33,6 +33,8 @@
 @property(readonly, nonatomic) NSArray *artworkIdentifiers; // @synthesize artworkIdentifiers=_artworkIdentifiers;
 @property(readonly, nonatomic) SKUIArtworkList *artwork; // @synthesize artwork=_artwork;
 - (void).cxx_destruct;
+- (void)_setValuesWithEditorialDictionary:(id)arg1;
+- (id)initWithLookupItem:(id)arg1;
 - (id)initWithEditorialDictionary:(id)arg1 identifier:(long long)arg2;
 
 @end

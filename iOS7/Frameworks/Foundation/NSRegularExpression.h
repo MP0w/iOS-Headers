@@ -14,7 +14,7 @@
 @interface NSRegularExpression : NSObject <NSCopying, NSCoding>
 {
     NSString *_pattern;
-    unsigned int _options;
+    unsigned long long _options;
     void *_internal;
     id _reserved1;
     int _checkout;
@@ -22,29 +22,20 @@
 }
 
 + (id)escapedPatternForString:(id)arg1;
-+ (id)regularExpressionWithPattern:(id)arg1 options:(unsigned int)arg2 error:(id *)arg3;
++ (id)regularExpressionWithPattern:(id)arg1 options:(unsigned long long)arg2 error:(id *)arg3;
 + (void)initialize;
-+ (id)escapedTemplateForString:(id)arg1;
-@property(readonly) unsigned int numberOfCaptureGroups;
-@property(readonly) unsigned int options;
+@property(readonly) unsigned long long numberOfCaptureGroups;
+@property(readonly) unsigned long long options;
 @property(readonly) NSString *pattern;
 - (id)description;
 - (void)finalize;
 - (void)dealloc;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithPattern:(id)arg1 options:(unsigned int)arg2 error:(id *)arg3;
-- (struct _NSRange)rangeOfFirstMatchInString:(id)arg1 options:(unsigned int)arg2 range:(struct _NSRange)arg3;
-- (id)firstMatchInString:(id)arg1 options:(unsigned int)arg2 range:(struct _NSRange)arg3;
-- (unsigned int)numberOfMatchesInString:(id)arg1 options:(unsigned int)arg2 range:(struct _NSRange)arg3;
-- (id)matchesInString:(id)arg1 options:(unsigned int)arg2 range:(struct _NSRange)arg3;
-- (void)enumerateMatchesInString:(id)arg1 options:(unsigned int)arg2 range:(struct _NSRange)arg3 usingBlock:(id)arg4;
-- (id)replacementStringForResult:(id)arg1 inString:(id)arg2 offset:(int)arg3 template:(id)arg4;
-- (unsigned int)replaceMatchesInString:(id)arg1 options:(unsigned int)arg2 range:(struct _NSRange)arg3 withTemplate:(id)arg4;
-- (id)stringByReplacingMatchesInString:(id)arg1 options:(unsigned int)arg2 range:(struct _NSRange)arg3 withTemplate:(id)arg4;
+- (id)initWithPattern:(id)arg1 options:(unsigned long long)arg2 error:(id *)arg3;
 
 @end
 

@@ -17,8 +17,8 @@
 
 @property(readonly, nonatomic) NSString *property; // @synthesize property=_property;
 - (id)SQLJoinClausesForEntityClass:(Class)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 

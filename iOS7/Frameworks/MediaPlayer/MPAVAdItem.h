@@ -10,7 +10,7 @@
 {
 }
 
-- (BOOL)isAd;
+- (_Bool)isAd;
 
 @end
 

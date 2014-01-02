@@ -13,70 +13,65 @@
 #import "UITableViewDataSource-Protocol.h"
 #import "UITableViewDelegate-Protocol.h"
 
-@class NSArray, NSMutableArray, RUPreviewSession, RUTrackHistoryDataSource, RUWishlistDataSource, RadioGetWishListRequest, SKUICircleProgressIndicator, UILabel, UITableView, UIView, _UIBackdropView, _UINavigationControllerPalette;
+@class NSArray, NSMutableArray, RUPreviewSession, RUTrackHistoryDataSource, RUWishlistDataSource, RadioGetWishListRequest, SKUICircleProgressIndicator, UIActionSheet, UILabel, UITableView;
 
 @interface RUHistoryViewController : UIViewController <RUAudioPreviewViewDelegate, RUTrackHistoryDataSourceDelegate, RUWishlistDataSourceDelegate, UIActionSheetDelegate, UITableViewDataSource, UITableViewDelegate>
 {
     SKUICircleProgressIndicator *_activityIndicator;
-    _UIBackdropView *_backdropView;
-    UIView *_bottomShadowView;
-    BOOL _isRefreshingWishlist;
+    UIActionSheet *_confirmationActionSheet;
+    _Bool _isRefreshingWishlist;
     UILabel *_loadingLabel;
     UILabel *_noHistoryLabel;
     RUPreviewSession *_previewSession;
-    int _previewingIndex;
-    _UINavigationControllerPalette *_segmentedControlPalette;
+    long long _previewingIndex;
     UITableView *_tableView;
-    UIView *_topShadowView;
     RUTrackHistoryDataSource *_trackHistoryDataSource;
     NSArray *_trackHistorySessions;
     RUWishlistDataSource *_wishlistDataSource;
     RadioGetWishListRequest *_wishlistRequest;
     NSMutableArray *_wishlistedTracks;
     id <RUHistoryViewControllerDelegate> _delegate;
-    int _historyType;
+    long long _historyType;
 }
 
 + (void)initialize;
-@property(readonly, nonatomic) int historyType; // @synthesize historyType=_historyType;
+@property(readonly, nonatomic) long long historyType; // @synthesize historyType=_historyType;
 @property(nonatomic) __weak id <RUHistoryViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (id)_wishlistedTrackAtIndexPath:(id)arg1;
 - (void)_updateViewForHistoryChange;
-- (id)_trackAtIndexPath:(id)arg1;
+- (id)_trackHistoryAtIndexPath:(id)arg1;
 - (void)_refreshWishlistedTracks;
 - (id)_newSegmentedControl;
-- (id)_newSectionHeaderForType:(int)arg1 withAttributedText:(id)arg2;
-- (id)_newSectionFooterForType:(int)arg1 inSection:(int)arg2;
+- (id)_newSectionHeaderForType:(long long)arg1 withAttributedText:(id)arg2;
+- (id)_newSectionFooterForType:(long long)arg1 inSection:(long long)arg2;
 - (id)_newShadowViewWithFrame:(struct CGRect)arg1;
-- (void)_layoutTopAndBottomShadowViews;
-- (BOOL)_isLoading;
+- (_Bool)_isLoading;
 - (void)_endPreviewPlayback;
-- (unsigned int)_count;
+- (unsigned long long)_count;
+- (void)_radioAuthenticatedAccountIdentifierDidChangeNotification:(id)arg1;
 - (void)_selectedSegmentIndexDidChangeAction:(id)arg1;
 - (void)_doneAction:(id)arg1;
 - (void)_clearAction:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (void)tableViewDidFinishReload:(id)arg1;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
-- (id)tableView:(id)arg1 viewForHeaderInSection:(int)arg2;
-- (id)tableView:(id)arg1 viewForFooterInSection:(int)arg2;
-- (float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2;
-- (float)tableView:(id)arg1 heightForFooterInSection:(int)arg2;
+- (id)tableView:(id)arg1 viewForHeaderInSection:(long long)arg2;
+- (id)tableView:(id)arg1 viewForFooterInSection:(long long)arg2;
+- (double)tableView:(id)arg1 heightForHeaderInSection:(long long)arg2;
+- (double)tableView:(id)arg1 heightForFooterInSection:(long long)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (void)tableView:(id)arg1 commitEditingStyle:(int)arg2 forRowAtIndexPath:(id)arg3;
-- (BOOL)tableView:(id)arg1 canEditRowAtIndexPath:(id)arg2;
+- (void)tableView:(id)arg1 commitEditingStyle:(long long)arg2 forRowAtIndexPath:(id)arg3;
+- (_Bool)tableView:(id)arg1 canEditRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
-- (void)scrollViewDidScroll:(id)arg1;
-- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
+- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (void)wishlistDataSourceDidInvalidate:(id)arg1;
 - (void)trackHistoryDataSourceDidInvalidate:(id)arg1;
 - (void)trackHistoryDataSource:(id)arg1 didInsertSections:(id)arg2 insertIndexPaths:(id)arg3 updateIndexPaths:(id)arg4 deleteSections:(id)arg5 deleteIndexPaths:(id)arg6;
-- (void)audioPreviewViewDidCancel:(id)arg1;
+- (void)audioPreviewViewDidCancel:(id)arg1 forReason:(long long)arg2;
 - (id)contentScrollView;
-- (void)willMoveToParentViewController:(id)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

@@ -16,8 +16,8 @@
     NSArray *_editItems;
     EKCalendarShareesEditItem *_shareesEditItem;
     EKSource *_source;
-    unsigned int _entityType;
-    BOOL _isNewCalendar;
+    unsigned long long _entityType;
+    _Bool _isNewCalendar;
     EKEventStore *_eventStore;
     EKCalendar *_calendar;
     id <EKCalendarEditorDelegate> _delegate;
@@ -25,20 +25,21 @@
 }
 
 @property(retain, nonatomic) id <EKStyleProvider> styleProvider; // @synthesize styleProvider=_styleProvider;
-@property(nonatomic) BOOL isNewCalendar; // @synthesize isNewCalendar=_isNewCalendar;
+@property(nonatomic) _Bool isNewCalendar; // @synthesize isNewCalendar=_isNewCalendar;
 @property(nonatomic) __weak id <EKCalendarEditorDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) EKCalendar *calendar; // @synthesize calendar=_calendar;
 @property(retain, nonatomic) EKEventStore *eventStore; // @synthesize eventStore=_eventStore;
 - (void).cxx_destruct;
-- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (float)tableView:(id)arg1 heightForFooterInSection:(int)arg2;
-- (id)tableView:(id)arg1 viewForFooterInSection:(int)arg2;
-- (id)tableView:(id)arg1 titleForHeaderInSection:(int)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
+- (double)tableView:(id)arg1 heightForFooterInSection:(long long)arg2;
+- (id)tableView:(id)arg1 viewForFooterInSection:(long long)arg2;
+- (id)tableView:(id)arg1 titleForHeaderInSection:(long long)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
+- (void)viewWillLayoutSubviews;
 - (void)scrollViewDidScroll:(id)arg1;
 - (id)tableView;
 - (id)owningNavigationController;
@@ -51,17 +52,17 @@
 - (void)_presentValidationAlert:(id)arg1;
 - (id)_editItems;
 - (void)setupForCalendar;
-- (struct CGSize)contentSizeForViewInPopover;
-- (void)viewWillAppear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
+- (struct CGSize)preferredContentSize;
+- (void)viewWillAppear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)loadView;
-- (BOOL)_shouldShowDeleteButton;
+- (_Bool)_shouldShowDeleteButton;
 - (void)_eventStoreChanged:(id)arg1;
 - (void)_localeChanged;
 - (void)dealloc;
-- (id)initWithSource:(id)arg1 eventStore:(id)arg2 entityType:(unsigned int)arg3;
-- (id)initWithCalendar:(id)arg1 eventStore:(id)arg2 entityType:(unsigned int)arg3;
+- (id)initWithSource:(id)arg1 eventStore:(id)arg2 entityType:(unsigned long long)arg3;
+- (id)initWithCalendar:(id)arg1 eventStore:(id)arg2 entityType:(unsigned long long)arg3;
 
 @end
 

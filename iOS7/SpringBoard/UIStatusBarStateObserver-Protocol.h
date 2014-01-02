@@ -7,6 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol UIStatusBarStateObserver <NSObject>
-- (void)statusBarStateProvider:(id)arg1 didPostStatusBarData:(const CDStruct_87a532be *)arg2 withActions:(int)arg3;
+- (void)statusBarStateProvider:(id)arg1 didPostStatusBarData:(const CDStruct_0e61b686 *)arg2 withActions:(int)arg3;
 @end
 

@@ -8,6 +8,7 @@
 
 @class TSUColor;
 
+// Not exported
 @interface MFPhoneHatchBrush : MFPhoneBrush
 {
     TSUColor *m_colour;

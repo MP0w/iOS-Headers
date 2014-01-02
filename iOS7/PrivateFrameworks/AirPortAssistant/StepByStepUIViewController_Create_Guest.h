@@ -14,26 +14,21 @@
 {
     NSString *_wifiName;
     NSString *_wifiPassword;
-    BOOL _guestNetworkEnabled;
+    _Bool _guestNetworkEnabled;
     int _guestNetSecMode;
 }
 
 @property(nonatomic) int guestNetSecMode; // @synthesize guestNetSecMode=_guestNetSecMode;
-@property(nonatomic) BOOL guestNetworkEnabled; // @synthesize guestNetworkEnabled=_guestNetworkEnabled;
+@property(nonatomic) _Bool guestNetworkEnabled; // @synthesize guestNetworkEnabled=_guestNetworkEnabled;
 @property(copy, nonatomic) NSString *wifiPassword; // @synthesize wifiPassword=_wifiPassword;
 @property(copy, nonatomic) NSString *wifiName; // @synthesize wifiName=_wifiName;
 - (void)textFieldDidChangeAtIndexPath:(id)arg1;
-- (BOOL)shouldChangeTextField:(id)arg1 atIndexPath:(id)arg2 forTextIndex:(unsigned int)arg3 toString:(id)arg4;
-- (void)switchTouchedInCellAtIndexPath:(id)arg1 forSwitchIndex:(unsigned int)arg2 isOn:(BOOL)arg3;
-- (BOOL)validateAndSetValues;
+- (_Bool)shouldChangeTextField:(id)arg1 atIndexPath:(id)arg2 forTextIndex:(unsigned long long)arg3 toString:(id)arg4;
+- (void)switchTouchedInCellAtIndexPath:(id)arg1 forSwitchIndex:(unsigned long long)arg2 isOn:(_Bool)arg3;
+- (_Bool)validateAndSetValues;
 - (void)setupInitialTableHeaderConfiguration;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
-- (void)validateAndUpdateNextButton;
-- (void)addGuestNetworkPasswordSection;
-- (void)addGuestNetworkIsEnabledSection;
-- (void)updateTable;
-- (void)setupTable;
 
 @end
 

@@ -14,7 +14,7 @@
 
 @property(copy, nonatomic) id start; // @synthesize start=_start;
 @property(copy, nonatomic) id completion; // @synthesize completion=_completion;
-- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
+- (void)animationDidStop:(id)arg1 finished:(_Bool)arg2;
 - (void)animationDidStart:(id)arg1;
 - (void)dealloc;
 

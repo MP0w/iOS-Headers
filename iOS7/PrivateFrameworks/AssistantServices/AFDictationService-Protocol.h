@@ -7,7 +7,8 @@
 #import "NSObject-Protocol.h"
 
 @protocol AFDictationService <NSObject>
-- (oneway void)_startDictationWithURL:(id)arg1 isNarrowBand:(BOOL)arg2 language:(id)arg3 options:(id)arg4;
+- (oneway void)_startDictationWithURL:(id)arg1 isNarrowBand:(_Bool)arg2 language:(id)arg3 options:(id)arg4;
+- (oneway void)requestStateUpdateWithReply:(id)arg1;
 - (oneway void)endSession;
 - (oneway void)preheat;
 - (oneway void)sendSpeechCorrectionInfo:(id)arg1 forCorrectionContext:(id)arg2;
@@ -15,5 +16,6 @@
 - (oneway void)stopSpeechWithOptions:(id)arg1;
 - (oneway void)cancelSpeech;
 - (oneway void)startDictationWithLanguageCode:(id)arg1 options:(id)arg2 speechOptions:(id)arg3;
+- (oneway void)prepareWithOptions:(id)arg1;
 @end
 

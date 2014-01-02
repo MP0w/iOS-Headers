@@ -6,6 +6,7 @@
 
 #import <CoreImage/CITile2Filter.h>
 
+// Not exported
 @interface CIFourfoldTranslatedTile : CITile2Filter
 {
 }

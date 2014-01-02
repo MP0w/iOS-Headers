@@ -6,17 +6,18 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface NSURLKeyValuePair : NSObject
 {
     id key;
     id value;
-    unsigned int hash;
+    unsigned long long hash;
 }
 
 + (id)pairWithKey:(id)arg1 value:(id)arg2;
 + (id)pair;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)description;
 - (id)value;
 - (id)key;

@@ -10,15 +10,15 @@
 
 @interface ML3DatabaseStatement : NSObject
 {
-    BOOL _clearBindingsAfterRunning;
-    BOOL _isExecuting;
+    _Bool _clearBindingsAfterRunning;
+    _Bool _isExecuting;
     NSString *_sql;
     struct sqlite3_stmt *_sqliteStatement;
     ML3DatabaseConnection *_connection;
 }
 
-@property(nonatomic) BOOL isExecuting; // @synthesize isExecuting=_isExecuting;
-@property(nonatomic) BOOL clearBindingsAfterRunning; // @synthesize clearBindingsAfterRunning=_clearBindingsAfterRunning;
+@property(nonatomic) _Bool isExecuting; // @synthesize isExecuting=_isExecuting;
+@property(nonatomic) _Bool clearBindingsAfterRunning; // @synthesize clearBindingsAfterRunning=_clearBindingsAfterRunning;
 @property(readonly, nonatomic) ML3DatabaseConnection *connection; // @synthesize connection=_connection;
 @property(nonatomic) struct sqlite3_stmt *sqliteStatement; // @synthesize sqliteStatement=_sqliteStatement;
 @property(copy, nonatomic, setter=setSQL:) NSString *sql; // @synthesize sql=_sql;
@@ -36,10 +36,11 @@
 - (void)bindInt64:(long long)arg1 forParameterAtPosition:(int)arg2;
 - (void)bindInt:(int)arg1 forParameterAtPosition:(int)arg2;
 - (int)clearBindings;
-- (BOOL)isBusy;
-- (BOOL)isReadOnly;
+- (_Bool)isBusy;
+- (_Bool)isReadOnly;
 - (int)reset;
 - (int)finalizeStatement;
+- (int)_finalizeStatementAndRemoveFromCache:(_Bool)arg1;
 - (int)step;
 - (id)description;
 - (void)dealloc;

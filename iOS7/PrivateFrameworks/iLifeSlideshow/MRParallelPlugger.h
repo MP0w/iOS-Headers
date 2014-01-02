@@ -24,14 +24,14 @@
     MRAnimationPathScalar *mAnimationPathOpacity;
     MRAnimationContext *mAnimationContext;
     unsigned char mCurrentLayoutIndex;
-    BOOL mNeedsUpdate;
-    BOOL mPlugWasSetSinceLastRendering;
+    _Bool mNeedsUpdate;
+    _Bool mPlugWasSetSinceLastRendering;
 }
 
-@property(nonatomic) BOOL needsUpdate; // @synthesize needsUpdate=mNeedsUpdate;
+@property(nonatomic) _Bool needsUpdate; // @synthesize needsUpdate=mNeedsUpdate;
 @property(nonatomic) unsigned char currentLayoutIndex; // @synthesize currentLayoutIndex=mCurrentLayoutIndex;
 @property(copy, nonatomic) MCPlugParallel *plug; // @synthesize plug=mPlug;
-- (BOOL)applyAtTime:(double)arg1 toSublayer:(id)arg2 withArguments:(id)arg3;
+- (_Bool)applyAtTime:(double)arg1 toSublayer:(id)arg2 withArguments:(id)arg3;
 - (void)dealloc;
 - (id)init;
 

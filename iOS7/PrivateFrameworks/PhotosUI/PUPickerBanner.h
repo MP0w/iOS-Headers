@@ -16,7 +16,7 @@
 - (void).cxx_destruct;
 @property(readonly, nonatomic) PUPickerBannerView *bannerView;
 - (id)view;
-- (float)height;
+- (double)height;
 
 @end
 

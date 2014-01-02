@@ -6,20 +6,18 @@
 
 #import "NSObject.h"
 
-#import "GKSessionVoiceChatDelegate-Protocol.h"
-#import "GKVoiceChatClient-Protocol.h"
 #import "InterfaceListenerDelegate-Protocol.h"
-#import "VideoConferenceSpeakingDelegate-Protocol.h"
 
 @class GKInterfaceListener, GKRWLock, GKSessionInternal, GKVoiceChatServiceFocus, NSArray, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, VoiceChatSessionRoster;
 
-@interface GKVoiceChatSessionInternal : NSObject <GKSessionVoiceChatDelegate, GKVoiceChatClient, VideoConferenceSpeakingDelegate, InterfaceListenerDelegate>
+// Not exported
+@interface GKVoiceChatSessionInternal : NSObject <InterfaceListenerDelegate>
 {
     NSString *_sessionName;
     unsigned int _conferenceID;
-    BOOL activeSession;
+    _Bool activeSession;
     float sessionVolume;
-    BOOL focusCallbacks;
+    _Bool focusCallbacks;
     GKSessionInternal *_gkSession;
     NSString *_peerID;
     NSMutableArray *_connectedPeers;
@@ -29,10 +27,10 @@
     NSMutableArray *_mutedPeers;
     NSMutableArray *_myPausedList;
     NSMutableDictionary *_peerChannelQuality;
-    BOOL needsRecalculateGoodChannels;
+    _Bool needsRecalculateGoodChannels;
     int goodChannels;
     unsigned int talkingPeersLimit;
-    BOOL isUsingSuppression;
+    _Bool isUsingSuppression;
     unsigned int _sessionState;
     GKRWLock *_rwLock;
     GKVoiceChatServiceFocus *_vcService;
@@ -42,11 +40,11 @@
     unsigned int congestionState;
     id _publicWrapper;
     GKInterfaceListener *_wifiListener;
-    BOOL _currentWifiState;
+    _Bool _currentWifiState;
 }
 
 + (void)brokenHash:(id)arg1 response:(char *)arg2;
-@property BOOL isUsingSuppression;
+@property _Bool isUsingSuppression;
 @property unsigned int talkingPeersLimit;
 - (unsigned int)peerCount;
 - (void)parseConnectedPeers:(id)arg1;
@@ -64,14 +62,14 @@
 - (void)updatedFocusID:(unsigned int)arg1;
 - (void)updatedSubscribedBeaconList:(id)arg1;
 - (void)handlePeerDisconnected:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 @property float sessionVolume;
 @property(readonly, nonatomic) unsigned int conferenceID;
 @property(readonly, nonatomic) NSString *sessionName;
-@property(getter=isActiveSession) BOOL activeSession;
+@property(getter=isActiveSession) _Bool activeSession;
 @property(readonly) NSArray *peerList;
-- (BOOL)getMuteStateForPeer:(id)arg1;
-- (void)setMute:(BOOL)arg1 forPeer:(id)arg2;
+- (_Bool)getMuteStateForPeer:(id)arg1;
+- (void)setMute:(_Bool)arg1 forPeer:(id)arg2;
 - (void)stopSessionInternal;
 - (void)stopSession;
 - (void)startSessionInternal;
@@ -83,29 +81,7 @@
 - (id)encodePeerID:(id)arg1;
 - (void)calculateConferenceID;
 - (id)initWithGKSession:(id)arg1 publicWrapper:(id)arg2 sessionName:(id)arg3;
-- (void)interfaceStateDidChangeWithWifiUp:(BOOL)arg1 withCellUp:(BOOL)arg2;
-- (void)session:(id)arg1 didReceiveOOBAudioPacket:(id)arg2 fromPeerID:(id)arg3;
-- (void)session:(id)arg1 peer:(id)arg2 didChangeState:(int)arg3;
-- (void)session:(id)arg1 didReceiveAudioPacket:(id)arg2 fromPeerID:(id)arg3;
-- (void)informClientVoiceChatFocusChange:(id)arg1;
-- (void)informClientVoiceChatSilent:(id)arg1;
-- (void)informClientVoiceChatSpeaking:(id)arg1;
-- (void)informClientVoiceChatDidStop:(id)arg1;
-- (void)informClientVoiceChatCouldNotConnect:(id)arg1;
-- (void)informClientVoiceChatConnecting:(id)arg1;
-- (void)informClientVoiceChatDidStart:(id)arg1;
-@property id <GKVoiceChatSessionDelegate> delegate;
-- (void)voiceChatService:(id)arg1 didReceiveInvitationFromParticipantID:(id)arg2 callID:(unsigned long)arg3;
-- (void)voiceChatService:(id)arg1 didStopWithParticipantID:(id)arg2 error:(id)arg3;
-- (void)voiceChatService:(id)arg1 didNotStartWithParticipantID:(id)arg2 error:(id)arg3;
-- (void)voiceChatService:(id)arg1 didStartWithParticipantID:(id)arg2;
-- (id)participantID;
-- (void)voiceChatService:(id)arg1 sendData:(id)arg2 toParticipantID:(id)arg3;
-- (void)didStopSpeaking:(id)arg1;
-- (void)didStartSpeaking:(id)arg1;
-- (void)lossRate:(float)arg1 forParticipantID:(id)arg2;
-- (int)goodChannels;
-- (int)calculateChannelQualities;
+- (void)interfaceStateDidChangeWithWifiUp:(_Bool)arg1 withCellUp:(_Bool)arg2;
 
 @end
 

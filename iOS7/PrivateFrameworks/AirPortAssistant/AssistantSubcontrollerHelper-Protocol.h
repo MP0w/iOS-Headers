@@ -7,6 +7,6 @@
 @protocol AssistantSubcontrollerHelper
 - (id)modifyTopoUIInLayer:(id)arg1 withLayout:(id)arg2 newLayout:(id)arg3;
 - (id)modifyTopoUIInLayer:(id)arg1 withLayout:(id)arg2 targetProductID:(id)arg3 targetDeviceKind:(id)arg4 targetName:(id)arg5 targetWiFiName:(id)arg6 sourceProductID:(id)arg7 sourceDeviceKind:(id)arg8 sourceName:(id)arg9 sourceWiFiName:(id)arg10 connectionType:(id)arg11;
-- (void)displayViewListInView:(id)arg1 newSubviews:(id)arg2 withAnimation:(BOOL)arg3;
+- (void)displayViewListInView:(id)arg1 newSubviews:(id)arg2 withAnimation:(_Bool)arg3;
 @end
 

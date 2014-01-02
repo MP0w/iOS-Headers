@@ -6,15 +6,12 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface CHXData : NSObject
 {
 }
 
 + (id)chdDataFromXmlDataElement:(struct _xmlNode *)arg1 state:(id)arg2;
-+ (_Bool)isHiddenDataElement:(struct _xmlNode *)arg1 data:(id)arg2;
-+ (void)readStrDataFromXmlMultiLevelStrDataElement:(struct _xmlNode *)arg1 data:(id)arg2 state:(id)arg3;
-+ (void)readStrDataFromXmlStrDataElement:(struct _xmlNode *)arg1 data:(id)arg2 state:(id)arg3;
-+ (void)readNumDataFromXmlNumDataElement:(struct _xmlNode *)arg1 data:(id)arg2 state:(id)arg3;
 
 @end
 

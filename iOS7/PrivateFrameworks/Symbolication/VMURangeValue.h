@@ -8,15 +8,15 @@
 
 @interface VMURangeValue : VMUAddressRange
 {
-    int _value;
+    long long _value;
 }
 
-+ (id)rangeValueWithRange:(struct _VMURange)arg1 value:(int)arg2;
++ (id)rangeValueWithRange:(struct _VMURange)arg1 value:(long long)arg2;
 - (id)description;
-- (int)compare:(id)arg1;
-- (int)value;
+- (long long)compare:(id)arg1;
+- (long long)value;
 - (struct _VMURange)addressRange;
-- (id)initWithRange:(struct _VMURange)arg1 value:(int)arg2;
+- (id)initWithRange:(struct _VMURange)arg1 value:(long long)arg2;
 
 @end
 

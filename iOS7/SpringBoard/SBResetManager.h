@@ -10,7 +10,7 @@
 
 @interface SBResetManager : NSObject
 {
-    BOOL _threadRunning;
+    _Bool _threadRunning;
     NSLock *_lock;
     int _mode;
     NSLock *_progressLock;
@@ -24,7 +24,7 @@
 - (void)_beginReset:(id)arg1;
 - (void)beginReset;
 - (float)progress;
-- (void)setProgress:(float)arg1;
+- (void)_setProgress:(float)arg1;
 - (void)setMode:(int)arg1;
 - (void)dealloc;
 - (id)init;

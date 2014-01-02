@@ -51,8 +51,8 @@
     } _saxHandler;
 }
 
-+ (BOOL)shouldGenerateOfflineData;
-+ (void)setShouldGenerateOfflineData:(BOOL)arg1;
++ (_Bool)shouldGenerateOfflineData;
++ (void)setShouldGenerateOfflineData:(_Bool)arg1;
 + (void)saveDebugString;
 + (void)appendDebugString:(id)arg1;
 + (id)uniqueQueryIDString;
@@ -65,13 +65,12 @@
 - (void)connection:(id)arg1 didFailWithError:(id)arg2;
 - (void)connectionDidFinishLoading:(id)arg1;
 - (void)connection:(id)arg1 didReceiveData:(id)arg2;
-- (BOOL)isLoading;
+- (_Bool)isLoading;
 - (void)cancel;
 - (void)loadRequest:(id)arg1;
-- (id)connectionForRequest:(id)arg1 delegate:(id)arg2 startImmediately:(BOOL)arg3;
+- (id)connectionForRequest:(id)arg1 delegate:(id)arg2 startImmediately:(_Bool)arg3;
 - (void)dealloc;
 - (id)init;
-- (id)_yahooDoppelganger_connectionForRequest:(id)arg1 delegate:(id)arg2 startImmediately:(BOOL)arg3;
 
 @end
 

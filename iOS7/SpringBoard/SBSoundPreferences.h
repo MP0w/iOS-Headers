@@ -10,12 +10,12 @@
 {
 }
 
-+ (BOOL)shouldVibrateForCurrentRingerStateWithAudioCategory:(id)arg1;
-+ (BOOL)shouldVibrateForCurrentRingerState;
-+ (BOOL)vibrateWhenSilent;
-+ (BOOL)vibrateWhenRinging;
++ (_Bool)shouldVibrateForCurrentRingerStateWithAudioCategory:(id)arg1;
++ (_Bool)shouldVibrateForCurrentRingerState;
++ (_Bool)vibrateWhenSilent;
++ (_Bool)vibrateWhenRinging;
 + (id)vibratePattern;
-+ (BOOL)playLockSound;
++ (_Bool)playLockSound;
 + (id)ringtonePath;
 + (id)ringtoneIdentifier;
 + (id)calendarAlarmPath;

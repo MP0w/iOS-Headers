@@ -7,8 +7,8 @@
 #import "NSObject-Protocol.h"
 
 @protocol ABFMFActionButtonsDelegate <NSObject>
-- (void)showFMFCallButton:(BOOL)arg1 withAction:(id)arg2;
-- (void)showFMFFacetimeButton:(BOOL)arg1 withAction:(id)arg2;
-- (void)showFMFMessageButton:(BOOL)arg1 withAction:(id)arg2;
+- (void)showFMFCallButton:(_Bool)arg1 withAction:(id)arg2;
+- (void)showFMFFacetimeButton:(_Bool)arg1 withAction:(id)arg2;
+- (void)showFMFMessageButton:(_Bool)arg1 withAction:(id)arg2;
 @end
 

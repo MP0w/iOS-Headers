@@ -6,38 +6,38 @@
 
 #import "UIView.h"
 
-@class NSMutableDictionary, UIColor, UIImageView;
+#import "_SBFVibrantView-Protocol.h"
 
-@interface SBChevronView : UIView
+@class UIColor, _SBFVibrantSettings;
+
+@interface SBChevronView : UIView <_SBFVibrantView>
 {
-    NSMutableDictionary *_grabberImagesByState;
-    UIImageView *_leftGrabberView;
-    UIImageView *_rightGrabberView;
+    UIView *_leftGrabberView;
+    UIView *_rightGrabberView;
     double _animationDuration;
-    int _state;
-    int _pendingState;
+    long long _state;
     UIColor *_color;
+    _SBFVibrantSettings *_vibrantSettings;
+    UIView *_colorCompositingView;
+    UIView *_darkTintView;
+    UIView *_lightTintView;
+    UIView *_backgroundView;
+    UIView *_alphaContainerView;
 }
 
-+ (id)_upRightGrabberImageOfColor:(id)arg1;
-+ (id)_upLeftGrabberImageOfColor:(id)arg1;
-+ (id)_downRightGrabberImageOfColor:(id)arg1;
-+ (id)_grabberImageFromImage:(id)arg1 withTransform:(struct CGAffineTransform)arg2;
-+ (id)_downLeftGrabberImageOfColor:(id)arg1;
+@property(nonatomic) long long state; // @synthesize state=_state;
+@property(retain, nonatomic) _SBFVibrantSettings *vibrantSettings; // @synthesize vibrantSettings=_vibrantSettings;
 @property(retain, nonatomic) UIColor *color; // @synthesize color=_color;
-@property(nonatomic) int state; // @synthesize state=_state;
+- (void)setBackgroundView:(id)arg1;
 - (id)description;
-- (void)setState:(int)arg1 animated:(BOOL)arg2;
-- (BOOL)_setState:(int)arg1;
-@property(nonatomic) double animationDuration;
-- (void)_setupInitialStateIfNecessary;
+- (void)setState:(long long)arg1 animated:(_Bool)arg2;
+- (_Bool)_setState:(long long)arg1;
 - (void)layoutSubviews;
-- (void)_layoutForState:(int)arg1 transitioningFromState:(int)arg2;
-- (void)_layoutGrabberView:(id)arg1 withImage:(id)arg2 atIndex:(unsigned int)arg3 forState:(int)arg4 transitioningFromState:(int)arg5;
-- (struct CGRect)_frameForGrabberViewWithImage:(id)arg1 index:(unsigned int)arg2 state:(int)arg3;
-- (struct CGAffineTransform)_transformForGrabberImageAtIndex:(unsigned int)arg1 transitioningFromState:(int)arg2 toState:(int)arg3;
-- (id)_grabberImagesForState:(int)arg1;
+- (void)_layoutGrabberView:(id)arg1 forState:(long long)arg2;
+- (struct CGRect)_frameForGrabberView:(id)arg1 forState:(long long)arg2;
+- (struct CGAffineTransform)_transformForGrabberView:(id)arg1 forState:(long long)arg2;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+@property(nonatomic) double animationDuration;
 - (void)dealloc;
 - (id)initWithColor:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

@@ -6,6 +6,7 @@
 
 #import <VectorKit/VGLProgram.h>
 
+// Not exported
 @interface VGLGridProgram : VGLProgram
 {
     int _uGridMix;

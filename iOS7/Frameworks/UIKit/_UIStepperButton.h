@@ -6,13 +6,14 @@
 
 #import <UIKit/UIButton.h>
 
+// Not exported
 @interface _UIStepperButton : UIButton
 {
-    BOOL _left;
+    _Bool _left;
 }
 
-@property(nonatomic, getter=isLeft) BOOL left; // @synthesize left=_left;
-- (BOOL)_shouldDefaultToTemplatesForImageViewBackground:(BOOL)arg1;
+@property(nonatomic, getter=isLeft) _Bool left; // @synthesize left=_left;
+- (_Bool)_shouldDefaultToTemplatesForImageViewBackground:(_Bool)arg1;
 - (struct CGRect)imageRectForContentRect:(struct CGRect)arg1;
 
 @end

@@ -30,8 +30,8 @@
 - (struct CGRect)recomputeCropRect:(struct CGRect)arg1 forStraightenAngle:(float)arg2;
 - (struct CGPoint)maxAllowableEdgeAdjustmentForDragAction:(int)arg1 withDirection:(struct CGPoint)arg2;
 - (double)maxAllowedTranslateWithDirection:(double)arg1;
-- (double)maxAllowedScaleFromPoint:(struct CGPoint)arg1 scaleUp:(BOOL)arg2;
-- (float)maxAllowedRotationFromPoint:(struct CGPoint)arg1 counterClockwise:(BOOL)arg2;
+- (double)maxAllowedScaleFromPoint:(struct CGPoint)arg1 scaleUp:(_Bool)arg2;
+- (float)maxAllowedRotationFromPoint:(struct CGPoint)arg1 counterClockwise:(_Bool)arg2;
 - (struct CGPoint)scalePointForCropAction:(int)arg1;
 - (int)touchedImageSidesForCurrentCrop;
 - (void)calculateCornerPoints:(struct CGPoint *)arg1;

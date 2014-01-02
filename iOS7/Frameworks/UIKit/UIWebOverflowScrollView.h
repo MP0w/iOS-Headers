@@ -8,16 +8,17 @@
 
 @class DOMNode, UIWebBrowserView, UIWebOverflowContentView, UIWebOverflowScrollListener;
 
+// Not exported
 @interface UIWebOverflowScrollView : UIScrollView
 {
     UIWebBrowserView *_webBrowserView;
     UIWebOverflowScrollListener *_scrollListener;
     UIWebOverflowContentView *_overflowContentView;
     DOMNode *_node;
-    BOOL _beingRemoved;
+    _Bool _beingRemoved;
 }
 
-@property(nonatomic, getter=isBeingRemoved) BOOL beingRemoved; // @synthesize beingRemoved=_beingRemoved;
+@property(nonatomic, getter=isBeingRemoved) _Bool beingRemoved; // @synthesize beingRemoved=_beingRemoved;
 @property(retain, nonatomic) DOMNode *node; // @synthesize node=_node;
 @property(retain, nonatomic) UIWebOverflowContentView *overflowContentView; // @synthesize overflowContentView=_overflowContentView;
 @property(retain, nonatomic) UIWebOverflowScrollListener *scrollListener; // @synthesize scrollListener=_scrollListener;

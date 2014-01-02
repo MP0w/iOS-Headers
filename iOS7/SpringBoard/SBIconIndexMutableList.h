@@ -20,24 +20,24 @@
 
 @property(nonatomic) id <SBIconIndexMutableListObserver> observer; // @synthesize observer=_observer;
 - (id)indexDescriptionWithPrefix:(id)arg1;
-- (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
+- (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
 - (void)node:(id)arg1 didRemoveContainedNodeIdentifiers:(id)arg2;
 - (void)node:(id)arg1 didAddContainedNodeIdentifiers:(id)arg2;
 - (void)removeAllNodes;
-- (void)removeNodeAtIndex:(unsigned int)arg1;
+- (void)removeNodeAtIndex:(unsigned long long)arg1;
 - (void)removeNode:(id)arg1;
-- (void)replaceNodeAtIndex:(unsigned int)arg1 withNode:(id)arg2;
+- (void)replaceNodeAtIndex:(unsigned long long)arg1 withNode:(id)arg2;
 - (void)addNode:(id)arg1;
-- (void)insertNode:(id)arg1 atIndex:(unsigned int)arg2;
-- (id)nodeAtIndex:(unsigned int)arg1;
-- (BOOL)containsNode:(id)arg1;
-- (unsigned int)indexOfNode:(id)arg1;
-- (unsigned int)count;
+- (void)insertNode:(id)arg1 atIndex:(unsigned long long)arg2;
+- (id)nodeAtIndex:(unsigned long long)arg1;
+- (_Bool)containsNode:(id)arg1;
+- (unsigned long long)indexOfNode:(id)arg1;
+- (unsigned long long)count;
 - (id)nodes;
-- (id)nodesAlongIndexPath:(id)arg1 consumedIndexes:(unsigned int)arg2;
+- (id)nodesAlongIndexPath:(id)arg1 consumedIndexes:(unsigned long long)arg2;
 - (id)indexPathsForContainedNodeIdentifier:(id)arg1 prefixPath:(id)arg2;
 - (id)containedNodeIdentifiers;
-- (BOOL)containsNodeIdentifier:(id)arg1;
+- (_Bool)containsNodeIdentifier:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

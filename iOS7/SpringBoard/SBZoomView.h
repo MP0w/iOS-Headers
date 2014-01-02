@@ -10,12 +10,11 @@
 {
 }
 
-+ (id)_chromeStatusBarImageForInterfaceOrientation:(int)arg1;
++ (id)_chromeStatusBarImageForInterfaceOrientation:(long long)arg1;
 + (struct CGSize)_rotateAndNormalizeSize:(struct CGSize)arg1 withTransform:(struct CGAffineTransform)arg2;
-+ (int)_degreesForRotationFromOriginalImageOrientation:(int)arg1 toInterfaceOrientation:(int)arg2;
-+ (int)_degreesForRotationFromInterfaceOrientation:(int)arg1 toInterfaceOrientation:(int)arg2;
-- (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
-- (void)setRoundedCorners:(int)arg1 withCornersFrame:(struct CGRect)arg2;
++ (long long)_degreesForRotationFromOriginalImageOrientation:(long long)arg1 toInterfaceOrientation:(long long)arg2;
++ (long long)_degreesForRotationFromInterfaceOrientation:(long long)arg1 toInterfaceOrientation:(long long)arg2;
+- (_Bool)_shouldAnimatePropertyWithKey:(id)arg1;
 - (id)_initWithFrame:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 

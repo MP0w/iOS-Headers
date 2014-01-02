@@ -11,16 +11,18 @@
 @interface PUProtoSettingsDetailViewController : UITableViewController
 {
     NSArray *_sortedSettingKeys;
+    _Bool _didScrollToInitialPosition;
     PUProtoSetting *_setting;
 }
 
 @property(readonly, nonatomic) PUProtoSetting *setting; // @synthesize setting=_setting;
 - (void).cxx_destruct;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (id)tableView:(id)arg1 titleForFooterInSection:(int)arg2;
+- (id)tableView:(id)arg1 titleForFooterInSection:(long long)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (unsigned int)supportedInterfaceOrientations;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (void)viewDidLayoutSubviews;
+- (unsigned long long)supportedInterfaceOrientations;
 - (void)_settingsDidChange:(id)arg1;
 - (void)dealloc;
 - (id)initWithSetting:(id)arg1;

@@ -14,13 +14,13 @@
 }
 
 + (id)privateCreateOrConfigure:(id)arg1 withRawDescription:(id)arg2;
-- (BOOL)matchesRawDescription:(id)arg1;
+- (_Bool)matchesRawDescription:(id)arg1;
 - (struct RouteDescriptionImpl *)privateGetImplementation;
 - (id)description;
 @property(readonly) NSArray *outputs;
 @property(readonly) NSArray *inputs;
-- (BOOL)isEqualToRoute:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqualToRoute:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

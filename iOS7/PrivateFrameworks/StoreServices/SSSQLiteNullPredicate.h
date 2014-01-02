@@ -10,14 +10,14 @@
 
 @interface SSSQLiteNullPredicate : SSSQLitePropertyPredicate <NSCopying>
 {
-    BOOL _matchesNull;
+    _Bool _matchesNull;
 }
 
 + (id)isNullPredicateWithProperty:(id)arg1;
 + (id)isNotNullPredicateWithProperty:(id)arg1;
-@property(readonly, nonatomic) BOOL matchesNull; // @synthesize matchesNull=_matchesNull;
+@property(readonly, nonatomic) _Bool matchesNull; // @synthesize matchesNull=_matchesNull;
 - (id)SQLForEntityClass:(Class)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end

@@ -11,12 +11,13 @@
 
 @class EKEvent, NSArray, UIImage;
 
+// Not exported
 @interface EKAttendeesListView : UITableView <UITableViewDelegate, UITableViewDataSource>
 {
     EKEvent *_event;
     NSArray *_attendees;
     id _attendeeDelegate;
-    BOOL _shouldShowStatusImages;
+    _Bool _shouldShowStatusImages;
     UIImage *_attendingImage;
     UIImage *_maybeImage;
     UIImage *_notAttendingImage;
@@ -31,7 +32,7 @@
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (id)_imageForStatus:(int)arg1;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (void)loadAttendees;
 - (void)eventModified:(id)arg1;
 - (void)setAttendeeDelegate:(id)arg1;

@@ -16,12 +16,12 @@
     unsigned int _startIndex;
     unsigned int _videosPerPage;
     unsigned int _totalResults;
-    BOOL _invalidatedToken;
+    _Bool _invalidatedToken;
 }
 
 + (int)partialFeedType;
 - (void)setDelegate:(id)arg1;
-- (void)loadRequest:(id)arg1 withDelegate:(id)arg2 accountAuthRequired:(BOOL)arg3;
+- (void)loadRequest:(id)arg1 withDelegate:(id)arg2 accountAuthRequired:(_Bool)arg3;
 - (void)dealloc;
 - (id)init;
 - (void)failWithError:(id)arg1;

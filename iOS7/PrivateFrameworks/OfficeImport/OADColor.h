@@ -10,6 +10,7 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface OADColor : NSObject <NSCopying>
 {
     NSMutableArray *mTransforms;
@@ -20,11 +21,8 @@
 + (id)tsuColorWithColor:(id)arg1 colorMap:(id)arg2 colorScheme:(id)arg3 colorPalette:(id)arg4;
 + (float)alphaWithColor:(id)arg1;
 + (id)rgbColorWithColor:(id)arg1 colorMap:(id)arg2 colorScheme:(id)arg3 colorPalette:(id)arg4;
-+ (id)mapAdjustedColor:(id)arg1 colorMap:(id)arg2 colorScheme:(id)arg3 colorPalette:(id)arg4;
-+ (int)mapSchemeColorID:(int)arg1 colorMap:(id)arg2;
-+ (id)basicMapOfColor:(id)arg1 colorMap:(id)arg2 colorScheme:(id)arg3 colorPalette:(id)arg4;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)colorForStyleColor:(id)arg1;
 - (void)addTransformOfType:(int)arg1 value:(float)arg2;
 - (void)addTransformOfType:(int)arg1;

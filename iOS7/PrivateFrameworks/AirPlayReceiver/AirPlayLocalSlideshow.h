@@ -10,6 +10,7 @@
 
 @class CALayer, MPDocument, MRMarimbaLayer, MediaControlServer, NSData, NSDictionary, NSLock, NSMutableDictionary;
 
+// Not exported
 @interface AirPlayLocalSlideshow : NSObject <MPAssetKeyDelegate>
 {
     NSLock *_lock;
@@ -23,8 +24,8 @@
     int _state;
     NSMutableDictionary *_assets;
     unsigned int _nextAssetIndex;
-    BOOL _hasMoreAssets;
-    BOOL _endPending;
+    _Bool _hasMoreAssets;
+    _Bool _endPending;
     int _outstandingCount;
     double _startTime;
     double _lastRequestTime;
@@ -41,7 +42,7 @@
 - (void)_pruneAssets;
 - (id)_oldestAsset;
 - (unsigned int)_bufferedAssetCount;
-- (id)_copyImageForAssetKey:(id)arg1 decode:(BOOL)arg2;
+- (id)_copyImageForAssetKey:(id)arg1 decode:(_Bool)arg2;
 - (id)_assetForAssetKey:(id)arg1;
 - (void)_playbackSlideChanged:(id)arg1;
 - (void)_playbackEnded:(id)arg1;

@@ -12,8 +12,8 @@
 {
     AVWeakReference *weakReference;
     struct OpaqueFigPlayer *figPlayer;
-    BOOL isAppAudioSession;
-    BOOL isActive;
+    _Bool isAppAudioSession;
+    _Bool isActive;
     NSString *category;
     NSString *mode;
     id <AVAudioSessionDelegateMediaPlayerOnly> delegate;

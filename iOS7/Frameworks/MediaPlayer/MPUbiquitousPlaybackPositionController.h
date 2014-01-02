@@ -10,31 +10,31 @@
 
 @interface MPUbiquitousPlaybackPositionController : NSObject
 {
-    BOOL _databaseHasBookmarkableContents;
-    BOOL _isServiceActive;
-    BOOL _externallyActive;
-    BOOL _beganUsingPlaybackPositionMetadata;
-    BOOL _applicationBecomingActive;
+    _Bool _databaseHasBookmarkableContents;
+    _Bool _isServiceActive;
+    _Bool _externallyActive;
+    _Bool _beganUsingPlaybackPositionMetadata;
+    _Bool _applicationBecomingActive;
     NSObject<OS_dispatch_queue> *_queue;
     SBCPlaybackPositionServiceProxy *_uppServiceProxy;
 }
 
 + (id)sharedUbiquitousPlaybackPositionController;
-@property(readonly, nonatomic) BOOL applicationBecomingActive; // @synthesize applicationBecomingActive=_applicationBecomingActive;
-@property(nonatomic, getter=isServiceActive) BOOL beganUsingPlaybackPositionMetadata; // @synthesize beganUsingPlaybackPositionMetadata=_beganUsingPlaybackPositionMetadata;
+@property(readonly, nonatomic) _Bool applicationBecomingActive; // @synthesize applicationBecomingActive=_applicationBecomingActive;
+@property(nonatomic, getter=isServiceActive) _Bool beganUsingPlaybackPositionMetadata; // @synthesize beganUsingPlaybackPositionMetadata=_beganUsingPlaybackPositionMetadata;
 @property(retain, nonatomic) SBCPlaybackPositionServiceProxy *uppServiceProxy; // @synthesize uppServiceProxy=_uppServiceProxy;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
-@property(nonatomic) BOOL externallyActive; // @synthesize externallyActive=_externallyActive;
-@property(nonatomic, getter=isServiceActive) BOOL serviceActive; // @synthesize serviceActive=_isServiceActive;
-@property(nonatomic) BOOL databaseHasBookmarkableContents; // @synthesize databaseHasBookmarkableContents=_databaseHasBookmarkableContents;
+@property(nonatomic) _Bool externallyActive; // @synthesize externallyActive=_externallyActive;
+@property(nonatomic, getter=isServiceActive) _Bool serviceActive; // @synthesize serviceActive=_isServiceActive;
+@property(nonatomic) _Bool databaseHasBookmarkableContents; // @synthesize databaseHasBookmarkableContents=_databaseHasBookmarkableContents;
 - (void).cxx_destruct;
 - (void)synchronizeImmediatelyWithCompletionBlock:(id)arg1;
 - (void)_onQueue_updateBoomkarkabilityState;
-- (BOOL)_isEnabled;
-- (BOOL)_onQueue_shouldBeActive;
+- (_Bool)_isEnabled;
+- (_Bool)_onQueue_shouldBeActive;
 - (void)_onQueue_updateActiveServiceIfNeeded;
-- (void)_onQueue_setDatabaseHasBookmarkableContents:(BOOL)arg1;
-- (void)noteChangedPlaybackPositionMetadataForTrackPersistentID:(long long)arg1 isCheckpoint:(BOOL)arg2;
+- (void)_onQueue_setDatabaseHasBookmarkableContents:(_Bool)arg1;
+- (void)noteChangedPlaybackPositionMetadataForTrackPersistentID:(long long)arg1 isCheckpoint:(_Bool)arg2;
 - (void)_mediaLibraryDidChangeNotification:(id)arg1;
 - (void)_defaultMediaLibraryDidChangeNotification:(id)arg1;
 - (void)_applicationDidEnterForegroundNotification:(id)arg1;

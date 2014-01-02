@@ -10,9 +10,9 @@
 {
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (unsigned int)supportedInterfaceOrientations;
-- (BOOL)shouldAutorotate;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (unsigned long long)supportedInterfaceOrientations;
+- (_Bool)shouldAutorotate;
 
 @end
 

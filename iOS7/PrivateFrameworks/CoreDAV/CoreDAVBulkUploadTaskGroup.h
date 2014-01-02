@@ -14,10 +14,10 @@
 {
     NSURL *_folderURL;
     NSString *_lastKnownCTag;
-    BOOL _validCTag;
+    _Bool _validCTag;
     void *_context;
-    unsigned int _multiPutBatchMaxNumResources;
-    unsigned int _multiPutBatchMaxSize;
+    unsigned long long _multiPutBatchMaxNumResources;
+    unsigned long long _multiPutBatchMaxSize;
     NSMutableDictionary *_remainingUUIDsToAddActions;
     NSMutableDictionary *_remainingHREFsToModDeleteActions;
     NSMutableDictionary *_uuidToHREF;
@@ -35,11 +35,11 @@
 @property(readonly) NSDictionary *hrefToETag; // @synthesize hrefToETag=_hrefToETag;
 @property(readonly) NSDictionary *uuidToHREF; // @synthesize uuidToHREF=_uuidToHREF;
 @property(retain) NSString *nextCTag; // @synthesize nextCTag=_lastKnownCTag;
-@property(readonly) BOOL validCTag; // @synthesize validCTag=_validCTag;
+@property(readonly) _Bool validCTag; // @synthesize validCTag=_validCTag;
 @property(readonly) void *context; // @synthesize context=_context;
 @property(readonly) NSURL *folderURL; // @synthesize folderURL=_folderURL;
-@property unsigned int multiPutBatchMaxSize; // @synthesize multiPutBatchMaxSize=_multiPutBatchMaxSize;
-@property unsigned int multiPutBatchMaxNumResources; // @synthesize multiPutBatchMaxNumResources=_multiPutBatchMaxNumResources;
+@property unsigned long long multiPutBatchMaxSize; // @synthesize multiPutBatchMaxSize=_multiPutBatchMaxSize;
+@property unsigned long long multiPutBatchMaxNumResources; // @synthesize multiPutBatchMaxNumResources=_multiPutBatchMaxNumResources;
 - (void)task:(id)arg1 didFinishWithError:(id)arg2;
 - (void)syncAway;
 - (void)startTaskGroup;

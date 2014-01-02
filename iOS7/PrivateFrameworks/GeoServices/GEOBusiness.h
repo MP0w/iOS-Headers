@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class GEOLatLng, NSMutableArray, NSString;
 
-@interface GEOBusiness : PBCodable
+@interface GEOBusiness : PBCodable <NSCopying>
 {
     unsigned long long _uID;
     NSMutableArray *_attributeKeyValues;
@@ -30,9 +32,9 @@
     unsigned int _totalNumberOfPhotos;
     NSString *_uRL;
     int _version;
-    BOOL _canBeCorrectedByBusinessOwner;
-    BOOL _isClosed;
-    BOOL _isUnverified;
+    _Bool _canBeCorrectedByBusinessOwner;
+    _Bool _isClosed;
+    _Bool _isUnverified;
     struct {
         unsigned int uID:1;
         unsigned int totalNumberOfPhotos:1;
@@ -45,7 +47,7 @@
 
 @property(retain, nonatomic) NSMutableArray *starRatings; // @synthesize starRatings=_starRatings;
 @property(retain, nonatomic) NSMutableArray *sources; // @synthesize sources=_sources;
-@property(nonatomic) BOOL canBeCorrectedByBusinessOwner; // @synthesize canBeCorrectedByBusinessOwner=_canBeCorrectedByBusinessOwner;
+@property(nonatomic) _Bool canBeCorrectedByBusinessOwner; // @synthesize canBeCorrectedByBusinessOwner=_canBeCorrectedByBusinessOwner;
 @property(retain, nonatomic) NSMutableArray *attributions; // @synthesize attributions=_attributions;
 @property(retain, nonatomic) NSMutableArray *localizedCategories; // @synthesize localizedCategories=_localizedCategories;
 @property(nonatomic) unsigned int totalNumberOfPhotos; // @synthesize totalNumberOfPhotos=_totalNumberOfPhotos;
@@ -56,8 +58,8 @@
 @property(retain, nonatomic) NSMutableArray *categorys; // @synthesize categorys=_categorys;
 @property(retain, nonatomic) NSMutableArray *ratings; // @synthesize ratings=_ratings;
 @property(retain, nonatomic) NSString *mapsURL; // @synthesize mapsURL=_mapsURL;
-@property(nonatomic) BOOL isClosed; // @synthesize isClosed=_isClosed;
-@property(nonatomic) BOOL isUnverified; // @synthesize isUnverified=_isUnverified;
+@property(nonatomic) _Bool isClosed; // @synthesize isClosed=_isClosed;
+@property(nonatomic) _Bool isUnverified; // @synthesize isUnverified=_isUnverified;
 @property(retain, nonatomic) NSString *uRL; // @synthesize uRL=_uRL;
 @property(retain, nonatomic) NSString *telephone; // @synthesize telephone=_telephone;
 @property(retain, nonatomic) NSString *phoneticNotice; // @synthesize phoneticNotice=_phoneticNotice;
@@ -66,63 +68,64 @@
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(nonatomic) int version; // @synthesize version=_version;
 @property(nonatomic) unsigned long long uID; // @synthesize uID=_uID;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)starRatingAtIndex:(unsigned int)arg1;
-- (unsigned int)starRatingsCount;
+- (id)starRatingAtIndex:(unsigned long long)arg1;
+- (unsigned long long)starRatingsCount;
 - (void)addStarRating:(id)arg1;
 - (void)clearStarRatings;
-- (id)sourceAtIndex:(unsigned int)arg1;
-- (unsigned int)sourcesCount;
+- (id)sourceAtIndex:(unsigned long long)arg1;
+- (unsigned long long)sourcesCount;
 - (void)addSource:(id)arg1;
 - (void)clearSources;
-@property(nonatomic) BOOL hasCanBeCorrectedByBusinessOwner;
-- (id)attributionAtIndex:(unsigned int)arg1;
-- (unsigned int)attributionsCount;
+@property(nonatomic) _Bool hasCanBeCorrectedByBusinessOwner;
+- (id)attributionAtIndex:(unsigned long long)arg1;
+- (unsigned long long)attributionsCount;
 - (void)addAttribution:(id)arg1;
 - (void)clearAttributions;
-- (id)localizedCategoriesAtIndex:(unsigned int)arg1;
-- (unsigned int)localizedCategoriesCount;
+- (id)localizedCategoriesAtIndex:(unsigned long long)arg1;
+- (unsigned long long)localizedCategoriesCount;
 - (void)addLocalizedCategories:(id)arg1;
 - (void)clearLocalizedCategories;
-@property(nonatomic) BOOL hasTotalNumberOfPhotos;
-@property(readonly, nonatomic) BOOL hasCenter;
-- (id)openHoursAtIndex:(unsigned int)arg1;
-- (unsigned int)openHoursCount;
+@property(nonatomic) _Bool hasTotalNumberOfPhotos;
+@property(readonly, nonatomic) _Bool hasCenter;
+- (id)openHoursAtIndex:(unsigned long long)arg1;
+- (unsigned long long)openHoursCount;
 - (void)addOpenHours:(id)arg1;
 - (void)clearOpenHours;
-- (id)attributeKeyValueAtIndex:(unsigned int)arg1;
-- (unsigned int)attributeKeyValuesCount;
+- (id)attributeKeyValueAtIndex:(unsigned long long)arg1;
+- (unsigned long long)attributeKeyValuesCount;
 - (void)addAttributeKeyValue:(id)arg1;
 - (void)clearAttributeKeyValues;
-- (id)photoAtIndex:(unsigned int)arg1;
-- (unsigned int)photosCount;
+- (id)photoAtIndex:(unsigned long long)arg1;
+- (unsigned long long)photosCount;
 - (void)addPhoto:(id)arg1;
 - (void)clearPhotos;
-- (id)categoryAtIndex:(unsigned int)arg1;
-- (unsigned int)categorysCount;
+- (id)categoryAtIndex:(unsigned long long)arg1;
+- (unsigned long long)categorysCount;
 - (void)addCategory:(id)arg1;
 - (void)clearCategorys;
-- (id)ratingAtIndex:(unsigned int)arg1;
-- (unsigned int)ratingsCount;
+- (id)ratingAtIndex:(unsigned long long)arg1;
+- (unsigned long long)ratingsCount;
 - (void)addRating:(id)arg1;
 - (void)clearRatings;
-@property(readonly, nonatomic) BOOL hasMapsURL;
-@property(nonatomic) BOOL hasIsClosed;
-@property(nonatomic) BOOL hasIsUnverified;
-@property(readonly, nonatomic) BOOL hasURL;
-@property(readonly, nonatomic) BOOL hasTelephone;
-@property(readonly, nonatomic) BOOL hasPhoneticNotice;
-@property(readonly, nonatomic) BOOL hasPhoneticName;
-@property(readonly, nonatomic) BOOL hasNotice;
-@property(readonly, nonatomic) BOOL hasName;
-@property(nonatomic) BOOL hasVersion;
-@property(nonatomic) BOOL hasUID;
+@property(readonly, nonatomic) _Bool hasMapsURL;
+@property(nonatomic) _Bool hasIsClosed;
+@property(nonatomic) _Bool hasIsUnverified;
+@property(readonly, nonatomic) _Bool hasURL;
+@property(readonly, nonatomic) _Bool hasTelephone;
+@property(readonly, nonatomic) _Bool hasPhoneticNotice;
+@property(readonly, nonatomic) _Bool hasPhoneticName;
+@property(readonly, nonatomic) _Bool hasNotice;
+@property(readonly, nonatomic) _Bool hasName;
+@property(nonatomic) _Bool hasVersion;
+@property(nonatomic) _Bool hasUID;
 - (void)dealloc;
 
 @end

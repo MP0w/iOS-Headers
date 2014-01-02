@@ -6,6 +6,7 @@
 
 #import <OfficeImport/EDAnchor.h>
 
+// Not exported
 @interface EDAbsoluteAnchor : EDAnchor
 {
     struct CGPoint mPosition;

@@ -10,13 +10,13 @@
 
 @interface _PLDataPreheatItem : PLPreheatItem
 {
-    unsigned int _thumbIndex;
+    unsigned long long _thumbIndex;
     PLImageTable *_imageTable;
 }
 
 - (void)startPreheatRequest;
 - (void)dealloc;
-- (id)initWithThumbIndex:(unsigned int)arg1 imageTable:(id)arg2;
+- (id)initWithThumbIndex:(unsigned long long)arg1 imageTable:(id)arg2;
 
 @end
 

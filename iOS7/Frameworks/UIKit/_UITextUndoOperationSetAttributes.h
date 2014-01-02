@@ -8,6 +8,7 @@
 
 @class _NSAttributeRun;
 
+// Not exported
 @interface _UITextUndoOperationSetAttributes : NSUndoTextOperation
 {
     _NSAttributeRun *_attributes;

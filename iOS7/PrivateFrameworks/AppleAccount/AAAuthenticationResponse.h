@@ -18,6 +18,7 @@
 @property(readonly, nonatomic) NSString *HSAData;
 @property(readonly, nonatomic) NSString *HSAAction;
 @property(readonly, nonatomic) NSString *personID;
+@property(readonly, nonatomic) NSString *mapsToken;
 @property(readonly, nonatomic) NSString *authToken;
 @property(readonly, nonatomic) NSString *fmipToken;
 - (id)initWithHTTPResponse:(id)arg1 data:(id)arg2;

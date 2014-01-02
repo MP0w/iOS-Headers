@@ -11,9 +11,9 @@
 @interface SwingEstimator : NSObject
 {
     CMMotionManager *motionManager;
-    BOOL estimate;
-    BOOL collectDebugData;
-    BOOL showDebugData;
+    _Bool estimate;
+    _Bool collectDebugData;
+    _Bool showDebugData;
     NSMutableArray *debugData;
     unsigned long long startTime;
     unsigned long long stopTime;
@@ -37,11 +37,11 @@
 @property int numberOfSamples; // @synthesize numberOfSamples;
 @property int numberOfValidSamplesLinearAcceleration; // @synthesize numberOfValidSamplesLinearAcceleration;
 @property int numberOfValidSamplesAngularVelocity; // @synthesize numberOfValidSamplesAngularVelocity;
-@property BOOL estimate; // @synthesize estimate;
+@property _Bool estimate; // @synthesize estimate;
 - (id)createCSVfromDebugData;
 - (void)estimateSwingMotion;
-- (float)updateEvidenceLinearAcceleration:(float)arg1 withAX:(float)arg2 withAY:(float)arg3 withAZ:(float)arg4 checkIfSampleIsGood:(char *)arg5;
-- (float)updateEvidenceAngularVelocity:(float)arg1 withOmegaX:(float)arg2 withOmegaY:(float)arg3 withOmegaZ:(float)arg4 checkIfSampleIsGood:(char *)arg5;
+- (float)updateEvidenceLinearAcceleration:(float)arg1 withAX:(float)arg2 withAY:(float)arg3 withAZ:(float)arg4 checkIfSampleIsGood:(_Bool *)arg5;
+- (float)updateEvidenceAngularVelocity:(float)arg1 withOmegaX:(float)arg2 withOmegaY:(float)arg3 withOmegaZ:(float)arg4 checkIfSampleIsGood:(_Bool *)arg5;
 - (_Bool)isSignalTooNoisy:(float)arg1 withMean:(float)arg2 andWithStandardDeviation:(float)arg3 withMargin:(float)arg4;
 - (_Bool)isSignalTooWeak:(float)arg1 withRespectTo:(float)arg2 withMargin:(float)arg3;
 - (void)dealloc;

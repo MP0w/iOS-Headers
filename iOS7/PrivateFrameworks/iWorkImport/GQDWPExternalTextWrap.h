@@ -8,10 +8,11 @@
 
 #import "GQDNameMappable-Protocol.h"
 
+// Not exported
 @interface GQDWPExternalTextWrap : NSObject <GQDNameMappable>
 {
-    BOOL mFloatingWrapEnabled;
-    BOOL mInlineWrapEnabled;
+    _Bool mFloatingWrapEnabled;
+    _Bool mInlineWrapEnabled;
     float mMargin;
     float mAlphaThreshold;
     int mWrapStyle;
@@ -27,9 +28,8 @@
 - (int)wrapStyle;
 - (float)alphaThreshold;
 - (float)margin;
-- (BOOL)inlineWrapEnabled;
-- (BOOL)floatingWrapEnabled;
-- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1;
+- (_Bool)inlineWrapEnabled;
+- (_Bool)floatingWrapEnabled;
 
 @end
 

@@ -10,42 +10,37 @@
 
 @interface SUPreviewOverlayViewController : SUViewController
 {
-    BOOL _animating;
+    _Bool _animating;
     struct CGSize _contentSize;
     id _loadBlock;
-    BOOL _loaded;
-    float _paddingRight;
-    float _paddingTop;
+    _Bool _loaded;
+    double _paddingRight;
+    double _paddingTop;
     SUPreviewOverlayStorePageViewController *_storePageViewController;
     NSString *_userInfoString;
-    BOOL _contentLoaded;
+    _Bool _visible;
+    _Bool _contentLoaded;
 }
 
++ (void)_setContentInsetsForScrollView:(id)arg1 viewController:(id)arg2;
 + (void)offsetScrollView:(id)arg1 forViewController:(id)arg2;
-+ (void)offsetToHideOverScrollView:(id)arg1;
 + (id)defaultRequestProperties;
 + (double)defaultAnimationDuration;
-@property(nonatomic, getter=isContentLoaded) BOOL contentLoaded; // @synthesize contentLoaded=_contentLoaded;
+@property(nonatomic, getter=isContentLoaded) _Bool contentLoaded; // @synthesize contentLoaded=_contentLoaded;
 @property(copy, nonatomic) NSString *userInfoString; // @synthesize userInfoString=_userInfoString;
-@property(nonatomic) float paddingTop; // @synthesize paddingTop=_paddingTop;
-@property(nonatomic) float paddingRight; // @synthesize paddingRight=_paddingRight;
+@property(nonatomic) double paddingTop; // @synthesize paddingTop=_paddingTop;
+@property(nonatomic) double paddingRight; // @synthesize paddingRight=_paddingRight;
 @property(nonatomic) struct CGSize contentSize; // @synthesize contentSize=_contentSize;
 - (id)_storePageViewController;
-- (void)_showInScrollView:(id)arg1 animated:(BOOL)arg2 completionBlock:(id)arg3;
 - (id)_scrollViewForViewController:(id)arg1;
-- (void)_showFromNavigationBar:(id)arg1 animated:(BOOL)arg2 completionBlock:(id)arg3;
 - (id)_previewOverlayContainerForViewController:(id)arg1;
-- (void)_hideInScrollView:(id)arg1 animated:(BOOL)arg2 completionBlock:(id)arg3;
-- (void)_hideInContainer:(id)arg1 animated:(BOOL)arg2 completionBlock:(id)arg3;
-- (void)_hideFromNavigationBar:(id)arg1 animated:(BOOL)arg2 completionBlock:(id)arg3;
 - (void)loadView;
-- (void)storePage:(id)arg1 finishedWithSuccess:(BOOL)arg2;
+- (void)storePage:(id)arg1 finishedWithSuccess:(_Bool)arg2;
 - (void)invalidateForMemoryPurge;
-- (void)showInNavigationController:(id)arg1 animated:(BOOL)arg2 completionBlock:(id)arg3;
-- (void)offsetToShowOverScrollView:(id)arg1;
+- (void)showInNavigationController:(id)arg1 animated:(_Bool)arg2 completionBlock:(id)arg3;
 - (void)loadWithRequestProperties:(id)arg1 completionBlock:(id)arg2;
 - (void)loadWithCompletionBlock:(id)arg1;
-- (void)hideInNavigationController:(id)arg1 animated:(BOOL)arg2 completionBlock:(id)arg3;
+- (void)hideInNavigationController:(id)arg1 animated:(_Bool)arg2 completionBlock:(id)arg3;
 - (void)dealloc;
 
 @end

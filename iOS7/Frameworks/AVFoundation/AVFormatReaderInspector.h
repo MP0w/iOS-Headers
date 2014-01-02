@@ -9,22 +9,22 @@
 @interface AVFormatReaderInspector : AVAssetInspector
 {
     struct OpaqueFigFormatReader *_formatReader;
-    BOOL didCheckForSaveRestriction;
-    BOOL hasSaveRestriction;
+    _Bool didCheckForSaveRestriction;
+    _Bool hasSaveRestriction;
 }
 
-- (BOOL)isComposable;
-- (BOOL)isReadable;
-- (BOOL)isExportable;
-- (BOOL)_hasQTSaveRestriction;
+- (_Bool)isComposable;
+- (_Bool)isReadable;
+- (_Bool)isExportable;
+- (_Bool)_hasQTSaveRestriction;
 - (id)metadataForFormat:(id)arg1;
 - (id)availableMetadataFormats;
 - (id)commonMetadata;
 - (id)lyrics;
 - (id)trackReferences;
 - (id)alternateTrackGroups;
-- (long)trackCount;
-- (BOOL)providesPreciseDurationAndTiming;
+- (long long)trackCount;
+- (_Bool)providesPreciseDurationAndTiming;
 - (int)naturalTimeScale;
 - (struct CGSize)naturalSize;
 - (struct CGAffineTransform)preferredTransform;
@@ -34,8 +34,8 @@
 - (CDStruct_1b6d18a9)duration;
 - (void *)_valueAsCFTypeForProperty:(struct __CFString *)arg1;
 @property(retain, nonatomic, getter=_formatReader, setter=_setFormatReader:) struct OpaqueFigFormatReader *formatReader;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)finalize;
 - (void)dealloc;
 - (id)initWithFormatReader:(struct OpaqueFigFormatReader *)arg1;

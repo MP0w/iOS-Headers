@@ -14,8 +14,9 @@
 }
 
 - (void).cxx_destruct;
-- (long)synchronizeProvisioningWithData:(id)arg1;
-- (long)provisionDeviceWithData:(id)arg1;
+- (int)eraseProvisioning;
+- (int)synchronizeProvisioningWithData:(id)arg1;
+- (int)provisionDeviceWithData:(id)arg1;
 - (id)deviceProvisioningInfo;
 - (id)initWithAccount:(id)arg1;
 - (id)initWithDSID:(id)arg1;

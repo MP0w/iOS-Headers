@@ -8,6 +8,7 @@
 
 @class NSExpression, NSMutableArray;
 
+// Not exported
 @interface NSSQLSimpleWhereIntermediate : NSSQLWhereIntermediate
 {
     NSMutableArray *_comparisonPredicateScopedItem;
@@ -26,17 +27,17 @@
 - (id)_generateSQLEndsWithStringInContext:(id)arg1;
 - (id)_generateSQLBeginsWithStringInContext:(id)arg1;
 - (id)_upperBoundSearchStringForString:(id)arg1 context:(id)arg2;
-- (id)_generateSQLSubstringWildStart:(BOOL)arg1 wildEnd:(BOOL)arg2 inContext:(id)arg3;
-- (id)_generateSQLForString:(id)arg1 expressionPath:(id)arg2 wildStart:(BOOL)arg3 wildEnd:(BOOL)arg4 allowToMany:(BOOL)arg5 inContext:(id)arg6;
-- (id)_generateSQLForWildSubStringForGlob:(id)arg1 wildStart:(BOOL)arg2 wildEnd:(BOOL)arg3;
+- (id)_generateSQLSubstringWildStart:(_Bool)arg1 wildEnd:(_Bool)arg2 inContext:(id)arg3;
+- (id)_generateSQLForString:(id)arg1 expressionPath:(id)arg2 wildStart:(_Bool)arg3 wildEnd:(_Bool)arg4 allowToMany:(_Bool)arg5 inContext:(id)arg6;
+- (id)_generateSQLForWildSubStringForGlob:(id)arg1 wildStart:(_Bool)arg2 wildEnd:(_Bool)arg3;
 - (id)_generateSQLForMatchingOperator:(id)arg1 inContext:(id)arg2;
 - (id)_generateSQLType3InContext:(id)arg1;
-- (long)_cfStringOptionsFromPredicateOptions:(unsigned int)arg1;
+- (long long)_cfStringOptionsFromPredicateOptions:(unsigned long long)arg1;
 - (id)_generateSQLType2InContext:(id)arg1;
 - (id)_generateSQLType1InContext:(id)arg1;
-- (id)_sqlTokenForPredicateOperator:(unsigned int)arg1 inContext:(id)arg2;
+- (id)_sqlTokenForPredicateOperator:(unsigned long long)arg1 inContext:(id)arg2;
 - (id)_lastScopedItem;
-- (BOOL)_isNilExpression:(id)arg1;
+- (_Bool)_isNilExpression:(id)arg1;
 - (id)initWithPredicate:(id)arg1 inScope:(id)arg2;
 - (void)dealloc;
 

@@ -15,9 +15,9 @@
     NSMutableArray *psiDataInfoOutQueue;
     NSConditionLock *inQueueLock;
     NSConditionLock *outQueueLock;
-    BOOL shouldCompressCSIDataFlag;
-    BOOL noMoreCSIDataInfo;
-    BOOL noMoreRenditions;
+    _Bool shouldCompressCSIDataFlag;
+    _Bool noMoreCSIDataInfo;
+    _Bool noMoreRenditions;
     TDLogger *_logger;
 }
 
@@ -36,7 +36,7 @@
 - (void)_enqueueOnInQueueTheObject:(id)arg1;
 - (void)_enqueueOnQueue:(id)arg1 withQueueLock:(id)arg2 object:(id)arg3;
 - (void)dealloc;
-- (id)initWithDocument:(id)arg1 shouldCompressCSIDataFlag:(BOOL)arg2;
+- (id)initWithDocument:(id)arg1 shouldCompressCSIDataFlag:(_Bool)arg2;
 
 @end
 

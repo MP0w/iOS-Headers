@@ -8,6 +8,7 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface ODDShape : ODDLayoutObject
 {
     int mType;

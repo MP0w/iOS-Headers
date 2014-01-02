@@ -15,26 +15,26 @@
     struct CGColor *_highlightColor;
     struct CGColor *_borderColor;
     struct CGColor *_shadowColor;
-    BOOL _pageRendered;
+    _Bool _pageRendered;
     NSMutableArray *_rectangles;
     UIPDFSelection *_selection;
 }
 
-- (void)addSearchHighlightForSelection:(id)arg1 animated:(BOOL)arg2;
-- (void)makeType4Path:(struct CGPath *)arg1 from:(unsigned int)arg2 to:(unsigned int)arg3 shadowPath:(struct CGPath *)arg4;
-- (void)makeType3Path:(struct CGPath *)arg1 from:(unsigned int)arg2 to:(unsigned int)arg3 shadowPath:(struct CGPath *)arg4;
-- (void)makeType2Path:(struct CGPath *)arg1 to:(unsigned int)arg2 shadowPath:(struct CGPath *)arg3;
+- (void)addSearchHighlightForSelection:(id)arg1 animated:(_Bool)arg2;
+- (void)makeType4Path:(struct CGPath *)arg1 from:(unsigned long long)arg2 to:(unsigned long long)arg3 shadowPath:(struct CGPath *)arg4;
+- (void)makeType3Path:(struct CGPath *)arg1 from:(unsigned long long)arg2 to:(unsigned long long)arg3 shadowPath:(struct CGPath *)arg4;
+- (void)makeType2Path:(struct CGPath *)arg1 to:(unsigned long long)arg2 shadowPath:(struct CGPath *)arg3;
 - (void)makeType1Path:(struct CGPath *)arg1 shadowPath:(struct CGPath *)arg2;
 - (void)makeType2Shadow:(struct CGPath *)arg1 rect:(struct CGRect)arg2;
 - (void)makeType1Shadow:(struct CGPath *)arg1 rect:(struct CGRect)arg2 inset:(struct CGPoint)arg3;
-- (struct CGRect)unionFrom:(unsigned int)arg1 to:(unsigned int)arg2;
-- (unsigned int)indexOfColumnBreakStartingAt:(unsigned int)arg1;
-- (void)addLayer:(struct CGRect)arg1 path:(struct CGPath *)arg2 shadowPath:(struct CGPath *)arg3 animated:(BOOL)arg4;
-- (void)addSearchHighlightForRotatedSelection:(id)arg1 animated:(BOOL)arg2;
+- (struct CGRect)unionFrom:(unsigned long long)arg1 to:(unsigned long long)arg2;
+- (unsigned long long)indexOfColumnBreakStartingAt:(unsigned long long)arg1;
+- (void)addLayer:(struct CGRect)arg1 path:(struct CGPath *)arg2 shadowPath:(struct CGPath *)arg3 animated:(_Bool)arg4;
+- (void)addSearchHighlightForRotatedSelection:(id)arg1 animated:(_Bool)arg2;
 - (void)_addAnimation2:(id)arg1;
 - (void)_addAnimation:(id)arg1;
 - (id)hitTest:(struct CGPoint)arg1;
-- (BOOL)hasSearchHighlights;
+- (_Bool)hasSearchHighlights;
 - (void)clearSearchHighlights;
 - (void)pageDidRender:(id)arg1;
 - (void)dealloc;

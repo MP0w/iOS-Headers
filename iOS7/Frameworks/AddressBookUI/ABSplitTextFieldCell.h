@@ -6,23 +6,25 @@
 
 #import "UITableViewCell.h"
 
-@class ABRepeatingGradientSeparatorView, UITextField;
+@class ABRepeatingGradientSeparatorView, UITextField, UIView;
 
 @interface ABSplitTextFieldCell : UITableViewCell
 {
     UITextField *_textFieldLeft;
     UITextField *_textFieldRight;
     ABRepeatingGradientSeparatorView *_separator;
+    UIView *_spacer;
 }
 
-+ (BOOL)requiresConstraintBasedLayout;
++ (_Bool)requiresConstraintBasedLayout;
+@property(retain, nonatomic) UIView *spacer; // @synthesize spacer=_spacer;
 @property(retain, nonatomic) ABRepeatingGradientSeparatorView *separator; // @synthesize separator=_separator;
 @property(retain, nonatomic) UITextField *textFieldRight; // @synthesize textFieldRight=_textFieldRight;
 @property(retain, nonatomic) UITextField *textFieldLeft; // @synthesize textFieldLeft=_textFieldLeft;
 - (void)setNeedsUpdateConstraints;
 - (void)updateConstraints;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

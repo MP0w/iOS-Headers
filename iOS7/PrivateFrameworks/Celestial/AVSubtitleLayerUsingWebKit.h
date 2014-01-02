@@ -13,7 +13,7 @@
 
 - (void)drawInContext:(struct CGContext *)arg1;
 - (void)clearSubtitle;
-- (void)setSubtitleString:(struct __CFAttributedString *)arg1 forced:(BOOL)arg2;
+- (void)setSubtitleString:(struct __CFAttributedString *)arg1 forced:(_Bool)arg2;
 - (void)dealloc;
 - (id)init;
 

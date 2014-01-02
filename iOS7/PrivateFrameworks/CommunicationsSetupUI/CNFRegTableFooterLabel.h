@@ -10,9 +10,9 @@
 {
 }
 
-- (float)_bottomPadding;
-- (float)_topPadding;
-- (int)_labelTextAlignment;
+- (double)_bottomPadding;
+- (double)_topPadding;
+- (long long)_labelTextAlignment;
 - (id)_URLTarget;
 - (id)_URLText;
 - (id)_labelText;

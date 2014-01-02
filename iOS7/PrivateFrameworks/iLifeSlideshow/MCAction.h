@@ -10,7 +10,7 @@
 
 @interface MCAction : MCObjectLight
 {
-    unsigned long _flags;
+    unsigned int _flags;
     NSString *_targetObjectID;
 }
 
@@ -18,8 +18,8 @@
 - (id)description;
 - (void)_copySelfToSnapshot:(id)arg1;
 - (id)snapshot;
-- (BOOL)isSnapshot;
-@property(nonatomic) BOOL tracksInParent;
+- (_Bool)isSnapshot;
+@property(nonatomic) _Bool tracksInParent;
 - (id)imprint;
 - (void)demolish;
 - (id)initWithImprint:(id)arg1;

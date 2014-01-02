@@ -6,6 +6,7 @@
 
 #import <CoreFoundation/NSMutableSet.h>
 
+// Not exported
 @interface __NSPlaceholderSet : NSMutableSet
 {
 }
@@ -18,14 +19,14 @@
 - (void)addObject:(id)arg1;
 - (id)objectEnumerator;
 - (id)member:(id)arg1;
-- (unsigned int)count;
+- (unsigned long long)count;
 - (void)dealloc;
-- (unsigned int)retainCount;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;
 - (id)init;
-- (id)initWithCapacity:(unsigned int)arg1;
-- (id)initWithObjects:(const id *)arg1 count:(unsigned int)arg2;
+- (id)initWithCapacity:(unsigned long long)arg1;
+- (id)initWithObjects:(const id *)arg1 count:(unsigned long long)arg2;
 
 @end
 

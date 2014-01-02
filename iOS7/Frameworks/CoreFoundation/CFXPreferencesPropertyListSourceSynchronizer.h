@@ -8,6 +8,7 @@
 
 @class CFXPreferencesPropertyListSource;
 
+// Not exported
 @interface CFXPreferencesPropertyListSourceSynchronizer : NSObject
 {
     unsigned short _mode;
@@ -17,16 +18,16 @@
     struct __CFArray *_dirtyKeys;
     struct __CFDictionary *_pendingMutations;
     struct __CFURL *_url;
-    long _formatToWrite;
+    long long _formatToWrite;
     struct _CFXPreferencesStatInfo _statInfo;
     unsigned int _group;
-    long _generationCount;
+    long long _generationCount;
 }
 
 - (void)finalize;
 - (void)dealloc;
 - (void)setValue:(void *)arg1 forKey:(struct __CFString *)arg2;
-- (id)initWithPropertyListSource:(id)arg1 forLockedSynchronize:(BOOL)arg2;
+- (id)initWithPropertyListSource:(id)arg1 forLockedSynchronize:(_Bool)arg2;
 - (unsigned char)writePlistToDisk;
 - (unsigned char)synchronize;
 - (unsigned char)synchronizeAlreadyFlocked;

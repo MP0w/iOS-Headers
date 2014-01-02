@@ -10,6 +10,7 @@
 
 @class CMArchiveManager, NSString, WDDocument;
 
+// Not exported
 @interface WMDocumentMapper : CMMapper <CMMapperRoot>
 {
     CMArchiveManager *mArchiver;
@@ -30,12 +31,6 @@
 - (id)blipAtIndex:(unsigned int)arg1;
 - (void)dealloc;
 - (id)initWithWDom:(id)arg1 archiver:(id)arg2;
-- (float)bottomMargin;
-- (float)headerMargin;
-- (float)topMargin;
-- (float)rightMargin;
-- (float)leftMargin;
-- (BOOL)hasSessionBreakAtIndex:(unsigned int)arg1;
 
 @end
 

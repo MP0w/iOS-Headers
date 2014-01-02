@@ -6,13 +6,14 @@
 
 #import <OfficeImport/EDCollection.h>
 
+// Not exported
 @interface EDMergedCellCollection : EDCollection
 {
 }
 
 - (id)referenceContainingRow:(int)arg1 column:(int)arg2;
-- (void)insertObject:(id)arg1 atIndex:(unsigned int)arg2;
-- (unsigned int)addObject:(id)arg1;
+- (void)insertObject:(id)arg1 atIndex:(unsigned long long)arg2;
+- (unsigned long long)addObject:(id)arg1;
 
 @end
 

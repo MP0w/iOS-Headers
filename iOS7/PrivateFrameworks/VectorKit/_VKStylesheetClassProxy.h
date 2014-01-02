@@ -8,6 +8,7 @@
 
 #import "GEOResourceManifestTileGroupObserver-Protocol.h"
 
+// Not exported
 @interface _VKStylesheetClassProxy : NSObject <GEOResourceManifestTileGroupObserver>
 {
 }

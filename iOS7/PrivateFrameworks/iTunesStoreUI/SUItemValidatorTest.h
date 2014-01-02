@@ -13,9 +13,9 @@
 }
 
 + (id)defaultTest;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)validateItems:(id)arg1 offers:(id)arg2 error:(id *)arg3;
-- (BOOL)validateItem:(id)arg1 offer:(id)arg2 error:(id *)arg3;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)validateItems:(id)arg1 offers:(id)arg2 error:(id *)arg3;
+- (_Bool)validateItem:(id)arg1 offer:(id)arg2 error:(id *)arg3;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end

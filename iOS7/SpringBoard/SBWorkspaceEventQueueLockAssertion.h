@@ -6,15 +6,18 @@
 
 #import "NSObject.h"
 
-@class SBWorkspaceEventQueue;
+@class NSString, SBWorkspaceEventQueue;
 
 @interface SBWorkspaceEventQueueLockAssertion : NSObject
 {
     SBWorkspaceEventQueue *_eventQueue;
+    NSString *_reason;
 }
 
+- (id)reason;
+- (id)description;
 - (void)dealloc;
-- (id)initWithWorkspaceEventQueue:(id)arg1;
+- (id)initWithWorkspaceEventQueue:(id)arg1 reason:(id)arg2;
 
 @end
 

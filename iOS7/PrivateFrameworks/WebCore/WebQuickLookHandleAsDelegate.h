@@ -8,6 +8,7 @@
 
 #import "NSURLConnectionDelegate-Protocol.h"
 
+// Not exported
 @interface WebQuickLookHandleAsDelegate : NSObject <NSURLConnectionDelegate>
 {
     struct _CFURLConnection *m_connection;

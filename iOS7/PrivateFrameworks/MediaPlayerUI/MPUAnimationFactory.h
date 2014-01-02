@@ -12,16 +12,16 @@
 
 @interface MPUAnimationFactory : NSObject <_UIBasicAnimationFactory>
 {
-    BOOL _removedOnCompletion;
+    _Bool _removedOnCompletion;
     NSArray *_allowedKeyPaths;
     NSString *_fillMode;
-    CAMediaTimingFunction *_timingFunction;
     double _timeOffset;
+    CAMediaTimingFunction *_timingFunction;
 }
 
 @property(retain, nonatomic) CAMediaTimingFunction *timingFunction; // @synthesize timingFunction=_timingFunction;
 @property(nonatomic) double timeOffset; // @synthesize timeOffset=_timeOffset;
-@property(nonatomic, getter=isRemovedOnCompletion) BOOL removedOnCompletion; // @synthesize removedOnCompletion=_removedOnCompletion;
+@property(nonatomic, getter=isRemovedOnCompletion) _Bool removedOnCompletion; // @synthesize removedOnCompletion=_removedOnCompletion;
 @property(copy, nonatomic) NSString *fillMode; // @synthesize fillMode=_fillMode;
 @property(copy, nonatomic) NSArray *allowedKeyPaths; // @synthesize allowedKeyPaths=_allowedKeyPaths;
 - (void).cxx_destruct;

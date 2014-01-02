@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface GQUProgressiveHelper : NSObject
 {
     const void *mClient;
@@ -14,10 +15,10 @@
     struct __CFString *mNumbersSheetUri;
     float mPreviewHeight;
     float mPreviewWidth;
-    BOOL mStartedMainHTML;
+    _Bool mStartedMainHTML;
 }
 
-- (BOOL)previewHasStreamedMainHTML;
+- (_Bool)previewHasStreamedMainHTML;
 - (void)displayGenericError:(struct __CFError *)arg1;
 - (float)getPreviewHeight;
 - (float)getPreviewWidth;
@@ -27,6 +28,7 @@
 - (void)closeAttachment:(struct __CFURL *)arg1;
 - (void)appendDataToAttachment:(struct __CFURL *)arg1 chunk:(struct __CFData *)arg2;
 - (struct __CFURL *)createAttachment:(struct __CFString *)arg1 options:(struct __CFDictionary *)arg2;
+- (_Bool)progressiveStreamStarted;
 - (void)startDataWithOptions:(struct __CFDictionary *)arg1;
 - (void)dealloc;
 - (id)initWithClient:(const void *)arg1 andCallbacks:(CDStruct_ba543347 *)arg2;

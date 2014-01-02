@@ -10,6 +10,7 @@
 
 @class SFUFileDataRepresentation;
 
+// Not exported
 @interface SFUZipArchiveFileDataRepresentation : SFUDataRepresentation <SFUZipArchiveDataRepresentation>
 {
     SFUFileDataRepresentation *mFileRepresentation;
@@ -19,11 +20,11 @@
 - (id)bufferedInputStreamWithOffset:(long long)arg1 length:(long long)arg2;
 - (id)inputStreamWithOffset:(long long)arg1 length:(long long)arg2;
 - (id)path;
-- (BOOL)hasSameLocationAs:(id)arg1;
+- (_Bool)hasSameLocationAs:(id)arg1;
 - (id)inputStream;
-- (BOOL)isEncrypted;
+- (_Bool)isEncrypted;
 - (long long)dataLength;
-- (BOOL)isReadable;
+- (_Bool)isReadable;
 - (void)dealloc;
 - (id)initWithPath:(id)arg1;
 

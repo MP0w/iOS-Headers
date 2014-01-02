@@ -6,6 +6,7 @@
 
 #import <VectorKit/VGLRouteLineProgram.h>
 
+// Not exported
 @interface VGLRealisticRouteLineProgram : VGLRouteLineProgram
 {
 }

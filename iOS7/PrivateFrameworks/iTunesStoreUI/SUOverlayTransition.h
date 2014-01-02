@@ -15,11 +15,11 @@
 {
     double _duration;
     SUDOMElement *_sourceElement;
-    int _type;
+    long long _type;
 }
 
-+ (int)transitionTypeFromString:(id)arg1;
-@property(nonatomic) int type; // @synthesize type=_type;
++ (long long)transitionTypeFromString:(id)arg1;
+@property(nonatomic) long long type; // @synthesize type=_type;
 @property(retain, nonatomic) SUDOMElement *sourceElement; // @synthesize sourceElement=_sourceElement;
 @property(nonatomic) double duration; // @synthesize duration=_duration;
 - (void)encodeWithCoder:(id)arg1;

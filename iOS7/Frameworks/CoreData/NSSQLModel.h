@@ -8,6 +8,7 @@
 
 @class NSKnownKeysDictionary, NSManagedObjectModel, NSMutableArray, NSString;
 
+// Not exported
 @interface NSSQLModel : NSStoreMapping
 {
     NSString *_configuration;
@@ -15,35 +16,35 @@
     NSKnownKeysDictionary *_entitiesByName;
     NSMutableArray *_entities;
     id *_entityDescriptionToSQLMap;
-    unsigned int _brokenHashVersion;
-    BOOL _retainLeopardStyleDictionaries;
-    BOOL _modelHasPrecomputedKeyOrder;
-    BOOL _hasVirtualToOnes;
+    unsigned long long _brokenHashVersion;
+    _Bool _retainLeopardStyleDictionaries;
+    _Bool _modelHasPrecomputedKeyOrder;
+    _Bool _hasVirtualToOnes;
 }
 
 - (void)_recordHasVirtualToOnes;
 - (id)_precomputedKeyOrderForEntity:(id)arg1;
-- (BOOL)_modelHasPrecomputedKeyOrder;
-- (BOOL)_retainHashHack;
-- (BOOL)_useSnowLeopardStyleHashing;
-- (BOOL)_useLeopardStyleHashing;
+- (_Bool)_modelHasPrecomputedKeyOrder;
+- (_Bool)_retainHashHack;
+- (_Bool)_useSnowLeopardStyleHashing;
+- (_Bool)_useLeopardStyleHashing;
 - (void)_addIndexedEntity:(id)arg1;
-- (id)entityForID:(unsigned long)arg1;
+- (id)entityForID:(unsigned long long)arg1;
 - (id)entitiesByName;
 - (id)entities;
-- (unsigned long)entityIDForName:(id)arg1;
+- (unsigned long long)entityIDForName:(id)arg1;
 - (id)_sqlEntityWithRenamingIdentifier:(id)arg1;
 - (id)entityNamed:(id)arg1;
 - (id)_entityMapping;
-- (BOOL)_generateModel:(id)arg1 error:(id *)arg2;
+- (_Bool)_generateModel:(id)arg1 error:(id *)arg2;
 - (id)managedObjectModel;
 - (id)configurationName;
 - (void)finalize;
 - (void)dealloc;
-- (id)initWithManagedObjectModel:(id)arg1 configurationName:(id)arg2 brokenHashVersion:(unsigned int)arg3;
-- (id)initWithManagedObjectModel:(id)arg1 configurationName:(id)arg2 retainHashHack:(BOOL)arg3;
+- (id)initWithManagedObjectModel:(id)arg1 configurationName:(id)arg2 brokenHashVersion:(unsigned long long)arg3;
+- (id)initWithManagedObjectModel:(id)arg1 configurationName:(id)arg2 retainHashHack:(_Bool)arg3;
 - (id)initWithManagedObjectModel:(id)arg1 configurationName:(id)arg2;
-- (id)initWithManagedObjectModel:(id)arg1 configurationName:(id)arg2 retainHashHack:(BOOL)arg3 brokenHashVersion:(unsigned int)arg4;
+- (id)initWithManagedObjectModel:(id)arg1 configurationName:(id)arg2 retainHashHack:(_Bool)arg3 brokenHashVersion:(unsigned long long)arg4;
 
 @end
 

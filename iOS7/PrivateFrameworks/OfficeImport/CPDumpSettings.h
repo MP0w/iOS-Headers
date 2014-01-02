@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface CPDumpSettings : NSObject
 {
 }
 
-+ (BOOL)isDumpForQA;
-+ (void)setDumpForQA:(BOOL)arg1;
++ (_Bool)isDumpForQA;
++ (void)setDumpForQA:(_Bool)arg1;
 
 @end
 

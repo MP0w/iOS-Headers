@@ -12,9 +12,9 @@
 {
 }
 
-+ (BOOL)isEnabled;
-+ (void)setEnabled:(BOOL)arg1;
-+ (int)torchState;
++ (_Bool)isEnabled;
++ (void)setEnabled:(_Bool)arg1;
++ (long long)torchState;
 + (id)iconImage;
 + (id)preferencesURL;
 

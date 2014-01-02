@@ -12,6 +12,7 @@
 
 @class NSArray, UITableView;
 
+// Not exported
 @interface EKEventAttachmentEditViewController : EKEditItemViewController <UITableViewDataSource, UITableViewDelegate, EKEventAttachmentCellControllerDelegate>
 {
     UITableView *_table;
@@ -24,12 +25,12 @@
 - (id)owningEventForAttachmentCellController:(id)arg1;
 - (id)parentViewControllerForAttachmentCellController:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (void)viewDidLoad;
 - (void)loadView;
-- (id)initWithFrame:(struct CGRect)arg1 attachments:(id)arg2 sourceIsManaged:(BOOL)arg3;
+- (id)initWithFrame:(struct CGRect)arg1 attachments:(id)arg2 sourceIsManaged:(_Bool)arg3;
 
 @end
 

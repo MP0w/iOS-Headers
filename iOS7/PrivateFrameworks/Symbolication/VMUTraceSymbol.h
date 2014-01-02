@@ -17,13 +17,13 @@
     int lineNumber;
 }
 
-- (BOOL)readFromFile:(struct __sFILE *)arg1;
+- (_Bool)readFromFile:(struct __sFILE *)arg1;
 - (void)writeToFile:(struct __sFILE *)arg1;
 - (int)lineNumber;
 - (id)filename;
 - (id)library;
 - (id)name;
-- (id)initWithCString:(char *)arg1 length:(long)arg2 withLine:(int)arg3;
+- (id)initWithCString:(char *)arg1 length:(long long)arg2 withLine:(int)arg3;
 - (id)initWithPC:(unsigned long long)arg1 withSymbolicator:(struct _CSTypeRef)arg2;
 
 @end

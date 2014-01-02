@@ -11,7 +11,7 @@
 @interface CoreDAVContainerQueryTask : CoreDAVTask
 {
     NSSet *_searchTerms;
-    unsigned int _searchLimit;
+    unsigned long long _searchLimit;
     NSString *_appSpecificNamespace;
     NSString *_appSpecificQueryCommand;
     NSString *_appSpecificDataProp;
@@ -25,9 +25,9 @@
 - (void)addFiltersToXMLData:(id)arg1;
 - (id)httpMethod;
 - (void)dealloc;
-- (id)_initWithSearchTerms:(id)arg1 searchLimit:(unsigned int)arg2 atURL:(id)arg3 appSpecificDataItemClass:(Class)arg4;
-- (id)initWithSearchString:(id)arg1 searchLimit:(unsigned int)arg2 atURL:(id)arg3 appSpecificDataItemClass:(Class)arg4;
-- (id)initWithSearchTerms:(id)arg1 searchLimit:(unsigned int)arg2 atURL:(id)arg3 appSpecificDataItemClass:(Class)arg4;
+- (id)_initWithSearchTerms:(id)arg1 searchLimit:(unsigned long long)arg2 atURL:(id)arg3 appSpecificDataItemClass:(Class)arg4;
+- (id)initWithSearchString:(id)arg1 searchLimit:(unsigned long long)arg2 atURL:(id)arg3 appSpecificDataItemClass:(Class)arg4;
+- (id)initWithSearchTerms:(id)arg1 searchLimit:(unsigned long long)arg2 atURL:(id)arg3 appSpecificDataItemClass:(Class)arg4;
 
 // Remaining properties
 @property(nonatomic) id <CoreDAVContainerQueryTaskDelegate> delegate; // @dynamic delegate;

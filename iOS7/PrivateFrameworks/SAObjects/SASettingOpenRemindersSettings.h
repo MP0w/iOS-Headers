@@ -12,7 +12,7 @@
 
 + (id)openRemindersSettingsWithDictionary:(id)arg1 context:(id)arg2;
 + (id)openRemindersSettings;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

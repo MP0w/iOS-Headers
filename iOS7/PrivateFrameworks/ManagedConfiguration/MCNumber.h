@@ -15,12 +15,16 @@
     NSNumber *_number;
 }
 
++ (id)numberWithInteger:(long long)arg1;
++ (id)numberWithUnsignedInteger:(unsigned long long)arg1;
 + (id)numberWithInt:(int)arg1;
 + (id)numberWithUnsignedInt:(unsigned int)arg1;
 - (void).cxx_destruct;
 - (id)descriptionWithLocale:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (id)initWithInteger:(long long)arg1;
+- (id)initWithUnsignedInteger:(unsigned long long)arg1;
 - (id)initWithInt:(int)arg1;
 - (id)initWithUnsignedInt:(unsigned int)arg1;
 

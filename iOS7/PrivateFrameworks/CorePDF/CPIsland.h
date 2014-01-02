@@ -10,7 +10,7 @@
 {
 }
 
-- (BOOL)bordersWindClockwise;
+- (_Bool)bordersWindClockwise;
 
 @end
 

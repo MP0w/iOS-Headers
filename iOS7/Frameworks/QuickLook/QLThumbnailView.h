@@ -12,15 +12,15 @@
 {
     QLThumbnailOperation *_thumbnailOperation;
     UIImage *_image;
-    int _pageNumber;
-    BOOL _alwaysVisible;
+    long long _pageNumber;
+    _Bool _alwaysVisible;
     struct CGRect unselectedFrame;
     struct CGRect _unselectedFrame;
 }
 
 @property struct CGRect unselectedFrame; // @synthesize unselectedFrame=_unselectedFrame;
-@property BOOL alwaysVisible; // @synthesize alwaysVisible=_alwaysVisible;
-@property int pageNumber; // @synthesize pageNumber=_pageNumber;
+@property _Bool alwaysVisible; // @synthesize alwaysVisible=_alwaysVisible;
+@property long long pageNumber; // @synthesize pageNumber=_pageNumber;
 @property(retain) UIImage *image; // @synthesize image=_image;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)setFrame:(struct CGRect)arg1;

@@ -14,13 +14,13 @@
 {
     id <QLScrubViewDataSource> _dataSource;
     id _delegate;
-    BOOL _runOnMainThread;
-    BOOL _needsThumbLayout;
-    float _thumbOrigin;
-    float _thumbEnd;
-    float _thumbHeight;
-    int _pageCount;
-    int _selectedPage;
+    _Bool _runOnMainThread;
+    _Bool _needsThumbLayout;
+    double _thumbOrigin;
+    double _thumbEnd;
+    double _thumbHeight;
+    long long _pageCount;
+    long long _selectedPage;
     NSOperationQueue *_queue;
     NSMutableSet *_operations;
     NSMutableDictionary *_thumbViews;
@@ -29,18 +29,19 @@
     QLPageNumberView *_pageNumberLabel;
 }
 
-+ (float)defaultWidth;
++ (double)defaultWidth;
 @property id delegate; // @synthesize delegate=_delegate;
 @property id <QLScrubViewDataSource> dataSource; // @synthesize dataSource=_dataSource;
+- (void)drawRect:(struct CGRect)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)_updateSelectedThumbnailView;
 - (void)layoutSubviews;
 - (void)_hidePageLabel;
 - (void)_updatePageLabelPosition;
 - (void)_showPageLabel;
-- (struct CGRect)_thumbnailFrameForPageAtIndex:(int)arg1;
+- (struct CGRect)_thumbnailFrameForPageAtIndex:(long long)arg1;
 - (void)setFrame:(struct CGRect)arg1;
-- (BOOL)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
+- (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (void)longTapReceived:(id)arg1;
 - (void)tapReceived:(id)arg1;
 - (void)panReceived:(id)arg1;
@@ -48,10 +49,10 @@
 - (void)_notifyScrubingEnded;
 - (void)_notifyPageChanged;
 - (void)_notifyScrubingStarted;
-- (void)selectPageNumber:(int)arg1;
+- (void)selectPageNumber:(long long)arg1;
 - (void)reloadThumbnails;
 - (void)_removeThumbviews;
-@property BOOL runOnMainThread;
+@property _Bool runOnMainThread;
 - (void)didReceiveMemoryWarning;
 - (void)dealloc;
 - (void)_cancelAllOperations;

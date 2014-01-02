@@ -13,14 +13,14 @@
     AVPlayer *player;
     struct OpaqueFigSubtitleRenderer *renderer;
     NSDictionary *currentSubtitleSample;
-    BOOL currentSubtitleSampleIsForced;
-    BOOL nonForcedSubtitleDisplayEnabled;
-    BOOL shouldObservePlayer;
-    BOOL isObservingPlayer;
-    BOOL hasPlayerToObserve;
+    _Bool currentSubtitleSampleIsForced;
+    _Bool nonForcedSubtitleDisplayEnabled;
+    _Bool shouldObservePlayer;
+    _Bool isObservingPlayer;
+    _Bool hasPlayerToObserve;
     NSObject<OS_dispatch_queue> *serialQueue;
-    BOOL isPresentationLayer;
-    BOOL isOverscanSubtitleSupportEnabled;
+    _Bool isPresentationLayer;
+    _Bool isOverscanSubtitleSupportEnabled;
     id delegate;
 }
 

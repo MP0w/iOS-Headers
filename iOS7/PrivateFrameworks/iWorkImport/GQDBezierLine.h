@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface GQDBezierLine : NSObject
 {
     struct CGPoint mUpper;
     struct CGPoint mLower;
-    BOOL isOutsideToLeft;
+    _Bool isOutsideToLeft;
 }
 
 - (id).cxx_construct;

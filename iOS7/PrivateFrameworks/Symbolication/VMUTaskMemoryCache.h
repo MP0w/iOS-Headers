@@ -10,14 +10,14 @@
 {
     struct mapped_memory_t *_memoryRegions;
     unsigned int _task;
-    BOOL _taskIs64Bit;
-    BOOL _stopped;
-    BOOL _shouldTouchPages;
+    _Bool _taskIs64Bit;
+    _Bool _stopped;
+    _Bool _shouldTouchPages;
 }
 
 + (id)taskMemoryCacheForTask:(unsigned int)arg1;
-+ (BOOL)taskIs64Bit:(unsigned int)arg1;
-- (BOOL)copyRange:(struct _VMURange)arg1 to:(void *)arg2;
++ (_Bool)taskIs64Bit:(unsigned int)arg1;
+- (_Bool)copyRange:(struct _VMURange)arg1 to:(void *)arg2;
 - (int)readPointerAt:(unsigned long long)arg1 value:(unsigned long long *)arg2;
 - (int)peekAtAddress:(unsigned long long)arg1 size:(unsigned long long)arg2 returnsBuf:(void **)arg3;
 - (int)stopPeeking;

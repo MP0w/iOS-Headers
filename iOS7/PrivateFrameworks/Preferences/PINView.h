@@ -16,25 +16,25 @@
     UILabel *_errorTitleLabel;
     FailureBarView *_failureView;
     UILabel *_pinPolicyLabel;
-    BOOL _error;
+    _Bool _error;
     id _delegate;
 }
 
-- (void)setBlocked:(BOOL)arg1;
+- (void)setBlocked:(_Bool)arg1;
 - (void)dealloc;
 - (void)hideFailedAttempts;
 - (void)showFailedAttempts:(int)arg1;
-- (void)setPINPolicyString:(id)arg1 visible:(BOOL)arg2;
+- (void)setPINPolicyString:(id)arg1 visible:(_Bool)arg2;
 - (void)setDelegate:(id)arg1;
-- (BOOL)becomeFirstResponder;
+- (_Bool)becomeFirstResponder;
 - (void)appendString:(id)arg1;
 - (void)deleteLastCharacter;
 - (void)setStringValue:(id)arg1;
 - (id)stringValue;
 - (void)setTitle:(id)arg1 font:(id)arg2;
-- (void)hidePasscodeField:(BOOL)arg1;
+- (void)hidePasscodeField:(_Bool)arg1;
 - (void)hideError;
-- (void)showError:(id)arg1 animate:(BOOL)arg2;
+- (void)showError:(id)arg1 animate:(_Bool)arg2;
 
 @end
 

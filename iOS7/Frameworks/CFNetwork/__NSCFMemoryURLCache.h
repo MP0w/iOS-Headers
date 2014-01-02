@@ -6,24 +6,35 @@
 
 #import "NSObject.h"
 
+@class NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>;
+
+// Not exported
 @interface __NSCFMemoryURLCache : NSObject
 {
+    id _internal;
+    unsigned long long _memoryCapacity;
+    unsigned long long _currentLength;
+    NSMutableDictionary *_memoryStorage;
+    NSMutableArray *_memoryStorageLRU;
+    NSObject<OS_dispatch_queue> *_memoryQueue;
 }
 
 + (void)initialize;
-- (unsigned int)currentDiskUsage;
-- (unsigned int)currentMemoryUsage;
-- (void)setDiskCapacity:(unsigned int)arg1;
-- (void)setMemoryCapacity:(unsigned int)arg1;
-- (unsigned int)diskCapacity;
-- (unsigned int)memoryCapacity;
+- (unsigned long long)currentDiskUsage;
+- (unsigned long long)currentMemoryUsage;
+- (void)setDiskCapacity:(unsigned long long)arg1;
+- (void)setMemoryCapacity:(unsigned long long)arg1;
+- (unsigned long long)diskCapacity;
+- (unsigned long long)memoryCapacity;
 - (void)removeAllCachedResponses;
 - (void)removeCachedResponseForRequest:(id)arg1;
 - (void)storeCachedResponse:(id)arg1 forRequest:(id)arg2;
 - (id)cachedResponseForRequest:(id)arg1;
 - (id)description;
-- (id)initWithMemoryCapacity:(unsigned int)arg1 diskCapacity:(unsigned int)arg2 diskPath:(id)arg3;
-- (id)init;
+- (id)initMemoryCache;
+- (id)initEmptyCache;
+- (void)dealloc;
+- (id)initWithMemoryCapacity:(unsigned long long)arg1 diskCapacity:(unsigned long long)arg2 diskPath:(id)arg3;
 
 @end
 

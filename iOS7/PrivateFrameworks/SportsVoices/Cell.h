@@ -31,7 +31,7 @@
 - (id)initWithAttributesDictionary:(id)arg1;
 - (id)flattened;
 - (void)dealloc;
-- (BOOL)matches:(id)arg1;
+- (_Bool)matches:(id)arg1;
 - (void)setAttribute:(id)arg1 forKey:(id)arg2;
 - (id)attributeForKey:(id)arg1;
 @property(retain) NSString *post;
@@ -43,8 +43,8 @@
 - (id)init;
 - (id)overlayedOn:(id)arg1;
 - (id)initFromPlist:(id)arg1;
-- (BOOL)hasContent;
-- (BOOL)isBlank;
+- (_Bool)hasContent;
+- (_Bool)isBlank;
 
 @end
 

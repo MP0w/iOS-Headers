@@ -10,9 +10,9 @@
 
 @interface UIDateLabel : UILabel
 {
-    BOOL _forceTimeOnly;
+    _Bool _forceTimeOnly;
     NSDate *_date;
-    BOOL _boldForAllLocales;
+    _Bool _boldForAllLocales;
     NSDate *_yesterday;
     NSDate *_today;
     NSDate *_noon;
@@ -20,7 +20,8 @@
     NSDate *_previousWeek;
     UIFont *_timeDesignatorFont;
     NSCalendar *_calendar;
-    BOOL _shouldRecomputeText;
+    _Bool _shouldRecomputeText;
+    double _paddingFromTimeToDesignator;
 }
 
 + (id)defaultFont;
@@ -31,14 +32,15 @@
 + (id)_timeOnlyDateFormatter;
 + (id)_dateFormatter;
 + (id)_timeFormatWithoutDesignator;
-@property(nonatomic) BOOL shouldRecomputeText; // @synthesize shouldRecomputeText=_shouldRecomputeText;
-@property(nonatomic) BOOL boldForAllLocales; // @synthesize boldForAllLocales=_boldForAllLocales;
-@property(nonatomic) BOOL forceTimeOnly; // @synthesize forceTimeOnly=_forceTimeOnly;
+@property(nonatomic) _Bool shouldRecomputeText; // @synthesize shouldRecomputeText=_shouldRecomputeText;
+@property(nonatomic) double paddingFromTimeToDesignator; // @synthesize paddingFromTimeToDesignator=_paddingFromTimeToDesignator;
+@property(nonatomic) _Bool boldForAllLocales; // @synthesize boldForAllLocales=_boldForAllLocales;
+@property(nonatomic) _Bool forceTimeOnly; // @synthesize forceTimeOnly=_forceTimeOnly;
 @property(readonly, nonatomic) struct CGSize timeDesignatorSize;
 @property(readonly, nonatomic) UIFont *timeDesignatorFont;
 @property(readonly, nonatomic) NSString *timeDesignator;
-@property(readonly, nonatomic) BOOL timeDesignatorAppearsBeforeTime;
-@property(readonly, nonatomic) BOOL use24HourTime;
+@property(readonly, nonatomic) _Bool timeDesignatorAppearsBeforeTime;
+@property(readonly, nonatomic) _Bool use24HourTime;
 - (id)font;
 @property(readonly, nonatomic, getter=_dateString) NSString *dateString;
 - (id)text;
@@ -51,9 +53,10 @@
 - (double)_yesterday;
 - (double)_lastWeek;
 - (id)_todayDate;
-- (id)_dateWithDayDiffFromToday:(int)arg1;
+- (id)_dateWithDayDiffFromToday:(long long)arg1;
 - (id)_calendar;
 - (void)drawTextInRect:(struct CGRect)arg1;
+- (id)_stringDrawingContext;
 - (void)drawRect:(struct CGRect)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (struct CGSize)_intrinsicSizeWithinSize:(struct CGSize)arg1;

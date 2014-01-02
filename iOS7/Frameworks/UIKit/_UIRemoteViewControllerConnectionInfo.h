@@ -8,9 +8,10 @@
 
 @class NSArray, XPCMachSendRight, _UIHostedWindowHostingHandle, _UIViewServiceInterface;
 
+// Not exported
 @interface _UIRemoteViewControllerConnectionInfo : NSObject
 {
-    BOOL _prefersStatusBarHidden;
+    _Bool _prefersStatusBarHidden;
     _UIViewServiceInterface *_interface;
     id _viewControllerOperatorProxy;
     id _serviceViewControllerProxy;
@@ -18,7 +19,7 @@
     id _textEffectsOperatorProxy;
     NSArray *_serviceViewControllerSupportedInterfaceOrientations;
     XPCMachSendRight *_serviceAccessibilityServerPortWrapper;
-    int _preferredStatusBarStyle;
+    long long _preferredStatusBarStyle;
     _UIHostedWindowHostingHandle *_hostedWindowHostingHandle;
     _UIHostedWindowHostingHandle *_textEffectsWindowHostingHandle;
     _UIHostedWindowHostingHandle *_textEffectsWindowAboveStatusBarHostingHandle;
@@ -27,8 +28,8 @@
 @property(retain) _UIHostedWindowHostingHandle *textEffectsWindowAboveStatusBarHostingHandle; // @synthesize textEffectsWindowAboveStatusBarHostingHandle=_textEffectsWindowAboveStatusBarHostingHandle;
 @property(retain) _UIHostedWindowHostingHandle *textEffectsWindowHostingHandle; // @synthesize textEffectsWindowHostingHandle=_textEffectsWindowHostingHandle;
 @property(retain) _UIHostedWindowHostingHandle *hostedWindowHostingHandle; // @synthesize hostedWindowHostingHandle=_hostedWindowHostingHandle;
-@property BOOL prefersStatusBarHidden; // @synthesize prefersStatusBarHidden=_prefersStatusBarHidden;
-@property int preferredStatusBarStyle; // @synthesize preferredStatusBarStyle=_preferredStatusBarStyle;
+@property _Bool prefersStatusBarHidden; // @synthesize prefersStatusBarHidden=_prefersStatusBarHidden;
+@property long long preferredStatusBarStyle; // @synthesize preferredStatusBarStyle=_preferredStatusBarStyle;
 @property(retain) XPCMachSendRight *serviceAccessibilityServerPortWrapper; // @synthesize serviceAccessibilityServerPortWrapper=_serviceAccessibilityServerPortWrapper;
 @property(retain) NSArray *serviceViewControllerSupportedInterfaceOrientations; // @synthesize serviceViewControllerSupportedInterfaceOrientations=_serviceViewControllerSupportedInterfaceOrientations;
 @property(retain) id textEffectsOperatorProxy; // @synthesize textEffectsOperatorProxy=_textEffectsOperatorProxy;

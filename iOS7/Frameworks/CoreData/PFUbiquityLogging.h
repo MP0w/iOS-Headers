@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface PFUbiquityLogging : NSObject
 {
     int _desiredLogLevel;
 }
 
-+ (BOOL)canLogMessageAtLevel:(int)arg1;
++ (_Bool)canLogMessageAtLevel:(int)arg1;
 + (void)setLoggingLevel:(int)arg1;
 + (void)initialize;
 @property(nonatomic) int desiredLogLevel; // @synthesize desiredLogLevel=_desiredLogLevel;

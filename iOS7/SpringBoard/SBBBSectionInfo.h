@@ -10,13 +10,13 @@
 
 @interface SBBBSectionInfo : SBBBItemInfo
 {
-    int _sectionCategory;
+    long long _sectionCategory;
 }
 
 - (id)identifier;
 @property(readonly, nonatomic) NSString *listSectionIdentifier;
-@property(readonly, nonatomic, getter=isWidgetSection) BOOL widgetSection;
-@property(readonly, nonatomic) int sectionCategory;
+@property(readonly, nonatomic, getter=isWidgetSection) _Bool widgetSection;
+@property(readonly, nonatomic) long long sectionCategory;
 @property(readonly, nonatomic) SBBulletinListSection *representedListSection;
 
 @end

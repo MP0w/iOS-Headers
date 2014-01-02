@@ -6,11 +6,12 @@
 
 #import <WebCore/DOMEvent.h>
 
+// Not exported
 @interface DOMPageTransitionEvent : DOMEvent
 {
 }
 
-@property(readonly) BOOL persisted;
+@property(readonly) _Bool persisted;
 
 @end
 

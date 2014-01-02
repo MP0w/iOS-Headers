@@ -8,11 +8,12 @@
 
 @class DOMAbstractView, DOMMessagePort, NSString;
 
+// Not exported
 @interface DOMMessageEvent : DOMEvent
 {
 }
 
-- (void)initMessageEvent:(id)arg1 canBubbleArg:(BOOL)arg2 cancelableArg:(BOOL)arg3 dataArg:(id)arg4 originArg:(id)arg5 lastEventIdArg:(id)arg6 sourceArg:(id)arg7 messagePort:(id)arg8;
+- (void)initMessageEvent:(id)arg1 canBubbleArg:(_Bool)arg2 cancelableArg:(_Bool)arg3 dataArg:(id)arg4 originArg:(id)arg5 lastEventIdArg:(id)arg6 sourceArg:(id)arg7 messagePort:(id)arg8;
 @property(readonly) DOMMessagePort *messagePort;
 @property(readonly) NSString *data;
 @property(readonly) DOMAbstractView *source;

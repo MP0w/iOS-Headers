@@ -8,6 +8,7 @@
 
 @class NSMutableDictionary;
 
+// Not exported
 @interface ODDColorTransform : NSObject
 {
     NSMutableDictionary *mStyleLabels;

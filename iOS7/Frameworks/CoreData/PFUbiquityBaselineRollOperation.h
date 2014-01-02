@@ -8,14 +8,15 @@
 
 @class NSObject<PFUbiquityBaselineRollOperationDelegate>;
 
+// Not exported
 @interface PFUbiquityBaselineRollOperation : PFUbiquityBaselineOperation
 {
 }
 
 - (void)main;
-- (BOOL)rollBaselineWithError:(id *)arg1;
-- (BOOL)haveConsistentStateForBaselineRoll;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)rollBaselineWithError:(id *)arg1;
+- (_Bool)haveConsistentStateForBaselineRoll;
+- (_Bool)isEqual:(id)arg1;
 - (id)retainedDelegate;
 @property NSObject<PFUbiquityBaselineRollOperationDelegate> *delegate;
 

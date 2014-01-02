@@ -12,7 +12,7 @@
 
 @interface SKUIMissingItemLoader : NSObject <SKUIItemRequestDelegate>
 {
-    int _batchSize;
+    long long _batchSize;
     id <SKUIMissingItemDelegate> _delegate;
     NSString *_imageProfile;
     NSString *_keyProfile;
@@ -23,13 +23,13 @@
 @property(copy, nonatomic) NSString *keyProfile; // @synthesize keyProfile=_keyProfile;
 @property(copy, nonatomic) NSString *imageProfile; // @synthesize imageProfile=_imageProfile;
 @property(nonatomic) __weak id <SKUIMissingItemDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) int batchSize; // @synthesize batchSize=_batchSize;
+@property(nonatomic) long long batchSize; // @synthesize batchSize=_batchSize;
 - (void).cxx_destruct;
-- (void)_requestItems:(id)arg1 withReason:(int)arg2;
+- (void)_requestItems:(id)arg1 withReason:(long long)arg2;
 - (id)_existingRequestIDForItemID:(id)arg1;
 - (void)itemRequest:(id)arg1 didFinishWithItems:(id)arg2;
-- (void)loadItemsWithIdentifiers:(id)arg1 reason:(int)arg2;
-- (void)loadItemsForPageComponent:(id)arg1 startIndex:(int)arg2 reason:(int)arg3;
+- (void)loadItemsWithIdentifiers:(id)arg1 reason:(long long)arg2;
+- (void)loadItemsForPageComponent:(id)arg1 startIndex:(long long)arg2 reason:(long long)arg3;
 - (id)initWithResourceLoader:(id)arg1;
 - (id)init;
 

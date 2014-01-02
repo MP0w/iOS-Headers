@@ -6,6 +6,6 @@
 
 @protocol EKEventTitleDetailItemDelegate
 - (void)editButtonPressed;
-- (BOOL)shouldShowEditButtonInline;
+- (_Bool)shouldShowEditButtonInline;
 @end
 

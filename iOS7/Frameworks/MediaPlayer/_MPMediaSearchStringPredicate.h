@@ -18,14 +18,11 @@
 @property(copy, nonatomic) NSSet *properties; // @synthesize properties=_properties;
 @property(copy, nonatomic) NSString *searchString; // @synthesize searchString=_searchString;
 - (void).cxx_destruct;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)ML3PredicateForContainer;
-- (id)ML3PredicateForTrack;
-- (id)_ML3PredicateForEntityClass:(Class)arg1;
 
 @end
 

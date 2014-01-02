@@ -8,27 +8,29 @@
 
 #import "MPVolumeControllerDelegate-Protocol.h"
 
-@class MPAVController, MPVolumeController, NSString, NSTimer, UIImage, UIImageView, UILabel, UIView;
+@class MPAVController, MPAudioDeviceController, MPVolumeController, NSString, NSTimer, UIImage, UIImageView, UILabel, UIView;
 
 @interface MPVolumeSlider : UISlider <MPVolumeControllerDelegate>
 {
     MPVolumeController *_volumeController;
     NSTimer *_commitTimer;
     UILabel *_routeNameLabel;
-    int _style;
+    long long _style;
     UIImageView *_thumbImageView;
     UIImageView *_thumbMaskImageView;
-    BOOL _isOffScreen;
+    _Bool _isOffScreen;
+    _Bool _thumbIsDefault;
     UIView *_volumeWarningView;
-    BOOL _volumeWarningBlinking;
+    _Bool _volumeWarningBlinking;
     UIImage *_volumeWarningTrackImage;
-    UIView *_trackKnockoutView;
+    MPAudioDeviceController *_audioDeviceController;
 }
 
 @property(retain, nonatomic) UIImage *volumeWarningTrackImage; // @synthesize volumeWarningTrackImage=_volumeWarningTrackImage;
-@property(nonatomic, setter=_setIsOffScreen:) BOOL _isOffScreen; // @synthesize _isOffScreen;
-@property(readonly, nonatomic) int style; // @synthesize style=_style;
+@property(nonatomic, setter=_setIsOffScreen:) _Bool _isOffScreen; // @synthesize _isOffScreen;
+@property(readonly, nonatomic) long long style; // @synthesize style=_style;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) UIView *_newVolumeWarningView;
 - (void)_endBlinkingWarningView;
 - (void)_blinkWarningView;
 - (void)_beginBlinkingWarningView;
@@ -36,24 +38,25 @@
 - (void)_layoutVolumeWarningView;
 - (void)_layoutForAvailableRoutes;
 - (void)_layoutMaskForThumb;
-- (id)_maxTrackImageForStyle:(int)arg1;
-- (id)_minTrackImageForStyle:(int)arg1;
-- (id)_thumbImageForStyle:(int)arg1;
+- (void)_resetThumbImageForState:(unsigned long long)arg1;
+- (id)_maxTrackImageForStyle:(long long)arg1;
+- (id)_minTrackImageForStyle:(long long)arg1;
+- (id)_thumbImageForStyle:(long long)arg1;
 - (void)_commitVolumeChange;
 - (void)_isExternalPlaybackActiveDidChangeNotification:(id)arg1;
 - (void)_availableRoutesDidChangeNotification:(id)arg1;
 - (void)_applicationWillEnterForegroundNotification:(id)arg1;
 - (void)_applicationDidEnterBackgroundNotification:(id)arg1;
-- (void)volumeController:(id)arg1 EUVolumeLimitEnforcedDidChange:(BOOL)arg2;
+- (void)volumeController:(id)arg1 EUVolumeLimitEnforcedDidChange:(_Bool)arg2;
 - (void)volumeController:(id)arg1 EUVolumeLimitDidChange:(float)arg2;
 - (void)volumeController:(id)arg1 volumeValueDidChange:(float)arg2;
 @property(copy, nonatomic) NSString *volumeAudioCategory;
 @property(retain, nonatomic) MPAVController *player;
-- (void)setUserInteractionEnabled:(BOOL)arg1;
-- (void)setHidden:(BOOL)arg1;
-- (void)setAlpha:(float)arg1;
+- (void)setUserInteractionEnabled:(_Bool)arg1;
+- (void)setHidden:(_Bool)arg1;
+- (void)setAlpha:(double)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)didMoveToWindow;
 - (void)didMoveToSuperview;
 - (void)setFrame:(struct CGRect)arg1;
@@ -61,14 +64,15 @@
 - (void)_endTracking;
 - (void)cancelTrackingWithEvent:(id)arg1;
 - (void)endTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (BOOL)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
+- (_Bool)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (struct CGRect)thumbRectForBounds:(struct CGRect)arg1 trackRect:(struct CGRect)arg2 value:(float)arg3;
-- (void)setValue:(float)arg1 animated:(BOOL)arg2;
+- (void)setValue:(float)arg1 animated:(_Bool)arg2;
+- (void)setThumbImage:(id)arg1 forState:(unsigned long long)arg2;
 - (float)minimumValue;
 - (float)maximumValue;
 - (id)createThumbView;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 style:(int)arg2;
+- (id)initWithFrame:(struct CGRect)arg1 style:(long long)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

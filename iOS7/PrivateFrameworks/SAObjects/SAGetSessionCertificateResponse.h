@@ -14,7 +14,7 @@
 
 + (id)getSessionCertificateResponseWithDictionary:(id)arg1 context:(id)arg2;
 + (id)getSessionCertificateResponse;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSData *certificate;
 - (id)encodedClassName;
 - (id)groupIdentifier;

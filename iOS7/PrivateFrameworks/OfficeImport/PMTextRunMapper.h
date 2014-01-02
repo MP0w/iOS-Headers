@@ -8,6 +8,7 @@
 
 @class OADTextRun;
 
+// Not exported
 @interface PMTextRunMapper : CMMapper
 {
     OADTextRun *mTextRun;
@@ -15,9 +16,6 @@
 
 - (void)mapAt:(id)arg1 withState:(id)arg2;
 - (id)initWithOadTextRun:(id)arg1 parent:(id)arg2;
-- (id)fontScheme;
-- (id)copyCharacterStyleWithState:(id)arg1;
-- (BOOL)_isDefaultFill:(id)arg1;
 
 @end
 

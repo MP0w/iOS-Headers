@@ -13,23 +13,24 @@
     NSManagedObjectID *_assetOID;
     NSString *_utiType;
     int _format;
-    BOOL _requestIsValid;
+    _Bool _forceBGRA;
+    _Bool _requestIsValid;
     NSObject<OS_dispatch_queue> *_queue;
     UIImage *_cachedImage;
     NSObject<OS_dispatch_group> *_requestGroup;
     NSObject<OS_dispatch_group> *_waitGroup;
-    BOOL _cachedImageIsAvailable;
+    _Bool _cachedImageIsAvailable;
 }
 
-@property BOOL cachedImageIsAvailable; // @synthesize cachedImageIsAvailable=_cachedImageIsAvailable;
+@property _Bool cachedImageIsAvailable; // @synthesize cachedImageIsAvailable=_cachedImageIsAvailable;
 - (void)cancelPreheatRequest;
 - (void)startPreheatRequest;
 - (void)_cacheImage;
-- (BOOL)addImageHandler:(id)arg1;
+- (_Bool)addImageHandler:(id)arg1;
 - (id)cachedImageIfAvailable;
 - (id)cachedImage;
 - (void)dealloc;
-- (id)initWithAsset:(id)arg1 format:(int)arg2;
+- (id)initWithAsset:(id)arg1 format:(int)arg2 options:(unsigned int)arg3;
 
 @end
 

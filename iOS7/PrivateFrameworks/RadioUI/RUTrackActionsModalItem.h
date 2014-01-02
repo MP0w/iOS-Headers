@@ -4,29 +4,32 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "UIModalItem.h"
+#import "_UIModalItem.h"
+
+#import "RUTrackActioning-Protocol.h"
 
 @class NSString, UIImage, _RUTrackActionsModalItemContentView;
 
-@interface RUTrackActionsModalItem : UIModalItem
+@interface RUTrackActionsModalItem : _UIModalItem <RUTrackActioning>
 {
     _RUTrackActionsModalItemContentView *_contentView;
-    NSString *_artistText;
-    UIImage *_artworkImage;
-    int _enabledActions;
-    int _onActions;
-    NSString *_songText;
 }
 
 + (struct CGSize)artworkSize;
-@property(copy, nonatomic) NSString *songText; // @synthesize songText=_songText;
-@property(nonatomic) int onActions; // @synthesize onActions=_onActions;
-@property(nonatomic) int enabledActions; // @synthesize enabledActions=_enabledActions;
-@property(retain, nonatomic) UIImage *artworkImage; // @synthesize artworkImage=_artworkImage;
-@property(copy, nonatomic) NSString *artistText; // @synthesize artistText=_artistText;
 - (void).cxx_destruct;
-- (int)actionForButtonIndex:(int)arg1;
+- (void)_radioAuthenticatedAccountIdentifierDidChangeNotification:(id)arg1;
+@property(nonatomic) __weak id <RUTrackActionsDelegate> trackActionsDelegate;
+@property(copy, nonatomic) NSString *songText;
+@property(nonatomic) long long onActions;
+@property(nonatomic) long long enabledActions;
+@property(retain, nonatomic) UIImage *artworkImage;
+@property(copy, nonatomic) NSString *artistText;
+@property(readonly, nonatomic) struct CGSize contentSize;
+@property(readonly, nonatomic) long long cancelIndex;
+- (long long)actionForButtonIndex:(long long)arg1;
 - (id)_contentView;
+- (void)dealloc;
+- (id)init;
 
 @end
 

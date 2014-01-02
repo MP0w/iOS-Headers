@@ -17,23 +17,23 @@
 }
 
 @property(nonatomic) id <CertInfoCertificateDetailsControllerDelegate> delegate; // @synthesize delegate=_delegate;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
 - (id)_propertiesForIndexPath:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 performAction:(SEL)arg2 forRowAtIndexPath:(id)arg3 withSender:(id)arg4;
-- (BOOL)tableView:(id)arg1 canPerformAction:(SEL)arg2 forRowAtIndexPath:(id)arg3 withSender:(id)arg4;
-- (BOOL)tableView:(id)arg1 shouldShowMenuForRowAtIndexPath:(id)arg2;
+- (_Bool)tableView:(id)arg1 canPerformAction:(SEL)arg2 forRowAtIndexPath:(id)arg3 withSender:(id)arg4;
+- (_Bool)tableView:(id)arg1 shouldShowMenuForRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (id)tableView:(id)arg1 titleForHeaderInSection:(int)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
+- (id)tableView:(id)arg1 titleForHeaderInSection:(long long)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
 - (void)_doneButtonPressed:(id)arg1;
-@property(nonatomic) BOOL showsDoneButton; // @dynamic showsDoneButton;
+@property(nonatomic) _Bool showsDoneButton; // @dynamic showsDoneButton;
 - (id)_sectionsForProperties:(id)arg1 currentSectionDictionary:(id)arg2;
 - (id)_sectionsForProperties:(id)arg1;
 - (void)dealloc;
 - (id)initWithCertificateProperties:(id)arg1;
-- (id)initWithTrust:(struct __SecTrust *)arg1 certificateIndex:(long)arg2;
+- (id)initWithTrust:(struct __SecTrust *)arg1 certificateIndex:(long long)arg2;
 - (id)initWithTrust:(struct __SecTrust *)arg1;
 
 @end

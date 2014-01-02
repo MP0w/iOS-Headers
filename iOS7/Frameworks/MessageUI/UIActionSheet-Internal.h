@@ -7,7 +7,7 @@
 #import "UIActionSheet.h"
 
 @interface UIActionSheet (Internal)
-- (id)mf_tagForButtonIndex:(int)arg1;
-- (int)mf_addButtonWithTitle:(id)arg1 tag:(id)arg2;
+- (id)mf_tagForButtonIndex:(long long)arg1;
+- (long long)mf_addButtonWithTitle:(id)arg1 tag:(id)arg2;
 @end
 

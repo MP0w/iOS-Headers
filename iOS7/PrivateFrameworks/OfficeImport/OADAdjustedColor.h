@@ -6,27 +6,28 @@
 
 #import <OfficeImport/OADColor.h>
 
+// Not exported
 @interface OADAdjustedColor : OADColor
 {
     OADColor *mBaseColor;
     int mAdjustmentType;
     unsigned char mAdjustmentParam;
-    BOOL mInvert;
-    BOOL mInvert128;
-    BOOL mGray;
+    _Bool mInvert;
+    _Bool mInvert128;
+    _Bool mGray;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (BOOL)gray;
-- (BOOL)invert128;
-- (BOOL)invert;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)gray;
+- (_Bool)invert128;
+- (_Bool)invert;
 - (unsigned char)adjustmentParam;
 - (int)adjustmentType;
 - (id)baseColor;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithBaseColor:(id)arg1 adjustmentType:(int)arg2 adjustmentParam:(unsigned char)arg3 invert:(BOOL)arg4 invert128:(BOOL)arg5 gray:(BOOL)arg6;
+- (id)initWithBaseColor:(id)arg1 adjustmentType:(int)arg2 adjustmentParam:(unsigned char)arg3 invert:(_Bool)arg4 invert128:(_Bool)arg5 gray:(_Bool)arg6;
 
 @end
 

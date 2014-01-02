@@ -11,24 +11,27 @@
 
 @class NSError, NSString, NSURLRequest, NSURLResponse;
 
+// Not exported
 @interface __NSCFURLSessionTask : NSObject <NSSecureCoding, NSCopying>
 {
-    unsigned int _taskIdentifier;
+    unsigned long long _taskIdentifier;
     NSURLRequest *_originalRequest;
     NSURLRequest *_currentRequest;
     NSURLResponse *_response;
-    NSString *_taskDescription;
-    int _state;
-    NSError *_error;
     long long _countOfBytesReceived;
     long long _countOfBytesSent;
     long long _countOfBytesExpectedToSend;
     long long _countOfBytesExpectedToReceive;
+    NSString *_taskDescription;
+    long long _state;
+    NSError *_error;
+    double _startTime;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
+@property double startTime; // @synthesize startTime=_startTime;
 @property(copy) NSError *error; // @synthesize error=_error;
-@property int state; // @synthesize state=_state;
+@property long long state; // @synthesize state=_state;
 @property(copy) NSString *taskDescription; // @synthesize taskDescription=_taskDescription;
 @property long long countOfBytesExpectedToReceive; // @synthesize countOfBytesExpectedToReceive=_countOfBytesExpectedToReceive;
 @property long long countOfBytesExpectedToSend; // @synthesize countOfBytesExpectedToSend=_countOfBytesExpectedToSend;
@@ -37,7 +40,7 @@
 @property(copy) NSURLResponse *response; // @synthesize response=_response;
 @property(copy) NSURLRequest *currentRequest; // @synthesize currentRequest=_currentRequest;
 @property(copy) NSURLRequest *originalRequest; // @synthesize originalRequest=_originalRequest;
-@property unsigned int taskIdentifier; // @synthesize taskIdentifier=_taskIdentifier;
+@property unsigned long long taskIdentifier; // @synthesize taskIdentifier=_taskIdentifier;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -49,7 +52,7 @@
 - (void)_onqueue_connection_cancel;
 - (void)dealloc;
 - (id)initWithTask:(id)arg1;
-- (id)initWithRequest:(id)arg1 ident:(unsigned int)arg2;
+- (id)initWithRequest:(id)arg1 ident:(unsigned long long)arg2;
 
 @end
 

@@ -19,8 +19,8 @@
 @property(retain) NSArray *_regions; // @synthesize _regions;
 - (id)regionForID:(id)arg1;
 @property(readonly) NSArray *regions;
-@property(readonly) BOOL isLoading;
-@property(readonly) BOOL isLoaded;
+@property(readonly) _Bool isLoading;
+@property(readonly) _Bool isLoaded;
 - (void)flushRegions;
 - (void)startLoading;
 - (void)_buildMessageDeliveryIfNeeded;

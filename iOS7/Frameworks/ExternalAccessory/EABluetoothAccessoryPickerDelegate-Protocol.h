@@ -9,6 +9,6 @@
 @protocol EABluetoothAccessoryPickerDelegate <NSObject>
 
 @optional
-- (void)devicePicker:(id)arg1 didSelectAddress:(id)arg2 errorCode:(int)arg3;
+- (void)devicePicker:(id)arg1 didSelectAddress:(id)arg2 errorCode:(long long)arg3;
 @end
 

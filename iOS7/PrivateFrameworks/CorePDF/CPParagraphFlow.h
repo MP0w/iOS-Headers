@@ -11,35 +11,35 @@
 @interface CPParagraphFlow : NSObject
 {
     CPParagraph *paragraph;
-    float fLeft;
-    float fRight;
-    float fTop;
-    float fBottom;
+    double fLeft;
+    double fRight;
+    double fTop;
+    double fBottom;
     NSMutableArray *paragraphsAbove;
     NSMutableArray *paragraphsBelow;
     NSMutableArray *paragraphsLeft;
     NSMutableArray *paragraphsRight;
-    BOOL placed;
-    BOOL adjacentToCallout;
+    _Bool placed;
+    _Bool adjacentToCallout;
     int calloutType;
     CPParagraph *nextInColumn;
 }
 
 @property(nonatomic) CPParagraph *nextInColumn; // @synthesize nextInColumn;
 @property int calloutType; // @synthesize calloutType;
-@property BOOL placed; // @synthesize placed;
-@property float fBottom; // @synthesize fBottom;
-@property float fRight; // @synthesize fRight;
-@property float fLeft; // @synthesize fLeft;
+@property _Bool placed; // @synthesize placed;
+@property double fBottom; // @synthesize fBottom;
+@property double fRight; // @synthesize fRight;
+@property double fLeft; // @synthesize fLeft;
 @property(retain, nonatomic) CPParagraph *paragraph; // @synthesize paragraph;
 - (int)rightOrder;
 - (int)leftOrder;
 - (int)outOrder;
-- (int)inOrder:(BOOL)arg1;
+- (int)inOrder:(_Bool)arg1;
 - (int)inOrder;
-- (float)area;
-- (float)dAbove;
-- (float)dBelow;
+- (double)area;
+- (double)dAbove;
+- (double)dBelow;
 - (struct CGRect)belowBounds;
 - (void)replaceAbove:(id)arg1 withOneOf:(id)arg2;
 - (void)replaceBelow:(id)arg1 withOneOf:(id)arg2;
@@ -58,10 +58,10 @@
 - (id)paragraphsBelow;
 - (id)paragraphsAbove;
 - (void)setParagraphsAboveIn:(id)arg1;
-- (BOOL)intervalOverlapTop:(float)arg1 bottom:(float)arg2 paragraphs:(id)arg3;
-- (BOOL)intervalOverlapLeft:(float)arg1 right:(float)arg2 paragraphs:(id)arg3;
-- (BOOL)intervalOverlapLeft:(float)arg1 right:(float)arg2 rects:(id)arg3;
-- (int)topDescending:(id)arg1;
+- (_Bool)intervalOverlapTop:(double)arg1 bottom:(double)arg2 paragraphs:(id)arg3;
+- (_Bool)intervalOverlapLeft:(double)arg1 right:(double)arg2 paragraphs:(id)arg3;
+- (_Bool)intervalOverlapLeft:(double)arg1 right:(double)arg2 rects:(id)arg3;
+- (long long)topDescending:(id)arg1;
 - (id)description;
 - (void)dealloc;
 - (id)initWithParagraph:(id)arg1;

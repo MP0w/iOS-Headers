@@ -16,10 +16,10 @@
 
 + (id)anchorWithDictionary:(id)arg1 context:(id)arg2;
 + (id)anchor;
-@property(copy, nonatomic) NSString *value;
 @property(copy, nonatomic) NSString *validity;
 @property(copy, nonatomic) NSString *key;
 @property(copy, nonatomic) NSString *generation;
+@property(nonatomic) long long count;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

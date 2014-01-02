@@ -8,28 +8,28 @@
 
 @interface NSMergePolicy : NSObject
 {
-    unsigned int _type;
+    unsigned long long _type;
     void *_reserved2;
     void *_reserved3;
 }
 
-+ (BOOL)accessInstanceVariablesDirectly;
++ (_Bool)accessInstanceVariablesDirectly;
 + (void)load;
-@property(readonly) unsigned int mergeType; // @synthesize mergeType=_type;
-- (void)mergeToManyRelationshipForSourceObject:(id)arg1 withOldSnapshot:(id)arg2 newSnapshot:(id)arg3 andAncestor:(id)arg4 andLegacyPath:(BOOL)arg5;
-- (BOOL)resolveConflicts:(id)arg1 error:(id *)arg2;
+@property(readonly) unsigned long long mergeType; // @synthesize mergeType=_type;
+- (void)mergeToManyRelationshipForSourceObject:(id)arg1 withOldSnapshot:(id)arg2 newSnapshot:(id)arg3 andAncestor:(id)arg4 andLegacyPath:(_Bool)arg5;
+- (_Bool)resolveConflicts:(id)arg1 error:(id *)arg2;
 - (void)_mergeChangesObjectUpdatesTrumpForObject:(id)arg1 withRecord:(id)arg2;
 - (void)_mergeDeletionWithStoreChangesForObject:(id)arg1 withRecord:(id)arg2;
 - (void)_mergeChangesStoreUpdatesTrumpForObject:(id)arg1 withRecord:(id)arg2;
-- (BOOL)resolveConflict:(id)arg1;
+- (_Bool)resolveConflict:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)dealloc;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (unsigned int)type;
-- (id)initWithMergeType:(unsigned int)arg1;
-- (id)initWithType:(unsigned int)arg1;
+- (unsigned long long)type;
+- (id)initWithMergeType:(unsigned long long)arg1;
+- (id)initWithType:(unsigned long long)arg1;
 
 @end
 

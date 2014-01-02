@@ -15,14 +15,14 @@
     NSString *_assetType;
     NSString *_overrideFile;
     NSString *_purgeOverrideFile;
-    BOOL _assetDownloaded;
-    BOOL _requireAssetMetadata;
+    _Bool _assetDownloaded;
+    _Bool _requireAssetMetadata;
     id _logger;
 }
 
 @property(copy) id logger; // @synthesize logger=_logger;
-@property BOOL requireAssetMetadata; // @synthesize requireAssetMetadata=_requireAssetMetadata;
-@property(readonly) BOOL assetDownloaded; // @synthesize assetDownloaded=_assetDownloaded;
+@property _Bool requireAssetMetadata; // @synthesize requireAssetMetadata=_requireAssetMetadata;
+@property(readonly) _Bool assetDownloaded; // @synthesize assetDownloaded=_assetDownloaded;
 @property(retain) NSString *purgeOverrideFile; // @synthesize purgeOverrideFile=_purgeOverrideFile;
 @property(retain) NSString *overrideFile; // @synthesize overrideFile=_overrideFile;
 @property(retain) NSString *assetType; // @synthesize assetType=_assetType;
@@ -38,11 +38,11 @@
 - (void)downloadComplete:(id)arg1 completion:(id)arg2;
 - (void)downloadProgress:(id)arg1 error:(id)arg2 completion:(id)arg3;
 - (id)downloadAsset:(id)arg1;
-@property(readonly) BOOL assetAvailable;
+@property(readonly) _Bool assetAvailable;
 - (id)filterFoundAssets:(id)arg1;
-- (BOOL)filterAsset:(id)arg1 osBuild:(id)arg2 osVersion:(id)arg3;
-- (void)queryComplete:(id)arg1 remote:(BOOL)arg2 error:(id)arg3 completion:(id)arg4;
-- (id)findAsset:(BOOL)arg1 completion:(id)arg2;
+- (_Bool)filterAsset:(id)arg1 osBuild:(id)arg2 osVersion:(id)arg3;
+- (void)queryComplete:(id)arg1 remote:(_Bool)arg2 error:(id)arg3 completion:(id)arg4;
+- (id)findAsset:(_Bool)arg1 completion:(id)arg2;
 - (void)dealloc;
 - (id)initWithAssetType:(id)arg1;
 

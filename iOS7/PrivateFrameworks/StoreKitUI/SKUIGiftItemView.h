@@ -17,8 +17,8 @@
     UIImageView *_itemImageView;
     SKUIItemOfferButton *_itemOfferButton;
     SKUIItemState *_itemState;
-    int _itemStyle;
-    int _numberOfUserRatings;
+    long long _itemStyle;
+    long long _numberOfUserRatings;
     NSString *_price;
     UIImageView *_starRatingImageView;
     UILabel *_subtitleLabel1;
@@ -32,11 +32,11 @@
 @property(nonatomic) float userRating; // @synthesize userRating=_userRating;
 @property(copy, nonatomic) SKUIGiftTheme *theme; // @synthesize theme=_theme;
 @property(copy, nonatomic) NSString *price; // @synthesize price=_price;
-@property(nonatomic) int numberOfUserRatings; // @synthesize numberOfUserRatings=_numberOfUserRatings;
+@property(nonatomic) long long numberOfUserRatings; // @synthesize numberOfUserRatings=_numberOfUserRatings;
 @property(retain, nonatomic) SKUIItemState *itemState; // @synthesize itemState=_itemState;
 @property(readonly, nonatomic) SKUIItemOfferButton *itemOfferButton; // @synthesize itemOfferButton=_itemOfferButton;
 @property(readonly, nonatomic) SKUIItem *item; // @synthesize item=_item;
-@property(readonly, nonatomic) int giftItemStyle; // @synthesize giftItemStyle=_itemStyle;
+@property(readonly, nonatomic) long long giftItemStyle; // @synthesize giftItemStyle=_itemStyle;
 @property(copy, nonatomic) NSString *categoryName; // @synthesize categoryName=_categoryName;
 @property(copy, nonatomic) NSString *artistName; // @synthesize artistName=_artistName;
 - (void).cxx_destruct;
@@ -45,20 +45,22 @@
 - (id)_subtitleColor;
 - (void)_reloadUserRatingViews;
 - (void)_reloadSubtitles;
-- (void)_reloadItemState:(BOOL)arg1;
-- (float)_paddingRight;
-- (float)_paddingLeft;
+- (void)_reloadItemState:(_Bool)arg1;
+- (double)_paddingRight;
+- (double)_paddingLeft;
 - (id)_newLabel;
 - (struct CGSize)_imageSize;
 - (struct UIEdgeInsets)_imageEdgeInsets;
+- (void)_itemOfferConfirmAction:(id)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)setBackgroundColor:(id)arg1;
 - (void)layoutSubviews;
 @property(copy, nonatomic) NSString *title;
-- (void)setItemState:(id)arg1 animated:(BOOL)arg2;
+- (void)setItemState:(id)arg1 animated:(_Bool)arg2;
 @property(retain, nonatomic) UIImage *itemImage;
 @property(readonly, nonatomic) SKUIItemArtworkContext *artworkContext;
-- (id)initWithStyle:(int)arg1 item:(id)arg2 clientContext:(id)arg3;
+- (void)dealloc;
+- (id)initWithStyle:(long long)arg1 item:(id)arg2 clientContext:(id)arg3;
 
 @end
 

@@ -27,7 +27,7 @@
 - (id)_volumeSpecifiers;
 - (id)disconnectedSpecifiers;
 - (id)deviceSpecifiers;
-- (void)viewDidDisappear:(BOOL)arg1;
+- (void)viewDidDisappear:(_Bool)arg1;
 
 @end
 

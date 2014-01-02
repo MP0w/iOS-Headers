@@ -6,23 +6,29 @@
 
 #import <UIKit/_UIModalItemContentView.h>
 
-@class UITableView, UIView, _UIModalItemTextFiledBGView;
+@class UIScrollView, UITableView, UIView, _UIModalItemTextFiledBGView;
 
 @interface _UIModalItemAlertContentView : _UIModalItemContentView
 {
     _UIModalItemTextFiledBGView *_textFieldBGView;
-    BOOL _alertViewIsSetup;
+    _Bool _alertViewIsSetup;
     UITableView *_otherTableView;
     UIView *_2ButtonsSeparators;
     UIView *_tableViewTopSeparator;
+    UIScrollView *_labelsScrollView;
+    _Bool _itemWantsVerticalButtons;
+    _Bool _itemNeedsTwoTableViews;
 }
 
+- (void)_reloadButtons;
+- (void)setEnableFirstOtherButton:(_Bool)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (void)layout;
 - (void)_prepareViewIfNeeded;
+- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

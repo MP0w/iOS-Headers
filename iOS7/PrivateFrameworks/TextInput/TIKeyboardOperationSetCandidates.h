@@ -16,7 +16,7 @@
 
 + (id)operationWithCandidateResultSet:(id)arg1;
 + (id)operationWithCandidateResultSet:(id)arg1 documentOperation:(id)arg2;
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) TIKeyboardOperationSetMarkedText *documentOperation; // @synthesize documentOperation=_documentOperation;
 @property(readonly, nonatomic) TIKeyboardCandidateResultSet *candidateSet; // @synthesize candidateSet=_candidateSet;
 - (id)propertiesForDescription;

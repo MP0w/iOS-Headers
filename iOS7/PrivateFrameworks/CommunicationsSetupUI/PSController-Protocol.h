@@ -7,8 +7,8 @@
 #import "NSObject-Protocol.h"
 
 @protocol PSController <NSObject>
-- (void)statusBarWillAnimateByHeight:(float)arg1;
-- (BOOL)canBeShownFromSuspendedState;
+- (void)statusBarWillAnimateByHeight:(double)arg1;
+- (_Bool)canBeShownFromSuspendedState;
 - (void)willBecomeActive;
 - (void)willResignActive;
 - (id)readPreferenceValue:(id)arg1;

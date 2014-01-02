@@ -11,8 +11,9 @@
 }
 
 + (id)callWaitingLayoutViewWithTopButton:(id)arg1 bottomButton:(id)arg2;
-+ (float)yWindowOffsetForCallWaitingLayoutView;
++ (double)yWindowOffsetForCallWaitingLayoutView;
 - (id)initWithCustomTitle:(id)arg1;
+- (id)initWithCustomTitle:(id)arg1 subtitle:(id)arg2;
 - (id)initWithType:(int)arg1;
 
 @end

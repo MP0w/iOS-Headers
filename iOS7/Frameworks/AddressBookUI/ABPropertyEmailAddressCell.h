@@ -8,12 +8,12 @@
 
 @interface ABPropertyEmailAddressCell : ABPropertySimpleCell
 {
-    BOOL _VIP;
+    _Bool _VIP;
 }
 
-@property(nonatomic, getter=isVIP) BOOL VIP; // @synthesize VIP=_VIP;
+@property(nonatomic, getter=isVIP) _Bool VIP; // @synthesize VIP=_VIP;
 - (void)updateTransportButtons;
-- (BOOL)shouldPerformDefaultAction;
+- (_Bool)shouldPerformDefaultAction;
 - (void)updateWithPropertyItem:(id)arg1;
 - (void)_updateStar;
 

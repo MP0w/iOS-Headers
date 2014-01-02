@@ -8,6 +8,7 @@
 
 @class CPDumpType, NSString;
 
+// Not exported
 @interface CPDumpField : NSObject
 {
     CPDumpType *mType;

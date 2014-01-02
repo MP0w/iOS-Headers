@@ -6,48 +6,58 @@
 
 #import <PhotosUI/PUFeedCell.h>
 
-@class UIButton, UIImage, UIImageView;
+@class PLVideoOverlayButton, PUImageViewExtraction, UIButton, UIImage, UIImageView;
 
 @interface PUFeedImageCell : PUFeedCell
 {
-    BOOL _imageHidden;
-    BOOL __shouldHideOverlayPlayButton;
-    BOOL __shouldHideCenterOverlayImageView;
-    BOOL __shouldHideCommentButton;
+    _Bool _imageHidden;
+    _Bool __shouldUpdateOverlayPlayButtonBackground;
+    _Bool __shouldHideOverlayPlayButton;
+    _Bool __shouldHideCenterOverlayImageView;
+    _Bool __shouldHideCommentButton;
     UIImage *_image;
-    int _imageContentMode;
-    int _imageAlignment;
-    int _overlayOptions;
-    int _commentCount;
+    long long _imageContentMode;
+    long long _imageAlignment;
+    long long _overlayOptions;
+    long long _commentCount;
     UIImageView *__imageView;
-    UIButton *__overlayPlayButton;
+    long long __imageTag;
+    PLVideoOverlayButton *__overlayPlayButton;
+    UIImageView *__overlayPlayButtonBackgroundImageView;
+    PUImageViewExtraction *__overlayPlayButtonBackgroundExtraction;
     UIImageView *__centerOverlayImageView;
     UIButton *__commentButton;
     struct CGSize _maximumImageSize;
 }
 
-@property(nonatomic, setter=_setShouldHideCommentButton:) BOOL _shouldHideCommentButton; // @synthesize _shouldHideCommentButton=__shouldHideCommentButton;
+@property(nonatomic, setter=_setShouldHideCommentButton:) _Bool _shouldHideCommentButton; // @synthesize _shouldHideCommentButton=__shouldHideCommentButton;
 @property(retain, nonatomic, setter=_setCommentButton:) UIButton *_commentButton; // @synthesize _commentButton=__commentButton;
-@property(nonatomic, setter=_setShouldHideCenterOverlayImageView:) BOOL _shouldHideCenterOverlayImageView; // @synthesize _shouldHideCenterOverlayImageView=__shouldHideCenterOverlayImageView;
+@property(nonatomic, setter=_setShouldHideCenterOverlayImageView:) _Bool _shouldHideCenterOverlayImageView; // @synthesize _shouldHideCenterOverlayImageView=__shouldHideCenterOverlayImageView;
 @property(retain, nonatomic, setter=_setCenterOverlayImageView:) UIImageView *_centerOverlayImageView; // @synthesize _centerOverlayImageView=__centerOverlayImageView;
-@property(nonatomic, setter=_setShouldHideOverlayPlayButton:) BOOL _shouldHideOverlayPlayButton; // @synthesize _shouldHideOverlayPlayButton=__shouldHideOverlayPlayButton;
-@property(retain, nonatomic, setter=_setOverlayPlayButton:) UIButton *_overlayPlayButton; // @synthesize _overlayPlayButton=__overlayPlayButton;
+@property(nonatomic, setter=_setShouldHideOverlayPlayButton:) _Bool _shouldHideOverlayPlayButton; // @synthesize _shouldHideOverlayPlayButton=__shouldHideOverlayPlayButton;
+@property(nonatomic, setter=_setShouldUpdateOverlayPlayButtonBackground:) _Bool _shouldUpdateOverlayPlayButtonBackground; // @synthesize _shouldUpdateOverlayPlayButtonBackground=__shouldUpdateOverlayPlayButtonBackground;
+@property(retain, nonatomic, setter=_setOverlayPlayButtonBackgroundExtraction:) PUImageViewExtraction *_overlayPlayButtonBackgroundExtraction; // @synthesize _overlayPlayButtonBackgroundExtraction=__overlayPlayButtonBackgroundExtraction;
+@property(retain, nonatomic, setter=_setOverlayPlayButtonBackgroundImageView:) UIImageView *_overlayPlayButtonBackgroundImageView; // @synthesize _overlayPlayButtonBackgroundImageView=__overlayPlayButtonBackgroundImageView;
+@property(retain, nonatomic, setter=_setOverlayPlayButton:) PLVideoOverlayButton *_overlayPlayButton; // @synthesize _overlayPlayButton=__overlayPlayButton;
+@property(nonatomic, setter=_setImageTag:) long long _imageTag; // @synthesize _imageTag=__imageTag;
 @property(retain, nonatomic, setter=_setImageView:) UIImageView *_imageView; // @synthesize _imageView=__imageView;
-@property(nonatomic) int commentCount; // @synthesize commentCount=_commentCount;
-@property(nonatomic) int overlayOptions; // @synthesize overlayOptions=_overlayOptions;
-@property(nonatomic) int imageAlignment; // @synthesize imageAlignment=_imageAlignment;
+@property(nonatomic) long long commentCount; // @synthesize commentCount=_commentCount;
+@property(nonatomic) long long overlayOptions; // @synthesize overlayOptions=_overlayOptions;
+@property(nonatomic) long long imageAlignment; // @synthesize imageAlignment=_imageAlignment;
 @property(nonatomic) struct CGSize maximumImageSize; // @synthesize maximumImageSize=_maximumImageSize;
-@property(nonatomic, getter=isImageHidden) BOOL imageHidden; // @synthesize imageHidden=_imageHidden;
-@property(nonatomic) int imageContentMode; // @synthesize imageContentMode=_imageContentMode;
+@property(nonatomic, getter=isImageHidden) _Bool imageHidden; // @synthesize imageHidden=_imageHidden;
+@property(nonatomic) long long imageContentMode; // @synthesize imageContentMode=_imageContentMode;
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
 - (void).cxx_destruct;
 - (void)_handleCommentButton:(id)arg1;
 - (void)_handlePlayButton:(id)arg1;
 - (id)_imageCellDelegate;
+- (void)_invalidateOverlayPlayButtonBackground;
 - (void)_updateCommentButton;
 - (void)_updateOverlays;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
+- (void)setImage:(id)arg1 withTag:(long long)arg2;
 - (void)prepareForReuse;
 - (id)initWithFrame:(struct CGRect)arg1;
 

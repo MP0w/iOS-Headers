@@ -6,12 +6,13 @@
 
 #import <UIKit/_UIPopoverLayoutInfo.h>
 
+// Not exported
 @interface _UISlidingPopoverLayoutInfo : _UIPopoverLayoutInfo
 {
 }
 
 - (void)_updateOutputs;
-- (struct CGSize)_popoverViewSizeForContentSize:(struct CGSize)arg1 arrowDirection:(unsigned int)arg2;
+- (struct CGSize)_popoverViewSizeForContentSize:(struct CGSize)arg1 arrowDirection:(unsigned long long)arg2;
 - (id)init;
 
 @end

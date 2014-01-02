@@ -19,11 +19,11 @@
 - (id)description;
 - (void)unlock;
 - (void)lock;
-- (BOOL)lockForWritingBeforeDate:(id)arg1;
-- (BOOL)tryLockForWriting;
+- (_Bool)lockForWritingBeforeDate:(id)arg1;
+- (_Bool)tryLockForWriting;
 - (void)lockForWriting;
-- (BOOL)lockForReadingBeforeDate:(id)arg1;
-- (BOOL)tryLockForReading;
+- (_Bool)lockForReadingBeforeDate:(id)arg1;
+- (_Bool)tryLockForReading;
 - (void)lockForReading;
 - (void)finalize;
 - (void)dealloc;

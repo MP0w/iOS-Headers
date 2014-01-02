@@ -13,17 +13,17 @@
     unsigned int _identifier;
     float _level;
     UIScreen *_screen;
-    BOOL _orderOutPending;
+    _Bool _orderOutPending;
 }
 
 + (id)contextWithIdentifier:(unsigned int)arg1 level:(float)arg2 screen:(id)arg3;
-@property(nonatomic, getter=isOrderOutPending) BOOL orderOutPending; // @synthesize orderOutPending=_orderOutPending;
+@property(nonatomic, getter=isOrderOutPending) _Bool orderOutPending; // @synthesize orderOutPending=_orderOutPending;
 @property(readonly, nonatomic) UIScreen *screen; // @synthesize screen=_screen;
 @property(readonly, nonatomic) float level; // @synthesize level=_level;
 @property(readonly, nonatomic) unsigned int identifier; // @synthesize identifier=_identifier;
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)dealloc;
 - (id)initWithIdentifier:(unsigned int)arg1 level:(float)arg2 screen:(id)arg3;
 

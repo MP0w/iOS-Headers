@@ -10,12 +10,11 @@
 {
 }
 
-- (BOOL)allowsInterfaceRotation;
-- (BOOL)embedsActivityViewForOrientation:(int)arg1;
-- (struct UIEdgeInsets)collectionViewLayoutContentInsetForOrientation:(int)arg1;
-- (BOOL)maximizeImageHeight;
-- (float)maxImageDimension;
-- (float)interItemSpacing;
+- (_Bool)allowsInterfaceRotation;
+- (_Bool)embedsActivityViewForOrientation:(long long)arg1;
+- (struct UIEdgeInsets)collectionViewLayoutContentInsetForOrientation:(long long)arg1;
+- (_Bool)maximizeImageHeight;
+- (double)interItemSpacing;
 - (int)zoomingImageFormat;
 - (int)qualityImageFormat;
 - (int)fastImageFormat;

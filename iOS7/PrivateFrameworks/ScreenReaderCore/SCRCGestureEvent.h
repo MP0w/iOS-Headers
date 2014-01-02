@@ -10,30 +10,30 @@
 
 @interface SCRCGestureEvent : NSObject
 {
-    unsigned int _deviceIdentifier;
+    unsigned long long _deviceIdentifier;
     SCRCGestureFinger *_finger[5];
-    unsigned int _fingerCount;
+    unsigned long long _fingerCount;
     double _time;
     struct CGPoint _averageLocation;
 }
 
 - (struct CGPoint)magneticLocation;
-- (BOOL)isCancelEvent;
+- (_Bool)isCancelEvent;
 - (struct CGPoint)balancedLocation;
 - (struct CGPoint)averageLocation;
 - (struct CGRect)fingerFrame;
 - (id)fingers;
-- (id)fingerWithoutIdentifier:(unsigned int)arg1;
-- (id)fingerWithIdentifier:(unsigned int)arg1;
-- (id)fingerAtIndex:(unsigned int)arg1;
-- (unsigned int)fingerCount;
-- (void)removeFingerWithIdentifier:(unsigned int)arg1;
-- (void)addFingerWithIdentifier:(unsigned int)arg1 location:(struct CGPoint)arg2;
+- (id)fingerWithoutIdentifier:(unsigned long long)arg1;
+- (id)fingerWithIdentifier:(unsigned long long)arg1;
+- (id)fingerAtIndex:(unsigned long long)arg1;
+- (unsigned long long)fingerCount;
+- (void)removeFingerWithIdentifier:(unsigned long long)arg1;
+- (void)addFingerWithIdentifier:(unsigned long long)arg1 location:(struct CGPoint)arg2;
 - (double)time;
-- (unsigned int)deviceIdentifier;
+- (unsigned long long)deviceIdentifier;
 - (id)description;
 - (void)dealloc;
-- (id)initWithDeviceIdentifier:(unsigned int)arg1;
+- (id)initWithDeviceIdentifier:(unsigned long long)arg1;
 
 @end
 

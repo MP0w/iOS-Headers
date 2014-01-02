@@ -7,6 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol CKPreviewDispatchCachePolicyDelegate <NSObject>
-- (BOOL)previewDispatchCache:(id)arg1 shouldReplaceCachedPreview:(id)arg2 withPreview:(id)arg3;
+- (_Bool)previewDispatchCache:(id)arg1 shouldReplaceCachedPreview:(id)arg2 withPreview:(id)arg3;
 @end
 

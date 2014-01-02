@@ -4,19 +4,19 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "UIButton.h"
+#import <MediaPlayer/MPButton.h>
 
-@interface MPKnockoutButton : UIButton
+@interface MPKnockoutButton : MPButton
 {
-    float _defaultAlpha;
 }
 
-+ (id)buttonWithType:(int)arg1;
-@property(nonatomic) float defaultAlpha; // @synthesize defaultAlpha=_defaultAlpha;
-- (void)_updateMask;
-- (void)willMoveToWindow:(id)arg1;
-- (void)setTitle:(id)arg1 forState:(unsigned int)arg2;
-- (void)setImage:(id)arg1 forState:(unsigned int)arg2;
++ (id)easyTouchButtonWithType:(long long)arg1;
+- (void)didMoveToSuperview;
+- (void)_updateForStateChangeAnimated:(_Bool)arg1;
+- (void)_updateSelected:(_Bool)arg1 highlighted:(_Bool)arg2;
+- (_Bool)_drawingAsSelected;
+- (void)setSelected:(_Bool)arg1;
+- (void)setHighlighted:(_Bool)arg1;
 
 @end
 

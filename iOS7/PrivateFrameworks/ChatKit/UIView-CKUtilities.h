@@ -9,6 +9,6 @@
 @interface UIView (CKUtilities)
 - (struct CGSize)__ck_frameSizeForAlignmentRectSize:(struct CGSize)arg1;
 - (struct CGSize)__ck_alignmentRectSizeForFrameSize:(struct CGSize)arg1;
-- (BOOL)__ck_containsFirstResponder;
+- (_Bool)__ck_containsFirstResponder;
 @end
 

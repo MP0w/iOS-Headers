@@ -10,9 +10,9 @@
 {
 }
 
-- (unsigned int)supportedInterfaceOrientations;
-- (BOOL)shouldAutorotate;
-- (BOOL)disablesAutomaticKeyboardDismissal;
+- (unsigned long long)supportedInterfaceOrientations;
+- (_Bool)shouldAutorotate;
+- (_Bool)disablesAutomaticKeyboardDismissal;
 
 @end
 

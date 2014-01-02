@@ -18,15 +18,15 @@
 
 @property(retain, nonatomic) NSURL *desiredIconStateURL; // @synthesize desiredIconStateURL=_desiredIconStateURL;
 @property(retain, nonatomic) NSURL *currentIconStateURL; // @synthesize currentIconStateURL=_currentIconStateURL;
-- (BOOL)_save:(id)arg1 url:(id)arg2 error:(id *)arg3;
-- (BOOL)_delete:(id)arg1 error:(id *)arg2;
+- (_Bool)_save:(id)arg1 url:(id)arg2 error:(id *)arg3;
+- (_Bool)_delete:(id)arg1 error:(id *)arg2;
 - (id)_load:(id)arg1 error:(id *)arg2;
 - (id)loadDesiredIconState:(id *)arg1;
 - (id)loadCurrentIconState:(id *)arg1;
-- (BOOL)deleteDesiredIconState:(id *)arg1;
-- (BOOL)deleteCurrentIconState:(id *)arg1;
-- (BOOL)saveDesiredIconState:(id)arg1 error:(id *)arg2;
-- (BOOL)saveCurrentIconState:(id)arg1 error:(id *)arg2;
+- (_Bool)deleteDesiredIconState:(id *)arg1;
+- (_Bool)deleteCurrentIconState:(id *)arg1;
+- (_Bool)saveDesiredIconState:(id)arg1 error:(id *)arg2;
+- (_Bool)saveCurrentIconState:(id)arg1 error:(id *)arg2;
 - (void)dealloc;
 
 @end

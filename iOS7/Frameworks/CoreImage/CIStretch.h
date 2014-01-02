@@ -8,6 +8,7 @@
 
 @class CIImage, CIVector;
 
+// Not exported
 @interface CIStretch : CIFilter
 {
     CIImage *inputImage;

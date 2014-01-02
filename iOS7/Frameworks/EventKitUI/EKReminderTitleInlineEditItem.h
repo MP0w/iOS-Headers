@@ -10,11 +10,11 @@
 {
 }
 
-- (BOOL)saveAndDismissWithForce:(BOOL)arg1;
+- (_Bool)saveAndDismissWithForce:(_Bool)arg1;
 - (id)textFromReminder;
-- (int)cellStyle;
+- (long long)cellStyle;
 - (id)newCell;
-- (void)addStylingToCell:(id)arg1 forSubitemAtIndex:(unsigned int)arg2 inSubsection:(unsigned int)arg3;
+- (void)addStylingToCell:(id)arg1 forSubitemAtIndex:(unsigned long long)arg2 inSubsection:(unsigned long long)arg3;
 
 @end
 

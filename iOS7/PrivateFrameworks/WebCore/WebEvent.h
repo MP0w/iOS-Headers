@@ -16,10 +16,11 @@
     NSString *_characters;
     NSString *_charactersIgnoringModifiers;
     unsigned int _modifierFlags;
-    BOOL _keyRepeating;
-    BOOL _popupVariant;
+    _Bool _keyRepeating;
+    _Bool _popupVariant;
+    unsigned long long _keyboardFlags;
     unsigned short _keyCode;
-    BOOL _tabKey;
+    _Bool _tabKey;
     int _characterSet;
     float _deltaX;
     float _deltaY;
@@ -27,19 +28,19 @@
     NSArray *_touchLocations;
     NSArray *_touchIdentifiers;
     NSArray *_touchPhases;
-    BOOL _isGesture;
+    _Bool _isGesture;
     float _gestureScale;
     float _gestureRotation;
-    BOOL _wasHandled;
+    _Bool _wasHandled;
 }
 
-@property(nonatomic) BOOL wasHandled; // @synthesize wasHandled=_wasHandled;
+@property(nonatomic) _Bool wasHandled; // @synthesize wasHandled=_wasHandled;
 @property(readonly, nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
 @property(readonly, nonatomic) int type; // @synthesize type=_type;
 - (id).cxx_construct;
 @property(readonly, nonatomic) float gestureRotation;
 @property(readonly, nonatomic) float gestureScale;
-@property(readonly, nonatomic) BOOL isGesture;
+@property(readonly, nonatomic) _Bool isGesture;
 @property(readonly, nonatomic) NSArray *touchPhases;
 @property(readonly, nonatomic) NSArray *touchIdentifiers;
 @property(readonly, nonatomic) NSArray *touchLocations;
@@ -47,10 +48,11 @@
 @property(readonly, nonatomic) float deltaY;
 @property(readonly, nonatomic) float deltaX;
 @property(readonly, nonatomic) int characterSet;
-@property(readonly, nonatomic, getter=isTabKey) BOOL tabKey;
+@property(readonly, nonatomic, getter=isTabKey) _Bool tabKey;
 @property(readonly, nonatomic) unsigned short keyCode;
-@property(readonly, nonatomic, getter=isPopupVariant) BOOL popupVariant;
-@property(readonly, nonatomic, getter=isKeyRepeating) BOOL keyRepeating;
+@property(readonly, nonatomic) unsigned long long keyboardFlags;
+@property(readonly, nonatomic, getter=isPopupVariant) _Bool popupVariant;
+@property(readonly, nonatomic, getter=isKeyRepeating) _Bool keyRepeating;
 @property(readonly, nonatomic) unsigned int modifierFlags;
 @property(readonly, nonatomic) NSString *charactersIgnoringModifiers;
 @property(readonly, nonatomic) NSString *characters;
@@ -65,8 +67,9 @@
 - (id)_modiferFlagsDescription;
 - (id)_typeDescription;
 - (void)dealloc;
-- (id)initWithKeyEventType:(int)arg1 timeStamp:(double)arg2 characters:(id)arg3 charactersIgnoringModifiers:(id)arg4 modifiers:(unsigned int)arg5 isRepeating:(BOOL)arg6 isPopupVariant:(BOOL)arg7 keyCode:(unsigned short)arg8 isTabKey:(BOOL)arg9 characterSet:(int)arg10;
-- (id)initWithTouchEventType:(int)arg1 timeStamp:(double)arg2 location:(struct CGPoint)arg3 modifiers:(unsigned int)arg4 touchCount:(unsigned int)arg5 touchLocations:(id)arg6 touchIdentifiers:(id)arg7 touchPhases:(id)arg8 isGesture:(BOOL)arg9 gestureScale:(float)arg10 gestureRotation:(float)arg11;
+- (id)initWithKeyEventType:(int)arg1 timeStamp:(double)arg2 characters:(id)arg3 charactersIgnoringModifiers:(id)arg4 modifiers:(unsigned int)arg5 isRepeating:(_Bool)arg6 withFlags:(unsigned long long)arg7 keyCode:(unsigned short)arg8 isTabKey:(_Bool)arg9 characterSet:(int)arg10;
+- (id)initWithKeyEventType:(int)arg1 timeStamp:(double)arg2 characters:(id)arg3 charactersIgnoringModifiers:(id)arg4 modifiers:(unsigned int)arg5 isRepeating:(_Bool)arg6 isPopupVariant:(_Bool)arg7 keyCode:(unsigned short)arg8 isTabKey:(_Bool)arg9 characterSet:(int)arg10;
+- (id)initWithTouchEventType:(int)arg1 timeStamp:(double)arg2 location:(struct CGPoint)arg3 modifiers:(unsigned int)arg4 touchCount:(unsigned int)arg5 touchLocations:(id)arg6 touchIdentifiers:(id)arg7 touchPhases:(id)arg8 isGesture:(_Bool)arg9 gestureScale:(float)arg10 gestureRotation:(float)arg11;
 - (id)initWithScrollWheelEventWithTimeStamp:(double)arg1 location:(struct CGPoint)arg2 deltaX:(float)arg3 deltaY:(float)arg4;
 - (id)initWithMouseEventType:(int)arg1 timeStamp:(double)arg2 location:(struct CGPoint)arg3;
 

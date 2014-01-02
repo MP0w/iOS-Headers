@@ -12,13 +12,13 @@
 
 @interface SLFacebookPostPrivacySetting : NSObject <NSSecureCoding>
 {
+    int _type;
     NSString *_identifier;
     NSString *_name;
     NSDictionary *_parameters;
-    int _type;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 + (int)_privacySettingTypeFromTypeIdentifier:(id)arg1;
 + (id)postPrivacySettingsForPrivacyOptions:(id)arg1;
 + (id)postPrivacySettingForPrivacyOptionDictionary:(id)arg1;

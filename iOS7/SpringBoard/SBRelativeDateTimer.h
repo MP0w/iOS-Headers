@@ -15,13 +15,13 @@
     NSDate *_date;
     id <SBRelativeDateTimerDelegate> _delegate;
     int _currResolution;
-    int _currValue;
+    long long _currValue;
 }
 
 + (void)invalidateTimer:(id)arg1;
 + (void)addTimerToMainRunLoop:(id)arg1;
 + (void)initialize;
-- (double)_nextFireInterval:(id)arg1 resolution:(int)arg2 comparedToNow:(int)arg3;
+- (double)_nextFireInterval:(id)arg1 resolution:(int)arg2 comparedToNow:(long long)arg3;
 - (void)_fireAndUpdateTimerIfNecessary;
 - (id)_timeDifferenceFromDate:(id)arg1;
 - (void)invalidate;

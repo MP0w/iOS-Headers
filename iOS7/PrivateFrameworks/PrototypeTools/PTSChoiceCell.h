@@ -10,7 +10,7 @@
 {
 }
 
-- (void)setChecked:(BOOL)arg1;
+- (void)setChecked:(_Bool)arg1;
 - (void)setTitle:(id)arg1;
 - (void)prepareForReuse;
 - (id)initWithReuseIdentifier:(id)arg1;

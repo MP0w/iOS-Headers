@@ -5,8 +5,8 @@
  */
 
 @protocol OABReaderClient
-+ (BOOL)tablesAreAllowed;
-+ (BOOL)escherIsFullySupported;
++ (_Bool)tablesAreAllowed;
++ (_Bool)escherIsFullySupported;
 + (void)readClientDataFromTableCell:(id)arg1 toTableCell:(id)arg2 state:(id)arg3;
 + (void)readClientDataFromGroup:(id)arg1 toGroup:(id)arg2 state:(id)arg3;
 + (void)readClientDataFromShape:(id)arg1 toGraphic:(id)arg2 state:(id)arg3;

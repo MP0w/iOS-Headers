@@ -11,12 +11,12 @@
 @interface CalDAVContainerSyncTaskGroup : CoreDAVContainerSyncTaskGroup
 {
     id <CalDAVCalendar> _calendar;
-    BOOL _getScheduleTags;
-    BOOL _getScheduleChanges;
-    BOOL _syncEvents;
-    BOOL _syncTodos;
-    BOOL _supportsExtendedCalendarQuery;
-    BOOL _fallbackOnMultiGetError;
+    _Bool _getScheduleTags;
+    _Bool _getScheduleChanges;
+    _Bool _syncEvents;
+    _Bool _syncTodos;
+    _Bool _supportsExtendedCalendarQuery;
+    _Bool _fallbackOnMultiGetError;
     int _fetchingEtagState;
     NSDateComponents *_eventFilterStartDate;
     NSDateComponents *_eventFilterEndDate;
@@ -24,26 +24,26 @@
     NSDateComponents *_todoFilterEndDate;
 }
 
-@property BOOL fallbackOnMultiGetError; // @synthesize fallbackOnMultiGetError=_fallbackOnMultiGetError;
+@property _Bool fallbackOnMultiGetError; // @synthesize fallbackOnMultiGetError=_fallbackOnMultiGetError;
 @property(retain) NSDateComponents *todoFilterEndDate; // @synthesize todoFilterEndDate=_todoFilterEndDate;
 @property(retain) NSDateComponents *todoFilterStartDate; // @synthesize todoFilterStartDate=_todoFilterStartDate;
 @property(retain) NSDateComponents *eventFilterEndDate; // @synthesize eventFilterEndDate=_eventFilterEndDate;
 @property(retain) NSDateComponents *eventFilterStartDate; // @synthesize eventFilterStartDate=_eventFilterStartDate;
-@property BOOL supportsExtendedCalendarQuery; // @synthesize supportsExtendedCalendarQuery=_supportsExtendedCalendarQuery;
-@property BOOL syncTodos; // @synthesize syncTodos=_syncTodos;
-@property BOOL syncEvents; // @synthesize syncEvents=_syncEvents;
-@property BOOL getScheduleChanges; // @synthesize getScheduleChanges=_getScheduleChanges;
-@property BOOL getScheduleTags; // @synthesize getScheduleTags=_getScheduleTags;
+@property _Bool supportsExtendedCalendarQuery; // @synthesize supportsExtendedCalendarQuery=_supportsExtendedCalendarQuery;
+@property _Bool syncTodos; // @synthesize syncTodos=_syncTodos;
+@property _Bool syncEvents; // @synthesize syncEvents=_syncEvents;
+@property _Bool getScheduleChanges; // @synthesize getScheduleChanges=_getScheduleChanges;
+@property _Bool getScheduleTags; // @synthesize getScheduleTags=_getScheduleTags;
 @property(retain) id <CalDAVCalendar> calendar; // @synthesize calendar=_calendar;
-- (id)initWithFolderURL:(id)arg1 previousCTag:(id)arg2 previousSyncToken:(id)arg3 getScheduleTags:(BOOL)arg4 getScheduleChanges:(BOOL)arg5 accountInfoProvider:(id)arg6 taskManager:(id)arg7;
-- (id)initWithFolderURL:(id)arg1 previousCTag:(id)arg2 previousSyncToken:(id)arg3 actions:(id)arg4 getScheduleTags:(BOOL)arg5 getScheduleChanges:(BOOL)arg6 accountInfoProvider:(id)arg7 taskManager:(id)arg8 appSpecificCalendarItemClass:(Class)arg9;
+- (id)initWithFolderURL:(id)arg1 previousCTag:(id)arg2 previousSyncToken:(id)arg3 getScheduleTags:(_Bool)arg4 getScheduleChanges:(_Bool)arg5 accountInfoProvider:(id)arg6 taskManager:(id)arg7;
+- (id)initWithFolderURL:(id)arg1 previousCTag:(id)arg2 previousSyncToken:(id)arg3 actions:(id)arg4 getScheduleTags:(_Bool)arg5 getScheduleChanges:(_Bool)arg6 accountInfoProvider:(id)arg7 taskManager:(id)arg8 appSpecificCalendarItemClass:(Class)arg9;
 - (id)copyAdditionalResourcePropertiesToFetch;
-- (BOOL)shouldFetchResourceWithEtag:(id)arg1 propertiesToValues:(id)arg2;
+- (_Bool)shouldFetchResourceWithEtag:(id)arg1 propertiesToValues:(id)arg2;
 - (id)dataContentType;
 - (id)copyGetEtagTaskWithPropertiesToFind:(id)arg1;
-- (BOOL)_shouldFetchTodosForState:(int)arg1;
-- (BOOL)_shouldFetchEventsForState:(int)arg1;
-- (BOOL)shouldFetchMoreETags;
+- (_Bool)_shouldFetchTodosForState:(int)arg1;
+- (_Bool)_shouldFetchEventsForState:(int)arg1;
+- (_Bool)shouldFetchMoreETags;
 - (void)applyAdditionalPropertiesFromPostTask:(id)arg1;
 - (void)applyAdditionalPropertiesFromPutTask:(id)arg1;
 - (id)copyPutTaskWithPayloadItem:(id)arg1 forAction:(id)arg2;

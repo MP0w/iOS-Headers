@@ -11,16 +11,16 @@
 @interface MRTouch : NSObject
 {
     NSMutableArray *_gestureRecognizers;
-    unsigned int _tapCount;
     int _phase;
-    struct CGPoint _location;
     double _timestamp;
+    unsigned long long _tapCount;
+    struct CGPoint _location;
 }
 
 + (id)touchWithUITouch:(id)arg1 inView:(id)arg2;
-+ (id)touchWithLocation:(struct CGPoint)arg1 timestamp:(double)arg2 tapCount:(unsigned int)arg3;
++ (id)touchWithLocation:(struct CGPoint)arg1 timestamp:(double)arg2 tapCount:(unsigned long long)arg3;
 @property(nonatomic) int phase; // @synthesize phase=_phase;
-@property(nonatomic) unsigned int tapCount; // @synthesize tapCount=_tapCount;
+@property(nonatomic) unsigned long long tapCount; // @synthesize tapCount=_tapCount;
 @property(nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
 @property(nonatomic) struct CGPoint location; // @synthesize location=_location;
 - (id)description;

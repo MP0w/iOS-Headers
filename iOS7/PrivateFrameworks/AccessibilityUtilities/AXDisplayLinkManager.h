@@ -10,33 +10,37 @@
 
 @interface AXDisplayLinkManager : NSObject
 {
-    CADisplayLink *_displayLink;
-    BOOL _handlingDisplayRefresh;
-    BOOL _shouldInvalidate;
-    BOOL _shouldInvalidateAutomatically;
+    _Bool _hasUpdatedTargetActions;
+    _Bool _handlingDisplayRefresh;
+    CADisplayLink *_storedDisplayLink;
     NSMutableSet *_activeTargetActions;
-    NSMutableSet *_addedTargetActions;
-    NSMutableSet *_removedTargetActions;
+    NSMutableSet *_updatedTargetActions;
+    unsigned long long _warmUpModeRequirementsCount;
 }
 
-+ (void)releaseCurrentDisplayLinkManager;
++ (void)_releaseCurrentDisplayLinkManager;
 + (id)currentDisplayLinkManager;
-@property(nonatomic) BOOL shouldInvalidateAutomatically; // @synthesize shouldInvalidateAutomatically=_shouldInvalidateAutomatically;
-@property(nonatomic, setter=_setShouldInvalidate:) BOOL _shouldInvalidate; // @synthesize _shouldInvalidate;
-@property(nonatomic, getter=_isHandlingDisplayRefresh, setter=_setHandlingDisplayRefresh:) BOOL _handlingDisplayRefresh; // @synthesize _handlingDisplayRefresh;
-@property(retain, nonatomic, setter=_setRemovedTargetActions:) NSMutableSet *_removedTargetActions; // @synthesize _removedTargetActions;
-@property(retain, nonatomic, setter=_setAddedTargetActions:) NSMutableSet *_addedTargetActions; // @synthesize _addedTargetActions;
-@property(retain, nonatomic, setter=_setActiveTargetActions:) NSMutableSet *_activeTargetActions; // @synthesize _activeTargetActions;
+@property(nonatomic) unsigned long long warmUpModeRequirementsCount; // @synthesize warmUpModeRequirementsCount=_warmUpModeRequirementsCount;
+@property(nonatomic, getter=isHandlingDisplayRefresh) _Bool handlingDisplayRefresh; // @synthesize handlingDisplayRefresh=_handlingDisplayRefresh;
+@property(nonatomic) _Bool hasUpdatedTargetActions; // @synthesize hasUpdatedTargetActions=_hasUpdatedTargetActions;
+@property(retain, nonatomic) NSMutableSet *updatedTargetActions; // @synthesize updatedTargetActions=_updatedTargetActions;
+@property(retain, nonatomic) NSMutableSet *activeTargetActions; // @synthesize activeTargetActions=_activeTargetActions;
+@property(retain, nonatomic) CADisplayLink *storedDisplayLink; // @synthesize storedDisplayLink=_storedDisplayLink;
 - (void)_displayDidRefresh:(id)arg1;
-- (void)invalidate;
+- (void)endRequiringWarmUpMode;
+- (void)beginRequiringWarmUpMode;
+@property(readonly, nonatomic, getter=isWarmUpModeEnabled) _Bool warmUpModeEnabled;
+- (void)_didRemoveLastTargetAction;
+- (void)_didAddFirstTargetAction;
+- (id)_prepareUpdatedTargetActionsForModification;
 - (void)removeTarget:(id)arg1 selector:(SEL)arg2;
-- (void)addTarget:(id)arg1 selector:(SEL)arg2 frameInterval:(int)arg3;
+- (void)addTarget:(id)arg1 selector:(SEL)arg2 frameInterval:(unsigned long long)arg3;
 - (void)addTarget:(id)arg1 selector:(SEL)arg2;
-@property(retain, nonatomic, setter=_setDisplayLink:) CADisplayLink *_displayLink;
-@property(readonly, nonatomic) int frameInterval;
+@property(retain, nonatomic) CADisplayLink *displayLink;
+@property(readonly, nonatomic) unsigned long long frameInterval;
 @property(readonly, nonatomic) double timestamp;
 @property(readonly, nonatomic) double duration;
-@property(readonly, nonatomic, getter=isPaused) BOOL paused;
+@property(readonly, nonatomic, getter=isPaused) _Bool paused;
 - (void)dealloc;
 - (id)init;
 

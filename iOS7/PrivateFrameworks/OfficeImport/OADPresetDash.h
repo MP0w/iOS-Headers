@@ -6,6 +6,7 @@
 
 #import <OfficeImport/OADDash.h>
 
+// Not exported
 @interface OADPresetDash : OADDash
 {
     unsigned char mType;
@@ -13,10 +14,10 @@
 }
 
 + (id)defaultProperties;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)equivalentCustomDash;
-- (BOOL)isTypeOverridden;
+- (_Bool)isTypeOverridden;
 - (void)setType:(int)arg1;
 - (int)type;
 - (id)initWithDefaults;

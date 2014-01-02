@@ -11,7 +11,7 @@
 @interface SSSoftwareUpdatesResponse : NSObject
 {
     NSError *_error;
-    BOOL _failed;
+    _Bool _failed;
     NSArray *_updateItems;
 }
 
@@ -21,7 +21,7 @@
 - (id)copyUpdateItemDictionaries;
 - (id)description;
 @property(readonly) NSArray *updateItems;
-@property(readonly, getter=isFailed) BOOL failed;
+@property(readonly, getter=isFailed) _Bool failed;
 @property(readonly) NSError *error;
 - (void)dealloc;
 - (id)initWithError:(id)arg1;

@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface WebTextIteratorPrivate : NSObject
 {
     struct OwnPtr<WebCore::TextIterator> _textIterator;

@@ -6,18 +6,26 @@
 
 #import "NSObject.h"
 
+@class NSObject<OS_dispatch_queue>;
+
 @interface AADeviceLocatorService : NSObject
 {
     int _lastKnownState;
-    BOOL _hasAttemptedToFetchState;
+    _Bool _hasAttemptedToFetchState;
+    _Bool _wantsToEnable;
+    NSObject<OS_dispatch_queue> *_stateUpdateQueue;
 }
 
 + (id)sharedInstance;
+- (void).cxx_destruct;
+- (_Bool)shouldEnable;
+- (void)setShouldEnable:(_Bool)arg1;
 - (void)disableInContext:(int)arg1 withWipeToken:(id)arg2;
 - (void)enableInContext:(int)arg1;
-- (void)_updateStateAndNotify:(BOOL)arg1;
-- (BOOL)isChangingState;
-- (BOOL)isEnabled;
+- (void)_updateStateAndNotify:(_Bool)arg1;
+- (_Bool)isChangingState;
+- (_Bool)isEnabled;
+- (id)init;
 
 @end
 

@@ -26,8 +26,8 @@
 - (void)scrollViewDidEndScrollingAnimation:(id)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (void)forwardInvocation:(id)arg1;
-- (void)setContentOffset:(struct CGPoint)arg1 animated:(BOOL)arg2 completionBlock:(id)arg3;
-- (void)scrollFrameToVisible:(struct CGRect)arg1 animated:(BOOL)arg2 completionBlock:(id)arg3;
+- (void)setContentOffset:(struct CGPoint)arg1 animated:(_Bool)arg2 completionBlock:(id)arg3;
+- (void)scrollFrameToVisible:(struct CGRect)arg1 animated:(_Bool)arg2 completionBlock:(id)arg3;
 - (void)detachFromScrollView;
 - (void)attachToScrollView:(id)arg1;
 - (void)dealloc;

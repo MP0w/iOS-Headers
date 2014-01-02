@@ -13,7 +13,7 @@
 + (id)languagesSupportingDateOrdinals;
 - (id)dateHeaderWithDate:(id)arg1 locale:(id)arg2;
 - (id)dateFormatForLocale:(id)arg1;
-- (BOOL)isDateOrdinalSupportedForLocale:(id)arg1;
+- (_Bool)isDateOrdinalSupportedForLocale:(id)arg1;
 
 @end
 

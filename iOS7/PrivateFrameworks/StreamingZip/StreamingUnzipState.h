@@ -8,6 +8,7 @@
 
 @class NSArray, NSDictionary, NSMutableData, NSString;
 
+// Not exported
 @interface StreamingUnzipState : NSObject
 {
     struct z_stream_s _zlibState;
@@ -17,7 +18,7 @@
     unsigned long long _uncompressedBytesOutput;
     NSString *_unzipPath;
     NSArray *_md5Hashes;
-    unsigned long _currentLFRecordAllocationSize;
+    unsigned long long _currentLFRecordAllocationSize;
     struct CC_MD5state_st _md5Context;
     NSDictionary *_streamInfoDict;
     NSString *_lastChunkPartialHash;
@@ -30,28 +31,29 @@
     unsigned long long _outputFileOffsetAtLastBlockEnd;
     unsigned long long _recordsProcessed;
     unsigned long long _totalRecordCount;
-    unsigned long _currentCRC32;
+    unsigned long long _currentCRC32;
     int _currentOutputFD;
     unsigned short _currentLFMode;
     unsigned char _streamState;
     unsigned char _lastBlockEndNumUnusedBits;
     unsigned char _lastBlockEndLastByte;
-    BOOL _currentLFIsStreamMetadata;
+    _Bool _currentLFIsStreamMetadata;
 }
 
++ (id)unzipStateWithPath:(id)arg1 md5Hashes:(id)arg2 hashedChunkSize:(unsigned long long)arg3 error:(id *)arg4;
 @property(nonatomic) unsigned long long uncompressedBytesOutput; // @synthesize uncompressedBytesOutput=_uncompressedBytesOutput;
 @property(readonly, nonatomic) unsigned long long hashedChunkSize; // @synthesize hashedChunkSize=_hashedChunkSize;
 @property(readonly, nonatomic) unsigned long long bytesHashedInChunk; // @synthesize bytesHashedInChunk=_bytesHashedInChunk;
-@property(nonatomic) BOOL currentLFIsStreamMetadata; // @synthesize currentLFIsStreamMetadata=_currentLFIsStreamMetadata;
+@property(nonatomic) _Bool currentLFIsStreamMetadata; // @synthesize currentLFIsStreamMetadata=_currentLFIsStreamMetadata;
 @property(nonatomic) unsigned char streamState; // @synthesize streamState=_streamState;
 @property(nonatomic) unsigned short currentLFMode; // @synthesize currentLFMode=_currentLFMode;
 @property(nonatomic) unsigned long long totalRecordCount; // @synthesize totalRecordCount=_totalRecordCount;
 @property(nonatomic) unsigned long long recordsProcessed; // @synthesize recordsProcessed=_recordsProcessed;
 @property(nonatomic) int currentOutputFD; // @synthesize currentOutputFD=_currentOutputFD;
-@property(nonatomic) unsigned long currentCRC32; // @synthesize currentCRC32=_currentCRC32;
+@property(nonatomic) unsigned long long currentCRC32; // @synthesize currentCRC32=_currentCRC32;
 @property(nonatomic) unsigned long long currentOffset; // @synthesize currentOffset=_currentOffset;
 @property(nonatomic) unsigned long long thisStageBytesComplete; // @synthesize thisStageBytesComplete=_thisStageBytesComplete;
-@property(nonatomic) unsigned long currentLFRecordAllocationSize; // @synthesize currentLFRecordAllocationSize=_currentLFRecordAllocationSize;
+@property(nonatomic) unsigned long long currentLFRecordAllocationSize; // @synthesize currentLFRecordAllocationSize=_currentLFRecordAllocationSize;
 @property(nonatomic) CDStruct_6e051504 *currentLFRecord; // @synthesize currentLFRecord=_currentLFRecord;
 @property(retain, nonatomic) NSMutableData *unfinishedCompressedData; // @synthesize unfinishedCompressedData=_unfinishedCompressedData;
 @property(retain, nonatomic) NSMutableData *incompleteData; // @synthesize incompleteData=_incompleteData;
@@ -61,10 +63,9 @@
 @property(readonly, nonatomic) NSString *unzipPath; // @synthesize unzipPath=_unzipPath;
 - (void).cxx_destruct;
 - (id)initWithPath:(id)arg1 md5Hashes:(id)arg2 hashedChunkSize:(unsigned long long)arg3 error:(id *)arg4;
-- (id)_removeAndRecreateDirectoryAtPath:(id)arg1;
 - (id)finishStream;
-- (id)updateMD5HashFromOffset:(unsigned long long)arg1 withBytes:(const void *)arg2 length:(unsigned long)arg3;
-- (id)updateMD5HashFromOffset:(unsigned long long)arg1 withBytes:(const void *)arg2 length:(unsigned long)arg3 onlyFinishCurrentChunk:(BOOL)arg4;
+- (id)updateMD5HashFromOffset:(unsigned long long)arg1 withBytes:(const void *)arg2 length:(unsigned long long)arg3;
+- (id)updateMD5HashFromOffset:(unsigned long long)arg1 withBytes:(const void *)arg2 length:(unsigned long long)arg3 onlyFinishCurrentChunk:(_Bool)arg4;
 - (id)checkLastChunkPartialHash;
 - (id)_checkHashForOffset:(unsigned long long)arg1;
 - (id)serializeState;

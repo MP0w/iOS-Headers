@@ -8,6 +8,7 @@
 
 @class NSDictionary, NSMutableDictionary, NSString, PFUbiquityKnowledgeVector, PFUbiquityPeer, PFUbiquityStoreMetadata, PFUbiquityStoreSaveSnapshot, PFUbiquitySwitchboardCacheWrapper, PFUbiquityTransactionLog, _PFUbiquityStack;
 
+// Not exported
 @interface PFUbiquityImportContext : NSObject
 {
     _PFUbiquityStack *_stack;
@@ -34,7 +35,7 @@
 @property(readonly, nonatomic) PFUbiquityPeer *actingPeer; // @synthesize actingPeer=_actingPeer;
 @property(retain, nonatomic) PFUbiquityStoreMetadata *storeMetadata; // @synthesize storeMetadata=_storeMetadata;
 @property(retain, nonatomic) _PFUbiquityStack *stack; // @synthesize stack=_stack;
-- (BOOL)prefetchManagedObjectsInContext:(id)arg1 error:(id *)arg2;
+- (_Bool)prefetchManagedObjectsInContext:(id)arg1 error:(id *)arg2;
 - (void)setActingPeer:(id)arg1;
 - (void)dealloc;
 - (id)initWithStack:(id)arg1 andStoreMetadata:(id)arg2;

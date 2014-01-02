@@ -9,8 +9,8 @@
 @protocol UIDocumentInteractionControllerDelegate <NSObject>
 
 @optional
-- (BOOL)documentInteractionController:(id)arg1 performAction:(SEL)arg2;
-- (BOOL)documentInteractionController:(id)arg1 canPerformAction:(SEL)arg2;
+- (_Bool)documentInteractionController:(id)arg1 performAction:(SEL)arg2;
+- (_Bool)documentInteractionController:(id)arg1 canPerformAction:(SEL)arg2;
 - (void)documentInteractionController:(id)arg1 didEndSendingToApplication:(id)arg2;
 - (void)documentInteractionController:(id)arg1 willBeginSendingToApplication:(id)arg2;
 - (void)documentInteractionControllerDidDismissOpenInMenu:(id)arg1;

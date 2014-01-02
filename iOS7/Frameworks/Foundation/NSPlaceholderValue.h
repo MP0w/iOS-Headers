@@ -6,12 +6,13 @@
 
 #import <Foundation/NSNumber.h>
 
+// Not exported
 @interface NSPlaceholderValue : NSNumber
 {
     struct _NSZone *zoneForInstance;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 - (void)getValue:(void *)arg1;
 - (const char *)objCType;
 - (id)initWithCoder:(id)arg1;
@@ -19,10 +20,10 @@
 - (id)init;
 - (void)finalize;
 - (void)dealloc;
-- (BOOL)_tryRetain;
-- (BOOL)_isDeallocating;
+- (_Bool)_tryRetain;
+- (_Bool)_isDeallocating;
 - (oneway void)release;
-- (unsigned int)retainCount;
+- (unsigned long long)retainCount;
 - (id)retain;
 - (id)autorelease;
 

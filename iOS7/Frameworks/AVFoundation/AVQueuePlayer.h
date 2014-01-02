@@ -23,12 +23,12 @@
 - (void)removeItem:(id)arg1;
 - (void)insertItem:(id)arg1 afterItem:(id)arg2;
 - (void)_enqueueModification:(id)arg1;
-- (BOOL)_shouldEnqueueModifications;
-- (BOOL)canInsertItem:(id)arg1 afterItem:(id)arg2;
+- (_Bool)_shouldEnqueueModifications;
+- (_Bool)canInsertItem:(id)arg1 afterItem:(id)arg2;
 - (void)advanceToNextItem;
 - (id)items;
-- (void)setActionAtItemEnd:(int)arg1;
-- (int)_defaultActionAtItemEnd;
+- (void)setActionAtItemEnd:(long long)arg1;
+- (long long)_defaultActionAtItemEnd;
 - (void)dealloc;
 - (id)initWithItems:(id)arg1;
 - (id)init;

@@ -11,14 +11,14 @@
 @interface VSKeepAlive : NSObject
 {
     NSXPCConnection *_serverConnection;
-    int _audioType;
-    BOOL _active;
-    BOOL _keepAudioSessionActive;
+    long long _audioType;
+    _Bool _active;
+    _Bool _keepAudioSessionActive;
 }
 
-@property(nonatomic) BOOL keepAudioSessionActive; // @synthesize keepAudioSessionActive=_keepAudioSessionActive;
-@property(nonatomic) BOOL active; // @synthesize active=_active;
-@property(nonatomic) int audioType; // @synthesize audioType=_audioType;
+@property(nonatomic) _Bool keepAudioSessionActive; // @synthesize keepAudioSessionActive=_keepAudioSessionActive;
+@property(nonatomic) _Bool active; // @synthesize active=_active;
+@property(nonatomic) long long audioType; // @synthesize audioType=_audioType;
 - (void).cxx_destruct;
 - (void)_ensureKeepAliveMaintenance;
 - (id)_remoteKeepAlive;

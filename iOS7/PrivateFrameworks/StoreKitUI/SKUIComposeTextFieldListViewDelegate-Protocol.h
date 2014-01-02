@@ -7,9 +7,9 @@
 #import "NSObject-Protocol.h"
 
 @protocol SKUIComposeTextFieldListViewDelegate <NSObject>
-- (id)textFieldList:(id)arg1 configurationForFieldAtIndex:(unsigned int)arg2;
-- (int)numberOfFieldsInTextFieldList:(id)arg1;
-- (int)numberOfColumnsInTextFieldList:(id)arg1;
+- (id)textFieldList:(id)arg1 configurationForFieldAtIndex:(unsigned long long)arg2;
+- (long long)numberOfFieldsInTextFieldList:(id)arg1;
+- (long long)numberOfColumnsInTextFieldList:(id)arg1;
 
 @optional
 - (void)textFieldListValuesDidChange:(id)arg1;

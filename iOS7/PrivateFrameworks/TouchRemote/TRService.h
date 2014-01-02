@@ -12,12 +12,12 @@
 
 @interface TRService : NSObject <NSSecureCoding>
 {
+    int _uniqueID;
     TRAdvertisingInfo *_advertisingInfo;
     NSString *_name;
-    int _uniqueID;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) int uniqueID; // @synthesize uniqueID=_uniqueID;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, nonatomic) TRAdvertisingInfo *advertisingInfo; // @synthesize advertisingInfo=_advertisingInfo;
@@ -25,8 +25,8 @@
 - (void)connectWithCompletionHandler:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)_initWithName:(id)arg1 uniqueID:(int)arg2 advertisingInfo:(id)arg3;
 
 @end

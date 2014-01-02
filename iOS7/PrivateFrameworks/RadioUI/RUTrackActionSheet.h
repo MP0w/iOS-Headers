@@ -8,14 +8,14 @@
 
 @interface RUTrackActionSheet : UIActionSheet
 {
-    BOOL _disableAddToWishList;
-    BOOL _disableBan;
-    BOOL _disableLike;
+    _Bool _disableAddToWishList;
+    _Bool _disableBan;
+    _Bool _disableLike;
 }
 
-@property(nonatomic) BOOL disableLike; // @synthesize disableLike=_disableLike;
-@property(nonatomic) BOOL disableBan; // @synthesize disableBan=_disableBan;
-@property(nonatomic) BOOL disableAddToWishList; // @synthesize disableAddToWishList=_disableAddToWishList;
+@property(nonatomic) _Bool disableLike; // @synthesize disableLike=_disableLike;
+@property(nonatomic) _Bool disableBan; // @synthesize disableBan=_disableBan;
+@property(nonatomic) _Bool disableAddToWishList; // @synthesize disableAddToWishList=_disableAddToWishList;
 - (id)initWithDelegate:(id)arg1;
 
 @end

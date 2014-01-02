@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface UIActivityItemImageRep : NSObject
 {
     id _asset;

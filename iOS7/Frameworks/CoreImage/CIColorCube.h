@@ -8,6 +8,7 @@
 
 @class CIImage, NSData, NSNumber;
 
+// Not exported
 @interface CIColorCube : CIFilter
 {
     CIImage *inputImage;
@@ -21,7 +22,7 @@
 @property(retain, nonatomic) NSNumber *inputCubeDimension; // @synthesize inputCubeDimension;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
-- (BOOL)_checkInputs;
+- (_Bool)_checkInputs;
 - (id)cubeImage;
 - (id)_kernel;
 - (void)setDefaults;

@@ -8,6 +8,7 @@
 
 @class VGLCenterLineMeshVendor, VGLRouteLineArrowMesh, VGLTexture;
 
+// Not exported
 @interface VGLRouteLineMesh : VGLMesh
 {
     int _z;
@@ -20,6 +21,8 @@
     struct vector<routelineTrafficSegment, vk_allocator<routelineTrafficSegment>> _trafficSegments;
 }
 
++ (double)arrowTailSizeForRouteLineWidth:(double)arg1;
++ (double)arrowHeadSizeForRouteLineWidth:(double)arg1;
 @property(readonly, nonatomic) VGLCenterLineMeshVendor *mediumTrafficMeshVendor; // @synthesize mediumTrafficMeshVendor=_mediumTrafficMeshVendor;
 @property(readonly, nonatomic) VGLCenterLineMeshVendor *slowTrafficMeshVendor; // @synthesize slowTrafficMeshVendor=_slowTrafficMeshVendor;
 @property(nonatomic) float splitLocation; // @synthesize splitLocation=_splitLocation;
@@ -30,6 +33,7 @@
 - (void)pushArrowRangeStart:(int)arg1 startOffset:(float)arg2 end:(int)arg3 endOffset:(float)arg4 maneuverIndex:(int)arg5;
 - (void)pushDebugArrowRangeStart:(int)arg1 startOffset:(float)arg2 end:(int)arg3 endOffset:(float)arg4 maneuverIndex:(int)arg5;
 - (void)buildArrowWithArrowInfo:(const CDStruct_8471daaf *)arg1;
+- (_Bool)hasArrowMesh;
 - (void)buildArrowMeshWithCurrentManeuver:(int)arg1;
 - (void)addArrowMeshInfo:(CDStruct_8471daaf)arg1;
 - (void)freeze;

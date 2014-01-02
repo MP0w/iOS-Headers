@@ -19,7 +19,7 @@
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
 @property(retain, nonatomic) id <ABStyleProvider> styleProvider; // @synthesize styleProvider=_styleProvider;
 - (void)drawRect:(struct CGRect)arg1;
-- (BOOL)_canDrawContent;
+- (_Bool)_canDrawContent;
 - (void)setClippingImage:(id)arg1;
 - (void)setLabel:(id)arg1;
 - (void)dealloc;

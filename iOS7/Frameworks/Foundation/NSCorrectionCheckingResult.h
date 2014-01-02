@@ -14,7 +14,7 @@
 }
 
 - (unsigned long long)resultType;
-- (id)resultByAdjustingRangesWithOffset:(int)arg1;
+- (id)resultByAdjustingRangesWithOffset:(long long)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)description;

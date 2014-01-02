@@ -15,18 +15,18 @@
     NSString *connectionType;
     NSString *unlocalizedStatusString;
     NSString *personalizedBaseName;
-    BOOL isReallyJoin;
+    _Bool isReallyJoin;
 }
 
 @property(retain, nonatomic) NSString *personalizedBaseName; // @synthesize personalizedBaseName;
-- (BOOL)shouldChangeTextField:(id)arg1 atIndexPath:(id)arg2 forTextIndex:(unsigned int)arg3 toString:(id)arg4;
+- (_Bool)shouldChangeTextField:(id)arg1 atIndexPath:(id)arg2 forTextIndex:(unsigned long long)arg3 toString:(id)arg4;
 - (void)validateAndUpdateNextButton;
 - (void)setupDevices;
 - (id)devicePickerLabel;
 - (id)deviceTableLabel;
 - (void)updateNavigationButtons;
 - (void)selectedDeviceUpdated;
-- (void)primaryActionSelected:(BOOL)arg1;
+- (void)primaryActionSelected:(_Bool)arg1;
 - (void)setupHeaderAndFooter;
 - (void)setupAndShowEditableBaseStationName;
 - (void)viewDidLoad;

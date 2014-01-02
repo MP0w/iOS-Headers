@@ -8,6 +8,7 @@
 
 @class TSMTraceBuffer;
 
+// Not exported
 @interface CPTracingManager : NSObject
 {
     TSMTraceBuffer *mBuffer;
@@ -23,7 +24,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)autorelease;
 - (oneway void)release;
-- (unsigned int)retainCount;
+- (unsigned long long)retainCount;
 - (id)retain;
 
 @end

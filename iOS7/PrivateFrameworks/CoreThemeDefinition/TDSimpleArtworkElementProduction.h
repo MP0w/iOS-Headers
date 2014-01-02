@@ -14,7 +14,7 @@
 }
 
 - (id)associatedFileModificationDateWithDocument:(id)arg1;
-- (void)deleteRenditionsInDocument:(id)arg1 shouldDeleteAssetFiles:(BOOL)arg2;
+- (void)deleteRenditionsInDocument:(id)arg1 shouldDeleteAssetFiles:(_Bool)arg2;
 - (void)awakeFromFetch;
 @property(nonatomic) struct CGRect alignmentRect; // @dynamic alignmentRect;
 @property(nonatomic) struct CGRect primitiveAlignmentRect;

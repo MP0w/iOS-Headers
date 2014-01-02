@@ -14,10 +14,10 @@
 {
     id <PLCameraPanoramaViewDelegate> _delegate;
     float _previewScale;
-    BOOL _isCapturing;
-    BOOL _isProcessing;
+    _Bool _isCapturing;
+    _Bool _isProcessing;
     int _direction;
-    float _currentSpeed;
+    double _currentSpeed;
     UIImageView *_previewBackgroundImageView;
     UIView *_previewContainer;
     UIView *_previewMaskingContainer;
@@ -32,26 +32,26 @@
     struct CGRect _currentArrowFrame;
     struct CGRect _initialMaskFrame;
     struct CGRect _currentMaskFrame;
-    BOOL _isAnimatingTextIn;
-    BOOL _isAnimatingTextOut;
-    BOOL _showingFastText;
-    BOOL _isAnimatingDirection;
-    BOOL _showingMoveText;
+    _Bool _isAnimatingTextIn;
+    _Bool _isAnimatingTextOut;
+    _Bool _showingFastText;
+    _Bool _isAnimatingDirection;
+    _Bool _showingMoveText;
     struct CGRect _visiblePreviewRect;
-    BOOL _ignorePreviewUpdates;
+    _Bool _ignorePreviewUpdates;
     CADisplayLink *_displayLink;
-    int _frameCounter;
+    long long _frameCounter;
     CMMotionManager *_motionManager;
     NSOperationQueue *_accelerometerQueue;
     float _initialAcceleration;
     float _currentAcceleration;
-    int _deviceOrientation;
-    int _deferredDeviceOrientation;
+    long long _deviceOrientation;
+    long long _deferredDeviceOrientation;
 }
 
 @property(readonly, nonatomic) CALayer *panoramaPreviewLayer; // @synthesize panoramaPreviewLayer=_previewLayer;
 @property(nonatomic) id <PLCameraPanoramaViewDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)setDeviceOrientation:(int)arg1;
+- (void)setDeviceOrientation:(long long)arg1;
 - (void)updateUI;
 - (void)_arrowWasTapped:(id)arg1;
 - (void)setCaptureDirection:(int)arg1;
@@ -72,12 +72,14 @@
 - (void)_hideText;
 - (void)updateWithPreviewState:(id)arg1;
 - (void)panoramaWillStart;
-- (void)showSavingHUD:(BOOL)arg1;
+- (void)showSavingHUD:(_Bool)arg1;
+- (void)_createMotionManagerAndDisplayLink;
 - (struct CGRect)visiblePreviewRect;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)viewWillDisappear;
+- (void)viewWillAppear;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 centerYOffset:(float)arg2 panoramaPreviewScale:(float)arg3 panoramaPreviewSize:(struct CGSize)arg4;
+- (id)initWithFrame:(struct CGRect)arg1 centerYOffset:(double)arg2 panoramaPreviewScale:(float)arg3;
 
 @end
 

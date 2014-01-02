@@ -8,16 +8,17 @@
 
 @class NSDictionary;
 
+// Not exported
 @interface UIDropShadowView : UIView
 {
-    float _cornerRadius;
+    double _cornerRadius;
     UIView *_contentView;
     UIView *_backgroundImage;
     NSDictionary *_preservedLayerValues;
 }
 
 @property(nonatomic) UIView *contentView; // @synthesize contentView=_contentView;
-@property float cornerRadius; // @synthesize cornerRadius=_cornerRadius;
+@property double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
 - (void)didFinishRotation;
 - (void)willBeginRotationWithOriginalBounds:(struct CGRect)arg1 newBounds:(struct CGRect)arg2;
 - (void)setBounds:(struct CGRect)arg1;

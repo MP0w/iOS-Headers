@@ -6,11 +6,12 @@
 
 #import "UIWebScrollView.h"
 
+// Not exported
 @interface WKScrollView : UIWebScrollView
 {
 }
 
-- (BOOL)touchesShouldCancelInContentView:(id)arg1;
+- (_Bool)touchesShouldCancelInContentView:(id)arg1;
 
 @end
 

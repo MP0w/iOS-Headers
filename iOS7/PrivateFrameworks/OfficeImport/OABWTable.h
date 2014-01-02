@@ -8,15 +8,16 @@
 
 @class ESDContainer, OABWriterState, OADTable;
 
+// Not exported
 @interface OABWTable : NSObject
 {
     OADTable *mSrcTable;
     ESDContainer *mTgtTable;
     OABWriterState *mState;
-    long mRowCount;
-    long mColumnCount;
-    struct vector<long, std::__1::allocator<long>> *mpXCoords;
-    struct vector<long, std::__1::allocator<long>> *mpYCoords;
+    int mRowCount;
+    int mColumnCount;
+    struct vector<int, std::__1::allocator<int>> *mpXCoords;
+    struct vector<int, std::__1::allocator<int>> *mpYCoords;
 }
 
 - (void)map;

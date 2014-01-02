@@ -8,6 +8,7 @@
 
 @class NSXPCInterface;
 
+// Not exported
 @interface _NSXPCConnectionExportInfo : NSObject
 {
     id _exportedObject;

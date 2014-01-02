@@ -14,20 +14,25 @@
     NSString *_artworkPath;
 }
 
-+ (BOOL)artworkCacheIDIsValid:(id)arg1;
-+ (CDStruct_04bf612f *)artworkStyleForFormatID:(unsigned int)arg1;
++ (_Bool)artworkCacheIDIsValid:(id)arg1;
++ (CDStruct_ce55d3fc *)artworkStyleForFormatID:(unsigned int)arg1;
 + (unsigned int)readableArtworkFormatIDForArtworkFormatID:(unsigned int)arg1;
 + (struct MLArtworkFormatSpec)artworkFormatSpecForArtworkFormatID:(unsigned int)arg1;
++ (_Bool)isValidDeviceArtworkFormatID:(unsigned int)arg1;
 + (id)allArtworkFormatSizes;
-+ (unsigned int)numberOfArtworkStyles;
++ (void)enumerateArtworkArtworkStylesIncludeValidOnly:(_Bool)arg1 block:(id)arg2;
++ (unsigned long long)numberOfArtworkStyles;
++ (void)initialize;
 @property(copy, nonatomic) NSString *artworkPath; // @synthesize artworkPath=_artworkPath;
 - (void).cxx_destruct;
-- (BOOL)writeToDiskArtworkWithImageData:(id)arg1 forCacheID:(id)arg2 resultingLengths:(unsigned int **)arg3 formatIDs:(unsigned int **)arg4 imageSubRects:(struct CGRect **)arg5 count:(unsigned int *)arg6;
-- (BOOL)writeToDiskArtworkWithImageData:(id)arg1 forCacheID:(id)arg2 forFormatID:(unsigned int)arg3 resultingLength:(unsigned int *)arg4 imageSubRect:(struct CGRect *)arg5;
-- (BOOL)writeImageBytes:(const void *)arg1 length:(unsigned long)arg2 formatID:(unsigned int)arg3 cacheID:(id)arg4;
-- (BOOL)writeCGImage:(struct CGImage *)arg1 length:(unsigned long)arg2 forCacheID:(id)arg3 formatID:(unsigned int)arg4 imageSubRect:(struct CGRect)arg5;
-- (BOOL)writeCGBitmapImageContext:(struct CGContext *)arg1 destinationOptions:(id)arg2 forCacheID:(id)arg3 formatID:(unsigned int)arg4 resultLength:(unsigned int *)arg5;
-- (BOOL)drawAndWriteImage:(struct CGImage *)arg1 outputWidth:(unsigned long)arg2 outputHeight:(unsigned long)arg3 colorSpace:(struct CGColorSpace *)arg4 cacheID:(id)arg5 formatID:(unsigned int)arg6 artworkStyle:(CDStruct_04bf612f *)arg7 resultingImageSubRect:(struct CGRect *)arg8 resultingLength:(unsigned int *)arg9;
+- (_Bool)writeToDiskArtworkWithImageData:(id)arg1 artworkCreationDirective:(CDStruct_06d3d77b)arg2 forCacheID:(id)arg3 formatIDs:(unsigned int **)arg4 resultingLengths:(unsigned long long **)arg5 imageSubRects:(struct CGRect **)arg6 count:(unsigned long long *)arg7;
+- (void)enumerateMissingArtworkFormatsForArtworkCreationDirective:(CDStruct_06d3d77b)arg1 cacheID:(id)arg2 block:(id)arg3;
+- (void)enumerateDeletableExistingArtworkFormatsForArtworkCreationDirective:(CDStruct_06d3d77b)arg1 cacheID:(id)arg2 block:(id)arg3;
+- (_Bool)writeToDiskArtworkWithImageData:(id)arg1 artworkCreationDirective:(CDStruct_06d3d77b)arg2 forCacheID:(id)arg3 forFormatID:(unsigned int)arg4 resultingLength:(unsigned long long *)arg5 imageSubRect:(struct CGRect *)arg6;
+- (_Bool)writeImageBytes:(const void *)arg1 length:(unsigned long long)arg2 formatID:(unsigned int)arg3 cacheID:(id)arg4;
+- (_Bool)writeCGImage:(struct CGImage *)arg1 length:(unsigned long long)arg2 forCacheID:(id)arg3 formatID:(unsigned int)arg4 imageSubRect:(struct CGRect)arg5;
+- (_Bool)writeCGBitmapImageContext:(struct CGContext *)arg1 destinationOptions:(id)arg2 forCacheID:(id)arg3 formatID:(unsigned int)arg4 resultLength:(unsigned long long *)arg5;
+- (_Bool)drawAndWriteImage:(struct CGImage *)arg1 outputWidth:(unsigned long long)arg2 outputHeight:(unsigned long long)arg3 colorSpace:(struct CGColorSpace *)arg4 cacheID:(id)arg5 formatID:(unsigned int)arg6 artworkStyle:(CDStruct_ce55d3fc *)arg7 resultingImageSubRect:(struct CGRect *)arg8 resultingLength:(unsigned long long *)arg9;
 - (id)artworkImageFilePathForCacheID:(id)arg1 artworkFormatID:(unsigned int)arg2;
 - (id)initWithArtworkDirectoryPath:(id)arg1;
 - (id)init;

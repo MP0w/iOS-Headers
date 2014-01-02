@@ -10,7 +10,7 @@
 {
 }
 
-- (void)setSectionLocation:(int)arg1 animated:(BOOL)arg2;
+- (void)setSectionLocation:(int)arg1 animated:(_Bool)arg2;
 
 @end
 

@@ -6,18 +6,19 @@
 
 #import "NSURLProtocol.h"
 
+// Not exported
 @interface QLPreviewURLProtocol : NSURLProtocol
 {
 }
 
 + (id)mimeTypeForAttachmentURL:(id)arg1;
 + (id)canonicalRequestForRequest:(id)arg1;
-+ (BOOL)canInitWithRequest:(id)arg1;
++ (_Bool)canInitWithRequest:(id)arg1;
 + (void)stopLoadingProtocol:(id)arg1;
 + (void)startLoadingProtocol:(id)arg1;
 + (id)errorForURL:(id)arg1;
 + (void)setError:(id)arg1 forURL:(id)arg2;
-+ (void)appendData:(id)arg1 forURL:(id)arg2 lastChunk:(BOOL)arg3;
++ (void)appendData:(id)arg1 forURL:(id)arg2 lastChunk:(_Bool)arg3;
 + (void)unregisterURLs:(id)arg1 andPreview:(id)arg2;
 + (void)_unregisterURL:(id)arg1;
 + (id)_errorForNoPreview;

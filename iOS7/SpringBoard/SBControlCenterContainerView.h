@@ -6,25 +6,31 @@
 
 #import "UIView.h"
 
-@class SBChevronView, SBControlCenterContentView, UIImageView;
+#import "SBControlCenterObserver-Protocol.h"
 
-@interface SBControlCenterContainerView : UIView
+@class SBChevronView, SBControlCenterContentContainerView;
+
+@interface SBControlCenterContainerView : UIView <SBControlCenterObserver>
 {
     UIView *_darkeningView;
-    UIImageView *_gradientView;
-    SBControlCenterContentView *_contentView;
-    float _revealPercentage;
-    SBChevronView *_lockScreenGrabber;
+    double _revealPercentage;
+    SBChevronView *_chevronToTrack;
+    SBControlCenterContentContainerView *_contentContainerView;
 }
 
-@property(readonly, nonatomic) SBControlCenterContentView *contentView; // @synthesize contentView=_contentView;
+@property(readonly, nonatomic) SBControlCenterContentContainerView *contentContainerView; // @synthesize contentContainerView=_contentContainerView;
+- (void)controlCenterDidFinishTransition;
+- (void)controlCenterWillFinishTransitionOpen:(_Bool)arg1 withDuration:(double)arg2;
+- (void)controlCenterWillBeginTransition;
+- (void)controlCenterDidDismiss;
+- (void)controlCenterWillPresent;
 - (void)updateBackgroundSettings:(id)arg1;
-@property(nonatomic) float revealPercentage;
-- (void)didFinishTransition;
-- (void)willBeginTransition;
+@property(nonatomic) double revealPercentage;
+- (id)_contentChevronView;
 - (id)_currentBGColor;
 - (void)_updateContentFrame;
 - (void)_updateDarkeningFrame;
+- (void)trackChevronView:(id)arg1;
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

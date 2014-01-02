@@ -17,14 +17,14 @@
     SBAlertManager *_mainScreenAlertManager;
 }
 
-- (void)alertManager:(id)arg1 didDeactivateAlert:(id)arg2 top:(BOOL)arg3;
-- (void)alertManager:(id)arg1 willDeactivateAlert:(id)arg2 top:(BOOL)arg3;
+- (void)alertManager:(id)arg1 didDeactivateAlert:(id)arg2 top:(_Bool)arg3;
+- (void)alertManager:(id)arg1 willDeactivateAlert:(id)arg2 top:(_Bool)arg3;
 - (void)alertManager:(id)arg1 didActivateAlert:(id)arg2 overAlerts:(id)arg3;
 - (void)alertManager:(id)arg1 willActivateAlert:(id)arg2 overAlerts:(id)arg3;
-- (BOOL)selfStarkAlertDidDeactivate:(id)arg1;
-- (BOOL)selfStarkAlertWillDeactivate:(id)arg1;
-- (BOOL)selfStarkAlertDidActivate:(id)arg1 overAlerts:(id)arg2;
-- (BOOL)selfStarkAlertWillActivate:(id)arg1 overAlerts:(id)arg2;
+- (_Bool)selfStarkAlertDidDeactivate:(id)arg1;
+- (_Bool)selfStarkAlertWillDeactivate:(id)arg1;
+- (_Bool)selfStarkAlertDidActivate:(id)arg1 overAlerts:(id)arg2;
+- (_Bool)selfStarkAlertWillActivate:(id)arg1 overAlerts:(id)arg2;
 @property(readonly, nonatomic) SBAlertManager *starkScreenAlertManager; // @synthesize starkScreenAlertManager=_starkScreenAlertManager;
 @property(readonly, nonatomic) SBStarkScreenController *starkScreenController;
 @property(readonly, nonatomic) SBAlertManager *mainScreenAlertManager; // @dynamic mainScreenAlertManager;

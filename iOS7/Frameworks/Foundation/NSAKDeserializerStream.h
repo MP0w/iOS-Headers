@@ -12,18 +12,18 @@
 {
     const void *memory;
     const char *current;
-    unsigned int left;
-    unsigned int max;
-    BOOL freeWhenDone;
+    unsigned long long left;
+    unsigned long long max;
+    _Bool freeWhenDone;
 }
 
-- (void)readData:(void *)arg1 length:(unsigned int)arg2;
-- (unsigned int)readAlignedDataSize;
+- (void)readData:(void *)arg1 length:(unsigned long long)arg2;
+- (unsigned long long)readAlignedDataSize;
 - (int)readInt;
 - (id)initFromPath:(id)arg1;
 - (void)finalize;
 - (void)dealloc;
-- (id)initFromMemoryNoCopy:(const void *)arg1 length:(unsigned int)arg2 freeWhenDone:(BOOL)arg3;
+- (id)initFromMemoryNoCopy:(const void *)arg1 length:(unsigned long long)arg2 freeWhenDone:(_Bool)arg3;
 
 @end
 

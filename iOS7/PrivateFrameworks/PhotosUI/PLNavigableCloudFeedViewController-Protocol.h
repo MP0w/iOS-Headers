@@ -7,6 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol PLNavigableCloudFeedViewController <NSObject>
+- (void)navigateToNewestContentAnimated:(_Bool)arg1;
 - (void)navigateToRevealCloudFeedInvitationForAlbum:(id)arg1 completion:(id)arg2;
 - (void)navigateToCloudFeedComment:(id)arg1 completion:(id)arg2;
 - (void)navigateToRevealCloudFeedComment:(id)arg1 completion:(id)arg2;

@@ -10,12 +10,12 @@
 
 @interface MCAnimationPath : MCObjectLight
 {
-    BOOL mIsTriggered;
+    _Bool mIsTriggered;
     NSString *mKey;
 }
 
 + (id)animationPathWithKey:(id)arg1;
-@property(nonatomic) BOOL isTriggered; // @synthesize isTriggered=mIsTriggered;
+@property(nonatomic) _Bool isTriggered; // @synthesize isTriggered=mIsTriggered;
 @property(copy) NSString *key; // @synthesize key=mKey;
 - (void)_copySelfToSnapshot:(id)arg1;
 - (id)imprint;

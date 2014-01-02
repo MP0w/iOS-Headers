@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSData;
 
-@interface GEOSuggestionsFeedbackCollection : PBCodable
+@interface GEOSuggestionsFeedbackCollection : PBCodable <NSCopying>
 {
     CDStruct_612aec5b _sessionID;
     int _suggestionEntryIndex;
@@ -27,18 +29,19 @@
 @property(nonatomic) int suggestionEntryIndex; // @synthesize suggestionEntryIndex=_suggestionEntryIndex;
 @property(nonatomic) int suggestionsEntryListIndex; // @synthesize suggestionsEntryListIndex=_suggestionsEntryListIndex;
 @property(nonatomic) CDStruct_612aec5b sessionID; // @synthesize sessionID=_sessionID;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) BOOL hasSuggestionEntryMetadata;
-@property(readonly, nonatomic) BOOL hasSuggestionMetadata;
-@property(nonatomic) BOOL hasSuggestionEntryIndex;
-@property(nonatomic) BOOL hasSuggestionsEntryListIndex;
-@property(nonatomic) BOOL hasSessionID;
+@property(readonly, nonatomic) _Bool hasSuggestionEntryMetadata;
+@property(readonly, nonatomic) _Bool hasSuggestionMetadata;
+@property(nonatomic) _Bool hasSuggestionEntryIndex;
+@property(nonatomic) _Bool hasSuggestionsEntryListIndex;
+@property(nonatomic) _Bool hasSessionID;
 - (void)dealloc;
 
 @end

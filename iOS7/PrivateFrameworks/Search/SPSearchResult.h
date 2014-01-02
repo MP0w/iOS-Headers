@@ -35,24 +35,23 @@
 @property(retain, nonatomic) NSString *summary; // @synthesize summary=_summary;
 @property(retain, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) BOOL hasNumberOfSummaryLines;
-@property(nonatomic) BOOL hasFlags;
-@property(readonly, nonatomic) BOOL hasUrl;
-@property(nonatomic) BOOL hasIdentifier;
-@property(readonly, nonatomic) BOOL hasAuxiliarySubtitle;
-@property(readonly, nonatomic) BOOL hasAuxiliaryTitle;
-@property(readonly, nonatomic) BOOL hasSummary;
-@property(readonly, nonatomic) BOOL hasSubtitle;
-@property(readonly, nonatomic) BOOL hasTitle;
+@property(nonatomic) _Bool hasNumberOfSummaryLines;
+@property(nonatomic) _Bool hasFlags;
+@property(readonly, nonatomic) _Bool hasUrl;
+@property(nonatomic) _Bool hasIdentifier;
+@property(readonly, nonatomic) _Bool hasAuxiliarySubtitle;
+@property(readonly, nonatomic) _Bool hasAuxiliaryTitle;
+@property(readonly, nonatomic) _Bool hasSummary;
+@property(readonly, nonatomic) _Bool hasSubtitle;
+@property(readonly, nonatomic) _Bool hasTitle;
 - (void)dealloc;
-- (BOOL)isEquivalentToResult:(id)arg1;
 
 @end
 

@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface EBAlignmentInfo : NSObject
 {
 }
@@ -16,10 +17,6 @@
 + (id)edAlignmentInfoFromXlGraphicsInfo:(struct XlGraphicsInfo *)arg1;
 + (id)edAlignmentInfoFromXlDXfAlign:(struct XlDXfAlign *)arg1;
 + (id)edAlignmentInfoFromXlXf:(struct XlXf *)arg1;
-+ (int)convertEDVerticalAlignmentEnumToXl:(int)arg1;
-+ (int)convertEDHorizontalAlignmentEnumToXl:(int)arg1;
-+ (int)convertXlVertAlignEnumToED:(int)arg1;
-+ (int)convertXlHorizAlignEnumToED:(int)arg1;
 
 @end
 

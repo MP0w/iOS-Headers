@@ -6,6 +6,7 @@
 
 #import <UIKit/UIImageView.h>
 
+// Not exported
 @interface _UISegmentedControlBackgroundView : UIImageView
 {
     UIImageView *_shadowView;

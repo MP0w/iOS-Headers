@@ -21,7 +21,7 @@
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)setBackgroundColor:(id)arg1;
 - (void)layoutSubviews;
-@property(nonatomic) BOOL showsSignInButton;
+@property(nonatomic) _Bool showsSignInButton;
 @property(readonly, nonatomic) UIButton *signInButton;
 @property(copy, nonatomic) NSString *placeholderMessage;
 @property(retain, nonatomic) UIImage *placeholderImage;

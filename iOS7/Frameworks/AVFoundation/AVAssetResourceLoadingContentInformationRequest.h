@@ -13,9 +13,9 @@
     AVAssetResourceLoadingContentInformationRequestInternal *_contentInformationRequest;
 }
 
-- (BOOL)isDiskCachingPermitted;
-- (void)setDiskCachingPermitted:(BOOL)arg1;
-@property(nonatomic, getter=isByteRangeAccessSupported) BOOL byteRangeAccessSupported;
+- (_Bool)isDiskCachingPermitted;
+- (void)setDiskCachingPermitted:(_Bool)arg1;
+@property(nonatomic, getter=isByteRangeAccessSupported) _Bool byteRangeAccessSupported;
 @property(nonatomic) long long contentLength;
 @property(copy, nonatomic) NSString *contentType;
 - (id)propertyList;

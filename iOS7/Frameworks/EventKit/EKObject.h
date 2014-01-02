@@ -8,8 +8,10 @@
 
 @class EKObjectRelation, EKPersistentObject, NSMutableDictionary, NSMutableSet, NSString;
 
+// Not exported
 @interface EKObject : NSObject
 {
+    unsigned int _flags;
     NSMutableDictionary *_dirtyProperties;
     NSMutableDictionary *_cachedProperties;
     EKPersistentObject *_persistentObject;
@@ -17,10 +19,9 @@
     EKObjectRelation *_owningRelation;
     NSMutableDictionary *_relations;
     NSMutableSet *_weakRelations;
-    unsigned long _flags;
 }
 
-@property(nonatomic) unsigned long flags; // @synthesize flags=_flags;
+@property(nonatomic) unsigned int flags; // @synthesize flags=_flags;
 @property(retain, nonatomic) NSMutableSet *weakRelations; // @synthesize weakRelations=_weakRelations;
 @property(retain, nonatomic) NSMutableDictionary *relations; // @synthesize relations=_relations;
 @property(nonatomic) EKObjectRelation *owningRelation; // @synthesize owningRelation=_owningRelation;
@@ -35,32 +36,32 @@
 - (id)lazyLoadRelationForKey:(id)arg1;
 - (void)deletePersistentObject;
 - (void)updatePersistentObject;
-- (BOOL)validate:(id *)arg1;
+- (_Bool)validate:(id *)arg1;
 - (void)insertPersistentObjectIfNeeded;
-- (BOOL)refresh;
+- (_Bool)refresh;
 - (void)rollback;
 - (void)reset;
 - (void)didCommit;
 - (void)updatePersistentValueForKeyIfNeeded:(id)arg1;
 - (id)propertyForKey:(id)arg1 withPersistentFallback:(id)arg2;
 - (int)intPropertyForKey:(id)arg1 withPersistentFallback:(id)arg2;
-- (BOOL)boolPropertyForKey:(id)arg1 withPersistentFallback:(id)arg2;
+- (_Bool)boolPropertyForKey:(id)arg1 withPersistentFallback:(id)arg2;
 - (id)persistentOrDirtyPropertyForKey:(id)arg1;
-- (BOOL)isPropertyDirty:(id)arg1;
-- (BOOL)propertyValueForKey:(id)arg1 value:(id *)arg2;
+- (_Bool)isPropertyDirty:(id)arg1;
+- (_Bool)propertyValueForKey:(id)arg1 value:(id *)arg2;
 - (id)propertyValueForKey:(id)arg1;
 - (void)clearPropertyValueForKey:(id)arg1;
 - (void)cachePropertyValue:(id)arg1 forKey:(id)arg2;
 - (void)setPropertyValue:(id)arg1 forKey:(id)arg2;
 - (id)committedValueForKey:(id)arg1;
-- (BOOL)isNew;
-- (BOOL)hasChanges;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)existsInStore;
+- (_Bool)isNew;
+- (_Bool)hasChanges;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)existsInStore;
 - (id)objectID;
 - (id)eventStore;
 - (id)owner;
-- (BOOL)rebase;
+- (_Bool)rebase;
 - (void)dealloc;
 - (id)initWithPersistentObject:(id)arg1;
 

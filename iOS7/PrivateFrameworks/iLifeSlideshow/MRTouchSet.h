@@ -16,9 +16,9 @@
 
 @property(readonly) NSSet *touches; // @synthesize touches=_touches;
 - (id)description;
-@property(readonly) BOOL isActive;
-@property(readonly) float rotation;
-@property(readonly) float scale;
+@property(readonly) _Bool isActive;
+@property(readonly) double rotation;
+@property(readonly) double scale;
 @property(readonly) struct CGPoint centroid;
 - (void)updateWithUITouches:(id)arg1 inView:(id)arg2;
 - (id)initWithUITouches:(id)arg1 inView:(id)arg2;

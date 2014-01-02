@@ -6,9 +6,10 @@
 
 #import <VectorKit/VKVectorTile.h>
 
+// Not exported
 @interface VKBuildingTile : VKVectorTile
 {
-    BOOL _animating;
+    _Bool _animating;
     CDStruct_03942939 _cameraPosition;
 }
 

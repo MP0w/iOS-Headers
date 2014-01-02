@@ -15,22 +15,22 @@
     ABSwellTextView *_textView;
 }
 
-+ (struct CGSize)layoutSubviewsForView:(id)arg1 usingSize:(struct CGSize)arg2 propertyGroup:(id)arg3 info:(id)arg4 styleProvider:(id)arg5 whenEditing:(BOOL)arg6;
++ (struct CGSize)layoutSubviewsForView:(id)arg1 usingSize:(struct CGSize)arg2 propertyGroup:(id)arg3 info:(id)arg4 styleProvider:(id)arg5 whenEditing:(_Bool)arg6;
 + (id)labelTextForPropertyGroup:(id)arg1 info:(id)arg2 styleProvider:(id)arg3;
-+ (void)setupTextView:(id)arg1 withStyleProvider:(id)arg2 whenEditing:(BOOL)arg3;
++ (void)setupTextView:(id)arg1 withStyleProvider:(id)arg2 whenEditing:(_Bool)arg3;
 + (id)swellTextViewForReuse;
 - (void)setAbCellStyle:(int)arg1;
 - (void)swellTextView:(id)arg1 didChangeSize:(struct CGSize)arg2;
 - (void)swellTextViewDidBeginEditing:(id)arg1;
 - (void)swellTextViewDidEndEditing:(id)arg1;
-- (BOOL)swellTextViewShouldEndEditing:(id)arg1;
-- (BOOL)swellTextViewShouldBeginEditing:(id)arg1;
+- (_Bool)swellTextViewShouldEndEditing:(id)arg1;
+- (_Bool)swellTextViewShouldBeginEditing:(id)arg1;
 - (void)swellTextViewTextDidChange:(id)arg1;
-- (BOOL)canBeginEditingAnytime;
+- (_Bool)canBeginEditingAnytime;
 - (id)viewForFirstResponder;
-- (BOOL)tabToNextResponder:(BOOL)arg1 fromView:(id)arg2;
+- (_Bool)tabToNextResponder:(_Bool)arg1 fromView:(id)arg2;
 - (struct CGRect)focusRectForView:(id)arg1;
-- (void)updateSubviewsForNewStateAnimated:(BOOL)arg1;
+- (void)updateSubviewsForNewStateAnimated:(_Bool)arg1;
 - (void)reloadFromModel;
 - (void)setLabelText:(id)arg1;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
@@ -39,7 +39,7 @@
 - (void)reload;
 - (void)dealloc;
 - (struct CGRect)frameForLabel;
-- (BOOL)shouldUseTwoLineLabels;
+- (_Bool)shouldUseTwoLineLabels;
 
 @end
 

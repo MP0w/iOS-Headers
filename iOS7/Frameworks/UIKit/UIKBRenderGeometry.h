@@ -10,13 +10,14 @@
 
 @class NSValue;
 
+// Not exported
 @interface UIKBRenderGeometry : NSObject <NSCopying>
 {
-    BOOL _detachedVariants;
+    _Bool _detachedVariants;
     int _roundRectCorners;
-    float _roundRectRadius;
     int _popupBias;
-    int _flickDirection;
+    double _roundRectRadius;
+    long long _flickDirection;
     NSValue *_splitLeftRect;
     NSValue *_splitRightRect;
     struct CGPoint _popupSource;
@@ -30,20 +31,21 @@
 + (id)geometryWithShape:(id)arg1;
 @property(retain, nonatomic) NSValue *splitRightRect; // @synthesize splitRightRect=_splitRightRect;
 @property(retain, nonatomic) NSValue *splitLeftRect; // @synthesize splitLeftRect=_splitLeftRect;
-@property(nonatomic) BOOL detachedVariants; // @synthesize detachedVariants=_detachedVariants;
-@property(nonatomic) int flickDirection; // @synthesize flickDirection=_flickDirection;
+@property(nonatomic) _Bool detachedVariants; // @synthesize detachedVariants=_detachedVariants;
+@property(nonatomic) long long flickDirection; // @synthesize flickDirection=_flickDirection;
 @property(nonatomic) int popupBias; // @synthesize popupBias=_popupBias;
-@property(nonatomic) float roundRectRadius; // @synthesize roundRectRadius=_roundRectRadius;
+@property(nonatomic) double roundRectRadius; // @synthesize roundRectRadius=_roundRectRadius;
 @property(nonatomic) int roundRectCorners; // @synthesize roundRectCorners=_roundRectCorners;
 @property(nonatomic) struct CGPoint popupSource; // @synthesize popupSource=_popupSource;
 @property(nonatomic) struct CGRect symbolFrame; // @synthesize symbolFrame=_symbolFrame;
 @property(nonatomic) struct CGRect displayFrame; // @synthesize displayFrame=_displayFrame;
 @property(nonatomic) struct CGRect paddedFrame; // @synthesize paddedFrame=_paddedFrame;
 @property(nonatomic) struct CGRect frame; // @synthesize frame=_frame;
+@property(readonly, nonatomic) struct UIEdgeInsets paddedInsets;
 @property(readonly, nonatomic) struct UIEdgeInsets displayInsets;
 - (id)similarShape;
-- (id)iPadVariantGeometries:(unsigned int)arg1;
-- (id)iPhoneVariantGeometries:(unsigned int)arg1;
+- (id)iPadVariantGeometries:(unsigned long long)arg1;
+- (id)iPhoneVariantGeometries:(unsigned long long)arg1;
 - (void)applyShadowInsets:(struct UIEdgeInsets)arg1;
 - (void)applyInsets:(struct UIEdgeInsets)arg1;
 - (void)overlayWithGeometry:(id)arg1;
@@ -51,16 +53,6 @@
 - (id)description;
 - (void)dealloc;
 - (id)initWithShape:(id)arg1;
-- (id)_copyForDirection:(int)arg1 positionFactor:(float)arg2 sizeFactor:(float)arg3;
-- (id)copyForPopupDirection:(int)arg1;
-- (id)copyForFlickDirection:(int)arg1;
-- (void)applyOffset:(struct CGPoint)arg1;
-- (void)makeIntegral;
-- (void)adjustToTopIfNeeded;
-- (int)adjustForTranslucentGapsInFrame_10Key:(struct CGRect)arg1;
-- (int)adjustForTranslucentGapsWithSize:(struct CGSize)arg1 inFrame:(struct CGRect)arg2;
-- (void)adjustForLeftTranslucentGapsInFrame:(struct CGRect)arg1;
-- (int)adjustForTranslucentGapsInFrame:(struct CGRect)arg1;
 
 @end
 

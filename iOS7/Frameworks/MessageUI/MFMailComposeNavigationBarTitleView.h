@@ -13,14 +13,14 @@
     UILabel *_titleLabel;
     UILabel *_subtitleLabel;
     UIImageView *_subtitleImageView;
-    unsigned int _style;
+    unsigned long long _style;
 }
 
 - (id)_subtitleTextColor;
-- (id)_subtitleImageWhenMini:(BOOL)arg1;
-- (float)_verticalOffsetForSubtitleImageWhenMini:(BOOL)arg1;
+- (id)_subtitleImageWhenMini:(_Bool)arg1;
+- (double)_verticalOffsetForSubtitleImageWhenMini:(_Bool)arg1;
 - (void)layoutSubviews;
-- (void)setSubtitleText:(id)arg1 withStyle:(unsigned int)arg2;
+- (void)setSubtitleText:(id)arg1 withStyle:(unsigned long long)arg2;
 @property(copy, nonatomic) NSString *title;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

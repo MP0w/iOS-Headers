@@ -11,17 +11,18 @@
 @interface _SBFolderPageElement : NSObject
 {
     SBIconGridImage *_gridImage;
-    unsigned int _visibleRow;
-    unsigned int _pageIndex;
+    unsigned long long _visibleRow;
+    unsigned long long _pageIndex;
     SBFolderIcon *_folderIcon;
 }
 
 @property(nonatomic) SBFolderIcon *folderIcon; // @synthesize folderIcon=_folderIcon;
-@property(nonatomic) unsigned int pageIndex; // @synthesize pageIndex=_pageIndex;
-@property(nonatomic) unsigned int visibleRow; // @synthesize visibleRow=_visibleRow;
+@property(nonatomic) unsigned long long pageIndex; // @synthesize pageIndex=_pageIndex;
+@property(nonatomic) unsigned long long visibleRow; // @synthesize visibleRow=_visibleRow;
 @property(retain, nonatomic) SBIconGridImage *gridImage; // @synthesize gridImage=_gridImage;
-- (unsigned int)firstVisibleRowForGap;
-- (unsigned int)firstVisibleMiniIconIndex;
+- (unsigned long long)firstVisibleRowForGap;
+- (unsigned long long)firstVisibleMiniIconIndex;
+- (void)dealloc;
 
 @end
 

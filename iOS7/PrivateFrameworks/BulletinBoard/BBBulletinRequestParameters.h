@@ -13,22 +13,22 @@
 
 @interface BBBulletinRequestParameters : NSObject <NSCopying, NSSecureCoding>
 {
-    unsigned int _publisherDestination;
-    int _maximumCount;
+    unsigned long long _publisherDestination;
+    long long _maximumCount;
     NSSet *_enabledSectionIDs;
 }
 
-+ (BOOL)supportsSecureCoding;
-+ (id)requestParametersForDestination:(unsigned int)arg1 withMaximumCount:(int)arg2 enabledSectionIDs:(id)arg3;
-@property(readonly, nonatomic) unsigned int publisherDestination; // @synthesize publisherDestination=_publisherDestination;
++ (_Bool)supportsSecureCoding;
++ (id)requestParametersForDestination:(unsigned long long)arg1 withMaximumCount:(long long)arg2 enabledSectionIDs:(id)arg3;
+@property(readonly, nonatomic) unsigned long long publisherDestination; // @synthesize publisherDestination=_publisherDestination;
 - (id)description;
 @property(readonly, nonatomic) NSSet *enabledSectionIDs;
-@property(readonly, nonatomic) unsigned int maximumCount;
+@property(readonly, nonatomic) unsigned long long maximumCount;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithDestination:(unsigned int)arg1 maximumCount:(int)arg2 enabledSectionIDs:(id)arg3;
+- (id)initWithDestination:(unsigned long long)arg1 maximumCount:(long long)arg2 enabledSectionIDs:(id)arg3;
 
 @end
 

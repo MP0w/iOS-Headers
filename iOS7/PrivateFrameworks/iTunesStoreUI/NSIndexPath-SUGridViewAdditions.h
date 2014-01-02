@@ -7,9 +7,9 @@
 #import "NSIndexPath.h"
 
 @interface NSIndexPath (SUGridViewAdditions)
-+ (id)indexPathForRow:(unsigned int)arg1 column:(unsigned int)arg2 inSection:(unsigned int)arg3;
-@property(readonly, nonatomic) unsigned int gridSection;
-@property(readonly, nonatomic) unsigned int gridRow;
-@property(readonly, nonatomic) unsigned int gridColumn;
++ (id)indexPathForRow:(unsigned long long)arg1 column:(unsigned long long)arg2 inSection:(unsigned long long)arg3;
+@property(readonly, nonatomic) unsigned long long gridSection;
+@property(readonly, nonatomic) unsigned long long gridRow;
+@property(readonly, nonatomic) unsigned long long gridColumn;
 @end
 

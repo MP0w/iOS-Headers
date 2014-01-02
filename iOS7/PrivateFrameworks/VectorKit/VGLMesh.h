@@ -8,6 +8,7 @@
 
 #import "NSCoding-Protocol.h"
 
+// Not exported
 @interface VGLMesh : VGLVertexArrayObject <NSCoding>
 {
 }

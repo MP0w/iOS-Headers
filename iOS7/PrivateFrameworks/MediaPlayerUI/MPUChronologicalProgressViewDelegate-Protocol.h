@@ -7,6 +7,10 @@
 #import "NSObject-Protocol.h"
 
 @protocol MPUChronologicalProgressViewDelegate <NSObject>
+
+@optional
 - (void)progressView:(id)arg1 didScrubToCurrentTime:(double)arg2;
+- (void)progressViewDidEndScrubbing:(id)arg1;
+- (void)progressViewDidBeginScrubbing:(id)arg1;
 @end
 

@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSString;
 
-@interface GEOGeoServiceTag : PBCodable
+@interface GEOGeoServiceTag : PBCodable <NSCopying>
 {
     int _serviceType;
     NSString *_tag;
@@ -16,11 +18,12 @@
 
 @property(retain, nonatomic) NSString *tag; // @synthesize tag=_tag;
 @property(nonatomic) int serviceType; // @synthesize serviceType=_serviceType;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
 - (void)dealloc;

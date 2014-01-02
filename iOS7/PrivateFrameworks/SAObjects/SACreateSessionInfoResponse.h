@@ -14,7 +14,7 @@
 
 + (id)createSessionInfoResponseWithDictionary:(id)arg1 context:(id)arg2;
 + (id)createSessionInfoResponse;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSNumber *validityDuration;
 @property(copy, nonatomic) NSData *sessionInfo;
 - (id)encodedClassName;

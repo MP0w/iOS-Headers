@@ -20,7 +20,7 @@
 
 // Remaining properties
 @property(nonatomic) CDStruct_c3b9c2ee presentationCoordinate;
-@property(nonatomic, getter=isTracking) BOOL tracking;
+@property(nonatomic, getter=isTracking) _Bool tracking;
 
 @end
 

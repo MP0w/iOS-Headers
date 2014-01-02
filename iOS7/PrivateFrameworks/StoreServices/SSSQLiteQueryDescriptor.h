@@ -13,24 +13,24 @@
 @interface SSSQLiteQueryDescriptor : NSObject <NSCopying>
 {
     Class _entityClass;
-    int _limitCount;
+    long long _limitCount;
     Class _memoryEntityClass;
     NSString *_orderingClause;
     NSArray *_orderingDirections;
     NSArray *_orderingProperties;
     SSSQLitePredicate *_predicate;
-    BOOL _returnsDistinctEntities;
+    _Bool _returnsDistinctEntities;
 }
 
-@property(nonatomic) BOOL returnsDistinctEntities; // @synthesize returnsDistinctEntities=_returnsDistinctEntities;
+@property(nonatomic) _Bool returnsDistinctEntities; // @synthesize returnsDistinctEntities=_returnsDistinctEntities;
 @property(copy, nonatomic) SSSQLitePredicate *predicate; // @synthesize predicate=_predicate;
 @property(copy, nonatomic) NSArray *orderingProperties; // @synthesize orderingProperties=_orderingProperties;
 @property(copy, nonatomic) NSArray *orderingDirections; // @synthesize orderingDirections=_orderingDirections;
 @property(copy, nonatomic) NSString *orderingClause; // @synthesize orderingClause=_orderingClause;
 @property(nonatomic) Class memoryEntityClass; // @synthesize memoryEntityClass=_memoryEntityClass;
-@property(nonatomic) int limitCount; // @synthesize limitCount=_limitCount;
+@property(nonatomic) long long limitCount; // @synthesize limitCount=_limitCount;
 @property(nonatomic) Class entityClass; // @synthesize entityClass=_entityClass;
-- (id)_newSelectSQLWithProperties:(const id *)arg1 count:(unsigned int)arg2 columns:(id)arg3;
+- (id)_newSelectSQLWithProperties:(const id *)arg1 count:(unsigned long long)arg2 columns:(id)arg3;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 

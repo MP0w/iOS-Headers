@@ -7,17 +7,17 @@
 #pragma mark Named Structures
 
 struct CGPoint {
-    float x;
-    float y;
+    double _field1;
+    double _field2;
 };
 
 struct CGRect {
-    struct CGPoint origin;
-    struct CGSize size;
+    struct CGPoint _field1;
+    struct CGSize _field2;
 };
 
 struct CGSize {
-    float width;
-    float height;
+    double _field1;
+    double _field2;
 };
 

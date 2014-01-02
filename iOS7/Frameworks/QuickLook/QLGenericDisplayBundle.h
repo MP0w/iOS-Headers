@@ -18,11 +18,10 @@
 
 @property(retain) NSError *error; // @synthesize error=_error;
 - (void)genericViewDidClickOnArchiveButton:(id)arg1;
-- (void)_showLoadingProgress:(BOOL)arg1;
 - (void)discardAirPlayView;
 - (void)setupAirPlayView;
 - (id)airplayView;
-- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)willRotateToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
 - (void)loadWithHints:(id)arg1;
 - (void)_loadPreviewItemInfos;
 - (void)loadView;

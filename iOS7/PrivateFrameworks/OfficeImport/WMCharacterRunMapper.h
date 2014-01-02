@@ -8,13 +8,14 @@
 
 @class NSString, WDCharacterRun, WMStyle;
 
+// Not exported
 @interface WMCharacterRunMapper : CMMapper
 {
     WDCharacterRun *wdCharacterRun;
     WMStyle *mStyle;
     float mFontSizeBumpFactor;
     NSString *mText;
-    BOOL mIsDeleted;
+    _Bool mIsDeleted;
 }
 
 + (void)addNonCollapsableSpanAt:(id)arg1 withState:(id)arg2;
@@ -23,14 +24,10 @@
 - (void)mapSubstring:(id)arg1 at:(id)arg2;
 - (void)mapAt:(id)arg1 withState:(id)arg2;
 - (void)map1At:(id)arg1 withState:(id)arg2;
-- (BOOL)isDeleted;
+- (_Bool)isDeleted;
 - (void)dealloc;
 - (id)initWithText:(id)arg1;
 - (id)initWithWDCharacterRun:(id)arg1 parent:(id)arg2;
-- (int)defaultTabWidth;
-- (id)baseStyle;
-- (id)copyCharacterStyle;
-- (id)boldStyle;
 
 @end
 

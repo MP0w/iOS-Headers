@@ -6,6 +6,7 @@
 
 #import <OfficeImport/OCDDelayedNode.h>
 
+// Not exported
 @interface OCDDelayedMedia : OCDDelayedNode
 {
 }

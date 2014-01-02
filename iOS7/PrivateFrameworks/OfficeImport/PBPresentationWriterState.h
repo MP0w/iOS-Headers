@@ -8,6 +8,7 @@
 
 @class ESDContainer, ESDObject, ESDRoot, NSMutableDictionary, PBOfficeArtWriterState, PDPresentation, PDSlideBase, TSUNoCopyDictionary;
 
+// Not exported
 @interface PBPresentationWriterState : NSObject
 {
     PBOfficeArtWriterState *mOfficeArtState;
@@ -51,7 +52,7 @@
 @property(retain, nonatomic) ESDRoot *targetPicturesRoot; // @synthesize targetPicturesRoot=mTgtPicturesRoot;
 @property(retain) ESDRoot *targetDocumentRoot; // @synthesize targetDocumentRoot=mTgtDocumentRoot;
 @property(readonly) PDPresentation *sourcePresentation; // @synthesize sourcePresentation=mSrcPresentation;
-- (BOOL)isCancelled;
+- (_Bool)isCancelled;
 - (struct PBWriterMasterStyleInfo *)docTargetMasterStyleInfoOfType:(int)arg1;
 - (struct PBWriterMasterSlideInfo *)currentMasterSlideInfo;
 @property PDSlideBase *currentSourceSlideBase;

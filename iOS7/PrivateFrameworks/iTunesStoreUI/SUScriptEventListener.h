@@ -13,10 +13,10 @@
     WebScriptObject *_callback;
     NSLock *_lock;
     NSString *_name;
-    BOOL _useCapture;
+    _Bool _useCapture;
 }
 
-@property BOOL shouldUseCapture; // @synthesize shouldUseCapture=_useCapture;
+@property _Bool shouldUseCapture; // @synthesize shouldUseCapture=_useCapture;
 @property(copy) NSString *name; // @synthesize name=_name;
 @property(retain) WebScriptObject *callback; // @synthesize callback=_callback;
 - (void)dealloc;

@@ -8,6 +8,7 @@
 
 @class SBKSyncResponseData;
 
+// Not exported
 @interface SBKSyncResponse : SBKResponse
 {
     SBKSyncResponseData *_syncResponseData;

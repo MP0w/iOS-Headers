@@ -8,13 +8,14 @@
 
 @class UIResponder<UITextInput>, UITextMagnifierTimeWeightedPoint;
 
+// Not exported
 @interface UITextMagnifier : UIView
 {
     UIView *_target;
     struct CGPoint _magnificationPoint;
     struct CGPoint _animationPoint;
     struct CGPoint _terminalPoint;
-    BOOL _terminalPointPlacedCarefully;
+    _Bool _terminalPointPlacedCarefully;
     UIResponder<UITextInput> *_text;
     UITextMagnifierTimeWeightedPoint *_weightedPoint;
     UIView *_magnifierRenderer;
@@ -22,11 +23,12 @@
     int _autoscrollDirections;
 }
 
++ (id)getLoupeBackgroundColorForViewService:(id)arg1;
 @property(retain, nonatomic) UIResponder<UITextInput> *text; // @synthesize text=_text;
 @property(nonatomic) struct CGPoint animationPoint; // @synthesize animationPoint=_animationPoint;
 @property(retain, nonatomic) UIView *target; // @synthesize target=_target;
-- (void)stopMagnifying:(BOOL)arg1;
-- (void)beginMagnifyingTarget:(id)arg1 text:(id)arg2 magnificationPoint:(struct CGPoint)arg3 offset:(struct CGPoint)arg4 animated:(BOOL)arg5;
+- (void)stopMagnifying:(_Bool)arg1;
+- (void)beginMagnifyingTarget:(id)arg1 text:(id)arg2 magnificationPoint:(struct CGPoint)arg3 offset:(struct CGPoint)arg4 animated:(_Bool)arg5;
 - (void)windowWillRotate:(id)arg1;
 - (void)detectLostTouches:(id)arg1;
 - (void)remove;
@@ -42,7 +44,7 @@
 - (void)setToMagnifierRenderer;
 - (void)animateToAutoscrollRenderer;
 - (void)postAutoscrollPoint:(struct CGPoint)arg1;
-@property(readonly, nonatomic) BOOL terminalPointPlacedCarefully; // @synthesize terminalPointPlacedCarefully=_terminalPointPlacedCarefully;
+@property(readonly, nonatomic) _Bool terminalPointPlacedCarefully; // @synthesize terminalPointPlacedCarefully=_terminalPointPlacedCarefully;
 @property(readonly, nonatomic) struct CGPoint terminalPoint; // @synthesize terminalPoint=_terminalPoint;
 @property(nonatomic) struct CGPoint magnificationPoint; // @synthesize magnificationPoint=_magnificationPoint;
 - (void)dealloc;

@@ -11,13 +11,13 @@
 }
 
 + (id)defaultManager;
-- (BOOL)createDirectoryAtPath:(id)arg1 attributes:(id)arg2;
-- (id)fileAttributesAtPath:(id)arg1 traverseLink:(BOOL)arg2;
+- (_Bool)createDirectoryAtPath:(id)arg1 attributes:(id)arg2;
+- (id)fileAttributesAtPath:(id)arg1 traverseLink:(_Bool)arg2;
 - (id)directoryContentsAtPath:(id)arg1;
-- (BOOL)movePath:(id)arg1 toPath:(id)arg2;
-- (BOOL)copyPath:(id)arg1 toPath:(id)arg2;
-- (BOOL)removeFileAtPath:(id)arg1;
-- (BOOL)fileExistsAtPath:(id)arg1;
+- (_Bool)movePath:(id)arg1 toPath:(id)arg2;
+- (_Bool)copyPath:(id)arg1 toPath:(id)arg2;
+- (_Bool)removeFileAtPath:(id)arg1;
+- (_Bool)fileExistsAtPath:(id)arg1;
 
 @end
 

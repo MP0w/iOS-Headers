@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSMutableArray;
 
-@interface GEOPlaceSearchFeedbackCollection : PBCodable
+@interface GEOPlaceSearchFeedbackCollection : PBCodable <NSCopying>
 {
     CDStruct_612aec5b _sessionID;
     unsigned long long _businessID;
@@ -28,21 +30,22 @@
 @property(nonatomic) long long placeID; // @synthesize placeID=_placeID;
 @property(nonatomic) unsigned long long businessID; // @synthesize businessID=_businessID;
 @property(nonatomic) CDStruct_612aec5b sessionID; // @synthesize sessionID=_sessionID;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) BOOL hasLocalSearchProviderID;
-- (id)actionCaptureAtIndex:(unsigned int)arg1;
-- (unsigned int)actionCapturesCount;
+@property(nonatomic) _Bool hasLocalSearchProviderID;
+- (id)actionCaptureAtIndex:(unsigned long long)arg1;
+- (unsigned long long)actionCapturesCount;
 - (void)addActionCapture:(id)arg1;
 - (void)clearActionCaptures;
-@property(nonatomic) BOOL hasPlaceID;
-@property(nonatomic) BOOL hasBusinessID;
-@property(nonatomic) BOOL hasSessionID;
+@property(nonatomic) _Bool hasPlaceID;
+@property(nonatomic) _Bool hasBusinessID;
+@property(nonatomic) _Bool hasSessionID;
 - (void)dealloc;
 
 @end

@@ -11,11 +11,12 @@
 
 @class CLLocationManager, NSBundle, NSString;
 
+// Not exported
 @interface MKCoreLocationProvider : NSObject <CLLocationManagerDelegate, MKLocationProvider>
 {
     CLLocationManager *_clLocationManager;
     id <MKLocationProviderDelegate> _delegate;
-    BOOL _locationServicesPreferencesDialogEnabled;
+    _Bool _locationServicesPreferencesDialogEnabled;
     int _authorizationStatus;
     NSBundle *_effectiveBundle;
     NSString *_effectiveBundleIdentifier;
@@ -28,18 +29,18 @@
 - (void)locationManagerDidResumeLocationUpdates:(id)arg1;
 - (void)locationManagerDidPauseLocationUpdates:(id)arg1;
 - (void)locationManager:(id)arg1 didChangeAuthorizationStatus:(int)arg2;
-- (BOOL)locationManagerShouldDisplayHeadingCalibration:(id)arg1;
+- (_Bool)locationManagerShouldDisplayHeadingCalibration:(id)arg1;
 - (void)locationManager:(id)arg1 didFailWithError:(id)arg2;
 - (void)locationManager:(id)arg1 didUpdateHeading:(id)arg2;
 - (void)locationManager:(id)arg1 didUpdateLocations:(id)arg2;
 - (void)dismissHeadingCalibrationDisplay;
-@property(readonly, nonatomic) BOOL airplaneModeBlocksLocation;
+@property(readonly, nonatomic) _Bool airplaneModeBlocksLocation;
 @property(readonly, nonatomic) int authorizationStatus;
 @property(readonly, nonatomic) double expectedGpsUpdateInterval;
 @property(nonatomic) int headingOrientation;
 @property(nonatomic) double distanceFilter;
-@property(nonatomic) int activityType;
-@property(nonatomic, getter=isLocationServicesPreferencesDialogEnabled) BOOL locationServicesPreferencesDialogEnabled;
+@property(nonatomic) long long activityType;
+@property(nonatomic, getter=isLocationServicesPreferencesDialogEnabled) _Bool locationServicesPreferencesDialogEnabled;
 @property(nonatomic) double desiredAccuracy;
 @property(copy, nonatomic) NSString *effectiveBundleIdentifier;
 @property(retain, nonatomic) NSBundle *effectiveBundle;
@@ -51,8 +52,8 @@
 - (void)stopUpdatingLocation;
 - (void)startUpdatingLocation;
 - (void)_updateAuthorizationStatus;
-@property(readonly, nonatomic, getter=isMonitoringRegionsAvailable) BOOL monitoringRegionsAvailable;
-@property(readonly, nonatomic) BOOL usesCLMapCorrection;
+@property(readonly, nonatomic, getter=isMonitoringRegionsAvailable) _Bool monitoringRegionsAvailable;
+@property(readonly, nonatomic) _Bool usesCLMapCorrection;
 @property(readonly, nonatomic) CLLocationManager *_clLocationManager;
 - (void)_createCLLocationManager;
 - (void)dealloc;

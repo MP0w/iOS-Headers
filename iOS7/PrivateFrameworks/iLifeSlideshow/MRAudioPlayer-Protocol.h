@@ -7,15 +7,15 @@
 #import "NSObject-Protocol.h"
 
 @protocol MRAudioPlayer <NSObject>
-@property(nonatomic) BOOL isMuted;
-@property(readonly) float currentDuckLevel;
-@property(nonatomic) int priority;
+@property(nonatomic) _Bool isMuted;
+@property(readonly) double currentDuckLevel;
+@property(nonatomic) long long priority;
 @property(nonatomic) double parentDuration;
 @property(nonatomic) double duckOutDuration;
 @property(nonatomic) double duckInDuration;
-@property(nonatomic) float duckLevel;
+@property(nonatomic) double duckLevel;
 @property(nonatomic) double fadeOutDuration;
 @property(nonatomic) double fadeInDuration;
-@property(nonatomic) float volume;
+@property(nonatomic) double volume;
 @end
 

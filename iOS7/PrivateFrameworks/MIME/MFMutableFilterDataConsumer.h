@@ -14,12 +14,12 @@
 {
     id <MFGuaranteedCollectingDataConsumer> _mainConsumer;
     MFLock *_consumerLock;
-    BOOL _isDone;
+    _Bool _isDone;
 }
 
 - (void)done;
 - (id)data;
-- (int)appendData:(id)arg1;
+- (long long)appendData:(id)arg1;
 - (void)addDataConsumer:(id)arg1;
 - (void)dealloc;
 - (id)initWithMainConsumer:(id)arg1;

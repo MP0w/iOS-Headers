@@ -8,9 +8,11 @@
 
 @protocol UIMovieScrubberDataSource <NSObject>
 - (void)movieScrubber:(id)arg1 requestThumbnailImageForTimestamp:(id)arg2;
-- (float)movieScrubberThumbnailAspectRatio:(id)arg1;
-- (id)movieScrubber:(id)arg1 timestampsStartingAt:(id)arg2 endingAt:(id)arg3 maxCount:(int)arg4;
+- (double)movieScrubberThumbnailAspectRatio:(id)arg1;
 - (id)movieScrubber:(id)arg1 evenlySpacedTimestamps:(int)arg2 startingAt:(id)arg3 endingAt:(id)arg4;
 - (double)movieScrubberDuration:(id)arg1;
+
+@optional
+- (void)movieScrubber:(id)arg1 requestThumbnailImageForTimestamp:(id)arg2 isSummaryThumbnail:(_Bool)arg3;
 @end
 

@@ -19,9 +19,9 @@
 @property(retain, nonatomic) ACAccount *account;
 @property(readonly, nonatomic) NSDictionary *parameters;
 @property(readonly, nonatomic) NSURL *URL;
-@property(readonly, nonatomic) int requestMethod;
+@property(readonly, nonatomic) long long requestMethod;
 - (void)dealloc;
-- (id)initWithURL:(id)arg1 parameters:(id)arg2 requestMethod:(int)arg3;
+- (id)initWithURL:(id)arg1 parameters:(id)arg2 requestMethod:(long long)arg3;
 
 @end
 

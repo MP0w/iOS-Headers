@@ -7,15 +7,15 @@
 #import "DOMNode.h"
 
 @interface DOMNode (MailExtras)
-- (BOOL)mf_isAtEndOfContainerNode:(id)arg1;
+- (_Bool)mf_isAtEndOfContainerNode:(id)arg1;
 - (id)mf_blockNodeAncestor;
 - (id)mf_findElementWithTag:(id)arg1 className:(id)arg2 andIdName:(id)arg3;
-- (BOOL)mf_isDescendantOfNode:(id)arg1;
+- (_Bool)mf_isDescendantOfNode:(id)arg1;
 - (id)mf_topmostContainingNodeWithNameInArray:(id)arg1;
-- (BOOL)mf_isAtBeginningOfContainerNode:(id)arg1;
+- (_Bool)mf_isAtBeginningOfContainerNode:(id)arg1;
 - (id)mf_firstDescendantBlockQuote;
 - (id)mf_highestContainingBlockQuote;
-- (BOOL)mf_containsOnlySelectionMarkers;
+- (_Bool)mf_containsOnlySelectionMarkers;
 - (id)mf_containingBlockQuote;
 - (id)mf_appendBlockPlaceholder;
 - (id)mf_nextSiblingOrAunt;
@@ -26,10 +26,10 @@
 - (void)_fixParagraphsAndQuotesFromMicrosoftNodesToRemove:(id)arg1;
 - (void)recursivelyRemoveMailAttributes;
 - (id)mf_commonAncestorWithNode:(id)arg1;
-- (BOOL)mf_isQuoteOrWithinQuote;
+- (_Bool)mf_isQuoteOrWithinQuote;
 - (int)mf_quoteLevelDelta;
-- (BOOL)mf_containsRichText;
-@property(readonly) BOOL mf_isAttachment;
-@property(readonly) BOOL mf_isBody;
+- (_Bool)mf_containsRichText;
+@property(readonly) _Bool mf_isAttachment;
+@property(readonly) _Bool mf_isBody;
 @end
 

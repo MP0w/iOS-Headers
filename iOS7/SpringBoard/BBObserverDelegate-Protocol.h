@@ -9,27 +9,28 @@
 @protocol BBObserverDelegate <NSObject>
 
 @optional
-- (struct CGSize)observer:(id)arg1 composedAttachmentSizeForType:(int)arg2 thumbnailWidth:(float)arg3 height:(float)arg4 key:(id)arg5;
-- (id)observer:(id)arg1 composedAttachmentImageForType:(int)arg2 thumbnailData:(id)arg3 key:(id)arg4;
-- (id)observer:(id)arg1 multipleThumbnailSizeConstraintsForAttachmentType:(int)arg2;
-- (id)observer:(id)arg1 thumbnailSizeConstraintsForAttachmentType:(int)arg2;
-- (BOOL)observerShouldFetchAttachmentSizeBeforeBulletinDelivery:(id)arg1;
-- (BOOL)observerShouldFetchAttachmentImageBeforeBulletinDelivery:(id)arg1;
+- (struct CGSize)observer:(id)arg1 composedAttachmentSizeForType:(long long)arg2 thumbnailWidth:(float)arg3 height:(float)arg4 key:(id)arg5;
+- (id)observer:(id)arg1 composedAttachmentImageForType:(long long)arg2 thumbnailData:(id)arg3 key:(id)arg4;
+- (id)observer:(id)arg1 multipleThumbnailSizeConstraintsForAttachmentType:(long long)arg2;
+- (id)observer:(id)arg1 thumbnailSizeConstraintsForAttachmentType:(long long)arg2;
+- (_Bool)observerShouldFetchAttachmentSizeBeforeBulletinDelivery:(id)arg1;
+- (_Bool)observerShouldFetchAttachmentImageBeforeBulletinDelivery:(id)arg1;
 - (void)observer:(id)arg1 noteServerReceivedResponseForBulletin:(id)arg2;
-- (void)observer:(id)arg1 noteServerConnectionStateChanged:(BOOL)arg2;
+- (void)observer:(id)arg1 noteServerConnectionStateChanged:(_Bool)arg2;
 - (void)observer:(id)arg1 noteInvalidatedBulletinIDs:(id)arg2;
-- (void)observer:(id)arg1 noteAlertBehaviorOverridesChanged:(unsigned int)arg2;
+- (void)observer:(id)arg1 noteAlertBehaviorOverrideStateChanged:(unsigned long long)arg2;
+- (void)observer:(id)arg1 noteAlertBehaviorOverridesChanged:(unsigned long long)arg2;
 - (void)observer:(id)arg1 purgeReferencesToBulletinID:(id)arg2;
-- (void)observer:(id)arg1 noteSectionParametersChanged:(id)arg2;
+- (void)observer:(id)arg1 noteSectionParametersChanged:(id)arg2 forSectionID:(id)arg3;
 - (void)observer:(id)arg1 updateSectionInfo:(id)arg2;
-- (void)observer:(id)arg1 updateSectionInfo:(id)arg2 inCategory:(int)arg3;
+- (void)observer:(id)arg1 updateSectionInfo:(id)arg2 inCategory:(long long)arg3;
 - (void)observer:(id)arg1 updateSectionOrder:(id)arg2;
-- (void)observer:(id)arg1 updateSectionOrder:(id)arg2 forCategory:(int)arg3;
-- (void)observer:(id)arg1 updateSectionOrderRule:(int)arg2;
+- (void)observer:(id)arg1 updateSectionOrder:(id)arg2 forCategory:(long long)arg3;
+- (void)observer:(id)arg1 updateSectionOrderRule:(long long)arg2;
 - (void)observer:(id)arg1 removeBulletin:(id)arg2;
-- (void)observer:(id)arg1 removeBulletin:(id)arg2 forFeed:(unsigned int)arg3;
+- (void)observer:(id)arg1 removeBulletin:(id)arg2 forFeed:(unsigned long long)arg3;
 - (void)observer:(id)arg1 modifyBulletin:(id)arg2;
-- (void)observer:(id)arg1 modifyBulletin:(id)arg2 forFeed:(unsigned int)arg3;
-- (void)observer:(id)arg1 addBulletin:(id)arg2 forFeed:(unsigned int)arg3;
+- (void)observer:(id)arg1 modifyBulletin:(id)arg2 forFeed:(unsigned long long)arg3;
+- (void)observer:(id)arg1 addBulletin:(id)arg2 forFeed:(unsigned long long)arg3;
 @end
 

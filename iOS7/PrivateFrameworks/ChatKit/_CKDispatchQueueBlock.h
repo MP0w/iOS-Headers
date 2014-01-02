@@ -12,18 +12,18 @@
 {
     id _block;
     NSString *_key;
-    int _priority;
-    unsigned int _fifo;
+    long long _priority;
+    unsigned long long _fifo;
 }
 
-- (void)setFIFO:(unsigned int)arg1;
-@property(nonatomic) unsigned int fifo; // @synthesize fifo=_fifo;
-@property(nonatomic) int priority; // @synthesize priority=_priority;
+- (void)setFIFO:(unsigned long long)arg1;
+@property(nonatomic) unsigned long long fifo; // @synthesize fifo=_fifo;
+@property(nonatomic) long long priority; // @synthesize priority=_priority;
 @property(copy, nonatomic) NSString *key; // @synthesize key=_key;
 @property(copy, nonatomic) id block; // @synthesize block=_block;
 - (void)cancel;
-- (int)compare:(id)arg1;
-- (id)initWithBlock:(id)arg1 key:(void)arg2 priority:(id)arg3 fifo:(int)arg4;
+- (long long)compare:(id)arg1;
+- (id)initWithBlock:(id)arg1 key:(void)arg2 priority:(id)arg3 fifo:(long long)arg4;
 - (id)description;
 - (void)dealloc;
 

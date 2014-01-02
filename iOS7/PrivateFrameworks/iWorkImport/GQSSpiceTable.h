@@ -6,12 +6,13 @@
 
 #import <iWorkImport/GQSTable.h>
 
+// Not exported
 @interface GQSSpiceTable : GQSTable
 {
     struct __CFDictionary *mVectorUidToAlongMap;
-    BOOL mReadingRowVectors;
-    vector_f9ed6fc8 *mRowPositions;
-    vector_f9ed6fc8 *mColumnPositions;
+    _Bool mReadingRowVectors;
+    vector_ec52ae8c *mRowPositions;
+    vector_ec52ae8c *mColumnPositions;
     float mCurrentCellMinX;
     float mCurrentCellMaxX;
     float mCurrentCellMinY;

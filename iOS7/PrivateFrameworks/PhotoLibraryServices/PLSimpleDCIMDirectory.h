@@ -12,14 +12,14 @@
 {
     NSURL *_baseURL;
     NSString *_subDirSuffix;
-    unsigned int _directoryLimit;
+    unsigned long long _directoryLimit;
     NSFileManager *_fileManager;
     NSMutableIndexSet *_availableFileNameNumbers;
     NSURL *_currentSubDirectory;
-    unsigned int _currentSubDirectoryNumber;
+    unsigned long long _currentSubDirectoryNumber;
     NSString *_userInfoPath;
-    BOOL _hasLoadedUserInfo;
-    BOOL _representsCameraRoll;
+    _Bool _hasLoadedUserInfo;
+    _Bool _representsCameraRoll;
     NSObject<OS_dispatch_queue> *_isolation;
 }
 
@@ -27,19 +27,12 @@
 + (id)cameraRollPlistName;
 + (id)migrateOldPlistToNewPlist:(id)arg1;
 @property(readonly) NSURL *directoryURL; // @synthesize directoryURL=_baseURL;
-@property BOOL representsCameraRoll; // @synthesize representsCameraRoll=_representsCameraRoll;
+@property _Bool representsCameraRoll; // @synthesize representsCameraRoll=_representsCameraRoll;
 - (void)reset;
 - (id)nextAvailableFileURLWithExtension:(id)arg1;
 - (void)dealloc;
 - (id)init;
-- (id)initWithDirectoryURL:(id)arg1 subDirectorySuffix:(id)arg2 perDirectoryLimit:(unsigned int)arg3 userInfoPath:(id)arg4;
-- (BOOL)_ensureDirectoryExists:(id)arg1;
-- (void)_loadUserInfoLastDirectoryNumber:(id *)arg1 lastFileNumber:(id *)arg2;
-- (void)_saveUserInfo;
-- (struct _NSRange)fileNameNumberRangeForDirNumber:(unsigned int)arg1;
-- (id)availableFileNameNumbersInDirNumber:(unsigned int)arg1;
-- (id)subDirURLForNumber:(unsigned int)arg1 create:(BOOL)arg2 didCreate:(char *)arg3;
-@property(readonly, nonatomic) NSURL *currentSubDirectory;
+- (id)initWithDirectoryURL:(id)arg1 subDirectorySuffix:(id)arg2 perDirectoryLimit:(unsigned long long)arg3 userInfoPath:(id)arg4;
 
 @end
 

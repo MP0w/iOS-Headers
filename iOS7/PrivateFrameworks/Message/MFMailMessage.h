@@ -19,11 +19,11 @@
 + (unsigned int)displayablePriorityForPriority:(int)arg1;
 + (unsigned int)validatePriority:(int)arg1;
 + (Class)dataMessageStoreToUse;
-+ (id)forwardedMessagePrefixWithSpacer:(BOOL)arg1;
++ (id)forwardedMessagePrefixWithSpacer:(_Bool)arg1;
 - (void)dealloc;
 - (id)externalConversationID;
 - (id)copyMessageInfo;
-- (BOOL)shouldSetSummary;
+- (_Bool)shouldSetSummary;
 - (void)setSummary:(id)arg1;
 - (void)setSubject:(id)arg1 to:(id)arg2 cc:(id)arg3 bcc:(id)arg4 sender:(id)arg5 dateReceived:(double)arg6 dateSent:(double)arg7 messageIDHash:(long long)arg8 conversationIDHash:(long long)arg9 summary:(id)arg10 withOptions:(unsigned int)arg11;
 - (void)setMutableInfoFromMessage:(id)arg1;

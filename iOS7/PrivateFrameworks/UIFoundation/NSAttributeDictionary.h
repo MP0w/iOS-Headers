@@ -6,6 +6,7 @@
 
 #import "NSDictionary.h"
 
+// Not exported
 @interface NSAttributeDictionary : NSDictionary
 {
     unsigned int numElements;
@@ -15,14 +16,14 @@
 + (id)newWithDictionary:(id)arg1;
 + (id)emptyAttributeDictionary;
 + (void)initialize;
-- (BOOL)isEqualToDictionary:(id)arg1;
+- (_Bool)isEqualToDictionary:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)keyEnumerator;
 - (void)getObjects:(id *)arg1 andKeys:(id *)arg2;
 - (id)objectForKey:(id)arg1;
-- (unsigned int)count;
+- (unsigned long long)count;
 - (id)newWithKey:(id)arg1 object:(id)arg2;
 
 @end

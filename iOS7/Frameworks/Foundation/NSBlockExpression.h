@@ -14,7 +14,7 @@
     NSArray *_arguments;
 }
 
-- (void)acceptVisitor:(id)arg1 flags:(unsigned int)arg2;
+- (void)acceptVisitor:(id)arg1 flags:(unsigned long long)arg2;
 - (id)_expressionWithSubstitutionVariables:(id)arg1;
 - (id)predicateFormat;
 - (id)expressionValueWithObject:(id)arg1 context:(id)arg2;
@@ -24,7 +24,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
-- (id)initWithType:(unsigned int)arg1 block:(id)arg2 arguments:(void)arg3;
+- (id)initWithType:(unsigned long long)arg1 block:(id)arg2 arguments:(void)arg3;
 
 @end
 

@@ -18,7 +18,7 @@
 }
 
 - (id)messageForAttachment:(id)arg1;
-- (BOOL)fetchDataForAttachment:(id)arg1 withDataConsumer:(id)arg2 error:(id *)arg3;
+- (_Bool)fetchDataForAttachment:(id)arg1 withDataConsumer:(id)arg2 error:(id *)arg3;
 - (void)dealloc;
 - (id)initWithMessageData:(id)arg1 parentPart:(id)arg2;
 

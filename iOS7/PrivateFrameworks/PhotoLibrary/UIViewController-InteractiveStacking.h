@@ -10,7 +10,7 @@
 - (id)expandedControllerForExpandableView:(id)arg1;
 - (void)hidePopoverView;
 - (id)overlayView;
-- (void)beginPoppingAnimated:(BOOL)arg1 completionHandler:(id)arg2;
+- (void)beginPoppingAnimated:(_Bool)arg1 completionHandler:(id)arg2;
 - (id)interactiveNavigationControllerIfTop;
 - (id)interactiveNavigationController;
 - (void)interactionCancelledWithView:(id)arg1;

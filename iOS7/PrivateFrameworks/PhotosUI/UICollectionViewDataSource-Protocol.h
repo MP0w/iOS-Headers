@@ -8,10 +8,10 @@
 
 @protocol UICollectionViewDataSource <NSObject>
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
-- (int)collectionView:(id)arg1 numberOfItemsInSection:(int)arg2;
+- (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
 
 @optional
 - (id)collectionView:(id)arg1 viewForSupplementaryElementOfKind:(id)arg2 atIndexPath:(id)arg3;
-- (int)numberOfSectionsInCollectionView:(id)arg1;
+- (long long)numberOfSectionsInCollectionView:(id)arg1;
 @end
 

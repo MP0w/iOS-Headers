@@ -14,10 +14,10 @@
 
 + (id)addViewsWithDictionary:(id)arg1 context:(id)arg2;
 + (id)addViews;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSArray *views;
-@property(nonatomic) BOOL temporary;
-@property(nonatomic) BOOL scrollToTop;
+@property(nonatomic) _Bool temporary;
+@property(nonatomic) _Bool scrollToTop;
 @property(copy, nonatomic) NSString *displayTarget;
 @property(copy, nonatomic) NSString *dialogPhase;
 - (id)encodedClassName;

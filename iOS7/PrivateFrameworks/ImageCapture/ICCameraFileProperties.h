@@ -11,31 +11,31 @@
 @interface ICCameraFileProperties : NSObject
 {
     long long _fileSize;
-    BOOL _hasThumbnail;
-    BOOL _hasMetadata;
-    BOOL _raw;
+    _Bool _hasThumbnail;
+    _Bool _hasMetadata;
+    _Bool _raw;
     int _fetchingThumbnailLock;
-    BOOL _fetchingThumbnail;
+    _Bool _fetchingThumbnail;
     int _fetchingMetadataLock;
-    BOOL _fetchingMetadata;
+    _Bool _fetchingMetadata;
     struct CGImage *_originalThumbnail;
     struct CGImage *_thumbnail;
     NSMutableDictionary *_metadata;
     NSMutableDictionary *_metadata_hidden;
-    unsigned int _orientation;
-    BOOL _hasOverriddenOrientation;
+    unsigned long long _orientation;
+    _Bool _hasOverriddenOrientation;
 }
 
-@property BOOL hasOverriddenOrientation; // @synthesize hasOverriddenOrientation=_hasOverriddenOrientation;
-@property unsigned int orientation; // @synthesize orientation=_orientation;
+@property _Bool hasOverriddenOrientation; // @synthesize hasOverriddenOrientation=_hasOverriddenOrientation;
+@property unsigned long long orientation; // @synthesize orientation=_orientation;
 @property(retain) NSMutableDictionary *metadata_hidden; // @synthesize metadata_hidden=_metadata_hidden;
 @property(retain) NSMutableDictionary *metadata; // @synthesize metadata=_metadata;
-@property(getter=isRaw) BOOL raw; // @synthesize raw=_raw;
-@property BOOL hasMetadata; // @synthesize hasMetadata=_hasMetadata;
-@property BOOL hasThumbnail; // @synthesize hasThumbnail=_hasThumbnail;
+@property(getter=isRaw) _Bool raw; // @synthesize raw=_raw;
+@property _Bool hasMetadata; // @synthesize hasMetadata=_hasMetadata;
+@property _Bool hasThumbnail; // @synthesize hasThumbnail=_hasThumbnail;
 @property long long fileSize; // @synthesize fileSize=_fileSize;
-@property BOOL fetchingMetadata;
-@property BOOL fetchingThumbnail;
+@property _Bool fetchingMetadata;
+@property _Bool fetchingThumbnail;
 @property struct CGImage *originalThumbnail; // @dynamic originalThumbnail;
 @property struct CGImage *thumbnail; // @dynamic thumbnail;
 - (void)finalize;

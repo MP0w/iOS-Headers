@@ -12,34 +12,34 @@
 
 @interface SUNavigationController : UINavigationController <SUScriptNativeObject>
 {
-    BOOL _canBeWeakScriptReference;
+    _Bool _canBeWeakScriptReference;
     SUClientInterface *_clientInterface;
-    BOOL _loading;
+    _Bool _loading;
     SUSection *_section;
-    int _storeBarStyle;
+    long long _storeBarStyle;
 }
 
 @property(retain, nonatomic) SUSection *section; // @synthesize section=_section;
-@property(nonatomic, getter=isLoading) BOOL loading; // @synthesize loading=_loading;
+@property(nonatomic, getter=isLoading) _Bool loading; // @synthesize loading=_loading;
 @property(retain, nonatomic) SUClientInterface *clientInterface; // @synthesize clientInterface=_clientInterface;
 - (void)_loadingDidChangeNotification:(id)arg1;
-- (BOOL)clearsWeakScriptReferences;
-- (BOOL)window:(id)arg1 shouldAutorotateToInterfaceOrientation:(int)arg2;
-- (unsigned int)supportedInterfaceOrientations;
+- (_Bool)clearsWeakScriptReferences;
+- (_Bool)window:(id)arg1 shouldAutorotateToInterfaceOrientation:(long long)arg2;
+- (unsigned long long)supportedInterfaceOrientations;
 - (id)_sectionForViewController:(id)arg1;
-- (void)viewDidDisappear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)setViewControllers:(id)arg1;
-- (void)setToolbarHidden:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)setToolbarHidden:(BOOL)arg1;
-- (void)_setStoreBarStyle:(int)arg1 clientInterface:(id)arg2;
+- (void)setToolbarHidden:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)setToolbarHidden:(_Bool)arg1;
+- (void)_setStoreBarStyle:(long long)arg1 clientInterface:(id)arg2;
 - (void)setParentViewController:(id)arg1;
 - (void)restoreArchivableContext:(id)arg1;
 - (void)removeChildViewController:(id)arg1;
 - (id)moreListSelectedImage;
 - (id)moreListImage;
 - (void)loadView;
-- (int)ITunesStoreUIBarStyle;
+- (long long)ITunesStoreUIBarStyle;
 - (id)description;
 - (id)copyScriptViewController;
 - (id)copyArchivableContext;

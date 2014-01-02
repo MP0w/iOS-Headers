@@ -8,6 +8,7 @@
 
 @class EXState;
 
+// Not exported
 @interface EXOAVState : OAVState
 {
     EXState *mEXState;

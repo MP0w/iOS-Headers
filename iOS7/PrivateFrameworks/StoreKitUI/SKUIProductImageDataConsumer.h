@@ -19,8 +19,6 @@
 
 + (id)wishlistConsumer;
 + (id)smartBannerConsumer;
-+ (id)giftResultPosterConsumer;
-+ (id)giftResultLetterboxConsumer;
 + (id)giftResultConsumer;
 + (id)giftThemePosterConsumer;
 + (id)giftThemeLetterboxConsumer;
@@ -34,8 +32,9 @@
 + (id)updatesConsumer;
 + (id)chartsConsumer;
 + (id)cardConsumer;
-+ (id)lockupConsumerWithSize:(int)arg1 itemKind:(int)arg2;
++ (id)lockupConsumerWithSize:(long long)arg1 itemKind:(long long)arg2;
 + (id)gridConsumer;
++ (id)consumerWithSize:(struct CGSize)arg1;
 @property(readonly, nonatomic) struct CGSize iconSize; // @synthesize iconSize=_iconSize;
 @property(retain, nonatomic) SKUIColorScheme *colorScheme; // @synthesize colorScheme=_colorScheme;
 @property(retain, nonatomic) UIColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;

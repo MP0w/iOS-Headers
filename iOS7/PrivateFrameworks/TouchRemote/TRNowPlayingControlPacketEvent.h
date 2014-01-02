@@ -8,14 +8,14 @@
 
 @interface TRNowPlayingControlPacketEvent : TRPacketEvent
 {
-    int _controlCommand;
+    long long _controlCommand;
 }
 
 + (unsigned int)_packetEventType;
-@property(readonly, nonatomic) int controlCommand; // @synthesize controlCommand=_controlCommand;
+@property(readonly, nonatomic) long long controlCommand; // @synthesize controlCommand=_controlCommand;
 - (id)_initWithVersion:(unsigned int)arg1 payloadDictionary:(id)arg2;
 - (id)description;
-- (id)initWithControlCommand:(int)arg1;
+- (id)initWithControlCommand:(long long)arg1;
 
 @end
 

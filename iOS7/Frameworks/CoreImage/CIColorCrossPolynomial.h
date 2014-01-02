@@ -8,6 +8,7 @@
 
 @class CIImage, CIVector;
 
+// Not exported
 @interface CIColorCrossPolynomial : CIFilter
 {
     CIImage *inputImage;
@@ -23,7 +24,7 @@
 @property(retain, nonatomic) CIVector *inputRedCoefficients; // @synthesize inputRedCoefficients;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
-- (BOOL)_isIdentity;
+- (_Bool)_isIdentity;
 - (void)setDefaults;
 - (id)_kernel;
 

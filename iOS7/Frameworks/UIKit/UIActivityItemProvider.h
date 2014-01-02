@@ -12,10 +12,10 @@
 
 @interface UIActivityItemProvider : NSOperation <UIActivityItemSource>
 {
+    float _progress;
     id _placeholderItem;
     NSString *_activityType;
     NSString *_status;
-    float _progress;
     id _providedItem;
 }
 

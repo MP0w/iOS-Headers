@@ -12,10 +12,10 @@
 {
     struct __CFDictionary *_peopleCount;
     NSMutableSet *_popularPeople;
-    int _maxCount;
+    long long _maxCount;
 }
 
-@property(nonatomic) int maxCount; // @synthesize maxCount=_maxCount;
+@property(nonatomic) long long maxCount; // @synthesize maxCount=_maxCount;
 - (void)countInstances:(id)arg1 usingPredicate:(id)arg2;
 - (id)highestMatches;
 - (void)dealloc;

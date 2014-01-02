@@ -11,13 +11,11 @@
 @interface IMDDController : NSObject
 {
     NSObject<OS_dispatch_queue> *_scannerQueue;
-    struct __DDScanner *_scanner;
-    struct __DDScanner *_shortNumberScanner;
 }
 
 + (id)sharedInstance;
-- (void)scanMessage:(id)arg1 waitUntilDone:(BOOL)arg2 completionBlock:(id)arg3;
-- (BOOL)_scanMessageUsingScanner:(id)arg1 attributedString:(id)arg2;
+- (void)scanMessage:(id)arg1 waitUntilDone:(_Bool)arg2 completionBlock:(id)arg3;
+- (_Bool)_scanMessageUsingScanner:(id)arg1 attributedString:(id)arg2;
 - (void)scanMessage:(id)arg1 completionBlock:(id)arg2;
 - (id)scannerQueue;
 - (struct __DDScanner *)sharedScanner;

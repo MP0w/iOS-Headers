@@ -15,9 +15,11 @@
     NSString *_contentRating;
     UIImage *_contentRatingImage;
     UIColor *_ratingColor;
+    _Bool _isPad;
 }
 
 @property(retain, nonatomic) UIColor *ratingColor; // @synthesize ratingColor=_ratingColor;
+@property(nonatomic) _Bool isPad; // @synthesize isPad=_isPad;
 @property(retain, nonatomic) NSString *contentRating; // @synthesize contentRating=_contentRating;
 @property(retain, nonatomic) UIColor *textColor; // @synthesize textColor=_textColor;
 @property(copy, nonatomic) NSString *text; // @synthesize text=_text;

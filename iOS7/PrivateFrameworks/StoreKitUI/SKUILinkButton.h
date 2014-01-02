@@ -8,15 +8,19 @@
 
 @interface SKUILinkButton : UIButton
 {
-    int _arrowStyle;
+    long long _arrowStyle;
 }
 
-@property(readonly, nonatomic) int arrowStyle; // @synthesize arrowStyle=_arrowStyle;
-- (float)_linkImagePaddingLeft;
++ (id)buttonWithArrowStyle:(long long)arg1;
+@property(readonly, nonatomic) long long arrowStyle; // @synthesize arrowStyle=_arrowStyle;
+- (void)_reloadIcons;
+- (double)_linkImagePaddingLeft;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (void)setTitleColor:(id)arg1 forState:(unsigned int)arg2;
-- (id)initWithArrowStyle:(int)arg1;
+- (void)sizeToFit;
+- (void)tintColorDidChange;
+- (void)setTitleColor:(id)arg1 forState:(unsigned long long)arg2;
+- (id)initWithArrowStyle:(long long)arg1;
 
 @end
 

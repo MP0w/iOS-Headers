@@ -8,14 +8,15 @@
 
 @class UIImage;
 
+// Not exported
 @interface UIThreePartImageView : UIView
 {
-    CDStruct_75b8db5d _slices;
+    CDStruct_24b02699 _slices;
     UIImage *_image;
 }
 
 - (void)drawRect:(struct CGRect)arg1;
-- (void)setSlices:(CDStruct_75b8db5d)arg1;
+- (void)setSlices:(CDStruct_24b02699)arg1;
 - (void)setImage:(id)arg1;
 - (void)dealloc;
 

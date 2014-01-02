@@ -6,13 +6,14 @@
 
 #import <OfficeImport/CMDiagramPointMapper.h>
 
+// Not exported
 @interface CMDiagramPointContinuousArrowMapper : CMDiagramPointMapper
 {
-    BOOL mIsArrow;
+    _Bool mIsArrow;
 }
 
 - (void)mapAt:(id)arg1 withState:(id)arg2;
-- (void)setIsArrow:(BOOL)arg1;
+- (void)setIsArrow:(_Bool)arg1;
 
 @end
 

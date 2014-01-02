@@ -15,14 +15,15 @@
 
 + (id)sharedClient;
 - (void).cxx_destruct;
-- (BOOL)isManagedByMDM;
+- (_Bool)isActivationLockAllowed;
+- (_Bool)isManagedByMDM;
 - (void)removeManagedAppsAccordingToFlags;
 - (void)simulatePush;
 - (void)retryNotNowResponse;
 - (void)scheduleTokenUpdate;
 - (void)notifyNewConfiguration;
-- (BOOL)checkOutCheckInURL:(id)arg1 identity:(struct __SecIdentity *)arg2 topic:(id)arg3 signMessage:(BOOL)arg4 outError:(id *)arg5;
-- (BOOL)authenticateWithCheckInURL:(id)arg1 identity:(struct __SecIdentity *)arg2 topic:(id)arg3 useDevelopmentAPNS:(BOOL)arg4 signMessage:(BOOL)arg5 outError:(id *)arg6;
+- (_Bool)checkOutCheckInURL:(id)arg1 identity:(struct __SecIdentity *)arg2 topic:(id)arg3 signMessage:(_Bool)arg4 outError:(id *)arg5;
+- (_Bool)authenticateWithCheckInURL:(id)arg1 identity:(struct __SecIdentity *)arg2 topic:(id)arg3 useDevelopmentAPNS:(_Bool)arg4 signMessage:(_Bool)arg5 outError:(id *)arg6;
 - (id)init;
 
 @end

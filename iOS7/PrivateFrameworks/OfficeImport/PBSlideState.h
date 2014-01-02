@@ -8,6 +8,7 @@
 
 @class NSMutableDictionary;
 
+// Not exported
 @interface PBSlideState : NSObject
 {
     NSMutableDictionary *mBuildOrderMap;

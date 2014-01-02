@@ -8,11 +8,10 @@
 
 @interface RCAVItem : AVItem
 {
-    BOOL _didDetermineDuration;
+    _Bool _didDetermineDuration;
     double _duration;
 }
 
-+ (id)_avController;
 - (double)duration;
 
 @end

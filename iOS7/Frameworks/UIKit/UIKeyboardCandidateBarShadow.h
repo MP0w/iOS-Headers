@@ -6,12 +6,13 @@
 
 #import <UIKit/UIView.h>
 
+// Not exported
 @interface UIKeyboardCandidateBarShadow : UIView
 {
-    BOOL _inverted;
+    _Bool _inverted;
 }
 
-@property(nonatomic, getter=isInverted) BOOL inverted; // @synthesize inverted=_inverted;
+@property(nonatomic, getter=isInverted) _Bool inverted; // @synthesize inverted=_inverted;
 - (void)drawRect:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 

@@ -11,24 +11,24 @@
 @interface MRGesture : NSObject
 {
     MRHitBlob *_hitBlob;
-    float _linearScaleAtStart;
-    float _slideRotationAtStart;
-    float _slideScaleAtStart;
-    float _currentRotation;
-    float _currentScale;
+    double _linearScaleAtStart;
+    double _slideRotationAtStart;
+    double _slideScaleAtStart;
+    double _currentRotation;
+    double _currentScale;
     struct CGPoint _locationInViewAtStart;
     struct CGPoint _locationInSlideAtStart;
     struct CGPoint _slideCenterAtStart;
     struct CGPoint _currentTranslation;
 }
 
-@property float currentScale; // @synthesize currentScale=_currentScale;
-@property float currentRotation; // @synthesize currentRotation=_currentRotation;
+@property double currentScale; // @synthesize currentScale=_currentScale;
+@property double currentRotation; // @synthesize currentRotation=_currentRotation;
 @property struct CGPoint currentTranslation; // @synthesize currentTranslation=_currentTranslation;
-@property float slideScaleAtStart; // @synthesize slideScaleAtStart=_slideScaleAtStart;
-@property float slideRotationAtStart; // @synthesize slideRotationAtStart=_slideRotationAtStart;
+@property double slideScaleAtStart; // @synthesize slideScaleAtStart=_slideScaleAtStart;
+@property double slideRotationAtStart; // @synthesize slideRotationAtStart=_slideRotationAtStart;
 @property struct CGPoint slideCenterAtStart; // @synthesize slideCenterAtStart=_slideCenterAtStart;
-@property float linearScaleAtStart; // @synthesize linearScaleAtStart=_linearScaleAtStart;
+@property double linearScaleAtStart; // @synthesize linearScaleAtStart=_linearScaleAtStart;
 @property struct CGPoint locationInSlideAtStart; // @synthesize locationInSlideAtStart=_locationInSlideAtStart;
 @property struct CGPoint locationInViewAtStart; // @synthesize locationInViewAtStart=_locationInViewAtStart;
 @property(retain) MRHitBlob *hitBlob; // @synthesize hitBlob=_hitBlob;

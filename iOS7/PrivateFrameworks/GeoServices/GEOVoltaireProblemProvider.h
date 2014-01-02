@@ -18,7 +18,7 @@
 }
 
 + (unsigned short)providerID;
-+ (void)setUsePersistentConnection:(BOOL)arg1;
++ (void)setUsePersistentConnection:(_Bool)arg1;
 + (void)_resetURL;
 - (void)requesterDidFinish:(id)arg1;
 - (void)requesterDidCancel:(id)arg1;

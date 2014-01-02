@@ -8,10 +8,10 @@
 
 @interface MSASPersonModel : MSASModelBase
 {
-    BOOL _shouldDownloadEarliestPhotosFirst;
+    _Bool _shouldDownloadEarliestPhotosFirst;
 }
 
-@property(nonatomic) BOOL shouldDownloadEarliestPhotosFirst; // @synthesize shouldDownloadEarliestPhotosFirst=_shouldDownloadEarliestPhotosFirst;
+@property(nonatomic) _Bool shouldDownloadEarliestPhotosFirst; // @synthesize shouldDownloadEarliestPhotosFirst=_shouldDownloadEarliestPhotosFirst;
 - (void)removeAssetCollectionsFromUploadQueue:(id)arg1;
 - (void)setErrorCount:(int)arg1 forAssetCollectionInUploadQueue:(id)arg2;
 - (id)nextItemsForUploadAlbumGUID:(id)arg1 maxPriority:(int)arg2 maxCount:(int)arg3;
@@ -23,21 +23,21 @@
 - (void)removeAssetsFromDownloadQueue:(id)arg1;
 - (void)setErrorCount:(int)arg1 forAssetInDownloadQueue:(id)arg2;
 - (int)itemsForDownloadCountFocusAlbumGUID:(id)arg1 focusAssetCollectionGUID:(id)arg2;
-- (BOOL)hasItemsForDownloadCountFocusAlbumGUID:(id)arg1 focusAssetCollectionGUID:(id)arg2;
-- (id)nextItemsForDownloadFocusAlbumGUID:(id)arg1 focusAssetCollectionGUID:(id)arg2 thumbnails:(BOOL)arg3 maxCount:(int)arg4;
+- (_Bool)hasItemsForDownloadCountFocusAlbumGUID:(id)arg1 focusAssetCollectionGUID:(id)arg2;
+- (id)nextItemsForDownloadFocusAlbumGUID:(id)arg1 focusAssetCollectionGUID:(id)arg2 thumbnails:(_Bool)arg3 maxCount:(int)arg4;
 - (int)assetsInDownloadQueueAlbumGUID:(id)arg1;
 - (int)assetsInDownloadQueue;
-- (void)enqueueAssetForDownload:(id)arg1 album:(id)arg2;
+- (void)enqueueAssetForDownload:(id)arg1 inAlbumWithGUID:(id)arg2;
 - (long long)nextMMCSItemID;
-- (BOOL)dbQueueIsGUIDQueued:(id)arg1 inQueue:(id)arg2;
+- (_Bool)dbQueueIsGUIDQueued:(id)arg1 inQueue:(id)arg2;
 - (void)dbQueueRemoveGUID:(id)arg1 fromQueue:(id)arg2;
 - (void)dbQueueSetErrorCount:(int)arg1 forGUID:(id)arg2 inQueue:(id)arg3;
 - (int)dbQueueAssetCountAlbumGUID:(id)arg1 inQueue:(id)arg2;
 - (void)requeuePendingAssetCollectionsWithAlbumGUID:(id)arg1;
 - (void)requeuePendingAssetCollectionGUID:(id)arg1;
 - (void)addPendingAssetCollectionGUID:(id)arg1 albumGUID:(id)arg2;
-- (BOOL)dbQueueIsAssetCollectionWithGUIDPending:(id)arg1;
-- (BOOL)isAssetCollectionWithGUIDPending:(id)arg1;
+- (_Bool)dbQueueIsAssetCollectionWithGUIDPending:(id)arg1;
+- (_Bool)isAssetCollectionWithGUIDPending:(id)arg1;
 - (long long)countOfEnqueuedCommands;
 - (long long)countOfEnqueuedCommand:(id)arg1;
 - (void)purgeCompletionBlock:(id)arg1;
@@ -59,7 +59,7 @@
 - (void)dbQueueEnqueueCommand:(id)arg1 params:(id)arg2 personID:(id)arg3 albumGUID:(id)arg4 assetCollectionGUID:(id)arg5;
 - (long long)dbQueueSmallestCommandSequenceNumber;
 - (long long)dbQueueNextCommandSequenceNumber;
-- (BOOL)dbQueueUpgradeFromDatabaseVersion:(int)arg1 currentVersion:(int)arg2;
+- (_Bool)dbQueueUpgradeFromDatabaseVersion:(int)arg1 currentVersion:(int)arg2;
 - (id)initWithPersonID:(id)arg1;
 
 @end

@@ -8,14 +8,14 @@
 
 @interface SBDataPlanActivationAlertItem : SBDataPlanAccountAlertItem
 {
-    BOOL _newAccount;
-    BOOL _promptToDisable;
+    _Bool _newAccount;
+    _Bool _promptToDisable;
 }
 
-@property(nonatomic, getter=isNewAccount) BOOL newAccount; // @synthesize newAccount=_newAccount;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
-- (id)initWithAccountURL:(id)arg1 newAccount:(BOOL)arg2 promptToDisable:(BOOL)arg3;
+@property(nonatomic, getter=isNewAccount) _Bool newAccount; // @synthesize newAccount=_newAccount;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
+- (void)configure:(_Bool)arg1 requirePasscodeForActions:(_Bool)arg2;
+- (id)initWithAccountURL:(id)arg1 newAccount:(_Bool)arg2 promptToDisable:(_Bool)arg3;
 
 @end
 

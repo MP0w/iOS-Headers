@@ -8,6 +8,7 @@
 
 @class NSArray, NSData, NSMutableArray, VKTileKeyMap;
 
+// Not exported
 @interface VKTrafficTile : VKVectorTile
 {
     struct _GEOTileKey _dataKey;
@@ -26,10 +27,10 @@
 - (void).cxx_destruct;
 - (void)buildTrafficMeshWithRoadData:(id)arg1;
 - (void)buildConnectionDesignators;
-- (void)buildIncidentsForDynamic:(id)arg1;
+- (void)buildIncidentsForDynamic:(id)arg1 withRoadData:(id)arg2 styleSession:(id)arg3;
 - (void)buildTrafficMeshWithRoadData:(id)arg1 dynamicTile:(id)arg2 ribbonMaker:(struct VKRibbonMakerData *)arg3 trafficAccum:(struct TrafficAccum *)arg4 styleSession:(id)arg5;
-- (void)enumerateTrafficRoadPiecesForTile:(id)arg1 usingFunction:(const function_ccedc87b *)arg2;
-- (BOOL)_buildStartOffset:(float *)arg1 endOffset:(float *)arg2 forLine:(CDStruct_c272c4e8 *)arg3 forSkeleton:(const struct Record *)arg4 forRange:(struct _NSRange)arg5 forFlow:(const struct Flow *)arg6 forPoints:(Vec2Imp_1782d7e3 *)arg7;
+- (void)enumerateTrafficRoadPiecesForTile:(id)arg1 usingFunction:(const function_21f69ee7 *)arg2;
+- (_Bool)_buildStartOffset:(float *)arg1 endOffset:(float *)arg2 forLine:(CDStruct_02d551b3 *)arg3 forSkeleton:(const struct Record *)arg4 forRange:(struct _NSRange)arg5 forFlow:(const struct Flow *)arg6 forPoints:(Vec2Imp_1782d7e3 *)arg7;
 - (void)buildSkeletonMeshForDebug:(id)arg1;
 - (void)buildSkeletonMap;
 - (void)dealloc;

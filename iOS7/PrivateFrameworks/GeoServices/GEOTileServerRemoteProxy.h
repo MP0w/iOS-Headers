@@ -6,8 +6,9 @@
 
 #import <GeoServices/GEOTileServerProxy.h>
 
-@class NSLock, NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>;
+@class NSHashTable, NSLock, NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>;
 
+// Not exported
 @interface GEOTileServerRemoteProxy : GEOTileServerProxy
 {
     NSObject<OS_dispatch_queue> *_connQueue;
@@ -15,10 +16,11 @@
     NSLock *_connLock;
     int _suspendCount;
     unsigned long long _handleCounter;
-    BOOL _cancelling;
+    NSHashTable *_cancellingConnections;
+    NSLock *_cancellingConnectionsLock;
 }
 
-- (BOOL)skipNetworkForKeysWhenPreloading:(id)arg1;
+- (_Bool)skipNetworkForKeysWhenPreloading:(id)arg1;
 - (void)endPreloadSession;
 - (void)beginPreloadSessionOfSize:(unsigned long long)arg1;
 - (void)shrinkDiskCacheToSize:(unsigned long long)arg1;
@@ -27,12 +29,12 @@
 - (void)close;
 - (void)reportCorruptTile:(const struct _GEOTileKey *)arg1;
 - (void)cancel:(const struct _GEOTileKey *)arg1;
-- (void)loadTiles:(id)arg1 priorities:(unsigned int *)arg2 options:(unsigned int)arg3 client:(id)arg4;
+- (void)loadTiles:(id)arg1 priorities:(unsigned int *)arg2 options:(unsigned long long)arg3 client:(id)arg4;
 - (void)_handleEditionUpgrade:(id)arg1;
 - (void)_handleNetworkBegan:(id)arg1;
 - (void)_handleError:(id)arg1;
 - (void)_handleTile:(id)arg1;
-- (void)_handleEvent:(id)arg1;
+- (void)_handleEvent:(id)arg1 fromConnection:(id)arg2;
 - (void)dealloc;
 - (id)init;
 

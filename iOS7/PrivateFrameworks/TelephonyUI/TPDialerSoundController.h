@@ -10,14 +10,14 @@
 {
     struct __CFSet *_inflightSounds;
     unsigned int _soundsActivated:1;
-    unsigned int _incompleteSoundCount;
+    unsigned long long _incompleteSoundCount;
 }
 
 + (void)_delayedDeactivate;
-@property unsigned int incompleteSoundCount; // @synthesize incompleteSoundCount=_incompleteSoundCount;
-- (void)_stopAllSoundsForcingCallbacks:(BOOL)arg1;
-- (void)setSoundsActivated:(BOOL)arg1;
-- (void)soundCompletedPlaying:(unsigned long)arg1;
+@property unsigned long long incompleteSoundCount; // @synthesize incompleteSoundCount=_incompleteSoundCount;
+- (void)_stopAllSoundsForcingCallbacks:(_Bool)arg1;
+- (void)setSoundsActivated:(_Bool)arg1;
+- (void)soundCompletedPlaying:(unsigned int)arg1;
 - (void)stopSoundForDialerCharacter:(unsigned int)arg1;
 - (void)playSoundForDialerCharacter:(unsigned int)arg1;
 - (void)applicationSuspendedNotification:(id)arg1;

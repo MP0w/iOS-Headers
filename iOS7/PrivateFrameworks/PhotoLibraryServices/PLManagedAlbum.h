@@ -12,9 +12,8 @@
 
 @interface PLManagedAlbum : _PLManagedAlbum <PLUserEditableAlbumProtocol>
 {
-    BOOL _resolvingConflicts;
-    BOOL stackedImageNeedsUpdate;
-    BOOL albumShouldBeAutomaticallyDeleted;
+    _Bool _resolvingConflicts;
+    _Bool albumShouldBeAutomaticallyDeleted;
 }
 
 + (void)clearAssetOrderByAbumUUIDs;
@@ -23,10 +22,8 @@
 + (id)keyPathsForValuesAffectingVideosCount;
 + (id)keyPathsForValuesAffectingPhotosCount;
 + (id)keyPathsForValuesAffectingApproximateCount;
-+ (BOOL)deviceSupportsStackedImages;
-@property(nonatomic) BOOL albumShouldBeAutomaticallyDeleted; // @synthesize albumShouldBeAutomaticallyDeleted;
-@property(nonatomic) BOOL stackedImageNeedsUpdate; // @synthesize stackedImageNeedsUpdate;
-@property(nonatomic) BOOL resolvingConflicts; // @synthesize resolvingConflicts=_resolvingConflicts;
+@property(nonatomic) _Bool albumShouldBeAutomaticallyDeleted; // @synthesize albumShouldBeAutomaticallyDeleted;
+@property(nonatomic) _Bool resolvingConflicts; // @synthesize resolvingConflicts=_resolvingConflicts;
 - (void)refreshAssets;
 - (id)filteredIndexesForPredicate:(id)arg1;
 - (void)addAssetUsingiTunesAlbumOrder:(id)arg1;
@@ -35,57 +32,57 @@
 - (id)_orderComparisonValueForAsset:(id)arg1 iTunesLookupOrder:(id)arg2;
 - (void)removePersistedFileSystemData;
 - (void)persistMetadataToFileSystem;
-- (void)awakeFromSnapshotEvents:(unsigned int)arg1;
+- (void)awakeFromSnapshotEvents:(unsigned long long)arg1;
 - (void)_recalculateCachedCounts;
 - (void)replaceAssetsAtIndexes:(id)arg1 withAssets:(id)arg2;
 - (void)removeAssetsAtIndexes:(id)arg1;
 - (void)insertAssets:(id)arg1 atIndexes:(id)arg2;
-@property(readonly, nonatomic) unsigned int videosCount;
-@property(readonly, nonatomic) unsigned int photosCount;
-- (unsigned int)_cachedCountForMigration;
-@property(readonly, nonatomic) BOOL isEmpty;
-@property(readonly, nonatomic) unsigned int assetsCount;
-@property(readonly, nonatomic) unsigned int approximateCount;
-- (unsigned int)_albumStandInCount;
+@property(readonly, nonatomic) unsigned long long videosCount;
+@property(readonly, nonatomic) unsigned long long photosCount;
+- (unsigned long long)_cachedCountForMigration;
+@property(readonly, nonatomic) _Bool isEmpty;
+@property(readonly, nonatomic) unsigned long long assetsCount;
+@property(readonly, nonatomic) unsigned long long approximateCount;
+- (unsigned long long)_albumStandInCount;
 - (void)unregisterForChanges;
 - (void)registerForChanges;
 - (id)_keysToBeObserved;
-- (void)_updateKeyAssetIfNeeded;
-- (id)_expectedKeyAsset;
-- (void)updateStackedImageShouldNotifyImmediately:(BOOL)arg1;
+- (void)_updateKeyAssetsIfNeeded;
+- (id)_expectedKeyAssets;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)removeInternalUserEditableAssetsAtIndexes:(id)arg1;
+- (void)insertInternalUserEditableAssets:(id)arg1 atIndexes:(id)arg2 trimmedVideoPathInfo:(id)arg3 commentText:(id)arg4;
 - (void)insertInternalUserEditableAssets:(id)arg1 atIndexes:(id)arg2;
 - (id)internalUserEditableAssetsAtIndexes:(id)arg1;
 - (void)getInternalUserEditableAssets:(id *)arg1 range:(struct _NSRange)arg2;
-- (id)objectInInternalUserEditableAssetsAtIndex:(unsigned int)arg1;
-- (unsigned int)indexInInternalUserEditableAssetsOfObject:(id)arg1;
-- (unsigned int)countOfInternalUserEditableAssets;
+- (id)objectInInternalUserEditableAssetsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)indexInInternalUserEditableAssetsOfObject:(id)arg1;
+- (unsigned long long)countOfInternalUserEditableAssets;
 @property(readonly, nonatomic) NSMutableOrderedSet *userEditableAssets;
 - (void)didSave;
-- (void)_handleStackedImageNeedsUpdate:(BOOL)arg1;
 @property(readonly, nonatomic) NSMutableOrderedSet *mutableAssets;
-- (BOOL)_shouldCopyAssetToCameraRollBeforeAdding:(id)arg1;
-- (BOOL)canPerformEditOperation:(int)arg1;
+- (_Bool)_shouldCopyAssetToCameraRollBeforeAdding:(id)arg1;
+- (_Bool)canPerformEditOperation:(int)arg1;
 
 // Remaining properties
-@property(readonly, nonatomic) NSOrderedSet *assets; // @dynamic assets;
-@property(readonly, nonatomic) BOOL canContributeToCloudSharedAlbum;
-@property(readonly, nonatomic) BOOL canShowComments;
+@property(retain, nonatomic) NSOrderedSet *assets; // @dynamic assets;
+@property(readonly, nonatomic) _Bool canContributeToCloudSharedAlbum;
+@property(readonly, nonatomic) _Bool canShowAvalancheStacks;
+@property(readonly, nonatomic) _Bool canShowComments;
 @property(readonly, nonatomic) NSDate *endDate;
 @property(readonly, nonatomic) NSURL *groupURL;
-@property(nonatomic) BOOL hasUnseenContentBoolValue;
+@property(nonatomic) _Bool hasUnseenContentBoolValue;
 @property(retain, nonatomic) NSString *importSessionID;
-@property(readonly, nonatomic) BOOL isCameraAlbum;
-@property(readonly, nonatomic) BOOL isCloudSharedAlbum;
-@property(readonly, nonatomic) BOOL isLibrary;
-@property(readonly, nonatomic) BOOL isMultipleContributorCloudSharedAlbum;
-@property(readonly, nonatomic) BOOL isOwnedCloudSharedAlbum;
-@property(readonly, nonatomic) BOOL isPanoramasAlbum;
-@property(readonly, nonatomic) BOOL isPendingPhotoStreamAlbum;
-@property(readonly, nonatomic) BOOL isPhotoStreamAlbum;
-@property(readonly, nonatomic) BOOL isStandInAlbum;
-@property(readonly, nonatomic) BOOL isWallpaperAlbum;
+@property(readonly, nonatomic) _Bool isCameraAlbum;
+@property(readonly, nonatomic) _Bool isCloudSharedAlbum;
+@property(readonly, nonatomic) _Bool isLibrary;
+@property(readonly, nonatomic) _Bool isMultipleContributorCloudSharedAlbum;
+@property(readonly, nonatomic) _Bool isOwnedCloudSharedAlbum;
+@property(readonly, nonatomic) _Bool isPanoramasAlbum;
+@property(readonly, nonatomic) _Bool isPendingPhotoStreamAlbum;
+@property(readonly, nonatomic) _Bool isPhotoStreamAlbum;
+@property(readonly, nonatomic) _Bool isStandInAlbum;
+@property(readonly, nonatomic) _Bool isWallpaperAlbum;
 @property(retain, nonatomic) PLManagedAsset *keyAsset;
 @property(readonly, nonatomic) NSNumber *kind;
 @property(readonly, nonatomic) int kindValue;
@@ -95,11 +92,13 @@
 @property(nonatomic) int pendingItemsCount;
 @property(nonatomic) int pendingItemsType;
 @property(readonly, nonatomic) UIImage *posterImage;
+@property(retain, nonatomic) PLManagedAsset *secondaryKeyAsset;
 @property(readonly, nonatomic) id sectioningComparator;
-@property(readonly, nonatomic) BOOL shouldDeleteWhenEmpty;
+@property(readonly, nonatomic) _Bool shouldDeleteWhenEmpty;
 @property(retain, nonatomic) NSDictionary *slideshowSettings;
 @property(readonly, nonatomic) id sortingComparator;
 @property(readonly, nonatomic) NSDate *startDate;
+@property(retain, nonatomic) PLManagedAsset *tertiaryKeyAsset;
 @property(readonly, nonatomic) NSString *title;
 @property(readonly, nonatomic) NSString *uuid;
 

@@ -8,6 +8,7 @@
 
 @class NSArray, NSMapTable, NSMutableArray, VKVectorTile;
 
+// Not exported
 @interface VKOverlayTile : VKTile
 {
     NSMutableArray *_overlays;

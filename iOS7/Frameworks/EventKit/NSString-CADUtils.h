@@ -7,6 +7,6 @@
 #import "NSString.h"
 
 @interface NSString (CADUtils)
-- (BOOL)flattenToCADLongString:(char (*)[1024])arg1;
+- (_Bool)flattenToCADLongString:(char (*)[1024])arg1;
 @end
 

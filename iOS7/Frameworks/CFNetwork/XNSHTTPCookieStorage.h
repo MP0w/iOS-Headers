@@ -8,6 +8,7 @@
 
 @class XNSHTTPCookieStorageInternal;
 
+// Not exported
 @interface XNSHTTPCookieStorage : NSObject
 {
     XNSHTTPCookieStorageInternal *_internal;

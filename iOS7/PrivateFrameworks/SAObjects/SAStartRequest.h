@@ -17,12 +17,13 @@
 + (id)startRequestWithDictionary:(id)arg1 context:(id)arg2;
 + (id)startRequest;
 @property(copy, nonatomic) NSString *utterance;
-@property(nonatomic) BOOL talkOnly;
+@property(nonatomic) _Bool talkOnly;
 @property(copy, nonatomic) NSString *origin;
 @property(copy, nonatomic) NSNumber *motionConfidence;
 @property(copy, nonatomic) NSString *motionActivity;
-@property(nonatomic) BOOL handsFree;
-@property(nonatomic) BOOL eyesFree;
+@property(nonatomic) _Bool handsFree;
+@property(nonatomic) _Bool eyesFree;
+@property(nonatomic) _Bool clearContext;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

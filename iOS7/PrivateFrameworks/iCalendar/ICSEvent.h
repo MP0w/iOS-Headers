@@ -15,19 +15,18 @@
 + (id)name;
 - (id)propertiesThatIfPresentExcludeThisComponentFromChecksummingForVersion:(int)arg1;
 - (id)propertiesToIncludeForChecksumVersion:(int)arg1;
-- (BOOL)isDefaultAlarmDeleted;
+- (_Bool)isDefaultAlarmDeleted;
 @property int x_apple_ews_busystatus;
-@property BOOL x_wr_rsvpneeded; // @dynamic x_wr_rsvpneeded;
-@property BOOL x_wr_itipstatusml; // @dynamic x_wr_itipstatusml;
-@property BOOL x_wr_itipstatusattendeeml; // @dynamic x_wr_itipstatusattendeeml;
-@property BOOL x_wr_itipalreadysent; // @dynamic x_wr_itipalreadysent;
-@property BOOL x_apple_needs_reply; // @dynamic x_apple_needs_reply;
-@property BOOL x_apple_dontschedule;
+@property _Bool x_wr_rsvpneeded; // @dynamic x_wr_rsvpneeded;
+@property _Bool x_wr_itipstatusml; // @dynamic x_wr_itipstatusml;
+@property _Bool x_wr_itipstatusattendeeml; // @dynamic x_wr_itipstatusattendeeml;
+@property _Bool x_wr_itipalreadysent; // @dynamic x_wr_itipalreadysent;
+@property _Bool x_apple_needs_reply; // @dynamic x_apple_needs_reply;
+@property _Bool x_apple_dontschedule;
 @property(retain) NSString *x_calendarserver_private_comment;
 @property(retain) NSArray *x_calendarserver_attendee_comment;
 @property int transp;
-- (BOOL)validate:(id *)arg1;
-- (void)fixComponent;
+- (_Bool)validate:(id *)arg1;
 
 // Remaining properties
 @property(retain) NSArray *attach; // @dynamic attach;
@@ -42,15 +41,15 @@
 @property(retain) ICSDuration *duration; // @dynamic duration;
 @property(retain) NSArray *exdate; // @dynamic exdate;
 @property(retain) NSArray *exrule; // @dynamic exrule;
-@property BOOL forcedAllDay; // @dynamic forcedAllDay;
-@property(readonly) BOOL isAllDay; // @dynamic isAllDay;
+@property _Bool forcedAllDay; // @dynamic forcedAllDay;
+@property(readonly) _Bool isAllDay; // @dynamic isAllDay;
 @property(retain) ICSDate *last_modified; // @dynamic last_modified;
 @property(retain) NSString *location; // @dynamic location;
 @property(retain) ICSUserAddress *organizer; // @dynamic organizer;
 @property(retain) NSArray *rdate; // @dynamic rdate;
 @property(retain) ICSDate *recurrence_id; // @dynamic recurrence_id;
 @property(retain) NSArray *rrule; // @dynamic rrule;
-@property unsigned int sequence; // @dynamic sequence;
+@property unsigned long long sequence; // @dynamic sequence;
 @property int status; // @dynamic status;
 @property(retain) NSString *summary; // @dynamic summary;
 @property(retain) NSString *uid; // @dynamic uid;
@@ -58,9 +57,9 @@
 @property(retain) NSString *x_apple_dropbox; // @dynamic x_apple_dropbox;
 @property(retain) NSString *x_apple_ews_changekey; // @dynamic x_apple_ews_changekey;
 @property(retain) NSString *x_apple_ews_itemid; // @dynamic x_apple_ews_itemid;
-@property BOOL x_apple_ews_needsserverconfirmation; // @dynamic x_apple_ews_needsserverconfirmation;
+@property _Bool x_apple_ews_needsserverconfirmation; // @dynamic x_apple_ews_needsserverconfirmation;
 @property(retain) NSString *x_apple_ews_permission; // @dynamic x_apple_ews_permission;
-@property BOOL x_apple_ignore_on_restore; // @dynamic x_apple_ignore_on_restore;
+@property _Bool x_apple_ignore_on_restore; // @dynamic x_apple_ignore_on_restore;
 @property(retain) ICSStructuredLocation *x_apple_structured_location; // @dynamic x_apple_structured_location;
 @property(retain) ICSDuration *x_apple_travel_duration; // @dynamic x_apple_travel_duration;
 @property(retain) ICSStructuredLocation *x_apple_travel_start; // @dynamic x_apple_travel_start;

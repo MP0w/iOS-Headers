@@ -12,7 +12,7 @@
 {
     PKPassField *_field;
     UITextView *_valueTextView;
-    BOOL _showLinks;
+    _Bool _showLinks;
 }
 
 + (id)_linkColor;
@@ -22,14 +22,14 @@
 + (void)initializeParsingRegex;
 + (id)reuseIdentifier;
 @property(retain, nonatomic) PKPassField *field; // @synthesize field=_field;
-@property(nonatomic) BOOL showLinks; // @synthesize showLinks=_showLinks;
+@property(nonatomic) _Bool showLinks; // @synthesize showLinks=_showLinks;
 - (id)_attributedStringByParsingLinksInString:(id)arg1;
-- (struct CGSize)_sizeForValueTextWithWidth:(float)arg1;
+- (struct CGSize)_sizeForValueTextWithWidth:(double)arg1;
 - (void)_setupTextAttributes;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)dealloc;
-- (id)initWithField:(id)arg1;
+- (id)initWithField:(id)arg1 showLinks:(_Bool)arg2;
 
 @end
 

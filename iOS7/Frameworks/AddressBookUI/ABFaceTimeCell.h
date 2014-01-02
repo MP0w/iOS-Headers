@@ -6,30 +6,33 @@
 
 #import <AddressBookUI/ABContactCell.h>
 
-@class ABPropertyAction, ABTransportButton, UILabel;
+@class ABTransportButton, NSDictionary, UILabel;
 
 @interface ABFaceTimeCell : ABContactCell
 {
+    _Bool _displayConstraintsActive;
+    _Bool _isFaceTimeAudioAvailable;
     UILabel *_faceTimeLabel;
     ABTransportButton *_transportIcon1;
     ABTransportButton *_transportIcon2;
-    ABPropertyAction *_transportAction1;
-    ABPropertyAction *_transportAction2;
     id <ABPropertyCellDelegate> _delegate;
+    NSDictionary *_labelTextAttributes;
 }
 
-+ (BOOL)requiresConstraintBasedLayout;
++ (_Bool)requiresConstraintBasedLayout;
+@property(nonatomic) _Bool isFaceTimeAudioAvailable; // @synthesize isFaceTimeAudioAvailable=_isFaceTimeAudioAvailable;
+@property(nonatomic) _Bool displayConstraintsActive; // @synthesize displayConstraintsActive=_displayConstraintsActive;
+@property(copy, nonatomic) NSDictionary *labelTextAttributes; // @synthesize labelTextAttributes=_labelTextAttributes;
 @property(nonatomic) id <ABPropertyCellDelegate> delegate; // @synthesize delegate=_delegate;
-@property(retain, nonatomic) ABPropertyAction *transportAction2; // @synthesize transportAction2=_transportAction2;
-@property(retain, nonatomic) ABPropertyAction *transportAction1; // @synthesize transportAction1=_transportAction1;
 @property(readonly, nonatomic) ABTransportButton *transportIcon2; // @synthesize transportIcon2=_transportIcon2;
 @property(readonly, nonatomic) ABTransportButton *transportIcon1; // @synthesize transportIcon1=_transportIcon1;
 @property(retain, nonatomic) UILabel *faceTimeLabel; // @synthesize faceTimeLabel=_faceTimeLabel;
 - (void)transportButtonClicked:(id)arg1;
 - (void)updateConstraints;
+- (void)setNeedsUpdateDisplayConstraints;
 - (void)performDefaultAction;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

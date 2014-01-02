@@ -7,6 +7,6 @@
 #import "NSURL.h"
 
 @interface NSURL (NSKeyValueObservingCustomization)
-+ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
++ (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 @end
 

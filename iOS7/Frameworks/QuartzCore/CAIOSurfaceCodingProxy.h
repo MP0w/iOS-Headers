@@ -6,6 +6,7 @@
 
 #import <QuartzCore/CACodingProxy.h>
 
+// Not exported
 @interface CAIOSurfaceCodingProxy : CACodingProxy
 {
     struct __IOSurface *_surface;

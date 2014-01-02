@@ -6,6 +6,7 @@
 
 #import <Foundation/NSKeyValueObservance.h>
 
+// Not exported
 @interface NSKeyValueShareableObservanceKey : NSKeyValueObservance
 {
 }

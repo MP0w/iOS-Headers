@@ -8,6 +8,7 @@
 
 #import "GQKeynoteGenerator-Protocol.h"
 
+// Not exported
 @interface GQHKeynote : NSObject <GQKeynoteGenerator>
 {
 }

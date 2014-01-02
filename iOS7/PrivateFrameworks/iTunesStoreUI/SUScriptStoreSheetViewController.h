@@ -15,10 +15,10 @@
 + (id)webScriptNameForKeyName:(id)arg1;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
-@property(readonly) int productPageStylePhone;
-@property(readonly) int productPageStylePad;
-@property(readonly) int productPageStyleAutomatic;
-@property int productPageStyle;
+@property(readonly) long long productPageStylePhone;
+@property(readonly) long long productPageStylePad;
+@property(readonly) long long productPageStyleAutomatic;
+@property long long productPageStyle;
 - (id)_className;
 - (void)loadWithProductURL:(id)arg1;
 - (void)loadWithProductParameters:(id)arg1;

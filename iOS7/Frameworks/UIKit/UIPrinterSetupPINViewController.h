@@ -8,6 +8,7 @@
 
 @class PKPrinter, UIPrinterSetupConnectingView, UIPrinterSetupPINView, UIScrollView;
 
+// Not exported
 @interface UIPrinterSetupPINViewController : UIViewController
 {
     PKPrinter *_printer;
@@ -21,13 +22,13 @@
 @property(retain, nonatomic) UIPrinterSetupConnectingView *connectingView; // @synthesize connectingView=_connectingView;
 @property(retain, nonatomic) PKPrinter *printer; // @synthesize printer=_printer;
 - (void)connectToPrinter;
-- (void)connected:(BOOL)arg1;
+- (void)connected:(_Bool)arg1;
 - (void)showFailure;
 - (void)showSetup;
-- (unsigned int)supportedInterfaceOrientations;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (unsigned long long)supportedInterfaceOrientations;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;
 - (void)dealloc;
 - (id)initWithPrinter:(id)arg1;

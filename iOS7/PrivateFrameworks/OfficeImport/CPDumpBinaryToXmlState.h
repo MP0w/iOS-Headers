@@ -8,6 +8,7 @@
 
 @class NSMutableDictionary, NSString;
 
+// Not exported
 @interface CPDumpBinaryToXmlState : NSObject
 {
     NSString *mCurrentFieldName;

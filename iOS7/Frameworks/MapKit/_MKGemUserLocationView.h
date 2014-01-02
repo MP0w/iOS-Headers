@@ -8,15 +8,20 @@
 
 @class CALayer;
 
+// Not exported
 @interface _MKGemUserLocationView : MKUserLocationView
 {
     CALayer *_gemLayer;
 }
 
+- (void)_setMapType:(unsigned long long)arg1;
 - (void)_updateLayers;
 - (struct UIImage *)staleImage;
 - (struct UIImage *)normalImage;
 - (id)_baseLayer;
+- (id)_pulseAnimation;
+- (id)_pulseLayer;
+- (struct UIImage *)_headingImageForAccuracy:(double)arg1 anchorPoint:(struct CGPoint *)arg2;
 - (void)_setupLayers;
 - (id)initWithAnnotation:(id)arg1 reuseIdentifier:(id)arg2;
 

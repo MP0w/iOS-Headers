@@ -8,11 +8,12 @@
 
 @class NSString, _UIScreenEdgePanRecognizerCornerSettings, _UIScreenEdgePanRecognizerDwellSettings, _UIScreenEdgePanRecognizerEdgeSettings;
 
+// Not exported
 @interface _UIScreenEdgePanRecognizerSettings : _UISettings
 {
-    BOOL _analysisLoggingEnabled;
-    BOOL _analysisFailureOverlayVisible;
-    BOOL _analysisLoggingOverlayVisible;
+    _Bool _analysisLoggingEnabled;
+    _Bool _analysisFailureOverlayVisible;
+    _Bool _analysisLoggingOverlayVisible;
     NSString *_multitaskingGestureMode;
     NSString *_navigationGestureMode;
     _UIScreenEdgePanRecognizerEdgeSettings *_edgeSettings;
@@ -21,9 +22,9 @@
 }
 
 + (id)settingsControllerModule;
-@property(nonatomic) BOOL analysisLoggingOverlayVisible; // @synthesize analysisLoggingOverlayVisible=_analysisLoggingOverlayVisible;
-@property(nonatomic) BOOL analysisFailureOverlayVisible; // @synthesize analysisFailureOverlayVisible=_analysisFailureOverlayVisible;
-@property(nonatomic) BOOL analysisLoggingEnabled; // @synthesize analysisLoggingEnabled=_analysisLoggingEnabled;
+@property(nonatomic) _Bool analysisLoggingOverlayVisible; // @synthesize analysisLoggingOverlayVisible=_analysisLoggingOverlayVisible;
+@property(nonatomic) _Bool analysisFailureOverlayVisible; // @synthesize analysisFailureOverlayVisible=_analysisFailureOverlayVisible;
+@property(nonatomic) _Bool analysisLoggingEnabled; // @synthesize analysisLoggingEnabled=_analysisLoggingEnabled;
 @property(retain, nonatomic) _UIScreenEdgePanRecognizerCornerSettings *cornerSettings; // @synthesize cornerSettings=_cornerSettings;
 @property(retain, nonatomic) _UIScreenEdgePanRecognizerDwellSettings *dwellSettings; // @synthesize dwellSettings=_dwellSettings;
 @property(retain, nonatomic) _UIScreenEdgePanRecognizerEdgeSettings *edgeSettings; // @synthesize edgeSettings=_edgeSettings;

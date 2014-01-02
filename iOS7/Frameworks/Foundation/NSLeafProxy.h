@@ -14,19 +14,19 @@
     NSString *dir;
     NSString *file;
     NSDocInfo *docInfo;
-    int refCount;
+    long long refCount;
     id realObject;
 }
 
 + (void)forwardInvocation:(id)arg1;
 + (id)alloc;
 + (id)allocWithZone:(struct _NSZone *)arg1;
-- (BOOL)isProxy;
+- (_Bool)isProxy;
 - (void)dealloc;
-- (unsigned int)retainCount;
+- (unsigned long long)retainCount;
 - (id)autorelease;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
+- (_Bool)_isDeallocating;
+- (_Bool)_tryRetain;
 - (void)release;
 - (id)retain;
 - (void)reallyDealloc;

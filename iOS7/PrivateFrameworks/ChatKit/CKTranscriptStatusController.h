@@ -17,12 +17,12 @@
     NSString *_lastMsg;
     NSTimer *_progressUpdateTimer;
     NSMutableSet *_currentMessages;
-    BOOL _updatingProgress;
-    BOOL _viewTitle;
-    BOOL _finishingUp;
-    BOOL _animatingFadeOut;
+    _Bool _updatingProgress;
+    _Bool _viewTitle;
+    _Bool _finishingUp;
+    _Bool _animatingFadeOut;
     id _delegate;
-    BOOL _suspended;
+    _Bool _suspended;
 }
 
 @property(nonatomic) id delegate; // @synthesize delegate=_delegate;
@@ -35,20 +35,20 @@
 - (void)resetProgress;
 - (id)_title;
 - (void)_finishProgress;
-- (BOOL)_calcVals:(char *)arg1;
-- (void)_refreshNavigationItemViewAnimate:(BOOL)arg1;
+- (_Bool)_calcVals:(_Bool *)arg1;
+- (void)_refreshNavigationItemViewAnimate:(_Bool)arg1;
 - (void)_refreshNavigationItemView;
 - (void)_startUpdatingProgress;
 - (void)_updateCurrentMessages;
-- (void)_updateNavItemTitleView:(BOOL)arg1;
+- (void)_updateNavItemTitleView:(_Bool)arg1;
 - (void)_hideName;
-- (void)_updateTitle:(BOOL)arg1;
-- (id)_localizedTitleForSendingPart:(int)arg1 ofPart:(int)arg2;
+- (void)_updateTitle:(_Bool)arg1;
+- (id)_localizedTitleForSendingPart:(long long)arg1 ofPart:(long long)arg2;
 - (void)refresh;
-- (BOOL)_shouldShowProgress;
+- (_Bool)_shouldShowProgress;
 - (void)reset;
 - (void)brieflyShowName;
-- (void)setProgressIndicatorHidden:(BOOL)arg1;
+- (void)setProgressIndicatorHidden:(_Bool)arg1;
 - (void)dealloc;
 
 @end

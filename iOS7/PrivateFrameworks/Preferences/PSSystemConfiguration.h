@@ -23,7 +23,7 @@
 - (struct __CFString *)voicemailServiceID;
 - (struct __CFString *)dataServiceID;
 - (void)cleanupPrefs;
-- (unsigned char)synchronizeForWriting:(BOOL)arg1;
+- (unsigned char)synchronizeForWriting:(_Bool)arg1;
 - (void)dealloc;
 
 @end

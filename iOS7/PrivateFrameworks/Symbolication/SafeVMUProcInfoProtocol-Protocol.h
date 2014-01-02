@@ -6,18 +6,18 @@
 
 @protocol SafeVMUProcInfoProtocol
 + (int)processParentId:(int)arg1;
-+ (BOOL)isProcessRunning:(int)arg1;
++ (_Bool)isProcessRunning:(int)arg1;
 + (id)getProcessIds;
-- (BOOL)isNative;
+- (_Bool)isNative;
 - (int)cpuType;
-- (BOOL)isRunning;
-- (BOOL)isCFM;
-- (BOOL)isMachO;
-- (BOOL)isApp;
-- (int)compareByName:(id)arg1;
-- (int)compare:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isRunning;
+- (_Bool)isCFM;
+- (_Bool)isMachO;
+- (_Bool)isApp;
+- (long long)compareByName:(id)arg1;
+- (long long)compare:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)userAppName;
 - (id)arguments;
 - (id)firstArgument;

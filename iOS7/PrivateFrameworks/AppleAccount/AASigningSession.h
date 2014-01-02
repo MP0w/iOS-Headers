@@ -13,10 +13,10 @@
     struct NACContextOpaque_ *_context;
     NSString *_certURL;
     NSString *_sessionURL;
-    long _error;
+    int _error;
 }
 
-@property(readonly, nonatomic) long error; // @synthesize error=_error;
+@property(readonly, nonatomic) int error; // @synthesize error=_error;
 - (void).cxx_destruct;
 - (void)dealloc;
 - (id)signatureForData:(id)arg1;

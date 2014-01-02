@@ -8,6 +8,7 @@
 
 @class OADHyperlink, OADOrientedBounds;
 
+// Not exported
 @interface OADDrawableProperties : OADProperties
 {
     OADOrientedBounds *mOrientedBounds;
@@ -19,22 +20,22 @@
     unsigned int mWrdInline:1;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)removeUnnecessaryOverrides;
-- (BOOL)hasWrdInline;
-- (void)setWrdInline:(BOOL)arg1;
-- (BOOL)isWrdInline;
-- (BOOL)hasHoverHyperlink;
+- (_Bool)hasWrdInline;
+- (void)setWrdInline:(_Bool)arg1;
+- (_Bool)isWrdInline;
+- (_Bool)hasHoverHyperlink;
 - (void)setHoverHyperlink:(id)arg1;
 - (id)hoverHyperlink;
-- (BOOL)hasClickHyperlink;
+- (_Bool)hasClickHyperlink;
 - (void)setClickHyperlink:(id)arg1;
 - (id)clickHyperlink;
-- (BOOL)hasAspectRatioLocked;
-- (void)setAspectRatioLocked:(BOOL)arg1;
-- (BOOL)isAspectRatioLocked;
-- (BOOL)hasOrientedBounds;
+- (_Bool)hasAspectRatioLocked;
+- (void)setAspectRatioLocked:(_Bool)arg1;
+- (_Bool)isAspectRatioLocked;
+- (_Bool)hasOrientedBounds;
 - (void)setOrientedBounds:(id)arg1;
 - (id)orientedBounds;
 - (void)dealloc;

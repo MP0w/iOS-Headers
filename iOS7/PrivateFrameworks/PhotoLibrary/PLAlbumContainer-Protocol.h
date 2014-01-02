@@ -11,17 +11,17 @@
 @protocol PLAlbumContainer <PLAssetContainerList>
 @property(readonly, nonatomic) NSString *_typeDescription;
 @property(readonly, nonatomic) NSString *_prettyDescription;
-@property(readonly, nonatomic) unsigned int unreadAlbumsCount;
+@property(readonly, nonatomic) unsigned long long unreadAlbumsCount;
 @property(readonly, nonatomic) int filter;
 @property(readonly, nonatomic) id albumsSortingComparator;
-@property(readonly, nonatomic) unsigned int albumsCount;
+@property(readonly, nonatomic) unsigned long long albumsCount;
 - (void)updateAlbumsOrderIfNeeded;
-- (BOOL)needsReordering;
+- (_Bool)needsReordering;
 - (void)setNeedsReordering;
-- (BOOL)albumHasFixedOrder:(struct NSObject *)arg1;
-- (BOOL)canEditAlbums;
+- (_Bool)albumHasFixedOrder:(struct NSObject *)arg1;
+- (_Bool)canEditAlbums;
 - (int)albumListType;
-- (BOOL)hasAtLeastOneAlbum;
+- (_Bool)hasAtLeastOneAlbum;
 - (id)albums;
 - (id)identifier;
 @end

@@ -14,19 +14,19 @@
     UIView *_clippingView;
     UIView *_viewToClip;
     UIView *_statusBarContainer;
-    BOOL _wantsFakeStatusBar;
-    BOOL _shouldSlideLockScreenView;
-    BOOL _cleanupManually;
-    BOOL _needsCleanup;
-    BOOL _hidesSpringBoardStatusBarInitially;
+    _Bool _wantsFakeStatusBar;
+    _Bool _shouldSlideLockScreenView;
+    _Bool _cleanupManually;
+    _Bool _needsCleanup;
+    _Bool _hidesSpringBoardStatusBarInitially;
     SBFakeStatusBarView *_fakeStatusBar;
     SBDisableAppStatusBarAlphaChangesAssertion *_statusBarAssertion;
 }
 
-@property(nonatomic) BOOL hidesSpringBoardStatusBarInitially; // @synthesize hidesSpringBoardStatusBarInitially=_hidesSpringBoardStatusBarInitially;
-@property(nonatomic) BOOL shouldSlideLockScreenView; // @synthesize shouldSlideLockScreenView=_shouldSlideLockScreenView;
-@property(nonatomic) BOOL wantsFakeStatusBar; // @synthesize wantsFakeStatusBar=_wantsFakeStatusBar;
-@property(nonatomic) BOOL cleanupManually; // @synthesize cleanupManually=_cleanupManually;
+@property(nonatomic) _Bool hidesSpringBoardStatusBarInitially; // @synthesize hidesSpringBoardStatusBarInitially=_hidesSpringBoardStatusBarInitially;
+@property(nonatomic) _Bool shouldSlideLockScreenView; // @synthesize shouldSlideLockScreenView=_shouldSlideLockScreenView;
+@property(nonatomic) _Bool wantsFakeStatusBar; // @synthesize wantsFakeStatusBar=_wantsFakeStatusBar;
+@property(nonatomic) _Bool cleanupManually; // @synthesize cleanupManually=_cleanupManually;
 @property(retain, nonatomic) UIView *viewToClip; // @synthesize viewToClip=_viewToClip;
 - (void)_cleanup;
 - (void)_setupAndAddFakeStatusBarIfNecessary;

@@ -7,10 +7,9 @@
 #import "NSAttributedString.h"
 
 @interface NSAttributedString (NSExtendedStringDrawing)
-- (struct CGRect)_doBoundingRectWithSize:(struct CGSize)arg1 options:(int)arg2 context:(id)arg3 baselineOffset:(float *)arg4;
-- (struct CGRect)boundingRectWithSize:(struct CGSize)arg1 options:(int)arg2 context:(id)arg3;
-- (id)_ui_attributedSubstringFromRange:(struct _NSRange)arg1 withTrackingAdjustment:(float)arg2;
-- (id)_ui_attributedSubstringFromRange:(struct _NSRange)arg1 scaledByScaleFactor:(float)arg2;
-- (void)drawWithRect:(struct CGRect)arg1 options:(int)arg2 context:(id)arg3;
+- (struct CGRect)boundingRectWithSize:(struct CGSize)arg1 options:(long long)arg2 context:(id)arg3;
+- (id)_ui_attributedSubstringFromRange:(struct _NSRange)arg1 withTrackingAdjustment:(double)arg2;
+- (id)_ui_attributedSubstringFromRange:(struct _NSRange)arg1 scaledByScaleFactor:(double)arg2;
+- (void)drawWithRect:(struct CGRect)arg1 options:(long long)arg2 context:(id)arg3;
 @end
 

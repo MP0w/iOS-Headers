@@ -4,3 +4,10 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
+#pragma mark Named Structures
+
+struct _NSRange {
+    unsigned long long location;
+    unsigned long long length;
+};
+

@@ -8,8 +8,8 @@
 
 @interface SBVoiceControlController : NSObject
 {
-    BOOL _delayedAssistantActivationPending;
-    BOOL _headsetDownDelayedActionPerformed;
+    _Bool _delayedAssistantActivationPending;
+    _Bool _headsetDownDelayedActionPerformed;
 }
 
 + (id)sharedInstance;
@@ -19,14 +19,14 @@
 - (void)_spokenLanguageDidChange:(id)arg1;
 - (void)_assistantActivationSettingsDidChange:(id)arg1;
 - (void)headsetAvailabilityChanged;
-- (BOOL)handleHeadsetButtonUpNotInCall;
-- (BOOL)handleHeadsetButtonUp;
-- (void)handleHeadsetButtonDownWithClickCount:(unsigned int)arg1;
+- (_Bool)handleHeadsetButtonUpNotInCall;
+- (_Bool)handleHeadsetButtonUp;
+- (void)handleHeadsetButtonDownWithClickCount:(unsigned long long)arg1;
 - (void)_cancelDelayedHeadsetAction;
 - (void)_prepareDelayedHeadsetAction;
 - (void)_performDelayedHeadsetActionForVoiceControl;
 - (void)_performDelayedHeadsetActionForAssistant;
-- (BOOL)handleHomeButtonHeld;
+- (_Bool)handleHomeButtonHeld;
 - (void)preheatForMenuButtonWithFireDate:(id)arg1;
 - (void)configureVoiceControl;
 - (id)init;

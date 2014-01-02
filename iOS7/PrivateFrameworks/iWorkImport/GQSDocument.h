@@ -8,14 +8,15 @@
 
 #import "GQWrapPointGenerator-Protocol.h"
 
-@class GQDRoot, GQDSStylesheet, GQPProcessor, GQSTable, GQZArchive;
+@class GQDRoot, GQDSStylesheet, GQPProcessor, GQSTable, SFUZipArchive;
 
+// Not exported
 @interface GQSDocument : NSObject <GQWrapPointGenerator>
 {
     GQPProcessor *mProcessor;
     GQDRoot *mRoot;
     struct __CFURL *mBundleUrl;
-    GQZArchive *mArchive;
+    SFUZipArchive *mArchive;
     id <GQUOutputBundle> mOutputBundle;
     struct __CFArray *mObjectStack;
     id mGeneratorState;
@@ -23,23 +24,25 @@
     Class mCurrentDrawablesGenerator;
     Class mCurrentTableGenerator;
     id <GQWrapPointGenerator> mCurrentWrapPointGenerator;
-    BOOL mMustRegisterDrawables;
-    BOOL mGeneratorBeginWasCalled;
-    BOOL mShouldStreamTables;
-    BOOL mDoExternalTextWrap;
-    BOOL mGeneratingThumbnail;
-    BOOL mThumbnailGenerationDone;
+    _Bool mMustRegisterDrawables;
+    _Bool mGeneratorBeginWasCalled;
+    _Bool mShouldStreamTables;
+    _Bool mDoExternalTextWrap;
+    _Bool mGeneratingThumbnail;
+    _Bool mThumbnailGenerationDone;
     unsigned int mTextScale;
-    set_a2165b2d *mWrapPoints;
+    set_80ec8016 *mWrapPoints;
     struct __CFDictionary *mBundleResourceUriMap;
     GQDSStylesheet *mStylesheet;
-    BOOL mIsReadingStorageAttachments;
+    _Bool mIsReadingStorageAttachments;
     struct __CFString *mFilename;
+    _Bool _doCalculateThumbnailSize;
 }
 
+@property(nonatomic) _Bool doCalculateThumbnailSize; // @synthesize doCalculateThumbnailSize=_doCalculateThumbnailSize;
 - (struct __CFString *)filename;
-- (BOOL)isReadingStorageAttachments;
-- (void)setIsReadingStorageAttachments:(BOOL)arg1;
+- (_Bool)isReadingStorageAttachments;
+- (void)setIsReadingStorageAttachments:(_Bool)arg1;
 - (void)setStylesheet:(id)arg1;
 - (id)stylesheet;
 - (void)setCurrentWrapPointGenerator:(id)arg1;
@@ -47,20 +50,20 @@
 - (struct __CFString *)uriForBundleResource:(struct __CFString *)arg1 ofType:(struct __CFString *)arg2;
 - (void)clearWrapPoints;
 - (vector_dadce35e *)createListOfWrapPointsAlongY:(float)arg1 minX:(float)arg2 maxX:(float)arg3 zIndex:(int)arg4;
-- (const set_a2165b2d *)wrapPoints;
+- (const set_80ec8016 *)wrapPoints;
 - (void)addWrapPoint:(id)arg1;
-- (void)setThumbnailGenerationDone:(BOOL)arg1;
-- (BOOL)isThumbnailGenerationDone;
-- (void)setGeneratingThumbnail:(BOOL)arg1;
-- (BOOL)isGeneratingThumbnail;
+- (void)setThumbnailGenerationDone:(_Bool)arg1;
+- (_Bool)isThumbnailGenerationDone;
+- (void)setGeneratingThumbnail:(_Bool)arg1;
+- (_Bool)isGeneratingThumbnail;
 - (void)setGeneratorBeginWasCalled;
-- (BOOL)generatorBeginWasCalled;
-- (void)setDoExternalTextWrap:(BOOL)arg1;
-- (BOOL)doExternalTextWrap;
-- (void)setShouldStreamTables:(BOOL)arg1;
-- (BOOL)shouldStreamTables;
-- (void)setMustRegisterDrawables:(BOOL)arg1;
-- (BOOL)mustRegisterDrawables;
+- (_Bool)generatorBeginWasCalled;
+- (void)setDoExternalTextWrap:(_Bool)arg1;
+- (_Bool)doExternalTextWrap;
+- (void)setShouldStreamTables:(_Bool)arg1;
+- (_Bool)shouldStreamTables;
+- (void)setMustRegisterDrawables:(_Bool)arg1;
+- (_Bool)mustRegisterDrawables;
 - (void)setCurrentTableGenerator:(Class)arg1;
 - (Class)currentTableGenerator;
 - (void)setCurrentDrawablesGenerator:(Class)arg1;
@@ -76,6 +79,7 @@
 - (id)peekObject;
 - (id)outputBundle;
 - (struct __CFURL *)createUriToDocumentBundleResource:(struct __CFString *)arg1;
+- (struct __CFURL *)createUrlToAppBundleResource:(struct __CFString *)arg1 processorBundle:(struct __CFBundle *)arg2 skipCachingPDFAndNoExtentionResources:(_Bool *)arg3;
 - (id)root;
 - (id)processor;
 - (void)dealloc;

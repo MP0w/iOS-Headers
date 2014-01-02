@@ -6,11 +6,12 @@
 
 #import "UIViewController.h"
 
+#import "SBStarkAutoHideControlBarDelegate-Protocol.h"
 #import "UIStatusBarStyleDelegate-Protocol.h"
 
 @class NSMutableSet, SBStarkFakeIconOperationController, SBStarkScreenFocusController, UIStatusBar, UIViewController<SBStarkLauncher>;
 
-@interface SBStarkControlBarViewController : UIViewController <UIStatusBarStyleDelegate>
+@interface SBStarkControlBarViewController : UIViewController <UIStatusBarStyleDelegate, SBStarkAutoHideControlBarDelegate>
 {
     id <SBStarkControlBarDelegate> _delegate;
     double _autoHideDelay;
@@ -19,7 +20,7 @@
     UIStatusBar *_statusBarView;
     id <UIStatusBarStyleDelegate> _statusBarStyleDelegate;
     NSMutableSet *_statusBarHideReasons;
-    int _requestedStyle;
+    long long _requestedStyle;
     SBStarkScreenFocusController *_focusController;
     SBStarkFakeIconOperationController *_fakeIconOperationController;
 }
@@ -27,27 +28,28 @@
 @property(retain, nonatomic) SBStarkFakeIconOperationController *fakeIconOperationController; // @synthesize fakeIconOperationController=_fakeIconOperationController;
 @property(retain, nonatomic) SBStarkScreenFocusController *focusController; // @synthesize focusController=_focusController;
 @property(nonatomic) id <SBStarkControlBarDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)statusBar:(id)arg1 didTriggerButtonType:(int)arg2 withAction:(int)arg3;
-- (void)statusBar:(id)arg1 didAnimateFromHeight:(float)arg2 toHeight:(float)arg3 animation:(int)arg4;
-- (void)statusBar:(id)arg1 willAnimateFromHeight:(float)arg2 toHeight:(float)arg3 duration:(double)arg4 animation:(int)arg5;
-- (int)statusBar:(id)arg1 styleForRequestedStyle:(int)arg2 overrides:(int)arg3;
-- (BOOL)_isStatusBarHidden;
+- (void)resetStarkControlBarAutoHideTimer;
+- (void)statusBar:(id)arg1 didTriggerButtonType:(long long)arg2 withAction:(long long)arg3;
+- (void)statusBar:(id)arg1 didAnimateFromHeight:(double)arg2 toHeight:(double)arg3 animation:(int)arg4;
+- (void)statusBar:(id)arg1 willAnimateFromHeight:(double)arg2 toHeight:(double)arg3 duration:(double)arg4 animation:(int)arg5;
+- (long long)statusBar:(id)arg1 styleForRequestedStyle:(long long)arg2 overrides:(int)arg3;
+- (_Bool)_isStatusBarHidden;
 - (void)_autoHideTriggered;
 - (void)_resetAutoHideTimer;
-- (struct CGRect)_launcherViewFrameForVisibility:(BOOL)arg1;
-- (void)_setLauncherHidden:(BOOL)arg1 forReason:(id)arg2 withAnimationFactory:(id)arg3 fallbackToDefaultAnimationFactory:(BOOL)arg4;
-- (BOOL)_isLauncherHidden;
+- (struct CGRect)_launcherViewFrameForVisibility:(_Bool)arg1;
+- (void)_setLauncherHidden:(_Bool)arg1 forReason:(id)arg2 withAnimationFactory:(id)arg3 fallbackToDefaultAnimationFactory:(_Bool)arg4;
+- (_Bool)_isLauncherHidden;
 - (void)viewDidLayoutSubviews;
 - (void)loadView;
-- (void)updateStatusBarWithRequestedStyle:(int)arg1 animationFactory:(id)arg2;
-- (void)setStatusBarHidden:(BOOL)arg1 forReason:(id)arg2 withAnimationFactory:(id)arg3;
+- (void)updateStatusBarWithRequestedStyle:(long long)arg1 animationFactory:(id)arg2;
+- (void)setStatusBarHidden:(_Bool)arg1 forReason:(id)arg2 withAnimationFactory:(id)arg3;
 @property(nonatomic) id <UIStatusBarStyleDelegate> statusBarStyleDelegate;
-- (void)setLauncherHidden:(BOOL)arg1 forReason:(id)arg2 withAnimationFactory:(id)arg3;
-- (void)setLauncherHidden:(BOOL)arg1 forReason:(id)arg2 animated:(BOOL)arg3;
+- (void)setLauncherHidden:(_Bool)arg1 forReason:(id)arg2 withAnimationFactory:(id)arg3;
+- (void)setLauncherHidden:(_Bool)arg1 forReason:(id)arg2 animated:(_Bool)arg3;
 @property(nonatomic) double autoHideDelay;
 @property(readonly, nonatomic) struct CGPoint highestVisiblePoint;
 - (void)dealloc;
-- (id)initWithInterfaceType:(int)arg1;
+- (id)initWithInterfaceType:(long long)arg1;
 
 @end
 

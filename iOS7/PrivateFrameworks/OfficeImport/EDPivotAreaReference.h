@@ -6,20 +6,21 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface EDPivotAreaReference : NSObject
 {
     _Bool mByPosition;
     _Bool mRelative;
     _Bool mSelected;
-    unsigned long mFieldId;
-    unsigned long mCount;
+    unsigned long long mFieldId;
+    unsigned long long mCount;
 }
 
 + (id)pivotAreaReference;
-- (void)setCount:(unsigned long)arg1;
-- (unsigned long)count;
-- (void)setFieldId:(unsigned long)arg1;
-- (unsigned long)fieldId;
+- (void)setCount:(unsigned long long)arg1;
+- (unsigned long long)count;
+- (void)setFieldId:(unsigned long long)arg1;
+- (unsigned long long)fieldId;
 - (void)setSelected:(_Bool)arg1;
 - (_Bool)selected;
 - (void)setRelative:(_Bool)arg1;

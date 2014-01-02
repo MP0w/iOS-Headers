@@ -14,12 +14,12 @@
     ACAccountStore *_accountStore;
 }
 
-+ (id)_loginUserNotificationForService:(id)arg1 user:(id)arg2 isForBadPassword:(BOOL)arg3 showForgetPassword:(BOOL)arg4 shouldRememberPassword:(BOOL)arg5;
++ (id)_loginUserNotificationForService:(id)arg1 user:(id)arg2 isForBadPassword:(_Bool)arg3 showForgetPassword:(_Bool)arg4 shouldRememberPassword:(_Bool)arg5;
 + (id)sharedInstance;
-- (void)cancelRequestID:(id)arg1;
-- (void)requestAuthTokenForUsername:(id)arg1 service:(id)arg2 badPassword:(BOOL)arg3 showForgotPassword:(BOOL)arg4 outRequestID:(id *)arg5 completionBlock:(id)arg6;
-- (BOOL)supportsAuthTokenRequests;
-- (void)requestPasswordForUsername:(id)arg1 service:(id)arg2 badPassword:(BOOL)arg3 showForgotPassword:(BOOL)arg4 shouldRememberPassword:(BOOL)arg5 outRequestID:(id *)arg6 completionBlock:(id)arg7;
+- (void)cancelRequestID:(id)arg1 serviceIdentifier:(id)arg2;
+- (void)requestAuthTokenForUsername:(id)arg1 service:(id)arg2 badPassword:(_Bool)arg3 showForgotPassword:(_Bool)arg4 outRequestID:(id *)arg5 completionBlock:(id)arg6;
+- (_Bool)supportsAuthTokenRequests;
+- (void)requestPasswordForUsername:(id)arg1 service:(id)arg2 badPassword:(_Bool)arg3 showForgotPassword:(_Bool)arg4 shouldRememberPassword:(_Bool)arg5 outRequestID:(id *)arg6 completionBlock:(id)arg7;
 - (void)setAuthTokenForUsername:(id)arg1 service:(id)arg2 authToken:(id)arg3 profileID:(id)arg4 selfHandle:(id)arg5 outRequestID:(id *)arg6 completionBlock:(id)arg7;
 - (void)setPasswordForUsername:(id)arg1 service:(id)arg2 password:(id)arg3 outRequestID:(id *)arg4 completionBlock:(id)arg5;
 - (void)fetchPasswordForUsername:(id)arg1 service:(id)arg2 outRequestID:(id *)arg3 completionBlock:(id)arg4;

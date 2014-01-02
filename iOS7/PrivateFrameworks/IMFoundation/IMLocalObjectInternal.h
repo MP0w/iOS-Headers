@@ -6,10 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSLock, NSMutableArray, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSObject<OS_xpc_object>, NSProtocolChecker, NSRecursiveLock, NSString;
+@class IMMessageContext, NSLock, NSMutableArray, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSObject<OS_xpc_object>, NSProtocolChecker, NSRecursiveLock, NSString;
 
 @interface IMLocalObjectInternal : NSObject
 {
+    IMMessageContext *_currentMessageContext;
     NSRecursiveLock *_lock;
     id _target;
     NSObject<OS_xpc_object> *_connection;
@@ -20,8 +21,8 @@
     NSMutableArray *_componentQueue;
     NSLock *_componentQueueLock;
     NSRecursiveLock *_componentQueueProcessingLock;
-    BOOL _pendingComponentQueueProcessing;
-    BOOL _busyForwarding;
+    _Bool _pendingComponentQueueProcessing;
+    _Bool _busyForwarding;
 }
 
 - (void)dealloc;

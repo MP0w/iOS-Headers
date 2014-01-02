@@ -8,30 +8,31 @@
 
 #import "OABPropertiesManager-Protocol.h"
 
+// Not exported
 @interface OABDefaultsManager : NSObject <OABPropertiesManager>
 {
 }
 
-- (BOOL)hidden;
-- (BOOL)textPathStrikethrough;
-- (BOOL)textPathSmallcaps;
-- (BOOL)textPathUnderline;
-- (BOOL)textPathItalic;
-- (BOOL)textPathBold;
+- (_Bool)hidden;
+- (_Bool)textPathStrikethrough;
+- (_Bool)textPathSmallcaps;
+- (_Bool)textPathUnderline;
+- (_Bool)textPathItalic;
+- (_Bool)textPathBold;
 - (id)textPathFontFamily;
 - (int)textPathFontSize;
 - (int)textPathTextAlignment;
 - (id)textPathUnicodeString;
-- (BOOL)isTextPath;
-- (BOOL)isShadowOK;
-- (BOOL)isStrokeOK;
-- (BOOL)isFillOK;
-- (long)shadowSoftness;
-- (long)shadowOffsetY;
-- (long)shadowOffsetX;
+- (_Bool)isTextPath;
+- (_Bool)isShadowOK;
+- (_Bool)isStrokeOK;
+- (_Bool)isFillOK;
+- (int)shadowSoftness;
+- (int)shadowOffsetY;
+- (int)shadowOffsetX;
 - (int)shadowAlpha;
 - (int)shadowType;
-- (BOOL)isShadowed;
+- (_Bool)isShadowed;
 - (int)strokeEndArrowLength;
 - (int)strokeEndArrowWidth;
 - (int)strokeEndArrowType;
@@ -44,7 +45,7 @@
 - (int)strokePresetDash;
 - (int)strokeCompoundType;
 - (int)strokeMiterLimit;
-- (long)strokeWidth;
+- (int)strokeWidth;
 - (int)strokeFgAlpha;
 - (id)strokeFillBlipName;
 - (unsigned int)strokeFillBlipID;
@@ -57,7 +58,7 @@
 - (int)fillFocusRight;
 - (int)fillFocusTop;
 - (int)fillFocusLeft;
-- (long)fillFocus;
+- (int)fillFocus;
 - (int)fillAngle;
 - (int)fillBgAlpha;
 - (int)fillFgAlpha;
@@ -65,10 +66,10 @@
 - (struct EshColor)shadowColor;
 - (struct EshColor)strokeBgColor;
 - (struct EshColor)strokeFgColor;
-- (BOOL)isStroked;
+- (_Bool)isStroked;
 - (struct EshColor)fillBgColor;
 - (struct EshColor)fillFgColor;
-- (BOOL)isFilled;
+- (_Bool)isFilled;
 
 @end
 

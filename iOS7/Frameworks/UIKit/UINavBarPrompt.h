@@ -8,6 +8,7 @@
 
 @class UILabel, UINavigationBar;
 
+// Not exported
 @interface UINavBarPrompt : UIView
 {
     UILabel *_label;
@@ -15,6 +16,8 @@
 }
 
 - (void)layoutSubviews;
+- (struct CGSize)_updateLabelTextColorAndFontReturningShadowOffset;
+- (struct CGSize)_updateLabelTextColorAndFontReturningShadowOffset_legacy;
 - (struct CGRect)promptBounds;
 - (struct CGRect)_labelFrame;
 - (id)prompt;

@@ -6,6 +6,7 @@
 
 #import "PBCodable.h"
 
+// Not exported
 @interface VKPTrafficStyle : PBCodable
 {
     float _fadingOffset;
@@ -36,24 +37,24 @@
 @property(nonatomic) float patternLength; // @synthesize patternLength=_patternLength;
 @property(nonatomic) unsigned int secondaryColor; // @synthesize secondaryColor=_secondaryColor;
 @property(nonatomic) unsigned int fillColor; // @synthesize fillColor=_fillColor;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) BOOL hasFadingSlope;
-@property(nonatomic) BOOL hasFadingOffset;
-@property(nonatomic) BOOL hasPatternWidth;
-@property(nonatomic) BOOL hasPatternLength;
-@property(nonatomic) BOOL hasSecondaryColor;
-@property(nonatomic) BOOL hasPatternSlotLength;
+@property(nonatomic) _Bool hasFadingSlope;
+@property(nonatomic) _Bool hasFadingOffset;
+@property(nonatomic) _Bool hasPatternWidth;
+@property(nonatomic) _Bool hasPatternLength;
+@property(nonatomic) _Bool hasSecondaryColor;
+@property(nonatomic) _Bool hasPatternSlotLength;
 @property(nonatomic) float patternSlotLength; // @synthesize patternSlotLength=_patternSlotLength;
-@property(nonatomic) BOOL hasUNUSEDPattern;
+@property(nonatomic) _Bool hasUNUSEDPattern;
 @property(nonatomic) int uNUSEDPattern; // @synthesize uNUSEDPattern=_uNUSEDPattern;
-@property(nonatomic) BOOL hasFillColor;
-@property(nonatomic) BOOL hasWidthFraction;
+@property(nonatomic) _Bool hasFillColor;
+@property(nonatomic) _Bool hasWidthFraction;
 @property(nonatomic) float widthFraction; // @synthesize widthFraction=_widthFraction;
 - (void)dealloc;
 

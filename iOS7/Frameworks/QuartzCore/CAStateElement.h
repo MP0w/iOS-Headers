@@ -29,7 +29,7 @@
 - (void)foreachLayer:(id)arg1;
 - (id)save;
 - (void)apply:(id)arg1;
-- (BOOL)matches:(id)arg1;
+- (_Bool)matches:(id)arg1;
 @property(readonly, nonatomic) NSString *keyPath;
 - (id)targetName;
 - (void)dealloc;

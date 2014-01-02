@@ -8,13 +8,14 @@
 
 @class NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>, NSString;
 
+// Not exported
 @interface SYDClient : NSObject
 {
     NSObject<OS_dispatch_queue> *_queue;
     NSObject<OS_xpc_object> *_connection;
     NSString *_bundleIdentifier;
     NSString *_storeIdentifier;
-    BOOL _additionalSource;
+    _Bool _additionalSource;
 }
 
 - (void)sendMessageWithName:(id)arg1 userInfo:(id)arg2 replyHandler:(id)arg3;
@@ -31,7 +32,7 @@
 - (void)finalize;
 - (void)dealloc;
 - (id)initWithQueue:(id)arg1 bundleIdentifier:(struct __CFString *)arg2 storeIdentifier:(struct __CFString *)arg3;
-- (id)initWithQueue:(id)arg1 bundleIdentifier:(struct __CFString *)arg2 storeIdentifier:(struct __CFString *)arg3 additionalSource:(BOOL)arg4;
+- (id)initWithQueue:(id)arg1 bundleIdentifier:(struct __CFString *)arg2 storeIdentifier:(struct __CFString *)arg3 additionalSource:(_Bool)arg4;
 
 @end
 

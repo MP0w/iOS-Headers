@@ -13,11 +13,11 @@
 @interface UIPDFAnnotationParserDelegate : NSObject <NSXMLParserDelegate>
 {
     NSMutableString *_characters;
-    BOOL _parseError;
+    _Bool _parseError;
     UIPDFAnnotation *_annotation;
 }
 
-@property(readonly, nonatomic) BOOL parseError; // @synthesize parseError=_parseError;
+@property(readonly, nonatomic) _Bool parseError; // @synthesize parseError=_parseError;
 @property(retain, nonatomic) UIPDFAnnotation *annotation; // @synthesize annotation=_annotation;
 - (void)parser:(id)arg1 didEndElement:(id)arg2 namespaceURI:(id)arg3 qualifiedName:(id)arg4;
 - (void)parser:(id)arg1 didStartElement:(id)arg2 namespaceURI:(id)arg3 qualifiedName:(id)arg4 attributes:(id)arg5;

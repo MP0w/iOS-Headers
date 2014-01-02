@@ -8,6 +8,7 @@
 
 #import <WebCore/DOMNodeFilter-Protocol.h>
 
+// Not exported
 @interface DOMNodeFilter : DOMObject <DOMNodeFilter>
 {
 }

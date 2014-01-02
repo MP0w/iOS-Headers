@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface WebCoreTextTrackRepresentationIOSHelper : NSObject
 {
     struct TextTrackRepresentationIOS *_parent;
@@ -13,7 +14,6 @@
 
 - (id)actionForLayer:(id)arg1 forKey:(id)arg2;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (void)drawLayer:(id)arg1 inContext:(struct CGContext *)arg2;
 @property struct TextTrackRepresentationIOS *parent;
 - (void)dealloc;
 - (id)initWithParent:(struct TextTrackRepresentationIOS *)arg1;

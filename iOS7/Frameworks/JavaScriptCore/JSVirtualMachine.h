@@ -15,15 +15,11 @@
     NSMapTable *m_externalObjectGraph;
 }
 
-+ (id)virtualMachineWithContextGroupRef:(struct OpaqueJSContextGroup *)arg1;
 - (void)removeManagedReference:(id)arg1 withOwner:(id)arg2;
 - (void)addManagedReference:(id)arg1 withOwner:(id)arg2;
 - (void)dealloc;
 - (id)initWithContextGroupRef:(struct OpaqueJSContextGroup *)arg1;
 - (id)init;
-- (id)externalObjectGraph;
-- (void)addContext:(id)arg1 forGlobalContextRef:(struct OpaqueJSContext *)arg2;
-- (id)contextForGlobalContextRef:(struct OpaqueJSContext *)arg1;
 
 @end
 

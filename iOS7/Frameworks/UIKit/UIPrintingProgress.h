@@ -8,6 +8,7 @@
 
 @class NSString, UIAlertView, UIPrintingProgressViewController;
 
+// Not exported
 @interface UIPrintingProgress : NSObject
 {
     NSString *_printerName;
@@ -16,20 +17,20 @@
     double _displayTime;
     UIAlertView *_alert;
     UIPrintingProgressViewController *_viewController;
-    BOOL _donePrinting;
+    _Bool _donePrinting;
 }
 
 - (double)nextPrintDelay;
-- (void)setPage:(int)arg1 ofPage:(int)arg2;
+- (void)setPage:(long long)arg1 ofPage:(long long)arg2;
 - (void)setPrintInfoState:(int)arg1;
 - (void)endProgress;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (void)alertViewCancel:(id)arg1;
 - (void)didPresentAlertView:(id)arg1;
 - (void)progressCancel;
-- (void)hideProgressAnimated:(BOOL)arg1;
-- (void)showProgress:(id)arg1 immediately:(BOOL)arg2;
-- (BOOL)progressVisible;
+- (void)hideProgressAnimated:(_Bool)arg1;
+- (void)showProgress:(id)arg1 immediately:(_Bool)arg2;
+- (_Bool)progressVisible;
 - (void)dealloc;
 - (id)initWithPrinterName:(id)arg1 cancelHandler:(id)arg2;
 

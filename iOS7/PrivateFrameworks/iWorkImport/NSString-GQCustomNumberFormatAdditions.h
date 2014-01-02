@@ -7,12 +7,12 @@
 #import "NSString.h"
 
 @interface NSString (GQCustomNumberFormatAdditions)
-+ (id)customNumberFormatDecimalFormatStringWithDigits:(unsigned int)arg1 digitString:(id)arg2 includeDecimalSeparator:(BOOL)arg3;
++ (id)customNumberFormatDecimalFormatStringWithDigits:(unsigned int)arg1 digitString:(id)arg2 includeDecimalSeparator:(_Bool)arg3;
 + (id)customNumberFormatDecimalTokenRepresentedStringWithDigits:(unsigned int)arg1 digitString:(id)arg2;
 + (id)customNumberFormatDecimalTokenDisplayStringWithDigits:(unsigned int)arg1 digitString:(id)arg2;
 + (id)customNumberFormatIntegerFormatStringWithDigits:(unsigned int)arg1 digitString:(id)arg2;
-+ (id)customNumberFormatIntegerTokenRepresentedStringWithDigits:(unsigned int)arg1 separator:(BOOL)arg2 digitString:(id)arg3;
-+ (id)customNumberFormatIntegerTokenDisplayStringWithDigits:(unsigned int)arg1 separator:(BOOL)arg2 digitString:(id)arg3;
++ (id)customNumberFormatIntegerTokenRepresentedStringWithDigits:(unsigned int)arg1 separator:(_Bool)arg2 digitString:(id)arg3;
++ (id)customNumberFormatIntegerTokenDisplayStringWithDigits:(unsigned int)arg1 separator:(_Bool)arg2 digitString:(id)arg3;
 + (id)customNumberFormatTokenStringOfType:(int)arg1 content:(id)arg2;
 - (unsigned short)spaceCharacterInCustomNumberFormatSpaceToken;
 - (unsigned short)scaleCharacterInCustomNumberFormatScaleToken;
@@ -22,9 +22,9 @@
 - (id)digitPlaceholderStringInDigitToken;
 - (unsigned int)numberOfDigitsInCustomNumberFormatDecimalToken;
 - (id)stringByInsertingGroupingSeparators;
-- (BOOL)customFormatIntegerTokenUsesSeparator;
+- (_Bool)customFormatIntegerTokenUsesSeparator;
 - (unsigned int)numberOfDigitsInCustomNumberFormatIntegerToken;
-- (BOOL)isSpecialCustomNumberFormatTokenOfType:(int)arg1;
-- (BOOL)isSpecialCustomNumberFormatToken;
+- (_Bool)isSpecialCustomNumberFormatTokenOfType:(int)arg1;
+- (_Bool)isSpecialCustomNumberFormatToken;
 @end
 

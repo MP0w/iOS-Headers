@@ -11,13 +11,13 @@
 @interface SBPieChartView : UIView
 {
     NSArray *_slices;
-    float _valueTotal;
-    float _radius;
+    double _valueTotal;
+    double _radius;
     struct CGPoint _center;
-    float _defaultRotation;
+    double _defaultRotation;
 }
 
-- (void)_drawSlice:(id)arg1 atValue:(float)arg2;
+- (void)_drawSlice:(id)arg1 atValue:(double)arg2;
 - (void)_rotateContext;
 - (void)_updateMetrics;
 - (void)drawRect:(struct CGRect)arg1;

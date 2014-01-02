@@ -13,22 +13,22 @@
     struct CGSize _edgeTopRightMargin;
     struct CGSize _alignmentBottomLeftMargin;
     struct CGSize _alignmentTopRightMargin;
-    float _scale;
+    double _scale;
     struct crmFlags _crmFlags;
 }
 
 - (struct CGRect)insetRectWithMetrics:(struct CGRect)arg1;
 - (struct CGRect)alignmentRect;
 - (struct CGRect)edgeRect;
-- (BOOL)scalesHorizontally;
-- (BOOL)scalesVertically;
-- (float)scale;
+- (_Bool)scalesHorizontally;
+- (_Bool)scalesVertically;
+- (double)scale;
 - (struct CGSize)alignmentTopRightMargin;
 - (struct CGSize)alignmentBottomLeftMargin;
 - (struct CGSize)edgeTopRightMargin;
 - (struct CGSize)edgeBottomLeftMargin;
 - (struct CGSize)imageSize;
-- (id)initWithImageSize:(struct CGSize)arg1 edgeBottomLeft:(struct CGSize)arg2 edgeTopRight:(struct CGSize)arg3 alignmentBottomLeft:(struct CGSize)arg4 alignmentTopRight:(struct CGSize)arg5 scalesVertically:(BOOL)arg6 scalesHorizontally:(BOOL)arg7 scale:(float)arg8;
+- (id)initWithImageSize:(struct CGSize)arg1 edgeBottomLeft:(struct CGSize)arg2 edgeTopRight:(struct CGSize)arg3 alignmentBottomLeft:(struct CGSize)arg4 alignmentTopRight:(struct CGSize)arg5 scalesVertically:(_Bool)arg6 scalesHorizontally:(_Bool)arg7 scale:(double)arg8;
 
 @end
 

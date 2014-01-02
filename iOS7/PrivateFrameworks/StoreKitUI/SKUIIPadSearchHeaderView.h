@@ -13,7 +13,7 @@
 
 @interface SKUIIPadSearchHeaderView : UIView <SKUIMenuViewControllerDelegate, UIPopoverControllerDelegate>
 {
-    int _activeFacetIndex;
+    long long _activeFacetIndex;
     SKUIClientContext *_clientContext;
     id <SKUIIPadSearchHeaderViewDelegate> _delegate;
     NSMutableArray *_facetButtons;
@@ -26,16 +26,16 @@
 @property(copy, nonatomic) NSDictionary *facetSelections; // @synthesize facetSelections=_facetSelections;
 @property(nonatomic) __weak id <SKUIIPadSearchHeaderViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)_updateButtonTitles;
 - (id)_titleForFacet:(id)arg1;
-- (int)_selectedIndexForFacet:(id)arg1;
-- (id)_newPopoverControllerWithFacet:(id)arg1 checkedIndex:(int)arg2;
+- (long long)_selectedIndexForFacet:(id)arg1;
+- (id)_newPopoverControllerWithFacet:(id)arg1 checkedIndex:(long long)arg2;
 - (void)_destroyFacetPopover;
 - (void)_facetButtonAction:(id)arg1;
 - (void)popoverControllerDidDismissPopover:(id)arg1;
-- (void)menuViewController:(id)arg1 didSelectItemAtIndex:(int)arg2;
+- (void)menuViewController:(id)arg1 didSelectItemAtIndex:(long long)arg2;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
+- (void)setSearchFacets:(id)arg1 selections:(id)arg2;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 clientContext:(id)arg2;
 

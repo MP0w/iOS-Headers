@@ -22,7 +22,7 @@
     NSObject<TUAppenderDelegate> *_appenderDelegate;
 }
 
-+ (BOOL)sendDirectoryToCrashReporter:(id)arg1 error:(id *)arg2;
++ (_Bool)sendDirectoryToCrashReporter:(id)arg1 error:(id *)arg2;
 - (id)formattedDyldContextForBacktrace:(id)arg1;
 - (void)_reloadFileHandles;
 - (void)setAppenderDelegate:(id)arg1;

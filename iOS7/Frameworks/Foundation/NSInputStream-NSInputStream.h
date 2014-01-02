@@ -11,9 +11,9 @@
 + (id)inputStreamWithFileAtPath:(id)arg1;
 + (id)inputStreamWithData:(id)arg1;
 + (id)allocWithZone:(struct _NSZone *)arg1;
-- (unsigned long)_cfTypeID;
-- (BOOL)hasBytesAvailable;
-- (BOOL)getBuffer:(char **)arg1 length:(unsigned int *)arg2;
-- (int)read:(char *)arg1 maxLength:(unsigned int)arg2;
+- (unsigned long long)_cfTypeID;
+- (_Bool)hasBytesAvailable;
+- (_Bool)getBuffer:(char **)arg1 length:(unsigned long long *)arg2;
+- (long long)read:(char *)arg1 maxLength:(unsigned long long)arg2;
 @end
 

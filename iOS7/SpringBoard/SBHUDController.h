@@ -13,8 +13,8 @@
     UIWindow *_hudWindow;
     UIView *_hudContentView;
     SBHUDView *_hudView;
-    int _orientation;
-    BOOL _hudVisibleOrFading;
+    long long _orientation;
+    _Bool _hudVisibleOrFading;
 }
 
 + (id)sharedHUDController;
@@ -26,7 +26,7 @@
 - (void)_orderWindowOut:(id)arg1;
 - (void)_tearDown;
 - (void)_createUI;
-- (void)reorientHUDIfNeeded:(BOOL)arg1;
+- (void)reorientHUDIfNeeded:(_Bool)arg1;
 - (void)_recenterHUDView;
 - (void)dealloc;
 

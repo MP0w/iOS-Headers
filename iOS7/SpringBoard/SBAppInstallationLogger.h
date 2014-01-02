@@ -8,12 +8,12 @@
 
 @interface SBAppInstallationLogger : SBFileLogger
 {
-    BOOL _enabled;
+    _Bool _enabled;
 }
 
 - (void)reloadFromDefaults;
-- (BOOL)includeConsole;
-- (BOOL)isEnabled;
+- (_Bool)includeConsole;
+- (_Bool)isEnabled;
 - (id)name;
 
 @end

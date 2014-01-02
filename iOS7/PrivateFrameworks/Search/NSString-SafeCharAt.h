@@ -7,6 +7,6 @@
 #import "NSString.h"
 
 @interface NSString (SafeCharAt)
-- (unsigned short)safeCharacterAtIndex:(unsigned int)arg1;
+- (unsigned short)safeCharacterAtIndex:(unsigned long long)arg1;
 @end
 

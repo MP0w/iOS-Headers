@@ -37,8 +37,8 @@ struct _NSFaultingMutableSetFlags {
 };
 
 struct _NSRange {
-    unsigned int location;
-    unsigned int length;
+    unsigned long long location;
+    unsigned long long length;
 };
 
 struct _NSSQLMigrationContext {
@@ -66,8 +66,8 @@ struct _PFBatchFaultingArrayFlags {
 };
 
 struct _opaque_pthread_mutex_t {
-    long __sig;
-    char __opaque[40];
+    long long __sig;
+    char __opaque[56];
 };
 
 #pragma mark Typedef'd Structures
@@ -79,18 +79,18 @@ typedef struct {
 } CDStruct_f8f0024c;
 
 typedef struct {
-    unsigned long _field1;
+    unsigned long long _field1;
     id *_field2;
-    unsigned long *_field3;
-    unsigned long _field4[5];
-} CDStruct_11f37819;
+    unsigned long long *_field3;
+    unsigned long long _field4[5];
+} CDStruct_70511ce9;
 
 typedef struct {
     int _field1;
     void *_field2;
-    unsigned long _field3;
+    unsigned long long _field3;
     unsigned char _field4;
-    unsigned int _field5;
+    unsigned long long _field5;
     void *_field6;
     id _field7;
     char *_field8;
@@ -103,7 +103,7 @@ typedef struct {
         unsigned int :1;
         unsigned int :26;
     } _field9;
-} CDStruct_c4c2dd08;
+} CDStruct_333eeaad;
 
 typedef struct {
     int _field1;
@@ -121,11 +121,10 @@ typedef struct {
         unsigned int :1;
         unsigned int :29;
     } _field10;
-    int _field11;
-    struct FetchResultsRowListHeader_st **_field12;
-    void **_field13;
+    struct FetchResultsRowListHeader_st **_field11;
+    void **_field12;
+    void *_field13;
     void *_field14;
     void *_field15;
-    void *_field16;
-} CDStruct_576b85d7;
+} CDStruct_ef1b9d9f;
 

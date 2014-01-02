@@ -8,19 +8,20 @@
 
 @class NSSQLForeignEntityKey, NSSQLForeignKey, NSSQLForeignOrderKey;
 
+// Not exported
 @interface NSSQLToOne : NSSQLRelationship
 {
     NSSQLForeignKey *_foreignKey;
     NSSQLForeignEntityKey *_foreignEntityKey;
     NSSQLForeignOrderKey *_foreignOrderKey;
     unsigned int _slot;
-    BOOL _isVirtual;
+    _Bool _isVirtual;
 }
 
 - (void)copyValuesForReadOnlyFetch:(id)arg1;
-- (BOOL)isOptional;
+- (_Bool)isOptional;
 - (unsigned int)slot;
-- (BOOL)isVirtual;
+- (_Bool)isVirtual;
 - (id)description;
 - (id)columnName;
 - (id)foreignOrderKey;

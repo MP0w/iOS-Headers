@@ -8,6 +8,7 @@
 
 @class NSString, PDAnimateMotionBehavior, PDAnimationTarget, PDBuild;
 
+// Not exported
 @interface PDAnimationCache : NSObject
 {
     int mNodeType;
@@ -15,43 +16,41 @@
     int mPresetSubType;
     int mPresetClass;
     PDAnimationTarget *mTarget;
-    BOOL mHasDelay;
+    _Bool mHasDelay;
     double mDelay;
-    BOOL mHasDuration;
+    _Bool mHasDuration;
     double mDuration;
-    BOOL mHasDirection;
+    _Bool mHasDirection;
     double mDirection;
-    BOOL mHasPartCount;
+    _Bool mHasPartCount;
     int mPartCount;
     PDAnimateMotionBehavior *mMotionPath;
-    BOOL mHasValue;
+    _Bool mHasValue;
     double mValue;
     PDBuild *mBuild;
     int mIterateType;
-    BOOL mIsHead;
+    _Bool mIsHead;
     int mLevel;
     NSString *mGroupId;
 }
 
 + (id)createAnimationInfoDataForCacheItem:(id)arg1 order:(unsigned int)arg2;
 + (void)loadAnimationCache:(id)arg1 pdAnimation:(id)arg2 state:(id)arg3;
-+ (void)mapAnimationInfo:(id)arg1 cacheData:(id)arg2 state:(id)arg3;
-+ (void)mapCommonData:(id)arg1 cacheData:(id)arg2 state:(id)arg3;
 @property(retain, nonatomic) PDBuild *build; // @synthesize build=mBuild;
 @property(nonatomic) int level; // @synthesize level=mLevel;
-@property(nonatomic) BOOL isHead; // @synthesize isHead=mIsHead;
+@property(nonatomic) _Bool isHead; // @synthesize isHead=mIsHead;
 @property(retain, nonatomic) NSString *groupId; // @synthesize groupId=mGroupId;
 @property(nonatomic) double value; // @synthesize value=mValue;
-@property(nonatomic) BOOL hasValue; // @synthesize hasValue=mHasValue;
+@property(nonatomic) _Bool hasValue; // @synthesize hasValue=mHasValue;
 @property(retain, nonatomic) PDAnimateMotionBehavior *motionPath; // @synthesize motionPath=mMotionPath;
 @property(nonatomic) int partCount; // @synthesize partCount=mPartCount;
-@property(nonatomic) BOOL hasPartCount; // @synthesize hasPartCount=mHasPartCount;
+@property(nonatomic) _Bool hasPartCount; // @synthesize hasPartCount=mHasPartCount;
 @property(nonatomic) double direction; // @synthesize direction=mDirection;
-@property(nonatomic) BOOL hasDirection; // @synthesize hasDirection=mHasDirection;
+@property(nonatomic) _Bool hasDirection; // @synthesize hasDirection=mHasDirection;
 @property(nonatomic) double duration; // @synthesize duration=mDuration;
-@property(nonatomic) BOOL hasDuration; // @synthesize hasDuration=mHasDuration;
+@property(nonatomic) _Bool hasDuration; // @synthesize hasDuration=mHasDuration;
 @property(nonatomic) double delay; // @synthesize delay=mDelay;
-@property(nonatomic) BOOL hasDelay; // @synthesize hasDelay=mHasDelay;
+@property(nonatomic) _Bool hasDelay; // @synthesize hasDelay=mHasDelay;
 @property(nonatomic) int iterateType; // @synthesize iterateType=mIterateType;
 @property(nonatomic) int presetClass; // @synthesize presetClass=mPresetClass;
 @property(nonatomic) int presetSubType; // @synthesize presetSubType=mPresetSubType;

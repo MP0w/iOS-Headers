@@ -8,6 +8,7 @@
 
 @class UIFieldEditor;
 
+// Not exported
 @interface _UIFieldEditorContentView : UIView
 {
     UIFieldEditor *_fieldEditor;

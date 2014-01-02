@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface WKQuadObject : NSObject
 {
     struct _WKQuad _quad;

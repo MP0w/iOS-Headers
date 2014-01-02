@@ -11,7 +11,7 @@
 }
 
 - (void)updateFromCloudFeedEntry;
-- (int)sectionType;
+- (long long)sectionType;
 
 @end
 

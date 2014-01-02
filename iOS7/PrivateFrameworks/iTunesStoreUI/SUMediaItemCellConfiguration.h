@@ -15,15 +15,15 @@
 - (void)reloadStrings;
 - (void)reloadLayoutInformation;
 - (void)reloadImages;
-- (id)fontForLabelAtIndex:(unsigned int)arg1;
-- (void)drawWithModifiers:(unsigned int)arg1;
-- (float)alphaForImageAtIndex:(unsigned int)arg1 fromAlpha:(float *)arg2 withModifiers:(unsigned int)arg3;
-- (float)alphaForLabelAtIndex:(unsigned int)arg1 fromAlpha:(float *)arg2 withModifiers:(unsigned int)arg3;
-@property(readonly, nonatomic) BOOL showContentRating;
-@property(readonly, nonatomic) int mediaIconType;
+- (id)fontForLabelAtIndex:(unsigned long long)arg1;
+- (void)drawWithModifiers:(unsigned long long)arg1;
+- (double)alphaForImageAtIndex:(unsigned long long)arg1 fromAlpha:(double *)arg2 withModifiers:(unsigned long long)arg3;
+- (double)alphaForLabelAtIndex:(unsigned long long)arg1 fromAlpha:(double *)arg2 withModifiers:(unsigned long long)arg3;
+@property(readonly, nonatomic) _Bool showContentRating;
+@property(readonly, nonatomic) long long mediaIconType;
 - (id)copyImageDataProvider;
 @property(readonly, nonatomic) struct CGSize artworkSize;
-- (id)initWithStringCount:(unsigned int)arg1 imageCount:(unsigned int)arg2;
+- (id)initWithStringCount:(unsigned long long)arg1 imageCount:(unsigned long long)arg2;
 
 @end
 

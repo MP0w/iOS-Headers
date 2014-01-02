@@ -12,13 +12,13 @@
 {
     NSMutableDictionary *_customTitles;
     NSArray *_suActivityItems;
-    int _transitionSafetyCount;
+    long long _transitionSafetyCount;
 }
 
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
-- (void)viewDidDisappear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (id)_titleForActivity:(id)arg1;
 - (void)_prepareActivity:(id)arg1;
 - (void)_performActivity:(id)arg1;

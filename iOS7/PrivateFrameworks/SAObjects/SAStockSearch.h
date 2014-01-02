@@ -14,7 +14,7 @@
 
 + (id)searchWithDictionary:(id)arg1 context:(id)arg2;
 + (id)search;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSArray *stockReferences;
 @property(copy, nonatomic) NSArray *companyNameList;
 @property(copy, nonatomic) NSURL *targetAppId;

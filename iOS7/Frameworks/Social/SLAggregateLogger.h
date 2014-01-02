@@ -10,22 +10,22 @@
 {
 }
 
-+ (BOOL)_tencentWeiboAttachmentsContainURL:(id)arg1;
-+ (BOOL)_tencentWeiboAttachmentsContainImage:(id)arg1;
-+ (BOOL)_weiboAttachmentsContainURL:(id)arg1;
-+ (BOOL)_weiboAttachmentsContainImage:(id)arg1;
-+ (BOOL)_twitterAttachmentsContainURL:(id)arg1;
-+ (BOOL)_twitterAttachmentsContainImage:(id)arg1;
++ (_Bool)_tencentWeiboAttachmentsContainURL:(id)arg1;
++ (_Bool)_tencentWeiboAttachmentsContainImage:(id)arg1;
++ (_Bool)_weiboAttachmentsContainURL:(id)arg1;
++ (_Bool)_weiboAttachmentsContainImage:(id)arg1;
++ (_Bool)_twitterAttachmentsContainURL:(id)arg1;
++ (_Bool)_twitterAttachmentsContainImage:(id)arg1;
 + (id)_logIdentifierForPID:(int)arg1;
-+ (void)logVimeoAppInstallChoice:(BOOL)arg1;
-+ (void)logFlickrAppInstallChoice:(BOOL)arg1;
-+ (void)logTencentWeiboAppInstallChoice:(BOOL)arg1;
-+ (void)logWeiboAppInstallChoice:(BOOL)arg1;
-+ (void)logTencentWeiboWithText:(id)arg1 attachments:(id)arg2 locationAttached:(BOOL)arg3 fromProcessWithPID:(int)arg4;
-+ (void)logWeiboWithText:(id)arg1 attachments:(id)arg2 locationAttached:(BOOL)arg3 fromProcessWithPID:(int)arg4;
-+ (void)logTwitterAppInstallChoice:(BOOL)arg1;
-+ (void)logTweetWithText:(id)arg1 attachments:(id)arg2 locationAttached:(BOOL)arg3 fromProcessWithPID:(int)arg4;
-+ (void)logFacebookAppInstallChoice:(BOOL)arg1;
++ (void)logVimeoAppInstallChoice:(_Bool)arg1;
++ (void)logFlickrAppInstallChoice:(_Bool)arg1;
++ (void)logTencentWeiboAppInstallChoice:(_Bool)arg1;
++ (void)logWeiboAppInstallChoice:(_Bool)arg1;
++ (void)logTencentWeiboWithText:(id)arg1 attachments:(id)arg2 locationAttached:(_Bool)arg3 fromProcessWithPID:(int)arg4;
++ (void)logWeiboWithText:(id)arg1 attachments:(id)arg2 locationAttached:(_Bool)arg3 fromProcessWithPID:(int)arg4;
++ (void)logTwitterAppInstallChoice:(_Bool)arg1;
++ (void)logTweetWithText:(id)arg1 attachments:(id)arg2 locationAttached:(_Bool)arg3 fromProcessWithPID:(int)arg4;
++ (void)logFacebookAppInstallChoice:(_Bool)arg1;
 + (void)logFacebookPost:(id)arg1 fromProcessWithPID:(int)arg2;
 
 @end

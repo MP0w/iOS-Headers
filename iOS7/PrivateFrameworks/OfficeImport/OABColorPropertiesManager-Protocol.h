@@ -11,9 +11,9 @@
 - (struct EshColor)shadowColor;
 - (struct EshColor)strokeBgColor;
 - (struct EshColor)strokeFgColor;
-- (BOOL)isStroked;
+- (_Bool)isStroked;
 - (struct EshColor)fillBgColor;
 - (struct EshColor)fillFgColor;
-- (BOOL)isFilled;
+- (_Bool)isFilled;
 @end
 

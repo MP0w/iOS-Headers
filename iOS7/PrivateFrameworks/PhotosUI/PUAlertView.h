@@ -19,9 +19,9 @@
 @property(copy, nonatomic) id willDismissHandler; // @synthesize willDismissHandler=_willDismissHandler;
 @property(copy, nonatomic) id shouldEnableFirstOtherButtonBlock; // @synthesize shouldEnableFirstOtherButtonBlock=_shouldEnableFirstOtherButtonBlock;
 - (void).cxx_destruct;
-- (BOOL)alertViewShouldEnableFirstOtherButton:(id)arg1;
-- (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
-- (void)alertView:(id)arg1 willDismissWithButtonIndex:(int)arg2;
+- (_Bool)alertViewShouldEnableFirstOtherButton:(id)arg1;
+- (void)alertView:(id)arg1 didDismissWithButtonIndex:(long long)arg2;
+- (void)alertView:(id)arg1 willDismissWithButtonIndex:(long long)arg2;
 - (void)showWithCompletionHandler:(id)arg1;
 - (void)setDelegate:(id)arg1;
 - (void)_tearDown;

@@ -8,6 +8,7 @@
 
 @class GQDTComputedFormatSpec;
 
+// Not exported
 @interface GQDTDateCell : GQDTCell
 {
     struct __CFDate *mDate;
@@ -18,7 +19,6 @@
 - (struct __CFString *)getDateFormat;
 - (struct __CFDate *)date;
 - (void)dealloc;
-- (int)readAttributesForDateCell:(struct _xmlTextReader *)arg1 processor:(id)arg2;
 
 @end
 

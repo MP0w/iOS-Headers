@@ -12,16 +12,16 @@
 
 @interface UITableViewRow : NSObject <NSCoding>
 {
-    int _indentationLevel;
+    long long _indentationLevel;
     UITableViewCell *_cell;
-    float _height;
+    double _height;
 }
 
 + (id)row;
 @property(retain, nonatomic) UITableViewCell *cell; // @synthesize cell=_cell;
-@property(nonatomic) float height; // @synthesize height=_height;
-- (int)indentationLevel;
-- (void)setIndentationLevel:(int)arg1;
+@property(nonatomic) double height; // @synthesize height=_height;
+- (long long)indentationLevel;
+- (void)setIndentationLevel:(long long)arg1;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

@@ -11,7 +11,7 @@
 @optional
 - (void)nowPlayingController:(id)arg1 nowPlayingApplicationDidChange:(id)arg2;
 - (void)nowPlayingController:(id)arg1 elapsedTimeDidChange:(double)arg2;
-- (void)nowPlayingController:(id)arg1 playbackStateDidChange:(BOOL)arg2;
+- (void)nowPlayingController:(id)arg1 playbackStateDidChange:(_Bool)arg2;
 - (void)nowPlayingController:(id)arg1 nowPlayingInfoDidChange:(id)arg2;
 - (void)nowPlayingControllerDidStopListeningForNotifications:(id)arg1;
 - (void)nowPlayingControllerDidBeginListeningForNotifications:(id)arg1;

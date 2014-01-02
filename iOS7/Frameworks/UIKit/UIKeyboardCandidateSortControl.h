@@ -6,23 +6,28 @@
 
 #import <UIKit/UIView.h>
 
-@class UIKeyboardCandidateBarSegmentControl, UISegmentedControl;
+@class UIKBThemedView, UIKeyboardCandidateBarSegmentControl, UISegmentedControl;
 
+// Not exported
 @interface UIKeyboardCandidateSortControl : UIView
 {
     UIKeyboardCandidateBarSegmentControl *_segmentedControl;
-    int _visualStyle;
+    int _candidatesVisualStyle;
+    _Bool _legacyAlertAppearance;
+    UIKBThemedView *_themedView;
 }
 
++ (_Bool)_preventsAppearanceProxyCustomization;
+@property(retain, nonatomic) UIKBThemedView *themedView; // @synthesize themedView=_themedView;
 @property(readonly) UISegmentedControl *segmentedControl; // @synthesize segmentedControl=_segmentedControl;
 - (void)setSortControlTitles:(id)arg1;
-- (BOOL)needsToUpdateSortControlForTitles:(id)arg1;
+- (_Bool)needsToUpdateSortControlForTitles:(id)arg1;
 - (void)selectNextSegment;
 - (void)selectPreviousSegment;
 - (void)layoutSubviews;
 - (void)_setRenderConfig:(id)arg1;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 visualStyle:(int)arg2;
+- (id)initWithFrame:(struct CGRect)arg1 candidatesVisualStyle:(int)arg2 legacyAlertAppearance:(_Bool)arg3;
 - (void)updateTitleTextAttributes;
 - (void)addSegmentedControlWithFrame:(struct CGRect)arg1;
 

@@ -6,15 +6,13 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface EBFill : NSObject
 {
 }
 
 + (id)edFillFromXlDXf:(struct XlDXf *)arg1 edResources:(id)arg2;
 + (id)edFillFromXlXf:(struct XlXf *)arg1 edResources:(id)arg2;
-+ (int)convertEDPatternFillEnumToXl:(int)arg1;
-+ (int)convertXlFillPatternEnumToED:(int)arg1;
-+ (_Bool)extractFromEDFill:(id)arg1 foreColorReference:(id *)arg2 backColorReference:(id *)arg3 fillPatternEnum:(int *)arg4;
 
 @end
 

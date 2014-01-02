@@ -12,7 +12,7 @@
 {
 }
 
-- (void)setAccountEventTypeWithEventIdentifier:(int)arg1;
+- (void)setAccountEventTypeWithEventIdentifier:(long long)arg1;
 @property(retain, nonatomic) NSString *accountEventType;
 - (id)init;
 

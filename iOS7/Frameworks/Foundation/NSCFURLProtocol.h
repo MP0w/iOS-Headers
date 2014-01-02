@@ -6,14 +6,15 @@
 
 #import <Foundation/NSURLProtocol.h>
 
+// Not exported
 @interface NSCFURLProtocol : NSURLProtocol
 {
     struct _CFURLProtocol *cfProt;
 }
 
-+ (BOOL)requestIsCacheEquivalent:(id)arg1 toRequest:(id)arg2;
++ (_Bool)requestIsCacheEquivalent:(id)arg1 toRequest:(id)arg2;
 + (id)canonicalRequestForRequest:(id)arg1;
-+ (BOOL)canInitWithRequest:(id)arg1;
++ (_Bool)canInitWithRequest:(id)arg1;
 - (void)_resumeLoading;
 - (void)_suspendLoading;
 - (void)stopLoading;

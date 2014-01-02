@@ -22,10 +22,10 @@
 @property(copy, nonatomic) NSString *value;
 @property(nonatomic) id <UITextFieldDelegate> textFieldDelegate;
 @property(copy, nonatomic) NSString *label;
-@property(nonatomic) int keyboardType;
-@property(nonatomic, getter=isEnabled) BOOL enabled;
+@property(nonatomic) long long keyboardType;
+@property(nonatomic, getter=isEnabled) _Bool enabled;
 @property(copy, nonatomic) NSAttributedString *attributedPlaceholder;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

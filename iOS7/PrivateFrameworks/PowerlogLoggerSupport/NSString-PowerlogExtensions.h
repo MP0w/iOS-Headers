@@ -7,8 +7,8 @@
 #import "NSString.h"
 
 @interface NSString (PowerlogExtensions)
-- (BOOL)containsStringInArray:(id)arg1;
-- (BOOL)matchingStringInArray:(id)arg1;
+- (_Bool)containsStringInArray:(id)arg1;
+- (_Bool)matchingStringInArray:(id)arg1;
 - (id)tokenizedByStrings:(id)arg1;
 - (id)tokenizedByString:(id)arg1;
 - (id)strip;

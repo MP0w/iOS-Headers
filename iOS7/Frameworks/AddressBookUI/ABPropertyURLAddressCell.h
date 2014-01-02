@@ -10,7 +10,7 @@
 {
 }
 
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
 
 @end
 

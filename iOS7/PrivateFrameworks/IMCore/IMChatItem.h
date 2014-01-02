@@ -14,16 +14,16 @@
     id _datum1;
     id _datum2;
     id _datum3;
-    BOOL _isFromArchive;
+    _Bool _isFromArchive;
     NSString *_guid;
 }
 
 @property(readonly, nonatomic) NSDate *date; // @synthesize date=_date;
 @property(retain, nonatomic) NSString *guid; // @synthesize guid=_guid;
-- (int)_reverseCompareToChatItem:(id)arg1;
-- (int)_compareToChatItem:(id)arg1;
-@property(readonly, nonatomic) BOOL isFromArchive;
-- (void)_setIsFromArchive:(BOOL)arg1;
+- (long long)_reverseCompareToChatItem:(id)arg1;
+- (long long)_compareToChatItem:(id)arg1;
+@property(readonly, nonatomic) _Bool isFromArchive;
+- (void)_setIsFromArchive:(_Bool)arg1;
 @property(readonly, nonatomic) IMMessage *message;
 @property(readonly, nonatomic) NSString *stringValue;
 - (void)dealloc;

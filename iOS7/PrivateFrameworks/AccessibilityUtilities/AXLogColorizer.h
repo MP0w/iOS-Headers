@@ -8,21 +8,21 @@
 
 @interface AXLogColorizer : NSObject
 {
-    BOOL _active;
-    BOOL _managedBySettings;
-    BOOL _preferDarkColors;
+    _Bool _active;
+    _Bool _managedBySettings;
+    _Bool _preferDarkColors;
     struct AXLogColorTheme _colorTheme;
 }
 
-+ (id)colorizeStringIfEnabled:(id)arg1 withColor:(int)arg2;
-+ (id)coloredString:(id)arg1 withColor:(int)arg2;
-+ (char *)ansiColorSeqForAXLogColor:(int)arg1;
++ (id)colorizeStringIfEnabled:(id)arg1 withColor:(long long)arg2;
++ (id)coloredString:(id)arg1 withColor:(long long)arg2;
++ (char *)ansiColorSeqForAXLogColor:(long long)arg1;
 + (struct AXLogColorTheme)defaultDarkColorsTheme;
 + (struct AXLogColorTheme)defaultLightColorsTheme;
 + (id)defaultColorizer;
-@property(nonatomic) BOOL preferDarkColors; // @synthesize preferDarkColors=_preferDarkColors;
-@property(nonatomic, getter=isManagedBySettings) BOOL managedBySettings; // @synthesize managedBySettings=_managedBySettings;
-@property(nonatomic, getter=isActive) BOOL active; // @synthesize active=_active;
+@property(nonatomic) _Bool preferDarkColors; // @synthesize preferDarkColors=_preferDarkColors;
+@property(nonatomic, getter=isManagedBySettings) _Bool managedBySettings; // @synthesize managedBySettings=_managedBySettings;
+@property(nonatomic, getter=isActive) _Bool active; // @synthesize active=_active;
 @property(nonatomic) struct AXLogColorTheme colorTheme; // @synthesize colorTheme=_colorTheme;
 - (id)cyanString:(id)arg1;
 - (id)magentaString:(id)arg1;
@@ -39,7 +39,7 @@
 - (id)description;
 - (void)_updateSettingsFromUserPrefs;
 - (id)init;
-- (id)_initAndManageWithSettings:(BOOL)arg1;
+- (id)_initAndManageWithSettings:(_Bool)arg1;
 
 @end
 

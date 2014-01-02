@@ -10,7 +10,7 @@
 {
 }
 
-+ (void)activateWithLocked:(BOOL)arg1;
++ (void)activateWithLocked:(_Bool)arg1;
 
 @end
 

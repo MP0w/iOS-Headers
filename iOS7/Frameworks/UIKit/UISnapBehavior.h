@@ -11,9 +11,9 @@
 @interface UISnapBehavior : UIDynamicBehavior
 {
     struct CGPoint _anchorPoint;
-    float _damping;
-    float _distance;
-    float _frequency;
+    double _damping;
+    double _distance;
+    double _frequency;
     struct {
         unsigned int attachedToView:1;
         unsigned int dampingSet:1;
@@ -24,14 +24,14 @@
     PKPhysicsBody *_anchorBody;
 }
 
-@property(nonatomic) float damping; // @synthesize damping=_damping;
+@property(nonatomic) double damping; // @synthesize damping=_damping;
 - (id)description;
 - (void)_dissociate;
 - (void)_associate;
-- (void)_setFrequency:(float)arg1;
-- (float)_frequency;
-- (void)_setDistance:(float)arg1;
-- (float)_distance;
+- (void)_setFrequency:(double)arg1;
+- (double)_frequency;
+- (void)_setDistance:(double)arg1;
+- (double)_distance;
 - (void)dealloc;
 - (id)initWithItem:(id)arg1 snapToPoint:(struct CGPoint)arg2;
 - (id)init;

@@ -6,16 +6,17 @@
 
 #import <OfficeImport/PDSideDirectionOptions.h>
 
+// Not exported
 @interface PDPrismOptions : PDSideDirectionOptions
 {
-    BOOL mIsContent;
-    BOOL mIsInverted;
+    _Bool mIsContent;
+    _Bool mIsInverted;
 }
 
-- (void)setIsInverted:(BOOL)arg1;
-- (BOOL)isInverted;
-- (void)setIsContent:(BOOL)arg1;
-- (BOOL)isContent;
+- (void)setIsInverted:(_Bool)arg1;
+- (_Bool)isInverted;
+- (void)setIsContent:(_Bool)arg1;
+- (_Bool)isContent;
 
 @end
 

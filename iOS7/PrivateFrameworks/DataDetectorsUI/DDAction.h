@@ -18,16 +18,16 @@
     struct __CFArray *_associatedResults;
     NSDictionary *_context;
     NSURL *_url;
-    BOOL _cachedCoalescedResult;
-    BOOL _cachedAssociatedResults;
-    BOOL _isDefaultAction;
+    _Bool _cachedCoalescedResult;
+    _Bool _cachedAssociatedResults;
+    _Bool _isDefaultAction;
     id _delegate;
 }
 
 + (id)defaultActionWithURL:(id)arg1 result:(struct __DDResult *)arg2 context:(id)arg3;
 + (id)actionWithURL:(id)arg1 result:(struct __DDResult *)arg2 context:(id)arg3;
-+ (BOOL)supportsSecureCoding;
-@property BOOL isDefaultAction; // @synthesize isDefaultAction=_isDefaultAction;
++ (_Bool)supportsSecureCoding;
+@property _Bool isDefaultAction; // @synthesize isDefaultAction=_isDefaultAction;
 @property id delegate; // @synthesize delegate=_delegate;
 - (id)description;
 - (void)addToRecents;

@@ -7,8 +7,8 @@
 #import "NSObject-Protocol.h"
 
 @protocol SBUIQuietModePlayability <NSObject>
-- (BOOL)overridesQuietMode;
-- (BOOL)isCritical;
-- (BOOL)inertWhenLocked;
+- (_Bool)overridesQuietMode;
+- (_Bool)isCritical;
+- (_Bool)inertWhenLocked;
 @end
 

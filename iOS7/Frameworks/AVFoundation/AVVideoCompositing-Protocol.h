@@ -9,13 +9,12 @@
 @class NSDictionary;
 
 @protocol AVVideoCompositing <NSObject>
+@property(readonly, nonatomic) NSDictionary *requiredPixelBufferAttributesForRenderContext;
 @property(readonly, nonatomic) NSDictionary *sourcePixelBufferAttributes;
 - (void)startVideoCompositionRequest:(id)arg1;
 - (void)renderContextChanged:(id)arg1;
-- (id)initWithVideoComposition:(id)arg1;
 
 @optional
-@property(readonly, nonatomic) NSDictionary *requiredPixelBufferAttributesForRenderContext;
 - (void)cancelAllPendingVideoCompositionRequests;
 @end
 

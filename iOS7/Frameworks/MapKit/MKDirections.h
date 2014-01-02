@@ -17,9 +17,11 @@
     id <MKLocationManagerOperation> _locationOperation;
 }
 
+- (void)calculateETAWithCompletionHandler:(id)arg1;
+- (void)_calculateETAWithCompletionHandler:(id)arg1;
 - (void)calculateDirectionsWithCompletionHandler:(id)arg1;
 - (void)_establishCurrentLocationAndThen:(id)arg1;
-@property(readonly, nonatomic, getter=isCalculating) BOOL calculating;
+@property(readonly, nonatomic, getter=isCalculating) _Bool calculating;
 - (void)cancel;
 - (void)dealloc;
 - (void)_cleanupLocationOperation;

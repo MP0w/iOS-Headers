@@ -8,8 +8,8 @@
 
 @protocol SFAirDropBrowserDelegate <NSObject>
 - (void)browserDidChangePeople:(id)arg1;
-- (void)browser:(id)arg1 didDeletePersonAtIndex:(unsigned int)arg2;
-- (void)browser:(id)arg1 didInsertPersonAtIndex:(unsigned int)arg2;
+- (void)browser:(id)arg1 didDeletePersonAtIndex:(unsigned long long)arg2;
+- (void)browser:(id)arg1 didInsertPersonAtIndex:(unsigned long long)arg2;
 - (void)browserWillChangePeople:(id)arg1;
 @end
 

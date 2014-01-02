@@ -10,7 +10,7 @@
 
 @interface SSItemOfferDevice : NSObject
 {
-    int _deviceIdentifier;
+    long long _deviceIdentifier;
     SSItemOfferDeviceError *_incompatibleDeviceError;
     SSItemOfferDeviceError *_incompatibleSystemError;
     NSString *_minimumProductVersion;
@@ -19,10 +19,10 @@
 @property(readonly, nonatomic) NSString *minimumProductVersion; // @synthesize minimumProductVersion=_minimumProductVersion;
 @property(readonly, nonatomic) SSItemOfferDeviceError *incompatibleSystemError; // @synthesize incompatibleSystemError=_incompatibleSystemError;
 @property(readonly, nonatomic) SSItemOfferDeviceError *incompatibleDeviceError; // @synthesize incompatibleDeviceError=_incompatibleDeviceError;
-@property(readonly, nonatomic) int deviceIdentifier; // @synthesize deviceIdentifier=_deviceIdentifier;
+@property(readonly, nonatomic) long long deviceIdentifier; // @synthesize deviceIdentifier=_deviceIdentifier;
 - (void)dealloc;
 - (id)initWithOfferDeviceDicitionary:(id)arg1;
-- (id)initWithDeviceIdentifier:(int)arg1;
+- (id)initWithDeviceIdentifier:(long long)arg1;
 - (id)init;
 
 @end

@@ -6,35 +6,36 @@
 
 #import <UIKit/UIColor.h>
 
+// Not exported
 @interface UIDeviceRGBColor : UIColor
 {
-    float redComponent;
-    float greenComponent;
-    float blueComponent;
-    float alphaComponent;
+    double redComponent;
+    double greenComponent;
+    double blueComponent;
+    double alphaComponent;
     struct CGColor *cachedColor;
-    long cachedColorOnceToken;
+    long long cachedColorOnceToken;
 }
 
-- (BOOL)_getWhite:(float *)arg1 alpha:(float *)arg2;
-- (BOOL)getRed:(float *)arg1 green:(float *)arg2 blue:(float *)arg3 alpha:(float *)arg4;
-- (BOOL)getHue:(float *)arg1 saturation:(float *)arg2 brightness:(float *)arg3 alpha:(float *)arg4;
-- (float)alphaComponent;
+- (_Bool)_getWhite:(double *)arg1 alpha:(double *)arg2;
+- (_Bool)getRed:(double *)arg1 green:(double *)arg2 blue:(double *)arg3 alpha:(double *)arg4;
+- (_Bool)getHue:(double *)arg1 saturation:(double *)arg2 brightness:(double *)arg3 alpha:(double *)arg4;
+- (double)alphaComponent;
 - (struct CGColor *)CGColor;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (id)colorSpaceName;
 - (void)setStroke;
 - (void)setFill;
 - (void)set;
-- (struct CGColor *)_createCGColorWithAlpha:(float)arg1;
-- (id)colorWithAlphaComponent:(float)arg1;
+- (struct CGColor *)_createCGColorWithAlpha:(double)arg1;
+- (id)colorWithAlphaComponent:(double)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)initWithCGColor:(struct CGColor *)arg1;
-- (id)initWithRed:(float)arg1 green:(float)arg2 blue:(float)arg3 alpha:(float)arg4;
-- (id)initWithHue:(float)arg1 saturation:(float)arg2 brightness:(float)arg3 alpha:(float)arg4;
+- (id)initWithRed:(double)arg1 green:(double)arg2 blue:(double)arg3 alpha:(double)arg4;
+- (id)initWithHue:(double)arg1 saturation:(double)arg2 brightness:(double)arg3 alpha:(double)arg4;
 
 @end
 

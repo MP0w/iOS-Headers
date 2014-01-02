@@ -10,11 +10,11 @@
 
 @interface UIWebRotatingSheet : _UIRotatingActionSheet
 {
-    BOOL _wasDeferringCallbacks;
+    _Bool _wasDeferringCallbacks;
     UIWebDocumentView *_webBrowserView;
 }
 
-- (BOOL)presentSheet;
+- (_Bool)presentSheet;
 - (void)doneWithSheet;
 - (void)dealloc;
 - (void)_enableWebView;

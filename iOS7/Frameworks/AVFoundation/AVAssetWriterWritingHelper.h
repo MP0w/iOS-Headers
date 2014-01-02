@@ -15,7 +15,7 @@
     AVWeakReference *_weakReference;
     struct OpaqueFigAssetWriter *_figAssetWriter;
     NSObject<OS_dispatch_queue> *_figAssetWriterAccessQueue;
-    BOOL _startSessionCalled;
+    _Bool _startSessionCalled;
     AVAssetWriterFigAssetWriterNotificationHandler *_notificationHandler;
 }
 
@@ -25,8 +25,8 @@
 - (struct OpaqueFigAssetWriter *)_retainedFigAssetWriter;
 - (void)endSessionAtSourceTime:(CDStruct_1b6d18a9)arg1;
 - (void)startSessionAtSourceTime:(CDStruct_1b6d18a9)arg1;
-- (int)status;
-- (void)didReceiveFigAssetWriterNotificationWithSuccess:(BOOL)arg1 error:(id)arg2;
+- (long long)status;
+- (void)didReceiveFigAssetWriterNotificationWithSuccess:(_Bool)arg1 error:(id)arg2;
 - (void)finalize;
 - (void)dealloc;
 - (id)figTrackReferences;

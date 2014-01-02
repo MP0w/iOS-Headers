@@ -10,9 +10,9 @@
 {
 }
 
-+ (void)didTogglePrivateBrowsing:(BOOL)arg1;
-+ (void)didToggleCloudTabs:(BOOL)arg1 terminateAfterUpdating:(BOOL)arg2;
-+ (void)didToggleCloudTabs:(BOOL)arg1;
++ (void)didTogglePrivateBrowsing:(_Bool)arg1;
++ (void)didToggleCloudTabs:(_Bool)arg1 terminateAfterUpdating:(_Bool)arg2;
++ (void)didToggleCloudTabs:(_Bool)arg1;
 + (void)clearTabsForCurrentDevice;
 + (void)clearAllCloudTabDevices;
 + (id)_serverConnection;

@@ -8,6 +8,7 @@
 
 @class NSDictionary, OADOrientedBounds;
 
+// Not exported
 @interface CMShapeBuilder : NSObject
 {
     int _type;
@@ -19,7 +20,7 @@
 + (struct CGRect)canonicalBounds;
 - (struct CGPath *)copyShapeWithTransform:(struct CGAffineTransform)arg1;
 - (float)maxAdjustedValue;
-- (BOOL)isOffice12;
+- (_Bool)isOffice12;
 - (struct CGAffineTransform)affineTransform;
 - (void)setAdjustValues:(id)arg1;
 - (void)setFileFormat:(int)arg1;

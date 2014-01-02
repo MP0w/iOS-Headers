@@ -10,9 +10,10 @@
 
 @class NSDictionary, NSLayoutManager, NSTextContainer, NSTextStorage;
 
+// Not exported
 @interface _UITextContainerView : UIView <NSUITextViewCommonMethods>
 {
-    struct CGSize _textContainerInset;
+    struct UIEdgeInsets _textContainerInset;
     struct CGPoint _textContainerOrigin;
     struct CGSize _minSize;
     struct CGSize _maxSize;
@@ -24,36 +25,37 @@
         unsigned int horizontallyResizable:1;
         unsigned int verticallyResizable:1;
     } _tcvFlags;
-    BOOL _tilingEnabled;
 }
 
 + (Class)layerClass;
-@property(nonatomic, getter=isTilingEnabled) BOOL tilingEnabled; // @synthesize tilingEnabled=_tilingEnabled;
 @property(copy, nonatomic) NSDictionary *linkTextAttributes; // @synthesize linkTextAttributes=_linkTextAttributes;
 @property(nonatomic) struct CGSize maxSize; // @synthesize maxSize=_maxSize;
 @property(nonatomic) struct CGSize minSize; // @synthesize minSize=_minSize;
 @property(nonatomic) NSTextContainer *textContainer; // @synthesize textContainer=_textContainer;
-- (BOOL)tilingEnabled;
+@property(nonatomic) _Bool usesTiledViews;
 - (struct CGRect)visibleRect;
 - (id)description;
-@property(nonatomic) int layoutOrientation;
-- (struct _NSRange)_extendedGlyphRangeForRange:(struct _NSRange)arg1 maxGlyphIndex:(unsigned int)arg2 drawingToScreen:(BOOL)arg3;
-- (BOOL)_ensureLayoutCompleteForRect:(struct CGRect)arg1 withExtension:(BOOL)arg2;
-- (BOOL)_ensureLayoutCompleteForRect:(struct CGRect)arg1 withExtensionFactor:(float)arg2 minimumExtensionDistance:(float)arg3 repetitions:(unsigned int)arg4;
+@property(nonatomic) struct _NSRange markedRange;
+@property(nonatomic) long long layoutOrientation;
+- (struct _NSRange)_extendedGlyphRangeForRange:(struct _NSRange)arg1 maxGlyphIndex:(unsigned long long)arg2 drawingToScreen:(_Bool)arg3;
+- (_Bool)_ensureLayoutCompleteForRect:(struct CGRect)arg1 withExtension:(_Bool)arg2;
+- (_Bool)_ensureLayoutCompleteForRect:(struct CGRect)arg1 withExtensionFactor:(double)arg2 minimumExtensionDistance:(double)arg3 repetitions:(unsigned long long)arg4;
 - (void)_ensureLayoutCompleteToEndOfCharacterRange:(struct _NSRange)arg1;
-- (void)setNeedsDisplayInRect:(struct CGRect)arg1 avoidAdditionalLayout:(BOOL)arg2;
+- (void)setNeedsDisplayInRect:(struct CGRect)arg1 avoidAdditionalLayout:(_Bool)arg2;
+- (void)updateInsertionPointStateAndRestartTimer:(_Bool)arg1;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)_didScroll;
 - (void)sizeToFit;
-@property(nonatomic, getter=isVerticallyResizable) BOOL verticallyResizable;
-@property(nonatomic, getter=isHorizontallyResizable) BOOL horizontallyResizable;
+@property(nonatomic, getter=isVerticallyResizable) _Bool verticallyResizable;
+@property(nonatomic, getter=isHorizontallyResizable) _Bool horizontallyResizable;
 - (void)setConstrainedFrameSize:(struct CGSize)arg1;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)setBounds:(struct CGRect)arg1;
 - (void)_ensureMinAndMaxSizesConsistentWithBounds;
 - (void)invalidateTextContainerOrigin;
 - (struct CGPoint)textContainerOrigin;
-@property(nonatomic) struct CGSize textContainerInset;
+@property(nonatomic) struct UIEdgeInsets textContainerInset;
+- (void)tintColorDidChange;
 - (id)delegate;
 - (void)setDelegate:(id)arg1;
 @property(readonly, nonatomic) NSTextStorage *textStorage;

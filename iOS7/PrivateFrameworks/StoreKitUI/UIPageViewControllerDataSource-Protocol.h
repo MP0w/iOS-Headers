@@ -11,7 +11,7 @@
 - (id)pageViewController:(id)arg1 viewControllerBeforeViewController:(id)arg2;
 
 @optional
-- (int)presentationIndexForPageViewController:(id)arg1;
-- (int)presentationCountForPageViewController:(id)arg1;
+- (long long)presentationIndexForPageViewController:(id)arg1;
+- (long long)presentationCountForPageViewController:(id)arg1;
 @end
 

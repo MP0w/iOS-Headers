@@ -16,6 +16,7 @@
     AVPropertyStorage *propertyStorage;
     AVPixelBufferAttributeMediator *pixelBufferAttributeMediator;
     NSMutableDictionary *pendingFigPlayerProperties;
+    NSArray *expectedAssetTypes;
     AVPlayerItem *currentItem;
     AVPlayerItem *lastItem;
     struct OpaqueFigPlaybackItem *figPlaybackItemToIdentifyNextCurrentItem;
@@ -23,17 +24,17 @@
     NSObject<OS_dispatch_queue> *layersQ;
     NSMutableSet *caLayers;
     NSString *externalPlaybackVideoGravity;
-    int status;
+    long long status;
     NSError *error;
     NSObject<OS_dispatch_queue> *stateDispatchQueue;
     NSArray *displaysUsedForPlayback;
-    BOOL needsToCreateFigPlayer;
-    BOOL logPerformanceData;
+    _Bool needsToCreateFigPlayer;
+    _Bool logPerformanceData;
     NSDictionary *cachedFigMediaSelectionCriteriaProperty;
-    BOOL reevaluateBackgroundPlayback;
-    BOOL hostApplicationInForeground;
-    BOOL hadAssociatedOnscreenPlayerLayerWhenSuspended;
-    BOOL iapdExtendedModeIsActive;
+    _Bool reevaluateBackgroundPlayback;
+    _Bool hostApplicationInForeground;
+    _Bool hadAssociatedOnscreenPlayerLayerWhenSuspended;
+    _Bool iapdExtendedModeIsActive;
     AVAudioSessionMediaPlayerOnly *audioSessionMediaPlayerOnly;
     NSDictionary *vibrationPattern;
     struct OpaqueFigSimpleMutex *prerollIDMutex;
@@ -42,7 +43,8 @@
     id prerollCompletionHandler;
     NSObject<OS_dispatch_queue> *subtitleQueue;
     NSDictionary *currentSubtitlesPayload;
-    BOOL autoSwitchStreamVariants;
+    _Bool autoSwitchStreamVariants;
+    _Bool preparesItemsForPlaybackAsynchronously;
 }
 
 @end

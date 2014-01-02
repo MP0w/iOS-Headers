@@ -8,6 +8,7 @@
 
 @class VKAnimation, VKCameraContext, VKMapModel;
 
+// Not exported
 @interface VKTrackingCameraController : VKCameraController
 {
     id <VKTrackingCameraControllerDelegate> _trackingDelegate;
@@ -15,8 +16,9 @@
     int _focusStyle;
     VKAnimation *_animation;
     double _verticalGroundspan;
+    double _verticalGroundspanScale;
     struct VKPoint _farthestPoi;
-    CDStruct_cc67e4ef _puckPosition;
+    CDStruct_b926a728 _puckPosition;
     struct VKPoint _puckTargetPosition;
     double _startZoomScale;
     double _endZoomScale;
@@ -24,7 +26,7 @@
     double _startPinchScale;
     VKMapModel *_mapModel;
     double _startTime;
-    BOOL _animatingIn;
+    _Bool _animatingIn;
     double _startPitch;
     double _startCourse;
     double _startDistance;
@@ -33,19 +35,22 @@
     double _puckOffset;
     struct VKPoint _previousReference;
     double _previousCourse;
+    double _previousOffset;
     struct VKCircularBuffer<double> *_rotationRateBuffer;
     double _previousStepTime;
     VKAnimation *_tapZoomAnimation;
     double _tracePlaybackSpeedMultiplier;
-    BOOL _receivedFirstUpdate;
-    BOOL _puckAnimatorRunning;
+    _Bool _receivedFirstUpdate;
+    _Bool _puckAnimatorRunning;
     double _cruisePhi;
     double _cruiseHeight;
     double _cruisePhiOverride;
     double _cruiseHeightOverride;
     VKCameraContext *_lastCameraContext;
-    BOOL _shouldLimitTopDownHeight;
+    _Bool _shouldLimitTopDownHeight;
     struct VKEdgeInsets _insets;
+    _Bool _insetsAnimating;
+    double _puckOffsetDelta;
     struct VKNavigationCameraModel _cameraModel;
     int _panStyle;
     struct State {
@@ -65,11 +70,11 @@
     double _panCourseOffset;
     double _panPitchOffset;
     VKAnimation *_panAnimation;
-    BOOL _panning;
+    _Bool _panning;
     double _pitchOffset;
     VKAnimation *_pitchAnimation;
-    BOOL _pitching;
-    BOOL _zooming;
+    _Bool _pitching;
+    _Bool _zooming;
     double _userZoomFocusStyleZoomScale;
     double _userZoomFocusStyleMinZoomScale;
     double _userZoomFocusStyleMaxZoomScale;
@@ -78,8 +83,9 @@
     double _horizontalOffset;
 }
 
+@property(nonatomic) double verticalGroundspanScale; // @synthesize verticalGroundspanScale=_verticalGroundspanScale;
 @property(nonatomic) int panStyle; // @synthesize panStyle=_panStyle;
-@property(nonatomic) BOOL shouldLimitTopDownHeight; // @synthesize shouldLimitTopDownHeight=_shouldLimitTopDownHeight;
+@property(nonatomic) _Bool shouldLimitTopDownHeight; // @synthesize shouldLimitTopDownHeight=_shouldLimitTopDownHeight;
 @property(nonatomic) double tracePlaybackSpeedMultiplier; // @synthesize tracePlaybackSpeedMultiplier=_tracePlaybackSpeedMultiplier;
 @property(retain, nonatomic) VKMapModel *mapModel; // @synthesize mapModel=_mapModel;
 @property(nonatomic) id <VKTrackingCameraControllerDelegate> trackingDelegate; // @synthesize trackingDelegate=_trackingDelegate;
@@ -97,7 +103,7 @@
 - (void)startPinchingWithFocusPoint:(struct CGPoint)arg1;
 - (void)zoom:(double)arg1 relativeToPoint:(struct CGPoint)arg2 completionHandler:(id)arg3;
 - (void)_startTapZoomAnimationFrom:(double)arg1 to:(double)arg2 completionHandler:(id)arg3;
-- (void)setGesturing:(BOOL)arg1;
+- (void)setGesturing:(_Bool)arg1;
 @property(nonatomic) double userZoomFocusStyleMaxGroundspanMeters;
 @property(nonatomic) double userZoomFocusStyleMinGroundspanMeters;
 @property(nonatomic) double userZoomFocusStyleGroundspanMeters;
@@ -106,21 +112,24 @@
 - (void)_resumeAnimationIfNecessary;
 - (void)setUserZoomFocusStyleZoomScale:(double)arg1;
 @property(nonatomic) double zoomScale;
-- (BOOL)isAtDefaultZoomScale;
+- (_Bool)isAtDefaultZoomScale;
 - (void)_updateCruiseHeightAndPhi;
 - (void)_updateCameraForStartAnimation:(double)arg1 position:(struct VKPoint)arg2 orientation:(const CDStruct_aa5aacbc *)arg3;
 - (void)_step;
-- (void)_updateVerticalGroundspanForCameraContext:(id)arg1 reference:(struct VKPoint)arg2;
+- (void)_updateVerticalGroundspanForCameraContext:(id)arg1 reference:(struct VKPoint)arg2 focus:(struct VKPoint)arg3 offset:(double)arg4;
 - (void)puckAnimator:(id)arg1 updatedTargetPosition:(struct VKPoint)arg2;
 - (void)puckAnimatorDidStop:(id)arg1;
-- (void)puckAnimator:(id)arg1 updatedPosition:(CDStruct_cc67e4ef *)arg2;
+- (void)puckAnimator:(id)arg1 updatedPosition:(CDStruct_b926a728 *)arg2;
 - (void)resumeIfNeeded;
 - (void)pauseIfNeeded;
-- (BOOL)isGesturing;
+- (_Bool)isGesturing;
 - (void)updateCameraContext:(id)arg1;
 - (void)dealloc;
-- (void)startWithPounce:(BOOL)arg1 pounceCompletionHandler:(id)arg2;
+- (void)stop;
+- (void)startWithPounce:(_Bool)arg1 pounceCompletionHandler:(id)arg2;
 - (void)setPuckHorizontalOffset:(double)arg1 duration:(double)arg2 timingFunction:(id)arg3;
+- (void)edgeInsetsDidEndAnimating;
+- (void)edgeInsetsWillBeginAnimating;
 - (void)setEdgeInsets:(struct VKEdgeInsets)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (id)init;

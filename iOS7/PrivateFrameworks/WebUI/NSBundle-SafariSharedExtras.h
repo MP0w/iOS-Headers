@@ -8,6 +8,6 @@
 
 @interface NSBundle (SafariSharedExtras)
 + (id)safari_safariSharedBundle;
-- (BOOL)safari_primaryLocalizationIsEnglish;
+- (_Bool)safari_primaryLocalizationIsEnglish;
 @end
 

@@ -14,27 +14,27 @@
     double _containerDuration;
     double _localTimeOffset;
     double _stopAtTime;
-    int _currentLoopIndex;
-    unsigned int _flags;
+    long long _currentLoopIndex;
+    unsigned long long _flags;
 }
 
-@property(readonly, nonatomic) int currentLoopIndex; // @synthesize currentLoopIndex=_currentLoopIndex;
+@property(readonly, nonatomic) long long currentLoopIndex; // @synthesize currentLoopIndex=_currentLoopIndex;
 @property(nonatomic) double stopAtTime; // @synthesize stopAtTime=_stopAtTime;
 @property(nonatomic) double localTimeOffset; // @synthesize localTimeOffset=_localTimeOffset;
 @property(readonly, nonatomic) double containerDuration; // @synthesize containerDuration=_containerDuration;
 @property(readonly, nonatomic) double extendedContainerTime; // @synthesize extendedContainerTime=_containerTime;
 @property(nonatomic) double layerDuration; // @synthesize layerDuration=_layerDuration;
 @property(nonatomic) double time; // @synthesize time=_time;
-@property(readonly, nonatomic) BOOL isInPhaseOut;
-@property(readonly, nonatomic) BOOL isInPhaseIn;
-@property(readonly, nonatomic) BOOL jumpedBackInTime;
-@property(readonly, nonatomic) BOOL isPaused;
+@property(readonly, nonatomic) _Bool isInPhaseOut;
+@property(readonly, nonatomic) _Bool isInPhaseIn;
+@property(readonly, nonatomic) _Bool jumpedBackInTime;
+@property(readonly, nonatomic) _Bool isPaused;
 @property(readonly, nonatomic) double croppedContainerTime;
-- (void)setParentIsPaused:(BOOL)arg1;
+- (void)setParentIsPaused:(_Bool)arg1;
 - (void)pauseOnNextUpdate;
 - (void)resumeOnNextUpdate;
 - (void)updateForTime:(double)arg1 andPlug:(id)arg2;
-- (void)reactivate:(BOOL)arg1;
+- (void)reactivate:(_Bool)arg1;
 - (id)init;
 
 @end

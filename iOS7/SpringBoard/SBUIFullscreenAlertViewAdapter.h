@@ -8,19 +8,19 @@
 
 @interface SBUIFullscreenAlertViewAdapter : SBAlertViewAdapter
 {
-    BOOL _revealedContentBeneathForDismiss;
-    BOOL _animatingOut;
+    _Bool _revealedContentBeneathForDismiss;
+    _Bool _animatingOut;
 }
 
 - (void)setAlert:(id)arg1;
-- (void)setShouldAnimateIn:(BOOL)arg1;
+- (void)setShouldAnimateIn:(_Bool)arg1;
 - (void)dismiss;
 - (void)updateSpringBoardInPreparationForTransparentDismiss;
 - (void)viewAnimatedOut;
-- (BOOL)isAnimatingOut;
-- (BOOL)shouldAnimateIconsIn;
+- (_Bool)isAnimatingOut;
+- (_Bool)shouldAnimateIconsIn;
 - (void)alertDisplayWillBecomeVisible;
-- (BOOL)isReadyToBeRemovedFromView;
+- (_Bool)isReadyToBeRemovedFromView;
 - (id)alert;
 
 @end

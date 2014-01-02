@@ -8,6 +8,6 @@
 
 @protocol SBUIAnimationControllerDelegate <NSObject>
 - (void)animationControllerDidFinishAnimation:(id)arg1;
-- (void)animationController:(id)arg1 willBeginAnimation:(BOOL)arg2;
+- (void)animationController:(id)arg1 willBeginAnimation:(_Bool)arg2;
 @end
 

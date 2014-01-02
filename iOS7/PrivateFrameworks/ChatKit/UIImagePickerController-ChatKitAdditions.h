@@ -7,6 +7,6 @@
 #import "UIImagePickerController.h"
 
 @interface UIImagePickerController (ChatKitAdditions)
-- (BOOL)ckCanDismissWhenSuspending;
+- (_Bool)ckCanDismissWhenSuspending;
 @end
 

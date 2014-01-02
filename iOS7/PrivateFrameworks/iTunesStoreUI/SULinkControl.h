@@ -11,20 +11,20 @@
 @interface SULinkControl : UIControl
 {
     UILabel *_label;
-    BOOL _shouldDrawUnderline;
+    _Bool _shouldDrawUnderline;
     unsigned int _sizeIsDirty:1;
-    int _style;
+    long long _style;
 }
 
-@property(nonatomic) BOOL shouldDrawUnderline; // @synthesize shouldDrawUnderline=_shouldDrawUnderline;
+@property(nonatomic) _Bool shouldDrawUnderline; // @synthesize shouldDrawUnderline=_shouldDrawUnderline;
 - (void)_updateLabel;
 - (id)_label;
 - (void)sizeToFit;
-- (void)setHighlighted:(BOOL)arg1;
+- (void)setHighlighted:(_Bool)arg1;
 - (void)layoutSubviews;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)setText:(id)arg1;
-- (void)setStyle:(int)arg1;
+- (void)setStyle:(long long)arg1;
 - (void)dealloc;
 
 @end

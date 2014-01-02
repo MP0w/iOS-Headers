@@ -9,7 +9,7 @@
 @protocol SKUIIPhoneProductPageDelegate <NSObject>
 
 @optional
-- (BOOL)iPhoneProductPage:(id)arg1 shouldOpenURL:(id)arg2;
-- (BOOL)iPhoneProductPage:(id)arg1 shouldOpenItem:(id)arg2;
+- (_Bool)iPhoneProductPage:(id)arg1 shouldOpenURL:(id)arg2;
+- (_Bool)iPhoneProductPage:(id)arg1 shouldOpenItem:(id)arg2;
 @end
 

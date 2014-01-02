@@ -8,11 +8,12 @@
 
 #import "NSCopying-Protocol.h"
 
+// Not exported
 @interface RTFTextBlock : NSObject <NSCopying>
 {
     void *_propVals;
-    unsigned int _propMask;
-    unsigned int _typeMask;
+    unsigned long long _propMask;
+    unsigned long long _typeMask;
     id _primParamVal;
     id _otherParamVals;
     void *_blockPrimary;
@@ -21,27 +22,27 @@
 
 - (id)_attributeDescription;
 - (void)setBorderColor:(id)arg1;
-- (id)borderColorForEdge:(unsigned int)arg1;
-- (void)setBorderColor:(id)arg1 forEdge:(unsigned int)arg2;
+- (id)borderColorForEdge:(unsigned long long)arg1;
+- (void)setBorderColor:(id)arg1 forEdge:(unsigned long long)arg2;
 - (id)backgroundColor;
 - (void)setBackgroundColor:(id)arg1;
-- (unsigned int)verticalAlignment;
-- (void)setVerticalAlignment:(unsigned int)arg1;
-- (void)setWidth:(float)arg1 type:(unsigned int)arg2 forLayer:(int)arg3;
-- (unsigned int)widthValueTypeForLayer:(int)arg1 edge:(unsigned int)arg2;
-- (float)widthForLayer:(int)arg1 edge:(unsigned int)arg2;
-- (void)setWidth:(float)arg1 type:(unsigned int)arg2 forLayer:(int)arg3 edge:(unsigned int)arg4;
-- (unsigned int)contentWidthValueType;
-- (float)contentWidth;
-- (void)setContentWidth:(float)arg1 type:(unsigned int)arg2;
-- (unsigned int)valueTypeForDimension:(unsigned int)arg1;
-- (float)valueForDimension:(unsigned int)arg1;
-- (void)setValue:(float)arg1 type:(unsigned int)arg2 forDimension:(unsigned int)arg3;
+- (unsigned long long)verticalAlignment;
+- (void)setVerticalAlignment:(unsigned long long)arg1;
+- (void)setWidth:(double)arg1 type:(unsigned long long)arg2 forLayer:(long long)arg3;
+- (unsigned long long)widthValueTypeForLayer:(long long)arg1 edge:(unsigned long long)arg2;
+- (double)widthForLayer:(long long)arg1 edge:(unsigned long long)arg2;
+- (void)setWidth:(double)arg1 type:(unsigned long long)arg2 forLayer:(long long)arg3 edge:(unsigned long long)arg4;
+- (unsigned long long)contentWidthValueType;
+- (double)contentWidth;
+- (void)setContentWidth:(double)arg1 type:(unsigned long long)arg2;
+- (unsigned long long)valueTypeForDimension:(unsigned long long)arg1;
+- (double)valueForDimension:(unsigned long long)arg1;
+- (void)setValue:(double)arg1 type:(unsigned long long)arg2 forDimension:(unsigned long long)arg3;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)_takeValuesFromTextBlock:(id)arg1;
-- (unsigned int)_valueTypeForParameter:(unsigned int)arg1;
-- (float)_valueForParameter:(unsigned int)arg1;
-- (void)_setValue:(float)arg1 type:(unsigned int)arg2 forParameter:(unsigned int)arg3;
+- (unsigned long long)_valueTypeForParameter:(unsigned long long)arg1;
+- (double)_valueForParameter:(unsigned long long)arg1;
+- (void)_setValue:(double)arg1 type:(unsigned long long)arg2 forParameter:(unsigned long long)arg3;
 - (void)dealloc;
 - (void)_destroyFloatStorage;
 - (void)_createFloatStorage;

@@ -23,14 +23,14 @@
     NSMutableDictionary *_dataProviderFactoriesByClass;
     NSObject<OS_xpc_object> *_connection;
     NSObject<OS_dispatch_queue> *_queue;
-    BOOL _allowConnections;
+    _Bool _allowConnections;
 }
 
 @property(nonatomic) id <BBDataProviderManagerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)dataProviderOperational:(id)arg1;
 - (void)dataProviderConnection:(id)arg1 removeDataProviderWithSectionID:(id)arg2;
 - (void)dataProviderConnection:(id)arg1 addDataProviderWithSectionID:(id)arg2;
-- (void)dataProviderConnection:(id)arg1 connectionStateDidChange:(BOOL)arg2;
+- (void)dataProviderConnection:(id)arg1 connectionStateDidChange:(_Bool)arg2;
 - (void)_removeDataProviderSectionID:(id)arg1;
 - (void)_removeDataProvider:(id)arg1;
 - (id)_configureSectionInfo:(id)arg1 forDataProvider:(id)arg2;

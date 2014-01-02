@@ -14,7 +14,6 @@
     NSString *_uuid;
 }
 
-+ (id)notification;
 @property(readonly, nonatomic) NSString *assetUUID;
 @property(readonly, nonatomic) UIImage *image;
 - (id)description;
@@ -23,7 +22,6 @@
 - (id)name;
 - (void)dealloc;
 - (id)init;
-- (id)_init;
 
 @end
 

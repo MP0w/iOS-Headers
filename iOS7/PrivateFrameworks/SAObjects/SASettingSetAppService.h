@@ -16,7 +16,7 @@
 
 + (id)setAppServiceWithDictionary:(id)arg1 context:(id)arg2;
 + (id)setAppService;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSString *location;
 @property(copy, nonatomic) NSString *appWithSettingsId;
 - (id)encodedClassName;

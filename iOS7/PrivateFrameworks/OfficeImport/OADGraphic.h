@@ -6,6 +6,7 @@
 
 #import <OfficeImport/OADDrawable.h>
 
+// Not exported
 @interface OADGraphic : OADDrawable
 {
     OADGraphic *mMasterGraphic;

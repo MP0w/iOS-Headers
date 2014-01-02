@@ -6,6 +6,7 @@
 
 #import <WebCore/DOMHTMLElement.h>
 
+// Not exported
 @interface DOMHTMLCanvasElement : DOMHTMLElement
 {
 }

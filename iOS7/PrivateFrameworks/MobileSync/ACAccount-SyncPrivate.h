@@ -11,6 +11,6 @@
 - (void)applySyncProperties:(id)arg1;
 - (id)_usernameFromProperties:(id)arg1;
 - (id)syncIdentityString;
-- (BOOL)isMobileMeAccount;
+- (_Bool)isMobileMeAccount;
 @end
 

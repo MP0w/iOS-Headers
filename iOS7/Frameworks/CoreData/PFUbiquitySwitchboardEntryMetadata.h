@@ -8,6 +8,7 @@
 
 @class NSMutableSet, NSObject<OS_dispatch_queue>, NSPersistentStoreCoordinator, NSSQLCore, NSSet, NSString, PFUbiquityLocation, PFUbiquityRecordsImporterSchedulingContext, PFUbiquitySwitchboardCacheWrapper, _PFUbiquityRecordsExporter, _PFUbiquityRecordsImporter;
 
+// Not exported
 @interface PFUbiquitySwitchboardEntryMetadata : NSObject
 {
     NSString *_localPeerID;
@@ -22,11 +23,14 @@
     _PFUbiquityRecordsExporter *_exporter;
     PFUbiquitySwitchboardCacheWrapper *_cacheWrapper;
     PFUbiquityRecordsImporterSchedulingContext *_schedulingContext;
-    BOOL _useLocalStorage;
+    _Bool _useLocalStorage;
+    _Bool _useLocaAccount;
     NSObject<OS_dispatch_queue> *_privateQueue;
+    _Bool _useLocalAccount;
 }
 
-@property(nonatomic) BOOL useLocalStorage; // @synthesize useLocalStorage=_useLocalStorage;
+@property(nonatomic) _Bool useLocalAccount; // @synthesize useLocalAccount=_useLocalAccount;
+@property(nonatomic) _Bool useLocalStorage; // @synthesize useLocalStorage=_useLocalStorage;
 @property(readonly, nonatomic) PFUbiquityRecordsImporterSchedulingContext *schedulingContext; // @synthesize schedulingContext=_schedulingContext;
 @property(readonly, nonatomic) NSSet *stores; // @synthesize stores=_stores;
 @property(readonly, nonatomic) NSSQLCore *privateStore; // @synthesize privateStore=_privateStore;
@@ -35,7 +39,7 @@
 @property(retain, nonatomic) PFUbiquityLocation *ubiquityRootLocation; // @synthesize ubiquityRootLocation=_ubiquityRootLocation;
 @property(readonly, nonatomic) _PFUbiquityRecordsExporter *exporter; // @synthesize exporter=_exporter;
 @property(readonly, nonatomic) _PFUbiquityRecordsImporter *importer; // @synthesize importer=_importer;
-@property(readonly, nonatomic) PFUbiquitySwitchboardCacheWrapper *cacheWrapper; // @synthesize cacheWrapper=_cacheWrapper;
+@property(retain, nonatomic) PFUbiquitySwitchboardCacheWrapper *cacheWrapper; // @synthesize cacheWrapper=_cacheWrapper;
 - (void)removePersistentStore:(id)arg1;
 - (void)addPersistentStore:(id)arg1;
 - (void)dealloc;

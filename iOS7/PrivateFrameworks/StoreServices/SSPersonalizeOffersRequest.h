@@ -18,7 +18,7 @@
 - (id)copyXPCEncoding;
 - (id)initWithXPCEncoding:(id)arg1;
 - (void)startWithCompletionBlock:(id)arg1;
-- (BOOL)start;
+- (_Bool)start;
 - (void)startWithPersonalizedResponseBlock:(id)arg1;
 @property(readonly, nonatomic) NSArray *items;
 - (void)dealloc;

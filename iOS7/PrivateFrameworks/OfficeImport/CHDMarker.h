@@ -8,6 +8,7 @@
 
 @class OADGraphicProperties;
 
+// Not exported
 @interface CHDMarker : NSObject
 {
     unsigned int mSize;

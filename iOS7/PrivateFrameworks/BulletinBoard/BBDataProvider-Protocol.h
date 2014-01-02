@@ -10,13 +10,13 @@
 - (id)sortDescriptors;
 
 @optional
-- (id)bulletinsFilteredBy:(unsigned int)arg1 enabledSectionIDs:(id)arg2 count:(unsigned int)arg3 lastCleared:(id)arg4;
-- (id)bulletinsFilteredBy:(unsigned int)arg1 count:(unsigned int)arg2 lastCleared:(id)arg3;
-- (BOOL)syncsBulletinDismissal;
+- (id)bulletinsFilteredBy:(unsigned long long)arg1 enabledSectionIDs:(id)arg2 count:(unsigned long long)arg3 lastCleared:(id)arg4;
+- (id)bulletinsFilteredBy:(unsigned long long)arg1 count:(unsigned long long)arg2 lastCleared:(id)arg3;
+- (_Bool)syncsBulletinDismissal;
 - (void)handleBulletinActionResponse:(id)arg1;
 - (void)receiveMessageWithName:(id)arg1 userInfo:(id)arg2;
 - (void)noteSectionInfoDidChange:(id)arg1;
-- (BOOL)migrateSectionInfo:(id)arg1 oldSectionInfo:(id)arg2;
+- (_Bool)migrateSectionInfo:(id)arg1 oldSectionInfo:(id)arg2;
 - (id)displayNameForSubsectionID:(id)arg1;
 - (id)defaultSubsectionInfos;
 - (void)dataProviderDidLoad;
@@ -25,6 +25,7 @@
 - (id)sectionParameters;
 - (id)clearedInfoForBulletins:(id)arg1;
 - (id)clearedInfoForBulletins:(id)arg1 lastClearedInfo:(id)arg2;
+- (id)clearedInfoAndBulletinsForClearingAllBulletinsWithLimit:(unsigned long long)arg1 lastClearedInfo:(id)arg2;
 - (id)bulletinsWithRequestParameters:(id)arg1 lastCleared:(id)arg2;
 @end
 

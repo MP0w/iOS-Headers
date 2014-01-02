@@ -9,20 +9,20 @@
 @interface NSMetadataQueryResultGroup : NSObject
 {
     id _private[9];
-    unsigned int _private2[1];
+    unsigned long long _private2[1];
     void *_reserved;
 }
 
 - (id)results;
 - (void)_zapResultArray;
-- (id)resultAtIndex:(unsigned int)arg1;
-- (unsigned int)resultCount;
+- (id)resultAtIndex:(unsigned long long)arg1;
+- (unsigned long long)resultCount;
 - (id)subgroups;
 - (id)value;
 - (id)attribute;
-- (void)_addResult:(unsigned int)arg1;
+- (void)_addResult:(unsigned long long)arg1;
 - (void)dealloc;
-- (id)_init:(id)arg1 attributes:(id)arg2 index:(unsigned int)arg3 value:(id)arg4;
+- (id)_init:(id)arg1 attributes:(id)arg2 index:(unsigned long long)arg3 value:(id)arg4;
 
 @end
 

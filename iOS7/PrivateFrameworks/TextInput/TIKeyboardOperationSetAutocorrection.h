@@ -14,7 +14,7 @@
 }
 
 + (id)operationWithAutocorrection:(id)arg1;
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) TIKeyboardCandidate *autocorrection; // @synthesize autocorrection=_autocorrection;
 - (id)propertiesForDescription;
 - (void)encodeWithCoder:(id)arg1;

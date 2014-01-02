@@ -11,7 +11,7 @@
 @interface SKUIEmbeddedMediaView : UIView
 {
     id <SKUIEmbeddedMediaViewDelegate> _delegate;
-    int _mediaType;
+    long long _mediaType;
     NSString *_mediaURLString;
     MPMoviePlayerController *_moviePlayer;
     UIImageView *_playerDecorationView;
@@ -20,7 +20,7 @@
 }
 
 @property(copy, nonatomic) NSString *mediaURLString; // @synthesize mediaURLString=_mediaURLString;
-@property(nonatomic) int mediaType; // @synthesize mediaType=_mediaType;
+@property(nonatomic) long long mediaType; // @synthesize mediaType=_mediaType;
 @property(nonatomic) __weak id <SKUIEmbeddedMediaViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)_thumbnailView;
@@ -33,10 +33,10 @@
 - (void)setBackgroundColor:(id)arg1;
 - (void)layoutSubviews;
 @property(retain, nonatomic) UIImage *thumbnailImage;
-@property(nonatomic) int thumbnailContentMode;
-@property(nonatomic) BOOL showsThumbnailReflection;
-@property(readonly, nonatomic) int playbackState;
-- (void)beginPlaybackAnimated:(BOOL)arg1;
+@property(nonatomic) long long thumbnailContentMode;
+@property(nonatomic) _Bool showsThumbnailReflection;
+@property(readonly, nonatomic) long long playbackState;
+- (void)beginPlaybackAnimated:(_Bool)arg1;
 - (void)dealloc;
 
 @end

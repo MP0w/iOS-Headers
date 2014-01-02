@@ -11,6 +11,6 @@
 
 @optional
 - (id)collectionView:(id)arg1 targetIndexPathForMoveFromIndexPath:(id)arg2 toProposedIndexPath:(id)arg3;
-- (BOOL)collectionView:(id)arg1 canReorderItemAtIndexPath:(id)arg2;
+- (_Bool)collectionView:(id)arg1 canReorderItemAtIndexPath:(id)arg2;
 @end
 

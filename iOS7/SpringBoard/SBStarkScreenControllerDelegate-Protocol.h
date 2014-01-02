@@ -7,6 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol SBStarkScreenControllerDelegate <NSObject>
-- (void)starkScreenController:(id)arg1 didChangeStateFromState:(int)arg2;
+- (void)starkScreenController:(id)arg1 didChangeStateFromState:(long long)arg2;
 @end
 

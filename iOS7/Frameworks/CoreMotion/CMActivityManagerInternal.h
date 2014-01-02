@@ -14,12 +14,14 @@
     id fActivityHandler;
     NSObject<OS_dispatch_source> *fWatchdogTimer;
     NSObject<OS_dispatch_queue> *fPrivateQueue;
-    BOOL fSubscribedToMotionState;
+    _Bool fSubscribedToMotionState;
     NSObject<OS_dispatch_semaphore> *fSidebandOverrideSemaphore;
     NSObject<OS_dispatch_queue> *fSidebandOverrideQueue;
-    BOOL fSidebandOverrideWaiting;
+    _Bool fSidebandOverrideWaiting;
+    long long fSidebandOverrideResult;
 }
 
+- (void)overrideOscarSideband:(_Bool)arg1 withState:(long long)arg2;
 - (void)stopActivityUpdatesPrivate;
 - (void)startActivityUpdatesWithHandlerPrivate:(id)arg1;
 - (void)stopWatchdogCheckinsPrivate;

@@ -8,6 +8,7 @@
 
 @class UIStoryboard;
 
+// Not exported
 @interface _UIStoryboardProxy : NSObject
 {
     UIStoryboard *_storyboard;

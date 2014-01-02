@@ -7,8 +7,8 @@
 #pragma mark Named Structures
 
 struct CGPoint {
-    float _field1;
-    float _field2;
+    double _field1;
+    double _field2;
 };
 
 struct CGRect {
@@ -17,16 +17,16 @@ struct CGRect {
 };
 
 struct CGSize {
-    float width;
-    float height;
+    double width;
+    double height;
 };
 
 #pragma mark Typedef'd Structures
 
 typedef struct {
-    unsigned int localIndex;
-    unsigned int localCount;
-    unsigned int globalIndex;
-    unsigned int globalCount;
-} CDStruct_b08558f4;
+    unsigned long long localIndex;
+    unsigned long long localCount;
+    unsigned long long globalIndex;
+    unsigned long long globalCount;
+} CDStruct_3e55db63;
 

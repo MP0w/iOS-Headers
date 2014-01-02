@@ -7,14 +7,14 @@
 #import "NSObject.h"
 
 #import "SBAlertManagerObserver-Protocol.h"
+#import "SBControlCenterObserver-Protocol.h"
 
-@class NSDictionary, SBAlertManager;
+@class SBAlertManager;
 
-@interface SBScreenTimeTrackingController : NSObject <SBAlertManagerObserver>
+@interface SBScreenTimeTrackingController : NSObject <SBControlCenterObserver, SBAlertManagerObserver>
 {
     unsigned long long _thisCategoryStartTime;
     double _lastCategoryChangeTime;
-    NSDictionary *_keys;
     int _activeCategory;
     int _previousCategory;
     SBAlertManager *_alertManager;
@@ -27,24 +27,27 @@
 - (void)_noteNotificationCenterTodayWillAppear;
 - (void)_noteNotificationCenterNotificationsWillAppear;
 - (void)_noteNotificationCenterWillDismiss;
-- (void)_noteControlCenterWillDisappear;
 - (void)_noteControlCenterControlDidDeactivate:(id)arg1;
 - (void)_noteControlCenterControlDidActivate:(id)arg1;
-- (void)_noteControlCenterDidAppear;
-- (void)_noteSearchControllerDidAppear;
+- (void)_noteSearchVisibilityDidChange:(id)arg1;
 - (void)_noteAppSliderDidAppear;
 - (void)_noteSiriVisibilityChanged;
 - (void)_noteAppBecameFrontmost:(id)arg1;
 - (void)_noteMediaControlsDidDisappear;
 - (void)_noteMediaControlsDidAppear;
 - (void)_noteBacklightDidTurnOn:(id)arg1;
-- (BOOL)_isLockScreenNavigationActive;
+- (_Bool)_isLockScreenNavigationActive;
 - (void)_noteLockScreenUndimmed;
 - (void)_noteLocked;
+- (void)controlCenterDidFinishTransition;
+- (void)controlCenterWillBeginTransition;
+- (void)controlCenterDidDismiss;
+- (void)controlCenterWillPresent;
 - (void)alertManager:(id)arg1 didActivateAlert:(id)arg2 overAlerts:(id)arg3;
 - (void)_resetCategoryForContext:(int)arg1;
 - (id)_nameForCurrentContext;
 - (int)_activeContext;
+- (void)dealloc;
 - (id)initWithAlertManager:(id)arg1;
 
 @end

@@ -6,15 +6,16 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface EDPageSetup : NSObject
 {
     int mOrientation;
     int mPageOrder;
     _Bool mCustomFirstPageNumber;
-    unsigned long mFirstPageNumber;
-    unsigned long mFitToHeight;
-    unsigned long mFitToWidth;
-    unsigned long mScale;
+    unsigned long long mFirstPageNumber;
+    unsigned long long mFitToHeight;
+    unsigned long long mFitToWidth;
+    unsigned long long mScale;
     float mLeftMargin;
     float mRightMargin;
     float mTopMargin;
@@ -36,14 +37,14 @@
 - (float)rightMargin;
 - (void)setLeftMargin:(float)arg1;
 - (float)leftMargin;
-- (void)setScale:(unsigned long)arg1;
-- (unsigned long)scale;
-- (void)setFitToWidth:(unsigned long)arg1;
-- (unsigned long)fitToWidth;
-- (void)setFitToHeight:(unsigned long)arg1;
-- (unsigned long)fitToHeight;
-- (void)setFirstPageNumber:(unsigned long)arg1;
-- (unsigned long)firstPageNumber;
+- (void)setScale:(unsigned long long)arg1;
+- (unsigned long long)scale;
+- (void)setFitToWidth:(unsigned long long)arg1;
+- (unsigned long long)fitToWidth;
+- (void)setFitToHeight:(unsigned long long)arg1;
+- (unsigned long long)fitToHeight;
+- (void)setFirstPageNumber:(unsigned long long)arg1;
+- (unsigned long long)firstPageNumber;
 - (void)setCustomFirstPageNumber:(_Bool)arg1;
 - (_Bool)customFirstPageNumber;
 - (void)setOrder:(int)arg1;

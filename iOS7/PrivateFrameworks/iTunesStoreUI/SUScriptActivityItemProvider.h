@@ -31,7 +31,7 @@
 - (void)_finishItemWithItem:(id)arg1;
 - (void)activityItemProvider:(id)arg1 provideItemUsingBlock:(id)arg2;
 @property(copy) NSString *status;
-@property float progress;
+@property double progress;
 @property(retain) WebScriptObject *itemFunction;
 @property(readonly) NSString *MIMEType;
 - (id)_className;

@@ -10,11 +10,12 @@
 
 @class NSMutableArray, WDDocument, WDStyle;
 
+// Not exported
 @interface WDListDefinition : NSObject <NSCopying>
 {
     int mType;
     NSMutableArray *mLevels;
-    long mListId;
+    long long mListId;
     WDDocument *mDocument;
     WDStyle *mListStyle;
     WDStyle *mListStyleLink;
@@ -24,8 +25,8 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithDocument:(id)arg1;
 - (id)document;
-- (void)setListId:(long)arg1;
-- (long)listId;
+- (void)setListId:(long long)arg1;
+- (long long)listId;
 - (void)setListStyleLink:(id)arg1;
 - (id)listStyleLink;
 - (void)setListStyle:(id)arg1;

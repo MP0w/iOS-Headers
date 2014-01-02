@@ -18,7 +18,7 @@
 - (void)willAccessKVOForKey:(id)arg1;
 - (id)objectForKey:(id)arg1;
 - (id)objectForKey:(id)arg1 defaultObjectBlock:(id)arg2;
-- (BOOL)shouldUsePropertyStorageCacheForKey:(id)arg1;
+- (_Bool)shouldUsePropertyStorageCacheForKey:(id)arg1;
 - (void)setObject:(id)arg1 forKey:(id)arg2;
 - (void)finalize;
 - (void)dealloc;

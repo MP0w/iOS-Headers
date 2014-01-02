@@ -19,16 +19,16 @@
 }
 
 + (id)URLForSubscription:(id)arg1;
-+ (BOOL)isSubscription:(id)arg1 channelOfUser:(id)arg2;
++ (_Bool)isSubscription:(id)arg1 channelOfUser:(id)arg2;
 + (id)displayStringForSubscription:(id)arg1;
-+ (unsigned int)resultsPerRequest;
++ (unsigned long long)resultsPerRequest;
 - (void)setDelegate:(id)arg1;
 - (void)failWithError:(id)arg1;
 - (void)subscribeToUser:(id)arg1;
 - (void)createPlaylistNamed:(id)arg1;
-- (void)requestPlaylistsFromIndex:(unsigned int)arg1 maxResults:(unsigned int)arg2 searchTerm:(id)arg3;
-- (void)requestUserPlaylistsFromIndex:(unsigned int)arg1 maxResults:(unsigned int)arg2;
-- (void)requestUserSubscriptionsFromIndex:(unsigned int)arg1 maxResults:(unsigned int)arg2;
+- (void)requestPlaylistsFromIndex:(unsigned long long)arg1 maxResults:(unsigned long long)arg2 searchTerm:(id)arg3;
+- (void)requestUserPlaylistsFromIndex:(unsigned long long)arg1 maxResults:(unsigned long long)arg2;
+- (void)requestUserSubscriptionsFromIndex:(unsigned long long)arg1 maxResults:(unsigned long long)arg2;
 - (void)_doRequestWithURL:(id)arg1;
 - (void)didAuthenticate:(id)arg1;
 - (void)didParseData;

@@ -6,6 +6,7 @@
 
 #import <Foundation/NSProxy.h>
 
+// Not exported
 @interface NSAutoContentAccessingProxy : NSProxy
 {
     id _target;

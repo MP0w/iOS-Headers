@@ -11,7 +11,7 @@
 }
 
 + (id)operation;
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 
 @end
 

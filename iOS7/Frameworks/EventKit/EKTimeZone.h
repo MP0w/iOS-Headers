@@ -10,13 +10,14 @@
 
 @class NSString;
 
+// Not exported
 @interface EKTimeZone : NSObject <NSCopying>
 {
     NSString *_name;
     void *_internal;
-    long _lastStart;
-    long _lastEnd;
-    unsigned int _lastIndex;
+    long long _lastStart;
+    long long _lastEnd;
+    unsigned long long _lastIndex;
     double _offset;
 }
 
@@ -29,13 +30,13 @@
 - (double)secondsFromGMTForAbsoluteTime:(double)arg1;
 - (id)abbreviationForDate:(id)arg1;
 - (double)secondsFromGMTForDate:(id)arg1;
-- (id)_abbreviationForIndex:(unsigned int)arg1;
-- (unsigned int)_indexForAbsoluteTime:(double)arg1;
+- (id)_abbreviationForIndex:(unsigned long long)arg1;
+- (unsigned long long)_indexForAbsoluteTime:(double)arg1;
 - (id)name;
 - (id)NSTimeZone;
 - (id)description;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)initWithOffset:(double)arg1 name:(id)arg2;

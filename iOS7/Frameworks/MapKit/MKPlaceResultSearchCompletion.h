@@ -8,6 +8,7 @@
 
 @class GEOPlaceResult, GEOSearchRequest, GEOSearchResponse, MKMapItem;
 
+// Not exported
 @interface MKPlaceResultSearchCompletion : MKSearchCompletion
 {
     GEOPlaceResult *_result;
@@ -16,12 +17,13 @@
     MKMapItem *_mapItem;
 }
 
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (void)applyToPlaceSearchRequest:(id)arg1;
 - (void)sendFeedback;
 - (id)mapItem;
-- (BOOL)getCoordinate:(CDStruct_c3b9c2ee *)arg1;
-- (id)highlightsForLine:(unsigned int)arg1;
+- (_Bool)getCoordinate:(CDStruct_c3b9c2ee *)arg1;
+- (id)highlightsForLine:(unsigned long long)arg1;
 - (id)displayLines;
 - (void)dealloc;
 - (id)initWithPlaceResult:(id)arg1 response:(id)arg2 request:(id)arg3;

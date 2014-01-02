@@ -8,15 +8,15 @@
 
 @interface SPSearchResultDeserializer : PBDataReader
 {
-    unsigned int _byteVector;
-    BOOL _munmapAtDealloc;
+    unsigned long long _byteVector;
+    _Bool _munmapAtDealloc;
 }
 
 - (void)dealloc;
 - (id)initWithSerializer:(id)arg1;
-- (id)initWithMallocRegion:(unsigned int)arg1 length:(unsigned int)arg2;
-- (id)initWithMappedRegion:(unsigned int)arg1 length:(unsigned int)arg2;
-- (BOOL)deserializeNextSection:(id *)arg1;
+- (id)initWithMallocRegion:(unsigned long long)arg1 length:(unsigned int)arg2;
+- (id)initWithMappedRegion:(unsigned long long)arg1 length:(unsigned int)arg2;
+- (_Bool)deserializeNextSection:(id *)arg1;
 
 @end
 

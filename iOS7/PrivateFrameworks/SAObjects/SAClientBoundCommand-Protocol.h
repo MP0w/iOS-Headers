@@ -11,6 +11,6 @@
 @protocol SAClientBoundCommand <SAAceCommand>
 @property(copy, nonatomic) NSArray *callbacks;
 @property(copy, nonatomic) NSString *appId;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @end
 

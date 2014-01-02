@@ -10,23 +10,23 @@
 
 @interface SBBackgroundFetchTask : NSObject
 {
+    int _sequenceNumber;
     BKSProcessAssertion *_assertion;
     id _completionHandler;
     NSString *_bundleID;
-    unsigned int _trigger;
-    int _sequenceNumber;
+    unsigned long long _trigger;
 }
 
 @property(readonly) int sequenceNumber; // @synthesize sequenceNumber=_sequenceNumber;
-@property(readonly) unsigned int trigger; // @synthesize trigger=_trigger;
+@property(readonly) unsigned long long trigger; // @synthesize trigger=_trigger;
 @property(readonly, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
 @property(copy, nonatomic) id completionHandler; // @synthesize completionHandler=_completionHandler;
 @property(retain, nonatomic) BKSProcessAssertion *assertion; // @synthesize assertion=_assertion;
 - (id)description;
 - (void)dealloc;
-- (void)_fireCompletionHandlerWithResult:(unsigned int)arg1;
-- (void)finishWithResult:(unsigned int)arg1;
-- (id)initForApplication:(id)arg1 trigger:(unsigned int)arg2 sequenceNumber:(int)arg3 withCompletion:(id)arg4;
+- (void)_fireCompletionHandlerWithResult:(unsigned long long)arg1;
+- (void)finishWithResult:(unsigned long long)arg1;
+- (id)initForApplication:(id)arg1 trigger:(unsigned long long)arg2 sequenceNumber:(int)arg3 withCompletion:(id)arg4;
 
 @end
 

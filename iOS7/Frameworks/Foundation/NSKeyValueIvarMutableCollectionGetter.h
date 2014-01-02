@@ -6,6 +6,7 @@
 
 #import <Foundation/NSKeyValueProxyGetter.h>
 
+// Not exported
 @interface NSKeyValueIvarMutableCollectionGetter : NSKeyValueProxyGetter
 {
     struct objc_ivar *_ivar;

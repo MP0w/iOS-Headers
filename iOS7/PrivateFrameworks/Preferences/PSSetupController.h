@@ -16,17 +16,17 @@
 }
 
 - (void)statusBarWillChangeHeight:(id)arg1;
-- (BOOL)popupStyleIsModal;
-- (BOOL)usePopupStyle;
+- (_Bool)popupStyleIsModal;
+- (_Bool)usePopupStyle;
 - (void)popControllerOnParent;
 - (void)pushControllerOnParentWithSpecifier:(id)arg1;
-- (void)dismissAnimated:(BOOL)arg1;
+- (void)dismissAnimated:(_Bool)arg1;
 - (void)dismiss;
 - (id)controller;
 - (void)setParentController:(id)arg1;
 - (void)pushController:(id)arg1;
-- (void)viewDidDisappear:(BOOL)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
 - (void)setupController;
 - (id)parentController;
 - (void)handleURL:(id)arg1;

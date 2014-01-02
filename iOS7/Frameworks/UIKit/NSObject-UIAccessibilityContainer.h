@@ -7,8 +7,8 @@
 #import "NSObject.h"
 
 @interface NSObject (UIAccessibilityContainer)
-- (int)indexOfAccessibilityElement:(id)arg1;
-- (id)accessibilityElementAtIndex:(int)arg1;
-- (int)accessibilityElementCount;
+- (long long)indexOfAccessibilityElement:(id)arg1;
+- (id)accessibilityElementAtIndex:(long long)arg1;
+- (long long)accessibilityElementCount;
 @end
 

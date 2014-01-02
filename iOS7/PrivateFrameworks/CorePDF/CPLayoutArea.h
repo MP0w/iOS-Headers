@@ -8,23 +8,23 @@
 
 @interface CPLayoutArea : CPRegion
 {
-    BOOL isFirstLayout;
+    _Bool isFirstLayout;
 }
 
 - (id)description;
 - (id)properties;
-- (float)selectionBottom;
+- (double)selectionBottom;
 - (struct CGRect)layoutAreaBounds;
-- (BOOL)isShapeRegion;
-- (BOOL)isImageRegion;
-- (void)setIsImageRegion:(BOOL)arg1;
-- (BOOL)isRowRegion;
-- (BOOL)isGraphicalRegion;
-- (BOOL)isBoxRegion;
+- (_Bool)isShapeRegion;
+- (_Bool)isImageRegion;
+- (void)setIsImageRegion:(_Bool)arg1;
+- (_Bool)isRowRegion;
+- (_Bool)isGraphicalRegion;
+- (_Bool)isBoxRegion;
 - (void)addColumnBreaks;
-- (void)setIsFirstLayout:(BOOL)arg1;
-- (BOOL)isFirstLayout;
-- (BOOL)isSimilarTo:(id)arg1;
+- (void)setIsFirstLayout:(_Bool)arg1;
+- (_Bool)isFirstLayout;
+- (_Bool)isSimilarTo:(id)arg1;
 - (void)accept:(id)arg1;
 - (id)init;
 

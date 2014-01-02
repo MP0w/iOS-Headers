@@ -10,15 +10,15 @@
 
 @interface SBPasscodeTextField : UITextField
 {
-    float _letterSpacing;
-    BOOL _usesLargeClearButton;
+    double _letterSpacing;
+    _Bool _usesLargeClearButton;
     UILabel *_hiddenLabel;
 }
 
-@property(nonatomic) BOOL usesLargeClearButton; // @synthesize usesLargeClearButton=_usesLargeClearButton;
-@property(nonatomic) float letterSpacing; // @synthesize letterSpacing=_letterSpacing;
-- (BOOL)resignFirstResponder;
-- (BOOL)becomeFirstResponder;
+@property(nonatomic) _Bool usesLargeClearButton; // @synthesize usesLargeClearButton=_usesLargeClearButton;
+@property(nonatomic) double letterSpacing; // @synthesize letterSpacing=_letterSpacing;
+- (_Bool)resignFirstResponder;
+- (_Bool)becomeFirstResponder;
 - (void)_handleKeyUIEvent:(id)arg1;
 - (id)_style;
 - (void)_endedEditing;

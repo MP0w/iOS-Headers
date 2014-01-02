@@ -11,18 +11,18 @@
 @interface SBStarkScreenFocusAssertion : NSObject
 {
     NSString *_name;
-    int _type;
-    float _priority;
+    long long _type;
+    double _priority;
     UIWindow *_window;
 }
 
 @property(readonly, nonatomic) UIWindow *window; // @synthesize window=_window;
-@property(readonly, nonatomic) float priority; // @synthesize priority=_priority;
-@property(readonly, nonatomic) int type; // @synthesize type=_type;
+@property(readonly, nonatomic) double priority; // @synthesize priority=_priority;
+@property(readonly, nonatomic) long long type; // @synthesize type=_type;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 - (id)description;
 - (void)dealloc;
-- (id)initWithName:(id)arg1 type:(int)arg2 priority:(float)arg3 window:(id)arg4;
+- (id)initWithName:(id)arg1 type:(long long)arg2 priority:(double)arg3 window:(id)arg4;
 
 @end
 

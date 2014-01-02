@@ -10,7 +10,7 @@
 - (id)MLSortString;
 - (id)copyWithoutInsignificantCharacters;
 - (id)copyWithoutInsignificantPrefixAndCharacters;
-- (id)_copyWithoutInsignificantPrefix:(BOOL)arg1 andCharacters:(BOOL)arg2;
-- (struct _NSRange)_rangeWithoutInsignificantPrefix:(BOOL)arg1 andCharacters:(BOOL)arg2;
+- (id)_copyWithoutInsignificantPrefix:(_Bool)arg1 andCharacters:(_Bool)arg2;
+- (struct _NSRange)_rangeWithoutInsignificantPrefix:(_Bool)arg1 andCharacters:(_Bool)arg2;
 @end
 

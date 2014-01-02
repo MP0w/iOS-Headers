@@ -6,6 +6,6 @@
 
 @protocol AVAsynchronousKeyValueLoading
 - (void)loadValuesAsynchronouslyForKeys:(id)arg1 completionHandler:(id)arg2;
-- (int)statusOfValueForKey:(id)arg1 error:(id *)arg2;
+- (long long)statusOfValueForKey:(id)arg1 error:(id *)arg2;
 @end
 

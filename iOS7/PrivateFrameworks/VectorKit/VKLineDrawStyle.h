@@ -6,12 +6,13 @@
 
 #import <VectorKit/VKDrawStyle.h>
 
+// Not exported
 @interface VKLineDrawStyle : VKDrawStyle
 {
     struct vector<LineDash, vk_allocator<LineDash>> fillDashes;
     struct vector<LineStipple, vk_allocator<LineStipple>> stipples;
     struct vector<LineDash, vk_allocator<LineDash>> strokeDashes;
-    BOOL hasDashAtAnyZ;
+    _Bool hasDashAtAnyZ;
     struct VKProfileSparseRamp<float> insetShadowHeight;
     struct VKProfileSparseRamp<float> insetShadowAngle;
     struct VKProfileSparseRamp<_VGLColor> insetShadowColor;
@@ -25,17 +26,17 @@
 - (struct _VGLColor)dropShadowColorAtZoom:(float)arg1;
 - (Vec2Imp_1782d7e3)dropShadowOffsetAtZoom:(float)arg1;
 - (float)dropShadowWidthAtZoom:(float)arg1;
-- (BOOL)hasDropShadowAtZoom:(float)arg1;
+- (_Bool)hasDropShadowAtZoom:(float)arg1;
 - (struct _VGLColor)insetShadowColorAtZoom:(float)arg1;
 - (float)insetShadowAngleAtZoom:(float)arg1;
 - (float)insetShadowHeightAtZoom:(float)arg1;
-- (BOOL)hasStrokeDashAtZoom:(int)arg1;
-- (BOOL)hasFillDashAtZoom:(int)arg1;
-- (void)strokeDashPattern:(float **)arg1 length:(unsigned int *)arg2 atZoom:(float)arg3;
-- (void)stippleArray:(float **)arg1 length:(unsigned int *)arg2 atZoom:(float)arg3;
-- (void)fillDashPattern:(float **)arg1 length:(unsigned int *)arg2 atZoom:(float)arg3;
-- (BOOL)hasDashAtAnyZ;
-- (void)takeFromStyleProperties:(id)arg1 atZoom:(unsigned int)arg2 globals:(id)arg3;
+- (_Bool)hasStrokeDashAtZoom:(int)arg1;
+- (_Bool)hasFillDashAtZoom:(int)arg1;
+- (void)strokeDashPattern:(float **)arg1 length:(unsigned long long *)arg2 atZoom:(float)arg3;
+- (void)stippleArray:(float **)arg1 length:(unsigned long long *)arg2 atZoom:(float)arg3;
+- (void)fillDashPattern:(float **)arg1 length:(unsigned long long *)arg2 atZoom:(float)arg3;
+- (_Bool)hasDashAtAnyZ;
+- (void)takeFromStyleProperties:(id)arg1 atZoom:(unsigned long long)arg2 globals:(id)arg3;
 - (id)variant;
 
 @end

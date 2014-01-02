@@ -15,13 +15,13 @@
     UILabel *_loadingLabel;
     UIView *_loadingContainerView;
     NSDate *_lastViewPhaseChangeDate;
-    BOOL _indicatorIsVisible;
-    int _interfaceIdiom;
+    _Bool _indicatorIsVisible;
     int _placeholderState;
+    long long _interfaceIdiom;
 }
 
 @property int placeholderState; // @synthesize placeholderState=_placeholderState;
-@property(readonly) int interfaceIdiom; // @synthesize interfaceIdiom=_interfaceIdiom;
+@property(readonly) long long interfaceIdiom; // @synthesize interfaceIdiom=_interfaceIdiom;
 - (void)layoutSubviews;
 - (void)_layoutSubviews;
 - (void)_removeLoadingContainerView;
@@ -30,11 +30,11 @@
 - (id)_newLoadingLabel;
 - (double)_timeSinceLastPlaceholderPhaseChange;
 - (void)showLoadingIndicatorWhenReady;
-- (void)_transitionToNewStateAnimated:(BOOL)arg1;
+- (void)_transitionToNewStateAnimated:(_Bool)arg1;
 - (void)transitionToState:(int)arg1;
-- (void)fadeOutSoonIfNeededAndRemoveFromSuperview:(BOOL)arg1;
+- (void)fadeOutSoonIfNeededAndRemoveFromSuperview:(_Bool)arg1;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 withState:(int)arg2 interfaceIdiom:(int)arg3;
+- (id)initWithFrame:(struct CGRect)arg1 withState:(int)arg2 interfaceIdiom:(long long)arg3;
 
 @end
 

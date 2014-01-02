@@ -10,6 +10,7 @@
 
 @class NSArray, SLFacebookPostPrivacySetting, UINavigationItem;
 
+// Not exported
 @interface SLFacebookAudienceTableViewController : UITableViewController <SLFacebookAudienceViewController>
 {
     NSArray *_privacySettings;
@@ -22,8 +23,8 @@
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
 - (id)_privacySettingForIndexPath:(id)arg1;
 - (void)setCurrentPrivacySetting:(id)arg1;
 - (void)setPrivacySettings:(id)arg1;
@@ -31,15 +32,15 @@
 - (void)cancelButtonTapped:(id)arg1;
 - (struct CGSize)contentSizeForViewInPopover;
 - (void)viewWillLayoutSubviews;
-- (void)viewDidDisappear:(BOOL)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidUnload;
 - (void)viewDidLoad;
 - (void)loadView;
 - (void)didReceiveMemoryWarning;
-- (id)initWithStyle:(int)arg1;
+- (id)initWithStyle:(long long)arg1;
 
 @end
 

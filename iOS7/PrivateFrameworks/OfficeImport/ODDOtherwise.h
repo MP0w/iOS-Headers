@@ -6,6 +6,7 @@
 
 #import <OfficeImport/ODDLayoutObjectList.h>
 
+// Not exported
 @interface ODDOtherwise : ODDLayoutObjectList
 {
 }

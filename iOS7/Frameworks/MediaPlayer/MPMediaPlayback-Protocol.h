@@ -7,7 +7,7 @@
 @protocol MPMediaPlayback
 @property(nonatomic) float currentPlaybackRate;
 @property(nonatomic) double currentPlaybackTime;
-@property(readonly, nonatomic) BOOL isPreparedToPlay;
+@property(readonly, nonatomic) _Bool isPreparedToPlay;
 - (void)endSeeking;
 - (void)beginSeekingBackward;
 - (void)beginSeekingForward;

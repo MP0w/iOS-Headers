@@ -29,14 +29,14 @@
 @property(readonly) NSSet *processIDs;
 @property(readonly) unsigned int surfaceID;
 @property(readonly) NSArray *devices;
-@property(readonly) BOOL wired;
-@property(readonly) BOOL purgeable;
-@property(readonly) BOOL cacheDirty;
-@property(readonly) BOOL cachedCopy;
+@property(readonly) _Bool wired;
+@property(readonly) _Bool purgeable;
+@property(readonly) _Bool cacheDirty;
+@property(readonly) _Bool cachedCopy;
 @property(readonly) unsigned long long residentLength;
 @property(readonly) unsigned long long dirtyLength;
 @property(readonly) unsigned long long length;
-@property(readonly) unsigned int memoryPool;
+@property(readonly) unsigned long long memoryPool;
 - (void)dealloc;
 - (id)initWithDictionary:(id)arg1;
 

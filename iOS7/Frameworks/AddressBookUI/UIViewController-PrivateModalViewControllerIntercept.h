@@ -7,6 +7,6 @@
 #import "UIViewController.h"
 
 @interface UIViewController (PrivateModalViewControllerIntercept)
-- (BOOL)ab_wantsToPresentModalViewControllerWithoutAnyHelp;
+- (_Bool)ab_wantsToPresentModalViewControllerWithoutAnyHelp;
 @end
 

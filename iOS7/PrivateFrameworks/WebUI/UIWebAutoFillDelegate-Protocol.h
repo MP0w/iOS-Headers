@@ -9,7 +9,7 @@
 @protocol UIWebAutoFillDelegate <NSObject>
 - (void)webBrowserView:(id)arg1 acceptedAutoFillWord:(id)arg2;
 - (id)webBrowserView:(id)arg1 suggestionsForString:(id)arg2;
-- (BOOL)hasCurrentSuggestionsForWebBrowserView:(id)arg1;
+- (_Bool)hasCurrentSuggestionsForWebBrowserView:(id)arg1;
 - (void)webBrowserView:(id)arg1 didFocusTextField:(id)arg2 inFrame:(id)arg3;
 - (void)webBrowserView:(id)arg1 didEndEditingTextField:(id)arg2 inFrame:(id)arg3;
 - (void)webBrowserView:(id)arg1 didBeginEditingTextField:(id)arg2 inFrame:(id)arg3;
@@ -17,7 +17,7 @@
 - (void)webBrowserView:(id)arg1 preFillInFrame:(id)arg2;
 - (void)autoFillInWebBrowserView:(id)arg1;
 - (void)webBrowserView:(id)arg1 updateAutoFillButton:(id)arg2;
-- (BOOL)webBrowserViewShouldShowAutoFillButton:(id)arg1;
+- (_Bool)webBrowserViewShouldShowAutoFillButton:(id)arg1;
 
 @optional
 - (id)titleOfAutoFillButtonInWebBrowserView:(id)arg1;

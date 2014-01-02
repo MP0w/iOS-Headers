@@ -6,9 +6,11 @@
 
 #import "PBRequest.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSString;
 
-@interface GEOAddressCorrectionInitRequest : PBRequest
+@interface GEOAddressCorrectionInitRequest : PBRequest <NSCopying>
 {
     NSString *_personID;
     NSString *_token;
@@ -16,17 +18,18 @@
 
 @property(retain, nonatomic) NSString *personID; // @synthesize personID=_personID;
 @property(retain, nonatomic) NSString *token; // @synthesize token=_token;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (Class)responseClass;
 - (unsigned int)requestTypeCode;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) BOOL hasPersonID;
-@property(readonly, nonatomic) BOOL hasToken;
+@property(readonly, nonatomic) _Bool hasPersonID;
+@property(readonly, nonatomic) _Bool hasToken;
 - (void)dealloc;
 
 @end

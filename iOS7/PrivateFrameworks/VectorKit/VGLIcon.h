@@ -8,6 +8,7 @@
 
 @class VGLUncompressedTexture, VKImage;
 
+// Not exported
 @interface VGLIcon : NSObject
 {
     VKImage *_image;
@@ -17,7 +18,7 @@
 
 @property(readonly, nonatomic) int iconTag; // @synthesize iconTag=_iconTag;
 - (id).cxx_construct;
-- (BOOL)isCityDot;
+- (_Bool)isCityDot;
 - (void)setIconTagFromName:(id)arg1;
 @property(readonly, nonatomic) struct CGRect textureRect;
 @property(readonly, nonatomic) VGLUncompressedTexture *texture;

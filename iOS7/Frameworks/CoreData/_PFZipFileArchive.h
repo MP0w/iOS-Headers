@@ -8,12 +8,13 @@
 
 @class NSArray, NSData, NSDictionary, NSMutableArray, NSMutableDictionary, NSString, PFZipEndOfCentralDirectoryRecord;
 
+// Not exported
 @interface _PFZipFileArchive : NSObject
 {
     NSDictionary *_contents;
     NSData *_data;
     id _provider;
-    int _desc;
+    long long _desc;
     NSString *_path;
     NSArray *_names;
     NSDictionary *_properties;
@@ -36,36 +37,36 @@
     PFZipEndOfCentralDirectoryRecord *_endRecord;
 }
 
-+ (id)createStringFromBytes:(const char *)arg1 offset:(unsigned int *)arg2 length:(unsigned int)arg3;
-+ (unsigned short)readInt16FromBytes:(const char *)arg1 offset:(unsigned int *)arg2;
-+ (unsigned int)readInt32FromBytes:(const char *)arg1 offset:(unsigned int *)arg2;
++ (id)createStringFromBytes:(const char *)arg1 offset:(unsigned long long *)arg2 length:(unsigned long long)arg3;
++ (unsigned short)readInt16FromBytes:(const char *)arg1 offset:(unsigned long long *)arg2;
++ (unsigned int)readInt32FromBytes:(const char *)arg1 offset:(unsigned long long *)arg2;
 + (void)writeInt16:(unsigned short)arg1 toData:(id)arg2;
 + (void)writeInt32:(unsigned int)arg1 toData:(id)arg2;
 + (void)writeInt64:(unsigned long long)arg1 toData:(id)arg2;
 - (int)openArchiveFile:(id *)arg1;
-- (id)createDataForEntryName:(id)arg1 cache:(BOOL)arg2 error:(id *)arg3;
-- (BOOL)compareBytes:(const char *)arg1 length:(unsigned int)arg2 withLocalFileHeader:(id)arg3;
-- (BOOL)readDataForLocalFileHeader:(id)arg1 fromBytes:(const void *)arg2 error:(id *)arg3;
-- (BOOL)addCentralDirectoryEndRecordWithBytes:(const char *)arg1 offset:(unsigned int)arg2;
-- (BOOL)addCentralDirectoryHeaderWithBytes:(const char *)arg1 offset:(unsigned int)arg2;
-- (BOOL)addLocalFileHeaderWithBytes:(const char *)arg1 offset:(unsigned int)arg2;
-- (BOOL)load:(id *)arg1;
-- (BOOL)isValid;
+- (id)createDataForEntryName:(id)arg1 cache:(_Bool)arg2 error:(id *)arg3;
+- (_Bool)compareBytes:(const char *)arg1 length:(unsigned int)arg2 withLocalFileHeader:(id)arg3;
+- (_Bool)readDataForLocalFileHeader:(id)arg1 fromBytes:(const void *)arg2 error:(id *)arg3;
+- (_Bool)addCentralDirectoryEndRecordWithBytes:(const char *)arg1 offset:(unsigned long long)arg2;
+- (_Bool)addCentralDirectoryHeaderWithBytes:(const char *)arg1 offset:(unsigned long long)arg2;
+- (_Bool)addLocalFileHeaderWithBytes:(const char *)arg1 offset:(unsigned long long)arg2;
+- (_Bool)load:(id *)arg1;
+- (_Bool)isValid;
 - (void)invalidate;
-- (BOOL)writeToFile:(id)arg1 options:(unsigned int)arg2 error:(id *)arg3;
+- (_Bool)writeToFile:(id)arg1 options:(unsigned long long)arg2 error:(id *)arg3;
 - (id)archiveStream;
 - (id)archiveData;
 - (id)propertiesForEntryName:(id)arg1;
-- (BOOL)writeContentsForEntryName:(id)arg1 toFile:(id)arg2 options:(unsigned int)arg3 error:(id *)arg4;
+- (_Bool)writeContentsForEntryName:(id)arg1 toFile:(id)arg2 options:(unsigned long long)arg3 error:(id *)arg4;
 - (id)streamForEntryName:(id)arg1;
 - (id)contentsForEntryName:(id)arg1;
 @property(readonly, nonatomic) NSArray *entryNames;
 - (void)finalize;
 - (void)dealloc;
-- (id)initWithEntryNames:(id)arg1 dataProvider:(id)arg2 options:(unsigned int)arg3;
-- (id)initWithEntryNames:(id)arg1 contents:(id)arg2 properties:(id)arg3 options:(unsigned int)arg4;
-- (id)initWithData:(id)arg1 options:(unsigned int)arg2 error:(id *)arg3;
-- (id)initWithPath:(id)arg1 options:(unsigned int)arg2 error:(id *)arg3;
+- (id)initWithEntryNames:(id)arg1 dataProvider:(id)arg2 options:(unsigned long long)arg3;
+- (id)initWithEntryNames:(id)arg1 contents:(id)arg2 properties:(id)arg3 options:(unsigned long long)arg4;
+- (id)initWithData:(id)arg1 options:(unsigned long long)arg2 error:(id *)arg3;
+- (id)initWithPath:(id)arg1 options:(unsigned long long)arg2 error:(id *)arg3;
 - (id)init;
 
 @end

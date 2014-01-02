@@ -19,14 +19,16 @@
     } _flags;
 }
 
-+ (BOOL)canEditVideoAtPath:(id)arg1;
++ (_Bool)canEditVideoAtPath:(id)arg1;
 - (id)_valueForProperty:(id)arg1;
 - (void)_setValue:(id)arg1 forProperty:(id)arg2;
 - (id)_properties;
 - (void)_initializeProperties;
 - (void)_setProperties:(id)arg1;
-@property(nonatomic) int videoQuality;
+@property(nonatomic) long long videoQuality;
 @property(nonatomic) double videoMaximumDuration;
+- (void)_setVideoURL:(id)arg1;
+- (id)_videoURL;
 @property(copy, nonatomic) NSString *videoPath;
 - (void)editVideoViewController:(id)arg1 didFailWithError:(id)arg2;
 - (void)editVideoViewController:(id)arg1 didTrimVideoWithOptions:(id)arg2;
@@ -35,11 +37,11 @@
 - (void)_setupControllers;
 - (id)_createInitialController;
 - (void)_removeAllChildren;
-- (BOOL)_isSupportedInterfaceOrientation:(int)arg1;
-- (BOOL)_didRevertStatusBar;
-- (void)viewDidDisappear:(BOOL)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (_Bool)_isSupportedInterfaceOrientation:(long long)arg1;
+- (_Bool)_didRevertStatusBar;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewWillUnload;
 - (id)init;
 

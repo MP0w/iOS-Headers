@@ -6,33 +6,44 @@
 
 #import "PLTabbedLibraryViewController.h"
 
-@class PUSessionInfo, PUTabbedLibraryViewControllerSpec;
+@class NSMutableIndexSet, PUMomentsZoomLevelManager, PUSessionInfo, PUTabbedLibraryViewControllerSpec;
 
 @interface PUTabbedLibraryViewController : PLTabbedLibraryViewController
 {
     PUTabbedLibraryViewControllerSpec *_spec;
     PUSessionInfo *_sessionInfo;
+    PUMomentsZoomLevelManager *_zoomLevelManager;
+    NSMutableIndexSet *_everDisplayedContentModes;
 }
 
 @property(retain, nonatomic) PUSessionInfo *sessionInfo; // @synthesize sessionInfo=_sessionInfo;
 - (void).cxx_destruct;
-- (id)navigationController:(id)arg1 animatorForOperation:(int)arg2 fromViewController:(id)arg3 toViewController:(id)arg4;
-- (id)navigationController:(id)arg1 interactionControllerUsingAnimator:(id)arg2;
-- (BOOL)_navigationControllerShouldCrossFadeBottomBars:(id)arg1;
-- (void)navigationController:(id)arg1 willShowViewController:(id)arg2 animated:(BOOL)arg3;
-- (BOOL)cloudFeedIsAvailableForNavigation;
+- (id)navigationController:(id)arg1 animationControllerForOperation:(long long)arg2 fromViewController:(id)arg3 toViewController:(id)arg4;
+- (id)navigationController:(id)arg1 interactionControllerForAnimationController:(id)arg2;
+- (Class)_navigationControllerLayoutTransitioningClass:(id)arg1;
+- (_Bool)_navigationControllerShouldUseBuiltinInteractionController:(id)arg1;
+- (_Bool)_navigationControllerShouldCrossFadeBottomBars:(id)arg1;
+- (void)navigationController:(id)arg1 willShowViewController:(id)arg2 animated:(_Bool)arg3;
+- (id)_nextCloudFeedNavigatingObject;
+- (_Bool)cloudFeedInvitationForAlbumIsAvailableForNavigation:(id)arg1;
+- (_Bool)cloudFeedCommentIsAvailableForNavigation:(id)arg1;
+- (_Bool)cloudFeedAssetIsAvailableForNavigation:(id)arg1;
+- (_Bool)navigateToRootOfCurrentTabAnimated:(_Bool)arg1;
+- (_Bool)cloudFeedIsAvailableForNavigation;
 - (void)navigateToCloudFeedWithCompletion:(id)arg1;
-- (BOOL)_navigateToDefaultLocationInNavigationController:(id)arg1 animated:(BOOL)arg2;
+- (_Bool)_navigateToDefaultLocationInNavigationController:(id)arg1 animated:(_Bool)arg2;
 - (void)navigateToInitialLocationInNavigationController:(id)arg1;
 - (void)configureTabBar:(id)arg1;
 - (id)newNavigationControllerWithRootController:(id)arg1;
-- (BOOL)pu_shouldSelectViewController:(id)arg1;
+- (_Bool)pu_shouldSelectViewController:(id)arg1;
+- (id)_navigationControllerForContentMode:(int)arg1;
 - (void)configureTabBarItem:(id)arg1 iconName:(id)arg2;
-- (void)getCustomTitle:(out id *)arg1 backButtonTitle:(out id *)arg2 ofRootController:(id)arg3 forContentMode:(int)arg4;
-- (id)rootViewControllerForContentMode:(int)arg1;
+- (id)newRootViewControllerForContentMode:(int)arg1;
+- (void)setSelectedViewController:(id)arg1;
 - (id)initWithSpec:(id)arg1;
-- (BOOL)shouldSuppressTabForContentMode:(int)arg1;
-- (id)_rootViewControllerForContentMode:(int)arg1;
+- (_Bool)canShowTabBadgeForContentMode:(int)arg1;
+- (_Bool)shouldShowTabForContentMode:(int)arg1;
+- (void)updateDisplayedTabs:(_Bool)arg1;
 
 @end
 

@@ -10,7 +10,7 @@
 
 @interface CoreDAVContainer : NSObject
 {
-    BOOL _isUnauthenticated;
+    _Bool _isUnauthenticated;
     NSURL *_url;
     CoreDAVResourceTypeItem *_resourceType;
     NSString *_containerTitle;
@@ -42,19 +42,19 @@
 @property(retain) NSString *pushKey; // @synthesize pushKey=_pushKey;
 @property(retain) NSSet *privileges; // @synthesize privileges=_privileges;
 @property(retain) NSString *containerTitle; // @synthesize containerTitle=_containerTitle;
-@property BOOL isUnauthenticated; // @synthesize isUnauthenticated=_isUnauthenticated;
+@property _Bool isUnauthenticated; // @synthesize isUnauthenticated=_isUnauthenticated;
 @property(retain) NSURL *url; // @synthesize url=_url;
 - (void)dealloc;
-@property(readonly) BOOL supportsSyncCollectionReport;
-@property(readonly) BOOL supportsPrincipalPropertySearchReport;
+@property(readonly) _Bool supportsSyncCollectionReport;
+@property(readonly) _Bool supportsPrincipalPropertySearchReport;
 @property(readonly) NSSet *supportedReportsAsStringSet;
-@property(readonly) BOOL hasBindPrivileges;
-@property(readonly) BOOL hasWritePropertiesPrivileges;
-@property(readonly) BOOL hasWriteContentPrivileges;
-@property(readonly) BOOL hasReadPrivileges;
-- (BOOL)_anyPrivilegesMatches:(id)arg1;
+@property(readonly) _Bool hasBindPrivileges;
+@property(readonly) _Bool hasWritePropertiesPrivileges;
+@property(readonly) _Bool hasWriteContentPrivileges;
+@property(readonly) _Bool hasReadPrivileges;
+- (_Bool)_anyPrivilegesMatches:(id)arg1;
 @property(readonly) NSSet *privilegesAsStringSet;
-@property(readonly) BOOL isPrincipal;
+@property(readonly) _Bool isPrincipal;
 @property(readonly) NSSet *resourceTypeAsStringSet;
 @property(readonly) NSSet *supportedReports;
 - (void)applyParsedProperties:(id)arg1;

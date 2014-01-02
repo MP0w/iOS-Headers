@@ -8,6 +8,8 @@
 
 @interface UIImage (MPUtilities)
 + (id)imageFromAlbumArtData:(id)arg1 artworkInfo:(struct MLArtworkInstanceInfo *)arg2;
+- (id)imageWithShadow:(id)arg1;
+- (id)imageWithEtchedBorderOfColor:(id)arg1 radius:(double)arg2;
 - (id)MP_imageByOverlayingColor:(id)arg1;
 - (id)MP_flatImageWithLinearGradientFromTopColor:(id)arg1 toBottomColor:(id)arg2;
 - (struct CGRect)bitmapRectFromImageRect:(struct CGRect)arg1;

@@ -11,11 +11,11 @@
     id constantValue;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 - (id)expressionValueWithObject:(id)arg1 context:(id)arg2;
 - (id)expressionValueWithObject:(id)arg1;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)constantValue;
 - (id)predicateFormat;
 - (id)copyWithZone:(struct _NSZone *)arg1;

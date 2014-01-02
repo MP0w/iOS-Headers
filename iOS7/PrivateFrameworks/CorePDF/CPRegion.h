@@ -8,9 +8,9 @@
 
 @interface CPRegion : CPChunk
 {
-    BOOL isTextRegion;
-    BOOL isImageRegion;
-    BOOL isCompoundShape;
+    _Bool isTextRegion;
+    _Bool isImageRegion;
+    _Bool isCompoundShape;
     CPRegion *nextRegion;
     int order;
     id link;
@@ -22,23 +22,23 @@
 - (int)order;
 - (void)setNextRegion:(id)arg1;
 - (id)nextRegion;
-- (BOOL)isIndivisible;
-- (BOOL)isRotated;
-- (BOOL)isZone;
-- (void)setIsCompoundShape:(BOOL)arg1;
-- (BOOL)isCompoundShape;
-- (BOOL)isGraphicalRegion;
-- (void)setIsTextRegion:(BOOL)arg1;
-- (BOOL)isBodyZone;
-- (BOOL)isTableCellRegion;
-- (BOOL)isRowRegion;
-- (BOOL)isListItemRegion;
-- (BOOL)isParagraphRegion;
-- (BOOL)isShapeRegion;
-- (void)setIsImageRegion:(BOOL)arg1;
-- (BOOL)isImageRegion;
-- (BOOL)isBoxRegion;
-- (BOOL)isTextRegion;
+- (_Bool)isIndivisible;
+- (_Bool)isRotated;
+- (_Bool)isZone;
+- (void)setIsCompoundShape:(_Bool)arg1;
+- (_Bool)isCompoundShape;
+- (_Bool)isGraphicalRegion;
+- (void)setIsTextRegion:(_Bool)arg1;
+- (_Bool)isBodyZone;
+- (_Bool)isTableCellRegion;
+- (_Bool)isRowRegion;
+- (_Bool)isListItemRegion;
+- (_Bool)isParagraphRegion;
+- (_Bool)isShapeRegion;
+- (void)setIsImageRegion:(_Bool)arg1;
+- (_Bool)isImageRegion;
+- (_Bool)isBoxRegion;
+- (_Bool)isTextRegion;
 - (void)accept:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;

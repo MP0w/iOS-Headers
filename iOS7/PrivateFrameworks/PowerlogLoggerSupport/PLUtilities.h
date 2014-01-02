@@ -10,22 +10,27 @@
 {
 }
 
-+ (BOOL)gasGaugeEnabled;
++ (_Bool)hasLTE;
++ (id)oneWaySaltHashString:(id)arg1;
++ (_Bool)PLGGSamplesDuringSleep;
++ (_Bool)PLLiteExternalLogging;
++ (_Bool)gasGaugeEnabled;
 + (id)wifiChipset;
-+ (BOOL)isWiFiChipSet4329;
-+ (BOOL)isWiFiChipSet43291;
-+ (BOOL)isWiFiChipSet4330;
-+ (BOOL)isWiFiChipSet4334;
-+ (BOOL)isWiFiChipSet43342;
++ (_Bool)isWiFiChipSet4329;
++ (_Bool)isWiFiChipSet43291;
++ (_Bool)isWiFiChipSet4330;
++ (_Bool)isWiFiChipSet4334;
++ (_Bool)isWiFiChipSet43342;
++ (double)defaultBatteryEnergyCapacity;
 + (int)MavRevFromMavString:(id)arg1;
 + (int)MavRev;
-+ (BOOL)isPLICE;
-+ (BOOL)isPLMav7;
-+ (BOOL)isPLMav5;
-+ (BOOL)isPLMav4;
-+ (BOOL)isPLMav2;
-+ (BOOL)isPLMav1;
-+ (BOOL)isCellRadioClass:(id)arg1;
++ (_Bool)isPLICE;
++ (_Bool)isPLMav7;
++ (_Bool)isPLMav5;
++ (_Bool)isPLMav4;
++ (_Bool)isPLMav2;
++ (_Bool)isPLMav1;
++ (_Bool)isCellRadioClass:(id)arg1;
 + (int)cellRadioClass;
 + (id)hardwareModel;
 + (double)secondsFromMachTime:(unsigned long long)arg1;
@@ -35,10 +40,11 @@
 + (double)deviceBatteryVoltage;
 + (id)runningAsUser;
 + (id)deviceName;
-+ (BOOL)alsEnabled;
-+ (BOOL)internalBuild;
++ (_Bool)alsEnabled;
++ (_Bool)internalBuild;
 + (id)buildVersion;
 + (id)UUIDString;
++ (id)pathForResource:(id)arg1 ofType:(id)arg2;
 + (void)postNotificationName:(id)arg1 object:(id)arg2 userInfo:(id)arg3;
 + (void)postNotificationName:(id)arg1 object:(id)arg2;
 + (void)postNotificationName:(id)arg1;
@@ -47,6 +53,7 @@
 + (void)sharedTimeSnapshotInit;
 + (id)copyOfSharedTimeSnapshot;
 + (id)getLoggerForName:(id)arg1;
++ (id)getQueueForLogger:(Class)arg1;
 + (void)linkLoggerList:(id)arg1;
 + (id)sharedPLStartDate;
 + (id)sharedPLThread;
@@ -54,6 +61,7 @@
 + (struct __CFRunLoop *)sharedPLCFRunLoop;
 + (id)sharedPLRunLoop;
 + (void)setSharedPLRunLoop:(id)arg1;
++ (id)loggerListDispatchQueue;
 + (id)sharedDispatchQueue;
 + (void)closeSharedTelephonyConnection;
 + (id)sharedTelephonyConnection;

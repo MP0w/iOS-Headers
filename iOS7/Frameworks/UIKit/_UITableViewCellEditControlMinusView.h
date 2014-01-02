@@ -6,6 +6,7 @@
 
 #import <UIKit/UIView.h>
 
+// Not exported
 @interface _UITableViewCellEditControlMinusView : UIView
 {
 }

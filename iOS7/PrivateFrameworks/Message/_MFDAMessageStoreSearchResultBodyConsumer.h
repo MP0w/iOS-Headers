@@ -23,11 +23,11 @@
 - (void)dealloc;
 - (void)didEndStreamingForMailMessage:(id)arg1;
 - (void)consumeData:(char *)arg1 length:(int)arg2 format:(int)arg3 mailMessage:(id)arg4;
-- (BOOL)shouldBeginStreamingForMailMessage:(id)arg1 format:(int)arg2;
+- (_Bool)shouldBeginStreamingForMailMessage:(id)arg1 format:(int)arg2;
 - (void)searchResultFetchedWithResponses:(id)arg1;
 - (void)actionFailed:(int)arg1 forTask:(id)arg2 error:(id)arg3;
 - (void)waitUntilDone;
-- (BOOL)waitUntilDoneBeforeDate:(id)arg1;
+- (_Bool)waitUntilDoneBeforeDate:(id)arg1;
 - (id)init;
 
 @end

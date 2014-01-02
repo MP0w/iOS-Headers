@@ -23,7 +23,7 @@
 - (id)initForwardGeocodeWithAddressDictionary:(id)arg1;
 - (id)initForwardGeocodeWithAddress:(id)arg1;
 - (id)initReverseGeocodeWithCoordinate:(CDStruct_c3b9c2ee)arg1;
-- (id)initReverseGeocodeWithCoordinate:(CDStruct_c3b9c2ee)arg1 includeBusinessOptions:(BOOL)arg2;
+- (id)initReverseGeocodeWithCoordinate:(CDStruct_c3b9c2ee)arg1 includeBusinessOptions:(_Bool)arg2;
 
 @end
 

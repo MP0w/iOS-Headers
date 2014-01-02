@@ -15,16 +15,13 @@
 
 + (id)sharedNetworkSettings;
 - (void)setProxyDictionary:(id)arg1;
-- (BOOL)connectedToInternet:(BOOL)arg1;
+- (_Bool)connectedToInternet:(_Bool)arg1;
 - (void)setProxyPropertiesForURL:(id)arg1 onStream:(struct __CFReadStream *)arg2;
-- (BOOL)isProxyNeededForURL:(id)arg1;
+- (_Bool)isProxyNeededForURL:(id)arg1;
 - (id)proxyPropertiesForURL:(id)arg1;
 - (id)proxyDictionary;
 - (void)dealloc;
 - (id)init;
-- (id)_init;
-- (void)_listenForProxySettingChanges;
-- (void)_updateProxySettings;
 
 @end
 

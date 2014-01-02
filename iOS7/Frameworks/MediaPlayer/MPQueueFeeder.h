@@ -8,77 +8,77 @@
 
 #import "MPAVPlaylistFeeder-Protocol.h"
 
-@class MPAVController, NSDictionary, RadioStation;
+@class MPAVController, NSDictionary;
 
 @interface MPQueueFeeder : NSObject <MPAVPlaylistFeeder>
 {
     MPAVController *_avController;
     struct __CFSet *_itemsWithReferencesToClear;
-    unsigned int _repeatType;
-    unsigned int _shuffleType;
+    unsigned long long _repeatType;
+    unsigned long long _shuffleType;
     struct __CFDictionary *_nextStartTimes;
     id _representedObject;
-    BOOL _fullScreenPlaybackQueue;
-    BOOL _isSourceChangeInProgress;
-    BOOL _deallocating;
-    unsigned int _activeShuffleType;
+    _Bool _fullScreenPlaybackQueue;
+    _Bool _isSourceChangeInProgress;
+    _Bool _deallocating;
+    unsigned long long _activeShuffleType;
 }
 
 + (void)restoreAVControllerPlaybackQueue:(id)arg1 fromUnarchiver:(id)arg2 feederClass:(Class)arg3;
-@property(nonatomic) BOOL isSourceChangeInProgress; // @synthesize isSourceChangeInProgress=_isSourceChangeInProgress;
-@property(nonatomic) BOOL fullScreenPlaybackQueue; // @synthesize fullScreenPlaybackQueue=_fullScreenPlaybackQueue;
+@property(nonatomic) _Bool isSourceChangeInProgress; // @synthesize isSourceChangeInProgress=_isSourceChangeInProgress;
+@property(nonatomic) _Bool fullScreenPlaybackQueue; // @synthesize fullScreenPlaybackQueue=_fullScreenPlaybackQueue;
 @property(retain, nonatomic) id <NSObject> representedObject; // @synthesize representedObject=_representedObject;
-@property(nonatomic) unsigned int activeShuffleType; // @synthesize activeShuffleType=_activeShuffleType;
-@property(nonatomic) unsigned int shuffleType; // @synthesize shuffleType=_shuffleType;
-@property(nonatomic) unsigned int repeatType; // @synthesize repeatType=_repeatType;
+@property(nonatomic) unsigned long long activeShuffleType; // @synthesize activeShuffleType=_activeShuffleType;
+@property(nonatomic) unsigned long long shuffleType; // @synthesize shuffleType=_shuffleType;
+@property(nonatomic) unsigned long long repeatType; // @synthesize repeatType=_repeatType;
 @property(nonatomic) __weak MPAVController *AVController; // @synthesize AVController=_avController;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) unsigned int nonRepeatingItemCount;
-- (id)pathAtIndex:(unsigned int)arg1;
+@property(readonly, nonatomic) unsigned long long nonRepeatingItemCount;
+- (id)pathAtIndex:(unsigned long long)arg1;
 - (id)localizedPositionInPlaylistString:(id)arg1;
 - (id)localizedAttributedPositionInPlaylistStringForItem:(id)arg1 withRegularTextAttributes:(id)arg2 emphasizedTextAttributes:(id)arg3;
 - (void)archiveAVControllerPlaybackQueue:(id)arg1 toArchiver:(id)arg2;
 - (void)restoreAVControllerPlaybackQueue:(id)arg1 fromUnarchiver:(id)arg2;
-- (id)playbackInfoAtIndex:(unsigned int)arg1;
-- (BOOL)_canPurgeNextStartTimes;
+- (id)playbackInfoAtIndex:(unsigned long long)arg1;
+- (_Bool)_canPurgeNextStartTimes;
 - (void)contentInvalidated;
-- (void)contentInvalidatedWithCurrentItemMovedToIndex:(unsigned int)arg1;
+- (void)contentInvalidatedWithCurrentItemMovedToIndex:(unsigned long long)arg1;
 - (void)contentsDidChangeByRemovingRange:(struct _NSRange)arg1;
-- (BOOL)shouldReloadForChangeFromNetworkType:(int)arg1 toNetworkType:(int)arg2;
-- (id)itemForIndex:(unsigned int)arg1;
-@property(readonly, nonatomic) unsigned int itemCount;
-@property(readonly, nonatomic) unsigned int initialPlaybackQueueDepth;
-- (BOOL)hasItemForIndex:(unsigned int)arg1;
+- (_Bool)shouldReloadForChangeFromNetworkType:(long long)arg1 toNetworkType:(long long)arg2;
+- (id)itemForIndex:(unsigned long long)arg1;
+@property(readonly, nonatomic) unsigned long long itemCount;
+@property(readonly, nonatomic) unsigned long long initialPlaybackQueueDepth;
+- (_Bool)hasItemForIndex:(unsigned long long)arg1;
 - (void)assumeOwnershipOfItems:(id)arg1;
-- (void)controller:(id)arg1 willChangePlaybackIndexBy:(int)arg2 deltaType:(int)arg3 ignoreElapsedTime:(BOOL)arg4 allowSkippingAds:(BOOL)arg5;
-@property(readonly, nonatomic) unsigned int realShuffleType;
-@property(readonly, nonatomic) unsigned int realRepeatType;
-- (BOOL)hasValidItemAtIndex:(unsigned int)arg1;
-- (id)copyRawItemAtIndex:(unsigned int)arg1;
+- (void)controller:(id)arg1 willChangePlaybackIndexBy:(long long)arg2 deltaType:(int)arg3 ignoreElapsedTime:(_Bool)arg4 allowSkippingAds:(_Bool)arg5;
+@property(readonly, nonatomic) unsigned long long realShuffleType;
+@property(readonly, nonatomic) unsigned long long realRepeatType;
+- (_Bool)hasValidItemAtIndex:(unsigned long long)arg1;
+- (id)copyRawItemAtIndex:(unsigned long long)arg1;
 - (void)clearReferencesToItem:(id)arg1;
 - (void)addReferenceToItem:(id)arg1;
-@property(readonly, nonatomic) BOOL userCanChangeShuffleAndRepeatType;
-@property(readonly, nonatomic) BOOL trackChangesCanEndPlayback;
+@property(readonly, nonatomic) _Bool userCanChangeShuffleAndRepeatType;
+@property(readonly, nonatomic) _Bool trackChangesCanEndPlayback;
 @property(readonly, nonatomic) NSDictionary *preferredLanguages;
-- (unsigned int)itemTypeForIndex:(unsigned int)arg1;
+@property(readonly, nonatomic) _Bool playerPreparesItemsForPlaybackAsynchronously;
+- (unsigned long long)itemTypeForIndex:(unsigned long long)arg1;
 @property(readonly, nonatomic) Class itemClass;
-- (BOOL)canSkipToPreviousItem;
-- (BOOL)canSkipItem:(id)arg1;
-- (BOOL)canSeek;
-- (BOOL)shouldBeginPlaybackOfItem:(id)arg1 error:(id *)arg2;
+- (_Bool)canSkipToPreviousItem;
+- (_Bool)canSkipItem:(id)arg1;
+- (_Bool)canSeek;
+- (_Bool)shouldBeginPlaybackOfItem:(id)arg1 error:(id *)arg2;
 - (id)errorResolverForItem:(id)arg1;
-- (void)commitSourceChangeWithStartQueueIndex:(unsigned int)arg1;
+- (void)commitSourceChangeWithStartQueueIndex:(unsigned long long)arg1;
 - (void)beginSourceChange;
-- (BOOL)reloadWithDataSource:(id)arg1 keepPlayingCurrentItemIfPossible:(BOOL)arg2;
-- (BOOL)reloadWithDataSource:(id)arg1;
-- (void)shuffleItemsWithAnchor:(unsigned int *)arg1;
-- (void)setSubsequenceFocused:(BOOL)arg1 currentItemIndex:(unsigned int)arg2;
+- (_Bool)reloadWithDataSource:(id)arg1 keepPlayingCurrentItemIfPossible:(_Bool)arg2;
+- (_Bool)reloadWithDataSource:(id)arg1;
+- (void)shuffleItemsWithAnchor:(unsigned long long *)arg1;
+- (void)setSubsequenceFocused:(_Bool)arg1 currentItemIndex:(unsigned long long)arg2;
 - (void)invalidateQueueCaches;
-- (void)setNextStartTime:(double)arg1 forIndex:(unsigned int)arg2;
+- (void)setNextStartTime:(double)arg1 forIndex:(unsigned long long)arg2;
 - (void)_fixNextStartTimesByRemovingRange:(struct _NSRange)arg1;
 - (void)_fixNextStartTimesByInsertingRange:(struct _NSRange)arg1;
 - (void)dealloc;
-@property(readonly, nonatomic) RadioStation *station;
 
 @end
 

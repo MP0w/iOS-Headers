@@ -32,7 +32,7 @@
 - (void).cxx_destruct;
 - (id)_itemArtworkContext;
 - (void)_warmItemStateCenter;
-- (void)_setScreenshot:(id)arg1 forIndex:(int)arg2 error:(id)arg3;
+- (void)_setScreenshot:(id)arg1 forIndex:(long long)arg2 error:(id)arg3;
 - (void)_setIcon:(id)arg1 error:(id)arg2;
 - (id)_screenshotConsumerWithSize:(struct CGSize)arg1;
 - (void)_reloadBannerView;

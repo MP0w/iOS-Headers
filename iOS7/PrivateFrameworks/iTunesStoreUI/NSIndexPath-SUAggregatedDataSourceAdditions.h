@@ -7,6 +7,6 @@
 #import "NSIndexPath.h"
 
 @interface NSIndexPath (SUAggregatedDataSourceAdditions)
-- (id)indexPathBySettingSection:(unsigned int)arg1;
+- (id)indexPathBySettingSection:(unsigned long long)arg1;
 @end
 

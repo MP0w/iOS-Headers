@@ -17,10 +17,10 @@
 
 @property(nonatomic) SEL action; // @synthesize action=_action;
 @property(nonatomic) id target; // @synthesize target=_target;
-@property(nonatomic, getter=isOn) BOOL on;
+@property(nonatomic, getter=isOn) _Bool on;
 - (void)layoutSubviews;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 - (id)initWithTitle:(id)arg1 target:(id)arg2 action:(SEL)arg3;
 
 @end

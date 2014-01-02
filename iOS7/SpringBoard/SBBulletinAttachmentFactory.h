@@ -10,24 +10,24 @@
 {
 }
 
-+ (id)bannerTextForAdditionalAttachments:(unsigned int)arg1 showingImage:(BOOL)arg2;
-+ (id)listTextForAdditionalAttachmentCount:(unsigned int)arg1;
-+ (id)_nAttachments:(unsigned int)arg1;
-+ (id)_nMoreAttachments:(unsigned int)arg1;
-+ (id)modalImageForAttachmentType:(int)arg1 thumbnailData:(id)arg2;
-+ (id)bannerImageForAttachmentType:(int)arg1 thumbnailData:(id)arg2;
-+ (id)lockScreenFloatingImageForAttachmentType:(int)arg1 thumbnailData:(id)arg2;
-+ (id)listImageForAttachmentType:(int)arg1 thumbnailData:(id)arg2;
-+ (id)_listImageForAttachmentType:(int)arg1 thumbnailData:(id)arg2 forFloatingAlert:(BOOL)arg3;
++ (id)bannerTextForAdditionalAttachments:(unsigned long long)arg1 showingImage:(_Bool)arg2;
++ (id)listTextForAdditionalAttachmentCount:(unsigned long long)arg1;
++ (id)_nAttachments:(unsigned long long)arg1;
++ (id)_nMoreAttachments:(unsigned long long)arg1;
++ (id)modalImageForAttachmentType:(long long)arg1 thumbnailData:(id)arg2;
++ (id)bannerImageForAttachmentType:(long long)arg1 thumbnailData:(id)arg2;
++ (id)lockScreenFloatingImageForAttachmentType:(long long)arg1 thumbnailData:(id)arg2;
++ (id)listImageForAttachmentType:(long long)arg1 thumbnailData:(id)arg2;
++ (id)_listImageForAttachmentType:(long long)arg1 thumbnailData:(id)arg2 forFloatingAlert:(_Bool)arg3;
 + (id)_imageFromPNGData:(id)arg1;
 + (id)_imageByCroppingOrPaddingImage:(id)arg1 toSize:(struct CGSize)arg2;
-+ (id)_genericImageForAttachmentType:(int)arg1;
-+ (id)modalThumbnailConstraintsForAttachmentType:(int)arg1;
-+ (id)bannerThumbnailConstraintsForAttachmentType:(int)arg1;
-+ (id)lockScreenFloatingThumbnailContraintsForAttachmentType:(int)arg1;
-+ (id)listThumbnailConstraintsForAttachmentType:(int)arg1;
-+ (struct CGSize)bannerImageSizeForAttachmentType:(int)arg1 thumbnailWidth:(float)arg2 height:(float)arg3;
-+ (struct CGSize)listImageSizeForAttachmentType:(int)arg1 thumbnailWidth:(float)arg2 height:(float)arg3;
++ (id)_genericImageForAttachmentType:(long long)arg1;
++ (id)modalThumbnailConstraintsForAttachmentType:(long long)arg1;
++ (id)bannerThumbnailConstraintsForAttachmentType:(long long)arg1;
++ (id)lockScreenFloatingThumbnailContraintsForAttachmentType:(long long)arg1;
++ (id)listThumbnailConstraintsForAttachmentType:(long long)arg1;
++ (struct CGSize)bannerImageSizeForAttachmentType:(long long)arg1 thumbnailWidth:(double)arg2 height:(double)arg3;
++ (struct CGSize)listImageSizeForAttachmentType:(long long)arg1 thumbnailWidth:(double)arg2 height:(double)arg3;
 
 @end
 

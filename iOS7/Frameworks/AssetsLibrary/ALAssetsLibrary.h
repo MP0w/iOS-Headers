@@ -13,30 +13,35 @@
     id _internal;
 }
 
++ (_Bool)_linkedBefore7;
 + (void)disableSharedPhotoStreamsSupport;
-+ (int)authorizationStatus;
++ (long long)authorizationStatus;
 + (id)_library;
 @property(retain, nonatomic) ALAssetsLibraryPrivate *internal; // @synthesize internal=_internal;
+- (_Bool)hasCompletedRestorePostProcessing;
+- (id)assetsGroupsRelatedToAssetsGroup:(id)arg1;
+- (void)deleteAssetForURL:(id)arg1 completionBlock:(id)arg2;
 - (void)addAssetsGroupAlbumWithName:(id)arg1 resultBlock:(id)arg2 failureBlock:(void)arg3;
 - (void)groupForURL:(id)arg1 resultBlock:(id)arg2 failureBlock:(void)arg3;
 - (id)_copyGroupForURL:(id)arg1;
 - (void)assetForURL:(id)arg1 resultBlock:(id)arg2 failureBlock:(void)arg3;
-- (BOOL)videoAtPathIsCompatibleWithSavedPhotosAlbum:(id)arg1;
+- (_Bool)videoAtPathIsCompatibleWithSavedPhotosAlbum:(id)arg1;
 - (void)writeVideoAtPathToSavedPhotosAlbum:(id)arg1 completionBlock:(id)arg2;
 - (void)_writeVideoAtPathToSavedPhotosAlbum:(id)arg1 internalProperties:(id)arg2 completionBlock:(id)arg3;
 - (void)writeImageDataToSavedPhotosAlbum:(id)arg1 metadata:(id)arg2 completionBlock:(id)arg3;
 - (void)writeImageToSavedPhotosAlbum:(struct CGImage *)arg1 metadata:(id)arg2 completionBlock:(id)arg3;
-- (void)writeImageToSavedPhotosAlbum:(struct CGImage *)arg1 orientation:(int)arg2 completionBlock:(id)arg3;
-- (void)_writeImageToSavedPhotosAlbum:(struct CGImage *)arg1 orientation:(int)arg2 imageData:(id)arg3 metadata:(id)arg4 internalProperties:(id)arg5 completionBlock:(id)arg6;
-- (void)enumerateGroupsWithTypes:(unsigned int)arg1 usingBlock:(id)arg2 failureBlock:(void)arg3;
-- (void)_addGroupForAlbum:(struct NSObject *)arg1 ofType:(unsigned int)arg2 toArray:(id)arg3;
-- (id)publicErrorForPrivateDomain:(id)arg1 withPrivateCode:(int)arg2;
+- (void)writeImageToSavedPhotosAlbum:(struct CGImage *)arg1 orientation:(long long)arg2 completionBlock:(id)arg3;
+- (void)_writeImageToSavedPhotosAlbum:(struct CGImage *)arg1 orientation:(long long)arg2 imageData:(id)arg3 metadata:(id)arg4 internalProperties:(id)arg5 completionBlock:(id)arg6;
+- (void)enumerateGroupsWithTypes:(unsigned long long)arg1 usingBlock:(id)arg2 failureBlock:(void)arg3;
+- (void)_addGroupListForContainerList:(id)arg1 ofType:(unsigned long long)arg2 toArray:(id)arg3;
+- (void)_addGroupForAlbum:(struct NSObject *)arg1 ofType:(unsigned long long)arg2 toArray:(id)arg3;
+- (id)publicErrorForPrivateDomain:(id)arg1 withPrivateCode:(long long)arg2;
 - (id)publicErrorFromPrivateError:(id)arg1;
-- (BOOL)_libraryIsAvailable;
+- (_Bool)_libraryIsAvailable;
 - (void)_performBlock:(id)arg1;
 - (void)_performBlockAndWait:(id)arg1;
 - (void)registerAlbum:(struct NSObject *)arg1 assetGroupPrivate:(id)arg2;
-- (BOOL)isValid;
+- (_Bool)isValid;
 - (void)dealloc;
 - (id)init;
 

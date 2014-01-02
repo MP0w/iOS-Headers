@@ -19,7 +19,7 @@
 
 @property(readonly, nonatomic) TDRenditionSpec *renditionSpec; // @synthesize renditionSpec;
 @property(readonly, nonatomic) NSData *assetData; // @synthesize assetData;
-- (int)compare:(id)arg1;
+- (long long)compare:(id)arg1;
 - (void)dealloc;
 - (id)initWithKey:(const struct _renditionkeytoken *)arg1 keyFormat:(const struct _renditionkeyfmt *)arg2 assetData:(id)arg3 renditionSpec:(id)arg4;
 

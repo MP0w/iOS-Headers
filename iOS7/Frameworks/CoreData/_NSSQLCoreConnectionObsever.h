@@ -8,6 +8,7 @@
 
 @class NSSQLCore;
 
+// Not exported
 @interface _NSSQLCoreConnectionObsever : NSObject
 {
     NSSQLCore *_core;

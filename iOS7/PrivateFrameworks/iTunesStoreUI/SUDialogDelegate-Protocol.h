@@ -10,6 +10,6 @@
 
 @optional
 - (void)dialogDidCancel:(id)arg1;
-- (void)dialog:(id)arg1 didDismissWithButtonIndex:(int)arg2;
+- (void)dialog:(id)arg1 didDismissWithButtonIndex:(long long)arg2;
 @end
 

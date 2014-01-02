@@ -23,18 +23,17 @@
 
 @property(nonatomic) __weak id <SKUIRedeemCameraViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (id)_newTermsButtonWithClientContext:(id)arg1;
-- (id)_newTextFieldWithClientContext:(id)arg1;
+- (id)_newTextFieldWithClientContext:(id)arg1 placeholderColor:(id)arg2;
 - (void)_hideKeyboard;
 - (void)_termsButtonAction:(id)arg1;
 - (void)_landingButtonAction:(id)arg1;
-- (BOOL)textFieldShouldReturn:(id)arg1;
+- (_Bool)textFieldShouldReturn:(id)arg1;
 - (void)textFieldDidEndEditing:(id)arg1;
 - (void)textFieldTextDidChange:(id)arg1;
 - (void)keyboardDidChange:(id)arg1;
 - (void)layoutSubviews;
 - (void)start;
-@property(nonatomic) BOOL enabled;
+@property(nonatomic) _Bool enabled;
 - (void)showKeyboard;
 @property(retain, nonatomic) UIImage *image;
 @property(copy, nonatomic) NSString *text;

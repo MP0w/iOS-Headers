@@ -6,13 +6,14 @@
 
 #import <OfficeImport/OADTextSpacing.h>
 
+// Not exported
 @interface OADPointTextSpacing : OADTextSpacing
 {
     int mPoints;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (int)points;
 - (id)initWithPoints:(int)arg1;
 

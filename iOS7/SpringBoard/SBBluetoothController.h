@@ -11,13 +11,13 @@
 @interface SBBluetoothController : NSObject
 {
     NSMutableArray *_devices;
-    BOOL _tetheringConnected;
+    _Bool _tetheringConnected;
 }
 
 + (id)sharedInstance;
 - (void)bluetoothDeviceEndedVoiceControl:(id)arg1;
 - (void)bluetoothDeviceInitiatedVoiceControl:(id)arg1;
-- (BOOL)tetheringConnected;
+- (_Bool)tetheringConnected;
 - (id)deviceForAudioRoute:(id)arg1;
 - (void)updateBattery;
 - (void)batteryChanged:(id)arg1;
@@ -30,7 +30,7 @@
 - (void)startWatchingForDevices;
 - (void)noteDevicesChanged;
 - (int)batteryLevel;
-- (BOOL)canReportBatteryLevel;
+- (_Bool)canReportBatteryLevel;
 - (id)firstBTDeviceToReportBatteryLevel;
 - (void)dealloc;
 

@@ -7,6 +7,6 @@
 #import "UIFont.h"
 
 @interface UIFont (PhotosUI)
-+ (id)pu_preferredFontForTextStyle:(id)arg1 withSymbolicTraits:(unsigned int)arg2;
++ (id)pu_defaultFontForTextStyle:(id)arg1 withSymbolicTraits:(unsigned int)arg2;
 @end
 

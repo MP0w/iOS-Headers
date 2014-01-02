@@ -14,7 +14,7 @@
     PLAssetContainerChangeNotification *_backingNotification;
     NSOrderedSet *_oldOIDs;
     NSMutableSet *_uniquedOIDs;
-    BOOL _keyAssetDidChange;
+    _Bool _keyAssetDidChange;
 }
 
 + (id)notificationForDerivedObject:(id)arg1 priorChangeState:(id)arg2 forBackingObjectNotification:(id)arg3;
@@ -22,11 +22,11 @@
 @property(readonly, nonatomic) PLAssetContainerChangeNotification *backingNotification; // @synthesize backingNotification=_backingNotification;
 @property(readonly, nonatomic) PLInFlightAssetsAlbum *album; // @synthesize album=_album;
 - (id)_changedObjects;
-- (BOOL)_getOldSet:(id *)arg1 newSet:(id *)arg2;
+- (_Bool)_getOldSet:(id *)arg1 newSet:(id *)arg2;
 - (id)_diffDescription;
 - (id)description;
-- (BOOL)keyAssetDidChange;
-- (BOOL)titleDidChange;
+- (_Bool)keyAssetDidChange;
+- (_Bool)titleDidChange;
 - (id)object;
 - (void)dealloc;
 - (id)initWithInFlightAssetsAlbum:(id)arg1 priorChangeState:(id)arg2 albumChangeNotification:(id)arg3;

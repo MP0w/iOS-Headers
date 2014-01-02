@@ -18,12 +18,12 @@
 + (id)joinClauseForProperty:(id)arg1;
 + (id)databaseTable;
 + (id)databaseValueForProperty:(id)arg1 clientValue:(id)arg2;
-- (BOOL)deleteFromDatabase;
+- (_Bool)deleteFromDatabase;
 - (id)copyXPCEncodedValuesForClientProperties:(id)arg1;
 - (id)copyValuesForClientProperties:(id)arg1;
-- (BOOL)setValuesWithDictionary:(id)arg1;
-- (BOOL)setValue:(id)arg1 forProperty:(id)arg2;
-- (void)getValues:(id *)arg1 forProperties:(const id *)arg2 count:(unsigned int)arg3;
+- (_Bool)setValuesWithDictionary:(id)arg1;
+- (_Bool)setValue:(id)arg1 forProperty:(id)arg2;
+- (void)getValues:(id *)arg1 forProperties:(const id *)arg2 count:(unsigned long long)arg3;
 - (id)valueForProperty:(id)arg1;
 @end
 

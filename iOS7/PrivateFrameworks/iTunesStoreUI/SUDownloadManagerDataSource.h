@@ -6,22 +6,23 @@
 
 #import <iTunesStoreUI/SUTableDataSource.h>
 
-@class SUDownloadManager;
+@class NSArray, SUDownloadManager;
 
 @interface SUDownloadManagerDataSource : SUTableDataSource
 {
     SUDownloadManager *_downloadManager;
 }
 
-- (int)tableViewStyle;
+- (long long)tableViewStyle;
 - (void)reloadData;
-- (int)numberOfSections;
-- (int)numberOfRowsInSection:(int)arg1;
-- (BOOL)deleteIndexPath:(id)arg1;
+- (long long)numberOfSections;
+- (long long)numberOfRowsInSection:(long long)arg1;
+- (_Bool)deleteIndexPath:(id)arg1;
 - (void)configureCell:(id)arg1 forIndexPath:(id)arg2;
 - (id)cellForIndexPath:(id)arg1;
-- (BOOL)canSelectIndexPath:(id)arg1;
-- (BOOL)canDeleteIndexPath:(id)arg1;
+- (_Bool)canSelectIndexPath:(id)arg1;
+- (_Bool)canDeleteIndexPath:(id)arg1;
+@property(readonly, nonatomic) NSArray *downloads;
 @property(readonly, nonatomic) SUDownloadManager *downloadManager;
 - (id)downloadForIndexPath:(id)arg1;
 - (void)dealloc;

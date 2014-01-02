@@ -8,29 +8,28 @@
 
 @class GQDSLPageMargins, GQDSStylesheet;
 
+// Not exported
 @interface GQDSLPublication : GQDRoot
 {
     struct CGSize mPageSize;
     GQDSLPageMargins *mPageMargins;
     GQDSStylesheet *mStylesheet;
-    BOOL mHasBody;
-    BOOL mIsOldAssetNameMapInitialized;
-    struct __CFDictionary *mOldAssetNameMap;
-    BOOL mIsOldTemplateNameMapInitialized;
+    _Bool mHasBody;
+    _Bool mIsOldTemplateNameMapInitialized;
     struct __CFDictionary *mOldTemplateNameMap;
-    BOOL mShowOutliner;
-    BOOL mHasHeaders;
-    BOOL mHasFooters;
+    _Bool mShowOutliner;
+    _Bool mHasHeaders;
+    _Bool mHasFooters;
 }
 
 + (struct _xmlNs *)appNamespace;
 - (id).cxx_construct;
-- (BOOL)hasFooters;
-- (BOOL)hasHeaders;
-- (BOOL)showOutliner;
+- (_Bool)hasFooters;
+- (_Bool)hasHeaders;
+- (_Bool)showOutliner;
 - (struct __CFURL *)createUrlToAppBundleResource:(struct __CFString *)arg1 processorBundle:(struct __CFBundle *)arg2;
 - (void)initializeAppBundleResourcesUrl;
-- (BOOL)hasBody;
+- (_Bool)hasBody;
 - (void)setStylesheet:(id)arg1;
 - (id)stylesheet;
 - (void)setPageMargins:(id)arg1;
@@ -38,10 +37,6 @@
 - (struct CGSize)pageSize;
 - (void)dealloc;
 - (id)init;
-- (struct __CFString *)createUpgradedPathForOldAssetPath:(struct __CFString *)arg1;
-- (struct __CFArray *)createUpgradedPathComponentsFromOldTemplatePathComponents:(struct __CFArray *)arg1;
-- (struct __CFString *)createFixedPathForOldAppBundleResourcePath:(struct __CFString *)arg1;
-- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1;
 
 @end
 

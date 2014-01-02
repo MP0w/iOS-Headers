@@ -17,7 +17,7 @@
 + (id)allocWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)autorelease;
-- (unsigned int)retainCount;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;
 - (id)copyWithZone:(struct _NSZone *)arg1;

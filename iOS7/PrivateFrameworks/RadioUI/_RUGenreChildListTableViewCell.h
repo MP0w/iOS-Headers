@@ -6,29 +6,30 @@
 
 #import <RadioUI/_RUGenreListTableViewCell.h>
 
-@class NSString, RUAudioPreviewView, SKUICircleProgressIndicator, UIButton, UILabel;
+@class NSString, RUAudioPreviewView, SKUICircleProgressIndicator, UIButton, UILabel, _RUAddGenreButton;
 
 @interface _RUGenreChildListTableViewCell : _RUGenreListTableViewCell
 {
     SKUICircleProgressIndicator *_activityIndicator;
-    UIButton *_addGenreButton;
+    _RUAddGenreButton *_addGenreButton;
     UILabel *_nowPlayingDescriptionLabel;
-    BOOL _showActivityIndicator;
-    BOOL _showGenreButton;
+    _Bool _showActivityIndicator;
+    _Bool _showGenreButton;
     RUAudioPreviewView *_audioPreviewView;
 }
 
 @property(retain, nonatomic) RUAudioPreviewView *audioPreviewView; // @synthesize audioPreviewView=_audioPreviewView;
-@property(nonatomic) BOOL showGenreButton; // @synthesize showGenreButton=_showGenreButton;
-@property(nonatomic) BOOL showActivityIndicator; // @synthesize showActivityIndicator=_showActivityIndicator;
+@property(nonatomic) _Bool showGenreButton; // @synthesize showGenreButton=_showGenreButton;
+@property(nonatomic) _Bool showActivityIndicator; // @synthesize showActivityIndicator=_showActivityIndicator;
 - (void).cxx_destruct;
-- (id)_audioPreviewAnimationForShowing:(BOOL)arg1;
+- (struct CGRect)_audioPreviewViewFrame;
+- (id)_audioPreviewAnimationForShowing:(_Bool)arg1;
 @property(copy, nonatomic) NSString *nowPlayingDescription;
-- (void)setShowGenreButton:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)setAudioPreviewView:(id)arg1 animated:(BOOL)arg2;
+- (void)setShowGenreButton:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)setAudioPreviewView:(id)arg1 animated:(_Bool)arg2;
 @property(readonly, nonatomic) UIButton *addGenreButton;
 - (void)layoutSubviews;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

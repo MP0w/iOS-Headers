@@ -17,29 +17,29 @@
     NSLock *_lock;
     struct SUGradientPoint _p0;
     struct SUGradientPoint _p1;
-    BOOL _sorted;
-    int _type;
+    _Bool _sorted;
+    long long _type;
 }
 
 + (id)gradientWithColor:(id)arg1;
 - (id)description;
 @property(readonly) struct SUGradientPoint p1;
 @property(readonly) struct SUGradientPoint p0;
-@property(readonly) int numberOfColorStops;
-- (id)newPatternColorWithSize:(struct CGSize)arg1 opaque:(BOOL)arg2;
-@property(readonly) int gradientType;
+@property(readonly) long long numberOfColorStops;
+- (id)newPatternColorWithSize:(struct CGSize)arg1 opaque:(_Bool)arg2;
+@property(readonly) long long gradientType;
 - (struct CGShading *)copyShading;
 - (struct CGGradient *)copyCGGradient;
 @property(readonly) NSArray *colorStopOffsets;
 @property(readonly) NSArray *colorStopColors;
-- (void)addColorStopWithOffset:(float)arg1 color:(struct CGColor *)arg2;
+- (void)addColorStopWithOffset:(double)arg1 color:(struct CGColor *)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)dealloc;
-- (id)initWithType:(int)arg1;
+- (id)initWithType:(long long)arg1;
 - (id)initWithPropertyList:(id)arg1;
-- (id)initWithPoint0:(struct SUGradientPoint)arg1 point1:(struct SUGradientPoint)arg2 type:(int)arg3;
+- (id)initWithPoint0:(struct SUGradientPoint)arg1 point1:(struct SUGradientPoint)arg2 type:(long long)arg3;
 
 @end
 

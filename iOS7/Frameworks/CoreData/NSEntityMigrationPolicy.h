@@ -11,13 +11,13 @@
 }
 
 - (id)_nonNilValueOrDefaultValueForAttribute:(id)arg1 source:(id)arg2 destination:(id)arg3;
-- (BOOL)endEntityMapping:(id)arg1 manager:(id)arg2 error:(id *)arg3;
-- (BOOL)performCustomValidationForEntityMapping:(id)arg1 manager:(id)arg2 error:(id *)arg3;
-- (BOOL)endRelationshipCreationForEntityMapping:(id)arg1 manager:(id)arg2 error:(id *)arg3;
-- (BOOL)createRelationshipsForDestinationInstance:(id)arg1 entityMapping:(id)arg2 manager:(id)arg3 error:(id *)arg4;
-- (BOOL)endInstanceCreationForEntityMapping:(id)arg1 manager:(id)arg2 error:(id *)arg3;
-- (BOOL)createDestinationInstancesForSourceInstance:(id)arg1 entityMapping:(id)arg2 manager:(id)arg3 error:(id *)arg4;
-- (BOOL)beginEntityMapping:(id)arg1 manager:(id)arg2 error:(id *)arg3;
+- (_Bool)endEntityMapping:(id)arg1 manager:(id)arg2 error:(id *)arg3;
+- (_Bool)performCustomValidationForEntityMapping:(id)arg1 manager:(id)arg2 error:(id *)arg3;
+- (_Bool)endRelationshipCreationForEntityMapping:(id)arg1 manager:(id)arg2 error:(id *)arg3;
+- (_Bool)createRelationshipsForDestinationInstance:(id)arg1 entityMapping:(id)arg2 manager:(id)arg3 error:(id *)arg4;
+- (_Bool)endInstanceCreationForEntityMapping:(id)arg1 manager:(id)arg2 error:(id *)arg3;
+- (_Bool)createDestinationInstancesForSourceInstance:(id)arg1 entityMapping:(id)arg2 manager:(id)arg3 error:(id *)arg4;
+- (_Bool)beginEntityMapping:(id)arg1 manager:(id)arg2 error:(id *)arg3;
 
 @end
 

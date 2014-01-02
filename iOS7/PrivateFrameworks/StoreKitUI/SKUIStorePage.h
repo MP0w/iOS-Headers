@@ -8,7 +8,7 @@
 
 #import "NSCopying-Protocol.h"
 
-@class NSArray, NSMutableDictionary, NSString, SKUIArtwork, SKUIUber, SSMetricsConfiguration;
+@class NSArray, NSMutableDictionary, NSString, NSURL, SKUIArtwork, SKUIProductPage, SKUIUber, SSMetricsConfiguration;
 
 @interface SKUIStorePage : NSObject <NSCopying>
 {
@@ -17,6 +17,8 @@
     NSString *_metricsPageDescription;
     NSArray *_pageComponents;
     NSString *_pageType;
+    NSURL *_pageURL;
+    SKUIProductPage *_productPage;
     NSString *_title;
     SKUIUber *_uber;
     NSMutableDictionary *_values;
@@ -24,6 +26,8 @@
 
 @property(retain, nonatomic) SKUIUber *uber; // @synthesize uber=_uber;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
+@property(copy, nonatomic) SKUIProductPage *productPage; // @synthesize productPage=_productPage;
+@property(copy, nonatomic) NSURL *pageURL; // @synthesize pageURL=_pageURL;
 @property(copy, nonatomic) NSString *pageType; // @synthesize pageType=_pageType;
 @property(copy, nonatomic) NSArray *pageComponents; // @synthesize pageComponents=_pageComponents;
 @property(copy, nonatomic) NSString *metricsPageDescription; // @synthesize metricsPageDescription=_metricsPageDescription;

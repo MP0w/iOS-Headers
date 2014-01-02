@@ -6,32 +6,21 @@
 
 #import "NSObject.h"
 
-#import "CKTranscriptDataRowObject-Protocol.h"
-
 @class CKEntity, NSString;
 
-@interface CKTypingIndicator : NSObject <CKTranscriptDataRowObject>
+@interface CKTypingIndicator : NSObject
 {
-    BOOL _hasAppeared;
+    _Bool _hasAppeared;
     id <CKMessage> _message;
 }
 
-@property(nonatomic) BOOL hasAppeared; // @synthesize hasAppeared=_hasAppeared;
+@property(nonatomic) _Bool hasAppeared; // @synthesize hasAppeared=_hasAppeared;
 @property(retain, nonatomic) id <CKMessage> message; // @synthesize message=_message;
 @property(readonly, nonatomic) CKEntity *sender;
 @property(readonly, nonatomic) NSString *guid;
 - (id)initWithMessage:(id)arg1;
 - (void)dealloc;
-- (BOOL)isEqual:(id)arg1;
-- (id)__ck_displayContactImage;
-- (void)__ck_prewarmForDisplay;
-- (BOOL)__ck_displayDuringSend;
-- (BOOL)__ck_displayTranscriptOrientation;
-- (struct UIEdgeInsets)__ck_displayContentAlignmentInsets;
-- (struct CGSize)__ck_displaySize:(struct UIEdgeInsets *)arg1;
-- (id)__ck_displayCellIdentifier;
-- (Class)__ck_displayCellClass;
-- (id)__ck_displayGUIDWithMessage:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 
 @end
 

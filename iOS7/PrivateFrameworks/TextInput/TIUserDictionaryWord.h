@@ -10,8 +10,8 @@
 {
 }
 
-+ (BOOL)userWord:(id)arg1 duplicatesTarget:(id)arg2 andShortcut:(id)arg3;
-+ (int)validateTransaction:(id)arg1 existingEntries:(id)arg2;
++ (_Bool)userWord:(id)arg1 duplicatesTarget:(id)arg2 andShortcut:(id)arg3;
++ (long long)validateTransaction:(id)arg1 existingEntries:(id)arg2;
 + (id)managedObjectModelURL;
 
 @end

@@ -11,6 +11,7 @@
 
 @class NSArray;
 
+// Not exported
 @interface RTFNSParagraphStyle : NSObject <NSCopying, NSMutableCopying>
 {
     unsigned int _alignment;
@@ -18,10 +19,10 @@
     float _tailIndent;
     float _firstLineHeadIndent;
     NSArray *_textBocks;
-    int _baseWritingDirection;
+    long long _baseWritingDirection;
 }
 
-- (int)baseWritingDirection;
+- (long long)baseWritingDirection;
 - (float)firstLineHeadIndent;
 - (float)tailIndent;
 - (float)headIndent;

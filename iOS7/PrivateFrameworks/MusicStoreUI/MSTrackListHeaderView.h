@@ -26,9 +26,9 @@
 @property(retain, nonatomic) SUItem *item; // @synthesize item=_item;
 @property(nonatomic) id <MSTrackListHeaderDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) UIImage *artworkImage; // @synthesize artworkImage=_artworkImage;
-- (struct CGSize)_sizeThatFitsLabel:(id)arg1 size:(struct CGSize)arg2 numberOfLines:(int)arg3;
+- (struct CGSize)_sizeThatFitsLabel:(id)arg1 size:(struct CGSize)arg2 numberOfLines:(long long)arg3;
 - (void)_showPurchaseConfirmation;
-- (void)_setShowingPurchaseConfirmation:(BOOL)arg1;
+- (void)_setShowingPurchaseConfirmation:(_Bool)arg1;
 - (void)_reloadReleaseDateLabel;
 - (void)_reloadOfferButton;
 - (void)_reloadItemCountLabel;

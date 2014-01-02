@@ -6,53 +6,46 @@
 
 #import <PhotosUI/PUNavigationTransition.h>
 
-@class PUCroppingImageView;
+#import "PUTransitionViewAnimatorDelegate-Protocol.h"
 
-@interface PUPhotoBrowserZoomTransition : PUNavigationTransition
+@class PUPhotoPinchGestureRecognizer, PUTransitionViewAnimator, UIImageView;
+
+@interface PUPhotoBrowserZoomTransition : PUNavigationTransition <PUTransitionViewAnimatorDelegate>
 {
-    struct CGRect _initialImpostorFrame;
-    struct CGPoint _initialTouches[2];
-    float _initialTouchDistance;
-    struct CGPoint _initialAnchorPoint;
-    struct CGRect _finalImpostorFrame;
-    struct CGPoint _finalAnchorPoint;
-    float _finalScale;
-    PUCroppingImageView *_impostorImageView;
-    BOOL _initialTouchesSet;
-    BOOL _statusbarWasHidden;
-    BOOL _toolbarWasHidden;
-    BOOL _navbarWasHidden;
-    BOOL _usingAspectCrops;
-    BOOL _restoresBarState;
+    UIImageView *_impostorImageView;
+    id _userInteractionDisabledToken;
+    id _individualAnimationCompletion;
+    _Bool _useFallbackAnimation;
+    _Bool _shouldEnd;
+    _Bool _didFinish;
     id <PUPhotoBrowserZoomTransitionDelegate> _delegate;
+    PUPhotoPinchGestureRecognizer *__photoPinchGestureRecognizer;
+    PUTransitionViewAnimator *__transitionViewAnimator;
 }
 
-@property(nonatomic) BOOL restoresBarState; // @synthesize restoresBarState=_restoresBarState;
-@property(nonatomic) BOOL usingAspectCrops; // @synthesize usingAspectCrops=_usingAspectCrops;
+@property(retain, nonatomic, setter=_setTransitionViewAnimator:) PUTransitionViewAnimator *_transitionViewAnimator; // @synthesize _transitionViewAnimator=__transitionViewAnimator;
+@property(retain, nonatomic, setter=_setPhotoPinchGestureRecognizer:) PUPhotoPinchGestureRecognizer *_photoPinchGestureRecognizer; // @synthesize _photoPinchGestureRecognizer=__photoPinchGestureRecognizer;
 @property(nonatomic) __weak id <PUPhotoBrowserZoomTransitionDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)completeInteractivePopTransitionFinished:(BOOL)arg1;
-- (void)completeInteractivePushTransitionFinished:(BOOL)arg1;
-- (void)_completeInteractiveTransition:(BOOL)arg1;
-- (void)transitionWillPushInteractively:(BOOL)arg1;
+- (void)transitionViewAnimatorDidEnd:(id)arg1 finished:(_Bool)arg2;
+- (void)transitionViewAnimatorWillEnd:(id)arg1 withTargetTranslation:(inout struct CGPoint *)arg2;
+- (void)transitionViewAnimatorDidUpdate:(id)arg1;
+- (void)transitionDidStartOperation:(long long)arg1 animated:(_Bool)arg2 interactive:(_Bool)arg3;
+- (void)transitionWillStartOperation:(long long)arg1 animated:(_Bool)arg2 interactive:(_Bool)arg3;
+- (void)_endTransitionViewAnimatorForceCancel:(_Bool)arg1;
+- (void)_animationTransitionForOperation:(long long)arg1 betweenViewController:(id)arg2 andPhotoBrowserController:(id)arg3;
 - (void)animatePopTransition;
 - (void)animatePushTransition;
-- (void)_calculateInteractiveModifiersFromTouchedView:(id)arg1;
-- (void)updateInteractiveTransitionTouch1:(struct CGPoint)arg1 touch2:(struct CGPoint)arg2 inTouchedView:(id)arg3;
-- (void)setInitialTouch1:(struct CGPoint)arg1 initialTouch2:(struct CGPoint)arg2;
-- (unsigned int)_imageFillMode;
+- (void)updateInteractiveTransitionWithPhotoPinchGestureRecognizer:(id)arg1;
+- (void)startInteractiveTransitionWithPhotoPinchGestureRecognizer:(id)arg1;
 - (id)_fullsizedImageForPhoto:(id)arg1;
-- (void)_setImageForImpostor:(id)arg1 photo:(id)arg2 inCollection:(id)arg3 fromDataProvider:(id)arg4;
+- (void)_setImageForImpostor:(id)arg1 photo:(id)arg2 photoToken:(id)arg3 fromDataProvider:(id)arg4;
 - (id)_thumbnailImageForPhoto:(id)arg1;
-- (BOOL)_wantsStatusBarHidden;
-- (BOOL)_wantsToolbarHidden;
-- (BOOL)_wantsNavigationBarHidden;
-- (void)_transitionDidFinishForOperation:(int)arg1;
-- (void)_transitionWillBeginForOperation:(int)arg1;
-- (void)_setSourceViewVisible:(BOOL)arg1 forPhoto:(id)arg2 inContainer:(id)arg3;
-- (struct CGRect)_frameForPhoto:(id)arg1 inContainer:(id)arg2 operation:(int)arg3;
-- (BOOL)isInteractive;
-- (id)initWithDuration:(float)arg1;
+- (void)_transitionDidFinishAnimationForOperation:(long long)arg1;
+- (void)_transitionWillBeginAnimationForOperation:(long long)arg1;
+- (void)_setSourceViewVisible:(_Bool)arg1 forPhotoToken:(id)arg2;
+- (_Bool)_getFrame:(struct CGRect *)arg1 contentMode:(long long *)arg2 forPhotoToken:(id)arg3 operation:(long long)arg4;
+- (id)_tokenForPhoto:(id)arg1 inContainer:(id)arg2;
 
 @end
 

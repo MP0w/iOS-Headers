@@ -8,9 +8,10 @@
 
 @class NSDictionary, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSXPCConnection;
 
+// Not exported
 @interface SBCXPCServiceProxy : NSObject
 {
-    BOOL _isConnecting;
+    _Bool _isConnecting;
     id _serviceProxy;
     NSObject<OS_dispatch_queue> *_queue;
     NSXPCConnection *_xpcConnection;
@@ -19,7 +20,7 @@
     Class _serviceInterfaceClass;
 }
 
-@property(readonly) BOOL isConnecting; // @synthesize isConnecting=_isConnecting;
+@property(readonly) _Bool isConnecting; // @synthesize isConnecting=_isConnecting;
 @property(readonly) Class serviceInterfaceClass; // @synthesize serviceInterfaceClass=_serviceInterfaceClass;
 @property(readonly) NSMutableDictionary *pendingServiceCompletionHandlers; // @synthesize pendingServiceCompletionHandlers=_pendingServiceCompletionHandlers;
 @property(readonly) NSDictionary *clientConfiguration; // @synthesize clientConfiguration=_clientConfiguration;

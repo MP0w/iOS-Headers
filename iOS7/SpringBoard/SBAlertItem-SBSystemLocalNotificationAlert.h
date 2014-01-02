@@ -7,6 +7,6 @@
 #import "SBAlertItem.h"
 
 @interface SBAlertItem (SBSystemLocalNotificationAlert)
-- (BOOL)isSystemLocalNotificationAlert;
+- (_Bool)isSystemLocalNotificationAlert;
 @end
 

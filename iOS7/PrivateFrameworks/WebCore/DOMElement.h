@@ -13,19 +13,19 @@
 }
 
 - (void)remove;
-- (BOOL)webkitMatchesSelector:(id)arg1;
+- (_Bool)webkitMatchesSelector:(id)arg1;
 - (id)querySelectorAll:(id)arg1;
 - (id)querySelector:(id)arg1;
 - (id)getElementsByClassName:(id)arg1;
 - (void)scrollByPages:(int)arg1;
 - (void)scrollByLines:(int)arg1;
-- (void)scrollIntoViewIfNeeded:(BOOL)arg1;
-- (void)scrollIntoView:(BOOL)arg1;
+- (void)scrollIntoViewIfNeeded:(_Bool)arg1;
+- (void)scrollIntoView:(_Bool)arg1;
 - (void)blur;
 - (void)focus;
-- (BOOL)hasAttributeNS:(id)arg1:(id)arg2;
-- (BOOL)hasAttributeNS:(id)arg1 localName:(id)arg2;
-- (BOOL)hasAttribute:(id)arg1;
+- (_Bool)hasAttributeNS:(id)arg1:(id)arg2;
+- (_Bool)hasAttributeNS:(id)arg1 localName:(id)arg2;
+- (_Bool)hasAttribute:(id)arg1;
 - (id)setAttributeNodeNS:(id)arg1;
 - (id)getAttributeNodeNS:(id)arg1:(id)arg2;
 - (id)getAttributeNodeNS:(id)arg1 localName:(id)arg2;
@@ -69,10 +69,6 @@
 @property(readonly) int offsetLeft;
 @property(readonly) DOMCSSStyleDeclaration *style;
 @property(readonly) NSString *tagName;
-- (BOOL)isFocused;
-- (id)_getURLAttribute:(id)arg1;
-- (struct __CTFont *)_font;
-- (int)structuralComplexityContribution;
 
 @end
 

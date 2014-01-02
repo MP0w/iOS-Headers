@@ -6,20 +6,19 @@
 
 #import <ChatKit/CKSingleRecipientTableViewCell.h>
 
-@class UILabel;
+@class UILabel, UIView;
 
 @interface CKMultipleRecipientTableViewCell : CKSingleRecipientTableViewCell
 {
+    UIView *_separator;
     UILabel *_nameLabel;
 }
 
-+ (id)facetimeAudioImage;
-+ (id)facetimeVideoImage;
-+ (id)mailImage;
-+ (id)phoneImage;
 @property(retain, nonatomic) UILabel *nameLabel; // @synthesize nameLabel=_nameLabel;
+@property(retain, nonatomic) UIView *separator; // @synthesize separator=_separator;
 - (void)layoutSubviews;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
+- (void)dealloc;
 
 @end
 

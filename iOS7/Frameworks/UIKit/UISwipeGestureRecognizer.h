@@ -11,38 +11,38 @@
 @interface UISwipeGestureRecognizer : UIGestureRecognizer
 {
     double _maximumDuration;
-    float _minimumPrimaryMovement;
-    float _maximumPrimaryMovement;
-    float _minimumSecondaryMovement;
-    float _maximumSecondaryMovement;
-    float _rateOfMinimumMovementDecay;
-    float _rateOfMaximumMovementDecay;
-    unsigned int _numberOfTouchesRequired;
+    double _minimumPrimaryMovement;
+    double _maximumPrimaryMovement;
+    double _minimumSecondaryMovement;
+    double _maximumSecondaryMovement;
+    double _rateOfMinimumMovementDecay;
+    double _rateOfMaximumMovementDecay;
+    unsigned long long _numberOfTouchesRequired;
     NSMutableArray *_touches;
-    unsigned int _direction;
+    unsigned long long _direction;
     struct CGPoint _startLocation;
     struct CGPoint *_startLocations;
     double _startTime;
     unsigned int _failed:1;
 }
 
-@property(nonatomic) unsigned int direction; // @synthesize direction=_direction;
-@property(nonatomic) unsigned int numberOfTouchesRequired; // @synthesize numberOfTouchesRequired=_numberOfTouchesRequired;
-@property(nonatomic) float rateOfMaximumMovementDecay; // @synthesize rateOfMaximumMovementDecay=_rateOfMaximumMovementDecay;
-@property(nonatomic) float rateOfMinimumMovementDecay; // @synthesize rateOfMinimumMovementDecay=_rateOfMinimumMovementDecay;
-@property(nonatomic) float maximumSecondaryMovement; // @synthesize maximumSecondaryMovement=_maximumSecondaryMovement;
-@property(nonatomic) float minimumSecondaryMovement; // @synthesize minimumSecondaryMovement=_minimumSecondaryMovement;
-@property(nonatomic) float maximumPrimaryMovement; // @synthesize maximumPrimaryMovement=_maximumPrimaryMovement;
-@property(nonatomic) float minimumPrimaryMovement; // @synthesize minimumPrimaryMovement=_minimumPrimaryMovement;
+@property(nonatomic) unsigned long long direction; // @synthesize direction=_direction;
+@property(nonatomic) unsigned long long numberOfTouchesRequired; // @synthesize numberOfTouchesRequired=_numberOfTouchesRequired;
+@property(nonatomic) double rateOfMaximumMovementDecay; // @synthesize rateOfMaximumMovementDecay=_rateOfMaximumMovementDecay;
+@property(nonatomic) double rateOfMinimumMovementDecay; // @synthesize rateOfMinimumMovementDecay=_rateOfMinimumMovementDecay;
+@property(nonatomic) double maximumSecondaryMovement; // @synthesize maximumSecondaryMovement=_maximumSecondaryMovement;
+@property(nonatomic) double minimumSecondaryMovement; // @synthesize minimumSecondaryMovement=_minimumSecondaryMovement;
+@property(nonatomic) double maximumPrimaryMovement; // @synthesize maximumPrimaryMovement=_maximumPrimaryMovement;
+@property(nonatomic) double minimumPrimaryMovement; // @synthesize minimumPrimaryMovement=_minimumPrimaryMovement;
 @property(nonatomic) double maximumDuration; // @synthesize maximumDuration=_maximumDuration;
 - (void)_appendSubclassDescription:(id)arg1;
-- (struct CGPoint)locationOfTouch:(unsigned int)arg1 inView:(id)arg2;
-- (unsigned int)numberOfTouches;
+- (struct CGPoint)locationOfTouch:(unsigned long long)arg1 inView:(id)arg2;
+- (unsigned long long)numberOfTouches;
 - (struct CGPoint)locationInView:(id)arg1;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
-- (BOOL)_checkForSwipeWithDelta:(struct CGPoint)arg1 time:(double)arg2;
+- (_Bool)_checkForSwipeWithDelta:(struct CGPoint)arg1 time:(double)arg2;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
 - (void)_resetGestureRecognizer;
 @property(readonly, nonatomic) struct CGPoint startPoint;

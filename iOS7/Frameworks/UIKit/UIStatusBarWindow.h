@@ -11,26 +11,26 @@
 @interface UIStatusBarWindow : UIWindow
 {
     UIStatusBar *_statusBar;
-    int _orientation;
+    long long _orientation;
     UIStatusBarCorners *_topCorners;
-    float _topCornersOffset;
+    double _topCornersOffset;
     UIStatusBarCorners *_bottomCorners;
-    BOOL _cornersHidden;
+    _Bool _cornersHidden;
 }
 
 + (struct CGRect)statusBarWindowFrame;
-+ (BOOL)isIncludedInClassicJail;
-- (BOOL)_shouldZoom;
++ (_Bool)isIncludedInClassicJail;
+- (_Bool)_shouldZoom;
 - (void)_updateTransformLayerForClassicPresentation;
-- (BOOL)_isStatusBarWindow;
-- (BOOL)_disableGroupOpacity;
-- (BOOL)_disableViewScaling;
+- (_Bool)_isStatusBarWindow;
+- (_Bool)_disableGroupOpacity;
+- (_Bool)_disableViewScaling;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
-- (void)setTopCornerStyle:(int)arg1 topCornersOffset:(float)arg2 bottomCornerStyle:(int)arg3 animationParameters:(id)arg4;
-- (void)setCornersHidden:(BOOL)arg1 animationParameters:(id)arg2;
-- (int)orientation;
+- (void)setTopCornerStyle:(int)arg1 topCornersOffset:(double)arg2 bottomCornerStyle:(int)arg3 animationParameters:(id)arg4;
+- (void)setCornersHidden:(_Bool)arg1 animationParameters:(id)arg2;
+- (long long)orientation;
 - (void)_rotate;
-- (void)setOrientation:(int)arg1 animationParameters:(id)arg2;
+- (void)setOrientation:(long long)arg1 animationParameters:(id)arg2;
 - (void)setStatusBar:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

@@ -10,6 +10,7 @@
 
 @class NSObject<WFPINEntryViewControllerProtocol>;
 
+// Not exported
 @interface WFRemotePINEntryViewController : _UIRemoteViewController <WFPINEntryViewControllerProtocol>
 {
     NSObject<WFPINEntryViewControllerProtocol> *_delegate;

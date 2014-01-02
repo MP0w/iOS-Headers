@@ -11,38 +11,39 @@
 
 @class NSString;
 
+// Not exported
 @interface NSTextList : NSObject <NSCoding, NSCopying>
 {
     NSString *_markerFormat;
-    unsigned int _listFlags;
-    int _startIndex;
+    unsigned long long _listFlags;
+    long long _startIndex;
     void *_listSecondary;
 }
 
 + (id)_standardMarkerAttributesForAttributes:(id)arg1;
 + (void)initialize;
-- (id)_markerAtIndex:(unsigned int)arg1 inText:(id)arg2;
+- (id)_markerAtIndex:(unsigned long long)arg1 inText:(id)arg2;
 - (id)_markerSuffix;
 - (id)_unaffixedMarkerTitle;
-- (id)_unaffixedMarkerForItemNumber:(int)arg1;
+- (id)_unaffixedMarkerForItemNumber:(long long)arg1;
 - (id)_unaffixedMarkerFormat;
 - (id)_markerSpecifier;
 - (id)_markerPrefix;
 - (id)_markerTitle;
-- (BOOL)_isOrdered;
-- (id)markerForItemNumber:(int)arg1;
-- (id)_markerForMarkerFormat:(id)arg1 itemNumber:(int)arg2 isNumbered:(char *)arg3 substitutionStart:(unsigned int *)arg4 end:(unsigned int *)arg5 specifierStart:(unsigned int *)arg6 end:(unsigned int *)arg7;
+- (_Bool)_isOrdered;
+- (id)markerForItemNumber:(long long)arg1;
+- (id)_markerForMarkerFormat:(id)arg1 itemNumber:(long long)arg2 isNumbered:(_Bool *)arg3 substitutionStart:(unsigned long long *)arg4 end:(unsigned long long *)arg5 specifierStart:(unsigned long long *)arg6 end:(unsigned long long *)arg7;
 - (id)description;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (int)startingItemNumber;
-- (void)setStartingItemNumber:(int)arg1;
-- (unsigned int)options;
-- (unsigned int)listOptions;
+- (long long)startingItemNumber;
+- (void)setStartingItemNumber:(long long)arg1;
+- (unsigned long long)options;
+- (unsigned long long)listOptions;
 - (id)markerFormat;
 - (void)dealloc;
-- (id)initWithMarkerFormat:(id)arg1 options:(unsigned int)arg2;
+- (id)initWithMarkerFormat:(id)arg1 options:(unsigned long long)arg2;
 
 @end
 

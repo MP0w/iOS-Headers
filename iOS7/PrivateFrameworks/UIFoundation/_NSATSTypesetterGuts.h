@@ -8,14 +8,15 @@
 
 @class NSATSGlyphStorage, NSATSLineFragment;
 
+// Not exported
 @interface _NSATSTypesetterGuts : NSObject
 {
     NSATSLineFragment *_lineFragment;
     NSATSGlyphStorage *_glyphStorage;
-    unsigned int _lastGlyphIndex;
-    unsigned int _lastContainerIndex;
-    CDStruct_6c9b9d05 *_typesetterAuxiliary;
-    CDUnion_a04c68c6 *_lineFragmentRectArgs;
+    unsigned long long _lastGlyphIndex;
+    unsigned long long _lastContainerIndex;
+    CDStruct_9b8416ed *_typesetterAuxiliary;
+    CDUnion_09a75e3c *_lineFragmentRectArgs;
     char *_bidiLevels;
     struct {
         unsigned int _isiChatTypesetter:1;

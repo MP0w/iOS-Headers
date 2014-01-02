@@ -8,6 +8,7 @@
 
 @class OAXDrawingState;
 
+// Not exported
 @interface ODXState : NSObject
 {
     OAXDrawingState *mOfficeArtState;

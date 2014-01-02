@@ -19,6 +19,7 @@
 @property(retain, nonatomic) CNContact *contact; // @synthesize contact=_contact;
 - (id)activityViewController:(id)arg1 attachmentNameForActivityType:(id)arg2;
 - (id)activityViewController:(id)arg1 dataTypeIdentifierForActivityType:(id)arg2;
+- (id)activityViewController:(id)arg1 thumbnailImageForActivityType:(id)arg2 suggestedSize:(struct CGSize)arg3;
 - (id)activityViewController:(id)arg1 subjectForActivityType:(id)arg2;
 - (id)activityViewController:(id)arg1 itemForActivityType:(id)arg2;
 - (id)activityViewControllerPlaceholderItem:(id)arg1;

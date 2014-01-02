@@ -6,19 +6,27 @@
 
 #import "UIButton.h"
 
+@class CALayer, UIColor;
+
 @interface RCRecorderStateButton : UIButton
 {
-    int _recordingState;
+    UIColor *_outerColor;
+    CALayer *_innerLayer;
+    UIColor *_innerColor;
+    long long _recordingState;
 }
 
-@property(nonatomic) int recordingState; // @synthesize recordingState=_recordingState;
-- (void)_drawGradientInRect:(struct CGRect)arg1 withContext:(struct CGContext *)arg2;
-- (void)_drawInnerSquareInRect:(struct CGRect)arg1 withContext:(struct CGContext *)arg2;
-- (void)_drawInnerCircleInRect:(struct CGRect)arg1 withContext:(struct CGContext *)arg2;
-- (void)setSelected:(BOOL)arg1;
-- (void)setEnabled:(BOOL)arg1;
+@property(nonatomic) long long recordingState; // @synthesize recordingState=_recordingState;
+- (void).cxx_destruct;
+- (void)_drawOuterCircle;
+- (double)_currentStateInnerDrawingAlpha;
+- (double)_currentStateTopLevelDrawingAlpha;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (void)layoutSubviews;
 - (void)drawRect:(struct CGRect)arg1;
+- (void)setSelected:(_Bool)arg1;
+- (void)setHighlighted:(_Bool)arg1;
+- (void)setEnabled:(_Bool)arg1;
 - (id)init;
 - (id)initWithFrame:(struct CGRect)arg1;
 

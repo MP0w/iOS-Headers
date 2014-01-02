@@ -13,22 +13,22 @@
     UIButton *_editButton;
     UIButton *_contactButton;
     UIButton *_cancelButton;
-    BOOL _hasContact;
-    BOOL _isGroupMessage;
-    BOOL _cancelButtonVisible;
+    _Bool _hasContact;
+    _Bool _isGroupMessage;
+    _Bool _cancelButtonVisible;
     id <CKTranscriptHeaderViewDelegate> _delegate;
 }
 
-@property(nonatomic, getter=isCancelButtonVisible) BOOL cancelButtonVisible; // @synthesize cancelButtonVisible=_cancelButtonVisible;
-@property(nonatomic) BOOL isGroupMessage; // @synthesize isGroupMessage=_isGroupMessage;
-@property(nonatomic) BOOL hasContact; // @synthesize hasContact=_hasContact;
+@property(nonatomic, getter=isCancelButtonVisible) _Bool cancelButtonVisible; // @synthesize cancelButtonVisible=_cancelButtonVisible;
+@property(nonatomic) _Bool isGroupMessage; // @synthesize isGroupMessage=_isGroupMessage;
+@property(nonatomic) _Bool hasContact; // @synthesize hasContact=_hasContact;
 @property(nonatomic) id <CKTranscriptHeaderViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)_buttonClicked:(id)arg1;
 - (struct CGRect)frameForButton:(short)arg1;
 - (void)layoutSubviews;
 - (void)sizeToFit;
 - (void)dealloc;
-- (id)initAsGroupMessage:(BOOL)arg1 hasMessages:(BOOL)arg2;
+- (id)initAsGroupMessage:(_Bool)arg1 hasMessages:(_Bool)arg2;
 
 @end
 

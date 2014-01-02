@@ -7,6 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol ABPersonCellLayoutManagerDelegate <NSObject>
-- (BOOL)personCellLayoutManager:(id)arg1 isCellInFullEditMode:(id)arg2;
+- (_Bool)personCellLayoutManager:(id)arg1 isCellInFullEditMode:(id)arg2;
 @end
 

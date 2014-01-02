@@ -10,8 +10,8 @@
 
 @interface UserFSItem : NSObject
 {
-    BOOL _isDirectory;
-    BOOL _locked;
+    _Bool _isDirectory;
+    _Bool _locked;
     UserFSVolume *_volume;
     NSString *_path;
     NSString *_name;
@@ -24,8 +24,8 @@
 @property(nonatomic) struct timespec modifiedDate; // @synthesize modifiedDate=_modifiedDate;
 @property(nonatomic) struct timespec createdDate; // @synthesize createdDate=_createdDate;
 @property(nonatomic) unsigned long long length; // @synthesize length=_length;
-@property(nonatomic, getter=isLocked) BOOL locked; // @synthesize locked=_locked;
-@property(nonatomic) BOOL isDirectory; // @synthesize isDirectory=_isDirectory;
+@property(nonatomic, getter=isLocked) _Bool locked; // @synthesize locked=_locked;
+@property(nonatomic) _Bool isDirectory; // @synthesize isDirectory=_isDirectory;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(copy, nonatomic) NSString *path; // @synthesize path=_path;
 @property(retain, nonatomic) UserFSVolume *volume; // @synthesize volume=_volume;

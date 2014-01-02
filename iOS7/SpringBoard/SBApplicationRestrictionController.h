@@ -19,12 +19,12 @@
     struct MGNotificationTokenStruct *_tagsNotificationToken;
     NSMutableSet *_enabledTags;
     NSMutableDictionary *_ratingRanksByDisplayIdentifier;
-    BOOL _hasSMSCapability;
+    _Bool _hasSMSCapability;
     NSSet *_restrictedDisplayIdentifiers;
-    BOOL _showInternalApps;
-    BOOL _hasHideNonDefaultSystemAppsCapability;
-    BOOL _showAllSystemApps;
-    BOOL _canPostRestrictionState;
+    _Bool _showInternalApps;
+    _Bool _hasHideNonDefaultSystemAppsCapability;
+    _Bool _showAllSystemApps;
+    _Bool _canPostRestrictionState;
 }
 
 - (void)profileConnectionDidReceiveEffectiveSettingsChangedNotification:(id)arg1 userInfo:(id)arg2;
@@ -35,7 +35,7 @@
 - (void)beginPostingChanges;
 - (void)noteVisibilityStateDidChange;
 - (void)noteApplicationIdentifiersDidChangeWithAdded:(id)arg1 modified:(id)arg2 removed:(id)arg3;
-- (BOOL)isDisplayIdentifierRestricted:(id)arg1;
+- (_Bool)isDisplayIdentifierRestricted:(id)arg1;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
 - (void)dealloc;

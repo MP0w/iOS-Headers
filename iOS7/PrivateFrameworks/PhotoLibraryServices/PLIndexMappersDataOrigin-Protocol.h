@@ -7,7 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol PLIndexMappersDataOrigin <NSObject>
-- (BOOL)hasDerivedIndexMappers;
+- (_Bool)hasDerivedIndexMappers;
 - (void)enumerateDerivedIndexMappers:(id)arg1;
 @end
 

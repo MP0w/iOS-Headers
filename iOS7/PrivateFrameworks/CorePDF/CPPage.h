@@ -14,11 +14,11 @@
 {
     int pageNumber;
     struct CGRect pageCropBox;
-    BOOL hasZones;
-    BOOL hasTextLines;
-    BOOL isDirty;
-    BOOL isStartOfSection;
-    long maxLayoutZOrder;
+    _Bool hasZones;
+    _Bool hasTextLines;
+    _Bool isDirty;
+    _Bool isStartOfSection;
+    long long maxLayoutZOrder;
     CPChunk *background;
     float complexity;
     int rotation;
@@ -27,15 +27,15 @@
     NSMutableArray *graphicsOnPage;
     NSMutableArray *columnsOnPage;
     struct CPPDFContext *pdfContext;
-    BOOL contextOwner;
+    _Bool contextOwner;
     struct CGPDFPage *pdfPage;
     NSMutableArray *textLinesOnPage;
     void *_layout;
     id hitTest;
-    BOOL reconstructed;
+    _Bool reconstructed;
     struct _opaque_pthread_mutex_t {
-        long __sig;
-        char __opaque[40];
+        long long __sig;
+        char __opaque[56];
     } mutex;
 }
 
@@ -57,13 +57,13 @@
 - (id)background;
 - (void)setRotation:(int)arg1;
 - (int)rotation;
-- (void)setIsStartOfSection:(BOOL)arg1;
-- (BOOL)isStartOfSection;
-- (void)setHasTextLines:(BOOL)arg1;
-- (BOOL)hasTextLines;
+- (void)setIsStartOfSection:(_Bool)arg1;
+- (_Bool)isStartOfSection;
+- (void)setHasTextLines:(_Bool)arg1;
+- (_Bool)hasTextLines;
 - (id)bodyZone;
-- (BOOL)hasZones;
-- (void)setHasZones:(BOOL)arg1;
+- (_Bool)hasZones;
+- (void)setHasZones:(_Bool)arg1;
 - (id)graphicsOnPage;
 - (id)imagesOnPage;
 - (void)addImage:(id)arg1;
@@ -87,10 +87,6 @@
 - (void)dispose;
 - (id)initWithPDFPage:(struct CGPDFPage *)arg1;
 - (id)init;
-- (struct CGPDFLayout *)layout;
-- (BOOL)populatePDFLayout:(struct CGPDFLayout *)arg1;
-- (id)hitTest;
-- (struct CPPDFClipBuffer *)clipBuffer;
 
 @end
 

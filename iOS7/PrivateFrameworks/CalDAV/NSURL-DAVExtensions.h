@@ -10,7 +10,7 @@
 + (id)URLWithDirtyString:(id)arg1;
 + (id)URLWithScheme:(id)arg1 host:(id)arg2 port:(int)arg3 uri:(id)arg4;
 + (int)classicPortForScheme:(id)arg1;
-- (BOOL)absoluteURLisEqual:(id)arg1;
+- (_Bool)absoluteURLisEqual:(id)arg1;
 - (id)URLWithoutPassword;
 - (id)URLWithoutUsername;
 - (id)URLWithUsername:(id)arg1;

@@ -8,6 +8,7 @@
 
 @class UIColor, UIImageView, UINavigationBar, _UIBackdropView, _UINavigationControllerPalette;
 
+// Not exported
 @interface _UINavigationPaletteBackground : UIView
 {
     UIColor *_barTintColor;
@@ -19,21 +20,18 @@
         unsigned int barTranslucence:3;
         unsigned int barStyle:3;
         unsigned int barWantsAdaptiveBackdrop:1;
-        unsigned int barForcesOpaqueBackground:1;
     } _navbarFlags;
 }
 
 @property(retain, nonatomic, getter=_shadowView, setter=_setShadowView:) UIView *shadowView; // @synthesize shadowView=_shadowView;
 - (void)didMoveToSuperview;
 - (void)updateBackgroundView;
-- (BOOL)forcesOpaqueConsultingInternalForcingAndBarTranslucence;
 - (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
-- (void)_setFrame:(struct CGRect)arg1 forceUpdateBackgroundImage:(BOOL)arg2;
-@property(nonatomic) BOOL barForcesOpaqueBackground;
-@property(nonatomic) BOOL barWantsAdaptiveBackdrop;
-@property(nonatomic, getter=isTranslucent) BOOL translucent;
-@property(nonatomic) int barStyle;
+- (void)_setFrame:(struct CGRect)arg1 forceUpdateBackgroundImage:(_Bool)arg2;
+@property(nonatomic) _Bool barWantsAdaptiveBackdrop;
+@property(nonatomic, getter=isTranslucent) _Bool translucent;
+@property(nonatomic) long long barStyle;
 @property(retain, nonatomic) UIColor *barTintColor;
 - (void)dealloc;
 - (void)_syncWithBarStyles;

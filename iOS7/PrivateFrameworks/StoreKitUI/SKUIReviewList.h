@@ -22,13 +22,13 @@
 - (id)initWithCacheRepresentation:(id)arg1;
 @property(readonly, nonatomic) NSURL *writeReviewURL;
 @property(readonly, nonatomic) float userRating;
-@property(readonly, nonatomic) int twoStarRatingCount;
-@property(readonly, nonatomic) int threeStarRatingCount;
-@property(readonly, nonatomic) int ratingCount;
-@property(readonly, nonatomic) int oneStarRatingCount;
-@property(readonly, nonatomic) int numberOfPages;
-@property(readonly, nonatomic) int fourStarRatingCount;
-@property(readonly, nonatomic) int fiveStarRatingCount;
+@property(readonly, nonatomic) long long twoStarRatingCount;
+@property(readonly, nonatomic) long long threeStarRatingCount;
+@property(readonly, nonatomic) long long ratingCount;
+@property(readonly, nonatomic) long long oneStarRatingCount;
+@property(readonly, nonatomic) long long numberOfPages;
+@property(readonly, nonatomic) long long fourStarRatingCount;
+@property(readonly, nonatomic) long long fiveStarRatingCount;
 - (void)addReviews:(id)arg1;
 - (id)initWithReviewListDictionary:(id)arg1;
 

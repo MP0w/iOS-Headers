@@ -8,11 +8,12 @@
 
 @class NSString;
 
+// Not exported
 @interface WDFormField : WDRun
 {
     unsigned int mPosition;
-    BOOL mLinkAbsolute;
-    BOOL mLinkSpecifyingNamedLocation;
+    _Bool mLinkAbsolute;
+    _Bool mLinkSpecifyingNamedLocation;
     NSString *mNamedLocation;
     NSString *mURI;
     NSString *mMacName;
@@ -28,10 +29,10 @@
 - (id)URI;
 - (void)setNamedLocation:(id)arg1;
 - (id)namedLocation;
-- (void)setLinkSpecifyingNamedLocation:(BOOL)arg1;
-- (BOOL)linkSpecifyingNamedLocation;
-- (void)setLinkAbsolute:(BOOL)arg1;
-- (BOOL)linkAbsolute;
+- (void)setLinkSpecifyingNamedLocation:(_Bool)arg1;
+- (_Bool)linkSpecifyingNamedLocation;
+- (void)setLinkAbsolute:(_Bool)arg1;
+- (_Bool)linkAbsolute;
 - (void)setPosition:(unsigned int)arg1;
 - (unsigned int)position;
 - (void)dealloc;

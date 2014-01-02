@@ -8,6 +8,7 @@
 
 @class NSCountedSet, NSString;
 
+// Not exported
 @interface VMUCallTreeLeafNode : VMUCallTreeNode
 {
     NSCountedSet *_addresses;

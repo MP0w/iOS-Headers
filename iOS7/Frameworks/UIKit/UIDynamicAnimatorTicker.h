@@ -8,6 +8,7 @@
 
 @class UIDynamicAnimator;
 
+// Not exported
 @interface UIDynamicAnimatorTicker : NSObject
 {
     UIDynamicAnimator *_animator;

@@ -7,7 +7,7 @@
 @protocol MRLoadable
 - (void)cancelLoading;
 - (void)unload;
-- (void)loadForTime:(double)arg1 inContext:(id)arg2 withArguments:(id)arg3 now:(BOOL)arg4;
-- (BOOL)isLoadedForTime:(double)arg1;
+- (void)loadForTime:(double)arg1 inContext:(id)arg2 withArguments:(id)arg3 now:(_Bool)arg4;
+- (_Bool)isLoadedForTime:(double)arg1;
 @end
 

@@ -6,29 +6,49 @@
 
 #import <UIKit/UIView.h>
 
-@class UIImage, UIImageView;
+@class CAFilter, UIImage, UIImageView, _UILegibilitySettings;
 
 @interface _UILegibilityView : UIView
 {
-    int _style;
+    _Bool _hidesImage;
+    _UILegibilitySettings *_settings;
     UIImage *_image;
     UIImage *_shadowImage;
+    double _strength;
     UIImageView *_imageView;
     UIImageView *_shadowImageView;
+    CAFilter *_imageColorFilter;
+    CAFilter *_shadowImageColorFilter;
+    long long _options;
 }
 
+@property(nonatomic) long long options; // @synthesize options=_options;
+@property(retain, nonatomic) CAFilter *shadowImageColorFilter; // @synthesize shadowImageColorFilter=_shadowImageColorFilter;
+@property(retain, nonatomic) CAFilter *imageColorFilter; // @synthesize imageColorFilter=_imageColorFilter;
 @property(retain, nonatomic) UIImageView *shadowImageView; // @synthesize shadowImageView=_shadowImageView;
 @property(retain, nonatomic) UIImageView *imageView; // @synthesize imageView=_imageView;
+@property(nonatomic) _Bool hidesImage; // @synthesize hidesImage=_hidesImage;
+@property(nonatomic) double strength; // @synthesize strength=_strength;
 @property(retain, nonatomic) UIImage *shadowImage; // @synthesize shadowImage=_shadowImage;
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
-@property(nonatomic) int style; // @synthesize style=_style;
+@property(retain, nonatomic) _UILegibilitySettings *settings; // @synthesize settings=_settings;
+- (id)drawingColor;
+- (_Bool)usesSecondaryColor;
+@property(readonly, nonatomic) _Bool usesColorFilters;
 - (void)layoutSubviews;
-- (void)setStyle:(int)arg1 image:(id)arg2 shadowImage:(id)arg3;
+- (void)updateImage;
+- (void)updateForChangedSettings:(id)arg1;
+- (void)setSettings:(id)arg1 image:(id)arg2 shadowImage:(id)arg3;
+- (void)setStyle:(long long)arg1 image:(id)arg2 shadowImage:(id)arg3;
 - (void)setImage:(id)arg1 shadowImage:(id)arg2;
 - (struct CGSize)sizeThatFits;
+@property(readonly, nonatomic) long long style; // @dynamic style;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 image:(id)arg2 shadowImage:(id)arg3;
-- (id)initWithStyle:(int)arg1 image:(id)arg2;
+- (id)initWithSettings:(id)arg1 strength:(double)arg2 image:(id)arg3 shadowImage:(id)arg4 options:(long long)arg5;
+- (id)initWithSettings:(id)arg1 strength:(double)arg2 image:(id)arg3 shadowImage:(id)arg4;
+- (id)initWithSettings:(id)arg1 strength:(double)arg2 image:(id)arg3;
+- (id)initWithStyle:(long long)arg1 image:(id)arg2 shadowImage:(id)arg3;
+- (id)initWithStyle:(long long)arg1 image:(id)arg2;
 
 @end
 

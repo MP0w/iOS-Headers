@@ -8,18 +8,19 @@
 
 #import "NSCoding-Protocol.h"
 
+// Not exported
 @interface UILayoutContainerView : UIView <NSCoding>
 {
     id _delegate;
-    BOOL _usesRoundedCorners;
-    float _cornerRadius;
-    BOOL _usesInnerShadow;
-    BOOL _shadowViewsInstalled;
+    _Bool _usesRoundedCorners;
+    double _cornerRadius;
+    _Bool _usesInnerShadow;
+    _Bool _shadowViewsInstalled;
     UIView *_shadowView;
 }
 
-@property(nonatomic) BOOL usesInnerShadow; // @synthesize usesInnerShadow=_usesInnerShadow;
-@property(nonatomic) BOOL usesRoundedCorners; // @synthesize usesRoundedCorners=_usesRoundedCorners;
+@property(nonatomic) _Bool usesInnerShadow; // @synthesize usesInnerShadow=_usesInnerShadow;
+@property(nonatomic) _Bool usesRoundedCorners; // @synthesize usesRoundedCorners=_usesRoundedCorners;
 - (void)dealloc;
 - (void)addSubview:(id)arg1;
 - (void)_tearDownShadowViews;

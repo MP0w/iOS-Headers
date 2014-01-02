@@ -8,6 +8,7 @@
 
 @class NSMutableArray, NSMutableDictionary;
 
+// Not exported
 @interface PDPresentation : OCDDocument
 {
     NSMutableArray *mSlideMasters;
@@ -16,10 +17,10 @@
     NSMutableArray *mBulletBlips;
     struct CGSize mSlideSize;
     struct CGSize mNotesSize;
-    BOOL mIsAutoPlay;
-    BOOL mIsCommentsVisible;
-    BOOL mIsLooping;
-    BOOL mIsKiosk;
+    _Bool mIsAutoPlay;
+    _Bool mIsCommentsVisible;
+    _Bool mIsLooping;
+    _Bool mIsKiosk;
     NSMutableDictionary *mCommentAuthors;
 }
 
@@ -28,36 +29,34 @@
 - (void)flushUnusedMastersAndLayouts;
 - (void)setCommentAuthor:(id)arg1 forId:(unsigned int)arg2;
 - (id)commentAuthorForId:(unsigned int)arg1;
-- (void)setIsKiosk:(BOOL)arg1;
-- (BOOL)isKiosk;
-- (void)setIsLooping:(BOOL)arg1;
-- (BOOL)isLooping;
-- (void)setIsCommentsVisible:(BOOL)arg1;
-- (BOOL)isCommentsVisible;
-- (void)setIsAutoPlay:(BOOL)arg1;
-- (BOOL)isAutoPlay;
+- (void)setIsKiosk:(_Bool)arg1;
+- (_Bool)isKiosk;
+- (void)setIsLooping:(_Bool)arg1;
+- (_Bool)isLooping;
+- (void)setIsCommentsVisible:(_Bool)arg1;
+- (_Bool)isCommentsVisible;
+- (void)setIsAutoPlay:(_Bool)arg1;
+- (_Bool)isAutoPlay;
 - (void)setNotesSize:(struct CGSize)arg1;
 - (struct CGSize)notesSize;
 - (void)setSlideSize:(struct CGSize)arg1;
 - (struct CGSize)slideSize;
 - (id)bulletBlips;
-- (unsigned long)bulletBlipCount;
-- (unsigned long)addBulletBlip:(id)arg1;
-- (id)bulletBlipAtIndex:(long)arg1;
-- (unsigned int)indexOfSlide:(id)arg1;
+- (unsigned int)bulletBlipCount;
+- (unsigned int)addBulletBlip:(id)arg1;
+- (id)bulletBlipAtIndex:(int)arg1;
+- (unsigned long long)indexOfSlide:(id)arg1;
 - (void)addSlide:(id)arg1;
-- (id)slideAtIndex:(unsigned int)arg1;
-- (unsigned int)slideCount;
+- (id)slideAtIndex:(unsigned long long)arg1;
+- (unsigned long long)slideCount;
 - (void)addNotesMaster:(id)arg1;
-- (id)notesMasterAtIndex:(unsigned int)arg1;
-- (unsigned int)notesMasterCount;
+- (id)notesMasterAtIndex:(unsigned long long)arg1;
+- (unsigned long long)notesMasterCount;
 - (void)addSlideMaster:(id)arg1;
-- (id)slideMasterAtIndex:(unsigned int)arg1;
-- (unsigned int)slideMasterCount;
+- (id)slideMasterAtIndex:(unsigned long long)arg1;
+- (unsigned long long)slideMasterCount;
 - (void)dealloc;
 - (id)init;
-- (void)cacheGraphicStylesForSlideBase:(id)arg1;
-- (void)cacheGraphicStyleForDrawable:(id)arg1 colorContext:(id)arg2;
 
 @end
 

@@ -12,9 +12,9 @@
 {
     id <AVCaptureFileOutputRecordingDelegate><AVCaptureFileOutputPauseResumeDelegate> _delegate;
     NSURL *_outputFileURL;
-    BOOL _receivedDidStartRecording;
-    BOOL _receivedDidStopRecording;
-    long _didStopRecordingError;
+    _Bool _receivedDidStartRecording;
+    _Bool _receivedDidStopRecording;
+    int _didStopRecordingError;
     NSArray *_metadata;
     NSArray *_connections;
 }
@@ -22,9 +22,9 @@
 + (id)wrapperWithURL:(id)arg1 delegate:(id)arg2 connections:(id)arg3;
 @property(readonly) NSArray *connections; // @synthesize connections=_connections;
 @property(retain) NSArray *metadata; // @synthesize metadata=_metadata;
-@property long didStopRecordingError; // @synthesize didStopRecordingError=_didStopRecordingError;
-@property BOOL receivedDidStopRecording; // @synthesize receivedDidStopRecording=_receivedDidStopRecording;
-@property BOOL receivedDidStartRecording; // @synthesize receivedDidStartRecording=_receivedDidStartRecording;
+@property int didStopRecordingError; // @synthesize didStopRecordingError=_didStopRecordingError;
+@property _Bool receivedDidStopRecording; // @synthesize receivedDidStopRecording=_receivedDidStopRecording;
+@property _Bool receivedDidStartRecording; // @synthesize receivedDidStartRecording=_receivedDidStartRecording;
 @property(readonly) NSURL *outputFileURL; // @synthesize outputFileURL=_outputFileURL;
 @property(readonly) id <AVCaptureFileOutputRecordingDelegate><AVCaptureFileOutputPauseResumeDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)dealloc;

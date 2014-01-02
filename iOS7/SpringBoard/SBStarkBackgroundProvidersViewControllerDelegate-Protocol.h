@@ -8,7 +8,7 @@
 
 @protocol SBStarkBackgroundProvidersViewControllerDelegate <NSObject>
 - (void)starkBackgroundProvidersViewControllerWillAnimateInInitially:(id)arg1;
-- (void)starkBackgroundProvidersViewController:(id)arg1 didStartWithAnimation:(BOOL)arg2;
-- (void)starkBackgroundProvidersViewController:(id)arg1 willStartWithAnimation:(BOOL)arg2;
+- (void)starkBackgroundProvidersViewController:(id)arg1 didStartWithAnimation:(_Bool)arg2;
+- (void)starkBackgroundProvidersViewController:(id)arg1 willStartWithAnimation:(_Bool)arg2;
 @end
 

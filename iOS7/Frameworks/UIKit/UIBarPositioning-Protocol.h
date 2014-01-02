@@ -7,6 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol UIBarPositioning <NSObject>
-@property(readonly, nonatomic) int barPosition;
+@property(readonly, nonatomic) long long barPosition;
 @end
 

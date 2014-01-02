@@ -29,11 +29,11 @@
 - (void)clearAnimationInformation;
 - (void)setAnimationDestination:(CDStruct_c3b9c2ee)arg1;
 - (CDStruct_c3b9c2ee)animationDestination;
-- (BOOL)hasAnimationDestination;
+- (_Bool)hasAnimationDestination;
 - (void)setAnimationOrigin:(CDStruct_c3b9c2ee)arg1;
 - (CDStruct_c3b9c2ee)animationOrigin;
-- (BOOL)hasAnimationOrigin;
-- (BOOL)isAnimationOnlyAnnotation;
+- (_Bool)hasAnimationOrigin;
+- (_Bool)isAnimationOnlyAnnotation;
 - (void)resetAfterMapChangeWhenVisible;
 - (void)resetAfterMapChange;
 - (void)updateCoordinate:(CDStruct_c3b9c2ee)arg1;
@@ -43,7 +43,7 @@
 @property(readonly, nonatomic) NSString *subtitle;
 - (void)setTitle:(id)arg1;
 @property(readonly, nonatomic) NSString *title;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)initAnimationOnlyAnnotationWithLongitude:(double)arg1 latitude:(double)arg2;
 - (id)initWithLongitude:(double)arg1 latitude:(double)arg2 title:(id)arg3 subtitle:(id)arg4 photoAlbum:(struct NSObject *)arg5;

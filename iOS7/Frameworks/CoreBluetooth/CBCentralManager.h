@@ -13,14 +13,14 @@
 @interface CBCentralManager : NSObject <CBXpcConnectionDelegate>
 {
     id <CBCentralManagerDelegate> _delegate;
-    int _state;
+    long long _state;
     NSMutableDictionary *_peripherals;
-    BOOL _isScanning;
+    _Bool _isScanning;
     CBXpcConnection *_connection;
 }
 
-@property(readonly) int state; // @synthesize state=_state;
-@property(nonatomic) id <CBCentralManagerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(readonly) long long state; // @synthesize state=_state;
+@property(nonatomic) __weak id <CBCentralManagerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)xpcConnectionDidReset:(id)arg1;
 - (void)xpcConnectionIsInvalid:(id)arg1;
 - (void)xpcConnection:(id)arg1 didReceiveMsg:(int)arg2 args:(id)arg3;
@@ -34,13 +34,13 @@
 - (void)handlePeripheralsRetrieved:(id)arg1;
 - (void)handleRestoringState:(id)arg1;
 - (void)handleStateUpdated:(id)arg1;
-- (void)cancelPeripheralConnection:(id)arg1 force:(BOOL)arg2;
+- (void)cancelPeripheralConnection:(id)arg1 force:(_Bool)arg2;
 - (void)cancelPeripheralConnection:(id)arg1;
 - (void)connectPeripheral:(id)arg1 options:(id)arg2;
 - (void)stopScan;
 - (void)scanForPeripheralsWithServices:(id)arg1 options:(id)arg2;
 - (id)retrievePairedPeripherals;
-- (id)retrieveConnectedPeripheralsWithServices:(id)arg1 allowAll:(BOOL)arg2;
+- (id)retrieveConnectedPeripheralsWithServices:(id)arg1 allowAll:(_Bool)arg2;
 - (id)retrieveConnectedPeripheralsWithServices:(id)arg1;
 - (void)retrieveConnectedPeripherals;
 - (id)retrievePeripheralsWithIdentifiers:(id)arg1;

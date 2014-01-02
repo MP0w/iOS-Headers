@@ -17,13 +17,15 @@
 + (void)signOutAllAccounts;
 + (void)nukeKeychain;
 + (void)killEverything;
++ (void)killMobileSMS;
++ (void)killMobilePhone;
 + (void)killFaceTime;
 + (void)killMediaServerd;
 + (void)syncImagentLogSettings;
 + (void)killImavagent;
 + (void)killImagent;
-+ (void)setViceroyLoggingEnabled:(BOOL)arg1;
-+ (BOOL)isViceroyLoggingEnabled;
++ (void)setViceroyLoggingEnabled:(_Bool)arg1;
++ (_Bool)isViceroyLoggingEnabled;
 
 @end
 

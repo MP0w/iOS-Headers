@@ -7,8 +7,8 @@
 #pragma mark Named Structures
 
 struct CGPoint {
-    float x;
-    float y;
+    double x;
+    double y;
 };
 
 struct _CCCryptor;
@@ -19,7 +19,7 @@ typedef struct {
     struct _CCCryptor *_field1;
     unsigned char _field2[16];
     unsigned char _field3[16];
-    unsigned int _field4;
+    unsigned long long _field4;
     unsigned char _field5;
-} CDStruct_a554bdc7;
+} CDStruct_2d76d2d8;
 

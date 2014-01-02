@@ -5,7 +5,7 @@
  */
 
 @protocol CUIThemeGradientDrawing
-- (id)interpolatedColorAtLocation:(float)arg1;
-- (void)drawInRect:(struct CGRect)arg1 angle:(float)arg2;
+- (id)interpolatedColorAtLocation:(double)arg1;
+- (void)drawInRect:(struct CGRect)arg1 angle:(double)arg2;
 @end
 

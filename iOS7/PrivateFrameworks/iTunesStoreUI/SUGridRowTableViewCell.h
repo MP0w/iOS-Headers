@@ -14,8 +14,8 @@
 }
 
 @property(retain, nonatomic) NSArray *columnCells; // @synthesize columnCells=_columnCells;
-- (void)setSelected:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)setHighlighted:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)setSelected:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)setHighlighted:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)setBackgroundColor:(id)arg1;
 - (void)removeFromSuperview;
 - (void)dealloc;

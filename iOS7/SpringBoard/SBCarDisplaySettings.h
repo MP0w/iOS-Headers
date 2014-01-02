@@ -8,13 +8,13 @@
 
 @interface SBCarDisplaySettings : _UISettings
 {
-    int _lockOutMode;
-    int _lockOutAnimationType;
+    long long _lockOutMode;
+    long long _lockOutAnimationType;
 }
 
 + (id)settingsControllerModule;
-@property int lockOutAnimationType; // @synthesize lockOutAnimationType=_lockOutAnimationType;
-@property int lockOutMode; // @synthesize lockOutMode=_lockOutMode;
+@property long long lockOutAnimationType; // @synthesize lockOutAnimationType=_lockOutAnimationType;
+@property long long lockOutMode; // @synthesize lockOutMode=_lockOutMode;
 - (void)setDefaultValues;
 
 @end

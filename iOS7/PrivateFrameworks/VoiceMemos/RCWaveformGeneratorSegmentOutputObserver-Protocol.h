@@ -10,7 +10,7 @@
 - (void)waveformGenerator:(id)arg1 didLoadWaveformSegment:(id)arg2;
 
 @optional
-- (void)waveformGeneratorDidFinishLoading:(id)arg1;
+- (void)waveformGeneratorDidFinishLoading:(id)arg1 error:(id)arg2;
 - (void)waveformGeneratorWillBeginLoading:(id)arg1;
 @end
 

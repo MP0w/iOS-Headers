@@ -13,9 +13,9 @@
 @interface SBCenterIconZoomAnimator : SBIconZoomAnimator <SBIconListLayoutDelegate>
 {
     UIView *_zoomView;
-    float _iconZoomedZ;
-    float _centerRow;
-    float _centerCol;
+    double _iconZoomedZ;
+    double _centerRow;
+    double _centerCol;
     struct CGPoint _cameraPosition;
 }
 
@@ -28,10 +28,10 @@
 - (void)iconListViewLayoutInvalidated:(id)arg1;
 - (void)iconListView:(id)arg1 wouldHaveMovedIcon:(id)arg2;
 - (double)_iconZoomDelay;
-- (void)_animateToZoomFraction:(float)arg1 afterDelay:(double)arg2 withSharedCompletion:(id)arg3;
-- (unsigned int)_numberOfSignificantAnimations;
+- (void)_animateToZoomFraction:(double)arg1 afterDelay:(double)arg2 withSharedCompletion:(id)arg3;
+- (unsigned long long)_numberOfSignificantAnimations;
 - (void)_cleanupZoom;
-- (void)_setZoomFraction:(float)arg1;
+- (void)_setZoomFraction:(double)arg1;
 - (void)_prepareZoom;
 - (void)dealloc;
 - (id)initWithFolderController:(id)arg1;

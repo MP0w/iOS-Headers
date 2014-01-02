@@ -6,15 +6,17 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface WebFixedPositionContent : NSObject
 {
     struct WebFixedPositionContentData *_private;
 }
 
-- (float)minimumOffsetFromFixedPositionLayersToAnchorEdge:(int)arg1 ofRect:(struct CGRect)arg2 inLayer:(id)arg3;
-- (BOOL)hasFixedPositionLayers;
-- (void)setLayers:(HashMap_84a2442e *)arg1;
+- (double)minimumOffsetFromFixedPositionLayersToAnchorEdge:(long long)arg1 ofRect:(struct CGRect)arg2 inLayer:(id)arg3;
+- (_Bool)hasFixedOrStickyPositionLayers;
+- (void)setViewportConstrainedLayers:(HashMap_84a2442e *)arg1 stickyContainerMap:(HashMap_552a0c7e *)arg2;
 - (void)didFinishScrollingOrZooming;
+- (void)overflowScrollPositionForLayer:(id)arg1 changedTo:(struct CGPoint)arg2;
 - (void)scrollOrZoomChanged:(struct CGRect)arg1;
 - (void)dealloc;
 - (id)initWithWebView:(id)arg1;

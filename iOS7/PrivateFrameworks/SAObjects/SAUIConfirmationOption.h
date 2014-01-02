@@ -19,7 +19,7 @@
 @property(copy, nonatomic) NSString *type;
 @property(copy, nonatomic) NSString *label;
 @property(copy, nonatomic) NSArray *commands;
-@property(nonatomic) BOOL active;
+@property(nonatomic) _Bool active;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

@@ -6,6 +6,6 @@
 
 @protocol ADSession_RPC
 - (void)_remote_policyEngineTestStationDescriptionsComputed:(id)arg1;
-- (void)_remote_heartbeatTokenDidChange:(id)arg1 error:(id)arg2;
+- (void)_remote_heartbeatTokenDidChange:(id)arg1 expirationDate:(double)arg2 error:(id)arg3;
 @end
 

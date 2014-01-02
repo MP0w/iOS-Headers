@@ -8,6 +8,7 @@
 
 @class NSDictionary, NSMutableDictionary, NSPersistentStore, NSString;
 
+// Not exported
 @interface PFUbiquityPeerRangeCache : NSObject
 {
     NSMutableDictionary *_cachedRanges;
@@ -16,25 +17,25 @@
     NSString *_localPeerID;
     NSString *_storeName;
     NSPersistentStore *_privateStore;
-    BOOL _cachedStorePeerRanges;
+    _Bool _cachedStorePeerRanges;
 }
 
-+ (unsigned int)peerRangeStartForPrimaryKey:(unsigned int)arg1;
-+ (int)integerFromPrimaryKeyString:(id)arg1;
++ (unsigned long long)peerRangeStartForPrimaryKey:(unsigned long long)arg1;
++ (long long)integerFromPrimaryKeyString:(id)arg1;
 + (void)initialize;
 @property(readonly, nonatomic) NSPersistentStore *privateStore; // @synthesize privateStore=_privateStore;
 @property(readonly, nonatomic) NSDictionary *translatedGlobalIDs; // @synthesize translatedGlobalIDs=_translatedGlobalIDs;
 @property(readonly, nonatomic) NSString *storeName; // @synthesize storeName=_storeName;
 @property(readonly, nonatomic) NSString *localPeerID; // @synthesize localPeerID=_localPeerID;
-- (id)createMapOfManagedObjectIDsForGlobalIDs:(id)arg1 count:(int)arg2 error:(id *)arg3;
+- (id)createMapOfManagedObjectIDsForGlobalIDs:(id)arg1 count:(long long)arg2 error:(id *)arg3;
 - (id)createMapOfManagedObjectIDsForStoreSaveSnapshot:(id)arg1 error:(id *)arg2;
 - (id)createGlobalObjectIDForManagedObjectID:(id)arg1;
-- (unsigned int)localPrimaryKeyForOwningPeerID:(id)arg1 andEntityName:(id)arg2 withPrimaryKey:(unsigned int)arg3;
-- (id)cachedRangeForLocalPrimaryKey:(unsigned int)arg1 ofEntityNamed:(id)arg2;
-- (id)cachedRangeForOwningPeerID:(id)arg1 andEntityName:(id)arg2 withPrimaryKey:(unsigned int)arg3;
-- (BOOL)cacheSQLCorePeerRange:(id)arg1 error:(id *)arg2;
-- (BOOL)refreshPeerRangeCache:(id *)arg1;
-- (BOOL)cachePeerRanges:(id *)arg1;
+- (unsigned long long)localPrimaryKeyForOwningPeerID:(id)arg1 andEntityName:(id)arg2 withPrimaryKey:(unsigned long long)arg3;
+- (id)cachedRangeForLocalPrimaryKey:(unsigned long long)arg1 ofEntityNamed:(id)arg2;
+- (id)cachedRangeForOwningPeerID:(id)arg1 andEntityName:(id)arg2 withPrimaryKey:(unsigned long long)arg3;
+- (_Bool)cacheSQLCorePeerRange:(id)arg1 error:(id *)arg2;
+- (_Bool)refreshPeerRangeCache:(id *)arg1;
+- (_Bool)cachePeerRanges:(id *)arg1;
 - (id)describeCachesVerbose;
 - (id)describeCaches;
 - (id)description;

@@ -26,7 +26,7 @@
 @property(nonatomic) __weak id <EKTimeZoneViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) int chooserStyle; // @synthesize chooserStyle=_style;
 - (void).cxx_destruct;
-- (BOOL)searchDisplayController:(id)arg1 shouldReloadTableForSearchString:(id)arg2;
+- (_Bool)searchDisplayController:(id)arg1 shouldReloadTableForSearchString:(id)arg2;
 - (void)searchDisplayControllerWillEndSearch:(id)arg1;
 - (void)searchDisplayController:(id)arg1 willHideSearchResultsTableView:(id)arg2;
 - (void)searchDisplayController:(id)arg1 willShowSearchResultsTableView:(id)arg2;
@@ -34,9 +34,9 @@
 - (void)searchDisplayControllerWillBeginSearch:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (struct CGSize)contentSizeForViewInPopover;
-- (void)viewWillAppear:(BOOL)arg1;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (struct CGSize)preferredContentSize;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (id)initWithChooserStyle:(int)arg1;
 

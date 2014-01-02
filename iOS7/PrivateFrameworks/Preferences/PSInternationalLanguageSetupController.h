@@ -18,7 +18,7 @@
 - (void)setLanguage:(id)arg1 specifier:(id)arg2;
 - (void)didFinishCommit;
 - (void)commit;
-- (void)rotateView:(id)arg1 toOrientation:(int)arg2;
+- (void)rotateView:(id)arg1 toOrientation:(long long)arg2;
 - (void)showBlackViewWithLabel:(id)arg1;
 - (void)dealloc;
 

@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface CASlotProxy : NSObject
 {
     struct Proxy *_proxy;

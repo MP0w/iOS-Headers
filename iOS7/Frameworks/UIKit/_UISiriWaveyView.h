@@ -6,40 +6,70 @@
 
 #import <UIKit/UIView.h>
 
-@class CADisplayLink, CALayer, NSMutableArray;
+@class CADisplayLink, EAGLContext;
 
 @interface _UISiriWaveyView : UIView
 {
-    CALayer *_curvesLayer;
-    NSMutableArray *_curveSublayerArray;
+    struct {
+        CDStruct_23957544 m_axisX;
+        CDStruct_23957544 m_axisY;
+        CDStruct_23957544 m_axisZ;
+        CDStruct_23957544 m_trans;
+    } _projection;
     CADisplayLink *_displayLink;
+    EAGLContext *_eaglContext;
+    unsigned int _framebufferHandle;
+    unsigned int _renderbufferHandle;
+    unsigned int _vertexBufferHandle;
+    unsigned int _textureHandle;
+    unsigned int _programHandle;
+    int _attribPosition;
+    int _uniformProjection;
+    int _uniformOpacity;
+    int _uniformLineWidth;
+    int _uniformPowerLevel;
+    int _uniformDisplayWidth;
+    int _uniformTimeOffset;
+    int _uniformTexture;
+    int _viewWidth;
+    int _viewHeight;
+    float _projection11;
+    double _startTime;
     float _runningPowerLevels[5];
     unsigned int _powerPointer;
-    double _startTime;
-    BOOL _justStarted;
-    id <_UISiriWaveyViewDelegate> _delegate;
+    _Bool _isInitialized;
+    _Bool _justStarted;
+    int _state;
     int _mode;
+    id <_UISiriWaveyViewDelegate> _delegate;
 }
 
++ (Class)layerClass;
 @property(nonatomic) int mode; // @synthesize mode=_mode;
 @property(nonatomic) id <_UISiriWaveyViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (float)_currentMicPowerLevel;
 - (float)_powerLevelForMicPower:(float)arg1;
 - (float)_updateMedianWithNewValue:(float)arg1;
-- (void)layoutSubviews;
 - (void)_updateCurveLayer:(id)arg1;
-- (void)_updateCurveLayer;
-- (BOOL)inDictationMode;
-- (BOOL)inSiriMode;
+- (_Bool)inDictationMode;
+- (_Bool)inSiriMode;
+- (void)startListening;
 - (void)start;
-- (id)_addCurveShapeLayerAtPoint:(struct CGPoint)arg1 alpha:(float)arg2;
 - (void)_tearDownDisplayLink;
+- (void)layoutSubviews;
+- (void)_updateOrthoProjection;
+- (_Bool)_resizeFromLayer:(id)arg1;
+- (void)_cleanupGL;
+- (_Bool)_initGL;
+- (_Bool)_setupTexture;
+- (_Bool)_setupVertexBuffer;
+- (_Bool)_setupShaders;
+- (_Bool)_setupFramebuffer;
 - (void)_setupDisplayLink;
-- (void)setHidden:(BOOL)arg1;
+- (void)setHidden:(_Bool)arg1;
+- (void)didMoveToSuperview;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (void)initializeTransformsForShapeLayers;
-- (struct CATransform3D)transformForVerticalScale:(float)arg1;
 
 @end
 

@@ -7,7 +7,7 @@
 #import "NSMutableDictionary.h"
 
 @interface NSMutableDictionary (MPAuthoringSorting)
-- (int)sortPinInformationEarliestToLatest:(id)arg1;
-- (int)sortPinInformationLeftToRight:(id)arg1;
+- (long long)sortPinInformationEarliestToLatest:(id)arg1;
+- (long long)sortPinInformationLeftToRight:(id)arg1;
 @end
 

@@ -15,7 +15,7 @@
 + (id)boolSnippetWithDictionary:(id)arg1 context:(id)arg2;
 + (id)boolSnippet;
 @property(copy, nonatomic) NSNumber *value;
-@property(nonatomic) BOOL toggle;
+@property(nonatomic) _Bool toggle;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

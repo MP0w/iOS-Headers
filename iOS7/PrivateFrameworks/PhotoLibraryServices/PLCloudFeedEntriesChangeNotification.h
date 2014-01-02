@@ -10,7 +10,7 @@
 
 @interface PLCloudFeedEntriesChangeNotification : PLChangeNotification
 {
-    BOOL _shouldReload;
+    _Bool _shouldReload;
     NSSet *_insertedEntries;
     NSSet *_updatedEntries;
     NSSet *_deletedEntries;
@@ -21,10 +21,11 @@
 @property(copy, nonatomic) NSSet *deletedEntries; // @synthesize deletedEntries=_deletedEntries;
 @property(copy, nonatomic) NSSet *updatedEntries; // @synthesize updatedEntries=_updatedEntries;
 @property(copy, nonatomic) NSSet *insertedEntries; // @synthesize insertedEntries=_insertedEntries;
-@property(nonatomic) BOOL shouldReload; // @synthesize shouldReload=_shouldReload;
+@property(nonatomic) _Bool shouldReload; // @synthesize shouldReload=_shouldReload;
 - (id)userInfo;
 - (id)object;
 - (id)name;
+- (void)dealloc;
 - (id)_initWithInsertedEntries:(id)arg1 updatedEntries:(id)arg2 deletedEntries:(id)arg3;
 - (id)_initWithFullReload;
 

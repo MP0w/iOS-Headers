@@ -15,10 +15,10 @@
     struct OpaqueFigPlaybackItem *_fpItem;
     CDStruct_1b6d18a9 _currentDuration;
     struct CGSize _currentSize;
-    BOOL _currentSizeIsValid;
-    BOOL _isPreparingForInspectionInitialSamples;
-    BOOL _isPreparingForInspectionAccurateDuration;
-    BOOL _isInPlayQueue;
+    _Bool _currentSizeIsValid;
+    _Bool _isPreparingForInspectionInitialSamples;
+    _Bool _isPreparingForInspectionAccurateDuration;
+    _Bool _isInPlayQueue;
     double _bookmarkTime;
     NSDictionary *_streamStateNotificationInfo;
     NSDictionary *_lyricsNotificationInfo;
@@ -27,15 +27,15 @@
 }
 
 + (id)convertFigTimeDictionaryToTimeIntervalWithKey:(id)arg1 stringURLToNSURLWithKey:(id)arg2 inArrayOfDictionaries:(id)arg3;
-@property BOOL isPreparingForInspectionAccurateDuration; // @synthesize isPreparingForInspectionAccurateDuration=_isPreparingForInspectionAccurateDuration;
-@property BOOL isPreparingForInspectionInitialSamples; // @synthesize isPreparingForInspectionInitialSamples=_isPreparingForInspectionInitialSamples;
-@property BOOL isInPlayQueue; // @synthesize isInPlayQueue=_isInPlayQueue;
+@property _Bool isPreparingForInspectionAccurateDuration; // @synthesize isPreparingForInspectionAccurateDuration=_isPreparingForInspectionAccurateDuration;
+@property _Bool isPreparingForInspectionInitialSamples; // @synthesize isPreparingForInspectionInitialSamples=_isPreparingForInspectionInitialSamples;
+@property _Bool isInPlayQueue; // @synthesize isInPlayQueue=_isInPlayQueue;
 @property(retain) NSDictionary *lyricsNotificationInfo; // @synthesize lyricsNotificationInfo=_lyricsNotificationInfo;
 @property(retain) NSDictionary *streamStateNotificationInfo; // @synthesize streamStateNotificationInfo=_streamStateNotificationInfo;
 @property(retain) NSDictionary *playToEndNotificationInfo; // @synthesize playToEndNotificationInfo=_playToEndNotificationInfo;
 @property(retain) NSDictionary *inspectionNotificationInfo; // @synthesize inspectionNotificationInfo=_inspectionNotificationInfo;
-- (id)evenlySpacedThumbnailTimesFromStartTime:(double)arg1 toEndTime:(double)arg2 maxCount:(int)arg3;
-- (id)nextThumbnailTimesStartingAt:(double)arg1 minimumInterval:(double)arg2 forwards:(BOOL)arg3 maxCount:(int)arg4;
+- (id)evenlySpacedThumbnailTimesFromStartTime:(double)arg1 toEndTime:(double)arg2 maxCount:(long long)arg3;
+- (id)nextThumbnailTimesStartingAt:(double)arg1 minimumInterval:(double)arg2 forwards:(_Bool)arg3 maxCount:(long long)arg4;
 - (void)stealControlOfAVItem;
 - (void)setBookmarkTime:(double)arg1;
 - (struct OpaqueFigPlaybackItem *)fpItem;
@@ -43,7 +43,7 @@
 - (void)fpItemNotificationInfo:(id)arg1;
 - (void)fpItemNotificationName:(id)arg1 userInfo:(id)arg2;
 - (void)removeFromPlayQueue:(struct OpaqueFigPlayer *)arg1;
-- (BOOL)addToPlayQueue:(struct OpaqueFigPlayer *)arg1 afterItem:(struct OpaqueFigPlaybackItem *)arg2;
+- (_Bool)addToPlayQueue:(struct OpaqueFigPlayer *)arg1 afterItem:(struct OpaqueFigPlaybackItem *)arg2;
 - (void)makeReadyForInspection;
 - (void)ensureFPItem;
 - (void)applyBookmarkTime;
@@ -59,7 +59,7 @@
 - (id)formatDetailsForTracks;
 - (void)cacheCurrentDuration;
 - (void)cacheCurrentSize;
-@property(readonly) BOOL isPreparingForInspection;
+@property(readonly) _Bool isPreparingForInspection;
 - (void)dealloc;
 - (id)initWithDelegate:(id)arg1 item:(id)arg2;
 

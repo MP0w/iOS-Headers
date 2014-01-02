@@ -10,7 +10,7 @@
 {
 }
 
-- (float)_entryFieldBottomYDistanceFromNumberPadTopButton;
+- (double)_entryFieldBottomYDistanceFromNumberPadTopButton;
 - (id)_newEntryField;
 - (id)init;
 

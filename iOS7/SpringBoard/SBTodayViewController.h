@@ -17,11 +17,11 @@
     SBBBSectionInfo *_tomorrowSectionInfo;
 }
 
-- (int)bulletinViewController:(id)arg1 insertionAnimationForBulletin:(id)arg2 inSection:(id)arg3;
+- (long long)bulletinViewController:(id)arg1 insertionAnimationForBulletin:(id)arg2 inSection:(id)arg3;
 - (void)widget:(id)arg1 didUpdatePreferredSize:(struct CGSize)arg2;
 - (void)commitReplacementWithBulletin:(id)arg1 ofBulletin:(id)arg2 inSection:(id)arg3;
 - (void)commitRemovalOfBulletin:(id)arg1 fromSection:(id)arg2;
-- (void)commitInsertionOfBulletin:(id)arg1 beforeBulletin:(id)arg2 inSection:(id)arg3 forFeed:(unsigned int)arg4;
+- (void)commitInsertionOfBulletin:(id)arg1 beforeBulletin:(id)arg2 inSection:(id)arg3 forFeed:(unsigned long long)arg4;
 - (void)_sortBulletinsForSectionWithIdentifier:(id)arg1 referencingOrder:(id)arg2;
 - (id)_bulletinOrderStringForBulletinInfo:(id)arg1;
 - (id)_tomorrowSnippetBulletinOrder;
@@ -33,9 +33,9 @@
 - (id)infoForWidgetSection:(id)arg1;
 - (id)infoForBulletin:(id)arg1 inSection:(id)arg2;
 - (id)infoForBulletinSection:(id)arg1;
-- (int)widgetIdiomForCategory:(int)arg1;
-- (struct UIEdgeInsets)bulletinViewControllerContentInsetsForMode:(int)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (long long)widgetIdiomForCategory:(long long)arg1;
+- (struct UIEdgeInsets)bulletinViewControllerContentInsetsForMode:(long long)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewWillLayoutSubviews;
 - (void)viewDidLoad;
 - (void)updateTableHeader;

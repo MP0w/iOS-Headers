@@ -15,7 +15,7 @@
     NSMutableArray *_allowedClasses;
 }
 
-- (BOOL)classNameAllowed:(Class)arg1;
+- (_Bool)classNameAllowed:(Class)arg1;
 - (void)setAllowedClassNames:(id)arg1;
 - (id)allowedClassNames;
 - (void)dealloc;

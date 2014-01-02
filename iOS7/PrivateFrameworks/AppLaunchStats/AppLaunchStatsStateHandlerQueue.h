@@ -17,6 +17,7 @@
     NSMutableArray *dataBudgetHandlerQueue;
     NSMutableArray *powerFetchBudgetHandlerQueue;
     NSMutableArray *powerPushBudgetHandlerQueue;
+    NSMutableArray *bgNDISCDataReadHandlerQueue;
     NSMutableArray *appForecastHandlerQueue;
     NSMutableArray *dataForecastHandlerQueue;
     NSMutableArray *powerForecastHandlerQueue;
@@ -25,8 +26,10 @@
     NSMutableArray *ok2LaunchHandlerQueue;
     NSMutableArray *scoreHandlerQueue;
     NSMutableArray *databaseAgeHandlerQueue;
+    NSMutableArray *noprewarmListHandlerQueue;
 }
 
+@property(readonly, nonatomic) NSMutableArray *noprewarmListHandlerQueue; // @synthesize noprewarmListHandlerQueue;
 @property(readonly, nonatomic) NSMutableArray *databaseAgeHandlerQueue; // @synthesize databaseAgeHandlerQueue;
 @property(readonly, nonatomic) NSMutableArray *scoreHandlerQueue; // @synthesize scoreHandlerQueue;
 @property(readonly, nonatomic) NSMutableArray *ok2LaunchHandlerQueue; // @synthesize ok2LaunchHandlerQueue;
@@ -35,6 +38,7 @@
 @property(readonly, nonatomic) NSMutableArray *powerForecastHandlerQueue; // @synthesize powerForecastHandlerQueue;
 @property(readonly, nonatomic) NSMutableArray *dataForecastHandlerQueue; // @synthesize dataForecastHandlerQueue;
 @property(readonly, nonatomic) NSMutableArray *appForecastHandlerQueue; // @synthesize appForecastHandlerQueue;
+@property(readonly, nonatomic) NSMutableArray *bgNDISCDataReadHandlerQueue; // @synthesize bgNDISCDataReadHandlerQueue;
 @property(readonly, nonatomic) NSMutableArray *powerPushBudgetHandlerQueue; // @synthesize powerPushBudgetHandlerQueue;
 @property(readonly, nonatomic) NSMutableArray *powerFetchBudgetHandlerQueue; // @synthesize powerFetchBudgetHandlerQueue;
 @property(readonly, nonatomic) NSMutableArray *dataBudgetHandlerQueue; // @synthesize dataBudgetHandlerQueue;

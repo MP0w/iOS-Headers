@@ -7,15 +7,15 @@
 #import "NSObject.h"
 
 @interface NSObject (__NSIsKinds)
-- (BOOL)isNSValue__;
-- (BOOL)isNSTimeZone__;
-- (BOOL)isNSString__;
-- (BOOL)isNSSet__;
-- (BOOL)isNSOrderedSet__;
-- (BOOL)isNSNumber__;
-- (BOOL)isNSDictionary__;
-- (BOOL)isNSDate__;
-- (BOOL)isNSData__;
-- (BOOL)isNSArray__;
+- (_Bool)isNSValue__;
+- (_Bool)isNSTimeZone__;
+- (_Bool)isNSString__;
+- (_Bool)isNSSet__;
+- (_Bool)isNSOrderedSet__;
+- (_Bool)isNSNumber__;
+- (_Bool)isNSDictionary__;
+- (_Bool)isNSDate__;
+- (_Bool)isNSData__;
+- (_Bool)isNSArray__;
 @end
 

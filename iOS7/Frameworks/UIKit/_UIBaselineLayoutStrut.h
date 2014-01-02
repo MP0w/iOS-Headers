@@ -6,6 +6,7 @@
 
 #import <UIKit/UITextFieldLabel.h>
 
+// Not exported
 @interface _UIBaselineLayoutStrut : UITextFieldLabel
 {
 }

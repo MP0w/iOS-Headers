@@ -6,6 +6,7 @@
 
 #import <Foundation/NSConcreteFileHandle.h>
 
+// Not exported
 @interface _NSStdIOFileHandle : NSConcreteFileHandle
 {
 }

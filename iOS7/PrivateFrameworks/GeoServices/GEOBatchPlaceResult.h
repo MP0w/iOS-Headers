@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class GEOPlaceResult;
 
-@interface GEOBatchPlaceResult : PBCodable
+@interface GEOBatchPlaceResult : PBCodable <NSCopying>
 {
     GEOPlaceResult *_placeResult;
     int _statusCode;
@@ -17,15 +19,16 @@
 
 @property(retain, nonatomic) GEOPlaceResult *placeResult; // @synthesize placeResult=_placeResult;
 @property(nonatomic) int statusCode; // @synthesize statusCode=_statusCode;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) BOOL hasPlaceResult;
-@property(nonatomic) BOOL hasStatusCode;
+@property(readonly, nonatomic) _Bool hasPlaceResult;
+@property(nonatomic) _Bool hasStatusCode;
 - (void)dealloc;
 
 @end

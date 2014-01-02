@@ -25,12 +25,12 @@
 - (void)_destroyAlertView;
 - (void)_destroyActionSheet;
 - (id)_copyAllowedToneStyles;
-- (BOOL)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
-- (BOOL)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2;
+- (_Bool)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
+- (_Bool)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2;
 - (void)peoplePickerNavigationControllerDidCancel:(id)arg1;
-- (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
+- (void)alertView:(id)arg1 didDismissWithButtonIndex:(long long)arg2;
 - (void)alertViewCancel:(id)arg1;
-- (void)actionSheet:(id)arg1 didDismissWithButtonIndex:(int)arg2;
+- (void)actionSheet:(id)arg1 didDismissWithButtonIndex:(long long)arg2;
 - (void)actionSheetCancel:(id)arg1;
 - (void)start;
 - (void)cancel;

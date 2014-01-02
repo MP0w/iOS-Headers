@@ -8,6 +8,7 @@
 
 @class NSEntityMapping, NSMutableArray, NSMutableDictionary, NSSQLEntity;
 
+// Not exported
 @interface _NSSQLEntityMigrationDescription : NSObject
 {
     NSEntityMapping *_entityMapping;

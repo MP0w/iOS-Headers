@@ -17,7 +17,7 @@
 - (void)dealloc;
 - (id)reversed;
 - (id)description;
-- (BOOL)matches:(id)arg1;
+- (_Bool)matches:(id)arg1;
 - (id)initWithArray:(id)arg1;
 - (id)initFromPlist:(id)arg1;
 

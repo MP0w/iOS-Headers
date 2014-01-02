@@ -6,40 +6,41 @@
 
 #import <Foundation/NSPointerArray.h>
 
+// Not exported
 @interface NSConcretePointerArray : NSPointerArray
 {
     struct NSSlice slice;
-    unsigned int count;
-    unsigned int capacity;
-    unsigned int options;
-    unsigned int mutations;
-    BOOL needsCompaction;
+    unsigned long long count;
+    unsigned long long capacity;
+    unsigned long long options;
+    unsigned long long mutations;
+    _Bool needsCompaction;
 }
 
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)removePointer:(void *)arg1;
-- (unsigned int)indexOfPointer:(void *)arg1;
-- (void)setCount:(unsigned int)arg1;
-- (unsigned int)count;
+- (unsigned long long)indexOfPointer:(void *)arg1;
+- (void)setCount:(unsigned long long)arg1;
+- (unsigned long long)count;
 - (void)compact;
 - (void)_markNeedsCompaction;
-- (void)replacePointerAtIndex:(unsigned int)arg1 withPointer:(void *)arg2;
-- (void)insertPointer:(void *)arg1 atIndex:(unsigned int)arg2;
-- (void)removePointerAtIndex:(unsigned int)arg1;
+- (void)replacePointerAtIndex:(unsigned long long)arg1 withPointer:(void *)arg2;
+- (void)insertPointer:(void *)arg1 atIndex:(unsigned long long)arg2;
+- (void)removePointerAtIndex:(unsigned long long)arg1;
 - (void)addPointer:(void *)arg1;
-- (void *)pointerAtIndex:(unsigned int)arg1;
-- (void)arrayGrow:(unsigned int)arg1;
+- (void *)pointerAtIndex:(unsigned long long)arg1;
+- (void)arrayGrow:(unsigned long long)arg1;
 - (id)pointerFunctions;
-- (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
+- (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
 - (void)encodeWithCoder:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)finalize;
 - (void)dealloc;
 - (id)initWithCoder:(id)arg1;
 - (Class)classForCoder;
 - (id)initWithPointerFunctions:(id)arg1;
-- (id)initWithOptions:(unsigned int)arg1;
+- (id)initWithOptions:(unsigned long long)arg1;
 - (void)_initBlock;
 - (id)init;
 

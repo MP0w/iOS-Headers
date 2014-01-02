@@ -6,25 +6,20 @@
 
 #import "UIView.h"
 
-@class UIColor;
-
 @interface RCChronologicalAnnotationView : UIView
 {
-    int _totalTickMarks;
-    int _majorTickMarkInterval;
-    int _majorTickMarkOffset;
-    UIColor *_tickMarkColor;
+    long long _totalTickMarks;
+    long long _majorTickMarkInterval;
+    long long _majorTickMarkOffset;
     CDStruct_73a5d3ca _visibleTimeRange;
     struct UIEdgeInsets _contentInset;
 }
 
 @property(nonatomic) struct UIEdgeInsets contentInset; // @synthesize contentInset=_contentInset;
-@property(retain, nonatomic) UIColor *tickMarkColor; // @synthesize tickMarkColor=_tickMarkColor;
-@property(nonatomic) int majorTickMarkOffset; // @synthesize majorTickMarkOffset=_majorTickMarkOffset;
-@property(nonatomic) int majorTickMarkInterval; // @synthesize majorTickMarkInterval=_majorTickMarkInterval;
-@property(nonatomic) int totalTickMarks; // @synthesize totalTickMarks=_totalTickMarks;
+@property(nonatomic) long long majorTickMarkOffset; // @synthesize majorTickMarkOffset=_majorTickMarkOffset;
+@property(nonatomic) long long majorTickMarkInterval; // @synthesize majorTickMarkInterval=_majorTickMarkInterval;
+@property(nonatomic) long long totalTickMarks; // @synthesize totalTickMarks=_totalTickMarks;
 @property(nonatomic) CDStruct_73a5d3ca visibleTimeRange; // @synthesize visibleTimeRange=_visibleTimeRange;
-- (void).cxx_destruct;
 - (id)_timeLabelAttributes;
 - (void)drawRect:(struct CGRect)arg1;
 - (struct CGSize)labelsSize;

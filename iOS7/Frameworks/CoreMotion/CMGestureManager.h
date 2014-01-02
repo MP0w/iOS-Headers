@@ -11,8 +11,8 @@
     id _internal;
 }
 
-+ (void)setGestureServiceEnabled:(BOOL)arg1;
-+ (BOOL)isGestureServiceEnabled;
++ (void)setGestureServiceEnabled:(_Bool)arg1;
++ (_Bool)isGestureServiceEnabled;
 @property(copy) id gestureHandler;
 - (void)dealloc;
 - (id)initWithPriority:(int)arg1;

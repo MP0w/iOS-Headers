@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface ODDShapeAdjustment : NSObject
 {
     unsigned int mIndex;

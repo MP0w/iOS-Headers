@@ -13,14 +13,14 @@
 @interface RegionFormatSampleView : UIView <PSHeaderFooterView>
 {
     UILabel *_labels[4];
-    float _sized;
-    float _labelTopPadding[4];
+    double _sized;
+    double _labelTopPadding[4];
 }
 
 - (id)_accessibilityLabels;
 - (void)layoutSubviews;
 - (void)dealloc;
-- (float)preferredHeightForWidth:(float)arg1;
+- (double)preferredHeightForWidth:(double)arg1;
 - (id)initWithSpecifier:(id)arg1;
 - (void)setTextForRegionExample:(id)arg1;
 - (id)generateRegionSampleLabel;

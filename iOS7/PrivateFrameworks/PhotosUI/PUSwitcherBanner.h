@@ -12,20 +12,20 @@
 {
     UIView *_view;
     NSArray *_itemTitles;
-    int _selectedItemIndex;
+    long long _selectedItemIndex;
     UISegmentedControl *__segmentedControl;
 }
 
 @property(retain, nonatomic, setter=_setSegmentedControl:) UISegmentedControl *_segmentedControl; // @synthesize _segmentedControl=__segmentedControl;
-@property(nonatomic) int selectedItemIndex; // @synthesize selectedItemIndex=_selectedItemIndex;
+@property(nonatomic) long long selectedItemIndex; // @synthesize selectedItemIndex=_selectedItemIndex;
 - (void)_setItemTitles:(id)arg1;
 @property(copy, nonatomic) NSArray *itemTitles; // @synthesize itemTitles=_itemTitles;
 - (void).cxx_destruct;
 - (void)_segmentedControlAction:(id)arg1;
-- (void)setEnabled:(BOOL)arg1 forItemAtIndex:(int)arg2;
-- (BOOL)isEnabledForItemAtIndex:(int)arg1;
+- (void)setEnabled:(_Bool)arg1 forItemAtIndex:(long long)arg2;
+- (_Bool)isEnabledForItemAtIndex:(long long)arg1;
 - (id)view;
-- (float)height;
+- (double)height;
 - (id)initWithItemTitles:(id)arg1;
 
 @end

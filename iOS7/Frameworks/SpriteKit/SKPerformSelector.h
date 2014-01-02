@@ -6,6 +6,7 @@
 
 #import <SpriteKit/SKAction.h>
 
+// Not exported
 @interface SKPerformSelector : SKAction
 {
     SEL _selector;

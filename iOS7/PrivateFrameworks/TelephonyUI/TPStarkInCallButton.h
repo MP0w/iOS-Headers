@@ -6,26 +6,28 @@
 
 #import "UIButton.h"
 
-@class NSLayoutConstraint, UIColor, UILabel;
+@class NSLayoutConstraint, UIColor, UILabel, UIView;
 
 @interface TPStarkInCallButton : UIButton
 {
-    BOOL _toggledOn;
+    _Bool _toggledOn;
+    int _inCallButtonType;
     UILabel *_buttonLabel;
     NSLayoutConstraint *_horizontalPositioningConstraint;
-    int _inCallButtonType;
     UIColor *_unhighlightedBackgroundColor;
+    UIView *_toggledOnView;
 }
 
+@property(retain) UIView *toggledOnView; // @synthesize toggledOnView=_toggledOnView;
 @property(retain) UIColor *unhighlightedBackgroundColor; // @synthesize unhighlightedBackgroundColor=_unhighlightedBackgroundColor;
-@property(nonatomic) BOOL toggledOn; // @synthesize toggledOn=_toggledOn;
+@property(nonatomic) _Bool toggledOn; // @synthesize toggledOn=_toggledOn;
 @property(readonly) int inCallButtonType; // @synthesize inCallButtonType=_inCallButtonType;
 @property(retain) NSLayoutConstraint *horizontalPositioningConstraint; // @synthesize horizontalPositioningConstraint=_horizontalPositioningConstraint;
 @property(retain) UILabel *buttonLabel; // @synthesize buttonLabel=_buttonLabel;
 - (void)dealloc;
-- (void)setSelected:(BOOL)arg1;
-- (void)setEnabled:(BOOL)arg1;
-- (void)setHighlighted:(BOOL)arg1;
+- (void)setSelected:(_Bool)arg1;
+- (void)setEnabled:(_Bool)arg1;
+- (void)setHighlighted:(_Bool)arg1;
 - (struct CGSize)intrinsicContentSize;
 @property(readonly) int specialLayoutType;
 - (id)initForButtonType:(int)arg1;

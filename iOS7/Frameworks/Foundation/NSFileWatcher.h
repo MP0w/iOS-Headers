@@ -8,17 +8,18 @@
 
 @class NSFileWatcherObservations, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, NSURL;
 
+// Not exported
 @interface NSFileWatcher : NSObject
 {
     NSObject<OS_dispatch_queue> *_queue;
     NSURL *_url;
     id _observer;
-    BOOL _isWatching;
+    _Bool _isWatching;
     NSObject<OS_dispatch_source> *_eventSource;
     unsigned long long _lastObservedEventID;
     struct __FSEventStream *_eventStream;
-    BOOL _eventsAreAboutDirectory;
-    BOOL _isUnsettled;
+    _Bool _eventsAreAboutDirectory;
+    _Bool _isUnsettled;
     NSFileWatcherObservations *_itemObservations;
     NSMutableDictionary *_subitemObservationsByEventPath;
     NSURL *_fileReferenceURL;
@@ -29,11 +30,12 @@
 - (void)stop;
 - (void)settle;
 - (void)unsettle;
-- (void)startWithObserver:(id)arg1;
+- (void)start;
+- (void)setObserver:(id)arg1;
 - (void)setLastObservedEventID:(unsigned long long)arg1;
 - (void)setURL:(id)arg1;
 - (void)watchItem;
-- (void)handleFSEventPath:(id)arg1 flags:(unsigned long)arg2 id:(unsigned long long)arg3;
+- (void)handleFSEventPath:(id)arg1 flags:(unsigned int)arg2 id:(unsigned long long)arg3;
 - (void)dealloc;
 - (id)initWithQueue:(id)arg1;
 

@@ -7,8 +7,8 @@
 #import "NSIndexPath.h"
 
 @interface NSIndexPath (ABContactView)
-+ (id)indexPathForItem:(int)arg1 inGroup:(int)arg2;
-@property(readonly, nonatomic) int ab_item;
-@property(readonly, nonatomic) int ab_group;
++ (id)indexPathForItem:(long long)arg1 inGroup:(long long)arg2;
+@property(readonly, nonatomic) long long ab_item;
+@property(readonly, nonatomic) long long ab_group;
 @end
 

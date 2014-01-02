@@ -18,7 +18,7 @@
     id _updateFinishedHandler;
 }
 
-+ (void)setUsePersistentConnection:(BOOL)arg1;
++ (void)setUsePersistentConnection:(_Bool)arg1;
 + (void)_resetURL;
 + (id)acUpdateURL;
 + (id)acInitUrl;

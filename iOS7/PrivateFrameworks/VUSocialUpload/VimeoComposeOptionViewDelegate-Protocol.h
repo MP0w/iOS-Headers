@@ -7,6 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol VimeoComposeOptionViewDelegate <NSObject>
-- (void)vimeoComposeOptionView:(id)arg1 didFinishWithDescription:(id)arg2;
+- (void)vimeoComposeOptionsViewDidFinish:(id)arg1;
 @end
 

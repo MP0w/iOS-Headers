@@ -18,7 +18,7 @@
 - (id)description;
 - (void)finalize;
 - (void)dealloc;
-- (id)_initWithAsset:(id)arg1 trackID:(int)arg2 trackIndex:(long)arg3;
+- (id)_initWithAsset:(id)arg1 trackID:(int)arg2 trackIndex:(long long)arg3;
 
 @end
 

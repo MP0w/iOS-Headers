@@ -16,14 +16,14 @@
 
 @property(nonatomic) NSObject<OS_dispatch_queue> *delegateQ; // @synthesize delegateQ=_delegateQ;
 @property(nonatomic) id <GEOTileServerProxyDelegate> delegate; // @synthesize delegate=_delegate;
-- (BOOL)skipNetworkForKeysWhenPreloading:(id)arg1;
+- (_Bool)skipNetworkForKeysWhenPreloading:(id)arg1;
 - (void)endPreloadSession;
 - (void)beginPreloadSessionOfSize:(unsigned long long)arg1;
 - (void)shrinkDiskCacheToSize:(unsigned long long)arg1;
 - (void)flushPendingWrites;
 - (void)reportCorruptTile:(const struct _GEOTileKey *)arg1;
 - (void)cancel:(const struct _GEOTileKey *)arg1;
-- (void)loadTiles:(id)arg1 priorities:(unsigned int *)arg2 options:(unsigned int)arg3 client:(id)arg4;
+- (void)loadTiles:(id)arg1 priorities:(unsigned int *)arg2 options:(unsigned long long)arg3 client:(id)arg4;
 - (void)close;
 - (void)open;
 

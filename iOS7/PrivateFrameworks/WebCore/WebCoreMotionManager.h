@@ -8,6 +8,7 @@
 
 @class CLLocationManager, CMMotionManager, NSTimer;
 
+// Not exported
 @interface WebCoreMotionManager : NSObject
 {
     CMMotionManager *m_motionManager;
@@ -15,8 +16,8 @@
     struct HashSet<WebCore::DeviceMotionClientIOS *, WTF::PtrHash<WebCore::DeviceMotionClientIOS *>, WTF::HashTraits<WebCore::DeviceMotionClientIOS *>> m_deviceMotionClients;
     struct HashSet<WebCore::DeviceOrientationClientIOS *, WTF::PtrHash<WebCore::DeviceOrientationClientIOS *>, WTF::HashTraits<WebCore::DeviceOrientationClientIOS *>> m_deviceOrientationClients;
     NSTimer *m_updateTimer;
-    BOOL m_gyroAvailable;
-    BOOL m_headingAvailable;
+    _Bool m_gyroAvailable;
+    _Bool m_headingAvailable;
 }
 
 + (id)sharedManager;
@@ -27,8 +28,8 @@
 - (void)update;
 - (void)checkClientStatus;
 - (void)initializeOnMainThread;
-- (BOOL)headingAvailable;
-- (BOOL)gyroAvailable;
+- (_Bool)headingAvailable;
+- (_Bool)gyroAvailable;
 - (void)removeOrientationClient:(struct DeviceOrientationClientIOS *)arg1;
 - (void)addOrientationClient:(struct DeviceOrientationClientIOS *)arg1;
 - (void)removeMotionClient:(struct DeviceMotionClientIOS *)arg1;

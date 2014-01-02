@@ -8,6 +8,7 @@
 
 @class TSDBezierPath;
 
+// Not exported
 @interface MFPhonePath : MFPath
 {
     TSDBezierPath *m_path;
@@ -25,7 +26,7 @@
 - (int)abort;
 - (int)end;
 - (int)begin;
-- (BOOL)isOpen;
+- (_Bool)isOpen;
 - (int)state;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;

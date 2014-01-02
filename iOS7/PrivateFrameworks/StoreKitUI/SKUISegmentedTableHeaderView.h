@@ -6,12 +6,13 @@
 
 #import "UIView.h"
 
-@class SUSegmentedControl;
+@class SUSegmentedControl, _UIBackdropView;
 
 @interface SKUISegmentedTableHeaderView : UIView
 {
     UIView *_borderView;
     SUSegmentedControl *_segmentedControl;
+    _UIBackdropView *_backdropView;
 }
 
 @property(retain, nonatomic) SUSegmentedControl *segmentedControl; // @synthesize segmentedControl=_segmentedControl;
@@ -19,7 +20,8 @@
 - (id)_borderView;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
-@property(nonatomic) BOOL hidesBorderView;
+@property(nonatomic) _Bool hidesBorderView;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

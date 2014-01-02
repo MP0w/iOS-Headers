@@ -17,15 +17,15 @@
     BBXPCIncomingConnection *_connection;
     NSString *_serviceName;
     NSString *_appBundleID;
-    BOOL _registered;
-    BOOL _connected;
+    _Bool _registered;
+    _Bool _connected;
     NSMutableSet *_pendingProviders;
     id <BBRemoteDataProviderConnectionDelegate> _delegate;
 }
 
 - (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
 - (void)_noteConnectionStateChanged;
-- (void)connection:(id)arg1 connectionStateDidChange:(BOOL)arg2;
+- (void)connection:(id)arg1 connectionStateDidChange:(_Bool)arg2;
 - (void)removeDataProviderWithSectionID:(id)arg1;
 - (void)addDataProviderWithSectionID:(id)arg1;
 - (void)registerServiceName:(id)arg1 appBundleID:(id)arg2;

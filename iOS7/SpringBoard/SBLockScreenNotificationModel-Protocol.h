@@ -8,6 +8,6 @@
 
 @protocol SBLockScreenNotificationModel <NSObject>
 - (id)listItemAtIndexPath:(id)arg1;
-- (unsigned int)count;
+- (unsigned long long)count;
 @end
 

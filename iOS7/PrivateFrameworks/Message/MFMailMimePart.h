@@ -11,26 +11,22 @@
 }
 
 + (Class)attachmentClass;
-+ (BOOL)isRecognizedClassForContent:(id)arg1;
-- (id)contentToOffset:(unsigned int)arg1 resultOffset:(unsigned int *)arg2 downloadIfNecessary:(BOOL)arg3 asHTML:(BOOL)arg4 isComplete:(char *)arg5;
-- (BOOL)_shouldContinueDecodingProcess;
-- (id)storeData:(id)arg1 inMessage:(id)arg2 isComplete:(BOOL)arg3;
++ (_Bool)isRecognizedClassForContent:(id)arg1;
+- (id)contentToOffset:(unsigned long long)arg1 resultOffset:(unsigned long long *)arg2 downloadIfNecessary:(_Bool)arg3 asHTML:(_Bool)arg4 isComplete:(_Bool *)arg5;
+- (_Bool)_shouldContinueDecodingProcess;
+- (id)storeData:(id)arg1 inMessage:(id)arg2 isComplete:(_Bool)arg3;
 - (void)configureFileWrapper:(id)arg1;
 - (id)fileWrapperForDecodedObject:(id)arg1 withFileData:(id *)arg2;
-- (id)fileWrapperForcingDownload:(BOOL)arg1;
+- (id)fileWrapperForcingDownload:(_Bool)arg1;
 - (id)decodeMultipartAppledouble;
 - (id)decodeTextCalendar;
 - (id)decodeTextPlain;
 - (id)htmlContent;
-- (id)htmlContentToOffset:(unsigned int)arg1 resultOffset:(unsigned int *)arg2;
-- (id)htmlContentToOffset:(unsigned int)arg1 resultOffset:(unsigned int *)arg2 downloadIfNecessary:(BOOL)arg3;
+- (id)htmlContentToOffset:(unsigned long long)arg1 resultOffset:(unsigned long long *)arg2;
+- (id)htmlContentToOffset:(unsigned long long)arg1 resultOffset:(unsigned long long *)arg2 downloadIfNecessary:(_Bool)arg3;
 - (id)decodeTextHtml;
 - (id)decodeTextEnriched;
 - (id)decodeTextRichtext;
-- (id)decodeMessageExternal_body;
-- (id)decodeMessagePartial;
-- (id)decodeMessageRfc822;
-- (id)decodeMessageDelivery_status;
 
 @end
 

@@ -6,25 +6,30 @@
 
 #import "UIViewController.h"
 
-@class NSTimer;
+@class NSTimer, _UILegibilitySettings;
 
 @interface SBLockScreenDateViewController : UIViewController
 {
     NSTimer *_updateTimer;
-    BOOL _disablesUpdates;
+    _Bool _disablesUpdates;
+    _UILegibilitySettings *_legibilitySettings;
 }
 
-@property(nonatomic) BOOL disablesUpdates; // @synthesize disablesUpdates=_disablesUpdates;
-- (void)setContentAlpha:(float)arg1 withDateVisible:(BOOL)arg2;
+@property(retain, nonatomic) _UILegibilitySettings *legibilitySettings; // @synthesize legibilitySettings=_legibilitySettings;
+@property(nonatomic) _Bool disablesUpdates; // @synthesize disablesUpdates=_disablesUpdates;
+- (void)setContentAlpha:(double)arg1 withDateVisible:(_Bool)arg2;
 - (void)_startUpdateTimer;
 - (void)_stopUpdateTimer;
 - (void)_updateView;
+- (id)dateViewIfExists;
 - (id)dateView;
 - (void)_updateFormat;
 - (void)_addObservers;
+- (void)_backlightChanged;
 - (void)willMoveToParentViewController:(id)arg1;
+- (void)setView:(id)arg1;
 - (void)loadView;
-@property(nonatomic, getter=isDateHidden) BOOL dateHidden;
+@property(nonatomic, getter=isDateHidden) _Bool dateHidden;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 

@@ -16,14 +16,14 @@
     NSString *_name;
     double _timeInterval;
     SEL _selector;
-    BOOL _wakeDevice;
+    _Bool _wakeDevice;
 }
 
 @property(readonly, nonatomic) id userInfo; // @synthesize userInfo=_userInfo;
 - (void)dealloc;
 - (void)invalidate;
 - (void)setFireTimeInterval:(double)arg1;
-- (id)initWithTimeInterval:(double)arg1 name:(id)arg2 shouldWake:(BOOL)arg3 target:(id)arg4 selector:(SEL)arg5 userInfo:(id)arg6;
+- (id)initWithTimeInterval:(double)arg1 name:(id)arg2 shouldWake:(_Bool)arg3 target:(id)arg4 selector:(SEL)arg5 userInfo:(id)arg6;
 
 @end
 

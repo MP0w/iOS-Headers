@@ -15,7 +15,7 @@
 {
     NSObject<OS_dispatch_queue> *_accessQueue;
     NSNetServiceBrowser *_browser;
-    unsigned int _browsingCount;
+    unsigned long long _browsingCount;
     NSMapTable *_netServiceToService;
     NSMapTable *_netServiceToResolvingCompletionHandlers;
     NSMapTable *_XPCConnectionToBrowsingCount;
@@ -29,16 +29,16 @@
 - (id)_serviceForNetService:(id)arg1;
 - (void)_resolveNetService:(id)arg1 withTimeout:(double)arg2 completionHandler:(id)arg3;
 - (id)_netServiceForService:(id)arg1;
-- (BOOL)_isXPCConnectionBrowsing:(id)arg1;
+- (_Bool)_isXPCConnectionBrowsing:(id)arg1;
 - (void)_callResolvingCompletionHandlersForNetService:(id)arg1 withError:(id)arg2;
 - (void)stopBrowsing;
 - (void)startBrowsing;
 @property(readonly, nonatomic) NSArray *services;
-@property(readonly, nonatomic, getter=isBrowsing) BOOL browsing;
+@property(readonly, nonatomic, getter=isBrowsing) _Bool browsing;
 - (void)netServiceDidResolveAddress:(id)arg1;
 - (void)netService:(id)arg1 didNotResolve:(id)arg2;
-- (void)netServiceBrowser:(id)arg1 didRemoveService:(id)arg2 moreComing:(BOOL)arg3;
-- (void)netServiceBrowser:(id)arg1 didFindService:(id)arg2 moreComing:(BOOL)arg3;
+- (void)netServiceBrowser:(id)arg1 didRemoveService:(id)arg2 moreComing:(_Bool)arg3;
+- (void)netServiceBrowser:(id)arg1 didFindService:(id)arg2 moreComing:(_Bool)arg3;
 - (void)dealloc;
 - (id)_init;
 - (id)init;

@@ -23,13 +23,14 @@
 @property(copy, nonatomic) id locationInformationChangedBlock; // @synthesize locationInformationChangedBlock=_locationInformationChangedBlock;
 @property(copy, nonatomic) id connectionResetBlock; // @synthesize connectionResetBlock=_connectionResetBlock;
 - (void).cxx_destruct;
-- (BOOL)countMediaAttachmentsTowardCharacterCount;
+- (_Bool)countMediaAttachmentsTowardCharacterCount;
+- (long long)characterCountForText:(id)arg1 shortenedURLCost:(long long)arg2;
 - (id)serviceAccountTypeIdentifier;
 - (void)acceptLocationUpdate:(id)arg1;
 - (void)getPermaLinkFromLastStatusUpdate:(id)arg1;
 - (void)showSettingsIfNeeded;
 - (void)sendStatus:(id)arg1 completion:(id)arg2;
-- (void)setGeotagAccountSetting:(BOOL)arg1;
+- (void)setGeotagAccountSetting:(_Bool)arg1;
 - (void)fetchGeotagStatus:(id)arg1;
 - (void)overrideLocationWithLatitude:(float)arg1 longitude:(float)arg2 name:(id)arg3;
 - (void)setOverrideGeotagInfo:(id)arg1;

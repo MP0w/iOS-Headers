@@ -16,12 +16,12 @@
 + (id)generateUniqueIDWithReminder:(id)arg1 calendar:(id)arg2;
 @property(copy, nonatomic) EKObjectID *parentID; // @synthesize parentID=_parentID;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)validate:(id *)arg1;
-@property(nonatomic, getter=isCompleted) BOOL completed;
+- (_Bool)validate:(id *)arg1;
+@property(nonatomic, getter=isCompleted) _Bool completed;
 - (id)description;
-@property(nonatomic) unsigned int displayOrder;
+@property(nonatomic) unsigned long long displayOrder;
 @property(copy, nonatomic) NSDate *completionDate;
-@property(nonatomic) BOOL dueDateAllDay;
+@property(nonatomic) _Bool dueDateAllDay;
 @property(copy, nonatomic) NSTimeZone *dueDateTimeZone;
 @property(copy, nonatomic) NSDate *dueDate;
 - (id)externalURI;

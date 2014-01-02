@@ -10,21 +10,22 @@
 
 @class TSUColor;
 
+// Not exported
 @interface WDBorder : NSObject <NSCopying>
 {
     int mStyle;
     TSUColor *mColor;
     unsigned char mWidth;
     unsigned char mSpace;
-    BOOL mShadow;
-    BOOL mFrame;
+    _Bool mShadow;
+    _Bool mFrame;
 }
 
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)setFrame:(BOOL)arg1;
-- (BOOL)frame;
-- (void)setShadow:(BOOL)arg1;
-- (BOOL)shadow;
+- (void)setFrame:(_Bool)arg1;
+- (_Bool)frame;
+- (void)setShadow:(_Bool)arg1;
+- (_Bool)shadow;
 - (void)setSpace:(unsigned char)arg1;
 - (unsigned char)space;
 - (void)setWidth:(unsigned char)arg1;
@@ -36,8 +37,8 @@
 - (void)setSingleBlackBorder;
 - (void)setNullBorder;
 - (void)setBorder:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isEqualToBorder:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)isEqualToBorder:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

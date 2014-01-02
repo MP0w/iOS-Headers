@@ -10,6 +10,7 @@
 
 @class _UIViewAnimationAttributes;
 
+// Not exported
 @interface _UIViewServiceImplicitAnimationDecodingProxy : _UITargetedProxy <_UIViewServiceImplicitAnimationDecodingProxy_EncodingProxyInterface>
 {
     SEL _implicitAnimationSelector;

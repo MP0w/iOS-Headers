@@ -6,13 +6,19 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface _PFWeakReference : NSObject
 {
-    void *_weakValue;
+    id _object;
+    unsigned long long _objectAddress;
 }
 
-- (void *)pointer;
-- (id)initWithPointer:(void *)arg1;
++ (id)weakReferenceWithObject:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
+@property(readonly, nonatomic) id object;
+- (void)dealloc;
+- (id)initWithObject:(id)arg1;
 
 @end
 

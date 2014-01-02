@@ -14,20 +14,20 @@
     struct __SecKey *_privateKey;
     struct __SecKey *_publicKey;
     NSString *_signature;
-    BOOL _isMigratedSignature;
-    BOOL _loaded;
-    BOOL _identityLoaded;
-    BOOL _detectedMigrationNeeded;
+    _Bool _isMigratedSignature;
+    _Bool _loaded;
+    _Bool _identityLoaded;
+    _Bool _detectedMigrationNeeded;
     NSRecursiveLock *_lock;
     id _purgeCancelBlock;
     id _purgeEnqueueBlock;
     IMTimer *_purgeTimer;
 }
 
-+ (BOOL)setupKeys;
++ (_Bool)setupKeys;
 + (id)sharedInstance;
-- (BOOL)requiresKeychainMigration;
-- (BOOL)isMigratedKeyPairSignature;
+- (_Bool)requiresKeychainMigration;
+- (_Bool)isMigratedKeyPairSignature;
 - (id)keyPairSignature;
 - (struct __SecKey *)identityPublicKey;
 - (struct __SecKey *)identityPrivateKey;
@@ -37,12 +37,12 @@
 - (id)generateCSRForUserID:(id)arg1;
 - (void)dealloc;
 - (id)init;
-- (void)_loadIfNeeded:(BOOL)arg1;
+- (void)_loadIfNeeded:(_Bool)arg1;
 - (void)_save;
 - (void)_setPurgeTimer;
 - (void)_purgeMap;
 - (void)systemDidLeaveFirstDataProtectionLock;
-- (BOOL)_isUnderFirstDataProtectionLock;
+- (_Bool)_isUnderFirstDataProtectionLock;
 
 @end
 

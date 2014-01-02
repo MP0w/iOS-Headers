@@ -6,12 +6,13 @@
 
 #import <UIKit/UIAnimation.h>
 
+// Not exported
 @interface UIScrollViewScrollAnimation : UIAnimation
 {
     struct CGPoint _originalOffset;
     struct CGPoint _targetOffset;
-    float _accuracy;
-    BOOL _adjustsForContentOffsetDelta;
+    double _accuracy;
+    _Bool _adjustsForContentOffsetDelta;
 }
 
 - (void)dealloc;

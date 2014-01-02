@@ -12,8 +12,8 @@
 {
     NSString *contentType;
     long long contentLength;
-    BOOL byteRangeAccessSupported;
-    BOOL diskCachingPermitted;
+    _Bool byteRangeAccessSupported;
+    _Bool diskCachingPermitted;
 }
 
 @end

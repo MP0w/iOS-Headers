@@ -7,8 +7,8 @@
 #import "NSObject-Protocol.h"
 
 @protocol AXTimer <NSObject>
-@property(readonly, nonatomic, getter=isPending) BOOL pending;
-@property(readonly, nonatomic, getter=isActive) BOOL active;
+@property(readonly, nonatomic, getter=isPending) _Bool pending;
+@property(readonly, nonatomic, getter=isActive) _Bool active;
 - (void)cancel;
 - (void)afterDelay:(double)arg1 processBlock:(id)arg2;
 @end

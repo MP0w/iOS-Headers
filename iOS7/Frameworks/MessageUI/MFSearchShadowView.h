@@ -10,7 +10,7 @@
 {
 }
 
-+ (float)defaultHeight;
++ (double)defaultHeight;
 + (id)_shadowImage;
 - (id)initWithFrame:(struct CGRect)arg1;
 

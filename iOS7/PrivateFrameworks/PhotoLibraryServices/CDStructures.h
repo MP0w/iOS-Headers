@@ -9,17 +9,17 @@
 #pragma mark Named Structures
 
 struct CGAffineTransform {
-    float _field1;
-    float _field2;
-    float _field3;
-    float _field4;
-    float _field5;
-    float _field6;
+    double _field1;
+    double _field2;
+    double _field3;
+    double _field4;
+    double _field5;
+    double _field6;
 };
 
 struct CGPoint {
-    float _field1;
-    float _field2;
+    double _field1;
+    double _field2;
 };
 
 struct CGRect {
@@ -28,8 +28,8 @@ struct CGRect {
 };
 
 struct CGSize {
-    float width;
-    float height;
+    double width;
+    double height;
 };
 
 struct NSObject {
@@ -61,8 +61,8 @@ struct PLImageTableEntryFooter_s {
 };
 
 struct _NSRange {
-    unsigned int _field1;
-    unsigned int _field2;
+    unsigned long long _field1;
+    unsigned long long _field2;
 };
 
 struct changeList_s {
@@ -87,11 +87,11 @@ struct flock {
 #pragma mark Typedef'd Structures
 
 typedef struct {
-    unsigned long _field1;
+    unsigned long long _field1;
     id *_field2;
-    unsigned long *_field3;
-    unsigned long _field4[5];
-} CDStruct_11f37819;
+    unsigned long long *_field3;
+    unsigned long long _field4[5];
+} CDStruct_70511ce9;
 
 typedef struct {
     double _field1;
@@ -111,6 +111,11 @@ typedef struct {
 } CDStruct_90e2a262;
 
 typedef struct {
+    CDStruct_198678f7 _field1;
+    CDStruct_198678f7 _field2;
+} CDStruct_3c1748cc;
+
+typedef struct {
     int _field1;
     struct CGSize _field2;
     struct CGRect _field3;
@@ -118,8 +123,8 @@ typedef struct {
     unsigned int _field5;
     int _field6;
     int _field7;
-    float _field8[4];
-    float _field9[4];
+    double _field8[4];
+    double _field9[4];
     unsigned int _field10;
-} CDStruct_064f6571;
+} CDStruct_e5ce1f5a;
 

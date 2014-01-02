@@ -8,21 +8,19 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface TSUDateParser : NSObject
 {
     NSMutableArray *mFormatCategories;
     struct __CFLocale *mLocale;
-    BOOL mIsJapaneseLocale;
+    _Bool mIsJapaneseLocale;
 }
 
 + (id)parserForDefaultLocale;
 - (struct __CFDate *)newDateFromString:(struct __CFString *)arg1 succesTSUlFormatString:(const struct __CFString **)arg2;
-- (struct __CFDate *)newDateFromString:(struct __CFString *)arg1 preferredFormatString:(struct __CFString *)arg2 succesTSUlFormatString:(const struct __CFString **)arg3 tryAggressiveFormats:(BOOL)arg4;
+- (struct __CFDate *)newDateFromString:(struct __CFString *)arg1 preferredFormatString:(struct __CFString *)arg2 succesTSUlFormatString:(const struct __CFString **)arg3 tryAggressiveFormats:(_Bool)arg4;
 - (void)dealloc;
 - (id)initWithLocale:(struct __CFLocale *)arg1;
-- (void)datePreferencesChanged:(id)arg1;
-- (void)parseFormat:(id)arg1 initialPattern:(id *)arg2 separator:(unsigned short *)arg3;
-- (void)addFormat:(id)arg1 locale:(struct __CFLocale *)arg2 formatCategoryMap:(id)arg3;
 
 @end
 

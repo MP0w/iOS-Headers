@@ -10,6 +10,7 @@
 
 @class WebSecurityOrigin;
 
+// Not exported
 @interface WebApplicationCacheQuotaManager : NSObject <WebQuotaManager>
 {
     WebSecurityOrigin *_origin;

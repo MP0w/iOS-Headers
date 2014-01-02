@@ -7,15 +7,15 @@
 #import "NSObject-Protocol.h"
 
 @protocol VSRecognitionModelDataProvider <NSObject>
-- (int)valueCountForClassWithIdentifier:(id)arg1 inModelWithIdentifier:(id)arg2;
+- (long long)valueCountForClassWithIdentifier:(id)arg1 inModelWithIdentifier:(id)arg2;
 
 @optional
 - (void)stopReportingChanges;
 - (void)beginReportingChanges;
-- (BOOL)isCacheValidityIdentifierValid:(id)arg1;
+- (_Bool)isCacheValidityIdentifierValid:(id)arg1;
 - (id)cacheValidityIdentifier;
-- (id)phoneticValueAtIndex:(int)arg1 forClassWithIdentifier:(id)arg2 inModelWithIdentifier:(id)arg3;
-- (BOOL)getValue:(id *)arg1 weight:(int *)arg2 atIndex:(int)arg3 forClassWithIdentifier:(id)arg4 inModelWithIdentifier:(id)arg5;
-- (id)valueAtIndex:(int)arg1 forClassWithIdentifier:(id)arg2 inModelWithIdentifier:(id)arg3;
+- (id)phoneticValueAtIndex:(long long)arg1 forClassWithIdentifier:(id)arg2 inModelWithIdentifier:(id)arg3;
+- (_Bool)getValue:(id *)arg1 weight:(long long *)arg2 atIndex:(long long)arg3 forClassWithIdentifier:(id)arg4 inModelWithIdentifier:(id)arg5;
+- (id)valueAtIndex:(long long)arg1 forClassWithIdentifier:(id)arg2 inModelWithIdentifier:(id)arg3;
 @end
 

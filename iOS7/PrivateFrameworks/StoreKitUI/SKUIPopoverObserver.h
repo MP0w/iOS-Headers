@@ -20,7 +20,7 @@
 - (void).cxx_destruct;
 - (void)popoverControllerDidDismissPopover:(id)arg1;
 - (void)setTarget:(id)arg1 selector:(SEL)arg2;
-- (void)dismissPopoverAnimated:(BOOL)arg1;
+- (void)dismissPopoverAnimated:(_Bool)arg1;
 - (void)dealloc;
 - (id)initWithPopoverController:(id)arg1;
 

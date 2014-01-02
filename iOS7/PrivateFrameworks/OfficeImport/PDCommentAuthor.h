@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface PDCommentAuthor : NSObject
 {
     unsigned int mId;

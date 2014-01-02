@@ -22,7 +22,7 @@
 + (id)mapTableWithStrongToWeakObjects;
 + (id)mapTableWithWeakToStrongObjects;
 + (id)mapTableWithStrongToStrongObjects;
-+ (id)mapTableWithKeyOptions:(unsigned int)arg1 valueOptions:(unsigned int)arg2;
++ (id)mapTableWithKeyOptions:(unsigned long long)arg1 valueOptions:(unsigned long long)arg2;
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (id)alloc;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
@@ -30,8 +30,8 @@
 - (id)dictionaryRepresentation;
 - (id)mutableDictionary;
 - (void)removeAllObjects;
-- (unsigned int)getKeys:(const void **)arg1 values:(const void **)arg2;
-- (BOOL)mapMember:(const void *)arg1 originalKey:(const void **)arg2 value:(const void **)arg3;
+- (unsigned long long)getKeys:(const void **)arg1 values:(const void **)arg2;
+- (_Bool)mapMember:(const void *)arg1 originalKey:(const void **)arg2 value:(const void **)arg3;
 - (id)enumerator;
 - (void)removeAllItems;
 - (id)allValues;
@@ -46,16 +46,16 @@
 - (id)objectForKey:(id)arg1;
 - (id)valuePointerFunctions;
 - (id)keyPointerFunctions;
-- (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
+- (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
 - (id)copy;
 - (id)objectEnumerator;
 - (id)keyEnumerator;
-- (unsigned int)count;
+- (unsigned long long)count;
 - (void)encodeWithCoder:(id)arg1;
 - (id)description;
 - (id)init;
-- (id)initWithKeyPointerFunctions:(id)arg1 valuePointerFunctions:(id)arg2 capacity:(unsigned int)arg3;
-- (id)initWithKeyOptions:(unsigned int)arg1 valueOptions:(unsigned int)arg2 capacity:(unsigned int)arg3;
+- (id)initWithKeyPointerFunctions:(id)arg1 valuePointerFunctions:(id)arg2 capacity:(unsigned long long)arg3;
+- (id)initWithKeyOptions:(unsigned long long)arg1 valueOptions:(unsigned long long)arg2 capacity:(unsigned long long)arg3;
 - (id)initWithCoder:(id)arg1;
 
 @end

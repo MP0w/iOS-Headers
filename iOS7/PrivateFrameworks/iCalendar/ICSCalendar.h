@@ -24,7 +24,6 @@
 + (id)defaultProdid;
 + (void)setDefaultProdid:(id)arg1;
 + (id)name;
-+ (id)calendarWithKnownTimeZones;
 - (id)propertiesToIncludeForChecksumVersion:(int)arg1;
 - (id)parsingErrors;
 - (void)addParsingError:(id)arg1;
@@ -32,7 +31,7 @@
 - (void)addComponent:(id)arg1;
 - (void)setComponents:(id)arg1;
 - (void)setComponents:(id)arg1 options:(int)arg2;
-- (void)setComponents:(id)arg1 timeZones:(BOOL)arg2;
+- (void)setComponents:(id)arg1 timeZones:(_Bool)arg2;
 - (id)componentOccurrencesForKey:(id)arg1;
 - (id)componentForKey:(id)arg1;
 - (id)componentKeys;
@@ -55,13 +54,9 @@
 @property(retain) NSString *calscale;
 - (void)dealloc;
 - (id)init;
-- (id)_init;
-- (void)fixEntities;
-- (void)fixComponent;
-- (void)fixPropertiesInheritance;
 
 // Remaining properties
-@property BOOL x_apple_ignore_on_restore; // @dynamic x_apple_ignore_on_restore;
+@property _Bool x_apple_ignore_on_restore; // @dynamic x_apple_ignore_on_restore;
 @property int x_calendarserver_access; // @dynamic x_calendarserver_access;
 
 @end

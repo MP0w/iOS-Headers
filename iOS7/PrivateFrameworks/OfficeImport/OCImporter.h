@@ -8,13 +8,14 @@
 
 @class CPImportTracing, NSData, NSURL, OCDReader, TSUProgressContext;
 
+// Not exported
 @interface OCImporter : OCMapper
 {
     NSURL *mURL;
     NSData *mData;
     OCDReader *mReader;
     CPImportTracing *mTracing;
-    BOOL mTryAlternateReader;
+    _Bool mTryAlternateReader;
     TSUProgressContext *mProgressContext;
 }
 
@@ -23,16 +24,14 @@
 @property(retain) TSUProgressContext *progressContext; // @synthesize progressContext=mProgressContext;
 - (id)displayName;
 - (id)filename;
-- (BOOL)setPassphrase:(id)arg1;
-- (BOOL)isDocumentEncryptedUnsupportedVersion:(char *)arg1 errorMessage:(id *)arg2;
-- (BOOL)isDocumentEncryptedUnsupportedVersionHelper:(char *)arg1 errorMessage:(id *)arg2 readError:(char *)arg3;
-- (BOOL)tryAlternateReader;
+- (_Bool)setPassphrase:(id)arg1;
+- (_Bool)isDocumentEncryptedUnsupportedVersion:(_Bool *)arg1 errorMessage:(id *)arg2;
+- (_Bool)isDocumentEncryptedUnsupportedVersionHelper:(_Bool *)arg1 errorMessage:(id *)arg2 readError:(_Bool *)arg3;
+- (_Bool)tryAlternateReader;
 - (void)setURL:(id)arg1;
 - (void)dealloc;
 - (id)initWithData:(id)arg1;
 - (id)initWithURL:(id)arg1;
-- (BOOL)start;
-- (BOOL)isXML;
 
 @end
 

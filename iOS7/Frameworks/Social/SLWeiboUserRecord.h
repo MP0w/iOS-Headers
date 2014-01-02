@@ -16,7 +16,7 @@
     NSURL *_objectID;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 + (id)userRecordWithDictionaryRepresentation:(id)arg1;
 @property(retain, nonatomic) NSURL *objectID; // @synthesize objectID=_objectID;
 @property(copy, nonatomic) NSNumber *uid; // @synthesize uid=_uid;

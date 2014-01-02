@@ -7,7 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol _UIQueuingScrollViewDataSource <NSObject>
-- (void)queuingScrollView:(id)arg1 didFlushView:(id)arg2 animated:(BOOL)arg3;
+- (void)queuingScrollView:(id)arg1 didFlushView:(id)arg2 animated:(_Bool)arg3;
 - (id)queuingScrollView:(id)arg1 viewAfterView:(id)arg2;
 - (id)queuingScrollView:(id)arg1 viewBeforeView:(id)arg2;
 @end

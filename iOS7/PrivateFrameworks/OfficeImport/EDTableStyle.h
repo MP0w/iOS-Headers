@@ -10,6 +10,7 @@
 
 @class EDKeyedCollection, NSString;
 
+// Not exported
 @interface EDTableStyle : NSObject <NSCopying>
 {
     NSString *mName;

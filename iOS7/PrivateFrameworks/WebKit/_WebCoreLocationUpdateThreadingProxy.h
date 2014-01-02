@@ -10,6 +10,7 @@
 
 @class WebGeolocationProviderIOS;
 
+// Not exported
 @interface _WebCoreLocationUpdateThreadingProxy : NSObject <WebGeolocationCoreLocationUpdateListener>
 {
     WebGeolocationProviderIOS *_provider;

@@ -13,6 +13,7 @@
     NSAttributedString *_text;
 }
 
+- (id)compositionRepresentation;
 - (id)pasteboardItems;
 - (id)description;
 @property(readonly, nonatomic) NSAttributedString *text; // @synthesize text=_text;
@@ -20,7 +21,6 @@
 - (int)type;
 - (id)detachedCopy;
 - (void)dealloc;
-- (Class)balloonViewClass;
 
 @end
 

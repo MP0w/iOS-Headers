@@ -8,15 +8,17 @@
 
 @class NSString;
 
+// Not exported
 @interface UIStatusBarTimeItemView : UIStatusBarItemView
 {
     NSString *_timeString;
 }
 
 - (void)dealloc;
-- (int)textStyle;
+- (long long)textStyle;
+- (_Bool)cachesImage;
 - (id)contentsImage;
-- (BOOL)updateForNewData:(id)arg1 actions:(int)arg2;
+- (_Bool)updateForNewData:(id)arg1 actions:(int)arg2;
 
 @end
 

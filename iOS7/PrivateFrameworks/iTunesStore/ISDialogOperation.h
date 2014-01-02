@@ -11,7 +11,7 @@
 @interface ISDialogOperation : ISOperation
 {
     ISDialog *_dialog;
-    BOOL _performDefaultActions;
+    _Bool _performDefaultActions;
     ISDialogButton *_selectedButton;
     NSArray *_textFieldValues;
     id _userNotification;
@@ -21,16 +21,16 @@
 + (id)operationWithDialog:(id)arg1;
 @property(retain) id userNotification; // @synthesize userNotification=_userNotification;
 @property(retain) ISDialogButton *selectedButton; // @synthesize selectedButton=_selectedButton;
-@property BOOL performDefaultActions; // @synthesize performDefaultActions=_performDefaultActions;
+@property _Bool performDefaultActions; // @synthesize performDefaultActions=_performDefaultActions;
 @property(retain) ISDialog *dialog; // @synthesize dialog=_dialog;
 - (void)_waitForUserNotificationResponse:(struct __CFUserNotification *)arg1;
 - (void)_showUserNotification:(id)arg1;
 - (void)_run;
-- (void)_handleResponseForNotification:(struct __CFUserNotification *)arg1 responseFlags:(unsigned long)arg2;
+- (void)_handleResponseForNotification:(struct __CFUserNotification *)arg1 responseFlags:(unsigned long long)arg2;
 - (void)run;
 - (void)cancel;
 @property(readonly) NSArray *textFieldValues;
-- (void)handleButtonSelected:(int)arg1 withResponseDictionary:(id)arg2;
+- (void)handleButtonSelected:(long long)arg1 withResponseDictionary:(id)arg2;
 - (void)dealloc;
 - (id)init;
 

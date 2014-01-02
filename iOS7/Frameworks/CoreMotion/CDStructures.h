@@ -28,6 +28,13 @@ struct CLConnectionClient {
     void _field17;
 };
 
+struct CLConnectionMessage {
+    struct __CFDictionary *_field1;
+    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> _field2;
+    id _field3;
+    id _field4;
+};
+
 struct CLMotionActivity {
     int type;
     int confidence;
@@ -53,12 +60,16 @@ struct CLNotifierClientBase {
     void **_field1;
 };
 
+struct CMMotionActivityManagerQuery;
+
 struct Client;
 
 struct Dispatcher {
     void **_field1;
     id _field2;
 };
+
+struct __CFDictionary;
 
 struct __tree_end_node<std::__1::__tree_node_base<void *>*> {
     struct __tree_node_base<void *> *__left_;
@@ -69,23 +80,52 @@ struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>
         struct __rep {
             union {
                 struct __long {
-                    unsigned int _field1;
-                    unsigned int _field2;
-                    char *_field3;
+                    char *_field1;
+                    unsigned long long _field2;
+                    unsigned long long _field3;
                 } _field1;
                 struct __short {
-                    union {
+                    char _field1[23];
+                    struct {
                         unsigned char _field1;
-                        char _field2;
-                    } _field1;
-                    char _field2[11];
+                    } _field2;
                 } _field2;
                 struct __raw {
-                    unsigned long _field1[3];
+                    unsigned long long _field1[3];
                 } _field3;
             } _field1;
         } _field1;
     } _field1;
+};
+
+struct deque<(null)<anonymous>::CMMotionActivityManagerQuery, std::__1::allocator<(null)<anonymous>::CMMotionActivityManagerQuery>> {
+    struct __split_buffer<(null)<anonymous>::CMMotionActivityManagerQuery *, std::__1::allocator<(null)<anonymous>::CMMotionActivityManagerQuery *>> {
+        struct CMMotionActivityManagerQuery **__first_;
+        struct CMMotionActivityManagerQuery **__begin_;
+        struct CMMotionActivityManagerQuery **__end_;
+        struct __compressed_pair<(null)<anonymous>::CMMotionActivityManagerQuery **, std::__1::allocator<(null)<anonymous>::CMMotionActivityManagerQuery *>> {
+            struct CMMotionActivityManagerQuery **__first_;
+        } __end_cap_;
+    } __map_;
+    unsigned long long __start_;
+    struct __compressed_pair<unsigned long, std::__1::allocator<(null)<anonymous>::CMMotionActivityManagerQuery>> {
+        unsigned long long __first_;
+    } __size_;
+};
+
+struct deque<std::__1::pair<NSOperationQueue *, void (^)(long, NSError *)>, std::__1::allocator<std::__1::pair<NSOperationQueue *, void (^)(long, NSError *)>>> {
+    struct __split_buffer<std::__1::pair<NSOperationQueue *, void (^)(long, NSError *)>*, std::__1::allocator<std::__1::pair<NSOperationQueue *, void (^)(long, NSError *)>*>> {
+        struct pair<NSOperationQueue *, void (^)(long, NSError *)> **__first_;
+        struct pair<NSOperationQueue *, void (^)(long, NSError *)> **__begin_;
+        struct pair<NSOperationQueue *, void (^)(long, NSError *)> **__end_;
+        struct __compressed_pair<std::__1::pair<NSOperationQueue *, void (^)(long, NSError *)>**, std::__1::allocator<std::__1::pair<NSOperationQueue *, void (^)(long, NSError *)>*>> {
+            struct pair<NSOperationQueue *, void (^)(long, NSError *)> **__first_;
+        } __end_cap_;
+    } __map_;
+    unsigned long long __start_;
+    struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::pair<NSOperationQueue *, void (^)(long, NSError *)>>> {
+        unsigned long long __first_;
+    } __size_;
 };
 
 struct map<SEL *, CLIntersiloInterfaceSelectorInfo *, std::__1::less<SEL *>, std::__1::allocator<std::__1::pair<SEL *const, CLIntersiloInterfaceSelectorInfo *>>> {
@@ -95,7 +135,7 @@ struct map<SEL *, CLIntersiloInterfaceSelectorInfo *, std::__1::less<SEL *>, std
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
         } __pair1_;
         struct __compressed_pair<unsigned long, std::__1::__map_value_compare<SEL *, CLIntersiloInterfaceSelectorInfo *, std::__1::less<SEL *>, true>> {
-            unsigned long __first_;
+            unsigned long long __first_;
         } __pair3_;
     } __tree_;
 };
@@ -107,7 +147,7 @@ struct map<std::__1::basic_string<char>, void (^)(CLConnectionMessage *), std::_
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
         } _field2;
         struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::basic_string<char>, void (^)(CLConnectionMessage *), std::__1::less<std::__1::basic_string<char>>, true>> {
-            unsigned long _field1;
+            unsigned long long _field1;
         } _field3;
     } _field1;
 };
@@ -119,14 +159,17 @@ struct map<unsigned long, int, std::__1::less<unsigned long>, std::__1::allocato
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
         } __pair1_;
         struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned long, int, std::__1::less<unsigned long>, true>> {
-            unsigned long __first_;
+            unsigned long long __first_;
         } __pair3_;
     } __tree_;
 };
 
-struct shared_ptr<CLGeomagneticModelProvider_Type::Client> {
-    struct Client *__ptr_;
-    struct __shared_weak_count *__cntrl_;
+struct pair<NSOperationQueue *, void (^)(long, NSError *)>;
+
+struct unique_ptr<CLGeomagneticModelProvider_Type::Client, std::__1::default_delete<CLGeomagneticModelProvider_Type::Client>> {
+    struct __compressed_pair<CLGeomagneticModelProvider_Type::Client *, std::__1::default_delete<CLGeomagneticModelProvider_Type::Client>> {
+        struct Client *__first_;
+    } __ptr_;
 };
 
 #if 0

@@ -6,11 +6,17 @@
 
 #import <UIKit/UIKBRenderFactory10Key_Portrait.h>
 
+// Not exported
 @interface UIKBRenderFactory10Key_Landscape : UIKBRenderFactory10Key_Portrait
 {
 }
 
-- (float)controlColumnWidthFactor;
+- (double)controlColumnWidthFactor;
+- (struct CGPoint)numberPadVBarSecondaryTextOffset;
+- (struct CGPoint)numberPadKeySecondaryTextOffset;
+- (struct CGPoint)numberPadKeyPrimaryTextOffset;
+- (double)numberPadKeyPrimarySymbolSize;
+- (struct CGPoint)abcKeyTextOffset;
 
 @end
 

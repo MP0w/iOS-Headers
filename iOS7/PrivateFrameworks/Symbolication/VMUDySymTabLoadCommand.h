@@ -30,7 +30,7 @@
 
 - (unsigned int)nindirectsyms;
 - (unsigned int)indirectsymoff;
-- (BOOL)isDySymTab;
+- (_Bool)isDySymTab;
 - (id)initWithMemory:(id)arg1;
 
 @end

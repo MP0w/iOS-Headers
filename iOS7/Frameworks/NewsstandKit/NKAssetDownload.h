@@ -15,11 +15,11 @@
     NSData *_userInfoData;
     NSURLRequest *_request;
     NSURLConnection *_connection;
-    BOOL _attemptedConnection;
-    BOOL _isDecodingValid;
+    _Bool _attemptedConnection;
+    _Bool _isDecodingValid;
 }
 
-@property BOOL attemptedConnection; // @synthesize attemptedConnection=_attemptedConnection;
+@property _Bool attemptedConnection; // @synthesize attemptedConnection=_attemptedConnection;
 @property(retain) NSURLConnection *connection; // @synthesize connection=_connection;
 @property(retain) NSData *userInfoData; // @synthesize userInfoData=_userInfoData;
 @property(copy) NSURLRequest *URLRequest; // @synthesize URLRequest=_request;
@@ -28,9 +28,9 @@
 - (id)downloadWithDelegate:(id)arg1;
 - (void)_connectionBackgroundDownloadPostCompleted:(id)arg1;
 - (void)_connectionBackgroundDownloadPreCompleted:(id)arg1;
-- (BOOL)_isDecodingValid;
+- (_Bool)_isDecodingValid;
 - (void)_cancel;
-- (BOOL)_attemptedConnection;
+- (_Bool)_attemptedConnection;
 - (id)_connection;
 - (void)_setIssue:(id)arg1;
 - (void)_issueWasRemovedFromLibrary;

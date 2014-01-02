@@ -8,6 +8,7 @@
 
 @class UIKBTree;
 
+// Not exported
 @interface UIKBDimmingView : UIView
 {
     UIKBTree *_keyplane;

@@ -12,8 +12,8 @@
 
 @interface UIBarItem : NSObject <UIAppearance>
 {
-    BOOL _hasCustomizableInstanceAppearanceModifications;
-    BOOL _shouldArchiveUIAppearanceTags;
+    _Bool _hasCustomizableInstanceAppearanceModifications;
+    _Bool _shouldArchiveUIAppearanceTags;
 }
 
 + (id)_appearanceRecorderWhenContainedIn:(Class)arg1;
@@ -22,20 +22,20 @@
 + (id)_appearanceRecorder;
 + (id)appearance;
 + (id)_appearanceBlindViewClasses;
-@property(nonatomic, setter=_setShouldArchiveUIAppearanceTags:) BOOL _shouldArchiveUIAppearanceTags; // @synthesize _shouldArchiveUIAppearanceTags;
-@property(nonatomic, setter=_setHasCustomizableInstanceAppearanceModifications:) BOOL _hasCustomizableInstanceAppearanceModifications; // @synthesize _hasCustomizableInstanceAppearanceModifications;
-- (id)titleTextAttributesForState:(unsigned int)arg1;
-- (void)setTitleTextAttributes:(id)arg1 forState:(unsigned int)arg2;
+@property(nonatomic, setter=_setShouldArchiveUIAppearanceTags:) _Bool _shouldArchiveUIAppearanceTags; // @synthesize _shouldArchiveUIAppearanceTags;
+@property(nonatomic, setter=_setHasCustomizableInstanceAppearanceModifications:) _Bool _hasCustomizableInstanceAppearanceModifications; // @synthesize _hasCustomizableInstanceAppearanceModifications;
+- (id)titleTextAttributesForState:(unsigned long long)arg1;
+- (void)setTitleTextAttributes:(id)arg1 forState:(unsigned long long)arg2;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 
 // Remaining properties
-@property(nonatomic, getter=isEnabled) BOOL enabled; // @dynamic enabled;
+@property(nonatomic, getter=isEnabled) _Bool enabled; // @dynamic enabled;
 @property(retain, nonatomic) UIImage *image; // @dynamic image;
 @property(nonatomic) struct UIEdgeInsets imageInsets; // @dynamic imageInsets;
 @property(retain, nonatomic) UIImage *landscapeImagePhone; // @dynamic landscapeImagePhone;
 @property(nonatomic) struct UIEdgeInsets landscapeImagePhoneInsets; // @dynamic landscapeImagePhoneInsets;
-@property(nonatomic) int tag; // @dynamic tag;
+@property(nonatomic) long long tag; // @dynamic tag;
 @property(copy, nonatomic) NSString *title; // @dynamic title;
 
 @end

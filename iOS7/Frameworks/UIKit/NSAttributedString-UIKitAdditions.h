@@ -8,6 +8,6 @@
 
 @interface NSAttributedString (UIKitAdditions)
 - (id)_ui_attributedStringWithOriginalFontAttributes;
-- (int)_ui_resolvedTextAlignment;
+- (long long)_ui_resolvedTextAlignment;
 @end
 

@@ -12,9 +12,9 @@
 
 + (id)setValueWithDictionary:(id)arg1 context:(id)arg2;
 + (id)setValue;
-- (BOOL)requiresResponse;
-@property(nonatomic) BOOL failOnSiriDisconnectWarnings;
-@property(nonatomic) BOOL dryRun;
+- (_Bool)requiresResponse;
+@property(nonatomic) _Bool failOnSiriDisconnectWarnings;
+@property(nonatomic) _Bool dryRun;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

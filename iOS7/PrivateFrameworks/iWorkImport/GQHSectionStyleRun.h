@@ -8,10 +8,11 @@
 
 @class GQDSStyle;
 
+// Not exported
 @interface GQHSectionStyleRun : NSObject
 {
     GQDSStyle *mStyle;
-    CDStruct_dff5684f mPageRange;
+    CDStruct_627e0f85 mPageRange;
 }
 
 - (id).cxx_construct;

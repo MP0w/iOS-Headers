@@ -8,6 +8,7 @@
 
 @class CPMessageEntry;
 
+// Not exported
 @interface CPMessageException : NSException
 {
     CPMessageEntry *m_entry;

@@ -8,23 +8,23 @@
 
 @interface SUBase64Encoder : SUFilteringDataConsumer
 {
-    unsigned long _left;
+    unsigned long long _left;
     unsigned char _leftovers[3];
-    unsigned long _line;
-    unsigned long _lineBreakLength;
+    unsigned long long _line;
+    unsigned long long _lineBreakLength;
     BOOL _padChar;
     const char *_table;
 }
 
 + (long long)outputLengthForInputLength:(long long)arg1;
-+ (int)maxConsumeLengthForReadLength:(int)arg1;
++ (long long)maxConsumeLengthForReadLength:(long long)arg1;
 @property(nonatomic) BOOL padChar; // @synthesize padChar=_padChar;
-@property(nonatomic) unsigned long lineBreakLength; // @synthesize lineBreakLength=_lineBreakLength;
-- (unsigned int)minimumConsumeLength;
+@property(nonatomic) unsigned long long lineBreakLength; // @synthesize lineBreakLength=_lineBreakLength;
+- (unsigned long long)minimumConsumeLength;
 - (void)finish;
 - (int)consumeData:(id)arg1;
 - (void)setStandardLineBreakLength;
-@property(nonatomic) BOOL allowSlash;
+@property(nonatomic) _Bool allowSlash;
 - (id)initWithDataConsumer:(id)arg1;
 
 @end

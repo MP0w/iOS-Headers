@@ -10,9 +10,8 @@
 {
 }
 
-+ (id)hostnameFormatter:(unsigned int)arg1;
-+ (id)hostnameSet;
-- (BOOL)isPartialStringValid:(id)arg1 newEditingString:(id *)arg2 errorDescription:(id *)arg3;
++ (id)hostnameFormatter:(unsigned long long)arg1;
+- (_Bool)isPartialStringValid:(id)arg1 newEditingString:(id *)arg2 errorDescription:(id *)arg3;
 
 @end
 

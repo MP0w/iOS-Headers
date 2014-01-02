@@ -11,11 +11,11 @@
 @interface YTAuthenticatorDeferredRequest : NSObject
 {
     NSMutableURLRequest *_request;
-    BOOL _accountAuthRequired;
+    _Bool _accountAuthRequired;
 }
 
-- (BOOL)accountAuthRequired;
-- (void)setAccountAuthRequired:(BOOL)arg1;
+- (_Bool)accountAuthRequired;
+- (void)setAccountAuthRequired:(_Bool)arg1;
 - (id)request;
 - (void)setRequest:(id)arg1;
 - (void)dealloc;

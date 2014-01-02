@@ -6,9 +6,10 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface VKXTileConnector : NSObject
 {
-    unordered_multimap_058b834e _tileMapping;
+    unordered_multimap_1962e1c9 _tileMapping;
     int _segmentProcessingIndex;
 }
 
@@ -17,7 +18,7 @@
 + (id)barriorJobQueue;
 + (id)sharedInstance;
 @property(nonatomic) int segmentProcessingIndex; // @synthesize segmentProcessingIndex=_segmentProcessingIndex;
-@property(nonatomic) unordered_multimap_058b834e *tileMapping; // @synthesize tileMapping=_tileMapping;
+@property(nonatomic) unordered_multimap_1962e1c9 *tileMapping; // @synthesize tileMapping=_tileMapping;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (id)init;

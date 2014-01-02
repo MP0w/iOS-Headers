@@ -8,6 +8,7 @@
 
 @class CHDAxesCollection, CHDChartTypesCollection, OADGraphicProperties;
 
+// Not exported
 @interface CHDPlotArea : NSObject
 {
     CHDChartTypesCollection *mChartTypes;
@@ -29,7 +30,6 @@
 - (id)chartTypes;
 - (void)dealloc;
 - (id)initWithChart:(id)arg1;
-- (_Bool)isCategoryAxesReversed:(_Bool)arg1;
 
 @end
 

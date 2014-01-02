@@ -8,6 +8,7 @@
 
 @class MFPGraphicsState, MFPObjectTable, NSMutableArray, NSMutableDictionary;
 
+// Not exported
 @interface MFPGraphics : NSObject
 {
     struct CGRect mCanvas;
@@ -25,7 +26,7 @@
 - (void)strokePath:(id)arg1 pen:(id)arg2;
 - (void)fillPath:(id)arg1 brush:(id)arg2;
 - (id)currentState;
-- (BOOL)areThereOpenContainers;
+- (_Bool)areThereOpenContainers;
 - (void)restoreGraphicsStateOrEndContainerWithId:(unsigned int)arg1;
 - (void)beginContainerWithId:(unsigned int)arg1 boundsInParent:(struct CGRect)arg2 bounds:(struct CGRect)arg3 boundsUnit:(int)arg4;
 - (void)beginContainerNoParamsWithId:(unsigned int)arg1;

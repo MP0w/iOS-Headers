@@ -8,6 +8,7 @@
 
 @class NSMutableDictionary;
 
+// Not exported
 @interface VKRasterTileSource : VKTileSetBackedTileSource
 {
     NSMutableDictionary *_genericTextureCache;

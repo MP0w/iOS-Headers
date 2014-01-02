@@ -18,7 +18,7 @@
 }
 
 + (id)notificationWithPlaces:(id)arg1 originalPlacesSet:(id)arg2 newPlacesSet:(id)arg3 changedPlacesList:(id)arg4 backingNotification:(id)arg5;
-- (BOOL)_getOldSet:(id *)arg1 newSet:(id *)arg2;
+- (_Bool)_getOldSet:(id *)arg1 newSet:(id *)arg2;
 - (struct NSObject *)albumList;
 - (void)dealloc;
 - (id)initWithPlaces:(id)arg1 originalPlacesSet:(id)arg2 newPlacesSet:(id)arg3 changedPlacesList:(id)arg4 backingNotification:(id)arg5;

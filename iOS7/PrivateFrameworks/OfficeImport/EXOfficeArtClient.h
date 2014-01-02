@@ -6,6 +6,7 @@
 
 #import <OfficeImport/OAXClient.h>
 
+// Not exported
 @interface EXOfficeArtClient : OAXClient
 {
 }

@@ -6,6 +6,7 @@
 
 #import <CoreImage/_CIScreenFilter.h>
 
+// Not exported
 @interface CILineScreen : _CIScreenFilter
 {
 }

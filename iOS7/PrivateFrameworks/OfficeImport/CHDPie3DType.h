@@ -6,6 +6,7 @@
 
 #import <OfficeImport/CHDPie2DType.h>
 
+// Not exported
 @interface CHDPie3DType : CHDPie2DType
 {
 }

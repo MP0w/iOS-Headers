@@ -13,7 +13,7 @@
     NSSet *_propPatchRemoveElements;
     NSSet *_propPatchSetElements;
     CoreDAVResponseItem *_responseItem;
-    BOOL _sendOrder;
+    _Bool _sendOrder;
     int _absoluteOrder;
     NSURL *_priorOrderedURL;
 }

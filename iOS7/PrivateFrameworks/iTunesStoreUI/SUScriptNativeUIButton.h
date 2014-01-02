@@ -16,9 +16,9 @@
 - (void)destroyNativeObject;
 - (void)connectButtonAction;
 - (id)title;
-- (int)tag;
+- (long long)tag;
 - (void)setTitle:(id)arg1;
-- (void)setTag:(int)arg1;
+- (void)setTag:(long long)arg1;
 - (void)setImageInsets:(struct UIEdgeInsets)arg1;
 - (void)setImage:(id)arg1;
 - (struct UIEdgeInsets)imageInsets;

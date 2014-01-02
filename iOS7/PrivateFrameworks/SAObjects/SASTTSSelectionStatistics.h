@@ -18,7 +18,7 @@
 + (id)tTSSelectionStatistics;
 @property(copy, nonatomic) NSArray *timesListened;
 @property(copy, nonatomic) NSString *sessionId;
-@property(nonatomic) int selectedItemIndex;
+@property(nonatomic) long long selectedItemIndex;
 @property(copy, nonatomic) NSArray *listenedItems;
 @property(copy, nonatomic) NSString *interactionId;
 @property(copy, nonatomic) NSString *completionType;

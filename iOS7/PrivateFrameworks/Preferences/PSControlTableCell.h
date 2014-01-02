@@ -18,10 +18,10 @@
 @property(retain, nonatomic) UIControl *control;
 - (void)dealloc;
 - (id)valueLabel;
-- (BOOL)canReload;
+- (_Bool)canReload;
 - (id)newControl;
 - (void)refreshCellContentsWithSpecifier:(id)arg1;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
 
 @end
 

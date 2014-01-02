@@ -7,7 +7,7 @@
 #import "NSObject.h"
 
 @interface NSObject (TLExtensions)
-- (BOOL)setAudioVideoControllerRepeatMode:(int)arg1;
-- (int)audioVideoControllerRepeatMode;
+- (_Bool)setAudioVideoControllerRepeatMode:(long long)arg1;
+- (long long)audioVideoControllerRepeatMode;
 @end
 

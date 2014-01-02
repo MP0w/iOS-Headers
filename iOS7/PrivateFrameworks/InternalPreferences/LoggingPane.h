@@ -13,10 +13,10 @@
 @interface LoggingPane : PSEditingPane <MFMailComposeViewControllerDelegate>
 {
     UITextView *_textView;
-    BOOL _threadRunning;
-    BOOL _timeout;
-    BOOL _fileError;
-    BOOL _dontScroll;
+    _Bool _threadRunning;
+    _Bool _timeout;
+    _Bool _fileError;
+    _Bool _dontScroll;
     NSLock *_lock;
     NSTimer *_timer;
     NSString *_output;
@@ -33,15 +33,7 @@
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)stopTimer;
 - (void)dealloc;
-- (BOOL)handlesDoneButton;
-- (void)mailComposeController:(id)arg1 didFinishWithResult:(int)arg2 error:(id)arg3;
-- (void)emailButtonClicked;
-- (void)_finished:(id)arg1;
-- (void)_pipeThread:(id)arg1;
-- (void)_aslQuery:(id)arg1;
-- (void)_run;
-- (void)_updateText:(id)arg1;
-- (void)_showAlertForFailedCommand:(id)arg1;
+- (_Bool)handlesDoneButton;
 
 @end
 

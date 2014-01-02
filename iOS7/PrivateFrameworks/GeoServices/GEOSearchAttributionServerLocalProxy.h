@@ -10,20 +10,21 @@
 
 @class NSMapTable, NSMutableArray;
 
+// Not exported
 @interface GEOSearchAttributionServerLocalProxy : NSObject <GEOSearchAttributionServerProxy>
 {
     NSMapTable *_listeners;
-    BOOL _updatingManifest;
+    _Bool _updatingManifest;
     NSMutableArray *_updateManifestCompletionHandlers;
     NSMutableArray *_updateManifestErrorHandlers;
 }
 
 - (void)loadAttributionInfoForIdentifier:(id)arg1 version:(unsigned int)arg2 completionHandler:(id)arg3 errorHandler:(void)arg4;
-- (void)_loadAttributionInfoForListener:(id)arg1 hasUpdatedManifest:(BOOL)arg2;
+- (void)_loadAttributionInfoForListener:(id)arg1 hasUpdatedManifest:(_Bool)arg2;
 - (void)_updateManifestWithCompletionHandler:(id)arg1 errorHandler:(void)arg2;
 - (void)_pruneOldAttributionLogos;
 - (void)_sendError:(id)arg1 toListener:(id)arg2;
-- (void)_sendInfo:(id)arg1 updatedManifest:(BOOL)arg2 toListener:(id)arg3;
+- (void)_sendInfo:(id)arg1 updatedManifest:(_Bool)arg2 toListener:(id)arg3;
 - (void)dealloc;
 - (id)init;
 

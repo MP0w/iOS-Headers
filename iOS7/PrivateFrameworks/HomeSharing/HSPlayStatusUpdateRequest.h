@@ -15,7 +15,7 @@
 @property(readonly, nonatomic) unsigned int revisionID; // @synthesize revisionID=_revisionID;
 @property(readonly, nonatomic) unsigned int interfaceID; // @synthesize interfaceID=_interfaceID;
 - (double)timeoutInterval;
-- (BOOL)isConcurrent;
+- (_Bool)isConcurrent;
 - (id)canonicalResponseForResponse:(id)arg1;
 - (id)initWithInterfaceID:(unsigned int)arg1 revisionID:(unsigned int)arg2;
 

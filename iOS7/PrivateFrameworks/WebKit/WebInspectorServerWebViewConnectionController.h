@@ -8,11 +8,12 @@
 
 @class NSMutableDictionary, WebInspectorServer;
 
+// Not exported
 @interface WebInspectorServerWebViewConnectionController : NSObject
 {
     WebInspectorServer *_server;
     NSMutableDictionary *_openConnections;
-    BOOL _hasScheduledPush;
+    _Bool _hasScheduledPush;
 }
 
 - (void)sendMessageToFrontend:(id)arg1 userInfo:(id)arg2;

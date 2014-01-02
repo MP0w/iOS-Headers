@@ -10,7 +10,7 @@
 {
 }
 
-@property(readonly, nonatomic) BOOL scalesImage;
+@property(readonly, nonatomic) _Bool scalesImage;
 - (id)newImageForImage:(id)arg1;
 - (struct CGRect)imageFrameForImage:(id)arg1 currentFrame:(struct CGRect)arg2 finalSize:(struct CGSize)arg3;
 - (struct CGSize)finalSizeForSize:(struct CGSize)arg1 originalSize:(struct CGSize)arg2;

@@ -15,28 +15,30 @@
     UIButton *_rightButton;
     UIButton *_shuffleButton;
     UIButton *_repeatButton;
-    BOOL _showAccessoryButtons;
-    BOOL _showIsPlaying;
-    int _style;
-    int _availableControls;
-    int _highlightedControls;
-    unsigned int _repeatType;
-    unsigned int _shuffleType;
+    struct UIEdgeInsets _insetsForExpandingButtons;
+    _Bool _showAccessoryButtons;
+    _Bool _showIsPlaying;
+    long long _style;
+    long long _availableControls;
+    long long _highlightedControls;
+    unsigned long long _repeatType;
+    unsigned long long _shuffleType;
     id <MPUTransportControlsViewDelegate> _delegate;
 }
 
 @property(nonatomic) __weak id <MPUTransportControlsViewDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) BOOL showIsPlaying; // @synthesize showIsPlaying=_showIsPlaying;
-@property(nonatomic) unsigned int shuffleType; // @synthesize shuffleType=_shuffleType;
-@property(nonatomic) unsigned int repeatType; // @synthesize repeatType=_repeatType;
-@property(nonatomic) BOOL showAccessoryButtons; // @synthesize showAccessoryButtons=_showAccessoryButtons;
-@property(nonatomic) int highlightedControls; // @synthesize highlightedControls=_highlightedControls;
-@property(nonatomic) int availableControls; // @synthesize availableControls=_availableControls;
-@property(readonly, nonatomic) int style; // @synthesize style=_style;
+@property(nonatomic) _Bool showIsPlaying; // @synthesize showIsPlaying=_showIsPlaying;
+@property(nonatomic) unsigned long long shuffleType; // @synthesize shuffleType=_shuffleType;
+@property(nonatomic) unsigned long long repeatType; // @synthesize repeatType=_repeatType;
+@property(nonatomic) _Bool showAccessoryButtons; // @synthesize showAccessoryButtons=_showAccessoryButtons;
+@property(nonatomic) long long highlightedControls; // @synthesize highlightedControls=_highlightedControls;
+@property(nonatomic) long long availableControls; // @synthesize availableControls=_availableControls;
+@property(readonly, nonatomic) long long style; // @synthesize style=_style;
+@property(nonatomic) struct UIEdgeInsets _insetsForExpandingButtons; // @synthesize _insetsForExpandingButtons;
 - (void).cxx_destruct;
 - (id)_accessoryButtonEmphasizedTextAttributes;
 - (id)_accessoryButtonTextAttributes;
-- (struct CGPath *)_glowPathForButton:(id)arg1;
+- (struct CGPath *)_createGlowPathForButton:(id)arg1;
 - (id)_classBundleImageNamed:(id)arg1;
 - (void)_setImage:(id)arg1 forButton:(id)arg2;
 - (void)_animateFadeGlowForButton:(id)arg1;
@@ -49,11 +51,17 @@
 - (void)_transportControlActivate:(id)arg1;
 - (void)_updateTransportControlHighlightedStates;
 - (void)_updateTransportControlButtons;
-- (id)_createAccessoryButtonWithStyle:(int)arg1;
-- (id)_createTransportButtonWithStyle:(int)arg1;
+- (id)_createAccessoryButtonWithStyle:(long long)arg1;
+- (id)_createTransportButtonWithStyle:(long long)arg1;
 - (id)_styledImageName:(id)arg1;
+- (id)_repeatButton;
+- (id)_shuffleButton;
+- (id)_rightButton;
+- (id)_middleButton;
+- (id)_leftButton;
+- (void)_layoutButton:(id)arg1 withNewFrame:(struct CGRect)arg2 inExpandedTouchRect:(struct CGRect)arg3;
 - (void)layoutSubviews;
-- (id)initWithStyle:(int)arg1;
+- (id)initWithStyle:(long long)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

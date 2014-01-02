@@ -10,29 +10,30 @@
 
 @interface ISProtocolDataProvider : ISDataProvider <NSCopying>
 {
-    BOOL _shouldPostFooterSectionChanged;
-    BOOL _shouldProcessAccount;
-    BOOL _shouldProcessAuthenticationDialogs;
-    BOOL _shouldProcessDialogs;
-    BOOL _shouldProcessProtocol;
-    BOOL _shouldTriggerDownloads;
+    _Bool _shouldPostFooterSectionChanged;
+    _Bool _shouldProcessAccount;
+    _Bool _shouldProcessAuthenticationDialogs;
+    _Bool _shouldProcessDialogs;
+    _Bool _shouldProcessProtocol;
+    _Bool _shouldTriggerDownloads;
 }
 
-@property BOOL shouldTriggerDownloads; // @synthesize shouldTriggerDownloads=_shouldTriggerDownloads;
-@property BOOL shouldProcessProtocol; // @synthesize shouldProcessProtocol=_shouldProcessProtocol;
-@property BOOL shouldProcessDialogs; // @synthesize shouldProcessDialogs=_shouldProcessDialogs;
-@property BOOL shouldProcessAuthenticationDialogs; // @synthesize shouldProcessAuthenticationDialogs=_shouldProcessAuthenticationDialogs;
-@property BOOL shouldProcessAccount; // @synthesize shouldProcessAccount=_shouldProcessAccount;
-@property BOOL shouldPostFooterSectionChanged; // @synthesize shouldPostFooterSectionChanged=_shouldPostFooterSectionChanged;
+@property _Bool shouldTriggerDownloads; // @synthesize shouldTriggerDownloads=_shouldTriggerDownloads;
+@property _Bool shouldProcessProtocol; // @synthesize shouldProcessProtocol=_shouldProcessProtocol;
+@property _Bool shouldProcessDialogs; // @synthesize shouldProcessDialogs=_shouldProcessDialogs;
+@property _Bool shouldProcessAuthenticationDialogs; // @synthesize shouldProcessAuthenticationDialogs=_shouldProcessAuthenticationDialogs;
+@property _Bool shouldProcessAccount; // @synthesize shouldProcessAccount=_shouldProcessAccount;
+@property _Bool shouldPostFooterSectionChanged; // @synthesize shouldPostFooterSectionChanged=_shouldPostFooterSectionChanged;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (_Bool)_shouldFailWithTokenErrorForDialog:(id)arg1 dictionary:(id)arg2 error:(id *)arg3;
 - (void)_selectFooterSection:(id)arg1;
-- (BOOL)_processFailureTypeFromDictionary:(id)arg1 error:(id *)arg2;
+- (_Bool)_processFailureTypeFromDictionary:(id)arg1 error:(id *)arg2;
 - (void)_performActionsForResponse:(id)arg1;
 - (void)_checkInAppPurchaseQueueForAction:(id)arg1;
 - (void)_checkDownloadQueues;
-- (BOOL)parseData:(id)arg1 returningError:(id *)arg2;
-- (BOOL)processDictionary:(id)arg1 error:(id *)arg2;
-- (BOOL)processDialogFromDictionary:(id)arg1 error:(id *)arg2;
+- (_Bool)parseData:(id)arg1 returningError:(id *)arg2;
+- (_Bool)processDictionary:(id)arg1 error:(id *)arg2;
+- (_Bool)processDialogFromDictionary:(id)arg1 error:(id *)arg2;
 - (id)init;
 
 @end

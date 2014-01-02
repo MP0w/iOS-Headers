@@ -6,12 +6,11 @@
 
 #import "NSObject.h"
 
-#import "MKAnnotation-Protocol.h"
 #import "NSSecureCoding-Protocol.h"
 
 @class NSString, NSURL;
 
-@interface SLPlace : NSObject <MKAnnotation, NSSecureCoding>
+@interface SLPlace : NSObject <NSSecureCoding>
 {
     NSString *_identifier;
     NSString *_name;
@@ -22,7 +21,7 @@
     double _distance;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property double distance; // @synthesize distance=_distance;
 @property double longitude; // @synthesize longitude=_longitude;
 @property double latitude; // @synthesize latitude=_latitude;
@@ -35,9 +34,6 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)encodableProperties;
-@property(readonly, nonatomic) NSString *subtitle;
-@property(readonly, nonatomic) NSString *title;
-@property(readonly, nonatomic) CDStruct_c3b9c2ee coordinate;
 
 @end
 

@@ -6,6 +6,7 @@
 
 #import <OfficeImport/WDIterator.h>
 
+// Not exported
 @interface WDCombinedIterator : WDIterator
 {
     WDIterator *mParentIterator;
@@ -14,12 +15,11 @@
 
 @property(retain, nonatomic) WDIterator *childIterator; // @synthesize childIterator=mChildIterator;
 - (id)next;
-- (BOOL)hasNext;
+- (_Bool)hasNext;
 - (id)newChildIteratorFrom:(id)arg1;
 - (id)childIteratorFrom:(id)arg1;
 - (void)dealloc;
 - (id)initWithParentIterator:(id)arg1;
-- (void)incrementChildIterator;
 
 @end
 

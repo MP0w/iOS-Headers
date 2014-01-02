@@ -8,17 +8,21 @@
 
 @class ML3DatabaseConnection;
 
+// Not exported
 @interface ML3AccountCacheDatabase : NSObject
 {
     ML3DatabaseConnection *_databaseConnection;
 }
 
 - (void).cxx_destruct;
-- (BOOL)_closeDatabase;
-- (BOOL)_openDatabase;
+- (_Bool)_clearCacheDatabase;
+- (_Bool)_internalSetAppleID:(id)arg1 forDSID:(unsigned long long)arg2;
+- (_Bool)_closeDatabase;
+- (_Bool)_openDatabaseIsRetry:(_Bool)arg1;
+- (_Bool)_openDatabase;
 - (id)_databasePath;
 - (id)appleIDForDSID:(unsigned long long)arg1;
-- (BOOL)setAppleID:(id)arg1 forDSID:(unsigned long long)arg2;
+- (_Bool)setAppleID:(id)arg1 forDSID:(unsigned long long)arg2;
 - (id)init;
 
 @end

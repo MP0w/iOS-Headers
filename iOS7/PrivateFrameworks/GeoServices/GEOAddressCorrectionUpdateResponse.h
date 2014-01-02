@@ -6,7 +6,9 @@
 
 #import "PBCodable.h"
 
-@interface GEOAddressCorrectionUpdateResponse : PBCodable
+#import "NSCopying-Protocol.h"
+
+@interface GEOAddressCorrectionUpdateResponse : PBCodable <NSCopying>
 {
     unsigned int _retryScheduleInDays;
     struct {
@@ -15,14 +17,15 @@
 }
 
 @property(nonatomic) unsigned int retryScheduleInDays; // @synthesize retryScheduleInDays=_retryScheduleInDays;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) BOOL hasRetryScheduleInDays;
+@property(nonatomic) _Bool hasRetryScheduleInDays;
 - (void)dealloc;
 
 @end

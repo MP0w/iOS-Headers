@@ -10,7 +10,7 @@
 
 @interface SKScriptStoreSheetRequest : SUScriptObject
 {
-    int _pageStyle;
+    long long _pageStyle;
     WebScriptObject *_productParameters;
     NSString *_productURL;
 }
@@ -21,13 +21,13 @@
 - (void).cxx_destruct;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
-@property(readonly) int productPageStylePhone;
-@property(readonly) int productPageStylePad;
-@property(readonly) int productPageStyleBanner;
-@property(readonly) int productPageStyleAutomatic;
+@property(readonly) long long productPageStylePhone;
+@property(readonly) long long productPageStylePad;
+@property(readonly) long long productPageStyleBanner;
+@property(readonly) long long productPageStyleAutomatic;
 @property(retain) NSString *productURL;
 @property(retain) WebScriptObject *productParameters;
-@property int productPageStyle;
+@property long long productPageStyle;
 - (id)_className;
 - (id)newNativeStorePageRequest;
 

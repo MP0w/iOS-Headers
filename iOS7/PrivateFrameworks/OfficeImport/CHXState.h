@@ -8,6 +8,7 @@
 
 @class CHDChart, CHDChartType, CHDSeries, EDResources, EXOfficeArtState, OADParagraphProperties, OCPPackagePart;
 
+// Not exported
 @interface CHXState : NSObject
 {
     EXOfficeArtState *mDrawingState;
@@ -17,16 +18,16 @@
     CHDChartType *mCurrentChartType;
     CHDSeries *mCurrentSeries;
     OADParagraphProperties *mDefaultTextProperties;
-    BOOL mDefaultTextPropertiesHaveExplicitFontSize;
+    _Bool mDefaultTextPropertiesHaveExplicitFontSize;
     id <CHAutoStyling> mAutoStyling;
-    BOOL mIgnoreFormulas;
+    _Bool mIgnoreFormulas;
 }
 
-@property(nonatomic) BOOL ignoreFormulas; // @synthesize ignoreFormulas=mIgnoreFormulas;
+@property(nonatomic) _Bool ignoreFormulas; // @synthesize ignoreFormulas=mIgnoreFormulas;
 - (id)autoStyling;
 - (void)popTitleTextProperties;
-- (void)pushTitleTextProperties:(BOOL)arg1;
-- (void)setDefaultTextPropertiesHaveExplicitFontSize:(BOOL)arg1;
+- (void)pushTitleTextProperties:(_Bool)arg1;
+- (void)setDefaultTextPropertiesHaveExplicitFontSize:(_Bool)arg1;
 - (void)setDefaultTextProperties:(id)arg1;
 - (id)defaultTextProperties;
 - (id)exState;

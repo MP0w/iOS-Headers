@@ -10,9 +10,9 @@
 
 @interface MSASAssetDownloader : MSASAssetTransferer
 {
-    BOOL _didEncounterNetworkConditionError;
-    BOOL _isDownloadingThumbnails;
-    BOOL _isWaitingForFirstDownloadEvent;
+    _Bool _didEncounterNetworkConditionError;
+    _Bool _isDownloadingThumbnails;
+    _Bool _isWaitingForFirstDownloadEvent;
     int _state;
     NSMutableArray *_itemsInFlight;
     NSMutableDictionary *_assetToItemInFlightMap;
@@ -25,11 +25,11 @@
 
 @property(retain, nonatomic) NSString *downloadBatchPerfGUID; // @synthesize downloadBatchPerfGUID=_downloadBatchPerfGUID;
 @property(retain, nonatomic) NSString *objectGUID; // @synthesize objectGUID=_objectGUID;
-@property(nonatomic) BOOL isWaitingForFirstDownloadEvent; // @synthesize isWaitingForFirstDownloadEvent=_isWaitingForFirstDownloadEvent;
+@property(nonatomic) _Bool isWaitingForFirstDownloadEvent; // @synthesize isWaitingForFirstDownloadEvent=_isWaitingForFirstDownloadEvent;
 @property(retain, nonatomic) NSString *currentFocusAssetCollectionGUID; // @synthesize currentFocusAssetCollectionGUID=_currentFocusAssetCollectionGUID;
 @property(retain, nonatomic) NSString *currentFocusAlbumGUID; // @synthesize currentFocusAlbumGUID=_currentFocusAlbumGUID;
-@property(nonatomic) BOOL isDownloadingThumbnails; // @synthesize isDownloadingThumbnails=_isDownloadingThumbnails;
-@property(nonatomic) BOOL didEncounterNetworkConditionError; // @synthesize didEncounterNetworkConditionError=_didEncounterNetworkConditionError;
+@property(nonatomic) _Bool isDownloadingThumbnails; // @synthesize isDownloadingThumbnails=_isDownloadingThumbnails;
+@property(nonatomic) _Bool didEncounterNetworkConditionError; // @synthesize didEncounterNetworkConditionError=_didEncounterNetworkConditionError;
 @property(retain, nonatomic) NSMutableArray *finishedAssets; // @synthesize finishedAssets=_finishedAssets;
 @property(retain, nonatomic) NSMutableDictionary *assetToItemInFlightMap; // @synthesize assetToItemInFlightMap=_assetToItemInFlightMap;
 @property(retain, nonatomic) NSMutableArray *itemsInFlight; // @synthesize itemsInFlight=_itemsInFlight;

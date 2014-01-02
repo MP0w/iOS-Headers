@@ -8,6 +8,7 @@
 
 @class DOMMediaList, DOMNode, NSString;
 
+// Not exported
 @interface DOMStyleSheet : DOMObject
 {
 }
@@ -17,7 +18,7 @@
 @property(readonly) NSString *href;
 @property(readonly) DOMStyleSheet *parentStyleSheet;
 @property(readonly) DOMNode *ownerNode;
-@property BOOL disabled;
+@property _Bool disabled;
 @property(readonly) NSString *type;
 - (void)finalize;
 - (void)dealloc;

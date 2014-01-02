@@ -8,7 +8,7 @@
 
 #import "NSCopying-Protocol.h"
 
-@class NSArray, NSData, NSString;
+@class NSArray, NSData, NSNumber, NSString;
 
 @interface IDSRegistrationMessage : FTIDSMessage <NSCopying>
 {
@@ -21,8 +21,10 @@
     NSString *_softwareVersion;
     NSString *_protocolVersion;
     NSString *_deviceName;
+    NSNumber *_responseHBI;
 }
 
+@property(copy) NSNumber *responseHBI; // @synthesize responseHBI=_responseHBI;
 @property(copy) NSString *deviceName; // @synthesize deviceName=_deviceName;
 @property(copy) NSString *protocolVersion; // @synthesize protocolVersion=_protocolVersion;
 @property(copy) NSString *softwareVersion; // @synthesize softwareVersion=_softwareVersion;
@@ -38,7 +40,7 @@
 - (id)messageBody;
 - (id)requiredKeys;
 - (id)bagKey;
-- (BOOL)hasRequiredKeys:(id *)arg1;
+- (_Bool)hasRequiredKeys:(id *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 

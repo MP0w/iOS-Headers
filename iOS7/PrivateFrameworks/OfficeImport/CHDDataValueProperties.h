@@ -10,11 +10,12 @@
 
 @class CHDDataLabel, CHDMarker, OADGraphicProperties;
 
+// Not exported
 @interface CHDDataValueProperties : NSObject <EDKeyedObject>
 {
     CHDDataLabel *mDataLabel;
     CHDMarker *mMarker;
-    unsigned int mDataValueIndex;
+    unsigned long long mDataValueIndex;
     OADGraphicProperties *mGraphicProperties;
 }
 
@@ -23,13 +24,13 @@
 - (id)marker;
 - (void)setGraphicProperties:(id)arg1;
 - (id)graphicProperties;
-- (void)setDataValueIndex:(unsigned int)arg1;
-- (unsigned int)dataValueIndex;
+- (void)setDataValueIndex:(unsigned long long)arg1;
+- (unsigned long long)dataValueIndex;
 - (void)setDataLabel:(id)arg1;
 - (id)dataLabel;
-- (int)key;
+- (long long)key;
 - (void)dealloc;
-- (id)shallowCopyWithIndex:(unsigned int)arg1;
+- (id)shallowCopyWithIndex:(unsigned long long)arg1;
 - (id)init;
 
 @end

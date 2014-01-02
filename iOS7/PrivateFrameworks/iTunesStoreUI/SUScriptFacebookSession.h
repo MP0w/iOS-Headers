@@ -18,10 +18,10 @@
 + (id)webScriptNameForKeyName:(id)arg1;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
-@property(readonly) unsigned int likeStatusFlagMe;
-@property(readonly) unsigned int likeStatusFlagGlobalCount;
-@property(readonly) unsigned int likeStatusFlagFriends;
-@property(readonly) unsigned int likeStatusFlagFriendCount;
+@property(readonly) unsigned long long likeStatusFlagMe;
+@property(readonly) unsigned long long likeStatusFlagGlobalCount;
+@property(readonly) unsigned long long likeStatusFlagFriends;
+@property(readonly) unsigned long long likeStatusFlagFriendCount;
 @property(readonly) id hasAccounts;
 - (id)_className;
 - (void)unlikeURL:(id)arg1 completionFunction:(id)arg2;

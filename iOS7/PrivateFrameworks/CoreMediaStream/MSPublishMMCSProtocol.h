@@ -18,7 +18,7 @@
     const char **_signatures;
     char **_authTokens;
     unsigned int *_itemFlags;
-    int _itemsInFlight;
+    long long _itemsInFlight;
 }
 
 @property(nonatomic) id <MSPublishStorageProtocolDelegate> delegate; // @synthesize delegate=_delegate;
@@ -28,7 +28,6 @@
 - (void)_putItemDone:(unsigned long long)arg1 putReceipt:(id)arg2 error:(id)arg3;
 - (void)publishAssets:(id)arg1 URL:(id)arg2;
 - (id)_getUTIFromItem:(unsigned long long)arg1;
-- (void)_closeFDForAsset:(id)arg1;
 - (int)_getFileDescriptorFromItem:(unsigned long long)arg1;
 - (void)computeHashForAsset:(id)arg1;
 - (void)dealloc;

@@ -10,8 +10,8 @@
 
 @optional
 - (void)swooshDidSelectSeeAll:(id)arg1;
-- (void)swoosh:(id)arg1 willDisplayCellAtIndex:(int)arg2;
-- (void)swoosh:(id)arg1 didSelectCellAtIndex:(int)arg2;
-- (id)swoosh:(id)arg1 imageForCellAtIndex:(int)arg2;
+- (void)swoosh:(id)arg1 willDisplayCellAtIndex:(long long)arg2;
+- (void)swoosh:(id)arg1 didSelectCellAtIndex:(long long)arg2;
+- (id)swoosh:(id)arg1 imageForCellAtIndex:(long long)arg2;
 @end
 

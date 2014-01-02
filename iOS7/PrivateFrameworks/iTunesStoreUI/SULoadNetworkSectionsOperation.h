@@ -17,7 +17,7 @@
 }
 
 - (void)_setSectionsResponse:(id)arg1;
-- (BOOL)_loadArtworkForResponse:(id)arg1;
+- (_Bool)_loadArtworkForResponse:(id)arg1;
 - (id)_copyLoadedItemImage:(id)arg1 error:(id *)arg2;
 - (id)_copyImageWithURL:(id)arg1 scale:(float)arg2 error:(id *)arg3;
 - (id)_bestItemImageForImages:(id)arg1 withImageKind:(id)arg2;

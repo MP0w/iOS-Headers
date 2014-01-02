@@ -8,18 +8,19 @@
 
 @class NSData, NSError, NSMapTable, NSMutableArray;
 
+// Not exported
 @interface _NSXMLParserInfo : NSObject
 {
     struct _xmlSAXHandler *saxHandler;
     struct _xmlParserCtxt *parserContext;
-    unsigned int parserFlags;
+    unsigned long long parserFlags;
     NSError *error;
     NSMutableArray *namespaces;
     NSMapTable *slowStringMap;
-    BOOL delegateAborted;
-    BOOL haveDetectedEncoding;
+    _Bool delegateAborted;
+    _Bool haveDetectedEncoding;
     NSData *bomChunk;
-    unsigned int chunkSize;
+    unsigned long long chunkSize;
 }
 
 @end

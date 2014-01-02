@@ -9,14 +9,14 @@
 @interface _CUIThemeFacetCacheKey : NSObject
 {
     struct _renditionkeytoken keyList[16];
-    int themeIndex;
+    long long themeIndex;
     unsigned long long hashPrecalc;
 }
 
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (id)initWithKeyList:(const struct _renditionkeytoken *)arg1 themeIndex:(int)arg2;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)initWithKeyList:(const struct _renditionkeytoken *)arg1 themeIndex:(long long)arg2;
 - (unsigned long long)hash64;
 
 @end

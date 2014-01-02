@@ -6,6 +6,7 @@
 
 #import <iWorkImport/GQHState.h>
 
+// Not exported
 @interface GQHKeynoteState : GQHState
 {
     int mCurrentSlide;
@@ -14,10 +15,10 @@
 }
 
 - (id).cxx_construct;
-- (BOOL)shouldStreamContent;
+- (_Bool)shouldStreamContent;
 - (void)setProgressiveIndex:(int)arg1;
 - (int)progressiveIndex;
-- (BOOL)shouldMapLinkWithUrl:(struct __CFString *)arg1;
+- (_Bool)shouldMapLinkWithUrl:(struct __CFString *)arg1;
 - (void)setSlideSize:(struct CGSize)arg1;
 - (struct CGSize)slideSize;
 - (int)currentSlide;

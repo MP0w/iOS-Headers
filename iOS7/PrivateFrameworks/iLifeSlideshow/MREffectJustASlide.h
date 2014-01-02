@@ -11,18 +11,18 @@
 @interface MREffectJustASlide : MREffect
 {
     MRCroppingSprite *mSprite;
-    BOOL mForceIsOpaque;
+    _Bool mForceIsOpaque;
 }
 
-- (BOOL)getVerticesCoordinates:(struct CGPoint (*)[4])arg1 withMatrix:(float [16])arg2 forElement:(id)arg3;
+- (_Bool)getVerticesCoordinates:(struct CGPoint (*)[4])arg1 withMatrix:(float [16])arg2 forElement:(id)arg3;
 - (id)elementHitAtPoint:(struct CGPoint)arg1 withInverseMatrix:(float [16])arg2 localPoint:(struct CGPoint *)arg3;
 - (id)patchworkAtTime:(double)arg1 inContext:(id)arg2 withArguments:(id)arg3;
 - (id)retainedByUserRenderedImageAtTime:(double)arg1 inContext:(id)arg2 withArguments:(id)arg3;
 - (void)renderAtTime:(double)arg1 inContext:(id)arg2 withArguments:(id)arg3;
-- (BOOL)prerenderForTime:(double)arg1 inContext:(id)arg2 withArguments:(id)arg3;
-- (BOOL)isAlphaFriendly;
-- (BOOL)isOpaque;
-- (BOOL)isNative3D;
+- (_Bool)prerenderForTime:(double)arg1 inContext:(id)arg2 withArguments:(id)arg3;
+- (_Bool)isAlphaFriendly;
+- (_Bool)isOpaque;
+- (_Bool)isNative3D;
 - (void)_cleanup;
 - (id)init;
 

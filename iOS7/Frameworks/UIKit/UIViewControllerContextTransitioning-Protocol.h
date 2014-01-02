@@ -10,14 +10,14 @@
 - (struct CGRect)finalFrameForViewController:(id)arg1;
 - (struct CGRect)initialFrameForViewController:(id)arg1;
 - (id)viewControllerForKey:(id)arg1;
-- (void)completeTransition:(BOOL)arg1;
+- (void)completeTransition:(_Bool)arg1;
 - (void)cancelInteractiveTransition;
 - (void)finishInteractiveTransition;
-- (void)updateInteractiveTransition:(float)arg1;
-- (int)presentationStyle;
-- (BOOL)transitionWasCancelled;
-- (BOOL)isInteractive;
-- (BOOL)isAnimated;
+- (void)updateInteractiveTransition:(double)arg1;
+- (long long)presentationStyle;
+- (_Bool)transitionWasCancelled;
+- (_Bool)isInteractive;
+- (_Bool)isAnimated;
 - (id)containerView;
 @end
 

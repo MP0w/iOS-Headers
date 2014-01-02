@@ -7,8 +7,8 @@
 #import "IMAccount.h"
 
 @interface IMAccount (CNFRegInternalUtilities)
-- (BOOL)CNFRegSignInFailed;
-- (BOOL)CNFRegSignInComplete;
-- (BOOL)CNFRegRegisteringLocalPhoneNumberSentinelAlias;
+- (_Bool)CNFRegSignInFailed;
+- (_Bool)CNFRegSignInComplete;
+- (_Bool)CNFRegRegisteringLocalPhoneNumberSentinelAlias;
 @end
 

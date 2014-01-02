@@ -6,6 +6,7 @@
 
 #import <OfficeImport/PDAnimateBehavior.h>
 
+// Not exported
 @interface PDSetBehavior : PDAnimateBehavior
 {
     id mValue;

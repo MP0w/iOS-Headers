@@ -14,7 +14,7 @@
 - (void)menuControllerWillShow:(id)arg1;
 - (void)abMenuControllerWillHide;
 - (void)abMenuControllerWillShow:(id)arg1;
-- (BOOL)abShouldShowMenu;
+- (_Bool)abShouldShowMenu;
 - (void)longPress:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

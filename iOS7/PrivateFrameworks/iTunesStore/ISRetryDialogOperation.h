@@ -8,12 +8,12 @@
 
 @interface ISRetryDialogOperation : ISDialogOperation
 {
-    BOOL _shouldRetry;
+    _Bool _shouldRetry;
 }
 
 + (id)operationWithTitle:(id)arg1 message:(id)arg2;
-@property BOOL shouldRetry; // @synthesize shouldRetry=_shouldRetry;
-- (void)handleButtonSelected:(int)arg1 withResponseDictionary:(id)arg2;
+@property _Bool shouldRetry; // @synthesize shouldRetry=_shouldRetry;
+- (void)handleButtonSelected:(long long)arg1 withResponseDictionary:(id)arg2;
 
 @end
 

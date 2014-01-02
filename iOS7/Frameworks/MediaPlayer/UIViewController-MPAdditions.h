@@ -8,11 +8,11 @@
 
 @interface UIViewController (MPAdditions)
 + (void)_endAppearanceTransitionFromViewController:(id)arg1 toViewController:(id)arg2;
-+ (void)_beginAppearanceTransitionFromViewController:(id)arg1 toViewController:(id)arg2 animated:(BOOL)arg3;
++ (void)_beginAppearanceTransitionFromViewController:(id)arg1 toViewController:(id)arg2 animated:(_Bool)arg3;
 - (void)_removeFromParentViewAndViewController;
 - (void)_addChildViewAndViewController:(id)arg1;
 - (void)_addChildViewAndViewController:(id)arg1 asSubviewOfView:(id)arg2;
 - (void)_addChildViewAndViewController:(id)arg1 asSubviewOfView:(id)arg2 addSubviewBlock:(id)arg3;
-- (BOOL)_hasAncestorViewController:(id)arg1;
+- (_Bool)_hasAncestorViewController:(id)arg1;
 @end
 

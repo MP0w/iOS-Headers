@@ -15,8 +15,8 @@
     ABPersonViewControllerHelper *_controller;
 }
 
-- (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
-- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)alertView:(id)arg1 didDismissWithButtonIndex:(long long)arg2;
+- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (id)initWithPersonViewController:(id)arg1;
 
 @end

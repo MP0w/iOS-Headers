@@ -10,8 +10,8 @@
 {
 }
 
-- (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
-- (struct CGRect)frameForSegmentAtIndex:(int)arg1;
+- (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
+- (struct CGRect)frameForSegmentAtIndex:(long long)arg1;
 
 @end
 

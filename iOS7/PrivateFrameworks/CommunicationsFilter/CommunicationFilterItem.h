@@ -18,13 +18,13 @@
 @property(readonly, nonatomic) struct __CFPhoneNumber *phoneNumber; // @synthesize phoneNumber=_phoneNumber;
 - (id)dictionaryRepresentation;
 - (id)_dictionaryRepresentationWithRedaction;
-- (BOOL)matchesFilterItem:(id)arg1;
+- (_Bool)matchesFilterItem:(id)arg1;
 @property(readonly, nonatomic) NSString *unformattedID;
-- (BOOL)isPhoneNumber;
+- (_Bool)isPhoneNumber;
 - (id)initWithDictionaryRepresentation:(id)arg1;
 - (id)description;
-- (BOOL)_acceptVersion:(id)arg1;
-- (BOOL)_acceptItemType:(id)arg1;
+- (_Bool)_acceptVersion:(id)arg1;
+- (_Bool)_acceptItemType:(id)arg1;
 - (void)dealloc;
 - (id)initWithEmailAddress:(id)arg1;
 - (id)initWithPhoneNumber:(struct __CFPhoneNumber *)arg1;

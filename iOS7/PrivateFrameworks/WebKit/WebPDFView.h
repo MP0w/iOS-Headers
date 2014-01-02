@@ -13,7 +13,7 @@
 
 @interface WebPDFView : WAKView <WebPDFDocumentView, WebPDFDocumentRepresentation>
 {
-    BOOL dataSourceHasBeenSet;
+    _Bool dataSourceHasBeenSet;
     struct CGPDFDocument *_PDFDocument;
     NSString *_title;
     struct CGRect *_pageRects;
@@ -29,7 +29,7 @@
 - (unsigned int)pageNumberForRect:(struct CGRect)arg1;
 - (id)title;
 - (id)documentSource;
-- (BOOL)canProvideDocumentSource;
+- (_Bool)canProvideDocumentSource;
 - (void)finishedLoadingWithDataSource:(id)arg1;
 - (void)_checkPDFTitle;
 - (void)_computePageRects;
@@ -38,7 +38,7 @@
 - (void)viewDidMoveToHostWindow;
 - (void)viewWillMoveToHostWindow:(id)arg1;
 - (void)layout;
-- (void)setNeedsLayout:(BOOL)arg1;
+- (void)setNeedsLayout:(_Bool)arg1;
 - (void)dataSourceUpdated:(id)arg1;
 - (void)setDataSource:(id)arg1;
 - (void)drawRect:(struct CGRect)arg1;

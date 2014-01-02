@@ -11,10 +11,10 @@
 }
 
 + (id)newDirectoryGroupWrapperWithAccountIdentifier:(id)arg1 store:(void *)arg2 addressBook:(void *)arg3;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)name;
 - (int)sourceType;
-- (BOOL)isDirectoryWrapper;
+- (_Bool)isDirectoryWrapper;
 
 @end
 

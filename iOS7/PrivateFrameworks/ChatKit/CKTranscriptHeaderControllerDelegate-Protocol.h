@@ -7,9 +7,11 @@
 #import "NSObject-Protocol.h"
 
 @protocol CKTranscriptHeaderControllerDelegate <NSObject>
-- (void)transcriptHeaderController:(id)arg1 startFacetimeCommunicationForEntity:(id)arg2 audioOnly:(BOOL)arg3;
-- (void)transcriptHeaderController:(id)arg1 requestFacetimeCommunicationTypeForEntity:(id)arg2;
+- (void)transcriptHeaderControllerHeaderIsAnimatingShowOrHide:(id)arg1;
+- (void)transcriptHeaderControllerWillShowOrHide:(id)arg1;
+- (void)transcriptHeaderController:(id)arg1 startFacetimeCommunicationForEntity:(id)arg2 audioOnly:(_Bool)arg3;
+- (void)transcriptHeaderController:(id)arg1 startEmailCommunicationWithEntity:(id)arg2;
 - (void)transcriptHeaderController:(id)arg1 startCommunicationForEntity:(id)arg2;
-- (void)transcriptHeaderController:(id)arg1 showContactCardForEntity:(id)arg2 fromView:(id)arg3;
+- (void)transcriptHeaderController:(id)arg1 showContactCardForEntity:(id)arg2 fromView:(id)arg3 fromRect:(struct CGRect)arg4;
 @end
 

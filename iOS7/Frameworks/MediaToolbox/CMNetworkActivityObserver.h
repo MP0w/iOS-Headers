@@ -10,8 +10,8 @@
 
 @interface CMNetworkActivityObserver : NSObject
 {
-    BOOL _valid;
-    BOOL _registered;
+    _Bool _valid;
+    _Bool _registered;
     int _cmActivityToken;
     int _cmActivityPollingToken;
     CMNetworkActivityMonitor *_activityMonitor;

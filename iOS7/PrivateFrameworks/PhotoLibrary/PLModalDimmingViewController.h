@@ -16,16 +16,16 @@
 }
 
 @property(retain, nonatomic) UIViewController<PLModalDimmingContained> *contentViewController; // @synthesize contentViewController=_contentViewController;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (void)_updateVignetteToOrientation:(int)arg1;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (void)_updateVignetteToOrientation:(long long)arg1;
 - (void)dismissWithCustomAnimation:(int)arg1 completionHandler:(id)arg2;
 - (void)presentWithCustomAnimation;
-- (void)presentModalOnViewController:(id)arg1 animated:(BOOL)arg2 completionHandler:(id)arg3;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)presentModalOnViewController:(id)arg1 animated:(_Bool)arg2 completionHandler:(id)arg3;
+- (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewWillLayoutSubviews;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (void)_updateWrapperView:(id)arg1 toOrientation:(int)arg2 forViewController:(id)arg3;
+- (void)willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (void)_updateWrapperView:(id)arg1 toOrientation:(long long)arg2 forViewController:(id)arg3;
 - (void)viewDidLoad;
 - (void)loadView;
 - (void)dealloc;

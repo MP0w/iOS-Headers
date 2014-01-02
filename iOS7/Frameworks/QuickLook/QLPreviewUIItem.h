@@ -14,16 +14,17 @@
 {
     id <QLPreviewItem> _previewItem;
     QLPreviewThumbnailGenerator *_thumbnailGenerator;
-    int _index;
+    long long _index;
 }
 
 + (id)genericIconForPreviewItem:(id)arg1;
-+ (id)uiItemForPreviewItem:(id)arg1 index:(int)arg2;
-@property(readonly) int previewItemIndex;
-@property(readonly) int level;
++ (id)uiItemForPreviewItem:(id)arg1 index:(long long)arg2;
+@property(readonly) long long previewItemIndex;
+@property(readonly) long long level;
 - (void)cancelIconUpdate;
 - (void)updateIconWithSize:(struct CGSize)arg1 completionBlock:(id)arg2;
 @property(readonly) UIImage *icon;
+@property(readonly) _Bool isFolder;
 @property(readonly) NSString *previewItemTitle;
 @property(readonly) NSURL *previewItemURL;
 - (void)dealloc;

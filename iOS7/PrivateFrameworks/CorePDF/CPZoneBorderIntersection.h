@@ -15,15 +15,15 @@
 {
     struct CGRect intersectionRect;
     CPZoneBorder *intersectingBorder;
-    BOOL forwardVector;
-    BOOL backwardVector;
+    _Bool forwardVector;
+    _Bool backwardVector;
 }
 
-- (int)comparePositionLengthwise:(id)arg1;
-- (BOOL)backwardVector;
-- (void)setBackwardVector:(BOOL)arg1;
-- (BOOL)forwardVector;
-- (void)setForwardVector:(BOOL)arg1;
+- (long long)comparePositionLengthwise:(id)arg1;
+- (_Bool)backwardVector;
+- (void)setBackwardVector:(_Bool)arg1;
+- (_Bool)forwardVector;
+- (void)setForwardVector:(_Bool)arg1;
 - (id)intersectingBorder;
 - (void)setIntersectingBorder:(id)arg1;
 - (struct CGRect)intersectionRect;

@@ -9,15 +9,15 @@
 #import "NSCoding-Protocol.h"
 #import "NSTextLayoutOrientationProvider-Protocol.h"
 
-@class NSArray, NSLayoutManager;
+@class NSArray, NSDictionary, NSLayoutManager;
 
 @interface NSTextContainer : NSObject <NSCoding, NSTextLayoutOrientationProvider>
 {
     NSLayoutManager *_layoutManager;
     id _textView;
     struct CGSize _size;
-    float _lineFragmentPadding;
-    unsigned int _maximumLines;
+    double _lineFragmentPadding;
+    unsigned long long _maximumLines;
     struct __tcFlags {
         unsigned int widthTracksTextView:1;
         unsigned int heightTracksTextView:1;
@@ -29,26 +29,29 @@
     struct CGPath *_cachedBoundingPath;
     struct __CFArray *_cachedClippingAttributes;
     struct __CFArray *_cachedBounds;
-    float _cacheBoundsMinY;
-    float _cacheBoundsMaxY;
-    int _layoutOrientation;
+    double _cacheBoundsMinY;
+    double _cacheBoundsMaxY;
+    long long _layoutOrientation;
+    NSDictionary *_attributesForExtraLineFragment;
 }
 
 + (void)initialize;
-@property(nonatomic) unsigned int maximumNumberOfLines; // @synthesize maximumNumberOfLines=_maximumLines;
+@property(nonatomic) unsigned long long maximumNumberOfLines; // @synthesize maximumNumberOfLines=_maximumLines;
 - (id)description;
-@property(nonatomic) int layoutOrientation;
-@property(readonly) BOOL isSimpleRectangularTextContainer;
+@property(nonatomic) long long layoutOrientation;
+- (_Bool)isSimpleRectangularTextContainer;
 - (struct CGRect)lineFragmentRectForProposedRect:(struct CGRect)arg1 remainingRect:(struct CGRect *)arg2;
-- (struct CGRect)lineFragmentRectForProposedRect:(struct CGRect)arg1 atIndex:(unsigned int)arg2 writingDirection:(int)arg3 remainingRect:(struct CGRect *)arg4;
+- (struct CGRect)lineFragmentRectForProposedRect:(struct CGRect)arg1 atIndex:(unsigned long long)arg2 writingDirection:(long long)arg3 remainingRect:(struct CGRect *)arg4;
 @property(copy, nonatomic) NSArray *exclusionPaths;
-@property(nonatomic) int lineBreakMode;
-@property(nonatomic) float lineFragmentPadding;
+- (void)setAttributesForExtraLineFragment:(id)arg1;
+- (id)attributesForExtraLineFragment;
+@property(nonatomic) long long lineBreakMode;
+@property(nonatomic) double lineFragmentPadding;
 @property(nonatomic) struct CGSize size;
 - (struct CGSize)containerSize;
 - (void)setContainerSize:(struct CGSize)arg1;
-@property(nonatomic) BOOL heightTracksTextView;
-@property(nonatomic) BOOL widthTracksTextView;
+@property(nonatomic) _Bool heightTracksTextView;
+@property(nonatomic) _Bool widthTracksTextView;
 - (void)setTextView:(id)arg1;
 - (id)textView;
 - (struct CGPoint)textContainerOrigin;
@@ -61,8 +64,6 @@
 - (id)initWithSize:(struct CGSize)arg1;
 - (id)initWithContainerSize:(struct CGSize)arg1;
 - (void)_commonInit;
-- (void)_resizeAccordingToTextView:(id)arg1;
-- (void)coordinateAccess:(id)arg1;
 
 @end
 

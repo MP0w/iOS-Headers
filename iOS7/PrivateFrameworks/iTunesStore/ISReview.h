@@ -13,40 +13,40 @@
 
 @interface ISReview : NSObject <NSCoding, NSCopying>
 {
-    int _assetType;
+    long long _assetType;
     NSString *_body;
-    unsigned int _bodyMaxLength;
+    unsigned long long _bodyMaxLength;
     NSURL *_infoURL;
     unsigned long long _itemIdentifier;
     NSString *_nickname;
-    BOOL _nicknameIsConfirmed;
-    unsigned int _nicknameMaxLength;
+    _Bool _nicknameIsConfirmed;
+    unsigned long long _nicknameMaxLength;
     float _rating;
     NSURL *_submitURL;
     NSString *_title;
-    unsigned int _titleMaxLength;
+    unsigned long long _titleMaxLength;
 }
 
-@property(nonatomic) unsigned int titleMaxLength; // @synthesize titleMaxLength=_titleMaxLength;
+@property(nonatomic) unsigned long long titleMaxLength; // @synthesize titleMaxLength=_titleMaxLength;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
 @property(retain, nonatomic) NSURL *submitURL; // @synthesize submitURL=_submitURL;
 @property(nonatomic) float rating; // @synthesize rating=_rating;
-@property(nonatomic) unsigned int nicknameMaxLength; // @synthesize nicknameMaxLength=_nicknameMaxLength;
-@property(nonatomic) BOOL nicknameIsConfirmed; // @synthesize nicknameIsConfirmed=_nicknameIsConfirmed;
+@property(nonatomic) unsigned long long nicknameMaxLength; // @synthesize nicknameMaxLength=_nicknameMaxLength;
+@property(nonatomic) _Bool nicknameIsConfirmed; // @synthesize nicknameIsConfirmed=_nicknameIsConfirmed;
 @property(retain, nonatomic) NSString *nickname; // @synthesize nickname=_nickname;
 @property(nonatomic) unsigned long long itemIdentifier; // @synthesize itemIdentifier=_itemIdentifier;
 @property(retain, nonatomic) NSURL *infoURL; // @synthesize infoURL=_infoURL;
-@property(nonatomic) unsigned int bodyMaxLength; // @synthesize bodyMaxLength=_bodyMaxLength;
+@property(nonatomic) unsigned long long bodyMaxLength; // @synthesize bodyMaxLength=_bodyMaxLength;
 @property(retain, nonatomic) NSString *body; // @synthesize body=_body;
-@property(nonatomic) int assetType; // @synthesize assetType=_assetType;
+@property(nonatomic) long long assetType; // @synthesize assetType=_assetType;
 - (id)_draftsDirectoryPath;
 - (id)_draftFileName;
-- (BOOL)saveAsDraft;
-- (BOOL)restoreFromDraft;
-- (BOOL)removeDraft;
-- (void)mergeWithReview:(id)arg1 preferLocalValues:(BOOL)arg2;
+- (_Bool)saveAsDraft;
+- (_Bool)restoreFromDraft;
+- (_Bool)removeDraft;
+- (void)mergeWithReview:(id)arg1 preferLocalValues:(_Bool)arg2;
 - (void)loadFromDictionary:(id)arg1;
-@property(readonly, nonatomic) BOOL hasSavedDraft;
+@property(readonly, nonatomic) _Bool hasSavedDraft;
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;

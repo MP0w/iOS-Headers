@@ -10,11 +10,11 @@
 
 @interface PLAssetImageGenerator : NSObject
 {
-    BOOL _inUse;
+    _Bool _inUse;
     AVAssetImageGenerator *_imageGenerator;
 }
 
-@property(nonatomic) BOOL inUse; // @synthesize inUse=_inUse;
+@property(nonatomic) _Bool inUse; // @synthesize inUse=_inUse;
 @property(retain, nonatomic) AVAssetImageGenerator *imageGenerator; // @synthesize imageGenerator=_imageGenerator;
 - (void)dealloc;
 - (id)initWithAsset:(id)arg1;

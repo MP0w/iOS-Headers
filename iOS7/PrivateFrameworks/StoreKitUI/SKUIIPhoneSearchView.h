@@ -12,11 +12,11 @@
 {
     UICollectionView *_collectionView;
     UIView *_noResultsView;
-    float _relatedAdjustment;
+    double _relatedAdjustment;
 }
 
 @property(retain, nonatomic) UIView *noResultsView; // @synthesize noResultsView=_noResultsView;
-@property(nonatomic) float relatedAdjustment; // @synthesize relatedAdjustment=_relatedAdjustment;
+@property(nonatomic) double relatedAdjustment; // @synthesize relatedAdjustment=_relatedAdjustment;
 @property(retain, nonatomic) UICollectionView *collectionView; // @synthesize collectionView=_collectionView;
 - (void).cxx_destruct;
 - (void)layoutSubviews;

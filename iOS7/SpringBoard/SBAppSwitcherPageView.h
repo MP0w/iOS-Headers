@@ -6,32 +6,33 @@
 
 #import "UIView.h"
 
+@class UIView<SBAppSwitcherPageContentView>;
+
 @interface SBAppSwitcherPageView : UIView
 {
     UIView *_shadowView;
     UIView *_hitTestBlocker;
-    UIView *_view;
+    UIView<SBAppSwitcherPageContentView> *_view;
     UIView *_overlayView;
-    int _orientation;
-    BOOL _resizeContentViewInsteadOfApplyingTransform;
+    long long _orientation;
 }
 
-+ (float)_edgeBorderForOrientation:(int)arg1;
-+ (struct CGSize)sizeForOrientation:(int)arg1;
-+ (float)scaleForOrientation:(int)arg1;
-@property(nonatomic) BOOL resizeContentViewInsteadOfApplyingTransform; // @synthesize resizeContentViewInsteadOfApplyingTransform=_resizeContentViewInsteadOfApplyingTransform;
-@property(nonatomic) int orientation; // @synthesize orientation=_orientation;
++ (double)_edgeBorderForOrientation:(long long)arg1;
++ (struct CGSize)sizeForOrientation:(long long)arg1;
++ (double)scale;
+@property(nonatomic) long long orientation; // @synthesize orientation=_orientation;
 @property(retain, nonatomic) UIView *overlay; // @synthesize overlay=_overlayView;
-@property(retain, nonatomic) UIView *view; // @synthesize view=_view;
+@property(retain, nonatomic) UIView<SBAppSwitcherPageContentView> *view; // @synthesize view=_view;
 - (void)invalidate;
-- (void)setShadowEnabled:(BOOL)arg1;
+- (void)setShadowEnabled:(_Bool)arg1;
 - (struct CGRect)_viewFrame;
-- (struct CGAffineTransform)_affineTransformForContentViewScaleAndOrientation;
-- (struct CGAffineTransform)_transformForOrientation:(int)arg1;
-- (void)setView:(id)arg1 animated:(BOOL)arg2;
+- (struct CGAffineTransform)_transformForScale;
+- (struct CGAffineTransform)_transformForOrientation:(long long)arg1;
+@property(nonatomic) double shadowAlpha;
+- (void)setView:(id)arg1 animated:(_Bool)arg2;
 - (void)layoutSubviews;
-- (void)_layoutViewsWithPageSettings:(id)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (id)description;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

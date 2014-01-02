@@ -12,6 +12,6 @@
 + (id)_geo_sendSynchronousRequest:(id)arg1 connectionProperties:(id)arg2 returningResponse:(id *)arg3 error:(id *)arg4;
 + (void)_geo_sendAsynchronousRequest:(id)arg1 queue:(id)arg2 connectionProperties:(id)arg3 completionHandler:(id)arg4;
 + (void)_geo_sendAsynchronousRequest:(id)arg1 connectionProperties:(id)arg2 completionHandler:(id)arg3;
-- (id)_geo_initWithAttributedRequest:(id)arg1 delegate:(id)arg2 startImmediately:(BOOL)arg3;
+- (id)_geo_initWithAttributedRequest:(id)arg1 delegate:(id)arg2 startImmediately:(_Bool)arg3;
 @end
 

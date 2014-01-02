@@ -10,14 +10,14 @@
 {
 }
 
-+ (float)rowHeightForContext:(id)arg1 representedObject:(id)arg2;
++ (double)rowHeightForContext:(id)arg1 representedObject:(id)arg2;
 + (id)copyDefaultContext;
-- (BOOL)showContentRating;
+- (_Bool)showContentRating;
 - (void)reloadStrings;
 - (void)reloadLayoutInformation;
-- (id)fontForLabelAtIndex:(unsigned int)arg1;
+- (id)fontForLabelAtIndex:(unsigned long long)arg1;
 - (id)copyImageDataProvider;
-- (id)colorForLabelAtIndex:(unsigned int)arg1 withModifiers:(unsigned int)arg2;
+- (id)colorForLabelAtIndex:(unsigned long long)arg1 withModifiers:(unsigned long long)arg2;
 - (id)init;
 
 @end

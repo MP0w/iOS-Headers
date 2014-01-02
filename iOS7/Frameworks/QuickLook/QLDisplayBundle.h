@@ -12,27 +12,24 @@
 {
     id <QLPreviewItemInteractionDelegate> _delegate;
     id <QLPreviewItem> _previewItem;
-    BOOL _overlayHidden;
+    _Bool _overlayHidden;
     int _previewMode;
-    BOOL _loaded;
-    BOOL _loading;
+    _Bool _loaded;
+    _Bool _loading;
     NSString *_password;
     NSTimer *_refreshTimer;
-    int _index;
-    CDStruct_6904a77d clientContext;
+    long long _index;
+    CDStruct_0109ef53 clientContext;
 }
 
-+ (BOOL)needsAVControls;
-+ (int)backgroundTypeForUTI:(id)arg1 andMode:(int)arg2;
-+ (id)backgroundColorForBackgroundType:(int)arg1;
++ (_Bool)needsAVControls;
 + (double)allowedLoadingDelay;
-@property int index; // @synthesize index=_index;
-@property CDStruct_6904a77d clientContext; // @synthesize clientContext;
-@property BOOL loading; // @synthesize loading=_loading;
-@property BOOL loaded; // @synthesize loaded=_loaded;
+@property long long index; // @synthesize index=_index;
+@property CDStruct_0109ef53 clientContext; // @synthesize clientContext;
+@property _Bool loading; // @synthesize loading=_loading;
+@property _Bool loaded; // @synthesize loaded=_loaded;
 @property id <QLPreviewItemInteractionDelegate> delegate; // @synthesize delegate=_delegate;
 - (id)gestureRecognizersForFullScreenDisplay;
-- (BOOL)overlayOwnedByDisplayBundle;
 - (void)togglePlayState;
 - (void)endScrubbing;
 - (void)scrubToValue:(double)arg1;
@@ -40,6 +37,7 @@
 - (id)printPageHelper;
 - (id)printPageRenderer;
 - (id)pdfPreviewData;
+- (void)setNavigationBarVerticalOffset:(double)arg1;
 @property(readonly) struct CGRect contentFrame;
 - (void)viewDidUpdate;
 - (void)discardAirPlayView;
@@ -49,9 +47,8 @@
 @property(readonly) UIView *airplayView;
 @property(readonly) UIView *accessoryView;
 @property(readonly) int airPlayMode;
-- (BOOL)canCopyToPasteboard;
-- (BOOL)acceptControllerTouch:(id)arg1 fromGestureRecognizer:(id)arg2;
-- (int)backgroundType;
+- (_Bool)canCopyToPasteboard;
+- (_Bool)acceptControllerTouch:(id)arg1 fromGestureRecognizer:(id)arg2;
 - (void)requiresDisplayBundle:(id)arg1 withHints:(id)arg2;
 - (void)didFailLoadingWithError:(id)arg1;
 - (void)didLoad;
@@ -60,20 +57,20 @@
 - (void)_performCancelLoad;
 - (void)loadWithHints:(id)arg1;
 - (void)enterBackground;
-- (BOOL)overlayIsHidden;
-- (void)setOverlayHidden:(BOOL)arg1 duration:(double)arg2;
+- (_Bool)overlayIsHidden;
+- (void)setOverlayHidden:(_Bool)arg1 duration:(double)arg2;
 @property int previewMode;
 @property(retain) NSString *password;
 @property(retain) id <QLPreviewItem> previewItem;
-- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)cancelLoadIfNeeded;
 - (void)loadIfNeededWithHints:(id)arg1;
 - (id)description;
-- (int)modalPresentationStyle;
+- (long long)modalPresentationStyle;
 - (void)didReceiveMemoryWarning;
 - (void)dealloc;
 - (id)init;
-- (BOOL)canBeCached;
+- (_Bool)canBeCached;
 
 @end
 

@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class GEOLocation;
 
-@interface GEOSignificantLocation : PBCodable
+@interface GEOSignificantLocation : PBCodable <NSCopying>
 {
     GEOLocation *_location;
     unsigned int _locationIndex;
@@ -19,15 +21,16 @@
 
 @property(nonatomic) unsigned int locationIndex; // @synthesize locationIndex=_locationIndex;
 @property(retain, nonatomic) GEOLocation *location; // @synthesize location=_location;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) BOOL hasLocationIndex;
-@property(readonly, nonatomic) BOOL hasLocation;
+@property(nonatomic) _Bool hasLocationIndex;
+@property(readonly, nonatomic) _Bool hasLocation;
 - (void)dealloc;
 
 @end

@@ -6,6 +6,7 @@
 
 #import <UIKit/UIAnimation.h>
 
+// Not exported
 @interface UIGestureAnimation : UIAnimation
 {
     SEL _progressSelector;

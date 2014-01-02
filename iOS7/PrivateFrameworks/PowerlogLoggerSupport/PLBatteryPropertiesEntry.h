@@ -13,24 +13,26 @@
 }
 
 + (id)batteryPropertiesEntry;
-@property(readonly, nonatomic) BOOL draining;
-@property(readonly, nonatomic) BOOL isPluggedIn;
+@property(readonly, nonatomic) _Bool draining;
+@property(readonly, nonatomic) _Bool isPluggedIn;
+@property(readonly, nonatomic) long long fullAvailableCapacity;
+@property(readonly, nonatomic) long long chemID;
 @property(readonly, nonatomic) NSString *chargingState;
-@property(readonly, nonatomic) int batteryTemp;
+@property(readonly, nonatomic) long long batteryTemp;
 @property(readonly, nonatomic) NSNumber *connectedStatus;
 @property(readonly, nonatomic) NSNumber *adapterInfo;
-@property(readonly, nonatomic) int chargingCurrent;
-@property(readonly, nonatomic) BOOL fullyCharged;
-@property(readonly, nonatomic) BOOL isCharging;
-@property(readonly, nonatomic) int cycleCount;
-@property(readonly, nonatomic) int designCapacity;
+@property(readonly, nonatomic) long long chargingCurrent;
+@property(readonly, nonatomic) _Bool fullyCharged;
+@property(readonly, nonatomic) _Bool isCharging;
+@property(readonly, nonatomic) long long cycleCount;
+@property(readonly, nonatomic) long long designCapacity;
 @property(readonly, nonatomic) double rawMaxCapacity;
 @property(readonly, nonatomic) double maxCapacity;
 @property(readonly, nonatomic) double rawCurrentCapacity;
 @property(readonly, nonatomic) double currentCapacity;
-@property(readonly, nonatomic) int current;
-@property(readonly, nonatomic) int voltage;
-@property(readonly, nonatomic) BOOL isCritical;
+@property(readonly, nonatomic) long long current;
+@property(readonly, nonatomic) long long voltage;
+@property(readonly, nonatomic) _Bool isCritical;
 @property(readonly, nonatomic) double rawCapacity;
 @property(readonly, nonatomic) double capacity;
 - (void)dealloc;

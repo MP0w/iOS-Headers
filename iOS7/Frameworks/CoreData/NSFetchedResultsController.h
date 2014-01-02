@@ -41,56 +41,21 @@
 
 + (void)deleteCacheWithName:(id)arg1;
 + (void)initialize;
-+ (unsigned int)_insertIndexForObject:(id)arg1 inArray:(id)arg2 lowIdx:(unsigned int)arg3 highIdx:(unsigned int)arg4 sortDescriptors:(id)arg5;
-+ (id)_CoreDataSectionCachesPath;
 @property(nonatomic) id <NSFetchedResultsControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) NSString *cacheName; // @synthesize cacheName=_cacheName;
 @property(readonly, nonatomic) NSString *sectionNameKeyPath; // @synthesize sectionNameKeyPath=_sectionNameKeyPath;
 @property(readonly, nonatomic) NSManagedObjectContext *managedObjectContext; // @synthesize managedObjectContext=_managedObjectContext;
 @property(readonly, nonatomic) NSFetchRequest *fetchRequest; // @synthesize fetchRequest=_fetchRequest;
-- (int)sectionForSectionIndexTitle:(id)arg1 atIndex:(int)arg2;
+- (long long)sectionForSectionIndexTitle:(id)arg1 atIndex:(long long)arg2;
 @property(readonly, nonatomic) NSArray *sections;
 @property(readonly, nonatomic) NSArray *sectionIndexTitles;
 - (id)sectionIndexTitleForSectionName:(id)arg1;
 - (id)indexPathForObject:(id)arg1;
 - (id)objectAtIndexPath:(id)arg1;
 @property(readonly, nonatomic) NSArray *fetchedObjects;
-- (BOOL)performFetch:(id *)arg1;
+- (_Bool)performFetch:(id *)arg1;
 - (void)dealloc;
 - (id)initWithFetchRequest:(id)arg1 managedObjectContext:(id)arg2 sectionNameKeyPath:(id)arg3 cacheName:(id)arg4;
-- (BOOL)_keyPathContainsNonPersistedProperties:(id)arg1;
-- (id)_resolveSectionIndexTitleForSectionName:(id)arg1;
-- (void)_dumpSectionInfo;
-- (BOOL)_didUseGroupBy;
-- (BOOL)_didFailPostprocessing;
-- (BOOL)_didUpdateOnlyStoreInfo;
-- (BOOL)_didUseCachedSectionInfo;
-- (id)_sectionCachePath;
-- (void)_managedObjectContextDidSave:(id)arg1;
-- (void)_updateCachedStoreInfo;
-- (void)_appendAffectedStoreInfoToData:(id)arg1 adjustedOffset:(long long *)arg2;
-- (void)_managedObjectContextDidChange:(id)arg1;
-- (BOOL)_postprocessUpdatedObjects:(id)arg1;
-- (void)_preprocessUpdatedObjects:(id)arg1 insertsInfo:(id)arg2 deletesInfo:(id)arg3 updatesInfo:(id)arg4 sectionsWithDeletes:(id)arg5 newSectionNames:(id)arg6 treatAsRefreshes:(BOOL)arg7;
-- (BOOL)_postprocessDeletedObjects:(id)arg1;
-- (void)_preprocessDeletedObjects:(id)arg1 deletesInfo:(id)arg2 sectionsWithDeletes:(id)arg3;
-- (id)_createNewSectionForObject:(id)arg1;
-- (BOOL)_postprocessInsertedObjects:(id)arg1;
-- (void)_preprocessInsertedObjects:(id)arg1 insertsInfo:(id)arg2 newSectionNames:(id)arg3;
-- (void)_updateSectionOffsetsStartingAtSection:(id)arg1;
-- (BOOL)_objectInResults:(id)arg1;
-- (id)_indexPathForIndex:(unsigned int)arg1;
-- (unsigned int)_sectionNumberForIndex:(unsigned int)arg1;
-- (void)_removeObjectInFetchedObjectsAtIndex:(unsigned int)arg1;
-- (void)_insertObjectInFetchedObjects:(id)arg1 atIndex:(unsigned int)arg2;
-- (unsigned int)_indexOfFetchedID:(id)arg1;
-- (id)_fetchedObjectsArrayOfObjectIDs;
-- (void)_makeMutableFetchedObjects;
-- (BOOL)_computeSectionInfoWithGroupBy:(id)arg1 error:(id *)arg2;
-- (BOOL)_computeSectionInfo:(id)arg1 error:(id *)arg2;
-- (BOOL)_restoreCachedSectionInfo;
-- (id)_sectionNameForObject:(id)arg1;
-- (BOOL)_hasFetchedObjects;
 
 @end
 

@@ -12,19 +12,19 @@
 {
     id <VMUMemory> _memory;
     VMUMachTaskContainer *_machTaskContainer;
-    BOOL _isTranslated;
+    _Bool _isTranslated;
     NSArray *_headers;
 }
 
 + (id)taskWithMachTaskContainer:(id)arg1;
 + (id)findDyldHeaderInMemory:(id)arg1 address:(unsigned long long)arg2;
-+ (BOOL)pidIsTranslated:(int)arg1;
++ (_Bool)pidIsTranslated:(int)arg1;
 - (void)dealloc;
 - (id)headers;
 - (unsigned int)task;
 - (id)memory;
 - (int)pid;
-- (BOOL)isTranslated;
+- (_Bool)isTranslated;
 - (id)initWithMachTaskContainer:(id)arg1;
 
 @end

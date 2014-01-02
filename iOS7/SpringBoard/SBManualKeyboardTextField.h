@@ -10,8 +10,8 @@
 {
 }
 
-- (BOOL)resignFirstResponder;
-- (BOOL)becomeFirstResponder;
+- (_Bool)resignFirstResponder;
+- (_Bool)becomeFirstResponder;
 
 @end
 

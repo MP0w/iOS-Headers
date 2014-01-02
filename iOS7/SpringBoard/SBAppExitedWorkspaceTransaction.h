@@ -11,7 +11,6 @@
 }
 
 - (id)_setupAnimationFrom:(id)arg1 to:(id)arg2;
-- (BOOL)shouldDismissShowcase;
 - (int)_setupMilestonesFrom:(id)arg1 to:(id)arg2;
 - (void)_kickOffActivation;
 - (id)initWithWorkspace:(id)arg1 alertManager:(id)arg2 from:(id)arg3 to:(id)arg4 activationHandler:(id)arg5;

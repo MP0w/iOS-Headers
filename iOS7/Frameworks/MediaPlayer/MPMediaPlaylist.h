@@ -12,23 +12,23 @@
 {
 }
 
-+ (BOOL)_isValidPlaylistProperty:(id)arg1;
++ (_Bool)_isValidPlaylistProperty:(id)arg1;
 + (void)_createFilterableDictionary;
-+ (BOOL)canFilterByProperty:(id)arg1;
++ (_Bool)canFilterByProperty:(id)arg1;
 - (id)representativeItem;
-- (unsigned int)mediaTypes;
-- (unsigned int)count;
+- (unsigned long long)mediaTypes;
+- (unsigned long long)count;
 - (id)items;
-@property(readonly, nonatomic) int playlistAttributes;
+@property(readonly, nonatomic) long long playlistAttributes;
 @property(readonly, nonatomic) NSString *name;
 @property(readonly, nonatomic) unsigned long long persistentID;
-- (BOOL)existsInLibrary;
-- (id)loadGeniusMixArtworkWithTileLength:(float)arg1 completionBlock:(id)arg2;
+- (_Bool)existsInLibrary;
+- (id)loadGeniusMixArtworkWithTileLength:(double)arg1 completionBlock:(id)arg2;
 - (id)valueForProperty:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)initWithPersistentID:(unsigned long long)arg1;
 
 @end

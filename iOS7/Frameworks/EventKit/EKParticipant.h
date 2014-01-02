@@ -19,9 +19,9 @@
 + (void *)findABPersonByURL:(id)arg1 inAddressBook:(void *)arg2;
 @property(readonly, nonatomic) EKCalendarItem *owner; // @synthesize owner=_owner;
 - (void *)ABRecordWithAddressBook:(void *)arg1;
-- (BOOL)isEqualToParticipant:(id)arg1;
+- (_Bool)isEqualToParticipant:(id)arg1;
 @property(readonly, nonatomic) NSURL *URL;
-@property(readonly, nonatomic) BOOL isCurrentUser;
+@property(readonly, nonatomic) _Bool isCurrentUser;
 @property(copy, nonatomic) NSString *comment;
 @property(readonly, nonatomic) int participantRole;
 @property(readonly, nonatomic) int participantStatus;

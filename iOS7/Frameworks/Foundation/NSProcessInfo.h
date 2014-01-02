@@ -14,10 +14,11 @@
     NSArray *arguments;
     NSString *hostName;
     NSString *name;
-    int automaticTerminationOptOutCounter;
+    long long automaticTerminationOptOutCounter;
 }
 
 + (id)processInfo;
+- (void)performActivityWithOptions:(unsigned long long)arg1 reason:(id)arg2 usingBlock:(id)arg3;
 - (void)performActivityWithOptions:(unsigned long long)arg1 reason:(id)arg2 block:(id)arg3;
 - (void)endActivity:(id)arg1;
 - (id)beginActivityWithOptions:(unsigned long long)arg1 reason:(id)arg2;
@@ -25,23 +26,23 @@
 - (id)beginSuspensionOfSystemBehaviors:(unsigned long long)arg1 reason:(id)arg2;
 - (void)_enableAutomaticTerminationOnly:(id)arg1;
 - (void)_disableAutomaticTerminationOnly:(id)arg1;
-- (BOOL)automaticTerminationSupportEnabled;
-- (void)setAutomaticTerminationSupportEnabled:(BOOL)arg1;
+- (_Bool)automaticTerminationSupportEnabled;
+- (void)setAutomaticTerminationSupportEnabled:(_Bool)arg1;
 - (void)enableAutomaticTermination:(id)arg1;
 - (void)disableAutomaticTermination:(id)arg1;
-- (int)_suddenTerminationDisablingCount;
+- (long long)_suddenTerminationDisablingCount;
 - (void)_exitWhenSuddenTerminationEnabledWithStatus:(int)arg1;
 - (void)_exitIfSuddenTerminationEnabledWithStatus:(int)arg1;
 - (void)enableSuddenTermination;
 - (void)disableSuddenTermination;
 - (double)systemUptime;
-- (BOOL)isTranslated;
+- (_Bool)isTranslated;
 - (unsigned long long)physicalMemory;
-- (unsigned int)activeProcessorCount;
-- (unsigned int)processorCount;
+- (unsigned long long)activeProcessorCount;
+- (unsigned long long)processorCount;
 - (id)operatingSystemVersionString;
 - (id)operatingSystemName;
-- (unsigned int)operatingSystem;
+- (unsigned long long)operatingSystem;
 - (id)userHomeDirectory;
 - (id)userFullName;
 - (id)userName;

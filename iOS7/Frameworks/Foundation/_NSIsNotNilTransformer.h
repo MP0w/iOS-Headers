@@ -6,11 +6,12 @@
 
 #import <Foundation/_NSNegateBooleanTransformer.h>
 
+// Not exported
 @interface _NSIsNotNilTransformer : _NSNegateBooleanTransformer
 {
 }
 
-+ (BOOL)supportsReverseTransformation;
++ (_Bool)supportsReverseTransformation;
 - (id)description;
 - (id)transformedValue:(id)arg1;
 

@@ -31,7 +31,7 @@
 - (void)registerDelegate:(id)arg1 inSilo:(id)arg2;
 - (void)forwardInvocation:(id)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
-- (BOOL)conformsToProtocol:(id)arg1;
+- (_Bool)conformsToProtocol:(id)arg1;
 - (id)initWithDelegateInterface:(id)arg1 proxiedInterface:(id)arg2 delegateObject:(id)arg3 delegateSilo:(id)arg4 andUninitializedPeer:(id)arg5;
 - (id)initWithDelegateInterface:(id)arg1 proxiedInterface:(id)arg2 andUninitializedPeer:(id)arg3;
 - (void)heartAttack;

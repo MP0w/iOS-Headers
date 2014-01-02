@@ -8,6 +8,7 @@
 
 @class SBKSyncTransaction;
 
+// Not exported
 @interface SBKSyncRequestData : NSObject
 {
     SBKSyncTransaction *_transaction;
@@ -18,7 +19,7 @@
 - (void).cxx_destruct;
 - (id)_serializableDeleteItemPayloadDictionaryForKey:(id)arg1;
 - (id)_serializableUpdateItemPayloadDictionaryForKey:(id)arg1;
-- (BOOL)_needsConflictDetection;
+- (_Bool)_needsConflictDetection;
 - (id)_serializableConflictDetectionOrdinalForKey:(id)arg1;
 - (id)_serializableConflictDetectionValue;
 - (id)serializableRequestBodyPropertyList;

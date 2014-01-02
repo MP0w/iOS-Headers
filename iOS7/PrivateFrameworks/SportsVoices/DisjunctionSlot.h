@@ -14,7 +14,7 @@
 + (id)instanceFromPlist:(id)arg1;
 - (id)reversed;
 - (id)description;
-- (BOOL)matches:(id)arg1;
+- (_Bool)matches:(id)arg1;
 
 @end
 

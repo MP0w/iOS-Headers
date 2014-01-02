@@ -8,7 +8,7 @@
 
 #import "SAServerBoundCommand-Protocol.h"
 
-@class NSString, SASPronunciationData;
+@class NSNumber, NSString, SASPronunciationData;
 
 @interface SAUIListenForPronunciationCompleted : SABaseCommand <SAServerBoundCommand>
 {
@@ -17,6 +17,8 @@
 + (id)listenForPronunciationCompletedWithDictionary:(id)arg1 context:(id)arg2;
 + (id)listenForPronunciationCompleted;
 @property(retain, nonatomic) SASPronunciationData *pronunciationData;
+@property(copy, nonatomic) NSString *interactionId;
+@property(copy, nonatomic) NSNumber *errorCode;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

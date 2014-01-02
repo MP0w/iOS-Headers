@@ -10,7 +10,7 @@
 
 @interface PUPhotoSelectionEntry : NSObject
 {
-    BOOL _hasValidAssetIndexes;
+    _Bool _hasValidAssetIndexes;
     id <PLAssetContainer> _container;
     NSMutableSet *_selectedAssets;
     NSMutableIndexSet *_selectedIndexes;
@@ -21,14 +21,14 @@
 - (void)setSelectedAssetsSet:(id)arg1;
 - (void)handleCollectionChangeNotification:(id)arg1;
 - (void)enumerateSelectedAssetsWithBlock:(id)arg1;
-- (BOOL)isIndexSelected:(unsigned int)arg1;
+- (_Bool)isIndexSelected:(unsigned long long)arg1;
 - (void)deselectAssetsAtIndexes:(id)arg1;
 - (void)selectAssetsAtIndexes:(id)arg1;
 @property(readonly, nonatomic) NSArray *selectedAssets;
 @property(readonly, nonatomic) NSIndexSet *selectedIndexes;
 - (void)invalidateAllAssetIndexes;
 - (void)_ensureValidAssetIndexes;
-- (id)initWithContainer:(id)arg1;
+- (id)initWithContainer:(id)arg1 uniqueSelectedAssets:(id)arg2;
 
 @end
 

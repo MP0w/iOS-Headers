@@ -12,17 +12,17 @@
 {
 }
 
-+ (BOOL)CA_automaticallyNotifiesObservers:(Class)arg1;
-+ (BOOL)_hasRenderLayerSubclass;
++ (_Bool)CA_automaticallyNotifiesObservers:(Class)arg1;
++ (_Bool)_hasRenderLayerSubclass;
 + (id)defaultValueForKey:(id)arg1;
-@property float lineDashPhase;
+@property double lineDashPhase;
 @property(copy) NSArray *lineDashPattern;
 @property(copy) NSString *lineCap;
 @property(copy) NSString *lineJoin;
-@property float miterLimit;
-@property float lineWidth;
-@property float strokeEnd;
-@property float strokeStart;
+@property double miterLimit;
+@property double lineWidth;
+@property double strokeEnd;
+@property double strokeStart;
 @property struct CGColor *strokeColor;
 @property(copy) NSString *fillRule;
 @property struct CGColor *fillColor;

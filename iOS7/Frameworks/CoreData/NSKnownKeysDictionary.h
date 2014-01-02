@@ -16,10 +16,10 @@
 - (void)getObjects:(id *)arg1 andKeys:(id *)arg2;
 - (void)getObjects:(id *)arg1;
 - (void)getKeys:(id *)arg1;
-- (void)_setValues:(id *)arg1 retain:(BOOL)arg2;
+- (void)_setValues:(id *)arg1 retain:(_Bool)arg2;
 - (void)setValues:(id *)arg1;
-- (void)setValue:(id)arg1 atIndex:(unsigned int)arg2;
-- (id)valueAtIndex:(unsigned int)arg1;
+- (void)setValue:(id)arg1 atIndex:(unsigned long long)arg2;
+- (id)valueAtIndex:(unsigned long long)arg1;
 - (const id *)values;
 - (id)mapping;
 - (id)initForKeys:(id)arg1;

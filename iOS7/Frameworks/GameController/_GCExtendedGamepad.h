@@ -10,6 +10,7 @@
 
 @class GCController, NSString, _GCControllerButtonInput, _GCControllerDirectionPad;
 
+// Not exported
 @interface _GCExtendedGamepad : GCExtendedGamepad <GCNamedProfile>
 {
     GCController *_controller;
@@ -27,7 +28,7 @@
     _GCControllerButtonInput *_rightTrigger;
 }
 
-+ (BOOL)supportsUSBInterfaceProtocol:(unsigned char)arg1;
++ (_Bool)supportsUSBInterfaceProtocol:(unsigned char)arg1;
 - (id)rightTrigger;
 - (id)leftTrigger;
 - (id)rightShoulder;
@@ -43,9 +44,10 @@
 - (id)valueChangedHandler;
 - (id)controller;
 - (void).cxx_destruct;
-- (void)setPlayerIndex:(int)arg1;
+- (void)setController:(id)arg1;
+- (void)setPlayerIndex:(long long)arg1;
 @property(readonly) NSString *name;
-- (id)initWithController:(id)arg1 dpadFlippedY:(BOOL)arg2 leftFlippedY:(BOOL)arg3 rightFlippedY:(BOOL)arg4;
+- (id)initWithController:(id)arg1 dpadFlippedY:(_Bool)arg2 leftFlippedY:(_Bool)arg3 rightFlippedY:(_Bool)arg4;
 - (id)initWithController:(id)arg1;
 
 @end

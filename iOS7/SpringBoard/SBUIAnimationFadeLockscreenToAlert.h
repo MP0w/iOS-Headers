@@ -6,21 +6,31 @@
 
 #import "SBUIMainScreenAnimationController.h"
 
-@class SBAlertManager, SBLockScreenViewController, UIView;
+@class SBAlertManager, SBLockScreenViewController, SBUIFullscreenAlertAdapter, UIView;
 
 @interface SBUIAnimationFadeLockscreenToAlert : SBUIMainScreenAnimationController
 {
     SBLockScreenViewController *_lockScreenViewController;
     SBAlertManager *_alertManager;
-    UIView *_realViewToAnimate;
-    BOOL _animatingWithZoom;
+    SBUIFullscreenAlertAdapter *_toAlert;
+    UIView *_cameraSnapshotView;
+    _Bool _animatingFromCamera;
+    _Bool _alertViewIsAnimatingItself;
+    _Bool _alertIsTransparent;
+    _Bool _finishedPrimaryFadeAnimation;
+    _Bool _needsLockScreenAlphaRestoredOnCompletion;
 }
 
 - (void)_cleanupAnimation;
 - (void)_startAnimation;
 - (void)_prepareAnimation;
+- (void)_alertViewFinishedAnimatingItself;
+- (void)_fadeAnimationFinished;
+- (void)_evaluateTotalAnimationCompletion;
+- (void)_animationFinished;
+- (double)animationDuration;
 - (void)dealloc;
-- (id)initWithLockScreenController:(id)arg1 alertManager:(id)arg2;
+- (id)initWithLockScreenController:(id)arg1 toAlert:(id)arg2 alertManager:(id)arg3;
 
 @end
 

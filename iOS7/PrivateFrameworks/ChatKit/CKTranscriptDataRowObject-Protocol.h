@@ -9,7 +9,9 @@
 @protocol CKTranscriptDataRowObject <NSObject>
 - (id)__ck_displayContactImage;
 - (void)__ck_prewarmForDisplay;
-- (BOOL)__ck_displayDuringSend;
+- (_Bool)__ck_wantsDrawerLayout;
+- (_Bool)__ck_displayDuringSend;
+- (_Bool)__ck_transcriptUsesTextAlignmentInsets;
 - (BOOL)__ck_displayTranscriptOrientation;
 - (struct UIEdgeInsets)__ck_displayContentAlignmentInsets;
 - (struct CGSize)__ck_displaySize:(struct UIEdgeInsets *)arg1;

@@ -12,10 +12,10 @@
 
 @interface MKMapItem : NSObject <MKURLSerializable>
 {
-    BOOL _isCurrentLocation;
+    _Bool _isCurrentLocation;
     NSString *_extSessionGuid;
     GEOPlace *_place;
-    BOOL _isPlaceHolder;
+    _Bool _isPlaceHolder;
 }
 
 + (id)urlForMapItems:(id)arg1 options:(id)arg2;
@@ -24,22 +24,18 @@
 + (id)mapItemWithDictionary:(id)arg1;
 + (id)standardOptionsFromPlistCompatibleDictionary:(id)arg1;
 + (id)plistCompatibleDictionaryFromStandardOptions:(id)arg1;
-+ (BOOL)openMapsWithItems:(id)arg1 launchOptions:(id)arg2;
++ (_Bool)openMapsWithItems:(id)arg1 launchOptions:(id)arg2;
 + (id)mapItemForCurrentLocation;
-+ (void)_mapItemGeocodedForStructuredLocation:(id)arg1 mapItem:(id)arg2;
-+ (void)_mapItemGeocodedForCoordinate:(CDStruct_c3b9c2ee)arg1 mapItem:(id)arg2;
-+ (void)_mapItemGeocodedForAddressDictionary:(id)arg1 mapItem:(id)arg2;
-+ (void)_geocode:(id)arg1 isForward:(BOOL)arg2 mapItem:(id)arg3;
-@property(readonly, nonatomic) BOOL isPlaceHolder; // @synthesize isPlaceHolder=_isPlaceHolder;
+@property(readonly, nonatomic) _Bool isPlaceHolder; // @synthesize isPlaceHolder=_isPlaceHolder;
 @property(copy, nonatomic) NSString *extSessionGuid; // @synthesize extSessionGuid=_extSessionGuid;
 @property(readonly, nonatomic) GEOPlace *place; // @synthesize place=_place;
-@property(nonatomic) BOOL isCurrentLocation; // @synthesize isCurrentLocation=_isCurrentLocation;
+@property(nonatomic) _Bool isCurrentLocation; // @synthesize isCurrentLocation=_isCurrentLocation;
 - (id)_structuredAddressForUrlRespresentation:(id)arg1;
 - (id)_urlRepresentationForStructuredAddress:(id)arg1;
 - (id)initWithUrlRepresentation:(id)arg1;
 - (id)urlRepresentation;
 - (id)dictionaryRepresentation;
-- (BOOL)openInMapsWithLaunchOptions:(id)arg1;
+- (_Bool)openInMapsWithLaunchOptions:(id)arg1;
 @property(retain, nonatomic) NSNumber *rating;
 @property(retain, nonatomic) NSNumber *numberOfReviews;
 @property(retain, nonatomic) NSNumber *numberOfRatings;
@@ -50,8 +46,8 @@
 @property(copy, nonatomic) NSString *phoneNumber;
 - (id)_getBusiness;
 @property(copy, nonatomic) NSString *name;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)description;
 @property(readonly, nonatomic) MKPlacemark *placemark;
 - (void)dealloc;
@@ -59,10 +55,8 @@
 - (id)initWithPlacemark:(id)arg1;
 - (id)initWithCLLocation:(id)arg1;
 - (id)initWithAddressDictionary:(id)arg1;
-- (id)initWithPlace:(id)arg1 isPlaceHolderPlace:(BOOL)arg2;
+- (id)initWithPlace:(id)arg1 isPlaceHolderPlace:(_Bool)arg2;
 - (id)initWithPlace:(id)arg1;
-- (id)initWithPlaceSearchResponse:(id)arg1 name:(id)arg2;
-- (id)initWithPlaceResult:(id)arg1;
 
 @end
 

@@ -13,7 +13,7 @@
     NSMutableArray *_bookmarks;
     unsigned int _bookmarkCount;
     unsigned int _skipOffset;
-    BOOL _customQuery;
+    _Bool _customQuery;
     NSString *_query;
     unsigned int _folderID;
     WebBookmarkCollection *_collection;
@@ -24,12 +24,6 @@
 - (id)bookmarkArray;
 - (unsigned int)bookmarkCount;
 - (id)bookmarkAtIndex:(unsigned int)arg1;
-- (BOOL)stepThroughIndex:(unsigned int)arg1;
-- (unsigned int)_reverseOrderIndex:(unsigned int)arg1;
-- (void)_moveBookmarkAtIndex:(unsigned int)arg1 toIndex:(unsigned int)arg2;
-- (void)dealloc;
-- (id)initWithBookmarksWhere:(id)arg1 collection:(id)arg2 bookmarkCount:(unsigned int)arg3 skipOffset:(unsigned int)arg4;
-- (id)initWithFolderID:(unsigned int)arg1 inCollection:(id)arg2 bookmarkCount:(unsigned int)arg3 skipOffset:(unsigned int)arg4 includeHidden:(BOOL)arg5;
 
 @end
 

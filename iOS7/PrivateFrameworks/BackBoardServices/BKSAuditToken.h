@@ -20,14 +20,14 @@
 @property(readonly, nonatomic) CDStruct_4c969caf realToken; // @synthesize realToken=_auditToken;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)_valueFromData:(id)arg1 ofType:(const char *)arg2;
 - (id)_dataWithValue:(id)arg1;
 - (void)encodeWithXPCDictionary:(id)arg1;
 - (id)initWithXPCDictionary:(id)arg1;
 - (id)bundleID;
-- (BOOL)hasEntitlement:(id)arg1;
+- (_Bool)hasEntitlement:(id)arg1;
 - (id)initWithMachMessage:(CDStruct_c91b0553 *)arg1;
 - (id)initWithXPCMessage:(id)arg1;
 - (id)initWithAuditToken:(CDStruct_4c969caf)arg1;

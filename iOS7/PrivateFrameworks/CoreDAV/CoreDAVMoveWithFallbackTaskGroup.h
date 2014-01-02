@@ -13,7 +13,7 @@
     NSURL *_sourceURL;
     NSURL *_destinationURL;
     NSString *_previousETag;
-    BOOL _useFallback;
+    _Bool _useFallback;
     int _overwrite;
     NSData *_dataPayload;
     NSString *_dataContentType;
@@ -26,7 +26,7 @@
 @property(retain, nonatomic) NSString *dataContentType; // @synthesize dataContentType=_dataContentType;
 @property(retain, nonatomic) NSData *dataPayload; // @synthesize dataPayload=_dataPayload;
 @property(retain, nonatomic) NSString *previousETag; // @synthesize previousETag=_previousETag;
-@property(nonatomic) BOOL useFallback; // @synthesize useFallback=_useFallback;
+@property(nonatomic) _Bool useFallback; // @synthesize useFallback=_useFallback;
 @property(nonatomic) int overwrite; // @synthesize overwrite=_overwrite;
 @property(readonly, nonatomic) NSURL *destinationURL; // @synthesize destinationURL=_destinationURL;
 @property(readonly, nonatomic) NSURL *sourceURL; // @synthesize sourceURL=_sourceURL;

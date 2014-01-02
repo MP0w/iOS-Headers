@@ -20,8 +20,8 @@
 
 - (void)refreshSnapshot;
 - (void)updateGeometryForPreviewViewController:(id)arg1;
-- (float)_screenScaleFactorForPreviewViewController:(id)arg1;
-- (float)_screenAspectRatioForPreviewViewController:(id)arg1;
+- (double)_screenScaleFactorForPreviewViewController:(id)arg1;
+- (double)_screenAspectRatioForPreviewViewController:(id)arg1;
 - (void)invalidate;
 - (void)_removeAirPlayWindow;
 - (void)_createAirPlayWindowIfNeeded;

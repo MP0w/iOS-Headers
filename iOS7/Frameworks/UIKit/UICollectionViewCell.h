@@ -25,8 +25,8 @@
         unsigned int clearSelectionWhenMenuDisappears:1;
         unsigned int waitingForSelectionAnimationHalfwayPoint:1;
     } _collectionCellFlags;
-    BOOL _selected;
-    BOOL _highlighted;
+    _Bool _selected;
+    _Bool _highlighted;
 }
 
 @property(retain, nonatomic) UIView *selectedBackgroundView; // @synthesize selectedBackgroundView=_selectedBackgroundView;
@@ -38,24 +38,24 @@
 - (void)copy:(id)arg1;
 - (void)cut:(id)arg1;
 - (void)_performAction:(SEL)arg1 sender:(id)arg2;
-- (BOOL)canPerformAction:(SEL)arg1 withSender:(id)arg2;
+- (_Bool)canPerformAction:(SEL)arg1 withSender:(id)arg2;
 - (void)_menuDismissed:(id)arg1;
 - (void)_handleMenuGesture:(id)arg1;
-- (BOOL)_gestureRecognizerShouldBegin:(id)arg1;
-- (BOOL)_isUsingOldStyleMultiselection;
-- (BOOL)_shouldSaveOpaqueStateForView:(id)arg1;
-@property(nonatomic, getter=isHighlighted) BOOL highlighted; // @synthesize highlighted=_highlighted;
-- (void)_setHighlighted:(BOOL)arg1 animated:(BOOL)arg2;
-@property(nonatomic, getter=isSelected) BOOL selected; // @synthesize selected=_selected;
-- (void)_setSelected:(BOOL)arg1 animated:(BOOL)arg2;
+- (_Bool)_gestureRecognizerShouldBegin:(id)arg1;
+- (_Bool)_isUsingOldStyleMultiselection;
+- (_Bool)_shouldSaveOpaqueStateForView:(id)arg1;
+@property(nonatomic, getter=isHighlighted) _Bool highlighted; // @synthesize highlighted=_highlighted;
+- (void)_setHighlighted:(_Bool)arg1 animated:(_Bool)arg2;
+@property(nonatomic, getter=isSelected) _Bool selected; // @synthesize selected=_selected;
+- (void)_setSelected:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)_teardownHighlightingSupportIfReady;
 - (void)_setupHighlightingSupport;
 - (void)_updateBackgroundView;
 - (void)_descendent:(id)arg1 didMoveFromSuperview:(id)arg2 toSuperview:(id)arg3;
 - (void)_descendent:(id)arg1 willMoveFromSuperview:(id)arg2 toSuperview:(id)arg3;
-- (void)_setOpaque:(BOOL)arg1 forSubview:(id)arg2;
+- (void)_setOpaque:(_Bool)arg1 forSubview:(id)arg2;
 - (void)_updateHighlightColorsForAnimationHalfwayPoint;
-- (void)_updateHighlightColorsForView:(id)arg1 highlight:(BOOL)arg2;
+- (void)_updateHighlightColorsForView:(id)arg1 highlight:(_Bool)arg2;
 - (void)prepareForReuse;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;

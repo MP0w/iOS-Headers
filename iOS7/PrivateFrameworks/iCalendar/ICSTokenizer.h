@@ -17,23 +17,23 @@
     char *_token;
     int _tokenType;
     int _expectedNextTokenType;
-    BOOL _printedICS;
+    _Bool _printedICS;
     int _logCount;
 }
 
 @property int logCount; // @synthesize logCount=_logCount;
-@property BOOL printedICS; // @synthesize printedICS=_printedICS;
+@property _Bool printedICS; // @synthesize printedICS=_printedICS;
 - (int)tokenType;
 - (char *)currentToken;
 - (char *)nextToken;
 - (void)consumePropValue;
 - (void)consumeParamValue;
-- (BOOL)consumeEscaped:(const char *)arg1;
+- (_Bool)consumeEscaped:(const char *)arg1;
 - (void)consumeParamName;
 - (void)consumePropName;
 - (void)consumeWhiteSpace;
-- (BOOL)consumeEOL;
-- (BOOL)consumeFolding;
+- (_Bool)consumeEOL;
+- (_Bool)consumeFolding;
 - (id)debugDescription;
 - (void)dealloc;
 - (id)initWithData:(id)arg1;

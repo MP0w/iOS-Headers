@@ -6,6 +6,7 @@
 
 #import <iWorkImport/GQDPath.h>
 
+// Not exported
 @interface GQDScalarPath : GQDPath
 {
     int mType;
@@ -18,9 +19,8 @@
 - (struct CGSize)size;
 - (int)type;
 - (double)scalar;
-- (BOOL)isRect;
-- (BOOL)isRectangular;
-- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1 processor:(id)arg2;
+- (_Bool)isRect;
+- (_Bool)isRectangular;
 
 @end
 

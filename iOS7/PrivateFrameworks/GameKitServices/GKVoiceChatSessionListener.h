@@ -8,6 +8,7 @@
 
 @class GKRWLock, GKSessionInternal, NSMutableArray;
 
+// Not exported
 @interface GKVoiceChatSessionListener : NSObject
 {
     NSMutableArray *_conferenceList;

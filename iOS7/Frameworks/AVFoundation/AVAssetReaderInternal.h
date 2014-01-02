@@ -16,7 +16,7 @@
     struct OpaqueFigAssetReader *figAssetReader;
     CDStruct_e83c9415 timeRange;
     NSMutableArray *outputs;
-    int status;
+    long long status;
     NSError *error;
     NSObject<OS_dispatch_queue> *statusReadWriteQueue;
 }

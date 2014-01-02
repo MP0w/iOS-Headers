@@ -22,12 +22,12 @@
 
 @property(readonly, nonatomic) UIScreen *screen; // @synthesize screen=_screen;
 @property(nonatomic) SBWindowContextHostManager *hostManager; // @synthesize hostManager=_hostManager;
-- (void)windowContextManager:(id)arg1 didRepositionContext:(id)arg2 from:(unsigned int)arg3 to:(unsigned int)arg4 forScreen:(id)arg5;
+- (void)windowContextManager:(id)arg1 didRepositionContext:(id)arg2 from:(unsigned long long)arg3 to:(unsigned long long)arg4 forScreen:(id)arg5;
 - (id)description;
 - (id)window;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
-- (BOOL)hasContent;
-- (BOOL)isHosting;
+- (_Bool)hasContent;
+- (_Bool)isHosting;
 @property(copy, nonatomic) NSSet *hiddenContexts;
 @property(retain, nonatomic) SBWindowContextManager *contextManager;
 - (void)_adjustLayerFrameAndTransform:(id)arg1;

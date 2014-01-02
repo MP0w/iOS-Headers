@@ -13,7 +13,7 @@
 + (id)sourceWithDictionary:(id)arg1 context:(id)arg2;
 + (id)source;
 - (void)updateUsingSet:(id)arg1 add:(id)arg2 remove:(id)arg3;
-@property(nonatomic) BOOL strict;
+@property(nonatomic) _Bool strict;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

@@ -23,14 +23,14 @@
 @property(copy, nonatomic) NSString *fileType; // @synthesize fileType=_fileType;
 @property(copy, nonatomic) NSURL *fileURL; // @synthesize fileURL=_fileURL;
 - (id)persistentStoreTypeForFileType:(id)arg1;
-- (BOOL)configurePersistentStoreCoordinatorForURL:(id)arg1 ofType:(id)arg2 modelConfiguration:(id)arg3 storeOptions:(id)arg4 error:(id *)arg5;
+- (_Bool)configurePersistentStoreCoordinatorForURL:(id)arg1 ofType:(id)arg2 modelConfiguration:(id)arg3 storeOptions:(id)arg4 error:(id *)arg5;
 - (void)close;
 - (id)_persistentStoreCoordinator;
 - (id)managedObjectContext;
 - (void)setManagedObjectContext:(id)arg1;
 - (id)managedObjectModel;
 - (void)saveDocument:(id)arg1;
-- (BOOL)readFromURL:(id)arg1 ofType:(id)arg2 error:(id *)arg3;
+- (_Bool)readFromURL:(id)arg1 ofType:(id)arg2 error:(id *)arg3;
 - (void)dealloc;
 - (id)initWithType:(id)arg1 error:(id *)arg2;
 - (id)initWithContentsOfURL:(id)arg1 ofType:(id)arg2 error:(id *)arg3;

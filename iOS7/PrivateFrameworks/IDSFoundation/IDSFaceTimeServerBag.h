@@ -11,7 +11,7 @@
 }
 
 + (id)_bagCreationLock;
-- (BOOL)isInDebilitatedMode;
+- (_Bool)isInDebilitatedMode;
 - (id)init;
 - (id)_bagDefaultsDomain;
 

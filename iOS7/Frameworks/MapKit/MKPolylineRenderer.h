@@ -12,7 +12,7 @@
 {
 }
 
-- (void)drawMapRect:(CDStruct_90e2a262)arg1 zoomScale:(float)arg2 inContext:(struct CGContext *)arg3;
+- (void)drawMapRect:(CDStruct_90e2a262)arg1 zoomScale:(double)arg2 inContext:(struct CGContext *)arg3;
 - (void)createPath;
 @property(readonly, nonatomic) MKPolyline *polyline;
 - (void)dealloc;

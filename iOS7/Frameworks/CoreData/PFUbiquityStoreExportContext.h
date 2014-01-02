@@ -8,6 +8,7 @@
 
 @class NSMutableSet, NSSQLCore, NSSet, NSString, PFUbiquityLocation, PFUbiquitySwitchboardCacheWrapper;
 
+// Not exported
 @interface PFUbiquityStoreExportContext : NSObject
 {
     PFUbiquityLocation *_ubiquityRootLocation;

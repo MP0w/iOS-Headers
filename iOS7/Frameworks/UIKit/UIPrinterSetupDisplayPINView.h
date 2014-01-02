@@ -8,6 +8,7 @@
 
 @class UIButton, UILabel;
 
+// Not exported
 @interface UIPrinterSetupDisplayPINView : UIView
 {
     UILabel *_titleLabel;
@@ -16,7 +17,7 @@
 
 @property(retain, nonatomic) UIButton *nextButton; // @synthesize nextButton=_nextButton;
 @property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
-- (void)setMessage:(id)arg1 showButton:(BOOL)arg2;
+- (void)setMessage:(id)arg1 showButton:(_Bool)arg2;
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

@@ -12,14 +12,14 @@
 
 @interface SSTermsAndConditions : NSObject <NSCopying>
 {
-    BOOL _requiresAuthentication;
+    _Bool _requiresAuthentication;
     NSString *_text;
-    BOOL _userAccepted;
+    _Bool _userAccepted;
     long long _versionID;
 }
 
-@property(nonatomic, getter=isUserAccepted) BOOL userAccepted; // @synthesize userAccepted=_userAccepted;
-@property(readonly, nonatomic) BOOL requiresAuthentication; // @synthesize requiresAuthentication=_requiresAuthentication;
+@property(nonatomic, getter=isUserAccepted) _Bool userAccepted; // @synthesize userAccepted=_userAccepted;
+@property(readonly, nonatomic) _Bool requiresAuthentication; // @synthesize requiresAuthentication=_requiresAuthentication;
 @property(nonatomic) long long currentVersionIdentifier; // @synthesize currentVersionIdentifier=_versionID;
 @property(nonatomic) NSString *currentText; // @synthesize currentText=_text;
 - (id)copyWithZone:(struct _NSZone *)arg1;

@@ -8,17 +8,18 @@
 
 @class NSMutableDictionary;
 
+// Not exported
 @interface OADShapeGeometry : NSObject
 {
-    BOOL mIsEscher;
+    _Bool mIsEscher;
     NSMutableDictionary *mAdjustValues;
 }
 
-- (BOOL)hasAdjustValueAtIndex:(unsigned int)arg1;
-- (long)adjustValueAtIndex:(unsigned int)arg1;
-- (void)setAdjustValue:(long)arg1 atIndex:(unsigned int)arg2;
-- (void)setIsEscher:(BOOL)arg1;
-- (BOOL)isEscher;
+- (_Bool)hasAdjustValueAtIndex:(unsigned int)arg1;
+- (int)adjustValueAtIndex:(unsigned int)arg1;
+- (void)setAdjustValue:(int)arg1 atIndex:(unsigned int)arg2;
+- (void)setIsEscher:(_Bool)arg1;
+- (_Bool)isEscher;
 - (id)adjustValues;
 - (void)dealloc;
 - (id)init;

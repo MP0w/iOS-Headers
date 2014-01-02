@@ -12,7 +12,7 @@
 
 - (id)humanReadableName;
 - (id)name;
-- (BOOL)canAuthenticateAccountClass:(Class)arg1 connection:(id)arg2;
+- (_Bool)canAuthenticateAccountClass:(Class)arg1 connection:(id)arg2;
 - (id)authenticatorForAccount:(id)arg1 connection:(id)arg2;
 - (Class)authenticatorClass;
 

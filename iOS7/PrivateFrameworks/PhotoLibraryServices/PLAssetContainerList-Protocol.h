@@ -8,12 +8,12 @@
 #import "PLDiagnosticsProvider-Protocol.h"
 
 @protocol PLAssetContainerList <NSObject, PLDiagnosticsProvider>
-@property(readonly, nonatomic) unsigned int containersCount;
+@property(readonly, nonatomic) unsigned long long containersCount;
 - (id)containersRelationshipName;
 - (id)photoLibrary;
 - (id)managedObjectContext;
-- (BOOL)canEditContainers;
-- (BOOL)isEmpty;
+- (_Bool)canEditContainers;
+- (_Bool)isEmpty;
 - (id)containers;
 @end
 

@@ -13,7 +13,7 @@
 }
 
 + (id)name;
-- (BOOL)validate:(id *)arg1;
+- (_Bool)validate:(id *)arg1;
 
 // Remaining properties
 @property(retain) NSArray *attach; // @dynamic attach;
@@ -30,7 +30,7 @@
 @property(retain) NSArray *rdate; // @dynamic rdate;
 @property(retain) ICSDate *recurrence_id; // @dynamic recurrence_id;
 @property(retain) NSArray *rrule; // @dynamic rrule;
-@property unsigned int sequence; // @dynamic sequence;
+@property unsigned long long sequence; // @dynamic sequence;
 @property int status; // @dynamic status;
 @property(retain) NSString *summary; // @dynamic summary;
 @property(retain) NSString *uid; // @dynamic uid;

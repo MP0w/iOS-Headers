@@ -18,6 +18,7 @@
 - (void)retryOutstandingActivities;
 - (void)pollForSubscriptionUpdatesForPersonID:(id)arg1;
 - (void)deleteAssetCollections:(id)arg1 personID:(id)arg2;
+- (void)dequeueAssetCollectionWithGUIDs:(id)arg1 personID:(id)arg2 reply:(id)arg3;
 - (void)enqueueAssetCollections:(id)arg1 personID:(id)arg2 reply:(id)arg3;
 - (void)isBusyCompletionBlock:(id)arg1;
 @end

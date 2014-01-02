@@ -14,11 +14,11 @@
     NSArray *mCachedOrderedSongs;
     float mVolume;
     float mDuckLevel;
-    MCContainer *mContainer;
     double mFadeInDuration;
     double mFadeOutDuration;
     double mDuckInDuration;
     double mDuckOutDuration;
+    MCContainer *mContainer;
 }
 
 + (id)keyPathsForValuesAffectingValueForKey:(id)arg1;
@@ -30,15 +30,15 @@
 @property(nonatomic) double fadeInDuration; // @synthesize fadeInDuration=mFadeInDuration;
 @property(nonatomic) float volume; // @synthesize volume=mVolume;
 @property(readonly) NSArray *orderedSongs;
-- (void)moveSongsAtIndices:(id)arg1 toIndex:(unsigned int)arg2;
+- (void)moveSongsAtIndices:(id)arg1 toIndex:(unsigned long long)arg2;
 - (void)removeAllSongs;
 - (void)removeSongsAtIndices:(id)arg1;
-- (id)insertSongsForAssets:(id)arg1 atIndex:(unsigned int)arg2;
-- (id)insertSongForAsset:(id)arg1 atIndex:(unsigned int)arg2;
+- (id)insertSongsForAssets:(id)arg1 atIndex:(unsigned long long)arg2;
+- (id)insertSongForAsset:(id)arg1 atIndex:(unsigned long long)arg2;
 - (id)addSongsForAssets:(id)arg1;
 - (id)addSongForAsset:(id)arg1;
-- (id)songAtIndex:(unsigned int)arg1;
-- (unsigned int)countOfSongs;
+- (id)songAtIndex:(unsigned long long)arg1;
+- (unsigned long long)countOfSongs;
 @property(readonly) NSSet *songs;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (id)imprint;

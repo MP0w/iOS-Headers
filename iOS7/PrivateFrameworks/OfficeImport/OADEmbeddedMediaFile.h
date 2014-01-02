@@ -6,6 +6,7 @@
 
 #import <OfficeImport/OADMovie.h>
 
+// Not exported
 @interface OADEmbeddedMediaFile : OADMovie
 {
 }

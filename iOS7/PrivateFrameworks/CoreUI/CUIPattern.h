@@ -10,10 +10,10 @@
 {
     struct CGImage *_patternImage;
     struct CGPattern *_pattern;
-    float _alpha;
+    double _alpha;
 }
 
-@property(nonatomic) float alpha; // @synthesize alpha=_alpha;
+@property(nonatomic) double alpha; // @synthesize alpha=_alpha;
 - (struct CGImage *)patternImageRef;
 - (id)description;
 - (void)setPatternInContext:(struct CGContext *)arg1;

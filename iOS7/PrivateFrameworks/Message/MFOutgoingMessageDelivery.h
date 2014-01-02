@@ -13,7 +13,7 @@
     MFMessage *_message;
     MFMutableMessageHeaders *_headers;
     NSArray *_mixedContent;
-    BOOL _textPartsAreHTML;
+    _Bool _textPartsAreHTML;
     NSString *_htmlBody;
     MFPlainTextDocument *_plainTextAlternative;
     NSArray *_otherHTMLAndAttachments;
@@ -26,7 +26,7 @@
 }
 
 + (id)newWithHeaders:(id)arg1 HTML:(id)arg2 plainTextAlternative:(id)arg3 other:(id)arg4 charsets:(id)arg5;
-+ (id)newWithHeaders:(id)arg1 mixedContent:(id)arg2 textPartsAreHTML:(BOOL)arg3;
++ (id)newWithHeaders:(id)arg1 mixedContent:(id)arg2 textPartsAreHTML:(_Bool)arg3;
 + (id)newWithMessage:(id)arg1;
 @property(retain, nonatomic) NSDictionary *compositionSpecification; // @synthesize compositionSpecification=_compositionSpecification;
 - (void)setAccount:(id)arg1;
@@ -37,12 +37,12 @@
 - (id)message;
 - (int)deliveryStatus;
 - (id)deliverSynchronously;
-- (id)_deliverSynchronouslyWithCurrentSettings:(BOOL)arg1;
+- (id)_deliverSynchronouslyWithCurrentSettings:(_Bool)arg1;
 - (id)originalHeaders;
 - (id)_currentDeliveryObject;
 - (void)dealloc;
 - (id)initWithHeaders:(id)arg1 HTML:(id)arg2 plainTextAlternative:(id)arg3 other:(id)arg4 charsets:(id)arg5;
-- (id)initWithHeaders:(id)arg1 mixedContent:(id)arg2 textPartsAreHTML:(BOOL)arg3;
+- (id)initWithHeaders:(id)arg1 mixedContent:(id)arg2 textPartsAreHTML:(_Bool)arg3;
 - (id)initWithMessage:(id)arg1;
 
 @end

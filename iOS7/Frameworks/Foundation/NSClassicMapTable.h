@@ -6,6 +6,7 @@
 
 #import <Foundation/NSMapTable.h>
 
+// Not exported
 @interface NSClassicMapTable : NSMapTable
 {
     struct {
@@ -24,19 +25,19 @@
     struct __CFBasicHash *_ht;
 }
 
-- (unsigned int)getKeys:(const void **)arg1 values:(const void **)arg2;
+- (unsigned long long)getKeys:(const void **)arg1 values:(const void **)arg2;
 - (id)allValues;
 - (id)allKeys;
 - (id)description;
-- (unsigned int)count;
+- (unsigned long long)count;
 - (void)removeObjectForKey:(id)arg1;
 - (void *)existingItemForSetItem:(const void *)arg1 forAbsentKey:(const void *)arg2;
 - (void)setItem:(const void *)arg1 forKnownAbsentKey:(const void *)arg2;
 - (void)setObject:(id)arg1 forKey:(id)arg2;
 - (id)objectForKey:(id)arg1;
-- (BOOL)mapMember:(const void *)arg1 originalKey:(const void **)arg2 value:(const void **)arg3;
+- (_Bool)mapMember:(const void *)arg1 originalKey:(const void **)arg2 value:(const void **)arg3;
 - (id)copy;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (void)removeAllItems;
 - (void)dealloc;
 - (id)init;

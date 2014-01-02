@@ -11,21 +11,17 @@
     struct CIContextInternal *_priv;
 }
 
-+ (BOOL)applicationIsInForegroundState;
-+ (int)_crashed_because_nonaddressable_memory_was_passed_to_render:(id)arg1 toBitmap:(void *)arg2 rowBytes:(int)arg3 bounds:(struct CGRect)arg4 format:(int)arg5 colorSpace:(struct CGColorSpace *)arg6;
++ (_Bool)applicationIsInForegroundState;
++ (int)_crashed_because_nonaddressable_memory_was_passed_to_render:(id)arg1 toBitmap:(void *)arg2 rowBytes:(long long)arg3 bounds:(struct CGRect)arg4 format:(int)arg5 colorSpace:(struct CGColorSpace *)arg6;
 + (id)contextWithEAGLContext:(id)arg1 options:(id)arg2;
 + (id)contextWithEAGLContext:(id)arg1;
 + (id)contextWithOptions:(id)arg1;
 + (id)context;
 + (id)_singletonContext;
-+ (id)clContextOptions:(id)arg1;
-+ (id)glesContextOptions:(id)arg1;
-+ (struct Context *)glesInternalContextWithEAGLContext:(id)arg1 options:(id)arg2;
-+ (struct Context *)glesInternalContextWithOptions:(id)arg1;
 - (struct CGSize)outputImageMaximumSize;
 - (struct CGSize)inputImageMaximumSize;
-- (unsigned long)maximumOutputImageSize;
-- (unsigned long)maximumInputImageSize;
+- (unsigned long long)maximumOutputImageSize;
+- (unsigned long long)maximumInputImageSize;
 - (struct CGImage *)createCGImage:(id)arg1 fromRect:(struct CGRect)arg2 format:(int)arg3 colorSpace:(struct CGColorSpace *)arg4;
 - (struct CGImage *)createCGImage:(id)arg1 fromRect:(struct CGRect)arg2 format:(int)arg3;
 - (struct CGImage *)createCGImage:(id)arg1 fromRect:(struct CGRect)arg2;
@@ -39,16 +35,13 @@
 - (_Bool)_isEAGLBackedContext;
 - (void)render:(id)arg1 toCVPixelBuffer:(struct __CVBuffer *)arg2 bounds:(struct CGRect)arg3 colorSpace:(struct CGColorSpace *)arg4;
 - (void)render:(id)arg1 toCVPixelBuffer:(struct __CVBuffer *)arg2;
-- (void)render:(id)arg1 toBitmap:(void *)arg2 rowBytes:(int)arg3 bounds:(struct CGRect)arg4 format:(int)arg5 colorSpace:(struct CGColorSpace *)arg6;
+- (void)render:(id)arg1 toBitmap:(void *)arg2 rowBytes:(long long)arg3 bounds:(struct CGRect)arg4 format:(int)arg5 colorSpace:(struct CGColorSpace *)arg6;
 - (void)dealloc;
 - (id)init;
 - (id)initWithEAGLContext:(id)arg1 options:(id)arg2;
 - (id)initWithEAGLContext:(id)arg1;
 - (void)unlock;
 - (void)lock;
-- (void)_gpuContextCheck;
-- (struct CGColorSpace *)_colorspace;
-- (id)_initWithInternalRepresentation:(void *)arg1;
 
 @end
 

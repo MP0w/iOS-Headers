@@ -4,30 +4,30 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <UIKit/UIView.h>
+#import <UIKit/UIKBSplitImageView.h>
 
 #import "UIKBCacheableView-Protocol.h"
 
-@class CALayer, NSMutableDictionary, NSString, NSTimer, UIKBCacheToken, UIKBKeyView, UIKBRenderConfig, UIKBTree;
+@class NSMutableDictionary, NSString, NSTimer, UIKBCacheToken, UIKBKeyView, UIKBRenderConfig, UIKBTree;
 
-@interface UIKBKeyplaneView : UIView <UIKBCacheableView>
+// Not exported
+@interface UIKBKeyplaneView : UIKBSplitImageView <UIKBCacheableView>
 {
     UIKBTree *_keyplane;
     UIKBTree *_defaultKeyplane;
     UIKBCacheToken *_cacheToken;
-    UIView *_splitRight;
     UIKBKeyView *_candidateGapView;
     NSMutableDictionary *_subviewIndex;
     NSMutableDictionary *_activeViewIndex;
     NSMutableDictionary *_renderedKeyViews;
     NSMutableDictionary *_delayedDeactivationKeys;
     NSTimer *_activatedTimer;
-    BOOL _performingDeactivation;
-    BOOL _shouldDrawRect;
+    _Bool _performingDeactivation;
+    _Bool _shouldDrawRect;
     UIKBRenderConfig *_renderConfig;
-    CALayer *_keyBorders;
-    CALayer *_keyBackgrounds;
-    CALayer *_keyCaps;
+    UIKBSplitImageView *_keyBorders;
+    UIKBSplitImageView *_keyBackgrounds;
+    UIKBSplitImageView *_keyCaps;
 }
 
 @property(retain, nonatomic) UIKBRenderConfig *renderConfig; // @synthesize renderConfig=_renderConfig;
@@ -38,17 +38,17 @@
 - (void)purgeKeyViews;
 - (void)activateKeys;
 - (void)deactivateKeys;
-- (void)deactivateKey:(id)arg1 isStateDowngrade:(BOOL)arg2;
-- (void)dimKeyCaps:(float)arg1 duration:(float)arg2;
+- (void)deactivateKey:(id)arg1 previousState:(int)arg2;
+- (void)dimKeyCaps:(double)arg1 duration:(double)arg2;
 - (void)updateDecorationViewsIfNeeded;
-- (void)deactivateKey:(id)arg1;
+- (void)deactivateAdaptiveKey:(id)arg1;
 - (id)viewForKey:(id)arg1 state:(int)arg2;
 - (id)viewForKey:(id)arg1;
 - (int)stateForKey:(id)arg1;
 - (void)setState:(int)arg1 forKey:(id)arg2;
 - (Class)classForKey:(id)arg1;
 - (id)containingViewForKey:(id)arg1 withState:(int)arg2;
-- (int)cornerMaskForKey:(id)arg1 recursive:(BOOL)arg2;
+- (int)cornerMaskForKey:(id)arg1 recursive:(_Bool)arg2;
 - (id)cacheIdentifierForKey:(id)arg1 withState:(int)arg2;
 - (id)cacheIdentifierForKey:(id)arg1;
 - (void)removeKeyFromDelayedDeactivationSet:(id)arg1;
@@ -59,15 +59,15 @@
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)drawContentsOfRenderers:(id)arg1;
-- (BOOL)_shouldDrawLowResBackground;
-@property(readonly, nonatomic) BOOL keepNonPersistent;
-@property(readonly, nonatomic) float cachedWidth;
-@property(readonly, nonatomic) BOOL cacheDeferable;
+- (_Bool)_shouldDrawLowResBackground;
+@property(readonly, nonatomic) _Bool keepNonPersistent;
+@property(readonly, nonatomic) double cachedWidth;
+@property(readonly, nonatomic) _Bool cacheDeferable;
 - (void)displayLayer:(id)arg1;
-- (id)_setupLayerIfNoLayer:(id)arg1 withContents:(id)arg2;
+- (id)_setupSplitImageViewIfNeeded:(id)arg1 withImage:(id)arg2;
 - (id)cacheKeysForRenderFlags:(id)arg1;
 @property(readonly, nonatomic) NSString *cacheKey;
-- (BOOL)validForKeyplane:(id)arg1 withVisualStyle:(int)arg2;
+- (_Bool)validForKeyplane:(id)arg1 withVisualStyle:(int)arg2;
 - (void)dealloc;
 - (void)removeFromSuperview;
 - (id)initWithFrame:(struct CGRect)arg1 keyplane:(id)arg2;

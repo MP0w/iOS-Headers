@@ -6,6 +6,7 @@
 
 #import <QuartzCore/CACodingProxy.h>
 
+// Not exported
 @interface LKNSValueCodingProxy : CACodingProxy
 {
     int _kind;
@@ -15,9 +16,6 @@
         struct CGRect rect;
         struct CATransform3D transform;
         struct CAPoint3D point3d;
-        struct CADoublePoint dpoint;
-        struct CADoubleSize dsize;
-        struct CADoubleRect drect;
         struct CAColorMatrix color_matrix;
     } _u;
 }

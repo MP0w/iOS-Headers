@@ -15,7 +15,7 @@
 @property(readonly) DOMStyleSheet *sheet;
 @property(copy) NSString *type;
 @property(copy) NSString *media;
-@property BOOL disabled;
+@property _Bool disabled;
 
 @end
 

@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSMutableArray;
 
-@interface GEORegionalResourceTile : PBCodable
+@interface GEORegionalResourceTile : PBCodable <NSCopying>
 {
     NSMutableArray *_attributions;
     NSMutableArray *_childrens;
@@ -26,31 +28,31 @@
 @property(nonatomic) unsigned int z; // @synthesize z=_z;
 @property(nonatomic) unsigned int y; // @synthesize y=_y;
 @property(nonatomic) unsigned int x; // @synthesize x=_x;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)iconChecksumAtIndex:(unsigned int)arg1;
-- (unsigned int)iconChecksumsCount;
+- (id)iconChecksumAtIndex:(unsigned long long)arg1;
+- (unsigned long long)iconChecksumsCount;
 - (void)addIconChecksum:(id)arg1;
 - (void)clearIconChecksums;
-- (id)attributionAtIndex:(unsigned int)arg1;
-- (unsigned int)attributionsCount;
+- (id)attributionAtIndex:(unsigned long long)arg1;
+- (unsigned long long)attributionsCount;
 - (void)addAttribution:(id)arg1;
 - (void)clearAttributions;
-- (id)iconAtIndex:(unsigned int)arg1;
-- (unsigned int)iconsCount;
+- (id)iconAtIndex:(unsigned long long)arg1;
+- (unsigned long long)iconsCount;
 - (void)addIcon:(id)arg1;
 - (void)clearIcons;
-- (id)childrenAtIndex:(unsigned int)arg1;
-- (unsigned int)childrensCount;
+- (id)childrenAtIndex:(unsigned long long)arg1;
+- (unsigned long long)childrensCount;
 - (void)addChildren:(id)arg1;
 - (void)clearChildrens;
 - (void)dealloc;
-- (BOOL)containsTileKey:(const struct _GEOTileKey *)arg1;
 
 @end
 

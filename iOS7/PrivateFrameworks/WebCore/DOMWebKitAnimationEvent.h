@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface DOMWebKitAnimationEvent : DOMEvent
 {
 }

@@ -10,22 +10,22 @@
 
 @interface CUTFileCopier : NSObject
 {
-    BOOL _shouldCancel;
-    BOOL _didErrorOccur;
-    BOOL _inProgress;
+    _Bool _shouldCancel;
+    _Bool _didErrorOccur;
+    _Bool _inProgress;
+    unsigned int _operation;
     id <CUTFileCopierDelegate> _delegate;
     NSURL *_inputURL;
     NSURL *_outputURL;
     id _identifier;
-    unsigned int _operation;
     void *_BOMCopier;
 }
 
 @property void *_BOMCopier; // @synthesize _BOMCopier;
 @property unsigned int operation; // @synthesize operation=_operation;
-@property BOOL inProgress; // @synthesize inProgress=_inProgress;
-@property(readonly, nonatomic) BOOL didErrorOccur; // @synthesize didErrorOccur=_didErrorOccur;
-@property(readonly, nonatomic) BOOL wasCancelled; // @synthesize wasCancelled=_shouldCancel;
+@property _Bool inProgress; // @synthesize inProgress=_inProgress;
+@property(readonly, nonatomic) _Bool didErrorOccur; // @synthesize didErrorOccur=_didErrorOccur;
+@property(readonly, nonatomic) _Bool wasCancelled; // @synthesize wasCancelled=_shouldCancel;
 @property(readonly) id identifier; // @synthesize identifier=_identifier;
 @property(readonly) NSURL *outputURL; // @synthesize outputURL=_outputURL;
 @property(readonly) NSURL *inputURL; // @synthesize inputURL=_inputURL;

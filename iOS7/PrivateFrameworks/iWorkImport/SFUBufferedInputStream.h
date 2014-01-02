@@ -8,11 +8,12 @@
 
 #import <iWorkImport/SFUBufferedInputStream-Protocol.h>
 
+// Not exported
 @interface SFUBufferedInputStream : NSObject <SFUBufferedInputStream>
 {
     id <SFUInputStream> mStream;
     char *mBuffer;
-    unsigned long mBufferSize;
+    unsigned long long mBufferSize;
     long long mBufferOffset;
     long long mBufferStart;
     long long mBufferEnd;
@@ -23,14 +24,14 @@
 - (void)enableSystemCaching;
 - (void)disableSystemCaching;
 - (void)seekToOffset:(long long)arg1;
-- (BOOL)canSeek;
-- (BOOL)seekWithinBufferToOffset:(long long)arg1;
-- (unsigned long)readToOwnBuffer:(const char **)arg1 size:(unsigned long)arg2;
-- (unsigned long)readToBuffer:(char *)arg1 size:(unsigned long)arg2;
+- (_Bool)canSeek;
+- (_Bool)seekWithinBufferToOffset:(long long)arg1;
+- (unsigned long long)readToOwnBuffer:(const char **)arg1 size:(unsigned long long)arg2;
+- (unsigned long long)readToBuffer:(char *)arg1 size:(unsigned long long)arg2;
 - (long long)offset;
 - (void)dealloc;
 - (id)initWithStream:(id)arg1 dataLength:(long long)arg2;
-- (id)initWithStream:(id)arg1 bufferSize:(unsigned long)arg2;
+- (id)initWithStream:(id)arg1 bufferSize:(unsigned long long)arg2;
 - (id)initWithStream:(id)arg1;
 
 @end

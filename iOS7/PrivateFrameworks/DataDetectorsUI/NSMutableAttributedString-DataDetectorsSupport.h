@@ -7,7 +7,7 @@
 #import "NSMutableAttributedString.h"
 
 @interface NSMutableAttributedString (DataDetectorsSupport)
-- (void)dd_makeLinksForResultsInAttributesOfType:(unsigned int)arg1 context:(id)arg2;
+- (void)dd_makeLinksForResultsInAttributesOfType:(unsigned long long)arg1 context:(id)arg2;
 - (void)dd_urlifyResult:(id)arg1 withBlock:(id)arg2 referenceDate:(void)arg3;
 - (void)dd_resetResults;
 @end

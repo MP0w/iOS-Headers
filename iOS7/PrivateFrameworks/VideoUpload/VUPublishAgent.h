@@ -18,14 +18,14 @@
     VUPublishViewController *_publishViewController;
 }
 
-- (void)publishPost:(id)arg1 hasWrittenBytes:(int)arg2 expectsToWrite:(int)arg3;
+- (void)publishPost:(id)arg1 hasWrittenBytes:(long long)arg2 expectsToWrite:(long long)arg3;
 - (void)publishPostSucceeded:(id)arg1;
 - (void)publishPost:(id)arg1 didFailWithError:(id)arg2;
 - (void)publishViewControllerCancelled:(id)arg1;
 - (void)publishViewControllerPublished:(id)arg1;
 - (void)resignPublishingSheetResponders;
-- (BOOL)allowsViewingOnHost;
-- (BOOL)allowsTellingFriend;
+- (_Bool)allowsViewingOnHost;
+- (_Bool)allowsTellingFriend;
 - (id)mediaTitle;
 - (id)navigationController;
 - (Class)publishViewControllerClass;

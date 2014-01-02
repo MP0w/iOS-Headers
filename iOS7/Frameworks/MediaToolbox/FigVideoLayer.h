@@ -16,8 +16,8 @@
 - (void)_sendVideoLayerIsBeingServicedNotification;
 - (void)notificationBarrier;
 - (id)layerDisplayName;
-- (BOOL)isVideoLayerBeingServiced;
-- (void)layerDidBecomeVisible:(BOOL)arg1;
+- (_Bool)isVideoLayerBeingServiced;
+- (void)layerDidBecomeVisible:(_Bool)arg1;
 - (void)finalize;
 - (void)dealloc;
 - (id)initWithLayer:(id)arg1;

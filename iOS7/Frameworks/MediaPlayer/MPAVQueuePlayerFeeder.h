@@ -12,15 +12,15 @@
 
 @interface MPAVQueuePlayerFeeder : NSObject <SSDownloadManagerObserver>
 {
-    unsigned int _desiredQueueDepth;
+    unsigned long long _desiredQueueDepth;
     MPDownloadManager *_downloadManager;
-    BOOL _forceSynchronousQueueFilling;
-    BOOL _fillQueueActive;
+    _Bool _forceSynchronousQueueFilling;
+    _Bool _fillQueueActive;
     NSMutableArray *_items;
-    BOOL _managesSystemDownloads;
-    unsigned int _maxQueueDepth;
-    unsigned int _minQueueDepth;
-    int _nextFillQueueToken;
+    _Bool _managesSystemDownloads;
+    unsigned long long _maxQueueDepth;
+    unsigned long long _minQueueDepth;
+    long long _nextFillQueueToken;
     NSMutableSet *_pausedDownloads;
     NSObject<OS_dispatch_queue> *_pausedDownloadsQueue;
     MPQueuePlayer *_player;
@@ -29,18 +29,18 @@
     NSMutableSet *_reusableItems;
 }
 
-@property(nonatomic) BOOL managesSystemDownloads; // @synthesize managesSystemDownloads=_managesSystemDownloads;
-@property(nonatomic) unsigned int minQueueDepth; // @synthesize minQueueDepth=_minQueueDepth;
-@property(nonatomic) unsigned int maxQueueDepth; // @synthesize maxQueueDepth=_maxQueueDepth;
-@property(nonatomic) BOOL forceSynchronousQueueFilling; // @synthesize forceSynchronousQueueFilling=_forceSynchronousQueueFilling;
+@property(nonatomic) _Bool managesSystemDownloads; // @synthesize managesSystemDownloads=_managesSystemDownloads;
+@property(nonatomic) unsigned long long minQueueDepth; // @synthesize minQueueDepth=_minQueueDepth;
+@property(nonatomic) unsigned long long maxQueueDepth; // @synthesize maxQueueDepth=_maxQueueDepth;
+@property(nonatomic) _Bool forceSynchronousQueueFilling; // @synthesize forceSynchronousQueueFilling=_forceSynchronousQueueFilling;
 - (void).cxx_destruct;
 - (void)_updateQueueDepthForRateChange;
-- (void)_updatePlayerQueueWithRemovedItems:(id)arg1 addedItems:(id)arg2 removeCurrentItem:(BOOL)arg3;
+- (void)_updatePlayerQueueWithRemovedItems:(id)arg1 addedItems:(id)arg2 removeCurrentItem:(_Bool)arg3;
 - (void)_removeInvalidItems:(id)arg1;
-- (void)_reloadQueueKeepingCurrentItem:(BOOL)arg1 allowReusingItems:(BOOL)arg2;
+- (void)_reloadQueueKeepingCurrentItem:(_Bool)arg1 allowReusingItems:(_Bool)arg2;
 - (void)_pauseOrResumeDownloads:(id)arg1 currentDownloadID:(long long)arg2;
-- (void)_markIsReusable:(BOOL)arg1 item:(id)arg2;
-- (void)reloadQueueKeepingCurrentItem:(BOOL)arg1;
+- (void)_markIsReusable:(_Bool)arg1 item:(id)arg2;
+- (void)reloadQueueKeepingCurrentItem:(_Bool)arg1;
 - (void)invalidate;
 - (void)cancelReusableItemsPassingTest:(id)arg1;
 - (void)advanceToNextItem;
@@ -50,8 +50,8 @@
 - (void)_effectiveNetworkTypeDidChangeNotification:(id)arg1;
 - (void)downloadManager:(id)arg1 downloadStatesDidChange:(id)arg2;
 - (void)_removeCurrentItem;
-- (id)_fillInQueueWithExtraSpace:(int)arg1 ignoreExistingItems:(BOOL)arg2 removeCurrentItem:(BOOL)arg3;
-- (id)_fillInQueueWithExtraSpace:(int)arg1 ignoreExistingItems:(BOOL)arg2;
+- (id)_fillInQueueWithExtraSpace:(int)arg1 ignoreExistingItems:(_Bool)arg2 removeCurrentItem:(_Bool)arg3;
+- (id)_fillInQueueWithExtraSpace:(int)arg1 ignoreExistingItems:(_Bool)arg2;
 - (id)_fillInQueueWithExtraSpace:(int)arg1;
 - (void)_fillInQueue;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;

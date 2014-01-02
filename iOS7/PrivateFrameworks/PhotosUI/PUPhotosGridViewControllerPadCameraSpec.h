@@ -10,7 +10,7 @@
 {
 }
 
-- (BOOL)canDisplaySlideshowButton;
+- (_Bool)canDisplaySlideshowButton;
 - (id)photoBrowserSpec;
 
 @end

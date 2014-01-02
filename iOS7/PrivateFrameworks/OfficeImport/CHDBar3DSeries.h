@@ -6,6 +6,7 @@
 
 #import <OfficeImport/CHDSeries.h>
 
+// Not exported
 @interface CHDBar3DSeries : CHDSeries
 {
     int mShapeType;

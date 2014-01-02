@@ -6,16 +6,17 @@
 
 #import <OfficeImport/CMDiagramShapeMapper.h>
 
+// Not exported
 @interface CMDiagramPyramidMapper : CMDiagramShapeMapper
 {
-    BOOL mIsFlipped;
+    _Bool mIsFlipped;
 }
 
-- (struct CGSize)sizeForNode:(id)arg1 atIndex:(unsigned int)arg2;
-- (id)_suggestedBoundsForNodeAtIndex:(unsigned int)arg1;
+- (struct CGSize)sizeForNode:(id)arg1 atIndex:(unsigned long long)arg2;
+- (id)_suggestedBoundsForNodeAtIndex:(unsigned long long)arg1;
 - (void)mapChildrenAt:(id)arg1 withState:(id)arg2;
 - (void)mapAt:(id)arg1 withState:(id)arg2;
-- (void)setIsFlipped:(BOOL)arg1;
+- (void)setIsFlipped:(_Bool)arg1;
 
 @end
 

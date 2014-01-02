@@ -6,6 +6,7 @@
 
 #import <UIKit/UIPopoverController.h>
 
+// Not exported
 @interface _UIViewServiceDummyPopoverController : UIPopoverController
 {
     id <_UIViewServiceDummyPopoverControllerDelegate> _dummyPopoverControllerDelegate;
@@ -14,9 +15,9 @@
 + (Class)_popoverViewClass;
 @property(retain, nonatomic) id <_UIViewServiceDummyPopoverControllerDelegate> dummyPopoverControllerDelegate; // @synthesize dummyPopoverControllerDelegate=_dummyPopoverControllerDelegate;
 - (void)_super_setPopoverContentSize:(struct CGSize)arg1;
-- (BOOL)_attemptsToAvoidKeyboard;
-- (void)setPopoverContentSize:(struct CGSize)arg1 animated:(BOOL)arg2;
-- (void)_popoverView:(id)arg1 didSetUseToolbarShine:(BOOL)arg2;
+- (_Bool)_attemptsToAvoidKeyboard;
+- (void)setPopoverContentSize:(struct CGSize)arg1 animated:(_Bool)arg2;
+- (void)_popoverView:(id)arg1 didSetUseToolbarShine:(_Bool)arg2;
 
 @end
 

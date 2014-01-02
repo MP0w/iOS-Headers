@@ -8,6 +8,7 @@
 
 @class TSUColor;
 
+// Not exported
 @interface EDColorLocator : NSObject
 {
     unsigned int mColorOffset;

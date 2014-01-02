@@ -11,16 +11,16 @@
 @interface SBHighlightView : UIView
 {
     UIImageView *_highlight;
-    float _highlightAlpha;
-    float _highlightHeight;
+    double _highlightAlpha;
+    double _highlightHeight;
 }
 
-+ (id)_highlightImageWithHeight:(float)arg1 alpha:(float)arg2;
-@property(readonly, nonatomic) float highlightHeight; // @synthesize highlightHeight=_highlightHeight;
-@property(readonly, nonatomic) float highlightAlpha; // @synthesize highlightAlpha=_highlightAlpha;
++ (id)_highlightImageWithHeight:(double)arg1 alpha:(double)arg2;
+@property(readonly, nonatomic) double highlightHeight; // @synthesize highlightHeight=_highlightHeight;
+@property(readonly, nonatomic) double highlightAlpha; // @synthesize highlightAlpha=_highlightAlpha;
 - (void)layoutSubviews;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 highlightAlpha:(float)arg2 highlightHeight:(float)arg3;
+- (id)initWithFrame:(struct CGRect)arg1 highlightAlpha:(double)arg2 highlightHeight:(double)arg3;
 
 @end
 

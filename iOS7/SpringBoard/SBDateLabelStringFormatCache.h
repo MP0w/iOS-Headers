@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-#import "SBUILockScreenDateFormatter-Protocol.h"
+#import "SBFLockScreenDateFormatter-Protocol.h"
 
 @class NSDate, NSDateFormatter, NSNumberFormatter;
 
-@interface SBDateLabelStringFormatCache : NSObject <SBUILockScreenDateFormatter>
+@interface SBDateLabelStringFormatCache : NSObject <SBFLockScreenDateFormatter>
 {
     NSDateFormatter *_dayOfWeekFormatter;
     NSDateFormatter *_dayOfWeekWithTimeFormatter;
@@ -38,7 +38,7 @@
 - (id)formatAbbreviatedTimerDuration:(double)arg1;
 - (id)formatTimerDuration:(double)arg1;
 - (id)formatDateAsRelativeDateStyle:(id)arg1;
-- (BOOL)_shouldShowHoursForTimerDuration:(double)arg1;
+- (_Bool)_shouldShowHoursForTimerDuration:(double)arg1;
 - (id)formatDateAsTimeNoAMPM:(id)arg1;
 - (id)formatDateAsDayOfWeekMonthDayStyle:(id)arg1;
 - (id)formatDateAsRelativeDateAndTimeStyle:(id)arg1;

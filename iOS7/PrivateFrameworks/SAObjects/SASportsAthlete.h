@@ -26,6 +26,7 @@
 @property(copy, nonatomic) NSNumber *injured;
 @property(copy, nonatomic) NSString *height;
 @property(copy, nonatomic) NSString *gender;
+@property(copy, nonatomic) NSArray *formattedMetadataTypes;
 @property(copy, nonatomic) NSArray *formattedMetadata;
 @property(copy, nonatomic) NSString *firstName;
 @property(copy, nonatomic) NSArray *careerStatistics;

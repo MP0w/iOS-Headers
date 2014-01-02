@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface CHBChartType : NSObject
 {
 }
 
 + (id)readWithState:(id)arg1;
-+ (Class)chdChartTypeClassWithPlot:(struct XlChartPlot *)arg1;
 
 @end
 

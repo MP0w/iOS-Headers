@@ -14,7 +14,7 @@
 }
 
 + (id)videoCompositionInstruction;
-@property(nonatomic) BOOL enablePostProcessing;
+@property(nonatomic) _Bool enablePostProcessing;
 @property(copy, nonatomic) NSArray *layerInstructions;
 @property(retain, nonatomic) struct CGColor *backgroundColor;
 @property(nonatomic) CDStruct_e83c9415 timeRange;

@@ -8,7 +8,7 @@
 
 @protocol PLBBPendingBulletinsBatchDelegate <NSObject>
 - (id)bulletinsBatch:(id)arg1 bulletinByMergingPersistedListWithBulletin:(id)arg2;
-- (BOOL)bulletinsBatch:(id)arg1 shouldAllowAlertsFromContactWithEmail:(id)arg2;
-- (void)bulletinsBatch:(id)arg1 didProcessReadyBulletins:(id)arg2 stillPending:(BOOL)arg3;
+- (_Bool)bulletinsBatch:(id)arg1 shouldAllowAlertsFromContactWithEmail:(id)arg2;
+- (void)bulletinsBatch:(id)arg1 didProcessReadyBulletins:(id)arg2 stillPending:(_Bool)arg3;
 @end
 

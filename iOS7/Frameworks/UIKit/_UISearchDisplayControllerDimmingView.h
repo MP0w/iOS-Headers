@@ -6,6 +6,7 @@
 
 #import <UIKit/UIControl.h>
 
+// Not exported
 @interface _UISearchDisplayControllerDimmingView : UIControl
 {
 }

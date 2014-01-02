@@ -17,12 +17,12 @@
     NSString *_service;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 + (id)instantMessageAddressWithUsername:(id)arg1 service:(id)arg2;
 @property(readonly, nonatomic) NSString *service; // @synthesize service=_service;
 @property(readonly, nonatomic) NSString *username; // @synthesize username=_username;
 - (void).cxx_destruct;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;

@@ -10,29 +10,30 @@
 
 @class NSString, UIFontDescriptor;
 
+// Not exported
 @interface _UIFontCacheKey : NSObject <NSCopying>
 {
-    NSString *_fontName;
     int _traits;
-    float _pointSize;
+    NSString *_fontName;
+    double _pointSize;
     NSString *_textStyle;
     NSString *_contentSizeCategory;
     UIFontDescriptor *_fontDescriptor;
 }
 
-+ (id)fontCacheKeyWithFontDescriptor:(id)arg1;
++ (id)fontCacheKeyWithFontDescriptor:(id)arg1 pointSize:(double)arg2;
 + (id)fontCacheKeyWithTextStyle:(id)arg1 contentSizeCategory:(id)arg2;
-+ (id)systemFontCacheKeyWithTraits:(int)arg1 pointSize:(float)arg2;
-+ (id)fontCacheKeyWithFontName:(id)arg1 traits:(int)arg2 pointSize:(float)arg3;
++ (id)systemFontCacheKeyWithTraits:(int)arg1 pointSize:(double)arg2;
++ (id)fontCacheKeyWithFontName:(id)arg1 traits:(int)arg2 pointSize:(double)arg3;
 @property(copy, nonatomic) UIFontDescriptor *fontDescriptor; // @synthesize fontDescriptor=_fontDescriptor;
 @property(copy, nonatomic) NSString *contentSizeCategory; // @synthesize contentSizeCategory=_contentSizeCategory;
 @property(copy, nonatomic) NSString *textStyle; // @synthesize textStyle=_textStyle;
-@property(nonatomic) float pointSize; // @synthesize pointSize=_pointSize;
+@property(nonatomic) double pointSize; // @synthesize pointSize=_pointSize;
 @property(nonatomic) int traits; // @synthesize traits=_traits;
 @property(copy, nonatomic) NSString *fontName; // @synthesize fontName=_fontName;
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 

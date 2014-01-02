@@ -11,22 +11,22 @@
 @interface CBATTRequest : NSObject
 {
     NSNumber *_transactionID;
-    BOOL _ignoreResponse;
+    _Bool _ignoreResponse;
     CBCentral *_central;
     CBCharacteristic *_characteristic;
-    unsigned int _offset;
+    unsigned long long _offset;
     NSData *_value;
 }
 
-@property(nonatomic) BOOL ignoreResponse; // @synthesize ignoreResponse=_ignoreResponse;
+@property(nonatomic) _Bool ignoreResponse; // @synthesize ignoreResponse=_ignoreResponse;
 @property(retain, nonatomic) NSNumber *transactionID; // @synthesize transactionID=_transactionID;
 @property(copy) NSData *value; // @synthesize value=_value;
-@property(nonatomic) unsigned int offset; // @synthesize offset=_offset;
+@property(nonatomic) unsigned long long offset; // @synthesize offset=_offset;
 @property(retain, nonatomic) CBCharacteristic *characteristic; // @synthesize characteristic=_characteristic;
 @property(retain, nonatomic) CBCentral *central; // @synthesize central=_central;
 - (id)description;
 - (void)dealloc;
-- (id)initWithCentral:(id)arg1 characteristic:(id)arg2 offset:(unsigned int)arg3 value:(id)arg4 transactionID:(id)arg5;
+- (id)initWithCentral:(id)arg1 characteristic:(id)arg2 offset:(unsigned long long)arg3 value:(id)arg4 transactionID:(id)arg5;
 
 @end
 

@@ -17,21 +17,21 @@
 }
 
 + (id)playlistControllerWithSeedTracks:(id)arg1 error:(id *)arg2;
-+ (BOOL)populateContainer:(id)arg1 withSeedTrack:(id)arg2 error:(id *)arg3;
-+ (unsigned int)defaultTrackCount;
-+ (unsigned int)defaultMinTrackCount;
-+ (BOOL)hasGeniusFeatureEnabled;
-+ (BOOL)hasGeniusDataAvailable;
-+ (BOOL)useFakeGeniusData;
++ (_Bool)populateContainer:(id)arg1 withSeedTrack:(id)arg2 error:(id *)arg3;
++ (unsigned long long)defaultTrackCount;
++ (unsigned long long)defaultMinTrackCount;
++ (_Bool)hasGeniusFeatureEnabled;
++ (_Bool)hasGeniusDataAvailable;
++ (_Bool)useFakeGeniusData;
 + (void)ignoreUnusedWarnings;
 - (void).cxx_destruct;
-- (id)_tracksFromClusterForPlaylistItemMax:(unsigned int)arg1 error:(id *)arg2;
-- (BOOL)_createClusterPlaylistWithSeedTracks:(id)arg1 error:(id *)arg2;
-- (id)tracksFromClusterForCount:(unsigned int)arg1 error:(id *)arg2;
-- (BOOL)_populateContainer:(id)arg1 seedTrack:(id)arg2 error:(id *)arg3;
-- (BOOL)_fakePopulateContainer:(id)arg1 withSeedTrack:(id)arg2 error:(id *)arg3;
-- (id)_debugGetTracksStartingAtTrackWithPersistentID:(unsigned long long)arg1 maxTracks:(unsigned int)arg2 stride:(int)arg3;
-- (BOOL)_canIncludeTrackInGeniusContainer:(id)arg1;
+- (id)_tracksFromClusterForPlaylistItemMax:(unsigned long long)arg1 error:(id *)arg2;
+- (_Bool)_createClusterPlaylistWithSeedTracks:(id)arg1 error:(id *)arg2;
+- (id)tracksFromClusterForCount:(unsigned long long)arg1 error:(id *)arg2;
+- (_Bool)_populateContainer:(id)arg1 seedTrack:(id)arg2 error:(id *)arg3;
+- (_Bool)_fakePopulateContainer:(id)arg1 withSeedTrack:(id)arg2 error:(id *)arg3;
+- (id)_debugGetTracksStartingAtTrackWithPersistentID:(unsigned long long)arg1 maxTracks:(unsigned long long)arg2 stride:(int)arg3;
+- (_Bool)_canIncludeTrackInGeniusContainer:(id)arg1;
 - (id)_sharedBlobMutableData;
 - (void)dealloc;
 - (id)init;

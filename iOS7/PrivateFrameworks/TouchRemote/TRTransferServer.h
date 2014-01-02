@@ -12,20 +12,21 @@
 
 @interface TRTransferServer : NSObject <WPTransferDelegate>
 {
-    CDStruct_a554bdc7 *_aesContext;
+    CDStruct_2d76d2d8 *_aesContext;
+    _Bool _didSendData;
     struct AirPlayPairingSessionPrivate *_pairingSession;
-    int _pairingState;
+    long long _pairingState;
     NSObject<OS_dispatch_queue> *_queue;
-    BOOL _started;
-    int _advertiserState;
+    _Bool _started;
+    long long _advertiserState;
     WPTransfer *_transferSession;
     id <TRTransferServerDelegate> _delegate;
 }
 
 @property(nonatomic) __weak id <TRTransferServerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (long)_runVerifyStepWithInput:(const void *)arg1 inputLength:(unsigned long)arg2 outputData:(id *)arg3;
-- (long)_runSetupStepWithInput:(const void *)arg1 inputLength:(unsigned long)arg2 outputData:(id *)arg3;
+- (int)_runVerifyStepWithInput:(const void *)arg1 inputLength:(unsigned long long)arg2 outputData:(id *)arg3;
+- (int)_runSetupStepWithInput:(const void *)arg1 inputLength:(unsigned long long)arg2 outputData:(id *)arg3;
 - (id)_onQueue_didReceiveEncryptedData:(id)arg1;
 - (void)_onQueue_didFinishPairing;
 - (void)_beginAdvertisingIfPowered;

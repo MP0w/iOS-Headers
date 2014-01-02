@@ -16,7 +16,7 @@
     struct __CFRunLoopSource *_runLoopSource;
 }
 
-- (BOOL)isCurrentThreadOtherwiseAssert:(BOOL)arg1;
+- (_Bool)isCurrentThreadOtherwiseAssert:(_Bool)arg1;
 - (void)performBlock:(id)arg1 waitUntilDone:(void)arg2;
 - (void)performBlock:(id)arg1 afterDelay:(void)arg2;
 - (void)performBlock:(id)arg1;

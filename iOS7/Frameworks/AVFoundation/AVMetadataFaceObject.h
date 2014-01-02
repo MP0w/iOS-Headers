@@ -14,14 +14,14 @@
 }
 
 + (id)faceObjectWithFigEmbeddedCaptureDeviceFaceDictionary:(id)arg1 input:(id)arg2;
-@property(readonly) float yawAngle;
-@property(readonly) BOOL hasYawAngle;
-@property(readonly) float rollAngle;
-@property(readonly) BOOL hasRollAngle;
-@property(readonly) int faceID;
+@property(readonly) double yawAngle;
+@property(readonly) _Bool hasYawAngle;
+@property(readonly) double rollAngle;
+@property(readonly) _Bool hasRollAngle;
+@property(readonly) long long faceID;
 - (id)description;
 - (void)dealloc;
-- (id)initDerivedMetadataObjectFromMetadataObject:(id)arg1 withTransform:(struct CGAffineTransform)arg2 isVideoMirrored:(BOOL)arg3 rollAdjustment:(float)arg4;
+- (id)initDerivedMetadataObjectFromMetadataObject:(id)arg1 withTransform:(struct CGAffineTransform)arg2 isVideoMirrored:(_Bool)arg3 rollAdjustment:(double)arg4;
 - (id)initWithFigEmbeddedCaptureDeviceFaceDictionary:(id)arg1 input:(id)arg2;
 
 @end

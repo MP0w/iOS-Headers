@@ -6,6 +6,7 @@
 
 #import <SpriteKit/SKAction.h>
 
+// Not exported
 @interface SKRepeat : SKAction
 {
     struct SKCRepeat *_mycaction;
@@ -13,7 +14,7 @@
 }
 
 + (id)repeatActionForever:(id)arg1;
-+ (id)repeatAction:(id)arg1 count:(unsigned int)arg2;
++ (id)repeatAction:(id)arg1 count:(unsigned long long)arg2;
 - (void).cxx_destruct;
 - (id)reversedAction;
 - (id)copyWithZone:(struct _NSZone *)arg1;

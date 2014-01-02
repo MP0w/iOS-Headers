@@ -10,13 +10,14 @@
 
 @class NSBundle, NSDictionary, NSString, NSURL;
 
+// Not exported
 @interface NSValidationErrorLocalizationPolicy : NSObject <NSCopying>
 {
     NSURL *_url;
     NSBundle *_localizationBundle;
     NSString *_modelStringsFileName;
     NSDictionary *_localizationDictionary;
-    BOOL _hasSetLocalizationDictionary;
+    _Bool _hasSetLocalizationDictionary;
 }
 
 - (id)localizedModelStringForKey:(id)arg1;

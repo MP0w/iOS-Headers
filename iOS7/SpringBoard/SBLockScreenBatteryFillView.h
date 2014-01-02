@@ -8,11 +8,11 @@
 
 @interface SBLockScreenBatteryFillView : UIView
 {
-    int _chargePercentage;
+    long long _chargePercentage;
 }
 
 - (void)drawRect:(struct CGRect)arg1;
-- (void)setChargePercentage:(int)arg1;
+- (void)setChargePercentage:(long long)arg1;
 
 @end
 

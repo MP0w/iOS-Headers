@@ -6,13 +6,14 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface OADTabStop : NSObject
 {
     unsigned char mAlign;
     int mPosition;
 }
 
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (void)setPosition:(int)arg1;
 - (int)position;
 - (void)setAlign:(int)arg1;

@@ -6,6 +6,7 @@
 
 #import "UITapGestureRecognizer.h"
 
+// Not exported
 @interface MKVariableDelayTapRecognizer : UITapGestureRecognizer
 {
     double originalMaximumIntervalBetweenSuccessiveTaps;

@@ -19,8 +19,8 @@
 - (void)startDeviceOrientationUpdatesPrivateToQueue:(id)arg1 withHandler:(id)arg2;
 - (void)stopDeviceOrientationUpdates;
 - (void)startDeviceOrientationUpdatesToQueue:(id)arg1 withHandler:(id)arg2;
-- (BOOL)isDeviceOrientationActive;
-- (BOOL)isDeviceOrientationAvailable;
+- (_Bool)isDeviceOrientationActive;
+- (_Bool)isDeviceOrientationAvailable;
 - (void)deallocPrivate;
 - (void)dealloc;
 - (id)initPrivate;

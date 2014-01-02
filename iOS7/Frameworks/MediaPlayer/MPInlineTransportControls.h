@@ -24,7 +24,7 @@
 - (id)playButtonImage;
 - (id)buttonImageForPart:(unsigned long long)arg1;
 - (id)newButtonForPart:(unsigned long long)arg1;
-- (void)reloadForAdditions:(id)arg1 removals:(id)arg2 animate:(BOOL)arg3;
+- (void)reloadForAdditions:(id)arg1 removals:(id)arg2 animate:(_Bool)arg3;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

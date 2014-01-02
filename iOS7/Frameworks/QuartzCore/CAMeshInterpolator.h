@@ -6,6 +6,7 @@
 
 #import <QuartzCore/CAMeshTransform.h>
 
+// Not exported
 @interface CAMeshInterpolator : CAMeshTransform
 {
     struct Interpolator *_interp;

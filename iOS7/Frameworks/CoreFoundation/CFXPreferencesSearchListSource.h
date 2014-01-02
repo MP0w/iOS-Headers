@@ -6,6 +6,7 @@
 
 #import <CoreFoundation/CFXPreferencesSource.h>
 
+// Not exported
 @interface CFXPreferencesSearchListSource : CFXPreferencesSource
 {
     struct __CFArray *_sourceList;
@@ -14,7 +15,7 @@
 - (void)dealloc;
 - (void)removeSource:(id)arg1;
 - (void)addSource:(id)arg1;
-- (long)generationCount;
+- (long long)generationCount;
 - (struct __CFDictionary *)copyDictionary;
 - (struct __CFArray *)copyKeyList;
 - (void)synchronizeInBackgroundWithCompletionBlock:(id)arg1;

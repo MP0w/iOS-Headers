@@ -6,12 +6,15 @@
 
 #import <CFNetwork/__NSCFURLSessionTask.h>
 
-@class NSData, NSInputStream, NSObject<OS_dispatch_data>, NSURL, __NSCFLocalSessionBridge, __NSCFURLSession;
+@class NSData, NSInputStream, NSObject<OS_dispatch_data>, NSObject<OS_dispatch_source>, NSString, NSURL, __NSCFLocalSessionBridge, __NSCFURLSession;
 
+// Not exported
 @interface __NSCFLocalSessionTask : __NSCFURLSessionTask
 {
-    BOOL _pendingResponseDisposition;
-    BOOL _pendingResponseDisposition_didFinish;
+    _Bool _pendingResponseDisposition;
+    _Bool _pendingResponseDisposition_didFinish;
+    _Bool _duetAccountingIsDiscretionary;
+    _Bool _didIssueDidFinish;
     struct _CFURLConnection *_cfConn;
     NSURL *_uploadFile;
     NSData *_uploadData;
@@ -21,27 +24,37 @@
     NSObject<OS_dispatch_data> *_pendingResponseBytes;
     __NSCFLocalSessionBridge *_bridge;
     __NSCFURLSession *_session;
-    unsigned int _suspendCount;
+    unsigned long long _suspendCount;
     id _async_initialization;
+    NSObject<OS_dispatch_source> *_resourceTimeout;
+    NSString *_duetAccountedBundleID;
 }
 
+@property _Bool didIssueDidFinish; // @synthesize didIssueDidFinish=_didIssueDidFinish;
+@property _Bool duetAccountingIsDiscretionary; // @synthesize duetAccountingIsDiscretionary=_duetAccountingIsDiscretionary;
+@property(retain) NSString *duetAccountedBundleID; // @synthesize duetAccountedBundleID=_duetAccountedBundleID;
+@property(retain) NSObject<OS_dispatch_source> *resourceTimeout; // @synthesize resourceTimeout=_resourceTimeout;
 @property(copy) id async_initialization; // @synthesize async_initialization=_async_initialization;
-@property unsigned int suspendCount; // @synthesize suspendCount=_suspendCount;
+@property unsigned long long suspendCount; // @synthesize suspendCount=_suspendCount;
 @property(retain) __NSCFURLSession *session; // @synthesize session=_session;
 @property(retain) __NSCFLocalSessionBridge *bridge; // @synthesize bridge=_bridge;
 @property(retain) NSObject<OS_dispatch_data> *pendingResponseBytes; // @synthesize pendingResponseBytes=_pendingResponseBytes;
-@property BOOL pendingResponseDisposition_didFinish; // @synthesize pendingResponseDisposition_didFinish=_pendingResponseDisposition_didFinish;
-@property BOOL pendingResponseDisposition; // @synthesize pendingResponseDisposition=_pendingResponseDisposition;
+@property _Bool pendingResponseDisposition_didFinish; // @synthesize pendingResponseDisposition_didFinish=_pendingResponseDisposition_didFinish;
+@property _Bool pendingResponseDisposition; // @synthesize pendingResponseDisposition=_pendingResponseDisposition;
 @property(copy) id dataTaskCompletion; // @synthesize dataTaskCompletion=_dataTaskCompletion;
 @property(retain) NSObject<OS_dispatch_data> *dataTaskData; // @synthesize dataTaskData=_dataTaskData;
 @property(retain) NSInputStream *uploadDataStream; // @synthesize uploadDataStream=_uploadDataStream;
 @property(retain) NSData *uploadData; // @synthesize uploadData=_uploadData;
 @property(retain) NSURL *uploadFile; // @synthesize uploadFile=_uploadFile;
 @property(retain) struct _CFURLConnection *cfConn; // @synthesize cfConn=_cfConn;
+- (void)stopDuetAccounting;
+- (void)startDuetAccountingForBundleID:(id)arg1 isDiscretionary:(_Bool)arg2;
+- (void)setConnection:(struct _CFURLConnection *)arg1;
+- (id)timeoutError;
 - (id)posixError:(int)arg1;
 - (id)canceledError;
 - (id)nsurlError:(int)arg1;
-- (id)error:(id)arg1 code:(int)arg2;
+- (id)error:(id)arg1 code:(long long)arg2;
 - (void)_onqueue_completeInitialization;
 - (void)resume;
 - (void)suspend;
@@ -63,12 +76,12 @@
 - (void)_onqueue_didReceiveChallenge:(id)arg1 request:(id)arg2 withCompletion:(id)arg3;
 - (void)_onqueue_didReceiveResponse:(id)arg1 redirectRequest:(id)arg2 withCompletion:(id)arg3;
 - (void)_onqueue_didReceiveResponse:(id)arg1;
-- (void)_private_onqueue_didReceiveResponseDisposition:(int)arg1;
+- (void)_private_onqueue_didReceiveResponseDisposition:(long long)arg1;
 - (id)_onqueue_strippedMutableRequest;
 - (id)description;
 - (void)dealloc;
 - (id)initWithTask:(id)arg1;
-- (id)initWithSession:(id)arg1 request:(id)arg2 ident:(unsigned int)arg3 bridge:(id)arg4;
+- (id)initWithSession:(id)arg1 request:(id)arg2 ident:(unsigned long long)arg3 bridge:(id)arg4;
 
 @end
 

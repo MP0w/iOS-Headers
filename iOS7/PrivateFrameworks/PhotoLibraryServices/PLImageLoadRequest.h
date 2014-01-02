@@ -22,14 +22,14 @@
 @property(readonly, nonatomic) PLImageSource *source; // @synthesize source=_source;
 @property(nonatomic) int priority; // @synthesize priority=_priority;
 - (void)notifyImageLoadingQueuesOfImageAvailability:(id)arg1;
-- (BOOL)someImageLoadingQueuesRegistered;
-- (BOOL)isImageLoadingQueueRegistered:(id)arg1;
+- (_Bool)someImageLoadingQueuesRegistered;
+- (_Bool)isImageLoadingQueueRegistered:(id)arg1;
 - (void)deregisterImageLoadingQueue:(id)arg1;
 - (void)registerImageLoadingQueue:(id)arg1;
 - (id)debugDescription;
 - (void)addCompletionBlock:(id)arg1;
 @property(readonly, nonatomic) NSArray *completionBlocks;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 @property(readonly, nonatomic) PLLoadRequestKey *key;
 - (id)assetInPhotoLibrary:(id)arg1;
 - (void)dealloc;

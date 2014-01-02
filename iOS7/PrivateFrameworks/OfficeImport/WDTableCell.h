@@ -8,26 +8,26 @@
 
 @class WDTableCellProperties, WDTableRow, WDText;
 
+// Not exported
 @interface WDTableCell : NSObject
 {
-    unsigned int mIndex;
+    unsigned long long mIndex;
     WDTableRow *mRow;
     WDTableCellProperties *mProperties;
     WDText *mText;
-    BOOL mUseTrackedProperties;
+    _Bool mUseTrackedProperties;
 }
 
 - (id)text;
 - (void)clearProperties;
 - (id)properties;
 - (id)row;
-- (int)compareIndex:(id)arg1;
-- (unsigned int)index;
-- (void)setUseTrackedProperties:(BOOL)arg1;
-- (BOOL)useTrackedProperties;
+- (long long)compareIndex:(id)arg1;
+- (unsigned long long)index;
+- (void)setUseTrackedProperties:(_Bool)arg1;
+- (_Bool)useTrackedProperties;
 - (void)dealloc;
-- (id)initWithRow:(id)arg1 at:(unsigned int)arg2;
-- (double)cellWidth;
+- (id)initWithRow:(id)arg1 at:(unsigned long long)arg2;
 
 @end
 

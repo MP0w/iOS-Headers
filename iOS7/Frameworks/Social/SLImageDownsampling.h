@@ -10,11 +10,11 @@
 {
 }
 
-+ (void)generateThumbnailFromImageData:(id)arg1 adjustSmallestSideToSize:(unsigned int)arg2 resultsHandler:(id)arg3;
-+ (void)downsampleImageData:(id)arg1 toMaxByteSize:(unsigned int)arg2 resultsHandler:(id)arg3;
-+ (id)createThumbnailWithData:(id)arg1 adjustSmallestSideToSize:(unsigned int)arg2;
-+ (CDStruct_1ef3fb1f)imageSizeWithData:(id)arg1;
-+ (id)downsampleImageData:(id)arg1 toMaxByteSize:(unsigned int)arg2;
++ (void)generateThumbnailFromImageData:(id)arg1 adjustSmallestSideToSize:(unsigned long long)arg2 resultsHandler:(id)arg3;
++ (void)downsampleImageData:(id)arg1 toMaxByteSize:(unsigned long long)arg2 resultsHandler:(id)arg3;
++ (id)createThumbnailWithData:(id)arg1 adjustSmallestSideToSize:(unsigned long long)arg2;
++ (CDStruct_912cb5d2)imageSizeWithData:(id)arg1;
++ (id)downsampleImageData:(id)arg1 toMaxByteSize:(unsigned long long)arg2;
 
 @end
 

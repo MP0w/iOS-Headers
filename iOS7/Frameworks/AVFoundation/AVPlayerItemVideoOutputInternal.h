@@ -20,10 +20,10 @@
     NSObject<OS_dispatch_queue> *delegateQueue;
     NSObject<OS_dispatch_source> *delegateWakeupSource;
     double advanceWakeUpInterval;
-    BOOL advanceWakeUpIntervalIsValid;
+    _Bool advanceWakeUpIntervalIsValid;
     CDStruct_1b6d18a9 wakeUpImageTime;
-    BOOL suppressesPlayerRendering;
-    BOOL shouldTagBuffersWithInfo;
+    _Bool suppressesPlayerRendering;
+    _Bool shouldTagBuffersWithInfo;
 }
 
 @end

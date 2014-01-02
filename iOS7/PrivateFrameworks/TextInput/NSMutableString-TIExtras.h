@@ -7,8 +7,8 @@
 #import "NSMutableString.h"
 
 @interface NSMutableString (TIExtras)
-- (void)_removeOccurrencesOfCharacter:(unsigned long)arg1;
-- (void)_replaceOccurrencesOfCharacter:(unsigned long)arg1 withCharacter:(unsigned long)arg2;
+- (void)_removeOccurrencesOfCharacter:(unsigned int)arg1;
+- (void)_replaceOccurrencesOfCharacter:(unsigned int)arg1 withCharacter:(unsigned int)arg2;
 - (void)_removeCharactersFromSet:(struct __CFCharacterSet *)arg1;
 @end
 

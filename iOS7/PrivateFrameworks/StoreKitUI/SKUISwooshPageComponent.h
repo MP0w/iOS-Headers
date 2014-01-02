@@ -14,16 +14,16 @@
     NSArray *_lockups;
     struct SKUILockupStyle _lockupStyle;
     NSArray *_mediaComponents;
-    int _missingDataCount;
+    long long _missingDataCount;
     NSString *_seeAllTitle;
     NSURL *_seeAllURL;
-    BOOL _showsItemTitles;
-    int _swooshType;
+    _Bool _showsItemTitles;
+    long long _swooshType;
     NSString *_title;
 }
 
 @property(readonly, nonatomic) NSString *title; // @synthesize title=_title;
-@property(readonly, nonatomic) int swooshType; // @synthesize swooshType=_swooshType;
+@property(readonly, nonatomic) long long swooshType; // @synthesize swooshType=_swooshType;
 @property(readonly, nonatomic) NSURL *seeAllURL; // @synthesize seeAllURL=_seeAllURL;
 @property(readonly, nonatomic) NSString *seeAllTitle; // @synthesize seeAllTitle=_seeAllTitle;
 @property(readonly, nonatomic) NSArray *mediaComponents; // @synthesize mediaComponents=_mediaComponents;
@@ -42,16 +42,17 @@
 - (void)_updateLockupItemsWithLookupResponse:(id)arg1;
 - (void)_updateLockupItemsWithItems:(id)arg1;
 - (void)_updateBricksWithItems:(id)arg1;
+- (id)valueForMetricsField:(id)arg1;
 - (id)metricsElementName;
-- (void)enumerateMissingItemIdentifiersFromIndex:(int)arg1 usingBlock:(id)arg2;
-- (int)componentType;
-@property(readonly, nonatomic) BOOL showsMediaTitles;
-@property(readonly, nonatomic) BOOL showsBrickTitles;
-- (BOOL)isMissingItemData;
+- (void)enumerateMissingItemIdentifiersFromIndex:(long long)arg1 usingBlock:(id)arg2;
+- (long long)componentType;
+@property(readonly, nonatomic) _Bool showsMediaTitles;
+@property(readonly, nonatomic) _Bool showsBrickTitles;
+- (_Bool)isMissingItemData;
 - (id)initWithRoomContext:(id)arg1;
 - (id)initWithRelatedContentContext:(id)arg1;
 - (id)initWithItemList:(id)arg1;
-- (id)initWithFeaturedContentContext:(id)arg1 kind:(int)arg2;
+- (id)initWithFeaturedContentContext:(id)arg1 kind:(long long)arg2;
 - (id)initWithCustomPageContext:(id)arg1;
 
 @end

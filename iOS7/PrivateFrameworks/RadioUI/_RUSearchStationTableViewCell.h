@@ -14,14 +14,14 @@
     UIImageView *_imageView;
     UILabel *_subtitleLabel;
     UILabel *_textLabel;
-    BOOL _showActivityIndicator;
+    _Bool _showActivityIndicator;
     NSAttributedString *_attributedStationDescription;
     NSAttributedString *_attributedStationName;
     MPImageCache *_imageCache;
     MPImageCacheRequest *_stationImageRequest;
 }
 
-@property(nonatomic) BOOL showActivityIndicator; // @synthesize showActivityIndicator=_showActivityIndicator;
+@property(nonatomic) _Bool showActivityIndicator; // @synthesize showActivityIndicator=_showActivityIndicator;
 @property(retain, nonatomic) MPImageCacheRequest *stationImageRequest; // @synthesize stationImageRequest=_stationImageRequest;
 @property(retain, nonatomic) MPImageCache *imageCache; // @synthesize imageCache=_imageCache;
 @property(copy, nonatomic) NSAttributedString *attributedStationName; // @synthesize attributedStationName=_attributedStationName;
@@ -34,7 +34,7 @@
 - (void)layoutSubviewsPad;
 - (void)layoutSubviews;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

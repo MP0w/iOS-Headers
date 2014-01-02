@@ -8,6 +8,7 @@
 
 @class NSDate, NSDictionary, NSMutableDictionary, NSNumber, NSString, PFUbiquityKnowledgeVector;
 
+// Not exported
 @interface PFUbiquityPeerSnapshot : NSObject
 {
     NSDictionary *_logSnapshot;
@@ -26,9 +27,9 @@
 @property(readonly, nonatomic) NSDictionary *logSnapshot; // @synthesize logSnapshot=_logSnapshot;
 - (void)removeValuesChangedByPeerSnapshot:(id)arg1;
 - (void)computeDiffToPreviousSnapshot:(id)arg1;
-- (int)compare:(id)arg1;
+- (long long)compare:(id)arg1;
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)initWithExportingPeerID:(id)arg1 logSnapshot:(id)arg2 transactionNumber:(id)arg3 transactionDate:(id)arg4 andKnowledgeVector:(id)arg5;
 - (id)initWithTranasctionEntry:(id)arg1 andLogSnapshot:(id)arg2;

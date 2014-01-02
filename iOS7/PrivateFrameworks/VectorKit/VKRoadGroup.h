@@ -8,6 +8,7 @@
 
 @class NSString, VKIntObjectMap, VKLabelDrawStyle, VKLineDrawStyle, VKRoadDrawStyle, VKStyle, VKVectorTile;
 
+// Not exported
 @interface VKRoadGroup : NSObject
 {
     VKVectorTile *_tile;
@@ -20,26 +21,26 @@
     VKIntObjectMap *_capMeshVendors;
     int _highestZ;
     int _lowestZ;
-    BOOL _frozen;
-    BOOL _isPatternedRailway;
+    _Bool _frozen;
+    _Bool _isPatternedRailway;
     VKLineDrawStyle *_lineStyle;
 }
 
-@property(nonatomic) BOOL isPatternedRailway; // @synthesize isPatternedRailway=_isPatternedRailway;
+@property(nonatomic) _Bool isPatternedRailway; // @synthesize isPatternedRailway=_isPatternedRailway;
 @property(readonly, nonatomic) VKLabelDrawStyle *labelStyle; // @synthesize labelStyle=_labelStyle;
 @property(readonly, nonatomic) VKLineDrawStyle *lineStyle; // @synthesize lineStyle=_lineStyle;
 @property(readonly, nonatomic) VKRoadDrawStyle *roadStyle; // @synthesize roadStyle=_roadStyle;
 @property(readonly, nonatomic) int lowestZ; // @synthesize lowestZ=_lowestZ;
 @property(readonly, nonatomic) int highestZ; // @synthesize highestZ=_highestZ;
 @property(readonly, nonatomic) VKVectorTile *tile; // @synthesize tile=_tile;
-- (unsigned int)triangleCount;
+- (unsigned long long)triangleCount;
 - (void)freezeStructure;
 - (void)freeze;
 - (id)capMeshVendorAtZ:(int)arg1;
 - (id)roadMeshVendorAtZ:(int)arg1;
 @property(readonly, nonatomic) NSString *styleName;
 - (void)dealloc;
-- (id)initWithStyle:(id)arg1 tile:(id)arg2 createMesh:(BOOL)arg3 ofType:(int)arg4;
+- (id)initWithStyle:(id)arg1 tile:(id)arg2 createMesh:(_Bool)arg3 ofType:(int)arg4;
 
 @end
 

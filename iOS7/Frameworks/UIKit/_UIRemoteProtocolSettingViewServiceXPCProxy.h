@@ -8,6 +8,7 @@
 
 @class Protocol;
 
+// Not exported
 @interface _UIRemoteProtocolSettingViewServiceXPCProxy : _UITargetedProxy
 {
     Protocol *_remoteProtocol;

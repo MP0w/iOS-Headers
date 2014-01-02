@@ -6,6 +6,7 @@
 
 #import <OfficeImport/ESDBlipContext.h>
 
+// Not exported
 @interface ESDDibFileBlipContext : ESDBlipContext
 {
 }

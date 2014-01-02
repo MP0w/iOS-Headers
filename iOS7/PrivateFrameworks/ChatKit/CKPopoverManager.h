@@ -22,12 +22,12 @@
 @property(copy, nonatomic) id handler; // @synthesize handler=_handler;
 @property(copy, nonatomic) id presenter; // @synthesize presenter=_presenter;
 - (void)replaceCurrentControllerWithController:(id)arg1;
-- (BOOL)isShowingPopover;
+- (_Bool)isShowingPopover;
 - (void)representCurrentPopover;
 @property(readonly, nonatomic) UIViewController *currentContentController;
 - (void)popoverControllerDidDismissPopover:(id)arg1;
 - (void)didFinishRotating;
-- (void)dismissCurrentPopoverAnimated:(BOOL)arg1;
+- (void)dismissCurrentPopoverAnimated:(_Bool)arg1;
 - (void)showPopoverWithContentViewController:(id)arg1 withPresenter:(id)arg2 withHandler:(void)arg3;
 - (void)dealloc;
 

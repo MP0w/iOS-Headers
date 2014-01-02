@@ -8,31 +8,32 @@
 
 @class NSArray, NSString;
 
+// Not exported
 @interface UIKBKeyDisplayContents : NSObject
 {
-    BOOL _isCustomGlyph;
-    BOOL _secondaryIsCustomGlyph;
-    BOOL _fallbackIsCustomGlyph;
-    BOOL _fillPath;
+    _Bool _isCustomGlyph;
+    _Bool _secondaryIsCustomGlyph;
+    _Bool _fallbackIsCustomGlyph;
+    _Bool _fillPath;
     NSString *_displayString;
     NSString *_displayStringImage;
     NSString *_secondaryDisplayString;
     NSString *_fallbackDisplayString;
     NSArray *_variantDisplayStrings;
     NSArray *_variantDisplayImages;
-    int _highlightedVariantIndex;
-    int _displayPathType;
+    long long _highlightedVariantIndex;
+    long long _displayPathType;
 }
 
 + (id)displayContents;
-@property(nonatomic) BOOL fillPath; // @synthesize fillPath=_fillPath;
-@property(nonatomic) int displayPathType; // @synthesize displayPathType=_displayPathType;
-@property(nonatomic) int highlightedVariantIndex; // @synthesize highlightedVariantIndex=_highlightedVariantIndex;
+@property(nonatomic) _Bool fillPath; // @synthesize fillPath=_fillPath;
+@property(nonatomic) long long displayPathType; // @synthesize displayPathType=_displayPathType;
+@property(nonatomic) long long highlightedVariantIndex; // @synthesize highlightedVariantIndex=_highlightedVariantIndex;
 @property(retain, nonatomic) NSArray *variantDisplayImages; // @synthesize variantDisplayImages=_variantDisplayImages;
 @property(retain, nonatomic) NSArray *variantDisplayStrings; // @synthesize variantDisplayStrings=_variantDisplayStrings;
-@property(nonatomic) BOOL fallbackIsCustomGlyph; // @synthesize fallbackIsCustomGlyph=_fallbackIsCustomGlyph;
-@property(nonatomic) BOOL secondaryIsCustomGlyph; // @synthesize secondaryIsCustomGlyph=_secondaryIsCustomGlyph;
-@property(nonatomic) BOOL isCustomGlyph; // @synthesize isCustomGlyph=_isCustomGlyph;
+@property(nonatomic) _Bool fallbackIsCustomGlyph; // @synthesize fallbackIsCustomGlyph=_fallbackIsCustomGlyph;
+@property(nonatomic) _Bool secondaryIsCustomGlyph; // @synthesize secondaryIsCustomGlyph=_secondaryIsCustomGlyph;
+@property(nonatomic) _Bool isCustomGlyph; // @synthesize isCustomGlyph=_isCustomGlyph;
 @property(retain, nonatomic) NSString *fallbackDisplayString; // @synthesize fallbackDisplayString=_fallbackDisplayString;
 @property(retain, nonatomic) NSString *secondaryDisplayString; // @synthesize secondaryDisplayString=_secondaryDisplayString;
 @property(retain, nonatomic) NSString *displayStringImage; // @synthesize displayStringImage=_displayStringImage;

@@ -11,7 +11,7 @@
 @interface AssistantSubUIViewController : AUUITableViewController
 {
     AssistantUIViewController *_parentController;
-    BOOL _iPadIdiom;
+    _Bool _iPadIdiom;
     NSDictionary *_inParamDict;
     NSMutableDictionary *_outResultsDict;
 }
@@ -19,15 +19,15 @@
 + (id)tableView;
 + (id)tableViewHeaderView;
 + (id)topoViewInContainerView:(id *)arg1;
-+ (id)labelViewInContainer:(id *)arg1 withSpinner:(id *)arg2 above:(BOOL)arg3;
++ (id)labelViewInContainer:(id *)arg1 withSpinner:(id *)arg2 above:(_Bool)arg3;
 + (id)labelViewInContainer:(id *)arg1;
 @property(readonly, nonatomic) NSDictionary *outResultsDict; // @synthesize outResultsDict=_outResultsDict;
 @property(retain, nonatomic) NSDictionary *inParamDict; // @synthesize inParamDict=_inParamDict;
-@property(nonatomic) BOOL iPadIdiom; // @synthesize iPadIdiom=_iPadIdiom;
+@property(nonatomic) _Bool iPadIdiom; // @synthesize iPadIdiom=_iPadIdiom;
 @property(nonatomic) AssistantUIViewController *parentController; // @synthesize parentController=_parentController;
 - (id)getProductLocalizedStringWithFormat:(id)arg1;
-- (void)setRightNavigationButton:(id)arg1 enable:(BOOL)arg2 hide:(BOOL)arg3;
-- (void)setLeftNavigationButton:(id)arg1 enable:(BOOL)arg2 hide:(BOOL)arg3;
+- (void)setRightNavigationButton:(id)arg1 enable:(_Bool)arg2 hide:(_Bool)arg3;
+- (void)setLeftNavigationButton:(id)arg1 enable:(_Bool)arg2 hide:(_Bool)arg3;
 - (void)dealloc;
 - (void)viewDidLoad;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

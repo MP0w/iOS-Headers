@@ -12,7 +12,7 @@
 {
     NSMutableDictionary *_caches;
     id _cellContext;
-    float _tableHeight;
+    double _tableHeight;
 }
 
 @property(retain, nonatomic) id cellContext; // @synthesize cellContext=_cellContext;
@@ -21,7 +21,7 @@
 @property(readonly, nonatomic) NSArray *caches;
 - (id)cacheForClass:(Class)arg1;
 - (void)dealloc;
-- (id)initWithTableHeight:(float)arg1;
+- (id)initWithTableHeight:(double)arg1;
 
 @end
 

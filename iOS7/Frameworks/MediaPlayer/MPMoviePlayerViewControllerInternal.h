@@ -11,9 +11,7 @@
 @interface MPMoviePlayerViewControllerInternal : NSObject
 {
     MPMoviePlayerController *_moviePlayer;
-    BOOL _wasDisplayedAnimated;
-    int _previousStatusBarStyle;
-    BOOL _statusBarWasHidden;
+    _Bool _wasDisplayedAnimated;
 }
 
 - (void).cxx_destruct;

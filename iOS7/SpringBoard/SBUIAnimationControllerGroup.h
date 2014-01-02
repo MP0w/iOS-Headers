@@ -13,17 +13,17 @@
 @interface SBUIAnimationControllerGroup : SBUIAnimationController <SBUIAnimationControllerDelegate>
 {
     NSMutableArray *_animations;
-    BOOL _finished;
+    _Bool _finished;
 }
 
 @property(readonly, nonatomic) NSArray *animations; // @synthesize animations=_animations;
 - (id)description;
 - (void)animationControllerDidFinishAnimation:(id)arg1;
-- (void)animationController:(id)arg1 willBeginAnimation:(BOOL)arg2;
+- (void)animationController:(id)arg1 willBeginAnimation:(_Bool)arg2;
 - (void)_forEachAnimation:(id)arg1;
 - (void)_startAnimation;
-- (BOOL)_willAnimate;
-- (BOOL)waitingToStart;
+- (_Bool)_willAnimate;
+- (_Bool)waitingToStart;
 - (void)endAnimation;
 - (void)beginAnimation;
 - (void)addAnimation:(id)arg1;

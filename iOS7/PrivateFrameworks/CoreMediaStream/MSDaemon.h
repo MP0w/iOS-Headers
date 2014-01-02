@@ -10,14 +10,14 @@
 
 @interface MSDaemon : NSObject
 {
-    BOOL _stabilizedIsBusy;
+    _Bool _stabilizedIsBusy;
     int _busyCount;
     int _UIBusyCount;
     NSObject<OS_dispatch_queue> *_idleCountQueue;
     NSTimer *_hysteresisTimer;
 }
 
-@property(nonatomic) BOOL stabilizedIsBusy; // @synthesize stabilizedIsBusy=_stabilizedIsBusy;
+@property(nonatomic) _Bool stabilizedIsBusy; // @synthesize stabilizedIsBusy=_stabilizedIsBusy;
 @property(retain, nonatomic) NSTimer *hysteresisTimer; // @synthesize hysteresisTimer=_hysteresisTimer;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *idleCountQueue; // @synthesize idleCountQueue=_idleCountQueue;
 @property(nonatomic) int UIBusyCount; // @synthesize UIBusyCount=_UIBusyCount;
@@ -28,12 +28,12 @@
 - (void)_hysteresisTimerDidFire:(id)arg1;
 - (void)didUnidle;
 - (void)didIdle;
-- (void)_didChangeIdleBusyState:(BOOL)arg1;
+- (void)_didChangeIdleBusyState:(_Bool)arg1;
 - (void)releasePowerAssertion;
 - (void)retainPowerAssertion;
 - (void)releaseUIBusy;
 - (void)retainUIBusy;
-- (BOOL)isBusy;
+- (_Bool)isBusy;
 - (void)releaseBusy;
 - (void)retainBusy;
 - (void)dealloc;

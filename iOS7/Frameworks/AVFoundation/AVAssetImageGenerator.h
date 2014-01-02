@@ -14,7 +14,7 @@
 }
 
 + (id)assetImageGeneratorWithAsset:(id)arg1;
-- (id)_NSErrorForError:(long)arg1;
+- (id)_NSErrorForError:(int)arg1;
 - (struct CGImage *)_copyCGImageAtTime:(CDStruct_1b6d18a9)arg1 usingAssetReader:(id)arg2 error:(id *)arg3;
 - (struct CGSize)_scaledSizeForRenderSize:(struct CGSize)arg1;
 - (id)_requestWithRequestID:(id)arg1;
@@ -28,7 +28,7 @@
 @property(copy, nonatomic) AVVideoComposition *videoComposition;
 @property(copy, nonatomic) NSString *apertureMode;
 @property(nonatomic) struct CGSize maximumSize;
-@property(nonatomic) BOOL appliesPreferredTrackTransform;
+@property(nonatomic) _Bool appliesPreferredTrackTransform;
 - (void)cancelAllCGImageGeneration;
 - (void)generateCGImagesAsynchronouslyForTimes:(id)arg1 completionHandler:(id)arg2;
 - (struct CGImage *)copyCGImageAtTime:(CDStruct_1b6d18a9)arg1 actualTime:(CDStruct_1b6d18a9 *)arg2 error:(id *)arg3;

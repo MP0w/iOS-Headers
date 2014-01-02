@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface GEOVLabelLanguage : PBCodable
 {
     unsigned int _endOffset;
@@ -18,11 +19,11 @@
 @property(retain, nonatomic) NSString *languageLocale; // @synthesize languageLocale=_languageLocale;
 @property(nonatomic) unsigned int endOffset; // @synthesize endOffset=_endOffset;
 @property(nonatomic) unsigned int startOffset; // @synthesize startOffset=_startOffset;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
 - (void)dealloc;

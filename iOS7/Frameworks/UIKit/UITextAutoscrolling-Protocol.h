@@ -5,7 +5,7 @@
  */
 
 @protocol UITextAutoscrolling
-- (void)scrollSelectionToVisible:(BOOL)arg1;
+- (void)scrollSelectionToVisible:(_Bool)arg1;
 - (void)cancelAutoscroll;
 - (void)startAutoscroll:(struct CGPoint)arg1;
 @end

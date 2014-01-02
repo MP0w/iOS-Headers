@@ -20,7 +20,7 @@ struct unique_ptr<std::__1::__hash_node<std::__1::pair<unsigned long, sqlite3_st
         struct __hash_node<std::__1::pair<unsigned long, sqlite3_stmt *>, void *> **_field1;
         struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<unsigned long, sqlite3_stmt *>, void *>*>> {
             struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<std::__1::pair<unsigned long, sqlite3_stmt *>, void *>*>> {
-                unsigned long _field1;
+                unsigned long long _field1;
             } _field1;
         } _field2;
     } _field1;
@@ -35,7 +35,7 @@ struct unordered_map<unsigned long, sqlite3_stmt *, std::__1::hash<unsigned long
             } _field1;
         } _field2;
         struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<unsigned long, sqlite3_stmt *, std::__1::hash<unsigned long>, true>> {
-            unsigned long _field1;
+            unsigned long long _field1;
         } _field3;
         struct __compressed_pair<float, std::__1::__unordered_map_equal<unsigned long, sqlite3_stmt *, std::__1::equal_to<unsigned long>, true>> {
             float _field1;

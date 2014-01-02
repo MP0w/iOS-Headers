@@ -11,6 +11,6 @@
 @optional
 - (void)didDeleteIconState:(id)arg1;
 - (void)didSaveIconState:(id)arg1;
-- (BOOL)canSaveIconState:(id)arg1;
+- (_Bool)canSaveIconState:(id)arg1;
 @end
 

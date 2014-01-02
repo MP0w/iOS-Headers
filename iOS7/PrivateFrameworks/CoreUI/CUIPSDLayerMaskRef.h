@@ -11,16 +11,16 @@
 @interface CUIPSDLayerMaskRef : NSObject
 {
     CUIPSDLayerRef *_layerRef;
-    BOOL _isVectorMask;
+    _Bool _isVectorMask;
 }
 
 - (struct CGImage *)createCGImageMask;
-- (struct CGPath *)newBezierPathAtScale:(float)arg1;
+- (struct CGPath *)newBezierPathAtScale:(double)arg1;
 - (struct CGPath *)newBezierPath;
 - (struct CGRect)bounds;
-- (BOOL)isInvertedWhenBlending;
-- (BOOL)isEnabled;
-- (BOOL)isLinked;
+- (_Bool)isInvertedWhenBlending;
+- (_Bool)isEnabled;
+- (_Bool)isLinked;
 - (id)layerRef;
 - (void)dealloc;
 - (id)initVectorMaskWithLayerRef:(id)arg1;

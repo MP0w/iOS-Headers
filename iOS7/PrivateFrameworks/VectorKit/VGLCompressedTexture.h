@@ -8,6 +8,7 @@
 
 @class NSData, NSMutableArray;
 
+// Not exported
 @interface VGLCompressedTexture : VGLTexture
 {
     NSData *_data;
@@ -24,8 +25,8 @@
 }
 
 - (id).cxx_construct;
-- (BOOL)loadTexture;
-- (BOOL)decodeTexture;
+- (_Bool)loadTexture;
+- (_Bool)decodeTexture;
 - (void)dealloc;
 - (id)initWithData:(id)arg1;
 

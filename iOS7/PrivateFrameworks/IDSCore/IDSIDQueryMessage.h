@@ -22,14 +22,14 @@
 @property(copy, setter=setURI:) NSString *uri; // @synthesize uri=_uri;
 - (void)handleResponseDictionary:(id)arg1;
 - (void)handleResponseHeaders:(id)arg1;
-- (BOOL)hasRequiredKeys:(id *)arg1;
+- (_Bool)hasRequiredKeys:(id *)arg1;
 - (id)messageBody;
 - (id)requiredKeys;
 - (id)bagKey;
 - (id)dataUsageBundleIdentifier;
-- (BOOL)wantsBodySignature;
-- (BOOL)wantsHTTPGet;
-- (BOOL)wantsManagedRetries;
+- (_Bool)wantsBodySignature;
+- (_Bool)wantsHTTPGet;
+- (_Bool)wantsManagedRetries;
 - (id)additionalQueryStringParameters;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;

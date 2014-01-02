@@ -8,20 +8,20 @@
 
 @interface MSImageScalingSpecification : NSObject
 {
-    float _nominalShortSideLength;
-    float _minimumLongSideLength;
-    float _maximumLongSideLength;
     int _assetTypeFlags;
+    double _nominalShortSideLength;
+    double _minimumLongSideLength;
+    double _maximumLongSideLength;
 }
 
 + (id)assetsToGenerateFromImageWithInputSize:(struct CGSize)arg1 toConformToSpecifications:(id)arg2;
 + (id)specificationWithSharedAlbumSpecificationString:(id)arg1;
 @property(nonatomic) int assetTypeFlags; // @synthesize assetTypeFlags=_assetTypeFlags;
-@property(nonatomic) float maximumLongSideLength; // @synthesize maximumLongSideLength=_maximumLongSideLength;
-@property(nonatomic) float minimumLongSideLength; // @synthesize minimumLongSideLength=_minimumLongSideLength;
-@property(nonatomic) float nominalShortSideLength; // @synthesize nominalShortSideLength=_nominalShortSideLength;
+@property(nonatomic) double maximumLongSideLength; // @synthesize maximumLongSideLength=_maximumLongSideLength;
+@property(nonatomic) double minimumLongSideLength; // @synthesize minimumLongSideLength=_minimumLongSideLength;
+@property(nonatomic) double nominalShortSideLength; // @synthesize nominalShortSideLength=_nominalShortSideLength;
 - (id)description;
-- (float)scaleFactorForInputSize:(struct CGSize)arg1;
+- (double)scaleFactorForInputSize:(struct CGSize)arg1;
 
 @end
 

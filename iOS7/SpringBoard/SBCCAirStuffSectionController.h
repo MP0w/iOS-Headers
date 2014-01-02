@@ -9,11 +9,12 @@
 #import "MPAudioVideoRoutingViewControllerDelegate-Protocol.h"
 #import "SFAirDropDiscoveryActionSheetDelegate-Protocol.h"
 #import "SFAirDropDiscoveryControllerDelegate-Protocol.h"
+#import "UIActionSheetDelegate-Protocol.h"
 #import "UIPopoverControllerDelegate-Protocol.h"
 
 @class BKSTimer, MPAudioVideoRoutingActionSheet, MPAudioVideoRoutingPopoverController, MPAudioVideoRoutingViewController, SBCCButtonLikeSectionView, SFAirDropDiscoveryController;
 
-@interface SBCCAirStuffSectionController : SBControlCenterSectionViewController <MPAudioVideoRoutingViewControllerDelegate, UIPopoverControllerDelegate, SFAirDropDiscoveryControllerDelegate, SFAirDropDiscoveryActionSheetDelegate>
+@interface SBCCAirStuffSectionController : SBControlCenterSectionViewController <MPAudioVideoRoutingViewControllerDelegate, UIPopoverControllerDelegate, SFAirDropDiscoveryControllerDelegate, SFAirDropDiscoveryActionSheetDelegate, UIActionSheetDelegate>
 {
     SBCCButtonLikeSectionView *_airPlaySection;
     SBCCButtonLikeSectionView *_airDropSection;
@@ -21,40 +22,41 @@
     MPAudioVideoRoutingViewController *_airPlayViewController;
     MPAudioVideoRoutingPopoverController *_airPlayPopoverController;
     SFAirDropDiscoveryController *_airDropDiscoveryController;
-    BOOL _isVisible;
-    BOOL _airPlayWasPreviouslyEnabled;
+    _Bool _isVisible;
+    _Bool _airPlayWasPreviouslyEnabled;
     BKSTimer *_resetTimer;
-    BOOL _airPlayEnabled;
-    BOOL _airDropEnabled;
+    _Bool _airPlayEnabled;
+    _Bool _airDropEnabled;
 }
 
 + (Class)viewClass;
-@property(nonatomic) BOOL airDropEnabled; // @synthesize airDropEnabled=_airDropEnabled;
-@property(nonatomic) BOOL airPlayEnabled; // @synthesize airPlayEnabled=_airPlayEnabled;
+@property(nonatomic) _Bool airDropEnabled; // @synthesize airDropEnabled=_airDropEnabled;
+@property(nonatomic) _Bool airPlayEnabled; // @synthesize airPlayEnabled=_airPlayEnabled;
 - (void)popoverControllerDidDismissPopover:(id)arg1;
 - (void)discoveryController:(id)arg1 actionSheetDidDismiss:(id)arg2;
 - (void)discoveryController:(id)arg1 actionSheetWillDismiss:(id)arg2;
+- (void)discoveryControllerVisibilityDidChange:(id)arg1;
 - (void)discoveryControllerSettingsDidChange:(id)arg1;
 - (void)viewControllerRequestsDismissal:(id)arg1;
-- (void)_dismissAirplayControllerAnimated:(BOOL)arg1;
+- (void)_dismissAirplayControllerAnimated:(_Bool)arg1;
 - (void)_debugAirplaneStateDidChangeNotification:(id)arg1;
 - (void)_debugWifiStateDidChangeNotification:(id)arg1;
 - (void)_availableRoutesDidChangeNotification:(id)arg1;
-- (void)_updateAirDropControlAsEnabled:(BOOL)arg1;
+- (void)_updateAirDropControlAsEnabled:(_Bool)arg1;
 - (void)_updateForAirDropStateChange;
-- (void)_updateAirPlayControlAsEnabled:(BOOL)arg1;
+- (void)_updateAirPlayControlAsEnabled:(_Bool)arg1;
 - (void)_updateForAirPlayStateChange;
 - (void)_airDropTapped:(id)arg1;
 - (void)_airPlayTapped:(id)arg1;
-- (void)_showAirPlayView;
+- (void)_showAirPlayView:(id)arg1;
 - (void)_noteSectionEnabledStateDidChange;
-- (void)_updateSubsectionVisibilityAnimated:(BOOL)arg1;
-- (void)noteControlCenterDidDismiss;
-- (void)noteControlCenterWillPresent;
+- (void)_updateSubsectionVisibilityAnimated:(_Bool)arg1;
+- (void)controlCenterDidDismiss;
+- (void)controlCenterWillPresent;
 - (void)viewDidLoad;
 - (id)view;
-- (BOOL)enabledForOrientation:(int)arg1;
-- (struct CGSize)contentSizeForOrientation:(int)arg1;
+- (_Bool)enabledForOrientation:(long long)arg1;
+- (struct CGSize)contentSizeForOrientation:(long long)arg1;
 - (id)sectionIdentifier;
 - (void)dealloc;
 - (id)init;

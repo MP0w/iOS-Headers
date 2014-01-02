@@ -14,16 +14,16 @@
 + (id)openGLContext:(id)arg1;
 + (id)openGLContext;
 - (void)preloadFilter:(id)arg1;
-- (void)applyFilter:(id)arg1 toSurface:(struct __IOSurface *)arg2 mirrored:(BOOL)arg3 resultHandler:(id)arg4;
-- (void)applyFilter:(id)arg1 toSurface:(struct __IOSurface *)arg2 mirrored:(BOOL)arg3 surfaceResultHandler:(id)arg4;
+- (void)applyFilter:(id)arg1 toSurface:(struct __IOSurface *)arg2 mirrored:(_Bool)arg3 resultHandler:(id)arg4;
+- (void)applyFilter:(id)arg1 toSurface:(struct __IOSurface *)arg2 mirrored:(_Bool)arg3 surfaceResultHandler:(id)arg4;
 @property(retain, nonatomic) struct __CVPixelBufferPool *smallPool; // @dynamic smallPool;
 @property(retain, nonatomic) struct __CVPixelBufferPool *largePool; // @dynamic largePool;
 @property(nonatomic) struct _CAImageQueue *outputImageQueue; // @dynamic outputImageQueue;
-- (struct __CVBuffer *)createCVPixelBufferForFilter:(id)arg1 inputPixelBuffer:(struct __CVBuffer *)arg2 mirrored:(BOOL)arg3;
+- (struct __CVBuffer *)createCVPixelBufferForFilter:(id)arg1 inputPixelBuffer:(struct __CVBuffer *)arg2 mirrored:(_Bool)arg3;
 - (struct __CVBuffer *)createCVPixelBufferForFilter:(id)arg1 inputPixelBuffer:(struct __CVBuffer *)arg2;
-- (void)renderNineUp:(id)arg1 inputPixelBuffer:(struct __CVBuffer *)arg2 mirrored:(BOOL)arg3;
+- (void)renderNineUp:(id)arg1 inputPixelBuffer:(struct __CVBuffer *)arg2 mirrored:(_Bool)arg3;
 - (void)renderNineUp:(id)arg1 inputPixelBuffer:(struct __CVBuffer *)arg2;
-- (void)renderFilter:(id)arg1 inputPixelBuffer:(struct __CVBuffer *)arg2 mirrored:(BOOL)arg3;
+- (void)renderFilter:(id)arg1 inputPixelBuffer:(struct __CVBuffer *)arg2 mirrored:(_Bool)arg3;
 - (void)renderFilter:(id)arg1 inputPixelBuffer:(struct __CVBuffer *)arg2;
 - (id)init;
 

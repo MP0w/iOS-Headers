@@ -22,7 +22,7 @@
 @property(readonly, nonatomic) NSString *email; // @synthesize email=_email;
 @property(readonly, nonatomic) TUPhoneNumber *phoneNumber; // @synthesize phoneNumber=_phoneNumber;
 @property(readonly, nonatomic) int type; // @synthesize type=_type;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)dealloc;

@@ -8,12 +8,13 @@
 
 @class VGLTexture;
 
+// Not exported
 @interface VGLRoadAtlas : NSObject
 {
     unsigned int _textureSize;
     unsigned int _numberOfRows;
     unsigned int _numberOfColumns;
-    BOOL _quarterQuad;
+    _Bool _quarterQuad;
     VGLTexture *_texture;
     unsigned int _atlasLevels;
     unsigned int _atlasWidth;
@@ -38,7 +39,7 @@
 - (void)generateTextureAtRow:(unsigned int)arg1 column:(unsigned int)arg2 withTextureData:(char *)arg3 context:(id)arg4;
 - (char *)generateTextureWithInflation:(float)arg1 fade:(float)arg2 radius:(float)arg3;
 - (void)dealloc;
-- (id)initWithSize:(unsigned int)arg1 numberOfRows:(unsigned int)arg2 numberOfColumns:(unsigned int)arg3 quarterQuad:(BOOL)arg4 context:(id)arg5;
+- (id)initWithSize:(unsigned int)arg1 numberOfRows:(unsigned int)arg2 numberOfColumns:(unsigned int)arg3 quarterQuad:(_Bool)arg4 context:(id)arg5;
 
 @end
 

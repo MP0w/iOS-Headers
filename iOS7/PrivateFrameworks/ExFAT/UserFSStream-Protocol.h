@@ -8,9 +8,9 @@
 
 @protocol UserFSStream <NSObject>
 @property(readonly, nonatomic) unsigned long long length;
-@property(readonly, nonatomic) BOOL writable;
+@property(readonly, nonatomic) _Bool writable;
 @property(readonly, nonatomic) id <UserFSItem> item;
-- (long)readBytesUpToLength:(unsigned long)arg1 atOffset:(unsigned long long)arg2 toBuffer:(void *)arg3;
-- (BOOL)close;
+- (long long)readBytesUpToLength:(unsigned long long)arg1 atOffset:(unsigned long long)arg2 toBuffer:(void *)arg3;
+- (_Bool)close;
 @end
 

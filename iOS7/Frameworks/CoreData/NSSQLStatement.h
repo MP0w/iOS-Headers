@@ -8,21 +8,22 @@
 
 @class NSMutableArray, NSSQLEntity, NSString;
 
+// Not exported
 @interface NSSQLStatement : NSObject
 {
     NSSQLEntity *_entity;
     NSMutableArray *_bindVariables;
     NSMutableArray *_bindIntarrays;
     NSString *_sqlString;
-    BOOL _isImpossibleCondition;
+    _Bool _isImpossibleCondition;
     NSSQLEntity *_fakeEntityForFetch;
 }
 
-- (BOOL)isReadOnly;
+- (_Bool)isReadOnly;
 - (void)cacheFakeEntityForFetch:(id)arg1;
 - (id)fakeEntityForFetch;
-- (void)setImpossibleCondition:(BOOL)arg1;
-- (BOOL)isImpossibleCondition;
+- (void)setImpossibleCondition:(_Bool)arg1;
+- (_Bool)isImpossibleCondition;
 - (void)removeAllBindIntarrays;
 - (void)setBindIntarrays:(id)arg1;
 - (unsigned int)addBindIntarray:(id)arg1;

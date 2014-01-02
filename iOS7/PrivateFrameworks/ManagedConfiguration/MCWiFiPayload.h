@@ -10,14 +10,16 @@
 
 @interface MCWiFiPayload : MCPayload
 {
-    BOOL _isHidden;
-    BOOL _isWEP;
-    BOOL _isWPA;
-    BOOL _passwordRequired;
-    BOOL _usernameRequired;
-    BOOL _autoJoin;
-    BOOL _isHotspot;
-    BOOL _serviceProviderRoamingEnabled;
+    _Bool _isHidden;
+    _Bool _isWEP;
+    _Bool _isWPA;
+    _Bool _passwordRequired;
+    _Bool _usernameRequired;
+    _Bool _autoJoin;
+    _Bool _proxyPACFallbackAllowed;
+    _Bool _isHotspot;
+    _Bool _serviceProviderRoamingEnabled;
+    int _proxyType;
     NSString *_ssid;
     NSString *_encryptionType;
     NSDictionary *_eapClientConfig;
@@ -25,7 +27,6 @@
     NSString *_username;
     NSString *_certificateUUID;
     NSArray *_payloadCertificateAnchorUUID;
-    int _proxyType;
     NSString *_proxyServer;
     NSNumber *_proxyServerPort;
     NSString *_proxyUsername;
@@ -48,12 +49,13 @@
 @property(retain, nonatomic) NSArray *MCCAndMNCs; // @synthesize MCCAndMNCs=_MCCAndMNCs;
 @property(retain, nonatomic) NSArray *NAIRealmNames; // @synthesize NAIRealmNames=_NAIRealmNames;
 @property(retain, nonatomic) NSArray *roamingConsortiumOIs; // @synthesize roamingConsortiumOIs=_roamingConsortiumOIs;
-@property(nonatomic, getter=isServiceProviderRoamingEnabled) BOOL serviceProviderRoamingEnabled; // @synthesize serviceProviderRoamingEnabled=_serviceProviderRoamingEnabled;
+@property(nonatomic, getter=isServiceProviderRoamingEnabled) _Bool serviceProviderRoamingEnabled; // @synthesize serviceProviderRoamingEnabled=_serviceProviderRoamingEnabled;
 @property(retain, nonatomic) NSString *HESSID; // @synthesize HESSID=_HESSID;
 @property(retain, nonatomic) NSString *domainName; // @synthesize domainName=_domainName;
 @property(retain, nonatomic) NSNumber *priority; // @synthesize priority=_priority;
-@property(nonatomic) BOOL isHotspot; // @synthesize isHotspot=_isHotspot;
+@property(nonatomic) _Bool isHotspot; // @synthesize isHotspot=_isHotspot;
 @property(retain, nonatomic) NSString *credentialUUID; // @synthesize credentialUUID=_credentialUUID;
+@property(nonatomic) _Bool proxyPACFallbackAllowed; // @synthesize proxyPACFallbackAllowed=_proxyPACFallbackAllowed;
 @property(retain, nonatomic) NSString *proxyPACURLString; // @synthesize proxyPACURLString=_proxyPACURLString;
 @property(retain, nonatomic) NSString *proxyPassword; // @synthesize proxyPassword=_proxyPassword;
 @property(retain, nonatomic) NSString *proxyUsername; // @synthesize proxyUsername=_proxyUsername;
@@ -62,16 +64,16 @@
 @property(nonatomic) int proxyType; // @synthesize proxyType=_proxyType;
 @property(retain, nonatomic) NSArray *payloadCertificateAnchorUUID; // @synthesize payloadCertificateAnchorUUID=_payloadCertificateAnchorUUID;
 @property(retain, nonatomic) NSString *certificateUUID; // @synthesize certificateUUID=_certificateUUID;
-@property(nonatomic) BOOL autoJoin; // @synthesize autoJoin=_autoJoin;
+@property(nonatomic) _Bool autoJoin; // @synthesize autoJoin=_autoJoin;
 @property(retain, nonatomic) NSString *username; // @synthesize username=_username;
-@property(nonatomic) BOOL usernameRequired; // @synthesize usernameRequired=_usernameRequired;
+@property(nonatomic) _Bool usernameRequired; // @synthesize usernameRequired=_usernameRequired;
 @property(retain, nonatomic) NSString *password; // @synthesize password=_password;
-@property(nonatomic) BOOL passwordRequired; // @synthesize passwordRequired=_passwordRequired;
+@property(nonatomic) _Bool passwordRequired; // @synthesize passwordRequired=_passwordRequired;
 @property(retain, nonatomic) NSDictionary *eapClientConfig; // @synthesize eapClientConfig=_eapClientConfig;
-@property(nonatomic) BOOL isWPA; // @synthesize isWPA=_isWPA;
-@property(nonatomic) BOOL isWEP; // @synthesize isWEP=_isWEP;
+@property(nonatomic) _Bool isWPA; // @synthesize isWPA=_isWPA;
+@property(nonatomic) _Bool isWEP; // @synthesize isWEP=_isWEP;
 @property(retain, nonatomic) NSString *encryptionType; // @synthesize encryptionType=_encryptionType;
-@property(nonatomic) BOOL isHidden; // @synthesize isHidden=_isHidden;
+@property(nonatomic) _Bool isHidden; // @synthesize isHidden=_isHidden;
 @property(retain, nonatomic) NSString *ssid; // @synthesize ssid=_ssid;
 - (void).cxx_destruct;
 - (id)description;
@@ -81,10 +83,10 @@
 - (id)subtitle1Label;
 - (id)stubDictionary;
 - (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
-- (BOOL)_isEAPSIMConfig:(id)arg1;
-- (id)_eapPasswordFromConfig:(id)arg1 isRequired:(char *)arg2;
-- (id)_eapUsernameFromConfig:(id)arg1 isRequired:(char *)arg2;
-- (BOOL)_eapConfigIsValid:(id)arg1 error:(id *)arg2;
+- (_Bool)_isEAPSIMConfig:(id)arg1;
+- (id)_eapPasswordFromConfig:(id)arg1 isRequired:(_Bool *)arg2;
+- (id)_eapUsernameFromConfig:(id)arg1 isRequired:(_Bool *)arg2;
+- (_Bool)_eapConfigIsValid:(id)arg1 error:(id *)arg2;
 
 @end
 

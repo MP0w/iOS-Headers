@@ -8,6 +8,7 @@
 
 @class _UIWebViewController;
 
+// Not exported
 @interface _UIRemoteWebViewController : _UIRemoteViewController
 {
     _UIWebViewController *_webViewController;
@@ -16,7 +17,7 @@
 + (id)exportedInterface;
 + (id)serviceViewControllerInterface;
 @property(nonatomic) _UIWebViewController *webViewController; // @synthesize webViewController=_webViewController;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
 - (void)viewServiceDidTerminateWithError:(id)arg1;
 - (void)forwardInvocation:(id)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;

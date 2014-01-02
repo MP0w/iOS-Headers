@@ -10,11 +10,12 @@
 
 @class NSSet, VKAttributedRoute;
 
+// Not exported
 @interface VKRouteLine : NSObject <VKRouteMapMatchingDataSource>
 {
-    BOOL _curve;
-    BOOL _matchToRoads;
-    BOOL _hasNewRoadMatches;
+    _Bool _curve;
+    _Bool _matchToRoads;
+    _Bool _hasNewRoadMatches;
     CDStruct_aca18c62 _bounds;
     CDStruct_aa5aacbc _inverseMatrix;
     VKAttributedRoute *_overlay;
@@ -33,7 +34,7 @@
 }
 
 @property(nonatomic) double simplificationEpsilonPoints; // @synthesize simplificationEpsilonPoints=_simplificationEpsilonPoints;
-@property BOOL hasNewRoadMatches; // @synthesize hasNewRoadMatches=_hasNewRoadMatches;
+@property _Bool hasNewRoadMatches; // @synthesize hasNewRoadMatches=_hasNewRoadMatches;
 @property(nonatomic) VKAttributedRoute *overlay; // @synthesize overlay=_overlay;
 @property(readonly, nonatomic) CDStruct_d2b197d1 bounds; // @synthesize bounds=_bounds;
 - (id).cxx_construct;
@@ -43,11 +44,12 @@
 - (void)forEachMapMatchingSection:(id)arg1;
 - (void)forEachSection:(id)arg1;
 - (void)splitRouteLineAtAnnotation:(id)arg1;
-@property(readonly, nonatomic) BOOL needsUpdate;
-- (BOOL)isTrafficUptoDate:(double)arg1;
-- (BOOL)isTrafficUpToDate;
-- (void)createMeshIfNecessary:(BOOL)arg1 currentManeuver:(int)arg2;
-- (void)buildRouteLineForPainter:(id)arg1 keysInView:(id)arg2 tiles:(id)arg3 containerModel:(id)arg4 displayManeuvers:(BOOL)arg5 viewUnitsPerPoint:(double)arg6;
+@property(readonly, nonatomic) _Bool needsUpdate;
+- (_Bool)isTrafficUptoDate:(double)arg1;
+- (_Bool)isTrafficUpToDate;
+- (void)createMeshIfNecessary:(int)arg1;
+- (void)generateArrowsForManeuverDisplayMode:(int)arg1 routeLineWidth:(double)arg2;
+- (_Bool)buildRouteLineForPainter:(id)arg1 keysInView:(id)arg2 tiles:(id)arg3 containerModel:(id)arg4 viewUnitsPerPoint:(double)arg5 force:(_Bool)arg6 curve:(_Bool)arg7;
 - (void)_updateTilesCovered:(id)arg1;
 - (void)dealloc;
 

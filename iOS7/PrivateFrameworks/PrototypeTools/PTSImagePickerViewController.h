@@ -19,13 +19,13 @@
     NSMutableArray *_images;
     NSMutableArray *_filenames;
     PTSImageLoader *_imageLoader;
-    BOOL _doneLoading;
+    _Bool _doneLoading;
     id _completion;
     UIPopoverController *_popoverController;
-    BOOL _includePhotoLibrary;
+    _Bool _includePhotoLibrary;
 }
 
-@property(nonatomic) BOOL includePhotoLibrary; // @synthesize includePhotoLibrary=_includePhotoLibrary;
+@property(nonatomic) _Bool includePhotoLibrary; // @synthesize includePhotoLibrary=_includePhotoLibrary;
 - (void).cxx_destruct;
 - (void)imageLoaderDidFinishLoadingImages:(id)arg1;
 - (void)imageLoader:(id)arg1 didLoadImage:(id)arg2 forFilename:(id)arg3;
@@ -33,12 +33,12 @@
 - (void)imagePickerControllerDidCancel:(id)arg1;
 - (void)imagePickerController:(id)arg1 didFinishPickingMediaWithInfo:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
-- (void)dismissAnimated:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
+- (void)dismissAnimated:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)dealloc;
 - (id)initWithResourcePath:(id)arg1 completion:(id)arg2;
 

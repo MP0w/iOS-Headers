@@ -8,6 +8,7 @@
 
 @class CPSearchMatcher;
 
+// Not exported
 @interface ML3MatcherAuxData : NSObject
 {
     CPSearchMatcher *_searchMatcher;

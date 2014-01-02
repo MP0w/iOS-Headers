@@ -10,6 +10,7 @@
 
 @class NSOperationQueue, NSURL, PFUbiquityLocation;
 
+// Not exported
 @interface PFUbiquityMetadataFactoryFilePresenter : NSObject <NSFilePresenter>
 {
     NSURL *_presentedItemURL;

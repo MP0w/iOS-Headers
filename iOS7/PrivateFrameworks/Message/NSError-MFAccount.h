@@ -7,7 +7,7 @@
 #import "NSError.h"
 
 @interface NSError (MFAccount)
-- (BOOL)mf_isInaccessibleAccountCredentialError;
-- (BOOL)mf_isMissingAccountCredentialError;
+- (_Bool)mf_isInaccessibleAccountCredentialError;
+- (_Bool)mf_isMissingAccountCredentialError;
 @end
 

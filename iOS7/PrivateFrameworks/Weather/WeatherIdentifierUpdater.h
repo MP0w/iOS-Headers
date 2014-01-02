@@ -19,10 +19,10 @@
 + (id)sharedWeatherIdentifierUpdater;
 @property(retain, nonatomic) NSMutableArray *parsedCities; // @synthesize parsedCities=_parsedCities;
 @property(retain, nonatomic) NSArray *requestedCities; // @synthesize requestedCities=_requestedCities;
-- (void)_failed:(unsigned int)arg1;
+- (void)_failed:(unsigned long long)arg1;
 - (id)aggregateDictionaryDomain;
 - (void)updateWeatherForCities:(id)arg1 withCompletionHandler:(id)arg2;
-- (void)handleCompletionForCity:(id)arg1 withUpdateDetail:(unsigned int)arg2;
+- (void)handleCompletionForCity:(id)arg1 withUpdateDetail:(unsigned long long)arg2;
 - (void)updateWeatherForCity:(id)arg1;
 - (void)dealloc;
 

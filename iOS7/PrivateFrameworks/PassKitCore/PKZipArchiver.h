@@ -10,7 +10,7 @@
 {
 }
 
-+ (void)noteBOMCopier:(struct _BOMCopier *)arg1 succeeded:(BOOL)arg2;
++ (void)noteBOMCopier:(struct _BOMCopier *)arg1 succeeded:(_Bool)arg2;
 + (void)disassociateBOMCopier:(struct _BOMCopier *)arg1;
 + (void)associateBOMCopier:(struct _BOMCopier *)arg1 withCompletionHandler:(id)arg2;
 - (id)zippedDataForURL:(id)arg1;

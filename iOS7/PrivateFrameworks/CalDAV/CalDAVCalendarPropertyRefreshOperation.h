@@ -18,28 +18,30 @@
     NSError *_savedError;
     NSMutableDictionary *_ctags;
     NSMutableDictionary *_syncTokens;
+    _Bool _forceClearCalendarHomeSyncToken;
     NSString *_calendarHomeSyncToken;
-    BOOL _useCalendarHomeSyncReport;
+    _Bool _useCalendarHomeSyncReport;
     NSMutableDictionary *_pathToLocalCalendar;
     NSMutableSet *_localCalendarsWithNoPath;
-    BOOL _didFinish;
-    BOOL _didMakeCalendars;
-    BOOL _isSecondRefresh;
+    NSMutableSet *_updatedCalendars;
+    _Bool _didFinish;
+    _Bool _didMakeCalendars;
+    _Bool _isSecondRefresh;
     int _nextCalendarOrder;
     NSObject<OS_dispatch_group> *_outstandingTasksGroup;
 }
 
-@property(nonatomic) BOOL useCalendarHomeSyncReport; // @synthesize useCalendarHomeSyncReport=_useCalendarHomeSyncReport;
+@property(nonatomic) _Bool useCalendarHomeSyncReport; // @synthesize useCalendarHomeSyncReport=_useCalendarHomeSyncReport;
 @property(retain, nonatomic) NSString *calendarHomeSyncToken; // @synthesize calendarHomeSyncToken=_calendarHomeSyncToken;
 - (void)containerInfoSyncTask:(id)arg1 completedWithNewSyncToken:(id)arg2 error:(id)arg3;
 - (void)containerInfoSyncTask:(id)arg1 retrievedAddedOrModifiedContainers:(id)arg2 removedContainerURLs:(id)arg3;
 - (void)containerInfoTask:(id)arg1 completedWithContainers:(id)arg2 error:(id)arg3;
 - (void)_getDefaultCalendarsTasksIfNeededForPrincipal:(id)arg1;
-- (id)_getDefaultMkCalendarForPrincipalTask:(id)arg1 isEventCalendar:(BOOL)arg2;
+- (id)_getDefaultMkCalendarForPrincipalTaskGroup:(id)arg1 isEventCalendar:(_Bool)arg2;
 - (void)_continueHandleContainerInfoTask:(id)arg1 completedWithContainers:(id)arg2 error:(id)arg3;
-- (BOOL)_handleUpdateForCalendar:(id)arg1;
+- (_Bool)_handleUpdateForCalendar:(id)arg1;
 - (void)_initializePrincipalCalendarCache;
-- (id)_getMkcalendarTaskForCalendar:(id)arg1;
+- (id)_getMkcalendarTaskGroupForCalendar:(id)arg1;
 - (id)_generateTimeZoneString:(id)arg1;
 - (id)_getSetPropertyStringTask:(id)arg1 forName:(id)arg2 andNamespace:(id)arg3 atURL:(id)arg4;
 - (int)_sharingStatusForContainer:(id)arg1;

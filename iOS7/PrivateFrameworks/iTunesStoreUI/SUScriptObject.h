@@ -25,34 +25,34 @@
 + (id)webScriptNameForSelector:(SEL)arg1;
 + (id)webScriptNameForKeyName:(id)arg1;
 + (id)webScriptNameForKey:(const char *)arg1;
-+ (BOOL)isSelectorExcludedFromWebScript:(SEL)arg1;
-+ (BOOL)isKeyExcludedFromWebScript:(const char *)arg1;
++ (_Bool)isSelectorExcludedFromWebScript:(SEL)arg1;
++ (_Bool)isKeyExcludedFromWebScript:(const char *)arg1;
 - (void)finalizeForWebScript;
 @property(readonly) NSMutableArray *scriptAttributeKeys;
 - (id)_copyListenersForName:(id)arg1;
 - (void)_checkOutAfterVisibilityChange;
 @property(readonly, getter=_className) NSString *className;
 - (id)stringRepresentation;
-- (void)removeListenerForEventWithName:(id)arg1 callback:(id)arg2 useCapture:(BOOL)arg3;
-- (BOOL)equals:(id)arg1;
-- (void)addListenerForEventWithName:(id)arg1 callback:(id)arg2 useCapture:(BOOL)arg3;
+- (void)removeListenerForEventWithName:(id)arg1 callback:(id)arg2 useCapture:(_Bool)arg3;
+- (_Bool)equals:(id)arg1;
+- (void)addListenerForEventWithName:(id)arg1 callback:(id)arg2 useCapture:(_Bool)arg3;
 @property(readonly) WebFrame *webFrame;
 - (id)viewControllerFactory;
 - (void)unlock;
 - (void)tearDownUserInterface;
-@property(readonly) BOOL sourceIsTrusted;
-- (void)setVisible:(BOOL)arg1;
+@property(readonly) _Bool sourceIsTrusted;
+- (void)setVisible:(_Bool)arg1;
 @property SUScriptObject *parentScriptObject;
 @property(retain) SUScriptNativeObject *nativeObject;
-- (BOOL)scriptObjectIsCheckedIn:(id)arg1;
+- (_Bool)scriptObjectIsCheckedIn:(id)arg1;
 - (id)parentViewController;
-- (id)newImageWithURL:(id)arg1 scale:(float)arg2;
+- (id)newImageWithURL:(id)arg1 scale:(double)arg2;
 - (id)newImageWithURL:(id)arg1;
 - (void)lock;
 - (void)loadImageWithURL:(id)arg1 completionBlock:(id)arg2;
-- (BOOL)isVisible;
+- (_Bool)isVisible;
 - (id)DOMElementWithElement:(id)arg1;
-- (void)dispatchEvent:(id)arg1 forName:(id)arg2 synchronously:(BOOL)arg3;
+- (void)dispatchEvent:(id)arg1 forName:(id)arg2 synchronously:(_Bool)arg3;
 - (void)dispatchEvent:(id)arg1 forName:(id)arg2;
 - (id)copyObjectForScriptFromPoolWithClass:(Class)arg1;
 @property(readonly) struct OpaqueJSContext *copyJavaScriptContext;
@@ -63,11 +63,6 @@
 - (void)checkInScriptObject:(id)arg1;
 - (void)dealloc;
 - (id)init;
-- (void)willPerformBatchedInvocations;
-- (id)webThreadMainThreadBatchProxy;
-- (id)invocationBatch:(BOOL)arg1;
-- (void)didPerformBatchedInvocations;
-- (void)checkOutBatchTarget:(id)arg1;
 
 @end
 

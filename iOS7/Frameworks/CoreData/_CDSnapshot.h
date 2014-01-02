@@ -11,6 +11,7 @@
 
 @class NSManagedObjectID;
 
+// Not exported
 @interface _CDSnapshot : NSObject <NSCopying, NSMutableCopying>
 {
     int _cd_rc;
@@ -38,13 +39,13 @@
 - (id)_descriptionValues;
 - (void)dealloc;
 - (void)finalize;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
-- (unsigned int)retainCount;
+- (_Bool)_isDeallocating;
+- (_Bool)_tryRetain;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)mutableCopy;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copy;

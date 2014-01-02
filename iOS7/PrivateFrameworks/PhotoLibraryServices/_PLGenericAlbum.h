@@ -23,7 +23,9 @@
 @property(retain, nonatomic) NSNumber *kind; // @dynamic kind;
 @property(nonatomic) int pendingItemsCount; // @dynamic pendingItemsCount;
 @property(nonatomic) int pendingItemsType; // @dynamic pendingItemsType;
+@property(retain, nonatomic) PLManagedAsset *secondaryKeyAsset; // @dynamic secondaryKeyAsset;
 @property(retain, nonatomic) NSDictionary *slideshowSettings; // @dynamic slideshowSettings;
+@property(retain, nonatomic) PLManagedAsset *tertiaryKeyAsset; // @dynamic tertiaryKeyAsset;
 @property(retain, nonatomic) NSString *title; // @dynamic title;
 @property(retain, nonatomic) NSString *uuid; // @dynamic uuid;
 

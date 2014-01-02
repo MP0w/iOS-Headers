@@ -8,6 +8,7 @@
 
 @class ESDContainer, OABReaderState, OABTableSortedIntArray, OADTable;
 
+// Not exported
 @interface OABRTable : NSObject
 {
     ESDContainer *mSrcTable;

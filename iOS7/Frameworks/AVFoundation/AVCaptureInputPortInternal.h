@@ -14,7 +14,7 @@
     NSString *mediaType;
     struct opaqueCMFormatDescription *formatDescription;
     struct OpaqueCMClock *clock;
-    BOOL enabled;
+    _Bool enabled;
 }
 
 - (void)dealloc;

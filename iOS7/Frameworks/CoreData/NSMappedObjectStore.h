@@ -8,6 +8,7 @@
 
 @class NSPersistentStoreMap, NSSet;
 
+// Not exported
 @interface NSMappedObjectStore : NSPersistentStore
 {
     NSPersistentStoreMap *_theMap;

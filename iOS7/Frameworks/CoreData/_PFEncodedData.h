@@ -6,32 +6,34 @@
 
 #import "NSData.h"
 
+// Not exported
 @interface _PFEncodedData : NSData
 {
     NSData *_aData;
     unsigned int _byteCount;
+    unsigned int _reserved;
 }
 
 + (Class)classForCoder;
-- (BOOL)writeToURL:(id)arg1 atomically:(BOOL)arg2;
-- (BOOL)writeToURL:(id)arg1 options:(unsigned int)arg2 error:(id *)arg3;
-- (BOOL)writeToFile:(id)arg1 atomically:(BOOL)arg2;
-- (BOOL)writeToFile:(id)arg1 options:(unsigned int)arg2 error:(id *)arg3;
-- (struct _NSRange)rangeOfData:(id)arg1 options:(unsigned int)arg2 range:(struct _NSRange)arg3;
-- (BOOL)isEqualToData:(id)arg1;
+- (_Bool)writeToURL:(id)arg1 atomically:(_Bool)arg2;
+- (_Bool)writeToURL:(id)arg1 options:(unsigned long long)arg2 error:(id *)arg3;
+- (_Bool)writeToFile:(id)arg1 atomically:(_Bool)arg2;
+- (_Bool)writeToFile:(id)arg1 options:(unsigned long long)arg2 error:(id *)arg3;
+- (struct _NSRange)rangeOfData:(id)arg1 options:(unsigned long long)arg2 range:(struct _NSRange)arg3;
+- (_Bool)isEqualToData:(id)arg1;
 - (id)subdataWithRange:(struct _NSRange)arg1;
 - (void)getBytes:(void *)arg1 range:(struct _NSRange)arg2;
-- (void)getBytes:(void *)arg1 length:(unsigned int)arg2;
+- (void)getBytes:(void *)arg1 length:(unsigned long long)arg2;
 - (const void *)bytes;
-- (unsigned int)length;
+- (unsigned long long)length;
 - (id)privateCopy;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)mutableCopy;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
-- (BOOL)_tryRetain;
-- (BOOL)_isDeallocating;
-- (unsigned int)retainCount;
+- (_Bool)_tryRetain;
+- (_Bool)_isDeallocating;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;
 - (Class)classForArchiver;

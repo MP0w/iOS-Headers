@@ -7,6 +7,6 @@
 #import "NSDictionary.h"
 
 @interface NSDictionary (MKAdditions)
-- (BOOL)_mapkit_writeBinaryPlist:(id)arg1 atomically:(BOOL)arg2;
+- (_Bool)_mapkit_writeBinaryPlist:(id)arg1 atomically:(_Bool)arg2;
 @end
 

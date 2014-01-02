@@ -6,11 +6,12 @@
 
 #import <CoreData/NSSQLRelationship.h>
 
+// Not exported
 @interface NSSQLToMany : NSSQLRelationship
 {
 }
 
-- (BOOL)isToMany;
+- (_Bool)isToMany;
 - (id)inverseToOne;
 - (id)initWithEntity:(id)arg1 propertyDescription:(id)arg2;
 

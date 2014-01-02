@@ -18,10 +18,10 @@
 + (id)sharedSearchRequester;
 - (void)registerProvider:(Class)arg1;
 - (void)cancelSearch:(id)arg1;
-- (void)search:(id)arg1 timeout:(int)arg2 useBackgroundConnection:(BOOL)arg3 finished:(id)arg4 spellingSuggestion:(void)arg5 refinement:(id)arg6 networkActivity:(void)arg7 error:(id)arg8 isCompletions:(void)arg9;
-- (void)search:(id)arg1 timeout:(int)arg2 useBackgroundConnection:(BOOL)arg3 finished:(id)arg4 spellingSuggestion:(void)arg5 refinement:(id)arg6 networkActivity:(void)arg7 error:(id)arg8;
-- (void)completions:(id)arg1 timeout:(int)arg2 useBackgroundConnection:(BOOL)arg3 finished:(id)arg4 spellingSuggestion:(void)arg5 refinement:(id)arg6 networkActivity:(void)arg7 error:(id)arg8;
-- (void)search:(id)arg1 useBackgroundConnection:(BOOL)arg2 finished:(id)arg3 spellingSuggestion:(void)arg4 refinement:(id)arg5 networkActivity:(void)arg6 error:(id)arg7;
+- (void)search:(id)arg1 timeout:(long long)arg2 useBackgroundConnection:(_Bool)arg3 finished:(id)arg4 spellingSuggestion:(void)arg5 refinement:(id)arg6 networkActivity:(void)arg7 error:(id)arg8 isCompletions:(void)arg9;
+- (void)search:(id)arg1 timeout:(long long)arg2 useBackgroundConnection:(_Bool)arg3 finished:(id)arg4 spellingSuggestion:(void)arg5 refinement:(id)arg6 networkActivity:(void)arg7 error:(id)arg8;
+- (void)completions:(id)arg1 timeout:(long long)arg2 useBackgroundConnection:(_Bool)arg3 finished:(id)arg4 spellingSuggestion:(void)arg5 refinement:(id)arg6 networkActivity:(void)arg7 error:(id)arg8;
+- (void)search:(id)arg1 useBackgroundConnection:(_Bool)arg2 finished:(id)arg3 spellingSuggestion:(void)arg4 refinement:(id)arg5 networkActivity:(void)arg6 error:(id)arg7;
 - (void)search:(id)arg1 finished:(id)arg2 spellingSuggestion:(void)arg3 refinement:(id)arg4 networkActivity:(void)arg5 error:(id)arg6;
 - (void)dealloc;
 - (id)init;

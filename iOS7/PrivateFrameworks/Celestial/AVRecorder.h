@@ -11,22 +11,22 @@
     struct AVRecorderPrivate *_priv;
 }
 
-- (void)makeError:(id *)arg1 withDescription:(id)arg2 code:(long)arg3;
-- (BOOL)audioCurrentAverageDecibelLevels:(float *)arg1 andPeakDecibelLevels:(float *)arg2;
-- (BOOL)audioCurrentAverageVolumeLevels:(float *)arg1 andPeakVolumeLevels:(float *)arg2;
-- (unsigned int)audioNumDeviceChannels;
+- (void)makeError:(id *)arg1 withDescription:(id)arg2 code:(int)arg3;
+- (_Bool)audioCurrentAverageDecibelLevels:(float *)arg1 andPeakDecibelLevels:(float *)arg2;
+- (_Bool)audioCurrentAverageVolumeLevels:(float *)arg1 andPeakVolumeLevels:(float *)arg2;
+- (unsigned long long)audioNumDeviceChannels;
 - (double)recordedDuration;
 - (long long)recordedFileSizeInBytes;
 - (void)setMicVolume:(float)arg1;
 - (float)micVolume;
 - (void)deactivate;
-- (BOOL)autoFocusAtPoint:(struct CGPoint)arg1;
-- (BOOL)takePhoto;
-- (BOOL)isActive;
-- (BOOL)isRecording;
+- (_Bool)autoFocusAtPoint:(struct CGPoint)arg1;
+- (_Bool)takePhoto;
+- (_Bool)isActive;
+- (_Bool)isRecording;
 - (void)stop;
-- (BOOL)start;
-- (BOOL)activate:(id *)arg1;
+- (_Bool)start;
+- (_Bool)activate:(id *)arg1;
 - (void)implNotification:(id)arg1;
 - (id)attributeForKey:(id)arg1;
 - (void)setAttribute:(id)arg1 forKey:(id)arg2;

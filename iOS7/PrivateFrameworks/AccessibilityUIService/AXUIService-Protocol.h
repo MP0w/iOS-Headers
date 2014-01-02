@@ -7,16 +7,16 @@
 #import "NSObject-Protocol.h"
 
 @protocol AXUIService <NSObject>
-- (id)processMessage:(id)arg1 withIdentifier:(unsigned int)arg2 error:(id *)arg3;
+- (id)processMessage:(id)arg1 withIdentifier:(unsigned long long)arg2 error:(id *)arg3;
 
 @optional
-+ (id)possibleRequiredEntitlementsForProcessingMessageWithIdentifier:(unsigned int)arg1;
-+ (id)requiredEntitlementForProcessingMessageWithIdentifier:(unsigned int)arg1;
++ (id)possibleRequiredEntitlementsForProcessingMessageWithIdentifier:(unsigned long long)arg1;
++ (id)requiredEntitlementForProcessingMessageWithIdentifier:(unsigned long long)arg1;
 - (void)connectionWithClientWillBeInterrupted;
 - (void)serviceWasFullyInitialized;
-- (BOOL)messageWithIdentifierRequiresWritingBlock:(unsigned int)arg1;
-- (id)accessQueueForProcessingMessageWithIdentifier:(unsigned int)arg1;
-- (void)processMessageAsynchronously:(id)arg1 withIdentifier:(unsigned int)arg2 completion:(id)arg3;
-- (BOOL)messageWithIdentifierShouldBeProcessedAsynchronously:(unsigned int)arg1;
+- (_Bool)messageWithIdentifierRequiresWritingBlock:(unsigned long long)arg1;
+- (id)accessQueueForProcessingMessageWithIdentifier:(unsigned long long)arg1;
+- (void)processMessageAsynchronously:(id)arg1 withIdentifier:(unsigned long long)arg2 completion:(id)arg3;
+- (_Bool)messageWithIdentifierShouldBeProcessedAsynchronously:(unsigned long long)arg1;
 @end
 

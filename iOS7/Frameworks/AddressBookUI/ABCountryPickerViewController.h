@@ -30,7 +30,7 @@
 
 - (void)searchDisplayControllerWillEndSearch:(id)arg1;
 - (void)searchDisplayControllerWillBeginSearch:(id)arg1;
-- (BOOL)searchDisplayController:(id)arg1 shouldReloadTableForSearchString:(id)arg2;
+- (_Bool)searchDisplayController:(id)arg1 shouldReloadTableForSearchString:(id)arg2;
 - (void)searchDisplayController:(id)arg1 willHideSearchResultsTableView:(id)arg2;
 - (void)searchDisplayController:(id)arg1 willShowSearchResultsTableView:(id)arg2;
 - (void)searchBarTextDidBeginEditing:(id)arg1;
@@ -38,19 +38,19 @@
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 sectionForSectionIndexTitle:(id)arg2 atIndex:(int)arg3;
+- (long long)tableView:(id)arg1 sectionForSectionIndexTitle:(id)arg2 atIndex:(long long)arg3;
 - (id)sectionIndexTitlesForTableView:(id)arg1;
-- (id)tableView:(id)arg1 titleForHeaderInSection:(int)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
-- (float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2;
-- (id)tableView:(id)arg1 viewForHeaderInSection:(int)arg2;
+- (id)tableView:(id)arg1 titleForHeaderInSection:(long long)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
+- (double)tableView:(id)arg1 heightForHeaderInSection:(long long)arg2;
+- (id)tableView:(id)arg1 viewForHeaderInSection:(long long)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (void)viewWillAppear:(BOOL)arg1;
-- (void)_getRotationContentSettings:(CDStruct_af7d35ee *)arg1;
-- (float)ab_heightToFitForViewInPopoverView;
+- (void)viewWillAppear:(_Bool)arg1;
+- (void)_getRotationContentSettings:(CDStruct_ebaa735e *)arg1;
+- (double)ab_heightToFitForViewInPopoverView;
 - (void)loadView;
-- (void)scrollToSearchFieldAnimated:(BOOL)arg1;
+- (void)scrollToSearchFieldAnimated:(_Bool)arg1;
 - (void)reloadCountryCodes;
 - (void)configureSections;
 @property(retain, nonatomic) NSString *selectedCountryCode;

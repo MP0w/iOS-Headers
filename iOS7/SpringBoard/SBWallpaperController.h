@@ -6,72 +6,140 @@
 
 #import "NSObject.h"
 
-#import "SBWallpaperColorObserver-Protocol.h"
+#import "SBFWallpaperViewInternalObserver-Protocol.h"
+#import "SBFWallpaperViewLegibilityObserver-Protocol.h"
+#import "SBUIActiveOrientationObserver-Protocol.h"
 #import "UIWindowDelegate-Protocol.h"
-#import "_UIBackdropViewObserver-Protocol.h"
 
-@class NSHashTable, NSMutableSet, SBAdaptiveColorProvider, SBUIColorStatistics, SBWallpaperView, UIWindow, _UIBackdropView;
+@class NSHashTable, NSMutableSet, SBFWallpaperView, SBWallpaperEffectView, SBWallpaperPreviewSnapshotCache, UIView, UIWindow;
 
-@interface SBWallpaperController : NSObject <_UIBackdropViewObserver, SBWallpaperColorObserver, UIWindowDelegate>
+@interface SBWallpaperController : NSObject <SBFWallpaperViewLegibilityObserver, SBFWallpaperViewInternalObserver, SBUIActiveOrientationObserver, UIWindowDelegate>
 {
-    BOOL _allVariantsUseSameWallpaper;
     UIWindow *_wallpaperWindow;
-    SBWallpaperView *_wallpaperView;
-    NSHashTable *_observers;
-    _UIBackdropView *_backdropView;
-    int _backdropStyle;
-    struct {
-        char valid;
-        int style;
-    } _backdropRequesterInfo[2];
-    NSMutableSet *_suspendSamplingReasons;
-    SBUIColorStatistics *_colorStatistics[3];
-    NSHashTable *_colorObservers;
-    float _currentLabs[3];
-    BOOL _savedColorStatsOnce;
-    SBAdaptiveColorProvider *_colorProvider;
-    float _lockscreenVariantAlpha;
-    BOOL _rehideAfterSample;
+    UIView *_wallpaperContainerView;
+    long long _orientation;
+    SBFWallpaperView *_lockscreenWallpaperView;
+    SBFWallpaperView *_homescreenWallpaperView;
+    SBFWallpaperView *_sharedWallpaperView;
+    NSHashTable *_lockscreenObservers;
+    NSHashTable *_homescreenObservers;
+    CDStruct_e838e30c _lockscreenPriorityInfo[3];
+    CDStruct_e838e30c _homescreenPriorityInfo[6];
+    CDStruct_059c2b36 _lockscreenStyleTransitionState;
+    CDStruct_059c2b36 _homescreenStyleTransitionState;
+    SBWallpaperEffectView *_lockscreenEffectView;
+    SBWallpaperEffectView *_homescreenEffectView;
+    NSMutableSet *_suspendColorSamplingReasons;
+    NSMutableSet *_suspendWallpaperAnimationReasons;
+    NSMutableSet *_requireWallpaperReasons;
+    NSMutableSet *_hideHomescreenWallpaperReasons;
+    NSMutableSet *_hideLockscreenWallpaperReasons;
+    long long _displayedVariant;
+    double _lockscreenOnlyWallpaperAlpha;
+    NSHashTable *_lockscreenBlurViews;
+    NSHashTable *_homescreenBlurViews;
+    long long _disallowRasterizationBlockCount;
+    NSMutableSet *_disallowRasterizationReasonsHomeVariant;
+    NSMutableSet *_disallowRasterizationReasonsLockVariant;
+    struct CGColor *_homescreenLightForegroundBlurColor;
+    struct CGRect _homescreenLightForegroundBlurColorRect;
+    _Bool _isSuspendingMotionEffectsForBlur;
+    SBWallpaperPreviewSnapshotCache *_previewCache;
+    long long _activeOrientationSource;
+    double _homescreenWallpaperScale;
+    double _lockscreenWallpaperScale;
 }
 
 + (id)sharedInstance;
-- (void)wallpaperColorDidChange:(id)arg1;
-- (id)rotatingContentViewForWindow:(id)arg1;
-- (BOOL)window:(id)arg1 shouldAutorotateToInterfaceOrientation:(int)arg2;
-- (BOOL)shouldWindowUseOnePartInterfaceRotationAnimation:(id)arg1;
-- (void)_tearDownBackdropView;
-- (void)_ensureBackdropViewExists;
-- (BOOL)_needsBackdropView;
+@property(nonatomic) double lockscreenWallpaperScale; // @synthesize lockscreenWallpaperScale=_lockscreenWallpaperScale;
+@property(nonatomic) double homescreenWallpaperScale; // @synthesize homescreenWallpaperScale=_homescreenWallpaperScale;
+- (void)wallpaperViewDidChangeWantsRasterization:(id)arg1;
+- (void)wallpaperView:(id)arg1 didChangeZoomFactor:(double)arg2;
+- (void)wallpaperViewDidInvalidateGeometry:(id)arg1;
+- (void)wallpaperViewDidInvalidateBlurs:(id)arg1;
+- (void)wallpaperView:(id)arg1 legibilitySettingsDidChange:(id)arg2;
+- (void)activeInterfaceOrientationDidChangeToOrientation:(long long)arg1 willAnimateWithDuration:(double)arg2 fromOrientation:(long long)arg3;
+- (void)activeInterfaceOrientationWillChangeToOrientation:(long long)arg1;
+- (void)willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (void)orientationSource:(long long)arg1 didRotateFromInterfaceOrientation:(long long)arg2;
+- (void)orientationSource:(long long)arg1 willAnimateRotationToInterfaceOrientation:(long long)arg2 duration:(double)arg3;
+- (void)orientationSource:(long long)arg1 willRotateToInterfaceOrientation:(long long)arg2 duration:(double)arg3;
+- (_Bool)_isAcceptingOrientationChangesFromSource:(long long)arg1;
+- (void)setActiveOrientationSource:(long long)arg1 andUpdateToOrientation:(long long)arg2;
+- (void)_updateRasterizationState;
+- (void)_endDisallowRasterizationBlock;
+- (void)_beginDisallowRasterizationBlock;
+- (id)_getImageInRect:(struct CGRect)arg1 withZoomFactor:(double)arg2 forVariant:(long long)arg3 style:(inout long long *)arg4;
+- (id)_newFakeBlurViewForVariant:(long long)arg1;
+- (void)_clearHomescreenLightForegroundBlurColor;
+- (void)_createHomescreenLightForegroundBlurColorIfNecessary;
+- (void)_updateBlurGeneration;
+- (id)_sourceForFakeBlurView:(id)arg1;
+- (void)_unregisterFakeBlurView:(id)arg1;
+- (void)_registerFakeBlurView:(id)arg1;
+- (void)_suspendOrResumeWallpaperAnimation;
 - (void)_suspendOrResumeColorSampling;
-- (void)_updateStatisticsWithColorStatistics:(id)arg1;
-- (void)backdropViewDidChange:(id)arg1;
-- (void)_updateBackdropStyleWithAnimationFactory:(id)arg1;
-- (void)_resampleHiddenWallpaperColor;
-- (void)_wallpaperDidChange;
-- (void)_updateAllVariantsUseSameWallpaper;
-- (void)_clearColorStatisticsCache;
-- (BOOL)_wallpaperColorChangesSignificantly;
-- (void)_updateColorSamplingForWallpaperColor;
-- (id)colorStatisticsForVariant:(int)arg1;
+- (id)_blurViewsForVariant:(long long)arg1;
+- (id)_observersForVariant:(long long)arg1;
+- (id)_wallpaperViewForVariant:(long long)arg1;
+- (void)_updateBlurImagesForVariant:(long long)arg1;
+- (void)_reconfigureBlurViewsForVariant:(long long)arg1;
+- (void)_handleWallpaperGeometryChangedForVariant:(long long)arg1;
+- (void)_handleWallpaperLegibilitySettingsChanged:(id)arg1 forVariant:(long long)arg2;
+- (void)_handleWallpaperChangedForVariant:(long long)arg1;
+- (_Bool)_updateEffectViewForVariant:(long long)arg1 withFactory:(id)arg2;
+- (void)_updateMotionEffectsForState:(CDStruct_059c2b36)arg1;
+- (_Bool)_shouldSuspendMotionEffectsForState:(CDStruct_059c2b36)arg1;
+- (void)_endSuspendingMotionEffectsForBlurIfNeeded;
+- (void)_beginSuspendingMotionEffectsForBlurIfNeeded;
+- (void)_updateScreenBlanked;
+- (void)_accessibilityEnhanceBackgroundContrastChanged:(id)arg1;
+- (void)_motionEffectsChanged;
+- (id)_newWallpaperEffectViewForVariant:(long long)arg1 transitionState:(CDStruct_059c2b36)arg2;
+- (void)_clearWallpaperEffectView:(id *)arg1;
+- (void)_clearWallpaperView:(id *)arg1;
+- (id)_newWallpaperViewForProcedural:(id)arg1 orImage:(id)arg2;
+- (void)_updateSeparateWallpaper;
+- (void)_updateSharedWallpaper;
+- (void)_updateWallpaperForLocations:(long long)arg1 withCompletion:(id)arg2;
+- (void)_updateWallpaperForLocations:(long long)arg1 updatePreviews:(_Bool)arg2 withCompletion:(id)arg3;
+- (_Bool)variantsShareWallpaper;
+- (void)_updateWallpaperHidden;
+- (void)_setWallpaperHidden:(_Bool)arg1 variant:(long long)arg2 reason:(id)arg3;
+- (_Bool)_setDisallowRasterization:(_Bool)arg1 withReason:(id)arg2 reasons:(id)arg3;
+- (_Bool)_isRasterizationDisallowedForCurrentVariant;
+- (void)setDisallowsRasterization:(_Bool)arg1 forVariant:(long long)arg2 withReason:(id)arg3;
+- (id)previewCache;
+- (struct CGSize)homescreenLightForegroundBlurColorPhaseForRect:(struct CGRect)arg1;
+- (struct CGColor *)homescreenLightForegroundBlurColor;
+- (id)averageColorInRect:(struct CGRect)arg1 forVariant:(long long)arg2 withSmudgeRadius:(double)arg3;
+- (id)averageColorInRect:(struct CGRect)arg1 forVariant:(long long)arg2;
+- (id)averageColorForVariant:(long long)arg1;
+- (id)legibilitySettingsForVariant:(long long)arg1;
+- (void)resumeWallpaperAnimationForReason:(id)arg1;
+- (void)suspendWallpaperAnimationForReason:(id)arg1;
 - (void)resumeColorSamplingForReason:(id)arg1;
 - (void)suspendColorSamplingForReason:(id)arg1;
-- (void)removeColorObserver:(id)arg1;
-- (void)addColorObserver:(id)arg1;
-- (void)removeObserver:(id)arg1;
-- (void)addObserver:(id)arg1;
-- (void)removeBackdropStyleForPriority:(int)arg1 withAnimationFactory:(id)arg2;
-- (void)setBackdropStyle:(int)arg1 forPriority:(int)arg2 withAnimationFactory:(id)arg3;
-@property(nonatomic) float lockscreenVariantAlpha;
-@property(nonatomic) struct CGRect wallpaperContentsRect;
-@property(nonatomic) float wallpaperScale;
-@property(nonatomic) float windowLevel;
-@property(nonatomic) BOOL wallpaperHidden;
-- (void)setOrientation:(int)arg1 duration:(double)arg2;
-- (id)wallpaperView;
-- (void)setVariant:(int)arg1 withOutAnimationFactory:(id)arg2 inAnimationFactory:(id)arg3 completion:(id)arg4;
-@property(nonatomic) int variant;
+- (void)removeObserver:(id)arg1 forVariant:(long long)arg2;
+- (void)addObserver:(id)arg1 forVariant:(long long)arg2;
+- (void)endRequiringWithReason:(id)arg1;
+- (void)beginRequiringWithReason:(id)arg1;
+- (void)removeHomescreenStyleForGuidedAccessPriorityWithAnimationFactory:(id)arg1;
+- (void)setHomescreenStyleForGuidedAccessPriorityWithAnimationFactory:(id)arg1;
+- (_Bool)removeLockscreenStyleForPriority:(long long)arg1 withAnimationFactory:(id)arg2;
+- (_Bool)removeHomescreenStyleForPriority:(long long)arg1 withAnimationFactory:(id)arg2;
+- (_Bool)setLockscreenStyleTransitionState:(CDStruct_059c2b36)arg1 forPriority:(long long)arg2 withAnimationFactory:(id)arg3;
+- (_Bool)setHomescreenStyleTransitionState:(CDStruct_059c2b36)arg1 forPriority:(long long)arg2 withAnimationFactory:(id)arg3;
+- (_Bool)setLockscreenStyle:(long long)arg1 forPriority:(long long)arg2 withAnimationFactory:(id)arg3;
+- (_Bool)setHomescreenStyle:(long long)arg1 forPriority:(long long)arg2 withAnimationFactory:(id)arg3;
+- (CDStruct_059c2b36)currentHomescreenStyleTransitionState;
+- (void)setLockscreenOnlyWallpaperAlpha:(double)arg1;
+@property(nonatomic) double windowLevel;
+- (void)setLockscreenWallpaperContentsRect:(struct CGRect)arg1;
+- (void)setVariant:(long long)arg1 withOutAnimationFactory:(id)arg2 inAnimationFactory:(id)arg3 completion:(id)arg4;
+@property(nonatomic) long long variant;
 - (void)dealloc;
-- (id)initWithOrientation:(int)arg1 variant:(int)arg2;
+- (id)initWithOrientation:(long long)arg1 variant:(long long)arg2;
 
 @end
 

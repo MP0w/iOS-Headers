@@ -10,25 +10,25 @@
 
 @interface SSDownloadAsset : SSEntity
 {
-    int _assetType;
+    long long _assetType;
     SSURLRequestProperties *_localProperties;
 }
 
-+ (id)assetWithURL:(id)arg1 type:(int)arg2;
++ (id)assetWithURL:(id)arg1 type:(long long)arg2;
 + (long long)_setValuesMessage;
 + (long long)_getValueMessage;
 + (long long)_getExternalValuesMessage;
 + (long long)_existsMessage;
 - (id)_copyURLRequestProperties;
-@property(readonly, getter=isExternal) BOOL external;
+@property(readonly, getter=isExternal) _Bool external;
 @property(readonly) long long fileSize;
 @property(readonly) NSString *finalizedPath;
 @property(readonly) NSString *downloadPath;
 @property(readonly) NSString *downloadFileName;
-- (int)assetType;
-- (id)initWithURLRequest:(id)arg1 type:(int)arg2;
+- (long long)assetType;
+- (id)initWithURLRequest:(id)arg1 type:(long long)arg2;
 - (id)copyXPCEncoding;
-- (int)_legacyAssetType;
+- (long long)_legacyAssetType;
 @property(readonly) SSURLRequestProperties *URLRequestProperties;
 - (void)_resetLocalIVars;
 @property(readonly) NSURLRequest *URLRequest;

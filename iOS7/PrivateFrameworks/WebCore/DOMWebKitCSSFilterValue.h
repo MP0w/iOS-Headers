@@ -6,6 +6,7 @@
 
 #import <WebCore/DOMCSSValueList.h>
 
+// Not exported
 @interface DOMWebKitCSSFilterValue : DOMCSSValueList
 {
 }

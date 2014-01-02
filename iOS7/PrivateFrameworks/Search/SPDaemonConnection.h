@@ -18,8 +18,8 @@
 - (void)dealloc;
 - (id)init;
 - (void)searchResultWasSelected:(id)arg1 inDomain:(unsigned int)arg2 queryString:(id)arg3;
-- (void)indexUpdatedContent:(id)arg1 moreComing:(BOOL)arg2;
-- (BOOL)retrieveUpdateList:(id *)arg1 forDisplayIdentifier:(id)arg2 category:(id)arg3;
+- (void)indexUpdatedContent:(id)arg1 moreComing:(_Bool)arg2;
+- (_Bool)retrieveUpdateList:(id *)arg1 forDisplayIdentifier:(id)arg2 category:(id)arg3;
 - (void)retrieveImageDataForResult:(id)arg1 searchDomain:(unsigned int)arg2 size:(struct CGSize)arg3 completion:(id)arg4;
 - (void)registerApplication:(id)arg1 withCategories:(id)arg2;
 - (void)endRecordUpdatesForApplication:(id)arg1 andCategory:(id)arg2;

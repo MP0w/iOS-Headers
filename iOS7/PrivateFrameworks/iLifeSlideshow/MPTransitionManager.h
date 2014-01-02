@@ -17,7 +17,6 @@
 
 + (void)releaseSharedManager;
 + (id)sharedManager;
-+ (void)loadTransitionManagerWithPaths:(id)arg1;
 - (id)presetsForTransitionID:(id)arg1;
 - (double)defaultDurationForTransitionID:(id)arg1;
 - (id)controlForAttribute:(id)arg1 forTransitionID:(id)arg2;
@@ -35,13 +34,6 @@
 - (id)allCategoryIDs;
 - (id)allTransitionIDs;
 - (void)dealloc;
-- (int)transitionNeedsRandomSeedInformation:(id)arg1;
-- (double)bestBeatTimeForTransitionID:(id)arg1;
-- (float)beatStrengthForTransitionID:(id)arg1;
-- (id)transitionPresetsMatchingCriteria:(id)arg1;
-- (id)randomTransitionPresetFromList:(id)arg1 abidingWithConstraints:(id)arg2;
-- (id)constraintsForTransitionPresetsMatchingList:(id)arg1 andCriteria:(id)arg2;
-- (id)initWithPaths:(id)arg1;
 
 @end
 

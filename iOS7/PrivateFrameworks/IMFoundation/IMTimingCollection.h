@@ -14,7 +14,7 @@
     NSObject<OS_dispatch_queue> *_queue;
 }
 
-- (BOOL)hasKey:(id)arg1;
+- (_Bool)hasKey:(id)arg1;
 - (id)description;
 - (void)removeTimingForKey:(id)arg1;
 - (double)totalTimeForKey:(id)arg1;

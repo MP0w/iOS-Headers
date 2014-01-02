@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface GQDWPFootnote : NSObject
 {
     struct __CFString *mValue;

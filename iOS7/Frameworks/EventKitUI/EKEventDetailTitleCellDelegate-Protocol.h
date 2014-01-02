@@ -6,6 +6,6 @@
 
 @protocol EKEventDetailTitleCellDelegate
 - (void)editButtonPressed;
-- (BOOL)shouldShowEditButtonInline;
+- (_Bool)shouldShowEditButtonInline;
 @end
 

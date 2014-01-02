@@ -8,6 +8,7 @@
 
 @class NSMutableDictionary;
 
+// Not exported
 @interface OADFontScheme : NSObject
 {
     NSMutableDictionary *mMajorFont;
@@ -15,15 +16,15 @@
 }
 
 + (void)addFontEntry:(id)arg1 script:(id)arg2 typeface:(id)arg3;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)minorFont;
 - (id)minorTypefaceForScript:(id)arg1;
-- (unsigned int)minorFontCount;
+- (unsigned long long)minorFontCount;
 - (id)majorFont;
 - (id)majorTypefaceForScript:(id)arg1;
-- (unsigned int)majorFontCount;
+- (unsigned long long)majorFontCount;
 - (id)fontForFontSchemeRef:(id)arg1;
-- (BOOL)isFontSchemeRef:(id)arg1;
+- (_Bool)isFontSchemeRef:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

@@ -9,7 +9,7 @@
 @class _ADUIViewControllerAdController;
 
 @interface UIViewController (iAdAdditions_Private)
-- (void)_iAd_requestForInterstitialAdDidSucceed:(BOOL)arg1 resultMessage:(id)arg2;
+- (void)_iAd_requestForInterstitialAdDidSucceed:(_Bool)arg1 resultMessage:(id)arg2;
 @property(readonly, nonatomic) _ADUIViewControllerAdController *_iAd_advertisingController;
 @end
 

@@ -15,15 +15,17 @@
     NSObject<OS_dispatch_queue> *_queue;
     NSMutableArray *_recentObjectsTested;
     CommunicationsFilterBlockListCache *_cache;
+    int _notifyEmptyListToken;
+    _Bool _listIsEmpty;
 }
 
 + (id)sharedInstance;
-- (BOOL)_connect;
-- (BOOL)_disconnect;
+- (_Bool)_connect;
+- (_Bool)_disconnect;
 - (void)_disconnected;
-- (BOOL)_sendXPCRequest:(id)arg1 completionBlock:(id)arg2;
+- (void)_sendXPCRequest:(id)arg1 completionBlock:(id)arg2;
 - (id)_sendSynchronousXPCRequest:(id)arg1;
-- (BOOL)isItemInList:(id)arg1;
+- (_Bool)isItemInList:(id)arg1;
 - (id)copyAllItems;
 - (void)removeItemForAllServices:(id)arg1;
 - (void)addItemForAllServices:(id)arg1;

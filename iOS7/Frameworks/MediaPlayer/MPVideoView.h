@@ -18,14 +18,14 @@
     double _startTime;
     double _stopTime;
     NSDictionary *_AVURLAssetOptions;
-    unsigned int _scaleMode;
+    unsigned long long _scaleMode;
 }
 
 + (Class)layerClass;
 @property(copy, nonatomic) NSString *videoID; // @synthesize videoID=_videoID;
 @property(nonatomic) double stopTime; // @synthesize stopTime=_stopTime;
 @property(nonatomic) double startTime; // @synthesize startTime=_startTime;
-@property(nonatomic) unsigned int scaleMode; // @synthesize scaleMode=_scaleMode;
+@property(nonatomic) unsigned long long scaleMode; // @synthesize scaleMode=_scaleMode;
 @property(nonatomic) __weak MPAVController *player; // @synthesize player=_player;
 @property(retain, nonatomic) NSString *movieTitle; // @synthesize movieTitle=_movieTitle;
 @property(retain, nonatomic) NSString *movieSubtitle; // @synthesize movieSubtitle=_movieSubtitle;
@@ -36,17 +36,17 @@
 - (void)didMoveToWindow;
 @property(readonly, nonatomic) struct CGRect movieContentFrame;
 @property(readonly, nonatomic) struct CGRect movieFrame;
-@property(readonly, nonatomic) unsigned int effectiveScaleMode;
-- (void)toggleScaleMode:(BOOL)arg1;
-- (void)setScaleMode:(unsigned int)arg1 animated:(BOOL)arg2;
-- (void)setScaleMode:(unsigned int)arg1 duration:(float)arg2;
+@property(readonly, nonatomic) unsigned long long effectiveScaleMode;
+- (void)toggleScaleMode:(_Bool)arg1;
+- (void)setScaleMode:(unsigned long long)arg1 animated:(_Bool)arg2;
+- (void)setScaleMode:(unsigned long long)arg1 duration:(float)arg2;
 - (void)play;
 - (void)playFromBeginning;
 - (void)playWhenLikelyToKeepUp;
 - (void)setMovieWithPath:(id)arg1;
 - (void)prepareAVControllerQueue;
 - (id)moviePath;
-@property(readonly, nonatomic) BOOL canChangeScaleMode;
+@property(readonly, nonatomic) _Bool canChangeScaleMode;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

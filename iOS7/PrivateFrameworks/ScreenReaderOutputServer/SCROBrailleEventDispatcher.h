@@ -16,12 +16,12 @@
     struct __CFArray *_queue;
     SCROBrailleEvent *_brailleQueue;
     id _target;
-    BOOL _isValid;
+    _Bool _isValid;
 }
 
 - (void)_processQueue;
 - (void)enqueueEvent:(id)arg1;
-- (BOOL)isValid;
+- (_Bool)isValid;
 - (void)invalidate;
 - (void)start;
 - (void)dealloc;

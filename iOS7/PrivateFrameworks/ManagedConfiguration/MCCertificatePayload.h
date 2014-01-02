@@ -24,12 +24,12 @@
 - (id)subtitle1Description;
 - (id)subtitle1Label;
 - (id)title;
-@property(readonly, nonatomic) BOOL isIdentity;
-@property(readonly, nonatomic) BOOL isRoot;
+@property(readonly, nonatomic) _Bool isIdentity;
+@property(readonly, nonatomic) _Bool isRoot;
 - (struct __SecIdentity *)copyIdentityFromKeychain;
 - (struct __SecCertificate *)copyCertificate;
 - (id)stubDictionary;
-@property(readonly, nonatomic) BOOL isSigned;
+@property(readonly, nonatomic) _Bool isSigned;
 - (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
 
 @end

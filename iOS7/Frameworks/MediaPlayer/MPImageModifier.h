@@ -14,8 +14,8 @@
 - (struct CGSize)contentSizeForSize:(struct CGSize)arg1;
 - (void)drawImageForegroundWithContext:(struct CGContext *)arg1 contentSize:(struct CGSize)arg2 contentSubRect:(struct CGRect)arg3;
 - (void)drawImageBackgroundWithContext:(struct CGContext *)arg1 contentSize:(struct CGSize)arg2 contentSubRect:(struct CGRect)arg3;
-- (BOOL)shouldModifyImageWithContentSize:(struct CGSize)arg1 imageSize:(struct CGSize)arg2 imageSubRect:(struct CGRect)arg3;
-@property(readonly, nonatomic) BOOL fastEnoughToApplySynchronously;
+- (_Bool)shouldModifyImageWithContentSize:(struct CGSize)arg1 imageSize:(struct CGSize)arg2 imageSubRect:(struct CGRect)arg3;
+@property(readonly, nonatomic) _Bool fastEnoughToApplySynchronously;
 
 @end
 

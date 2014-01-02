@@ -13,7 +13,7 @@
 }
 
 - (id)description;
-@property(nonatomic, getter=isUbered) BOOL ubered;
+@property(nonatomic, getter=isUbered) _Bool ubered;
 @property(retain, nonatomic) NSString *serverTiming;
 @property(retain, nonatomic) NSString *serverApplicationInstance;
 @property(retain, nonatomic) NSString *searchTerm;
@@ -25,7 +25,7 @@
 - (void)setPageHistoryDescriptionWithIdentifiers:(id)arg1;
 @property(retain, nonatomic) NSString *pageHistoryDescription;
 @property(retain, nonatomic) NSString *navigationType;
-@property(nonatomic, getter=isCachedResponse) BOOL cachedResponse;
+@property(nonatomic, getter=isCachedResponse) _Bool cachedResponse;
 - (id)init;
 
 @end

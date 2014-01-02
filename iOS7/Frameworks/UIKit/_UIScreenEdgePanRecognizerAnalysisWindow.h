@@ -8,27 +8,28 @@
 
 @class NSMutableArray, UIDelayedAction, UIView, _UIScreenEdgePanRecognizer;
 
+// Not exported
 @interface _UIScreenEdgePanRecognizerAnalysisWindow : UIWindow
 {
     NSMutableArray *_failureMessageLabels;
     UIDelayedAction *_messageFadeAction;
     UIView *_backgroundView;
     _UIScreenEdgePanRecognizer *_recognizer;
-    long _maximumVisibleOverlayItems;
+    long long _maximumVisibleOverlayItems;
 }
 
-@property(nonatomic) long maximumVisibleOverlayItems; // @synthesize maximumVisibleOverlayItems=_maximumVisibleOverlayItems;
+@property(nonatomic) long long maximumVisibleOverlayItems; // @synthesize maximumVisibleOverlayItems=_maximumVisibleOverlayItems;
 @property(nonatomic) _UIScreenEdgePanRecognizer *recognizer; // @synthesize recognizer=_recognizer;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)layoutSubviews;
 - (void)dismissMessages;
 - (void)fadeOldestMessage;
-- (void)pushStatusMessage:(id)arg1 toVisualOverlay:(BOOL)arg2;
-- (void)pushFailureMessage:(id)arg1 toVisualOverlay:(BOOL)arg2;
-- (void)pushMessage:(id)arg1 toVisualOverlay:(BOOL)arg2;
+- (void)pushStatusMessage:(id)arg1 toVisualOverlay:(_Bool)arg2;
+- (void)pushFailureMessage:(id)arg1 toVisualOverlay:(_Bool)arg2;
+- (void)pushMessage:(id)arg1 toVisualOverlay:(_Bool)arg2;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (BOOL)_isWindowServerHostingManaged;
+- (_Bool)_isWindowServerHostingManaged;
 
 @end
 

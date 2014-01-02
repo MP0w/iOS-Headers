@@ -6,24 +6,25 @@
 
 #import <StoreKitUI/SKUITableViewCell.h>
 
-@class NSString, UILabel, UIView;
+@class NSString, UILabel;
 
 @interface SKUIProductPageInAppPurchaseTableCell : SKUITableViewCell
 {
-    UIView *_indexBorderRight;
     UILabel *_indexLabel;
-    UIView *_nameBorderLeft;
     UILabel *_nameLabel;
     UILabel *_priceLabel;
+    struct UIEdgeInsets _contentInsets;
 }
 
+@property(nonatomic) struct UIEdgeInsets contentInsets; // @synthesize contentInsets=_contentInsets;
 - (void).cxx_destruct;
+- (void)setSelected:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)setHighlighted:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)setBackgroundColor:(id)arg1;
 - (void)layoutSubviews;
 @property(copy, nonatomic) NSString *productName;
 @property(copy, nonatomic) NSString *priceString;
 @property(copy, nonatomic) NSString *indexString;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

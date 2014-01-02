@@ -10,12 +10,12 @@
 
 @interface SKUIFlowcaseImageDataConsumer : SKUIImageDataConsumer
 {
-    int _orientation;
+    long long _orientation;
     UIImage *_mask;
     UIImage *_overlay;
 }
 
-+ (id)consumerWithOrientation:(int)arg1;
++ (id)consumerWithOrientation:(long long)arg1;
 - (void).cxx_destruct;
 - (id)imageForImage:(id)arg1;
 - (id)imageForColor:(id)arg1;

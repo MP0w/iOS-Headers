@@ -17,15 +17,15 @@
 - (void)setRecognitionAction:(id)arg1;
 - (id)createHandler;
 - (id)valueOfFirstElementWithClassIdentifier:(id)arg1;
-- (BOOL)getElementClassIdentifier:(id *)arg1 value:(id *)arg2 atIndex:(int)arg3;
-- (int)elementCount;
+- (_Bool)getElementClassIdentifier:(id *)arg1 value:(id *)arg2 atIndex:(long long)arg3;
+- (long long)elementCount;
 - (id)modelIdentifier;
 - (id)recognitionResultByReplacingValueForClassIdentifier:(id)arg1 withValue:(id)arg2;
-- (unsigned int)retainCount;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)init;
 
 @end

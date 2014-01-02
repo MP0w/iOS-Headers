@@ -8,6 +8,7 @@
 
 @class NSObject<OS_dispatch_queue>;
 
+// Not exported
 @interface VKDispatch : NSObject
 {
     NSObject<OS_dispatch_queue> *_homeQueue;

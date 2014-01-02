@@ -8,6 +8,7 @@
 
 @class _NSFaultingMutableSetMutationMethods;
 
+// Not exported
 @interface _NSProxyWrapperMutableSet : _NSNotifyingWrapperMutableSet
 {
     _NSFaultingMutableSetMutationMethods *_mutationMethods;

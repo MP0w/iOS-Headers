@@ -6,13 +6,14 @@
 
 #import <OfficeImport/CMDiagramPointMapper.h>
 
+// Not exported
 @interface CMDiagramPointPyramidLayerMapper : CMDiagramPointMapper
 {
-    float mPyramidAspectRatio;
+    double mPyramidAspectRatio;
 }
 
 - (void)mapAt:(id)arg1 withState:(id)arg2;
-- (void)setPyramidAspectRatio:(float)arg1;
+- (void)setPyramidAspectRatio:(double)arg1;
 
 @end
 

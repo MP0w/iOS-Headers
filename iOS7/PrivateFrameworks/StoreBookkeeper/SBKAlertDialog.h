@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface SBKAlertDialog : NSObject
 {
     NSString *_title;
@@ -24,8 +25,8 @@
 @property(copy) NSString *title; // @synthesize title=_title;
 - (void).cxx_destruct;
 - (void)_runAsCFUserNotificationDisplayAlert;
-- (BOOL)_runAsUIAlertView;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (_Bool)_runAsUIAlertView;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (void)showWithCompletionHandler:(id)arg1;
 - (id)initWithTitle:(id)arg1 message:(id)arg2 cancelButtonTitle:(id)arg3 acceptButtonTitle:(id)arg4;
 

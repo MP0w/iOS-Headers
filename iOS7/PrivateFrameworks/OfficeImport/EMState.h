@@ -8,6 +8,7 @@
 
 @class EDSheet, EDWorkbook;
 
+// Not exported
 @interface EMState : CMState
 {
     EDWorkbook *_workbook;

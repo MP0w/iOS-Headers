@@ -8,15 +8,15 @@
 
 @interface NSURL (ISAdditions)
 + (id)unescapedStringForString:(id)arg1;
-+ (id)queryStringForDictionary:(id)arg1 escapedValues:(BOOL)arg2;
++ (id)queryStringForDictionary:(id)arg1 escapedValues:(_Bool)arg2;
 + (id)escapedStringForString:(id)arg1;
-+ (id)copyDictionaryForQueryString:(id)arg1 unescapedValues:(BOOL)arg2;
++ (id)copyDictionaryForQueryString:(id)arg1 unescapedValues:(_Bool)arg2;
 - (void)enumerateQueryWithBlock:(id)arg1;
 - (id)urlByReplacingSchemeWithScheme:(id)arg1;
 - (id)schemeSwizzledURL;
-- (BOOL)isSafeExternalURL;
+- (_Bool)isSafeExternalURL;
 - (id)urlBySettingQueryStringDictionary:(id)arg1;
 - (id)URLByAppendingQueryParameter:(id)arg1 value:(id)arg2;
-- (id)copyQueryStringDictionaryWithUnescapedValues:(BOOL)arg1;
+- (id)copyQueryStringDictionaryWithUnescapedValues:(_Bool)arg1;
 @end
 

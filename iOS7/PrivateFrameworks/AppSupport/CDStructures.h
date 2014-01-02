@@ -7,27 +7,27 @@
 #pragma mark Named Structures
 
 struct CGSize {
-    float _field1;
-    float _field2;
+    double _field1;
+    double _field2;
 };
 
 struct _NSRange {
-    unsigned int _field1;
-    unsigned int _field2;
+    unsigned long long _field1;
+    unsigned long long _field2;
 };
 
 struct _img {
     id _field1;
-    unsigned int _field2;
-    unsigned int _field3;
-    unsigned int _field4;
-    unsigned int _field5;
+    unsigned long long _field2;
+    unsigned long long _field3;
+    unsigned long long _field4;
+    unsigned long long _field5;
     unsigned char _field6;
 };
 
 struct _opaque_pthread_mutex_t {
-    long __sig;
-    char __opaque[40];
+    long long __sig;
+    char __opaque[56];
 };
 
 #pragma mark Typedef'd Structures
@@ -37,10 +37,10 @@ typedef struct {
 } CDStruct_6ad76789;
 
 typedef struct {
-    int _field1;
+    long long _field1;
     void *_field2;
     void *_field3;
     void *_field4;
     void *_field5;
-} CDStruct_60d14f2d;
+} CDStruct_e097db04;
 

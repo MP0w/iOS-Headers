@@ -16,10 +16,10 @@
 
 + (id)recurrenceWithDictionary:(id)arg1 context:(id)arg2;
 + (id)recurrence;
-@property(nonatomic) int interval;
+@property(nonatomic) long long interval;
 @property(nonatomic) int frequency;
 @property(copy, nonatomic) NSDate *endDate;
-@property(nonatomic) int endCount;
+@property(nonatomic) long long endCount;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

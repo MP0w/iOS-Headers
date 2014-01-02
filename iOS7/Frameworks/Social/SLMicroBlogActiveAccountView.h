@@ -8,6 +8,7 @@
 
 @class NSMutableArray, UIButton, UILabel;
 
+// Not exported
 @interface SLMicroBlogActiveAccountView : UIView
 {
     NSMutableArray *_constraints;

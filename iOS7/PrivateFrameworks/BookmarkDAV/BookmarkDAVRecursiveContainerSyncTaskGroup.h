@@ -10,11 +10,11 @@
 {
 }
 
-- (BOOL)shouldSyncChildWithResourceType:(id)arg1;
+- (_Bool)shouldSyncChildWithResourceType:(id)arg1;
 - (id)dataContentType;
 - (id)copyFolderMultiGetTaskWithURLs:(id)arg1;
 - (id)copyMultiGetTaskWithURLs:(id)arg1;
-- (id)initWithFolderURL:(id)arg1 previousCTag:(id)arg2 previousPTag:(id)arg3 previousSyncToken:(id)arg4 actions:(id)arg5 syncItemOrder:(BOOL)arg6 context:(void *)arg7 accountInfoProvider:(id)arg8 taskManager:(id)arg9;
+- (id)initWithFolderURL:(id)arg1 previousCTag:(id)arg2 previousPTag:(id)arg3 previousSyncToken:(id)arg4 actions:(id)arg5 syncItemOrder:(_Bool)arg6 context:(void *)arg7 accountInfoProvider:(id)arg8 taskManager:(id)arg9;
 
 @end
 

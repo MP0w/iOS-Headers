@@ -8,19 +8,20 @@
 
 @class NSString;
 
+// Not exported
 @interface _UITableViewCellBadge : UIView
 {
-    BOOL _isSelected;
+    _Bool _isSelected;
     NSString *_text;
     struct CGSize _textSize;
 }
 
-@property(nonatomic, getter=isSelected) BOOL selected; // @synthesize selected=_isSelected;
+@property(nonatomic, getter=isSelected) _Bool selected; // @synthesize selected=_isSelected;
 @property(copy, nonatomic) NSString *text; // @synthesize text=_text;
 - (void)drawRect:(struct CGRect)arg1;
-- (void)setIsSelected:(BOOL)arg1;
-- (BOOL)isHighlighted;
-- (void)setHighlighted:(BOOL)arg1;
+- (void)setIsSelected:(_Bool)arg1;
+- (_Bool)isHighlighted;
+- (void)setHighlighted:(_Bool)arg1;
 - (void)_sizeToFit;
 - (id)initWithFrame:(struct CGRect)arg1;
 

@@ -6,6 +6,7 @@
 
 #import <CoreData/_NSCoreManagedObjectID.h>
 
+// Not exported
 @interface NSBasicObjectID : _NSCoreManagedObjectID
 {
     int _cd_rc;

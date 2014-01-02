@@ -8,6 +8,7 @@
 
 @class NSArray, NSMutableArray, NSMutableDictionary, NSMutableIndexSet, UICollectionView, UICollectionViewData;
 
+// Not exported
 @interface UICollectionViewUpdate : NSObject
 {
     UICollectionView *_collectionView;
@@ -20,10 +21,10 @@
     NSMutableIndexSet *_movedSections;
     NSMutableIndexSet *_deletedSections;
     NSMutableIndexSet *_insertedSections;
-    int *_oldSectionMap;
-    int *_newSectionMap;
-    int *_oldGlobalItemMap;
-    int *_newGlobalItemMap;
+    long long *_oldSectionMap;
+    long long *_newSectionMap;
+    long long *_oldGlobalItemMap;
+    long long *_newGlobalItemMap;
     NSMutableArray *_deletedSupplementaryIndexesSectionArray;
     NSMutableArray *_insertedSupplementaryIndexesSectionArray;
     NSMutableDictionary *_deletedSupplementaryTopLevelIndexesDict;

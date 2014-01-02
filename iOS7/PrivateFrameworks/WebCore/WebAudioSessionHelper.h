@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface WebAudioSessionHelper : NSObject
 {
     struct AudioSession *_callback;

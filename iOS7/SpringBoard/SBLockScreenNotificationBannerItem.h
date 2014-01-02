@@ -22,10 +22,10 @@
 @property(retain, nonatomic) id <SBUnlockActionHandler> unlockActionHandler; // @synthesize unlockActionHandler=_unlockActionHandler;
 @property(readonly, nonatomic) SBAwayListItem *listItem; // @synthesize listItem=_listItem;
 - (id)unlockActionContext;
-- (BOOL)overridesQuietMode;
-- (BOOL)isCritical;
-- (BOOL)inertWhenLocked;
-- (BOOL)isVIP;
+- (_Bool)overridesQuietMode;
+- (_Bool)isCritical;
+- (_Bool)inertWhenLocked;
+- (_Bool)isVIP;
 - (id)attachmentImage;
 - (id)attachmentText;
 - (id)iconImage;
@@ -33,7 +33,7 @@
 - (id)message;
 - (id)title;
 - (id)sortDate;
-- (BOOL)canShowWhileLocked;
+- (_Bool)canShowWhileLocked;
 - (id)action;
 - (void)dealloc;
 - (id)initWithListItem:(id)arg1;

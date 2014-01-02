@@ -7,8 +7,8 @@
 #import "DOMHTMLInputElement.h"
 
 @interface DOMHTMLInputElement (UIWebInteraction)
-- (BOOL)nodeCanBecomeFirstResponder;
-- (BOOL)isLikelyToBeginPageLoad;
-- (BOOL)isAssistedDateType;
+- (_Bool)nodeCanBecomeFirstResponder;
+- (_Bool)isLikelyToBeginPageLoad;
+- (_Bool)isAssistedDateType;
 @end
 

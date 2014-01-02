@@ -13,25 +13,24 @@
 
 @interface MPUDataSourceViewController : UIViewController <UIStateRestoring, UIViewControllerRestoration>
 {
-    unsigned int _ignoreDataSourceInvalidationCount;
-    BOOL _reloadWhenVisible;
-    BOOL _visible;
+    long long reloadDataOnceToken;
+    _Bool _visible;
+    _Bool _shouldReloadWhenVisible;
     MPUDataSource *_dataSource;
 }
 
 + (id)viewControllerWithRestorationIdentifierPath:(id)arg1 coder:(id)arg2;
 @property(retain, nonatomic) MPUDataSource *dataSource; // @synthesize dataSource=_dataSource;
+@property(nonatomic) _Bool shouldReloadWhenVisible; // @synthesize shouldReloadWhenVisible=_shouldReloadWhenVisible;
+@property(nonatomic, getter=isVisible) _Bool visible; // @synthesize visible=_visible;
 - (void).cxx_destruct;
-- (void)_setDataSource:(id)arg1 shouldReloadData:(BOOL)arg2;
+- (void)_setDataSource:(id)arg1 shouldReloadData:(_Bool)arg2;
 - (void)_MPUStandardViewController_dataSourceDidInvalidateNotification:(id)arg1;
 - (void)reloadData;
-- (BOOL)isIgnoringDataSouceInvalidation;
-- (void)endIgnoringDataSourceInvalidation;
 - (void)dataSourceDidInvalidate;
-- (void)beginIgnoringDataSourceInvalidation;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)encodeRestorableStateWithCoder:(id)arg1;
 - (void)dealloc;
 - (id)initWithDataSource:(id)arg1;

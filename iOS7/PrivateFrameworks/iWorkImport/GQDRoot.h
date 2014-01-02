@@ -6,34 +6,37 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface GQDRoot : NSObject
 {
     struct __CFDictionary *mUidToObjectMap;
-    BOOL mAppBundleColorMapLoaded;
+    _Bool mAppBundleColorMapLoaded;
     struct __CFDictionary *mAppBundleResourceToColorMap;
-    BOOL mAppBundleResourcesUrlInitialized;
+    _Bool mAppBundleResourcesUrlInitialized;
     struct __CFURL *mAppBundleResourcesUrl;
+    _Bool mIsOldAssetNameMapInitialized;
+    struct __CFDictionary *mOldAssetNameMap;
     int mAppBundleVersion;
     unsigned long long mDocVersion;
 }
 
 + (struct _xmlNs *)appNamespace;
-- (BOOL)appBundleCanProcessCurrentDocVersion;
-- (unsigned int)documentReleaseVersion;
-- (BOOL)readDocumentVersion:(struct _xmlTextReader *)arg1 isTooNew:(char *)arg2;
-- (BOOL)readDocumentVersion:(struct _xmlTextReader *)arg1;
+- (_Bool)appBundleCanProcessCurrentDocVersion;
+- (unsigned long long)documentReleaseVersion;
+- (_Bool)readDocumentVersion:(struct _xmlTextReader *)arg1 isTooNew:(_Bool *)arg2;
+- (_Bool)readDocumentVersion:(struct _xmlTextReader *)arg1;
 - (void)loadAppBundleResourceToColorMap;
 - (void)initializeAppBundleResourcesUrl;
 - (struct __CFURL *)appBundleResourcesUrl;
 - (id)colorForMissingAppBundleResource:(struct __CFString *)arg1 processorBundle:(struct __CFBundle *)arg2;
 - (struct __CFURL *)createUrlToAppBundleResource:(struct __CFString *)arg1 processorBundle:(struct __CFBundle *)arg2;
-- (struct __CFURL *)createUrlToAppBundleResource:(struct __CFString *)arg1 processorBundle:(struct __CFBundle *)arg2 fileExists:(char *)arg3;
-- (BOOL)includeStyleWithIdentifier:(const char *)arg1 parentIdentifier:(const char *)arg2 uid:(const char *)arg3;
+- (struct __CFURL *)createUrlToAppBundleResource:(struct __CFString *)arg1 processorBundle:(struct __CFBundle *)arg2 fileExists:(_Bool *)arg3;
+- (_Bool)includeStyleWithIdentifier:(const char *)arg1 parentIdentifier:(const char *)arg2 uid:(const char *)arg3;
 - (void)forgetAboutObject:(id)arg1 withXmlUid:(const char *)arg2;
 - (id)objectWithXmlUid:(const char *)arg1;
 - (const char *)addIdentifiedObject:(id)arg1 fromCurrentNode:(struct _xmlTextReader *)arg2;
 - (id)uuid;
-- (BOOL)addObject:(id)arg1 withOwnedXmlUid:(const char *)arg2;
+- (_Bool)addObject:(id)arg1 withOwnedXmlUid:(const char *)arg2;
 - (Class)classForName:(const char *)arg1;
 - (void)dealloc;
 - (id)init;

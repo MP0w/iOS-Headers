@@ -10,7 +10,7 @@
 
 @interface SUScriptRedeemViewController : SUScriptViewController
 {
-    int _category;
+    long long _category;
     NSString *_initialCode;
 }
 
@@ -19,12 +19,12 @@
 + (id)webScriptNameForKeyName:(id)arg1;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
-@property(readonly, nonatomic) int redeemCategoryMedia;
-@property(readonly, nonatomic) int redeemCategoryBooks;
-@property(readonly, nonatomic) int redeemCategoryApps;
+@property(readonly, nonatomic) long long redeemCategoryMedia;
+@property(readonly, nonatomic) long long redeemCategoryBooks;
+@property(readonly, nonatomic) long long redeemCategoryApps;
 @property(copy, nonatomic) NSString *initialCode;
 - (id)_className;
-- (void)setRedeemStyle:(int)arg1;
+- (void)setRedeemStyle:(long long)arg1;
 - (id)newNativeViewController;
 
 @end

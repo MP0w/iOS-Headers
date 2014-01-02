@@ -8,6 +8,7 @@
 
 @class NSArray, NSMapTable, NSMutableArray, NSMutableDictionary, UICollectionView, UICollectionViewLayout;
 
+// Not exported
 @interface UICollectionViewData : NSObject
 {
     UICollectionView *_collectionView;
@@ -18,43 +19,46 @@
     NSMutableDictionary *_decorationLayoutAttributes;
     NSMutableDictionary *_invalidatedSupplementaryViews;
     struct CGRect _validLayoutRect;
-    int _numItems;
-    int _numSections;
-    int *_sectionItemCounts;
+    long long _numItems;
+    long long _numSections;
+    long long *_sectionItemCounts;
+    long long _lastSectionTestedForNumberOfItemsBeforeSection;
+    long long _lastResultForNumberOfItemsBeforeSection;
     struct CGSize _contentSize;
     struct {
         unsigned int contentSizeIsValid:1;
         unsigned int itemCountsAreValid:1;
         unsigned int layoutIsPrepared:1;
+        unsigned int layoutLocked:1;
     } _collectionViewDataFlags;
     NSMutableArray *_clonedLayoutAttributes;
 }
 
 + (void)initialize;
 @property(readonly, nonatomic) NSArray *clonedLayoutAttributes; // @synthesize clonedLayoutAttributes=_clonedLayoutAttributes;
-@property(readonly, nonatomic) BOOL layoutIsPrepared;
+@property(nonatomic, getter=isLayoutLocked) _Bool layoutLocked;
+@property(readonly, nonatomic) _Bool layoutIsPrepared;
 - (id)layoutAttributesForDecorationViewOfKind:(id)arg1 atIndexPath:(id)arg2;
 - (id)layoutAttributesForSupplementaryElementOfKind:(id)arg1 atIndexPath:(id)arg2;
 - (id)knownDecorationElementKinds;
 - (id)knownSupplementaryElementKinds;
 - (id)existingSupplementaryLayoutAttributes;
-- (id)existingSupplementaryLayoutAttributesInSection:(int)arg1;
+- (id)existingSupplementaryLayoutAttributesInSection:(long long)arg1;
 - (id)layoutAttributesForElementsInRect:(struct CGRect)arg1;
-- (id)layoutAttributesForElementsInRect:(struct CGRect)arg1 validateLayout:(BOOL)arg2;
-- (id)layoutAttributesForElementsInSection:(int)arg1;
-- (id)layoutAttributesForGlobalItemIndex:(int)arg1;
+- (id)layoutAttributesForElementsInSection:(long long)arg1;
+- (id)layoutAttributesForGlobalItemIndex:(long long)arg1;
 - (id)layoutAttributesForItemAtIndexPath:(id)arg1;
 - (struct CGRect)rectForDecorationElementOfKind:(id)arg1 atIndexPath:(id)arg2;
 - (struct CGRect)rectForSupplementaryElementOfKind:(id)arg1 atIndexPath:(id)arg2;
-- (struct CGRect)rectForGlobalItemIndex:(int)arg1;
+- (struct CGRect)rectForGlobalItemIndex:(long long)arg1;
 - (struct CGRect)collectionViewContentRect;
 - (struct CGRect)rectForItemAtIndexPath:(id)arg1;
-- (id)indexPathForItemAtGlobalIndex:(int)arg1;
-- (int)globalIndexForItemAtIndexPath:(id)arg1;
-- (int)numberOfItemsBeforeSection:(int)arg1;
-- (int)numberOfItemsInSection:(int)arg1;
-- (int)numberOfItems;
-- (int)numberOfSections;
+- (id)indexPathForItemAtGlobalIndex:(long long)arg1;
+- (long long)globalIndexForItemAtIndexPath:(id)arg1;
+- (long long)numberOfItemsBeforeSection:(long long)arg1;
+- (long long)numberOfItemsInSection:(long long)arg1;
+- (long long)numberOfItems;
+- (long long)numberOfSections;
 - (void)validateLayoutInRect:(struct CGRect)arg1;
 - (void)_loadEverything;
 - (void)_setLayoutAttributes:(id)arg1 atGlobalItemIndex:(int)arg2;
@@ -64,7 +68,7 @@
 - (void)_validateContentSize;
 - (void)_validateItemCounts;
 - (void)_updateItemCounts;
-- (void)invalidate:(BOOL)arg1;
+- (void)invalidate:(_Bool)arg1;
 - (void)validateSupplementaryViews;
 - (void)invalidateSupplementaryViews:(id)arg1;
 - (void)dealloc;

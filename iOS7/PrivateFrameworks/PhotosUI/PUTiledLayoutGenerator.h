@@ -10,52 +10,66 @@
 
 @interface PUTiledLayoutGenerator : NSObject
 {
-    BOOL _scannedBatchHasCaption;
-    BOOL _shouldStop;
-    int _tileCount;
+    long long _cacheTailLocation;
+    long long _cacheHeadLocation;
+    CDStruct_1417b155 _cachedTileInfo[20];
+    id _cachedBatchID[20];
+    _Bool _scannedBatchHasCaption;
+    _Bool _shouldStop;
+    long long _tileCount;
     id _tileImageSizeBlock;
     id _tileMinimumSizeBlock;
     id _tileHasCaptionBlock;
     id _tileCaptionSizeBlock;
     id _tileBatchIDBlock;
-    int _numberOfMagneticGuidelines;
+    long long _numberOfMagneticGuidelines;
+    double _roundingScale;
     id _parsedFrameBlock;
-    int _scanLocation;
+    long long _scanLocation;
     id _scannedBatchID;
+    long long _scanSpecialSequenceCount;
     struct CGSize _interTileSpacing;
+    struct CGSize _noCaptionSpacing;
     struct UIEdgeInsets _captionPadding;
 }
 
-@property(nonatomic) BOOL shouldStop; // @synthesize shouldStop=_shouldStop;
-@property(nonatomic) BOOL scannedBatchHasCaption; // @synthesize scannedBatchHasCaption=_scannedBatchHasCaption;
+@property(nonatomic) _Bool shouldStop; // @synthesize shouldStop=_shouldStop;
+@property(nonatomic) long long scanSpecialSequenceCount; // @synthesize scanSpecialSequenceCount=_scanSpecialSequenceCount;
+@property(nonatomic) _Bool scannedBatchHasCaption; // @synthesize scannedBatchHasCaption=_scannedBatchHasCaption;
 @property(retain, nonatomic) id scannedBatchID; // @synthesize scannedBatchID=_scannedBatchID;
-@property(nonatomic) int scanLocation; // @synthesize scanLocation=_scanLocation;
+@property(nonatomic) long long scanLocation; // @synthesize scanLocation=_scanLocation;
 @property(nonatomic) id parsedFrameBlock; // @synthesize parsedFrameBlock=_parsedFrameBlock;
-@property(nonatomic) int numberOfMagneticGuidelines; // @synthesize numberOfMagneticGuidelines=_numberOfMagneticGuidelines;
+@property(nonatomic) double roundingScale; // @synthesize roundingScale=_roundingScale;
+@property(nonatomic) long long numberOfMagneticGuidelines; // @synthesize numberOfMagneticGuidelines=_numberOfMagneticGuidelines;
 @property(copy, nonatomic) id tileBatchIDBlock; // @synthesize tileBatchIDBlock=_tileBatchIDBlock;
 @property(copy, nonatomic) id tileCaptionSizeBlock; // @synthesize tileCaptionSizeBlock=_tileCaptionSizeBlock;
 @property(copy, nonatomic) id tileHasCaptionBlock; // @synthesize tileHasCaptionBlock=_tileHasCaptionBlock;
+@property(nonatomic) struct CGSize noCaptionSpacing; // @synthesize noCaptionSpacing=_noCaptionSpacing;
 @property(nonatomic) struct UIEdgeInsets captionPadding; // @synthesize captionPadding=_captionPadding;
 @property(copy, nonatomic) id tileMinimumSizeBlock; // @synthesize tileMinimumSizeBlock=_tileMinimumSizeBlock;
 @property(copy, nonatomic) id tileImageSizeBlock; // @synthesize tileImageSizeBlock=_tileImageSizeBlock;
 @property(nonatomic) struct CGSize interTileSpacing; // @synthesize interTileSpacing=_interTileSpacing;
-@property(nonatomic) int tileCount; // @synthesize tileCount=_tileCount;
+@property(nonatomic) long long tileCount; // @synthesize tileCount=_tileCount;
 - (void).cxx_destruct;
-- (float)valueByRounding:(float)arg1 usingMagneticGuidelines:(BOOL)arg2;
-- (void)parsedFrame:(struct CGRect)arg1 type:(int)arg2 forTileAtIndex:(int)arg3;
-- (struct CGSize)captionSizeForTileAtIndex:(int)arg1 proposedSize:(struct CGSize)arg2;
-- (BOOL)scanTileWithHorizontalPanorama:(CDStruct_2e802c68 *)arg1;
-- (BOOL)scanTileWithLandscapeImage:(CDStruct_2e802c68 *)arg1;
-- (BOOL)scanTileWithPortraitImage:(CDStruct_2e802c68 *)arg1;
-- (BOOL)scanAnyTile:(CDStruct_2e802c68 *)arg1;
-- (BOOL)scanTile:(CDStruct_2e802c68 *)arg1 passingTest:(id)arg2;
-@property(readonly, nonatomic) BOOL isAtEnd;
+- (double)valueByRounding:(double)arg1 usingMagneticGuidelines:(_Bool)arg2;
+- (void)parsedFrame:(struct CGRect)arg1 type:(long long)arg2 forTileAtIndex:(long long)arg3;
+- (struct CGSize)captionSizeForTileAtIndex:(long long)arg1 proposedSize:(struct CGSize)arg2;
+- (_Bool)scanTile:(CDStruct_1417b155 *)arg1 ofType:(long long)arg2;
+- (_Bool)scanTile:(CDStruct_1417b155 *)arg1 type:(long long *)arg2;
+- (_Bool)scanTileWithSquareImage:(CDStruct_1417b155 *)arg1;
+- (_Bool)scanTileWithHorizontalPanorama:(CDStruct_1417b155 *)arg1;
+- (_Bool)scanTileWithLandscapeImage:(CDStruct_1417b155 *)arg1;
+- (_Bool)scanTileWithPortraitImage:(CDStruct_1417b155 *)arg1;
+- (_Bool)scanAnyTile:(CDStruct_1417b155 *)arg1;
+- (_Bool)scanTile:(CDStruct_1417b155 *)arg1 passingTest:(id)arg2;
+@property(readonly, nonatomic) _Bool isAtEnd;
 @property(nonatomic) PUTiledLayoutGeneratorScanState *scanState;
 - (void)didParseTiles;
-- (BOOL)parseNextTiles;
+- (_Bool)parseNextTiles;
 - (void)willParseTiles;
 - (void)parseTiles;
 - (void)enumerateFramesWithBlock:(id)arg1;
+- (id)init;
 
 @end
 

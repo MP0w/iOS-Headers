@@ -6,6 +6,7 @@
 
 #import <CoreData/NSSQLConstantValueIntermediate.h>
 
+// Not exported
 @interface NSSQLForeignKeyIntermediate : NSSQLConstantValueIntermediate
 {
 }

@@ -6,17 +6,19 @@
 
 #import "NSData.h"
 
+// Not exported
 @interface _NSZeroData : NSData
 {
 }
 
 + (id)data;
-- (unsigned int)retainCount;
+- (id)initWithBytes:(void *)arg1 length:(unsigned long long)arg2 copy:(_Bool)arg3 deallocator:(id)arg4;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (const void *)bytes;
-- (unsigned int)length;
+- (unsigned long long)length;
 
 @end
 

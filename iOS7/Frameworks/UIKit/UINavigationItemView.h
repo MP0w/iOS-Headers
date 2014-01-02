@@ -6,43 +6,47 @@
 
 #import <UIKit/UIView.h>
 
-@class UINavigationItem, _UINavigationBarAnimatingLabel;
+@class UILabel, UINavigationItem;
 
+// Not exported
 @interface UINavigationItemView : UIView
 {
     UINavigationItem *_item;
     struct CGSize _titleSize;
     UIView *_topCrossView;
     UIView *_bottomCrossView;
-    BOOL _isCrossFading;
-    BOOL _customFontSet;
-    _UINavigationBarAnimatingLabel *_label;
+    _Bool _isCrossFading;
+    _Bool _customFontSet;
+    UILabel *_label;
+    _Bool _isFadingInFromCustomAlpha;
 }
 
+@property(nonatomic, setter=_setFadingInFromCustomAlpha:) _Bool _isFadingInFromCustomAlpha; // @synthesize _isFadingInFromCustomAlpha;
 - (void)_cleanUpCrossView;
-- (void)_crossFadeHiddingButton:(BOOL)arg1;
+- (void)_crossFadeHiddingButton:(_Bool)arg1;
 - (void)_prepareCrossViewsForNewSize:(struct CGSize)arg1;
 - (id)_scriptingInfo;
-- (void)_setLineBreakMode:(int)arg1;
+- (void)_setLineBreakMode:(long long)arg1;
 - (id)font;
 - (void)setFont:(id)arg1;
 - (void)_setFont:(id)arg1;
-- (BOOL)titleAutoresizesToFit;
-- (void)setTitleAutoresizesToFit:(BOOL)arg1;
+- (_Bool)titleAutoresizesToFit;
+- (void)setTitleAutoresizesToFit:(_Bool)arg1;
 - (id)title;
 - (struct CGSize)_titleSize;
 - (void)_resetTitleSize;
 - (void)layoutSubviews;
+- (void)_adjustLabelTrackingIfNecessary;
 - (void)_updateLabel;
 - (struct CGRect)_labelFrame;
+- (double)_titleYAdjustmentCustomization;
 - (void)_updateLabelContents;
 - (void)_updateLabelColor;
-- (void)_animateLabelChangeWithBlock:(id)arg1;
 - (void)setFrame:(struct CGRect)arg1;
-- (struct CGSize)_currentTextShadowOffsetForBarStyle:(int)arg1;
-- (id)_currentTextShadowColorForBarStyle:(int)arg1;
-- (id)_currentTextColorForBarStyle:(int)arg1;
-- (BOOL)_useSilverLookForBarStyle:(int)arg1;
+- (struct CGSize)_currentTextShadowOffsetForBarStyle:(long long)arg1;
+- (id)_currentTextShadowColorForBarStyle:(long long)arg1;
+- (id)_currentTextColorForBarStyle:(long long)arg1;
+- (_Bool)_useSilverLookForBarStyle:(long long)arg1;
 - (id)_defaultFont;
 - (id)navigationItem;
 - (void)dealloc;

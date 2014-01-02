@@ -15,23 +15,23 @@
     UIActionSheet *_actionSheet;
     id _handler;
     id _presenter;
-    BOOL _performBeforeAnimation;
-    BOOL _dismissingActionSheetForRotation;
+    _Bool _performBeforeAnimation;
+    _Bool _dismissingActionSheetForRotation;
 }
 
 + (id)sharedInstance;
-@property(nonatomic) BOOL performBeforeAnimation; // @synthesize performBeforeAnimation=_performBeforeAnimation;
+@property(nonatomic) _Bool performBeforeAnimation; // @synthesize performBeforeAnimation=_performBeforeAnimation;
 @property(retain, nonatomic) UIActionSheet *actionSheet; // @synthesize actionSheet=_actionSheet;
 @property(copy, nonatomic) id presenter; // @synthesize presenter=_presenter;
 @property(copy, nonatomic) id handler; // @synthesize handler=_handler;
-- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
-- (void)dismissActionSheet:(id)arg1 withButtonIndex:(int)arg2;
-- (void)actionSheet:(id)arg1 didDismissWithButtonIndex:(int)arg2;
-- (void)actionSheet:(id)arg1 willDismissWithButtonIndex:(int)arg2;
+- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(long long)arg2;
+- (void)dismissActionSheet:(id)arg1 withButtonIndex:(long long)arg2;
+- (void)actionSheet:(id)arg1 didDismissWithButtonIndex:(long long)arg2;
+- (void)actionSheet:(id)arg1 willDismissWithButtonIndex:(long long)arg2;
 - (void)didFinishRotating;
 - (void)willStartRotating;
 - (void)dismissCurrentActionSheet;
-- (void)showActionSheet:(id)arg1 withPresenter:(id)arg2 performBeforeAnimation:(void)arg3 withHandler:(BOOL)arg4;
+- (void)showActionSheet:(id)arg1 withPresenter:(id)arg2 performBeforeAnimation:(void)arg3 withHandler:(_Bool)arg4;
 - (void)showActionSheet:(id)arg1 withPresenter:(id)arg2 withHandler:(void)arg3;
 - (void)dealloc;
 - (id)init;

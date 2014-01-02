@@ -11,30 +11,27 @@
 
 @class EDString;
 
+// Not exported
 @interface EDContentFormat : NSObject <EDKeyedObject, NSCopying>
 {
     EDString *mFormatString;
-    unsigned int mFormatId;
+    unsigned long long mFormatId;
     _Bool mBuiltIn;
     _Bool mReferenced;
 }
 
 + (id)contentFormatWithFormatString:(id)arg1;
-+ (id)contentFormatWithFormatString:(id)arg1 formatId:(unsigned int)arg2;
-+ (id)contentFormatWithNSString:(id)arg1 formatId:(unsigned int)arg2 builtIn:(_Bool)arg3;
 - (_Bool)referenced;
 - (_Bool)builtIn;
-- (unsigned int)formatId;
+- (unsigned long long)formatId;
 - (id)formatString;
-- (int)key;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isEqualToContentFormat:(id)arg1;
+- (long long)key;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)isEqualToContentFormat:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)init;
-- (void)setReferenced:(_Bool)arg1;
-- (void)setFormatId:(unsigned int)arg1;
 
 @end
 

@@ -8,6 +8,7 @@
 
 @class DOMHTMLCollection, DOMHTMLTableCaptionElement, DOMHTMLTableSectionElement, NSString;
 
+// Not exported
 @interface DOMHTMLTableElement : DOMHTMLElement
 {
 }
@@ -35,7 +36,6 @@
 @property(retain) DOMHTMLTableSectionElement *tFoot;
 @property(retain) DOMHTMLTableSectionElement *tHead;
 @property(retain) DOMHTMLTableCaptionElement *caption;
-- (int)structuralComplexityContribution;
 
 @end
 

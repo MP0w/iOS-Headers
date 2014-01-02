@@ -18,12 +18,12 @@
 }
 
 + (id)printPageRendererWithBrowserView:(id)arg1 request:(id)arg2 documentType:(id)arg3;
-+ (BOOL)_isXPathType:(id)arg1;
++ (_Bool)_isXPathType:(id)arg1;
 @property(retain) QLPreviewConverter *previewConverter; // @synthesize previewConverter=_previewConverter;
 @property struct CGSize printableSize; // @synthesize printableSize=_printableSize;
-- (id)pdfDataForPageAtIndex:(int)arg1 withSize:(struct CGSize)arg2 printingDone:(char *)arg3;
+- (id)pdfDataForPageAtIndex:(long long)arg1 withSize:(struct CGSize)arg2 printingDone:(_Bool *)arg3;
 - (void)prepareForDrawingPages:(struct _NSRange)arg1;
-- (int)numberOfPages;
+- (long long)numberOfPages;
 - (void)_waitForPreview;
 - (void)dealloc;
 - (id)initWithWebBrowserView:(id)arg1 request:(id)arg2 documentType:(id)arg3;

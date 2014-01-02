@@ -5,7 +5,7 @@
  */
 
 @protocol AVOutputSettingsValidation
-- (BOOL)validateVideoOutputSettings:(id)arg1 reason:(id *)arg2;
-- (BOOL)validateAudioOutputSettings:(id)arg1 reason:(id *)arg2;
+- (_Bool)validateVideoOutputSettings:(id)arg1 reason:(id *)arg2;
+- (_Bool)validateAudioOutputSettings:(id)arg1 reason:(id *)arg2;
 @end
 

@@ -8,6 +8,7 @@
 
 @class NSString, NSURL;
 
+// Not exported
 @interface OCPPackageRelationship : NSObject
 {
     NSString *mIdentifier;
@@ -21,8 +22,6 @@
 - (id)type;
 - (id)identifier;
 - (void)dealloc;
-- (id)initWithXmlElement:(struct _xmlNode *)arg1 baseLocation:(id)arg2;
-- (void)readFromElement:(struct _xmlNode *)arg1 baseLocation:(id)arg2;
 
 @end
 

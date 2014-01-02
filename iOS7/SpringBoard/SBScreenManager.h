@@ -22,8 +22,8 @@
 + (id)sharedInstance;
 - (void)setMainWindow:(id)arg1 forScreen:(id)arg2;
 - (void)addConnectionHandler:(id)arg1;
-- (BOOL)isScreenSuppressed:(id)arg1;
-- (BOOL)isScreenConnected:(id)arg1;
+- (_Bool)isScreenSuppressed:(id)arg1;
+- (_Bool)isScreenConnected:(id)arg1;
 - (id)mainWindowForScreen:(id)arg1;
 - (id)screenWithID:(unsigned int)arg1;
 - (void)removeSuppressionReason:(id)arg1 forScreen:(id)arg2;

@@ -20,24 +20,24 @@
 }
 
 + (id)bookmarkDataWithContentsOfURL:(id)arg1 error:(id *)arg2;
-+ (BOOL)writeBookmarkData:(id)arg1 toURL:(id)arg2 options:(unsigned int)arg3 error:(id *)arg4;
++ (_Bool)writeBookmarkData:(id)arg1 toURL:(id)arg2 options:(unsigned long long)arg3 error:(id *)arg4;
 + (id)resourceValuesForKeys:(id)arg1 fromBookmarkData:(id)arg2;
-+ (id)URLByResolvingBookmarkData:(id)arg1 options:(unsigned int)arg2 relativeToURL:(id)arg3 bookmarkDataIsStale:(char *)arg4 error:(id *)arg5;
-+ (BOOL)supportsSecureCoding;
++ (id)URLByResolvingBookmarkData:(id)arg1 options:(unsigned long long)arg2 relativeToURL:(id)arg3 bookmarkDataIsStale:(_Bool *)arg4 error:(id *)arg5;
++ (_Bool)supportsSecureCoding;
 - (id)bookmarkDataWithAliasRecord:(id)arg1;
-- (id)initByResolvingBookmarkData:(id)arg1 options:(unsigned int)arg2 relativeToURL:(id)arg3 bookmarkDataIsStale:(char *)arg4 error:(id *)arg5;
-- (id)bookmarkDataWithOptions:(unsigned int)arg1 includingResourceValuesForKeys:(id)arg2 relativeToURL:(id)arg3 error:(id *)arg4;
+- (id)initByResolvingBookmarkData:(id)arg1 options:(unsigned long long)arg2 relativeToURL:(id)arg3 bookmarkDataIsStale:(_Bool *)arg4 error:(id *)arg5;
+- (id)bookmarkDataWithOptions:(unsigned long long)arg1 includingResourceValuesForKeys:(id)arg2 relativeToURL:(id)arg3 error:(id *)arg4;
 - (id)filePathURL;
 - (id)fileReferenceURL;
-- (BOOL)isFileReferenceURL;
-- (BOOL)checkResourceIsReachableAndReturnError:(id *)arg1;
+- (_Bool)isFileReferenceURL;
+- (_Bool)checkResourceIsReachableAndReturnError:(id *)arg1;
 - (void)setTemporaryResourceValue:(id)arg1 forKey:(id)arg2;
 - (void)removeAllCachedResourceValues;
 - (void)removeCachedResourceValueForKey:(id)arg1;
-- (BOOL)setResourceValues:(id)arg1 error:(id *)arg2;
-- (BOOL)setResourceValue:(id)arg1 forKey:(id)arg2 error:(id *)arg3;
+- (_Bool)setResourceValues:(id)arg1 error:(id *)arg2;
+- (_Bool)setResourceValue:(id)arg1 forKey:(id)arg2 error:(id *)arg3;
 - (id)resourceValuesForKeys:(id)arg1 error:(id *)arg2;
-- (BOOL)getResourceValue:(out id *)arg1 forKey:(id)arg2 error:(out id *)arg3;
+- (_Bool)getResourceValue:(out id *)arg1 forKey:(id)arg2 error:(out id *)arg3;
 
 @end
 

@@ -8,14 +8,15 @@
 
 #import "GQDNameMappable-Protocol.h"
 
+// Not exported
 @interface GQDWPColumns : NSObject <GQDNameMappable>
 {
     struct __CFArray *mColumns;
-    BOOL mEqualColumns;
+    _Bool mEqualColumns;
 }
 
 + (const struct StateSpec *)stateForReading;
-- (BOOL)equalColumns;
+- (_Bool)equalColumns;
 - (struct __CFArray *)columns;
 - (void)dealloc;
 - (int)readAttributesFromReader:(struct _xmlTextReader *)arg1;

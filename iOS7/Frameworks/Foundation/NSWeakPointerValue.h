@@ -6,6 +6,7 @@
 
 #import <Foundation/NSValue.h>
 
+// Not exported
 @interface NSWeakPointerValue : NSValue
 {
     void *_value;
@@ -16,8 +17,8 @@
 - (id)nonretainedObjectValue;
 - (void)getValue:(void *)arg1;
 - (const char *)objCType;
-- (unsigned int)hash;
-- (BOOL)isEqualToValue:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqualToValue:(id)arg1;
 - (id)initWithPointer:(void *)arg1;
 
 @end

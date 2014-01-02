@@ -8,6 +8,7 @@
 
 @class NSArray;
 
+// Not exported
 @interface ODDFillColorList : NSObject
 {
     NSArray *mColors;
@@ -18,12 +19,8 @@
 - (void)setMethod:(int)arg1;
 - (void)setHueDirection:(int)arg1;
 - (void)setColors:(id)arg1;
-- (id)colorAtIndex:(unsigned int)arg1 count:(unsigned int)arg2 state:(id)arg3;
+- (id)colorAtIndex:(unsigned long long)arg1 count:(unsigned long long)arg2 state:(id)arg3;
 - (void)dealloc;
-- (void)getComponentsForIndex:(unsigned int)arg1 hue:(float *)arg2 saturation:(float *)arg3 brightness:(float *)arg4 state:(id)arg5;
-- (id)spanColorAtIndex:(unsigned int)arg1 count:(unsigned int)arg2 state:(id)arg3;
-- (id)repeatColorAtIndex:(unsigned int)arg1;
-- (id)cycleColorAtIndex:(unsigned int)arg1;
 
 @end
 

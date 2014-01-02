@@ -17,10 +17,10 @@
 @property(nonatomic) int audience; // @synthesize audience=_audience;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (struct CGSize)contentSizeForViewInPopover;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (void)loadView;
-- (id)initWithStyle:(int)arg1;
 
 @end
 

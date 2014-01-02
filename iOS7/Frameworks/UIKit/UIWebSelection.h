@@ -8,6 +8,7 @@
 
 @class UITextSelection, UIWebDocumentView;
 
+// Not exported
 @interface UIWebSelection : NSObject
 {
     UIWebDocumentView *_documentView;
@@ -22,9 +23,9 @@
 @property(retain, nonatomic) id <UIWebSelectionBlock> extent; // @synthesize extent=_extent;
 @property(retain, nonatomic) id <UIWebSelectionBlock> base; // @synthesize base=_base;
 @property(readonly, nonatomic) UIWebDocumentView *documentView; // @synthesize documentView=_documentView;
-- (BOOL)isEqualToSelection:(id)arg1;
+- (_Bool)isEqualToSelection:(id)arg1;
 - (id)description;
-- (BOOL)blockContainsPoint:(struct CGPoint)arg1;
+- (_Bool)blockContainsPoint:(struct CGPoint)arg1;
 - (void)applySelectionToWebDocumentView;
 - (id)asDomRange;
 - (void)selectionChanged;
@@ -32,16 +33,16 @@
 - (struct CGRect)boundingTextSelectionRect;
 - (id)textSelectionRects;
 - (void)useBlock;
-@property(readonly, nonatomic, getter=isTextOnly) BOOL textOnly;
+@property(readonly, nonatomic, getter=isTextOnly) _Bool textOnly;
 - (id)duplicate;
 - (void)shrinkSelectionFromPoint:(struct CGPoint)arg1 towardsPoint:(struct CGPoint)arg2 withNewRect:(struct CGRect)arg3;
-- (BOOL)tryToShrinkToBaseAndExtent;
+- (_Bool)tryToShrinkToBaseAndExtent;
 - (void)growSelectionTowardsPoint:(struct CGPoint)arg1;
-- (void)moveEdge:(int)arg1 outwards:(BOOL)arg2;
-- (BOOL)isEqual:(id)arg1;
+- (void)moveEdge:(int)arg1 outwards:(_Bool)arg2;
+- (_Bool)isEqual:(id)arg1;
 - (void)shrinkFromEdge:(int)arg1;
 - (void)growFromEdge:(int)arg1;
-- (float)distanceBetweenFirstRect:(struct CGRect)arg1 second:(struct CGRect)arg2 edge:(int)arg3;
+- (double)distanceBetweenFirstRect:(struct CGRect)arg1 second:(struct CGRect)arg2 edge:(int)arg3;
 - (id)blockOfSameWidthAtPoint:(struct CGPoint)arg1;
 - (id)elementAtPoint:(struct CGPoint)arg1;
 - (id)blockAtPoint:(struct CGPoint)arg1;
@@ -53,8 +54,8 @@
 - (id)webView;
 - (struct CGRect)boundingRectAndInsideFixedPosition:(int *)arg1;
 @property(readonly, nonatomic) struct CGRect boundingRect; // @dynamic boundingRect;
-@property(readonly, nonatomic) BOOL valid;
-- (void)setSelectionWithPoint:(struct CGPoint)arg1 ignoringLargeBlocks:(BOOL)arg2;
+@property(readonly, nonatomic) _Bool valid;
+- (void)setSelectionWithPoint:(struct CGPoint)arg1 ignoringLargeBlocks:(_Bool)arg2;
 - (void)setSelectionWithPoint:(struct CGPoint)arg1;
 - (void)dealloc;
 - (id)initWithDocumentView:(id)arg1;

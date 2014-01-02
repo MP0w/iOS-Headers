@@ -6,11 +6,12 @@
 
 #import <OfficeImport/OADTextField.h>
 
+// Not exported
 @interface OADFooterField : OADTextField
 {
 }
 
-- (BOOL)isEmpty;
+- (_Bool)isEmpty;
 
 @end
 

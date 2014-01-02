@@ -6,8 +6,9 @@
 
 #import "NSObject.h"
 
-@class EAGLContext, NSMapTable, NSMutableArray, NSString, VGLFramebuffer, VGLGPU, VGLMesh, VGLProgram, VGLProgramFactory, VGLResourceFactory, VGLSharegroup, VGLTexture, VGLVertexArrayObject;
+@class EAGLContext, NSMapTable, NSMutableArray, NSString, VGLFramebuffer, VGLGPU, VGLMesh, VGLProgram, VGLProgramFactory, VGLRenderState, VGLResourceFactory, VGLSharegroup, VGLTexture, VGLVertexArrayObject;
 
+// Not exported
 @interface VGLContext : NSObject
 {
     VGLGPU *_gpu;
@@ -17,11 +18,11 @@
     VGLFramebuffer *_framebuffer;
     struct CGSize _sizeInPixels;
     CDUnion_f5b85e25 _pixelSpaceMatrix;
-    BOOL _depthTest;
-    BOOL _stencilTest;
-    BOOL _cullFace;
-    BOOL _blend;
-    BOOL _scissorTest;
+    _Bool _depthTest;
+    _Bool _stencilTest;
+    _Bool _cullFace;
+    _Bool _blend;
+    _Bool _scissorTest;
     CDStruct_ff03d24e _scissorRect;
     int _blendMode;
     int _depthMode;
@@ -31,8 +32,8 @@
     unsigned char _clearStencil;
     VGLProgram *_program;
     struct _VGLColor _color;
-    BOOL _depthMask;
-    BOOL _colorMask;
+    _Bool _depthMask;
+    _Bool _colorMask;
     unsigned char _stencilMask;
     VGLMesh *_meshForUnitSquare;
     VGLMesh *_meshForUnitTexture;
@@ -48,29 +49,26 @@
     float _averageFPS;
     float _fpsStartTime;
     float _framerateSum;
-    BOOL _drawFramerateGraph;
+    _Bool _drawFramerateGraph;
     struct _VGLColor _frameRateGraphColor;
     float _framerateGraphSamples[30];
     NSMapTable *_programCache;
     VGLProgramFactory *_programFactory;
     NSString *_programFactoryCohort;
-    BOOL _enablePolygonFillOffset;
+    _Bool _enablePolygonFillOffset;
     CDStruct_e5f4ed30 _polygonOffset;
+    VGLRenderState *_simpleRenderState;
     EAGLContext *_eaglContext;
     struct _VGLColor _framerateGraphColor;
 }
 
-+ (void)popContext;
-+ (void)pushContext:(id)arg1 queue:(id)arg2;
-+ (id)_contextStack;
-+ (id)_contextStackForQueue:(id)arg1;
 @property(nonatomic) CDStruct_e5f4ed30 polygonOffset; // @synthesize polygonOffset=_polygonOffset;
-@property(nonatomic) BOOL enablePolygonFillOffset; // @synthesize enablePolygonFillOffset=_enablePolygonFillOffset;
+@property(nonatomic) _Bool enablePolygonFillOffset; // @synthesize enablePolygonFillOffset=_enablePolygonFillOffset;
 @property(retain, nonatomic) VGLVertexArrayObject *VAO; // @synthesize VAO=_VAO;
 @property(retain, nonatomic) VGLProgram *program; // @synthesize program=_program;
 @property(nonatomic) unsigned char stencilMask; // @synthesize stencilMask=_stencilMask;
-@property(nonatomic) BOOL depthMask; // @synthesize depthMask=_depthMask;
-@property(nonatomic) BOOL colorMask; // @synthesize colorMask=_colorMask;
+@property(nonatomic) _Bool depthMask; // @synthesize depthMask=_depthMask;
+@property(nonatomic) _Bool colorMask; // @synthesize colorMask=_colorMask;
 @property(nonatomic) unsigned int activeTexture; // @synthesize activeTexture=_activeTexture;
 @property(nonatomic) unsigned char clearStencil; // @synthesize clearStencil=_clearStencil;
 @property(nonatomic) struct _VGLColor clearColor; // @synthesize clearColor=_clearColor;
@@ -79,13 +77,13 @@
 @property(nonatomic) int depthMode; // @synthesize depthMode=_depthMode;
 @property(nonatomic) int blendMode; // @synthesize blendMode=_blendMode;
 @property(nonatomic) CDStruct_818bb265 scissorRect; // @synthesize scissorRect=_scissorRect;
-@property(nonatomic) BOOL scissorTest; // @synthesize scissorTest=_scissorTest;
-@property(nonatomic) BOOL cullFace; // @synthesize cullFace=_cullFace;
-@property(nonatomic) BOOL stencilTest; // @synthesize stencilTest=_stencilTest;
-@property(nonatomic) BOOL depthTest; // @synthesize depthTest=_depthTest;
+@property(nonatomic) _Bool scissorTest; // @synthesize scissorTest=_scissorTest;
+@property(nonatomic) _Bool cullFace; // @synthesize cullFace=_cullFace;
+@property(nonatomic) _Bool stencilTest; // @synthesize stencilTest=_stencilTest;
+@property(nonatomic) _Bool depthTest; // @synthesize depthTest=_depthTest;
 @property(readonly, nonatomic) CDUnion_f5b85e25 pixelSpaceMatrix; // @synthesize pixelSpaceMatrix=_pixelSpaceMatrix;
 @property(nonatomic) struct _VGLColor framerateGraphColor; // @synthesize framerateGraphColor=_framerateGraphColor;
-@property(nonatomic) BOOL drawFramerateGraph; // @synthesize drawFramerateGraph=_drawFramerateGraph;
+@property(nonatomic) _Bool drawFramerateGraph; // @synthesize drawFramerateGraph=_drawFramerateGraph;
 @property(readonly, nonatomic) VGLSharegroup *sharegroup; // @synthesize sharegroup=_sharegroup;
 @property(readonly, nonatomic) EAGLContext *eaglContext; // @synthesize eaglContext=_eaglContext;
 @property(readonly, nonatomic) VGLGPU *gpu; // @synthesize gpu=_gpu;
@@ -99,14 +97,17 @@
 - (id)newBuffer;
 - (id)newVAO;
 - (id)newOcclusionResource:(int)arg1;
-- (void)performWhileCurrentContext:(id)arg1;
-- (BOOL)isCurrentContext;
+- (_Bool)isCurrentContext;
+- (void)perform:(id)arg1;
+- (void)_pop:(void *)arg1;
+- (_Bool)_push:(void **)arg1;
+- (id)description;
 - (void)drawFramerateGraphMethod;
 - (void)dumpCounts;
 - (void)endFrame;
 - (void)startFrame;
 - (float)averageFPS;
-- (BOOL)checkForError;
+- (_Bool)checkForError;
 @property(readonly, nonatomic) VGLMesh *meshForUnitTextureInverted;
 @property(readonly, nonatomic) VGLMesh *meshForUnitTexture;
 - (void)drawTexture:(struct CGRect)arg1;
@@ -157,7 +158,7 @@
 @property(retain, nonatomic) VGLTexture *texture2D1;
 @property(retain, nonatomic) VGLTexture *texture2D0;
 - (void)_setTexture:(id)arg1 target:(int)arg2 unit:(int)arg3;
-- (void)setColorMaskRed:(BOOL)arg1 green:(BOOL)arg2 blue:(BOOL)arg3 alpha:(BOOL)arg4;
+- (void)setColorMaskRed:(_Bool)arg1 green:(_Bool)arg2 blue:(_Bool)arg3 alpha:(_Bool)arg4;
 - (void)_forceBlendMode:(int)arg1;
 - (void)resetAlphaChannel:(unsigned char)arg1;
 - (void)bindRenderState:(id)arg1;
@@ -165,12 +166,11 @@
 - (void)popRenderState;
 - (void)pushRenderState;
 - (id)renderState;
-- (BOOL)renderbufferStorage:(unsigned int)arg1 fromCanvas:(id)arg2;
+- (_Bool)renderbufferStorage:(unsigned long long)arg1 fromCanvas:(id)arg2;
 @property(retain, nonatomic) VGLFramebuffer *targetFramebuffer;
-- (void)clearBufferColor:(BOOL)arg1 stencil:(BOOL)arg2 depth:(BOOL)arg3;
+- (void)clearBufferColor:(_Bool)arg1 stencil:(_Bool)arg2 depth:(_Bool)arg3;
 - (void)reset;
 - (void)present;
-- (void)_makeActive;
 - (void)dealloc;
 - (id)initWithGPU:(id)arg1 sharegroup:(id)arg2;
 

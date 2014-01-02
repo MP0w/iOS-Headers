@@ -6,23 +6,23 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSString;
+@class NSDictionary;
 
 @interface AVVoiceController : NSObject
 {
     void *_impl;
 }
 
-@property(getter=isStopOnEndpointEnabled) BOOL stopOnEndpointEnabled;
-- (float)averagePowerForChannel:(unsigned int)arg1;
-- (float)peakPowerForChannel:(unsigned int)arg1;
+@property(getter=isStopOnEndpointEnabled) _Bool stopOnEndpointEnabled;
+- (float)averagePowerForChannel:(unsigned long long)arg1;
+- (float)peakPowerForChannel:(unsigned long long)arg1;
 - (void)updateMeters;
-@property(getter=isMeteringEnabled) BOOL meteringEnabled;
+@property(getter=isMeteringEnabled) _Bool meteringEnabled;
 @property float playbackVolume;
 @property float alertVolume;
-@property(readonly, getter=isRecording) BOOL recording;
-@property(readonly, getter=isPlaying) BOOL playing;
-- (BOOL)setPlaybackBufferDuration:(double)arg1;
+@property(readonly, getter=isRecording) _Bool recording;
+@property(readonly, getter=isPlaying) _Bool playing;
+- (_Bool)setPlaybackBufferDuration:(double)arg1;
 - (double)getPlaybackBufferDuration;
 @property(readonly) NSDictionary *playbackSettings;
 @property id <AVVoiceControllerPlaybackDelegate> playbackDelegate; // @dynamic playbackDelegate;
@@ -31,51 +31,25 @@
 @property double recordStartWaitTime;
 @property int recordEndpointMode;
 @property id <Endpointer> endpointerDelegate;
-- (BOOL)setRecordBufferDuration:(double)arg1;
+- (_Bool)setRecordBufferDuration:(double)arg1;
 - (double)getRecordBufferDuration;
 @property(readonly) NSDictionary *recordSettings;
 @property id <AVVoiceControllerRecordDelegate> recordDelegate; // @dynamic recordDelegate;
 - (void)stopPlaying;
-- (BOOL)startPlaying;
-- (BOOL)preparePlaybackFromURL:(id)arg1 error:(id *)arg2;
-- (BOOL)preparePlaybackWithSettings:(id)arg1 error:(id *)arg2;
+- (_Bool)startPlaying;
+- (_Bool)preparePlaybackFromURL:(id)arg1 error:(id *)arg2;
+- (_Bool)preparePlaybackWithSettings:(id)arg1 error:(id *)arg2;
 - (void)stopRecording;
-- (BOOL)startRecording;
-- (BOOL)playAlertSoundForType:(int)arg1;
-- (BOOL)setAlertSoundFromURL:(id)arg1 forType:(int)arg2;
-- (BOOL)prepareRecordWithSettings:(id)arg1 error:(id *)arg2;
-- (BOOL)setCurrentContext:(id)arg1 error:(id *)arg2;
+- (_Bool)startRecording;
+- (_Bool)playAlertSoundForType:(int)arg1;
+- (_Bool)setAlertSoundFromURL:(id)arg1 forType:(int)arg2;
+- (_Bool)prepareRecordWithSettings:(id)arg1 error:(id *)arg2;
+- (_Bool)setCurrentContext:(id)arg1 error:(id *)arg2;
 - (void)releaseAudioSession;
 - (void)dealloc;
 - (void)finalize;
+- (void)prewarmAudioSession;
 - (id)initWithContext:(id)arg1 error:(id *)arg2;
-- (void)endPlaybackInterruption;
-- (void)beginPlaybackInterruption;
-- (void)endRecordInterruption;
-- (void)beginRecordInterruption;
-- (void)decodeError;
-- (void)finishedPlaying;
-- (void)playbackBufferReceived:(struct MyAudioQueueBuffer *)arg1;
-- (void)beganPlaying;
-- (void)encodeError;
-- (void)endpointDetected;
-- (void)interspeechPointDetected;
-- (void)startpointDetected;
-- (void)finishedRecording;
-- (void)recordBufferReceived:(struct MyAudioQueueBuffer *)arg1;
-- (void)beganRecording;
-- (void)handleMediaServerReset:(id)arg1;
-- (void)handleMediaServerDeath:(id)arg1;
-- (void)handleRouteChange:(id)arg1;
-- (void)handleInterruption:(id)arg1;
-- (void)hardwareConfigChanged;
-- (void)removeSessionNotifications;
-- (void)setSessionNotifications;
-- (struct ControllerImpl *)impl;
-@property(getter=isStopOnBargeInEnabled) BOOL stopOnBargeInEnabled;
-@property(getter=isBargeInDetectEnabled) BOOL bargeInDetectEnabled;
-@property(readonly) unsigned long long lastRecordStartTime;
-@property(readonly) NSString *recordRoute;
 
 @end
 

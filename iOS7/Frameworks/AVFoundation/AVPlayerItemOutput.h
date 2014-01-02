@@ -18,7 +18,7 @@
 - (void)_detachFromPlayerItem;
 - (void)_attachToPlayerItem:(id)arg1;
 - (id)_weakReference;
-@property(nonatomic) BOOL suppressesPlayerRendering;
+@property(nonatomic) _Bool suppressesPlayerRendering;
 - (CDStruct_1b6d18a9)itemTimeForMachAbsoluteTime:(long long)arg1;
 - (CDStruct_1b6d18a9)itemTimeForHostTime:(double)arg1;
 - (CDStruct_1b6d18a9)_itemTimeForHostTimeAsCMTime:(CDStruct_1b6d18a9)arg1;

@@ -6,21 +6,24 @@
 
 #import <StoreServices/SSRequest.h>
 
-@class NSNumber;
+@class NSArray, NSNumber;
 
 @interface SSRentalCheckinRequest : SSRequest
 {
     NSNumber *_accountIdentifier;
     NSNumber *_rentalKeyIdentifier;
+    NSArray *_sinfs;
 }
 
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)copyXPCEncoding;
 - (void)startWithConnectionResponseBlock:(id)arg1;
 - (void)startWithCompletionBlock:(id)arg1;
+@property(readonly) NSArray *sinfs;
 @property(readonly) NSNumber *rentalKeyIdentifier;
 @property(readonly) NSNumber *accountIdentifier;
 - (void)dealloc;
+- (id)initWithSinfs:(id)arg1;
 - (id)initWithAccountIdentifier:(id)arg1 rentalKeyIdentifier:(id)arg2;
 - (id)init;
 

@@ -12,13 +12,13 @@
 {
     SUGradient *_backgroundGradient;
     SUGradient *_defaultBackgroundGradient;
-    BOOL _hideLoadingView;
+    _Bool _hideLoadingView;
     SULoadingView *_loadingView;
     SUGradientView *_gradientView;
-    BOOL _shouldShowLoadingView;
+    _Bool _shouldShowLoadingView;
 }
 
-@property(nonatomic) BOOL shouldShowLoadingView; // @synthesize shouldShowLoadingView=_shouldShowLoadingView;
+@property(nonatomic) _Bool shouldShowLoadingView; // @synthesize shouldShowLoadingView=_shouldShowLoadingView;
 @property(copy, nonatomic) SUGradient *defaultBackgroundGradient; // @synthesize defaultBackgroundGradient=_defaultBackgroundGradient;
 @property(copy, nonatomic) SUGradient *backgroundGradient; // @synthesize backgroundGradient=_backgroundGradient;
 - (void)_reloadLoadingView;
@@ -27,10 +27,9 @@
 - (id)_copyActiveGradient;
 - (void)_bagDidLoadNotification:(id)arg1;
 - (void)setScriptProperties:(id)arg1;
-- (void)setLoading:(BOOL)arg1;
+- (void)setLoading:(_Bool)arg1;
 - (void)parentViewControllerHierarchyDidChange;
 - (void)loadView;
-- (int)ITunesStoreUIBarStyle;
 - (id)copyDefaultScriptProperties;
 - (id)copyArchivableContext;
 @property(readonly, nonatomic) SULoadingView *loadingView;

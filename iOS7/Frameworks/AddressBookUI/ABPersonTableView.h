@@ -12,7 +12,7 @@
 
 @interface ABPersonTableView : UITableView <ABPersonTabsScrollView>
 {
-    float _minimumBottomInset;
+    double _minimumBottomInset;
     struct UIEdgeInsets _savedContentInset;
     ABPersonViewControllerHelper *_helper;
     id <ABPersonTabsLayoutManager> _tabsLayoutManager;
@@ -22,9 +22,9 @@
 @property(nonatomic) ABPersonViewControllerHelper *helper; // @synthesize helper=_helper;
 - (void)layoutSubviews;
 - (void)setContentInset:(struct UIEdgeInsets)arg1;
-@property(nonatomic) float minimumBottomInset;
+@property(nonatomic) double minimumBottomInset;
 - (void)setContentOffset:(struct CGPoint)arg1;
-- (BOOL)touchesShouldCancelInContentView:(id)arg1;
+- (_Bool)touchesShouldCancelInContentView:(id)arg1;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
 
 // Remaining properties

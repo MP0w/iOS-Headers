@@ -13,11 +13,11 @@
     NSMutableData *_data;
 }
 
-- (unsigned int)write:(const char *)arg1 maxLength:(unsigned int)arg2;
-- (BOOL)writeData:(id)arg1;
+- (unsigned long long)write:(const char *)arg1 maxLength:(unsigned long long)arg2;
+- (_Bool)writeData:(id)arg1;
 - (void)writeData:(id)arg1 forTag:(unsigned short)arg2;
 - (void)writeString:(id)arg1 forTag:(unsigned short)arg2;
-- (void)writeBOOL:(BOOL)arg1 forTag:(unsigned short)arg2;
+- (void)writeBOOL:(_Bool)arg1 forTag:(unsigned short)arg2;
 - (void)writeSfixed64:(long long)arg1 forTag:(unsigned short)arg2;
 - (void)writeSfixed32:(int)arg1 forTag:(unsigned short)arg2;
 - (void)writeFixed64:(unsigned long long)arg1 forTag:(unsigned short)arg2;

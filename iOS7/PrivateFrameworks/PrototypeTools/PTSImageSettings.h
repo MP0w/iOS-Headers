@@ -12,15 +12,15 @@
 
 @interface PTSImageSettings : _UISettings <_UISettingsKeyObserver>
 {
-    BOOL _unarchiving;
+    _Bool _unarchiving;
     UIImage *_image;
     NSData *_pngData;
-    int _imageOrientation;
-    float _imageScale;
+    long long _imageOrientation;
+    double _imageScale;
 }
 
-@property float imageScale; // @synthesize imageScale=_imageScale;
-@property int imageOrientation; // @synthesize imageOrientation=_imageOrientation;
+@property double imageScale; // @synthesize imageScale=_imageScale;
+@property long long imageOrientation; // @synthesize imageOrientation=_imageOrientation;
 @property(retain) NSData *pngData; // @synthesize pngData=_pngData;
 @property(retain) UIImage *image; // @synthesize image=_image;
 - (void).cxx_destruct;

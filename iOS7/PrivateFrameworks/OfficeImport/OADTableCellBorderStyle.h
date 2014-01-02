@@ -8,6 +8,7 @@
 
 @class OADStroke;
 
+// Not exported
 @interface OADTableCellBorderStyle : NSObject
 {
     OADStroke *mLeftStroke;

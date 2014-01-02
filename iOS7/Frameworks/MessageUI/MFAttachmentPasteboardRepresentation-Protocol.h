@@ -10,6 +10,6 @@
 @property(readonly, nonatomic) NSString *mimeType;
 @property(readonly, nonatomic) NSString *name;
 @property(readonly, nonatomic) NSData *data;
-@property(readonly, nonatomic, getter=isValid) BOOL valid;
+@property(readonly, nonatomic, getter=isValid) _Bool valid;
 @end
 

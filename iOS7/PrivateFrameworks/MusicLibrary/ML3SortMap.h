@@ -6,23 +6,33 @@
 
 #import "NSObject.h"
 
-@class ML3DatabaseConnection, ML3MusicLibrary, NSMutableArray, NSMutableDictionary;
+@class ML3DatabaseConnection, ML3MusicLibrary, NSData, NSMutableArray, NSMutableDictionary;
 
+// Not exported
 @interface ML3SortMap : NSObject
 {
     ML3DatabaseConnection *_connection;
     ML3MusicLibrary *_library;
     NSMutableDictionary *_nameOrders;
     NSMutableArray *_entries;
+    NSData *_minSortKey;
+    NSData *_maxSortKey;
+    long long _smallestNameDelta;
 }
 
 - (void).cxx_destruct;
 - (id)nameOrders;
-- (BOOL)commitUpdates;
-- (BOOL)_insertSortedNameEntriesIntoSortMap:(id)arg1;
+- (_Bool)commitUpdates;
+- (id)_sortKeyString:(id)arg1;
+- (long long)_sortKeyDistance:(id)arg1 sortKey2:(id)arg2 offset:(unsigned long long)arg3;
+- (long long)_maxNameOrderForSortMapEntry:(id)arg1 iPhoneSortKeyBuilder:(struct iPhoneSortKeyBuilder *)arg2;
+- (long long)_minNameOrderForSortMapEntry:(id)arg1 iPhoneSortKeyBuilder:(struct iPhoneSortKeyBuilder *)arg2;
+- (id)_maxSortKeyForEntry:(id)arg1 iPhoneSortKeyBuilder:(struct iPhoneSortKeyBuilder *)arg2;
+- (id)_minSortKeyForEntry:(id)arg1 iPhoneSortKeyBuilder:(struct iPhoneSortKeyBuilder *)arg2;
+- (_Bool)_insertSortedNameEntriesIntoSortMap:(id)arg1;
 - (id)_sortedNameEntriesToInsertForNames:(id)arg1;
-- (BOOL)insertStringsIntoSortMap:(id)arg1 didReSortMap:(char *)arg2;
-- (BOOL)loadExistingSortedEntries;
+- (_Bool)insertStringsIntoSortMap:(id)arg1 didReSortMap:(_Bool *)arg2;
+- (_Bool)loadExistingSortedEntries;
 - (id)initWithConnection:(id)arg1 library:(id)arg2;
 
 @end

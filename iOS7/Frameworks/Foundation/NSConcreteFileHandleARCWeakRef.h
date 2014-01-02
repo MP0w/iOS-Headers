@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface NSConcreteFileHandleARCWeakRef : NSObject
 {
     id ref;

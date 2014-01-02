@@ -16,7 +16,7 @@
 + (id)actionWithSettingsKeyPath:(id)arg1;
 @property(copy, nonatomic) NSString *settingsKeyPath; // @synthesize settingsKeyPath=_settingsKeyPath;
 - (void).cxx_destruct;
-- (void)resolveTemplatesWithIndex:(unsigned int)arg1;
+- (void)resolveTemplatesWithIndex:(unsigned long long)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
 

@@ -6,30 +6,29 @@
 
 #import "ACUIViewController.h"
 
-#import "DAAutoDiscoveryConsumer-Protocol.h"
 #import "DAValidityCheckConsumer-Protocol.h"
 #import "UIActionSheetDelegate-Protocol.h"
 #import "UIAlertViewDelegate-Protocol.h"
 
 @class DAAccount;
 
-@interface DASettingsAccountsUIController : ACUIViewController <DAValidityCheckConsumer, DAAutoDiscoveryConsumer, UIActionSheetDelegate, UIAlertViewDelegate>
+@interface DASettingsAccountsUIController : ACUIViewController <DAValidityCheckConsumer, UIActionSheetDelegate, UIAlertViewDelegate>
 {
     DAAccount *_account;
-    BOOL _isSettingUpNewAccount;
-    BOOL _accountNeedsAdd;
-    BOOL _attemptedAutodiscovery;
-    BOOL _attemptedValidation;
-    BOOL _validatedSuccessfully;
-    BOOL _confirmedUnvalidatedAccount;
-    BOOL _needsSave;
-    BOOL _haveRegisteredForAccountsChanged;
-    BOOL _didSetFullHostURL;
+    _Bool _isSettingUpNewAccount;
+    _Bool _accountNeedsAdd;
+    _Bool _attemptedValidation;
+    _Bool _validatedSuccessfully;
+    _Bool _confirmedUnvalidatedAccount;
+    _Bool _needsSave;
+    _Bool _haveRegisteredForAccountsChanged;
+    _Bool _transitioningToFinishedAccountSetup;
+    _Bool _didSetFullHostURL;
 }
 
-@property(nonatomic) BOOL didSetFullHostURL; // @synthesize didSetFullHostURL=_didSetFullHostURL;
-@property BOOL attemptedValidation; // @synthesize attemptedValidation=_attemptedValidation;
-@property BOOL needsSave; // @synthesize needsSave=_needsSave;
+@property(nonatomic) _Bool didSetFullHostURL; // @synthesize didSetFullHostURL=_didSetFullHostURL;
+@property _Bool attemptedValidation; // @synthesize attemptedValidation=_attemptedValidation;
+@property _Bool needsSave; // @synthesize needsSave=_needsSave;
 - (void)deleteAccountButtonTapped;
 - (id)localizedAccountTitleString;
 - (id)localizedAccountSetupTitleString;
@@ -39,14 +38,14 @@
 - (id)lastGroupSpecifierInSpecifiers:(id)arg1;
 - (id)currentlyEditingCell;
 - (int)indexOfCurrentlyEditingCell;
-- (void)viewWillDisappear:(BOOL)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
 - (void)dealloc;
 - (void)hideProgressWithPrompt:(id)arg1;
-- (BOOL)isRunningFromMobileMailApp;
-- (void)operationsHelper:(id)arg1 didSaveAccount:(id)arg2 withSuccess:(BOOL)arg3 error:(id)arg4;
-- (void)_saveAccountDismissWhenDone:(BOOL)arg1;
-- (void)_finishSaveAccountDismissWhenDone:(BOOL)arg1;
-- (void)operationsHelper:(id)arg1 didRemoveAccount:(id)arg2 withSuccess:(BOOL)arg3 error:(id)arg4;
+- (_Bool)isRunningFromMobileMailApp;
+- (void)operationsHelper:(id)arg1 didSaveAccount:(id)arg2 withSuccess:(_Bool)arg3 error:(id)arg4;
+- (void)_saveAccountDismissWhenDone:(_Bool)arg1;
+- (void)_finishSaveAccountDismissWhenDone:(_Bool)arg1;
+- (void)operationsHelper:(id)arg1 didRemoveAccount:(id)arg2 withSuccess:(_Bool)arg3 error:(id)arg4;
 - (void)_deleteAccount;
 - (void)_dismissAndUpdateParent;
 - (id)accountBooleanPropertyWithSpecifier:(id)arg1;
@@ -56,29 +55,25 @@
 - (void)setHostString:(id)arg1;
 - (id)_defaultAccountDescription;
 - (void)propertyValueChanged:(id)arg1;
-- (BOOL)haveEnoughValues;
-- (BOOL)transitionsAfterInitialSetup;
-- (BOOL)dismissesAfterInitialSetup;
+- (_Bool)haveEnoughValues;
+- (_Bool)transitionsAfterInitialSetup;
+- (_Bool)dismissesAfterInitialSetup;
 - (void)updateDoneButton;
-- (void)setNeedsSaveAndValidation:(BOOL)arg1;
+- (void)setNeedsSaveAndValidation:(_Bool)arg1;
 - (void)cancelButtonTapped:(id)arg1;
 - (void)doneButtonTapped:(id)arg1;
 - (void)finishedAccountSetup;
-- (void)account:(id)arg1 isValid:(BOOL)arg2 validationError:(id)arg3;
+- (void)account:(id)arg1 isValid:(_Bool)arg2 validationError:(id)arg3;
 - (void)_beginAccountValidation;
-- (void)account:(id)arg1 wasAutoDiscovered:(BOOL)arg2 error:(id)arg3;
-- (BOOL)_beginAccountAutodiscovery;
 - (void)_confirmSaveUnvalidatedAccount;
-- (void)didConfirmSaveUnvalidatedAccount:(BOOL)arg1;
-- (void)didConfirmTryWithoutSSL:(BOOL)arg1;
+- (void)didConfirmSaveUnvalidatedAccount:(_Bool)arg1;
+- (void)didConfirmTryWithoutSSL:(_Bool)arg1;
 - (void)showSSLFailureView;
 - (void)showIdenticalAccountFailureView;
-- (BOOL)autodiscoverAccount;
-- (BOOL)validateAccount;
-- (void)viewWillAppear:(BOOL)arg1;
+- (_Bool)validateAccount;
+- (void)viewWillAppear:(_Bool)arg1;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (id)accountSpecifiers;
-- (id)autodiscoverySpecifiers;
 - (id)specifiers;
 - (id)newDefaultAccount;
 - (id)daAccountWithBackingAccountInfo:(id)arg1;

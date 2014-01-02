@@ -13,8 +13,8 @@
     SBAppSliderController *_sliderController;
     UIView *_appContextHostView;
     SBAppSwitcherPageView *_animatingPageView;
-    BOOL _finishedSwitcherAnimation;
-    BOOL _finishedCrossfadingToHostView;
+    _Bool _finishedSwitcherAnimation;
+    _Bool _finishedCrossfadingToHostView;
 }
 
 - (void)_reportAnimationFinishedIfNecessary;

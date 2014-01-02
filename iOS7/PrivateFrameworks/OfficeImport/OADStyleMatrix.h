@@ -8,6 +8,7 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface OADStyleMatrix : NSObject
 {
     NSMutableArray *mFills;
@@ -16,22 +17,22 @@
     NSMutableArray *mBgFills;
 }
 
-+ (id)objectInArray:(id)arg1 withPossiblyOutOfRangeIndex:(unsigned int)arg2 defaultValue:(id)arg3;
++ (id)objectInArray:(id)arg1 withPossiblyOutOfRangeIndex:(unsigned long long)arg2 defaultValue:(id)arg3;
 - (void)populateWithOfficeDefaults;
-- (id)bgFillAtIndex:(unsigned int)arg1;
-- (unsigned int)bgFillCount;
+- (id)bgFillAtIndex:(unsigned long long)arg1;
+- (unsigned long long)bgFillCount;
 - (void)addBgFill:(id)arg1;
-- (id)effectsAtIndex:(unsigned int)arg1 color:(id)arg2;
-- (id)effectsAtIndex:(unsigned int)arg1;
-- (unsigned int)effectsCount;
+- (id)effectsAtIndex:(unsigned long long)arg1 color:(id)arg2;
+- (id)effectsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)effectsCount;
 - (void)addEffects:(id)arg1;
-- (id)strokeAtIndex:(unsigned int)arg1 color:(id)arg2;
-- (id)strokeAtIndex:(unsigned int)arg1;
-- (unsigned int)strokeCount;
+- (id)strokeAtIndex:(unsigned long long)arg1 color:(id)arg2;
+- (id)strokeAtIndex:(unsigned long long)arg1;
+- (unsigned long long)strokeCount;
 - (void)addStroke:(id)arg1;
-- (id)fillAtIndex:(unsigned int)arg1 color:(id)arg2;
-- (id)fillAtIndex:(unsigned int)arg1;
-- (unsigned int)fillCount;
+- (id)fillAtIndex:(unsigned long long)arg1 color:(id)arg2;
+- (id)fillAtIndex:(unsigned long long)arg1;
+- (unsigned long long)fillCount;
 - (void)addFill:(id)arg1;
 - (void)dealloc;
 - (id)init;

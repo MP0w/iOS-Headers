@@ -10,7 +10,7 @@
 #import "PKCaptureDelegate-Protocol.h"
 #import "UIGestureRecognizerDelegate-Protocol.h"
 
-@class NSMutableData, NSURLConnection, PKBoxLayer, PKCaptureSession, UILabel, UINavigationBar, UIProgressView;
+@class NSMutableData, NSSet, NSURLConnection, PKBoxLayer, PKCaptureSession, UILabel, UINavigationBar, UIProgressView;
 
 @interface PKCodeAcquisitionViewController : UIViewController <PKCaptureDelegate, NSURLConnectionDataDelegate, UIGestureRecognizerDelegate>
 {
@@ -24,33 +24,34 @@
     UIProgressView *_downloadProgressView;
     UILabel *_errorLabel;
     UILabel *_helpLabel;
+    NSSet *_supportedBarcodeTypes;
     id <PKCodeAcquisitionDelegate> _delegate;
 }
 
 @property(nonatomic) id <PKCodeAcquisitionDelegate> delegate; // @synthesize delegate=_delegate;
-- (unsigned int)supportedInterfaceOrientations;
+- (unsigned long long)supportedInterfaceOrientations;
 - (void)_handleDownloadFailureWithReason:(id)arg1 errorToDisplay:(id)arg2;
 - (void)_handleDownloadFailureWithReason:(id)arg1;
 - (void)_handleDownloadedPass:(id)arg1;
-- (BOOL)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
+- (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 - (void)_handleSingleTap:(id)arg1;
 - (void)connection:(id)arg1 didFailWithError:(id)arg2;
 - (void)connectionDidFinishLoading:(id)arg1;
 - (void)connection:(id)arg1 didReceiveData:(id)arg2;
 - (void)connection:(id)arg1 didReceiveResponse:(id)arg2;
 - (void)_cleanupDownload;
-- (void)_handleFoundCode:(id)arg1 withCorners:(id)arg2;
+- (void)_handleFoundCode:(id)arg1;
 - (void)cancel;
 - (void)captureOutput:(id)arg1 didOutputMetadataObjects:(id)arg2 fromConnection:(id)arg3;
-- (void)captureSession:(id)arg1 isRunning:(BOOL)arg2;
+- (void)captureSession:(id)arg1 isRunning:(_Bool)arg2;
 - (void)_resetBoxLayer;
 - (void)_restartCaptureSession;
-- (void)_setCaptureUIState:(int)arg1 animated:(BOOL)arg2;
+- (void)_setCaptureUIState:(int)arg1 animated:(_Bool)arg2;
 - (void)viewDidLayoutSubviews;
-- (void)viewDidDisappear:(BOOL)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)dealloc;
 - (id)init;

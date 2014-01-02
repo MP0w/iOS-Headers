@@ -10,6 +10,7 @@
 
 @class NSNumber, NSString;
 
+// Not exported
 @interface __NSConcreteURLComponents : NSURLComponents <NSCopying>
 {
     int _lock;
@@ -33,7 +34,7 @@
     NSString *_fragmentComponent;
 }
 
-+ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
++ (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 - (void)setPercentEncodedFragment:(id)arg1;
 - (id)percentEncodedFragment;
 - (void)setPercentEncodedQuery:(id)arg1;
@@ -65,15 +66,15 @@
 - (id)URLRelativeToURL:(id)arg1;
 - (id)URL;
 - (id)initWithString:(id)arg1;
-- (id)initWithURL:(id)arg1 resolvingAgainstBaseURL:(BOOL)arg2;
+- (id)initWithURL:(id)arg1 resolvingAgainstBaseURL:(_Bool)arg2;
 - (id)init;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)finalize;
 - (void)dealloc;
 - (void)freeIvars;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 
 @end
 

@@ -8,21 +8,24 @@
 
 @class ASAsset, NSAttributedString, NSString;
 
+// Not exported
 @interface _UIDefinitionValue : NSObject
 {
     NSString *_localizedDictionaryName;
     NSString *_term;
     NSAttributedString *_definition;
+    NSString *_longDefinition;
     ASAsset *_rawAsset;
 }
 
 @property(retain, nonatomic) ASAsset *rawAsset; // @synthesize rawAsset=_rawAsset;
+@property(readonly) NSString *longDefinition; // @synthesize longDefinition=_longDefinition;
 @property(readonly) NSAttributedString *definition; // @synthesize definition=_definition;
 @property(readonly) NSString *term; // @synthesize term=_term;
 @property(readonly) NSString *localizedDictionaryName; // @synthesize localizedDictionaryName=_localizedDictionaryName;
 - (id)description;
 - (void)dealloc;
-- (id)initWithLocalizedDictionaryName:(id)arg1 term:(id)arg2 definition:(id)arg3;
+- (id)initWithLocalizedDictionaryName:(id)arg1 term:(id)arg2 definition:(id)arg3 longDefinition:(id)arg4;
 
 @end
 

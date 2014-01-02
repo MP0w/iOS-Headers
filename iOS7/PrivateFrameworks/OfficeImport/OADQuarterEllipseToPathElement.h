@@ -6,13 +6,14 @@
 
 #import <OfficeImport/OADToPointPathElement.h>
 
+// Not exported
 @interface OADQuarterEllipseToPathElement : OADToPointPathElement
 {
-    BOOL mStartsVertical;
+    _Bool mStartsVertical;
 }
 
-- (BOOL)startsVertical;
-- (id)initWithToPoint:(struct OADAdjustPoint)arg1 startsVertical:(BOOL)arg2;
+- (_Bool)startsVertical;
+- (id)initWithToPoint:(struct OADAdjustPoint)arg1 startsVertical:(_Bool)arg2;
 
 @end
 

@@ -14,33 +14,33 @@
 {
     NSString *_bundleIdentifier;
     NSString *_environment;
-    unsigned int _appEnabledTypes;
-    unsigned int _settingsEnabledTypes;
-    unsigned int _settingsPresentedTypes;
+    unsigned long long _appEnabledTypes;
+    unsigned long long _settingsEnabledTypes;
+    unsigned long long _settingsPresentedTypes;
     NSData *_lastKnownDeviceToken;
     NSDate *_missingDate;
-    int _dayOfLastNewsstandPush;
-    unsigned int _dailyCountOfNewsstandPushes;
-    BOOL _hasShownSystemwideEnableAlert;
+    long long _dayOfLastNewsstandPush;
+    unsigned long long _dailyCountOfNewsstandPushes;
+    _Bool _hasShownSystemwideEnableAlert;
     NSDictionary *_lastUserInfo;
     NSMapTable *_tokenToUserInfos;
 }
 
 @property(retain, nonatomic) NSDictionary *lastUserInfo; // @synthesize lastUserInfo=_lastUserInfo;
-@property(nonatomic) BOOL hasShownSystemwideEnableAlert; // @synthesize hasShownSystemwideEnableAlert=_hasShownSystemwideEnableAlert;
-@property(nonatomic) unsigned int dailyCountOfNewsstandPushes; // @synthesize dailyCountOfNewsstandPushes=_dailyCountOfNewsstandPushes;
-@property(nonatomic) int dayOfLastNewsstandPush; // @synthesize dayOfLastNewsstandPush=_dayOfLastNewsstandPush;
+@property(nonatomic) _Bool hasShownSystemwideEnableAlert; // @synthesize hasShownSystemwideEnableAlert=_hasShownSystemwideEnableAlert;
+@property(nonatomic) unsigned long long dailyCountOfNewsstandPushes; // @synthesize dailyCountOfNewsstandPushes=_dailyCountOfNewsstandPushes;
+@property(nonatomic) long long dayOfLastNewsstandPush; // @synthesize dayOfLastNewsstandPush=_dayOfLastNewsstandPush;
 @property(retain, nonatomic) NSDate *missingDate; // @synthesize missingDate=_missingDate;
 @property(retain, nonatomic) NSData *lastKnownDeviceToken; // @synthesize lastKnownDeviceToken=_lastKnownDeviceToken;
-@property(nonatomic) unsigned int settingsPresentedTypes; // @synthesize settingsPresentedTypes=_settingsPresentedTypes;
-@property(nonatomic) unsigned int settingsEnabledTypes; // @synthesize settingsEnabledTypes=_settingsEnabledTypes;
-@property(nonatomic) unsigned int appEnabledTypes; // @synthesize appEnabledTypes=_appEnabledTypes;
+@property(nonatomic) unsigned long long settingsPresentedTypes; // @synthesize settingsPresentedTypes=_settingsPresentedTypes;
+@property(nonatomic) unsigned long long settingsEnabledTypes; // @synthesize settingsEnabledTypes=_settingsEnabledTypes;
+@property(nonatomic) unsigned long long appEnabledTypes; // @synthesize appEnabledTypes=_appEnabledTypes;
 @property(retain, nonatomic) NSString *environment; // @synthesize environment=_environment;
 @property(readonly, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
 - (id)getUserInfoForToken:(int)arg1;
 - (void)setUserInfo:(id)arg1 forToken:(int)arg2;
 @property(readonly, nonatomic) NSMapTable *tokenToUserInfos; // @synthesize tokenToUserInfos=_tokenToUserInfos;
-- (unsigned int)effectivelyEnabledTypes;
+- (unsigned long long)effectivelyEnabledTypes;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)dealloc;

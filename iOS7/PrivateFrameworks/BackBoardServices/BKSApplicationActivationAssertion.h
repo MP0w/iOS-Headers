@@ -13,7 +13,7 @@
     BKSWorkspace *_workspace;
     NSString *_uniqueID;
     NSString *_name;
-    BOOL _released;
+    _Bool _released;
 }
 
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;

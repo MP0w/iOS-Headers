@@ -8,6 +8,7 @@
 
 @class GQDSStylesheet;
 
+// Not exported
 @interface GQDBGTheme : NSObject
 {
     GQDSStylesheet *mStylesheet;

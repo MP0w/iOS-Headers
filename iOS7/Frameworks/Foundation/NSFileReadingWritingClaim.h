@@ -8,32 +8,33 @@
 
 @class NSFileAccessNode, NSURL;
 
+// Not exported
 @interface NSFileReadingWritingClaim : NSFileAccessClaim
 {
     NSURL *_readingURL;
-    BOOL _readingURLDidChange;
-    unsigned int _readingOptions;
+    _Bool _readingURLDidChange;
+    unsigned long long _readingOptions;
     NSURL *_writingURL;
-    BOOL _writingURLDidChange;
-    unsigned int _writingOptions;
+    _Bool _writingURLDidChange;
+    unsigned long long _writingOptions;
     NSFileAccessNode *_readingLocation;
     NSFileAccessNode *_writingLocation;
     NSFileAccessNode *_rootNode;
-    int _readingLinkResolutionCount;
+    long long _readingLinkResolutionCount;
 }
 
-- (BOOL)blocksClaim:(id)arg1;
+- (_Bool)blocksClaim:(id)arg1;
 - (void)itemAtLocation:(id)arg1 wasReplacedByItemAtLocation:(id)arg2;
 - (void)devalueSelf;
 - (void)invokeClaimer;
 - (void)granted;
-- (BOOL)isBlockedByWritingItemAtLocation:(id)arg1 options:(unsigned int)arg2;
-- (BOOL)isBlockedByReadingItemAtLocation:(id)arg1 options:(unsigned int)arg2;
-- (BOOL)evaluateSelfWithRootNode:(id)arg1 checkSubarbitrability:(BOOL)arg2;
+- (_Bool)isBlockedByWritingItemAtLocation:(id)arg1 options:(unsigned long long)arg2;
+- (_Bool)isBlockedByReadingItemAtLocation:(id)arg1 options:(unsigned long long)arg2;
+- (_Bool)evaluateSelfWithRootNode:(id)arg1 checkSubarbitrability:(_Bool)arg2;
 - (void)forwardUsingMessageSender:(id)arg1 crashHandler:(void)arg2;
 - (void)dealloc;
 - (id)initWithClient:(id)arg1 messageParameters:(id)arg2 replySender:(id)arg3;
-- (id)initWithPurposeID:(id)arg1 readingURL:(id)arg2 options:(unsigned int)arg3 writingURL:(id)arg4 options:(unsigned int)arg5 claimer:(id)arg6;
+- (id)initWithPurposeID:(id)arg1 readingURL:(id)arg2 options:(unsigned long long)arg3 writingURL:(id)arg4 options:(unsigned long long)arg5 claimer:(id)arg6;
 
 @end
 

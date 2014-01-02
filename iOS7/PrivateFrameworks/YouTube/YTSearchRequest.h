@@ -13,7 +13,7 @@
 + (id)_formatFilter;
 + (id)feedCountryCode;
 + (unsigned int)videosPerRequest;
-- (BOOL)receivedValidResponse:(id)arg1;
+- (_Bool)receivedValidResponse:(id)arg1;
 - (void)searchForVideosFromWatchLaterPlaylistStartingAtIndex:(unsigned int)arg1 maxResults:(unsigned int)arg2 withDelegate:(id)arg3;
 - (void)searchForMyVideosStartingAtIndex:(unsigned int)arg1 maxResults:(unsigned int)arg2 withDelegate:(id)arg3;
 - (void)searchForFavoriteVideosStartingAtIndex:(unsigned int)arg1 maxResults:(unsigned int)arg2 withDelegate:(id)arg3;
@@ -21,7 +21,7 @@
 - (void)searchForVideosRelatedToVideo:(id)arg1 startingAtIndex:(unsigned int)arg2 maxResults:(unsigned int)arg3 withDelegate:(id)arg4;
 - (void)searchForRecentVideosStartingAtIndex:(unsigned int)arg1 maxResults:(unsigned int)arg2 withDelegate:(id)arg3;
 - (void)searchForStandardFeedVideosOfType:(id)arg1 startIndex:(unsigned int)arg2 maxResults:(unsigned int)arg3 timeQualifier:(id)arg4 withDelegate:(id)arg5;
-- (void)searchForVideosWithFeedURLBase:(id)arg1 startingAtIndex:(unsigned int)arg2 maxResults:(unsigned int)arg3 withTimeQualifier:(id)arg4 withFormatFilter:(BOOL)arg5 authenticationRequired:(BOOL)arg6 withDelegate:(id)arg7;
+- (void)searchForVideosWithFeedURLBase:(id)arg1 startingAtIndex:(unsigned int)arg2 maxResults:(unsigned int)arg3 withTimeQualifier:(id)arg4 withFormatFilter:(_Bool)arg5 authenticationRequired:(_Bool)arg6 withDelegate:(id)arg7;
 - (void)searchForVideosMatchingString:(id)arg1 startingAtIndex:(unsigned int)arg2 maxResults:(unsigned int)arg3 withDelegate:(id)arg4;
 - (void)searchForVideosWithIDs:(id)arg1 withDelegate:(id)arg2;
 - (void)searchForVideoWithID:(id)arg1 withDelegate:(id)arg2;

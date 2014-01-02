@@ -8,6 +8,7 @@
 
 @class NSFetchRequest, NSManagedObjectContext, NSPersistentStore, NSSQLEntity, NSSQLModel, NSSQLRowCache, NSSQLStatement;
 
+// Not exported
 @interface _PFFetchPlanHeader : NSObject
 {
     NSFetchRequest *fetch_request;

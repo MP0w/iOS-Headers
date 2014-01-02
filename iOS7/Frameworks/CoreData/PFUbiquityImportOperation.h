@@ -8,6 +8,7 @@
 
 @class NSLock, NSObject, NSPersistentStore, NSString, PFUbiquityLocation;
 
+// Not exported
 @interface PFUbiquityImportOperation : NSOperation
 {
     NSString *_localPeerID;
@@ -15,7 +16,7 @@
     NSPersistentStore *_store;
     PFUbiquityLocation *_ubiquityRootLocation;
     NSLock *_delegateLock;
-    BOOL _lockedDelegateLock;
+    _Bool _lockedDelegateLock;
     NSObject *_delegate;
 }
 

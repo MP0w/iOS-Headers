@@ -9,15 +9,19 @@
 @interface GEOUserSession : NSObject
 {
     double _sessionCreationTime;
+    double _usageSessionIDGenerationTime;
     CDStruct_612aec5b _sessionID;
-    CDStruct_612aec5b _probeID;
+    CDStruct_612aec5b _usageCollectionSessionID;
 }
 
 + (id)sharedInstance;
++ (void)disable;
 @property(readonly) double sessionCreationTime; // @synthesize sessionCreationTime=_sessionCreationTime;
-@property(readonly) CDStruct_612aec5b probeID; // @synthesize probeID=_probeID;
+@property(readonly) CDStruct_612aec5b usageCollectionSessionID;
 @property(readonly) CDStruct_612aec5b sessionID;
+- (void)dealloc;
 - (id)init;
+- (void)_renewUsageCollectionSessionID;
 - (void)_updateWithNewUUIDForSessionID:(CDStruct_612aec5b *)arg1;
 
 @end

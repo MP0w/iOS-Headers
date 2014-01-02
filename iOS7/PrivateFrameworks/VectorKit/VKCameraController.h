@@ -8,22 +8,23 @@
 
 @class VKCamera;
 
+// Not exported
 @interface VKCameraController : NSObject
 {
     VKCamera *_camera;
     id <VGLCanvas> _canvas;
     id <VKCameraControllerDelegate> _delegate;
-    BOOL _gesturing;
+    _Bool _gesturing;
     int _animating;
 }
 
 @property(nonatomic) id <VKCameraControllerDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic, getter=isGesturing) BOOL gesturing; // @synthesize gesturing=_gesturing;
+@property(nonatomic, getter=isGesturing) _Bool gesturing; // @synthesize gesturing=_gesturing;
 @property(nonatomic) id <VGLCanvas> canvas; // @synthesize canvas=_canvas;
 @property(retain, nonatomic) VKCamera *camera; // @synthesize camera=_camera;
 - (id)detailedDescription;
-@property(readonly, nonatomic, getter=isAnimating) BOOL animating;
-- (void)endAnimating:(BOOL)arg1;
+@property(readonly, nonatomic, getter=isAnimating) _Bool animating;
+- (void)endAnimating:(_Bool)arg1;
 - (void)beginAnimating;
 - (void)canvasDidLayout;
 - (void)dealloc;

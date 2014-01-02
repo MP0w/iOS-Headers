@@ -6,26 +6,26 @@
 
 #import <UIKit/UIInputViewAnimationStyle.h>
 
-@class _UIViewControllerTransitionContext;
+@class UINavigationControllerKeyboardAnimationStyleInfo, _UIViewControllerTransitionContext;
 
+// Not exported
 @interface UINavigationControllerKeyboardAnimationStyle : UIInputViewAnimationStyle
 {
-    BOOL isAnimationCompleted;
-    BOOL _disableAlongsideView;
+    _Bool _disableAlongsideView;
     _UIViewControllerTransitionContext *_context;
-    id _previousCompleteHandler;
+    UINavigationControllerKeyboardAnimationStyleInfo *_info;
 }
 
-+ (id)animationStyleWithoutAlongsideViewAnimated:(BOOL)arg1 duration:(double)arg2 outDirection:(int)arg3 context:(id)arg4;
-+ (id)animationStyleAnimated:(BOOL)arg1 duration:(double)arg2 outDirection:(int)arg3 context:(id)arg4;
-@property(nonatomic) BOOL disableAlongsideView; // @synthesize disableAlongsideView=_disableAlongsideView;
-@property(copy, nonatomic) id previousCompleteHandler; // @synthesize previousCompleteHandler=_previousCompleteHandler;
++ (id)animationStyleWithoutAlongsideViewAnimated:(_Bool)arg1 duration:(double)arg2 outDirection:(int)arg3 context:(id)arg4;
++ (id)animationStyleAnimated:(_Bool)arg1 duration:(double)arg2 outDirection:(int)arg3 context:(id)arg4;
+@property(readonly, nonatomic) UINavigationControllerKeyboardAnimationStyleInfo *info; // @synthesize info=_info;
+@property(nonatomic) _Bool disableAlongsideView; // @synthesize disableAlongsideView=_disableAlongsideView;
 @property(readonly, nonatomic) _UIViewControllerTransitionContext *context; // @synthesize context=_context;
-@property(nonatomic) BOOL isAnimationCompleted; // @synthesize isAnimationCompleted;
 - (void)launchAnimation:(id)arg1 afterStarted:(void)arg2 completion:(id)arg3 forHost:(void)arg4 fromCurrentPosition:(id)arg5;
-- (BOOL)delayForTransaction;
 - (void)dealloc;
 - (id)initWithContext:(id)arg1;
+- (_Bool)useCustomTransition;
+- (_Bool)isAnimationCompleted;
 
 @end
 

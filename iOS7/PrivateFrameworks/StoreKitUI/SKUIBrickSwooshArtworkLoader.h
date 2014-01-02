@@ -10,12 +10,12 @@
 
 @interface SKUIBrickSwooshArtworkLoader : SKUISwooshArtworkLoader
 {
-    int _artworkSize;
+    long long _artworkSize;
 }
 
 - (void)setImage:(id)arg1 forRequest:(id)arg2;
-- (void)loadImagesForNextPageWithReason:(int)arg1;
-- (BOOL)loadImageForBrick:(id)arg1 reason:(int)arg2;
+- (void)loadImagesForNextPageWithReason:(long long)arg1;
+- (_Bool)loadImageForBrick:(id)arg1 reason:(long long)arg2;
 - (id)cachedImageForBrick:(id)arg1;
 - (id)initWithArtworkLoader:(id)arg1 swoosh:(id)arg2;
 

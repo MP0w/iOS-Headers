@@ -10,16 +10,16 @@
 {
 }
 
-+ (BOOL)canSendTweet;
++ (_Bool)canSendTweet;
 - (id)addDownSampledImageDataByProxyWithPreviewImage:(SEL)arg1;
 - (id)addURLWithProxyPreviewImage:(SEL)arg1;
 - (void)setLongitude:(double)arg1 latitude:(double)arg2 name:(id)arg3;
 @property(copy, nonatomic) id completionHandler;
-- (BOOL)removeAllURLs;
-- (BOOL)removeAllImages;
-- (BOOL)addURL:(id)arg1;
-- (BOOL)addImage:(id)arg1;
-- (BOOL)setInitialText:(id)arg1;
+- (_Bool)removeAllURLs;
+- (_Bool)removeAllImages;
+- (_Bool)addURL:(id)arg1;
+- (_Bool)addImage:(id)arg1;
+- (_Bool)setInitialText:(id)arg1;
 - (id)init;
 
 @end

@@ -14,13 +14,11 @@
 @interface IMDIDSService : IMDService <IDSAccountControllerDelegate, IDSAccountRegistrationDelegate>
 {
     IDSAccountController *_accountController;
-    BOOL _activatingAccount;
-    BOOL _deactivatingAccount;
+    _Bool _activatingAccount;
+    _Bool _deactivatingAccount;
 }
 
 @property(readonly, nonatomic) IDSAccountController *idsAccountController; // @synthesize idsAccountController=_accountController;
-- (void)clearCallerIDCachesForAccount:(id)arg1;
-- (void)activeDevicesUpdatedForAccount:(id)arg1;
 - (void)refreshRegistrationForAccount:(id)arg1;
 - (void)registrationFailedForAccount:(id)arg1 needsDeletion:(id)arg2;
 - (void)account:(id)arg1 displayNameChanged:(id)arg2;
@@ -47,6 +45,7 @@
 - (Class)accountClass;
 - (void)dealloc;
 - (id)initWithBundle:(id)arg1;
+- (void)_loadIDSAccountController;
 
 @end
 

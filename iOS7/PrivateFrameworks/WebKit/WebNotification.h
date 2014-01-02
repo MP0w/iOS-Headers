@@ -8,6 +8,7 @@
 
 @class WebNotificationPrivate;
 
+// Not exported
 @interface WebNotification : NSObject
 {
     WebNotificationPrivate *_private;

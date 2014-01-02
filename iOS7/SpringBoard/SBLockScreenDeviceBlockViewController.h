@@ -4,23 +4,20 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "UIViewController.h"
-
-#import "SBLockOverlayViewController-Protocol.h"
+#import "SBLockOverlayViewController.h"
 
 @class NSString, NSTimer;
 
-@interface SBLockScreenDeviceBlockViewController : UIViewController <SBLockOverlayViewController>
+@interface SBLockScreenDeviceBlockViewController : SBLockOverlayViewController
 {
     NSTimer *_updateTimer;
 }
 
 - (void)_scheduleTimerIfNecessaryAndUpdateSubtitle;
 - (void)_clearTimer;
-- (void)viewDidDisappear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;
-- (id)overlayView;
 @property(readonly, nonatomic) NSString *slideToUnlockText;
 - (void)dealloc;
 

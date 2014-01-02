@@ -18,8 +18,8 @@
 - (id)allTargets;
 - (void)setPrimaryTarget:(id)arg1;
 - (id)primaryTarget;
-- (BOOL)removeActivityTarget:(id)arg1;
-- (BOOL)addActivityTarget:(id)arg1;
+- (_Bool)removeActivityTarget:(id)arg1;
+- (_Bool)addActivityTarget:(id)arg1;
 - (void)dealloc;
 
 @end

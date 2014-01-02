@@ -11,7 +11,7 @@
 }
 
 + (id)requestWithDatabaseID:(unsigned int)arg1 itemID:(unsigned long long)arg2 size:(struct CGSize)arg3;
-- (BOOL)acceptsGzipEncoding;
+- (_Bool)acceptsGzipEncoding;
 - (id)initWithDatabaseID:(unsigned int)arg1 itemID:(unsigned long long)arg2 size:(struct CGSize)arg3;
 
 @end

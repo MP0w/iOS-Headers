@@ -11,15 +11,15 @@
 @interface YTXMLHTTPRequest : XMLSAXHTTPRequest
 {
     NSMutableURLRequest *_deferredRequest;
-    BOOL _needsAccountAuth;
+    _Bool _needsAccountAuth;
 }
 
-@property(nonatomic) BOOL needsAccountAuth; // @synthesize needsAccountAuth=_needsAccountAuth;
+@property(nonatomic) _Bool needsAccountAuth; // @synthesize needsAccountAuth=_needsAccountAuth;
 - (void)dealloc;
 - (void)failedToAuthenticate:(id)arg1;
 - (void)didAuthenticate:(id)arg1;
 - (void)loadRequest:(id)arg1;
-- (void)listenForAuthenticationNotifications:(BOOL)arg1;
+- (void)listenForAuthenticationNotifications:(_Bool)arg1;
 
 @end
 

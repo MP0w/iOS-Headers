@@ -23,8 +23,8 @@
 - (void)cropOverlay:(id)arg1 didFinishSaving:(id)arg2;
 - (void)cropOverlayWasOKed:(id)arg1;
 - (id)initWithPhoto:(id)arg1;
-- (unsigned int)_tileAutoresizingMask;
-- (unsigned int)_contentAutoresizingMask;
+- (unsigned long long)_tileAutoresizingMask;
+- (unsigned long long)_contentAutoresizingMask;
 - (int)saveOptions;
 - (void)setImageSavingOptions:(int)arg1;
 - (void)dealloc;

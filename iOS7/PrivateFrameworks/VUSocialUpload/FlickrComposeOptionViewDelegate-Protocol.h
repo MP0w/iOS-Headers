@@ -7,6 +7,9 @@
 #import "NSObject-Protocol.h"
 
 @protocol FlickrComposeOptionViewDelegate <NSObject>
+- (void)reload;
 - (void)flickrComposeOptionView:(id)arg1 didFinishWithSelection:(id)arg2;
+- (id)flickrAccount;
+- (id)accountStore;
 @end
 

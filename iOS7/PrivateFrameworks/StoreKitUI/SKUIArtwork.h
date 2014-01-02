@@ -12,20 +12,20 @@
 
 @interface SKUIArtwork : NSObject <SKUICacheCoding>
 {
-    int _height;
+    long long _height;
     NSURL *_url;
-    int _width;
+    long long _width;
 }
 
-@property(readonly, nonatomic) int width; // @synthesize width=_width;
+@property(readonly, nonatomic) long long width; // @synthesize width=_width;
 @property(readonly, nonatomic) NSURL *URL; // @synthesize URL=_url;
-@property(readonly, nonatomic) int height; // @synthesize height=_height;
+@property(readonly, nonatomic) long long height; // @synthesize height=_height;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSMutableDictionary *cacheRepresentation;
 - (id)initWithCacheRepresentation:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)description;
 @property(readonly, nonatomic) struct CGSize size;
 - (id)initWithURL:(id)arg1 size:(struct CGSize)arg2;

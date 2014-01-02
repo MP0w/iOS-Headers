@@ -7,8 +7,8 @@
 #import "NSMutableArray.h"
 
 @interface NSMutableArray (Convenience)
-- (void)mf_moveObjectAtIndex:(unsigned int)arg1 toIndex:(unsigned int)arg2;
-- (BOOL)mf_addObjectIfAbsentAccordingToEquals:(id)arg1;
-- (BOOL)mf_addObjectIfAbsent:(id)arg1;
+- (void)mf_moveObjectAtIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
+- (_Bool)mf_addObjectIfAbsentAccordingToEquals:(id)arg1;
+- (_Bool)mf_addObjectIfAbsent:(id)arg1;
 @end
 

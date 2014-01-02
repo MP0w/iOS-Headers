@@ -6,15 +6,16 @@
 
 #import <OfficeImport/OADPathElement.h>
 
+// Not exported
 @interface OADToPointPathElement : OADPathElement
 {
     struct OADAdjustPoint mToPoint;
-    BOOL mRelative;
+    _Bool mRelative;
 }
 
 - (id).cxx_construct;
-- (void)setRelative:(BOOL)arg1;
-- (BOOL)relative;
+- (void)setRelative:(_Bool)arg1;
+- (_Bool)relative;
 - (struct OADAdjustPoint)toPoint;
 - (id)initWithToPoint:(struct OADAdjustPoint)arg1;
 

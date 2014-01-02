@@ -10,33 +10,37 @@
 
 @interface IMAVController : NSObject
 {
-    BOOL _blockMultipleIncomingInvitations;
-    BOOL _blockOutgoingInvitationsDuringCall;
-    BOOL _blockIncomingInvitationsDuringCall;
+    _Bool _blockMultipleIncomingInvitations;
+    _Bool _blockOutgoingInvitationsDuringCall;
+    _Bool _blockIncomingInvitationsDuringCall;
     NSMutableArray *_delegates;
 }
 
 + (id)sharedInstance;
-@property(nonatomic) BOOL blockIncomingInvitationsDuringCall; // @synthesize blockIncomingInvitationsDuringCall=_blockIncomingInvitationsDuringCall;
-@property(nonatomic) BOOL blockOutgoingInvitationsDuringCall; // @synthesize blockOutgoingInvitationsDuringCall=_blockOutgoingInvitationsDuringCall;
-@property(nonatomic) BOOL blockMultipleIncomingInvitations; // @synthesize blockMultipleIncomingInvitations=_blockMultipleIncomingInvitations;
++ (void)initialize;
+@property(nonatomic) _Bool blockIncomingInvitationsDuringCall; // @synthesize blockIncomingInvitationsDuringCall=_blockIncomingInvitationsDuringCall;
+@property(nonatomic) _Bool blockOutgoingInvitationsDuringCall; // @synthesize blockOutgoingInvitationsDuringCall=_blockOutgoingInvitationsDuringCall;
+@property(nonatomic) _Bool blockMultipleIncomingInvitations; // @synthesize blockMultipleIncomingInvitations=_blockMultipleIncomingInvitations;
 @property(retain, nonatomic) NSMutableArray *_delegates; // @synthesize _delegates;
-@property(readonly, nonatomic) BOOL _ready;
+- (void)blockOnPendingVCInvitationsWithCapabilities:(long long)arg1;
+- (void)_receivedPendingVCRequests;
+- (void)_receivedPendingACRequests;
+@property(readonly, nonatomic) _Bool _ready;
 - (void)requestPendingACInvitations;
 - (void)requestPendingVCInvitations;
-@property(readonly, nonatomic) BOOL microphoneCapable;
-@property(readonly, nonatomic) BOOL cameraCapable;
-@property(readonly, nonatomic) BOOL hasRunningConference;
-@property(readonly, nonatomic) BOOL hasActiveConference;
-@property(readonly, nonatomic) BOOL microphoneConnected;
-@property(readonly, nonatomic) BOOL cameraConnected;
+@property(readonly, nonatomic) _Bool microphoneCapable;
+@property(readonly, nonatomic) _Bool cameraCapable;
+@property(readonly, nonatomic) _Bool hasRunningConference;
+@property(readonly, nonatomic) _Bool hasActiveConference;
+@property(readonly, nonatomic) _Bool microphoneConnected;
+@property(readonly, nonatomic) _Bool cameraConnected;
 - (void)updateActiveConference;
-- (void)setHasActiveConference:(BOOL)arg1;
-- (void)setHasRunningConference:(BOOL)arg1;
+- (void)setHasActiveConference:(_Bool)arg1;
+- (void)setHasRunningConference:(_Bool)arg1;
 @property(readonly, nonatomic) unsigned int overallChatState;
 - (void)pushCachedVCCapsToDaemon;
 - (void)vcCapabilitiesChanged:(unsigned long long)arg1;
-- (void)setIMAVCapabilities:(int)arg1 toCaps:(int)arg2;
+- (void)setIMAVCapabilities:(long long)arg1 toCaps:(long long)arg2;
 - (void)_setServiceVCCaps:(unsigned long long)arg1 toCaps:(unsigned long long)arg2;
 - (void)_dumpCaps;
 @property(nonatomic) id <IMAVControllerDelegate> delegate;
@@ -50,9 +54,9 @@
 - (id)init;
 - (void)setupIMAVController;
 - (void)_markSetup;
-- (BOOL)_shouldRunACConferences;
-- (BOOL)_shouldObserveConferences;
-- (BOOL)_shouldRunConferences;
+- (_Bool)_shouldRunACConferences;
+- (_Bool)_shouldObserveConferences;
+- (_Bool)_shouldRunConferences;
 
 @end
 

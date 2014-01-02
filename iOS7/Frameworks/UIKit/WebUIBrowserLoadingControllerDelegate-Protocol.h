@@ -9,7 +9,7 @@
 @protocol WebUIBrowserLoadingControllerDelegate <NSObject>
 
 @optional
-- (void)webView:(id)arg1 didLayout:(unsigned int)arg2;
+- (void)webThreadWebView:(id)arg1 didLayout:(unsigned long long)arg2;
 - (void)webView:(id)arg1 didHandleOnloadEventsForFrame:(id)arg2;
 - (void)webView:(id)arg1 didFirstVisuallyNonEmptyLayoutInFrame:(id)arg2;
 - (void)webView:(id)arg1 didClearWindowObject:(id)arg2 forFrame:(id)arg3;
@@ -20,15 +20,16 @@
 - (void)webView:(id)arg1 didFailProvisionalLoadWithError:(id)arg2 forFrame:(id)arg3;
 - (void)webView:(id)arg1 didReceiveServerRedirectForProvisionalLoadForFrame:(id)arg2;
 - (void)webView:(id)arg1 didStartProvisionalLoadForFrame:(id)arg2;
-- (BOOL)browserLoadingControllerShouldEvaluateUserEnteredJavaScript:(id)arg1;
+- (void)browserLoadingController:(id)arg1 reportNetworkDataUsage:(struct _WBUNetworkDataUsage)arg2;
+- (_Bool)browserLoadingControllerShouldEvaluateUserEnteredJavaScript:(id)arg1;
 - (id)browserLoadingController:(id)arg1 userVisibleStringForURL:(id)arg2;
 - (void)browserLoadingControllerDidUpdateLoadingState:(id)arg1;
 - (void)browserLoadingController:(id)arg1 didFinishLoadingWithError:(id)arg2 dataSource:(id)arg3;
 - (void)browserLoadingControllerDidStartLoading:(id)arg1;
 - (void)browserLoadingControllerWillStartUserDrivenLoad:(id)arg1;
-- (BOOL)browserLoadingControllerShouldShowProvisionalURLs:(id)arg1;
+- (_Bool)browserLoadingControllerShouldShowProvisionalURLs:(id)arg1;
 - (void)browserLoadingController:(id)arg1 failedToStartLoadingRequest:(id)arg2 error:(id)arg3;
-- (void)browserLoadingController:(id)arg1 willLoadRequest:(id)arg2 userDriven:(BOOL)arg3;
+- (void)browserLoadingController:(id)arg1 willLoadRequest:(id)arg2 userDriven:(_Bool)arg3;
 - (void)browserLoadingControllerDidUpdateEstimatedProgress:(id)arg1;
 - (void)browserLoadingControllerDidUpdateSecurity:(id)arg1;
 - (void)browserLoadingControllerDidUpdateBackForward:(id)arg1;

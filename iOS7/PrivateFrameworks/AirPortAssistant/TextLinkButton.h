@@ -18,8 +18,8 @@
 @property(nonatomic) id <TextLinkButtonDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)tapAction:(id)arg1;
 - (void)drawRect:(struct CGRect)arg1;
-- (void)setSelected:(BOOL)arg1;
-- (void)setHighlighted:(BOOL)arg1;
+- (void)setSelected:(_Bool)arg1;
+- (void)setHighlighted:(_Bool)arg1;
 - (void)dealloc;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

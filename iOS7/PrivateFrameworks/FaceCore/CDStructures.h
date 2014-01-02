@@ -7,8 +7,8 @@
 #pragma mark Named Structures
 
 struct CGPoint {
-    float x;
-    float y;
+    double x;
+    double y;
 };
 
 struct CGRect {
@@ -17,8 +17,8 @@ struct CGRect {
 };
 
 struct CGSize {
-    float width;
-    float height;
+    double width;
+    double height;
 };
 
 struct FaceCoreAPI {
@@ -52,8 +52,12 @@ struct face {
     int _field12;
     _Bool _field13;
     _Bool _field14;
-    _Bool _field15;
-    _Bool _field16;
+    float _field15;
+    float _field16;
+    _Bool _field17;
+    float _field18;
+    _Bool _field19;
+    float _field20;
 };
 
 struct image {
@@ -83,7 +87,7 @@ struct vector<vision::lib::coord, std::allocator<vision::lib::coord>> {
 typedef struct {
     struct CGPoint center;
     struct CGRect bounds;
-} CDStruct_53bda269;
+} CDStruct_ac082cae;
 
 // Template types
 typedef struct vector<vision::lib::coord, std::allocator<vision::lib::coord>> {

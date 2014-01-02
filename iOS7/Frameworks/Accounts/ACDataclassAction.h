@@ -10,21 +10,21 @@
 
 @interface ACDataclassAction : NSObject <NSSecureCoding>
 {
-    BOOL _isDestructive;
-    int _type;
+    _Bool _isDestructive;
+    long long _type;
 }
 
-+ (id)destructiveActionWithType:(int)arg1;
-+ (id)actionWithType:(int)arg1;
-+ (BOOL)supportsSecureCoding;
-@property(readonly, nonatomic) BOOL isDestructive; // @synthesize isDestructive=_isDestructive;
-@property(readonly, nonatomic) int type; // @synthesize type=_type;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
++ (id)destructiveActionWithType:(long long)arg1;
++ (id)actionWithType:(long long)arg1;
++ (_Bool)supportsSecureCoding;
+@property(readonly, nonatomic) _Bool isDestructive; // @synthesize isDestructive=_isDestructive;
+@property(readonly, nonatomic) long long type; // @synthesize type=_type;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithType:(int)arg1 destructivity:(BOOL)arg2;
+- (id)initWithType:(long long)arg1 destructivity:(_Bool)arg2;
 
 @end
 

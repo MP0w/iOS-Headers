@@ -11,12 +11,12 @@
 @interface UIPDFPage : NSObject
 {
     struct CGPDFPage *_cgPage;
-    unsigned int _pageNumber;
+    unsigned long long _pageNumber;
     NSString *_stringInReadingOrder;
     UIPDFSelection *_selection;
     int _lock;
     UIPDFDocument *_document;
-    unsigned int _pageIndex;
+    unsigned long long _pageIndex;
     UIImage *_pageImage;
     NSMutableArray *_annotations;
 }
@@ -24,33 +24,31 @@
 @property(retain) UIImage *pageImage; // @synthesize pageImage=_pageImage;
 @property(readonly) UIPDFDocument *document; // @synthesize document=_document;
 @property(retain) UIPDFSelection *selection; // @synthesize selection=_selection;
-@property(readonly) unsigned int pageIndex; // @synthesize pageIndex=_pageIndex;
-@property(readonly) unsigned int pageNumber; // @synthesize pageNumber=_pageNumber;
+@property(readonly) unsigned long long pageIndex; // @synthesize pageIndex=_pageIndex;
+@property(readonly) unsigned long long pageNumber; // @synthesize pageNumber=_pageNumber;
 @property(readonly) struct CGPDFPage *CGPage; // @synthesize CGPage=_cgPage;
 - (void)removeAnnotation:(id)arg1;
 - (void)addAnnotation:(id)arg1;
 - (void)removeAllAnnotations;
 - (void)clearAnnotations;
 - (id)annotations;
-- (id)annotationIn:(id)arg1 withIndex:(unsigned int)arg2;
+- (id)annotationIn:(id)arg1 withIndex:(unsigned long long)arg2;
 - (void)refresh;
 - (id)copyPage;
-- (id)findString:(id)arg1 fromSelection:(id)arg2 options:(unsigned int)arg3;
-- (unsigned long)cfCompareFlagsFromNSOptions:(unsigned int)arg1;
+- (id)findString:(id)arg1 fromSelection:(id)arg2 options:(unsigned long long)arg3;
+- (unsigned long long)cfCompareFlagsFromNSOptions:(unsigned long long)arg1;
 - (id)string;
-- (unsigned int)rotation;
+- (unsigned long long)rotation;
 - (struct CGRect)mediaBoxAccountForRotation;
 - (struct CGRect)mediaBox;
 - (struct CGRect)cropBoxAccountForRotation;
 @property(readonly) struct CGRect cropBox;
 - (struct CGSize)size;
-- (void)deliverImageWithWidth:(unsigned int)arg1 height:(unsigned int)arg2 receiver:(id)arg3 selector:(SEL)arg4 info:(id)arg5;
+- (void)deliverImageWithWidth:(unsigned long long)arg1 height:(unsigned long long)arg2 receiver:(id)arg3 selector:(SEL)arg4 info:(id)arg5;
 - (id)getImageIfAvailable;
 - (void)drawInRect:(struct CGRect)arg1 context:(struct CGContext *)arg2;
 - (void)dealloc;
-- (id)initWithDocument:(id)arg1 pageNumber:(unsigned int)arg2;
-- (void)setDocument:(id)arg1;
-- (id)initWithCGPDFPage:(struct CGPDFPage *)arg1;
+- (id)initWithDocument:(id)arg1 pageNumber:(unsigned long long)arg2;
 
 @end
 

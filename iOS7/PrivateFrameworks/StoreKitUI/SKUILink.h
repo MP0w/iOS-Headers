@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "SSMetricsEventFieldProvider-Protocol.h"
+
 @class NSNumber, NSString, NSURL, SKUICountdown, SKUIItem;
 
-@interface SKUILink : NSObject
+@interface SKUILink : NSObject <SSMetricsEventFieldProvider>
 {
     SKUICountdown *_countdown;
     SKUIItem *_item;
@@ -25,7 +27,8 @@
 @property(readonly, nonatomic) SKUIItem *item; // @synthesize item=_item;
 - (void).cxx_destruct;
 - (void)_setItem:(id)arg1;
-@property(readonly, nonatomic, getter=isActionable) BOOL actionable;
+- (id)valueForMetricsField:(id)arg1;
+@property(readonly, nonatomic, getter=isActionable) _Bool actionable;
 - (id)initWithURL:(id)arg1;
 - (id)initWithComponentContext:(id)arg1;
 - (id)initWithLinkDictionary:(id)arg1;

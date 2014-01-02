@@ -8,6 +8,7 @@
 
 @class NSIndexPath;
 
+// Not exported
 @interface UIRowMoveUpdateItem : UIUpdateItem
 {
     NSIndexPath *_newIndexPath;

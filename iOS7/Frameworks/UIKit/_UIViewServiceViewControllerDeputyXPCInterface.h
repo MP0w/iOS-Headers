@@ -10,6 +10,7 @@
 
 @class NSXPCInterface;
 
+// Not exported
 @interface _UIViewServiceViewControllerDeputyXPCInterface : NSObject <_UIViewServiceDeputyXPCInterface>
 {
     NSXPCInterface *_exportedInterface;

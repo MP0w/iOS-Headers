@@ -10,7 +10,7 @@
 {
 }
 
-- (BOOL)displaysLabel;
+- (_Bool)displaysLabel;
 - (id)init;
 
 @end

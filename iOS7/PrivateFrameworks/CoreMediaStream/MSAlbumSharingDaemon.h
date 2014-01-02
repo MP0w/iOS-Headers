@@ -10,12 +10,12 @@
 
 @interface MSAlbumSharingDaemon : MSDaemon
 {
-    BOOL _isRetryingOutstandingActivities;
+    _Bool _isRetryingOutstandingActivities;
+    int _busyCount;
     id <MSAlbumSharingDaemonDelegate> _delegate;
     NSMutableDictionary *_personIDToStateMachineMap;
     NSMutableDictionary *_personIDToDelegateMap;
     MSASDaemonModel *_daemonModel;
-    int _busyCount;
     NSObject<OS_dispatch_queue> *_mapQueue;
     NSObject<OS_dispatch_queue> *_workQueue;
     NSMutableDictionary *_nextUpdateDateByPersonID;
@@ -24,7 +24,7 @@
 @property(retain, nonatomic) NSMutableDictionary *nextUpdateDateByPersonID; // @synthesize nextUpdateDateByPersonID=_nextUpdateDateByPersonID;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *mapQueue; // @synthesize mapQueue=_mapQueue;
-@property(nonatomic) BOOL isRetryingOutstandingActivities; // @synthesize isRetryingOutstandingActivities=_isRetryingOutstandingActivities;
+@property(nonatomic) _Bool isRetryingOutstandingActivities; // @synthesize isRetryingOutstandingActivities=_isRetryingOutstandingActivities;
 @property(nonatomic) int busyCount; // @synthesize busyCount=_busyCount;
 @property(retain, nonatomic) MSASDaemonModel *daemonModel; // @synthesize daemonModel=_daemonModel;
 @property(retain, nonatomic) NSMutableDictionary *personIDToDelegateMap; // @synthesize personIDToDelegateMap=_personIDToDelegateMap;
@@ -44,10 +44,10 @@
 - (void)refreshServerSideConfigurationForPersonID:(id)arg1;
 - (id)serverSideConfigurationForPersonID:(id)arg1;
 - (void)forgetEverythingCompletionBlock:(id)arg1;
-- (void)workQueueForgetEverythingAboutPersonIDs:(id)arg1 index:(unsigned int)arg2 completionBlock:(id)arg3;
+- (void)workQueueForgetEverythingAboutPersonIDs:(id)arg1 index:(unsigned long long)arg2 completionBlock:(id)arg3;
 - (void)forgetEverythingAboutPersonID:(id)arg1 completionBlock:(id)arg2;
 - (void)workQueueForgetEverythingAboutPersonID:(id)arg1 completionBlock:(id)arg2;
-- (void)shutDownStateMachine:(id)arg1 forDestruction:(BOOL)arg2 completionBlock:(id)arg3;
+- (void)shutDownStateMachine:(id)arg1 forDestruction:(_Bool)arg2 completionBlock:(id)arg3;
 - (void)_postModelShutdownForPersonID:(id)arg1 completionBlock:(id)arg2;
 - (void)forgetEverythingAboutPersonID:(id)arg1;
 - (void)retrieveAssetsInAssetCollectionsWithGUIDs:(id)arg1 assetTypeFlags:(int)arg2 personID:(id)arg3;
@@ -63,10 +63,10 @@
 - (void)deleteAssetCollectionWithGUID:(id)arg1 personID:(id)arg2;
 - (void)addAssetCollections:(id)arg1 toAlbumWithGUID:(id)arg2 personID:(id)arg3 info:(id)arg4;
 - (void)addAssetCollections:(id)arg1 toAlbumWithGUID:(id)arg2 personID:(id)arg3;
-- (void)setMultipleContributorsEnabled:(BOOL)arg1 forAlbumWithGUID:(id)arg2 personID:(id)arg3 info:(id)arg4 completionBlock:(id)arg5;
-- (void)setMultipleContributorsEnabled:(BOOL)arg1 forAlbumWithGUID:(id)arg2 personID:(id)arg3 completionBlock:(id)arg4;
-- (void)setPublicAccessEnabled:(BOOL)arg1 forAlbumWithGUID:(id)arg2 personID:(id)arg3 info:(id)arg4 completionBlock:(id)arg5;
-- (void)setPublicAccessEnabled:(BOOL)arg1 forAlbumWithGUID:(id)arg2 personID:(id)arg3 completionBlock:(id)arg4;
+- (void)setMultipleContributorsEnabled:(_Bool)arg1 forAlbumWithGUID:(id)arg2 personID:(id)arg3 info:(id)arg4 completionBlock:(id)arg5;
+- (void)setMultipleContributorsEnabled:(_Bool)arg1 forAlbumWithGUID:(id)arg2 personID:(id)arg3 completionBlock:(id)arg4;
+- (void)setPublicAccessEnabled:(_Bool)arg1 forAlbumWithGUID:(id)arg2 personID:(id)arg3 info:(id)arg4 completionBlock:(id)arg5;
+- (void)setPublicAccessEnabled:(_Bool)arg1 forAlbumWithGUID:(id)arg2 personID:(id)arg3 completionBlock:(id)arg4;
 - (void)removeAccessControlEntryWithGUID:(id)arg1 personID:(id)arg2 info:(id)arg3;
 - (void)removeAccessControlEntryWithGUID:(id)arg1 personID:(id)arg2;
 - (void)addAccessControlEntries:(id)arg1 toAlbumWithGUID:(id)arg2 personID:(id)arg3 info:(id)arg4;
@@ -81,7 +81,7 @@
 - (void)unsubscribeFromAlbumWithGUID:(id)arg1 personID:(id)arg2;
 - (void)subscribeToAlbumWithGUID:(id)arg1 personID:(id)arg2 info:(id)arg3;
 - (void)subscribeToAlbumWithGUID:(id)arg1 personID:(id)arg2;
-- (void)markAlbumGUIDAsViewed:(id)arg1 personID:(id)arg2 moveLastViewedAssetCollectionMarker:(BOOL)arg3 info:(id)arg4;
+- (void)markAlbumGUIDAsViewed:(id)arg1 personID:(id)arg2 moveLastViewedAssetCollectionMarker:(_Bool)arg3 info:(id)arg4;
 - (void)markAlbumGUIDAsViewed:(id)arg1 personID:(id)arg2 info:(id)arg3;
 - (void)markAlbumGUIDAsViewed:(id)arg1 personID:(id)arg2;
 - (void)deleteAlbumWithGUID:(id)arg1 personID:(id)arg2 info:(id)arg3;
@@ -90,14 +90,14 @@
 - (void)modifyAlbumMetadata:(id)arg1 personID:(id)arg2;
 - (void)addAlbum:(id)arg1 personID:(id)arg2 info:(id)arg3;
 - (void)addAlbum:(id)arg1 personID:(id)arg2;
-- (void)refreshCommentsForAssetCollectionWithGUID:(id)arg1 resetSync:(BOOL)arg2 personID:(id)arg3 info:(id)arg4;
-- (void)refreshCommentsForAssetCollectionWithGUID:(id)arg1 resetSync:(BOOL)arg2 personID:(id)arg3;
+- (void)refreshCommentsForAssetCollectionWithGUID:(id)arg1 resetSync:(_Bool)arg2 personID:(id)arg3 info:(id)arg4;
+- (void)refreshCommentsForAssetCollectionWithGUID:(id)arg1 resetSync:(_Bool)arg2 personID:(id)arg3;
 - (void)refreshAccessControlListOfAlbumWithGUID:(id)arg1 personID:(id)arg2 info:(id)arg3;
 - (void)refreshAccessControlListOfAlbumWithGUID:(id)arg1 personID:(id)arg2;
-- (void)refreshContentOfAlbumWithGUID:(id)arg1 resetSync:(BOOL)arg2 personID:(id)arg3 info:(id)arg4;
-- (void)refreshContentOfAlbumWithGUID:(id)arg1 resetSync:(BOOL)arg2 personID:(id)arg3;
-- (void)refreshResetSync:(BOOL)arg1 personID:(id)arg2 info:(id)arg3;
-- (void)refreshResetSync:(BOOL)arg1 personID:(id)arg2;
+- (void)refreshContentOfAlbumWithGUID:(id)arg1 resetSync:(_Bool)arg2 personID:(id)arg3 info:(id)arg4;
+- (void)refreshContentOfAlbumWithGUID:(id)arg1 resetSync:(_Bool)arg2 personID:(id)arg3;
+- (void)refreshResetSync:(_Bool)arg1 personID:(id)arg2 info:(id)arg3;
+- (void)refreshResetSync:(_Bool)arg1 personID:(id)arg2;
 - (id)modelForPersonID:(id)arg1;
 - (id)existingModelForPersonID:(id)arg1;
 - (int)assetsInDownloadQueueCountForPersonID:(id)arg1;
@@ -109,13 +109,14 @@
 - (void)addAlbum:(id)arg1;
 - (void)cancelActivitiesForPersonID:(id)arg1;
 - (void)stopAssetDownloadsForPersonID:(id)arg1;
+- (void)retryOutstandingActivitiesForPersonID:(id)arg1;
 - (void)retryOutstandingActivities;
-- (BOOL)hasCommandsInGroupedCommandQueue;
-- (BOOL)isWaitingForAuth;
+- (_Bool)hasCommandsInGroupedCommandQueue;
+- (_Bool)isWaitingForAuth;
 - (void)didReceiveGlobalResetSyncForPersonID:(id)arg1;
 - (void)didReceiveAuthSuccessForPersonID:(id)arg1;
 - (void)didReceiveAuthFailureForPersonID:(id)arg1;
-- (BOOL)isInRetryState;
+- (_Bool)isInRetryState;
 - (void)didReceivePushNotificationForPersonID:(id)arg1;
 - (void)didDestroyStateMachineForPersonID:(id)arg1;
 - (void)willDestroyStateMachineForPersonID:(id)arg1;
@@ -126,7 +127,7 @@
 - (void)didIdle;
 - (id)nextActivityDate;
 - (void)shutDownCompletionBlock:(id)arg1;
-- (void)mapQueueShutDownStateMachineInMap:(id)arg1 personIDs:(id)arg2 index:(unsigned int)arg3 forDestruction:(BOOL)arg4 completionBlock:(id)arg5;
+- (void)mapQueueShutDownStateMachineInMap:(id)arg1 personIDs:(id)arg2 index:(unsigned long long)arg3 forDestruction:(_Bool)arg4 completionBlock:(id)arg5;
 - (void)shutDown;
 - (void)start;
 - (void)dealloc;

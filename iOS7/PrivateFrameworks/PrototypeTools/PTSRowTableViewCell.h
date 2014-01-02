@@ -16,8 +16,8 @@
     id <PTSRowTableViewCellDelegate> _delegate;
 }
 
-+ (int)cellStyleForRow:(id)arg1;
-+ (float)cellHeightForRow:(id)arg1;
++ (long long)cellStyleForRow:(id)arg1;
++ (double)cellHeightForRow:(id)arg1;
 + (id)reuseIdentifierForRow:(id)arg1;
 @property(nonatomic) __weak id <PTSRowTableViewCellDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) PTSRow *row; // @synthesize row=_row;
@@ -28,7 +28,7 @@
 - (void)updateCellCharacteristics;
 - (void)updateDisplayedValue;
 - (void)updateDisplayedContent;
-- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)prepareForReuse;
 - (void)dealloc;
 

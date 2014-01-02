@@ -7,9 +7,9 @@
 #import "NSCoder.h"
 
 @interface NSCoder (ProThemeAdditions)
-- (unsigned int)decodeThemeForKey:(id)arg1;
-- (unsigned int)decodeTheme;
-- (void)encodeTheme:(unsigned int)arg1 forKey:(id)arg2;
-- (void)encodeTheme:(unsigned int)arg1;
+- (unsigned long long)decodeThemeForKey:(id)arg1;
+- (unsigned long long)decodeTheme;
+- (void)encodeTheme:(unsigned long long)arg1 forKey:(id)arg2;
+- (void)encodeTheme:(unsigned long long)arg1;
 @end
 

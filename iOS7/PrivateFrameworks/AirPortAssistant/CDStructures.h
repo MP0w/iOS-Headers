@@ -15,18 +15,18 @@ struct AssistantCallbackContext {
     id _field6;
     id _field7;
     struct _opaque_pthread_mutex_t {
-        long _field1;
-        char _field2[40];
+        long long _field1;
+        char _field2[56];
     } _field8;
     void *_field9;
-    int _field10;
+    long long _field10;
 };
 
 struct AssistantContext;
 
 struct CGPoint {
-    float x;
-    float y;
+    double x;
+    double y;
 };
 
 struct CGRect {
@@ -35,29 +35,29 @@ struct CGRect {
 };
 
 struct CGSize {
-    float width;
-    float height;
+    double width;
+    double height;
 };
 
 struct _NSRange {
-    unsigned int _field1;
-    unsigned int _field2;
+    unsigned long long _field1;
+    unsigned long long _field2;
 };
 
 #pragma mark Typedef'd Structures
 
 typedef struct {
-    unsigned int ethernetPortCount;
+    unsigned long long ethernetPortCount;
     unsigned int productID;
     unsigned int subProductID;
     unsigned int productFamily;
     int deviceKind;
-} CDStruct_59eca22a;
+} CDStruct_152c5bab;
 
 typedef struct {
     struct CGPoint _field1;
     struct CGPoint _field2;
     struct CGPoint _field3;
     struct CGPoint _field4;
-} CDStruct_95077174;
+} CDStruct_f9662865;
 

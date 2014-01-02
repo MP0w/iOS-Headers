@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface EXTableFilter : NSObject
 {
 }
 
 + (id)edTableFilterFromXmlTableFilterElement:(struct _xmlNode *)arg1 state:(id)arg2;
-+ (int)edFilterOperatorFromXmlOperatorString:(id)arg1;
 
 @end
 

@@ -14,14 +14,14 @@
 
 + (id)cloudSharedAlbumInvitationRecordsWithAlbumGUID:(id)arg1 inLibrary:(id)arg2;
 + (id)cloudSharedAlbumInvitationRecordWithGUID:(id)arg1 inLibrary:(id)arg2;
-+ (id)insertNewInvitationRecordIntoAlbum:(id)arg1 withFirstName:(id)arg2 lastName:(id)arg3 emails:(id)arg4 phones:(id)arg5 inLibrary:(id)arg6;
++ (id)insertNewInvitationRecordIntoAlbum:(id)arg1 withFirstName:(id)arg2 lastName:(id)arg3 fullName:(id)arg4 emails:(id)arg5 phones:(id)arg6 inLibrary:(id)arg7;
 + (id)entityName;
 + (id)entityInManagedObjectContext:(id)arg1;
 - (id)invitationStateDescription;
 - (void)setInviteeEmails:(id)arg1 phones:(id)arg2;
 @property(readonly, nonatomic) NSArray *inviteePhones;
 @property(readonly, nonatomic) NSArray *inviteeEmails;
-- (id)inviteeDisplayNameIncludingEmail:(BOOL)arg1;
+- (id)inviteeDisplayNameIncludingEmail:(_Bool)arg1;
 - (void)delete;
 - (void)dealloc;
 - (void)prepareForDeletion;
@@ -41,7 +41,7 @@
 @property(nonatomic) NSString *inviteeHashedPersonID; // @dynamic inviteeHashedPersonID;
 @property(retain, nonatomic) NSString *inviteeLastName; // @dynamic inviteeLastName;
 @property(retain, nonatomic) NSDate *inviteeSubscriptionDate; // @dynamic inviteeSubscriptionDate;
-@property(nonatomic) BOOL isMine; // @dynamic isMine;
+@property(nonatomic) _Bool isMine; // @dynamic isMine;
 
 @end
 

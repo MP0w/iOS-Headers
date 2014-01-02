@@ -6,22 +6,22 @@
 
 #import <UIKit/UIKeyboardMenuView.h>
 
+// Not exported
 @interface UIKeyboardDictationMenu : UIKeyboardMenuView
 {
 }
 
 + (id)activeInstance;
 + (id)sharedInstance;
-- (BOOL)usesDimmingView;
+- (_Bool)usesDimmingView;
 - (void)hide;
 - (void)fadeWithDelay:(double)arg1;
 - (void)fade;
 - (void)cleanupForFadeOrHide;
 - (void)show;
 - (void)performShowAnimation;
-- (void)setKeyboardDimmedForDictation:(BOOL)arg1;
-- (BOOL)centerPopUpOverKey;
-- (BOOL)usesTable;
+- (_Bool)centerPopUpOverKey;
+- (_Bool)usesTable;
 - (struct CGSize)preferredSize;
 - (id)initWithFrame:(struct CGRect)arg1;
 

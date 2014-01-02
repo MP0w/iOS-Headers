@@ -20,7 +20,7 @@
 @property(nonatomic) id <RUTrackHistoryDataSourceDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)_trackHistorySessionsWithTrackHistorySessions:(id)arg1 insertedTrackHistories:(id)arg2 deletedTrackHistories:(id)arg3 resultingInsertedSessionIndices:(id *)arg4 insertedIndexPaths:(id *)arg5 deletedSessionIndices:(id *)arg6 deletedIndexPaths:(id *)arg7;
-- (BOOL)_isTrackHistory:(id)arg1 fuzzilyEqualToTrackHistory:(id)arg2;
+- (_Bool)_isTrackHistory:(id)arg1 fuzzilyEqualToTrackHistory:(id)arg2;
 - (void)_radioModelDidChangeNotification:(id)arg1;
 @property(readonly, nonatomic) NSArray *trackHistories;
 - (void)deleteAllTrackHistory;

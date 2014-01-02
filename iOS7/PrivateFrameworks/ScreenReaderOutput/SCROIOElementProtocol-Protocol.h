@@ -8,7 +8,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol SCROIOElementProtocol <NSObject, NSCopying>
-- (long)identifier;
+- (int)identifier;
 - (int)transport;
 - (unsigned int)ioObject;
 @end

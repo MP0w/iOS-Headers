@@ -12,9 +12,9 @@
 
 + (void)unregisterFragmentsForUUID:(id)arg1;
 + (void)registerFragments:(id)arg1 forUUID:(id)arg2;
-+ (BOOL)requestIsCacheEquivalent:(id)arg1 toRequest:(id)arg2;
++ (_Bool)requestIsCacheEquivalent:(id)arg1 toRequest:(id)arg2;
 + (id)canonicalRequestForRequest:(id)arg1;
-+ (BOOL)canInitWithRequest:(id)arg1;
++ (_Bool)canInitWithRequest:(id)arg1;
 + (void)initialize;
 - (void)stopLoading;
 - (void)dealloc;

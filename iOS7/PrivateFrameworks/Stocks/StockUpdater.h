@@ -11,8 +11,8 @@
 @interface StockUpdater : XMLHTTPRequest
 {
     NSArray *_requestStocks;
-    BOOL _ignoreNewRequests;
-    BOOL _isComprehensive;
+    _Bool _ignoreNewRequests;
+    _Bool _isComprehensive;
     NSMutableDictionary *_cacheDurationForParts;
     id <StockUpdaterDelegate> _delegate;
     QuoteParserData *_quoteParserData;
@@ -23,13 +23,13 @@
 @property(copy, nonatomic) id updateCompletionHandler; // @synthesize updateCompletionHandler=_updateCompletionHandler;
 @property(retain, nonatomic) NSError *lastError; // @synthesize lastError=_lastError;
 @property(nonatomic) __weak id <StockUpdaterDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) BOOL isComprehensive; // @synthesize isComprehensive=_isComprehensive;
+@property(nonatomic) _Bool isComprehensive; // @synthesize isComprehensive=_isComprehensive;
 @property(retain, nonatomic) NSArray *requestStocks; // @synthesize requestStocks=_requestStocks;
 - (void).cxx_destruct;
 - (id)aggregateDictionaryDomain;
 - (void)failWithError:(id)arg1;
 - (void)didParseData;
-- (BOOL)hadError;
+- (_Bool)hadError;
 - (int)parseData:(id)arg1;
 - (void)setCacheTimeInterval:(double)arg1 forPartsTag:(id)arg2;
 - (void)_updateWithPartsTag:(id)arg1 forStocks:(id)arg2;

@@ -6,7 +6,7 @@
 
 #import <UIKit/UIViewPrintFormatter.h>
 
-@class NSArray, UIPrintFormatter;
+@class NSArray;
 
 @interface UITextViewPrintFormatter : UIViewPrintFormatter
 {
@@ -14,14 +14,23 @@
         unsigned int initializedUsedRects:1;
     } _textViewPrintFormatterFlags;
     NSArray *_pageData;
-    UIPrintFormatter *_parentPrintFormatter;
 }
 
-- (void)drawInRect:(struct CGRect)arg1 forPageAtIndex:(int)arg2;
-- (struct CGRect)rectForPageAtIndex:(int)arg1;
-- (int)_recalcPageCount;
+- (long long)textAlignment;
+- (void)setTextAlignment:(long long)arg1;
+- (id)color;
+- (void)setColor:(id)arg1;
+- (id)font;
+- (void)setFont:(id)arg1;
+- (id)attributedText;
+- (void)setAttributedText:(id)arg1;
+- (id)text;
+- (void)setText:(id)arg1;
+- (id)_textView;
+- (void)drawInRect:(struct CGRect)arg1 forPageAtIndex:(long long)arg2;
+- (struct CGRect)rectForPageAtIndex:(long long)arg1;
+- (long long)_recalcPageCount;
 - (id)_pageData;
-- (void)setParentPrintFormatter:(id)arg1;
 - (void)dealloc;
 
 @end

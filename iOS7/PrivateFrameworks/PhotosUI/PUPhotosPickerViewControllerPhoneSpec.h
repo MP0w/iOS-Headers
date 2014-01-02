@@ -12,7 +12,7 @@
 
 - (void)configureSessionInfo:(id)arg1;
 - (id)tabbedLibraryViewControllerSpec;
-- (unsigned int)supportedInterfaceOrientations;
+- (unsigned long long)supportedInterfaceOrientations;
 
 @end
 

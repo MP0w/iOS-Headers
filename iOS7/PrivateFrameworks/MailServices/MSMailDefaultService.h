@@ -8,10 +8,10 @@
 
 @interface MSMailDefaultService : MSService
 {
-    BOOL _shouldLaunch;
+    _Bool _shouldLaunch;
 }
 
-@property(nonatomic) BOOL shouldLaunchMobileMail; // @synthesize shouldLaunchMobileMail=_shouldLaunch;
+@property(nonatomic) _Bool shouldLaunchMobileMail; // @synthesize shouldLaunchMobileMail=_shouldLaunch;
 - (id)_handleMessageSendFailure:(id)arg1 message:(id)arg2 messageIndex:(long long)arg3 context:(inout id *)arg4;
 - (id)_createServiceOnQueue:(id)arg1;
 - (id)init;

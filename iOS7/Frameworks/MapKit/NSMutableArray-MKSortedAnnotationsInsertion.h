@@ -7,7 +7,7 @@
 #import "NSMutableArray.h"
 
 @interface NSMutableArray (MKSortedAnnotationsInsertion)
-- (unsigned int)_mapkit_insertSortedAnnotationView:(id)arg1 reverse:(BOOL)arg2;
-- (unsigned int)_mapkit_insertSortedAnnotationView:(id)arg1;
+- (unsigned long long)_mapkit_insertSortedAnnotationView:(id)arg1 reverse:(_Bool)arg2;
+- (unsigned long long)_mapkit_insertSortedAnnotationView:(id)arg1;
 @end
 

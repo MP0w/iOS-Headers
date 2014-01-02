@@ -6,19 +6,21 @@
 
 #import <SpriteKit/SKAction.h>
 
+// Not exported
 @interface SKRotate : SKAction
 {
     struct SKCRotate *_mycaction;
 }
 
-+ (id)rotateToX:(float)arg1 y:(float)arg2 z:(float)arg3 duration:(double)arg4;
-+ (id)rotateByX:(float)arg1 y:(float)arg2 z:(float)arg3 duration:(double)arg4;
-+ (id)rotateToY:(float)arg1 duration:(double)arg2;
-+ (id)rotateByY:(float)arg1 duration:(double)arg2;
-+ (id)rotateToX:(float)arg1 duration:(double)arg2;
-+ (id)rotateByX:(float)arg1 duration:(double)arg2;
-+ (id)rotateToAngle:(float)arg1 duration:(double)arg2;
-+ (id)rotateByAngle:(float)arg1 duration:(double)arg2;
++ (id)rotateToX:(double)arg1 y:(double)arg2 z:(double)arg3 duration:(double)arg4;
++ (id)rotateByX:(double)arg1 y:(double)arg2 z:(double)arg3 duration:(double)arg4;
++ (id)rotateToY:(double)arg1 duration:(double)arg2;
++ (id)rotateByY:(double)arg1 duration:(double)arg2;
++ (id)rotateToX:(double)arg1 duration:(double)arg2;
++ (id)rotateByX:(double)arg1 duration:(double)arg2;
++ (id)rotateToAngle:(double)arg1 duration:(double)arg2 shortestUnitArc:(_Bool)arg3;
++ (id)rotateToAngle:(double)arg1 duration:(double)arg2;
++ (id)rotateByAngle:(double)arg1 duration:(double)arg2;
 - (id)reversedAction;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;

@@ -10,24 +10,24 @@
 
 @interface MFWeakDictionary : NSMutableDictionary
 {
-    unsigned long _gen;
+    unsigned long long _gen;
     NSLock *_lock;
     NSMutableDictionary *_dictionary;
 }
 
 - (id)_copyDictionary;
 - (void)enumerateKeysAndObjectsUsingBlock:(id)arg1;
-- (void)enumerateKeysAndObjectsWithOptions:(unsigned int)arg1 usingBlock:(id)arg2;
-- (unsigned int)countByEnumeratingWithState:(CDStruct_c73467ff *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
+- (void)enumerateKeysAndObjectsWithOptions:(unsigned long long)arg1 usingBlock:(id)arg2;
+- (unsigned long long)countByEnumeratingWithState:(CDStruct_58648341 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
 - (void)removeAllObjects;
 - (void)removeObjectForKey:(id)arg1;
 - (void)setObject:(id)arg1 forKey:(id)arg2;
 - (id)objectForKey:(id)arg1;
 - (id)allValues;
 - (id)allKeys;
-- (unsigned int)count;
+- (unsigned long long)count;
 - (void)dealloc;
-- (id)initWithCapacity:(unsigned int)arg1;
+- (id)initWithCapacity:(unsigned long long)arg1;
 
 @end
 

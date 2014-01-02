@@ -7,12 +7,11 @@
 #import "NSObject-Protocol.h"
 
 @protocol MKAnnotationModel <NSObject>
-- (void)setAnnotationDeselectionCallback:(id)arg1;
-- (void)moveAnnotationRepresentation:(id)arg1 fromCoordinate:(CDStruct_c3b9c2ee)arg2 animated:(BOOL)arg3 duration:(double)arg4;
-- (void)deselectAnnotationRepresentation:(id)arg1 animated:(BOOL)arg2;
-- (void)showCalloutIfNecessaryForAnnotationRepresentation:(id)arg1 animated:(BOOL)arg2 avoid:(struct CGRect)arg3;
-- (void)selectAnnotationRepresentation:(id)arg1 animated:(BOOL)arg2 avoid:(struct CGRect)arg3;
+- (void)moveAnnotationRepresentation:(id)arg1 fromCoordinate:(CDStruct_c3b9c2ee)arg2 animated:(_Bool)arg3 duration:(double)arg4;
+- (void)deselectAnnotationRepresentation:(id)arg1 animated:(_Bool)arg2;
+- (void)showCalloutIfNecessaryForAnnotationRepresentation:(id)arg1 animated:(_Bool)arg2 avoid:(struct CGRect)arg3;
+- (void)selectAnnotationRepresentation:(id)arg1 animated:(_Bool)arg2 avoid:(struct CGRect)arg3;
 - (void)removeAnnotationRepresentation:(id)arg1;
-- (void)addAnnotationRepresentation:(id)arg1 allowAnimation:(BOOL)arg2;
+- (void)addAnnotationRepresentation:(id)arg1 allowAnimation:(_Bool)arg2;
 @end
 

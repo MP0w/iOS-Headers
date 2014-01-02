@@ -8,6 +8,7 @@
 
 @class OADTable, OADTableRow;
 
+// Not exported
 @interface PMTableRowMapper : CMMapper
 {
     OADTable *mTable;
@@ -16,7 +17,7 @@
 }
 
 - (void)mapAt:(id)arg1 withState:(id)arg2;
-- (unsigned int)cellCount;
+- (unsigned long long)cellCount;
 - (float)height;
 - (id)initWithOadTable:(id)arg1 rowIndex:(unsigned int)arg2 parent:(id)arg3;
 

@@ -21,16 +21,6 @@
 - (void)finalize;
 - (void)dealloc;
 - (id)init;
-- (void)_refreshAboveHighWaterLevel;
-- (void)_updatePresentationSize:(struct CGSize)arg1;
-- (long)_createVideoQueue;
-- (void)_setControlTimebase:(struct OpaqueCMTimebase *)arg1;
-- (void)stopRequestingMediaData;
-- (void)requestMediaDataWhenReadyOnQueue:(id)arg1 usingBlock:(id)arg2;
-@property(readonly, getter=isReadyForMoreMediaData) BOOL readyForMoreMediaData;
-- (void)flushAndRemoveImage;
-- (void)flush;
-- (void)enqueueSampleBuffer:(struct opaqueCMSampleBuffer *)arg1;
 
 @end
 

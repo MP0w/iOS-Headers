@@ -6,6 +6,7 @@
 
 #import <VectorKit/VKRasterTileSource.h>
 
+// Not exported
 @interface VKVegetationRasterTileSource : VKRasterTileSource
 {
 }
@@ -14,11 +15,11 @@
 - (void)fetchTileForKey:(const struct VKTileKey *)arg1;
 - (id)tileForKey:(const struct VKTileKey *)arg1;
 - (struct VKTileKey)sourceKeyForRenderKey:(const struct VKTileKey *)arg1;
-- (unsigned int)mapLayerForZoomLevelRange;
-- (int)defaultMinimumZoomLevel;
-- (int)defaultMaximumZoomLevel;
-- (BOOL)minimumZoomLevelBoundsCamera;
-- (BOOL)maximumZoomLevelBoundsCamera;
+- (unsigned long long)mapLayerForZoomLevelRange;
+- (long long)defaultMinimumZoomLevel;
+- (long long)defaultMaximumZoomLevel;
+- (_Bool)minimumZoomLevelBoundsCamera;
+- (_Bool)maximumZoomLevelBoundsCamera;
 
 @end
 

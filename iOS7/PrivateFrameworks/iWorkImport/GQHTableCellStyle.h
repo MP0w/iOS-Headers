@@ -6,6 +6,7 @@
 
 #import <iWorkImport/GQHGraphicStyle.h>
 
+// Not exported
 @interface GQHTableCellStyle : GQHGraphicStyle
 {
 }

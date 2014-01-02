@@ -8,6 +8,7 @@
 
 @class ECMappingContext, EDProcessors, EDReference, EDResources, EDWarnings, ESDContainer, NSDate, NSMutableArray, NSString, OADTheme;
 
+// Not exported
 @interface EDWorkbook : OCDDocument
 {
     EDResources *mResources;
@@ -17,7 +18,7 @@
     EDWarnings *mWarnings;
     NSMutableArray *mSheets;
     EDReference *mVisibleRange;
-    unsigned int mActiveSheetIndex;
+    unsigned long long mActiveSheetIndex;
     NSDate *mDateBaseDate;
     unsigned int mDateBase;
     NSString *mFileName;
@@ -36,11 +37,11 @@
 - (void)setActiveSheet:(id)arg1;
 - (id)activeSheet;
 - (void)addSheet:(id)arg1;
-- (unsigned int)indexOfSheetWithName:(id)arg1;
-- (unsigned int)indexOfSheet:(id)arg1;
-- (id)sheetAtIndex:(unsigned int)arg1 loadIfNeeded:(_Bool)arg2;
-- (id)sheetAtIndex:(unsigned int)arg1;
-- (unsigned int)sheetCount;
+- (unsigned long long)indexOfSheetWithName:(id)arg1;
+- (unsigned long long)indexOfSheet:(id)arg1;
+- (id)sheetAtIndex:(unsigned long long)arg1 loadIfNeeded:(_Bool)arg2;
+- (id)sheetAtIndex:(unsigned long long)arg1;
+- (unsigned long long)sheetCount;
 - (void)setVisibleRange:(id)arg1;
 - (id)visibleRange;
 - (void)setDateBase:(unsigned int)arg1;
@@ -57,12 +58,6 @@
 - (id)initWithFileName:(id)arg1 andStringOptimization:(_Bool)arg2;
 - (id)initWithStringOptimization:(_Bool)arg1;
 - (id)init;
-- (void)removeWorksheetAtIndex:(unsigned int)arg1;
-- (void)setEscherDrawingGroup:(id)arg1;
-- (id)escherDrawingGroup;
-- (void)reduceMemoryIfPossible;
-- (void)setActiveSheetIndex:(unsigned int)arg1;
-- (unsigned int)activeSheetIndex;
 
 @end
 

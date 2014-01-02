@@ -9,12 +9,12 @@
 @interface SSWeakReference : NSObject
 {
     id _object;
-    unsigned int _objectAddress;
+    unsigned long long _objectAddress;
 }
 
 + (id)weakReferenceWithObject:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 @property(readonly, nonatomic) id object;
 - (void)dealloc;
 

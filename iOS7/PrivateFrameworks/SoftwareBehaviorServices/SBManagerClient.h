@@ -14,8 +14,8 @@
 {
     NSXPCConnection *_serverConnection;
     id <SBManagerClientDelegate> _delegate;
-    BOOL _connected;
-    BOOL _serverIsExiting;
+    _Bool _connected;
+    _Bool _serverIsExiting;
     int _clientType;
     struct dispatch_queue_s *_queue;
 }

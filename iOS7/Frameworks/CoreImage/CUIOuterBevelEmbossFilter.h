@@ -8,6 +8,7 @@
 
 @class CIColor, CIImage, NSNumber;
 
+// Not exported
 @interface CUIOuterBevelEmbossFilter : CIFilter
 {
     CIImage *inputImage;

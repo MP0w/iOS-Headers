@@ -7,7 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol PLNavigableAssetContainerViewController <NSObject>
-- (void)navigateToRevealPhoto:(id)arg1 inAssetContainer:(id)arg2 animated:(BOOL)arg3;
-- (void)navigateToPhoto:(id)arg1 inAssetContainer:(id)arg2 animated:(BOOL)arg3;
+- (void)navigateToRevealPhoto:(id)arg1 inAssetContainer:(id)arg2 animated:(_Bool)arg3;
+- (void)navigateToPhoto:(id)arg1 inAssetContainer:(id)arg2 animated:(_Bool)arg3;
 @end
 

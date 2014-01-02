@@ -6,24 +6,26 @@
 
 #import "UICollectionViewCell.h"
 
-@class NSString, SKUIClientContext, UIImageView, UILabel;
+@class NSString, SKUIClientContext, UIButton, UIControl, UIImageView, UILabel;
 
 @interface SKUISearchSpellCorrectedCell : UICollectionViewCell
 {
-    BOOL _autoCorrected;
+    _Bool _autoCorrected;
     SKUIClientContext *_clientContext;
     UIImageView *_imageView;
     UILabel *_label;
-    int _preAutoCorrectCount;
+    long long _preAutoCorrectCount;
     NSString *_searchTerm;
     NSString *_spellCorrectedTerm;
+    UIButton *_spellCorrectionButton;
 }
 
+@property(readonly, nonatomic) UIControl *spellCorrectionButton; // @synthesize spellCorrectionButton=_spellCorrectionButton;
 @property(copy, nonatomic) NSString *spellCorrectedTerm; // @synthesize spellCorrectedTerm=_spellCorrectedTerm;
 @property(copy, nonatomic) NSString *searchTerm; // @synthesize searchTerm=_searchTerm;
-@property(nonatomic) int preAutoCorrectCount; // @synthesize preAutoCorrectCount=_preAutoCorrectCount;
+@property(nonatomic) long long preAutoCorrectCount; // @synthesize preAutoCorrectCount=_preAutoCorrectCount;
 @property(retain, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
-@property(nonatomic) BOOL autoCorrected; // @synthesize autoCorrected=_autoCorrected;
+@property(nonatomic) _Bool autoCorrected; // @synthesize autoCorrected=_autoCorrected;
 - (void).cxx_destruct;
 - (void)_reloadLabel;
 - (void)layoutSubviews;

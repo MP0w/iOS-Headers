@@ -15,10 +15,10 @@
     NSObject<OS_dispatch_queue> *_workQueue;
     NSObject<OS_xpc_object> *_listener;
     NSMutableSet *_serviceConnections;
-    unsigned long _clientCount;
+    unsigned long long _clientCount;
 }
 
-@property(nonatomic) unsigned long clientCount; // @synthesize clientCount=_clientCount;
+@property(nonatomic) unsigned long long clientCount; // @synthesize clientCount=_clientCount;
 @property(retain, nonatomic) NSMutableSet *serviceConnections; // @synthesize serviceConnections=_serviceConnections;
 @property(retain, nonatomic) NSObject<OS_xpc_object> *listener; // @synthesize listener=_listener;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
@@ -28,7 +28,7 @@
 - (void)serviceConnectionDidDisconnect:(id)arg1;
 - (void)workQueueHandleIncomingConnection:(id)arg1;
 - (void)shutDownCompletionBlock:(id)arg1;
-- (void)_workQueueShutDownServiceConnections:(id)arg1 index:(unsigned int)arg2 completionBlock:(id)arg3;
+- (void)_workQueueShutDownServiceConnections:(id)arg1 index:(unsigned long long)arg2 completionBlock:(id)arg3;
 - (void)start;
 - (id)initWithServiceName:(id)arg1 queue:(id)arg2 delegate:(id)arg3;
 - (id)debugDescription;

@@ -14,17 +14,17 @@
 {
     _SBRemoteAlertHostViewController *_remoteAlertHostViewController;
     NSString *_impersonatedApplicationBundleID;
-    BOOL _activated;
-    BOOL _dismissWithHomeButton;
+    _Bool _activated;
+    _Bool _dismissWithHomeButton;
 }
 
 + (void)requestRemoteViewService:(id)arg1 options:(id)arg2 completion:(id)arg3;
-- (BOOL)isRemote;
-- (BOOL)matchesRemoteAlertService:(id)arg1 options:(id)arg2;
+- (_Bool)isRemote;
+- (_Bool)matchesRemoteAlertService:(id)arg1 options:(id)arg2;
 - (void)remoteAlertDidTerminateWithError:(id)arg1;
 - (void)_setImpersonatedApplicationBundleID:(id)arg1;
-- (void)_setDismissWithHomeButton:(BOOL)arg1;
-- (BOOL)handleMenuButtonTap;
+- (void)_setDismissWithHomeButton:(_Bool)arg1;
+- (_Bool)handleMenuButtonTap;
 - (void)deactivate;
 - (void)activate;
 - (id)_impersonatesApplicationWithBundleID;

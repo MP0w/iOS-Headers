@@ -12,28 +12,26 @@
 {
     NSMutableDictionary *_images;
     struct _opaque_pthread_mutex_t {
-        long __sig;
-        char __opaque[40];
+        long long __sig;
+        char __opaque[56];
     } _lock;
     id *_files;
     int _preferredScale;
     int _preferredDevice;
 }
 
-- (id)nameAtIndex:(unsigned int)arg1;
-- (id)imageAtIndex:(unsigned int)arg1;
-- (unsigned int)count;
+- (id)nameAtIndex:(unsigned long long)arg1;
+- (id)imageAtIndex:(unsigned long long)arg1;
+- (unsigned long long)count;
 - (id)imageNamed:(id)arg1 device:(int)arg2;
-- (id)imageNamed:(id)arg1 idiom:(int)arg2;
+- (id)imageNamed:(id)arg1 idiom:(long long)arg2;
 - (id)imageNamed:(id)arg1;
-- (void)cacheImage:(id)arg1 name:(id)arg2 index:(unsigned int)arg3;
-@property(nonatomic) int preferredIdiom;
-@property(nonatomic) float preferredScale;
+- (void)cacheImage:(id)arg1 name:(id)arg2 index:(unsigned long long)arg3;
+@property(nonatomic) long long preferredIdiom;
+@property(nonatomic) double preferredScale;
 - (void)dealloc;
 - (id)initWithBasePath:(id)arg1;
 - (id)initWithName:(id)arg1 inBundle:(id)arg2;
-- (void)enumerateImageInfoWithBlock:(id)arg1;
-- (id)imageNamed:(id)arg1 scale:(int)arg2 device:(int)arg3;
 
 @end
 

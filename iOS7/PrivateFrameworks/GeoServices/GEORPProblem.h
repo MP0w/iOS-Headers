@@ -6,40 +6,45 @@
 
 #import "PBCodable.h"
 
-@class GEORPProblemContext, GEORPProblemCorrections, NSString;
+#import "NSCopying-Protocol.h"
 
-@interface GEORPProblem : PBCodable
+@class GEORPProblemContext, GEORPProblemCorrections;
+
+@interface GEORPProblem : PBCodable <NSCopying>
 {
-    CDStruct_56d48c16 _userPaths;
-    NSString *_iCloudUserAuthToken;
-    NSString *_iCloudUserRecordID;
+    CDStruct_95bda58d _userPaths;
     GEORPProblemContext *_problemContext;
     GEORPProblemCorrections *_problemCorrections;
     int _problemType;
     unsigned int _protocolVersion;
+    struct {
+        unsigned int problemType:1;
+        unsigned int protocolVersion:1;
+    } _has;
 }
 
 @property(retain, nonatomic) GEORPProblemContext *problemContext; // @synthesize problemContext=_problemContext;
 @property(retain, nonatomic) GEORPProblemCorrections *problemCorrections; // @synthesize problemCorrections=_problemCorrections;
 @property(nonatomic) int problemType; // @synthesize problemType=_problemType;
-@property(retain, nonatomic) NSString *iCloudUserAuthToken; // @synthesize iCloudUserAuthToken=_iCloudUserAuthToken;
-@property(retain, nonatomic) NSString *iCloudUserRecordID; // @synthesize iCloudUserRecordID=_iCloudUserRecordID;
 @property(nonatomic) unsigned int protocolVersion; // @synthesize protocolVersion=_protocolVersion;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (void)setUserPaths:(int *)arg1 count:(unsigned int)arg2;
-- (int)userPathAtIndex:(unsigned int)arg1;
+@property(readonly, nonatomic) _Bool hasProblemContext;
+@property(readonly, nonatomic) _Bool hasProblemCorrections;
+@property(nonatomic) _Bool hasProblemType;
+- (void)setUserPaths:(int *)arg1 count:(unsigned long long)arg2;
+- (int)userPathAtIndex:(unsigned long long)arg1;
 - (void)addUserPath:(int)arg1;
 - (void)clearUserPaths;
 @property(readonly, nonatomic) int *userPaths;
-@property(readonly, nonatomic) unsigned int userPathsCount;
-@property(readonly, nonatomic) BOOL hasICloudUserAuthToken;
-@property(readonly, nonatomic) BOOL hasICloudUserRecordID;
+@property(readonly, nonatomic) unsigned long long userPathsCount;
+@property(nonatomic) _Bool hasProtocolVersion;
 - (void)dealloc;
 
 @end

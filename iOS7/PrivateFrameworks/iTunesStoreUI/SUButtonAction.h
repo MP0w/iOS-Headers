@@ -8,11 +8,11 @@
 
 @interface SUButtonAction : NSObject
 {
-    BOOL _activated;
+    _Bool _activated;
 }
 
-@property(readonly, nonatomic, getter=isActivated) BOOL activated; // @synthesize activated=_activated;
-- (void)_setActivated:(BOOL)arg1;
+@property(readonly, nonatomic, getter=isActivated) _Bool activated; // @synthesize activated=_activated;
+- (void)_setActivated:(_Bool)arg1;
 - (void)_buttonAction:(id)arg1;
 
 @end

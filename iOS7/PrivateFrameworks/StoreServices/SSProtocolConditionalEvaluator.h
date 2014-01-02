@@ -17,11 +17,11 @@
 + (void)setDefaultConditionalContext:(id)arg1;
 + (id)defaultConditionalContext;
 - (int)_logicalOperatorForString:(id)arg1;
-- (id)_dictionaryByEvaluatingWithForcedValue:(int)arg1;
-- (id)_dictionaryByEvaluatingDictionary:(id)arg1 withForcedValue:(int)arg2;
-- (id)_dictionaryByEvaluatingChildrenOfDictionary:(id)arg1 withForcedValue:(int)arg2;
-- (BOOL)_checkConditions:(id)arg1 withOperator:(id)arg2;
-- (id)_arrayByEvaluatingChildrenOfArray:(id)arg1 withForcedValue:(int)arg2;
+- (id)_dictionaryByEvaluatingWithForcedValue:(long long)arg1;
+- (id)_dictionaryByEvaluatingDictionary:(id)arg1 withForcedValue:(long long)arg2;
+- (id)_dictionaryByEvaluatingChildrenOfDictionary:(id)arg1 withForcedValue:(long long)arg2;
+- (_Bool)_checkConditions:(id)arg1 withOperator:(id)arg2;
+- (id)_arrayByEvaluatingChildrenOfArray:(id)arg1 withForcedValue:(long long)arg2;
 - (id)dictionaryByRemovingConditions;
 - (id)dictionaryByEvaluatingConditions;
 - (void)dealloc;

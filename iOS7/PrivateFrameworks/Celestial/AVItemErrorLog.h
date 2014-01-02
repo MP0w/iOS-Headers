@@ -16,7 +16,7 @@
 }
 
 @property(readonly, nonatomic) NSArray *events;
-- (unsigned int)extendedLogDataStringEncoding;
+- (unsigned long long)extendedLogDataStringEncoding;
 - (id)extendedLogData;
 - (void)dealloc;
 - (void)finalize;

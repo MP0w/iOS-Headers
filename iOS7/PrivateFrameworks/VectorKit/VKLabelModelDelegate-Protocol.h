@@ -6,6 +6,6 @@
 
 @protocol VKLabelModelDelegate
 - (void)labelModel:(id)arg1 selectedLabelMarkerWillDisappear:(id)arg2;
-- (id)labelModel:(id)arg1 mapTileForTile:(id)arg2 layer:(unsigned int)arg3;
+- (id)labelModel:(id)arg1 mapTileForTile:(id)arg2 layer:(unsigned long long)arg3;
 @end
 

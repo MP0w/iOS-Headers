@@ -16,7 +16,7 @@
     NSMutableArray *_pendingDismissalDictionaries;
     NSMutableArray *_pendingDismissalIDs;
     NSObject<OS_dispatch_queue> *_queue;
-    unsigned int _queuedFeed;
+    unsigned long long _queuedFeed;
     NSString *_queuedSectionID;
     NSMutableDictionary *_deferredDismissalsBySectionID;
     NSTimer *_deferredTimer;
@@ -29,13 +29,13 @@
 - (void)_deferredTimerFired:(id)arg1;
 - (void)_deviceLocked;
 - (void)_clearDeferredTimer;
-- (void)_addDeferredDismissalForBulletin:(id)arg1 feeds:(unsigned int)arg2;
+- (void)_addDeferredDismissalForBulletin:(id)arg1 feeds:(unsigned long long)arg2;
 - (id)_dismissalDictionaryForBulletin:(id)arg1;
 - (void)_sendSyncMessage:(id)arg1;
-- (void)_reallyEnqueueBulletin:(id)arg1 feeds:(unsigned int)arg2;
+- (void)_reallyEnqueueBulletin:(id)arg1 feeds:(unsigned long long)arg2;
 - (id)_syncAccount;
-- (void)sendSyncedRemovalForBulletin:(id)arg1 feeds:(unsigned int)arg2;
-- (void)enqueueSyncedRemovalForBulletin:(id)arg1 feeds:(unsigned int)arg2;
+- (void)sendSyncedRemovalForBulletin:(id)arg1 feeds:(unsigned long long)arg2;
+- (void)enqueueSyncedRemovalForBulletin:(id)arg1 feeds:(unsigned long long)arg2;
 - (void)sendPendingSyncedRemovals;
 - (void)service:(id)arg1 account:(id)arg2 incomingMessage:(id)arg3 fromID:(id)arg4;
 - (void)service:(id)arg1 activeAccountsChanged:(id)arg2;

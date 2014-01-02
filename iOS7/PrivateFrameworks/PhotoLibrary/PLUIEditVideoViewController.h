@@ -19,19 +19,19 @@
     id _delegate;
     Class _viewClass;
     unsigned int _canCreateMetadata;
-    BOOL _parentInPopoverException;
+    _Bool _parentInPopoverException;
 }
 
-@property(nonatomic) BOOL parentInPopoverException; // @synthesize parentInPopoverException=_parentInPopoverException;
+@property(nonatomic) _Bool parentInPopoverException; // @synthesize parentInPopoverException=_parentInPopoverException;
 - (void)videoViewPlaybackDidFail:(id)arg1;
-- (BOOL)videoViewCanCreateMetadata:(id)arg1;
-- (float)videoViewScrubberYOrigin:(id)arg1 forOrientation:(int)arg2;
+- (_Bool)videoViewCanCreateMetadata:(id)arg1;
+- (double)videoViewScrubberYOrigin:(id)arg1 forOrientation:(long long)arg2;
 - (void)_trimVideo:(id)arg1;
 - (struct CGRect)previewFrame;
 - (int)cropOverlayMode;
 - (void)_cancelTrim:(id)arg1;
 - (void)videoRemakerDidEndRemaking:(id)arg1 temporaryPath:(id)arg2;
-- (void)didChooseVideoAtPath:(id)arg1 options:(id)arg2;
+- (void)didChooseVideoAtURL:(id)arg1 options:(id)arg2;
 - (void)loadView;
 - (void)setViewClass:(Class)arg1;
 - (Class)_viewClass;
@@ -43,12 +43,12 @@
 - (void)setDelegate:(id)arg1;
 - (id)delegate;
 - (id)navigationItem;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
 - (id)initWithProperties:(id)arg1;
 - (id)initWithPhoto:(id)arg1 trimTitle:(id)arg2;
 - (void)_setupNavigationItemAndTrimTitle:(id)arg1;
-- (BOOL)_editingForThirdParty;
-- (BOOL)_displaysFullScreen;
+- (_Bool)_editingForThirdParty;
+- (_Bool)_displaysFullScreen;
 
 @end
 

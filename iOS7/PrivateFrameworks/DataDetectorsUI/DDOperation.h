@@ -10,39 +10,40 @@
 
 @class NSArray, NSDictionary;
 
+// Not exported
 @interface DDOperation : NSOperation <NSCopying>
 {
     id _container;
-    BOOL _needContinuation;
+    _Bool _needContinuation;
     int _generationNumber;
-    unsigned int _types;
+    unsigned long long _types;
     struct __DDScanQuery *_query;
     NSArray *_results;
-    BOOL _isCurrentlyUsingTheScanner;
-    BOOL _isDiscarded;
+    _Bool _isCurrentlyUsingTheScanner;
+    _Bool _isDiscarded;
     int _tryCount;
     int _containerNotReadyTryCount;
     NSDictionary *_context;
 }
 
-+ (BOOL)_needsFullScannerForDetectionTypes:(unsigned int)arg1;
-+ (struct __DDScanner *)_sharedScannerForTypes:(unsigned int)arg1;
++ (_Bool)_needsFullScannerForDetectionTypes:(unsigned long long)arg1;
++ (struct __DDScanner *)_sharedScannerForTypes:(unsigned long long)arg1;
 + (id)urlificationBlockForTypes:(SEL)arg1;
 @property(retain, nonatomic) NSDictionary *context; // @synthesize context=_context;
-@property BOOL isDiscarded; // @synthesize isDiscarded=_isDiscarded;
-@property(nonatomic) unsigned int detectionTypes; // @synthesize detectionTypes=_types;
+@property _Bool isDiscarded; // @synthesize isDiscarded=_isDiscarded;
+@property(nonatomic) unsigned long long detectionTypes; // @synthesize detectionTypes=_types;
 @property int tryCount; // @synthesize tryCount=_tryCount;
 @property int generationNumber; // @synthesize generationNumber=_generationNumber;
 @property(retain, nonatomic) NSArray *results; // @synthesize results=_results;
-@property BOOL needContinuation; // @synthesize needContinuation=_needContinuation;
+@property _Bool needContinuation; // @synthesize needContinuation=_needContinuation;
 @property(retain, nonatomic) id container; // @synthesize container=_container;
 - (void)dispatchScanQueryCreationWithCompletionBlock:(id)arg1;
 - (id)newOperationForContinuation;
 - (id)newOperationForStartingOver;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)needsToStartOver;
-- (BOOL)containerIsReady;
-- (BOOL)needsFullScanner;
+- (_Bool)needsToStartOver;
+- (_Bool)containerIsReady;
+- (_Bool)needsFullScanner;
 - (void)_setScanQuery:(struct __DDScanQuery *)arg1;
 - (void)cleanup;
 - (void)cancel;
@@ -51,12 +52,12 @@
 - (void)dealloc;
 - (id)initWithContainer:(id)arg1;
 - (struct __DDScanQuery *)scanQuery;
-- (BOOL)doURLificationOnDocument;
+- (_Bool)doURLificationOnDocument;
 - (int)_createScanQuery;
 - (struct __DDScanQuery *)_createScanQueryForBackend;
 - (void)_updateGenerationNumber;
-- (BOOL)_rangeValidForContainer;
-- (BOOL)_containerReadyForDetection;
+- (_Bool)_rangeValidForContainer;
+- (_Bool)_containerReadyForDetection;
 - (void)_applyContainerRestrictionsToTypes;
 
 @end

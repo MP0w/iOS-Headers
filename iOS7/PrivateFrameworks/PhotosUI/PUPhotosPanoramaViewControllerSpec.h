@@ -10,18 +10,16 @@
 {
 }
 
-- (struct CGSize)itemSizeForOrientation:(int)arg1;
+- (struct CGSize)itemSizeForOrientation:(long long)arg1;
 - (id)gridSpec;
 - (void)configureCollectionViewGridLayout:(id)arg1;
 - (id)photoBrowserSpec;
-- (BOOL)canDisplayEditButton;
-- (BOOL)wantsSpecialEmptyPlaceholderImageForLandscape;
-- (int)cellFillMode;
+- (long long)cellFillMode;
+- (int)fastThumbnailImageFormat;
 - (int)thumbnailImageFormat;
-- (float)globalFooterHeight;
-- (float)sectionHeaderHeight;
-- (unsigned int)supportedInterfaceOrientations;
-- (id)backgroundFixedImageForOrientation:(int)arg1;
+- (double)globalFooterHeight;
+- (double)sectionHeaderHeight;
+- (unsigned long long)supportedInterfaceOrientations;
 
 @end
 

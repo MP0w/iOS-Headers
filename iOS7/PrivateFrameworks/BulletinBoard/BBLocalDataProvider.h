@@ -14,8 +14,8 @@
     NSObject<OS_dispatch_queue> *_remoteQueue;
     id <BBDataProvider> _dataProvider;
     NSObject<OS_dispatch_source> *_watchdogTimer;
-    BOOL _unresponsive;
-    BOOL _invalidated;
+    _Bool _unresponsive;
+    _Bool _invalidated;
 }
 
 + (id)dataProviderWithDataProvider:(id)arg1 serverQueue:(id)arg2;
@@ -24,8 +24,8 @@
 - (void)deliverMessageWithName:(id)arg1 userInfo:(id)arg2;
 - (void)noteSectionInfoDidChange:(id)arg1;
 - (void)reloadIdentityWithCompletion:(id)arg1;
-- (BOOL)migrateSectionInfo:(id)arg1 oldSectionInfo:(id)arg2;
-- (BOOL)canPerformMigration;
+- (_Bool)migrateSectionInfo:(id)arg1 oldSectionInfo:(id)arg2;
+- (_Bool)canPerformMigration;
 - (void)attachmentAspectRatioForRecordID:(id)arg1 completion:(id)arg2;
 - (id)attachmentAspectRatioForRecordID:(id)arg1;
 - (void)attachmentPNGDataForRecordID:(id)arg1 sizeConstraints:(id)arg2 completion:(id)arg3;

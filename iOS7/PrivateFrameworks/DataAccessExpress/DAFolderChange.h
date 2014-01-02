@@ -17,13 +17,13 @@
     NSString *_parentFolderId;
     NSString *_displayName;
     int _dataclass;
-    BOOL _renameOnCollision;
+    _Bool _renameOnCollision;
     unsigned int _taskId;
     id <DAFolderChangeConsumer> _consumer;
 }
 
-+ (BOOL)supportsSecureCoding;
-@property BOOL renameOnCollision; // @synthesize renameOnCollision=_renameOnCollision;
++ (_Bool)supportsSecureCoding;
+@property _Bool renameOnCollision; // @synthesize renameOnCollision=_renameOnCollision;
 @property unsigned int taskId; // @synthesize taskId=_taskId;
 @property id <DAFolderChangeConsumer> consumer; // @synthesize consumer=_consumer;
 @property(readonly) int dataclass; // @synthesize dataclass=_dataclass;

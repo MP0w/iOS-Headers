@@ -16,7 +16,7 @@
 - (void)setPreferenceValue:(id)arg1 specifier:(id)arg2;
 - (id)getLocationDefaultsValueForKey:(id)arg1;
 - (void)setLocationDefaultsValue:(id)arg1 forKey:(id)arg2;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 
 @end
 

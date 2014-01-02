@@ -13,14 +13,14 @@
 
 + (struct CGRect)_actualBoundsForScreen:(id)arg1 withJailBehavior:(int)arg2;
 + (struct UIEdgeInsets)_jailInsetsForScreen:(id)arg1;
-- (BOOL)_isClippedByScreenJail;
-- (BOOL)_isConstrainedByScreenJail;
-- (void)setAlpha:(float)arg1;
+- (_Bool)_isClippedByScreenJail;
+- (_Bool)_isConstrainedByScreenJail;
+- (void)setAlpha:(double)arg1;
 - (void)setScreen:(id)arg1;
 @property(readonly, nonatomic) struct UIEdgeInsets jailInsets;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithScreen:(id)arg1 jailBehavior:(int)arg2;
-- (void)setAlphaAndObeyBecauseIAmTheWindowManager:(float)arg1;
+- (void)setAlphaAndObeyBecauseIAmTheWindowManager:(double)arg1;
 
 @end
 

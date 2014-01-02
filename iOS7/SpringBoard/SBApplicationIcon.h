@@ -21,7 +21,7 @@
 - (id)tags;
 - (id)getUnmaskedIconImage:(int)arg1;
 - (id)generateIconImage:(int)arg1;
-- (BOOL)canGenerateImageInBackgroundForFormat:(int)arg1;
+- (_Bool)canGenerateImageInBackgroundForFormat:(int)arg1;
 - (void)generateIconImageInBackground:(id)arg1;
 - (id)blockForGeneratingIconImageInBackgroundWithFormat:(SEL)arg1;
 - (id)_blockForGeneratingIconImageInBackgroundWithFormat:(SEL)arg1 complete:(int)arg2;

@@ -17,7 +17,7 @@
 - (id)imageForURL:(id)arg1 dataProvider:(id)arg2;
 - (void)addImage:(id)arg1 forURL:(id)arg2 dataProvider:(id)arg3;
 - (void)dealloc;
-- (id)initWithMaximumCapacity:(int)arg1;
+- (id)initWithMaximumCapacity:(long long)arg1;
 - (id)init;
 
 @end

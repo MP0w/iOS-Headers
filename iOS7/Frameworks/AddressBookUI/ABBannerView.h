@@ -20,7 +20,7 @@
 - (void)_updateLabel;
 - (void)setTitle:(id)arg1 value:(id)arg2;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

@@ -18,7 +18,7 @@
 - (void).cxx_destruct;
 - (void)dealloc;
 - (void)removeContextProvider:(id)arg1;
-- (BOOL)addContextProvider:(id)arg1;
+- (_Bool)addContextProvider:(id)arg1;
 - (void)_shutdownServer;
 - (id)_collateContexts;
 - (void)_collateContextsIntoArray:(id)arg1;

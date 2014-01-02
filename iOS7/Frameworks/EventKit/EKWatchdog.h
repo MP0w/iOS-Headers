@@ -8,6 +8,7 @@
 
 @class NSObject<OS_dispatch_source>, NSString;
 
+// Not exported
 @interface EKWatchdog : NSObject
 {
     double _timeout;

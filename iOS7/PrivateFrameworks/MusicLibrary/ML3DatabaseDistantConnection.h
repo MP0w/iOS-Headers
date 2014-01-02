@@ -11,6 +11,7 @@
 @interface ML3DatabaseDistantConnection : ML3DatabaseConnection
 {
     MLMediaLibraryService *_mediaLibraryService;
+    _Bool _connectionOpen;
     id <ML3DatabaseDistantConnectionDelegate> _distantDelegate;
     NSUUID *_currentTransactionID;
 }
@@ -18,26 +19,28 @@
 @property(readonly, nonatomic) NSUUID *currentTransactionID; // @synthesize currentTransactionID=_currentTransactionID;
 @property(nonatomic) __weak id <ML3DatabaseDistantConnectionDelegate> distantDelegate; // @synthesize distantDelegate=_distantDelegate;
 - (void).cxx_destruct;
-- (BOOL)_internalExecuteUpdate:(id)arg1 withParameters:(id)arg2 error:(id *)arg3;
+- (void)_serviceTerminatedTransactionNotification:(id)arg1;
+- (_Bool)_internalExecuteUpdate:(id)arg1 withParameters:(id)arg2 error:(id *)arg3;
 - (id)_internalExecuteQuery:(id)arg1 withParameters:(id)arg2 limitProperty:(id)arg3 limitValue:(long long)arg4;
-- (BOOL)_internalEndTransactionAndCommit:(BOOL)arg1;
-- (BOOL)_internalBeginTransactionWithBehaviorType:(unsigned int)arg1;
+- (_Bool)_internalEndTransactionAndCommit:(_Bool)arg1;
+- (_Bool)_internalBeginTransactionWithBehaviorType:(unsigned long long)arg1;
 - (int)_finalizeStatement:(id)arg1;
 - (int)checkpointDatabase;
-- (id)openBlobInTable:(id)arg1 column:(id)arg2 row:(long long)arg3 readOnly:(BOOL)arg4;
+- (id)openBlobInTable:(id)arg1 column:(id)arg2 row:(long long)arg3 readOnly:(_Bool)arg4;
 - (void *)moduleContextForModuleName:(id)arg1;
 - (void)setModuleContext:(void *)arg1 forModuleName:(id)arg2 contextReleaseBlock:(id)arg3;
-- (BOOL)registerModuleName:(id)arg1 moduleMethods:(const struct sqlite3_module *)arg2;
-- (BOOL)registerFunctionName:(id)arg1 argumentCount:(int)arg2 functionPointer:(void *)arg3 userData:(void *)arg4;
-- (BOOL)registerFunctionName:(id)arg1 argumentCount:(int)arg2 block:(id)arg3;
-- (BOOL)close;
-- (BOOL)openWithFlags:(int)arg1;
+- (_Bool)registerModuleName:(id)arg1 moduleMethods:(const struct sqlite3_module *)arg2;
+- (_Bool)registerFunctionName:(id)arg1 argumentCount:(int)arg2 functionPointer:(void *)arg3 userData:(void *)arg4;
+- (_Bool)registerFunctionName:(id)arg1 argumentCount:(int)arg2 block:(id)arg3;
+- (_Bool)close;
+- (_Bool)_openWithFlags:(int)arg1 isRetry:(_Bool)arg2;
 - (void)setProfilingLevel:(int)arg1;
-- (void)setReadOnly:(BOOL)arg1;
-- (BOOL)isReadOnly;
-- (BOOL)isOpen;
-- (BOOL)shouldCacheStatements;
+- (void)setReadOnly:(_Bool)arg1;
+- (_Bool)isReadOnly;
+- (_Bool)isOpen;
+- (_Bool)shouldCacheStatements;
 - (struct sqlite3 *)_sqliteHandle;
+- (void)dealloc;
 - (id)initWithDatabasePath:(id)arg1;
 
 @end

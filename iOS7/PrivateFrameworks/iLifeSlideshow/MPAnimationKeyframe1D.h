@@ -8,18 +8,17 @@
 
 @interface MPAnimationKeyframe1D : MPAnimationKeyframe
 {
-    float _scalar;
+    double _scalar;
 }
 
-+ (id)keyframe1DWithScalar:(float)arg1 atTime:(double)arg2 offsetType:(unsigned int)arg3;
-+ (id)keyframe1DWithScalar:(float)arg1 atTime:(double)arg2;
-@property(nonatomic) float scalar; // @synthesize scalar=_scalar;
++ (id)keyframe1DWithScalar:(double)arg1 atTime:(double)arg2 offsetType:(unsigned long long)arg3;
++ (id)keyframe1DWithScalar:(double)arg1 atTime:(double)arg2;
+@property(nonatomic) double scalar; // @synthesize scalar=_scalar;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (id)initKeyframe1DWithScalar:(float)arg1 atTime:(double)arg2 offsetType:(unsigned int)arg3;
-- (id)keyframe;
+- (id)initKeyframe1DWithScalar:(double)arg1 atTime:(double)arg2 offsetType:(unsigned long long)arg3;
 
 @end
 

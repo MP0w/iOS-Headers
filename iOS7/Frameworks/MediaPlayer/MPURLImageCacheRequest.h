@@ -11,10 +11,10 @@
 @interface MPURLImageCacheRequest : MPImageCacheRequest
 {
     NSURL *_url;
-    BOOL _usePlaceholderAsFallback;
+    _Bool _usePlaceholderAsFallback;
 }
 
-@property(nonatomic) BOOL usePlaceholderAsFallback; // @synthesize usePlaceholderAsFallback=_usePlaceholderAsFallback;
+@property(nonatomic) _Bool usePlaceholderAsFallback; // @synthesize usePlaceholderAsFallback=_usePlaceholderAsFallback;
 - (void).cxx_destruct;
 - (id)uniqueKey;
 - (id)placeholderImage;

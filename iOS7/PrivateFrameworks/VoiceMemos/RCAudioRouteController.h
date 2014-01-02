@@ -6,30 +6,35 @@
 
 #import "NSObject.h"
 
-@class MPAudioDeviceController;
+@class MPAudioDeviceController, NSDictionary;
 
 @interface RCAudioRouteController : NSObject
 {
-    BOOL _expectsFaceContactWhenHandsetSelected;
-    unsigned int _availableRoutesMask;
+    long long _reportRealRouteSettingDisabledCount;
+    _Bool _defaultSettingsApplied;
+    _Bool _expectsFaceContactWhenHandsetSelected;
+    unsigned long long _availableRoutesMask;
     MPAudioDeviceController *_audioDeviceController;
+    NSDictionary *_lastPickedRouteDescription;
 }
 
 + (id)sharedRouteController;
+@property(retain, nonatomic) NSDictionary *lastPickedRouteDescription; // @synthesize lastPickedRouteDescription=_lastPickedRouteDescription;
 @property(retain, nonatomic) MPAudioDeviceController *audioDeviceController; // @synthesize audioDeviceController=_audioDeviceController;
-@property(nonatomic) BOOL expectsFaceContactWhenHandsetSelected; // @synthesize expectsFaceContactWhenHandsetSelected=_expectsFaceContactWhenHandsetSelected;
+@property(nonatomic) _Bool expectsFaceContactWhenHandsetSelected; // @synthesize expectsFaceContactWhenHandsetSelected=_expectsFaceContactWhenHandsetSelected;
 - (void).cxx_destruct;
 - (void)_updateProximitySetting;
 - (void)_updateSpeakerRouteDefault;
 - (void)_applySpeakerRouteDefault;
 - (void)_createAudioController;
-- (unsigned int)_updatedCachedRouteMask;
-- (unsigned int)_availableRoutesMask;
+- (unsigned long long)_updatedCachedRouteMask;
+- (unsigned long long)_availableRoutesMask;
 - (void)audioDeviceControllerMediaServerDied:(id)arg1;
 - (void)audioDeviceControllerAudioRoutesChanged:(id)arg1;
 - (void)applyDefaultSettings;
-@property(readonly, nonatomic) unsigned int availableRoutesMask; // @synthesize availableRoutesMask=_availableRoutesMask;
-@property(readonly, nonatomic) BOOL speakerRouteIsPicked;
+@property(readonly, nonatomic) unsigned long long availableRoutesMask; // @synthesize availableRoutesMask=_availableRoutesMask;
+@property(readonly, nonatomic) _Bool wirelessRouteIsPicked;
+@property(readonly, nonatomic) _Bool speakerRouteIsPicked;
 - (void)toggleSpeaker;
 - (void)showAvailableRoutes;
 - (void)dealloc;

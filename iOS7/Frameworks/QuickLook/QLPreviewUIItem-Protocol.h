@@ -9,8 +9,9 @@
 @class UIImage;
 
 @protocol QLPreviewUIItem <QLPreviewItem>
-@property(readonly) int previewItemIndex;
-@property(readonly) int level;
+@property(readonly) _Bool isFolder;
+@property(readonly) long long previewItemIndex;
+@property(readonly) long long level;
 @property(readonly) UIImage *icon;
 - (void)cancelIconUpdate;
 - (void)updateIconWithSize:(struct CGSize)arg1 completionBlock:(id)arg2;

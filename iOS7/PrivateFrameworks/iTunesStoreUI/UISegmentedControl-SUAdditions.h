@@ -7,6 +7,6 @@
 #import "UISegmentedControl.h"
 
 @interface UISegmentedControl (SUAdditions)
-- (void)sizeToFitWithMinimumSegmentWidth:(float)arg1 maximumTotalWidth:(float)arg2;
+- (void)sizeToFitWithMinimumSegmentWidth:(double)arg1 maximumTotalWidth:(double)arg2;
 @end
 

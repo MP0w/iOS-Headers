@@ -7,7 +7,7 @@
 #import "NSString.h"
 
 @interface NSString (RecipientUtilities)
-+ (id)mf_commaSeparatedRecipientListWithRecipientCount:(unsigned int)arg1 prefixForRecipientAtIndex:(id)arg2 stringForRecipientAtIndex:(void)arg3 lengthValidationBlock:(id)arg4;
++ (id)mf_commaSeparatedRecipientListWithRecipientCount:(unsigned long long)arg1 prefixForRecipientAtIndex:(id)arg2 stringForRecipientAtIndex:(void)arg3 lengthValidationBlock:(id)arg4;
 - (id)mf_copyDisplayableAddressComment;
 @end
 

@@ -10,9 +10,8 @@
 {
 }
 
-- (unsigned int)supportedInterfaceOrientations;
-- (BOOL)shouldAutorotate;
-- (BOOL)wantsFullScreenLayout;
+- (unsigned long long)supportedInterfaceOrientations;
+- (_Bool)shouldAutorotate;
 
 @end
 

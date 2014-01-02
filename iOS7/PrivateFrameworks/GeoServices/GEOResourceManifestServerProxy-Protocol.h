@@ -11,6 +11,7 @@
 - (oneway void)forceUpdate;
 - (oneway void)resetActiveTileGroup;
 - (oneway void)setActiveTileGroupIdentifier:(id)arg1;
+- (void)setManifestToken:(id)arg1 completionHandler:(id)arg2;
 - (id)authToken;
 - (void)closeConnection;
 - (void)openConnection;

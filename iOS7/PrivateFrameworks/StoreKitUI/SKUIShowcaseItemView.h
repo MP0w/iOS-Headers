@@ -10,6 +10,7 @@
 
 @interface SKUIShowcaseItemView : UIView
 {
+    UIView *_bottomBorderView;
     SKUIShowcaseButton *_button;
     UIImage *_image;
     UIImageView *_reflectionImageView;
@@ -20,7 +21,7 @@
 - (void).cxx_destruct;
 - (void)setAccessibilityLabel:(id)arg1;
 - (void)layoutSubviews;
-@property(nonatomic) BOOL showsReflection;
+@property(nonatomic) _Bool showsReflection;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

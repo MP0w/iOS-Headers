@@ -6,6 +6,7 @@
 
 #import "NSData.h"
 
+// Not exported
 @interface NSSubrangeData : NSData
 {
     unsigned int _reserved:3;
@@ -18,11 +19,11 @@
 - (id)initWithData:(id)arg1 range:(struct _NSRange)arg2;
 - (id)init;
 - (void)getBytes:(void *)arg1 range:(struct _NSRange)arg2;
-- (void)getBytes:(void *)arg1 length:(unsigned int)arg2;
+- (void)getBytes:(void *)arg1 length:(unsigned long long)arg2;
 - (void)getBytes:(void *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (const void *)bytes;
-- (unsigned int)length;
+- (unsigned long long)length;
 
 @end
 

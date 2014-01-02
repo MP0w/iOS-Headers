@@ -13,12 +13,8 @@
 + (void)scheduleEmptyDatabaseRemoval;
 + (void)removeEmptyDatabaseFiles;
 + (id)sharedWebDatabaseManager;
-+ (void)endBackgroundTask;
-+ (void)startBackgroundTask;
-+ (void)didFinishLastTransaction;
-+ (void)willBeginFirstTransaction;
-- (BOOL)deleteDatabase:(id)arg1 withOrigin:(id)arg2;
-- (BOOL)deleteOrigin:(id)arg1;
+- (_Bool)deleteDatabase:(id)arg1 withOrigin:(id)arg2;
+- (_Bool)deleteOrigin:(id)arg1;
 - (void)deleteAllDatabases;
 - (id)detailsForDatabase:(id)arg1 withOrigin:(id)arg2;
 - (id)databasesWithOrigin:(id)arg1;

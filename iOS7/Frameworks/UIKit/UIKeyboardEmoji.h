@@ -8,19 +8,20 @@
 
 @class NSString;
 
+// Not exported
 @interface UIKeyboardEmoji : NSObject
 {
     NSString *_emojiString;
-    BOOL _hasDingbat;
+    _Bool _hasDingbat;
 }
 
-+ (id)emojiWithString:(id)arg1 hasDingbat:(BOOL)arg2;
-@property BOOL hasDingbat; // @synthesize hasDingbat=_hasDingbat;
++ (id)emojiWithString:(id)arg1 hasDingbat:(_Bool)arg2;
+@property _Bool hasDingbat; // @synthesize hasDingbat=_hasDingbat;
 @property(retain, nonatomic) NSString *emojiString; // @synthesize emojiString=_emojiString;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)key;
 - (void)dealloc;
-- (id)initWithString:(id)arg1 hasDingbat:(BOOL)arg2;
+- (id)initWithString:(id)arg1 hasDingbat:(_Bool)arg2;
 
 @end
 

@@ -9,8 +9,8 @@
 #pragma mark Named Structures
 
 struct CGPoint {
-    float x;
-    float y;
+    double x;
+    double y;
 };
 
 struct CGRect {
@@ -19,8 +19,13 @@ struct CGRect {
 };
 
 struct CGSize {
-    float width;
-    float height;
+    double width;
+    double height;
+};
+
+struct CGVector {
+    double dx;
+    double dy;
 };
 
 struct PKContactListener {
@@ -519,5 +524,6 @@ struct b2World {
     _Bool _field15;
     _Bool _field16;
     _Bool _field17;
+    float _field18;
 };
 

@@ -29,7 +29,7 @@
 @property(copy, nonatomic) NSString *emailAddress;
 @property(copy, nonatomic) NSString *displayName;
 @property(readonly, nonatomic) NSString *UUID;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (int)entityType;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithName:(id)arg1 emailAddress:(id)arg2 externalID:(id)arg3;

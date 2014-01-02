@@ -13,7 +13,7 @@
 {
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)keyBehaviorsForState:(id)arg1;
 - (id)initWithCoder:(id)arg1;

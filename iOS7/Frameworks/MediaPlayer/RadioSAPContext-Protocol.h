@@ -7,7 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol RadioSAPContext <NSObject>
-- (BOOL)verifyData:(id)arg1 withSignature:(id)arg2 error:(id *)arg3;
+- (_Bool)verifyData:(id)arg1 withSignature:(id)arg2 error:(id *)arg3;
 - (id)signatureWithData:(id)arg1 error:(id *)arg2;
 @end
 

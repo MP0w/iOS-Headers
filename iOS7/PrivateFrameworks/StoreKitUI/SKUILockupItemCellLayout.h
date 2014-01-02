@@ -6,47 +6,46 @@
 
 #import <StoreKitUI/SKUIItemCellLayout.h>
 
-@class NSString, UIColor, UIImageView, UILabel;
+@class NSString, SKUILockupMetadataView;
 
 @interface SKUILockupItemCellLayout : SKUIItemCellLayout
 {
-    UILabel *_categoryLabel;
     struct UIEdgeInsets _contentInsets;
     struct CGSize _imageBoundingSize;
-    int _layoutStyle;
-    int _lockupSize;
-    int _numberOfUserRatings;
-    UIColor *_textColor;
-    UIColor *_titleColor;
-    UILabel *_titleLabel;
-    float _userRating;
-    UIImageView *_userRatingImageView;
-    UILabel *_userRatingLabel;
+    long long _layoutStyle;
+    long long _lockupSize;
+    SKUILockupMetadataView *_metadataView;
+    long long _verticalAlignment;
 }
 
-@property(nonatomic) float userRating; // @synthesize userRating=_userRating;
-@property(nonatomic) int numberOfUserRatings; // @synthesize numberOfUserRatings=_numberOfUserRatings;
-@property(nonatomic) int lockupSize; // @synthesize lockupSize=_lockupSize;
-@property(nonatomic) int layoutStyle; // @synthesize layoutStyle=_layoutStyle;
++ (double)heightForLockupStyle:(struct SKUILockupStyle)arg1 itemKind:(long long)arg2 editorial:(id)arg3;
++ (double)heightForLockupComponent:(id)arg1;
+@property(nonatomic) long long verticalAlignment; // @synthesize verticalAlignment=_verticalAlignment;
+@property(nonatomic) long long lockupSize; // @synthesize lockupSize=_lockupSize;
+@property(nonatomic) long long layoutStyle; // @synthesize layoutStyle=_layoutStyle;
 @property(nonatomic) struct CGSize imageBoundingSize; // @synthesize imageBoundingSize=_imageBoundingSize;
 @property(nonatomic) struct UIEdgeInsets contentInsets; // @synthesize contentInsets=_contentInsets;
 - (void).cxx_destruct;
-- (void)_reloadUserRatingViews;
 - (void)_layoutVertical;
-- (struct CGRect)_layoutLabelsInRect:(struct CGRect)arg1;
 - (struct CGRect)_layoutIconImageView;
 - (void)_layoutHorizontal;
-- (void)_initSKUILockupItemCellLayout;
+- (_Bool)_isItemOfferButtonHidden;
 - (void)setIconImage:(id)arg1;
 - (void)setBackgroundColor:(id)arg1;
 - (void)layoutSubviews;
 - (void)layoutForItemOfferChange;
+@property(nonatomic) unsigned long long visibleFields;
+@property(nonatomic) float userRating;
 @property(copy, nonatomic) NSString *title;
+@property(copy, nonatomic) NSString *releaseDateString;
+@property(nonatomic) long long numberOfUserRatings;
 - (void)setColoringWithColorScheme:(id)arg1;
 @property(copy, nonatomic) NSString *categoryString;
+@property(copy, nonatomic) NSString *artistName;
 - (id)initWithTableViewCell:(id)arg1;
 - (id)initWithParentView:(id)arg1;
 - (id)initWithCollectionViewCell:(id)arg1;
+- (void)_initSKUILockupItemCellLayout;
 
 @end
 

@@ -8,7 +8,7 @@
 
 @interface IMNetworkReachability : NSObject
 {
-    BOOL localWiFiRef;
+    _Bool localWiFiRef;
     struct __SCNetworkReachability *reachabilityRef;
 }
 
@@ -16,9 +16,9 @@
 + (id)reachabilityForInternetConnection;
 + (id)reachabilityWithAddress:(const struct sockaddr_in *)arg1;
 + (id)reachabilityWithHostName:(id)arg1;
-- (int)currentReachabilityStatus;
-- (int)networkStatusForFlags:(unsigned int)arg1;
-- (int)localWiFiStatusForFlags:(unsigned int)arg1;
+- (long long)currentReachabilityStatus;
+- (long long)networkStatusForFlags:(unsigned int)arg1;
+- (long long)localWiFiStatusForFlags:(unsigned int)arg1;
 - (void)dealloc;
 
 @end

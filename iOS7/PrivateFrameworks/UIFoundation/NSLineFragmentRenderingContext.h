@@ -8,17 +8,18 @@
 
 @class CUICatalog, CUIStyleEffectConfiguration;
 
+// Not exported
 @interface NSLineFragmentRenderingContext : NSObject
 {
     void *_runs;
-    long _numRuns;
+    long long _numRuns;
     unsigned short *_glyphs;
     struct CGSize *_advancements;
-    float _leftSideDelta;
-    float _lineWidth;
-    float _leftControlWidth;
-    float _rightControlWidth;
-    float _elasticWidth;
+    double _leftSideDelta;
+    double _lineWidth;
+    double _leftControlWidth;
+    double _rightControlWidth;
+    double _elasticWidth;
     struct CGRect _imageBounds;
     struct {
         unsigned int _isRTL:1;
@@ -36,19 +37,19 @@
 @property(retain, nonatomic) CUIStyleEffectConfiguration *cuiStyleEffects; // @synthesize cuiStyleEffects=_styleEffects;
 @property(retain, nonatomic) CUICatalog *cuiCatalog; // @synthesize cuiCatalog=_catalog;
 - (struct CGRect)imageBounds;
-- (BOOL)isRTL;
-- (float)elasticWidth;
-- (float)lineFragmentWidth;
-- (void)getMaximumAscender:(float *)arg1 minimumDescender:(float *)arg2;
-- (struct CGSize)sizeWithBehavior:(int)arg1 usesFontLeading:(BOOL)arg2 baselineDelta:(float *)arg3;
+- (_Bool)isRTL;
+- (double)elasticWidth;
+- (double)lineFragmentWidth;
+- (void)getMaximumAscender:(double *)arg1 minimumDescender:(double *)arg2;
+- (struct CGSize)sizeWithBehavior:(long long)arg1 usesFontLeading:(_Bool)arg2 baselineDelta:(double *)arg3;
 - (void)drawAtPoint:(struct CGPoint)arg1 inContext:(struct CGContext *)arg2;
-@property(nonatomic, getter=_usesSimpleTextEffects, setter=_setUsesSimpleTextEffects:) BOOL usesSimpleTextEffects;
+@property(nonatomic, getter=_usesSimpleTextEffects, setter=_setUsesSimpleTextEffects:) _Bool usesSimpleTextEffects;
 - (void)finalize;
 - (void)dealloc;
-- (id)initWithRuns:(struct __CFArray *)arg1 glyphOrigin:(float)arg2 lineFragmentWidth:(float)arg3 elasticWidth:(float)arg4 usesScreenFonts:(BOOL)arg5 isRTL:(BOOL)arg6;
+- (id)initWithRuns:(struct __CFArray *)arg1 glyphOrigin:(double)arg2 lineFragmentWidth:(double)arg3 elasticWidth:(double)arg4 usesScreenFonts:(_Bool)arg5 isRTL:(_Bool)arg6;
 - (oneway void)release;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
+- (_Bool)_isDeallocating;
+- (_Bool)_tryRetain;
 
 @end
 

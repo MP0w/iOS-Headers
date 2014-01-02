@@ -6,6 +6,7 @@
 
 #import <OfficeImport/OADShapeProperties.h>
 
+// Not exported
 @interface OADLineProperties : OADShapeProperties
 {
 }

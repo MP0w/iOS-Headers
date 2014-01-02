@@ -18,10 +18,10 @@
 + (id)allSources;
 + (id)_setOfAllSources;
 - (void)removeAttachmentForURL:(id)arg1;
-- (BOOL)setAttachment:(id)arg1 forURL:(id)arg2;
-- (id)attachmentForURL:(id)arg1 includeRemoved:(BOOL)arg2;
+- (_Bool)setAttachment:(id)arg1 forURL:(id)arg2;
+- (id)attachmentForURL:(id)arg1 includeRemoved:(_Bool)arg2;
 - (id)attachmentForURL:(id)arg1;
-@property BOOL keepRemovedAttachments;
+@property _Bool keepRemovedAttachments;
 - (void)dealloc;
 - (id)description;
 - (id)init;

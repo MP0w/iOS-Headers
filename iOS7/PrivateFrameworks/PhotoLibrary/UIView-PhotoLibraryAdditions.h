@@ -8,8 +8,9 @@
 
 @interface UIView (PhotoLibraryAdditions)
 + (double)pl_setHiddenAnimationDuration;
-- (void)pl_setHidden:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)pl_drawBorderWithColor:(id)arg1 width:(float)arg2;
-- (BOOL)pl_isOnScreen:(id)arg1;
+- (void)pl_setHidden:(_Bool)arg1 delay:(double)arg2 animated:(_Bool)arg3;
+- (void)pl_setHidden:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)pl_drawBorderWithColor:(id)arg1 width:(double)arg2;
+- (_Bool)pl_isOnScreen:(id)arg1;
 @end
 

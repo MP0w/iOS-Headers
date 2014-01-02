@@ -8,6 +8,7 @@
 
 #import "NSCopying-Protocol.h"
 
+// Not exported
 @interface EDReference : NSObject <NSCopying>
 {
     struct EDAreaReference mAreaReference;
@@ -30,20 +31,13 @@
 - (int)firstColumn;
 - (int)firstRow;
 - (struct EDAreaReference)areaReference;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isEqualToReference:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)isEqualToReference:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithAreaReference:(struct EDAreaReference *)arg1;
 - (id)initWithFirstRow:(int)arg1 lastRow:(int)arg2 firstColumn:(int)arg3 lastColumn:(int)arg4;
 - (id)init;
-- (void)unionWithRow:(int)arg1 column:(int)arg2;
-- (void)unionWithFirstRow:(int)arg1 lastRow:(int)arg2 firstColumn:(int)arg3 lastColumn:(int)arg4;
-- (void)unionWithReference:(id)arg1;
-- (void)setLastColumn:(int)arg1;
-- (void)setLastRow:(int)arg1;
-- (void)setFirstColumn:(int)arg1;
-- (void)setFirstRow:(int)arg1;
 
 @end
 

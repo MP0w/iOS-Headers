@@ -21,7 +21,7 @@
 - (void)dealloc;
 - (id)initReadOnly;
 - (id)init;
-- (id)_initReadOnly:(BOOL)arg1;
+- (id)_initReadOnly:(_Bool)arg1;
 
 @end
 

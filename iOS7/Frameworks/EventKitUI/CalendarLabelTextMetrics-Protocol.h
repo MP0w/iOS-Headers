@@ -10,9 +10,9 @@
 @property(copy, nonatomic) NSString *text;
 @property(retain, nonatomic) UIColor *textColor;
 @property(retain, nonatomic) UIFont *font;
-@property(nonatomic) int textAlignment;
-@property(nonatomic) int lineBreakMode;
-@property(nonatomic) int numberOfLines;
-- (struct CGRect)textRectForBounds:(struct CGRect)arg1 limitedToNumberOfLines:(int)arg2;
+@property(nonatomic) long long textAlignment;
+@property(nonatomic) long long lineBreakMode;
+@property(nonatomic) long long numberOfLines;
+- (struct CGRect)textRectForBounds:(struct CGRect)arg1 limitedToNumberOfLines:(long long)arg2;
 @end
 

@@ -8,6 +8,7 @@
 
 @class NSMutableDictionary, OAVState, OAXDrawingState, OAXTableStyleCache, PDPresentation;
 
+// Not exported
 @interface PXPresentationState : NSObject
 {
     NSMutableDictionary *mModelObjects;
@@ -20,11 +21,11 @@
 }
 
 @property(retain, nonatomic) id <OCCancelDelegate> cancelDelegate; // @synthesize cancelDelegate=mCancel;
-- (BOOL)isCancelled;
+- (_Bool)isCancelled;
 - (void)setTgtPresentation:(id)arg1;
 - (id)tgtPresentation;
-- (void)setSlideIndex:(int)arg1 forSlideURL:(id)arg2;
-- (int)slideIndexForSlideURL:(id)arg1;
+- (void)setSlideIndex:(long long)arg1 forSlideURL:(id)arg2;
+- (long long)slideIndexForSlideURL:(id)arg1;
 - (id)tableStyleCache;
 - (void)resetOfficeArtState;
 - (id)officeArtState;

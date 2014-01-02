@@ -6,11 +6,12 @@
 
 #import "UIView.h"
 
-@class _UIBackdropView;
+@class SBWallpaperEffectView, _UIBackdropView;
 
 @interface SBSearchResultsBackdropView : UIView
 {
     _UIBackdropView *_backdropView;
+    SBWallpaperEffectView *_effectView;
     UIView *_tintView;
 }
 

@@ -5,14 +5,14 @@
  */
 
 @protocol UIPickerTableViewContainerDelegate
-- (void)setAllowsMultipleSelection:(BOOL)arg1;
-- (BOOL)_usesCheckSelection;
-- (BOOL)_soundsEnabled;
+- (void)setAllowsMultipleSelection:(_Bool)arg1;
+- (_Bool)_usesCheckSelection;
+- (_Bool)_soundsEnabled;
 - (void)_sendSelectionChangedFromTable:(id)arg1;
-- (void)_sendCheckedRow:(int)arg1 inTableView:(id)arg2 checked:(BOOL)arg3;
+- (void)_sendCheckedRow:(long long)arg1 inTableView:(id)arg2 checked:(_Bool)arg3;
 
 @optional
-- (void)pickerTableView:(id)arg1 didChangeSelectionBarRowFrom:(int)arg2 to:(int)arg3;
+- (void)pickerTableView:(id)arg1 didChangeSelectionBarRowFrom:(long long)arg2 to:(long long)arg3;
 - (void)_pickerTableViewDidChangeContentOffset:(id)arg1;
 @end
 

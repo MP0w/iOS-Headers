@@ -6,6 +6,7 @@
 
 #import <VectorKit/VKDrawStyle.h>
 
+// Not exported
 @interface VKSkyDrawStyle : VKDrawStyle
 {
     struct _VGLColor _fillColor;
@@ -16,7 +17,7 @@
 @property(readonly, nonatomic) struct _VGLColor horizonColor;
 @property(readonly, nonatomic) struct _VGLColor fillColor;
 - (void)takeFromZoomInvariantProperties:(id)arg1;
-- (void)takeFromStyleProperties:(id)arg1 atZoom:(unsigned int)arg2 globals:(id)arg3;
+- (void)takeFromStyleProperties:(id)arg1 atZoom:(unsigned long long)arg2 globals:(id)arg3;
 - (id)variant;
 
 @end

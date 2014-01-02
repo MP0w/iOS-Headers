@@ -7,6 +7,6 @@
 #import "NSString.h"
 
 @interface NSString (SUS)
-- (int)compareNumerically:(id)arg1;
+- (long long)compareNumerically:(id)arg1;
 @end
 

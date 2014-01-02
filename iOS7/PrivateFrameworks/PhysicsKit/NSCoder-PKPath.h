@@ -9,9 +9,11 @@
 @interface NSCoder (PKPath)
 - (struct CGRect)decodeCGRectForKey:(id)arg1;
 - (struct CGSize)decodeCGSizeForKey:(id)arg1;
+- (struct CGVector)decodeCGVectorForKey:(id)arg1;
 - (struct CGPoint)decodeCGPointForKey:(id)arg1;
 - (void)encodeCGRect:(struct CGRect)arg1 forKey:(id)arg2;
 - (void)encodeCGSize:(struct CGSize)arg1 forKey:(id)arg2;
+- (void)encodeCGVector:(struct CGVector)arg1 forKey:(id)arg2;
 - (void)encodeCGPoint:(struct CGPoint)arg1 forKey:(id)arg2;
 @end
 

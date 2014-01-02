@@ -8,6 +8,7 @@
 
 @class NSMutableDictionary, NSObject<OS_dispatch_queue>;
 
+// Not exported
 @interface VGLLayeredTextureOutputManager : NSObject
 {
     NSObject<OS_dispatch_queue> *_textureQueue;
@@ -16,7 +17,7 @@
 
 + (id)sharedManager;
 - (void)purge;
-- (id)textureWithName:(id)arg1 style:(id)arg2 levelOfDetail:(unsigned int)arg3 scale:(float)arg4;
+- (id)textureWithName:(id)arg1 style:(id)arg2 levelOfDetail:(unsigned long long)arg3 scale:(double)arg4;
 - (void)dealloc;
 - (id)init;
 

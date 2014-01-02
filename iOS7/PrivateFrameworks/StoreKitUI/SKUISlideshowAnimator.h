@@ -6,18 +6,18 @@
 
 #import "NSObject.h"
 
-#import "UIViewControllerAnimatedTransitioning-Protocol.h"
+#import "UIViewControllerAnimatorTransitioning-Protocol.h"
 
 @class UIImageView;
 
-@interface SKUISlideshowAnimator : NSObject <UIViewControllerAnimatedTransitioning>
+@interface SKUISlideshowAnimator : NSObject <UIViewControllerAnimatorTransitioning>
 {
     UIImageView *_imageView;
 }
 
 @property(retain, nonatomic) UIImageView *imageView; // @synthesize imageView=_imageView;
 - (void).cxx_destruct;
-- (void)animationEnded:(BOOL)arg1;
+- (void)animationEnded:(_Bool)arg1;
 - (void)animateTransition:(id)arg1;
 - (double)transitionDuration:(id)arg1;
 

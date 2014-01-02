@@ -6,24 +6,10 @@
 
 #import <OfficeImport/PDTimeNode.h>
 
-@class NSString, PDAnimationTarget;
-
+// Not exported
 @interface PDSequentialTimeNode : PDTimeNode
 {
 }
-
-+ (id)newSequentialTimeNodeGroupForAnimationInfo;
-@property(retain, nonatomic) NSString *groupId;
-@property(nonatomic) double direction;
-@property(nonatomic) double delay;
-@property(nonatomic) int iterateType;
-@property(nonatomic) int triggerType;
-@property(nonatomic) int presetId;
-@property(nonatomic) int presetClass;
-@property(retain, nonatomic) PDAnimationTarget *target;
-- (id)level3SetBehavior;
-- (id)level2ParallelTimeNodeGroup;
-- (id)level1ParallelTimeNodeGroup;
 
 @end
 

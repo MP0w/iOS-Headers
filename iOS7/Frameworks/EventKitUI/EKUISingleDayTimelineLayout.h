@@ -11,7 +11,7 @@
 @interface EKUISingleDayTimelineLayout : NSObject
 {
     NSArray *_occurrences;
-    unsigned int _currentOccurrenceIndex;
+    unsigned long long _currentOccurrenceIndex;
     EKDayViewContentItem *_currentOccurrence;
     NSMutableArray *_partitions;
     NSMutableArray *_occurrenceBuckets;
@@ -25,12 +25,12 @@
 }
 
 - (void).cxx_destruct;
-- (float)_combinedWidthOfPartitions;
+- (double)_combinedWidthOfPartitions;
 - (double)_effectiveEndTimeForOccurrence:(id)arg1;
 - (double)_adjustedEndTimeForOccurrence:(id)arg1;
 - (double)_adjustedStartTimeForOccurrence:(id)arg1;
 - (void)_capVisibleTextForBucket:(id)arg1;
-- (BOOL)_inputIsInvalid;
+- (_Bool)_inputIsInvalid;
 - (void)_initializeFirstGridStripe;
 - (void)_stampOccurrenceFrames;
 - (void)_reclaimSpaceFromStackedOccurrences;

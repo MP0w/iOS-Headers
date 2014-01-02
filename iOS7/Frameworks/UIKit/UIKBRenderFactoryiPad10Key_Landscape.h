@@ -6,11 +6,13 @@
 
 #import <UIKit/UIKBRenderFactoryiPad10Key_Portrait.h>
 
+// Not exported
 @interface UIKBRenderFactoryiPad10Key_Landscape : UIKBRenderFactoryiPad10Key_Portrait
 {
 }
 
-- (float)controlColumnWidthFactor;
+- (double)controlColumnWidthFactor;
+- (double)keyCornerRadius;
 - (id)muttitapReverseKeyImageName;
 - (id)multitapCompleteKeyImageName;
 

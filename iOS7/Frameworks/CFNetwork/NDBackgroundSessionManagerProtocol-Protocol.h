@@ -7,8 +7,11 @@
 #import "NSObject-Protocol.h"
 
 @protocol NDBackgroundSessionManagerProtocol <NSObject>
+- (void)okayToSendPendingCallbacksForIdentifier:(id)arg1 reply:(id)arg2;
 - (void)releaseAssertionForSession:(id)arg1 reply:(id)arg2;
 - (void)sendPendingCallbacksForIdentifier:(id)arg1 reply:(id)arg2;
-- (void)createSessionWithConfiguration:(id)arg1 clientProxy:(id)arg2 reply:(id)arg3;
+- (void)createSessionWithConfiguration:(id)arg1 clientProxy:(id)arg2 cachesDirectory:(id)arg3 reply:(id)arg4;
+- (void)dropBoost;
+- (void)boost:(id)arg1;
 @end
 

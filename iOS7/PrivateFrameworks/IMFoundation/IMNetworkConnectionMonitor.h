@@ -13,21 +13,21 @@
 
 @interface IMNetworkConnectionMonitor : IMConnectionMonitor <IMSystemMonitorListener, IMReachabilityDelegate>
 {
-    BOOL _isConnected;
-    BOOL _isSleeping;
+    _Bool _isConnected;
+    _Bool _isSleeping;
     IMReachability *_hostReachability;
     IMReachability *_ipReachability;
-    unsigned int _hostFlags;
-    unsigned int _ipFlags;
+    unsigned long long _hostFlags;
+    unsigned long long _ipFlags;
 }
 
-@property(nonatomic) BOOL _isSleeping; // @synthesize _isSleeping;
-@property(nonatomic) BOOL _isConnected; // @synthesize _isConnected;
-@property(nonatomic) unsigned int _ipFlags; // @synthesize _ipFlags;
-@property(nonatomic) unsigned int _hostFlags; // @synthesize _hostFlags;
+@property(nonatomic) _Bool _isSleeping; // @synthesize _isSleeping;
+@property(nonatomic) _Bool _isConnected; // @synthesize _isConnected;
+@property(nonatomic) unsigned long long _ipFlags; // @synthesize _ipFlags;
+@property(nonatomic) unsigned long long _hostFlags; // @synthesize _hostFlags;
 @property(retain, nonatomic) IMReachability *_ipReachability; // @synthesize _ipReachability;
 @property(retain, nonatomic) IMReachability *_hostReachability; // @synthesize _hostReachability;
-- (BOOL)isImmediatelyReachable;
+- (_Bool)isImmediatelyReachable;
 - (void)clear;
 - (void)goDisconnected;
 - (void)goConnectedWithLocalSocketAddress:(id)arg1 remoteSocketAddress:(id)arg2;
@@ -39,7 +39,7 @@
 - (void)_setupReachability;
 - (void)_doCallbackLater;
 - (void)_doCallbackNow;
-- (void)_clearReachability:(id *)arg1 flags:(unsigned int *)arg2;
+- (void)_clearReachability:(id *)arg1 flags:(unsigned long long *)arg2;
 - (void)dealloc;
 
 @end

@@ -8,14 +8,15 @@
 
 @class EKObject;
 
+// Not exported
 @interface EKObjectToOneRelation : EKObjectRelation
 {
     EKObject *_relatedObject;
-    BOOL _weak;
+    _Bool _weak;
 }
 
 - (id)description;
-- (BOOL)validate:(id *)arg1;
+- (_Bool)validate:(id *)arg1;
 - (void)didCommit;
 - (void)refresh;
 - (void)rollback;
@@ -24,14 +25,14 @@
 - (void)updatePersistentObject;
 - (id)committedValue;
 - (id)relatedObject;
-- (void)_setRelatedObject:(id)arg1 setInverse:(BOOL)arg2 dirty:(BOOL)arg3;
-- (void)_removeRelatedObject:(id)arg1 setInverse:(BOOL)arg2 dirty:(BOOL)arg3;
-- (void)_addRelatedObject:(id)arg1 setInverse:(BOOL)arg2 dirty:(BOOL)arg3;
+- (void)_setRelatedObject:(id)arg1 setInverse:(_Bool)arg2 dirty:(_Bool)arg3;
+- (void)_removeRelatedObject:(id)arg1 setInverse:(_Bool)arg2 dirty:(_Bool)arg3;
+- (void)_addRelatedObject:(id)arg1 setInverse:(_Bool)arg2 dirty:(_Bool)arg3;
 - (void)setRelatedObject:(id)arg1;
 - (void)_clear;
-- (BOOL)isWeak;
+- (_Bool)isWeak;
 - (void)dealloc;
-- (id)initWithObject:(id)arg1 relationName:(id)arg2 inverseRelationName:(id)arg3 weak:(BOOL)arg4;
+- (id)initWithObject:(id)arg1 relationName:(id)arg2 inverseRelationName:(id)arg3 weak:(_Bool)arg4;
 
 @end
 

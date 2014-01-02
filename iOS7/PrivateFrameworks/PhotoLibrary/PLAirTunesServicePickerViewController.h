@@ -21,14 +21,14 @@
 
 @property(retain, nonatomic) NSArray *availableRoutes; // @synthesize availableRoutes=_availableRoutes;
 @property(nonatomic) id <PLAirTunesServicePickerViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
-- (int)_indexofRouteWithRouteID:(id)arg1;
-- (void)_setCell:(id)arg1 checked:(BOOL)arg2;
+- (long long)_indexofRouteWithRouteID:(id)arg1;
+- (void)_setCell:(id)arg1 checked:(_Bool)arg2;
 - (struct CGSize)contentSizeForViewInPopoverView;
-- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)loadView;
 - (id)initWithAvailableAirplayRoutes:(id)arg1 previouslySelectedRoute:(id)arg2;
 - (void)dealloc;

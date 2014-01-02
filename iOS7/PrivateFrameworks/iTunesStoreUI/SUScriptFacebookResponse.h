@@ -12,14 +12,14 @@
 {
     NSString *_bodyData;
     SUScriptError *_error;
-    int _statusCode;
+    long long _statusCode;
 }
 
 + (void)initialize;
 + (id)webScriptNameForKeyName:(id)arg1;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
-@property(readonly) int HTTPStatusCode;
+@property(readonly) long long HTTPStatusCode;
 @property(readonly) SUScriptError *error;
 - (id)_className;
 @property(readonly) NSString *bodyData;

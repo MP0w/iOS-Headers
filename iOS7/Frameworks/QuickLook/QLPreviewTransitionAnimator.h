@@ -9,12 +9,21 @@
 #import "UIViewControllerAnimatedTransitioning-Protocol.h"
 #import "UIViewControllerInteractiveTransitioning-Protocol.h"
 
+@class QLPreviewController;
+
 @interface QLPreviewTransitionAnimator : NSObject <UIViewControllerAnimatedTransitioning, UIViewControllerInteractiveTransitioning>
 {
-    BOOL showing;
+    _Bool showing;
+    id <UIViewControllerContextTransitioning> _transitionContext;
 }
 
-@property BOOL showing; // @synthesize showing;
+@property id <UIViewControllerContextTransitioning> transitionContext; // @synthesize transitionContext=_transitionContext;
+@property _Bool showing; // @synthesize showing;
+- (void)updateStatusBarWithDuration:(double)arg1;
+- (void)didTransitionWithAnimationEnding:(_Bool)arg1;
+- (void)willTransitionWithAnimationEnding:(_Bool)arg1;
+- (long long)_transitionStateForAnimationEnding:(_Bool)arg1;
+@property(readonly) QLPreviewController *previewController;
 - (void)startInteractiveTransition:(id)arg1;
 - (void)animateTransition:(id)arg1;
 - (double)transitionDuration:(id)arg1;

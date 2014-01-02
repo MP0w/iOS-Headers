@@ -12,9 +12,9 @@
 
 @interface PKLinkedAppView : UITableViewCell <SKStoreProductViewControllerDelegate>
 {
-    BOOL _lookupInitiated;
-    BOOL _appInstalled;
-    BOOL _appNotAvailable;
+    _Bool _lookupInitiated;
+    _Bool _appInstalled;
+    _Bool _appNotAvailable;
     NSArray *_storeIDs;
     NSDictionary *_foundStoreItem;
     SSSoftwareLibraryItem *_foundLibraryItem;
@@ -33,7 +33,7 @@
 
 @property(retain, nonatomic) NSURL *appLaunchURL; // @synthesize appLaunchURL=_appLaunchURL;
 @property(retain, nonatomic) SKStoreProductViewController *productViewController; // @synthesize productViewController=_productViewController;
-@property(nonatomic) BOOL appNotAvailable; // @synthesize appNotAvailable=_appNotAvailable;
+@property(nonatomic) _Bool appNotAvailable; // @synthesize appNotAvailable=_appNotAvailable;
 @property(retain, nonatomic) UILabel *loadingLabel; // @synthesize loadingLabel=_loadingLabel;
 @property(retain, nonatomic) UIActivityIndicatorView *activityIndicator; // @synthesize activityIndicator=_activityIndicator;
 @property(retain, nonatomic) UILabel *price; // @synthesize price=_price;
@@ -43,11 +43,11 @@
 @property(retain, nonatomic) UILabel *appName; // @synthesize appName=_appName;
 @property(retain, nonatomic) UILabel *tapToOpen; // @synthesize tapToOpen=_tapToOpen;
 @property(retain, nonatomic) UIImageView *iconView; // @synthesize iconView=_iconView;
-@property(nonatomic) BOOL appInstalled; // @synthesize appInstalled=_appInstalled;
+@property(nonatomic) _Bool appInstalled; // @synthesize appInstalled=_appInstalled;
 @property(retain, nonatomic) SSSoftwareLibraryItem *foundLibraryItem; // @synthesize foundLibraryItem=_foundLibraryItem;
 @property(retain, nonatomic) NSDictionary *foundStoreItem; // @synthesize foundStoreItem=_foundStoreItem;
 @property(retain, nonatomic) NSArray *storeIDs; // @synthesize storeIDs=_storeIDs;
-@property(nonatomic) BOOL lookupInitiated; // @synthesize lookupInitiated=_lookupInitiated;
+@property(nonatomic) _Bool lookupInitiated; // @synthesize lookupInitiated=_lookupInitiated;
 - (void)productViewControllerDidFinish:(id)arg1;
 - (id)_priceForItem:(id)arg1;
 - (int)_bindingTypeForNewsstandItem:(id)arg1;
@@ -57,11 +57,11 @@
 - (struct CGSize)_sizeFromImage:(id)arg1;
 - (id)_imageForSize:(struct CGSize)arg1 fromArtwork:(id)arg2;
 - (struct CGSize)_desiredSizeForNewsstandItem:(id)arg1;
-- (BOOL)_itemArtNeedsShine:(id)arg1;
+- (_Bool)_itemArtNeedsShine:(id)arg1;
 - (id)_newsstandArtworkForItem:(id)arg1;
-- (BOOL)_itemIsNewsstandApp:(id)arg1;
+- (_Bool)_itemIsNewsstandApp:(id)arg1;
 - (id)_iconURLFromArtwork:(id)arg1 withDesiredSize:(struct CGSize)arg2;
-- (BOOL)_anyAppIsInstalled:(id)arg1;
+- (_Bool)_anyAppIsInstalled:(id)arg1;
 - (void)_cleanupViews;
 - (void)_layoutLockupView;
 - (void)_layoutNotAvailableView;

@@ -9,15 +9,15 @@
 @class NSBundle, NSString;
 
 @protocol MKLocationProvider <NSObject>
-@property(readonly, nonatomic, getter=isMonitoringRegionsAvailable) BOOL monitoringRegionsAvailable;
-@property(readonly, nonatomic) BOOL usesCLMapCorrection;
-@property(nonatomic) int activityType;
-@property(readonly, nonatomic) BOOL airplaneModeBlocksLocation;
+@property(readonly, nonatomic, getter=isMonitoringRegionsAvailable) _Bool monitoringRegionsAvailable;
+@property(readonly, nonatomic) _Bool usesCLMapCorrection;
+@property(nonatomic) long long activityType;
+@property(readonly, nonatomic) _Bool airplaneModeBlocksLocation;
 @property(readonly, nonatomic) int authorizationStatus;
 @property(readonly, nonatomic) double expectedGpsUpdateInterval;
 @property(nonatomic) int headingOrientation;
 @property(nonatomic) double distanceFilter;
-@property(nonatomic, getter=isLocationServicesPreferencesDialogEnabled) BOOL locationServicesPreferencesDialogEnabled;
+@property(nonatomic, getter=isLocationServicesPreferencesDialogEnabled) _Bool locationServicesPreferencesDialogEnabled;
 @property(nonatomic) double desiredAccuracy;
 @property(copy, nonatomic) NSString *effectiveBundleIdentifier;
 @property(retain, nonatomic) NSBundle *effectiveBundle;

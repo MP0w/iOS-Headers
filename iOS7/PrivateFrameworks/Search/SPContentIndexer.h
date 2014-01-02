@@ -28,11 +28,11 @@
 - (id)existingRecordsForExtIDs:(id)arg1;
 - (id)resultForIdentifier:(id)arg1;
 - (void)cancelSearch;
-- (BOOL)nextSearchResults:(id *)arg1;
+- (_Bool)nextSearchResults:(id *)arg1;
 - (void)beginSearch:(id)arg1;
 - (void)removeRecord:(id)arg1;
 - (void)setIdentifier:(id)arg1 forRecordDictionary:(id)arg2 existingRecord:(id)arg3;
-- (BOOL)commitUpdates;
+- (_Bool)commitUpdates;
 - (void)_openOrCreateIndex;
 - (id)_legacyStorePath;
 - (id)_legacyIndexPath;

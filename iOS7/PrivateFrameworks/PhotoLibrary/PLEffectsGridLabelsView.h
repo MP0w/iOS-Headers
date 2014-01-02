@@ -6,37 +6,38 @@
 
 #import "UIView.h"
 
-@class NSArray, PLEffectsGridView;
+#import "_UIBackdropViewObserver-Protocol.h"
 
-@interface PLEffectsGridLabelsView : UIView
+@class NSArray, PLEffectsGridView, _UIBackdropView, _UILegibilitySettingsProvider;
+
+@interface PLEffectsGridLabelsView : UIView <_UIBackdropViewObserver>
 {
-    BOOL _disableLayoutForLabels;
+    _Bool _disableLayoutForLabels;
     PLEffectsGridView *_gridView;
-    int _orientation;
+    long long _orientation;
     NSArray *_filterLabelViews;
     NSArray *_filterIndices;
-    NSArray *__labels;
+    _UIBackdropView *__backdropView;
+    _UILegibilitySettingsProvider *__legibilitySettingsProvider;
 }
 
-@property(retain, nonatomic, setter=_setLabels:) NSArray *_labels; // @synthesize _labels=__labels;
+@property(retain, nonatomic) _UILegibilitySettingsProvider *_legibilitySettingsProvider; // @synthesize _legibilitySettingsProvider=__legibilitySettingsProvider;
+@property(retain, nonatomic) _UIBackdropView *_backdropView; // @synthesize _backdropView=__backdropView;
 - (void)_setFilterIndices:(id)arg1;
 @property(retain, nonatomic) NSArray *filterIndices; // @synthesize filterIndices=_filterIndices;
 @property(retain, nonatomic) NSArray *filterLabelViews; // @synthesize filterLabelViews=_filterLabelViews;
-@property(nonatomic) int orientation; // @synthesize orientation=_orientation;
-@property(nonatomic, getter=isDisabledLayoutForLabels) BOOL disableLayoutForLabels; // @synthesize disableLayoutForLabels=_disableLayoutForLabels;
+@property(nonatomic) long long orientation; // @synthesize orientation=_orientation;
+@property(nonatomic, getter=isDisabledLayoutForLabels) _Bool disableLayoutForLabels; // @synthesize disableLayoutForLabels=_disableLayoutForLabels;
 @property(retain, nonatomic) PLEffectsGridView *gridView; // @synthesize gridView=_gridView;
-- (struct CGAffineTransform)_transformForOrientation:(int)arg1;
+- (void)backdropViewDidChange:(id)arg1;
+- (struct CGAffineTransform)_transformForOrientation:(long long)arg1;
 - (struct CGRect)frameForLabelView:(id)arg1 withinGridFrame:(struct CGRect)arg2;
-- (struct CGSize)_sizeForLabelView:(id)arg1 withinSize:(struct CGSize)arg2;
-- (struct CGSize)_sizeForLabel:(id)arg1 withinSize:(struct CGSize)arg2;
 - (void)layoutSubviews;
 - (void)_setFilterLabelViews:(id)arg1;
-- (id)_imageFromLabel:(id)arg1;
-- (void)_updateLabelViews;
-- (void)_rebuildFilterLabels;
+- (void)_rebuildLabelViews;
 - (void)updateFilterLabels;
-- (void)_replaceLabelViews:(BOOL)arg1;
-- (void)setOrientation:(int)arg1 animated:(BOOL)arg2;
+- (void)_replaceLabelViews:(_Bool)arg1;
+- (void)setOrientation:(long long)arg1 animated:(_Bool)arg2;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

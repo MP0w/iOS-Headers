@@ -18,13 +18,13 @@
 - (void)setArtworkImageRequest:(id)arg1 artworkLoadCompletionHandler:(id)arg2;
 @property(retain, nonatomic) MPImageCache *artworkImageCache;
 @property(retain, nonatomic) MPTimeMarker *timeMarker;
-@property(nonatomic) float timeColumnWidth;
-@property(nonatomic) BOOL showThumbnailColumn;
-@property(nonatomic) unsigned int index;
-@property(nonatomic, getter=isCurrent) BOOL current;
-- (void)setSelected:(BOOL)arg1 animated:(BOOL)arg2;
+@property(nonatomic) double timeColumnWidth;
+@property(nonatomic) _Bool showThumbnailColumn;
+@property(nonatomic) unsigned long long index;
+@property(nonatomic, getter=isCurrent) _Bool current;
+- (void)setSelected:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

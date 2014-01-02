@@ -10,20 +10,21 @@
 
 @class NSMutableArray, VGLRenderState;
 
+// Not exported
 @interface VKRasterOverlayMapModel : VKMapTileModel <VKMapLayer>
 {
     VGLRenderState *_renderState;
     NSMutableArray *_sortedTiles;
-    unsigned int _level;
+    unsigned long long _level;
 }
 
 - (void)drawScene:(id)arg1 withContext:(id)arg2;
 - (void)layoutScene:(id)arg1 withContext:(id)arg2;
 - (void)reset;
 - (void)dealloc;
-- (id)initWithLevel:(unsigned int)arg1;
+- (id)initWithLevel:(unsigned long long)arg1;
 - (unsigned int)supportedRenderPasses;
-- (unsigned int)mapLayerPosition;
+- (unsigned long long)mapLayerPosition;
 
 @end
 

@@ -9,7 +9,7 @@
 @protocol SBUIControlCenterControlObserver <NSObject>
 
 @optional
-- (void)controlConfigurationDidChangeForState:(int)arg1;
-- (void)controlAppearanceDidChangeForState:(int)arg1;
+- (void)controlConfigurationDidChangeForState:(long long)arg1;
+- (void)controlAppearanceDidChangeForState:(long long)arg1;
 @end
 

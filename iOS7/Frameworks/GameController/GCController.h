@@ -22,8 +22,8 @@
 @property(retain) id <GCNamedProfile> profile;
 @property(readonly) GCExtendedGamepad *extendedGamepad;
 @property(readonly) GCGamepad *gamepad;
-@property(nonatomic) int playerIndex;
-@property(readonly, getter=isAttachedToDevice) BOOL attachedToDevice;
+@property(nonatomic) long long playerIndex;
+@property(readonly, getter=isAttachedToDevice) _Bool attachedToDevice;
 @property(readonly) NSString *vendorName;
 @property(copy) id controllerPausedHandler;
 

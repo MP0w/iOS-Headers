@@ -10,10 +10,12 @@
 
 @class NSArray, NSMutableArray, NSString, UIKBGradient, UIKBRenderGeometry, UIKBTextStyle;
 
+// Not exported
 @interface UIKBRenderTraits : NSObject <NSCopying>
 {
     NSMutableArray *_renderEffects;
-    BOOL _controlOpacities;
+    _Bool _honorControlOpacity;
+    _Bool _controlOpacities;
     UIKBRenderGeometry *_geometry;
     UIKBGradient *_backgroundGradient;
     UIKBGradient *_layeredBackgroundGradient;
@@ -24,7 +26,7 @@
     NSArray *_variantGeometries;
     UIKBRenderTraits *_variantTraits;
     UIKBRenderTraits *_highlightedVariantTraits;
-    float _forceOpacity;
+    double _forceOpacity;
     NSString *_hashString;
 }
 
@@ -32,8 +34,8 @@
 + (id)traitsWithGeometry:(id)arg1;
 + (id)emptyTraits;
 @property(retain, nonatomic) NSString *hashString; // @synthesize hashString=_hashString;
-@property(nonatomic) float forceOpacity; // @synthesize forceOpacity=_forceOpacity;
-@property(nonatomic) BOOL controlOpacities; // @synthesize controlOpacities=_controlOpacities;
+@property(nonatomic) double forceOpacity; // @synthesize forceOpacity=_forceOpacity;
+@property(nonatomic) _Bool controlOpacities; // @synthesize controlOpacities=_controlOpacities;
 @property(retain, nonatomic) UIKBRenderTraits *highlightedVariantTraits; // @synthesize highlightedVariantTraits=_highlightedVariantTraits;
 @property(retain, nonatomic) UIKBRenderTraits *variantTraits; // @synthesize variantTraits=_variantTraits;
 @property(retain, nonatomic) NSArray *variantGeometries; // @synthesize variantGeometries=_variantGeometries;

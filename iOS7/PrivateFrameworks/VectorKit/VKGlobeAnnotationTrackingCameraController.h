@@ -6,6 +6,7 @@
 
 #import <VectorKit/VKAnnotationTrackingCameraController.h>
 
+// Not exported
 @interface VKGlobeAnnotationTrackingCameraController : VKAnnotationTrackingCameraController
 {
     struct GlobeView *_globeView;
@@ -19,8 +20,8 @@
 
 @property(nonatomic) struct GlobeView *globeView; // @synthesize globeView=_globeView;
 - (id).cxx_construct;
-- (void)_rotateToHeadingAnimated:(BOOL)arg1 duration:(double)arg2;
-- (void)_goToAnnotationAnimated:(BOOL)arg1 duration:(double)arg2 isInitial:(BOOL)arg3;
+- (void)_rotateToHeadingAnimated:(_Bool)arg1 duration:(double)arg2;
+- (void)_goToAnnotationAnimated:(_Bool)arg1 duration:(double)arg2 isInitial:(_Bool)arg3;
 - (void)dealloc;
 - (id)init;
 

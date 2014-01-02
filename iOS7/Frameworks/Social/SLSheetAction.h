@@ -10,16 +10,16 @@
 
 @interface SLSheetAction : NSObject
 {
-    BOOL _valuePending;
+    _Bool _valuePending;
+    int _actionType;
     NSString *_title;
     NSString *_value;
-    int _actionType;
     id _actionBlock;
 }
 
 @property(copy, nonatomic) id actionBlock; // @synthesize actionBlock=_actionBlock;
 @property(nonatomic) int actionType; // @synthesize actionType=_actionType;
-@property(nonatomic) BOOL valuePending; // @synthesize valuePending=_valuePending;
+@property(nonatomic) _Bool valuePending; // @synthesize valuePending=_valuePending;
 @property(copy, nonatomic) NSString *value; // @synthesize value=_value;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 - (void).cxx_destruct;

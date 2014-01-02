@@ -13,21 +13,21 @@
     NSLock *_lock;
     SCROConnection *_connection;
     SCRCTargetSelectorTimer *_timer;
-    BOOL _isReady;
+    _Bool _isReady;
 }
 
 + (id)sharedScriptClient;
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (void)initialize;
-- (BOOL)runScriptFile:(id)arg1;
+- (_Bool)runScriptFile:(id)arg1;
 - (void)handleCallback:(id)arg1;
-- (BOOL)_isReady;
+- (_Bool)_isReady;
 - (id)_lazyConnection;
 - (void)_killConnection;
 - (id)init;
 - (id)autorelease;
 - (oneway void)release;
-- (unsigned int)retainCount;
+- (unsigned long long)retainCount;
 - (id)retain;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 

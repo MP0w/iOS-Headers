@@ -14,12 +14,12 @@
     PSSpecifier *_diagnosticDataGroupSpecifier;
 }
 
-+ (BOOL)isProblemReportingEnabled;
++ (_Bool)isProblemReportingEnabled;
 - (void)dealloc;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (BOOL)shouldEnableProblemReportingForCheckedSpecifier;
+- (_Bool)shouldEnableProblemReportingForCheckedSpecifier;
 - (id)specifiers;
-- (void)setProblemReportingEnabled:(BOOL)arg1;
+- (void)setProblemReportingEnabled:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)showAboutDiagnosticsSheet:(id)arg1;
 - (void)diagnosticsDonePressed:(id)arg1;

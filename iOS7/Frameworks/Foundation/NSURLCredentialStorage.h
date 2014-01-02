@@ -16,6 +16,7 @@
 + (id)sharedCredentialStorage;
 - (void)setDefaultCredential:(id)arg1 forProtectionSpace:(id)arg2;
 - (id)defaultCredentialForProtectionSpace:(id)arg1;
+- (void)removeCredential:(id)arg1 forProtectionSpace:(id)arg2 options:(id)arg3;
 - (void)removeCredential:(id)arg1 forProtectionSpace:(id)arg2;
 - (void)setCredential:(id)arg1 forProtectionSpace:(id)arg2;
 - (id)allCredentials;

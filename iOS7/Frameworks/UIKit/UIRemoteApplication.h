@@ -14,16 +14,17 @@
     unsigned int _port;
 }
 
+- (void)didTakeScreenshot;
 - (void)wakeTimerFired;
-- (void)backgroundContinuationEnabledDidChange:(BOOL)arg1;
+- (void)backgroundContinuationEnabledDidChange:(_Bool)arg1;
 - (void)localNotificationDidSnooze:(id)arg1;
 - (void)localNotificationMessageDelivered:(id)arg1;
 - (void)remoteNotificationMessageDelivered;
-- (void)remoteNotificationRegistrationFailedWithErrorDomain:(id)arg1 code:(int)arg2 localizedDescription:(id)arg3;
+- (void)remoteNotificationRegistrationFailedWithErrorDomain:(id)arg1 code:(long long)arg2 localizedDescription:(id)arg3;
 - (void)remoteNotificationRegistrationSucceededWithDeviceToken:(id)arg1;
 - (void)sheetWithRemoteViewIdentifierDidDismiss:(id)arg1;
-- (void)simpleRemoteActionDidOccur:(int)arg1;
-- (void)statusBarWillChangeOrientation:(int)arg1 duration:(float)arg2;
+- (void)simpleRemoteActionDidOccur:(long long)arg1;
+- (void)statusBarWillChangeOrientation:(long long)arg1 duration:(float)arg2;
 - (void)showTopMostMiniAlertWithSynchronizationPort:(unsigned int)arg1;
 - (void)hideTopMostMiniAlert;
 - (void)updatePort;

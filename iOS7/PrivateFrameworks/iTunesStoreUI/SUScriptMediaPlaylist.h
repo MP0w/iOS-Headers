@@ -14,8 +14,8 @@
 
 + (void)initialize;
 + (id)webScriptNameForSelector:(SEL)arg1;
-+ (id)scriptPlaylistAttributesForNativePlaylistAttributes:(int)arg1;
-+ (int)nativePlaylistAttributesForScriptPlaylistAttributes:(id)arg1;
++ (id)scriptPlaylistAttributesForNativePlaylistAttributes:(long long)arg1;
++ (long long)nativePlaylistAttributesForScriptPlaylistAttributes:(id)arg1;
 - (id)_className;
 - (id)valueForProperty:(id)arg1;
 @property(readonly, nonatomic) MPMediaPlaylist *nativePlaylist;

@@ -6,13 +6,14 @@
 
 #import <OfficeImport/OADBlipEffect.h>
 
+// Not exported
 @interface OADAlphaModFixEffect : OADBlipEffect
 {
     float mAlpha;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)setAlpha:(float)arg1;
 - (float)alpha;
 - (id)copyWithZone:(struct _NSZone *)arg1;

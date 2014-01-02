@@ -14,12 +14,12 @@
     NSArray *_iconSnapshots;
     NSArray *_miniSnapshots;
     NSArray *_addedIcons;
-    BOOL _openFolderOnFinish;
+    _Bool _openFolderOnFinish;
     id _completeBlock;
 }
 
 @property(copy, nonatomic) id completeBlock; // @synthesize completeBlock=_completeBlock;
-@property(nonatomic) BOOL openFolderOnFinish; // @synthesize openFolderOnFinish=_openFolderOnFinish;
+@property(nonatomic) _Bool openFolderOnFinish; // @synthesize openFolderOnFinish=_openFolderOnFinish;
 @property(retain, nonatomic) NSArray *miniSnapshots; // @synthesize miniSnapshots=_miniSnapshots;
 @property(retain, nonatomic) NSArray *iconSnapshots; // @synthesize iconSnapshots=_iconSnapshots;
 @property(retain, nonatomic) NSArray *addedIcons; // @synthesize addedIcons=_addedIcons;

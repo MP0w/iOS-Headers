@@ -8,6 +8,7 @@
 
 @class UIWindow;
 
+// Not exported
 @interface UIFileUploadFallbackRootViewController : UIViewController
 {
     UIWindow *_window;

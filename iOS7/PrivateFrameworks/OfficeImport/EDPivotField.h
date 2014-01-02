@@ -8,6 +8,7 @@
 
 @class EDCollection;
 
+// Not exported
 @interface EDPivotField : NSObject
 {
     int mAxis;
@@ -18,7 +19,7 @@
     _Bool mOutlineItems;
     _Bool mShowAllItems;
     _Bool mSubtotalTop;
-    unsigned long mNumFmtId;
+    unsigned long long mNumFmtId;
     EDCollection *mPivotFieldItems;
 }
 
@@ -26,8 +27,8 @@
 - (id)pivotFieldItems;
 - (void)setAxis:(int)arg1;
 - (int)axis;
-- (void)setNumFmtId:(unsigned long)arg1;
-- (unsigned long)numFmtId;
+- (void)setNumFmtId:(unsigned long long)arg1;
+- (unsigned long long)numFmtId;
 - (void)setSubtotalTop:(_Bool)arg1;
 - (_Bool)subtotalTop;
 - (void)setShowAllItems:(_Bool)arg1;

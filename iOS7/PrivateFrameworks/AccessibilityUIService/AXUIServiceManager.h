@@ -12,8 +12,8 @@
 
 @interface AXUIServiceManager : NSObject <AXUIMessageSenderDelegate>
 {
-    BOOL _didEncounterError;
-    BOOL _shouldAllowServicesToProcessMessages;
+    _Bool _didEncounterError;
+    _Bool _shouldAllowServicesToProcessMessages;
     AXUIDisplayManager *_displayManager;
     AXAccessQueue *_resumingConnectionsQueue;
     NSMutableArray *_pausedConnections;
@@ -22,17 +22,17 @@
     AXUIMessageSender *_messageSender;
     NSMutableDictionary *_services;
     AXAccessQueue *_servicesAccessQueue;
-    unsigned int _lastUsedClientIdentifier;
+    unsigned long long _lastUsedClientIdentifier;
 }
 
 + (void)_releaseSharedServiceManager;
 + (id)sharedServiceManager;
-@property(nonatomic) BOOL shouldAllowServicesToProcessMessages; // @synthesize shouldAllowServicesToProcessMessages=_shouldAllowServicesToProcessMessages;
-@property(nonatomic) unsigned int lastUsedClientIdentifier; // @synthesize lastUsedClientIdentifier=_lastUsedClientIdentifier;
+@property(nonatomic) _Bool shouldAllowServicesToProcessMessages; // @synthesize shouldAllowServicesToProcessMessages=_shouldAllowServicesToProcessMessages;
+@property(nonatomic) unsigned long long lastUsedClientIdentifier; // @synthesize lastUsedClientIdentifier=_lastUsedClientIdentifier;
 @property(retain, nonatomic) AXAccessQueue *servicesAccessQueue; // @synthesize servicesAccessQueue=_servicesAccessQueue;
 @property(retain, nonatomic) NSMutableDictionary *services; // @synthesize services=_services;
 @property(retain, nonatomic) AXUIMessageSender *messageSender; // @synthesize messageSender=_messageSender;
-@property(nonatomic) BOOL didEncounterError; // @synthesize didEncounterError=_didEncounterError;
+@property(nonatomic) _Bool didEncounterError; // @synthesize didEncounterError=_didEncounterError;
 @property(retain, nonatomic) NSMutableDictionary *entitlementsCheckers; // @synthesize entitlementsCheckers=_entitlementsCheckers;
 @property(retain, nonatomic) AXAccessQueue *entitlementsCheckersAccessQueue; // @synthesize entitlementsCheckersAccessQueue=_entitlementsCheckersAccessQueue;
 @property(retain, nonatomic) NSMutableArray *pausedConnections; // @synthesize pausedConnections=_pausedConnections;
@@ -41,19 +41,19 @@
 - (void)_enumerateServicesForUniqueIdentifiers:(id)arg1 usingBlock:(id)arg2;
 - (id)_uniqueIdentifierForService:(id)arg1;
 - (id)_serviceContextForService:(id)arg1;
-- (id)_serviceContextForClientWithIdentifier:(unsigned int)arg1;
+- (id)_serviceContextForClientWithIdentifier:(unsigned long long)arg1;
 - (void)_unregisterAllClientsWithConnection:(id)arg1;
-- (unsigned int)_registerClientWithConnection:(id)arg1 serviceBundleName:(id)arg2 initiatingMessageIdentifier:(unsigned int)arg3 error:(id *)arg4;
+- (unsigned long long)_registerClientWithConnection:(id)arg1 serviceBundleName:(id)arg2 initiatingMessageIdentifier:(unsigned long long)arg3 error:(id *)arg4;
 - (void)_applicationDidReceiveMemoryWarning:(id)arg1;
 - (void)_applicationDidFinishLaunching;
-- (BOOL)_serviceWithClass:(Class)arg1 canProcessMessageWithIdentifier:(unsigned int)arg2 fromClientWithConnection:(id)arg3 possibleRequiredEntitlements:(id *)arg4;
+- (_Bool)_serviceWithClass:(Class)arg1 canProcessMessageWithIdentifier:(unsigned long long)arg2 fromClientWithConnection:(id)arg3 possibleRequiredEntitlements:(id *)arg4;
 - (void)_handleConnection:(id)arg1;
-- (BOOL)_start;
+- (_Bool)_start;
 - (void)messageSender:(id)arg1 willSendXPCMessage:(id)arg2 context:(void *)arg3;
 - (void)messageSender:(id)arg1 accessXPCConnectionForMessageWithContext:(void *)arg2 usingBlock:(id)arg3;
-- (id)sendSynchronousMessage:(id)arg1 withIdentifier:(unsigned int)arg2 toClientResponsibleForService:(id)arg3 error:(id *)arg4;
-- (void)sendAsynchronousMessage:(id)arg1 withIdentifier:(unsigned int)arg2 toClientResponsibleForService:(id)arg3 targetAccessQueue:(id)arg4 completionRequiresWritingBlock:(BOOL)arg5 completion:(id)arg6;
-- (void)sendAsynchronousMessage:(id)arg1 withIdentifier:(unsigned int)arg2 toClientResponsibleForService:(id)arg3 targetAccessQueue:(id)arg4 completion:(id)arg5;
+- (id)sendSynchronousMessage:(id)arg1 withIdentifier:(unsigned long long)arg2 toClientResponsibleForService:(id)arg3 error:(id *)arg4;
+- (void)sendAsynchronousMessage:(id)arg1 withIdentifier:(unsigned long long)arg2 toClientResponsibleForService:(id)arg3 targetAccessQueue:(id)arg4 completionRequiresWritingBlock:(_Bool)arg5 completion:(id)arg6;
+- (void)sendAsynchronousMessage:(id)arg1 withIdentifier:(unsigned long long)arg2 toClientResponsibleForService:(id)arg3 targetAccessQueue:(id)arg4 completion:(id)arg5;
 - (void)endTransactionWithIdentifier:(id)arg1 forService:(id)arg2;
 - (void)beginTransactionWithIdentifier:(id)arg1 forService:(id)arg2;
 - (void)dealloc;

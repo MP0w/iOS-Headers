@@ -8,6 +8,7 @@
 
 @class CIImage, NSNumber;
 
+// Not exported
 @interface CIGammaAdjust : CIFilter
 {
     CIImage *inputImage;
@@ -18,7 +19,7 @@
 @property(retain, nonatomic) NSNumber *inputPower; // @synthesize inputPower;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
-- (BOOL)_isIdentity;
+- (_Bool)_isIdentity;
 - (void)setDefaults;
 
 @end

@@ -18,13 +18,13 @@
     int topMargin;
     int rightMargin;
     int bottomMargin;
-    BOOL _isTransverse;
+    _Bool _isTransverse;
     NSDictionary *rollInfo;
 }
 
 + (id)documentPapers;
 + (id)photoPapers;
-+ (BOOL)willAdjustMarginsForDuplexMode:(id)arg1;
++ (_Bool)willAdjustMarginsForDuplexMode:(id)arg1;
 + (id)genericBorderlessWithName:(id)arg1;
 + (id)genericWithName:(id)arg1;
 + (id)genericPRC32KPaper;
@@ -32,11 +32,12 @@
 + (id)genericA6Paper;
 + (id)generic4x6Paper;
 + (id)generic3_5x5Paper;
++ (id)genericLegalPaper;
 + (id)genericLetterPaper;
 + (id)genericA4Paper;
 + (id)rollPaperWithAttributes:(id)arg1;
-+ (BOOL)useMetric;
-@property(readonly, nonatomic) BOOL isTransverse; // @synthesize isTransverse=_isTransverse;
++ (_Bool)useMetric;
+@property(readonly, nonatomic) _Bool isTransverse; // @synthesize isTransverse=_isTransverse;
 @property(copy, nonatomic) NSDictionary *rollInfo; // @synthesize rollInfo;
 @property(nonatomic) int bottomMargin; // @synthesize bottomMargin;
 @property(nonatomic) int rightMargin; // @synthesize rightMargin;
@@ -45,30 +46,30 @@
 @property(nonatomic) int height; // @synthesize height;
 @property(nonatomic) int width; // @synthesize width;
 @property(retain, nonatomic) NSString *name; // @synthesize name;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)paperWithMarginsAdjustedForDuplexMode:(id)arg1;
 @property(readonly, nonatomic) NSString *localizedName; // @dynamic localizedName;
 - (id)localizedNameFromDimensions;
-- (struct _ipp_s *)createMediaColAndDoMargins:(BOOL)arg1;
+- (struct _ipp_s *)createMediaColAndDoMargins:(_Bool)arg1;
 - (void)addToMediaCol:(struct _ipp_s *)arg1;
 - (void)dealloc;
 @property(readonly, nonatomic) NSString *mediaTypeName; // @dynamic mediaTypeName;
-@property(readonly, nonatomic) BOOL isRoll; // @dynamic isRoll;
+@property(readonly, nonatomic) _Bool isRoll; // @dynamic isRoll;
 @property(readonly, nonatomic) int maxHeight;
 @property(readonly, nonatomic) int minHeight;
 @property(readonly, nonatomic) NSString *baseName; // @dynamic baseName;
 - (id)nameWithoutSuffixes:(id)arg1;
-@property(readonly, nonatomic) BOOL isBorderless;
-@property(readonly, nonatomic) float imageableArea; // @dynamic imageableArea;
+@property(readonly, nonatomic) _Bool isBorderless;
+@property(readonly, nonatomic) double imageableArea; // @dynamic imageableArea;
 @property(readonly, nonatomic) struct CGRect imageableAreaRect;
 @property(readonly, nonatomic) struct CGSize paperSize;
 - (id)initWithPWGSize:(struct pwg_size_s *)arg1 localizedName:(id)arg2 codeName:(id)arg3;
 - (id)initWithWidth:(int)arg1 Height:(int)arg2 Left:(int)arg3 Top:(int)arg4 Right:(int)arg5 Bottom:(int)arg6 localizedName:(id)arg7 codeName:(id)arg8;
 - (id)cutToPWGLength:(int)arg1;
-- (id)cutToLength:(float)arg1;
-@property(readonly, nonatomic) unsigned int maxCutLength; // @dynamic maxCutLength;
-@property(readonly, nonatomic) unsigned int minCutLength; // @dynamic minCutLength;
+- (id)cutToLength:(double)arg1;
+@property(readonly, nonatomic) unsigned long long maxCutLength; // @dynamic maxCutLength;
+@property(readonly, nonatomic) unsigned long long minCutLength; // @dynamic minCutLength;
 
 @end
 

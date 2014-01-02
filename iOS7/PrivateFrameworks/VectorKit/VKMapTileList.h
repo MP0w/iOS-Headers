@@ -6,10 +6,11 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface VKMapTileList : NSObject
 {
     struct vector<VKMapTile *, vk_allocator<VKMapTile *>> _list;
-    vector_3bee010d _rectList[28];
+    vector_3bee010d _rectList[29];
     float _maximumStyleZ;
 }
 
@@ -19,10 +20,10 @@
 - (void)consolidateList;
 - (void)clearList;
 - (void)addTileToList:(id)arg1;
-@property(readonly, nonatomic) unsigned int numTiles;
-- (unsigned int)numRectForLayer:(unsigned int)arg1;
-- (const CDStruct_818bb265 *)rectListForLayer:(unsigned int)arg1;
-- (const vector_3bee010d *)rectListVectorForLayer:(unsigned int)arg1;
+@property(readonly, nonatomic) unsigned long long numTiles;
+- (unsigned long long)numRectForLayer:(unsigned long long)arg1;
+- (const CDStruct_818bb265 *)rectListForLayer:(unsigned long long)arg1;
+- (const vector_3bee010d *)rectListVectorForLayer:(unsigned long long)arg1;
 @property(readonly, nonatomic) id *tileList;
 - (id)init;
 

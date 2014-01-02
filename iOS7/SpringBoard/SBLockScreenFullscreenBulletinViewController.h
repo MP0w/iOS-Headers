@@ -4,14 +4,13 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "UIViewController.h"
+#import "SBLockOverlayViewController.h"
 
-#import "SBLockOverlayViewController-Protocol.h"
 #import "SBLockOverlayViewDelegate-Protocol.h"
 
 @class SBAwayBulletinListItem, SBLockOverlayView;
 
-@interface SBLockScreenFullscreenBulletinViewController : UIViewController <SBLockOverlayViewDelegate, SBLockOverlayViewController>
+@interface SBLockScreenFullscreenBulletinViewController : SBLockOverlayViewController <SBLockOverlayViewDelegate>
 {
     SBLockOverlayView *_bulletinView;
     SBAwayBulletinListItem *_bulletinItem;
@@ -20,7 +19,6 @@
 @property(retain, nonatomic) SBAwayBulletinListItem *bulletinItem; // @synthesize bulletinItem=_bulletinItem;
 - (void)handleTapGestureFromView:(id)arg1;
 - (void)updateContent;
-- (id)overlayView;
 - (void)loadView;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

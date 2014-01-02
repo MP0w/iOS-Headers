@@ -8,29 +8,30 @@
 
 @class OADColor, OADPattern;
 
+// Not exported
 @interface OADPatternFill : OADFill
 {
     OADColor *mFgColor;
-    BOOL mIsFgColorOverridden;
+    _Bool mIsFgColorOverridden;
     OADColor *mBgColor;
-    BOOL mIsBgColorOverridden;
+    _Bool mIsBgColorOverridden;
     OADPattern *mPattern;
-    BOOL mIsPatternOverridden;
+    _Bool mIsPatternOverridden;
 }
 
 + (id)defaultProperties;
 - (id)namedImageDataWithBlipCollection:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)setStyleColor:(id)arg1;
 - (void)setColor:(id)arg1;
-- (BOOL)isPatternOverridden;
+- (_Bool)isPatternOverridden;
 - (void)setPattern:(id)arg1;
 - (id)pattern;
-- (BOOL)isBgColorOverridden;
+- (_Bool)isBgColorOverridden;
 - (void)setBgColor:(id)arg1;
 - (id)bgColor;
-- (BOOL)isFgColorOverridden;
+- (_Bool)isFgColorOverridden;
 - (void)setFgColor:(id)arg1;
 - (id)fgColor;
 - (void)setParent:(id)arg1;

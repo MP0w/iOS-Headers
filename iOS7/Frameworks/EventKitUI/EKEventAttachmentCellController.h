@@ -14,14 +14,14 @@
 {
     id _downloadID;
     EKEventAttachmentCell *_cell;
-    BOOL _sourceIsManaged;
+    _Bool _sourceIsManaged;
     EKAttachment *_attachment;
     id <EKEventAttachmentCellControllerDelegate> _delegate;
 }
 
 + (id)cellControllersForAttachments:(id)arg1 givenExistingControllers:(id)arg2;
-+ (BOOL)_attachmentIsViewable:(id)arg1;
-@property(nonatomic) BOOL sourceIsManaged; // @synthesize sourceIsManaged=_sourceIsManaged;
++ (_Bool)_attachmentIsViewable:(id)arg1;
+@property(nonatomic) _Bool sourceIsManaged; // @synthesize sourceIsManaged=_sourceIsManaged;
 @property(nonatomic) __weak id <EKEventAttachmentCellControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) EKAttachment *attachment; // @synthesize attachment=_attachment;
 @property(readonly) EKEventAttachmentCell *cell; // @synthesize cell=_cell;

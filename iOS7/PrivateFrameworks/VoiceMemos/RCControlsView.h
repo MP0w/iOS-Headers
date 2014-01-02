@@ -6,41 +6,50 @@
 
 #import "UIView.h"
 
-@class RCRecorderStateButton, UIAlertView, UIButton, UILabel;
+@class RCRecorderStateButton, UIAlertView, UIButton, UIColor;
 
 @interface RCControlsView : UIView
 {
     RCRecorderStateButton *_recordingStateButton;
     UIButton *_playPauseButton;
     UIButton *_doneButton;
-    UILabel *_makeRecordingLabel;
     UIAlertView *_noMicAlertView;
-    BOOL _makeRecordingLabelHidden;
-    BOOL _animatingLayout;
-    BOOL _canRecord;
+    _Bool _canRecord;
     id <RCControlsViewDelegate> _delegate;
-    int _recordingState;
-    int _playbackState;
-    int _configuration;
+    long long _recordingState;
+    long long _playbackState;
+    UIColor *_bottomSeparatorLineColor;
+    long long _configuration;
 }
 
-@property(nonatomic) int configuration; // @synthesize configuration=_configuration;
-@property(nonatomic) int playbackState; // @synthesize playbackState=_playbackState;
-@property(nonatomic) int recordingState; // @synthesize recordingState=_recordingState;
-@property(nonatomic) BOOL canRecord; // @synthesize canRecord=_canRecord;
+@property(nonatomic) long long configuration; // @synthesize configuration=_configuration;
+@property(retain, nonatomic) UIColor *bottomSeparatorLineColor; // @synthesize bottomSeparatorLineColor=_bottomSeparatorLineColor;
+@property(nonatomic) long long playbackState; // @synthesize playbackState=_playbackState;
+@property(nonatomic) long long recordingState; // @synthesize recordingState=_recordingState;
+@property(nonatomic) _Bool canRecord; // @synthesize canRecord=_canRecord;
 @property(nonatomic) __weak id <RCControlsViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_inputAvailabilityDidChangeNotification:(id)arg1;
 - (void)_doneButtonPressed:(id)arg1;
 - (void)_playPauseButtonPressed:(id)arg1;
 - (void)_recordingStateButtonPressed:(id)arg1;
-- (id)_recordButton;
-- (void)setConfiguration:(int)arg1 animate:(BOOL)arg2;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (id)_assetImageForButtonPlaybackState:(long long)arg1;
+- (void)_updateButtonsAnimated:(_Bool)arg1;
+- (_Bool)_canEnableDoneButton;
+- (_Bool)_canShowDoneButton;
+- (_Bool)_canRecord;
+- (_Bool)_canShowRecordButton;
+- (_Bool)_canPlayPause;
+- (_Bool)_canShowPlayPauseButton;
+- (void)performFailedToStartRecordingActions;
 - (void)performRecordButtonPress;
+- (id)_recordButton;
+- (void)setConfiguration:(long long)arg1 animate:(_Bool)arg2;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
+- (void)drawRect:(struct CGRect)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
-- (void)_layoutSubviewsAnimated:(BOOL)arg1;
+- (void)_layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

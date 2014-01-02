@@ -8,33 +8,39 @@
 
 @class NSIndexPath;
 
+// Not exported
 @interface UIKeyboardCandidateGridCellAttributes : UICollectionViewLayoutAttributes
 {
-    BOOL _dummy;
-    BOOL _groupHeader;
-    BOOL _needsPaddingForIndexScrubber;
-    BOOL _groupShowsAlternativeText;
+    _Bool _dummy;
+    _Bool _groupHeader;
+    _Bool _needsPaddingForIndexScrubber;
+    _Bool _groupShowsAlternativeText;
+    _Bool _secondaryCandidateAppearance;
+    int _candidatesVisualStyle;
     NSIndexPath *_candidateIndexPath;
-    int _visualStyle;
-    unsigned int _candidateNumber;
-    unsigned int _rowIndex;
-    int _edges;
+    CDStruct_961fb75c _visualStyling;
+    unsigned long long _candidateNumber;
+    unsigned long long _rowIndex;
+    unsigned long long _edges;
     struct CGSize _rowSize;
 }
 
-@property(nonatomic) BOOL groupShowsAlternativeText; // @synthesize groupShowsAlternativeText=_groupShowsAlternativeText;
-@property(nonatomic) BOOL needsPaddingForIndexScrubber; // @synthesize needsPaddingForIndexScrubber=_needsPaddingForIndexScrubber;
-@property(nonatomic) int edges; // @synthesize edges=_edges;
+@property(nonatomic) _Bool secondaryCandidateAppearance; // @synthesize secondaryCandidateAppearance=_secondaryCandidateAppearance;
+@property(nonatomic) _Bool groupShowsAlternativeText; // @synthesize groupShowsAlternativeText=_groupShowsAlternativeText;
+@property(nonatomic) _Bool needsPaddingForIndexScrubber; // @synthesize needsPaddingForIndexScrubber=_needsPaddingForIndexScrubber;
+@property(nonatomic) unsigned long long edges; // @synthesize edges=_edges;
 @property(nonatomic) struct CGSize rowSize; // @synthesize rowSize=_rowSize;
-@property(nonatomic) unsigned int rowIndex; // @synthesize rowIndex=_rowIndex;
-@property(nonatomic) unsigned int candidateNumber; // @synthesize candidateNumber=_candidateNumber;
-@property(nonatomic) BOOL groupHeader; // @synthesize groupHeader=_groupHeader;
-@property(nonatomic) BOOL dummy; // @synthesize dummy=_dummy;
-@property(nonatomic) int visualStyle; // @synthesize visualStyle=_visualStyle;
+@property(nonatomic) unsigned long long rowIndex; // @synthesize rowIndex=_rowIndex;
+@property(nonatomic) unsigned long long candidateNumber; // @synthesize candidateNumber=_candidateNumber;
+@property(nonatomic) _Bool groupHeader; // @synthesize groupHeader=_groupHeader;
+@property(nonatomic) _Bool dummy; // @synthesize dummy=_dummy;
+@property(nonatomic) int candidatesVisualStyle; // @synthesize candidatesVisualStyle=_candidatesVisualStyle;
+@property(nonatomic) CDStruct_961fb75c visualStyling; // @synthesize visualStyling=_visualStyling;
 @property(retain, nonatomic) NSIndexPath *candidateIndexPath; // @synthesize candidateIndexPath=_candidateIndexPath;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (unsigned int)representedElementCategory;
+- (unsigned long long)representedElementCategory;
 - (void)dealloc;
 - (id)init;
 

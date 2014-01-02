@@ -14,7 +14,6 @@
 }
 
 - (void)cancelPressed;
-- (BOOL)canBeShownFromSuspendedState;
 - (void)pushController:(id)arg1;
 - (id)initWithManager:(id)arg1;
 

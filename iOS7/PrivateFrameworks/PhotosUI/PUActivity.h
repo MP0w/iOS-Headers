@@ -8,15 +8,17 @@
 
 #import <PhotosUI/PUActivity-Protocol.h>
 
-@class PUActivityItemSourceController;
+@class PUActivityItemSourceController, UIImage;
 
 @interface PUActivity : UIActivity <PUActivity>
 {
+    UIImage *_cachedCustomImage;
     PUActivityItemSourceController *_itemSourceController;
 }
 
 @property(nonatomic) __weak PUActivityItemSourceController *itemSourceController; // @synthesize itemSourceController=_itemSourceController;
 - (void).cxx_destruct;
+- (id)pu_activityImageNamed:(id)arg1;
 
 @end
 

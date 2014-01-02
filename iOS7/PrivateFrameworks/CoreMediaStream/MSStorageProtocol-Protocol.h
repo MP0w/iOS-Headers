@@ -7,7 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol MSStorageProtocol <NSObject>
-- (void)deactivateRemoveAllFiles:(BOOL)arg1;
+- (void)deactivateRemoveAllFiles:(_Bool)arg1;
 - (void)deactivate;
 - (void)didFinishUsingAssets:(id)arg1;
 @end

@@ -15,8 +15,10 @@
     id scoreHandler;
     id trendHandler;
     id olderHandler;
+    id noprewarmHandler;
 }
 
+@property(copy) id noprewarmHandler; // @synthesize noprewarmHandler;
 @property(copy) id olderHandler; // @synthesize olderHandler;
 @property(copy) id trendHandler; // @synthesize trendHandler;
 @property(copy) id scoreHandler; // @synthesize scoreHandler;

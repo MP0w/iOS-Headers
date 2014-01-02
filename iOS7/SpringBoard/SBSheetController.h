@@ -17,19 +17,19 @@
 }
 
 + (id)sharedInstance;
-- (BOOL)sheetWantsProgress;
+- (_Bool)sheetWantsProgress;
 - (id)applicationForTopSheet;
 - (void)dismissSheetsForApplication:(id)arg1;
 - (void)dismissAllSheets;
-- (BOOL)isShowingSheetsForApplication:(id)arg1;
-- (BOOL)isShowingSheets;
-- (void)sendStatusBarOrientationWillChangeToSheets:(int)arg1 duration:(float)arg2;
-- (void)dismissRemoteViewIdentifier:(id)arg1 forApplication:(id)arg2 animated:(BOOL)arg3;
-- (BOOL)presentRemoteViewIdentifier:(id)arg1 asSheetForApplication:(id)arg2 requireTopApplication:(BOOL)arg3 animated:(BOOL)arg4;
-- (void)dismissSheetView:(id)arg1 animated:(BOOL)arg2;
+- (_Bool)isShowingSheetsForApplication:(id)arg1;
+- (_Bool)isShowingSheets;
+- (void)sendStatusBarOrientationWillChangeToSheets:(long long)arg1 duration:(float)arg2;
+- (void)dismissRemoteViewIdentifier:(id)arg1 forApplication:(id)arg2 animated:(_Bool)arg3;
+- (_Bool)presentRemoteViewIdentifier:(id)arg1 asSheetForApplication:(id)arg2 requireTopApplication:(_Bool)arg3 animated:(_Bool)arg4;
+- (void)dismissSheetView:(id)arg1 animated:(_Bool)arg2;
 - (void)_tearDownSheet:(id)arg1;
-- (void)presentSheetView:(id)arg1 animated:(BOOL)arg2;
-- (void)_positionFakeStatusBarView:(id)arg1 forOrientation:(int)arg2;
+- (void)presentSheetView:(id)arg1 animated:(_Bool)arg2;
+- (void)_positionFakeStatusBarView:(id)arg1 forOrientation:(long long)arg2;
 - (void)dealloc;
 - (id)init;
 

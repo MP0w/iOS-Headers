@@ -15,19 +15,19 @@
 
 + (id)sharedInstanceWithAddressBook:(void *)arg1;
 + (id)sharedInstance;
-- (BOOL)entryIsDuplicateAndThusRemoved:(id)arg1 oldUid:(int)arg2;
-- (BOOL)addEntryForPerson:(void *)arg1 property:(int)arg2 withIdentifier:(int)arg3;
+- (_Bool)entryIsDuplicateAndThusRemoved:(id)arg1 oldUid:(int)arg2;
+- (_Bool)addEntryForPerson:(void *)arg1 property:(int)arg2 withIdentifier:(int)arg3;
 - (id)entryWithType:(int)arg1 forPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
 - (id)entryWithIdentifier:(int)arg1 forPerson:(void *)arg2;
-- (BOOL)containsEntryWithType:(int)arg1 forPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
-- (BOOL)containsEntryWithIdentifier:(int)arg1 forPerson:(void *)arg2;
+- (_Bool)containsEntryWithType:(int)arg1 forPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
+- (_Bool)containsEntryWithIdentifier:(int)arg1 forPerson:(void *)arg2;
 - (void)recacheIdentitiesSoon;
 - (void)save;
-- (void)moveEntryAtIndex:(int)arg1 toIndex:(int)arg2;
-- (void)removeEntryAtIndex:(int)arg1;
+- (void)moveEntryAtIndex:(long long)arg1 toIndex:(long long)arg2;
+- (void)removeEntryAtIndex:(long long)arg1;
 - (void)addEntry:(id)arg1;
 - (id)entriesForPerson:(void *)arg1;
-- (BOOL)isFull;
+- (_Bool)isFull;
 - (id)entries;
 - (void)_applicationWillSuspend:(id)arg1;
 - (void)dealloc;

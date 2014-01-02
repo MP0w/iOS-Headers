@@ -18,8 +18,9 @@
 @property(readonly, nonatomic) ABContactAction *action;
 @property(readonly, nonatomic) ABCardActionGroupItem *actionGroupItem;
 - (void)setCardGroupItem:(id)arg1;
-- (BOOL)shouldPerformDefaultAction;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (void)tintColorDidChange;
+- (_Bool)shouldPerformDefaultAction;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

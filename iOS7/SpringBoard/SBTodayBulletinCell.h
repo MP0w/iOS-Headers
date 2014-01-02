@@ -4,16 +4,17 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "UITableViewCell.h"
+#import "_SBFVibrantTableViewCell.h"
 
 @class NSString, UIImageView, UILabel;
 
-@interface SBTodayBulletinCell : UITableViewCell
+@interface SBTodayBulletinCell : _SBFVibrantTableViewCell
 {
     UILabel *_label;
     UIImageView *_iconImageView;
 }
 
++ (id)defaultTextAttributes;
 + (id)defaultFontColor;
 + (id)defaultFont;
 - (void)layoutSubviews;
@@ -21,7 +22,7 @@
 @property(copy, nonatomic) NSString *labelText;
 @property(nonatomic) struct CGRect textRect;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

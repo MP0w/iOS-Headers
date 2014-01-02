@@ -8,9 +8,10 @@
 
 @class PDAnimationTarget;
 
+// Not exported
 @interface PDTimeCondition : NSObject
 {
-    BOOL mHasDelay;
+    _Bool mHasDelay;
     int mDelay;
     int mTriggerEvent;
     PDAnimationTarget *mTarget;
@@ -22,7 +23,7 @@
 - (int)triggerEvent;
 - (void)setDelay:(int)arg1;
 - (int)delay;
-- (BOOL)hasDelay;
+- (_Bool)hasDelay;
 - (void)dealloc;
 - (id)init;
 

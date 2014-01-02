@@ -23,7 +23,7 @@
 
 + (id)filterWithFilterID:(id)arg1;
 - (id)parent;
-- (int)index;
+- (long long)index;
 - (void)removeAnimationPathForKey:(id)arg1;
 - (void)setAnimationPath:(id)arg1 forKey:(id)arg2;
 - (id)animationPathForKey:(id)arg1;
@@ -41,17 +41,6 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
 - (id)initWithFilterID:(id)arg1;
-- (id)convertMCAttributeToMPAttribute:(id)arg1 withKey:(id)arg2;
-- (id)convertMPAttributeToMCAttribute:(id)arg1 withKey:(id)arg2;
-- (void)setDefaults;
-- (id)fullDebugLog;
-- (void)dump;
-- (id)filter;
-- (id)parentDocument;
-- (void)setParent:(id)arg1;
-- (void)setFilter:(id)arg1;
-- (void)copyAnimationPaths:(id)arg1;
-- (void)copyStruct:(id)arg1;
 
 @end
 

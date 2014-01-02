@@ -18,14 +18,14 @@
 @property id <FTMessageQueueDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain) NSMutableArray *_addDates; // @synthesize _addDates;
 @property(retain) NSMutableArray *_queue; // @synthesize _queue;
-- (BOOL)removeMessage:(id)arg1;
-- (BOOL)addMessage:(id)arg1;
+- (_Bool)removeMessage:(id)arg1;
+- (_Bool)addMessage:(id)arg1;
 - (id)dequeueTopMessage;
 - (void)removeAllMessages;
 - (void)_timeoutHit;
 - (void)_setTimeout;
 - (void)_clearTimeout;
-@property(readonly) int count;
+@property(readonly) long long count;
 @property(readonly) NSArray *messages;
 @property(readonly) IDSBaseMessage *topMessage;
 - (void)dealloc;

@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSMutableArray;
 
-@interface GEORegionalResourceTileData : PBCodable
+@interface GEORegionalResourceTileData : PBCodable <NSCopying>
 {
     NSMutableArray *_attributions;
     NSMutableArray *_icons;
@@ -16,19 +18,20 @@
 
 @property(retain, nonatomic) NSMutableArray *attributions; // @synthesize attributions=_attributions;
 @property(retain, nonatomic) NSMutableArray *icons; // @synthesize icons=_icons;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)attributionAtIndex:(unsigned int)arg1;
-- (unsigned int)attributionsCount;
+- (id)attributionAtIndex:(unsigned long long)arg1;
+- (unsigned long long)attributionsCount;
 - (void)addAttribution:(id)arg1;
 - (void)clearAttributions;
-- (id)iconAtIndex:(unsigned int)arg1;
-- (unsigned int)iconsCount;
+- (id)iconAtIndex:(unsigned long long)arg1;
+- (unsigned long long)iconsCount;
 - (void)addIcon:(id)arg1;
 - (void)clearIcons;
 - (void)dealloc;

@@ -8,6 +8,7 @@
 
 @class UILabel;
 
+// Not exported
 @interface UIPrintingMessageView : UIView
 {
     UILabel *_title;
