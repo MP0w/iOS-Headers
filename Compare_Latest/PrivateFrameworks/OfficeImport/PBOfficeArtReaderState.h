@@ -8,6 +8,7 @@
 
 @class PBPresentationReaderState;
 
+// Not exported
 @interface PBOfficeArtReaderState : OABReaderState
 {
     PBPresentationReaderState *mPresentationState;

@@ -14,7 +14,7 @@
 }
 
 + (id)databasePath;
-- (BOOL)_setupDatabase;
+- (_Bool)_setupDatabase;
 - (void)performTransctionWithBlock:(id)arg1;
 - (void)dealloc;
 - (id)init;

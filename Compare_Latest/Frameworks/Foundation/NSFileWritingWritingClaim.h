@@ -8,30 +8,31 @@
 
 @class NSFileAccessNode, NSURL;
 
+// Not exported
 @interface NSFileWritingWritingClaim : NSFileAccessClaim
 {
     NSURL *_url1;
-    BOOL _url1DidChange;
-    unsigned int _options1;
+    _Bool _url1DidChange;
+    unsigned long long _options1;
     NSURL *_url2;
-    BOOL _url2DidChange;
-    unsigned int _options2;
+    _Bool _url2DidChange;
+    unsigned long long _options2;
     NSFileAccessNode *_location1;
     NSFileAccessNode *_location2;
 }
 
-- (BOOL)blocksClaim:(id)arg1;
+- (_Bool)blocksClaim:(id)arg1;
 - (void)itemAtLocation:(id)arg1 wasReplacedByItemAtLocation:(id)arg2;
 - (void)devalueSelf;
 - (void)invokeClaimer;
 - (void)granted;
-- (BOOL)isBlockedByWritingItemAtLocation:(id)arg1 options:(unsigned int)arg2;
-- (BOOL)isBlockedByReadingItemAtLocation:(id)arg1 options:(unsigned int)arg2;
-- (BOOL)evaluateSelfWithRootNode:(id)arg1 checkSubarbitrability:(BOOL)arg2;
+- (_Bool)isBlockedByWritingItemAtLocation:(id)arg1 options:(unsigned long long)arg2;
+- (_Bool)isBlockedByReadingItemAtLocation:(id)arg1 options:(unsigned long long)arg2;
+- (_Bool)evaluateSelfWithRootNode:(id)arg1 checkSubarbitrability:(_Bool)arg2;
 - (void)forwardUsingMessageSender:(id)arg1 crashHandler:(void)arg2;
 - (void)dealloc;
 - (id)initWithClient:(id)arg1 messageParameters:(id)arg2 replySender:(id)arg3;
-- (id)initWithPurposeID:(id)arg1 url:(id)arg2 options:(unsigned int)arg3 url:(id)arg4 options:(unsigned int)arg5 claimer:(id)arg6;
+- (id)initWithPurposeID:(id)arg1 url:(id)arg2 options:(unsigned long long)arg3 url:(id)arg4 options:(unsigned long long)arg5 claimer:(id)arg6;
 
 @end
 

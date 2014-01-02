@@ -10,11 +10,11 @@
 
 @class NSData, NSDictionary, NSObject<OS_dispatch_queue>;
 
+// Not exported
 @interface SBKStoreClampsController : NSObject <NSCoding>
 {
     NSObject<OS_dispatch_queue> *_queue;
     NSDictionary *_transactionClamps;
-    NSData *_pendingUserDefaultArchivedData;
     double _accountIdentifierCheckTimestamp;
     double _authenticationNeededTimestamp;
     double _userAcceptedSyncTimestamp;
@@ -22,6 +22,7 @@
     double _backOffUntil;
     double _userCancelledSignInBackOffUntil;
     double _nextUserCancelBackOffInterval;
+    NSData *_pendingUserDefaultArchivedData;
 }
 
 + (id)sharedClampsController;
@@ -36,24 +37,24 @@
 @property(retain) NSDictionary *transactionClamps; // @synthesize transactionClamps=_transactionClamps;
 @property(retain) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 - (void).cxx_destruct;
-- (BOOL)_canScheduleTransactionBasedOnUserCancelledSignIn:(id)arg1 error:(id *)arg2;
-- (BOOL)_canScheduleTransactionBasedOnBackOff:(id)arg1 error:(id *)arg2;
-- (BOOL)_canScheduleTransactionBasedOnAccountIdentifierCheck:(id)arg1 error:(id *)arg2;
-- (BOOL)_canScheduleTransactionBasedOfNetworkingBlocked:(id)arg1 error:(id *)arg2;
-- (BOOL)_canScheduleTransactionBasedOnType:(id)arg1 error:(id *)arg2;
+- (_Bool)_canScheduleTransactionBasedOnUserCancelledSignIn:(id)arg1 error:(id *)arg2;
+- (_Bool)_canScheduleTransactionBasedOnBackOff:(id)arg1 error:(id *)arg2;
+- (_Bool)_canScheduleTransactionBasedOnAccountIdentifierCheck:(id)arg1 error:(id *)arg2;
+- (_Bool)_canScheduleTransactionBasedOfNetworkingBlocked:(id)arg1 error:(id *)arg2;
+- (_Bool)_canScheduleTransactionBasedOnType:(id)arg1 error:(id *)arg2;
 - (id)_keyForTransaction:(id)arg1;
 - (double)_rightNow;
-- (BOOL)isNetworkingBlocked;
+- (_Bool)isNetworkingBlocked;
 - (void)clearNetworkingBlocked;
 - (void)setNetworkingBlocked;
 - (void)clearBackOff;
 - (void)backOffForTimeInterval:(double)arg1;
 - (void)clearUserCancelledSignIn;
 - (void)setUserCancelledSignIn;
-- (BOOL)hasUserRecentlyAcceptedSync;
+- (_Bool)hasUserRecentlyAcceptedSync;
 - (void)clearUserAcceptedSyncTimestamp;
 - (void)setUserAcceptedSyncTimestamp;
-- (BOOL)hasAuthenticatedTooRecentlyForTransaction:(id)arg1 error:(id *)arg2;
+- (_Bool)hasAuthenticatedTooRecentlyForTransaction:(id)arg1 error:(id *)arg2;
 - (void)clearAuthenticationRequest;
 - (void)setAuthenticationRequest;
 - (void)clearAccountIdentifierCheckTimestamp;
@@ -61,7 +62,7 @@
 - (void)clearTimestampForTransaction:(id)arg1;
 - (void)setTimestampForTransaction:(id)arg1;
 - (void)reset;
-- (BOOL)canScheduleTransaction:(id)arg1 error:(id *)arg2;
+- (_Bool)canScheduleTransaction:(id)arg1 error:(id *)arg2;
 - (void)accessTransactionClampsWithBlock:(id)arg1;
 - (void)saveToUserDefaults;
 - (id)initWithCoder:(id)arg1;

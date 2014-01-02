@@ -13,12 +13,14 @@
     SBLockScreenViewController *_lockScreenViewController;
     SBAlert *_deactivatingAlert;
     SBAlertManager *_alertManager;
-    UIView *_realViewToAnimate;
-    BOOL _animatingWithZoom;
+    UIView *_cameraSnapshotView;
+    _Bool _animatingBackToCamera;
 }
 
 - (void)_cleanupAnimation;
 - (void)_startAnimation;
+- (double)animationDelay;
+- (double)animationDuration;
 - (void)_prepareAnimation;
 - (void)dealloc;
 - (id)initWithLockScreenController:(id)arg1 deactivatingAlert:(id)arg2 alertManager:(id)arg3;

@@ -8,6 +8,7 @@
 
 @class EDColorReference, EDHeaderFooter, EDPageSetup, EDProcessors, EDString, EDWarnings, EDWorkbook, ESDContainer, NSMutableArray, TSUPointerKeyDictionary;
 
+// Not exported
 @interface EDSheet : OCDDelayedNode
 {
     EDWorkbook *mWorkbook;
@@ -37,10 +38,10 @@
 - (void)setEDTextBox:(id)arg1 forShape:(id)arg2;
 - (id)edTextBoxForShape:(id)arg1;
 - (id)drawables;
-- (void)removeDrawableAtIndex:(unsigned int)arg1;
+- (void)removeDrawableAtIndex:(unsigned long long)arg1;
 - (void)addDrawable:(id)arg1;
-- (id)drawableAtIndex:(unsigned int)arg1;
-- (unsigned int)drawableCount;
+- (id)drawableAtIndex:(unsigned long long)arg1;
+- (unsigned long long)drawableCount;
 - (void)setPageSetup:(id)arg1;
 - (id)pageSetup;
 - (void)setHeaderFooter:(id)arg1;
@@ -59,14 +60,6 @@
 - (void)doneWithNonRowContent;
 - (void)dealloc;
 - (id)initWithWorkbook:(id)arg1;
-- (void)reduceMemoryIfPossible;
-- (void)setEscherDrawing:(id)arg1;
-- (id)escherDrawing;
-- (id)drawableEnumerator;
-- (void)setDefaultGridlineColorReference:(id)arg1;
-- (id)defaultGridlineColorReference;
-- (void)teardown;
-- (void)setup;
 
 @end
 

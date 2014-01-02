@@ -14,6 +14,7 @@
 
 @property(retain, nonatomic) NSString *mediaURL;
 @property(retain, nonatomic) NSString *mediaEventType;
+- (void)setLocationWithEventLocations:(id)arg1;
 @property(retain, nonatomic) NSString *locationDescription;
 @property(retain, nonatomic) NSNumber *itemIdentifier;
 - (id)init;

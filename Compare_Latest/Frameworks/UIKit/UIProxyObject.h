@@ -10,6 +10,7 @@
 
 @class NSString;
 
+// Not exported
 @interface UIProxyObject : NSObject <NSCoding>
 {
     NSString *proxiedObjectIdentifier;

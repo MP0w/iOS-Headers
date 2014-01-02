@@ -10,23 +10,24 @@
 
 @interface HSLibrary : NSObject
 {
-    BOOL _requiresPassword;
+    _Bool _requiresPassword;
+    unsigned int _version;
     NSString *_name;
     NSString *_uniqueIdentifier;
-    unsigned int _version;
     HSConnection *_connection;
     id <NSObject> _context;
 }
 
 @property(retain, nonatomic) id <NSObject> context; // @synthesize context=_context;
 @property(readonly, nonatomic) HSConnection *connection; // @synthesize connection=_connection;
-@property(readonly, nonatomic) BOOL requiresPassword; // @synthesize requiresPassword=_requiresPassword;
+@property(readonly, nonatomic) _Bool requiresPassword; // @synthesize requiresPassword=_requiresPassword;
 @property(readonly, nonatomic) unsigned int version; // @synthesize version=_version;
 @property(readonly, nonatomic) NSString *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
-- (id)initWithConnectionConfiguration:(id)arg1 connectionType:(int)arg2;
+- (void)dealloc;
+- (id)initWithConnectionConfiguration:(id)arg1 connectionType:(long long)arg2;
 - (id)initWithConnectionConfiguration:(id)arg1;
-- (id)initWithName:(id)arg1 uniqueIdentifier:(id)arg2 version:(unsigned int)arg3 baseURL:(id)arg4 connectionType:(int)arg5;
+- (id)initWithName:(id)arg1 uniqueIdentifier:(id)arg2 version:(unsigned int)arg3 baseURL:(id)arg4 connectionType:(long long)arg5;
 - (id)initWithName:(id)arg1 uniqueIdentifier:(id)arg2 version:(unsigned int)arg3 baseURL:(id)arg4;
 
 @end

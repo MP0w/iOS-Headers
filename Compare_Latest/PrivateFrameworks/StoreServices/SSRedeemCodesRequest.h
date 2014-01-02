@@ -14,8 +14,12 @@
 {
     SSAuthenticationContext *_authenticationContext;
     NSArray *_redeemCodes;
+    _Bool _headless;
+    _Bool _cameraRecognized;
 }
 
+@property _Bool cameraRecognized; // @synthesize cameraRecognized=_cameraRecognized;
+@property _Bool headless; // @synthesize headless=_headless;
 - (id)copyXPCEncoding;
 - (id)initWithXPCEncoding:(id)arg1;
 - (void)startWithCompletionBlock:(id)arg1;

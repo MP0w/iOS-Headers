@@ -15,8 +15,8 @@
 - (void)ab_bindStatement:(struct CPSqliteStatement *)arg1 withBindingOffset:(int *)arg2 predicateIdentifier:(int)arg3;
 - (id)queryWhereString;
 - (id)queryGroupByProperties;
-- (id)queryJoinsInCompound:(BOOL)arg1;
-- (BOOL)isValid;
+- (id)queryJoinsInCompound:(_Bool)arg1;
+- (_Bool)isValid;
 - (id)init;
 
 @end

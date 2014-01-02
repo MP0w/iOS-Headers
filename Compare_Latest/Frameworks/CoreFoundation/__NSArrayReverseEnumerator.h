@@ -6,10 +6,11 @@
 
 #import <CoreFoundation/NSEnumerator.h>
 
+// Not exported
 @interface __NSArrayReverseEnumerator : NSEnumerator
 {
     id _obj;
-    unsigned int _idx;
+    unsigned long long _idx;
 }
 
 - (id)nextObject;

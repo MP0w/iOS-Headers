@@ -9,8 +9,8 @@
 struct CFURLConnectionClient_V1;
 
 struct CGSize {
-    float _field1;
-    float _field2;
+    double _field1;
+    double _field2;
 };
 
 struct _CFURLConnection;

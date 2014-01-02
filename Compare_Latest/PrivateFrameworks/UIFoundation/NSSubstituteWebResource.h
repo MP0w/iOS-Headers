@@ -8,6 +8,7 @@
 
 @class NSData, NSString, NSURL;
 
+// Not exported
 @interface NSSubstituteWebResource : NSObject
 {
     NSData *_data;

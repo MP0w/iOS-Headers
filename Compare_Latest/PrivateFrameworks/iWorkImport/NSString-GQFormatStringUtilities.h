@@ -18,7 +18,7 @@
 - (int)indexOfNumberFormatSubpatternSeparator;
 - (id)stringByRemovingEscapedCharactersFromNumberFormatPattern;
 - (id)createRangesOfEscapedCharactersInNumberFormatPattern;
-- (BOOL)isNumberFormatPattern;
+- (_Bool)isNumberFormatPattern;
 - (id)createStringBySubstitutingCharactersCFNumberFormatterDoesntUnderstand;
 @end
 

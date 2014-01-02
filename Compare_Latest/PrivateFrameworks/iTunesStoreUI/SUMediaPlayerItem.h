@@ -15,9 +15,9 @@
     NSURL *_backgroundImageURL;
     NSString *_bookmarkIdentifier;
     NSArray *_downloadPingURLs;
-    int _initialOrientation;
+    long long _initialOrientation;
     unsigned long long _itemIdentifier;
-    int _itemType;
+    long long _itemType;
     NSArray *_playbackPingURLs;
     double _playableDuration;
     NSString *_subtitle;
@@ -30,9 +30,9 @@
 @property(copy, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
 @property(copy, nonatomic) NSArray *playbackPingURLs; // @synthesize playbackPingURLs=_playbackPingURLs;
 @property(nonatomic) double playableDuration; // @synthesize playableDuration=_playableDuration;
-@property(nonatomic) int itemType; // @synthesize itemType=_itemType;
+@property(nonatomic) long long itemType; // @synthesize itemType=_itemType;
 @property(nonatomic) unsigned long long itemIdentifier; // @synthesize itemIdentifier=_itemIdentifier;
-@property(nonatomic) int initialOrientation; // @synthesize initialOrientation=_initialOrientation;
+@property(nonatomic) long long initialOrientation; // @synthesize initialOrientation=_initialOrientation;
 @property(copy, nonatomic) NSArray *downloadPingURLs; // @synthesize downloadPingURLs=_downloadPingURLs;
 @property(copy, nonatomic) NSString *bookmarkIdentifier; // @synthesize bookmarkIdentifier=_bookmarkIdentifier;
 @property(retain, nonatomic) NSURL *backgroundImageURL; // @synthesize backgroundImageURL=_backgroundImageURL;

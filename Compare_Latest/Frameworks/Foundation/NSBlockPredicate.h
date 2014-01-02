@@ -13,14 +13,14 @@
 
 - (id)_predicateBlock;
 - (id)predicateWithSubstitutionVariables:(id)arg1;
-- (void)acceptVisitor:(id)arg1 flags:(unsigned int)arg2;
+- (void)acceptVisitor:(id)arg1 flags:(unsigned long long)arg2;
 - (id)predicateFormat;
-- (BOOL)evaluateWithObject:(id)arg1 substitutionVariables:(id)arg2;
+- (_Bool)evaluateWithObject:(id)arg1 substitutionVariables:(id)arg2;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (BOOL)supportsSecureCoding;
+- (_Bool)supportsSecureCoding;
 - (id)initWithBlock:(id)arg1;
 
 @end

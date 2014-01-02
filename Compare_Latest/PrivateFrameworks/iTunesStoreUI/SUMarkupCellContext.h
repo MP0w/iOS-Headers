@@ -10,13 +10,13 @@
 
 @interface SUMarkupCellContext : SUItemCellContext
 {
-    int _pendingWebViewLoads;
+    long long _pendingWebViewLoads;
     NSString *_stylesheet;
     struct __CFDictionary *_webViewCache;
-    float _webViewWidth;
+    double _webViewWidth;
 }
 
-@property(nonatomic) float webViewWidth; // @synthesize webViewWidth=_webViewWidth;
+@property(nonatomic) double webViewWidth; // @synthesize webViewWidth=_webViewWidth;
 @property(retain, nonatomic) NSString *stylesheet; // @synthesize stylesheet=_stylesheet;
 - (void)webViewDidFinishLoading:(id)arg1;
 - (id)webViewForMarkup:(id)arg1;

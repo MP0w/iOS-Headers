@@ -19,7 +19,7 @@
     NSDate *_forcedComplianceDate;
     id _telephonyNotificationObserver;
     int _restoreCompletedAlertStateChangedToken;
-    BOOL _delayedComplianceAlertUntilAfterRestoreCompletedAlert;
+    _Bool _delayedComplianceAlertUntilAfterRestoreCompletedAlert;
 }
 
 + (id)sharedInstance;
@@ -27,12 +27,12 @@
 - (void)_activateComplianceAlert;
 - (void)_stopListeningToRestoreCompletedAlertStateChangedNotifications;
 - (void)_startListeningToRestoreCompletedAlertStateChangedNotifications;
-- (BOOL)_isRestoreCompletedAlertActive;
+- (_Bool)_isRestoreCompletedAlertActive;
 - (void)_stopListeningToTelephonyNotifications;
 - (void)_startListeningToTelephonyNotifications;
 - (void)_didEndCall;
 - (void)_abort;
-- (void)_userWantsToComplyNow:(BOOL)arg1;
+- (void)_userWantsToComplyNow:(_Bool)arg1;
 - (void)_passwordEntered:(id)arg1;
 - (void)forceUserToChangePasscode;
 - (void)dealloc;

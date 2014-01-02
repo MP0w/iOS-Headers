@@ -18,7 +18,7 @@
 @property(retain, nonatomic) NSMutableSet *routeIDs; // @synthesize routeIDs=_routeIDs;
 @property(retain, nonatomic) GEODirectionsFeedback *currentDirectionsFeedback; // @synthesize currentDirectionsFeedback=_currentDirectionsFeedback;
 @property(retain, nonatomic) GEODirectionsFeedbackCollection *currentFeedbackCollection; // @synthesize currentFeedbackCollection=_currentFeedbackCollection;
-- (void)endFeedbackSession;
+- (void)endFeedbackSessionWithLocationWhereRouteWasCancelled:(id)arg1;
 - (void)addRouteID:(id)arg1 stepID:(unsigned int)arg2;
 - (void)startFeedbackSessionForResponseID:(id)arg1;
 - (void)reset;

@@ -6,13 +6,14 @@
 
 #import <UIKit/UIButton.h>
 
+// Not exported
 @interface UIOldSliderButton : UIButton
 {
 }
 
-- (BOOL)cancelTouchTracking;
-- (BOOL)cancelMouseTracking;
-- (BOOL)shouldTrack;
+- (_Bool)cancelTouchTracking;
+- (_Bool)cancelMouseTracking;
+- (_Bool)shouldTrack;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

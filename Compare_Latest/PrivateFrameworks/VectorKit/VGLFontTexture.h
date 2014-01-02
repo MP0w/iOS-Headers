@@ -6,12 +6,13 @@
 
 #import <VectorKit/VGLTexture.h>
 
+// Not exported
 @interface VGLFontTexture : VGLTexture
 {
 }
 
 - (void)pushSubImage:(void *)arg1 x:(int)arg2 y:(int)arg3 size:(int)arg4;
-- (BOOL)loadTexture;
+- (_Bool)loadTexture;
 - (id)initWithSize:(struct CGSize)arg1;
 
 @end

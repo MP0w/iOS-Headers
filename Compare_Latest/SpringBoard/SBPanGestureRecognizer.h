@@ -8,14 +8,14 @@
 
 @interface SBPanGestureRecognizer : SBFluidSlideGestureRecognizer
 {
-    float _arcCenter;
-    float _arcSize;
-    BOOL _recognizesHorizontalPanning;
-    BOOL _recognizesVerticalPanning;
+    double _arcCenter;
+    double _arcSize;
+    _Bool _recognizesHorizontalPanning;
+    _Bool _recognizesVerticalPanning;
 }
 
 - (void)updateForBeganOrMovedTouches:(struct __SBGestureContext *)arg1;
-- (float)computeIncrementalGestureMotion:(struct __SBGestureContext *)arg1;
+- (double)computeIncrementalGestureMotion:(struct __SBGestureContext *)arg1;
 - (id)initForVerticalPanning;
 - (id)initForHorizontalPanning;
 - (id)init;

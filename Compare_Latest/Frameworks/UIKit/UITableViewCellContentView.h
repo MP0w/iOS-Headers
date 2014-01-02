@@ -8,6 +8,7 @@
 
 @class CALayer;
 
+// Not exported
 @interface UITableViewCellContentView : UIView
 {
     CALayer *_mask;

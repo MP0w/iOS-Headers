@@ -17,8 +17,8 @@
 - (id)description;
 - (id)focusWindow;
 - (void)dropReason:(id)arg1;
-- (void)suspendWithPriority:(float)arg1 reason:(id)arg2;
-- (void)takeWithPriority:(float)arg1 reason:(id)arg2 forWindow:(id)arg3;
+- (void)suspendWithPriority:(double)arg1 reason:(id)arg2;
+- (void)takeWithPriority:(double)arg1 reason:(id)arg2 forWindow:(id)arg3;
 - (void)invalidate;
 - (void)_applyAssertion:(id)arg1;
 - (void)_updateEventFocus;

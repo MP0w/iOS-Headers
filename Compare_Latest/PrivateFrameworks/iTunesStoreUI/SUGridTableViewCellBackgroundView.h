@@ -11,14 +11,14 @@
 @interface SUGridTableViewCellBackgroundView : UIView
 {
     UIColor *_backgroundColor;
-    int _borderedEdges;
+    unsigned long long _borderedEdges;
     UIImage *_borderImage;
     UIBezierPath *_bottomCornersPath;
     UIBezierPath *_topCornersPath;
 }
 
 @property(retain, nonatomic) UIImage *borderImage; // @synthesize borderImage=_borderImage;
-@property(nonatomic) int borderedEdges; // @synthesize borderedEdges=_borderedEdges;
+@property(nonatomic) unsigned long long borderedEdges; // @synthesize borderedEdges=_borderedEdges;
 - (id)_topCornersPath;
 - (void)_resetCachedPaths;
 - (void)_drawBorderToRect:(struct CGRect)arg1 fromRect:(struct CGRect)arg2;

@@ -9,18 +9,18 @@
 @interface SUPreferences : NSObject
 {
     int _logLevel;
-    BOOL _disableUserWiFiOnlyPeriod;
-    BOOL _disableBuildNumberComparison;
-    BOOL _allowSameBuildUpdates;
+    _Bool _disableUserWiFiOnlyPeriod;
+    _Bool _disableBuildNumberComparison;
+    _Bool _allowSameBuildUpdates;
 }
 
 + (id)sharedInstance;
-@property(readonly, nonatomic) BOOL allowSameBuildUpdates; // @synthesize allowSameBuildUpdates=_allowSameBuildUpdates;
-@property(readonly, nonatomic) BOOL disableBuildNumberComparison; // @synthesize disableBuildNumberComparison=_disableBuildNumberComparison;
-@property(readonly, nonatomic) BOOL disableUserWiFiOnlyPeriod; // @synthesize disableUserWiFiOnlyPeriod=_disableUserWiFiOnlyPeriod;
+@property(readonly, nonatomic) _Bool allowSameBuildUpdates; // @synthesize allowSameBuildUpdates=_allowSameBuildUpdates;
+@property(readonly, nonatomic) _Bool disableBuildNumberComparison; // @synthesize disableBuildNumberComparison=_disableBuildNumberComparison;
+@property(readonly, nonatomic) _Bool disableUserWiFiOnlyPeriod; // @synthesize disableUserWiFiOnlyPeriod=_disableUserWiFiOnlyPeriod;
 @property(readonly, nonatomic) int logLevel; // @synthesize logLevel=_logLevel;
-- (void *)_copyPreferenceForKey:(struct __CFString *)arg1 ofType:(unsigned long)arg2;
-- (BOOL)_getBooleanPreferenceForKey:(id)arg1 withDefaultValue:(BOOL)arg2;
+- (void *)_copyPreferenceForKey:(struct __CFString *)arg1 ofType:(unsigned long long)arg2;
+- (_Bool)_getBooleanPreferenceForKey:(id)arg1 withDefaultValue:(_Bool)arg2;
 - (void)_loadPreferences;
 - (int)_defaultLogLevel;
 - (void)dealloc;

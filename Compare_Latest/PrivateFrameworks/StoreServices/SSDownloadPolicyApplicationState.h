@@ -25,10 +25,10 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)setNotRunningApplicationStates;
-- (void)addApplicationState:(int)arg1;
+- (void)addApplicationState:(long long)arg1;
 - (void)dealloc;
 - (id)initWithApplicationIdentifier:(id)arg1;
 

@@ -8,12 +8,12 @@
 
 @interface SBScreenShotter : NSObject
 {
-    BOOL _writingScreenshot;
+    _Bool _writingScreenshot;
 }
 
 + (id)sharedInstance;
-@property BOOL writingScreenshot; // @synthesize writingScreenshot=_writingScreenshot;
-- (void)saveScreenshot:(BOOL)arg1;
+@property _Bool writingScreenshot; // @synthesize writingScreenshot=_writingScreenshot;
+- (void)saveScreenshot:(_Bool)arg1;
 - (void)finishedWritingScreenshot:(id)arg1 didFinishSavingWithError:(id)arg2 context:(void *)arg3;
 
 @end

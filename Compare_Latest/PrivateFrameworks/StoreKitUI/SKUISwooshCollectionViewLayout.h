@@ -11,14 +11,14 @@
 @interface SKUISwooshCollectionViewLayout : UICollectionViewFlowLayout
 {
     UIColor *_backgroundColor;
-    BOOL _snapsToItemBoundaries;
-    BOOL _snapsToItemCenters;
+    _Bool _snapsToItemBoundaries;
+    _Bool _snapsToItemCenters;
 }
 
 + (Class)layoutAttributesClass;
 + (float)snapToBoundariesDecelerationRate;
-@property(nonatomic) BOOL snapsToItemCenters; // @synthesize snapsToItemCenters=_snapsToItemCenters;
-@property(nonatomic) BOOL snapsToItemBoundaries; // @synthesize snapsToItemBoundaries=_snapsToItemBoundaries;
+@property(nonatomic) _Bool snapsToItemCenters; // @synthesize snapsToItemCenters=_snapsToItemCenters;
+@property(nonatomic) _Bool snapsToItemBoundaries; // @synthesize snapsToItemBoundaries=_snapsToItemBoundaries;
 @property(copy, nonatomic) UIColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 - (void).cxx_destruct;
 - (struct CGPoint)targetContentOffsetForProposedContentOffset:(struct CGPoint)arg1 withScrollingVelocity:(struct CGPoint)arg2;

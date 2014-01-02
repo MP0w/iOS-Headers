@@ -8,16 +8,17 @@
 
 @class OADRelativeRect;
 
+// Not exported
 @interface OADStretchTechnique : OADImageFillTechnique
 {
     OADRelativeRect *mFillRect;
-    BOOL mIsFillRectOverridden;
+    _Bool mIsFillRectOverridden;
 }
 
 + (id)defaultProperties;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (BOOL)isFillRectOverridden;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isFillRectOverridden;
 - (void)setFillRect:(id)arg1;
 - (id)fillRect;
 - (void)dealloc;

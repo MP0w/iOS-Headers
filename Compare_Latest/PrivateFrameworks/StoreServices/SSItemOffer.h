@@ -21,9 +21,9 @@
 + (id)_preferredOfferIdentifiers;
 @property(nonatomic, getter=_offerItem, setter=_setOfferItem:) SSItem *_offerItem; // @synthesize _offerItem=_item;
 @property(readonly, nonatomic) NSString *offerIdentifier; // @synthesize offerIdentifier=_offerIdentifier;
-@property(readonly, nonatomic) BOOL shouldShowPlusIcon;
+@property(readonly, nonatomic) _Bool shouldShowPlusIcon;
 - (void)setPriceDisplay:(id)arg1;
-- (void)setOneTapOffer:(BOOL)arg1;
+- (void)setOneTapOffer:(_Bool)arg1;
 - (void)setBuyParameters:(id)arg1;
 - (void)setActionDisplayName:(id)arg1;
 @property(readonly, nonatomic) id requiredSoftwareCapabilities;
@@ -37,8 +37,8 @@
 - (id)playableMedia;
 @property(readonly, nonatomic) SSItemMedia *offerMedia;
 @property(readonly, nonatomic) SSNetworkConstraints *networkConstraints;
-@property(readonly, nonatomic, getter=isPreorder) BOOL preorder;
-@property(readonly, nonatomic, getter=isOneTapOffer) BOOL oneTapOffer;
+@property(readonly, nonatomic, getter=isPreorder) _Bool preorder;
+@property(readonly, nonatomic, getter=isOneTapOffer) _Bool oneTapOffer;
 - (id)documentUTI;
 - (id)documentRequiredHandlers;
 - (id)documentCannotOpenDialog;

@@ -6,14 +6,15 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface GEOThrottleState : NSObject
 {
-    unsigned int _requestCount;
+    unsigned long long _requestCount;
     double _lastResetTime;
 }
 
 @property(nonatomic) double lastResetTime; // @synthesize lastResetTime=_lastResetTime;
-@property(nonatomic) unsigned int requestCount; // @synthesize requestCount=_requestCount;
+@property(nonatomic) unsigned long long requestCount; // @synthesize requestCount=_requestCount;
 
 @end
 

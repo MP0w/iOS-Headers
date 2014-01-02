@@ -9,13 +9,13 @@
 @interface CPDistributedMessagingDelayedReplyContext : NSObject
 {
     unsigned int _replyPort;
-    BOOL _portPassing;
+    _Bool _portPassing;
 }
 
-@property(nonatomic) BOOL portPassing; // @synthesize portPassing=_portPassing;
+@property(nonatomic) _Bool portPassing; // @synthesize portPassing=_portPassing;
 @property(nonatomic) unsigned int replyPort; // @synthesize replyPort=_replyPort;
 - (void)dealloc;
-- (id)initWithReplyPort:(unsigned int)arg1 portPassing:(BOOL)arg2;
+- (id)initWithReplyPort:(unsigned int)arg1 portPassing:(_Bool)arg2;
 
 @end
 

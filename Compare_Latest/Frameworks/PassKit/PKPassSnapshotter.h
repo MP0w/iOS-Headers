@@ -6,19 +6,25 @@
 
 #import "NSObject.h"
 
-@class PKPassLibrary;
+@class NSObject<OS_dispatch_semaphore>, PKPassLibrary, UIWindow;
 
 @interface PKPassSnapshotter : NSObject
 {
     PKPassLibrary *_passLibrary;
+    NSObject<OS_dispatch_semaphore> *_snapshotSem;
+    UIWindow *_snapshotWindow;
+    double _scale;
 }
 
 + (void)purgeCacheOfPassSnapshotsWithUinqueID:(id)arg1;
-- (id)_snapshot:(id)arg1 resizedToSize:(struct CGSize)arg2;
-- (id)_cachedSnapshotWithKey:(id)arg1;
-- (void)_cacheSnapshot:(id)arg1 withKey:(id)arg2;
+- (_Bool)_cachedImageWithKey:(id)arg1 completion:(id)arg2;
+- (void)_cacheImage:(struct CGImage *)arg1 withKey:(id)arg2;
+- (void)snapshotWithUniqueID:(id)arg1 manifestHash:(id)arg2 size:(struct CGSize)arg3 completion:(id)arg4;
 - (void)snapshotWithUniqueID:(id)arg1 size:(struct CGSize)arg2 completion:(id)arg3;
 - (void)snapshotWithUniqueID:(id)arg1 completion:(id)arg2;
+- (void)_performSnapshot:(id)arg1 size:(struct CGSize)arg2 cacheKey:(id)arg3 completion:(id)arg4;
+- (void)_prepareSnapshotViewWithPass:(id)arg1 size:(struct CGSize)arg2 cacheKey:(id)arg3 completion:(id)arg4;
+- (void)snapshotWithPass:(id)arg1 size:(struct CGSize)arg2 withCache:(_Bool)arg3 completion:(id)arg4;
 - (void)snapshotWithPass:(id)arg1 size:(struct CGSize)arg2 completion:(id)arg3;
 - (void)snapshotWithPass:(id)arg1 completion:(id)arg2;
 - (void)dealloc;

@@ -11,8 +11,10 @@
 @interface MKSearchCompletion : NSObject
 {
     NSString *_sourceID;
+    NSString *_localizedSectionHeader;
 }
 
+@property(copy, nonatomic) NSString *localizedSectionHeader; // @synthesize localizedSectionHeader=_localizedSectionHeader;
 @property(copy, nonatomic) NSString *sourceID; // @synthesize sourceID=_sourceID;
 - (id)description;
 - (void)applyToPlaceSearchRequest:(id)arg1;
@@ -21,9 +23,9 @@
 - (void)sendFeedback;
 - (id)calloutTitle;
 - (id)queryLine;
-- (BOOL)getCoordinate:(CDStruct_c3b9c2ee *)arg1;
-- (id)iconWithScale:(float)arg1;
-- (id)highlightsForLine:(unsigned int)arg1;
+- (_Bool)getCoordinate:(CDStruct_c3b9c2ee *)arg1;
+- (id)iconWithScale:(double)arg1;
+- (id)highlightsForLine:(unsigned long long)arg1;
 @property(readonly, nonatomic) NSArray *displayLines;
 - (void)dealloc;
 

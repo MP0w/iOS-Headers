@@ -6,14 +6,17 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface GEOTileDBProtection : NSObject
 {
     int _currentState;
+    int _notifyToken;
 }
 
 + (id)sharedObject;
 - (void)updateState;
 - (int)state;
+- (void)_statusChanged;
 - (void)dealloc;
 - (id)init;
 

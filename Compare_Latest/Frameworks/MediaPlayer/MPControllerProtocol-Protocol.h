@@ -11,11 +11,11 @@
 @protocol MPControllerProtocol <NSObject>
 @property(readonly, nonatomic) UIView *view;
 @property(retain, nonatomic) MPAVController *player;
-@property(nonatomic) int orientation;
+@property(nonatomic) long long orientation;
 @property(retain, nonatomic) MPAVItem *item;
 @property(nonatomic) __weak id delegate;
-- (void)setOrientation:(int)arg1 animate:(BOOL)arg2;
-- (void)noteIgnoredChangeTypes:(unsigned int)arg1;
+- (void)setOrientation:(long long)arg1 animate:(_Bool)arg2;
+- (void)noteIgnoredChangeTypes:(unsigned long long)arg1;
 - (void)clearWeakReferencesToObject:(id)arg1;
 @end
 

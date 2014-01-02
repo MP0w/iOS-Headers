@@ -23,8 +23,8 @@
 @property(readonly) long long totalProgressValue;
 @property(readonly) long long progressValue;
 @property(readonly) float progressChangeRate;
-@property(readonly) int progressUnits;
-@property(readonly) int phaseType;
+@property(readonly) long long progressUnits;
+@property(readonly) long long phaseType;
 @property(readonly) double estimatedSecondsRemaining;
 - (void)dealloc;
 - (id)initWithOperationProgress:(id)arg1;

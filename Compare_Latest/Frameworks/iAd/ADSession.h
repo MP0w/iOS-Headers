@@ -12,19 +12,19 @@
 
 @interface ADSession : NSObject <ADSession_RPC>
 {
-    BOOL _applicationCanReceiveBackgroundAds;
+    _Bool _applicationCanReceiveBackgroundAds;
     NSString *_serverURL;
     NSMutableArray *_adSpaces;
 }
 
 + (id)sharedInstance;
 @property(retain, nonatomic) NSMutableArray *adSpaces; // @synthesize adSpaces=_adSpaces;
-@property(nonatomic) BOOL applicationCanReceiveBackgroundAds; // @synthesize applicationCanReceiveBackgroundAds=_applicationCanReceiveBackgroundAds;
+@property(nonatomic) _Bool applicationCanReceiveBackgroundAds; // @synthesize applicationCanReceiveBackgroundAds=_applicationCanReceiveBackgroundAds;
 @property(copy, nonatomic) NSString *serverURL; // @synthesize serverURL=_serverURL;
 - (void)_appDidBecomeActive;
 - (void)_appWillResignActive;
 - (void)_remote_policyEngineTestStationDescriptionsComputed:(id)arg1;
-- (void)_remote_heartbeatTokenDidChange:(id)arg1 error:(id)arg2;
+- (void)_remote_heartbeatTokenDidChange:(id)arg1 expirationDate:(double)arg2 error:(id)arg3;
 - (void)_orientationChanged;
 - (void)unregisterAdSpace:(id)arg1;
 - (void)registerAdSpace:(id)arg1;

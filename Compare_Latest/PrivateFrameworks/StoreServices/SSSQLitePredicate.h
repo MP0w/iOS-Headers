@@ -12,8 +12,8 @@
 {
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)SQLJoinClausesForEntityClass:(Class)arg1;
 - (id)SQLForEntityClass:(Class)arg1;
 - (void)bindToStatement:(struct sqlite3_stmt *)arg1 bindingIndex:(inout int *)arg2;

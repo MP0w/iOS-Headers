@@ -15,8 +15,8 @@
 
 @property(readonly, nonatomic) SKUIItemBrowseCellLayout *layout; // @synthesize layout=_layout;
 - (void).cxx_destruct;
-- (void)configureForItem:(id)arg1 rowIndex:(int)arg2;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (void)configureForItem:(id)arg1 rowIndex:(long long)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

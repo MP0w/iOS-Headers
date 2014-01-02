@@ -6,6 +6,7 @@
 
 #import "CAEAGLLayer.h"
 
+// Not exported
 @interface WebGLLayer : CAEAGLLayer
 {
     struct GraphicsLayer *m_layerOwner;
@@ -15,8 +16,6 @@
 - (void)display;
 - (struct CGImage *)copyImageSnapshotWithColorSpace:(struct CGColorSpace *)arg1;
 - (id)initWithGraphicsContext3D:(struct GraphicsContext3D *)arg1;
-- (struct GraphicsLayer *)layerOwner;
-- (void)setLayerOwner:(struct GraphicsLayer *)arg1;
 
 @end
 

@@ -17,7 +17,7 @@
 + (id)orderWithDictionary:(id)arg1 context:(id)arg2;
 + (id)order;
 @property(copy, nonatomic) NSString *mediaItemProperty;
-@property(nonatomic) BOOL descending;
+@property(nonatomic) _Bool descending;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

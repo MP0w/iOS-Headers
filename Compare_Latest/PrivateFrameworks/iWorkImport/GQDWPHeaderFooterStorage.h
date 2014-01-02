@@ -6,6 +6,7 @@
 
 #import <iWorkImport/GQDWPLayoutStorage.h>
 
+// Not exported
 @interface GQDWPHeaderFooterStorage : GQDWPLayoutStorage
 {
     struct __CFString *mName;

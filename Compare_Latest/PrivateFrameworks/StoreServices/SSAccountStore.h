@@ -17,10 +17,10 @@
 }
 
 + (void)setDefaultStore:(id)arg1;
-+ (void)resetExpirationForTokenType:(int)arg1;
++ (void)resetExpirationForTokenType:(long long)arg1;
 + (void)resetExpiration;
-+ (BOOL)isExpiredForTokenType:(int)arg1;
-+ (BOOL)isExpired;
++ (_Bool)isExpiredForTokenType:(long long)arg1;
++ (_Bool)isExpired;
 + (id)existingDefaultStore;
 + (double)tokenExpirationInterval;
 + (id)defaultStore;
@@ -34,15 +34,15 @@
 - (id)setActiveLockerAccount:(id)arg1;
 - (id)setActiveAccount:(id)arg1;
 - (void)setAccountCredits:(id)arg1 forAccountWithUniqueIdentifier:(id)arg2;
-- (void)resetExpirationForTokenType:(int)arg1;
+- (void)resetExpirationForTokenType:(long long)arg1;
 - (void)resetExpiration;
 - (void)reloadAccounts;
-- (BOOL)isExpiredForTokenType:(int)arg1;
-@property(readonly, getter=isAuthenticationActive) BOOL authenticationActive;
+- (_Bool)isExpiredForTokenType:(long long)arg1;
+@property(readonly, getter=isAuthenticationActive) _Bool authenticationActive;
 - (void)getDefaultAccountNameUsingBlock:(id)arg1;
 - (id)addAccount:(id)arg1;
-- (id)accountWithUniqueIdentifier:(id)arg1 reloadIfNecessary:(BOOL)arg2;
-@property(readonly, getter=isExpired) BOOL expired;
+- (id)accountWithUniqueIdentifier:(id)arg1 reloadIfNecessary:(_Bool)arg2;
+@property(readonly, getter=isExpired) _Bool expired;
 @property(readonly) SSAccount *activeLockerAccount;
 @property(readonly) SSAccount *activeAccount;
 - (id)accountWithUniqueIdentifier:(id)arg1;

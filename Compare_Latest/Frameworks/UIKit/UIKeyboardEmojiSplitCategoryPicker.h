@@ -8,20 +8,22 @@
 
 #import "UIKeyboardEmojiCategoryControl-Protocol.h"
 
-@class UIKeyboardEmojiCategoryController;
+@class UIKeyboardEmojiCategory, UIKeyboardEmojiCategoryController;
 
+// Not exported
 @interface UIKeyboardEmojiSplitCategoryPicker : UIKeyboardEmojiSplit <UIKeyboardEmojiCategoryControl>
 {
     UIKeyboardEmojiCategoryController *_categoryController;
-    BOOL _whiteText;
+    _Bool _whiteText;
+    UIKeyboardEmojiCategory *_lastUsedCategory;
 }
 
-@property BOOL whiteText; // @synthesize whiteText=_whiteText;
+@property _Bool whiteText; // @synthesize whiteText=_whiteText;
 - (void)setRenderConfig:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (id)symbolForRow:(int)arg1;
-- (id)titleForRow:(int)arg1;
+- (id)symbolForRow:(long long)arg1;
+- (id)titleForRow:(long long)arg1;
 - (void)updateCategorySelectedIndicator:(int)arg1;
 - (void)setCategory:(id)arg1;
 - (void)dealloc;

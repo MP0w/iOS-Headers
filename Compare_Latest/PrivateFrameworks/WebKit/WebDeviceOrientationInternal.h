@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface WebDeviceOrientationInternal : NSObject
 {
     struct RefPtr<WebCore::DeviceOrientationData> m_orientation;

@@ -8,6 +8,7 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface NSDirectorySubpathsOperation : NSDirectoryTraversalOperation
 {
     NSMutableArray *_subpaths;

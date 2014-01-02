@@ -14,11 +14,11 @@
     NSMutableArray *_prompts;
 }
 
-- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)willRotateToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
 - (void)setPrompt:(id)arg1 forViewControllerType:(int)arg2;
-- (id)promptForViewControllerType:(int)arg1 orientation:(int)arg2;
-- (BOOL)_shouldShowPromptForOrientation:(int)arg1;
-- (unsigned int)indexForViewControllerType:(int)arg1;
+- (id)promptForViewControllerType:(int)arg1 orientation:(long long)arg2;
+- (_Bool)_shouldShowPromptForOrientation:(long long)arg1;
+- (unsigned long long)indexForViewControllerType:(int)arg1;
 - (void)dealloc;
 - (id)initWithNavigationController:(id)arg1;
 

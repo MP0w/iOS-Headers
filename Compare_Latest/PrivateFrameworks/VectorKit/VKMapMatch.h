@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface VKMapMatch : NSObject
 {
     NSString *featureName;
@@ -27,7 +28,7 @@
 - (id).cxx_construct;
 - (id)description;
 - (void)dealloc;
-- (id)initWithGEORoadFeature:(CDStruct_c272c4e8 *)arg1 pointOnFeature:(struct VKPoint)arg2 courseOnFeature:(float)arg3 distanceFromJunction:(float)arg4 junctionRadius:(float)arg5 roadWidth:(float)arg6;
+- (id)initWithGEORoadFeature:(CDStruct_02d551b3 *)arg1 pointOnFeature:(struct VKPoint)arg2 courseOnFeature:(float)arg3 distanceFromJunction:(float)arg4 junctionRadius:(float)arg5 roadWidth:(float)arg6;
 
 @end
 

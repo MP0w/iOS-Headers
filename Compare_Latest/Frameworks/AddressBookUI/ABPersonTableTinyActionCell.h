@@ -22,10 +22,10 @@
 - (void)setBackgroundView:(id)arg1;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-@property(readonly) unsigned int actionsCount;
+@property(readonly) unsigned long long actionsCount;
 - (void)refreshActions;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 - (void)_resizeInnerContentView;
 - (id)_tinyActionContentView;
 

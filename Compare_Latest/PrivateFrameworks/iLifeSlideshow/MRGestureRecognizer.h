@@ -29,12 +29,12 @@
     struct CGPoint _centroidLocation;
     struct CGPoint _previousCentroidLocation;
     struct CGPoint _offsetFromCentroid;
-    float _scale;
-    float _previousScale;
-    float _ratioFromScale;
-    float _rotation;
-    float _previousRotation;
-    float _offsetFromRotation;
+    double _scale;
+    double _previousScale;
+    double _ratioFromScale;
+    double _rotation;
+    double _previousRotation;
+    double _offsetFromRotation;
     double _startTime;
     double _hitTime;
     double _previousHitTime;

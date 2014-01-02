@@ -15,9 +15,9 @@
 }
 
 - (void)setAudioPlaylist:(id)arg1;
-- (void)moveEffectContainersFromIndices:(id)arg1 toIndex:(int)arg2;
+- (void)moveEffectContainersFromIndices:(id)arg1 toIndex:(long long)arg2;
 - (void)removeEffectContainersAtIndices:(id)arg1;
-- (void)insertEffectContainers:(id)arg1 atIndex:(int)arg2;
+- (void)insertEffectContainers:(id)arg1 atIndex:(long long)arg2;
 - (void)setAnimatedSets:(id)arg1;
 - (id)animatedSets;
 - (void)dealloc;
@@ -26,10 +26,6 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)init;
-- (id)container;
-- (void)setLayerParallelizer:(id)arg1;
-- (void)resetStartTimes;
-- (void)cleanup;
 
 @end
 

@@ -12,7 +12,7 @@
 {
     NSTimer *_packetTimer;
     NSArray *_packets;
-    unsigned int _packetIndex;
+    unsigned long long _packetIndex;
 }
 
 + (void)disableSDA;
@@ -23,7 +23,7 @@
 - (void)beginSearchingForFakeSensor:(id)arg1;
 - (void)cancelLinkingForFakeSensor:(id)arg1;
 - (void)beginLinkingForFakeSensor:(id)arg1;
-- (unsigned int)remainingBatteryLifetimeInHoursForFakeSensor:(id)arg1;
+- (unsigned long long)remainingBatteryLifetimeInHoursForFakeSensor:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

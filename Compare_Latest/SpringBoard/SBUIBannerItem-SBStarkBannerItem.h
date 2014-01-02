@@ -7,6 +7,6 @@
 #import "SBUIBannerItem.h"
 
 @interface SBUIBannerItem (SBStarkBannerItem)
-- (BOOL)isStarkBannerItem;
+- (_Bool)isStarkBannerItem;
 @end
 

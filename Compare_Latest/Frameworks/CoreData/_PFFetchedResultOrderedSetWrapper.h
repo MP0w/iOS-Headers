@@ -8,6 +8,7 @@
 
 @class NSArray;
 
+// Not exported
 @interface _PFFetchedResultOrderedSetWrapper : NSOrderedSet
 {
     int _cd_rc;
@@ -16,42 +17,42 @@
 
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (id)alloc;
-+ (BOOL)accessInstanceVariablesDirectly;
++ (_Bool)accessInstanceVariablesDirectly;
 - (id)newArrayFromObjectIDs;
 - (id)arrayFromObjectIDs;
-- (unsigned int)indexOfManagedObjectForObjectID:(id)arg1;
-- (id)managedObjectIDAtIndex:(unsigned int)arg1;
+- (unsigned long long)indexOfManagedObjectForObjectID:(id)arg1;
+- (id)managedObjectIDAtIndex:(unsigned long long)arg1;
 - (id)allObjects;
-- (BOOL)containsObject:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isEqualToOrderedSet:(id)arg1;
+- (_Bool)containsObject:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)isEqualToOrderedSet:(id)arg1;
 - (Class)classForArchiver;
 - (Class)classForCoder;
 - (void)getObjects:(id *)arg1;
 - (void)getObjects:(id *)arg1 range:(struct _NSRange)arg2;
 - (id)objectEnumerator;
 - (id)array;
-- (id)sortedArrayWithOptions:(unsigned int)arg1 usingComparator:(id)arg2;
+- (id)sortedArrayWithOptions:(unsigned long long)arg1 usingComparator:(id)arg2;
 - (id)sortedArrayUsingComparator:(id)arg1;
-- (id)indexesOfObjectsAtIndexes:(id)arg1 options:(unsigned int)arg2 passingTest:(id)arg3;
-- (id)indexesOfObjectsWithOptions:(unsigned int)arg1 passingTest:(id)arg2;
-- (unsigned int)indexOfObjectAtIndexes:(id)arg1 options:(unsigned int)arg2 passingTest:(id)arg3;
-- (unsigned int)indexOfObjectWithOptions:(unsigned int)arg1 passingTest:(id)arg2;
-- (void)enumerateObjectsAtIndexes:(id)arg1 options:(unsigned int)arg2 usingBlock:(id)arg3;
-- (void)enumerateObjectsWithOptions:(unsigned int)arg1 usingBlock:(id)arg2;
-- (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
-- (unsigned int)indexOfObject:(id)arg1;
-- (id)objectAtIndex:(unsigned int)arg1;
-- (unsigned int)count;
+- (id)indexesOfObjectsAtIndexes:(id)arg1 options:(unsigned long long)arg2 passingTest:(id)arg3;
+- (id)indexesOfObjectsWithOptions:(unsigned long long)arg1 passingTest:(id)arg2;
+- (unsigned long long)indexOfObjectAtIndexes:(id)arg1 options:(unsigned long long)arg2 passingTest:(id)arg3;
+- (unsigned long long)indexOfObjectWithOptions:(unsigned long long)arg1 passingTest:(id)arg2;
+- (void)enumerateObjectsAtIndexes:(id)arg1 options:(unsigned long long)arg2 usingBlock:(id)arg3;
+- (void)enumerateObjectsWithOptions:(unsigned long long)arg1 usingBlock:(id)arg2;
+- (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
+- (unsigned long long)indexOfObject:(id)arg1;
+- (id)objectAtIndex:(unsigned long long)arg1;
+- (unsigned long long)count;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)willRead;
 - (id)descriptionWithLocale:(id)arg1;
 - (id)description;
 - (void)dealloc;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
-- (unsigned int)retainCount;
+- (_Bool)_isDeallocating;
+- (_Bool)_tryRetain;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;
 - (id)initWithArray:(id)arg1;

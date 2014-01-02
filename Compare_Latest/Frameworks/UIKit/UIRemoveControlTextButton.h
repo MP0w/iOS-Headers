@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface UIRemoveControlTextButton : UIControl
 {
     NSString *_label;
@@ -15,7 +16,7 @@
 
 - (id)_scriptingInfo;
 - (void)drawRect:(struct CGRect)arg1;
-- (BOOL)_alwaysHandleScrollerMouseEvent;
+- (_Bool)_alwaysHandleScrollerMouseEvent;
 - (float)buttonWidth;
 - (void)sizeToFit;
 - (void)_controlTouchEnded:(id)arg1 withEvent:(id)arg2;

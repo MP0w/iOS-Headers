@@ -8,20 +8,23 @@
 
 @class UIActivityIndicatorView;
 
+// Not exported
 @interface UIStatusBarActivityItemView : UIStatusBarItemView
 {
     UIActivityIndicatorView *_activityIndicator;
-    BOOL _slowActivity;
-    BOOL _syncActivity;
-    BOOL _newsstandActivity;
+    _Bool _slowActivity;
+    _Bool _syncActivity;
+    _Bool _newsstandActivity;
 }
 
-- (float)shadowPadding;
-- (float)updateContentsAndWidth;
-- (void)setVisible:(BOOL)arg1;
-- (int)_activityIndicatorStyle;
+- (double)shadowPadding;
+- (double)updateContentsAndWidth;
+- (void)setVisible:(_Bool)arg1;
+- (void)_stopAnimating;
+- (void)_startAnimating;
+- (long long)_activityIndicatorStyle;
 - (void)dealloc;
-- (BOOL)updateForNewData:(id)arg1 actions:(int)arg2;
+- (_Bool)updateForNewData:(id)arg1 actions:(int)arg2;
 
 @end
 

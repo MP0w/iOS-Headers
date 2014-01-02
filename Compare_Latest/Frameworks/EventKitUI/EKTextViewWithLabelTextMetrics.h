@@ -12,19 +12,19 @@
 
 @interface EKTextViewWithLabelTextMetrics : UITextView <CalendarLabelTextMetrics>
 {
-    int lineBreakMode;
+    long long lineBreakMode;
 }
 
-@property(nonatomic) int lineBreakMode; // @synthesize lineBreakMode;
-- (struct CGRect)textRectForBounds:(struct CGRect)arg1 limitedToNumberOfLines:(int)arg2;
-@property(nonatomic) int numberOfLines;
+@property(nonatomic) long long lineBreakMode; // @synthesize lineBreakMode;
+- (struct CGRect)textRectForBounds:(struct CGRect)arg1 limitedToNumberOfLines:(long long)arg2;
+@property(nonatomic) long long numberOfLines;
 - (void)setURL:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties
 @property(retain, nonatomic) UIFont *font; // @dynamic font;
 @property(copy, nonatomic) NSString *text; // @dynamic text;
-@property(nonatomic) int textAlignment;
+@property(nonatomic) long long textAlignment;
 @property(retain, nonatomic) UIColor *textColor;
 
 @end

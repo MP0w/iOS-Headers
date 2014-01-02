@@ -28,7 +28,8 @@
 - (void)getPermaLinkFromLastStatusUpdate:(id)arg1;
 - (void)showSettingsIfNeeded;
 - (void)sendStatus:(id)arg1 completion:(id)arg2;
-- (void)setGeotagAccountSetting:(BOOL)arg1;
+- (long long)characterCountForText:(id)arg1 shortenedURLCost:(long long)arg2;
+- (void)setGeotagAccountSetting:(_Bool)arg1;
 - (void)fetchGeotagStatus:(id)arg1;
 - (void)overrideLocationWithLatitude:(float)arg1 longitude:(float)arg2 name:(id)arg3;
 - (void)setOverrideGeotagInfo:(id)arg1;
@@ -44,7 +45,7 @@
 - (void)setActiveAccountIdentifier:(id)arg1;
 - (void)revokeAllAccessTokensForDevice;
 - (void)revokeAllAccessTokensForDeviceWithCompletion:(id)arg1;
-- (void)revokeAccessTokenForAppWithID:(id)arg1;
+- (void)revokeAccessTokenForAppWithOauthToken:(id)arg1 completion:(id)arg2;
 - (void)setClientInfo:(id)arg1;
 - (void)tearDownConnectionToRemoteSession;
 - (id)init;

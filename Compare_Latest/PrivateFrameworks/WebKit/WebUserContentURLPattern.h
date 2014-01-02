@@ -13,11 +13,11 @@
     WebUserContentURLPatternPrivate *_private;
 }
 
-- (BOOL)matchesURL:(id)arg1;
-- (BOOL)matchesSubdomains;
+- (_Bool)matchesURL:(id)arg1;
+- (_Bool)matchesSubdomains;
 - (id)host;
 - (id)scheme;
-- (BOOL)isValid;
+- (_Bool)isValid;
 - (void)dealloc;
 - (id)initWithPatternString:(id)arg1;
 

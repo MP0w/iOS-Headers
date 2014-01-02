@@ -7,6 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol StockUpdaterDelegate <NSObject>
-- (void)stockUpdater:(id)arg1 didUpdateStocks:(id)arg2 isComprehensive:(BOOL)arg3;
+- (void)stockUpdater:(id)arg1 didFailWithError:(id)arg2 whileUpdatingStocks:(id)arg3 comprehensive:(_Bool)arg4;
+- (void)stockUpdater:(id)arg1 didUpdateStocks:(id)arg2 isComprehensive:(_Bool)arg3;
 @end
 

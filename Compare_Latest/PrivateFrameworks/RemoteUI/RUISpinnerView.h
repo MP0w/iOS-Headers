@@ -18,8 +18,8 @@
 @property(nonatomic) RUIObjectModel *objectModel; // @synthesize objectModel=_objectModel;
 - (void)dealloc;
 - (void)viewDidLayout;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (id)spinnerView;
 
 @end

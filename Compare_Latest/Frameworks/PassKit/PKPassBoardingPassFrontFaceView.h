@@ -14,7 +14,7 @@
     UIImageView *_footerImageView;
 }
 
-- (id)_transitGlyphForTransitType:(int)arg1;
+- (id)_transitGlyphForTransitType:(long long)arg1;
 - (void)layoutSubviews;
 - (void)createBodyContentViews;
 - (void)dealloc;

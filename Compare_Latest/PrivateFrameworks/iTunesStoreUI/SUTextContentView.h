@@ -17,9 +17,9 @@
 - (void)layoutSubviews;
 - (void)setText:(id)arg1;
 - (void)setBackgroundColor:(id)arg1;
-- (BOOL)resignFirstResponder;
+- (_Bool)resignFirstResponder;
 - (void)keyboardInputChangedSelection:(id)arg1;
-- (BOOL)becomeFirstResponder;
+- (_Bool)becomeFirstResponder;
 - (void)dealloc;
 
 @end

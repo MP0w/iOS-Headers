@@ -12,6 +12,6 @@
 - (id)localizedDescription;
 - (id)longLocalizedAllDayDescription;
 - (id)longLocalizedDescription;
-- (id)_localizedDescription:(BOOL)arg1 forEvent:(BOOL)arg2 isAllDay:(BOOL)arg3;
+- (id)_localizedDescription:(_Bool)arg1 forEvent:(_Bool)arg2 isAllDay:(_Bool)arg3;
 @end
 

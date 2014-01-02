@@ -8,23 +8,24 @@
 
 @class VKAnchorContext, VKCamera, VKViewTransform;
 
+// Not exported
 @interface VKLayoutContext : NSObject
 {
     VKCamera *_camera;
     VKCamera *_defaultTrackingCamera;
     id <VGLCanvas> _canvas;
-    BOOL _forceLayout;
-    BOOL _iconsShouldAlignToPixels;
+    _Bool _forceLayout;
+    _Bool _iconsShouldAlignToPixels;
     float _styleZAdjust;
     CDStruct_8caa76fc _pointSize;
-    BOOL _preloadOnly;
+    _Bool _preloadOnly;
     VKCamera *_transitionCamera;
-    int _transitionMapMode;
+    long long _transitionMapMode;
     VKViewTransform *_viewTransform;
     VKAnchorContext *_anchorContext;
 }
 
-@property(nonatomic) int transitionMapMode; // @synthesize transitionMapMode=_transitionMapMode;
+@property(nonatomic) long long transitionMapMode; // @synthesize transitionMapMode=_transitionMapMode;
 @property(retain, nonatomic) VKCamera *transitionCamera; // @synthesize transitionCamera=_transitionCamera;
 @property(retain, nonatomic) VKAnchorContext *anchorContext; // @synthesize anchorContext=_anchorContext;
 @property(retain, nonatomic) VKViewTransform *viewTransform; // @synthesize viewTransform=_viewTransform;

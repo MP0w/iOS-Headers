@@ -12,19 +12,22 @@
 {
     PLPhotoLibrary *_photoLibrary;
     NSString *_archiveFilename;
+    _Bool _shouldPrioritize;
 }
 
 + (void)deleteAllRecoveryEvents;
 + (id)recoveredEventsIgnoringEvent:(id)arg1;
 + (id)archiveDirectory;
+@property(nonatomic) _Bool shouldPrioritize; // @synthesize shouldPrioritize=_shouldPrioritize;
 - (void)dealloc;
 - (void)runAndWaitForMessageToBeSent;
 - (void)runDaemonSide;
 - (id)initFromXPCObject:(id)arg1;
-- (BOOL)shouldArchiveXPCToDisk;
+- (_Bool)shouldArchiveXPCToDisk;
 - (void)archiveXPCToDisk:(id)arg1;
 @property(readonly, nonatomic) PLPhotoLibrary *transientPhotoLibrary;
-- (id)serialJobQueue;
+- (id)serialOperationQueue;
+- (id)init;
 
 @end
 

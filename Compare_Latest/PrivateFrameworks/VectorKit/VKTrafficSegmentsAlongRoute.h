@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface VKTrafficSegmentsAlongRoute : NSObject
 {
     struct vector<TrafficSegment, vk_allocator<TrafficSegment>> _segments;
@@ -13,9 +14,9 @@
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (const struct TrafficSegment *)segmentAtIndex:(unsigned int)arg1;
-- (BOOL)segmentSpeedAtIndex:(unsigned int)arg1;
-- (unsigned int)segmentCount;
+- (const struct TrafficSegment *)segmentAtIndex:(unsigned long long)arg1;
+- (BOOL)segmentSpeedAtIndex:(unsigned long long)arg1;
+- (unsigned long long)segmentCount;
 - (void)addSegmentAt:(struct PolylineCoordinate)arg1 forColor:(BOOL)arg2;
 - (void)reset;
 

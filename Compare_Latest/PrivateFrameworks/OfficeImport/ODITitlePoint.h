@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface ODITitlePoint : ODIHorizonalList3
 {
     NSString *mTitlePointPresentationName;

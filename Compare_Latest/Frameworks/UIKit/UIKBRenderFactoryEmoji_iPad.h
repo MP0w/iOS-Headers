@@ -6,11 +6,16 @@
 
 #import <UIKit/UIKBRenderFactoryEmoji_iPhone.h>
 
+// Not exported
 @interface UIKBRenderFactoryEmoji_iPad : UIKBRenderFactoryEmoji_iPhone
 {
 }
 
 - (id)_traitsForKey:(id)arg1 onKeyplane:(id)arg2;
+- (void)_customizeTraits:(id)arg1 forPopupForKey:(id)arg2 withRenderConfig:(id)arg3 keycapsFontName:(id)arg4;
+- (double)keyCornerRadius;
+- (id)thinKeycapsFontName;
+- (id)lightKeycapsFontName;
 
 @end
 

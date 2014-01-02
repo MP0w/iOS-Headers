@@ -12,9 +12,17 @@
 {
     SBBounceSettings *_bounceSettings;
     double _grabberAnimationDuration;
+    double _modeButtonTintLevel;
+    double _modeButtonTintAlpha;
+    double _modeLabelTintLevel;
+    double _modeLabelTintAlpha;
 }
 
 + (id)settingsControllerModule;
+@property(nonatomic) double modeLabelTintAlpha; // @synthesize modeLabelTintAlpha=_modeLabelTintAlpha;
+@property(nonatomic) double modeLabelTintLevel; // @synthesize modeLabelTintLevel=_modeLabelTintLevel;
+@property(nonatomic) double modeButtonTintAlpha; // @synthesize modeButtonTintAlpha=_modeButtonTintAlpha;
+@property(nonatomic) double modeButtonTintLevel; // @synthesize modeButtonTintLevel=_modeButtonTintLevel;
 @property double grabberAnimationDuration; // @synthesize grabberAnimationDuration=_grabberAnimationDuration;
 @property(retain, nonatomic) SBBounceSettings *bounceSettings; // @synthesize bounceSettings=_bounceSettings;
 - (void)setDefaultValues;

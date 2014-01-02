@@ -8,16 +8,16 @@
 
 @interface CPInterval : NSObject
 {
-    float left;
-    float right;
+    double left;
+    double right;
 }
 
-- (BOOL)contains:(id)arg1;
-- (float)right;
-- (float)left;
+- (_Bool)contains:(id)arg1;
+- (double)right;
+- (double)left;
 - (void)add:(id)arg1;
-- (BOOL)intersects:(id)arg1;
-- (id)initLeft:(float)arg1 right:(float)arg2;
+- (_Bool)intersects:(id)arg1;
+- (id)initLeft:(double)arg1 right:(double)arg2;
 
 @end
 

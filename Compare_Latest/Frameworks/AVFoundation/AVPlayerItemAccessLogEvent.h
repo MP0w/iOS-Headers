@@ -16,36 +16,36 @@
 }
 
 @property(readonly, nonatomic) double switchBitrate;
-@property(readonly, nonatomic) int mediaRequestsWWAN;
+@property(readonly, nonatomic) long long mediaRequestsWWAN;
 @property(readonly, nonatomic) NSString *playbackType;
 @property(readonly, nonatomic) double observedBitrateStandardDeviation;
 @property(readonly, nonatomic) double observedMinBitrate;
 @property(readonly, nonatomic) double observedMaxBitrate;
-- (int)entryReasonCode;
-@property(readonly, nonatomic) int downloadOverdue;
+- (long long)entryReasonCode;
+@property(readonly, nonatomic) long long downloadOverdue;
 @property(readonly, nonatomic) double startupTime;
-@property(readonly, nonatomic) int numberOfDroppedVideoFrames;
+@property(readonly, nonatomic) long long numberOfDroppedVideoFrames;
 @property(readonly, nonatomic) double indicatedBitrate;
+- (double)currentObservedBitrate;
 @property(readonly, nonatomic) double observedBitrate;
 @property(readonly, nonatomic) double transferDuration;
 @property(readonly, nonatomic) long long numberOfBytesTransferred;
-@property(readonly, nonatomic) int numberOfStalls;
+@property(readonly, nonatomic) long long numberOfStalls;
 @property(readonly, nonatomic) double durationWatched;
 @property(readonly, nonatomic) double segmentsDownloadedDuration;
 @property(readonly, nonatomic) double playbackStartOffset;
 @property(readonly, nonatomic) NSString *playbackSessionID;
-@property(readonly, nonatomic) int numberOfServerAddressChanges;
+@property(readonly, nonatomic) long long numberOfServerAddressChanges;
 @property(readonly, nonatomic) NSString *serverAddress;
 @property(readonly, nonatomic) NSString *URI;
 @property(readonly, nonatomic) NSDate *playbackStartDate;
-@property(readonly, nonatomic) int numberOfSegmentsDownloaded;
-@property(readonly, nonatomic) int numberOfMediaRequests;
+@property(readonly, nonatomic) long long numberOfSegmentsDownloaded;
+@property(readonly, nonatomic) long long numberOfMediaRequests;
 - (void)dealloc;
 - (void)finalize;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithDictionary:(id)arg1;
 - (id)init;
-- (id)serviceIdentifier;
 
 @end
 

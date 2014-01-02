@@ -8,12 +8,12 @@
 
 @interface SUSearchDisplayController : UISearchDisplayController
 {
-    BOOL _store_navigationBarHidingEnabled;
+    _Bool _store_navigationBarHidingEnabled;
 }
 
-- (void)setNavigationBarHidingEnabled:(BOOL)arg1;
-- (void)setActive:(BOOL)arg1 animated:(BOOL)arg2;
-- (BOOL)isNavigationBarHidingEnabled;
+- (void)setNavigationBarHidingEnabled:(_Bool)arg1;
+- (void)setActive:(_Bool)arg1 animated:(_Bool)arg2;
+- (_Bool)isNavigationBarHidingEnabled;
 - (id)_createPopoverController;
 - (void)_noEventSetSearchFieldText:(id)arg1;
 

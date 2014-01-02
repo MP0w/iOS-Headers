@@ -8,19 +8,20 @@
 
 #import "UIKeyboardCandidateViewInline-Protocol.h"
 
+// Not exported
 @interface UIKeyboardCandidateView_iPhone_Floating : UIKeyboardCandidateView_iPhone <UIKeyboardCandidateViewInline>
 {
     struct CGRect _collapsedRect;
-    BOOL _withKeyboard;
+    _Bool _withKeyboard;
 }
 
-- (BOOL)_shouldUseFullMetrics;
-- (BOOL)_shouldShowHideKeyboard;
+- (_Bool)_shouldUseFullMetrics;
+- (_Bool)_shouldShowHideKeyboard;
 - (void)_collapse:(id)arg1;
 - (void)candidatesDidChange;
 - (id)activeCandidateList;
-- (void)setCandidateViewExtended:(BOOL)arg1;
-- (unsigned int)_numberOfColumns:(BOOL)arg1;
+- (void)setCandidateViewExtended:(_Bool)arg1;
+- (unsigned long long)_numberOfColumns:(_Bool)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

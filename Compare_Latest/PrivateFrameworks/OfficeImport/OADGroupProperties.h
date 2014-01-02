@@ -11,6 +11,7 @@
 
 @class NSArray, OADFill, OADScene3D, OADShape3D;
 
+// Not exported
 @interface OADGroupProperties : OADDrawableProperties <OADEffectsParent, OADProperties3DParent>
 {
     OADFill *mFill;
@@ -20,16 +21,16 @@
 }
 
 + (id)defaultProperties;
-- (BOOL)hasShape3D;
+- (_Bool)hasShape3D;
 - (void)setShape3D:(id)arg1;
 - (id)shape3D;
-- (BOOL)hasScene3D;
+- (_Bool)hasScene3D;
 - (void)setScene3D:(id)arg1;
 - (id)scene3D;
-- (BOOL)hasEffects;
+- (_Bool)hasEffects;
 - (void)setEffects:(id)arg1;
 - (id)effects;
-- (BOOL)hasFill;
+- (_Bool)hasFill;
 - (void)setFill:(id)arg1;
 - (id)fill;
 - (void)dealloc;

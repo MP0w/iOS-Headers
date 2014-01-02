@@ -10,13 +10,13 @@
 
 @interface SUScriptDocumentInteractionControllerNativeObject : SUScriptNativeObject <UIDocumentInteractionControllerDelegate>
 {
-    BOOL _didPickApplication;
-    BOOL _isVisible;
+    _Bool _didPickApplication;
+    _Bool _isVisible;
     id _presentationBlock;
-    BOOL _redisplayAfterRotation;
+    _Bool _redisplayAfterRotation;
 }
 
-- (BOOL)_isAffectedByWindowNotification:(id)arg1;
+- (_Bool)_isAffectedByWindowNotification:(id)arg1;
 - (void)_windowWillRotateNotification:(id)arg1;
 - (void)_windowDidRotateNotification:(id)arg1;
 - (void)documentInteractionController:(id)arg1 willBeginSendingToApplication:(id)arg2;

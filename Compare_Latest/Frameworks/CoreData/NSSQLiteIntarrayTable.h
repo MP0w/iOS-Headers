@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface NSSQLiteIntarrayTable : NSObject
 {
     struct sqlite3_intarray *_intarrayTable;
@@ -16,6 +17,7 @@
 
 @property(retain) NSString *intarrayTableName; // @synthesize intarrayTableName=_intarrayTableName;
 @property struct sqlite3_intarray *intarrayTable; // @synthesize intarrayTable=_intarrayTable;
+- (void)dealloc;
 
 @end
 

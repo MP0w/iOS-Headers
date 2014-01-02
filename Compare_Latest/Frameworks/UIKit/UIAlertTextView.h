@@ -6,11 +6,12 @@
 
 #import <UIKit/_UICompatibilityTextView.h>
 
+// Not exported
 @interface UIAlertTextView : _UICompatibilityTextView
 {
 }
 
-- (BOOL)canBecomeFirstResponder;
+- (_Bool)canBecomeFirstResponder;
 
 @end
 

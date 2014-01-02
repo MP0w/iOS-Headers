@@ -21,15 +21,15 @@
     NSLock *_tileGroupObserversLock;
     GEOLocalizationRegionsInfo *_localizationRegionsInfo;
     NSMutableArray *_networkActivityHandlers;
-    BOOL _isUpdatingManifest;
-    BOOL _isLoadingResources;
+    _Bool _isUpdatingManifest;
+    _Bool _isLoadingResources;
     NSLock *_resourceNamesToPathsLock;
 }
 
 + (id)modernManager;
 + (id)sharedManager;
 + (void)setCallerWillStartServer;
-+ (void)setHiDPI:(BOOL)arg1;
++ (void)setHiDPI:(_Bool)arg1;
 + (void)useLocalProxy;
 + (void)useRemoteProxy;
 + (void)disableServerConnection;
@@ -43,8 +43,9 @@
 - (void)setActiveTileGroupIdentifier:(unsigned int)arg1;
 - (unsigned int)activeTileGroupIdentifier;
 - (void)getResourceManifestWithHandler:(id)arg1;
-- (BOOL)hasResourceManifest;
+- (_Bool)hasResourceManifest;
 - (id)detailedDescription;
+- (void)setManifestToken:(id)arg1 completionHandler:(id)arg2;
 - (oneway void)serverProxyDidChangeActiveTileGroup:(id)arg1 finishedCallback:(id)arg2;
 - (oneway void)serverProxyDidStopLoadingResources;
 - (oneway void)serverProxyWillStartLoadingResources;
@@ -54,16 +55,16 @@
 - (id)pathForResourceWithName:(id)arg1;
 - (void)_buildResourceNamesToPaths;
 - (id)allResourceNames;
-- (BOOL)supportsTileStyle:(int)arg1 size:(int)arg2 scale:(int)arg3;
+- (_Bool)supportsTileStyle:(int)arg1 size:(int)arg2 scale:(int)arg3;
 - (id)languageForTileKey:(const struct _GEOTileKey *)arg1;
-- (BOOL)isAvailableForTileKey:(const struct _GEOTileKey *)arg1;
+- (_Bool)isAvailableForTileKey:(const struct _GEOTileKey *)arg1;
 - (double)timeToLiveForTileKey:(const struct _GEOTileKey *)arg1;
 - (unsigned int)versionForTileKey:(const struct _GEOTileKey *)arg1;
 - (id)localizationURLStringIfNecessaryForTileKey:(const struct _GEOTileKey *)arg1;
-- (id)multiTileURLStringForTileKey:(const struct _GEOTileKey *)arg1 useStatusCodes:(char *)arg2;
+- (id)multiTileURLStringForTileKey:(const struct _GEOTileKey *)arg1 useStatusCodes:(_Bool *)arg2;
 - (id)baseURLStringForTileKey:(const struct _GEOTileKey *)arg1;
 - (id)_activeTileSetForKey:(const struct _GEOTileKey *)arg1;
-@property(readonly, nonatomic) BOOL hasActiveTileGroup;
+@property(readonly, nonatomic) _Bool hasActiveTileGroup;
 - (unsigned int)mapMatchingZoomLevel;
 - (int)mapMatchingTileSetStyle;
 - (void)removeTileGroupObserver:(id)arg1;

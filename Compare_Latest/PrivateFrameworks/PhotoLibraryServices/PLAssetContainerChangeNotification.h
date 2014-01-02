@@ -10,18 +10,18 @@
 
 @interface PLAssetContainerChangeNotification : PLContainerChangeNotification
 {
-    BOOL _titleDidChange;
-    BOOL _keyAssetDidChange;
+    _Bool _titleDidChange;
+    _Bool _keyAssetDidChange;
     NSDictionary *_userInfo;
 }
 
 + (id)notificationWithContainer:(id)arg1 snapshot:(id)arg2 changedAssets:(id)arg3;
 - (void)_calculateDiffs;
-- (BOOL)_getOldSet:(id *)arg1 newSet:(id *)arg2;
+- (_Bool)_getOldSet:(id *)arg1 newSet:(id *)arg2;
 - (id)_contentRelationshipName;
 - (id)assetContainer;
-@property(readonly, nonatomic) BOOL keyAssetDidChange;
-@property(readonly, nonatomic) BOOL titleDidChange;
+@property(readonly, nonatomic) _Bool keyAssetDidChange;
+@property(readonly, nonatomic) _Bool titleDidChange;
 @property(readonly, nonatomic) NSObject<PLAlbumProtocol> *album;
 @property(readonly, nonatomic) id <PLAssetContainer> container;
 - (id)description;

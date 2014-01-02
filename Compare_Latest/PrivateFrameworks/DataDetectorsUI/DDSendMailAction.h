@@ -8,6 +8,7 @@
 
 #import "MFMailComposeViewControllerDelegate-Protocol.h"
 
+// Not exported
 @interface DDSendMailAction : DDAction <MFMailComposeViewControllerDelegate>
 {
 }

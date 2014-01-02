@@ -12,7 +12,7 @@
 + (Class)contextClass;
 @property(readonly, nonatomic) VGLContext *vglContext;
 @property(readonly, nonatomic) struct CGSize sizeInPixels;
-@property(readonly, nonatomic) float contentScale;
+@property(readonly, nonatomic) double contentScale;
 @property(readonly, nonatomic) struct CGSize size;
 - (void)didDrawView;
 - (void)willDrawView;

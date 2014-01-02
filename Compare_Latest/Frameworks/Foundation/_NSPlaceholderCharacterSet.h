@@ -6,6 +6,7 @@
 
 #import <Foundation/NSCharacterSet.h>
 
+// Not exported
 @interface _NSPlaceholderCharacterSet : NSCharacterSet
 {
     NSCharacterSet *_original;
@@ -21,24 +22,24 @@
 - (id)replacementObjectForCoder:(id)arg1;
 - (id)replacementObjectForKeyedArchiver:(id)arg1;
 - (void)dealloc;
-- (BOOL)_tryRetain;
-- (BOOL)_isDeallocating;
+- (_Bool)_tryRetain;
+- (_Bool)_isDeallocating;
 - (oneway void)release;
-- (unsigned int)retainCount;
+- (unsigned long long)retainCount;
 - (id)retain;
 - (id)autorelease;
 - (id)invertedSet;
-- (BOOL)isEmpty;
+- (_Bool)isEmpty;
 - (id)bitmapRepresentation;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)hasMemberInPlane:(unsigned char)arg1;
-- (BOOL)isSupersetOfSet:(id)arg1;
-- (BOOL)longCharacterIsMember:(unsigned long)arg1;
-- (BOOL)characterIsMember:(unsigned short)arg1;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)hasMemberInPlane:(unsigned char)arg1;
+- (_Bool)isSupersetOfSet:(id)arg1;
+- (_Bool)longCharacterIsMember:(unsigned int)arg1;
+- (_Bool)characterIsMember:(unsigned short)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (void)_expandInverted;
 - (struct __CFCharacterSet *)_expandedCFCharacterSet;
-- (id)initWithSet:(id)arg1 options:(unsigned int)arg2;
+- (id)initWithSet:(id)arg1 options:(unsigned long long)arg2;
 
 @end
 

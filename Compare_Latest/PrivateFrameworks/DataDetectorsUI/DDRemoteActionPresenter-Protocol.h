@@ -5,7 +5,7 @@
  */
 
 @protocol DDRemoteActionPresenter
-- (void)viewControllerReadyAndIsModal:(id)arg1;
+- (void)viewControllerReadyAndIsModal:(_Bool)arg1;
 - (void)actionDidFinish;
 @end
 

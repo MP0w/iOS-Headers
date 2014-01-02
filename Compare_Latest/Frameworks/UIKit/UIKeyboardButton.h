@@ -6,13 +6,14 @@
 
 #import <UIKit/UIButton.h>
 
+// Not exported
 @interface UIKeyboardButton : UIButton
 {
-    int _keyboardButtonStyle;
+    long long _keyboardButtonStyle;
 }
 
-@property(readonly, nonatomic) int keyboardButtonStyle; // @synthesize keyboardButtonStyle=_keyboardButtonStyle;
-- (id)initWithKeyboardButtonStyle:(int)arg1;
+@property(readonly, nonatomic) long long keyboardButtonStyle; // @synthesize keyboardButtonStyle=_keyboardButtonStyle;
+- (id)initWithKeyboardButtonStyle:(long long)arg1;
 
 @end
 

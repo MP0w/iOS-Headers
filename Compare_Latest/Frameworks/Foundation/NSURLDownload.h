@@ -6,27 +6,25 @@
 
 #import "NSObject.h"
 
-#import "NSURLAuthenticationChallengeSender-Protocol.h"
-
 @class NSURLDownloadInternal;
 
-@interface NSURLDownload : NSObject <NSURLAuthenticationChallengeSender>
+@interface NSURLDownload : NSObject
 {
     NSURLDownloadInternal *_internal;
 }
 
-+ (BOOL)_isEncodingMIMETypeResumable:(id)arg1;
-+ (BOOL)canResumeDownloadDecodedWithEncodingMIMEType:(id)arg1;
++ (_Bool)_isEncodingMIMETypeResumable:(id)arg1;
++ (_Bool)canResumeDownloadDecodedWithEncodingMIMEType:(id)arg1;
 + (id)_downloadWithRequest:(id)arg1 delegate:(id)arg2 directory:(id)arg3;
 + (id)_downloadWithLoadingCFURLConnection:(struct _CFURLConnection *)arg1 request:(struct _CFURLRequest *)arg2 response:(struct _CFURLResponse *)arg3 delegate:(id)arg4 proxy:(id)arg5;
 + (id)_downloadWithLoadingConnection:(id)arg1 request:(id)arg2 response:(id)arg3 delegate:(id)arg4 proxy:(id)arg5;
-- (BOOL)sendCanAuthenticateAgainstProtectionSpace:(struct _CFURLProtectionSpace *)arg1;
+- (_Bool)sendCanAuthenticateAgainstProtectionSpace:(struct _CFURLProtectionSpace *)arg1;
 - (void)sendDidFail:(struct __CFError *)arg1;
 - (void)sendDidFinish;
 - (void)sendDidCreateDestination:(struct __CFURL *)arg1;
 - (void)sendDecideDestinationWithSuggestedObjectName:(struct __CFString *)arg1;
 - (_Bool)sendShouldDecodeDataOfMIMEType:(struct __CFString *)arg1;
-- (void)sendDidReceiveData:(long)arg1;
+- (void)sendDidReceiveData:(long long)arg1;
 - (void)sendWillResumeWithResponse:(struct _CFURLResponse *)arg1 startingByte:(unsigned long long)arg2;
 - (void)sendDidReceiveResponse:(struct _CFURLResponse *)arg1;
 - (void)sendDidReceiveChallenge:(struct _CFURLAuthChallenge *)arg1;
@@ -34,7 +32,7 @@
 - (struct _CFURLRequest *)sendWillSendRequest:(struct _CFURLRequest *)arg1 redirectResponse:(struct _CFURLResponse *)arg2;
 - (void)sendDidStart:(struct _CFURLDownload *)arg1;
 - (void)withDelegate:(id)arg1;
-- (BOOL)_downloadActive;
+- (_Bool)_downloadActive;
 - (id)_delegate;
 - (void)releaseDelegate;
 - (id)_originatingURL;
@@ -44,11 +42,11 @@
 - (id)_directoryPath;
 - (id)url;
 - (void)_setDelegateQueue:(id)arg1;
-- (BOOL)deletesFileUponFailure;
-- (void)setDeletesFileUponFailure:(BOOL)arg1;
-- (BOOL)_deletesFileAfterFailure;
-- (void)_setDeletesFileAfterFailure:(BOOL)arg1;
-- (void)setDestination:(id)arg1 allowOverwrite:(BOOL)arg2;
+- (_Bool)deletesFileUponFailure;
+- (void)setDeletesFileUponFailure:(_Bool)arg1;
+- (_Bool)_deletesFileAfterFailure;
+- (void)_setDeletesFileAfterFailure:(_Bool)arg1;
+- (void)setDestination:(id)arg1 allowOverwrite:(_Bool)arg2;
 - (id)request;
 - (void)cancel;
 - (void)dealloc;
@@ -62,10 +60,6 @@
 - (id)_initWithLoadingConnection:(id)arg1 request:(id)arg2 response:(id)arg3 delegate:(id)arg4 proxy:(id)arg5;
 - (id)initWithRequest:(id)arg1 delegate:(id)arg2;
 - (id)init;
-- (void)cancelAuthenticationChallenge:(id)arg1;
-- (void)continueWithoutCredentialForAuthenticationChallenge:(id)arg1;
-- (void)useCredential:(id)arg1 forAuthenticationChallenge:(id)arg2;
-- (void)cleanupChallenges;
 
 @end
 

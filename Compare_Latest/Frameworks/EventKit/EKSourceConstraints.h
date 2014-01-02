@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface EKSourceConstraints : NSObject
 {
     int _maxAlarmsAllowed;
@@ -16,46 +17,46 @@
 @property(nonatomic) CDStruct_75923904 flags; // @synthesize flags=_flags;
 @property(nonatomic) int maxRecurrencesAllowed; // @synthesize maxRecurrencesAllowed=_maxRecurrencesAllowed;
 @property(nonatomic) int maxAlarmsAllowed; // @synthesize maxAlarmsAllowed=_maxAlarmsAllowed;
-@property(nonatomic) BOOL recurrenceSeriesMustIncludeMoreThanFirstOccurrence;
-@property(nonatomic) BOOL isFacebook;
-@property(nonatomic) BOOL supportsSharedCalendars;
-@property(nonatomic) BOOL supportsAllDayDueDates;
-@property(nonatomic) BOOL supportsURLField;
-@property(nonatomic) BOOL allowsEvents;
-@property(nonatomic) BOOL allowsTasks;
-@property(nonatomic) BOOL allowsCalendarAddDeleteModify;
-@property(nonatomic) BOOL supportsAlarmProximity;
-@property(nonatomic) BOOL supportsReminderLocations;
-@property(nonatomic) BOOL supportsReminderActions;
-@property(nonatomic) BOOL supportsStructuredLocations;
-@property(nonatomic) BOOL shouldDeclineDeletedInvitations;
-@property(nonatomic) BOOL shouldCancelDeletedEvents;
-@property(nonatomic) BOOL requiresMSFormattedUID;
-@property(nonatomic) BOOL eventAvalabilityLimited;
-@property(nonatomic) BOOL canSetAvailability;
-@property(nonatomic) BOOL mustAcknowledgeMasterEvent;
-@property(nonatomic) BOOL requiresAttendeeSearchInSingleAccount;
-@property(nonatomic) BOOL recurrencesShouldPinToMonthDays;
-@property(nonatomic) BOOL supportsRecurrencesOnDetachedEvents;
-@property(nonatomic) BOOL futureStartDateLimitedToOccurrenceCacheBounds;
-@property(nonatomic) BOOL occurrencesMustOccurOnSeparateDays;
-@property(nonatomic) BOOL alarmTriggerIntervalConstrainedToRecurrenceInterval;
-@property(nonatomic) BOOL eventDurationConstrainedToRecurrenceInterval;
-@property(nonatomic) BOOL declinedStatusChangeRequiresNoPendingStatus;
-@property(nonatomic) BOOL proposedStatusRequiredForResponse;
-@property(nonatomic) BOOL deliverySourceOrExternalIDRequiredForResponse;
-@property(nonatomic) BOOL supportsResponseComments;
-@property(nonatomic) BOOL supportsInvitationModifications;
-@property(nonatomic) BOOL requiresOutgoingInvitationsInDefaultCalendar;
-@property(nonatomic) BOOL supportsOutgoingInvitations;
-@property(nonatomic) BOOL supportsIncomingInvitations;
-@property(nonatomic) BOOL statusesAreAccurate;
-@property(nonatomic) BOOL inviteesCanSeeAttendeeStatuses;
-@property(nonatomic) BOOL organizerCanSeeAttendeeStatuses;
-@property(nonatomic) BOOL snoozeAlarmRequiresDetach;
-@property(nonatomic) BOOL supportsAlarmsTriggeringAfterStartDate;
-@property(nonatomic) BOOL supportsAlarmTriggerDates;
-@property(nonatomic) BOOL supportsAlarmTriggerIntervals;
+@property(nonatomic) _Bool recurrenceSeriesMustIncludeMoreThanFirstOccurrence;
+@property(nonatomic) _Bool isFacebook;
+@property(nonatomic) _Bool supportsSharedCalendars;
+@property(nonatomic) _Bool supportsAllDayDueDates;
+@property(nonatomic) _Bool supportsURLField;
+@property(nonatomic) _Bool allowsEvents;
+@property(nonatomic) _Bool allowsTasks;
+@property(nonatomic) _Bool allowsCalendarAddDeleteModify;
+@property(nonatomic) _Bool supportsAlarmProximity;
+@property(nonatomic) _Bool supportsReminderLocations;
+@property(nonatomic) _Bool supportsReminderActions;
+@property(nonatomic) _Bool supportsStructuredLocations;
+@property(nonatomic) _Bool shouldDeclineDeletedInvitations;
+@property(nonatomic) _Bool shouldCancelDeletedEvents;
+@property(nonatomic) _Bool requiresMSFormattedUID;
+@property(nonatomic) _Bool eventAvalabilityLimited;
+@property(nonatomic) _Bool canSetAvailability;
+@property(nonatomic) _Bool mustAcknowledgeMasterEvent;
+@property(nonatomic) _Bool requiresAttendeeSearchInSingleAccount;
+@property(nonatomic) _Bool recurrencesShouldPinToMonthDays;
+@property(nonatomic) _Bool supportsRecurrencesOnDetachedEvents;
+@property(nonatomic) _Bool futureStartDateLimitedToOccurrenceCacheBounds;
+@property(nonatomic) _Bool occurrencesMustOccurOnSeparateDays;
+@property(nonatomic) _Bool alarmTriggerIntervalConstrainedToRecurrenceInterval;
+@property(nonatomic) _Bool eventDurationConstrainedToRecurrenceInterval;
+@property(nonatomic) _Bool declinedStatusChangeRequiresNoPendingStatus;
+@property(nonatomic) _Bool proposedStatusRequiredForResponse;
+@property(nonatomic) _Bool deliverySourceOrExternalIDRequiredForResponse;
+@property(nonatomic) _Bool supportsResponseComments;
+@property(nonatomic) _Bool supportsInvitationModifications;
+@property(nonatomic) _Bool requiresOutgoingInvitationsInDefaultCalendar;
+@property(nonatomic) _Bool supportsOutgoingInvitations;
+@property(nonatomic) _Bool supportsIncomingInvitations;
+@property(nonatomic) _Bool statusesAreAccurate;
+@property(nonatomic) _Bool inviteesCanSeeAttendeeStatuses;
+@property(nonatomic) _Bool organizerCanSeeAttendeeStatuses;
+@property(nonatomic) _Bool snoozeAlarmRequiresDetach;
+@property(nonatomic) _Bool supportsAlarmsTriggeringAfterStartDate;
+@property(nonatomic) _Bool supportsAlarmTriggerDates;
+@property(nonatomic) _Bool supportsAlarmTriggerIntervals;
 - (id)initWithMaxAlarms:(int)arg1 maxRecurrences:(int)arg2 constraintFlags:(unsigned long long)arg3;
 - (id)init;
 

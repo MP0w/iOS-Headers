@@ -9,7 +9,7 @@
 - (void)librarySuspended;
 - (void)libraryResumed;
 - (void)sendUserEditedCatalog:(id)arg1;
-- (void)getPassesAndCatalog:(BOOL)arg1 withHandler:(id)arg2;
+- (void)getPassesAndCatalog:(_Bool)arg1 withHandler:(id)arg2;
 - (void)getManifestHashAndSettingsForPassTypeID:(id)arg1 serialNumber:(id)arg2 handler:(id)arg3;
 - (void)shuffleGroups:(int)arg1;
 - (void)introduceDatabaseIntegrityProblem;
@@ -22,8 +22,8 @@
 - (void)getDiffForBulletinRecordID:(id)arg1 handler:(id)arg2;
 - (void)getBulletinSectionInfoForRecordID:(id)arg1 handler:(id)arg2;
 - (void)getBulletinDictWithRecordID:(id)arg1 handler:(id)arg2;
-- (void)getBulletinDictsForPassTypeID:(id)arg1 count:(unsigned int)arg2 sinceDate:(id)arg3 handler:(id)arg4;
-- (void)getImageSet:(int)arg1 forUniqueID:(id)arg2 displayProfile:(id)arg3 handler:(id)arg4;
+- (void)getBulletinDictsForPassTypeID:(id)arg1 count:(unsigned long long)arg2 sinceDate:(id)arg3 handler:(id)arg4;
+- (void)getImageSet:(long long)arg1 forUniqueID:(id)arg2 displayProfile:(id)arg3 handler:(id)arg4;
 - (void)getContentForUniqueID:(id)arg1 handler:(id)arg2;
 - (void)getRouteRelevantPassesForLocation:(id)arg1 handler:(id)arg2;
 - (void)getPassWithPassTypeID:(id)arg1 serialNumber:(id)arg2 handler:(id)arg3;
@@ -31,9 +31,9 @@
 - (void)getPassWithUniqueID:(id)arg1 handler:(id)arg2;
 - (void)getPassesWithHandler:(id)arg1;
 - (void)notePassSharedWithUniqueID:(id)arg1;
-- (void)updateSettings:(int)arg1 forPassWithUniqueID:(id)arg2;
+- (void)updateSettings:(long long)arg1 forPassWithUniqueID:(id)arg2;
 - (void)ingestPassDatas:(id)arg1 settings:(id)arg2 handler:(id)arg3;
-- (void)removePassWithUniqueID:(id)arg1;
+- (void)removePassWithUniqueID:(id)arg1 handler:(id)arg2;
 - (void)addPassesWithData:(id)arg1 handler:(id)arg2;
 - (void)replacePassWithPassData:(id)arg1 handler:(id)arg2;
 @end

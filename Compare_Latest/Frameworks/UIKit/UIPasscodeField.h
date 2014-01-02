@@ -16,41 +16,41 @@
     NSMutableArray *_entryFields;
     NSMutableArray *_entryBackgrounds;
     UIButton *_okButton;
-    BOOL _opaqueBackground;
-    BOOL _centerHorizontally;
-    int _keyboardType;
-    int _keyboardAppearance;
+    _Bool _opaqueBackground;
+    _Bool _centerHorizontally;
+    long long _keyboardType;
+    long long _keyboardAppearance;
     int _emptyContentReturnKeyType;
     id _delegate;
 }
 
 + (Class)textFieldClass;
-+ (float)defaultHeight;
++ (double)defaultHeight;
 - (id)hitTest:(struct CGPoint)arg1 forEvent:(struct __GSEvent *)arg2;
 - (void)okButtonClicked:(id)arg1;
 - (void)textFieldDidResignFirstResponder:(id)arg1;
-- (BOOL)textFieldShouldStartEditing:(id)arg1;
-- (BOOL)textField:(id)arg1 shouldInsertText:(id)arg2 replacingRange:(struct _NSRange)arg3;
+- (_Bool)textFieldShouldStartEditing:(id)arg1;
+- (_Bool)textField:(id)arg1 shouldInsertText:(id)arg2 replacingRange:(struct _NSRange)arg3;
 - (void)_textDidChange;
 - (void)setDelegate:(id)arg1;
-- (BOOL)isFirstResponder;
-- (BOOL)becomeFirstResponder;
-- (BOOL)canBecomeFirstResponder;
+- (_Bool)isFirstResponder;
+- (_Bool)becomeFirstResponder;
+- (_Bool)canBecomeFirstResponder;
 - (void)setNumberOfEntryFields:(int)arg1;
-- (void)setNumberOfEntryFields:(int)arg1 opaqueBackground:(BOOL)arg2;
+- (void)setNumberOfEntryFields:(int)arg1 opaqueBackground:(_Bool)arg2;
 - (int)numberOfEntryFields;
 - (void)deleteLastCharacter;
 - (void)appendString:(id)arg1;
 - (void)setStringValue:(id)arg1;
 - (id)stringValue;
-- (void)setTextCentersHorizontally:(BOOL)arg1;
-- (void)setShowsOKButton:(BOOL)arg1;
-- (BOOL)showsOKButton;
+- (void)setTextCentersHorizontally:(_Bool)arg1;
+- (void)setShowsOKButton:(_Bool)arg1;
+- (_Bool)showsOKButton;
 - (void)_updateFields;
 - (void)dealloc;
-- (void)setKeyboardType:(int)arg1 appearance:(int)arg2 emptyContentReturnKeyType:(int)arg3;
-- (void)setKeyboardType:(int)arg1 appearance:(int)arg2;
-- (void)setKeyboardType:(int)arg1;
+- (void)setKeyboardType:(long long)arg1 appearance:(long long)arg2 emptyContentReturnKeyType:(int)arg3;
+- (void)setKeyboardType:(long long)arg1 appearance:(long long)arg2;
+- (void)setKeyboardType:(long long)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

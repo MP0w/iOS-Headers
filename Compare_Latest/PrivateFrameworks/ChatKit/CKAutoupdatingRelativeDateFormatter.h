@@ -12,7 +12,7 @@
 
 + (id)weekdayTemplateCharacters;
 + (id)relativeStringFromDate:(id)arg1;
-- (id)stringFromDate:(id)arg1 isRelative:(char *)arg2;
+- (id)stringFromDate:(id)arg1 isRelative:(_Bool *)arg2;
 - (id)stringFromDate:(id)arg1;
 
 @end

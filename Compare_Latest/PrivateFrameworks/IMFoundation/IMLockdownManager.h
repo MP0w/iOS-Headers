@@ -10,30 +10,33 @@
 
 @interface IMLockdownManager : NSObject
 {
-    BOOL _settingUpActivationState;
-    BOOL _isInternalInstall;
-    BOOL _isCarrierInstall;
-    BOOL _hasShownMismatchedSIM;
-    BOOL _hasShownWaitingAlertThisSession;
-    unsigned int _state;
+    _Bool _settingUpActivationState;
+    _Bool _isInternalInstall;
+    _Bool _isCarrierInstall;
+    _Bool _isVendorInstall;
+    _Bool _hasShownMismatchedSIM;
+    _Bool _hasShownWaitingAlertThisSession;
+    unsigned long long _state;
 }
 
 + (id)sharedInstance;
-@property(nonatomic) BOOL _hasShownWaitingAlertThisSession; // @synthesize _hasShownWaitingAlertThisSession;
-@property(nonatomic) BOOL _hasShownMismatchedSIM; // @synthesize _hasShownMismatchedSIM;
-@property(nonatomic) BOOL _isCarrierInstall; // @synthesize _isCarrierInstall;
-@property(nonatomic) BOOL _isInternalInstall; // @synthesize _isInternalInstall;
-@property(nonatomic) BOOL _settingUpActivationState; // @synthesize _settingUpActivationState;
+@property(nonatomic) _Bool _hasShownWaitingAlertThisSession; // @synthesize _hasShownWaitingAlertThisSession;
+@property(nonatomic) _Bool _hasShownMismatchedSIM; // @synthesize _hasShownMismatchedSIM;
+@property(nonatomic) _Bool _isVendorInstall; // @synthesize _isVendorInstall;
+@property(nonatomic) _Bool _isCarrierInstall; // @synthesize _isCarrierInstall;
+@property(nonatomic) _Bool _isInternalInstall; // @synthesize _isInternalInstall;
+@property(nonatomic) _Bool _settingUpActivationState; // @synthesize _settingUpActivationState;
 - (id)description;
 @property(readonly, nonatomic) NSString *uniqueDeviceIdentifier;
-@property(readonly, nonatomic) struct __SecIdentity *copyIdentity;
-@property(readonly, nonatomic) BOOL isExpired;
-@property(readonly, nonatomic) BOOL isActivated;
-@property(readonly, nonatomic) BOOL isCarrierInstall;
-- (int)lockdownState;
-@property(readonly, nonatomic) BOOL isInternalInstall;
+@property(readonly, nonatomic) _Bool isExpired;
+@property(readonly, nonatomic) _Bool isActivated;
+@property(readonly, nonatomic) _Bool isCarrierInstall;
+- (long long)lockdownState;
+@property(readonly, nonatomic) _Bool isInternalInstall;
+@property(readonly, nonatomic) _Bool isVendorInstall;
+- (void)_calculateInstallType;
 - (void)_setupActivationState;
-@property(nonatomic, setter=_setState:) unsigned int _state; // @synthesize _state;
+@property(nonatomic, setter=_setState:) unsigned long long _state; // @synthesize _state;
 - (void)_resetActivationState;
 - (void)_activationFailed;
 - (void)dealloc;

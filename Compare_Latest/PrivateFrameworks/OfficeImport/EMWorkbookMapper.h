@@ -10,9 +10,10 @@
 
 @class CMArchiveManager, EDWorkbook, NSMutableArray, NSString, OIXMLDocument, OIXMLElement;
 
+// Not exported
 @interface EMWorkbookMapper : CMMapper <CMMapperRoot>
 {
-    unsigned int mRealSheetCount;
+    unsigned long long mRealSheetCount;
     int mWidth;
     int mHeight;
     EDWorkbook *edWorkbook;
@@ -32,27 +33,27 @@
     OIXMLDocument *mTabBarDoc;
     NSString *mTabBarURL;
     NSMutableArray *mSheetURLs;
-    float mTabPosition;
-    unsigned int mNumberOfMappedSheets;
-    BOOL mHasPushedHeader;
-    BOOL mHasPushedFirstSheet;
-    BOOL mLoadingMessageVisible;
+    double mTabPosition;
+    unsigned long long mNumberOfMappedSheets;
+    _Bool mHasPushedHeader;
+    _Bool mHasPushedFirstSheet;
+    _Bool mLoadingMessageVisible;
 }
 
 + (id)borderWidthCache;
 + (id)borderStyleCache;
 + (id)cssStyleCache;
 + (id)baseDate;
-+ (void)setBaseDate1904:(BOOL)arg1;
++ (void)setBaseDate1904:(_Bool)arg1;
 - (void)finishMappingWithState:(id)arg1;
-- (void)mapElement:(id)arg1 atIndex:(unsigned int)arg2 withState:(id)arg3 isLastElement:(BOOL)arg4;
+- (void)mapElement:(id)arg1 atIndex:(unsigned long long)arg2 withState:(id)arg3 isLastElement:(_Bool)arg4;
 - (id)_copyStringForSheet:(id)arg1 atIndex:(unsigned int)arg2 withState:(id)arg3 andMapper:(id)arg4;
 - (void)startMappingWithState:(id)arg1;
-- (void)_pushTabForSheet:(id)arg1 atIndex:(unsigned int)arg2;
+- (void)_pushTabForSheet:(id)arg1 atIndex:(unsigned long long)arg2;
 - (id)_mainPageBack;
 - (id)_frontPageByCopyingMainPage;
 - (struct CGSize)pageSizeForDevice;
-- (BOOL)hasMultipleSheets;
+- (_Bool)hasMultipleSheets;
 - (id)styleMatrix;
 - (id)documentTitle;
 - (id)archiver;
@@ -63,8 +64,6 @@
 - (id)workbook;
 - (void)dealloc;
 - (id)initWithEDWorkbook:(id)arg1 archiver:(id)arg2;
-- (void)mapBodyStyleAt:(id)arg1;
-- (id)copySheetMapperWithEdSheet:(id)arg1;
 
 @end
 

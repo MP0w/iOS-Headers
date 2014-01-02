@@ -6,32 +6,35 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSMutableArray;
 
-@interface GEOHours : PBCodable
+@interface GEOHours : PBCodable <NSCopying>
 {
-    CDStruct_56d48c16 _days;
+    CDStruct_95bda58d _days;
     NSMutableArray *_timeRanges;
 }
 
 @property(retain, nonatomic) NSMutableArray *timeRanges; // @synthesize timeRanges=_timeRanges;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)timeRangeAtIndex:(unsigned int)arg1;
-- (unsigned int)timeRangesCount;
+- (id)timeRangeAtIndex:(unsigned long long)arg1;
+- (unsigned long long)timeRangesCount;
 - (void)addTimeRange:(id)arg1;
 - (void)clearTimeRanges;
-- (void)setDays:(int *)arg1 count:(unsigned int)arg2;
-- (int)dayAtIndex:(unsigned int)arg1;
+- (void)setDays:(int *)arg1 count:(unsigned long long)arg2;
+- (int)dayAtIndex:(unsigned long long)arg1;
 - (void)addDay:(int)arg1;
 - (void)clearDays;
 @property(readonly, nonatomic) int *days;
-@property(readonly, nonatomic) unsigned int daysCount;
+@property(readonly, nonatomic) unsigned long long daysCount;
 - (void)dealloc;
 
 @end

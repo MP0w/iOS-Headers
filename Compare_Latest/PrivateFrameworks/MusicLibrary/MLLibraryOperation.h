@@ -10,16 +10,16 @@
 
 @interface MLLibraryOperation : NSOperation
 {
-    BOOL _operationSuccess;
+    _Bool _operationSuccess;
     ML3MusicLibrary *_library;
     NSError *_operationError;
 }
 
 @property(retain, nonatomic) NSError *operationError; // @synthesize operationError=_operationError;
-@property(nonatomic) BOOL operationSuccess; // @synthesize operationSuccess=_operationSuccess;
+@property(nonatomic) _Bool operationSuccess; // @synthesize operationSuccess=_operationSuccess;
 @property(readonly, nonatomic) ML3MusicLibrary *library; // @synthesize library=_library;
 - (void).cxx_destruct;
-- (BOOL)isWorkIdenticalToOperation:(id)arg1;
+- (_Bool)isWorkIdenticalToOperation:(id)arg1;
 - (void)main;
 - (id)initWithLibrary:(id)arg1;
 

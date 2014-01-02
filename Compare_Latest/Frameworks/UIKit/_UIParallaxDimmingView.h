@@ -8,26 +8,25 @@
 
 @class UIColor, UIImageView;
 
+// Not exported
 @interface _UIParallaxDimmingView : UIView
 {
     UIImageView *leftEdgeFade;
-    BOOL _backgroundIsDimmed;
-    BOOL _useSpringAnimation;
+    _Bool _backgroundIsDimmed;
     UIColor *_dimmingColor;
     UIView *_addingSubview;
 }
 
-+ (id)newDimmingViewWrappingView:(id)arg1 withLeftBorder:(float)arg2;
++ (id)newDimmingViewWrappingView:(id)arg1 withLeftBorder:(double)arg2;
 + (id)newDimmingViewWithFrame:(struct CGRect)arg1;
 @property(retain, nonatomic) UIView *addingSubview; // @synthesize addingSubview=_addingSubview;
-@property(nonatomic) BOOL useSpringAnimation; // @synthesize useSpringAnimation=_useSpringAnimation;
-@property(nonatomic) BOOL backgroundIsDimmed; // @synthesize backgroundIsDimmed=_backgroundIsDimmed;
+@property(nonatomic) _Bool backgroundIsDimmed; // @synthesize backgroundIsDimmed=_backgroundIsDimmed;
 @property(retain, nonatomic) UIColor *dimmingColor; // @synthesize dimmingColor=_dimmingColor;
 - (void)crossFade;
 - (void)dealloc;
 - (id)_basicAnimationWithKeyPath:(id)arg1;
 - (void)didMoveToWindow;
-- (id)initViewWrappingView:(id)arg1 withLeftBorder:(float)arg2;
+- (id)initViewWrappingView:(id)arg1 withLeftBorder:(double)arg2;
 - (id)defaultBorderColor;
 - (id)initWithFrame:(struct CGRect)arg1;
 

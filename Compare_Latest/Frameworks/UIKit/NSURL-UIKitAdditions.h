@@ -11,18 +11,19 @@
 + (id)mapsURLWithSourceAddress:(id)arg1 destinationAddress:(id)arg2;
 + (id)mapsURLWithAddress:(id)arg1;
 + (id)mapsURLWithQuery:(id)arg1;
-- (BOOL)isHTTPOrHTTPSURL;
-- (BOOL)isJavaScriptURL;
-- (BOOL)isWebcalURL;
-- (BOOL)isSpringboardHandledURL;
+- (_Bool)isHTTPOrHTTPSURL;
+- (_Bool)isJavaScriptURL;
+- (_Bool)isAccountURL;
+- (_Bool)isWebcalURL;
+- (_Bool)isSpringboardHandledURL;
 - (id)searchResultIdentifier;
 - (id)searchResultDomain;
 - (id)radarWebURL;
 - (id)appleStoreURL;
 - (id)itmsURL;
 - (id)phobosURL;
-- (BOOL)isGoogleMapsURL;
-- (BOOL)_isGoogleMapsDomain:(id)arg1 subdomain:(id)arg2 path:(id)arg3 queryKeysAndValues:(id)arg4;
+- (_Bool)isGoogleMapsURL;
+- (_Bool)_isGoogleMapsDomain:(id)arg1 subdomain:(id)arg2 path:(id)arg3 queryKeysAndValues:(id)arg4;
 - (void)_domain:(id *)arg1 subdomain:(id *)arg2;
 @end
 

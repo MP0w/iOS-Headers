@@ -10,38 +10,43 @@
 
 @interface PUGridRenderedStrip : UICollectionReusableView
 {
-    BOOL _extendsToTop;
-    BOOL __needsRendering;
-    float _leftContentInset;
+    _Bool _extendsToTop;
+    _Bool __needsRendering;
     int _backgroundColorValue;
+    double _leftContentInset;
     NSArray *_itemIndexPaths;
+    long long _visualSectionIndex;
     id <PUGridRenderedStripDataSource> _dataSource;
     PUSectionedGridLayout *_layout;
-    unsigned int _contentExtenderType;
+    unsigned long long _contentExtenderType;
     UIView *_topContentView;
     UIView *__sideExtendedContentView;
     struct CGSize _itemSize;
     struct CGSize _interItemSpacing;
+    struct _NSRange _visualItemRange;
 }
 
 @property(readonly, nonatomic) UIView *_sideExtendedContentView; // @synthesize _sideExtendedContentView=__sideExtendedContentView;
-@property(nonatomic, setter=_setNeedsRendering:) BOOL _needsRendering; // @synthesize _needsRendering=__needsRendering;
+@property(nonatomic, setter=_setNeedsRendering:) _Bool _needsRendering; // @synthesize _needsRendering=__needsRendering;
 @property(readonly, nonatomic) UIView *topContentView; // @synthesize topContentView=_topContentView;
-@property(nonatomic) BOOL extendsToTop; // @synthesize extendsToTop=_extendsToTop;
-@property(nonatomic) unsigned int contentExtenderType; // @synthesize contentExtenderType=_contentExtenderType;
+@property(nonatomic) _Bool extendsToTop; // @synthesize extendsToTop=_extendsToTop;
+@property(nonatomic) unsigned long long contentExtenderType; // @synthesize contentExtenderType=_contentExtenderType;
 @property(nonatomic) __weak PUSectionedGridLayout *layout; // @synthesize layout=_layout;
 @property(nonatomic) __weak id <PUGridRenderedStripDataSource> dataSource; // @synthesize dataSource=_dataSource;
+@property(readonly, nonatomic) struct _NSRange visualItemRange; // @synthesize visualItemRange=_visualItemRange;
+@property(readonly, nonatomic) long long visualSectionIndex; // @synthesize visualSectionIndex=_visualSectionIndex;
 @property(retain, nonatomic) NSArray *itemIndexPaths; // @synthesize itemIndexPaths=_itemIndexPaths;
 @property(nonatomic) int backgroundColorValue; // @synthesize backgroundColorValue=_backgroundColorValue;
-@property(nonatomic) float leftContentInset; // @synthesize leftContentInset=_leftContentInset;
+@property(nonatomic) double leftContentInset; // @synthesize leftContentInset=_leftContentInset;
 @property(nonatomic) struct CGSize interItemSpacing; // @synthesize interItemSpacing=_interItemSpacing;
 @property(nonatomic) struct CGSize itemSize; // @synthesize itemSize=_itemSize;
 - (void).cxx_destruct;
-- (BOOL)_disableRasterizeInAnimations;
+- (_Bool)_disableRasterizeInAnimations;
 - (void)applyLayoutAttributes:(id)arg1;
 - (void)_updateExtendedContents;
 - (void)_render;
-@property(readonly, nonatomic) int numberOfColumns;
+@property(readonly, nonatomic) long long numberOfColumns;
+- (void)setVisualSectionIndex:(long long)arg1 andVisualItemRange:(struct _NSRange)arg2;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 

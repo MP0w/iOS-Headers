@@ -7,8 +7,8 @@
 #import "NSFileManager.h"
 
 @interface NSFileManager (ISAdditions)
-+ (BOOL)_storeMovePath:(id)arg1 toPath:(id)arg2;
-+ (BOOL)ensureDirectoryExists:(id)arg1;
++ (_Bool)_storeMovePath:(id)arg1 toPath:(id)arg2;
++ (_Bool)ensureDirectoryExists:(id)arg1;
 + (id)cacheDirectoryPathWithName:(id)arg1;
 @end
 

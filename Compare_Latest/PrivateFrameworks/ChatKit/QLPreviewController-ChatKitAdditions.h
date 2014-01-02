@@ -7,6 +7,6 @@
 #import "QLPreviewController.h"
 
 @interface QLPreviewController (ChatKitAdditions)
-- (BOOL)ckCanDismissWhenSuspending;
+- (_Bool)ckCanDismissWhenSuspending;
 @end
 

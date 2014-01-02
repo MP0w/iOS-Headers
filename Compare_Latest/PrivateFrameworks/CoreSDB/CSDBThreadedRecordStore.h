@@ -14,16 +14,16 @@
     NSObject<OS_dispatch_queue> *_recordStoreQueue;
     NSString *_identifier;
     _CSDBThreadObject *_thread;
-    BOOL _wantsRegister;
+    _Bool _wantsRegister;
 }
 
 - (void)performBlock:(id)arg1 afterDelay:(void)arg2;
 - (void)performBlock:(id)arg1 waitUntilDone:(void)arg2;
-- (BOOL)ownsCurrentThreadOtherwiseAssert:(BOOL)arg1;
+- (_Bool)ownsCurrentThreadOtherwiseAssert:(_Bool)arg1;
 - (void)registerClass:(const CDStruct_2cac97d9 *)arg1;
 - (void)teardownDatabase;
 - (void)_teardownDatabaseOnQueue;
-- (void)setupDatabaseWithAllowLocalMigration:(BOOL)arg1 pathBlock:(id)arg2 setupStoreHandler:(void)arg3 connectionInitializer:(void *)arg4 versionChecker:(void *)arg5 migrationHandler:(void *)arg6 schemaVersion:(void *)arg7 registerBlock:(int)arg8;
+- (void)setupDatabaseWithAllowLocalMigration:(_Bool)arg1 pathBlock:(id)arg2 setupStoreHandler:(void)arg3 connectionInitializer:(void *)arg4 versionChecker:(void *)arg5 migrationHandler:(void *)arg6 schemaVersion:(void *)arg7 registerBlock:(int)arg8;
 - (void)dealloc;
 - (id)initWithIdentifier:(struct __CFString *)arg1;
 

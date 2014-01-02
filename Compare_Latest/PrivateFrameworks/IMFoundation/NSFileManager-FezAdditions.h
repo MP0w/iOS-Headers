@@ -7,13 +7,13 @@
 #import "NSFileManager.h"
 
 @interface NSFileManager (FezAdditions)
-- (BOOL)copyItemAtPath:(id)arg1 toPath:(id)arg2 uniquePath:(id *)arg3 error:(id *)arg4;
-- (BOOL)moveItemAtPath:(id)arg1 toPath:(id)arg2 uniquePath:(id *)arg3 error:(id *)arg4;
-- (BOOL)_moveItemAtPath:(id)arg1 toPath:(id)arg2 uniquePath:(id *)arg3 error:(id *)arg4 asCopy:(BOOL)arg5;
+- (_Bool)copyItemAtPath:(id)arg1 toPath:(id)arg2 uniquePath:(id *)arg3 error:(id *)arg4;
+- (_Bool)moveItemAtPath:(id)arg1 toPath:(id)arg2 uniquePath:(id *)arg3 error:(id *)arg4;
+- (_Bool)_moveItemAtPath:(id)arg1 toPath:(id)arg2 uniquePath:(id *)arg3 error:(id *)arg4 asCopy:(_Bool)arg5;
 - (id)createUniqueDirectoryWithName:(id)arg1 atPath:(id)arg2 ofType:(id)arg3;
 - (id)uniqueFilename:(id)arg1 atPath:(id)arg2 ofType:(id)arg3;
-- (BOOL)makeDirectoriesInPath:(id)arg1 mode:(unsigned int)arg2;
-- (BOOL)_isPathOnMissingVolume:(id)arg1;
+- (_Bool)makeDirectoriesInPath:(id)arg1 mode:(unsigned int)arg2;
+- (_Bool)_isPathOnMissingVolume:(id)arg1;
 - (id)_randomTemporaryPathWithFileName:(id)arg1;
 - (id)_randomTemporaryPathWithSuffix:(id)arg1 fileName:(id)arg2;
 - (id)_randomTemporaryPathWithSuffix:(id)arg1;

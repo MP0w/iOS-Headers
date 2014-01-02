@@ -6,6 +6,7 @@
 
 #import <MusicLibrary/ML3QueryResultSet_BackingStore.h>
 
+// Not exported
 @interface ML3QueryResultSet_MutableBackingStore : ML3QueryResultSet_BackingStore
 {
 }

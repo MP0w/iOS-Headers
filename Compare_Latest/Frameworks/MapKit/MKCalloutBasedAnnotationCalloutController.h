@@ -8,29 +8,30 @@
 
 @class UICalloutView;
 
+// Not exported
 @interface MKCalloutBasedAnnotationCalloutController : MKAnnotationCalloutController
 {
     UICalloutView *_calloutView;
     Class _calloutViewClass;
 }
 
-- (void)hideCalloutAnimated:(BOOL)arg1;
-- (void)showCalloutForAnnotationView:(id)arg1 animated:(BOOL)arg2 scrollToFit:(BOOL)arg3 avoid:(struct CGRect)arg4;
-- (void)_addCallout:(id)arg1 forAnnotationView:(id)arg2 anchorPoint:(struct CGPoint)arg3 boundaryRect:(struct CGRect)arg4 animated:(BOOL)arg5;
-- (void)_setDetailAccessoryView:(id)arg1 animated:(BOOL)arg2;
-- (void)_setRightAccessoryView:(id)arg1 animated:(BOOL)arg2;
-- (void)_setLeftAccessoryView:(id)arg1 animated:(BOOL)arg2;
-- (void)_setSubtitle:(id)arg1 animated:(BOOL)arg2;
+- (void)hideCalloutAnimated:(_Bool)arg1;
+- (void)showCalloutForAnnotationView:(id)arg1 animated:(_Bool)arg2 scrollToFit:(_Bool)arg3 avoid:(struct CGRect)arg4;
+- (void)_addCallout:(id)arg1 forAnnotationView:(id)arg2 anchorPoint:(struct CGPoint)arg3 boundaryRect:(struct CGRect)arg4 animated:(_Bool)arg5;
+- (void)_setDetailAccessoryView:(id)arg1 animated:(_Bool)arg2;
+- (void)_setRightAccessoryView:(id)arg1 animated:(_Bool)arg2;
+- (void)_setLeftAccessoryView:(id)arg1 animated:(_Bool)arg2;
+- (void)_setSubtitle:(id)arg1 animated:(_Bool)arg2;
 - (id)_subtitle;
 - (void)_setTitle:(id)arg1;
-- (BOOL)_isShowingCallout;
-- (BOOL)isCalloutExpanded;
-- (BOOL)calloutContainsPoint:(struct CGPoint)arg1;
-- (void)calloutView:(id)arg1 didMoveToAnchorPoint:(struct CGPoint)arg2 animated:(BOOL)arg3;
-- (void)calloutView:(id)arg1 willMoveToAnchorPoint:(struct CGPoint)arg2 animated:(BOOL)arg3;
+- (_Bool)_isShowingCallout;
+- (_Bool)isCalloutExpanded;
+- (_Bool)calloutContainsPoint:(struct CGPoint)arg1;
+- (void)calloutView:(id)arg1 didMoveToAnchorPoint:(struct CGPoint)arg2 animated:(_Bool)arg3;
+- (void)calloutView:(id)arg1 willMoveToAnchorPoint:(struct CGPoint)arg2 animated:(_Bool)arg3;
 - (void)setCalloutViewClass:(Class)arg1;
 - (Class)calloutViewClass;
-- (float)defaultCalloutHeight;
+- (double)defaultCalloutHeight;
 - (void)dealloc;
 - (id)init;
 

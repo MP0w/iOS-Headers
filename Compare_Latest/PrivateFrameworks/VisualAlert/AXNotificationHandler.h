@@ -13,16 +13,16 @@
     NSString *_notificationName;
     id _target;
     id _dispatcher;
-    unsigned int _observerIdentifier;
-    BOOL _valid;
+    unsigned long long _observerIdentifier;
+    _Bool _valid;
 }
 
-+ (id)_safelyGetObserverForIdentifier:(unsigned int)arg1;
-+ (void)_safelyRemoveObserverForIdentifier:(unsigned int)arg1;
-+ (unsigned int)_safelyRegisterObserver:(id)arg1;
++ (id)_safelyGetObserverForIdentifier:(unsigned long long)arg1;
++ (void)_safelyRemoveObserverForIdentifier:(unsigned long long)arg1;
++ (unsigned long long)_safelyRegisterObserver:(id)arg1;
 @property(retain, nonatomic, setter=_setTarget:) id _target; // @synthesize _target;
 @property(retain, nonatomic, setter=_setNotificationName:) NSString *_notificationName; // @synthesize _notificationName;
-@property(readonly, nonatomic, getter=isValid) BOOL valid; // @synthesize valid=_valid;
+@property(readonly, nonatomic, getter=isValid) _Bool valid; // @synthesize valid=_valid;
 - (void)_handleNotificationWithName:(id)arg1 object:(const void *)arg2 userInfo:(id)arg3;
 - (void)processHandler:(SEL)arg1;
 - (void)_stopObserving;

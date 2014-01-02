@@ -8,6 +8,7 @@
 
 @class VKTileProvider;
 
+// Not exported
 @interface _VKTileProviderTimerTarget : NSObject
 {
     VKTileProvider *tileProvider;

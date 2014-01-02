@@ -34,10 +34,7 @@
 + (id)modelByMergingModels:(id)arg1;
 + (id)mergedModelFromBundles:(id)arg1;
 + (void)initialize;
-+ (id)_newModelFromOptimizedEncoding:(id)arg1 error:(id *)arg2;
-+ (id)_modelPathsFromBundles:(id)arg1;
-+ (void)_deepCollectEntitiesInArray:(id)arg1 entity:(id)arg2;
-- (BOOL)isConfiguration:(id)arg1 compatibleWithStoreMetadata:(id)arg2;
+- (_Bool)isConfiguration:(id)arg1 compatibleWithStoreMetadata:(id)arg2;
 - (id)entityVersionHashesByName;
 - (void)setVersionIdentifiers:(id)arg1;
 - (id)versionIdentifiers;
@@ -53,10 +50,10 @@
 - (void)setEntities:(id)arg1;
 - (id)entities;
 - (id)entitiesByName;
-- (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
+- (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
@@ -64,38 +61,6 @@
 - (void)dealloc;
 - (id)initWithContentsOfURL:(id)arg1;
 - (id)init;
-- (id)_modelForVersionHashes:(id)arg1;
-- (id)versionHash;
-- (void)_addEntity:(id)arg1;
-- (id)initWithContentsOfURL:(id)arg1 forStoreMetadata:(id)arg2;
-- (id)_optimizedEncoding:(id *)arg1;
-- (id)initWithContentsOfOptimizedURL:(id)arg1;
-- (id)_versionIdentifiersAsArray;
-- (void)_restoreValidation;
-- (void)_stripForMigration;
-- (id)_entitiesByVersionHash;
-- (void)_addVersionIdentifiers:(id)arg1;
-- (id)_sortedEntitiesForConfiguration:(id)arg1;
-- (void)_setLocalizationPolicy:(id)arg1;
-- (id)_localizationPolicy;
-- (void)_removeEntities:(id)arg1 fromConfiguration:(id)arg2;
-- (void)_addEntities:(id)arg1 toConfiguration:(id)arg2;
-- (id)_configurationsByName;
-- (void)_removeEntity:(id)arg1;
-- (void)_removeEntityNamed:(id)arg1;
-- (id)_entityForName:(id)arg1;
-- (void)_throwIfNotEditable;
-- (void)_setIsEditable:(BOOL)arg1;
-- (void)_setIsEditable:(BOOL)arg1 optimizationStyle:(unsigned int)arg2;
-- (id)_precomputedKeysForEntity:(id)arg1;
-- (BOOL)_hasPrecomputedKeyOrder;
-- (BOOL)_isOptimizedForEncoding;
-- (void)_createCachesAndOptimizeState;
-- (void)_flattenProperties;
-- (BOOL)isEditable;
-- (id)_initWithEntities:(id)arg1;
-- (id)_entityVersionHashesByNameInStyle:(unsigned int)arg1;
-- (BOOL)_isConfiguration:(id)arg1 inStyle:(unsigned int)arg2 compatibleWithStoreMetadata:(id)arg3;
 
 @end
 

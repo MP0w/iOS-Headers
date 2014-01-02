@@ -5,11 +5,11 @@
  */
 
 @protocol IDSAppleIDSRegistrationCenterListener
-- (void)center:(id)arg1 failedCurrentEmailsRequest:(id)arg2 error:(int)arg3 info:(id)arg4;
+- (void)center:(id)arg1 failedCurrentEmailsRequest:(id)arg2 error:(long long)arg3 info:(id)arg4;
 - (void)center:(id)arg1 succeededCurrentEmailsRequest:(id)arg2 emailInfo:(id)arg3;
-- (void)center:(id)arg1 failedRegistration:(id)arg2 error:(int)arg3 info:(id)arg4;
+- (void)center:(id)arg1 failedRegistration:(id)arg2 error:(long long)arg3 info:(id)arg4;
 - (void)center:(id)arg1 succeededRegistration:(id)arg2;
-- (void)center:(id)arg1 failedIDSAuthentication:(id)arg2 error:(int)arg3 info:(id)arg4;
+- (void)center:(id)arg1 failedIDSAuthentication:(id)arg2 error:(long long)arg3 info:(id)arg4;
 - (void)center:(id)arg1 succeededIDSAuthentication:(id)arg2;
 @end
 

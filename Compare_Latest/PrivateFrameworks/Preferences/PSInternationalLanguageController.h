@@ -6,17 +6,25 @@
 
 #import <Preferences/PSListItemsController.h>
 
+@class NSMutableDictionary;
+
 @interface PSInternationalLanguageController : PSListItemsController
 {
+    NSMutableDictionary *_cellCache;
 }
 
+@property(retain, nonatomic) NSMutableDictionary *cellCache; // @synthesize cellCache=_cellCache;
+- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (id)specifiers;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
+- (void)generateLanguageCellCache;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)updateNavigationItem;
 - (void)doneButtonTapped;
 - (void)cancelButtonTapped;
 - (void)_removeBlackFrame;
+- (void)dealloc;
 - (id)init;
 
 @end

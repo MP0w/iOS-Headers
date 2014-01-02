@@ -17,7 +17,9 @@
 - (void)updateUsingSet:(id)arg1 add:(id)arg2 remove:(id)arg3;
 @property(retain, nonatomic) SAUIAppPunchOut *punchout;
 @property(copy, nonatomic) NSString *name;
+@property(copy, nonatomic) NSURL *listImage;
 @property(retain, nonatomic) SASportsLeague *league;
+@property(copy, nonatomic) NSURL *largeImage;
 @property(copy, nonatomic) NSURL *image;
 - (id)encodedClassName;
 - (id)groupIdentifier;

@@ -14,34 +14,32 @@
 {
     id <ADInterstitialAdDelegate> _delegate;
     id <ADInterstitialAdDelegate> _internalDelegate;
-    BOOL _loaded;
-    BOOL _actionInProgress;
-    BOOL _canLoadMoreThanOnce;
-    BOOL _hasLoadedFirstAd;
-    int _options;
-    ADInterstitialView *_interstitialView;
     UIViewController *_internalPresentingViewController;
+    _Bool _loaded;
+    _Bool _actionInProgress;
+    _Bool _canLoadMoreThanOnce;
+    _Bool _hasLoadedFirstAd;
+    long long _options;
+    ADInterstitialView *_interstitialView;
     ADAdSpace *_adSpace;
 }
 
-@property(nonatomic) BOOL hasLoadedFirstAd; // @synthesize hasLoadedFirstAd=_hasLoadedFirstAd;
-@property(nonatomic) BOOL canLoadMoreThanOnce; // @synthesize canLoadMoreThanOnce=_canLoadMoreThanOnce;
+@property(nonatomic) _Bool hasLoadedFirstAd; // @synthesize hasLoadedFirstAd=_hasLoadedFirstAd;
+@property(nonatomic) _Bool canLoadMoreThanOnce; // @synthesize canLoadMoreThanOnce=_canLoadMoreThanOnce;
 @property(retain, nonatomic) ADAdSpace *adSpace; // @synthesize adSpace=_adSpace;
-@property(retain, nonatomic) UIViewController *internalPresentingViewController; // @synthesize internalPresentingViewController=_internalPresentingViewController;
 @property(retain, nonatomic) ADInterstitialView *interstitialView; // @synthesize interstitialView=_interstitialView;
-@property(nonatomic, getter=isActionInProgress) BOOL actionInProgress; // @synthesize actionInProgress=_actionInProgress;
-@property(readonly, nonatomic, getter=isLoaded) BOOL loaded; // @synthesize loaded=_loaded;
-@property(readonly, nonatomic) int options; // @synthesize options=_options;
+@property(nonatomic, getter=isActionInProgress) _Bool actionInProgress; // @synthesize actionInProgress=_actionInProgress;
+@property(readonly, nonatomic, getter=isLoaded) _Bool loaded; // @synthesize loaded=_loaded;
+@property(readonly, nonatomic) long long options; // @synthesize options=_options;
 - (void)storyboardViewControllerDidPresent;
 - (void)serverStoryboardDidTransitionOut;
 - (void)serverBannerViewDidFailToReceiveAdWithError:(id)arg1;
 - (void)serverBannerViewDidLoad;
-- (BOOL)_considerClosingAdSpace;
+- (_Bool)_considerClosingAdSpace;
 - (void)serverBannerViewWillLoad;
 - (void)setRemoteWindowContextId:(unsigned int)arg1;
 @property(readonly, nonatomic) int internalAdType;
 - (void)handleTapOnInterstitialViewAtLocation:(struct CGPoint)arg1;
-- (BOOL)canPresentWithInterfaceOrientation:(int)arg1;
 - (void)setAuthenticationUserName:(id)arg1;
 - (void)setSection:(id)arg1;
 - (void)setServerURL:(id)arg1;
@@ -51,12 +49,13 @@
 @property(nonatomic) __weak id <ADInterstitialAdDelegate> delegate;
 - (void)presentAsStoryboardFromViewController:(id)arg1;
 - (void)presentFromViewController:(id)arg1;
-- (BOOL)presentInView:(id)arg1;
+- (_Bool)presentInView:(id)arg1;
 - (void)cancelAction;
-- (void)setLoaded:(BOOL)arg1;
+- (void)setLoaded:(_Bool)arg1;
 @property(readonly, nonatomic) UIViewController *presentingViewController;
+@property(nonatomic) __weak UIViewController *internalPresentingViewController;
 @property(readonly, nonatomic) UIView *adSpaceView;
-- (id)_initWithOptions:(int)arg1;
+- (id)_initWithOptions:(long long)arg1;
 - (id)init;
 - (void)dealloc;
 

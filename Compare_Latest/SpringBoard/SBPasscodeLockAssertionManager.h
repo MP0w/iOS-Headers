@@ -17,7 +17,7 @@
 }
 
 - (id)description;
-- (BOOL)hasActivePreventLockAssertions;
+- (_Bool)hasActiveAssertions;
 - (void)removeAssertion:(id)arg1;
 - (void)addAssertion:(id)arg1;
 - (void)dealloc;

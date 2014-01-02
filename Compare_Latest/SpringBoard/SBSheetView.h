@@ -13,16 +13,16 @@
     SBProxyRemoteView *_remoteProxyView;
     SBApplication *_app;
     SBFakeStatusBarView *_fakeStatusBarView;
-    BOOL _wasPresentedAnimated;
+    _Bool _wasPresentedAnimated;
 }
 
 - (void)dealloc;
 - (void)noteSheetDidEnd;
-- (BOOL)wasPresentedAnimated;
+- (_Bool)wasPresentedAnimated;
 - (id)fakeStatusBarView;
 - (id)application;
 - (id)remoteViewIdentifier;
-- (id)initWithRemoteViewIdentifier:(id)arg1 application:(id)arg2 shouldFakeStatusBar:(BOOL)arg3 wasPresentedAnimated:(BOOL)arg4;
+- (id)initWithRemoteViewIdentifier:(id)arg1 application:(id)arg2 shouldFakeStatusBar:(_Bool)arg3 wasPresentedAnimated:(_Bool)arg4;
 
 @end
 

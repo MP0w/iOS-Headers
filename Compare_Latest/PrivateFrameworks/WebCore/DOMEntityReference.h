@@ -6,6 +6,7 @@
 
 #import <WebCore/DOMNode.h>
 
+// Not exported
 @interface DOMEntityReference : DOMNode
 {
 }

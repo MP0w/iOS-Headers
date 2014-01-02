@@ -8,6 +8,7 @@
 
 @class NSEntityDescription, NSPropertyDescription;
 
+// Not exported
 @interface _NSPropertyDescriptionProxy : NSObject
 {
     id _sourceBuffer;
@@ -16,13 +17,13 @@
     unsigned int _entitysReferenceIDForProperty;
 }
 
-+ (BOOL)resolveInstanceMethod:(SEL)arg1;
++ (_Bool)resolveInstanceMethod:(SEL)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (id)forwardingTargetForSelector:(SEL)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (Class)class;
-- (void)_versionHash:(char *)arg1 inStyle:(unsigned int)arg2;
-- (BOOL)isKindOfClass:(Class)arg1;
+- (void)_versionHash:(char *)arg1 inStyle:(unsigned long long)arg2;
+- (_Bool)isKindOfClass:(Class)arg1;
 - (void)_setEntity:(id)arg1;
 - (void)_createCachesAndOptimizeState;
 - (id)entity;

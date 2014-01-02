@@ -6,6 +6,7 @@
 
 #import <Foundation/NSFileHandle.h>
 
+// Not exported
 @interface NSNullFileHandle : NSFileHandle
 {
 }
@@ -22,7 +23,7 @@
 - (unsigned long long)seekToEndOfFile;
 - (unsigned long long)offsetInFile;
 - (void)writeData:(id)arg1;
-- (id)readDataOfLength:(unsigned int)arg1;
+- (id)readDataOfLength:(unsigned long long)arg1;
 - (id)readDataToEndOfFile;
 - (id)availableData;
 

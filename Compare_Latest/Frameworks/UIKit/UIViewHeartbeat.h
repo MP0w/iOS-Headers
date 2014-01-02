@@ -8,6 +8,7 @@
 
 @class CADisplayLink, UIView;
 
+// Not exported
 @interface UIViewHeartbeat : NSObject
 {
     UIView *_view;

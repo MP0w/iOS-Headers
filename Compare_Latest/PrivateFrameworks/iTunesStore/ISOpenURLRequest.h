@@ -12,7 +12,7 @@
 
 @interface ISOpenURLRequest : NSObject <NSCopying>
 {
-    BOOL _isITunesStoreURL;
+    _Bool _isITunesStoreURL;
     NSString *_targetIdentifier;
     NSString *_urlBagKey;
     NSURL *_url;
@@ -22,7 +22,7 @@
 @property(copy, nonatomic) NSString *URLBagKey; // @synthesize URLBagKey=_urlBagKey;
 @property(retain, nonatomic) NSURL *URL; // @synthesize URL=_url;
 @property(copy, nonatomic) NSString *targetIdentifier; // @synthesize targetIdentifier=_targetIdentifier;
-@property(nonatomic, getter=isITunesStoreURL) BOOL ITunesStoreURL; // @synthesize ITunesStoreURL=_isITunesStoreURL;
+@property(nonatomic, getter=isITunesStoreURL) _Bool ITunesStoreURL; // @synthesize ITunesStoreURL=_isITunesStoreURL;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;

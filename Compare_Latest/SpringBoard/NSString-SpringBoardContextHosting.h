@@ -7,7 +7,7 @@
 #import "NSString.h"
 
 @interface NSString (SpringBoardContextHosting)
-- (BOOL)sbs_hasBeenOverridenAlready;
-- (void)sbs_setHasBeenOverriddenAlready:(BOOL)arg1;
+- (_Bool)sbs_hasBeenOverridenAlready;
+- (void)sbs_setHasBeenOverriddenAlready:(_Bool)arg1;
 @end
 

@@ -19,35 +19,37 @@
     NSString *_lastCurrentTimeString;
     NSString *_lastRemainingTimeString;
     double _lastDisplayedDuration;
-    BOOL _showTimeLabels;
-    BOOL _scrubbingEnabled;
+    _Bool _showTimeLabels;
+    _Bool _scrubbingEnabled;
     id <MPUChronologicalProgressViewDelegate> _delegate;
-    int _style;
+    long long _style;
     double _totalDuration;
     double _currentTime;
 }
 
-@property(nonatomic) BOOL scrubbingEnabled; // @synthesize scrubbingEnabled=_scrubbingEnabled;
-@property(nonatomic) BOOL showTimeLabels; // @synthesize showTimeLabels=_showTimeLabels;
+@property(nonatomic) _Bool scrubbingEnabled; // @synthesize scrubbingEnabled=_scrubbingEnabled;
+@property(nonatomic) _Bool showTimeLabels; // @synthesize showTimeLabels=_showTimeLabels;
 @property(nonatomic) double currentTime; // @synthesize currentTime=_currentTime;
 @property(nonatomic) double totalDuration; // @synthesize totalDuration=_totalDuration;
-@property(readonly, nonatomic) int style; // @synthesize style=_style;
+@property(readonly, nonatomic) long long style; // @synthesize style=_style;
 @property(nonatomic) __weak id <MPUChronologicalProgressViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_updateTimeLabels;
 - (float)_sliderNormalizedValueForTime:(double)arg1;
-- (id)_createTimeLabelWithStyle:(int)arg1;
+- (id)_createTimeLabelWithStyle:(long long)arg1;
 - (id)_trackImage;
 - (id)_thumbImage;
 - (id)_timeLabelFont;
 - (id)_styledImageName:(id)arg1;
 - (void)_internalSetCurrentTime:(double)arg1;
 - (void)detailScrubController:(id)arg1 didChangeValue:(float)arg2;
+- (void)detailScrubControllerDidEndScrubbing:(id)arg1;
+- (void)detailScrubControllerDidBeginScrubbing:(id)arg1;
 @property(readonly, nonatomic) struct CGRect trackRect;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (id)initWithStyle:(int)arg1;
+- (id)initWithStyle:(long long)arg1;
 
 @end
 

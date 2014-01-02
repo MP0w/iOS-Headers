@@ -7,6 +7,6 @@
 #import "ICCameraItem.h"
 
 @interface ICCameraItem (PLCameraImportItem)
-- (BOOL)isCameraFile;
+- (_Bool)isCameraFile;
 @end
 

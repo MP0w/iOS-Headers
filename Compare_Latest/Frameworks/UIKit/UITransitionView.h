@@ -28,35 +28,34 @@
         unsigned int enableRotationAfterTransition:1;
         unsigned int removeFromView:1;
     } _transitionViewFlags;
-    float _curlUpRevealedHeight;
+    double _curlUpRevealedHeight;
 }
 
 + (double)defaultDurationForTransition:(int)arg1;
 - (void)_transitionDidStop:(id)arg1 finished:(id)arg2;
 - (void)_startTransition:(int)arg1 withDuration:(double)arg2;
-- (void)setIgnoresInteractionEvents:(BOOL)arg1;
-- (BOOL)ignoresInteractionEvents;
-- (BOOL)rasterizesOnTransition;
-- (void)setRasterizesOnTransition:(BOOL)arg1;
+- (void)setIgnoresInteractionEvents:(_Bool)arg1;
+- (_Bool)ignoresInteractionEvents;
+- (_Bool)rasterizesOnTransition;
+- (void)setRasterizesOnTransition:(_Bool)arg1;
 - (id)delegate;
 - (void)setDelegate:(id)arg1;
-- (BOOL)_isTransitioningFromFromView:(id)arg1;
-- (BOOL)isTransitioning;
+- (_Bool)_isTransitioningFromFromView:(id)arg1;
+- (_Bool)isTransitioning;
 - (id)toView;
 - (id)fromView;
-- (BOOL)transition:(int)arg1 fromView:(id)arg2 toView:(id)arg3 removeFromView:(BOOL)arg4;
-- (BOOL)transition:(int)arg1 fromView:(id)arg2 toView:(id)arg3;
+- (_Bool)transition:(int)arg1 fromView:(id)arg2 toView:(id)arg3 removeFromView:(_Bool)arg4;
+- (_Bool)transition:(int)arg1 fromView:(id)arg2 toView:(id)arg3;
 - (void)notifyDidCompleteTransition:(id)arg1;
-- (BOOL)transition:(int)arg1 toView:(id)arg2;
-- (void)_didCompleteTransition:(BOOL)arg1;
-@property(nonatomic) BOOL shouldNotifyDidCompleteImmediately;
+- (_Bool)transition:(int)arg1 toView:(id)arg2;
+- (void)_didCompleteTransition:(_Bool)arg1;
+@property(nonatomic) _Bool shouldNotifyDidCompleteImmediately;
 - (void)_didStartTransition;
 - (double)durationForTransition:(int)arg1;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (float)_curlUpRevealedHeight;
 
 @end
 

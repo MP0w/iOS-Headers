@@ -11,21 +11,20 @@
 @interface PSSwitchTableCell : PSControlTableCell
 {
     UIActivityIndicatorView *_activityIndicator;
-    BOOL _alternateSwitchColor;
 }
 
 - (void)layoutSubviews;
 - (void)setValue:(id)arg1;
-- (void)reloadWithSpecifier:(id)arg1 animated:(BOOL)arg2;
+- (void)reloadWithSpecifier:(id)arg1 animated:(_Bool)arg2;
 - (id)controlValue;
 - (void)dealloc;
-@property(nonatomic) BOOL loading;
-- (void)setCellEnabled:(BOOL)arg1;
-- (BOOL)canReload;
+@property(nonatomic) _Bool loading;
+- (void)setCellEnabled:(_Bool)arg1;
+- (_Bool)canReload;
 - (id)newControl;
 - (void)prepareForReuse;
 - (void)refreshCellContentsWithSpecifier:(id)arg1;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
 
 @end
 

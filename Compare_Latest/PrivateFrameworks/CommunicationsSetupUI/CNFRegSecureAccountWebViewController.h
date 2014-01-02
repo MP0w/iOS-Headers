@@ -11,9 +11,9 @@
 @interface CNFRegSecureAccountWebViewController : CNFRegAuthorizedAccountWebViewController
 {
     IMAccount *_account;
-    BOOL _triedGettingNewCredentials;
-    BOOL _gotNewCredential;
-    unsigned int _signinFailureCount;
+    _Bool _triedGettingNewCredentials;
+    _Bool _gotNewCredential;
+    unsigned long long _signinFailureCount;
 }
 
 @property(retain, nonatomic) IMAccount *account; // @synthesize account=_account;
@@ -29,8 +29,8 @@
 - (void)_showRegistrationFailureWithError:(id)arg1;
 - (void)_handleTimeout;
 - (void)doHandoffWithStatus:(int)arg1 appleID:(id)arg2 authID:(id)arg3 authToken:(id)arg4;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)dealloc;
 - (id)initWithRegController:(id)arg1 account:(id)arg2;
 

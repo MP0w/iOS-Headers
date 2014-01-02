@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSString;
 
-@interface GEODownloadMetadata : PBCodable
+@interface GEODownloadMetadata : PBCodable <NSCopying>
 {
     double _timestamp;
     NSString *_etag;
@@ -16,14 +18,15 @@
 
 @property(retain, nonatomic) NSString *etag; // @synthesize etag=_etag;
 @property(nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) BOOL hasEtag;
+@property(readonly, nonatomic) _Bool hasEtag;
 - (void)dealloc;
 
 @end

@@ -19,34 +19,34 @@
     struct __CFDictionary *acceleratorOptions;
     struct __CFDictionary *surfaceBGRAOptions;
     struct CGSize imageSize;
-    unsigned int requestedImageCount;
+    unsigned long long requestedImageCount;
     int currentBGRASurfaceCount;
-    unsigned int maxJPEGSize;
+    unsigned long long maxJPEGSize;
 }
 
 + (struct __IOSurfaceAccelerator *)_popSurfaceAccelerator;
 + (void)_pushSurfaceAccelerator:(struct __IOSurfaceAccelerator *)arg1;
 + (struct __IOSurfaceAccelerator *)_createAccelerator;
 + (id)_stackQueueTransferSession;
-@property unsigned int maxJPEGSize; // @synthesize maxJPEGSize;
+@property unsigned long long maxJPEGSize; // @synthesize maxJPEGSize;
 - (void).cxx_destruct;
 - (void)_receivedMemoryWarning:(id)arg1;
-- (void)_decodeJPEG:(id)arg1 withInputSurface:(struct __IOSurface *)arg2 toIOSurface:(struct __IOSurface *)arg3;
+- (int)_decodeJPEG:(id)arg1 withInputSurface:(struct __IOSurface *)arg2 toIOSurface:(struct __IOSurface *)arg3;
 - (id)_newImageFrom420Surface:(struct __IOSurface *)arg1;
 - (void)_pushBGRASurface:(struct __IOSurface *)arg1;
 - (struct __IOSurface *)_popBGRASurface;
 - (void)_pushJPEGSurface:(struct __IOSurface *)arg1;
-- (struct __IOSurface *)_popJPEGSurfaceOfSize:(unsigned int)arg1;
+- (struct __IOSurface *)_popJPEGSurfaceOfSize:(unsigned long long)arg1;
 - (void)_push420Surface:(struct __IOSurface *)arg1;
 - (struct __IOSurface *)_pop420Surface;
-- (BOOL)_removeBGRASurface;
+- (_Bool)_removeBGRASurface;
 - (struct __IOSurface *)_createBGRASurface;
 - (struct __IOSurface *)_createJPEGSurface;
 - (struct __IOSurface *)_create420Surface;
 - (void)dealloc;
 - (id)newImageFromJPEGData:(id)arg1;
 - (id)newImageFrom420Data:(id)arg1;
-- (id)initWithSize:(struct CGSize)arg1 cachedCount:(int)arg2;
+- (id)initWithSize:(struct CGSize)arg1 cachedCount:(long long)arg2;
 
 @end
 

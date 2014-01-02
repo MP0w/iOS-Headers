@@ -6,35 +6,37 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSOperationQueue;
+@class NSError, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSOperationQueue;
 
 @interface RCWaveformGenerator : NSObject
 {
-    int _state;
+    long long _state;
     NSObject<OS_dispatch_queue> *_queue;
+    NSObject<OS_dispatch_queue> *_notificationQueue;
     double _totalDigestedTime;
     double _totalFlushedTime;
     NSMutableArray *_weakObservers;
-    NSMutableDictionary *_endLoadingCompletionHandlers;
+    NSMutableDictionary *_internalFinishedLoadingBlocksByUUID;
     NSOperationQueue *_loadingQueue;
     struct PowerMeter _samplePowerMeter;
-    BOOL _isSampleRateKnown;
+    _Bool _isSampleRateKnown;
     vector_ec52ae8c _powerLevelBuffer;
-    unsigned int _framesConsumedSinceLastFlush;
-    int _framesNeededForNextDB;
-    int _framesNeededForNextFlush;
-    BOOL _canceled;
-    int _overviewUnitsPerSecond;
+    unsigned long long _framesConsumedSinceLastFlush;
+    long long _framesNeededForNextDB;
+    long long _framesNeededForNextFlush;
+    NSError *_loadingError;
+    _Bool _canceled;
     double _segmentFlushInterval;
+    long long _overviewUnitsPerSecond;
 }
 
-@property(readonly, nonatomic) BOOL canceled; // @synthesize canceled=_canceled;
-@property(readonly, nonatomic) int state; // @synthesize state=_state;
-@property(nonatomic) int overviewUnitsPerSecond; // @synthesize overviewUnitsPerSecond=_overviewUnitsPerSecond;
+@property(readonly, nonatomic) _Bool canceled; // @synthesize canceled=_canceled;
+@property(readonly, nonatomic) long long state; // @synthesize state=_state;
+@property(nonatomic) long long overviewUnitsPerSecond; // @synthesize overviewUnitsPerSecond=_overviewUnitsPerSecond;
 @property(readonly, nonatomic) double segmentFlushInterval; // @synthesize segmentFlushInterval=_segmentFlushInterval;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)_onLoadingQueue_appendPowerMeterValuesFromRawAudioData:(void *)arg1 frameCount:(int)arg2 format:(const struct AudioStreamBasicDescription *)arg3;
+- (void)_onLoadingQueue_appendPowerMeterValuesFromRawAudioData:(void *)arg1 frameCount:(long long)arg2 format:(const struct AudioStreamBasicDescription *)arg3;
 - (void)_onLoadingQueue_appendSegment:(id)arg1;
 - (void)_onLoadingQueue_appendAveragePowerLevel:(float)arg1;
 - (void)_onLoadingQueue_flushRemainingData;
@@ -46,17 +48,19 @@
 - (void)_appendAveragePowerLevel:(float)arg1;
 - (void)_performObserversBlock:(id)arg1;
 - (id)_onQueueCopySegmentOutputObservers;
-- (void)_stopLoadingByCanceling:(BOOL)arg1 beforeDate:(id)arg2 completionHandler:(id)arg3;
-- (BOOL)_isCanceled;
+- (void)_performInternalFinishedLoadingBlocksAndFinishObservers;
+- (void)_performLoadingFinishedBlock:(id)arg1 internalBlockUUID:(void)arg2 isTimeout:(id)arg3;
+- (void)_finishLoadingByTerminating:(_Bool)arg1 beforeDate:(id)arg2 loadingFinishedBlock:(id)arg3;
+- (_Bool)_isCanceled;
 @property(readonly, nonatomic) double totalDigestedTime;
 @property(readonly, nonatomic) double totalFlushedTime;
-- (void)finishLoadingBeforeDate:(id)arg1 completionHandler:(id)arg2;
-- (void)cancelLoading;
+- (void)finishLoadingBeforeDate:(id)arg1 loadingFinishedBlock:(id)arg2;
+- (void)terminateLoadingImmediately;
 - (void)beginLoading;
-- (BOOL)appendAveragePowerLevelsByDigestingWaveform:(id)arg1;
-- (BOOL)appendAveragePowerLevelsByDigestingContentsAudioFileURL:(id)arg1;
-- (BOOL)appendAveragePowerLevel:(float)arg1;
-- (BOOL)appendAveragePowerLevelsByDigestingSampleBuffer:(struct opaqueCMSampleBuffer *)arg1;
+- (_Bool)appendAveragePowerLevelsByDigestingWaveform:(id)arg1;
+- (_Bool)appendAveragePowerLevelsByDigestingContentsAudioFileURL:(id)arg1;
+- (_Bool)appendAveragePowerLevel:(float)arg1;
+- (_Bool)appendAveragePowerLevelsByDigestingSampleBuffer:(struct opaqueCMSampleBuffer *)arg1;
 - (void)removeSegmentOutputObserver:(id)arg1;
 - (void)addSegmentOutputObserver:(id)arg1;
 - (id)initWithSegmentFlushInterval:(double)arg1;

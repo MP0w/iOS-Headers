@@ -8,6 +8,7 @@
 
 @class NSArray, NSMutableArray, UIResponder<UITextInput>, UISelectionGrabber, UITextSelectionView, UITouch;
 
+// Not exported
 @interface UITextRangeView : UIView
 {
     UITextSelectionView *m_selectionView;
@@ -22,57 +23,57 @@
     struct CGPoint m_extentPoint;
     struct CGPoint m_initialBasePoint;
     struct CGPoint m_initialExtentPoint;
-    float m_initialDistance;
+    double m_initialDistance;
     struct CGPoint m_touchOffset;
     double m_firstMovedTime;
     UISelectionGrabber *m_startGrabber;
     UISelectionGrabber *m_endGrabber;
-    BOOL m_animateUpdate;
-    BOOL m_baseIsStart;
-    BOOL m_commandsWereShowing;
-    BOOL m_inGesture;
-    BOOL m_magnifying;
-    BOOL m_scrolling;
-    BOOL m_scaling;
-    BOOL m_rotating;
-    BOOL m_inputViewIsChanging;
+    _Bool m_animateUpdate;
+    _Bool m_baseIsStart;
+    _Bool m_commandsWereShowing;
+    _Bool m_inGesture;
+    _Bool m_magnifying;
+    _Bool m_scrolling;
+    _Bool m_scaling;
+    _Bool m_rotating;
+    _Bool m_inputViewIsChanging;
 }
 
-@property(nonatomic) BOOL inputViewIsChanging; // @synthesize inputViewIsChanging=m_inputViewIsChanging;
-@property(nonatomic) BOOL rotating; // @synthesize rotating=m_rotating;
-@property(nonatomic) BOOL scaling; // @synthesize scaling=m_scaling;
-@property(nonatomic) BOOL isScrolling; // @synthesize isScrolling=m_scrolling;
-@property(nonatomic) BOOL inGesture; // @synthesize inGesture=m_inGesture;
-@property(nonatomic) BOOL magnifying; // @synthesize magnifying=m_magnifying;
-@property(nonatomic) BOOL commandsWereShowing; // @synthesize commandsWereShowing=m_commandsWereShowing;
-@property(nonatomic) BOOL animateUpdate; // @synthesize animateUpdate=m_animateUpdate;
+@property(nonatomic) _Bool inputViewIsChanging; // @synthesize inputViewIsChanging=m_inputViewIsChanging;
+@property(nonatomic) _Bool rotating; // @synthesize rotating=m_rotating;
+@property(nonatomic) _Bool scaling; // @synthesize scaling=m_scaling;
+@property(nonatomic) _Bool isScrolling; // @synthesize isScrolling=m_scrolling;
+@property(nonatomic) _Bool inGesture; // @synthesize inGesture=m_inGesture;
+@property(nonatomic) _Bool magnifying; // @synthesize magnifying=m_magnifying;
+@property(nonatomic) _Bool commandsWereShowing; // @synthesize commandsWereShowing=m_commandsWereShowing;
+@property(nonatomic) _Bool animateUpdate; // @synthesize animateUpdate=m_animateUpdate;
 @property(retain, nonatomic) UISelectionGrabber *endGrabber; // @synthesize endGrabber=m_endGrabber;
 @property(retain, nonatomic) UISelectionGrabber *startGrabber; // @synthesize startGrabber=m_startGrabber;
 @property(nonatomic) double firstMovedTime; // @synthesize firstMovedTime=m_firstMovedTime;
 @property(nonatomic) struct CGPoint touchOffset; // @synthesize touchOffset=m_touchOffset;
-@property(nonatomic) float initialDistance; // @synthesize initialDistance=m_initialDistance;
+@property(nonatomic) double initialDistance; // @synthesize initialDistance=m_initialDistance;
 @property(nonatomic) struct CGPoint initialExtentPoint; // @synthesize initialExtentPoint=m_initialExtentPoint;
 @property(nonatomic) struct CGPoint initialBasePoint; // @synthesize initialBasePoint=m_initialBasePoint;
 @property(nonatomic) struct CGPoint extentPoint; // @synthesize extentPoint=m_extentPoint;
 @property(nonatomic) struct CGPoint basePoint; // @synthesize basePoint=m_basePoint;
 @property(nonatomic) struct CGRect endEdge; // @synthesize endEdge=m_endEdge;
 @property(nonatomic) struct CGRect startEdge; // @synthesize startEdge=m_startEdge;
-@property(nonatomic) BOOL baseIsStart; // @synthesize baseIsStart=m_baseIsStart;
+@property(nonatomic) _Bool baseIsStart; // @synthesize baseIsStart=m_baseIsStart;
 @property(retain, nonatomic) UITouch *activeTouch; // @synthesize activeTouch=m_activeTouch;
 @property(nonatomic) int mode; // @synthesize mode=m_mode;
 - (struct CGPoint)convertFromMagnifierPoint:(struct CGPoint)arg1;
 - (struct CGPoint)magnifierPoint;
 - (void)updateGrabbers;
-- (BOOL)_endIsHorizontal;
-- (BOOL)_startIsHorizontal;
+- (_Bool)_endIsHorizontal;
+- (_Bool)_startIsHorizontal;
 - (void)updateRectViews;
 - (struct CGRect)_selectionClipRect;
 - (void)updateBaseAndExtentPointsFromEdges;
 - (void)beginMagnifying;
-@property(readonly, nonatomic) BOOL autoscrolled;
+@property(readonly, nonatomic) _Bool autoscrolled;
 - (struct CGPoint)applyTouchOffset:(struct CGPoint)arg1;
 - (void)setTouchOffset:(struct CGPoint)arg1 touchPoint:(struct CGPoint)arg2;
-- (BOOL)pointCloserToEnd:(struct CGPoint)arg1 startEdge:(struct CGRect)arg2 endEdge:(struct CGRect)arg3;
+- (_Bool)pointCloserToEnd:(struct CGPoint)arg1 startEdge:(struct CGRect)arg2 endEdge:(struct CGRect)arg3;
 - (void)cancelDelayedActions;
 - (void)stopAnimating;
 - (void)startAnimating;
@@ -97,7 +98,7 @@
 - (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
 - (void)setMagnifierOrientation;
-- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)removeFromSuperview;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 selectionView:(id)arg2;

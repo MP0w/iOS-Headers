@@ -11,21 +11,21 @@
 @interface CBMutableCharacteristic : CBCharacteristic
 {
     NSNumber *_ID;
-    int _permissions;
+    long long _permissions;
     NSMutableArray *_subscribedCentrals;
 }
 
 @property(retain) NSNumber *ID; // @synthesize ID=_ID;
 @property(readonly) NSArray *subscribedCentrals; // @synthesize subscribedCentrals=_subscribedCentrals;
-@property(nonatomic) int permissions; // @synthesize permissions=_permissions;
+@property(nonatomic) long long permissions; // @synthesize permissions=_permissions;
 @property(retain) NSArray *descriptors;
-@property(nonatomic) int properties;
+@property(nonatomic) long long properties;
 - (id)description;
-- (BOOL)handleCentralUnsubscribed:(id)arg1;
-- (BOOL)handleCentralSubscribed:(id)arg1;
+- (_Bool)handleCentralUnsubscribed:(id)arg1;
+- (_Bool)handleCentralSubscribed:(id)arg1;
 - (void)dealloc;
 - (id)initWithService:(id)arg1 dictionary:(id)arg2;
-- (id)initWithType:(id)arg1 properties:(int)arg2 value:(id)arg3 permissions:(int)arg4;
+- (id)initWithType:(id)arg1 properties:(long long)arg2 value:(id)arg3 permissions:(long long)arg4;
 
 // Remaining properties
 @property(retain, nonatomic) CBUUID *UUID;

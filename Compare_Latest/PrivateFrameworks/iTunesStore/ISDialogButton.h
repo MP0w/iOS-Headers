@@ -6,29 +6,33 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class NSDictionary, NSString;
 
 @interface ISDialogButton : NSObject
 {
     int _actionType;
     id _parameter;
     NSString *_title;
-    int _urlType;
+    long long _urlType;
+    NSString *_subtarget;
+    NSDictionary *_dictionary;
 }
 
 + (id)buttonWithTitle:(id)arg1;
-@property int urlType; // @synthesize urlType=_urlType;
+@property long long urlType; // @synthesize urlType=_urlType;
 @property(retain) NSString *title; // @synthesize title=_title;
+@property(copy) NSString *subtarget; // @synthesize subtarget=_subtarget;
 @property(retain) id parameter; // @synthesize parameter=_parameter;
+@property(retain) NSDictionary *dictionary; // @synthesize dictionary=_dictionary;
 @property int actionType; // @synthesize actionType=_actionType;
-- (int)_urlTypeForString:(id)arg1;
+- (long long)_urlTypeForString:(id)arg1;
 - (void)_openURLWithRequest:(id)arg1;
 - (int)_actionTypeForString:(id)arg1;
 - (id)_accountURLForURL:(id)arg1 authenticationContext:(id)arg2;
 - (void)setActionTypeWithString:(id)arg1;
 - (void)performDefaultActionForDialog:(id)arg1;
 - (void)loadFromDictionary:(id)arg1;
-- (BOOL)isEqual:(id)arg1 superficial:(BOOL)arg2;
+- (_Bool)isEqual:(id)arg1 superficial:(_Bool)arg2;
 - (void)dealloc;
 
 @end

@@ -15,12 +15,11 @@
 + (id)name;
 - (id)propertiesToIncludeForChecksumVersion:(int)arg1;
 @property(retain) NSArray *x_apple_activity;
-@property unsigned int x_apple_sort_order;
+@property unsigned long long x_apple_sort_order;
 @property(retain) ICSDate *due;
-@property int percentComplete;
+@property long long percentComplete;
 @property(retain) ICSDate *completed;
-- (BOOL)validate:(id *)arg1;
-- (void)fixComponent;
+- (_Bool)validate:(id *)arg1;
 
 // Remaining properties
 @property(retain) NSArray *attach; // @dynamic attach;
@@ -37,18 +36,18 @@
 @property(retain) ICSDate *last_modified; // @dynamic last_modified;
 @property(retain) NSString *location; // @dynamic location;
 @property(retain) ICSUserAddress *organizer; // @dynamic organizer;
-@property unsigned int priority; // @dynamic priority;
+@property unsigned long long priority; // @dynamic priority;
 @property(retain) NSArray *rdate; // @dynamic rdate;
 @property(retain) ICSDate *recurrence_id; // @dynamic recurrence_id;
 @property(retain) NSArray *rrule; // @dynamic rrule;
-@property unsigned int sequence; // @dynamic sequence;
+@property unsigned long long sequence; // @dynamic sequence;
 @property int status; // @dynamic status;
 @property(retain) NSString *summary; // @dynamic summary;
 @property(retain) NSString *uid; // @dynamic uid;
 @property(retain) NSURL *url; // @dynamic url;
 @property(retain) NSString *x_apple_ews_changekey; // @dynamic x_apple_ews_changekey;
 @property(retain) NSString *x_apple_ews_itemid; // @dynamic x_apple_ews_itemid;
-@property BOOL x_apple_ews_needsserverconfirmation; // @dynamic x_apple_ews_needsserverconfirmation;
+@property _Bool x_apple_ews_needsserverconfirmation; // @dynamic x_apple_ews_needsserverconfirmation;
 @property(retain) NSString *x_apple_ews_permission; // @dynamic x_apple_ews_permission;
 @property(retain) ICSStructuredLocation *x_apple_structured_location; // @dynamic x_apple_structured_location;
 

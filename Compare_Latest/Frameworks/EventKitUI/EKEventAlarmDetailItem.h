@@ -6,29 +6,25 @@
 
 #import <EventKitUI/EKEventDetailItem.h>
 
-#import "EKCalendarItemDisclosableEditItem-Protocol.h"
-
 @class CalendarEventAlarmTable, NSArray;
 
-@interface EKEventAlarmDetailItem : EKEventDetailItem <EKCalendarItemDisclosableEditItem>
+// Not exported
+@interface EKEventAlarmDetailItem : EKEventDetailItem
 {
     CalendarEventAlarmTable *_alarmTable;
-    unsigned int _disclosedSubitem;
+    unsigned long long _disclosedSubitem;
     NSArray *_alarms;
 }
 
 - (void).cxx_destruct;
-- (unsigned int)indexOfSelectedDisclosedItem;
-- (void)didSelectDisclosedItemAtIndex:(int)arg1;
-- (void)willDiscloseSubitem:(int)arg1;
-- (id)titleForDisclosedItemAtIndex:(int)arg1 inSubitem:(int)arg2;
-- (int)numberOfDisclosableItemsInSubitem:(int)arg1;
-- (int)disclosedEditItemTypeForSubitem:(int)arg1;
-- (id)cellForSubitemAtIndex:(unsigned int)arg1;
-- (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 forWidth:(float)arg2;
-- (unsigned int)numberOfSubitems;
-- (BOOL)configureWithCalendar:(id)arg1 preview:(BOOL)arg2;
-- (BOOL)_alarmsAreEditable;
+- (_Bool)editItemViewControllerCommit:(id)arg1;
+- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(unsigned long long)arg2;
+- (id)cellForSubitemAtIndex:(unsigned long long)arg1;
+- (double)defaultCellHeightForSubitemAtIndex:(unsigned long long)arg1 forWidth:(double)arg2;
+- (unsigned long long)numberOfSubitems;
+- (_Bool)configureWithCalendar:(id)arg1 preview:(_Bool)arg2;
+- (_Bool)_alarmsAreCreatable;
+- (_Bool)_alarmsAreEditable;
 - (void)reset;
 - (void)setEvent:(id)arg1 store:(id)arg2;
 - (id)init;

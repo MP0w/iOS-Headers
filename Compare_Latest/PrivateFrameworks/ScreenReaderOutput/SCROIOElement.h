@@ -12,14 +12,14 @@
 @interface SCROIOElement : NSObject <SCROIOElementProtocol, NSCopying>
 {
     unsigned int _ioObject;
-    long _identifier;
+    int _identifier;
 }
 
 - (int)transport;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (unsigned int)hash;
-- (long)identifier;
+- (unsigned long long)hash;
+- (int)identifier;
 - (unsigned int)ioObject;
 - (void)dealloc;
 - (id)initWithIOObject:(unsigned int)arg1;

@@ -8,16 +8,19 @@
 
 @interface AWDServerConnection : NSObject
 {
+    struct AWDServerConnection *fServerConnection;
 }
 
+- (void)flushToQueue:(id)arg1 block:(id)arg2;
 - (unsigned long long)getAWDTimestamp;
-- (BOOL)registerQueriableMetricCallbackForLogging:(id)arg1;
-- (BOOL)registerQueriableMetricCallback:(id)arg1 forIdentifier:(void)arg2;
-- (BOOL)submitMetric:(id)arg1;
-- (id)newMetricContainerWithIdentifier:(unsigned long)arg1;
+- (_Bool)registerConfigChangeCallback:(id)arg1;
+- (_Bool)registerQueriableMetricCallbackForLogging:(id)arg1;
+- (_Bool)registerQueriableMetricCallback:(id)arg1 forIdentifier:(void)arg2;
+- (_Bool)submitMetric:(id)arg1;
+- (id)newMetricContainerWithIdentifier:(unsigned int)arg1;
 - (void)dealloc;
-- (id)initWithComponentId:(unsigned long)arg1 andBlockOnConfiguration:(BOOL)arg2;
-- (id)initWithComponentId:(unsigned long)arg1;
+- (id)initWithComponentId:(unsigned int)arg1 andBlockOnConfiguration:(_Bool)arg2;
+- (id)initWithComponentId:(unsigned int)arg1;
 
 @end
 

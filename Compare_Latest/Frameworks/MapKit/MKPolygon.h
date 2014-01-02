@@ -14,18 +14,19 @@
 {
     CDStruct_2c43369c _centroid;
     NSArray *_interiorPolygons;
-    BOOL _isDefinitelyConvex;
+    _Bool _isDefinitelyConvex;
 }
 
-+ (id)polygonEnclosingMapPoints:(CDStruct_c3b9c2ee *)arg1 count:(unsigned int)arg2;
-+ (id)polygonWithCoordinates:(CDStruct_c3b9c2ee *)arg1 count:(unsigned int)arg2 interiorPolygons:(id)arg3;
-+ (id)polygonWithCoordinates:(CDStruct_c3b9c2ee *)arg1 count:(unsigned int)arg2;
-+ (id)polygonWithPoints:(CDStruct_c3b9c2ee *)arg1 count:(unsigned int)arg2 interiorPolygons:(id)arg3;
-+ (id)polygonWithPoints:(CDStruct_c3b9c2ee *)arg1 count:(unsigned int)arg2;
-@property(nonatomic) BOOL _isDefinitelyConvex; // @synthesize _isDefinitelyConvex;
++ (id)_polygonWithMapRect:(CDStruct_90e2a262)arg1;
++ (id)polygonEnclosingMapPoints:(CDStruct_c3b9c2ee *)arg1 count:(unsigned long long)arg2;
++ (id)polygonWithCoordinates:(CDStruct_c3b9c2ee *)arg1 count:(unsigned long long)arg2 interiorPolygons:(id)arg3;
++ (id)polygonWithCoordinates:(CDStruct_c3b9c2ee *)arg1 count:(unsigned long long)arg2;
++ (id)polygonWithPoints:(CDStruct_c3b9c2ee *)arg1 count:(unsigned long long)arg2 interiorPolygons:(id)arg3;
++ (id)polygonWithPoints:(CDStruct_c3b9c2ee *)arg1 count:(unsigned long long)arg2;
+@property(nonatomic) _Bool _isDefinitelyConvex; // @synthesize _isDefinitelyConvex;
 @property(readonly) NSArray *interiorPolygons; // @synthesize interiorPolygons=_interiorPolygons;
 @property(readonly, nonatomic) CDStruct_90e2a262 boundingMapRect;
-- (BOOL)intersectsMapRect:(CDStruct_90e2a262)arg1;
+- (_Bool)intersectsMapRect:(CDStruct_90e2a262)arg1;
 @property(readonly, nonatomic) CDStruct_c3b9c2ee coordinate;
 - (void)dealloc;
 

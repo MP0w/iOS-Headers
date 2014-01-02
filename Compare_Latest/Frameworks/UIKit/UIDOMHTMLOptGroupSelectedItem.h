@@ -10,6 +10,7 @@
 
 @class DOMHTMLOptGroupElement;
 
+// Not exported
 @interface UIDOMHTMLOptGroupSelectedItem : NSObject <UIWebSelectedItemPrivate>
 {
     DOMHTMLOptGroupElement *_node;
@@ -18,9 +19,9 @@
 @property(retain, nonatomic) DOMHTMLOptGroupElement *_node; // @synthesize _node;
 - (void)dealloc;
 - (void)unselect;
-- (void)setSelected:(BOOL)arg1;
-- (BOOL)isGroup;
-- (BOOL)selected;
+- (void)setSelected:(_Bool)arg1;
+- (_Bool)isGroup;
+- (_Bool)selected;
 - (id)node;
 - (id)initWithHTMLOptGroupNode:(id)arg1;
 

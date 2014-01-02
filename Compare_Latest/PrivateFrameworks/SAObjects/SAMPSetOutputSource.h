@@ -14,7 +14,7 @@
 
 + (id)setOutputSourceWithDictionary:(id)arg1 context:(id)arg2;
 + (id)setOutputSource;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSURL *outputSourceId;
 - (id)encodedClassName;
 - (id)groupIdentifier;

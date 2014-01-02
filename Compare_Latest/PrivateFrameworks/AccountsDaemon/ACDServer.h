@@ -9,25 +9,29 @@
 #import "ACDAccountStoreDelegate-Protocol.h"
 #import "NSXPCListenerDelegate-Protocol.h"
 
-@class ACDAccessPluginManager, ACDAuthenticationPluginManager, ACDDataclassOwnersManager, NSMutableArray, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSXPCListener;
+@class ACDAccessPluginManager, ACDAuthenticationDialogManager, ACDAuthenticationPluginManager, ACDDataclassOwnersManager, NSMutableArray, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSXPCListener;
 
 @interface ACDServer : NSObject <NSXPCListenerDelegate, ACDAccountStoreDelegate>
 {
     NSXPCListener *_accountStoreListener;
     NSXPCListener *_oauthSignerListener;
+    NSXPCListener *_authenticationDialogListener;
     NSMutableArray *_accountStoreClients;
     NSMutableArray *_oauthSignerClients;
+    NSMutableArray *_authenticationDialogManagerClients;
     NSObject<OS_dispatch_queue> *_deferredConnectionResumeQueue;
     NSObject<OS_dispatch_semaphore> *_deferredConnectionResumeQueueSemaphore;
     NSObject<OS_dispatch_queue> *_performMigrationQueue;
-    BOOL _shouldExit;
+    _Bool _shouldExit;
     ACDAuthenticationPluginManager *_authenticationPluginManager;
     ACDAccessPluginManager *_accessPluginManager;
     ACDDataclassOwnersManager *_dataclassOwnersManager;
+    ACDAuthenticationDialogManager *_authenticationDialogManager;
 }
 
 + (id)sharedServer;
-@property(nonatomic) BOOL shouldExit; // @synthesize shouldExit=_shouldExit;
+@property(nonatomic) _Bool shouldExit; // @synthesize shouldExit=_shouldExit;
+@property(retain, nonatomic) ACDAuthenticationDialogManager *authenticationDialogManager; // @synthesize authenticationDialogManager=_authenticationDialogManager;
 @property(retain, nonatomic) ACDDataclassOwnersManager *dataclassOwnersManager; // @synthesize dataclassOwnersManager=_dataclassOwnersManager;
 @property(retain, nonatomic) ACDAccessPluginManager *accessPluginManager; // @synthesize accessPluginManager=_accessPluginManager;
 @property(retain, nonatomic) ACDAuthenticationPluginManager *authenticationPluginManager; // @synthesize authenticationPluginManager=_authenticationPluginManager;
@@ -40,9 +44,9 @@
 - (id)_newOAuthSignerForClient:(id)arg1;
 - (id)_newDaemonAccountStoreFilterForClient:(id)arg1;
 - (id)clientForConnection:(id)arg1;
-- (BOOL)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
+- (_Bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
 - (void)shutdown;
-- (void)setUpWithAccountStoreConnectionListener:(id)arg1 oauthSignerConnectionListener:(id)arg2;
+- (void)setUpWithAccountStoreConnectionListener:(id)arg1 oauthSignerConnectionListener:(id)arg2 authenticationDialogConnectionListener:(id)arg3;
 - (void)dealloc;
 - (id)init;
 

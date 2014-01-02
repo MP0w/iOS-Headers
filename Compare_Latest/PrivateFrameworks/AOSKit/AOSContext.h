@@ -22,7 +22,7 @@
 + (id)contextWithAccount:(struct AOSAccount *)arg1 andTransaction:(struct AOSTransactionC *)arg2;
 - (void)_performCallback;
 - (id)_callbackThread;
-- (BOOL)scheduleCallback;
+- (_Bool)scheduleCallback;
 - (id)info;
 - (void)setInfo:(id)arg1;
 - (struct AOSTransactionC *)transaction;

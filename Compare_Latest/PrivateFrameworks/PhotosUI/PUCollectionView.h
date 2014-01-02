@@ -21,10 +21,11 @@
     id <PUCollectionViewReorderDelegate> _reorderDelegate;
 }
 
++ (id)_reuseKeyForSupplementaryViewOfKind:(id)arg1 withReuseIdentifier:(id)arg2;
 @property(nonatomic) __weak id <PUCollectionViewReorderDelegate> reorderDelegate; // @synthesize reorderDelegate=_reorderDelegate;
 - (void).cxx_destruct;
 - (void)visiblyInsertItemAtIndexPath:(id)arg1 completionHandler:(id)arg2;
-- (BOOL)gestureRecognizerShouldBegin:(id)arg1;
+- (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (void)_updateDragUsingIndexPathUpdateBlock:(id)arg1;
 - (id)_reorderableLayout;
 - (void)_handleDrag:(id)arg1;

@@ -6,24 +6,27 @@
 
 #import "UIView.h"
 
-@class NSDate, SBLockScreenTimerDialView, UILabel;
+@class NSDate, SBLockScreenTimerDialView, UILabel, _UILegibilityLabel;
 
 @interface SBLockScreenTimerView : UIView
 {
     NSDate *_endDate;
     SBLockScreenTimerDialView *_timerDial;
-    UILabel *_timerLabel;
+    UILabel *_layoutLabel;
+    _UILegibilityLabel *_timerLabel;
 }
 
-- (id)_timerFont;
++ (double)interItemSpacing;
++ (id)_timerFont;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
-- (float)baselineOffsetFromBottom;
-- (void)setTimerHidden:(BOOL)arg1;
-- (void)stopTimerDial;
-- (void)startTimerDial;
+- (double)baselineOffsetFromBottom;
+- (void)setTimerHidden:(_Bool)arg1;
 - (void)updateTimerLabel;
 - (void)setEndDate:(id)arg1;
+- (void)setLegibilitySettings:(id)arg1 textStrength:(double)arg2 dialStrength:(double)arg3;
+- (id)_newTimerDialForSettings:(id)arg1 strength:(double)arg2;
+- (id)_newLegibilityLabelForSettings:(id)arg1 strength:(double)arg2;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

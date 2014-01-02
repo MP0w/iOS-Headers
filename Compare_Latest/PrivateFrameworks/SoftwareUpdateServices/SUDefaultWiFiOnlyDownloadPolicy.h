@@ -10,8 +10,8 @@
 {
 }
 
-+ (unsigned int)wifiOnlyPeriodInDaysForUpdate:(id)arg1;
-- (BOOL)isDownloadAllowableForCellular;
++ (unsigned long long)wifiOnlyPeriodInDaysForUpdate:(id)arg1;
+- (_Bool)isDownloadAllowableForCellular;
 - (id)initWithDescriptor:(id)arg1;
 
 @end

@@ -10,8 +10,8 @@
 
 @interface ISDialogTextField : NSObject
 {
-    int _keyboardType;
-    BOOL _secure;
+    long long _keyboardType;
+    _Bool _secure;
     NSString *_title;
     NSString *_value;
 }
@@ -19,8 +19,8 @@
 + (id)textFieldWithTitle:(id)arg1;
 @property(retain) NSString *value; // @synthesize value=_value;
 @property(retain) NSString *title; // @synthesize title=_title;
-@property(getter=isSecure) BOOL secure; // @synthesize secure=_secure;
-@property int keyboardType; // @synthesize keyboardType=_keyboardType;
+@property(getter=isSecure) _Bool secure; // @synthesize secure=_secure;
+@property long long keyboardType; // @synthesize keyboardType=_keyboardType;
 - (void)dealloc;
 
 @end

@@ -6,13 +6,14 @@
 
 #import <DataDetectorsUI/DDTelephoneNumberAction.h>
 
+// Not exported
 @interface DDCallAction : DDTelephoneNumberAction
 {
 }
 
 - (void)perform;
 - (id)localizedName;
-- (BOOL)_titleFitsInActionSheet:(id)arg1;
+- (_Bool)_titleFitsInActionSheet:(id)arg1;
 - (_Bool)_retrieveNameForDestinationNumber:(id *)arg1 label:(id *)arg2;
 - (id)_UIDsAndLabelsMatchingPhoneNumber:(id)arg1 inAddressBook:(void *)arg2;
 - (id)_nameForPerson:(void *)arg1;

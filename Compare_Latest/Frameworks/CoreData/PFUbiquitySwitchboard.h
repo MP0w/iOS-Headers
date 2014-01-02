@@ -8,6 +8,7 @@
 
 @class NSMutableDictionary, NSRecursiveLock;
 
+// Not exported
 @interface PFUbiquitySwitchboard : NSObject
 {
     NSMutableDictionary *_storeNameToLocalPeerIDToEntry;
@@ -27,11 +28,11 @@
 - (void)unregisterPersistentStore:(id)arg1;
 - (id)createSetOfCoordinatorsForPersistentStoreName:(id)arg1 andLocalPeerID:(id)arg2 atUbiquityRootLocation:(id)arg3;
 - (void)unregisterCoordinator:(id)arg1;
-- (BOOL)registerUbiquitizedPersistentStore:(id)arg1 forLocalPeerID:(id)arg2 withLocalRootLocation:(id)arg3 andUbiquityRootLocation:(id)arg4 error:(id *)arg5;
+- (_Bool)registerUbiquitizedPersistentStore:(id)arg1 forLocalPeerID:(id)arg2 withLocalRootLocation:(id)arg3 andUbiquityRootLocation:(id)arg4 error:(id *)arg5;
 - (void)_removeFilePresenter:(id)arg1;
 - (void)_addFilePresenter:(id)arg1;
 - (void)removeFilePresenterCachedForUbiquityRootLocation:(id)arg1 andLocalPeerID:(id)arg2;
-- (BOOL)cacheFilePresenterForUbiquityRootLocation:(id)arg1 andLocalPeerID:(id)arg2;
+- (_Bool)cacheFilePresenterForUbiquityRootLocation:(id)arg1 andLocalPeerID:(id)arg2;
 - (id)filePresenterForUbiquityRootLocation:(id)arg1 andLocalPeerID:(id)arg2;
 - (id)entryForStore:(id)arg1;
 - (id)retainedEntryForStoreName:(id)arg1 andLocalPeerID:(id)arg2;

@@ -18,10 +18,10 @@
 + (id)_wrapperPayloadDictWithCertData:(id)arg1 fileName:(id)arg2 name:(id)arg3 identifier:(id)arg4 type:(id)arg5;
 + (id)_identifierHashFromData:(id)arg1;
 - (id)earliestCertificateExpiryDate;
-- (BOOL)isSigned;
+- (_Bool)isSigned;
 - (int)trustLevel;
 - (id)stubDictionary;
-- (id)initWithDictionary:(id)arg1 allowEmptyPayload:(BOOL)arg2 outError:(id *)arg3;
+- (id)initWithDictionary:(id)arg1 allowEmptyPayload:(_Bool)arg2 outError:(id *)arg3;
 - (id)_certificatePayload;
 
 @end

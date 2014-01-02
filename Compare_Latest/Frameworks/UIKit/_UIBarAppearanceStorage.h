@@ -8,16 +8,17 @@
 
 @class NSMutableDictionary;
 
+// Not exported
 @interface _UIBarAppearanceStorage : NSObject
 {
     NSMutableDictionary *backgroundImages;
 }
 
-+ (int)typicalBarPosition;
++ (long long)typicalBarPosition;
 - (void)dealloc;
-- (BOOL)hasAnyCustomBackgroundImage;
-- (id)backgroundImageForBarPosition:(int)arg1 barMetrics:(int)arg2;
-- (void)setBackgroundImage:(id)arg1 forBarPosition:(int)arg2 barMetrics:(int)arg3;
+- (_Bool)hasAnyCustomBackgroundImage;
+- (id)backgroundImageForBarPosition:(long long)arg1 barMetrics:(long long)arg2;
+- (void)setBackgroundImage:(id)arg1 forBarPosition:(long long)arg2 barMetrics:(long long)arg3;
 
 @end
 

@@ -8,6 +8,7 @@
 
 @class NSArray, PKPrinter, UINavigationController, UIPopoverController, UIPrintInteractionController, UIPrintPanelTableViewController, UIPrintPaper, UIViewController, UIWindow;
 
+// Not exported
 @interface UIPrintPanelViewController : NSObject
 {
     UIPrintInteractionController *_printInteractionController;
@@ -17,37 +18,37 @@
     UIPopoverController *_poverController;
     UIWindow *_window;
     PKPrinter *_printer;
-    BOOL _dismissed;
-    BOOL _animated;
-    BOOL _observingRotation;
-    BOOL _parentHasNoPopover;
+    _Bool _dismissed;
+    _Bool _animated;
+    _Bool _observingRotation;
+    _Bool _parentHasNoPopover;
 }
 
 @property(retain, nonatomic) PKPrinter *printer; // @synthesize printer=_printer;
-@property(readonly, nonatomic) BOOL showPaper;
-@property(readonly, nonatomic) BOOL showCopies;
-@property(readonly, nonatomic) BOOL showPageRange;
-@property(readonly, nonatomic) BOOL showDuplex;
+@property(readonly, nonatomic) _Bool showPaper;
+@property(readonly, nonatomic) _Bool showCopies;
+@property(readonly, nonatomic) _Bool showPageRange;
+@property(readonly, nonatomic) _Bool showDuplex;
 @property(retain, nonatomic) UIPrintPaper *paper;
 @property(readonly, nonatomic) NSArray *paperList;
-@property(nonatomic) int copies;
+@property(nonatomic) long long copies;
 @property(nonatomic) struct _NSRange pageRange;
-@property(readonly, nonatomic) int pageCount;
-@property(nonatomic) BOOL duplex;
+@property(readonly, nonatomic) long long pageCount;
+@property(nonatomic) _Bool duplex;
 - (void)controllerDidDisappear;
 - (void)cancelPrinting;
 - (void)startPrinting;
 - (void)popoverControllerDidDismissPopover:(id)arg1;
-- (unsigned int)supportedInterfaceOrientations;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (void)dismissAnimated:(BOOL)arg1;
-- (void)dismissPrintPanel:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)presentPrintPanelFromBarButtonItem:(id)arg1 animated:(BOOL)arg2;
-- (void)presentPrintPanelFromRect:(struct CGRect)arg1 inView:(id)arg2 animated:(BOOL)arg3;
-- (void)presentPrintPanelAnimated:(BOOL)arg1;
+- (unsigned long long)supportedInterfaceOrientations;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (void)dismissAnimated:(_Bool)arg1;
+- (void)dismissPrintPanel:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)presentPrintPanelFromBarButtonItem:(id)arg1 animated:(_Bool)arg2;
+- (void)presentPrintPanelFromRect:(struct CGRect)arg1 inView:(id)arg2 animated:(_Bool)arg3;
+- (void)presentPrintPanelAnimated:(_Bool)arg1;
 - (void)_keyWindowWillRotate:(id)arg1;
 - (void)_presentWindow;
-- (void)_presentInParentAnimated:(BOOL)arg1;
+- (void)_presentInParentAnimated:(_Bool)arg1;
 - (void)dealloc;
 - (id)initWithPrintInterationController:(id)arg1 inParentController:(id)arg2;
 

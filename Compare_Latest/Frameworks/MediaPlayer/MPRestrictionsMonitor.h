@@ -13,7 +13,7 @@
 }
 
 + (id)sharedRestrictionsMonitor;
-@property(readonly, nonatomic) BOOL allowsDeletion;
+@property(readonly, nonatomic) _Bool allowsDeletion;
 
 @end
 

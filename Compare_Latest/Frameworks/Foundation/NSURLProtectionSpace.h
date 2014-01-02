@@ -16,7 +16,7 @@
     NSURLProtectionSpaceInternal *_internal;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (struct _CFURLProtectionSpace *)_cfurlprtotectionspace;
@@ -24,21 +24,21 @@
 - (struct __SecTrust *)serverTrust;
 - (id)distinguishedNames;
 - (id)authenticationMethod;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)proxyType;
-- (int)port;
+- (long long)port;
 - (id)host;
-- (BOOL)isProxy;
-- (BOOL)receivesCredentialSecurely;
+- (_Bool)isProxy;
+- (_Bool)receivesCredentialSecurely;
 - (id)realm;
 - (id)description;
 - (void)dealloc;
 - (id)init;
 - (id)_initWithCFURLProtectionSpace:(struct _CFURLProtectionSpace *)arg1;
-- (id)initWithProxyHost:(id)arg1 port:(int)arg2 type:(id)arg3 realm:(id)arg4 authenticationMethod:(id)arg5;
-- (id)initWithHost:(id)arg1 port:(int)arg2 protocol:(id)arg3 realm:(id)arg4 authenticationMethod:(id)arg5;
+- (id)initWithProxyHost:(id)arg1 port:(long long)arg2 type:(id)arg3 realm:(id)arg4 authenticationMethod:(id)arg5;
+- (id)initWithHost:(id)arg1 port:(long long)arg2 protocol:(id)arg3 realm:(id)arg4 authenticationMethod:(id)arg5;
 - (id)_internalInit;
 
 @end

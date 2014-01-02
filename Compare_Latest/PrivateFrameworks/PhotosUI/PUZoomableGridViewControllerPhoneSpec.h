@@ -10,15 +10,28 @@
 {
 }
 
-- (unsigned int)collapsedYearsSectionHeaderStyle;
-- (struct UIEdgeInsets)collapsedYearsLevelSectionContentInset;
-- (int)collapsedYearsLevelThumbnailFormat;
-- (void)configureCollapsedYearsLevelGridLayout:(id)arg1 forWidth:(float)arg2;
-- (struct UIEdgeInsets)groupedMomentsLevelSectionHeaderContentInset;
-- (struct UIEdgeInsets)groupedMomentsLevelSectionContentInset;
-- (int)groupedMomentsLevelThumbnailFormat;
-- (void)configureGroupedMomentsLevelGridLayout:(id)arg1 forWidth:(float)arg2;
-- (id)gridSpec;
+- (id)mapViewControllerSpec;
+- (long long)yearsSectionHeaderStyle;
+- (struct UIEdgeInsets)yearsLevelSectionHeaderHighlightInset;
+- (struct UIEdgeInsets)yearsLevelSectionHeaderContentInset;
+- (int)yearsLevelThumbnailFormat;
+- (void)configureYearsLevelGridLayout:(id)arg1 forWidth:(double)arg2;
+- (long long)collectionsSectionHeaderStyle;
+- (struct UIEdgeInsets)collectionsLevelSectionHeaderHighlightInset;
+- (struct UIEdgeInsets)collectionsLevelSectionHeaderContentInset;
+- (int)collectionsLevelThumbnailFormat;
+- (void)configureCollectionsLevelGridLayout:(id)arg1 forWidth:(double)arg2;
+- (long long)fullMomentsSectionHeaderStyle;
+- (struct UIEdgeInsets)fullMomentsLevelSectionHeaderHighlightInset;
+- (struct UIEdgeInsets)fullMomentsLevelSectionHeaderContentInset;
+- (int)fullMomentsLevelThumbnailFormat;
+- (void)configureFullMomentsLevelGridLayout:(id)arg1 forWidth:(double)arg2;
+- (struct UIEdgeInsets)magnifiedDragEdgeInsets;
+- (double)magnifiedYOffset;
+- (struct CGSize)magnifiedImageSize;
+- (int)magnifiedImageFormat;
+- (_Bool)canDisplayMultipleRightBarButtonItems;
+- (id)newGridSpec;
 
 @end
 

@@ -6,19 +6,25 @@
 
 #import <StoreKitUI/SKUICollectionViewCell.h>
 
+#import "SKUICellLayoutParentView-Protocol.h"
+
 @class SKUIItemCellLayout;
 
-@interface SKUIItemCollectionViewCell : SKUICollectionViewCell
+@interface SKUIItemCollectionViewCell : SKUICollectionViewCell <SKUICellLayoutParentView>
 {
+    _Bool _layoutNeedsLayout;
 }
 
+- (void)setFrame:(struct CGRect)arg1;
+- (void)setBounds:(struct CGRect)arg1;
 - (void)layoutSubviews;
-- (void)setSelected:(BOOL)arg1;
-- (void)setHighlighted:(BOOL)arg1;
+- (void)setSelected:(_Bool)arg1;
+- (void)setHighlighted:(_Bool)arg1;
 - (void)prepareForReuse;
 - (void)applyLayoutAttributes:(id)arg1;
+- (void)setCellLayoutNeedsLayout;
 @property(readonly, nonatomic) SKUIItemCellLayout *layout;
-- (void)configureForItem:(id)arg1;
+- (void)configureForItem:(id)arg1 clientContext:(id)arg2;
 
 @end
 

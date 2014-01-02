@@ -6,6 +6,5 @@
 
 @protocol SKUIRedeemCameraViewControllerDelegate
 - (void)redeemCameraViewController:(id)arg1 didFinishWithRedeem:(id)arg2;
-- (void)redeemCameraViewControllerDidCancel:(id)arg1;
 @end
 

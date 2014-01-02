@@ -11,8 +11,8 @@
 }
 
 - (id)contentScrollView;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)_saveChanges;
 - (id)init;
 

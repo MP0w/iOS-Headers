@@ -10,7 +10,7 @@
 
 @interface SUScrollRequest : NSObject
 {
-    BOOL _animated;
+    _Bool _animated;
     id _completionHandler;
     NSValue *_contentOffsetValue;
     NSValue *_frameValue;
@@ -19,7 +19,7 @@
 @property(retain) NSValue *frameValue; // @synthesize frameValue=_frameValue;
 @property(retain) NSValue *contentOffsetValue; // @synthesize contentOffsetValue=_contentOffsetValue;
 @property(copy, nonatomic) id completionHandler; // @synthesize completionHandler=_completionHandler;
-@property(nonatomic, getter=isAnimated) BOOL animated; // @synthesize animated=_animated;
+@property(nonatomic, getter=isAnimated) _Bool animated; // @synthesize animated=_animated;
 - (void)dealloc;
 
 @end

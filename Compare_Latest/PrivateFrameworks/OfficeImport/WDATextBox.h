@@ -8,23 +8,24 @@
 
 @class WDAContent, WDDocument, WDText;
 
+// Not exported
 @interface WDATextBox : NSObject
 {
     WDText *mText;
-    unsigned long mNextTextBoxId;
+    unsigned long long mNextTextBoxId;
     _Bool mOle;
     WDDocument *mDocument;
     WDAContent *mParent;
 }
 
-- (void)setNextTextBoxId:(unsigned long)arg1;
-- (unsigned long)nextTextBoxId;
+- (void)setNextTextBoxId:(unsigned long long)arg1;
+- (unsigned long long)nextTextBoxId;
 - (void)setText:(id)arg1;
 - (id)text;
 - (void)setParent:(id)arg1;
 - (id)parent;
-- (void)setOle:(BOOL)arg1;
-- (BOOL)isOle;
+- (void)setOle:(_Bool)arg1;
+- (_Bool)isOle;
 - (void)setDocument:(id)arg1;
 - (id)document;
 - (void)dealloc;

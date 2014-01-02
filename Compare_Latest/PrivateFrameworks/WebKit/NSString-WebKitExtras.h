@@ -13,10 +13,10 @@
 - (id)_webkit_stringByCollapsingNonPrintingCharacters;
 - (id)_webkit_stringByTrimmingWhitespace;
 - (id)_webkit_filenameByFixingIllegalCharacters;
-- (BOOL)_webkit_hasCaseInsensitiveSubstring:(id)arg1;
-- (BOOL)_webkit_hasCaseInsensitiveSuffix:(id)arg1;
-- (BOOL)_webkit_hasCaseInsensitivePrefix:(id)arg1;
-- (BOOL)_webkit_isCaseInsensitiveEqualToString:(id)arg1;
+- (_Bool)_webkit_hasCaseInsensitiveSubstring:(id)arg1;
+- (_Bool)_webkit_hasCaseInsensitiveSuffix:(id)arg1;
+- (_Bool)_webkit_hasCaseInsensitivePrefix:(id)arg1;
+- (_Bool)_webkit_isCaseInsensitiveEqualToString:(id)arg1;
 - (id)_web_stringByStrippingReturnCharacters;
 - (id)_web_stringByAbbreviatingWithTildeInPath;
 @end

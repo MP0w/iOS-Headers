@@ -8,6 +8,7 @@
 
 @class _MKMapLayerHostingView;
 
+// Not exported
 @interface _MKMapLayerHostingLayer : CALayer
 {
     _MKMapLayerHostingView *_hostView;

@@ -13,21 +13,21 @@
     BBBulletin *_bulletin;
     NSArray *_buttons;
     NSArray *_bulletinButtonIndices;
-    BOOL _playedSound;
+    _Bool _playedSound;
     SBBulletinModalAlert *_superseded;
 }
 
 @property(retain, nonatomic) NSArray *bulletinButtonIndices; // @synthesize bulletinButtonIndices=_bulletinButtonIndices;
 @property(retain, nonatomic) NSArray *buttons; // @synthesize buttons=_buttons;
-- (BOOL)allowMenuButtonDismissal;
-- (BOOL)dismissOnLock;
-- (BOOL)shouldShowInLockScreen;
+- (_Bool)allowMenuButtonDismissal;
+- (_Bool)dismissOnLock;
+- (_Bool)shouldShowInLockScreen;
 - (void)willDeactivateForReason:(int)arg1;
 - (void)didPresentAlertView:(id)arg1;
 - (void)willPresentAlertView:(id)arg1;
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
+- (void)configure:(_Bool)arg1 requirePasscodeForActions:(_Bool)arg2;
 - (void)dismiss:(int)arg1;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (void)dealloc;
 - (id)initWithBulletin:(id)arg1 supersededAlert:(id)arg2;
 - (id)initWithBulletin:(id)arg1;

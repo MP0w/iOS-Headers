@@ -16,13 +16,13 @@
 
 - (id)openStream;
 - (id)debugDescription;
-@property(readonly, nonatomic) BOOL isDirectory;
+@property(readonly, nonatomic) _Bool isDirectory;
 
 // Remaining properties
-@property(readonly, nonatomic) struct timespec createdDate;
+@property(readonly, nonatomic) long long createdDate;
 @property(readonly, nonatomic) unsigned long long length;
-@property(readonly, nonatomic, getter=isLocked) BOOL locked;
-@property(readonly, nonatomic) struct timespec modifiedDate;
+@property(readonly, nonatomic, getter=isLocked) _Bool locked;
+@property(readonly, nonatomic) long long modifiedDate;
 @property(readonly, nonatomic) NSString *name;
 @property(retain, nonatomic) ExFATVolume *volume;
 

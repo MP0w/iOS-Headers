@@ -6,6 +6,7 @@
 
 #import <UIKit/UITextMagnifierRenderer.h>
 
+// Not exported
 @interface UITextMagnifierCaretRenderer : UITextMagnifierRenderer
 {
 }

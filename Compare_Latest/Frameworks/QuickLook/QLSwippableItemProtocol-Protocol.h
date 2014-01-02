@@ -8,7 +8,7 @@
 
 @protocol QLSwippableItemProtocol <NSObject>
 @property(retain) id <QLPreviewItem> previewItem;
-@property int index;
+@property long long index;
 - (void)didFinishSwiping;
 - (void)willStartSwiping;
 @end

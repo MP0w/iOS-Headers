@@ -14,7 +14,7 @@
 }
 
 - (id)preferenceValue;
-- (BOOL)becomeFirstResponder;
+- (_Bool)becomeFirstResponder;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

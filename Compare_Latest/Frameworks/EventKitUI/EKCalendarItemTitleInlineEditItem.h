@@ -10,6 +10,7 @@
 
 @class UITableViewCell;
 
+// Not exported
 @interface EKCalendarItemTitleInlineEditItem : EKCalendarItemEditItem <UITextFieldDelegate>
 {
     UITableViewCell *_titleCell;
@@ -18,20 +19,20 @@
 }
 
 - (void).cxx_destruct;
-- (BOOL)textFieldShouldReturn:(id)arg1;
-- (BOOL)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
+- (_Bool)textFieldShouldReturn:(id)arg1;
+- (_Bool)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
 - (void)textFieldDidEndEditing:(id)arg1;
 - (void)textFieldDidBeginEditing:(id)arg1;
-- (BOOL)saveAndDismissWithForce:(BOOL)arg1;
-- (id)cellForSubitemAtIndex:(unsigned int)arg1 inSubsection:(unsigned int)arg2;
-- (id)_makeCell:(unsigned int)arg1;
-- (void)addStylingToCell:(id)arg1 forSubitemAtIndex:(unsigned int)arg2 inSubsection:(unsigned int)arg3;
-- (unsigned int)numberOfSubitemsInSubsection:(unsigned int)arg1;
+- (_Bool)saveAndDismissWithForce:(_Bool)arg1;
+- (id)cellForSubitemAtIndex:(unsigned long long)arg1 inSubsection:(unsigned long long)arg2;
+- (id)_makeCell:(unsigned long long)arg1;
+- (void)addStylingToCell:(id)arg1 forSubitemAtIndex:(unsigned long long)arg2 inSubsection:(unsigned long long)arg3;
+- (unsigned long long)numberOfSubitemsInSubsection:(unsigned long long)arg1;
 - (void)reset;
-- (BOOL)isInline;
-- (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 inSubsection:(unsigned int)arg2 forWidth:(float)arg3;
+- (_Bool)isInline;
+- (double)defaultCellHeightForSubitemAtIndex:(unsigned long long)arg1 inSubsection:(unsigned long long)arg2 forWidth:(double)arg3;
 - (id)init;
-- (id)initWithLocation:(BOOL)arg1;
+- (id)initWithLocation:(_Bool)arg1;
 
 @end
 

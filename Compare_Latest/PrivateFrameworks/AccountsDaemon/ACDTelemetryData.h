@@ -21,7 +21,7 @@
 @property(readonly, nonatomic) int taskPriority; // @synthesize taskPriority=_taskPriority;
 @property(readonly, nonatomic) int threadPriority; // @synthesize threadPriority=_threadPriority;
 - (void).cxx_destruct;
-- (id)initWithMessageFormat:(id)arg1 arguments:(void *)arg2;
+- (id)initWithMessageFormat:(id)arg1 arguments:(char *)arg2;
 - (id)initWithMessageFormat:(id)arg1;
 - (id)initWithMessage:(id)arg1;
 - (id)init;

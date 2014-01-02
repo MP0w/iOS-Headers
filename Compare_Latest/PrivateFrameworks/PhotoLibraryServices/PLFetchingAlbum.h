@@ -8,43 +8,50 @@
 
 #import "PLAlbumProtocolDisplayCount-Protocol.h"
 
-@class NSFetchRequest, NSOrderedSet;
+@class NSArray, NSFetchRequest, NSOrderedSet;
 
 @interface PLFetchingAlbum : _PLFetchingAlbum <PLAlbumProtocolDisplayCount>
 {
-    unsigned int _countForDisplay;
-    unsigned int _photosCount;
-    unsigned int _videosCount;
+    unsigned long long _countForDisplay;
+    unsigned long long _photosCount;
+    unsigned long long _videosCount;
     int _emptyState;
+    NSArray *_cachedKeyAssets;
 }
 
 + (id)_panoramasAlbumPredicate;
-+ (BOOL)contextShouldIgnoreChangesForFetchRequest;
-+ (BOOL)contextShouldIgnoreChangesForFetchedAssetsSet;
-+ (BOOL)contextShouldIgnoreChangesForFetchedAssets;
-- (BOOL)mayHaveAssetsInCommon:(id)arg1;
++ (_Bool)contextShouldIgnoreChangesForFetchRequest;
++ (_Bool)contextShouldIgnoreChangesForFetchedAssetsSet;
++ (_Bool)contextShouldIgnoreChangesForFetchedAssets;
+- (_Bool)mayHaveAssetsInCommon:(id)arg1;
 - (id)fastPointerAccessSetForAssets:(id)arg1;
-@property(readonly, nonatomic) BOOL hasAssetsCache;
+@property(readonly, nonatomic) _Bool hasAssetsCache;
 - (void)updateSnapshotAndClearCaches:(id)arg1;
+- (void)setTertiaryKeyAsset:(id)arg1;
+- (void)setSecondaryKeyAsset:(id)arg1;
 - (void)setKeyAsset:(id)arg1;
+- (id)tertiaryKeyAsset;
+- (id)secondaryKeyAsset;
 - (id)keyAsset;
+- (id)_cachedKeyAssets;
 - (void)batchFetchAssets:(id)arg1;
-- (BOOL)canPerformEditOperation:(int)arg1;
-- (unsigned int)countForAssetsOfKind:(short)arg1;
-- (unsigned int)_fetchedCountForAssetsOfKind:(short)arg1;
-- (BOOL)isEmpty;
-@property(readonly, nonatomic) unsigned int countForDisplay;
-- (unsigned int)count;
+- (_Bool)canPerformEditOperation:(int)arg1;
+- (unsigned long long)countForAssetsOfKind:(short)arg1;
+- (unsigned long long)_fetchedCountForAssetsOfKind:(short)arg1;
+- (_Bool)isEmpty;
+@property(readonly, nonatomic) unsigned long long countForDisplay;
+- (unsigned long long)count;
 - (id)mutableAssets;
 - (void)setAssets:(id)arg1;
 - (id)assets;
 - (id)primitiveAssets;
 @property(retain, nonatomic) NSFetchRequest *fetchRequest;
 - (void)setupFetchRequest;
-- (unsigned int)batchSize;
+- (unsigned long long)batchSize;
 - (void)didTurnIntoFault;
 - (void)awakeFromInsert;
 - (void)awakeFromFetch;
+- (void)dealloc;
 
 // Remaining properties
 @property(retain, nonatomic) NSOrderedSet *fetchedAssets; // @dynamic fetchedAssets;

@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface OADFormula : NSObject
 {
     int mType;

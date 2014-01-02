@@ -12,8 +12,8 @@
 {
 }
 
-- (id)createCSIRepresentationWithCompression:(BOOL)arg1 colorSpaceID:(unsigned int)arg2 document:(id)arg3;
-- (CDStruct_29e12816)_edgeMetricsForAlignmentRect:(struct CGRect)arg1 withRenditionSize:(CDStruct_1ef3fb1f)arg2;
+- (id)createCSIRepresentationWithCompression:(_Bool)arg1 colorSpaceID:(unsigned long long)arg2 document:(id)arg3;
+- (CDStruct_1ba92a5e)_edgeMetricsForAlignmentRect:(struct CGRect)arg1 withRenditionSize:(CDStruct_1ef3fb1f)arg2;
 - (id)_sliceRectanglesForRenditionSize:(CDStruct_1ef3fb1f)arg1;
 - (id)_slicesToUseForCSI;
 - (void)_logExtra:(id)arg1;

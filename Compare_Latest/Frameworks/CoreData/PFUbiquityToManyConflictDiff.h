@@ -8,6 +8,7 @@
 
 @class NSMutableSet, NSString;
 
+// Not exported
 @interface PFUbiquityToManyConflictDiff : NSObject
 {
     NSMutableSet *_insertedObjectIDs;
@@ -19,7 +20,7 @@
 @property(readonly, nonatomic) NSMutableSet *deletedObjectIDs; // @synthesize deletedObjectIDs=_deletedObjectIDs;
 @property(readonly, nonatomic) NSMutableSet *insertedObjectIDs; // @synthesize insertedObjectIDs=_insertedObjectIDs;
 - (void)diffWithLogSnapshot:(id)arg1 andPreviousSnapshot:(id)arg2;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (void)dealloc;
 - (id)initForRelationshipAtKey:(id)arg1;

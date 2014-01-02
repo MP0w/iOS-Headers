@@ -6,12 +6,13 @@
 
 #import <OfficeImport/CHDDataValueProperties.h>
 
+// Not exported
 @interface CHDPieDataValueProperties : CHDDataValueProperties
 {
     int mExplosion;
 }
 
-- (id)shallowCopyWithIndex:(unsigned int)arg1;
+- (id)shallowCopyWithIndex:(unsigned long long)arg1;
 - (void)setExplosion:(int)arg1;
 - (int)explosion;
 - (id)init;

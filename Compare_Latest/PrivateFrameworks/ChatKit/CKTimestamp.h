@@ -6,11 +6,9 @@
 
 #import "NSObject.h"
 
-#import "CKTranscriptDataRowObject-Protocol.h"
-
 @class NSAttributedString, NSDate, NSString;
 
-@interface CKTimestamp : NSObject <CKTranscriptDataRowObject>
+@interface CKTimestamp : NSObject
 {
     NSDate *_date;
     id <CKMessage> _message;
@@ -27,18 +25,9 @@
 @property(readonly, nonatomic) NSAttributedString *attributedTranscriptText;
 @property(readonly, nonatomic) NSString *guid;
 - (id)initWithDate:(id)arg1 message:(id)arg2;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (void)dealloc;
-- (id)__ck_displayContactImage;
-- (void)__ck_prewarmForDisplay;
-- (BOOL)__ck_displayDuringSend;
-- (BOOL)__ck_displayTranscriptOrientation;
-- (struct UIEdgeInsets)__ck_displayContentAlignmentInsets;
-- (struct CGSize)__ck_displaySize:(struct UIEdgeInsets *)arg1;
-- (id)__ck_displayCellIdentifier;
-- (Class)__ck_displayCellClass;
-- (id)__ck_displayGUIDWithMessage:(id)arg1;
 
 @end
 

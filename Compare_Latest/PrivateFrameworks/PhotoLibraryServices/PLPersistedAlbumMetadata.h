@@ -10,7 +10,7 @@
 
 @interface PLPersistedAlbumMetadata : NSObject
 {
-    BOOL _allowsOverwite;
+    _Bool _allowsOverwite;
     NSString *_title;
     NSString *_uuid;
     NSNumber *_kind;
@@ -19,10 +19,10 @@
     NSURL *_metadataURL;
 }
 
-+ (BOOL)isValidPath:(id)arg1;
++ (_Bool)isValidPath:(id)arg1;
 @property(retain, nonatomic) NSURL *metadataURL; // @synthesize metadataURL=_metadataURL;
 @property(retain, nonatomic) PLManagedAlbum *managedAlbum; // @synthesize managedAlbum=_managedAlbum;
-@property(nonatomic) BOOL allowsOverwite; // @synthesize allowsOverwite=_allowsOverwite;
+@property(nonatomic) _Bool allowsOverwite; // @synthesize allowsOverwite=_allowsOverwite;
 @property(retain, nonatomic) NSMutableOrderedSet *assetUUIDs; // @synthesize assetUUIDs=_assetUUIDs;
 @property(retain, nonatomic) NSNumber *kind; // @synthesize kind=_kind;
 @property(retain, nonatomic) NSString *uuid; // @synthesize uuid=_uuid;
@@ -30,7 +30,7 @@
 - (void)_saveMetadata;
 - (void)_readMetadata;
 - (id)description;
-- (BOOL)containsAsset:(id)arg1;
+- (_Bool)containsAsset:(id)arg1;
 - (id)albumFromDataInManagedObjectContext:(id)arg1;
 - (void)removePersistedAlbumData;
 - (void)persistAlbumData;

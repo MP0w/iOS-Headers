@@ -7,6 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol PUCollectionViewLayoutTransitioningDelegate <NSObject>
+- (_Bool)collectionViewLayoutShouldProvideCustomAnimations:(id)arg1;
 - (void)collectionViewLayout:(id)arg1 willSupplyLayoutAttributes:(id)arg2;
 @end
 

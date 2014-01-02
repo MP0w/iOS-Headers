@@ -12,11 +12,11 @@
 
 @interface SKUISearchPage : NSObject <NSCopying>
 {
-    BOOL _autoCorrected;
+    _Bool _autoCorrected;
     NSArray *_facets;
     SSMetricsConfiguration *_metricsConfiguration;
     NSString *_metricsPageDescription;
-    int _preAutoCorrectCount;
+    long long _preAutoCorrectCount;
     NSArray *_relatedQueries;
     NSArray *_resultGroups;
     NSString *_searchTerm;
@@ -27,14 +27,14 @@
 @property(copy, nonatomic) NSString *searchTerm; // @synthesize searchTerm=_searchTerm;
 @property(copy, nonatomic) NSArray *resultGroups; // @synthesize resultGroups=_resultGroups;
 @property(retain, nonatomic) NSArray *relatedQueries; // @synthesize relatedQueries=_relatedQueries;
-@property(nonatomic) int preAutoCorrectCount; // @synthesize preAutoCorrectCount=_preAutoCorrectCount;
+@property(nonatomic) long long preAutoCorrectCount; // @synthesize preAutoCorrectCount=_preAutoCorrectCount;
 @property(copy, nonatomic) NSString *metricsPageDescription; // @synthesize metricsPageDescription=_metricsPageDescription;
 @property(retain, nonatomic) SSMetricsConfiguration *metricsConfiguration; // @synthesize metricsConfiguration=_metricsConfiguration;
 @property(copy, nonatomic) NSArray *facets; // @synthesize facets=_facets;
-@property(nonatomic) BOOL autoCorrected; // @synthesize autoCorrected=_autoCorrected;
+@property(nonatomic) _Bool autoCorrected; // @synthesize autoCorrected=_autoCorrected;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-@property(readonly, nonatomic) int numberOfResults;
+@property(readonly, nonatomic) long long numberOfResults;
 
 @end
 

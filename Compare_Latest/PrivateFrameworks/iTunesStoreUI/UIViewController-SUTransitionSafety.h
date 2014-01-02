@@ -14,6 +14,6 @@
 + (void)_iTunesStoreUI_timeoutTransitionSafety;
 + (void)_iTunesStoreUI_enqueueTransitionSafeInvocation:(id)arg1;
 + (void)_iTunesStoreUI_dequeueTransitionSafeInvocations;
-- (void)transitionSafePresentModalViewController:(id)arg1 animated:(BOOL)arg2;
+- (void)transitionSafePresentModalViewController:(id)arg1 animated:(_Bool)arg2;
 @end
 

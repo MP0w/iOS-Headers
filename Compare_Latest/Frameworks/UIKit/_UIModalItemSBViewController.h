@@ -10,9 +10,10 @@
 {
 }
 
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
-- (void)viewWillLayoutSubviews;
+- (_Bool)shouldAutorotate;
+- (unsigned long long)supportedInterfaceOrientations;
+- (long long)preferredInterfaceOrientationForPresentation;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
 
 @end
 

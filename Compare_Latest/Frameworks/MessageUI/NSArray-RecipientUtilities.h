@@ -7,8 +7,8 @@
 #import "NSArray.h"
 
 @interface NSArray (RecipientUtilities)
-- (unsigned int)mf_indexOfRecipientWithEmailAddress:(id)arg1;
-- (id)mf_commaSeparatedRecipientListWithWidth:(float)arg1 forFont:(id)arg2 usingSelector:(SEL)arg3;
-- (id)mf_commaSeparatedRecipientListWithWidth:(float)arg1 forFont:(id)arg2;
+- (unsigned long long)mf_indexOfRecipientWithEmailAddress:(id)arg1;
+- (id)mf_commaSeparatedRecipientListWithWidth:(double)arg1 forFont:(id)arg2 usingSelector:(SEL)arg3;
+- (id)mf_commaSeparatedRecipientListWithWidth:(double)arg1 forFont:(id)arg2;
 @end
 

@@ -8,18 +8,19 @@
 
 #import "UIKeyboardCandidateViewInline-Protocol.h"
 
+// Not exported
 @interface UIKeyboardCandidateView_Floating : UIKeyboardCandidateView <UIKeyboardCandidateViewInline>
 {
     struct CGRect _collapsedRect;
     struct CGSize presentationSize;
 }
 
-+ (float)defaultExtendedControlHeight;
++ (double)defaultExtendedControlHeight;
 @property struct CGSize presentationSize; // @synthesize presentationSize;
 - (void)candidatesDidChange;
 - (id)activeCandidateList;
-- (void)setCandidateViewExtended:(BOOL)arg1;
-- (unsigned int)_numberOfColumns:(BOOL)arg1;
+- (void)setCandidateViewExtended:(_Bool)arg1;
+- (unsigned long long)_numberOfColumns:(_Bool)arg1;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 

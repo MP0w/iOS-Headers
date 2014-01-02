@@ -17,19 +17,19 @@
 @property(retain) NSString *path; // @synthesize path=_path;
 - (id)description;
 - (void)enumerateContent;
-- (BOOL)hasDCIMParent;
-- (id)folderForObjectHandleCreatingIfNeeded:(unsigned long)arg1 addUsedObjectIDs:(id)arg2 numFoldersCreated:(int *)arg3;
-- (id)folderForObjectHandle:(unsigned long)arg1;
-- (id)itemForObjectHandle:(unsigned long)arg1;
+- (_Bool)hasDCIMParent;
+- (id)folderForObjectHandleCreatingIfNeeded:(unsigned int)arg1 addUsedObjectIDs:(id)arg2 numFoldersCreated:(int *)arg3;
+- (id)folderForObjectHandle:(unsigned int)arg1;
+- (id)itemForObjectHandle:(unsigned int)arg1;
 - (void)refreshInfo;
-- (BOOL)deleteItemFromCamera:(id)arg1;
+- (_Bool)deleteItemFromCamera:(id)arg1;
 @property(copy) id info;
-@property(readonly) unsigned long objHandle;
-@property(readonly) unsigned long storageID;
-@property(readonly) unsigned int type;
+@property(readonly) unsigned int objHandle;
+@property(readonly) unsigned int storageID;
+@property(readonly) unsigned long long type;
 - (void)finalize;
 - (void)dealloc;
-- (id)initWithName:(id)arg1 parentFolder:(id)arg2 device:(id)arg3 type:(unsigned int)arg4 storageID:(unsigned long)arg5 objectHandle:(unsigned long)arg6;
+- (id)initWithName:(id)arg1 parentFolder:(id)arg2 device:(id)arg3 type:(unsigned long long)arg4 storageID:(unsigned int)arg5 objectHandle:(unsigned int)arg6;
 
 @end
 

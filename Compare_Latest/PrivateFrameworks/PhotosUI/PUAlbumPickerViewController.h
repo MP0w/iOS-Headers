@@ -32,11 +32,11 @@
 - (void)_setContentNavigationController:(id)arg1;
 @property(retain, nonatomic) UINavigationController *contentNavigationController; // @synthesize contentNavigationController=_contentNavigationController;
 - (void).cxx_destruct;
-- (void)navigationController:(id)arg1 willShowViewController:(id)arg2 animated:(BOOL)arg3;
+- (void)navigationController:(id)arg1 willShowViewController:(id)arg2 animated:(_Bool)arg3;
 - (void)sessionInfoStatusDidChange:(id)arg1;
 - (void)assetContainerListDidChange:(id)arg1;
-- (unsigned int)supportedInterfaceOrientations;
-- (BOOL)shouldAutorotate;
+- (unsigned long long)supportedInterfaceOrientations;
+- (_Bool)shouldAutorotate;
 - (void)didReceiveMemoryWarning;
 - (void)loadView;
 - (void)dealloc;

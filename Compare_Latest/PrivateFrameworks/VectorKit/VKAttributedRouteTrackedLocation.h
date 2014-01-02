@@ -17,7 +17,7 @@
     struct PolylineCoordinate _lastGoodMatchCoordinate;
     struct PolylineCoordinate _newStepLastRouteCoord;
     CDStruct_2c43369c _newStepLastGeoCoord;
-    unsigned int _newStepProgressions;
+    unsigned long long _newStepProgressions;
     double _newStepDistanceTraveled;
     double _estimatedCourse;
 }
@@ -25,7 +25,7 @@
 @property(readonly, nonatomic) struct PolylineCoordinate newStepLastRouteCoord; // @synthesize newStepLastRouteCoord=_newStepLastRouteCoord;
 @property(readonly, nonatomic) CDStruct_c3b9c2ee newStepLastGeoCoord; // @synthesize newStepLastGeoCoord=_newStepLastGeoCoord;
 @property(readonly, nonatomic) double newStepDistanceTraveled; // @synthesize newStepDistanceTraveled=_newStepDistanceTraveled;
-@property(readonly, nonatomic) unsigned int newStepProgressions; // @synthesize newStepProgressions=_newStepProgressions;
+@property(readonly, nonatomic) unsigned long long newStepProgressions; // @synthesize newStepProgressions=_newStepProgressions;
 @property(retain, nonatomic) NSDate *lastTimeInTunnel; // @synthesize lastTimeInTunnel=_lastTimeInTunnel;
 @property(readonly, nonatomic) struct PolylineCoordinate lastGoodMatchCoordinate; // @synthesize lastGoodMatchCoordinate=_lastGoodMatchCoordinate;
 @property(readonly, nonatomic) VKAttributedRoute *route; // @synthesize route=_route;
@@ -35,9 +35,10 @@
 - (id)description;
 @property(readonly, nonatomic) double timeSinceTunnel;
 - (void)updatedWithProjectedRouteMatch:(id)arg1;
-- (void)updateWithRouteMatch:(id)arg1 rawLocation:(id)arg2 newStepProgressions:(unsigned int)arg3 newStepDistanceTraveled:(double)arg4 newStepLastRouteCoord:(struct PolylineCoordinate)arg5 newStepLastGeoCoord:(CDStruct_c3b9c2ee)arg6;
+- (void)updateWithRouteMatch:(id)arg1 rawLocation:(id)arg2 newStepProgressions:(unsigned long long)arg3 newStepDistanceTraveled:(double)arg4 newStepLastRouteCoord:(struct PolylineCoordinate)arg5 newStepLastGeoCoord:(CDStruct_c3b9c2ee)arg6;
 - (void)updateWithRouteMatch:(id)arg1;
 - (void)setMatchedLocation:(id)arg1;
+- (void)forceGoodRouteMatch;
 - (void)dealloc;
 - (id)initWithRoute:(id)arg1;
 

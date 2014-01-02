@@ -14,7 +14,7 @@
     CAKeyframeAnimation *_contentsAnimation;
     CAKeyframeAnimation *_boundsAnimation;
     double _animationStartTime;
-    BOOL _fadingOut;
+    _Bool _fadingOut;
 }
 
 - (void)focusDidEnd;

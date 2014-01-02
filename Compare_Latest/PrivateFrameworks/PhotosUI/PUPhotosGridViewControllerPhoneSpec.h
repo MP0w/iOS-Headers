@@ -10,20 +10,16 @@
 {
 }
 
-- (void)configureCollectionViewGridLayout:(id)arg1 forWidth:(float)arg2;
+- (void)configureCollectionViewGridLayout:(id)arg1 forWidth:(double)arg2;
 - (id)albumPickerViewControllerSpec;
 - (id)photosPickerViewControllerSpec;
 - (id)photoBrowserSpec;
-- (BOOL)canDisplayOptionsInPopover;
-- (BOOL)canDisplayEditButton;
-- (BOOL)wantsSpecialEmptyPlaceholderImageForLandscape;
-- (int)cellFillMode;
+- (_Bool)canDisplayOptionsInPopover;
+- (long long)cellFillMode;
 - (int)thumbnailImageFormat;
 - (struct CGSize)baseInterItemSpacing;
-- (float)globalFooterHeight;
-- (float)sectionHeaderHeight;
-- (unsigned int)supportedInterfaceOrientations;
-- (id)backgroundFixedImageForOrientation:(int)arg1;
+- (double)globalFooterHeight;
+- (unsigned long long)supportedInterfaceOrientations;
 
 @end
 

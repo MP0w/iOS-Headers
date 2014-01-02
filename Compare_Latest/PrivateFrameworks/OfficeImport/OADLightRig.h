@@ -10,6 +10,7 @@
 
 @class OADRotation3D;
 
+// Not exported
 @interface OADLightRig : NSObject <NSCopying>
 {
     OADRotation3D *mRotation;
@@ -17,8 +18,8 @@
     int mDirection;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)setDirection:(int)arg1;
 - (int)direction;
 - (void)setType:(int)arg1;

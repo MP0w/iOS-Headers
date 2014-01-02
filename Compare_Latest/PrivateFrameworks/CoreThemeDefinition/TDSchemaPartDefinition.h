@@ -13,19 +13,19 @@
     CUIImage *previewImage;
     NSArray *renditions;
     NSArray *renditionGroups;
-    unsigned int partFeatures;
+    unsigned long long partFeatures;
 }
 
-@property(nonatomic) unsigned int partFeatures; // @synthesize partFeatures;
+@property(nonatomic) unsigned long long partFeatures; // @synthesize partFeatures;
 @property(retain, nonatomic) NSArray *renditionGroups; // @synthesize renditionGroups;
 @property(copy, nonatomic) NSArray *renditions; // @synthesize renditions;
 @property(retain, nonatomic) CUIImage *previewImage; // @synthesize previewImage;
 - (void)didTurnIntoFault;
-- (const CDStruct_77d6184b *)cuiPartDefinition;
+- (const CDStruct_26b2aa83 *)cuiPartDefinition;
 - (id)displayName;
-- (int)partID;
-- (int)elementID;
-- (int)_renditionKeyValueForTokenIdentifier:(unsigned short)arg1;
+- (long long)partID;
+- (long long)elementID;
+- (long long)_renditionKeyValueForTokenIdentifier:(unsigned short)arg1;
 - (id)validStatesWithDocument:(id)arg1;
 - (void)updateDerivedRenditionData;
 - (id)_schema;

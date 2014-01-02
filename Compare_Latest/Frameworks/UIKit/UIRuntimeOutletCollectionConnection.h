@@ -8,13 +8,14 @@
 
 @class NSString;
 
+// Not exported
 @interface UIRuntimeOutletCollectionConnection : UIRuntimeConnection
 {
     NSString *runtimeCollectionClassName;
-    BOOL addsContentToExistingCollection;
+    _Bool addsContentToExistingCollection;
 }
 
-@property BOOL addsContentToExistingCollection; // @synthesize addsContentToExistingCollection;
+@property _Bool addsContentToExistingCollection; // @synthesize addsContentToExistingCollection;
 @property(copy) NSString *runtimeCollectionClassName; // @synthesize runtimeCollectionClassName;
 - (id)description;
 - (void)connectForSimulator;

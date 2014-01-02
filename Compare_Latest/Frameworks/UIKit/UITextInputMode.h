@@ -14,7 +14,7 @@
 {
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 + (id)activeInputModes;
 + (id)currentInputMode;
 - (id)initWithCoder:(id)arg1;

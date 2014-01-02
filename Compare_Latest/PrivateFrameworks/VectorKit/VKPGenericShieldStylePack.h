@@ -8,6 +8,7 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface VKPGenericShieldStylePack : PBCodable
 {
     NSMutableArray *_genericShields;
@@ -16,19 +17,19 @@
 
 @property(retain, nonatomic) NSMutableArray *genericShields; // @synthesize genericShields=_genericShields;
 @property(retain, nonatomic) NSMutableArray *textureAtlas; // @synthesize textureAtlas=_textureAtlas;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)genericShieldAtIndex:(unsigned int)arg1;
-- (unsigned int)genericShieldsCount;
+- (id)genericShieldAtIndex:(unsigned long long)arg1;
+- (unsigned long long)genericShieldsCount;
 - (void)addGenericShield:(id)arg1;
 - (void)clearGenericShields;
-- (id)textureAtlasAtIndex:(unsigned int)arg1;
-- (unsigned int)textureAtlasCount;
+- (id)textureAtlasAtIndex:(unsigned long long)arg1;
+- (unsigned long long)textureAtlasCount;
 - (void)addTextureAtlas:(id)arg1;
 - (void)clearTextureAtlas;
 - (void)dealloc;

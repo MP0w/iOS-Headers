@@ -7,6 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol GEOMapAccessRestrictions <NSObject>
-@property(readonly, nonatomic) BOOL allowsNetworkTileLoad;
+@property(readonly, nonatomic) _Bool allowsNetworkTileLoad;
 @end
 

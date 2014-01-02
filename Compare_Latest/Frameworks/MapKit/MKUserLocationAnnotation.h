@@ -10,6 +10,7 @@
 
 @class NSString;
 
+// Not exported
 @interface MKUserLocationAnnotation : NSObject <MKUserLocationAnnotation>
 {
     CDStruct_2c43369c _coordinate;

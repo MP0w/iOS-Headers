@@ -11,10 +11,11 @@
 
 @class NSString, PKPrinter, UIButton, UIPrinterSetupConnectingView;
 
+// Not exported
 @interface UIPrinterSetupConfigureViewController : UITableViewController <UITableViewDataSource, UITextFieldDelegate>
 {
-    BOOL _addToNetwork;
-    BOOL _directPrinting;
+    _Bool _addToNetwork;
+    _Bool _directPrinting;
     PKPrinter *_printer;
     NSString *_directPasscode;
     UIButton *_finishButton;
@@ -24,27 +25,27 @@
 @property(retain, nonatomic) UIPrinterSetupConnectingView *connectingView; // @synthesize connectingView=_connectingView;
 @property(retain, nonatomic) UIButton *finishButton; // @synthesize finishButton=_finishButton;
 @property(copy, nonatomic) NSString *directPasscode; // @synthesize directPasscode=_directPasscode;
-@property(nonatomic) BOOL directPrinting; // @synthesize directPrinting=_directPrinting;
-@property(nonatomic) BOOL addToNetwork; // @synthesize addToNetwork=_addToNetwork;
+@property(nonatomic) _Bool directPrinting; // @synthesize directPrinting=_directPrinting;
+@property(nonatomic) _Bool addToNetwork; // @synthesize addToNetwork=_addToNetwork;
 @property(retain, nonatomic) PKPrinter *printer; // @synthesize printer=_printer;
-- (BOOL)tableView:(id)arg1 shouldHighlightRowAtIndexPath:(id)arg2;
+- (_Bool)tableView:(id)arg1 shouldHighlightRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
-- (void)tableView:(id)arg1 willDisplayFooterView:(id)arg2 forSection:(int)arg3;
-- (void)tableView:(id)arg1 willDisplayHeaderView:(id)arg2 forSection:(int)arg3;
-- (id)tableView:(id)arg1 titleForFooterInSection:(int)arg2;
-- (id)tableView:(id)arg1 titleForHeaderInSection:(int)arg2;
+- (void)tableView:(id)arg1 willDisplayFooterView:(id)arg2 forSection:(long long)arg3;
+- (void)tableView:(id)arg1 willDisplayHeaderView:(id)arg2 forSection:(long long)arg3;
+- (id)tableView:(id)arg1 titleForFooterInSection:(long long)arg2;
+- (id)tableView:(id)arg1 titleForHeaderInSection:(long long)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
-- (BOOL)textFieldShouldReturn:(id)arg1;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
+- (_Bool)textFieldShouldReturn:(id)arg1;
 - (void)textDidChange:(id)arg1;
 - (void)finish;
-- (void)finished:(BOOL)arg1;
+- (void)finished:(_Bool)arg1;
 - (void)toggleDirectPrinting:(id)arg1;
 - (void)toggleAddToNetwork:(id)arg1;
-- (unsigned int)supportedInterfaceOrientations;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (unsigned long long)supportedInterfaceOrientations;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;
 - (void)dealloc;
 - (id)initWithPrinter:(id)arg1;

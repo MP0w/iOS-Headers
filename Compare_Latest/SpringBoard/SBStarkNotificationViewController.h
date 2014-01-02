@@ -17,7 +17,7 @@
 @interface SBStarkNotificationViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, SBCollectionViewCellDelegate, SBStarkBannerTargetObserver, UIGestureRecognizerDelegate>
 {
     id <SBStarkNotificationViewControllerDelegate> _delegate;
-    BOOL _touchCapable;
+    _Bool _touchCapable;
     UITapGestureRecognizer *_backGestureRecognizer;
     UITapGestureRecognizer *_selectGestureRecognizer;
     SBStarkBannerTarget *_bannerTarget;
@@ -32,25 +32,25 @@
 }
 
 @property(nonatomic) id <SBStarkNotificationViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
-- (BOOL)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
+- (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 - (void)starkBannerTarget:(id)arg1 didChangeContextWithDismissReason:(int)arg2;
 - (void)_performSelectGesture:(id)arg1;
 - (void)_performBackGesture:(id)arg1;
 - (void)collectionView:(id)arg1 didEndDisplayingCell:(id)arg2 forItemAtIndexPath:(id)arg3;
 - (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
-- (BOOL)collectionView:(id)arg1 shouldDeselectItemAtIndexPath:(id)arg2;
-- (BOOL)collectionView:(id)arg1 shouldSelectItemAtIndexPath:(id)arg2;
-- (BOOL)collectionView:(id)arg1 shouldHighlightItemAtIndexPath:(id)arg2;
+- (_Bool)collectionView:(id)arg1 shouldDeselectItemAtIndexPath:(id)arg2;
+- (_Bool)collectionView:(id)arg1 shouldSelectItemAtIndexPath:(id)arg2;
+- (_Bool)collectionView:(id)arg1 shouldHighlightItemAtIndexPath:(id)arg2;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
-- (int)collectionView:(id)arg1 numberOfItemsInSection:(int)arg2;
-- (int)numberOfSectionsInCollectionView:(id)arg1;
-@property(nonatomic, getter=isSuspendedForAssistant) BOOL suspendedForAssistant;
-@property(nonatomic, getter=isSuspended) BOOL suspended;
+- (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
+- (long long)numberOfSectionsInCollectionView:(id)arg1;
+@property(nonatomic, getter=isSuspendedForAssistant) _Bool suspendedForAssistant;
+@property(nonatomic, getter=isSuspended) _Bool suspended;
 - (void)_setState:(int)arg1;
 @property(nonatomic) int state;
 - (void)loadView;
 - (void)dealloc;
-- (id)initWithInterfaceType:(int)arg1;
+- (id)initWithInterfaceType:(long long)arg1;
 
 @end
 

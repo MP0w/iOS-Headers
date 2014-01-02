@@ -12,24 +12,24 @@
 
 @interface UIWebPDFSearchController : NSObject <UIWebPDFSearchOperationDelegate>
 {
-    unsigned int _resultIndexWhenLimitHit;
-    BOOL _notifiedThatSearchBegin;
-    unsigned int _pageIndexWhenLimitHit;
+    unsigned long long _resultIndexWhenLimitHit;
+    _Bool _notifiedThatSearchBegin;
+    unsigned long long _pageIndexWhenLimitHit;
     NSOperationQueue *_searchQueue;
     NSMutableArray *_results;
     NSString *_searchString;
     UIPDFDocument *_documentToSearch;
     NSObject<UIWebPDFSearchControllerDelegate> *searchDelegate;
-    unsigned int startingPageIndex;
-    float documentScale;
-    unsigned int resultLimit;
+    unsigned long long startingPageIndex;
+    double documentScale;
+    unsigned long long resultLimit;
 }
 
 @property(retain, nonatomic) NSArray *results; // @synthesize results=_results;
 @property(retain, nonatomic) NSString *searchString; // @synthesize searchString=_searchString;
-@property(nonatomic) unsigned int resultLimit; // @synthesize resultLimit;
-@property(nonatomic) float documentScale; // @synthesize documentScale;
-@property(nonatomic) unsigned int startingPageIndex; // @synthesize startingPageIndex;
+@property(nonatomic) unsigned long long resultLimit; // @synthesize resultLimit;
+@property(nonatomic) double documentScale; // @synthesize documentScale;
+@property(nonatomic) unsigned long long startingPageIndex; // @synthesize startingPageIndex;
 @property(nonatomic) NSObject<UIWebPDFSearchControllerDelegate> *searchDelegate; // @synthesize searchDelegate;
 @property(retain, nonatomic) UIPDFDocument *documentToSearch; // @synthesize documentToSearch=_documentToSearch;
 - (void)search:(id)arg1 hasPartialResults:(id)arg2;
@@ -43,11 +43,11 @@
 - (void)cancel;
 - (void)_clearSearchQueue;
 - (void)search:(id)arg1;
-- (unsigned int)_actualStartingPageIndex;
+- (unsigned long long)_actualStartingPageIndex;
 - (void)dealloc;
 - (id)init;
-@property(readonly, nonatomic) BOOL paused;
-@property(readonly, nonatomic) BOOL searching;
+@property(readonly, nonatomic) _Bool paused;
+@property(readonly, nonatomic) _Bool searching;
 
 @end
 

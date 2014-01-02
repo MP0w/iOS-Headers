@@ -8,6 +8,7 @@
 
 @class CPProgressStage, NSDate, NSMutableArray, TSUProgressContext;
 
+// Not exported
 @interface CPProgressContext : NSObject
 {
     TSUProgressContext *m_parentProgressContext;
@@ -31,13 +32,6 @@
 + (void)addProgressObserver:(id)arg1 selector:(SEL)arg2;
 + (void)removeContextForCurrentThread;
 + (void)createContextForCurrentThreadWithParentContext:(id)arg1;
-+ (id)stageForCurrentThread;
-+ (id)contextForCurrentThread;
-- (void)reportProgress:(double)arg1;
-- (id)rootStage;
-- (id)currentStage;
-- (void)dealloc;
-- (id)initWithParentContext:(id)arg1;
 
 @end
 

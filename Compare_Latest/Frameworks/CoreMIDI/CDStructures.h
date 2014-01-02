@@ -11,10 +11,6 @@ struct ContactOrConnectionSet {
     id _field2;
 };
 
-struct OpaqueMIDIEndpoint;
-
-struct OpaqueMIDIEntity;
-
 struct _MIDINetworkConnectionImpl {
     id _field1;
 };
@@ -22,15 +18,15 @@ struct _MIDINetworkConnectionImpl {
 struct _MIDINetworkHostImpl {
     id _field1;
     id _field2;
-    unsigned int _field3;
+    unsigned long long _field3;
     id _field4;
     id _field5;
 };
 
 struct _MIDINetworkSessionImpl {
-    struct OpaqueMIDIEntity *_field1;
-    struct OpaqueMIDIEndpoint *_field2;
-    struct OpaqueMIDIEndpoint *_field3;
+    unsigned int _field1;
+    unsigned int _field2;
+    unsigned int _field3;
     id _field4;
     id _field5;
     struct ContactOrConnectionSet _field6;

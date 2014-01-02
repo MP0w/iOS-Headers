@@ -10,6 +10,7 @@
 
 @class OADColor;
 
+// Not exported
 @interface OADFontReference : NSObject <NSCopying>
 {
     int mIndex;
@@ -17,8 +18,8 @@
 }
 
 - (void)applyToParagraphProperties:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)setColor:(id)arg1;
 - (id)color;
 - (void)setIndex:(int)arg1;

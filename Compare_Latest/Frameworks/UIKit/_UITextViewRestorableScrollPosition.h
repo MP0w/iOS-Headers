@@ -8,10 +8,11 @@
 
 #import "NSCoding-Protocol.h"
 
+// Not exported
 @interface _UITextViewRestorableScrollPosition : NSObject <NSCoding>
 {
     struct _NSRange _range;
-    float _offsetInLine;
+    double _offsetInLine;
 }
 
 + (id)restorableScrollPositionWithDictionary:(id)arg1;
@@ -20,7 +21,7 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithTextView:(id)arg1;
-- (float)offsetWithinLine;
+- (double)offsetWithinLine;
 - (struct _NSRange)range;
 - (id)dictionaryRepresentation;
 

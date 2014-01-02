@@ -8,10 +8,10 @@
 
 @protocol WBSFormAutoFillNode <NSObject>
 - (id)htmlTableCellElementCellAbove;
-- (BOOL)isHTMLTextAreaElementUserEdited;
-- (BOOL)isHTMLInputElementUserEdited;
-- (void)setHTMLInputElementAutofilled:(BOOL)arg1;
-- (BOOL)isHTMLInputElementAutofilled;
+- (_Bool)isHTMLTextAreaElementUserEdited;
+- (_Bool)isHTMLInputElementUserEdited;
+- (void)setHTMLInputElementAutofilled:(_Bool)arg1;
+- (_Bool)isHTMLInputElementAutofilled;
 - (struct CGRect)elementBounds;
 - (id)initWithJSWrapper:(struct OpaqueJSValue *)arg1 inContext:(struct OpaqueJSContext *)arg2;
 @end

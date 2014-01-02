@@ -8,59 +8,66 @@
 
 @class UIStatusBarForegroundStyleAttributes, UIStatusBarItem, UIStatusBarLayoutManager, _UILegibilityView;
 
+// Not exported
 @interface UIStatusBarItemView : UIView
 {
-    float _currentOverlap;
+    double _currentOverlap;
     struct CGContext *_imageContext;
-    float _imageContextScale;
+    double _imageContextScale;
     _UILegibilityView *_legibilityView;
-    BOOL _visible;
-    BOOL _allowsUpdates;
+    _Bool _visible;
+    _Bool _allowsUpdates;
     UIStatusBarItem *_item;
     UIStatusBarLayoutManager *_layoutManager;
     UIStatusBarForegroundStyleAttributes *_foregroundStyle;
 }
 
 + (id)createViewForItem:(id)arg1 withData:(id)arg2 actions:(int)arg3 foregroundStyle:(id)arg4;
-@property(nonatomic) BOOL allowsUpdates; // @synthesize allowsUpdates=_allowsUpdates;
-@property(nonatomic, getter=isVisible) BOOL visible; // @synthesize visible=_visible;
+@property(nonatomic) _Bool allowsUpdates; // @synthesize allowsUpdates=_allowsUpdates;
+@property(nonatomic, getter=isVisible) _Bool visible; // @synthesize visible=_visible;
 @property(readonly, nonatomic) UIStatusBarForegroundStyleAttributes *foregroundStyle; // @synthesize foregroundStyle=_foregroundStyle;
 @property(nonatomic) UIStatusBarLayoutManager *layoutManager; // @synthesize layoutManager=_layoutManager;
 @property(readonly, nonatomic) UIStatusBarItem *item; // @synthesize item=_item;
 - (id)description;
+- (void)willMoveToWindow:(id)arg1;
+- (void)endDisablingRasterization;
+- (void)beginDisablingRasterization;
+- (id)imageWithShadowNamed:(id)arg1;
 - (id)imageWithText:(id)arg1;
 - (void)endImageContext;
-- (id)imageFromImageContextClippedToWidth:(float)arg1;
-- (void)beginImageContextWithMinimumWidth:(float)arg1;
-- (void)setPersistentAnimationsEnabled:(BOOL)arg1;
+- (id)imageFromImageContextClippedToWidth:(double)arg1;
+- (void)beginImageContextWithMinimumWidth:(double)arg1;
+- (void)setPersistentAnimationsEnabled:(_Bool)arg1;
 - (void)performPendedActions;
+- (_Bool)cachesImage;
 - (id)contentsImage;
-- (BOOL)animatesDataChange;
-- (BOOL)updateForNewData:(id)arg1 actions:(int)arg2;
-- (float)maximumOverlap;
-- (float)addContentOverlap:(float)arg1;
-- (float)resetContentOverlap;
-- (float)extraRightPadding;
-- (float)extraLeftPadding;
-- (float)shadowPadding;
-- (float)standardPadding;
-- (int)textAlignment;
+- (_Bool)animatesDataChange;
+- (_Bool)updateForNewData:(id)arg1 actions:(int)arg2;
+- (double)maximumOverlap;
+- (double)addContentOverlap:(double)arg1;
+- (double)resetContentOverlap;
+- (double)extraRightPadding;
+- (double)extraLeftPadding;
+- (double)shadowPadding;
+- (double)standardPadding;
+- (long long)textAlignment;
 - (id)textFont;
-- (int)textStyle;
-- (void)drawText:(id)arg1 forWidth:(float)arg2 lineBreakMode:(int)arg3 letterSpacing:(float)arg4 textSize:(struct CGSize)arg5;
-- (void)setContentMode:(int)arg1;
-- (float)updateContentsAndWidth;
+- (long long)textStyle;
+- (void)drawText:(id)arg1 forWidth:(double)arg2 lineBreakMode:(long long)arg3 letterSpacing:(double)arg4 textSize:(struct CGSize)arg5;
+- (void)setContentMode:(long long)arg1;
+- (double)updateContentsAndWidth;
 - (void)setLayerContentsImage:(id)arg1;
-- (int)legibilityStyle;
-- (float)setStatusBarData:(id)arg1 actions:(int)arg2;
-- (float)currentRightOverlap;
-- (float)currentLeftOverlap;
-- (float)currentOverlap;
-- (void)setCurrentOverlap:(float)arg1;
-- (void)setVisible:(BOOL)arg1 frame:(struct CGRect)arg2 duration:(double)arg3;
+- (double)legibilityStrength;
+- (long long)legibilityStyle;
+- (double)setStatusBarData:(id)arg1 actions:(int)arg2;
+- (double)currentRightOverlap;
+- (double)currentLeftOverlap;
+- (double)currentOverlap;
+- (void)setCurrentOverlap:(double)arg1;
+- (void)setVisible:(_Bool)arg1 frame:(struct CGRect)arg2 duration:(double)arg3;
 - (void)dealloc;
 - (id)initWithItem:(id)arg1 data:(id)arg2 actions:(int)arg3 style:(id)arg4;
-- (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
+- (_Bool)_shouldAnimatePropertyWithKey:(id)arg1;
 
 @end
 

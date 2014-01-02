@@ -8,6 +8,7 @@
 
 @class NSPersistentStore, NSSQLiteConnection, NSString, PFUbiquityLocation;
 
+// Not exported
 @interface PFUbiquityStoreMetadataMedic : NSObject
 {
     NSString *_localPeerID;
@@ -22,11 +23,11 @@
 @property(readonly, nonatomic) NSPersistentStore *store; // @synthesize store=_store;
 @property(readonly, nonatomic) NSString *storeName; // @synthesize storeName=_storeName;
 @property(readonly, nonatomic) NSString *localPeerID; // @synthesize localPeerID=_localPeerID;
-- (BOOL)cacheMetadataForTransactionLog:(id)arg1 withImportContext:(id)arg2 error:(id *)arg3;
-- (BOOL)recoverTransactionLogMetadataWithImportContext:(id)arg1 error:(id *)arg2;
-- (BOOL)addTransactionHistoryEntriesForObjectIDs:(id)arg1 withImportContext:(id)arg2 error:(id *)arg3;
-- (BOOL)recoverBaselineMetadataWithImportContext:(id)arg1 error:(id *)arg2;
-- (BOOL)recoverMetadataWithError:(id *)arg1;
+- (_Bool)cacheMetadataForTransactionLog:(id)arg1 withImportContext:(id)arg2 error:(id *)arg3;
+- (_Bool)recoverTransactionLogMetadataWithImportContext:(id)arg1 error:(id *)arg2;
+- (_Bool)addTransactionHistoryEntriesForObjectIDs:(id)arg1 withImportContext:(id)arg2 error:(id *)arg3;
+- (_Bool)recoverBaselineMetadataWithImportContext:(id)arg1 error:(id *)arg2;
+- (_Bool)recoverMetadataWithError:(id *)arg1;
 - (void)dealloc;
 - (id)initWithStore:(id)arg1 localPeerID:(id)arg2 andUbiquityRootLocation:(id)arg3;
 

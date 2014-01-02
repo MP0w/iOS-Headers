@@ -37,7 +37,7 @@
 - (void)runWithCompletion:(id)arg1;
 - (void)runWithValueApplier:(id)arg1 completion:(void)arg2;
 - (void)runWithValueApplier:(id)arg1 completion:(void)arg2 forScreen:(id)arg3 runLoopMode:(void)arg4;
-- (BOOL)_animateForInterval:(double)arg1;
+- (_Bool)_animateForInterval:(double)arg1;
 - (void)removeActiveValue:(id)arg1;
 - (void)addActiveValue:(id)arg1;
 - (void)_updateStepFunction;

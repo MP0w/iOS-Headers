@@ -9,10 +9,14 @@
 @protocol PUSectionedGridLayoutDelegate <NSObject>
 
 @optional
-- (id)sectionedGridLayout:(id)arg1 sectionsForVisualSection:(int)arg2;
-- (int)numberOfVisualSectionsForSectionedGridLayout:(id)arg1;
-- (int)sectionedGridLayout:(id)arg1 maximumRowsForVisualSection:(int)arg2;
-- (void)sectionedGridLayoutDidPrepareTransition:(id)arg1;
-- (void)sectionedGridLayoutWillPrepareLayout:(id)arg1;
+- (id)sectionedGridLayoutName:(id)arg1;
+- (void)sectionedGridLayout:(id)arg1 didInvalidateWithContext:(id)arg2;
+- (id)sectionedGridLayout:(id)arg1 sectionsForVisualSection:(long long)arg2;
+- (long long)numberOfVisualSectionsForSectionedGridLayout:(id)arg1;
+- (_Bool)sectionedGridLayoutTransitionAutoAdjustContentOffsetEnabled:(id)arg1;
+- (id)sectionedGridLayoutAnchorItemForAdjustingContentOffset:(id)arg1;
+- (long long)sectionedGridLayout:(id)arg1 maximumRowsForVisualSection:(long long)arg2;
+- (void)sectionedGridLayout:(id)arg1 didFinalizePrepareTransitionIsAppearing:(_Bool)arg2;
+- (void)sectionedGridLayout:(id)arg1 didPrepareTransitionIsAppearing:(_Bool)arg2;
 @end
 

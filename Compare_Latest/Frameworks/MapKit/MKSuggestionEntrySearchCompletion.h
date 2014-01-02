@@ -8,6 +8,7 @@
 
 @class GEOSearchRequest, GEOSearchResponse, GEOSuggestionEntry;
 
+// Not exported
 @interface MKSuggestionEntrySearchCompletion : MKSearchCompletion
 {
     GEOSuggestionEntry *_entry;
@@ -15,16 +16,16 @@
     GEOSearchResponse *_response;
 }
 
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (void)applyToPlaceSearchRequest:(id)arg1;
 - (void)applyToLocalSearchRequest:(id)arg1;
 - (void)sendFeedback;
 - (id)calloutTitle;
 - (id)queryLine;
-- (BOOL)getCoordinate:(CDStruct_c3b9c2ee *)arg1;
-- (id)highlightsForLine:(unsigned int)arg1;
+- (_Bool)getCoordinate:(CDStruct_c3b9c2ee *)arg1;
+- (id)highlightsForLine:(unsigned long long)arg1;
 - (id)displayLines;
 - (void)dealloc;
 - (id)initWithSuggestionEntry:(id)arg1 response:(id)arg2 request:(id)arg3;

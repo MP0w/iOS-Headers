@@ -20,7 +20,7 @@
     NSSet *_internal_leafKeys;
     NSDictionary *_internal_keyClasses;
     NSDictionary *_internal_keyStructs;
-    BOOL _internal_isObservingPropertiesAndChildren;
+    _Bool _internal_isObservingPropertiesAndChildren;
 }
 
 + (id)settingsFromArchiveFile:(id)arg1 error:(id *)arg2;
@@ -29,9 +29,9 @@
 - (void)_sendKeyChanged:(id)arg1;
 - (id)_keyForChild:(id)arg1;
 - (void)_handleChildGroupChange:(id)arg1;
-- (void)settingsGroup:(id)arg1 didMoveSettings:(id)arg2 fromIndex:(unsigned int)arg3 toIndex:(unsigned int)arg4;
-- (void)settingsGroup:(id)arg1 didRemoveSettings:(id)arg2 atIndex:(unsigned int)arg3;
-- (void)settingsGroup:(id)arg1 didInsertSettings:(id)arg2 atIndex:(unsigned int)arg3;
+- (void)settingsGroup:(id)arg1 didMoveSettings:(id)arg2 fromIndex:(unsigned long long)arg3 toIndex:(unsigned long long)arg4;
+- (void)settingsGroup:(id)arg1 didRemoveSettings:(id)arg2 atIndex:(unsigned long long)arg3;
+- (void)settingsGroup:(id)arg1 didInsertSettings:(id)arg2 atIndex:(unsigned long long)arg3;
 - (void)settings:(id)arg1 changedValueForKeyPath:(id)arg2;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)_introspectKeys;
@@ -46,11 +46,11 @@
 - (void)_startObservingChild:(id)arg1;
 - (void)setValuesFromModel:(id)arg1;
 - (void)_addInternalEntriesToArchiveDictionary:(id)arg1;
-- (BOOL)_isObservingPropertiesAndChildren;
+- (_Bool)_isObservingPropertiesAndChildren;
 - (void)_startOrStopObservingPropertiesAndChildren;
 - (void)_stopObservingPropertiesAndChildren;
 - (void)_startObservingPropertiesAndChildren;
-- (BOOL)_hasObservers;
+- (_Bool)_hasObservers;
 - (id)archiveValueForKey:(id)arg1;
 - (void)applyArchiveValue:(id)arg1 forKey:(id)arg2;
 - (void)setDefaultValues;
@@ -58,10 +58,10 @@
 - (void)addKeyPathObserver:(id)arg1;
 - (void)removeKeyObserver:(id)arg1;
 - (void)addKeyObserver:(id)arg1;
-- (BOOL)restoreFromArchiveFile:(id)arg1 error:(id *)arg2;
+- (_Bool)restoreFromArchiveFile:(id)arg1 error:(id *)arg2;
 - (void)restoreFromArchiveDictionary:(id)arg1;
 - (void)restoreDefaultValues;
-- (BOOL)archiveToFile:(id)arg1 error:(id *)arg2;
+- (_Bool)archiveToFile:(id)arg1 error:(id *)arg2;
 - (id)archiveDictionary;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;

@@ -6,14 +6,14 @@
 
 #import <CoreData/_NSScalarObjectID.h>
 
+// Not exported
 @interface NSScalarObjectID48 : _NSScalarObjectID
 {
     unsigned long long _referenceData48_cd_rc16;
 }
 
 + (char *)generatedNameSuffix;
-- (unsigned int)retainCount;
-- (id)initWithPK64:(long long)arg1;
+- (unsigned long long)retainCount;
 
 @end
 

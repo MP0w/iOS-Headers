@@ -8,13 +8,13 @@
 
 @interface MPAVDestinationBrowser : NSObject
 {
-    BOOL _scansForDestinationsWhenEnteringForeground;
-    BOOL _isScanning;
+    _Bool _scansForDestinationsWhenEnteringForeground;
+    _Bool _isScanning;
 }
 
 - (void)_endScanningForDestinationsNotification:(id)arg1;
 - (void)_beginScanningForDestinationsNotification:(id)arg1;
-@property(nonatomic) BOOL scansForDestinationsWhenEnteringForeground;
+@property(nonatomic) _Bool scansForDestinationsWhenEnteringForeground;
 - (void)endScanningForDestinations;
 - (void)beginScanningForDestinations;
 - (void)dealloc;

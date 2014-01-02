@@ -6,28 +6,29 @@
 
 #import "NSObject.h"
 
-#import "NSCopying-Protocol.h"
+#import "SKUILayoutRequest-Protocol.h"
 
 @class NSString;
 
-@interface SKUITextLayoutRequest : NSObject <NSCopying>
+@interface SKUITextLayoutRequest : NSObject <SKUILayoutRequest>
 {
-    BOOL _bold;
-    float _fontSize;
-    int _numberOfLines;
+    double _fontSize;
+    long long _fontWeight;
+    long long _numberOfLines;
     NSString *_text;
     unsigned char _textAlignment;
-    float _width;
+    double _width;
 }
 
-@property(nonatomic) float width; // @synthesize width=_width;
+@property(nonatomic) double width; // @synthesize width=_width;
 @property(nonatomic) unsigned char textAlignment; // @synthesize textAlignment=_textAlignment;
 @property(copy, nonatomic) NSString *text; // @synthesize text=_text;
-@property(nonatomic) int numberOfLines; // @synthesize numberOfLines=_numberOfLines;
-@property(nonatomic) float fontSize; // @synthesize fontSize=_fontSize;
-@property(nonatomic, getter=isBold) BOOL bold; // @synthesize bold=_bold;
+@property(nonatomic) long long numberOfLines; // @synthesize numberOfLines=_numberOfLines;
+@property(nonatomic) long long fontWeight; // @synthesize fontWeight=_fontWeight;
+@property(nonatomic) double fontSize; // @synthesize fontSize=_fontSize;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+@property(readonly, nonatomic) Class layoutClass;
 - (id)init;
 
 @end

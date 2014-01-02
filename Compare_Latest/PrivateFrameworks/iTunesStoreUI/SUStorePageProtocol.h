@@ -21,14 +21,14 @@
     NSArray *_navigationMenus;
     SSURLRequestProperties *_overlayBackgroundURLRequestProperties;
     NSString *_rootSectionIdentifier;
-    BOOL _shouldDisplayInOverlay;
-    BOOL _shouldExcludeFromNavigationHistory;
-    BOOL _shouldReplaceRootViewController;
+    _Bool _shouldDisplayInOverlay;
+    _Bool _shouldExcludeFromNavigationHistory;
+    _Bool _shouldReplaceRootViewController;
 }
 
-@property(nonatomic) BOOL shouldReplaceRootViewController; // @synthesize shouldReplaceRootViewController=_shouldReplaceRootViewController;
-@property(nonatomic) BOOL shouldExcludeFromNavigationHistory; // @synthesize shouldExcludeFromNavigationHistory=_shouldExcludeFromNavigationHistory;
-@property(nonatomic) BOOL shouldDisplayInOverlay; // @synthesize shouldDisplayInOverlay=_shouldDisplayInOverlay;
+@property(nonatomic) _Bool shouldReplaceRootViewController; // @synthesize shouldReplaceRootViewController=_shouldReplaceRootViewController;
+@property(nonatomic) _Bool shouldExcludeFromNavigationHistory; // @synthesize shouldExcludeFromNavigationHistory=_shouldExcludeFromNavigationHistory;
+@property(nonatomic) _Bool shouldDisplayInOverlay; // @synthesize shouldDisplayInOverlay=_shouldDisplayInOverlay;
 @property(retain, nonatomic) NSString *rootSectionIdentifier; // @synthesize rootSectionIdentifier=_rootSectionIdentifier;
 @property(retain, nonatomic) SSURLRequestProperties *overlayBackgroundURLRequestProperties; // @synthesize overlayBackgroundURLRequestProperties=_overlayBackgroundURLRequestProperties;
 @property(copy, nonatomic) NSArray *navigationMenus; // @synthesize navigationMenus=_navigationMenus;
@@ -44,7 +44,7 @@
 - (void)setValuesFromStorePageDictionary:(id)arg1;
 - (void)setOverlayBackgroundURLRequest:(id)arg1;
 - (id)overlayBackgroundURLRequest;
-- (id)navigationMenuForLocation:(int)arg1;
+- (id)navigationMenuForLocation:(long long)arg1;
 - (id)navigationButtonForLocation:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;

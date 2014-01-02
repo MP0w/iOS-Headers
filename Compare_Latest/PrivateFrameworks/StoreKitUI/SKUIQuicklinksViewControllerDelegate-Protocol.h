@@ -9,6 +9,6 @@
 @protocol SKUIQuicklinksViewControllerDelegate <NSObject>
 
 @optional
-- (void)quicklinksViewController:(id)arg1 didSelectLink:(id)arg2 atIndex:(int)arg3;
+- (void)quicklinksViewController:(id)arg1 didSelectLink:(id)arg2 atIndex:(long long)arg3;
 @end
 

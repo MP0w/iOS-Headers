@@ -17,9 +17,7 @@
 @property(retain, nonatomic) SLDatabase *database; // @synthesize database=_database;
 @property(retain, nonatomic) NSXPCConnection *connection; // @synthesize connection=_connection;
 - (void).cxx_destruct;
-- (id)_clientBundleID;
-- (id)_clientLocalizedApplicationName;
-- (BOOL)clientHasEntitlement:(id)arg1;
+- (_Bool)clientHasEntitlement:(id)arg1;
 - (id)initWithConnection:(id)arg1 database:(id)arg2;
 
 @end

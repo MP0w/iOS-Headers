@@ -10,6 +10,7 @@
 
 @class UIDimmingView;
 
+// Not exported
 @interface UIDictationFloatingStarkView : UIDictationView <UIGestureRecognizerDelegate>
 {
     UIDimmingView *_dimmingView;
@@ -20,8 +21,10 @@
 - (struct CGPoint)positionForShow;
 - (void)returnToKeyboard;
 - (void)dimmingViewWasTapped:(id)arg1;
-- (void)setInputViewsHiddenForDictation:(BOOL)arg1;
+- (void)setInputViewsHiddenForDictation:(_Bool)arg1;
 - (void)setState:(int)arg1;
+- (void)prepareForReturnToKeyboard;
+- (void)finishReturnToKeyboard;
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

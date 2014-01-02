@@ -10,63 +10,49 @@
 
 @interface CPReadingModel : NSObject
 {
-    long _count;
-    CDStruct_dff5684f *_textLineRanges;
-    CDStruct_dff5684f *_stringLineRanges;
-    int *_pageNumbers;
-    CDStruct_dff5684f _pageRange;
+    long long _count;
+    CDStruct_627e0f85 *_textLineRanges;
+    CDStruct_627e0f85 *_stringLineRanges;
+    long long *_pageNumbers;
+    CDStruct_627e0f85 _pageRange;
     struct CGPDFDocument *_document;
-    long _numberOfLines;
-    long _numberOfParagraphs;
-    long _numberOfColumns;
-    long _numberOfLayoutAreas;
+    long long _numberOfLines;
+    long long _numberOfParagraphs;
+    long long _numberOfColumns;
+    long long _numberOfLayoutAreas;
     NSString *_cachedString;
     NSAttributedString *_cachedAttributedString;
-    long _pageNumber;
-    long _pos;
+    long long _pageNumber;
+    long long _pos;
 }
 
-- (int)lineIndexForPoint:(struct CGPoint)arg1 onPage:(unsigned int)arg2;
-- (struct _NSRange)linesForPage:(unsigned int)arg1;
-- (struct _NSRange)pageRangeForStringRange:(CDStruct_dff5684f)arg1;
-- (struct _NSRange)stringRangeForTextRangeBUGGY:(CDStruct_dff5684f)arg1;
-- (struct _NSRange)stringRangeForTextRange:(CDStruct_dff5684f)arg1 onPageNumber:(unsigned int)arg2;
-- (id)attributedStringForLine:(unsigned int)arg1;
-- (id)stringForLine:(unsigned int)arg1;
-- (CDStruct_dff5684f)textRangeForStringRange:(struct _NSRange)arg1;
+- (long long)lineIndexForPoint:(struct CGPoint)arg1 onPage:(unsigned long long)arg2;
+- (struct _NSRange)linesForPage:(unsigned long long)arg1;
+- (struct _NSRange)pageRangeForStringRange:(CDStruct_627e0f85)arg1;
+- (struct _NSRange)stringRangeForTextRangeBUGGY:(CDStruct_627e0f85)arg1;
+- (struct _NSRange)stringRangeForTextRange:(CDStruct_627e0f85)arg1 onPageNumber:(unsigned long long)arg2;
+- (id)attributedStringForLine:(unsigned long long)arg1;
+- (id)stringForLine:(unsigned long long)arg1;
+- (CDStruct_627e0f85)textRangeForStringRange:(struct _NSRange)arg1;
 - (struct CGRect)pdfBoundsForRange:(struct _NSRange)arg1;
-- (struct _NSRange)rangeForLine:(unsigned int)arg1;
-- (unsigned int)lineForIndex:(unsigned int)arg1;
+- (struct _NSRange)rangeForLine:(unsigned long long)arg1;
+- (unsigned long long)lineForIndex:(unsigned long long)arg1;
 - (id)attributedStringForRange:(struct _NSRange)arg1;
 - (id)attributedString;
 - (id)stringForRange:(struct _NSRange)arg1;
 - (id)string;
-- (struct CGRect)pdfBoundsForLine:(unsigned int)arg1;
-- (struct _NSRange)textRangeForLine:(unsigned int)arg1;
-- (struct _NSRange)stringRangeForLine:(unsigned int)arg1;
-- (unsigned int)pageNumberForLine:(unsigned int)arg1;
-- (unsigned int)lineCount;
-- (long)indexOfFirstLineOnPage:(unsigned int)arg1;
+- (struct CGRect)pdfBoundsForLine:(unsigned long long)arg1;
+- (struct _NSRange)textRangeForLine:(unsigned long long)arg1;
+- (struct _NSRange)stringRangeForLine:(unsigned long long)arg1;
+- (unsigned long long)pageNumberForLine:(unsigned long long)arg1;
+- (unsigned long long)lineCount;
+- (long long)indexOfFirstLineOnPage:(unsigned long long)arg1;
 - (void)clearCache;
 - (void)buildModel:(struct CGPDFDocument *)arg1;
 - (void)buildModel:(struct CGPDFDocument *)arg1 pageRange:(struct _NSRange)arg2;
 - (void)dealloc;
 - (id)initWithDocument:(struct CGPDFDocument *)arg1 withPageRange:(struct _NSRange)arg2;
 - (id)initWithDocument:(struct CGPDFDocument *)arg1;
-- (CDStruct_dff5684f)mapStringRange:(struct _NSRange)arg1;
-- (struct CGRect)pdfBoundsForCursor:(struct _NSRange)arg1;
-- (struct CGRect)pdfBoundsForNewLine:(CDStruct_dff5684f)arg1;
-- (void)stringLineRanges;
-- (unsigned int)addRangeForLine:(unsigned int)arg1 from:(unsigned int)arg2;
-- (void)visitLayoutAreas:(struct CGPDFNode *)arg1 completion:(id)arg2;
-- (void)visitColumns:(struct CGPDFNode *)arg1 completion:(id)arg2;
-- (void)visitParagraphs:(struct CGPDFNode *)arg1 completion:(id)arg2;
-- (void)visitTextLines:(struct CGPDFNode *)arg1 completion:(id)arg2;
-- (void)addRange:(CDStruct_dff5684f)arg1;
-- (void)increamentLayoutAreaCount;
-- (void)incrementColumnCount;
-- (void)incrementParagraphCount;
-- (void)incrementLineCount;
 
 @end
 

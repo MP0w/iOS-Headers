@@ -14,7 +14,7 @@
 
 + (id)searchWithDictionary:(id)arg1 context:(id)arg2;
 + (id)search;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(retain, nonatomic) SALocation *requestedLocation;
 @property(copy, nonatomic) NSString *proximity;
 @property(copy, nonatomic) NSArray *friends;

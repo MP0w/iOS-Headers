@@ -16,5 +16,7 @@
 - (void)searchViewControllerWillBeginSearching:(id)arg1;
 - (void)searchViewControllerDidBeginSearching:(id)arg1;
 - (void)searchViewController:(id)arg1 didSelectStation:(id)arg2;
+- (id)metricsPageTypeForSearchViewController:(id)arg1;
+- (id)metricsPageDescriptionForSearchViewController:(id)arg1;
 @end
 

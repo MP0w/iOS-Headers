@@ -8,6 +8,7 @@
 
 @class DOMCSSStyleSheet, NSString;
 
+// Not exported
 @interface DOMCSSRule : DOMObject
 {
 }

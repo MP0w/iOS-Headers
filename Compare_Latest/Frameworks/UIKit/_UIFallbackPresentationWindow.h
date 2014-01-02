@@ -6,12 +6,13 @@
 
 #import <UIKit/UIWindow.h>
 
+// Not exported
 @interface _UIFallbackPresentationWindow : UIWindow
 {
 }
 
-- (BOOL)_includeInDefaultImageSnapshot;
-- (BOOL)_affectsTintView;
+- (_Bool)_includeInDefaultImageSnapshot;
+- (_Bool)_canAffectStatusBarAppearance;
 
 @end
 

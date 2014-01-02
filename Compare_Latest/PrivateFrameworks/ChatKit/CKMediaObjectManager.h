@@ -27,7 +27,7 @@
 - (id)fileManager;
 - (id)transferWithFileURL:(id)arg1 transcoderUserInfo:(id)arg2;
 - (id)transferWithTransferGUID:(id)arg1 message:(id)arg2;
-- (id)mediaObjectWithPasteboard:(id)arg1 itemAtIndex:(unsigned int)arg2;
+- (id)mediaObjectWithPasteboard:(id)arg1 itemAtIndex:(unsigned long long)arg2;
 - (id)mediaObjectWithFileURL:(id)arg1 filename:(id)arg2 transcoderUserInfo:(id)arg3;
 - (id)mediaObjectWithData:(id)arg1 UTIType:(id)arg2 filename:(id)arg3 transcoderUserInfo:(id)arg4;
 - (id)mediaObjectWithTransferGUID:(id)arg1 message:(id)arg2;

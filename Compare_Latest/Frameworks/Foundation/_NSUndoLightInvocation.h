@@ -6,6 +6,7 @@
 
 #import <Foundation/_NSUndoObject.h>
 
+// Not exported
 @interface _NSUndoLightInvocation : _NSUndoObject
 {
     SEL _selector;

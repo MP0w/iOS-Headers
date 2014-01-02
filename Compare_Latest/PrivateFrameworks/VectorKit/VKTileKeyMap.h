@@ -6,9 +6,10 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface VKTileKeyMap : NSObject
 {
-    int _type;
+    long long _type;
     void *_map;
 }
 
@@ -21,7 +22,7 @@
 - (id)description;
 - (void)dealloc;
 - (void)removeAllObjects;
-- (id)initWithMapType:(int)arg1;
+- (id)initWithMapType:(long long)arg1;
 
 @end
 

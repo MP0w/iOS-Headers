@@ -11,35 +11,35 @@
 
 @interface SUDownloadMetadata : NSObject <NSSecureCoding, NSCopying>
 {
-    BOOL _autoDownload;
-    BOOL _enabledFor2G;
-    BOOL _enabledFor3G;
-    BOOL _enabledFor4G;
-    BOOL _enabledForCellularRoaming;
-    BOOL _enabledForWifi;
-    BOOL _enabledOnBatteryPower;
-    BOOL _enforceWifiOnlyOverride;
+    _Bool _autoDownload;
+    _Bool _enabledFor2G;
+    _Bool _enabledFor3G;
+    _Bool _enabledFor4G;
+    _Bool _enabledForCellularRoaming;
+    _Bool _enabledForWifi;
+    _Bool _enabledOnBatteryPower;
+    _Bool _enforceWifiOnlyOverride;
     int _activeDownloadPolicyType;
     int _downloadFeeAgreementStatus;
 }
 
-+ (BOOL)supportsSecureCoding;
-@property(nonatomic) BOOL enforceWifiOnlyOverride; // @synthesize enforceWifiOnlyOverride=_enforceWifiOnlyOverride;
-@property(nonatomic, getter=isEnabledOnBatteryPower) BOOL enabledOnBatteryPower; // @synthesize enabledOnBatteryPower=_enabledOnBatteryPower;
-@property(nonatomic, getter=isEnabledForCellularRoaming) BOOL enabledForCellularRoaming; // @synthesize enabledForCellularRoaming=_enabledForCellularRoaming;
-@property(nonatomic, getter=isEnabledForWifi) BOOL enabledForWifi; // @synthesize enabledForWifi=_enabledForWifi;
-@property(nonatomic, getter=isEnabledFor4G) BOOL enabledFor4G; // @synthesize enabledFor4G=_enabledFor4G;
-@property(nonatomic, getter=isEnabledFor3G) BOOL enabledFor3G; // @synthesize enabledFor3G=_enabledFor3G;
-@property(nonatomic, getter=isEnabledFor2G) BOOL enabledFor2G; // @synthesize enabledFor2G=_enabledFor2G;
++ (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool enforceWifiOnlyOverride; // @synthesize enforceWifiOnlyOverride=_enforceWifiOnlyOverride;
+@property(nonatomic, getter=isEnabledOnBatteryPower) _Bool enabledOnBatteryPower; // @synthesize enabledOnBatteryPower=_enabledOnBatteryPower;
+@property(nonatomic, getter=isEnabledForCellularRoaming) _Bool enabledForCellularRoaming; // @synthesize enabledForCellularRoaming=_enabledForCellularRoaming;
+@property(nonatomic, getter=isEnabledForWifi) _Bool enabledForWifi; // @synthesize enabledForWifi=_enabledForWifi;
+@property(nonatomic, getter=isEnabledFor4G) _Bool enabledFor4G; // @synthesize enabledFor4G=_enabledFor4G;
+@property(nonatomic, getter=isEnabledFor3G) _Bool enabledFor3G; // @synthesize enabledFor3G=_enabledFor3G;
+@property(nonatomic, getter=isEnabledFor2G) _Bool enabledFor2G; // @synthesize enabledFor2G=_enabledFor2G;
 @property(nonatomic) int activeDownloadPolicyType; // @synthesize activeDownloadPolicyType=_activeDownloadPolicyType;
 @property(nonatomic) int downloadFeeAgreementStatus; // @synthesize downloadFeeAgreementStatus=_downloadFeeAgreementStatus;
-@property(nonatomic, getter=isAutoDownload) BOOL autoDownload; // @synthesize autoDownload=_autoDownload;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+@property(nonatomic, getter=isAutoDownload) _Bool autoDownload; // @synthesize autoDownload=_autoDownload;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
-- (id)_stringForBool:(BOOL)arg1;
-- (BOOL)isEnabledForNetworkType:(int)arg1;
-- (BOOL)matchesDownloadPolicy:(id)arg1;
+- (id)_stringForBool:(_Bool)arg1;
+- (_Bool)isEnabledForNetworkType:(int)arg1;
+- (_Bool)matchesDownloadPolicy:(id)arg1;
 - (id)availableDownloadPolicyIfDifferentFromActive:(id)arg1;
 - (id)activeDownloadPolicy:(id)arg1;
 - (void)applyDownloadPolicy:(id)arg1;

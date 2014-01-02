@@ -8,13 +8,14 @@
 
 @class NSString, NSURLRequest, NSURLResponse;
 
+// Not exported
 @interface WebNavigationDataPrivate : NSObject
 {
     NSString *url;
     NSString *title;
     NSURLRequest *originalRequest;
     NSURLResponse *response;
-    BOOL hasSubstituteData;
+    _Bool hasSubstituteData;
     NSString *clientRedirectSource;
 }
 

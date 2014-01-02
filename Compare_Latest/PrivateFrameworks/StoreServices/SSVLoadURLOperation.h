@@ -8,7 +8,7 @@
 
 #import "NSURLConnectionDelegate-Protocol.h"
 
-@class NSCachedURLResponse, NSHTTPURLResponse, NSMutableData, NSObject<OS_dispatch_queue>, NSRunLoop, NSURL, NSURLRequest, SSMetricsPageEvent, SSVURLDataConsumer;
+@class NSCachedURLResponse, NSHTTPURLResponse, NSMutableData, NSMutableSet, NSObject<OS_dispatch_queue>, NSRunLoop, NSString, NSURL, NSURLRequest, SSMetricsPageEvent, SSVURLDataConsumer;
 
 @interface SSVLoadURLOperation : NSOperation <NSURLConnectionDelegate>
 {
@@ -16,24 +16,32 @@
     SSVURLDataConsumer *_dataConsumer;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     id _expiredOutputBlock;
-    BOOL _iTunesStoreRequest;
+    _Bool _iTunesStoreRequest;
     SSMetricsPageEvent *_metricsPageEvent;
     id _outputBlock;
-    BOOL _recordsMetrics;
+    NSMutableSet *_protocolRedirectURLs;
+    _Bool _recordsMetrics;
+    NSURL *_redirectURL;
     NSHTTPURLResponse *_response;
     NSRunLoop *_runLoop;
-    BOOL _stopped;
+    NSString *_storeFrontSuffix;
+    _Bool _stopped;
     NSURLRequest *_urlRequest;
 }
 
 - (void).cxx_destruct;
 - (void)_stopRunLoop;
 - (void)_stopIfCancelled;
-- (long)_runRunLoopUntilStopped;
+- (int)_runRunLoopUntilStopped;
+- (void)_runOnce;
+- (void)_releaseOutputBlocks;
+- (id)_redirectURLForStoreResponse:(id)arg1 data:(id)arg2;
 - (id)_outputForData:(id)arg1 error:(id *)arg2;
-- (id)_newURLRequest;
+- (id)_newURLRequestWithRedirectURL:(id)arg1;
 - (void)_keepAliveTimer:(id)arg1;
+- (void)_finishWithOutput:(id)arg1 error:(id)arg2;
 - (void)_finishWithData:(id)arg1;
+- (id)_dataForCachedResponse:(struct _CFCachedURLResponse *)arg1;
 - (void)_applyResponseToMetrics:(id)arg1;
 - (id)connection:(id)arg1 willSendRequest:(id)arg2 redirectResponse:(id)arg3;
 - (void)connectionDidFinishLoading:(id)arg1;
@@ -44,9 +52,10 @@
 - (void)cancel;
 @property(readonly) NSURLRequest *URLRequest;
 @property(readonly) NSURL *URL;
-@property BOOL recordsMetrics;
+@property(copy) NSString *storeFrontSuffix;
+@property _Bool recordsMetrics;
 @property(copy) id outputBlock;
-@property(getter=isITunesStoreRequest) BOOL ITunesStoreRequest;
+@property(getter=isITunesStoreRequest) _Bool ITunesStoreRequest;
 @property(copy) id expiredOutputBlock;
 @property(retain) SSVURLDataConsumer *dataConsumer;
 @property(readonly) SSMetricsPageEvent *metricsPageEvent;

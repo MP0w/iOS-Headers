@@ -6,6 +6,7 @@
 
 #import <UIKit/_UIBarBackgroundImageView.h>
 
+// Not exported
 @interface _UIToolbarBackground : _UIBarBackgroundImageView
 {
 }

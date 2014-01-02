@@ -14,7 +14,7 @@
     NSArray *_symbolOwnerAddressRanges;
     NSString *_path;
     VMUMachTaskContainer *_machTaskContainer;
-    BOOL _isProtected;
+    _Bool _isProtected;
 }
 
 + (id)symbolicatorForSignature:(id)arg1;
@@ -23,17 +23,11 @@
 + (id)symbolicatorForTask:(unsigned int)arg1;
 + (id)symbolicatorForPath:(id)arg1 architecture:(id)arg2;
 + (id)symbolicatorsForPath:(id)arg1;
-+ (BOOL)isIgnoreFunctionSymbols;
-+ (void)ignoreFunctionSymbols:(BOOL)arg1;
-+ (id)symbolicatorForSignature:(id)arg1 dsymSearchPaths:(id)arg2 useMds:(BOOL)arg3;
-+ (id)symbolicatorWithSymbolOwners:(id)arg1 path:(id)arg2 machTaskContainer:(id)arg3;
-+ (id)symbolicatorWithHeaders:(id)arg1 allowLazySymbolOwners:(BOOL)arg2 path:(id)arg3 machTaskContainer:(id)arg4;
-+ (id)convertHeaderToSymbolOwner:(id)arg1 allowLazySymbolOwners:(BOOL)arg2;
 - (void)dealloc;
 - (id)description;
 - (id)architecture;
 - (void)forceFullSymbolExtraction;
-- (BOOL)isProtected;
+- (_Bool)isProtected;
 - (id)signature;
 - (int)pid;
 - (id)path;
@@ -56,13 +50,10 @@
 - (id)regionsInAddressRange:(struct _VMURange)arg1;
 - (id)regionForAddress:(unsigned long long)arg1;
 - (id)regions;
-- (BOOL)containsAddress:(unsigned long long)arg1;
+- (_Bool)containsAddress:(unsigned long long)arg1;
 - (void)replaceSymbolOwner:(id)arg1 withSymbolOwner:(id)arg2;
-- (BOOL)addSymbolRichFile:(id)arg1;
-- (id)faultLazySymbolOwnerAtIndex:(int)arg1;
-- (id)programTextForAddressRange:(struct _VMURange)arg1;
-- (id)programTextForAddress:(unsigned long long)arg1;
-- (id)initWithSymbolOwners:(id)arg1 path:(id)arg2 machTaskContainer:(id)arg3;
+- (_Bool)addSymbolRichFile:(id)arg1;
+- (id)faultLazySymbolOwnerAtIndex:(long long)arg1;
 
 @end
 

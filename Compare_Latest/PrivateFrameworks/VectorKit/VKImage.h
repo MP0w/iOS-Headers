@@ -15,21 +15,21 @@
     NSData *_data;
     NSString *_name;
     struct CGSize _size;
-    float _scale;
-    BOOL _usedAsTextureAndImage;
+    double _scale;
+    _Bool _usedAsTextureAndImage;
 }
 
 - (id).cxx_construct;
-- (float)scale;
+- (double)scale;
 - (struct CGSize)size;
 - (struct CGImage *)image;
 - (id)texture;
 - (void)dealloc;
-- (id)initWithName:(id)arg1 scale:(float)arg2;
-- (id)initWithData:(id)arg1 scale:(float)arg2;
-- (id)initWithData:(id)arg1 scale:(float)arg2 usedAsTextureAndImage:(BOOL)arg3;
-- (id)initWithCGImage:(struct CGImage *)arg1 scale:(float)arg2;
-- (id)initWithCGImage:(struct CGImage *)arg1 scale:(float)arg2 usedAsTextureAndImage:(BOOL)arg3;
+- (id)initWithName:(id)arg1 scale:(double)arg2;
+- (id)initWithData:(id)arg1 scale:(double)arg2;
+- (id)initWithData:(id)arg1 scale:(double)arg2 usedAsTextureAndImage:(_Bool)arg3;
+- (id)initWithCGImage:(struct CGImage *)arg1 scale:(double)arg2;
+- (id)initWithCGImage:(struct CGImage *)arg1 scale:(double)arg2 usedAsTextureAndImage:(_Bool)arg3;
 
 @end
 

@@ -13,9 +13,9 @@
 
 - (void)_invalidate;
 - (void)setCertificateData:(id)arg1;
-- (BOOL)isValid;
-- (BOOL)checkData:(id)arg1 againstAppleSignature:(id)arg2;
-- (BOOL)checkData:(id)arg1 againstSignature:(id)arg2;
+- (_Bool)isValid;
+- (_Bool)checkData:(id)arg1 againstAppleSignature:(id)arg2;
+- (_Bool)checkData:(id)arg1 againstSignature:(id)arg2;
 - (void)dealloc;
 
 @end

@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface WebInspectorClientRegistry : NSObject
 {
     unsigned int _nextAvailablePageId;

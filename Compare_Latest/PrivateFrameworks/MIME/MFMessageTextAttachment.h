@@ -13,14 +13,14 @@
     NSMutableDictionary *_cache;
 }
 
-+ (unsigned int)precedenceLevel;
++ (unsigned long long)precedenceLevel;
 - (id)persistentUniqueIdentifier;
-- (id)fileWrapperForcingDownload:(BOOL)arg1;
+- (id)fileWrapperForcingDownload:(_Bool)arg1;
 - (void)inlineDisplayData:(id *)arg1 mimeType:(id *)arg2;
-- (BOOL)isPlaceholder;
+- (_Bool)isPlaceholder;
 - (void)download;
-- (BOOL)needsRedownload;
-- (BOOL)hasBeenDownloaded;
+- (_Bool)needsRedownload;
+- (_Bool)hasBeenDownloaded;
 - (unsigned int)approximateSize;
 @property(retain, nonatomic) MFMessageFileWrapper *fileWrapper;
 - (void)setCachedValue:(id)arg1 forKey:(id)arg2;
@@ -29,11 +29,6 @@
 - (void)dealloc;
 - (id)initWithWrapper:(id)arg1;
 - (id)init;
-- (void)setMimePart:(id)arg1;
-- (id)mimePart;
-- (id)textEncodingNameForData:(id)arg1 mimeType:(id)arg2;
-- (id)textEncodingGuess;
-- (BOOL)shouldDownloadAttachmentOnDisplay;
 
 @end
 

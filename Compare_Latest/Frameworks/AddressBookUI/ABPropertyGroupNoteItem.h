@@ -10,8 +10,9 @@
 {
 }
 
-- (BOOL)canRemove;
-- (BOOL)isEquivalentToItem:(id)arg1 whenEditing:(BOOL)arg2;
+- (_Bool)canRemove;
+- (id)displayLabel;
+- (_Bool)isEquivalentToItem:(id)arg1 whenEditing:(_Bool)arg2;
 
 @end
 

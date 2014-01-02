@@ -10,7 +10,7 @@
 
 @interface MFCaptionLabel : UIView
 {
-    BOOL _needsLabelUpdate;
+    _Bool _needsLabelUpdate;
     void *_addressBook;
     NSArray *_toRecipients;
     NSArray *_ccRecipients;
@@ -30,14 +30,17 @@
 @property(retain, nonatomic) NSArray *toRecipients; // @synthesize toRecipients=_toRecipients;
 @property(nonatomic) void *addressBook; // @synthesize addressBook=_addressBook;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)clear;
 @property(retain, nonatomic) NSString *text;
 @property(retain, nonatomic) UIFont *font;
 - (id)viewForBaselineLayout;
 - (void)setFrame:(struct CGRect)arg1;
+- (void)sizeToFit;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)_setNeedsLabelUpdate;
 - (void)_updateLabel;
 - (id)_arrangedRecipients:(id)arg1;
+- (void)layoutSubviews;
 @property(readonly, nonatomic) struct CGPoint baselinePoint;
 - (id)initWithAddressBook:(void *)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

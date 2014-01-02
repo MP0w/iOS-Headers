@@ -6,23 +6,36 @@
 
 #import "NSObject.h"
 
-@class GEORequester, GEOUsageCollectionRequest, NSTimer;
+#import "PBRequesterDelegate-Protocol.h"
 
-@interface GEOUsageManager : NSObject
+@class GEORequester, GEOUsageCollectionRequest, NSLock, NSMapTable, NSTimer;
+
+@interface GEOUsageManager : NSObject <PBRequesterDelegate>
 {
     GEORequester *_requester;
     GEOUsageCollectionRequest *_request;
+    NSLock *_requestLock;
     NSTimer *_updateTimer;
-    BOOL _isAppActive;
+    _Bool _isAppActive;
+    id _backgroundTaskStart;
+    id _backgroundTaskEnd;
+    NSMapTable *_requesterToBackgroundTask;
 }
 
-+ (void)setUsePersistentConnection:(BOOL)arg1;
++ (void)setUsePersistentConnection:(_Bool)arg1;
 + (id)sharedManager;
+@property(copy, nonatomic) id backgroundTaskEnd; // @synthesize backgroundTaskEnd=_backgroundTaskEnd;
+@property(copy, nonatomic) id backgroundTaskStart; // @synthesize backgroundTaskStart=_backgroundTaskStart;
 - (id)_usageURL;
 - (void)_updateTimerFired:(id)arg1;
 - (void)_scheduleUpdateTimer;
 - (void)_cleanupTimer;
+- (void)requester:(id)arg1 didFailWithError:(id)arg2;
+- (void)requesterDidCancel:(id)arg1;
+- (void)requesterDidFinish:(id)arg1;
 - (void)_sendUsageToServer;
+- (void)_endBackgroundTaskForRequester:(id)arg1;
+- (void)_startBackgroundTaskForRequester:(id)arg1;
 - (void)_applicationActivating;
 - (void)_applicationDeactivating;
 - (void)captureMapsUsageFeedbackCollection:(id)arg1;
@@ -30,7 +43,8 @@
 - (void)captureDirectionsFeedbackCollection:(id)arg1;
 - (void)captureUsageDataForTiles:(id)arg1;
 - (void)captureUsageDataForRequest:(id)arg1 service:(int)arg2;
-- (BOOL)shouldIgnoreCollectionForCountry;
+- (_Bool)shouldIgnoreCollectionForCountry;
+- (void)_prepareRequest;
 - (void)_cleanupRequester;
 - (void)dealloc;
 - (id)init;

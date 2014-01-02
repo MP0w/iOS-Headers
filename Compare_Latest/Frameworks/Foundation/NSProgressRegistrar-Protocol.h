@@ -7,10 +7,9 @@
 @protocol NSProgressRegistrar
 - (oneway void)removeSubscriberForID:(id)arg1;
 - (oneway void)addSubscriber:(id)arg1 forID:(id)arg2 appBundleID:(id)arg3 fileURL:(id)arg4;
-- (oneway void)addSubscriber:(id)arg1 forID:(id)arg2 appBundleID:(id)arg3;
 - (oneway void)addSubscriber:(id)arg1 forID:(id)arg2 appBundleID:(id)arg3 category:(id)arg4;
 - (oneway void)removePublisherForID:(id)arg1;
-- (oneway void)observePublisherForID:(id)arg1 value:(id)arg2 forKey:(id)arg3 inUserInfo:(BOOL)arg4;
-- (oneway void)addPublisher:(id)arg1 forID:(id)arg2 appBundleID:(id)arg3 acknowledgementAppBundleIDs:(id)arg4 category:(id)arg5 isGeneral:(BOOL)arg6 fileURL:(id)arg7;
+- (oneway void)observePublisherForID:(id)arg1 value:(id)arg2 forKey:(id)arg3 inUserInfo:(_Bool)arg4;
+- (oneway void)addPublisher:(id)arg1 forID:(id)arg2 acknowledgementAppBundleIDs:(id)arg3 category:(id)arg4 fileURL:(id)arg5;
 @end
 

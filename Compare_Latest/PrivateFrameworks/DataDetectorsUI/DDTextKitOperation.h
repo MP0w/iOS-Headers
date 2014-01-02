@@ -8,6 +8,7 @@
 
 @class UITextView;
 
+// Not exported
 @interface DDTextKitOperation : DDOperation
 {
     struct _NSRange _range;
@@ -17,11 +18,11 @@
 @property struct _NSRange range; // @synthesize range=_range;
 - (id)newOperationForContinuation;
 - (id)newOperationForStartingOver;
-- (BOOL)needsToStartOver;
-- (BOOL)doURLificationOnDocument;
-- (BOOL)_addResultsToAttributes;
+- (_Bool)needsToStartOver;
+- (_Bool)doURLificationOnDocument;
+- (_Bool)_addResultsToAttributes;
 - (struct __DDScanQuery *)_createScanQueryForBackend;
-- (BOOL)_rangeValidForContainer;
+- (_Bool)_rangeValidForContainer;
 - (void)_updateGenerationNumber;
 - (void)textDidChange:(id)arg1;
 - (void)cleanup;

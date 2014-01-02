@@ -6,20 +6,17 @@
 
 #import <VectorKit/VGLProgram.h>
 
+// Not exported
 @interface VGLShieldProgram : VGLProgram
 {
     int _uTextureSampler;
     int _textureSampler;
     int _uFadeTime;
     float _fadeTime;
-    int _uParallaxNormal;
-    Vec2Imp_1782d7e3 _parallaxNormal;
 }
 
 + (id)fragName;
 + (id)vertName;
-- (id).cxx_construct;
-@property(nonatomic) Vec2Imp_1782d7e3 parallaxNormal;
 @property(nonatomic) float fadeTime;
 @property(nonatomic) int textureSampler;
 - (void)setup;

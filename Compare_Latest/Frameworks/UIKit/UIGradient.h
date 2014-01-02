@@ -8,15 +8,15 @@
 
 @interface UIGradient : NSObject
 {
-    CDStruct_0be28830 *_values;
-    float _height;
+    CDStruct_d83abbfb *_values;
+    double _height;
     struct CGShading *_shader;
 }
 
 - (void)dealloc;
 - (void)fillRect:(struct CGRect)arg1;
 - (void)fillRect:(struct CGRect)arg1 inContext:(struct CGContext *)arg2;
-- (id)initVerticalWithValues:(CDStruct_0be28830 *)arg1;
+- (id)initVerticalWithValues:(CDStruct_d83abbfb *)arg1;
 
 @end
 

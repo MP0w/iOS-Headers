@@ -6,11 +6,12 @@
 
 #import <UIKit/UIWindow.h>
 
+// Not exported
 @interface UIClassicWindow : UIWindow
 {
 }
 
-- (BOOL)_shouldZoom;
+- (_Bool)_shouldZoom;
 - (void)_updateTransformLayerForClassicPresentation;
 
 @end

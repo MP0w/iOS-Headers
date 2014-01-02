@@ -6,6 +6,7 @@
 
 #import <OfficeImport/OCXDelayedMediaContext.h>
 
+// Not exported
 @interface OAXMovieContext : OCXDelayedMediaContext
 {
 }

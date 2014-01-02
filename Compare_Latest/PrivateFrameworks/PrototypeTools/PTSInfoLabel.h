@@ -13,16 +13,14 @@
 
 @interface PTSInfoLabel : UILabel <PTSHUDControl, _UISettingsKeyPathObserver>
 {
-    BOOL _autoEnablesForDesignMode;
+    int _alignment;
     _UISettings *_settings;
     NSString *_valueKeyPath;
-    int _alignment;
 }
 
 + (id)infoLabelForSettings:(id)arg1 valueKeyPath:(id)arg2;
 + (id)infoLabel;
 + (struct CGRect)defaultFrame;
-@property(nonatomic) BOOL autoEnablesForDesignMode; // @synthesize autoEnablesForDesignMode=_autoEnablesForDesignMode;
 @property(nonatomic) int alignment; // @synthesize alignment=_alignment;
 @property(copy, nonatomic) NSString *valueKeyPath; // @synthesize valueKeyPath=_valueKeyPath;
 @property(nonatomic) __weak _UISettings *settings; // @synthesize settings=_settings;
@@ -34,7 +32,7 @@
 - (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties
-@property(nonatomic) BOOL enabled;
+@property(nonatomic) _Bool enabled;
 
 @end
 

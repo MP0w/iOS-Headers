@@ -14,33 +14,32 @@
 {
 }
 
-+ (id)_nodeFromJSWrapper:(struct OpaqueJSValue *)arg1;
-- (BOOL)dispatchEvent:(id)arg1;
-- (void)removeEventListener:(id)arg1:(id)arg2:(BOOL)arg3;
-- (void)removeEventListener:(id)arg1 listener:(id)arg2 useCapture:(BOOL)arg3;
-- (void)addEventListener:(id)arg1:(id)arg2:(BOOL)arg3;
-- (void)addEventListener:(id)arg1 listener:(id)arg2 useCapture:(BOOL)arg3;
+- (_Bool)dispatchEvent:(id)arg1;
+- (void)removeEventListener:(id)arg1:(id)arg2:(_Bool)arg3;
+- (void)removeEventListener:(id)arg1 listener:(id)arg2 useCapture:(_Bool)arg3;
+- (void)addEventListener:(id)arg1:(id)arg2:(_Bool)arg3;
+- (void)addEventListener:(id)arg1 listener:(id)arg2 useCapture:(_Bool)arg3;
 - (void)inspect;
-- (BOOL)contains:(id)arg1;
+- (_Bool)contains:(id)arg1;
 - (unsigned short)compareDocumentPosition:(id)arg1;
 - (id)lookupNamespaceURI:(id)arg1;
-- (BOOL)isDefaultNamespace:(id)arg1;
+- (_Bool)isDefaultNamespace:(id)arg1;
 - (id)lookupPrefix:(id)arg1;
-- (BOOL)isEqualNode:(id)arg1;
-- (BOOL)isSameNode:(id)arg1;
-- (BOOL)hasAttributes;
-- (BOOL)isSupported:(id)arg1:(id)arg2;
-- (BOOL)isSupported:(id)arg1 version:(id)arg2;
+- (_Bool)isEqualNode:(id)arg1;
+- (_Bool)isSameNode:(id)arg1;
+- (_Bool)hasAttributes;
+- (_Bool)isSupported:(id)arg1:(id)arg2;
+- (_Bool)isSupported:(id)arg1 version:(id)arg2;
 - (void)normalize;
-- (id)cloneNode:(BOOL)arg1;
-- (BOOL)hasChildNodes;
+- (id)cloneNode:(_Bool)arg1;
+- (_Bool)hasChildNodes;
 - (id)appendChild:(id)arg1;
 - (id)removeChild:(id)arg1;
 - (id)replaceChild:(id)arg1:(id)arg2;
 - (id)replaceChild:(id)arg1 oldChild:(id)arg2;
 - (id)insertBefore:(id)arg1:(id)arg2;
 - (id)insertBefore:(id)arg1 refChild:(id)arg2;
-@property(readonly) BOOL isContentEditable;
+@property(readonly) _Bool isContentEditable;
 @property(readonly) DOMElement *parentElement;
 @property(copy) NSString *textContent;
 @property(readonly) NSString *baseURI;
@@ -60,34 +59,6 @@
 @property(readonly) NSString *nodeName;
 - (void)finalize;
 - (void)dealloc;
-- (struct RootObject *)_rootObject;
-- (id)description;
-- (id)previousFocusNode;
-- (id)nextFocusNode;
-- (float)computedFontSize;
-- (struct _WKQuad)innerFrameQuad;
-- (struct CGRect)boundingFrame;
-- (id)hrefTitle;
-- (id)hrefLabel;
-- (struct CGRect)hrefFrame;
-- (id)hrefTarget;
-- (id)hrefURL;
-- (struct Element *)_linkElement;
-- (id)lineBoxQuads;
-- (struct CGRect)boundingBoxUsingTransforms;
-- (struct _WKQuad)absoluteQuadAndInsideFixedPosition:(char *)arg1;
-- (struct _WKQuad)absoluteQuad;
-- (id)lineBoxRects;
-- (struct CGRect)boundingBox;
-- (id)textRects;
-- (id)findExplodedTextNodeAtPoint:(struct CGPoint)arg1;
-- (float)textHeight;
-- (id)rangeOfContainingParagraph;
-- (BOOL)isSelectableBlock;
-- (BOOL)containsOnlyInlineObjects;
-- (id)borderRadii;
-- (id)absoluteQuads;
-- (id)boundingBoxes;
 
 @end
 

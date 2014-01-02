@@ -8,6 +8,7 @@
 
 #import "GQDNameMappable-Protocol.h"
 
+// Not exported
 @interface GQDWPLineSpacing : NSObject <GQDNameMappable>
 {
     int mMode;
@@ -18,7 +19,6 @@
 - (float)amount;
 - (int)mode;
 - (id)init;
-- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1 processor:(id)arg2;
 
 @end
 

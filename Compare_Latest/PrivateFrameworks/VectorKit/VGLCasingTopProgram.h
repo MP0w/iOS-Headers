@@ -4,9 +4,10 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <VectorKit/VGLRealisticFadeProgram.h>
+#import <VectorKit/VGLRealisticProgram.h>
 
-@interface VGLCasingTopProgram : VGLRealisticFadeProgram
+// Not exported
+@interface VGLCasingTopProgram : VGLRealisticProgram
 {
     struct _VGLColor _color;
     int _uColor;

@@ -11,6 +11,7 @@
 
 @class VKCamera, VKDispatch, VKLayoutContext, VKScene, VKTimer, VKWorld;
 
+// Not exported
 @interface VKImageCanvas : VGLImageCanvas <VKWorldDelegate, VKAnimationRunner>
 {
     VKWorld *_world;
@@ -19,10 +20,10 @@
     VKLayoutContext *_layoutContext;
     VKDispatch *_dispatch;
     VKTimer *_layoutTimer;
-    BOOL _shouldDrawWhileLoading;
+    _Bool _shouldDrawWhileLoading;
     double _frameTimestamp;
-    BOOL _needsLayout;
-    BOOL _needsDisplay;
+    _Bool _needsLayout;
+    _Bool _needsDisplay;
 }
 
 + (Class)contextClass;
@@ -39,8 +40,8 @@
 - (void)_spinScene:(id)arg1;
 - (void)setSize:(struct CGSize)arg1;
 - (void)dealloc;
-- (id)initWithSize:(struct CGSize)arg1 scale:(float)arg2 context:(id)arg3 homeQueue:(id)arg4;
-- (id)initWithSize:(struct CGSize)arg1 scale:(float)arg2 context:(id)arg3;
+- (id)initWithSize:(struct CGSize)arg1 scale:(double)arg2 context:(id)arg3 homeQueue:(id)arg4;
+- (id)initWithSize:(struct CGSize)arg1 scale:(double)arg2 context:(id)arg3;
 
 @end
 

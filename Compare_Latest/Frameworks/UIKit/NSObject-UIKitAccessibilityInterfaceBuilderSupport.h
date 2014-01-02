@@ -7,8 +7,8 @@
 #import "NSObject.h"
 
 @interface NSObject (UIKitAccessibilityInterfaceBuilderSupport)
-- (BOOL)isElementAccessibilityExposedToInterfaceBuilder;
-- (BOOL)isAccessibilityElementByDefault;
+- (_Bool)isElementAccessibilityExposedToInterfaceBuilder;
+- (_Bool)isAccessibilityElementByDefault;
 - (unsigned long long)defaultAccessibilityTraits;
 @end
 

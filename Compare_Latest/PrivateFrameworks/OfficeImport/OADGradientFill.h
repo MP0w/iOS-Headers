@@ -8,42 +8,43 @@
 
 @class NSMutableArray, OADRelativeRect, OADShade;
 
+// Not exported
 @interface OADGradientFill : OADFill
 {
     NSMutableArray *mStops;
-    BOOL mAreStopsOverridden;
+    _Bool mAreStopsOverridden;
     OADRelativeRect *mTileRect;
-    BOOL mIsTileRectOverridden;
+    _Bool mIsTileRectOverridden;
     int mFlipMode;
-    BOOL mIsFlipModeOverridden;
-    BOOL mRotateWithShape;
-    BOOL mIsRotateWithShapeOverridden;
+    _Bool mIsFlipModeOverridden;
+    _Bool mRotateWithShape;
+    _Bool mIsRotateWithShapeOverridden;
     OADShade *mShade;
-    BOOL mIsShadeOverridden;
+    _Bool mIsShadeOverridden;
 }
 
 + (id)defaultProperties;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)setStyleColor:(id)arg1;
-- (BOOL)isShadeOverridden;
+- (_Bool)isShadeOverridden;
 - (void)setShade:(id)arg1;
 - (id)shade;
-- (BOOL)isRotateWithShapeOverridden;
-- (void)setRotateWithShape:(BOOL)arg1;
-- (BOOL)rotateWithShape;
-- (BOOL)isFlipModeOverridden;
+- (_Bool)isRotateWithShapeOverridden;
+- (void)setRotateWithShape:(_Bool)arg1;
+- (_Bool)rotateWithShape;
+- (_Bool)isFlipModeOverridden;
 - (void)setFlipMode:(int)arg1;
 - (int)flipMode;
-- (BOOL)isTileRectOverridden;
+- (_Bool)isTileRectOverridden;
 - (void)setTileRect:(id)arg1;
 - (id)tileRect;
 - (void)addStopColor:(id)arg1 position:(float)arg2;
-- (float)stopPositionAtIndex:(unsigned int)arg1;
-- (id)stopColorAtIndex:(unsigned int)arg1;
-- (unsigned int)stopCount;
+- (float)stopPositionAtIndex:(unsigned long long)arg1;
+- (id)stopColorAtIndex:(unsigned long long)arg1;
+- (unsigned long long)stopCount;
 - (void)clearStops;
-- (BOOL)areStopsOverridden;
+- (_Bool)areStopsOverridden;
 - (void)setStops:(id)arg1;
 - (id)stops;
 - (void)setParent:(id)arg1;

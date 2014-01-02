@@ -14,20 +14,17 @@
 }
 
 + (id)generateDurationFromICSString:(id)arg1;
-+ (id)durationFromICSString:(id)arg1;
-+ (id)durationFromRFC2445UTF8String:(const char *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (id)ICSStringWithOptions:(unsigned int)arg1;
-- (BOOL)isNegative;
-- (int)seconds;
-- (int)minutes;
-- (int)hours;
-- (int)days;
-- (int)weeks;
+- (id)ICSStringWithOptions:(unsigned long long)arg1;
+- (_Bool)isNegative;
+- (long long)seconds;
+- (long long)minutes;
+- (long long)hours;
+- (long long)days;
+- (long long)weeks;
 - (double)timeInterval;
-- (id)initWithWeeks:(int)arg1 days:(int)arg2 hours:(int)arg3 minutes:(int)arg4 seconds:(int)arg5;
-- (void)_ICSStringWithOptions:(unsigned int)arg1 appendingToString:(id)arg2;
+- (id)initWithWeeks:(long long)arg1 days:(long long)arg2 hours:(long long)arg3 minutes:(long long)arg4 seconds:(long long)arg5;
 
 @end
 

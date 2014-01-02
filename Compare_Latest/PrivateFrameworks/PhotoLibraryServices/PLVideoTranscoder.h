@@ -10,9 +10,8 @@
 {
 }
 
-+ (id)generatePosterFrameForVideoAtURL:(id)arg1 error:(id *)arg2;
-+ (void)transcodeVideo:(id)arg1 outputURL:(id)arg2 startTime:(CDStruct_198678f7)arg3 endTime:(CDStruct_198678f7)arg4 presetName:(id)arg5 outputFileType:(id)arg6 completionHandler:(id)arg7;
-+ (void)transcodeVideoURL:(id)arg1 outputURL:(id)arg2 presetName:(id)arg3 outputFileType:(id)arg4 completionHandler:(id)arg5;
++ (id)generatePosterFrameForVideoAtURL:(id)arg1 maxSize:(struct CGSize)arg2 error:(id *)arg3;
++ (void)transcodeVideo:(id)arg1 outputURL:(id)arg2 startTime:(CDStruct_198678f7)arg3 endTime:(CDStruct_198678f7)arg4 presetName:(id)arg5 outputFileType:(id)arg6 audioMix:(id)arg7 completionHandler:(id)arg8;
 + (id)exportPresetsCompatibleWithVideoAtURL:(id)arg1;
 
 @end

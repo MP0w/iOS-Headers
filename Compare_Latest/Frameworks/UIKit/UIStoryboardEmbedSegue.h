@@ -8,6 +8,7 @@
 
 @class UIView;
 
+// Not exported
 @interface UIStoryboardEmbedSegue : UIStoryboardSegue
 {
     UIView *_containerView;

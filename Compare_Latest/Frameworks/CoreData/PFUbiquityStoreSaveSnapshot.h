@@ -8,6 +8,7 @@
 
 @class NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSNumber, NSString, PFUbiquityGlobalObjectIDCache, PFUbiquityKnowledgeVector;
 
+// Not exported
 @interface PFUbiquityStoreSaveSnapshot : NSObject
 {
     NSMutableArray *_entityNames;
@@ -65,6 +66,7 @@
 - (void)setTransactionNumber:(id)arg1 peerStates:(id)arg2 andPeerIDs:(id)arg3;
 - (id)transactionNumberFromPeerStates:(id)arg1;
 - (id)createKnowledgeVectorFromPeerStates;
+- (void)resetFromOptimisticLockingException;
 - (void)generatePeerStates;
 - (void)reserveTransactionNumberWithStoreExportContext:(id)arg1;
 - (id)addManagedObject:(id)arg1 withTransactionType:(int)arg2 andStoreExportContext:(id)arg3 withError:(id *)arg4;

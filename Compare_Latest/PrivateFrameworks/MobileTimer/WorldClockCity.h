@@ -20,7 +20,7 @@
     NSString *_unlocalizedCountryName;
 }
 
-+ (BOOL)isWorldClockCityProperties:(id)arg1;
++ (_Bool)isWorldClockCityProperties:(id)arg1;
 @property(retain, nonatomic) City *weatherCity; // @synthesize weatherCity=_weatherCity;
 @property(readonly, nonatomic) ALCity *alCity; // @synthesize alCity=_alCity;
 @property(readonly, nonatomic) NSURL *idUrl;
@@ -32,8 +32,8 @@
 @property(readonly, nonatomic) NSString *timeZone;
 @property(readonly, nonatomic) NSNumber *alCityId;
 @property(readonly, nonatomic) NSDictionary *properties;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (void)dealloc;
 - (id)initWithProperties:(id)arg1;

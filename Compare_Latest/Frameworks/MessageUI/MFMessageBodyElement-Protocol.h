@@ -11,6 +11,6 @@
 @protocol MFMessageBodyElement <MFMessageBodyConsumableInnerTextNode>
 @property(retain, nonatomic) NSArray *nodes;
 - (int)valueForAttributes:(int)arg1;
-- (unsigned int)quoteLevel;
+- (unsigned long long)quoteLevel;
 @end
 

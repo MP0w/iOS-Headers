@@ -10,12 +10,13 @@
 
 @class CHDChart, CHDChartType, CHDData, CHDDataLabel, CHDDataValue, CHDErrorBar, CHDFormula, EDCollection, EDKeyedCollection, OADGraphicProperties;
 
+// Not exported
 @interface CHDSeries : NSObject <EDKeyedObject>
 {
     CHDChart *mChart;
     CHDChartType *mChartType;
-    unsigned int mOrder;
-    unsigned int mStyleIndex;
+    unsigned long long mOrder;
+    unsigned long long mStyleIndex;
     CHDFormula *mName;
     CHDDataValue *mLastCachedName;
     CHDData *mValueData;
@@ -32,7 +33,7 @@
 
 + (id)seriesWithChart:(id)arg1;
 - (_Bool)isEmpty;
-- (id)defaultSeriesNameForIndex:(unsigned int)arg1;
+- (id)defaultSeriesNameForIndex:(unsigned long long)arg1;
 - (void)setHiddenFlag:(_Bool)arg1;
 - (_Bool)isHidden;
 - (_Bool)isDateTimeFormattingFlag;
@@ -52,7 +53,7 @@
 - (id)trendlineCollection;
 - (void)setDataValuePropertiesCollection:(id)arg1;
 - (id)dataValuePropertiesCollection;
-- (unsigned int)categoryCount;
+- (unsigned long long)categoryCount;
 - (void)setCategoryData:(id)arg1;
 - (id)categoryData;
 - (void)setValueData:(id)arg1;
@@ -61,11 +62,11 @@
 - (id)name;
 - (void)setLastCachedName:(id)arg1;
 - (id)lastCachedName;
-- (void)setStyleIndex:(unsigned int)arg1;
-- (unsigned int)styleIndex;
-- (void)setOrder:(unsigned int)arg1;
-- (unsigned int)order;
-- (int)key;
+- (void)setStyleIndex:(unsigned long long)arg1;
+- (unsigned long long)styleIndex;
+- (void)setOrder:(unsigned long long)arg1;
+- (unsigned long long)order;
+- (long long)key;
 - (void)setChartType:(id)arg1;
 - (id)chart;
 - (id)chartType;

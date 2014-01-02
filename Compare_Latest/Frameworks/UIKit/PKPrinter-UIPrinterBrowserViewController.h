@@ -7,6 +7,6 @@
 #import "PKPrinter.h"
 
 @interface PKPrinter (UIPrinterBrowserViewController)
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 @end
 

@@ -8,16 +8,17 @@
 
 @class NSArray, NSMapTable, NSMutableArray, UIImageView, UIPanGestureRecognizer, UIResponder, UIScrollView, UIWindow;
 
+// Not exported
 @interface _UIResponderSelectionCursor : NSObject
 {
     UIImageView *_responderSelectionView;
     struct CGPoint _responderSelectionStartLocation;
     UIPanGestureRecognizer *_panResponderSelectionRecognizer;
     NSArray *_remoteGestures;
-    BOOL _isFlick;
+    _Bool _isFlick;
     double _timeOnTouchDown;
-    float _consecutiveWithinRowAccumulator;
-    BOOL _isKeepingCompetitiveFarDiagonalResiduals;
+    double _consecutiveWithinRowAccumulator;
+    _Bool _isKeepingCompetitiveFarDiagonalResiduals;
     UIResponder *_selectedItemOnTouchDown;
     NSMutableArray *_selectableItems;
     UIScrollView *_scrollingScrollView;
@@ -25,7 +26,7 @@
     struct CGPoint _activeFirstResponderScrollViewOffset;
     NSMapTable *_selectionThresholdDictionary;
     NSMapTable *_selectionAccumulationDictionary;
-    BOOL _dirtyGeometry;
+    _Bool _dirtyGeometry;
     UIWindow *_targetWindow;
     UIResponder *_mostLikelyToBeSelectedItem;
     UIScrollView *_activeFirstResponderScrollView;
@@ -35,25 +36,26 @@
 @property(retain, nonatomic) UIScrollView *activeFirstResponderScrollView; // @synthesize activeFirstResponderScrollView=_activeFirstResponderScrollView;
 @property(retain, nonatomic) UIResponder *mostLikelyToBeSelectedItem; // @synthesize mostLikelyToBeSelectedItem=_mostLikelyToBeSelectedItem;
 @property(nonatomic) UIWindow *targetWindow; // @synthesize targetWindow=_targetWindow;
+- (id)directionalGestureRecognizers;
 - (void)moveSelection:(id)arg1;
 - (void)accumulateWithDelta:(struct CGPoint)arg1 velocity:(struct CGPoint)arg2;
 - (void)panTouchUp;
 - (void)longFlick;
 - (void)panTouchDown;
-- (float)verticalSpacingFromItem:(id)arg1;
-- (float)horizontalSpacingFromItem:(id)arg1;
-- (id)itemsInDirectionOfVector:(struct CGPoint)arg1 withConeOfDegrees:(float)arg2 fromItem:(id)arg3;
+- (double)verticalSpacingFromItem:(id)arg1;
+- (double)horizontalSpacingFromItem:(id)arg1;
+- (id)itemsInDirectionOfVector:(struct CGPoint)arg1 withConeOfDegrees:(double)arg2 fromItem:(id)arg3;
 - (void)reset;
 - (void)resetIfNecessary;
 - (void)setSelectedItem:(id)arg1;
 - (void)keepSecondaryResidualsCompetitiveTo:(id)arg1;
 - (id)possibleResponders;
-- (BOOL)inSelectedRow:(id)arg1;
+- (_Bool)inSelectedRow:(id)arg1;
 - (struct CGPoint)centerForResponder:(id)arg1;
-- (void)setSelectionAccumulation:(float)arg1 forResponder:(id)arg2;
-- (float)selectionAccumulationForResponder:(id)arg1;
-- (void)setSelectionThreshold:(float)arg1 forResponder:(id)arg2;
-- (float)selectionThresholdForResponder:(id)arg1;
+- (void)setSelectionAccumulation:(double)arg1 forResponder:(id)arg2;
+- (double)selectionAccumulationForResponder:(id)arg1;
+- (void)setSelectionThreshold:(double)arg1 forResponder:(id)arg2;
+- (double)selectionThresholdForResponder:(id)arg1;
 - (void)_responderGeometryDidChange;
 - (void)moveResponderSelectionInDirection:(struct CGSize)arg1;
 - (id)respondersInDirection:(struct CGSize)arg1 inView:(id)arg2;

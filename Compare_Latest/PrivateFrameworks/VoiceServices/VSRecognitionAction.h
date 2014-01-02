@@ -21,8 +21,8 @@
 }
 
 - (void)_continueAfterDeferredStart;
-- (BOOL)sensitiveActionsEnabled;
-- (BOOL)_hasDeferredStartCallback;
+- (_Bool)sensitiveActionsEnabled;
+- (_Bool)_hasDeferredStartCallback;
 - (void)completeWithNextAction:(id)arg1 error:(id)arg2;
 - (id)cancel;
 - (id)perform;

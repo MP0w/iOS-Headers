@@ -6,25 +6,26 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface EDLinkReference : NSObject
 {
-    unsigned int mLinkIndex;
-    unsigned int mFirstSheetIndex;
-    unsigned int mLastSheetIndex;
+    unsigned long long mLinkIndex;
+    unsigned long long mFirstSheetIndex;
+    unsigned long long mLastSheetIndex;
 }
 
-+ (id)linkReferenceWithLinkIndex:(unsigned int)arg1 firstSheetIndex:(unsigned int)arg2 lastSheetIndex:(unsigned int)arg3;
++ (id)linkReferenceWithLinkIndex:(unsigned long long)arg1 firstSheetIndex:(unsigned long long)arg2 lastSheetIndex:(unsigned long long)arg3;
 - (_Bool)isWorkbookLevelReference;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isEqualToLinkReference:(id)arg1;
-- (void)setLinkIndex:(unsigned int)arg1;
-- (unsigned int)linkIndex;
-- (void)setLastSheetIndex:(unsigned int)arg1;
-- (unsigned int)lastSheetIndex;
-- (void)setFirstSheetIndex:(unsigned int)arg1;
-- (unsigned int)firstSheetIndex;
-- (id)initWithLinkIndex:(unsigned int)arg1 firstSheetIndex:(unsigned int)arg2 lastSheetIndex:(unsigned int)arg3;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)isEqualToLinkReference:(id)arg1;
+- (void)setLinkIndex:(unsigned long long)arg1;
+- (unsigned long long)linkIndex;
+- (void)setLastSheetIndex:(unsigned long long)arg1;
+- (unsigned long long)lastSheetIndex;
+- (void)setFirstSheetIndex:(unsigned long long)arg1;
+- (unsigned long long)firstSheetIndex;
+- (id)initWithLinkIndex:(unsigned long long)arg1 firstSheetIndex:(unsigned long long)arg2 lastSheetIndex:(unsigned long long)arg3;
 - (id)init;
 
 @end

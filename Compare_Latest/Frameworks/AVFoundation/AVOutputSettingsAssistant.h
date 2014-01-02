@@ -14,6 +14,10 @@
 }
 
 + (id)outputSettingsAssistantWithPreset:(id)arg1;
++ (id)availableOutputSettingsPresets;
++ (id)_allOutputSettingsPresets;
+- (void)setSourceVideoMinFrameDuration:(CDStruct_1b6d18a9)arg1;
+- (CDStruct_1b6d18a9)sourceVideoMinFrameDuration;
 - (void)setSourceVideoAverageFrameDuration:(CDStruct_1b6d18a9)arg1;
 - (CDStruct_1b6d18a9)sourceVideoAverageFrameDuration;
 - (void)setSourceVideoFormat:(struct opaqueCMFormatDescription *)arg1;
@@ -25,7 +29,8 @@
 @property(readonly, nonatomic) NSString *outputFileType;
 - (void)finalize;
 - (void)dealloc;
-- (id)initWithHelper:(id)arg1;
+- (id)initWithPreset:(id)arg1;
+- (id)init;
 
 @end
 

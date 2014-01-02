@@ -10,6 +10,7 @@
 
 @class CIImage, CIVector;
 
+// Not exported
 @interface CICrop : CIFilter <_CIFilterProperties>
 {
     CIImage *inputImage;

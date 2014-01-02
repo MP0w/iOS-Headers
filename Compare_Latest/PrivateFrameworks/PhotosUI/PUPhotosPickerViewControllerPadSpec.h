@@ -12,8 +12,8 @@
 
 - (void)configureSessionInfo:(id)arg1;
 - (id)tabbedLibraryViewControllerSpec;
-- (unsigned int)bannerViewStyle;
-- (unsigned int)supportedInterfaceOrientations;
+- (unsigned long long)bannerViewStyle;
+- (unsigned long long)supportedInterfaceOrientations;
 
 @end
 

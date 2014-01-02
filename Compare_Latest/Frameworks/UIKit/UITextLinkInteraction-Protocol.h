@@ -5,14 +5,14 @@
  */
 
 @protocol UITextLinkInteraction
-- (BOOL)willInteractWithLinkAtPoint:(struct CGPoint)arg1;
+- (_Bool)willInteractWithLinkAtPoint:(struct CGPoint)arg1;
 - (void)startLongInteractionWithLinkAtPoint:(struct CGPoint)arg1;
 - (void)cancelInteractionWithLink;
 - (void)validateInteractionWithLinkAtPoint:(struct CGPoint)arg1;
 - (void)updateInteractionWithLinkAtPoint:(struct CGPoint)arg1;
 - (void)startInteractionWithLinkAtPoint:(struct CGPoint)arg1;
-- (BOOL)isInteractingWithLink;
+- (_Bool)isInteractingWithLink;
 - (void)tapLinkAtPoint:(struct CGPoint)arg1;
-- (BOOL)mightHaveLinks;
+- (_Bool)mightHaveLinks;
 @end
 

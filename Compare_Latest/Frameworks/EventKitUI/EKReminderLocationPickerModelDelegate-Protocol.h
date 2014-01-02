@@ -9,7 +9,7 @@
 @protocol EKReminderLocationPickerModelDelegate <NSObject>
 - (void)locationPickerModel:(id)arg1 didEncounterError:(id)arg2;
 - (void)locationPickerModelDidChangeSelection:(id)arg1;
-- (void)locationPickerModel:(id)arg1 didUpdateMeCardItem:(int)arg2;
+- (void)locationPickerModel:(id)arg1 didUpdateMeCardItem:(long long)arg2;
 - (void)locationPickerModelDidUpdateCustomLocation:(id)arg1;
 - (void)locationPickerModelDidUpdateCurrentLocation:(id)arg1;
 @end

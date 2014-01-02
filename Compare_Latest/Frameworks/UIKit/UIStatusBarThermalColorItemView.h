@@ -6,15 +6,16 @@
 
 #import <UIKit/UIStatusBarItemView.h>
 
+// Not exported
 @interface UIStatusBarThermalColorItemView : UIStatusBarItemView
 {
     int _thermalColor;
-    BOOL _sunlightMode;
+    _Bool _sunlightMode;
 }
 
 - (id)_color;
 - (id)contentsImage;
-- (BOOL)updateForNewData:(id)arg1 actions:(int)arg2;
+- (_Bool)updateForNewData:(id)arg1 actions:(int)arg2;
 
 @end
 

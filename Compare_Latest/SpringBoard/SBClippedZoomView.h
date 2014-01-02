@@ -14,7 +14,6 @@
     UIView *_clippingView;
 }
 
-- (void)setRoundedCorners:(int)arg1 withCornersFrame:(struct CGRect)arg2;
 - (void)dealloc;
 - (id)initWithClippingFrame:(struct CGRect)arg1 fullscreenZoomView:(id)arg2;
 

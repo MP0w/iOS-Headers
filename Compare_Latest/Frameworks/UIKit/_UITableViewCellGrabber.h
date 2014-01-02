@@ -8,6 +8,7 @@
 
 @class UITableViewCell;
 
+// Not exported
 @interface _UITableViewCellGrabber : UIControl
 {
     UITableViewCell *_cell;
@@ -17,9 +18,9 @@
 + (id)grabberImage;
 - (void)cancelTrackingWithEvent:(id)arg1;
 - (void)endTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (BOOL)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (BOOL)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (BOOL)shouldTrack;
+- (_Bool)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
+- (_Bool)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
+- (_Bool)shouldTrack;
 - (void)drawRect:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 tableViewCell:(id)arg2;
 

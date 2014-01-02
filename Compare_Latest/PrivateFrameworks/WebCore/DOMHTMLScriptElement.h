@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface DOMHTMLScriptElement : DOMHTMLElement
 {
 }
@@ -16,9 +17,9 @@
 - (id)crossOrigin;
 @property(copy) NSString *type;
 @property(copy) NSString *src;
-@property BOOL defer;
-- (void)setAsync:(BOOL)arg1;
-- (BOOL)async;
+@property _Bool defer;
+- (void)setAsync:(_Bool)arg1;
+- (_Bool)async;
 @property(copy) NSString *charset;
 @property(copy) NSString *event;
 @property(copy) NSString *htmlFor;

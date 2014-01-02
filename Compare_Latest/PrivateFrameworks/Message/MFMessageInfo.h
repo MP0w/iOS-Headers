@@ -30,17 +30,17 @@
 @property(nonatomic) unsigned int dateReceivedInterval; // @synthesize dateReceivedInterval=_dateReceivedInterval;
 @property(nonatomic) unsigned int uid; // @synthesize uid=_uid;
 - (id)description;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (int)generationCompare:(id)arg1;
-- (id)initWithUid:(unsigned int)arg1 mailboxID:(unsigned int)arg2 dateReceivedInterval:(unsigned int)arg3 dateSentInterval:(unsigned int)arg4 conversationHash:(long long)arg5 read:(BOOL)arg6 knownToHaveAttachments:(BOOL)arg7 flagged:(BOOL)arg8 isVIP:(BOOL)arg9;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (long long)generationCompare:(id)arg1;
+- (id)initWithUid:(unsigned int)arg1 mailboxID:(unsigned int)arg2 dateReceivedInterval:(unsigned int)arg3 dateSentInterval:(unsigned int)arg4 conversationHash:(long long)arg5 read:(_Bool)arg6 knownToHaveAttachments:(_Bool)arg7 flagged:(_Bool)arg8 isVIP:(_Bool)arg9;
 - (id)init;
-@property(nonatomic) BOOL isVIP;
-@property(nonatomic, getter=isKnownToHaveAttachments) BOOL knownToHaveAttachments;
-@property(nonatomic) BOOL uidIsLibraryID;
-@property(nonatomic) BOOL deleted;
-@property(nonatomic) BOOL flagged;
-@property(nonatomic) BOOL read;
+@property(nonatomic) _Bool isVIP;
+@property(nonatomic, getter=isKnownToHaveAttachments) _Bool knownToHaveAttachments;
+@property(nonatomic) _Bool uidIsLibraryID;
+@property(nonatomic) _Bool deleted;
+@property(nonatomic) _Bool flagged;
+@property(nonatomic) _Bool read;
 
 @end
 

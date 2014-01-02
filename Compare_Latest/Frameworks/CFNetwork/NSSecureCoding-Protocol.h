@@ -7,6 +7,6 @@
 #import "NSCoding-Protocol.h"
 
 @protocol NSSecureCoding <NSCoding>
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @end
 

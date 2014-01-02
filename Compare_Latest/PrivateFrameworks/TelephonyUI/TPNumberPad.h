@@ -11,8 +11,10 @@
 @interface TPNumberPad : UIControl
 {
     NSMutableArray *_buttons;
+    _Bool _numberButtonsEnabled;
 }
 
+@property(nonatomic) _Bool numberButtonsEnabled; // @synthesize numberButtonsEnabled=_numberButtonsEnabled;
 - (void)buttonLongPressed:(id)arg1;
 - (void)buttonCancelled:(id)arg1;
 - (void)buttonDown:(id)arg1;
@@ -21,10 +23,10 @@
 - (void)buttonLongPressedViaGesture:(id)arg1;
 - (void)_addButton:(id)arg1;
 - (void)_layoutGrid;
-- (void)_setBackgroundAlphaOnButton:(id)arg1 alpha:(float)arg2;
-- (float)_backgroundAlphaOfButton:(id)arg1;
-@property(nonatomic) float buttonBackgroundAlpha;
-- (void)replaceButton:(id)arg1 atIndex:(unsigned int)arg2;
+- (void)_setBackgroundAlphaOnButton:(id)arg1 alpha:(double)arg2;
+- (double)_backgroundAlphaOfButton:(id)arg1;
+@property(nonatomic) double buttonBackgroundAlpha;
+- (void)replaceButton:(id)arg1 atIndex:(unsigned long long)arg2;
 @property(retain) NSArray *buttons; // @dynamic buttons;
 - (struct CGSize)intrinsicContentSize;
 - (void)dealloc;

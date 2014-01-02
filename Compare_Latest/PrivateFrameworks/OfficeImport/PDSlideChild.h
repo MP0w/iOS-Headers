@@ -8,10 +8,11 @@
 
 @class OADColorMap, OADThemeOverrides;
 
+// Not exported
 @interface PDSlideChild : PDSlideBase
 {
-    BOOL mShowMasterPlaceholderAnimations;
-    BOOL mShowMasterShapes;
+    _Bool mShowMasterPlaceholderAnimations;
+    _Bool mShowMasterShapes;
     OADThemeOverrides *mThemeOverrides;
     OADColorMap *mColorMapOverride;
 }
@@ -25,10 +26,10 @@
 - (void)setColorMapOverride:(id)arg1;
 - (id)colorMapOverride;
 - (id)themeOverrides;
-- (void)setShowMasterShapes:(BOOL)arg1;
-- (BOOL)showMasterShapes;
-- (void)setShowMasterPlaceholderAnimations:(BOOL)arg1;
-- (BOOL)showMasterPlaceholderAnimations;
+- (void)setShowMasterShapes:(_Bool)arg1;
+- (_Bool)showMasterShapes;
+- (void)setShowMasterPlaceholderAnimations:(_Bool)arg1;
+- (_Bool)showMasterPlaceholderAnimations;
 - (void)dealloc;
 - (id)init;
 

@@ -10,14 +10,14 @@
 
 @interface QLThumbnailOperation : NSOperation
 {
-    int _index;
+    long long _index;
     struct CGSize _size;
     UIImage *_image;
 }
 
 @property(retain) UIImage *image; // @synthesize image=_image;
 @property struct CGSize size; // @synthesize size=_size;
-@property int index; // @synthesize index=_index;
+@property long long index; // @synthesize index=_index;
 - (void)dealloc;
 - (id)init;
 

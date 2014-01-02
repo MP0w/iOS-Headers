@@ -28,7 +28,7 @@
 @property(readonly) NSString *username;
 @property(readonly) NSString *urlString;
 @property(retain) NSMutableDictionary *profileDictionary;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;

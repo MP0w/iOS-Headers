@@ -8,6 +8,6 @@
 
 @interface NSURL (SUAdditions)
 + (id)termsAndConditionsURL;
-- (int)storeURLType;
+- (long long)storeURLType;
 @end
 

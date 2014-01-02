@@ -7,7 +7,8 @@
 #import "NSObject-Protocol.h"
 
 @protocol BBSettingsGatewayRemoteInterface <NSObject>
-- (void)activeBehaviorOverrideTypesChanged:(unsigned int)arg1;
-- (void)behaviorOverrideStatusChanged:(int)arg1;
+- (void)behaviorOverrideStateChanged:(unsigned long long)arg1;
+- (void)activeBehaviorOverrideTypesChanged:(unsigned long long)arg1;
+- (void)behaviorOverrideStatusChanged:(long long)arg1;
 @end
 

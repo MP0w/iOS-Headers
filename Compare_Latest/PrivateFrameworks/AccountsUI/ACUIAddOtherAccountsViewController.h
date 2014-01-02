@@ -8,6 +8,7 @@
 
 #import "ACUISetupViewControllerDelegate-Protocol.h"
 
+// Not exported
 @interface ACUIAddOtherAccountsViewController : PSListController <ACUISetupViewControllerDelegate>
 {
 }

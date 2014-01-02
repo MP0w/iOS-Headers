@@ -6,6 +6,7 @@
 
 #import <ScreenReaderCore/SCRCMathExpression.h>
 
+// Not exported
 @interface SCRCMathUnderOverExpression : SCRCMathExpression
 {
     SCRCMathExpression *_under;
@@ -18,11 +19,11 @@
 @property(retain, nonatomic) SCRCMathExpression *under; // @synthesize under=_under;
 - (id)latexMathModeDescription;
 - (id)mathMLString;
-- (id)dollarCodeDescriptionWithNumberOfOuterRadicals:(unsigned int)arg1 treePosition:(id)arg2;
-- (id)speakableSegmentsWithSpeakingStyle:(int)arg1 upToDepth:(unsigned int)arg2 treePosition:(id)arg3;
-- (id)speakableDescriptionWithSpeakingStyle:(int)arg1 arePausesAllowed:(BOOL)arg2;
-- (BOOL)isRangeSubSuperscript;
-- (unsigned int)fractionLevel;
+- (id)dollarCodeDescriptionWithNumberOfOuterRadicals:(unsigned long long)arg1 treePosition:(id)arg2;
+- (id)speakableSegmentsWithSpeakingStyle:(int)arg1 upToDepth:(unsigned long long)arg2 treePosition:(id)arg3;
+- (id)speakableDescriptionWithSpeakingStyle:(int)arg1 arePausesAllowed:(_Bool)arg2;
+- (_Bool)isRangeSubSuperscript;
+- (unsigned long long)fractionLevel;
 - (id)subExpressions;
 - (id)description;
 - (void)dealloc;

@@ -7,6 +7,6 @@
 #import "UIFont.h"
 
 @interface UIFont (Camera)
-+ (id)cam_cameraFontOfSize:(float)arg1;
++ (id)cam_cameraFontOfSize:(double)arg1;
 @end
 

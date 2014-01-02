@@ -13,29 +13,29 @@
 
 @interface NSSortDescriptor : NSObject <NSSecureCoding, NSCopying>
 {
-    unsigned int _sortDescriptorFlags;
+    unsigned long long _sortDescriptorFlags;
     NSString *_key;
     SEL _selector;
     id _selectorOrBlock;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 + (id)_defaultSelectorName;
-+ (id)sortDescriptorWithKey:(id)arg1 ascending:(BOOL)arg2 comparator:(id)arg3;
-+ (id)sortDescriptorWithKey:(id)arg1 ascending:(BOOL)arg2 selector:(SEL)arg3;
-+ (id)sortDescriptorWithKey:(id)arg1 ascending:(BOOL)arg2;
++ (id)sortDescriptorWithKey:(id)arg1 ascending:(_Bool)arg2 comparator:(id)arg3;
++ (id)sortDescriptorWithKey:(id)arg1 ascending:(_Bool)arg2 selector:(SEL)arg3;
++ (id)sortDescriptorWithKey:(id)arg1 ascending:(_Bool)arg2;
 + (void)initialize;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)_isEqualToSortDescriptor:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)_isEqualToSortDescriptor:(id)arg1;
 - (id)reversedSortDescriptor;
-- (int)compareObject:(id)arg1 toObject:(id)arg2;
+- (long long)compareObject:(id)arg1 toObject:(id)arg2;
 - (id)description;
 - (id)_selectorName;
 - (void)_setSelectorName:(id)arg1;
 - (id)comparator;
 - (SEL)selector;
-- (BOOL)ascending;
-- (void)_setAscending:(BOOL)arg1;
+- (_Bool)ascending;
+- (void)_setAscending:(_Bool)arg1;
 - (id)key;
 - (void)_setKey:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -44,10 +44,9 @@
 - (void)allowEvaluation;
 - (void)encodeWithCoder:(id)arg1;
 - (void)dealloc;
-- (id)initWithKey:(id)arg1 ascending:(BOOL)arg2 comparator:(id)arg3;
-- (id)initWithKey:(id)arg1 ascending:(BOOL)arg2 selector:(SEL)arg3;
-- (id)initWithKey:(id)arg1 ascending:(BOOL)arg2;
-- (id)replacementObjectForPortCoder:(id)arg1;
+- (id)initWithKey:(id)arg1 ascending:(_Bool)arg2 comparator:(id)arg3;
+- (id)initWithKey:(id)arg1 ascending:(_Bool)arg2 selector:(SEL)arg3;
+- (id)initWithKey:(id)arg1 ascending:(_Bool)arg2;
 
 @end
 

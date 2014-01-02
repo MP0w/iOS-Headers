@@ -21,12 +21,12 @@
 - (void)hostWillPresent;
 - (void)invalidatePreferredViewSize;
 - (void)requestLaunchOfURL:(id)arg1;
-- (void)requestPresentationOfViewController:(id)arg1 presentationStyle:(int)arg2 context:(id)arg3 completion:(id)arg4;
+- (void)requestPresentationOfViewController:(id)arg1 presentationStyle:(long long)arg2 context:(id)arg3 completion:(id)arg4;
 - (void)viewDidLoad;
 - (void)requestPreferredViewSizeWithHandler:(id)arg1;
 - (void)dealloc;
-- (id)initWithWidgetIdentifier:(id)arg1 forWidgetIdiom:(int)arg2 bundlePath:(id)arg3;
-- (id)_newWidgetViewControllerWithIdentifier:(id)arg1 forWidgetIdiom:(int)arg2 bundlePath:(id)arg3;
+- (id)initWithWidgetIdentifier:(id)arg1 forWidgetIdiom:(long long)arg2 bundlePath:(id)arg3;
+- (id)_newWidgetViewControllerWithIdentifier:(id)arg1 forWidgetIdiom:(long long)arg2 bundlePath:(id)arg3;
 
 @end
 

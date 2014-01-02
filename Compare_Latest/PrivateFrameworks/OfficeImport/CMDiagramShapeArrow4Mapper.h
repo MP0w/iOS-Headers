@@ -6,6 +6,7 @@
 
 #import <OfficeImport/CMDiagramShapeMapper.h>
 
+// Not exported
 @interface CMDiagramShapeArrow4Mapper : CMDiagramShapeMapper
 {
 }

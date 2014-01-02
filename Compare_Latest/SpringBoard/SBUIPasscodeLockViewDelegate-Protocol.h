@@ -9,6 +9,7 @@
 @protocol SBUIPasscodeLockViewDelegate <NSObject>
 
 @optional
+- (void)passcodeLockViewPasscodeEnteredViaMesa:(id)arg1;
 - (void)passcodeLockViewEmergencyCallButtonPressed:(id)arg1;
 - (void)passcodeLockViewCancelButtonPressed:(id)arg1;
 - (void)passcodeLockViewPasscodeEntered:(id)arg1;

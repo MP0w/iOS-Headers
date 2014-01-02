@@ -9,17 +9,17 @@
 @interface _TRUserNotfication : NSObject
 {
     struct __CFUserNotification *_userNotification;
-    long _response;
-    unsigned long _responseFlags;
+    int _response;
+    unsigned long long _responseFlags;
 }
 
-@property(readonly, nonatomic) unsigned long responseFlags; // @synthesize responseFlags=_responseFlags;
-@property(readonly, nonatomic) long response; // @synthesize response=_response;
+@property(readonly, nonatomic) unsigned long long responseFlags; // @synthesize responseFlags=_responseFlags;
+@property(readonly, nonatomic) int response; // @synthesize response=_response;
 - (void)show;
 @property(readonly, nonatomic) struct __CFUserNotification *CFUserNotification;
 - (void)cancel;
 - (void)dealloc;
-- (id)initWithDictionary:(id)arg1 options:(unsigned long)arg2 error:(int *)arg3;
+- (id)initWithDictionary:(id)arg1 options:(unsigned long long)arg2 error:(int *)arg3;
 
 @end
 

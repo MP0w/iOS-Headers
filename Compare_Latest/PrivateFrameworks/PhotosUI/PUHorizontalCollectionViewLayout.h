@@ -13,16 +13,18 @@
     struct CGSize _contentSize;
     NSArray *_cachedItemLayoutAttributes;
     NSArray *_cachedSectionFrames;
-    int _ignoreInvalidateLayoutCounter;
-    float _interitemSpacing;
+    struct CGRect _lastRequestedRect;
+    NSArray *_lastRequestedLayoutAttributesInRect;
+    double _interitemSpacing;
     id <PUHorizontalCollectionViewLayoutDelegate> _delegate;
     struct CGSize _itemSize;
     struct UIEdgeInsets _itemsContentInset;
 }
 
++ (Class)invalidationContextClass;
 @property(nonatomic) __weak id <PUHorizontalCollectionViewLayoutDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) struct UIEdgeInsets itemsContentInset; // @synthesize itemsContentInset=_itemsContentInset;
-@property(nonatomic) float interitemSpacing; // @synthesize interitemSpacing=_interitemSpacing;
+@property(nonatomic) double interitemSpacing; // @synthesize interitemSpacing=_interitemSpacing;
 @property(nonatomic) struct CGSize itemSize; // @synthesize itemSize=_itemSize;
 - (void).cxx_destruct;
 - (id)layoutAttributesForItemAtIndexPath:(id)arg1;
@@ -30,6 +32,9 @@
 - (struct CGSize)collectionViewContentSize;
 - (void)prepareLayout;
 - (void)invalidateLayoutWithContext:(id)arg1;
+- (id)invalidationContextForBoundsChange:(struct CGRect)arg1;
+- (_Bool)shouldInvalidateLayoutForBoundsChange:(struct CGRect)arg1;
+- (_Bool)_shouldInvalidateCachedLayoutForBoundsChange:(struct CGRect)arg1;
 - (id)_layoutAttributesForItemAtIndexPath:(id)arg1;
 - (id)init;
 

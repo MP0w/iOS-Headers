@@ -14,7 +14,7 @@
     id _internal;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 - (void)multiplyByInverseOfAttitude:(id)arg1;
 @property(readonly, nonatomic) CDStruct_bf7dff04 quaternion;
 @property(readonly, nonatomic) CDStruct_afa449f9 rotationMatrix;

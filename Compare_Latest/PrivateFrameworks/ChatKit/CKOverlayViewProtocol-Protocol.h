@@ -5,7 +5,7 @@
  */
 
 @protocol CKOverlayViewProtocol
-+ (float)separatorHeight;
++ (double)separatorHeight;
 - (float)heightWithoutSeparator;
 @end
 

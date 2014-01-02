@@ -12,6 +12,7 @@
 
 + (id)getBasebandTime;
 + (id)getBasebandTimeWithAPTimestamp:(id *)arg1;
++ (id)getLTESleepManagerStats;
 + (id)fullNameFromServiceCode:(id)arg1;
 + (id)shortNameFromServiceCode:(id)arg1;
 

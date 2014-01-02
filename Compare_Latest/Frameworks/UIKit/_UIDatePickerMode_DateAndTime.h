@@ -8,14 +8,15 @@
 
 @class NSDateFormatter, NSString;
 
+// Not exported
 @interface _UIDatePickerMode_DateAndTime : _UIDatePickerMode
 {
-    BOOL _weekdayLast;
-    float _wmdWeekMonthDayWidth;
-    float _wmdHourWidth;
-    float _wmdMinuteWidth;
-    float _wmdAMPMWidth;
-    float _wmdWeekdayWidth;
+    _Bool _weekdayLast;
+    double _wmdWeekMonthDayWidth;
+    double _wmdHourWidth;
+    double _wmdMinuteWidth;
+    double _wmdAMPMWidth;
+    double _wmdWeekdayWidth;
     NSString *_weekdayFormat;
     NSString *_monthDayFormat;
     NSString *_hourFormat;
@@ -24,31 +25,31 @@
     NSDateFormatter *_weekdayFormatter;
 }
 
-+ (unsigned int)extractableCalendarUnits;
-+ (int)datePickerMode;
-- (unsigned int)nextUnitSmallerThanUnit:(unsigned int)arg1;
-- (unsigned int)nextUnitLargerThanUnit:(unsigned int)arg1;
-- (void)updateEnabledStateOfViewForRow:(int)arg1 inComponent:(int)arg2;
-- (id)viewForRow:(int)arg1 inComponent:(int)arg2 reusingView:(id)arg3;
-- (BOOL)_shouldEnableValueForRow:(int)arg1 inComponent:(int)arg2 calendarUnit:(unsigned int)arg3;
-- (BOOL)_shouldEnableWeekMonthDayForRow:(int)arg1;
-- (id)_dateForWeekMonthDayRow:(int)arg1;
-- (int)rowForDate:(id)arg1 dateComponents:(id)arg2 component:(int)arg3 currentRow:(int)arg4;
-- (id)dateForRow:(int)arg1 inCalendarUnit:(unsigned int)arg2;
-- (id)titleForRow:(int)arg1 inComponent:(int)arg2;
-- (BOOL)isWeekdayLast;
-- (float)weekdayWidth;
-- (float)widthForCalendarUnit:(unsigned int)arg1 font:(id)arg2 maxWidth:(float)arg3;
-- (float)componentWidthForDateTimeCalendarUnit:(unsigned int)arg1 font:(id)arg2 maxWidth:(float)arg3;
-- (int)numberOfRowsForCalendarUnit:(unsigned int)arg1;
++ (unsigned long long)extractableCalendarUnits;
++ (long long)datePickerMode;
+- (unsigned long long)nextUnitSmallerThanUnit:(unsigned long long)arg1;
+- (unsigned long long)nextUnitLargerThanUnit:(unsigned long long)arg1;
+- (void)updateEnabledStateOfViewForRow:(long long)arg1 inComponent:(long long)arg2;
+- (id)viewForRow:(long long)arg1 inComponent:(long long)arg2 reusingView:(id)arg3;
+- (_Bool)_shouldEnableValueForRow:(long long)arg1 inComponent:(long long)arg2 calendarUnit:(unsigned long long)arg3;
+- (_Bool)_shouldEnableWeekMonthDayForRow:(long long)arg1;
+- (id)_dateForWeekMonthDayRow:(long long)arg1;
+- (long long)rowForDate:(id)arg1 dateComponents:(id)arg2 component:(long long)arg3 currentRow:(long long)arg4;
+- (id)dateForRow:(long long)arg1 inCalendarUnit:(unsigned long long)arg2;
+- (id)titleForRow:(long long)arg1 inComponent:(long long)arg2;
+- (_Bool)isWeekdayLast;
+- (double)weekdayWidth;
+- (double)widthForCalendarUnit:(unsigned long long)arg1 font:(id)arg2 maxWidth:(double)arg3;
+- (double)componentWidthForDateTimeCalendarUnit:(unsigned long long)arg1 font:(id)arg2 maxWidth:(double)arg3;
+- (long long)numberOfRowsForCalendarUnit:(unsigned long long)arg1;
 - (id)baseDateComponents;
 - (void)_takeBaseDateComponentsFromDate:(id)arg1;
 - (void)_resetBaseDateComponentsIfNecessaryFromDate:(id)arg1;
-- (void)_updateSelectedDateComponentsWithNewValueInComponent:(int)arg1 usingSelectionBarValue:(BOOL)arg2;
-- (void)loadDate:(id)arg1 animated:(BOOL)arg2;
-- (unsigned int *)elements;
-- (int)displayedCalendarUnits;
-- (id)dateFormatForCalendarUnit:(unsigned int)arg1;
+- (void)_updateSelectedDateComponentsWithNewValueInComponent:(long long)arg1 usingSelectionBarValue:(_Bool)arg2;
+- (void)loadDate:(id)arg1 animated:(_Bool)arg2;
+- (unsigned long long *)elements;
+- (long long)displayedCalendarUnits;
+- (id)dateFormatForCalendarUnit:(unsigned long long)arg1;
 - (id)localizedFormatString;
 - (id)weekdayFormatter;
 - (id)relativeFormatter;

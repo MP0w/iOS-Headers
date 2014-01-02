@@ -6,6 +6,7 @@
 
 #import <OfficeImport/CHDLineSeries.h>
 
+// Not exported
 @interface CHDScatterSeries : CHDLineSeries
 {
 }

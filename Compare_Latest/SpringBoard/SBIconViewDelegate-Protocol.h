@@ -9,15 +9,16 @@
 @protocol SBIconViewDelegate <NSObject>
 
 @optional
-- (BOOL)iconViewDisplaysCloseBox:(id)arg1;
-- (BOOL)iconViewDisplaysBadges:(id)arg1;
+- (double)iconLabelWidth;
+- (_Bool)iconViewDisplaysCloseBox:(id)arg1;
+- (_Bool)iconViewDisplaysBadges:(id)arg1;
 - (void)iconCloseBoxTapped:(id)arg1;
-- (void)icon:(id)arg1 openFolder:(id)arg2 animated:(BOOL)arg3;
-- (BOOL)icon:(id)arg1 canReceiveGrabbedIcon:(id)arg2;
+- (void)icon:(id)arg1 openFolder:(id)arg2 animated:(_Bool)arg3;
+- (_Bool)icon:(id)arg1 canReceiveGrabbedIcon:(id)arg2;
 - (void)iconTapped:(id)arg1;
-- (BOOL)iconShouldAllowTap:(id)arg1;
-- (void)icon:(id)arg1 touchEnded:(BOOL)arg2;
-- (void)icon:(id)arg1 touchMovedWithEvent:(id)arg2;
+- (_Bool)iconShouldAllowTap:(id)arg1;
+- (void)icon:(id)arg1 touchEnded:(_Bool)arg2;
+- (void)icon:(id)arg1 touchMoved:(id)arg2;
 - (void)iconTouchBegan:(id)arg1;
 - (void)iconHandleLongPress:(id)arg1;
 @end

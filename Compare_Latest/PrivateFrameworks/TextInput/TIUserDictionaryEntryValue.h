@@ -19,11 +19,11 @@
 }
 
 + (id)valueWithEntry:(id)arg1;
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSNumber *timestamp; // @synthesize timestamp=_timestamp;
 @property(copy, nonatomic) NSString *shortcut; // @synthesize shortcut=_shortcut;
 @property(copy, nonatomic) NSString *phrase; // @synthesize phrase=_phrase;
-- (BOOL)matchesEntry:(id)arg1;
+- (_Bool)matchesEntry:(id)arg1;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

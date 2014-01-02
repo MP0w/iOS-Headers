@@ -9,7 +9,7 @@
 @protocol RUPreviewSessionObserver <NSObject>
 
 @optional
-- (void)previewSession:(id)arg1 didStopWithOptions:(int)arg2;
+- (void)previewSession:(id)arg1 didStopWithOptions:(long long)arg2 withFinalTrack:(id)arg3 didFinalTrackPlayToCompletion:(_Bool)arg4;
 - (void)previewSession:(id)arg1 didChangeFromTrack:(id)arg2 toTrack:(id)arg3;
 - (void)previewSession:(id)arg1 didBeginWithTrack:(id)arg2;
 @end

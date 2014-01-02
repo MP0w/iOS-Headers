@@ -10,6 +10,7 @@
 
 @class GQDColor, GQDRStrokePattern;
 
+// Not exported
 @interface GQDRStroke : NSObject <GQDNameMappable>
 {
     float mMiterLimit;
@@ -28,7 +29,6 @@
 - (float)width;
 - (float)miterLimit;
 - (void)dealloc;
-- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1;
 
 @end
 

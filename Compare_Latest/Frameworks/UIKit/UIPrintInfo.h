@@ -15,20 +15,20 @@
 {
     NSString *_printerID;
     NSString *_jobName;
-    int _outputType;
-    int _orientation;
-    int _duplex;
-    int _copies;
-    BOOL _scaleUp;
+    long long _outputType;
+    long long _orientation;
+    long long _duplex;
+    long long _copies;
+    _Bool _scaleUp;
 }
 
 + (id)printInfoWithDictionary:(id)arg1;
 + (id)printInfo;
-@property(nonatomic) BOOL scaleUp; // @synthesize scaleUp=_scaleUp;
-@property(nonatomic) int copies; // @synthesize copies=_copies;
-@property(nonatomic) int duplex; // @synthesize duplex=_duplex;
-@property(nonatomic) int orientation; // @synthesize orientation=_orientation;
-@property(nonatomic) int outputType; // @synthesize outputType=_outputType;
+@property(nonatomic) _Bool scaleUp; // @synthesize scaleUp=_scaleUp;
+@property(nonatomic) long long copies; // @synthesize copies=_copies;
+@property(nonatomic) long long duplex; // @synthesize duplex=_duplex;
+@property(nonatomic) long long orientation; // @synthesize orientation=_orientation;
+@property(nonatomic) long long outputType; // @synthesize outputType=_outputType;
 @property(copy, nonatomic) NSString *jobName; // @synthesize jobName=_jobName;
 @property(copy, nonatomic) NSString *printerID; // @synthesize printerID=_printerID;
 - (void)dealloc;

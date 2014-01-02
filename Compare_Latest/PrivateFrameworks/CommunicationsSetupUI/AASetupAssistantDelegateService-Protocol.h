@@ -11,13 +11,13 @@
 
 @optional
 - (void)completeEnablingCloudServicesWithHandler:(id)arg1;
-- (void)setBackupEnabled:(BOOL)arg1 handler:(id)arg2;
-- (void)setDeviceLocatorEnabled:(BOOL)arg1;
-- (void)setCloudServicesEnabled:(BOOL)arg1 handler:(id)arg2;
+- (void)setBackupEnabled:(_Bool)arg1 handler:(id)arg2;
+- (void)setDeviceLocatorEnabled:(_Bool)arg1;
+- (void)setCloudServicesEnabled:(_Bool)arg1 handler:(id)arg2;
 - (void)verifyAccountWithAppleID:(id)arg1 handler:(id)arg2;
 - (void)setupMailAccount:(id)arg1 password:(id)arg2 handler:(id)arg3;
-- (BOOL)needSetupForMailAccount:(id)arg1;
-- (BOOL)canAutoSetupMailAccount:(id)arg1;
+- (_Bool)needSetupForMailAccount:(id)arg1;
+- (_Bool)canAutoSetupMailAccount:(id)arg1;
 - (void)setupOperationFailed;
 @end
 

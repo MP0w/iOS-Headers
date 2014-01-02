@@ -16,20 +16,20 @@
 {
     NSSet *_applicationStates;
     float _batteryLevel;
-    int _cellularDataStates;
+    long long _cellularDataStates;
     long long _downloadSizeLimit;
     NSSet *_networkTypes;
-    int _powerStates;
-    int _registrationStates;
-    int _timeLimitStates;
+    long long _powerStates;
+    long long _registrationStates;
+    long long _timeLimitStates;
 }
 
-@property(nonatomic) int timeLimitStates; // @synthesize timeLimitStates=_timeLimitStates;
-@property(nonatomic) int registrationStates; // @synthesize registrationStates=_registrationStates;
-@property(nonatomic) int powerStates; // @synthesize powerStates=_powerStates;
+@property(nonatomic) long long timeLimitStates; // @synthesize timeLimitStates=_timeLimitStates;
+@property(nonatomic) long long registrationStates; // @synthesize registrationStates=_registrationStates;
+@property(nonatomic) long long powerStates; // @synthesize powerStates=_powerStates;
 @property(copy, nonatomic) NSSet *networkTypes; // @synthesize networkTypes=_networkTypes;
 @property(nonatomic) long long downloadSizeLimit; // @synthesize downloadSizeLimit=_downloadSizeLimit;
-@property(nonatomic) int cellularDataStates; // @synthesize cellularDataStates=_cellularDataStates;
+@property(nonatomic) long long cellularDataStates; // @synthesize cellularDataStates=_cellularDataStates;
 @property(nonatomic) float batteryLevel; // @synthesize batteryLevel=_batteryLevel;
 @property(copy, nonatomic) NSSet *applicationStates; // @synthesize applicationStates=_applicationStates;
 - (id)initWithXPCEncoding:(id)arg1;
@@ -37,12 +37,12 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)unionPolicyRule:(id)arg1;
-@property(readonly, nonatomic, getter=isWiFiAllowed) BOOL wiFiAllowed;
-@property(readonly, nonatomic, getter=isCellularAllowed) BOOL cellularAllowed;
-- (void)addNetworkType:(int)arg1;
+@property(readonly, nonatomic, getter=isWiFiAllowed) _Bool wiFiAllowed;
+@property(readonly, nonatomic, getter=isCellularAllowed) _Bool cellularAllowed;
+- (void)addNetworkType:(long long)arg1;
 - (void)addApplicationState:(id)arg1;
 - (void)dealloc;
 - (id)init;

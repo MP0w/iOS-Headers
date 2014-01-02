@@ -10,9 +10,9 @@
 {
 }
 
-- (BOOL)allowsInterfaceRotation;
-- (BOOL)embedsActivityViewForOrientation:(int)arg1;
-- (float)interItemSpacing;
+- (_Bool)allowsInterfaceRotation;
+- (_Bool)embedsActivityViewForOrientation:(long long)arg1;
+- (double)interItemSpacing;
 - (int)zoomingImageFormat;
 - (int)qualityImageFormat;
 - (int)fastImageFormat;

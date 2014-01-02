@@ -17,7 +17,7 @@
     struct CPPDFStyle *highlightedStyle;
 }
 
-+ (BOOL)reconstructHighlightFor:(id)arg1;
++ (_Bool)reconstructHighlightFor:(id)arg1;
 @property(nonatomic) struct CPPDFStyle *highlightedStyle; // @synthesize highlightedStyle;
 @property(nonatomic) struct CPPDFStyle *style; // @synthesize style;
 @property(readonly, nonatomic) struct CGColor *color; // @synthesize color;

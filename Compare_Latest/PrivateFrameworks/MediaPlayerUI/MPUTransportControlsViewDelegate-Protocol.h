@@ -9,9 +9,9 @@
 @protocol MPUTransportControlsViewDelegate <NSObject>
 
 @optional
-- (void)transportControlsView:(id)arg1 tapOnAccessoryButtonType:(int)arg2;
-- (void)transportControlsView:(id)arg1 longPressEndOnControlType:(int)arg2;
-- (void)transportControlsView:(id)arg1 longPressBeginOnControlType:(int)arg2;
-- (void)transportControlsView:(id)arg1 tapOnControlType:(int)arg2;
+- (void)transportControlsView:(id)arg1 tapOnAccessoryButtonType:(long long)arg2;
+- (void)transportControlsView:(id)arg1 longPressEndOnControlType:(long long)arg2;
+- (void)transportControlsView:(id)arg1 longPressBeginOnControlType:(long long)arg2;
+- (void)transportControlsView:(id)arg1 tapOnControlType:(long long)arg2;
 @end
 

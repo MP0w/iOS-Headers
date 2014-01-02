@@ -16,7 +16,7 @@
 
 @property(nonatomic) __weak MPVideoViewController *videoController; // @synthesize videoController=_videoController;
 - (void).cxx_destruct;
-- (void)performTransition:(unsigned int)arg1;
+- (void)performTransition:(unsigned long long)arg1;
 
 @end
 

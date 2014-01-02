@@ -8,8 +8,8 @@
 
 @interface ACUISetupViewController : PSSetupController
 {
-    BOOL _didAttemptDataclassSetup;
-    BOOL _shouldForceMailSetup;
+    _Bool _didAttemptDataclassSetup;
+    _Bool _shouldForceMailSetup;
 }
 
 - (id)_specifierForDataclassEditControllerClass:(Class)arg1 withName:(id)arg2 account:(id)arg3;

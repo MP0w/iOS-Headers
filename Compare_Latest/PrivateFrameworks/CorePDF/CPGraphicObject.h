@@ -12,7 +12,7 @@
 {
     unsigned int clipIndex;
     struct CGRect renderedBounds;
-    BOOL isInZoneBorder;
+    _Bool isInZoneBorder;
     int zoneGraphicType;
     CPTextLine *anchoringTextLine;
     CPParagraph *anchoringParagraph;
@@ -27,12 +27,12 @@
 - (void)setAnchoringTextLine:(id)arg1;
 - (void)setZoneGraphicType:(int)arg1;
 - (int)zoneGraphicType;
-- (void)setIsInZoneBorder:(BOOL)arg1;
-- (BOOL)isInZoneBorder;
-- (BOOL)isIndivisible;
-- (BOOL)isVisible;
-- (BOOL)canBeContainer;
-- (BOOL)isNarrow;
+- (void)setIsInZoneBorder:(_Bool)arg1;
+- (_Bool)isInZoneBorder;
+- (_Bool)isIndivisible;
+- (_Bool)isVisible;
+- (_Bool)canBeContainer;
+- (_Bool)isNarrow;
 - (unsigned short)unicode;
 - (struct CGRect)renderedBounds;
 - (void)dealloc;

@@ -8,6 +8,7 @@
 
 @class NSMutableDictionary, NSObject<OS_dispatch_queue>;
 
+// Not exported
 @interface VGLTextureManager : NSObject
 {
     NSObject<OS_dispatch_queue> *_textureQueue;

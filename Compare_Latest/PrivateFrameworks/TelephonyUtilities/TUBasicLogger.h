@@ -15,27 +15,27 @@
     struct _opaque_pthread_mutex_t _lock;
     NSString *_identifier;
     int _minimumLogLevel;
-    BOOL _enabled;
+    _Bool _enabled;
     NSObject<TUAppender> *_appender;
-    BOOL _backtracesEnabled;
-    BOOL _symbolicateBacktraces;
+    _Bool _backtracesEnabled;
+    _Bool _symbolicateBacktraces;
 }
 
-@property BOOL symbolicateBacktraces; // @synthesize symbolicateBacktraces=_symbolicateBacktraces;
-@property BOOL backtracesEnabled; // @synthesize backtracesEnabled=_backtracesEnabled;
+@property _Bool symbolicateBacktraces; // @synthesize symbolicateBacktraces=_symbolicateBacktraces;
+@property _Bool backtracesEnabled; // @synthesize backtracesEnabled=_backtracesEnabled;
 @property(readonly) NSObject<TUAppender> *appender;
 - (void)setAppender:(id)arg1;
-@property BOOL enabled;
+@property _Bool enabled;
 @property int minimumLogLevel;
 @property(readonly) NSString *identifier;
 - (void)setIdentifier:(id)arg1;
 - (void)flush;
-- (BOOL)shouldLogWithLevel:(int)arg1 topic:(id)arg2;
-- (BOOL)shouldLog;
-- (void)logWithLevel:(int)arg1 topic:(id)arg2 backtrace:(BOOL)arg3 format:(id)arg4 args:(void *)arg5;
-- (void)logWithLevel:(int)arg1 topic:(id)arg2 backtrace:(BOOL)arg3 text:(id)arg4;
-- (void)logWithLevel:(int)arg1 topic:(id)arg2 backtrace:(BOOL)arg3 format:(id)arg4;
-- (BOOL)_shouldLogWithLevel:(int)arg1 topic:(id)arg2;
+- (_Bool)shouldLogWithLevel:(int)arg1 topic:(id)arg2;
+- (_Bool)shouldLog;
+- (void)logWithLevel:(int)arg1 topic:(id)arg2 backtrace:(_Bool)arg3 format:(id)arg4 args:(char *)arg5;
+- (void)logWithLevel:(int)arg1 topic:(id)arg2 backtrace:(_Bool)arg3 text:(id)arg4;
+- (void)logWithLevel:(int)arg1 topic:(id)arg2 backtrace:(_Bool)arg3 format:(id)arg4;
+- (_Bool)_shouldLogWithLevel:(int)arg1 topic:(id)arg2;
 - (void)dealloc;
 - (id)initWithIdentifier:(id)arg1 minimumLogLevel:(int)arg2 appender:(id)arg3;
 

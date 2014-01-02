@@ -10,16 +10,16 @@
 {
 }
 
-+ (BOOL)useInternationalAssets;
-+ (BOOL)addFakeApps;
++ (_Bool)useInternationalAssets;
++ (_Bool)addFakeApps;
 + (id)bundleIDToReplicate;
-+ (BOOL)addManyIcons;
-+ (BOOL)alwaysShowIconLabels;
-+ (BOOL)disableIconSkew;
-+ (BOOL)_newsstandStoreIsSupported;
-+ (BOOL)_newsstandStoreIsRestricted;
-+ (BOOL)newsstandStoreIsAvailable;
-+ (BOOL)newsstandEnabled;
++ (_Bool)addManyIcons;
++ (_Bool)alwaysShowIconLabels;
++ (_Bool)disableIconSkew;
++ (_Bool)_newsstandStoreIsSupported;
++ (_Bool)_newsstandStoreIsRestricted;
++ (_Bool)newsstandStoreIsAvailable;
++ (_Bool)newsstandEnabled;
 + (void)_iconVisibilityDidChange:(id)arg1;
 + (void)_availableStoreItemKindsDidChange:(id)arg1;
 + (void)reloadDefaults;

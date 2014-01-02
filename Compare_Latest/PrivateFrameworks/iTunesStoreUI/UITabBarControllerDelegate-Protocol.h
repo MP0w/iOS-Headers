@@ -11,12 +11,12 @@
 @optional
 - (id)tabBarController:(id)arg1 animationControllerForTransitionFromViewController:(id)arg2 toViewController:(id)arg3;
 - (id)tabBarController:(id)arg1 interactionControllerForAnimationController:(id)arg2;
-- (int)tabBarControllerPreferredInterfaceOrientationForPresentation:(id)arg1;
-- (unsigned int)tabBarControllerSupportedInterfaceOrientations:(id)arg1;
-- (void)tabBarController:(id)arg1 didEndCustomizingViewControllers:(id)arg2 changed:(BOOL)arg3;
-- (void)tabBarController:(id)arg1 willEndCustomizingViewControllers:(id)arg2 changed:(BOOL)arg3;
+- (long long)tabBarControllerPreferredInterfaceOrientationForPresentation:(id)arg1;
+- (unsigned long long)tabBarControllerSupportedInterfaceOrientations:(id)arg1;
+- (void)tabBarController:(id)arg1 didEndCustomizingViewControllers:(id)arg2 changed:(_Bool)arg3;
+- (void)tabBarController:(id)arg1 willEndCustomizingViewControllers:(id)arg2 changed:(_Bool)arg3;
 - (void)tabBarController:(id)arg1 willBeginCustomizingViewControllers:(id)arg2;
 - (void)tabBarController:(id)arg1 didSelectViewController:(id)arg2;
-- (BOOL)tabBarController:(id)arg1 shouldSelectViewController:(id)arg2;
+- (_Bool)tabBarController:(id)arg1 shouldSelectViewController:(id)arg2;
 @end
 

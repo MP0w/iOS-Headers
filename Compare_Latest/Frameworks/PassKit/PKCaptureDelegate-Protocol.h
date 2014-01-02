@@ -9,6 +9,6 @@
 @protocol PKCaptureDelegate <AVCaptureMetadataOutputObjectsDelegate>
 
 @optional
-- (void)captureSession:(id)arg1 isRunning:(BOOL)arg2;
+- (void)captureSession:(id)arg1 isRunning:(_Bool)arg2;
 @end
 

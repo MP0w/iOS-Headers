@@ -7,6 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol SBStarkKnobLauncherCellDelegate <NSObject>
-- (BOOL)starkKnobLauncherCellDisplaysBadges:(id)arg1;
+- (_Bool)starkKnobLauncherCellDisplaysBadges:(id)arg1;
 @end
 

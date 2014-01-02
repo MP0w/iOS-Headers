@@ -14,7 +14,7 @@
 
 + (id)locationSearchWithDictionary:(id)arg1 context:(id)arg2;
 + (id)locationSearch;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSString *locationId;
 @property(copy, nonatomic) NSURL *identifier;
 - (id)encodedClassName;

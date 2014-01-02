@@ -10,7 +10,7 @@
 
 @interface VMUDwarfExtractor : VMUSymbolExtractor
 {
-    BOOL _shouldUseTaskBasedAddresses;
+    _Bool _shouldUseTaskBasedAddresses;
     NSMutableDictionary *_abbrevDicts;
     id <VMUMemory> _infoMem;
     id <VMUMemory> _abbrevMem;

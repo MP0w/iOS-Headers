@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface VKAnchorContext : NSObject
 {
     shared_ptr_4d0abf3b _anchorContext;
@@ -14,9 +15,9 @@
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (id)newAnchorAtCoordinate:(CDStruct_c3b9c2ee)arg1 followsTerrain:(BOOL)arg2;
+- (id)newAnchorAtCoordinate:(CDStruct_c3b9c2ee)arg1 followsTerrain:(_Bool)arg2;
 - (void)setMercatorTerrainHeightCache:(id)arg1;
-- (BOOL)isMercator;
+- (_Bool)isMercator;
 - (id)initGeocentricWithCache:(id)arg1;
 - (id)initMercator;
 - (id)initWithAnchorContext:(struct AnchorContext *)arg1;

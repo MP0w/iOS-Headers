@@ -19,7 +19,7 @@
 }
 
 - (void)passUsedFromSource:(int)arg1 withTypeIdentifier:(id)arg2 info:(id)arg3;
-- (BOOL)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
+- (_Bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
 - (void)setPassUsageHandler:(id)arg1;
 - (void)dealloc;
 - (id)init;

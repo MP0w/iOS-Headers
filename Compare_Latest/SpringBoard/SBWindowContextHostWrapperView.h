@@ -20,14 +20,17 @@
 - (id)description;
 - (id)window;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
-- (void)willRemoveSubview:(id)arg1;
+- (void)_didRemoveSubview:(id)arg1;
 - (void)didAddSubview:(id)arg1;
 @property(retain, nonatomic) UIColor *backgroundColorWhileNotHosting;
 @property(retain, nonatomic) UIColor *backgroundColorWhileHosting;
 - (void)clearManager;
+- (void)updateBackgroundColor;
 - (void)_toggleBackgroundColorIfNecessary;
+- (id)_backgroundColorWhileNotHosting;
+- (id)_backgroundColorWhileHosting;
 - (void)_hostingStatusChanged;
-- (BOOL)_isReallyHosting;
+- (_Bool)_isReallyHosting;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 manager:(id)arg2;
 

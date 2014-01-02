@@ -13,7 +13,7 @@
 - (void)configureSessionInfo:(id)arg1;
 - (id)newAlbumListViewController;
 - (id)albumListViewControllerSpec;
-- (unsigned int)supportedInterfaceOrientations;
+- (unsigned long long)supportedInterfaceOrientations;
 
 @end
 

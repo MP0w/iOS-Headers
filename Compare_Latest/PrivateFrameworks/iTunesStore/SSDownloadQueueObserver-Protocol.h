@@ -11,6 +11,6 @@
 
 @optional
 - (void)downloadQueueNetworkUsageChanged:(id)arg1;
-- (void)downloadQueue:(id)arg1 downloadStatusChangedAtIndex:(int)arg2;
+- (void)downloadQueue:(id)arg1 downloadStatusChangedAtIndex:(long long)arg2;
 @end
 

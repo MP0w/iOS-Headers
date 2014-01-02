@@ -10,8 +10,8 @@
 
 @interface CoreDAVParseRule : NSObject
 {
-    int _minimumNumber;
-    int _maximumNumber;
+    long long _minimumNumber;
+    long long _maximumNumber;
     NSString *_nameSpace;
     NSString *_elementName;
     Class _objectClass;
@@ -22,11 +22,11 @@
 @property(readonly) Class objectClass; // @synthesize objectClass=_objectClass;
 @property(readonly) NSString *elementName; // @synthesize elementName=_elementName;
 @property(readonly) NSString *nameSpace; // @synthesize nameSpace=_nameSpace;
-@property(readonly) int maximumNumber; // @synthesize maximumNumber=_maximumNumber;
-@property(readonly) int minimumNumber; // @synthesize minimumNumber=_minimumNumber;
+@property(readonly) long long maximumNumber; // @synthesize maximumNumber=_maximumNumber;
+@property(readonly) long long minimumNumber; // @synthesize minimumNumber=_minimumNumber;
 - (id)description;
 - (void)dealloc;
-- (id)initWithMinimumNumber:(int)arg1 maximumNumber:(int)arg2 nameSpace:(id)arg3 elementName:(id)arg4 objectClass:(Class)arg5 setterMethod:(SEL)arg6;
+- (id)initWithMinimumNumber:(long long)arg1 maximumNumber:(long long)arg2 nameSpace:(id)arg3 elementName:(id)arg4 objectClass:(Class)arg5 setterMethod:(SEL)arg6;
 
 @end
 

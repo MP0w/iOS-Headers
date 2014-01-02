@@ -6,18 +6,15 @@
 
 #import <UIKit/UIView.h>
 
-@class UILabel, UITextView, _UIDefinitionValue;
+@class UITextView, _UIDefinitionValue;
 
+// Not exported
 @interface _UIShortDefinitionView : UIView
 {
     _UIDefinitionValue *_definitionValue;
-    UILabel *_localizedDictionaryLabel;
     UITextView *_definitionTextView;
-    UIView *_lineView;
-    id <_UIShortDefinitionViewDelegate> _delegate;
 }
 
-@property(nonatomic) id <_UIShortDefinitionViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) _UIDefinitionValue *definitionValue;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

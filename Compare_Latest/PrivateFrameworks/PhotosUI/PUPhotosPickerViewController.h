@@ -28,13 +28,13 @@
 - (void)tabBarController:(id)arg1 didSelectViewController:(id)arg2;
 - (void)sessionInfoStatusDidChange:(id)arg1;
 - (void)assetContainerListDidChange:(id)arg1;
-- (unsigned int)supportedInterfaceOrientations;
-- (BOOL)shouldAutorotate;
+- (unsigned long long)supportedInterfaceOrientations;
+- (_Bool)shouldAutorotate;
 - (void)didReceiveMemoryWarning;
 - (void)loadView;
 - (void)dealloc;
-- (id)_initWithSpec:(id)arg1 targetAlbum:(struct NSObject *)arg2 orTargetAlbumName:(id)arg3 isLocal:(BOOL)arg4;
-- (id)initWithSpec:(id)arg1 targetAlbumName:(id)arg2 isLocal:(BOOL)arg3;
+- (id)_initWithSpec:(id)arg1 targetAlbum:(struct NSObject *)arg2 orTargetAlbumName:(id)arg3 isLocal:(_Bool)arg4;
+- (id)initWithSpec:(id)arg1 targetAlbumName:(id)arg2 isLocal:(_Bool)arg3;
 - (id)initWithSpec:(id)arg1 targetAlbum:(struct NSObject *)arg2;
 
 @end

@@ -14,7 +14,7 @@
 
 + (id)showHelpWithDictionary:(id)arg1 context:(id)arg2;
 + (id)showHelp;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSString *text;
 @property(copy, nonatomic) NSString *speakableText;
 - (id)encodedClassName;

@@ -6,17 +6,29 @@
 
 #import <UIKit/UIKeyboardLayout.h>
 
+@class UIKBBackgroundView, UIKBTree;
+
+// Not exported
 @interface UIKeyboardLayoutDictation : UIKeyboardLayout
 {
+    UIKBBackgroundView *_backgroundView;
+    UIKBTree *_keyplane;
 }
 
-+ (float)iPhoneLandscapeHeight;
-+ (float)iPhonePortraitHeight;
-- (void)setFrame:(struct CGRect)arg1;
++ (double)landscapeHeight;
++ (double)portraitHeight;
++ (id)activeInstance;
+- (_Bool)usesAutoShift;
+- (id)currentKeyplane;
+- (struct CGSize)splitLeftSize;
+- (_Bool)shouldFadeToLayout;
+- (_Bool)shouldFadeFromLayout;
 - (void)layoutSubviews;
 - (void)setRenderConfig:(id)arg1;
-- (void)showKeyboardWithInputTraits:(id)arg1 screenTraits:(id)arg2;
-- (BOOL)visible;
+- (void)showKeyboardWithInputTraits:(id)arg1 screenTraits:(id)arg2 splitTraits:(id)arg3;
+- (void)setupBackgroundViewForNewSplitTraits:(id)arg1;
+- (int)_clipCornersOfView:(id)arg1;
+- (_Bool)visible;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

@@ -49,7 +49,7 @@
 - (void)deleteShares:(id)arg1;
 - (void)modifyShares:(id)arg1;
 - (void)requestCurrentShareState;
-- (void)sendResponseToInvitation:(id)arg1 accept:(BOOL)arg2;
+- (void)sendResponseToInvitation:(id)arg1 accept:(_Bool)arg2;
 - (void)sendInvitations:(id)arg1;
 - (void)dealloc;
 - (id)initWithPersonID:(id)arg1 baseURL:(id)arg2;

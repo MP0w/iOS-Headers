@@ -13,15 +13,15 @@
     NSArray *_subparts;
 }
 
-+ (BOOL)shouldAggregateParts:(id)arg1;
++ (_Bool)shouldAggregateParts:(id)arg1;
 @property(copy, nonatomic) NSArray *subparts; // @synthesize subparts=_subparts;
+- (id)compositionRepresentation;
 - (id)pasteboardItems;
 @property(readonly, nonatomic) NSString *title;
 - (id)text;
 - (id)initWithSubparts:(id)arg1;
 - (int)type;
 - (void)dealloc;
-- (Class)balloonViewClass;
 
 @end
 

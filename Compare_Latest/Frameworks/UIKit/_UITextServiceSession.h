@@ -10,27 +10,25 @@
 
 @class UIPopoverController, UIViewController;
 
+// Not exported
 @interface _UITextServiceSession : NSObject <UIPopoverControllerDelegate>
 {
-    int _type;
+    long long _type;
     UIViewController *_modalViewController;
     UIPopoverController *_popoverController;
-    BOOL _isTextEffectsWindow;
-    BOOL _dismissed;
+    _Bool _isTextEffectsWindow;
+    _Bool _dismissed;
     id _dismissedHandler;
 }
 
-+ (id)showServiceForText:(id)arg1 type:(int)arg2 fromRect:(struct CGRect)arg3 inView:(id)arg4;
-+ (BOOL)canShowTextServices;
++ (id)showServiceForText:(id)arg1 type:(long long)arg2 fromRect:(struct CGRect)arg3 inView:(id)arg4;
++ (_Bool)canShowTextServices;
 @property(copy, nonatomic) id dismissedHandler; // @synthesize dismissedHandler=_dismissedHandler;
 - (void)_endSession;
 - (void)popoverControllerDidDismissPopover:(id)arg1;
-- (void)dismissTextServiceAnimated:(BOOL)arg1;
-- (BOOL)isDisplaying;
+- (void)dismissTextServiceAnimated:(_Bool)arg1;
+- (_Bool)isDisplaying;
 - (void)dealloc;
-- (void)sessionDidDismiss;
-- (id)init;
-- (id)initWithType:(int)arg1;
 
 @end
 

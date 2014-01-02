@@ -10,24 +10,26 @@
 
 @interface ABPropertyGroupItem : ABCardGroupItem
 {
-    BOOL _allowsIMessage;
-    BOOL _allowsPhone;
-    BOOL _allowsEmail;
-    BOOL _modified;
+    _Bool _allowsIMessage;
+    _Bool _allowsPhone;
+    _Bool _allowsEmail;
+    _Bool _modified;
     NSArray *_labeledValues;
     CNLabeledValue *_labeledValue;
     NSString *_property;
     NSArray *_contacts;
     CNContact *_contact;
+    id <ABPropertyGroupItemDelegate> _delegate;
 }
 
 + (id)newPropertyGroupItemForProperty:(id)arg1;
 + (id)propertyGroupItemWithLabeledValue:(id)arg1 property:(id)arg2 contact:(id)arg3;
 + (id)propertyGroupItemWithLabeledValue:(id)arg1 property:(id)arg2 contacts:(id)arg3;
-@property(nonatomic) BOOL modified; // @synthesize modified=_modified;
-@property(nonatomic) BOOL allowsEmail; // @synthesize allowsEmail=_allowsEmail;
-@property(nonatomic) BOOL allowsPhone; // @synthesize allowsPhone=_allowsPhone;
-@property(nonatomic) BOOL allowsIMessage; // @synthesize allowsIMessage=_allowsIMessage;
+@property(nonatomic) _Bool modified; // @synthesize modified=_modified;
+@property(nonatomic) _Bool allowsEmail; // @synthesize allowsEmail=_allowsEmail;
+@property(nonatomic) _Bool allowsPhone; // @synthesize allowsPhone=_allowsPhone;
+@property(nonatomic) _Bool allowsIMessage; // @synthesize allowsIMessage=_allowsIMessage;
+@property(nonatomic) id <ABPropertyGroupItemDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) CNContact *contact; // @synthesize contact=_contact;
 @property(copy, nonatomic) NSArray *contacts; // @synthesize contacts=_contacts;
 @property(readonly, nonatomic) NSString *property; // @synthesize property=_property;
@@ -35,20 +37,21 @@
 @property(retain, nonatomic) NSArray *labeledValues; // @synthesize labeledValues=_labeledValues;
 - (void)_enumerateContactsAndValuesWithBlock:(id)arg1;
 - (void)saveChanges;
+- (_Bool)isValidIdentifier:(int)arg1;
 - (void)updateLabeledValueWithLabel:(id)arg1;
 - (void)updateLabeledValueWithValue:(id)arg1;
 - (id)updateWithLabel:(id)arg1 value:(id)arg2;
 - (void)mergeItem:(id)arg1;
 - (id)bestLabel:(id)arg1;
 - (id)bestValue:(id)arg1;
-- (BOOL)isEquivalentToItem:(id)arg1 whenEditing:(BOOL)arg2;
-- (BOOL)isEquivalentToItem:(id)arg1;
+- (_Bool)isEquivalentToItem:(id)arg1 whenEditing:(_Bool)arg2;
+- (_Bool)isEquivalentToItem:(id)arg1;
 @property(readonly, nonatomic) NSURL *defaultActionURL;
-- (BOOL)isFavoriteOfType:(int)arg1;
-@property(readonly, nonatomic, getter=isFavorite) BOOL favorite;
-@property(readonly, nonatomic) BOOL canRemove;
-@property(readonly, nonatomic, getter=isReadonly) BOOL readonly;
-@property(readonly, nonatomic, getter=isEmpty) BOOL empty;
+- (_Bool)isFavoriteOfType:(int)arg1;
+@property(readonly, nonatomic, getter=isFavorite) _Bool favorite;
+@property(readonly, nonatomic) _Bool canRemove;
+@property(readonly, nonatomic, getter=isReadonly) _Bool readonly;
+@property(readonly, nonatomic, getter=isEmpty) _Bool empty;
 - (id)valueForDisplayString:(id)arg1;
 - (id)displayStringForValue:(id)arg1;
 @property(readonly, nonatomic) NSString *placeholderString;

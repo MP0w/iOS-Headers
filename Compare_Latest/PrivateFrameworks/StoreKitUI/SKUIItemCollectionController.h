@@ -10,21 +10,22 @@
 #import "SKUIItemStateCenterObserver-Protocol.h"
 #import "SKUIResourceLoaderDelegate-Protocol.h"
 
-@class NSArray, NSMutableDictionary, SKUIIconDataConsumer, SKUIItemArtworkContext, SKUIResourceLoader, SKUIScreenshotDataConsumer, UIImage;
+@class NSArray, NSMutableDictionary, SKUIClientContext, SKUIIconDataConsumer, SKUIItemArtworkContext, SKUIResourceLoader, SKUIScreenshotDataConsumer, UIImage;
 
 @interface SKUIItemCollectionController : NSObject <SKUIArtworkRequestDelegate, SKUIItemStateCenterObserver, SKUIResourceLoaderDelegate>
 {
     SKUIItemArtworkContext *_artworkContext;
     SKUIResourceLoader *_artworkLoader;
+    SKUIClientContext *_clientContext;
     id <SKUIItemCollectionDelegate> _delegate;
-    BOOL _delegateProvidesScreenshots;
+    _Bool _delegateProvidesScreenshots;
     NSMutableDictionary *_iconArtworkRequestIDs;
     SKUIIconDataConsumer *_iconDataConsumer;
     NSArray *_items;
     SKUIScreenshotDataConsumer *_landscapeScreenshotDataConsumer;
     UIImage *_landscapeScreenshotPlaceholderImage;
-    int _numberOfItemsPerPage;
-    float _numberOfPagesToCacheAhead;
+    long long _numberOfItemsPerPage;
+    double _numberOfPagesToCacheAhead;
     SKUIScreenshotDataConsumer *_portraitScreenshotDataConsumer;
     UIImage *_portraitScreenshotPlaceholderImage;
     UIImage *_placeholderImage;
@@ -32,8 +33,8 @@
 }
 
 @property(retain, nonatomic) SKUIScreenshotDataConsumer *portraitScreenshotDataConsumer; // @synthesize portraitScreenshotDataConsumer=_portraitScreenshotDataConsumer;
-@property(nonatomic) float numberOfPagesToCacheAhead; // @synthesize numberOfPagesToCacheAhead=_numberOfPagesToCacheAhead;
-@property(nonatomic) int numberOfItemsPerPage; // @synthesize numberOfItemsPerPage=_numberOfItemsPerPage;
+@property(nonatomic) double numberOfPagesToCacheAhead; // @synthesize numberOfPagesToCacheAhead=_numberOfPagesToCacheAhead;
+@property(nonatomic) long long numberOfItemsPerPage; // @synthesize numberOfItemsPerPage=_numberOfItemsPerPage;
 @property(retain, nonatomic) SKUIScreenshotDataConsumer *landscapeScreenshotDataConsumer; // @synthesize landscapeScreenshotDataConsumer=_landscapeScreenshotDataConsumer;
 @property(copy, nonatomic) NSArray *items; // @synthesize items=_items;
 @property(retain, nonatomic) SKUIIconDataConsumer *iconDataConsumer; // @synthesize iconDataConsumer=_iconDataConsumer;
@@ -41,14 +42,15 @@
 @property(retain, nonatomic) SKUIResourceLoader *artworkLoader; // @synthesize artworkLoader=_artworkLoader;
 @property(retain, nonatomic) SKUIItemArtworkContext *artworkContext; // @synthesize artworkContext=_artworkContext;
 - (void).cxx_destruct;
+- (struct _NSRange)_visibleItemRange;
 - (id)_screenshotForItem:(id)arg1;
 - (id)_screenshotArtworkRequestWithItem:(id)arg1;
-- (void)_reloadScreenshotForCellLayout:(id)arg1 item:(id)arg2 isRestricted:(BOOL)arg3;
+- (void)_reloadScreenshotForCellLayout:(id)arg1 item:(id)arg2 isRestricted:(_Bool)arg3;
 - (void)_reloadForRestrictionsChange;
 - (void)_reloadForItemStateChange:(id)arg1;
 - (id)_placeholderImageForScreenshot:(id)arg1;
 - (id)_placeholderImageForItem:(id)arg1;
-- (BOOL)_loadArtworkForItem:(id)arg1 reason:(int)arg2;
+- (_Bool)_loadArtworkForItem:(id)arg1 reason:(long long)arg2;
 - (id)_iconArtworkRequestWithItem:(id)arg1;
 - (void)_enumerateVisibleCellLayoutsWithBlock:(id)arg1;
 - (id)_artworkLoader;
@@ -61,12 +63,13 @@
 - (void)scrollViewWillBeginDragging:(id)arg1;
 - (void)scrollViewDidEndDecelerating:(id)arg1;
 - (void)removeAllCachedResources;
-- (id)performActionForItemAtIndex:(int)arg1;
-- (void)precacheNextPageArtworkForOffset:(struct CGPoint)arg1 direction:(float)arg2;
-- (void)loadNextPageOfArtworkWithReason:(int)arg1;
-- (void)configureCellLayout:(id)arg1 forIndex:(int)arg2;
-- (void)cancelArtworkLoadForItemIndex:(int)arg1;
+- (id)performActionForItemAtIndex:(long long)arg1;
+- (void)precacheNextPageArtworkForOffset:(struct CGPoint)arg1 direction:(double)arg2;
+- (void)loadNextPageOfArtworkWithReason:(long long)arg1;
+- (void)configureCellLayout:(id)arg1 forIndex:(long long)arg2;
+- (void)cancelArtworkLoadForItemIndex:(long long)arg1;
 - (void)dealloc;
+- (id)initWithClientContext:(id)arg1;
 - (id)init;
 - (id)_initSKUIItemCollectionController;
 

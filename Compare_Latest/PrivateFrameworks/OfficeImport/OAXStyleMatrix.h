@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface OAXStyleMatrix : NSObject
 {
 }
 
 + (id)readReferenceFromNode:(struct _xmlNode *)arg1;
-+ (BOOL)readReferenceFromParentNode:(struct _xmlNode *)arg1 name:(const char *)arg2 inNamespace:(id)arg3 color:(id *)arg4 index:(unsigned int *)arg5;
++ (_Bool)readReferenceFromParentNode:(struct _xmlNode *)arg1 name:(const char *)arg2 inNamespace:(id)arg3 color:(id *)arg4 index:(unsigned int *)arg5;
 + (void)readFromNode:(struct _xmlNode *)arg1 toStyleMatrix:(id)arg2 packagePart:(id)arg3 drawingState:(id)arg4;
 
 @end

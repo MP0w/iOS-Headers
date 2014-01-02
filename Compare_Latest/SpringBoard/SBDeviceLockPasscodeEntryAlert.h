@@ -12,7 +12,7 @@
 
 + (id)sharedInstance;
 - (id)alertDisplayViewWithSize:(struct CGSize)arg1;
-- (int)statusBarStyle;
+- (long long)statusBarStyle;
 
 @end
 

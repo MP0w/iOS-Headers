@@ -11,32 +11,32 @@
 @interface SBDeviceLockViewWithKeyboard : SBDeviceLockView
 {
     UIKeyboard *_keyboard;
-    BOOL _isAnimating;
-    BOOL _wasMinimizedWhenAnimationStarted;
-    BOOL _triedToMinMaxWhileRotating;
-    BOOL _previousKeyboardShowedInlineCandidates;
+    _Bool _isAnimating;
+    _Bool _wasMinimizedWhenAnimationStarted;
+    _Bool _triedToMinMaxWhileRotating;
+    _Bool _previousKeyboardShowedInlineCandidates;
 }
 
 - (void)_acceptOrCancelReturnKeyPress;
 - (void)_layoutEntryView;
 - (void)_layoutForCurrentOrientation;
 - (void)geometryChanged:(id)arg1;
-- (void)didAnimateToInterfaceOrientation:(int)arg1;
-- (void)animateToInterfaceInterfaceOrientation:(int)arg1;
-- (void)willAnimateToInterfaceOrientation:(int)arg1;
-- (void)setInterfaceOrientation:(int)arg1;
-- (struct CGRect)keyboardFrameForInterfaceOrientation:(int)arg1;
+- (void)didAnimateToInterfaceOrientation:(long long)arg1;
+- (void)animateToInterfaceInterfaceOrientation:(long long)arg1;
+- (void)willAnimateToInterfaceOrientation:(long long)arg1;
+- (void)setInterfaceOrientation:(long long)arg1;
+- (struct CGRect)keyboardFrameForInterfaceOrientation:(long long)arg1;
 - (void)returnKeyPressed:(id)arg1;
 - (void)maximize;
 - (void)minimize;
-- (void)setMinimized:(BOOL)arg1;
-- (BOOL)isKeypadMinimized;
+- (void)setMinimized:(_Bool)arg1;
+- (_Bool)isKeypadMinimized;
 - (id)keypadView;
-- (BOOL)resignFirstResponder;
-- (BOOL)becomeFirstResponder;
+- (_Bool)resignFirstResponder;
+- (_Bool)becomeFirstResponder;
 - (void)dealloc;
-- (BOOL)canMinMaxKeyboard;
-- (id)_initWithStyle:(int)arg1 interfaceOrientation:(int)arg2 showsEmergencyCall:(BOOL)arg3;
+- (_Bool)canMinMaxKeyboard;
+- (id)_initWithStyle:(int)arg1 interfaceOrientation:(long long)arg2 showsEmergencyCall:(_Bool)arg3;
 
 @end
 

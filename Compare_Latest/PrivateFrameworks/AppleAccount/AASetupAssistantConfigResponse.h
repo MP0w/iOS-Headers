@@ -18,7 +18,7 @@
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSString *iForgotUIURL;
 @property(readonly, nonatomic) NSString *activeEmailDomain;
-@property(readonly, nonatomic) BOOL setupAssistantServerEnabled;
+@property(readonly, nonatomic) _Bool setupAssistantServerEnabled;
 @property(readonly, nonatomic) NSString *upgradeStatusURL;
 @property(readonly, nonatomic) NSString *genericTermsURL;
 @property(readonly, nonatomic) NSString *upgradeIOSTermsUI;

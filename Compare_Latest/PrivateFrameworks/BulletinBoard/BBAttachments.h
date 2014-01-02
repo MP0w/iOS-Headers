@@ -13,21 +13,21 @@
 
 @interface BBAttachments : NSObject <NSCopying, NSCoding>
 {
-    int primaryType;
+    long long primaryType;
     NSCountedSet *_additionalAttachments;
     NSMutableDictionary *_clientSideComposedImageInfos;
 }
 
 @property(retain, nonatomic) NSMutableDictionary *clientSideComposedImageInfos; // @synthesize clientSideComposedImageInfos=_clientSideComposedImageInfos;
 @property(retain, nonatomic) NSCountedSet *additionalAttachments; // @synthesize additionalAttachments=_additionalAttachments;
-@property(nonatomic) int primaryType; // @synthesize primaryType;
+@property(nonatomic) long long primaryType; // @synthesize primaryType;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isEqualToAttachments:(id)arg1;
-- (unsigned int)numberOfAdditionalAttachmentsOfType:(int)arg1;
-- (unsigned int)numberOfAdditionalAttachments;
-- (void)addAttachmentOfType:(int)arg1;
+- (_Bool)isEqualToAttachments:(id)arg1;
+- (unsigned long long)numberOfAdditionalAttachmentsOfType:(long long)arg1;
+- (unsigned long long)numberOfAdditionalAttachments;
+- (void)addAttachmentOfType:(long long)arg1;
 - (void)dealloc;
 
 @end

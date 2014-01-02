@@ -6,19 +6,19 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSMutableSet, NSNumber, NSString;
+@class NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString;
 
 @interface PKPrinter : NSObject
 {
     NSString *name;
-    int type;
-    int accessState;
+    long long type;
+    long long accessState;
     NSDictionary *printInfoSupported;
     struct _http_s {
         int _field1;
         int _field2;
         int _field3;
-        int _field4;
+        long long _field4;
         int _field5;
         int _field6;
         int _field7;
@@ -84,80 +84,64 @@
     int maxJPEGYDimension;
     int maxCopies;
     int preferred_landscape;
-    BOOL isLocal;
-    BOOL hasIdentifyPrinterOp;
-    BOOL connectionShouldNotBeTrusted;
-    BOOL isFromMCProfile;
-    int kind;
+    _Bool isLocal;
+    _Bool hasIdentifyPrinterOp;
+    _Bool connectionShouldNotBeTrusted;
+    _Bool isFromMCProfile;
+    long long kind;
 }
 
 + (id)nameForHardcodedURI:(id)arg1;
 + (id)hardcodedURIs;
-+ (BOOL)printerLookupWithName:(id)arg1 andTimeout:(double)arg2;
++ (_Bool)printerLookupWithName:(id)arg1 andTimeout:(double)arg2;
 + (id)printerWithName:(id)arg1;
-+ (id)requiredPDL;
-+ (BOOL)urfIsOptional;
-+ (struct _ipp_s *)getAttributes:(const char **)arg1 count:(int)arg2 fromURI:(id)arg3;
-@property(readonly) BOOL hasIdentifyPrinterOp; // @synthesize hasIdentifyPrinterOp;
-@property BOOL isFromMCProfile; // @synthesize isFromMCProfile;
-@property BOOL isLocal; // @synthesize isLocal;
-@property(readonly) int accessState; // @synthesize accessState;
-@property(readonly) int type; // @synthesize type;
-@property(readonly) int kind; // @synthesize kind;
+@property(readonly) _Bool hasIdentifyPrinterOp; // @synthesize hasIdentifyPrinterOp;
+@property _Bool isFromMCProfile; // @synthesize isFromMCProfile;
+@property _Bool isLocal; // @synthesize isLocal;
+@property(readonly) long long accessState; // @synthesize accessState;
+@property(readonly) long long type; // @synthesize type;
+@property(readonly) long long kind; // @synthesize kind;
 @property(readonly) NSString *name; // @synthesize name;
 - (void)setupWithOptions:(id)arg1 completionHandler:(id)arg2;
 - (void)validatePassCode:(id)arg1 withCompletionHandler:(id)arg2;
 - (void)showPassCodeForSetupWithCompletionHandler:(id)arg1;
-@property(readonly) BOOL setupSupportsPasswordScope;
-@property(readonly) BOOL needsSetup;
-- (void)reconfirmWithForce:(BOOL)arg1;
+@property(readonly) _Bool setupSupportsPasswordScope;
+@property(readonly) _Bool needsSetup;
+- (void)reconfirmWithForce:(_Bool)arg1;
 - (void)cancelUnlock;
 - (void)unlockWithCompletionHandler:(id)arg1;
-- (id)matchedPaper:(id)arg1 preferBorderless:(BOOL)arg2 withDuplexMode:(id)arg3 didMatch:(char *)arg4;
-- (BOOL)hasMatchingLoadedRoll:(id)arg1;
-- (int)startJob:(id)arg1 ofType:(id)arg2;
-- (int)sendData:(const char *)arg1 ofLength:(int)arg2;
-- (int)printURL:(id)arg1 ofType:(id)arg2 printSettings:(id)arg3;
-- (int)finishJob;
-- (int)abortJob;
+- (id)matchedPaper:(id)arg1 preferBorderless:(_Bool)arg2 withDuplexMode:(id)arg3 didMatch:(_Bool *)arg4;
+- (_Bool)hasMatchingLoadedRoll:(id)arg1;
+- (long long)startJob:(id)arg1 ofType:(id)arg2;
+- (long long)sendData:(const char *)arg1 ofLength:(long long)arg2;
+- (long long)printURL:(id)arg1 ofType:(id)arg2 printSettings:(id)arg3;
+- (long long)finishJob;
+- (long long)abortJob;
 - (id)paperListForDuplexMode:(id)arg1;
+- (id)rollReadyPaperListForPhotoWithContentSize:(struct CGSize)arg1;
+- (id)rollReadyPaperListForDocumentWithContentSize:(struct CGSize)arg1;
+- (id)rollReadyPaperListWithContentSize:(struct CGSize)arg1 forPhoto:(_Bool)arg2;
 - (id)rollReadyPaperListWithContentSize:(struct CGSize)arg1;
 @property(readonly) NSString *uuid; // @dynamic uuid;
-@property(readonly) BOOL isIPPS; // @dynamic isIPPS;
-@property(readonly) BOOL isAdobeRGBSupported; // @dynamic isAdobeRGBSupported;
+@property(readonly) _Bool isIPPS; // @dynamic isIPPS;
+@property(readonly) _Bool isAdobeRGBSupported; // @dynamic isAdobeRGBSupported;
 @property(readonly) NSDictionary *printInfoSupported;
 - (void)checkOperations:(struct _ipp_s *)arg1;
 - (void)identifySelf;
-@property(readonly) BOOL hasPrintInfoSupported; // @dynamic hasPrintInfoSupported;
-- (BOOL)knowsReadyPaperList;
-- (BOOL)isPaperReady:(id)arg1;
-- (int)feedOrientation:(id)arg1;
+@property(readonly) _Bool hasPrintInfoSupported; // @dynamic hasPrintInfoSupported;
+- (_Bool)knowsReadyPaperList;
+- (_Bool)isPaperReady:(id)arg1;
+- (long long)feedOrientation:(id)arg1;
 - (void)aggdAppsAndPrinters;
 - (void)createMediaReadyFromAttrs:(struct _ipp_s *)arg1;
-- (id)availableRollPapersPreferBorderless:(BOOL)arg1;
+- (id)availableRollPapersPreferBorderless:(_Bool)arg1;
 - (id)rollFromAttrs:(struct _ipp_s *)arg1;
-@property(readonly) int jobTypesSupported;
+@property(readonly) long long jobTypesSupported;
 - (id)location;
 - (id)displayName;
 - (id)description;
 - (void)dealloc;
-- (BOOL)isBonjour;
-- (void)setPrivateObject:(id)arg1 forKey:(id)arg2;
-- (id)privateObjectForKey:(id)arg1;
-- (id)localName;
-- (int)finalizeJob:(int)arg1;
-- (struct _ipp_s *)createRequest:(id)arg1 ofType:(id)arg2 url:(id)arg3;
-- (BOOL)resolveWithTimeout:(int)arg1;
-- (void)resolve;
-@property(readonly) NSString *scheme;
-@property(retain) NSNumber *port; // @dynamic port;
-@property(retain) NSString *hostname; // @dynamic hostname;
-@property(retain) NSDictionary *TXTRecord; // @dynamic TXTRecord;
-- (void)setAccessStateFromTXT:(id)arg1;
-- (void)updateType;
-- (id)initWithName:(id)arg1 TXTRecord:(id)arg2;
-- (id)initWithName:(id)arg1 TXT:(id)arg2;
-- (struct _ipp_s *)getPrinterAttributes;
+- (_Bool)isBonjour;
 
 @end
 

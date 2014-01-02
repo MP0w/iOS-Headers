@@ -8,37 +8,38 @@
 
 @class NSDate, NSLocale, NSTimeZone;
 
+// Not exported
 @interface NSAutoCalendar : NSCalendar
 {
     NSCalendar *cal;
     NSLocale *changedLocale;
     NSTimeZone *changedTimeZone;
-    unsigned int changedFirstWeekday;
-    unsigned int changedMinimumDaysinFirstWeek;
+    unsigned long long changedFirstWeekday;
+    unsigned long long changedMinimumDaysinFirstWeek;
     NSDate *changedGregorianStartDate;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 - (Class)classForCoder;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
-- (id)components:(unsigned int)arg1 fromDate:(id)arg2 toDate:(id)arg3 options:(unsigned int)arg4;
-- (id)dateByAddingComponents:(id)arg1 toDate:(id)arg2 options:(unsigned int)arg3;
-- (id)components:(unsigned int)arg1 fromDate:(id)arg2;
+- (id)components:(unsigned long long)arg1 fromDate:(id)arg2 toDate:(id)arg3 options:(unsigned long long)arg4;
+- (id)dateByAddingComponents:(id)arg1 toDate:(id)arg2 options:(unsigned long long)arg3;
+- (id)components:(unsigned long long)arg1 fromDate:(id)arg2;
 - (id)dateFromComponents:(id)arg1;
-- (BOOL)rangeOfUnit:(unsigned int)arg1 startDate:(id *)arg2 interval:(double *)arg3 forDate:(id)arg4;
-- (unsigned int)ordinalityOfUnit:(unsigned int)arg1 inUnit:(unsigned int)arg2 forDate:(id)arg3;
-- (struct _NSRange)rangeOfUnit:(unsigned int)arg1 inUnit:(unsigned int)arg2 forDate:(id)arg3;
-- (struct _NSRange)maximumRangeOfUnit:(unsigned int)arg1;
-- (struct _NSRange)minimumRangeOfUnit:(unsigned int)arg1;
+- (_Bool)rangeOfUnit:(unsigned long long)arg1 startDate:(id *)arg2 interval:(double *)arg3 forDate:(id)arg4;
+- (unsigned long long)ordinalityOfUnit:(unsigned long long)arg1 inUnit:(unsigned long long)arg2 forDate:(id)arg3;
+- (struct _NSRange)rangeOfUnit:(unsigned long long)arg1 inUnit:(unsigned long long)arg2 forDate:(id)arg3;
+- (struct _NSRange)maximumRangeOfUnit:(unsigned long long)arg1;
+- (struct _NSRange)minimumRangeOfUnit:(unsigned long long)arg1;
 - (id)gregorianStartDate;
 - (void)setGregorianStartDate:(id)arg1;
-- (unsigned int)minimumDaysInFirstWeek;
-- (void)setMinimumDaysInFirstWeek:(unsigned int)arg1;
-- (unsigned int)firstWeekday;
-- (void)setFirstWeekday:(unsigned int)arg1;
+- (unsigned long long)minimumDaysInFirstWeek;
+- (void)setMinimumDaysInFirstWeek:(unsigned long long)arg1;
+- (unsigned long long)firstWeekday;
+- (void)setFirstWeekday:(unsigned long long)arg1;
 - (id)timeZone;
 - (void)setTimeZone:(id)arg1;
 - (id)locale;

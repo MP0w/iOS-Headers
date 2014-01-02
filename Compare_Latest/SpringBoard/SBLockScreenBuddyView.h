@@ -6,26 +6,38 @@
 
 #import "SBLockOverlayView.h"
 
-@class UIButton, UIImageView, UILabel, UIView;
+@class SBLockOverlayStylePropertiesFactory, UIButton, UIImageView, UILabel, UIView, _UILegibilitySettings;
 
 @interface SBLockScreenBuddyView : SBLockOverlayView
 {
     UILabel *_titleLabel;
+    UIView *_logoImageContainer;
     UIImageView *_logoImageView;
-    BOOL _needToFadeToWhite;
+    _Bool _usesWhiteLogo;
+    int _viewState;
+    SBLockOverlayStylePropertiesFactory *_underlayPropertiesFactory;
+    _UILegibilitySettings *_legibilitySettings;
+    id <SBLockScreenBuddyViewDelegate> _delegate;
+    unsigned long long _style;
     UIView *_activationInfoView;
     UIButton *_infoButton;
 }
 
 @property(retain, nonatomic) UIButton *infoButton; // @synthesize infoButton=_infoButton;
 @property(retain, nonatomic) UIView *activationInfoView; // @synthesize activationInfoView=_activationInfoView;
+@property(nonatomic) unsigned long long style; // @synthesize style=_style;
+@property(nonatomic) id <SBLockScreenBuddyViewDelegate> delegate; // @synthesize delegate=_delegate;
+- (id)legibilitySettings;
+- (id)underlayPropertiesFactory;
 - (void)layoutSubviews;
+- (void)configureOverlayPropertiesForStyle:(unsigned long long)arg1;
+- (_Bool)isFakeLogoHidden;
+- (void)_toggleViewState;
+- (void)setViewState:(int)arg1;
+- (void)setTitleLanguage:(id)arg1;
 - (void)setTitleString:(id)arg1;
-- (void)setTitleHidden:(BOOL)arg1;
-- (void)removeLogoView;
-- (void)setLogoHidden:(BOOL)arg1;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 useWhiteLogo:(BOOL)arg2;
+- (id)initWithFrame:(struct CGRect)arg1 useWhiteLogo:(_Bool)arg2;
 
 @end
 

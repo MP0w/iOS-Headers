@@ -12,13 +12,13 @@
 {
     NSMutableArray *_bookmarkedShortIDs;
     YTSearchRequest *_bookmarksSearchRequest;
-    BOOL _lastReloadWasAccountsFavorites;
+    _Bool _lastReloadWasAccountsFavorites;
 }
 
 - (void)addVideo:(id)arg1;
 - (void)searchRequest:(id)arg1 foundBatchURL:(id)arg2;
 - (void)searchRequest:(id)arg1 receivedVideos:(id)arg2 startIndex:(unsigned int)arg3 videosRemaining:(unsigned int)arg4;
-- (BOOL)isLoading;
+- (_Bool)isLoading;
 - (unsigned int)maxVideosToSave;
 - (void)reloadData;
 - (void)_nextBatch;

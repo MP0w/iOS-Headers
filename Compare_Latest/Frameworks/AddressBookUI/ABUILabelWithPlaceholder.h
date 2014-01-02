@@ -11,7 +11,7 @@
 @interface ABUILabelWithPlaceholder : UIView
 {
     UILabel *_label;
-    BOOL _isPlaceholderActive;
+    _Bool _isPlaceholderActive;
     NSString *_placeholder;
     NSString *_actualText;
     UIColor *_actualTextColor;
@@ -22,7 +22,7 @@
 - (struct CGRect)_labelFrameForBounds:(struct CGRect)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)sizeToFit;
-- (float)labelLeftEdgeInset;
+- (double)labelLeftEdgeInset;
 - (id)label;
 @property(copy, nonatomic) NSString *text;
 @property(nonatomic) UIFont *font;

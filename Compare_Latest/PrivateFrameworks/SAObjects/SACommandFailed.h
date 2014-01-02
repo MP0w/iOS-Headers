@@ -16,14 +16,14 @@
 }
 
 + (id)commandFailedWithReason:(id)arg1;
-+ (id)commandFailedWithErrorCode:(int)arg1;
++ (id)commandFailedWithErrorCode:(long long)arg1;
 + (id)commandFailedWithDictionary:(id)arg1 context:(id)arg2;
 + (id)commandFailed;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSString *reason;
-@property(nonatomic) int errorCode;
+@property(nonatomic) long long errorCode;
 - (id)initWithReason:(id)arg1;
-- (id)initWithErrorCode:(int)arg1;
+- (id)initWithErrorCode:(long long)arg1;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

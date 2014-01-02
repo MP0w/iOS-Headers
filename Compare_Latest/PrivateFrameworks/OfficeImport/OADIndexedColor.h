@@ -6,18 +6,19 @@
 
 #import <OfficeImport/OADColor.h>
 
+// Not exported
 @interface OADIndexedColor : OADColor
 {
-    unsigned int mIndex;
+    unsigned long long mIndex;
 }
 
-+ (id)indexedColorWithIndex:(unsigned int)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
++ (id)indexedColorWithIndex:(unsigned long long)arg1;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)colorFromPalette:(id)arg1;
-- (unsigned int)index;
+- (unsigned long long)index;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithIndex:(unsigned int)arg1;
+- (id)initWithIndex:(unsigned long long)arg1;
 
 @end
 

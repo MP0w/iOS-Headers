@@ -10,9 +10,10 @@
 {
     id _private;
     int _private1;
+    int _private1b;
 }
 
-+ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
++ (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 - (id)__;
 - (void)start;
 - (void)main;
@@ -25,15 +26,15 @@
 - (id)completionBlock;
 - (void)setThreadPriority:(double)arg1;
 - (double)threadPriority;
-- (void)setQueuePriority:(int)arg1;
-- (int)queuePriority;
-- (BOOL)isReady;
-- (BOOL)isAsynchronous;
-- (BOOL)isConcurrent;
-- (BOOL)isFinished;
-- (BOOL)isExecuting;
+- (void)setQueuePriority:(long long)arg1;
+- (long long)queuePriority;
+- (_Bool)isReady;
+- (_Bool)isAsynchronous;
+- (_Bool)isConcurrent;
+- (_Bool)isFinished;
+- (_Bool)isExecuting;
 - (void)cancel;
-- (BOOL)isCancelled;
+- (_Bool)isCancelled;
 - (void)finalize;
 - (void)dealloc;
 - (id)init;

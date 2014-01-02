@@ -8,6 +8,7 @@
 
 @class UITextInputController;
 
+// Not exported
 @interface _UITextUndoManager : NSUndoManager
 {
     UITextInputController *_inputController;

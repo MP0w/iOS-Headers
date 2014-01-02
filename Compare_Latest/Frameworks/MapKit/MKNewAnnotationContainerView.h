@@ -6,12 +6,13 @@
 
 #import <MapKit/MKAnnotationContainerView.h>
 
+// Not exported
 @interface MKNewAnnotationContainerView : MKAnnotationContainerView
 {
-    BOOL _suppress;
+    _Bool _suppress;
 }
 
-- (void)setAnnotationViewsRotationRadians:(float)arg1 animation:(id)arg2;
+- (void)setAnnotationViewsRotationRadians:(double)arg1 animation:(id)arg2;
 - (void)_updateAddedAnnotationRotation:(id)arg1;
 - (void)_updateAnnotationViewPerspective;
 - (void)_updateAnnotationViewPositions;

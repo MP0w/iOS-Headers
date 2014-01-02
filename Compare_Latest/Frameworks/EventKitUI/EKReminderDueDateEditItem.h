@@ -10,10 +10,10 @@
 {
 }
 
-- (BOOL)editItemViewControllerCommit:(id)arg1;
-- (BOOL)editItemViewControllerCommit:(id)arg1 notify:(BOOL)arg2;
-- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(unsigned int)arg2 inSubsection:(unsigned int)arg3;
-- (id)cellForSubitemAtIndex:(unsigned int)arg1 inSubsection:(unsigned int)arg2;
+- (_Bool)editItemViewControllerCommit:(id)arg1;
+- (_Bool)editItemViewControllerCommit:(id)arg1 notify:(_Bool)arg2;
+- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(unsigned long long)arg2 inSubsection:(unsigned long long)arg3;
+- (id)cellForSubitemAtIndex:(unsigned long long)arg1 inSubsection:(unsigned long long)arg2;
 
 @end
 

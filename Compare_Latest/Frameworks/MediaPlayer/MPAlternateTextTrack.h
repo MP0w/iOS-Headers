@@ -10,23 +10,23 @@
 
 @interface MPAlternateTextTrack : MPAlternateTrack
 {
-    int _type;
+    long long _type;
     NSString *_name;
     NSLocale *_locale;
-    int _tag;
+    long long _tag;
 }
 
 + (id)autoTrack;
 + (id)offTrack;
-@property(nonatomic) int tag; // @synthesize tag=_tag;
+@property(nonatomic) long long tag; // @synthesize tag=_tag;
 - (void).cxx_destruct;
 - (id)_displayNameForName:(id)arg1;
 - (id)displayName;
-@property(readonly, nonatomic) int type;
+@property(readonly, nonatomic) long long type;
 @property(readonly, nonatomic) NSLocale *locale;
-@property(readonly, nonatomic) BOOL isInBand;
-- (int)compare:(id)arg1;
-- (id)initWithType:(int)arg1 name:(id)arg2 locale:(id)arg3;
+@property(readonly, nonatomic) _Bool isInBand;
+- (long long)compare:(id)arg1;
+- (id)initWithType:(long long)arg1 name:(id)arg2 locale:(id)arg3;
 
 @end
 

@@ -6,15 +6,16 @@
 
 #import "NSEnumerator.h"
 
+// Not exported
 @interface NSSearchPathEnumerator : NSEnumerator
 {
-    long state;
-    unsigned int directory;
-    unsigned int domainMask;
+    long long state;
+    unsigned long long directory;
+    unsigned long long domainMask;
 }
 
 - (id)nextObject;
-- (id)initWithDirectory:(unsigned int)arg1 domains:(unsigned int)arg2;
+- (id)initWithDirectory:(unsigned long long)arg1 domains:(unsigned long long)arg2;
 
 @end
 

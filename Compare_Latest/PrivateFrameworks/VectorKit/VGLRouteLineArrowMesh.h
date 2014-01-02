@@ -6,6 +6,7 @@
 
 #import <VectorKit/VGLMesh.h>
 
+// Not exported
 @interface VGLRouteLineArrowMesh : VGLMesh
 {
 }

@@ -11,21 +11,22 @@
 #import "UITableViewDataSource-Protocol.h"
 #import "UITableViewDelegate-Protocol.h"
 
-@class ASSearchDisplayController, NSOperationQueue, SKUIClientContext, SKUICompletionList, SKUILoadURLOperation, UISearchBar, UIViewController;
+@class ASSearchDisplayController, NSOperationQueue, NSString, SKUIClientContext, SKUICompletionList, SSVLoadURLOperation, UISearchBar, UIViewController;
 
 @interface SKUISearchFieldController : NSObject <UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 {
+    NSString *_baseHintsURLString;
     SKUIClientContext *_clientContext;
     SKUICompletionList *_completionList;
     id <SKUISearchFieldDelegate> _delegate;
-    SKUILoadURLOperation *_loadOperation;
+    SSVLoadURLOperation *_loadOperation;
     NSOperationQueue *_operationQueue;
     ASSearchDisplayController *_searchDisplayController;
-    int _numberOfSearchResults;
+    long long _numberOfSearchResults;
 }
 
 @property(nonatomic) __weak id <SKUISearchFieldDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) int numberOfSearchResults; // @synthesize numberOfSearchResults=_numberOfSearchResults;
+@property(nonatomic) long long numberOfSearchResults; // @synthesize numberOfSearchResults=_numberOfSearchResults;
 @property(retain, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
 - (void).cxx_destruct;
 - (void)_setResponse:(id)arg1 error:(id)arg2;
@@ -33,17 +34,19 @@
 - (void)_recordMetricsEvent:(id)arg1;
 - (void)_loadResultsForURL:(id)arg1;
 - (void)_loadResultsForSearchTerm:(id)arg1;
+- (id)_escapedTermWithTerm:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (BOOL)searchDisplayController:(id)arg1 shouldReloadTableForSearchString:(id)arg2;
+- (_Bool)searchDisplayController:(id)arg1 shouldReloadTableForSearchString:(id)arg2;
 - (void)searchBar:(id)arg1 textDidChange:(id)arg2;
-- (BOOL)searchBarShouldBeginEditing:(id)arg1;
+- (_Bool)searchBarShouldBeginEditing:(id)arg1;
 - (void)searchBarSearchButtonClicked:(id)arg1;
 - (id)URLForSearchTerm:(id)arg1;
 - (void)setSearchTerm:(id)arg1;
 @property(readonly, nonatomic) UISearchBar *searchBar;
 @property(readonly, nonatomic) UIViewController *contentsController;
+- (void)dealloc;
 - (id)initWithContentsController:(id)arg1;
 
 @end

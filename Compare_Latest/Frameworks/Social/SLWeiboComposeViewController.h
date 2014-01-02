@@ -13,11 +13,13 @@
     SLWeiboSession *_remoteSession;
 }
 
++ (id)serviceBundle;
 - (void).cxx_destruct;
 - (void)presentNoAccountsAlert;
+- (void)viewDidDisappear:(_Bool)arg1;
 - (void)loadView;
+- (_Bool)validateText:(id)arg1;
 - (void)tearDownSession;
-- (void)dealloc;
 - (id)session;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 

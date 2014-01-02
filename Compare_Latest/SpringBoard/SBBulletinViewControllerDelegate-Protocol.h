@@ -9,10 +9,10 @@
 @protocol SBBulletinViewControllerDelegate <NSObject>
 
 @optional
-- (BOOL)bulletinViewController:(id)arg1 didSelectBulletin:(id)arg2 inSection:(id)arg3;
-- (BOOL)bulletinViewController:(id)arg1 shouldHighlightBulletin:(id)arg2 inSection:(id)arg3;
-- (int)bulletinViewController:(id)arg1 replacementAnimationForBulletin:(id)arg2 inSection:(id)arg3;
-- (int)bulletinViewController:(id)arg1 removalAnimationForBulletin:(id)arg2 inSection:(id)arg3;
-- (int)bulletinViewController:(id)arg1 insertionAnimationForBulletin:(id)arg2 inSection:(id)arg3;
+- (_Bool)bulletinViewController:(id)arg1 didSelectBulletin:(id)arg2 inSection:(id)arg3;
+- (_Bool)bulletinViewController:(id)arg1 shouldHighlightBulletin:(id)arg2 inSection:(id)arg3;
+- (long long)bulletinViewController:(id)arg1 replacementAnimationForBulletin:(id)arg2 inSection:(id)arg3;
+- (long long)bulletinViewController:(id)arg1 removalAnimationForBulletin:(id)arg2 inSection:(id)arg3;
+- (long long)bulletinViewController:(id)arg1 insertionAnimationForBulletin:(id)arg2 inSection:(id)arg3;
 @end
 

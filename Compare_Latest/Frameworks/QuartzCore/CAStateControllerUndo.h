@@ -10,6 +10,7 @@
 
 @class CAState, NSMutableArray;
 
+// Not exported
 @interface CAStateControllerUndo : NSObject <CAStateRecorder>
 {
     CAStateControllerUndo *_next;

@@ -10,10 +10,10 @@
 
 @interface PSUsageBundleApp : NSObject
 {
+    float _totalSize;
     NSString *_name;
     NSString *_bundleIdentifier;
     NSArray *_categories;
-    float _totalSize;
     id <PSStorageReporting> _usageBundleStorageReporter;
 }
 

@@ -8,20 +8,22 @@
 
 @class UIWebBrowserView, _UIWebViewScrollViewDelegateForwarder;
 
+// Not exported
 @interface _UIWebViewScrollView : UIWebScrollView
 {
     _UIWebViewScrollViewDelegateForwarder *_forwarder;
-    BOOL _bouncesSetExplicitly;
+    _Bool _bouncesSetExplicitly;
     UIWebBrowserView *_browserView;
 }
 
+- (void)setContentInset:(struct UIEdgeInsets)arg1;
 - (void)_setWebView:(id)arg1;
 - (id)delegate;
 - (void)setDelegate:(id)arg1;
-- (void)setBouncesHorizontally:(BOOL)arg1;
-- (void)setBouncesVertically:(BOOL)arg1;
-- (void)setBounces:(BOOL)arg1;
-- (void)_weaklySetBouncesHorizontally:(BOOL)arg1;
+- (void)setBouncesHorizontally:(_Bool)arg1;
+- (void)setBouncesVertically:(_Bool)arg1;
+- (void)setBounces:(_Bool)arg1;
+- (void)_weaklySetBouncesHorizontally:(_Bool)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

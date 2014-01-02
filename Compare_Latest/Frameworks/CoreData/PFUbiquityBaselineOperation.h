@@ -8,6 +8,7 @@
 
 @class NSManagedObjectModel, NSString;
 
+// Not exported
 @interface PFUbiquityBaselineOperation : PFUbiquityImportOperation
 {
     NSString *_modelVersionHash;

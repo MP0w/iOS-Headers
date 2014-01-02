@@ -14,6 +14,9 @@
 {
     _Bool pushHigh;
     NSObject<OS_dispatch_queue> *launchQueue;
+    long long allowedAppLaunchCap;
+    long long wifiChargerDuration;
+    unsigned long long scheduleLaunchQueue;
     id highPriorityBlock;
     id lowPriorityBlock;
     NSDate *lastRetryTrigTime;
@@ -23,17 +26,27 @@
     NSMutableArray *highPriorityRetryList;
     NSMutableArray *lowPriorityPushQueue;
     NSMutableArray *lowPriorityRetryList;
+    NSMutableArray *wifiChargerQueue;
     NSMutableArray *reservationStationList;
+    id wifiChargerCheck;
+    NSDate *ageWifiChargerQueue;
 }
 
 - (void).cxx_destruct;
 - (void)logLight:(struct __aslclient *)arg1 withMsg:(struct __aslmsg *)arg2 withLevel:(int)arg3;
 - (void)logAll:(struct __aslclient *)arg1 withMsg:(struct __aslmsg *)arg2 withLevel:(int)arg3;
-- (_Bool)reservationStationsFree;
-- (void)releaseReservationStation:(id)arg1;
-- (void)launchObject:(id)arg1;
+- (_Bool)wifiChargeQueueAllowedToProceed;
+- (void)setLaunchCapacity:(unsigned long long)arg1;
+- (int)reservationStationsFree;
+- (void)updateWifiChargerDate;
+- (void)enableWifiChargerQueue:(id)arg1;
+- (_Bool)refillWifiChargerQueue;
+- (void)releaseReservationStation:(id)arg1 seqNum:(long long)arg2;
+- (int)launchObject:(id)arg1;
+- (void)doDispatchQueuedLPLaunches;
 - (void)doDispatchQueuedLaunches;
 - (_Bool)acquireReservationStation:(id)arg1;
+- (_Bool)confirmReservationStation:(id)arg1 seqNum:(long long)arg2 type:(int)arg3 release:(id)arg4;
 - (void)addToLaunchQueue:(id)arg1 withQueueType:(int)arg2 withItem:(id)arg3;
 - (void)addToLowPriorityQueue:(id)arg1 withLaunchBlock:(id)arg2;
 - (void)addToHighPriorityQueue:(id)arg1 withLaunchBlock:(id)arg2;

@@ -6,13 +6,14 @@
 
 #import <UIKit/UIStatusBarLegacyStyleAttributes.h>
 
+// Not exported
 @interface UIStatusBarAssistantEyesFreeStyleAttributes : UIStatusBarLegacyStyleAttributes
 {
 }
 
 - (double)glowAnimationDuration;
 - (id)backgroundImageName;
-- (BOOL)areTopCornersRounded;
+- (_Bool)areTopCornersRounded;
 - (int)cornerStyle;
 
 @end

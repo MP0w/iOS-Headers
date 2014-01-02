@@ -7,15 +7,16 @@
 #import "NSObject.h"
 
 #import "DuetLoggerProtocol-Protocol.h"
+#import "DuetSaveAndRestore-Protocol.h"
 
 @class AppLaunchStatsState, NSDate, NSRunLoop, PCPersistentTimer;
 
-@interface AppLaunchStatsScheduler : NSObject <DuetLoggerProtocol>
+@interface AppLaunchStatsScheduler : NSObject <DuetLoggerProtocol, DuetSaveAndRestore>
 {
     _Bool usefulDate;
     id theCallback;
     AppLaunchStatsState *aplsState;
-    int timeZoneSecondsFromGMT;
+    long long timeZoneSecondsFromGMT;
     NSDate *fireWakeupDate;
     NSDate *startDate;
     NSRunLoop *aplsRunloop;
@@ -26,6 +27,8 @@
 - (void)logLight:(struct __aslclient *)arg1 withMsg:(struct __aslmsg *)arg2 withLevel:(int)arg3;
 - (void)logAll:(struct __aslclient *)arg1 withMsg:(struct __aslmsg *)arg2 withLevel:(int)arg3;
 - (void)timerFired:(id)arg1;
+- (void)save:(id)arg1;
+- (void)restore:(id)arg1;
 - (void)programTimer;
 - (void)generateFireDates;
 - (void)checkTimeZone;

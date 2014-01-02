@@ -8,6 +8,7 @@
 
 @class NSManagedObjectContext;
 
+// Not exported
 @interface _PFManagedObjectReferenceQueue : NSObject
 {
     int _cd_rc;
@@ -19,19 +20,19 @@
     struct __CFRunLoopObserver *_rlObserver;
 }
 
-- (BOOL)_queueBatchForDealloc:(struct __CFArray *)arg1;
-- (BOOL)_queueForDealloc:(id)arg1;
-- (BOOL)_signal;
-- (BOOL)_GC_queueForDealloc:(id)arg1;
-- (void)_processReferenceQueue:(BOOL)arg1;
-- (int)_queueCount;
+- (_Bool)_queueBatchForDealloc:(struct __CFArray *)arg1;
+- (_Bool)_queueForDealloc:(id)arg1;
+- (_Bool)_signal;
+- (_Bool)_GC_queueForDealloc:(id)arg1;
+- (void)_processReferenceQueue:(_Bool)arg1;
+- (long long)_queueCount;
 - (void)_contextDidDealloc;
 - (void)finalize;
 - (void)dealloc;
 - (void)_unregisterRunloopObservers;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
-- (unsigned int)retainCount;
+- (_Bool)_isDeallocating;
+- (_Bool)_tryRetain;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;
 - (id)initForContext:(id)arg1;

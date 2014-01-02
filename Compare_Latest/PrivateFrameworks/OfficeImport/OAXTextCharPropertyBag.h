@@ -6,15 +6,12 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface OAXTextCharPropertyBag : NSObject
 {
 }
 
 + (void)readCharacterProperties:(struct _xmlNode *)arg1 characterProperties:(id)arg2 drawingState:(id)arg3;
-+ (void)readFont:(struct _xmlNode *)arg1 characterProperties:(id)arg2;
-+ (void)readFormatting:(struct _xmlNode *)arg1 characterProperties:(id)arg2 drawingState:(id)arg3;
-+ (void)readUnderlineFill:(struct _xmlNode *)arg1 underline:(id)arg2 drawingState:(id)arg3;
-+ (void)readUnderlineType:(id)arg1 underline:(id)arg2;
 
 @end
 

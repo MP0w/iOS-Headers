@@ -20,7 +20,7 @@
 - (id)description;
 - (id)folderChangeResult;
 - (void)applyToFolderMap:(id)arg1;
-- (BOOL)performWithAccount:(id)arg1 offlineCache:(id)arg2;
+- (_Bool)performWithAccount:(id)arg1 offlineCache:(id)arg2;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

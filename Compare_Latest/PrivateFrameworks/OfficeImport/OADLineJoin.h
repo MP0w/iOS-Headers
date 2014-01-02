@@ -8,6 +8,7 @@
 
 #import "NSCopying-Protocol.h"
 
+// Not exported
 @interface OADLineJoin : OADProperties <NSCopying>
 {
 }

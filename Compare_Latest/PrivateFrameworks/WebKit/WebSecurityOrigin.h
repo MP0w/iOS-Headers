@@ -17,7 +17,7 @@
 
 - (void)finalize;
 - (void)dealloc;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (unsigned short)port;
 - (id)domain;
 - (id)stringValue;
@@ -26,13 +26,6 @@
 - (id)host;
 - (id)protocol;
 - (id)initWithURL:(id)arg1;
-- (struct SecurityOrigin *)_core;
-- (id)_initWithWebCoreSecurityOrigin:(struct SecurityOrigin *)arg1;
-- (id)databaseQuotaManager;
-- (id)applicationCacheQuotaManager;
-- (void)setQuota:(unsigned long long)arg1;
-- (unsigned long long)quota;
-- (unsigned long long)usage;
 
 @end
 

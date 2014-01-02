@@ -18,12 +18,12 @@
 - (id)description;
 - (void)dealloc;
 - (id)initWithDictionary:(id)arg1;
-- (id)initWithType:(id)arg1 primary:(BOOL)arg2;
+- (id)initWithType:(id)arg1 primary:(_Bool)arg2;
 
 // Remaining properties
 @property(retain, nonatomic) CBUUID *UUID;
 @property(retain) NSArray *includedServices;
-@property(nonatomic) BOOL isPrimary;
+@property(nonatomic) _Bool isPrimary;
 
 @end
 

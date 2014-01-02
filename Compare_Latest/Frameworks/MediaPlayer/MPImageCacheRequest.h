@@ -13,11 +13,11 @@
     MPImageCache *_cache;
     id _completionHandler;
     int _contentMode;
-    BOOL _decodeOnFetch;
+    _Bool _decodeOnFetch;
     id <MPImageRequestDelegate> _delegate;
     UIColor *_fillColor;
     struct CGSize _finalSize;
-    BOOL _finalSizeMayDifferWhenApsectRatioMatches;
+    _Bool _finalSizeMayDifferWhenApsectRatioMatches;
     MPImageModifier *_modifier;
     id <NSObject><NSCopying> _uniqueKey;
     long long _tag;
@@ -25,10 +25,10 @@
 }
 
 @property(nonatomic) int interpolationQuality; // @synthesize interpolationQuality=_interpolationQuality;
-@property(nonatomic) BOOL finalSizeMayDifferWhenApsectRatioMatches; // @synthesize finalSizeMayDifferWhenApsectRatioMatches=_finalSizeMayDifferWhenApsectRatioMatches;
+@property(nonatomic) _Bool finalSizeMayDifferWhenApsectRatioMatches; // @synthesize finalSizeMayDifferWhenApsectRatioMatches=_finalSizeMayDifferWhenApsectRatioMatches;
 @property(retain, nonatomic) id <NSObject><NSCopying> uniqueKey; // @synthesize uniqueKey=_uniqueKey;
 @property(nonatomic) long long tag; // @synthesize tag=_tag;
-@property(nonatomic) BOOL decodeOnFetch; // @synthesize decodeOnFetch=_decodeOnFetch;
+@property(nonatomic) _Bool decodeOnFetch; // @synthesize decodeOnFetch=_decodeOnFetch;
 @property(nonatomic) int contentMode; // @synthesize contentMode=_contentMode;
 @property(retain, nonatomic) MPImageModifier *modifier; // @synthesize modifier=_modifier;
 @property(nonatomic) struct CGSize finalSize; // @synthesize finalSize=_finalSize;
@@ -37,21 +37,22 @@
 @property(copy, nonatomic) id completionHandler; // @synthesize completionHandler=_completionHandler;
 @property(nonatomic) __weak MPImageCache *cache; // @synthesize cache=_cache;
 - (void).cxx_destruct;
-- (void)_sendImageToDelegate:(id)arg1;
-- (void)_sendErrorToDelegate:(id)arg1;
+- (void)_finishWithBlock:(id)arg1;
+- (void)_finishWithImage:(id)arg1;
+- (void)_finishWithDelegate:(id)arg1;
 - (id)_newBitmapImageFromImage:(id)arg1 finalSize:(struct CGSize)arg2;
 - (void)_getGeometryForCreatingNewImage:(id)arg1 finalSize:(struct CGSize)arg2 contentSize:(struct CGSize *)arg3 contentSubRect:(struct CGRect *)arg4 imageFrame:(struct CGRect *)arg5;
 - (void)completeImageLoadOperationWithImage:(id)arg1;
 - (void)main;
 - (void)cancel;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 @property(readonly, nonatomic) UIImage *finalPlaceholderImage;
 @property(readonly, nonatomic) UIImage *placeholderImage;
-@property(readonly, nonatomic) BOOL canRequestSynchronously;
+@property(readonly, nonatomic) _Bool canRequestSynchronously;
 - (id)copyRawImageReturningError:(id *)arg1;
 - (id)copyImageFromImage:(id)arg1;
-- (BOOL)_canUseInputImageAsFinalOutput:(id)arg1;
+- (_Bool)_canUseInputImageAsFinalOutput:(id)arg1;
 - (id)description;
 - (id)init;
 

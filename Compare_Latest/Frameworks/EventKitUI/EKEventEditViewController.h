@@ -6,13 +6,14 @@
 
 #import "UINavigationController.h"
 
-@class EKEvent, EKEventEditor, EKEventStore, NSString;
+@class EKEvent, EKEventEditor, EKEventStore, NSString, UIColor;
 
 @interface EKEventEditViewController : UINavigationController
 {
     EKEvent *_event;
     NSString *_eventId;
-    BOOL _showsTimeZone;
+    _Bool _showsTimeZone;
+    int _transitionForModalViewPresentation;
     EKEventStore *_store;
     id <EKEventEditViewDelegate> _editViewDelegate;
     EKEventEditor *_editor;
@@ -20,24 +21,32 @@
 
 + (void)setDefaultDatesForEvent:(id)arg1;
 @property(retain, nonatomic) EKEventEditor *editor; // @synthesize editor=_editor;
-@property(nonatomic) BOOL showsTimeZone; // @synthesize showsTimeZone=_showsTimeZone;
+@property(nonatomic) int transitionForModalViewPresentation; // @synthesize transitionForModalViewPresentation=_transitionForModalViewPresentation;
+@property(nonatomic) _Bool showsTimeZone; // @synthesize showsTimeZone=_showsTimeZone;
 @property(nonatomic) __weak id <EKEventEditViewDelegate> editViewDelegate; // @synthesize editViewDelegate=_editViewDelegate;
 @property(retain, nonatomic) EKEventStore *eventStore; // @synthesize eventStore=_store;
 - (void).cxx_destruct;
+@property(nonatomic) double editorNavBarRightContentInset;
+@property(nonatomic) double editorNavBarLeftContentInset;
+@property(retain, nonatomic) UIColor *editorBackgroundColor;
+- (_Bool)willPresentDialogOnSave;
+- (void)completeAndSave;
 - (void)handleTapOutside;
-@property(nonatomic) BOOL canHideDoneAndCancelButtons;
-@property(nonatomic) BOOL showAttachments;
-@property(nonatomic) BOOL scrollToNotes;
-- (unsigned int)supportedInterfaceOrientations;
+@property(nonatomic) _Bool canHideDoneAndCancelButtons;
+@property(nonatomic) _Bool showAttachments;
+@property(nonatomic) _Bool scrollToNotes;
+- (struct CGSize)preferredContentSize;
+- (unsigned long long)supportedInterfaceOrientations;
 - (void)_storeChanged:(id)arg1;
 - (void)editor:(id)arg1 prepareCalendarItemForEdit:(id)arg2;
 - (void)editor:(id)arg1 didCompleteWithAction:(int)arg2;
 - (void)cancelEditing;
-- (BOOL)saveWithSpan:(int)arg1 animated:(BOOL)arg2;
+- (_Bool)saveWithSpan:(int)arg1 animated:(_Bool)arg2;
 - (void)refreshStartAndEndDates;
-- (struct CGSize)contentSizeForViewInPopover;
 @property(retain, nonatomic) EKEvent *event;
+- (void)presentViewController:(id)arg1 withTransition:(int)arg2 completion:(id)arg3;
 - (void)dealloc;
+- (_Bool)shouldAutorotate;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (id)initWithEvent:(id)arg1 store:(id)arg2;
 

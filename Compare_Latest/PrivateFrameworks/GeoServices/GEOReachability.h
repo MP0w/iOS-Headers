@@ -10,17 +10,17 @@
 
 @interface GEOReachability : NSObject <GEOResourceManifestTileGroupObserver>
 {
-    BOOL _networkReachable;
-    unsigned int _errorCount;
+    _Bool _networkReachable;
+    unsigned long long _errorCount;
 }
 
 + (id)sharedReachability;
 - (void)resourceManifestManagerDidChangeActiveTileGroup:(id)arg1;
 - (void)resourceManifestManagerWillChangeActiveTileGroup:(id)arg1;
 - (void)_reachabilityChanged:(id)arg1;
-- (BOOL)networkAvailable;
+- (_Bool)networkAvailable;
 - (void)reportLoadFailure:(id)arg1;
-- (BOOL)anyFailures;
+- (_Bool)anyFailures;
 - (void)reportTileLoadSuccess:(id)arg1;
 - (void)_resetErrors;
 - (void)dealloc;

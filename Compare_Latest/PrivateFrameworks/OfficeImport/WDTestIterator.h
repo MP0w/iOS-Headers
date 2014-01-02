@@ -6,6 +6,7 @@
 
 #import <OfficeImport/WDIterator.h>
 
+// Not exported
 @interface WDTestIterator : WDIterator
 {
     WDIterator *mIterator;
@@ -13,8 +14,8 @@
 }
 
 - (id)next;
-- (BOOL)hasNext;
-- (BOOL)test:(id)arg1;
+- (_Bool)hasNext;
+- (_Bool)test:(id)arg1;
 - (void)dealloc;
 - (id)initWithIterator:(id)arg1;
 

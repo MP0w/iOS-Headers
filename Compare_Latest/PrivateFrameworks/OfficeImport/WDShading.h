@@ -10,6 +10,7 @@
 
 @class TSUColor;
 
+// Not exported
 @interface WDShading : NSObject <NSCopying>
 {
     int mStyle;
@@ -27,8 +28,8 @@
 - (void)setStyle:(int)arg1;
 - (int)style;
 - (void)setShading:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isEqualToShading:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)isEqualToShading:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

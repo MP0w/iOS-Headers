@@ -12,12 +12,12 @@
 {
     UIImage *_tintedImage;
     CALayer *_tintedLayer;
-    BOOL _wantsTintedLayer;
+    _Bool _wantsTintedLayer;
     UIImage *_originalImage;
     UIColor *_tintColor;
 }
 
-@property(nonatomic) BOOL wantsTintedLayer; // @synthesize wantsTintedLayer=_wantsTintedLayer;
+@property(nonatomic) _Bool wantsTintedLayer; // @synthesize wantsTintedLayer=_wantsTintedLayer;
 @property(retain, nonatomic) UIColor *tintColor; // @synthesize tintColor=_tintColor;
 @property(retain, nonatomic) UIImage *originalImage; // @synthesize originalImage=_originalImage;
 - (void)_createOrUpdateTintedImageOrLayer;

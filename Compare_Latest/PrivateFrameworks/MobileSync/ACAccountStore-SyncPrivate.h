@@ -8,7 +8,7 @@
 
 @interface ACAccountStore (SyncPrivate)
 - (id)mailAccountsForSync;
-- (BOOL)hasMailAccountsForSync;
+- (_Bool)hasMailAccountsForSync;
 - (id)_mailAccountTypeIdentifiers;
 @end
 

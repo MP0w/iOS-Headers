@@ -11,10 +11,10 @@
 @interface MPMovieThumbnailRequest : NSObject
 {
     NSArray *_times;
-    int _timeOption;
+    long long _timeOption;
 }
 
-@property(nonatomic) int timeOption; // @synthesize timeOption=_timeOption;
+@property(nonatomic) long long timeOption; // @synthesize timeOption=_timeOption;
 @property(retain, nonatomic) NSArray *times; // @synthesize times=_times;
 - (void).cxx_destruct;
 

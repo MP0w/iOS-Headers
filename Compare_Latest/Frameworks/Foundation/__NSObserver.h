@@ -8,6 +8,7 @@
 
 @class NSNotificationCenter, NSOperationQueue, NSString;
 
+// Not exported
 @interface __NSObserver : NSObject
 {
     NSNotificationCenter *nc;
@@ -18,7 +19,7 @@
 }
 
 + (void)forgetObserver:(id)arg1;
-+ (BOOL)isAnObserver:(id)arg1;
++ (_Bool)isAnObserver:(id)arg1;
 + (id)observerWithCenter:(id)arg1 queue:(id)arg2 name:(id)arg3 object:(id)arg4 block:(id)arg5;
 - (void)_doit:(id)arg1;
 - (id)object;

@@ -12,14 +12,14 @@
 {
     NSMutableData *_mutableData;
     NSData *_data;
-    unsigned int _offset;
+    unsigned long long _offset;
 }
 
 + (id)decodeWithData:(id)arg1;
 + (id)encodeWithCandidateResultSet:(id)arg1;
 + (Class)classFromCandidateType:(int)arg1;
 + (id)candidateTypeToClassNameMap;
-@property(nonatomic) unsigned int offset; // @synthesize offset=_offset;
+@property(nonatomic) unsigned long long offset; // @synthesize offset=_offset;
 @property(retain, nonatomic) NSData *data; // @synthesize data=_data;
 @property(retain, nonatomic) NSMutableData *mutableData; // @synthesize mutableData=_mutableData;
 - (id)candidateResultSet;
@@ -36,8 +36,8 @@
 - (void)encodeShort:(unsigned short)arg1;
 - (unsigned char)decodeByte;
 - (void)encodeByte:(unsigned char)arg1;
-- (BOOL)decodeBool;
-- (void)encodeBool:(BOOL)arg1;
+- (_Bool)decodeBool;
+- (void)encodeBool:(_Bool)arg1;
 - (id)decodeCandidate;
 @property(readonly, nonatomic) const char *currentPosition;
 @property(readonly, nonatomic) const char *bytes;

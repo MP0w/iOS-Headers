@@ -13,8 +13,8 @@
 
 @interface ML3OrderingTerm : NSObject <NSCopying, NSCoding>
 {
-    NSString *_property;
     int _direction;
+    NSString *_property;
     NSString *_collation;
 }
 
@@ -27,8 +27,8 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)initWithProperty:(id)arg1 direction:(int)arg2 collation:(id)arg3;
 - (id)initWithProperty:(id)arg1 direction:(int)arg2;
 - (id)initWithProperty:(id)arg1;

@@ -6,10 +6,12 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface SFWirelessSettingsController : NSObject
 {
-    BOOL _wifiEnabled;
-    BOOL _bluetoothEnabled;
+    _Bool _wifiEnabled;
+    _Bool _bluetoothEnabled;
+    _Bool _deviceSupportsWAPI;
     struct __SFOperation *_information;
     id <SFWirelessSettingsControllerDelegate> _delegate;
 }
@@ -17,9 +19,11 @@
 @property __weak id <SFWirelessSettingsControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)dealloc;
-@property(getter=isBluetoothEnabled) BOOL bluetoothEnabled;
-@property(getter=isWifiEnabled) BOOL wifiEnabled;
-- (void)handleOperationCallback:(struct __SFOperation *)arg1 event:(long)arg2 withResults:(id)arg3;
+@property(readonly) _Bool deviceSupportsWAPI;
+- (void)repairAppleID;
+@property(getter=isBluetoothEnabled) _Bool bluetoothEnabled;
+@property(getter=isWifiEnabled) _Bool wifiEnabled;
+- (void)handleOperationCallback:(struct __SFOperation *)arg1 event:(long long)arg2 withResults:(id)arg3;
 - (id)init;
 
 @end

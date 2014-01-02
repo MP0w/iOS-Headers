@@ -7,13 +7,13 @@
 #import "NSObject-Protocol.h"
 
 @protocol _UISharedArtworkResolving <NSObject>
-- (void)setPreferredScale:(float)arg1;
-- (id)imageNamed:(id)arg1 idiom:(int)arg2;
+- (void)setPreferredScale:(double)arg1;
+- (id)imageNamed:(id)arg1 idiom:(long long)arg2;
 - (id)imageNamed:(id)arg1;
 
 @optional
 - (id)_catalog;
-- (id)nameAtIndex:(unsigned int)arg1;
-- (id)initWithName:(id)arg1 inBundle:(id)arg2 idiom:(int)arg3;
+- (id)nameAtIndex:(unsigned long long)arg1;
+- (id)initWithName:(id)arg1 inBundle:(id)arg2 idiom:(long long)arg3;
 @end
 

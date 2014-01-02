@@ -6,13 +6,13 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface CHXDataValueProperties : NSObject
 {
 }
 
 + (id)chdDataValuePropertiesFromXmlElement:(struct _xmlNode *)arg1 state:(id)arg2;
 + (id)readFrom:(struct _xmlNode *)arg1 state:(id)arg2;
-+ (Class)chxDataValuePropertiesClassWithState:(id)arg1;
 
 @end
 

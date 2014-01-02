@@ -8,14 +8,14 @@
 
 @interface SBAlertItemsSettings : _UISettings
 {
-    BOOL _disableBBHandlers;
-    int _testItemToken;
+    _Bool _disableBBHandlers;
+    long long _testItemToken;
 }
 
-+ (id)newTestItemForToken:(int)arg1;
++ (id)newTestItemForToken:(long long)arg1;
 + (id)settingsControllerModule;
-@property(nonatomic) int testItemToken; // @synthesize testItemToken=_testItemToken;
-@property(nonatomic) BOOL disableBBHandlers; // @synthesize disableBBHandlers=_disableBBHandlers;
+@property(nonatomic) long long testItemToken; // @synthesize testItemToken=_testItemToken;
+@property(nonatomic) _Bool disableBBHandlers; // @synthesize disableBBHandlers=_disableBBHandlers;
 - (void)setDefaultValues;
 
 @end

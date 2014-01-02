@@ -8,6 +8,7 @@
 
 #import "DOMXPathNSResolver-Protocol.h"
 
+// Not exported
 @interface DOMNativeXPathNSResolver : DOMObject <DOMXPathNSResolver>
 {
 }

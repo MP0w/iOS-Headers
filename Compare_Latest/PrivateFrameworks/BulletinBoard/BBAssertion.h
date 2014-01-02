@@ -12,12 +12,12 @@
 {
     BBZeroingWeakReference *_delegate;
     NSString *_identifier;
-    unsigned int _transactionID;
+    unsigned long long _transactionID;
 }
 
-- (unsigned int)transactionID;
+- (unsigned long long)transactionID;
 - (id)identifier;
-- (void)increaseOrIgnoreTransactionID:(unsigned int)arg1;
+- (void)increaseOrIgnoreTransactionID:(unsigned long long)arg1;
 - (void)dealloc;
 - (id)initWithDelegate:(id)arg1 identifier:(id)arg2;
 

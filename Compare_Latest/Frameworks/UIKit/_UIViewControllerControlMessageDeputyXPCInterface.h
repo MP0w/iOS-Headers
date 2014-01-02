@@ -8,6 +8,7 @@
 
 #import "_UIViewServiceDeputyXPCInterface-Protocol.h"
 
+// Not exported
 @interface _UIViewControllerControlMessageDeputyXPCInterface : NSObject <_UIViewServiceDeputyXPCInterface>
 {
 }

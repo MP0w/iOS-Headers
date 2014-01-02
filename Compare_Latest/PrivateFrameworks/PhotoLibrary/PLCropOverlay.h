@@ -6,7 +6,7 @@
 
 #import "UIView.h"
 
-@class CAMBottomBar, PLContactPhotoOverlay, PLCropOverlayBottomBar, PLCropOverlayCropView, PLProgressHUD, PLToolbar, TPBottomDoubleButtonBar, TPButton, TPCameraButton, UIButton, UIImageView, UILabel;
+@class CAMBottomBar, PLContactPhotoOverlay, PLCropOverlayBottomBar, PLCropOverlayCropView, PLCropOverlayWallpaperBottomBar, PLProgressHUD, TPBottomDoubleButtonBar, TPButton, TPCameraButton, UIButton, UIImageView, UILabel, UIToolbar;
 
 @interface PLCropOverlay : UIView
 {
@@ -15,7 +15,7 @@
     UIImageView *_shadowView;
     UIView *_overlayContainerView;
     struct CGRect _cropRect;
-    PLToolbar *_customToolbar;
+    UIToolbar *_customToolbar;
     UILabel *_titleLabel;
     UIImageView *_topShineView;
     TPBottomDoubleButtonBar *_oldBottomBar;
@@ -36,41 +36,44 @@
     UIButton *_cancelButton;
     UIView *_wildcatPickerTopView;
     UIView *_wildcatPickerBottomView;
+    PLContactPhotoOverlay *_contactPhotoOverlay;
     PLCropOverlayBottomBar *__bottomBar;
     UIButton *__cameraCancelButton;
-    PLContactPhotoOverlay *__contactPhotoOverlay;
 }
 
-@property(readonly, nonatomic) PLContactPhotoOverlay *_contactPhotoOverlay; // @synthesize _contactPhotoOverlay=__contactPhotoOverlay;
 @property(readonly, nonatomic) UIButton *_cameraCancelButton; // @synthesize _cameraCancelButton=__cameraCancelButton;
 @property(readonly, nonatomic) PLCropOverlayBottomBar *_bottomBar; // @synthesize _bottomBar=__bottomBar;
-- (BOOL)isTelephonyUIMode:(int)arg1;
-- (id)_newOverlayViewWithFrame:(struct CGRect)arg1 lighterEdgeOnTop:(BOOL)arg2;
+@property(readonly, nonatomic) PLContactPhotoOverlay *contactPhotoOverlay; // @synthesize contactPhotoOverlay=_contactPhotoOverlay;
+- (_Bool)isTelephonyUIMode:(int)arg1;
+- (id)_newOverlayViewWithFrame:(struct CGRect)arg1 lighterEdgeOnTop:(_Bool)arg2;
 - (void)_updateCropRectInRect:(struct CGRect)arg1;
-- (void)_updateToolbarItems:(BOOL)arg1;
+- (void)_updateToolbarItems:(_Bool)arg1;
 - (void)_updateTitle;
-@property(nonatomic) BOOL previewMode;
-- (void)setTitleHidden:(BOOL)arg1 animationDuration:(float)arg2;
-- (void)setShowsCropRegion:(BOOL)arg1;
+@property(nonatomic) _Bool previewMode;
+- (void)setTitleHidden:(_Bool)arg1 animationDuration:(double)arg2;
+- (void)setShowsCropRegion:(_Bool)arg1;
 - (void)setProgressDone;
 - (void)removeProgress;
-- (void)setShowProgress:(BOOL)arg1 title:(id)arg2;
-- (void)setCancelButtonHidden:(BOOL)arg1;
+- (void)setShowProgress:(_Bool)arg1 title:(id)arg2;
+- (void)setCancelButtonHidden:(_Bool)arg1;
 - (void)setCancelButtonTitle:(id)arg1;
-- (void)setOKButtonShowsCamera:(BOOL)arg1;
+- (void)setOKButtonShowsCamera:(_Bool)arg1;
 - (void)setOKButtonTitle:(id)arg1;
-- (void)setOKButtonColor:(int)arg1;
+- (void)setOKButtonColor:(long long)arg1;
 - (struct CGRect)titleRect;
 - (void)setTitle:(id)arg1;
 - (void)setTitle:(id)arg1 okButtonTitle:(id)arg2;
 - (struct CGRect)cropRect;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
-- (void)setEnabled:(BOOL)arg1;
+- (void)setEnabled:(_Bool)arg1;
 - (void)_pauseButtonPressed:(id)arg1;
 - (void)cropOverlayBottomBarPauseButtonClicked:(id)arg1;
 - (void)_playButtonPressed:(id)arg1;
 - (void)cropOverlayBottomBarPlayButtonClicked:(id)arg1;
 - (void)_tappedBottomBarPlaybackButton:(id)arg1;
+- (void)_tappedBottomBarSetBothButton;
+- (void)_tappedBottomBarSetLockButton;
+- (void)_tappedBottomBarSetHomeButton;
 - (void)_tappedBottomBarDoneButton:(id)arg1;
 - (void)_tappedBottomBarCancelButton:(id)arg1;
 - (void)okButtonClicked:(id)arg1;
@@ -86,7 +89,7 @@
 - (void)didCaptureVideo;
 - (void)didCapturePhoto;
 - (void)_setMode:(int)arg1;
-- (void)setCropRectVisible:(BOOL)arg1 duration:(float)arg2;
+- (void)setCropRectVisible:(_Bool)arg1 duration:(float)arg2;
 - (id)telephonyUIBottomBar;
 - (id)telephonyUIShutterButton;
 - (struct CGRect)bottomBarFrame;
@@ -98,14 +101,12 @@
 - (id)initWithFrame:(struct CGRect)arg1 mode:(int)arg2;
 - (void)setOverlayContainerView:(id)arg1;
 - (id)overlayContainerView;
-- (void)setControlsAreVisible:(BOOL)arg1;
-- (BOOL)controlsAreVisible;
+- (void)setControlsAreVisible:(_Bool)arg1;
+- (_Bool)controlsAreVisible;
+@property(readonly, nonatomic) PLCropOverlayWallpaperBottomBar *wallpaperBottomBar;
 @property(retain, nonatomic) CAMBottomBar *cameraBottomBar;
 - (void)layoutSubviews;
-- (id)initWithFrame:(struct CGRect)arg1 mode:(int)arg2 offsettingStatusBar:(BOOL)arg3 isDisplayedInPopover:(BOOL)arg4 buttonBarStyle:(int)arg5;
-- (void)_savePhotoFinished:(id)arg1;
-- (void)_backgroundSavePhoto:(id)arg1;
-- (void)beginBackgroundSaveWithTile:(id)arg1 progressTitle:(id)arg2 completionCallbackTarget:(id)arg3 options:(int)arg4;
+- (id)initWithFrame:(struct CGRect)arg1 mode:(int)arg2 offsettingStatusBar:(_Bool)arg3 isDisplayedInPopover:(_Bool)arg4 buttonBarStyle:(int)arg5;
 
 @end
 

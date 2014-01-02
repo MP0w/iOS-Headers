@@ -8,6 +8,7 @@
 
 @class NSArray, NSMapTable, NSMutableArray, NSMutableDictionary, VGLMesh, VGLTexture, VKAnimation, VKRealisticPolygonMaker;
 
+// Not exported
 @interface VKRealisticTile : VKVectorTile
 {
     float _roadZ;
@@ -39,11 +40,11 @@
 @property(readonly, nonatomic) float roadZ; // @synthesize roadZ=_roadZ;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (unsigned int)geometryCount;
+- (unsigned long long)geometryCount;
 - (id)_meshForStyle:(id)arg1 tileKey:(struct VKTileKey)arg2;
 - (id)_groupForRenderZ:(int)arg1;
-- (id)_createDefaultTextureForLevelOfDetail:(unsigned int)arg1 takeVariant:(BOOL)arg2;
-- (void)_addCoastlineMeshForPoints:(const Vec2Imp_1782d7e3 *)arg1 pointCount:(unsigned int)arg2;
+- (id)_createDefaultTextureForLevelOfDetail:(unsigned long long)arg1 takeVariant:(_Bool)arg2;
+- (void)_addCoastlineMeshForPoints:(const Vec2Imp_1782d7e3 *)arg1 pointCount:(unsigned long long)arg2;
 - (void)_parseCoastlines;
 @property(readonly, nonatomic) VGLTexture *defaultLandTextureVariant; // @synthesize defaultLandTextureVariant=_defaultLandTextureVariant;
 - (void)_parsePolygons;

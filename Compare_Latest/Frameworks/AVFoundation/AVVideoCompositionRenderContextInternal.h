@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSObject<OS_dispatch_queue>;
+@class AVVideoComposition, NSDictionary, NSObject<OS_dispatch_queue>;
 
 @interface AVVideoCompositionRenderContextInternal : NSObject
 {
@@ -14,22 +14,17 @@
     struct CGSize _size;
     struct CGAffineTransform _renderTransform;
     float _renderScale;
-    struct {
-        int horizontalSpacing;
-        int verticalSpacing;
-    } _pixelAspectRatio;
-    CDStruct_b8308255 _edgeWidths;
-    BOOL _highQualityRendering;
+    CDStruct_43f4b5b8 _pixelAspectRatio;
+    CDStruct_1edcc8d7 _edgeWidths;
+    _Bool _highQualityRendering;
     NSDictionary *_clientRequiredPixelBufferAttributes;
     NSDictionary *_destinationDesiredPixelBufferAttributes;
     struct __CFDictionary *_pixelAspectRatioDict;
     struct __CFDictionary *_cleanApertureDict;
-    struct {
-        int width;
-        int height;
-    } _destinationPixelBufferDimensions;
+    CDStruct_79c71658 _destinationPixelBufferDimensions;
     NSObject<OS_dispatch_queue> *_pixelBufferPoolQ;
     struct __CVPixelBufferPool *_pixelBufferPool;
+    AVVideoComposition *_videoComposition;
 }
 
 - (void)dealloc;

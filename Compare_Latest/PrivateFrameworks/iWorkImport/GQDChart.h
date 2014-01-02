@@ -8,18 +8,19 @@
 
 @class GQDChartLegend, GQDChartModel, GQDSStyle;
 
+// Not exported
 @interface GQDChart : GQDGraphic
 {
     GQDChartLegend *mLegend;
-    BOOL mIsLegendRetained;
+    _Bool mIsLegendRetained;
     GQDChartModel *mModel;
     GQDSStyle *mStyle;
-    long mType;
+    long long mType;
 }
 
 + (const struct StateSpec *)stateForReading;
 - (void)setLegend:(id)arg1;
-- (long)type;
+- (long long)type;
 - (id)graphicStyle;
 - (id)style;
 - (id)model;

@@ -8,6 +8,7 @@
 
 @class GEOTileKeyList;
 
+// Not exported
 @interface GEOTileLoaderDeprecatedCtx : NSObject
 {
     struct __CFRunLoop *_runloop;
@@ -21,7 +22,6 @@
     id _finished;
 }
 
-+ (id)ctxWithList:(id)arg1;
 @property(readonly, nonatomic) id callback; // @synthesize callback=_callback;
 @property(copy, nonatomic) id finished; // @synthesize finished=_finished;
 @property(copy, nonatomic) id error; // @synthesize error=_error;

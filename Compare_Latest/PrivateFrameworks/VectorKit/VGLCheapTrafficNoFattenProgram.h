@@ -6,6 +6,7 @@
 
 #import <VectorKit/VGLTrafficNoFattenProgram.h>
 
+// Not exported
 @interface VGLCheapTrafficNoFattenProgram : VGLTrafficNoFattenProgram
 {
 }

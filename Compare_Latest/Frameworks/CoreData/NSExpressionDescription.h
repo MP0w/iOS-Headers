@@ -12,21 +12,21 @@
 {
     id _reservedtype1_1;
     id _reservedtype1_2;
-    unsigned int _reservedtype1_3;
+    unsigned long long _reservedtype1_3;
     id _reservedtype1_4;
-    unsigned int _reservedtype1_5;
+    unsigned long long _reservedtype1_5;
     id _reservedtype1_6;
     void *_reservedtype2_1;
     void *_reservedtype2_2;
     void *_reservedtype2_3;
     NSExpression *_expression;
-    unsigned int _expressionResultType;
+    unsigned long long _expressionResultType;
 }
 
 - (void)_writeIntoData:(id)arg1 propertiesDict:(id)arg2 uniquedPropertyNames:(id)arg3 uniquedStrings:(id)arg4 uniquedData:(id)arg5 entitiesSlots:(id)arg6 fetchRequests:(id)arg7;
-- (unsigned int)_propertyType;
-- (void)setExpressionResultType:(unsigned int)arg1;
-- (unsigned int)expressionResultType;
+- (unsigned long long)_propertyType;
+- (void)setExpressionResultType:(unsigned long long)arg1;
+- (unsigned long long)expressionResultType;
 - (void)setExpression:(id)arg1;
 - (id)expression;
 - (id)copyWithZone:(struct _NSZone *)arg1;

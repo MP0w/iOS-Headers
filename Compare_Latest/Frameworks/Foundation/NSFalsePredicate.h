@@ -10,22 +10,22 @@
 {
 }
 
-+ (BOOL)_allowsEvaluation;
-+ (BOOL)supportsSecureCoding;
++ (_Bool)_allowsEvaluation;
++ (_Bool)supportsSecureCoding;
 + (id)defaultInstance;
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (void)initialize;
-- (void)acceptVisitor:(id)arg1 flags:(unsigned int)arg2;
-- (BOOL)evaluateWithObject:(id)arg1 substitutionVariables:(id)arg2;
+- (void)acceptVisitor:(id)arg1 flags:(unsigned long long)arg2;
+- (_Bool)evaluateWithObject:(id)arg1 substitutionVariables:(id)arg2;
 - (id)predicateFormat;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)autorelease;
 - (oneway void)release;
-- (unsigned int)retainCount;
+- (unsigned long long)retainCount;
 - (id)retain;
 
 @end

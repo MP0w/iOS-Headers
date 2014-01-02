@@ -8,41 +8,38 @@
 
 @interface CUIShapeEffectPreset : NSObject
 {
-    CDStruct_da335e7b _parameterList[35];
+    CDStruct_d262fe4a _parameterList[35];
     unsigned int _effectIndex[8];
-    float _scaleFactor;
+    double _scaleFactor;
 }
 
 + (id)requiredEffectParametersForEffectType:(unsigned int)arg1;
-- (void)addBevelEmbossWithHighlightColorRed:(unsigned int)arg1 green:(unsigned int)arg2 blue:(unsigned int)arg3 opacity:(float)arg4 shadowColorRed:(unsigned int)arg5 green:(unsigned int)arg6 blue:(unsigned int)arg7 opacity:(float)arg8 blur:(int)arg9 soften:(int)arg10;
-- (void)addExtraShadowWithColorRed:(unsigned int)arg1 green:(unsigned int)arg2 blue:(unsigned int)arg3 opacity:(float)arg4 blur:(int)arg5 offset:(int)arg6 angle:(int)arg7;
-- (void)addDropShadowWithColorRed:(unsigned int)arg1 green:(unsigned int)arg2 blue:(unsigned int)arg3 opacity:(float)arg4 blur:(int)arg5 offset:(int)arg6 angle:(int)arg7;
-- (void)addOuterGlowWithColorRed:(unsigned int)arg1 green:(unsigned int)arg2 blue:(unsigned int)arg3 opacity:(float)arg4 blur:(int)arg5;
-- (void)addInnerShadowWithColorRed:(unsigned int)arg1 green:(unsigned int)arg2 blue:(unsigned int)arg3 opacity:(float)arg4 blur:(int)arg5 offset:(int)arg6 angle:(int)arg7;
-- (void)addInnerGlowWithColorRed:(unsigned int)arg1 green:(unsigned int)arg2 blue:(unsigned int)arg3 opacity:(float)arg4 blur:(int)arg5;
-- (void)addGradientFillWithTopColorRed:(unsigned int)arg1 green:(unsigned int)arg2 blue:(unsigned int)arg3 bottomColorRed:(unsigned int)arg4 green:(unsigned int)arg5 blue:(unsigned int)arg6 opacity:(float)arg7;
-- (void)addColorFillWithRed:(unsigned int)arg1 green:(unsigned int)arg2 blue:(unsigned int)arg3 opacity:(float)arg4;
+- (void)addBevelEmbossWithHighlightColorRed:(unsigned int)arg1 green:(unsigned int)arg2 blue:(unsigned int)arg3 opacity:(double)arg4 shadowColorRed:(unsigned int)arg5 green:(unsigned int)arg6 blue:(unsigned int)arg7 opacity:(double)arg8 blur:(int)arg9 soften:(int)arg10;
+- (void)addExtraShadowWithColorRed:(unsigned int)arg1 green:(unsigned int)arg2 blue:(unsigned int)arg3 opacity:(double)arg4 blur:(int)arg5 offset:(int)arg6 angle:(int)arg7;
+- (void)addDropShadowWithColorRed:(unsigned int)arg1 green:(unsigned int)arg2 blue:(unsigned int)arg3 opacity:(double)arg4 blur:(int)arg5 offset:(int)arg6 angle:(int)arg7;
+- (void)addOuterGlowWithColorRed:(unsigned int)arg1 green:(unsigned int)arg2 blue:(unsigned int)arg3 opacity:(double)arg4 blur:(int)arg5;
+- (void)addInnerShadowWithColorRed:(unsigned int)arg1 green:(unsigned int)arg2 blue:(unsigned int)arg3 opacity:(double)arg4 blur:(int)arg5 offset:(int)arg6 angle:(int)arg7;
+- (void)addInnerGlowWithColorRed:(unsigned int)arg1 green:(unsigned int)arg2 blue:(unsigned int)arg3 opacity:(double)arg4 blur:(int)arg5;
+- (void)addGradientFillWithTopColorRed:(unsigned int)arg1 green:(unsigned int)arg2 blue:(unsigned int)arg3 bottomColorRed:(unsigned int)arg4 green:(unsigned int)arg5 blue:(unsigned int)arg6 opacity:(double)arg7;
+- (void)addColorFillWithRed:(unsigned int)arg1 green:(unsigned int)arg2 blue:(unsigned int)arg3 opacity:(double)arg4;
 - (void)appendColorValueRed:(unsigned int)arg1 green:(unsigned int)arg2 blue:(unsigned int)arg3 forParameter:(unsigned int)arg4 withEffectType:(unsigned int)arg5;
-- (void)appendIntValue:(unsigned int)arg1 forParameter:(unsigned int)arg2 withEffectType:(unsigned int)arg3;
-- (void)appendAngleValue:(int)arg1 forParameter:(unsigned int)arg2 withEffectType:(unsigned int)arg3;
-- (void)appendFloatValue:(float)arg1 forParameter:(unsigned int)arg2 withEffectType:(unsigned int)arg3;
+- (void)appendIntValue:(unsigned long long)arg1 forParameter:(unsigned int)arg2 withEffectType:(unsigned int)arg3;
+- (void)appendAngleValue:(long long)arg1 forParameter:(unsigned int)arg2 withEffectType:(unsigned int)arg3;
+- (void)appendFloatValue:(double)arg1 forParameter:(unsigned int)arg2 withEffectType:(unsigned int)arg3;
 - (void)addColorValueRed:(unsigned int)arg1 green:(unsigned int)arg2 blue:(unsigned int)arg3 forParameter:(unsigned int)arg4 withNewEffectType:(unsigned int)arg5;
-- (void)addIntValue:(unsigned int)arg1 forParameter:(unsigned int)arg2 withNewEffectType:(unsigned int)arg3;
-- (void)addFloatValue:(float)arg1 forParameter:(unsigned int)arg2 withNewEffectType:(unsigned int)arg3;
-- (void)addValue:(CDUnion_b5169c9d)arg1 forParameter:(unsigned int)arg2 withNewEffectType:(unsigned int)arg3;
-- (void)appendValue:(CDUnion_b5169c9d)arg1 forParameter:(unsigned int)arg2 withEffectType:(unsigned int)arg3;
-- (void)addValue:(CDUnion_b5169c9d)arg1 forParameter:(unsigned int)arg2 withEffectType:(unsigned int)arg3 atEffectIndex:(unsigned int)arg4;
-- (void)getEffectTuples:(struct **)arg1 count:(unsigned int *)arg2 atEffectIndex:(unsigned int)arg3;
-- (void)_insertEffectTuple:(CDStruct_da335e7b)arg1 atEffectIndex:(unsigned int)arg2;
-- (CDUnion_b5169c9d)valueForParameter:(unsigned int)arg1 inEffectAtIndex:(unsigned int)arg2;
-- (unsigned int)effectTypeAtIndex:(unsigned int)arg1;
-- (unsigned int)effectCount;
-- (float)effectScale;
-- (id)initWithEffectScale:(float)arg1;
+- (void)addIntValue:(unsigned long long)arg1 forParameter:(unsigned int)arg2 withNewEffectType:(unsigned int)arg3;
+- (void)addFloatValue:(double)arg1 forParameter:(unsigned int)arg2 withNewEffectType:(unsigned int)arg3;
+- (void)addValue:(CDUnion_81581ae6)arg1 forParameter:(unsigned int)arg2 withNewEffectType:(unsigned int)arg3;
+- (void)appendValue:(CDUnion_81581ae6)arg1 forParameter:(unsigned int)arg2 withEffectType:(unsigned int)arg3;
+- (void)addValue:(CDUnion_81581ae6)arg1 forParameter:(unsigned int)arg2 withEffectType:(unsigned int)arg3 atEffectIndex:(unsigned long long)arg4;
+- (void)getEffectTuples:(struct **)arg1 count:(unsigned long long *)arg2 atEffectIndex:(unsigned long long)arg3;
+- (void)_insertEffectTuple:(CDStruct_d262fe4a)arg1 atEffectIndex:(unsigned long long)arg2;
+- (CDUnion_81581ae6)valueForParameter:(unsigned int)arg1 inEffectAtIndex:(unsigned long long)arg2;
+- (unsigned int)effectTypeAtIndex:(unsigned long long)arg1;
+- (unsigned long long)effectCount;
+- (double)effectScale;
+- (id)initWithEffectScale:(double)arg1;
 - (id)init;
-- (id)CUIEffectDataRepresentation;
-- (unsigned int)_parameterCount;
-- (id)initWithConstantPreset:(const CDStruct_e10911f2 *)arg1;
 
 @end
 

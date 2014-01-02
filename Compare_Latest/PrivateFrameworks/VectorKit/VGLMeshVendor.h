@@ -8,6 +8,7 @@
 
 @class NSArray, NSMutableArray, VGLMesh;
 
+// Not exported
 @interface VGLMeshVendor : NSObject
 {
     id _creator;

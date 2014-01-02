@@ -22,7 +22,7 @@
 - (id)gradient;
 - (void)updateGradientImage;
 - (void)updateAnimation;
-- (void)_removeAllAnimations:(BOOL)arg1;
+- (void)_removeAllAnimations:(_Bool)arg1;
 - (void)didMoveToSuperview;
 - (void)didMoveToWindow;
 - (void)layoutSubviews;

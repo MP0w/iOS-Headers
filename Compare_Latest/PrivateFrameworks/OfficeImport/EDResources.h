@@ -8,6 +8,7 @@
 
 @class EDCollection, EDColorsCollection, EDContentFormatsCollection, EDFontsCollection, EDLinksCollection, EDStylesCollection, EDTableStylesCollection;
 
+// Not exported
 @interface EDResources : NSObject
 {
     EDCollection *mStrings;
@@ -42,8 +43,6 @@
 - (id)strings;
 - (void)dealloc;
 - (id)initWithStringOptimization:(_Bool)arg1;
-- (void)setThemes:(id)arg1;
-- (void)setColors:(id)arg1;
 
 @end
 

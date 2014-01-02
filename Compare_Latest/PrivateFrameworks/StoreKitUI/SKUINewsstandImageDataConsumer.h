@@ -8,16 +8,15 @@
 
 #import "NSCopying-Protocol.h"
 
-@class NSString, SKUIColorScheme, UIColor;
+@class SKUIColorScheme, UIColor;
 
 @interface SKUINewsstandImageDataConsumer : SKUIImageDataConsumer <NSCopying>
 {
     UIColor *_backgroundColor;
     SKUIColorScheme *_colorScheme;
-    NSString *_imageString;
     struct CGSize _iconSize;
-    int _bindingEdge;
-    int _bindingType;
+    long long _bindingEdge;
+    long long _bindingType;
 }
 
 + (id)wishlistConsumer;
@@ -29,15 +28,16 @@
 + (id)updatesConsumer;
 + (id)chartsConsumer;
 + (id)mixedChartsConsumer;
-+ (id)lockupConsumerWithSize:(int)arg1;
++ (id)lockupConsumerWithSize:(long long)arg1;
 + (id)cardConsumer;
 + (id)newsstandSwooshConsumer;
 + (id)swooshConsumer;
 + (id)roomConsumer;
 + (id)newsstandRoomConsumer;
 + (id)productPageConsumer;
-@property(nonatomic) int bindingType; // @synthesize bindingType=_bindingType;
-@property(nonatomic) int bindingEdge; // @synthesize bindingEdge=_bindingEdge;
++ (id)consumerWithSize:(struct CGSize)arg1;
+@property(nonatomic) long long bindingType; // @synthesize bindingType=_bindingType;
+@property(nonatomic) long long bindingEdge; // @synthesize bindingEdge=_bindingEdge;
 @property(readonly, nonatomic) struct CGSize iconSize; // @synthesize iconSize=_iconSize;
 @property(retain, nonatomic) SKUIColorScheme *colorScheme; // @synthesize colorScheme=_colorScheme;
 @property(retain, nonatomic) UIColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;

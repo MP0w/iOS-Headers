@@ -8,12 +8,13 @@
 
 @class NSData, NSDictionary, NSURLResponse;
 
+// Not exported
 @interface NSCachedURLResponseInternal : NSObject
 {
     NSURLResponse *response;
     NSData *data;
     NSDictionary *userInfo;
-    unsigned int storagePolicy;
+    unsigned long long storagePolicy;
     struct _CFCachedURLResponse *_cachedURLResponse;
 }
 

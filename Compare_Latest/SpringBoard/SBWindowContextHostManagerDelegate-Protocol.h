@@ -9,7 +9,7 @@
 @protocol SBWindowContextHostManagerDelegate <NSObject>
 
 @optional
-- (BOOL)windowContextHostManager:(id)arg1 shouldEnableContextHostingForRequester:(id)arg2 priority:(int)arg3;
+- (_Bool)windowContextHostManager:(id)arg1 shouldEnableContextHostingForRequester:(id)arg2 priority:(int)arg3;
 - (id)windowContextHostManager:(id)arg1 overrideRequester:(id)arg2;
 @end
 

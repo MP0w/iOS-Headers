@@ -7,6 +7,6 @@
 #import "UINavigationController.h"
 
 @interface UINavigationController (CKTranscriptController)
-- (BOOL)transcriptControllerIsVisible;
+- (_Bool)transcriptControllerIsVisible;
 @end
 

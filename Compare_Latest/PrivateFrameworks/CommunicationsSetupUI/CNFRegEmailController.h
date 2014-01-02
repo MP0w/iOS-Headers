@@ -16,7 +16,7 @@
     NSArray *_checkMailSpecifiers;
     NSTimer *_validationTimeoutTimer;
     NSString *_pendingAlias;
-    BOOL _validating;
+    _Bool _validating;
 }
 
 @property(copy, nonatomic) NSString *pendingAlias; // @synthesize pendingAlias=_pendingAlias;
@@ -33,9 +33,9 @@
 - (void)setPendingAlias:(id)arg1 forSpecifier:(id)arg2;
 - (id)pendingAliasForSpecifier:(id)arg1;
 - (void)emailFieldEmptyStateChanged:(id)arg1 forSpecifier:(id)arg2;
-- (BOOL)emailFieldIsEmpty;
+- (_Bool)emailFieldIsEmpty;
 - (id)emailTextField;
-- (void)_setFieldsEnabled:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)_setFieldsEnabled:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)_updateControllerState;
 - (void)_updateUI;
 - (void)_refreshEnabledStateOfAliasSpecifiers;
@@ -46,25 +46,26 @@
 - (void)_returnKeyPressed;
 - (void)nextTapped;
 - (void)_failValidationWithError:(id)arg1;
-- (void)_stopValidationModeAnimated:(BOOL)arg1;
+- (void)_stopValidationModeAnimated:(_Bool)arg1;
 - (void)_finishValidation;
-- (BOOL)onlyLocalPhoneNumberSentinelAliasIsSelected;
+- (_Bool)onlyLocalPhoneNumberSentinelAliasIsSelected;
 - (id)selectedAliases;
 - (void)setAliasSelected:(id)arg1;
 - (id)_createSpecifierForAlias:(id)arg1;
 - (id)aliasSpecifiers;
-- (BOOL)_phoneNumberInAliases:(id)arg1;
-- (BOOL)shouldShowAllVettedAliases;
-- (void)_showCheckMailButton:(BOOL)arg1 animated:(BOOL)arg2;
-- (BOOL)showActionSpecifier:(id)arg1 animated:(BOOL)arg2;
+- (_Bool)_phoneNumberInAliases:(id)arg1;
+- (_Bool)shouldShowAllVettedAliases;
+- (id)titleString;
+- (void)_showCheckMailButton:(_Bool)arg1 animated:(_Bool)arg2;
+- (_Bool)showActionSpecifier:(id)arg1 animated:(_Bool)arg2;
 - (id)_rightButtonItem;
 - (id)logName;
 - (id)specifierList;
 - (id)bundle;
-- (void)viewDidDisappear:(BOOL)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)dealloc;
 

@@ -5,10 +5,10 @@
  */
 
 @protocol MPTimingSupport
-- (void)setStartsPaused:(BOOL)arg1;
-- (BOOL)startsPaused;
-- (void)setIsTriggered:(BOOL)arg1;
-- (BOOL)isTriggered;
+- (void)setStartsPaused:(_Bool)arg1;
+- (_Bool)startsPaused;
+- (void)setIsTriggered:(_Bool)arg1;
+- (_Bool)isTriggered;
 - (void)setNumberOfLoops:(double)arg1;
 - (double)numberOfLoops;
 - (void)setPhaseOutDuration:(double)arg1;

@@ -18,7 +18,7 @@
     NSData *_wirelessProximityIdentifier;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) NSData *wirelessProximityIdentifier; // @synthesize wirelessProximityIdentifier=_wirelessProximityIdentifier;
 @property(readonly, nonatomic) NSData *pairingPublicKey; // @synthesize pairingPublicKey=_pairingPublicKey;
 - (void).cxx_destruct;

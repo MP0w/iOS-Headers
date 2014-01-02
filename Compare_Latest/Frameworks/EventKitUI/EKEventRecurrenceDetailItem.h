@@ -8,21 +8,22 @@
 
 @class EKEventDetailRecurrenceCell, NSDate, NSString;
 
+// Not exported
 @interface EKEventRecurrenceDetailItem : EKEventDetailItem
 {
     EKEventDetailRecurrenceCell *_cell;
-    int _repeatType;
-    int _originalRepeatType;
+    long long _repeatType;
+    long long _originalRepeatType;
     NSDate *_repeatEnd;
     NSString *_customRepeatDescription;
-    BOOL _indent;
+    _Bool _indent;
 }
 
 - (void).cxx_destruct;
-- (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 forWidth:(float)arg2;
-- (id)cellForSubitemAtIndex:(unsigned int)arg1;
+- (double)defaultCellHeightForSubitemAtIndex:(unsigned long long)arg1 forWidth:(double)arg2;
+- (id)cellForSubitemAtIndex:(unsigned long long)arg1;
 - (void)setEvent:(id)arg1 store:(id)arg2;
-- (BOOL)configureWithCalendar:(id)arg1 preview:(BOOL)arg2;
+- (_Bool)configureWithCalendar:(id)arg1 preview:(_Bool)arg2;
 - (void)reset;
 
 @end

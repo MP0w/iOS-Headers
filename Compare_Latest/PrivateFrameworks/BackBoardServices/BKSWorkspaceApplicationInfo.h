@@ -11,12 +11,12 @@
 @interface BKSWorkspaceApplicationInfo : NSObject
 {
     BKSApplicationProcessInfo *_info;
-    BOOL _recordingAudio;
-    BOOL _externalAccessory;
+    _Bool _recordingAudio;
+    _Bool _externalAccessory;
 }
 
-@property(nonatomic) BOOL usingExternalAccessory; // @synthesize usingExternalAccessory=_externalAccessory;
-@property(nonatomic) BOOL recordingAudio; // @synthesize recordingAudio=_recordingAudio;
+@property(nonatomic) _Bool usingExternalAccessory; // @synthesize usingExternalAccessory=_externalAccessory;
+@property(nonatomic) _Bool recordingAudio; // @synthesize recordingAudio=_recordingAudio;
 @property(retain, nonatomic) BKSApplicationProcessInfo *info; // @synthesize info=_info;
 - (id)description;
 - (void)dealloc;

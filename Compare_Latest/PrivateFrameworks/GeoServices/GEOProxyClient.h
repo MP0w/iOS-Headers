@@ -13,19 +13,19 @@
     NSString *_bundleIdentifier;
     NSString *_bundleVersion;
     NSData *_auditToken;
-    BOOL _isApplication;
+    _Bool _isApplication;
 }
 
 + (id)compositeClientForClients:(id)arg1;
 + (id)currentClient;
-@property(nonatomic) BOOL isApplication; // @synthesize isApplication=_isApplication;
+@property(nonatomic) _Bool isApplication; // @synthesize isApplication=_isApplication;
 @property(retain, nonatomic) NSData *auditToken; // @synthesize auditToken=_auditToken;
 @property(retain, nonatomic) NSString *bundleVersion; // @synthesize bundleVersion=_bundleVersion;
 @property(retain, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
 - (id)URLConnectionProperties;
 - (id)description;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
 
 @end

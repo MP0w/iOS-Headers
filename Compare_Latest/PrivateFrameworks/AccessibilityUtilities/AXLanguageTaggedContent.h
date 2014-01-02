@@ -6,33 +6,38 @@
 
 #import "NSObject.h"
 
-@class NSLinguisticTagger, NSMutableArray, NSMutableOrderedSet, NSString;
+@class NSArray, NSLinguisticTagger, NSMutableArray, NSMutableOrderedSet, NSString;
 
 @interface AXLanguageTaggedContent : NSObject
 {
-    BOOL _tagged;
+    NSArray *_currentDialects;
+    struct _NSRange _currentChunk;
+    _Bool _predictedByTagger;
+    _Bool _tagged;
     NSMutableArray *_tags;
     NSLinguisticTagger *_linguisticTagger;
     NSMutableOrderedSet *_unpredictedAmbiguousLangMaps;
     NSString *_userPreferredLangID;
 }
 
+@property(retain, nonatomic) NSArray *currentDialects; // @synthesize currentDialects=_currentDialects;
 @property(copy, nonatomic) NSString *userPreferredLangID; // @synthesize userPreferredLangID=_userPreferredLangID;
 @property(retain, nonatomic) NSMutableOrderedSet *unpredictedAmbiguousLangMaps; // @synthesize unpredictedAmbiguousLangMaps=_unpredictedAmbiguousLangMaps;
 @property(retain, nonatomic) NSLinguisticTagger *linguisticTagger; // @synthesize linguisticTagger=_linguisticTagger;
-@property(nonatomic, getter=isTagged) BOOL tagged; // @synthesize tagged=_tagged;
+@property(nonatomic, getter=isTagged) _Bool tagged; // @synthesize tagged=_tagged;
 @property(retain, nonatomic) NSMutableArray *tags; // @synthesize tags=_tags;
 - (void)updateTagsForLocalePrefChange;
+- (id)primaryUnambiguousDialect;
 - (id)primaryAmbiguousDialect;
 - (void)_addTag;
 - (void)_manuallyProcessContentWithRange:(struct _NSRange)arg1;
-- (BOOL)hasOnlyNonWesternLangMaps;
-- (BOOL)hasOnlyWesternLangMaps;
+- (_Bool)hasOnlyNonWesternLangMaps;
+- (_Bool)hasOnlyWesternLangMaps;
 - (id)ambiguousLangMaps;
 - (id)unambiguousLangMaps;
 - (id)significantAmbiguousLangMapsForUserKeyboards;
 - (id)significantAmbiguousLangMaps;
-- (BOOL)langMapIsSignificant:(id)arg1;
+- (_Bool)langMapIsSignificant:(id)arg1;
 - (void)tagContent;
 - (void)enumeratePredictedTags:(id)arg1;
 - (void)enumerateUnpredictedTags:(id)arg1;

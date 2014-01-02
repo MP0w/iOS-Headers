@@ -19,18 +19,18 @@
 }
 
 @property(nonatomic) id <ABPropertyEditingTableViewCellDelegate> delegate; // @synthesize delegate=_delegate;
-- (BOOL)isFirstResponder;
-- (BOOL)resignFirstResponder;
-- (BOOL)canResignFirstResponder;
-- (BOOL)becomeFirstResponder;
-- (BOOL)canBecomeFirstResponder;
+- (_Bool)isFirstResponder;
+- (_Bool)resignFirstResponder;
+- (_Bool)canResignFirstResponder;
+- (_Bool)becomeFirstResponder;
+- (_Bool)canBecomeFirstResponder;
 - (id)styleProvider;
 - (void)layoutSubviews;
 - (void)_resizeAndCenterTextField;
 @property(copy, nonatomic) NSString *value; // @dynamic value;
 - (void)textFieldValueDidChange:(id)arg1;
 @property(copy, nonatomic) NSString *placeholder; // @synthesize placeholder=_placeholder;
-@property(nonatomic) BOOL usesLargeFont; // @dynamic usesLargeFont;
+@property(nonatomic) _Bool usesLargeFont; // @dynamic usesLargeFont;
 @property(nonatomic) int property; // @dynamic property;
 - (void)dealloc;
 - (id)initWithReuseIdentifier:(id)arg1;

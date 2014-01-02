@@ -10,14 +10,23 @@
 
 @interface PUNavigationController : UINavigationController
 {
+    _Bool _pu_preventsAutorotation;
     PUAbstractNavigationBanner *__banner;
     _UINavigationControllerPalette *__palette;
+    unsigned long long _pu_supportedInterfaceOrientations;
 }
 
+@property(nonatomic) _Bool pu_preventsAutorotation; // @synthesize pu_preventsAutorotation=_pu_preventsAutorotation;
+@property(nonatomic) unsigned long long pu_supportedInterfaceOrientations; // @synthesize pu_supportedInterfaceOrientations=_pu_supportedInterfaceOrientations;
 @property(retain, nonatomic, setter=_setPalette:) _UINavigationControllerPalette *_palette; // @synthesize _palette=__palette;
 @property(retain, nonatomic, setter=_setBanner:) PUAbstractNavigationBanner *_banner; // @synthesize _banner=__banner;
 - (void).cxx_destruct;
-- (void)pu_willShowViewController:(id)arg1 animated:(BOOL)arg2;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (unsigned long long)supportedInterfaceOrientations;
+- (_Bool)shouldAutorotate;
+- (void)pu_setPreventsAutorotation:(_Bool)arg1;
+- (void)pu_setSupportedInterfaceOrientations:(unsigned long long)arg1;
+- (void)pu_willShowViewController:(id)arg1 animated:(_Bool)arg2;
 
 @end
 

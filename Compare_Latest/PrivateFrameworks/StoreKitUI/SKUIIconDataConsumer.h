@@ -17,17 +17,18 @@
     struct CGSize _iconSize;
     UIImage *_maskImage;
     UIImage *_strokeImage;
-    float _cornerRadius;
+    double _cornerRadius;
 }
 
 + (id)wishlistIconConsumer;
 + (id)updatesIconConsumer;
 + (id)topChartsIconConsumer;
 + (id)smartBannerIconConsumer;
++ (id)shareSheetIconConsumerWithSize:(struct CGSize)arg1;
 + (id)shareSheetIconConsumer;
 + (id)roomIconConsumer;
 + (id)purchasedIconConsumer;
-+ (id)lockupIconConsumerWithSize:(int)arg1;
++ (id)lockupIconConsumerWithSize:(long long)arg1;
 + (id)listIconConsumer;
 + (id)headerIconConsumer;
 + (id)gridIconConsumer;
@@ -41,7 +42,7 @@
 + (id)brickConsumer;
 + (id)billboardIconConsumer;
 + (id)applePackIconConsumer;
-@property(nonatomic) float cornerRadius; // @synthesize cornerRadius=_cornerRadius;
+@property(nonatomic) double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
 @property(nonatomic) struct CGSize iconSize; // @synthesize iconSize=_iconSize;
 @property(retain, nonatomic) SKUIColorScheme *colorScheme; // @synthesize colorScheme=_colorScheme;
 @property(retain, nonatomic) UIColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;

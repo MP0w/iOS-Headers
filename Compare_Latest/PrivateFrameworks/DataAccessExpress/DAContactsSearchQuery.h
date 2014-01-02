@@ -12,11 +12,11 @@
 {
     NSString *_searchBase;
     NSString *_searchScope;
-    BOOL _includePhotos;
+    _Bool _includePhotos;
 }
 
 + (id)contactsSearchQueryWithSearchString:(id)arg1 searchBase:(id)arg2 searchScope:(id)arg3 consumer:(id)arg4;
-@property BOOL includePhotos; // @synthesize includePhotos=_includePhotos;
+@property _Bool includePhotos; // @synthesize includePhotos=_includePhotos;
 @property(retain) NSString *searchScope; // @synthesize searchScope=_searchScope;
 @property(retain) NSString *searchBase; // @synthesize searchBase=_searchBase;
 - (id)dictionaryRepresentation;

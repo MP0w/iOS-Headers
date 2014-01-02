@@ -20,10 +20,10 @@
     unsigned int _isBackgroundVisible:1;
 }
 
-+ (float)defaultHeight;
++ (double)defaultHeight;
 + (id)backgroundImage;
 + (id)backgroundImageForButtonBarStyle:(int)arg1;
-+ (float)buttonBarHeightForTallScreen:(BOOL)arg1;
++ (double)buttonBarHeightForTallScreen:(_Bool)arg1;
 @property(nonatomic) int buttonBarMode; // @synthesize buttonBarMode=_buttonBarMode;
 @property(nonatomic) int buttonBarStyle; // @synthesize buttonBarStyle=_buttonBarStyle;
 @property(retain, nonatomic) PLCameraToggleButton *toggleButton; // @synthesize toggleButton=_toggleButton;
@@ -31,8 +31,8 @@
 @property(retain, nonatomic) PLCameraOptionsButton *optionsButton; // @synthesize optionsButton=_optionsButton;
 - (void)layoutSubviews;
 - (void)setButtonBarMode:(int)arg1 animationDuration:(double)arg2;
-- (void)_setVisibility:(BOOL)arg1;
-- (BOOL)isBackgroundVisible;
+- (void)_setVisibility:(_Bool)arg1;
+- (_Bool)isBackgroundVisible;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 buttonBarStyle:(int)arg2;

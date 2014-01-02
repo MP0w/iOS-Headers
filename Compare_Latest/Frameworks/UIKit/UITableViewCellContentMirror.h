@@ -6,6 +6,7 @@
 
 #import <UIKit/UIView.h>
 
+// Not exported
 @interface UITableViewCellContentMirror : UIView
 {
     unsigned int _selected:1;
@@ -14,7 +15,7 @@
 - (void)drawRect:(struct CGRect)arg1;
 - (id)cell;
 - (id)initWithFrame:(struct CGRect)arg1;
-@property(nonatomic, getter=isSelected) BOOL selected;
+@property(nonatomic, getter=isSelected) _Bool selected;
 
 @end
 

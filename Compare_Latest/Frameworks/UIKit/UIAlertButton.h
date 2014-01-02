@@ -8,21 +8,24 @@
 
 @class UIImage, UIImageView;
 
+// Not exported
 @interface UIAlertButton : UIButton
 {
-    float _imageOffset;
+    double _imageOffset;
+    _Bool _isNewStyle;
     UIImageView *_overlayView;
 }
 
 @property(readonly) UIImageView *overlayView; // @synthesize overlayView=_overlayView;
-@property(nonatomic) float imageOffset; // @synthesize imageOffset=_imageOffset;
+@property(nonatomic) _Bool isNewStyle; // @synthesize isNewStyle=_isNewStyle;
+@property(nonatomic) double imageOffset; // @synthesize imageOffset=_imageOffset;
 - (void)dealloc;
-- (void)setEnabled:(BOOL)arg1;
-- (void)_transitionBackgroundViewToHighlighted:(BOOL)arg1;
-- (void)setHighlighted:(BOOL)arg1;
+- (void)setEnabled:(_Bool)arg1;
+- (void)_transitionBackgroundViewToHighlighted:(_Bool)arg1;
+- (void)setHighlighted:(_Bool)arg1;
 - (void)layoutSubviews;
 - (id)image;
-- (void)setImage:(id)arg1 forState:(unsigned int)arg2;
+- (void)setImage:(id)arg1 forState:(unsigned long long)arg2;
 - (void)setTitle:(id)arg1;
 - (id)title;
 @property(retain, nonatomic) UIImage *highlightImage;

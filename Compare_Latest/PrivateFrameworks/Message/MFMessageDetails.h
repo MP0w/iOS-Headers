@@ -13,9 +13,9 @@
     MFMessageLibrary *library;
     unsigned int libraryID;
     unsigned long long messageFlags;
-    unsigned long uid;
-    unsigned long encoding;
-    BOOL isInvalid;
+    unsigned int uid;
+    unsigned int encoding;
+    _Bool isInvalid;
     unsigned int mailboxID;
     long long conversationHash;
     unsigned int dateReceived;
@@ -33,10 +33,10 @@
 - (unsigned int)mailboxID;
 - (unsigned int)libraryID;
 - (id)remoteID;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)init;
-- (unsigned long)uid;
+- (unsigned int)uid;
 - (id)description;
 - (void)dealloc;
 

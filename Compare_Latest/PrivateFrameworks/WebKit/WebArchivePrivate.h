@@ -8,6 +8,7 @@
 
 @class NSArray, WebResource;
 
+// Not exported
 @interface WebArchivePrivate : NSObject
 {
     WebResource *cachedMainResource;

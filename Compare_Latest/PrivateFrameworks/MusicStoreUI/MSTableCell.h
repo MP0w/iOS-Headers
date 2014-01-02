@@ -20,7 +20,7 @@
 - (void)_flipToPreviewProgressView;
 - (void)_flipFromPreviewProgressView;
 - (void)_destroyPreviewProgressView;
-- (void)setPreviewStatus:(id)arg1 animated:(BOOL)arg2;
+- (void)setPreviewStatus:(id)arg1 animated:(_Bool)arg2;
 - (void)dealloc;
 
 @end

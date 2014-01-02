@@ -8,6 +8,7 @@
 
 @class WDCharacterProperties;
 
+// Not exported
 @interface WDSpecialCharacter : WDRun
 {
     WDCharacterProperties *mProperties;

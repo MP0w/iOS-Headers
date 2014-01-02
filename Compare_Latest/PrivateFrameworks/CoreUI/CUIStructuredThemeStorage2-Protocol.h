@@ -6,6 +6,6 @@
 
 @protocol CUIStructuredThemeStorage2
 - (const struct _renditionkeytoken *)renditionKeyForName:(id)arg1;
-- (BOOL)canGetRenditionWithKey:(const struct _renditionkeytoken *)arg1;
+- (_Bool)canGetRenditionWithKey:(const struct _renditionkeytoken *)arg1;
 @end
 

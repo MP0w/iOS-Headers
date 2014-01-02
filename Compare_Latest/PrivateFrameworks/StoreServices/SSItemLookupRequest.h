@@ -15,7 +15,7 @@
     NSMutableDictionary *_parameters;
 }
 
-- (id)_errorForStatusCode:(int)arg1;
+- (id)_errorForStatusCode:(long long)arg1;
 - (id)_convertedValueForValue:(id)arg1;
 - (id)_copyItemsFromResponse:(id)arg1 expirationDate:(id)arg2;
 @property(readonly) NSDictionary *parameters;
@@ -23,7 +23,7 @@
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)copyXPCEncoding;
 - (void)startWithCompletionBlock:(id)arg1;
-- (BOOL)start;
+- (_Bool)start;
 - (id)valueForParameter:(id)arg1;
 - (void)startWithItemLookupBlock:(id)arg1;
 - (void)setValue:(id)arg1 forParameter:(id)arg2;

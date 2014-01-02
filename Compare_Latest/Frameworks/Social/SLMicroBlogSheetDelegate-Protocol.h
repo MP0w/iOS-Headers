@@ -25,6 +25,7 @@
 @optional
 - (void)ensureUserRecordStore;
 - (id)cachedProfileImageDataForScreenName:(id)arg1;
-- (BOOL)countMediaAttachmentsTowardCharacterCount;
+- (_Bool)countMediaAttachmentsTowardCharacterCount;
+- (long long)characterCountForText:(id)arg1 shortenedURLCost:(long long)arg2;
 @end
 

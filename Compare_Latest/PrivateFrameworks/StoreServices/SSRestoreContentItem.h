@@ -14,7 +14,7 @@
     NSString *_appleID;
     NSString *_bundleID;
     NSNumber *_cloudMatchStatus;
-    BOOL _isRestore;
+    _Bool _isRestore;
     NSMutableDictionary *_properties;
 }
 
@@ -32,11 +32,11 @@
 - (void)setValue:(id)arg1 forDownloadProperty:(id)arg2;
 - (void)setValue:(id)arg1 forAssetProperty:(id)arg2;
 @property(copy, nonatomic) NSString *podcastEpisodeGUID;
-@property(nonatomic, getter=isDRMFree) BOOL DRMFree;
+@property(nonatomic, getter=isDRMFree) _Bool DRMFree;
 @property(copy, nonatomic) NSString *downloadKind;
 @property(retain, nonatomic) NSNumber *cloudMatchStatus;
 @property(retain, nonatomic) NSNumber *cloudItemID;
-- (BOOL)isEligibleForRestore:(id *)arg1;
+- (_Bool)isEligibleForRestore:(id *)arg1;
 - (id)copyRestoreDictionary;
 - (void)dealloc;
 - (id)initWithRestoreDownload:(id)arg1;

@@ -8,6 +8,7 @@
 
 @class NSCachedURLResponse, NSLock, NSURLRequest;
 
+// Not exported
 @interface NSURLProtocolInternal : NSObject
 {
     id <NSURLProtocolClient> client;

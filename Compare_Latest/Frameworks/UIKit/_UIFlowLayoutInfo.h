@@ -8,34 +8,35 @@
 
 @class NSDictionary, NSMutableArray;
 
+// Not exported
 @interface _UIFlowLayoutInfo : NSObject
 {
     NSMutableArray *_sections;
-    BOOL _useFloatingHeaderFooter;
-    BOOL _horizontal;
-    BOOL _leftToRight;
+    _Bool _useFloatingHeaderFooter;
+    _Bool _horizontal;
+    _Bool _leftToRight;
     struct CGRect _visibleBounds;
     struct CGSize _layoutSize;
-    float _dimension;
-    BOOL _isValid;
+    double _dimension;
+    _Bool _isValid;
     NSDictionary *_rowAlignmentOptions;
-    BOOL _usesFloatingHeaderFooter;
+    _Bool _usesFloatingHeaderFooter;
     struct CGSize _contentSize;
 }
 
 @property(retain, nonatomic) NSDictionary *rowAlignmentOptions; // @synthesize rowAlignmentOptions=_rowAlignmentOptions;
 @property(nonatomic) struct CGSize contentSize; // @synthesize contentSize=_contentSize;
-@property(nonatomic) BOOL leftToRight; // @synthesize leftToRight=_leftToRight;
-@property(nonatomic) BOOL horizontal; // @synthesize horizontal=_horizontal;
-@property(nonatomic) float dimension; // @synthesize dimension=_dimension;
-@property(nonatomic) BOOL usesFloatingHeaderFooter; // @synthesize usesFloatingHeaderFooter=_usesFloatingHeaderFooter;
+@property(nonatomic) _Bool leftToRight; // @synthesize leftToRight=_leftToRight;
+@property(nonatomic) _Bool horizontal; // @synthesize horizontal=_horizontal;
+@property(nonatomic) double dimension; // @synthesize dimension=_dimension;
+@property(nonatomic) _Bool usesFloatingHeaderFooter; // @synthesize usesFloatingHeaderFooter=_usesFloatingHeaderFooter;
 @property(readonly, nonatomic) NSMutableArray *sections; // @synthesize sections=_sections;
 - (id)copy;
 - (id)snapshot;
 - (struct CGRect)frameForItemAtIndexPath:(id)arg1;
 - (void)dealloc;
 - (id)addSection;
-- (void)invalidate:(BOOL)arg1;
+- (void)invalidate:(_Bool)arg1;
 - (id)init;
 
 @end

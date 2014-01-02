@@ -8,6 +8,7 @@
 
 @class UIPageControl, UIPageViewController, _UIQueuingScrollView;
 
+// Not exported
 @interface _UIPageViewControllerContentView : UIView
 {
     UIPageViewController *_pageViewController;
@@ -20,7 +21,7 @@
 - (void)layoutSubviews;
 - (void)_setupPageControl:(id)arg1;
 - (struct CGRect)_scrollViewFrame;
-- (float)_pageSpacing;
+- (double)_pageSpacing;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)setBounds:(struct CGRect)arg1;
 - (void)invalidatePageViewController;

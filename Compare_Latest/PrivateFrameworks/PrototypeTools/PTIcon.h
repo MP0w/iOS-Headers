@@ -6,36 +6,33 @@
 
 #import "UIView.h"
 
-#import "_UISettingsKeyPathObserver-Protocol.h"
+@class NSString, PTIconSettings, UIImage, UIImageView, _UILegibilityLabel, _UILegibilityView;
 
-@class NSString, PTIconSettings, UIImage, UIImageView;
-
-@interface PTIcon : UIView <_UISettingsKeyPathObserver>
+@interface PTIcon : UIView
 {
     UIImage *_image;
     NSString *_title;
-    UIView *_appLabelView;
+    _UILegibilityLabel *_label;
+    _UILegibilityView *_iconLegibilityView;
     UIImageView *_imageView;
     PTIconSettings *_iconSettings;
     struct __CFRunLoopObserver *_runLoopObserver;
-    CDStruct_d4b298fb _imageStatistics;
+    CDStruct_7d841a06 _imageStatistics;
 }
 
 + (id)iconWithImageName:(id)arg1 title:(id)arg2;
 + (id)iconWithImage:(id)arg1 title:(id)arg2;
 @property(nonatomic) struct __CFRunLoopObserver *runLoopObserver; // @synthesize runLoopObserver=_runLoopObserver;
-@property(nonatomic) CDStruct_d4b298fb imageStatistics; // @synthesize imageStatistics=_imageStatistics;
+@property(nonatomic) CDStruct_7d841a06 imageStatistics; // @synthesize imageStatistics=_imageStatistics;
 @property(retain, nonatomic) PTIconSettings *iconSettings; // @synthesize iconSettings=_iconSettings;
 @property(retain, nonatomic) UIImageView *imageView; // @synthesize imageView=_imageView;
-@property(retain, nonatomic) UIView *appLabelView; // @synthesize appLabelView=_appLabelView;
+@property(retain, nonatomic) _UILegibilityView *iconLegibilityView; // @synthesize iconLegibilityView=_iconLegibilityView;
+@property(retain, nonatomic) _UILegibilityLabel *label; // @synthesize label=_label;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
 - (void).cxx_destruct;
-- (id)makeLabel;
+- (void)layoutSubviews;
 - (struct CGRect)labelFrame;
-- (void)settings:(id)arg1 changedValueForKeyPath:(id)arg2;
-- (void)updateLabel;
-- (void)updateLabelWithImageStatistics:(CDStruct_d4b298fb)arg1;
 - (id)init;
 
 @end

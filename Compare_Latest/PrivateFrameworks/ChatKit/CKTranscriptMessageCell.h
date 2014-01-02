@@ -11,22 +11,20 @@
 @interface CKTranscriptMessageCell : CKTranscriptCell
 {
     BOOL _orientation;
-    BOOL _wantsContactImageLayout;
+    _Bool _wantsContactImageLayout;
     UIButton *_failureButton;
     UIImageView *_contactImageView;
 }
 
 @property(retain, nonatomic) UIImageView *contactImageView; // @synthesize contactImageView=_contactImageView;
 @property(retain, nonatomic) UIButton *failureButton; // @synthesize failureButton=_failureButton;
-@property(nonatomic) BOOL wantsContactImageLayout; // @synthesize wantsContactImageLayout=_wantsContactImageLayout;
+@property(nonatomic) _Bool wantsContactImageLayout; // @synthesize wantsContactImageLayout=_wantsContactImageLayout;
 @property(nonatomic) BOOL orientation; // @synthesize orientation=_orientation;
-@property(nonatomic) BOOL failed;
+@property(nonatomic) _Bool failed;
 @property(retain, nonatomic) UIImage *contactImage;
 - (void)layoutSubviews;
 - (id)description;
 - (void)dealloc;
-- (void)configureForRow:(id)arg1;
-- (void)configureForRowObject:(id)arg1;
 
 @end
 

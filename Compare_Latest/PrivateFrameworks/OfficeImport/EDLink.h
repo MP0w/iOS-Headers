@@ -8,6 +8,7 @@
 
 @class EDCollection;
 
+// Not exported
 @interface EDLink : NSObject
 {
     int mType;

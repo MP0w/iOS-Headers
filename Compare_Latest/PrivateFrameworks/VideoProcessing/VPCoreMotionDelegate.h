@@ -16,8 +16,8 @@
     double timestampBuffer[64];
     int quaternionBufferIndex;
     struct _opaque_pthread_mutex_t {
-        long __sig;
-        char __opaque[40];
+        long long __sig;
+        char __opaque[56];
     } ringMutex;
     CDStruct_bf7dff04 lastReadQuaternion;
     VPCoreMotionDelegate *weakSelf;

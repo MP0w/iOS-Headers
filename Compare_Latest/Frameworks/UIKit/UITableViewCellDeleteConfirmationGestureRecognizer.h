@@ -8,6 +8,7 @@
 
 @class UIView;
 
+// Not exported
 @interface UITableViewCellDeleteConfirmationGestureRecognizer : UIGestureRecognizer
 {
     UIView *_excludedView;

@@ -10,32 +10,33 @@
 
 @interface PUStackedAlbumTransitionLayout : UICollectionViewTransitionLayout
 {
-    struct UIOffset _interactionCenterAdjust;
-    struct UIOffset _expandedStackCenterAdjust;
-    struct CGRect _currentVisibleBounds;
-    struct CGRect _nextVisibleBounds;
-    BOOL _didPrepareLayout;
+    struct CGPoint _expandedStackDelta;
+    _Bool _didPrepareLayout;
     PUCollectionViewLayoutCache *_currentLayoutCache;
     PUCollectionViewLayoutCache *_nextLayoutCache;
-    BOOL _expanding;
-    BOOL _noninteractive;
-    struct CGPoint _collapsedStackCenter;
-    struct CGPoint _interactionCenter;
+    _Bool _isExpanding;
+    struct CGPoint _expandedStackFinalDelta;
+    struct CGPoint _interactionOffset;
+    struct CGPoint _initialCollapsedStackCenter;
+    struct CGPoint _finalCollapsedStackCenter;
+    struct CGPoint _currentCollapsedStackCenter;
 }
 
-@property(nonatomic) struct CGPoint interactionCenter; // @synthesize interactionCenter=_interactionCenter;
-@property(nonatomic) struct CGPoint collapsedStackCenter; // @synthesize collapsedStackCenter=_collapsedStackCenter;
-@property(nonatomic, getter=isNoninteractive) BOOL noninteractive; // @synthesize noninteractive=_noninteractive;
-@property(nonatomic, getter=isExpanding) BOOL expanding; // @synthesize expanding=_expanding;
+@property(nonatomic) struct CGPoint currentCollapsedStackCenter; // @synthesize currentCollapsedStackCenter=_currentCollapsedStackCenter;
+@property(nonatomic) struct CGPoint finalCollapsedStackCenter; // @synthesize finalCollapsedStackCenter=_finalCollapsedStackCenter;
+@property(nonatomic) struct CGPoint initialCollapsedStackCenter; // @synthesize initialCollapsedStackCenter=_initialCollapsedStackCenter;
+@property(nonatomic) struct CGPoint interactionOffset; // @synthesize interactionOffset=_interactionOffset;
+@property(readonly, nonatomic) struct CGPoint expandedStackFinalDelta; // @synthesize expandedStackFinalDelta=_expandedStackFinalDelta;
+@property(readonly, nonatomic) _Bool isExpanding; // @synthesize isExpanding=_isExpanding;
 - (void).cxx_destruct;
 - (id)layoutAttributesForDecorationViewOfKind:(id)arg1 atIndexPath:(id)arg2;
 - (id)layoutAttributesForSupplementaryViewOfKind:(id)arg1 atIndexPath:(id)arg2;
 - (id)layoutAttributesForItemAtIndexPath:(id)arg1;
 - (id)layoutAttributesForElementsInRect:(struct CGRect)arg1;
-- (void)setTransitionProgress:(float)arg1;
 - (void)prepareLayout;
-- (struct CGPoint)_newCenterForLayoutAttributes:(id)arg1 transitionProgress:(float)arg2;
-- (id)initWithCurrentLayout:(id)arg1 nextLayout:(id)arg2;
+- (struct CGPoint)_centerOfLayoutAttributes:(id)arg1;
+- (struct CGPoint)_newCenterForLayoutAttributes:(id)arg1 transitionProgress:(double)arg2;
+- (id)initWithCurrentLayout:(id)arg1 nextLayout:(id)arg2 isExpanding:(_Bool)arg3;
 
 @end
 

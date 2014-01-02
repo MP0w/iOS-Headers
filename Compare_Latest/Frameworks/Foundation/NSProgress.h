@@ -8,56 +8,57 @@
 
 #import "NSProgressPublisher-Protocol.h"
 
-@class NSMutableDictionary, NSString, NSXPCConnection;
+@class NSLock, NSMutableDictionary, NSMutableSet, NSString, NSXPCConnection;
 
 @interface NSProgress : NSObject <NSProgressPublisher>
 {
-    NSProgress *_parent;
-    long long _portionOfParentUnitCount;
+    id _group;
+    long long _reserved4;
     id _values;
-    id _valuesSeenFromMainThread;
+    id _reserved5;
     id _cancellationHandler;
     id _pausingHandler;
     id _prioritizationHandler;
-    long long _pendingUnitCount;
+    long long _reserved3;
     id _userInfoProxy;
     NSString *_publisherID;
     NSXPCConnection *_connection;
-    int _unpublishingBlockageCount;
-    int _disconnectingBlockageCount;
-    int _remoteObserverCount;
+    long long _unpublishingBlockageCount;
+    long long _disconnectingBlockageCount;
+    long long _remoteObserverCount;
     NSMutableDictionary *_acknowledgementHandlersByBundleID;
     NSMutableDictionary *_lastNotificationTimesByKey;
     NSMutableDictionary *_userInfoLastNotificationTimesByKey;
-    id _reserved1;
-    id _reserved2;
+    NSLock *_lock;
+    NSMutableSet *_childrenGroups;
 }
 
 + (id)addSubscriberForFileURL:(id)arg1 usingBlock:(id)arg2;
 + (id)_addSubscriberForCategory:(id)arg1 usingPublishingHandler:(id)arg2;
-+ (id)_addGeneralSubscriberUsingBlock:(id)arg1;
++ (void)_removeSubscriber:(id)arg1;
++ (id)_addSubscriberForFileURL:(id)arg1 withPublishingHandler:(id)arg2;
 + (void)removeSubscriber:(id)arg1;
 + (id)addSubscriberForFileURL:(id)arg1 withPublishingHandler:(id)arg2;
-+ (id)keyPathsForValuesAffectingFractionCompleted;
 + (id)keyPathsForValuesAffectingLocalizedAdditionalDescription;
 + (id)keyPathsForValuesAffectingLocalizedDescription;
-+ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
++ (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 + (id)progressWithTotalUnitCount:(long long)arg1;
 + (id)currentProgress;
-+ (id)_registrarInterface;
-+ (id)_subscriberInterface;
-+ (id)_publisherInterface;
 - (void)handleAcknowledgementByAppWithBundleIdentifier:(id)arg1 usingBlock:(id)arg2;
 - (oneway void)prioritize;
-- (void)_prioritize;
 - (id)prioritizationHandler;
 - (void)setPrioritizationHandler:(id)arg1;
-- (BOOL)isPrioritizable;
-- (void)setPrioritizable:(BOOL)arg1;
+- (_Bool)isPrioritizable;
+- (void)setPrioritizable:(_Bool)arg1;
 - (id)_publishingAppBundleIdentifier;
-@property(readonly, getter=isOld) BOOL old;
-- (void)acknowledgeWithSuccess:(BOOL)arg1;
-- (oneway void)appWithBundleID:(id)arg1 didAcknowledgeWithSuccess:(BOOL)arg2;
+- (void)_acknowledgeWithSuccess:(_Bool)arg1;
+- (id)_acknowledgementHandlerForAppBundleIdentifier:(SEL)arg1;
+- (void)_setAcknowledgementHandler:(id)arg1 forAppBundleIdentifier:(void)arg2;
+- (void)_unpublish;
+- (void)_publish;
+@property(readonly, getter=isOld) _Bool old;
+- (void)acknowledgeWithSuccess:(_Bool)arg1;
+- (oneway void)appWithBundleID:(id)arg1 didAcknowledgeWithSuccess:(_Bool)arg2;
 - (oneway void)stopProvidingValues;
 - (oneway void)startProvidingValuesWithInitialAcceptor:(id)arg1;
 - (id)acknowledgementHandlerForAppBundleIdentifier:(SEL)arg1;
@@ -69,41 +70,38 @@
 @property(copy) NSString *kind;
 - (id)ownedDictionaryObjectForKey:(id)arg1;
 - (id)ownedDictionaryKeyEnumerator;
-- (unsigned int)ownedDictionaryCount;
+- (unsigned long long)ownedDictionaryCount;
 - (id)userInfo;
 - (void)pause;
-- (void)_pause;
 - (void)cancel;
-- (void)_cancel;
 @property(readonly) double fractionCompleted;
-- (double)_fractionCompletedUsingValuesFinder:(id)arg1;
-@property(readonly, getter=isIndeterminate) BOOL indeterminate;
+@property(readonly, getter=isIndeterminate) _Bool indeterminate;
+- (id)description;
 - (void)setUserInfoObject:(id)arg1 forKey:(id)arg2;
 - (void)_setUserInfoValue:(id)arg1 forKey:(id)arg2;
 @property(copy) id pausingHandler;
 @property(copy) id cancellationHandler;
-@property(readonly, getter=isPaused) BOOL paused;
-@property(readonly, getter=isCancelled) BOOL cancelled;
-@property(getter=isPausable) BOOL pausable;
-@property(getter=isCancellable) BOOL cancellable;
+@property(readonly, getter=isPaused) _Bool paused;
+@property(readonly, getter=isCancelled) _Bool cancelled;
+@property(getter=isPausable) _Bool pausable;
+@property(getter=isCancellable) _Bool cancellable;
+- (_Bool)isFinished;
 @property(copy) NSString *localizedAdditionalDescription;
 @property(copy) NSString *localizedDescription;
 @property long long completedUnitCount;
+- (void)_removeGroup:(id)arg1;
+- (void)_updateGroupFractionCompletedFrom:(double)arg1 to:(double)arg2 forPortion:(long long)arg3;
 @property long long totalUnitCount;
-- (void)_getValueUsingBlock:(id)arg1;
-- (void)_setValueForKey:(id)arg1 usingBlock:(id)arg2;
-- (void)__setValueForKey:(id)arg1 usingBlock:(id)arg2;
-- (void)_notifyRemoteObserversOfValueForKey:(id)arg1 inUserInfo:(BOOL)arg2;
-- (void)__notifyRemoteObserversOfValueForKey:(id)arg1 inUserInfo:(BOOL)arg2;
+- (void)_setValueForKeys:(id)arg1 settingBlock:(void)arg2;
+- (void)_notifyRemoteObserversOfValueForKey:(id)arg1 inUserInfo:(_Bool)arg2;
+- (void)__notifyRemoteObserversOfValueForKey:(id)arg1 inUserInfo:(_Bool)arg2;
 - (void)resignCurrent;
 - (void)becomeCurrentWithPendingUnitCount:(long long)arg1;
 - (void)dealloc;
+- (void)_setGroup:(id)arg1;
+- (void)_addChild:(id)arg1 toGroup:(id)arg2 isPaused:(_Bool *)arg3 isCancelled:(_Bool *)arg4;
 - (id)initWithParent:(id)arg1 userInfo:(id)arg2;
 - (id)init;
-- (void)_setValue:(id)arg1 forKey:(id)arg2 inUserInfo:(BOOL)arg3;
-- (id)_initWithValues:(id)arg1;
-- (void)acknowledge;
-- (void)handleAcknowledgementByAppWithBundleIdentifer:(id)arg1 usingBlock:(id)arg2;
 
 @end
 

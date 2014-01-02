@@ -8,6 +8,7 @@
 
 @class OADConnection;
 
+// Not exported
 @interface OADConnectorProperties : OADShapeProperties
 {
     OADConnection *mFrom;

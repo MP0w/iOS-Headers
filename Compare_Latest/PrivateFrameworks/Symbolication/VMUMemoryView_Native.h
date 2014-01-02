@@ -11,15 +11,15 @@
 @interface VMUMemoryView_Native : NSObject <VMUMemoryView>
 {
     struct _VMURange _addressRange;
-    unsigned long _cursor;
+    unsigned long long _cursor;
     char *_data;
     id _gcKeepAlive;
 }
 
 - (id)description;
-- (id)stringWithEncoding:(unsigned int)arg1;
-- (id)stringWithEncoding:(unsigned int)arg1 size:(unsigned long)arg2;
-- (id)stringWithEncoding:(unsigned int)arg1 offset:(unsigned long long)arg2;
+- (id)stringWithEncoding:(unsigned long long)arg1;
+- (id)stringWithEncoding:(unsigned long long)arg1 size:(unsigned long long)arg2;
+- (id)stringWithEncoding:(unsigned long long)arg1 offset:(unsigned long long)arg2;
 - (BOOL)charAtOffset:(unsigned long long)arg1;
 - (struct dyld_image_info_64)dyldImageInfo64;
 - (struct dyld_image_info_64)dyldImageInfo;
@@ -27,15 +27,15 @@
 - (struct nlist_64)nlist;
 - (long long)LEB128;
 - (unsigned long long)ULEB128;
-- (id)arrayOfUInt64:(unsigned long)arg1;
-- (id)arrayOfUInt32:(unsigned long)arg1;
-- (id)arrayOfUInt16:(unsigned long)arg1;
-- (id)arrayOfUInt8:(unsigned long)arg1;
-- (id)arrayOfInt64:(unsigned long)arg1;
-- (id)arrayOfInt32:(unsigned long)arg1;
-- (id)arrayOfInt16:(unsigned long)arg1;
-- (id)arrayOfInt8:(unsigned long)arg1;
-- (id)readBytes:(unsigned long)arg1;
+- (id)arrayOfUInt64:(unsigned long long)arg1;
+- (id)arrayOfUInt32:(unsigned long long)arg1;
+- (id)arrayOfUInt16:(unsigned long long)arg1;
+- (id)arrayOfUInt8:(unsigned long long)arg1;
+- (id)arrayOfInt64:(unsigned long long)arg1;
+- (id)arrayOfInt32:(unsigned long long)arg1;
+- (id)arrayOfInt16:(unsigned long long)arg1;
+- (id)arrayOfInt8:(unsigned long long)arg1;
+- (id)readBytes:(unsigned long long)arg1;
 - (unsigned long long)uint64;
 - (unsigned int)uint32;
 - (unsigned short)uint16;
@@ -45,7 +45,7 @@
 - (short)int16;
 - (BOOL)int8;
 - (void)pointerAlignCursor;
-- (BOOL)isCursorPointerAligned;
+- (_Bool)isCursorPointerAligned;
 - (void)rewindCursor:(unsigned long long)arg1;
 - (void)advanceCursor:(unsigned long long)arg1;
 - (void)setCursor:(unsigned long long)arg1;

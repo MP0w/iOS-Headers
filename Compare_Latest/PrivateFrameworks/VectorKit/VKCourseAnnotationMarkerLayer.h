@@ -9,10 +9,10 @@
 @interface VKCourseAnnotationMarkerLayer : VKImageAnnotationMarkerLayer
 {
     double _presentationCourse;
-    BOOL _shouldShowCourse;
+    _Bool _shouldShowCourse;
 }
 
-@property(nonatomic) BOOL shouldShowCourse; // @synthesize shouldShowCourse=_shouldShowCourse;
+@property(nonatomic) _Bool shouldShowCourse; // @synthesize shouldShowCourse=_shouldShowCourse;
 - (void)layoutWithContext:(id)arg1;
 @property(nonatomic) double presentationCourse; // @synthesize presentationCourse=_presentationCourse;
 

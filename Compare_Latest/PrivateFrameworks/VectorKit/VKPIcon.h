@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface VKPIcon : PBCodable
 {
     unsigned int _anchorPointX;
@@ -17,6 +18,8 @@
     unsigned int _iconRectWidth;
     unsigned int _iconRectX;
     unsigned int _iconRectY;
+    unsigned int _matchingStyleAttributeKey;
+    int _matchingStyleAttributeValue;
     NSString *_name;
     unsigned int _quadIndex;
     struct {
@@ -26,9 +29,13 @@
         unsigned int iconRectWidth:1;
         unsigned int iconRectX:1;
         unsigned int iconRectY:1;
+        unsigned int matchingStyleAttributeKey:1;
+        unsigned int matchingStyleAttributeValue:1;
     } _has;
 }
 
+@property(nonatomic) int matchingStyleAttributeValue; // @synthesize matchingStyleAttributeValue=_matchingStyleAttributeValue;
+@property(nonatomic) unsigned int matchingStyleAttributeKey; // @synthesize matchingStyleAttributeKey=_matchingStyleAttributeKey;
 @property(nonatomic) unsigned int iconRectHeight; // @synthesize iconRectHeight=_iconRectHeight;
 @property(nonatomic) unsigned int iconRectWidth; // @synthesize iconRectWidth=_iconRectWidth;
 @property(nonatomic) unsigned int iconRectY; // @synthesize iconRectY=_iconRectY;
@@ -38,19 +45,22 @@
 @property(nonatomic) unsigned int quadIndex; // @synthesize quadIndex=_quadIndex;
 @property(nonatomic) unsigned int atlasIndex; // @synthesize atlasIndex=_atlasIndex;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) BOOL hasIconRectHeight;
-@property(nonatomic) BOOL hasIconRectWidth;
-@property(nonatomic) BOOL hasIconRectY;
-@property(nonatomic) BOOL hasIconRectX;
-@property(nonatomic) BOOL hasAnchorPointY;
-@property(nonatomic) BOOL hasAnchorPointX;
+@property(nonatomic) _Bool hasMatchingStyleAttributeValue;
+@property(nonatomic) _Bool hasMatchingStyleAttributeKey;
+@property(nonatomic) _Bool hasIconRectHeight;
+@property(nonatomic) _Bool hasIconRectWidth;
+@property(nonatomic) _Bool hasIconRectY;
+@property(nonatomic) _Bool hasIconRectX;
+@property(nonatomic) _Bool hasAnchorPointY;
+@property(nonatomic) _Bool hasAnchorPointX;
+@property(readonly, nonatomic) _Bool hasName;
 - (void)dealloc;
 
 @end

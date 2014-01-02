@@ -8,6 +8,7 @@
 
 @class UIImageView;
 
+// Not exported
 @interface UIMovieScrubberTrackOverlayView : UIView
 {
     double _value;
@@ -24,13 +25,13 @@
 
 - (void)layoutSubviews;
 - (void)setEditingHandle:(int)arg1;
-- (void)setIsZoomed:(BOOL)arg1;
+- (void)setIsZoomed:(_Bool)arg1;
 - (void)setMaximumValue:(double)arg1;
 - (void)setMinimumValue:(double)arg1;
 - (void)setEndValue:(double)arg1;
 - (void)setStartValue:(double)arg1;
 - (void)setValue:(double)arg1;
-- (void)setEditing:(BOOL)arg1;
+- (void)setEditing:(_Bool)arg1;
 - (void)_clampValueAndLayout;
 - (void)animateFillFramesAway;
 - (void)_updateRightFill;

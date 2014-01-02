@@ -19,12 +19,11 @@
 + (void)setAdditionalWebPlugInPaths:(id)arg1;
 + (void)closeSharedDatabase;
 + (id)sharedDatabase;
-+ (id)_defaultPlugInPaths;
 - (void)destroyAllPluginInstanceViews;
 - (void)removePluginInstanceViewsFor:(id)arg1;
 - (void)removePluginInstanceView:(id)arg1;
 - (void)addPluginInstanceView:(id)arg1;
-- (BOOL)isMIMETypeRegistered:(id)arg1;
+- (_Bool)isMIMETypeRegistered:(id)arg1;
 - (void)refresh;
 - (void)dealloc;
 - (id)init;
@@ -33,10 +32,6 @@
 - (id)plugins;
 - (id)pluginForExtension:(id)arg1;
 - (id)pluginForMIMEType:(id)arg1;
-- (id)_scanForNewPlugins;
-- (void)_removePlugin:(id)arg1;
-- (void)_addPlugin:(id)arg1;
-- (id)_plugInPaths;
 
 @end
 

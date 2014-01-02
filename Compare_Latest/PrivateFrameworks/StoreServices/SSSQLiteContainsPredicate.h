@@ -12,7 +12,7 @@
 
 @interface SSSQLiteContainsPredicate : SSSQLitePropertyPredicate <NSCopying>
 {
-    BOOL _negative;
+    _Bool _negative;
     SSSQLiteQuery *_query;
     NSString *_queryProperty;
     id _values;
@@ -24,9 +24,9 @@
 @property(readonly, nonatomic) NSArray *values; // @synthesize values=_values;
 @property(readonly, nonatomic) NSString *queryProperty; // @synthesize queryProperty=_queryProperty;
 @property(readonly, nonatomic) SSSQLiteQuery *query; // @synthesize query=_query;
-@property(readonly, nonatomic, getter=isNegative) BOOL negative; // @synthesize negative=_negative;
+@property(readonly, nonatomic, getter=isNegative) _Bool negative; // @synthesize negative=_negative;
 - (id)SQLForEntityClass:(Class)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (void)bindToStatement:(struct sqlite3_stmt *)arg1 bindingIndex:(inout int *)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;

@@ -8,6 +8,7 @@
 
 @class CALayer, NSString;
 
+// Not exported
 @interface CAStateControllerAnimation : NSObject
 {
     CALayer *_layer;

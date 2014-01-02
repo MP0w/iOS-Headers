@@ -8,6 +8,7 @@
 
 @class UIActivityIndicatorView, UILabel;
 
+// Not exported
 @interface ACUISpinnerTitle : UIView
 {
     UILabel *_titleView;

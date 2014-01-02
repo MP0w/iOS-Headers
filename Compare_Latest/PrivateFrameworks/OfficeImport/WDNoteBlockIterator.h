@@ -6,6 +6,7 @@
 
 #import <OfficeImport/WDCombinedIterator.h>
 
+// Not exported
 @interface WDNoteBlockIterator : WDCombinedIterator
 {
 }

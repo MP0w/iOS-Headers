@@ -9,6 +9,7 @@
 @protocol SKUICategoryTableViewControllerDelegate <NSObject>
 
 @optional
+- (id)metricsPageContextForCategoryTableView:(id)arg1;
 - (void)categoryTableView:(id)arg1 didSelectCategory:(id)arg2;
 @end
 

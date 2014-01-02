@@ -6,14 +6,24 @@
 
 #import <UIKit/UIKBRenderFactory10Key_Landscape.h>
 
+// Not exported
 @interface UIKBRenderFactoryiPad10Key_Portrait : UIKBRenderFactory10Key_Landscape
 {
 }
 
 - (id)_traitsForKey:(id)arg1 onKeyplane:(id)arg2;
-- (float)controlColumnWidthFactor;
+- (void)_customizeTraits:(id)arg1 forPopupForKey:(id)arg2 withRenderConfig:(id)arg3 keycapsFontName:(id)arg4;
+- (id)backgroundTraitsForKeyplane:(id)arg1;
+- (unsigned long long)edgesAdjustedForTranslucentGapsForGeometry:(id)arg1 key:(id)arg2 onKeyplane:(id)arg3;
+- (struct UIEdgeInsets)topEdgeAdjustmentInsets;
+- (double)controlColumnWidthFactor;
 - (id)muttitapReverseKeyImageName;
 - (id)multitapCompleteKeyImageName;
+- (id)shiftOnKeyImageName;
+- (id)shiftKeyImageName;
+- (double)keyCornerRadius;
+- (id)thinKeycapsFontName;
+- (id)lightKeycapsFontName;
 
 @end
 

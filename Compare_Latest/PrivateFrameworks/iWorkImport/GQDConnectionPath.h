@@ -6,6 +6,7 @@
 
 #import <iWorkImport/GQDPath.h>
 
+// Not exported
 @interface GQDConnectionPath : GQDPath
 {
     struct CGPoint mPoint;

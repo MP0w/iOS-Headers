@@ -10,7 +10,7 @@
 
 @interface SUScriptMenuItem : SUScriptObject
 {
-    BOOL _enabled;
+    _Bool _enabled;
     NSString *_title;
     id _userInfo;
 }
@@ -22,7 +22,7 @@
 - (void)_sendDidChange;
 @property(retain) id userInfo;
 @property(retain) NSString *title;
-@property BOOL enabled;
+@property _Bool enabled;
 - (id)_className;
 - (void)dealloc;
 - (id)init;

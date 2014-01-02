@@ -13,6 +13,7 @@
 
 @class DOMNode, NSArray, NSObject<WebOpenPanelResultListener>, UIActionSheet, UIFallbackCompatibleViewController, UIImagePickerController, UIWebDocumentView, UIWebRotatingNodePopover;
 
+// Not exported
 @interface UIWebFileUploadPanel : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, UIWebRotatingNodePopoverDelegate>
 {
     UIActionSheet *_selectPickerTypeSheet;
@@ -20,11 +21,11 @@
     UIFallbackCompatibleViewController *_rootViewController;
     UIViewController *_fallbackViewController;
     UIWebRotatingNodePopover *_fileUploadPopover;
-    BOOL _documentViewPresentedViewController;
+    _Bool _documentViewPresentedViewController;
     struct CGPoint _interactionPoint;
     DOMNode *_interactionElement;
-    BOOL _allowMultipleFiles;
-    BOOL _isUsingCamera;
+    _Bool _allowMultipleFiles;
+    _Bool _isUsingCamera;
     NSArray *_mimeTypes;
     UIWebDocumentView *_documentView;
     NSObject<WebOpenPanelResultListener> *_resultListener;
@@ -32,41 +33,41 @@
 }
 
 @property(nonatomic) id <UIWebFileUploadPanelDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) BOOL isUsingCamera; // @synthesize isUsingCamera=_isUsingCamera;
-@property(nonatomic) BOOL allowMultipleFiles; // @synthesize allowMultipleFiles=_allowMultipleFiles;
+@property(nonatomic) _Bool isUsingCamera; // @synthesize isUsingCamera=_isUsingCamera;
+@property(nonatomic) _Bool allowMultipleFiles; // @synthesize allowMultipleFiles=_allowMultipleFiles;
 @property(retain, nonatomic) NSObject<WebOpenPanelResultListener> *resultListener; // @synthesize resultListener=_resultListener;
 @property(nonatomic) UIWebDocumentView *documentView; // @synthesize documentView=_documentView;
 @property(copy, nonatomic) NSArray *mimeTypes; // @synthesize mimeTypes=_mimeTypes;
 - (void)imagePickerControllerDidCancel:(id)arg1;
 - (void)imagePickerController:(id)arg1 didFinishPickingMultipleMediaWithInfo:(id)arg2;
 - (void)imagePickerController:(id)arg1 didFinishPickingMediaWithInfo:(id)arg2;
-- (BOOL)_willMultipleSelectionDelegateBeCalled;
+- (_Bool)_willMultipleSelectionDelegateBeCalled;
 - (id)_thumbnailSizedImageForImage:(id)arg1;
-- (void)_processMediaInfoDictionaries:(id)arg1 atIndex:(unsigned int)arg2 processedResults:(id)arg3 processedImageCount:(unsigned int)arg4 processedVideoCount:(unsigned int)arg5 successBlock:(id)arg6 failureBlock:(void)arg7;
+- (void)_processMediaInfoDictionaries:(id)arg1 atIndex:(unsigned long long)arg2 processedResults:(id)arg3 processedImageCount:(unsigned long long)arg4 processedVideoCount:(unsigned long long)arg5 successBlock:(id)arg6 failureBlock:(void)arg7;
 - (void)_processMediaInfoDictionaries:(id)arg1 successBlock:(id)arg2 failureBlock:(void)arg3;
-- (id)_displayStringForPhotos:(unsigned int)arg1 videos:(unsigned int)arg2;
+- (id)_displayStringForPhotos:(unsigned long long)arg1 videos:(unsigned long long)arg2;
 - (void)_temporaryFilePathForOriginalImage:(id)arg1 successBlock:(id)arg2 failureBlock:(void)arg3;
 - (void)_filePathFromMediaInfo:(id)arg1 successBlock:(id)arg2 failureBlock:(void)arg3;
 - (id)_filePathForMediaURL:(id)arg1;
-- (float)_compressionQuality;
-- (void)_dismissDisplayAnimated:(BOOL)arg1;
+- (double)_compressionQuality;
+- (void)_dismissDisplayAnimated:(_Bool)arg1;
 - (void)popoverWasDismissed:(id)arg1;
 - (void)actionSheetCancel:(id)arg1;
-- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (void)dismiss;
 - (void)present;
 - (void)_showMediaSourceSelectionSheet;
-- (void)_showPhotoPickerWithSourceType:(int)arg1;
+- (void)_showPhotoPickerWithSourceType:(long long)arg1;
 - (void)_ensureInteractionElement;
-- (id)_photoPickerWithSourceType:(int)arg1;
-- (id)_mediaTypesForPickerSourceType:(int)arg1;
-- (BOOL)_string:(id)arg1 hasPrefixCaseInsensitive:(id)arg2;
+- (id)_photoPickerWithSourceType:(long long)arg1;
+- (id)_mediaTypesForPickerSourceType:(long long)arg1;
+- (_Bool)_string:(id)arg1 hasPrefixCaseInsensitive:(id)arg2;
 - (void)_chooseFilenames:(id)arg1 displayString:(id)arg2 iconImage:(id)arg3;
 - (void)_chooseFilename:(id)arg1 displayString:(id)arg2 iconImage:(id)arg3;
 - (void)_cancel;
 - (void)_dispatchDidDismiss;
 - (void)dealloc;
-- (id)initWithResultListener:(id)arg1 mimeTypes:(id)arg2 allowMultipleFiles:(BOOL)arg3 documentView:(id)arg4;
+- (id)initWithResultListener:(id)arg1 mimeTypes:(id)arg2 allowMultipleFiles:(_Bool)arg3 documentView:(id)arg4;
 
 @end
 

@@ -6,6 +6,7 @@
 
 #import <UIKit/UINavigationItem.h>
 
+// Not exported
 @interface _UISearchBarNavigationItem : UINavigationItem
 {
 }

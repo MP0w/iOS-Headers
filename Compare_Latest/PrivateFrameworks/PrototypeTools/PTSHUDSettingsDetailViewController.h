@@ -10,7 +10,7 @@
 
 @interface PTSHUDSettingsDetailViewController : UIViewController
 {
-    BOOL _edited;
+    _Bool _edited;
     _UISettings *_settings;
     UIView *_detailsViewContainer;
     UITextField *_nameTextField;
@@ -18,13 +18,13 @@
 }
 
 @property(retain, nonatomic) UIView *detailsView; // @synthesize detailsView=_detailsView;
-@property(nonatomic) BOOL edited; // @synthesize edited=_edited;
+@property(nonatomic) _Bool edited; // @synthesize edited=_edited;
 @property(retain, nonatomic) UITextField *nameTextField; // @synthesize nameTextField=_nameTextField;
 @property(retain, nonatomic) UIView *detailsViewContainer; // @synthesize detailsViewContainer=_detailsViewContainer;
 @property(retain, nonatomic) _UISettings *settings; // @synthesize settings=_settings;
 - (void).cxx_destruct;
 - (void)updateDetailsView;
-- (BOOL)textFieldShouldReturn:(id)arg1;
+- (_Bool)textFieldShouldReturn:(id)arg1;
 - (void)viewDidLoad;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 

@@ -6,11 +6,12 @@
 
 #import <CoreData/NSMappedObjectStore.h>
 
+// Not exported
 @interface NSBinaryObjectStore : NSMappedObjectStore
 {
 }
 
-+ (BOOL)setMetadata:(id)arg1 forPersistentStoreWithURL:(id)arg2 error:(id *)arg3;
++ (_Bool)setMetadata:(id)arg1 forPersistentStoreWithURL:(id)arg2 error:(id *)arg3;
 + (id)metadataForPersistentStoreWithURL:(id)arg1 error:(id *)arg2;
 - (id *)knownKeyValuesForObjectID:(id)arg1 withContext:(id)arg2;
 - (id)type;

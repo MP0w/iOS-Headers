@@ -10,18 +10,18 @@
 
 @interface MPStoreCompletionOfferingLookupItem : NSObject
 {
-    BOOL _wantsArtwork;
+    _Bool _wantsArtwork;
     MPMediaQuery *_albumItemsQuery;
-    unsigned int _tokenID;
+    unsigned long long _tokenID;
     id _responseBlock;
     NSNumber *_storeLookupID;
 }
 
 + (id)storeLookupIDForAlbumItemsQuery:(id)arg1;
 @property(readonly, nonatomic) NSNumber *storeLookupID; // @synthesize storeLookupID=_storeLookupID;
-@property(readonly, nonatomic) BOOL wantsArtwork; // @synthesize wantsArtwork=_wantsArtwork;
+@property(readonly, nonatomic) _Bool wantsArtwork; // @synthesize wantsArtwork=_wantsArtwork;
 @property(readonly, nonatomic) id responseBlock; // @synthesize responseBlock=_responseBlock;
-@property(readonly, nonatomic) unsigned int tokenID; // @synthesize tokenID=_tokenID;
+@property(readonly, nonatomic) unsigned long long tokenID; // @synthesize tokenID=_tokenID;
 @property(readonly, nonatomic) MPMediaQuery *albumItemsQuery; // @synthesize albumItemsQuery=_albumItemsQuery;
 - (void).cxx_destruct;
 - (id)_specificationForArtworkSizesToRequest;
@@ -29,7 +29,7 @@
 - (id)lookupRequestForAlbumWithRepresentativeItem:(id)arg1;
 - (id)lookupRequestForStorePlaylistIdentifier:(id)arg1;
 @property(readonly, nonatomic) NSString *storeLookupIDString;
-- (id)initWithAlbumItemsQuery:(id)arg1 tokenID:(int)arg2 wantsArtwork:(BOOL)arg3 responseBlock:(id)arg4;
+- (id)initWithAlbumItemsQuery:(id)arg1 tokenID:(long long)arg2 wantsArtwork:(_Bool)arg3 responseBlock:(id)arg4;
 
 @end
 

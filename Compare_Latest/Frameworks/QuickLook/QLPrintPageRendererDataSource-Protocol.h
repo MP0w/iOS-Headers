@@ -7,8 +7,8 @@
 #import "NSObject-Protocol.h"
 
 @protocol QLPrintPageRendererDataSource <NSObject>
-- (id)printPageRenderer:(id)arg1 pdfDataForPageAtIndex:(int)arg2 withSize:(struct CGSize)arg3 printingDone:(char *)arg4;
+- (id)printPageRenderer:(id)arg1 pdfDataForPageAtIndex:(long long)arg2 withSize:(struct CGSize)arg3 printingDone:(_Bool *)arg4;
 - (void)printPageRenderer:(id)arg1 prepareForDrawingPages:(struct _NSRange)arg2;
-- (int)numberOfPageInPrintPageRenderer:(id)arg1 withSize:(struct CGSize)arg2;
+- (long long)numberOfPageInPrintPageRenderer:(id)arg1 withSize:(struct CGSize)arg2;
 @end
 

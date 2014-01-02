@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, NSMutableDictionary, NSMutableIndexSet, NSOperationQueue, SKUIClientContext, SKUISearchResultGroup;
+@class NSIndexSet, NSMutableArray, NSMutableDictionary, NSMutableIndexSet, NSOperationQueue, SKUIClientContext, SKUISearchResultGroup;
 
 @interface SKUISearchResultGroupController : NSObject
 {
@@ -14,6 +14,7 @@
     id <SKUISearchResultGroupControllerDelegate> _delegate;
     NSOperationQueue *_operationQueue;
     SKUIClientContext *_clientContext;
+    NSMutableIndexSet *_itemIndexesToLoad;
     NSMutableIndexSet *_editorialIndexesToLoad;
     NSMutableIndexSet *_editorialItemIdentifierIndexesToLoad;
     NSMutableArray *_editorialItemArtworkIndexPathsToLoad;
@@ -21,29 +22,33 @@
     NSMutableDictionary *_artworksByIndex;
     NSMutableDictionary *_entitiesByIndex;
     NSMutableDictionary *_itemArtworksByIndexPath;
+    NSIndexSet *_onScreenIndexes;
 }
 
 + (id)_compositedImageForImages:(id)arg1;
-+ (struct CGSize)_editorialItemSizeWithCount:(int)arg1;
++ (struct CGSize)_editorialItemSizeWithCount:(long long)arg1;
 @property(readonly, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
 @property(nonatomic) __weak id <SKUISearchResultGroupControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_setEditorialItemArtworkResponse:(id)arg1 error:(id)arg2 forIndexPath:(id)arg3;
-- (void)_setEditorialItemIdentifierResponse:(id)arg1 error:(id)arg2 forIndex:(unsigned int)arg3;
-- (void)_setEditorialResponse:(id)arg1 error:(id)arg2 forIndex:(unsigned int)arg3;
-- (void)_setArtworkResponse:(id)arg1 error:(id)arg2 forIndex:(unsigned int)arg3;
-- (void)_loadArtworkAtIndex:(unsigned int)arg1;
-- (void)_loadEditorialAtIndex:(unsigned int)arg1;
-- (void)_loadEditorialItemIdentifiersAtIndex:(unsigned int)arg1;
+- (void)_setEditorialItemIdentifierResponse:(id)arg1 error:(id)arg2 forIndex:(unsigned long long)arg3;
+- (void)_setEditorialResponse:(id)arg1 error:(id)arg2 forIndex:(unsigned long long)arg3;
+- (void)_setArtworkResponse:(id)arg1 error:(id)arg2 forIndex:(unsigned long long)arg3;
+- (void)_setItemResponse:(id)arg1 error:(id)arg2 forIndexes:(id)arg3;
+- (void)_loadArtworkAtIndex:(unsigned long long)arg1;
+- (void)_loadEditorialAtIndex:(unsigned long long)arg1;
+- (void)_loadEditorialItemIdentifiersAtIndex:(unsigned long long)arg1;
 - (void)_loadEditorialItemArtworkAtIndexPath:(id)arg1;
+- (void)_loadItemsAtIndexes:(id)arg1;
 - (void)_loadMore;
-@property(readonly, nonatomic) int numberOfEntities;
-- (int)entityTypeAtIndex:(int)arg1;
-- (id)identifierAtIndex:(unsigned int)arg1;
-- (id)editorialArtworkAtIndex:(unsigned int)arg1;
-- (id)itemAtIndex:(unsigned int)arg1;
-- (id)editorialAtIndex:(unsigned int)arg1;
-- (id)entityAtIndex:(unsigned int)arg1;
+- (void)updateForVisibleIndexes:(id)arg1;
+@property(readonly, nonatomic) long long numberOfEntities;
+- (long long)entityTypeAtIndex:(long long)arg1;
+- (id)identifierAtIndex:(unsigned long long)arg1;
+- (id)editorialArtworkAtIndex:(unsigned long long)arg1;
+- (id)itemAtIndex:(unsigned long long)arg1;
+- (id)editorialAtIndex:(unsigned long long)arg1;
+- (id)entityAtIndex:(unsigned long long)arg1;
 - (void)dealloc;
 - (id)initWithSearchResultGroup:(id)arg1 clientContext:(id)arg2;
 

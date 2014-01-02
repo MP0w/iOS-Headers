@@ -19,8 +19,8 @@
 @property(retain, nonatomic) SACalendar *showtime;
 @property(copy, nonatomic) NSNumber *seniorTicketQuantity;
 @property(copy, nonatomic) NSNumber *regularTicketQuantity;
-@property(nonatomic) BOOL isImax;
-@property(nonatomic) BOOL is3d;
+@property(nonatomic) _Bool isImax;
+@property(nonatomic) _Bool is3d;
 @property(copy, nonatomic) NSNumber *childTicketQuantity;
 @property(retain, nonatomic) SAUIAppPunchOut *buyTicketsPunchout;
 - (id)encodedClassName;

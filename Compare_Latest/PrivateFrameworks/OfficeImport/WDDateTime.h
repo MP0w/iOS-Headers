@@ -8,6 +8,7 @@
 
 @class NSDate, WDCharacterProperties;
 
+// Not exported
 @interface WDDateTime : WDRun
 {
     WDCharacterProperties *mProperties;

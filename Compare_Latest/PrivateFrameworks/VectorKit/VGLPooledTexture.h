@@ -8,12 +8,13 @@
 
 @class VGLTexturePool;
 
+// Not exported
 @interface VGLPooledTexture : VGLTexture
 {
     VGLTexturePool *_pool;
 }
 
-- (BOOL)loadTexture;
+- (_Bool)loadTexture;
 - (void)dealloc;
 - (id)initWithSize:(struct CGSize)arg1 resource:(id)arg2 pool:(id)arg3;
 

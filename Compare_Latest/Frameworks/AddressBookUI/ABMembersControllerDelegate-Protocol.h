@@ -12,12 +12,12 @@
 - (void)membersControllerDidEndSearching:(id)arg1;
 - (void)membersControllerWillEndSearching:(id)arg1;
 - (void)membersControllerWillStartSearching:(id)arg1;
-- (BOOL)membersController:(id)arg1 shouldAllowSelectingPersonWithRecordID:(int)arg2;
+- (_Bool)membersController:(id)arg1 shouldAllowSelectingPersonWithRecordID:(int)arg2;
 - (int)behavior;
 - (void)personWasSelected:(void *)arg1;
-- (BOOL)showCardForPerson:(void *)arg1 withMemberCell:(id)arg2 animate:(BOOL)arg3;
-- (BOOL)showCardForPerson:(void *)arg1 animate:(BOOL)arg2;
-- (BOOL)allowsShowingPersonsCards;
-- (void)showInsertEditorForPerson:(void *)arg1 animate:(BOOL)arg2;
+- (_Bool)showCardForPerson:(void *)arg1 withMemberCell:(id)arg2 animate:(_Bool)arg3;
+- (_Bool)showCardForPerson:(void *)arg1 animate:(_Bool)arg2;
+- (_Bool)allowsShowingPersonsCards;
+- (void)showInsertEditorForPerson:(void *)arg1 animate:(_Bool)arg2;
 @end
 

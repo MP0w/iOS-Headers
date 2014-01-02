@@ -7,7 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol ACUISettingsPluginProtocol <NSObject>
-- (BOOL)shouldLoadSpecifiersLazily;
+- (_Bool)shouldLoadSpecifiersLazily;
 - (id)footerText;
 - (id)headerText;
 - (id)specifiers;

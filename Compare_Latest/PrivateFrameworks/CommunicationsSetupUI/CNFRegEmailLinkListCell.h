@@ -11,8 +11,8 @@
 }
 
 - (void)layoutSubviews;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
-- (BOOL)canReload;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
+- (_Bool)canReload;
 
 @end
 

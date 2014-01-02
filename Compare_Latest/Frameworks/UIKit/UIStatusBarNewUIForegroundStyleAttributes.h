@@ -6,44 +6,43 @@
 
 #import <UIKit/UIStatusBarForegroundStyleAttributes.h>
 
-@class NSMutableDictionary, UIColor, UIImage;
+@class NSString, UIColor;
 
+// Not exported
 @interface UIStatusBarNewUIForegroundStyleAttributes : UIStatusBarForegroundStyleAttributes
 {
-    NSMutableDictionary *_tintedImageCache;
-    UIImage *_bluetoothDimmedImage;
-    BOOL _isTintColorBlack;
+    UIColor *_backgroundColor;
+    NSString *_uniqueIdentifier;
+    _Bool _isTintColorBlack;
     UIColor *_tintColor;
 }
 
 @property(readonly, nonatomic) UIColor *tintColor; // @synthesize tintColor=_tintColor;
 - (struct CGPoint)positionForMoonMaskInBounds:(struct CGRect)arg1;
-- (float)sizeForMoonMaskVisible:(BOOL)arg1;
-- (float)bluetoothBatteryExtraPadding;
+- (double)sizeForMoonMaskVisible:(_Bool)arg1;
+- (double)bluetoothBatteryExtraPadding;
 - (id)textForNetworkType:(int)arg1;
-- (id)bluetoothImageForConnected:(BOOL)arg1;
-- (id)_bluetoothImageName;
-- (id)textColorForStyle:(int)arg1;
-- (id)makeTextFontForStyle:(int)arg1;
-- (float)textOffsetForStyle:(int)arg1;
+- (id)textColorForStyle:(long long)arg1;
+- (id)makeTextFontForStyle:(long long)arg1;
+- (double)textOffsetForStyle:(long long)arg1;
+- (_Bool)_shouldUseBoldFontForStyle:(long long)arg1;
 - (id)proportionalFontForFont:(id)arg1;
-- (id)imageNamed:(id)arg1;
+- (id)imageNamed:(id)arg1 withLegibilityStyle:(long long)arg2 legibilityStrength:(double)arg3;
 - (id)expandedNameForImageName:(id)arg1;
-- (float)edgePadding;
-- (void)drawBluetoothBatteryInsidesWithSize:(struct CGSize)arg1 capacity:(float)arg2;
+- (double)edgePadding;
+- (void)drawBluetoothBatteryInsidesWithSize:(struct CGSize)arg1 capacity:(double)arg2;
 - (struct UIEdgeInsets)edgeInsetsForBluetoothBatteryInsides;
 - (struct UIEdgeInsets)edgeInsetsForBatteryInsides;
-- (float)batteryAccessoryMargin;
-- (float)batteryInsidesCornerRadius;
-- (id)_batteryColorForCapacity:(float)arg1 lowCapacity:(float)arg2 charging:(BOOL)arg3;
-- (void)drawBatteryInsidesWithSize:(struct CGSize)arg1 capacity:(float)arg2 charging:(BOOL)arg3;
-- (float)_roundDimension:(float)arg1;
-- (BOOL)shouldAnimateBattery;
-- (BOOL)useModernChargingEffect;
-- (int)activityIndicatorStyleWithSyncActivity:(BOOL)arg1;
+- (double)batteryAccessoryMargin;
+- (id)_batteryColorForCapacity:(double)arg1 lowCapacity:(double)arg2 charging:(_Bool)arg3;
+- (_Bool)_isForegroundColorSafe:(id)arg1;
+- (void)drawBatteryInsidesWithSize:(struct CGSize)arg1 capacity:(double)arg2 charging:(_Bool)arg3;
+- (double)_roundDimension:(double)arg1;
+- (long long)activityIndicatorStyleWithSyncActivity:(_Bool)arg1;
+- (id)uniqueIdentifier;
 - (void)dealloc;
-- (id)initWithHeight:(float)arg1 legibilityStyle:(int)arg2;
-- (id)initWithHeight:(float)arg1 legibilityStyle:(int)arg2 tintColor:(id)arg3;
+- (id)initWithHeight:(double)arg1 legibilityStyle:(long long)arg2;
+- (id)initWithHeight:(double)arg1 legibilityStyle:(long long)arg2 tintColor:(id)arg3 backgroundColor:(id)arg4;
 
 @end
 

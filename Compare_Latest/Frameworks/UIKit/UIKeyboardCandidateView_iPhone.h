@@ -11,6 +11,7 @@
 
 @class UIKeyboardCandidateGridHeader;
 
+// Not exported
 @interface UIKeyboardCandidateView_iPhone : UIKeyboardCandidateView <UICollectionViewDelegate, UIGestureRecognizerDelegate>
 {
     UIKeyboardCandidateGridHeader *_header;
@@ -19,13 +20,13 @@
 - (void)_handleKeyboardShowOrHide:(id)arg1;
 - (void)handleTap;
 - (void)scrollViewWillBeginDragging:(id)arg1;
-- (BOOL)_shouldUseFullMetrics;
-- (BOOL)_shouldShowHideKeyboard;
-- (BOOL)gestureRecognizerShouldBegin:(id)arg1;
+- (_Bool)_shouldUseFullMetrics;
+- (_Bool)_shouldShowHideKeyboard;
+- (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (void)_setupKeyboardInteraction;
 - (void)dealloc;
 - (void)layoutSubviews;
-- (float)barHeight;
+- (double)barHeight;
 
 @end
 

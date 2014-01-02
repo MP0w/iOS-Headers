@@ -8,13 +8,14 @@
 
 @class OADImageFill;
 
+// Not exported
 @interface OADImageProperties : OADGraphicProperties
 {
     OADImageFill *mImageFill;
 }
 
 + (id)defaultProperties;
-- (BOOL)hasImageFill;
+- (_Bool)hasImageFill;
 - (void)setImageFill:(id)arg1;
 - (id)imageFill;
 - (void)dealloc;

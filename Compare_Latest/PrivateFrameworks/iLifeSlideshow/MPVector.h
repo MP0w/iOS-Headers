@@ -8,28 +8,25 @@
 
 @interface MPVector : NSObject
 {
-    float _vector[4];
-    int _length;
+    double _vector[4];
+    long long _length;
 }
 
 + (id)vectorFromCGColor:(struct CGColor *)arg1;
 + (id)vectorWithValues:(id)arg1;
 + (id)vectorFromString:(id)arg1;
-+ (id)vectorFromMCVector:(CDStruct_d27e73f0)arg1;
-- (BOOL)isEqualTo:(id)arg1;
+- (_Bool)isEqualTo:(id)arg1;
 - (void)setValues:(id)arg1;
 - (id)values;
 - (struct CGColor *)CGColor;
 - (id)CIColorString;
 - (id)string;
-- (int)count;
-- (float)valueAtIndex:(int)arg1;
+- (long long)count;
+- (double)valueAtIndex:(long long)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
-- (CDStruct_d27e73f0)vector;
-- (void)setVector:(CDStruct_d27e73f0)arg1;
 
 @end
 

@@ -8,6 +8,7 @@
 
 @class NSLock, NSString, PFUbiquityGlobalObjectIDCache, PFUbiquityKnowledgeVector, PFUbiquityLocation, PFUbiquityPeerRangeCache, PFUbiquityPeerReceipt, PFUbiquityTransactionHistoryCache, PFUbiquityTransactionLogCache;
 
+// Not exported
 @interface PFUbiquitySwitchboardCacheWrapper : NSObject
 {
     NSString *_localPeerID;
@@ -20,9 +21,9 @@
     PFUbiquityKnowledgeVector *_kv;
     PFUbiquityKnowledgeVector *_baselineKV;
     PFUbiquityPeerReceipt *_peerReceipt;
-    BOOL _pendingReceiptWrite;
+    _Bool _pendingReceiptWrite;
     NSLock *_receiptFileLock;
-    BOOL _allowSchedulingOfReceiptFileWrites;
+    _Bool _allowSchedulingOfReceiptFileWrites;
 }
 
 @property(readonly, nonatomic) NSString *storeName; // @synthesize storeName=_storeName;
@@ -35,7 +36,8 @@
 @property(readonly, nonatomic) PFUbiquityTransactionLogCache *transactionLogCache; // @synthesize transactionLogCache=_transactionLogCache;
 @property(readonly, nonatomic) PFUbiquityPeerRangeCache *peerRangeCache; // @synthesize peerRangeCache=_peerRangeCache;
 @property(readonly, nonatomic) PFUbiquityGlobalObjectIDCache *globalIDCache; // @synthesize globalIDCache=_globalIDCache;
-- (BOOL)writeReceiptFile:(BOOL)arg1 error:(id *)arg2;
+- (void)_appWillResignActive:(id)arg1;
+- (_Bool)writeReceiptFile:(_Bool)arg1 error:(id *)arg2;
 - (void)scheduleReceiptFileWrite:(id)arg1;
 - (void)cacheWrapperWillBeRemovedFromEntry;
 - (void)dealloc;

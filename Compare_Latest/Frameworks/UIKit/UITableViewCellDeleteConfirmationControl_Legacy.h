@@ -8,20 +8,21 @@
 
 @class UITableViewCellDeleteConfirmationGestureRecognizer;
 
+// Not exported
 @interface UITableViewCellDeleteConfirmationControl_Legacy : UIControl
 {
-    BOOL _visible;
+    _Bool _visible;
     UITableViewCellDeleteConfirmationGestureRecognizer *_deleteConfirmationGesture;
 }
 
 + (struct CGSize)defaultSizeForTitle:(id)arg1;
 - (void)layoutSubviews;
-@property(nonatomic, getter=isVisible) BOOL visible;
-- (void)setVisible:(BOOL)arg1 animated:(BOOL)arg2;
+@property(nonatomic, getter=isVisible) _Bool visible;
+- (void)setVisible:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)cancelTrackingWithEvent:(id)arg1;
 - (void)endTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (BOOL)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (BOOL)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
+- (_Bool)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
+- (_Bool)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (struct CGSize)defaultSize;
 - (void)cancelDeleteConfirmationWithGesture:(id)arg1;
@@ -29,7 +30,6 @@
 - (void)touchUpInside:(id)arg1;
 - (void)dealloc;
 - (id)initWithTitle:(id)arg1;
-- (void)_confirmationAnimationDidEnd;
 
 @end
 

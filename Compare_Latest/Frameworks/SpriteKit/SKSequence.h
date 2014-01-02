@@ -8,11 +8,12 @@
 
 @class NSArray;
 
+// Not exported
 @interface SKSequence : SKAction
 {
     struct SKCSequence *_mycaction;
     NSArray *_actions;
-    unsigned long _animIndex;
+    unsigned long long _animIndex;
 }
 
 + (id)sequenceWithActions:(id)arg1;

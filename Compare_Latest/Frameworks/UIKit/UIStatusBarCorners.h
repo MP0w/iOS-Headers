@@ -14,7 +14,7 @@
     UIView *_rightCorner;
 }
 
-+ (float)cornerRadius;
++ (double)cornerRadius;
 - (void)layoutSubviews;
 - (void)setFrame:(struct CGRect)arg1;
 - (id)_imageForCornerWithStyle:(int)arg1;

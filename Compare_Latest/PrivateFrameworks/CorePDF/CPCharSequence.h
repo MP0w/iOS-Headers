@@ -19,24 +19,24 @@
     unsigned int previousSize;
     unsigned int size;
     CPMemoryOwner *sharedMemory;
-    BOOL wasMerged;
+    _Bool wasMerged;
 }
 
 - (struct CGRect)boundsFrom:(unsigned int)arg1 length:(unsigned int)arg2;
 - (struct CGRect)bounds;
-- (BOOL)map:(void *)arg1 whereNeighborsWith:(id)arg2 passing:(void *)arg3;
-- (BOOL)mapToPairsWithIndex:(void *)arg1 passing:(void *)arg2;
-- (BOOL)mapToPairs:(void *)arg1 passing:(void *)arg2;
-- (BOOL)mapWithIndex:(void *)arg1 from:(unsigned int)arg2 length:(unsigned int)arg3 passing:(void *)arg4;
-- (BOOL)mapWithIndex:(void *)arg1 passing:(void *)arg2;
-- (BOOL)map:(void *)arg1 passing:(void *)arg2;
-- (BOOL)removeToSubsequence:(id)arg1 ifTrue:(void *)arg2 passing:(void *)arg3;
+- (_Bool)map:(void *)arg1 whereNeighborsWith:(id)arg2 passing:(void *)arg3;
+- (_Bool)mapToPairsWithIndex:(void *)arg1 passing:(void *)arg2;
+- (_Bool)mapToPairs:(void *)arg1 passing:(void *)arg2;
+- (_Bool)mapWithIndex:(void *)arg1 from:(unsigned int)arg2 length:(unsigned int)arg3 passing:(void *)arg4;
+- (_Bool)mapWithIndex:(void *)arg1 passing:(void *)arg2;
+- (_Bool)map:(void *)arg1 passing:(void *)arg2;
+- (_Bool)removeToSubsequence:(id)arg1 ifTrue:(void *)arg2 passing:(void *)arg3;
 - (void)copyToSubsequence:(id)arg1 ifTrue:(void *)arg2 passing:(void *)arg3;
 - (void)copyToSubsequence:(id)arg1 from:(unsigned int)arg2 length:(unsigned int)arg3;
-- (BOOL)removeSubsequences:(id)arg1 whereTrue:(void *)arg2 passing:(void *)arg3;
+- (_Bool)removeSubsequences:(id)arg1 whereTrue:(void *)arg2 passing:(void *)arg3;
 - (void)splitToSubsequences:(id)arg1 whereTrue:(void *)arg2 passing:(void *)arg3;
 - (id)newSubsequenceFrom:(unsigned int)arg1 length:(unsigned int)arg2;
-- (BOOL)wasMerged;
+- (_Bool)wasMerged;
 - (void)merge:(id)arg1 by:(void *)arg2;
 - (void)mergeByAnchorXIncreasingYDecreasing:(id)arg1;
 - (void)mergeByAnchorYDecreasingXIncreasing:(id)arg1;

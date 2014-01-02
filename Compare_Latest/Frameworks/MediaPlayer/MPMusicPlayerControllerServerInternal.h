@@ -22,23 +22,23 @@
     unsigned int _queuePrepared:1;
 }
 
-+ (BOOL)_canSeedGeniusWithItem:(id)arg1;
++ (_Bool)_canSeedGeniusWithItem:(id)arg1;
 - (void).cxx_destruct;
-- (unsigned int)_numberOfItems;
+- (unsigned long long)_numberOfItems;
 - (void)_tearDownVideoView;
 - (void)_endPlayback;
 - (void)_endPlaybackForClientIfNecessary:(int)arg1;
 - (void)_prepareQueueIfNecessary;
 - (void)_setQueueWithQuery:(id)arg1;
-- (void)_setQueuePrepared:(BOOL)arg1;
+- (void)_setQueuePrepared:(_Bool)arg1;
 - (id)_avControllerForClientPID:(int)arg1;
 - (id)_avController;
-- (BOOL)_currentClientPIDHasPermissionToPlay;
-- (BOOL)_clientPIDHasPermissionToPlay:(int)arg1;
+- (_Bool)_currentClientPIDHasPermissionToPlay;
+- (_Bool)_clientPIDHasPermissionToPlay:(int)arg1;
 - (id)_clientStateForPID:(int)arg1;
 - (id)_clientState;
 - (void)_clientPortInvalidated:(id)arg1;
-- (void)_registerClientPort:(unsigned int)arg1 forProcessID:(int)arg2 hasAudioBackgroundMode:(BOOL)arg3;
+- (void)_registerClientPort:(unsigned int)arg1 forProcessID:(int)arg2 hasAudioBackgroundMode:(_Bool)arg3;
 - (void)_tvOutCapabilityDidChangeNotification:(id)arg1;
 - (void)_itemPlaybackDidEndNotification:(id)arg1;
 - (void)_itemDidChangeNotification:(id)arg1;
@@ -50,7 +50,7 @@
 - (void)setAllowsBackgroundVideo:(id)arg1;
 - (id)allowsBackgroundVideo;
 - (void)setUseApplicationSpecificQueue:(id)arg1;
-- (BOOL)useApplicationSpecificQueue;
+- (_Bool)useApplicationSpecificQueue;
 - (void)registerForServerDiedNotifications;
 - (id)serverIsAlive;
 - (void)prepareQueueForPlayback;

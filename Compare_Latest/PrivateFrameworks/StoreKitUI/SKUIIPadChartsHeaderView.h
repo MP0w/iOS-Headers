@@ -11,10 +11,10 @@
 @interface SKUIIPadChartsHeaderView : UIControl
 {
     NSArray *_buttons;
-    int _selectedTitleIndex;
+    long long _selectedTitleIndex;
 }
 
-@property(nonatomic) int selectedTitleIndex; // @synthesize selectedTitleIndex=_selectedTitleIndex;
+@property(nonatomic) long long selectedTitleIndex; // @synthesize selectedTitleIndex=_selectedTitleIndex;
 - (void).cxx_destruct;
 - (void)_reloadSelectedButton;
 - (void)_buttonAction:(id)arg1;

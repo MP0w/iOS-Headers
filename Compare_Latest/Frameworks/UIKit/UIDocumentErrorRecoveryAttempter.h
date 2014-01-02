@@ -8,12 +8,13 @@
 
 @class UIDocument;
 
+// Not exported
 @interface UIDocumentErrorRecoveryAttempter : NSObject
 {
     UIDocument *_document;
     id _wrappedRecoveryAttempter;
     id _continuerOrNil;
-    int _silentRecoveryOptionIndex;
+    long long _silentRecoveryOptionIndex;
     id _appModalRecoveryAttempter;
     id _recoveryCancelerOrNil;
     struct {
@@ -22,10 +23,10 @@
 }
 
 - (void)cancelRecovery;
-- (BOOL)attemptSilentRecoveryFromError:(id)arg1 error:(id *)arg2;
-- (BOOL)attemptRecoveryFromError:(id)arg1 optionIndex:(unsigned int)arg2;
+- (_Bool)attemptSilentRecoveryFromError:(id)arg1 error:(id *)arg2;
+- (_Bool)attemptRecoveryFromError:(id)arg1 optionIndex:(unsigned long long)arg2;
 - (void)dealloc;
-- (id)initWithDocument:(id)arg1 silentRecoveryOptionIndex:(unsigned int)arg2 appModalRecoveryAttempter:(id)arg3 recoveryCanceler:(void)arg4;
+- (id)initWithDocument:(id)arg1 silentRecoveryOptionIndex:(unsigned long long)arg2 appModalRecoveryAttempter:(id)arg3 recoveryCanceler:(void)arg4;
 - (id)initWithDocument:(id)arg1 wrappedRecoveryAttempter:(id)arg2;
 
 @end

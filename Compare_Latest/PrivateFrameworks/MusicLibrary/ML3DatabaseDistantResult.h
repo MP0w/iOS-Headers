@@ -24,12 +24,12 @@
 @property(readonly, nonatomic) NSString *sql; // @synthesize sql=_sql;
 @property(readonly, nonatomic) ML3DatabaseDistantConnection *distantConnection; // @synthesize distantConnection=_distantConnection;
 - (void).cxx_destruct;
-- (BOOL)_fetchRowsIfEmpty;
+- (_Bool)_fetchRowsIfEmpty;
 - (void)_localEnumerateRowsWithBlock:(id)arg1;
 - (void)_remoteEnumerateRowsWithBlock:(id)arg1;
 - (void)enumerateRowsWithBlock:(id)arg1;
 - (id)columnNameIndexMap;
-- (unsigned int)indexForColumnName:(id)arg1;
+- (unsigned long long)indexForColumnName:(id)arg1;
 - (void)setLimitProperty:(id)arg1 limitValue:(long long)arg2;
 - (id)description;
 - (id)init;

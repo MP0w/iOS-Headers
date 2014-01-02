@@ -10,7 +10,7 @@
 {
 }
 
-- (BOOL)_accessibilityIsMathTouchExplorationView;
+- (_Bool)_accessibilityIsMathTouchExplorationView;
 
 @end
 

@@ -7,6 +7,6 @@
 #import "UIScrollView.h"
 
 @interface UIScrollView (MFMailComposeView)
-- (BOOL)mf_needsToAdjustContentOffset;
+- (_Bool)mf_needsToAdjustContentOffset;
 @end
 

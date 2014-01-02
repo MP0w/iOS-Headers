@@ -13,7 +13,7 @@
     SKUIGiftConfirmLabeledValue *_amountView;
     UILabel *_chargeDisclaimerLabel;
     UILabel *_confirmYourOrderLabel;
-    SKUIGiftConfirmLabeledValue *_fromView;
+    SKUIGiftConfirmLabeledValue *_senderView;
     SKUIGiftConfiguration *_giftConfiguration;
     SKUIGiftConfirmLabeledValue *_itemView;
     SKUIGiftConfirmLabeledValue *_messageView;
@@ -24,7 +24,7 @@
     UIView *_rule4;
     UIView *_rule5;
     UIView *_rule6;
-    SKUIGiftConfirmLabeledValue *_senderView;
+    SKUIGiftConfirmLabeledValue *_fromView;
     SKUIGiftConfirmLabeledValue *_sendOnView;
     UIButton *_termsButton;
     SKUIGiftConfirmLabeledValue *_themeNameView;
@@ -33,8 +33,8 @@
 
 - (void).cxx_destruct;
 - (id)_termsButton;
-- (id)_newLightLabelWithSize:(float)arg1 white:(float)arg2 alpha:(float)arg3;
-- (id)_newBoldLabelWithSize:(float)arg1 white:(float)arg2;
+- (id)_newLightLabelWithSize:(double)arg1 white:(double)arg2 alpha:(double)arg3;
+- (id)_newBoldLabelWithSize:(double)arg1 white:(double)arg2;
 - (void)layoutSubviews;
 @property(readonly, nonatomic) UIButton *termsButton;
 - (id)initWithGift:(id)arg1 configuration:(id)arg2;

@@ -6,24 +6,26 @@
 
 #import "SBAlertView.h"
 
-@class UIView<SBUIPasscodeLockView>, _UIBackdropView, _UIBackdropViewSettings;
+@class UIView<SBUIPasscodeLockView>, _UIBackdropView;
 
 @interface SBPasscodeEntryAlertView : SBAlertView
 {
     UIView<SBUIPasscodeLockView> *_passcodeView;
-    _UIBackdropViewSettings *_backdropViewSettings;
     _UIBackdropView *_blurView;
+    double _blurRadius;
+    _Bool _dismissing;
     id <SBPasscodeEntryAlertViewDelegate> _delegate;
 }
 
 @property(nonatomic) id <SBPasscodeEntryAlertViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) UIView<SBUIPasscodeLockView> *passcodeLockView; // @synthesize passcodeLockView=_passcodeView;
-- (void)_animatePasscodeViewsToVisible:(BOOL)arg1;
+- (void)_animatePasscodeViewsToVisible:(_Bool)arg1;
 - (void)_dismissAnimationCompleted;
-- (int)_backdropStyle;
+- (long long)_backdropStyle;
 - (id)_buildPasscodeView;
-- (void)layoutForInterfaceOrientation:(int)arg1;
+- (void)layoutForInterfaceOrientation:(long long)arg1;
 - (void)dismiss;
+- (_Bool)isReadyToBeRemovedFromView;
 - (void)alertDisplayWillBecomeVisible;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

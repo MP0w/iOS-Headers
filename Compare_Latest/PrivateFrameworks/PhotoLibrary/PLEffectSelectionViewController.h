@@ -23,19 +23,19 @@
 }
 
 @property(nonatomic) id <PLEffectSelectionViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
-- (struct UIEdgeInsets)collectionView:(id)arg1 layout:(id)arg2 insetForSectionAtIndex:(int)arg3;
+- (struct UIEdgeInsets)collectionView:(id)arg1 layout:(id)arg2 insetForSectionAtIndex:(long long)arg3;
 - (void)_scrollToShowNextFilterNearEdge;
 - (void)_notifyEffectSelectedAndScrollIfNecessary;
-- (BOOL)collectionView:(id)arg1 shouldDeselectItemAtIndexPath:(id)arg2;
+- (_Bool)collectionView:(id)arg1 shouldDeselectItemAtIndexPath:(id)arg2;
 - (void)collectionView:(id)arg1 didDeselectItemAtIndexPath:(id)arg2;
 - (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
 - (id)_textForItemAtIndexPath:(id)arg1;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
-- (int)collectionView:(id)arg1 numberOfItemsInSection:(int)arg2;
-- (int)numberOfSectionsInCollectionView:(id)arg1;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (void)_scrollToSelectedIndexAnimated:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
+- (long long)numberOfSectionsInCollectionView:(id)arg1;
+- (void)willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (void)_scrollToSelectedIndexAnimated:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;
 @property(retain, nonatomic) CIFilter *selectedEffect;
 - (void)_resetSelectedToOriginal;

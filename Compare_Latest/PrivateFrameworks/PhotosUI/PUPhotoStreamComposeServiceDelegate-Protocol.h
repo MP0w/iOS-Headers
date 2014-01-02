@@ -8,6 +8,6 @@
 
 @protocol PUPhotoStreamComposeServiceDelegate <NSObject>
 - (void)photoStreamComposeServiceDidCancel:(id)arg1;
-- (void)photoStreamComposeServiceDidPost:(id)arg1;
+- (void)photoStreamComposeService:(id)arg1 didPostComment:(id)arg2;
 @end
 

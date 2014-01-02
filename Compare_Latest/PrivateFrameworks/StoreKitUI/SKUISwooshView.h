@@ -30,10 +30,10 @@
 - (void)layoutSubviews;
 @property(copy, nonatomic) NSString *title;
 @property(copy, nonatomic) NSString *seeAllTitle;
-- (void)setSeeAllColor:(id)arg1 forControlState:(unsigned int)arg2;
+- (void)setSeeAllColor:(id)arg1 forControlState:(unsigned long long)arg2;
 - (void)setColoringWithColorScheme:(id)arg1;
 @property(readonly, nonatomic) UIControl *seeAllControl;
-- (id)seeAllColorForControlState:(unsigned int)arg1;
+- (id)seeAllColorForControlState:(unsigned long long)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

@@ -17,10 +17,10 @@
 @property(retain, nonatomic) NSArray *objects; // @synthesize objects=_objects;
 @property(retain, nonatomic) Class cellConfigurationClass; // @synthesize cellConfigurationClass=_cellConfigurationClass;
 - (void)reloadCellContexts;
-- (int)numberOfRowsInSection:(int)arg1;
-- (int)numberOfSections;
+- (long long)numberOfRowsInSection:(long long)arg1;
+- (long long)numberOfSections;
 - (void)configureCell:(id)arg1 forIndexPath:(id)arg2;
-- (float)cellHeightForIndexPath:(id)arg1;
+- (double)cellHeightForIndexPath:(id)arg1;
 - (id)cellForIndexPath:(id)arg1;
 - (id)objectForIndexPath:(id)arg1;
 - (void)dealloc;

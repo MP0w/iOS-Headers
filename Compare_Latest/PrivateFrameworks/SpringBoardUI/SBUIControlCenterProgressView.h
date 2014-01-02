@@ -16,8 +16,8 @@
 }
 
 @property(retain, nonatomic) UIImage *trackMaskImage; // @synthesize trackMaskImage=_trackMaskImage;
-- (void)controlConfigurationDidChangeForState:(int)arg1;
-- (void)controlAppearanceDidChangeForState:(int)arg1;
+- (void)controlConfigurationDidChangeForState:(long long)arg1;
+- (void)controlAppearanceDidChangeForState:(long long)arg1;
 - (void)_updateTrackImage;
 - (void)_updateProgressImage;
 - (struct UIEdgeInsets)_applyShadowInsets:(struct UIEdgeInsets)arg1;

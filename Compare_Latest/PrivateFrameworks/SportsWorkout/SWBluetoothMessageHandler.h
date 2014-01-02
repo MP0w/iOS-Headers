@@ -12,11 +12,11 @@
 {
     struct __CFRunLoop *_btRunLoop;
     struct __CFRunLoopTimer *_futureTimer;
-    BOOL _shouldCancelBTThread;
-    BOOL _isActive;
-    BOOL _isActivating;
-    BOOL _isConnecting;
-    unsigned int _btSensorDeviceCount;
+    _Bool _shouldCancelBTThread;
+    _Bool _isActive;
+    _Bool _isActivating;
+    _Bool _isConnecting;
+    unsigned long long _btSensorDeviceCount;
     NSTimer *_multiSensorTimer;
     int _deviceVirtualType;
     unsigned int _serviceMask;
@@ -63,8 +63,8 @@
 - (void)_setDeviceForAddress:(CDStruct_5cfa2073)arg1;
 - (void)_handleScanDidEnd;
 - (void)_handleMultiSensorTimer:(id)arg1;
-- (void)_setPowerOn:(BOOL)arg1 forLocalDeviceModule:(unsigned int)arg2;
-- (BOOL)_isPowerOnForLocalDeviceModule:(unsigned int)arg1;
+- (void)_setPowerOn:(_Bool)arg1 forLocalDeviceModule:(unsigned int)arg2;
+- (_Bool)_isPowerOnForLocalDeviceModule:(unsigned int)arg1;
 - (void)_setSensorDeviceVirtualType;
 - (void)_destroyDiscoveryAgent;
 - (void)_stopDiscoveryAgentScan;
@@ -83,15 +83,15 @@
 - (void)_attachToSession;
 - (void)startReadingInput;
 - (CDStruct_5cfa2073)deviceAddressForSensor;
-- (BOOL)isSensorDeviceConnected;
+- (_Bool)isSensorDeviceConnected;
 - (void)cancelConnectToDevice;
 - (void)connectToDevice:(int)arg1 withAddress:(CDStruct_5cfa2073)arg2;
 - (void)forgetSensorDevice;
-- (BOOL)isSensorDeviceDiscovered;
+- (_Bool)isSensorDeviceDiscovered;
 - (void)beginDeviceDiscovery:(int)arg1 serviceMask:(unsigned int)arg2;
 - (void)deactivate;
 - (void)activate;
-- (BOOL)isActive;
+- (_Bool)isActive;
 - (const char *)__btSessionName;
 - (void)_cancelBTThread;
 - (void)_btThreadMain;

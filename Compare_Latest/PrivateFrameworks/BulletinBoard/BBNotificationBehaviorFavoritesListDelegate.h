@@ -13,8 +13,8 @@
     id _handlerBlock;
 }
 
-- (BOOL)predicateShouldContinue:(id)arg1 afterFindingRecord:(void *)arg2;
-- (BOOL)predicateShouldContinue:(id)arg1;
+- (_Bool)predicateShouldContinue:(id)arg1 afterFindingRecord:(void *)arg2;
+- (_Bool)predicateShouldContinue:(id)arg1;
 - (void)dealloc;
 - (id)initWithHandlerBlock:(id)arg1;
 

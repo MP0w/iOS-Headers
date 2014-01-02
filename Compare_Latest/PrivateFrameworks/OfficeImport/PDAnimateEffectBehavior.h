@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface PDAnimateEffectBehavior : PDAnimateBehavior
 {
     NSString *mFilter;

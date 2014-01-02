@@ -14,11 +14,11 @@
 {
     CPLRUDictionary *_cachedImages;
     NSObject<OS_dispatch_queue> *_cachedImagesQueue;
-    unsigned int _cacheSize;
+    unsigned long long _cacheSize;
     id <MPImageCacheDelegate> _delegate;
     NSOperationQueue *_operationQueue;
-    int _resumeToForegroundCacheSize;
-    int _suspendToBackgroundCacheSize;
+    long long _resumeToForegroundCacheSize;
+    long long _suspendToBackgroundCacheSize;
     id _idleEventHandler;
     id _libraryDisplayValueChangeObserver;
 }
@@ -26,7 +26,7 @@
 @property(nonatomic) __weak id libraryDisplayValueChangeObserver; // @synthesize libraryDisplayValueChangeObserver=_libraryDisplayValueChangeObserver;
 @property(copy, nonatomic) id idleEventHandler; // @synthesize idleEventHandler=_idleEventHandler;
 @property(nonatomic) __weak id <MPImageCacheDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) unsigned int cacheSize; // @synthesize cacheSize=_cacheSize;
+@property(nonatomic) unsigned long long cacheSize; // @synthesize cacheSize=_cacheSize;
 - (void).cxx_destruct;
 - (void)_zapCache;
 - (void)_zapCachedPlaceholders;
@@ -41,13 +41,14 @@
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)imageRequest:(id)arg1 loadedImage:(id)arg2;
 - (void)imageRequest:(id)arg1 failedWithError:(id)arg2;
-@property(nonatomic) BOOL imageRequestsSuspended;
-- (void)setCacheSize:(unsigned int)arg1 preserveExisting:(BOOL)arg2;
-- (void)loadImageForRequest:(id)arg1 asynchronously:(BOOL)arg2 completionHandler:(id)arg3;
-@property(readonly, nonatomic) BOOL isIdle;
+@property(nonatomic) _Bool imageRequestsSuspended;
+- (void)setCacheSize:(unsigned long long)arg1 preserveExisting:(_Bool)arg2;
+- (void)loadImageForRequest:(id)arg1 asynchronously:(_Bool)arg2 completionHandler:(id)arg3;
+@property(readonly, nonatomic) _Bool isIdle;
 - (id)imageForRequest:(id)arg1 error:(id *)arg2;
 - (void)cancelAllImageRequests;
 - (id)cachedImageForRequest:(id)arg1;
+- (id)debugDescription;
 - (void)dealloc;
 - (id)init;
 

@@ -10,14 +10,14 @@
 
 @interface SUConcernItem : NSObject
 {
-    BOOL _default;
+    _Bool _default;
     NSString *_identifier;
     NSString *_title;
 }
 
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
-@property(nonatomic, getter=isDefaultConcern) BOOL defaultConcern; // @synthesize defaultConcern=_default;
+@property(nonatomic, getter=isDefaultConcern) _Bool defaultConcern; // @synthesize defaultConcern=_default;
 - (void)dealloc;
 - (id)initWithDictionary:(id)arg1;
 

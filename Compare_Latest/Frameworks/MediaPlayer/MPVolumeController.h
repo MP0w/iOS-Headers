@@ -12,31 +12,32 @@
 {
     MPAVController *_player;
     NSString *_volumeAudioCategory;
-    BOOL _volumeWarningBlinking;
+    _Bool _volumeWarningBlinking;
     UIImage *_volumeWarningTrackImage;
-    BOOL _debugVolumeWarning;
-    BOOL _volumeWarningEnabled;
-    id <MPVolumeControllerDelegate> _delegate;
+    _Bool _debugVolumeWarning;
+    _Bool _volumeWarningEnabled;
     float _volumeValue;
-    int _volumeWarningState;
     float _EUVolumeLimit;
+    id <MPVolumeControllerDelegate> _delegate;
+    long long _volumeWarningState;
 }
 
 @property(readonly, nonatomic) float EUVolumeLimit; // @synthesize EUVolumeLimit=_EUVolumeLimit;
-@property(readonly, nonatomic) int volumeWarningState; // @synthesize volumeWarningState=_volumeWarningState;
-@property(readonly, nonatomic) BOOL volumeWarningEnabled; // @synthesize volumeWarningEnabled=_volumeWarningEnabled;
+@property(readonly, nonatomic) long long volumeWarningState; // @synthesize volumeWarningState=_volumeWarningState;
+@property(readonly, nonatomic) _Bool volumeWarningEnabled; // @synthesize volumeWarningEnabled=_volumeWarningEnabled;
 @property(readonly, nonatomic) float volumeValue; // @synthesize volumeValue=_volumeValue;
 @property(nonatomic) __weak id <MPVolumeControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (float)_volumeFromAVController;
-- (BOOL)_isPlayerInValidState;
-- (void)_setVolumeWarningState:(int)arg1;
+- (_Bool)_isPlayerInValidState;
+- (void)_setVolumeWarningState:(long long)arg1;
 - (void)_internalSetVolumeValue:(float)arg1;
 - (void)_applicationWillEnterForegroundNotification:(id)arg1;
 - (void)_applicationDidEnterBackgroundNotification:(id)arg1;
 - (void)_isExternalPlaybackActiveDidChangeNotification:(id)arg1;
 - (void)_availableRoutesDidChangeNotification:(id)arg1;
 - (void)_volumeDidChange:(id)arg1;
+- (void)_mediaServerDiedNotification:(id)arg1;
 - (void)_EUVolumeLimitEnforcedDidChange:(id)arg1;
 - (void)_EUVolumeLimitDidChange:(id)arg1;
 - (void)_systemMuteDidChange:(id)arg1;
@@ -48,7 +49,7 @@
 - (void)updateVolumeValue;
 @property(copy, nonatomic) NSString *volumeAudioCategory;
 @property(retain, nonatomic) MPAVController *player;
-@property(nonatomic) BOOL muted;
+@property(nonatomic) _Bool muted;
 - (float)setVolumeValue:(float)arg1;
 - (void)dealloc;
 - (id)init;

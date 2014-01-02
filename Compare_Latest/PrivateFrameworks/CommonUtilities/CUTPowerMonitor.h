@@ -18,19 +18,19 @@
     struct IONotificationPort *_pmPort;
     unsigned int _pmNotifier;
     NSMutableArray *_delegates;
-    BOOL _isExternalPowerConnected;
+    _Bool _isExternalPowerConnected;
     double _currentLevel;
 }
 
 + (id)sharedInstance;
-- (void)setExternalPowerConnected:(BOOL)arg1;
+- (void)setExternalPowerConnected:(_Bool)arg1;
 @property(nonatomic) double currentLevel; // @synthesize currentLevel=_currentLevel;
 @property(readonly, nonatomic) double batteryPercentRemaining;
-@property(nonatomic) BOOL isExternalPowerConnected; // @synthesize isExternalPowerConnected=_isExternalPowerConnected;
+@property(nonatomic) _Bool isExternalPowerConnected; // @synthesize isExternalPowerConnected=_isExternalPowerConnected;
 - (void)updateBatteryConnectedStateWithBatteryEntry:(unsigned int)arg1;
 - (void)removeDelegate:(id)arg1;
 - (void)addDelegate:(id)arg1;
-- (BOOL)_updateBatteryConnectedStateWithBatteryEntry:(unsigned int)arg1;
+- (_Bool)_updateBatteryConnectedStateWithBatteryEntry:(unsigned int)arg1;
 - (void)updateBatteryLevelWithBatteryEntry:(unsigned int)arg1;
 - (void)dealloc;
 - (id)init;

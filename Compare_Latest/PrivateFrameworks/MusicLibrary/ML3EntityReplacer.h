@@ -20,8 +20,8 @@
 - (void)close;
 - (void)clearBindings;
 - (void)bindPersistentID:(long long)arg1;
-@property(readonly, nonatomic, getter=isOpen) BOOL open;
-- (BOOL)perform;
+@property(readonly, nonatomic, getter=isOpen) _Bool open;
+- (_Bool)perform;
 - (void)bindValue:(id)arg1 forProperty:(id)arg2;
 - (void)bindDouble:(double)arg1 forProperty:(id)arg2;
 - (void)bindInt:(int)arg1 forProperty:(id)arg2;

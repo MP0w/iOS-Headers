@@ -10,13 +10,13 @@
 {
 }
 
++ (double)cornerRadius;
 + (int)_defaultIconFormat;
 - (struct CGRect)visibleBounds;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (id)squareDarkeningOverlayImage;
 - (id)darkeningOverlayImage;
-- (float)cornerRadius;
-- (id)squareContentsImage;
+- (id)_generateSquareContentsImage;
 - (id)contentsImage;
 
 @end

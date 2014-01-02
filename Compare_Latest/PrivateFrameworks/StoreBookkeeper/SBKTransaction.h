@@ -8,6 +8,7 @@
 
 @class NSMutableDictionary, SBKRequest;
 
+// Not exported
 @interface SBKTransaction : NSObject
 {
     SBKRequest *_activeRequest;

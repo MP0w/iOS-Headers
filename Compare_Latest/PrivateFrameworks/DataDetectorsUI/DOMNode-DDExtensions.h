@@ -7,6 +7,6 @@
 #import "DOMNode.h"
 
 @interface DOMNode (DDExtensions)
-- (BOOL)dd_searchForLinkEndNode:(id)arg1;
+- (_Bool)dd_searchForLinkEndNode:(id)arg1;
 @end
 

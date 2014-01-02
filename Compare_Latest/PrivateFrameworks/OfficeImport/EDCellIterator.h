@@ -8,6 +8,7 @@
 
 @class EDRowBlock, EDRowBlocks;
 
+// Not exported
 @interface EDCellIterator : NSObject
 {
     EDRowBlocks *mRowBlocks;
@@ -25,7 +26,6 @@
 - (struct EDCellHeader *)adjacentCellLeft;
 - (void)dealloc;
 - (id)initWithWorksheet:(id)arg1;
-- (struct EDCellHeader *)adjacentCell:(int)arg1;
 
 @end
 

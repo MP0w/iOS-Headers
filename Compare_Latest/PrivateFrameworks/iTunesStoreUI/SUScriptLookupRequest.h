@@ -18,9 +18,9 @@
 + (id)webScriptNameForKeyName:(id)arg1;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
-@property(readonly) int localizationStyleServer;
-@property(readonly) int localizationStyleDevice;
-@property int localizationStyle;
+@property(readonly) long long localizationStyleServer;
+@property(readonly) long long localizationStyleDevice;
+@property long long localizationStyle;
 @property(copy) NSString *keyProfile;
 @property(retain) id authenticatesIfNeeded;
 - (id)_className;

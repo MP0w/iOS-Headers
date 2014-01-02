@@ -18,18 +18,18 @@
     NSMutableDictionary *_titleTextAttributes;
 }
 
-+ (id)defaultOptionsAppearanceForTintStyle:(int)arg1;
++ (id)defaultOptionsAppearanceForTintStyle:(long long)arg1;
 + (id)defaultBarAppearance;
 @property(retain, nonatomic) UIImage *optionsBackgroundImage; // @synthesize optionsBackgroundImage=_optionsBackgroundImage;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)_newDividerImageKeyWithLeftState:(unsigned int)arg1 rightState:(unsigned int)arg2 barMetrics:(int)arg3;
-- (id)titleTextAttributesForState:(unsigned int)arg1;
-- (void)setTitleTextAttributes:(id)arg1 forState:(unsigned int)arg2;
+- (id)_newDividerImageKeyWithLeftState:(unsigned long long)arg1 rightState:(unsigned long long)arg2 barMetrics:(long long)arg3;
+- (id)titleTextAttributesForState:(unsigned long long)arg1;
+- (void)setTitleTextAttributes:(id)arg1 forState:(unsigned long long)arg2;
 - (void)styleSegmentedControl:(id)arg1;
-- (void)setDividerImage:(id)arg1 forLeftSegmentState:(unsigned int)arg2 rightSegmentState:(unsigned int)arg3 barMetrics:(int)arg4;
-- (void)setBackgroundImage:(id)arg1 forState:(unsigned int)arg2 barMetrics:(int)arg3;
-- (id)dividerImageForLeftSegmentState:(unsigned int)arg1 rightSegmentState:(unsigned int)arg2 barMetrics:(int)arg3;
-- (id)backgroundImageForState:(unsigned int)arg1 barMetrics:(int)arg2;
+- (void)setDividerImage:(id)arg1 forLeftSegmentState:(unsigned long long)arg2 rightSegmentState:(unsigned long long)arg3 barMetrics:(long long)arg4;
+- (void)setBackgroundImage:(id)arg1 forState:(unsigned long long)arg2 barMetrics:(long long)arg3;
+- (id)dividerImageForLeftSegmentState:(unsigned long long)arg1 rightSegmentState:(unsigned long long)arg2 barMetrics:(long long)arg3;
+- (id)backgroundImageForState:(unsigned long long)arg1 barMetrics:(long long)arg2;
 - (void)dealloc;
 
 @end

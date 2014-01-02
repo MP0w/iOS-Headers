@@ -7,11 +7,11 @@
 #import "NSObject-Protocol.h"
 
 @protocol HSCloudAvailability <NSObject>
-- (BOOL)canShowCloudVideo;
-- (BOOL)canShowCloudMusic;
-- (BOOL)canShowCloudDownloadButtons;
-- (BOOL)shouldProhibitActionsForCurrentNetworkConditions;
-- (BOOL)isCellularDataRestricted;
-- (BOOL)hasProperNetworkConditionsToPlayMedia;
+- (_Bool)canShowCloudVideo;
+- (_Bool)canShowCloudMusic;
+- (_Bool)canShowCloudDownloadButtons;
+- (_Bool)shouldProhibitActionsForCurrentNetworkConditions;
+- (_Bool)isCellularDataRestricted;
+- (_Bool)hasProperNetworkConditionsToPlayMedia;
 @end
 

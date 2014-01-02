@@ -8,11 +8,12 @@
 
 #import "UITextFieldDelegate-Protocol.h"
 
-@class TPBottomSingleButtonBar, UIActivityIndicatorView, UITextField, UITextView, UITransitionView, UIView;
+@class TPButton, UIActivityIndicatorView, UITextField, UITextView, UITransitionView, UIView;
 
 @interface SBUSSDAlertDisplay : SBAlertView <UITextFieldDelegate>
 {
-    TPBottomSingleButtonBar *_responseBar;
+    TPButton *_dismissButton;
+    TPButton *_replyButton;
     UIView *_notifyView;
     UIView *_replyView;
     UITransitionView *_transitionView;
@@ -20,7 +21,8 @@
     UIActivityIndicatorView *_progressIndicator;
     UITextField *_responseField;
     UITextView *_textView;
-    BOOL _allowsResponse;
+    UITextView *_responseMessageView;
+    _Bool _allowsResponse;
 }
 
 - (void)_cancelClicked;
@@ -28,14 +30,16 @@
 - (void)_replyClicked;
 - (void)_textChanged:(id)arg1;
 - (void)_updateCharsRemaining;
-- (BOOL)textField:(id)arg1 shouldInsertText:(id)arg2 replacingRange:(struct _NSRange)arg3;
-- (void)setAllowsResponse:(BOOL)arg1;
-- (BOOL)allowsResponse;
+- (_Bool)textField:(id)arg1 shouldInsertText:(id)arg2 replacingRange:(struct _NSRange)arg3;
+- (void)setAllowsResponse:(_Bool)arg1;
+- (_Bool)allowsResponse;
 - (void)alertStringAvailable:(id)arg1;
 - (void)_setupResponseBar;
+- (void)layoutSubviews;
 - (void)alertDisplayBecameVisible;
 - (void)alertDisplayWillBecomeVisible;
 - (void)displayString:(id)arg1;
+- (id)_responseMessageView;
 - (id)_textView;
 - (id)_charsRemainingView;
 - (void)dealloc;

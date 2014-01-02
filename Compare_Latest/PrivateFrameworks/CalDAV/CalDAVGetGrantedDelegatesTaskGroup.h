@@ -9,17 +9,17 @@
 @interface CalDAVGetGrantedDelegatesTaskGroup : CalDAVGetDelegatesBaseTaskGroup
 {
     int _state;
-    BOOL _fetchPrincipalDetails;
+    _Bool _fetchPrincipalDetails;
 }
 
-@property BOOL fetchPrincipalDetails; // @synthesize fetchPrincipalDetails=_fetchPrincipalDetails;
+@property _Bool fetchPrincipalDetails; // @synthesize fetchPrincipalDetails=_fetchPrincipalDetails;
 @property int state; // @synthesize state=_state;
 - (void)taskGroup:(id)arg1 didFinishWithError:(id)arg2;
 - (void)task:(id)arg1 didFinishWithError:(id)arg2;
 - (void)startTaskGroup;
 - (void)_getChildProperties;
-- (void)_expandPropertiesWithAllowWrite:(BOOL)arg1;
-- (id)_urlAppendingSegmentWithAllowWrite:(BOOL)arg1;
+- (void)_expandPropertiesWithAllowWrite:(_Bool)arg1;
+- (id)_urlAppendingSegmentWithAllowWrite:(_Bool)arg1;
 - (void)_fetchOnlyHrefs;
 - (void)_finishWithError:(id)arg1 state:(int)arg2;
 - (id)initWithAccountInfoProvider:(id)arg1 principalURL:(id)arg2 taskManager:(id)arg3;

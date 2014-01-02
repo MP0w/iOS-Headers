@@ -6,18 +6,19 @@
 
 #import <CoreImage/CIEnhancementCalculation.h>
 
+// Not exported
 @interface CIEnhancementCalculator : CIEnhancementCalculation
 {
-    BOOL faceBalanceEnabled;
-    BOOL vibranceEnabled;
-    BOOL curvesEnabled;
-    BOOL shadowsEnabled;
+    _Bool faceBalanceEnabled;
+    _Bool vibranceEnabled;
+    _Bool curvesEnabled;
+    _Bool shadowsEnabled;
 }
 
-@property BOOL shadowsEnabled; // @synthesize shadowsEnabled;
-@property BOOL curvesEnabled; // @synthesize curvesEnabled;
-@property BOOL vibranceEnabled; // @synthesize vibranceEnabled;
-@property BOOL faceBalanceEnabled; // @synthesize faceBalanceEnabled;
+@property _Bool shadowsEnabled; // @synthesize shadowsEnabled;
+@property _Bool curvesEnabled; // @synthesize curvesEnabled;
+@property _Bool vibranceEnabled; // @synthesize vibranceEnabled;
+@property _Bool faceBalanceEnabled; // @synthesize faceBalanceEnabled;
 - (void)setupFaceColorFromImage:(id)arg1 usingContext:(id)arg2 features:(id)arg3;
 - (id)setupFaceColorFromImage:(id)arg1 usingContext:(id)arg2 detectorOpts:(id)arg3;
 - (void)analyzeFeatures:(id)arg1 usingContext:(id)arg2 baseImage:(id)arg3;

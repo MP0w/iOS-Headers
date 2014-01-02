@@ -21,7 +21,7 @@
 @property(readonly) NSError *error; // @synthesize error=_error;
 @property(readonly) int statusCode; // @synthesize statusCode=_statusCode;
 - (id)description;
-- (BOOL)wasSuccessful;
+- (_Bool)wasSuccessful;
 - (void)dealloc;
 - (id)initWithStatusCode:(int)arg1 error:(id)arg2 folderID:(id)arg3 folderName:(id)arg4;
 

@@ -8,6 +8,7 @@
 
 @class UIKeyboardMenuView, UITableView, UITableViewCell;
 
+// Not exported
 @interface UIInputSwitcherTableCellBackgroundView : UIView
 {
     UITableView *_tableView;

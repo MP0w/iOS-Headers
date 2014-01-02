@@ -8,20 +8,21 @@
 
 @class NSString, UIFont;
 
+// Not exported
 @interface UIAutocorrectTextView : UIView
 {
     NSString *m_string;
     int m_type;
     int m_edgeType;
     UIFont *m_textFont;
-    BOOL m_animating;
-    BOOL m_isLongString;
+    _Bool m_animating;
+    _Bool m_isLongString;
 }
 
-@property(nonatomic) BOOL isLongString; // @synthesize isLongString=m_isLongString;
-@property(nonatomic) BOOL animating; // @synthesize animating=m_animating;
-- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
-- (BOOL)pointInside:(struct CGPoint)arg1 forEvent:(struct __GSEvent *)arg2;
+@property(nonatomic) _Bool isLongString; // @synthesize isLongString=m_isLongString;
+@property(nonatomic) _Bool animating; // @synthesize animating=m_animating;
+- (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (_Bool)pointInside:(struct CGPoint)arg1 forEvent:(struct __GSEvent *)arg2;
 - (struct CGRect)_calculateRectForExpandedHitRegion;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)setEdgeType:(int)arg1;

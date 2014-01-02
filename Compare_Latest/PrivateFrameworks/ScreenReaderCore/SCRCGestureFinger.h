@@ -8,14 +8,14 @@
 
 @interface SCRCGestureFinger : NSObject
 {
-    unsigned int _identifier;
+    unsigned long long _identifier;
     struct CGPoint _location;
 }
 
 - (struct CGPoint)location;
-- (unsigned int)identifier;
+- (unsigned long long)identifier;
 - (id)description;
-- (id)initWithIdentifier:(unsigned int)arg1 location:(struct CGPoint)arg2;
+- (id)initWithIdentifier:(unsigned long long)arg1 location:(struct CGPoint)arg2;
 
 @end
 

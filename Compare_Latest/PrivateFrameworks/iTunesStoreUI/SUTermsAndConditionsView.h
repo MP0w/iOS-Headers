@@ -13,25 +13,25 @@
     UIAlertView *_accountButtonAlert;
     SUSubtitledButton *_button;
     SUClientInterface *_clientInterface;
-    BOOL _hideAccountButton;
-    float _rightMargin;
-    int _style;
+    _Bool _hideAccountButton;
+    double _rightMargin;
+    long long _style;
     SULinkControl *_termsAndConditionsControl;
     SUClientInterface *clientInterface;
 }
 
-@property(nonatomic) int style; // @synthesize style=_style;
-@property(nonatomic) float rightMargin; // @synthesize rightMargin=_rightMargin;
-@property(nonatomic) BOOL hideAccountButton; // @synthesize hideAccountButton=_hideAccountButton;
+@property(nonatomic) long long style; // @synthesize style=_style;
+@property(nonatomic) double rightMargin; // @synthesize rightMargin=_rightMargin;
+@property(nonatomic) _Bool hideAccountButton; // @synthesize hideAccountButton=_hideAccountButton;
 @property(retain, nonatomic) SUClientInterface *clientInterface; // @synthesize clientInterface;
 - (void)_updateButton;
 - (id)_termsAndConditionsControl;
-- (int)_linkStyleForStyle:(int)arg1;
+- (long long)_linkStyleForStyle:(long long)arg1;
 - (void)_destroyButton;
 - (void)_clearButtonSelection:(id)arg1;
-- (float)_buttonHeightForStyle:(int)arg1;
+- (double)_buttonHeightForStyle:(long long)arg1;
 - (id)_button;
-- (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
+- (void)alertView:(id)arg1 didDismissWithButtonIndex:(long long)arg2;
 - (void)_accountsChangedNotification:(id)arg1;
 - (void)_termsAndConditionsAction:(id)arg1;
 - (void)_buttonAction:(id)arg1;

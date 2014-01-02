@@ -8,6 +8,7 @@
 
 @class VGLMesh;
 
+// Not exported
 @interface VGLQuadMesh : NSObject
 {
     int _quadCount;

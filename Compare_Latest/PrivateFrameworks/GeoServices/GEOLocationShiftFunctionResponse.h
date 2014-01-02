@@ -13,13 +13,13 @@
     double _creationTime;
     double _params[9];
     double _radius;
-    BOOL _isPolyLocationShift;
-    BOOL _shouldUsePolyShiftFunction;
+    _Bool _isPolyLocationShift;
+    _Bool _shouldUsePolyShiftFunction;
 }
 
 @property(nonatomic) CDStruct_c3b9c2ee originalCoordinate; // @synthesize originalCoordinate=_originalCoordinate;
-- (BOOL)needsNewFunctionForCoordinate:(CDStruct_c3b9c2ee)arg1;
-- (BOOL)wantsNewFunctionForCoordinate:(CDStruct_c3b9c2ee)arg1;
+- (_Bool)needsNewFunctionForCoordinate:(CDStruct_c3b9c2ee)arg1;
+- (_Bool)wantsNewFunctionForCoordinate:(CDStruct_c3b9c2ee)arg1;
 - (CDStruct_c3b9c2ee)shiftedCoordinateForCoordinate:(CDStruct_c3b9c2ee)arg1 accuracy:(double *)arg2;
 - (id)initWithPolyLocationShiftResponse:(id)arg1 originalCoordinate:(CDStruct_c3b9c2ee)arg2;
 - (id)initWithLocationShiftResponse:(id)arg1 originalCoordinate:(CDStruct_c3b9c2ee)arg2;

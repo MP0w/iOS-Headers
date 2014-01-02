@@ -10,7 +10,7 @@
 #import "SBIconObserver-Protocol.h"
 #import "SBIconViewObserver-Protocol.h"
 
-@class NSMapTable, SBIconModel;
+@class NSMapTable, SBIconModel, _UILegibilitySettings;
 
 @interface SBIconViewMap : NSObject <SBIconObserver, SBIconIndexNodeObserver, SBIconViewObserver>
 {
@@ -19,15 +19,16 @@
     id <SBIconViewMapDelegate> _delegate;
     id <SBIconViewDelegate> _viewDelegate;
     NSMapTable *_recycledIconViewsByType;
-    NSMapTable *_labels;
-    NSMapTable *_legibilityImages;
-    NSMapTable *_accessoryImages;
-    int _legibilityStyle;
+    NSMapTable *_labelsForIcons;
+    NSMapTable *_lightLegibilityImagesForIcons;
+    NSMapTable *_darkLegibilityImagesForIcons;
+    NSMapTable *_accessoryImagesForIcons;
+    _UILegibilitySettings *_legibilitySettings;
 }
 
 + (id)switcherMap;
 + (id)homescreenMap;
-@property(nonatomic) int legibilityStyle; // @synthesize legibilityStyle=_legibilityStyle;
+@property(retain, nonatomic) _UILegibilitySettings *legibilitySettings; // @synthesize legibilitySettings=_legibilitySettings;
 @property(nonatomic) id <SBIconViewDelegate> viewDelegate; // @synthesize viewDelegate=_viewDelegate;
 - (void)iconViewDidChangeLocation:(id)arg1;
 - (void)node:(id)arg1 didRemoveContainedNodeIdentifiers:(id)arg2;
@@ -37,7 +38,7 @@
 - (void)_modelReloadedIcons;
 - (void)_modelRemovedIcon:(id)arg1;
 - (void)_cacheAccessoryImagesForIcon:(id)arg1 location:(int *)arg2;
-- (void)_cacheLabelImagesForIcon:(id)arg1 location:(int *)arg2 style:(int)arg3;
+- (void)_cacheLabelImagesForIcon:(id)arg1 location:(int *)arg2;
 - (void)_cacheImagesForIcon:(id)arg1;
 - (void)purgeRecycledIconViewsForClass:(Class)arg1;
 - (void)recycleAndPurgeAll;
@@ -47,6 +48,7 @@
 - (void)_recycleIconView:(id)arg1;
 - (void)purgeIconFromMap:(id)arg1;
 - (void)_addIconView:(id)arg1 forIcon:(id)arg2;
+- (void)tryToReplaceIcon:(id)arg1 withIcon:(id)arg2;
 - (id)iconViewForIcon:(id)arg1;
 - (id)_iconViewForIcon:(id)arg1;
 - (id)mappedIconViewForIcon:(id)arg1;

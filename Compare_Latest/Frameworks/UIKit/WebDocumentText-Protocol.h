@@ -11,6 +11,6 @@
 - (void)selectAll;
 - (id)selectedString;
 - (id)string;
-- (BOOL)supportsTextEncoding;
+- (_Bool)supportsTextEncoding;
 @end
 

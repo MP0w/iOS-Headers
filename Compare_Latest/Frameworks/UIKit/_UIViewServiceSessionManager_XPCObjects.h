@@ -8,6 +8,7 @@
 
 @class NSMutableArray, _UIViewServiceXPCListener;
 
+// Not exported
 @interface _UIViewServiceSessionManager_XPCObjects : _UIViewServiceSessionManager
 {
     _UIViewServiceXPCListener *_xpcListener;

@@ -13,7 +13,7 @@
 }
 
 - (void)touchInCellAtIndexPath:(id)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)setupTable;
 

@@ -6,6 +6,7 @@
 
 #import "NSNumber.h"
 
+// Not exported
 @interface _PFCachedNumber : NSNumber
 {
 }
@@ -20,15 +21,15 @@
 - (id)description;
 - (id)descriptionWithLocale:(id)arg1;
 - (id)stringValue;
-- (unsigned int)unsignedIntegerValue;
-- (int)integerValue;
-- (BOOL)boolValue;
+- (unsigned long long)unsignedIntegerValue;
+- (long long)integerValue;
+- (_Bool)boolValue;
 - (double)doubleValue;
 - (float)floatValue;
 - (unsigned long long)unsignedLongLongValue;
 - (long long)longLongValue;
-- (unsigned long)unsignedLongValue;
-- (long)longValue;
+- (unsigned long long)unsignedLongValue;
+- (long long)longValue;
 - (unsigned int)unsignedIntValue;
 - (int)intValue;
 - (unsigned short)unsignedShortValue;
@@ -39,9 +40,9 @@
 - (void)getValue:(void *)arg1;
 - (id)initWithBytes:(const void *)arg1 objCType:(const char *)arg2;
 - (id)copy;
-- (BOOL)_tryRetain;
-- (BOOL)_isDeallocating;
-- (unsigned int)retainCount;
+- (_Bool)_tryRetain;
+- (_Bool)_isDeallocating;
+- (unsigned long long)retainCount;
 - (id)autorelease;
 - (oneway void)release;
 - (id)retain;

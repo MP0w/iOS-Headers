@@ -8,6 +8,7 @@
 
 @class CHDChart, CHDData, OADGraphicProperties;
 
+// Not exported
 @interface CHDErrorBar : NSObject
 {
     CHDChart *mChart;

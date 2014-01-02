@@ -12,27 +12,27 @@
 
 @interface SCROBrailleStealthDriver : NSObject <SCROBrailleDriverProtocol>
 {
-    BOOL _isDriverLoaded;
+    _Bool _isDriverLoaded;
     NSString *_modelIdentifier;
-    int _mainSize;
-    int _statusSize;
+    long long _mainSize;
+    long long _statusSize;
 }
 
-- (BOOL)setStatusCells:(const char *)arg1 length:(int)arg2;
-- (BOOL)setMainCells:(const char *)arg1 length:(int)arg2;
+- (_Bool)setStatusCells:(const char *)arg1 length:(long long)arg2;
+- (_Bool)setMainCells:(const char *)arg1 length:(long long)arg2;
 - (id)getInputEvents;
-- (int)statusSize;
-- (int)mainSize;
+- (long long)statusSize;
+- (long long)mainSize;
 - (int)brailleInputMode;
-- (BOOL)postsKeyboardEvents;
-- (BOOL)isInputEnabled;
-- (BOOL)supportsBlinkingCursor;
+- (_Bool)postsKeyboardEvents;
+- (_Bool)isInputEnabled;
+- (_Bool)supportsBlinkingCursor;
 - (id)modelIdentifier;
-- (BOOL)isSleeping;
-- (BOOL)isDriverLoaded;
-- (BOOL)unloadDriver;
+- (_Bool)isSleeping;
+- (_Bool)isDriverLoaded;
+- (_Bool)unloadDriver;
 - (int)loadDriverWithIOElement:(id)arg1;
-- (unsigned int)interfaceVersion;
+- (unsigned long long)interfaceVersion;
 - (void)dealloc;
 - (id)init;
 

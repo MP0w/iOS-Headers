@@ -15,8 +15,8 @@
 @interface PLGenericAlbum : _PLGenericAlbum <PLAlbumProtocol, PLDerivedAlbumOrigin, PLIndexMappersDataOrigin>
 {
     NSObject<PLIndexMappingCache> *_derivededAlbums[5];
-    BOOL isRegisteredForChanges;
-    BOOL didRegisteredWithUserInterfaceContext;
+    _Bool isRegisteredForChanges;
+    _Bool didRegisteredWithUserInterfaceContext;
 }
 
 + (void)addSingletonObjectsToContext:(id)arg1;
@@ -27,10 +27,13 @@
 + (id)albumsWithUUID:(id)arg1 inManagedObjectContext:(id)arg2;
 + (id)albumsWithKind:(int)arg1 inManagedObjectContext:(id)arg2;
 + (id)allAlbumsRegisteredWithManagedObjectContext:(id)arg1;
++ (id)allSyncedAlbumsInManagedObjectContext:(id)arg1;
 + (id)allAlbumsInManagedObjectContext:(id)arg1;
 + (struct NSObject *)albumFromGroupURL:(id)arg1 photoLibrary:(id)arg2;
 + (id)insertNewFaceAlbumIntoLibrary:(id)arg1;
 + (id)insertNewCloudSharedAlbumWithTitle:(id)arg1 lastInterestingDate:(id)arg2 intoLibrary:(id)arg3;
++ (id)insertNewSyncedEventIntoLibrary:(id)arg1;
++ (id)insertNewSyncedEventWithTitle:(id)arg1 intoLibrary:(id)arg2;
 + (id)insertNewEventIntoLibrary:(id)arg1;
 + (id)insertNewEventWithTitle:(id)arg1 intoLibrary:(id)arg2;
 + (id)insertNewAlbumIntoLibrary:(id)arg1;
@@ -60,10 +63,10 @@
 + (id)_singletonFetchingAlbumWithKind:(int)arg1 library:(id)arg2;
 + (id)keyPathsForValuesAffectingKindValue;
 + (id)keyPathsForValuesAffectingName;
-@property(nonatomic) BOOL didRegisteredWithUserInterfaceContext; // @synthesize didRegisteredWithUserInterfaceContext;
-@property(nonatomic) BOOL isRegisteredForChanges; // @synthesize isRegisteredForChanges;
+@property(nonatomic) _Bool didRegisteredWithUserInterfaceContext; // @synthesize didRegisteredWithUserInterfaceContext;
+@property(nonatomic) _Bool isRegisteredForChanges; // @synthesize isRegisteredForChanges;
 - (void)enumerateDerivedIndexMappers:(id)arg1;
-- (BOOL)hasDerivedIndexMappers;
+- (_Bool)hasDerivedIndexMappers;
 - (void)enumerateDerivedAlbums:(id)arg1;
 - (void)unregisterAllDerivedAlbums;
 - (void)registerDerivedAlbum:(struct NSObject *)arg1;
@@ -71,46 +74,47 @@
 - (id)_prettyDescription;
 - (id)_compactDebugDescription;
 - (id)_kindDescription;
-- (unsigned int)countForAssetsOfKind:(short)arg1;
-@property(readonly, nonatomic) unsigned int indexOfPosterImage;
+- (unsigned long long)countForAssetsOfKind:(short)arg1;
+@property(readonly, nonatomic) unsigned long long indexOfPosterImage;
 - (void)unregisterForChanges;
 - (void)registerForChanges;
-- (void)updateStackedImageShouldNotifyImmediately:(BOOL)arg1;
-- (void)reducePendingItemsCountBy:(unsigned int)arg1;
+- (void)reducePendingItemsCountBy:(unsigned long long)arg1;
 - (void)batchFetchAssets:(id)arg1;
 - (id)assetsByObjectIDAtIndexes:(id)arg1;
-- (id)displayableIndexesForCount:(unsigned int)arg1;
-- (id)titleForSectionStartingAtIndex:(unsigned int)arg1;
+- (id)displayableIndexesForCount:(unsigned long long)arg1;
+- (id)titleForSectionStartingAtIndex:(unsigned long long)arg1;
 @property(readonly, nonatomic) id sectioningComparator;
 @property(readonly, nonatomic) id sortingComparator;
 @property(readonly, nonatomic) NSURL *groupURL;
-@property(readonly, nonatomic) BOOL shouldDeleteWhenEmpty;
-- (BOOL)canPerformEditOperation:(int)arg1;
+@property(readonly, nonatomic) _Bool shouldDeleteWhenEmpty;
+- (_Bool)canPerformEditOperation:(int)arg1;
 @property(readonly, nonatomic) NSArray *localizedLocationNames;
-@property(readonly, nonatomic) BOOL canShowComments;
-@property(readonly, nonatomic) BOOL canContributeToCloudSharedAlbum;
-@property(readonly, nonatomic) BOOL isMultipleContributorCloudSharedAlbum;
-@property(readonly, nonatomic) BOOL isOwnedCloudSharedAlbum;
-@property(readonly, nonatomic) BOOL isStandInAlbum;
-@property(readonly, nonatomic) BOOL isPendingPhotoStreamAlbum;
-@property(readonly, nonatomic) BOOL isCloudSharedAlbum;
-@property(readonly, nonatomic) BOOL isPhotoStreamAlbum;
-@property(readonly, nonatomic) BOOL isSmartAlbum;
-@property(readonly, nonatomic) BOOL isWallpaperAlbum;
-@property(readonly, nonatomic) BOOL isPanoramasAlbum;
-@property(readonly, nonatomic) BOOL isCameraAlbum;
-@property(readonly, nonatomic) BOOL isLibrary;
+@property(readonly, nonatomic) _Bool canShowAvalancheStacks;
+@property(readonly, nonatomic) _Bool canShowComments;
+@property(readonly, nonatomic) _Bool canContributeToCloudSharedAlbum;
+@property(readonly, nonatomic) _Bool isMultipleContributorCloudSharedAlbum;
+@property(readonly, nonatomic) _Bool isOwnedCloudSharedAlbum;
+@property(readonly, nonatomic) _Bool isStandInAlbum;
+@property(readonly, nonatomic) _Bool isPendingPhotoStreamAlbum;
+@property(readonly, nonatomic) _Bool isCloudSharedAlbum;
+@property(readonly, nonatomic) _Bool isPhotoStreamAlbum;
+@property(readonly, nonatomic) _Bool isOwnPhotoStreamAlbum;
+@property(readonly, nonatomic) _Bool isSmartAlbum;
+@property(readonly, nonatomic) _Bool isWallpaperAlbum;
+@property(readonly, nonatomic) _Bool isPanoramasAlbum;
+@property(readonly, nonatomic) _Bool isCameraAlbum;
+@property(readonly, nonatomic) _Bool isLibrary;
 @property(nonatomic) int kindValue;
 @property(readonly, nonatomic) UIImage *posterImage;
 @property(readonly, nonatomic) NSString *name;
 @property(readonly, nonatomic) NSString *localizedTitle;
-@property(nonatomic) BOOL hasUnseenContentBoolValue;
-@property(readonly, nonatomic) unsigned int videosCount;
-@property(readonly, nonatomic) unsigned int photosCount;
-@property(readonly, nonatomic) BOOL isEmpty;
-- (unsigned int)count;
-@property(readonly, nonatomic) unsigned int assetsCount;
-@property(readonly, nonatomic) unsigned int approximateCount;
+@property(nonatomic) _Bool hasUnseenContentBoolValue;
+@property(readonly, nonatomic) unsigned long long videosCount;
+@property(readonly, nonatomic) unsigned long long photosCount;
+@property(readonly, nonatomic) _Bool isEmpty;
+- (unsigned long long)count;
+@property(readonly, nonatomic) unsigned long long assetsCount;
+@property(readonly, nonatomic) unsigned long long approximateCount;
 - (void)willTurnIntoFault;
 - (void)awakeFromFetch;
 - (void)awakeFromInsert;
@@ -131,7 +135,9 @@
 @property(readonly, nonatomic) NSMutableOrderedSet *mutableAssets; // @dynamic mutableAssets;
 @property(nonatomic) int pendingItemsCount; // @dynamic pendingItemsCount;
 @property(nonatomic) int pendingItemsType; // @dynamic pendingItemsType;
+@property(retain, nonatomic) PLManagedAsset *secondaryKeyAsset; // @dynamic secondaryKeyAsset;
 @property(readonly, nonatomic) NSDate *startDate;
+@property(retain, nonatomic) PLManagedAsset *tertiaryKeyAsset; // @dynamic tertiaryKeyAsset;
 
 @end
 

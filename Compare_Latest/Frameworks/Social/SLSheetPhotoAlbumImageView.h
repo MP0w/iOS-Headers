@@ -4,31 +4,33 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <Social/SLSheetPreviewImageView.h>
+#import <Social/SLSheetImagePreviewView.h>
 
-@class CALayer, NSMutableArray, UILabel;
+@class CALayer, NSMutableArray, NSString, UILabel;
 
-@interface SLSheetPhotoAlbumImageView : SLSheetPreviewImageView
+@interface SLSheetPhotoAlbumImageView : SLSheetImagePreviewView
 {
     CALayer *_frameLayer;
     CALayer *_glossLayer;
     NSMutableArray *_frameViews;
-    int _frameQuantity;
-    int _imageQuantity;
-    int _numPreviewImagesAdded;
+    long long _frameQuantity;
+    long long _imageQuantity;
+    long long _numPreviewImagesAdded;
     UILabel *_imageCountLabel;
-    BOOL _updateLayout;
+    NSString *_forcedItemCountString;
+    _Bool _updateLayout;
 }
 
-+ (unsigned int)displayedFrameMaximum;
++ (unsigned long long)displayedFrameMaximum;
 - (void).cxx_destruct;
 - (struct CGSize)intrinsicContentSize;
 - (struct UIEdgeInsets)alignmentRectInsets;
 - (void)layoutSubviews;
 - (void)sizeToFit;
 - (struct CGSize)_currentSize;
-- (id)_imageCountString;
-- (BOOL)_shouldDisplayImageCountLabel;
+- (void)setItemCountString:(id)arg1;
+- (id)_itemCountString;
+- (_Bool)_shouldDisplayImageCountLabel;
 - (void)addPreviewImage:(id)arg1;
 - (void)setPreviewImage:(id)arg1 forAttachment:(id)arg2;
 - (void)barMetricsDidChange;

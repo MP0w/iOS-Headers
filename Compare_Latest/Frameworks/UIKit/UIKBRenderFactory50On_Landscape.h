@@ -6,9 +6,16 @@
 
 #import <UIKit/UIKBRenderFactory50On_Portrait.h>
 
+// Not exported
 @interface UIKBRenderFactory50On_Landscape : UIKBRenderFactory50On_Portrait
 {
 }
+
+- (double)keyCornerRadius;
+- (double)deleteKeyFontSize;
+- (double)spaceKeyFontSize;
+- (double)returnKeyFontSize;
+- (double)keyplaneSwitchKeyFontSize;
 
 @end
 

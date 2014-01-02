@@ -10,11 +10,11 @@
 {
 }
 
-- (void)didRotateFromInterfaceOrientation:(int)arg1;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (void)didRotateFromInterfaceOrientation:(long long)arg1;
+- (void)willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
 - (void)noteAlertWindow:(id)arg1 didDisplayAlert:(id)arg2;
-- (BOOL)alertWindow:(id)arg1 canAnimateInAlert:(id)arg2;
+- (_Bool)alertWindow:(id)arg1 canAnimateInAlert:(id)arg2;
 
 @end
 

@@ -20,9 +20,9 @@
     NSString *_CMSSignatureHeaderName;
     NSURL *_currentURL;
     NSURL *_permanentlyRedirectedURL;
-    BOOL _rememberData;
+    _Bool _rememberData;
     NSMutableData *_responseData;
-    int _statusCode;
+    long long _statusCode;
     NSError *_error;
     NSURLConnection *_connection;
     NSObject<OS_dispatch_semaphore> *_doneSema;
@@ -30,7 +30,7 @@
 
 + (id)performRequestURL:(id)arg1 method:(id)arg2 timeout:(double)arg3 userAgent:(id)arg4 contentType:(id)arg5 data:(id)arg6 identity:(struct __SecIdentity *)arg7 outPermanentlyRedirectedURL:(id *)arg8 outError:(id *)arg9;
 + (id)transactionWithURL:(id)arg1 method:(id)arg2;
-@property(readonly, nonatomic) int statusCode; // @synthesize statusCode=_statusCode;
+@property(readonly, nonatomic) long long statusCode; // @synthesize statusCode=_statusCode;
 @property(readonly, nonatomic) NSURL *permanentlyRedirectedURL; // @synthesize permanentlyRedirectedURL=_permanentlyRedirectedURL;
 @property(readonly, nonatomic) NSError *error; // @synthesize error=_error;
 @property(retain, nonatomic) NSString *CMSSignatureHeaderName; // @synthesize CMSSignatureHeaderName=_CMSSignatureHeaderName;
@@ -47,10 +47,10 @@
 - (void)connection:(id)arg1 didReceiveResponse:(id)arg2;
 - (void)connection:(id)arg1 didFailWithError:(id)arg2;
 - (void)connection:(id)arg1 didReceiveAuthenticationChallenge:(id)arg2;
-- (BOOL)_shouldAllowTrust:(struct __SecTrust *)arg1 forHost:(id)arg2;
+- (_Bool)_shouldAllowTrust:(struct __SecTrust *)arg1 forHost:(id)arg2;
 - (id)connection:(id)arg1 willSendRequest:(id)arg2 redirectResponse:(id)arg3;
-- (BOOL)connectionShouldUseCredentialStorage:(id)arg1;
-- (BOOL)connection:(id)arg1 canAuthenticateAgainstProtectionSpace:(id)arg2;
+- (_Bool)connectionShouldUseCredentialStorage:(id)arg1;
+- (_Bool)connection:(id)arg1 canAuthenticateAgainstProtectionSpace:(id)arg2;
 - (void)performCompletionBlock:(id)arg1;
 - (void)performSynchronously;
 - (void)_beginTransaction;

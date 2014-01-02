@@ -7,21 +7,21 @@
 #import "NSObject-Protocol.h"
 
 @protocol VKMapModelDelegate <NSObject>
-- (void)mapModel:(id)arg1 willTransitionFrom:(int)arg2 to:(int)arg3 duration:(double)arg4;
+- (void)mapModel:(id)arg1 willTransitionFrom:(long long)arg2 to:(long long)arg3 duration:(double)arg4;
 - (void)mapModel:(id)arg1 selectedLabelMarkerWillDisappear:(id)arg2;
 - (double)mapModelZoomScale:(id)arg1;
-- (BOOL)mapModelInNav:(id)arg1;
-- (BOOL)mapModelInNavAtDefaultZoom:(id)arg1;
+- (_Bool)mapModelInNav:(id)arg1;
+- (_Bool)mapModelInNavAtDefaultZoom:(id)arg1;
 - (void)mapModelDidFailLoadingTiles:(id)arg1 withError:(id)arg2;
 - (void)mapModelDidFinishLoadingTiles:(id)arg1;
 - (void)mapModelDidStartLoadingTiles:(id)arg1;
-- (void)mapModelDidBecomeFullyDrawn:(id)arg1 hasFailedTiles:(BOOL)arg2;
+- (void)mapModelDidBecomeFullyDrawn:(id)arg1 hasFailedTiles:(_Bool)arg2;
 - (void)mapModelWillBecomFullyDrawn:(id)arg1;
 - (void)mapModelDidBecomePartiallyDrawn:(id)arg1;
 - (id)mapModel:(id)arg1 painterForOverlay:(id)arg2;
 - (void)mapModel:(id)arg1 didFinishAddingAnnotationMarkers:(id)arg2;
 - (void)mapModel:(id)arg1 didAnimateInAnnotationMarkers:(id)arg2;
 - (void)mapModel:(id)arg1 willAnimateInAnnotationMarkers:(id)arg2;
-- (void)mapModel:(id)arg1 needsPanByOffset:(struct CGPoint)arg2 relativeToScreenPoint:(struct CGPoint)arg3 animated:(BOOL)arg4 duration:(double)arg5 completionHandler:(id)arg6;
+- (void)mapModel:(id)arg1 needsPanByOffset:(struct CGPoint)arg2 relativeToScreenPoint:(struct CGPoint)arg3 animated:(_Bool)arg4 duration:(double)arg5 completionHandler:(id)arg6;
 @end
 

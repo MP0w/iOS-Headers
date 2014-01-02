@@ -12,10 +12,6 @@
 
 - (id)description;
 @property(readonly) double score;
-- (id)wordID;
-- (id)wordRanges;
-- (BOOL)rare;
-- (id)string;
 
 @end
 

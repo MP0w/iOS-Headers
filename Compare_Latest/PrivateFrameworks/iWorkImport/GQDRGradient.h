@@ -8,6 +8,7 @@
 
 #import "GQDNameMappable-Protocol.h"
 
+// Not exported
 @interface GQDRGradient : NSObject <GQDNameMappable>
 {
     struct __CFArray *mStops;
@@ -27,7 +28,6 @@
 - (int)type;
 - (struct __CFArray *)stops;
 - (void)dealloc;
-- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1;
 
 @end
 

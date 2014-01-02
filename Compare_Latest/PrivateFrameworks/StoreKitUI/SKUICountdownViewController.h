@@ -23,8 +23,8 @@
 - (void).cxx_destruct;
 - (void)artworkRequest:(id)arg1 didLoadImage:(id)arg2;
 - (void)loadView;
-- (void)viewDidDisappear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (id)initWithCountdownComponent:(id)arg1 artworkLoader:(id)arg2;
 
 @end

@@ -10,7 +10,7 @@
 
 @interface SKRequestInternal : NSObject
 {
-    int _backgroundTaskIdentifier;
+    long long _backgroundTaskIdentifier;
     SKPaymentQueueClient *_client;
     SKXPCConnection *_connection;
     id <SKRequestDelegate> _delegate;

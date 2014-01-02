@@ -6,6 +6,7 @@
 
 #import <CoreData/NSPropertyStoreMapping.h>
 
+// Not exported
 @interface NSAttributeStoreMapping : NSPropertyStoreMapping
 {
     int _externalType;
@@ -22,7 +23,7 @@
 - (void)setExternalType:(int)arg1;
 - (int)externalType;
 - (id)attribute;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)initWithProperty:(id)arg1;
 
 @end

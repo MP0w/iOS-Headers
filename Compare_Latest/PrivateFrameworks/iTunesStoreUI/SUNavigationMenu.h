@@ -14,8 +14,8 @@
 {
     NSString *_cancelTitle;
     NSString *_closedTitle;
-    int _initialSelectedIndex;
-    int _location;
+    long long _initialSelectedIndex;
+    long long _location;
     NSArray *_menuItems;
     NSArray *_navigationButtons;
     NSString *_openTitle;
@@ -24,13 +24,13 @@
 @property(readonly, nonatomic) NSString *openTitle; // @synthesize openTitle=_openTitle;
 @property(readonly, nonatomic) NSArray *navigationButtons; // @synthesize navigationButtons=_navigationButtons;
 @property(readonly, nonatomic) NSArray *menuItems; // @synthesize menuItems=_menuItems;
-@property(nonatomic) int location; // @synthesize location=_location;
-@property(readonly, nonatomic) int initialSelectedIndex; // @synthesize initialSelectedIndex=_initialSelectedIndex;
+@property(nonatomic) long long location; // @synthesize location=_location;
+@property(readonly, nonatomic) long long initialSelectedIndex; // @synthesize initialSelectedIndex=_initialSelectedIndex;
 @property(readonly, nonatomic) NSString *closedTitle; // @synthesize closedTitle=_closedTitle;
 @property(readonly, nonatomic) NSString *cancelTitle; // @synthesize cancelTitle=_cancelTitle;
 - (id)_newNavigationButtonsFromArray:(id)arg1;
 - (id)_newMenuItemsFromArray:(id)arg1;
-- (int)_locationForString:(id)arg1;
+- (long long)_locationForString:(id)arg1;
 - (void)_loadFromDictionary:(id)arg1;
 - (id)navigationButtonForLocation:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

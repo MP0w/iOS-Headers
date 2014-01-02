@@ -6,20 +6,12 @@
 
 #import <AddressBookUI/ABContactAction.h>
 
-@class ABShareContactActivityItem, UIActivityViewController;
-
 @interface ABContactShareContactAction : ABContactAction
 {
-    ABShareContactActivityItem *_activityItem;
-    UIActivityViewController *_activityViewController;
 }
 
-@property(retain, nonatomic) UIActivityViewController *activityViewController; // @synthesize activityViewController=_activityViewController;
-@property(retain, nonatomic) ABShareContactActivityItem *activityItem; // @synthesize activityItem=_activityItem;
 - (void)performActionWithSender:(id)arg1;
-- (BOOL)canPerformAction;
-- (void)dealloc;
-- (id)initWithContact:(id)arg1;
+- (_Bool)canPerformAction;
 
 @end
 

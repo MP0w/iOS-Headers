@@ -6,20 +6,27 @@
 
 #import "UIView.h"
 
-@class EKDayView;
+@class EKDayAllDayView, EKDayView;
 
 @interface EKDayViewWithGutters : UIView
 {
+    EKDayAllDayView *_leftAllDayView;
+    EKDayAllDayView *_rightAllDayView;
     UIView *_leftGutter;
     UIView *_rightGutter;
     EKDayView *_dayView;
+    double _gutterWidth;
+    double _allDayHeight;
 }
 
+@property(nonatomic) double allDayHeight; // @synthesize allDayHeight=_allDayHeight;
+@property(nonatomic) double gutterWidth; // @synthesize gutterWidth=_gutterWidth;
 @property(retain, nonatomic) EKDayView *dayView; // @synthesize dayView=_dayView;
-@property(retain, nonatomic) UIView *rightGutter; // @synthesize rightGutter=_rightGutter;
-@property(retain, nonatomic) UIView *leftGutter; // @synthesize leftGutter=_leftGutter;
+@property(readonly, nonatomic) UIView *rightGutter; // @synthesize rightGutter=_rightGutter;
+@property(readonly, nonatomic) UIView *leftGutter; // @synthesize leftGutter=_leftGutter;
 - (void).cxx_destruct;
-- (void)setGutterWidth:(float)arg1;
+- (id)_createAllDayView;
+- (id)initWithFrame:(struct CGRect)arg1 dayView:(id)arg2;
 
 @end
 

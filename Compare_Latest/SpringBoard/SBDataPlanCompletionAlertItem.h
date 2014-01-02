@@ -11,14 +11,14 @@
 @interface SBDataPlanCompletionAlertItem : SBDataPlanAlertItem
 {
     NSString *_carrierName;
-    BOOL _newAccount;
+    _Bool _newAccount;
 }
 
-@property(nonatomic, getter=isNewAccount) BOOL newAccount; // @synthesize newAccount=_newAccount;
+@property(nonatomic, getter=isNewAccount) _Bool newAccount; // @synthesize newAccount=_newAccount;
 @property(copy, nonatomic) NSString *carrierName; // @synthesize carrierName=_carrierName;
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
+- (void)configure:(_Bool)arg1 requirePasscodeForActions:(_Bool)arg2;
 - (void)dealloc;
-- (id)initWithCarrierName:(id)arg1 newAccount:(BOOL)arg2;
+- (id)initWithCarrierName:(id)arg1 newAccount:(_Bool)arg2;
 
 @end
 

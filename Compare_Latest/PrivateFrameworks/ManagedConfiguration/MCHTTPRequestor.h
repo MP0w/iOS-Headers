@@ -12,8 +12,8 @@
 
 @interface MCHTTPRequestor : NSObject <NSURLConnectionDataDelegate>
 {
-    BOOL _didFailDueToMissingCredentials;
-    BOOL _shouldUseResponseBodyAsLoginPrompt;
+    _Bool _didFailDueToMissingCredentials;
+    _Bool _shouldUseResponseBodyAsLoginPrompt;
     NSURLConnection *_connection;
     NSMutableData *_responseData;
     NSString *_username;
@@ -23,8 +23,8 @@
     id _selfReference;
 }
 
-@property(nonatomic) BOOL shouldUseResponseBodyAsLoginPrompt; // @synthesize shouldUseResponseBodyAsLoginPrompt=_shouldUseResponseBodyAsLoginPrompt;
-@property(nonatomic) BOOL didFailDueToMissingCredentials; // @synthesize didFailDueToMissingCredentials=_didFailDueToMissingCredentials;
+@property(nonatomic) _Bool shouldUseResponseBodyAsLoginPrompt; // @synthesize shouldUseResponseBodyAsLoginPrompt=_shouldUseResponseBodyAsLoginPrompt;
+@property(nonatomic) _Bool didFailDueToMissingCredentials; // @synthesize didFailDueToMissingCredentials=_didFailDueToMissingCredentials;
 @property(retain, nonatomic) id selfReference; // @synthesize selfReference=_selfReference;
 @property(copy, nonatomic) id completionBlock; // @synthesize completionBlock=_completionBlock;
 @property(retain, nonatomic) NSArray *anchorCertificates; // @synthesize anchorCertificates=_anchorCertificates;

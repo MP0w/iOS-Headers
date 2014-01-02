@@ -7,13 +7,13 @@
 #import "NSArray.h"
 
 @interface NSArray (NSArray)
-+ (id)newWithContentsOf:(id)arg1 immutable:(BOOL)arg2;
++ (id)newWithContentsOf:(id)arg1 immutable:(_Bool)arg2;
 + (id)arrayWithContentsOfURL:(id)arg1;
 + (id)arrayWithContentsOfFile:(id)arg1;
 - (id)initWithContentsOfURL:(id)arg1;
 - (id)initWithContentsOfFile:(id)arg1;
-- (BOOL)writeToURL:(id)arg1 atomically:(BOOL)arg2;
-- (BOOL)writeToFile:(id)arg1 atomically:(BOOL)arg2;
+- (_Bool)writeToURL:(id)arg1 atomically:(_Bool)arg2;
+- (_Bool)writeToFile:(id)arg1 atomically:(_Bool)arg2;
 - (id)_stringToWrite;
 - (id)sortedArrayUsingSelector:(SEL)arg1 hint:(id)arg2;
 - (id)sortedArrayUsingFunction:(void *)arg1 context:(void *)arg2 hint:(id)arg3;

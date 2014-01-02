@@ -7,7 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol MPUCZCollectionViewControllerDelegate <NSObject>
-- (float)imageAspectRatio;
+- (double)imageAspectRatio;
 - (id)imageRequestForEntity:(id)arg1;
 
 @optional

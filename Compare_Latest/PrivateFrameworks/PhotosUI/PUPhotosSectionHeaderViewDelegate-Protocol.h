@@ -10,6 +10,6 @@
 
 @optional
 - (void)didTapHeaderView:(id)arg1;
-- (void)didPressActionButtonForHeaderView:(id)arg1;
+- (void)headerView:(id)arg1 actionButtonPressed:(id)arg2;
 @end
 

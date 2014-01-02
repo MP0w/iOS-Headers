@@ -16,7 +16,7 @@
 - (id)savedAnimatedPreviewFromURL:(id)arg1 forOrientation:(BOOL)arg2;
 - (id)generateAnimatedPreviewFromThumbnails:(id)arg1 forOrientation:(BOOL)arg2;
 - (id)notificationCenter;
-- (BOOL)previewDispatchCache:(id)arg1 shouldReplaceCachedPreview:(id)arg2 withPreview:(id)arg3;
+- (_Bool)previewDispatchCache:(id)arg1 shouldReplaceCachedPreview:(id)arg2 withPreview:(id)arg3;
 - (id)previewForOrientation:(BOOL)arg1;
 
 @end

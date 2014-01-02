@@ -6,17 +6,17 @@
 
 #import "NSObject.h"
 
-@class GEOClientETARequest, GEODirectionsRouteRequest, GEOQuickETARequest;
+@class GEOClientETARequest, GEODirectionsRouteRequest, GEOQuickETARequest, NSString;
 
 @interface GEOQuickETARequester : NSObject
 {
     GEOQuickETARequest *_request;
     GEOClientETARequest *_simpleETARequest;
     GEODirectionsRouteRequest *_directionsETARequest;
-    BOOL _loggingEnabled;
+    NSString *_loggingFacility;
 }
 
-@property(nonatomic) BOOL loggingEnabled; // @synthesize loggingEnabled=_loggingEnabled;
+@property(copy, nonatomic) NSString *loggingFacility; // @synthesize loggingFacility=_loggingFacility;
 - (void)cancel;
 - (void)calculateETAWithHandler:(id)arg1;
 - (void)_calculateRoutingETAWithHandler:(id)arg1;

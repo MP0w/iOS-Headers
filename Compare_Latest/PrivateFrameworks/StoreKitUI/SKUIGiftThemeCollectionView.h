@@ -12,7 +12,7 @@
 }
 
 @property(nonatomic) struct UIEdgeInsets visibleBoundsInsets; // @synthesize visibleBoundsInsets=_visibleBoundsInsets;
-- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (struct CGRect)_visibleBounds;
 
 @end

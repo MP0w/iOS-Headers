@@ -8,13 +8,14 @@
 
 @class NSSQLWhereIntermediate;
 
+// Not exported
 @interface NSSQLHavingIntermediate : NSSQLIntermediate
 {
     NSSQLWhereIntermediate *_whereClause;
 }
 
 - (id)generateSQLStringInContext:(id)arg1;
-- (BOOL)isHavingScoped;
+- (_Bool)isHavingScoped;
 - (void)dealloc;
 - (id)initWithPredicate:(id)arg1 inScope:(id)arg2 inContext:(id)arg3;
 

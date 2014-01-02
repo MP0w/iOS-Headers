@@ -15,12 +15,12 @@
     id <MFMessageBodyElement_Private> _lastUnindentedElement;
     id <MFMessageBodyElement_Private> _lastUnindentedAttributionHint;
     NSMutableArray *_unindentedSiblingNodes;
-    unsigned int _unindentedSiblingGap;
+    unsigned long long _unindentedSiblingGap;
     DOMRange *_trailingEmptyQuoteRange;
-    unsigned int _trailingEmptyQuoteLevel;
+    unsigned long long _trailingEmptyQuoteLevel;
 }
 
-- (BOOL)doesRange:(id)arg1 containAnyElementWithTagName:(id)arg2;
+- (_Bool)doesRange:(id)arg1 containAnyElementWithTagName:(id)arg2;
 - (void)messageBodyParser:(id)arg1 foundMessageBodyElement:(id)arg2;
 - (void)_enumerateSurroundableRangesInRange:(id)arg1 withBlock:(id)arg2;
 - (void)setFoundTrailingEmptyQuoteRangeBlock:(id)arg1;

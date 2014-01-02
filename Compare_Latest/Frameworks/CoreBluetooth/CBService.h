@@ -12,7 +12,7 @@
 {
     CBPeripheral *_peripheral;
     CBUUID *_UUID;
-    BOOL _isPrimary;
+    _Bool _isPrimary;
     NSArray *_includedServices;
     NSArray *_characteristics;
     NSNumber *_startHandle;
@@ -23,7 +23,7 @@
 @property(readonly, nonatomic) NSNumber *startHandle; // @synthesize startHandle=_startHandle;
 @property(retain) NSArray *characteristics; // @synthesize characteristics=_characteristics;
 @property(retain) NSArray *includedServices; // @synthesize includedServices=_includedServices;
-@property(readonly, nonatomic) BOOL isPrimary; // @synthesize isPrimary=_isPrimary;
+@property(readonly, nonatomic) _Bool isPrimary; // @synthesize isPrimary=_isPrimary;
 @property(readonly, nonatomic) CBUUID *UUID; // @synthesize UUID=_UUID;
 @property(readonly, nonatomic) CBPeripheral *peripheral; // @synthesize peripheral=_peripheral;
 - (id)handleCharacteristicsDiscovered:(id)arg1;

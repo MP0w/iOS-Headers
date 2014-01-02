@@ -6,11 +6,12 @@
 
 #import <Foundation/NSMatchingPredicateOperator.h>
 
+// Not exported
 @interface NSLikePredicateOperator : NSMatchingPredicateOperator
 {
 }
 
-- (BOOL)_shouldEscapeForLike;
+- (_Bool)_shouldEscapeForLike;
 - (SEL)selector;
 - (id)symbol;
 

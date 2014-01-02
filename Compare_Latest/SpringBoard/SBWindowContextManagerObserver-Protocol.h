@@ -7,6 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol SBWindowContextManagerObserver <NSObject>
-- (void)windowContextManager:(id)arg1 didRepositionContext:(id)arg2 from:(unsigned int)arg3 to:(unsigned int)arg4 forScreen:(id)arg5;
+- (void)windowContextManager:(id)arg1 didRepositionContext:(id)arg2 from:(unsigned long long)arg3 to:(unsigned long long)arg4 forScreen:(id)arg5;
 @end
 

@@ -17,18 +17,18 @@
     NSNumberFormatter *_numberFormatter;
     NSString *_URLString;
     UIWebPaginationInfo *_paginationInfo;
-    float _URLWidth;
+    double _URLWidth;
     NSString *_dateString;
-    float _dateWidth;
-    float _printWidth;
+    double _dateWidth;
+    double _printWidth;
     struct CGPoint _contentOffset;
     struct CGPoint _footerOffset;
     UIFont *_footerFont;
     UIColor *_footerColor;
-    BOOL _printFooter;
+    _Bool _printFooter;
 }
 
-@property(nonatomic) BOOL printFooter; // @synthesize printFooter=_printFooter;
+@property(nonatomic) _Bool printFooter; // @synthesize printFooter=_printFooter;
 @property(readonly, nonatomic) UIWebPaginationInfo *paginationInfo; // @synthesize paginationInfo=_paginationInfo;
 @property(retain, nonatomic) NSString *URLString; // @synthesize URLString=_URLString;
 @property(retain, nonatomic) NSNumberFormatter *numberFormatter; // @synthesize numberFormatter=_numberFormatter;
@@ -40,9 +40,9 @@
 - (void)printInteractionControllerDidFinishJob:(id)arg1;
 - (void)printInteractionControllerWillStartJob:(id)arg1;
 - (id)printingFrame;
-- (void)drawFooterForPageAtIndex:(int)arg1 inRect:(struct CGRect)arg2;
-- (void)drawContentForPageAtIndex:(int)arg1 inRect:(struct CGRect)arg2;
-- (int)numberOfPages;
+- (void)drawFooterForPageAtIndex:(long long)arg1 inRect:(struct CGRect)arg2;
+- (void)drawContentForPageAtIndex:(long long)arg1 inRect:(struct CGRect)arg2;
+- (long long)numberOfPages;
 - (void)dealloc;
 - (id)init;
 

@@ -19,10 +19,10 @@
     CUIImage *_bottom;
     CUIImage *_bottomLeft;
     CUIImage *_left;
-    BOOL _tileCenterAndEdges;
+    _Bool _tileCenterAndEdges;
 }
 
-- (BOOL)tileCenterAndEdges;
+- (_Bool)tileCenterAndEdges;
 - (id)left;
 - (id)bottomLeft;
 - (id)bottom;
@@ -33,7 +33,7 @@
 - (id)topLeft;
 - (id)center;
 - (void)dealloc;
-- (id)initWithCenter:(id)arg1 topLeft:(id)arg2 top:(id)arg3 topRight:(id)arg4 right:(id)arg5 bottomRight:(id)arg6 bottom:(id)arg7 bottomLeft:(id)arg8 left:(id)arg9 tileCenterAndEdges:(BOOL)arg10;
+- (id)initWithCenter:(id)arg1 topLeft:(id)arg2 top:(id)arg3 topRight:(id)arg4 right:(id)arg5 bottomRight:(id)arg6 bottom:(id)arg7 bottomLeft:(id)arg8 left:(id)arg9 tileCenterAndEdges:(_Bool)arg10;
 
 @end
 

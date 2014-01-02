@@ -14,13 +14,13 @@
 + (id)trackForeignPersistentID;
 + (id)propertiesForGroupingKey;
 + (id)countingQueryForBaseQuery:(id)arg1 countProperty:(id)arg2 forIdentifier:(long long)arg3;
-+ (BOOL)propertyIsCountProperty:(id)arg1;
++ (_Bool)propertyIsCountProperty:(id)arg1;
 + (id)foreignPropertyForProperty:(id)arg1 entityClass:(Class)arg2;
 + (id)allProperties;
 + (id)predisambiguatedProperties;
 + (id)joinClausesForProperty:(id)arg1;
 + (id)defaultOrderingProperties;
-+ (int)revisionTrackingCode;
++ (long long)revisionTrackingCode;
 + (id)databaseTable;
 + (void)initialize;
 - (void)updateRepresentativeItem:(id)arg1 inLibrary:(id)arg2 withArtworkCacheID:(id)arg3;

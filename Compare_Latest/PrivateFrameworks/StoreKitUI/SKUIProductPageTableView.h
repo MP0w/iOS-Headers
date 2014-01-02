@@ -15,7 +15,7 @@
 
 @property(retain, nonatomic) UIView *productPageHeaderView; // @synthesize productPageHeaderView=_productPageHeaderView;
 - (void).cxx_destruct;
-- (void)_addContentSubview:(id)arg1 atBack:(BOOL)arg2;
+- (void)_addContentSubview:(id)arg1 atBack:(_Bool)arg2;
 
 @end
 

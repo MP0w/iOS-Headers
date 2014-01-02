@@ -12,17 +12,17 @@
 {
     NSMutableArray *_people;
     int _coalesceCount;
-    BOOL _hidePeople;
+    _Bool _hidePeople;
 }
 
-@property(nonatomic, setter=setShouldHidePeople:) BOOL hidePeople; // @synthesize hidePeople=_hidePeople;
-- (void)imHandle:(id)arg1 buddyStatusChanged:(BOOL)arg2;
-- (BOOL)addPeopleFromArray:(id)arg1;
-- (BOOL)addPeopleFromArray:(id)arg1 skipMe:(BOOL)arg2;
-- (BOOL)removePeopleFromArray:(id)arg1;
-- (BOOL)removeIMHandle:(id)arg1;
-- (BOOL)addIMHandle:(id)arg1;
-@property(readonly, nonatomic) BOOL coalescingChanges;
+@property(nonatomic, setter=setShouldHidePeople:) _Bool hidePeople; // @synthesize hidePeople=_hidePeople;
+- (void)imHandle:(id)arg1 buddyStatusChanged:(_Bool)arg2;
+- (_Bool)addPeopleFromArray:(id)arg1;
+- (_Bool)addPeopleFromArray:(id)arg1 skipMe:(_Bool)arg2;
+- (_Bool)removePeopleFromArray:(id)arg1;
+- (_Bool)removeIMHandle:(id)arg1;
+- (_Bool)addIMHandle:(id)arg1;
+@property(readonly, nonatomic) _Bool coalescingChanges;
 - (void)endCoalescedChanges;
 - (void)beginCoalescedChanges;
 - (void)removedIMHandle:(id)arg1;
@@ -30,8 +30,8 @@
 - (void)addedIMHandle:(id)arg1;
 @property(readonly, nonatomic) NSArray *people;
 @property(readonly, nonatomic) NSArray *groups;
-- (BOOL)containsIMHandle:(id)arg1;
-@property(readonly, nonatomic) unsigned int count;
+- (_Bool)containsIMHandle:(id)arg1;
+@property(readonly, nonatomic) unsigned long long count;
 - (void)addNotificationObserver:(id)arg1 selector:(SEL)arg2;
 - (void)removeNotificationObserver:(id)arg1;
 - (void)dealloc;

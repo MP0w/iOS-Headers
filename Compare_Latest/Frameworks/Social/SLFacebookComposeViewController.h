@@ -8,22 +8,24 @@
 
 #import "SLFacebookAlbumChooserViewControllerDelegate-Protocol.h"
 #import "SLFacebookAudienceViewControllerDelegate-Protocol.h"
+#import "SLFacebookVideoOptionsDelegate-Protocol.h"
 #import "SLPlaceDataSourceDelegate-Protocol.h"
 #import "SLSheetPlaceViewControllerDelegate-Protocol.h"
 
-@class ACAccount, ACAccountStore, ALAssetsLibrary, SLFacebookAlbumChooserViewController, SLFacebookAlbumManager, SLFacebookPlaceManager, SLFacebookPost, SLFacebookPostPrivacyManager, SLFacebookSession, SLSheetAction, SLSheetPlaceViewController, UIViewController<SLFacebookAudienceViewController>;
+@class ACAccount, ACAccountStore, ALAssetsLibrary, SLFacebookAlbumChooserViewController, SLFacebookAlbumManager, SLFacebookPlaceManager, SLFacebookPost, SLFacebookPostPrivacyManager, SLFacebookSession, SLFacebookVideoOptionsViewController, SLSheetAction, SLSheetPlaceViewController, SLVideoQualityOption, UIViewController<SLFacebookAudienceViewController>;
 
-@interface SLFacebookComposeViewController : SLComposeServiceViewController <SLPlaceDataSourceDelegate, SLSheetPlaceViewControllerDelegate, SLFacebookAudienceViewControllerDelegate, SLFacebookAlbumChooserViewControllerDelegate>
+@interface SLFacebookComposeViewController : SLComposeServiceViewController <SLPlaceDataSourceDelegate, SLSheetPlaceViewControllerDelegate, SLFacebookAudienceViewControllerDelegate, SLFacebookAlbumChooserViewControllerDelegate, SLFacebookVideoOptionsDelegate>
 {
-    BOOL _wasPresented;
-    BOOL _hasAccessToAccount;
-    BOOL _hasCheckedAccess;
-    BOOL _hasShowedLocationDeniedAlert;
+    _Bool _wasPresented;
+    _Bool _hasAccessToAccount;
+    _Bool _hasCheckedAccess;
+    _Bool _hasShowedLocationDeniedAlert;
     SLFacebookSession *_session;
     ACAccountStore *_accountStore;
     SLSheetPlaceViewController *_placeViewController;
     UIViewController<SLFacebookAudienceViewController> *_audienceViewController;
     SLFacebookAlbumChooserViewController *_albumChooserViewController;
+    SLFacebookVideoOptionsViewController *_videoOptionsViewController;
     SLFacebookPost *_post;
     SLFacebookPostPrivacyManager *_postPrivacyManager;
     SLFacebookPlaceManager *_placeManager;
@@ -32,10 +34,13 @@
     SLSheetAction *_privacySheetAction;
     SLSheetAction *_albumSheetAction;
     SLSheetAction *_placeSheetAction;
+    SLSheetAction *_videoOptionsAction;
+    SLVideoQualityOption *_selectedVideoQualityOption;
     struct {
         unsigned int showAlbumAction:1;
         unsigned int showPrivacyAction:1;
         unsigned int showPlaceAction:1;
+        unsigned int showVideoDetailAction:1;
     } _actionFlags;
     id _completionHandler;
 }
@@ -45,35 +50,42 @@
 - (void).cxx_destruct;
 - (void)_presentFacebookDisabledAlert;
 - (void)_presentNoAccountsAlert;
-- (void)callCompletionHandlerWithResult:(int)arg1;
+- (void)sheetPresentationAnimationDidFinish;
+- (void)callCompletionHandlerWithResult:(long long)arg1;
 - (void)setupCommonUI;
-- (BOOL)canPost;
+- (_Bool)canPost;
 - (void)handleImagePostWithURL;
-- (BOOL)hasAccountAccess;
+- (_Bool)hasAccountAccess;
 - (void)send;
-- (BOOL)validateText:(id)arg1;
+- (_Bool)validateText:(id)arg1;
 - (void)placeViewController:(id)arg1 didSelectPlace:(id)arg2;
 - (void)placeManager:(id)arg1 failedWithError:(id)arg2;
 - (void)_setPlace:(id)arg1;
 - (void)placeManager:(id)arg1 updatedPlaces:(id)arg2;
-- (BOOL)_isLocationAuthorizationDenied;
+- (_Bool)_isLocationAuthorizationDenied;
 - (void)_presentPlaceViewController;
-- (void)_handlePostPrivacyResultWithSuccess:(BOOL)arg1 error:(id)arg2;
+- (void)_handlePostPrivacyResultWithSuccess:(_Bool)arg1 error:(id)arg2;
 - (void)_updateAudienceButtonForPrivacySettingType:(int)arg1 name:(id)arg2;
 - (void)audienceViewController:(id)arg1 didSelectPostPrivacySetting:(id)arg2;
 - (void)_presentAudienceViewController;
 - (void)albumChooserViewController:(id)arg1 didSelectAlbum:(id)arg2;
 - (void)_presentAlbumViewController;
+- (void)_setVideoSizeOptionIdentifier:(id)arg1;
+- (id)_videoOptionIdentifer;
+- (void)videoOptionsViewController:(id)arg1 didSelectVideoQualityOption:(id)arg2;
+- (id)_videoQualityOption;
+- (void)_presentVideoOptionsViewController;
 - (id)albumManager;
 @property(retain) ACAccountStore *accountStore; // @dynamic accountStore;
 @property(readonly) ACAccount *privilegedAccount;
 - (void)createPreviewIfNeeded;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidUnload;
 - (void)loadView;
 - (id)sheetActions;
+- (id)_videoOptionsAction;
 - (id)_albumSheetAction;
 - (id)_placeSheetAction;
 - (id)_privacySheetAction;

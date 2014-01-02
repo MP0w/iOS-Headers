@@ -10,23 +10,24 @@
 
 @class UILabel, UIView, UIWindow, _UIMotionAnalyzerSettings, _UIViewerRelativeDevicePose;
 
+// Not exported
 @interface _UIMotionAnalyzer : NSObject <_UISettingsKeyObserver>
 {
     _UIMotionAnalyzerSettings *_settings;
-    float _smoothingDegree;
-    float _referenceShiftSpeed;
-    float _distanceMultiplier;
-    BOOL _hasReferenceQuaternion;
+    double _smoothingDegree;
+    double _referenceShiftSpeed;
+    double _distanceMultiplier;
+    _Bool _hasReferenceQuaternion;
     union _GLKQuaternion _referenceQuaternion;
     union _GLKQuaternion _absoluteQuaternion;
     double _lastUpdate;
     double _idleStartTime;
     struct UIOffset _idleStartOffset;
-    float _jumpThreshold;
-    float _idleLeeway;
-    float _secondsBeforeIdle;
-    float _lockValue;
-    float _lockStrength;
+    double _jumpThreshold;
+    double _idleLeeway;
+    double _secondsBeforeIdle;
+    double _lockValue;
+    double _lockStrength;
     UIWindow *_diagnosticsWindow;
     UILabel *_idleIndicator;
     UIView *_horizontalLockIndicator;
@@ -42,13 +43,13 @@
 - (void)_tearDownIdleIndicator;
 - (void)_createIdleIndicator;
 - (void)_updateDirectionalLockIndicators;
-- (void)_showIdleUI:(BOOL)arg1;
+- (void)_showIdleUI:(_Bool)arg1;
 - (void)_updateSettings;
 - (void)settings:(id)arg1 changedValueForKey:(id)arg2;
-- (BOOL)isIdleGivenTimestamp:(double)arg1;
+- (_Bool)isIdleGivenTimestamp:(double)arg1;
 - (void)_updateIdleStateForRawOffset:(struct UIOffset)arg1 timestamp:(double)arg2;
-- (float)_directionLockStrength;
-- (int)_directionLockStatus;
+- (double)_directionLockStrength;
+- (long long)_directionLockStatus;
 - (void)_shiftReferenceToYieldRelativeQuaternion:(union _GLKQuaternion)arg1;
 - (union _GLKQuaternion)_relativeQuaternion;
 - (float)_referenceShiftRadiansPerSecondForAngle:(float)arg1;

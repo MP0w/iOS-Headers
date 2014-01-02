@@ -8,26 +8,26 @@
 
 @interface SBModelessSyncController : NSObject
 {
-    BOOL _isAppSyncing;
-    BOOL _isSyncing;
+    _Bool _isAppSyncing;
+    _Bool _isSyncing;
     int _syncRegistrationToken;
     int _iCloudRestoreToken;
-    BOOL _restoringFromICloud;
-    BOOL _isAutoSyncing;
-    BOOL _isWirelessSyncing;
+    _Bool _restoringFromICloud;
+    _Bool _isAutoSyncing;
+    _Bool _isWirelessSyncing;
 }
 
 + (id)sharedInstance;
-@property(readonly, nonatomic) BOOL isWirelessSyncing; // @synthesize isWirelessSyncing=_isWirelessSyncing;
-@property(readonly, nonatomic) BOOL isAutoSyncing; // @synthesize isAutoSyncing=_isAutoSyncing;
-@property(readonly, nonatomic) BOOL isSyncing; // @synthesize isSyncing=_isSyncing;
-@property(readonly, nonatomic) BOOL isAppSyncing; // @synthesize isAppSyncing=_isAppSyncing;
+@property(readonly, nonatomic) _Bool isWirelessSyncing; // @synthesize isWirelessSyncing=_isWirelessSyncing;
+@property(readonly, nonatomic) _Bool isAutoSyncing; // @synthesize isAutoSyncing=_isAutoSyncing;
+@property(readonly, nonatomic) _Bool isSyncing; // @synthesize isSyncing=_isSyncing;
+@property(readonly, nonatomic) _Bool isAppSyncing; // @synthesize isAppSyncing=_isAppSyncing;
 - (void)_endObservingICloudRestoreStatus;
 - (void)_beginObservingICloudRestoreStatus;
 - (void)_iCloudStatusChanged;
-@property(readonly, nonatomic) BOOL isRestoringFromICloud;
+@property(readonly, nonatomic) _Bool isRestoringFromICloud;
 - (void)_updateIconsForStateChange;
-- (void)_setAppSyncState:(BOOL)arg1;
+- (void)_setAppSyncState:(_Bool)arg1;
 - (void)_appSyncStateChanged;
 - (void)gotLowBatteryWarning;
 - (void)endMonitoring;

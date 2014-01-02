@@ -11,7 +11,7 @@
 }
 
 + (id)copyDefaultContext;
-+ (float)rowHeightForContext:(id)arg1 representedObject:(id)arg2;
++ (double)rowHeightForContext:(id)arg1 representedObject:(id)arg2;
 - (struct CGRect)frameForProgressBar:(id)arg1;
 - (void)reloadLayoutInformation;
 - (struct CGRect)frameForTitle;

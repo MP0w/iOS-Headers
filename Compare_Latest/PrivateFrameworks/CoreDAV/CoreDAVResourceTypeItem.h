@@ -25,7 +25,7 @@
 @property(retain) CoreDAVItemWithNoChildren *shared; // @synthesize shared=_shared;
 @property(retain) CoreDAVItemWithNoChildren *searchAddressBook; // @synthesize searchAddressBook=_searchAddressBook;
 @property(retain) CoreDAVItemWithNoChildren *addressBook; // @synthesize addressBook=_addressBook;
-- (BOOL)isTypeWithNameSpace:(id)arg1 andName:(id)arg2;
+- (_Bool)isTypeWithNameSpace:(id)arg1 andName:(id)arg2;
 @property(readonly) NSSet *stringSet;
 - (void)write:(id)arg1;
 - (id)description;

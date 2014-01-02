@@ -23,7 +23,6 @@
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)dealloc;
-- (void)configureForMessagePart:(id)arg1;
 
 @end
 

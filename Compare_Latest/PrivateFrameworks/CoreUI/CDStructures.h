@@ -7,8 +7,8 @@
 #pragma mark Named Structures
 
 struct CGPoint {
-    float x;
-    float y;
+    double x;
+    double y;
 };
 
 struct CGRect {
@@ -17,8 +17,8 @@ struct CGRect {
 };
 
 struct CGSize {
-    float width;
-    float height;
+    double width;
+    double height;
 };
 
 struct CPSDAdditionalLayerInfo {
@@ -51,7 +51,7 @@ struct CPSDFile {
     unsigned int _field7;
     unsigned int _field8;
     unsigned short _field9;
-    unsigned int _field10;
+    unsigned long long _field10;
     unsigned short _field11;
     unsigned short _field12;
     char *_field13;
@@ -212,7 +212,7 @@ struct _PSDImageInfo {
 
 struct __CUIThemeGradientRenditionInitializerStruct {
     unsigned int _field1;
-    float _field2;
+    double _field2;
     id _field3;
 };
 
@@ -311,7 +311,7 @@ struct _slice {
 };
 
 struct _themelook {
-    int _field1;
+    long long _field1;
     char *_field2;
 };
 
@@ -377,6 +377,13 @@ typedef struct {
 } CDStruct_c0454aff;
 
 typedef struct {
+    double top;
+    double left;
+    double bottom;
+    double right;
+} CDStruct_3c058996;
+
+typedef struct {
     float beginRed;
     float beginGreen;
     float beginBlue;
@@ -395,61 +402,54 @@ typedef struct {
 } CDStruct_6c93046c;
 
 typedef struct {
-    int _field1;
+    long long _field1;
     char *_field2;
     char *_field3;
-} CDStruct_7d98abf3;
+} CDStruct_c77fb927;
 
 typedef struct {
     char *_field1;
     char *_field2;
     struct _renditionkeytoken _field3[5];
-    int _field4;
-    int _field5;
+    long long _field4;
+    long long _field5;
     struct {
         char *_field1;
         char *_field2;
-        int _field3;
-        unsigned int _field4;
+        long long _field3;
+        unsigned long long _field4;
     } _field6[12];
-} CDStruct_77d6184b;
+} CDStruct_26b2aa83;
 
 typedef struct {
     struct CGSize _field1;
     struct CGSize _field2;
     struct CGSize _field3;
-} CDStruct_29e12816;
+} CDStruct_1ba92a5e;
 
 typedef struct {
     unsigned int effectType;
     unsigned int effectParameter;
-    CDUnion_b5169c9d effectValue;
-} CDStruct_da335e7b;
+    CDUnion_81581ae6 effectValue;
+} CDStruct_d262fe4a;
 
 typedef struct {
     char *_field1;
     char *_field2;
-    char _field3;
-    int _field4;
-    CDStruct_77d6184b _field5[7];
-} CDStruct_9508427b;
+    _Bool _field3;
+    long long _field4;
+    CDStruct_26b2aa83 _field5[7];
+} CDStruct_e3362728;
 
 typedef struct {
-    unsigned int _field1;
-    unsigned int _field2;
-    unsigned int _field3;
-    unsigned int _field4;
-    CDStruct_da335e7b _field5[35];
-} CDStruct_e10911f2;
+    unsigned long long _field1;
+    unsigned long long _field2;
+    unsigned long long _field3;
+    unsigned long long _field4;
+    CDStruct_d262fe4a _field5[35];
+} CDStruct_9344d058;
 
 // Ambiguous groups
-typedef struct {
-    float _field1;
-    float _field2;
-    float _field3;
-    float _field4;
-} CDStruct_818bb265;
-
 typedef struct {
     float _field1;
     float _field2;
@@ -459,7 +459,7 @@ typedef struct {
     float _field6;
     float _field7;
     struct CGPoint _field8;
-} CDStruct_f56c6dfe;
+} CDStruct_ce4e11e1;
 
 typedef struct {
     float engraveRed;
@@ -470,18 +470,18 @@ typedef struct {
     float engraveOffsetAmount;
     float engraveOffsetAngle;
     struct CGPoint engraveOffset;
-} CDStruct_3d83e6a4;
+} CDStruct_265d9cdf;
 
 #pragma mark Typedef'd Unions
 
 typedef union {
-    float floatValue;
-    unsigned int intValue;
+    double floatValue;
+    unsigned long long intValue;
     struct _rgbcolor {
         unsigned char r;
         unsigned char g;
         unsigned char b;
     } colorValue;
     short angleValue;
-} CDUnion_b5169c9d;
+} CDUnion_81581ae6;
 

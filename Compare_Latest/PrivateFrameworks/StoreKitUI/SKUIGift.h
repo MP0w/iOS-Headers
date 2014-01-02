@@ -12,9 +12,9 @@
 
 @interface SKUIGift : NSObject <NSCopying>
 {
-    int _category;
+    long long _category;
     NSDate *_deliveryDate;
-    int _giftAmount;
+    long long _giftAmount;
     NSString *_giftAmountString;
     SKUIItem *_item;
     NSString *_message;
@@ -32,16 +32,16 @@
 @property(copy, nonatomic) NSArray *recipientAddresses; // @synthesize recipientAddresses=_recipientAddresses;
 @property(copy, nonatomic) NSString *message; // @synthesize message=_message;
 @property(readonly, nonatomic) SKUIItem *item; // @synthesize item=_item;
-@property(readonly, nonatomic) int giftCategory; // @synthesize giftCategory=_category;
+@property(readonly, nonatomic) long long giftCategory; // @synthesize giftCategory=_category;
 @property(copy, nonatomic) NSString *giftAmountString; // @synthesize giftAmountString=_giftAmountString;
-@property(nonatomic) int giftAmount; // @synthesize giftAmount=_giftAmount;
+@property(nonatomic) long long giftAmount; // @synthesize giftAmount=_giftAmount;
 @property(copy, nonatomic) NSDate *deliveryDate; // @synthesize deliveryDate=_deliveryDate;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)reset;
 - (id)HTTPBodyDictionary;
 - (id)initWithItem:(id)arg1;
-- (id)initWithGiftCategory:(int)arg1;
+- (id)initWithGiftCategory:(long long)arg1;
 
 @end
 

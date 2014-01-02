@@ -7,11 +7,10 @@
 #import <iLifeSlideshow/MPLayer.h>
 
 #import "MPEffectSupport-Protocol.h"
-#import "MPEffectSupportPrivate-Protocol.h"
 
 @class MCContainerEffect, NSArray, NSMutableArray, NSMutableDictionary, NSObject<MZEffectTiming>, NSString;
 
-@interface MPLayerEffect : MPLayer <MPEffectSupportPrivate, MPEffectSupport>
+@interface MPLayerEffect : MPLayer <MPEffectSupport>
 {
     MCContainerEffect *_layerEffect;
     NSString *_effectID;
@@ -20,11 +19,11 @@
     NSMutableArray *_secondarySlides;
     NSMutableArray *_texts;
     NSMutableDictionary *_effectAttributes;
-    int _randomSeed;
+    long long _randomSeed;
     NSObject<MZEffectTiming> *_effectTiming;
-    BOOL _supportsEffectTiming;
-    BOOL _skipEffectTiming;
-    int _liveIndex;
+    _Bool _supportsEffectTiming;
+    _Bool _skipEffectTiming;
+    long long _liveIndex;
 }
 
 + (id)layerEffectWithEffectID:(id)arg1 strings:(id)arg2 paths:(id)arg3;
@@ -32,8 +31,8 @@
 + (id)layerEffectWithEffectID:(id)arg1 andPaths:(id)arg2;
 + (id)layerEffectWithEffectID:(id)arg1;
 @property(readonly, nonatomic) NSObject<MZEffectTiming> *effectTiming; // @synthesize effectTiming=_effectTiming;
-- (id)allSlides:(BOOL)arg1;
-- (void)_updateTiming:(BOOL)arg1;
+- (id)allSlides:(_Bool)arg1;
+- (void)_updateTiming:(_Bool)arg1;
 - (id)_effectAttributes;
 - (void)_updateEffectTiming;
 - (void)setPhaseOutDuration:(double)arg1;
@@ -41,22 +40,22 @@
 - (void)setDuration:(double)arg1;
 - (double)mainDuration;
 - (void)removeAllSecondarySlides;
-- (void)moveTextsFromIndices:(id)arg1 toIndex:(int)arg2;
+- (void)moveTextsFromIndices:(id)arg1 toIndex:(long long)arg2;
 - (void)removeAllTexts;
 - (void)removeTextsAtIndices:(id)arg1;
-- (void)insertTexts:(id)arg1 atIndex:(int)arg2;
+- (void)insertTexts:(id)arg1 atIndex:(long long)arg2;
 - (void)addTexts:(id)arg1;
 - (void)addText:(id)arg1;
 @property(readonly, nonatomic) NSArray *texts;
 - (void)removeSecondarySlidesAtIndices:(id)arg1;
-- (void)insertSecondarySlides:(id)arg1 atIndex:(int)arg2;
+- (void)insertSecondarySlides:(id)arg1 atIndex:(long long)arg2;
 - (void)addSecondarySlides:(id)arg1;
 - (void)addSecondarySlide:(id)arg1;
 - (id)secondarySlides;
-- (void)moveSlidesFromIndices:(id)arg1 toIndex:(int)arg2;
+- (void)moveSlidesFromIndices:(id)arg1 toIndex:(long long)arg2;
 - (void)removeAllSlides;
 - (void)removeSlidesAtIndices:(id)arg1;
-- (void)insertSlides:(id)arg1 atIndex:(int)arg2;
+- (void)insertSlides:(id)arg1 atIndex:(long long)arg2;
 - (void)addSlides:(id)arg1;
 - (void)addSlide:(id)arg1;
 @property(readonly, nonatomic) NSArray *slides;
@@ -64,8 +63,8 @@
 - (id)effectAttributeForKey:(id)arg1;
 - (void)setEffectAttributes:(id)arg1;
 - (id)effectAttributes;
-- (void)setRandomSeed:(int)arg1;
-- (int)randomSeed;
+- (void)setRandomSeed:(long long)arg1;
+- (long long)randomSeed;
 @property(copy, nonatomic) NSString *presetID;
 @property(copy, nonatomic) NSString *effectID;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -79,28 +78,6 @@
 - (id)initWithEffectID:(id)arg1 andPaths:(id)arg2;
 - (id)initWithEffectID:(id)arg1;
 - (id)init;
-- (void)createSecondarySlidesWithPaths:(id)arg1;
-- (void)createSlidesWithPaths:(id)arg1;
-- (void)createTextsWithStrings:(id)arg1 secondLineFactor:(float)arg2 fillIn:(BOOL)arg3;
-- (void)createTextsWithStrings:(id)arg1 secondLineFactor:(float)arg2;
-- (double)fullDuration;
-- (int)maxNumberOfSecondarySlides;
-- (int)maxNumberOfSlides;
-- (id)container;
-- (double)lowestDisplayTime;
-- (void)setLiveIndex:(int)arg1;
-- (int)liveIndex;
-- (id)slideForMCSlide:(id)arg1;
-- (void)copyTexts:(id)arg1;
-- (void)copySecondarySlides:(id)arg1;
-- (void)copySlides:(id)arg1;
-- (void)setLayerEffect:(id)arg1;
-- (id)slideInformation;
-- (void)applyFormattedAttributes;
-- (id)formattedAttributes;
-- (void)updateTiming;
-- (void)setSkipEffectTiming:(BOOL)arg1;
-- (BOOL)isLive;
 
 @end
 

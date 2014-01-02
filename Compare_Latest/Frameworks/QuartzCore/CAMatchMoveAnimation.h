@@ -13,18 +13,18 @@
 }
 
 + (id)defaultValueForKey:(id)arg1;
-@property(getter=isAdditive) BOOL additive;
-@property BOOL appliesRotation;
-@property BOOL appliesScale;
-@property BOOL appliesY;
-@property BOOL appliesX;
-@property BOOL targetsSuperlayer;
+@property(getter=isAdditive) _Bool additive;
+@property _Bool appliesRotation;
+@property _Bool appliesScale;
+@property _Bool appliesY;
+@property _Bool appliesX;
+@property _Bool targetsSuperlayer;
 @property(copy) NSString *keyPath;
 @property(copy) NSArray *sourcePoints;
 @property(retain) CALayer *sourceLayer;
 - (unsigned int)_propertyFlagsForLayer:(id)arg1;
 - (struct Animation *)_copyRenderAnimationForLayer:(id)arg1;
-- (BOOL)_setCARenderAnimation:(struct Animation *)arg1 layer:(id)arg2;
+- (_Bool)_setCARenderAnimation:(struct Animation *)arg1 layer:(id)arg2;
 - (void)applyForTime:(double)arg1 presentationObject:(id)arg2 modelObject:(id)arg3;
 
 @end

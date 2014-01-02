@@ -8,6 +8,7 @@
 
 @class NSManagedObjectModel, NSString, PFUbiquityLocation;
 
+// Not exported
 @interface PFUbiquityMigrationManager : NSObject
 {
     NSManagedObjectModel *_destinationModel;
@@ -19,7 +20,7 @@
 @property(readonly) NSManagedObjectModel *destinationModel; // @synthesize destinationModel=_destinationModel;
 @property(readonly) NSManagedObjectModel *sourceModel; // @synthesize sourceModel=_sourceModel;
 @property(readonly) PFUbiquityLocation *rootLocation; // @synthesize rootLocation=_rootLocation;
-- (BOOL)migrateTransactionLogs:(BOOL)arg1 andBaselineIfNecessaryForStoreName:(id)arg2 peerID:(id)arg3 error:(id *)arg4;
+- (_Bool)migrateTransactionLogs:(_Bool)arg1 andBaselineIfNecessaryForStoreName:(id)arg2 peerID:(id)arg3 error:(id *)arg4;
 - (void)dealloc;
 - (id)initWithDestinationModel:(id)arg1 sourceModel:(id)arg2 ubiquityRootLocation:(id)arg3 localPeerID:(id)arg4;
 - (id)initWithDestinationModel:(id)arg1 storeName:(id)arg2 previousModelVersionHash:(id)arg3 ubiquityRootLocation:(id)arg4 localPeerID:(id)arg5;

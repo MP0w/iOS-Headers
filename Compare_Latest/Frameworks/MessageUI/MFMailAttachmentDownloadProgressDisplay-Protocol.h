@@ -5,7 +5,7 @@
  */
 
 @protocol MFMailAttachmentDownloadProgressDisplay
-- (BOOL)downloadInitiatedByUser;
+- (void)downloadProgressDidEnd;
 - (void)downloadProgressDidCancel;
 - (void)downloadProgressDidUpdatePercentageComplete:(float)arg1;
 - (void)downloadProgressDidStart;

@@ -13,6 +13,7 @@
 }
 
 + (id)entityName;
+- (_Bool)shouldBeRemovedFromPhotoLibrary:(id)arg1;
 @property(readonly, nonatomic) NSMutableOrderedSet *mutableEntryComments;
 @property(readonly, nonatomic) NSMutableOrderedSet *mutableEntryLikeComments;
 

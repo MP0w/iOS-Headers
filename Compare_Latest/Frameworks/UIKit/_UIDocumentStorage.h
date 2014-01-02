@@ -8,6 +8,7 @@
 
 @class NSString, NSURL;
 
+// Not exported
 @interface _UIDocumentStorage : NSObject
 {
     NSString *_scope;
@@ -16,7 +17,7 @@
 
 @property(readonly) NSURL *rootURL; // @synthesize rootURL=_rootURL;
 - (void)dealloc;
-@property(readonly, getter=isUbiquitous) BOOL ubiquitous;
+@property(readonly, getter=isUbiquitous) _Bool ubiquitous;
 - (id)initWithSearchScope:(id)arg1 rootURL:(id)arg2;
 
 @end

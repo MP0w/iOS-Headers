@@ -15,12 +15,12 @@
     unsigned int _target;
     int _envMode;
     unsigned char _matrixEnabled;
-    NSString *_filePath;
     int _textureIndex;
-    char *_unit2dNameString;
-    char *_unitCubeNameString;
     int _unit2dLoc;
     int _unitCubeLoc;
+    NSString *_filePath;
+    char *_unit2dNameString;
+    char *_unitCubeNameString;
     NSMutableArray *_texGenArray;
     GLKEffectPropertyTexGen *_texGenS;
     GLKEffectPropertyTexGen *_texGenT;

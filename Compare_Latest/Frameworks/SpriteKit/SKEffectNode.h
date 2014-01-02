@@ -13,13 +13,14 @@
 }
 
 - (void)dealloc;
-@property(nonatomic) BOOL shouldCenterFilter;
-- (void)_flippedChangedFrom:(BOOL)arg1 to:(BOOL)arg2;
+@property(nonatomic) _Bool shouldCenterFilter;
+- (void)_flippedChangedFrom:(_Bool)arg1 to:(_Bool)arg2;
 - (void)_scaleFactorChangedFrom:(float)arg1 to:(float)arg2;
-@property(nonatomic) int blendMode;
-@property(nonatomic) BOOL shouldRasterize;
-@property(nonatomic) BOOL shouldEnableEffects;
+@property(nonatomic) long long blendMode;
+@property(nonatomic) _Bool shouldRasterize;
+@property(nonatomic) _Bool shouldEnableEffects;
 @property(retain, nonatomic) CIFilter *filter;
+- (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)init;

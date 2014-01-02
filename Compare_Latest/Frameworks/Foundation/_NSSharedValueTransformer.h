@@ -10,11 +10,11 @@
 {
 }
 
-- (BOOL)_isBooleanTransformer;
+- (_Bool)_isBooleanTransformer;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)copy;
-- (BOOL)_tryRetain;
-- (BOOL)_isDeallocating;
+- (_Bool)_tryRetain;
+- (_Bool)_isDeallocating;
 - (oneway void)release;
 - (id)autorelease;
 - (id)retain;

@@ -36,7 +36,7 @@
 - (id)_metadataDictForAssetCollection:(id)arg1 outError:(id *)arg2;
 - (id)_metadataDictForAsset:(id)arg1 outError:(id *)arg2;
 - (void)_resetConnectionVariables;
-- (BOOL)_insertInfoAboutAsset:(id)arg1 intoDictionary:(id)arg2 outError:(id *)arg3;
+- (_Bool)_insertInfoAboutAsset:(id)arg1 intoDictionary:(id)arg2 outError:(id *)arg3;
 - (id)_missingAssetFieldErrorWithFieldName:(id)arg1;
 - (void)dealloc;
 - (id)initWithPersonID:(id)arg1 baseURL:(id)arg2;

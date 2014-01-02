@@ -6,15 +6,16 @@
 
 #import <WebContentAnalysis/XMLNode.h>
 
+// Not exported
 @interface WFImg : XMLNode
 {
 }
 
 + (id)imgWithNode:(struct _xmlNode *)arg1;
 - (id)description;
-- (int)area;
-- (int)height;
-- (int)width;
+- (long long)area;
+- (long long)height;
+- (long long)width;
 - (id)src;
 - (id)title;
 - (id)alt;

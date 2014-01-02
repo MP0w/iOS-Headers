@@ -8,12 +8,13 @@
 
 @class NSMutableArray, UICollectionReusableView, UICollectionViewLayoutAttributes;
 
+// Not exported
 @interface UICollectionViewAnimation : NSObject
 {
     UICollectionReusableView *_view;
     UICollectionViewLayoutAttributes *_finalLayoutAttributes;
-    float _startFraction;
-    float _endFraction;
+    double _startFraction;
+    double _endFraction;
     int _viewType;
     NSMutableArray *_completionHandlers;
     NSMutableArray *_startupHandlers;
@@ -26,21 +27,21 @@
     } _collectionViewAnimationFlags;
 }
 
-@property(readonly, nonatomic) float endFraction; // @synthesize endFraction=_endFraction;
-@property(readonly, nonatomic) float startFraction; // @synthesize startFraction=_startFraction;
+@property(readonly, nonatomic) double endFraction; // @synthesize endFraction=_endFraction;
+@property(readonly, nonatomic) double startFraction; // @synthesize startFraction=_startFraction;
 @property(readonly, nonatomic) UICollectionViewLayoutAttributes *finalLayoutAttributes; // @synthesize finalLayoutAttributes=_finalLayoutAttributes;
 @property(readonly, nonatomic) int viewType; // @synthesize viewType=_viewType;
 @property(readonly, nonatomic) UICollectionReusableView *view; // @synthesize view=_view;
 - (void)addStartupHandler:(id)arg1;
 - (void)addCompletionHandler:(id)arg1;
 - (void)start;
-@property(nonatomic) BOOL resetRasterizationAfterAnimation;
-@property(nonatomic) BOOL rasterizeAfterAnimation;
-@property(readonly, nonatomic) BOOL deleteAfterAnimation;
-@property(readonly, nonatomic) BOOL animateFromCurrentPosition;
+@property(nonatomic) _Bool resetRasterizationAfterAnimation;
+@property(nonatomic) _Bool rasterizeAfterAnimation;
+@property(readonly, nonatomic) _Bool deleteAfterAnimation;
+@property(readonly, nonatomic) _Bool animateFromCurrentPosition;
 - (id)description;
 - (void)dealloc;
-- (id)initWithView:(id)arg1 viewType:(int)arg2 finalLayoutAttributes:(id)arg3 startFraction:(float)arg4 endFraction:(float)arg5 animateFromCurrentPostion:(BOOL)arg6 deleteAfterAnimation:(BOOL)arg7 customAnimations:(id)arg8;
+- (id)initWithView:(id)arg1 viewType:(int)arg2 finalLayoutAttributes:(id)arg3 startFraction:(double)arg4 endFraction:(double)arg5 animateFromCurrentPostion:(_Bool)arg6 deleteAfterAnimation:(_Bool)arg7 customAnimations:(id)arg8;
 
 @end
 

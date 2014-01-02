@@ -8,6 +8,7 @@
 
 @class DOMNamedNodeMap, NSString;
 
+// Not exported
 @interface DOMDocumentType : DOMNode
 {
 }

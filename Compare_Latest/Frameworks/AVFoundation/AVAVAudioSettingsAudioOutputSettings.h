@@ -16,11 +16,11 @@
 + (id)_audioOutputSettingsWithAudioSettingsDictionary:(id)arg1 exceptionReason:(id *)arg2;
 + (id)eligibleOutputSettingsDictionaryKeys;
 - (id)audioOptions;
-- (struct AudioChannelLayout *)copyAudioChannelLayoutForSourceFormatDescription:(struct opaqueCMFormatDescription *)arg1 audioChannelLayoutSize:(unsigned int *)arg2;
-- (void)getAudioStreamBasicDescription:(struct AudioStreamBasicDescription *)arg1 forAudioFileTypeID:(unsigned long)arg2 sourceFormatDescription:(struct opaqueCMFormatDescription *)arg3;
-- (BOOL)canFullySpecifyOutputFormatReturningReason:(id *)arg1;
-- (BOOL)isCodecAvailableOnCurrentSystem;
-- (BOOL)willYieldCompressedSamples;
+- (struct AudioChannelLayout *)copyAudioChannelLayoutForSourceFormatDescription:(struct opaqueCMFormatDescription *)arg1 audioChannelLayoutSize:(unsigned long long *)arg2;
+- (void)getAudioStreamBasicDescription:(struct AudioStreamBasicDescription *)arg1 forAudioFileTypeID:(unsigned int)arg2 sourceFormatDescription:(struct opaqueCMFormatDescription *)arg3;
+- (_Bool)canFullySpecifyOutputFormatReturningReason:(id *)arg1;
+- (_Bool)isCodecAvailableOnCurrentSystem;
+- (_Bool)willYieldCompressedSamples;
 - (id)initWithTrustedAVAudioSettingsDictionary:(id)arg1;
 - (id)initWithAVAudioSettingsDictionary:(id)arg1 exceptionReason:(id *)arg2;
 

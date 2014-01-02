@@ -8,6 +8,7 @@
 
 @class NSArray, NSString;
 
+// Not exported
 @interface NSRelationshipStoreMapping : NSPropertyStoreMapping
 {
     NSString *_destinationEntityExternalName;
@@ -27,7 +28,7 @@
 - (void)setDestinationEntityExternalName:(id)arg1;
 - (id)destinationEntityExternalName;
 - (id)relationship;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
 
 @end

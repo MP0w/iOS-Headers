@@ -18,7 +18,7 @@
 + (id)sharedSpinnerManager;
 - (void)stopAnimatingForIdentifier:(id)arg1;
 - (void)startAnimatingInNavItem:(id)arg1 forIdentifier:(id)arg2;
-- (void)startAnimatingInNavItem:(id)arg1 forIdentifier:(id)arg2 hideBackButton:(BOOL)arg3;
+- (void)startAnimatingInNavItem:(id)arg1 forIdentifier:(id)arg2 hideBackButton:(_Bool)arg3;
 - (void)dealloc;
 - (id)init;
 

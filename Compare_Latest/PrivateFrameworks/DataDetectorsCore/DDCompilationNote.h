@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface DDCompilationNote : DDLocation
 {
     NSString *_message;

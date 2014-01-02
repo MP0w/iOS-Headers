@@ -8,6 +8,7 @@
 
 @class WDCharacterProperties, WDFont;
 
+// Not exported
 @interface WDSymbol : WDRun
 {
     WDCharacterProperties *mProperties;

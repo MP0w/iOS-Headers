@@ -6,6 +6,7 @@
 
 #import <MapKit/MKAnnotationContainerView.h>
 
+// Not exported
 @interface MKOldAnnotationContainerView : MKAnnotationContainerView
 {
 }

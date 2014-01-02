@@ -10,7 +10,7 @@
 
 @interface GEOVoltaireRasterTileTrafficData : NSObject
 {
-    CDStruct_1ef3fb1f *_vertices;
+    CDStruct_912cb5d2 *_vertices;
     NSMutableArray *_trafficSegments;
     NSArray *_trafficIncidents;
     double _expirationTime;
@@ -21,7 +21,7 @@
 @property(readonly, nonatomic) NSArray *trafficIncidents; // @synthesize trafficIncidents=_trafficIncidents;
 @property(nonatomic) double expirationTime; // @synthesize expirationTime=_expirationTime;
 @property(retain, nonatomic) NSMutableArray *trafficSegments; // @synthesize trafficSegments=_trafficSegments;
-@property(nonatomic) CDStruct_1ef3fb1f *vertices; // @synthesize vertices=_vertices;
+@property(nonatomic) CDStruct_912cb5d2 *vertices; // @synthesize vertices=_vertices;
 - (void)dealloc;
 - (id)initWithData:(id)arg1 tileKey:(const struct _GEOTileKey *)arg2;
 

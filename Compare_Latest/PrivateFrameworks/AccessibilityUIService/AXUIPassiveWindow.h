@@ -10,7 +10,7 @@
 {
 }
 
-- (BOOL)_ignoresHitTest;
+- (_Bool)_ignoresHitTest;
 
 @end
 

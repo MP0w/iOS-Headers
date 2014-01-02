@@ -10,36 +10,40 @@
 
 @interface UIPushBehavior : UIDynamicBehavior
 {
-    float _angle;
-    float _magnitude;
-    BOOL _active;
-    int _mode;
-    struct CGPoint _forceVector;
+    double _angle;
+    double _magnitude;
+    _Bool _active;
+    long long _mode;
+    struct CGVector _forceVector;
     double _timeInterval;
     NSMutableDictionary *_targetPoints;
     int _i;
-    NSArray *_items;
 }
 
-@property(readonly, nonatomic) NSArray *items; // @synthesize items=_items;
 - (id)description;
 - (void)_step;
-@property(nonatomic) float magnitude;
-@property(nonatomic) float angle;
-@property(nonatomic) float yComponent;
-@property(nonatomic) float xComponent;
-- (void)setXComponent:(float)arg1 yComponent:(float)arg2;
-- (void)setAngle:(float)arg1 magnitude:(float)arg2;
+@property(nonatomic) double magnitude;
+@property(nonatomic) double angle;
+- (void)setYComponent:(double)arg1;
+- (void)setXComponent:(double)arg1;
+- (double)yComponent;
+- (double)xComponent;
+@property(nonatomic) struct CGVector pushDirection;
+- (void)setXComponent:(double)arg1 yComponent:(double)arg2;
+- (void)setAngle:(double)arg1 magnitude:(double)arg2;
 - (void)_dissociate;
 - (void)_associate;
 - (void)setTargetPoint:(struct CGPoint)arg1 forItem:(id)arg2;
 - (struct CGPoint)targetPointForItem:(id)arg1;
+- (void)setTargetOffsetFromCenter:(struct UIOffset)arg1 forItem:(id)arg2;
+- (struct UIOffset)targetOffsetFromCenterForItem:(id)arg1;
 - (void)removeItem:(id)arg1;
 - (void)addItem:(id)arg1;
-@property(readonly, nonatomic) int mode;
-@property(nonatomic) BOOL active;
+@property(readonly, nonatomic) long long mode;
+@property(nonatomic) _Bool active;
+@property(readonly, nonatomic) NSArray *items;
 - (id)initWithItems:(id)arg1;
-- (id)initWithItems:(id)arg1 mode:(int)arg2;
+- (id)initWithItems:(id)arg1 mode:(long long)arg2;
 - (id)init;
 - (void)dealloc;
 - (void)_commonInit;

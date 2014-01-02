@@ -10,17 +10,17 @@
 
 @interface IDSServiceMonitor : NSObject
 {
-    int _availability;
+    long long _availability;
     NSString *_service;
     int _token;
 }
 
 @property(readonly, nonatomic) NSString *service;
-- (int)serviceAvailability;
+- (long long)serviceAvailability;
 - (void)handleActiveAccountsChanged:(id)arg1;
 - (void)updateAvailability;
 - (void)_updateAvailability;
-- (void)_postAvailability:(int)arg1;
+- (void)_postAvailability:(long long)arg1;
 - (void)dealloc;
 - (id)initWithService:(id)arg1;
 

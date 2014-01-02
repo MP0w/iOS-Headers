@@ -14,7 +14,7 @@
 
 + (id)updateViewsWithDictionary:(id)arg1 context:(id)arg2;
 + (id)updateViews;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSArray *views;
 - (id)encodedClassName;
 - (id)groupIdentifier;

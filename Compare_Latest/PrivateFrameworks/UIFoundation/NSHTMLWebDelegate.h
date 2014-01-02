@@ -8,10 +8,11 @@
 
 @class NSURL;
 
+// Not exported
 @interface NSHTMLWebDelegate : NSObject
 {
-    BOOL _loadDidFinish;
-    BOOL _loadDidSucceed;
+    _Bool _loadDidFinish;
+    _Bool _loadDidSucceed;
     NSURL *_baseURL;
 }
 
@@ -29,8 +30,8 @@
 - (void)webView:(id)arg1 didFailProvisionalLoadWithError:(id)arg2 forFrame:(id)arg3;
 - (void)webView:(id)arg1 didCommitLoadForFrame:(id)arg2;
 - (void)webView:(id)arg1 didStartProvisionalLoadForFrame:(id)arg2;
-- (BOOL)loadDidSucceed;
-- (BOOL)loadDidFinish;
+- (_Bool)loadDidSucceed;
+- (_Bool)loadDidFinish;
 - (void)dealloc;
 - (id)initWithBaseURL:(id)arg1;
 - (id)init;

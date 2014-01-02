@@ -13,11 +13,11 @@
     AVAssetCache *_assetCache;
     NSMutableArray *_bagLoadBlocks;
     NSMutableArray *_deferredOperations;
-    BOOL _hasLoadedServerStoreBag;
+    _Bool _hasLoadedServerStoreBag;
     NSMutableDictionary *_inflightAssetLoads;
     NSOperationQueue *_operationQueue;
     MPPrepareRadioPlaybackOperation *_playbackOperation;
-    int _queueState;
+    long long _queueState;
     RadioRequestContext *_requestContext;
     NSObject<OS_dispatch_queue> *_serialQueue;
     NSCache *_warmAssetCache;
@@ -36,12 +36,13 @@
 - (void)_finishAssetLoadWithKey:(id)arg1 asset:(id)arg2 error:(id)arg3;
 - (void)_addOperationWhenWarm:(id)arg1;
 - (void)warmRadioQueue;
-- (void)sendPlayEvents:(id)arg1 forStation:(id)arg2 completionBlock:(id)arg3;
+- (void)sendPlayEvents:(id)arg1 forStationHash:(id)arg2 stationID:(long long)arg3 completionBlock:(id)arg4;
 - (void)preparePlaybackForStation:(id)arg1 withCompletionBlock:(id)arg2;
 - (void)loadRadioConfigurationWithCompletionBlock:(id)arg1;
 - (void)loadAssetForItem:(id)arg1 withCompletionBlock:(id)arg2;
 - (void)getTracksWithRequest:(id)arg1 completionBlock:(id)arg2;
 - (void)cancelPlaybackPreparation;
+- (void)addStationWithRequest:(id)arg1 completionBlock:(id)arg2;
 - (id)init;
 
 @end

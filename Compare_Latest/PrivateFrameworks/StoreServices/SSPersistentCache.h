@@ -10,7 +10,7 @@
 
 @interface SSPersistentCache : NSObject
 {
-    BOOL _safeKeys;
+    _Bool _safeKeys;
     NSString *_identifier;
     NSString *_cacheName;
     NSString *_path;
@@ -20,12 +20,12 @@
 
 + (id)safeKeyForKey:(id)arg1;
 - (id)dataForKey:(id)arg1;
-- (BOOL)clear;
-- (BOOL)removeDataForKey:(id)arg1;
-- (BOOL)setData:(id)arg1 forKey:(id)arg2;
-- (void)setFilenameSafeKeys:(BOOL)arg1;
+- (_Bool)clear;
+- (_Bool)removeDataForKey:(id)arg1;
+- (_Bool)setData:(id)arg1 forKey:(id)arg2;
+- (void)setFilenameSafeKeys:(_Bool)arg1;
 - (id)description;
-- (BOOL)_isFileNotFound:(id)arg1;
+- (_Bool)_isFileNotFound:(id)arg1;
 - (id)_pathForKey:(id)arg1;
 - (void)dealloc;
 - (id)initWithIdentifier:(id)arg1 cacheName:(id)arg2;

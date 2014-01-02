@@ -30,7 +30,7 @@
 - (id)URLForVariant:(id)arg1;
 - (struct CGSize)sizeForVariant:(id)arg1;
 - (void)setArtwork:(id)arg1 forVariant:(id)arg2;
-@property(readonly, nonatomic) int numberOfVariants;
+@property(readonly, nonatomic) long long numberOfVariants;
 - (id)initWithScreenshotDictionary:(id)arg1;
 - (id)init;
 - (id)_initSKUIScreenshot;

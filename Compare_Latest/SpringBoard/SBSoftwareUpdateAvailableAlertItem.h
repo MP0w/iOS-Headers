@@ -10,10 +10,10 @@
 {
 }
 
-- (BOOL)dismissOnLock;
-- (BOOL)reappearsAfterUnlock;
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (_Bool)dismissOnLock;
+- (_Bool)reappearsAfterUnlock;
+- (void)configure:(_Bool)arg1 requirePasscodeForActions:(_Bool)arg2;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 
 @end
 

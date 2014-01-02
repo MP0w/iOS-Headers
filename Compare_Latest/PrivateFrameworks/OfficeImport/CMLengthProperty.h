@@ -6,6 +6,7 @@
 
 #import <OfficeImport/CMProperty.h>
 
+// Not exported
 @interface CMLengthProperty : CMProperty
 {
     double value;

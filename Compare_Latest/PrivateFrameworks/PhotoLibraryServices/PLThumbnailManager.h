@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSDictionary, NSIndexSet, NSLock, NSMutableDictionary, PLLargeImageLoader, PLPhotoLibrary;
+@class NSArray, NSDictionary, NSIndexSet, NSLock, NSMutableDictionary, NSMutableSet, PLLargeImageLoader, PLPhotoLibrary;
 
 @interface PLThumbnailManager : NSObject
 {
@@ -22,6 +22,11 @@
     PLLargeImageLoader *_largeImageLoaderFullScreen;
     PLLargeImageLoader *_largeImageLoaderFilledScreen;
     PLLargeImageLoader *_largeImageLoaderFilledHalfScreen;
+    NSMutableSet *_previouslyRequestedThumbnailFixOIDs;
+    NSMutableSet *_requestedThumbnailFixAssets;
+    struct _FigCascadeContext *_unicornContextPortrait;
+    struct _FigCascadeContext *_unicornContextLandscape;
+    id _observerToken;
 }
 
 + (void)saveCameraPreviewWellImage:(struct CGImage *)arg1 uuid:(id)arg2;
@@ -33,40 +38,46 @@
 + (id)supportedThumbnailFormats;
 + (id)_allPossibleThumbnailFormats;
 + (void)handleRebuildThumbnailRequestPersistentFailure;
-+ (BOOL)hasExceededRebuildThumbnailRequestLimit;
-+ (BOOL)isRebuildingThumbnails;
++ (_Bool)hasExceededRebuildThumbnailRequestLimit;
++ (_Bool)isRebuildingThumbnails;
 + (void)rebuildAllMissingThumbnails;
-+ (void)removeRebuildThumbnailsRequest;
-+ (BOOL)hasRebuildThumbnailsRequest;
++ (void)removeRebuildThumbnailsRequest:(const char *)arg1;
++ (_Bool)hasRebuildThumbnailsRequest;
 + (void)addRebuildThumbnailsRequest;
 + (void)resetThumbnails;
-+ (BOOL)isMissingThumbnailTables;
-+ (BOOL)hasObsoleteThumbnailTables;
++ (_Bool)isMissingThumbnailTables;
++ (_Bool)hasObsoleteThumbnailTables;
 + (int)thumbnailFormat;
 + (int)thumbnailVersion;
 + (void)removeObsoleteMetadata;
++ (id)defaultThumbnailsDirectoryV2;
 + (id)defaultThumbnailsDirectory;
-+ (BOOL)useImageTableForFormat:(int)arg1;
++ (_Bool)useImageTableForFormat:(int)arg1;
+@property(retain, nonatomic) id observerToken; // @synthesize observerToken=_observerToken;
 @property(readonly, nonatomic) NSMutableDictionary *thumbManagersByFormat; // @synthesize thumbManagersByFormat=_thumbManagersByFormat;
 @property(nonatomic) PLPhotoLibrary *photoLibrary; // @synthesize photoLibrary=_photoLibrary;
 - (id)_thumbManagerForFormat:(int *)arg1;
 - (id)_dataForInFlightAsset:(id)arg1 format:(int)arg2 width:(int *)arg3 height:(int *)arg4 bytesPerRow:(int *)arg5 dataWidth:(int *)arg6 dataHeight:(int *)arg7 imageDataOffset:(int *)arg8 imageDataFormat:(int *)arg9;
 - (id)_dataForAsset:(id)arg1 format:(int)arg2 width:(int *)arg3 height:(int *)arg4 bytesPerRow:(int *)arg5 dataWidth:(int *)arg6 dataHeight:(int *)arg7 imageDataOffset:(int *)arg8 imageDataFormat:(int *)arg9;
+- (id)thumbnailJPEGPathForPhoto:(id)arg1;
 - (id)preheatItemSourceForFormat:(int)arg1;
 - (id)_tableDescriptions;
 - (id)compactImageTables;
 - (id)preflightImageTableCompactionForPhotos:(id)arg1;
 - (id)_anyImageTable;
-- (id)dataForPhoto:(id)arg1 format:(int)arg2 width:(int *)arg3 height:(int *)arg4 bytesPerRow:(int *)arg5 dataWidth:(int *)arg6 dataHeight:(int *)arg7 imageDataOffset:(int *)arg8 allowPlaceholder:(BOOL)arg9;
-- (void)deleteThumbnailsWithIdentifier:(id)arg1 orIndex:(unsigned int)arg2 uuid:(id)arg3;
+- (id)dataForPhoto:(id)arg1 format:(int)arg2 width:(int *)arg3 height:(int *)arg4 bytesPerRow:(int *)arg5 dataWidth:(int *)arg6 dataHeight:(int *)arg7 imageDataOffset:(int *)arg8 allowPlaceholder:(_Bool)arg9;
+- (void)deleteThumbnailsWithIdentifier:(id)arg1 orIndex:(unsigned long long)arg2 uuid:(id)arg3;
 - (void)setThumbnailsForPhoto:(id)arg1 withImage:(id)arg2;
-- (BOOL)copyThumbnailsFromAsset:(id)arg1 toAsset:(id)arg2;
+- (void)_unicorn_setThumbnailsForPhoto:(id)arg1 withImage:(id)arg2;
+- (void)_horse_setThumbnailsForPhoto:(id)arg1 withImage:(id)arg2;
+- (_Bool)copyThumbnailsFromAsset:(id)arg1 toAsset:(id)arg2;
 - (struct __CFDictionary *)placeholderThumbnailDataByFormatID;
 - (void)setThumbnails:(struct __CFDictionary *)arg1 forPhoto:(id)arg2;
-- (id)newImageForPhoto:(id)arg1 withFormat:(int)arg2 outImageProperties:(const struct __CFDictionary **)arg3 allowPlaceholder:(BOOL)arg4;
+- (id)newImageForPhoto:(id)arg1 withFormat:(int)arg2 outImageProperties:(const struct __CFDictionary **)arg3 allowPlaceholder:(_Bool)arg4;
 - (void)dealloc;
+- (void)clearPhotoLibrary;
 - (id)initWithWeakPhotoLibrary:(id)arg1;
-- (int)_rebuildAssetThumbnailsWithLimit:(int)arg1 error:(id *)arg2;
+- (long long)_rebuildAssetThumbnailsWithLimit:(int)arg1 error:(id *)arg2;
 
 @end
 

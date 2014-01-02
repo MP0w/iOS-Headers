@@ -8,28 +8,28 @@
 
 @interface CTGlyphStorageInterface : NSObject
 {
-    long _glyphCount;
+    long long _glyphCount;
     unsigned short *_glyphs;
     struct CGSize *_advances;
     unsigned int *_props;
-    int *_stringIndexes;
-    int *_absorbedCounts;
+    long long *_stringIndexes;
+    long long *_absorbedCounts;
 }
 
 - (void)disposeGlyphStack;
-- (void)popGlyph:(long)arg1;
-- (void)pushGlyph:(long)arg1;
-- (void)initGlyphStack:(long)arg1;
-- (void)insertGlyphs:(CDStruct_1ef3fb1f)arg1;
-- (void)moveGlyphsTo:(long)arg1 from:(CDStruct_1ef3fb1f)arg2;
-- (void)swapGlyph:(long)arg1 withIndex:(long)arg2;
-- (void)setStringIndex:(long)arg1 forIndex:(long)arg2;
-- (void)setAbsorbedCount:(long)arg1 forIndex:(long)arg2;
-- (void)setProps:(unsigned int)arg1 forIndex:(long)arg2;
-- (void)setAdvance:(struct CGSize)arg1 forIndex:(long)arg2;
-- (void)setGlyphID:(unsigned short)arg1 forIndex:(long)arg2;
-- (void)getCustomAdvance:(struct CGSize *)arg1 forIndex:(long)arg2;
-- (struct __CTGlyphStorage *)createCopy:(CDStruct_1ef3fb1f)arg1;
+- (void)popGlyph:(long long)arg1;
+- (void)pushGlyph:(long long)arg1;
+- (void)initGlyphStack:(long long)arg1;
+- (void)insertGlyphs:(CDStruct_912cb5d2)arg1;
+- (void)moveGlyphsTo:(long long)arg1 from:(CDStruct_912cb5d2)arg2;
+- (void)swapGlyph:(long long)arg1 withIndex:(long long)arg2;
+- (void)setStringIndex:(long long)arg1 forIndex:(long long)arg2;
+- (void)setAbsorbedCount:(long long)arg1 forIndex:(long long)arg2;
+- (void)setProps:(unsigned int)arg1 forIndex:(long long)arg2;
+- (void)setAdvance:(struct CGSize)arg1 forIndex:(long long)arg2;
+- (void)setGlyphID:(unsigned short)arg1 forIndex:(long long)arg2;
+- (void)getCustomAdvance:(struct CGSize *)arg1 forIndex:(long long)arg2;
+- (struct __CTGlyphStorage *)createCopy:(CDStruct_912cb5d2)arg1;
 
 @end
 

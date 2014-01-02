@@ -7,6 +7,6 @@
 #import "UITabBarItem.h"
 
 @interface UITabBarItem (SUAdditions)
-- (void)setBadgeValue:(id)arg1 animated:(BOOL)arg2 blink:(BOOL)arg3;
+- (void)setBadgeValue:(id)arg1 animated:(_Bool)arg2 blink:(_Bool)arg3;
 @end
 

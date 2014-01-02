@@ -14,7 +14,7 @@
 
 + (id)movieListSnippetWithDictionary:(id)arg1 context:(id)arg2;
 + (id)movieListSnippet;
-@property(nonatomic) BOOL shouldShowRottenTomatoesRating;
+@property(nonatomic) _Bool shouldShowRottenTomatoesRating;
 @property(copy, nonatomic) NSArray *movies;
 - (id)encodedClassName;
 - (id)groupIdentifier;

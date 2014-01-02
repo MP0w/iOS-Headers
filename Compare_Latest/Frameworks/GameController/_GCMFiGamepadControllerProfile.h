@@ -10,6 +10,7 @@
 
 @class _GCACHomeButton;
 
+// Not exported
 @interface _GCMFiGamepadControllerProfile : _GCGamepad <_GCACHomeButtonDelegate>
 {
     _GCACHomeButton *_acHome;
@@ -18,9 +19,10 @@
 - (void).cxx_destruct;
 - (void)toggleSuspendResume;
 - (id)inputForElement:(struct __IOHIDElement *)arg1;
-- (void)setPlayerIndex:(int)arg1;
+- (void)setPlayerIndex:(long long)arg1;
 - (id)name;
 - (id)initWithController:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 
 @end
 

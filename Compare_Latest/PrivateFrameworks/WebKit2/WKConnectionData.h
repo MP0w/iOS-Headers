@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface WKConnectionData : NSObject
 {
     struct WKRetainPtr<const OpaqueWKConnection *> _connectionRef;

@@ -12,16 +12,13 @@
 {
 }
 
-@property int tzoffsetto;
-@property int tzoffsetfrom;
+@property long long tzoffsetto;
+@property long long tzoffsetfrom;
 @property NSArray *tzname;
 @property(retain) NSArray *rrule;
 @property(retain) NSArray *rdate;
 @property(retain) ICSDate *dtstart;
-- (BOOL)validate:(id *)arg1;
-- (int)compare:(id)arg1;
-- (void)addRecurrenceDate:(id)arg1;
-- (id)computeTimeZoneChangeListFromDate:(id)arg1 toDate:(id)arg2;
+- (_Bool)validate:(id *)arg1;
 
 @end
 

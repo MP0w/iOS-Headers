@@ -9,7 +9,7 @@
 @interface _NSURLBDOnce : NSObject
 {
     id fBlock;
-    BOOL fDone;
+    _Bool fDone;
 }
 
 - (void)doit;

@@ -19,22 +19,19 @@
     CALayer *_highlightedGlyphLayer;
 }
 
-+ (float)unhighlightCrossfadeHighlightFadeDuration;
-+ (float)unhighlightCrossfadeNormalFadeDuration;
-+ (float)unhighlightCrossfadeHighlightBeginTime;
-+ (float)unhighlightCrossfadeNormalBeginTime;
-+ (float)highlightCrossfadeHighlightFadeDuration;
-+ (float)highlightCrossfadeNormalFadeDuration;
-+ (float)highlightCrossfadeHighlightBeginTime;
-+ (float)highlightCrossfadeNormalBeginTime;
-+ (float)horizontalPadding;
-+ (float)verticalPadding;
-+ (id)colorForHighlightedKeypadGlyphs;
-+ (id)colorForKeypadGlyphs;
-+ (id)highlightedImageKeyForCharacter:(unsigned int)arg1;
-+ (id)imageKeyForCharacter:(unsigned int)arg1;
-+ (id)imageForCharacter:(unsigned int)arg1 highlighted:(BOOL)arg2;
-+ (BOOL)usesTelephonyGlyphsWhereAvailable;
++ (double)unhighlightCrossfadeHighlightFadeDuration;
++ (double)unhighlightCrossfadeNormalFadeDuration;
++ (double)unhighlightCrossfadeHighlightBeginTime;
++ (double)unhighlightCrossfadeNormalBeginTime;
++ (double)highlightCrossfadeHighlightFadeDuration;
++ (double)highlightCrossfadeNormalFadeDuration;
++ (double)highlightCrossfadeHighlightBeginTime;
++ (double)highlightCrossfadeNormalBeginTime;
++ (double)horizontalPadding;
++ (double)verticalPadding;
++ (id)imageForCharacter:(unsigned int)arg1 highlighted:(_Bool)arg2 whiteVersion:(_Bool)arg3;
++ (_Bool)usesTelephonyGlyphsWhereAvailable;
++ (id)imageForCharacter:(unsigned int)arg1 highlighted:(_Bool)arg2;
 + (id)imageForCharacter:(unsigned int)arg1;
 + (struct UIEdgeInsets)paddingOutsideRing;
 + (struct CGSize)defaultSize;
@@ -47,9 +44,10 @@
 - (void)touchUp;
 - (void)touchDown;
 - (id)defaultColor;
-- (void)setHighlighted:(BOOL)arg1;
+- (void)setHighlighted:(_Bool)arg1;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
-@property(nonatomic) float alphaOutsideAndInsideRing; // @dynamic alphaOutsideAndInsideRing;
+@property(nonatomic) double alphaOutsideAndInsideRing; // @dynamic alphaOutsideAndInsideRing;
+- (void)setUsesColorDodgeBlending;
 - (void)dealloc;
 - (id)initForCharacter:(unsigned int)arg1;
 

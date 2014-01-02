@@ -13,7 +13,7 @@
 - (double)modificationScore;
 - (struct _NSRange)additionalSyllableRange;
 - (struct _NSRange)syllableRange;
-- (unsigned int)modificationType;
+- (unsigned long long)modificationType;
 - (id)replacementString;
 - (struct _NSRange)range;
 

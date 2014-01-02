@@ -6,6 +6,7 @@
 
 #import <OfficeImport/OADPathElement.h>
 
+// Not exported
 @interface OADClosePathElement : OADPathElement
 {
 }

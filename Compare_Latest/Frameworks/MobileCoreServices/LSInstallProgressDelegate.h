@@ -11,6 +11,7 @@
 
 @class LSInstallProgressList, LSObserverTimer, NSMutableDictionary, NSMutableOrderedSet, NSMutableSet, NSObject<OS_dispatch_queue>;
 
+// Not exported
 @interface LSInstallProgressDelegate : NSObject <NSXPCListenerDelegate, LSInstallProgressProtocol>
 {
     NSMutableDictionary *_observers;
@@ -23,7 +24,7 @@
     LSObserverTimer *installsFinishedTimer;
     LSObserverTimer *appsUninstalledTimer;
     NSObject<OS_dispatch_queue> *_installControlsQueue;
-    BOOL _usingNetwork;
+    _Bool _usingNetwork;
 }
 
 - (void)sendNetworkUsageChangedNotification;
@@ -36,13 +37,13 @@
 - (void)installationFailedForApplication:(id)arg1 reply:(id)arg2;
 - (void)installationEndedForApplication:(id)arg1;
 - (void)rebuildInstallIndexes;
-- (void)createInstallProgressForApplication:(id)arg1 withPhase:(unsigned int)arg2 andPublishingString:(id)arg3;
-- (id)parentProgressForApplication:(id)arg1 andPhase:(unsigned int)arg2 isActive:(BOOL)arg3;
+- (void)createInstallProgressForApplication:(id)arg1 withPhase:(unsigned long long)arg2 andPublishingString:(id)arg3;
+- (id)parentProgressForApplication:(id)arg1 andPhase:(unsigned long long)arg2 isActive:(_Bool)arg3;
 - (unsigned char)handleCancelInstallationForApp:(id)arg1;
 - (void)removeObserverWithUUID:(id)arg1;
 - (void)addObserver:(id)arg1 withUUID:(id)arg2;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (BOOL)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
+- (_Bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
 - (void)restoreInactiveInstalls;
 - (void)dealloc;
 - (id)init;

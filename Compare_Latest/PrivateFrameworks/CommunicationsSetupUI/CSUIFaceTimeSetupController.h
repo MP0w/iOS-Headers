@@ -12,8 +12,8 @@
 
 + (id)sharedInstance;
 - (void)_handleFaceTimeEntitlementStatusChanged;
-- (void)setCellularFaceTimeEnabled:(BOOL)arg1 withCompletion:(id)arg2;
-- (BOOL)cellularFaceTimeEnabled;
+- (void)setCellularFaceTimeEnabled:(_Bool)arg1 withCompletion:(id)arg2;
+- (_Bool)cellularFaceTimeEnabled;
 - (void)dealloc;
 - (id)init;
 

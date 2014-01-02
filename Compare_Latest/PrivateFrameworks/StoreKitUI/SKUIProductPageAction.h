@@ -10,16 +10,16 @@
 
 @interface SKUIProductPageAction : NSObject
 {
-    int _actionType;
+    long long _actionType;
     NSString *_urlTitle;
     id _viewControllerBlock;
     NSURL *_url;
 }
 
-+ (id)actionWithType:(int)arg1;
++ (id)actionWithType:(long long)arg1;
 @property(copy, nonatomic) id viewControllerBlock; // @synthesize viewControllerBlock=_viewControllerBlock;
 @property(copy, nonatomic) NSURL *URL; // @synthesize URL=_url;
-@property(nonatomic) int actionType; // @synthesize actionType=_actionType;
+@property(nonatomic) long long actionType; // @synthesize actionType=_actionType;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) UIViewController *viewController;
 

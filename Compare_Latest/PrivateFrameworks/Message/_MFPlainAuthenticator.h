@@ -10,7 +10,7 @@
 {
 }
 
-- (BOOL)justSentPlainTextPassword;
+- (_Bool)justSentPlainTextPassword;
 - (id)responseForServerData:(id)arg1;
 - (id)saslName;
 

@@ -9,11 +9,11 @@
 @protocol UINavigationControllerDelegate <NSObject>
 
 @optional
-- (id)navigationController:(id)arg1 animationControllerForOperation:(int)arg2 fromViewController:(id)arg3 toViewController:(id)arg4;
+- (id)navigationController:(id)arg1 animationControllerForOperation:(long long)arg2 fromViewController:(id)arg3 toViewController:(id)arg4;
 - (id)navigationController:(id)arg1 interactionControllerForAnimationController:(id)arg2;
-- (int)navigationControllerPreferredInterfaceOrientationForPresentation:(id)arg1;
-- (unsigned int)navigationControllerSupportedInterfaceOrientations:(id)arg1;
-- (void)navigationController:(id)arg1 didShowViewController:(id)arg2 animated:(BOOL)arg3;
-- (void)navigationController:(id)arg1 willShowViewController:(id)arg2 animated:(BOOL)arg3;
+- (long long)navigationControllerPreferredInterfaceOrientationForPresentation:(id)arg1;
+- (unsigned long long)navigationControllerSupportedInterfaceOrientations:(id)arg1;
+- (void)navigationController:(id)arg1 didShowViewController:(id)arg2 animated:(_Bool)arg3;
+- (void)navigationController:(id)arg1 willShowViewController:(id)arg2 animated:(_Bool)arg3;
 @end
 

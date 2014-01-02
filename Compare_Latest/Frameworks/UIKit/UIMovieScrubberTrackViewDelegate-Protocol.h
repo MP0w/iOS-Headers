@@ -15,6 +15,6 @@
 - (void)movieScrubberTrackViewWillBeginRequestingThumbnails:(id)arg1;
 - (void)movieScrubberTrackViewDidCollapse:(id)arg1;
 - (void)movieScrubberTrackViewDidExpand:(id)arg1;
-- (void)movieScrubberTrackView:(id)arg1 clampedSizeWidthDelta:(float)arg2 actualSizeWidthDelta:(float)arg3 originXDelta:(float)arg4 minimumVisibleValue:(float)arg5 maximumVisibleValue:(float)arg6;
+- (void)movieScrubberTrackView:(id)arg1 clampedSizeWidthDelta:(double)arg2 actualSizeWidthDelta:(double)arg3 originXDelta:(double)arg4 minimumVisibleValue:(double)arg5 maximumVisibleValue:(double)arg6;
 @end
 

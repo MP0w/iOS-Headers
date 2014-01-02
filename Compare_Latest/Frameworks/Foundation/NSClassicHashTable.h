@@ -6,6 +6,7 @@
 
 #import <Foundation/NSHashTable.h>
 
+// Not exported
 @interface NSClassicHashTable : NSHashTable
 {
     struct {
@@ -18,18 +19,18 @@
     struct __CFBasicHash *_ht;
 }
 
-- (void)getKeys:(const void **)arg1 count:(unsigned int *)arg2;
+- (void)getKeys:(const void **)arg1 count:(unsigned long long *)arg2;
 - (id)allObjects;
 - (id)description;
-- (unsigned int)count;
+- (unsigned long long)count;
 - (void)removeItem:(const void *)arg1;
 - (void)insertKnownAbsentItem:(const void *)arg1;
 - (void)addObject:(id)arg1;
 - (void)insertItem:(const void *)arg1;
 - (void *)getItem:(const void *)arg1;
 - (id)copy;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)removeAllItems;
 - (void)dealloc;
 - (id)init;

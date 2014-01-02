@@ -8,11 +8,11 @@
 
 @interface MCStateOperationScalarSet : MCStateOperation
 {
-    float _scalar;
+    double _scalar;
 }
 
-+ (id)stateOperationForTargetPlugObjectID:(id)arg1 withStateKey:(id)arg2 andScalar:(float)arg3;
-@property(nonatomic) float scalar; // @synthesize scalar=_scalar;
++ (id)stateOperationForTargetPlugObjectID:(id)arg1 withStateKey:(id)arg2 andScalar:(double)arg3;
+@property(nonatomic) double scalar; // @synthesize scalar=_scalar;
 - (id)description;
 - (void)_copySelfToSnapshot:(id)arg1;
 - (id)imprint;

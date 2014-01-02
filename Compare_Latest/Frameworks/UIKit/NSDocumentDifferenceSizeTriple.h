@@ -8,6 +8,7 @@
 
 @class NSDocumentDifferenceSize;
 
+// Not exported
 @interface NSDocumentDifferenceSizeTriple : NSObject
 {
     NSDocumentDifferenceSize *_dueToRecentChangesBeforeSaving;

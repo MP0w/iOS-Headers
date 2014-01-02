@@ -6,13 +6,14 @@
 
 #import <OfficeImport/PDEightDirectionOptions.h>
 
+// Not exported
 @interface PDRevealOptions : PDEightDirectionOptions
 {
-    BOOL mIsThroughBlack;
+    _Bool mIsThroughBlack;
 }
 
-- (void)setIsThroughBlack:(BOOL)arg1;
-- (BOOL)isThroughBlack;
+- (void)setIsThroughBlack:(_Bool)arg1;
+- (_Bool)isThroughBlack;
 
 @end
 

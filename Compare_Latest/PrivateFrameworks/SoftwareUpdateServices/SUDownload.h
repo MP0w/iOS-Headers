@@ -18,7 +18,7 @@
     SUDownloadMetadata *_metadata;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) SUDownloadMetadata *metadata; // @synthesize metadata=_metadata;
 @property(retain, nonatomic) SUDescriptor *descriptor; // @synthesize descriptor=_descriptor;
 @property(retain, nonatomic) SUOperationProgress *progress; // @synthesize progress=_progress;

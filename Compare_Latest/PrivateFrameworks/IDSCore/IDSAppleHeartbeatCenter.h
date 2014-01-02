@@ -32,7 +32,7 @@
 - (void)_updateRegistrationHeartbeat;
 - (id)_registrationsPendingHeartbeat;
 - (double)_nextRegistrationHeartbeatTime;
-- (BOOL)_registration:(id)arg1 needsRenewal:(double *)arg2;
+- (_Bool)_registration:(id)arg1 needsRenewal:(double *)arg2;
 - (void)_serverHeartBeatTimerHit:(id)arg1;
 - (void)_serverHeartBeat:(id)arg1;
 - (id)init;

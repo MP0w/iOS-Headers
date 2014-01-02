@@ -8,6 +8,7 @@
 
 @class NSObject<OS_dispatch_queue>, NSString;
 
+// Not exported
 @interface __NSHostExtraIvars : NSObject
 {
     NSString *thingToResolve;
@@ -15,10 +16,10 @@
     NSObject<OS_dispatch_queue> *resolveQueue;
     NSObject<OS_dispatch_queue> *cacheAccessQueue;
     NSObject<OS_dispatch_queue> *callbackQueue;
-    BOOL startedResolving;
+    _Bool startedResolving;
 }
 
-@property BOOL startedResolving; // @synthesize startedResolving;
+@property _Bool startedResolving; // @synthesize startedResolving;
 @property(readonly) NSObject<OS_dispatch_queue> *callbackQueue; // @synthesize callbackQueue;
 @property(readonly) NSObject<OS_dispatch_queue> *cacheAccessQueue; // @synthesize cacheAccessQueue;
 @property(readonly) NSObject<OS_dispatch_queue> *resolveQueue; // @synthesize resolveQueue;

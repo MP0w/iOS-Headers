@@ -8,16 +8,17 @@
 
 @class UIInputViewAnimationStyle, UIInputViewSet, UISnapshotView;
 
+// Not exported
 @interface UIInputViewTransition : NSObject
 {
     UIInputViewSet *oldSet;
     UIInputViewSet *newSet;
     UIInputViewAnimationStyle *animationStyle;
-    BOOL cancelled;
+    _Bool cancelled;
     int animationState;
     double animationStartTime;
-    BOOL skipNotifications;
-    BOOL skipFencing;
+    _Bool skipNotifications;
+    _Bool skipFencing;
     struct CGRect beginFrame;
     struct CGRect endFrame;
     struct CGRect beginFrameScreen;
@@ -26,13 +27,17 @@
     struct CGRect endFloatingFrame;
     struct CGRect beginFloatingFrameScreen;
     struct CGRect endFloatingFrameScreen;
-    BOOL ignoreFrameChanges;
+    _Bool ignoreFrameChanges;
+    int activeClippingMode;
     UISnapshotView *snapshotView;
+    struct CGRect snapshotViewBeginFrame;
     struct CGRect snapshotViewEndFrame;
 }
 
-@property(nonatomic) BOOL ignoreFrameChanges; // @synthesize ignoreFrameChanges;
+@property(nonatomic) int activeClippingMode; // @synthesize activeClippingMode;
+@property(nonatomic) _Bool ignoreFrameChanges; // @synthesize ignoreFrameChanges;
 @property(nonatomic) struct CGRect snapshotViewEndFrame; // @synthesize snapshotViewEndFrame;
+@property(nonatomic) struct CGRect snapshotViewBeginFrame; // @synthesize snapshotViewBeginFrame;
 @property(retain, nonatomic) UISnapshotView *snapshotView; // @synthesize snapshotView;
 @property(nonatomic) struct CGRect endFloatingFrameScreen; // @synthesize endFloatingFrameScreen;
 @property(nonatomic) struct CGRect beginFloatingFrameScreen; // @synthesize beginFloatingFrameScreen;
@@ -42,25 +47,25 @@
 @property(nonatomic) struct CGRect beginFrameScreen; // @synthesize beginFrameScreen;
 @property(nonatomic) struct CGRect endFrame; // @synthesize endFrame;
 @property(nonatomic) struct CGRect beginFrame; // @synthesize beginFrame;
-@property(nonatomic) BOOL skipFencing; // @synthesize skipFencing;
-@property(nonatomic) BOOL skipNotifications; // @synthesize skipNotifications;
+@property(nonatomic) _Bool skipFencing; // @synthesize skipFencing;
+@property(nonatomic) _Bool skipNotifications; // @synthesize skipNotifications;
 @property(nonatomic) double animationStartTime; // @synthesize animationStartTime;
 @property(nonatomic) int animationState; // @synthesize animationState;
-@property(nonatomic) BOOL cancelled; // @synthesize cancelled;
+@property(nonatomic) _Bool cancelled; // @synthesize cancelled;
 @property(retain, nonatomic) UIInputViewAnimationStyle *animationStyle; // @synthesize animationStyle;
 @property(retain, nonatomic) UIInputViewSet *oldSet; // @synthesize oldSet;
 - (id)description;
-- (BOOL)isOnScreen;
-- (BOOL)requiresAutomaticAppearanceEnabled;
-- (BOOL)shouldRecomputeEndFrame;
-- (BOOL)shouldCompleteOnSuspend;
-- (BOOL)isAlmostDone;
-- (BOOL)subsumesTransition:(id)arg1;
+- (_Bool)isOnScreen;
+- (_Bool)requiresAutomaticAppearanceEnabled;
+- (_Bool)shouldRecomputeEndFrame;
+- (_Bool)shouldCompleteOnSuspend;
+- (_Bool)isAlmostDone;
+- (_Bool)subsumesTransition:(id)arg1;
 @property(readonly, nonatomic) int cancelState;
 @property(readonly, nonatomic) int endState;
 @property(readonly, nonatomic) int transitioningState;
 @property(readonly, nonatomic) int beginState;
-- (BOOL)fadeAccessoryView;
+- (_Bool)fadeAccessoryView;
 - (void)postNotificationsForTransitionEnd;
 - (void)postNotificationsForTransitionStart;
 - (id)userInfoForTransition;

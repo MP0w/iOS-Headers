@@ -6,6 +6,7 @@
 
 #import <UIKit/UIRuntimeConnection.h>
 
+// Not exported
 @interface UIRuntimeOutletConnection : UIRuntimeConnection
 {
 }

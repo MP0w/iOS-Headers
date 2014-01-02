@@ -13,10 +13,10 @@
 }
 
 + (void)setDelegate:(id)arg1;
-+ (void)logAtLevel:(int)arg1 forTokenizer:(id)arg2 message:(id)arg3;
++ (void)logAtLevel:(long long)arg1 forTokenizer:(id)arg2 message:(id)arg3;
 + (id)sharedInstance;
 - (void)setDelegate:(id)arg1;
-- (void)logAtLevel:(int)arg1 forTokenizer:(id)arg2 format:(id)arg3 args:(void *)arg4;
+- (void)logAtLevel:(long long)arg1 forTokenizer:(id)arg2 format:(id)arg3 args:(char *)arg4;
 
 @end
 

@@ -8,6 +8,7 @@
 
 @class NSMutableDictionary, WDDocument;
 
+// Not exported
 @interface WDCitationTable : NSObject
 {
     WDDocument *mDocument;
@@ -16,7 +17,7 @@
 
 - (void)addCitation:(id)arg1 forID:(id)arg2;
 - (id)citationFor:(id)arg1;
-- (unsigned int)count;
+- (unsigned long long)count;
 - (id)initWithDocument:(id)arg1;
 - (id)document;
 - (void)dealloc;

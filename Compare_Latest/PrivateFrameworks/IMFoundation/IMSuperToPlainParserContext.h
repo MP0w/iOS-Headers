@@ -11,7 +11,7 @@
 @interface IMSuperToPlainParserContext : IMFromSuperParserContext
 {
     NSMutableString *_plainString;
-    BOOL _extractLinks;
+    _Bool _extractLinks;
 }
 
 - (void)parser:(id)arg1 foundAttributes:(id)arg2 inRange:(struct _NSRange)arg3 characters:(id)arg4;
@@ -19,7 +19,7 @@
 - (id)resultsForLogging;
 - (id)name;
 - (void)dealloc;
-- (id)initWithAttributedString:(id)arg1 extractLinks:(BOOL)arg2;
+- (id)initWithAttributedString:(id)arg1 extractLinks:(_Bool)arg2;
 - (id)initWithAttributedString:(id)arg1;
 
 @end

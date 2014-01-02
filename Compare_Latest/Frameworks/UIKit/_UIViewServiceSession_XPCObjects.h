@@ -10,6 +10,7 @@
 
 @class NSMutableSet, XPCEndpoint, _UIViewServiceXPCListener;
 
+// Not exported
 @interface _UIViewServiceSession_XPCObjects : _UIViewServiceSession <_UIViewServiceSession_HostInterface_XPCObjects>
 {
     _UIViewServiceXPCListener *_listener;

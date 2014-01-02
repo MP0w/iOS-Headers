@@ -6,9 +6,7 @@
 
 #import "NSObject.h"
 
-#import "CKTranscriptDataRowObject-Protocol.h"
-
-@interface CKTranscriptHeader : NSObject <CKTranscriptDataRowObject>
+@interface CKTranscriptHeader : NSObject
 {
     id <CKMessage> _message;
 }
@@ -16,15 +14,6 @@
 @property(retain, nonatomic) id <CKMessage> message; // @synthesize message=_message;
 - (id)initWithMessage:(id)arg1;
 - (void)dealloc;
-- (id)__ck_displayContactImage;
-- (void)__ck_prewarmForDisplay;
-- (BOOL)__ck_displayDuringSend;
-- (BOOL)__ck_displayTranscriptOrientation;
-- (struct UIEdgeInsets)__ck_displayContentAlignmentInsets;
-- (struct CGSize)__ck_displaySize:(struct UIEdgeInsets *)arg1;
-- (id)__ck_displayCellIdentifier;
-- (Class)__ck_displayCellClass;
-- (id)__ck_displayGUIDWithMessage:(id)arg1;
 
 @end
 

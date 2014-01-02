@@ -15,9 +15,9 @@
 
 - (void)maximize;
 - (void)minimize;
-- (BOOL)shouldSaveMinimizationState;
-- (BOOL)canDismiss;
-- (BOOL)isActive;
+- (_Bool)shouldSaveMinimizationState;
+- (_Bool)canDismiss;
+- (_Bool)isActive;
 - (id)initWithFrame:(struct CGRect)arg1 deviceLockView:(id)arg2;
 
 @end

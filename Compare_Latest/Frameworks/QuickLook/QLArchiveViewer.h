@@ -11,7 +11,7 @@
 #import "UITableViewDataSource-Protocol.h"
 #import "UITableViewDelegate-Protocol.h"
 
-@class QLPreviewController, UIDocumentInteractionController, UINavigationController, UIPopoverController, UITableViewController;
+@class QLArchiveTableViewController, QLPreviewController, UIDocumentInteractionController, UINavigationController, UIPopoverController;
 
 @interface QLArchiveViewer : NSObject <UIPopoverControllerDelegate, UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate>
 {
@@ -19,29 +19,30 @@
     UIDocumentInteractionController *_documentInteractionController;
     UINavigationController *_navigationController;
     UIPopoverController *_popoverController;
-    UITableViewController *_tableViewController;
-    BOOL _visible;
+    QLArchiveTableViewController *_tableViewController;
+    _Bool _visible;
 }
 
-- (int)navigationControllerPreferredInterfaceOrientationForPresentation:(id)arg1;
-- (unsigned int)navigationControllerSupportedInterfaceOrientations:(id)arg1;
+- (long long)navigationControllerPreferredInterfaceOrientationForPresentation:(id)arg1;
+- (unsigned long long)navigationControllerSupportedInterfaceOrientations:(id)arg1;
 - (void)popoverControllerDidDismissPopover:(id)arg1;
-- (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(BOOL)arg2;
+- (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(_Bool)arg2;
 - (void)scrollViewDidEndDecelerating:(id)arg1;
 - (void)scrollViewWillBeginDragging:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (BOOL)tableView:(id)arg1 shouldHighlightRowAtIndexPath:(id)arg2;
+- (_Bool)tableView:(id)arg1 shouldHighlightRowAtIndexPath:(id)arg2;
+- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (void)_updateIcon:(id)arg1 forCell:(id)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (void)_updateIcon:(id)arg1 forCell:(id)arg2 template:(_Bool)arg3;
 - (struct CGSize)_imageSize;
 - (void)_cancelUpdateThumbnails;
 - (void)_updateThumbnails;
 - (void)update;
-@property(readonly, getter=isVisible) BOOL visible;
+@property(readonly, getter=isVisible) _Bool visible;
 - (void)dismiss:(id)arg1;
-- (void)dismissAnimated:(BOOL)arg1;
-- (void)presentFromBarButtonItem:(id)arg1 animated:(BOOL)arg2;
+- (void)dismissAnimated:(_Bool)arg1;
+- (void)presentFromBarButtonItem:(id)arg1 animated:(_Bool)arg2;
 - (void)dealloc;
 - (id)initWithPreviewController:(id)arg1;
 

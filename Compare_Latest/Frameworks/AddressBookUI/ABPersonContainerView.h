@@ -13,7 +13,7 @@
 @interface ABPersonContainerView : UIView <ABPersonTabsLayoutManager>
 {
     UISegmentedControl *_contentSwitchingTabs;
-    BOOL _hidesContentSwitchingTabs;
+    _Bool _hidesContentSwitchingTabs;
     UIView *_nonScrollableHeaderView;
     ABPersonTableView *_tableView;
     ABPersonTableViewDataSource *_dataSource;
@@ -22,7 +22,7 @@
     UIImageView *_contentSwitchingTabsBorder;
 }
 
-@property(nonatomic) BOOL hidesContentSwitchingTabs; // @synthesize hidesContentSwitchingTabs=_hidesContentSwitchingTabs;
+@property(nonatomic) _Bool hidesContentSwitchingTabs; // @synthesize hidesContentSwitchingTabs=_hidesContentSwitchingTabs;
 @property(retain, nonatomic) UIImageView *contentSwitchingTabsBorder; // @synthesize contentSwitchingTabsBorder=_contentSwitchingTabsBorder;
 @property(retain, nonatomic) UIImageView *contentSwitchingTabsPocketShadow; // @synthesize contentSwitchingTabsPocketShadow=_contentSwitchingTabsPocketShadow;
 @property(retain, nonatomic) UISegmentedControl *contentSwitchingTabs; // @synthesize contentSwitchingTabs=_contentSwitchingTabs;
@@ -36,8 +36,8 @@
 - (void)didChangeContentOffset:(struct CGPoint)arg1 inScrollView:(id)arg2;
 - (void)repositionContentSwitchingTabs;
 - (void)moveContentSwitchingTabsAboveView:(id)arg1 inScrollView:(id)arg2;
-- (float)heightForHeaderAndContentSwitchingTabs;
-- (float)heightNeededForContentSwitchingTabs;
+- (double)heightForHeaderAndContentSwitchingTabs;
+- (double)heightNeededForContentSwitchingTabs;
 - (void)setFrame:(struct CGRect)arg1;
 @property(readonly, nonatomic) UIScrollView<ABPersonTabsScrollView> *currentScrollView;
 - (id)viewContainingHeaderView;

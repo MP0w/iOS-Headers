@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class GEODownloadMetadata, GEOResources;
 
-@interface GEOResourceManifestDownload : PBCodable
+@interface GEOResourceManifestDownload : PBCodable <NSCopying>
 {
     GEODownloadMetadata *_metadata;
     GEOResources *_resources;
@@ -16,14 +18,15 @@
 
 @property(retain, nonatomic) GEODownloadMetadata *metadata; // @synthesize metadata=_metadata;
 @property(retain, nonatomic) GEOResources *resources; // @synthesize resources=_resources;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) BOOL hasResources;
+@property(readonly, nonatomic) _Bool hasResources;
 - (void)dealloc;
 
 @end

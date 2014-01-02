@@ -9,28 +9,28 @@
 @class NSString;
 
 @interface MFAttachment (Utilities)
-- (BOOL)hasCalendarMetadata;
+- (_Bool)hasCalendarMetadata;
 @property(retain, nonatomic) NSString *icsRepresentation;
 @property(retain, nonatomic) NSString *meetingStorePersistentID;
 @property(retain, nonatomic) NSString *eventID;
 - (void)writeToDiskWithData:(id)arg1;
-- (id)filenameStrippingZipIfNeededUseApplications:(BOOL)arg1;
-- (BOOL)isDisplayableInlineWithData:(id)arg1;
-- (BOOL)isDisplayableInsidePluginWithData:(id)arg1;
-- (BOOL)isDisplayableInline;
-- (BOOL)isDisplayableInsidePlugin;
-- (BOOL)isDisplayableByWebKit;
-- (BOOL)isDisplayableImage;
-- (BOOL)isContentOpenable;
-- (BOOL)isContentTypeDisplayableByMobileMail;
-- (BOOL)isCalendarFile;
-- (BOOL)isRFC822;
-- (BOOL)isPDFFile;
-- (BOOL)isMedia;
-- (BOOL)isImageFile;
-- (BOOL)isRestrictedMIMEType;
+- (id)filenameStrippingZipIfNeededUseApplications:(_Bool)arg1;
+- (_Bool)isDisplayableInlineWithData:(id)arg1;
+- (_Bool)isDisplayableInsidePluginWithData:(id)arg1;
+- (_Bool)isDisplayableInline;
+- (_Bool)isDisplayableInsidePlugin;
+- (_Bool)isDisplayableByWebKit;
+- (_Bool)isDisplayableImage;
+- (_Bool)isContentOpenable;
+- (_Bool)isContentTypeDisplayableByMobileMail;
+- (_Bool)isCalendarFile;
+- (_Bool)isRFC822;
+- (_Bool)isPDFFile;
+- (_Bool)isMedia;
+- (_Bool)isImageFile;
+- (_Bool)isRestrictedMIMEType;
 - (id)fileAttributes;
 - (id)contentType;
-- (id)_contentTypeByStrippingZipIfNeeded:(BOOL)arg1;
+- (id)_contentTypeByStrippingZipIfNeeded:(_Bool)arg1;
 @end
 

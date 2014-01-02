@@ -6,34 +6,30 @@
 
 #import <ChatKit/CKColoredBalloonView.h>
 
-@class CKMediaObject, UIImageView, UILabel, UIView;
+@class CKMediaObject, UIImageView, UILabel;
 
 @interface CKContactBalloonView : CKColoredBalloonView
 {
     CKMediaObject *_mediaObject;
-    UIView *_contentView;
-    UIImageView *_iconView;
-    UIImageView *_chevronView;
+    UIImageView *_chevron;
+    UIImageView *_contactImageView;
     UILabel *_nameLabel;
     UILabel *_organizationLabel;
-    float _fullNameLength;
-    float _fullOrganizationLength;
 }
 
-@property(nonatomic) float fullOrganizationLength; // @synthesize fullOrganizationLength=_fullOrganizationLength;
-@property(nonatomic) float fullNameLength; // @synthesize fullNameLength=_fullNameLength;
 @property(retain, nonatomic) UILabel *organizationLabel; // @synthesize organizationLabel=_organizationLabel;
 @property(retain, nonatomic) UILabel *nameLabel; // @synthesize nameLabel=_nameLabel;
-@property(retain, nonatomic) UIImageView *chevronView; // @synthesize chevronView=_chevronView;
-@property(retain, nonatomic) UIImageView *iconView; // @synthesize iconView=_iconView;
-@property(retain, nonatomic) UIView *contentView; // @synthesize contentView=_contentView;
+@property(retain, nonatomic) UIImageView *contactImageView; // @synthesize contactImageView=_contactImageView;
+@property(retain, nonatomic) UIImageView *chevron; // @synthesize chevron=_chevron;
 @property(retain, nonatomic) CKMediaObject *mediaObject; // @synthesize mediaObject=_mediaObject;
-- (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1 textAlignmentInsets:(struct UIEdgeInsets *)arg2;
-- (struct CGRect)_verticalAlignmentOfRect:(struct CGRect)arg1 inRect:(struct CGRect)arg2;
-- (void)dealloc;
+- (void)prepareForDisplay;
+- (void)prepareForReuse;
+- (struct UIEdgeInsets)alignmentRectInsets;
+- (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (void)configureForMessagePart:(id)arg1;
+- (id)description;
+- (void)dealloc;
 
 @end
 

@@ -7,6 +7,6 @@
 #import "GEOQuickETARequester.h"
 
 @interface GEOQuickETARequester (RTExtras)
-- (void)calculateETALocalizedDescriptionWithLOI:(id)arg1 handler:(id)arg2;
+- (void)calculateETALocalizedDescriptionFromOrigin:(id)arg1 toLOI:(id)arg2 handler:(id)arg3;
 @end
 

@@ -7,10 +7,10 @@
 #import "NSObject-Protocol.h"
 
 @protocol TPStarkInCallButtonsViewDelegate <NSObject>
-- (BOOL)isSwapCallsAllowed;
-- (BOOL)isMergeCallsAllowed;
-- (BOOL)isAddCallAllowed;
-- (BOOL)isMuted;
+- (_Bool)isSwapCallsAllowed;
+- (_Bool)isMergeCallsAllowed;
+- (_Bool)isAddCallAllowed;
+- (_Bool)isMuted;
 - (void)inCallButtonWasTapped:(id)arg1;
 @end
 

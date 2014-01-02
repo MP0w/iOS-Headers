@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface ODIHNodeInfo : NSObject
 {
     int mTreeDepth;
     int mRow;
     struct ODIHRange mXRange;
-    BOOL mConnectToVerticalSide;
+    _Bool mConnectToVerticalSide;
     int mExtraRowsBetweenParentAndSelf;
     float mXOffsetRelativeToParent;
     struct ODIHRangeVector *mXRanges;
@@ -24,8 +25,8 @@
 - (float)xOffsetRelativeToParent;
 - (void)setExtraRowsBetweenParentAndSelf:(int)arg1;
 - (int)extraRowsBetweenParentAndSelf;
-- (void)setConnectToVerticalSide:(BOOL)arg1;
-- (BOOL)connectToVerticalSide;
+- (void)setConnectToVerticalSide:(_Bool)arg1;
+- (_Bool)connectToVerticalSide;
 - (void)setRow:(int)arg1;
 - (int)row;
 - (void)setTreeDepth:(int)arg1;

@@ -8,6 +8,7 @@
 
 @class NSString, UILabel;
 
+// Not exported
 @interface EKEventDetailOrganizerCell : EKEventDetailCell
 {
     NSString *_organizerName;
@@ -16,13 +17,13 @@
 }
 
 - (void).cxx_destruct;
-- (void)layoutForWidth:(float)arg1 position:(int)arg2;
+- (void)layoutForWidth:(double)arg1 position:(int)arg2;
 - (id)_organizerView;
 - (id)_titleView;
-- (BOOL)update;
-- (BOOL)shouldDisplayForEvent;
-- (BOOL)hasCustomLayout;
-- (id)initWithEvent:(id)arg1 editable:(BOOL)arg2;
+- (_Bool)update;
+- (_Bool)shouldDisplayForEvent;
+- (_Bool)hasCustomLayout;
+- (id)initWithEvent:(id)arg1 editable:(_Bool)arg2;
 
 @end
 

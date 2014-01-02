@@ -8,16 +8,16 @@
 
 @interface MPAbstractAlternateTracksViewController : MPViewController
 {
-    unsigned int _selectedTracks[2];
-    unsigned int _previousTracks[2];
+    unsigned long long _selectedTracks[2];
+    unsigned long long _previousTracks[2];
 }
 
-- (BOOL)_hasSubtitlesGroup;
-- (BOOL)_hasAudioGroup;
-- (unsigned int)typeForGroup:(int)arg1;
-- (unsigned int)indexForGroup:(int)arg1;
-- (id)arrayForGroup:(int)arg1;
-- (unsigned int)countOfGroups;
+- (_Bool)_hasSubtitlesGroup;
+- (_Bool)_hasAudioGroup;
+- (unsigned long long)typeForGroup:(long long)arg1;
+- (unsigned long long)indexForGroup:(long long)arg1;
+- (id)arrayForGroup:(long long)arg1;
+- (unsigned long long)countOfGroups;
 - (id)alternateTracks;
 - (void)saveChanges;
 - (void)removeLoadingUI;

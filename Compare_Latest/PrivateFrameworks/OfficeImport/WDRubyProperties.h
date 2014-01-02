@@ -6,31 +6,31 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface WDRubyProperties : NSObject
 {
     unsigned int mOriginal:1;
-    CDStruct_1d177db0 *mOriginalProperties;
+    CDStruct_1cdbed2b *mOriginalProperties;
 }
 
 - (void)clearPhoneticGuideLanguage;
-- (BOOL)isPhoneticGuideLanguageOverridden;
+- (_Bool)isPhoneticGuideLanguageOverridden;
 @property(nonatomic) int phoneticGuideLanguage;
 - (void)clearDistanceBetween;
-- (BOOL)isDistanceBetweenOverridden;
+- (_Bool)isDistanceBetweenOverridden;
 @property(nonatomic) unsigned short distanceBetween;
 - (void)clearBaseFontSize;
-- (BOOL)isBaseFontSizeOverridden;
+- (_Bool)isBaseFontSizeOverridden;
 @property(nonatomic) unsigned short baseFontSize;
 - (void)clearPhoneticGuideFontSize;
-- (BOOL)isPhoneticGuideFontSizeOverridden;
+- (_Bool)isPhoneticGuideFontSizeOverridden;
 @property(nonatomic) unsigned short phoneticGuideFontSize;
 - (void)clearAlignment;
-- (BOOL)isAlignmentOverridden;
+- (_Bool)isAlignmentOverridden;
 @property(nonatomic) int alignment;
-- (BOOL)isAnythingOverridden;
+- (_Bool)isAnythingOverridden;
 - (void)dealloc;
 - (id)init;
-- (BOOL)isAnythingOverriddenIn:(CDStruct_1d177db0 *)arg1;
 
 @end
 

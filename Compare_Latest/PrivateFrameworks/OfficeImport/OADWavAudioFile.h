@@ -6,13 +6,14 @@
 
 #import <OfficeImport/OADEmbeddedMediaFile.h>
 
+// Not exported
 @interface OADWavAudioFile : OADEmbeddedMediaFile
 {
     float mDuration;
-    BOOL mHasDuration;
+    _Bool mHasDuration;
 }
 
-@property(nonatomic) BOOL hasDuration; // @synthesize hasDuration=mHasDuration;
+@property(nonatomic) _Bool hasDuration; // @synthesize hasDuration=mHasDuration;
 @property(nonatomic) float duration; // @synthesize duration=mDuration;
 
 @end

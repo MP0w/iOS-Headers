@@ -6,13 +6,14 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface _UICollectionViewTrackedValueItem : NSObject
 {
     double _timeStamp;
-    float _value;
+    double _value;
 }
 
-@property(nonatomic) float value; // @synthesize value=_value;
+@property(nonatomic) double value; // @synthesize value=_value;
 @property(nonatomic) double timeStamp; // @synthesize timeStamp=_timeStamp;
 
 @end

@@ -10,8 +10,8 @@
 {
 }
 
-+ (unsigned int)maxIcons;
-- (BOOL)allowsAddingIcon:(id)arg1;
++ (unsigned long long)maxIcons;
+- (_Bool)allowsAddingIcon:(id)arg1;
 
 @end
 

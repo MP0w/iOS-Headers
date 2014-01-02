@@ -15,7 +15,7 @@
 
 @property(retain, nonatomic) SKUICountdown *countdown; // @synthesize countdown=_countdown;
 - (void).cxx_destruct;
-- (int)componentType;
+- (long long)componentType;
 - (id)initWithCustomPageContext:(id)arg1;
 
 @end

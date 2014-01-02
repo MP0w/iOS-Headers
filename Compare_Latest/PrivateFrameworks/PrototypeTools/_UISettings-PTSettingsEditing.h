@@ -8,7 +8,7 @@
 
 @interface _UISettings (PTSettingsEditing)
 + (id)settingsControllerModule;
-- (BOOL)isSimilarToSettings:(id)arg1;
+- (_Bool)isSimilarToSettings:(id)arg1;
 - (void)settingsResetByHUD;
 - (id)settingsHUDInfoLabelString;
 - (id)settingsHUDConfiguration;

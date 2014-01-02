@@ -7,8 +7,8 @@
 #import "NSError.h"
 
 @interface NSError (ISAdditions)
-- (BOOL)isFatalError;
-- (BOOL)isEqual:(id)arg1 compareUserInfo:(BOOL)arg2;
-- (id)errorBySettingFatalError:(BOOL)arg1;
+- (_Bool)isFatalError;
+- (_Bool)isEqual:(id)arg1 compareUserInfo:(_Bool)arg2;
+- (id)errorBySettingFatalError:(_Bool)arg1;
 @end
 

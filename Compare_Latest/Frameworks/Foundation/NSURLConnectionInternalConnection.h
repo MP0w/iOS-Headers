@@ -10,6 +10,7 @@
 
 @class NSURLAuthenticationChallenge;
 
+// Not exported
 @interface NSURLConnectionInternalConnection : NSURLConnectionInternal <NSURLConnectionRequired>
 {
     int _cfConnLock;
@@ -43,7 +44,6 @@
 - (struct _CFURLConnection *)_atomic_CFURLConnection;
 - (struct _CFURLConnection *)_CFURLConnection;
 - (id)initWithInfo:(const struct InternalInit *)arg1;
-- (void)sendCFChallenge:(struct _CFURLAuthChallenge *)arg1 toSelector:(SEL)arg2;
 
 @end
 

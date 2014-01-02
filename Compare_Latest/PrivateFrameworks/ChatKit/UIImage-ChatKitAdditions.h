@@ -9,10 +9,11 @@
 @interface UIImage (ChatKitAdditions)
 + (id)__ck_documentIconNamed:(id)arg1;
 + (id)ckImageWithData:(id)arg1;
++ (id)abImageNamed:(id)arg1;
 + (id)ckImageNamed:(id)arg1;
 - (void)decode;
 - (struct CGRect)__ck_contentsCenter;
-- (id)__ck_imageWithOrientation:(int)arg1;
-- (id)__ck_resizableBalloonWithOrientation:(BOOL)arg1 skinny:(BOOL)arg2 framed:(BOOL)arg3;
+- (id)__ck_imageWithOrientation:(long long)arg1;
+- (id)__ck_resizableBalloonWithOrientation:(BOOL)arg1 skinny:(_Bool)arg2 framed:(_Bool)arg3;
 @end
 

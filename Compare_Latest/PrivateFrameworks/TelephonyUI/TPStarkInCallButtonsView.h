@@ -10,10 +10,10 @@
 
 @interface TPStarkInCallButtonsView : UIView
 {
-    int _highlightedControlIndex;
+    long long _highlightedControlIndex;
     int _buttonsMode;
-    id <TPStarkInCallButtonsViewDelegate> _delegate;
     float _buttonDistributionScalingFactor;
+    id <TPStarkInCallButtonsViewDelegate> _delegate;
     NSMutableDictionary *_buttonsDictionary;
     NSArray *_buttonsArray;
     NSMutableArray *_buttonDividerViews;
@@ -30,18 +30,18 @@
 - (void)buttonWasTapped:(id)arg1;
 - (id)keyForButtonType:(int)arg1;
 - (id)existingButtonsNotInArray:(id)arg1;
-- (id)buttonForButtonType:(int)arg1 createIfNecessary:(BOOL)arg2 createWithHorizontalPositionFraction:(float)arg3;
+- (id)buttonForButtonType:(int)arg1 createIfNecessary:(_Bool)arg2 createWithHorizontalPositionFraction:(float)arg3;
 - (void)updateButtonsForCallModelState;
 - (float)distributedFractionForUndistributedFraction:(float)arg1;
 - (void)applyHorizontalPositioningConstraintWithFraction:(float)arg1 forDividerView:(id)arg2;
 - (void)applyHorizontalPositioningConstraintWithFraction:(float)arg1 forButton:(id)arg2;
 - (void)removeButtons:(id)arg1;
-- (void)setButtonsMode:(int)arg1 animated:(BOOL)arg2;
-- (void)setMuted:(BOOL)arg1;
+- (void)setButtonsMode:(int)arg1 animated:(_Bool)arg2;
+- (void)setMuted:(_Bool)arg1;
 - (void)performActionForHighlightedControl;
-@property(readonly) int numberOfControls;
-@property(nonatomic) int highlightedControlIndex;
-- (int)nextHighlightableControlFromIndex:(int)arg1 ascending:(BOOL)arg2;
+@property(readonly) long long numberOfControls;
+@property(nonatomic) long long highlightedControlIndex;
+- (long long)nextHighlightableControlFromIndex:(long long)arg1 ascending:(_Bool)arg2;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

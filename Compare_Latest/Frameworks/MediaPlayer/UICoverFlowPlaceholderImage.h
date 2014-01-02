@@ -10,7 +10,7 @@
 {
 }
 
-- (BOOL)mpIsCoverflowPlaceholder;
+- (_Bool)mpIsCoverflowPlaceholder;
 
 @end
 

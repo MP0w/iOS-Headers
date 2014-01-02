@@ -10,9 +10,9 @@
 {
 }
 
-+ (float)_labelHeight;
-+ (Class)_labelImageParametersClassForIcon:(id)arg1;
-- (float)_labelVerticalOffset;
++ (double)_labelHeight;
++ (struct CGSize)maxLabelSize;
+- (double)_labelVerticalOffset;
 
 @end
 

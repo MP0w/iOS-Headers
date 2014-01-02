@@ -9,7 +9,7 @@
 @class SKNode;
 
 @interface PKPhysicsBody (SKPhysicsBody)
-- (id)_descriptionFormat;
+- (id)_descriptionClassName;
 @property(readonly, nonatomic) SKNode *node;
 @end
 

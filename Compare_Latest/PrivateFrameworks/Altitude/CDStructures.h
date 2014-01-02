@@ -11,8 +11,8 @@ struct BitField<unsigned int> {
 };
 
 struct CGSize {
-    float width;
-    float height;
+    double width;
+    double height;
 };
 
 struct Context;
@@ -124,19 +124,18 @@ struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>
         struct __rep {
             union {
                 struct __long {
-                    unsigned int _field1;
-                    unsigned int _field2;
-                    char *_field3;
+                    char *_field1;
+                    unsigned long long _field2;
+                    unsigned long long _field3;
                 } _field1;
                 struct __short {
-                    union {
+                    char _field1[23];
+                    struct {
                         unsigned char _field1;
-                        char _field2;
-                    } _field1;
-                    char _field2[11];
+                    } _field2;
                 } _field2;
                 struct __raw {
-                    unsigned long _field1[3];
+                    unsigned long long _field1[3];
                 } _field3;
             } _field1;
         } _field1;
@@ -150,7 +149,7 @@ struct map<_GEOTileKey, std::__1::shared_ptr<altitude::GeoServicesLoadJob>, GEOT
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
         } __pair1_;
         struct __compressed_pair<unsigned long, std::__1::__map_value_compare<_GEOTileKey, std::__1::shared_ptr<altitude::GeoServicesLoadJob>, GEOTileKeyComp, true>> {
-            unsigned long __first_;
+            unsigned long long __first_;
         } __pair3_;
     } __tree_;
 };
@@ -162,7 +161,7 @@ struct map<std::__1::basic_string<char>, karo::Node::InputSlot, std::__1::less<s
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
         } _field2;
         struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::basic_string<char>, karo::Node::InputSlot, std::__1::less<std::__1::basic_string<char>>, true>> {
-            unsigned long _field1;
+            unsigned long long _field1;
         } _field3;
     } _field1;
 };
@@ -184,8 +183,8 @@ struct vector<karo::Node *, std::__1::allocator<karo::Node *>> {
 
 typedef struct {
     void *opaque1;
-    long opaque2;
-} CDStruct_632c0709;
+    long long opaque2;
+} CDStruct_7d855afc;
 
 // Template types
 typedef struct shared_ptr<altitude::GeoServicesLoadJob> {

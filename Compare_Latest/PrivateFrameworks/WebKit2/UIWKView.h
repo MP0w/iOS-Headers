@@ -10,12 +10,13 @@
 
 @class WKBrowsingContextController;
 
+// Not exported
 @interface UIWKView : UIView <UIScrollViewDelegate>
 {
     struct OwnPtr<WebKit::PageClientImpl> _pageClient;
     struct RefPtr<WebKit::WebPageGroup> _pageGroup;
     struct RefPtr<WebKit::WebPageProxy> _page;
-    BOOL _webProcessIsRunning;
+    _Bool _webProcessIsRunning;
     struct CGSize _contentsSize;
     struct RetainPtr<UIView> _rootContentView;
     struct RetainPtr<WKScrollView> _scrollView;
@@ -27,11 +28,11 @@
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)scrollViewDidEndZooming:(id)arg1 withView:(id)arg2 atScale:(float)arg3;
+- (void)scrollViewDidEndZooming:(id)arg1 withView:(id)arg2 atScale:(double)arg3;
 - (id)viewForZoomingInScrollView:(id)arg1;
 - (void)scrollViewDidScrollToTop:(id)arg1;
 - (void)scrollViewDidEndDecelerating:(id)arg1;
-- (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(BOOL)arg2;
+- (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(_Bool)arg2;
 @property(readonly, nonatomic) WKBrowsingContextController *browsingContextController;
 - (void)_updateViewSettings;
 - (void)_frameOrBoundsChanged;
@@ -41,15 +42,6 @@
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)commonInitialization;
-- (void)_selectionChanged;
-- (void)_stopAssistingNode;
-- (void)_startAssistingNode;
-- (void)_didGetTapHighlightForRequest:(unsigned long long)arg1 color:(const struct Color *)arg2 quads:(const Vector_59222031 *)arg3 topLeftRadius:(const struct IntSize *)arg4 topRightRadius:(const struct IntSize *)arg5 bottomLeftRadius:(const struct IntSize *)arg6 bottomRightRadius:(const struct IntSize *)arg7;
-- (void)_didFinishScrolling:(id)arg1;
-- (void)_enterAcceleratedCompositingMode:(const struct LayerTreeContext *)arg1;
-- (void)_webProcessIsRunning:(BOOL)arg1;
-- (void)_didChangeContentsSize:(struct CGSize)arg1;
-- (PassOwnPtr_4d2f5da3)_createDrawingAreaProxy;
 
 @end
 

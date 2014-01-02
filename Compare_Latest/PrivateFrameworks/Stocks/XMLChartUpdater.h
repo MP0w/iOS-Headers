@@ -12,19 +12,19 @@
 {
     id _delegate;
     Stock *_stock;
-    int _interval;
+    long long _interval;
     StockChartData *_currentChartData;
     XMLChartParserData *_chartParserData;
 }
 
-+ (id)_rangeStringForInterval:(int)arg1;
++ (id)_rangeStringForInterval:(long long)arg1;
 @property(nonatomic) __weak id delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)aggregateDictionaryDomain;
 - (void)failWithError:(id)arg1;
 - (void)didParseData;
 - (int)parseData:(id)arg1;
-- (BOOL)updateChartForStock:(id)arg1 interval:(int)arg2;
+- (_Bool)updateChartForStock:(id)arg1 interval:(long long)arg2;
 - (void)cancel;
 - (id)init;
 

@@ -6,11 +6,12 @@
 
 #import <UIKit/UIWindow.h>
 
+// Not exported
 @interface UIPrintPanelWindow : UIWindow
 {
 }
 
-- (BOOL)_affectsTintView;
+- (_Bool)_canAffectStatusBarAppearance;
 
 @end
 

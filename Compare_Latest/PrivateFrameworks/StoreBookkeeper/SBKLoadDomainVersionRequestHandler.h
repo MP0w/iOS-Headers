@@ -12,17 +12,17 @@
 
 @interface SBKLoadDomainVersionRequestHandler : SBKSyncRequestHandler <SBKSyncTransactionProcessing>
 {
-    BOOL _loadsRemoteItemCount;
-    unsigned int _responseItemCount;
-    unsigned int _itemCount;
+    _Bool _loadsRemoteItemCount;
+    unsigned long long _responseItemCount;
+    unsigned long long _itemCount;
     SBKSyncTransaction *_transaction;
 }
 
-+ (int)conflictDetectionType;
++ (long long)conflictDetectionType;
 @property(retain) SBKSyncTransaction *transaction; // @synthesize transaction=_transaction;
-@property unsigned int itemCount; // @synthesize itemCount=_itemCount;
-@property(readonly) unsigned int responseItemCount; // @synthesize responseItemCount=_responseItemCount;
-@property BOOL loadsRemoteItemCount; // @synthesize loadsRemoteItemCount=_loadsRemoteItemCount;
+@property unsigned long long itemCount; // @synthesize itemCount=_itemCount;
+@property(readonly) unsigned long long responseItemCount; // @synthesize responseItemCount=_responseItemCount;
+@property _Bool loadsRemoteItemCount; // @synthesize loadsRemoteItemCount=_loadsRemoteItemCount;
 - (void).cxx_destruct;
 - (void)runWithCompletionHandler:(id)arg1;
 

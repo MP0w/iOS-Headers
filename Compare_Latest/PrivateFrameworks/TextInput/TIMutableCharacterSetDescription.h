@@ -10,7 +10,7 @@
 {
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 - (void)addCharactersInString:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 

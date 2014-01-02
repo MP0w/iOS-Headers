@@ -6,13 +6,14 @@
 
 #import <OfficeImport/CPDumpType.h>
 
+// Not exported
 @interface CPDumpBlob : CPDumpType
 {
-    unsigned long mSize;
+    unsigned long long mSize;
 }
 
 - (void)fromBinary:(struct __sFILE *)arg1 toXml:(struct _xmlNode *)arg2 state:(id)arg3;
-- (id)initWithSize_:(unsigned long)arg1;
+- (id)initWithSize_:(unsigned long long)arg1;
 
 @end
 

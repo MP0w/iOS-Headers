@@ -8,12 +8,13 @@
 
 @class NSManagedObjectContext;
 
+// Not exported
 @interface NSMemoryStoreEqualityPredicateOperator : NSEqualityPredicateOperator
 {
     NSManagedObjectContext *_context;
 }
 
-- (BOOL)performPrimitiveOperationUsingObject:(id)arg1 andObject:(id)arg2;
+- (_Bool)performPrimitiveOperationUsingObject:(id)arg1 andObject:(id)arg2;
 - (void)setContext:(id)arg1;
 - (void)dealloc;
 

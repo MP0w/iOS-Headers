@@ -7,6 +7,6 @@
 #import "NSString.h"
 
 @interface NSString (_CoreData_Extensions)
-- (int)_caseInsensitiveNumericCompare:(id)arg1;
+- (long long)_caseInsensitiveNumericCompare:(id)arg1;
 @end
 

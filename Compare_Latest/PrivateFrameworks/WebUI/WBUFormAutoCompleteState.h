@@ -8,7 +8,7 @@
 
 #import "UIActionSheetDelegate-Protocol.h"
 
-@class DOMHTMLInputElement, NSDictionary, NSMutableDictionary, WebFrame;
+@class DOMHTMLInputElement, NSArray, NSDictionary, NSMutableDictionary, WebFrame;
 
 @interface WBUFormAutoCompleteState : NSObject <UIActionSheetDelegate>
 {
@@ -16,30 +16,37 @@
     WebFrame *_webFrame;
     NSDictionary *_formMetadata;
     NSDictionary *_textFieldMetadata;
-    unsigned int _formType;
-    BOOL _gatheringFormValues;
+    unsigned long long _formType;
+    long long _action;
+    _Bool _gatheringFormValues;
     NSDictionary *_formValues;
-    BOOL _canAutoComplete;
+    NSArray *_potentialCredentialMatches;
+    _Bool _canAutoComplete;
     NSMutableDictionary *_matchesByCompletion;
 }
 
-+ (BOOL)_shouldSaveCredentialsInProtectionSpace:(id)arg1;
++ (_Bool)_shouldSaveCredentialsInProtectionSpace:(id)arg1;
 @property(readonly, nonatomic) WebFrame *webFrame; // @synthesize webFrame=_webFrame;
+- (void)_offerToAutoFillFromPotentialCredentialMatches;
 - (void)_generateAndSuggestPassword;
-- (id)_titleOfPasswordGenerationAssistanceAutoFillButton;
-- (BOOL)_passwordGenerationAssistanceAutoFillButtonEnabled;
-- (BOOL)_shouldUsePasswordGenerationAssistanceForTextField;
+- (long long)_passwordGenerationAssistanceAction;
+- (_Bool)_passwordGenerationAssistanceAutoFillButtonEnabled;
+- (_Bool)_shouldUsePasswordGenerationAssistanceForTextField;
 - (void)_autoFillCreditCardData;
 - (void)_autoFillFormWithCreditCardData:(id)arg1;
-- (id)_titleOfCreditCardAutoFillButton;
-- (BOOL)_textFieldLooksLikeCreditCardFormField;
+- (_Bool)_canAutoFillCreditCardData;
+- (_Bool)_textFieldLooksLikeCreditCardFormField;
 - (id)_matchesForPartialString:(id)arg1;
 - (void)_ensureFormMetadata;
 - (void)acceptedAutoFillWord:(id)arg1;
 - (id)suggestionsForString:(id)arg1;
-- (BOOL)hasCurrentSuggestions;
+- (_Bool)hasCurrentSuggestions;
 - (void)autoFill;
+- (void)_showDisallowedActionAlert;
+- (long long)_action;
 - (id)titleOfAutoFillButton;
+- (void)_updateAutoFillButton;
+- (void)_gatherFormValuesWithCompletionHandler:(id)arg1;
 - (void)dealloc;
 - (void)invalidate;
 - (id)initWithTextField:(id)arg1 webFrame:(id)arg2;

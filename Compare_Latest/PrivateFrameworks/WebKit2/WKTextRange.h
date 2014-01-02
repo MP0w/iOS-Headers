@@ -8,34 +8,33 @@
 
 @class NSArray, NSString;
 
+// Not exported
 @interface WKTextRange : UITextRange
 {
     struct CGRect _startRect;
     struct CGRect _endRect;
-    BOOL _isNone;
-    BOOL _isRange;
-    BOOL _isEditable;
+    _Bool _isNone;
+    _Bool _isRange;
+    _Bool _isEditable;
     NSString *_textForSelection;
     NSArray *_selectionRects;
 }
 
-+ (id)textRangeWithState:(BOOL)arg1 isRange:(BOOL)arg2 isEditable:(BOOL)arg3 startRect:(struct CGRect)arg4 endRect:(struct CGRect)arg5 selectionRects:(id)arg6 textForSelection:(id)arg7;
++ (id)textRangeWithState:(_Bool)arg1 isRange:(_Bool)arg2 isEditable:(_Bool)arg3 startRect:(struct CGRect)arg4 endRect:(struct CGRect)arg5 selectionRects:(id)arg6 textForSelection:(id)arg7;
 @property(copy, nonatomic) NSArray *selectionRects; // @synthesize selectionRects=_selectionRects;
 @property(copy, nonatomic) NSString *textForSelection; // @synthesize textForSelection=_textForSelection;
-@property(nonatomic) BOOL isEditable; // @synthesize isEditable=_isEditable;
-@property(nonatomic) BOOL isRange; // @synthesize isRange=_isRange;
-@property(nonatomic) BOOL isNone; // @synthesize isNone=_isNone;
+@property(nonatomic) _Bool isEditable; // @synthesize isEditable=_isEditable;
+@property(nonatomic) _Bool isRange; // @synthesize isRange=_isRange;
+@property(nonatomic) _Bool isNone; // @synthesize isNone=_isNone;
 @property(nonatomic) struct CGRect endRect; // @synthesize endRect=_endRect;
 @property(nonatomic) struct CGRect startRect; // @synthesize startRect=_startRect;
 - (id).cxx_construct;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isEmpty;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)isEmpty;
 - (id)end;
 - (id)start;
 - (id)description;
 - (void)dealloc;
-- (BOOL)_isRanged;
-- (BOOL)_isCaret;
 
 @end
 

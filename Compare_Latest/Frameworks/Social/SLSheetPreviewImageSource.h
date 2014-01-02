@@ -8,6 +8,7 @@
 
 @class ALAssetsLibrary, AVAssetImageGenerator;
 
+// Not exported
 @interface SLSheetPreviewImageSource : NSObject
 {
     ALAssetsLibrary *_assetsLibrary;

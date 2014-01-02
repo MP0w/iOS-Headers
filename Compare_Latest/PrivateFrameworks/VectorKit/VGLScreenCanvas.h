@@ -4,62 +4,79 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "CAEAGLLayer.h"
+#import "CALayer.h"
 
 #import "VGLCanvas-Protocol.h"
 
-@class VGLContext, VGLFramebuffer;
+@class VGLContext, VGLFramebuffer, VGLLayer;
 
-@interface VGLScreenCanvas : CAEAGLLayer <VGLCanvas>
+// Not exported
+@interface VGLScreenCanvas : CALayer <VGLCanvas>
 {
     VGLContext *_targetContext;
-    int _canvasWidth;
-    int _canvasHeight;
-    BOOL _useDepthBuffer;
-    BOOL _useStencilBuffer;
-    BOOL _useMultisampling;
-    BOOL _requiresMultisampling;
+    long long _canvasWidth;
+    long long _canvasHeight;
+    _Bool _useDepthBuffer;
+    _Bool _useStencilBuffer;
+    _Bool _useMultisampling;
+    _Bool _requiresMultisampling;
     struct _VGLColor _glClearColor;
     struct CGContext *_snapshotContext;
-    BOOL _forceRecreateFramebuffer;
-    BOOL _forceRecreateFramebufferAndKeepMultisampleFramebuffer;
+    _Bool _forceRecreateFramebuffer;
+    _Bool _forceRecreateFramebufferAndKeepMultisampleFramebuffer;
     VGLFramebuffer *_targetBuffer;
-    float _contentScale;
+    double _contentScale;
+    VGLLayer *_glLayer;
+    _Bool _isInBackground;
 }
 
 + (Class)contextClass;
-@property(nonatomic) float contentScale; // @synthesize contentScale=_contentScale;
+@property(readonly, nonatomic) VGLLayer *glLayer; // @synthesize glLayer=_glLayer;
+@property(nonatomic) double contentScale; // @synthesize contentScale=_contentScale;
 @property(nonatomic) struct _VGLColor glClearColor; // @synthesize glClearColor=_glClearColor;
-@property(nonatomic) BOOL useStencilBuffer; // @synthesize useStencilBuffer=_useStencilBuffer;
-@property(nonatomic) BOOL useDepthBuffer; // @synthesize useDepthBuffer=_useDepthBuffer;
+@property(nonatomic) _Bool useStencilBuffer; // @synthesize useStencilBuffer=_useStencilBuffer;
+@property(nonatomic) _Bool useDepthBuffer; // @synthesize useDepthBuffer=_useDepthBuffer;
 @property(readonly, nonatomic) VGLContext *vglContext; // @synthesize vglContext=_targetContext;
 - (id).cxx_construct;
+- (void)setBackgroundColor:(struct CGColor *)arg1;
+- (void)setContentsGravity:(id)arg1;
+- (void)setOpaque:(_Bool)arg1;
+- (void)setNeedsDisplayOnBoundsChange:(_Bool)arg1;
+- (void)setContentsScale:(double)arg1;
+- (void)setBounds:(struct CGRect)arg1;
 - (void)_destroyFramebufferAndKeepMultisampleFramebuffer;
 - (void)_destroyFramebuffer;
 - (void)_createFramebuffer;
 - (void)_destroyAndCreateFramebufferAndKeepMultisampleFramebuffer;
 - (void)_destroyAndCreateFramebuffer;
 - (void)frameBufferDestroyed;
-- (BOOL)isEffectivelyHidden;
-@property(readonly, nonatomic) BOOL currentSceneRequiresMSAA;
-@property(nonatomic) BOOL useMultisampling;
+- (_Bool)isEffectivelyHidden;
+@property(readonly, nonatomic) _Bool currentSceneRequiresMSAA;
+@property(nonatomic) _Bool useMultisampling;
 - (void)preloadResources;
 @property(readonly, nonatomic) struct CGSize sizeInPixels;
 @property(readonly, nonatomic) struct CGSize size;
+- (void)createContextIfNecessary;
+- (void)willEnterForeground;
 - (void)didEnterBackground;
+- (_Bool)shouldRender;
+- (_Bool)wantsRender;
+- (_Bool)canRender;
 - (void)didReceiveMemoryWarning;
 - (void)didPresent;
 - (void)present;
 - (void)didDrawView;
 - (void)drawWithTimestamp:(double)arg1;
 - (void)willDrawView;
-- (void)setContentsScale:(float)arg1;
 - (void)layoutSublayers;
 - (void)_updateForceRecreateFramebuffer;
 - (void)setNeedsDisplay;
+- (void)_createGLLayerIfNecessary;
+- (void)display;
 - (void)dealloc;
-- (id)initWithContext:(id)arg1;
-@property(readonly, nonatomic, getter=isDrawable) BOOL drawable;
+- (id)initWithContext:(id)arg1 inBackground:(_Bool)arg2;
+- (void)renderInContext:(struct CGContext *)arg1;
+@property(readonly, nonatomic, getter=isDrawable) _Bool drawable;
 
 @end
 

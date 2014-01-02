@@ -7,8 +7,8 @@
 #import "NSObject-Protocol.h"
 
 @protocol CoreDAVAccountInfoProvider <NSObject>
-- (BOOL)shouldFailAllTasks;
-- (BOOL)handleCertificateError:(id)arg1;
+- (_Bool)shouldFailAllTasks;
+- (_Bool)handleCertificateError:(id)arg1;
 - (void)promptUserForNewCoreDAVPasswordWithCompletionBlock:(id)arg1;
 - (id)userAgentHeader;
 - (id)serverComplianceClasses;
@@ -18,30 +18,33 @@
 - (id)password;
 - (id)user;
 - (id)serverRoot;
-- (int)port;
+- (long long)port;
 - (id)host;
 - (id)scheme;
 
 @optional
-- (BOOL)shouldCompressRequests;
-- (BOOL)shouldUseOpportunisticSockets;
+- (void)webLoginRequestedAtURL:(id)arg1 reasonString:(id)arg2 completionBlock:(id)arg3;
+- (id)clientToken;
+- (void)clientTokenRequestedByServer;
+- (_Bool)shouldCompressRequests;
+- (_Bool)shouldUseOpportunisticSockets;
 - (struct __CFURLStorageSession *)copyStorageSession;
 - (void)noteTimeSpentInNetworking:(double)arg1;
 - (void)noteFailedProtocolRequest;
 - (void)noteFailedNetworkRequest;
-- (void)noteSuccessfulRequestWithNumDownloadedElements:(int)arg1;
-- (BOOL)shouldTurnModalOnBadPassword;
-- (BOOL)shouldSendClientInfoHeaderForURL:(id)arg1;
-- (BOOL)shouldHandleHTTPCookiesForURL:(id)arg1;
+- (void)noteSuccessfulRequestWithNumDownloadedElements:(long long)arg1;
+- (_Bool)shouldTurnModalOnBadPassword;
+- (_Bool)shouldSendClientInfoHeaderForURL:(id)arg1;
+- (_Bool)shouldHandleHTTPCookiesForURL:(id)arg1;
 - (void)noteHomeSetOnDifferentHost:(id)arg1;
-- (BOOL)handleShouldUseCredentialStorage;
-- (BOOL)shouldRetryUnauthorizedConnection:(id)arg1;
-- (BOOL)handleAuthenticateAgainstProtectionSpace:(id)arg1 withConnection:(id)arg2;
-- (BOOL)handleAuthenticateAgainstProtectionSpace:(id)arg1;
-- (BOOL)handleTrustChallenge:(id)arg1 withConnection:(id)arg2;
-- (BOOL)handleTrustChallenge:(id)arg1;
+- (_Bool)handleShouldUseCredentialStorage;
+- (_Bool)shouldRetryUnauthorizedConnection:(id)arg1;
+- (_Bool)handleAuthenticateAgainstProtectionSpace:(id)arg1 withConnection:(id)arg2;
+- (_Bool)handleAuthenticateAgainstProtectionSpace:(id)arg1;
+- (_Bool)handleTrustChallenge:(id)arg1 withConnection:(id)arg2;
+- (_Bool)handleTrustChallenge:(id)arg1;
 - (id)oauthInfoProvider;
-- (id)oauthToken;
+- (id)customConnectionProperties;
 - (id)additionalHeaderValues;
 @end
 

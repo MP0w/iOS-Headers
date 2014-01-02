@@ -7,14 +7,14 @@
 #import "NSObject-Protocol.h"
 
 @protocol SUClientDelegate <NSObject>
-- (BOOL)client:(id)arg1 presentModalViewController:(id)arg2 animated:(BOOL)arg3;
+- (_Bool)client:(id)arg1 presentModalViewController:(id)arg2 animated:(_Bool)arg3;
 
 @optional
 - (id)topViewControllerForClient:(id)arg1;
-- (BOOL)client:(id)arg1 openInternalURL:(id)arg2;
+- (_Bool)client:(id)arg1 openInternalURL:(id)arg2;
 - (id)downloadQueueForClient:(id)arg1 downloadKinds:(id)arg2;
 - (id)downloadManagerForClient:(id)arg1 downloadKinds:(id)arg2;
-- (BOOL)client:(id)arg1 presentComposeReviewViewController:(id)arg2 animated:(BOOL)arg3;
-- (BOOL)client:(id)arg1 presentAccountViewController:(id)arg2 animated:(BOOL)arg3;
+- (_Bool)client:(id)arg1 presentComposeReviewViewController:(id)arg2 animated:(_Bool)arg3;
+- (_Bool)client:(id)arg1 presentAccountViewController:(id)arg2 animated:(_Bool)arg3;
 @end
 

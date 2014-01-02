@@ -27,17 +27,6 @@
 - (id)delegate;
 - (void)dealloc;
 - (id)init;
-- (double)durationOfSlide:(id)arg1;
-- (void)applyMultiFaceAnimatedCropToSlide:(id)arg1 withOptions:(id)arg2;
-- (void)applyAnimatedCropToSlide:(id)arg1 withOptions:(id)arg2 centeredAt:(struct CGPoint)arg3 alwaysZoomIn:(BOOL)arg4;
-- (void)applyAnimatedCropToBreakSlide:(id)arg1 withOptions:(id)arg2;
-- (struct CGPoint)checkFarApartROIs:(id)arg1 withImageSize:(struct CGSize)arg2 visibleAspectRatio:(float)arg3 roiCenter:(struct CGPoint)arg4;
-- (void)applyStationaryCropToSlide:(id)arg1 withOptions:(id)arg2;
-- (void)applyAnimatedCropWithROIsToSlide:(id)arg1 withOptions:(id)arg2;
-- (void)applyAnimatedCropToSlide:(id)arg1 withOptions:(id)arg2;
-- (void)applyCropToSlide:(id)arg1 withOptions:(id)arg2;
-- (void)cleanup;
-- (void)setupWithDocument:(id)arg1 andOptions:(id)arg2;
 
 @end
 

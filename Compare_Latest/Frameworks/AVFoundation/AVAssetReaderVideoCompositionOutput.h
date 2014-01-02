@@ -14,8 +14,9 @@
 }
 
 + (id)assetReaderVideoCompositionOutputWithVideoTracks:(id)arg1 videoSettings:(id)arg2;
-- (BOOL)_enableTrackExtractionReturningError:(id *)arg1;
-- (BOOL)_prepareForReadingReturningError:(id *)arg1;
+- (_Bool)_enableTrackExtractionReturningError:(id *)arg1;
+- (_Bool)_prepareForReadingReturningError:(id *)arg1;
+- (id)_errorForOSStatus:(int)arg1;
 - (id)_asset;
 - (id)mediaType;
 @property(readonly, nonatomic) id <AVVideoCompositing> customVideoCompositor;
@@ -25,7 +26,7 @@
 @property(readonly, nonatomic) NSDictionary *videoSettings;
 @property(readonly, nonatomic) NSArray *videoTracks;
 - (id)description;
-- (BOOL)alwaysCopiesSampleData;
+- (_Bool)alwaysCopiesSampleData;
 - (void)finalize;
 - (void)dealloc;
 - (id)initWithVideoTracks:(id)arg1 videoSettings:(id)arg2;

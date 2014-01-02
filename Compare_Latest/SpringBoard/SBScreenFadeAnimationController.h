@@ -6,47 +6,55 @@
 
 #import "NSObject.h"
 
-@class SBFadeAnimationSettings, SBLockScreenView, SBUILockScreenDateView, UIView, UIWindow;
+@class SBFLockScreenDateView, SBFadeAnimationSettings, SBLockScreenView, UIView, UIWindow;
 
 @interface SBScreenFadeAnimationController : NSObject
 {
     UIWindow *_fadeWindow;
     UIView *_overlayView;
-    SBUILockScreenDateView *_dateView;
-    float _originalDateLeftEdge;
-    float _finalTimeAlpha;
-    float _finalDateAlpha;
-    float _finalStatusBarAlpha;
+    SBFLockScreenDateView *_dateView;
+    double _originalDateLeftEdge;
+    double _originalDateBottomEdge;
+    double _finalTimeAlpha;
+    double _finalDateAlpha;
+    double _finalStatusBarAlpha;
     SBLockScreenView *_lockScreenView;
-    BOOL _preparingToAnimateFadeIn;
-    BOOL _animatingForFadeIn;
-    BOOL _animatingForFadeOut;
+    _Bool _preparingToAnimateFadeIn;
+    _Bool _animatingForFadeIn;
+    _Bool _animatingForFadeOut;
     int _animationToken;
-    id _completionBlock;
-    BOOL _animatingDateTime;
-    BOOL _animatingWallpaper;
-    BOOL _animatingOverlay;
-    BOOL _animatingContent;
+    id _fadeInCompletionBlock;
+    id _fadeOutCompletionBlock;
+    _Bool _animatingDateTime;
+    _Bool _animatingWallpaper;
+    _Bool _animatingOverlay;
+    _Bool _animatingContent;
     SBFadeAnimationSettings *_settings;
 }
 
 + (id)sharedInstance;
+- (void)setLegibilitySettings:(id)arg1;
 - (void)setTextColor:(id)arg1;
-- (void)hideDateView;
-- (void)_runCompletionHandler;
-- (void)_handleAnimationCompletionIfNecessary;
+- (void)hideDate;
+- (void)setDateViewAlpha:(double)arg1;
+- (void)_runCompletionHandlerForFadeIn:(_Bool)arg1;
+- (void)_handleAnimationCompletionIfNecessaryForFadeIn:(_Bool)arg1;
 - (void)fadeOutWithCompletion:(id)arg1;
-- (void)_startFadeAnimationsForFadeIn:(BOOL)arg1;
-- (void)_cleanupAnimationWithToken:(int)arg1;
+- (void)_startFadeAnimationsForFadeIn:(_Bool)arg1;
+- (void)_cleanupAnimationWhenInterruptingFadeIn:(_Bool)arg1;
+- (void)_assistantVisibilityChanged;
+- (void)_mediaControlsDidShow;
 - (void)_blankScreenStateChanged;
 - (void)_startFadeInIfNecessary;
-- (void)prepareToFadeInWithTimeAlpha:(float)arg1 dateAlpha:(float)arg2 statusBarAlpha:(float)arg3 lockScreenView:(id)arg4 existingDateView:(id)arg5 completion:(id)arg6;
-- (void)_setRelevantLockScreenViewsHidden:(BOOL)arg1;
+- (void)prepareToFadeInWithTimeAlpha:(double)arg1 dateAlpha:(double)arg2 statusBarAlpha:(double)arg3 lockScreenView:(id)arg4 existingDateView:(id)arg5 completion:(id)arg6;
+- (void)_setRelevantLockScreenViewsHidden:(_Bool)arg1;
 - (void)_adjustViewsForCurrentOrientation;
-- (void)updateDateFrameScrollOffset:(float)arg1;
-- (BOOL)isFadeOutAnimationInProgress;
-- (BOOL)isFadeInAnimationInProgress;
-- (void)_createFadeWindow;
+- (void)updateDateFrameHorizontalOffset:(double)arg1 verticalOffset:(double)arg2;
+- (_Bool)isFadeOutAnimationInProgress;
+- (_Bool)isFadeInAnimationInProgress;
+- (void)_createFadeWindowForFadeIn:(_Bool)arg1;
+- (double)fadeOutAnimationDuration;
+- (double)fadeInAnimationDuration;
 - (void)dealloc;
 - (id)init;
 

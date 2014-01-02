@@ -25,8 +25,8 @@
 - (id)_failPressedImage;
 - (id)_failImage;
 - (id)_exclamationGlyphImage;
-- (id)initWithStyle:(int)arg1 buttonHandler:(id)arg2 styleProvider:(id)arg3;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 buttonHandler:(id)arg2 styleProvider:(id)arg3;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

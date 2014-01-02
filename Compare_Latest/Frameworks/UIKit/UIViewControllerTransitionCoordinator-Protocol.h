@@ -8,7 +8,7 @@
 
 @protocol UIViewControllerTransitionCoordinator <UIViewControllerTransitionCoordinatorContext>
 - (void)notifyWhenInteractionEndsUsingBlock:(id)arg1;
-- (BOOL)animateAlongsideTransitionInView:(id)arg1 animation:(id)arg2 completion:(void)arg3;
-- (BOOL)animateAlongsideTransition:(id)arg1 completion:(void)arg2;
+- (_Bool)animateAlongsideTransitionInView:(id)arg1 animation:(id)arg2 completion:(void)arg3;
+- (_Bool)animateAlongsideTransition:(id)arg1 completion:(void)arg2;
 @end
 

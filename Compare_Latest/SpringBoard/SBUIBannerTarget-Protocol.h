@@ -7,7 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol SBUIBannerTarget <NSObject>
-@property(readonly, nonatomic) int bannerTargetIdiom;
+@property(readonly, nonatomic) long long bannerTargetIdiom;
 - (void)dismissCurrentBannerContextForSource:(id)arg1;
 - (id)currentBannerContextForSource:(id)arg1;
 - (void)signalSource:(id)arg1;

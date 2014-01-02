@@ -14,10 +14,10 @@
     NSString *_title;
     NSString *_language;
     NSURL *_captionTrackURL;
-    BOOL _speechRecognition;
+    _Bool _speechRecognition;
 }
 
-@property(nonatomic) BOOL speechRecognition; // @synthesize speechRecognition=_speechRecognition;
+@property(nonatomic) _Bool speechRecognition; // @synthesize speechRecognition=_speechRecognition;
 @property(retain, nonatomic) NSURL *captionTrackURL; // @synthesize captionTrackURL=_captionTrackURL;
 @property(retain, nonatomic) NSString *language; // @synthesize language=_language;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;

@@ -10,27 +10,28 @@
 
 @class CUTWeakReference, NSMutableArray, NSString;
 
+// Not exported
 @interface PCInterfaceUsabilityMonitor : NSObject <PCInterfaceUsabilityMonitorProtocol>
 {
     struct dispatch_queue_s *_delegateQueue;
     struct dispatch_queue_s *_ivarQueue;
-    int _interfaceIdentifier;
+    long long _interfaceIdentifier;
     NSString *_interfaceName;
     CUTWeakReference *_delegateReference;
     void *_reachability;
-    BOOL _isInternetReachable;
+    _Bool _isInternetReachable;
     void *_dynamicStore;
     struct __CFRunLoopSource *_linkQualitySource;
     struct __CFString *_lqKey;
     int _linkQuality;
-    BOOL _trackUsability;
-    unsigned int _thresholdOffTransitionCount;
+    _Bool _trackUsability;
+    unsigned long long _thresholdOffTransitionCount;
     double _trackedTimeInterval;
     NSMutableArray *_offTransitions;
 }
 
 + (id)stringForLinkQuality:(int)arg1;
-+ (BOOL)isPoorLinkQuality:(int)arg1;
++ (_Bool)isPoorLinkQuality:(int)arg1;
 - (void)_createLinkQualityMonitor;
 - (void)_createLinkQualityMonitorOnIvarQueue;
 - (void)_dynamicStoreCallback:(id)arg1;
@@ -44,27 +45,28 @@
 - (void)_unscheduleReachabilityMonitorOnIvarQueue;
 - (void)_callDelegateOnIvarQueueWithBlock:(id)arg1;
 @property(nonatomic) id <PCInterfaceUsabilityMonitorDelegate> delegate;
-@property(readonly, nonatomic) int interfaceIdentifier;
-@property(readonly, nonatomic) BOOL isRadioHot;
-@property(readonly, nonatomic) BOOL isInternetReachable;
+@property(readonly, nonatomic) long long interfaceIdentifier;
+@property(readonly, nonatomic) _Bool isRadioHot;
+@property(readonly, nonatomic) _Bool isInternetReachable;
 @property(readonly, nonatomic) int linkQuality;
-@property(readonly, nonatomic) BOOL isPoorLinkQuality;
+@property(readonly, nonatomic) _Bool isPoorLinkQuality;
 @property(readonly, nonatomic) NSString *linkQualityString;
-@property(readonly, nonatomic) BOOL isInterfaceHistoricallyUsable;
-- (BOOL)_isInterfaceHistoricallyUsableOnIvarQueue;
-@property(readonly, nonatomic) BOOL isInterfaceUsable;
-- (BOOL)_isInterfaceUsableOnIvarQueue;
+@property(readonly, nonatomic) _Bool isInterfaceHistoricallyUsable;
+- (_Bool)_isInterfaceHistoricallyUsableOnIvarQueue;
+@property(readonly, nonatomic) _Bool isInterfaceUsable;
+- (_Bool)_isInterfaceUsableOnIvarQueue;
 - (void)setTrackedTimeInterval:(double)arg1;
-- (void)setThresholdOffTransitionCount:(unsigned int)arg1;
-- (void)setTrackUsability:(BOOL)arg1;
+- (void)setThresholdOffTransitionCount:(unsigned long long)arg1;
+- (void)setTrackUsability:(_Bool)arg1;
 - (void)_flushStaleTransitionsOnIvarQueue;
 - (void)_updateOffTransitionsForLinkQualityChangeOnIvarQueue;
 - (void)dealloc;
-- (id)initWithInterfaceName:(id)arg1 interfaceIdentifier:(int)arg2 delegateQueue:(struct dispatch_queue_s *)arg3;
+- (id)initWithInterfaceName:(id)arg1 interfaceIdentifier:(long long)arg2 delegateQueue:(struct dispatch_queue_s *)arg3;
 - (id)init;
 
 // Remaining properties
 @property(readonly, nonatomic) struct __CFString *currentRAT;
+@property(readonly, nonatomic) _Bool isLTEWithCDRX;
 
 @end
 

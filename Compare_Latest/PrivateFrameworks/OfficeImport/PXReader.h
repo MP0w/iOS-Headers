@@ -6,6 +6,7 @@
 
 #import <OfficeImport/OCXReader.h>
 
+// Not exported
 @interface PXReader : OCXReader
 {
 }

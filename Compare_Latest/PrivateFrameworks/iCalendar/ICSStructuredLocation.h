@@ -20,7 +20,6 @@
 @property(retain) NSString *loctype;
 @property(retain) NSString *title;
 @property(retain) NSString *fmtype;
-- (void)_ICSStringWithOptions:(unsigned int)arg1 appendingToString:(id)arg2;
 
 @end
 

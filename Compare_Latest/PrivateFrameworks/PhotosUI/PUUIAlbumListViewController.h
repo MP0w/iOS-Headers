@@ -16,11 +16,12 @@
 
 @property(copy, nonatomic, setter=_setImagePickerMediaTypes:) NSArray *_imagePickerMediaTypes; // @synthesize _imagePickerMediaTypes=__imagePickerMediaTypes;
 - (void).cxx_destruct;
-- (unsigned int)supportedInterfaceOrientations;
-- (void)viewWillAppear:(BOOL)arg1;
+- (_Bool)pu_wantsNavigationBarVisible;
+- (unsigned long long)supportedInterfaceOrientations;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;
-- (BOOL)shouldAllowEmailInAlbumSubtitle;
-- (void)updateNavigationBarAnimated:(BOOL)arg1;
+- (_Bool)shouldAllowEmailInAlbumSubtitle;
+- (void)updateNavigationBarAnimated:(_Bool)arg1;
 - (id)newGridViewControllerForAlbum:(struct NSObject *)arg1;
 - (void)setAlbumList:(id)arg1;
 - (void)_handleImagePickerCancel:(id)arg1;

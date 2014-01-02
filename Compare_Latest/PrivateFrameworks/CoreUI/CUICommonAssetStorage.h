@@ -32,16 +32,16 @@
     void *_facetKeysdb;
     void *_elementDebugInfoDB;
     void *_partDebugInfoDB;
-    BOOL _swap;
+    _Bool _swap;
 }
 
 + (void)initialize;
 - (float)fontSizeForFontSizeType:(id)arg1;
-- (BOOL)getBaselineOffset:(float *)arg1 forFontType:(id)arg2;
-- (BOOL)getFontName:(id *)arg1 baselineOffset:(float *)arg2 forFontType:(id)arg3;
+- (_Bool)getBaselineOffset:(float *)arg1 forFontType:(id)arg2;
+- (_Bool)getFontName:(id *)arg1 baselineOffset:(float *)arg2 forFontType:(id)arg3;
 - (const struct FontValue *)fontValueForFontType:(id)arg1;
-- (BOOL)hasColorForName:(const char *)arg1;
-- (BOOL)getColor:(struct _colordef *)arg1 forName:(const char *)arg2;
+- (_Bool)hasColorForName:(const char *)arg1;
+- (_Bool)getColor:(struct _colordef *)arg1 forName:(const char *)arg2;
 - (id)zeroCodeBezelList;
 - (id)zeroCodeGlyphList;
 - (id)_zeroCodeListFromTree:(const void *)arg1;
@@ -50,41 +50,34 @@
 - (const struct _renditionkeytoken *)renditionKeyForName:(const char *)arg1 hotSpot:(struct CGPoint *)arg2;
 - (struct _renditionkeytoken)_swapRenditionKeyToken:(struct _renditionkeytoken)arg1;
 - (id)allAssetKeys;
-- (id)assetForKey:(const void *)arg1 withLength:(unsigned long)arg2;
+- (id)assetForKey:(const void *)arg1 withLength:(unsigned long long)arg2;
 - (id)assetForKey:(id)arg1;
-- (BOOL)assetExistsForKey:(id)arg1;
+- (_Bool)assetExistsForKey:(id)arg1;
 - (void)_swapRenditionKeyArray:(unsigned short *)arg1;
 - (unsigned int)colorSpaceID;
 - (unsigned int)associatedChecksum;
 - (id)uuid;
 - (unsigned int)renditionCount;
 - (const char *)versionString;
-- (BOOL)usesCUISystemThemeRenditionKey;
-- (int)maximumRenditionKeyTokenCount;
+- (_Bool)usesCUISystemThemeRenditionKey;
+- (long long)maximumRenditionKeyTokenCount;
 - (const struct _renditionkeyfmt *)keyFormat;
 - (id)keyFormatData;
 - (int)keySemantics;
-- (long)storageTimestamp;
-- (long)_storagefileTimestamp;
+- (long long)storageTimestamp;
+- (long long)_storagefileTimestamp;
 - (unsigned int)schemaVersion;
 - (unsigned int)coreuiVersion;
 - (unsigned int)storageVersion;
 - (void)finalize;
 - (void)dealloc;
-- (id)initWithPath:(id)arg1 forWriting:(BOOL)arg2;
+- (id)initWithPath:(id)arg1 forWriting:(_Bool)arg2;
 - (id)initWithPath:(id)arg1;
-- (BOOL)swapped;
+- (_Bool)swapped;
 - (void)_swapKeyFormat;
 - (void)_swapHeader;
 - (void)_bringHeaderInfoUpToDate;
 - (void)_initDefaultHeader;
-- (id)displayNameForPartID:(int)arg1;
-- (id)constantNameForPartID:(int)arg1;
-- (id)displayNameForElementID:(int)arg1;
-- (id)constantNameForElementID:(int)arg1;
-- (id)_displayNameForIdentifier:(unsigned int)arg1 fromDebugTree:(void *)arg2;
-- (id)_constantNameForIdentifier:(unsigned int)arg1 fromDebugTree:(void *)arg2;
-- (id)_dataForIdentifier:(unsigned int)arg1 fromDebugTree:(void *)arg2;
 
 @end
 

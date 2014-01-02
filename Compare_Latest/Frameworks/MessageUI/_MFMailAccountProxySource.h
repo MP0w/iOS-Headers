@@ -12,7 +12,7 @@
 {
     NSLock *_lock;
     NSArray *_accountProxies;
-    BOOL _registeredForNotifications;
+    _Bool _registeredForNotifications;
     int _notifyToken;
 }
 
@@ -20,7 +20,7 @@
 - (void)_applicationDidEnterBackground:(id)arg1;
 - (void)_deregisterForNotifications_nts;
 - (void)_registerForNotifications_nts;
-- (void)_resetAccountsChanged:(BOOL)arg1;
+- (void)_resetAccountsChanged:(_Bool)arg1;
 - (id)accountProxiesOriginatingBundleID:(id)arg1 sourceAccountManagement:(int)arg2;
 - (void)dealloc;
 - (id)init;

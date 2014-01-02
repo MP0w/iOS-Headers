@@ -20,7 +20,7 @@
 - (id)httpMethod;
 - (id)description;
 - (void)dealloc;
-- (void)setSupportForEvents:(BOOL)arg1 tasks:(BOOL)arg2;
+- (void)setSupportForEvents:(_Bool)arg1 tasks:(_Bool)arg2;
 - (id)initWithPropertiesToSet:(id)arg1 atURL:(id)arg2;
 - (id)initWithURL:(id)arg1;
 

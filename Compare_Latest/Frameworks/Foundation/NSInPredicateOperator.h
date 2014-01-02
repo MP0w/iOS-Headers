@@ -10,23 +10,23 @@
 
 @interface NSInPredicateOperator : NSPredicateOperator
 {
-    unsigned int _flags;
+    unsigned long long _flags;
     NSSubstringPredicateOperator *_stringVersion;
 }
 
-+ (BOOL)supportsSecureCoding;
-- (unsigned int)options;
-- (void)_setOptions:(unsigned int)arg1;
-- (BOOL)performPrimitiveOperationUsingObject:(id)arg1 andObject:(id)arg2;
++ (_Bool)supportsSecureCoding;
+- (unsigned long long)options;
+- (void)_setOptions:(unsigned long long)arg1;
+- (_Bool)performPrimitiveOperationUsingObject:(id)arg1 andObject:(id)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)flags;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)flags;
 - (id)symbol;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (void)dealloc;
 - (id)stringVersion;
-- (id)initWithOperatorType:(unsigned int)arg1 modifier:(unsigned int)arg2 options:(unsigned int)arg3;
+- (id)initWithOperatorType:(unsigned long long)arg1 modifier:(unsigned long long)arg2 options:(unsigned long long)arg3;
 
 @end
 

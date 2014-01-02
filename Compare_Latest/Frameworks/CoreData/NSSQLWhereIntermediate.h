@@ -8,6 +8,7 @@
 
 @class NSPredicate;
 
+// Not exported
 @interface NSSQLWhereIntermediate : NSSQLIntermediate
 {
     NSPredicate *_predicate;

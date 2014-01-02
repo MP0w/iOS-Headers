@@ -6,6 +6,7 @@
 
 #import <OfficeImport/OADShape.h>
 
+// Not exported
 @interface OADLine : OADShape
 {
 }

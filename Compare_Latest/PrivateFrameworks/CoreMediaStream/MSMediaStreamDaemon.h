@@ -16,7 +16,7 @@
 
 @property(nonatomic) id <MSMediaStreamDaemonDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (BOOL)mayDownloadPersonID:(id)arg1;
+- (_Bool)mayDownloadPersonID:(id)arg1;
 - (void)didReceivePushNotificationForPersonID:(id)arg1;
 - (void)didReceiveGlobalResetSyncForPersonID:(id)arg1;
 - (void)didExceedPublishQuotaForPersonID:(id)arg1 retryDate:(id)arg2;
@@ -35,10 +35,10 @@
 - (void)_removeShareWithPersonID:(id)arg1 inArray:(id)arg2;
 - (id)_findShareWithPersonID:(id)arg1 inArray:(id)arg2;
 - (void)refreshShareStatesForPersonID:(id)arg1;
-- (BOOL)personIDIsAcceptingInvitations:(id)arg1;
+- (_Bool)personIDIsAcceptingInvitations:(id)arg1;
 - (void)removeShare:(id)arg1 forPersonID:(id)arg2;
 - (void)modifyShare:(id)arg1 forPersonID:(id)arg2;
-- (void)respondToInvitation:(id)arg1 forPersonID:(id)arg2 accept:(BOOL)arg3;
+- (void)respondToInvitation:(id)arg1 forPersonID:(id)arg2 accept:(_Bool)arg3;
 - (void)sendInvitations:(id)arg1 forPersonID:(id)arg2;
 - (id)invitationStringsFromInvitation:(id)arg1 targetPersonID:(id)arg2;
 - (id)invitationFromPushNotificationUserInfo:(id)arg1 outSourcePersonID:(id *)arg2 outTargetPersonID:(id *)arg3;
@@ -50,7 +50,8 @@
 - (void)resetSubscriberSyncForPersonID:(id)arg1;
 - (void)pollForSubscriptionUpdatesTriggeredByPushNotificationForPersonID:(id)arg1;
 - (void)pollForSubscriptionUpdatesForPersonID:(id)arg1;
-- (BOOL)enqueueAssetCollection:(id)arg1 personID:(id)arg2 outError:(id *)arg3;
+- (_Bool)dequeueAssetCollectionWithGUIDs:(id)arg1 personID:(id)arg2 outError:(id *)arg3;
+- (_Bool)enqueueAssetCollection:(id)arg1 personID:(id)arg2 outError:(id *)arg3;
 - (void)forgetPersonID:(id)arg1;
 - (void)stopAllActivities;
 - (void)abortAllActivityForPersonID:(id)arg1;
@@ -63,9 +64,9 @@
 - (id)_boundPublisherForPersonID:(id)arg1;
 - (void)didUnidle;
 - (void)didIdle;
-- (BOOL)isInRetryState;
-- (BOOL)personIDHasOutstandingPublications:(id)arg1;
-- (BOOL)hasOutstandingActivity;
+- (_Bool)isInRetryState;
+- (_Bool)personIDHasOutstandingPublications:(id)arg1;
+- (_Bool)hasOutstandingActivity;
 - (id)nextActivityDate;
 - (id)init;
 

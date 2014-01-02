@@ -12,7 +12,7 @@
 }
 
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 @property(readonly, nonatomic) id observer; // @synthesize observer=_observer;
 - (void)dealloc;
 - (id)initWithObserver:(id)arg1;

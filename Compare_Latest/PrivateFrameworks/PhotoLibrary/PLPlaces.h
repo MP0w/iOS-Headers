@@ -27,9 +27,9 @@
 }
 
 - (id)containersRelationshipName;
-- (BOOL)canEditContainers;
-- (BOOL)isEmpty;
-@property(readonly, nonatomic) unsigned int containersCount;
+- (_Bool)canEditContainers;
+- (_Bool)isEmpty;
+@property(readonly, nonatomic) unsigned long long containersCount;
 - (id)containers;
 @property(readonly, nonatomic) NSString *_typeDescription;
 @property(readonly, nonatomic) NSString *_prettyDescription;
@@ -37,21 +37,21 @@
 @property(readonly, nonatomic) int filter;
 - (void)updateAlbumsOrderIfNeeded;
 - (void)setNeedsReordering;
-- (BOOL)needsReordering;
+- (_Bool)needsReordering;
 @property(readonly, nonatomic) id albumsSortingComparator;
-- (BOOL)albumHasFixedOrder:(struct NSObject *)arg1;
-- (BOOL)canEditAlbums;
+- (_Bool)albumHasFixedOrder:(struct NSObject *)arg1;
+- (_Bool)canEditAlbums;
 - (int)albumListType;
 - (id)managedObjectContext;
-@property(readonly, nonatomic) unsigned int unreadAlbumsCount;
-- (BOOL)hasAtLeastOneAlbum;
-@property(readonly, nonatomic) unsigned int albumsCount;
+@property(readonly, nonatomic) unsigned long long unreadAlbumsCount;
+- (_Bool)hasAtLeastOneAlbum;
+@property(readonly, nonatomic) unsigned long long albumsCount;
 - (id)albums;
 - (id)identifier;
 - (CDStruct_90e2a262)_defaultRegionForNoPlacesData;
 - (void)_loadPlacesData;
 - (void)_loadPlacesDataFromLocationAssets:(id)arg1;
-- (CDStruct_90e2a262)_placeRegionForPhoto:(id)arg1 isValidRegion:(char *)arg2;
+- (CDStruct_90e2a262)_placeRegionForPhoto:(id)arg1 isValidRegion:(_Bool *)arg2;
 - (id)_placeForPhoto:(id)arg1 inPlaces:(id)arg2;
 - (id)_findVisiblePhotosInRegion:(CDStruct_90e2a262)arg1 notInRegion:(CDStruct_90e2a262)arg2;
 - (id)_findVisiblePhotosInRegion:(CDStruct_90e2a262)arg1;
@@ -71,7 +71,7 @@
 - (void)_assetsWereAdded:(id)arg1 deleted:(id)arg2 updated:(id)arg3;
 - (void)_splitCurrentPlaces:(id)arg1 newPlaces:(id)arg2 intoFromChanges:(id)arg3 toChanges:(id)arg4 forNewRegion:(CDStruct_90e2a262)arg5;
 - (void)_resetAnnotationBuckets;
-- (void)updatePlacesFromRegion:(CDStruct_90e2a262)arg1 toRegion:(CDStruct_90e2a262)arg2 viaZoom:(BOOL)arg3;
+- (void)updatePlacesFromRegion:(CDStruct_90e2a262)arg1 toRegion:(CDStruct_90e2a262)arg2 viaZoom:(_Bool)arg3;
 - (void)updatePlacesWithAddedAssets:(id)arg1 deletedAssets:(id)arg2 updatedAssets:(id)arg3;
 - (void)_partitionPhotos:(id)arg1 intoPlaces:(id)arg2 inRegion:(CDStruct_90e2a262)arg3;
 - (void)setupPlacesForRegion:(CDStruct_90e2a262)arg1;
@@ -79,8 +79,6 @@
 - (void)setMapView:(id)arg1;
 - (void)dealloc;
 - (id)initWithMapView:(id)arg1 fixedLocationAssets:(id)arg2;
-- (id)_newAnimationAnnotationWithLongitude:(double)arg1 latitude:(double)arg2;
-- (id)_newPlaceForRegion:(CDStruct_90e2a262)arg1;
 
 @end
 

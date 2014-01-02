@@ -13,7 +13,7 @@
 
 @interface RCCurrentRecordingServiceViewController : UIViewController <RCMemoPlaybackViewControllerDelegate, RCUIServiceCurrentRecordingViewController>
 {
-    BOOL _screenUpdatesDisabled;
+    _Bool _screenUpdatesDisabled;
     id <RCUIClientCurrentRecordingViewController> _remoteViewControllerProxy;
     RCLockScreenViewController *_lockscreenViewController;
 }
@@ -23,11 +23,13 @@
 - (void).cxx_destruct;
 - (void)_clearLockscreenViewController;
 - (void)dismissLockscreenInterface;
-- (void)presentLockscreenInterfaceWithBackgroundColor:(id)arg1;
-- (void)setScreenUpdatesDisabled:(BOOL)arg1;
+- (void)presentLockscreenInterfaceWithBackgroundColor:(id)arg1 waveformForegroundColor:(id)arg2;
+- (void)setScreenUpdatesDisabled:(_Bool)arg1;
+- (void)audioMemoViewControllerDidChangeDismissOptions:(id)arg1;
+- (void)audioMemoViewController:(id)arg1 wantToRenameCurrentLabel:(id)arg2 completionBlock:(id)arg3;
 - (void)audioMemoViewControllerDidUpdateNavigationItem:(id)arg1;
 - (void)audioMemoViewControllerDidFinish:(id)arg1;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
 - (void)_willAppearInRemoteViewController:(id)arg1;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

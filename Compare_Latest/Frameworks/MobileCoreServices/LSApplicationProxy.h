@@ -12,54 +12,58 @@
 
 @interface LSApplicationProxy : LSResourceProxy <NSSecureCoding>
 {
-    unsigned int _flags;
-    unsigned int _bundleFlags;
+    unsigned long long _flags;
+    unsigned long long _bundleFlags;
     NSArray *_privateDocumentIconNames;
     LSApplicationProxy *_privateDocumentTypeOwner;
     NSArray *_directionsModes;
     NSArray *_UIBackgroundModes;
     NSArray *_audioComponents;
-    BOOL _profileValidated;
-    BOOL _isPlaceholder;
-    BOOL _isAppUpdate;
-    BOOL _isNewsstandApp;
-    BOOL _isRestricted;
-    BOOL _foundBackingBundle;
+    _Bool _profileValidated;
+    _Bool _isInstalled;
+    _Bool _isPlaceholder;
+    _Bool _isAppUpdate;
+    _Bool _isNewsstandApp;
+    _Bool _isRestricted;
+    _Bool _foundBackingBundle;
     NSString *_applicationType;
     NSString *_signerIdentity;
     NSDictionary *_entitlements;
     NSDictionary *_environmentVariables;
+    NSDictionary *_groupContainers;
     NSArray *_machOUUIDs;
     NSString *_vendorID;
     NSString *_vendorName;
     NSString *_bundleVersion;
     NSString *_shortVersionString;
     NSURL *_bundleURL;
-    unsigned int _installType;
+    unsigned long long _installType;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 + (id)applicationProxyForIdentifier:(id)arg1 roleIdentifier:(id)arg2;
-+ (id)applicationProxyForIdentifier:(id)arg1 placeholder:(BOOL)arg2;
++ (id)applicationProxyForIdentifier:(id)arg1 placeholder:(_Bool)arg2 server:(_Bool)arg3;
++ (id)applicationProxyForIdentifier:(id)arg1 placeholder:(_Bool)arg2;
 + (id)applicationProxyForIdentifier:(id)arg1;
-@property(readonly, nonatomic) BOOL foundBackingBundle; // @synthesize foundBackingBundle=_foundBackingBundle;
-@property(readonly, nonatomic) BOOL isRestricted; // @synthesize isRestricted=_isRestricted;
-@property(readonly, nonatomic) BOOL isNewsstandApp; // @synthesize isNewsstandApp=_isNewsstandApp;
-@property(readonly, nonatomic) BOOL isAppUpdate; // @synthesize isAppUpdate=_isAppUpdate;
-@property(readonly, nonatomic) BOOL isPlaceholder; // @synthesize isPlaceholder=_isPlaceholder;
-@property(readonly, nonatomic) unsigned int installType; // @synthesize installType=_installType;
-@property(readonly, nonatomic) BOOL profileValidated; // @synthesize profileValidated=_profileValidated;
+@property(readonly, nonatomic) _Bool foundBackingBundle; // @synthesize foundBackingBundle=_foundBackingBundle;
+@property(readonly, nonatomic) _Bool isRestricted; // @synthesize isRestricted=_isRestricted;
+@property(readonly, nonatomic) _Bool isNewsstandApp; // @synthesize isNewsstandApp=_isNewsstandApp;
+@property(readonly, nonatomic) _Bool isAppUpdate; // @synthesize isAppUpdate=_isAppUpdate;
+@property(readonly, nonatomic) _Bool isPlaceholder; // @synthesize isPlaceholder=_isPlaceholder;
+@property(readonly, nonatomic) unsigned long long installType; // @synthesize installType=_installType;
+@property(readonly, nonatomic) _Bool isInstalled; // @synthesize isInstalled=_isInstalled;
+@property(readonly, nonatomic) _Bool profileValidated; // @synthesize profileValidated=_profileValidated;
 @property(readonly, nonatomic) NSURL *bundleURL; // @synthesize bundleURL=_bundleURL;
 - (id)iconStyleDomain;
 - (id)description;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)localizedName;
 - (void)setPrivateDocumentTypeOwner:(id)arg1;
 - (id)privateDocumentTypeOwner;
 - (id)iconDataForVariant:(int)arg1;
-- (void)setPrivateDocumentIconAllowOverride:(BOOL)arg1;
-- (BOOL)privateDocumentIconAllowOverride;
+- (void)setPrivateDocumentIconAllowOverride:(_Bool)arg1;
+- (_Bool)privateDocumentIconAllowOverride;
 - (void)setPrivateDocumentIconNames:(id)arg1;
 - (id)privateDocumentIconNames;
 - (id)resourcesDirectoryURL;
@@ -69,6 +73,7 @@
 @property(readonly, nonatomic) NSArray *audioComponents;
 @property(readonly, nonatomic) NSArray *UIBackgroundModes;
 @property(readonly, nonatomic) NSArray *directionsModes;
+@property(readonly, nonatomic) NSDictionary *groupContainers; // @synthesize groupContainers=_groupContainers;
 @property(readonly, nonatomic) NSDictionary *environmentVariables; // @synthesize environmentVariables=_environmentVariables;
 @property(readonly, nonatomic) NSDictionary *entitlements; // @synthesize entitlements=_entitlements;
 @property(readonly, nonatomic) NSString *signerIdentity; // @synthesize signerIdentity=_signerIdentity;
@@ -84,7 +89,7 @@
 - (void)dealloc;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (id)_initWithApplicationIdentifier:(id)arg1 bundleType:(unsigned int)arg2 name:(id)arg3 containerURL:(id)arg4 resourcesDirectoryURL:(id)arg5 iconsDictionary:(id)arg6 iconFileNames:(id)arg7 iconIsPrerendered:(BOOL)arg8;
+- (id)_initWithApplicationIdentifier:(id)arg1 bundleType:(unsigned long long)arg2 name:(id)arg3 containerURL:(id)arg4 resourcesDirectoryURL:(id)arg5 iconsDictionary:(id)arg6 iconFileNames:(id)arg7 iconIsPrerendered:(_Bool)arg8 server:(_Bool)arg9;
 - (unsigned char)_createContext:(struct LSContext *)arg1 andGetBundle:(unsigned int *)arg2 withData:(const struct LSBundleData **)arg3;
 - (id)_plistValueForKey:(id)arg1;
 

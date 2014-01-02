@@ -8,6 +8,7 @@
 
 @class EDCollection;
 
+// Not exported
 @interface EDPivotItem : NSObject
 {
     unsigned int mRepeatedItemCounts;

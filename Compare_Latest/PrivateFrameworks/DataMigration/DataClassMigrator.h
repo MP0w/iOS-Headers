@@ -17,13 +17,13 @@
 - (void).cxx_destruct;
 - (float)migrationProgress;
 - (float)estimatedDuration;
-- (BOOL)performMigration;
+- (_Bool)performMigration;
 - (id)dataClassName;
-@property(readonly, nonatomic) BOOL wasPasscodeSetInBackup;
-@property(readonly, nonatomic) BOOL shouldPreserveSettingsAfterRestore;
-@property(readonly, nonatomic) BOOL didRestoreFromCloudBackup;
-@property(readonly, nonatomic) BOOL didMigrateBackupFromDifferentDevice;
-@property(readonly, nonatomic) BOOL didRestoreFromBackup;
+@property(readonly, nonatomic) _Bool wasPasscodeSetInBackup;
+@property(readonly, nonatomic) _Bool shouldPreserveSettingsAfterRestore;
+@property(readonly, nonatomic) _Bool didRestoreFromCloudBackup;
+@property(readonly, nonatomic) _Bool didMigrateBackupFromDifferentDevice;
+@property(readonly, nonatomic) _Bool didRestoreFromBackup;
 
 @end
 

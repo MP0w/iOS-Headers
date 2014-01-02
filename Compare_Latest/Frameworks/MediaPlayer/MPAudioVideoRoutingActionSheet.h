@@ -13,28 +13,30 @@
 @interface MPAudioVideoRoutingActionSheet : UIActionSheet <UIActionSheetDelegate>
 {
     int _airPlayPasswordAlertDidAppearToken;
-    BOOL _airPlayPasswordAlertDidAppearTokenIsValid;
+    _Bool _airPlayPasswordAlertDidAppearTokenIsValid;
     MPAudioDeviceController *_audioDeviceController;
-    unsigned int _avItemType;
+    unsigned long long _avItemType;
     id _completionHandler;
     UIViewController *_viewControllerForActionSheet;
     UIWindow *_windowForActionSheet;
-    BOOL _shouldPauseAfterDismissing;
+    _Bool _shouldPauseAfterDismissing;
     NSArray *_displayedRoutes;
 }
 
 - (void).cxx_destruct;
 - (void)_debugButtonAction:(id)arg1;
 - (id)_availableRoutes;
-- (BOOL)_isDeviceVideoRoute:(id)arg1;
-- (void)showInPopoverFromRect:(struct CGRect)arg1 inView:(id)arg2 backgroundStyle:(int)arg3 animated:(BOOL)arg4 completionHandler:(id)arg5;
+- (_Bool)_isDeviceVideoRoute:(id)arg1;
+- (void)showInPopoverFromRect:(struct CGRect)arg1 inView:(id)arg2 backgroundStyle:(long long)arg3 animated:(_Bool)arg4 completionHandler:(id)arg5;
 - (void)showWithValidInterfaceOrientationsBlock:(id)arg1 completionHandler:(void)arg2;
+- (void)showWithValidInterfaceOrientationMaskBlock:(id)arg1 windowLevel:(void)arg2 completionHandler:(double)arg3;
 - (void)showWithValidInterfaceOrientationMaskBlock:(id)arg1 completionHandler:(void)arg2;
-- (void)actionSheet:(id)arg1 didDismissWithButtonIndex:(int)arg2;
-- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)showFromRect:(struct CGRect)arg1 inView:(id)arg2 animated:(_Bool)arg3 withCompletionHandler:(id)arg4;
+- (void)actionSheet:(id)arg1 didDismissWithButtonIndex:(long long)arg2;
+- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (void)layoutSubviews;
 - (void)dealloc;
-- (id)initWithType:(unsigned int)arg1;
+- (id)initWithType:(unsigned long long)arg1;
 
 @end
 

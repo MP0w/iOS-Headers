@@ -6,14 +6,15 @@
 
 #import <VectorKit/VKTileSetBackedTileSource.h>
 
+// Not exported
 @interface VKRasterTrafficTileSource : VKTileSetBackedTileSource
 {
 }
 
-- (unsigned int)mapLayerForZoomLevelRange;
-- (BOOL)expires;
-- (BOOL)minimumZoomLevelBoundsCamera;
-- (BOOL)maximumZoomLevelBoundsCamera;
+- (unsigned long long)mapLayerForZoomLevelRange;
+- (_Bool)expires;
+- (_Bool)minimumZoomLevelBoundsCamera;
+- (_Bool)maximumZoomLevelBoundsCamera;
 - (id)tileForData:(id)arg1 downloadKey:(const struct _GEOTileKey *)arg2 sourceKey:(const struct VKTileKey *)arg3;
 - (id)init;
 

@@ -17,9 +17,9 @@
 }
 
 - (struct OpaqueFigAssetWriter *)_retainedFigAssetWriter;
-- (int)status;
+- (long long)status;
 - (void)cancelWriting;
-- (void)finishOperationCompletedSuccessfully:(BOOL)arg1 withError:(id)arg2;
+- (void)finishOperationCompletedSuccessfully:(_Bool)arg1 withError:(id)arg2;
 - (void)performFinishOperation;
 - (void)finalize;
 - (void)dealloc;

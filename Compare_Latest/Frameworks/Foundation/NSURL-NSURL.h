@@ -7,13 +7,13 @@
 #import "NSURL.h"
 
 @interface NSURL (NSURL)
-+ (id)fileURLWithFileSystemRepresentation:(const char *)arg1 isDirectory:(BOOL)arg2 relativeToURL:(id)arg3;
-+ (id)fileURLWithPath:(id)arg1 isDirectory:(BOOL)arg2;
++ (id)fileURLWithFileSystemRepresentation:(const char *)arg1 isDirectory:(_Bool)arg2 relativeToURL:(id)arg3;
++ (id)fileURLWithPath:(id)arg1 isDirectory:(_Bool)arg2;
 + (id)fileURLWithPath:(id)arg1;
 + (id)URLWithString:(id)arg1 relativeToURL:(id)arg2;
 + (id)URLWithString:(id)arg1;
 + (id)allocWithZone:(struct _NSZone *)arg1;
-- (BOOL)isFileURL;
+- (_Bool)isFileURL;
 - (id)fragment;
 - (id)query;
 - (id)parameterString;
@@ -30,18 +30,18 @@
 - (id)description;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (const char *)fileSystemRepresentation;
-- (BOOL)getFileSystemRepresentation:(char *)arg1 maxLength:(unsigned int)arg2;
-- (id)initFileURLWithFileSystemRepresentation:(const char *)arg1 isDirectory:(BOOL)arg2 relativeToURL:(id)arg3;
-- (id)initFileURLWithPath:(id)arg1 isDirectory:(BOOL)arg2;
+- (_Bool)getFileSystemRepresentation:(char *)arg1 maxLength:(unsigned long long)arg2;
+- (id)initFileURLWithFileSystemRepresentation:(const char *)arg1 isDirectory:(_Bool)arg2 relativeToURL:(id)arg3;
+- (id)initFileURLWithPath:(id)arg1 isDirectory:(_Bool)arg2;
 - (id)initFileURLWithPath:(id)arg1;
 - (id)initWithScheme:(id)arg1 host:(id)arg2 path:(id)arg3;
 - (id)initWithString:(id)arg1;
 - (id)init;
 - (id)resourceSpecifier;
-- (BOOL)_isAbsolute;
+- (_Bool)_isAbsolute;
 - (id)_relativeURLPath;
 - (id)scheme;
 - (id)baseURL;
@@ -49,15 +49,15 @@
 - (void)finalize;
 - (void)dealloc;
 - (void)_freeClients;
-- (struct __CFDictionary *)_clientsCreatingIfNecessary:(BOOL)arg1;
+- (struct __CFDictionary *)_clientsCreatingIfNecessary:(_Bool)arg1;
 - (struct __CFURL *)_cfurl;
 - (id)initWithString:(id)arg1 relativeToURL:(id)arg2;
-- (unsigned long)_cfTypeID;
-- (BOOL)isMemberOfClass:(Class)arg1;
-- (BOOL)isKindOfClass:(Class)arg1;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
-- (unsigned int)retainCount;
+- (unsigned long long)_cfTypeID;
+- (_Bool)isMemberOfClass:(Class)arg1;
+- (_Bool)isKindOfClass:(Class)arg1;
+- (_Bool)_isDeallocating;
+- (_Bool)_tryRetain;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;
 @end

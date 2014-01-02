@@ -9,7 +9,7 @@
 @interface FigIOHIDMotionDelegate : NSObject
 {
     struct _opaque_pthread_mutex_t ringMutex;
-    BOOL manageAccel;
+    _Bool manageAccel;
     int accelRingIndex;
     float accelRingX[64];
     float accelRingY[64];
@@ -17,12 +17,12 @@
     double accelRingTime[64];
 }
 
-- (BOOL)managingAccel;
+- (_Bool)managingAccel;
 - (void)getVectorX:(float *)arg1 y:(float *)arg2 z:(float *)arg3 forTimeStamp:(double)arg4;
 - (void)didUpdateAccelerationWithEventInfo:(CDStruct_bf7dff04 *)arg1;
 - (void)dealloc;
 - (id)init;
-- (id)initWithOptions:(BOOL)arg1 enableRotation:(BOOL)arg2 enableAttitude:(BOOL)arg3;
+- (id)initWithOptions:(_Bool)arg1 enableRotation:(_Bool)arg2 enableAttitude:(_Bool)arg3;
 - (void)deferOnRunloop_stopEvents;
 - (void)deferOnRunloop_initManagerUsingIOHID;
 

@@ -21,7 +21,7 @@
 @property(nonatomic) const struct sqlite3_module *moduleMethods; // @synthesize moduleMethods=_moduleMethods;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
-- (BOOL)registerWithConnection:(id)arg1;
+- (_Bool)registerWithConnection:(id)arg1;
 - (id)description;
 - (void)dealloc;
 - (id)initWithName:(id)arg1 moduleMethods:(const struct sqlite3_module *)arg2;

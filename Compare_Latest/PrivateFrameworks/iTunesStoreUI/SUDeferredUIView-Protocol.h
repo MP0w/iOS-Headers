@@ -7,6 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol SUDeferredUIView <NSObject>
-@property(nonatomic, getter=isDeferringInterfaceUpdates) BOOL deferringInterfaceUpdates;
+@property(nonatomic, getter=isDeferringInterfaceUpdates) _Bool deferringInterfaceUpdates;
 @end
 

@@ -12,14 +12,14 @@
 {
     id <QLPreviewItem> _item;
     struct CGSize _size;
-    float _scale;
+    double _scale;
     UIImage *_thumbnailImage;
     NSString *_contentType;
     int _status;
 }
 
 + (id)generatorForPreviewItem:(id)arg1 size:(struct CGSize)arg2;
-+ (BOOL)canGenerateThumbnailForPreviewItem:(id)arg1;
++ (_Bool)canGenerateThumbnailForPreviewItem:(id)arg1;
 @property(readonly) UIImage *thumbnailImage; // @synthesize thumbnailImage=_thumbnailImage;
 - (void)cancel;
 - (id)_thumbnailForMovie;

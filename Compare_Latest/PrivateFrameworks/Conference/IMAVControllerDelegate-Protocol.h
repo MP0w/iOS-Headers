@@ -7,7 +7,7 @@
 @protocol IMAVControllerDelegate
 
 @optional
-- (void)inviteFailedFromIMHandle:(id)arg1 reason:(int)arg2;
+- (void)inviteFailedFromIMHandle:(id)arg1 reason:(long long)arg2;
 - (void)createdOutgoingIMAVChat:(id)arg1;
 - (void)invitedToIMAVChat:(id)arg1;
 @end

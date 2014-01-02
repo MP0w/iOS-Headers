@@ -6,7 +6,7 @@
 
 @protocol StepByStepUIDelegate
 - (void)stepByStepNextStep:(int)arg1 paramDict:(id)arg2;
-- (void)stepByStepCompleteWithResult:(long)arg1 paramDict:(id)arg2;
-- (void)stepByStepProgressUpdated:(int)arg1 status:(long)arg2 paramString:(id)arg3;
+- (void)stepByStepCompleteWithResult:(int)arg1 paramDict:(id)arg2;
+- (void)stepByStepProgressUpdated:(int)arg1 status:(int)arg2 paramString:(id)arg3;
 @end
 

@@ -10,7 +10,7 @@
 
 @interface SUScriptButtonNativeObject : SUScriptNativeObject
 {
-    BOOL _loading;
+    _Bool _loading;
     NSString *_subtitle;
     NSString *_styleString;
     NSString *_systemItemString;
@@ -18,16 +18,16 @@
 
 + (id)objectWithDefaultButtonForScriptButton:(id)arg1;
 @property(readonly, nonatomic) NSString *systemItemString; // @synthesize systemItemString=_systemItemString;
-@property(nonatomic, getter=isLoading) BOOL loading; // @synthesize loading=_loading;
+@property(nonatomic, getter=isLoading) _Bool loading; // @synthesize loading=_loading;
 @property(retain, nonatomic) NSString *subtitle;
 @property(readonly, nonatomic) NSString *styleString;
-- (void)showConfirmationWithTitle:(id)arg1 animated:(BOOL)arg2;
+- (void)showConfirmationWithTitle:(id)arg1 animated:(_Bool)arg2;
 - (void)setStyleFromString:(id)arg1;
 @property(nonatomic) struct UIEdgeInsets imageInsets;
-@property(nonatomic, getter=isEnabled) BOOL enabled; // @dynamic enabled;
-@property(readonly, nonatomic, getter=isShowingConfirmation) BOOL showingConfirmation;
-@property(readonly, nonatomic, getter=isBackButton) BOOL backButton;
-- (void)hideConfirmationAnimated:(BOOL)arg1;
+@property(nonatomic, getter=isEnabled) _Bool enabled; // @dynamic enabled;
+@property(readonly, nonatomic, getter=isShowingConfirmation) _Bool showingConfirmation;
+@property(readonly, nonatomic, getter=isBackButton) _Bool backButton;
+- (void)hideConfirmationAnimated:(_Bool)arg1;
 - (void)disconnectButtonAction;
 - (void)connectButtonAction;
 - (void)configureFromScriptButtonNativeObject:(id)arg1;
@@ -38,7 +38,7 @@
 
 // Remaining properties
 @property(retain, nonatomic) UIImage *image; // @dynamic image;
-@property(nonatomic) int tag; // @dynamic tag;
+@property(nonatomic) long long tag; // @dynamic tag;
 @property(retain, nonatomic) NSString *title; // @dynamic title;
 
 @end

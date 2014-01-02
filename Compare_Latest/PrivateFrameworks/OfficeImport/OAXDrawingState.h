@@ -8,6 +8,7 @@
 
 @class NSMutableArray, NSMutableDictionary, OADBlipCollection, OADColorMap, OADColorScheme, OADFontScheme, OADStyleMatrix, OAVState, OAXClient, OAXTableStyleCache, OCPPackagePart;
 
+// Not exported
 @interface OAXDrawingState : NSObject
 {
     OAXClient *mClient;
@@ -29,7 +30,7 @@
 
 @property(retain, nonatomic) NSMutableDictionary *sourceURLToTargetBulletBlipIndexMap; // @synthesize sourceURLToTargetBulletBlipIndexMap=mSrcURLToTgtBulletBlipIndexMap;
 @property(retain, nonatomic) NSMutableDictionary *sourceURLToTargetBlipIndexMap; // @synthesize sourceURLToTargetBlipIndexMap=mSrcURLToTgtBlipIndexMap;
-- (BOOL)isInsideGroup;
+- (_Bool)isInsideGroup;
 - (void)popGroup;
 - (void)pushGroup;
 - (id)bulletBlipRefForURL:(id)arg1;
@@ -50,8 +51,8 @@
 - (void)setDocumentState:(id)arg1;
 - (id)documentState;
 - (void)resetForNewDrawing;
-- (void)setDrawable:(id)arg1 forShapeId:(unsigned long)arg2;
-- (id)drawableForShapeId:(unsigned long)arg1;
+- (void)setDrawable:(id)arg1 forShapeId:(unsigned long long)arg2;
+- (id)drawableForShapeId:(unsigned int)arg1;
 - (void)setTableStyleCache:(id)arg1;
 - (id)tableStyleCache;
 - (void)setStyleMatrix:(id)arg1;

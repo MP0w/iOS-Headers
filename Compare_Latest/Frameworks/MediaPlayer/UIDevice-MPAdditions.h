@@ -7,7 +7,7 @@
 #import "UIDevice.h"
 
 @interface UIDevice (MPAdditions)
-- (void)setIsMediaPicker:(BOOL)arg1;
-- (BOOL)isMediaPicker;
+- (void)setIsMediaPicker:(_Bool)arg1;
+- (_Bool)isMediaPicker;
 @end
 

@@ -8,11 +8,11 @@
 
 @interface SKUIAccountButtonsComponent : SKUIPageComponent
 {
-    BOOL _hidesTermsAndConditions;
+    _Bool _hidesTermsAndConditions;
 }
 
-@property(nonatomic) BOOL hidesTermsAndConditions; // @synthesize hidesTermsAndConditions=_hidesTermsAndConditions;
-- (int)componentType;
+@property(nonatomic) _Bool hidesTermsAndConditions; // @synthesize hidesTermsAndConditions=_hidesTermsAndConditions;
+- (long long)componentType;
 - (id)initWithCustomPageContext:(id)arg1;
 
 @end

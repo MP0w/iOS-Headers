@@ -12,10 +12,10 @@
 {
 }
 
-+ (id)pointerFunctionsWithOptions:(unsigned int)arg1;
++ (id)pointerFunctionsWithOptions:(unsigned long long)arg1;
 + (id)allocWithZone:(struct _NSZone *)arg1;
-@property BOOL usesWeakReadAndWriteBarriers;
-@property BOOL usesStrongWriteBarrier;
+@property _Bool usesWeakReadAndWriteBarriers;
+@property _Bool usesStrongWriteBarrier;
 @property void *relinquishFunction;
 @property void *acquireFunction;
 @property void *descriptionFunction;
@@ -23,7 +23,7 @@
 @property void *hashFunction;
 @property void *sizeFunction;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithOptions:(unsigned int)arg1;
+- (id)initWithOptions:(unsigned long long)arg1;
 
 @end
 

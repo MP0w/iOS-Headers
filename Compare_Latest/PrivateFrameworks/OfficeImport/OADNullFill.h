@@ -6,6 +6,7 @@
 
 #import <OfficeImport/OADFill.h>
 
+// Not exported
 @interface OADNullFill : OADFill
 {
 }

@@ -10,7 +10,7 @@
 
 @interface VolumeGraphView : UIView
 {
-    BOOL _showingTintedRegion;
+    _Bool _showingTintedRegion;
     TintedView *_tintedVolumeView;
     UIView *_tintedRegionClipView;
     UIImage *_volumeImage;
@@ -19,8 +19,8 @@
 
 @property(retain, nonatomic) StockGraphImageSet *graphImageSet; // @synthesize graphImageSet=_graphImageSet;
 - (void).cxx_destruct;
-- (void)resizeSelectedVolumeClipViewWithLeftX:(float)arg1 rightX:(float)arg2;
-- (void)setShowingSelectedRegion:(BOOL)arg1;
+- (void)resizeSelectedVolumeClipViewWithLeftX:(double)arg1 rightX:(double)arg2;
+- (void)setShowingSelectedRegion:(_Bool)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

@@ -9,7 +9,7 @@
 @class NSDate, NSDictionary, NSNumber, NSOrderedSet, NSString;
 
 @protocol PLCloudSharedAlbumProtocol <PLAlbumProtocol>
-@property(nonatomic) BOOL cloudNotificationsEnabled;
+@property(nonatomic) _Bool cloudNotificationsEnabled;
 @property(readonly, nonatomic) NSDate *cloudFirstRecentBatchDate;
 @property(readonly, nonatomic) NSOrderedSet *cloudAlbumSubscriberRecords;
 @property(readonly, nonatomic) NSString *localizedSharedWithLabel;
@@ -17,12 +17,13 @@
 @property(readonly) int cloudRelationshipStateValue;
 @property(retain, nonatomic) NSString *cloudPersonID;
 @property(retain, nonatomic) NSDate *cloudLastContributionDate;
+@property(retain, nonatomic) NSDate *cloudCreationDate;
 @property(retain, nonatomic) NSDate *cloudLastInterestingChangeDate;
 @property(retain, nonatomic) NSNumber *cloudMultipleContributorsEnabledLocal;
 @property(retain, nonatomic) NSNumber *cloudMultipleContributorsEnabled;
 @property(retain, nonatomic) NSNumber *cloudPublicURLEnabledLocal;
 @property(retain, nonatomic) NSNumber *cloudPublicURLEnabled;
-@property unsigned int unseenAssetsCountIntegerValue;
+@property unsigned long long unseenAssetsCountIntegerValue;
 @property(retain, nonatomic) NSNumber *unseenAssetsCount;
 @property(retain, nonatomic) NSOrderedSet *invitationRecords;
 @property(retain, nonatomic) NSString *publicURL;
@@ -35,10 +36,10 @@
 @property(retain, nonatomic) NSDictionary *cloudMetadata;
 @property(retain, nonatomic) NSString *cloudGUID;
 - (void)userDeleteSubscriberRecord:(id)arg1;
-- (void)getUnseenStartMarkerIndex:(unsigned int *)arg1 count:(unsigned int *)arg2 showsProgress:(char *)arg3;
+- (void)getUnseenStartMarkerIndex:(unsigned long long *)arg1 count:(unsigned long long *)arg2 showsProgress:(_Bool *)arg3;
 - (void)updateCloudLastContributionDateWithDate:(id)arg1;
 - (void)updateCloudLastInterestingChangeDateWithDate:(id)arg1;
-- (id)cloudOwnerDisplayNameIncludingEmail:(BOOL)arg1 allowsEmail:(BOOL)arg2;
-- (id)localizedSharedByLabelAllowsEmail:(BOOL)arg1;
+- (id)cloudOwnerDisplayNameIncludingEmail:(_Bool)arg1 allowsEmail:(_Bool)arg2;
+- (id)localizedSharedByLabelAllowsEmail:(_Bool)arg1;
 @end
 

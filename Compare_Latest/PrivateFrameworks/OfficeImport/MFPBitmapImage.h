@@ -8,6 +8,7 @@
 
 @class NSData, TSUImage;
 
+// Not exported
 @interface MFPBitmapImage : MFPImage
 {
     NSData *mBitmapData;

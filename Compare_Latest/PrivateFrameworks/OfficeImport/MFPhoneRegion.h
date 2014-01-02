@@ -8,6 +8,7 @@
 
 @class TSDBezierPath;
 
+// Not exported
 @interface MFPhoneRegion : MFRegion
 {
     TSDBezierPath *m_path;

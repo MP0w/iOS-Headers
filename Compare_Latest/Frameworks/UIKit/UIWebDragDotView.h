@@ -8,6 +8,7 @@
 
 @class UIColor, UIImageView;
 
+// Not exported
 @interface UIWebDragDotView : UIView
 {
     UIColor *m_insertionPointColor;
@@ -18,15 +19,15 @@
     struct CGRect m_dotFrame;
 }
 
-@property(nonatomic) BOOL showsBall;
+@property(nonatomic) _Bool showsBall;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)setEdge:(struct CGRect)arg1;
-- (struct CGRect)stickFrameForEdge:(struct CGRect)arg1 withOverlap:(float)arg2;
-- (BOOL)isPointedLeft;
-- (BOOL)isPointedRight;
-- (BOOL)isPointedUp;
-- (BOOL)isPointedDown;
-- (BOOL)isVertical;
+- (struct CGRect)stickFrameForEdge:(struct CGRect)arg1 withOverlap:(double)arg2;
+- (_Bool)isPointedLeft;
+- (_Bool)isPointedRight;
+- (_Bool)isPointedUp;
+- (_Bool)isPointedDown;
+- (_Bool)isVertical;
 - (void)dealloc;
 - (id)initWithEdge:(struct CGRect)arg1 container:(id)arg2 orientation:(int)arg3;
 

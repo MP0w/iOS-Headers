@@ -14,7 +14,7 @@
 
 + (id)speechRecognizedWithDictionary:(id)arg1 context:(id)arg2;
 + (id)speechRecognized;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSString *sessionId;
 @property(retain, nonatomic) SASRecognition *recognition;
 - (id)encodedClassName;

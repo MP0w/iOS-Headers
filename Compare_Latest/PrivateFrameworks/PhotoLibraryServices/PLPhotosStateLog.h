@@ -15,15 +15,15 @@
 }
 
 @property(readonly, nonatomic) NSObject<OS_dispatch_group> *group; // @synthesize group=_group;
-- (BOOL)createSnapshot;
-- (BOOL)copyFilesMatching:(id)arg1 andExcluding:(id)arg2 fromPath:(id)arg3 toPath:(id)arg4 usingCompression:(BOOL)arg5;
-- (BOOL)compressFileFromPath:(id)arg1 toPath:(id)arg2;
+- (_Bool)createSnapshot;
+- (_Bool)copyFilesMatching:(id)arg1 andExcluding:(id)arg2 fromPath:(id)arg3 toPath:(id)arg4 usingCompression:(_Bool)arg5;
+- (_Bool)compressFileFromPath:(id)arg1 toPath:(id)arg2;
 - (void)logDescription:(id)arg1;
-- (void)_logAssets:(id)arg1 forAlbum:(id)arg2 indent:(unsigned int)arg3;
+- (void)_logAssets:(id)arg1 forAlbum:(id)arg2 indent:(unsigned long long)arg3;
 - (void)logAssetCounts;
 - (void)logAllAlbums;
 - (void)logAlbumLists;
-- (void)logAlbum:(id)arg1 index:(unsigned int)arg2 indent:(unsigned int)arg3 completeMetadata:(BOOL)arg4 printAssets:(BOOL)arg5;
+- (void)logAlbum:(id)arg1 index:(unsigned long long)arg2 indent:(unsigned long long)arg3 completeMetadata:(_Bool)arg4 printAssets:(_Bool)arg5;
 - (void)logMoments;
 @property(readonly, nonatomic) PLPhotoLibrary *photoLibrary;
 - (void)dealloc;

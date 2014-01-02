@@ -6,6 +6,7 @@
 
 #import <VectorKit/VKVectorTile.h>
 
+// Not exported
 @interface VKRoadTile : VKVectorTile
 {
 }

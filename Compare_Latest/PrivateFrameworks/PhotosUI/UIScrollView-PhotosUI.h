@@ -9,8 +9,8 @@
 @interface UIScrollView (PhotosUI)
 - (struct CGSize)pu_currentContentSize;
 - (struct CGRect)pu_displayFrameForRect:(struct CGRect)arg1;
-- (void)pu_scrollToEdge:(int)arg1 animated:(BOOL)arg2;
-- (BOOL)pu_isScrolledAtEdge:(int)arg1 tolerance:(float)arg2;
-- (void)pu_scrollToContentOffset:(struct CGPoint)arg1 animated:(BOOL)arg2;
+- (void)pu_scrollToEdge:(int)arg1 animated:(_Bool)arg2;
+- (_Bool)pu_isScrolledAtEdge:(int)arg1 tolerance:(double)arg2;
+- (void)pu_scrollToContentOffset:(struct CGPoint)arg1 animated:(_Bool)arg2;
 @end
 

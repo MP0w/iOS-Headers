@@ -20,7 +20,7 @@
 - (void)enumerateChildFramesUsingBlock:(id)arg1;
 - (id)committedURL;
 - (struct OpaqueJSValue *)jsWrapperInMetadataControllerScriptWorldForNode:(id)arg1;
-- (BOOL)containsAnyFormElements;
+- (_Bool)containsAnyFormElements;
 - (struct OpaqueJSContext *)jsContextForMetadataControllerScriptWorld;
 - (struct OpaqueFormAutoFillFrame *)frameRef;
 - (void)dealloc;

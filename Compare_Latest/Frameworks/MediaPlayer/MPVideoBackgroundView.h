@@ -10,7 +10,7 @@
 
 @interface MPVideoBackgroundView : UIView
 {
-    int _interfaceOrientation;
+    long long _interfaceOrientation;
     UIView *_imageView;
     UIImageView *_iconView;
     UIImageView *_backgroundPlaceholderImageView;
@@ -18,25 +18,25 @@
     UIView *_backgroundPlaceholderView;
     UIImageView *_customBackgroundImageView;
     NSString *_destinationName;
-    int _destinationPlaceholderStyle;
-    BOOL _showDestinationPlaceholder;
+    long long _destinationPlaceholderStyle;
+    _Bool _showDestinationPlaceholder;
     id _layoutSubviewsPostflightHandler;
 }
 
 @property(copy, nonatomic) id layoutSubviewsPostflightHandler; // @synthesize layoutSubviewsPostflightHandler=_layoutSubviewsPostflightHandler;
-@property(nonatomic) int interfaceOrientation; // @synthesize interfaceOrientation=_interfaceOrientation;
-@property(nonatomic) int destinationPlaceholderStyle; // @synthesize destinationPlaceholderStyle=_destinationPlaceholderStyle;
+@property(nonatomic) long long interfaceOrientation; // @synthesize interfaceOrientation=_interfaceOrientation;
+@property(nonatomic) long long destinationPlaceholderStyle; // @synthesize destinationPlaceholderStyle=_destinationPlaceholderStyle;
 @property(copy, nonatomic) NSString *destinationName; // @synthesize destinationName=_destinationName;
 @property(retain, nonatomic) UIView *backgroundPlaceholderPosterImageView; // @synthesize backgroundPlaceholderPosterImageView=_backgroundPlaceholderPosterImageView;
 - (void).cxx_destruct;
-- (void)_updateDestinationBackgroundViewAnimated:(BOOL)arg1;
+- (void)_updateDestinationBackgroundViewAnimated:(_Bool)arg1;
 - (void)_tvOutCapabilityDidChangeNotification:(id)arg1;
-- (void)setShowDestinationPlaceholder:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)setShowDestinationPlaceholder:(_Bool)arg1 animated:(_Bool)arg2;
 @property(readonly, nonatomic) UIView *backgroundPlaceholderView;
 @property(retain, nonatomic) UIImage *backgroundPlaceholderImage;
 - (void)setCustomBackgroundImage:(id)arg1;
-- (void)_createInformationalTitleView:(id *)arg1 systemFont:(id)arg2 lineBreakMode:(int)arg3;
-- (void)setShowQTAudioOnlyUI:(BOOL)arg1;
+- (void)_createInformationalTitleView:(id *)arg1 systemFont:(id)arg2 lineBreakMode:(long long)arg3;
+- (void)setShowQTAudioOnlyUI:(_Bool)arg1;
 - (id)qtIcon;
 - (void)layoutSubviews;
 - (void)dealloc;

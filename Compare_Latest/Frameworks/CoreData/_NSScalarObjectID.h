@@ -6,6 +6,7 @@
 
 #import <CoreData/_NSCoreManagedObjectID.h>
 
+// Not exported
 @interface _NSScalarObjectID : _NSCoreManagedObjectID
 {
 }
@@ -13,7 +14,7 @@
 - (id)initWithPK64:(long long)arg1;
 - (long long)_referenceData64;
 - (id)_retainedURIString;
-- (int)_getURIBytes:(char *)arg1 length:(int)arg2;
+- (long long)_getURIBytes:(char *)arg1 length:(long long)arg2;
 - (void)dealloc;
 
 @end

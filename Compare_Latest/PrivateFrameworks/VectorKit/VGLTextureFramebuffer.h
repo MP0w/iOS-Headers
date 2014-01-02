@@ -8,6 +8,7 @@
 
 @class VGLTextureCanvas;
 
+// Not exported
 @interface VGLTextureFramebuffer : VGLFramebuffer
 {
     VGLTextureCanvas *_textureCanvas;
@@ -15,7 +16,7 @@
 
 - (int)height;
 - (int)width;
-- (BOOL)isPresentable;
+- (_Bool)isPresentable;
 - (unsigned int)framebuffer;
 - (void)deleteUnusedFramebuffers;
 - (void)deleteResolveFramebuffers;

@@ -17,10 +17,11 @@
 
 - (void).cxx_destruct;
 - (id)_quicklinksViewController;
-- (void)quicklinksViewController:(id)arg1 didSelectLink:(id)arg2 atIndex:(int)arg3;
-- (int)numberOfCells;
+- (void)quicklinksViewController:(id)arg1 didSelectLink:(id)arg2 atIndex:(long long)arg3;
+- (long long)numberOfCells;
 - (struct CGSize)cellSizeForIndexPath:(id)arg1;
 - (id)cellForIndexPath:(id)arg1;
+- (void)willAppearInContext:(id)arg1;
 - (void)dealloc;
 - (id)initWithPageComponent:(id)arg1;
 

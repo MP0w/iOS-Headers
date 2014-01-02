@@ -13,9 +13,9 @@
 - (id)absolutePathFromPath:(id)arg1;
 - (double)stopTimeForAssetAtPath:(id)arg1;
 - (double)durationForAssetAtPath:(id)arg1;
-- (BOOL)isAssetAtPathASupportedAudio:(id)arg1;
-- (BOOL)isAssetAtPathASupportedMovie:(id)arg1;
-- (BOOL)isAssetAtPathASupportedImage:(id)arg1;
+- (_Bool)isAssetAtPathASupportedAudio:(id)arg1;
+- (_Bool)isAssetAtPathASupportedMovie:(id)arg1;
+- (_Bool)isAssetAtPathASupportedImage:(id)arg1;
 - (struct CGSize)resolutionForAssetAtPath:(id)arg1;
 
 @end

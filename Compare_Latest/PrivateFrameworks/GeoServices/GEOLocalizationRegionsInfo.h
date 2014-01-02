@@ -8,13 +8,14 @@
 
 @class NSDictionary, NSLock;
 
+// Not exported
 @interface GEOLocalizationRegionsInfo : NSObject
 {
     NSDictionary *_regions;
     NSLock *_regionsLock;
 }
 
-- (BOOL)needsLocalizationForKey:(const struct _GEOTileKey *)arg1 language:(id)arg2;
+- (_Bool)needsLocalizationForKey:(const struct _GEOTileKey *)arg1 language:(id)arg2;
 - (void)reset;
 - (void)dealloc;
 - (id)init;

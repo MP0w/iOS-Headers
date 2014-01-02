@@ -14,7 +14,6 @@
 + (id)imagePickerControllerForViewController:(id)arg1;
 + (id)albumListViewControllerSpec;
 + (id)gridViewControllerSpec;
-+ (void)initialize;
 
 @end
 

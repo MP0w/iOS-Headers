@@ -8,6 +8,7 @@
 
 @class NSEntityDescription;
 
+// Not exported
 @interface NSTemporaryObjectID : NSManagedObjectID
 {
     int _cd_rc;
@@ -22,31 +23,31 @@
 + (void)release;
 + (id)_retain_1;
 + (id)retain;
-+ (int)version;
-+ (BOOL)accessInstanceVariablesDirectly;
++ (long long)version;
++ (_Bool)accessInstanceVariablesDirectly;
 + (id)alloc;
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (Class)classForStore:(id)arg1;
 + (void)setObjectStoreIdentifier:(id)arg1;
 + (void)_storeDeallocated;
-+ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
++ (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 + (void)initialize;
 - (id)_referenceData;
 - (id)URIRepresentation;
 - (id)_retainedURIString;
-- (BOOL)_isPersistentStoreAlive;
+- (_Bool)_isPersistentStoreAlive;
 - (id)_storeIdentifier;
-- (BOOL)isTemporaryID;
+- (_Bool)isTemporaryID;
 - (id)entity;
 - (void)_setPersistentStore:(id)arg1;
 - (id)persistentStore;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)initWithEntity:(id)arg1 andUUIDString:(id)arg2;
 - (id)initWithEntity:(id)arg1;
 - (void)finalize;
 - (void)dealloc;
-- (unsigned int)retainCount;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;
 

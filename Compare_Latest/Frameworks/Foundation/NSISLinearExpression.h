@@ -18,35 +18,35 @@
         struct {
             id stored_extern_marker;
             struct *slab;
-            unsigned int capacity;
+            unsigned long long capacity;
         } extern_data;
         struct {
-            unsigned long aligner;
+            unsigned long long aligner;
         } inline_slab;
-        unsigned char padding[36];
+        unsigned char padding[48];
         void *_workaround13455311;
     } data;
 }
 
-+ (id)acquireFromPoolForUseCase:(int)arg1;
-+ (id)newExpressionWithCapacity:(unsigned int)arg1;
++ (id)acquireFromPoolForUseCase:(long long)arg1;
++ (id)newExpressionWithCapacity:(unsigned long long)arg1;
 - (id)copyContentsAndReturnToPool;
 - (void)returnToPool;
-- (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
+- (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
 - (id)init;
-- (id)initWithInlineCapacity:(unsigned int)arg1;
+- (id)initWithInlineCapacity:(unsigned long long)arg1;
 - (void)verifyInternalIntegrity;
 - (void)scaleBy:(double)arg1;
 - (id)variablesArray;
-- (unsigned int)variableCount;
-- (BOOL)enumerateVariablesAndCoefficientsUntil:(id)arg1;
+- (unsigned long long)variableCount;
+- (_Bool)enumerateVariablesAndCoefficientsUntil:(id)arg1;
 - (void)enumerateVariables:(id)arg1;
 - (void)enumerateVariablesAndCoefficients:(id)arg1;
 - (id)description;
 - (void)replaceVariable:(id)arg1 withExpression:(id)arg2 processVariableNewToReceiver:(id)arg3 processVariableDroppedFromReceiver:(void)arg4;
 - (void)replaceVariable:(id)arg1 withVariablePlusDelta:(double)arg2 timesVariable:(id)arg3 processVariableNewToReceiver:(id)arg4 processVariableDroppedFromReceiver:(void)arg5;
 - (void)replaceVariable:(id)arg1 withVariablePlusDelta:(double)arg2;
-- (BOOL)isConstant;
+- (_Bool)isConstant;
 @property double constant;
 - (double)incrementConstant:(double)arg1;
 - (void)addVariable:(id)arg1 coefficient:(double)arg2 processVariableNewToReceiver:(id)arg3 processVariableDroppedFromReceiver:(void)arg4;

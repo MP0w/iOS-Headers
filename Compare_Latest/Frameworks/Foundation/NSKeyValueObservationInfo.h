@@ -8,25 +8,26 @@
 
 @class NSArray, NSHashTable;
 
+// Not exported
 @interface NSKeyValueObservationInfo : NSObject
 {
     int _retainCountMinusOne;
     NSArray *_observances;
-    unsigned int _cachedHash;
-    BOOL _cachedIsShareable;
+    unsigned long long _cachedHash;
+    _Bool _cachedIsShareable;
     NSHashTable *_observables;
 }
 
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)dealloc;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
-- (unsigned int)retainCount;
+- (_Bool)_isDeallocating;
+- (_Bool)_tryRetain;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;
-- (id)_initWithObservances:(id *)arg1 count:(unsigned int)arg2;
+- (id)_initWithObservances:(id *)arg1 count:(unsigned long long)arg2;
 
 @end
 

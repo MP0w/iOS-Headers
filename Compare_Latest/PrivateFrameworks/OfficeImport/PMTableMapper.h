@@ -8,6 +8,7 @@
 
 @class CMDrawableStyle, CMTableGridInfo, OADOrientedBounds, OADTable;
 
+// Not exported
 @interface PMTableMapper : CMMapper
 {
     OADTable *mTable;
@@ -16,7 +17,7 @@
     OADOrientedBounds *mBounds;
 }
 
-- (unsigned int)rowCount;
+- (unsigned long long)rowCount;
 - (id)tableBorderStyle;
 - (id)defaultCellFillForRow:(unsigned int)arg1 withState:(id)arg2;
 - (id)defaultCellFillWithState:(id)arg1;
@@ -25,9 +26,6 @@
 - (void)mapAt:(id)arg1 withState:(id)arg2;
 - (void)dealloc;
 - (id)initWithOadTable:(id)arg1 bounds:(id)arg2 parent:(id)arg3;
-- (id)cellStyle;
-- (void)mapColumnGridAt:(id)arg1 withState:(id)arg2;
-- (void)mapTablePropertiesWithState:(id)arg1;
 
 @end
 

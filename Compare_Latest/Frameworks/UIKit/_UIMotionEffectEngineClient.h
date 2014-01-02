@@ -8,6 +8,7 @@
 
 @class UIMotionEffect, UIView;
 
+// Not exported
 @interface _UIMotionEffectEngineClient : NSObject
 {
     UIMotionEffect *_effect;
@@ -15,8 +16,8 @@
 }
 
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)initWithMotionEffect:(id)arg1 view:(id)arg2;
 
 @end

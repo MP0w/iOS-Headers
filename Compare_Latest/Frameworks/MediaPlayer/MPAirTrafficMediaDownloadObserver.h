@@ -19,7 +19,7 @@
 + (void)connection:(id)arg1 updatedProgress:(id)arg2;
 + (void)initialize;
 - (void).cxx_destruct;
-- (BOOL)isPurchasing;
+- (_Bool)isPurchasing;
 - (double)downloadProgress;
 - (void)_onQueue_invalidate;
 - (void)dealloc;

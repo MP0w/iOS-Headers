@@ -10,10 +10,10 @@
 
 @interface PUPhotosPickerViewControllerSpec : NSObject
 {
-    unsigned int _supportedInterfaceOrientations;
+    unsigned long long _supportedInterfaceOrientations;
 }
 
-@property(readonly, nonatomic) unsigned int supportedInterfaceOrientations; // @synthesize supportedInterfaceOrientations=_supportedInterfaceOrientations;
+@property(readonly, nonatomic) unsigned long long supportedInterfaceOrientations; // @synthesize supportedInterfaceOrientations=_supportedInterfaceOrientations;
 - (void)configureSessionInfo:(id)arg1;
 @property(readonly, nonatomic) PUTabbedLibraryViewControllerSpec *tabbedLibraryViewControllerSpec;
 

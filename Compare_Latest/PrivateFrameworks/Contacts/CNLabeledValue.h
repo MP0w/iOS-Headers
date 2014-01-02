@@ -18,7 +18,7 @@
     id _value;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 + (id)labeledValueWithLabel:(id)arg1 value:(id)arg2;
 + (id)makeIdentifier;
 + (id)identifierProvider;
@@ -26,9 +26,9 @@
 @property(readonly, nonatomic) NSString *label; // @synthesize label=_label;
 @property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
-- (BOOL)isEqualToLabeledValue:(id)arg1 includeIdentifiers:(BOOL)arg2;
-- (BOOL)isEqualToLabeledValue:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqualToLabeledValue:(id)arg1 includeIdentifiers:(_Bool)arg2;
+- (_Bool)isEqualToLabeledValue:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)labeledValueBySettingValue:(id)arg1;
 - (id)labeledValueBySettingLabel:(id)arg1 value:(id)arg2;

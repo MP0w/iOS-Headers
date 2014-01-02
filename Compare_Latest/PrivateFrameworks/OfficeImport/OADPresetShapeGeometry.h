@@ -6,6 +6,7 @@
 
 #import <OfficeImport/OADShapeGeometry.h>
 
+// Not exported
 @interface OADPresetShapeGeometry : OADShapeGeometry
 {
     int mType;

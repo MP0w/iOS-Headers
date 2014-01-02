@@ -8,14 +8,15 @@
 
 @class NSMutableString, WDCharacterProperties;
 
+// Not exported
 @interface WDCharacterRun : WDRun
 {
     WDCharacterProperties *mProperties;
     NSMutableString *mString;
-    BOOL mBinaryWriterContentFlag;
+    _Bool mBinaryWriterContentFlag;
 }
 
-- (BOOL)isEmpty;
+- (_Bool)isEmpty;
 - (void)copyPropertiesFrom:(id)arg1;
 - (void)removeLastCharacter:(unsigned short)arg1;
 - (id)initWithParagraph:(id)arg1 string:(id)arg2;
@@ -29,8 +30,6 @@
 - (id)properties;
 - (int)runType;
 - (void)dealloc;
-- (void)setBinaryWriterContentFlag:(BOOL)arg1;
-- (BOOL)binaryWriterContentFlag;
 
 @end
 

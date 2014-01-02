@@ -8,6 +8,7 @@
 
 @class NSMapTable, VKClassicGlobeCanvas;
 
+// Not exported
 @interface VKGlobePointCache : NSObject
 {
     VKClassicGlobeCanvas *_canvas;
@@ -15,9 +16,9 @@
 }
 
 @property(nonatomic) VKClassicGlobeCanvas *canvas; // @synthesize canvas=_canvas;
-- (struct VKPoint)pointForHandle:(id)arg1 atCoordinate:(CDStruct_c3b9c2ee)arg2 withHighPrecision:(BOOL)arg3;
+- (struct VKPoint)pointForHandle:(id)arg1 atCoordinate:(CDStruct_c3b9c2ee)arg2 withHighPrecision:(_Bool)arg3;
 - (void)removeHandle:(id)arg1;
-- (id)addHandleAtCoordinate:(CDStruct_c3b9c2ee)arg1 withHighPrecision:(BOOL)arg2;
+- (id)addHandleAtCoordinate:(CDStruct_c3b9c2ee)arg1 withHighPrecision:(_Bool)arg2;
 - (void)dealloc;
 - (id)init;
 

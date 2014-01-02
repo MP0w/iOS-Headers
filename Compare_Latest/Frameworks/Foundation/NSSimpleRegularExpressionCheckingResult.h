@@ -15,14 +15,14 @@
 }
 
 - (id)rangeArray;
-- (struct _NSRange)rangeAtIndex:(unsigned int)arg1;
-- (unsigned int)numberOfRanges;
-- (BOOL)_adjustRangesWithOffset:(int)arg1;
+- (struct _NSRange)rangeAtIndex:(unsigned long long)arg1;
+- (unsigned long long)numberOfRanges;
+- (_Bool)_adjustRangesWithOffset:(long long)arg1;
 - (struct _NSRange)range;
 - (id)regularExpression;
 - (void)dealloc;
 - (id)initWithRangeArray:(id)arg1 regularExpression:(id)arg2;
-- (id)initWithRanges:(struct _NSRange *)arg1 count:(unsigned int)arg2 regularExpression:(id)arg3;
+- (id)initWithRanges:(struct _NSRange *)arg1 count:(unsigned long long)arg2 regularExpression:(id)arg3;
 
 @end
 

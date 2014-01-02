@@ -10,7 +10,7 @@
 {
 }
 
-- (unsigned int)supportedInterfaceOrientations;
+- (unsigned long long)supportedInterfaceOrientations;
 
 @end
 

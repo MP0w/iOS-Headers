@@ -8,6 +8,7 @@
 
 @class GQDSStyle;
 
+// Not exported
 @interface GQDWPSection : NSObject
 {
     struct __CFArray *mChildren;
@@ -17,7 +18,6 @@
 - (id)style;
 - (struct __CFArray *)children;
 - (void)dealloc;
-- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1 processor:(id)arg2;
 
 @end
 

@@ -44,33 +44,33 @@
     unsigned int _unused:3;
 }
 
-+ (BOOL)allowLayeredFillForKnob;
++ (_Bool)allowLayeredFillForKnob;
 - (void)setTimeShadowColor:(id)arg1;
 - (void)setTimeColor:(id)arg1;
 - (void)setValueAvailable:(float)arg1;
 - (void)endTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (BOOL)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (BOOL)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (void)_sendDelegateDidEnterScrubbingState:(BOOL)arg1;
-- (void)setScrubbingRequiresMomentaryDelay:(BOOL)arg1;
-- (void)setShowDuration:(BOOL)arg1;
-- (void)setShowFullWidthComponents:(BOOL)arg1;
+- (_Bool)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
+- (_Bool)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
+- (void)_sendDelegateDidEnterScrubbingState:(_Bool)arg1;
+- (void)setScrubbingRequiresMomentaryDelay:(_Bool)arg1;
+- (void)setShowDuration:(_Bool)arg1;
+- (void)setShowFullWidthComponents:(_Bool)arg1;
 - (void)enableTimesLayout;
 - (void)disableTimesLayout;
-- (void)_updateTimes:(BOOL)arg1;
-- (void)setValue:(float)arg1 animated:(BOOL)arg2 animationCurve:(int)arg3;
-- (void)_setValue:(float)arg1 andSendAction:(BOOL)arg2;
+- (void)_updateTimes:(_Bool)arg1;
+- (void)setValue:(float)arg1 animated:(_Bool)arg2 animationCurve:(int)arg3;
+- (void)_setValue:(float)arg1 andSendAction:(_Bool)arg2;
 - (void)_updateAvailableFill;
 - (void)drawSliderPiece:(int)arg1 inRect:(struct CGRect)arg2;
-- (void)setAllowsAnyValue:(BOOL)arg1;
-- (BOOL)_notAllValueAvailable;
+- (void)setAllowsAnyValue:(_Bool)arg1;
+- (_Bool)_notAllValueAvailable;
 - (struct CGRect)fillBounds;
 - (struct CGRect)_rectOfTrack;
 - (struct CGRect)hitRect;
-- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
-- (BOOL)pointInsideKnob:(struct CGPoint)arg1 withEvent:(id)arg2;
-- (BOOL)pointInside:(struct CGPoint)arg1 forEvent:(struct __GSEvent *)arg2;
-- (BOOL)pointInsideKnob:(struct CGPoint)arg1 forEvent:(struct __GSEvent *)arg2;
+- (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (_Bool)pointInsideKnob:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (_Bool)pointInside:(struct CGPoint)arg1 forEvent:(struct __GSEvent *)arg2;
+- (_Bool)pointInsideKnob:(struct CGPoint)arg1 forEvent:(struct __GSEvent *)arg2;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (double)requiredAutoUpdateDurationForDuration:(double)arg1;
 - (double)duration;
@@ -83,11 +83,11 @@
 - (const CDStruct_869f9c67 *)metrics;
 - (id)imageForSliderPiece:(int)arg1;
 - (struct CGRect)sliderBounds;
-- (void)setShowTimeCenteredInAvailableArea:(BOOL)arg1;
-- (void)setPinTimeToOutsideEdges:(BOOL)arg1;
+- (void)setShowTimeCenteredInAvailableArea:(_Bool)arg1;
+- (void)setPinTimeToOutsideEdges:(_Bool)arg1;
 - (id)createSliderKnobView;
-- (id)initWithFrame:(struct CGRect)arg1 maxTrackWidth:(float)arg2 showTimes:(BOOL)arg3 showKnob:(BOOL)arg4;
-- (id)initWithFrame:(struct CGRect)arg1 maxTrackWidth:(float)arg2 showTimes:(BOOL)arg3 knobStyle:(int)arg4;
+- (id)initWithFrame:(struct CGRect)arg1 maxTrackWidth:(float)arg2 showTimes:(_Bool)arg3 showKnob:(_Bool)arg4;
+- (id)initWithFrame:(struct CGRect)arg1 maxTrackWidth:(float)arg2 showTimes:(_Bool)arg3 knobStyle:(int)arg4;
 
 @end
 

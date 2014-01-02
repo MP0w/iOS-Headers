@@ -11,9 +11,6 @@
     void *_private;
 }
 
-+ (Class)_representationClassForMIMEType:(id)arg1 allowingPlugins:(BOOL)arg2;
-+ (void)initialize;
-+ (id)_repTypesAllowImageTypeOmission:(BOOL)arg1;
 - (void)addSubresource:(id)arg1;
 - (id)subresourceForURL:(id)arg1;
 - (id)subresources;
@@ -21,7 +18,7 @@
 - (id)webArchive;
 - (id)unreachableURL;
 - (id)pageTitle;
-- (BOOL)isLoading;
+- (_Bool)isLoading;
 - (id)textEncodingName;
 - (id)response;
 - (id)request;
@@ -32,30 +29,6 @@
 - (void)finalize;
 - (void)dealloc;
 - (id)initWithRequest:(id)arg1;
-- (void)_setRepresentation:(id)arg1;
-- (id)dataSourceDelegate;
-- (void)setDataSourceDelegate:(id)arg1;
-- (void)_setAllowToBeMemoryMapped;
-- (void)_setOverrideTextEncodingName:(id)arg1;
-- (void)_setDeferMainResourceDataLoad:(BOOL)arg1;
-- (BOOL)_transferApplicationCache:(id)arg1;
-- (id)_responseMIMEType;
-- (void)_addSubframeArchives:(id)arg1;
-- (id)_mainDocumentError;
-- (id)_initWithDocumentLoader:(PassRefPtr_a1b5a79e)arg1;
-- (struct DocumentLoader *)_documentLoader;
-- (void)_makeRepresentation;
-- (BOOL)_isDocumentHTML;
-- (id)_webView;
-- (id)_URL;
-- (id)_imageElementWithImageResource:(id)arg1;
-- (id)_documentFragmentWithImageResource:(id)arg1;
-- (id)_documentFragmentWithArchive:(id)arg1;
-- (void)_replaceSelectionWithArchive:(id)arg1 selectReplacement:(BOOL)arg2;
-- (void)_revertToProvisionalState;
-- (void)_setMainDocumentError:(id)arg1;
-- (void)_receivedData:(id)arg1;
-- (void)_finishedLoading;
 
 @end
 

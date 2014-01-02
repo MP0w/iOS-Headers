@@ -7,7 +7,7 @@
 #import "NSNumber.h"
 
 @interface NSNumber (ICSWriter)
-- (void)_ICSStringWithOptions:(unsigned int)arg1 appendingToString:(id)arg2;
+- (void)_ICSStringWithOptions:(unsigned long long)arg1 appendingToString:(id)arg2;
 - (void)_ICSFBTypeAppendingToString:(id)arg1;
 - (void)_ICSUTCOffsetAppendingToString:(id)arg1;
 - (void)_ICSBoolAppendingToString:(id)arg1;

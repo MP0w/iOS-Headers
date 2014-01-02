@@ -11,11 +11,11 @@
     id ds;
 }
 
-- (id)deserializePListValueIn:(id)arg1 key:(id)arg2 length:(unsigned int)arg3;
+- (id)deserializePListValueIn:(id)arg1 key:(id)arg2 length:(unsigned long long)arg3;
 - (id)deserializePListKeyIn:(id)arg1;
 - (id)deserializePList:(id)arg1;
 - (id)deserializeNewPList;
-- (id)deserializeListItemIn:(id)arg1 at:(unsigned int)arg2 length:(unsigned int)arg3;
+- (id)deserializeListItemIn:(id)arg1 at:(unsigned long long)arg2 length:(unsigned long long)arg3;
 - (id)deserializeList:(id)arg1;
 - (id)deserializeNewList;
 - (id)deserializeString:(id)arg1;

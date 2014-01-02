@@ -6,13 +6,15 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class GEOLatLng, NSData, NSMutableArray, NSString;
 
-@interface GEOSuggestionEntry : PBCodable
+@interface GEOSuggestionEntry : PBCodable <NSCopying>
 {
     CDStruct_97e972fa *_textHighlights;
-    unsigned int _textHighlightsCount;
-    unsigned int _textHighlightsSpace;
+    unsigned long long _textHighlightsCount;
+    unsigned long long _textHighlightsSpace;
     NSString *_calloutTitle;
     NSMutableArray *_displayLines;
     NSString *_iconID;
@@ -27,26 +29,27 @@
 @property(retain, nonatomic) GEOLatLng *latlng; // @synthesize latlng=_latlng;
 @property(retain, nonatomic) NSString *iconID; // @synthesize iconID=_iconID;
 @property(retain, nonatomic) NSMutableArray *displayLines; // @synthesize displayLines=_displayLines;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) BOOL hasCalloutTitle;
-@property(readonly, nonatomic) BOOL hasSearchQueryDisplayString;
-@property(readonly, nonatomic) BOOL hasSuggestionEntryMetadata;
-@property(readonly, nonatomic) BOOL hasLatlng;
-@property(readonly, nonatomic) BOOL hasIconID;
-- (void)setTextHighlights:(CDStruct_97e972fa *)arg1 count:(unsigned int)arg2;
-- (CDStruct_97e972fa)textHighlightsAtIndex:(unsigned int)arg1;
+@property(readonly, nonatomic) _Bool hasCalloutTitle;
+@property(readonly, nonatomic) _Bool hasSearchQueryDisplayString;
+@property(readonly, nonatomic) _Bool hasSuggestionEntryMetadata;
+@property(readonly, nonatomic) _Bool hasLatlng;
+@property(readonly, nonatomic) _Bool hasIconID;
+- (void)setTextHighlights:(CDStruct_97e972fa *)arg1 count:(unsigned long long)arg2;
+- (CDStruct_97e972fa)textHighlightsAtIndex:(unsigned long long)arg1;
 - (void)addTextHighlights:(CDStruct_97e972fa)arg1;
 - (void)clearTextHighlights;
 @property(readonly, nonatomic) CDStruct_97e972fa *textHighlights;
-@property(readonly, nonatomic) unsigned int textHighlightsCount;
-- (id)displayLineAtIndex:(unsigned int)arg1;
-- (unsigned int)displayLinesCount;
+@property(readonly, nonatomic) unsigned long long textHighlightsCount;
+- (id)displayLineAtIndex:(unsigned long long)arg1;
+- (unsigned long long)displayLinesCount;
 - (void)addDisplayLine:(id)arg1;
 - (void)clearDisplayLines;
 - (void)dealloc;

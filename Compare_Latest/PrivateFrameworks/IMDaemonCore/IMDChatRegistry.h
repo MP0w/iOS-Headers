@@ -12,24 +12,24 @@
 {
     NSRecursiveLock *_chatsLock;
     NSMutableDictionary *_chats;
-    BOOL _isLoading;
+    _Bool _isLoading;
 }
 
 + (id)sharedInstance;
-- (BOOL)updateProperties:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3;
-- (BOOL)saveChats;
-- (BOOL)_saveChats;
-- (BOOL)loadChatsWithCompletionBlock:(id)arg1;
+- (_Bool)updateProperties:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3;
+- (_Bool)saveChats;
+- (_Bool)_saveChats;
+- (_Bool)loadChatsWithCompletionBlock:(id)arg1;
 - (id)_chatInfoForSaving;
 - (id)_chatInfo;
 - (void)removeMessage:(id)arg1 fromChat:(id)arg2;
 - (void)addMessage:(id)arg1 toChat:(id)arg2;
 - (void)removeChat:(id)arg1;
 - (void)addChat:(id)arg1;
-- (void)updateStateForChat:(id)arg1 forcePost:(BOOL)arg2;
+- (void)updateStateForChat:(id)arg1 forcePost:(_Bool)arg2;
 - (void)updateStateForChat:(id)arg1;
-- (void)updateStateForChat:(id)arg1 fromMessage:(id)arg2 toMessage:(id)arg3 forcePost:(BOOL)arg4;
-- (BOOL)updateUnreadCountForChat:(id)arg1;
+- (void)updateStateForChat:(id)arg1 fromMessage:(id)arg2 toMessage:(id)arg3 forcePost:(_Bool)arg4;
+- (_Bool)updateUnreadCountForChat:(id)arg1;
 - (void)updateLastMessageForChat:(id)arg1;
 - (void)updateLastMessageForChat:(id)arg1 hintMessage:(id)arg2;
 - (id)allExistingChatsWithIdentifier:(id)arg1 style:(unsigned char)arg2;

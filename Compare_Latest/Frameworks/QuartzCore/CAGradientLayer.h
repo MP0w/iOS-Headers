@@ -12,8 +12,8 @@
 {
 }
 
-+ (BOOL)CA_automaticallyNotifiesObservers:(Class)arg1;
-+ (BOOL)_hasRenderLayerSubclass;
++ (_Bool)CA_automaticallyNotifiesObservers:(Class)arg1;
++ (_Bool)_hasRenderLayerSubclass;
 + (id)defaultValueForKey:(id)arg1;
 @property(copy) NSString *type;
 @property struct CGPoint endPoint;
@@ -26,7 +26,6 @@
 - (void)_renderBackgroundInContext:(struct CGContext *)arg1;
 - (id)implicitAnimationForKeyPath:(id)arg1;
 - (void)didChangeValueForKey:(id)arg1;
-@property(retain) id colorMap;
 
 @end
 

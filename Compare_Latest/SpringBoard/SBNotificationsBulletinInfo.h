@@ -6,33 +6,48 @@
 
 #import "SBBBBulletinInfo.h"
 
-@class UIColor, UIImage;
+@class SBNotificationsSectionInfo, UIColor, UIImage;
 
 @interface SBNotificationsBulletinInfo : SBBBBulletinInfo
 {
-    id _relevanceDateLabel;
-    id _eventDateLabel;
-    float _heightForReusableView;
+    SBNotificationsSectionInfo *_sectionInfo;
+    double _heightForReusableView;
+    struct CGSize _referenceSize;
     UIImage *_icon;
     UIImage *_attachmentImage;
     struct CGSize _attachmentImageSize;
+    double _secondaryTextHeight;
+    _Bool _suppressingMessageForPrivacy;
+    _Bool _isCachedMessageSuppressionValid;
     UIColor *_secondaryTextColor;
 }
 
 @property(readonly, nonatomic) UIColor *secondaryTextColor; // @synthesize secondaryTextColor=_secondaryTextColor;
+@property(retain, nonatomic) SBNotificationsSectionInfo *sectionInfo; // @synthesize sectionInfo=_sectionInfo;
 @property(nonatomic) struct CGSize attachmentImageSize; // @synthesize attachmentImageSize=_attachmentImageSize;
 @property(retain, nonatomic) UIImage *attachmentImage; // @synthesize attachmentImage=_attachmentImage;
 @property(retain, nonatomic) UIImage *icon; // @synthesize icon=_icon;
 - (void)populateReusableView:(id)arg1;
-- (float)heightForReusableViewInTableView:(id)arg1;
+- (double)heightForReusableViewInTableView:(id)arg1;
+- (_Bool)_isLayoutValidWithReferenceSize:(struct CGSize)arg1;
 - (struct CGSize)_effectiveAttachmentImageSize;
+- (id)_attachmentImageToDisplay;
+- (id)_eventDateLabelForDisplay;
 - (id)_eventDateLabel;
-- (id)_endDate;
+- (void)_configureEventDateLabel:(id)arg1;
 - (id)_relevanceDateLabel;
+- (void)_configureRelevanceDateLabel:(id)arg1;
+- (CDStruct_89ddc8e1)_relevanceDateLabelDescription;
+- (id)_endDate;
 - (id)_secondaryTextColor;
+- (id)_secondaryTextToDisplay;
 - (id)_secondaryText;
+- (id)_subtitleTextColor;
+- (id)_subtitleTextToDisplay;
+- (id)_subtitleText;
 - (id)_relevanceDateTextColor;
 - (id)_primaryTextColor;
+@property(readonly, nonatomic, getter=isSuppressingMessageForPrivacy) _Bool suppressingMessageForPrivacy; // @synthesize suppressingMessageForPrivacy=_suppressingMessageForPrivacy;
 - (id)_primaryText;
 - (void)invalidateCachedLayoutData;
 - (Class)reusableViewClass;

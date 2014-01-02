@@ -15,12 +15,12 @@
 {
     UIColor *_color;
     struct CGSize _offset;
-    float _opacity;
-    float _radius;
+    double _opacity;
+    double _radius;
 }
 
-@property(nonatomic) float radius; // @synthesize radius=_radius;
-@property(nonatomic) float opacity; // @synthesize opacity=_opacity;
+@property(nonatomic) double radius; // @synthesize radius=_radius;
+@property(nonatomic) double opacity; // @synthesize opacity=_opacity;
 @property(nonatomic) struct CGSize offset; // @synthesize offset=_offset;
 @property(retain, nonatomic) UIColor *color; // @synthesize color=_color;
 - (void)applyToLayer:(id)arg1;

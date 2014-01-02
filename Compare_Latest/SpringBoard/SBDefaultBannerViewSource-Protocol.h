@@ -7,7 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol SBDefaultBannerViewSource <NSObject>
-- (BOOL)isVIP;
+- (_Bool)isVIP;
 - (id)attachmentImage;
 - (id)attachmentText;
 - (id)iconImage;

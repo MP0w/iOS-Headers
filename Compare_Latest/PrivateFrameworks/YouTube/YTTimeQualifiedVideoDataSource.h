@@ -13,7 +13,7 @@
     NSString *_timeQualifier;
 }
 
-- (void)setTimeQualifier:(id)arg1 clearVideos:(BOOL)arg2;
+- (void)setTimeQualifier:(id)arg1 clearVideos:(_Bool)arg2;
 
 @end
 

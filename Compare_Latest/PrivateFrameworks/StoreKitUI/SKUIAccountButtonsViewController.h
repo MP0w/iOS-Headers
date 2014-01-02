@@ -8,13 +8,14 @@
 
 #import "UIAlertViewDelegate-Protocol.h"
 
-@class SKUIAccountButtonsView, SKUIClientContext, SKUIColorScheme;
+@class SKUIAccountButtonsView, SKUIClientContext, SKUIColorScheme, UIAlertView;
 
 @interface SKUIAccountButtonsViewController : UIViewController <UIAlertViewDelegate>
 {
     SKUIAccountButtonsView *_buttonsView;
     SKUIClientContext *_clientContext;
     id <SKUIAccountButtonsDelegate> _delegate;
+    UIAlertView *_alertView;
 }
 
 @property(nonatomic) __weak id <SKUIAccountButtonsDelegate> delegate; // @synthesize delegate=_delegate;
@@ -34,10 +35,12 @@
 - (void)_signInButtonAction:(id)arg1;
 - (void)_redeemButtonAction:(id)arg1;
 - (void)_giftAction:(id)arg1;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
-- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
+- (void)willRotateToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;
-@property(nonatomic, getter=isTermsAndConditionsHidden) BOOL termsAndConditionsHidden;
+@property(nonatomic, getter=isTermsAndConditionsHidden) _Bool termsAndConditionsHidden;
+@property(nonatomic, getter=isGiftingHidden) _Bool giftingHidden;
 @property(copy, nonatomic) SKUIColorScheme *colorScheme;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

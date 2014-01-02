@@ -15,15 +15,15 @@
     NSString *_imageBase;
 }
 
-+ (BOOL)supportsSecureCoding;
-+ (id)passWithBundledStyle:(int)arg1;
++ (_Bool)supportsSecureCoding;
++ (id)passWithBundledStyle:(long long)arg1;
 @property(retain, nonatomic) NSString *imageBase; // @synthesize imageBase=_imageBase;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (void)fetchImageSet:(int)arg1 withCompletion:(id)arg2;
-- (BOOL)contentIsLoaded;
+- (void)fetchImageSet:(long long)arg1 withCompletion:(id)arg2;
+- (_Bool)contentIsLoaded;
 - (void)dealloc;
-- (id)initWithBundledStyle:(int)arg1;
+- (id)initWithBundledStyle:(long long)arg1;
 
 @end
 

@@ -9,12 +9,13 @@
 #import "UITableViewDataSource-Protocol.h"
 #import "UITableViewDelegate-Protocol.h"
 
-@class NSMutableArray, NSObject<SLMicroBlogMentionsDelegate>, NSObject<SLMicroBlogSheetDelegate>, NSString, UITableView;
+@class NSArray, NSObject<SLMicroBlogMentionsDelegate>, NSObject<SLMicroBlogSheetDelegate>, NSString, UITableView;
 
+// Not exported
 @interface SLMicroBlogMentionsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
     NSObject<SLMicroBlogSheetDelegate> *_sheetDelegate;
-    NSMutableArray *_mentions;
+    NSArray *_mentions;
     NSString *_searchString;
     UITableView *_tableView;
     NSObject<SLMicroBlogMentionsDelegate> *_delegate;
@@ -24,15 +25,17 @@
 @property(nonatomic) __weak NSObject<SLMicroBlogMentionsDelegate> *delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (void)chooseRow:(int)arg1;
+- (void)chooseRow:(long long)arg1;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
+- (struct CGSize)contentSizeForViewInPopover;
 - (void)loadView;
 - (void)setSearchString:(id)arg1;
-- (id)currentResults;
-- (void)clearResults;
+- (void)updateMentions;
+- (void)setMentions:(id)arg1;
+- (id)mentions;
 - (void)completeWithSelectedMention:(id)arg1;
 - (id)initWithSheetDelegate:(id)arg1;
 

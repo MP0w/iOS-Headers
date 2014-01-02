@@ -8,6 +8,7 @@
 
 @class NSValue;
 
+// Not exported
 @interface _UITabBarItemAppearanceStorage : _UIBarItemAppearanceStorage
 {
     NSValue *titleOffset;

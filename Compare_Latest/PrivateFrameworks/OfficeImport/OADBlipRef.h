@@ -10,9 +10,10 @@
 
 @class NSMutableArray, NSString, OADBlip;
 
+// Not exported
 @interface OADBlipRef : NSObject <NSCopying>
 {
-    long mIndex;
+    int mIndex;
     NSString *mName;
     NSMutableArray *mEffects;
     OADBlip *mBlip;
@@ -22,27 +23,27 @@
 + (int)blipTypeForImageData:(id)arg1;
 + (int)blipTypeForContentType:(id)arg1;
 + (int)blipTypeForExtension:(id)arg1;
-+ (id)blipRefWithIndex:(long)arg1 name:(id)arg2 blip:(id)arg3;
-+ (id)blipRefWithIndex:(long)arg1 name:(id)arg2 blip:(id)arg3 effects:(id)arg4;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
++ (id)blipRefWithIndex:(int)arg1 name:(id)arg2 blip:(id)arg3;
++ (id)blipRefWithIndex:(int)arg1 name:(id)arg2 blip:(id)arg3 effects:(id)arg4;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)effects;
-- (BOOL)isNull;
-- (void)removeEffectAtIndex:(unsigned int)arg1;
-- (id)effectAtIndex:(unsigned int)arg1;
-- (unsigned int)effectCount;
+- (_Bool)isNull;
+- (void)removeEffectAtIndex:(unsigned long long)arg1;
+- (id)effectAtIndex:(unsigned long long)arg1;
+- (unsigned long long)effectCount;
 - (void)setEffects:(id)arg1;
 - (void)addEffect:(id)arg1;
 - (void)setBlip:(id)arg1;
 - (id)blip;
 - (void)setName:(id)arg1;
 - (id)name;
-- (void)setIndex:(long)arg1;
-- (long)index;
+- (void)setIndex:(int)arg1;
+- (int)index;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithIndex:(long)arg1 name:(id)arg2 blip:(id)arg3;
-- (id)initWithIndex:(long)arg1 name:(id)arg2 blip:(id)arg3 effects:(id)arg4;
+- (id)initWithIndex:(int)arg1 name:(id)arg2 blip:(id)arg3;
+- (id)initWithIndex:(int)arg1 name:(id)arg2 blip:(id)arg3 effects:(id)arg4;
 - (id)init;
 
 @end

@@ -6,16 +6,18 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class GEONameInfo, NSMutableArray, NSString;
 
-@interface GEOStep : PBCodable
+@interface GEOStep : PBCodable <NSCopying>
 {
     CDStruct_bf9e66ee *_laneGuidances;
-    unsigned int _laneGuidancesCount;
-    unsigned int _laneGuidancesSpace;
+    unsigned long long _laneGuidancesCount;
+    unsigned long long _laneGuidancesSpace;
     CDStruct_e02beb0c *_junctionElements;
-    unsigned int _junctionElementsCount;
-    unsigned int _junctionElementsSpace;
+    unsigned long long _junctionElementsCount;
+    unsigned long long _junctionElementsSpace;
     unsigned int _distance;
     GEONameInfo *_exitNumber;
     unsigned int _expectedTime;
@@ -33,10 +35,10 @@
     NSMutableArray *_signposts;
     unsigned int _stepID;
     NSMutableArray *_substeps;
-    BOOL _endsOnFwy;
-    BOOL _toFreeway;
-    BOOL _tollAhead;
-    BOOL _tollPrior;
+    _Bool _endsOnFwy;
+    _Bool _toFreeway;
+    _Bool _tollAhead;
+    _Bool _tollPrior;
     struct {
         unsigned int distance:1;
         unsigned int expectedTime:1;
@@ -68,72 +70,66 @@
 @property(nonatomic) unsigned int expectedTime; // @synthesize expectedTime=_expectedTime;
 @property(nonatomic) unsigned int distance; // @synthesize distance=_distance;
 @property(nonatomic) unsigned int stepID; // @synthesize stepID=_stepID;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) BOOL hasNotice;
-@property(readonly, nonatomic) BOOL hasInstructions;
-@property(nonatomic) BOOL hasToFreeway;
-@property(nonatomic) BOOL toFreeway; // @synthesize toFreeway=_toFreeway;
-- (id)substepsAtIndex:(unsigned int)arg1;
-- (unsigned int)substepsCount;
+@property(readonly, nonatomic) _Bool hasNotice;
+@property(readonly, nonatomic) _Bool hasInstructions;
+@property(nonatomic) _Bool hasToFreeway;
+@property(nonatomic) _Bool toFreeway; // @synthesize toFreeway=_toFreeway;
+- (id)substepsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)substepsCount;
 - (void)addSubsteps:(id)arg1;
 - (void)clearSubsteps;
-@property(nonatomic) BOOL hasEndsOnFwy;
-@property(nonatomic) BOOL endsOnFwy; // @synthesize endsOnFwy=_endsOnFwy;
-@property(nonatomic) BOOL hasTollAhead;
-@property(nonatomic) BOOL tollAhead; // @synthesize tollAhead=_tollAhead;
-@property(nonatomic) BOOL hasTollPrior;
-@property(nonatomic) BOOL tollPrior; // @synthesize tollPrior=_tollPrior;
-@property(readonly, nonatomic) BOOL hasExitNumber;
-@property(nonatomic) BOOL hasOverrideDrivingSide;
-@property(nonatomic) BOOL hasOverrideTransportType;
-@property(nonatomic) BOOL hasHintFirstAnnouncementZilchIndex;
+@property(nonatomic) _Bool hasEndsOnFwy;
+@property(nonatomic) _Bool endsOnFwy; // @synthesize endsOnFwy=_endsOnFwy;
+@property(nonatomic) _Bool hasTollAhead;
+@property(nonatomic) _Bool tollAhead; // @synthesize tollAhead=_tollAhead;
+@property(nonatomic) _Bool hasTollPrior;
+@property(nonatomic) _Bool tollPrior; // @synthesize tollPrior=_tollPrior;
+@property(readonly, nonatomic) _Bool hasExitNumber;
+@property(nonatomic) _Bool hasOverrideDrivingSide;
+@property(nonatomic) _Bool hasOverrideTransportType;
+@property(nonatomic) _Bool hasHintFirstAnnouncementZilchIndex;
 @property(nonatomic) int hintFirstAnnouncementZilchIndex; // @synthesize hintFirstAnnouncementZilchIndex=_hintFirstAnnouncementZilchIndex;
-- (id)signpostAtIndex:(unsigned int)arg1;
-- (unsigned int)signpostsCount;
+- (id)signpostAtIndex:(unsigned long long)arg1;
+- (unsigned long long)signpostsCount;
 - (void)addSignpost:(id)arg1;
 - (void)clearSignposts;
-- (void)setJunctionElements:(CDStruct_e02beb0c *)arg1 count:(unsigned int)arg2;
-- (CDStruct_e02beb0c)junctionElementAtIndex:(unsigned int)arg1;
+- (void)setJunctionElements:(CDStruct_e02beb0c *)arg1 count:(unsigned long long)arg2;
+- (CDStruct_e02beb0c)junctionElementAtIndex:(unsigned long long)arg1;
 - (void)addJunctionElement:(CDStruct_e02beb0c)arg1;
 - (void)clearJunctionElements;
 @property(readonly, nonatomic) CDStruct_e02beb0c *junctionElements;
-@property(readonly, nonatomic) unsigned int junctionElementsCount;
-@property(nonatomic) BOOL hasJunctionType;
+@property(readonly, nonatomic) unsigned long long junctionElementsCount;
+@property(nonatomic) _Bool hasJunctionType;
 @property(nonatomic) int junctionType; // @synthesize junctionType=_junctionType;
-- (void)setLaneGuidances:(CDStruct_bf9e66ee *)arg1 count:(unsigned int)arg2;
-- (CDStruct_bf9e66ee)laneGuidanceAtIndex:(unsigned int)arg1;
+- (void)setLaneGuidances:(CDStruct_bf9e66ee *)arg1 count:(unsigned long long)arg2;
+- (CDStruct_bf9e66ee)laneGuidanceAtIndex:(unsigned long long)arg1;
 - (void)addLaneGuidance:(CDStruct_bf9e66ee)arg1;
 - (void)clearLaneGuidances;
 @property(readonly, nonatomic) CDStruct_bf9e66ee *laneGuidances;
-@property(readonly, nonatomic) unsigned int laneGuidancesCount;
-- (id)maneuverNameAtIndex:(unsigned int)arg1;
-- (unsigned int)maneuverNamesCount;
+@property(readonly, nonatomic) unsigned long long laneGuidancesCount;
+- (id)maneuverNameAtIndex:(unsigned long long)arg1;
+- (unsigned long long)maneuverNamesCount;
 - (void)addManeuverName:(id)arg1;
 - (void)clearManeuverNames;
-@property(nonatomic) BOOL hasManeuverType;
-@property(nonatomic) BOOL hasExpectedTime;
-@property(nonatomic) BOOL hasDistance;
-@property(nonatomic) BOOL hasManeuverEndZilchIndex;
+@property(nonatomic) _Bool hasManeuverType;
+@property(nonatomic) _Bool hasExpectedTime;
+@property(nonatomic) _Bool hasDistance;
+@property(nonatomic) _Bool hasManeuverEndZilchIndex;
 @property(nonatomic) int maneuverEndZilchIndex; // @synthesize maneuverEndZilchIndex=_maneuverEndZilchIndex;
-@property(nonatomic) BOOL hasManeuverStartZilchIndex;
+@property(nonatomic) _Bool hasManeuverStartZilchIndex;
 @property(nonatomic) int maneuverStartZilchIndex; // @synthesize maneuverStartZilchIndex=_maneuverStartZilchIndex;
-@property(nonatomic) BOOL hasManeuverEndBasicIndex;
+@property(nonatomic) _Bool hasManeuverEndBasicIndex;
 @property(nonatomic) int maneuverEndBasicIndex; // @synthesize maneuverEndBasicIndex=_maneuverEndBasicIndex;
-@property(nonatomic) BOOL hasStepID;
+@property(nonatomic) _Bool hasStepID;
 - (void)dealloc;
-- (void)shieldInfo:(id)arg1;
-- (id)intersectionNameInfo;
-- (id)firstNameInfo;
-@property(readonly, nonatomic) int hintFirstAnnouncementIndex;
-@property(readonly, nonatomic) BOOL hasHintFirstAnnouncementIndex;
-@property(readonly, nonatomic) unsigned int maneuverStartIndex;
-@property(readonly, nonatomic) unsigned int maneuverEndIndex;
 
 @end
 

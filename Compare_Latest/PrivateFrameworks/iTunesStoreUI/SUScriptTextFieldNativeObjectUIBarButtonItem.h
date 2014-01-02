@@ -10,24 +10,24 @@
 {
 }
 
-- (float)width;
+- (double)width;
 - (id)value;
-- (void)setWidth:(float)arg1;
+- (void)setWidth:(double)arg1;
 - (void)setValue:(id)arg1;
 - (void)setupNativeObject;
 - (void)setPlaceholder:(id)arg1;
 - (void)_setNativeObjectDelegate:(id)arg1;
-- (void)setKeyboardType:(int)arg1;
-- (void)setAutocorrectionType:(int)arg1;
-- (void)setAutocapitalizationType:(int)arg1;
-- (BOOL)resignFirstResponder;
+- (void)setKeyboardType:(long long)arg1;
+- (void)setAutocorrectionType:(long long)arg1;
+- (void)setAutocapitalizationType:(long long)arg1;
+- (_Bool)resignFirstResponder;
 - (id)placeholder;
 - (id)_nativeObjectDelegate;
-- (int)keyboardType;
+- (long long)keyboardType;
 - (void)destroyNativeObject;
-- (BOOL)becomeFirstResponder;
-- (int)autocorrectionType;
-- (int)autocapitalizationType;
+- (_Bool)becomeFirstResponder;
+- (long long)autocorrectionType;
+- (long long)autocapitalizationType;
 - (id)_textField;
 
 @end

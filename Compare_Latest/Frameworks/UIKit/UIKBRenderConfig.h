@@ -6,26 +6,28 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface UIKBRenderConfig : NSObject
 {
-    BOOL _lightKeyboard;
-    float _blurRadius;
-    float _blurSaturation;
-    float _keycapOpacity;
-    float _keyborderOpacity;
+    _Bool _lightKeyboard;
+    double _blurRadius;
+    double _blurSaturation;
+    double _keycapOpacity;
+    double _keyborderOpacity;
 }
 
 + (id)passcodeConfig;
 + (id)darkConfig;
 + (id)defaultConfig;
-@property(nonatomic) BOOL lightKeyboard; // @synthesize lightKeyboard=_lightKeyboard;
-@property(nonatomic) float keyborderOpacity; // @synthesize keyborderOpacity=_keyborderOpacity;
-@property(nonatomic) float keycapOpacity; // @synthesize keycapOpacity=_keycapOpacity;
-@property(nonatomic) float blurSaturation; // @synthesize blurSaturation=_blurSaturation;
-@property(nonatomic) float blurRadius; // @synthesize blurRadius=_blurRadius;
-@property(readonly, nonatomic) BOOL whiteText;
+@property(nonatomic) _Bool lightKeyboard; // @synthesize lightKeyboard=_lightKeyboard;
+@property(nonatomic) double keyborderOpacity; // @synthesize keyborderOpacity=_keyborderOpacity;
+@property(nonatomic) double keycapOpacity; // @synthesize keycapOpacity=_keycapOpacity;
+@property(nonatomic) double blurSaturation; // @synthesize blurSaturation=_blurSaturation;
+@property(nonatomic) double blurRadius; // @synthesize blurRadius=_blurRadius;
+@property(readonly, nonatomic) long long backdropStyle;
+@property(readonly, nonatomic) _Bool whiteText;
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 
 @end
 

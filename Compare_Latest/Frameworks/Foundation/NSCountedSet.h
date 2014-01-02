@@ -12,28 +12,28 @@
     void *_reserved;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 - (void)dealloc;
 - (id)initWithSet:(id)arg1;
 - (id)initWithArray:(id)arg1;
-- (id)initWithSet:(id)arg1 copyItems:(BOOL)arg2;
-- (id)initWithObjects:(const id *)arg1 count:(unsigned int)arg2;
-- (id)initWithCapacity:(unsigned int)arg1;
+- (id)initWithSet:(id)arg1 copyItems:(_Bool)arg2;
+- (id)initWithObjects:(const id *)arg1 count:(unsigned long long)arg2;
+- (id)initWithCapacity:(unsigned long long)arg1;
 - (id)init;
-- (unsigned int)countForObject:(id)arg1;
+- (unsigned long long)countForObject:(id)arg1;
 - (Class)classForCoder;
 - (id)descriptionWithLocale:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (void)getObjects:(id *)arg1 count:(unsigned int)arg2;
-- (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
+- (void)getObjects:(id *)arg1 count:(unsigned long long)arg2;
+- (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)removeObject:(id)arg1;
 - (void)addObject:(id)arg1;
 - (id)objectEnumerator;
 - (id)member:(id)arg1;
-- (unsigned int)count;
+- (unsigned long long)count;
 
 @end
 

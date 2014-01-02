@@ -8,10 +8,11 @@
 
 @class GQDChart;
 
+// Not exported
 @interface GQDChartLegend : GQDGraphic
 {
     GQDChart *mChart;
-    BOOL mIsChartRetained;
+    _Bool mIsChartRetained;
 }
 
 + (const struct StateSpec *)stateForReading;

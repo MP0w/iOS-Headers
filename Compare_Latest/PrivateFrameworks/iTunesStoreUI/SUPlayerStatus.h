@@ -15,10 +15,10 @@
     double _currentTime;
     double _duration;
     NSError *_error;
-    int _state;
+    long long _state;
 }
 
-@property(nonatomic) int playerState; // @synthesize playerState=_state;
+@property(nonatomic) long long playerState; // @synthesize playerState=_state;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 @property(nonatomic) double duration; // @synthesize duration=_duration;
 @property(nonatomic) double currentTime; // @synthesize currentTime=_currentTime;

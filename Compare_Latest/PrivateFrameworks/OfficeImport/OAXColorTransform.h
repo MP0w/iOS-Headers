@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface OAXColorTransform : NSObject
 {
 }
 
 + (id)readColorTransformsFromXmlNode:(struct _xmlNode *)arg1;
-+ (id)colorTransformTypeEnumMap;
 
 @end
 

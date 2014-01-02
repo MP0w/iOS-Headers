@@ -14,12 +14,12 @@
     id _snapshot1;
     id _snapshot2;
     id _snapshot3;
-    unsigned int _newVersion;
-    unsigned int _oldVersion;
+    unsigned long long _newVersion;
+    unsigned long long _oldVersion;
 }
 
-@property(readonly) unsigned int oldVersionNumber; // @synthesize oldVersionNumber=_oldVersion;
-@property(readonly) unsigned int newVersionNumber; // @synthesize newVersionNumber=_newVersion;
+@property(readonly) unsigned long long oldVersionNumber; // @synthesize oldVersionNumber=_oldVersion;
+@property(readonly) unsigned long long newVersionNumber; // @synthesize newVersionNumber=_newVersion;
 @property(readonly) NSDictionary *persistedSnapshot; // @synthesize persistedSnapshot=_snapshot3;
 @property(readonly) NSDictionary *cachedSnapshot; // @synthesize cachedSnapshot=_snapshot2;
 @property(readonly) NSDictionary *objectSnapshot; // @synthesize objectSnapshot=_snapshot1;
@@ -29,8 +29,8 @@
 - (id)objectForKey:(id)arg1;
 - (void)dealloc;
 - (id)description;
-- (id)initWithSource:(id)arg1 newVersion:(unsigned int)arg2 oldVersion:(unsigned int)arg3 snapshot1:(id)arg4 snapshot2:(id)arg5 snapshot3:(id)arg6;
-- (id)initWithSource:(id)arg1 newVersion:(unsigned int)arg2 oldVersion:(unsigned int)arg3 cachedSnapshot:(id)arg4 persistedSnapshot:(id)arg5;
+- (id)initWithSource:(id)arg1 newVersion:(unsigned long long)arg2 oldVersion:(unsigned long long)arg3 snapshot1:(id)arg4 snapshot2:(id)arg5 snapshot3:(id)arg6;
+- (id)initWithSource:(id)arg1 newVersion:(unsigned long long)arg2 oldVersion:(unsigned long long)arg3 cachedSnapshot:(id)arg4 persistedSnapshot:(id)arg5;
 
 @end
 

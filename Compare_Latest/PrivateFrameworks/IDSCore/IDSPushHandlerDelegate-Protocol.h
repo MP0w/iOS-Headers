@@ -9,8 +9,8 @@
 @protocol IDSPushHandlerDelegate <NSObject>
 
 @optional
-- (void)handler:(id)arg1 receivedOfflineMessagePendingForTopic:(id)arg2;
-- (void)handler:(id)arg1 didReceiveMessage:(id)arg2 forTopic:(id)arg3 fromID:(id)arg4;
+- (void)handler:(id)arg1 receivedOfflineMessagePendingForTopic:(id)arg2 messageContext:(id)arg3;
+- (void)handler:(id)arg1 didReceiveMessage:(id)arg2 forTopic:(id)arg3 fromID:(id)arg4 messageContext:(id)arg5;
 - (void)handler:(id)arg1 pushTokenChanged:(id)arg2;
 @end
 

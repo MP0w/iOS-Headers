@@ -18,11 +18,11 @@
 - (id)unreportedEventURLsSince:(long long)arg1;
 - (id)newReportingSessionForURL:(id)arg1 since:(long long)arg2;
 - (id)unreportedEventsForURL:(id)arg1 since:(long long)arg2;
-- (BOOL)markEventsAsReported:(id)arg1;
-- (BOOL)insertEventSummaries:(id)arg1 error:(id *)arg2;
+- (_Bool)markEventsAsReported:(id)arg1;
+- (_Bool)insertEventSummaries:(id)arg1 error:(id *)arg2;
 - (void)flushUnreportedEventsWithCompletionHandler:(id)arg1;
-- (BOOL)deleteReportedEvents;
-- (BOOL)deleteEventsInsertedBefore:(long long)arg1;
+- (_Bool)deleteReportedEvents;
+- (_Bool)deleteEventsInsertedBefore:(long long)arg1;
 - (void)_serialQueueInsertEvents:(id)arg1 withCompletionHandler:(id)arg2;
 - (void)dealloc;
 - (id)init;

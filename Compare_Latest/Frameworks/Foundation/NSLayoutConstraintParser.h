@@ -8,32 +8,33 @@
 
 @class NSDictionary, NSMutableArray, NSString;
 
+// Not exported
 @interface NSLayoutConstraintParser : NSObject
 {
     NSString *_line;
     const char *_lineChars;
-    unsigned int _lineLength;
-    unsigned int _opts;
-    BOOL _useHorizontalArrangement;
+    unsigned long long _lineLength;
+    unsigned long long _opts;
+    _Bool _useHorizontalArrangement;
     NSDictionary *_metrics;
     NSDictionary *_views;
     id <NSLayoutItem> _containerView;
     NSMutableArray *_constraints;
     NSMutableArray *_unflushedWidthConstraints;
     NSMutableArray *_alignmentConstraints;
-    unsigned int _currentCharacter;
+    unsigned long long _currentCharacter;
     NSMutableArray *_incompleteConstraints;
     id <NSLayoutItem> _parsedLeftView;
     id <NSLayoutItem> _parsedRightView;
     id <NSLayoutItem> _parsedConstrainedWidthView;
 }
 
-+ (id)constraintsWithVisualFormat:(id)arg1 options:(unsigned int)arg2 metrics:(id)arg3 views:(id)arg4;
++ (id)constraintsWithVisualFormat:(id)arg1 options:(unsigned long long)arg2 metrics:(id)arg3 views:(id)arg4;
 - (void)finishConstraint;
 - (void)findContainerView;
 - (struct _NSRange)rangeOfName;
 - (void)parseOp;
-- (float)parseConstant;
+- (double)parseConstant;
 - (void)parsePredicate;
 - (void)parsePredicateList;
 - (void)parsePredicateWithParentheses;
@@ -48,7 +49,7 @@
 - (id)descriptionLineWithCurrentCharacterPointer;
 - (id)constraints;
 - (void)dealloc;
-- (id)initWithFormat:(id)arg1 options:(unsigned int)arg2 metrics:(id)arg3 views:(id)arg4;
+- (id)initWithFormat:(id)arg1 options:(unsigned long long)arg2 metrics:(id)arg3 views:(id)arg4;
 
 @end
 

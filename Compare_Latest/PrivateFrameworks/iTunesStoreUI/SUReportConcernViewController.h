@@ -8,7 +8,7 @@
 
 @interface SUReportConcernViewController : SUTableViewController
 {
-    BOOL _animatingKeyboard;
+    _Bool _animatingKeyboard;
     unsigned long long _itemIdentifier;
     struct UIEdgeInsets _originalTableInsets;
 }
@@ -21,11 +21,11 @@
 - (void)_hideKeyboardDidStop:(id)arg1 finished:(id)arg2 context:(void *)arg3;
 - (void)operation:(id)arg1 finishedWithOutput:(id)arg2;
 - (void)operation:(id)arg1 failedWithError:(id)arg2;
-- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)loadView;
 - (void)keyboardWillShowWithInfo:(id)arg1;
 - (void)keyboardWillHideWithInfo:(id)arg1;
-- (BOOL)handleSelectionForIndexPath:(id)arg1 tapCount:(int)arg2;
+- (_Bool)handleSelectionForIndexPath:(id)arg1 tapCount:(long long)arg2;
 - (id)initWithItemIdentifier:(unsigned long long)arg1;
 
 @end

@@ -6,60 +6,60 @@
 
 #import <VoiceMemos/RCMemoPlaybackViewController.h>
 
-#import "AVAudioPlayerDelegate-Protocol.h"
-#import "RCWaveformViewDelegate-Protocol.h"
+#import "RCAVPreviewControllerObserver-Protocol.h"
 
-@class AVController, AVQueue, NSDictionary, NSString, NSTimer, RCSavedRecording, UIBarButtonItem;
+@class NSTimer, RCSavedRecording, UIButton;
 
-@interface RCPlayMemoViewController : RCMemoPlaybackViewController <AVAudioPlayerDelegate, RCWaveformViewDelegate>
+@interface RCPlayMemoViewController : RCMemoPlaybackViewController <RCAVPreviewControllerObserver>
 {
-    AVQueue *_previewAVQueue;
-    AVController *_previewAVController;
     NSTimer *_playbackTimer;
-    CDStruct_73a5d3ca _playbackTimeRange;
-    BOOL _waveformDataSourceNeedsReload;
-    NSString *_defaultNavigationTitle;
     double _defaultVisibleDuration;
-    double _nextStartTime;
-    CDStruct_73a5d3ca _trimFullZoomVisibleTimeRange;
-    UIBarButtonItem *_toggleSpeakerItem;
-    NSDictionary *_toggleSpeakerSelectedAttributes;
-    NSDictionary *_toggleSpeakerNotSelectedAttributes;
-    BOOL _trimming;
+    UIButton *_beginTrimButton;
+    UIButton *_cancelTrimButton;
+    UIButton *_performTrimButton;
+    _Bool _trimmingEnabledBeforeOverride;
+    _Bool _trimming;
+    _Bool _trimmingEnabled;
     RCSavedRecording *_savedRecording;
+    double _nextStartTime;
+    id _endTrimReloadDataSourceBlock;
 }
 
-@property(nonatomic, getter=isTrimming) BOOL trimming; // @synthesize trimming=_trimming;
-@property(retain, nonatomic) RCSavedRecording *savedRecording; // @synthesize savedRecording=_savedRecording;
+@property(copy, nonatomic) id endTrimReloadDataSourceBlock; // @synthesize endTrimReloadDataSourceBlock=_endTrimReloadDataSourceBlock;
+@property(nonatomic) double nextStartTime; // @synthesize nextStartTime=_nextStartTime;
+@property(nonatomic, getter=isTrimmingEnabled) _Bool trimmingEnabled; // @synthesize trimmingEnabled=_trimmingEnabled;
+@property(nonatomic, getter=isTrimming) _Bool trimming; // @synthesize trimming=_trimming;
+@property(readonly, nonatomic) RCSavedRecording *savedRecording; // @synthesize savedRecording=_savedRecording;
 - (void).cxx_destruct;
 - (CDStruct_73a5d3ca)_selectedTimeRange;
-- (void)_deleteSelectedTimeRangeWithCompletionBlock:(id)arg1;
+- (void)_deleteSelectedTimeRangeAsCopy:(_Bool)arg1 completionBlock:(id)arg2;
+- (_Bool)_isSelectionTrimmable;
+- (void)_cancelTrim;
+- (void)_performTrim;
+- (void)_beginTrimmingAction;
 - (void)_endTrimming;
 - (void)_beginTrimming;
-- (void)_previewControllerDidInvalidateNotification:(id)arg1;
-- (void)_itemPlaybackPositionDidJumpNotification:(id)arg1;
-- (void)_itemRateDidChangeNotification:(id)arg1;
-- (void)_itemPlaybackDidEndNotification:(id)arg1;
-- (void)_resumeAVPlayback;
-- (void)_pauseAVPlayback;
-- (void)_endAVPlayback;
+- (void)_updateTrimModeButtons;
+- (void)_pausePlayback;
+- (void)_resumePlayback;
 - (void)_updateInterfaceForAVPlaybackState;
-- (void)_toggleTrimmingAction;
-- (id)_toggleTrimmingNavigationButtonItem;
-- (void)_toggleSpeakerAction;
-- (void)_showAvailableRoutesAction;
-- (id)_pickAudioRouteNavigationButtonItem;
-- (void)_playbackTimerFired:(id)arg1;
-- (void)_unregisterAVControllerNotifications;
-- (void)_registerAVControllerNotifications;
+- (void)previewController:(id)arg1 playbackTimeDidUpdateToCurrentTime:(double)arg2;
+- (void)previewController:(id)arg1 playbackDidStopPlayingWithError:(id)arg2;
+- (void)previewController:(id)arg1 playbackTimeDidJumpWithPreviousTime:(double)arg2;
+- (void)previewController:(id)arg1 playbackDidBeginWithRate:(float)arg2;
 - (void)waveformViewController:(id)arg1 didScrubToTime:(double)arg2;
+- (id)previewController;
+- (void)dismiss;
 - (void)commitEditing;
 - (void)updateNavigationItem;
-- (void)setScreenUpdatesDisabled:(BOOL)arg1;
-- (void)setPlaying:(BOOL)arg1;
-- (void)_setPlaying:(BOOL)arg1 updatePlayer:(BOOL)arg2;
-- (void)viewWillAppear:(BOOL)arg1;
-- (int)defaultControlsConfiguration;
+- (void)setCurrentTime:(double)arg1;
+- (void)setScreenUpdatesDisabled:(_Bool)arg1;
+- (void)setPlaying:(_Bool)arg1;
+- (void)_setPlaying:(_Bool)arg1 updatePlayer:(_Bool)arg2;
+- (long long)defaultControlsConfiguration;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)dealloc;
 - (id)initWithSavedRecording:(id)arg1;

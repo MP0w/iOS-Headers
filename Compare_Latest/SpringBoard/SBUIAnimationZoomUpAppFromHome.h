@@ -6,13 +6,16 @@
 
 #import "SBUIAnimationZoomUpApp.h"
 
+#import "SBIconZoomAnimatorDelegate-Protocol.h"
+
 @class SBIconZoomAnimator;
 
-@interface SBUIAnimationZoomUpAppFromHome : SBUIAnimationZoomUpApp
+@interface SBUIAnimationZoomUpAppFromHome : SBUIAnimationZoomUpApp <SBIconZoomAnimatorDelegate>
 {
     SBIconZoomAnimator *_zoomAnimator;
 }
 
+- (void)iconZoomAnimatorWasInvalidated:(id)arg1;
 - (void)cleanupZoom;
 - (void)animateZoomWithCompletion:(id)arg1;
 - (void)prepareZoom;

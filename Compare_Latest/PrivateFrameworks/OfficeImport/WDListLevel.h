@@ -8,56 +8,57 @@
 
 @class NSMutableString, WDCharacterProperties, WDOfficeArt, WDParagraphProperties;
 
+// Not exported
 @interface WDListLevel : NSObject
 {
     WDParagraphProperties *mParagraphProperties;
     WDCharacterProperties *mCharacterProperties;
     WDOfficeArt *mImage;
-    long mStartNumber;
+    long long mStartNumber;
     int mNumberFormat;
-    BOOL mRestartNumbering;
-    BOOL mLegal;
+    _Bool mRestartNumbering;
+    _Bool mLegal;
     int mSuffix;
     NSMutableString *mText;
-    BOOL mLegacy;
-    long mLegacySpace;
-    long mLegacyIndent;
+    _Bool mLegacy;
+    long long mLegacySpace;
+    long long mLegacyIndent;
     int mJustification;
 }
 
 - (id)characterProperties;
 - (id)paragraphProperties;
-- (BOOL)justificationOverridden;
+- (_Bool)justificationOverridden;
 - (void)setJustification:(int)arg1;
 - (int)justification;
-- (void)setLegacyIndent:(long)arg1;
-- (long)legacyIndent;
-- (void)setLegacySpace:(long)arg1;
-- (long)legacySpace;
-- (void)setLegacy:(BOOL)arg1;
-- (BOOL)legacy;
-- (BOOL)textOverridden;
+- (void)setLegacyIndent:(long long)arg1;
+- (long long)legacyIndent;
+- (void)setLegacySpace:(long long)arg1;
+- (long long)legacySpace;
+- (void)setLegacy:(_Bool)arg1;
+- (_Bool)legacy;
+- (_Bool)textOverridden;
 - (void)setText:(id)arg1;
 - (id)text;
-- (BOOL)suffixOverridden;
+- (_Bool)suffixOverridden;
 - (void)setSuffix:(int)arg1;
 - (int)suffix;
-- (BOOL)legalOverridden;
-- (void)setLegal:(BOOL)arg1;
-- (BOOL)legal;
-- (BOOL)restartNumberingOverridden;
-- (void)setRestartNumbering:(BOOL)arg1;
-- (BOOL)restartNumbering;
+- (_Bool)legalOverridden;
+- (void)setLegal:(_Bool)arg1;
+- (_Bool)legal;
+- (_Bool)restartNumberingOverridden;
+- (void)setRestartNumbering:(_Bool)arg1;
+- (_Bool)restartNumbering;
 - (void)setImage:(id)arg1;
 - (id)image;
-- (BOOL)imageBulletOverridden;
-- (BOOL)imageBullet;
-- (BOOL)numberFormatOverridden;
+- (_Bool)imageBulletOverridden;
+- (_Bool)imageBullet;
+- (_Bool)numberFormatOverridden;
 - (void)setNumberFormat:(int)arg1;
 - (int)numberFormat;
-- (BOOL)startNumberOverridden;
-- (void)setStartNumber:(long)arg1;
-- (long)startNumber;
+- (_Bool)startNumberOverridden;
+- (void)setStartNumber:(long long)arg1;
+- (long long)startNumber;
 - (void)dealloc;
 - (id)initWithDocument:(id)arg1;
 

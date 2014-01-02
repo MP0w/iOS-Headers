@@ -16,7 +16,7 @@
 
 + (id)commandSupportWithDictionary:(id)arg1 context:(id)arg2;
 + (id)commandSupport;
-@property(nonatomic) int weight;
+@property(nonatomic) long long weight;
 @property(copy, nonatomic) NSArray *supportedConstraints;
 @property(copy, nonatomic) NSURL *serverEndpoint;
 @property(retain, nonatomic) SAObjectSupport *resultSupport;

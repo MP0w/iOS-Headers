@@ -10,14 +10,14 @@
 {
 }
 
-+ (BOOL)hasLibMIS;
++ (_Bool)hasLibMIS;
 + (void)initCoreText;
 + (void)initImageIO;
 + (void)initAddressBook;
-+ (void)initMobileInternetSharing;
 + (void)initCoreGraphics;
 + (void)initPowerlog;
 + (void)initVPNUtilities;
++ (void)loadNSBundleAtURL:(id)arg1 completionBlock:(id)arg2;
 + (void)loadBundleAtURL:(id)arg1 completionBlock:(id)arg2;
 
 @end

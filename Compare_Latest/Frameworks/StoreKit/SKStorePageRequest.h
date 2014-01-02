@@ -10,14 +10,14 @@
 
 @interface SKStorePageRequest : NSObject
 {
-    int _pageStyle;
+    long long _pageStyle;
     NSDictionary *_productParameters;
     NSURL *_productURL;
 }
 
 @property(copy, nonatomic) NSURL *productURL; // @synthesize productURL=_productURL;
 @property(copy, nonatomic) NSDictionary *productParameters; // @synthesize productParameters=_productParameters;
-@property(nonatomic) int productPageStyle; // @synthesize productPageStyle=_pageStyle;
+@property(nonatomic) long long productPageStyle; // @synthesize productPageStyle=_pageStyle;
 - (id)copyXPCEncoding;
 - (id)initWithXPCEncoding:(id)arg1;
 - (void)dealloc;

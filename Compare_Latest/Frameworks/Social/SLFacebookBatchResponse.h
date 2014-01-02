@@ -13,8 +13,8 @@
 }
 
 @property(readonly) NSArray *batchResponseParameters;
-- (id)responseAtBatchIndex:(int)arg1;
-- (int)batchedResponsesCount;
+- (id)responseAtBatchIndex:(long long)arg1;
+- (long long)batchedResponsesCount;
 
 @end
 

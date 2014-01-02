@@ -17,8 +17,8 @@
     NSArray *_allowedToneStyles;
     NSNumber *_assigneeIdentifier;
     NSString *_assigneeToneStyle;
-    BOOL _shouldMakeDefaultRingtone;
-    BOOL _shouldMakeDefaultTextTone;
+    _Bool _shouldMakeDefaultRingtone;
+    _Bool _shouldMakeDefaultTextTone;
 }
 
 - (id)initWithXPCEncoding:(id)arg1;
@@ -26,8 +26,10 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-@property BOOL shouldMakeDefaultTextTone;
-@property BOOL shouldMakeDefaultRingtone;
+- (void)_setValuesUsingDatabaseEncoding:(id)arg1;
+- (void)_addEntriesToDatabaseEncoding:(id)arg1;
+@property _Bool shouldMakeDefaultTextTone;
+@property _Bool shouldMakeDefaultRingtone;
 @property(copy) NSString *assigneeToneStyle;
 @property(retain) NSNumber *assigneeIdentifier;
 @property(copy) NSArray *allowedToneStyles;

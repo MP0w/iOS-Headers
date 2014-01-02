@@ -14,7 +14,7 @@
 }
 
 - (void)deactivateAndPurgeIdentify;
-- (void)_reregisterAndReidentify:(BOOL)arg1;
+- (void)_reregisterAndReidentify:(_Bool)arg1;
 - (void)unregisterAccount;
 - (void)registerAccount;
 - (void)unvalidateAliases:(id)arg1;
@@ -42,8 +42,8 @@
 @property(readonly, nonatomic) int registrationStatus;
 - (void)updateAccountWithAccountInfo:(id)arg1;
 @property(retain, nonatomic) NSDictionary *accountInfo;
-- (void)_setIsEnabled:(BOOL)arg1;
-- (BOOL)_isEnabled;
+- (void)_setIsEnabled:(_Bool)arg1;
+- (_Bool)_isEnabled;
 - (void)setAuthToken:(id)arg1;
 - (void)setPassword:(id)arg1;
 @property(readonly, nonatomic) NSArray *vettedAliases;
@@ -51,8 +51,8 @@
 @property(readonly, nonatomic) NSArray *aliases;
 @property(readonly, nonatomic) NSDictionary *profileInfo;
 @property(readonly, nonatomic) NSArray *devices;
-@property(readonly, nonatomic) BOOL canSend;
-@property(readonly, nonatomic) BOOL isActive;
+@property(readonly, nonatomic) _Bool canSend;
+@property(readonly, nonatomic) _Bool isActive;
 @property(readonly, nonatomic) int accountType;
 @property(readonly, nonatomic) NSString *serviceName;
 @property(retain, nonatomic) NSString *loginID;

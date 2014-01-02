@@ -12,7 +12,7 @@
 
 @interface PKPhysicsJoint : NSObject <NSCoding>
 {
-    BOOL _inUse;
+    _Bool _inUse;
     PKPhysicsBody *_bodyA;
     PKPhysicsBody *_bodyB;
 }
@@ -23,11 +23,6 @@
 - (id)init;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (void)create;
-@property(readonly, nonatomic) struct b2JointDef *_jointDef;
-- (void)set_inUse:(BOOL)arg1;
-- (BOOL)_inUse;
-@property(nonatomic) struct b2Joint *_joint;
 
 @end
 

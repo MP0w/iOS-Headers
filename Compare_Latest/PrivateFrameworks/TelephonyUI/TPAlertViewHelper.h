@@ -16,18 +16,18 @@
     UIAlertView *_alertView;
 }
 
-+ (id)alertHelperWithHandler:(id)arg1 style:(void)arg2 title:(int)arg3 message:(id)arg4 cancelButtonTitle:(id)arg5 otherButtonTitles:(id)arg6;
++ (id)alertHelperWithHandler:(id)arg1 style:(void)arg2 title:(long long)arg3 message:(id)arg4 cancelButtonTitle:(id)arg5 otherButtonTitles:(id)arg6;
 + (id)_allHelpersArray;
 + (struct dispatch_queue_s *)_workQueue;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (id)_underlyingAlertView;
 - (void)show;
-@property(readonly) int firstOtherButtonIndex;
-- (void)dismissWithCancelAnimated:(BOOL)arg1;
-- (void)dismissWithClickedButtonIndexAnimated:(int)arg1;
+@property(readonly) long long firstOtherButtonIndex;
+- (void)dismissWithCancelAnimated:(_Bool)arg1;
+- (void)dismissWithClickedButtonIndexAnimated:(long long)arg1;
 - (void)setCompletionHandler:(id)arg1;
 - (void)dealloc;
-- (id)_initWithTitle:(id)arg1 style:(int)arg2 message:(id)arg3 cancelButtonTitle:(id)arg4 otherButtonTitles:(id)arg5;
+- (id)_initWithTitle:(id)arg1 style:(long long)arg2 message:(id)arg3 cancelButtonTitle:(id)arg4 otherButtonTitles:(id)arg5;
 
 @end
 

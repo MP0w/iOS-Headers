@@ -21,12 +21,12 @@
 
 @property id <QLGenericViewDelegate> delegate; // @synthesize delegate;
 - (void)showArchiveContents:(id)arg1;
-@property BOOL showArchiveButton;
+@property _Bool showArchiveButton;
 @property(copy) NSAttributedString *attributedSubtitle;
 @property(copy) NSString *subtitle;
 @property(copy) NSString *title;
 - (void)layoutSubviews;
-- (void)_updateContainerFrameForOrientation:(int)arg1;
+- (void)_updateContainerFrameForOrientation:(long long)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

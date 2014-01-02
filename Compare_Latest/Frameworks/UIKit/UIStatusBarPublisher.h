@@ -8,6 +8,7 @@
 
 @class NSMutableSet;
 
+// Not exported
 @interface UIStatusBarPublisher : NSObject
 {
     struct __CFMachPort *_machPort;

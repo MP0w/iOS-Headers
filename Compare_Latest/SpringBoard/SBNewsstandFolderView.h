@@ -23,9 +23,12 @@
 - (void)_storeButtonTapped:(id)arg1;
 - (void)_newsstandStoreAvailabilityDidChangeNotification:(id)arg1;
 - (void)_layoutSubviews;
-- (BOOL)_showsTitle;
+- (void)setLegibilitySettings:(id)arg1;
+- (double)_titleFontSize;
+- (_Bool)_showsTitle;
+- (void)setFolder:(id)arg1;
 - (void)dealloc;
-- (id)initWithFolder:(id)arg1 orientation:(int)arg2;
+- (id)initWithFolder:(id)arg1 orientation:(long long)arg2;
 
 @end
 

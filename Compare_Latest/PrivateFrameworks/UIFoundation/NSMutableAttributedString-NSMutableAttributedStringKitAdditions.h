@@ -8,25 +8,27 @@
 
 @interface NSMutableAttributedString (NSMutableAttributedStringKitAdditions)
 - (void)convertWritingDirectionToBidiControlCharacters;
-- (struct _NSRange)convertWritingDirectionToBidiControlCharactersForParagraphAtIndex:(unsigned int)arg1;
+- (struct _NSRange)convertWritingDirectionToBidiControlCharactersForParagraphAtIndex:(unsigned long long)arg1;
 - (void)convertBidiControlCharactersToWritingDirection;
-- (struct _NSRange)convertBidiControlCharactersToWritingDirectionForParagraphAtIndex:(unsigned int)arg1;
-- (BOOL)readFromData:(id)arg1 options:(id)arg2 documentAttributes:(id *)arg3;
-- (BOOL)readFromURL:(id)arg1 options:(id)arg2 documentAttributes:(id *)arg3;
-- (BOOL)readFromData:(id)arg1 options:(id)arg2 documentAttributes:(id *)arg3 error:(id *)arg4;
-- (BOOL)readFromFileURL:(id)arg1 options:(id)arg2 documentAttributes:(id *)arg3 error:(id *)arg4;
-- (BOOL)readFromURL:(id)arg1 options:(id)arg2 documentAttributes:(id *)arg3 error:(id *)arg4;
+- (struct _NSRange)convertBidiControlCharactersToWritingDirectionForParagraphAtIndex:(unsigned long long)arg1;
+- (_Bool)readFromData:(id)arg1 options:(id)arg2 documentAttributes:(id *)arg3;
+- (_Bool)readFromURL:(id)arg1 options:(id)arg2 documentAttributes:(id *)arg3;
+- (_Bool)readFromData:(id)arg1 options:(id)arg2 documentAttributes:(id *)arg3 error:(id *)arg4;
+- (_Bool)readFromFileURL:(id)arg1 options:(id)arg2 documentAttributes:(id *)arg3 error:(id *)arg4;
+- (_Bool)readFromURL:(id)arg1 options:(id)arg2 documentAttributes:(id *)arg3 error:(id *)arg4;
 - (void)unscriptRange:(struct _NSRange)arg1;
 - (void)subscriptRange:(struct _NSRange)arg1;
 - (void)superscriptRange:(struct _NSRange)arg1;
-- (void)_changeIntAttribute:(id)arg1 by:(int)arg2 range:(struct _NSRange)arg3;
-- (void)setBaseWritingDirection:(int)arg1 range:(struct _NSRange)arg2;
-- (void)setAlignment:(int)arg1 range:(struct _NSRange)arg2;
+- (void)_changeIntAttribute:(id)arg1 by:(long long)arg2 range:(struct _NSRange)arg3;
+- (void)setBaseWritingDirection:(long long)arg1 range:(struct _NSRange)arg2;
+- (void)setAlignment:(long long)arg1 range:(struct _NSRange)arg2;
 - (void)fixGlyphInfoAttributeInRange:(struct _NSRange)arg1;
 - (void)fixAttachmentAttributeInRange:(struct _NSRange)arg1;
 - (void)fixParagraphStyleAttributeInRange:(struct _NSRange)arg1;
 - (void)fixFontAttributeInRange:(struct _NSRange)arg1;
-- (BOOL)_shouldSetOriginalFontAttribute;
+- (_Bool)_shouldSetOriginalFontAttribute;
 - (void)fixAttributesInRange:(struct _NSRange)arg1;
+- (void)_setAttributeFixingInProgress:(_Bool)arg1;
+- (_Bool)_attributeFixingInProgress;
 @end
 

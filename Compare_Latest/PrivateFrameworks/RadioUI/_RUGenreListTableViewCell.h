@@ -6,18 +6,16 @@
 
 #import "UITableViewCell.h"
 
-@class MPUSeparatorView, NSString, UILabel;
+@class NSString, UILabel;
 
 @interface _RUGenreListTableViewCell : UITableViewCell
 {
-    MPUSeparatorView *_separatorView;
     UILabel *_titleLabel;
 }
 
 - (void).cxx_destruct;
 @property(copy, nonatomic) NSString *genreName;
-- (void)layoutSubviews;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

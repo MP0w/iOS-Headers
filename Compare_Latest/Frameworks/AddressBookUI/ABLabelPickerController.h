@@ -14,9 +14,9 @@
 }
 
 @property(readonly, nonatomic) NSString *property; // @synthesize property=_property;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)dealloc;
-- (id)initForProperty:(id)arg1;
+- (id)initForContact:(id)arg1 property:(id)arg2;
 
 @end
 

@@ -20,10 +20,10 @@
 - (void)dealloc;
 - (id)description;
 - (void)unlock;
-- (BOOL)lockBeforeDate:(id)arg1;
-- (BOOL)tryLock;
+- (_Bool)lockBeforeDate:(id)arg1;
+- (_Bool)tryLock;
 - (void)lock;
-- (BOOL)isLockedByMe;
+- (_Bool)isLockedByMe;
 - (id)initWithName:(id)arg1 andDelegate:(id)arg2;
 - (id)init;
 

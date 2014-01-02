@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSMutableArray, NSString;
 
-@interface GEOTileSet : PBCodable
+@interface GEOTileSet : PBCodable <NSCopying>
 {
     NSString *_baseURL;
     NSString *_localizationURL;
@@ -18,13 +20,13 @@
     int _style;
     NSMutableArray *_supportedLanguages;
     NSMutableArray *_validVersions;
-    BOOL _multiTileURLUsesStatusCodes;
+    _Bool _multiTileURLUsesStatusCodes;
     struct {
         unsigned int multiTileURLUsesStatusCodes:1;
     } _has;
 }
 
-@property(nonatomic) BOOL multiTileURLUsesStatusCodes; // @synthesize multiTileURLUsesStatusCodes=_multiTileURLUsesStatusCodes;
+@property(nonatomic) _Bool multiTileURLUsesStatusCodes; // @synthesize multiTileURLUsesStatusCodes=_multiTileURLUsesStatusCodes;
 @property(retain, nonatomic) NSMutableArray *supportedLanguages; // @synthesize supportedLanguages=_supportedLanguages;
 @property(retain, nonatomic) NSString *localizationURL; // @synthesize localizationURL=_localizationURL;
 @property(nonatomic) int size; // @synthesize size=_size;
@@ -33,25 +35,26 @@
 @property(nonatomic) int style; // @synthesize style=_style;
 @property(retain, nonatomic) NSString *multiTileURL; // @synthesize multiTileURL=_multiTileURL;
 @property(retain, nonatomic) NSString *baseURL; // @synthesize baseURL=_baseURL;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) BOOL hasMultiTileURLUsesStatusCodes;
-- (id)supportedLanguageAtIndex:(unsigned int)arg1;
-- (unsigned int)supportedLanguagesCount;
+@property(nonatomic) _Bool hasMultiTileURLUsesStatusCodes;
+- (id)supportedLanguageAtIndex:(unsigned long long)arg1;
+- (unsigned long long)supportedLanguagesCount;
 - (void)addSupportedLanguage:(id)arg1;
 - (void)clearSupportedLanguages;
-@property(readonly, nonatomic) BOOL hasLocalizationURL;
-- (id)validVersionAtIndex:(unsigned int)arg1;
-- (unsigned int)validVersionsCount;
+@property(readonly, nonatomic) _Bool hasLocalizationURL;
+- (id)validVersionAtIndex:(unsigned long long)arg1;
+- (unsigned long long)validVersionsCount;
 - (void)addValidVersion:(id)arg1;
 - (void)clearValidVersions;
-@property(readonly, nonatomic) BOOL hasMultiTileURL;
-@property(readonly, nonatomic) BOOL hasBaseURL;
+@property(readonly, nonatomic) _Bool hasMultiTileURL;
+@property(readonly, nonatomic) _Bool hasBaseURL;
 - (void)dealloc;
 
 @end

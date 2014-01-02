@@ -8,6 +8,7 @@
 
 @class CIImage;
 
+// Not exported
 @interface CIBlendWithAlphaMask : CIFilter
 {
     CIImage *inputImage;

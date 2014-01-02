@@ -15,12 +15,12 @@
     struct __SCNetworkReachability *_reachability;
     unsigned int _flags;
     struct __CFDictionary *_observers;
-    BOOL _isReachable;
-    BOOL _receivedAtLeastOneCallback;
+    _Bool _isReachable;
+    _Bool _receivedAtLeastOneCallback;
 }
 
 @property(nonatomic) NSString *hostname; // @synthesize hostname=_hostname;
-- (BOOL)hasObservers;
+- (_Bool)hasObservers;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1 selector:(SEL)arg2;
 - (void)reachabilityChangedWithFlags:(unsigned int)arg1;

@@ -22,12 +22,12 @@
 - (void)_requestRemoteViewController;
 - (void)_prepareToLoadWithCompletionBlock:(id)arg1;
 - (void)_dismissProductPageViewController;
-- (void)_didLoadWithResult:(BOOL)arg1 error:(id)arg2;
+- (void)_didLoadWithResult:(_Bool)arg1 error:(id)arg2;
 - (void)_addRemoteView;
 - (void)_showProductPageWithItemIdentifier:(id)arg1;
 - (void)_didFinishWithResult:(id)arg1 error:(id)arg2;
 - (void)productViewControllerDidFinish:(id)arg1;
-- (unsigned int)supportedInterfaceOrientations;
+- (unsigned long long)supportedInterfaceOrientations;
 - (void)loadView;
 - (void)loadPageWithURLBagKey:(id)arg1 completionBlock:(id)arg2;
 - (void)loadPageWithURL:(id)arg1 completionBlock:(id)arg2;

@@ -14,7 +14,7 @@
 @interface SLSheetPlaceSearchController : NSObject <UITableViewDataSource, SLPlaceDataSourceDelegate>
 {
     NSTimer *_delayTimer;
-    BOOL _isSearching;
+    _Bool _isSearching;
     NSString *_searchString;
     int _retryCount;
     NSLock *_retryLock;
@@ -28,7 +28,7 @@
 @property(retain) NSObject<SLPlaceDataSource> *placeDataSource; // @synthesize placeDataSource=_placeDataSource;
 - (void).cxx_destruct;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (void)placeManager:(id)arg1 failedWithError:(id)arg2;
 - (void)placeManager:(id)arg1 updatedPlaces:(id)arg2;
 - (void)performDelayedFetch:(id)arg1;

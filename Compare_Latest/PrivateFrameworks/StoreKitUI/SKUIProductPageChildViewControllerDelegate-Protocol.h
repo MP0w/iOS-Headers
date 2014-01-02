@@ -8,9 +8,10 @@
 
 @protocol SKUIProductPageChildViewControllerDelegate <NSObject>
 - (struct CGPoint)topContentOffset;
+- (void)productPageChildViewControllerDidLoad:(id)arg1;
 - (void)productPageChildViewControllerDidScroll:(id)arg1;
 - (void)productPageChildViewControllerDidLoadScrollView:(id)arg1;
-- (BOOL)productPageChildShouldOpenURL:(id)arg1;
-- (BOOL)productPageChildShouldOpenItem:(id)arg1;
+- (void)productPageChildOpenURL:(id)arg1 viewControllerBlock:(id)arg2;
+- (void)productPageChildOpenItem:(id)arg1;
 @end
 

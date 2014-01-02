@@ -16,17 +16,17 @@
     NSArray *_availableLibraries;
     struct _DNSServiceRef_t *_dnsService;
     NSObject<OS_dispatch_queue> *_dnsServiceQueue;
-    BOOL _isBrowsing;
+    _Bool _isBrowsing;
     id _removeLibraryHandler;
-    int _browserType;
+    long long _browserType;
     NSString *_homeSharingGroupID;
 }
 
 @property(copy, nonatomic) NSString *homeSharingGroupID; // @synthesize homeSharingGroupID=_homeSharingGroupID;
-@property(nonatomic) int browserType; // @synthesize browserType=_browserType;
-- (void)_startWithCurrentRetryCount:(unsigned int)arg1 maximumRetryCount:(unsigned int)arg2 addLibraryHandler:(id)arg3 removeLibraryHandler:(void)arg4;
-- (void)_didRemoveService:(id)arg1 moreComing:(BOOL)arg2;
-- (void)_didFindService:(id)arg1 moreComing:(BOOL)arg2;
+@property(nonatomic) long long browserType; // @synthesize browserType=_browserType;
+- (void)_startWithCurrentRetryCount:(unsigned long long)arg1 maximumRetryCount:(unsigned long long)arg2 addLibraryHandler:(id)arg3 removeLibraryHandler:(void)arg4;
+- (void)_didRemoveService:(id)arg1 moreComing:(_Bool)arg2;
+- (void)_didFindService:(id)arg1 moreComing:(_Bool)arg2;
 @property(readonly, nonatomic) NSArray *availableLibraries;
 - (void)stop;
 - (void)startWithAddLibraryHandler:(id)arg1 removeLibraryHandler:(void)arg2;

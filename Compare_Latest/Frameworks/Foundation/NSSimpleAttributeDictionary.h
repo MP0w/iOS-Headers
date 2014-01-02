@@ -21,8 +21,8 @@
 - (void)dealloc;
 - (id)keyEnumerator;
 - (id)objectForKey:(id)arg1;
-- (unsigned int)slotForKey:(id)arg1;
-- (unsigned int)count;
+- (unsigned long long)slotForKey:(id)arg1;
+- (unsigned long long)count;
 - (id)newWithKey:(id)arg1 object:(id)arg2;
 
 @end

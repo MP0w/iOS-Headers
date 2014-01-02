@@ -11,26 +11,32 @@
 @interface SKUIMenuPageComponent : SKUIPageComponent
 {
     NSMutableArray *_childrenComponents;
-    int _menuStyle;
+    long long _defaultSelectedIndex;
+    long long _menuStyle;
     NSString *_menuTitle;
     float _menuTitleFontSize;
-    int _menuTitleFontWeight;
+    long long _menuTitleFontWeight;
+    NSMutableArray *_sortURLStrings;
     NSString *_titleForMoreItem;
     NSMutableArray *_titles;
 }
 
 @property(readonly, nonatomic) NSString *titleForMoreItem; // @synthesize titleForMoreItem=_titleForMoreItem;
-@property(readonly, nonatomic) int menuTitleFontWeight; // @synthesize menuTitleFontWeight=_menuTitleFontWeight;
+@property(readonly, nonatomic) long long menuTitleFontWeight; // @synthesize menuTitleFontWeight=_menuTitleFontWeight;
 @property(readonly, nonatomic) float menuTitleFontSize; // @synthesize menuTitleFontSize=_menuTitleFontSize;
 @property(readonly, nonatomic) NSString *menuTitle; // @synthesize menuTitle=_menuTitle;
-@property(readonly, nonatomic) int menuStyle; // @synthesize menuStyle=_menuStyle;
+@property(readonly, nonatomic) long long menuStyle; // @synthesize menuStyle=_menuStyle;
+@property(readonly, nonatomic) long long defaultSelectedIndex; // @synthesize defaultSelectedIndex=_defaultSelectedIndex;
 - (void).cxx_destruct;
 - (id)_componentWithContext:(id)arg1;
-- (int)componentType;
-- (id)titleForIndex:(int)arg1;
-@property(readonly, nonatomic) int numberOfItems;
-- (id)childComponentsForIndex:(int)arg1;
+- (void)_setChildComponents:(id)arg1 forIndex:(long long)arg2;
+- (long long)componentType;
+- (id)titleForIndex:(long long)arg1;
+- (id)sortURLForIndex:(long long)arg1;
+@property(readonly, nonatomic) long long numberOfItems;
+- (id)childComponentsForIndex:(long long)arg1;
 @property(readonly, nonatomic) NSArray *allTitles;
+- (id)initWithRoomSortData:(id)arg1;
 - (id)initWithCustomPageContext:(id)arg1;
 
 @end

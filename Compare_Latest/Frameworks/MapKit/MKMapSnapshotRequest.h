@@ -8,12 +8,13 @@
 
 @class MKMapSnapshotCreator, NSString, UIImage, VKMapSnapshotCreator;
 
+// Not exported
 @interface MKMapSnapshotRequest : NSObject
 {
     id _requester;
     id _context;
     CDStruct_2c43369c _coordinate;
-    unsigned int _zoomLevel;
+    unsigned long long _zoomLevel;
     struct CGSize _size;
     UIImage *_image;
     NSString *_attributionString;
@@ -25,7 +26,7 @@
 @property(readonly, nonatomic) UIImage *image; // @synthesize image=_image;
 @property(nonatomic) MKMapSnapshotCreator *delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) struct CGSize size; // @synthesize size=_size;
-@property(nonatomic) unsigned int zoomLevel; // @synthesize zoomLevel=_zoomLevel;
+@property(nonatomic) unsigned long long zoomLevel; // @synthesize zoomLevel=_zoomLevel;
 @property(nonatomic) CDStruct_c3b9c2ee coordinate; // @synthesize coordinate=_coordinate;
 @property(retain, nonatomic) id requester; // @synthesize requester=_requester;
 @property(retain, nonatomic) id context; // @synthesize context=_context;

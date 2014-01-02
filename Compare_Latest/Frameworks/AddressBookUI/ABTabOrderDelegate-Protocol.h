@@ -5,6 +5,6 @@
  */
 
 @protocol ABTabOrderDelegate
-- (BOOL)ABTabToNextResponder:(BOOL)arg1 fromView:(id)arg2;
+- (_Bool)ABTabToNextResponder:(_Bool)arg1 fromView:(id)arg2;
 @end
 

@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface EDComment : NSObject
 {
     _Bool mVisible;

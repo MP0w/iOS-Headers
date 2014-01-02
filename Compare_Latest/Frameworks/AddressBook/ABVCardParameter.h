@@ -14,12 +14,12 @@
     NSString *_grouping;
     id _value;
     NSMutableArray *_types;
-    BOOL _primary;
+    _Bool _primary;
 }
 
 - (id)description;
-- (void)setIsPrimary:(BOOL)arg1;
-- (BOOL)isPrimary;
+- (void)setIsPrimary:(_Bool)arg1;
+- (_Bool)isPrimary;
 - (id)value;
 - (id)grouping;
 - (void)setGrouping:(id)arg1;

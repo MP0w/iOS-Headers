@@ -13,8 +13,8 @@
 @interface MRCAMLKeyframe : NSObject <NSCopying>
 {
     MRCAMLBezierData *spline;
-    float value0;
-    float value1;
+    double value0;
+    double value1;
     double time;
 }
 

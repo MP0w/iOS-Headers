@@ -14,20 +14,20 @@
 {
     SBApplication *_topApplication;
     BKSApplicationActivationAssertion *_topApplicationActivationAssertion;
-    BOOL _topApplicationSuppressesSpringBoardStatusBar;
+    _Bool _topApplicationSuppressesSpringBoardStatusBar;
     SBAlert *_activatingAlert;
     SBUIAnimationController *_animation;
     id _alertActivationBlock;
-    BOOL _animatedAppDeactivation;
-    BOOL _suspendWorkspace;
+    _Bool _animatedAppDeactivation;
+    _Bool _suspendWorkspace;
 }
 
 @property(copy, nonatomic) id alertActivationBlock; // @synthesize alertActivationBlock=_alertActivationBlock;
 - (void)animationControllerDidFinishAnimation:(id)arg1;
-- (void)animationController:(id)arg1 willBeginAnimation:(BOOL)arg2;
+- (void)animationController:(id)arg1 willBeginAnimation:(_Bool)arg2;
 - (void)_transactionComplete;
-- (BOOL)selfAlertDidActivate:(id)arg1 overAlerts:(id)arg2;
-- (BOOL)selfAlertWillActivate:(id)arg1 overAlerts:(id)arg2;
+- (_Bool)selfAlertDidActivate:(id)arg1 overAlerts:(id)arg2;
+- (_Bool)selfAlertWillActivate:(id)arg1 overAlerts:(id)arg2;
 - (void)_commit;
 - (id)debugDescription;
 - (void)dealloc;

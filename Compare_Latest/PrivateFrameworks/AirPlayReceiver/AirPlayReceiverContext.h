@@ -6,8 +6,9 @@
 
 #import "NSObject.h"
 
-@class NSMutableSet;
+@class NSMutableSet, NSObject<OS_dispatch_source>;
 
+// Not exported
 @interface AirPlayReceiverContext : NSObject
 {
     struct AirPlayReceiverSessionPrivate *_session;
@@ -16,28 +17,29 @@
     unsigned char _audioStarted;
     struct OpaqueAUGraph *_graph;
     unsigned char _useLegacyOutput;
-    long _mainConverterNode;
+    int _mainConverterNode;
     struct OpaqueAudioComponentInstance *_mainConverterUnit;
     double _mainNextSampleTime;
     unsigned char _useAltOutput;
-    long _altConverterNode;
+    int _altConverterNode;
     struct OpaqueAudioComponentInstance *_altConverterUnit;
     double _altNextSampleTime;
-    long _mixerNode;
+    int _mixerNode;
     struct OpaqueAudioComponentInstance *_mixerUnit;
     unsigned char _useVarispeed;
-    long _varispeedNode;
+    int _varispeedNode;
     struct OpaqueAudioComponentInstance *_varispeedUnit;
     unsigned char _useInput;
     struct OpaqueAudioComponentInstance *_inputUnit;
     char *_inputBuffer;
-    unsigned long _inputMaxLen;
+    unsigned long long _inputMaxLen;
     unsigned char _inputEnabled;
     unsigned char _inputStarted;
     double _inputNextSampleTime;
-    long _outputNode;
+    int _outputNode;
     struct OpaqueAudioComponentInstance *_outputUnit;
     unsigned char _audioLoopback;
+    NSObject<OS_dispatch_source> *_ducker;
     struct __CFString *_displayUUID;
     struct IONotificationPort *_hidNotifier;
     unsigned int _hidIterator;

@@ -14,7 +14,7 @@
 
 + (id)movieSnippetWithDictionary:(id)arg1 context:(id)arg2;
 + (id)movieSnippet;
-@property(nonatomic) BOOL playTrailer;
+@property(nonatomic) _Bool playTrailer;
 @property(retain, nonatomic) SAMovieMovie *movie;
 - (id)encodedClassName;
 - (id)groupIdentifier;

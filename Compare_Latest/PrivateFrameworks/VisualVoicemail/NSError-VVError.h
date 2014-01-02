@@ -7,17 +7,17 @@
 #import "NSError.h"
 
 @interface NSError (VVError)
-+ (id)errorWithStreamDomain:(long)arg1 code:(long)arg2 localizedDescription:(id)arg3;
++ (id)errorWithStreamDomain:(long long)arg1 code:(int)arg2 localizedDescription:(id)arg3;
 + (id)errorWithDomain:(id)arg1 code:(int)arg2 localizedDescription:(id)arg3;
-- (BOOL)shouldPresentErrorForTaskType:(int)arg1;
-- (BOOL)isSecurityError;
-- (BOOL)isServerError;
-- (BOOL)isConnectivityError;
-- (BOOL)isInvalidSubscriberError;
-- (BOOL)isNewPasswordError;
-- (BOOL)isExpiredPasswordError;
-- (BOOL)isPasswordMismatchError;
-- (BOOL)isStreamDomain:(long)arg1 error:(long)arg2;
-- (BOOL)isEqualToError:(id)arg1;
+- (_Bool)shouldPresentErrorForTaskType:(long long)arg1;
+- (_Bool)isSecurityError;
+- (_Bool)isServerError;
+- (_Bool)isConnectivityError;
+- (_Bool)isInvalidSubscriberError;
+- (_Bool)isNewPasswordError;
+- (_Bool)isExpiredPasswordError;
+- (_Bool)isPasswordMismatchError;
+- (_Bool)isStreamDomain:(long long)arg1 error:(int)arg2;
+- (_Bool)isEqualToError:(id)arg1;
 @end
 

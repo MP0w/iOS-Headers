@@ -13,15 +13,20 @@
 @interface SKUIURL : NSObject <NSCopying>
 {
     NSMutableDictionary *_queryDictionary;
+    NSString *_referrerApplicationName;
+    NSString *_referrerURLString;
     NSURL *_url;
 }
 
 @property(readonly, nonatomic) NSURL *underlyingURL; // @synthesize underlyingURL=_url;
+@property(copy, nonatomic) NSString *referrerURLString; // @synthesize referrerURLString=_referrerURLString;
+@property(copy, nonatomic) NSString *referrerApplicationName; // @synthesize referrerApplicationName=_referrerApplicationName;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)_queryDictionary;
 - (id)valueForQueryParameter:(id)arg1;
 @property(readonly, nonatomic) NSString *searchTerm;
+@property(readonly, nonatomic) NSString *redeemCode;
 @property(readonly, nonatomic) NSDictionary *queryStringDictionary;
 @property(readonly, nonatomic) NSString *actionString;
 - (id)initWithURL:(id)arg1;

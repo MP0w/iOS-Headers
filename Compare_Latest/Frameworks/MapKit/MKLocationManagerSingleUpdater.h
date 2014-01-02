@@ -9,20 +9,22 @@
 #import "MKLocationManagerObserver-Protocol.h"
 #import "MKLocationManagerOperation-Protocol.h"
 
+// Not exported
 @interface MKLocationManagerSingleUpdater : NSObject <MKLocationManagerObserver, MKLocationManagerOperation>
 {
     id _handler;
-    BOOL _active;
+    _Bool _active;
 }
 
 @property(copy, nonatomic) id handler; // @synthesize handler=_handler;
 - (void)locationManagerDidResumeLocationUpdates:(id)arg1;
 - (void)locationManagerDidPauseLocationUpdates:(id)arg1;
-- (BOOL)locationManagerShouldPauseLocationUpdates:(id)arg1;
+- (_Bool)locationManagerShouldPauseLocationUpdates:(id)arg1;
 - (void)locationManagerDidReset:(id)arg1;
 - (void)locationManagerFailedToUpdateLocation:(id)arg1 withError:(id)arg2;
 - (void)locationManagerUpdatedLocation:(id)arg1;
 - (void)cancel;
+- (void)start;
 - (void)dealloc;
 - (id)initWithHandler:(id)arg1;
 

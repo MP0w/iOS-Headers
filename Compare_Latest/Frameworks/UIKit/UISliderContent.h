@@ -8,6 +8,7 @@
 
 @class UIImage;
 
+// Not exported
 @interface UISliderContent : NSObject
 {
     UIImage *thumb;
@@ -19,7 +20,7 @@
 @property(retain, nonatomic) UIImage *minTrack; // @synthesize minTrack;
 @property(retain, nonatomic) UIImage *thumb; // @synthesize thumb;
 - (void)dealloc;
-@property(readonly, nonatomic) BOOL isEmpty; // @dynamic isEmpty;
+@property(readonly, nonatomic) _Bool isEmpty; // @dynamic isEmpty;
 
 @end
 

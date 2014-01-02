@@ -11,15 +11,15 @@
 @interface MPNavigatorInternal : NSObject
 {
     NSString *startPlugID;
-    float opacity;
+    double opacity;
     struct CGPoint position;
-    float zPosition;
+    double zPosition;
     struct CGSize size;
-    float rotationAngle;
-    float xRotationAngle;
-    float yRotationAngle;
-    float scale;
-    int zIndex;
+    double rotationAngle;
+    double xRotationAngle;
+    double yRotationAngle;
+    double scale;
+    long long zIndex;
     NSString *uuid;
     double numberOfLoops;
     double duration;
@@ -27,28 +27,28 @@
     double phaseInDuration;
     double phaseOutDuration;
     NSMutableDictionary *layerKeyDictionary;
-    BOOL isTriggered;
-    BOOL startsPaused;
+    _Bool isTriggered;
+    _Bool startsPaused;
 }
 
 @property(retain, nonatomic) NSMutableDictionary *layerKeyDictionary; // @synthesize layerKeyDictionary;
 @property(nonatomic) double phaseOutDuration; // @synthesize phaseOutDuration;
 @property(nonatomic) double phaseInDuration; // @synthesize phaseInDuration;
-@property(nonatomic) BOOL startsPaused; // @synthesize startsPaused;
-@property(nonatomic) BOOL isTriggered; // @synthesize isTriggered;
+@property(nonatomic) _Bool startsPaused; // @synthesize startsPaused;
+@property(nonatomic) _Bool isTriggered; // @synthesize isTriggered;
 @property(nonatomic) double timeIn; // @synthesize timeIn;
 @property(nonatomic) double duration; // @synthesize duration;
 @property(nonatomic) double numberOfLoops; // @synthesize numberOfLoops;
 @property(retain, nonatomic) NSString *uuid; // @synthesize uuid;
-@property(nonatomic) int zIndex; // @synthesize zIndex;
-@property(nonatomic) float scale; // @synthesize scale;
-@property(nonatomic) float yRotationAngle; // @synthesize yRotationAngle;
-@property(nonatomic) float xRotationAngle; // @synthesize xRotationAngle;
-@property(nonatomic) float rotationAngle; // @synthesize rotationAngle;
+@property(nonatomic) long long zIndex; // @synthesize zIndex;
+@property(nonatomic) double scale; // @synthesize scale;
+@property(nonatomic) double yRotationAngle; // @synthesize yRotationAngle;
+@property(nonatomic) double xRotationAngle; // @synthesize xRotationAngle;
+@property(nonatomic) double rotationAngle; // @synthesize rotationAngle;
 @property(nonatomic) struct CGSize size; // @synthesize size;
-@property(nonatomic) float zPosition; // @synthesize zPosition;
+@property(nonatomic) double zPosition; // @synthesize zPosition;
 @property(nonatomic) struct CGPoint position; // @synthesize position;
-@property(nonatomic) float opacity; // @synthesize opacity;
+@property(nonatomic) double opacity; // @synthesize opacity;
 @property(retain, nonatomic) NSString *startPlugID; // @synthesize startPlugID;
 - (void)dealloc;
 - (void)finalize;

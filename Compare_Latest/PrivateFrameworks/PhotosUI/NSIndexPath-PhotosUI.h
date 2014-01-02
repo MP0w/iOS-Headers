@@ -7,7 +7,7 @@
 #import "NSIndexPath.h"
 
 @interface NSIndexPath (PhotosUI)
-+ (id)pu_indexPathsForItems:(id)arg1 inSection:(int)arg2;
++ (id)pu_indexPathsForItems:(id)arg1 inSection:(long long)arg2;
 - (id)pu_alteredIndexPathAfterMovingItemAtIndexPath:(id)arg1 toIndexPath:(id)arg2;
 - (id)pu_alteredIndexPathAfterDeletingItemsAtIndexPaths:(id)arg1;
 - (id)pu_alteredIndexPathAfterDeletingItemAtIndexPath:(id)arg1;

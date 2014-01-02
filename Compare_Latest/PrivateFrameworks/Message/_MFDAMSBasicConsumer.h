@@ -15,7 +15,7 @@
     MFMailMessageLibrary *library;
     MFActivityMonitor *monitor;
     MFError *error;
-    unsigned int numNewMessages;
+    unsigned long long numNewMessages;
 }
 
 @property(retain, nonatomic) MFError *error; // @synthesize error;

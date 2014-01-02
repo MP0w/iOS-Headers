@@ -8,16 +8,17 @@
 
 @class NSString;
 
+// Not exported
 @interface _LocalLibraryNotification : NSObject
 {
-    BOOL _isSourceExternal;
+    _Bool _isSourceExternal;
     NSString *_notificationName;
 }
 
-@property(nonatomic) BOOL isSourceExternal; // @synthesize isSourceExternal=_isSourceExternal;
+@property(nonatomic) _Bool isSourceExternal; // @synthesize isSourceExternal=_isSourceExternal;
 @property(retain, nonatomic) NSString *notificationName; // @synthesize notificationName=_notificationName;
 - (void).cxx_destruct;
-- (id)initWithNotificationName:(id)arg1 isSourceExternal:(BOOL)arg2;
+- (id)initWithNotificationName:(id)arg1 isSourceExternal:(_Bool)arg2;
 
 @end
 

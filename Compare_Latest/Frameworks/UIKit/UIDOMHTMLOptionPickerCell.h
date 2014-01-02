@@ -6,15 +6,16 @@
 
 #import <UIKit/UIPickerContentView.h>
 
+// Not exported
 @interface UIDOMHTMLOptionPickerCell : UIPickerContentView
 {
-    BOOL _disabled;
+    _Bool _disabled;
 }
 
-@property(nonatomic) BOOL disabled; // @synthesize disabled=_disabled;
+@property(nonatomic) _Bool disabled; // @synthesize disabled=_disabled;
 - (id)initWithHTMLOptionNode:(id)arg1;
 - (id)initCommon;
-- (BOOL)_isSelectable;
+- (_Bool)_isSelectable;
 
 @end
 

@@ -10,6 +10,6 @@
 
 @optional
 - (void)animationControllerGroup:(id)arg1 childControllerDidFinishAnimation:(id)arg2;
-- (void)animationControllerGroup:(id)arg1 childController:(id)arg2 willBeginAnimation:(BOOL)arg3;
+- (void)animationControllerGroup:(id)arg1 childController:(id)arg2 willBeginAnimation:(_Bool)arg3;
 @end
 

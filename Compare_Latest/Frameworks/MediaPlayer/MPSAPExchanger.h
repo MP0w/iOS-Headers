@@ -8,6 +8,7 @@
 
 @class MPSAPContext, NSData;
 
+// Not exported
 @interface MPSAPExchanger : NSObject
 {
     MPSAPContext *_context;

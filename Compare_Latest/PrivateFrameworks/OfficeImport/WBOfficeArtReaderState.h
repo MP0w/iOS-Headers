@@ -8,6 +8,7 @@
 
 @class WBReader;
 
+// Not exported
 @interface WBOfficeArtReaderState : OABReaderState
 {
     WBReader *mReader;

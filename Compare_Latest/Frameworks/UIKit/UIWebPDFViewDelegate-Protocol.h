@@ -11,7 +11,7 @@
 - (void)handleLongPressOnLink:(id)arg1 atPoint:(struct CGPoint)arg2 inRect:(struct CGRect)arg3 contentRect:(struct CGRect)arg4;
 - (void)handleLinkClick:(id)arg1 inRect:(struct CGRect)arg2;
 - (void)resetZoom:(id)arg1;
-- (void)pdfView:(id)arg1 zoomToRect:(struct CGRect)arg2 forPoint:(struct CGPoint)arg3 considerHeight:(BOOL)arg4;
+- (void)pdfView:(id)arg1 zoomToRect:(struct CGRect)arg2 forPoint:(struct CGPoint)arg3 considerHeight:(_Bool)arg4;
 - (void)didDetermineDocumentBounds:(id)arg1;
 @end
 

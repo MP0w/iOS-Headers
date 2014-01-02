@@ -11,22 +11,23 @@
     struct __SCPreferences *_prefs;
     int _applySkipCount;
     id <RadiosPreferencesDelegate> _delegate;
-    BOOL _isCachedAirplaneModeValid;
-    BOOL _cachedAirplaneMode;
-    BOOL notifyForExternalChangeOnly;
+    _Bool _isCachedAirplaneModeValid;
+    _Bool _cachedAirplaneMode;
+    _Bool notifyForExternalChangeOnly;
 }
 
-@property(nonatomic) BOOL notifyForExternalChangeOnly; // @synthesize notifyForExternalChangeOnly;
+@property(nonatomic) _Bool notifyForExternalChangeOnly; // @synthesize notifyForExternalChangeOnly;
 @property(nonatomic) id <RadiosPreferencesDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)setCallback:(void *)arg1 withContext:(CDStruct_60d14f2d *)arg2;
+- (void)setCallback:(void *)arg1 withContext:(CDStruct_e097db04 *)arg2;
 - (void)setValue:(void *)arg1 forKey:(id)arg2;
 - (void *)getValueForKey:(id)arg1;
 - (void)synchronize;
 - (void)notifyTarget:(unsigned int)arg1;
 - (void)initializeSCPrefs:(id)arg1;
 - (void)refresh;
-@property(nonatomic) BOOL airplaneMode;
+@property(nonatomic) _Bool airplaneMode;
 - (void)dealloc;
+- (oneway void)release;
 - (id)init;
 
 @end

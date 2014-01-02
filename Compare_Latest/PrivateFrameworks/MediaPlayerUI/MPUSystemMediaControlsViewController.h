@@ -8,58 +8,69 @@
 
 #import "MPAudioDeviceControllerDelegate-Protocol.h"
 #import "MPUChronologicalProgressViewDelegate-Protocol.h"
+#import "MPUMediaControlsTitlesViewDelegate-Protocol.h"
 #import "MPUNowPlayingDelegate-Protocol.h"
 #import "MPURemoteViewControllerPresentation-Protocol.h"
 #import "MPUTransportControlsViewDelegate-Protocol.h"
-#import "MPVolumeControllerDelegate-Protocol.h"
+#import "RUTrackActionsDelegate-Protocol.h"
 #import "UIModalItemDelegate-Protocol.h"
+#import "UIPopoverControllerDelegate-Protocol.h"
 
-@class MPAudioDeviceController, MPUNowPlayingController, MPVolumeController, NSDictionary, RUTrackActionsModalItem, UIImageView, UIView, _MPUSystemMediaControlsView;
+@class MPAudioDeviceController, MPUNowPlayingController, NSDictionary, NSString, NSTimer, RUTrackActionsModalItem, UIImageView, UIPopoverController, UIView, _MPUSystemMediaControlsView;
 
-@interface MPUSystemMediaControlsViewController : UIViewController <MPUNowPlayingDelegate, MPUTransportControlsViewDelegate, MPURemoteViewControllerPresentation, MPUChronologicalProgressViewDelegate, MPAudioDeviceControllerDelegate, MPVolumeControllerDelegate, UIModalItemDelegate>
+@interface MPUSystemMediaControlsViewController : UIViewController <MPUNowPlayingDelegate, MPUTransportControlsViewDelegate, MPURemoteViewControllerPresentation, MPUChronologicalProgressViewDelegate, MPUMediaControlsTitlesViewDelegate, MPAudioDeviceControllerDelegate, RUTrackActionsDelegate, UIModalItemDelegate, UIPopoverControllerDelegate>
 {
     MPUNowPlayingController *_nowPlayingController;
-    MPVolumeController *_volumeController;
     MPAudioDeviceController *_audioDeviceController;
-    BOOL _isSeeking;
-    BOOL _wantsToLaunchNowPlayingApp;
+    _Bool _wantsToLaunchNowPlayingApp;
+    unsigned int _runningLongPressCommand;
     _MPUSystemMediaControlsView *_mediaControlsView;
     UIImageView *_artworkImageView;
     NSDictionary *_nowPlayingInfoForPresentedTrackActions;
+    UIPopoverController *_trackActionsPopoverController;
     RUTrackActionsModalItem *_trackActionsModalItem;
-    BOOL _persistentUpdatesEnabled;
-    int _style;
+    NSString *_audioCategoryForDisabledHUD;
+    NSTimer *_scrubberCommitTimer;
+    double _scrubbedTimeDestination;
+    double _lastDurationFromUpdate;
+    _Bool _persistentUpdatesEnabled;
+    long long _style;
     id <MPUSystemMediaControlsDelegate> _delegate;
 }
 
-@property(nonatomic) BOOL persistentUpdatesEnabled; // @synthesize persistentUpdatesEnabled=_persistentUpdatesEnabled;
+@property(nonatomic) _Bool persistentUpdatesEnabled; // @synthesize persistentUpdatesEnabled=_persistentUpdatesEnabled;
 @property(nonatomic) __weak id <MPUSystemMediaControlsDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) int style; // @synthesize style=_style;
+@property(readonly, nonatomic) long long style; // @synthesize style=_style;
 - (void).cxx_destruct;
+- (void)_cancelRunningLongPressCommand;
 - (void)_launchCurrentNowPlayingApp;
-- (void)_volumeSliderValueChanged:(id)arg1;
+- (void)_stopScrubberCommitTimer;
+- (void)_commitCurrentScrubberValue;
+- (void)_beginScrubberCommitTimer;
 - (void)_likeBanButtonTapped:(id)arg1;
 - (void)_infoButtonTapped:(id)arg1;
-- (void)_trackInformationViewTapped:(id)arg1;
-- (void)modalItem:(id)arg1 willDismissWithButtonIndex:(int)arg2;
+- (void)popoverControllerDidDismissPopover:(id)arg1;
+- (void)modalItem:(id)arg1 didDismissWithButtonIndex:(long long)arg2;
+- (void)trackActioningObject:(id)arg1 didSelectAction:(long long)arg2 atIndex:(long long)arg3;
 - (void)audioDeviceControllerAudioRoutesChanged:(id)arg1;
-- (void)volumeController:(id)arg1 volumeValueDidChange:(float)arg2;
-- (void)progressView:(id)arg1 didScrubToCurrentTime:(double)arg2;
+- (void)mediaControlsTitlesViewWasTapped:(id)arg1;
+- (void)progressViewDidEndScrubbing:(id)arg1;
+- (void)progressViewDidBeginScrubbing:(id)arg1;
 - (void)remoteViewControllerDidFinish;
-- (void)transportControlsView:(id)arg1 tapOnAccessoryButtonType:(int)arg2;
-- (void)transportControlsView:(id)arg1 longPressEndOnControlType:(int)arg2;
-- (void)transportControlsView:(id)arg1 longPressBeginOnControlType:(int)arg2;
-- (void)transportControlsView:(id)arg1 tapOnControlType:(int)arg2;
+- (void)transportControlsView:(id)arg1 tapOnAccessoryButtonType:(long long)arg2;
+- (void)transportControlsView:(id)arg1 longPressEndOnControlType:(long long)arg2;
+- (void)transportControlsView:(id)arg1 longPressBeginOnControlType:(long long)arg2;
+- (void)transportControlsView:(id)arg1 tapOnControlType:(long long)arg2;
 - (void)nowPlayingController:(id)arg1 nowPlayingApplicationDidChange:(id)arg2;
 - (void)nowPlayingController:(id)arg1 elapsedTimeDidChange:(double)arg2;
-- (void)nowPlayingController:(id)arg1 playbackStateDidChange:(BOOL)arg2;
+- (void)nowPlayingController:(id)arg1 playbackStateDidChange:(_Bool)arg2;
 - (void)nowPlayingController:(id)arg1 nowPlayingInfoDidChange:(id)arg2;
 @property(readonly, nonatomic) UIView *artworkView;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1;
+- (id)initWithStyle:(long long)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 @end

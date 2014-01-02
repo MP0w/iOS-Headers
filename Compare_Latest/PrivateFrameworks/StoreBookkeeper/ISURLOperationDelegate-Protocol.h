@@ -10,9 +10,9 @@
 
 @optional
 - (id)operation:(id)arg1 sanitizedStringForString:(id)arg2;
-- (BOOL)operation:(id)arg1 willSendRequestForAuthenticationChallenge:(id)arg2;
+- (_Bool)operation:(id)arg1 willSendRequestForAuthenticationChallenge:(id)arg2;
 - (void)operation:(id)arg1 willSendRequest:(id)arg2;
-- (BOOL)operation:(id)arg1 processData:(id)arg2 error:(id *)arg3;
+- (_Bool)operation:(id)arg1 processData:(id)arg2 error:(id *)arg3;
 - (id)operation:(id)arg1 needNewBodyStream:(id)arg2;
 - (void)operation:(id)arg1 finishedWithOutput:(id)arg2;
 - (void)operation:(id)arg1 didReceiveResponse:(id)arg2;

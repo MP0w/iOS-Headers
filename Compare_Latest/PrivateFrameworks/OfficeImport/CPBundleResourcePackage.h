@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, SFUZipArchive;
+@class NSMutableDictionary, OISFUZipArchive;
 
+// Not exported
 @interface CPBundleResourcePackage : NSObject
 {
-    SFUZipArchive *mZipArchive;
+    OISFUZipArchive *mZipArchive;
     NSMutableDictionary *mEntryMap;
 }
 

@@ -6,6 +6,7 @@
 
 #import <UIKit/UITextEffectsWindow.h>
 
+// Not exported
 @interface UITextEffectsWindowNoAbove : UITextEffectsWindow
 {
 }

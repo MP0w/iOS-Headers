@@ -7,6 +7,6 @@
 #import "DAActionConsumer-Protocol.h"
 
 @protocol DAMailboxRequestConsumer <DAActionConsumer>
-- (void)resultsForMailbox:(id)arg1 newTag:(id)arg2 actions:(id)arg3 responses:(id)arg4 percentComplete:(double)arg5 moreAvailable:(BOOL)arg6;
+- (void)resultsForMailbox:(id)arg1 newTag:(id)arg2 actions:(id)arg3 responses:(id)arg4 percentComplete:(double)arg5 moreAvailable:(_Bool)arg6;
 @end
 

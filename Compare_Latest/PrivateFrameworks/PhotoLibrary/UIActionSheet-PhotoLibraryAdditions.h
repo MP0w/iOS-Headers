@@ -7,6 +7,6 @@
 #import "UIActionSheet.h"
 
 @interface UIActionSheet (PhotoLibraryAdditions)
-- (void)showFromObject:(id)arg1 animated:(BOOL)arg2;
+- (void)showFromObject:(id)arg1 animated:(_Bool)arg2;
 @end
 

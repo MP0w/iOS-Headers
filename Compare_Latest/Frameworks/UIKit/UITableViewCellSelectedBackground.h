@@ -8,20 +8,21 @@
 
 @class UIColor;
 
+// Not exported
 @interface UITableViewCellSelectedBackground : UIView
 {
-    int _selectionStyle;
+    long long _selectionStyle;
     UIColor *_multiselectBackgroundColor;
     UIColor *_selectionTintColor;
-    BOOL _multiselect;
+    _Bool _multiselect;
 }
 
 @property(retain, nonatomic) UIColor *selectionTintColor; // @synthesize selectionTintColor=_selectionTintColor;
 @property(retain, nonatomic) UIColor *multiselectBackgroundColor; // @synthesize multiselectBackgroundColor=_multiselectBackgroundColor;
-@property(nonatomic) int selectionStyle; // @synthesize selectionStyle=_selectionStyle;
+@property(nonatomic) long long selectionStyle; // @synthesize selectionStyle=_selectionStyle;
 - (void)dealloc;
 - (void)drawRect:(struct CGRect)arg1;
-@property(nonatomic, getter=isMultiselect) BOOL multiselect;
+@property(nonatomic, getter=isMultiselect) _Bool multiselect;
 
 @end
 

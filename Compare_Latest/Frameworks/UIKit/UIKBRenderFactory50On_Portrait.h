@@ -6,13 +6,22 @@
 
 #import <UIKit/UIKBRenderFactory10Key.h>
 
+// Not exported
 @interface UIKBRenderFactory50On_Portrait : UIKBRenderFactory10Key
 {
 }
 
 - (void)setupLayoutSegments;
-- (float)controlColumnWidthFactor;
+- (double)controlColumnWidthFactor;
 - (id)_traitsForKey:(id)arg1 onKeyplane:(id)arg2;
+- (void)_customizeTraits:(id)arg1 forPopupForKey:(id)arg2 withRenderConfig:(id)arg3 keycapsFontName:(id)arg4;
+- (double)deleteKeyFontSize;
+- (double)spaceKeyFontSize;
+- (double)returnKeyFontSize;
+- (double)keyplaneSwitchKeyFontSize;
+- (double)keyCornerRadius;
+- (id)thinKeycapsFontName;
+- (id)lightKeycapsFontName;
 
 @end
 

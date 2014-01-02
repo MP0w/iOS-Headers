@@ -11,7 +11,7 @@
 - (id)view;
 - (id)memoryFromSubRange:(struct _VMURange)arg1 mapToAddress:(unsigned long long)arg2 architecture:(id)arg3;
 - (id)memoryAtAddress:(unsigned long long)arg1 maxSize:(unsigned long long)arg2;
-- (BOOL)isContiguous;
+- (_Bool)isContiguous;
 - (id)architecture;
 - (struct _VMURange)addressRange;
 @end

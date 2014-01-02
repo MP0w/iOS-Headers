@@ -19,13 +19,13 @@
     UINavigationController *_navigationController;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (void)_updateWrapperViewToOrientation:(int)arg1;
-- (void)_updateNavigationBarToOrientation:(int)arg1;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (void)_updateWrapperViewToOrientation:(long long)arg1;
+- (void)_updateNavigationBarToOrientation:(long long)arg1;
+- (void)willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
 - (void)viewWillLayoutSubviews;
-- (void)pushViewController:(id)arg1 animated:(BOOL)arg2;
-- (void)popViewControllerAnimated:(BOOL)arg1;
+- (void)pushViewController:(id)arg1 animated:(_Bool)arg2;
+- (void)popViewControllerAnimated:(_Bool)arg1;
 - (void)loadView;
 - (struct CGSize)preferredSizeInParentViewController;
 - (struct CGPoint)preferredOffsetInParentViewController;

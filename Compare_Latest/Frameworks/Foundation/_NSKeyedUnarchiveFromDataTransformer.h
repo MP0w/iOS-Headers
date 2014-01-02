@@ -6,6 +6,7 @@
 
 #import <Foundation/_NSSharedValueTransformer.h>
 
+// Not exported
 @interface _NSKeyedUnarchiveFromDataTransformer : _NSSharedValueTransformer
 {
 }

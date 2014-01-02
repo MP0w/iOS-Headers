@@ -15,10 +15,10 @@
     SSDownloadManager *_manager;
     NSOperationQueue *_queue;
     NSMutableDictionary *_downloads;
-    BOOL _reconnectInProgress;
+    _Bool _reconnectInProgress;
 }
 
-- (void)downloadHandlerDisconnected:(BOOL)arg1;
+- (void)downloadHandlerDisconnected:(_Bool)arg1;
 - (void)_attemptReconnect;
 - (void)addDownload:(id)arg1 completionBlock:(id)arg2;
 - (void)addDownloads:(id)arg1 completionBlock:(id)arg2;

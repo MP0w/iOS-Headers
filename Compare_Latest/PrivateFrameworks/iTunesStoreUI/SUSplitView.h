@@ -9,20 +9,20 @@
 @interface SUSplitView : UIView
 {
     UIView *_firstView;
-    int _layoutType;
-    float _minimumPaneSize;
+    long long _layoutType;
+    double _minimumPaneSize;
     UIView *_secondView;
-    float _splitPosition;
-    BOOL _vertical;
+    double _splitPosition;
+    _Bool _vertical;
 }
 
-@property(nonatomic, getter=isVertical) BOOL vertical; // @synthesize vertical=_vertical;
-@property(nonatomic) float splitPosition; // @synthesize splitPosition=_splitPosition;
+@property(nonatomic, getter=isVertical) _Bool vertical; // @synthesize vertical=_vertical;
+@property(nonatomic) double splitPosition; // @synthesize splitPosition=_splitPosition;
 @property(retain, nonatomic) UIView *secondView; // @synthesize secondView=_secondView;
-@property(nonatomic) float minimumPaneSize; // @synthesize minimumPaneSize=_minimumPaneSize;
-@property(nonatomic) int layoutType; // @synthesize layoutType=_layoutType;
+@property(nonatomic) double minimumPaneSize; // @synthesize minimumPaneSize=_minimumPaneSize;
+@property(nonatomic) long long layoutType; // @synthesize layoutType=_layoutType;
 @property(retain, nonatomic) UIView *firstView; // @synthesize firstView=_firstView;
-- (float)_minimumPaneSizeForLayout;
+- (double)_minimumPaneSizeForLayout;
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

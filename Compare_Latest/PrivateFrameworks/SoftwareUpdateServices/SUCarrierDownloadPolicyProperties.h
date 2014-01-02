@@ -12,24 +12,24 @@
 {
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)_numberForKey:(id)arg1;
-- (int)_integerForKey:(id)arg1 defaultValue:(int)arg2;
-- (unsigned int)_unsignedIntegerForKey:(id)arg1 defaultValue:(int)arg2;
+- (long long)_integerForKey:(id)arg1 defaultValue:(long long)arg2;
+- (unsigned long long)_unsignedIntegerForKey:(id)arg1 defaultValue:(long long)arg2;
 - (long long)_longLongForKey:(id)arg1 defaultValue:(long long)arg2;
-- (BOOL)_boolForKey:(id)arg1 defaultValue:(BOOL)arg2;
+- (_Bool)_boolForKey:(id)arg1 defaultValue:(_Bool)arg2;
 - (id)_carrierSUProperties;
-- (BOOL)_isValidHour:(int)arg1;
-- (int)peakEndHour;
-- (int)peakStartHour;
-- (unsigned int)numberOfDaysToWaitForCellularAutoDownload;
+- (_Bool)_isValidHour:(long long)arg1;
+- (long long)peakEndHour;
+- (long long)peakStartHour;
+- (unsigned long long)numberOfDaysToWaitForCellularAutoDownload;
 - (long long)maximumDownloadSizeInBytes;
-- (BOOL)isAutoDownloadAllowable;
-- (BOOL)isDownloadAllowableOver2G;
-- (BOOL)isDownloadAllowable;
-- (BOOL)isDownloadFree;
+- (_Bool)isAutoDownloadAllowable;
+- (_Bool)isDownloadAllowableOver2G;
+- (_Bool)isDownloadAllowable;
+- (_Bool)isDownloadFree;
 
 @end
 

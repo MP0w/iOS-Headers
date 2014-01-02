@@ -13,7 +13,7 @@
     UIView *_bottomBorderView;
     SKUIClientContext *_clientContext;
     SKUIColorScheme *_colorScheme;
-    int _features;
+    long long _features;
     NSMutableArray *_featureViews;
     UILabel *_titleLabel;
     UIView *_topBorderView;
@@ -21,7 +21,7 @@
 
 @property(retain, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
 @property(retain, nonatomic) SKUIColorScheme *colorScheme; // @synthesize colorScheme=_colorScheme;
-@property(nonatomic) int features; // @synthesize features=_features;
+@property(nonatomic) long long features; // @synthesize features=_features;
 - (void).cxx_destruct;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)setBackgroundColor:(id)arg1;

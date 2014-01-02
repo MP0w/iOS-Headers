@@ -16,7 +16,7 @@
 
 + (id)domainObjectCommitWithDictionary:(id)arg1 context:(id)arg2;
 + (id)domainObjectCommit;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(retain, nonatomic) SADomainObject *identifier;
 - (id)encodedClassName;
 - (id)groupIdentifier;

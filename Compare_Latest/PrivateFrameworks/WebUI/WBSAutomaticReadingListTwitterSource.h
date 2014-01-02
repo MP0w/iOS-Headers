@@ -8,11 +8,11 @@
 
 @interface WBSAutomaticReadingListTwitterSource : WBSAutomaticReadingListSocialSource
 {
-    unsigned int _numberOfRequestsAllowedInRateLimitWindow;
+    unsigned long long _numberOfRequestsAllowedInRateLimitWindow;
 }
 
 + (id)sharedSource;
-@property(nonatomic) unsigned int numberOfRequestsAllowedInRateLimitWindow; // @synthesize numberOfRequestsAllowedInRateLimitWindow=_numberOfRequestsAllowedInRateLimitWindow;
+@property(nonatomic) unsigned long long numberOfRequestsAllowedInRateLimitWindow; // @synthesize numberOfRequestsAllowedInRateLimitWindow=_numberOfRequestsAllowedInRateLimitWindow;
 - (id)repostResourceURLStringForItem:(id)arg1;
 - (id)serviceName;
 - (id)serviceType;

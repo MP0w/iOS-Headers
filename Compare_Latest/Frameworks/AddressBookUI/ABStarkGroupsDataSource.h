@@ -23,18 +23,18 @@
 @property(retain, nonatomic) ABModel *model; // @synthesize model=_model;
 - (void)cancelScheduledRefresh;
 - (void)scheduleRefresh;
-- (int)numberOfGroupsForAccountIdentifier:(id)arg1;
+- (long long)numberOfGroupsForAccountIdentifier:(id)arg1;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (id)accountDisplayNameAtIndex:(int)arg1;
-- (int)numberOfSectionsInTableView:(id)arg1;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (int)numberOfAccounts;
-- (int)numberOfGroupsInAccountAtIndex:(int)arg1;
+- (id)accountDisplayNameAtIndex:(long long)arg1;
+- (long long)numberOfSectionsInTableView:(id)arg1;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (long long)numberOfAccounts;
+- (long long)numberOfGroupsInAccountAtIndex:(long long)arg1;
 - (id)newContactsFilterForIndexPath:(id)arg1;
 - (id)titleForIndexPath:(id)arg1;
 - (id)groupWrapperForIndexPath:(id)arg1;
 - (void)reloadData;
-- (void)reloadDataIncludingAccountStore:(BOOL)arg1 usingArchivedState:(BOOL)arg2;
+- (void)reloadDataIncludingAccountStore:(_Bool)arg1 usingArchivedState:(_Bool)arg2;
 - (void)dealloc;
 
 @end

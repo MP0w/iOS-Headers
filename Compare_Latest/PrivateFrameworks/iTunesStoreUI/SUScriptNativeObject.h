@@ -13,7 +13,7 @@
     NSLock *_lock;
     id _nativeObject;
     SUScriptObject *_scriptObject;
-    BOOL _weak;
+    _Bool _weak;
 }
 
 + (id)objectWithNativeObject:(id)arg1;

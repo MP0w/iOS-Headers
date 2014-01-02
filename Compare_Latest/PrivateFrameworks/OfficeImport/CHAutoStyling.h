@@ -8,6 +8,7 @@
 
 @class CHDChart;
 
+// Not exported
 @interface CHAutoStyling : NSObject
 {
     CHDChart *mChart;
@@ -15,9 +16,7 @@
 
 + (id)autoStylingWithChart:(id)arg1;
 - (void)replaceStrokeAndFillInEmptyMarker:(id)arg1 withSeriesGraphicProperties:(id)arg2;
-- (int)defaultMarkerStyleForSeriesIndex:(unsigned int)arg1;
-- (void)dealloc;
-- (id)initWithChart:(id)arg1;
+- (int)defaultMarkerStyleForSeriesIndex:(unsigned long long)arg1;
 
 @end
 

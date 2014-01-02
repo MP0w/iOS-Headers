@@ -10,38 +10,35 @@
 
 @interface PLLogger : NSObject
 {
-    struct __sFILE *logFile;
-    BOOL logFileEnabled;
-    BOOL watchDogged;
+    _Bool watchDogged;
     short _loggerMode;
     unsigned int mobileUserID;
     unsigned int originalUserID;
     NSObject<OS_dispatch_queue> *_loggerSerialQueue;
-    BOOL isNewLog;
+    _Bool isNewLog;
+    _Bool _haveLogged;
 }
 
++ (void)setDefault:(id)arg1 forKey:(id)arg2 forLoggerNamed:(id)arg3;
 + (void)setDefault:(id)arg1 forKey:(id)arg2;
 + (id)defaultForKey:(id)arg1 forLoggerNamed:(id)arg2;
 + (id)defaultForKey:(id)arg1;
 + (short)loggerModeWithName:(id)arg1;
 + (short)loggerMode;
-+ (BOOL)loggerDebugEnabled;
-+ (BOOL)loggerEnabledWithName:(id)arg1;
-+ (BOOL)loggerEnabled;
-+ (BOOL)loggerRunnableWithName:(id)arg1;
++ (_Bool)loggerDebugEnabled;
++ (_Bool)loggerEnabledWithName:(id)arg1;
++ (_Bool)loggerEnabled;
++ (_Bool)loggerRunnableWithName:(id)arg1;
 + (id)logger;
-@property(readonly) NSObject<OS_dispatch_queue> *loggerSerialQueue; // @synthesize loggerSerialQueue=_loggerSerialQueue;
+@property(nonatomic) _Bool haveLogged; // @synthesize haveLogged=_haveLogged;
 @property(nonatomic) short loggerMode; // @synthesize loggerMode=_loggerMode;
-@property(nonatomic) BOOL isNewLog; // @synthesize isNewLog;
-@property(nonatomic) struct __sFILE *logFile; // @synthesize logFile;
-@property(nonatomic) BOOL watchDogged; // @synthesize watchDogged;
-@property(nonatomic) BOOL logFileEnabled; // @synthesize logFileEnabled;
+@property(nonatomic) _Bool isNewLog; // @synthesize isNewLog;
+@property(nonatomic) _Bool watchDogged; // @synthesize watchDogged;
 - (id)loggerFunctionCall:(short)arg1 withParameters:(id)arg2;
 - (int)pidForName:(id)arg1 logCategory:(id)arg2;
 - (void)deregisterForAllDarwinNotifications;
 - (void)registerCallback:(void *)arg1 forDarwinNotification:(struct __CFString *)arg2;
 - (id)formatTimeInSeconds:(double)arg1;
-- (void)logSeparator;
 - (void)logError:(id)arg1;
 - (void)logEntry:(id)arg1 withBody:(id)arg2 forDate:(id)arg3;
 - (void)logEntry:(id)arg1;
@@ -50,6 +47,7 @@
 - (void)logEntry:(id)arg1 withBody:(id)arg2;
 - (void)log:(id)arg1;
 - (void)log;
+@property(readonly) NSObject<OS_dispatch_queue> *loggerSerialQueue; // @synthesize loggerSerialQueue=_loggerSerialQueue;
 - (void)dealloc;
 - (id)init;
 

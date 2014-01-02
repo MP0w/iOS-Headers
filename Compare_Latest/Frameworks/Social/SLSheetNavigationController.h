@@ -6,6 +6,7 @@
 
 #import "UINavigationController.h"
 
+// Not exported
 @interface SLSheetNavigationController : UINavigationController
 {
 }

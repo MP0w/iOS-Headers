@@ -11,6 +11,7 @@
 
 @class NSDictionary, NSOperationQueue, NSURL, NSURLConnection, NSURLRequest;
 
+// Not exported
 @interface NSURLConnectionInternal : NSObject <NSURLConnectionRequired, NSURLAuthenticationChallengeSender>
 {
     NSURLConnection *_connection;
@@ -20,7 +21,7 @@
     NSURLRequest *_currentRequest;
     id _delegate;
     NSDictionary *_connectionProperties;
-    BOOL _connectionActive;
+    _Bool _connectionActive;
 }
 
 - (void)rejectProtectionSpaceAndContinueWithChallenge:(id)arg1;
@@ -34,8 +35,8 @@
 - (void)invokeForDelegate:(id)arg1;
 - (void)_withConnectionDisconnectFromConnection;
 - (void)_invalidate;
-- (BOOL)isConnectionActive;
-- (void)setConnectionActive:(BOOL)arg1;
+- (_Bool)isConnectionActive;
+- (void)setConnectionActive:(_Bool)arg1;
 - (void)_setDelegateQueue:(id)arg1;
 - (id)currentRequest;
 - (id)originalRequest;

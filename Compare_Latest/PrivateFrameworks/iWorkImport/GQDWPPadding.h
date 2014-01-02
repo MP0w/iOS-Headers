@@ -8,6 +8,7 @@
 
 #import "GQDNameMappable-Protocol.h"
 
+// Not exported
 @interface GQDWPPadding : NSObject <GQDNameMappable>
 {
     float mTop;
@@ -21,7 +22,6 @@
 - (float)bottom;
 - (float)left;
 - (float)top;
-- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1;
 
 @end
 

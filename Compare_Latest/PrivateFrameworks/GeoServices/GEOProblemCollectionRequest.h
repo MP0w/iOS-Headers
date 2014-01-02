@@ -6,9 +6,11 @@
 
 #import "PBRequest.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSMutableArray, NSString;
 
-@interface GEOProblemCollectionRequest : PBRequest
+@interface GEOProblemCollectionRequest : PBRequest <NSCopying>
 {
     NSString *_countryCode;
     NSString *_hwMachine;
@@ -20,20 +22,21 @@
 @property(retain, nonatomic) NSString *countryCode; // @synthesize countryCode=_countryCode;
 @property(retain, nonatomic) NSString *hwMachine; // @synthesize hwMachine=_hwMachine;
 @property(retain, nonatomic) NSMutableArray *requestElements; // @synthesize requestElements=_requestElements;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (Class)responseClass;
 - (unsigned int)requestTypeCode;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) BOOL hasInputLanguage;
-@property(readonly, nonatomic) BOOL hasCountryCode;
-@property(readonly, nonatomic) BOOL hasHwMachine;
-- (id)requestElementAtIndex:(unsigned int)arg1;
-- (unsigned int)requestElementsCount;
+@property(readonly, nonatomic) _Bool hasInputLanguage;
+@property(readonly, nonatomic) _Bool hasCountryCode;
+@property(readonly, nonatomic) _Bool hasHwMachine;
+- (id)requestElementAtIndex:(unsigned long long)arg1;
+- (unsigned long long)requestElementsCount;
 - (void)addRequestElement:(id)arg1;
 - (void)clearRequestElements;
 - (void)dealloc;

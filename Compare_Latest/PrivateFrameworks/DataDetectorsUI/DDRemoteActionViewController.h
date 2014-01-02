@@ -8,20 +8,23 @@
 
 @class DDAction, DDActionController;
 
+// Not exported
 @interface DDRemoteActionViewController : _UIRemoteViewController
 {
-    BOOL _proxyConfigured;
+    _Bool _proxyConfigured;
     DDAction *_action;
     DDActionController *_actionController;
-    BOOL _waitingForRemoteConfiguration;
+    _Bool _waitingForRemoteConfiguration;
 }
 
 + (id)prepareViewController:(id)arg1 forAction:(id)arg2 actionController:(id)arg3;
++ (id)serviceViewControllerInterface;
++ (id)exportedInterface;
 @property DDActionController *actionController; // @synthesize actionController=_actionController;
 @property(retain) DDAction *action; // @synthesize action=_action;
 - (void)actionDidFinish;
 - (void)viewServiceDidTerminateWithError:(id)arg1;
-- (void)viewControllerReadyAndIsModal:(id)arg1;
+- (void)viewControllerReadyAndIsModal:(_Bool)arg1;
 - (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
 - (void)_prepareForAction:(id)arg1 inActionController:(id)arg2;
 

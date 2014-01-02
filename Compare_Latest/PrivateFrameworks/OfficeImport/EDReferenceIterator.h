@@ -8,6 +8,7 @@
 
 @class EDCollection, EDReference, EDRowBlock, EDRowBlocks, EDWorkbook, EDWorksheet;
 
+// Not exported
 @interface EDReferenceIterator : NSObject
 {
     EDWorkbook *mWorkbook;
@@ -16,7 +17,7 @@
     EDReference *mReference;
     EDRowBlocks *mRowBlocks;
     EDRowBlock *mRowBlock;
-    unsigned int mRowBlockIndex;
+    unsigned long long mRowBlockIndex;
     struct EDRowInfo *mRowInfo;
     unsigned int mRowInfoIndex;
     unsigned int mCellIndex;
@@ -34,9 +35,6 @@
 - (id)initWithReferenceArray:(id)arg1 workbook:(id)arg2;
 - (id)initWithReference:(id)arg1 workbook:(id)arg2;
 - (id)initWithReferenceArray:(id)arg1 reference:(id)arg2 workbook:(id)arg3;
-- (_Bool)nextRow;
-- (_Bool)nextReference;
-- (void)setReference:(id)arg1;
 
 @end
 

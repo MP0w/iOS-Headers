@@ -4,22 +4,24 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <UIKit/UIWebRotatingAccessoryPopover.h>
+#import <UIKit/UIWebFormRotatingAccessoryPopover.h>
 
 #import "UIWebFormControl-Protocol.h"
 
 @class UIWebDateTimePopoverViewController;
 
-@interface UIWebDefaultDateTimePopover : UIWebRotatingAccessoryPopover <UIWebFormControl>
+// Not exported
+@interface UIWebDefaultDateTimePopover : UIWebFormRotatingAccessoryPopover <UIWebFormControl>
 {
     UIWebDateTimePopoverViewController *_webDateTimeViewController;
 }
 
 @property(retain, nonatomic) UIWebDateTimePopoverViewController *_webDateTimeViewController; // @synthesize _webDateTimeViewController;
+- (void)controlEndEditing;
 - (void)controlBeginEditing;
 - (id)controlView;
 - (void)dealloc;
-- (id)initWithDOMHTMLInputElement:(id)arg1 datePickerMode:(int)arg2;
+- (id)initWithDOMHTMLInputElement:(id)arg1 datePickerMode:(long long)arg2;
 - (void)clear:(id)arg1;
 
 @end

@@ -17,12 +17,12 @@
 - (void)setRangeText:(id)arg1;
 - (void)select;
 - (void)setCustomValidity:(id)arg1;
-- (BOOL)checkValidity;
+- (_Bool)checkValidity;
 @property(copy) NSString *accessKey;
 - (void)setAutocapitalize:(id)arg1;
 - (id)autocapitalize;
-- (void)setAutocorrect:(BOOL)arg1;
-- (BOOL)autocorrect;
+- (void)setAutocorrect:(_Bool)arg1;
+- (_Bool)autocorrect;
 - (void)setSelectionDirection:(id)arg1;
 - (id)selectionDirection;
 @property int selectionEnd;
@@ -30,7 +30,7 @@
 - (id)labels;
 - (id)validationMessage;
 - (id)validity;
-@property(readonly) BOOL willValidate;
+@property(readonly) _Bool willValidate;
 - (unsigned int)textLength;
 @property(copy) NSString *value;
 @property(copy) NSString *defaultValue;
@@ -38,23 +38,20 @@
 - (void)setWrap:(id)arg1;
 - (id)wrap;
 @property int rows;
-- (void)setRequired:(BOOL)arg1;
-- (BOOL)required;
-@property BOOL readOnly;
+- (void)setRequired:(_Bool)arg1;
+- (_Bool)required;
+@property _Bool readOnly;
 - (void)setPlaceholder:(id)arg1;
 - (id)placeholder;
 @property(copy) NSString *name;
 - (void)setMaxLength:(int)arg1;
 - (int)maxLength;
 @property(readonly) DOMHTMLFormElement *form;
-@property BOOL disabled;
+@property _Bool disabled;
 - (void)setDirName:(id)arg1;
 - (id)dirName;
 @property int cols;
-@property BOOL autofocus;
-- (BOOL)_isEdited;
-- (int)_autocapitalizeType;
-- (int)structuralComplexityContribution;
+@property _Bool autofocus;
 
 @end
 

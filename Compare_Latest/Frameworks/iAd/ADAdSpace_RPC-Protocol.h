@@ -9,8 +9,7 @@
 - (void)_remote_requestPortraitOnlyViewController;
 - (void)_remote_dismissViewController;
 - (void)_remote_actionViewControllerReadyForPresentation;
-- (void)_remote_setStatusBarHidden:(BOOL)arg1;
-- (void)_remote_updateViewControllerSupportedOrientations:(unsigned int)arg1;
+- (void)_remote_updateViewControllerSupportedOrientations:(unsigned long long)arg1;
 - (void)_remote_requestViewControllerWithClassName:(id)arg1 forAdSpaceControllerWithIdentifier:(id)arg2;
 - (void)_remote_openURL:(id)arg1;
 - (void)_remote_creativeDidFailWithError:(id)arg1;

@@ -6,22 +6,23 @@
 
 #import "UITableViewController.h"
 
-@class NSArray;
+@class NSArray, UIColor;
 
 @interface SKUIMenuViewController : UITableViewController
 {
+    UIColor *_borderColor;
     id <SKUIMenuViewControllerDelegate> _delegate;
-    int _indexOfCheckedTitle;
+    long long _indexOfCheckedTitle;
     NSArray *_menuTitles;
 }
 
-@property(nonatomic) int indexOfCheckedTitle; // @synthesize indexOfCheckedTitle=_indexOfCheckedTitle;
+@property(nonatomic) long long indexOfCheckedTitle; // @synthesize indexOfCheckedTitle=_indexOfCheckedTitle;
 @property(readonly, nonatomic) NSArray *menuTitles; // @synthesize menuTitles=_menuTitles;
 @property(nonatomic) __weak id <SKUIMenuViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (void)loadView;
 - (id)initWithMenuTitles:(id)arg1;
 

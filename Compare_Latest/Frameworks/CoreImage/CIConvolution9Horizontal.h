@@ -8,6 +8,7 @@
 
 @class CIImage, CIVector, NSNumber;
 
+// Not exported
 @interface CIConvolution9Horizontal : CIFilter
 {
     CIImage *inputImage;
@@ -20,6 +21,7 @@
 @property(retain, nonatomic) CIVector *inputWeights; // @synthesize inputWeights;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
+- (_Bool)_isIdentity;
 - (void)setDefaults;
 
 @end

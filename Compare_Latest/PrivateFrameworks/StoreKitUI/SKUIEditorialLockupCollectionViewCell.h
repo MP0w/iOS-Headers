@@ -15,7 +15,7 @@
 
 @property(readonly, nonatomic) SKUIEditorialLockupCellLayout *layout; // @synthesize layout=_layout;
 - (void).cxx_destruct;
-- (void)configureForItem:(id)arg1;
+- (void)configureForItem:(id)arg1 clientContext:(id)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

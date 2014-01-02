@@ -8,6 +8,7 @@
 
 @class NSMapTable, VKObjectPool, VKPShieldPack;
 
+// Not exported
 @interface VKShieldAtlas : NSObject
 {
     NSMapTable *_atlasToImages;
@@ -15,7 +16,7 @@
     VKObjectPool *_artworkPool;
 }
 
-- (id)artworkForShieldIdentifier:(id)arg1 textLength:(unsigned int)arg2 contentScale:(float)arg3 extraScale:(float)arg4 size:(int)arg5 numberOfLines:(unsigned int)arg6;
+- (id)artworkForShieldIdentifier:(id)arg1 textLength:(unsigned long long)arg2 contentScale:(double)arg3 extraScale:(double)arg4 size:(long long)arg5 numberOfLines:(unsigned long long)arg6;
 - (void)purge;
 - (void)dealloc;
 - (id)initWithShieldPack:(id)arg1;

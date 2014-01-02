@@ -8,6 +8,7 @@
 
 @class NSArray, NSMutableArray, UIUpdateItem;
 
+// Not exported
 @interface UITableViewUpdateGap : NSObject
 {
     UIUpdateItem *_firstUpdateItem;
@@ -24,11 +25,11 @@
 @property(readonly, nonatomic) NSArray *deleteItems; // @synthesize deleteItems=_deleteItems;
 @property(retain, nonatomic) UIUpdateItem *lastUpdateItem; // @synthesize lastUpdateItem=_lastUpdateItem;
 @property(retain, nonatomic) UIUpdateItem *firstUpdateItem; // @synthesize firstUpdateItem=_firstUpdateItem;
-@property(readonly, nonatomic) BOOL hasAutomaticAnimationItems;
-@property(readonly, nonatomic) BOOL isSectionBasedGap;
+@property(readonly, nonatomic) _Bool hasAutomaticAnimationItems;
+@property(readonly, nonatomic) _Bool isSectionBasedGap;
 @property(readonly, nonatomic) NSArray *updateItems;
-@property(readonly, nonatomic) BOOL hasInserts;
-@property(readonly, nonatomic) BOOL isDeleteBasedGap;
+@property(readonly, nonatomic) _Bool hasInserts;
+@property(readonly, nonatomic) _Bool isDeleteBasedGap;
 - (void)dealloc;
 - (void)addUpdateItem:(id)arg1;
 - (id)description;

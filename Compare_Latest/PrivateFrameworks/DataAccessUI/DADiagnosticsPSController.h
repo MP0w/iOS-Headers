@@ -20,7 +20,7 @@
 
 + (id)dumpRuntimeStateSpecifiers;
 + (id)linkSpecifier;
-+ (BOOL)diagnosticsVisible;
++ (_Bool)diagnosticsVisible;
 - (void)purgeFileAtPath:(id)arg1;
 - (id)pathsOfPurgableFiles;
 - (id)pathsOfAllLogFiles;
@@ -32,17 +32,17 @@
 - (void)_presentNotesController;
 - (void)saveNotesInBackground:(id)arg1;
 - (void)saveLogsWithNotes:(id)arg1;
-- (BOOL)saveFileAtPath:(id)arg1 toDirectory:(id)arg2 withExtension:(id)arg3 error:(id *)arg4;
+- (_Bool)saveFileAtPath:(id)arg1 toDirectory:(id)arg2 withExtension:(id)arg3 error:(id *)arg4;
 - (id)savedLogsDirectoryNameForSpecifier:(id)arg1;
 - (void)handleDumpRuntimeStateForSpecifier:(id)arg1;
-- (BOOL)isLoggingEnabledForSpecifier:(id)arg1;
-- (void)setLoggingEnabled:(BOOL)arg1 forSpecifier:(id)arg2;
+- (_Bool)isLoggingEnabledForSpecifier:(id)arg1;
+- (void)setLoggingEnabled:(_Bool)arg1 forSpecifier:(id)arg2;
 - (id)booleanPropertyWithSpecifier:(id)arg1;
 - (void)setBooleanProperty:(id)arg1 withSpecifier:(id)arg2;
 - (void)runSimpleAlertWithTitle:(id)arg1 message:(id)arg2;
 - (void)runSimpleAlertWithTitle:(id)arg1 message:(id)arg2 dismissedSelector:(SEL)arg3;
-- (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)alertView:(id)arg1 didDismissWithButtonIndex:(long long)arg2;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (void)dealloc;
 - (id)specifiers;
 - (id)diagnosticSpecifiers;

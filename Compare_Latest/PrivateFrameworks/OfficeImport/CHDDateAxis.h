@@ -6,6 +6,7 @@
 
 #import <OfficeImport/CHDAxis.h>
 
+// Not exported
 @interface CHDDateAxis : CHDAxis
 {
     _Bool mAutomatic;

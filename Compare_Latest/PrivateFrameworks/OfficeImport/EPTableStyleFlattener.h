@@ -8,11 +8,12 @@
 
 @class EDTable;
 
+// Not exported
 @interface EPTableStyleFlattener : EPStyleFlattener
 {
     EDTable *mTable;
-    unsigned int mHeaderRowCount;
-    unsigned int mTotalsRowCount;
+    unsigned long long mHeaderRowCount;
+    unsigned long long mTotalsRowCount;
 }
 
 - (void)clearCache;
@@ -25,7 +26,6 @@
 - (id)styleFromObject:(id)arg1;
 - (id)collectionFromWorksheet:(id)arg1;
 - (_Bool)isObjectSupported:(id)arg1;
-- (int)stripeOffset:(int)arg1 row:(_Bool)arg2;
 
 @end
 

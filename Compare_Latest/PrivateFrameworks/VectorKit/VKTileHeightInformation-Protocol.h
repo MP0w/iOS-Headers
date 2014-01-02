@@ -5,6 +5,6 @@
  */
 
 @protocol VKTileHeightInformation
-- (BOOL)heightAtX:(float)arg1 Y:(float)arg2 outZ:(float *)arg3;
+- (_Bool)heightAtX:(float)arg1 Y:(float)arg2 outZ:(float *)arg3;
 @end
 

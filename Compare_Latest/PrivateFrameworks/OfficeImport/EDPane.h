@@ -8,6 +8,7 @@
 
 @class EDReference;
 
+// Not exported
 @interface EDPane : NSObject
 {
     double mXSplitPosition;

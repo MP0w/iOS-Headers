@@ -12,15 +12,15 @@
 
 @interface CoreDAVMultiGetWithFallbackTaskGroup : CoreDAVTaskGroup <CoreDAVContainerMultiGetSubmittable>
 {
-    BOOL _shouldIgnoreResponseErrors;
-    BOOL _usingMultiGet;
+    _Bool _shouldIgnoreResponseErrors;
+    _Bool _usingMultiGet;
     CoreDAVContainerMultiGetTask *_multiGetTask;
     id _getBlock;
     NSMutableSet *_urls;
     NSMutableSet *_parsedContents;
 }
 
-@property(nonatomic) BOOL shouldIgnoreResponseErrors; // @synthesize shouldIgnoreResponseErrors=_shouldIgnoreResponseErrors;
+@property(nonatomic) _Bool shouldIgnoreResponseErrors; // @synthesize shouldIgnoreResponseErrors=_shouldIgnoreResponseErrors;
 @property(readonly, nonatomic) NSSet *parsedContents;
 @property(readonly, nonatomic) NSSet *deletedURLs;
 @property(readonly, nonatomic) NSSet *missingURLs;

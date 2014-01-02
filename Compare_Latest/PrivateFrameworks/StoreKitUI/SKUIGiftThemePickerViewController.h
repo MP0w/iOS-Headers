@@ -14,17 +14,17 @@
 
 @interface SKUIGiftThemePickerViewController : SKUIGiftStepViewController <SKUIGiftConfigurationObserver, UICollectionViewDataSource, UICollectionViewDelegate>
 {
-    BOOL _animatingScrollView;
+    _Bool _animatingScrollView;
     SKUIGiftThemeCollectionView *_collectionView;
     UIImage *_itemImage;
     UIPageControl *_pageControl;
-    int _selectedThemeIndex;
+    long long _selectedThemeIndex;
     UITapGestureRecognizer *_tapGestureRecognizer;
     NSArray *_themes;
 }
 
 - (void).cxx_destruct;
-- (void)_setSelectedThemeIndex:(int)arg1 animated:(BOOL)arg2;
+- (void)_setSelectedThemeIndex:(long long)arg1 animated:(_Bool)arg2;
 - (void)_setItemImage:(id)arg1 error:(id)arg2;
 - (id)_collectionView;
 - (void)_nextAction:(id)arg1;
@@ -33,10 +33,10 @@
 - (void)scrollViewDidScroll:(id)arg1;
 - (void)scrollViewDidEndScrollingAnimation:(id)arg1;
 - (void)scrollViewDidEndDecelerating:(id)arg1;
-- (int)collectionView:(id)arg1 numberOfItemsInSection:(int)arg2;
+- (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
 - (void)giftConfigurationController:(id)arg1 didLoadImageForTheme:(id)arg2;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;
 - (void)dealloc;
 - (id)initWithGift:(id)arg1 configuration:(id)arg2;

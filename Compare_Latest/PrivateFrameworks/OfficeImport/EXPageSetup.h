@@ -6,14 +6,13 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface EXPageSetup : NSObject
 {
 }
 
 + (id)edPageMarginsFrom:(struct _xmlNode *)arg1 state:(id)arg2;
 + (id)edPageSetupFrom:(struct _xmlNode *)arg1 state:(id)arg2;
-+ (int)edPageOrderFromPageOrderString:(id)arg1;
-+ (int)edPageOrientationFromPageOrientationString:(id)arg1;
 
 @end
 

@@ -5,7 +5,7 @@
  */
 
 @protocol OAXClient
-+ (BOOL)sourceDrawableIsTopLevel:(struct _xmlNode *)arg1;
++ (_Bool)sourceDrawableIsTopLevel:(struct _xmlNode *)arg1;
 - (id)readGraphicData:(struct _xmlNode *)arg1 state:(id)arg2;
 - (id)readOle:(struct _xmlNode *)arg1 state:(id)arg2;
 - (void)postprocessHyperlink:(id)arg1 relationship:(id)arg2 state:(id)arg3;

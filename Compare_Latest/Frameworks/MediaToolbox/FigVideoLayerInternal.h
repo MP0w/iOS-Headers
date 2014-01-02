@@ -10,8 +10,8 @@
 
 @interface FigVideoLayerInternal : NSObject
 {
-    BOOL isPresentationLayer;
-    BOOL visible;
+    _Bool isPresentationLayer;
+    _Bool visible;
     struct OpaqueFigSimpleMutex *serializationMutex;
     NSObject<OS_dispatch_queue> *notificationSerialQueue;
 }

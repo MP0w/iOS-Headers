@@ -6,6 +6,7 @@
 
 #import "CALayer.h"
 
+// Not exported
 @interface APGraphLayer : CALayer
 {
     float **_Values;

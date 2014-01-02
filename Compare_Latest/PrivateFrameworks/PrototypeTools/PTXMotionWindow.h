@@ -8,19 +8,19 @@
 
 @interface PTXMotionWindow : NSObject
 {
-    float _radius;
-    float _maxIncrease;
-    int _direction;
-    float _effectiveRadius;
-    float _center;
-    float _upperLimit;
-    float _lowerLimit;
+    double _radius;
+    double _maxIncrease;
+    long long _direction;
+    double _effectiveRadius;
+    double _center;
+    double _upperLimit;
+    double _lowerLimit;
 }
 
 - (void)reset;
-- (float)mappedOffset:(float)arg1;
-- (void)setIncreaseFactor:(float)arg1 fixingOffset:(float)arg2;
-- (id)initWithRadius:(float)arg1 maxIncrease:(float)arg2 direction:(int)arg3;
+- (double)mappedOffset:(double)arg1;
+- (void)setIncreaseFactor:(double)arg1 fixingOffset:(double)arg2;
+- (id)initWithRadius:(double)arg1 maxIncrease:(double)arg2 direction:(long long)arg3;
 
 @end
 

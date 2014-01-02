@@ -12,7 +12,7 @@
 
 @interface ACUIAddAccountViewController : PSListController <ACUISetupViewControllerDelegate>
 {
-    BOOL _dontShowSecondLevelOtherAccountTypes;
+    _Bool _dontShowSecondLevelOtherAccountTypes;
     NSArray *_preEnabledDataclasses;
     unsigned char _originalWifiFlag;
     unsigned char _originalCellFlag;
@@ -31,7 +31,7 @@
 - (id)_specifierForExchangeAccount;
 - (id)_specifierForiCloudAccount;
 - (id)specifiers;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)dealloc;
 @property(readonly, nonatomic) ACUIAccountViewProvidersManager *viewProvidersManager;
 - (id)init;

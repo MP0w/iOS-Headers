@@ -6,30 +6,27 @@
 
 #import <StoreKitUI/SKUIItemCellLayout.h>
 
-@class NSString, SKUICellImageView, UIColor, UILabel;
+@class NSString, UIColor, _SKUIItemBrowseCellContentView;
 
 @interface SKUIItemBrowseCellLayout : SKUIItemCellLayout
 {
-    UILabel *_categoryLabel;
-    UILabel *_indexNumberLabel;
+    _SKUIItemBrowseCellContentView *_cellContentView;
     struct CGSize _imageBoundingSize;
-    BOOL _largeSpacing;
-    int _numberOfUserRatings;
+    _Bool _largeSpacing;
+    long long _numberOfUserRatings;
     UIColor *_primaryTextColor;
-    UIColor *_titleTextColor;
-    UILabel *_titleLabel;
-    float _userRating;
-    SKUICellImageView *_userRatingImageView;
-    UILabel *_userRatingLabel;
+    UIColor *_secondaryTextColor;
+    double _userRating;
 }
 
-@property(nonatomic) float userRating; // @synthesize userRating=_userRating;
-@property(nonatomic) int numberOfUserRatings; // @synthesize numberOfUserRatings=_numberOfUserRatings;
-@property(nonatomic, getter=isLargeSpacing) BOOL largeSpacing; // @synthesize largeSpacing=_largeSpacing;
+@property(nonatomic) double userRating; // @synthesize userRating=_userRating;
+@property(nonatomic) long long numberOfUserRatings; // @synthesize numberOfUserRatings=_numberOfUserRatings;
+@property(nonatomic, getter=isLargeSpacing) _Bool largeSpacing; // @synthesize largeSpacing=_largeSpacing;
 @property(nonatomic) struct CGSize imageBoundingSize; // @synthesize imageBoundingSize=_imageBoundingSize;
 - (void).cxx_destruct;
 - (void)_reloadUserRatingViews;
 - (void)_initSKUIItemBrowseCellLayout;
+- (id)_decimalNumberFormatter;
 - (void)setIconImage:(id)arg1;
 - (void)setBackgroundColor:(id)arg1;
 - (void)layoutSubviews;

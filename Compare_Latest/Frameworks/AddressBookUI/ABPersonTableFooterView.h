@@ -12,7 +12,7 @@
 
 @interface ABPersonTableFooterView : UIView <ABPersonTableActionDelegate>
 {
-    BOOL _editing;
+    _Bool _editing;
     ABPersonTableAction *_deleteAction;
     UIView *_deleteView;
     UIView *_accessoryView;
@@ -22,15 +22,15 @@
 
 @property(retain, nonatomic) UIView *accessoryView; // @synthesize accessoryView=_accessoryView;
 @property(retain, nonatomic) id <ABStyleProvider> styleProvider; // @synthesize styleProvider=_styleProvider;
-@property(nonatomic, getter=isEditing) BOOL tableEditing; // @synthesize tableEditing=_editing;
+@property(nonatomic, getter=isEditing) _Bool tableEditing; // @synthesize tableEditing=_editing;
 - (void)layoutSubviews;
-- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)setEditing:(BOOL)arg1;
+- (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)setEditing:(_Bool)arg1;
 - (void)removeDeleteAction;
-- (void)setDeleteActionWithTitle:(id)arg1 target:(id)arg2 selector:(SEL)arg3 animated:(BOOL)arg4;
-@property(readonly, nonatomic, getter=isAttributionEnabled) BOOL attributionEnabled;
+- (void)setDeleteActionWithTitle:(id)arg1 target:(id)arg2 selector:(SEL)arg3 animated:(_Bool)arg4;
+@property(readonly, nonatomic, getter=isAttributionEnabled) _Bool attributionEnabled;
 @property(readonly, nonatomic) NSString *attribution;
-- (void)setAttribution:(id)arg1 enabled:(BOOL)arg2 target:(id)arg3 action:(SEL)arg4;
+- (void)setAttribution:(id)arg1 enabled:(_Bool)arg2 target:(id)arg3 action:(SEL)arg4;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (struct CGRect)attributionFrame;
 - (struct CGRect)deleteViewFrame;

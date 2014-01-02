@@ -8,14 +8,15 @@
 
 @interface SBUIMainScreenAnimationController : SBUIAnimationController
 {
-    BOOL _needsToClearBulletinWindowOrientation;
+    _Bool _needsToClearBulletinWindowOrientation;
 }
 
-- (void)_noteAnimationDidCommit:(BOOL)arg1 withDuration:(double)arg2 afterDelay:(double)arg3;
+- (void)_noteAnimationDidCommit:(_Bool)arg1 withDuration:(double)arg2 afterDelay:(double)arg3;
 - (void)_cleanupAnimation;
+- (void)_removeWallpaperAnimationPriorityWithFactory:(id)arg1;
 - (void)beginAnimation;
-- (void)_dismissBannerAnimated:(BOOL)arg1;
-- (BOOL)_shouldDismissBanner;
+- (void)_dismissBannerAnimated:(_Bool)arg1;
+- (_Bool)_shouldDismissBanner;
 - (void)__startAnimation;
 - (void)_clearBulletinWindowOverrideOrientationIfNecessary;
 - (void)dealloc;

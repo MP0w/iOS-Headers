@@ -14,7 +14,7 @@
     UIActivityIndicatorView *_activityIndicatorView;
     UILabel *_label;
     UIImageView *_checkmarkView;
-    BOOL _isShowing;
+    _Bool _isShowing;
 }
 
 - (void)layoutSubviews;

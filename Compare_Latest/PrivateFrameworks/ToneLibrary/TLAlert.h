@@ -10,7 +10,7 @@
 
 @interface TLAlert : NSObject
 {
-    BOOL _shouldOverrideMasterSwitches;
+    _Bool _shouldOverrideMasterSwitches;
     int _type;
     NSString *_toneIdentifier;
     NSString *_vibrationIdentifier;
@@ -18,13 +18,13 @@
     id _completionHandler;
 }
 
-+ (void)_playToneAndVibrationForType:(int)arg1 toneIdentifier:(id)arg2 vibrationIdentifier:(id)arg3 shouldOverrideMasterSwitches:(BOOL)arg4;
++ (void)_playToneAndVibrationForType:(int)arg1 toneIdentifier:(id)arg2 vibrationIdentifier:(id)arg3 shouldOverrideMasterSwitches:(_Bool)arg4;
 + (void)playToneAndVibrationForType:(int)arg1 toneIdentifier:(id)arg2 vibrationIdentifier:(id)arg3;
 + (void)playToneAndVibrationForType:(int)arg1 accountIdentifier:(id)arg2;
 + (void)playToneAndVibrationForType:(int)arg1;
 @property(copy, nonatomic, setter=_setCompletionHandler:) id _completionHandler; // @synthesize _completionHandler;
 @property(retain, nonatomic, setter=_setTargetQueue:) NSObject<OS_dispatch_queue> *_targetQueue; // @synthesize _targetQueue;
-@property(nonatomic, setter=_setShouldOverrideMasterSwitches:) BOOL _shouldOverrideMasterSwitches; // @synthesize _shouldOverrideMasterSwitches;
+@property(nonatomic, setter=_setShouldOverrideMasterSwitches:) _Bool _shouldOverrideMasterSwitches; // @synthesize _shouldOverrideMasterSwitches;
 - (void)_setVibrationIdentifier:(id)arg1;
 @property(copy, nonatomic) NSString *vibrationIdentifier; // @synthesize vibrationIdentifier=_vibrationIdentifier;
 - (void)_setToneIdentifier:(id)arg1;
@@ -32,7 +32,7 @@
 - (void)_setType:(int)arg1;
 @property(nonatomic) int type; // @synthesize type=_type;
 - (void)stop;
-- (BOOL)playWithCompletionHandler:(id)arg1 targetQueue:(void)arg2;
+- (_Bool)playWithCompletionHandler:(id)arg1 targetQueue:(void)arg2;
 - (void)dealloc;
 - (id)initWithType:(int)arg1 toneIdentifier:(id)arg2 vibrationIdentifier:(id)arg3;
 - (id)initWithType:(int)arg1 accountIdentifier:(id)arg2;

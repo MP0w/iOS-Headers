@@ -8,13 +8,14 @@
 
 @class NSBundle;
 
+// Not exported
 @interface WebPluginPackage : WebBasePluginPackage
 {
     NSBundle *nsBundle;
 }
 
 - (id)bundle;
-- (BOOL)load;
+- (_Bool)load;
 - (Class)viewFactory;
 - (void)dealloc;
 - (id)initWithPath:(id)arg1;

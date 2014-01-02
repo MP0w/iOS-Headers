@@ -26,7 +26,7 @@
 @property(retain, nonatomic) UIView *linkContainerView; // @synthesize linkContainerView=_linkContainerView;
 - (void)handleTextLinkTap;
 - (void)touchInCellAtIndexPath:(id)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)dealloc;
 - (void)setUpInitialTableFooter;

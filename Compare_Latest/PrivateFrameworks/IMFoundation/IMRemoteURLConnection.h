@@ -14,19 +14,20 @@
     NSString *_bundleIdentifierForDataUsage;
     id _block;
     NSObject<OS_xpc_object> *_connection;
-    BOOL _loading;
-    BOOL _forceCellularIfPossible;
+    _Bool _cancelled;
+    _Bool _loading;
+    _Bool _forceCellularIfPossible;
     int _retries;
 }
 
 @property(retain) NSString *bundleIdentifierForDataUsage; // @synthesize bundleIdentifierForDataUsage=_bundleIdentifierForDataUsage;
-@property BOOL forceCellularIfPossible; // @synthesize forceCellularIfPossible=_forceCellularIfPossible;
+@property _Bool forceCellularIfPossible; // @synthesize forceCellularIfPossible=_forceCellularIfPossible;
 - (void)cancel;
 - (void)load;
 - (void)dealloc;
 - (id)initWithURLRequest:(id)arg1 completionBlock:(id)arg2;
-- (BOOL)_connect;
-- (BOOL)_disconnect;
+- (_Bool)_connect;
+- (_Bool)_disconnect;
 - (void)_disconnected;
 
 @end

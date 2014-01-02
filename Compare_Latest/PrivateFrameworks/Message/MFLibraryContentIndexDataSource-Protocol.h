@@ -9,6 +9,6 @@
 @protocol MFLibraryContentIndexDataSource <NSObject>
 - (void)contentIndex:(id)arg1 invalidateItemsGreaterThanTransactionId:(unsigned int)arg2;
 - (void)contentIndex:(id)arg1 assignTransactionIdentifier:(unsigned int)arg2 forDocumentIdentifiers:(id)arg3;
-- (id)itemsRequiringIndexingForContentIndex:(id)arg1 limit:(unsigned int)arg2;
+- (id)itemsRequiringIndexingForContentIndex:(id)arg1 limit:(unsigned long long)arg2;
 @end
 

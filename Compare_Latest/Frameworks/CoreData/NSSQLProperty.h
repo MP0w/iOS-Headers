@@ -8,6 +8,7 @@
 
 @class NSPropertyDescription, NSSQLEntity, NSString;
 
+// Not exported
 @interface NSSQLProperty : NSStoreMapping
 {
     NSString *_name;
@@ -22,19 +23,19 @@
 - (id)description;
 - (id)entity;
 - (id)propertyDescription;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isManyToMany;
-- (BOOL)isToMany;
-- (BOOL)isToOne;
-- (BOOL)isRelationship;
-- (BOOL)isOptLockKey;
-- (BOOL)isEntityKey;
-- (BOOL)isForeignOrderKey;
-- (BOOL)isForeignEntityKey;
-- (BOOL)isForeignKey;
-- (BOOL)isPrimaryKey;
-- (BOOL)isAttribute;
-- (BOOL)isColumn;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)isManyToMany;
+- (_Bool)isToMany;
+- (_Bool)isToOne;
+- (_Bool)isRelationship;
+- (_Bool)isOptLockKey;
+- (_Bool)isEntityKey;
+- (_Bool)isForeignOrderKey;
+- (_Bool)isForeignEntityKey;
+- (_Bool)isForeignKey;
+- (_Bool)isPrimaryKey;
+- (_Bool)isAttribute;
+- (_Bool)isColumn;
 - (unsigned int)propertyType;
 - (void)_setName:(id)arg1;
 - (id)name;

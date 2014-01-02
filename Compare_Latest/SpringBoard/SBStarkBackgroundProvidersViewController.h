@@ -18,10 +18,10 @@
     SBStarkBackgroundProviderRemoteViewController *_activeViewController;
     SBStarkBackgroundProvider *_transitioningToProvider;
     struct CGRect _viewportFrame;
-    BOOL _makingInitialTransition;
-    BOOL _firstTransitionOccurred;
+    _Bool _makingInitialTransition;
+    _Bool _firstTransitionOccurred;
     id <SBStarkBackgroundProvidersViewControllerDelegate> _delegate;
-    unsigned int _reactivateAttempt;
+    unsigned long long _reactivateAttempt;
     double _lastReactivationAttempt;
 }
 
@@ -30,9 +30,9 @@
 - (void)addedBackgroundProvider:(id)arg1;
 - (void)didStopProvidingContent:(id)arg1;
 - (void)_providerDidStopProvidingContent:(id)arg1;
-- (BOOL)_isVisibleOrTransitioningTo:(id)arg1;
-- (BOOL)_isVisible:(id)arg1;
-- (BOOL)_isActive:(id)arg1;
+- (_Bool)_isVisibleOrTransitioningTo:(id)arg1;
+- (_Bool)_isVisible:(id)arg1;
+- (_Bool)_isActive:(id)arg1;
 - (void)_animateTo:(id)arg1 withTransition:(int)arg2;
 - (void)_transitionToProvider:(id)arg1 withTransition:(int)arg2;
 - (void)_finishInitialBackgroundTransitionIfNecessary;

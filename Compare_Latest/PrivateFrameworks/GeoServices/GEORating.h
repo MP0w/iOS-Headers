@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSMutableArray, NSString;
 
-@interface GEORating : PBCodable
+@interface GEORating : PBCodable <NSCopying>
 {
     double _maxScore;
     double _score;
@@ -31,24 +33,25 @@
 @property(retain, nonatomic) NSString *provider; // @synthesize provider=_provider;
 @property(nonatomic) int numberOfRatings; // @synthesize numberOfRatings=_numberOfRatings;
 @property(nonatomic) double score; // @synthesize score=_score;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) BOOL hasNumberOfReviews;
-- (id)reviewAtIndex:(unsigned int)arg1;
-- (unsigned int)reviewsCount;
+@property(nonatomic) _Bool hasNumberOfReviews;
+- (id)reviewAtIndex:(unsigned long long)arg1;
+- (unsigned long long)reviewsCount;
 - (void)addReview:(id)arg1;
 - (void)clearReviews;
-@property(readonly, nonatomic) BOOL hasURL;
-@property(readonly, nonatomic) BOOL hasProvider;
-@property(nonatomic) BOOL hasNumberOfRatings;
-@property(nonatomic) BOOL hasMaxScore;
+@property(readonly, nonatomic) _Bool hasURL;
+@property(readonly, nonatomic) _Bool hasProvider;
+@property(nonatomic) _Bool hasNumberOfRatings;
+@property(nonatomic) _Bool hasMaxScore;
 @property(nonatomic) double maxScore; // @synthesize maxScore=_maxScore;
-@property(nonatomic) BOOL hasScore;
+@property(nonatomic) _Bool hasScore;
 - (void)dealloc;
 
 @end

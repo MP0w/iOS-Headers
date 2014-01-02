@@ -19,9 +19,6 @@
 @property(readonly, nonatomic) MPMediaPredicate *conditionPredicate; // @synthesize conditionPredicate=_conditionPredicate;
 - (void).cxx_destruct;
 - (id)initWithConditionPredicate:(id)arg1 thenPredicate:(id)arg2 elsePredicate:(id)arg3;
-- (id)ML3PredicateForContainer;
-- (id)ML3PredicateForTrack;
-- (id)_ML3PredicateForEntityTypeSelector:(SEL)arg1;
 
 @end
 

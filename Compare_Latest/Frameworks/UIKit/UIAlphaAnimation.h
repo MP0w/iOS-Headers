@@ -8,15 +8,15 @@
 
 @interface UIAlphaAnimation : UIAnimation
 {
-    float _startAlpha;
-    float _endAlpha;
+    double _startAlpha;
+    double _endAlpha;
 }
 
-- (float)alphaForFraction:(float)arg1;
+- (double)alphaForFraction:(float)arg1;
 - (void)setProgress:(float)arg1;
-- (float)_alphaForMultiplier:(float)arg1;
-- (void)setEndAlpha:(float)arg1;
-- (void)setStartAlpha:(float)arg1;
+- (double)_alphaForMultiplier:(float)arg1;
+- (void)setEndAlpha:(double)arg1;
+- (void)setStartAlpha:(double)arg1;
 
 @end
 

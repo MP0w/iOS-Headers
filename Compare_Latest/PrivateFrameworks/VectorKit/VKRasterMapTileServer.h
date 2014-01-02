@@ -15,7 +15,7 @@
     NSMutableDictionary *_pendingRequests;
     NSMutableSet *_tileCreators;
     unsigned int _superTileSize;
-    BOOL _softwareRendering;
+    _Bool _softwareRendering;
 }
 
 @property(readonly, nonatomic) unsigned int superTileSize; // @synthesize superTileSize=_superTileSize;
@@ -23,7 +23,7 @@
 - (void)renderTile:(const struct VKRasterTileKey *)arg1 completion:(id)arg2;
 - (id)detailedDescription;
 - (void)dealloc;
-- (id)initWithSuperTileSize:(unsigned int)arg1 cacheCapacity:(int)arg2 softwareRendering:(BOOL)arg3;
+- (id)initWithSuperTileSize:(unsigned int)arg1 cacheCapacity:(long long)arg2 softwareRendering:(_Bool)arg3;
 - (id)init;
 
 @end

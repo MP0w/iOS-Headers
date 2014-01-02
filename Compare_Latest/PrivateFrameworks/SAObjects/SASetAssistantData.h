@@ -8,7 +8,7 @@
 
 #import "SAServerBoundCommand-Protocol.h"
 
-@class NSArray, NSNumber, NSString;
+@class NSArray, NSNumber, NSString, SAVoice;
 
 @interface SASetAssistantData : SABaseCommand <SAServerBoundCommand>
 {
@@ -16,9 +16,10 @@
 
 + (id)setAssistantDataWithDictionary:(id)arg1 context:(id)arg2;
 + (id)setAssistantData;
-@property(nonatomic) BOOL voiceOver;
+@property(nonatomic) _Bool voiceOver;
 @property(copy, nonatomic) NSNumber *uiScale;
 @property(copy, nonatomic) NSNumber *twentyFourHourTimeDisplay;
+@property(retain, nonatomic) SAVoice *ttsVoice;
 @property(copy, nonatomic) NSString *timeZoneId;
 @property(copy, nonatomic) NSString *temperatureUnit;
 @property(copy, nonatomic) NSNumber *storefront;
@@ -27,14 +28,15 @@
 @property(copy, nonatomic) NSString *osVersion;
 @property(copy, nonatomic) NSArray *meCards;
 @property(copy, nonatomic) NSString *lastName;
-@property(nonatomic) BOOL handsFree;
+@property(nonatomic) _Bool handsFree;
 @property(copy, nonatomic) NSString *firstName;
 @property(copy, nonatomic) NSString *deviceVersion;
 @property(copy, nonatomic) NSArray *deviceCapabilities;
 @property(copy, nonatomic) NSNumber *debugFlags;
 @property(copy, nonatomic) NSString *countryCode;
-@property(nonatomic) BOOL censorSpeech;
+@property(nonatomic) _Bool censorSpeech;
 @property(copy, nonatomic) NSString *anchor;
+@property(copy, nonatomic) NSNumber *allowUserGeneratedContent;
 @property(copy, nonatomic) NSArray *abSources;
 - (id)encodedClassName;
 - (id)groupIdentifier;

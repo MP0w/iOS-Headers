@@ -6,6 +6,7 @@
 
 #import <OfficeImport/CMDiagramPointMapper.h>
 
+// Not exported
 @interface CMDiagramPointListItemL1Mapper : CMDiagramPointMapper
 {
     int mListIndex;

@@ -8,7 +8,7 @@
 
 #import "PUSectionedGridLayoutDelegate-Protocol.h"
 
-@class NSObject<PLAlbumProtocol>, PUPhotosPickerViewController, PUSectionedGridLayout;
+@class NSObject<PLAlbumProtocol>, PUPhotosPickerViewController;
 
 @interface PUPhotosAlbumViewController : PUPhotosGridViewController <PUSectionedGridLayoutDelegate>
 {
@@ -18,27 +18,26 @@
 
 @property(retain, nonatomic) NSObject<PLAlbumProtocol> *album; // @synthesize album=_album;
 - (void).cxx_destruct;
-- (BOOL)prepareForDismissingForced:(BOOL)arg1;
+- (void)handleTransitionFade:(_Bool)arg1 animate:(_Bool)arg2;
+- (_Bool)prepareForDismissingForced:(_Bool)arg1;
 - (void)handleAddFromAction;
+- (void)handleAddToAlbum:(id)arg1 pickedAssets:(id)arg2;
 - (void)setupScrubber;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
-- (void)assetContainerDidChange:(id)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (id)savedSlideshowSettings;
 - (void)saveSlideshowSettings:(id)arg1;
-- (void)_updateTitleAnimated:(BOOL)arg1;
-- (BOOL)canEnterEditModeWhenEmpty;
+- (struct CGPoint)contentOffsetForPreheating;
+- (void)updateTitle;
 - (void)configureGlobalFooterView:(id)arg1;
-- (void)configureCollectionViewGridLayout:(id)arg1;
-- (BOOL)wantsGlobalFooter;
-- (BOOL)_hasScrollableContent;
+- (id)newGridLayout;
+- (_Bool)canBeginStackCollapseTransition;
+- (_Bool)wantsGlobalFooter;
+- (_Bool)_hasScrollableContent;
 - (id)sessionInfoForTransferredAssets:(id)arg1;
 - (id)localizedTitleForAssets:(id)arg1;
 - (id)initWithSpec:(id)arg1;
-
-// Remaining properties
-@property(retain, nonatomic) PUSectionedGridLayout *mainGridLayout;
 
 @end
 

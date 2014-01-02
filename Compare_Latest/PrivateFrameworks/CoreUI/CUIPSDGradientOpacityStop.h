@@ -10,18 +10,18 @@
 
 @interface CUIPSDGradientOpacityStop : CUIPSDGradientStop <NSCoding>
 {
-    float opacity;
+    double opacity;
 }
 
-+ (id)opacityStopWithLocation:(float)arg1 opacity:(float)arg2;
++ (id)opacityStopWithLocation:(double)arg1 opacity:(double)arg2;
 + (void)initialize;
 - (id)description;
-- (BOOL)isOpacityStop;
-- (float)opacityLocation;
-- (float)opacity;
+- (_Bool)isOpacityStop;
+- (double)opacityLocation;
+- (double)opacity;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithLocation:(float)arg1 opacity:(float)arg2;
+- (id)initWithLocation:(double)arg1 opacity:(double)arg2;
 
 @end
 

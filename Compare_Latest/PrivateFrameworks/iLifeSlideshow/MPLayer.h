@@ -8,7 +8,6 @@
 
 #import "MPActionSupport-Protocol.h"
 #import "MPActionableSupport-Protocol.h"
-#import "MPActionableSupportInternal-Protocol.h"
 #import "MPAnimationSupport-Protocol.h"
 #import "MPAudioSupport-Protocol.h"
 #import "MPFilterSupport-Protocol.h"
@@ -20,7 +19,7 @@
 
 @class MCMontage, MCPlugParallel, MPAudioPlaylist, MPLayerInternal, NSMutableArray, NSMutableDictionary, NSString;
 
-@interface MPLayer : NSObject <MPActionableSupportInternal, NSCoding, NSCopying, MPFilterSupport, MPAnimationSupport, MPAudioSupport, MPActionableSupport, MPLayerableSupport, MPGeometrySupport, MPTimingSupport, MPActionSupport>
+@interface MPLayer : NSObject <NSCoding, NSCopying, MPFilterSupport, MPAnimationSupport, MPAudioSupport, MPActionableSupport, MPLayerableSupport, MPGeometrySupport, MPTimingSupport, MPActionSupport>
 {
     MCPlugParallel *_plug;
     NSMutableDictionary *_attributes;
@@ -32,30 +31,30 @@
     MCMontage *_montage;
     id _parent;
     MPLayerInternal *_internal;
-    BOOL _skipTimeCalculations;
+    _Bool _skipTimeCalculations;
 }
 
 + (id)effectLayer;
 + (id)animatedLayer;
 + (id)sequentialLayer;
 + (id)layer;
-+ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
++ (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 - (void)removeActionForKey:(id)arg1;
 - (void)setAction:(id)arg1 forKey:(id)arg2;
 - (id)actionForKey:(id)arg1;
 - (id)actions;
 - (id)layerKey;
 @property(copy, nonatomic) NSString *layerID; // @dynamic layerID;
-@property(nonatomic) BOOL isAudioLayer; // @dynamic isAudioLayer;
+@property(nonatomic) _Bool isAudioLayer; // @dynamic isAudioLayer;
 - (void)setNumberOfLoops:(double)arg1;
 - (double)numberOfLoops;
-@property(nonatomic) int audioPriority; // @dynamic audioPriority;
+@property(nonatomic) long long audioPriority; // @dynamic audioPriority;
 - (void)setAudioPlaylist:(id)arg1;
 - (id)audioPlaylist;
-- (void)setStartsPaused:(BOOL)arg1;
-- (BOOL)startsPaused;
-- (void)setIsTriggered:(BOOL)arg1;
-- (BOOL)isTriggered;
+- (void)setStartsPaused:(_Bool)arg1;
+- (_Bool)startsPaused;
+- (void)setIsTriggered:(_Bool)arg1;
+- (_Bool)isTriggered;
 - (void)setPhaseOutDuration:(double)arg1;
 - (double)phaseOutDuration;
 - (void)setPhaseInDuration:(double)arg1;
@@ -65,39 +64,39 @@
 - (void)setTimeIn:(double)arg1;
 - (double)timeIn;
 - (id)parent;
-- (void)setZIndex:(int)arg1;
-- (int)zIndex;
-- (void)setYRotationAngle:(float)arg1;
-- (float)yRotationAngle;
-- (void)setXRotationAngle:(float)arg1;
-- (float)xRotationAngle;
+- (void)setZIndex:(long long)arg1;
+- (long long)zIndex;
+- (void)setYRotationAngle:(double)arg1;
+- (double)yRotationAngle;
+- (void)setXRotationAngle:(double)arg1;
+- (double)xRotationAngle;
 - (void)setSize:(struct CGSize)arg1;
 - (struct CGSize)size;
-- (void)setRotationAngle:(float)arg1;
-- (float)rotationAngle;
-- (void)setZPosition:(float)arg1;
-- (float)zPosition;
+- (void)setRotationAngle:(double)arg1;
+- (double)rotationAngle;
+- (void)setZPosition:(double)arg1;
+- (double)zPosition;
 - (void)setPosition:(struct CGPoint)arg1;
 - (struct CGPoint)position;
-- (void)setScale:(float)arg1;
-- (float)scale;
-- (void)setOpacity:(float)arg1;
-- (float)opacity;
+- (void)setScale:(double)arg1;
+- (double)scale;
+- (void)setOpacity:(double)arg1;
+- (double)opacity;
 - (void)removeAnimationPathForKey:(id)arg1;
 - (void)setAnimationPath:(id)arg1 forKey:(id)arg2;
 - (id)animationPathForKey:(id)arg1;
 - (id)animationPaths;
-- (void)moveFiltersFromIndices:(id)arg1 toIndex:(int)arg2;
+- (void)moveFiltersFromIndices:(id)arg1 toIndex:(long long)arg2;
 - (void)removeAllFilters;
 - (void)removeFiltersAtIndices:(id)arg1;
-- (void)insertFilters:(id)arg1 atIndex:(int)arg2;
+- (void)insertFilters:(id)arg1 atIndex:(long long)arg2;
 - (void)addFilters:(id)arg1;
 - (void)addFilter:(id)arg1;
 - (id)filters;
-- (void)moveEffectContainersFromIndices:(id)arg1 toIndex:(int)arg2;
+- (void)moveEffectContainersFromIndices:(id)arg1 toIndex:(long long)arg2;
 - (void)removeAllEffectContainers;
 - (void)removeEffectContainersAtIndices:(id)arg1;
-- (void)insertEffectContainers:(id)arg1 atIndex:(int)arg2;
+- (void)insertEffectContainers:(id)arg1 atIndex:(long long)arg2;
 - (void)addEffectContainers:(id)arg1;
 - (void)addEffectContainer:(id)arg1;
 - (id)effectContainers;
@@ -109,55 +108,6 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)description;
 - (id)init;
-- (id)parentDocument;
-- (id)fullDebugLog;
-- (void)dump;
-- (id)allSongs;
-- (id)allSlides:(BOOL)arg1;
-- (id)montage;
-- (id)plug;
-- (void)configureActions;
-- (void)resetStartTimes;
-- (void)reconnectAllTransitions;
-- (void)reconnectTransitionForEffectContainerAtIndex:(int)arg1;
-- (void)updateMainDuration;
-- (void)updateDurationPadding:(double)arg1;
-- (void)setSkipTimeCalculations:(BOOL)arg1;
-- (BOOL)skipTimeCalculations;
-- (void)setMontage:(id)arg1;
-- (void)setParent:(id)arg1;
-- (void)setPlug:(id)arg1;
-- (void)cleanup;
-- (void)copyAudioPlaylist:(id)arg1;
-- (void)copyActions:(id)arg1;
-- (void)copyAnimationPaths:(id)arg1;
-- (void)copyFilters:(id)arg1;
-- (void)copyEffectContainers:(id)arg1;
-- (void)copyStruct:(id)arg1;
-- (id)uuid;
-- (id)objectID;
-- (id)plugID;
-- (id)action;
-- (void)setScriptingAnimations:(id)arg1;
-- (id)scriptingAnimations;
-- (void)setWidth:(float)arg1;
-- (float)width;
-- (void)setHeight:(float)arg1;
-- (float)height;
-- (void)setYPosition:(float)arg1;
-- (float)yPosition;
-- (void)setXPosition:(float)arg1;
-- (float)xPosition;
-- (void)replaceObjectInFiltersAtIndex:(int)arg1 withObject:(id)arg2;
-- (void)removeObjectFromFiltersAtIndex:(int)arg1;
-- (void)insertObject:(id)arg1 inFiltersAtIndex:(int)arg2;
-- (id)objectInFiltersAtIndex:(int)arg1;
-- (int)countOfFilters;
-- (void)replaceObjectInEffectContainersAtIndex:(int)arg1 withObject:(id)arg2;
-- (void)removeObjectFromEffectContainersAtIndex:(int)arg1;
-- (void)insertObject:(id)arg1 inEffectContainersAtIndex:(int)arg2;
-- (id)objectInEffectContainersAtIndex:(int)arg1;
-- (int)countOfEffectContainers;
 
 @end
 

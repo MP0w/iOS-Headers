@@ -17,20 +17,20 @@
     UIButton *_likeButton;
     UIImageView *_logoImageView;
     UILabel *_titleLabel;
-    BOOL _userLiked;
+    _Bool _userLiked;
     UIView *_separatorView;
     struct UIEdgeInsets _contentInsets;
 }
 
 @property(nonatomic) struct UIEdgeInsets contentInsets; // @synthesize contentInsets=_contentInsets;
-@property(nonatomic, getter=isUserLiked) BOOL userLiked; // @synthesize userLiked=_userLiked;
+@property(nonatomic, getter=isUserLiked) _Bool userLiked; // @synthesize userLiked=_userLiked;
 @property(readonly, nonatomic) UIControl *likeToggleButton; // @synthesize likeToggleButton=_likeButton;
 @property(copy, nonatomic) NSArray *friendNames; // @synthesize friendNames=_friendNames;
 @property(retain, nonatomic) SKUIColorScheme *colorScheme; // @synthesize colorScheme=_colorScheme;
 - (void).cxx_destruct;
 - (void)_reloadLikeButtonState;
 - (void)_reloadFriendNamesLabel;
-- (id)_composedStringForNames:(id)arg1 userLiked:(BOOL)arg2;
+- (id)_composedStringForNames:(id)arg1 userLiked:(_Bool)arg2;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)setBackgroundColor:(id)arg1;
 - (void)layoutSubviews;

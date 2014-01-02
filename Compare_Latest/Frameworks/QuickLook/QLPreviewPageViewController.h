@@ -10,7 +10,7 @@
 {
 }
 
-- (BOOL)shouldAutomaticallyForwardAppearanceMethods;
+- (_Bool)shouldAutomaticallyForwardAppearanceMethods;
 
 @end
 

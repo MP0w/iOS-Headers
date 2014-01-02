@@ -11,7 +11,7 @@
 @interface MCAnimationKeyframe : MCObjectLight
 {
     MCAnimationPathKeyframed *mAnimationPath;
-    BOOL mIsSnapshot;
+    _Bool mIsSnapshot;
     int mTimeOffsetKind;
     float mPreControl;
     float mPostControl;
@@ -19,7 +19,7 @@
 }
 
 + (id)keyPathsForValuesAffectingValueForKey:(id)arg1;
-- (BOOL)isSnapshot;
+- (_Bool)isSnapshot;
 @property MCAnimationPathKeyframed *animationPath; // @synthesize animationPath=mAnimationPath;
 @property(nonatomic) float postControl; // @synthesize postControl=mPostControl;
 @property(nonatomic) float preControl; // @synthesize preControl=mPreControl;

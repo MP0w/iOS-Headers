@@ -14,9 +14,9 @@
 }
 
 + (id)assetReaderTrackOutputWithTrack:(id)arg1 outputSettings:(id)arg2;
-- (BOOL)_enableTrackExtractionReturningError:(id *)arg1;
+- (_Bool)_enableTrackExtractionReturningError:(id *)arg1;
 - (id)_figAssetReaderExtractionOptions;
-- (BOOL)_trimsSampleDurations;
+- (_Bool)_trimsSampleDurations;
 - (id)_asset;
 - (id)mediaType;
 @property(copy, nonatomic) NSString *audioTimePitchAlgorithm;

@@ -13,18 +13,18 @@
 @interface UITextRenderingAttributes : NSObject <NSCopying>
 {
     UIFont *_font;
-    float _minimumFontSize;
-    float _actualFontSize;
-    float _lineSpacing;
-    int _lineBreakMode;
-    int _baselineAdjustment;
-    float _trackingAdjustment;
-    float _minimumTrackingAdjustment;
-    float _actualTrackingAdjustment;
-    int _alignment;
-    BOOL _includeEmoji;
+    double _minimumFontSize;
+    double _actualFontSize;
+    double _lineSpacing;
+    long long _lineBreakMode;
+    long long _baselineAdjustment;
+    double _trackingAdjustment;
+    double _minimumTrackingAdjustment;
+    double _actualTrackingAdjustment;
+    long long _alignment;
+    _Bool _includeEmoji;
     struct CGRect _truncationRect;
-    BOOL _drawUnderline;
+    _Bool _drawUnderline;
 }
 
 - (id)copyWithZone:(struct _NSZone *)arg1;

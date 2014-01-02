@@ -11,19 +11,20 @@
 
 @class NSDictionary;
 
+// Not exported
 @interface PFUbiquityKnowledgeVector : NSObject <NSCoding, NSCopying>
 {
     NSDictionary *_kv;
     NSDictionary *_storeKVDict;
-    unsigned int _hash;
+    unsigned long long _hash;
 }
 
 + (id)createKnowledgeVectorDictionaryFromString:(id)arg1;
 + (id)createSetOfAllPeerIDsInKnowledgeVectors:(id)arg1;
-@property(readonly, nonatomic) unsigned int hash; // @synthesize hash=_hash;
+@property(readonly, nonatomic) unsigned long long hash; // @synthesize hash=_hash;
 - (id)createStoreKnowledgeVectorDictionary;
-- (BOOL)conflictsWithKnowledgeVector:(id)arg1;
-- (BOOL)canMergeWithKnowledgeVector:(id)arg1;
+- (_Bool)conflictsWithKnowledgeVector:(id)arg1;
+- (_Bool)canMergeWithKnowledgeVector:(id)arg1;
 - (id)newKnowledgeVectorByIncrementingPeerWithID:(id)arg1;
 - (id)newKnowledgeVectorByDecrementingPeerWithID:(id)arg1;
 - (id)createAncestorVectorForConflictingVector:(id)arg1;
@@ -35,21 +36,21 @@
 - (id)createKnowledgeVectorString;
 - (void)decrementToMinimumWithKnowledgeVector:(id)arg1;
 - (void)updateWithKnowledgeVector:(id)arg1;
-- (BOOL)isZeroVector;
-- (BOOL)isAncestorOfKnowledgeVector:(id)arg1;
-- (BOOL)isDescendantOfKnowledgeVector:(id)arg1;
+- (_Bool)isZeroVector;
+- (_Bool)isAncestorOfKnowledgeVector:(id)arg1;
+- (_Bool)isDescendantOfKnowledgeVector:(id)arg1;
 - (void)_updateHash;
-@property(readonly, nonatomic) unsigned int length;
-- (BOOL)hasPeerIDInCommonWith:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (int)compare:(id)arg1;
+@property(readonly, nonatomic) unsigned long long length;
+- (_Bool)hasPeerIDInCommonWith:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
+- (long long)compare:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)initWithKnowledgeVectorDictionary:(id)arg1 andStoreKnowledgeVectorDictionary:(id)arg2;
-- (id)initFromCopy:(id)arg1 storeKVDict:(id)arg2 hash:(unsigned int)arg3;
+- (id)initFromCopy:(id)arg1 storeKVDict:(id)arg2 hash:(unsigned long long)arg3;
 - (id)initWithStoreKnowledgeVectorDictionary:(id)arg1;
 - (id)initWithKnowledgeVectorDictionary:(id)arg1;
 - (id)initWithKnowledgeVectorString:(id)arg1;

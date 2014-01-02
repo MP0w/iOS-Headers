@@ -14,21 +14,21 @@
 {
     SBIcon *_icon;
     UIView<SBIconAccessoryView> *_accessoryView;
-    BOOL _showsDisclosureIndicator;
+    _Bool _showsDisclosureIndicator;
     id <SBStarkKnobLauncherCellDelegate> _delegate;
 }
 
 @property(nonatomic) id <SBStarkKnobLauncherCellDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) BOOL showsDisclosureIndicator; // @synthesize showsDisclosureIndicator=_showsDisclosureIndicator;
+@property(nonatomic) _Bool showsDisclosureIndicator; // @synthesize showsDisclosureIndicator=_showsDisclosureIndicator;
 - (void)iconAccessoriesDidUpdate:(id)arg1;
 - (void)iconImageDidUpdate:(id)arg1;
-- (void)setHighlighted:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)setHighlighted:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)prepareForReuse;
 - (void)layoutSubviews;
 - (struct CGRect)_accessoryFrameInBounds:(struct CGRect)arg1;
 @property(retain, nonatomic) SBIcon *icon;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

@@ -8,6 +8,6 @@
 
 @protocol SFAXMLStreamingChildEncodeProvider <NSObject>
 - (void)encodeChildrenAsChildrenOfNode:(struct _xmlNode *)arg1 handler:(id)arg2;
-- (void)writeToBuffer:(struct _xmlOutputBuffer *)arg1 forNode:(struct _xmlNode *)arg2 format:(BOOL)arg3 level:(int)arg4;
+- (void)writeToBuffer:(struct _xmlOutputBuffer *)arg1 forNode:(struct _xmlNode *)arg2 format:(_Bool)arg3 level:(int)arg4;
 @end
 

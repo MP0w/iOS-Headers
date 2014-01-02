@@ -13,11 +13,11 @@
 - (id)gradient;
 - (id)fillSample;
 - (id)maskFromSlice:(unsigned int)arg1;
-- (id)patternFromSlice:(unsigned int)arg1 isZeroSizeImage:(char *)arg2;
+- (id)patternFromSlice:(unsigned int)arg1 isZeroSizeImage:(_Bool *)arg2;
 - (id)patternFromSlice:(unsigned int)arg1;
-- (id)imageFromSlice:(unsigned int)arg1 isEmptyImage:(char *)arg2;
+- (id)imageFromSlice:(unsigned int)arg1 isEmptyImage:(_Bool *)arg2;
 - (id)imageFromSlice:(unsigned int)arg1;
-- (id)imageIsZeroSizeImage:(char *)arg1;
+- (id)imageIsZeroSizeImage:(_Bool *)arg1;
 - (id)image;
 - (struct CGImage *)createCGImage;
 - (void)dealloc;

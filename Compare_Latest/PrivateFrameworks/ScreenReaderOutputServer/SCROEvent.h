@@ -15,11 +15,11 @@
     NSMutableDictionary *_setDictionary;
     NSMutableDictionary *_getDictionary;
     NSMutableArray *_actions;
-    BOOL _readOnly;
+    _Bool _readOnly;
 }
 
 + (id)brailleEvent;
-- (void)performWithHandler:(id)arg1 trusted:(BOOL)arg2;
+- (void)performWithHandler:(id)arg1 trusted:(_Bool)arg2;
 - (id)claimDictionary;
 - (void)setClaimDictionary:(id)arg1;
 - (id)mainDictionary;

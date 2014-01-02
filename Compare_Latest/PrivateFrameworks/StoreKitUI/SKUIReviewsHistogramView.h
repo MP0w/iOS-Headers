@@ -14,13 +14,13 @@
     SKUIClientContext *_clientContext;
     SKUIColorScheme *_colorScheme;
     UILabel *_countLabel;
-    int _numberOfUserRatings;
+    long long _numberOfUserRatings;
     NSMutableDictionary *_ratings;
     UISegmentedControl *_segmentedControl;
     SKUIStarRatingControl *_starRatingControl;
     UILabel *_starRatingControlLabel;
     UILabel *_titleLabel;
-    float _userRating;
+    double _userRating;
     UIImageView *_userRatingStarsView;
     NSString *_versionString;
     UIButton *_writeAReviewButton;
@@ -33,7 +33,7 @@
 @property(readonly, nonatomic) UIControl *writeAReviewButton; // @synthesize writeAReviewButton=_writeAReviewButton;
 @property(copy, nonatomic) NSString *versionString; // @synthesize versionString=_versionString;
 @property(readonly, nonatomic) UIControl *starRatingControl; // @synthesize starRatingControl=_starRatingControl;
-@property(nonatomic) int numberOfUserRatings; // @synthesize numberOfUserRatings=_numberOfUserRatings;
+@property(nonatomic) long long numberOfUserRatings; // @synthesize numberOfUserRatings=_numberOfUserRatings;
 @property(retain, nonatomic) SKUIColorScheme *colorScheme; // @synthesize colorScheme=_colorScheme;
 @property(readonly, nonatomic) UIControl *appSupportButton; // @synthesize appSupportButton=_appSupportButton;
 - (void).cxx_destruct;
@@ -42,11 +42,11 @@
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)setBackgroundColor:(id)arg1;
 - (void)layoutSubviews;
-@property(nonatomic) float userRating;
+@property(nonatomic) double userRating;
 @property(copy, nonatomic) NSString *title;
-@property(nonatomic) int selectedSegmentIndex;
+@property(nonatomic) long long selectedSegmentIndex;
 @property(copy, nonatomic) NSArray *segmentedControlTitles;
-@property(nonatomic) int personalStarRating;
+@property(nonatomic) long long personalStarRating;
 @property(readonly, nonatomic) UIControl *segmentedControl;
 - (id)initWithClientContext:(id)arg1;
 

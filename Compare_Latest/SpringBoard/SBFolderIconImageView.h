@@ -7,19 +7,21 @@
 #import "SBIconImageView.h"
 
 #import "SBFolderIconObserver-Protocol.h"
+#import "SBIconBlurryBackgroundViewObserver-Protocol.h"
 
-@class NSMutableArray, SBFloatyFolderView, SBFolderIconImageBackgroundView, UIView, _SBIconGridWrapperView;
+@class NSMutableArray, SBFloatyFolderView, SBFolderIconBackgroundView, UIView, _SBIconGridWrapperView;
 
-@interface SBFolderIconImageView : SBIconImageView <SBFolderIconObserver>
+@interface SBFolderIconImageView : SBIconImageView <SBFolderIconObserver, SBIconBlurryBackgroundViewObserver>
 {
-    SBFolderIconImageBackgroundView *_backgroundView;
+    SBFolderIconBackgroundView *_backgroundView;
     UIView *_pageGridContainer;
     _SBIconGridWrapperView *_leftWrapperView;
     _SBIconGridWrapperView *_rightWrapperView;
     NSMutableArray *_pageElements;
-    unsigned int _currentPageIndex;
+    unsigned long long _currentPageIndex;
     SBFloatyFolderView *_crossfadeFolderView;
     UIView *_crossfadeScalingView;
+    _Bool _animating;
 }
 
 - (void)_showRightMinigrid;
@@ -31,32 +33,37 @@
 - (struct CGSize)_interiorGridSizeClipRect;
 - (struct CGSize)_interPageSpacing;
 - (Class)_iconGridImageClass;
-- (void)_performScrollingMovingToLeft:(BOOL)arg1 movingToRight:(BOOL)arg2 targetPageIndex:(unsigned int)arg3 targetPageScrollRow:(unsigned int)arg4 newLeftElement:(id)arg5 newRightElement:(id)arg6 animated:(BOOL)arg7;
-- (void)folderIcon:(id)arg1 didUpdateGridImage:(id)arg2 forListIndex:(unsigned int)arg3 forContainedIconImageUpdate:(id)arg4;
+- (void)_performScrollingMovingToLeft:(_Bool)arg1 movingToRight:(_Bool)arg2 targetPageIndex:(unsigned long long)arg3 targetPageScrollRow:(unsigned long long)arg4 newLeftElement:(id)arg5 newRightElement:(id)arg6 animated:(_Bool)arg7;
+- (void)_updateRasterization;
+- (void)_setAnimating:(_Bool)arg1;
+- (void)blurryBackgroundViewDidChangeWhetherBlurring:(id)arg1;
+- (void)folderIcon:(id)arg1 didUpdateGridImage:(id)arg2 forListIndex:(unsigned long long)arg3 forContainedIconImageUpdate:(id)arg4;
 - (void)cleanupAfterFloatyFolderCrossfade;
-- (void)setFloatyFolderCrossfadeFraction:(float)arg1;
-- (void)prepareToCrossfadeWithFloatyFolderView:(id)arg1;
-- (void)setBackgroundScale:(float)arg1;
+- (void)setFloatyFolderCrossfadeFraction:(double)arg1;
+- (void)prepareToCrossfadeWithFloatyFolderView:(id)arg1 allowFolderInteraction:(_Bool)arg2;
+- (void)setWallpaperRelativeCenter:(struct CGPoint)arg1;
+- (void)setBackgroundScale:(double)arg1;
 - (id)backgroundView;
-- (void)setBackgroundAndIconGridImageAlpha:(float)arg1;
-- (void)setIconGridImageAlpha:(float)arg1;
+- (void)setBackgroundAndIconGridImageAlpha:(double)arg1;
+- (void)setIconGridImageAlpha:(double)arg1;
 - (struct CGRect)frameForMiniIconAtIndexPath:(id)arg1;
-- (struct CGRect)visibleImageRelativeFrameForMiniIconAtIndex:(unsigned int)arg1;
-- (struct CGRect)frameForMiniIconAtIndex:(unsigned int)arg1;
-- (unsigned int)lastVisibleMiniIconIndex;
-- (unsigned int)centerVisibleMiniIconIndex;
-- (unsigned int)firstVisibleMiniIconIndex;
-- (unsigned int)visibleMiniIconListIndex;
-- (unsigned int)visibleMiniIconCount;
-- (void)scrollToGapOrTopIfFullOfPage:(unsigned int)arg1 animated:(BOOL)arg2;
-- (void)scrollToTopOfPage:(unsigned int)arg1 animated:(BOOL)arg2;
-- (void)scrollToFirstGapAnimated:(BOOL)arg1;
-- (void)scrollToTopOfFirstPageAnimated:(BOOL)arg1;
+- (struct CGRect)visibleImageRelativeFrameForMiniIconAtIndex:(unsigned long long)arg1;
+- (struct CGRect)frameForMiniIconAtIndex:(unsigned long long)arg1;
+- (unsigned long long)lastVisibleMiniIconIndex;
+- (unsigned long long)centerVisibleMiniIconIndex;
+- (unsigned long long)firstVisibleMiniIconIndex;
+- (unsigned long long)visibleMiniIconListIndex;
+- (unsigned long long)visibleMiniIconCount;
+- (void)scrollToGapOrTopIfFullOfPage:(unsigned long long)arg1 animated:(_Bool)arg2;
+- (void)scrollToTopOfPage:(unsigned long long)arg1 animated:(_Bool)arg2;
+- (void)scrollToFirstGapAnimated:(_Bool)arg1;
+- (void)scrollToTopOfFirstPageAnimated:(_Bool)arg1;
 - (void)layoutSubviews;
 - (id)snapshot;
 - (void)prepareForReuse;
-- (void)updateImage;
-- (id)squareContentsImage;
+- (void)updateImageAnimated:(_Bool)arg1;
+- (id)darkeningOverlayImage;
+- (id)_generateSquareContentsImage;
 - (id)contentsImage;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

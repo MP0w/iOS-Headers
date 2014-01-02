@@ -8,7 +8,7 @@
 
 @protocol SLTencentWeiboRemoteSessionProtocol <NSObject>
 - (void)revokeAllAccessTokensForDeviceWithCompletion:(id)arg1;
-- (void)revokeAccessTokenForAppWithID:(id)arg1;
+- (void)revokeAccessTokenForAppWithOauthToken:(id)arg1 completion:(id)arg2;
 - (void)getPermaLinkFromLastStatusUpdate:(id)arg1;
 - (void)showTencentWeiboSettingsIfNeeded:(id)arg1;
 - (void)sendStatus:(id)arg1 completion:(id)arg2;
@@ -18,7 +18,7 @@
 - (void)fetchCurrentImageLimits:(id)arg1;
 - (void)fetchCurrentUrlLimits:(id)arg1;
 - (void)setOverrideGeotagInfo:(id)arg1;
-- (void)setGeotagStatus:(int)arg1;
+- (void)setGeotagStatus:(id)arg1;
 - (void)fetchGeotagStatus:(id)arg1;
 - (void)setGeotagAccountSetting:(id)arg1 withCompletion:(id)arg2;
 - (void)fetchRelationshipWithScreenName:(id)arg1 completion:(id)arg2;

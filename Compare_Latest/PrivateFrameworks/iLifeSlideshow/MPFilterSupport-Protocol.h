@@ -5,10 +5,10 @@
  */
 
 @protocol MPFilterSupport
-- (void)moveFiltersFromIndices:(id)arg1 toIndex:(int)arg2;
+- (void)moveFiltersFromIndices:(id)arg1 toIndex:(long long)arg2;
 - (void)removeAllFilters;
 - (void)removeFiltersAtIndices:(id)arg1;
-- (void)insertFilters:(id)arg1 atIndex:(int)arg2;
+- (void)insertFilters:(id)arg1 atIndex:(long long)arg2;
 - (void)addFilters:(id)arg1;
 - (void)addFilter:(id)arg1;
 - (id)filters;

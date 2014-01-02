@@ -6,15 +6,18 @@
 
 #import "SBControlCenterSectionViewController.h"
 
+#import "MPUSystemMediaControlsDelegate-Protocol.h"
+
 @class MPUSystemMediaControlsViewController;
 
-@interface SBCCMediaControlsSectionController : SBControlCenterSectionViewController
+@interface SBCCMediaControlsSectionController : SBControlCenterSectionViewController <MPUSystemMediaControlsDelegate>
 {
     MPUSystemMediaControlsViewController *_systemMediaViewController;
 }
 
+- (void)systemMediaControlsViewController:(id)arg1 didReceiveTapOnControlType:(long long)arg2;
 - (void)viewDidLoad;
-- (struct CGSize)contentSizeForOrientation:(int)arg1;
+- (struct CGSize)contentSizeForOrientation:(long long)arg1;
 - (id)sectionIdentifier;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

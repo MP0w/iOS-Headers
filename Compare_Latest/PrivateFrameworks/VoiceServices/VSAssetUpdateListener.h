@@ -10,13 +10,13 @@
 
 @interface VSAssetUpdateListener : NSObject
 {
-    BOOL _isListening;
+    _Bool _isListening;
     PCPersistentTimer *_assetCleanupTimer;
 }
 
 + (id)sharedListener;
 - (void)removeAssetForLanguage:(id)arg1;
-- (BOOL)assetDownloadStatus:(id)arg1 progress:(float *)arg2 size:(long long *)arg3;
+- (_Bool)assetDownloadStatus:(id)arg1 progress:(float *)arg2 size:(long long *)arg3;
 - (int)assetStatusForLanguage:(id)arg1;
 - (id)downloadingAssetLanguage;
 - (void)downloadAssetForLanguage:(id)arg1;

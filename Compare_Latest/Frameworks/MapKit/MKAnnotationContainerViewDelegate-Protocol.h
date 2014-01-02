@@ -10,17 +10,20 @@
 - (struct CGRect)annotationContainerVisibleRect:(id)arg1;
 - (struct CGPoint)convertCoordinate:(CDStruct_c3b9c2ee)arg1 toPointToView:(id)arg2;
 - (CDStruct_c3b9c2ee)convertPoint:(struct CGPoint)arg1 toCoordinateFromView:(id)arg2;
-- (float)_zoomScale;
+- (double)_zoomScale;
 - (struct CGRect)visibleRectInView:(id)arg1;
 - (struct CGRect)visibleCenteringRectInView:(id)arg1;
 - (void)annotationContainerDidDropPins:(id)arg1;
 - (void)annotationContainerWillDropPins:(id)arg1;
 - (void)annotationContainerDidAnimateBubble:(id)arg1;
 - (void)annotationContainerWillAnimateBubble:(id)arg1;
-- (float)annotationContainer:(id)arg1 pinDropDistanceForCoordinate:(CDStruct_c3b9c2ee)arg2 maxDistance:(float *)arg3 startPoint:(struct CGPoint *)arg4 shadowStartPoint:(struct CGPoint *)arg5;
-- (void)annotationContainer:(id)arg1 scrollToRevealCalloutWithOffset:(struct CGPoint)arg2 completionHandler:(id)arg3;
+- (double)annotationContainer:(id)arg1 pinDropDistanceForCoordinate:(CDStruct_c3b9c2ee)arg2 maxDistance:(double *)arg3 startPoint:(struct CGPoint *)arg4 shadowStartPoint:(struct CGPoint *)arg5;
+- (void)annotationContainer:(id)arg1 scrollToRevealCalloutWithOffset:(struct CGPoint)arg2 annotationCoordinate:(CDStruct_c3b9c2ee)arg3 completionHandler:(id)arg4;
 - (void)annotationContainer:(id)arg1 annotationView:(id)arg2 calloutAccessoryControlTapped:(id)arg3;
-- (BOOL)annotationContainerIsRotated:(id)arg1;
-- (BOOL)annotationContainerShouldAlignToPixels:(id)arg1;
+- (_Bool)annotationContainerIsRotated:(id)arg1;
+- (_Bool)annotationContainerShouldAlignToPixels:(id)arg1;
+
+@optional
+- (void)annotationContainerDidFinishMapsTransitionExpanding:(id)arg1;
 @end
 

@@ -9,13 +9,12 @@
 #import "SLMicroBlogSheetDelegate-Protocol.h"
 #import "SLTwitterClientSessionProtocol-Protocol.h"
 
-@class NSCache, NSOperationQueue, SLRemoteSessionProxy<SLTwitterRemoteSessionProtocol>;
+@class NSCache, SLRemoteSessionProxy<SLTwitterRemoteSessionProtocol>;
 
 @interface SLTwitterSession : NSObject <SLTwitterClientSessionProtocol, SLMicroBlogSheetDelegate>
 {
     SLRemoteSessionProxy<SLTwitterRemoteSessionProtocol> *_remoteSession;
     NSCache *_profileImageCache;
-    NSOperationQueue *_profileImageFetchQueue;
     id _connectionResetBlock;
     id _locationInformationChangedBlock;
 }

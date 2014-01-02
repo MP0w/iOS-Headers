@@ -8,38 +8,37 @@
 
 @class UIPrintPanelViewController;
 
+// Not exported
 @interface UIPrintPanelTableViewController : UITableViewController
 {
     UIPrintPanelViewController *_printPanelViewController;
-    int _rangeRow;
-    int _copiesRow;
-    int _duplexRow;
-    int _paperRow;
-    BOOL _contactingPrinter;
-    BOOL _canPrint;
+    long long _rangeRow;
+    long long _copiesRow;
+    long long _duplexRow;
+    long long _paperRow;
+    _Bool _contactingPrinter;
+    _Bool _canPrint;
 }
 
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (BOOL)tableView:(id)arg1 shouldHighlightRowAtIndexPath:(id)arg2;
+- (_Bool)tableView:(id)arg1 shouldHighlightRowAtIndexPath:(id)arg2;
 - (void)updateDuplex:(id)arg1;
 - (void)updateCopies:(id)arg1;
 - (void)updatePageRange:(struct _NSRange)arg1;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
-- (unsigned int)supportedInterfaceOrientations;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (void)viewDidDisappear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
+- (unsigned long long)supportedInterfaceOrientations;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)clearPrintPanelViewController;
-- (void)setShowContactingPrinter:(BOOL)arg1;
+- (void)setShowContactingPrinter:(_Bool)arg1;
 - (void)showContacting;
 - (void)showCancelButton;
 - (void)dealloc;
 - (id)initWithPrintPanelViewController:(id)arg1;
-- (void)_updateSize;
-- (void)_update:(BOOL)arg1;
 
 @end
 

@@ -13,7 +13,7 @@
     VKImageAnnotationMarkerLayer *_imageLayer;
 }
 
-@property(nonatomic) BOOL drawsOnGround;
+@property(nonatomic) _Bool drawsOnGround;
 - (void)setImage:(id)arg1;
 @property(nonatomic) float brightness;
 - (void)dealloc;

@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface NSSQLManyToMany : NSSQLRelationship
 {
     NSString *_correlationTableName;
@@ -15,7 +16,7 @@
     NSString *_orderColumnName;
 }
 
-- (BOOL)isTableSchemaEqual:(id)arg1;
+- (_Bool)isTableSchemaEqual:(id)arg1;
 - (id)inverseOrderColumnName;
 - (id)inverseColumnName;
 - (id)inverseManyToMany;
@@ -26,9 +27,9 @@
 - (unsigned int)columnSQLType;
 - (id)orderColumnName;
 - (id)columnName;
-- (BOOL)isReflexive;
+- (_Bool)isReflexive;
 - (void)_setInverseManyToMany:(id)arg1;
-- (BOOL)isMaster;
+- (_Bool)isMaster;
 - (id)correlationTableName;
 - (void)dealloc;
 - (id)initWithEntity:(id)arg1 propertyDescription:(id)arg2;

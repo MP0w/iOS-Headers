@@ -13,15 +13,15 @@
     double _lastUpdate;
     double _pausedTime;
     struct CGRect _visibleRect;
-    int _scaleMode;
+    long long _scaleMode;
     NSMutableDictionary *_touchMap;
     struct CGRect _bounds;
-    BOOL _isSetup;
-    BOOL _usesExplicitUpdate;
-    BOOL _usesExplicitRender;
+    _Bool _isSetup;
+    _Bool _usesExplicitUpdate;
+    _Bool _usesExplicitRender;
     id _view;
-    BOOL __needsUpdate;
-    BOOL __needsRender;
+    _Bool __needsUpdate;
+    _Bool __needsRender;
     SKPhysicsWorld *_physicsWorld;
     PKPhysicsWorld *__pkPhysicsWorld;
 }
@@ -30,13 +30,13 @@
 + (id)sceneWithContentsOfFile:(id)arg1;
 + (id)sceneWithSize:(struct CGSize)arg1;
 @property(retain, nonatomic) PKPhysicsWorld *_pkPhysicsWorld; // @synthesize _pkPhysicsWorld=__pkPhysicsWorld;
-@property BOOL _needsRender; // @synthesize _needsRender=__needsRender;
-@property BOOL _needsUpdate; // @synthesize _needsUpdate=__needsUpdate;
-@property(nonatomic) int scaleMode; // @synthesize scaleMode=_scaleMode;
+@property _Bool _needsRender; // @synthesize _needsRender=__needsRender;
+@property _Bool _needsUpdate; // @synthesize _needsUpdate=__needsUpdate;
+@property(nonatomic) long long scaleMode; // @synthesize scaleMode=_scaleMode;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) SKView *view;
-- (void)setPaused:(BOOL)arg1;
+- (void)setPaused:(_Bool)arg1;
 - (void)didSimulatePhysics;
 - (void)didEvaluateActions;
 - (void)_update:(double)arg1;
@@ -54,6 +54,15 @@
 - (struct CGPoint)convertPointFromView:(struct CGPoint)arg1;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
+- (void)setZPosition:(double)arg1;
+- (double)zPosition;
+- (void)setZRotation:(double)arg1;
+- (double)zRotation;
+- (void)setYScale:(double)arg1;
+- (double)yScale;
+- (void)setXScale:(double)arg1;
+- (double)xScale;
+- (void)setScale:(double)arg1;
 - (void)setPosition:(struct CGPoint)arg1;
 - (struct CGPoint)position;
 @property(nonatomic) struct CGPoint anchorPoint;
@@ -62,10 +71,6 @@
 - (id)initWithSize:(struct CGSize)arg1;
 - (id)init;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)_setNeedsRender;
-- (void)_setNeedsUpdate;
-@property BOOL _usesExplicitRender;
-@property BOOL _usesExplicitUpdate;
 
 @end
 

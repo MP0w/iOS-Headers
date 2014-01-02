@@ -10,19 +10,19 @@
 
 @interface EKReminderInlineEditItemCell : UITableViewCell
 {
-    float _lastSeenContentWidth;
+    double _lastSeenContentWidth;
     EKExpandingTextView *_textView;
-    float _verticalPadding;
+    double _verticalPadding;
 }
 
-@property(nonatomic) float verticalPadding; // @synthesize verticalPadding=_verticalPadding;
+@property(nonatomic) double verticalPadding; // @synthesize verticalPadding=_verticalPadding;
 @property(readonly, nonatomic) EKExpandingTextView *textView; // @synthesize textView=_textView;
 - (void).cxx_destruct;
 - (void)layoutSubviews;
-- (float)heightNeededForContentWidth:(float)arg1;
-- (float)_textViewWidthForContentWidth:(float)arg1;
+- (double)heightNeededForContentWidth:(double)arg1;
+- (double)_textViewWidthForContentWidth:(double)arg1;
 @property(copy, nonatomic) NSString *placeholder;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

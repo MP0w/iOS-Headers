@@ -8,20 +8,17 @@
 
 @interface CLCircularRegion : CLRegion
 {
-    id _internal;
 }
 
-+ (BOOL)supportsSecureCoding;
-- (BOOL)containsCoordinate:(CDStruct_2c43369c)arg1;
++ (_Bool)supportsSecureCoding;
+- (_Bool)containsCoordinate:(CDStruct_2c43369c)arg1;
 @property(readonly, nonatomic) double radius;
 @property(readonly, nonatomic) CDStruct_2c43369c center;
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithCenter:(CDStruct_2c43369c)arg1 radius:(double)arg2 identifier:(id)arg3;
-- (id)initWithClientRegion:(CDStruct_f756f8ea)arg1;
 
 @end
 

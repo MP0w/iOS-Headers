@@ -6,6 +6,7 @@
 
 #import <VectorKit/VKDimmableDrawStyle.h>
 
+// Not exported
 @interface VKPinDrawStyle : VKDimmableDrawStyle
 {
 }

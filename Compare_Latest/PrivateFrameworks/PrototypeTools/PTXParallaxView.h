@@ -15,17 +15,17 @@
 {
     PTXParallaxController *_parallaxController;
     PTXParallaxSettings *_settings;
-    float _viewAlpha;
+    double _viewAlpha;
     PTXMotionWindow *_slideWindowX;
     PTXMotionWindow *_slideWindowY;
     PTXMotionWindow *_tiltWindowX;
     PTXMotionWindow *_tiltWindowY;
-    BOOL _stopped;
-    BOOL _resizesView;
+    _Bool _stopped;
+    _Bool _resizesView;
     UIView *_view;
 }
 
-@property(nonatomic) BOOL resizesView; // @synthesize resizesView=_resizesView;
+@property(nonatomic) _Bool resizesView; // @synthesize resizesView=_resizesView;
 @property(retain, nonatomic) UIView *view; // @synthesize view=_view;
 - (void).cxx_destruct;
 - (void)_updateSettings;
@@ -34,8 +34,8 @@
 - (struct CATransform3D)_tiltTransform:(struct CGPoint)arg1;
 - (void)_clearOffset;
 - (void)clearParallaxOffset;
-- (void)handleParallaxOffset:(struct CGPoint)arg1 lockStatus:(int)arg2 strength:(float)arg3;
-- (void)setViewAlpha:(float)arg1;
+- (void)handleParallaxOffset:(struct CGPoint)arg1 lockStatus:(long long)arg2 strength:(double)arg3;
+- (void)setViewAlpha:(double)arg1;
 - (void)layoutSubviews;
 - (void)stop;
 - (void)start;

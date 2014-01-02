@@ -11,10 +11,9 @@
 }
 
 + (id)_accessibilityTargetClassName;
++ (id)_installSafeCategoryValidationMethod;
 + (id)_initializeSafeCategoryFromValidationManager;
 + (void)_initializeSafeCategory;
-+ (void)stopPlayingAlertSoundOrTone;
-+ (id)presentWithLocalNotification:(id)arg1 application:(id)arg2;
 
 @end
 

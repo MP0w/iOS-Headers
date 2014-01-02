@@ -12,20 +12,20 @@
 
 @interface AFSpeechToken : NSObject <NSSecureCoding>
 {
-    BOOL _removeSpaceBefore;
-    BOOL _removeSpaceAfter;
+    _Bool _removeSpaceBefore;
+    _Bool _removeSpaceAfter;
     NSString *_text;
-    int _confidence;
+    long long _confidence;
     double _startTime;
     double _endTime;
 }
 
-+ (BOOL)supportsSecureCoding;
-@property BOOL removeSpaceAfter; // @synthesize removeSpaceAfter=_removeSpaceAfter;
-@property BOOL removeSpaceBefore; // @synthesize removeSpaceBefore=_removeSpaceBefore;
-@property double endTime; // @synthesize endTime=_endTime;
-@property double startTime; // @synthesize startTime=_startTime;
-@property int confidenceScore; // @synthesize confidenceScore=_confidence;
++ (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool removeSpaceAfter; // @synthesize removeSpaceAfter=_removeSpaceAfter;
+@property(nonatomic) _Bool removeSpaceBefore; // @synthesize removeSpaceBefore=_removeSpaceBefore;
+@property(nonatomic) double endTime; // @synthesize endTime=_endTime;
+@property(nonatomic) double startTime; // @synthesize startTime=_startTime;
+@property(nonatomic) long long confidenceScore; // @synthesize confidenceScore=_confidence;
 @property(copy, nonatomic) NSString *text; // @synthesize text=_text;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;

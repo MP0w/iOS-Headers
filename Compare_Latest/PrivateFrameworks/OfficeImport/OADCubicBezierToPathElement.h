@@ -6,17 +6,18 @@
 
 #import <OfficeImport/OADPathElement.h>
 
+// Not exported
 @interface OADCubicBezierToPathElement : OADPathElement
 {
     struct OADAdjustPoint mControlPoint1;
     struct OADAdjustPoint mControlPoint2;
     struct OADAdjustPoint mToPoint;
-    BOOL mRelative;
+    _Bool mRelative;
 }
 
 - (id).cxx_construct;
-- (void)setRelative:(BOOL)arg1;
-- (BOOL)relative;
+- (void)setRelative:(_Bool)arg1;
+- (_Bool)relative;
 - (struct OADAdjustPoint)toPoint;
 - (struct OADAdjustPoint)controlPoint2;
 - (struct OADAdjustPoint)controlPoint1;

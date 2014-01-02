@@ -8,6 +8,7 @@
 
 @class NSObject<OS_dispatch_queue>;
 
+// Not exported
 @interface _XPCProxyReplyHandlerQueueRedirectingProxy : _UITargetedProxy
 {
     NSObject<OS_dispatch_queue> *_targetQueue;

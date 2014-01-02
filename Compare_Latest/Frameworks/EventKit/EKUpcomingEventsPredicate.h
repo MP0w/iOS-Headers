@@ -16,7 +16,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)evaluateWithObject:(id)arg1;
+- (_Bool)evaluateWithObject:(id)arg1;
 - (id)initWithLimit:(int)arg1;
 
 @end

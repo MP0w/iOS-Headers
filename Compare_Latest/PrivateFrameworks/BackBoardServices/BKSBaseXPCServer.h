@@ -13,12 +13,12 @@
     NSObject<OS_dispatch_queue> *_queue;
     NSObject<OS_xpc_object> *_listenerConnection;
     NSMutableSet *_clients;
-    BOOL _connectionResumed;
-    BOOL _usesAnonymousConnection;
+    _Bool _connectionResumed;
+    _Bool _usesAnonymousConnection;
     NSString *_serviceName;
 }
 
-@property(nonatomic, getter=usesAnonymousConnection) BOOL usesAnonymousConnection; // @synthesize usesAnonymousConnection=_usesAnonymousConnection;
+@property(nonatomic, getter=usesAnonymousConnection) _Bool usesAnonymousConnection; // @synthesize usesAnonymousConnection=_usesAnonymousConnection;
 - (id)_copyEndpoint;
 - (id)_clients;
 - (id)_connection;

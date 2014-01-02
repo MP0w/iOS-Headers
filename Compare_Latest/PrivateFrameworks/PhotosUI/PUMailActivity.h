@@ -15,7 +15,7 @@
 {
     UIViewController *_referenceViewController;
     PLVideoRemaker *_remaker;
-    BOOL _remakingWasCancelled;
+    _Bool _remakingWasCancelled;
     PLManagedAsset *_currentVideo;
     NSString *_trimmedFilePath;
     MFMailComposeViewController *_mailComposeController;
@@ -33,20 +33,21 @@
 - (void)_cancelRemaking:(id)arg1;
 - (void)editVideoViewControllerDidCancel:(id)arg1;
 - (void)editVideoViewController:(id)arg1 didTrimVideoWithOptions:(id)arg2;
-- (void)activityDidFinish:(BOOL)arg1;
-- (BOOL)_presentActivityOnViewController:(id)arg1 animated:(BOOL)arg2 completion:(id)arg3;
+- (void)activityDidFinish:(_Bool)arg1;
+- (_Bool)_presentActivityOnViewController:(id)arg1 animated:(_Bool)arg2 completion:(id)arg3;
 - (id)mailComposeViewController;
 - (id)activityViewController;
 - (void)prepareWithActivityItems:(id)arg1;
-- (BOOL)canPerformWithActivityItems:(id)arg1;
+- (_Bool)canPerformWithActivityItems:(id)arg1;
+- (_Bool)_canPerformEmailActivity;
 - (void)_sendViaEmail;
 - (void)composeMailForVideo:(id)arg1 trimmedFilePath:(id)arg2;
 - (void)composeMailForPhotos;
 - (void)_discardTrimmedFile;
 - (void)_transcodeVideo:(id)arg1 usingMode:(int)arg2;
-- (BOOL)_showTrimViewControllerIfNeededForVideo:(id)arg1 usingMode:(int)arg2;
+- (_Bool)_showTrimViewControllerIfNeededForVideo:(id)arg1 usingMode:(int)arg2;
 - (void)_showTrimViewControllerForVideo:(id)arg1 maximumTrimDuration:(double)arg2 trimButtonTitle:(id)arg3;
-- (void)_showRemakerProgressView:(BOOL)arg1;
+- (void)_showRemakerProgressView:(_Bool)arg1;
 - (void)dealloc;
 - (void)_pu_cleanup;
 

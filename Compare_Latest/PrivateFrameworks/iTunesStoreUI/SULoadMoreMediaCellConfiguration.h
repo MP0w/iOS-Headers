@@ -8,16 +8,16 @@
 
 @interface SULoadMoreMediaCellConfiguration : SUItemCellConfiguration
 {
-    float _previousCellHeight;
+    double _previousCellHeight;
 }
 
-+ (float)rowHeightForContext:(id)arg1 representedObject:(id)arg2;
-@property(nonatomic) float previousCellHeight; // @synthesize previousCellHeight=_previousCellHeight;
++ (double)rowHeightForContext:(id)arg1 representedObject:(id)arg2;
+@property(nonatomic) double previousCellHeight; // @synthesize previousCellHeight=_previousCellHeight;
 - (void)reloadStrings;
 - (void)reloadLayoutInformation;
 - (void)reloadImages;
-- (id)fontForLabelAtIndex:(unsigned int)arg1;
-- (id)colorForLabelAtIndex:(unsigned int)arg1 withModifiers:(unsigned int)arg2;
+- (id)fontForLabelAtIndex:(unsigned long long)arg1;
+- (id)colorForLabelAtIndex:(unsigned long long)arg1 withModifiers:(unsigned long long)arg2;
 - (id)init;
 
 @end

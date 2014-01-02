@@ -6,6 +6,7 @@
 
 #import <CoreData/NSSQLFetchIntermediate.h>
 
+// Not exported
 @interface NSSQLFetchCountIntermediate : NSSQLFetchIntermediate
 {
 }

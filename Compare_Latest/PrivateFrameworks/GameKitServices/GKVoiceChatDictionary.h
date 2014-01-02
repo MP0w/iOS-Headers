@@ -8,20 +8,21 @@
 
 @class NSMutableDictionary;
 
+// Not exported
 @interface GKVoiceChatDictionary : NSObject
 {
     NSMutableDictionary *actualDictionary;
-    unsigned int type;
-    unsigned long orignalCallID;
+    unsigned long long type;
+    unsigned int orignalCallID;
 }
 
-+ (BOOL)validateFocus:(id)arg1;
-+ (BOOL)validateCancel:(id)arg1;
-+ (BOOL)validateReply:(id)arg1;
-+ (BOOL)validateInvite:(id)arg1;
-+ (BOOL)validateDictionary:(id)arg1;
++ (_Bool)validateFocus:(id)arg1;
++ (_Bool)validateCancel:(id)arg1;
++ (_Bool)validateReply:(id)arg1;
++ (_Bool)validateInvite:(id)arg1;
++ (_Bool)validateDictionary:(id)arg1;
 + (id)dictionaryFromData:(id)arg1;
-+ (id)inviteDictionaryToParticipantID:(id)arg1 fromParticipantID:(id)arg2 connectionData:(id)arg3 callID:(unsigned long)arg4 focus:(BOOL)arg5;
++ (id)inviteDictionaryToParticipantID:(id)arg1 fromParticipantID:(id)arg2 connectionData:(id)arg3 callID:(unsigned int)arg4 focus:(_Bool)arg5;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
@@ -29,28 +30,28 @@
 - (id)setLocalVCPartyID:(id)arg1;
 - (id)remoteVCPartyID;
 - (id)localVCPartyID;
-@property unsigned long callID;
+@property unsigned int callID;
 - (id)createBlob;
 - (id)version;
-- (void)setFocus:(BOOL)arg1;
-- (BOOL)isFocus;
-- (BOOL)matchesNonce:(int)arg1;
-@property int nonce;
+- (void)setFocus:(_Bool)arg1;
+- (_Bool)isFocus;
+- (_Bool)matchesNonce:(long long)arg1;
+@property long long nonce;
 - (id)participantID;
 - (void)setFromParticipantID:(id)arg1;
 - (id)fromParticipantID;
 - (id)connectionData;
-- (unsigned int)response;
-- (unsigned int)type;
-- (BOOL)matchesResponse:(id)arg1;
-- (BOOL)isFocusDictionary;
-- (BOOL)isReplyDictionary;
-- (BOOL)isCancelDictionary;
-- (BOOL)isInviteDictionary;
-- (id)focusDictionary:(BOOL)arg1;
+- (unsigned long long)response;
+- (unsigned long long)type;
+- (_Bool)matchesResponse:(id)arg1;
+- (_Bool)isFocusDictionary;
+- (_Bool)isReplyDictionary;
+- (_Bool)isCancelDictionary;
+- (_Bool)isInviteDictionary;
+- (id)focusDictionary:(_Bool)arg1;
 - (id)cancelDictionary;
-- (id)replyDictionary:(unsigned int)arg1 connectionData:(id)arg2 callID:(unsigned long)arg3 focus:(BOOL)arg4;
-@property(readonly) unsigned long originalCallID;
+- (id)replyDictionary:(unsigned long long)arg1 connectionData:(id)arg2 callID:(unsigned int)arg3 focus:(_Bool)arg4;
+@property(readonly) unsigned int originalCallID;
 - (void)dealloc;
 
 @end

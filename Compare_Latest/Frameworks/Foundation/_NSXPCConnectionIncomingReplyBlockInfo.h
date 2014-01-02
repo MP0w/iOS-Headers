@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface _NSXPCConnectionIncomingReplyBlockInfo : NSObject
 {
     id _cleanupBlock;

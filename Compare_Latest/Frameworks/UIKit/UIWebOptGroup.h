@@ -8,18 +8,19 @@
 
 @class NSArray;
 
+// Not exported
 @interface UIWebOptGroup : NSObject
 {
     id <UIWebSelectedItemPrivate> _group;
     NSArray *_options;
-    int _offset;
+    long long _offset;
 }
 
 @property(retain, nonatomic) NSArray *options; // @synthesize options=_options;
 @property(retain, nonatomic) id <UIWebSelectedItemPrivate> group; // @synthesize group=_group;
-@property(readonly, nonatomic) int offset; // @synthesize offset=_offset;
+@property(readonly, nonatomic) long long offset; // @synthesize offset=_offset;
 - (void)dealloc;
-- (id)initWithGroup:(id)arg1 itemOffset:(int)arg2;
+- (id)initWithGroup:(id)arg1 itemOffset:(long long)arg2;
 
 @end
 

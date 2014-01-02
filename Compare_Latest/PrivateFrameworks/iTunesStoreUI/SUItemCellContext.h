@@ -9,14 +9,14 @@
 @interface SUItemCellContext : SUArtworkCellContext
 {
     struct __CFDictionary *_cachedRatingImages;
-    CDStruct_1d20123b _stringSizeCacheKeyCallBacks;
+    CDStruct_f2932e27 _stringSizeCacheKeyCallBacks;
     struct __CFDictionary *_stringSizes;
 }
 
-@property(nonatomic) CDStruct_1d20123b stringSizeCacheKeyCallBacks; // @synthesize stringSizeCacheKeyCallBacks=_stringSizeCacheKeyCallBacks;
+@property(nonatomic) CDStruct_f2932e27 stringSizeCacheKeyCallBacks; // @synthesize stringSizeCacheKeyCallBacks=_stringSizeCacheKeyCallBacks;
 - (void)resetLayoutCaches;
 - (struct CGSize)sizeForString:(id)arg1 font:(id)arg2 constrainedToSize:(struct CGSize)arg3;
-- (id)ratingImageForRating:(float)arg1 style:(int)arg2;
+- (id)ratingImageForRating:(float)arg1 style:(long long)arg2;
 - (void)dealloc;
 - (id)init;
 

@@ -29,9 +29,9 @@
 - (void)setMultiValueIdentifier:(int)arg1;
 @property(readonly) int multiValueIdentifier;
 @property(readonly) NSString *identifier;
-- (BOOL)isEqualToLabelledValue:(id)arg1 includeIdentifiers:(BOOL)arg2;
-- (BOOL)isEqualToLabelledValue:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqualToLabelledValue:(id)arg1 includeIdentifiers:(_Bool)arg2;
+- (_Bool)isEqualToLabelledValue:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)labeledValueBySettingValue:(id)arg1;
 - (id)labeledValueBySettingLabel:(id)arg1 value:(id)arg2;
 - (id)description;

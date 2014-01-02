@@ -13,12 +13,12 @@
     NSString *_destinationName;
     UILabel *_destinationSubtitleLabel;
     UILabel *_destinationTitleLabel;
-    int _style;
+    long long _style;
     UIImageView *_videosImageView;
 }
 
 @property(copy, nonatomic) NSString *destinationName; // @synthesize destinationName=_destinationName;
-@property(nonatomic) int style; // @synthesize style=_style;
+@property(nonatomic) long long style; // @synthesize style=_style;
 - (void).cxx_destruct;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)layoutSubviews;

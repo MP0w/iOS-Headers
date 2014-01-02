@@ -6,12 +6,13 @@
 
 #import "PKPhysicsWorld.h"
 
+// Not exported
 @interface PKExtendedPhysicsWorld : PKPhysicsWorld
 {
 }
 
-@property(nonatomic) BOOL debugEnabled;
-- (BOOL)supportsDebug;
+@property(nonatomic) _Bool debugEnabled;
+- (_Bool)supportsDebug;
 - (id)debugPaths;
 
 @end

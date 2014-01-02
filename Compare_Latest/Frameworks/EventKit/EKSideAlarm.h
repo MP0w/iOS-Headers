@@ -8,6 +8,7 @@
 
 @class NSDate, NSNumber, NSString;
 
+// Not exported
 @interface EKSideAlarm : NSManagedObject
 {
 }

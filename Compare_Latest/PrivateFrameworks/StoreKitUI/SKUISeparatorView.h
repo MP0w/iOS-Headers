@@ -12,10 +12,10 @@
 {
     UIColor *_color1;
     UIColor *_color2;
-    int _separatorStyle;
+    long long _separatorStyle;
 }
 
-@property(nonatomic) int separatorStyle; // @synthesize separatorStyle=_separatorStyle;
+@property(nonatomic) long long separatorStyle; // @synthesize separatorStyle=_separatorStyle;
 @property(copy, nonatomic) UIColor *color2; // @synthesize color2=_color2;
 @property(copy, nonatomic) UIColor *color1; // @synthesize color1=_color1;
 - (void).cxx_destruct;

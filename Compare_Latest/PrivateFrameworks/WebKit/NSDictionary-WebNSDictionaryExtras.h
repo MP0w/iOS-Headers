@@ -7,7 +7,7 @@
 #import "NSDictionary.h"
 
 @interface NSDictionary (WebNSDictionaryExtras)
-- (BOOL)_webkit_boolForKey:(id)arg1;
+- (_Bool)_webkit_boolForKey:(id)arg1;
 - (id)_webkit_objectForMIMEType:(id)arg1;
 - (id)_webkit_arrayForKey:(id)arg1;
 - (id)_webkit_stringForKey:(id)arg1;

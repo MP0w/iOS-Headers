@@ -8,6 +8,7 @@
 
 @interface NSString (MCUtilities)
 + (id)MCMakeUUID;
+- (unsigned int)MCHash;
 - (id)MCAppendDeviceName;
 - (id)MCSHA256DigestWithSalt;
 - (id)MCSafeFilenameHashWithExtension:(id)arg1;

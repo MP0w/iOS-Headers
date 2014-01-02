@@ -16,7 +16,7 @@
 @property(copy) NSString *vAlign;
 @property(copy) NSString *scope;
 @property int rowSpan;
-@property BOOL noWrap;
+@property _Bool noWrap;
 @property(copy) NSString *height;
 @property(copy) NSString *headers;
 @property int colSpan;
@@ -27,7 +27,6 @@
 @property(copy) NSString *align;
 @property(copy) NSString *abbr;
 @property(readonly) int cellIndex;
-- (id)_cellAbove;
 
 @end
 

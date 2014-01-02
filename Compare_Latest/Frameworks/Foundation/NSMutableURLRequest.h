@@ -11,28 +11,13 @@
 }
 
 - (void)setBoundInterfaceIdentifier:(id)arg1;
-- (void)setAllowsCellularAccess:(BOOL)arg1;
-- (void)setNetworkServiceType:(unsigned int)arg1;
+- (void)setAllowsCellularAccess:(_Bool)arg1;
+- (void)setNetworkServiceType:(unsigned long long)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)setMainDocumentURL:(id)arg1;
 - (void)setTimeoutInterval:(double)arg1;
-- (void)setCachePolicy:(unsigned int)arg1;
+- (void)setCachePolicy:(unsigned long long)arg1;
 - (void)setURL:(id)arg1;
-- (void)setContentDispositionEncodingFallbackArray:(id)arg1;
-- (void)setHTTPShouldUsePipelining:(BOOL)arg1;
-- (unsigned int)requestPriority;
-- (void)setRequestPriority:(unsigned int)arg1;
-- (void)setHTTPShouldHandleCookies:(BOOL)arg1;
-- (void)setHTTPUserAgent:(id)arg1;
-- (void)setHTTPReferrer:(id)arg1;
-- (void)setHTTPExtraCookies:(id)arg1;
-- (void)setHTTPContentType:(id)arg1;
-- (void)setHTTPBodyStream:(id)arg1;
-- (void)setHTTPBody:(id)arg1;
-- (void)addValue:(id)arg1 forHTTPHeaderField:(id)arg2;
-- (void)setValue:(id)arg1 forHTTPHeaderField:(id)arg2;
-- (void)setAllHTTPHeaderFields:(id)arg1;
-- (void)setHTTPMethod:(id)arg1;
 
 @end
 

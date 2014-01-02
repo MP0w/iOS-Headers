@@ -28,15 +28,11 @@
 }
 
 + (Class)migrationManagerClass;
-+ (BOOL)setMetadata:(id)arg1 forPersistentStoreWithURL:(id)arg2 error:(id *)arg3;
++ (_Bool)setMetadata:(id)arg1 forPersistentStoreWithURL:(id)arg2 error:(id *)arg3;
 + (id)metadataForPersistentStoreWithURL:(id)arg1 error:(id *)arg2;
-+ (BOOL)accessInstanceVariablesDirectly;
++ (_Bool)accessInstanceVariablesDirectly;
 + (void)initialize;
-+ (id)_figureOutWhereExternalReferencesEndedUpRelativeTo:(id)arg1;
-+ (BOOL)doURLStuff:(id)arg1 createdStubFile:(char *)arg2 readOnly:(char *)arg3 error:(id *)arg4 options:(id)arg5;
-+ (BOOL)_destroyPersistentStoreAtURL:(id)arg1 options:(id)arg2 error:(id *)arg3;
-+ (BOOL)_replacePersistentStoreAtURL:(id)arg1 destinationOptions:(id)arg2 withPersistentStoreFromURL:(id)arg3 sourceOptions:(id)arg4 error:(id *)arg5;
-- (BOOL)loadMetadata:(id *)arg1;
+- (_Bool)loadMetadata:(id *)arg1;
 - (void)didAddToPersistentStoreCoordinator:(id)arg1;
 - (id)options;
 - (void)willRemoveFromPersistentStoreCoordinator:(id)arg1;
@@ -50,38 +46,14 @@
 - (id)URL;
 - (id)persistentStoreCoordinator;
 - (id)configurationName;
-- (void)setReadOnly:(BOOL)arg1;
-- (BOOL)isReadOnly;
+- (void)setReadOnly:(_Bool)arg1;
+- (_Bool)isReadOnly;
 - (id)description;
+- (void)_resetObjectIDFactoriesForStoreUUIDChange;
 - (void)dealloc;
 - (void)finalize;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithPersistentStoreCoordinator:(id)arg1 configurationName:(id)arg2 URL:(id)arg3 options:(id)arg4;
-- (id)_storeInfoForEntityDescription:(id)arg1;
-- (void)_didLoadMetadata;
-- (void)_setMetadataDirty:(BOOL)arg1;
-- (BOOL)_isMetadataDirty;
-- (void)_updateMetadata;
-- (id)_defaultMetadata;
-- (id)_updatedMetadataWithSeed:(id)arg1 includeVersioning:(BOOL)arg2;
-- (id)obtainPermanentIDsForObjects:(id)arg1 error:(id *)arg2;
-- (void)managedObjectContextDidUnregisterObjectsWithIDs:(id)arg1;
-- (void)managedObjectContextDidRegisterObjectsWithIDs:(id)arg1;
-- (id)newValueForRelationship:(id)arg1 forObjectWithID:(id)arg2 withContext:(id)arg3 error:(id *)arg4;
-- (id)newValuesForObjectWithID:(id)arg1 withContext:(id)arg2 error:(id *)arg3;
-- (BOOL)_prepareForExecuteRequest:(id)arg1 withContext:(id)arg2 error:(id *)arg3;
-- (id)executeRequest:(id)arg1 withContext:(id)arg2 error:(id *)arg3;
-- (id *)knownKeyValuesForObjectID:(id)arg1 withContext:(id)arg2;
-- (void)doFilesystemCleanupOnRemove:(BOOL)arg1;
-- (void)_preflightCrossCheck;
-- (void)setPersistentStoreCoordinator:(id)arg1;
-- (BOOL)_unload:(id *)arg1;
-- (BOOL)load:(id *)arg1;
-- (Class)objectIDClassForEntity:(id)arg1;
-- (id)objectIDFactoryForEntity:(id)arg1;
-- (Class)faultHandlerClass;
-- (id)faultHandler;
-- (Class)_objectIDClass;
 
 @end
 

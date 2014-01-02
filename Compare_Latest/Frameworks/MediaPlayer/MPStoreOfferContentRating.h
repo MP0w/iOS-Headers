@@ -13,27 +13,28 @@
 @interface MPStoreOfferContentRating : NSObject <NSCoding>
 {
     NSDictionary *_dictionary;
-    int _ratingLevel;
+    long long _ratingLevel;
     NSString *_ratingDescription;
     NSString *_ratingLabel;
-    unsigned int _ratingSystem;
+    unsigned long long _ratingSystem;
 }
 
-+ (unsigned int)ratingSystemFromString:(id)arg1;
-@property(nonatomic) unsigned int ratingSystem; // @synthesize ratingSystem=_ratingSystem;
++ (unsigned long long)ratingSystemFromString:(id)arg1;
++ (_Bool)supportsSecureCoding;
+@property(nonatomic) unsigned long long ratingSystem; // @synthesize ratingSystem=_ratingSystem;
 @property(copy, nonatomic) NSString *ratingLabel; // @synthesize ratingLabel=_ratingLabel;
 @property(copy, nonatomic) NSString *ratingDescription; // @synthesize ratingDescription=_ratingDescription;
-@property(nonatomic) int ratingLevel; // @synthesize ratingLevel=_ratingLevel;
+@property(nonatomic) long long ratingLevel; // @synthesize ratingLevel=_ratingLevel;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) id mediaPropertyContentRatingValue;
-- (BOOL)_isRatingSystemForTV:(unsigned int)arg1;
-- (BOOL)_isRatingSystemForMusic:(unsigned int)arg1;
-- (BOOL)_isRatingSystemForMovies:(unsigned int)arg1;
-- (BOOL)_isRatingSystemForApps:(unsigned int)arg1;
+- (_Bool)_isRatingSystemForTV:(unsigned long long)arg1;
+- (_Bool)_isRatingSystemForMusic:(unsigned long long)arg1;
+- (_Bool)_isRatingSystemForMovies:(unsigned long long)arg1;
+- (_Bool)_isRatingSystemForApps:(unsigned long long)arg1;
 - (id)valueForProperty:(id)arg1;
-@property(readonly, nonatomic, getter=isRestrictedPurchase) BOOL restrictedPurchase;
-@property(readonly, nonatomic, getter=isRestrictedContent) BOOL restrictedContent;
-@property(readonly, nonatomic, getter=isExplicitContent) BOOL explicitContent;
+@property(readonly, nonatomic, getter=isRestrictedPurchase) _Bool restrictedPurchase;
+@property(readonly, nonatomic, getter=isRestrictedContent) _Bool restrictedContent;
+@property(readonly, nonatomic, getter=isExplicitContent) _Bool explicitContent;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

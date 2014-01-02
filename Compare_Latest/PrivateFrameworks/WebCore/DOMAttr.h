@@ -8,15 +8,16 @@
 
 @class DOMCSSStyleDeclaration, DOMElement, NSString;
 
+// Not exported
 @interface DOMAttr : DOMNode
 {
 }
 
 @property(readonly) DOMCSSStyleDeclaration *style;
-- (BOOL)isId;
+- (_Bool)isId;
 @property(readonly) DOMElement *ownerElement;
 @property(copy) NSString *value;
-@property(readonly) BOOL specified;
+@property(readonly) _Bool specified;
 @property(readonly) NSString *name;
 
 @end

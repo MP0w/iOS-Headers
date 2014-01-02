@@ -22,9 +22,9 @@
 + (void)setCurrentMap:(id)arg1;
 + (id)loadedMap;
 + (void)invalidateCurrentMap;
-+ (BOOL)currentMapIsValid;
++ (_Bool)currentMapIsValid;
 + (id)currentMap;
-+ (BOOL)haveApplicationsOfType:(struct __CFString *)arg1;
++ (_Bool)haveApplicationsOfType:(struct __CFString *)arg1;
 - (void)_loadFromMobileInstallation;
 - (id)copySoftwareUpdatesPropertyListWithUpdatesContext:(id)arg1;
 - (id)copySoftwareUpdatesPropertyList;

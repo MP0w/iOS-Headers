@@ -14,7 +14,7 @@
     NSMutableDictionary *_bakedThumbnails;
 }
 
-+ (void)setTesting:(BOOL)arg1;
++ (void)setTesting:(_Bool)arg1;
 - (void)saveToFile:(id)arg1;
 - (void)setBakedThumbnails:(id)arg1 forFormat:(int)arg2;
 - (id)bakedThumbnailsForFormat:(int)arg1;

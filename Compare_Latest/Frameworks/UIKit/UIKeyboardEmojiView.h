@@ -8,6 +8,7 @@
 
 @class UIKBRenderConfig, UIKeyboardEmoji, UIKeyboardEmojiImageView, UIView, UIView<UIKeyboardEmojiPressIndicationDelegate>;
 
+// Not exported
 @interface UIKeyboardEmojiView : UIControl
 {
     UIKeyboardEmoji *_emoji;

@@ -6,20 +6,21 @@
 
 #import <EventKitUI/EKCalendarItemEditItem.h>
 
+// Not exported
 @interface EKCalendarItemCalendarEditItem : EKCalendarItemEditItem
 {
-    unsigned int _entityType;
+    unsigned long long _entityType;
 }
 
-- (BOOL)editItemViewControllerCommit:(id)arg1;
-- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(unsigned int)arg2 inSubsection:(unsigned int)arg3;
-- (id)cellForSubitemAtIndex:(unsigned int)arg1 inSubsection:(unsigned int)arg2;
-- (BOOL)_shouldShowSourceForCalendar:(id)arg1;
-- (BOOL)requiresReconfigurationOnCommit;
-- (BOOL)shouldAppearWithVisibility:(int)arg1;
-- (BOOL)canBeConfiguredForCalendarConstraints:(id)arg1;
+- (_Bool)editItemViewControllerCommit:(id)arg1;
+- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(unsigned long long)arg2 inSubsection:(unsigned long long)arg3;
+- (id)cellForSubitemAtIndex:(unsigned long long)arg1 inSubsection:(unsigned long long)arg2;
+- (_Bool)_shouldShowSourceForCalendar:(id)arg1;
+- (_Bool)requiresReconfigurationOnCommit;
+- (_Bool)shouldAppearWithVisibility:(int)arg1;
+- (_Bool)canBeConfiguredForCalendarConstraints:(id)arg1;
 - (id)init;
-- (id)initWithEntityType:(unsigned int)arg1;
+- (id)initWithEntityType:(unsigned long long)arg1;
 
 @end
 

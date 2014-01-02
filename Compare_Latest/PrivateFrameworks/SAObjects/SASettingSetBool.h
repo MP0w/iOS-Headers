@@ -12,9 +12,9 @@
 
 + (id)setBoolWithDictionary:(id)arg1 context:(id)arg2;
 + (id)setBool;
-- (BOOL)requiresResponse;
-@property(nonatomic) BOOL value;
-@property(nonatomic) BOOL toggle;
+- (_Bool)requiresResponse;
+@property(nonatomic) _Bool value;
+@property(nonatomic) _Bool toggle;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

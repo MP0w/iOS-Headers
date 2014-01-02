@@ -8,13 +8,14 @@
 
 @class AirPlayReceiverContext;
 
+// Not exported
 @interface AirPlayHIDDevice : NSObject
 {
     AirPlayReceiverContext *_apc;
     struct __IOHIDDevice *_hidDevice;
     unsigned char _hidOpened;
     char *_hidReportBuf;
-    long _hidReportMaxLen;
+    long long _hidReportMaxLen;
     struct __CFString *_uuid;
 }
 

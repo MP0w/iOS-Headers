@@ -11,7 +11,6 @@
 @interface AVCaptureDeviceFormatInternal : NSObject
 {
     NSString *mediaType;
-    int mediaSubType;
     NSDictionary *formatDictionary;
     NSDictionary *deviceProperties;
     struct opaqueCMFormatDescription *formatDescription;

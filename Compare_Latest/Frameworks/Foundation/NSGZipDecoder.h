@@ -14,22 +14,22 @@
 @interface NSGZipDecoder : NSObject <NSURLDownloadDecoder, NSURLDataDecoder>
 {
     struct z_stream_s _stream;
-    unsigned int _modificationTime;
+    unsigned long long _modificationTime;
     NSString *_filename;
-    BOOL _streamInitialized;
-    BOOL _decodedHeader;
-    BOOL _finishedInflating;
-    BOOL _pad;
+    _Bool _streamInitialized;
+    _Bool _decodedHeader;
+    _Bool _finishedInflating;
+    _Bool _pad;
 }
 
 + (id)MIMEType;
-+ (BOOL)canDecodeDownloadHeaderData:(id)arg1;
-+ (BOOL)decodeDownloadHeader:(id)arg1 headerLength:(int *)arg2 modificationTime:(unsigned int *)arg3 filename:(id *)arg4;
++ (_Bool)canDecodeDownloadHeaderData:(id)arg1;
++ (_Bool)decodeDownloadHeader:(id)arg1 headerLength:(int *)arg2 modificationTime:(unsigned long long *)arg3 filename:(id *)arg4;
 - (id)filenameWithOriginalFilename:(id)arg1;
 - (id)fileAttributes;
-- (BOOL)finishDownloadDecoding;
-- (BOOL)isFinishedDecoding;
-- (BOOL)decodeDownloadData:(id)arg1 dataForkData:(id *)arg2 resourceForkData:(id *)arg3;
+- (_Bool)finishDownloadDecoding;
+- (_Bool)isFinishedDecoding;
+- (_Bool)decodeDownloadData:(id)arg1 dataForkData:(id *)arg2 resourceForkData:(id *)arg3;
 - (id)decodeData:(id)arg1;
 - (void)finalize;
 - (void)dealloc;

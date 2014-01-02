@@ -9,7 +9,7 @@
 #import "SKUIItemStateCenterObserver-Protocol.h"
 #import "UIPopoverControllerDelegate-Protocol.h"
 
-@class NSOperationQueue, SKUIClientContext, SKUIFacebookLikeStatus, SKUIItem, SKUIItemArtworkContext, SKUILoadURLOperation, SKUIProductPageHeaderFloatingView, SKUIProductPageHeaderView, SKUIProductPageItem, UIImage, UIPopoverController;
+@class NSOperationQueue, SKUIClientContext, SKUIFacebookLikeStatus, SKUIItem, SKUIItemArtworkContext, SKUIProductPage, SKUIProductPageHeaderFloatingView, SKUIProductPageHeaderView, SSVLoadURLOperation, UIImage, UIPopoverController;
 
 @interface SKUIProductPageHeaderViewController : UIViewController <SKUIItemStateCenterObserver, UIPopoverControllerDelegate>
 {
@@ -22,15 +22,15 @@
     UIImage *_iconImage;
     SKUIItem *_item;
     long long _itemIdentifier;
-    SKUILoadURLOperation *_loadIconOperation;
-    SKUILoadURLOperation *_loadUberOperation;
+    SSVLoadURLOperation *_loadIconOperation;
+    SSVLoadURLOperation *_loadUberOperation;
     NSOperationQueue *_operationQueue;
     UIImage *_placeholderImage;
-    SKUIProductPageItem *_productPageItem;
+    SKUIProductPage *_productPage;
     UIImage *_uberImage;
-    BOOL _wantsActivityViewController;
+    _Bool _wantsActivityViewController;
     SKUIProductPageHeaderFloatingView *_floatingView;
-    BOOL _performArtistActionOnLoad;
+    _Bool _performArtistActionOnLoad;
 }
 
 @property(readonly, nonatomic) SKUIProductPageHeaderFloatingView *floatingView; // @synthesize floatingView=_floatingView;
@@ -42,10 +42,15 @@
 - (void).cxx_destruct;
 - (void)_showActivityViewControllerFromView:(id)arg1;
 - (void)_setUberWithImage:(id)arg1 error:(id)arg2;
+- (void)_setItemState:(id)arg1 animated:(_Bool)arg2;
 - (void)_setArtworkWithImage:(id)arg1 error:(id)arg2;
-- (BOOL)_isRestricted;
+- (id)_segmentedControlTitles;
+- (void)_loadUberImageIfAvailable;
+- (_Bool)_isRestricted;
+- (id)_ageBandString;
 - (id)_facebookFriendsString;
 - (void)_destroyPopoverController;
+- (id)_activeItem;
 - (id)_artworkContext;
 - (void)popoverControllerDidDismissPopover:(id)arg1;
 - (void)itemStateCenterRestrictionsChanged:(id)arg1;
@@ -54,11 +59,11 @@
 - (void)_sectionControlAction:(id)arg1;
 - (void)_itemOfferButtonAction:(id)arg1;
 - (void)_artistButtonAction:(id)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;
-- (void)didRotateFromInterfaceOrientation:(int)arg1;
-- (void)setProductPageItem:(id)arg1;
+- (void)didRotateFromInterfaceOrientation:(long long)arg1;
+- (void)setProductPage:(id)arg1;
 - (void)reloadData;
 @property(readonly, nonatomic) UIImage *iconImage;
 - (void)dealloc;

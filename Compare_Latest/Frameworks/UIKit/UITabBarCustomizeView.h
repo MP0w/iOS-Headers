@@ -6,8 +6,9 @@
 
 #import <UIKit/UIView.h>
 
-@class NSMutableArray, UIImageView, UISnapshotView, UITabBar, UITabBarItem, UITabBarItemProxy;
+@class NSArray, NSMutableArray, UIImageView, UILabel, UISnapshotView, UITabBar, UITabBarItem, UITabBarItemProxy;
 
+// Not exported
 @interface UITabBarCustomizeView : UIView
 {
     UITabBar *_tabBar;
@@ -18,12 +19,16 @@
     UISnapshotView *_dragImage;
     UIImageView *_replacementGlow;
     UITabBarItem *_replaceItem;
+    UILabel *_titleLabel;
     struct CGPoint _startPoint;
-    int _gridCount;
-    float _gridOffset;
+    long long _itemsInRowCount;
+    double _gridOffset;
+    struct CGRect _firstItemRect;
+    UITabBarItem *_selectedBeforeItem;
+    NSArray *_availableItems;
 }
 
-- (void)_finishTouchesEndedChangeAnimation:(id)arg1 finished:(id)arg2 context:(id)arg3;
+@property(retain, nonatomic) NSArray *availableItems; // @synthesize availableItems=_availableItems;
 - (void)tabBarTouchesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)tabBarTouchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)tabBarTouchesMoved:(id)arg1 withEvent:(id)arg2;
@@ -37,6 +42,9 @@
 - (void)layoutSubviews;
 - (void)dealloc;
 - (void)setTabBar:(id)arg1 currentItems:(id)arg2 availableItems:(id)arg3;
+- (long long)_barMetrics;
+- (void)updateProxiesSelection;
+- (void)tintTabBarItemsForEdit:(_Bool)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

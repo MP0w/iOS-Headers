@@ -14,12 +14,12 @@
 + (id)newDataHandlerForDataclass:(int)arg1 container:(void *)arg2;
 @property(nonatomic) void *container; // @synthesize container=_container;
 - (id)getDAObjectWithLocalItem:(void *)arg1 serverId:(id)arg2 account:(id)arg3;
-- (BOOL)closeDBAndSave:(BOOL)arg1;
+- (_Bool)closeDBAndSave:(_Bool)arg1;
 - (void)openDB;
-- (BOOL)wipeServerIds;
+- (_Bool)wipeServerIds;
 - (void)drainContainer;
 - (struct __CFArray *)copyOfAllLocalObjectsInContainer;
-- (BOOL)saveContainer;
+- (_Bool)saveContainer;
 - (void *)copyLocalObjectFromId:(int)arg1;
 - (int)getIdFromLocalObject:(void *)arg1;
 - (int)dataclass;

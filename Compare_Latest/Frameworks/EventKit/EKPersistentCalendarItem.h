@@ -8,6 +8,7 @@
 
 @class EKPersistentAttendee, EKPersistentCalendar, EKPersistentLocation, EKPersistentOrganizer, NSData, NSDate, NSSet, NSString, NSTimeZone, NSURL;
 
+// Not exported
 @interface EKPersistentCalendarItem : EKPersistentObject
 {
 }
@@ -22,7 +23,7 @@
 - (void)addDetachedItem:(id)arg1;
 @property(copy, nonatomic) NSSet *detachedItems;
 @property(retain, nonatomic) EKPersistentCalendarItem *originalItem;
-@property(readonly, nonatomic, getter=isDetached) BOOL detached;
+@property(readonly, nonatomic, getter=isDetached) _Bool detached;
 @property(copy, nonatomic) NSTimeZone *sharedItemModifiedTimeZone;
 @property(copy, nonatomic) NSDate *sharedItemModifiedDate;
 @property(copy, nonatomic) NSString *sharedItemModifiedByLastName;
@@ -38,7 +39,7 @@
 - (void)removeAttachment:(id)arg1;
 - (void)addAttachment:(id)arg1;
 @property(copy, nonatomic) NSSet *attachments;
-- (BOOL)hasAttachments;
+- (_Bool)hasAttachments;
 @property(copy, nonatomic) NSData *externalData;
 - (void)setExternalModificationTag:(id)arg1;
 - (id)externalModificationTag;
@@ -52,35 +53,35 @@
 - (void)addAttendee:(id)arg1;
 @property(copy, nonatomic) NSSet *attendees;
 - (int)attendeeCount;
-@property(readonly, nonatomic) BOOL hasAttendees;
+@property(readonly, nonatomic) _Bool hasAttendees;
 - (void)removeExceptionDate:(id)arg1;
 - (void)addExceptionDate:(id)arg1;
 @property(copy, nonatomic) NSSet *exceptionDates;
 - (void)removeRecurrenceRule:(id)arg1;
 - (void)addRecurrenceRule:(id)arg1;
 @property(copy, nonatomic) NSSet *recurrenceRules;
-@property(readonly, nonatomic) BOOL hasRecurrenceRules;
+@property(readonly, nonatomic) _Bool hasRecurrenceRules;
 - (void)primitiveValueChangedForKey:(id)arg1;
-@property(nonatomic, getter=isDefaultAlarmRemoved) BOOL defaultAlarmRemoved;
+@property(nonatomic, getter=isDefaultAlarmRemoved) _Bool defaultAlarmRemoved;
 - (void)removeAlarm:(id)arg1;
 - (void)addAlarm:(id)arg1;
 @property(copy, nonatomic) NSSet *alarms;
-@property(readonly, nonatomic) BOOL hasAlarms;
+@property(readonly, nonatomic) _Bool hasAlarms;
 @property(copy, nonatomic) NSURL *URL;
 @property(copy, nonatomic) NSURL *action;
 @property(nonatomic) int sequence;
 @property(nonatomic) int priority;
-@property(nonatomic, getter=isAllDay) BOOL allDay;
+@property(nonatomic, getter=isAllDay) _Bool allDay;
 @property(copy, nonatomic) NSTimeZone *timeZone;
 @property(copy, nonatomic) NSDate *startDate;
 @property(copy, nonatomic) NSDate *creationDate;
 @property(copy, nonatomic) NSDate *lastModifiedDate;
 @property(copy, nonatomic) EKPersistentLocation *location;
 @property(copy, nonatomic) NSString *title;
-@property(readonly, nonatomic) BOOL hasNotes;
+@property(readonly, nonatomic) _Bool hasNotes;
 @property(copy, nonatomic) NSString *notes;
 @property(retain, nonatomic) EKPersistentCalendar *calendar;
-- (BOOL)validate:(id *)arg1;
+- (_Bool)validate:(id *)arg1;
 @property(readonly, nonatomic) NSString *UUID;
 - (id)init;
 

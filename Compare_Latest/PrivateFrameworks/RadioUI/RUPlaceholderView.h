@@ -6,23 +6,22 @@
 
 #import "UIView.h"
 
-@class UIAlertView, UIButton, UILabel;
+@class MPUVignetteBackgroundView, UIAlertView, _UIContentUnavailableView;
 
 @interface RUPlaceholderView : UIView
 {
-    UILabel *_subtitleLabel;
-    UILabel *_titleLabel;
+    MPUVignetteBackgroundView *_backgroundView;
+    _UIContentUnavailableView *_contentUnavailableView;
     UIAlertView *_useCellularAlertView;
-    UIButton *_useCellularButton;
-    BOOL _cellularNetworkingAllowed;
-    int _style;
+    _Bool _cellularNetworkingAllowed;
+    long long _style;
 }
 
-@property(nonatomic) BOOL cellularNetworkingAllowed; // @synthesize cellularNetworkingAllowed=_cellularNetworkingAllowed;
-@property(nonatomic) int style; // @synthesize style=_style;
+@property(nonatomic) _Bool cellularNetworkingAllowed; // @synthesize cellularNetworkingAllowed=_cellularNetworkingAllowed;
+@property(nonatomic) long long style; // @synthesize style=_style;
 - (void).cxx_destruct;
 - (void)_useCellularAction:(id)arg1;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

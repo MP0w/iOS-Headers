@@ -8,6 +8,7 @@
 
 @class NSIndexPath, NSTimer, UIShadowView, UITableViewCell;
 
+// Not exported
 @interface _UITableViewReorderingSupport : NSObject
 {
     UITableViewCell *_reorderedCell;
@@ -21,7 +22,7 @@
     NSTimer *_autoscrollTimer;
     UIShadowView *_topShadowView;
     UIShadowView *_bottomShadowView;
-    BOOL _wasScrollingEnabled;
+    _Bool _wasScrollingEnabled;
 }
 
 @end

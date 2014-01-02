@@ -13,11 +13,11 @@
     NSString *_previousValue;
 }
 
-- (CDStruct_421913e2)suggestionsForString:(id)arg1 inputIndex:(unsigned int)arg2;
+- (CDStruct_856ef1b3)suggestionsForString:(id)arg1 inputIndex:(unsigned int)arg2;
 - (void)updateTransportButtons;
-- (BOOL)shouldPerformDefaultAction;
+- (_Bool)shouldPerformDefaultAction;
+- (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

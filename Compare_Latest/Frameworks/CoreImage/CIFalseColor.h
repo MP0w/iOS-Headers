@@ -8,6 +8,7 @@
 
 @class CIColor, CIImage;
 
+// Not exported
 @interface CIFalseColor : CIFilter
 {
     CIImage *inputImage;

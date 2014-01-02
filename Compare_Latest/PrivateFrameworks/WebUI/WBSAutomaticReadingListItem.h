@@ -10,8 +10,9 @@
 
 @interface WBSAutomaticReadingListItem : NSObject
 {
-    BOOL _repostedByAuthenticatedUser;
-    BOOL _fetchingProfileImage;
+    _Bool _repostedByAuthenticatedUser;
+    _Bool _fetchingProfileImage;
+    NSString *_uniqueIdentifier;
     id _sourceRecordID;
     NSDate *_sourceRecordCreationDate;
     NSString *_sourceRecordText;
@@ -25,9 +26,9 @@
 }
 
 + (id)keyPathsForValuesAffectingDomainString;
-@property(nonatomic) BOOL fetchingProfileImage; // @synthesize fetchingProfileImage=_fetchingProfileImage;
+@property(nonatomic) _Bool fetchingProfileImage; // @synthesize fetchingProfileImage=_fetchingProfileImage;
 @property(readonly, nonatomic) NSString *socialSourceAccountIdentifier; // @synthesize socialSourceAccountIdentifier=_socialSourceAccountIdentifier;
-@property(nonatomic, getter=isRepostedByAuthenticatedUser) BOOL repostedByAuthenticatedUser; // @synthesize repostedByAuthenticatedUser=_repostedByAuthenticatedUser;
+@property(nonatomic, getter=isRepostedByAuthenticatedUser) _Bool repostedByAuthenticatedUser; // @synthesize repostedByAuthenticatedUser=_repostedByAuthenticatedUser;
 @property(retain, nonatomic) UIImage *originatorProfileImage; // @synthesize originatorProfileImage=_originatorProfileImage;
 @property(readonly, nonatomic) NSString *reposterScreenName; // @synthesize reposterScreenName=_reposterScreenName;
 @property(readonly, nonatomic) NSString *reposterDisplayName; // @synthesize reposterDisplayName=_reposterDisplayName;
@@ -37,6 +38,7 @@
 @property(readonly, nonatomic) NSString *sourceRecordText; // @synthesize sourceRecordText=_sourceRecordText;
 @property(readonly, nonatomic) NSDate *sourceRecordCreationDate; // @synthesize sourceRecordCreationDate=_sourceRecordCreationDate;
 @property(readonly, nonatomic) id sourceRecordID; // @synthesize sourceRecordID=_sourceRecordID;
+@property(copy, nonatomic) NSString *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
 - (id)description;
 - (void)_fetchOriginatorProfileImageForSize:(struct CGSize)arg1;
 - (id)bestOriginatorProfileImageForSize:(struct CGSize)arg1;
@@ -48,6 +50,8 @@
 @property(readonly, nonatomic) NSURL *sourceRecordURL;
 @property(readonly, nonatomic) NSString *domainString;
 @property(readonly, nonatomic) WBSAutomaticReadingListSocialSource *socialSource;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)dealloc;
 - (id)initWithDictionary:(id)arg1 socialSourceAccountIdentifier:(id)arg2;
 

@@ -11,6 +11,6 @@
 - (double)transitionDuration:(id)arg1;
 
 @optional
-- (void)animationEnded:(BOOL)arg1;
+- (void)animationEnded:(_Bool)arg1;
 @end
 

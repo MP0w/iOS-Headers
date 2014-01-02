@@ -12,17 +12,17 @@
 {
     SKUIGiftDashView *_dashView;
     UILabel *_labelLabel;
-    int _style;
+    long long _style;
     UILabel *_valueLabel;
 }
 
-@property(readonly, nonatomic) int giftConfirmLabelStyle; // @synthesize giftConfirmLabelStyle=_style;
+@property(readonly, nonatomic) long long giftConfirmLabelStyle; // @synthesize giftConfirmLabelStyle=_style;
 - (void).cxx_destruct;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 @property(copy, nonatomic) NSString *value;
 @property(copy, nonatomic) NSString *label;
-- (id)initWithGiftConfirmLabelStyle:(int)arg1;
+- (id)initWithGiftConfirmLabelStyle:(long long)arg1;
 
 @end
 

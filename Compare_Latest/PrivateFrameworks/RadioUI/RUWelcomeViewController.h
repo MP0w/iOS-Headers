@@ -11,45 +11,55 @@
 #import "UICollectionViewDataSource-Protocol.h"
 #import "UICollectionViewDelegate-Protocol.h"
 
-@class CADisplayLink, RUSignInViewController, RUTermsViewController, SKUICircleProgressIndicator, UIButton, UICollectionView, UILabel;
+@class CADisplayLink, RUSignInViewController, RUTermsViewController, SKUICircleProgressIndicator, UIButton, UICollectionView, UILabel, _RUWelcomeTicker;
 
 @interface RUWelcomeViewController : UIViewController <RUSignInViewControllerDelegate, RUTermsViewControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 {
     SKUICircleProgressIndicator *_activityIndicatorView;
     CADisplayLink *_displayLink;
-    BOOL _isVisible;
     double _lastTimestamp;
+    UIButton *_learnMoreButton;
     UILabel *_loadingLabel;
     UICollectionView *_scrollingStackCollectionView;
     UIButton *_signInButton;
     RUSignInViewController *_signInViewController;
     RUTermsViewController *_termsViewController;
-    BOOL _displayingLoading;
+    _RUWelcomeTicker *_ticker;
+    UILabel *_titleLabel;
+    _Bool _displayingLoading;
     id <RUWelcomeViewControllerDelegate> _delegate;
 }
 
+@property(nonatomic, getter=isDisplayingLoading) _Bool displayingLoading; // @synthesize displayingLoading=_displayingLoading;
 @property(nonatomic) __weak id <RUWelcomeViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic, getter=_isDisplayingLoading, setter=_setDisplayingLoading:) BOOL _displayingLoading; // @synthesize _displayingLoading;
 - (void).cxx_destruct;
 - (void)_updateSignInButtonTitle;
 - (id)_stackImageNames;
+- (void)_scrollWithCurrentTimestemp:(double)arg1;
+- (void)_createEndScrollingAnimation;
+- (void)_resumeScrollingIfNecessary;
+- (void)_endScrollingIfNecessary;
 - (void)_presentSignInViewController;
 - (void)_optInWithActiveAccountWithCompletionHandler:(id)arg1;
-- (void)_completeWithStatus:(int)arg1 didOptIn:(BOOL)arg2;
+- (void)_layoutForOrientation:(long long)arg1;
+- (void)_completeWithStatus:(long long)arg1 didOptIn:(_Bool)arg2;
 - (void)_checkAcceptedTermsWithCompletionHandler:(id)arg1;
-- (void)_attemptOptInAndAllowAuthentication:(BOOL)arg1;
+- (void)_attemptOptInAndAllowAuthentication:(_Bool)arg1;
 - (void)_accountStoreDidChangeNotification:(id)arg1;
 - (void)_signInAction:(id)arg1;
 - (void)_learnMoreAction:(id)arg1;
 - (void)_displayLinkAction:(id)arg1;
 - (void)scrollViewDidScroll:(id)arg1;
+- (id)_sortCollectionCells:(id)arg1 byDistanceFromCenter:(struct CGPoint)arg2;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
-- (int)collectionView:(id)arg1 numberOfItemsInSection:(int)arg2;
-- (void)termsViewController:(id)arg1 didAcceptTerms:(BOOL)arg2;
+- (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
+- (void)termsViewController:(id)arg1 didAcceptTerms:(_Bool)arg2;
 - (void)signInViewController:(id)arg1 didCompleteWithAuthenticateResponse:(id)arg2;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
-- (void)viewDidDisappear:(BOOL)arg1;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewDidLayoutSubviews;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 

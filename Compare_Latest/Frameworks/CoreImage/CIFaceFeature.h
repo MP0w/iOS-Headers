@@ -9,43 +9,43 @@
 @interface CIFaceFeature : CIFeature
 {
     struct CGRect bounds;
-    BOOL hasLeftEyePosition;
+    _Bool hasLeftEyePosition;
     struct CGPoint leftEyePosition;
-    BOOL hasRightEyePosition;
+    _Bool hasRightEyePosition;
     struct CGPoint rightEyePosition;
-    BOOL hasMouthPosition;
+    _Bool hasMouthPosition;
     struct CGPoint mouthPosition;
-    BOOL hasTrackingID;
+    _Bool hasTrackingID;
     int trackingID;
-    BOOL hasTrackingFrameCount;
+    _Bool hasTrackingFrameCount;
     int trackingFrameCount;
-    BOOL hasFaceAngle;
+    _Bool hasFaceAngle;
     float faceAngle;
-    BOOL hasSmile;
-    BOOL leftEyeClosed;
-    BOOL rightEyeClosed;
+    _Bool hasSmile;
+    _Bool leftEyeClosed;
+    _Bool rightEyeClosed;
 }
 
-+ (id)faceFeaturesWithBoundsArray:(const struct CGRect *)arg1 count:(unsigned int)arg2;
++ (id)faceFeaturesWithBoundsArray:(const struct CGRect *)arg1 count:(unsigned long long)arg2;
 + (id)faceFeatureWithBounds:(struct CGRect)arg1;
-@property BOOL rightEyeClosed; // @synthesize rightEyeClosed;
-@property BOOL leftEyeClosed; // @synthesize leftEyeClosed;
-@property BOOL hasSmile; // @synthesize hasSmile;
+@property _Bool rightEyeClosed; // @synthesize rightEyeClosed;
+@property _Bool leftEyeClosed; // @synthesize leftEyeClosed;
+@property _Bool hasSmile; // @synthesize hasSmile;
 @property float faceAngle; // @synthesize faceAngle;
-@property BOOL hasFaceAngle; // @synthesize hasFaceAngle;
+@property _Bool hasFaceAngle; // @synthesize hasFaceAngle;
 @property int trackingFrameCount; // @synthesize trackingFrameCount;
-@property BOOL hasTrackingFrameCount; // @synthesize hasTrackingFrameCount;
+@property _Bool hasTrackingFrameCount; // @synthesize hasTrackingFrameCount;
 @property int trackingID; // @synthesize trackingID;
-@property BOOL hasTrackingID; // @synthesize hasTrackingID;
+@property _Bool hasTrackingID; // @synthesize hasTrackingID;
 @property struct CGPoint mouthPosition; // @synthesize mouthPosition;
-@property BOOL hasMouthPosition; // @synthesize hasMouthPosition;
+@property _Bool hasMouthPosition; // @synthesize hasMouthPosition;
 @property struct CGPoint rightEyePosition; // @synthesize rightEyePosition;
-@property BOOL hasRightEyePosition; // @synthesize hasRightEyePosition;
+@property _Bool hasRightEyePosition; // @synthesize hasRightEyePosition;
 @property struct CGPoint leftEyePosition; // @synthesize leftEyePosition;
-@property BOOL hasLeftEyePosition; // @synthesize hasLeftEyePosition;
+@property _Bool hasLeftEyePosition; // @synthesize hasLeftEyePosition;
 @property struct CGRect bounds; // @synthesize bounds;
 - (id).cxx_construct;
-- (id)initWithBounds:(struct CGRect)arg1 hasLeftEyePosition:(BOOL)arg2 leftEyePosition:(struct CGPoint)arg3 hasRightEyePosition:(BOOL)arg4 rightEyePosition:(struct CGPoint)arg5 hasMouthPosition:(BOOL)arg6 mouthPosition:(struct CGPoint)arg7 hasFaceAngle:(BOOL)arg8 faceAngle:(float)arg9 hasTrackingID:(BOOL)arg10 trackingID:(int)arg11 hasTrackingFrameCount:(BOOL)arg12 trackingFrameCount:(int)arg13 hasSmile:(BOOL)arg14 leftEyeClosed:(BOOL)arg15 rightEyeClosed:(BOOL)arg16;
+- (id)initWithBounds:(struct CGRect)arg1 hasLeftEyePosition:(_Bool)arg2 leftEyePosition:(struct CGPoint)arg3 hasRightEyePosition:(_Bool)arg4 rightEyePosition:(struct CGPoint)arg5 hasMouthPosition:(_Bool)arg6 mouthPosition:(struct CGPoint)arg7 hasFaceAngle:(_Bool)arg8 faceAngle:(float)arg9 hasTrackingID:(_Bool)arg10 trackingID:(int)arg11 hasTrackingFrameCount:(_Bool)arg12 trackingFrameCount:(int)arg13 hasSmile:(_Bool)arg14 leftEyeClosed:(_Bool)arg15 rightEyeClosed:(_Bool)arg16;
 - (id)initWithBounds:(struct CGRect)arg1;
 - (id)type;
 

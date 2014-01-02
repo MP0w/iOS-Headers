@@ -8,38 +8,39 @@
 
 @class NSMutableArray, NSObject<UIWebPDFSearchOperationDelegate>, NSString, UIPDFDocument;
 
+// Not exported
 @interface UIWebPDFSearchOperation : NSOperation
 {
     NSMutableArray *_results;
-    unsigned int _pageIndex;
-    unsigned int _numberOfResultsToSkip;
-    unsigned int _totalResultsCount;
-    unsigned int _currentPageResultCount;
-    BOOL _complete;
-    unsigned int startingPageIndex;
+    unsigned long long _pageIndex;
+    unsigned long long _numberOfResultsToSkip;
+    unsigned long long _totalResultsCount;
+    unsigned long long _currentPageResultCount;
+    _Bool _complete;
+    unsigned long long startingPageIndex;
     UIPDFDocument *documentToSearch;
     NSObject<UIWebPDFSearchOperationDelegate> *searchDelegate;
-    float documentScale;
+    double documentScale;
     NSString *searchString;
-    unsigned int resultLimit;
+    unsigned long long resultLimit;
 }
 
-@property(nonatomic) unsigned int resultLimit; // @synthesize resultLimit;
+@property(nonatomic) unsigned long long resultLimit; // @synthesize resultLimit;
 @property(retain, nonatomic) NSString *searchString; // @synthesize searchString;
-@property(nonatomic) unsigned int numberOfResultsToSkip; // @synthesize numberOfResultsToSkip=_numberOfResultsToSkip;
-@property(nonatomic) float documentScale; // @synthesize documentScale;
+@property(nonatomic) unsigned long long numberOfResultsToSkip; // @synthesize numberOfResultsToSkip=_numberOfResultsToSkip;
+@property(nonatomic) double documentScale; // @synthesize documentScale;
 @property NSObject<UIWebPDFSearchOperationDelegate> *searchDelegate; // @synthesize searchDelegate;
 @property(retain) UIPDFDocument *documentToSearch; // @synthesize documentToSearch;
-@property(readonly, nonatomic) unsigned int currentPageIndex; // @synthesize currentPageIndex=_pageIndex;
-@property(nonatomic) unsigned int startingPageIndex; // @synthesize startingPageIndex;
-@property(readonly, nonatomic) unsigned int currentPageResultCount; // @synthesize currentPageResultCount=_currentPageResultCount;
+@property(readonly, nonatomic) unsigned long long currentPageIndex; // @synthesize currentPageIndex=_pageIndex;
+@property(nonatomic) unsigned long long startingPageIndex; // @synthesize startingPageIndex;
+@property(readonly, nonatomic) unsigned long long currentPageResultCount; // @synthesize currentPageResultCount=_currentPageResultCount;
 - (void)cancel;
 - (void)main;
 - (void)_search;
 - (id)sanitizedAttributedStringForAttributedString:(id)arg1;
-- (struct __CTFont *)_fontWithPDFFont:(struct CGPDFFont *)arg1 size:(float)arg2;
+- (struct __CTFont *)_fontWithPDFFont:(struct CGPDFFont *)arg1 size:(double)arg2;
 - (void)_notifyDelegateOfStatus;
-- (BOOL)_hitSearchLimit;
+- (_Bool)_hitSearchLimit;
 - (void)dealloc;
 - (id)init;
 

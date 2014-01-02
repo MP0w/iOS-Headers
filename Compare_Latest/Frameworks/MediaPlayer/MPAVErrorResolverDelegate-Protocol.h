@@ -9,6 +9,6 @@
 @protocol MPAVErrorResolverDelegate <NSObject>
 
 @optional
-- (void)errorResolver:(id)arg1 didResolveError:(id)arg2 withResolution:(int)arg3;
+- (void)errorResolver:(id)arg1 didResolveError:(id)arg2 withResolution:(long long)arg3;
 @end
 

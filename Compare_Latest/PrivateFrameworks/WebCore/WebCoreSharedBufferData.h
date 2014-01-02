@@ -6,6 +6,7 @@
 
 #import "NSData.h"
 
+// Not exported
 @interface WebCoreSharedBufferData : NSData
 {
     struct RefPtr<WebCore::SharedBuffer> sharedBuffer;
@@ -15,7 +16,7 @@
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (const void *)bytes;
-- (unsigned int)length;
+- (unsigned long long)length;
 - (id)initWithSharedBuffer:(struct SharedBuffer *)arg1;
 - (void)finalize;
 - (void)dealloc;

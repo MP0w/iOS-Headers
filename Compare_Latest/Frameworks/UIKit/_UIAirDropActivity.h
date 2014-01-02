@@ -8,6 +8,7 @@
 
 @class SFAirDropActivityViewController;
 
+// Not exported
 @interface _UIAirDropActivity : UIActivity
 {
     SFAirDropActivityViewController *_airDropViewController;

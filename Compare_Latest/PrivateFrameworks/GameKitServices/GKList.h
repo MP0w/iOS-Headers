@@ -6,15 +6,16 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface GKList : NSObject
 {
     unsigned int *_items;
-    unsigned long _count;
-    unsigned long _size;
+    unsigned long long _count;
+    unsigned long long _size;
     struct _opaque_pthread_mutex_t _lock;
 }
 
-@property(readonly) unsigned long count; // @synthesize count=_count;
+@property(readonly) unsigned long long count; // @synthesize count=_count;
 - (void)print;
 - (void)unlock;
 - (void)lock;
@@ -24,9 +25,9 @@
 - (void)addIDsFromList:(id)arg1;
 - (void)copyItemsInto:(id)arg1;
 - (void)addID:(unsigned int)arg1;
-- (BOOL)hasID:(unsigned int)arg1;
+- (_Bool)hasID:(unsigned int)arg1;
 - (void)dealloc;
-- (id)initWithSize:(unsigned long)arg1;
+- (id)initWithSize:(unsigned long long)arg1;
 - (id)init;
 
 @end

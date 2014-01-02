@@ -13,17 +13,17 @@
 }
 
 - (void)stopImmediatePropagation;
-- (void)initEvent:(id)arg1:(BOOL)arg2:(BOOL)arg3;
-- (void)initEvent:(id)arg1 canBubbleArg:(BOOL)arg2 cancelableArg:(BOOL)arg3;
+- (void)initEvent:(id)arg1:(_Bool)arg2:(_Bool)arg3;
+- (void)initEvent:(id)arg1 canBubbleArg:(_Bool)arg2 cancelableArg:(_Bool)arg3;
 - (void)preventDefault;
 - (void)stopPropagation;
-@property BOOL cancelBubble;
-@property BOOL returnValue;
+@property _Bool cancelBubble;
+@property _Bool returnValue;
 @property(readonly) id <DOMEventTarget> srcElement;
-- (BOOL)defaultPrevented;
+- (_Bool)defaultPrevented;
 @property(readonly) unsigned long long timeStamp;
-@property(readonly) BOOL cancelable;
-@property(readonly) BOOL bubbles;
+@property(readonly) _Bool cancelable;
+@property(readonly) _Bool bubbles;
 @property(readonly) unsigned short eventPhase;
 @property(readonly) id <DOMEventTarget> currentTarget;
 @property(readonly) id <DOMEventTarget> target;

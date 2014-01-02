@@ -8,9 +8,9 @@
 
 @interface NSObject (BKS)
 + (void)bks_waitAsynchronouslyForNotification:(id)arg1 object:(id)arg2 forDuration:(double)arg3 andPerformBlock:(id)arg4 onQueue:(void)arg5;
-+ (BOOL)bks_synchronousWrapper:(id)arg1 timeout:(void)arg2;
++ (_Bool)bks_synchronousWrapper:(id)arg1 timeout:(void)arg2;
 + (id)bks_objectFromData:(id)arg1;
 + (id)bks_dataFromObject:(id)arg1;
-- (BOOL)bks_isPlistableType;
+- (_Bool)bks_isPlistableType;
 @end
 

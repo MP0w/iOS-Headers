@@ -8,6 +8,7 @@
 
 #import "GQDrawablesGenerator-Protocol.h"
 
+// Not exported
 @interface GQHDrawable : NSObject <GQDrawablesGenerator>
 {
 }

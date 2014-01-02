@@ -6,20 +6,26 @@
 
 #pragma mark Named Structures
 
+struct Atomic {
+    struct {
+        int _field1;
+    } _field1;
+};
+
 struct CGAffineTransform {
-    float _field1;
-    float _field2;
-    float _field3;
-    float _field4;
-    float _field5;
-    float _field6;
+    double _field1;
+    double _field2;
+    double _field3;
+    double _field4;
+    double _field5;
+    double _field6;
 };
 
 struct CGColorSpace;
 
 struct CGPoint {
-    float x;
-    float y;
+    double x;
+    double y;
 };
 
 struct CGRect {
@@ -28,15 +34,20 @@ struct CGRect {
 };
 
 struct CGSize {
-    float width;
-    float height;
+    double width;
+    double height;
+};
+
+struct CIBurstSupportVector {
+    double _field1;
+    double _field2[7];
 };
 
 struct CIContextInternal {
     struct Context *_field1;
     struct _opaque_pthread_mutex_t {
-        long _field1;
-        char _field2[40];
+        long long _field1;
+        char _field2[56];
     } _field2;
     _Bool _field3;
     id _field4;
@@ -44,10 +55,31 @@ struct CIContextInternal {
 
 struct Context {
     void **_field1;
-    unsigned int _field2;
+    struct Atomic _field2;
     struct CGColorSpace *_field3;
     struct CGColorSpace *_field4;
     _Bool _field5;
+};
+
+struct FastRegistration_Signatures {
+    float *piRow;
+    unsigned long long nPiRow;
+    struct Projections_meanStdTable piRowTable;
+    float *piCol;
+    unsigned long long nPiCol;
+    struct Projections_meanStdTable piColTable;
+};
+
+struct GridROI_t {
+    int startX;
+    int startY;
+    int endX;
+    int endY;
+};
+
+struct Projections_meanStdTable {
+    float *sumTable;
+    float *sumSqTable;
 };
 
 struct Rectangle {
@@ -55,6 +87,17 @@ struct Rectangle {
     double _field2;
     double _field3;
     double _field4;
+};
+
+struct SharpnessGridElement_t {
+    unsigned char _field1;
+    unsigned char _field2;
+    float _field3;
+};
+
+struct __sbuf {
+    char *_field1;
+    int _field2;
 };
 
 struct vec2 {
@@ -78,24 +121,7 @@ struct vec4 {
 #pragma mark Typedef'd Structures
 
 typedef struct {
-    char *baseAddress;
-    int width;
-    int height;
-    int rowSamples;
-    int rowBytes;
-    int size;
-    int samplesPerPixel;
-    int bytesPerSample;
-    float resolution;
-} CDStruct_c3faddef;
-
-typedef struct {
-    int *_field1;
-    int _field2;
-} CDStruct_84b23d7a;
-
-typedef struct {
-    char _field1;
+    _Bool _field1;
     int _field2;
     int _field3;
     float _field4;
@@ -120,12 +146,29 @@ typedef struct {
     int _field23;
     int _field24;
     int _field25;
-} CDStruct_28cfb1ba;
+} CDStruct_e0ece3c1;
 
 typedef struct {
-    float i;
-    float q;
-} CDStruct_e04e1a92;
+    char *baseAddress;
+    int width;
+    int height;
+    int rowSamples;
+    int rowBytes;
+    int size;
+    int samplesPerPixel;
+    int bytesPerSample;
+    float resolution;
+} CDStruct_c3faddef;
+
+typedef struct {
+    int *_field1;
+    int _field2;
+} CDStruct_84b23d7a;
+
+typedef struct {
+    double i;
+    double q;
+} CDStruct_bfe67ca5;
 
 typedef struct {
     char _field1[256];
@@ -143,9 +186,9 @@ typedef struct {
     unsigned int _field8;
     int _field9;
     int _field10;
-    char _field11;
+    _Bool _field11;
     float _field12;
-} CDStruct_06a00c9d;
+} CDStruct_79f2618e;
 
 typedef struct {
     int _field1;
@@ -173,7 +216,7 @@ typedef struct {
     int cornealReflectionSeedX;
     int cornealReflectionSeedY;
     int cornealReflectionThreshold;
-    char align;
+    _Bool align;
     CDStruct_6ca1d5c6 mTemplate;
     CDStruct_6ca1d5c6 existingTemplate;
     int averageSkinMapY;
@@ -190,7 +233,7 @@ typedef struct {
         float halfDiagonalSize;
     } O;
     CDStruct_5973fb4f CR;
-} CDStruct_88c8157e;
+} CDStruct_8b259ba7;
 
 typedef struct {
     int tag;
@@ -205,9 +248,9 @@ typedef struct {
     _Bool pupilShadeAlignment;
     CDStruct_6ca1d5c6 matchingTemplate;
     int faceIndex;
-    char left;
+    _Bool left;
     float IOD;
-    CDStruct_88c8157e data;
+    CDStruct_8b259ba7 data;
     struct {
         struct CGPoint centroid;
         int area;
@@ -227,7 +270,7 @@ typedef struct {
         float ymean;
         float ystd;
     } BI;
-} CDStruct_28379a5f;
+} CDStruct_907e448c;
 
 // Ambiguous groups
 typedef struct {

@@ -8,6 +8,7 @@
 
 @class UISelectionGrabber;
 
+// Not exported
 @interface UISelectionGrabberDot : UIView
 {
     UISelectionGrabber *m_grabber;
@@ -17,9 +18,9 @@
 - (void)setFrame:(struct CGRect)arg1;
 - (void)dealloc;
 - (int)textEffectsVisibilityLevel;
-- (int)textEffectsVisibilityLevelWhenKey;
+- (int)textEffectsVisibilityLevelInKeyboardWindow;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
-- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)drawRect:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 container:(id)arg2;
 

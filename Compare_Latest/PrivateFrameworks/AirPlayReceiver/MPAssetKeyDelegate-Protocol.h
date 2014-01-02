@@ -17,7 +17,7 @@
 - (struct __IOSurface *)retainedIOSurfaceForAssetKey:(id)arg1 andSize:(struct CGSize)arg2;
 - (id)detectRegionsOfInterestForAssetKey:(id)arg1;
 - (id)imageDataForAssetKey:(id)arg1 andSize:(struct CGSize)arg2;
-- (struct CGImage *)retainedCGImageForAssetKey:(id)arg1 andSize:(struct CGSize)arg2 orientation:(char *)arg3 thumbnailIfPossible:(BOOL)arg4 now:(BOOL)arg5;
+- (struct CGImage *)retainedCGImageForAssetKey:(id)arg1 andSize:(struct CGSize)arg2 orientation:(char *)arg3 thumbnailIfPossible:(_Bool)arg4 now:(_Bool)arg5;
 - (struct CGImage *)retainedThumbnailCGImageForAssetKey:(id)arg1 andSize:(struct CGSize)arg2;
 - (struct CGImage *)retainedCGImageForAssetKey:(id)arg1 andSize:(struct CGSize)arg2 orientation:(char *)arg3;
 - (struct CGImage *)retainedCGImageForAssetKey:(id)arg1 andSize:(struct CGSize)arg2;

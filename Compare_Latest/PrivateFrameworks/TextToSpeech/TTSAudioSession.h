@@ -11,23 +11,23 @@
 @interface TTSAudioSession : NSObject
 {
     NSObject<OS_dispatch_queue> *_queue;
-    BOOL _audioSessionIsSetUp;
-    CDStruct_4e36ff54 _desiredState;
-    CDStruct_4e36ff54 _cachedState;
-    BOOL _bluetoothAllowed;
+    _Bool _audioSessionIsSetUp;
+    CDStruct_a87a0d46 _desiredState;
+    CDStruct_a87a0d46 _cachedState;
+    _Bool _bluetoothAllowed;
     struct __CFBag *_activityBag;
-    int _serverGeneration;
+    long long _serverGeneration;
 }
 
 + (id)sharedInstance;
 - (void).cxx_destruct;
-- (void)_safeSetBluetoothInputAllowed:(BOOL)arg1;
-- (void)_safeSetActive:(BOOL)arg1 withActivity:(long)arg2;
-- (void)_safeSetCategoryForActivity:(long)arg1;
-- (int)_safeServerGeneration;
+- (void)_safeSetBluetoothInputAllowed:(_Bool)arg1;
+- (void)_safeSetActive:(_Bool)arg1 withActivity:(long long)arg2;
+- (void)_safeSetCategoryForActivity:(long long)arg1;
+- (long long)_safeServerGeneration;
 - (void)_safeSetupAudioSession;
-- (long)_nextActivityForActive:(BOOL)arg1 activity:(long)arg2 serverActivity:(long)arg3;
-- (void)_setCategoryForActivity:(long)arg1;
+- (long long)_nextActivityForActive:(_Bool)arg1 activity:(long long)arg2 serverActivity:(long long)arg3;
+- (void)_setCategoryForActivity:(long long)arg1;
 - (void)_setupAudioSession;
 - (void)_mediaServicesWereReset:(id)arg1;
 - (void)_audioSessionInterrupted:(id)arg1;

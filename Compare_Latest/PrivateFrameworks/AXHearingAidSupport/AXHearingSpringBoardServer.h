@@ -19,12 +19,12 @@
 + (id)sharedInstance;
 @property(retain, nonatomic) NSArray *availableHearingAids; // @synthesize availableHearingAids=_availableHearingAids;
 - (void)stopLiveListen;
-- (BOOL)startLiveListen;
+- (_Bool)startLiveListen;
 - (void)removeLiveListenLevelsHandler:(id)arg1;
 - (id)addLiveListenLevelsHandler:(id)arg1;
-- (BOOL)liveListenIsListening;
-- (void)writeValue:(id)arg1 forProperty:(int)arg2 forDeviceID:(id)arg3;
-- (id)readProperty:(int)arg1 forDeviceID:(id)arg2;
+- (_Bool)liveListenIsListening;
+- (void)writeValue:(id)arg1 forProperty:(long long)arg2 forDeviceID:(id)arg3;
+- (id)readProperty:(long long)arg1 forDeviceID:(id)arg2;
 - (void)removePropertyUpdateHandler:(id)arg1;
 - (id)addPropertyUpdateHandler:(id)arg1;
 - (void)removeAvailableDeviceHandler:(id)arg1;
@@ -35,7 +35,7 @@
 - (void)hearingAidServerReady;
 - (void)_willClearServer;
 - (void)_didConnectToServer;
-- (BOOL)_shouldValidateEntitlements;
+- (_Bool)_shouldValidateEntitlements;
 - (id)_serviceName;
 - (void)dealloc;
 - (id)init;

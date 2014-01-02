@@ -15,7 +15,7 @@
     NSNumber *_externalVersion;
 }
 
-- (BOOL)evaluateWithContext:(id)arg1;
+- (_Bool)evaluateWithContext:(id)arg1;
 - (id)initWithDictionary:(id)arg1;
 - (void)dealloc;
 

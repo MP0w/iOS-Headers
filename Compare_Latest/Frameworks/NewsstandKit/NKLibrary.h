@@ -18,13 +18,13 @@
     NSFileManager *_fileManager;
     NSURL *_appSupportURL;
     NSURL *_libraryURL;
-    BOOL _inited;
+    _Bool _inited;
     int _needsSaving;
     int _savePending;
     NSArray *_assetsFromLaunch;
 }
 
-+ (BOOL)_isNewsstandApp;
++ (_Bool)_isNewsstandApp;
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (id)sharedLibrary;
 - (id)description;
@@ -44,7 +44,7 @@
 - (void)_didFinishLaunchingWasCalled;
 - (void)_performBackgroundTask:(id)arg1 withDescription:(void)arg2;
 - (void)_issueChanged:(id)arg1;
-- (BOOL)_canPerformBackgroundDownloads;
+- (_Bool)_canPerformBackgroundDownloads;
 - (id)_fileManager;
 - (id)_issueForDirectory:(id)arg1;
 - (id)_contentURL;
@@ -55,7 +55,7 @@
 @property(readonly) NSArray *downloadingAssets;
 - (id)autorelease;
 - (oneway void)release;
-- (unsigned int)retainCount;
+- (unsigned long long)retainCount;
 - (id)retain;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;

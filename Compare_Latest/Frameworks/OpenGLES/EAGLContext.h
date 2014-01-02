@@ -15,26 +15,26 @@
 }
 
 + (id)currentContext;
-+ (BOOL)setCurrentContext:(id)arg1;
++ (_Bool)setCurrentContext:(id)arg1;
 @property(copy, nonatomic) NSString *debugLabel; // @synthesize debugLabel;
 - (struct EAGLMacroContext *)GetMacroContextPrivate;
 - (struct EAGLMacroContext *)getMacroContextPrivate;
-- (unsigned int)getParameter:(unsigned int)arg1 to:(int *)arg2;
-- (unsigned int)setParameter:(unsigned int)arg1 to:(int *)arg2;
-- (BOOL)setBlockFence:(id)arg1 onQueue:(void)arg2;
+- (unsigned long long)getParameter:(unsigned int)arg1 to:(int *)arg2;
+- (unsigned long long)setParameter:(unsigned int)arg1 to:(int *)arg2;
+- (_Bool)setBlockFence:(id)arg1 onQueue:(void)arg2;
 - (void)swapNotification:(struct __IOMobileFramebuffer *)arg1 forTransaction:(unsigned int)arg2 onLayer:(unsigned int)arg3;
 - (void)sendNotification:(unsigned int)arg1 forTransaction:(unsigned int)arg2 onLayer:(unsigned int)arg3;
-- (BOOL)texImageIOSurface:(struct __IOSurface *)arg1 target:(unsigned int)arg2 internalFormat:(unsigned int)arg3 width:(unsigned int)arg4 height:(unsigned int)arg5 format:(unsigned int)arg6 type:(unsigned int)arg7 plane:(unsigned int)arg8 invert:(BOOL)arg9;
-- (BOOL)attachImage:(unsigned int)arg1 toCoreSurface:(struct __IOSurface *)arg2 invertedRender:(BOOL)arg3;
-- (BOOL)presentRenderbuffer:(unsigned int)arg1;
-- (BOOL)renderbufferStorage:(unsigned int)arg1 fromDrawable:(id)arg2;
+- (_Bool)texImageIOSurface:(struct __IOSurface *)arg1 target:(unsigned long long)arg2 internalFormat:(unsigned long long)arg3 width:(unsigned int)arg4 height:(unsigned int)arg5 format:(unsigned long long)arg6 type:(unsigned long long)arg7 plane:(unsigned int)arg8 invert:(_Bool)arg9;
+- (_Bool)attachImage:(unsigned long long)arg1 toCoreSurface:(struct __IOSurface *)arg2 invertedRender:(_Bool)arg3;
+- (_Bool)presentRenderbuffer:(unsigned long long)arg1;
+- (_Bool)renderbufferStorage:(unsigned long long)arg1 fromDrawable:(id)arg2;
 @property(readonly) EAGLSharegroup *sharegroup;
-@property(readonly) unsigned int API;
+@property(readonly) unsigned long long API;
 - (void)dealloc;
-- (id)initWithAPI:(unsigned int)arg1 properties:(id)arg2;
-- (id)initWithAPI:(unsigned int)arg1 sharegroup:(id)arg2;
-- (id)initWithAPI:(unsigned int)arg1 sharedWithCompute:(BOOL)arg2;
-- (id)initWithAPI:(unsigned int)arg1;
+- (id)initWithAPI:(unsigned long long)arg1 properties:(id)arg2;
+- (id)initWithAPI:(unsigned long long)arg1 sharegroup:(id)arg2;
+- (id)initWithAPI:(unsigned long long)arg1 sharedWithCompute:(_Bool)arg2;
+- (id)initWithAPI:(unsigned long long)arg1;
 
 @end
 

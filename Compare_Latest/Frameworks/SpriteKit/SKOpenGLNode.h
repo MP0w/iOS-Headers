@@ -13,7 +13,7 @@
 + (id)openGLNodeWithViewportSize:(struct CGSize)arg1;
 - (void)renderForTime:(double)arg1;
 - (void)_renderForTime:(double)arg1;
-- (BOOL)needsRenderForTime:(double)arg1;
+- (_Bool)needsRenderForTime:(double)arg1;
 @property struct CGSize viewportSize;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

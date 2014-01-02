@@ -8,6 +8,7 @@
 
 @class CIImage, CIVector, NSNumber;
 
+// Not exported
 @interface CITwirlDistortion : CIFilter
 {
     CIImage *inputImage;

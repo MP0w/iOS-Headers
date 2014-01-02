@@ -8,6 +8,7 @@
 
 @class NSArray, UIKeyboardDicationBackgroundGradientView;
 
+// Not exported
 @interface UIKeyboardDicationBackground : UIView
 {
     NSArray *_shadows;

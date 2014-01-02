@@ -12,7 +12,7 @@
 {
     UIPopoverController *_popoverController;
     NSArray *_passthroughViews;
-    unsigned int _permittedArrowDirections;
+    unsigned long long _permittedArrowDirections;
     UIView *_anchorView;
     UIBarButtonItem *_anchorBarButtonItem;
     struct CGRect _anchorRect;
@@ -21,7 +21,7 @@
 @property(nonatomic, setter=_setAnchorRect:) struct CGRect _anchorRect; // @synthesize _anchorRect;
 @property(retain, nonatomic, setter=_setAnchorBarButtonItem:) UIBarButtonItem *_anchorBarButtonItem; // @synthesize _anchorBarButtonItem;
 @property(retain, nonatomic, setter=_setAnchorView:) UIView *_anchorView; // @synthesize _anchorView;
-@property(nonatomic, setter=_setPermittedArrowDirections:) unsigned int _permittedArrowDirections; // @synthesize _permittedArrowDirections;
+@property(nonatomic, setter=_setPermittedArrowDirections:) unsigned long long _permittedArrowDirections; // @synthesize _permittedArrowDirections;
 @property(copy, nonatomic, setter=_setPassthroughViews:) NSArray *_passthroughViews; // @synthesize _passthroughViews;
 - (void)perform;
 @property(readonly, nonatomic) UIPopoverController *popoverController; // @synthesize popoverController=_popoverController;

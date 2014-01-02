@@ -6,24 +6,27 @@
 
 #import "UIView.h"
 
-@class DigitalClockLabel, UILabel, UISwitch;
+@class DigitalClockLabel, NSString, UILabel, UISwitch;
 
 @interface AlarmView : UIView
 {
-    int _style;
+    long long _style;
     DigitalClockLabel *_timeLabel;
-    UILabel *_nameLabel;
-    UILabel *_repeatLabel;
+    NSString *_name;
+    NSString *_repeatText;
+    UILabel *_detailLabel;
     UISwitch *_enabledSwitch;
 }
 
 @property(readonly, nonatomic) UISwitch *enabledSwitch; // @synthesize enabledSwitch=_enabledSwitch;
-@property(readonly, nonatomic) UILabel *repeatLabel; // @synthesize repeatLabel=_repeatLabel;
-@property(readonly, nonatomic) UILabel *nameLabel; // @synthesize nameLabel=_nameLabel;
+@property(retain, nonatomic) UILabel *detailLabel; // @synthesize detailLabel=_detailLabel;
+@property(copy, nonatomic) NSString *repeatText; // @synthesize repeatText=_repeatText;
+@property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, nonatomic) DigitalClockLabel *timeLabel; // @synthesize timeLabel=_timeLabel;
-@property(nonatomic) int style; // @synthesize style=_style;
+@property(nonatomic) long long style; // @synthesize style=_style;
 - (void)layoutSubviews;
 - (void)dealloc;
+- (void)setName:(id)arg1 andRepeatText:(id)arg2 textColor:(id)arg3;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

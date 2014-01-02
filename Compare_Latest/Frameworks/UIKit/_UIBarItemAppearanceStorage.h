@@ -8,15 +8,16 @@
 
 @class NSMutableDictionary;
 
+// Not exported
 @interface _UIBarItemAppearanceStorage : NSObject
 {
     NSMutableDictionary *textAttributesForState;
 }
 
-- (id)textAttributeForKey:(id)arg1 state:(unsigned int)arg2;
-- (void)setTextAttribute:(id)arg1 forKey:(id)arg2 state:(unsigned int)arg3;
-- (id)textAttributesForState:(unsigned int)arg1;
-- (void)setTextAttributes:(id)arg1 forState:(unsigned int)arg2;
+- (id)textAttributeForKey:(id)arg1 state:(unsigned long long)arg2;
+- (void)setTextAttribute:(id)arg1 forKey:(id)arg2 state:(unsigned long long)arg3;
+- (id)textAttributesForState:(unsigned long long)arg1;
+- (void)setTextAttributes:(id)arg1 forState:(unsigned long long)arg2;
 - (void)dealloc;
 
 @end

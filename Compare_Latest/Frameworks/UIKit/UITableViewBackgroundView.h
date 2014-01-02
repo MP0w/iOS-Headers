@@ -8,6 +8,7 @@
 
 @class UIImageView;
 
+// Not exported
 @interface UITableViewBackgroundView : UIView
 {
     UIImageView *_gradientImageView;

@@ -8,11 +8,11 @@
 
 @interface SKUISpacePageComponent : SKUIPageComponent
 {
-    float _height;
+    double _height;
 }
 
-@property(readonly, nonatomic) float height; // @synthesize height=_height;
-- (int)componentType;
+@property(readonly, nonatomic) double height; // @synthesize height=_height;
+- (long long)componentType;
 - (id)initWithCustomPageContext:(id)arg1;
 
 @end

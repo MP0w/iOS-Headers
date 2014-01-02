@@ -13,18 +13,18 @@
 @interface SBDeleteIconAlertItem : SBAlertItem <UIAlertViewDelegate>
 {
     SBIcon *_icon;
-    BOOL _checkedDocumentsInCloudState;
-    BOOL _appHasDocumentsInCloud;
-    BOOL _appHasDocumentsWithPendingUpdates;
-    BOOL _askedUserAboutDocumentsDocumentsInCloud;
-    BOOL _askedUserAboutDocumentsWithPendingUpdates;
+    _Bool _checkedDocumentsInCloudState;
+    _Bool _appHasDocumentsInCloud;
+    _Bool _appHasDocumentsWithPendingUpdates;
+    _Bool _askedUserAboutDocumentsDocumentsInCloud;
+    _Bool _askedUserAboutDocumentsWithPendingUpdates;
 }
 
-- (BOOL)dismissOnLock;
-- (BOOL)shouldShowInLockScreen;
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
+- (_Bool)dismissOnLock;
+- (_Bool)shouldShowInLockScreen;
+- (void)configure:(_Bool)arg1 requirePasscodeForActions:(_Bool)arg2;
 - (void)_checkDocumentsInCloudStateIfNeeded;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (id)icon;
 - (void)dealloc;
 - (id)initWithIcon:(id)arg1;

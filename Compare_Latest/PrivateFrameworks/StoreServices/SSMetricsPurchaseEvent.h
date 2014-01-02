@@ -13,6 +13,7 @@
 }
 
 @property(retain, nonatomic) NSString *transactionIdentifier;
+- (void)addFieldsFromPurchaseResponse:(id)arg1;
 - (id)init;
 
 @end

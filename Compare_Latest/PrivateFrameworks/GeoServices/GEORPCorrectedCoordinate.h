@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class GEOLatLng;
 
-@interface GEORPCorrectedCoordinate : PBCodable
+@interface GEORPCorrectedCoordinate : PBCodable <NSCopying>
 {
     GEOLatLng *_correctedCoordinate;
     GEOLatLng *_originalCoordinate;
@@ -16,14 +18,16 @@
 
 @property(retain, nonatomic) GEOLatLng *correctedCoordinate; // @synthesize correctedCoordinate=_correctedCoordinate;
 @property(retain, nonatomic) GEOLatLng *originalCoordinate; // @synthesize originalCoordinate=_originalCoordinate;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) BOOL hasOriginalCoordinate;
+@property(readonly, nonatomic) _Bool hasCorrectedCoordinate;
+@property(readonly, nonatomic) _Bool hasOriginalCoordinate;
 - (void)dealloc;
 
 @end

@@ -6,7 +6,7 @@
 
 #import <UIKit/UICollectionViewLayout.h>
 
-@class NSArray, NSMutableArray, NSMutableDictionary;
+@class NSMutableArray, NSMutableDictionary;
 
 @interface UICollectionViewTransitionLayout : UICollectionViewLayout
 {
@@ -14,19 +14,18 @@
     UICollectionViewLayout *_toLayout;
     struct CGRect _fromVisibleBounds;
     struct CGRect _toVisibleBounds;
-    BOOL _haveValidInfos;
-    float _transitionProgress;
+    struct CGSize _contentSize;
+    _Bool _haveValidInfos;
+    double _transitionProgress;
     NSMutableDictionary *_transitionInformationsDict;
     NSMutableDictionary *_currentLayoutInfos;
-    NSArray *_fromLayoutAttributes;
-    NSArray *_toLayoutAttributes;
-    BOOL _layoutIsValid;
+    _Bool _layoutIsValid;
     NSMutableArray *_disappearingLayoutAttributes;
     NSMutableArray *_appearingLayoutAttributes;
-    float _accuracy;
+    double _accuracy;
 }
 
-@property(nonatomic) float transitionProgress; // @synthesize transitionProgress=_transitionProgress;
+@property(nonatomic) double transitionProgress; // @synthesize transitionProgress=_transitionProgress;
 @property(readonly, nonatomic) UICollectionViewLayout *nextLayout; // @synthesize nextLayout=_toLayout;
 @property(readonly, nonatomic) UICollectionViewLayout *currentLayout; // @synthesize currentLayout=_fromLayout;
 - (void)dealloc;
@@ -34,15 +33,18 @@
 - (id)layoutAttributesForDecorationViewOfKind:(id)arg1 atIndexPath:(id)arg2;
 - (id)layoutAttributesForSupplementaryViewOfKind:(id)arg1 atIndexPath:(id)arg2;
 - (id)layoutAttributesForItemAtIndexPath:(id)arg1;
-- (id)interpolatedLayoutAttributesFromLayoutAttributes:(id)arg1 toLayoutAttributes:(id)arg2 progress:(float)arg3;
-- (id)toLayoutAttributes;
-- (id)fromLayoutAttributes;
+- (id)interpolatedLayoutAttributesFromLayoutAttributes:(id)arg1 toLayoutAttributes:(id)arg2 progress:(double)arg3;
 - (struct CGSize)collectionViewContentSize;
-- (float)valueForAnimatedKey:(id)arg1;
-- (void)updateValue:(float)arg1 forAnimatedKey:(id)arg2;
+- (struct CGPoint)targetContentOffsetForProposedContentOffset:(struct CGPoint)arg1;
+- (double)valueForAnimatedKey:(id)arg1;
+- (void)updateValue:(double)arg1 forAnimatedKey:(id)arg2;
 - (struct CGRect)_newVisibleBounds;
 - (struct CGRect)_oldVisibleBounds;
 - (void)prepareLayout;
+- (void)_prepareForTransitionToLayout:(id)arg1;
+- (void)_prepareForTransitionFromLayout:(id)arg1;
+- (void)_finalizeLayoutTransition;
+- (_Bool)_supportsAdvancedTransitionAnimations;
 - (void)invalidateLayout;
 - (void)_setCollectionView:(id)arg1;
 - (id)initWithCurrentLayout:(id)arg1 nextLayout:(id)arg2;

@@ -14,12 +14,12 @@
 @interface SSLookupProperties : NSObject <NSCopying, SSXPCCoding>
 {
     CLLocation *_location;
-    int _localizationStyle;
+    long long _localizationStyle;
     NSMutableDictionary *_requestParameters;
 }
 
 @property(copy, nonatomic) CLLocation *location; // @synthesize location=_location;
-@property(nonatomic) int localizationStyle; // @synthesize localizationStyle=_localizationStyle;
+@property(nonatomic) long long localizationStyle; // @synthesize localizationStyle=_localizationStyle;
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)copyXPCEncoding;
 - (id)copyWithZone:(struct _NSZone *)arg1;

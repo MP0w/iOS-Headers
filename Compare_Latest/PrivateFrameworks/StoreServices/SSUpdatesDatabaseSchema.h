@@ -11,7 +11,7 @@
 }
 
 + (void)_migrate7000to7001InDatabase:(id)arg1;
-+ (BOOL)databaseRequiresMigration:(id)arg1;
++ (_Bool)databaseRequiresMigration:(id)arg1;
 + (id)databasePath;
 + (void)createSchemaInDatabase:(id)arg1 withName:(id)arg2;
 

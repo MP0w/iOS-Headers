@@ -15,13 +15,13 @@
 
 - (void)cancelLoading;
 - (void)loadValuesAsynchronouslyForKeys:(id)arg1 completionHandler:(id)arg2;
-- (int)statusOfValueForKey:(id)arg1 error:(id *)arg2;
+- (long long)statusOfValueForKey:(id)arg1 error:(id *)arg2;
 - (void)_ensureValueLoadedSync;
-- (void)_setValueStatus:(int)arg1 figErrorCode:(long)arg2;
-- (int)_valueStatus;
-- (BOOL)_valueForKeyDependsOnMetadataValue:(id)arg1;
-- (long)_chapterIndex;
-- (long)_chapterGroupIndex;
+- (void)_setValueStatus:(long long)arg1 figErrorCode:(int)arg2;
+- (long long)_valueStatus;
+- (_Bool)_valueForKeyDependsOnMetadataValue:(id)arg1;
+- (long long)_chapterIndex;
+- (long long)_chapterGroupIndex;
 - (id)extraAttributes;
 - (void)_takeValueFrom:(id)arg1;
 - (id)value;
@@ -38,7 +38,7 @@
 - (void)dealloc;
 - (void)_removeFigAssetNotifications;
 - (void)_addFigAssetNotifications;
-- (id)_initWithAsset:(id)arg1 chapterGroupIndex:(long)arg2 chapterIndex:(long)arg3 chapterType:(id)arg4 locale:(id)arg5 time:(CDStruct_1b6d18a9)arg6 duration:(CDStruct_1b6d18a9)arg7;
+- (id)_initWithAsset:(id)arg1 chapterGroupIndex:(long long)arg2 chapterIndex:(long long)arg3 chapterType:(id)arg4 locale:(id)arg5 time:(CDStruct_1b6d18a9)arg6 duration:(CDStruct_1b6d18a9)arg7;
 - (id)init;
 
 @end

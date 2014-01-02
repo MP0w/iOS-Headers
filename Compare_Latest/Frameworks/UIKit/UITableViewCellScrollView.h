@@ -6,14 +6,15 @@
 
 #import <UIKit/UIScrollView.h>
 
+// Not exported
 @interface UITableViewCellScrollView : UIScrollView
 {
 }
 
-- (BOOL)_shouldScrollOnGestureRecognizerFailed;
-- (BOOL)_forwardsToParentScroller;
+- (_Bool)_shouldScrollOnGestureRecognizerFailed;
+- (_Bool)_forwardsToParentScroller;
 - (void)setContentOffset:(struct CGPoint)arg1;
-- (BOOL)gestureRecognizerShouldBegin:(id)arg1;
+- (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesMoved:(id)arg1 withEvent:(id)arg2;

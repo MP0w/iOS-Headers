@@ -8,15 +8,16 @@
 
 @class NSMutableSet;
 
+// Not exported
 @interface PFUbiquityEventLogging : NSObject
 {
     NSMutableSet *_logEvents;
-    int _logLevel;
+    long long _logLevel;
 }
 
 + (id)sharedEventLogger;
 + (void)initialize;
-@property int logLevel; // @synthesize logLevel=_logLevel;
+@property long long logLevel; // @synthesize logLevel=_logLevel;
 - (id)incompleteEvents;
 - (void)endEvent:(id)arg1;
 - (void)fatal:(id)arg1 message:(id)arg2;

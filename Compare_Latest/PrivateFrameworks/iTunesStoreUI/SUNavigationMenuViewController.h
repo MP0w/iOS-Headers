@@ -16,9 +16,9 @@
 @property(readonly, nonatomic) SUNavigationMenu *navigationMenu; // @synthesize navigationMenu=_navigationMenu;
 - (void)_protocolButtonAction:(id)arg1;
 - (void)_cancelAction:(id)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
-- (id)titleOfMenuItemAtIndex:(int)arg1;
-- (int)numberOfMenuItems;
+- (void)viewWillAppear:(_Bool)arg1;
+- (id)titleOfMenuItemAtIndex:(long long)arg1;
+- (long long)numberOfMenuItems;
 - (void)dealloc;
 - (id)initWithNavigationMenu:(id)arg1;
 - (id)init;

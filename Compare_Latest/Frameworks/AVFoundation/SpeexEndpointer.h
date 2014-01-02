@@ -8,13 +8,14 @@
 
 #import "Endpointer-Protocol.h"
 
+// Not exported
 @interface SpeexEndpointer : NSObject <Endpointer>
 {
     double mStartWaitTime;
     double mInterspeechWaitTime;
     double mEndWaitTime;
     int mEndpointMode;
-    unsigned long mFrameRate;
+    unsigned int mFrameRate;
     int mLastStatus;
     void *_impl;
 }
@@ -25,10 +26,9 @@
 @property int endpointMode;
 - (void)reset;
 - (int)getStatus:(struct AudioQueueBuffer *)arg1;
-- (BOOL)configureWithSampleRate:(double)arg1 andFrameRate:(unsigned long)arg2;
+- (_Bool)configureWithSampleRate:(double)arg1 andFrameRate:(unsigned int)arg2;
 - (void)dealloc;
 - (id)init;
-- (int)getStatus:(float *)arg1 count:(unsigned long)arg2;
 
 @end
 

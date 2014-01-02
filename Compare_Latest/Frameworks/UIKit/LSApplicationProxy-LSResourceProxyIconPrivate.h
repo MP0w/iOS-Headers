@@ -7,7 +7,7 @@
 #import "LSApplicationProxy.h"
 
 @interface LSApplicationProxy (LSResourceProxyIconPrivate)
-- (CDStruct_9b4cf30b *)_iconVariantDefinitions:(id)arg1;
+- (CDStruct_2f66a7ba *)_iconVariantDefinitions:(id)arg1;
 - (struct CGSize)_defaultStyleSize:(id)arg1;
 @end
 

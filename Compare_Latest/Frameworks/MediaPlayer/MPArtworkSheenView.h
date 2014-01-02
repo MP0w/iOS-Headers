@@ -12,7 +12,7 @@
 {
     CALayer *_imageLayer;
     id _motionManagerObserver;
-    float _rotation;
+    double _rotation;
 }
 
 - (void).cxx_destruct;

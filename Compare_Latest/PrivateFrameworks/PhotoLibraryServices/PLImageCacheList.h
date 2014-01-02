@@ -14,7 +14,7 @@
     unsigned int _length;
     unsigned int _lastFailLocation;
     id *_keys;
-    unsigned int *_keyHashes;
+    unsigned long long *_keyHashes;
     id *_images;
     PLLoadRequestKey *_dummy[1];
 }

@@ -16,7 +16,6 @@
 
 + (void)releaseSharedManager;
 + (id)sharedManager;
-+ (void)loadFrameManagerWithPaths:(id)arg1;
 - (id)attributesForFrameID:(id)arg1 andPresetID:(id)arg2;
 - (id)descriptionForFrameID:(id)arg1;
 - (id)framesForCategoryID:(id)arg1;
@@ -27,9 +26,6 @@
 - (id)allCategoryIDs;
 - (id)allFrameIDs;
 - (void)dealloc;
-- (id)constraintsForFramesMatchingList:(id)arg1 andCriteria:(id)arg2;
-- (id)randomFrameFromList:(id)arg1 abidingWithConstraints:(id)arg2;
-- (id)initWithPaths:(id)arg1;
 
 @end
 

@@ -16,10 +16,10 @@
 - (void).cxx_destruct;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forIndexPath:(id)arg3;
 - (id)tableViewCellForTableView:(id)arg1 indexPath:(id)arg2;
-- (int)numberOfRowsInSection;
-- (float)heightForCellInTableView:(id)arg1 indexPath:(id)arg2;
+- (long long)numberOfRowsInSection;
+- (double)heightForCellInTableView:(id)arg1 indexPath:(id)arg2;
 @property(readonly, nonatomic) NSString *selectedAmountString;
-@property(readonly, nonatomic) int selectedAmount;
+@property(readonly, nonatomic) long long selectedAmount;
 @property(readonly, nonatomic) UIControl *amountControl;
 
 @end

@@ -8,6 +8,7 @@
 
 @class NSAttributeDescription;
 
+// Not exported
 @interface NSSQLBindVariable : NSObject
 {
     int _cd_rc;
@@ -19,7 +20,7 @@
 }
 
 - (id)attributeDescription;
-- (BOOL)hasObjectValue;
+- (_Bool)hasObjectValue;
 - (void)setIndex:(unsigned int)arg1;
 - (unsigned int)index;
 - (unsigned int)sqlType;
@@ -30,9 +31,9 @@
 - (void)setInt64:(long long)arg1;
 - (long long)int64;
 - (void)dealloc;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
-- (unsigned int)retainCount;
+- (_Bool)_isDeallocating;
+- (_Bool)_tryRetain;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;
 - (id)initWithUnsignedInt:(unsigned int)arg1 sqlType:(unsigned int)arg2;

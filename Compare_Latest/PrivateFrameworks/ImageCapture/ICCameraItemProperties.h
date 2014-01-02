@@ -16,12 +16,12 @@
     NSString *_UTI;
     NSDate *_creationDate;
     NSDate *_modificationDate;
-    BOOL _locked;
+    _Bool _locked;
     NSMutableDictionary *_userData;
 }
 
 @property(retain) NSMutableDictionary *userData; // @synthesize userData=_userData;
-@property BOOL locked; // @synthesize locked=_locked;
+@property _Bool locked; // @synthesize locked=_locked;
 @property(retain) NSDate *modificationDate; // @synthesize modificationDate=_modificationDate;
 @property(retain) NSDate *creationDate; // @synthesize creationDate=_creationDate;
 @property(retain) NSString *UTI; // @synthesize UTI=_UTI;

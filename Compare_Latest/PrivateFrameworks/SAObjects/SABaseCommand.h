@@ -17,8 +17,8 @@
 
 + (id)baseCommandWithDictionary:(id)arg1 context:(id)arg2;
 + (id)baseCommand;
-@property(copy, nonatomic) NSString *refId; // @dynamic refId;
-@property(copy, nonatomic) NSString *aceId; // @dynamic aceId;
+@property(copy, nonatomic) NSString *refId;
+@property(copy, nonatomic) NSString *aceId;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

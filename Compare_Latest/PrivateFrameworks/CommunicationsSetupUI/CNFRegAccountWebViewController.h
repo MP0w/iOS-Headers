@@ -12,12 +12,12 @@
 
 @interface CNFRegAccountWebViewController : CNFRegServerWebViewController <UIAlertViewDelegate>
 {
-    BOOL _failedBagLoad;
-    BOOL _listeningForBagLoad;
+    _Bool _failedBagLoad;
+    _Bool _listeningForBagLoad;
     NSTimer *_bagLoadTimer;
 }
 
-@property(nonatomic) BOOL failedBagLoad; // @synthesize failedBagLoad=_failedBagLoad;
+@property(nonatomic) _Bool failedBagLoad; // @synthesize failedBagLoad=_failedBagLoad;
 - (id)authTokenHeaderValue;
 - (id)authIdHeaderValue;
 - (void)completeHandoffWithStatus:(int)arg1 appleID:(id)arg2 authID:(id)arg3 authToken:(id)arg4;
@@ -33,8 +33,6 @@
 - (id)_viewPortForFormSheetPresentation;
 - (id)_nonModalParentController;
 - (id)_viewPortStringForSize:(struct CGSize)arg1;
-- (void)handleRightButtonError:(id)arg1;
-- (void)handleLeftButtonError:(id)arg1;
 - (void)_showGenericErrorWithHandler:(id)arg1;
 - (void)_stopListeningForBagLoad;
 - (void)_startListeningForBagLoad;
@@ -43,19 +41,18 @@
 - (void)_startBagLoadTimer;
 - (void)_bagLoadTimeout:(id)arg1;
 - (void)_showURLDidNotLoadAlert;
-- (BOOL)_loadURLFromBag;
+- (_Bool)_loadURLFromBag;
 - (void)_reloadDelayed;
 - (void)_stopCurrentReload;
 - (void)_reload;
-- (void)parseHandoffUrl:(id)arg1;
-- (BOOL)canSendURLRequest:(id)arg1;
+- (_Bool)canSendURLRequest:(id)arg1;
 - (void)setHeadersForRequest:(id)arg1;
-- (BOOL)shouldSetHeadersForRequest:(id)arg1;
-- (void)setupUrlHandlers;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
+- (_Bool)shouldSetHeadersForRequest:(id)arg1;
+- (void)receivedStatus:(int)arg1 appleID:(id)arg2 authID:(id)arg3 authToken:(id)arg4;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (id)logName;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
 - (void)viewDidLoad;
 - (void)loadView;
 - (void)dealloc;

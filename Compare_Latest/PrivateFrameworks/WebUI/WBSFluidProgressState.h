@@ -10,45 +10,39 @@
 
 @interface WBSFluidProgressState : NSObject
 {
-    int _fluidProgressType;
+    long long _fluidProgressType;
     NSString *_loadURL;
-    float _webKitProgressValue;
-    float _linearFunctionM;
-    float _linearFunctionB;
+    double _webKitProgressValue;
+    double _linearFunctionM;
+    double _linearFunctionB;
     double _startTimeForFluidProgress;
     double _lastTimeProgressValueWasUpdated;
-    int _fluidProgressAnimationPhase;
-    float _previousDestinationPosition;
-    float _animationDuration;
-    float _minProgressPosition;
-    BOOL _hasCompletedLoad;
-    BOOL _hasCanceledLoad;
-    BOOL _hasCommittedLoad;
-    BOOL _shouldAnimateUsingInitialPosition;
+    long long _fluidProgressAnimationPhase;
+    double _previousDestinationPosition;
+    double _animationDuration;
+    double _minProgressPosition;
+    _Bool _hasCompletedLoad;
+    _Bool _hasCanceledLoad;
+    _Bool _hasCommittedLoad;
+    _Bool _shouldAnimateUsingInitialPosition;
 }
 
-+ (double)_estimatedLoadTimeRemainingFromProgressValue:(float)arg1;
-@property BOOL shouldAnimateUsingInitialPosition; // @synthesize shouldAnimateUsingInitialPosition=_shouldAnimateUsingInitialPosition;
-@property BOOL hasCommittedLoad; // @synthesize hasCommittedLoad=_hasCommittedLoad;
-@property BOOL hasCanceledLoad; // @synthesize hasCanceledLoad=_hasCanceledLoad;
-@property BOOL hasCompletedLoad; // @synthesize hasCompletedLoad=_hasCompletedLoad;
+@property _Bool shouldAnimateUsingInitialPosition; // @synthesize shouldAnimateUsingInitialPosition=_shouldAnimateUsingInitialPosition;
+@property _Bool hasCommittedLoad; // @synthesize hasCommittedLoad=_hasCommittedLoad;
+@property _Bool hasCanceledLoad; // @synthesize hasCanceledLoad=_hasCanceledLoad;
+@property _Bool hasCompletedLoad; // @synthesize hasCompletedLoad=_hasCompletedLoad;
 @property(retain) NSString *loadURL; // @synthesize loadURL=_loadURL;
-@property int fluidProgressType; // @synthesize fluidProgressType=_fluidProgressType;
+@property long long fluidProgressType; // @synthesize fluidProgressType=_fluidProgressType;
 - (double)secondsElapsedSinceLoadBegan;
-- (BOOL)isFluidProgressStalled;
+- (_Bool)isFluidProgressStalled;
 - (id)nextFluidProgressAnimation;
-- (float)fluidProgressValue;
+- (double)fluidProgressValue;
 - (void)dealloc;
-@property float minProgressPosition;
-- (void)setWebKitProgressValue:(float)arg1;
-@property int fluidProgressAnimationPhase;
-- (id)initWithType:(int)arg1;
-- (void)_updateLinearFunction;
-- (float)_nextProgressPosition:(double)arg1;
-- (double)_fractionCompleteAtElapsedTime:(float)arg1;
-- (double)_estimatedLoadTimeRemaining;
-- (double)_animationDuration;
-- (float)_adjustProgressPosition:(float)arg1;
+@property double minProgressPosition;
+- (void)setWebKitProgressValue:(double)arg1;
+@property long long fluidProgressAnimationPhase;
+- (id)description;
+- (id)initWithType:(long long)arg1;
 
 @end
 

@@ -16,16 +16,16 @@
     id _messageHandler;
     id _disconnectHandler;
     NSMutableSet *_outstandingMessages;
-    BOOL _assertionHeld;
+    _Bool _assertionHeld;
     id _context;
 }
 
 @property(retain, nonatomic) id context; // @synthesize context=_context;
-@property(nonatomic) BOOL assertionHeld; // @synthesize assertionHeld=_assertionHeld;
+@property(nonatomic) _Bool assertionHeld; // @synthesize assertionHeld=_assertionHeld;
 @property(copy, nonatomic) id disconnectHandler; // @synthesize disconnectHandler=_disconnectHandler;
 @property(copy, nonatomic) id messageHandler; // @synthesize messageHandler=_messageHandler;
 @property(copy, nonatomic) id lockdownHandler; // @synthesize lockdownHandler=_lockdownHandler;
-- (unsigned int)_outstandingMessages;
+- (unsigned long long)_outstandingMessages;
 - (void)_removeMessage:(id)arg1;
 - (void)_registerMessage:(id)arg1;
 - (void)_setEventHandlerOnConnection:(struct _xpc_connection_s *)arg1;

@@ -6,6 +6,7 @@
 
 #import <VectorKit/VKTile.h>
 
+// Not exported
 @interface VKTrafficDynamicTile : VKTile
 {
     struct _GEOTileKey _downloadKey;
@@ -19,7 +20,7 @@
 - (int)flowForRoadId:(long long)arg1 buffer:(const struct Flow **)arg2 maxSize:(int)arg3;
 - (void)dealloc;
 - (id)initWithKey:(const struct VKTileKey *)arg1 downloadKey:(const struct _GEOTileKey *)arg2 data:(id)arg3;
-@property(readonly, nonatomic) long updateTime;
+@property(readonly, nonatomic) long long updateTime;
 @property(readonly, nonatomic) unsigned int incidentCount;
 
 @end

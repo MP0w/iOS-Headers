@@ -20,31 +20,27 @@
     NSArray *mPatchworkAtEnd;
     NSMutableDictionary *mSprites;
     struct CGSize mImageSize;
-    int mWordCount;
+    long long mWordCount;
     MRCAMLBezierData *mBreakCurve;
     MROrigamiAnimationPath *mBigSwing;
 }
 
 - (id)patchworkAtTime:(double)arg1 inContext:(id)arg2 withArguments:(id)arg3;
-- (void)renderBreakImage:(id)arg1 atProgress:(float)arg2 withKey:(id)arg3 inContext:(id)arg4 withArguments:(id)arg5 inRect:(struct CGRect)arg6 withAttributes:(id)arg7;
+- (void)renderBreakImage:(id)arg1 atProgress:(double)arg2 withKey:(id)arg3 inContext:(id)arg4 withArguments:(id)arg5 inRect:(struct CGRect)arg6 withAttributes:(id)arg7;
 - (void)renderStillImage:(id)arg1 withKey:(id)arg2 inContext:(id)arg3 withArguments:(id)arg4 inRect:(struct CGRect)arg5 withAttributes:(id)arg6;
-- (void)renderFallBreakImage:(id)arg1 atProgress:(float)arg2 inContext:(id)arg3 withArguments:(id)arg4 inRect:(struct CGRect)arg5 withAttributes:(id)arg6:(struct CGPoint *)arg7:(struct CGPoint)arg8;
-- (void)renderFallImage:(id)arg1 atProgress:(float)arg2 inContext:(id)arg3 withArguments:(id)arg4 inRect:(struct CGRect)arg5 withAttributes:(id)arg6:(struct CGPoint *)arg7:(struct CGPoint)arg8;
-- (void)renderFallImage:(id)arg1 atProgress:(float)arg2 strength:(float)arg3 inContext:(id)arg4 withArguments:(id)arg5 inRect:(struct CGRect)arg6 withAttributes:(id)arg7:(struct CGPoint *)arg8:(struct CGPoint)arg9;
-- (BOOL)getVerticesCoordinates:(struct CGPoint (*)[4])arg1 withMatrix:(float [16])arg2 forElement:(id)arg3;
+- (void)renderFallBreakImage:(id)arg1 atProgress:(double)arg2 inContext:(id)arg3 withArguments:(id)arg4 inRect:(struct CGRect)arg5 withAttributes:(id)arg6:(struct CGPoint *)arg7:(struct CGPoint)arg8;
+- (void)renderFallImage:(id)arg1 atProgress:(double)arg2 inContext:(id)arg3 withArguments:(id)arg4 inRect:(struct CGRect)arg5 withAttributes:(id)arg6:(struct CGPoint *)arg7:(struct CGPoint)arg8;
+- (void)renderFallImage:(id)arg1 atProgress:(double)arg2 strength:(double)arg3 inContext:(id)arg4 withArguments:(id)arg5 inRect:(struct CGRect)arg6 withAttributes:(id)arg7:(struct CGPoint *)arg8:(struct CGPoint)arg9;
+- (_Bool)getVerticesCoordinates:(struct CGPoint (*)[4])arg1 withMatrix:(float [16])arg2 forElement:(id)arg3;
 - (id)elementHitAtPoint:(struct CGPoint)arg1 withInverseMatrix:(float [16])arg2 localPoint:(struct CGPoint *)arg3;
 - (void)renderTextEffectAtTime:(double)arg1 inContext:(id)arg2 withArguments:(id)arg3;
 - (void)renderTitleEffectAtTime:(double)arg1 inContext:(id)arg2 withArguments:(id)arg3;
 - (void)renderAtTime:(double)arg1 inContext:(id)arg2 withArguments:(id)arg3;
-- (BOOL)isLoadedForTime:(double)arg1;
+- (_Bool)isLoadedForTime:(double)arg1;
 - (void)_cleanupSwingTimings;
 - (void)_setupSwingTimings;
 - (void)_cleanup;
 - (id)init;
-- (void)_unload;
-- (int)_maxLinesForTextElement:(id)arg1;
-- (struct CGSize)_maxSizeForTextElement:(id)arg1;
-- (void)_loadForTime:(double)arg1 inContext:(id)arg2 withArguments:(id)arg3;
 
 @end
 

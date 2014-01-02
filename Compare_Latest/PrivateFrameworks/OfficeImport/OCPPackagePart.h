@@ -8,6 +8,7 @@
 
 @class NSURL, OCPPackage, OCPPackageRelationshipCollection;
 
+// Not exported
 @interface OCPPackagePart : NSObject
 {
     NSURL *mLocation;
@@ -27,7 +28,6 @@
 - (id)data;
 - (id)location;
 - (void)dealloc;
-- (id)initWithLocation:(id)arg1 relationshipsXml:(struct _xmlDoc *)arg2 package:(id)arg3;
 
 @end
 

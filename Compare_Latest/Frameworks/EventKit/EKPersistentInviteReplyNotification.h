@@ -8,6 +8,7 @@
 
 @class EKPersistentCalendar, NSDate, NSString;
 
+// Not exported
 @interface EKPersistentInviteReplyNotification : EKPersistentObject
 {
 }
@@ -15,7 +16,7 @@
 + (id)relations;
 + (id)defaultPropertiesToLoad;
 @property(readonly, nonatomic) EKPersistentCalendar *calendar;
-@property(readonly, nonatomic) BOOL alerted;
+@property(readonly, nonatomic) _Bool alerted;
 @property(readonly, nonatomic) NSDate *creationDate;
 @property(readonly, nonatomic) int status;
 @property(readonly, nonatomic) NSString *shareeLastName;

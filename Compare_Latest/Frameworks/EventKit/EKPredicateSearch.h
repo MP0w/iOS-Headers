@@ -8,12 +8,13 @@
 
 @class EKEventStore, NSPredicate;
 
+// Not exported
 @interface EKPredicateSearch : NSObject
 {
     Class _entityClass;
     NSPredicate *_predicate;
     EKEventStore *_store;
-    BOOL _finished;
+    _Bool _finished;
     id _callback;
     unsigned int _previous;
 }
@@ -22,7 +23,7 @@
 - (id)startWithCompletion:(id)arg1;
 - (void)run;
 - (void)terminate;
-- (BOOL)_receivedData:(CDStruct_0a11227f [50])arg1 count:(int)arg2;
+- (_Bool)_receivedData:(CDStruct_0a11227f [50])arg1 count:(int)arg2;
 - (void)dealloc;
 - (id)initWithEntityClass:(Class)arg1 predicate:(id)arg2 store:(id)arg3 callback:(id)arg4;
 

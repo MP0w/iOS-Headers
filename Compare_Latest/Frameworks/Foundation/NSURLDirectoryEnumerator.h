@@ -6,11 +6,12 @@
 
 #import <Foundation/NSDirectoryEnumerator.h>
 
+// Not exported
 @interface NSURLDirectoryEnumerator : NSDirectoryEnumerator
 {
     struct __CFURLEnumerator *_enumerator;
     id _errorHandler;
-    BOOL shouldContinue;
+    _Bool shouldContinue;
 }
 
 @property(copy) id errorHandler; // @synthesize errorHandler=_errorHandler;
@@ -18,11 +19,11 @@
 - (void)dealloc;
 - (id)directoryAttributes;
 - (id)fileAttributes;
-- (unsigned int)level;
+- (unsigned long long)level;
 - (void)skipDescendants;
 - (void)skipDescendents;
 - (id)nextObject;
-- (id)initWithURL:(id)arg1 includingPropertiesForKeys:(id)arg2 options:(unsigned int)arg3 errorHandler:(id)arg4;
+- (id)initWithURL:(id)arg1 includingPropertiesForKeys:(id)arg2 options:(unsigned long long)arg3 errorHandler:(id)arg4;
 
 @end
 

@@ -13,15 +13,15 @@
 @interface SBReturnToLockscreenWorkspaceTransaction : SBActivateAppUnderLockScreenWorkspaceTransaction <SBUIAnimationControllerDelegate>
 {
     SBApplication *_fromApp;
-    BOOL _workspaceAlreadyResumed;
-    BOOL _animatedAppDeactivation;
+    _Bool _workspaceAlreadyResumed;
+    _Bool _animatedAppDeactivation;
     SBUIAnimationController *_animation;
-    BOOL _suspendWorkspace;
+    _Bool _suspendWorkspace;
 }
 
 - (void)animationControllerDidFinishAnimation:(id)arg1;
-- (void)animationController:(id)arg1 willBeginAnimation:(BOOL)arg2;
-- (BOOL)selfApplicationDidBecomeReceiver:(id)arg1 fromApplication:(id)arg2;
+- (void)animationController:(id)arg1 willBeginAnimation:(_Bool)arg2;
+- (_Bool)selfApplicationDidBecomeReceiver:(id)arg1 fromApplication:(id)arg2;
 - (void)_alertDidActivate;
 - (void)_transactionComplete;
 - (void)_commit;

@@ -11,6 +11,7 @@
 
 @class VGLRenderState, VKAnimation, VKMercatorTerrainHeightCache, VKSkyModel;
 
+// Not exported
 @interface VKBuildingFootprintMapModel : VKVectorMapModel <VKMercatorTerrainHeightProvider, VKMapLayer>
 {
     struct _VGLColor _topColor;
@@ -20,12 +21,12 @@
     struct _VGLColor _pointyFacadeColor;
     struct _VGLColor _pointyTopColor;
     float _brightness;
-    int _vectorType;
+    long long _vectorType;
     int _buildingMode;
     VKAnimation *_styleChangeAnimation;
     VKAnimation *_fadeBuildingAnimation;
     float _buildingOccluderAlpha;
-    BOOL _fadeTiles;
+    _Bool _fadeTiles;
     VKSkyModel *_skyModel;
     struct _VGLColor _footprintStrokeColor;
     float _footprintStrokeWidth;
@@ -40,18 +41,18 @@
     float _maxLayeringHeight;
     _Bool _shouldDraw3DBuildingsInVectorBuildingsRenderPass;
     _Bool _shouldDraw3DBuildingsIn3DBuildingsRenderPass;
-    BOOL _initializedStyles;
+    _Bool _initializedStyles;
     VKMercatorTerrainHeightCache *_heightCache;
 }
 
 @property(retain, nonatomic) VKSkyModel *skyModel; // @synthesize skyModel=_skyModel;
 @property(nonatomic) int buildingMode; // @synthesize buildingMode=_buildingMode;
 @property(readonly, nonatomic) VKMercatorTerrainHeightCache *heightCache; // @synthesize heightCache=_heightCache;
-@property(nonatomic) BOOL fadeTiles; // @synthesize fadeTiles=_fadeTiles;
-@property(nonatomic) int vectorType; // @synthesize vectorType=_vectorType;
+@property(nonatomic) _Bool fadeTiles; // @synthesize fadeTiles=_fadeTiles;
+@property(nonatomic) long long vectorType; // @synthesize vectorType=_vectorType;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)setBuildingMode:(int)arg1 animated:(BOOL)arg2;
+- (void)setBuildingMode:(int)arg1 animated:(_Bool)arg2;
 - (void)drawDebugScene:(id)arg1 withContext:(id)arg2;
 - (void)drawScene:(id)arg1 withContext:(id)arg2 pass:(unsigned int)arg3;
 - (void)draw3DBuildingStrokesInScene:(id)arg1 withContext:(id)arg2;
@@ -61,7 +62,7 @@
 - (void)draw2DBuildingsInScene:(id)arg1 withContext:(id)arg2;
 - (void)layoutScene:(id)arg1 withContext:(id)arg2;
 - (void)reset;
-- (BOOL)wantsCategorizedSourceTiles;
+- (_Bool)wantsCategorizedSourceTiles;
 - (double)heightAtPoint:(struct VKPoint)arg1;
 - (void)removePersistingExitingTiles:(id)arg1;
 - (void)willStopDrawingTiles:(id)arg1;
@@ -72,11 +73,11 @@
 - (id)_globalPointyBuildingDrawStyle;
 - (id)_globalBuildingDrawStyle;
 - (void)vectorTypeDidChange;
-- (void)setActive:(BOOL)arg1;
+- (void)setActive:(_Bool)arg1;
 - (void)dealloc;
 - (id)init;
 - (unsigned int)supportedRenderPasses;
-- (unsigned int)mapLayerPosition;
+- (unsigned long long)mapLayerPosition;
 - (void)_clearOccluders;
 
 @end

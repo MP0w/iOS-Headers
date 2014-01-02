@@ -8,20 +8,14 @@
 
 @class ODIState;
 
+// Not exported
 @interface ODIHorizonalList3 : NSObject
 {
     unsigned int mMaxPointCount;
     ODIState *mState;
 }
 
-+ (BOOL)mapIdentifier:(id)arg1 state:(id)arg2;
-- (void)mapBaseStyleFromPoint:(id)arg1 shape:(id)arg2;
-- (void)mapOnePillarStyleFromPoint:(id)arg1 shape:(id)arg2;
-- (void)mapRoofStyleFromPoint:(id)arg1 shape:(id)arg2;
-- (void)mapPillarPoints:(id)arg1 bounds:(struct CGRect)arg2;
-- (void)map;
-- (void)setMaxPointCount:(unsigned int)arg1;
-- (id)initWithState:(id)arg1;
++ (_Bool)mapIdentifier:(id)arg1 state:(id)arg2;
 
 @end
 

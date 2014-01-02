@@ -12,9 +12,9 @@
 
 @interface PUFeedViewControllerRestorableState : NSObject <NSCoding>
 {
-    BOOL _scrolledToNewest;
+    _Bool _scrolledToNewest;
     NSDate *_date;
-    int _interfaceOrientation;
+    long long _interfaceOrientation;
     NSArray *_centerAssetUUIDs;
     NSArray *_centerAssetFrames;
     NSURL *_centerSectionEntryURIRepresentation;
@@ -25,8 +25,8 @@
 @property(copy, nonatomic) NSURL *centerSectionEntryURIRepresentation; // @synthesize centerSectionEntryURIRepresentation=_centerSectionEntryURIRepresentation;
 @property(copy, nonatomic) NSArray *centerAssetFrames; // @synthesize centerAssetFrames=_centerAssetFrames;
 @property(copy, nonatomic) NSArray *centerAssetUUIDs; // @synthesize centerAssetUUIDs=_centerAssetUUIDs;
-@property(nonatomic) BOOL scrolledToNewest; // @synthesize scrolledToNewest=_scrolledToNewest;
-@property(nonatomic) int interfaceOrientation; // @synthesize interfaceOrientation=_interfaceOrientation;
+@property(nonatomic) _Bool scrolledToNewest; // @synthesize scrolledToNewest=_scrolledToNewest;
+@property(nonatomic) long long interfaceOrientation; // @synthesize interfaceOrientation=_interfaceOrientation;
 @property(copy, nonatomic) NSDate *date; // @synthesize date=_date;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;

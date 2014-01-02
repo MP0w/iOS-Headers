@@ -14,9 +14,9 @@
 }
 
 - (void)layoutSubviews;
-- (void)setChecked:(BOOL)arg1;
+- (void)setChecked:(_Bool)arg1;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
 
 @end
 

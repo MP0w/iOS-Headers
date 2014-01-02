@@ -14,22 +14,22 @@
 }
 
 + (id)defaultSession;
-- (struct OpaqueMIDIEndpoint *)destinationEndpoint;
-- (struct OpaqueMIDIEndpoint *)sourceEndpoint;
+- (unsigned int)destinationEndpoint;
+- (unsigned int)sourceEndpoint;
 - (void)contactsChanged;
 - (void)sessionChanged;
-- (BOOL)removeContact:(id)arg1;
-- (BOOL)addContact:(id)arg1;
+- (_Bool)removeContact:(id)arg1;
+- (_Bool)addContact:(id)arg1;
 - (id)contacts;
-- (BOOL)removeConnection:(id)arg1;
-- (BOOL)addConnection:(id)arg1;
-- (BOOL)addOrRemoveConnection:(id)arg1 add:(BOOL)arg2;
+- (_Bool)removeConnection:(id)arg1;
+- (_Bool)addConnection:(id)arg1;
+- (_Bool)addOrRemoveConnection:(id)arg1 add:(_Bool)arg2;
 - (id)connections;
-@property(nonatomic) unsigned int connectionPolicy;
+@property(nonatomic) unsigned long long connectionPolicy;
 @property(readonly, nonatomic) NSString *localName;
 @property(readonly, nonatomic) NSString *networkName;
-@property(readonly, nonatomic) unsigned int networkPort;
-@property(nonatomic, getter=isEnabled) BOOL enabled;
+@property(readonly, nonatomic) unsigned long long networkPort;
+@property(nonatomic, getter=isEnabled) _Bool enabled;
 - (void)dealloc;
 - (id)init;
 - (void)refreshBonjourName;

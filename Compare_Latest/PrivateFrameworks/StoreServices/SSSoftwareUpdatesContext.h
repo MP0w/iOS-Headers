@@ -15,11 +15,11 @@
 @interface SSSoftwareUpdatesContext : NSObject <SSXPCCoding, NSCopying, NSMutableCopying>
 {
     NSString *_clientIdentifierHeader;
-    BOOL _forced;
+    _Bool _forced;
     NSArray *_softwareTypes;
 }
 
-@property(readonly, nonatomic, getter=isForced) BOOL forced; // @synthesize forced=_forced;
+@property(readonly, nonatomic, getter=isForced) _Bool forced; // @synthesize forced=_forced;
 @property(readonly, nonatomic) NSString *clientIdentifierHeader; // @synthesize clientIdentifierHeader=_clientIdentifierHeader;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

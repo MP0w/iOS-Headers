@@ -6,7 +6,7 @@
 
 @protocol RUITableViewDelegate
 - (void)tableViewOMDidChange:(id)arg1;
-- (BOOL)tableViewOM:(id)arg1 deleteRowAtIndexPath:(id)arg2;
+- (_Bool)tableViewOM:(id)arg1 deleteRowAtIndexPath:(id)arg2;
 - (void)tableViewOM:(id)arg1 pressedLink:(id)arg2 attributes:(id)arg3;
 - (void)tableViewOM:(id)arg1 pressedButton:(id)arg2 attributes:(id)arg3;
 @end

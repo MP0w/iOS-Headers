@@ -19,10 +19,10 @@
 @property(nonatomic) id <ABDatePickerViewControllerDismissDelegate> dismissDelegate; // @synthesize dismissDelegate=_dismissDelegate;
 @property(retain, nonatomic) UIDatePicker *datePicker; // @synthesize datePicker=_datePicker;
 @property(nonatomic) void *context; // @synthesize context=_context;
-- (void)viewWillDisappear:(BOOL)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
 - (void)loadView;
 - (void)viewDidLoad;
-- (float)ab_heightToFitForViewInPopoverView;
+- (double)ab_heightToFitForViewInPopoverView;
 - (void)dealloc;
 
 @end

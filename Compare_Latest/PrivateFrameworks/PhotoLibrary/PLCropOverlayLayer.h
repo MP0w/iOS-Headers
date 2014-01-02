@@ -36,14 +36,14 @@
 
 - (struct CGRect)cropRect;
 - (void)setCropRect:(struct CGRect)arg1;
-- (BOOL)isHighlighted;
-- (void)setHighlighted:(BOOL)arg1;
-- (BOOL)showsStraightenGrid;
-- (void)showStraightenGrid:(BOOL)arg1;
-- (BOOL)showsThirdsGrid;
-- (void)showThirdsGrid:(BOOL)arg1;
-- (BOOL)showsCropRect;
-- (void)setShowsCropRect:(BOOL)arg1;
+- (_Bool)isHighlighted;
+- (void)setHighlighted:(_Bool)arg1;
+- (_Bool)showsStraightenGrid;
+- (void)showStraightenGrid:(_Bool)arg1;
+- (_Bool)showsThirdsGrid;
+- (void)showThirdsGrid:(_Bool)arg1;
+- (_Bool)showsCropRect;
+- (void)setShowsCropRect:(_Bool)arg1;
 - (void)_updateCropRectVisibility;
 - (void)_updateLayout;
 - (void)dealloc;

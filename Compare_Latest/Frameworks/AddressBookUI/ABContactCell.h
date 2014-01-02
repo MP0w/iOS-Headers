@@ -10,25 +10,27 @@
 
 @interface ABContactCell : UITableViewCell
 {
-    BOOL _showSeparator;
+    _Bool _showSeparator;
     UIView *_separatorView;
     ABCardGroupItem *_cardGroupItem;
-    float _leftContentMargin;
-    float _rightContentMargin;
+    double _leftContentMargin;
+    double _rightContentMargin;
     UIColor *_separatorColor;
 }
 
 @property(retain, nonatomic) UIColor *separatorColor; // @synthesize separatorColor=_separatorColor;
-@property(nonatomic) float rightContentMargin; // @synthesize rightContentMargin=_rightContentMargin;
-@property(nonatomic) float leftContentMargin; // @synthesize leftContentMargin=_leftContentMargin;
+@property(nonatomic) double rightContentMargin; // @synthesize rightContentMargin=_rightContentMargin;
+@property(nonatomic) double leftContentMargin; // @synthesize leftContentMargin=_leftContentMargin;
 @property(retain, nonatomic) ABCardGroupItem *cardGroupItem; // @synthesize cardGroupItem=_cardGroupItem;
-@property(nonatomic) BOOL showSeparator; // @synthesize showSeparator=_showSeparator;
+@property(nonatomic) _Bool showSeparator; // @synthesize showSeparator=_showSeparator;
 @property(readonly, nonatomic) UIView *separatorView; // @synthesize separatorView=_separatorView;
 - (void)layoutSubviews;
+- (void)performAccessoryAction;
+- (_Bool)shouldPerformAccessoryAction;
 - (void)performDefaultAction;
-- (BOOL)shouldPerformDefaultAction;
+- (_Bool)shouldPerformDefaultAction;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

@@ -8,21 +8,22 @@
 
 @class NSTimer, UILabel, _UIHighlightView;
 
+// Not exported
 @interface UIWebPDFLabelView : UIView
 {
     UILabel *_label;
     _UIHighlightView *_highlight;
     NSTimer *_timer;
-    unsigned int currentPageIndex;
+    unsigned long long currentPageIndex;
 }
 
-@property(nonatomic) unsigned int currentPageIndex; // @synthesize currentPageIndex;
+@property(nonatomic) unsigned long long currentPageIndex; // @synthesize currentPageIndex;
 - (void)fadeOut;
 - (void)_fadeOutAnimationDidStop:(id)arg1 finished:(id)arg2;
-- (void)showNowInSuperView:(id)arg1 atOrigin:(struct CGPoint)arg2 withText:(id)arg3 animated:(BOOL)arg4;
+- (void)showNowInSuperView:(id)arg1 atOrigin:(struct CGPoint)arg2 withText:(id)arg3 animated:(_Bool)arg4;
 - (double)_fadeOutDuration;
 - (double)_fadeOutDelay;
-@property(readonly, nonatomic, getter=isTimerInstalled) BOOL timerInstalled;
+@property(readonly, nonatomic, getter=isTimerInstalled) _Bool timerInstalled;
 - (void)setText:(id)arg1;
 - (void)sizeToFit;
 - (void)dealloc;

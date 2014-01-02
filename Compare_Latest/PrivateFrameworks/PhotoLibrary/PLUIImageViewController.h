@@ -10,7 +10,7 @@
 #import "PLPhotoTileViewControllerDelegate-Protocol.h"
 #import "PLVideoViewDelegate-Protocol.h"
 
-@class NSString, PLCropOverlay, PLImageCache, PLImageLoadingQueue, PLImageSource, PLManagedAsset, PLPhotoTileViewController, PLVideoRemaker, PLVideoView, UIImage;
+@class NSURL, PLCropOverlay, PLImageCache, PLImageLoadingQueue, PLImageSource, PLManagedAsset, PLPhotoTileViewController, PLVideoRemaker, PLVideoView, UIImage;
 
 @interface PLUIImageViewController : UIViewController <PLVideoViewDelegate, PLImageLoadingQueueDelegate, PLPhotoTileViewControllerDelegate>
 {
@@ -22,12 +22,12 @@
     PLPhotoTileViewController *_imageTile;
     PLVideoView *_videoView;
     PLVideoRemaker *_remaker;
-    NSString *_videoPath;
+    NSURL *_videoURL;
     PLImageCache *_imageCache;
     PLImageLoadingQueue *_imageLoadingQueue;
     PLImageSource *_imageSource;
-    int _previousStatusBarStyle;
-    int _newStatusBarStyle;
+    long long _previousStatusBarStyle;
+    long long _newStatusBarStyle;
     unsigned int _allowEditing:1;
     unsigned int _statusBarWasHidden:1;
     unsigned int _isVideo:1;
@@ -36,7 +36,7 @@
 }
 
 - (void)imageLoadingQueue:(id)arg1 didLoadImage:(id)arg2 forAsset:(id)arg3 fromSource:(id)arg4;
-- (BOOL)photoTileViewControllerAllowsEditing:(id)arg1;
+- (_Bool)photoTileViewControllerAllowsEditing:(id)arg1;
 - (void)photoTileViewControllerDidEndGesture:(id)arg1;
 - (void)photoTileViewControllerWillBeginGesture:(id)arg1;
 - (void)photoTileViewControllerDoubleTap:(id)arg1;
@@ -45,53 +45,56 @@
 - (void)photoTileViewControllerCancelImageRequests:(id)arg1;
 - (void)photoTileViewControllerRequestsFullScreenImage:(id)arg1;
 - (int)imageFormat;
-- (void)photoTileViewController:(id)arg1 didDisappear:(BOOL)arg2;
-- (void)photoTileViewController:(id)arg1 didAppear:(BOOL)arg2;
-- (void)photoTileViewController:(id)arg1 willAppear:(BOOL)arg2;
-- (BOOL)photoTileViewControllerIsDisplayingLandscape:(id)arg1;
+- (void)photoTileViewController:(id)arg1 didDisappear:(_Bool)arg2;
+- (void)photoTileViewController:(id)arg1 didAppear:(_Bool)arg2;
+- (void)photoTileViewController:(id)arg1 willAppear:(_Bool)arg2;
+- (_Bool)photoTileViewControllerIsDisplayingLandscape:(id)arg1;
 - (void)videoRemakerDidEndRemaking:(id)arg1 temporaryPath:(id)arg2;
 - (void)videoRemakerDidBeginRemaking:(id)arg1;
-- (void)videoViewDidEndPlayback:(id)arg1 didFinish:(BOOL)arg2;
-- (void)videoViewDidPausePlayback:(id)arg1 didFinish:(BOOL)arg2;
+- (void)videoViewDidEndPlayback:(id)arg1 didFinish:(_Bool)arg2;
+- (void)videoViewDidPausePlayback:(id)arg1 didFinish:(_Bool)arg2;
 - (void)videoViewDidBeginPlayback:(id)arg1;
 - (void)videoViewIsReadyToBeginPlayback:(id)arg1;
 - (id)_trimMessage;
-- (BOOL)videoViewCanBeginPlayback:(id)arg1;
-- (float)videoViewScrubberYOrigin:(id)arg1 forOrientation:(int)arg2;
-- (BOOL)videoViewCanCreateMetadata:(id)arg1;
+- (_Bool)videoViewCanBeginPlayback:(id)arg1;
+- (double)videoViewScrubberYOrigin:(id)arg1 forOrientation:(long long)arg2;
+- (void)videoView:(id)arg1 scrubberWasCreated:(id)arg2 slalomRegionEditor:(id)arg3;
+- (_Bool)videoViewCanCreateMetadata:(id)arg1;
 - (void)cropOverlayPause:(id)arg1;
 - (void)cropOverlayPlay:(id)arg1;
 - (void)cropOverlay:(id)arg1 didFinishSaving:(id)arg2;
 - (void)cropOverlayWasOKed:(id)arg1;
 - (void)_enableCropOverlayIfNecessary;
-- (void)didChooseVideoAtPath:(id)arg1 options:(id)arg2;
+- (void)didChooseVideoAtURL:(id)arg1 options:(id)arg2;
 - (void)cropOverlayWasCancelled:(id)arg1;
 - (void)_updateGestureSettings;
 - (void)_editabilityChanged:(id)arg1;
-- (void)setAllowsEditing:(BOOL)arg1;
+- (void)setAllowsEditing:(_Bool)arg1;
 - (void)_removedAsTopViewController;
-- (void)viewDidDisappear:(BOOL)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (int)_imagePickerStatusBarStyle;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)attachScrubberPalette;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (long long)_imagePickerStatusBarStyle;
+- (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;
 - (Class)_viewClass;
 - (void)setupNavigationItem;
-- (BOOL)clientIsWallpaper;
+- (_Bool)clientIsWallpaper;
 - (id)useButtonTitle;
-- (unsigned int)_tileAutoresizingMask;
-- (unsigned int)_contentAutoresizingMask;
+- (unsigned long long)_tileAutoresizingMask;
+- (unsigned long long)_contentAutoresizingMask;
 - (struct CGRect)_viewFrame;
 - (struct CGRect)previewFrame;
+- (id)cropOverlay;
 - (int)cropOverlayMode;
 - (void)dealloc;
-- (id)initWithVideoPath:(id)arg1;
+- (id)initWithVideoURL:(id)arg1;
 - (id)initWithImageData:(id)arg1 cropRect:(struct CGRect)arg2;
 - (id)initWithUIImage:(id)arg1 cropRect:(struct CGRect)arg2;
 - (id)initWithImage:(struct CGImage *)arg1 cropRect:(struct CGRect)arg2;
 - (id)initWithPhoto:(id)arg1;
-- (BOOL)_displaysFullScreen;
+- (_Bool)_displaysFullScreen;
 
 @end
 

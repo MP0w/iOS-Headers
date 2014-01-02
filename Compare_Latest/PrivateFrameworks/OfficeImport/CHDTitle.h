@@ -8,6 +8,7 @@
 
 @class CHDChart, CHDFormula, EDString, OADGraphicProperties;
 
+// Not exported
 @interface CHDTitle : NSObject
 {
     CHDChart *mChart;

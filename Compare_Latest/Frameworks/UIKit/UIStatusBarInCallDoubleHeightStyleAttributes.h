@@ -6,6 +6,7 @@
 
 #import <UIKit/UIStatusBarLegacyDoubleHeightStyleAttributes.h>
 
+// Not exported
 @interface UIStatusBarInCallDoubleHeightStyleAttributes : UIStatusBarLegacyDoubleHeightStyleAttributes
 {
 }

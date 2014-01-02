@@ -18,10 +18,10 @@
 + (id)autoFillNodeWithDOMNode:(id)arg1;
 @property(readonly, nonatomic) DOMNode *domNode; // @synthesize domNode=_domNode;
 - (id)htmlTableCellElementCellAbove;
-- (BOOL)isHTMLTextAreaElementUserEdited;
-- (BOOL)isHTMLInputElementUserEdited;
-- (void)setHTMLInputElementAutofilled:(BOOL)arg1;
-- (BOOL)isHTMLInputElementAutofilled;
+- (_Bool)isHTMLTextAreaElementUserEdited;
+- (_Bool)isHTMLInputElementUserEdited;
+- (void)setHTMLInputElementAutofilled:(_Bool)arg1;
+- (_Bool)isHTMLInputElementAutofilled;
 - (struct CGRect)elementBounds;
 - (void)dealloc;
 - (id)initWithDOMNode:(id)arg1;

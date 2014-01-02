@@ -13,14 +13,13 @@
     NSObject<OS_dispatch_queue> *_cacheQueue;
     NSMutableDictionary *_cache;
     NSObject<OS_dispatch_source> *_memoryWarningsSource;
-    BOOL _clearsCacheOnLowMemoryWarnings;
-    BOOL _clearsCacheOnApplicationBackground;
+    _Bool _clearsCacheOnLowMemoryWarnings;
+    _Bool _clearsCacheOnApplicationBackground;
+    id _noteObserver;
 }
 
-- (void)_handleLowMemoryNotification:(id)arg1;
-- (void)_handleLowMemoryEvent;
-@property(nonatomic) BOOL clearsCacheOnApplicationBackground;
-@property(nonatomic) BOOL clearsCacheOnLowMemoryWarnings;
+@property(nonatomic) _Bool clearsCacheOnApplicationBackground;
+@property(nonatomic) _Bool clearsCacheOnLowMemoryWarnings;
 - (void)removeAllObjects;
 - (void)removeObjectForKey:(id)arg1;
 - (id)objectForKey:(id)arg1;

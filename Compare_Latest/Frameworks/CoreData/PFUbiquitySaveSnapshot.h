@@ -8,6 +8,7 @@
 
 @class NSArray, NSDate, NSMutableDictionary, NSString;
 
+// Not exported
 @interface PFUbiquitySaveSnapshot : NSObject
 {
     NSDate *_transactionDate;

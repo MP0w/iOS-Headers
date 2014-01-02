@@ -10,6 +10,7 @@
 
 @class OADColor, OADDash, OADFill, OADLineEnd, OADLineJoin;
 
+// Not exported
 @interface OADStroke : OADProperties <NSCopying>
 {
     OADColor *mColor;
@@ -37,31 +38,31 @@
 + (id)nullStroke;
 @property(retain, nonatomic) OADLineEnd *tail; // @synthesize tail=mTail;
 @property(retain, nonatomic) OADLineEnd *head; // @synthesize head=mHead;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)setStyleColor:(id)arg1;
-- (BOOL)isPenAlignmentOverridden;
+- (_Bool)isPenAlignmentOverridden;
 - (void)setPenAlignment:(int)arg1;
 - (int)penAlignment;
-- (BOOL)isCompoundTypeOverridden;
+- (_Bool)isCompoundTypeOverridden;
 - (void)setCompoundType:(int)arg1;
 - (int)compoundType;
-- (BOOL)isCapOverridden;
+- (_Bool)isCapOverridden;
 - (void)setCap:(int)arg1;
 - (int)cap;
-- (BOOL)isWidthOverridden;
+- (_Bool)isWidthOverridden;
 - (void)setWidth:(float)arg1;
 - (float)width;
-- (BOOL)isJoinOverridden;
+- (_Bool)isJoinOverridden;
 - (void)setJoin:(id)arg1;
 - (id)join;
-- (BOOL)isDashOverridden;
+- (_Bool)isDashOverridden;
 - (void)setDash:(id)arg1;
 - (id)dash;
-- (BOOL)isFillOverridden;
+- (_Bool)isFillOverridden;
 - (void)setFill:(id)arg1;
 - (id)fill;
-- (BOOL)isColorOverridden;
+- (_Bool)isColorOverridden;
 - (void)setColor:(id)arg1;
 - (id)color;
 - (void)setParent:(id)arg1;

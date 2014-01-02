@@ -6,6 +6,7 @@
 
 #import <OfficeImport/WXCharacterRun.h>
 
+// Not exported
 @interface WXRubyRun : WXCharacterRun
 {
 }

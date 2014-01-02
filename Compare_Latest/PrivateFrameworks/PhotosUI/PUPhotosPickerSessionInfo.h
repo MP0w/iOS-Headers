@@ -16,9 +16,9 @@
 @property(copy, nonatomic, setter=_setTargetAlbumName:) NSString *_targetAlbumName; // @synthesize _targetAlbumName=__targetAlbumName;
 - (void).cxx_destruct;
 - (id)localizedPrompt;
-- (BOOL)isSelectingAssets;
-- (id)_initWithTargetAlbum:(struct NSObject *)arg1 orTargetAlbumName:(id)arg2 isLocal:(BOOL)arg3;
-- (id)initWithTargetAlbumName:(id)arg1 isLocal:(BOOL)arg2;
+- (_Bool)isSelectingAssets;
+- (id)_initWithTargetAlbum:(struct NSObject *)arg1 orTargetAlbumName:(id)arg2 isLocal:(_Bool)arg3;
+- (id)initWithTargetAlbumName:(id)arg1 isLocal:(_Bool)arg2;
 - (id)initWithTargetAlbum:(struct NSObject *)arg1;
 
 @end

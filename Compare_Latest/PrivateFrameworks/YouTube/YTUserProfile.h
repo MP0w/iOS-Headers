@@ -11,14 +11,14 @@
 @interface YTUserProfile : NSObject
 {
     NSString *_username;
-    int _age;
-    int _maxUploadDuration;
+    long long _age;
+    long long _maxUploadDuration;
 }
 
-@property(readonly, nonatomic) int maxUploadDuration; // @synthesize maxUploadDuration=_maxUploadDuration;
-@property(readonly, nonatomic) int age; // @synthesize age=_age;
+@property(readonly, nonatomic) long long maxUploadDuration; // @synthesize maxUploadDuration=_maxUploadDuration;
+@property(readonly, nonatomic) long long age; // @synthesize age=_age;
 @property(readonly, nonatomic) NSString *username; // @synthesize username=_username;
-- (id)initWithUsername:(id)arg1 age:(int)arg2 maxUploadDuration:(int)arg3;
+- (id)initWithUsername:(id)arg1 age:(long long)arg2 maxUploadDuration:(long long)arg3;
 
 @end
 

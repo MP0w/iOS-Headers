@@ -13,37 +13,37 @@
 @interface SUDeferredUISegmentedControl : UISegmentedControl <SUDeferredUIView>
 {
     struct CGRect _deferredFrame;
-    float _deferredMaxTotalWidth;
-    float _deferredMinSegmentWidth;
+    double _deferredMaxTotalWidth;
+    double _deferredMinSegmentWidth;
     NSMutableArray *_deferredSegments;
-    int _deferredSegmentedControlStyle;
-    unsigned int _deferredSelectedSegmentIndex;
-    BOOL _deferredSizeToFit;
-    BOOL _isDeferringInterfaceUpdates;
+    long long _deferredSegmentedControlStyle;
+    unsigned long long _deferredSelectedSegmentIndex;
+    _Bool _deferredSizeToFit;
+    _Bool _isDeferringInterfaceUpdates;
 }
 
 - (void)_saveSegmentsAsDeferred;
 - (void)_saveCurrentStateAsDeferred;
-- (void)_insertSegmentWithValue:(id)arg1 atIndex:(unsigned int)arg2;
+- (void)_insertSegmentWithValue:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)_commitDeferredInterfaceUpdates;
-- (id)titleForSegmentAtIndex:(unsigned int)arg1;
-- (void)sizeToFitWithMinimumSegmentWidth:(float)arg1 maximumTotalWidth:(float)arg2;
+- (id)titleForSegmentAtIndex:(unsigned long long)arg1;
+- (void)sizeToFitWithMinimumSegmentWidth:(double)arg1 maximumTotalWidth:(double)arg2;
 - (void)sizeToFit;
-- (void)setTitle:(id)arg1 forSegmentAtIndex:(unsigned int)arg2;
-- (void)setSelectedSegmentIndex:(int)arg1;
-- (void)setSegmentedControlStyle:(int)arg1;
-- (void)setImage:(id)arg1 forSegmentAtIndex:(unsigned int)arg2;
+- (void)setTitle:(id)arg1 forSegmentAtIndex:(unsigned long long)arg2;
+- (void)setSelectedSegmentIndex:(long long)arg1;
+- (void)setSegmentedControlStyle:(long long)arg1;
+- (void)setImage:(id)arg1 forSegmentAtIndex:(unsigned long long)arg2;
 - (void)setFrame:(struct CGRect)arg1;
-- (int)selectedSegmentIndex;
-- (int)segmentedControlStyle;
-- (void)removeSegmentAtIndex:(unsigned int)arg1 animated:(BOOL)arg2;
+- (long long)selectedSegmentIndex;
+- (long long)segmentedControlStyle;
+- (void)removeSegmentAtIndex:(unsigned long long)arg1 animated:(_Bool)arg2;
 - (void)removeAllSegments;
-- (unsigned int)numberOfSegments;
-- (void)insertSegmentWithTitle:(id)arg1 atIndex:(unsigned int)arg2 animated:(BOOL)arg3;
-- (void)insertSegmentWithImage:(id)arg1 atIndex:(unsigned int)arg2 animated:(BOOL)arg3;
-- (id)imageForSegmentAtIndex:(unsigned int)arg1;
+- (unsigned long long)numberOfSegments;
+- (void)insertSegmentWithTitle:(id)arg1 atIndex:(unsigned long long)arg2 animated:(_Bool)arg3;
+- (void)insertSegmentWithImage:(id)arg1 atIndex:(unsigned long long)arg2 animated:(_Bool)arg3;
+- (id)imageForSegmentAtIndex:(unsigned long long)arg1;
 - (struct CGRect)frame;
-@property(nonatomic, getter=isDeferringInterfaceUpdates) BOOL deferringInterfaceUpdates;
+@property(nonatomic, getter=isDeferringInterfaceUpdates) _Bool deferringInterfaceUpdates;
 - (void)dealloc;
 
 @end

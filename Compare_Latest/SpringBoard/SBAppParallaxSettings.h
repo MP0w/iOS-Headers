@@ -6,21 +6,21 @@
 
 #import "_UISettings.h"
 
-@class SBParallaxSettings, SBWallpaperParallaxSettings;
+@class SBFHomeScreenWallpaperParallaxSettings, SBFLockScreenWallpaperParallaxSettings, SBFParallaxSettings;
 
 @interface SBAppParallaxSettings : _UISettings
 {
-    SBWallpaperParallaxSettings *_lockscreenWallpaperSettings;
-    SBWallpaperParallaxSettings *_homescreenWallpaperSettings;
-    SBParallaxSettings *_iconSettings;
-    SBParallaxSettings *_iconBadgeSettings;
+    SBFLockScreenWallpaperParallaxSettings *_lockscreenWallpaperSettings;
+    SBFHomeScreenWallpaperParallaxSettings *_homescreenWallpaperSettings;
+    SBFParallaxSettings *_iconSettings;
+    SBFParallaxSettings *_iconBadgeSettings;
 }
 
 + (id)settingsControllerModule;
-@property(retain) SBParallaxSettings *iconBadgeSettings; // @synthesize iconBadgeSettings=_iconBadgeSettings;
-@property(retain) SBParallaxSettings *iconSettings; // @synthesize iconSettings=_iconSettings;
-@property(retain) SBWallpaperParallaxSettings *homescreenWallpaperSettings; // @synthesize homescreenWallpaperSettings=_homescreenWallpaperSettings;
-@property(retain) SBWallpaperParallaxSettings *lockscreenWallpaperSettings; // @synthesize lockscreenWallpaperSettings=_lockscreenWallpaperSettings;
+@property(retain) SBFParallaxSettings *iconBadgeSettings; // @synthesize iconBadgeSettings=_iconBadgeSettings;
+@property(retain) SBFParallaxSettings *iconSettings; // @synthesize iconSettings=_iconSettings;
+@property(retain) SBFHomeScreenWallpaperParallaxSettings *homescreenWallpaperSettings; // @synthesize homescreenWallpaperSettings=_homescreenWallpaperSettings;
+@property(retain) SBFLockScreenWallpaperParallaxSettings *lockscreenWallpaperSettings; // @synthesize lockscreenWallpaperSettings=_lockscreenWallpaperSettings;
 - (void)setDefaultValues;
 
 @end

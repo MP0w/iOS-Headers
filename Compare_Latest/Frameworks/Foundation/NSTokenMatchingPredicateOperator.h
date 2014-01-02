@@ -6,11 +6,12 @@
 
 #import <Foundation/NSStringPredicateOperator.h>
 
+// Not exported
 @interface NSTokenMatchingPredicateOperator : NSStringPredicateOperator
 {
 }
 
-- (BOOL)performPrimitiveOperationUsingObject:(id)arg1 andObject:(id)arg2;
+- (_Bool)performPrimitiveOperationUsingObject:(id)arg1 andObject:(id)arg2;
 - (SEL)selector;
 - (id)symbol;
 

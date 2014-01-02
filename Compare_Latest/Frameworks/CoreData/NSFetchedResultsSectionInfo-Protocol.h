@@ -8,7 +8,7 @@
 
 @protocol NSFetchedResultsSectionInfo
 @property(readonly, nonatomic) NSArray *objects;
-@property(readonly, nonatomic) unsigned int numberOfObjects;
+@property(readonly, nonatomic) unsigned long long numberOfObjects;
 @property(readonly, nonatomic) NSString *indexTitle;
 @property(readonly, nonatomic) NSString *name;
 @end

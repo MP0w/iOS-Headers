@@ -6,17 +6,18 @@
 
 #import <CoreData/_PFString.h>
 
+// Not exported
 @interface _PFEncodedString : _PFString
 {
 }
 
 - (void)dealloc;
-- (BOOL)_tryRetain;
-- (BOOL)_isDeallocating;
+- (_Bool)_tryRetain;
+- (_Bool)_isDeallocating;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (Class)classForArchiver;
 - (Class)classForCoder;
-- (unsigned int)retainCount;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;
 - (id)init;

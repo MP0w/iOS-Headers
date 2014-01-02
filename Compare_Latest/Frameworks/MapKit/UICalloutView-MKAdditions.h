@@ -7,6 +7,6 @@
 #import "UICalloutView.h"
 
 @interface UICalloutView (MKAdditions)
-- (BOOL)isExpanded;
+- (_Bool)isExpanded;
 @end
 

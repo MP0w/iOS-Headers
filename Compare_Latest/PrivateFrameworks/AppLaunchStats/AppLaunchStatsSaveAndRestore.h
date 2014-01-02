@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, NSObject<OS_dispatch_queue>;
+@class NSMutableArray, NSObject<OS_dispatch_queue>, NSUserDefaults;
 
 @interface AppLaunchStatsSaveAndRestore : NSObject
 {
@@ -14,14 +14,15 @@
     _Bool hasSavedData;
     NSObject<OS_dispatch_queue> *aplsSaveAndRestoreQueue;
     NSMutableArray *saveRestoreObjects;
+    NSUserDefaults *saveRestoreDefaults;
 }
 
 @property(readonly, nonatomic) _Bool hasSavedData; // @synthesize hasSavedData;
 @property(nonatomic) _Bool allowSave; // @synthesize allowSave;
 - (void).cxx_destruct;
+- (void)saveState:(id)arg1 withKey:(id)arg2;
 - (void)saveAll;
 - (void)restoreAll;
-- (id)reloadFromDisk;
 - (void)quickSave:(id)arg1 forKey:(id)arg2;
 - (id)getString:(id)arg1;
 - (id)getList:(id)arg1;

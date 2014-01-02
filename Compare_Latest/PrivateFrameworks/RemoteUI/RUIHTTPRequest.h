@@ -15,16 +15,16 @@
     NSURLRequest *_request;
     NSURLConnection *_connection;
     NSMutableData *_rawData;
-    BOOL _invalidResponse;
+    _Bool _invalidResponse;
     id _delegate;
 }
 
 + (id)safeBaseURL;
-+ (BOOL)anyRequestLoading;
++ (_Bool)anyRequestLoading;
 + (id)nonSecureConnectionNotAllowedError;
 + (id)invalidResponseError;
 + (id)serviceUnavailableError;
-- (BOOL)receivedValidResponse:(id)arg1;
+- (_Bool)receivedValidResponse:(id)arg1;
 - (void)failWithError:(id)arg1;
 - (void)parseData:(id)arg1;
 - (void)didParseData;
@@ -35,10 +35,10 @@
 - (void)connection:(id)arg1 didReceiveResponse:(id)arg2;
 - (id)request;
 - (void)loadStatusChanged;
-- (BOOL)isLoading;
+- (_Bool)isLoading;
 - (void)cancel;
 - (void)loadRequest:(id)arg1;
-- (BOOL)loggingEnabled;
+- (_Bool)loggingEnabled;
 - (void)_finishedLoading;
 - (void)_startedLoading;
 - (void)setDelegate:(id)arg1;

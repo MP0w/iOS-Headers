@@ -15,7 +15,7 @@
 
 - (void)PLXPCinvalidationHandler;
 - (void)PLXPCinterruptedHandler;
-- (BOOL)PLXPCSendMessage:(id)arg1;
+- (_Bool)PLXPCSendMessage:(id)arg1;
 - (id)PLXPCSendMessageWithReply:(id)arg1;
 - (id)init;
 

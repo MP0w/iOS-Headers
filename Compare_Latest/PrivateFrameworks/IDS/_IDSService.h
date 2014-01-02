@@ -17,20 +17,21 @@
     NSMutableDictionary *_uniqueIDToConnection;
     NSSet *_commands;
     NSString *_rerouteService;
-    BOOL _everHadDelegate;
+    _Bool _everHadDelegate;
     NSMapTable *_delegateToInfo;
     id _delegateContext;
 }
 
 - (void)requestKeepAlive;
-- (BOOL)sendMessage:(id)arg1 fromAccount:(id)arg2 toDestinations:(id)arg3 priority:(int)arg4 options:(id)arg5 identifier:(id *)arg6 error:(id *)arg7;
+- (_Bool)sendServerMessage:(id)arg1 command:(id)arg2 fromAccount:(id)arg3;
+- (_Bool)sendMessage:(id)arg1 fromAccount:(id)arg2 toDestinations:(id)arg3 priority:(long long)arg4 options:(id)arg5 identifier:(id *)arg6 error:(id *)arg7;
 @property(readonly, nonatomic) NSArray *devices;
 @property(readonly, nonatomic) NSSet *accounts;
-- (void)connection:(id)arg1 identifier:(id)arg2 didSendWithSuccess:(BOOL)arg3 error:(id)arg4;
-- (void)connection:(id)arg1 messageIdentifier:(id)arg2 updatedWithResponseCode:(int)arg3 error:(id)arg4 lastCall:(BOOL)arg5;
+- (void)connection:(id)arg1 identifier:(id)arg2 didSendWithSuccess:(_Bool)arg3 error:(id)arg4;
+- (void)connection:(id)arg1 messageIdentifier:(id)arg2 updatedWithResponseCode:(long long)arg3 error:(id)arg4 lastCall:(_Bool)arg5;
 - (void)connection:(id)arg1 devicesChanged:(id)arg2;
-- (void)connection:(id)arg1 isActiveChanged:(BOOL)arg2;
-- (void)connection:(id)arg1 incomingTopLevelMessage:(id)arg2 fromID:(id)arg3;
+- (void)connection:(id)arg1 isActiveChanged:(_Bool)arg2;
+- (void)connection:(id)arg1 incomingTopLevelMessage:(id)arg2 fromID:(id)arg3 messageContext:(id)arg4;
 - (void)connection:(id)arg1 incomingMessage:(id)arg2 fromID:(id)arg3;
 - (void)accountController:(id)arg1 accountDisabled:(id)arg2;
 - (void)accountController:(id)arg1 accountEnabled:(id)arg2;

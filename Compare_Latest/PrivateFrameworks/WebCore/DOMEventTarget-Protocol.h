@@ -8,10 +8,10 @@
 #import "NSObject-Protocol.h"
 
 @protocol DOMEventTarget <NSObject, NSCopying>
-- (void)removeEventListener:(id)arg1:(id)arg2:(BOOL)arg3;
-- (void)addEventListener:(id)arg1:(id)arg2:(BOOL)arg3;
-- (BOOL)dispatchEvent:(id)arg1;
-- (void)removeEventListener:(id)arg1 listener:(id)arg2 useCapture:(BOOL)arg3;
-- (void)addEventListener:(id)arg1 listener:(id)arg2 useCapture:(BOOL)arg3;
+- (void)removeEventListener:(id)arg1:(id)arg2:(_Bool)arg3;
+- (void)addEventListener:(id)arg1:(id)arg2:(_Bool)arg3;
+- (_Bool)dispatchEvent:(id)arg1;
+- (void)removeEventListener:(id)arg1 listener:(id)arg2 useCapture:(_Bool)arg3;
+- (void)addEventListener:(id)arg1 listener:(id)arg2 useCapture:(_Bool)arg3;
 @end
 

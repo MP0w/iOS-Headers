@@ -10,7 +10,7 @@
 - (void)startInteractiveTransition:(id)arg1;
 
 @optional
-- (int)completionCurve;
-- (float)completionSpeed;
+- (long long)completionCurve;
+- (double)completionSpeed;
 @end
 

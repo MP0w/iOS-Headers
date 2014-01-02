@@ -13,7 +13,7 @@
     void *_internal;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 - (void)_setEndpoint:(id)arg1;
 - (id)_endpoint;
 - (void)encodeWithCoder:(id)arg1;

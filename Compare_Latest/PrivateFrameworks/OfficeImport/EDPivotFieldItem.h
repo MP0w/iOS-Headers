@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface EDPivotFieldItem : NSObject
 {
     _Bool mChildItems;
@@ -15,14 +16,14 @@
     _Bool mHidden;
     _Bool mDetailsHidden;
     int mType;
-    unsigned long mItemIndex;
+    unsigned long long mItemIndex;
 }
 
 + (id)pivotFieldItem;
 - (void)setType:(int)arg1;
 - (int)type;
-- (void)setItemIndex:(unsigned long)arg1;
-- (unsigned long)itemIndex;
+- (void)setItemIndex:(unsigned long long)arg1;
+- (unsigned long long)itemIndex;
 - (void)setDetailsHidden:(_Bool)arg1;
 - (_Bool)detailsHidden;
 - (void)setHidden:(_Bool)arg1;

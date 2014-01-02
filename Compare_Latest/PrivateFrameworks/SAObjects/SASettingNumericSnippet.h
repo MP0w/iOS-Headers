@@ -12,7 +12,7 @@
 
 + (id)numericSnippetWithDictionary:(id)arg1 context:(id)arg2;
 + (id)numericSnippet;
-@property(nonatomic) BOOL increment;
+@property(nonatomic) _Bool increment;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

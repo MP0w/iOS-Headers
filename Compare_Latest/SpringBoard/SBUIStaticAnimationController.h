@@ -10,18 +10,18 @@
 
 @interface SBUIStaticAnimationController : SBUIMainScreenAnimationController
 {
-    BOOL _relaunchExpected;
-    BOOL _awaitingKeybagRefetch;
-    BOOL _appWasActivating;
+    _Bool _relaunchExpected;
+    _Bool _awaitingKeybagRefetch;
+    _Bool _appWasActivating;
     UIView *_staticAppView;
 }
 
 - (void)_cleanupAnimation;
 - (void)_startAnimation;
-- (BOOL)_shouldDismissBanner;
+- (_Bool)_shouldDismissBanner;
 - (void)_prepareAnimation;
-- (BOOL)_animationShouldStart;
-- (BOOL)_willAnimate;
+- (_Bool)_animationShouldStart;
+- (_Bool)_willAnimate;
 @property(readonly, nonatomic) SBApplication *app;
 - (void)dealloc;
 - (id)initWithApp:(id)arg1;

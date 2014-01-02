@@ -13,7 +13,7 @@
 {
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 + (id)UUID;
 + (id)allocWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
@@ -22,12 +22,12 @@
 - (struct __CFString *)_cfUUIDString;
 - (id)UUIDString;
 - (void)getUUIDBytes:(unsigned char [16])arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)initWithUUIDBytes:(unsigned char [16])arg1;
 - (id)initWithUUIDString:(id)arg1;
 - (id)init;
-- (unsigned long)_cfTypeID;
+- (unsigned long long)_cfTypeID;
 
 @end
 

@@ -7,6 +7,6 @@
 #import "UIApplication.h"
 
 @interface UIApplication (MPAdditions)
-- (BOOL)isSuspendedForAnyReason;
+- (_Bool)isSuspendedForAnyReason;
 @end
 

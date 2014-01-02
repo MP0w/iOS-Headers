@@ -7,6 +7,6 @@
 #import "PKJob.h"
 
 @interface PKJob (UIPrintStatusViewController)
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 @end
 

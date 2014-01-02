@@ -9,5 +9,6 @@
 @protocol SFPersonCollectionViewCellDelegate <NSObject>
 - (void)personCollectionViewCellDidFinishTransfer:(id)arg1;
 - (void)personCollectionViewCellDidTerminateTransfer:(id)arg1;
+- (void)personCollectionViewCellDidStartTransfer:(id)arg1;
 @end
 

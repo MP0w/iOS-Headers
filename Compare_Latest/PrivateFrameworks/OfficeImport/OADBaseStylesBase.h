@@ -8,6 +8,7 @@
 
 @class OADColorScheme, OADFontScheme, OADStyleMatrix;
 
+// Not exported
 @interface OADBaseStylesBase : NSObject
 {
     OADColorScheme *mColorScheme;

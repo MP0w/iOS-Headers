@@ -7,10 +7,11 @@
 #import <AddressBookUI/ABContactAction.h>
 
 #import "ABPeoplePickerNavigationControllerDelegate-Protocol.h"
+#import "ABPersonViewControllerDelegate-Protocol.h"
 
 @class ABPeoplePickerNavigationController, CNContact;
 
-@interface ABContactAddLinkedCardAction : ABContactAction <ABPeoplePickerNavigationControllerDelegate>
+@interface ABContactAddLinkedCardAction : ABContactAction <ABPeoplePickerNavigationControllerDelegate, ABPersonViewControllerDelegate>
 {
     CNContact *_chosenContact;
     ABPeoplePickerNavigationController *_peoplePicker;
@@ -20,9 +21,10 @@
 @property(retain, nonatomic) CNContact *selectedContact; // @synthesize selectedContact=_selectedContact;
 @property(retain, nonatomic) ABPeoplePickerNavigationController *peoplePicker; // @synthesize peoplePicker=_peoplePicker;
 @property(retain, nonatomic) CNContact *chosenContact; // @synthesize chosenContact=_chosenContact;
-- (BOOL)peoplePickerNavigationController:(id)arg1 shouldAllowSelectingPersonWithRecordID:(int)arg2;
-- (BOOL)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
-- (BOOL)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2;
+- (_Bool)personViewController:(id)arg1 shouldPerformDefaultActionForPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
+- (_Bool)peoplePickerNavigationController:(id)arg1 shouldAllowSelectingPersonWithRecordID:(int)arg2;
+- (_Bool)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
+- (_Bool)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2;
 - (void)peoplePickerNavigationControllerDidCancel:(id)arg1;
 - (void)peoplePickerLinkButtonTapped;
 - (void)performActionWithSender:(id)arg1;

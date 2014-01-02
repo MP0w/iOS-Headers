@@ -8,6 +8,7 @@
 
 @class UIViewController;
 
+// Not exported
 @interface UIStoryboardScene : NSObject
 {
     UIViewController *sceneViewController;

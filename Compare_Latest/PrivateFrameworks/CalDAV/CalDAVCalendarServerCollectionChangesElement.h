@@ -8,14 +8,14 @@
 
 @interface CalDAVCalendarServerCollectionChangesElement : CalDAVCalendarServerResourceChangeElement
 {
-    int _created;
-    int _updated;
-    int _deleted;
+    long long _created;
+    long long _updated;
+    long long _deleted;
 }
 
-@property int deleted; // @synthesize deleted=_deleted;
-@property int updated; // @synthesize updated=_updated;
-@property int created; // @synthesize created=_created;
+@property long long deleted; // @synthesize deleted=_deleted;
+@property long long updated; // @synthesize updated=_updated;
+@property long long created; // @synthesize created=_created;
 - (id)copyParseRules;
 - (void)setDeletedItem:(id)arg1;
 - (void)setUpdatedItem:(id)arg1;

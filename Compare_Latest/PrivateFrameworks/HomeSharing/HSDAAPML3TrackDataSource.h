@@ -14,13 +14,13 @@
 {
     NSData *_itemsResponseData;
     NSArray *_rawItems;
-    int _idx;
+    long long _idx;
 }
 
 - (void)invalidate;
 - (id)createImportItem;
-- (id)importItemAtIndex:(unsigned int)arg1;
-- (unsigned int)itemCount;
+- (id)importItemAtIndex:(unsigned long long)arg1;
+- (unsigned long long)itemCount;
 - (void)dealloc;
 - (id)initWithItemsResponseData:(id)arg1;
 

@@ -9,6 +9,6 @@
 @protocol SKUIGiftViewControllerDelegate <NSObject>
 
 @optional
-- (void)giftViewController:(id)arg1 didFinishWithResult:(BOOL)arg2;
+- (void)giftViewController:(id)arg1 didFinishWithResult:(_Bool)arg2;
 @end
 

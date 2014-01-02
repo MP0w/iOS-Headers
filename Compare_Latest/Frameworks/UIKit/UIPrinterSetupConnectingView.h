@@ -8,6 +8,7 @@
 
 @class UIActivityIndicatorView, UILabel;
 
+// Not exported
 @interface UIPrinterSetupConnectingView : UIView
 {
     UILabel *_label;
@@ -18,7 +19,7 @@
 @property(nonatomic) double presentationTime; // @synthesize presentationTime=_presentationTime;
 @property(retain, nonatomic) UIActivityIndicatorView *activityIndicator; // @synthesize activityIndicator=_activityIndicator;
 @property(retain, nonatomic) UILabel *label; // @synthesize label=_label;
-- (void)setMessage:(id)arg1 active:(BOOL)arg2;
+- (void)setMessage:(id)arg1 active:(_Bool)arg2;
 - (void)willMoveToSuperview:(id)arg1;
 - (void)presentView;
 - (void)layoutSubviews;

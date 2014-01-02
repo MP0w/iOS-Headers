@@ -8,6 +8,7 @@
 
 @class NSOperationQueue, NSURLAuthenticationChallenge, NSURLConnectionDelegateProxy;
 
+// Not exported
 @interface NSURLDownloadInternal : NSObject
 {
     struct _CFURLDownload *cfDownload;
@@ -15,7 +16,7 @@
     NSURLAuthenticationChallenge *currNSChallenge;
     NSURLConnectionDelegateProxy *proxy;
     id delegate;
-    BOOL downloadActive;
+    _Bool downloadActive;
     NSOperationQueue *_targetQueue;
 }
 

@@ -10,6 +10,7 @@
 
 @class CHDMarker;
 
+// Not exported
 @interface CHDLineSeries : CHDSeries <CHDMarkerOwner>
 {
     CHDMarker *mMarker;

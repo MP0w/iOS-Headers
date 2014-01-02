@@ -10,15 +10,14 @@
 {
 }
 
-- (BOOL)hasFolderIconView;
-- (BOOL)isNewsstandIcon;
+- (_Bool)hasFolderIconView;
+- (_Bool)isNewsstandIcon;
 - (id)getUnmaskedIconImage:(int)arg1;
 - (id)generateIconImage:(int)arg1;
-- (id)_generateImageUsingMask:(BOOL)arg1;
+- (id)_generateImageUsingMask:(_Bool)arg1;
 - (id)_newsstandIconImageName;
-- (BOOL)canReceiveGrabbedIcon;
 - (id)folder;
-- (void)launch:(int)arg1;
+- (void)launchFromLocation:(int)arg1;
 - (id)leafIdentifier;
 - (id)displayName;
 

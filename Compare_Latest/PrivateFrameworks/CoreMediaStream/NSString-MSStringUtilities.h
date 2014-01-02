@@ -7,7 +7,7 @@
 #import "NSString.h"
 
 @interface NSString (MSStringUtilities)
-+ (id)MSStringWithBool:(BOOL)arg1;
++ (id)MSStringWithBool:(_Bool)arg1;
 + (id)MSTempFilePath;
 + (id)MSMakeUUID;
 - (unsigned long long)MSUniqueID;

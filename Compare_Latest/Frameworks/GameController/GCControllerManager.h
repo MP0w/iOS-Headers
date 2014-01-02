@@ -6,9 +6,12 @@
 
 #import "NSObject.h"
 
+#import "GameControllerDaemonListener-Protocol.h"
+
 @class NSMutableArray, NSObject<OS_dispatch_queue>;
 
-@interface GCControllerManager : NSObject
+// Not exported
+@interface GCControllerManager : NSObject <GameControllerDaemonListener>
 {
     struct __IOHIDManager *_hidManager;
     NSMutableArray *_controllers;
@@ -25,6 +28,7 @@
 - (void)open;
 - (id)controllers;
 - (void)removeController:(id)arg1;
+- (void)controllerIndex:(long long)arg1 setData:(id)arg2;
 - (void)addController:(id)arg1;
 - (void)dealloc;
 - (id)init;

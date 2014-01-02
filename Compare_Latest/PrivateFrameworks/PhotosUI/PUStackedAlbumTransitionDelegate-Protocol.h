@@ -7,7 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol PUStackedAlbumTransitionDelegate <NSObject>
-- (id)stackedAlbumTransition:(id)arg1 transitionLayoutForCollection:(id)arg2;
-- (void)stackedAlbumTransition:(id)arg1 setVisibility:(BOOL)arg2 forCollection:(id)arg3;
+- (id)stackedAlbumTransition:(id)arg1 layoutForCollection:(id)arg2;
+- (void)stackedAlbumTransition:(id)arg1 setVisibility:(_Bool)arg2 forCollection:(id)arg3;
 @end
 

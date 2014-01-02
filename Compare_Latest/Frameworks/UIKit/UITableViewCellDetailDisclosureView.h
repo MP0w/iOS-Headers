@@ -8,14 +8,15 @@
 
 @class UIButton, UIImageView;
 
+// Not exported
 @interface UITableViewCellDetailDisclosureView : UIControl
 {
     UIButton *_infoButton;
     UIImageView *_disclosureView;
 }
 
-- (void)removeTarget:(id)arg1 action:(SEL)arg2 forControlEvents:(unsigned int)arg3;
-- (void)addTarget:(id)arg1 action:(SEL)arg2 forControlEvents:(unsigned int)arg3;
+- (void)removeTarget:(id)arg1 action:(SEL)arg2 forControlEvents:(unsigned long long)arg3;
+- (void)addTarget:(id)arg1 action:(SEL)arg2 forControlEvents:(unsigned long long)arg3;
 - (void)dealloc;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (id)initWithTarget:(id)arg1 action:(SEL)arg2;

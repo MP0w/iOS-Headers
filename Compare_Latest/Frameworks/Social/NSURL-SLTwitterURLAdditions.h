@@ -7,10 +7,9 @@
 #import "NSURL.h"
 
 @interface NSURL (SLTwitterURLAdditions)
-+ (id)SLTwitterProfileImageURLForScreenName:(id)arg1;
++ (id)SLTwitterUserInfoURL;
 + (id)SLTwitterAccessTokenURL;
 + (id)SLTwitterRequestTokenURL;
-+ (void)SLTwitterFetchDataAtURL:(id)arg1 completionBlock:(id)arg2;
 + (id)SLTwitterCleanupPushDestinationsURL;
 + (id)SLTwitterVerifyCredentialsURL;
 + (id)SLTwitterShowUserURL;

@@ -8,14 +8,14 @@
 
 @interface TIKeyboardKeyBehaviors : NSObject
 {
-    unsigned int _spaceKeyBehavior;
-    unsigned int _returnKeyBehavior;
+    unsigned long long _spaceKeyBehavior;
+    unsigned long long _returnKeyBehavior;
 }
 
-+ (id)behaviorForSpaceKey:(unsigned int)arg1 forReturnKey:(unsigned int)arg2;
-@property(nonatomic) unsigned int returnKeyBehavior; // @synthesize returnKeyBehavior=_returnKeyBehavior;
-@property(nonatomic) unsigned int spaceKeyBehavior; // @synthesize spaceKeyBehavior=_spaceKeyBehavior;
-- (id)initWithSpaceKeyBehavior:(unsigned int)arg1 returnKeyBehavior:(unsigned int)arg2;
++ (id)behaviorForSpaceKey:(unsigned long long)arg1 forReturnKey:(unsigned long long)arg2;
+@property(nonatomic) unsigned long long returnKeyBehavior; // @synthesize returnKeyBehavior=_returnKeyBehavior;
+@property(nonatomic) unsigned long long spaceKeyBehavior; // @synthesize spaceKeyBehavior=_spaceKeyBehavior;
+- (id)initWithSpaceKeyBehavior:(unsigned long long)arg1 returnKeyBehavior:(unsigned long long)arg2;
 
 @end
 

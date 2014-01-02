@@ -8,29 +8,29 @@
 
 @interface UIView (AXConstraintBasedLayout)
 - (id)ax_firstCommonAncestorWithView:(id)arg1;
-- (unsigned int)_ax_depth;
-- (void)ax_constrainLayoutAttribute:(int)arg1 relatedBy:(int)arg2 toItem:(id)arg3 attribute:(int)arg4 multiplier:(float)arg5 constant:(float)arg6 priority:(float)arg7;
-- (void)ax_constrainLayoutAttribute:(int)arg1 relatedBy:(int)arg2 toItem:(id)arg3 attribute:(int)arg4 multiplier:(float)arg5 constant:(float)arg6;
-- (void)ax_constrainLayoutAttribute:(int)arg1 asGreaterThanOrEqualToLayoutAttribute:(int)arg2 ofView:(id)arg3 withOffset:(float)arg4 priority:(float)arg5;
-- (void)ax_constrainLayoutAttribute:(int)arg1 asGreaterThanOrEqualToLayoutAttribute:(int)arg2 ofView:(id)arg3 withOffset:(float)arg4;
-- (void)ax_constrainLayoutAttribute:(int)arg1 asGreaterThanOrEqualToValueOfView:(id)arg2 withOffset:(float)arg3 priority:(float)arg4;
-- (void)ax_constrainLayoutAttribute:(int)arg1 asGreaterThanOrEqualToValueOfView:(id)arg2 withOffset:(float)arg3;
-- (void)ax_constrainLayoutAttribute:(int)arg1 asGreaterThanOrEqualToValueOfView:(id)arg2;
-- (void)ax_constrainLayoutAttribute:(int)arg1 asGreaterThanOrEqualToConstant:(float)arg2 priority:(float)arg3;
-- (void)ax_constrainLayoutAttribute:(int)arg1 asLessThanOrEqualToLayoutAttribute:(int)arg2 ofView:(id)arg3 withOffset:(float)arg4 priority:(float)arg5;
-- (void)ax_constrainLayoutAttribute:(int)arg1 asLessThanOrEqualToLayoutAttribute:(int)arg2 ofView:(id)arg3 withOffset:(float)arg4;
-- (void)ax_constrainLayoutAttribute:(int)arg1 asLessThanOrEqualToValueOfView:(id)arg2 withOffset:(float)arg3 priority:(float)arg4;
-- (void)ax_constrainLayoutAttribute:(int)arg1 asLessThanOrEqualToValueOfView:(id)arg2 withOffset:(float)arg3;
-- (void)ax_constrainLayoutAttribute:(int)arg1 asLessThanOrEqualToValueOfView:(id)arg2;
-- (void)ax_constrainLayoutAttribute:(int)arg1 asLessThanOrEqualToConstant:(float)arg2 priority:(float)arg3;
-- (void)ax_constrainLayoutAttribute:(int)arg1 asEqualToLayoutAttribute:(int)arg2 ofView:(id)arg3 withOffset:(float)arg4 priority:(float)arg5;
-- (void)ax_constrainLayoutAttribute:(int)arg1 asEqualToLayoutAttribute:(int)arg2 ofView:(id)arg3 withOffset:(float)arg4;
-- (void)ax_constrainLayoutAttribute:(int)arg1 asEqualToLayoutAttribute:(int)arg2 ofView:(id)arg3;
-- (void)ax_constrainLayoutAttribute:(int)arg1 asEqualToValueOfView:(id)arg2 withOffset:(float)arg3 priority:(float)arg4;
-- (void)ax_constrainLayoutAttribute:(int)arg1 asEqualToValueOfView:(id)arg2 withOffset:(float)arg3;
-- (void)ax_constrainLayoutAttribute:(int)arg1 asEqualToValueOfView:(id)arg2 priority:(float)arg3;
-- (void)ax_constrainLayoutAttribute:(int)arg1 asEqualToValueOfView:(id)arg2;
-- (void)ax_constrainLayoutAttribute:(int)arg1 asEqualToConstant:(float)arg2 priority:(float)arg3;
-- (void)ax_constrainLayoutAttribute:(int)arg1 asEqualToConstant:(float)arg2;
+- (unsigned long long)_ax_depth;
+- (void)ax_constrainLayoutAttribute:(long long)arg1 relatedBy:(long long)arg2 toItem:(id)arg3 attribute:(long long)arg4 multiplier:(double)arg5 constant:(double)arg6 priority:(float)arg7;
+- (void)ax_constrainLayoutAttribute:(long long)arg1 relatedBy:(long long)arg2 toItem:(id)arg3 attribute:(long long)arg4 multiplier:(double)arg5 constant:(double)arg6;
+- (void)ax_constrainLayoutAttribute:(long long)arg1 asGreaterThanOrEqualToLayoutAttribute:(long long)arg2 ofView:(id)arg3 withOffset:(double)arg4 priority:(float)arg5;
+- (void)ax_constrainLayoutAttribute:(long long)arg1 asGreaterThanOrEqualToLayoutAttribute:(long long)arg2 ofView:(id)arg3 withOffset:(double)arg4;
+- (void)ax_constrainLayoutAttribute:(long long)arg1 asGreaterThanOrEqualToValueOfView:(id)arg2 withOffset:(double)arg3 priority:(float)arg4;
+- (void)ax_constrainLayoutAttribute:(long long)arg1 asGreaterThanOrEqualToValueOfView:(id)arg2 withOffset:(double)arg3;
+- (void)ax_constrainLayoutAttribute:(long long)arg1 asGreaterThanOrEqualToValueOfView:(id)arg2;
+- (void)ax_constrainLayoutAttribute:(long long)arg1 asGreaterThanOrEqualToConstant:(double)arg2 priority:(float)arg3;
+- (void)ax_constrainLayoutAttribute:(long long)arg1 asLessThanOrEqualToLayoutAttribute:(long long)arg2 ofView:(id)arg3 withOffset:(double)arg4 priority:(float)arg5;
+- (void)ax_constrainLayoutAttribute:(long long)arg1 asLessThanOrEqualToLayoutAttribute:(long long)arg2 ofView:(id)arg3 withOffset:(double)arg4;
+- (void)ax_constrainLayoutAttribute:(long long)arg1 asLessThanOrEqualToValueOfView:(id)arg2 withOffset:(double)arg3 priority:(float)arg4;
+- (void)ax_constrainLayoutAttribute:(long long)arg1 asLessThanOrEqualToValueOfView:(id)arg2 withOffset:(double)arg3;
+- (void)ax_constrainLayoutAttribute:(long long)arg1 asLessThanOrEqualToValueOfView:(id)arg2;
+- (void)ax_constrainLayoutAttribute:(long long)arg1 asLessThanOrEqualToConstant:(double)arg2 priority:(float)arg3;
+- (void)ax_constrainLayoutAttribute:(long long)arg1 asEqualToLayoutAttribute:(long long)arg2 ofView:(id)arg3 withOffset:(double)arg4 priority:(float)arg5;
+- (void)ax_constrainLayoutAttribute:(long long)arg1 asEqualToLayoutAttribute:(long long)arg2 ofView:(id)arg3 withOffset:(double)arg4;
+- (void)ax_constrainLayoutAttribute:(long long)arg1 asEqualToLayoutAttribute:(long long)arg2 ofView:(id)arg3;
+- (void)ax_constrainLayoutAttribute:(long long)arg1 asEqualToValueOfView:(id)arg2 withOffset:(double)arg3 priority:(float)arg4;
+- (void)ax_constrainLayoutAttribute:(long long)arg1 asEqualToValueOfView:(id)arg2 withOffset:(double)arg3;
+- (void)ax_constrainLayoutAttribute:(long long)arg1 asEqualToValueOfView:(id)arg2 priority:(float)arg3;
+- (void)ax_constrainLayoutAttribute:(long long)arg1 asEqualToValueOfView:(id)arg2;
+- (void)ax_constrainLayoutAttribute:(long long)arg1 asEqualToConstant:(double)arg2 priority:(float)arg3;
+- (void)ax_constrainLayoutAttribute:(long long)arg1 asEqualToConstant:(double)arg2;
 @end
 

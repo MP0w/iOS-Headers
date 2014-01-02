@@ -8,23 +8,28 @@
 
 #import "GEOResourceManifestServerProxy-Protocol.h"
 
-@class NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>;
+@class NSHashTable, NSLock, NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>;
 
+// Not exported
 @interface GEOResourceManifestServerRemoteProxy : NSObject <GEOResourceManifestServerProxy>
 {
     id <GEOResourceManifestServerProxyDelegate> _delegate;
     NSObject<OS_xpc_object> *_conn;
-    int _closedCount;
-    BOOL _started;
-    BOOL _hiDPI;
-    unsigned int _retryCount;
-    BOOL _isUpdatingManifest;
-    BOOL _isLoadingResources;
+    NSLock *_connLock;
+    NSHashTable *_cancellingConnections;
+    NSLock *_cancellingConnectionsLock;
+    long long _closedCount;
+    _Bool _started;
+    _Bool _hiDPI;
+    unsigned long long _retryCount;
+    _Bool _isUpdatingManifest;
+    _Bool _isLoadingResources;
     NSObject<OS_dispatch_queue> *_serverQueue;
 }
 
 @property(nonatomic) id <GEOResourceManifestServerProxyDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)_handleMessage:(id)arg1 xpcMessage:(id)arg2;
+- (void)setManifestToken:(id)arg1 completionHandler:(id)arg2;
 - (void)getResourceManifestWithHandler:(id)arg1;
 - (oneway void)forceUpdate;
 - (oneway void)resetActiveTileGroup;

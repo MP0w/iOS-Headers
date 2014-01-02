@@ -8,18 +8,19 @@
 
 @class NSData;
 
+// Not exported
 @interface MKTileOverlayTile : NSObject
 {
-    CDStruct_a1199def _path;
+    CDStruct_cbb88d5e _path;
     CDStruct_02837cd9 _frame;
-    float _scale;
+    double _scale;
     NSData *_image;
 }
 
 @property(retain, nonatomic) NSData *image; // @synthesize image=_image;
-@property(nonatomic) float scale; // @synthesize scale=_scale;
+@property(nonatomic) double scale; // @synthesize scale=_scale;
 @property(nonatomic) CDStruct_90e2a262 frame; // @synthesize frame=_frame;
-@property(nonatomic) CDStruct_a1199def path; // @synthesize path=_path;
+@property(nonatomic) CDStruct_cbb88d5e path; // @synthesize path=_path;
 - (id).cxx_construct;
 - (void)dealloc;
 - (id)description;

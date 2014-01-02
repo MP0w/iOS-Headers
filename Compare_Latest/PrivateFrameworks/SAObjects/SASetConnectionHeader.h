@@ -14,8 +14,8 @@
 
 + (id)setConnectionHeaderWithDictionary:(id)arg1 context:(id)arg2;
 + (id)setConnectionHeader;
-- (BOOL)requiresResponse;
-@property(nonatomic) BOOL reconnectNow;
+- (_Bool)requiresResponse;
+@property(nonatomic) _Bool reconnectNow;
 @property(copy, nonatomic) NSString *aceHostHeader;
 - (id)encodedClassName;
 - (id)groupIdentifier;

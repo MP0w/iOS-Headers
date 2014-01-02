@@ -13,16 +13,16 @@
 @interface SUItemReviewStatistics : NSObject <NSCopying>
 {
     float _averageUserRating;
-    int _numberOfUserRatings;
+    long long _numberOfUserRatings;
     NSString *_numberOfUserRatingsString;
-    int _numberOfUserReviews;
+    long long _numberOfUserReviews;
     NSString *_numberOfUserReviewsString;
 }
 
 @property(copy, nonatomic) NSString *numberOfUserReviewsString; // @synthesize numberOfUserReviewsString=_numberOfUserReviewsString;
-@property(nonatomic) int numberOfUserReviews; // @synthesize numberOfUserReviews=_numberOfUserReviews;
+@property(nonatomic) long long numberOfUserReviews; // @synthesize numberOfUserReviews=_numberOfUserReviews;
 @property(copy, nonatomic) NSString *numberOfUserRatingsString; // @synthesize numberOfUserRatingsString=_numberOfUserRatingsString;
-@property(nonatomic) int numberOfUserRatings; // @synthesize numberOfUserRatings=_numberOfUserRatings;
+@property(nonatomic) long long numberOfUserRatings; // @synthesize numberOfUserRatings=_numberOfUserRatings;
 @property(nonatomic) float averageUserRating; // @synthesize averageUserRating=_averageUserRating;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;

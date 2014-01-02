@@ -10,6 +10,7 @@
 
 @class VGLContext, VGLFragmentShader, VGLResource, VGLVertexShader;
 
+// Not exported
 @interface VGLProgram : NSObject <NSCopying>
 {
     VGLResource *_resource;
@@ -19,6 +20,7 @@
     VGLVertexShader *_vert;
     VGLFragmentShader *_frag;
     struct vector<UniformHandle, vk_allocator<UniformHandle>> _handlesVector;
+    VGLContext *_lastUsedContext;
 }
 
 + (id)fragName;
@@ -40,7 +42,7 @@
 - (void)setUniformVec2:(int)arg1 curr:(Vec2Imp_1782d7e3 *)arg2 next:(const Vec2Imp_1782d7e3 *)arg3;
 - (void)setUniformColor:(int)arg1 curr:(struct _VGLColor *)arg2 next:(const struct _VGLColor *)arg3;
 - (void)printInfoLog;
-- (BOOL)link;
+- (_Bool)link;
 - (int)uniformLocation:(const char *)arg1;
 - (void)dirtyUniformCaches;
 - (void)dealloc;
@@ -49,9 +51,10 @@
 - (void)setup;
 - (id)_init;
 - (id)init;
-- (BOOL)_attachBindLink;
+- (_Bool)_attachBindLink;
 - (void)bindAttributes;
 @property(readonly, nonatomic) unsigned int token;
+- (void)willBeUsedWithContext:(id)arg1;
 
 @end
 

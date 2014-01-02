@@ -6,16 +6,17 @@
 
 #import "UIView.h"
 
+#import "UIGestureRecognizerDelegate-Protocol.h"
 #import "_UISettingsGroupObserver-Protocol.h"
 #import "_UISettingsKeyPathObserver-Protocol.h"
 
 @class NSArray, NSDictionary, NSMutableDictionary, NSString, PT2DGraphView, PTSSlider, UILabel, _UISettings, _UISettingsGroup;
 
-@interface PTSHUD : UIView <_UISettingsKeyPathObserver, _UISettingsGroupObserver>
+@interface PTSHUD : UIView <UIGestureRecognizerDelegate, _UISettingsKeyPathObserver, _UISettingsGroupObserver>
 {
-    BOOL _showing;
-    BOOL _archiveAIsActive;
-    int _savedSettingsIndex;
+    _Bool _showing;
+    _Bool _archiveAIsActive;
+    long long _savedSettingsIndex;
     _UISettings *_settings;
     _UISettingsGroup *_settingsGroup;
     NSString *_persisentSettingsGroupFilename;
@@ -27,13 +28,17 @@
     NSMutableDictionary *_archiveA;
     NSMutableDictionary *_archiveB;
     PTSSlider *_savedSettingsIndexSlider;
+    UIView *_panView;
+    struct CGPoint _initialPoint;
 }
 
 + (id)sharedInstance;
 + (id)window;
 + (struct CGRect)defaultFrame;
+@property(retain, nonatomic) UIView *panView; // @synthesize panView=_panView;
 @property(retain, nonatomic) PTSSlider *savedSettingsIndexSlider; // @synthesize savedSettingsIndexSlider=_savedSettingsIndexSlider;
-@property(nonatomic) BOOL archiveAIsActive; // @synthesize archiveAIsActive=_archiveAIsActive;
+@property(nonatomic) struct CGPoint initialPoint; // @synthesize initialPoint=_initialPoint;
+@property(nonatomic) _Bool archiveAIsActive; // @synthesize archiveAIsActive=_archiveAIsActive;
 @property(retain, nonatomic) NSMutableDictionary *archiveB; // @synthesize archiveB=_archiveB;
 @property(retain, nonatomic) NSMutableDictionary *archiveA; // @synthesize archiveA=_archiveA;
 @property(retain, nonatomic) PT2DGraphView *coverageView; // @synthesize coverageView=_coverageView;
@@ -41,27 +46,24 @@
 @property(copy, nonatomic) NSArray *modeChangeKeys; // @synthesize modeChangeKeys=_modeChangeKeys;
 @property(copy, nonatomic) NSString *mode; // @synthesize mode=_mode;
 @property(copy, nonatomic) NSDictionary *configuration; // @synthesize configuration=_configuration;
-@property(nonatomic) BOOL showing; // @synthesize showing=_showing;
+@property(nonatomic) _Bool showing; // @synthesize showing=_showing;
 @property(copy, nonatomic) NSString *persisentSettingsGroupFilename; // @synthesize persisentSettingsGroupFilename=_persisentSettingsGroupFilename;
 @property(retain, nonatomic) _UISettingsGroup *settingsGroup; // @synthesize settingsGroup=_settingsGroup;
 @property(retain, nonatomic) _UISettings *settings; // @synthesize settings=_settings;
-@property(nonatomic) int savedSettingsIndex; // @synthesize savedSettingsIndex=_savedSettingsIndex;
+@property(nonatomic) long long savedSettingsIndex; // @synthesize savedSettingsIndex=_savedSettingsIndex;
 - (void).cxx_destruct;
-- (BOOL)showSavedSettingsIndex:(int)arg1;
+- (void)handleVerticalPanGesture:(id)arg1;
+- (_Bool)showSavedSettingsIndex:(long long)arg1;
 - (void)savedSettingsIndexSliderValueChanged:(id)arg1;
-- (void)settingsABAction:(id)arg1;
-- (void)settingsBAction:(id)arg1;
-- (void)settingsAAction:(id)arg1;
 - (void)saveToPersistentSettingsAction:(id)arg1;
 - (void)restoreDefaultValuesAction:(id)arg1;
 - (void)showMessage:(id)arg1;
 - (void)configureForSettings:(id)arg1 settingsGroup:(id)arg2;
 - (void)configureForSettings:(id)arg1;
-- (void)settingsGroup:(id)arg1 didMoveSettings:(id)arg2 fromIndex:(unsigned int)arg3 toIndex:(unsigned int)arg4;
-- (void)settingsGroup:(id)arg1 didRemoveSettings:(id)arg2 atIndex:(unsigned int)arg3;
-- (void)settingsGroup:(id)arg1 didInsertSettings:(id)arg2 atIndex:(unsigned int)arg3;
+- (void)settingsGroup:(id)arg1 didMoveSettings:(id)arg2 fromIndex:(unsigned long long)arg3 toIndex:(unsigned long long)arg4;
+- (void)settingsGroup:(id)arg1 didRemoveSettings:(id)arg2 atIndex:(unsigned long long)arg3;
+- (void)settingsGroup:(id)arg1 didInsertSettings:(id)arg2 atIndex:(unsigned long long)arg3;
 - (void)settings:(id)arg1 changedValueForKeyPath:(id)arg2;
-- (BOOL)isDesignToggleButton:(id)arg1;
 - (void)hide;
 - (void)showInMode:(id)arg1;
 - (void)showInModeForKeyPath:(id)arg1;

@@ -10,7 +10,7 @@
 
 @interface PLInvitationRecordsChangeNotification : PLContainerChangeNotification
 {
-    BOOL _invitationRecordsDidChange;
+    _Bool _invitationRecordsDidChange;
     NSDictionary *_userInfo;
 }
 
@@ -18,7 +18,7 @@
 - (void)_calculateDiffs;
 @property(readonly, nonatomic) PLGenericAlbum *album;
 - (id)name;
-@property(readonly, nonatomic) BOOL invitationRecordsDidChange;
+@property(readonly, nonatomic) _Bool invitationRecordsDidChange;
 - (id)userInfo;
 
 @end

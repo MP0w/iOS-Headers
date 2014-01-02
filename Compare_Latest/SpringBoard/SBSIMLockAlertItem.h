@@ -9,26 +9,26 @@
 @interface SBSIMLockAlertItem : SBAlertItem
 {
     int _status;
-    int _okButtonIndex;
-    int _unlockButtonIndex;
+    long long _okButtonIndex;
+    long long _unlockButtonIndex;
 }
 
 + (id)alertTitleForStatus:(int)arg1;
 + (id)alertTitleForStatus:(int)arg1 languageCode:(id)arg2;
-- (BOOL)reappearsAfterLock;
-- (BOOL)reappearsAfterUnlock;
-- (BOOL)pendInSetupIfNotAllowed;
-- (BOOL)allowInSetup;
-- (BOOL)forcesModalAlertAppearance;
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
+- (_Bool)reappearsAfterLock;
+- (_Bool)reappearsAfterUnlock;
+- (_Bool)pendInSetupIfNotAllowed;
+- (_Bool)allowInSetup;
+- (_Bool)forcesModalAlertAppearance;
+- (void)configure:(_Bool)arg1 requirePasscodeForActions:(_Bool)arg2;
 - (void)performUnlockAction;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (void)unlock;
 - (void)didDeactivateForReason:(int)arg1;
 - (int)status;
 - (id)alertTextForLanguageCode:(id)arg1;
 - (id)alertTitleForLanguageCode:(id)arg1;
-- (BOOL)canUnlock;
+- (_Bool)canUnlock;
 - (void)dealloc;
 - (void)_resetButtonIndexes;
 - (id)initWithStatus:(int)arg1;

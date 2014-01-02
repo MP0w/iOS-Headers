@@ -15,20 +15,20 @@
 {
     int _state;
     float _progress;
-    unsigned int _estimatedTimeRemaining;
+    unsigned long long _estimatedTimeRemaining;
     NSError *_error;
     NSDate *_date;
 }
 
 @property(readonly, nonatomic) NSDate *date; // @synthesize date=_date;
 @property(readonly, nonatomic) NSError *error; // @synthesize error=_error;
-@property(readonly, nonatomic) unsigned int estimatedTimeRemaining; // @synthesize estimatedTimeRemaining=_estimatedTimeRemaining;
+@property(readonly, nonatomic) unsigned long long estimatedTimeRemaining; // @synthesize estimatedTimeRemaining=_estimatedTimeRemaining;
 @property(readonly, nonatomic) float progress; // @synthesize progress=_progress;
 @property(readonly, nonatomic) int state; // @synthesize state=_state;
 - (id)description;
 - (id)dictionaryRepresentation;
 - (void)setError:(id)arg1;
-- (void)setEstimatedTimeRemaining:(unsigned int)arg1;
+- (void)setEstimatedTimeRemaining:(unsigned long long)arg1;
 - (void)setProgress:(float)arg1;
 - (void)setState:(int)arg1;
 - (void)dealloc;
@@ -36,7 +36,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithDictionaryRepresentation:(id)arg1;
-- (id)initWithState:(int)arg1 progress:(float)arg2 estimatedTimeRemaining:(unsigned int)arg3 error:(id)arg4;
+- (id)initWithState:(int)arg1 progress:(float)arg2 estimatedTimeRemaining:(unsigned long long)arg3 error:(id)arg4;
 
 @end
 

@@ -19,11 +19,12 @@
 @property(readonly) ML3Container *container; // @synthesize container=_container;
 - (void).cxx_destruct;
 - (id)enumerationDatabaseResultForSQL:(id)arg1 onConnection:(id)arg2 withParameters:(id)arg3;
-- (id)selectPersistentIDsSQLAndProperties:(id)arg1 ordered:(BOOL)arg2;
-- (unsigned int)countOfEntities;
-- (unsigned int)countOfDistinctRowsForColumn:(id)arg1;
-- (BOOL)hasEntities;
-@property(readonly) BOOL requiresSmartLimiting;
+- (id)selectPersistentIDsSQLAndProperties:(id)arg1 ordered:(_Bool)arg2;
+- (id)valueForAggregateFunction:(id)arg1 onEntitiesForProperty:(id)arg2;
+- (unsigned long long)countOfEntities;
+- (unsigned long long)countOfDistinctRowsForColumn:(id)arg1;
+- (_Bool)hasEntities;
+@property(readonly) _Bool requiresSmartLimiting;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithEntityClass:(Class)arg1 container:(id)arg2 predicate:(id)arg3 orderingTerms:(id)arg4;

@@ -8,20 +8,21 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface UIKBHandwritingBoxcarFilterPointFIFO : UIKBHandwritingPointFIFO
 {
     NSMutableArray *_prevPoints;
-    unsigned int _width;
+    unsigned long long _width;
 }
 
-@property(nonatomic) unsigned int width; // @synthesize width=_width;
+@property(nonatomic) unsigned long long width; // @synthesize width=_width;
 @property(retain, nonatomic) NSMutableArray *prevPoints; // @synthesize prevPoints=_prevPoints;
 - (void)clear;
 - (void)flush;
 - (void)addPoint:(struct CGPoint)arg1;
 - (void)emitAveragedPoint;
 - (void)dealloc;
-- (id)initWithFIFO:(id)arg1 width:(unsigned int)arg2;
+- (id)initWithFIFO:(id)arg1 width:(unsigned long long)arg2;
 
 @end
 

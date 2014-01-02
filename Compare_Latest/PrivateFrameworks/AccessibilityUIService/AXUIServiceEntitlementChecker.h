@@ -18,12 +18,12 @@
 @property(retain, nonatomic) NSMutableArray *entitlementsCaches; // @synthesize entitlementsCaches=_entitlementsCaches;
 @property(retain, nonatomic) NSMutableArray *clientConnections; // @synthesize clientConnections=_clientConnections;
 @property(nonatomic) Class serviceClass; // @synthesize serviceClass=_serviceClass;
-- (id)_possibleRequiredEntitlementForMessageWithIdentifier:(unsigned int)arg1;
-- (id)_singleRequiredEntitlementForMessageWithIdentifier:(unsigned int)arg1;
-- (BOOL)_clientProcessWithAuditToken:(CDStruct_6ad76789 *)arg1 hasEntitlement:(id)arg2;
-- (unsigned int)_indexOfClientConnection:(id)arg1;
+- (id)_possibleRequiredEntitlementForMessageWithIdentifier:(unsigned long long)arg1;
+- (id)_singleRequiredEntitlementForMessageWithIdentifier:(unsigned long long)arg1;
+- (_Bool)_clientProcessWithAuditToken:(CDStruct_6ad76789 *)arg1 hasEntitlement:(id)arg2;
+- (unsigned long long)_indexOfClientConnection:(id)arg1;
 - (void)clientConnectionWillBeTerminated:(id)arg1;
-- (BOOL)serviceCanProcessMessageWithIdentifier:(unsigned int)arg1 fromClientWithConnection:(id)arg2 possibleRequiredEntitlements:(id *)arg3;
+- (_Bool)serviceCanProcessMessageWithIdentifier:(unsigned long long)arg1 fromClientWithConnection:(id)arg2 possibleRequiredEntitlements:(id *)arg3;
 - (void)dealloc;
 - (id)initWithServiceClass:(Class)arg1;
 

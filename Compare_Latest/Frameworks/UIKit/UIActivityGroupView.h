@@ -6,14 +6,15 @@
 
 #import <UIKit/UIView.h>
 
+// Not exported
 @interface UIActivityGroupView : UIView
 {
-    BOOL _modal;
-    BOOL _showsAirDrop;
+    _Bool _modal;
+    _Bool _showsAirDrop;
 }
 
-@property(nonatomic) BOOL showsAirDrop; // @synthesize showsAirDrop=_showsAirDrop;
-@property(nonatomic) BOOL modal; // @synthesize modal=_modal;
+@property(nonatomic) _Bool showsAirDrop; // @synthesize showsAirDrop=_showsAirDrop;
+@property(nonatomic) _Bool modal; // @synthesize modal=_modal;
 - (void)updateConstraints;
 
 @end

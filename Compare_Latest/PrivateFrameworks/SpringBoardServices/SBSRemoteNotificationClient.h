@@ -12,14 +12,8 @@
 
 + (id)getNotificationUserInfoForToken:(int)arg1;
 + (id)getPendingNotificationUserInfo;
-+ (int)enabledRemoteNotificationTypes;
-+ (void)registerForRemoteNotificationTypes:(int)arg1;
-+ (unsigned int)_remoteNotificationServerPort;
-+ (void)setEnabledNotificationTypes:(int)arg1 forBundleIdentifier:(id)arg2;
-+ (void)getSupportedTypes:(id *)arg1 enabledTypes:(id *)arg2;
-+ (BOOL)hasRegisteredBundleIdentifiers;
-+ (void)setSystemwideEnabled:(BOOL)arg1;
-+ (BOOL)isSystemwideEnabled;
++ (long long)enabledRemoteNotificationTypes;
++ (void)registerForRemoteNotificationTypes:(long long)arg1;
 
 @end
 

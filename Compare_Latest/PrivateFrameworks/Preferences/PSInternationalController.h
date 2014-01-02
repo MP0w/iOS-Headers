@@ -37,7 +37,7 @@
 - (void)reloadLocale;
 - (void)reloadSpecifiers;
 - (id)localizedComponent:(id)arg1 forDictionary:(id)arg2;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)dealloc;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (id)init;

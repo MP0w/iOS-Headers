@@ -8,15 +8,16 @@
 
 @class NSString;
 
+// Not exported
 @interface NSSymbolicExpression : NSExpression
 {
     NSString *_token;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 - (id)expressionValueWithObject:(id)arg1 context:(id)arg2;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)constantValue;
 - (id)predicateFormat;
 - (void)dealloc;

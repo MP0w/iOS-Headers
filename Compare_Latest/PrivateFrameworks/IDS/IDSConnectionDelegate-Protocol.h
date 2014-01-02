@@ -9,9 +9,9 @@
 @protocol IDSConnectionDelegate <NSObject>
 
 @optional
-- (void)connection:(id)arg1 identifier:(id)arg2 didSendWithSuccess:(BOOL)arg3 error:(id)arg4;
+- (void)connection:(id)arg1 identifier:(id)arg2 didSendWithSuccess:(_Bool)arg3 error:(id)arg4;
 - (void)connection:(id)arg1 devicesChanged:(id)arg2;
-- (void)connection:(id)arg1 isActiveChanged:(BOOL)arg2;
+- (void)connection:(id)arg1 isActiveChanged:(_Bool)arg2;
 - (void)connection:(id)arg1 incomingMessage:(id)arg2 fromID:(id)arg3;
 @end
 

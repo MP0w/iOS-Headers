@@ -7,7 +7,7 @@
 #import "NSObject.h"
 
 @interface NSObject (UIAccessibilityFocus)
-- (BOOL)accessibilityElementIsFocused;
+- (_Bool)accessibilityElementIsFocused;
 - (void)accessibilityElementDidLoseFocus;
 - (void)accessibilityElementDidBecomeFocused;
 @end

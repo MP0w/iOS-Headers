@@ -18,9 +18,9 @@
 @property(readonly, nonatomic) SBBBBulletinInfo *bulletin; // @synthesize bulletin=_bulletin;
 @property(readonly, nonatomic) SBBBSectionInfo *section; // @synthesize section=_section;
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-@property(readonly, nonatomic, getter=isSectionOperand) BOOL sectionOperand;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
+@property(readonly, nonatomic, getter=isSectionOperand) _Bool sectionOperand;
 - (void)dealloc;
 - (id)initWithSection:(id)arg1 bulletin:(id)arg2;
 

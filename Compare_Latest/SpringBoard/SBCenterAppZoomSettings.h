@@ -6,18 +6,18 @@
 
 #import "SBCenterZoomSettings.h"
 
-@class SBAnimationSettings;
+@class SBFAnimationSettings;
 
 @interface SBCenterAppZoomSettings : SBCenterZoomSettings
 {
-    SBAnimationSettings *_appZoomSettings;
-    SBAnimationSettings *_appFadeSettings;
     double _appHeadStart;
+    SBFAnimationSettings *_appZoomSettings;
+    SBFAnimationSettings *_appFadeSettings;
 }
 
 + (id)settingsControllerModule;
-@property(retain) SBAnimationSettings *appFadeSettings; // @synthesize appFadeSettings=_appFadeSettings;
-@property(retain) SBAnimationSettings *appZoomSettings; // @synthesize appZoomSettings=_appZoomSettings;
+@property(retain) SBFAnimationSettings *appFadeSettings; // @synthesize appFadeSettings=_appFadeSettings;
+@property(retain) SBFAnimationSettings *appZoomSettings; // @synthesize appZoomSettings=_appZoomSettings;
 @property double appHeadStart; // @synthesize appHeadStart=_appHeadStart;
 
 @end

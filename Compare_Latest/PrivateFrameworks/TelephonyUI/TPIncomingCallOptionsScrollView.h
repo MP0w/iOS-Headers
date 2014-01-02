@@ -14,16 +14,16 @@
 {
     TPIncomingCallOptionsView *_optionsView;
     UIView *_offIntoInfinityView;
-    BOOL _isDecelerating;
+    _Bool _isDecelerating;
 }
 
-- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
-- (BOOL)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
+- (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 - (void)scrollViewDidEndDecelerating:(id)arg1;
-- (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(BOOL)arg2;
+- (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(_Bool)arg2;
 - (void)scrollViewWillBeginDragging:(id)arg1;
 - (void)scrollViewDidScroll:(id)arg1;
-- (void)disableAndScrollToDefaultOffsetSuppressBarChanges:(BOOL)arg1 completion:(id)arg2;
+- (void)disableAndScrollToDefaultOffsetSuppressBarChanges:(_Bool)arg1 completion:(id)arg2;
 - (void)setupAndAddToView:(id)arg1;
 @property(retain) TPIncomingCallOptionsView *optionsView;
 - (void)dealloc;

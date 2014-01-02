@@ -6,6 +6,7 @@
 
 #import <iWorkImport/GQDRStroke.h>
 
+// Not exported
 @interface GQDRFrame : GQDRStroke
 {
 }

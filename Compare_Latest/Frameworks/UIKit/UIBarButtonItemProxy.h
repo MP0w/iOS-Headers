@@ -8,6 +8,7 @@
 
 @class UIBarButtonItem, UIView;
 
+// Not exported
 @interface UIBarButtonItemProxy : NSObject
 {
     UIBarButtonItem *_item;

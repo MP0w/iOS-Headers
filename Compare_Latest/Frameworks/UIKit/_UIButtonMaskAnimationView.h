@@ -8,14 +8,15 @@
 
 @class UIButton;
 
+// Not exported
 @interface _UIButtonMaskAnimationView : UIView
 {
     UIButton *_delegate;
 }
 
 @property(nonatomic) UIButton *delegate; // @synthesize delegate=_delegate;
-- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
-- (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
+- (void)animationDidStop:(id)arg1 finished:(_Bool)arg2;
+- (_Bool)_shouldAnimatePropertyWithKey:(id)arg1;
 
 @end
 

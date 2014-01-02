@@ -8,6 +8,7 @@
 
 @class CIImage;
 
+// Not exported
 @interface CISRGBToneCurveToLinear : CIFilter
 {
     CIImage *inputImage;

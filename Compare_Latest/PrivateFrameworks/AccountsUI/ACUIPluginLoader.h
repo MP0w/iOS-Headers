@@ -6,19 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSMutableArray;
-
+// Not exported
 @interface ACUIPluginLoader : NSObject
 {
-    NSArray *_pluginBundles;
-    NSMutableArray *_accountViewPlugins;
 }
 
-- (void).cxx_destruct;
-- (id)_loadPluginBundles;
-- (id)_pluginBundles;
-- (id)settingsPluginsWithParent:(id)arg1;
-- (id)accountViewProviderPlugins;
++ (id)pluginBundleWithName:(id)arg1;
 
 @end
 

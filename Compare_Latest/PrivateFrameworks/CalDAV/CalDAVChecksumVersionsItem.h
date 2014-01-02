@@ -14,7 +14,7 @@
 }
 
 - (id)copyParseRules;
-- (BOOL)supportsVersion:(id)arg1;
+- (_Bool)supportsVersion:(id)arg1;
 - (void)addVersionSupported:(id)arg1;
 - (void)dealloc;
 - (id)init;

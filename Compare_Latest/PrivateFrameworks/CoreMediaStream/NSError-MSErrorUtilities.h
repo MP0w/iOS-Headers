@@ -7,22 +7,22 @@
 #import "NSError.h"
 
 @interface NSError (MSErrorUtilities)
-+ (id)MSErrorWithDomain:(id)arg1 code:(int)arg2 description:(id)arg3 underlyingError:(id)arg4 additionalUserInfo:(id)arg5;
-+ (id)MSErrorWithDomain:(id)arg1 code:(int)arg2 description:(id)arg3 underlyingError:(id)arg4;
-+ (id)MSErrorWithDomain:(id)arg1 code:(int)arg2 description:(id)arg3 suggestion:(id)arg4;
-+ (id)MSErrorWithDomain:(id)arg1 code:(int)arg2 description:(id)arg3;
++ (id)MSErrorWithDomain:(id)arg1 code:(long long)arg2 description:(id)arg3 underlyingError:(id)arg4 additionalUserInfo:(id)arg5;
++ (id)MSErrorWithDomain:(id)arg1 code:(long long)arg2 description:(id)arg3 underlyingError:(id)arg4;
++ (id)MSErrorWithDomain:(id)arg1 code:(long long)arg2 description:(id)arg3 suggestion:(id)arg4;
++ (id)MSErrorWithDomain:(id)arg1 code:(long long)arg2 description:(id)arg3;
 - (id)MSMMCSRetryAfterDate;
-- (BOOL)MSIsRegistrationError;
-- (BOOL)MSIsQuotaError;
-- (BOOL)MSContainsErrorWithDomain:(id)arg1 code:(int)arg2;
-- (BOOL)MSIsBadTokenError;
-- (BOOL)MSIsAuthError;
-- (BOOL)MSIsFatal;
-- (BOOL)MSIsCounted;
-- (BOOL)MSNeedsBackoff;
-- (BOOL)MSCanBeIgnored;
-- (BOOL)MSASStateMachineIsCanceledError;
-- (BOOL)MSIsTemporaryNetworkError;
+- (_Bool)MSIsRegistrationError;
+- (_Bool)MSIsQuotaError;
+- (_Bool)MSContainsErrorWithDomain:(id)arg1 code:(long long)arg2;
+- (_Bool)MSIsBadTokenError;
+- (_Bool)MSIsAuthError;
+- (_Bool)MSIsFatal;
+- (_Bool)MSIsCounted;
+- (_Bool)MSNeedsBackoff;
+- (_Bool)MSCanBeIgnored;
+- (_Bool)MSASStateMachineIsCanceledError;
+- (_Bool)MSIsTemporaryNetworkError;
 - (void)_MSApplyBlock:(id)arg1;
 - (id)MSFindPrimaryError;
 - (id)MSMakePrimaryError;

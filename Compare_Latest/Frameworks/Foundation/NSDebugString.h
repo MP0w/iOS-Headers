@@ -6,6 +6,7 @@
 
 #import <Foundation/NSString.h>
 
+// Not exported
 @interface NSDebugString : NSString
 {
     NSString *string;
@@ -15,8 +16,8 @@
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)getCharacters:(unsigned short *)arg1 range:(struct _NSRange)arg2;
-- (unsigned short)characterAtIndex:(unsigned int)arg1;
-- (unsigned int)length;
+- (unsigned short)characterAtIndex:(unsigned long long)arg1;
+- (unsigned long long)length;
 - (id)initWithString:(id)arg1;
 
 @end

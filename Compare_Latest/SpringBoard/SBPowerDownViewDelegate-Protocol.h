@@ -8,6 +8,6 @@
 - (void)powerDownViewAnimateOutCompleted:(id)arg1;
 - (void)powerDownViewRequestPowerDown:(id)arg1;
 - (void)powerDownViewRequestCancel:(id)arg1;
-- (BOOL)powerDownViewShouldHideStatusBar:(id)arg1;
+- (_Bool)powerDownViewShouldHideStatusBar:(id)arg1;
 @end
 

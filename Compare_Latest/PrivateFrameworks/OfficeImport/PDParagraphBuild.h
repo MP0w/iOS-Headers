@@ -8,11 +8,12 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface PDParagraphBuild : PDBuild
 {
     NSMutableArray *mTimeNodeDataList;
     double mAutoAdvanceTime;
-    BOOL mIsReversedParagraphOrder;
+    _Bool mIsReversedParagraphOrder;
     int mBuildLevel;
     int mType;
 }
@@ -21,14 +22,14 @@
 - (int)type;
 - (void)setBuildLevel:(int)arg1;
 - (int)buildLevel;
-- (void)setIsReversedParagraphOrder:(BOOL)arg1;
-- (BOOL)isReversedParagraphOrder;
+- (void)setIsReversedParagraphOrder:(_Bool)arg1;
+- (_Bool)isReversedParagraphOrder;
 - (void)setAutoAdvanceTime:(double)arg1;
 - (double)autoAdvanceTime;
 - (id)timeNodeDataList;
 - (id)addTimeNodeData;
-- (id)timeNodeDataAtIndex:(unsigned int)arg1;
-- (unsigned int)timeNodeDataListCount;
+- (id)timeNodeDataAtIndex:(unsigned long long)arg1;
+- (unsigned long long)timeNodeDataListCount;
 - (void)dealloc;
 - (id)init;
 

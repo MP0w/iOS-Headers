@@ -10,7 +10,7 @@
 
 @interface SUScriptPopOver : SUScriptObject
 {
-    BOOL _ignoreDismiss;
+    _Bool _ignoreDismiss;
 }
 
 + (void)initialize;
@@ -19,32 +19,32 @@
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
 - (void)_showAsModalViewController;
-- (BOOL)_shouldDisplayAsPopover;
+- (_Bool)_shouldDisplayAsPopover;
 - (void)_setNativeViewController:(id)arg1;
-- (void)_setIgnoresDismiss:(BOOL)arg1;
+- (void)_setIgnoresDismiss:(_Bool)arg1;
 - (id)_popOverController;
-- (BOOL)_isViewControllerVisible;
+- (_Bool)_isViewControllerVisible;
 - (id)_nativeViewController;
-- (void)_dismissAnimated:(BOOL)arg1;
+- (void)_dismissAnimated:(_Bool)arg1;
 - (void)_viewControllerDidDismiss:(id)arg1;
 - (void)_overlayWillShowNotification:(id)arg1;
-@property(readonly) int backgroundStyleShare;
-@property(readonly) int backgroundStyleDefault;
-@property(readonly) int backgroundStyleCream;
-@property(readonly) int backgroundStyleClear;
-@property(readonly) int backgroundStyleBlack;
+@property(readonly) long long backgroundStyleShare;
+@property(readonly) long long backgroundStyleDefault;
+@property(readonly) long long backgroundStyleCream;
+@property(readonly) long long backgroundStyleClear;
+@property(readonly) long long backgroundStyleBlack;
 @property(retain) SUScriptViewController *viewController;
-@property float contentWidth;
-@property float contentHeight;
-@property int backgroundStyle;
+@property double contentWidth;
+@property double contentHeight;
+@property long long backgroundStyle;
 @property(readonly) SUScriptViewController *presentingViewController;
 - (id)_className;
-- (BOOL)showFromNavigationItem:(id)arg1;
-- (BOOL)showFromElement:(id)arg1;
-- (void)setContentWidth:(float)arg1 height:(float)arg2 animated:(BOOL)arg3;
+- (_Bool)showFromNavigationItem:(id)arg1;
+- (_Bool)showFromElement:(id)arg1;
+- (void)setContentWidth:(double)arg1 height:(double)arg2 animated:(_Bool)arg3;
 - (void)dismissAnimated:(id)arg1;
 - (void)tearDownUserInterface;
-- (BOOL)isVisible;
+- (_Bool)isVisible;
 @property(retain, nonatomic) UIPopoverController *nativePopoverController;
 @property(readonly) UIViewController *activeViewController;
 - (void)dealloc;

@@ -8,20 +8,21 @@
 
 @class LSApplicationProxy, UIDocumentInteractionController;
 
+// Not exported
 @interface _UIOpenWithAppActivity : UIActivity
 {
     LSApplicationProxy *_appProxy;
-    BOOL _defaultApp;
+    _Bool _defaultApp;
     UIDocumentInteractionController *_documentInteractionController;
 }
 
-@property(nonatomic, getter=isDefaultApp) BOOL defaultApp; // @synthesize defaultApp=_defaultApp;
++ (long long)activityCategory;
+@property(nonatomic, getter=isDefaultApp) _Bool defaultApp; // @synthesize defaultApp=_defaultApp;
 - (void)performActivity;
-- (BOOL)canPerformWithActivityItems:(id)arg1;
+- (_Bool)canPerformWithActivityItems:(id)arg1;
 - (id)_activityImage;
 - (id)activityTitle;
 - (id)activityType;
-- (id)_beforeActivity;
 - (void)dealloc;
 - (id)initWithApplicationIdentifier:(id)arg1 documentInteractionController:(id)arg2;
 

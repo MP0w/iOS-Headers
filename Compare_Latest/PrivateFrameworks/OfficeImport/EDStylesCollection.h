@@ -6,18 +6,19 @@
 
 #import <OfficeImport/EDCollection.h>
 
+// Not exported
 @interface EDStylesCollection : EDCollection
 {
-    unsigned int mDefaultWorkbookStyleIndex;
+    unsigned long long mDefaultWorkbookStyleIndex;
 }
 
-- (void)setDefaultWorkbookStyleIndex:(unsigned int)arg1;
-- (unsigned int)defaultWorkbookStyleIndex;
+- (void)setDefaultWorkbookStyleIndex:(unsigned long long)arg1;
+- (unsigned long long)defaultWorkbookStyleIndex;
 - (id)defaultWorkbookStyle;
 - (void)removeAllObjects;
-- (void)removeObjectAtIndex:(unsigned int)arg1;
-- (void)replaceObjectAtIndex:(unsigned int)arg1 withObject:(id)arg2;
-- (unsigned int)addObject:(id)arg1;
+- (void)removeObjectAtIndex:(unsigned long long)arg1;
+- (void)replaceObjectAtIndex:(unsigned long long)arg1 withObject:(id)arg2;
+- (unsigned long long)addObject:(id)arg1;
 - (id)init;
 
 @end

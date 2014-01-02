@@ -10,6 +10,7 @@
 
 @class NSData;
 
+// Not exported
 @interface MPSAPContext : NSObject <RadioSAPContext>
 {
     NSData *_certificate;
@@ -19,7 +20,7 @@
 @property(readonly, nonatomic) NSData *certificateData; // @synthesize certificateData=_certificate;
 - (void).cxx_destruct;
 - (void)_setCertificateData:(id)arg1;
-- (BOOL)verifyData:(id)arg1 withSignature:(id)arg2 error:(id *)arg3;
+- (_Bool)verifyData:(id)arg1 withSignature:(id)arg2 error:(id *)arg3;
 - (id)signatureWithData:(id)arg1 error:(id *)arg2;
 - (void)dealloc;
 - (id)_initWithFPSAPContext:(void *)arg1;

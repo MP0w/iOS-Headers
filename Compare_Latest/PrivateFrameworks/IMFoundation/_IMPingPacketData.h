@@ -9,7 +9,7 @@
 @interface _IMPingPacketData : NSObject
 {
     int _sequenceNumber;
-    BOOL _timedOut;
+    _Bool _timedOut;
     int _error;
     struct timeval _timeSent;
     double _rtt;
@@ -18,7 +18,7 @@
 @property(readonly, nonatomic) double rtt; // @synthesize rtt=_rtt;
 @property(readonly, nonatomic) int error; // @synthesize error=_error;
 @property(readonly, nonatomic) struct timeval timeSent; // @synthesize timeSent=_timeSent;
-@property(readonly, nonatomic) BOOL timedOut; // @synthesize timedOut=_timedOut;
+@property(readonly, nonatomic) _Bool timedOut; // @synthesize timedOut=_timedOut;
 @property(readonly, nonatomic) int sequenceNumber; // @synthesize sequenceNumber=_sequenceNumber;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)_returnPacketArrived;

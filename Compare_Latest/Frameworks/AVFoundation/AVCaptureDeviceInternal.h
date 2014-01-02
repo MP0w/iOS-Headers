@@ -13,7 +13,7 @@
     int _openRefCount;
     int _configLockRefCount;
     int _configLockPid;
-    BOOL _usingDevice;
+    _Bool _usingDevice;
     AVCaptureDeviceInput *_activeInput;
 }
 

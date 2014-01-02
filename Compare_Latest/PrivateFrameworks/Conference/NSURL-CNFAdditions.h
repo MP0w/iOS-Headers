@@ -7,12 +7,12 @@
 #import "NSURL.h"
 
 @interface NSURL (CNFAdditions)
-- (BOOL)isFaceTimeUpgradeURLForDestinationID:(id)arg1;
+- (_Bool)isFaceTimeUpgradeURLForDestinationID:(id)arg1;
 - (id)faceTimeDestinationDisplayNameAndImage:(id *)arg1 fullscreenImage:(id *)arg2;
 - (id)faceTimeDestinationDisplayNameAndImage:(id *)arg1;
 - (id)callBackString;
 - (id)callBackPhoneNumber;
 - (id)formattedFaceTimeDestinationAccount;
-- (BOOL)_isPhoneNumberID:(id)arg1;
+- (_Bool)_isPhoneNumberID:(id)arg1;
 @end
 

@@ -23,7 +23,7 @@
 - (void)changeIDOfPlug:(id)arg1 toID:(id)arg2;
 - (id)setPlugForContainer:(id)arg1 forID:(id)arg2;
 - (id)plugForID:(id)arg1;
-@property(readonly) unsigned int countOfPlugs;
+@property(readonly) unsigned long long countOfPlugs;
 @property(readonly) NSSet *plugs;
 - (id)imprint;
 - (void)demolish;

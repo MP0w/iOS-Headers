@@ -14,10 +14,10 @@
     NSMutableArray *_attachments;
     NSString *_backgroundColor;
     NSString *_foregroundColor;
-    unsigned int _offset;
-    int _baseWritingDirection;
-    BOOL _extractAttachments;
-    BOOL _hadBaseWritingDirectionAttribute;
+    unsigned long long _offset;
+    long long _baseWritingDirection;
+    _Bool _extractAttachments;
+    _Bool _hadBaseWritingDirectionAttribute;
 }
 
 @property(readonly) NSArray *attachments; // @synthesize attachments=_attachments;
@@ -29,7 +29,7 @@
 - (id)resultsForLogging;
 - (id)name;
 - (void)dealloc;
-- (id)initWithAttributedString:(id)arg1 extractAttachments:(BOOL)arg2;
+- (id)initWithAttributedString:(id)arg1 extractAttachments:(_Bool)arg2;
 
 @end
 

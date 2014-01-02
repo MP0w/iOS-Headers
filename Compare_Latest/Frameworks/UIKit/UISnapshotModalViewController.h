@@ -8,19 +8,20 @@
 
 @class UINavigationController;
 
+// Not exported
 @interface UISnapshotModalViewController : UIViewController
 {
-    int _interfaceOrientation;
+    long long _interfaceOrientation;
     UIViewController *_disappearingViewController;
     UINavigationController *_parentController;
 }
 
 @property(retain, nonatomic) UIViewController *disappearingViewController; // @synthesize disappearingViewController=_disappearingViewController;
-- (BOOL)_isSupportedInterfaceOrientation:(int)arg1;
-- (void)viewDidDisappear:(BOOL)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
+- (_Bool)_isSupportedInterfaceOrientation:(long long)arg1;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
 - (void)dealloc;
-- (id)initWithInterfaceOrientation:(int)arg1;
+- (id)initWithInterfaceOrientation:(long long)arg1;
 
 @end
 

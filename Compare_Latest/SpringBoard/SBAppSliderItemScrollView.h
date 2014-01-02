@@ -11,13 +11,16 @@
 @interface SBAppSliderItemScrollView : UIScrollView
 {
     SBAppSwitcherPageView *_item;
-    int _layoutOrientation;
+    long long _layoutOrientation;
 }
 
-@property(nonatomic) int layoutOrientation; // @synthesize layoutOrientation=_layoutOrientation;
+@property(nonatomic) long long layoutOrientation; // @synthesize layoutOrientation=_layoutOrientation;
 @property(retain, nonatomic) SBAppSwitcherPageView *item; // @synthesize item=_item;
+- (void)_enableScrolling;
+- (void)_disableScrolling;
 - (void)layoutSubviews;
 - (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

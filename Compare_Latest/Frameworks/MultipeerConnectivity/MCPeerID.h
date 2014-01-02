@@ -16,17 +16,19 @@
     MCPeerIDInternal *_internal;
 }
 
-+ (BOOL)supportsSecureCoding;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
++ (_Bool)supportsSecureCoding;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)serializedRepresentation;
 - (id)initWithSerializedRepresentation:(id)arg1;
 - (id)initWithDisplayName:(id)arg1;
+- (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithIDString:(id)arg1 displayName:(id)arg2;
 - (id)initWithPID:(unsigned int)arg1 displayName:(id)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)internalDescription;
 - (id)description;
 @property(readonly, nonatomic) NSString *displayName;
 - (unsigned int)pid;

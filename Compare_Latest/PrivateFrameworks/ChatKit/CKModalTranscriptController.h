@@ -10,33 +10,38 @@
 
 @interface CKModalTranscriptController : CKTranscriptController
 {
-    BOOL _mimeType;
-    BOOL _alreadySetUp;
+    _Bool _mimeType;
+    _Bool _alreadySetUp;
     NSMutableArray *_partsToInsert;
     NSMutableArray *_typesToInsert;
     int _entryViewInvisible;
-    BOOL _cameraSelectionDisabled;
+    _Bool _cameraSelectionDisabled;
+    _Bool _forceMMS;
 }
 
-@property(nonatomic) BOOL mimeType; // @synthesize mimeType=_mimeType;
-- (BOOL)_shouldUseExistingConversations;
-- (BOOL)_shouldUseDefaultFirstResponder;
+@property(nonatomic) _Bool forceMMS; // @synthesize forceMMS=_forceMMS;
+@property(nonatomic) _Bool mimeType; // @synthesize mimeType=_mimeType;
+- (_Bool)_shouldUseExistingConversations;
+- (_Bool)_shouldUseDefaultFirstResponder;
 - (void)_conversationListDidFinishLoading:(id)arg1;
 - (void)registerForNotifications;
+- (void)_setConversation:(id)arg1;
 - (void)transitionFromNewMessageToConversation;
-- (BOOL)shouldDismissAfterSend;
-- (void)setTextEntryContentsVisible:(BOOL)arg1;
-- (BOOL)_shouldAllowCameraAttachments;
+- (_Bool)shouldDismissAfterSend;
+- (void)setTextEntryContentsVisible:(_Bool)arg1;
+- (_Bool)_shouldAllowCameraAttachments;
 - (void)disableCameraAttachments;
-- (void)setCanEditRecipients:(BOOL)arg1;
+- (void)setCanEditRecipients:(_Bool)arg1;
 - (void)setPendingAddresses:(id)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
-- (BOOL)getContainerWidth:(float *)arg1 offset:(float *)arg2;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
+- (_Bool)getContainerWidth:(double *)arg1 offset:(double *)arg2;
 - (void)insertTextPart:(id)arg1;
 - (void)insertData:(id)arg1 MIMEType:(id)arg2 exportedFilename:(id)arg3;
 - (void)insertFilename:(id)arg1 MIMEType:(id)arg2 exportedFilename:(id)arg3 options:(id)arg4;
 - (void)insertFilename:(id)arg1 MIMEType:(id)arg2 exportedFilename:(id)arg3;
-- (BOOL)_insertMediaObject:(id)arg1;
+- (void)insertFileURL:(id)arg1 filename:(id)arg2 transcoderUserInfo:(id)arg3;
+- (_Bool)_insertMediaObject:(id)arg1;
 - (void)_addPart:(id)arg1;
 - (void)dealloc;
 

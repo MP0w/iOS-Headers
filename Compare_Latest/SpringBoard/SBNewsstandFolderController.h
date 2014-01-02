@@ -10,7 +10,9 @@
 {
 }
 
-- (unsigned int)_depth;
+- (id)_statusBarColor;
+- (id)legibilitySettings;
+- (unsigned long long)_depth;
 - (Class)_contentViewClass;
 
 @end

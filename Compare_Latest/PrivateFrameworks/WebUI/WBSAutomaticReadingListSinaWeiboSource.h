@@ -15,10 +15,10 @@
 - (id)serviceType;
 - (id)accountTypeIdentifier;
 - (Class)itemClass;
-- (int)compareItem:(id)arg1 toItem:(id)arg2;
-- (int)compareOldestRecordInRange:(id)arg1 toOldestRecordInRange:(id)arg2;
-- (int)compareNewestRecordInRange:(id)arg1 toNewestRecordInRange:(id)arg2;
-- (int)compareNewestRecordInRange:(id)arg1 toOldestRecordInRange:(id)arg2;
+- (long long)compareItem:(id)arg1 toItem:(id)arg2;
+- (long long)compareOldestRecordInRange:(id)arg1 toOldestRecordInRange:(id)arg2;
+- (long long)compareNewestRecordInRange:(id)arg1 toNewestRecordInRange:(id)arg2;
+- (long long)compareNewestRecordInRange:(id)arg1 toOldestRecordInRange:(id)arg2;
 - (id)requestParametersForRecordsWithAge:(int)arg1 relativeTo:(id)arg2;
 - (id)resourceURLString;
 

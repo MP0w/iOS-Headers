@@ -11,14 +11,14 @@
 @interface YTProtectedDefaults : NSObject
 {
     NSMutableDictionary *_internalDictionary;
-    BOOL _shouldSynchronize;
+    _Bool _shouldSynchronize;
     NSString *_plistPath;
 }
 
 + (id)sharedInstance;
 - (void)_protectedDataUnvailable;
 - (void)_protectedDataAvailable;
-- (BOOL)synchronize;
+- (_Bool)synchronize;
 - (void)removeObjectForKey:(id)arg1;
 - (void)setObject:(id)arg1 forKey:(id)arg2;
 - (id)objectForKey:(id)arg1;

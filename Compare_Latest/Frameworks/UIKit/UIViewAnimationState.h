@@ -8,6 +8,7 @@
 
 @class CAMediaTimingFunction, NSMutableArray, NSMutableSet, NSString, NSUUID, UIView;
 
+// Not exported
 @interface UIViewAnimationState : NSObject
 {
     UIViewAnimationState *_nextState;
@@ -18,9 +19,9 @@
     double _delay;
     double _frameInterval;
     double _start;
-    int _curve;
+    long long _curve;
     float _repeatCount;
-    int _transition;
+    long long _transition;
     UIView *_transitionView;
     int _filter;
     UIView *_filterView;
@@ -39,9 +40,12 @@
     NSUUID *_uuid;
     id <_UIBasicAnimationFactory> _animationFactory;
     CAMediaTimingFunction *_customCurve;
-    BOOL _animationFactoryMakesPerAnimationCustomCurves;
+    _Bool _animationFactoryMakesPerAnimationCustomCurves;
     id _alongsideAnimations;
     NSMutableArray *_addedCompletions;
+    _Bool _animationDidStopSent;
+    _Bool _allowUserInteractionToCutOffEndOfAnimation;
+    _Bool _retainedSelf;
 }
 
 + (void)popAnimationState;
@@ -50,21 +54,24 @@
 - (void)_trackAnimation:(id)arg1 forProperty:(id)arg2 inLayer:(id)arg3;
 - (void)_addAnimationStateForTracking:(id)arg1;
 - (id)_trackedAnimations;
-- (void)_removeAnimationStateFromTrackingMap:(BOOL)arg1;
-@property(readonly, nonatomic) BOOL _allowsUserInteraction;
-- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
-- (void)sendDelegateAnimationDidStop:(id)arg1 finished:(BOOL)arg2;
+- (void)_removeAnimationStateFromTrackingMap:(_Bool)arg1;
+- (void)_acceptEarlyAnimationCutoff:(id)arg1;
+- (_Bool)_allowsUserInteractionToCutOffEndOfAnimation;
+@property(readonly, nonatomic) _Bool _allowsUserInteraction;
+- (void)animationDidStop:(id)arg1 finished:(_Bool)arg2;
+- (void)sendDelegateAnimationDidStop:(id)arg1 finished:(_Bool)arg2;
 - (void)animationDidStart:(id)arg1;
-- (void)setAnimationAttributes:(id)arg1 correctZeroDuration:(BOOL)arg2 skipDelegateAssignment:(BOOL)arg3 customCurve:(id)arg4;
-- (void)setAnimationAttributes:(id)arg1 correctZeroDuration:(BOOL)arg2 skipDelegateAssignment:(BOOL)arg3;
+- (void)setAnimationAttributes:(id)arg1 correctZeroDuration:(_Bool)arg2 skipDelegateAssignment:(_Bool)arg3 customCurve:(id)arg4;
+- (void)setAnimationAttributes:(id)arg1 correctZeroDuration:(_Bool)arg2 skipDelegateAssignment:(_Bool)arg3;
 - (void)_runAlongsideAnimations;
 - (void)_setAlongsideAnimations:(id)arg1;
 - (void)setAnimationAttributes:(id)arg1;
 - (void)setupCustomTimingCurve;
 - (void)dealloc;
 - (void)pop;
-- (void)setupWithDuration:(double)arg1 delay:(double)arg2 view:(id)arg3 options:(unsigned int)arg4 factory:(id)arg5 parentState:(id)arg6 start:(id)arg7 completion:(void)arg8;
+- (void)setupWithDuration:(double)arg1 delay:(double)arg2 view:(id)arg3 options:(unsigned long long)arg4 factory:(id)arg5 parentState:(id)arg6 start:(id)arg7 completion:(void)arg8;
 - (id)actionForLayer:(id)arg1 forKey:(id)arg2 forView:(id)arg3;
+- (void)prepareAction:(id)arg1 forLayer:(id)arg2 forKey:(id)arg3;
 - (id)init;
 
 @end

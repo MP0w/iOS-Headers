@@ -7,17 +7,17 @@
 #import "NSString.h"
 
 @interface NSString (UIStringDrawing)
-- (struct CGSize)drawAtPoint:(struct CGPoint)arg1 forWidth:(float)arg2 withFont:(id)arg3 minFontSize:(float)arg4 actualFontSize:(float *)arg5 lineBreakMode:(int)arg6 baselineAdjustment:(int)arg7;
-- (struct CGSize)drawAtPoint:(struct CGPoint)arg1 forWidth:(float)arg2 withFont:(id)arg3 fontSize:(float)arg4 lineBreakMode:(int)arg5 baselineAdjustment:(int)arg6;
-- (struct CGSize)sizeWithFont:(id)arg1 minFontSize:(float)arg2 actualFontSize:(float *)arg3 forWidth:(float)arg4 lineBreakMode:(int)arg5;
-- (struct CGSize)drawInRect:(struct CGRect)arg1 withFont:(id)arg2 lineBreakMode:(int)arg3 alignment:(int)arg4;
-- (struct CGSize)drawInRect:(struct CGRect)arg1 withFont:(id)arg2 lineBreakMode:(int)arg3;
+- (struct CGSize)drawAtPoint:(struct CGPoint)arg1 forWidth:(double)arg2 withFont:(id)arg3 minFontSize:(double)arg4 actualFontSize:(double *)arg5 lineBreakMode:(long long)arg6 baselineAdjustment:(long long)arg7;
+- (struct CGSize)drawAtPoint:(struct CGPoint)arg1 forWidth:(double)arg2 withFont:(id)arg3 fontSize:(double)arg4 lineBreakMode:(long long)arg5 baselineAdjustment:(long long)arg6;
+- (struct CGSize)sizeWithFont:(id)arg1 minFontSize:(double)arg2 actualFontSize:(double *)arg3 forWidth:(double)arg4 lineBreakMode:(long long)arg5;
+- (struct CGSize)drawInRect:(struct CGRect)arg1 withFont:(id)arg2 lineBreakMode:(long long)arg3 alignment:(long long)arg4;
+- (struct CGSize)drawInRect:(struct CGRect)arg1 withFont:(id)arg2 lineBreakMode:(long long)arg3;
 - (struct CGSize)drawInRect:(struct CGRect)arg1 withFont:(id)arg2;
-- (struct CGSize)sizeWithFont:(id)arg1 constrainedToSize:(struct CGSize)arg2 lineBreakMode:(int)arg3;
+- (struct CGSize)sizeWithFont:(id)arg1 constrainedToSize:(struct CGSize)arg2 lineBreakMode:(long long)arg3;
 - (struct CGSize)sizeWithFont:(id)arg1 constrainedToSize:(struct CGSize)arg2;
-- (struct CGSize)drawAtPoint:(struct CGPoint)arg1 forWidth:(float)arg2 withFont:(id)arg3 lineBreakMode:(int)arg4;
+- (struct CGSize)drawAtPoint:(struct CGPoint)arg1 forWidth:(double)arg2 withFont:(id)arg3 lineBreakMode:(long long)arg4;
 - (struct CGSize)drawAtPoint:(struct CGPoint)arg1 withFont:(id)arg2;
-- (struct CGSize)sizeWithFont:(id)arg1 forWidth:(float)arg2 lineBreakMode:(int)arg3;
+- (struct CGSize)sizeWithFont:(id)arg1 forWidth:(double)arg2 lineBreakMode:(long long)arg3;
 - (struct CGSize)sizeWithFont:(id)arg1;
 @end
 

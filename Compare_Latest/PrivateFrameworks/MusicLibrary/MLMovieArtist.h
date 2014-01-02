@@ -10,6 +10,7 @@
 
 @class NSMutableDictionary, NSNumber, NSString;
 
+// Not exported
 @interface MLMovieArtist : NSObject <NSCopying>
 {
     NSMutableDictionary *_dictionary;

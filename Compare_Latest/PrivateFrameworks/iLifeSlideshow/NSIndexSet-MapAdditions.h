@@ -7,7 +7,7 @@
 #import "NSIndexSet.h"
 
 @interface NSIndexSet (MapAdditions)
-- (int)locationOfIndex:(int)arg1;
-- (int)indexAtIndex:(int)arg1;
+- (long long)locationOfIndex:(long long)arg1;
+- (long long)indexAtIndex:(long long)arg1;
 @end
 

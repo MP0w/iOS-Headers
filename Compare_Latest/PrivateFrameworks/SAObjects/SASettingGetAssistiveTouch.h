@@ -12,7 +12,7 @@
 
 + (id)getAssistiveTouchWithDictionary:(id)arg1 context:(id)arg2;
 + (id)getAssistiveTouch;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

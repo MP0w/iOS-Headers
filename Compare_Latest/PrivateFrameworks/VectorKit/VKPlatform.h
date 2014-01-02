@@ -8,33 +8,35 @@
 
 @interface VKPlatform : NSObject
 {
-    unsigned int _memSize;
+    unsigned long long _memSize;
     int _numCPUs;
-    BOOL _proceduralRoadAlpha;
-    BOOL _shouldUseTrafficAlphaHack;
-    BOOL _supportsBuildingStrokes;
-    BOOL _supports3DBuildingStrokes;
+    _Bool _proceduralRoadAlpha;
+    _Bool _useCheapTrafficShader;
+    _Bool _shouldUseTrafficAlphaHack;
+    _Bool _supportsBuildingStrokes;
+    _Bool _supports3DBuildingStrokes;
 }
 
 + (id)sharedPlatform;
-@property(readonly, nonatomic) BOOL supports3DBuildingStrokes; // @synthesize supports3DBuildingStrokes=_supports3DBuildingStrokes;
-@property(readonly, nonatomic) BOOL supportsBuildingStrokes; // @synthesize supportsBuildingStrokes=_supportsBuildingStrokes;
-@property(readonly, nonatomic) BOOL shouldUseTrafficAlphaHack; // @synthesize shouldUseTrafficAlphaHack=_shouldUseTrafficAlphaHack;
-@property(readonly, nonatomic) BOOL proceduralRoadAlpha; // @synthesize proceduralRoadAlpha=_proceduralRoadAlpha;
-@property(readonly, nonatomic) unsigned int memorySize; // @synthesize memorySize=_memSize;
-@property(readonly, nonatomic) BOOL supportsDepthDependentBuildings;
-@property(readonly, nonatomic) BOOL supportsHiResBuildings;
-@property(readonly, nonatomic) float mainScreenPPI;
-@property(readonly, nonatomic) float mainScreenScale;
-@property(readonly, nonatomic) BOOL shouldDrawWhenReady;
-@property(readonly, nonatomic) BOOL isPad;
-@property(readonly, nonatomic) BOOL canMakeSharingThumbnails;
-@property(readonly, nonatomic) BOOL supportsHiResRTT;
-@property(readonly, nonatomic) unsigned int tileMaximumLimit;
-- (unsigned int)tileReserveLimit:(BOOL)arg1;
-@property(readonly, nonatomic) BOOL roadsWithSimpleLineMeshesAvailable;
+@property(readonly, nonatomic) _Bool supports3DBuildingStrokes; // @synthesize supports3DBuildingStrokes=_supports3DBuildingStrokes;
+@property(readonly, nonatomic) _Bool supportsBuildingStrokes; // @synthesize supportsBuildingStrokes=_supportsBuildingStrokes;
+@property(readonly, nonatomic) _Bool shouldUseTrafficAlphaHack; // @synthesize shouldUseTrafficAlphaHack=_shouldUseTrafficAlphaHack;
+@property(readonly, nonatomic) _Bool useCheapTrafficShader; // @synthesize useCheapTrafficShader=_useCheapTrafficShader;
+@property(readonly, nonatomic) _Bool proceduralRoadAlpha; // @synthesize proceduralRoadAlpha=_proceduralRoadAlpha;
+@property(readonly, nonatomic) unsigned long long memorySize; // @synthesize memorySize=_memSize;
+@property(readonly, nonatomic) _Bool supportsDepthDependentBuildings;
+@property(readonly, nonatomic) _Bool supportsHiResBuildings;
+@property(readonly, nonatomic) double mainScreenPPI;
+@property(readonly, nonatomic) double mainScreenScale;
+@property(readonly, nonatomic) _Bool shouldDrawWhenReady;
+@property(readonly, nonatomic) _Bool isPad;
+@property(readonly, nonatomic) _Bool canMakeSharingThumbnails;
+@property(readonly, nonatomic) _Bool supportsHiResRTT;
+@property(readonly, nonatomic) unsigned long long tileMaximumLimit;
+- (unsigned long long)tileReserveLimit:(_Bool)arg1;
+@property(readonly, nonatomic) _Bool roadsWithSimpleLineMeshesAvailable;
 - (void)_determineHardware;
-- (unsigned int)_calculateMemSize;
+- (unsigned long long)_calculateMemSize;
 - (void)dealloc;
 - (id)init;
 

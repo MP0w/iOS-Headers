@@ -17,7 +17,7 @@
 + (id)databaseTable;
 + (unsigned long long)_fetchPersistentID:(id)arg1 inDatabase:(id)arg2;
 - (id)description;
-- (id)dataBlob:(char *)arg1;
+- (id)dataBlob:(_Bool *)arg1;
 - (void)setPersistentCache:(id)arg1;
 - (void)dealloc;
 - (id)initWithLookupKey:(id)arg1 inDatabase:(id)arg2;

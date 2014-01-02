@@ -8,6 +8,7 @@
 
 @class CIContext, FCRFaceDetector, NSMutableDictionary;
 
+// Not exported
 @interface CIFaceCoreDetector : CIDetector
 {
     CIContext *context;
@@ -22,9 +23,6 @@
 - (void)finalize;
 - (void)dealloc;
 - (id)initWithContext:(id)arg1 options:(id)arg2;
-- (id)createFaceCoreDataFromCIImage:(id)arg1 width:(unsigned int *)arg2 height:(unsigned int *)arg3;
-- (id)adjustedImageFromImage:(id)arg1 orientation:(int)arg2 inverseCTM:(struct CGAffineTransform *)arg3;
-- (struct CGAffineTransform)ctmForImageWithBounds:(struct CGRect)arg1 orientation:(int)arg2;
 
 @end
 

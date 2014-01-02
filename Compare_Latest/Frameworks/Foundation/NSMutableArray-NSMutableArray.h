@@ -9,7 +9,7 @@
 @interface NSMutableArray (NSMutableArray)
 - (id)initWithContentsOfURL:(id)arg1;
 - (id)initWithContentsOfFile:(id)arg1;
-- (void)removeObjectsFromIndices:(unsigned int *)arg1 numIndices:(unsigned int)arg2;
+- (void)removeObjectsFromIndices:(unsigned long long *)arg1 numIndices:(unsigned long long)arg2;
 - (Class)classForCoder;
 @end
 

@@ -13,10 +13,10 @@
     double fadeOutDuration;
     double duckInDuration;
     double duckOutDuration;
-    float duckLevel;
+    double duckLevel;
 }
 
-@property(nonatomic) float duckLevel; // @synthesize duckLevel;
+@property(nonatomic) double duckLevel; // @synthesize duckLevel;
 @property(nonatomic) double duckOutDuration; // @synthesize duckOutDuration;
 @property(nonatomic) double duckInDuration; // @synthesize duckInDuration;
 @property(nonatomic) double fadeOutDuration; // @synthesize fadeOutDuration;

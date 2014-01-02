@@ -10,5 +10,6 @@
 
 @protocol PLUserEditableAlbumProtocol <PLAlbumProtocol>
 @property(readonly, nonatomic) NSMutableOrderedSet *userEditableAssets;
+- (void)insertInternalUserEditableAssets:(id)arg1 atIndexes:(id)arg2 trimmedVideoPathInfo:(id)arg3 commentText:(id)arg4;
 @end
 

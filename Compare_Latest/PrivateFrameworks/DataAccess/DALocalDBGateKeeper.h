@@ -10,19 +10,19 @@
 
 @interface DALocalDBGateKeeper : NSObject
 {
-    BOOL _claimedOwnershipOfContacts;
+    _Bool _claimedOwnershipOfContacts;
     id <DADataclassLockWatcher> _contactsLockHolder;
     NSMutableArray *_contactsWaiters;
     NSMutableSet *_waiterIDsExpectingContactsLock;
-    BOOL _claimedOwnershipOfEvents;
+    _Bool _claimedOwnershipOfEvents;
     id <DADataclassLockWatcher> _eventsLockHolder;
     NSMutableArray *_eventsWaiters;
     NSMutableSet *_waiterIDsExpectingEventsLock;
-    BOOL _claimedOwnershipOfNotes;
+    _Bool _claimedOwnershipOfNotes;
     id <DADataclassLockWatcher> _notesLockHolder;
     NSMutableArray *_notesWaiters;
     NSMutableSet *_waiterIDsExpectingNotesLock;
-    BOOL _claimedOwnershipOfBookmarks;
+    _Bool _claimedOwnershipOfBookmarks;
     id <DADataclassLockWatcher> _bookmarksLockHolder;
     NSMutableArray *_bookmarksWaiters;
     NSMutableSet *_waiterIDsExpectingBookmarksLock;
@@ -32,7 +32,7 @@
 + (id)sharedGateKeeper;
 - (void)claimedOwnershipOfDataclasses:(int)arg1;
 - (id)stateString;
-- (void)relinquishLocksForWaiter:(id)arg1 dataclasses:(int)arg2 moreComing:(BOOL)arg3;
+- (void)relinquishLocksForWaiter:(id)arg1 dataclasses:(int)arg2 moreComing:(_Bool)arg3;
 - (void)unregisterWaiterForDataclassLocks:(id)arg1;
 - (void)registerPreemptiveWaiter:(id)arg1 forDataclassLocks:(int)arg2 completionHandler:(id)arg3;
 - (void)registerWaiter:(id)arg1 forDataclassLocks:(int)arg2 completionHandler:(id)arg3;

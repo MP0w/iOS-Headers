@@ -7,7 +7,7 @@
 #import "UINavigationController.h"
 
 @interface UINavigationController (CNFRegSignInController)
-- (void)popToSigninControllerAnimated:(BOOL)arg1;
+- (void)popToSigninControllerAnimated:(_Bool)arg1;
 - (id)signInControllerInHierarchy;
 @end
 

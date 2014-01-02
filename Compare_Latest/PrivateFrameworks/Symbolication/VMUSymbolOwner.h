@@ -27,17 +27,17 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)description;
-- (int)compare:(id)arg1;
-- (BOOL)isEqualToSymbolOwner:(id)arg1;
-- (BOOL)isDsym;
-- (BOOL)isBundle;
-- (BOOL)isDyld;
-- (BOOL)isDylib;
-- (BOOL)isAOut;
-- (BOOL)isCommpage;
-- (BOOL)isPEF;
-- (BOOL)isProtected;
-- (BOOL)isMachO;
+- (long long)compare:(id)arg1;
+- (_Bool)isEqualToSymbolOwner:(id)arg1;
+- (_Bool)isDsym;
+- (_Bool)isBundle;
+- (_Bool)isDyld;
+- (_Bool)isDylib;
+- (_Bool)isAOut;
+- (_Bool)isCommpage;
+- (_Bool)isPEF;
+- (_Bool)isProtected;
+- (_Bool)isMachO;
 - (unsigned int)compatibilityVersion;
 - (unsigned int)currentVersion;
 - (unsigned int)flags;
@@ -53,19 +53,12 @@
 - (id)regionForAddress:(unsigned long long)arg1;
 - (id)regionsForName:(id)arg1;
 - (id)regions;
-- (BOOL)containsAddress:(unsigned long long)arg1;
+- (_Bool)containsAddress:(unsigned long long)arg1;
 - (id)architecture;
 - (id)path;
 - (id)signature;
 - (id)name;
 - (id)initWithName:(id)arg1 signature:(id)arg2 textMemory:(id)arg3 regions:(id)arg4 symbols:(id)arg5 sourceInfos:(id)arg6 flags:(unsigned int)arg7 currentVersion:(unsigned int)arg8 compatibilityVersion:(unsigned int)arg9;
-- (BOOL)validate;
-- (unsigned long long)size;
-- (id)programTextForAddressRange:(struct _VMURange)arg1;
-- (id)programTextForAddress:(unsigned long long)arg1;
-- (void)slideToSegmentAddresses:(id)arg1;
-- (id)symbolOwnerByAddingContentsOfOwner:(id)arg1;
-- (BOOL)isLazy;
 
 @end
 

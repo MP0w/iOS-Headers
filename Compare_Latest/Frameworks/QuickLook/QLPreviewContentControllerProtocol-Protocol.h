@@ -19,16 +19,16 @@
 - (void)forceResignFirstResponder;
 - (void)becomeForeground;
 - (void)enterBackground;
-- (void)setOverlayHidden:(BOOL)arg1 duration:(double)arg2;
+- (void)setOverlayHidden:(_Bool)arg1 duration:(double)arg2;
 - (void)setContentFrame:(struct CGRect)arg1;
 - (void)willChangeContentFrame;
-- (void)setTransitioning:(BOOL)arg1;
-- (void)setBlockRemoteImages:(BOOL)arg1;
+- (void)setTransitioning:(_Bool)arg1 synchronizedWithBlock:(id)arg2;
+- (void)setBlockRemoteImages:(_Bool)arg1;
 - (void)setLoadingTextForMissingFiles:(id)arg1;
+- (void)checkCurrentPreviewItem;
 - (void)refreshCurrentPreviewItem;
-- (void)reloadData;
-- (int)currentPreviewItemIndex;
-- (void)setCurrentPreviewItemIndex:(int)arg1;
+- (long long)currentPreviewItemIndex;
+- (void)setCurrentPreviewItemIndex:(long long)arg1;
 - (void)configureWithParameters:(id)arg1;
 @end
 

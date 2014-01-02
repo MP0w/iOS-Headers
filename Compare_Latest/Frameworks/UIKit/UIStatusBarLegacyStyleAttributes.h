@@ -6,12 +6,13 @@
 
 #import <UIKit/UIStatusBarStyleAttributes.h>
 
+// Not exported
 @interface UIStatusBarLegacyStyleAttributes : UIStatusBarStyleAttributes
 {
 }
 
-- (float)foregroundAlpha;
-- (id)newForegroundStyleWithHeight:(float)arg1;
+- (double)foregroundAlpha;
+- (id)newForegroundStyleWithHeight:(double)arg1;
 
 @end
 

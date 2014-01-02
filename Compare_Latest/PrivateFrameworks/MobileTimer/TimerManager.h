@@ -17,14 +17,14 @@
 
 + (id)copyFetchScheduledNotification;
 + (id)newNotificationAt:(double)arg1 withSound:(id)arg2;
-+ (BOOL)discardOldVersion;
-+ (BOOL)upgrade;
-+ (BOOL)isTimerNotification:(id)arg1;
++ (_Bool)discardOldVersion;
++ (_Bool)upgrade;
++ (_Bool)isTimerNotification:(id)arg1;
 + (id)sharedManager;
 - (void)changeSound:(id)arg1;
-- (BOOL)resume;
-- (BOOL)pause;
-- (BOOL)cancel;
+- (_Bool)resume;
+- (_Bool)pause;
+- (_Bool)cancel;
 - (void)scheduleAt:(double)arg1 withSound:(id)arg2;
 - (void)reloadState;
 @property(readonly, nonatomic) double remainingTime;

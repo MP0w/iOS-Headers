@@ -9,14 +9,14 @@
 @interface PUCloudSharedBackdropView : UIView
 {
     UIView *_backdropView;
-    BOOL _isMask;
-    BOOL _hasRoundedCorners;
+    _Bool _isMask;
+    _Bool _hasRoundedCorners;
 }
 
-@property(nonatomic) BOOL hasRoundedCorners; // @synthesize hasRoundedCorners=_hasRoundedCorners;
+@property(nonatomic) _Bool hasRoundedCorners; // @synthesize hasRoundedCorners=_hasRoundedCorners;
 - (void).cxx_destruct;
 - (void)layoutSubviews;
-- (id)initWithFrame:(struct CGRect)arg1 asMask:(BOOL)arg2;
+- (id)initWithFrame:(struct CGRect)arg1 asMask:(_Bool)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)init;
 

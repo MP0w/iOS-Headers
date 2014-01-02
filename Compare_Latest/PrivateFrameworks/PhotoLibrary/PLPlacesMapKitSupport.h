@@ -9,26 +9,41 @@
 @interface PLPlacesMapKitSupport : NSObject
 {
     Class _pinAnnotationViewClass;
-    struct {
-        struct {
-            double x;
-            double y;
-        } origin;
-        struct {
-            double width;
-            double height;
-        } size;
-    } _mapRectWorld;
+    Class _annotationViewClass;
+    Class _mapViewClass;
+    Class _polylineClass;
+    Class _polylineViewClass;
+    CDStruct_02837cd9 _mapRectWorld;
+    CDStruct_02837cd9 _mapRectNull;
+    void *_mkMapRectMakeWithRadialDistance;
+    void *_mkMapRectUnion;
+    void *_mkMapRectIntersectsRect;
+    void *_mkMapRectIntersectsMapRectWrappingMeridian;
     void *_mkCoordinateRegionForMapRect;
+    void *_mkMapRectForCoordinateRegion;
     void *_mkMapPointForCoordinate;
+    void *_mkCoordinateForMapPoint;
     void *_mkMapPointsPerMeterAtLatitude;
+    void *_mkMetersPerMapPointAtLatitude;
 }
 
 + (id)sharedInstance;
+- (double)metersPerMapPointAtLatitude:(double)arg1;
 - (double)mapPointsPerMeterAtLatitude:(double)arg1;
+- (CDStruct_c3b9c2ee)coordinateForMapPoint:(CDStruct_c3b9c2ee)arg1;
 - (CDStruct_c3b9c2ee)mapPointForCoordinate:(CDStruct_c3b9c2ee)arg1;
+- (CDStruct_90e2a262)mapRectForCoordinateRegion:(CDStruct_90e2a262)arg1;
 - (CDStruct_90e2a262)coordinateRegionForMapRect:(CDStruct_90e2a262)arg1;
+- (_Bool)mapRectIntersectsWrappingMeridian:(CDStruct_90e2a262)arg1 rect:(CDStruct_90e2a262)arg2;
+- (_Bool)mapRectIntersectsRect:(CDStruct_90e2a262)arg1 rect:(CDStruct_90e2a262)arg2;
+- (CDStruct_90e2a262)mapRectUnion:(CDStruct_90e2a262)arg1 rect:(CDStruct_90e2a262)arg2;
+- (CDStruct_90e2a262)mapRectAtCoordinate:(CDStruct_c3b9c2ee)arg1 radialDistance:(double)arg2;
+- (CDStruct_90e2a262)mapRectNull;
 - (CDStruct_90e2a262)mapRectWorld;
+- (Class)polylineViewClass;
+- (Class)polylineClass;
+- (Class)mapViewClass;
+- (Class)annotationViewClass;
 - (Class)pinAnnotationViewClass;
 - (id)init;
 

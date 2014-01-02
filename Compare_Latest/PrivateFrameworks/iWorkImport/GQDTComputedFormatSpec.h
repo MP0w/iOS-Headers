@@ -6,14 +6,15 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface GQDTComputedFormatSpec : NSObject
 {
     id mFormat;
 }
 
-- (BOOL)isNumberFormat;
-- (BOOL)isDurationFormat;
-- (BOOL)isDateFormat;
+- (_Bool)isNumberFormat;
+- (_Bool)isDurationFormat;
+- (_Bool)isDateFormat;
 - (id)format;
 - (void)dealloc;
 

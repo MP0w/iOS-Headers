@@ -6,14 +6,15 @@
 
 #import <ScreenReaderCore/SCRCPhotoEvaluatorResult.h>
 
+// Not exported
 @interface SCRCPhotoEvaluatorResultBlur : SCRCPhotoEvaluatorResult
 {
-    float _blurLevel;
+    double _blurLevel;
 }
 
-@property(readonly, nonatomic) float blurLevel; // @synthesize blurLevel=_blurLevel;
+@property(readonly, nonatomic) double blurLevel; // @synthesize blurLevel=_blurLevel;
 - (id)humanReadableResult;
-- (id)initWithBlurLevel:(float)arg1;
+- (id)initWithBlurLevel:(double)arg1;
 
 @end
 

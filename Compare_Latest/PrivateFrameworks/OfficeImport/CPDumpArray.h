@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface CPDumpArray : CPDumpType
 {
     int mCount;

@@ -17,8 +17,9 @@ struct __DDScanQuery;
 
 struct __DDScanner {
     struct __CFRuntimeBase {
-        unsigned int _field1;
+        unsigned long long _field1;
         unsigned char _field2[4];
+        unsigned int _field3;
     } _field1;
     struct __DDLRTable *_field2;
     struct __DDLexer *_field3;
@@ -30,9 +31,9 @@ struct __DDScanner {
     struct __DDScanQuery *_field9;
     struct __CFArray *_field10;
     struct __CFArray *_field11;
-    int _field12;
-    int _field13;
-    int _field14;
+    long long _field12;
+    long long _field13;
+    long long _field14;
     char *_field15;
     id _field16;
     void _field17;
@@ -43,9 +44,9 @@ struct __DDScanner {
 #pragma mark Typedef'd Structures
 
 typedef struct {
-    unsigned long _field1;
+    unsigned long long _field1;
     id *_field2;
-    unsigned long *_field3;
-    unsigned long _field4[5];
-} CDStruct_11f37819;
+    unsigned long long *_field3;
+    unsigned long long _field4[5];
+} CDStruct_70511ce9;
 

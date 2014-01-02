@@ -6,20 +6,21 @@
 
 #import "NSEnumerator.h"
 
+// Not exported
 @interface _NSKnownKeysEnumerator : NSEnumerator
 {
     id _target;
     const id *_list;
     const id *_referenceItems;
     struct _NSRange _range;
-    unsigned long _index;
-    unsigned long _flags;
+    unsigned long long _index;
+    unsigned long long _flags;
 }
 
 - (id)nextObject;
 - (void)dealloc;
 - (void)_invalidate;
-- (id)initWithArray:(const id *)arg1 forTarget:(id)arg2 withReferenceValues:(const id *)arg3 andRange:(struct _NSRange)arg4 andCopyItems:(BOOL)arg5;
+- (id)initWithArray:(const id *)arg1 forTarget:(id)arg2 withReferenceValues:(const id *)arg3 andRange:(struct _NSRange)arg4 andCopyItems:(_Bool)arg5;
 
 @end
 

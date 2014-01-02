@@ -13,7 +13,7 @@
 @interface SBPowerDownController : SBAlert <SBPowerDownViewDelegate>
 {
     id _delegate;
-    BOOL _isFront;
+    _Bool _isFront;
     SBAlertView<SBPowerDownViewInterface> *_powerDownView;
     id _orderOutCompletion;
 }
@@ -26,18 +26,19 @@
 - (void)powerDownViewAnimateOutCompleted:(id)arg1;
 - (void)powerDownViewRequestPowerDown:(id)arg1;
 - (void)powerDownViewRequestCancel:(id)arg1;
-- (BOOL)powerDownViewShouldHideStatusBar:(id)arg1;
+- (_Bool)powerDownViewShouldHideStatusBar:(id)arg1;
 - (double)autoLockTime;
 - (void)deactivate;
 - (void)activate;
-- (BOOL)showsSpringBoardStatusBar;
-- (BOOL)managesOwnStatusBarAtActivation;
+- (_Bool)showsSpringBoardStatusBar;
+- (_Bool)managesOwnStatusBarAtActivation;
 - (id)alertDisplayViewWithSize:(struct CGSize)arg1;
+- (_Bool)hasTranslucentBackground;
 - (void)cancel;
 - (void)powerDown;
 - (void)orderOutWithCompletion:(id)arg1;
 - (void)orderFront;
-- (BOOL)isOrderedFront;
+- (_Bool)isOrderedFront;
 - (void)dealloc;
 - (id)init;
 

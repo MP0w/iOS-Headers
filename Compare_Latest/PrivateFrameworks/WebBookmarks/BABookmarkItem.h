@@ -8,6 +8,7 @@
 
 @class WebBookmark, WebBookmarkCollection;
 
+// Not exported
 @interface BABookmarkItem : NSObject
 {
     WebBookmarkCollection *_collection;

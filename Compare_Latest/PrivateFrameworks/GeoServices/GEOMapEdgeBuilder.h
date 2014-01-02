@@ -8,33 +8,34 @@
 
 @class GEOMapAccess, GEOMapTileFinder;
 
+// Not exported
 @interface GEOMapEdgeBuilder : GEOMapRequest
 {
     struct deque<GEORoadEdge, std::__1::allocator<GEORoadEdge>> _edges;
-    unsigned int _zoomLevel;
-    BOOL _buildAhead;
-    BOOL _buildBehind;
+    unsigned long long _zoomLevel;
+    _Bool _buildAhead;
+    _Bool _buildBehind;
     Vec2Imp_1782d7e3 _firstTilePoint;
     Vec2Imp_1782d7e3 _lastTilePoint;
     GEOMapTileFinder *_currentTileFinder;
     id _edgeHandler;
-    unordered_set_2ba6858f _tileKeysSeen;
-    BOOL _searchDirection;
+    unordered_set_4cb294f7 _tileKeysSeen;
+    _Bool _searchDirection;
 }
 
 @property(copy, nonatomic) id edgeHandler; // @synthesize edgeHandler=_edgeHandler;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)_findNeighborsOfKey:(const struct _GEOTileKey *)arg1 center:(CDStruct_c3b9c2ee)arg2 radius:(double)arg3 findAhead:(BOOL)arg4;
+- (void)_findNeighborsOfKey:(const struct _GEOTileKey *)arg1 center:(CDStruct_c3b9c2ee)arg2 radius:(double)arg3 findAhead:(_Bool)arg4;
 - (void)buildEdge:(id)arg1;
-- (BOOL)_findNextEdge;
+- (_Bool)_findNextEdge;
 - (void)_buildCompleteEdge;
-- (BOOL)_findEdgeBehind;
-- (BOOL)_findEdgeAhead;
+- (_Bool)_findEdgeBehind;
+- (_Bool)_findEdgeAhead;
 @property(readonly, nonatomic) GEOMapAccess *map;
 - (void)cancel;
 - (void)dealloc;
-- (id)initWithMap:(id)arg1 firstEdge:(const CDStruct_b4689c16 *)arg2;
+- (id)initWithMap:(id)arg1 firstEdge:(const CDStruct_f8e839fc *)arg2;
 
 @end
 

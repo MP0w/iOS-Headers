@@ -6,19 +6,20 @@
 
 #import <ScreenReaderCore/SCRCMathSimpleExpression.h>
 
+// Not exported
 @interface SCRCMathIdentifierExpression : SCRCMathSimpleExpression
 {
     int _fontStyle;
 }
 
 @property(readonly, nonatomic) int fontStyle; // @synthesize fontStyle=_fontStyle;
-- (BOOL)canFormWordStartingWithExpression:(id)arg1;
-- (BOOL)isNaturalSuperscript;
-- (BOOL)_isPrime;
-- (BOOL)isNumber;
+- (_Bool)canFormWordStartingWithExpression:(id)arg1;
+- (_Bool)isNaturalSuperscript;
+- (_Bool)_isPrime;
+- (_Bool)isNumber;
 - (id)mathMLString;
-- (id)speakableDescriptionWithSpeakingStyle:(int)arg1 arePausesAllowed:(BOOL)arg2 isPartOfWord:(BOOL)arg3;
-- (id)speakableDescriptionWithSpeakingStyle:(int)arg1 arePausesAllowed:(BOOL)arg2;
+- (id)speakableDescriptionWithSpeakingStyle:(int)arg1 arePausesAllowed:(_Bool)arg2 isPartOfWord:(_Bool)arg3;
+- (id)speakableDescriptionWithSpeakingStyle:(int)arg1 arePausesAllowed:(_Bool)arg2;
 - (id)description;
 - (id)initWithDictionary:(id)arg1;
 

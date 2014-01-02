@@ -16,23 +16,23 @@
     NSMutableArray *_addedRemovedModifications;
     NSMutableArray *_prefixes;
     char *_buffer;
-    unsigned int *_syllableLengthArray;
+    unsigned long long *_syllableLengthArray;
     void *_connection;
-    unsigned int _length;
-    unsigned int _lengthBeforeApostrophes;
-    unsigned int _startingPoint;
-    unsigned int _lastIndexes[4];
-    unsigned int _nextIndexes[2];
-    unsigned int _startIndex;
-    unsigned int _endIndex;
-    BOOL _lastSyllableIsPartial;
+    unsigned long long _length;
+    unsigned long long _lengthBeforeApostrophes;
+    unsigned long long _startingPoint;
+    unsigned long long _lastIndexes[4];
+    unsigned long long _nextIndexes[2];
+    unsigned long long _startIndex;
+    unsigned long long _endIndex;
+    _Bool _lastSyllableIsPartial;
 }
 
 - (id)removedModifications;
 - (id)addedModifications;
 - (id)currentModifications;
 - (void)reset;
-- (void)removeNumberOfInputCharacters:(unsigned int)arg1;
+- (void)removeNumberOfInputCharacters:(unsigned long long)arg1;
 - (void)addInputCharacter:(unsigned short)arg1 geometryModel:(void *)arg2 geometryData:(id)arg3;
 - (void)_filterModifications;
 - (void)_addDeletions;

@@ -17,26 +17,19 @@
     NSString *_identifier;
     NSString *_organization;
     NSString *_UUID;
-    int _version;
+    long long _version;
     NSString *_persistentResourceID;
-    BOOL _mustInstallNonInteractively;
+    _Bool _mustInstallNonInteractively;
 }
 
 + (id)localizedPluralForm;
 + (id)localizedSingularForm;
-+ (id)localizedParenthesizedFormDescriptionForPayloadCount:(unsigned int)arg1;
-+ (id)localizedDescriptionForPayloadCount:(unsigned int)arg1;
++ (id)localizedParenthesizedFormDescriptionForPayloadCount:(unsigned long long)arg1;
++ (id)localizedDescriptionForPayloadCount:(unsigned long long)arg1;
 + (id)typeStrings;
-+ (id)wrapperPayloadDictionary;
-+ (id)badFieldValueErrorWithField:(id)arg1 underlyingError:(id)arg2;
-+ (id)badFieldValueErrorWithField:(id)arg1;
-+ (id)badFieldTypeErrorWithField:(id)arg1;
-+ (id)missingFieldErrorWithField:(id)arg1 underlyingError:(id)arg2;
-+ (id)payloadFromDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
-+ (id)payloadsFromArray:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
-@property(nonatomic) BOOL mustInstallNonInteractively; // @synthesize mustInstallNonInteractively=_mustInstallNonInteractively;
+@property(nonatomic) _Bool mustInstallNonInteractively; // @synthesize mustInstallNonInteractively=_mustInstallNonInteractively;
 @property(retain, nonatomic) NSString *persistentResourceID; // @synthesize persistentResourceID=_persistentResourceID;
-@property(readonly, nonatomic) int version; // @synthesize version=_version;
+@property(readonly, nonatomic) long long version; // @synthesize version=_version;
 @property(readonly, nonatomic) NSString *UUID; // @synthesize UUID=_UUID;
 @property(readonly, nonatomic) NSString *organization; // @synthesize organization=_organization;
 @property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
@@ -54,9 +47,6 @@
 - (id)description;
 @property(readonly, nonatomic) NSString *friendlyName;
 @property(readonly, nonatomic) NSDictionary *restrictions;
-- (id)stubDictionary;
-- (id)malformedPayloadErrorWithError:(id)arg1;
-- (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
 
 @end
 

@@ -7,11 +7,11 @@
 #import "NSArray.h"
 
 @interface NSArray (SortedArrayExtensions)
-- (unsigned int)mf_indexWhereObjectWouldBeInserted:(id)arg1 usingSortFunction:(void *)arg2 context:(void *)arg3;
-- (unsigned int)mf_indexWhereObjectWouldBeInserted:(id)arg1 usingComparator:(id)arg2;
+- (unsigned long long)mf_indexWhereObjectWouldBeInserted:(id)arg1 usingSortFunction:(void *)arg2 context:(void *)arg3;
+- (unsigned long long)mf_indexWhereObjectWouldBeInserted:(id)arg1 usingComparator:(id)arg2;
 - (id)mf_objectEquivalentTo:(id)arg1 usingSortFunction:(void *)arg2 context:(void *)arg3;
 - (id)mf_objectEquivalentTo:(id)arg1 usingComparator:(id)arg2;
-- (unsigned int)mf_indexOfObject:(id)arg1 usingSortFunction:(void *)arg2 context:(void *)arg3;
-- (unsigned int)mf_indexOfObject:(id)arg1 usingComparator:(id)arg2;
+- (unsigned long long)mf_indexOfObject:(id)arg1 usingSortFunction:(void *)arg2 context:(void *)arg3;
+- (unsigned long long)mf_indexOfObject:(id)arg1 usingComparator:(id)arg2;
 @end
 

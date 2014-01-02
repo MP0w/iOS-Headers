@@ -8,6 +8,7 @@
 
 @class NSMutableDictionary, OADGraphicFeatureCache;
 
+// Not exported
 @interface OADGraphicStyleCache : NSObject
 {
     OADGraphicFeatureCache *mFillCacheArray[4];
@@ -32,15 +33,15 @@
 - (id)fillsOfCategory:(int)arg1;
 - (id)shadows;
 - (id)strokes;
-- (id)countedDrawableStyleOfCategory:(int)arg1 atIndex:(unsigned int)arg2;
-- (unsigned int)cacheDrawablePropertiesOfCategory:(int)arg1 withGraphicProperties:(id)arg2 textBodyProperties:(id)arg3 paragraphProperties:(id)arg4 characterProperties:(id)arg5 colorContext:(id)arg6;
-- (unsigned int)cacheDrawablePropertiesOfCategory:(int)arg1 withFillCategory:(int)arg2 fillIndex:(unsigned int)arg3 strokeIndex:(unsigned int)arg4 shadowIndex:(unsigned int)arg5 reflectionOpacity:(float)arg6 textStyleIndex:(unsigned int)arg7;
-- (void)cacheChartStyleId:(long)arg1;
+- (id)countedDrawableStyleOfCategory:(int)arg1 atIndex:(unsigned long long)arg2;
+- (unsigned long long)cacheDrawablePropertiesOfCategory:(int)arg1 withGraphicProperties:(id)arg2 textBodyProperties:(id)arg3 paragraphProperties:(id)arg4 characterProperties:(id)arg5 colorContext:(id)arg6;
+- (unsigned long long)cacheDrawablePropertiesOfCategory:(int)arg1 withFillCategory:(int)arg2 fillIndex:(unsigned long long)arg3 strokeIndex:(unsigned long long)arg4 shadowIndex:(unsigned long long)arg5 reflectionOpacity:(float)arg6 textStyleIndex:(unsigned long long)arg7;
+- (void)cacheChartStyleId:(int)arg1;
 - (id)tableStyleForId:(id)arg1;
 - (void)cacheTableStyle:(id)arg1;
-- (unsigned int)cacheShadow:(id)arg1;
-- (unsigned int)cacheStroke:(id)arg1;
-- (unsigned int)cacheFill:(id)arg1 returnCategory:(int *)arg2;
+- (unsigned long long)cacheShadow:(id)arg1;
+- (unsigned long long)cacheStroke:(id)arg1;
+- (unsigned long long)cacheFill:(id)arg1 returnCategory:(int *)arg2;
 - (id)fontFaceCache;
 - (id)colorCache;
 - (void)dealloc;

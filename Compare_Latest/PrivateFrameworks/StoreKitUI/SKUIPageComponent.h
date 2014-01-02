@@ -6,24 +6,26 @@
 
 #import "NSObject.h"
 
+#import "SSMetricsEventFieldProvider-Protocol.h"
+
 @class NSString;
 
-@interface SKUIPageComponent : NSObject
+@interface SKUIPageComponent : NSObject <SSMetricsEventFieldProvider>
 {
-    NSString *_metricsLocationIdentifier;
+    long long _metricsLocationPosition;
 }
 
-- (void)_setMetricsLocationIdentifier:(id)arg1;
-@property(copy, nonatomic) NSString *metricsLocationIdentifier; // @synthesize metricsLocationIdentifier=_metricsLocationIdentifier;
-- (void).cxx_destruct;
-- (void)_enumerateMissingItemIdentifiersFromLockups:(id)arg1 startIndex:(int)arg2 usingBlock:(id)arg3;
-- (void)_enumerateMissingItemIdentifiersFromLinks:(id)arg1 startIndex:(int)arg2 usingBlock:(id)arg3;
-- (void)_enumerateMissingItemIdentifiersFromBricks:(id)arg1 startIndex:(int)arg2 usingBlock:(id)arg3;
+- (void)_setMetricsLocationPosition:(long long)arg1;
+@property(nonatomic) long long metricsLocationPosition; // @synthesize metricsLocationPosition=_metricsLocationPosition;
+- (void)_enumerateMissingItemIdentifiersFromLockups:(id)arg1 startIndex:(long long)arg2 usingBlock:(id)arg3;
+- (void)_enumerateMissingItemIdentifiersFromLinks:(id)arg1 startIndex:(long long)arg2 usingBlock:(id)arg3;
+- (void)_enumerateMissingItemIdentifiersFromBricks:(id)arg1 startIndex:(long long)arg2 usingBlock:(id)arg3;
+- (id)valueForMetricsField:(id)arg1;
 @property(readonly, nonatomic) NSString *metricsElementName;
-@property(readonly, nonatomic, getter=isMissingItemData) BOOL missingItemData;
-- (void)enumerateMissingItemIdentifiersFromIndex:(int)arg1 usingBlock:(id)arg2;
-@property(readonly, nonatomic) int componentType;
-- (id)initWithFeaturedContentContext:(id)arg1 kind:(int)arg2;
+@property(readonly, nonatomic, getter=isMissingItemData) _Bool missingItemData;
+- (void)enumerateMissingItemIdentifiersFromIndex:(long long)arg1 usingBlock:(id)arg2;
+@property(readonly, nonatomic) long long componentType;
+- (id)initWithFeaturedContentContext:(id)arg1 kind:(long long)arg2;
 - (id)initWithCustomPageContext:(id)arg1;
 
 @end

@@ -8,7 +8,7 @@
 
 @protocol ASRuntimeFixProtocol <NSObject>
 - (id)supportedAccountTypes;
-- (void)accountsHaveBeenSaved:(BOOL)arg1;
+- (void)accountsHaveBeenSaved:(_Bool)arg1;
 - (int)fixBasicAccountIfNeeded:(id)arg1 loggingMessage:(id)arg2;
 @end
 

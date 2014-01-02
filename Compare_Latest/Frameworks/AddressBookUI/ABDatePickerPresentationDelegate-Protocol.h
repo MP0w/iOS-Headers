@@ -10,7 +10,7 @@
 - (void)dateField:(id)arg1 delegateDismissDatePicker:(id)arg2;
 - (void)dateField:(id)arg1 delegatePresentDatePicker:(id)arg2;
 - (void)dateField:(id)arg1 delegatePrepareToPresentDatePicker:(id)arg2;
-- (BOOL)dateField:(id)arg1 shouldPresentDatePicker:(id)arg2;
+- (_Bool)dateField:(id)arg1 shouldPresentDatePicker:(id)arg2;
 - (id)datePickerForDateField:(id)arg1;
 @end
 

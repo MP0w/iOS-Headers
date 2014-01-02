@@ -10,12 +10,12 @@
 
 @interface MCVPNPayloadBase : MCPayload
 {
-    BOOL _userNameRequired;
-    BOOL _passwordRequired;
-    BOOL _proxyUserNameRequired;
-    BOOL _proxyPasswordRequired;
-    BOOL _sharedSecretRequired;
-    BOOL _pinRequired;
+    _Bool _userNameRequired;
+    _Bool _passwordRequired;
+    _Bool _proxyUserNameRequired;
+    _Bool _proxyPasswordRequired;
+    _Bool _sharedSecretRequired;
+    _Bool _pinRequired;
     NSMutableDictionary *_atom;
     NSString *_certificateUUID;
     NSString *_userNameKey;
@@ -44,12 +44,12 @@
 @property(retain, nonatomic) NSString *proxyUserNameKey; // @synthesize proxyUserNameKey=_proxyUserNameKey;
 @property(retain, nonatomic) NSString *passwordKey; // @synthesize passwordKey=_passwordKey;
 @property(retain, nonatomic) NSString *userNameKey; // @synthesize userNameKey=_userNameKey;
-@property(nonatomic) BOOL pinRequired; // @synthesize pinRequired=_pinRequired;
-@property(nonatomic) BOOL sharedSecretRequired; // @synthesize sharedSecretRequired=_sharedSecretRequired;
-@property(nonatomic) BOOL proxyPasswordRequired; // @synthesize proxyPasswordRequired=_proxyPasswordRequired;
-@property(nonatomic) BOOL proxyUserNameRequired; // @synthesize proxyUserNameRequired=_proxyUserNameRequired;
-@property(nonatomic) BOOL passwordRequired; // @synthesize passwordRequired=_passwordRequired;
-@property(nonatomic) BOOL userNameRequired; // @synthesize userNameRequired=_userNameRequired;
+@property(nonatomic) _Bool pinRequired; // @synthesize pinRequired=_pinRequired;
+@property(nonatomic) _Bool sharedSecretRequired; // @synthesize sharedSecretRequired=_sharedSecretRequired;
+@property(nonatomic) _Bool proxyPasswordRequired; // @synthesize proxyPasswordRequired=_proxyPasswordRequired;
+@property(nonatomic) _Bool proxyUserNameRequired; // @synthesize proxyUserNameRequired=_proxyUserNameRequired;
+@property(nonatomic) _Bool passwordRequired; // @synthesize passwordRequired=_passwordRequired;
+@property(nonatomic) _Bool userNameRequired; // @synthesize userNameRequired=_userNameRequired;
 @property(retain, nonatomic) NSString *certificateUUID; // @synthesize certificateUUID=_certificateUUID;
 @property(retain, nonatomic) NSMutableDictionary *atom; // @synthesize atom=_atom;
 - (void).cxx_destruct;

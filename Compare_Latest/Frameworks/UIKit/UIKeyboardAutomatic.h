@@ -6,26 +6,27 @@
 
 #import <UIKit/UIKeyboard.h>
 
+// Not exported
 @interface UIKeyboardAutomatic : UIKeyboard
 {
-    BOOL showsCandidateBar;
-    BOOL showsCandidateInline;
-    BOOL receivedCandidatesInCurrentInputMode;
-    BOOL caretBlinks;
+    _Bool showsCandidateBar;
+    _Bool showsCandidateInline;
+    _Bool receivedCandidatesInCurrentInputMode;
+    _Bool caretBlinks;
 }
 
-@property(nonatomic) BOOL caretBlinks; // @synthesize caretBlinks;
-@property(nonatomic) BOOL receivedCandidatesInCurrentInputMode; // @synthesize receivedCandidatesInCurrentInputMode;
-@property(nonatomic) BOOL showsCandidateInline; // @synthesize showsCandidateInline;
-@property(nonatomic) BOOL showsCandidateBar; // @synthesize showsCandidateBar;
+@property(nonatomic) _Bool caretBlinks; // @synthesize caretBlinks;
+@property(nonatomic) _Bool receivedCandidatesInCurrentInputMode; // @synthesize receivedCandidatesInCurrentInputMode;
+@property(nonatomic) _Bool showsCandidateInline; // @synthesize showsCandidateInline;
+@property(nonatomic) _Bool showsCandidateBar; // @synthesize showsCandidateBar;
 - (void)activate;
-- (BOOL)_isAutomaticKeyboard;
+- (_Bool)_isAutomaticKeyboard;
 - (void)didSuspend:(id)arg1;
 - (void)willResume:(id)arg1;
-- (void)implBoundsHeightChangeDone:(float)arg1 suppressNotification:(BOOL)arg2;
-- (void)prepareForImplBoundsHeightChange:(float)arg1 suppressNotification:(BOOL)arg2;
-- (struct UIPeripheralAnimationGeometry)geometryForHeightDelta:(float)arg1;
-- (BOOL)isActive;
+- (void)implBoundsHeightChangeDone:(double)arg1 suppressNotification:(_Bool)arg2;
+- (void)prepareForImplBoundsHeightChange:(double)arg1 suppressNotification:(_Bool)arg2;
+- (struct UIPeripheralAnimationGeometry)geometryForHeightDelta:(double)arg1;
+- (_Bool)isActive;
 - (void)maximize;
 - (void)minimize;
 - (void)dealloc;

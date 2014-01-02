@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class GEONameInfo, NSMutableArray;
 
-@interface GEOSubstep : PBCodable
+@interface GEOSubstep : PBCodable <NSCopying>
 {
     int _maneuverType;
     GEONameInfo *_name;
@@ -23,21 +25,22 @@
 @property(retain, nonatomic) NSMutableArray *signposts; // @synthesize signposts=_signposts;
 @property(retain, nonatomic) GEONameInfo *name; // @synthesize name=_name;
 @property(nonatomic) int maneuverType; // @synthesize maneuverType=_maneuverType;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)signpostAtIndex:(unsigned int)arg1;
-- (unsigned int)signpostsCount;
+- (id)signpostAtIndex:(unsigned long long)arg1;
+- (unsigned long long)signpostsCount;
 - (void)addSignpost:(id)arg1;
 - (void)clearSignposts;
-@property(readonly, nonatomic) BOOL hasName;
-@property(nonatomic) BOOL hasZilchIndex;
+@property(readonly, nonatomic) _Bool hasName;
+@property(nonatomic) _Bool hasZilchIndex;
 @property(nonatomic) int zilchIndex; // @synthesize zilchIndex=_zilchIndex;
-@property(nonatomic) BOOL hasManeuverType;
+@property(nonatomic) _Bool hasManeuverType;
 - (void)dealloc;
 
 @end

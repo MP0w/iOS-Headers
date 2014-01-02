@@ -13,8 +13,8 @@
 
 + (float)invalidResult;
 + (float)evaluateString:(id)arg1 error:(id *)arg2;
-- (BOOL)isValueIllegal:(float)arg1;
-- (BOOL)isConstant;
+- (_Bool)isValueIllegal:(float)arg1;
+- (_Bool)isConstant;
 - (id)stringValue;
 - (float)evaluate;
 - (void)resetAllVariables;

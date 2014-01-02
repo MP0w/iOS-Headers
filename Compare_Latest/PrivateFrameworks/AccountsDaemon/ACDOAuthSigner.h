@@ -15,19 +15,19 @@
     ACDDatabase *_database;
     ACDClient *_client;
     ACDClientAuthorizationManager *_authorizationManager;
-    BOOL _shouldIncludeAppIdInRequest;
+    _Bool _shouldIncludeAppIdInRequest;
 }
 
 - (void).cxx_destruct;
 - (id)csForAccountType:(id)arg1;
 - (id)ckForAccountType:(id)arg1;
-- (BOOL)_permissionGrantedForBundleID:(id)arg1 onAccountType:(id)arg2;
+- (_Bool)_permissionGrantedForBundleID:(id)arg1 onAccountType:(id)arg2;
 - (void)signURLRequest:(id)arg1 withAccount:(id)arg2 applicationID:(id)arg3 timestamp:(id)arg4 handler:(id)arg5;
 - (id)signedRequest:(id)arg1 withAccount:(id)arg2 applicationID:(id)arg3 timestamp:(id)arg4;
 - (void)signURLRequest:(id)arg1 withAccount:(id)arg2 callingPID:(id)arg3 timestamp:(id)arg4 handler:(id)arg5;
 - (id)_signedRequest:(id)arg1 withAccountObject:(id)arg2 applicationID:(id)arg3 timestamp:(id)arg4;
 - (void)setClientBundleID:(id)arg1 withHandler:(id)arg2;
-- (void)setShouldIncludeAppIdInRequest:(BOOL)arg1;
+- (void)setShouldIncludeAppIdInRequest:(_Bool)arg1;
 - (id)initWithClient:(id)arg1;
 
 @end

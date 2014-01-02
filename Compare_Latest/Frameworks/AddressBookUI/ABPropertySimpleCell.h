@@ -13,7 +13,7 @@
 
 @interface ABPropertySimpleCell : ABPropertyCell <ABPickerControllerDelegate, UITextFieldDelegate>
 {
-    BOOL _allowsActions;
+    _Bool _allowsActions;
     UIButton *_labelButton;
     UITextField *_textField;
     UIView *_vseparator;
@@ -22,27 +22,31 @@
     ABTransportButton *_transportIcon2;
     ABPropertyAction *_transportAction1;
     ABPropertyAction *_transportAction2;
-    float _labelValueSpacing;
+    double _labelValueSpacing;
     UIColor *_actionsColor;
     UIImageView *_chevron;
 }
 
 @property(retain, nonatomic) UIImageView *chevron; // @synthesize chevron=_chevron;
 @property(retain, nonatomic) UIColor *actionsColor; // @synthesize actionsColor=_actionsColor;
-@property(nonatomic) float labelValueSpacing; // @synthesize labelValueSpacing=_labelValueSpacing;
+@property(nonatomic) double labelValueSpacing; // @synthesize labelValueSpacing=_labelValueSpacing;
 @property(retain, nonatomic) ABPropertyAction *transportAction2; // @synthesize transportAction2=_transportAction2;
 @property(retain, nonatomic) ABPropertyAction *transportAction1; // @synthesize transportAction1=_transportAction1;
 @property(readonly, nonatomic) ABTransportButton *transportIcon2; // @synthesize transportIcon2=_transportIcon2;
 @property(readonly, nonatomic) ABTransportButton *transportIcon1; // @synthesize transportIcon1=_transportIcon1;
-@property(nonatomic) BOOL allowsActions; // @synthesize allowsActions=_allowsActions;
+@property(nonatomic) _Bool allowsActions; // @synthesize allowsActions=_allowsActions;
 @property(retain, nonatomic) UIImageView *star; // @synthesize star=_star;
 @property(retain, nonatomic) UIView *vseparator; // @synthesize vseparator=_vseparator;
 @property(retain, nonatomic) UITextField *textField; // @synthesize textField=_textField;
 @property(readonly, nonatomic) UIButton *labelButton; // @synthesize labelButton=_labelButton;
 - (id)_constraintsToOverlapView:(id)arg1 onView:(id)arg2;
+- (void)_updateView;
+- (void)_setupEditingViews;
 - (void)picker:(id)arg1 didPickItem:(id)arg2;
 - (void)pickerDidCancel:(id)arg1;
-- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)setValueTextAttributes:(id)arg1;
+- (void)setLabelTextAttributes:(id)arg1;
 - (void)updateTransportButtons;
 - (void)textFieldChanged:(id)arg1;
 - (id)firstResponderItem;
@@ -52,7 +56,7 @@
 - (void)transportButtonClicked:(id)arg1;
 - (void)labelButtonClicked:(id)arg1;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

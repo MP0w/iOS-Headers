@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface GQDWPTextLabel : NSObject
 {
     struct __CFString *mFormat;

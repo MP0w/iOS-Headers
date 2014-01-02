@@ -6,16 +6,17 @@
 
 #import <CoreData/NSSQLExpressionIntermediate.h>
 
+// Not exported
 @interface NSSQLFunctionExpressionIntermediate : NSSQLExpressionIntermediate
 {
 }
 
-+ (BOOL)functionIsAcceptableAsAggregate:(id)arg1;
++ (_Bool)functionIsAcceptableAsAggregate:(id)arg1;
 - (id)generateSQLStringInContext:(id)arg1;
 - (id)_generateDistinctStringInContext:(id)arg1;
 - (id)_generateType4SQLForSymbol:(id)arg1 inContext:(id)arg2;
 - (id)_generateSQLForCountInContext:(id)arg1;
-- (id)generateType3SQLString:(id)arg1 keypathOnly:(BOOL)arg2 inContext:(id)arg3;
+- (id)generateType3SQLString:(id)arg1 keypathOnly:(_Bool)arg2 inContext:(id)arg3;
 - (id)generateType2SQLString:(id)arg1 inContext:(id)arg2;
 - (id)generateType1SQLString:(id)arg1 inContext:(id)arg2;
 - (id)_generateSelectForAggregateStringWithSymbol:(id)arg1 argument:(id)arg2 inContext:(id)arg3;
@@ -23,7 +24,7 @@
 - (id)_generateUncorrelatedSubqueryStringWithSymbol:(id)arg1 forAttribute:(id)arg2 inContext:(id)arg3;
 - (id)_generateMathStringWithSymbol:(id)arg1 inContext:(id)arg2;
 - (id)_generateArgumentStringForCollection:(id)arg1 inContext:(id)arg2;
-- (BOOL)isFunctionScoped;
+- (_Bool)isFunctionScoped;
 
 @end
 

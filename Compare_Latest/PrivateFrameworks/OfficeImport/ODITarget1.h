@@ -6,6 +6,7 @@
 
 #import <OfficeImport/ODILinear.h>
 
+// Not exported
 @interface ODITarget1 : ODILinear
 {
 }

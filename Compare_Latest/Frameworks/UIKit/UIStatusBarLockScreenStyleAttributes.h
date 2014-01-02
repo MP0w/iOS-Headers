@@ -6,12 +6,14 @@
 
 #import <UIKit/UIStatusBarNewUIStyleAttributes.h>
 
+// Not exported
 @interface UIStatusBarLockScreenStyleAttributes : UIStatusBarNewUIStyleAttributes
 {
 }
 
+- (_Bool)shouldShowInternalItemType:(int)arg1 withScreenCapabilities:(id)arg2;
 - (Class)foregroundStyleClass;
-- (float)heightForMetrics:(int)arg1;
+- (double)heightForMetrics:(long long)arg1;
 
 @end
 

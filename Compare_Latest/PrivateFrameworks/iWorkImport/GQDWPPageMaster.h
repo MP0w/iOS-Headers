@@ -8,6 +8,7 @@
 
 #import "GQDNameMappable-Protocol.h"
 
+// Not exported
 @interface GQDWPPageMaster : NSObject <GQDNameMappable>
 {
     struct __CFString *mHeaderIdentifier;

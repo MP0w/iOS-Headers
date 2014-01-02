@@ -8,6 +8,7 @@
 
 @class NSTextBlock;
 
+// Not exported
 @interface NSLayoutManagerTextBlockHelper : NSObject
 {
     NSTextBlock *_block;

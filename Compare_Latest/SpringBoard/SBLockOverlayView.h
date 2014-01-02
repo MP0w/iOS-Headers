@@ -4,41 +4,42 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "UIView.h"
+#import "SBInteractionPassThroughView.h"
 
-@class SBLockOverlayStyleProperties, UIButton, UILabel, UIResizableView;
+@class SBLockOverlayStylePropertiesFactory, UIButton, UILabel, UIResizableView, _UILegibilitySettings;
 
-@interface SBLockOverlayView : UIView
+@interface SBLockOverlayView : SBInteractionPassThroughView
 {
     id <SBLockOverlayViewDelegate> _delegate;
     UIResizableView *_textContainerView;
     UILabel *_titleLabel;
     UILabel *_subtitleLabel;
-    UILabel *_fakeActionLabel;
     UIButton *_actionButton;
-    BOOL _hidesLockContent;
-    unsigned int _style;
-    SBLockOverlayStyleProperties *_underlayProperties;
+    _Bool _hidesLockContent;
+    SBLockOverlayStylePropertiesFactory *_underlayPropertiesFactory;
+    unsigned long long _style;
+    _UILegibilitySettings *_legibilitySettings;
 }
 
-@property(readonly, nonatomic) SBLockOverlayStyleProperties *underlayProperties; // @synthesize underlayProperties=_underlayProperties;
-@property(readonly, nonatomic) unsigned int style; // @synthesize style=_style;
-@property(readonly, nonatomic) BOOL hidesLockContent; // @synthesize hidesLockContent=_hidesLockContent;
+@property(readonly, nonatomic) _UILegibilitySettings *legibilitySettings; // @synthesize legibilitySettings=_legibilitySettings;
+@property(readonly, nonatomic) unsigned long long style; // @synthesize style=_style;
+@property(readonly, nonatomic) _Bool hidesLockContent; // @synthesize hidesLockContent=_hidesLockContent;
+@property(readonly, nonatomic) SBLockOverlayStylePropertiesFactory *underlayPropertiesFactory; // @synthesize underlayPropertiesFactory=_underlayPropertiesFactory;
 @property(readonly, nonatomic) UIButton *actionButton; // @synthesize actionButton=_actionButton;
 @property(readonly, nonatomic) UILabel *subtitleLabel; // @synthesize subtitleLabel=_subtitleLabel;
 @property(readonly, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(nonatomic) id <SBLockOverlayViewDelegate> delegate; // @synthesize delegate=_delegate;
-- (float)_distanceFromLastLineBaselineToTextFieldBoundsHeight:(id)arg1;
-- (float)_distanceToFirstLineBaseline:(id)arg1;
-- (void)_sizeViewForFixedWidth:(id)arg1;
-- (unsigned int)_numberOfLinesForText:(id)arg1 font:(id)arg2 size:(struct CGSize)arg3;
+- (double)_maxLabelWidth;
+- (void)_sizeView:(id)arg1 forFixedWith:(_Bool)arg2;
+- (unsigned long long)_numberOfLinesForText:(id)arg1 font:(id)arg2 size:(struct CGSize)arg3;
 - (void)_buttonPressed;
 - (id)_actionFont;
 - (id)_subtitleFont;
 - (id)_titleFont;
 - (void)layoutSubviews;
+- (id)_legibilitySettingsForStyle:(unsigned long long)arg1;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 style:(unsigned int)arg2;
+- (id)initWithFrame:(struct CGRect)arg1 style:(unsigned long long)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

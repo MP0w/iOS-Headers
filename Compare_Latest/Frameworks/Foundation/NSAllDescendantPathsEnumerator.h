@@ -8,26 +8,27 @@
 
 @class NSArray, NSFileAttributes, NSString;
 
+// Not exported
 @interface NSAllDescendantPathsEnumerator : NSDirectoryEnumerator
 {
     NSString *path;
     NSArray *contents;
-    unsigned int idx;
+    unsigned long long idx;
     NSString *prepend;
     NSAllDescendantPathsEnumerator *under;
     NSFileAttributes *directoryAttributes;
     NSString *pathToLastReportedItem;
-    unsigned int depth;
-    BOOL cross;
+    unsigned long long depth;
+    _Bool cross;
     char _padding[3];
 }
 
-+ (id)newWithPath:(id)arg1 prepend:(id)arg2 attributes:(id)arg3 cross:(BOOL)arg4 depth:(unsigned int)arg5;
++ (id)newWithPath:(id)arg1 prepend:(id)arg2 attributes:(id)arg3 cross:(_Bool)arg4 depth:(unsigned long long)arg5;
 - (void)dealloc;
 - (void)skipDescendants;
 - (void)skipDescendents;
 - (id)_under;
-- (unsigned int)level;
+- (unsigned long long)level;
 - (id)currentSubdirectoryAttributes;
 - (id)directoryAttributes;
 - (id)fileAttributes;

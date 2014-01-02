@@ -10,7 +10,7 @@
 {
 }
 
-- (void)setHighlighted:(BOOL)arg1;
+- (void)setHighlighted:(_Bool)arg1;
 
 @end
 

@@ -8,6 +8,7 @@
 
 @class WebSelectionRect;
 
+// Not exported
 @interface UITextSelectionRectImpl : UITextSelectionRect
 {
     WebSelectionRect *webRect;
@@ -16,11 +17,11 @@
 + (id)rectsWithWebRects:(id)arg1;
 + (id)rectWithWebRect:(id)arg1;
 @property(retain, nonatomic) WebSelectionRect *webRect; // @synthesize webRect;
-- (BOOL)isVertical;
-- (BOOL)containsEnd;
-- (BOOL)containsStart;
+- (_Bool)isVertical;
+- (_Bool)containsEnd;
+- (_Bool)containsStart;
 - (id)range;
-- (int)writingDirection;
+- (long long)writingDirection;
 - (struct CGRect)rect;
 - (void)dealloc;
 - (id)initWithWebRect:(id)arg1;

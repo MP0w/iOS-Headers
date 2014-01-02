@@ -6,16 +6,20 @@
 
 #import <UIKit/UIStatusBarIndicatorItemView.h>
 
+// Not exported
 @interface UIStatusBarQuietModeItemView : UIStatusBarIndicatorItemView
 {
-    BOOL _hideForAction;
-    BOOL _registeredForNotifications;
+    _Bool _hideForAction;
+    _Bool _registeredForNotifications;
+    _Bool _inactive;
 }
 
-- (void)setVisible:(BOOL)arg1 frame:(struct CGRect)arg2 duration:(double)arg3;
-- (void)_triggerAction;
-- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
-- (BOOL)updateForNewData:(id)arg1 actions:(int)arg2;
+- (void)setVisible:(_Bool)arg1;
+- (double)_visibleAlpha;
+- (void)setVisible:(_Bool)arg1 frame:(struct CGRect)arg2 duration:(double)arg3;
+- (void)_triggerAction:(id)arg1;
+- (void)animationDidStop:(id)arg1 finished:(_Bool)arg2;
+- (_Bool)updateForNewData:(id)arg1 actions:(int)arg2;
 - (void)dealloc;
 
 @end

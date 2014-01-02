@@ -13,7 +13,7 @@
     NSSet *_sourceURLs;
     NSURL *_destinationURL;
     int _overwrite;
-    BOOL _useFallback;
+    _Bool _useFallback;
     NSDictionary *_sourceEntityDataPayloads;
     NSDictionary *_sourceEntityDataContentTypes;
     NSDictionary *_sourceEntityETags;
@@ -28,7 +28,7 @@
 @property(readonly, nonatomic) NSDictionary *sourceEntityETags; // @synthesize sourceEntityETags=_sourceEntityETags;
 @property(readonly, nonatomic) NSDictionary *sourceEntityDataContentTypes; // @synthesize sourceEntityDataContentTypes=_sourceEntityDataContentTypes;
 @property(readonly, nonatomic) NSDictionary *sourceEntityDataPayloads; // @synthesize sourceEntityDataPayloads=_sourceEntityDataPayloads;
-@property(readonly, nonatomic) BOOL useFallback; // @synthesize useFallback=_useFallback;
+@property(readonly, nonatomic) _Bool useFallback; // @synthesize useFallback=_useFallback;
 @property(readonly, nonatomic) int overwrite; // @synthesize overwrite=_overwrite;
 @property(readonly, nonatomic) NSURL *destinationURL; // @synthesize destinationURL=_destinationURL;
 @property(readonly, nonatomic) NSSet *sourceURLs; // @synthesize sourceURLs=_sourceURLs;
@@ -42,7 +42,7 @@
 - (id)fullDestinationURLFromSourceURL:(id)arg1;
 - (id)description;
 - (void)dealloc;
-- (id)initWithSourceURLs:(id)arg1 destinationURL:(id)arg2 overwrite:(BOOL)arg3 useFallback:(BOOL)arg4 sourceEntityDataPayloads:(id)arg5 sourceEntityDataContentTypes:(id)arg6 sourceEntityETags:(id)arg7 accountInfoProvider:(id)arg8 taskManager:(id)arg9;
+- (id)initWithSourceURLs:(id)arg1 destinationURL:(id)arg2 overwrite:(_Bool)arg3 useFallback:(_Bool)arg4 sourceEntityDataPayloads:(id)arg5 sourceEntityDataContentTypes:(id)arg6 sourceEntityETags:(id)arg7 accountInfoProvider:(id)arg8 taskManager:(id)arg9;
 
 @end
 

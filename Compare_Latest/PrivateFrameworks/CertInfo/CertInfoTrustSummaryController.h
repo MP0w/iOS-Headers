@@ -19,19 +19,19 @@
 }
 
 @property(nonatomic) id <CertInfoTrustSummaryControllerDelegate> delegate; // @synthesize delegate=_delegate;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
 - (id)_descriptionCell;
 - (id)_headerCell;
 - (id)_cellForReuseIdentifier:(id)arg1;
-- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (void)viewDidAppear:(BOOL)arg1;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)_actionButtonPressed:(id)arg1;
 - (void)_doneButtonPressed:(id)arg1;
-- (void)setActionButtonTitle:(id)arg1 destructive:(BOOL)arg2 animated:(BOOL)arg3;
-@property(nonatomic) BOOL showsDoneButton;
+- (void)setActionButtonTitle:(id)arg1 destructive:(_Bool)arg2 animated:(_Bool)arg3;
+@property(nonatomic) _Bool showsDoneButton;
 - (void)dealloc;
 - (id)initWithTrustDescription:(id)arg1;
 

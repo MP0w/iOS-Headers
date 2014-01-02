@@ -7,6 +7,6 @@
 #import "NSArray.h"
 
 @interface NSArray (SortedMailboxes)
-- (unsigned int)mf_indexOfMailboxDictionaryWithName:(id)arg1;
+- (unsigned long long)mf_indexOfMailboxDictionaryWithName:(id)arg1;
 @end
 

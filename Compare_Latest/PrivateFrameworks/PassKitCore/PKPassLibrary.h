@@ -18,7 +18,7 @@
     id <PKPassLibraryDelegate> _delegate;
 }
 
-+ (BOOL)isPassLibraryAvailable;
++ (_Bool)isPassLibraryAvailable;
 @property(nonatomic) id <PKPassLibraryDelegate> delegate; // @synthesize delegate=_delegate;
 - (id)_errorHandlerWithCompletion:(SEL)arg1;
 - (id)_errorHandlerWithSemaphore:(SEL)arg1;
@@ -30,8 +30,8 @@
 - (id)bulletinSectionInfoForRecordID:(id)arg1;
 - (id)bulletinDictWithRecordID:(id)arg1;
 - (void)clearBulletinRecordsForPassTypeID:(id)arg1 beforeDate:(id)arg2;
-- (id)bulletinDictsForPassTypeID:(id)arg1 count:(unsigned int)arg2 sinceDate:(id)arg3;
-- (BOOL)migrateData;
+- (id)bulletinDictsForPassTypeID:(id)arg1 count:(unsigned long long)arg2 sinceDate:(id)arg3;
+- (_Bool)migrateData;
 - (void)logDelayExitReasons;
 - (void)shuffleGroups:(int)arg1;
 - (void)noteAccountChanged;
@@ -39,20 +39,20 @@
 - (void)introduceDatabaseIntegrityProblem;
 - (void)addFakeBulletin;
 - (void)nukeDatabaseAndExit;
-- (void)flushReferencedUniqueID:(id)arg1 forCachedImageSet:(int)arg2 withDisplayProfile:(id)arg3;
-- (void)fetchImageSet:(int)arg1 forUniqueID:(id)arg2 displayProfile:(id)arg3 withCompletion:(id)arg4;
+- (void)flushReferencedUniqueID:(id)arg1 forCachedImageSet:(long long)arg2 withDisplayProfile:(id)arg3;
+- (void)fetchImageSet:(long long)arg1 forUniqueID:(id)arg2 displayProfile:(id)arg3 withCompletion:(id)arg4;
 - (void)fetchContentForUniqueID:(id)arg1 withCompletion:(id)arg2;
 - (void)getRouteRelevantPassesFromLocation:(id)arg1 handler:(id)arg2;
 - (void)updatePassWithUniqueID:(id)arg1 completion:(id)arg2;
 - (void)notePassShared:(id)arg1;
-- (void)updateSettings:(int)arg1 forPassWithUniqueID:(id)arg2;
+- (void)updateSettings:(long long)arg1 forPassWithUniqueID:(id)arg2;
 - (void)ingestPassData:(id)arg1 settings:(id)arg2 completion:(id)arg3;
 - (id)archivedPassForUniqueID:(id)arg1;
 - (id)passWithUniqueID:(id)arg1;
 - (void)sendUserEditedCatalog:(id)arg1;
-- (void)getPassesAndCatalog:(BOOL)arg1 withRetries:(unsigned int)arg2 withHandler:(id)arg3;
-- (void)getPassesAndCatalog:(BOOL)arg1 withHandler:(id)arg2;
-- (id)_passesWithRetries:(unsigned int)arg1;
+- (void)getPassesAndCatalog:(_Bool)arg1 withRetries:(unsigned long long)arg2 withHandler:(id)arg3;
+- (void)getPassesAndCatalog:(_Bool)arg1 withHandler:(id)arg2;
+- (id)_passesWithRetries:(unsigned long long)arg1;
 - (id)passes;
 - (void)_postLibraryChangeWithUserInfo:(id)arg1;
 - (void)passRemoved:(id)arg1;
@@ -66,9 +66,9 @@
 - (void)_establishPassLibraryConnection;
 - (void)_tearDownPassLibraryConnection;
 - (void)addPasses:(id)arg1 withCompletionHandler:(id)arg2;
-- (BOOL)replacePassWithPass:(id)arg1;
+- (_Bool)replacePassWithPass:(id)arg1;
 - (void)getContainmentStatusAndSettingsForPass:(id)arg1 withHandler:(id)arg2;
-- (BOOL)containsPass:(id)arg1;
+- (_Bool)containsPass:(id)arg1;
 - (void)removePass:(id)arg1;
 - (id)passWithPassTypeIdentifier:(id)arg1 serialNumber:(id)arg2;
 - (void)dealloc;

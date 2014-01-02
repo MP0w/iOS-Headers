@@ -10,34 +10,34 @@
 
 @interface EKReminderPredicate : EKPredicate
 {
-    BOOL _limitToCompletedOrIncomplete;
-    BOOL _completed;
-    BOOL _useCompletionDateAsAlternate;
-    BOOL _useDueDateAsCompletionDate;
+    _Bool _limitToCompletedOrIncomplete;
+    _Bool _completed;
+    _Bool _useCompletionDateAsAlternate;
+    _Bool _useDueDateAsCompletionDate;
+    int _sortOrder;
     NSString *_title;
     NSString *_listTitle;
     NSDate *_dueAfter;
     NSDate *_dueBefore;
     NSString *_searchTerm;
-    int _sortOrder;
-    unsigned int _maxResults;
+    unsigned long long _maxResults;
 }
 
 + (id)predicateWithCalendars:(id)arg1;
-@property(nonatomic) unsigned int maxResults; // @synthesize maxResults=_maxResults;
+@property(nonatomic) unsigned long long maxResults; // @synthesize maxResults=_maxResults;
 @property(nonatomic) int sortOrder; // @synthesize sortOrder=_sortOrder;
 @property(retain, nonatomic) NSString *searchTerm; // @synthesize searchTerm=_searchTerm;
-@property(nonatomic) BOOL useDueDateAsCompletionDate; // @synthesize useDueDateAsCompletionDate=_useDueDateAsCompletionDate;
-@property(nonatomic) BOOL useCompletionDateAsAlternate; // @synthesize useCompletionDateAsAlternate=_useCompletionDateAsAlternate;
+@property(nonatomic) _Bool useDueDateAsCompletionDate; // @synthesize useDueDateAsCompletionDate=_useDueDateAsCompletionDate;
+@property(nonatomic) _Bool useCompletionDateAsAlternate; // @synthesize useCompletionDateAsAlternate=_useCompletionDateAsAlternate;
 @property(retain, nonatomic) NSDate *dueBefore; // @synthesize dueBefore=_dueBefore;
 @property(retain, nonatomic) NSDate *dueAfter; // @synthesize dueAfter=_dueAfter;
-@property(nonatomic) BOOL completed; // @synthesize completed=_completed;
-@property(nonatomic) BOOL limitToCompletedOrIncomplete; // @synthesize limitToCompletedOrIncomplete=_limitToCompletedOrIncomplete;
+@property(nonatomic) _Bool completed; // @synthesize completed=_completed;
+@property(nonatomic) _Bool limitToCompletedOrIncomplete; // @synthesize limitToCompletedOrIncomplete=_limitToCompletedOrIncomplete;
 @property(retain, nonatomic) NSString *listTitle; // @synthesize listTitle=_listTitle;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)initWithCalendars:(id)arg1;

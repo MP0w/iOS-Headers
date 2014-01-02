@@ -13,21 +13,21 @@
     AVFlashlightInternal *_internal;
 }
 
-+ (BOOL)hasFlashlight;
++ (_Bool)hasFlashlight;
 + (void)initialize;
 - (void)handleNotification:(id)arg1 payload:(id)arg2;
 @property(readonly, nonatomic) float flashlightLevel;
-- (BOOL)setFlashlightLevel:(float)arg1 withError:(id *)arg2;
+- (_Bool)setFlashlightLevel:(float)arg1 withError:(id *)arg2;
 - (void)turnPowerOff;
-- (BOOL)turnPowerOnWithError:(id *)arg1;
-@property(readonly, nonatomic, getter=isOverheated) BOOL overheated;
-@property(readonly, nonatomic, getter=isAvailable) BOOL available;
+- (_Bool)turnPowerOnWithError:(id *)arg1;
+@property(readonly, nonatomic, getter=isOverheated) _Bool overheated;
+@property(readonly, nonatomic, getter=isAvailable) _Bool available;
 - (void)_refreshIsAvailable;
 - (void)dealloc;
 - (id)init;
 - (void)teardownFigRecorder;
-- (BOOL)ensureFigRecorderWithError:(id *)arg1;
-- (BOOL)bringupFigRecorderWithError:(id *)arg1;
+- (_Bool)ensureFigRecorderWithError:(id *)arg1;
+- (_Bool)bringupFigRecorderWithError:(id *)arg1;
 
 @end
 

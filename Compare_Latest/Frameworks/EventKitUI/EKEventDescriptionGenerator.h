@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
-@class NSDataDetector, NSDateFormatter;
+@class NSDataDetector, NSNumberFormatter;
 
 @interface EKEventDescriptionGenerator : NSObject
 {
     int _meCardID;
-    NSDateFormatter *_dateFormatter;
+    struct __CFDateFormatter *_dateFormatter;
+    NSNumberFormatter *_numberFormatter;
     NSDataDetector *_addressDetector;
 }
 
@@ -20,28 +21,33 @@
 - (id)_nameForPersonWithIdentifier:(int)arg1;
 - (int)_fetchIdentifierForMeCard;
 - (int)_identifierForMeCard;
+- (id)_identifiersForAllCardsLinkedToMeCard;
 - (id)_firstNameForMeCard;
 - (id)_randomNumber;
 - (id)_addressDetector;
-- (id)_dateFormatter;
 - (id)_locationStringForEvent:(id)arg1;
-- (id)_timeStringForEvent:(id)arg1 forBeginningOfSentence:(BOOL)arg2;
+- (_Bool)_startTimeRequiresSingularForEvent:(id)arg1 withTimeString:(id)arg2;
+- (id)_timeStringForEvent:(id)arg1 forBeginningOfSentence:(_Bool)arg2 useExplicitTimes:(_Bool)arg3 followingComma:(_Bool)arg4;
+- (_Bool)_eventIsAlreadyLate:(id)arg1;
+- (id)_adjustedMinutesTillEventStarts:(id)arg1;
 - (id)_attendeesForEvent:(id)arg1;
-- (BOOL)_isDateInWeekend:(id)arg1;
-- (BOOL)_doesEventStartEarly:(id)arg1;
+- (_Bool)_isDateInWeekend:(id)arg1;
+- (_Bool)_doesEventStartEarly:(id)arg1;
 - (id)_noonDateForEvents:(id)arg1;
-- (BOOL)_arrayHasAfternoonEvents:(id)arg1;
-- (BOOL)_arrayHasMorningEvents:(id)arg1;
-- (BOOL)_prepareToUseMessageWithID:(id)arg1 shouldAllowWeekendUsage:(BOOL)arg2;
-- (BOOL)_prependEarlyStartMessageToEventSummaryIfPossible:(id)arg1;
-- (BOOL)_appendFreeAfternoonMessageToEventSummaryIfPossible:(id)arg1;
-- (BOOL)_prependFreeMorningMessageToEventSummaryIfPossible:(id)arg1;
-- (BOOL)_prependBusyDayMessageToEventSummaryIfPossible:(id)arg1;
+- (_Bool)_arrayHasAfternoonEvents:(id)arg1;
+- (_Bool)_arrayHasMorningEvents:(id)arg1;
+- (_Bool)_prepareToUseMessageWithID:(id)arg1 shouldAllowWeekendUsage:(_Bool)arg2;
+- (_Bool)_prependEarlyStartMessageToEventSummaryIfPossible:(id)arg1;
+- (_Bool)_appendFreeAfternoonMessageToEventSummaryIfPossible:(id)arg1;
+- (_Bool)_prependFreeMorningMessageToEventSummaryIfPossible:(id)arg1;
+- (_Bool)_prependBusyDayMessageToEventSummaryIfPossible:(id)arg1;
 - (id)tomorrowSnippetForUpcomingEvents:(id)arg1 withTodayEvents:(id)arg2;
-- (id)_naturalLanguageDescriptionForEvent:(id)arg1 isFirstInDay:(BOOL)arg2;
-- (id)naturalLanguageDescriptionForUpcomingEvents:(id)arg1 firstInDay:(BOOL)arg2;
+- (id)_naturalLanguageDescriptionForEvent:(id)arg1 isFirstInDay:(_Bool)arg2;
+- (id)naturalLanguageDescriptionForUpcomingEvents:(id)arg1 firstInDay:(_Bool)arg2;
 - (id)naturalLanguageDescriptionForBirthdayEvents:(id)arg1;
 - (void)dealloc;
+- (id)_sharedNumberFormatter;
+- (struct __CFDateFormatter *)_sharedDateFormatter;
 - (id)init;
 
 @end

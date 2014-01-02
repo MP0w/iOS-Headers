@@ -9,7 +9,7 @@
 @interface FigHUDLayer : CALayer
 {
     struct __CTFont *_Font;
-    float _FontSize;
+    double _FontSize;
     struct __CFDictionary *_TextAttributes;
     struct __CFArray *_Labels;
     struct __CFArray *_Values;
@@ -22,10 +22,10 @@
 - (void)setValue:(struct __CFString *)arg1 atIndex:(int)arg2;
 - (struct __CFArray *)getLabels;
 - (struct __CFArray *)getValues;
-- (long)addLine:(struct __CFString *)arg1 withLabelColorIndex:(int)arg2 withValueColorIndex:(int)arg3;
-- (long)addLine:(struct __CFString *)arg1 withColorIndex:(int)arg2;
+- (long long)addLine:(struct __CFString *)arg1 withLabelColorIndex:(int)arg2 withValueColorIndex:(int)arg3;
+- (long long)addLine:(struct __CFString *)arg1 withColorIndex:(int)arg2;
 - (void)resetLines;
-- (void)setFont:(struct __CFString *)arg1 withPointSize:(float)arg2;
+- (void)setFont:(struct __CFString *)arg1 withPointSize:(double)arg2;
 - (void)dealloc;
 - (id)init;
 

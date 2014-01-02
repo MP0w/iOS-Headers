@@ -8,15 +8,15 @@
 
 @interface AXThreadTimerTask : NSObject
 {
-    BOOL cancel;
-    BOOL finished;
-    BOOL active;
+    _Bool cancel;
+    _Bool finished;
+    _Bool active;
     id _block;
 }
 
-@property(nonatomic, getter=isActive) BOOL active; // @synthesize active;
-@property(nonatomic, getter=isFinished) BOOL finished; // @synthesize finished;
-@property(nonatomic, getter=isCancelled) BOOL cancel; // @synthesize cancel;
+@property(nonatomic, getter=isActive) _Bool active; // @synthesize active;
+@property(nonatomic, getter=isFinished) _Bool finished; // @synthesize finished;
+@property(nonatomic, getter=isCancelled) _Bool cancel; // @synthesize cancel;
 @property(copy, nonatomic) id block; // @synthesize block=_block;
 - (void)dealloc;
 - (void)runAfterDelay:(float)arg1;

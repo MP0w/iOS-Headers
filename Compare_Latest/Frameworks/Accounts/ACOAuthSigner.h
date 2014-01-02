@@ -13,10 +13,10 @@
     NSXPCConnection *_connection;
     ACAccount *_account;
     id <ACDOAuthSignerProtocol> _proxyShim;
-    BOOL _shouldIncludeAppIdInRequest;
+    _Bool _shouldIncludeAppIdInRequest;
 }
 
-@property(nonatomic) BOOL shouldIncludeAppIdInRequest; // @synthesize shouldIncludeAppIdInRequest=_shouldIncludeAppIdInRequest;
+@property(nonatomic) _Bool shouldIncludeAppIdInRequest; // @synthesize shouldIncludeAppIdInRequest=_shouldIncludeAppIdInRequest;
 - (void).cxx_destruct;
 - (void)disconnectFromRemoteOAuthSigner;
 - (void)_connectToRemoteOAuthSignerUsingEndpoint:(id)arg1;

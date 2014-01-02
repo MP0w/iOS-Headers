@@ -16,25 +16,25 @@
 - (id)composeViewController;
 - (id)activityImage;
 - (id)activityTitle;
-- (BOOL)supportsVideoURL:(id)arg1;
-- (BOOL)supportsImageURL:(id)arg1;
+- (_Bool)supportsVideoURL:(id)arg1;
+- (_Bool)supportsImageURL:(id)arg1;
 - (id)shareSheetClassName;
 - (id)shareSheetHostingBundleIdentifier;
 - (id)connectionName;
-- (int)maximumVideoTimeLimit;
-- (int)maximumVideoDataSize;
-- (int)maximumVideoCount;
-- (int)maximumImageDataSize;
-- (int)maximumImageCount;
-- (int)maximumURLCount;
+- (long long)maximumVideoTimeLimit;
+- (long long)maximumVideoDataSize;
+- (long long)maximumVideoCount;
+- (long long)maximumImageDataSize;
+- (long long)maximumImageCount;
+- (long long)maximumURLCount;
 - (void)addExtraParameters:(id)arg1 forRequest:(id)arg2;
 - (id)accountType;
 - (id)serviceType;
-- (BOOL)isServiceTypeSupportedByConfiguration;
-- (BOOL)isAvailable;
-- (BOOL)isFirstClassService;
-- (BOOL)isSheetAccessPermitted;
-- (BOOL)hasAccounts;
+- (_Bool)isServiceTypeSupportedByConfiguration;
+- (_Bool)isAvailable;
+- (_Bool)isFirstClassService;
+- (_Bool)isSheetAccessPermitted;
+- (_Bool)hasAccounts;
 
 @end
 

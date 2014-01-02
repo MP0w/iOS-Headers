@@ -20,10 +20,10 @@
 @property(retain, nonatomic) NSString *ID; // @synthesize ID=_id;
 @property(readonly, nonatomic) NSDictionary *handleInfo;
 - (id)description;
-- (unsigned int)hash;
-- (BOOL)isBetterDefinedThan:(id)arg1;
-- (int)compareIDs:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isBetterDefinedThan:(id)arg1;
+- (long long)compareIDs:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)initWithID:(id)arg1 unformattedID:(id)arg2 countryCode:(id)arg3;
 

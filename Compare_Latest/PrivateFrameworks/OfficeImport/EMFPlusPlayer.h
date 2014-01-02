@@ -8,6 +8,7 @@
 
 @class EMFPlayer, MFPEffect, MFPGraphics, NSMutableData;
 
+// Not exported
 @interface EMFPlusPlayer : NSObject
 {
     MFPGraphics *mGraphics;
@@ -19,7 +20,7 @@
     MFPEffect *mEffect;
 }
 
-+ (float)firstTabPosPastPos:(float)arg1 stringFormat:(id)arg2 isExplicit:(char *)arg3;
++ (float)firstTabPosPastPos:(float)arg1 stringFormat:(id)arg2 isExplicit:(_Bool *)arg3;
 + (int)serializableObjectTypeForGUID:(id)arg1;
 - (int)play:(const char *)arg1:(unsigned int)arg2;
 - (void)resetLargeRecord;

@@ -8,7 +8,8 @@
 #import "_UIViewServiceUIBehaviorInterface-Protocol.h"
 
 @protocol _UIViewServiceTextEffectsOperator_RemoteViewControllerInterface <_UIViewServiceDeputy_UIViewServiceInterface, _UIViewServiceUIBehaviorInterface>
-- (void)__hostViewWillDisappear:(BOOL)arg1;
+- (void)__hostViewWillDisappear:(_Bool)arg1;
+- (void)__hostViewWillAppear:(_Bool)arg1;
 - (void)__hostDidEnterBackground;
 - (void)__hostWillEnterForeground;
 - (void)__setNextAutomaticOrderOutDirection:(int)arg1 duration:(double)arg2;

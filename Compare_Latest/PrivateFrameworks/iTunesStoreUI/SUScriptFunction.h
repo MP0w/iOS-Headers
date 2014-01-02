@@ -21,8 +21,8 @@
 @property(retain) WebScriptObject *scriptObject;
 - (void)lock;
 - (id)callSynchronouslyWithArguments:(id)arg1;
-- (BOOL)callWithArguments:(id)arg1 completionBlock:(id)arg2;
-- (BOOL)callWithArguments:(id)arg1;
+- (_Bool)callWithArguments:(id)arg1 completionBlock:(id)arg2;
+- (_Bool)callWithArguments:(id)arg1;
 - (void)dealloc;
 - (id)initWithScriptObject:(id)arg1;
 - (id)init;

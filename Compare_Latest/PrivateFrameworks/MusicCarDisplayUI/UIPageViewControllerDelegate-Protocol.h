@@ -9,10 +9,10 @@
 @protocol UIPageViewControllerDelegate <NSObject>
 
 @optional
-- (int)pageViewControllerPreferredInterfaceOrientationForPresentation:(id)arg1;
-- (unsigned int)pageViewControllerSupportedInterfaceOrientations:(id)arg1;
-- (int)pageViewController:(id)arg1 spineLocationForInterfaceOrientation:(int)arg2;
-- (void)pageViewController:(id)arg1 didFinishAnimating:(BOOL)arg2 previousViewControllers:(id)arg3 transitionCompleted:(BOOL)arg4;
+- (long long)pageViewControllerPreferredInterfaceOrientationForPresentation:(id)arg1;
+- (unsigned long long)pageViewControllerSupportedInterfaceOrientations:(id)arg1;
+- (long long)pageViewController:(id)arg1 spineLocationForInterfaceOrientation:(long long)arg2;
+- (void)pageViewController:(id)arg1 didFinishAnimating:(_Bool)arg2 previousViewControllers:(id)arg3 transitionCompleted:(_Bool)arg4;
 - (void)pageViewController:(id)arg1 willTransitionToViewControllers:(id)arg2;
 @end
 

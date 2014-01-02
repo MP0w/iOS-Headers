@@ -14,20 +14,20 @@
 {
 }
 
-+ (id)chunkDeniedWithErrorCode:(int)arg1;
++ (id)chunkDeniedWithErrorCode:(long long)arg1;
 + (id)chunkDeniedWithDictionary:(id)arg1 context:(id)arg2;
 + (id)chunkDenied;
-- (BOOL)requiresResponse;
-@property(nonatomic) int errorCode;
+- (_Bool)requiresResponse;
+@property(nonatomic) long long errorCode;
 @property(retain, nonatomic) SASyncAnchor *current;
-@property(copy, nonatomic) NSArray *callbacks;
-- (id)initWithErrorCode:(int)arg1;
+- (id)initWithErrorCode:(long long)arg1;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 
 // Remaining properties
 @property(copy, nonatomic) NSString *aceId; // @dynamic aceId;
 @property(copy, nonatomic) NSString *appId; // @dynamic appId;
+@property(copy, nonatomic) NSArray *callbacks; // @dynamic callbacks;
 @property(copy, nonatomic) NSString *refId; // @dynamic refId;
 
 @end

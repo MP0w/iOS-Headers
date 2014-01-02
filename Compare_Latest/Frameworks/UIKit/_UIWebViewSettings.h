@@ -12,21 +12,21 @@
 
 @interface _UIWebViewSettings : NSObject <NSCopying>
 {
-    BOOL _allowsInlineMediaPlayback;
-    BOOL _mediaPlaybackRequiresUserAction;
-    BOOL _mediaPlaybackAllowsAirPlay;
-    BOOL _suppressesIncrementalRendering;
-    unsigned int _dataDetectorTypes;
+    _Bool _allowsInlineMediaPlayback;
+    _Bool _mediaPlaybackRequiresUserAction;
+    _Bool _mediaPlaybackAllowsAirPlay;
+    _Bool _suppressesIncrementalRendering;
+    unsigned long long _dataDetectorTypes;
     NSString *_customUserAgent;
 }
 
 + (id)defaultSettings;
 @property(copy, nonatomic) NSString *customUserAgent; // @synthesize customUserAgent=_customUserAgent;
-@property(nonatomic) BOOL suppressesIncrementalRendering; // @synthesize suppressesIncrementalRendering=_suppressesIncrementalRendering;
-@property(nonatomic) BOOL mediaPlaybackAllowsAirPlay; // @synthesize mediaPlaybackAllowsAirPlay=_mediaPlaybackAllowsAirPlay;
-@property(nonatomic) BOOL mediaPlaybackRequiresUserAction; // @synthesize mediaPlaybackRequiresUserAction=_mediaPlaybackRequiresUserAction;
-@property(nonatomic) BOOL allowsInlineMediaPlayback; // @synthesize allowsInlineMediaPlayback=_allowsInlineMediaPlayback;
-@property(nonatomic) unsigned int dataDetectorTypes; // @synthesize dataDetectorTypes=_dataDetectorTypes;
+@property(nonatomic) _Bool suppressesIncrementalRendering; // @synthesize suppressesIncrementalRendering=_suppressesIncrementalRendering;
+@property(nonatomic) _Bool mediaPlaybackAllowsAirPlay; // @synthesize mediaPlaybackAllowsAirPlay=_mediaPlaybackAllowsAirPlay;
+@property(nonatomic) _Bool mediaPlaybackRequiresUserAction; // @synthesize mediaPlaybackRequiresUserAction=_mediaPlaybackRequiresUserAction;
+@property(nonatomic) _Bool allowsInlineMediaPlayback; // @synthesize allowsInlineMediaPlayback=_allowsInlineMediaPlayback;
+@property(nonatomic) unsigned long long dataDetectorTypes; // @synthesize dataDetectorTypes=_dataDetectorTypes;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)_encodeAsDictionary;
 - (id)_initWithDictionary:(id)arg1;

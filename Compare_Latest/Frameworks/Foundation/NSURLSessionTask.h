@@ -12,22 +12,22 @@
 
 @interface NSURLSessionTask : NSObject <NSCopying>
 {
-    unsigned int _taskIdentifier;
+    unsigned long long _taskIdentifier;
     NSURLRequest *_originalRequest;
     NSURLRequest *_currentRequest;
     NSURLResponse *_response;
-    NSString *_taskDescription;
-    int _state;
-    NSError *_error;
     long long _countOfBytesReceived;
     long long _countOfBytesSent;
     long long _countOfBytesExpectedToSend;
     long long _countOfBytesExpectedToReceive;
+    NSString *_taskDescription;
+    long long _state;
+    NSError *_error;
 }
 
 + (void)initialize;
 @property(readonly) NSError *error; // @synthesize error=_error;
-@property(readonly) int state; // @synthesize state=_state;
+@property(readonly) long long state; // @synthesize state=_state;
 @property(copy) NSString *taskDescription; // @synthesize taskDescription=_taskDescription;
 @property(readonly) long long countOfBytesExpectedToReceive; // @synthesize countOfBytesExpectedToReceive=_countOfBytesExpectedToReceive;
 @property(readonly) long long countOfBytesExpectedToSend; // @synthesize countOfBytesExpectedToSend=_countOfBytesExpectedToSend;
@@ -36,7 +36,7 @@
 @property(readonly) NSURLResponse *response; // @synthesize response=_response;
 @property(readonly) NSURLRequest *currentRequest; // @synthesize currentRequest=_currentRequest;
 @property(readonly) NSURLRequest *originalRequest; // @synthesize originalRequest=_originalRequest;
-@property(readonly) unsigned int taskIdentifier; // @synthesize taskIdentifier=_taskIdentifier;
+@property(readonly) unsigned long long taskIdentifier; // @synthesize taskIdentifier=_taskIdentifier;
 
 @end
 

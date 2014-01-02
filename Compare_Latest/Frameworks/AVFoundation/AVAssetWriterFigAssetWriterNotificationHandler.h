@@ -22,7 +22,7 @@
 - (void)_handleCompletedWritingNotification;
 - (void)_handleServerDiedNotification;
 - (void)_teardownNotificationHandlers;
-- (void)_callDelegateIfNotCalledWithSuccess:(BOOL)arg1 error:(id)arg2;
+- (void)_callDelegateIfNotCalledWithSuccess:(_Bool)arg1 error:(id)arg2;
 - (void)finalize;
 - (void)dealloc;
 - (id)initWithFigAssetWriter:(struct OpaqueFigAssetWriter *)arg1 weakReferenceToDelegate:(id)arg2;

@@ -10,18 +10,18 @@
 {
     struct __CFArray *_announcements;
     struct __CFArray *_unreadSnapshot;
-    long _currentIndex;
-    long _unreadCount;
+    long long _currentIndex;
+    long long _unreadCount;
 }
 
 + (void)initialize;
 - (void)moveToMostRecent;
-- (BOOL)isOnMostRecent;
-- (BOOL)_moveIndexBy:(long)arg1;
-- (BOOL)moveToPrevious;
-- (BOOL)moveToNext;
+- (_Bool)isOnMostRecent;
+- (_Bool)_moveIndexBy:(long long)arg1;
+- (_Bool)moveToPrevious;
+- (_Bool)moveToNext;
 - (id)currentString;
-- (BOOL)hasUnread;
+- (_Bool)hasUnread;
 - (void)markSnapshotAsRead;
 - (void)snapshotUnread;
 - (void)addString:(id)arg1;

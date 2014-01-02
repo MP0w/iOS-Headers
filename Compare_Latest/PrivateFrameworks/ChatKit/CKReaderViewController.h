@@ -23,13 +23,12 @@
 @property(nonatomic) struct _NSRange visibleRange; // @dynamic visibleRange;
 @property(copy, nonatomic) NSAttributedString *text; // @dynamic text;
 - (void)contentSizeCategoryDidChange:(id)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (unsigned int)supportedInterfaceOrientations;
-- (BOOL)shouldAutorotate;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (unsigned long long)supportedInterfaceOrientations;
+- (_Bool)shouldAutorotate;
 - (void)loadView;
 - (id)init;
 - (void)dealloc;
-- (BOOL)ckCanDismissWhenSuspending;
 
 @end
 

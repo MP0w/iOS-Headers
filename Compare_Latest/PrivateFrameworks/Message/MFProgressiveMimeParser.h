@@ -14,8 +14,8 @@
     NSArray *_preserveHeaders;
     id _delegate;
     id _context;
-    unsigned int _cursor;
-    unsigned int _lastLength;
+    unsigned long long _cursor;
+    unsigned long long _lastLength;
     MFMimePart *_topLevelPart;
     MFMimePart *_currentPart;
     NSData *_currentBoundary;

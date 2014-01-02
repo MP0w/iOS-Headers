@@ -12,23 +12,23 @@
 {
     NSString *_identityUUID;
     NSData *_identityPersistentID;
-    BOOL _useDevelopmentAPNS;
+    _Bool _useDevelopmentAPNS;
     NSString *_topic;
     NSString *_serverURLString;
     NSString *_checkInURLString;
     int _accessRights;
-    BOOL _signMessage;
-    BOOL _checkOutWhenRemoved;
+    _Bool _signMessage;
+    _Bool _checkOutWhenRemoved;
 }
 
 + (id)localizedPluralForm;
 + (id)localizedSingularForm;
 + (id)typeStrings;
-@property(readonly, nonatomic) BOOL checkOutWhenRemoved; // @synthesize checkOutWhenRemoved=_checkOutWhenRemoved;
-@property(readonly, nonatomic) BOOL signMessage; // @synthesize signMessage=_signMessage;
+@property(readonly, nonatomic) _Bool checkOutWhenRemoved; // @synthesize checkOutWhenRemoved=_checkOutWhenRemoved;
+@property(readonly, nonatomic) _Bool signMessage; // @synthesize signMessage=_signMessage;
 @property(readonly, nonatomic) int accessRights; // @synthesize accessRights=_accessRights;
 @property(readonly, nonatomic) NSString *checkInURLString; // @synthesize checkInURLString=_checkInURLString;
-@property(readonly, nonatomic) BOOL useDevelopmentAPNS; // @synthesize useDevelopmentAPNS=_useDevelopmentAPNS;
+@property(readonly, nonatomic) _Bool useDevelopmentAPNS; // @synthesize useDevelopmentAPNS=_useDevelopmentAPNS;
 @property(readonly, nonatomic) NSString *serverURLString; // @synthesize serverURLString=_serverURLString;
 @property(readonly, nonatomic) NSString *topic; // @synthesize topic=_topic;
 @property(retain, nonatomic) NSData *identityPersistentID; // @synthesize identityPersistentID=_identityPersistentID;

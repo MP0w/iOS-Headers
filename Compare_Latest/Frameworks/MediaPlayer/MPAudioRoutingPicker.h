@@ -15,18 +15,18 @@
 @interface MPAudioRoutingPicker : UIAlertView <MPAudioDeviceControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 {
     MPAudioDeviceController *_audioDeviceController;
-    BOOL _ignoringInteractionEvents;
+    _Bool _ignoringInteractionEvents;
     NSArray *_routes;
 }
 
 - (void).cxx_destruct;
-- (BOOL)_pickRouteAtIndex:(unsigned int)arg1 withPassword:(id)arg2;
-- (BOOL)requiresPortraitOrientation;
+- (_Bool)_pickRouteAtIndex:(unsigned long long)arg1 withPassword:(id)arg2;
+- (_Bool)requiresPortraitOrientation;
 - (void)willMoveToSuperview:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (void)audioDeviceControllerAudioRoutesChanged:(id)arg1;
 - (void)dealloc;
 - (void)setAVPlayer:(id)arg1;

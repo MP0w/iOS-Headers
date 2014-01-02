@@ -32,11 +32,6 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
 - (id)initWithFrameID:(id)arg1;
-- (id)fullDebugLog;
-- (void)dump;
-- (void)setParentSlide:(id)arg1;
-- (void)copyStruct:(id)arg1;
-- (id)parentDocument;
 
 @end
 

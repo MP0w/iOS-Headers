@@ -11,26 +11,26 @@
 
 @interface NSAffineTransform : NSObject <NSCopying, NSCoding>
 {
-    CDStruct_a65eae4f _transformStruct;
+    CDStruct_56a8f59f _transformStruct;
 }
 
 + (id)transform;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (void)setTransformStruct:(CDStruct_a65eae4f)arg1;
-- (CDStruct_a65eae4f)transformStruct;
+- (void)setTransformStruct:(CDStruct_56a8f59f)arg1;
+- (CDStruct_56a8f59f)transformStruct;
 - (struct CGSize)transformSize:(struct CGSize)arg1;
 - (struct CGPoint)transformPoint:(struct CGPoint)arg1;
 - (void)prependTransform:(id)arg1;
 - (void)appendTransform:(id)arg1;
 - (void)invert;
-- (void)scaleXBy:(float)arg1 yBy:(float)arg2;
-- (void)scaleBy:(float)arg1;
-- (void)rotateByRadians:(float)arg1;
-- (void)rotateByDegrees:(float)arg1;
-- (void)translateXBy:(float)arg1 yBy:(float)arg2;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (void)scaleXBy:(double)arg1 yBy:(double)arg2;
+- (void)scaleBy:(double)arg1;
+- (void)rotateByRadians:(double)arg1;
+- (void)rotateByDegrees:(double)arg1;
+- (void)translateXBy:(double)arg1 yBy:(double)arg2;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithTransform:(id)arg1;
 - (id)init;

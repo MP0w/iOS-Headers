@@ -10,7 +10,7 @@
 
 @protocol _UIScreenBasedObject <NSObject>
 @property(readonly) UIScreen *_intendedScreen;
-- (BOOL)_matchingOptions:(id)arg1;
+- (_Bool)_matchingOptions:(id)arg1;
 - (id)_initWithScreen:(id)arg1 options:(id)arg2;
 @end
 

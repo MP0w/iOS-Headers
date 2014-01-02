@@ -8,7 +8,7 @@
 
 @interface WebTextIterator (DDExtensions)
 + (id)dd_iteratorForDocument:(id)arg1;
-- (id)dd_doUrlificationForQuery:(struct __DDScanQuery *)arg1 forResults:(id)arg2 referenceDate:(id)arg3 document:(id)arg4 DOMWasModified:(char *)arg5 relevantResults:(id *)arg6 URLificationBlock:(id)arg7;
+- (id)dd_doUrlificationForQuery:(struct __DDScanQuery *)arg1 forResults:(id)arg2 referenceDate:(id)arg3 document:(id)arg4 DOMWasModified:(_Bool *)arg5 relevantResults:(id *)arg6 URLificationBlock:(id)arg7;
 - (id)dd_collectDDRangesForQuery:(struct __DDScanQuery *)arg1 forResults:(id)arg2;
 - (struct __DDScanQuery *)dd_newQueryStopRange:(id *)arg1;
 @end

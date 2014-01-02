@@ -10,9 +10,9 @@
 {
 }
 
-- (float)sideIconInset;
-- (float)bottomIconInset;
-- (float)topIconInset;
+- (double)sideIconInset;
+- (double)bottomIconInset;
+- (double)topIconInset;
 
 @end
 

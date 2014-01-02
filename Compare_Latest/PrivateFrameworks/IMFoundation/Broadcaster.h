@@ -6,19 +6,20 @@
 
 #import "NSProxy.h"
 
-@class IMRemoteObjectBroadcaster, NSArray, Protocol;
+@class IMMessageContext, IMRemoteObjectBroadcaster, NSArray, Protocol;
 
 @interface Broadcaster : NSProxy
 {
     NSArray *_targets;
     IMRemoteObjectBroadcaster *_parent;
     Protocol *_protocol;
+    IMMessageContext *_messageContext;
 }
 
 - (void)forwardInvocation:(id)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (void)dealloc;
-- (id)initWithNotifier:(id)arg1 protocol:(id)arg2 targets:(id)arg3;
+- (id)initWithNotifier:(id)arg1 messageContext:(id)arg2 protocol:(id)arg3 targets:(id)arg4;
 
 @end
 

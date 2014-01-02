@@ -12,16 +12,16 @@
 {
     int _error;
     NSString *_reason;
-    BOOL _suggestWiFi;
-    int _settingsButtonIndex;
+    _Bool _suggestWiFi;
+    long long _settingsButtonIndex;
 }
 
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (void)_showNetworkPrefs;
-- (BOOL)dismissOnLock;
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
+- (_Bool)dismissOnLock;
+- (void)configure:(_Bool)arg1 requirePasscodeForActions:(_Bool)arg2;
 - (void)dealloc;
-- (id)initWithErrorCode:(int)arg1 reason:(id)arg2 suggestWiFi:(BOOL)arg3;
+- (id)initWithErrorCode:(int)arg1 reason:(id)arg2 suggestWiFi:(_Bool)arg3;
 
 @end
 

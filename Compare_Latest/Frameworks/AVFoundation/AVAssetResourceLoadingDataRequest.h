@@ -16,12 +16,12 @@
 - (void)respondWithData:(id)arg1;
 - (id)_loadingRequest;
 @property(readonly, nonatomic) long long currentOffset;
-@property(readonly, nonatomic) int requestedLength;
+@property(readonly, nonatomic) long long requestedLength;
 @property(readonly, nonatomic) long long requestedOffset;
 - (id)description;
 - (void)finalize;
 - (void)dealloc;
-- (id)initWithLoadingRequest:(id)arg1 requestedOffset:(long long)arg2 requestedLength:(int)arg3 canSupplyIncrementalDataImmediately:(BOOL)arg4;
+- (id)initWithLoadingRequest:(id)arg1 requestedOffset:(long long)arg2 requestedLength:(long long)arg3 canSupplyIncrementalDataImmediately:(_Bool)arg4;
 
 @end
 

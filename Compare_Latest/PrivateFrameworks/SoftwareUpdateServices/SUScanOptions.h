@@ -13,18 +13,18 @@
 @interface SUScanOptions : NSObject <NSSecureCoding>
 {
     NSString *_identifier;
-    BOOL _forced;
+    _Bool _forced;
     NSMutableSet *_types;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSSet *types; // @synthesize types=_types;
-@property(nonatomic, getter=isForced) BOOL forced; // @synthesize forced=_forced;
+@property(nonatomic, getter=isForced) _Bool forced; // @synthesize forced=_forced;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (id)description;
 - (void)clearTypes;
-- (BOOL)findsAnyUpdate;
-- (BOOL)containsType:(int)arg1;
+- (_Bool)findsAnyUpdate;
+- (_Bool)containsType:(int)arg1;
 - (void)removeType:(int)arg1;
 - (void)addType:(int)arg1;
 - (void)encodeWithCoder:(id)arg1;

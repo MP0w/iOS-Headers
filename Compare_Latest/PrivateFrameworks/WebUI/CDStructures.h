@@ -9,8 +9,8 @@
 struct BookmarkAndHistoryCompletionMatch;
 
 struct CGPoint {
-    float x;
-    float y;
+    double x;
+    double y;
 };
 
 struct CGRect {
@@ -19,13 +19,13 @@ struct CGRect {
 };
 
 struct CGSize {
-    float _field1;
-    float _field2;
+    double _field1;
+    double _field2;
 };
 
 struct Deque<GeolocationChallengeData, 0> {
-    unsigned int m_start;
-    unsigned int m_end;
+    unsigned long long m_start;
+    unsigned long long m_end;
     struct VectorBuffer<GeolocationChallengeData, 0> m_buffer;
 };
 
@@ -33,9 +33,10 @@ struct FrameMetadata {
     void **_field1;
     struct Vector<OpaqueJSValue *, 0, WTF::CrashOnOverflow> _field2;
     struct OpaqueJSValue *_field3;
-    struct OpaqueJSContext *_field4;
-    struct RetainPtr<id<WBSFormAutoFillFrame>> _field5;
-    id _field6;
+    struct OpaqueJSValue *_field4;
+    struct OpaqueJSContext *_field5;
+    struct RetainPtr<id<WBSFormAutoFillFrame>> _field6;
+    id _field7;
 };
 
 struct GeolocationChallengeData;
@@ -89,14 +90,23 @@ struct Vector<OpaqueJSValue *, 0, WTF::CrashOnOverflow> {
 struct VectorBuffer<GeolocationChallengeData, 0> {
     struct GeolocationChallengeData *m_buffer;
     unsigned int m_capacity;
+    unsigned int m_size;
 };
 
 struct _NSRange {
-    unsigned int _field1;
-    unsigned int _field2;
+    unsigned long long _field1;
+    unsigned long long _field2;
 };
 
 #pragma mark Typedef'd Structures
+
+typedef struct {
+    struct {
+        unsigned short _field1;
+        unsigned short _field2;
+    } _field1[32];
+    unsigned long long _field2;
+} CDStruct_f2b84ca7;
 
 // Template types
 typedef struct PassRefPtr<SafariShared::BookmarkAndHistoryCompletionMatch> {

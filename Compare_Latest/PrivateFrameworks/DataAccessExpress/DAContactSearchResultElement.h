@@ -50,7 +50,7 @@
     NSString *_identifierOnServer;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(retain) NSString *identifierOnServer; // @synthesize identifierOnServer=_identifierOnServer;
 @property(copy) NSString *workFaxPhone; // @synthesize workFaxPhone=_workFaxPhone;
 @property(copy) NSString *mainPhone; // @synthesize mainPhone=_mainPhone;
@@ -89,8 +89,8 @@
 @property(copy) NSString *displayName; // @synthesize displayName=_displayName;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isEqualToDAContactSearchResultElement:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)isEqualToDAContactSearchResultElement:(id)arg1;
 - (id)description;
 - (void)dealloc;
 

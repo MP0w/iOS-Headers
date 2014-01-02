@@ -12,9 +12,9 @@
 
 - (id)icon;
 - (id)description;
-- (BOOL)isEditable;
-- (BOOL)excludeFromSelectAll;
-- (void)setSelected:(BOOL)arg1;
+- (_Bool)isEditable;
+- (_Bool)excludeFromSelectAll;
+- (void)setSelected:(_Bool)arg1;
 - (id)title;
 - (id)init;
 

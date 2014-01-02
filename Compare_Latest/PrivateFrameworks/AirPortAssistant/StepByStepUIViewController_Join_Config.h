@@ -18,23 +18,20 @@
 }
 
 @property(retain, nonatomic) NSString *personalizedBaseName; // @synthesize personalizedBaseName;
-- (BOOL)showMoreOptions;
+- (_Bool)showMoreOptions;
 - (void)selectedDeviceUpdated;
 - (id)devicePickerLabel;
 - (id)deviceTableLabel;
 - (void)setupDevices;
 - (void)updateNavigationButtons;
 - (void)prepareParams;
-- (void)primaryActionSelected:(BOOL)arg1;
+- (void)primaryActionSelected:(_Bool)arg1;
 - (void)setupHeaderAndFooter;
 - (void)setupEditableBaseStationName;
 - (void)textFieldDidChangeAtIndexPath:(id)arg1;
-- (BOOL)shouldChangeTextField:(id)arg1 atIndexPath:(id)arg2 forTextIndex:(unsigned int)arg3 toString:(id)arg4;
+- (_Bool)shouldChangeTextField:(id)arg1 atIndexPath:(id)arg2 forTextIndex:(unsigned long long)arg3 toString:(id)arg4;
 - (void)viewDidLoad;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
-- (void)syncTopoUIForTarget:(id)arg1 andSource:(id)arg2 andNetwork:(id)arg3 connectionType:(id)arg4;
-- (void)setupTable;
-- (void)validateAndUpdateNextButton;
 
 @end
 

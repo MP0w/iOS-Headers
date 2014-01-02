@@ -16,7 +16,7 @@
 
 + (id)geoFenceSetCompletedWithDictionary:(id)arg1 context:(id)arg2;
 + (id)geoFenceSetCompleted;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSURL *searchContext;
 @property(retain, nonatomic) SAFmfGeoFence *geoFence;
 - (id)encodedClassName;

@@ -14,14 +14,14 @@
 {
     MKMapItem *_source;
     MKMapItem *_destination;
-    unsigned int _transportType;
+    unsigned long long _transportType;
     struct CGImage *_routeImage;
     GEODirectionsRouteResponse *_geoResponse;
     struct CGImage *_incidentImage;
 }
 
-+ (BOOL)supportsSecureCoding;
-@property(readonly, nonatomic) unsigned int transportType; // @synthesize transportType=_transportType;
++ (_Bool)supportsSecureCoding;
+@property(readonly, nonatomic) unsigned long long transportType; // @synthesize transportType=_transportType;
 @property(readonly, nonatomic) MKMapItem *destination; // @synthesize destination=_destination;
 @property(readonly, nonatomic) MKMapItem *source; // @synthesize source=_source;
 @property(readonly, nonatomic) NSString *incidentDescription;
@@ -37,8 +37,7 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (void)dealloc;
-- (id)initWithSource:(id)arg1 destination:(id)arg2 transportType:(unsigned int)arg3 routeImage:(struct CGImage *)arg4 geoResponse:(id)arg5;
-- (id)initWithDirectionsResponse:(id)arg1 sourceName:(id)arg2 destinationName:(id)arg3;
+- (id)initWithSource:(id)arg1 destination:(id)arg2 transportType:(unsigned long long)arg3 routeImage:(struct CGImage *)arg4 geoResponse:(id)arg5;
 
 @end
 

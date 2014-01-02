@@ -9,22 +9,24 @@
 #import "NSCopying-Protocol.h"
 #import "SSXPCCoding-Protocol.h"
 
-@class NSLock, NSNumber, NSString;
+@class NSData, NSLock, NSNumber, NSString;
 
 @interface SSAccount : NSObject <SSXPCCoding, NSCopying>
 {
-    int _accountKind;
+    long long _accountKind;
     NSString *_accountName;
-    int _accountScope;
-    int _accountSource;
-    BOOL _active;
-    BOOL _activeLockerAccount;
-    int _availableServiceTypes;
+    long long _accountScope;
+    long long _accountSource;
+    _Bool _active;
+    _Bool _activeLockerAccount;
+    long long _availableServiceTypes;
+    NSData *_bioToken;
+    _Bool _didFallbackToPassword;
     NSString *_creditsString;
-    BOOL _demo;
-    int _enabledServiceTypes;
+    _Bool _demo;
+    long long _enabledServiceTypes;
     NSLock *_lock;
-    BOOL _newCustomer;
+    _Bool _newCustomer;
     NSString *_secureToken;
     NSString *_storeFrontID;
     NSNumber *_uniqueIdentifier;
@@ -32,33 +34,39 @@
 
 - (void)_sendBlockingXPCMessage:(id)arg1;
 - (void)setLockdownDictionary:(id)arg1;
-- (BOOL)mergeValuesFromAccount:(id)arg1;
+- (void)setDidFallbackToPassword:(_Bool)arg1;
+- (_Bool)didFallbackToPassword;
+- (void)setBiometricToken:(id)arg1;
+- (id)popBiometricToken;
+- (_Bool)mergeValuesFromAccount:(id)arg1;
 - (id)copyLockdownRepresentation;
 @property(retain) NSNumber *uniqueIdentifier;
 @property(copy) NSString *storeFrontIdentifier;
-@property(getter=isSocialEnabled) BOOL socialEnabled;
+@property(getter=isSocialEnabled) _Bool socialEnabled;
 @property(copy) NSString *secureToken;
-@property(getter=isNewCustomer) BOOL newCustomer;
-@property int enabledServiceTypes;
-@property int availableServiceTypes;
-@property(getter=isDemoAccount) BOOL demoAccount;
+@property(getter=isNewCustomer) _Bool newCustomer;
+@property long long enabledServiceTypes;
+@property long long availableServiceTypes;
+@property(getter=isDemoAccount) _Bool demoAccount;
 @property(copy) NSString *creditsString;
-@property(getter=isActiveLockerAccount) BOOL activeLockerAccount;
-@property(getter=isActive) BOOL active;
-@property int accountSource;
-@property int accountScope;
+@property(getter=isActiveLockerAccount) _Bool activeLockerAccount;
+@property(getter=isActive) _Bool active;
+@property long long accountSource;
+@property long long accountScope;
 @property(copy) NSString *accountName;
-@property int accountKind;
+@property long long accountKind;
 - (void)resetTransientData;
-- (void)removeEnabledServiceTypes:(int)arg1;
-- (void)removeAvailableServiceTypes:(int)arg1;
-- (void)addEnabledServiceTypes:(int)arg1;
-- (void)addAvailableServiceTypes:(int)arg1;
-@property(readonly, getter=isAuthenticated) BOOL authenticated;
+- (void)removeEnabledServiceTypes:(long long)arg1;
+- (void)removeAvailableServiceTypes:(long long)arg1;
+- (void)addEnabledServiceTypes:(long long)arg1;
+- (void)addAvailableServiceTypes:(long long)arg1;
+@property(readonly, getter=isAuthenticated) _Bool authenticated;
 - (void)getTermsAndConditionsWithBlock:(id)arg1;
 - (void)getPurchasedItemsForItems:(id)arg1 completionBlock:(id)arg2;
 - (void)getDownloadKindsEligibleForContentRestoreWithBlock:(id)arg1;
 - (void)acceptTermsAndConditions:(id)arg1 withCompletionBlock:(id)arg2;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithXPCEncoding:(id)arg1;

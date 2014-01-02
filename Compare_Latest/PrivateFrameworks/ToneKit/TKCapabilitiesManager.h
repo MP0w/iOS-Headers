@@ -8,17 +8,17 @@
 
 @interface TKCapabilitiesManager : NSObject
 {
-    BOOL _isRingtoneStoreAvailable;
-    BOOL _isToneStoreAvailable;
+    _Bool _isRingtoneStoreAvailable;
+    _Bool _isToneStoreAvailable;
 }
 
 + (id)sharedCapabilitiesManager;
-@property(nonatomic) BOOL isToneStoreAvailable; // @synthesize isToneStoreAvailable=_isToneStoreAvailable;
-@property(nonatomic) BOOL isRingtoneStoreAvailable; // @synthesize isRingtoneStoreAvailable=_isRingtoneStoreAvailable;
+@property(nonatomic) _Bool isToneStoreAvailable; // @synthesize isToneStoreAvailable=_isToneStoreAvailable;
+@property(nonatomic) _Bool isRingtoneStoreAvailable; // @synthesize isRingtoneStoreAvailable=_isRingtoneStoreAvailable;
 - (void)_checkRingtoneStoreAvailability;
-- (BOOL)hasUserGeneratedVibrationsCapability;
-- (BOOL)hasVibratorCapability;
-- (BOOL)hasTelephonyCapability;
+- (_Bool)hasUserGeneratedVibrationsCapability;
+- (_Bool)hasVibratorCapability;
+- (_Bool)hasTelephonyCapability;
 - (void)dealloc;
 - (id)init;
 

@@ -8,19 +8,20 @@
 
 @class NSDictionary;
 
+// Not exported
 @interface _VKGenericShieldArtwork : VKShieldArtwork
 {
-    float _leftCap;
-    float _rightCap;
-    float _baseline;
-    float _leftPadding;
-    float _rightPadding;
+    double _leftCap;
+    double _rightCap;
+    double _baseline;
+    double _leftPadding;
+    double _rightPadding;
     NSDictionary *_stringAttributes;
     struct CGColor *_shadowColor;
     struct CGSize _shadowOffset;
-    float _shadowSize;
-    unsigned int _maxLineCount;
-    float _lineSpacing;
+    double _shadowSize;
+    unsigned long long _maxLineCount;
+    double _lineSpacing;
 }
 
 - (id).cxx_construct;
@@ -28,7 +29,7 @@
 - (struct CGSize)size;
 - (struct CGSize)sizeWithTextWidth:(float)arg1;
 - (void)dealloc;
-- (id)initWithImage:(struct CGImage *)arg1 scale:(float)arg2 leftPadding:(float)arg3 rightPadding:(float)arg4 textColor:(struct _VGLColor)arg5 baseline:(float)arg6 leftCap:(float)arg7 rightCap:(float)arg8 shouldStroke:(BOOL)arg9 strokeWidth:(float)arg10 strokeColor:(struct _VGLColor)arg11 shouldShadow:(BOOL)arg12 shadowOffset:(struct CGSize)arg13 shadowSize:(float)arg14 shadowColor:(struct _VGLColor)arg15 fontName:(id)arg16 fontSize:(float)arg17 maxLineCount:(unsigned int)arg18 lineSpacing:(float)arg19;
+- (id)initWithImage:(struct CGImage *)arg1 scale:(double)arg2 leftPadding:(double)arg3 rightPadding:(double)arg4 textColor:(struct _VGLColor)arg5 baseline:(double)arg6 leftCap:(double)arg7 rightCap:(double)arg8 shouldStroke:(_Bool)arg9 strokeWidth:(double)arg10 strokeColor:(struct _VGLColor)arg11 shouldShadow:(_Bool)arg12 shadowOffset:(struct CGSize)arg13 shadowSize:(double)arg14 shadowColor:(struct _VGLColor)arg15 fontName:(id)arg16 fontSize:(double)arg17 maxLineCount:(unsigned long long)arg18 lineSpacing:(double)arg19;
 
 @end
 

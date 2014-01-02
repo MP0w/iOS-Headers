@@ -14,8 +14,8 @@
 
 + (id)resolutionWithDictionary:(id)arg1 context:(id)arg2;
 + (id)resolution;
-@property(nonatomic) int width;
-@property(nonatomic) int height;
+@property(nonatomic) long long width;
+@property(nonatomic) long long height;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

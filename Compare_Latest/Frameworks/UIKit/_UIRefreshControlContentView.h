@@ -8,6 +8,7 @@
 
 @class NSAttributedString, UIColor, UIRefreshControl;
 
+// Not exported
 @interface _UIRefreshControlContentView : UIView
 {
     UIRefreshControl *_refreshControl;
@@ -16,13 +17,13 @@
 
 @property(retain, nonatomic) UIColor *tintColor; // @synthesize tintColor=_tintColor;
 @property(nonatomic) UIRefreshControl *refreshControl; // @synthesize refreshControl=_refreshControl;
-- (float)_heightAtWhichNoneOfTheInterfaceElementsAreVisibleEvenIfTheControlIsStillPartiallyOnScreen;
+- (double)_heightAtWhichNoneOfTheInterfaceElementsAreVisibleEvenIfTheControlIsStillPartiallyOnScreen;
 - (void)didTransitionFromState:(int)arg1 toState:(int)arg2;
 - (void)willTransitionFromState:(int)arg1 toState:(int)arg2;
 - (void)refreshControlInvalidatedSnappingHeight;
-@property(readonly, nonatomic) float maximumSnappingHeight;
-@property(readonly, nonatomic) float minimumSnappingHeight;
-@property(readonly, nonatomic) int style;
+@property(readonly, nonatomic) double maximumSnappingHeight;
+@property(readonly, nonatomic) double minimumSnappingHeight;
+@property(readonly, nonatomic) long long style;
 @property(retain, nonatomic) NSAttributedString *attributedTitle;
 - (void)dealloc;
 

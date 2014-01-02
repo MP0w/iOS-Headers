@@ -6,14 +6,14 @@
 
 #import "PSTableCell.h"
 
-@class UIButton, UIImageView, UILabel;
+@class SKUIItemOfferButton, UIImageView, UILabel;
 
 @interface ACUIAppInstallCell : PSTableCell
 {
     UILabel *_nameLabel;
     UILabel *_publisherLabel;
     UIImageView *_iconView;
-    UIButton *_installButton;
+    SKUIItemOfferButton *_installButton;
     int _installState;
 }
 
@@ -26,7 +26,7 @@
 - (id)_createLabelForPublisher:(id)arg1;
 - (id)_createLabelForAppName:(id)arg1;
 - (void)layoutSubviews;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesMoved:(id)arg1 withEvent:(id)arg2;

@@ -11,17 +11,17 @@
 @interface SBStarkImpersonatedAppToAppWorkspaceTransaction : SBStarkAppToAppWorkspaceTransaction
 {
     SBAlert *_deactivatingAlert;
-    BOOL _animatedAppActivation;
+    _Bool _animatedAppActivation;
 }
 
 - (void)animationControllerDidFinishAnimation:(id)arg1;
-- (void)animationController:(id)arg1 willBeginAnimation:(BOOL)arg2;
+- (void)animationController:(id)arg1 willBeginAnimation:(_Bool)arg2;
 - (void)_deactivateAlertIfPossible;
 - (void)_handleFailureToLaunch;
-- (BOOL)selfStarkAlertDidDeactivate:(id)arg1;
-- (BOOL)selfStarkAlertWillDeactivate:(id)arg1;
-- (BOOL)selfApplicationExited:(id)arg1;
-- (BOOL)selfApplicationLaunchDidFail:(id)arg1;
+- (_Bool)selfStarkAlertDidDeactivate:(id)arg1;
+- (_Bool)selfStarkAlertWillDeactivate:(id)arg1;
+- (_Bool)selfApplicationExited:(id)arg1;
+- (_Bool)selfApplicationLaunchDidFail:(id)arg1;
 - (id)_newAnimationFromLauncherToApp;
 - (id)_newAnimationFromAppToLauncher;
 - (id)_newAnimationFromAppToApp;

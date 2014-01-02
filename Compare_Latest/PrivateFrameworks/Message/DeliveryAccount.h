@@ -12,7 +12,7 @@
 
 + (id)newDefaultInstance;
 + (id)carrierDeliveryAccount;
-+ (id)accountWithHostname:(id)arg1 username:(id)arg2 lookForExistingAccounts:(BOOL)arg3;
++ (id)accountWithHostname:(id)arg1 username:(id)arg2 lookForExistingAccounts:(_Bool)arg3;
 + (id)accountWithHostname:(id)arg1 username:(id)arg2;
 + (id)existingAccountWithHostname:(id)arg1 username:(id)arg2;
 + (id)existingAccountWithIdentifier:(id)arg1;
@@ -26,23 +26,23 @@
 + (void)_postDeliveryAccountsHaveChanged;
 + (id)accountTypeIdentifier;
 - (void)_updateAccountDescriptionWithUsername:(id)arg1 hostname:(id)arg2;
-- (BOOL)shouldUseSaveSentForAccount:(id)arg1;
-- (BOOL)supportsOutboxCopy;
-- (BOOL)supportsSoftBankCodePoints;
-- (BOOL)hasEnoughInformationForEasySetup;
-- (BOOL)canBeFallbackAccount;
+- (_Bool)shouldUseSaveSentForAccount:(id)arg1;
+- (_Bool)supportsOutboxCopy;
+- (_Bool)supportsSoftBankCodePoints;
+- (_Bool)hasEnoughInformationForEasySetup;
+- (_Bool)canBeFallbackAccount;
 - (id)displayHostname;
-- (BOOL)hasNoReferences;
+- (_Bool)hasNoReferences;
 - (id)mailAccountIfAvailable;
 - (void)setMaximumMessageBytes:(unsigned long long)arg1;
 - (unsigned long long)maximumMessageBytes;
 - (void)_setAccountProperties:(id)arg1;
 - (void)setUsername:(id)arg1;
-- (void)setShouldUseAuthentication:(BOOL)arg1;
-- (BOOL)shouldUseAuthentication;
+- (void)setShouldUseAuthentication:(_Bool)arg1;
+- (_Bool)shouldUseAuthentication;
 - (id)identifier;
 - (id)newDeliveryWithHeaders:(id)arg1 HTML:(id)arg2 plainTextAlternative:(id)arg3 other:(id)arg4 charsets:(id)arg5;
-- (id)newDeliveryWithHeaders:(id)arg1 mixedContent:(id)arg2 textPartsAreHTML:(BOOL)arg3;
+- (id)newDeliveryWithHeaders:(id)arg1 mixedContent:(id)arg2 textPartsAreHTML:(_Bool)arg3;
 - (id)newDeliveryWithMessage:(id)arg1;
 - (Class)deliveryClass;
 

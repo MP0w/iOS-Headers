@@ -10,17 +10,17 @@
 
 @interface CoreThemeConstantHelper : NSObject
 {
-    unsigned int _identifier;
+    unsigned long long _identifier;
     NSString *_label;
     NSString *_displayName;
 }
 
-+ (id)helperForStructAtIndex:(int)arg1 inAssociatedGlobalList:(void *)arg2;
++ (id)helperForStructAtIndex:(long long)arg1 inAssociatedGlobalList:(void *)arg2;
 - (id)description;
 - (void)dealloc;
 - (id)displayName;
 - (id)label;
-- (int)identifier;
+- (long long)identifier;
 
 @end
 

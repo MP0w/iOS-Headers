@@ -6,6 +6,7 @@
 
 #import <Foundation/_NSXPCDistantObject.h>
 
+// Not exported
 @interface _NSXPCDistantObjectWithError : _NSXPCDistantObject
 {
     id _errorBlock;

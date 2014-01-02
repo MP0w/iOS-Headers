@@ -8,33 +8,34 @@
 
 @class NSString;
 
+// Not exported
 @interface _UIDatePickerMode_Date : _UIDatePickerMode
 {
-    float _dateYearWidth;
-    float _dateMonthWidth;
-    float _dateDayWidth;
+    double _dateYearWidth;
+    double _dateMonthWidth;
+    double _dateDayWidth;
     NSString *_yearFormat;
     NSString *_monthFormat;
     NSString *_dayFormat;
-    BOOL _isUsingJapaneseCalendar;
+    _Bool _isUsingJapaneseCalendar;
 }
 
-+ (unsigned int)extractableCalendarUnits;
-+ (int)datePickerMode;
-- (unsigned int)nextUnitSmallerThanUnit:(unsigned int)arg1;
-- (unsigned int)nextUnitLargerThanUnit:(unsigned int)arg1;
-- (BOOL)_shouldEnableValueForRow:(int)arg1 inComponent:(int)arg2 calendarUnit:(unsigned int)arg3;
-- (id)_dateForYearRow:(int)arg1;
-- (int)rowForDate:(id)arg1 dateComponents:(id)arg2 component:(int)arg3 currentRow:(int)arg4;
-- (float)widthForCalendarUnit:(unsigned int)arg1 font:(id)arg2 maxWidth:(float)arg3;
-- (int)numberOfRowsForCalendarUnit:(unsigned int)arg1;
++ (unsigned long long)extractableCalendarUnits;
++ (long long)datePickerMode;
+- (unsigned long long)nextUnitSmallerThanUnit:(unsigned long long)arg1;
+- (unsigned long long)nextUnitLargerThanUnit:(unsigned long long)arg1;
+- (_Bool)_shouldEnableValueForRow:(long long)arg1 inComponent:(long long)arg2 calendarUnit:(unsigned long long)arg3;
+- (id)_dateForYearRow:(long long)arg1;
+- (long long)rowForDate:(id)arg1 dateComponents:(id)arg2 component:(long long)arg3 currentRow:(long long)arg4;
+- (double)widthForCalendarUnit:(unsigned long long)arg1 font:(id)arg2 maxWidth:(double)arg3;
+- (long long)numberOfRowsForCalendarUnit:(unsigned long long)arg1;
 - (void)noteCalendarChanged;
 - (void)resetComponentWidths;
-- (id)dateFormatForCalendarUnit:(unsigned int)arg1;
+- (id)dateFormatForCalendarUnit:(unsigned long long)arg1;
 - (id)localizedFormatString;
 - (void)_shouldReset:(id)arg1;
 - (void)dealloc;
-- (int)displayedCalendarUnits;
+- (long long)displayedCalendarUnits;
 
 @end
 

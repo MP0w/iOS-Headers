@@ -9,10 +9,10 @@
 @class MPMediaItem, MPMediaQuery;
 
 @protocol MPAVControllerProtocol <NSObject>
-@property(readonly, nonatomic) unsigned int state;
-@property(nonatomic) unsigned int displayOverridePlaybackState;
+@property(readonly, nonatomic) unsigned long long state;
+@property(nonatomic) unsigned long long displayOverridePlaybackState;
 @property(readonly, nonatomic) MPMediaQuery *currentMediaQuery;
 @property(readonly, nonatomic) MPMediaItem *currentMediaItem;
-- (BOOL)shouldDisplayAsPlaying;
+- (_Bool)shouldDisplayAsPlaying;
 @end
 

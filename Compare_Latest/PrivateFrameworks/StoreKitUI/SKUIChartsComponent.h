@@ -17,7 +17,7 @@
 - (void).cxx_destruct;
 - (id)description;
 - (id)metricsElementName;
-- (int)componentType;
+- (long long)componentType;
 - (id)initWithCustomPageContext:(id)arg1;
 - (id)initWithChartPageContext:(id)arg1;
 

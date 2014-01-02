@@ -12,8 +12,8 @@
 
 @interface SSRequest : NSObject <SSXPCCoding>
 {
-    int _backgroundTaskIdentifier;
-    BOOL _cancelAfterTaskExpiration;
+    long long _backgroundTaskIdentifier;
+    _Bool _cancelAfterTaskExpiration;
     id <SSRequestDelegate> _delegate;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     SSXPCConnection *_requestConnection;
@@ -28,9 +28,9 @@
 - (void)_shutdownRequest;
 - (void)_endBackgroundTask;
 - (void)_beginBackgroundTask;
-@property(nonatomic) BOOL shouldCancelAfterTaskExpiration;
+@property(nonatomic) _Bool shouldCancelAfterTaskExpiration;
 - (void)startWithCompletionBlock:(id)arg1;
-- (BOOL)start;
+- (_Bool)start;
 - (void)disconnect;
 - (void)cancel;
 - (void)dealloc;

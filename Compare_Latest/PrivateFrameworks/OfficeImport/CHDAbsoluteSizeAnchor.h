@@ -6,6 +6,7 @@
 
 #import <OfficeImport/CHDAnchor.h>
 
+// Not exported
 @interface CHDAbsoluteSizeAnchor : CHDAnchor
 {
     struct CGPoint mFrom;

@@ -14,25 +14,25 @@
 {
     struct _opaque_pthread_mutex_t _lock;
     TURemoteAppender *_remoteAppender;
-    BOOL _loggingEnabled;
-    BOOL _loggingConfigurationCached;
+    _Bool _loggingEnabled;
+    _Bool _loggingConfigurationCached;
     struct dispatch_queue_s *_appenderQueue;
-    long _createAppenderOnce;
-    BOOL _backtracesEnabled;
-    BOOL _symbolicationEnabled;
+    long long _createAppenderOnce;
+    _Bool _backtracesEnabled;
+    _Bool _symbolicationEnabled;
 }
 
 + (id)sharedPhoneLogger;
-@property BOOL symbolicationEnabled; // @synthesize symbolicationEnabled=_symbolicationEnabled;
-@property BOOL backtracesEnabled; // @synthesize backtracesEnabled=_backtracesEnabled;
-- (BOOL)shouldLogWithLevel:(int)arg1 topic:(id)arg2;
-- (BOOL)shouldLog;
-- (void)logWithLevel:(int)arg1 topic:(id)arg2 backtrace:(BOOL)arg3 format:(id)arg4 args:(void *)arg5;
-- (void)logWithLevel:(int)arg1 topic:(id)arg2 backtrace:(BOOL)arg3 text:(id)arg4;
-- (void)logWithLevel:(int)arg1 topic:(id)arg2 backtrace:(BOOL)arg3 format:(id)arg4;
+@property _Bool symbolicationEnabled; // @synthesize symbolicationEnabled=_symbolicationEnabled;
+@property _Bool backtracesEnabled; // @synthesize backtracesEnabled=_backtracesEnabled;
+- (_Bool)shouldLogWithLevel:(int)arg1 topic:(id)arg2;
+- (_Bool)shouldLog;
+- (void)logWithLevel:(int)arg1 topic:(id)arg2 backtrace:(_Bool)arg3 format:(id)arg4 args:(char *)arg5;
+- (void)logWithLevel:(int)arg1 topic:(id)arg2 backtrace:(_Bool)arg3 text:(id)arg4;
+- (void)logWithLevel:(int)arg1 topic:(id)arg2 backtrace:(_Bool)arg3 format:(id)arg4;
 @property(readonly) TURemoteAppender *appender; // @dynamic appender;
-- (BOOL)_shouldLogWithLevel:(int)arg1 topic:(id)arg2;
-@property(readonly) BOOL loggingEnabled; // @dynamic loggingEnabled;
+- (_Bool)_shouldLogWithLevel:(int)arg1 topic:(id)arg2;
+@property(readonly) _Bool loggingEnabled; // @dynamic loggingEnabled;
 - (void)_loggingChanged;
 - (id)identifier;
 - (void)dealloc;

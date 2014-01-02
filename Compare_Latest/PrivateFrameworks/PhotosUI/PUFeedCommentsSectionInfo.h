@@ -8,25 +8,25 @@
 
 @interface PUFeedCommentsSectionInfo : PUFeedSectionInfo
 {
-    BOOL __hasLikes;
+    _Bool __hasLikes;
 }
 
-@property(nonatomic, setter=_setHasLikes:) BOOL _hasLikes; // @synthesize _hasLikes=__hasLikes;
-- (unsigned int)assetsCount;
+@property(nonatomic, setter=_setHasLikes:) _Bool _hasLikes; // @synthesize _hasLikes=__hasLikes;
+- (unsigned long long)assetsCount;
 - (id)assets;
-- (int)indexOfItemWithComment:(id)arg1;
-- (int)indexOfItemWithAsset:(id)arg1;
-- (BOOL)containsAsset:(id)arg1;
-- (void)getCommentCount:(out unsigned int *)arg1 likeCount:(out unsigned int *)arg2;
-- (id)likesForItemAtIndex:(int)arg1;
-- (id)commentForItemAtIndex:(int)arg1;
-- (id)assetsForItemAtIndex:(int)arg1 maximumCount:(int)arg2;
-- (BOOL)hasMultipleAssetsForItemAtIndex:(int)arg1;
-- (id)assetForItemAtIndex:(int)arg1;
-- (int)typeForItemAtIndex:(int)arg1;
+- (long long)indexOfItemWithComment:(id)arg1;
+- (long long)indexOfItemWithAsset:(id)arg1;
+- (_Bool)containsAsset:(id)arg1;
+- (void)getCommentCount:(out unsigned long long *)arg1 likeCount:(out unsigned long long *)arg2;
+- (id)likesForItemAtIndex:(long long)arg1;
+- (id)commentForItemAtIndex:(long long)arg1;
+- (id)assetsForItemAtIndex:(long long)arg1 maximumCount:(long long)arg2;
+- (_Bool)hasMultipleAssetsForItemAtIndex:(long long)arg1;
+- (id)assetForItemAtIndex:(long long)arg1;
+- (long long)typeForItemAtIndex:(long long)arg1;
 - (void)updateFromCloudFeedEntry;
 - (id)cloudFeedCommentsEntry;
-- (int)sectionType;
+- (long long)sectionType;
 
 @end
 

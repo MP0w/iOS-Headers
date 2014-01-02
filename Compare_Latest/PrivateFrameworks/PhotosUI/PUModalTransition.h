@@ -10,21 +10,21 @@
 
 @interface PUModalTransition : PUViewControllerTransition <UIViewControllerTransitioningDelegate>
 {
-    int __operation;
+    long long __operation;
 }
 
-@property(nonatomic, setter=_setOperation:) int _operation; // @synthesize _operation=__operation;
+@property(nonatomic, setter=_setOperation:) long long _operation; // @synthesize _operation=__operation;
 - (id)interactionControllerForDismissal:(id)arg1;
 - (id)interactionControllerForPresentation:(id)arg1;
-- (id)animatorForDismissedController:(id)arg1;
-- (id)animatorForPresentedController:(id)arg1 presentingController:(id)arg2 sourceController:(id)arg3;
+- (id)animationControllerForDismissedController:(id)arg1;
+- (id)animationControllerForPresentedController:(id)arg1 presentingController:(id)arg2 sourceController:(id)arg3;
 - (void)animateTransition:(id)arg1;
 - (void)cancelInteractiveTransition;
 - (void)finishInteractiveTransition;
-- (void)completeInteractiveDismissTransitionFinished:(BOOL)arg1;
-- (void)completeInteractivePresentTransitionFinished:(BOOL)arg1;
-- (void)transitionWillDismissInteractively:(BOOL)arg1;
-- (void)transitionWillPresentInteractively:(BOOL)arg1;
+- (void)completeInteractiveDismissTransitionFinished:(_Bool)arg1;
+- (void)completeInteractivePresentTransitionFinished:(_Bool)arg1;
+- (void)transitionWillDismissInteractively:(_Bool)arg1;
+- (void)transitionWillPresentInteractively:(_Bool)arg1;
 
 @end
 

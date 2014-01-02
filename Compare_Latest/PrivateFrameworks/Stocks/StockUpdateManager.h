@@ -13,7 +13,7 @@
 @interface StockUpdateManager : NSObject <StockUpdaterDelegate>
 {
     NSMutableArray *_updaters;
-    BOOL _postingRemoteUpdateNotification;
+    _Bool _postingRemoteUpdateNotification;
     NSMutableArray *_activeUpdaters;
     NSMutableArray *_inactiveUpdaters;
     NSMutableDictionary *_cacheDurationForParts;
@@ -31,12 +31,12 @@
 - (double)cacheDurationForParts:(id)arg1;
 - (void)cancel;
 - (void)failWithError:(id)arg1;
-- (BOOL)hadError;
-- (BOOL)isLoading;
+- (_Bool)hadError;
+- (_Bool)isLoading;
 - (id)availableStockUpdater;
 - (void)resetUpdaters;
-- (void)stockUpdater:(id)arg1 didFailWithError:(id)arg2 whileUpdatingStocks:(id)arg3 comprehensive:(BOOL)arg4;
-- (void)stockUpdater:(id)arg1 didUpdateStocks:(id)arg2 isComprehensive:(BOOL)arg3;
+- (void)stockUpdater:(id)arg1 didFailWithError:(id)arg2 whileUpdatingStocks:(id)arg3 comprehensive:(_Bool)arg4;
+- (void)stockUpdater:(id)arg1 didUpdateStocks:(id)arg2 isComprehensive:(_Bool)arg3;
 - (void)stocksDidUpdateRemotely;
 - (void)dealloc;
 - (id)init;

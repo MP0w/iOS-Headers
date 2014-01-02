@@ -17,7 +17,7 @@
 @property(readonly) NSArray *devices;
 - (void)stop;
 - (int)start;
-@property(readonly, getter=isBrowsing) BOOL browsing;
+@property(readonly, getter=isBrowsing) _Bool browsing;
 @property id <ICDeviceBrowserDelegate> delegate;
 - (void)finalize;
 - (void)dealloc;

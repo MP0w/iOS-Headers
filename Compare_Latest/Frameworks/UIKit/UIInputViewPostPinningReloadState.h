@@ -8,6 +8,7 @@
 
 @class UIResponder;
 
+// Not exported
 @interface UIInputViewPostPinningReloadState : NSObject
 {
     UIResponder *_responderPreventedFromSettingInputViews;

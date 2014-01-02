@@ -9,11 +9,10 @@
 @class PUModalTransition, PUNavigationTransition;
 
 @interface UIViewController (CustomTransitions)
-- (void)pu_dismissViewControllerAnimated:(BOOL)arg1 interactive:(BOOL)arg2 completion:(id)arg3;
-- (void)pu_presentViewController:(id)arg1 transition:(id)arg2 animated:(BOOL)arg3 interactive:(BOOL)arg4 completion:(id)arg5;
+- (void)pu_dismissViewControllerAnimated:(_Bool)arg1 interactive:(_Bool)arg2 completion:(id)arg3;
+- (void)pu_presentViewController:(id)arg1 transition:(id)arg2 animated:(_Bool)arg3 interactive:(_Bool)arg4 completion:(id)arg5;
 @property(readonly, nonatomic) PUNavigationTransition *pu_currentInteractiveNavigationTransition;
 @property(readonly, nonatomic) PUModalTransition *pu_currentInteractiveModalTransition;
-@property(nonatomic, setter=pu_setWantsToolbarWhenPushed:) BOOL pu_wantsToolbarWhenPushed;
 @property(retain, nonatomic, setter=pu_setNavigationTransition:) PUNavigationTransition *pu_navigationTransition;
 @property(retain, nonatomic, setter=pu_setModalTransition:) PUModalTransition *pu_modalTransition;
 @end

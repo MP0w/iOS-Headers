@@ -9,28 +9,35 @@
 #import "SBVolumePressBandit-Protocol.h"
 #import "_UISettingsKeyObserver-Protocol.h"
 
-@class PTSettingsController, SBRootSettings, UIWindow;
+@class NSArray, PTSettingsController, SBRootSettings, UIWindow;
 
 @interface SBPrototypeController : NSObject <SBVolumePressBandit, _UISettingsKeyObserver>
 {
     SBRootSettings *_rootSettings;
     UIWindow *_settingsWindow;
     PTSettingsController *_settingsController;
-    BOOL _showingSettings;
+    NSArray *_testRecipeClassNames;
+    id <SBTestRecipe> _activeTestRecipe;
+    _Bool _showingSettings;
 }
 
 + (id)sharedInstance;
 + (void)reloadDefaults;
 - (void)_updatePreventingLockover;
 - (void)_configureForDefaults;
+- (void)_changeActiveTestRecipeIfNecessary;
 - (void)_tearDownSettingsWindow;
 - (struct CGRect)_offscreenFrame;
 - (void)_hideSettings;
 - (void)_showSettings;
+- (id)_testRecipeClassNames;
 - (void)settings:(id)arg1 changedValueForKey:(id)arg2;
 - (void)handleVolumeDecrease;
 - (void)handleVolumeIncrease;
-- (BOOL)isShowingSettingsUI;
+@property(retain, nonatomic) id <SBTestRecipe> activeTestRecipe;
+- (void)showOrHide;
+- (_Bool)isPrototypingEnabled;
+- (_Bool)isShowingSettingsUI;
 - (id)rootSettings;
 - (void)dealloc;
 - (id)init;

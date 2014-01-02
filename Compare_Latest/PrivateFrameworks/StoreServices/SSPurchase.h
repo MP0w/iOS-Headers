@@ -16,16 +16,17 @@
 {
     NSNumber *_accountIdentifier;
     NSString *_affiliateIdentifier;
-    BOOL _backgroundPurchase;
-    int _batchIdentifier;
+    _Bool _backgroundPurchase;
+    long long _batchIdentifier;
     NSString *_buyParameters;
-    BOOL _createsDownloads;
+    _Bool _createsDownloads;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     SSDownloadPolicy *_downloadPolicy;
     NSMutableDictionary *_downloadProperties;
     long long _expectedDownloadFileSize;
     NSArray *_filteredAssetTypes;
-    BOOL _ignoresForcedPasswordRestriction;
+    NSArray *_gratisIdentifiers;
+    _Bool _ignoresForcedPasswordRestriction;
     SSItem *_item;
     SSItemOffer *_itemOffer;
     SSNetworkConstraints *_networkConstraints;
@@ -33,6 +34,7 @@
     SSURLRequestProperties *_requestProperties;
     id _requiredDeviceCapabilities;
     long long _uniqueIdentifier;
+    _Bool _usesLocalRedownloadParametersIfPossible;
 }
 
 + (id)purchaseWithBuyParameters:(id)arg1;
@@ -40,16 +42,21 @@
 - (id)downloadMetadata;
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)copyXPCEncoding;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (void)_setValuesUsingDatabaseEncoding:(id)arg1;
+- (void)_addEntriesToDatabaseEncoding:(id)arg1;
+@property _Bool usesLocalRedownloadParametersIfPossible;
 @property long long uniqueIdentifier;
 @property(copy) id requiredDeviceCapabilities;
 @property long long placeholderDownloadIdentifier;
+@property(copy) NSArray *gratisIdentifiers;
 @property long long expectedDownloadFileSize;
-@property int batchIdentifier;
+- (void)setDefaultUserAgent:(id)arg1;
+@property long long batchIdentifier;
 - (id)itemOffer;
 - (id)item;
 @property(readonly) NSData *databaseEncoding;
@@ -58,13 +65,13 @@
 - (void)setValue:(id)arg1 forDownloadProperty:(id)arg2;
 @property(copy) SSURLRequestProperties *requestProperties;
 @property(copy) SSNetworkConstraints *networkConstraints;
-@property BOOL ignoresForcedPasswordRestriction;
+@property _Bool ignoresForcedPasswordRestriction;
 @property(copy) NSArray *filteredAssetTypes;
 @property(copy) NSDictionary *downloadProperties;
 @property(copy) SSDownloadPolicy *downloadPolicy;
-@property(nonatomic) BOOL createsDownloads;
+@property(nonatomic) _Bool createsDownloads;
 @property(copy) NSString *buyParameters;
-@property(getter=isBackgroundPurchase) BOOL backgroundPurchase;
+@property(getter=isBackgroundPurchase) _Bool backgroundPurchase;
 @property(copy) NSString *affiliateIdentifier;
 @property(retain) NSNumber *accountIdentifier;
 - (void)dealloc;

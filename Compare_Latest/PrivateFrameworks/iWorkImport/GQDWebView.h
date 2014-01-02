@@ -10,6 +10,7 @@
 
 @class GQDImageBinary;
 
+// Not exported
 @interface GQDWebView : GQDGraphic <GQDNameMappable>
 {
     GQDImageBinary *mImageBinary;

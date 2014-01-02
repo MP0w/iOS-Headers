@@ -21,11 +21,11 @@
 @property(nonatomic) double locationInterval; // @synthesize locationInterval=_locationInterval;
 @property(nonatomic) double locationDistance; // @synthesize locationDistance=_locationDistance;
 - (void)flush;
-- (void)setSimulatedWifiPower:(BOOL)arg1;
+- (void)setSimulatedWifiPower:(_Bool)arg1;
 - (void)stopWifiSimulation;
 - (void)startWifiSimulation;
 - (void)setWifiScanResults:(id)arg1;
-- (void)setSimulatedCellRegistrationStatus:(BOOL)arg1;
+- (void)setSimulatedCellRegistrationStatus:(_Bool)arg1;
 - (void)stopCellSimulation;
 - (void)startCellSimulation;
 - (void)setSimulatedCell:(id)arg1;

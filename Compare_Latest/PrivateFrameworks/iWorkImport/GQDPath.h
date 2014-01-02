@@ -6,21 +6,20 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface GQDPath : NSObject
 {
     char *mPathString;
 }
 
-+ (struct __CFString *)createString:(struct CGPath *)arg1;
-+ (char *)createPathString:(struct CGPath *)arg1;
-- (BOOL)horizontalFlip;
-- (BOOL)verticalFlip;
-- (BOOL)hasHorizontalFlip;
-- (BOOL)hasVerticalFlip;
+- (_Bool)horizontalFlip;
+- (_Bool)verticalFlip;
+- (_Bool)hasHorizontalFlip;
+- (_Bool)hasVerticalFlip;
 - (char *)pathStr;
 - (struct CGPath *)createBezierPath;
-- (BOOL)isRect;
-- (BOOL)isRectangular;
+- (_Bool)isRect;
+- (_Bool)isRectangular;
 - (void)dealloc;
 
 @end

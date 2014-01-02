@@ -8,15 +8,19 @@
 
 @class CABackdropLayer;
 
+// Not exported
 @interface _UIBackdropEffectView : UIView
 {
     CABackdropLayer *_backdropLayer;
+    double _zoom;
 }
 
 + (Class)layerClass;
+@property(nonatomic) double zoom; // @synthesize zoom=_zoom;
 @property(retain, nonatomic) CABackdropLayer *backdropLayer; // @synthesize backdropLayer=_backdropLayer;
 - (void)backdropLayerStatisticsDidChange:(id)arg1;
-- (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
+- (id)valueForUndefinedKey:(id)arg1;
+- (_Bool)_shouldAnimatePropertyWithKey:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

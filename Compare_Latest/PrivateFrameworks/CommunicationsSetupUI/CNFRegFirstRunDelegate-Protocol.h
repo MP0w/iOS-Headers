@@ -7,6 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol CNFRegFirstRunDelegate <NSObject>
-- (void)firstRunController:(id)arg1 finishedWithState:(unsigned int)arg2;
+- (void)firstRunController:(id)arg1 finishedWithState:(unsigned long long)arg2;
 @end
 

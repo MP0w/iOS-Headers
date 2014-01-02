@@ -10,33 +10,34 @@
 
 @class NSArray, NSFetchedResultsController, NSString;
 
+// Not exported
 @interface _NSDefaultSectionInfo : NSObject <NSFetchedResultsSectionInfo>
 {
     NSFetchedResultsController *_controller;
     NSString *_name;
     NSString *_indexTitle;
-    unsigned int _sectionOffset;
-    unsigned int _numberOfObjects;
-    unsigned int _oldSectionNumber;
+    unsigned long long _sectionOffset;
+    unsigned long long _numberOfObjects;
+    unsigned long long _oldSectionNumber;
     id _sectionObjects;
 }
 
-@property(nonatomic) unsigned int oldSectionNumber; // @synthesize oldSectionNumber=_oldSectionNumber;
-@property(readonly, nonatomic) unsigned int numberOfObjects; // @synthesize numberOfObjects=_numberOfObjects;
-@property(readonly, nonatomic) unsigned int sectionOffset; // @synthesize sectionOffset=_sectionOffset;
+@property(nonatomic) unsigned long long oldSectionNumber; // @synthesize oldSectionNumber=_oldSectionNumber;
+@property(readonly, nonatomic) unsigned long long numberOfObjects; // @synthesize numberOfObjects=_numberOfObjects;
+@property(readonly, nonatomic) unsigned long long sectionOffset; // @synthesize sectionOffset=_sectionOffset;
 @property(readonly, nonatomic) NSString *indexTitle; // @synthesize indexTitle=_indexTitle;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
-- (unsigned int)indexOfObject:(id)arg1;
+- (unsigned long long)indexOfObject:(id)arg1;
 @property(readonly, nonatomic) NSArray *objects;
 - (void)clearSectionObjectsCache;
 - (void)setController:(id)arg1;
-@property(readonly, nonatomic) unsigned int sectionNumber;
-- (void)setSectionOffset:(unsigned int)arg1;
-- (void)setNumberOfObjects:(unsigned int)arg1;
+@property(readonly, nonatomic) unsigned long long sectionNumber;
+- (void)setSectionOffset:(unsigned long long)arg1;
+- (void)setNumberOfObjects:(unsigned long long)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (void)dealloc;
-- (id)initWithController:(id)arg1 name:(id)arg2 indexTitle:(id)arg3 sectionOffset:(unsigned int)arg4;
+- (id)initWithController:(id)arg1 name:(id)arg2 indexTitle:(id)arg3 sectionOffset:(unsigned long long)arg4;
 
 @end
 

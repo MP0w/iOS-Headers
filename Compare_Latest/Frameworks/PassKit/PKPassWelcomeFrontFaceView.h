@@ -20,8 +20,8 @@
 - (void)_openURL;
 - (void)_appStoreButtonPressed;
 - (void)layoutSubviews;
-- (BOOL)showsInfo;
-- (BOOL)showsShare;
+- (_Bool)showsInfo;
+- (_Bool)showsShare;
 - (void)createBodyContentViews;
 - (void)createHeaderContentViews;
 - (void)dealloc;

@@ -10,9 +10,9 @@
 {
 }
 
-- (void)setChecked:(BOOL)arg1;
-- (BOOL)usesStandardBackgroundImage;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
+- (void)setChecked:(_Bool)arg1;
+- (_Bool)usesStandardBackgroundImage;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
 
 @end
 

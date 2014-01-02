@@ -11,18 +11,18 @@
 @interface _MFLibrarySQLiteConnectionWrapper : NSObject
 {
     MFProtectedSQLiteConnection *_connection;
-    BOOL _writer;
-    unsigned int _refcount;
+    _Bool _writer;
+    unsigned long long _refcount;
 }
 
-+ (id)wrapperWithConnection:(id)arg1 forWriting:(BOOL)arg2;
-@property(readonly, nonatomic) unsigned int refcount; // @synthesize refcount=_refcount;
-@property(readonly, nonatomic) BOOL writer; // @synthesize writer=_writer;
++ (id)wrapperWithConnection:(id)arg1 forWriting:(_Bool)arg2;
+@property(readonly, nonatomic) unsigned long long refcount; // @synthesize refcount=_refcount;
+@property(readonly, nonatomic) _Bool writer; // @synthesize writer=_writer;
 @property(readonly, nonatomic) MFProtectedSQLiteConnection *connection; // @synthesize connection=_connection;
-- (unsigned int)decrementRefcount;
-- (unsigned int)incrementRefcount;
+- (unsigned long long)decrementRefcount;
+- (unsigned long long)incrementRefcount;
 - (void)dealloc;
-- (id)initWithConnection:(id)arg1 forWriting:(BOOL)arg2;
+- (id)initWithConnection:(id)arg1 forWriting:(_Bool)arg2;
 
 @end
 

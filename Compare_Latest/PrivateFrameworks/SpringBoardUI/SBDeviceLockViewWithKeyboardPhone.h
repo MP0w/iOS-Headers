@@ -13,9 +13,9 @@
 - (void)_layoutForCurrentOrientation;
 - (void)hardwareReturnKeyPressed:(id)arg1;
 - (void)returnKeyPressed:(id)arg1;
-- (void)setShowsEmergencyCallButton:(BOOL)arg1;
-- (BOOL)showsEmergencyCallButton;
-- (id)_initWithStyle:(int)arg1 interfaceOrientation:(int)arg2 showsEmergencyCall:(BOOL)arg3;
+- (void)setShowsEmergencyCallButton:(_Bool)arg1;
+- (_Bool)showsEmergencyCallButton;
+- (id)_initWithStyle:(int)arg1 interfaceOrientation:(long long)arg2 showsEmergencyCall:(_Bool)arg3;
 
 @end
 

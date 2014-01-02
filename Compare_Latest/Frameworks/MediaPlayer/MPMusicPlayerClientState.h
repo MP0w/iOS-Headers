@@ -10,32 +10,34 @@
 
 @interface MPMusicPlayerClientState : NSObject
 {
-    BOOL _allowsBackgroundVideo;
+    _Bool _allowsBackgroundVideo;
     int _backgroundPlaybackAccess;
     MPMediaItem *_firstItem;
     MPMediaPlaylist *_geniusMixPlaylist;
-    BOOL _hasAudioBackgroundMode;
+    _Bool _hasAudioBackgroundMode;
     MPMediaQuery *_query;
     MPRadioStation *_radioStation;
-    int _repeatMode;
-    BOOL _seeking;
-    int _shuffleMode;
-    BOOL _useApplicationSpecificQueue;
-    BOOL _videoPlaybackEnabled;
+    long long _repeatMode;
+    _Bool _seeking;
+    long long _shuffleMode;
+    _Bool _useApplicationSpecificQueue;
+    _Bool _videoPlaybackEnabled;
+    _Bool _autoReshufflingDisabled;
 }
 
 @property(retain, nonatomic) MPRadioStation *radioStation; // @synthesize radioStation=_radioStation;
-@property(nonatomic) BOOL videoPlaybackEnabled; // @synthesize videoPlaybackEnabled=_videoPlaybackEnabled;
-@property(nonatomic) BOOL useApplicationSpecificQueue; // @synthesize useApplicationSpecificQueue=_useApplicationSpecificQueue;
-@property(nonatomic) int shuffleMode; // @synthesize shuffleMode=_shuffleMode;
-@property(nonatomic) BOOL seeking; // @synthesize seeking=_seeking;
-@property(nonatomic) int repeatMode; // @synthesize repeatMode=_repeatMode;
+@property(nonatomic) _Bool autoReshufflingDisabled; // @synthesize autoReshufflingDisabled=_autoReshufflingDisabled;
+@property(nonatomic) _Bool videoPlaybackEnabled; // @synthesize videoPlaybackEnabled=_videoPlaybackEnabled;
+@property(nonatomic) _Bool useApplicationSpecificQueue; // @synthesize useApplicationSpecificQueue=_useApplicationSpecificQueue;
+@property(nonatomic) long long shuffleMode; // @synthesize shuffleMode=_shuffleMode;
+@property(nonatomic) _Bool seeking; // @synthesize seeking=_seeking;
+@property(nonatomic) long long repeatMode; // @synthesize repeatMode=_repeatMode;
 @property(retain, nonatomic) MPMediaQuery *query; // @synthesize query=_query;
-@property(nonatomic) BOOL hasAudioBackgroundMode; // @synthesize hasAudioBackgroundMode=_hasAudioBackgroundMode;
+@property(nonatomic) _Bool hasAudioBackgroundMode; // @synthesize hasAudioBackgroundMode=_hasAudioBackgroundMode;
 @property(retain, nonatomic) MPMediaPlaylist *geniusMixPlaylist; // @synthesize geniusMixPlaylist=_geniusMixPlaylist;
 @property(retain, nonatomic) MPMediaItem *firstItem; // @synthesize firstItem=_firstItem;
 @property(nonatomic) int backgroundPlaybackAccess; // @synthesize backgroundPlaybackAccess=_backgroundPlaybackAccess;
-@property(nonatomic) BOOL allowsBackgroundVideo; // @synthesize allowsBackgroundVideo=_allowsBackgroundVideo;
+@property(nonatomic) _Bool allowsBackgroundVideo; // @synthesize allowsBackgroundVideo=_allowsBackgroundVideo;
 - (void).cxx_destruct;
 
 @end

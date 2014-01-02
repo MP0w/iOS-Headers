@@ -6,6 +6,7 @@
 
 #import <OfficeImport/MFPhoneBrush.h>
 
+// Not exported
 @interface MFPhoneNullBrush : MFPhoneBrush
 {
 }

@@ -6,11 +6,9 @@
 
 #import "NSObject.h"
 
-#import "IDSIDQueryControllerDelegate-Protocol.h"
-
 @class NSArray, NSData, NSDate, NSDictionary, NSMutableArray, NSMutableDictionary, NSProtocolChecker, NSString;
 
-@interface IMDaemonListener : NSObject <IDSIDQueryControllerDelegate>
+@interface IMDaemonListener : NSObject
 {
     NSMutableDictionary *_properties;
     NSMutableDictionary *_persistentProperties;
@@ -23,24 +21,24 @@
     NSMutableDictionary *_contexts;
     NSString *_myStatusMessage;
     NSString *_myNowPlayingString;
-    unsigned int _myStatus;
+    unsigned long long _myStatus;
     unsigned long long _vcCapabilities;
-    BOOL _setupComplete;
-    BOOL _postedSetupComplete;
-    BOOL _holdingChatMessages;
-    BOOL _hidingDisconnect;
-    BOOL _hasPendingProcessChange;
+    _Bool _setupComplete;
+    _Bool _postedSetupComplete;
+    _Bool _holdingChatMessages;
+    _Bool _hidingDisconnect;
+    _Bool _hasPendingProcessChange;
 }
 
 @property(readonly, nonatomic) NSDictionary *persistentProperties; // @synthesize persistentProperties=_persistentProperties;
 @property(readonly, nonatomic) NSDictionary *properties; // @synthesize properties=_properties;
-@property(readonly, nonatomic) BOOL hasPostedSetupComplete; // @synthesize hasPostedSetupComplete=_postedSetupComplete;
-@property(readonly, nonatomic) BOOL shouldHoldChatMessages; // @synthesize shouldHoldChatMessages=_holdingChatMessages;
+@property(readonly, nonatomic) _Bool hasPostedSetupComplete; // @synthesize hasPostedSetupComplete=_postedSetupComplete;
+@property(readonly, nonatomic) _Bool shouldHoldChatMessages; // @synthesize shouldHoldChatMessages=_holdingChatMessages;
 @property(readonly, nonatomic) unsigned long long vcCapabilities; // @synthesize vcCapabilities=_vcCapabilities;
 @property(readonly, nonatomic) NSString *myStatusMessage; // @synthesize myStatusMessage=_myStatusMessage;
-@property(readonly, nonatomic) BOOL isSetupComplete; // @synthesize isSetupComplete=_setupComplete;
+@property(readonly, nonatomic) _Bool isSetupComplete; // @synthesize isSetupComplete=_setupComplete;
 @property(readonly, nonatomic) NSArray *handlers; // @synthesize handlers=_handlers;
-@property(nonatomic, setter=_setHidingDisconnect:) BOOL _hidingDisconnect; // @synthesize _hidingDisconnect;
+@property(nonatomic, setter=_setHidingDisconnect:) _Bool _hidingDisconnect; // @synthesize _hidingDisconnect;
 @property(readonly, nonatomic) NSMutableDictionary *_contexts; // @synthesize _contexts;
 - (void)forwardInvocation:(id)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
@@ -48,8 +46,8 @@
 - (void)databaseFull;
 - (void)databaseUpdated:(id)arg1;
 - (void)_deferredSetup:(id)arg1;
-- (void)setupComplete:(BOOL)arg1 info:(id)arg2;
-- (void)account:(id)arg1 defaults:(id)arg2 blockList:(id)arg3 allowList:(id)arg4 blockingMode:(unsigned int)arg5 blockIdleStatus:(BOOL)arg6 status:(id)arg7 capabilities:(unsigned long long)arg8 serviceLoginStatus:(unsigned int)arg9 loginStatusMessage:(id)arg10;
+- (void)setupComplete:(_Bool)arg1 info:(id)arg2;
+- (void)account:(id)arg1 defaults:(id)arg2 blockList:(id)arg3 allowList:(id)arg4 blockingMode:(unsigned int)arg5 blockIdleStatus:(_Bool)arg6 status:(id)arg7 capabilities:(unsigned long long)arg8 serviceLoginStatus:(unsigned int)arg9 loginStatusMessage:(id)arg10;
 - (void)service:(id)arg1 properties:(id)arg2 defaults:(id)arg3 defaultAccountSettings:(id)arg4 allAccounts:(id)arg5 activeAccounts:(id)arg6;
 - (void)services:(id)arg1 properties:(id)arg2 persistentProperties:(id)arg3;
 - (void)account:(id)arg1 status:(id)arg2 capabilities:(unsigned long long)arg3 serviceLoginStatus:(unsigned int)arg4 loginStatusMessage:(id)arg5;
@@ -62,7 +60,7 @@
 - (id)_stampForContext:(id)arg1;
 - (void)_setStamp:(id)arg1 forContext:(id)arg2;
 - (void)account:(id)arg1 postedError:(id)arg2;
-- (void)account:(id)arg1 blockIdleStatusChanged:(BOOL)arg2;
+- (void)account:(id)arg1 blockIdleStatusChanged:(_Bool)arg2;
 - (void)account:(id)arg1 blockingModeChanged:(unsigned int)arg2;
 - (void)account:(id)arg1 allowListChanged:(id)arg2;
 - (void)account:(id)arg1 blockListChanged:(id)arg2;
@@ -90,14 +88,13 @@
 - (void)defaultsChanged:(id)arg1 forService:(id)arg2;
 - (void)releaseHeldChatMessages;
 - (void)holdChatMessages;
-@property(readonly, nonatomic) BOOL isHoldingChatMessages;
+@property(readonly, nonatomic) _Bool isHoldingChatMessages;
 - (void)_deferNotification:(id)arg1;
 - (void)_processDeferredInvitationDictionary:(id)arg1;
-@property(readonly, nonatomic) unsigned long myIdleTime;
-@property(readonly, nonatomic) unsigned int myStatus;
+@property(readonly, nonatomic) unsigned int myIdleTime;
+@property(readonly, nonatomic) unsigned long long myStatus;
 - (void)_processMyStatusChanged;
 - (void)_reallyProcessMyStatusChanged;
-- (void)receivedIDStatusCache:(id)arg1;
 - (id)serviceWithName:(id)arg1;
 @property(readonly, nonatomic) NSArray *allServices;
 - (void)removeHandler:(id)arg1;

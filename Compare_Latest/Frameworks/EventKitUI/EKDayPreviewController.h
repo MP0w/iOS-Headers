@@ -4,27 +4,28 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <EventKitUI/EKDayViewController.h>
+#import "UIViewController.h"
 
-#import "EKDayViewDelegate-Protocol.h"
+#import "EKDayViewDataSource-Protocol.h"
 #import "EKEditItemViewControllerProtocol-Protocol.h"
 
-@class EKEvent;
+@class EKDayView, EKEvent;
 
-@interface EKDayPreviewController : EKDayViewController <EKDayViewDelegate, EKEditItemViewControllerProtocol>
+@interface EKDayPreviewController : UIViewController <EKDayViewDataSource, EKEditItemViewControllerProtocol>
 {
+    EKDayView *_dayView;
     EKEvent *_event;
 }
 
-@property(retain, nonatomic) EKEvent *event; // @synthesize event=_event;
 - (void).cxx_destruct;
-- (struct CGSize)contentSizeForViewInPopover;
-- (unsigned int)supportedInterfaceOrientations;
-- (id)eventsForStartDate:(id)arg1 endDate:(id)arg2;
-- (void)viewWillAppear:(BOOL)arg1;
+- (struct CGSize)preferredContentSize;
+- (unsigned long long)supportedInterfaceOrientations;
+- (id)_eventsForStartDate:(id)arg1 endDate:(id)arg2;
+- (id)dayView:(id)arg1 eventsForStartDate:(id)arg2 endDate:(id)arg3;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)loadView;
-- (void)_updateTitle;
+- (id)initWithEvent:(id)arg1;
 
 // Remaining properties
 @property(nonatomic) __weak id <EKEditItemViewControllerDelegate> editDelegate;

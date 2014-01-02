@@ -8,24 +8,25 @@
 
 @class NSMutableOrderedSet;
 
+// Not exported
 @interface NSKeyValueNotifyingMutableOrderedSet : NSKeyValueMutableOrderedSet
 {
     NSMutableOrderedSet *_mutableOrderedSet;
 }
 
 + (id)_proxyShare;
-+ (CDStruct_e8a1eea0 *)_proxyNonGCPoolPointer;
++ (CDStruct_7c9a8e9f *)_proxyNonGCPoolPointer;
 - (void)replaceObjectsAtIndexes:(id)arg1 withObjects:(id)arg2;
-- (void)replaceObjectAtIndex:(unsigned int)arg1 withObject:(id)arg2;
+- (void)replaceObjectAtIndex:(unsigned long long)arg1 withObject:(id)arg2;
 - (void)removeObjectsAtIndexes:(id)arg1;
-- (void)removeObjectAtIndex:(unsigned int)arg1;
+- (void)removeObjectAtIndex:(unsigned long long)arg1;
 - (void)insertObjects:(id)arg1 atIndexes:(id)arg2;
-- (void)insertObject:(id)arg1 atIndex:(unsigned int)arg2;
+- (void)insertObject:(id)arg1 atIndex:(unsigned long long)arg2;
 - (id)objectsAtIndexes:(id)arg1;
-- (id)objectAtIndex:(unsigned int)arg1;
-- (unsigned int)indexOfObject:(id)arg1;
+- (id)objectAtIndex:(unsigned long long)arg1;
+- (unsigned long long)indexOfObject:(id)arg1;
 - (void)getObjects:(id *)arg1 range:(struct _NSRange)arg2;
-- (unsigned int)count;
+- (unsigned long long)count;
 - (void)_proxyNonGCFinalize;
 - (id)_proxyInitWithContainer:(id)arg1 getter:(id)arg2;
 

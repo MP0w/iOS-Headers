@@ -23,7 +23,7 @@
 - (void)foreachLayer:(id)arg1;
 - (id)publishedObjectWithName:(id)arg1;
 - (id)publishedObjectNames;
-@property(readonly, getter=isGeometryFlipped) BOOL geometryFlipped;
+@property(readonly, getter=isGeometryFlipped) _Bool geometryFlipped;
 @property(readonly) CALayer *rootLayer;
 - (void)dealloc;
 - (void)_readFromCAMLURL:(id)arg1 type:(id)arg2 options:(id)arg3 error:(id *)arg4;

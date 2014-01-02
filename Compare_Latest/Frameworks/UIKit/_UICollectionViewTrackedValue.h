@@ -8,19 +8,20 @@
 
 @class NSArray;
 
+// Not exported
 @interface _UICollectionViewTrackedValue : NSObject
 {
-    float _trackedValue;
+    double _trackedValue;
     NSArray *_values;
-    int _valuesCount;
-    int _currentIndex;
-    BOOL _isAccumulating;
+    long long _valuesCount;
+    long long _currentIndex;
+    _Bool _isAccumulating;
 }
 
-@property(nonatomic) float trackedValue; // @synthesize trackedValue=_trackedValue;
-@property(nonatomic) BOOL isAccumulating; // @synthesize isAccumulating=_isAccumulating;
-- (float)speed;
-- (void)addValue:(float)arg1;
+@property(nonatomic) double trackedValue; // @synthesize trackedValue=_trackedValue;
+@property(nonatomic) _Bool isAccumulating; // @synthesize isAccumulating=_isAccumulating;
+- (double)speed;
+- (void)addValue:(double)arg1;
 - (id)init;
 
 @end

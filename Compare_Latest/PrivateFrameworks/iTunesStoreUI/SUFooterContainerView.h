@@ -10,10 +10,10 @@
 {
     UIView *_contentView;
     UIView *_footerView;
-    BOOL _footerVisible;
+    _Bool _footerVisible;
 }
 
-@property(nonatomic, getter=isFooterVisible) BOOL footerVisible; // @synthesize footerVisible=_footerVisible;
+@property(nonatomic, getter=isFooterVisible) _Bool footerVisible; // @synthesize footerVisible=_footerVisible;
 @property(retain, nonatomic) UIView *footerView; // @synthesize footerView=_footerView;
 @property(retain, nonatomic) UIView *contentView; // @synthesize contentView=_contentView;
 - (void)layoutSubviews;

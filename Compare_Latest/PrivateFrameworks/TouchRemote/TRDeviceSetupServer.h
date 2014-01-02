@@ -13,8 +13,9 @@
 @interface TRDeviceSetupServer : NSObject <TRTransferServerDelegate>
 {
     TRTransferServer *_transferServer;
-    BOOL _cancelledSetupInProgress;
-    BOOL _setupInProgress;
+    _Bool _cancelledSetupInProgress;
+    _Bool _setupInProgress;
+    _Bool _started;
     id <TRDeviceSetupServerDelegate> _delegate;
 }
 

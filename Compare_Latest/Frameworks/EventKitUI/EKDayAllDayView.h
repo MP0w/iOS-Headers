@@ -8,48 +8,63 @@
 
 @class EKEvent, NSMutableArray, UILabel, UIScrollView;
 
+// Not exported
 @interface EKDayAllDayView : UIView
 {
-    int _orientation;
+    long long _orientation;
     NSMutableArray *_occurrenceViews;
     UILabel *_allDay;
-    BOOL _allDayLabelHighlighted;
+    _Bool _allDayLabelHighlighted;
     UIScrollView *_scroller;
-    float _occurrenceInset;
-    BOOL _allowSelection;
-    BOOL _showSelection;
+    double _occurrenceInset;
+    _Bool _allowSelection;
+    _Bool _showSelection;
     EKEvent *_selectedEvent;
-    BOOL _usesSmallText;
-    id <EKDayAllDayViewDelegate> _delegate;
+    _Bool _usesSmallText;
+    UIView *_dividerLineViewTop;
+    UIView *_dividerLineViewBottom;
+    _Bool _showsBorderLines;
+    _Bool _showsLabel;
     int _maxVisibleRows;
+    id <EKDayAllDayViewDelegate> _delegate;
+    double _fixedHeight;
     EKEvent *_dimmedOccurrence;
 }
 
 @property(retain, nonatomic) EKEvent *dimmedOccurrence; // @synthesize dimmedOccurrence=_dimmedOccurrence;
 @property(nonatomic) int maxVisibleRows; // @synthesize maxVisibleRows=_maxVisibleRows;
+@property(nonatomic) double fixedHeight; // @synthesize fixedHeight=_fixedHeight;
+@property(nonatomic) _Bool showsLabel; // @synthesize showsLabel=_showsLabel;
+@property(nonatomic) _Bool showsBorderLines; // @synthesize showsBorderLines=_showsBorderLines;
 @property(nonatomic) __weak id <EKDayAllDayViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (BOOL)isAllDayLabelHighlighted;
-- (void)setAllDayLabelHighlighted:(BOOL)arg1;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
+- (void)setBorderColor:(id)arg1;
+- (void)setAllDayLabelColor:(id)arg1;
+- (_Bool)isAllDayLabelHighlighted;
+- (void)setAllDayLabelHighlighted:(_Bool)arg1;
+@property(readonly, nonatomic) double naturalHeight;
+- (double)_height;
 - (void)dayOccurrenceViewClicked:(id)arg1 atPoint:(struct CGPoint)arg2;
-@property(nonatomic) BOOL showsSelection;
-@property(nonatomic) BOOL allowsOccurrenceSelection;
-- (void)didMoveToWindow;
-- (void)layoutSubviews;
+@property(nonatomic) _Bool showsSelection;
+@property(nonatomic) _Bool allowsOccurrenceSelection;
+- (id)occurrenceViews;
 - (void)setOccurrences:(id)arg1;
-- (float)_allDayAreaHeightForEventCount:(int)arg1;
+- (double)_borderLineWidth;
+- (double)_allDayAreaHeightForEventCount:(long long)arg1;
 - (void)removeAllOccurrenceViews;
-- (void)setOrientation:(int)arg1;
-- (void)setOccurrenceInset:(float)arg1 labelInset:(float)arg2;
+- (void)setOrientation:(long long)arg1;
+- (void)setOccurrenceInset:(double)arg1 labelInset:(double)arg2;
 - (void)selectEvent:(id)arg1;
 - (id)selectedEvent;
-- (BOOL)containsEvent:(id)arg1;
+- (_Bool)containsEvent:(id)arg1;
 - (void)addViewToScroller:(id)arg1;
-- (float)nextAvailableOccurrenceViewYOrigin;
+- (double)nextAvailableOccurrenceViewYOrigin;
 - (id)occurrenceViewForEvent:(id)arg1;
-- (float)firstEventYOffset;
+- (double)firstEventYOffset;
+- (void)didMoveToWindow;
+- (void)layoutSubviews;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

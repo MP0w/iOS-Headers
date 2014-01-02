@@ -14,7 +14,7 @@
 
 + (id)instanceFromPlist:(id)arg1;
 - (id)initFromPlist:(id)arg1;
-- (BOOL)matches:(id)arg1;
+- (_Bool)matches:(id)arg1;
 
 @end
 

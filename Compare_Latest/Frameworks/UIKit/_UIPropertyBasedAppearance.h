@@ -8,12 +8,13 @@
 
 @class NSDictionary;
 
+// Not exported
 @interface _UIPropertyBasedAppearance : _UIAppearance
 {
     NSDictionary *_propertiesToMatch;
 }
 
-+ (id)appearanceAtNode:(id)arg1 withObject:(id)arg2;
++ (id)appearancesAtNode:(id)arg1 withObject:(id)arg2;
 + (id)_appearanceMatchingProperties:(id)arg1 forClass:(Class)arg2 withContainerList:(id)arg3;
 + (id)_appearanceObjectKeyForProperties:(id)arg1;
 @property(retain, nonatomic, setter=_setPropertiesToMatch:) NSDictionary *_propertiesToMatch; // @synthesize _propertiesToMatch;

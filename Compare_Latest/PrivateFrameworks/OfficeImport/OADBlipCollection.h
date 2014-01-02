@@ -8,15 +8,16 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface OADBlipCollection : NSObject
 {
     NSMutableArray *mBlips;
 }
 
 @property(retain, nonatomic) NSMutableArray *blips; // @synthesize blips=mBlips;
-- (unsigned long)blipCount;
-- (unsigned long)addBlip:(id)arg1;
-- (id)blipAtIndex:(long)arg1;
+- (unsigned int)blipCount;
+- (unsigned int)addBlip:(id)arg1;
+- (id)blipAtIndex:(int)arg1;
 - (void)dealloc;
 - (id)init;
 

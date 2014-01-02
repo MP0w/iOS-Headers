@@ -6,20 +6,26 @@
 
 #import <Preferences/KeychainSyncTextEntryController.h>
 
-@class NSString;
+@class DevicePINController, NSString, UIKeyboard;
 
 @interface KeychainSyncDevicePINController : KeychainSyncTextEntryController
 {
-    BOOL _passcodeIncorrect;
+    DevicePINController *_devicePINController;
+    _Bool _showingBlockedMessage;
     NSString *_enterPasscodeTitle;
     NSString *_enterPasscodeReason;
+    UIKeyboard *_disabledKeyboard;
 }
 
+@property(retain, nonatomic) UIKeyboard *disabledKeyboard; // @synthesize disabledKeyboard=_disabledKeyboard;
 @property(retain, nonatomic) NSString *enterPasscodeReason; // @synthesize enterPasscodeReason=_enterPasscodeReason;
 @property(retain, nonatomic) NSString *enterPasscodeTitle; // @synthesize enterPasscodeTitle=_enterPasscodeTitle;
-- (void)didFinishEnteringPasscode:(id)arg1;
-- (BOOL)canUnlockWithPasscode:(id)arg1;
+- (void)didFinishEnteringText:(id)arg1;
+- (long long)tableView:(id)arg1 titleAlignmentForFooterInSection:(long long)arg2;
 - (id)specifiers;
+- (void)updateBlockedState:(id)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)dealloc;
 - (id)init;
 

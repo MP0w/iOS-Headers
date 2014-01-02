@@ -7,6 +7,6 @@
 #import "NSString.h"
 
 @interface NSString (CommonPrefixAdditions)
-- (id)commonNonWordBreakingPrefixWithString:(id)arg1 options:(unsigned int)arg2;
+- (id)commonNonWordBreakingPrefixWithString:(id)arg1 options:(unsigned long long)arg2;
 @end
 

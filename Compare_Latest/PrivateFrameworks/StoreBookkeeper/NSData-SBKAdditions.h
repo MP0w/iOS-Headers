@@ -13,7 +13,7 @@
 - (id)SBKDataByInflatingWithGZip;
 - (id)SBKDataByDeflatingWithNoZipHeader;
 - (id)SBKDataByInflatingWithNoZipHeader;
-- (id)_SBKDataByDeflatingWithNoZipHeaderWithCompression:(unsigned int)arg1;
+- (id)_SBKDataByDeflatingWithNoZipHeaderWithCompression:(unsigned long long)arg1;
 - (id)_SBKDataByInflatingWithNoZipHeader;
 @end
 

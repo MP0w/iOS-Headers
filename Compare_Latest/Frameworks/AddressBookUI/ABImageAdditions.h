@@ -13,7 +13,7 @@
 + (struct CGRect)rectFromDictionary:(id)arg1;
 + (id)newDictionaryFromRect:(struct CGRect)arg1;
 + (void)forEachImageFormat:(id)arg1;
-+ (unsigned int)indexForImageFormat:(int)arg1;
++ (unsigned long long)indexForImageFormat:(int)arg1;
 
 @end
 

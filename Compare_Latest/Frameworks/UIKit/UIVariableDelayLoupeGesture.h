@@ -8,6 +8,7 @@
 
 @class UIResponder<UITextInput>;
 
+// Not exported
 @interface UIVariableDelayLoupeGesture : UILongPressGestureRecognizer
 {
     UIResponder<UITextInput> *_textView;
@@ -15,8 +16,7 @@
 
 @property UIResponder<UITextInput> *textView; // @synthesize textView=_textView;
 - (void)startTimer;
-- (BOOL)isCloseToCaret;
-- (void)invalidate;
+- (_Bool)isCloseToCaret;
 
 @end
 

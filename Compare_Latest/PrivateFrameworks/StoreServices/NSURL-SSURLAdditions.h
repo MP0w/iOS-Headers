@@ -7,6 +7,6 @@
 #import "NSURL.h"
 
 @interface NSURL (SSURLAdditions)
-- (BOOL)isStoreServicesURL;
+- (_Bool)isStoreServicesURL;
 @end
 

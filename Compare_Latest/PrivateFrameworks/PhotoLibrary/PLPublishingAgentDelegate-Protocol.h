@@ -12,7 +12,7 @@
 - (void)publishingAgentWillBeDisplayed:(id)arg1;
 
 @optional
-- (void)publishingAgentDidEndRemaking:(id)arg1 didSucceed:(BOOL)arg2;
+- (void)publishingAgentDidEndRemaking:(id)arg1 didSucceed:(_Bool)arg2;
 - (void)publishingAgentDidStartRemaking:(id)arg1;
 @end
 

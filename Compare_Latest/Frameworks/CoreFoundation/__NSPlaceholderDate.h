@@ -6,6 +6,7 @@
 
 #import <CoreFoundation/NSDate.h>
 
+// Not exported
 @interface __NSPlaceholderDate : NSDate
 {
 }
@@ -14,7 +15,7 @@
 + (void)initialize;
 - (double)timeIntervalSinceReferenceDate;
 - (void)dealloc;
-- (unsigned int)retainCount;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;
 - (id)init;

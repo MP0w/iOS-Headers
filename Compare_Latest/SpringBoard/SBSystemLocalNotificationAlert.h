@@ -15,14 +15,16 @@
     NSString *_bodyText;
     NSString *_actionLabel;
     NSString *_customLockLabel;
-    unsigned int _launchButtonIndex;
-    unsigned int _snoozeButtonIndex;
+    unsigned long long _launchButtonIndex;
+    unsigned long long _snoozeButtonIndex;
     SBUISound *_sound;
     NSTimer *_autoMuteTimer;
 }
 
-+ (void)snoozeAlertsAndDismiss:(BOOL)arg1;
-+ (BOOL)isAnyAlertPlayingAnAVItem;
++ (void)snoozeAlertsAndDismiss:(_Bool)arg1;
++ (void)dismissAlertsPlayingAnAVItem;
++ (_Bool)isAnyAlertPlayingAnAVItem;
++ (_Bool)_isAlertPlayingAnAVItem:(id)arg1;
 + (id)pathForSoundName:(id)arg1 inApp:(id)arg2;
 + (id)localizedStringFromKey:(id)arg1 defaultValue:(id)arg2 inBundle:(id)arg3 arguments:(id)arg4;
 + (id)alertMatchingLocalNotification:(id)arg1;
@@ -30,7 +32,7 @@
 @property(readonly, nonatomic) NSString *bodyText; // @synthesize bodyText=_bodyText;
 @property(readonly, nonatomic) UILocalNotification *localNotification; // @synthesize localNotification=_localNotification;
 @property(readonly, nonatomic) SBApplication *application; // @synthesize application=_app;
-- (BOOL)isSystemLocalNotificationAlert;
+- (_Bool)isSystemLocalNotificationAlert;
 - (void)dismiss:(int)arg1;
 - (void)willDeactivateForReason:(int)arg1;
 - (void)willActivate;
@@ -38,20 +40,19 @@
 - (void)_playPresentationSound;
 - (id)sound;
 - (void)performUnlockAction;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (int)alertPriority;
 - (id)alertItemNotificationSender;
 - (int)alertItemNotificationType;
 - (int)unlockSource;
-- (BOOL)isCriticalAlert;
-- (BOOL)shouldShowInEmergencyCall;
-- (float)lockLabelFontSize;
+- (_Bool)isCriticalAlert;
+- (_Bool)shouldShowInEmergencyCall;
 - (id)lockLabel;
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
+- (void)configure:(_Bool)arg1 requirePasscodeForActions:(_Bool)arg2;
 - (Class)alertSheetClass;
 - (void)dealloc;
 - (id)initWithLocalNotification:(id)arg1 forApplication:(id)arg2;
-- (BOOL)isSnoozable;
+- (_Bool)isSnoozable;
 
 @end
 

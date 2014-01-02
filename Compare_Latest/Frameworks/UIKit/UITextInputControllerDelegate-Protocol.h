@@ -13,7 +13,7 @@
 - (struct _NSRange)textInput:(id)arg1 willChangeSelectionFromCharacterRange:(struct _NSRange)arg2 toCharacterRange:(struct _NSRange)arg3;
 - (void)textInputDidChange:(id)arg1;
 - (void)textInput:(id)arg1 prepareAttributedTextForInsertion:(id)arg2;
-- (BOOL)textInput:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementText:(id)arg3;
-- (BOOL)textInputShouldBeginEditing:(id)arg1;
+- (_Bool)textInput:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementText:(id)arg3;
+- (_Bool)textInputShouldBeginEditing:(id)arg1;
 @end
 

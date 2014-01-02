@@ -6,6 +6,7 @@
 
 #import <CoreData/_NSScalarObjectID.h>
 
+// Not exported
 @interface NSScalarObjectID64 : _NSScalarObjectID
 {
     int _cd_rc;

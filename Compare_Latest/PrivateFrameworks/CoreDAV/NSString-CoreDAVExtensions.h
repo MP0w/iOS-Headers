@@ -9,12 +9,12 @@
 @interface NSString (CoreDAVExtensions)
 + (id)CDVPreconditionHeaderValueWithCTag:(id)arg1;
 + (id)CDVPreconditionHeaderValueWithCTag:(id)arg1 pathTag:(id)arg2;
-+ (id)CDVStringWithNumberOfSpaces:(unsigned int)arg1;
++ (id)CDVStringWithNumberOfSpaces:(unsigned long long)arg1;
 + (id)CDVStringWithNameSpace:(id)arg1 andName:(id)arg2;
 - (id)CDVStringByXMLUnquoting;
 - (id)CDVStringByXMLQuoting;
 - (id)CDVStringByAddingPercentEscapesForUserOrPassword;
-- (BOOL)CDVIsHTTPStatusLineWithStatusCode:(int)arg1;
+- (_Bool)CDVIsHTTPStatusLineWithStatusCode:(long long)arg1;
 - (id)CDVStringByRemovingTerminatingSlashIfNeeded;
 - (id)CDVStringByAppendingSlashIfNeeded;
 - (id)CDVStringByRemovingPercentEscapesForHREF;

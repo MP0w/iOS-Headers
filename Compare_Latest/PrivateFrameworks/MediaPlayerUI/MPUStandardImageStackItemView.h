@@ -12,33 +12,36 @@
 {
     _MPUBorderView *_borderView;
     UIImageView *_imageView;
-    float _dropShadowAlpha;
+    double _dropShadowAlpha;
     UIColor *_dropShadowColor;
+    unsigned long long _dropShadowEdges;
+    double _dropShadowWidth;
     UIImage *_image;
-    float _imageAlpha;
-    float _overlayBorderWidth;
-    float _overlayBorderAlpha;
+    double _imageAlpha;
+    double _overlayBorderWidth;
+    double _overlayBorderAlpha;
     UIColor *_overlayBorderColor;
-    float _overlayCenterAlpha;
+    double _overlayCenterAlpha;
     UIColor *_overlayCenterColor;
-    struct UIOffset _dropShadowOffset;
     struct CGRect _imageContentsRect;
     struct CGAffineTransform _imageTransform;
 }
 
 @property(retain, nonatomic) UIColor *overlayCenterColor; // @synthesize overlayCenterColor=_overlayCenterColor;
-@property(nonatomic) float overlayCenterAlpha; // @synthesize overlayCenterAlpha=_overlayCenterAlpha;
+@property(nonatomic) double overlayCenterAlpha; // @synthesize overlayCenterAlpha=_overlayCenterAlpha;
 @property(retain, nonatomic) UIColor *overlayBorderColor; // @synthesize overlayBorderColor=_overlayBorderColor;
-@property(nonatomic) float overlayBorderAlpha; // @synthesize overlayBorderAlpha=_overlayBorderAlpha;
-@property(nonatomic) float overlayBorderWidth; // @synthesize overlayBorderWidth=_overlayBorderWidth;
+@property(nonatomic) double overlayBorderAlpha; // @synthesize overlayBorderAlpha=_overlayBorderAlpha;
+@property(nonatomic) double overlayBorderWidth; // @synthesize overlayBorderWidth=_overlayBorderWidth;
 @property(nonatomic) struct CGAffineTransform imageTransform; // @synthesize imageTransform=_imageTransform;
 @property(nonatomic) struct CGRect imageContentsRect; // @synthesize imageContentsRect=_imageContentsRect;
-@property(nonatomic) float imageAlpha; // @synthesize imageAlpha=_imageAlpha;
+@property(nonatomic) double imageAlpha; // @synthesize imageAlpha=_imageAlpha;
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
-@property(nonatomic) struct UIOffset dropShadowOffset; // @synthesize dropShadowOffset=_dropShadowOffset;
+@property(nonatomic) double dropShadowWidth; // @synthesize dropShadowWidth=_dropShadowWidth;
+@property(nonatomic) unsigned long long dropShadowEdges; // @synthesize dropShadowEdges=_dropShadowEdges;
 @property(retain, nonatomic) UIColor *dropShadowColor; // @synthesize dropShadowColor=_dropShadowColor;
-@property(nonatomic) float dropShadowAlpha; // @synthesize dropShadowAlpha=_dropShadowAlpha;
+@property(nonatomic) double dropShadowAlpha; // @synthesize dropShadowAlpha=_dropShadowAlpha;
 - (void).cxx_destruct;
+- (void)_updateForBorderViewChange;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;

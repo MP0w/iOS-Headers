@@ -13,20 +13,23 @@
     CALayer *_seconds;
     CALayer *_minutes;
     CALayer *_hours;
+    CALayer *_blackDot;
+    CALayer *_redDot;
 }
 
++ (void)_iconEditingStateChanged:(id)arg1;
 + (void)_handleTimeChange:(id)arg1;
 + (void)_timerFired:(id)arg1;
 + (void)initialize;
-- (void)_timerFiredWithComponents:(id)arg1 flags:(unsigned int)arg2;
-- (void)_handleTimeChange:(id)arg1;
+- (void)_timerFiredWithComponents:(id)arg1 flags:(unsigned long long)arg2;
 - (void)_updateUnanimated;
 - (void)_updateUnanimatedWithComponents:(id)arg1;
 - (void)dealloc;
-- (void)_setAnimating:(BOOL)arg1;
+- (void)_setAnimating:(_Bool)arg1;
 - (void)updateAnimatingState;
-- (id)squareContentsImage;
+- (id)_generateSquareContentsImage;
 - (id)contentsImage;
+- (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

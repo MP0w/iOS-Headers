@@ -17,7 +17,7 @@
 + (Class)MFContactsSearchManagerClass;
 + (Class)MFComposeRecipientClass;
 + (Class)MFComposeRecipientViewClass;
-+ (BOOL)canSendMail;
++ (_Bool)canSendMail;
 + (id)newComposeViewController;
 + (Class)MFMailComposeViewControllerClass;
 

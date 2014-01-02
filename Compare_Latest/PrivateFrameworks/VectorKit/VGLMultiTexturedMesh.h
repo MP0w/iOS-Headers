@@ -8,6 +8,7 @@
 
 @class NSMutableArray, NSMutableData;
 
+// Not exported
 @interface VGLMultiTexturedMesh : VGLMesh
 {
     int _sectionCount;

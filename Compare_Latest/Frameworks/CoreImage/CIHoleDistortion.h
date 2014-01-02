@@ -8,6 +8,7 @@
 
 @class CIImage, CIVector, NSNumber;
 
+// Not exported
 @interface CIHoleDistortion : CIFilter
 {
     CIImage *inputImage;
@@ -23,7 +24,7 @@
 - (struct CGRect)computeDOD;
 - (id)_colorKernel;
 - (id)_geomKernel;
-- (BOOL)_isIdentity;
+- (_Bool)_isIdentity;
 - (void)setDefaults;
 
 @end

@@ -8,10 +8,10 @@
 
 @protocol SBIconViewMapDelegate <NSObject>
 - (int)viewMap:(id)arg1 locationForIcon:(id)arg2;
-- (unsigned int)viewMap:(id)arg1 maxRecycledIconViewsOfClass:(Class)arg2;
+- (unsigned long long)viewMap:(id)arg1 maxRecycledIconViewsOfClass:(Class)arg2;
 
 @optional
-- (unsigned int)viewMap:(id)arg1 numberOfViewsToPrepareOfClass:(Class)arg2;
+- (unsigned long long)viewMap:(id)arg1 numberOfViewsToPrepareOfClass:(Class)arg2;
 - (id)viewMapShouldPrepareViewsOfClasses:(id)arg1;
 @end
 

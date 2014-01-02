@@ -19,7 +19,7 @@
 @property(readonly, nonatomic) UIButton *linkButton; // @synthesize linkButton=_linkButton;
 - (void)dealloc;
 - (void)_linkPressed;
-- (float)footerHeightForWidth:(float)arg1 inTableView:(id)arg2;
+- (double)footerHeightForWidth:(double)arg1 inTableView:(id)arg2;
 - (void)layoutSubviews;
 - (void)setDelegate:(id)arg1;
 - (id)initWithAttributes:(id)arg1;

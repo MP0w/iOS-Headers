@@ -8,15 +8,15 @@
 
 @interface _ADRemoteViewController : _UIRemoteViewController
 {
-    BOOL _hasBeenDismissed;
-    unsigned int _remoteSupportedInterfaceOrientations;
+    _Bool _hasBeenDismissed;
+    unsigned long long _remoteSupportedInterfaceOrientations;
 }
 
 + (id)serviceViewControllerInterface;
-@property(nonatomic) BOOL hasBeenDismissed; // @synthesize hasBeenDismissed=_hasBeenDismissed;
-@property(nonatomic) unsigned int remoteSupportedInterfaceOrientations; // @synthesize remoteSupportedInterfaceOrientations=_remoteSupportedInterfaceOrientations;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (unsigned int)supportedInterfaceOrientations;
+@property(nonatomic) _Bool hasBeenDismissed; // @synthesize hasBeenDismissed=_hasBeenDismissed;
+@property(nonatomic) unsigned long long remoteSupportedInterfaceOrientations; // @synthesize remoteSupportedInterfaceOrientations=_remoteSupportedInterfaceOrientations;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (unsigned long long)supportedInterfaceOrientations;
 
 @end
 

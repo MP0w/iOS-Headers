@@ -8,15 +8,16 @@
 
 @class NSDictionary;
 
+// Not exported
 @interface UIPeripheralHostState : NSObject
 {
     struct UIPeripheralAnimationGeometry _geometry;
     NSDictionary *_screenGeometry;
-    BOOL _inPositionIsDestination;
+    _Bool _inPositionIsDestination;
 }
 
-+ (id)stateWithGeometry:(struct UIPeripheralAnimationGeometry)arg1 inPositionIsDestination:(BOOL)arg2;
-@property(nonatomic) BOOL inPositionIsDestination; // @synthesize inPositionIsDestination=_inPositionIsDestination;
++ (id)stateWithGeometry:(struct UIPeripheralAnimationGeometry)arg1 inPositionIsDestination:(_Bool)arg2;
+@property(nonatomic) _Bool inPositionIsDestination; // @synthesize inPositionIsDestination=_inPositionIsDestination;
 @property(retain, nonatomic) NSDictionary *screenGeometry; // @synthesize screenGeometry=_screenGeometry;
 @property(nonatomic) struct UIPeripheralAnimationGeometry geometry; // @synthesize geometry=_geometry;
 - (void)dealloc;

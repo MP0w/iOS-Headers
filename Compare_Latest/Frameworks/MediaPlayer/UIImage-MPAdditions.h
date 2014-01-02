@@ -7,6 +7,6 @@
 #import "UIImage.h"
 
 @interface UIImage (MPAdditions)
-- (id)mp_stretchableImageWithLeftCapWidth:(int)arg1 rightCapWidth:(int)arg2;
+- (id)mp_stretchableImageWithLeftCapWidth:(long long)arg1 rightCapWidth:(long long)arg2;
 @end
 

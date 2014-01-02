@@ -8,10 +8,11 @@
 
 @class NSConcreteMapTable;
 
+// Not exported
 @interface NSConcreteMapTableValueEnumerator : NSEnumerator
 {
     NSConcreteMapTable *mapTable;
-    unsigned int counter;
+    unsigned long long counter;
 }
 
 + (id)enumeratorWithMapTable:(id)arg1;

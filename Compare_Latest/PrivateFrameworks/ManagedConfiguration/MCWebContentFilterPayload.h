@@ -10,7 +10,7 @@
 
 @interface MCWebContentFilterPayload : MCPayload
 {
-    BOOL _autoFilterEnabled;
+    _Bool _autoFilterEnabled;
     NSArray *_permittedURLStrings;
     NSArray *_whitelistedBookmarks;
     NSArray *_blacklistedURLStrings;
@@ -22,7 +22,7 @@
 @property(retain, nonatomic) NSArray *blacklistedURLStrings; // @synthesize blacklistedURLStrings=_blacklistedURLStrings;
 @property(retain, nonatomic) NSArray *whitelistedBookmarks; // @synthesize whitelistedBookmarks=_whitelistedBookmarks;
 @property(retain, nonatomic) NSArray *permittedURLStrings; // @synthesize permittedURLStrings=_permittedURLStrings;
-@property(nonatomic) BOOL autoFilterEnabled; // @synthesize autoFilterEnabled=_autoFilterEnabled;
+@property(nonatomic) _Bool autoFilterEnabled; // @synthesize autoFilterEnabled=_autoFilterEnabled;
 - (void).cxx_destruct;
 - (id)subtitle1Description;
 - (id)subtitle1Label;

@@ -7,7 +7,7 @@
 #import "DOMElement.h"
 
 @interface DOMElement (UIWebSelectionAdditions)
-- (BOOL)hasCustomLineHeight;
-- (BOOL)selectable;
+- (_Bool)hasCustomLineHeight;
+- (_Bool)selectable;
 @end
 

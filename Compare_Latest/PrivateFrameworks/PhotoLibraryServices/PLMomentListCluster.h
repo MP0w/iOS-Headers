@@ -10,23 +10,23 @@
 
 @interface PLMomentListCluster : NSObject
 {
-    unsigned int _month;
-    unsigned int _year;
-    unsigned int _numberOfMoments;
-    unsigned int _numberOfAssets;
+    unsigned long long _month;
+    unsigned long long _year;
+    unsigned long long _numberOfMoments;
+    unsigned long long _numberOfAssets;
     NSMutableSet *__moments;
 }
 
 @property(readonly, nonatomic) NSMutableSet *_moments; // @synthesize _moments=__moments;
-@property(readonly, nonatomic) unsigned int numberOfAssets; // @synthesize numberOfAssets=_numberOfAssets;
-@property(readonly, nonatomic) unsigned int numberOfMoments; // @synthesize numberOfMoments=_numberOfMoments;
-@property(readonly, nonatomic) unsigned int year; // @synthesize year=_year;
-@property(readonly, nonatomic) unsigned int month; // @synthesize month=_month;
-- (unsigned int)peak;
+@property(readonly, nonatomic) unsigned long long numberOfAssets; // @synthesize numberOfAssets=_numberOfAssets;
+@property(readonly, nonatomic) unsigned long long numberOfMoments; // @synthesize numberOfMoments=_numberOfMoments;
+@property(readonly, nonatomic) unsigned long long year; // @synthesize year=_year;
+@property(readonly, nonatomic) unsigned long long month; // @synthesize month=_month;
+- (unsigned long long)peak;
 - (void)removeMoment:(id)arg1;
 - (void)addMoment:(id)arg1;
 - (void)dealloc;
-- (id)initWithMonth:(unsigned int)arg1 year:(unsigned int)arg2;
+- (id)initWithMonth:(unsigned long long)arg1 year:(unsigned long long)arg2;
 - (id)init;
 
 @end

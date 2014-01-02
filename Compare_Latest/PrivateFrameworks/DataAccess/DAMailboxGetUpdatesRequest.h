@@ -13,8 +13,8 @@
 }
 
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (int)bodyFormat;
 - (int)maxSize;
 - (id)initRequestForBodyFormat:(int)arg1 withBodySizeLimit:(int)arg2;

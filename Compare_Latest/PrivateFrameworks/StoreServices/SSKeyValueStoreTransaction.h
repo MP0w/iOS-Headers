@@ -10,8 +10,8 @@
 {
 }
 
-- (BOOL)setValue:(id)arg1 forDomain:(id)arg2 key:(id)arg3;
-- (BOOL)setData:(id)arg1 forDomain:(id)arg2 key:(id)arg3;
+- (_Bool)setValue:(id)arg1 forDomain:(id)arg2 key:(id)arg3;
+- (_Bool)setData:(id)arg1 forDomain:(id)arg2 key:(id)arg3;
 - (void)removeAccountFromDomain:(id)arg1;
 
 @end

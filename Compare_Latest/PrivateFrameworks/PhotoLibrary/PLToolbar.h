@@ -13,8 +13,8 @@
     UIToolbar *_persistentToolbar;
 }
 
-@property(nonatomic, getter=isBackgroundAlwaysVisible) BOOL backgroundAlwaysVisible;
-@property(nonatomic, getter=isBackgroundHidden) BOOL backgroundHidden;
+@property(nonatomic, getter=isBackgroundAlwaysVisible) _Bool backgroundAlwaysVisible;
+@property(nonatomic, getter=isBackgroundHidden) _Bool backgroundHidden;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)dealloc;
 

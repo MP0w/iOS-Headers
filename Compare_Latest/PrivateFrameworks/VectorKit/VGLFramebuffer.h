@@ -8,6 +8,7 @@
 
 @class VGLContext, VGLScreenCanvas, VGLTexture;
 
+// Not exported
 @interface VGLFramebuffer : NSObject
 {
     VGLContext *_context;
@@ -20,12 +21,14 @@
     unsigned int _multisampleDepthbuffer;
     int _width;
     int _height;
-    BOOL _createdWithDepth;
-    BOOL _createdWithStencil;
-    BOOL _isPresentable;
-    BOOL _multisampleModeCurrent;
-    BOOL _multisampleModeNext;
+    _Bool _createdWithDepth;
+    _Bool _createdWithStencil;
+    _Bool _isPresentable;
+    _Bool _multisampleModeCurrent;
+    _Bool _multisampleModeNext;
     VGLTexture *_texture;
+    _Bool _usingMagicFramebuffer;
+    int _magicFramebufferToken;
 }
 
 @property(readonly, nonatomic) unsigned int framebuffer; // @synthesize framebuffer=_framebuffer;
@@ -33,7 +36,7 @@
 @property(nonatomic) VGLScreenCanvas *canvas; // @synthesize canvas=_canvas;
 @property(readonly, nonatomic) int height; // @synthesize height=_height;
 @property(readonly, nonatomic) int width; // @synthesize width=_width;
-@property(readonly, nonatomic) BOOL isPresentable; // @synthesize isPresentable=_isPresentable;
+@property(readonly, nonatomic) _Bool isPresentable; // @synthesize isPresentable=_isPresentable;
 - (void)deleteUnusedFramebuffers;
 - (void)deleteResolveFramebuffers;
 - (void)deleteFramebuffers;
@@ -44,14 +47,14 @@
 - (void)_deallocMultisampleFramebuffer;
 - (void)_deallocSecondaryFramebuffer;
 - (void)_deallocResolveFramebuffer;
-- (BOOL)_createMultisampleFramebufferWithDepth:(BOOL)arg1 stencil:(BOOL)arg2;
-- (BOOL)_createSecondaryFramebufferWithDepth:(BOOL)arg1 stencil:(BOOL)arg2;
-- (BOOL)_createResolveFramebuffer;
+- (_Bool)_createMultisampleFramebufferWithDepth:(_Bool)arg1 stencil:(_Bool)arg2;
+- (_Bool)_createSecondaryFramebufferWithDepth:(_Bool)arg1 stencil:(_Bool)arg2;
+- (_Bool)_createResolveFramebuffer;
 - (void)dealloc;
-- (id)initWithContext:(id)arg1 texture:(id)arg2 depth:(BOOL)arg3 stencil:(BOOL)arg4;
-- (id)initWithContext:(id)arg1 canvas:(id)arg2 depth:(BOOL)arg3 stencil:(BOOL)arg4 multisampling:(BOOL)arg5;
+- (id)initWithContext:(id)arg1 texture:(id)arg2 depth:(_Bool)arg3 stencil:(_Bool)arg4;
+- (id)initWithContext:(id)arg1 canvas:(id)arg2 depth:(_Bool)arg3 stencil:(_Bool)arg4 multisampling:(_Bool)arg5;
 - (id)initWithContext:(id)arg1 canvas:(id)arg2;
-@property(nonatomic) BOOL useMultisampling;
+@property(nonatomic) _Bool useMultisampling;
 
 @end
 

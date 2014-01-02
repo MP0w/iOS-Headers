@@ -17,9 +17,9 @@
 @property(readonly) NSString *foreignPersistentIDProperty; // @synthesize foreignPersistentIDProperty=_foreignPersistentIDProperty;
 @property(readonly) Class aggregateEntityClass; // @synthesize aggregateEntityClass=_aggregateEntityClass;
 - (void).cxx_destruct;
-- (id)selectPersistentIDsSQLAndProperties:(id)arg1 ordered:(BOOL)arg2;
-- (unsigned int)countOfEntities;
-- (BOOL)hasEntities;
+- (id)selectPersistentIDsSQLAndProperties:(id)arg1 ordered:(_Bool)arg2;
+- (unsigned long long)countOfEntities;
+- (_Bool)hasEntities;
 - (id)persistentIDProperty;
 - (Class)entityClass;
 - (void)encodeWithCoder:(id)arg1;

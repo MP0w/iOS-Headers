@@ -23,8 +23,8 @@
 + (id)songWithURL:(id)arg1;
 + (id)song;
 - (id)parentPlaylist;
-- (int)index;
-@property(nonatomic) float audioVolume; // @dynamic audioVolume;
+- (long long)index;
+@property(nonatomic) double audioVolume; // @dynamic audioVolume;
 @property(nonatomic) double fadeOutDuration; // @dynamic fadeOutDuration;
 @property(nonatomic) double fadeInDuration; // @dynamic fadeInDuration;
 @property(nonatomic) double duration; // @dynamic duration;
@@ -38,15 +38,6 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)init;
-- (double)maxDuration;
-- (id)song;
-- (void)setInternalStartTime;
-- (void)setInternalDuration;
-- (void)setParentPlaylist:(id)arg1;
-- (void)setSong:(id)arg1;
-- (void)copyStruct:(id)arg1;
-- (id)parentDocument;
-- (double)stopTime;
 
 @end
 

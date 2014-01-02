@@ -8,19 +8,20 @@
 
 @class NSArray, NSMutableArray, NSObject<OS_dispatch_semaphore>, VKWorld;
 
+// Not exported
 @interface VKModelObject : NSObject
 {
     VKWorld *_world;
     VKModelObject *_supermodel;
     NSMutableArray *_submodels;
     NSMutableArray *_drawPasses;
-    BOOL _active;
+    _Bool _active;
     unsigned int _needsLayout;
     unsigned int _needsDisplay;
     NSObject<OS_dispatch_semaphore> *_drawReady;
 }
 
-@property(nonatomic, getter=isActive) BOOL active; // @synthesize active=_active;
+@property(nonatomic, getter=isActive) _Bool active; // @synthesize active=_active;
 @property(readonly, nonatomic) VKModelObject *supermodel; // @synthesize supermodel=_supermodel;
 @property(readonly, nonatomic) NSArray *submodels; // @synthesize submodels=_submodels;
 @property(nonatomic) VKWorld *world; // @synthesize world=_world;

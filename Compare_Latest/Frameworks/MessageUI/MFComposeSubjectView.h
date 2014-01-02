@@ -17,10 +17,10 @@
 }
 
 @property(readonly, nonatomic) UITextField *textField; // @synthesize textField=_textField;
-- (BOOL)_canBecomeFirstResponder;
+- (_Bool)_canBecomeFirstResponder;
 - (void)dealloc;
-- (BOOL)endEditing:(BOOL)arg1;
-- (BOOL)keyboardInput:(id)arg1 shouldInsertText:(id)arg2 isMarkedText:(BOOL)arg3;
+- (_Bool)endEditing:(_Bool)arg1;
+- (_Bool)keyboardInput:(id)arg1 shouldInsertText:(id)arg2 isMarkedText:(_Bool)arg3;
 - (void)textChanged:(id)arg1;
 - (void)setDelegate:(id)arg1;
 - (void)setText:(id)arg1;
@@ -28,7 +28,7 @@
 - (void)refreshPreferredContentSize;
 - (void)textFieldDidBecomeFirstResponder:(id)arg1;
 - (void)textFieldDidResignFirstResponder:(id)arg1;
-- (BOOL)becomeFirstResponder;
+- (_Bool)becomeFirstResponder;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

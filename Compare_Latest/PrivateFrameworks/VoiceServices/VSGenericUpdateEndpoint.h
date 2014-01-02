@@ -19,7 +19,7 @@
     id _handler;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 + (id)remoteUpdateHanderForEndpoint:(SEL)arg1;
 + (id)configuredEndpointWithUpdateHandler:(id)arg1 withConnection:(void)arg2;
 @property(copy, nonatomic) id handler; // @synthesize handler=_handler;
@@ -30,7 +30,7 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (void)invalidate;
-- (BOOL)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
+- (_Bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
 - (void)dealloc;
 
 @end

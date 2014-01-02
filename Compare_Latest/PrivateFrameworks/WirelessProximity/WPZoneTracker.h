@@ -12,22 +12,22 @@
 
 @interface WPZoneTracker : NSObject <XPCClientDelegate>
 {
-    BOOL _wantEntry;
-    BOOL _wantExit;
-    int _state;
+    _Bool _wantEntry;
+    _Bool _wantExit;
+    long long _state;
     XPCClient *_connection;
     id <WPZoneTrackerDelegate> _delegate;
     NSObject<OS_dispatch_queue> *_queue;
 }
 
 @property(retain) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
-@property(nonatomic) BOOL wantExit; // @synthesize wantExit=_wantExit;
-@property(nonatomic) BOOL wantEntry; // @synthesize wantEntry=_wantEntry;
+@property(nonatomic) _Bool wantExit; // @synthesize wantExit=_wantExit;
+@property(nonatomic) _Bool wantEntry; // @synthesize wantEntry=_wantEntry;
 @property(nonatomic) __weak id <WPZoneTrackerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) XPCClient *connection; // @synthesize connection=_connection;
-@property int state; // @synthesize state=_state;
+@property long long state; // @synthesize state=_state;
 - (void).cxx_destruct;
-- (void)changeState:(int)arg1;
+- (void)changeState:(long long)arg1;
 - (void)messageArrived:(id)arg1;
 - (void)connectionInterrupted;
 - (void)connectionDied;
@@ -38,6 +38,7 @@
 - (void)unregisterAllZoneChanges;
 - (void)unregisterForZoneChanges:(id)arg1;
 - (void)registerForZoneChangesMatching:(id)arg1;
+- (id)description;
 - (void)dealloc;
 - (id)initWithDelegate:(id)arg1;
 - (id)initWithDelegate:(id)arg1 queue:(id)arg2;

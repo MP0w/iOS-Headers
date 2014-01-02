@@ -12,28 +12,30 @@
 {
     id _sbufCompletionBlock;
     id _iosurfaceCompletionBlock;
-    int _stillImageOrientation;
-    BOOL _stillImageMirrored;
+    long long _stillImageOrientation;
+    _Bool _stillImageMirrored;
     struct CGSize _previewImageSize;
-    unsigned long _imageDataFormatType;
-    int _HDRMode;
-    BOOL _chromaNoiseReductionEnabled;
-    BOOL _suspendsVideoProcessing;
-    BOOL _jpegQualitySpecified;
+    unsigned int _imageDataFormatType;
+    long long _HDRMode;
+    _Bool _chromaNoiseReductionEnabled;
+    _Bool _suspendsVideoProcessing;
+    unsigned int _shutterSoundID;
+    _Bool _jpegQualitySpecified;
     float _jpegQuality;
 }
 
 + (id)request;
-@property BOOL suspendsVideoProcessing; // @synthesize suspendsVideoProcessing=_suspendsVideoProcessing;
-@property BOOL chromaNoiseReductionEnabled; // @synthesize chromaNoiseReductionEnabled=_chromaNoiseReductionEnabled;
-@property int HDRMode; // @synthesize HDRMode=_HDRMode;
+@property unsigned int shutterSoundID; // @synthesize shutterSoundID=_shutterSoundID;
+@property _Bool suspendsVideoProcessing; // @synthesize suspendsVideoProcessing=_suspendsVideoProcessing;
+@property _Bool chromaNoiseReductionEnabled; // @synthesize chromaNoiseReductionEnabled=_chromaNoiseReductionEnabled;
+@property long long HDRMode; // @synthesize HDRMode=_HDRMode;
 @property(copy) id iosurfaceCompletionBlock; // @synthesize iosurfaceCompletionBlock=_iosurfaceCompletionBlock;
 @property(copy) id sbufCompletionBlock; // @synthesize sbufCompletionBlock=_sbufCompletionBlock;
-@property int stillImageOrientation; // @synthesize stillImageOrientation=_stillImageOrientation;
-@property(getter=isStillImageMirrored) BOOL stillImageMirrored; // @synthesize stillImageMirrored=_stillImageMirrored;
-@property BOOL jpegQualitySpecified; // @synthesize jpegQualitySpecified=_jpegQualitySpecified;
+@property long long stillImageOrientation; // @synthesize stillImageOrientation=_stillImageOrientation;
+@property(getter=isStillImageMirrored) _Bool stillImageMirrored; // @synthesize stillImageMirrored=_stillImageMirrored;
+@property _Bool jpegQualitySpecified; // @synthesize jpegQualitySpecified=_jpegQualitySpecified;
 @property float jpegQuality; // @synthesize jpegQuality=_jpegQuality;
-@property unsigned long imageDataFormatType; // @synthesize imageDataFormatType=_imageDataFormatType;
+@property unsigned int imageDataFormatType; // @synthesize imageDataFormatType=_imageDataFormatType;
 @property struct CGSize previewImageSize; // @synthesize previewImageSize=_previewImageSize;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;

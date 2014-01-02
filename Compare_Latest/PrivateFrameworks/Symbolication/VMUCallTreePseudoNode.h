@@ -6,6 +6,7 @@
 
 #import <Symbolication/VMUCallTreeNode.h>
 
+// Not exported
 @interface VMUCallTreePseudoNode : VMUCallTreeNode
 {
 }
@@ -13,7 +14,7 @@
 - (id)largestTopOfStackPath;
 - (id)sortedChildrenWithPseudoNode;
 - (id)pseudoNodeTopOfStackChild;
-- (BOOL)isPseudo;
+- (_Bool)isPseudo;
 
 @end
 

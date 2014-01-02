@@ -14,7 +14,7 @@
 
 + (id)eventSearchWithDictionary:(id)arg1 context:(id)arg2;
 + (id)eventSearch;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSString *title;
 @property(copy, nonatomic) NSString *timeZoneId;
 @property(copy, nonatomic) NSDate *startDate;

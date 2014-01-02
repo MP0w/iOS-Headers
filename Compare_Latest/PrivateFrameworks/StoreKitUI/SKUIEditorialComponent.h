@@ -6,22 +6,28 @@
 
 #import <StoreKitUI/SKUIPageComponent.h>
 
-@class NSString;
+@class NSArray, NSString;
 
 @interface SKUIEditorialComponent : SKUIPageComponent
 {
     NSString *_bodyText;
-    int _maximumBodyLines;
+    NSArray *_links;
+    long long _maximumBodyLines;
     struct SKUIEditorialStyle _style;
     NSString *_titleText;
+    _Bool _usesLockupTitle;
 }
 
+@property(readonly, nonatomic, getter=_usesLockupTitle) _Bool _usesLockupTitle; // @synthesize _usesLockupTitle;
 @property(readonly, nonatomic) NSString *titleText; // @synthesize titleText=_titleText;
-@property(readonly, nonatomic) int maximumBodyLines; // @synthesize maximumBodyLines=_maximumBodyLines;
+@property(readonly, nonatomic) long long maximumBodyLines; // @synthesize maximumBodyLines=_maximumBodyLines;
+@property(readonly, nonatomic) NSArray *links; // @synthesize links=_links;
 @property(readonly, nonatomic) struct SKUIEditorialStyle editorialStyle; // @synthesize editorialStyle=_style;
 @property(readonly, nonatomic) NSString *bodyText; // @synthesize bodyText=_bodyText;
 - (void).cxx_destruct;
-- (int)componentType;
+- (long long)componentType;
+- (void)_setTitleText:(id)arg1;
+- (id)initWithUberText:(id)arg1;
 - (id)initWithCustomPageContext:(id)arg1;
 - (id)initWithBrickRoomText:(id)arg1;
 

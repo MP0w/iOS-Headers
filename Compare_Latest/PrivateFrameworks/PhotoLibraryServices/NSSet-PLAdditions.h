@@ -7,6 +7,6 @@
 #import "NSSet.h"
 
 @interface NSSet (PLAdditions)
-- (unsigned int)pl_countOfObjectsPassingTest:(id)arg1;
+- (unsigned long long)pl_countOfObjectsPassingTest:(id)arg1;
 @end
 

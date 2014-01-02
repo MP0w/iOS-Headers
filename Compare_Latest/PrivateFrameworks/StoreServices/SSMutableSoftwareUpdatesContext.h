@@ -17,7 +17,7 @@
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)copyXPCEncoding;
 @property(copy, nonatomic) NSArray *softwareTypes; // @dynamic softwareTypes;
-@property(nonatomic, getter=isForced) BOOL forced; // @dynamic forced;
+@property(nonatomic, getter=isForced) _Bool forced; // @dynamic forced;
 @property(copy, nonatomic) NSString *clientIdentifierHeader; // @dynamic clientIdentifierHeader;
 
 @end

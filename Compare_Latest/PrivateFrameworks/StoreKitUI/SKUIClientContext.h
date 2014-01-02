@@ -8,27 +8,42 @@
 
 #import "SUClientInterfaceDelegate-Protocol.h"
 
-@class NSArray, NSBundle, NSDictionary, NSMutableArray, NSString, SSURLBag, SUClientInterface;
+@class NSArray, NSBundle, NSDictionary, NSMapTable, NSMutableArray, NSString, SKUIStoreDialogController, SSURLBag, SUClientInterface;
 
 @interface SKUIClientContext : NSObject <SUClientInterfaceDelegate>
 {
     NSBundle *_bundle;
     SUClientInterface *_clientInterface;
+    NSDictionary *_configurationDictionary;
+    SKUIStoreDialogController *_dialogController;
+    NSString *_metricsConfigurationIdentifier;
+    NSMapTable *_metricsPageContexts;
     NSMutableArray *_navigationHistory;
+    NSString *_navigationHistoryPersistenceKey;
     NSString *_storeFrontIdentifier;
     NSDictionary *_strings;
     SSURLBag *_urlBag;
+    long long _userInterfaceIdiomOverride;
 }
 
++ (id)_configurationDictionaryWithBagDictionary:(id)arg1;
 + (id)_cachePathForStoreFrontIdentifier:(id)arg1;
 + (id)defaultContext;
+@property(nonatomic) long long userInterfaceIdiomOverride; // @synthesize userInterfaceIdiomOverride=_userInterfaceIdiomOverride;
 @property(readonly, nonatomic) NSString *storeFrontIdentifier; // @synthesize storeFrontIdentifier=_storeFrontIdentifier;
+@property(copy, nonatomic) NSString *navigationHistoryPersistenceKey; // @synthesize navigationHistoryPersistenceKey=_navigationHistoryPersistenceKey;
+@property(copy, nonatomic) NSString *metricsConfigurationIdentifier; // @synthesize metricsConfigurationIdentifier=_metricsConfigurationIdentifier;
 @property(readonly, nonatomic) SUClientInterface *clientInterface; // @synthesize clientInterface=_clientInterface;
 - (void).cxx_destruct;
 - (id)description;
+- (id)_navigationHistory;
+- (void)clientInterface:(id)arg1 presentDialog:(id)arg2;
+- (id)valueForConfigurationKey:(id)arg1;
 @property(readonly, nonatomic) SSURLBag *URLBag;
+- (void)setMetricsPageContext:(id)arg1 forViewController:(id)arg2;
 - (void)pushNavigationHistoryPageIdentifier:(id)arg1;
 @property(readonly, nonatomic) NSArray *navigationHistory;
+- (id)metricsPageContextForViewController:(id)arg1;
 - (id)localizedStringForKey:(id)arg1;
 - (id)localizedAlertWithError:(id)arg1;
 - (void)getDefaultMetricsControllerWithCompletionBlock:(id)arg1;

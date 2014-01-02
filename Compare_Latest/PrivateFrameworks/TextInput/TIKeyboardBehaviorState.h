@@ -8,24 +8,26 @@
 
 @interface TIKeyboardBehaviorState : NSObject
 {
-    BOOL hasInput;
-    BOOL hasCandidates;
-    BOOL hasCandidateSelected;
-    BOOL hasNextPage;
-    BOOL showsExtendedList;
-    BOOL followsZhuyin;
-    BOOL spaceConfirmation;
-    BOOL _showsCandidatesInLayout;
+    _Bool hasInput;
+    _Bool hasCandidates;
+    _Bool hasCandidateSelected;
+    _Bool hasNextPage;
+    _Bool showsExtendedList;
+    _Bool followsZhuyin;
+    _Bool spaceConfirmation;
+    _Bool _hasAutocorrection;
+    _Bool _showsCandidatesInLayout;
 }
 
-@property(nonatomic) BOOL showsCandidatesInLayout; // @synthesize showsCandidatesInLayout=_showsCandidatesInLayout;
-@property(nonatomic) BOOL spaceConfirmation; // @synthesize spaceConfirmation;
-@property(nonatomic) BOOL followsZhuyin; // @synthesize followsZhuyin;
-@property(nonatomic) BOOL showsExtendedList; // @synthesize showsExtendedList;
-@property(nonatomic) BOOL hasNextPage; // @synthesize hasNextPage;
-@property(nonatomic) BOOL hasCandidateSelected; // @synthesize hasCandidateSelected;
-@property(nonatomic) BOOL hasCandidates; // @synthesize hasCandidates;
-@property(nonatomic) BOOL hasInput; // @synthesize hasInput;
+@property(nonatomic) _Bool showsCandidatesInLayout; // @synthesize showsCandidatesInLayout=_showsCandidatesInLayout;
+@property(nonatomic) _Bool hasAutocorrection; // @synthesize hasAutocorrection=_hasAutocorrection;
+@property(nonatomic) _Bool spaceConfirmation; // @synthesize spaceConfirmation;
+@property(nonatomic) _Bool followsZhuyin; // @synthesize followsZhuyin;
+@property(nonatomic) _Bool showsExtendedList; // @synthesize showsExtendedList;
+@property(nonatomic) _Bool hasNextPage; // @synthesize hasNextPage;
+@property(nonatomic) _Bool hasCandidateSelected; // @synthesize hasCandidateSelected;
+@property(nonatomic) _Bool hasCandidates; // @synthesize hasCandidates;
+@property(nonatomic) _Bool hasInput; // @synthesize hasInput;
 
 @end
 

@@ -16,9 +16,8 @@
     UIView *_separatorView;
     UILabel *_subtitleLabel;
     UILabel *_textLabel;
-    BOOL _drawsSeparator;
-    BOOL _explicitTrack;
-    BOOL _hideArtworkImage;
+    _Bool _explicitTrack;
+    _Bool _hideArtworkImage;
     RUAudioPreviewView *_audioPreviewView;
     MPImageCache *_imageCache;
     MPImageCacheRequest *_imageRequest;
@@ -28,9 +27,8 @@
 @property(readonly, nonatomic) RUTrackDownloadView *trackDownloadView; // @synthesize trackDownloadView=_trackDownloadView;
 @property(retain, nonatomic) MPImageCacheRequest *imageRequest; // @synthesize imageRequest=_imageRequest;
 @property(retain, nonatomic) MPImageCache *imageCache; // @synthesize imageCache=_imageCache;
-@property(nonatomic) BOOL hideArtworkImage; // @synthesize hideArtworkImage=_hideArtworkImage;
-@property(nonatomic, getter=isExplicitTrack) BOOL explicitTrack; // @synthesize explicitTrack=_explicitTrack;
-@property(nonatomic) BOOL drawsSeparator; // @synthesize drawsSeparator=_drawsSeparator;
+@property(nonatomic) _Bool hideArtworkImage; // @synthesize hideArtworkImage=_hideArtworkImage;
+@property(nonatomic, getter=isExplicitTrack) _Bool explicitTrack; // @synthesize explicitTrack=_explicitTrack;
 @property(retain, nonatomic) RUAudioPreviewView *audioPreviewView; // @synthesize audioPreviewView=_audioPreviewView;
 - (void).cxx_destruct;
 - (void)trackDownloadViewWillTransition:(id)arg1;
@@ -39,7 +37,7 @@
 @property(readonly, nonatomic) UIImage *artworkImage;
 - (void)layoutSubviews;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

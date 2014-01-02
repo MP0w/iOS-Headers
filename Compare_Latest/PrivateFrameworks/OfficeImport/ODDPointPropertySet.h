@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface ODDPointPropertySet : NSObject
 {
     NSString *mLayoutTypeId;
@@ -16,7 +17,7 @@
     int mPresentationStyleIndex;
     int mPresentationStyleCount;
     NSObject *mPresentationAssociatedId;
-    BOOL mCustomVerticalFlip;
+    _Bool mCustomVerticalFlip;
     double mCustomScaleX;
     double mCustomScaleY;
     double mCustomOffsetX;
@@ -31,8 +32,8 @@
 - (double)customScaleY;
 - (void)setCustomScaleX:(double)arg1;
 - (double)customScaleX;
-- (void)setCustomVerticalFlip:(BOOL)arg1;
-- (BOOL)customVerticalFlip;
+- (void)setCustomVerticalFlip:(_Bool)arg1;
+- (_Bool)customVerticalFlip;
 - (void)setPresentationAssociatedId:(id)arg1;
 - (id)presentationAssociatedId;
 - (void)setPresentationStyleCount:(int)arg1;

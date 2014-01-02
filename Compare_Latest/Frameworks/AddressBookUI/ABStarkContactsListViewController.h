@@ -6,23 +6,28 @@
 
 #import "UITableViewController.h"
 
+#import "ABContactViewControllerDelegate-Protocol.h"
 #import "ABMembersDataSourceDelegate-Protocol.h"
 
 @class ABMembersDataSource, ABModel;
 
-@interface ABStarkContactsListViewController : UITableViewController <ABMembersDataSourceDelegate>
+@interface ABStarkContactsListViewController : UITableViewController <ABMembersDataSourceDelegate, ABContactViewControllerDelegate>
 {
     ABMembersDataSource *_dataSource;
     ABModel *_model;
+    id <ABStarkContactsListViewControllerDelegate> _peoplePickerDelegate;
 }
 
-- (BOOL)abDataSource:(id)arg1 shouldAllowSelectingPersonWithRecordID:(int)arg2;
-- (BOOL)abDataSourceAllowsShowingPersonsCards:(id)arg1;
-- (BOOL)abDataSource:(id)arg1 selectedPerson:(void *)arg2 atIndexPath:(id)arg3 withMemberCell:(id)arg4 animate:(BOOL)arg5;
-- (void)_physicalButtonsBegan:(id)arg1 withEvent:(id)arg2;
+@property(nonatomic) id <ABStarkContactsListViewControllerDelegate> peoplePickerDelegate; // @synthesize peoplePickerDelegate=_peoplePickerDelegate;
+- (_Bool)contactViewController:(id)arg1 shouldPerformDefaultActionForContact:(id)arg2 property:(id)arg3 labeledValue:(id)arg4;
+- (_Bool)abDataSource:(id)arg1 shouldAllowSelectingPersonWithRecordID:(int)arg2;
+- (_Bool)abDataSourceAllowsShowingPersonsCards:(id)arg1;
+- (_Bool)abDataSource:(id)arg1 selectedPerson:(void *)arg2 atIndexPath:(id)arg3 withMemberCell:(id)arg4 animate:(_Bool)arg5;
 - (void)viewDidLoad;
 - (void)dealloc;
 - (id)initWithModel:(id)arg1;
+- (id)initWithStyle:(long long)arg1;
+- (id)init;
 
 @end
 

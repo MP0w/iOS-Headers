@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSMutableArray, NSString;
 
-@interface GEOPhoto : PBCodable
+@interface GEOPhoto : PBCodable <NSCopying>
 {
     NSMutableArray *_photoInfos;
     int _photoType;
@@ -19,19 +21,20 @@
 @property(retain, nonatomic) NSString *uid; // @synthesize uid=_uid;
 @property(retain, nonatomic) NSMutableArray *photoInfos; // @synthesize photoInfos=_photoInfos;
 @property(nonatomic) int photoType; // @synthesize photoType=_photoType;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) BOOL hasUid;
-- (id)photoInfoAtIndex:(unsigned int)arg1;
-- (unsigned int)photoInfosCount;
+@property(readonly, nonatomic) _Bool hasUid;
+- (id)photoInfoAtIndex:(unsigned long long)arg1;
+- (unsigned long long)photoInfosCount;
 - (void)addPhotoInfo:(id)arg1;
 - (void)clearPhotoInfos;
-@property(nonatomic) BOOL hasPhotoType;
+@property(nonatomic) _Bool hasPhotoType;
 - (void)dealloc;
 
 @end

@@ -6,15 +6,28 @@
 
 #import "UIView.h"
 
-@class SBWindowContextHostManager;
+#import "SBAppSwitcherPageContentView-Protocol.h"
 
-@interface SBAppSwitcherContextHostWrapperView : UIView
+@class SBWallpaperEffectView, SBWindowContextHostManager, UIView<SBWindowContextAppearance>;
+
+@interface SBAppSwitcherContextHostWrapperView : UIView <SBAppSwitcherPageContentView>
 {
     SBWindowContextHostManager *_contextHostManager;
-    UIView *_contextHostView;
+    UIView *_containerView;
+    UIView<SBWindowContextAppearance> *_contextHostView;
+    UIView *_snapshotView;
+    SBWallpaperEffectView *_wallpaperEffectView;
+    long long _orientation;
 }
 
+@property(nonatomic) long long orientation; // @synthesize orientation=_orientation;
+- (void)_viewDidAnimatePresentation:(id)arg1;
+- (void)_viewDidAnimateDismissal:(id)arg1;
+- (void)_viewDismissing:(id)arg1;
+- (void)_viewPresenting:(id)arg1;
+- (struct CGAffineTransform)_rotationTransformForOrientation:(long long)arg1;
 - (void)layoutSubviews;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)didMoveToSuperview;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 application:(id)arg2;

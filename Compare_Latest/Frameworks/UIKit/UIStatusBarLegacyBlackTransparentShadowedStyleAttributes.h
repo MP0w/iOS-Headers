@@ -6,13 +6,14 @@
 
 #import <UIKit/UIStatusBarLegacyStyleAttributes.h>
 
+// Not exported
 @interface UIStatusBarLegacyBlackTransparentShadowedStyleAttributes : UIStatusBarLegacyStyleAttributes
 {
 }
 
-- (float)foregroundAlpha;
-- (id)newForegroundStyleWithHeight:(float)arg1;
-- (BOOL)isTranslucent;
+- (double)foregroundAlpha;
+- (id)newForegroundStyleWithHeight:(double)arg1;
+- (_Bool)isTranslucent;
 
 @end
 

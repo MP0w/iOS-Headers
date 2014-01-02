@@ -13,7 +13,7 @@
 }
 
 - (id)decodeTile:(id)arg1 forKey:(const struct _GEOTileKey *)arg2;
-- (BOOL)canDecodeTile:(const struct _GEOTileKey *)arg1 quickly:(char *)arg2;
+- (_Bool)canDecodeTile:(const struct _GEOTileKey *)arg1 quickly:(_Bool *)arg2;
 
 @end
 

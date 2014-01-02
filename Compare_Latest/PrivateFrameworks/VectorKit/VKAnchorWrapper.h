@@ -13,21 +13,24 @@
 @interface VKAnchorWrapper : NSObject <VKAnchorDelegate>
 {
     VKAnchor *_anchor;
-    BOOL _followsTerrain;
+    _Bool _followsTerrain;
     struct CGPoint _screenPointInCanvas;
     VKLayoutContext *_lastLayoutContext;
     CDStruct_2c43369c _lastCoordinate;
-    BOOL _isUpdating;
+    _Bool _isUpdating;
+    double _pointsPerMeter;
     VKScreenCanvas *_canvas;
 }
 
 @property(nonatomic) VKScreenCanvas *canvas; // @synthesize canvas=_canvas;
-@property(nonatomic) BOOL followsTerrain; // @synthesize followsTerrain=_followsTerrain;
+@property(nonatomic) _Bool followsTerrain; // @synthesize followsTerrain=_followsTerrain;
+- (id).cxx_construct;
 - (void)anchorWorldPointDidChange:(void *)arg1;
 - (void)updateIfNeeded;
 - (void)layoutWithContext:(id)arg1;
 - (void)_updateCachedPointWithContext:(id)arg1;
 - (id)_anchorWithContext:(id)arg1;
+- (double)pointOffsetForDistanceOffset:(double)arg1;
 - (struct CGPoint)pointInLayer:(id)arg1;
 @property(readonly, nonatomic) CDStruct_c3b9c2ee coordinate;
 - (void)dealloc;

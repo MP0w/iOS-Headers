@@ -6,6 +6,7 @@
 
 #import <OfficeImport/PDAnimateBehavior.h>
 
+// Not exported
 @interface PDAnimateScaleBehavior : PDAnimateBehavior
 {
     struct CGPoint mTo;

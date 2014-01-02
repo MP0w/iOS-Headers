@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface XMLNode : NSObject
 {
     struct _xmlNode *_xmlNode;
@@ -14,7 +15,7 @@
 + (id)getJavascriptFromNode:(struct _xmlNode *)arg1;
 + (id)stringValueForAttribute:(id)arg1 inNode:(struct _xmlNode *)arg2;
 - (void)dealloc;
-- (int)_intValueFromAttribute:(id)arg1;
+- (long long)_intValueFromAttribute:(id)arg1;
 - (id)_stringValueFromAttribute:(id)arg1;
 - (struct _xmlNode *)xmlNode;
 - (void)setXmlNode:(struct _xmlNode *)arg1;

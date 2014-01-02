@@ -16,7 +16,7 @@
 
 + (id)phraseWithDictionary:(id)arg1 context:(id)arg2;
 + (id)phrase;
-@property(nonatomic) BOOL lowConfidence;
+@property(nonatomic) _Bool lowConfidence;
 @property(copy, nonatomic) NSArray *interpretations;
 - (id)encodedClassName;
 - (id)groupIdentifier;

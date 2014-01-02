@@ -8,6 +8,7 @@
 
 #import <OfficeImport/OABFillPropertiesManager-Protocol.h>
 
+// Not exported
 @interface OABFillPropertiesManager : NSObject <OABFillPropertiesManager>
 {
     const struct EshFill *mFill;
@@ -23,7 +24,7 @@
 - (int)fillFocusRight;
 - (int)fillFocusTop;
 - (int)fillFocusLeft;
-- (long)fillFocus;
+- (int)fillFocus;
 - (int)fillAngle;
 - (int)fillBgAlpha;
 - (int)fillFgAlpha;
@@ -31,10 +32,10 @@
 - (struct EshColor)shadowColor;
 - (struct EshColor)strokeBgColor;
 - (struct EshColor)strokeFgColor;
-- (BOOL)isStroked;
+- (_Bool)isStroked;
 - (struct EshColor)fillBgColor;
 - (struct EshColor)fillFgColor;
-- (BOOL)isFilled;
+- (_Bool)isFilled;
 - (void)dealloc;
 - (id)initWithFill:(const struct EshFill *)arg1 shapeType:(int)arg2 masterShape:(struct EshShape *)arg3;
 

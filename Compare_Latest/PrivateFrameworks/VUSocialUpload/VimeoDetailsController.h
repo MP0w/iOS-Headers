@@ -6,24 +6,52 @@
 
 #import "UITableViewController.h"
 
-@class UITextView;
+#import "UITextFieldDelegate-Protocol.h"
 
-@interface VimeoDetailsController : UITableViewController
+@class NSArray, NSIndexPath, NSMutableArray, NSString, UITableViewCell, UITextView;
+
+@interface VimeoDetailsController : UITableViewController <UITextFieldDelegate>
 {
     UITextView *_descriptionTextView;
+    UITableViewCell *_descriptionCell;
+    NSMutableArray *_tags;
     id <VimeoComposeOptionViewDelegate> _delegate;
+    NSMutableArray *_videoSizes;
+    long long _videoSize;
+    long long _privacySetting;
+    NSIndexPath *_indexPathForPendingFirstResponder;
+    NSArray *_videoSizeStrings;
+    NSArray *_videoSizeFormatStrings;
+    NSArray *_privacyLevels;
 }
 
++ (long long)defaultVideoSize;
+@property(retain, nonatomic) NSArray *privacyLevels; // @synthesize privacyLevels=_privacyLevels;
+@property(retain, nonatomic) NSArray *videoSizeFormatStrings; // @synthesize videoSizeFormatStrings=_videoSizeFormatStrings;
+@property(retain, nonatomic) NSArray *videoSizeStrings; // @synthesize videoSizeStrings=_videoSizeStrings;
+@property(retain, nonatomic) NSIndexPath *indexPathForPendingFirstResponder; // @synthesize indexPathForPendingFirstResponder=_indexPathForPendingFirstResponder;
+@property(readonly, nonatomic) long long privacySetting; // @synthesize privacySetting=_privacySetting;
+@property(readonly, nonatomic) long long videoSize; // @synthesize videoSize=_videoSize;
+@property(readonly, nonatomic) NSMutableArray *videoSizes; // @synthesize videoSizes=_videoSizes;
 @property(nonatomic) id <VimeoComposeOptionViewDelegate> delegate; // @synthesize delegate=_delegate;
+- (_Bool)textFieldShouldReturn:(id)arg1;
+- (void)textFieldDidEndEditing:(id)arg1;
+- (_Bool)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
+- (id)_tagIndexPathForTextField:(id)arg1;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
+- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
-- (id)tableView:(id)arg1 titleForHeaderInSection:(int)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
+- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (struct CGSize)contentSizeForViewInPopover;
+- (id)tableView:(id)arg1 titleForHeaderInSection:(long long)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
+@property(readonly, nonatomic) NSArray *tags;
+@property(readonly, nonatomic) NSString *description;
+- (void)viewWillDisappear:(_Bool)arg1;
 - (void)loadView;
 - (void)dealloc;
+- (id)initWithStyle:(long long)arg1;
 
 @end
 

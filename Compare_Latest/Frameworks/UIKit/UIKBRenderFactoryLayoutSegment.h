@@ -6,23 +6,26 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, UIKBRenderTraits;
+@class NSString, UIKBRenderTraits;
 
+// Not exported
 @interface UIKBRenderFactoryLayoutSegment : NSObject
 {
-    NSMutableArray *_rects;
-    NSMutableArray *_triangleCorners;
-    NSMutableArray *_edges;
-    NSMutableArray *_cachedKeyNames;
-    UIKBRenderTraits *_traits;
+    int _rectCount;
+    struct CGRect _rects[3];
+    int _triangleCorners[3];
+    int _edgeCount;
+    unsigned long long _edges[3];
+    NSString *_cachedKeyNames[3];
     int _states;
+    UIKBRenderTraits *_traits;
 }
 
 + (id)segmentWithTraits:(id)arg1;
 @property(nonatomic) int keyStates; // @synthesize keyStates=_states;
 @property(readonly, nonatomic) UIKBRenderTraits *traits; // @synthesize traits=_traits;
-- (BOOL)containsPoint:(struct CGPoint)arg1 inRect:(struct CGRect)arg2 withKeyplane:(id)arg3;
-- (void)addRelativeLayoutRectFromEdge:(int)arg1 ofCachedKey:(id)arg2;
+- (_Bool)containsPoint:(struct CGPoint)arg1 inRect:(struct CGRect)arg2 withKeyplane:(id)arg3;
+- (void)addRelativeLayoutRectFromEdge:(unsigned long long)arg1 ofCachedKey:(id)arg2;
 - (void)addLayoutRect:(struct CGRect)arg1 asTriangle:(int)arg2;
 - (void)dealloc;
 - (id)initWithTraits:(id)arg1;

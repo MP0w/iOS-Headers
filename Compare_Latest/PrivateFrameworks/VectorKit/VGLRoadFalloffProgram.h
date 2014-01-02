@@ -6,6 +6,7 @@
 
 #import <VectorKit/VGLRoadAntialiasedProgram.h>
 
+// Not exported
 @interface VGLRoadFalloffProgram : VGLRoadAntialiasedProgram
 {
 }

@@ -17,12 +17,12 @@
     MPAnimationPath *_parentPath;
     MCAnimationKeyframe *_keyframe;
     double _time;
-    unsigned int _offsetType;
+    unsigned long long _offsetType;
     double _preControl;
     double _postControl;
 }
 
-@property(nonatomic) unsigned int offsetType; // @synthesize offsetType=_offsetType;
+@property(nonatomic) unsigned long long offsetType; // @synthesize offsetType=_offsetType;
 @property(nonatomic) double time; // @synthesize time=_time;
 @property(nonatomic) double postControl; // @synthesize postControl=_postControl;
 @property(nonatomic) double preControl; // @synthesize preControl=_preControl;
@@ -32,13 +32,6 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)init;
-- (id)fullDebugLog;
-- (void)dump;
-- (int)relativeTimeCompare:(id)arg1;
-- (void)copyVars:(id)arg1;
-- (void)setKeyframe:(id)arg1;
-- (id)parentDocument;
-- (void)setParentPath:(id)arg1;
 
 @end
 

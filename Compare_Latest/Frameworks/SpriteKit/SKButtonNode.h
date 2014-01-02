@@ -28,9 +28,9 @@
 - (void)onTouchDownInside:(id)arg1;
 - (void)onTouchUp:(id)arg1;
 - (void)onTouchUpInside:(id)arg1;
-- (void)touchEnded:(unsigned int)arg1 location:(struct CGPoint)arg2;
-- (void)touchMoved:(unsigned int)arg1 location:(struct CGPoint)arg2;
-- (void)touchBegan:(unsigned int)arg1 location:(struct CGPoint)arg2;
+- (void)touchEnded:(unsigned long long)arg1 location:(struct CGPoint)arg2;
+- (void)touchMoved:(unsigned long long)arg1 location:(struct CGPoint)arg2;
+- (void)touchBegan:(unsigned long long)arg1 location:(struct CGPoint)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
 - (void)encodeWithCoder:(id)arg1;

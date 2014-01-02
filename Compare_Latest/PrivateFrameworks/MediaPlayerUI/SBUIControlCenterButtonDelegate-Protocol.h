@@ -10,6 +10,6 @@
 - (void)buttonTapped:(id)arg1;
 
 @optional
-- (void)button:(id)arg1 didChangeState:(int)arg2;
+- (void)button:(id)arg1 didChangeState:(long long)arg2;
 @end
 

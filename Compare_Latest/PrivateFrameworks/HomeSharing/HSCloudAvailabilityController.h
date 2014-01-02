@@ -14,44 +14,44 @@
 @interface HSCloudAvailabilityController : NSObject <RadiosPreferencesDelegate, HSCloudAvailability>
 {
     NSObject<OS_dispatch_queue> *_accessQueue;
-    BOOL _isAirplaneModeActive;
-    BOOL _isAutoDownloadOnCellularAllowed;
-    BOOL _isCellularDataActive;
-    BOOL _isShowingAllMusic;
-    BOOL _isShowingAllVideo;
-    BOOL _isUpdateInProgress;
-    BOOL _isWiFiEnabled;
-    BOOL _canShowCloudMusic;
-    BOOL _canShowCloudVideo;
-    BOOL _canShowCloudDownloadButtons;
+    _Bool _isAirplaneModeActive;
+    _Bool _isAutoDownloadOnCellularAllowed;
+    _Bool _isCellularDataActive;
+    _Bool _isShowingAllMusic;
+    _Bool _isShowingAllVideo;
+    _Bool _isUpdateInProgress;
+    _Bool _isWiFiEnabled;
+    _Bool _canShowCloudMusic;
+    _Bool _canShowCloudVideo;
+    _Bool _canShowCloudDownloadButtons;
     int _preferencesChangedNotifyToken;
-    BOOL _preferencesChangedNotifyTokenIsValid;
-    int _networkType;
+    _Bool _preferencesChangedNotifyTokenIsValid;
+    long long _networkType;
     RadiosPreferences *_radiosPreferences;
 }
 
 + (id)sharedController;
-- (BOOL)_uncachedIsShowingAllVideo;
-- (BOOL)_uncachedIsShowingAllMusic;
-- (BOOL)_uncachedIsAutoDownloadOnCellularAllowed;
-- (void)_onQueue_updateCanShowCloudTracksWithNotification:(BOOL)arg1;
-- (void)_onQueue_updateCanShowCloudDownloadButtonsWithNotification:(BOOL)arg1;
-- (BOOL)_hasWiFiCapability;
-- (BOOL)_hasCellularCapability;
+- (_Bool)_uncachedIsShowingAllVideo;
+- (_Bool)_uncachedIsShowingAllMusic;
+- (_Bool)_uncachedIsAutoDownloadOnCellularAllowed;
+- (void)_onQueue_updateCanShowCloudTracksWithNotification:(_Bool)arg1;
+- (void)_onQueue_updateCanShowCloudDownloadButtonsWithNotification:(_Bool)arg1;
+- (_Bool)_hasWiFiCapability;
+- (_Bool)_hasCellularCapability;
 - (void)_handleTelephonyNotificationWithName:(id)arg1 userInfo:(id)arg2;
-- (BOOL)_isAutoDownloadOnCellularAllowed;
+- (_Bool)_isAutoDownloadOnCellularAllowed;
 - (void)_networkTypeDidChangeNotification:(id)arg1;
 - (void)_wifiEnabledDidChangeNotification:(id)arg1;
 - (void)_cellularNetworkAllowedDidChangeNotification:(id)arg1;
 - (void)airplaneModeChanged;
-- (BOOL)canShowCloudVideo;
-- (BOOL)canShowCloudMusic;
-- (BOOL)canShowCloudDownloadButtons;
+- (_Bool)canShowCloudVideo;
+- (_Bool)canShowCloudMusic;
+- (_Bool)canShowCloudDownloadButtons;
 - (void)dealloc;
 - (id)init;
-- (BOOL)shouldProhibitActionsForCurrentNetworkConditions;
-- (BOOL)isCellularDataRestricted;
-- (BOOL)hasProperNetworkConditionsToPlayMedia;
+- (_Bool)shouldProhibitActionsForCurrentNetworkConditions;
+- (_Bool)isCellularDataRestricted;
+- (_Bool)hasProperNetworkConditionsToPlayMedia;
 
 @end
 

@@ -26,7 +26,7 @@
 - (void)viewDidLoad;
 - (void)loadView;
 - (void)dealloc;
-- (id)initWithWidgetIdentifier:(id)arg1 forWidgetIdiom:(int)arg2 bundlePath:(id)arg3;
+- (id)initWithWidgetIdentifier:(id)arg1 forWidgetIdiom:(long long)arg2 bundlePath:(id)arg3;
 
 @end
 

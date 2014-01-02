@@ -12,12 +12,12 @@
 {
     UIImageView *_disclosureView;
     float _userRating;
-    int _userRatingCount;
+    long long _userRatingCount;
     NSString *_userRatingCountString;
 }
 
 @property(retain, nonatomic) NSString *userRatingCountString; // @synthesize userRatingCountString=_userRatingCountString;
-@property(nonatomic) int userRatingCount; // @synthesize userRatingCount=_userRatingCount;
+@property(nonatomic) long long userRatingCount; // @synthesize userRatingCount=_userRatingCount;
 @property(nonatomic) float userRating; // @synthesize userRating=_userRating;
 - (struct CGRect)titleRectForContentRect:(struct CGRect)arg1;
 - (struct CGRect)imageRectForContentRect:(struct CGRect)arg1;

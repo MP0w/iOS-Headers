@@ -6,6 +6,7 @@
 
 #import <OfficeImport/MFFont.h>
 
+// Not exported
 @interface MFPhoneFont : MFFont
 {
 }

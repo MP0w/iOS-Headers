@@ -20,9 +20,9 @@
 - (id)fontSizesChangedSinceDate:(id)arg1;
 - (id)fontsChangedSinceDate:(id)arg1;
 - (id)colorsChangedSinceDate:(id)arg1;
-- (id)productionsChangedSinceDate:(id)arg1 uuidNeedsReset:(char *)arg2;
+- (id)productionsChangedSinceDate:(id)arg1 uuidNeedsReset:(_Bool *)arg2;
 - (id)productionsWithModifiedAssets;
-- (BOOL)foundDataChangesSinceDate:(id)arg1;
+- (_Bool)foundDataChangesSinceDate:(id)arg1;
 - (void)updateEntriesForManagedObjects:(id)arg1;
 - (void)_updateEntryForManagedObject:(id)arg1;
 - (id)_updateRecordsWithName:(id)arg1 sinceDate:(id)arg2;

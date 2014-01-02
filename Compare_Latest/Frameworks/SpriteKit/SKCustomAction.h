@@ -6,6 +6,7 @@
 
 #import <SpriteKit/SKAction.h>
 
+// Not exported
 @interface SKCustomAction : SKAction
 {
     struct SKCCustomAction *_mycaction;

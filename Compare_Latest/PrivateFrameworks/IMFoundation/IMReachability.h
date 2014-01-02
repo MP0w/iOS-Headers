@@ -10,9 +10,9 @@
 
 @interface IMReachability : NSObject
 {
-    BOOL _gettingFlags;
+    _Bool _gettingFlags;
     id <IMReachabilityDelegate> _delegate;
-    unsigned int _flags;
+    unsigned long long _flags;
     NSString *_description;
     void *_reachabilityRef;
 }
@@ -22,10 +22,10 @@
 + (id)reachabilityWithHostName:(id)arg1;
 @property(nonatomic) void *reachabilityRef; // @synthesize reachabilityRef=_reachabilityRef;
 @property(retain, nonatomic) NSString *reachabilityDescription; // @synthesize reachabilityDescription=_description;
-@property(nonatomic) unsigned int flags; // @synthesize flags=_flags;
-@property(nonatomic) BOOL gettingFlags; // @synthesize gettingFlags=_gettingFlags;
+@property(nonatomic) unsigned long long flags; // @synthesize flags=_flags;
+@property(nonatomic) _Bool gettingFlags; // @synthesize gettingFlags=_gettingFlags;
 @property(nonatomic) id <IMReachabilityDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) BOOL connectionRequired;
+@property(readonly, nonatomic) _Bool connectionRequired;
 - (void)_forceGetFlagsIfNecessary;
 - (void)_handleCallbackForSCNetworkReachability:(struct __SCNetworkReachability *)arg1;
 - (id)description;

@@ -23,10 +23,10 @@
 - (void)_purchasedItemSetChangedNotification:(id)arg1;
 - (void)_touchCaptureAction:(id)arg1;
 - (void)itemOfferButtonAction:(id)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
 - (void)reloadData;
-- (BOOL)purchaseItemAtIndexPath:(id)arg1;
-- (BOOL)openDocumentForItemAtIndexPath:(id)arg1 withApplication:(id)arg2;
+- (_Bool)purchaseItemAtIndexPath:(id)arg1;
+- (_Bool)openDocumentForItemAtIndexPath:(id)arg1 withApplication:(id)arg2;
 - (id)itemAtIndexPath:(id)arg1;
 - (void)dealloc;
 - (id)init;

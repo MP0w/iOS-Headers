@@ -8,11 +8,12 @@
 
 @class NSString;
 
+// Not exported
 @interface VKPGenericShieldVariant : PBCodable
 {
     CDStruct_e9f6a06b *_layers;
-    unsigned int _layersCount;
-    unsigned int _layersSpace;
+    unsigned long long _layersCount;
+    unsigned long long _layersSpace;
     NSString *_fontName;
     float _fontSize;
     float _leftCapWidth;
@@ -42,32 +43,30 @@
 @property(nonatomic) float fontSize; // @synthesize fontSize=_fontSize;
 @property(retain, nonatomic) NSString *fontName; // @synthesize fontName=_fontName;
 @property(nonatomic) float textBaseLine; // @synthesize textBaseLine=_textBaseLine;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) BOOL hasRightPadding;
-@property(nonatomic) BOOL hasLeftPadding;
-@property(nonatomic) BOOL hasLineSpacing;
-@property(nonatomic) BOOL hasRightCapWidth;
-@property(nonatomic) BOOL hasLeftCapWidth;
-@property(nonatomic) BOOL hasFontSize;
-@property(readonly, nonatomic) BOOL hasFontName;
-@property(nonatomic) BOOL hasTextBaseLine;
-- (void)setLayers:(CDStruct_e9f6a06b *)arg1 count:(unsigned int)arg2;
-- (CDStruct_e9f6a06b)layerAtIndex:(unsigned int)arg1;
+@property(nonatomic) _Bool hasRightPadding;
+@property(nonatomic) _Bool hasLeftPadding;
+@property(nonatomic) _Bool hasLineSpacing;
+@property(nonatomic) _Bool hasRightCapWidth;
+@property(nonatomic) _Bool hasLeftCapWidth;
+@property(nonatomic) _Bool hasFontSize;
+@property(readonly, nonatomic) _Bool hasFontName;
+@property(nonatomic) _Bool hasTextBaseLine;
+- (void)setLayers:(CDStruct_e9f6a06b *)arg1 count:(unsigned long long)arg2;
+- (CDStruct_e9f6a06b)layerAtIndex:(unsigned long long)arg1;
 - (void)addLayer:(CDStruct_e9f6a06b)arg1;
 - (void)clearLayers;
 @property(readonly, nonatomic) CDStruct_e9f6a06b *layers;
-@property(readonly, nonatomic) unsigned int layersCount;
-@property(nonatomic) BOOL hasNumberOfLines;
+@property(readonly, nonatomic) unsigned long long layersCount;
+@property(nonatomic) _Bool hasNumberOfLines;
 @property(nonatomic) unsigned int numberOfLines; // @synthesize numberOfLines=_numberOfLines;
 - (void)dealloc;
-- (struct CGImage *)newImageWithBackgroundColor:(struct CGColor *)arg1 borderColor:(struct CGColor *)arg2 textureAtlases:(id)arg3 contentScale:(float)arg4;
-- (struct CGSize)_imageSizeWithTextureAtlases:(id)arg1;
 
 @end
 

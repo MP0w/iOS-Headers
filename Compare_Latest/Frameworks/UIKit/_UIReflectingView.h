@@ -10,15 +10,15 @@
 {
     UIView *_containerView;
     UIView *_gradientView;
-    float _reflectionAlpha;
+    double _reflectionAlpha;
 }
 
 @property(readonly, nonatomic) UIView *containerView; // @synthesize containerView=_containerView;
 - (void)setBackgroundColor:(id)arg1;
 - (void)layoutSubviews;
 - (void)setFrame:(struct CGRect)arg1;
-@property(nonatomic) float reflectionFraction;
-@property(nonatomic) float reflectionAlpha;
+@property(nonatomic) double reflectionFraction;
+@property(nonatomic) double reflectionAlpha;
 - (void)_updateGradientColors;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)_gradientLayer;

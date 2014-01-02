@@ -21,10 +21,10 @@
 - (void)scaleTimeRange:(CDStruct_e83c9415)arg1 toDuration:(CDStruct_1b6d18a9)arg2;
 - (void)removeTimeRange:(CDStruct_e83c9415)arg1;
 - (void)insertEmptyTimeRange:(CDStruct_e83c9415)arg1;
-- (BOOL)insertTimeRange:(CDStruct_e83c9415)arg1 ofAsset:(id)arg2 atTime:(CDStruct_1b6d18a9)arg3 error:(id *)arg4;
+- (_Bool)insertTimeRange:(CDStruct_e83c9415)arg1 ofAsset:(id)arg2 atTime:(CDStruct_1b6d18a9)arg3 error:(id *)arg4;
 @property(nonatomic) struct CGSize naturalSize;
 @property(readonly, nonatomic) NSArray *tracks;
-- (id)_newTrackForIndex:(long)arg1;
+- (id)_newTrackForIndex:(long long)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)_initWithComposition:(id)arg1;
 

@@ -18,7 +18,7 @@
 - (id)description;
 - (id)architecture;
 - (id)headers;
-- (BOOL)isArchive;
+- (_Bool)isArchive;
 - (void)dealloc;
 - (id)initWithMemory:(id)arg1 path:(id)arg2 timestamp:(id)arg3;
 

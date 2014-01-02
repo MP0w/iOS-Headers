@@ -10,8 +10,10 @@
 
 @class NSMutableArray, NSString, VGLIcon, VKObjectPool;
 
+// Not exported
 @interface VKIconArtwork : NSObject <VKObjectPoolObject>
 {
+    _Bool _hasIcon;
     VGLIcon *_icon;
     NSMutableArray *_completionHandlers;
     VKObjectPool *_pool;
@@ -25,7 +27,7 @@
 @property(readonly, nonatomic) struct CGSize size;
 - (void)setPool:(id)arg1 withKey:(id)arg2;
 - (void)dealloc;
-- (id)initWithImage:(struct CGImage *)arg1 contentScale:(float)arg2;
+- (id)initWithImage:(struct CGImage *)arg1 contentScale:(double)arg2;
 
 @end
 

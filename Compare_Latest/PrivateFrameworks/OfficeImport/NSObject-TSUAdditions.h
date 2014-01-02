@@ -7,8 +7,8 @@
 #import "NSObject.h"
 
 @interface NSObject (TSUAdditions)
-+ (BOOL)overridesClassSelector:(SEL)arg1 ofBaseClass:(Class)arg2;
-+ (BOOL)overridesSelector:(SEL)arg1 ofBaseClass:(Class)arg2;
++ (_Bool)overridesClassSelector:(SEL)arg1 ofBaseClass:(Class)arg2;
++ (_Bool)overridesSelector:(SEL)arg1 ofBaseClass:(Class)arg2;
 - (void)performSelector:(SEL)arg1 withValue:(id)arg2;
 @end
 

@@ -6,73 +6,67 @@
 
 #import "UIViewController.h"
 
-#import "SKUISlideshowGalleryBarViewDelegate-Protocol.h"
 #import "SKUISlideshowItemViewControllerDelegate-Protocol.h"
 #import "UIPageViewControllerDataSource-Protocol.h"
 #import "UIPageViewControllerDelegate-Protocol.h"
 #import "UIViewControllerTransitioningDelegate-Protocol.h"
 
-@class NSMutableDictionary, NSOperationQueue, SKUIClientContext, SKUISlideshowGalleryBarView, UIPageViewController, UIPercentDrivenInteractiveTransition;
+@class NSMutableDictionary, NSOperationQueue, SKUIClientContext, UIPageViewController, UIPercentDrivenInteractiveTransition;
 
-@interface SKUISlideshowViewController : UIViewController <UIPageViewControllerDataSource, UIPageViewControllerDelegate, SKUISlideshowGalleryBarViewDelegate, SKUISlideshowItemViewControllerDelegate, UIViewControllerTransitioningDelegate>
+@interface SKUISlideshowViewController : UIViewController <UIPageViewControllerDataSource, UIPageViewControllerDelegate, SKUISlideshowItemViewControllerDelegate, UIViewControllerTransitioningDelegate>
 {
     SKUIClientContext *_clientContext;
     UIPageViewController *_pageViewController;
     NSOperationQueue *_remoteLoadQueue;
     NSMutableDictionary *_itemViewControllersCache;
-    SKUISlideshowGalleryBarView *_galleryBar;
     UIPercentDrivenInteractiveTransition *_transition;
-    BOOL _overlayVisible;
-    BOOL _shouldCancelDelayedOverlayVisibilityChange;
-    BOOL _overlayVisibilityWillChangeWithDelay;
-    BOOL _lockOverlayControlsVisible;
+    _Bool _overlayVisible;
+    _Bool _shouldCancelDelayedOverlayVisibilityChange;
+    _Bool _overlayVisibilityWillChangeWithDelay;
+    _Bool _lockOverlayControlsVisible;
     struct {
-        int style;
-        char hidden;
+        long long style;
+        _Bool hidden;
     } _savedStatusBarState;
     id <SKUISlideshowViewControllerDataSource> _dataSource;
     id <SKUISlideshowViewControllerDelegate> _delegate;
-    int _currentIndex;
+    long long _currentIndex;
 }
 
-@property(nonatomic) int currentIndex; // @synthesize currentIndex=_currentIndex;
+@property(nonatomic) long long currentIndex; // @synthesize currentIndex=_currentIndex;
 @property(nonatomic) __weak id <SKUISlideshowViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak id <SKUISlideshowViewControllerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(retain, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
 - (void).cxx_destruct;
 - (void)_restoreStatusBarAppearanceState;
 - (void)_saveStatusBarAppearanceState;
-- (void)_setOverlayVisible:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)_fadeOutOverlayAfterDelay:(unsigned int)arg1;
+- (void)_setOverlayVisible:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)_fadeOutOverlayAfterDelay:(unsigned long long)arg1;
 - (void)_toggleFadeOverlay;
 - (void)_doneButtonTapped:(id)arg1;
 - (void)_contentViewTapped:(id)arg1;
-- (void)_loadGalleryImages;
-- (void)_updateTitleWithIndex:(int)arg1;
+- (void)_updateTitleWithIndex:(long long)arg1;
 - (void)_updateCurrentIndex;
-- (id)_itemViewControllerForIndex:(int)arg1;
-- (void)slideshowItemViewControllerDidDismissWithPinchGesture:(id)arg1 ratio:(float)arg2;
+- (id)_itemViewControllerForIndex:(long long)arg1;
+- (void)slideshowItemViewControllerDidDismissWithPinchGesture:(id)arg1 ratio:(double)arg2;
 - (void)slideshowItemViewControllerDidBeginPinchGesture:(id)arg1;
-- (void)userStoppedInteractingWithGalleryBarView:(id)arg1;
-- (void)galleryBarView:(id)arg1 didSelectIndex:(unsigned int)arg2;
-- (void)userBeganInteractingWithGalleryBarView:(id)arg1;
 - (void)pageViewController:(id)arg1 willTransitionToViewControllers:(id)arg2;
-- (void)pageViewController:(id)arg1 didFinishAnimating:(BOOL)arg2 previousViewControllers:(id)arg3 transitionCompleted:(BOOL)arg4;
+- (void)pageViewController:(id)arg1 didFinishAnimating:(_Bool)arg2 previousViewControllers:(id)arg3 transitionCompleted:(_Bool)arg4;
 - (id)pageViewController:(id)arg1 viewControllerBeforeViewController:(id)arg2;
 - (id)pageViewController:(id)arg1 viewControllerAfterViewController:(id)arg2;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (unsigned int)supportedInterfaceOrientations;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (void)willRotateToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (unsigned long long)supportedInterfaceOrientations;
+- (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)loadView;
 - (id)currentItemViewController;
 - (void)reloadData;
 - (id)interactionControllerForDismissal:(id)arg1;
-- (id)animationControllerForDismissedController:(id)arg1;
-- (id)animationControllerForPresentedController:(id)arg1 presentingController:(id)arg2 sourceController:(id)arg3;
+- (id)animatorForDismissedController:(id)arg1;
+- (id)animatorForPresentedController:(id)arg1 presentingController:(id)arg2 sourceController:(id)arg3;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 @end

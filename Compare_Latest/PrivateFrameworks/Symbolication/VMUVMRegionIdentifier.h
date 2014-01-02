@@ -14,14 +14,14 @@
     NSMapTable *_mallocZoneStatisticsMap;
 }
 
-- (id)descriptionForRegionTotalsWithOptions:(unsigned int)arg1;
-- (id)descriptionForMallocZoneTotalsWithOptions:(unsigned int)arg1;
-- (id)descriptionForRange:(struct _VMURange)arg1 options:(unsigned int)arg2;
+- (id)descriptionForRegionTotalsWithOptions:(unsigned long long)arg1;
+- (id)descriptionForMallocZoneTotalsWithOptions:(unsigned long long)arg1;
+- (id)descriptionForRange:(struct _VMURange)arg1 options:(unsigned long long)arg2;
 - (id)descriptionForRange:(struct _VMURange)arg1;
 - (id)regions;
 - (void)dealloc;
 - (id)initWithTask:(unsigned int)arg1;
-- (id)initWithTask:(unsigned int)arg1 options:(unsigned int)arg2;
+- (id)initWithTask:(unsigned int)arg1 options:(unsigned long long)arg2;
 
 @end
 

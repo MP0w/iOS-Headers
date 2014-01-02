@@ -11,21 +11,21 @@
 @interface ABMemberCell : UITableViewCell
 {
     ABStyleProvider *_styleProvider;
-    BOOL _isMeCard;
+    _Bool _isMeCard;
     ABMemberNameView *_contactNameView;
     ABUIPerson *_person;
 }
 
-@property(nonatomic) BOOL isMeCard; // @synthesize isMeCard=_isMeCard;
+@property(nonatomic) _Bool isMeCard; // @synthesize isMeCard=_isMeCard;
 @property(retain, nonatomic) ABUIPerson *person; // @synthesize person=_person;
 @property(readonly, nonatomic) id <ABStyleProvider> styleProvider; // @synthesize styleProvider=_styleProvider;
 @property(retain, nonatomic) ABMemberNameView *contactNameView; // @synthesize contactNameView=_contactNameView;
 - (id)_scriptingInfo;
 - (id)description;
-- (void)setSelected:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)setHighlighted:(BOOL)arg1;
-- (void)setHighlighted:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)setUserInteractionEnabled:(BOOL)arg1;
+- (void)setSelected:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)setHighlighted:(_Bool)arg1;
+- (void)setHighlighted:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)setUserInteractionEnabled:(_Bool)arg1;
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithStyleProvider:(id)arg1 reuseIdentifier:(id)arg2;

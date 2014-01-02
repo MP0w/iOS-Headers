@@ -6,29 +6,20 @@
 
 #import "WAKView.h"
 
-#import "WebDocumentElement-Protocol.h"
-#import "WebDocumentIncrementalSearching-Protocol.h"
-#import "WebDocumentOptionsSearching-Protocol.h"
 #import "WebDocumentSearching-Protocol.h"
-#import "WebDocumentSelection-Protocol.h"
 #import "WebDocumentView-Protocol.h"
-#import "WebMultipleTextMatches-Protocol.h"
 
 @class WebHTMLViewPrivate;
 
-@interface WebHTMLView : WAKView <WebDocumentSelection, WebDocumentIncrementalSearching, WebDocumentElement, WebMultipleTextMatches, WebDocumentOptionsSearching, WebDocumentView, WebDocumentSearching>
+@interface WebHTMLView : WAKView <WebDocumentView, WebDocumentSearching>
 {
     WebHTMLViewPrivate *_private;
 }
 
 + (void)initialize;
-+ (id)unsupportedTextMIMETypes;
-+ (id)supportedNonImageMIMETypes;
-+ (id)supportedImageMIMETypes;
-+ (id)supportedMIMETypes;
 - (void)_windowChangedKeyState;
 - (void)_updateControlTints;
-- (BOOL)_wantsKeyDownForEvent:(id)arg1;
+- (_Bool)_wantsKeyDownForEvent:(id)arg1;
 - (void)makeBaseWritingDirectionNatural:(id)arg1;
 - (void)capitalizeWord:(id)arg1;
 - (void)lowercaseWord:(id)arg1;
@@ -42,26 +33,26 @@
 - (id)accessibilityFocusedUIElement;
 - (void)keyUp:(id)arg1;
 - (void)keyDown:(id)arg1;
-- (void)_setPrinting:(BOOL)arg1 minimumPageLogicalWidth:(float)arg2 logicalHeight:(float)arg3 originalPageWidth:(float)arg4 originalPageHeight:(float)arg5 maximumShrinkRatio:(float)arg6 adjustViewSize:(BOOL)arg7 paginateScreenContent:(BOOL)arg8;
+- (void)_setPrinting:(_Bool)arg1 minimumPageLogicalWidth:(float)arg2 logicalHeight:(float)arg3 originalPageWidth:(float)arg4 originalPageHeight:(float)arg5 maximumShrinkRatio:(float)arg6 adjustViewSize:(_Bool)arg7 paginateScreenContent:(_Bool)arg8;
 - (void)dataSourceUpdated:(id)arg1;
 - (void)setDataSource:(id)arg1;
-- (BOOL)resignFirstResponder;
-- (BOOL)becomeFirstResponder;
+- (_Bool)resignFirstResponder;
+- (_Bool)becomeFirstResponder;
 - (void)mouseUp:(id)arg1;
 - (void)touch:(id)arg1;
 - (void)mouseDown:(id)arg1;
-- (BOOL)_isSelectionEvent:(id)arg1;
+- (_Bool)_isSelectionEvent:(id)arg1;
 - (void)scrollWheel:(id)arg1;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)drawSingleRect:(struct CGRect)arg1;
-- (void)setNeedsToApplyStyles:(BOOL)arg1;
-- (void)setNeedsLayout:(BOOL)arg1;
+- (void)setNeedsToApplyStyles:(_Bool)arg1;
+- (void)setNeedsLayout:(_Bool)arg1;
 - (void)setNeedsDisplayInRect:(struct CGRect)arg1;
-- (BOOL)isOpaque;
+- (_Bool)isOpaque;
 - (void)clearFocus;
-- (BOOL)searchFor:(id)arg1 direction:(BOOL)arg2 caseSensitive:(BOOL)arg3 wrap:(BOOL)arg4;
+- (_Bool)searchFor:(id)arg1 direction:(_Bool)arg2 caseSensitive:(_Bool)arg3 wrap:(_Bool)arg4;
 - (void)layout;
-- (void)layoutToMinimumPageWidth:(float)arg1 height:(float)arg2 originalPageWidth:(float)arg3 originalPageHeight:(float)arg4 maximumShrinkRatio:(float)arg5 adjustingViewSize:(BOOL)arg6;
+- (void)layoutToMinimumPageWidth:(float)arg1 height:(float)arg2 originalPageWidth:(float)arg3 originalPageHeight:(float)arg4 maximumShrinkRatio:(float)arg5 adjustingViewSize:(_Bool)arg6;
 - (void)reapplyStyles;
 - (void)willRemoveSubview:(id)arg1;
 - (void)addSubview:(id)arg1;
@@ -70,8 +61,8 @@
 - (void)_web_makePluginSubviewsPerformSelector:(SEL)arg1 withObject:(id)arg2;
 - (void)viewDidMoveToWindow;
 - (void)viewWillMoveToWindow:(id)arg1;
-- (BOOL)maintainsInactiveSelection;
-- (BOOL)acceptsFirstResponder;
+- (_Bool)maintainsInactiveSelection;
+- (_Bool)acceptsFirstResponder;
 - (void)jumpToSelection:(id)arg1;
 - (void)toggleUnderline:(id)arg1;
 - (void)toggleItalic:(id)arg1;
@@ -175,116 +166,10 @@
 - (void)executeCoreCommandBySelector:(SEL)arg1;
 - (struct Command)coreCommandByName:(const char *)arg1;
 - (struct Command)coreCommandBySelector:(SEL)arg1;
-- (BOOL)callDelegateDoCommandBySelectorIfNeeded:(SEL)arg1;
+- (_Bool)callDelegateDoCommandBySelectorIfNeeded:(SEL)arg1;
 - (void)finalize;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (BOOL)_isTopHTMLView;
-- (id)_topHTMLView;
-- (void)_setMouseDownEvent:(id)arg1;
-- (BOOL)_shouldDeleteRange:(id)arg1;
-- (id)_selectedRange;
-- (BOOL)_shouldReplaceSelectionWithText:(id)arg1 givenAction:(int)arg2;
-- (BOOL)_shouldInsertText:(id)arg1 replacingDOMRange:(id)arg2 givenAction:(int)arg3;
-- (BOOL)_shouldInsertFragment:(id)arg1 replacingDOMRange:(id)arg2 givenAction:(int)arg3;
-- (id)_frameView;
-- (id)_webView;
-- (id)_dataSource;
-- (id)_documentRange;
-- (id)accessibilityRootElement;
-- (float)_adjustedBottomOfPageWithTop:(float)arg1 bottom:(float)arg2 limit:(float)arg3;
-- (void)_endScreenPaginationMode;
-- (BOOL)_beginScreenPaginationModeWithPageSize:(struct CGSize)arg1 shrinkToFit:(BOOL)arg2;
-- (BOOL)_isInScreenPaginationMode;
-- (void)_endPrintMode;
-- (BOOL)_beginPrintModeWithPageWidth:(float)arg1 height:(float)arg2 shrinkToFit:(BOOL)arg3;
-- (BOOL)_beginPrintModeWithMinimumPageWidth:(float)arg1 height:(float)arg2 maximumPageWidth:(float)arg3;
-- (BOOL)_isInPrintMode;
-- (id)_compositingLayersHostingView;
-- (BOOL)_isUsingAcceleratedCompositing;
-- (BOOL)_hasHTMLDocument;
-- (void)close;
-- (void)_removeHighlighterOfType:(id)arg1;
-- (void)_setHighlighter:(id)arg1 ofType:(id)arg2;
-- (void)_decreaseSelectionListLevel;
-- (id)_increaseSelectionListLevelUnordered;
-- (id)_increaseSelectionListLevelOrdered;
-- (id)_increaseSelectionListLevel;
-- (BOOL)_canDecreaseSelectionListLevel;
-- (BOOL)_canIncreaseSelectionListLevel;
-- (id)_insertUnorderedList;
-- (id)_insertOrderedList;
-- (void)_setTransparentBackground:(BOOL)arg1;
-- (BOOL)_transparentBackground;
-- (BOOL)_isEditable;
-- (BOOL)_hasInsertionPoint;
-- (BOOL)_hasSelectionOrInsertionPoint;
-- (BOOL)_hasSelection;
-- (BOOL)_canAlterCurrentSelection;
-- (BOOL)_canEditRichly;
-- (BOOL)_canEdit;
-- (void)_autoscroll;
-- (void)_stopAutoscrollTimer;
-- (struct CGRect)_selectionRect;
-- (void)_startAutoscrollTimer:(id)arg1;
-- (void)setScale:(float)arg1;
-- (void)layoutIfNeeded;
-- (id)_pluginController;
-- (void)_setToolTip:(id)arg1;
-- (void)_clearLastHitViewIfSelf;
-- (id)hitTest:(struct CGPoint)arg1;
-- (BOOL)_insideAnotherHTMLView;
-- (void)viewWillDraw;
-- (void)_restoreSubviews;
-- (void)_setAsideSubviews;
-- (void)_frameOrBoundsChanged;
-- (void)mouseMoved:(id)arg1;
-- (BOOL)_web_isDrawingIntoLayer;
-- (void)drawLayer:(id)arg1 inContext:(struct CGContext *)arg2;
-- (void)detachRootLayer;
-- (void)attachRootLayer:(id)arg1;
-- (BOOL)_needsLayout;
-- (void)_destroyAllWebPlugins;
-- (void)_web_updateLayoutAndStyleIfNeededRecursive;
-- (void)_layoutIfNeeded;
-- (BOOL)_handleEditingKeyEvent:(struct KeyboardEvent *)arg1;
-- (void)_executeSavedKeypressCommands;
-- (void)closeIfNotCurrentView;
-- (id)_frame;
-- (id)_highlighterForType:(id)arg1;
-- (BOOL)_canSmartCopyOrDelete;
-- (void)_selectionChanged;
-- (void)_updateSelectionForInputManager;
-- (void)insertText:(id)arg1;
-- (void)doCommandBySelector:(SEL)arg1;
-- (void)markedTextUpdate:(id)arg1;
-- (void)setMarkedText:(id)arg1 selectedRange:(struct _NSRange)arg2;
-- (void)unmarkText;
-- (BOOL)hasMarkedText;
-- (int)conversationIdentifier;
-- (struct _NSRange)markedRange;
-- (struct _NSRange)selectedRange;
-- (struct CGRect)firstRectForCharacterRange:(struct _NSRange)arg1;
-- (unsigned int)characterIndexForPoint:(struct CGPoint)arg1;
-- (BOOL)searchFor:(id)arg1 direction:(BOOL)arg2 caseSensitive:(BOOL)arg3 wrap:(BOOL)arg4 startInSelection:(BOOL)arg5;
-- (BOOL)supportsTextEncoding;
-- (id)selectedString;
-- (id)string;
-- (void)deselectAll;
-- (void)selectAll;
-- (struct CGRect)selectionImageRect;
-- (struct CGImage *)selectionImageForcingBlackText:(BOOL)arg1;
-- (id)selectionView;
-- (id)selectionTextRects;
-- (struct CGRect)selectionRect;
-- (BOOL)_findString:(id)arg1 options:(unsigned int)arg2;
-- (id)rectsForTextMatches;
-- (void)unmarkAllTextMatches;
-- (BOOL)markedTextMatchesAreHighlighted;
-- (void)setMarkedTextMatchesAreHighlighted:(BOOL)arg1;
-- (unsigned int)countMatchesForText:(id)arg1 inDOMRange:(id)arg2 options:(unsigned int)arg3 limit:(unsigned int)arg4 markMatches:(BOOL)arg5;
-- (id)elementAtPoint:(struct CGPoint)arg1 allowShadowContent:(BOOL)arg2;
-- (id)elementAtPoint:(struct CGPoint)arg1;
 
 @end
 

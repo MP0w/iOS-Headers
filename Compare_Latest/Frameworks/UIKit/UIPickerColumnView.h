@@ -11,6 +11,7 @@
 
 @class UIColor, UIPickerTableView, UIPickerView;
 
+// Not exported
 @interface UIPickerColumnView : UIView <UIPickerTableViewContainerDelegate, UITableViewDataSource>
 {
     UIPickerTableView *_topTable;
@@ -19,8 +20,8 @@
     UIView *_topContainerView;
     UIView *_middleContainerView;
     UIView *_bottomContainerView;
-    float _middleBarHeight;
-    float _rowHeight;
+    double _middleBarHeight;
+    double _rowHeight;
     UIPickerView *_pickerView;
     struct CGRect _tableFrame;
     struct CATransform3D _perspectiveTransform;
@@ -29,38 +30,41 @@
 
 @property(retain, nonatomic, getter=_textColor, setter=_setTextColor:) UIColor *_textColor; // @synthesize _textColor=__textColor;
 @property(nonatomic) struct CATransform3D perspectiveTransform; // @synthesize perspectiveTransform=_perspectiveTransform;
-@property(nonatomic) float rowHeight; // @synthesize rowHeight=_rowHeight;
+@property(nonatomic) double rowHeight; // @synthesize rowHeight=_rowHeight;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (id)_allVisibleCells;
 - (struct _NSRange)_visibleGlobalRows;
-- (void)pickerTableView:(id)arg1 didChangeSelectionBarRowFrom:(int)arg2 to:(int)arg3;
+- (void)pickerTableView:(id)arg1 didChangeSelectionBarRowFrom:(long long)arg2 to:(long long)arg3;
 - (void)_pickerTableViewDidChangeContentOffset:(id)arg1;
 - (void)_moveTableViewIfNecessary:(id)arg1 toContentOffset:(struct CGPoint)arg2;
-- (void)setAllowsMultipleSelection:(BOOL)arg1;
+- (void)setAllowsMultipleSelection:(_Bool)arg1;
 - (void)endUpdates;
 - (void)beginUpdates;
 - (void)reloadData;
 - (id)cellForRowAtIndexPath:(id)arg1;
-- (int)numberOfRowsInSection:(int)arg1;
-- (BOOL)_usesCheckSelection;
-- (BOOL)_soundsEnabled;
+- (long long)numberOfRowsInSection:(long long)arg1;
+- (_Bool)_usesCheckSelection;
+- (_Bool)_soundsEnabled;
 - (void)_sendSelectionChangedFromTable:(id)arg1;
-- (void)_sendCheckedRow:(int)arg1 inTableView:(id)arg2 checked:(BOOL)arg3;
+- (void)_sendCheckedRow:(long long)arg1 inTableView:(id)arg2 checked:(_Bool)arg3;
 @property(nonatomic) struct CGRect selectionBarRect;
 - (void)clearDataSourceAndDelegate;
-@property(readonly, nonatomic) int selectionBarRow;
-- (BOOL)_scrollRowAtIndexPathToSelectionBar:(id)arg1 animated:(BOOL)arg2;
-- (BOOL)isRowChecked:(int)arg1;
-- (BOOL)selectRow:(int)arg1 animated:(BOOL)arg2 notify:(BOOL)arg3;
-- (float)_horizontalBiasForEndTables;
+@property(readonly, nonatomic) long long selectionBarRow;
+- (_Bool)_scrollRowAtIndexPathToSelectionBar:(id)arg1 animated:(_Bool)arg2;
+- (_Bool)isRowChecked:(long long)arg1;
+- (_Bool)selectRow:(long long)arg1 animated:(_Bool)arg2 notify:(_Bool)arg3;
+- (double)_horizontalBiasForEndTables;
 - (struct CGRect)_tableFrame;
 - (id)_preferredTable;
-- (BOOL)_containsTable:(id)arg1;
-- (id)initWithFrame:(struct CGRect)arg1 tableFrame:(struct CGRect)arg2 middleBarHeight:(float)arg3 rowHeight:(float)arg4 pickerView:(id)arg5 transform:(struct CATransform3D)arg6;
-- (struct CATransform3D)_transformForTableWithTranslationX:(float)arg1;
+- (_Bool)_containsTable:(id)arg1;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1 tableFrame:(struct CGRect)arg2 middleBarHeight:(double)arg3 rowHeight:(double)arg4 pickerView:(id)arg5 transform:(struct CATransform3D)arg6;
+- (struct CATransform3D)_transformForTableWithTranslationX:(double)arg1;
+- (struct CATransform3D)_transformForTableWithPerspectiveTranslationX:(double)arg1;
 - (id)_createContainerViewWithFrame:(struct CGRect)arg1;
 - (void)_centerTableInContainer:(id)arg1;
-- (id)_createTableViewWithFrame:(struct CGRect)arg1;
+- (id)_createTableViewWithFrame:(struct CGRect)arg1 containingFrame:(struct CGRect)arg2;
 
 @end
 

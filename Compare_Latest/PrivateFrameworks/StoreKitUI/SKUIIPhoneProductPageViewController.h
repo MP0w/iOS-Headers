@@ -7,16 +7,15 @@
 #import <StoreKitUI/SKUIViewController.h>
 
 #import "SKStoreProductViewControllerDelegate-Protocol.h"
-#import "SKUIIPhoneProductPageViewDelegate-Protocol.h"
+#import "SKUIMetricsViewController-Protocol.h"
 #import "SKUINetworkErrorDelegate-Protocol.h"
 #import "SKUIProductPageChildViewControllerDelegate-Protocol.h"
 #import "SKUIProductPageHeaderViewDelegate-Protocol.h"
-#import "SKUISwooshViewControllerDelegate-Protocol.h"
 #import "UIScrollViewDelegate-Protocol.h"
 
-@class ACAccountStore, NSOperationQueue, NSURL, SKUIFacebookLikeStatus, SKUIIncompatibleAppViewController, SKUIItem, SKUILoadProductPageOperation, SKUIMetricsController, SKUINetworkErrorViewController, SKUIProductPage, SKUIProductPageDetailsViewController, SKUIProductPageHeaderViewController, SKUIProductPagePlaceholderViewController, SKUIProductPageReviewsViewController, SKUISwooshArrayViewController, UIViewController<SKUIProductPageChildViewController>;
+@class ACAccountStore, NSOperationQueue, NSURL, NSURLRequest, SKUIFacebookLikeStatus, SKUIIncompatibleAppViewController, SKUIItem, SKUILoadProductPageOperation, SKUIMetricsController, SKUINetworkErrorViewController, SKUIProductPage, SKUIProductPageDetailsViewController, SKUIProductPageHeaderViewController, SKUIProductPagePlaceholderViewController, SKUIProductPageReviewsViewController, SKUISwooshArrayViewController, SSMetricsPageEvent, UIViewController<SKUIProductPageChildViewController>;
 
-@interface SKUIIPhoneProductPageViewController : SKUIViewController <SKUINetworkErrorDelegate, SKUIProductPageHeaderViewDelegate, SKUIProductPageChildViewControllerDelegate, SKUISwooshViewControllerDelegate, UIScrollViewDelegate, SKStoreProductViewControllerDelegate, SKUIIPhoneProductPageViewDelegate>
+@interface SKUIIPhoneProductPageViewController : SKUIViewController <SKUIMetricsViewController, SKUINetworkErrorDelegate, SKUIProductPageHeaderViewDelegate, SKUIProductPageChildViewControllerDelegate, UIScrollViewDelegate, SKStoreProductViewControllerDelegate>
 {
     ACAccountStore *_accountStore;
     UIViewController<SKUIProductPageChildViewController> *_childViewController;
@@ -27,25 +26,26 @@
     SKUIProductPageHeaderViewController *_headerViewController;
     SKUIIncompatibleAppViewController *_incompatibleViewController;
     SKUIItem *_item;
+    SSMetricsPageEvent *_lastPageEvent;
+    SKUIProductPagePlaceholderViewController *_loadingViewController;
     SKUILoadProductPageOperation *_loadOperation;
     long long _lookupItemIdentifier;
     SKUIMetricsController *_metricsController;
     NSOperationQueue *_operationQueue;
-    SKUIProductPagePlaceholderViewController *_placeholderViewController;
+    SKUIProductPagePlaceholderViewController *_relatedPlaceholderViewController;
     SKUIProductPage *_productPage;
     SKUISwooshArrayViewController *_relatedViewController;
     SKUIProductPageReviewsViewController *_reviewsViewController;
-    int _sectionIndex;
-    NSURL *_url;
-    BOOL _wantsActivityViewController;
+    long long _sectionIndex;
+    NSURLRequest *_urlRequest;
+    _Bool _wantsActivityViewController;
 }
 
-@property(readonly, nonatomic) NSURL *URL; // @synthesize URL=_url;
 @property(readonly, nonatomic) SKUIProductPage *productPage; // @synthesize productPage=_productPage;
 @property(readonly, nonatomic) SKUIItem *item; // @synthesize item=_item;
 @property(nonatomic) __weak id <SKUIIPhoneProductPageDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (id)_viewControllerForSectionIndex:(unsigned int)arg1;
+- (id)_viewControllerForSectionIndex:(unsigned long long)arg1;
 - (void)_showActivityViewController;
 - (void)_showError:(id)arg1;
 - (void)_setProductPage:(id)arg1 error:(id)arg2;
@@ -56,30 +56,40 @@
 - (void)_reloadFacebookLikeStatus;
 - (void)_reloadChildViewControllers;
 - (void)_presentHTMLProductPage;
-- (BOOL)_isIncompatibleItem;
+- (_Bool)_isIncompatibleItem;
 - (void)_invalidateChildViewControllers;
 - (id)_headerViewController;
 - (void)_animateAddToWishlist;
+- (id)_loadingViewController;
+- (id)_relatedPlaceholderViewController;
+- (id)_relatedViewController;
+- (id)_reviewsViewController;
+- (id)_detailsViewController;
 - (void)_shareButtonAction:(id)arg1;
+- (void)_metricsEnterEventNotification:(id)arg1;
 - (void)_accountStoreDidChangeNotification:(id)arg1;
-- (void)SKUIIPhoneProductPageView:(id)arg1 didFinishAnimatingFromView:(id)arg2;
 - (void)productViewControllerDidFinish:(id)arg1;
 - (struct CGPoint)topContentOffset;
+- (void)productPageChildViewControllerDidLoad:(id)arg1;
 - (void)productPageChildViewControllerDidScroll:(id)arg1;
 - (void)productPageChildViewControllerDidLoadScrollView:(id)arg1;
-- (BOOL)productPageChildShouldOpenURL:(id)arg1;
-- (BOOL)productPageChildShouldOpenItem:(id)arg1;
+- (void)productPageChildOpenURL:(id)arg1 viewControllerBlock:(id)arg2;
+- (void)productPageChildOpenItem:(id)arg1;
 - (void)productPageHeaderView:(id)arg1 didSelectURL:(id)arg2;
-- (void)productPageHeaderView:(id)arg1 didSelectSectionIndex:(int)arg2;
-- (void)swooshDidSelectSeeAll:(id)arg1;
-- (void)swoosh:(id)arg1 didSelectCellAtIndex:(int)arg2;
+- (void)productPageHeaderView:(id)arg1 didSelectSectionIndex:(long long)arg2;
+- (id)metricsControllerForProductPageHeader:(id)arg1;
 - (void)networkErrorViewControllerInvalidated:(id)arg1;
-- (id)contentScrollView;
-- (void)viewWillAppear:(BOOL)arg1;
+- (id)activeMetricsController;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLayoutSubviews;
 - (void)loadView;
+- (void)didRotateFromInterfaceOrientation:(long long)arg1;
+- (id)contentScrollView;
 - (void)reloadData;
+@property(readonly, nonatomic) NSURL *URL;
+- (void)configureMetricsWithPageEvent:(id)arg1;
 - (void)dealloc;
+- (id)initWithURLRequest:(id)arg1;
 - (id)initWithURL:(id)arg1;
 - (id)initWithProductPage:(id)arg1;
 - (id)initWithItemIdentifier:(long long)arg1;

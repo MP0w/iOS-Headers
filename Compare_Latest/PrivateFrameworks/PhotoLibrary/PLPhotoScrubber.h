@@ -6,61 +6,55 @@
 
 #import "UIControl.h"
 
-@class LoupeView, NSMutableArray, UIView;
+@class NSMutableArray, UIImageView, UIView;
 
 @interface PLPhotoScrubber : UIControl
 {
-    id <PhotoScrubberDataSource> _dataSource;
-    unsigned int _displayedImageIndex;
-    int _prospectiveImageIndex;
+    id <PLPhotoScrubberDataSource> _dataSource;
+    unsigned long long _displayedImageIndex;
+    long long _prospectiveImageIndex;
     double _timeOfLastTouch;
     double _lastUpdate;
     UIView *_thumbnailTrackView;
     struct CGRect _thumbnailBounds;
-    float _imagesPerViewRatio;
+    double _imagesPerViewRatio;
     NSMutableArray *_thumbnailViews;
-    LoupeView *_loupe;
-    unsigned int _imageCount;
-    BOOL _scrubbing;
-    UIView *_accessoryView;
-    BOOL _deferImageLoading;
-    BOOL _loadImagesSynchronously;
-    int _currentRotationDegrees;
-    float _horizontalInsetMargin;
-    float _vertialInsetMargin;
+    UIImageView *_loupeView;
+    long long _loupeIndex;
+    unsigned long long _imageCount;
+    _Bool _scrubbing;
+    _Bool _deferImageLoading;
+    _Bool _loadImagesSynchronously;
 }
 
-@property(retain, nonatomic) UIView *accessoryView; // @synthesize accessoryView=_accessoryView;
-@property(nonatomic) float vertialInsetMargin; // @synthesize vertialInsetMargin=_vertialInsetMargin;
-@property(nonatomic) float horizontalInsetMargin; // @synthesize horizontalInsetMargin=_horizontalInsetMargin;
-- (int)displayedImageIndex;
-- (void)setDisplayedImageIndex:(int)arg1;
+- (long long)displayedImageIndex;
+- (void)setDisplayedImageIndex:(long long)arg1;
 - (void)_setDisplayedImageIndex:(id)arg1;
-- (void)_setDisplayedImageIndex:(int)arg1 immediately:(BOOL)arg2;
+- (void)_setDisplayedImageIndex:(long long)arg1 immediately:(_Bool)arg2;
 - (void)setLoupeImage:(id)arg1;
 - (void)reloadData;
-- (void)reloadDataWithNewDisplayedIndex:(unsigned int)arg1;
-- (void)setDataSource:(id)arg1 reloadData:(BOOL)arg2;
-@property(nonatomic) id <PhotoScrubberDataSource> dataSource; // @dynamic dataSource;
-- (void)_updateLoupe:(BOOL)arg1;
-- (void)reloadImageAtIndex:(int)arg1;
-- (void)setImage:(id)arg1 atIndex:(int)arg2;
+- (void)reloadDataWithNewDisplayedIndex:(unsigned long long)arg1;
+- (void)setDataSource:(id)arg1 reloadData:(_Bool)arg2;
+@property(nonatomic) id <PLPhotoScrubberDataSource> dataSource; // @dynamic dataSource;
+- (void)_updateLoupe:(_Bool)arg1 force:(_Bool)arg2;
+- (void)reloadImageAtIndex:(long long)arg1;
+- (void)setImage:(id)arg1 atIndex:(long long)arg2;
 - (void)endTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (BOOL)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (BOOL)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (BOOL)isScrubbing;
-- (void)_setIsScrubbing:(BOOL)arg1;
-- (void)_updateLoupeWithTouch:(id)arg1 forceUpdate:(BOOL)arg2;
+- (_Bool)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
+- (_Bool)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
+- (_Bool)isScrubbing;
+- (void)_setIsScrubbing:(_Bool)arg1;
+- (void)_updateLoupeWithTouch:(id)arg1 forceUpdate:(_Bool)arg2;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (struct CGPoint)_centerForImageAtIndex:(int)arg1;
-- (unsigned int)_imageIndexFromLocation:(struct CGPoint)arg1;
-- (unsigned int)_thumbnailIndexFromLocation:(struct CGPoint)arg1;
+- (struct CGPoint)_centerForImageAtIndex:(long long)arg1;
+- (unsigned long long)_imageIndexFromLocation:(struct CGPoint)arg1;
+- (unsigned long long)_thumbnailIndexFromLocation:(struct CGPoint)arg1;
 - (void)layoutSubviews;
-- (void)setDeferImageLoading:(BOOL)arg1;
+- (void)setDeferImageLoading:(_Bool)arg1;
 - (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
-- (void)didRotateFromInterfaceOrientation:(int)arg1;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)didRotateFromInterfaceOrientation:(long long)arg1;
+- (void)willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
 - (void)dealloc;
 - (id)init;
 

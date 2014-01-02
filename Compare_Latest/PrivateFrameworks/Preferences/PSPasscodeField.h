@@ -14,32 +14,36 @@
 {
     NSMutableArray *_dashViews;
     NSMutableArray *_dotViews;
+    NSMutableArray *_digitViews;
     NSMutableString *_stringValue;
+    _Bool _securePasscodeEntry;
     id <PSPasscodeFieldDelegate> _delegate;
-    unsigned int _numberOfEntryFields;
+    unsigned long long _numberOfEntryFields;
 }
 
-@property(readonly, nonatomic) unsigned int numberOfEntryFields; // @synthesize numberOfEntryFields=_numberOfEntryFields;
+@property(nonatomic) _Bool securePasscodeEntry; // @synthesize securePasscodeEntry=_securePasscodeEntry;
+@property(readonly, nonatomic) unsigned long long numberOfEntryFields; // @synthesize numberOfEntryFields=_numberOfEntryFields;
 @property(nonatomic) id <PSPasscodeFieldDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)deleteBackward;
-- (BOOL)hasText;
+- (_Bool)hasText;
 - (void)insertText:(id)arg1;
-@property(nonatomic) int keyboardType;
-- (BOOL)canBecomeFirstResponder;
+@property(nonatomic) long long keyboardType;
+- (_Bool)becomeFirstResponder;
+- (_Bool)canBecomeFirstResponder;
 - (void)setStringValue:(id)arg1;
 - (id)stringValue;
 - (void)layoutSubviews;
+@property(nonatomic, getter=isSecureTextEntry) _Bool secureTextEntry;
 - (void)dealloc;
-- (id)initWithNumberOfEntryFields:(unsigned int)arg1;
+- (id)initWithNumberOfEntryFields:(unsigned long long)arg1;
 
 // Remaining properties
-@property(nonatomic) int autocapitalizationType;
-@property(nonatomic) int autocorrectionType;
-@property(nonatomic) BOOL enablesReturnKeyAutomatically;
-@property(nonatomic) int keyboardAppearance;
-@property(nonatomic) int returnKeyType;
-@property(nonatomic, getter=isSecureTextEntry) BOOL secureTextEntry;
-@property(nonatomic) int spellCheckingType;
+@property(nonatomic) long long autocapitalizationType;
+@property(nonatomic) long long autocorrectionType;
+@property(nonatomic) _Bool enablesReturnKeyAutomatically;
+@property(nonatomic) long long keyboardAppearance;
+@property(nonatomic) long long returnKeyType;
+@property(nonatomic) long long spellCheckingType;
 
 @end
 

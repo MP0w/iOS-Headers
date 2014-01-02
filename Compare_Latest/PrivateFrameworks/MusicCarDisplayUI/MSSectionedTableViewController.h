@@ -8,17 +8,17 @@
 
 @interface MSSectionedTableViewController : MSTableViewController
 {
-    unsigned int *_offsetOfSection;
+    unsigned long long *_offsetOfSection;
 }
 
-- (int)tableView:(id)arg1 sectionForSectionIndexTitle:(id)arg2 atIndex:(int)arg3;
+- (long long)tableView:(id)arg1 sectionForSectionIndexTitle:(id)arg2 atIndex:(long long)arg3;
 - (id)sectionIndexTitlesForTableView:(id)arg1;
-- (id)tableView:(id)arg1 titleForHeaderInSection:(int)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
-- (unsigned int)rowAtIndexPath:(id)arg1;
-@property(readonly, nonatomic) BOOL isSectioning;
-@property(readonly, nonatomic) unsigned int countOfActions;
+- (id)tableView:(id)arg1 titleForHeaderInSection:(long long)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
+- (unsigned long long)rowAtIndexPath:(id)arg1;
+@property(readonly, nonatomic) _Bool isSectioning;
+@property(readonly, nonatomic) unsigned long long countOfActions;
 - (void)dealloc;
 - (id)initWithQuery:(id)arg1 player:(id)arg2 serviceProvider:(id)arg3;
 

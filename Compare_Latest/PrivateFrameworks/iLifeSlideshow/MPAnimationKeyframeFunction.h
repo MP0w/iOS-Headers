@@ -19,7 +19,7 @@
     double _innerEaseOutControl;
 }
 
-+ (id)keyframeFunctionWithFunction:(id)arg1 atTime:(double)arg2 offsetType:(unsigned int)arg3 withDuration:(double)arg4;
++ (id)keyframeFunctionWithFunction:(id)arg1 atTime:(double)arg2 offsetType:(unsigned long long)arg3 withDuration:(double)arg4;
 + (id)keyframeFunctionWithFunction:(id)arg1 atTime:(double)arg2 withDuration:(double)arg3;
 @property(nonatomic) double innerEaseOutControl; // @synthesize innerEaseOutControl=_innerEaseOutControl;
 @property(nonatomic) double innerEaseInControl; // @synthesize innerEaseInControl=_innerEaseInControl;
@@ -33,8 +33,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (id)initKeyframeFunctionWithFunction:(id)arg1 atTime:(double)arg2 offsetType:(unsigned int)arg3 withDuration:(double)arg4;
-- (id)keyframe;
+- (id)initKeyframeFunctionWithFunction:(id)arg1 atTime:(double)arg2 offsetType:(unsigned long long)arg3 withDuration:(double)arg4;
 
 @end
 

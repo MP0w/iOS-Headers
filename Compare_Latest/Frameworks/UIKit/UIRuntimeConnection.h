@@ -10,6 +10,7 @@
 
 @class NSString;
 
+// Not exported
 @interface UIRuntimeConnection : NSObject <NSCoding>
 {
     id source;

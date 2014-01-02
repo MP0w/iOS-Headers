@@ -7,7 +7,7 @@
 #import "UIWindow.h"
 
 @interface UIWindow (SUTouchCapture)
-- (id)removeTouchCaptureViewWithTag:(int)arg1;
-- (id)addTouchCaptureViewWithTag:(int)arg1;
+- (id)removeTouchCaptureViewWithTag:(long long)arg1;
+- (id)addTouchCaptureViewWithTag:(long long)arg1;
 @end
 

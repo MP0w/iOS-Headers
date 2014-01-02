@@ -11,15 +11,17 @@
 #import "SLSheetPlaceViewControllerDelegate-Protocol.h"
 #import "UITextViewDelegate-Protocol.h"
 
-@class NSArray, NSObject<SLMicroBlogSheetDelegate>, SLMicroBlogAccountsTableViewController, SLMicroBlogActiveAccountView, SLMicroBlogMentionsViewController, SLMicroBlogUserRecord, SLPlace, SLSheetAction, SLSheetPlaceViewController, UILabel;
+@class NSArray, NSObject<SLMicroBlogSheetDelegate>, NSString, SLMicroBlogAccountsTableViewController, SLMicroBlogActiveAccountView, SLMicroBlogMentionsViewController, SLMicroBlogUserRecord, SLPlace, SLSheetAction, SLSheetPlaceViewController, UILabel;
 
 @interface SLMicroBlogComposeViewController : SLComposeServiceViewController <UITextViewDelegate, SLMicroBlogMentionsDelegate, SLMicroBlogAccountsTableViewControllerDelegate, SLSheetPlaceViewControllerDelegate>
 {
     NSObject<SLMicroBlogSheetDelegate> *_microBlogSheetDelegate;
+    NSString *_serviceAccountTypeIdentifier;
     SLMicroBlogMentionsViewController *_mentionsViewController;
-    unsigned int _mentionStartLocation;
-    BOOL _rotatedDuringAccountsPopover;
-    BOOL _usingLocationOverride;
+    unsigned long long _mentionStartLocation;
+    _Bool _mentionPendingStart;
+    _Bool _rotatedDuringAccountsPopover;
+    _Bool _usingLocationOverride;
     NSArray *_accountUserRecords;
     NSArray *_accountIdentifiers;
     SLMicroBlogUserRecord *_selectedAccountUserRecord;
@@ -29,8 +31,9 @@
     SLSheetPlaceViewController *_placeViewController;
     SLPlace *_currentPlace;
     UILabel *_countLabel;
-    int _shortenedURLCost;
-    BOOL _isPresentingPlaces;
+    long long _shortenedURLCost;
+    long long _maxURLLength;
+    _Bool _isPresentingPlaces;
     SLMicroBlogActiveAccountView *_activeAccountView;
 }
 
@@ -38,7 +41,8 @@
 @property(retain, nonatomic) SLMicroBlogActiveAccountView *activeAccountView; // @synthesize activeAccountView=_activeAccountView;
 - (void).cxx_destruct;
 - (void)textViewDidChangeSelection:(id)arg1;
-- (BOOL)textView:(id)arg1 shouldChangeTextInRange:(struct _NSRange)arg2 replacementText:(id)arg3;
+- (void)textViewDidChange:(id)arg1;
+- (_Bool)textView:(id)arg1 shouldChangeTextInRange:(struct _NSRange)arg2 replacementText:(id)arg3;
 - (void)send;
 - (id)_mentionsSearchString;
 - (void)applyMention:(id)arg1;
@@ -48,17 +52,18 @@
 - (void)_presentMentionsViewControllerWithSearchString:(id)arg1;
 - (void)noteLocationInfoChanged:(id)arg1;
 - (void)setGeotagStatus:(int)arg1;
-- (void)placeViewController:(id)arg1 willDisappear:(BOOL)arg2;
+- (void)placeViewController:(id)arg1 willDisappear:(_Bool)arg2;
 - (void)placeViewController:(id)arg1 didSelectPlace:(id)arg2;
 - (id)_placeViewController;
 - (void)updateGeotagStatus;
 - (void)_presentPlaceViewController;
 - (void)updateShortenedURLCost;
 - (int)characterCountForEnteredText:(id)arg1 attachments:(id)arg2;
-- (BOOL)countMediaAttachmentsTowardCharacterCount;
-- (void)_updateCharacterCountLabelWithCount:(int)arg1 overLimit:(BOOL)arg2;
+- (_Bool)_countMediaAttachmentsTowardCharacterCount;
+- (long long)_characterCountForText:(id)arg1;
+- (void)_updateCharacterCountLabelWithCount:(int)arg1 overLimit:(_Bool)arg2;
 - (id)completeText:(id)arg1 withAttachments:(id)arg2;
-- (BOOL)validateText:(id)arg1;
+- (_Bool)validateText:(id)arg1;
 - (int)_charactersRemainingWithText:(id)arg1;
 - (void)noteCheckedInWithDaemon;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
@@ -73,7 +78,7 @@
 - (void)accountsViewController:(id)arg1 didSelectAccountUserRecord:(id)arg2;
 - (void)_presentAccountPickerController;
 - (void)_beginLoadingAccountProfileImages;
-- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)loadView;
 - (void)appWillEnterForeground:(id)arg1;
 

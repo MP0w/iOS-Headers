@@ -15,13 +15,13 @@
 }
 
 + (int)jailBehavior;
-- (void)noteInterfaceOrientationChangingTo:(int)arg1 animated:(BOOL)arg2;
-- (id)stackedAlertsIncludingActiveAlert:(BOOL)arg1;
+- (void)noteInterfaceOrientationChangingTo:(long long)arg1 animated:(_Bool)arg2;
+- (id)stackedAlertsIncludingActiveAlert:(_Bool)arg1;
 - (int)stackedDisplayCount;
-- (BOOL)hasActiveAlertsOrDisplays;
-- (BOOL)deactivateAlert:(id)arg1;
+- (_Bool)hasActiveAlertsOrDisplays;
+- (_Bool)deactivateAlert:(id)arg1;
 - (void)displayAlert:(id)arg1;
-- (BOOL)isOpaque;
+- (_Bool)isOpaque;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithScreen:(id)arg1;

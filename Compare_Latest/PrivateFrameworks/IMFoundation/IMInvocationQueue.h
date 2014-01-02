@@ -10,16 +10,16 @@
 
 @interface IMInvocationQueue : NSObject
 {
-    BOOL _holdQueue;
+    _Bool _holdQueue;
     id _delegate;
     id _target;
+    double _dequeueRate;
     NSMutableArray *_queue;
     NSMutableArray *_options;
     NSProtocolChecker *_protocolChecker;
-    double _dequeueRate;
 }
 
-@property(readonly, nonatomic) BOOL holdQueue; // @synthesize holdQueue=_holdQueue;
+@property(readonly, nonatomic) _Bool holdQueue; // @synthesize holdQueue=_holdQueue;
 @property(readonly, nonatomic) NSProtocolChecker *protocolChecker; // @synthesize protocolChecker=_protocolChecker;
 @property(readonly, nonatomic) NSMutableArray *options; // @synthesize options=_options;
 @property(readonly, nonatomic) NSMutableArray *queue; // @synthesize queue=_queue;
@@ -27,20 +27,20 @@
 @property id target; // @synthesize target=_target;
 @property id delegate; // @synthesize delegate=_delegate;
 - (id)peek;
-@property(readonly, nonatomic) BOOL isEmpty;
-@property(readonly, nonatomic) unsigned int count;
+@property(readonly, nonatomic) _Bool isEmpty;
+@property(readonly, nonatomic) unsigned long long count;
 - (void)invokeAll;
 - (void)removeAllInvocations;
 - (id)_dequeueInvocation;
-- (int)_enqueueInvocation:(id)arg1 options:(unsigned int)arg2;
-- (BOOL)_insertInvocation:(id)arg1 options:(unsigned int)arg2;
-- (BOOL)_replaceSimilarInvocation:(id)arg1;
-- (BOOL)_acceptsOptions:(unsigned int)arg1;
+- (long long)_enqueueInvocation:(id)arg1 options:(unsigned long long)arg2;
+- (_Bool)_insertInvocation:(id)arg1 options:(unsigned long long)arg2;
+- (_Bool)_replaceSimilarInvocation:(id)arg1;
+- (_Bool)_acceptsOptions:(unsigned long long)arg1;
 - (int)_maxQueueLimitSize;
 - (int)_numberOfLimitedMessagesInQueue;
-- (unsigned int)_optionsForInvocation:(id)arg1;
+- (unsigned long long)_optionsForInvocation:(id)arg1;
 - (void)_checkQueue;
-- (BOOL)_invokeInvocation:(id)arg1;
+- (_Bool)_invokeInvocation:(id)arg1;
 - (void)_setQueueTimer;
 - (void)_releaseQueueNotification:(id)arg1;
 - (void)_holdQueueNotification:(id)arg1;

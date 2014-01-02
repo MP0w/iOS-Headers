@@ -15,8 +15,8 @@
     SBLockScreenNotificationCell *_associatedCell;
 }
 
-+ (float)scrollThresholdForPasscodeScroll;
-@property(retain, nonatomic) SBLockScreenNotificationCell *associatedCell; // @synthesize associatedCell=_associatedCell;
++ (double)scrollThresholdForPasscodeScroll;
+@property(nonatomic) SBLockScreenNotificationCell *associatedCell; // @synthesize associatedCell=_associatedCell;
 
 @end
 

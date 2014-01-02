@@ -10,6 +10,6 @@
 - (void)simpleTextInputViewController:(id)arg1 didCompleteWithValue:(id)arg2;
 
 @optional
-- (BOOL)simpleTextInputViewControllerShouldDismissKeyboard:(id)arg1;
+- (_Bool)simpleTextInputViewControllerShouldDismissKeyboard:(id)arg1;
 @end
 

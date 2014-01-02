@@ -13,7 +13,7 @@
     NSString *_imagePath;
     NSObject<OS_dispatch_queue> *_queue;
     UIImage *_cachedImage;
-    unsigned long _requestID;
+    unsigned long long _requestID;
     NSObject<OS_dispatch_group> *_requestGroup;
     NSObject<OS_dispatch_group> *_waitGroup;
 }
@@ -21,7 +21,7 @@
 - (void)cancelPreheatRequest;
 - (void)startPreheatRequest;
 - (void)_cacheImage;
-- (BOOL)addImageHandler:(id)arg1;
+- (_Bool)addImageHandler:(id)arg1;
 - (id)cachedImageIfAvailable;
 - (id)cachedImage;
 - (void)dealloc;

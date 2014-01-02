@@ -8,13 +8,13 @@
 
 @interface SBAppVisibilityPreferences : NSObject
 {
-    BOOL _defaultVisible;
-    BOOL _currentlyVisible;
+    _Bool _defaultVisible;
+    _Bool _currentlyVisible;
 }
 
-@property BOOL currentlyVisible; // @synthesize currentlyVisible=_currentlyVisible;
-@property(readonly) BOOL defaultVisible; // @synthesize defaultVisible=_defaultVisible;
-- (id)initWithDefaultVisible:(BOOL)arg1;
+@property _Bool currentlyVisible; // @synthesize currentlyVisible=_currentlyVisible;
+@property(readonly) _Bool defaultVisible; // @synthesize defaultVisible=_defaultVisible;
+- (id)initWithDefaultVisible:(_Bool)arg1;
 
 @end
 

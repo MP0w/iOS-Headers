@@ -14,9 +14,9 @@
 
 - (void)setAttributesFromCopyData:(id)arg1;
 - (id)copyDataFromAttributes;
-- (BOOL)hasProduction;
+- (_Bool)hasProduction;
 - (id)production;
-- (BOOL)hasCursorProduction;
+- (_Bool)hasCursorProduction;
 - (id)_productionWithRenditionsInProductions:(id)arg1;
 - (id)_activeProductionWithRenditionsInProductions:(id)arg1;
 

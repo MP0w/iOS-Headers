@@ -10,18 +10,18 @@
 {
     id <_UIRotatingActionSheetDelegate> _rotatingSheetDelegate;
     id <UIActionSheetDelegate> _delegateWhileRotating;
-    unsigned int _arrowDirections;
-    BOOL _isRotating;
+    unsigned long long _arrowDirections;
+    _Bool _isRotating;
 }
 
-@property(nonatomic) unsigned int arrowDirections; // @synthesize arrowDirections=_arrowDirections;
+@property(nonatomic) unsigned long long arrowDirections; // @synthesize arrowDirections=_arrowDirections;
 @property(nonatomic) id <_UIRotatingActionSheetDelegate> rotatingSheetDelegate; // @synthesize rotatingSheetDelegate=_rotatingSheetDelegate;
 - (void)didRotate;
 - (void)_updateSheetPositionAfterRotation;
 - (void)willRotate;
 - (void)doneWithSheet;
-- (BOOL)presentSheetFromRect:(struct CGRect)arg1;
-- (BOOL)presentSheet;
+- (_Bool)presentSheetFromRect:(struct CGRect)arg1;
+- (_Bool)presentSheet;
 - (void)dealloc;
 - (id)init;
 

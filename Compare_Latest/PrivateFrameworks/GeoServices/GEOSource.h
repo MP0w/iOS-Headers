@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSString;
 
-@interface GEOSource : PBCodable
+@interface GEOSource : PBCodable <NSCopying>
 {
     NSString *_sourceId;
     NSString *_sourceName;
@@ -18,14 +20,15 @@
 @property(retain, nonatomic) NSString *sourceVersion; // @synthesize sourceVersion=_sourceVersion;
 @property(retain, nonatomic) NSString *sourceId; // @synthesize sourceId=_sourceId;
 @property(retain, nonatomic) NSString *sourceName; // @synthesize sourceName=_sourceName;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) BOOL hasSourceVersion;
+@property(readonly, nonatomic) _Bool hasSourceVersion;
 - (void)dealloc;
 
 @end

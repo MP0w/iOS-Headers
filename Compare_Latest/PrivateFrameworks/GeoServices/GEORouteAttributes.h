@@ -6,26 +6,28 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSString;
 
-@interface GEORouteAttributes : PBCodable
+@interface GEORouteAttributes : PBCodable <NSCopying>
 {
-    CDStruct_56d48c16 _additionalTransportTypes;
+    CDStruct_95bda58d _additionalTransportTypes;
     CDStruct_4db06779 _timepoint;
     int _basicPointsToBeIncluded;
     int _mainTransportType;
     NSString *_phoneticLocaleIdentifier;
     int _trafficType;
     unsigned int _walkingLimitMeters;
-    BOOL _includeContingencyRoutes;
-    BOOL _includeHistoricTravelTime;
-    BOOL _includeLaneGuidance;
-    BOOL _includeManeuverIcons;
-    BOOL _includePhonetics;
-    BOOL _includeSubsteps;
-    BOOL _includeTrafficAlongRoute;
-    BOOL _includeTrafficIncidents;
-    BOOL _includeZilchPoints;
+    _Bool _includeContingencyRoutes;
+    _Bool _includeHistoricTravelTime;
+    _Bool _includeLaneGuidance;
+    _Bool _includeManeuverIcons;
+    _Bool _includePhonetics;
+    _Bool _includeSubsteps;
+    _Bool _includeTrafficAlongRoute;
+    _Bool _includeTrafficIncidents;
+    _Bool _includeZilchPoints;
     struct {
         unsigned int timepoint:1;
         unsigned int basicPointsToBeIncluded:1;
@@ -46,46 +48,47 @@
 
 @property(nonatomic) CDStruct_4db06779 timepoint; // @synthesize timepoint=_timepoint;
 @property(retain, nonatomic) NSString *phoneticLocaleIdentifier; // @synthesize phoneticLocaleIdentifier=_phoneticLocaleIdentifier;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (void)setAdditionalTransportTypes:(int *)arg1 count:(unsigned int)arg2;
-- (int)additionalTransportTypeAtIndex:(unsigned int)arg1;
+- (void)setAdditionalTransportTypes:(int *)arg1 count:(unsigned long long)arg2;
+- (int)additionalTransportTypeAtIndex:(unsigned long long)arg1;
 - (void)addAdditionalTransportType:(int)arg1;
 - (void)clearAdditionalTransportTypes;
 @property(readonly, nonatomic) int *additionalTransportTypes;
-@property(readonly, nonatomic) unsigned int additionalTransportTypesCount;
-@property(nonatomic) BOOL hasWalkingLimitMeters;
+@property(readonly, nonatomic) unsigned long long additionalTransportTypesCount;
+@property(nonatomic) _Bool hasWalkingLimitMeters;
 @property(nonatomic) unsigned int walkingLimitMeters; // @synthesize walkingLimitMeters=_walkingLimitMeters;
-@property(nonatomic) BOOL hasIncludeTrafficIncidents;
-@property(nonatomic) BOOL includeTrafficIncidents; // @synthesize includeTrafficIncidents=_includeTrafficIncidents;
-@property(nonatomic) BOOL hasIncludeSubsteps;
-@property(nonatomic) BOOL includeSubsteps; // @synthesize includeSubsteps=_includeSubsteps;
-@property(nonatomic) BOOL hasIncludeHistoricTravelTime;
-@property(nonatomic) BOOL includeHistoricTravelTime; // @synthesize includeHistoricTravelTime=_includeHistoricTravelTime;
-@property(nonatomic) BOOL hasTimepoint;
-@property(nonatomic) BOOL hasIncludeTrafficAlongRoute;
-@property(nonatomic) BOOL includeTrafficAlongRoute; // @synthesize includeTrafficAlongRoute=_includeTrafficAlongRoute;
-@property(readonly, nonatomic) BOOL hasPhoneticLocaleIdentifier;
-@property(nonatomic) BOOL hasTrafficType;
+@property(nonatomic) _Bool hasIncludeTrafficIncidents;
+@property(nonatomic) _Bool includeTrafficIncidents; // @synthesize includeTrafficIncidents=_includeTrafficIncidents;
+@property(nonatomic) _Bool hasIncludeSubsteps;
+@property(nonatomic) _Bool includeSubsteps; // @synthesize includeSubsteps=_includeSubsteps;
+@property(nonatomic) _Bool hasIncludeHistoricTravelTime;
+@property(nonatomic) _Bool includeHistoricTravelTime; // @synthesize includeHistoricTravelTime=_includeHistoricTravelTime;
+@property(nonatomic) _Bool hasTimepoint;
+@property(nonatomic) _Bool hasIncludeTrafficAlongRoute;
+@property(nonatomic) _Bool includeTrafficAlongRoute; // @synthesize includeTrafficAlongRoute=_includeTrafficAlongRoute;
+@property(readonly, nonatomic) _Bool hasPhoneticLocaleIdentifier;
+@property(nonatomic) _Bool hasTrafficType;
 @property(nonatomic) int trafficType; // @synthesize trafficType=_trafficType;
-@property(nonatomic) BOOL hasBasicPointsToBeIncluded;
+@property(nonatomic) _Bool hasBasicPointsToBeIncluded;
 @property(nonatomic) int basicPointsToBeIncluded; // @synthesize basicPointsToBeIncluded=_basicPointsToBeIncluded;
-@property(nonatomic) BOOL hasIncludeLaneGuidance;
-@property(nonatomic) BOOL includeLaneGuidance; // @synthesize includeLaneGuidance=_includeLaneGuidance;
-@property(nonatomic) BOOL hasIncludeContingencyRoutes;
-@property(nonatomic) BOOL includeContingencyRoutes; // @synthesize includeContingencyRoutes=_includeContingencyRoutes;
-@property(nonatomic) BOOL hasIncludeZilchPoints;
-@property(nonatomic) BOOL includeZilchPoints; // @synthesize includeZilchPoints=_includeZilchPoints;
-@property(nonatomic) BOOL hasIncludeManeuverIcons;
-@property(nonatomic) BOOL includeManeuverIcons; // @synthesize includeManeuverIcons=_includeManeuverIcons;
-@property(nonatomic) BOOL hasIncludePhonetics;
-@property(nonatomic) BOOL includePhonetics; // @synthesize includePhonetics=_includePhonetics;
-@property(nonatomic) BOOL hasMainTransportType;
+@property(nonatomic) _Bool hasIncludeLaneGuidance;
+@property(nonatomic) _Bool includeLaneGuidance; // @synthesize includeLaneGuidance=_includeLaneGuidance;
+@property(nonatomic) _Bool hasIncludeContingencyRoutes;
+@property(nonatomic) _Bool includeContingencyRoutes; // @synthesize includeContingencyRoutes=_includeContingencyRoutes;
+@property(nonatomic) _Bool hasIncludeZilchPoints;
+@property(nonatomic) _Bool includeZilchPoints; // @synthesize includeZilchPoints=_includeZilchPoints;
+@property(nonatomic) _Bool hasIncludeManeuverIcons;
+@property(nonatomic) _Bool includeManeuverIcons; // @synthesize includeManeuverIcons=_includeManeuverIcons;
+@property(nonatomic) _Bool hasIncludePhonetics;
+@property(nonatomic) _Bool includePhonetics; // @synthesize includePhonetics=_includePhonetics;
+@property(nonatomic) _Bool hasMainTransportType;
 @property(nonatomic) int mainTransportType; // @synthesize mainTransportType=_mainTransportType;
 - (void)dealloc;
 

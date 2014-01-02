@@ -20,7 +20,7 @@
 @property(copy, nonatomic) SBSCardItem *cardItem; // @synthesize cardItem=_cardItem;
 @property(readonly, nonatomic) NSString *body;
 @property(readonly, nonatomic) NSString *title;
-- (BOOL)inertWhenLocked;
+- (_Bool)inertWhenLocked;
 - (id)sortDate;
 - (void)dealloc;
 

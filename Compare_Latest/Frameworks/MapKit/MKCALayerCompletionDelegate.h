@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface MKCALayerCompletionDelegate : NSObject
 {
     id _completion;
@@ -13,7 +14,7 @@
 
 + (id)delegateWithCompletion:(id)arg1;
 @property(copy, nonatomic) id completion; // @synthesize completion=_completion;
-- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
+- (void)animationDidStop:(id)arg1 finished:(_Bool)arg2;
 - (void)dealloc;
 
 @end

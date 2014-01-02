@@ -8,14 +8,16 @@
 
 @interface PUTiledLayoutGeneratorScanState : NSObject
 {
-    BOOL _scannedBatchHasCaption;
-    int _scanLocation;
+    _Bool _scannedBatchHasCaption;
+    long long _scanLocation;
     id _scannedBatchID;
+    long long _scanSpecialSequenceCount;
 }
 
-@property(nonatomic) BOOL scannedBatchHasCaption; // @synthesize scannedBatchHasCaption=_scannedBatchHasCaption;
+@property(nonatomic) long long scanSpecialSequenceCount; // @synthesize scanSpecialSequenceCount=_scanSpecialSequenceCount;
+@property(nonatomic) _Bool scannedBatchHasCaption; // @synthesize scannedBatchHasCaption=_scannedBatchHasCaption;
 @property(retain, nonatomic) id scannedBatchID; // @synthesize scannedBatchID=_scannedBatchID;
-@property(nonatomic) int scanLocation; // @synthesize scanLocation=_scanLocation;
+@property(nonatomic) long long scanLocation; // @synthesize scanLocation=_scanLocation;
 - (void).cxx_destruct;
 
 @end

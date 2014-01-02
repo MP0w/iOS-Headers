@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface GQZEntry : NSObject
 {
     id <GQZArchiveInputStream> mInput;
@@ -16,8 +17,8 @@
     unsigned int mCrc;
 }
 
-- (void)readZip64ExtraField:(const char *)arg1 size:(unsigned long)arg2;
-- (struct _xmlTextReader *)xmlReader:(BOOL)arg1;
+- (void)readZip64ExtraField:(const char *)arg1 size:(unsigned long long)arg2;
+- (struct _xmlTextReader *)xmlReader:(_Bool)arg1;
 - (struct _xmlDoc *)recoverXmlDocument;
 - (struct _xmlDoc *)xmlDocument;
 - (id)data;

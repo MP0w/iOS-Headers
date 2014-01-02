@@ -12,7 +12,7 @@
 
 + (id)getBrightnessWithDictionary:(id)arg1 context:(id)arg2;
 + (id)getBrightness;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

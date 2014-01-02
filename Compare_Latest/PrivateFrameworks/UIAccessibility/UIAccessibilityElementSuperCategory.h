@@ -11,29 +11,9 @@
 }
 
 + (id)_accessibilityTargetClassName;
++ (id)_installSafeCategoryValidationMethod;
 + (id)_initializeSafeCategoryFromValidationManager;
 + (void)_initializeSafeCategory;
-- (id)_accessibilityAutomaticIdentifier;
-- (void)accessibilityZoomOutAtPoint:(struct CGPoint)arg1;
-- (void)accessibilityZoomInAtPoint:(struct CGPoint)arg1;
-- (id)description;
-- (BOOL)_accessibilityProvidesOwnFrame;
-- (unsigned long long)accessibilityTraits;
-- (id)accessibilityValue;
-- (struct CGRect)accessibilityFrame;
-- (id)accessibilityLanguage;
-- (id)accessibilityHint;
-- (id)accessibilityLabel;
-- (struct CGPoint)accessibilityActivationPoint;
-- (BOOL)_accessibilitySupportsActivateAction;
-- (BOOL)accessibilityActivate;
-- (void)accessibilityElementDidLoseFocus;
-- (void)accessibilityElementDidBecomeFocused;
-- (void)_accessibilitySetValue:(id)arg1;
-- (void)setAccessibilityContainer:(id)arg1;
-- (void)dealloc;
-- (id)initWithAccessibilityContainer:(id)arg1;
-- (id)init;
 
 @end
 

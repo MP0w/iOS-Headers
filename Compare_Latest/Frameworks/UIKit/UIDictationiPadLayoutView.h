@@ -6,11 +6,14 @@
 
 #import <UIKit/UIDictationView.h>
 
+// Not exported
 @interface UIDictationiPadLayoutView : UIDictationView
 {
 }
 
+- (_Bool)isShowing;
 - (void)returnToKeyboard;
+- (void)finishReturnToKeyboard;
 - (void)layoutSubviews;
 - (void)setState:(int)arg1;
 - (void)setRenderConfig:(id)arg1;

@@ -14,13 +14,12 @@
 {
     NSString *_remoteServiceName;
     NSString *_localServiceName;
-    id _peer;
-    BOOL _connected;
+    _Bool _connected;
     NSMutableData *_dataReceived;
     NSInputStream *_inputStream;
     NSOutputStream *_outputStream;
-    BOOL _shouldSendHello;
-    BOOL _readyToWrite;
+    _Bool _shouldSendHello;
+    _Bool _readyToWrite;
     NSMutableData *_dataToSend;
     unsigned int _currentSequenceNumber;
     NSMutableData *_dataToSendHoldingQueue;
@@ -31,12 +30,10 @@
     id _connectedHandler;
     NSObject<OS_dispatch_queue> *_syncQueue;
     NSObject<OS_dispatch_queue> *_targetQueue;
-    double _connectionTimeoutInSeconds;
-    double _heartbeatIntervalInSeconds;
 }
 
-+ (unsigned int)receiveDataLimit;
-+ (unsigned int)sendDataLimit;
++ (unsigned long long)receiveDataLimit;
++ (unsigned long long)sendDataLimit;
 + (void)checkConstants;
 @property(retain, nonatomic) NSOutputStream *outputStream; // @synthesize outputStream=_outputStream;
 @property(retain, nonatomic) NSInputStream *inputStream; // @synthesize inputStream=_inputStream;
@@ -46,11 +43,11 @@
 @property(nonatomic) NSObject<OS_dispatch_queue> *syncQueue; // @synthesize syncQueue=_syncQueue;
 @property(copy, nonatomic) NSString *localServiceName; // @synthesize localServiceName=_localServiceName;
 @property(copy, nonatomic) NSString *remoteServiceName; // @synthesize remoteServiceName=_remoteServiceName;
-- (void)stream:(id)arg1 handleEvent:(unsigned int)arg2;
-- (void)syncHandleOutputStreamEvent:(unsigned int)arg1;
-- (void)syncHandleInputStreamEvent:(unsigned int)arg1;
+- (void)stream:(id)arg1 handleEvent:(unsigned long long)arg2;
+- (void)syncHandleOutputStreamEvent:(unsigned long long)arg1;
+- (void)syncHandleInputStreamEvent:(unsigned long long)arg1;
 - (void)syncReadFromInputStream;
-- (id)stringForStreamEventCode:(unsigned int)arg1;
+- (id)stringForStreamEventCode:(unsigned long long)arg1;
 - (void)sendData:(id)arg1 withCompletionHandler:(id)arg2;
 - (void)dealloc;
 - (void)invalidate;
@@ -63,7 +60,7 @@
 - (void)syncSendHello;
 - (void)syncSendMessage:(int)arg1 data:(id)arg2 withCompletionHandler:(id)arg3;
 - (void)syncSendData;
-- (BOOL)shouldDecideAboutConnection;
+- (_Bool)shouldDecideAboutConnection;
 - (void)attachInputStream:(id)arg1 outputStream:(id)arg2;
 - (void)connectToNetService:(id)arg1;
 - (void)setupInputStream:(id)arg1 outputStream:(id)arg2;

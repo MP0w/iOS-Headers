@@ -15,7 +15,7 @@
 
 - (void)forgetSong:(id)arg1;
 - (void)learnSong:(id)arg1;
-- (BOOL)isInUse;
+- (_Bool)isInUse;
 - (void)demolish;
 - (id)init;
 

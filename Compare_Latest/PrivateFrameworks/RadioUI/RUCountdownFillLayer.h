@@ -11,15 +11,15 @@
 @interface RUCountdownFillLayer : CALayer
 {
     UIImage *_fillImage;
-    float _fillShadowBlur;
+    double _fillShadowBlur;
     UIColor *_fillShadowColor;
-    float _fillValue;
+    double _fillValue;
 }
 
-+ (BOOL)needsDisplayForKey:(id)arg1;
-@property(nonatomic) float fillValue; // @synthesize fillValue=_fillValue;
++ (_Bool)needsDisplayForKey:(id)arg1;
+@property(nonatomic) double fillValue; // @synthesize fillValue=_fillValue;
 @property(retain, nonatomic) UIColor *fillShadowColor; // @synthesize fillShadowColor=_fillShadowColor;
-@property(nonatomic) float fillShadowBlur; // @synthesize fillShadowBlur=_fillShadowBlur;
+@property(nonatomic) double fillShadowBlur; // @synthesize fillShadowBlur=_fillShadowBlur;
 @property(retain, nonatomic) UIImage *fillImage; // @synthesize fillImage=_fillImage;
 - (void).cxx_destruct;
 - (void)drawInContext:(struct CGContext *)arg1;

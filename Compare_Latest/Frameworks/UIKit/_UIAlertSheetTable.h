@@ -6,6 +6,7 @@
 
 #import <UIKit/UITableView.h>
 
+// Not exported
 @interface _UIAlertSheetTable : UITableView
 {
 }

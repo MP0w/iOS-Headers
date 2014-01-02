@@ -20,7 +20,7 @@
 
 @property(nonatomic) id delegate; // @synthesize delegate=_delegate;
 - (void)dealloc;
-- (id)optimalDecompositionOf:(id)arg1 isSubsetOfWhole:(BOOL)arg2;
+- (id)optimalDecompositionOf:(id)arg1 isSubsetOfWhole:(_Bool)arg2;
 - (id)optimalDecompositionOf:(id)arg1;
 - (id)initWithDirectory:(id)arg1 bundle:(id)arg2;
 

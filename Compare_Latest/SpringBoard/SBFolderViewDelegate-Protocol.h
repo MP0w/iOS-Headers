@@ -11,6 +11,6 @@
 - (void)folderViewShouldClose:(id)arg1;
 - (void)folderViewDidEndScrolling:(id)arg1;
 - (void)folderViewWillBeginScrolling:(id)arg1;
-- (void)folderView:(id)arg1 currentPageIndexDidChange:(int)arg2;
+- (void)folderView:(id)arg1 currentPageIndexDidChange:(long long)arg2;
 @end
 

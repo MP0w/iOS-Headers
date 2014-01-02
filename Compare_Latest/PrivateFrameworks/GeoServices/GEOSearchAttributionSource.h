@@ -6,11 +6,13 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSMutableArray, NSString;
 
-@interface GEOSearchAttributionSource : PBCodable
+@interface GEOSearchAttributionSource : PBCodable <NSCopying>
 {
-    CDStruct_56d48c16 _attributionRequirements;
+    CDStruct_95bda58d _attributionRequirements;
     NSMutableArray *_attributionApps;
     NSMutableArray *_localizedAttributions;
     NSString *_sourceIdentifier;
@@ -21,29 +23,29 @@
 @property(retain, nonatomic) NSMutableArray *localizedAttributions; // @synthesize localizedAttributions=_localizedAttributions;
 @property(nonatomic) unsigned int sourceVersion; // @synthesize sourceVersion=_sourceVersion;
 @property(retain, nonatomic) NSString *sourceIdentifier; // @synthesize sourceIdentifier=_sourceIdentifier;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)attributionAppsAtIndex:(unsigned int)arg1;
-- (unsigned int)attributionAppsCount;
+- (id)attributionAppsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)attributionAppsCount;
 - (void)addAttributionApps:(id)arg1;
 - (void)clearAttributionApps;
-- (void)setAttributionRequirements:(int *)arg1 count:(unsigned int)arg2;
-- (int)attributionRequirementsAtIndex:(unsigned int)arg1;
+- (void)setAttributionRequirements:(int *)arg1 count:(unsigned long long)arg2;
+- (int)attributionRequirementsAtIndex:(unsigned long long)arg1;
 - (void)addAttributionRequirements:(int)arg1;
 - (void)clearAttributionRequirements;
 @property(readonly, nonatomic) int *attributionRequirements;
-@property(readonly, nonatomic) unsigned int attributionRequirementsCount;
-- (id)localizedAttributionAtIndex:(unsigned int)arg1;
-- (unsigned int)localizedAttributionsCount;
+@property(readonly, nonatomic) unsigned long long attributionRequirementsCount;
+- (id)localizedAttributionAtIndex:(unsigned long long)arg1;
+- (unsigned long long)localizedAttributionsCount;
 - (void)addLocalizedAttribution:(id)arg1;
 - (void)clearLocalizedAttributions;
 - (void)dealloc;
-- (id)bestLocalizedAttribution;
 
 @end
 

@@ -14,13 +14,13 @@
 @interface BBAction : NSObject <NSCopying, NSCoding>
 {
     id _internalBlock;
-    BOOL _deliverResponse;
+    _Bool _deliverResponse;
     NSURL *_launchURL;
     NSString *_launchBundleID;
-    BOOL _launchCanBypassPinLock;
+    _Bool _launchCanBypassPinLock;
     NSString *_activatePluginName;
     NSDictionary *_activatePluginContext;
-    int _actionType;
+    long long _actionType;
 }
 
 + (id)actionWithActivatePluginName:(id)arg1 activationContext:(id)arg2;
@@ -28,10 +28,10 @@
 + (id)actionWithLaunchURL:(id)arg1 callblock:(id)arg2;
 + (id)actionWithCallblock:(id)arg1;
 + (id)action;
-@property(nonatomic) int actionType; // @synthesize actionType=_actionType;
+@property(nonatomic) long long actionType; // @synthesize actionType=_actionType;
 @property(copy, nonatomic) NSDictionary *activatePluginContext; // @synthesize activatePluginContext=_activatePluginContext;
 @property(copy, nonatomic) NSString *activatePluginName; // @synthesize activatePluginName=_activatePluginName;
-@property(nonatomic) BOOL launchCanBypassPinLock; // @synthesize launchCanBypassPinLock=_launchCanBypassPinLock;
+@property(nonatomic) _Bool launchCanBypassPinLock; // @synthesize launchCanBypassPinLock=_launchCanBypassPinLock;
 @property(copy, nonatomic) NSString *launchBundleID; // @synthesize launchBundleID=_launchBundleID;
 @property(retain, nonatomic) NSURL *launchURL; // @synthesize launchURL=_launchURL;
 @property(copy, nonatomic) id internalBlock; // @synthesize internalBlock=_internalBlock;
@@ -39,16 +39,16 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)partialDescription;
-- (BOOL)deliverResponse:(id)arg1;
-@property(nonatomic) BOOL canBypassPinLock;
+- (_Bool)deliverResponse:(id)arg1;
+@property(nonatomic) _Bool canBypassPinLock;
 - (id)bundleID;
 - (id)url;
-- (BOOL)isAppLaunchAction;
-- (BOOL)isURLLaunchAction;
-- (BOOL)hasLaunchInfo;
+- (_Bool)isAppLaunchAction;
+- (_Bool)isURLLaunchAction;
+- (_Bool)hasLaunchInfo;
 - (void)setCallblock:(id)arg1;
 - (void)dealloc;
 - (id)initWithActivatePluginName:(id)arg1 activationContext:(id)arg2;

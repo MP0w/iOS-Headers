@@ -12,17 +12,17 @@
 {
     NSString *_high;
     NSString *_low;
-    unsigned int _icon;
-    unsigned int _dayOfWeek;
-    unsigned int _dayNumber;
+    unsigned long long _icon;
+    unsigned long long _dayOfWeek;
+    unsigned long long _dayNumber;
 }
 
-@property(nonatomic) unsigned int dayNumber; // @synthesize dayNumber=_dayNumber;
-@property(nonatomic) unsigned int dayOfWeek; // @synthesize dayOfWeek=_dayOfWeek;
-@property(nonatomic) unsigned int icon; // @synthesize icon=_icon;
+@property(nonatomic) unsigned long long dayNumber; // @synthesize dayNumber=_dayNumber;
+@property(nonatomic) unsigned long long dayOfWeek; // @synthesize dayOfWeek=_dayOfWeek;
+@property(nonatomic) unsigned long long icon; // @synthesize icon=_icon;
 @property(copy, nonatomic) NSString *low; // @synthesize low=_low;
 @property(copy, nonatomic) NSString *high; // @synthesize high=_high;
-- (int)compareDayNumberToDayForecast:(id)arg1;
+- (long long)compareDayNumberToDayForecast:(id)arg1;
 - (id)description;
 - (void)dealloc;
 

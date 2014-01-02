@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface SKSoundContext : NSObject
 {
     struct ALCdevice_struct *_device;

@@ -13,6 +13,7 @@
 }
 
 + (id)entityName;
+- (_Bool)shouldBeRemovedFromPhotoLibrary:(id)arg1;
 @property(readonly, nonatomic) NSMutableOrderedSet *mutableEntryAssets;
 
 // Remaining properties

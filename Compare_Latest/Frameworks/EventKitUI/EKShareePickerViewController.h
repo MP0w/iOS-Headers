@@ -20,8 +20,8 @@
 - (void).cxx_destruct;
 - (int)eventAttendeePicker:(id)arg1 getValidationStatusForEmailAddress:(id)arg2;
 - (void)eventAttendeePicker:(id)arg1 cacheValidationStatus:(int)arg2 forEmail:(id)arg3;
-- (struct CGSize)contentSizeForViewInPopover;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (struct CGSize)preferredContentSize;
+- (void)willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
 @property(copy, nonatomic) NSArray *sharees;
 - (id)_recipientFromSharee:(id)arg1;
 - (id)_shareeFromRecipient:(id)arg1;

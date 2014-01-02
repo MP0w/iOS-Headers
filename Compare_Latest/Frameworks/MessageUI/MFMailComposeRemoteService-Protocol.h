@@ -7,7 +7,7 @@
 @protocol MFMailComposeRemoteService
 - (void)autosaveWithReply:(id)arg1;
 - (void)framesForAttachmentsWithIdentifiers:(id)arg1 withReply:(id)arg2;
-- (void)setContentVisible:(BOOL)arg1;
+- (void)setContentVisible:(_Bool)arg1;
 - (void)commitCompositionValuesWithReply:(id)arg1;
 - (void)addAttachmentData:(id)arg1 mimeType:(id)arg2 fileName:(id)arg3 identifier:(id)arg4;
 - (void)setUICustomizationData:(id)arg1;

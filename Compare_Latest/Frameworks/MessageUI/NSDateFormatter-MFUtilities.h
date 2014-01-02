@@ -7,6 +7,6 @@
 #import "NSDateFormatter.h"
 
 @interface NSDateFormatter (MFUtilities)
-+ (id)mf_formatDate:(id)arg1 shortStyle:(BOOL)arg2;
++ (id)mf_formatDate:(id)arg1 shortStyle:(_Bool)arg2;
 @end
 

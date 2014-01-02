@@ -15,8 +15,8 @@
 {
     NSUUID *_uuid;
     NSString *_fileExtensionToken;
-    int _fileExtensionHandle;
-    int _index;
+    long long _fileExtensionHandle;
+    long long _index;
     NSURL *_url;
     NSString *_title;
     NSURL *_urlForDisplay;
@@ -26,9 +26,9 @@
 
 + (id)proxyWithPreviewItem:(id)arg1;
 + (id)encodedClasses;
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(readonly) NSUUID *uuid; // @synthesize uuid=_uuid;
-@property int index; // @synthesize index=_index;
+@property long long index; // @synthesize index=_index;
 @property(retain) NSString *password; // @synthesize password=_password;
 @property(retain) NSString *contentType; // @synthesize contentType=_contentType;
 @property(retain) NSURL *urlForDisplay; // @synthesize urlForDisplay=_urlForDisplay;
@@ -43,6 +43,7 @@
 - (id)description;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)initWithPreviewItem:(id)arg1;
 

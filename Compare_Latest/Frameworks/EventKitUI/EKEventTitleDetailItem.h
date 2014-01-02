@@ -8,24 +8,24 @@
 
 #import "EKEventDetailTitleCellDelegate-Protocol.h"
 
-@class EKEventInfoHeaderView, NSObject<EKEventTitleDetailItemDelegate>, UIColor, UITableViewCell;
+@class NSObject<EKEventTitleDetailItemDelegate>, UIColor, UITableViewCell;
 
+// Not exported
 @interface EKEventTitleDetailItem : EKEventDetailItem <EKEventDetailTitleCellDelegate>
 {
     UITableViewCell *_cell;
-    EKEventInfoHeaderView *_header;
     UIColor *_color;
-    BOOL _showDot;
+    _Bool _showDot;
     NSObject<EKEventTitleDetailItemDelegate> *_editDelegate;
 }
 
 @property(nonatomic) __weak NSObject<EKEventTitleDetailItemDelegate> *editDelegate; // @synthesize editDelegate=_editDelegate;
 - (void).cxx_destruct;
-- (BOOL)shouldShowEditButtonInline;
+- (_Bool)shouldShowEditButtonInline;
 - (void)editButtonPressed;
-- (id)cellForSubitemAtIndex:(unsigned int)arg1;
-- (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 forWidth:(float)arg2;
-- (BOOL)configureWithCalendar:(id)arg1 preview:(BOOL)arg2;
+- (id)cellForSubitemAtIndex:(unsigned long long)arg1;
+- (double)defaultCellHeightForSubitemAtIndex:(unsigned long long)arg1 forWidth:(double)arg2;
+- (_Bool)configureWithCalendar:(id)arg1 preview:(_Bool)arg2;
 - (void)reset;
 
 @end

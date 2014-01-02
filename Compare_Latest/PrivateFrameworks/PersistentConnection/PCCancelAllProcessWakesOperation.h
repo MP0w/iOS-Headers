@@ -6,11 +6,12 @@
 
 #import "NSOperation.h"
 
+// Not exported
 @interface PCCancelAllProcessWakesOperation : NSOperation
 {
 }
 
-- (BOOL)doesPidMatchCurrentProcessName:(int)arg1;
+- (_Bool)doesPidMatchCurrentProcessName:(int)arg1;
 - (void)main;
 
 @end

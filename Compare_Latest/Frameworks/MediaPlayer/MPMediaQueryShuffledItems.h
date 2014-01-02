@@ -6,51 +6,54 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
 @class MPMediaQuery, MPReshuffledArrayIndexMap, NSArray, NSMutableArray;
 
-@interface MPMediaQueryShuffledItems : NSObject <NSCoding, NSCopying>
+@interface MPMediaQueryShuffledItems : NSObject <NSSecureCoding, NSCopying>
 {
-    unsigned int _activeShuffleType;
-    BOOL _dirty;
+    unsigned long long _activeShuffleType;
+    _Bool _dirty;
     NSMutableArray *_orderedArray;
     MPReshuffledArrayIndexMap *_indexMap;
     MPMediaQuery *_sourceMediaQuery;
     NSArray *_sourceMediaQueryItems;
+    _Bool _autoReshufflingDisabled;
 }
 
++ (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool autoReshufflingDisabled; // @synthesize autoReshufflingDisabled=_autoReshufflingDisabled;
 @property(readonly, nonatomic) MPMediaQuery *sourceMediaQuery; // @synthesize sourceMediaQuery=_sourceMediaQuery;
 - (void).cxx_destruct;
-- (void)_shuffleMutableOrderedArrayWithInitialIndex:(unsigned int)arg1;
+- (void)_shuffleMutableOrderedArrayWithInitialIndex:(unsigned long long)arg1;
 - (void)_resetCaches;
-- (void)_rebuildItemCachesWithInitialSourceItemIndex:(unsigned int)arg1;
-- (void)_rebuildGroupedCachesWithInitialSourceItemIndex:(unsigned int)arg1;
-- (void)_rebuildCachesWithInitialSourceIndex:(unsigned int)arg1;
+- (void)_rebuildItemCachesWithInitialSourceItemIndex:(unsigned long long)arg1;
+- (void)_rebuildGroupedCachesWithInitialSourceItemIndex:(unsigned long long)arg1;
+- (void)_rebuildCachesWithInitialSourceIndex:(unsigned long long)arg1;
 - (void)_rebuildCaches;
 - (id)_includeInShuffleItemsForQuery:(id)arg1;
 - (void)unshuffle;
-- (void)shuffleItemsWithInitialIndex:(unsigned int)arg1;
-- (void)shuffleAlbumsWithInitialIndex:(unsigned int)arg1;
+- (void)shuffleItemsWithInitialIndex:(unsigned long long)arg1;
+- (void)shuffleAlbumsWithInitialIndex:(unsigned long long)arg1;
 @property(nonatomic) struct _NSRange focusedRange;
-- (id)objectAtIndex:(unsigned int)arg1;
+- (id)objectAtIndex:(unsigned long long)arg1;
 @property(readonly, nonatomic) NSArray *items;
 - (void)invalidateSourceMediaQueryAndLoadItems;
-- (unsigned int)indexOfObject:(id)arg1;
-- (unsigned int)indexOfObject:(id)arg1 greaterThanOrEqualToIndex:(unsigned int)arg2;
-- (unsigned int)indexOfItemWithPersistentID:(unsigned long long)arg1;
-- (unsigned int)indexOfItemWithPersistentID:(unsigned long long)arg1 greaterThanOrEqualToIndex:(unsigned int)arg2;
-- (unsigned int)count;
-- (unsigned int)nonGrowingCount;
-- (unsigned int)nonRepeatingCount;
-- (BOOL)_getFixedItemCount:(unsigned int *)arg1;
-@property(readonly, nonatomic) unsigned int realShuffleType;
+- (unsigned long long)indexOfObject:(id)arg1;
+- (unsigned long long)indexOfObject:(id)arg1 greaterThanOrEqualToIndex:(unsigned long long)arg2;
+- (unsigned long long)indexOfItemWithPersistentID:(unsigned long long)arg1;
+- (unsigned long long)indexOfItemWithPersistentID:(unsigned long long)arg1 greaterThanOrEqualToIndex:(unsigned long long)arg2;
+- (unsigned long long)count;
+- (unsigned long long)nonGrowingCount;
+- (unsigned long long)nonRepeatingCount;
+- (_Bool)_getFixedItemCount:(unsigned long long *)arg1;
+@property(readonly, nonatomic) unsigned long long realShuffleType;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithSourceMediaQuery:(id)arg1;
-- (id)initWithSourceMediaQuery:(id)arg1 orderedItems:(id)arg2 indexMap:(id)arg3 shuffleType:(unsigned int)arg4;
+- (id)initWithSourceMediaQuery:(id)arg1 orderedItems:(id)arg2 indexMap:(id)arg3 shuffleType:(unsigned long long)arg4;
 
 @end
 

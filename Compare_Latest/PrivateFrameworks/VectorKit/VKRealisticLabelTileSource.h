@@ -6,12 +6,13 @@
 
 #import <VectorKit/VKLabelTileSource.h>
 
+// Not exported
 @interface VKRealisticLabelTileSource : VKLabelTileSource
 {
 }
 
 - (int)_labelTileType;
-- (int)minimumZoomLevel;
+- (long long)minimumZoomLevel;
 
 @end
 

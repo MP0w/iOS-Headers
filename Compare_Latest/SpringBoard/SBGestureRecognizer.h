@@ -10,29 +10,29 @@
 
 @interface SBGestureRecognizer : NSObject
 {
-    unsigned int m_types;
+    unsigned long long m_types;
     int m_state;
     id m_handler;
-    unsigned int m_activeTouchesCount;
-    CDStruct_9bf48c9a m_activeTouches[30];
-    unsigned int m_strikes;
-    unsigned int m_templateMatches;
+    unsigned long long m_activeTouchesCount;
+    CDStruct_bab9d11d m_activeTouches[30];
+    unsigned long long m_strikes;
+    unsigned long long m_templateMatches;
     NSMutableArray *m_touchTemplates;
-    BOOL m_includedInGestureRecognitionIsPossibleTest;
-    BOOL m_sendsTouchesCancelledToApplication;
+    _Bool m_includedInGestureRecognitionIsPossibleTest;
+    _Bool m_sendsTouchesCancelledToApplication;
     id m_canBeginCondition;
     struct CGPoint m_maximumAllowedExclusiveMovement;
 }
 
 @property(nonatomic) struct CGPoint maximumAllowedExclusiveMovement; // @synthesize maximumAllowedExclusiveMovement=m_maximumAllowedExclusiveMovement;
 @property(copy, nonatomic) id canBeginCondition; // @synthesize canBeginCondition=m_canBeginCondition;
-@property(nonatomic) BOOL sendsTouchesCancelledToApplication; // @synthesize sendsTouchesCancelledToApplication=m_sendsTouchesCancelledToApplication;
-@property(nonatomic) BOOL includedInGestureRecognitionIsPossibleTest; // @synthesize includedInGestureRecognitionIsPossibleTest=m_includedInGestureRecognitionIsPossibleTest;
+@property(nonatomic) _Bool sendsTouchesCancelledToApplication; // @synthesize sendsTouchesCancelledToApplication=m_sendsTouchesCancelledToApplication;
+@property(nonatomic) _Bool includedInGestureRecognitionIsPossibleTest; // @synthesize includedInGestureRecognitionIsPossibleTest=m_includedInGestureRecognitionIsPossibleTest;
 @property(copy, nonatomic) id handler; // @synthesize handler=m_handler;
 @property(nonatomic) int state; // @synthesize state=m_state;
-@property(nonatomic) unsigned int types; // @synthesize types=m_types;
+@property(nonatomic) unsigned long long types; // @synthesize types=m_types;
 - (id)description;
-- (void)_appendDescription:(id)arg1 forTypes:(unsigned int)arg2;
+- (void)_appendDescription:(id)arg1 forTypes:(unsigned long long)arg2;
 - (void)touchesCancelled:(struct __SBGestureContext *)arg1;
 - (void)touchesEnded:(struct __SBGestureContext *)arg1;
 - (void)touchesMoved:(struct __SBGestureContext *)arg1;
@@ -40,9 +40,9 @@
 - (int)templateMatch;
 - (void)addTouchTemplate:(id)arg1;
 - (void)reset;
-- (BOOL)shouldReportRecognitionPossibleToAppsForTotalMotion:(struct CGPoint)arg1;
-- (BOOL)shouldReceiveTouches;
-- (BOOL)isRecognized;
+- (_Bool)shouldReportRecognitionPossibleToAppsForTotalMotion:(struct CGPoint)arg1;
+- (_Bool)shouldReceiveTouches;
+- (_Bool)isRecognized;
 - (void)dealloc;
 - (id)init;
 

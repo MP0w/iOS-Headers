@@ -10,20 +10,19 @@
 {
 }
 
-+ (struct CGPoint)shadowRotationalCenterForHand:(int)arg1;
++ (id)makeOverSecondHandDotImage;
++ (id)overHourHandDotImageForDaytime:(_Bool)arg1;
++ (id)makeClockHand:(int)arg1 daytime:(_Bool)arg2;
++ (id)makeClockFaceForDaytime:(_Bool)arg1;
++ (_Bool)shouldCacheImageOnDiskForType:(int)arg1 dayTime:(_Bool)arg2;
 + (struct CGPoint)handRotationalCenterForHand:(int)arg1;
-+ (float)overSecondHandDotSize;
-+ (float)overHourHandDotSize;
-+ (BOOL)doesFaceHaveShadow;
-+ (id)numeralFont;
-+ (float)numeralInset;
-+ (float)faceRadius;
-+ (id)nightTimeFaceColor;
-+ (id)nightTimeTextColor;
-+ (id)dayTimeFaceColor;
-+ (id)dayTimeTextColor;
++ (_Bool)doesFaceHaveShadow;
++ (double)numeralInset;
++ (double)faceRadius;
 + (id)resourcePath;
 + (int)style;
+- (double)coarseUpdateInterval;
+- (double)updateInterval;
 
 @end
 

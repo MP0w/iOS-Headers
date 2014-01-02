@@ -6,6 +6,7 @@
 
 #import <Foundation/_NSXPCDistantObjectWithError.h>
 
+// Not exported
 @interface _NSXPCDistantObjectSynchronousWithError : _NSXPCDistantObjectWithError
 {
     double _timeout;

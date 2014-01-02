@@ -12,7 +12,7 @@
 
 @interface SKUIRedeemInputViewController : SKUIRedeemStepViewController <UITextFieldDelegate>
 {
-    int _category;
+    long long _category;
     SKUIRedeemTextField *_field;
     UIImageView *_imageView;
     NSString *_initialCode;
@@ -20,19 +20,18 @@
 }
 
 @property(copy, nonatomic) NSString *initialCode; // @synthesize initialCode=_initialCode;
-@property(readonly, nonatomic) int category; // @synthesize category=_category;
+@property(readonly, nonatomic) long long category; // @synthesize category=_category;
 - (void).cxx_destruct;
 - (id)_newTextFieldWithClientContext:(id)arg1;
-- (id)_newTermsButtonWithClientContext:(id)arg1;
 - (void)_termsButtonAction:(id)arg1;
 - (void)_redeemAction:(id)arg1;
 - (void)_cancelAction:(id)arg1;
 - (void)_textFieldTextDidChange:(id)arg1;
 - (void)_redeemConfigurationImagesDidLoad:(id)arg1;
-- (BOOL)textFieldShouldReturn:(id)arg1;
+- (_Bool)textFieldShouldReturn:(id)arg1;
 - (void)loadView;
 - (void)dealloc;
-- (id)initWithRedeemCategory:(int)arg1;
+- (id)initWithRedeemCategory:(long long)arg1;
 
 @end
 

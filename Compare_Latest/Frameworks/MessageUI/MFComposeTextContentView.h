@@ -8,21 +8,21 @@
 
 @interface MFComposeTextContentView : UITextContentView
 {
-    int _preventScrollSelectionToVisible;
-    BOOL _keepScrollPosition;
+    long long _preventScrollSelectionToVisible;
+    _Bool _keepScrollPosition;
     struct CGPoint _scrollPosition;
 }
 
 - (id)targetForAction:(SEL)arg1 withSender:(id)arg2;
-- (BOOL)canPerformAction:(SEL)arg1 withSender:(id)arg2;
+- (_Bool)canPerformAction:(SEL)arg1 withSender:(id)arg2;
 - (void)decreaseQuoteLevel;
 - (void)increaseQuoteLevel;
 - (void)showQuoteLevelOptions;
 - (id)supportedPasteboardTypesForCurrentSelection;
 - (void)ensureSelection;
-- (BOOL)resignFirstResponder;
-- (BOOL)becomeFirstResponder;
-- (void)scrollSelectionToVisible:(BOOL)arg1;
+- (_Bool)resignFirstResponder;
+- (_Bool)becomeFirstResponder;
+- (void)scrollSelectionToVisible:(_Bool)arg1;
 - (id)enclosingScrollView;
 - (void)endPreventingScrollSelectionToVisible;
 - (void)beginPreventingScrollSelectionToVisible;

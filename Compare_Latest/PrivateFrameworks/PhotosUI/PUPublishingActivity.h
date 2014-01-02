@@ -17,15 +17,15 @@
     id <PUPublishingActivityDelegate> _delegate;
 }
 
-+ (int)activityCategory;
++ (long long)activityCategory;
 @property(nonatomic) id <PUPublishingActivityDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)editVideoViewControllerDidCancel:(id)arg1;
 - (void)editVideoViewController:(id)arg1 didTrimVideoWithOptions:(id)arg2;
-- (BOOL)_presentActivityOnViewController:(id)arg1 animated:(BOOL)arg2 completion:(id)arg3;
+- (_Bool)_presentActivityOnViewController:(id)arg1 animated:(_Bool)arg2 completion:(id)arg3;
 - (id)activityViewController;
 - (void)prepareWithActivityItems:(id)arg1;
-- (BOOL)canPerformWithActivityItems:(id)arg1;
+- (_Bool)canPerformWithActivityItems:(id)arg1;
 - (id)_activityImage;
 - (id)activityTitle;
 - (id)activityType;
@@ -33,7 +33,7 @@
 - (void)_publishingAgentDidStartPublishing:(id)arg1;
 - (void)_showTrimViewController;
 - (void)_showVideoTooLongAlert;
-- (void)_showPublishingSheetInViewController:(id)arg1 remakeAfterPublish:(BOOL)arg2;
+- (void)_showPublishingSheetInViewController:(id)arg1 remakeAfterPublish:(_Bool)arg2;
 - (id)currentPublishingAgent;
 - (id)publishingBundle;
 - (void)_publishOverReferenceViewController;

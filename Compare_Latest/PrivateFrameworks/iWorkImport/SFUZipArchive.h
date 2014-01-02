@@ -4,12 +4,14 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <iWorkImport/GQZArchive.h>
+#import "NSObject.h"
 
-@class NSData, NSString, SFUCryptoKey, SFUDataRepresentation<SFUZipArchiveDataRepresentation>;
+@class NSData, NSMutableDictionary, NSString, SFUCryptoKey, SFUDataRepresentation<SFUZipArchiveDataRepresentation>;
 
-@interface SFUZipArchive : GQZArchive
+// Not exported
+@interface SFUZipArchive : NSObject
 {
+    NSMutableDictionary *mEntries;
     SFUDataRepresentation<SFUZipArchiveDataRepresentation> *mDataRepresentation;
     NSData *mPassphraseVerifier;
     NSString *mPassphraseHint;
@@ -17,26 +19,19 @@
     NSData *mEncryptedDocumentUuid;
 }
 
-+ (BOOL)isZipArchiveAtPath:(id)arg1;
-- (BOOL)decompressAtPath:(id)arg1;
++ (_Bool)isZipArchiveAtPath:(id)arg1;
+- (_Bool)decompressAtPath:(id)arg1;
 - (void)setCryptoKey:(id)arg1;
 - (id)encryptedDocumentUuid;
 - (id)passphraseHint;
 - (id)passphraseVerifier;
-- (BOOL)isEncrypted;
+- (_Bool)isEncrypted;
 - (id)allEntryNames;
 - (id)entryWithName:(id)arg1 dataLength:(long long)arg2;
 - (id)entryWithName:(id)arg1;
 - (void)dealloc;
-- (id)initWithPath:(id)arg1 collapseCommonRootDirectory:(BOOL)arg2;
-- (void)readExtraFieldFromBuffer:(const char *)arg1 size:(unsigned long)arg2 entry:(id)arg3;
-- (id)readFilenameFromBuffer:(const char *)arg1 size:(unsigned long)arg2;
-- (struct SFUZipEndOfCentralDirectory)readZip64EndOfCentralDirectoryFromInputStream:(id)arg1 offset:(long long)arg2;
-- (struct SFUZipEndOfCentralDirectory)readZip64EndOfCentralDirectoryFromInputStream:(id)arg1 eocdOffset:(long long)arg2;
-- (const char *)searchForEndOfCentralDirectoryFromInputStream:(id)arg1 offset:(long long *)arg2;
-- (struct SFUZipEndOfCentralDirectory)readEndOfCentralDirectoryFromInputStream:(id)arg1;
-- (void)collapseCommonRootDirectory;
-- (void)readEntries;
+- (id)initWithData:(id)arg1 collapseCommonRootDirectory:(_Bool)arg2;
+- (id)initWithPath:(id)arg1 collapseCommonRootDirectory:(_Bool)arg2;
 
 @end
 

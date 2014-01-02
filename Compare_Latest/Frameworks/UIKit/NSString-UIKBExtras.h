@@ -7,7 +7,7 @@
 #import "NSString.h"
 
 @interface NSString (UIKBExtras)
-- (id)_adjustedFontFromFont:(id)arg1 withinFrame:(struct CGRect)arg2 minimumSize:(float)arg3 textSize:(struct CGSize *)arg4;
+- (id)_adjustedFontFromFont:(id)arg1 withinFrame:(struct CGRect)arg2 minimumSize:(double)arg3 textSize:(struct CGSize *)arg4;
 - (struct CGSize)_optimizedSizeWithFont:(id)arg1;
 @end
 

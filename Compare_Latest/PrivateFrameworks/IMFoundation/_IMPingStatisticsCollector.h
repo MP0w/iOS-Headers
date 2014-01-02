@@ -20,7 +20,7 @@
 - (double)_computeMedianTime:(id)arg1;
 - (id)pingStatsForLastNSeconds:(double)arg1;
 - (id)pingStats;
-- (BOOL)logStatsToFile:(id)arg1 error:(id *)arg2;
+- (_Bool)logStatsToFile:(id)arg1 error:(id *)arg2;
 - (void)timeoutOldSequenceNumbers:(double)arg1;
 - (void)addEchoReplyPacket:(int)arg1;
 - (struct timeval)timeSentForPacket:(int)arg1;

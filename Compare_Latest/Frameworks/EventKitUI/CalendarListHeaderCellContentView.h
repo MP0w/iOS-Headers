@@ -9,18 +9,18 @@
 @interface CalendarListHeaderCellContentView : UIView
 {
     double _date;
-    BOOL _indentsForDots;
-    BOOL _showWeekNumber;
+    _Bool _indentsForDots;
+    _Bool _showWeekNumber;
 }
 
-@property(nonatomic) BOOL showWeekNumber; // @synthesize showWeekNumber=_showWeekNumber;
+@property(nonatomic) _Bool showWeekNumber; // @synthesize showWeekNumber=_showWeekNumber;
 - (void)drawRect:(struct CGRect)arg1;
 - (id)_weekNumberFont;
 - (id)_normalTextShadowColor;
 - (id)_normalTextColor;
 - (void)drawTitle:(id)arg1 withColor:(id)arg2 withShadowColor:(id)arg3 inRect:(struct CGRect)arg4;
 - (struct CGRect)_rectForOffetTextShadow:(struct CGRect)arg1;
-@property(nonatomic) BOOL indentsForDots;
+@property(nonatomic) _Bool indentsForDots;
 @property(nonatomic) double date;
 
 @end

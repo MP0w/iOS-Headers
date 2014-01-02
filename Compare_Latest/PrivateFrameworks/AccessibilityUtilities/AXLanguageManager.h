@@ -31,9 +31,10 @@
 - (id)_preferredLanguageIDsFromUserSelectedKeyboards;
 - (id)descriptionOfWord:(id)arg1 forLanguage:(id)arg2;
 - (void)updateCachedDialects;
-- (BOOL)isCharacterCommon:(unsigned short)arg1;
+- (_Bool)isCharacterCommon:(unsigned short)arg1;
 - (id)ambiguousDialectsFromUserKeyboardPreferences;
 - (id)dialectThatCanSpeakCharacter:(unsigned short)arg1;
+- (id)dialectsThatCanSpeakCharacter:(unsigned short)arg1;
 - (id)dialectForLanguageID:(id)arg1;
 @property(nonatomic) AXDialectMap *dialectForCurrentLocale;
 @property(nonatomic) AXDialectMap *dialectForSystemLanguage;

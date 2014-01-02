@@ -16,7 +16,7 @@
 
 + (id)endpointWithDictionary:(id)arg1 context:(id)arg2;
 + (id)endpoint;
-@property(nonatomic) BOOL supportsAuthentication;
+@property(nonatomic) _Bool supportsAuthentication;
 @property(copy, nonatomic) NSString *providerId;
 @property(copy, nonatomic) NSDictionary *operations;
 - (id)encodedClassName;

@@ -9,7 +9,7 @@
 @interface DOMNode (WebDOMNodeOperationsPrivate)
 - (void)showPlaceholderIfNecessary;
 - (void)hidePlaceholder;
-- (BOOL)isHorizontalWritingMode;
+- (_Bool)isHorizontalWritingMode;
 - (id)webArchiveByFilteringSubframes:(id)arg1;
 @end
 

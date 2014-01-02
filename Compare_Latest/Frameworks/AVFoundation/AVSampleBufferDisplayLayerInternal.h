@@ -12,13 +12,13 @@
 {
     CALayer *contentLayer;
     struct OpaqueFigVideoQueue *videoQueue;
-    BOOL controlTimebaseSetByUser;
-    BOOL hasEnqueuedSamples;
+    _Bool controlTimebaseSetByUser;
+    _Bool hasEnqueuedSamples;
     NSString *videoGravity;
     struct CGSize presentationSize;
-    BOOL isRequestingMediaData;
+    _Bool isRequestingMediaData;
     AVMediaDataRequester *mediaDataRequester;
-    BOOL aboveHighWaterLevel;
+    _Bool aboveHighWaterLevel;
     NSObject<OS_dispatch_queue> *serialQueue;
 }
 

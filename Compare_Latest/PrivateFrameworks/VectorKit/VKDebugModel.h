@@ -8,18 +8,19 @@
 
 #import "VKMapLayer-Protocol.h"
 
+// Not exported
 @interface VKDebugModel : VKModelObject <VKMapLayer>
 {
-    BOOL _geocentric;
+    _Bool _geocentric;
     float _fontSize;
 }
 
-@property(nonatomic) BOOL geocentric; // @synthesize geocentric=_geocentric;
-- (void)_paintTile:(id)arg1 fromLayer:(unsigned int)arg2 withContext:(id)arg3;
+@property(nonatomic) _Bool geocentric; // @synthesize geocentric=_geocentric;
+- (void)_paintTile:(id)arg1 fromLayer:(unsigned long long)arg2 withContext:(id)arg3;
 - (void)drawDebugScene:(id)arg1 withContext:(id)arg2;
 - (void)dealloc;
 - (unsigned int)supportedRenderPasses;
-- (unsigned int)mapLayerPosition;
+- (unsigned long long)mapLayerPosition;
 
 @end
 

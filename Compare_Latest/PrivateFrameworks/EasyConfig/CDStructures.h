@@ -8,42 +8,43 @@
 
 struct HTTPMessagePrivate {
     struct __CFRuntimeBase {
-        unsigned int _field1;
+        unsigned long long _field1;
         unsigned char _field2[4];
+        unsigned int _field3;
     } _field1;
     struct HTTPMessagePrivate *_field2;
     struct {
         char _field1[8192];
-        unsigned int _field2;
+        unsigned long long _field2;
         char *_field3;
-        unsigned int _field4;
+        unsigned long long _field4;
         char *_field5;
-        unsigned int _field6;
+        unsigned long long _field6;
         char *_field7;
-        unsigned int _field8;
+        unsigned long long _field8;
         struct {
             char *_field1;
-            unsigned int _field2;
+            unsigned long long _field2;
             char *_field3;
-            unsigned int _field4;
+            unsigned long long _field4;
             char *_field5;
-            unsigned int _field6;
+            unsigned long long _field6;
             char *_field7;
-            unsigned int _field8;
+            unsigned long long _field8;
             char *_field9;
-            unsigned int _field10;
+            unsigned long long _field10;
             char *_field11;
-            unsigned int _field12;
+            unsigned long long _field12;
             char *_field13;
-            unsigned int _field14;
+            unsigned long long _field14;
             char *_field15;
             char *_field16;
         } _field9;
         char *_field10;
-        unsigned int _field11;
+        unsigned long long _field11;
         int _field12;
         char *_field13;
-        unsigned int _field14;
+        unsigned long long _field14;
         unsigned char _field15;
         unsigned long long _field16;
         unsigned char _field17;
@@ -52,9 +53,9 @@ struct HTTPMessagePrivate {
     unsigned char _field4;
     unsigned char _field5;
     char *_field6;
-    unsigned int _field7;
-    unsigned int _field8;
-    unsigned int _field9;
+    unsigned long long _field7;
+    unsigned long long _field8;
+    unsigned long long _field9;
     unsigned char _field10[32000];
     char *_field11;
     struct iovec _field12[2];
@@ -75,6 +76,32 @@ struct HTTPMessagePrivate {
 
 struct iovec {
     void *_field1;
-    unsigned int _field2;
+    unsigned long long _field2;
 };
+
+#pragma mark Typedef'd Structures
+
+typedef struct {
+    double startTime;
+    unsigned char userChangedFriendlyName;
+    unsigned char playPasswordSet;
+    unsigned char adminPasswordSet;
+    unsigned char destinationNetworkRecommendationUsed;
+    double secondsToGetLinkUpOnSWAP;
+    int wifiJoinSWAPError;
+    unsigned char hitJoiningTargetSWAPTimeout;
+    int rssiOfSWAP;
+    unsigned int snrOfSWAP;
+    unsigned int channelOfSWAP;
+} CDStruct_56123b44;
+
+typedef struct {
+    double secondsToGetLinkUpOnDestination;
+    int wifiJoinDestinationAPError;
+    unsigned char destinationNetworkPSKInKeychain;
+    unsigned char hitJoiningDestinationAPTimeout;
+    int rssiOfDestinationAP;
+    unsigned int snrOfDestinationAP;
+    unsigned int channelOfDestinationAP;
+} CDStruct_6a23f5a0;
 

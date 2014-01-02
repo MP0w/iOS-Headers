@@ -11,17 +11,17 @@
 @interface BBObserverBulletinAttachmentInfo : NSObject
 {
     NSMutableDictionary *_imageSizePairs;
-    BOOL imagesFetched;
-    BOOL sizesFetched;
+    _Bool imagesFetched;
+    _Bool sizesFetched;
 }
 
-@property(nonatomic) BOOL sizesFetched; // @synthesize sizesFetched;
-@property(nonatomic) BOOL imagesFetched; // @synthesize imagesFetched;
+@property(nonatomic) _Bool sizesFetched; // @synthesize sizesFetched;
+@property(nonatomic) _Bool imagesFetched; // @synthesize imagesFetched;
 - (struct CGSize)sizeForKey:(id)arg1;
 - (id)imageForKey:(id)arg1;
 - (void)setSize:(struct CGSize)arg1 forKey:(id)arg2;
 - (void)setImage:(id)arg1 forKey:(id)arg2;
-- (id)_pairForKey:(id)arg1 create:(BOOL)arg2;
+- (id)_pairForKey:(id)arg1 create:(_Bool)arg2;
 - (void)dealloc;
 - (id)init;
 

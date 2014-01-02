@@ -6,11 +6,12 @@
 
 #import <UIKit/UITableViewCell.h>
 
+// Not exported
 @interface UIPickerTableViewCell : UITableViewCell
 {
 }
 
-- (void)_setIsCenterCell:(BOOL)arg1;
+- (void)_setIsCenterCell:(_Bool)arg1 shouldModifyAlphaOfView:(_Bool)arg2;
 
 @end
 

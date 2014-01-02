@@ -8,42 +8,37 @@
 
 #pragma mark Named Structures
 
-struct CADoublePoint {
-    double x;
-    double y;
-};
-
 struct CATransform3D {
-    float m11;
-    float m12;
-    float m13;
-    float m14;
-    float m21;
-    float m22;
-    float m23;
-    float m24;
-    float m31;
-    float m32;
-    float m33;
-    float m34;
-    float m41;
-    float m42;
-    float m43;
-    float m44;
+    double m11;
+    double m12;
+    double m13;
+    double m14;
+    double m21;
+    double m22;
+    double m23;
+    double m24;
+    double m31;
+    double m32;
+    double m33;
+    double m34;
+    double m41;
+    double m42;
+    double m43;
+    double m44;
 };
 
 struct CGAffineTransform {
-    float a;
-    float b;
-    float c;
-    float d;
-    float tx;
-    float ty;
+    double a;
+    double b;
+    double c;
+    double d;
+    double tx;
+    double ty;
 };
 
 struct CGPoint {
-    float x;
-    float y;
+    double x;
+    double y;
 };
 
 struct CGRect {
@@ -52,15 +47,20 @@ struct CGRect {
 };
 
 struct CGSize {
-    float width;
-    float height;
+    double width;
+    double height;
+};
+
+struct CGVector {
+    double dx;
+    double dy;
 };
 
 struct UIEdgeInsets {
-    float top;
-    float left;
-    float bottom;
-    float right;
+    double top;
+    double left;
+    double bottom;
+    double right;
 };
 
 struct UIKeyAndScopeToValueCache {
@@ -72,10 +72,10 @@ struct UIKeyAndScopeToValueCache {
 struct UIKeyToKeyIDCache {
     NSString *previousKey[64];
     void *previousKeyID[64];
-    char previousKeyExists[64];
-    int hashHits;
-    int hashHotMisses;
-    int hashColdMisses;
+    _Bool previousKeyExists[64];
+    long long hashHits;
+    long long hashHotMisses;
+    long long hashColdMisses;
 };
 
 struct UINibArchiveTableInfo {
@@ -99,10 +99,10 @@ struct UINibDecoderObjectEntry {
 };
 
 struct UINibDecoderRecursiveState {
-    int objectID;
-    int nextGenericKey;
+    long long objectID;
+    long long nextGenericKey;
     unsigned int nextValueSearchIndex;
-    char replaced;
+    _Bool replaced;
 };
 
 struct UINibDecoderValue {
@@ -111,8 +111,8 @@ struct UINibDecoderValue {
 };
 
 struct UIOffset {
-    float horizontal;
-    float vertical;
+    double horizontal;
+    double vertical;
 };
 
 struct UIPeripheralAnimationGeometry {
@@ -120,7 +120,7 @@ struct UIPeripheralAnimationGeometry {
     struct CGPoint inPosition;
     struct CGRect bounds;
     struct CGAffineTransform transform;
-    float targetFrameHeightDelta;
+    double targetFrameHeightDelta;
 };
 
 struct UISharedArtworkFileHeader {
@@ -131,19 +131,19 @@ struct UISharedArtworkFileHeader {
 
 struct UIStringIDTableBucket {
     id _field1;
-    unsigned int _field2;
+    unsigned long long _field2;
     struct UIStringIDTableBucket *_field3;
 };
 
 struct _NSRange {
-    unsigned int location;
-    unsigned int length;
+    unsigned long long location;
+    unsigned long long length;
 };
 
 struct _PDFHistoryItem {
-    char restorePending;
-    char isInitialScale;
-    float zoomScale;
+    _Bool restorePending;
+    _Bool isInitialScale;
+    double zoomScale;
     struct CGPoint contentOffset;
 };
 
@@ -153,6 +153,13 @@ struct _UIWebViewportConfiguration {
     float minimumScale;
     float maximumScale;
     _Bool allowsUserScaling;
+};
+
+struct _WBUNetworkDataUsage {
+    unsigned long long _field1;
+    unsigned long long _field2;
+    unsigned long long _field3;
+    unsigned long long _field4;
 };
 
 #pragma mark Typedef'd Structures
@@ -170,8 +177,8 @@ typedef struct {
 
 typedef struct {
     id _field1;
-    unsigned int _field2;
-} CDStruct_421913e2;
+    unsigned long long _field2;
+} CDStruct_856ef1b3;
 
 typedef struct {
     id _field1;
@@ -180,14 +187,23 @@ typedef struct {
 } CDStruct_04eade4e;
 
 typedef struct {
-    unsigned long _field1;
-    id *_field2;
-    unsigned long *_field3;
-    unsigned long _field4[5];
-} CDStruct_11f37819;
+    _Bool animateContentRotation;
+    _Bool preserveHeight;
+    _Bool avoidFadingBottomOfContent;
+    _Bool skipSnapshotOfEndState;
+    double contentStretchRightEdgeInset;
+    int edgeClip;
+} CDStruct_010f855d;
 
 typedef struct {
-    char itemIsEnabled[25];
+    unsigned long long _field1;
+    id *_field2;
+    unsigned long long *_field3;
+    unsigned long long _field4[5];
+} CDStruct_70511ce9;
+
+typedef struct {
+    _Bool itemIsEnabled[25];
     char timeString[64];
     int gsmSignalStrengthRaw;
     int gsmSignalStrengthBars;
@@ -212,7 +228,9 @@ typedef struct {
     unsigned int displayRawGSMSignal:1;
     unsigned int displayRawWifiSignal:1;
     unsigned int locationIconType:1;
-} CDStruct_87a532be;
+    unsigned int quietModeInactive:1;
+    unsigned int tetheringConnectionCount;
+} CDStruct_0e61b686;
 
 typedef struct {
     unsigned int val[8];
@@ -227,13 +245,24 @@ typedef struct {
 } CDStruct_961fb75c;
 
 typedef struct {
-    char animateContentRotation;
-    char preserveHeight;
-    char avoidFadingBottomOfContent;
-    char skipSnapshotOfEndState;
-    float contentStretchRightEdgeInset;
-    int edgeClip;
-} CDStruct_19ba41f1;
+    double _field1;
+    double _field2;
+    double _field3;
+    double _field4;
+    double _field5;
+    double _field6;
+    double _field7;
+    double _field8;
+    double _field9;
+} CDStruct_afa449f9;
+
+typedef struct {
+    double _field1;
+    double _field2;
+    double _field3;
+    double _field4;
+    double _field5;
+} CDStruct_d83abbfb;
 
 typedef struct {
     double w;
@@ -243,24 +272,15 @@ typedef struct {
 } CDStruct_bf7dff04;
 
 typedef struct {
-    float _field1;
-    float _field2;
-    float _field3;
-    float _field4;
-    float _field5;
-    float _field6;
-    float _field7;
-    float _field8;
-    float _field9;
-} CDStruct_ffb0d7a1;
+    double _field1;
+    double _field2;
+    double _field3;
+} CDStruct_39925896;
 
 typedef struct {
-    float _field1;
-    float _field2;
-    float _field3;
-    float _field4;
-    float _field5;
-} CDStruct_0be28830;
+    double amount;
+    int unit;
+} CDStruct_73524d89;
 
 typedef struct {
     float _field1;
@@ -268,18 +288,13 @@ typedef struct {
 } CDStruct_b2fbf00d;
 
 typedef struct {
-    float amount;
-    int unit;
-} CDStruct_d5a6e384;
-
-typedef struct {
     int _field1;
     int _field2;
     int _field3;
     int _field4;
-    char _field5;
-    char _field6;
-} CDStruct_03799eb3;
+    _Bool _field5;
+    _Bool _field6;
+} CDStruct_3eb7d77a;
 
 typedef struct {
     id _field1;
@@ -288,10 +303,10 @@ typedef struct {
     id _field4;
     id _field5;
     struct CGSize _field6;
-} CDStruct_8f44d8bf;
+} CDStruct_0ba2c6ed;
 
 typedef struct {
-    char overrideItemIsEnabled[25];
+    _Bool overrideItemIsEnabled[25];
     unsigned int overrideTimeString:1;
     unsigned int overrideGsmSignalStrengthRaw:1;
     unsigned int overrideGsmSignalStrengthBars:1;
@@ -313,17 +328,17 @@ typedef struct {
     unsigned int overrideBluetoothConnected:1;
     unsigned int overrideDisplayRawGSMSignal:1;
     unsigned int overrideDisplayRawWifiSignal:1;
-    CDStruct_87a532be values;
-} CDStruct_364e5eb5;
+    CDStruct_0e61b686 values;
+} CDStruct_9dad2be2;
 
 typedef struct {
-    CDStruct_d5a6e384 _field1[4];
-} CDStruct_14b8080e;
+    CDStruct_73524d89 _field1[4];
+} CDStruct_bd7e7c01;
 
 typedef struct {
     int _field1;
     struct CGSize _field2;
-} CDStruct_9b4cf30b;
+} CDStruct_2f66a7ba;
 
 typedef struct {
     CDStruct_bf7dff04 quaternion;
@@ -338,28 +353,35 @@ typedef struct {
 
 typedef struct {
     id _field1;
-    float _field2;
-    float _field3;
-    CDStruct_8f44d8bf _field4;
-    CDStruct_8f44d8bf _field5;
-    CDStruct_8f44d8bf _field6;
-    CDStruct_8f44d8bf _field7;
-    char _field8;
-} CDStruct_a542d031;
+    double _field2;
+    double _field3;
+    CDStruct_0ba2c6ed _field4;
+    CDStruct_0ba2c6ed _field5;
+    CDStruct_0ba2c6ed _field6;
+    CDStruct_0ba2c6ed _field7;
+    _Bool _field8;
+} CDStruct_41b0f204;
 
 typedef struct {
     struct CGRect left;
     struct CGRect middle;
     struct CGRect right;
-} CDStruct_75b8db5d;
+} CDStruct_24b02699;
 
 typedef struct {
-    CDStruct_75b8db5d top;
-    CDStruct_75b8db5d middle;
-    CDStruct_75b8db5d bottom;
-} CDStruct_c8cd2c5d;
+    CDStruct_24b02699 top;
+    CDStruct_24b02699 middle;
+    CDStruct_24b02699 bottom;
+} CDStruct_fa4dcde7;
 
 // Ambiguous groups
+typedef struct {
+    float m_x;
+    float m_y;
+    float m_z;
+    float m_w;
+} CDStruct_23957544;
+
 typedef struct {
     float _field1;
     float _field2;
@@ -409,4 +431,9 @@ typedef union {
     UIImage *image;
     UIView *view;
 } CDUnion_b710d1cf;
+
+typedef union {
+    CDStruct_961fb75c styling;
+    int intValue;
+} CDUnion_2c5a7b77;
 

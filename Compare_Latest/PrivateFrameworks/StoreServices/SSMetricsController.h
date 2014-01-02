@@ -14,18 +14,21 @@
     SSMetricsConfiguration *_configuration;
     NSObject<OS_dispatch_queue> *_serialQueue;
     NSObject<OS_dispatch_queue> *_flushSerialQueue;
-    BOOL _flushTimerEnabled;
+    _Bool _flushTimerEnabled;
     NSTimer *_flushEventsTimer;
 }
 
-@property(nonatomic, getter=isFlushTimerEnabled) BOOL flushTimerEnabled; // @synthesize flushTimerEnabled=_flushTimerEnabled;
+@property(nonatomic, getter=isFlushTimerEnabled) _Bool flushTimerEnabled; // @synthesize flushTimerEnabled=_flushTimerEnabled;
+- (id)_valueForField:(id)arg1 withFieldData:(id)arg2;
+- (void)_enumerateFieldValuesWithMap:(id)arg1 fieldData:(id)arg2 block:(id)arg3;
 - (void)setPageConfiguration:(id)arg1;
 - (void)setGlobalConfiguration:(id)arg1;
 - (id)serialQueue;
 - (id)pingURLs;
+- (id)locationWithPosition:(long long)arg1 type:(id)arg2 fieldData:(id)arg3;
 - (void)insertEvents:(id)arg1 withCompletionHandler:(id)arg2;
 - (void)insertEvent:(id)arg1 withCompletionHandler:(id)arg2;
-- (BOOL)isDisabled;
+- (_Bool)isDisabled;
 - (void)flushUnreportedEventsWithCompletionHandler:(id)arg1;
 - (id)configuration;
 - (void)_setupFlushTimer;

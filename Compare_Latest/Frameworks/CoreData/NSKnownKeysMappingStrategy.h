@@ -15,15 +15,15 @@
 
 + (id)alloc;
 + (id)allocWithZone:(struct _NSZone *)arg1;
-- (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
+- (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (unsigned int)length;
+- (unsigned long long)length;
 - (id *)keys;
-- (unsigned int)fastIndexForKnownKey:(id)arg1;
-- (unsigned int)indexForKey:(id)arg1;
+- (unsigned long long)fastIndexForKnownKey:(id)arg1;
+- (unsigned long long)indexForKey:(id)arg1;
 - (id)initForKeys:(id)arg1;
-- (id)initForKeys:(id *)arg1 count:(unsigned int)arg2;
+- (id)initForKeys:(id *)arg1 count:(unsigned long long)arg2;
 
 @end
 

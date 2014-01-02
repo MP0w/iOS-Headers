@@ -8,17 +8,17 @@
 
 @interface MinMaxIntFormatter : APFormatter
 {
-    int _minimum;
-    int _maximum;
+    long long _minimum;
+    long long _maximum;
 }
 
-+ (id)formatterForMin:(int)arg1 max:(int)arg2;
-- (BOOL)isPartialStringValid:(id)arg1 newEditingString:(id *)arg2 errorDescription:(id *)arg3;
-- (int)maximum;
-- (void)setMaximum:(int)arg1;
-- (int)minimum;
-- (void)setMinimum:(int)arg1;
-- (id)initWithMin:(int)arg1 max:(int)arg2;
++ (id)formatterForMin:(long long)arg1 max:(long long)arg2;
+- (_Bool)isPartialStringValid:(id)arg1 newEditingString:(id *)arg2 errorDescription:(id *)arg3;
+- (long long)maximum;
+- (void)setMaximum:(long long)arg1;
+- (long long)minimum;
+- (void)setMinimum:(long long)arg1;
+- (id)initWithMin:(long long)arg1 max:(long long)arg2;
 
 @end
 

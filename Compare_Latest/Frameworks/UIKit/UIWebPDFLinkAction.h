@@ -10,8 +10,8 @@
 
 @interface UIWebPDFLinkAction : NSObject
 {
-    NSString *title;
     int type;
+    NSString *title;
     id handler;
 }
 

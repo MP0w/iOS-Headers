@@ -10,13 +10,13 @@
 {
     struct _SCRCStackNode *_firstNode;
     struct _SCRCStackNode *_lastNode;
-    unsigned int _count;
+    unsigned long long _count;
 }
 
-- (BOOL)isEmpty;
+- (_Bool)isEmpty;
 - (id)objectEnumerator;
 - (id)description;
-- (unsigned int)count;
+- (unsigned long long)count;
 - (id)dequeueObject;
 - (id)dequeueObjectRetained;
 - (void)enqueueObject:(id)arg1;

@@ -11,6 +11,6 @@
 @optional
 - (id)includeAttachmentDataInAirPlayDiagnosticsFullscreenController:(id)arg1;
 - (id)includeApplicationIssuesInAirPlayDiagnosticsFullscreenController:(id)arg1;
-- (void)airPlayDiagnosticsFullscreenController:(id)arg1 didComplete:(BOOL)arg2;
+- (void)airPlayDiagnosticsFullscreenController:(id)arg1 didComplete:(_Bool)arg2;
 @end
 

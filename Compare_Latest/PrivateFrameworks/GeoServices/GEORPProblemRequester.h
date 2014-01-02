@@ -19,7 +19,8 @@
 - (Class)classForProviderID:(short)arg1;
 - (void)registerProvider:(Class)arg1;
 - (void)cancelRequest:(id)arg1;
-- (void)startRequest:(id)arg1 finished:(id)arg2 networkActivity:(void)arg3 error:(id)arg4;
+- (void)startStatusRequest:(id)arg1 finished:(id)arg2 networkActivity:(void)arg3 error:(id)arg4;
+- (void)startSubmissionRequest:(id)arg1 finished:(id)arg2 networkActivity:(void)arg3 error:(id)arg4;
 - (void)dealloc;
 - (id)init;
 

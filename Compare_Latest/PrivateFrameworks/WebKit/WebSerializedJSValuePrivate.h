@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface WebSerializedJSValuePrivate : NSObject
 {
     struct RefPtr<WebCore::SerializedScriptValue> value;

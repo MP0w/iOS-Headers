@@ -24,6 +24,7 @@
 @property(readonly) SBLockScreenViewController *lockScreenViewController; // @synthesize lockScreenViewController=_lockScreenViewController;
 - (void)_addToView;
 - (void)_removeFromView;
+- (void)_removeViewFromHierarchy:(id)arg1;
 - (void)beginTransition;
 - (void)dealloc;
 - (id)initWithContext:(id)arg1;

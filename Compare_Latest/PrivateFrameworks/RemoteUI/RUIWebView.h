@@ -20,10 +20,11 @@
 
 @property(retain, nonatomic) NSURL *baseURL; // @synthesize baseURL=_baseURL;
 @property(copy, nonatomic) NSString *html; // @synthesize html=_html;
-- (BOOL)webView:(id)arg1 shouldStartLoadWithRequest:(id)arg2 navigationType:(int)arg3;
+- (_Bool)webView:(id)arg1 shouldStartLoadWithRequest:(id)arg2 navigationType:(long long)arg3;
 - (void)dealloc;
 - (void)webView:(id)arg1 didFailLoadWithError:(id)arg2;
 - (void)webViewDidFinishLoad:(id)arg1;
+- (id)userStyleSheet;
 - (id)sourceURL;
 - (id)webView;
 - (void)setDelegate:(id)arg1;

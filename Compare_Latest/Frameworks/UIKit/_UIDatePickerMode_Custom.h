@@ -8,29 +8,30 @@
 
 @class NSArray, NSString;
 
+// Not exported
 @interface _UIDatePickerMode_Custom : _UIDatePickerMode
 {
     NSString *_originalFormat;
     NSArray *_components;
     NSArray *_sortedComponents;
-    int _displayedUnits;
-    int _desiredUnits;
+    long long _displayedUnits;
+    long long _desiredUnits;
 }
 
-- (unsigned int)nextUnitSmallerThanUnit:(unsigned int)arg1;
-- (unsigned int)nextUnitLargerThanUnit:(unsigned int)arg1;
-- (int)valueForRow:(int)arg1 inCalendarUnit:(unsigned int)arg2;
-- (id)dateForRow:(int)arg1 inCalendarUnit:(unsigned int)arg2;
-- (float)widthForCalendarUnit:(unsigned int)arg1 font:(id)arg2 maxWidth:(float)arg3;
-- (int)titleAlignmentForCalendarUnit:(unsigned int)arg1;
-- (id)dateFormatForCalendarUnit:(unsigned int)arg1;
-- (int)numberOfRowsInComponent:(int)arg1;
-- (unsigned int)numberOfComponents;
-- (int)displayedCalendarUnits;
-- (unsigned int)extractableCalendarUnits;
-- (id)_componentForCalendarUnit:(unsigned int)arg1;
-- (int)componentForCalendarUnit:(unsigned int)arg1;
-- (unsigned int)calendarUnitForComponent:(int)arg1;
+- (unsigned long long)nextUnitSmallerThanUnit:(unsigned long long)arg1;
+- (unsigned long long)nextUnitLargerThanUnit:(unsigned long long)arg1;
+- (long long)valueForRow:(long long)arg1 inCalendarUnit:(unsigned long long)arg2;
+- (id)dateForRow:(long long)arg1 inCalendarUnit:(unsigned long long)arg2;
+- (double)widthForCalendarUnit:(unsigned long long)arg1 font:(id)arg2 maxWidth:(double)arg3;
+- (long long)titleAlignmentForCalendarUnit:(unsigned long long)arg1;
+- (id)dateFormatForCalendarUnit:(unsigned long long)arg1;
+- (long long)numberOfRowsInComponent:(long long)arg1;
+- (unsigned long long)numberOfComponents;
+- (long long)displayedCalendarUnits;
+- (unsigned long long)extractableCalendarUnits;
+- (id)_componentForCalendarUnit:(unsigned long long)arg1;
+- (long long)componentForCalendarUnit:(unsigned long long)arg1;
+- (unsigned long long)calendarUnitForComponent:(long long)arg1;
 - (id)components;
 - (void)resetComponentWidths;
 - (void)noteCalendarChanged;

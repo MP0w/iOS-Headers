@@ -6,17 +6,18 @@
 
 #import <UIKit/UICollectionReusableView.h>
 
+// Not exported
 @interface UIKeyboardCandidateGridOverlayBackgroundView : UICollectionReusableView
 {
-    float _rowHeight;
-    unsigned int _highlightedRowIndex;
+    double _rowHeight;
+    unsigned long long _highlightedRowIndex;
 }
 
-+ (id)backgroundColor;
++ (struct CGColor *)backgroundColor;
 + (id)reuseIdentifier;
 + (id)collectionViewKind;
-@property(nonatomic) unsigned int highlightedRowIndex; // @synthesize highlightedRowIndex=_highlightedRowIndex;
-@property(nonatomic) float rowHeight; // @synthesize rowHeight=_rowHeight;
+@property(nonatomic) unsigned long long highlightedRowIndex; // @synthesize highlightedRowIndex=_highlightedRowIndex;
+@property(nonatomic) double rowHeight; // @synthesize rowHeight=_rowHeight;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)applyLayoutAttributes:(id)arg1;
 

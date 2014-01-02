@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface UIWebURLAction : NSObject
 {
 }
 
-+ (BOOL)performDefaultActionForURL:(id)arg1 andDOMNode:(id)arg2 withAllowedTypes:(unsigned int)arg3 forFrame:(id)arg4 inView:(id)arg5;
++ (_Bool)performDefaultActionForURL:(id)arg1 andDOMNode:(id)arg2 withAllowedTypes:(unsigned long long)arg3 forFrame:(id)arg4 inView:(id)arg5;
 + (void)performDataDetectorsDefaultActionForDOMNode:(id)arg1 forFrame:(id)arg2 inView:(id)arg3;
 
 @end

@@ -8,6 +8,7 @@
 
 @class ODDLayoutVariablePropertySet;
 
+// Not exported
 @interface ODDLayoutNode : ODDLayoutObjectList
 {
     ODDLayoutVariablePropertySet *mVariableList;

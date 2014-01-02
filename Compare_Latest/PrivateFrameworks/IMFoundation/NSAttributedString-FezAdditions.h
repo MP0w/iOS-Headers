@@ -8,6 +8,6 @@
 
 @interface NSAttributedString (FezAdditions)
 - (id)trimmedString;
-- (BOOL)attribute:(id)arg1 existsInRange:(struct _NSRange)arg2;
+- (_Bool)attribute:(id)arg1 existsInRange:(struct _NSRange)arg2;
 @end
 

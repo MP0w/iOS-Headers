@@ -10,6 +10,7 @@
 
 @class NSMutableArray, NSMutableDictionary, NSString;
 
+// Not exported
 @interface WFTreeXMLDocumentStripper : NSObject <WFWebPageProtocol>
 {
     struct _xmlDoc *xmlDocument;
@@ -20,18 +21,18 @@
     NSMutableArray *images;
     NSString *pageContent;
     NSMutableArray *links;
-    BOOL hasFrameset;
-    BOOL hasShortRefresh;
+    _Bool hasFrameset;
+    _Bool hasShortRefresh;
 }
 
 + (id)treeStripperWithXMLDocument:(struct _xmlDoc *)arg1;
 - (void)dealloc;
 - (id)description;
-- (id)processXMLDocument:(struct _xmlDoc *)arg1 blockComments:(BOOL)arg2;
+- (id)processXMLDocument:(struct _xmlDoc *)arg1 blockComments:(_Bool)arg2;
 - (void)processXMLDocument:(struct _xmlDoc *)arg1;
 - (void)strip;
-- (BOOL)hasShortRefresh;
-- (BOOL)hasFrameset;
+- (_Bool)hasShortRefresh;
+- (_Bool)hasFrameset;
 - (id)links;
 - (id)pageContent;
 - (id)images;

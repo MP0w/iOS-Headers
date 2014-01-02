@@ -21,8 +21,8 @@
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (id)dequeueReusableCellWithIdentifier:(id)arg1;
-- (id)_completionForRow:(int)arg1;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (id)_completionForRow:(long long)arg1;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 @property(nonatomic) struct UIEdgeInsets scrollIndicatorInsets;
 @property(nonatomic) struct UIEdgeInsets contentInset;
 - (void)setTopStrokeColor:(id)arg1;

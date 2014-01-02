@@ -6,19 +6,18 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSDictionary;
+@class NSDictionary;
 
 @interface RUBrowseGenresDataSource : NSObject
 {
-    NSArray *_genres;
-    unsigned long long _nodeID;
     NSDictionary *_parentNodeDictionary;
+    unsigned long long _parentNodeID;
 }
 
-@property(readonly, nonatomic) NSArray *genres; // @synthesize genres=_genres;
+@property(readonly, nonatomic) unsigned long long parentNodeID; // @synthesize parentNodeID=_parentNodeID;
 - (void).cxx_destruct;
 - (id)_genresFromGenreTreeResponse:(id)arg1;
-- (void)reloadGenresWithCachedCompletionHandler:(id)arg1 completionHandler:(void)arg2;
+- (void)reloadGenresWithCompletionHandler:(id)arg1;
 - (id)initWithParentNodeID:(unsigned long long)arg1 parentNodeDictionary:(id)arg2;
 - (id)initWithParentNodeID:(unsigned long long)arg1;
 - (id)init;

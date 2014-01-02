@@ -7,14 +7,14 @@
 #import "MFMessageTextAttachment.h"
 
 @interface MFMessageTextAttachment (DisplayableTest)
-- (BOOL)isDisplayableInline;
-- (BOOL)isDisplayableInsidePlugin;
-- (BOOL)isContentDownloadable;
-- (BOOL)isContentOpenable;
-- (BOOL)_isSinglePagePDFThatIsAllowedToBeInline;
+- (_Bool)isDisplayableInline;
+- (_Bool)isDisplayableInsidePlugin;
+- (_Bool)isContentDownloadable;
+- (_Bool)isContentOpenable;
+- (_Bool)_isSinglePagePDFThatIsAllowedToBeInline;
 - (id)mimeType;
 - (id)unzippedContentType;
 - (id)contentType;
-- (id)_contentTypeByStrippingZipIfNeeded:(BOOL)arg1;
+- (id)_contentTypeByStrippingZipIfNeeded:(_Bool)arg1;
 @end
 

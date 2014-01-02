@@ -23,7 +23,7 @@
 - (void)registerShaderWithFragmentShaderSource:(id)arg1 andVertexShaderName:(id)arg2 forShaderID:(id)arg3;
 - (void)registerVertexShaderWithVertexShaderSource:(id)arg1 forShaderID:(id)arg2;
 - (id)shaderForShaderID:(id)arg1 inContext:(id)arg2 withArguments:(id)arg3;
-- (unsigned int)_glShaderForID:(id)arg1 inBaseContext:(id)arg2 isFragmentShader:(BOOL)arg3 withArguments:(id)arg4;
+- (unsigned int)_glShaderForID:(id)arg1 inBaseContext:(id)arg2 isFragmentShader:(_Bool)arg3 withArguments:(id)arg4;
 - (void)forgetContext:(id)arg1;
 - (void)releaseResources;
 - (void)cleanup;

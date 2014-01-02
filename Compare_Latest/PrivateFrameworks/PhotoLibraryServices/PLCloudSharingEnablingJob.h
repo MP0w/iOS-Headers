@@ -8,14 +8,14 @@
 
 @interface PLCloudSharingEnablingJob : PLCloudSharingJob
 {
-    BOOL _enableSharing;
+    _Bool _enableSharing;
 }
 
-+ (void)deleteAllLocalSharedAlbumsInLibrary:(id)arg1 keepPendingAlbums:(BOOL)arg2;
-+ (void)enableCloudSharing:(BOOL)arg1;
-@property(nonatomic) BOOL enableSharing; // @synthesize enableSharing=_enableSharing;
++ (void)deleteAllLocalSharedAlbumsInLibrary:(id)arg1 keepPendingAlbums:(_Bool)arg2;
++ (void)enableCloudSharing:(_Bool)arg1;
+@property(nonatomic) _Bool enableSharing; // @synthesize enableSharing=_enableSharing;
 - (void)runDaemonSide;
-- (BOOL)shouldArchiveXPCToDisk;
+- (_Bool)shouldArchiveXPCToDisk;
 - (void)run;
 - (long long)daemonOperation;
 - (id)description;

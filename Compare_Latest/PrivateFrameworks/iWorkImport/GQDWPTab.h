@@ -8,6 +8,7 @@
 
 #import "GQDNameMappable-Protocol.h"
 
+// Not exported
 @interface GQDWPTab : NSObject <GQDNameMappable>
 {
     float mPosition;

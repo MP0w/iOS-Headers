@@ -11,14 +11,14 @@
 @interface CKMultiDict : NSObject
 {
     NSObject<OS_dispatch_queue> *_lockQueue;
-    unsigned int _count;
+    unsigned long long _count;
     NSMutableDictionary *_dictionary;
 }
 
 @property(retain, nonatomic) NSMutableDictionary *dictionary; // @synthesize dictionary=_dictionary;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *lockQueue; // @synthesize lockQueue=_lockQueue;
 - (id)allKeys;
-- (unsigned int)count;
+- (unsigned long long)count;
 - (void)removeAllObjects;
 - (void)removeObjectsForKey:(id)arg1;
 - (id)objectsForKey:(id)arg1;

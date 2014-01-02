@@ -8,6 +8,7 @@
 
 @class VGLResourceImpl;
 
+// Not exported
 @interface VGLResource : NSObject
 {
     VGLResourceImpl *_impl;

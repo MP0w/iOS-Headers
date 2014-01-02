@@ -7,8 +7,8 @@
 #import "NSOrderedSet.h"
 
 @interface NSOrderedSet (PLAdditions)
-- (BOOL)pl_isSortedUsingComparator:(id)arg1;
-- (unsigned int)pl_indexOfObjectIdenticalTo:(id)arg1;
+- (_Bool)pl_isSortedUsingComparator:(id)arg1;
+- (unsigned long long)pl_indexOfObjectIdenticalTo:(id)arg1;
 - (id)pl_shortDescription;
 @end
 

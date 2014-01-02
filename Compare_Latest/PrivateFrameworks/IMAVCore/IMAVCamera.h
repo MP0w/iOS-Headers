@@ -17,11 +17,11 @@
 - (void)dealloc;
 @property(readonly, nonatomic) NSString *uniqueID;
 - (id)_AVCamera;
-@property(readonly, nonatomic) BOOL isShutterOpen;
-@property(readonly, nonatomic) BOOL isSuspended;
-@property(readonly, nonatomic) BOOL hasShutter;
-@property(readonly, nonatomic) BOOL isWideScreen;
-@property(readonly, nonatomic) int cameraStyle;
+@property(readonly, nonatomic) _Bool isShutterOpen;
+@property(readonly, nonatomic) _Bool isSuspended;
+@property(readonly, nonatomic) _Bool hasShutter;
+@property(readonly, nonatomic) _Bool isWideScreen;
+@property(readonly, nonatomic) long long cameraStyle;
 @property(readonly, nonatomic) NSString *name;
 - (id)init;
 - (id)_initWithAVCamera:(id)arg1;

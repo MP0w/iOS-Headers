@@ -14,20 +14,20 @@
     MPStoreOffer *_regularPriceOffer;
     NSDictionary *_mediaAssetDictionary;
     unsigned long long _entityPersistentID;
-    int _entityType;
+    long long _entityType;
     NSString *_entityTitle;
-    int _passType;
+    long long _passType;
 }
 
-+ (int)buyTypeForOfferDictionary:(id)arg1;
++ (long long)buyTypeForOfferDictionary:(id)arg1;
 + (id)_priceForOfferDictionary:(id)arg1;
-+ (int)bestOfferVariantInOfferDictionaries:(id)arg1 withPreferredVariant:(int)arg2;
-+ (void)getBuyOfferDictionary:(id *)arg1 regularPriceOfferDictionary:(id *)arg2 inOfferDictionaries:(id)arg3 variant:(int)arg4;
++ (long long)bestOfferVariantInOfferDictionaries:(id)arg1 withPreferredVariant:(long long)arg2;
++ (void)getBuyOfferDictionary:(id *)arg1 regularPriceOfferDictionary:(id *)arg2 inOfferDictionaries:(id)arg3 variant:(long long)arg4;
 + (void)getBuyOfferDictionary:(id *)arg1 regularPriceOfferDictionary:(id *)arg2 inOfferDictionaries:(id)arg3 variantString:(id)arg4;
-+ (id)offerVariantResponseKeyForOfferVariant:(int)arg1;
-@property(readonly, nonatomic) int passType; // @synthesize passType=_passType;
++ (id)offerVariantResponseKeyForOfferVariant:(long long)arg1;
+@property(readonly, nonatomic) long long passType; // @synthesize passType=_passType;
 @property(readonly, nonatomic) NSString *entityTitle; // @synthesize entityTitle=_entityTitle;
-@property(readonly, nonatomic) int entityType; // @synthesize entityType=_entityType;
+@property(readonly, nonatomic) long long entityType; // @synthesize entityType=_entityType;
 @property(readonly, nonatomic) unsigned long long entityPersistentID; // @synthesize entityPersistentID=_entityPersistentID;
 - (void).cxx_destruct;
 - (id)storeOfferDictionary;
@@ -37,14 +37,14 @@
 @property(readonly, nonatomic) NSString *regularPriceDisplayPrice;
 @property(readonly, nonatomic) float price;
 @property(readonly, nonatomic) NSString *displayPrice;
-@property(readonly, nonatomic) BOOL requiresConfirmation;
+@property(readonly, nonatomic) _Bool requiresConfirmation;
 @property(readonly, nonatomic) NSString *actionDisplayTitle;
 @property(readonly, nonatomic) NSString *displayTitle;
 @property(readonly, nonatomic) NSString *buyParameters;
 - (id)buyURL;
-- (BOOL)_isBuy;
-@property(readonly, nonatomic) int buyType;
-- (id)initWithStoreOfferDictionary:(id)arg1 regularPriceOfferDictionary:(id)arg2 passType:(int)arg3 entityType:(int)arg4 persistentID:(unsigned long long)arg5 title:(id)arg6;
+- (_Bool)_isBuy;
+@property(readonly, nonatomic) long long buyType;
+- (id)initWithStoreOfferDictionary:(id)arg1 regularPriceOfferDictionary:(id)arg2 passType:(long long)arg3 entityType:(long long)arg4 persistentID:(unsigned long long)arg5 title:(id)arg6;
 
 @end
 

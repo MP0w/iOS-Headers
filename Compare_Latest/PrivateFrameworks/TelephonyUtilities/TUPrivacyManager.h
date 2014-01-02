@@ -12,12 +12,12 @@
 
 + (id)sharedPrivacyManager;
 - (id)allBlacklistRules;
-- (BOOL)isIncomingCommunicationBlockedForEmailAddress:(id)arg1;
-- (BOOL)isIncomingCommunicationBlockedForPhoneNumber:(id)arg1;
+- (_Bool)isIncomingCommunicationBlockedForEmailAddress:(id)arg1;
+- (_Bool)isIncomingCommunicationBlockedForPhoneNumber:(id)arg1;
 - (void)removeRule:(id)arg1;
 - (void)addRule:(id)arg1;
-- (void)setBlockIncomingCommunication:(BOOL)arg1 forEmailAddress:(id)arg2;
-- (void)setBlockIncomingCommunication:(BOOL)arg1 forPhoneNumber:(id)arg2;
+- (void)setBlockIncomingCommunication:(_Bool)arg1 forEmailAddress:(id)arg2;
+- (void)setBlockIncomingCommunication:(_Bool)arg1 forPhoneNumber:(id)arg2;
 - (void)_handleBlockListChanged:(id)arg1;
 - (void)dealloc;
 - (id)init;

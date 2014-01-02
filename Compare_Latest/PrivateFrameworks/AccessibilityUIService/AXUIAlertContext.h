@@ -11,25 +11,25 @@
 @interface AXUIAlertContext : NSObject
 {
     NSString *_identifier;
+    double _creationTimeInterval;
+    double _fadeAnimationDuration;
     AXTimer *_showOrHideTimer;
     AXUIAlert *_alertView;
     id <AXUIService> _service;
-    unsigned int _priority;
+    unsigned long long _priority;
+    double _duration;
     NSString *_text;
     NSString *_subtitleText;
     UIImage *_iconImage;
-    unsigned int _type;
-    double _creationTimeInterval;
-    double _fadeAnimationDuration;
-    double _duration;
+    unsigned long long _type;
 }
 
-@property(nonatomic) unsigned int type; // @synthesize type=_type;
+@property(nonatomic) unsigned long long type; // @synthesize type=_type;
 @property(retain, nonatomic) UIImage *iconImage; // @synthesize iconImage=_iconImage;
 @property(copy, nonatomic) NSString *subtitleText; // @synthesize subtitleText=_subtitleText;
 @property(copy, nonatomic) NSString *text; // @synthesize text=_text;
 @property(nonatomic) double duration; // @synthesize duration=_duration;
-@property(nonatomic) unsigned int priority; // @synthesize priority=_priority;
+@property(nonatomic) unsigned long long priority; // @synthesize priority=_priority;
 @property(retain, nonatomic) id <AXUIService> service; // @synthesize service=_service;
 @property(retain, nonatomic) AXUIAlert *alertView; // @synthesize alertView=_alertView;
 @property(retain, nonatomic) AXTimer *showOrHideTimer; // @synthesize showOrHideTimer=_showOrHideTimer;

@@ -14,9 +14,9 @@
 }
 
 @property(nonatomic) double distanceRadius;
-@property(nonatomic) float radius;
+@property(nonatomic) double radius;
 - (void)prepareForReuse;
-- (void)setColorRed:(float)arg1 green:(float)arg2 blue:(float)arg3 alpha:(float)arg4;
+- (void)setColorRed:(double)arg1 green:(double)arg2 blue:(double)arg3 alpha:(double)arg4;
 - (void)dealloc;
 - (id)init;
 

@@ -11,8 +11,8 @@
 @interface MRAnimationContext : NSObject
 {
     MRAnimationPathScalar *animationPath;
-    float *param1;
-    float *param2;
+    double *param1;
+    double *param2;
     NSDictionary *state;
 }
 

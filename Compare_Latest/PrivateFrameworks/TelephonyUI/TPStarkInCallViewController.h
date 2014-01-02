@@ -13,6 +13,7 @@
 
 @interface TPStarkInCallViewController : UIViewController <TPStarkPhoneCallGalleryViewDelegate, TPStarkInCallButtonsViewDelegate>
 {
+    int _currentMode;
     id <TPStarkInCallViewControllerDelegate> _delegate;
     NSArray *_primaryPhoneCalls;
     NSArray *_conferenceParticipants;
@@ -21,7 +22,6 @@
     TPStarkPhoneCallGalleryView *_galleryView;
     TPStarkInCallButtonsView *_buttonsView;
     NSTimer *_viewUpdateClockTickTimer;
-    int _currentMode;
     TUCall *_failedCall;
 }
 
@@ -39,27 +39,27 @@
 - (void)_physicalButtonsEnded:(id)arg1 withEvent:(id)arg2;
 - (void)_physicalButtonsBegan:(id)arg1 withEvent:(id)arg2;
 - (void)_wheelChangedWithEvent:(id)arg1;
-- (BOOL)currentCallStateWarrantsCallWaitingMode;
+- (_Bool)currentCallStateWarrantsCallWaitingMode;
 - (void)callFailedNotification:(id)arg1;
 - (void)muteStateChangedNotification:(id)arg1;
 - (void)viewUpdateClockTickTimerFired:(id)arg1;
 - (void)updateButtonsViewState;
 - (void)inCallButtonWasTapped:(id)arg1;
-- (BOOL)isSwapCallsAllowed;
-- (BOOL)isMergeCallsAllowed;
-- (BOOL)isAddCallAllowed;
+- (_Bool)isSwapCallsAllowed;
+- (_Bool)isMergeCallsAllowed;
+- (_Bool)isAddCallAllowed;
 - (id)representativePhoneCallForConferenceForGalleryView:(id)arg1;
 - (id)allConferenceParticipantCalls;
 - (id)conferenceParticipantCallsForPhoneCall:(id)arg1;
 - (id)primaryPhoneCallsForGalleryView:(id)arg1;
-- (BOOL)isMuted;
-- (void)setIsMuted:(BOOL)arg1;
-@property(readonly) BOOL isDismissable;
+- (_Bool)isMuted;
+- (void)setIsMuted:(_Bool)arg1;
+@property(readonly) _Bool isDismissable;
 - (id)currentActivePhoneCall;
 - (id)__sanitizedPrimaryPhoneCallOrdering:(id)arg1;
 - (void)setPrimaryPhoneCalls:(id)arg1 conferencePhoneCalls:(id)arg2 incomingPhoneCall:(id)arg3;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)dealloc;
 - (void)loadView;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

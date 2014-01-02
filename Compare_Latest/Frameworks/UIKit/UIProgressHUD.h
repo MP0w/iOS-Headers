@@ -29,12 +29,10 @@
 - (void)layoutSubviews;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)setFontSize:(int)arg1;
-- (void)setShowsText:(BOOL)arg1;
+- (void)setShowsText:(_Bool)arg1;
 - (void)setText:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)_progressIndicator;
-- (void)show:(BOOL)arg1;
-- (id)initWithWindow:(id)arg1;
 
 @end
 

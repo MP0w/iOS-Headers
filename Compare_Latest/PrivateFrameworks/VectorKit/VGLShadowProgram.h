@@ -6,6 +6,7 @@
 
 #import <VectorKit/VGLRealisticFadeProgram.h>
 
+// Not exported
 @interface VGLShadowProgram : VGLRealisticFadeProgram
 {
     CDStruct_03942939 _cameraDirection;

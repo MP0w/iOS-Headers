@@ -14,27 +14,27 @@
 {
     NSMutableArray *_gestureRecognizers;
     NSMutableArray *_forwardingRecord;
-    BOOL _abandonForwardingRecord;
-    int _phase;
-    int _type;
+    _Bool _abandonForwardingRecord;
+    double _timestamp;
+    long long _phase;
+    long long _type;
     UIWindow *_window;
     UIResponder *_responder;
-    double _timestamp;
 }
 
 @property(retain, nonatomic) UIResponder *responder; // @synthesize responder=_responder;
 @property(retain, nonatomic) UIWindow *window; // @synthesize window=_window;
-@property(nonatomic) int type; // @synthesize type=_type;
-@property(nonatomic) int phase; // @synthesize phase=_phase;
+@property(nonatomic) long long type; // @synthesize type=_type;
+@property(nonatomic) long long phase; // @synthesize phase=_phase;
 @property(nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
-@property(nonatomic, setter=_setForwardablePhase:) int _forwardablePhase;
+@property(nonatomic, setter=_setForwardablePhase:) long long _forwardablePhase;
 @property(retain, nonatomic, setter=_setResponder:) UIResponder *_responder;
-- (SEL)_responderSelectorForPhase:(int)arg1;
+- (SEL)_responderSelectorForPhase:(long long)arg1;
 - (id)_forwardingRecord;
 - (void)_abandonForwardingRecord;
-- (BOOL)_isAbandoningForwardingRecord;
+- (_Bool)_isAbandoningForwardingRecord;
 - (id)_mutableForwardingRecord;
-- (BOOL)_wantsForwardingFromResponder:(id)arg1 toNextResponder:(id)arg2 withEvent:(id)arg3;
+- (_Bool)_wantsForwardingFromResponder:(id)arg1 toNextResponder:(id)arg2 withEvent:(id)arg3;
 - (void)_removeGestureRecognizer:(id)arg1;
 @property(copy, nonatomic) NSArray *gestureRecognizers;
 - (void)dealloc;

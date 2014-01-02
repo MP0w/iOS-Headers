@@ -14,7 +14,7 @@
 }
 
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
-- (int)compare:(id)arg1;
+- (long long)compare:(id)arg1;
 - (void)dealloc;
 
 @end

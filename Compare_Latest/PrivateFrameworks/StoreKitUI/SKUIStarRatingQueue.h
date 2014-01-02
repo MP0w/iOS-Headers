@@ -6,16 +6,20 @@
 
 #import "NSObject.h"
 
-@class NSOperationQueue;
+@class NSOperationQueue, SKUIClientContext, UIWindow;
 
 @interface SKUIStarRatingQueue : NSObject
 {
+    SKUIClientContext *_clientContext;
     NSOperationQueue *_queue;
+    UIWindow *_window;
 }
 
+@property(nonatomic) __weak UIWindow *window; // @synthesize window=_window;
 - (void).cxx_destruct;
-- (void)_setRating:(int)arg1 forItem:(id)arg2 account:(id)arg3 completionBlock:(id)arg4;
-- (void)setRating:(int)arg1 forItem:(id)arg2 completionBlock:(id)arg3;
+- (void)_setRating:(long long)arg1 forItem:(id)arg2 account:(id)arg3 completionBlock:(id)arg4;
+- (void)setRating:(long long)arg1 forItem:(id)arg2 completionBlock:(id)arg3;
+- (id)initWithClientContext:(id)arg1;
 - (id)init;
 
 @end

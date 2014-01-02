@@ -8,6 +8,7 @@
 
 @class NSManagedObject;
 
+// Not exported
 @interface _NSFaultingMutableSet : NSMutableSet
 {
     int _cd_rc;
@@ -18,7 +19,7 @@
 
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (id)alloc;
-+ (BOOL)accessInstanceVariablesDirectly;
++ (_Bool)accessInstanceVariablesDirectly;
 - (Class)classForArchiver;
 - (id)replacementObjectForCoder:(id)arg1;
 - (Class)classForCoder;
@@ -34,22 +35,22 @@
 - (void)removeObject:(id)arg1;
 - (void)makeObjectsPerformSelector:(SEL)arg1 withObject:(id)arg2;
 - (void)makeObjectsPerformSelector:(SEL)arg1;
-- (BOOL)isSubsetOfSet:(id)arg1;
-- (BOOL)_isIdenticalFault:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isEqualToSet:(id)arg1;
-- (BOOL)intersectsSet:(id)arg1;
-- (BOOL)containsObject:(id)arg1;
+- (_Bool)isSubsetOfSet:(id)arg1;
+- (_Bool)_isIdenticalFault:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)isEqualToSet:(id)arg1;
+- (_Bool)intersectsSet:(id)arg1;
+- (_Bool)containsObject:(id)arg1;
 - (id)anyObject;
 - (id)allObjects;
 - (void)getObjects:(id *)arg1;
 - (id)objectEnumerator;
-- (id)objectsWithOptions:(unsigned int)arg1 passingTest:(id)arg2;
-- (void)enumerateObjectsWithOptions:(unsigned int)arg1 usingBlock:(id)arg2;
-- (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
+- (id)objectsWithOptions:(unsigned long long)arg1 passingTest:(id)arg2;
+- (void)enumerateObjectsWithOptions:(unsigned long long)arg1 usingBlock:(id)arg2;
+- (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
 - (void)addObject:(id)arg1;
 - (id)member:(id)arg1;
-- (unsigned int)count;
+- (unsigned long long)count;
 - (id)descriptionWithLocale:(id)arg1;
 - (id)description;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
@@ -57,17 +58,17 @@
 - (id)relationship;
 - (id)source;
 - (void)turnIntoFault;
-- (BOOL)_shouldProcessKVOChange;
+- (_Bool)_shouldProcessKVOChange;
 - (void)willRead;
-- (BOOL)isFault;
+- (_Bool)isFault;
 - (void)dealloc;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
-- (unsigned int)retainCount;
+- (_Bool)_isDeallocating;
+- (_Bool)_tryRetain;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;
 - (id)initWithSource:(id)arg1 destinations:(id)arg2 forRelationship:(id)arg3 inContext:(id)arg4;
-- (id)initWithSource:(id)arg1 forRelationship:(id)arg2 asFault:(BOOL)arg3;
+- (id)initWithSource:(id)arg1 forRelationship:(id)arg2 asFault:(_Bool)arg3;
 
 @end
 

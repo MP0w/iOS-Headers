@@ -8,10 +8,10 @@
 
 @interface MSTimerGate : NSObject
 {
-    BOOL _enabled;
+    _Bool _enabled;
 }
 
-@property(nonatomic) BOOL enabled; // @synthesize enabled=_enabled;
+@property(nonatomic) _Bool enabled; // @synthesize enabled=_enabled;
 - (void)enable;
 - (void)disable;
 - (id)init;

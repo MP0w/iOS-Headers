@@ -12,8 +12,8 @@
 }
 
 + (id)defaultPropertyValues;
-+ (BOOL)canFilterByProperty:(id)arg1;
-- (BOOL)isUsableAsRepresentativeItem;
++ (_Bool)canFilterByProperty:(id)arg1;
+- (_Bool)isUsableAsRepresentativeItem;
 - (void)enumerateValuesForProperties:(id)arg1 usingBlock:(id)arg2;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
@@ -21,13 +21,13 @@
 - (id)valueForProperty:(id)arg1;
 - (id)valuesForProperties:(id)arg1;
 - (void)updateDateAccessedToCurrentDateWithWriteCompletionBlock:(id)arg1;
-- (BOOL)incrementPlayCountForStopTime:(double)arg1;
+- (_Bool)incrementPlayCountForStopTime:(double)arg1;
 - (void)incrementPlayCountForPlayingToEnd;
 - (void)incrementSkipCount;
-- (void)noteWasPlayedToTime:(double)arg1 skipped:(BOOL)arg2;
+- (void)noteWasPlayedToTime:(double)arg1 skipped:(_Bool)arg2;
 - (void)markNominalAmountHasBeenPlayed;
-- (BOOL)didSkipWithPlayedToTime:(double)arg1;
-- (BOOL)existsInLibrary;
+- (_Bool)didSkipWithPlayedToTime:(double)arg1;
+- (_Bool)existsInLibrary;
 - (unsigned long long)persistentID;
 - (id)initWithPersistentID:(unsigned long long)arg1;
 

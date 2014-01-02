@@ -15,10 +15,10 @@
 }
 
 - (id)description;
-- (unsigned int)count;
-- (id)objectAtRunIndex:(unsigned int)arg1 length:(unsigned int *)arg2;
-- (id)objectAtIndex:(unsigned int)arg1 effectiveRange:(struct _NSRange *)arg2 runIndex:(unsigned int *)arg3;
-- (id)objectAtIndex:(unsigned int)arg1 effectiveRange:(struct _NSRange *)arg2;
+- (unsigned long long)count;
+- (id)objectAtRunIndex:(unsigned long long)arg1 length:(unsigned long long *)arg2;
+- (id)objectAtIndex:(unsigned long long)arg1 effectiveRange:(struct _NSRange *)arg2 runIndex:(unsigned long long *)arg3;
+- (id)objectAtIndex:(unsigned long long)arg1 effectiveRange:(struct _NSRange *)arg2;
 - (void)_makeNewListFrom:(struct _NSRefCountedRunArray *)arg1;
 - (void)finalize;
 - (void)dealloc;

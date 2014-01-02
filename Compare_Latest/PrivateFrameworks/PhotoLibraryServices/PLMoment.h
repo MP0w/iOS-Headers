@@ -8,12 +8,15 @@
 
 #import "PLAssetContainer-Protocol.h"
 
-@class NSArray, NSData, NSDate, NSOrderedSet, NSString, PLManagedAsset, PLMomentLibrary, PLMomentList;
+@class NSArray, NSData, NSDate, NSOrderedSet, NSString, PLManagedAsset, PLMomentLibrary, PLMomentList, PLRevGeoCompoundNameInfo;
 
 @interface PLMoment : PLManagedObject <PLAssetContainer>
 {
-    BOOL isRegisteredForChanges;
-    BOOL didRegisteredWithUserInterfaceContext;
+    PLRevGeoCompoundNameInfo *_cachedPrimaryNameInfo;
+    PLRevGeoCompoundNameInfo *_cachedSecondaryNameInfo;
+    _Bool _loadedNameInfo;
+    _Bool isRegisteredForChanges;
+    _Bool didRegisteredWithUserInterfaceContext;
 }
 
 + (id)insertNewMomentFromCluster:(id)arg1 inManagedObjectContext:(id)arg2;
@@ -21,12 +24,8 @@
 + (id)entityName;
 + (id)allAssetsIncludedInMomentsInLibrary:(id)arg1;
 + (id)allMomentsInLibrary:(id)arg1;
-+ (id)allAssetsIncludedInMomentsInManagedObjectContext:(id)arg1 error:(id *)arg2;
-+ (id)allMomentsRequiringAnalysisInManagedObjectContext:(id)arg1 error:(id *)arg2;
-+ (id)allMomentsInManagedObjectContext:(id)arg1 error:(id *)arg2;
-+ (id)insertNewMomentInManagedObjectContext:(id)arg1 error:(id *)arg2;
-@property(nonatomic) BOOL didRegisteredWithUserInterfaceContext; // @synthesize didRegisteredWithUserInterfaceContext;
-@property(nonatomic) BOOL isRegisteredForChanges; // @synthesize isRegisteredForChanges;
+@property(nonatomic) _Bool didRegisteredWithUserInterfaceContext; // @synthesize didRegisteredWithUserInterfaceContext;
+@property(nonatomic) _Bool isRegisteredForChanges; // @synthesize isRegisteredForChanges;
 - (void)removeAssets:(id)arg1;
 - (void)addAssets:(id)arg1;
 - (void)removeAssetsObject:(id)arg1;
@@ -34,28 +33,36 @@
 - (void)replaceAssetsAtIndexes:(id)arg1 withAssets:(id)arg2;
 - (void)removeAssetsAtIndexes:(id)arg1;
 - (void)insertAssets:(id)arg1 atIndexes:(id)arg2;
-- (void)replaceObjectInAssetsAtIndex:(unsigned int)arg1 withObject:(id)arg2;
-- (void)removeObjectFromAssetsAtIndex:(unsigned int)arg1;
-- (void)insertObject:(id)arg1 inAssetsAtIndex:(unsigned int)arg2;
-- (BOOL)validateForUpdate:(id *)arg1;
-- (BOOL)validateForInsert:(id *)arg1;
-- (BOOL)_validateMomentListRelationship:(id *)arg1;
+- (void)replaceObjectInAssetsAtIndex:(unsigned long long)arg1 withObject:(id)arg2;
+- (void)removeObjectFromAssetsAtIndex:(unsigned long long)arg1;
+- (void)insertObject:(id)arg1 inAssetsAtIndex:(unsigned long long)arg2;
+- (void)didTurnIntoFault;
+- (id)mutableAssets;
+- (void)willSave;
+- (_Bool)validateForUpdate:(id *)arg1;
+- (_Bool)validateForInsert:(id *)arg1;
+- (_Bool)_validateForInsertOrUpdate:(id *)arg1;
 - (void)delete;
 - (void)updateMomentFromCluster:(id)arg1;
 - (id)diagnosticInformation;
-- (BOOL)supportsDiagnosticInformation;
+- (_Bool)supportsDiagnosticInformation;
+@property(retain, nonatomic) PLManagedAsset *tertiaryKeyAsset;
+@property(retain, nonatomic) PLManagedAsset *secondaryKeyAsset;
+@property(retain, nonatomic) PLManagedAsset *keyAsset;
 @property(readonly, nonatomic) NSArray *localizedLocationNames;
 @property(readonly, nonatomic) NSString *localizedTitle;
-@property(readonly, nonatomic) BOOL canShowComments;
-- (BOOL)canPerformEditOperation:(int)arg1;
-@property(readonly, nonatomic) BOOL isEmpty;
-@property(readonly, nonatomic) unsigned int videosCount;
-@property(readonly, nonatomic) unsigned int photosCount;
-@property(readonly, nonatomic) unsigned int assetsCount;
-@property(readonly, nonatomic) unsigned int approximateCount;
+- (void)_updateCachedNameInfoIfNeeded;
+@property(readonly, nonatomic) _Bool canShowAvalancheStacks;
+@property(readonly, nonatomic) _Bool canShowComments;
+- (_Bool)canPerformEditOperation:(int)arg1;
+@property(readonly, nonatomic) _Bool isEmpty;
+@property(readonly, nonatomic) unsigned long long videosCount;
+@property(readonly, nonatomic) unsigned long long photosCount;
+@property(readonly, nonatomic) unsigned long long assetsCount;
+@property(readonly, nonatomic) unsigned long long approximateCount;
 - (void)unregisterForChanges;
 - (void)registerForChanges;
-- (BOOL)isMeaningful;
+- (_Bool)isMeaningful;
 - (id)approximateLocation;
 - (void)dealloc;
 - (void)willTurnIntoFault;
@@ -70,12 +77,11 @@
 @property(nonatomic) int cachedVideosCount; // @dynamic cachedVideosCount;
 @property(retain, nonatomic) NSDate *endDate; // @dynamic endDate;
 @property(nonatomic) short generationType; // @dynamic generationType;
-@property(retain, nonatomic) PLManagedAsset *keyAsset; // @dynamic keyAsset;
 @property(retain, nonatomic) PLMomentList *megaMomentList; // @dynamic megaMomentList;
 @property(retain, nonatomic) PLMomentLibrary *momentLibrary; // @dynamic momentLibrary;
 @property(retain, nonatomic) NSDate *representativeDate; // @dynamic representativeDate;
 @property(retain, nonatomic) NSData *reverseLocationData; // @dynamic reverseLocationData;
-@property(nonatomic) BOOL reverseLocationDataIsValid; // @dynamic reverseLocationDataIsValid;
+@property(nonatomic) _Bool reverseLocationDataIsValid; // @dynamic reverseLocationDataIsValid;
 @property(retain, nonatomic) NSDate *startDate; // @dynamic startDate;
 @property(retain, nonatomic) NSString *title; // @dynamic title;
 @property(retain, nonatomic) NSString *uuid; // @dynamic uuid;

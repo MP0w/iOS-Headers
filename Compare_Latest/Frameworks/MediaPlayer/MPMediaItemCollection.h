@@ -10,20 +10,21 @@
 
 @interface MPMediaItemCollection : MPMediaEntity
 {
-    unsigned int _containedMediaTypes;
+    unsigned long long _containedMediaTypes;
     NSArray *_items;
-    unsigned int _itemsCount;
+    unsigned long long _itemsCount;
     MPMediaQuery *_itemsQuery;
     MPMediaItem *_representativeItem;
 }
 
-+ (id)representativePersistentIDPropertyForGroupingType:(int)arg1;
-+ (id)sortTitlePropertyForGroupingType:(int)arg1;
-+ (id)titlePropertyForGroupingType:(int)arg1;
++ (id)representativePersistentIDPropertyForGroupingType:(long long)arg1;
++ (id)sortTitlePropertyForGroupingType:(long long)arg1;
++ (id)titlePropertyForGroupingType:(long long)arg1;
++ (_Bool)supportsSecureCoding;
 + (id)collectionWithItems:(id)arg1;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) unsigned int mediaTypes;
-@property(readonly, nonatomic) unsigned int count;
+@property(readonly, nonatomic) unsigned long long mediaTypes;
+@property(readonly, nonatomic) unsigned long long count;
 @property(readonly, nonatomic) MPMediaItem *representativeItem;
 @property(readonly, nonatomic) NSArray *items;
 - (id)itemsQuery;
@@ -33,12 +34,6 @@
 - (id)initWithItemsQuery:(id)arg1;
 - (id)initWithItems:(id)arg1;
 - (id)init;
-- (id)SAMPMediaEntityRepresentation;
-- (id)SAMPCollectionRepresentationWithItems;
-- (id)SAMPCollectionRepresentation;
-- (int)groupingType;
-- (BOOL)MPSD_hasDownloadingItem;
-- (BOOL)MPSD_hasDownloadableItem;
 
 @end
 

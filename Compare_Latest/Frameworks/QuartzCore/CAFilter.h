@@ -22,7 +22,7 @@
 }
 
 + (void)CAMLParserStartElement:(id)arg1;
-+ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
++ (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 + (id)filterWithName:(id)arg1;
 + (id)filterWithType:(id)arg1;
 + (id)filterTypes;
@@ -38,9 +38,9 @@
 - (void)setDefaults;
 - (id)valueForKey:(id)arg1;
 - (void)setValue:(id)arg1 forKey:(id)arg2;
-@property BOOL cachesInputImage;
-@property(getter=isEnabled) BOOL enabled;
-- (BOOL)enabled;
+@property _Bool cachesInputImage;
+@property(getter=isEnabled) _Bool enabled;
+- (_Bool)enabled;
 @property(copy) NSString *name;
 @property(readonly) NSString *type;
 - (id)initWithName:(id)arg1;

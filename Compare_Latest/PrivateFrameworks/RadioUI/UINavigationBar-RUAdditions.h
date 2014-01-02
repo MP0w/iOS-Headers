@@ -7,7 +7,7 @@
 #import "UINavigationBar.h"
 
 @interface UINavigationBar (RUAdditions)
-- (void)setRUInterfaceStyle:(int)arg1;
-- (int)RUInterfaceStyle;
+- (void)setRUInterfaceStyle:(long long)arg1;
+- (long long)RUInterfaceStyle;
 @end
 

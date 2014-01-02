@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CAContext, CALayer;
+@class CALayer;
 
 @interface CARenderer : NSObject
 {
@@ -16,7 +16,7 @@
 + (id)rendererWithEAGLContext:(id)arg1 options:(id)arg2;
 - (void)endFrame;
 - (void)render;
-- (BOOL)hasMissingContent;
+- (_Bool)hasMissingContent;
 - (double)nextFrameTime;
 - (void)addUpdateRect:(struct CGRect)arg1;
 - (struct CGRect)updateBounds;
@@ -26,8 +26,6 @@
 - (void)dealloc;
 - (id)_initWithEAGLContext:(id)arg1 options:(id)arg2;
 - (id)_initWithOptions:(id)arg1;
-@property id <CARendererDelegate> delegate;
-@property(retain) CAContext *context;
 
 @end
 

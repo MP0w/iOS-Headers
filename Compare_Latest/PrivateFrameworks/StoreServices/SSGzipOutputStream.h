@@ -14,24 +14,24 @@
     struct z_stream_s _stream;
     NSError *_streamError;
     char *_streamOutBuffer;
-    unsigned int _streamOutBufferSize;
-    unsigned int _streamContentLength;
+    unsigned long long _streamOutBufferSize;
+    unsigned long long _streamContentLength;
 }
 
 - (void)_setStreamError:(int)arg1 context:(id)arg2;
-- (int)_consumeStreamOutput:(BOOL)arg1;
-- (BOOL)setProperty:(id)arg1 forKey:(id)arg2;
+- (long long)_consumeStreamOutput:(_Bool)arg1;
+- (_Bool)setProperty:(id)arg1 forKey:(id)arg2;
 - (id)propertyForKey:(id)arg1;
-- (BOOL)hasSpaceAvailable;
-- (int)write:(const char *)arg1 maxLength:(unsigned int)arg2;
+- (_Bool)hasSpaceAvailable;
+- (long long)write:(const char *)arg1 maxLength:(unsigned long long)arg2;
 - (id)streamError;
-- (unsigned int)streamStatus;
-- (unsigned int)streamContentLength;
+- (unsigned long long)streamStatus;
+- (unsigned long long)streamContentLength;
 - (void)close;
 - (void)open;
 - (void)dealloc;
 - (id)initToMemory;
-- (id)initToFileAtPath:(id)arg1 append:(BOOL)arg2;
+- (id)initToFileAtPath:(id)arg1 append:(_Bool)arg2;
 - (id)init;
 
 @end

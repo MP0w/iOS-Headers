@@ -10,7 +10,7 @@
 
 @interface SUOverlayAction : NSObject
 {
-    int _animationCount;
+    long long _animationCount;
     UIViewController *_otherViewController;
     SUOverlayTransition *_transition;
     int _type;
@@ -20,7 +20,7 @@
 @property(retain, nonatomic) UIViewController *viewController; // @synthesize viewController=_viewController;
 @property(retain, nonatomic) SUOverlayTransition *transition; // @synthesize transition=_transition;
 @property(retain, nonatomic) UIViewController *otherViewController; // @synthesize otherViewController=_otherViewController;
-@property(nonatomic) int animationCount; // @synthesize animationCount=_animationCount;
+@property(nonatomic) long long animationCount; // @synthesize animationCount=_animationCount;
 @property(nonatomic) int actionType; // @synthesize actionType=_type;
 - (void)dealloc;
 

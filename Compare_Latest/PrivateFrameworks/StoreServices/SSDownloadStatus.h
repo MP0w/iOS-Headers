@@ -14,26 +14,26 @@
 @interface SSDownloadStatus : NSObject <SSXPCCoding, NSCopying>
 {
     SSDownloadPhase *_activePhase;
-    BOOL _contentRestricted;
+    _Bool _contentRestricted;
     NSError *_error;
-    BOOL _failed;
-    BOOL _paused;
+    _Bool _failed;
+    _Bool _paused;
 }
 
-@property(nonatomic, getter=isPaused) BOOL paused; // @synthesize paused=_paused;
-@property(nonatomic, getter=isFailed) BOOL failed; // @synthesize failed=_failed;
+@property(nonatomic, getter=isPaused) _Bool paused; // @synthesize paused=_paused;
+@property(nonatomic, getter=isFailed) _Bool failed; // @synthesize failed=_failed;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
-@property(nonatomic, getter=isContentRestricted) BOOL contentRestricted; // @synthesize contentRestricted=_contentRestricted;
+@property(nonatomic, getter=isContentRestricted) _Bool contentRestricted; // @synthesize contentRestricted=_contentRestricted;
 @property(readonly, nonatomic) SSDownloadPhase *activePhase; // @synthesize activePhase=_activePhase;
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)copyXPCEncoding;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)setPercentComplete:(float)arg1;
-@property(nonatomic, getter=isPausable) BOOL pausable;
-- (void)setOperationType:(int)arg1;
+@property(nonatomic, getter=isPausable) _Bool pausable;
+- (void)setOperationType:(long long)arg1;
 - (void)setOperationProgress:(id)arg1;
 @property(readonly, nonatomic) float percentComplete;
-@property(readonly, nonatomic, getter=isFailedTransient) BOOL failedTransient;
+@property(readonly, nonatomic, getter=isFailedTransient) _Bool failedTransient;
 - (void)dealloc;
 
 @end

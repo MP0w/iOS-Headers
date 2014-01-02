@@ -10,6 +10,7 @@
 
 @class NSTextAttachment, UIImage;
 
+// Not exported
 @interface UITextAttachmentView : UIView <NSTextAttachmentCell>
 {
     UIImage *_image;
@@ -20,8 +21,8 @@
 + (id)viewForData:(id)arg1 ofType:(id)arg2;
 @property(nonatomic) NSTextAttachment *attachment; // @synthesize attachment=_attachment;
 @property(retain, nonatomic) UIImage *image;
-- (void)drawWithFrame:(struct CGRect)arg1 inView:(id)arg2 characterIndex:(unsigned int)arg3 layoutManager:(id)arg4;
-- (void)drawWithFrame:(struct CGRect)arg1 inView:(id)arg2 characterIndex:(unsigned int)arg3;
+- (void)drawWithFrame:(struct CGRect)arg1 inView:(id)arg2 characterIndex:(unsigned long long)arg3 layoutManager:(id)arg4;
+- (void)drawWithFrame:(struct CGRect)arg1 inView:(id)arg2 characterIndex:(unsigned long long)arg3;
 @property(nonatomic) struct CGRect drawingBounds;
 - (struct CGPoint)cellBaselineOffset;
 - (struct CGSize)cellSize;

@@ -20,7 +20,7 @@
     NSArray *_signers;
     MFError *_secureMIMEError;
     MFAttachmentManager *_attachmentManager;
-    unsigned int _contentOffset;
+    unsigned long long _contentOffset;
     unsigned int _loadIncrement;
     unsigned int _loadedFullData:1;
     unsigned int _loadBestAlternative:1;
@@ -32,11 +32,11 @@
     unsigned int _showMailboxName:1;
 }
 
-+ (BOOL)isAttachmentTooLarge:(id)arg1;
-+ (unsigned int)nextOffsetForOffset:(unsigned int)arg1 totalLength:(unsigned int)arg2 requestedAmount:(unsigned int)arg3;
++ (_Bool)isAttachmentTooLarge:(id)arg1;
++ (unsigned long long)nextOffsetForOffset:(unsigned long long)arg1 totalLength:(unsigned long long)arg2 requestedAmount:(unsigned long long)arg3;
 @property(readonly, nonatomic) MFAttachmentManager *attachmentManager; // @synthesize attachmentManager=_attachmentManager;
 @property(nonatomic) NSObject<MFMessageViewingContextDelegate> *delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) unsigned int contentOffset; // @synthesize contentOffset=_contentOffset;
+@property(readonly, nonatomic) unsigned long long contentOffset; // @synthesize contentOffset=_contentOffset;
 @property(readonly, nonatomic) MFMimePart *loadedPart; // @synthesize loadedPart=_loadedPart;
 @property(readonly, nonatomic) MFActivityMonitor *loadTask; // @synthesize loadTask=_loadTask;
 @property(readonly, nonatomic) MFMessageBody *messageBody; // @synthesize messageBody=_body;
@@ -51,13 +51,13 @@
 - (void)load;
 - (void)loadWithPriority:(int)arg1;
 - (void)loadFull;
-- (void)loadAsPlainText:(BOOL)arg1 asHTML:(BOOL)arg2 downloadIfNecessary:(BOOL)arg3;
+- (void)loadAsPlainText:(_Bool)arg1 asHTML:(_Bool)arg2 downloadIfNecessary:(_Bool)arg3;
 - (void)unload;
 - (void)setLoadTask:(id)arg1;
 - (void)cancelLoad;
-@property(readonly, nonatomic) BOOL failedToLoad;
-@property(readonly, nonatomic) BOOL isPartial;
-@property(readonly, nonatomic) BOOL hasLoaded;
+@property(readonly, nonatomic) _Bool failedToLoad;
+@property(readonly, nonatomic) _Bool isPartial;
+@property(readonly, nonatomic) _Bool hasLoaded;
 - (id)fileWrappersForImageAttachments;
 - (id)attachments;
 @property(readonly, nonatomic) MFError *secureMimeError; // @synthesize secureMimeError=_secureMIMEError;
@@ -66,18 +66,18 @@
 - (void)_setSigners:(id)arg1;
 - (id)uniqueID;
 - (void)_setMessageBody:(id)arg1;
-- (void)_setContentOffset:(unsigned int)arg1;
-@property(readonly, nonatomic) BOOL isMessageEncrypted;
-@property(readonly, nonatomic) BOOL isMessageSigned;
-@property(readonly, nonatomic) BOOL hasNoContent;
+- (void)_setContentOffset:(unsigned long long)arg1;
+@property(readonly, nonatomic) _Bool isMessageEncrypted;
+@property(readonly, nonatomic) _Bool isMessageSigned;
+@property(readonly, nonatomic) _Bool hasNoContent;
 @property(readonly, nonatomic) id content;
 - (void)_setContent:(id)arg1;
 - (void)dealloc;
 - (id)initWithMessage:(id)arg1 attachmentManager:(id)arg2;
-@property(nonatomic) BOOL showMailboxName;
-@property(nonatomic) BOOL isEditableMessage;
-@property(nonatomic) BOOL isDraftMessage;
-@property(nonatomic) BOOL isOutgoingMessage;
+@property(nonatomic) _Bool showMailboxName;
+@property(nonatomic) _Bool isEditableMessage;
+@property(nonatomic) _Bool isDraftMessage;
+@property(nonatomic) _Bool isOutgoingMessage;
 
 @end
 

@@ -17,8 +17,8 @@
 - (void)requestRoutingForMessageGuid:(id)arg1 inChat:(id)arg2 error:(unsigned int)arg3 completionBlock:(id)arg4;
 - (void)requestRoutingWithCompletion:(id)arg1;
 - (void)_requestRoutingWithGUID:(id)arg1 chatGUID:(id)arg2 error:(unsigned int)arg3 handler:(id)arg4;
-- (BOOL)_connect;
-- (BOOL)_disconnect;
+- (_Bool)_connect;
+- (_Bool)_disconnect;
 - (void)_disconnected;
 - (void)dealloc;
 - (id)init;

@@ -8,6 +8,7 @@
 
 @class GQDBGMasterSlide, GQDWPLayoutFrame;
 
+// Not exported
 @interface GQDBGSlide : GQDBGAbstractSlide
 {
     GQDBGMasterSlide *mMaster;

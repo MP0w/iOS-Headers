@@ -6,20 +6,21 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface PDIterate : NSObject
 {
     int mType;
-    BOOL mIsBackwards;
-    BOOL mIsPercentage;
+    _Bool mIsBackwards;
+    _Bool mIsPercentage;
     double mValue;
 }
 
 - (void)setValue:(double)arg1;
 - (double)value;
-- (void)setIsValuePercentage:(BOOL)arg1;
-- (BOOL)isValuePercentage;
-- (void)setIsBackwards:(BOOL)arg1;
-- (BOOL)isBackwards;
+- (void)setIsValuePercentage:(_Bool)arg1;
+- (_Bool)isValuePercentage;
+- (void)setIsBackwards:(_Bool)arg1;
+- (_Bool)isBackwards;
 - (void)setType:(int)arg1;
 - (int)type;
 

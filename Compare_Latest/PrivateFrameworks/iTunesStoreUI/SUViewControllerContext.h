@@ -14,13 +14,13 @@
 {
     NSMutableDictionary *_metadata;
     NSString *_sectionIdentifier;
-    int _type;
+    long long _type;
 }
 
-@property(nonatomic) int type; // @synthesize type=_type;
+@property(nonatomic) long long type; // @synthesize type=_type;
 @property(retain, nonatomic) NSString *sectionIdentifier; // @synthesize sectionIdentifier=_sectionIdentifier;
-- (id)_typeStringForType:(int)arg1;
-- (int)_typeForTypeString:(id)arg1;
+- (id)_typeStringForType:(long long)arg1;
+- (long long)_typeForTypeString:(id)arg1;
 - (id)valueForMetadataKey:(id)arg1;
 - (void)setValue:(id)arg1 forMetadataKey:(id)arg2;
 - (void)encodeWithCoder:(id)arg1;

@@ -20,7 +20,7 @@
 @property(retain, nonatomic) NSString *sectionIdentifier; // @synthesize sectionIdentifier;
 @property(retain, nonatomic) NSString *actionKey; // @synthesize actionKey;
 - (void)selectPrimaryRecommendation;
-- (BOOL)isPrimaryRecommendation;
+- (_Bool)isPrimaryRecommendation;
 - (id)getSectionInfo;
 
 @end

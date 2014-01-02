@@ -22,11 +22,11 @@
 - (id)initWithSearchString:(id)arg1 andLocale:(id)arg2;
 - (id)initWithSearchString:(id)arg1;
 - (id)initWithSearchString:(id)arg1 andLocale:(id)arg2 andOptions:(int)arg3;
-- (BOOL)matches:(id)arg1 matchType:(int)arg2;
-- (BOOL)matches:(id)arg1;
-- (BOOL)matchesUTF8String:(const char *)arg1 matchType:(int)arg2;
-- (BOOL)matchesUTF8String:(const char *)arg1;
-- (BOOL)matchesASCIIString:(const char *)arg1 matchType:(int)arg2;
+- (_Bool)matches:(id)arg1 matchType:(int)arg2;
+- (_Bool)matches:(id)arg1;
+- (_Bool)matchesUTF8String:(const char *)arg1 matchType:(int)arg2;
+- (_Bool)matchesUTF8String:(const char *)arg1;
+- (_Bool)matchesASCIIString:(const char *)arg1 matchType:(int)arg2;
 
 @end
 

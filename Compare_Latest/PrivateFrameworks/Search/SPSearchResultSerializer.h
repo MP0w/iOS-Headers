@@ -10,37 +10,37 @@
 
 @interface SPSearchResultSerializer : PBDataWriter
 {
-    unsigned int _byteVector;
+    unsigned long long _byteVector;
     unsigned int _byteVectorCnt;
     unsigned int _byteVectorCapacity;
     NSMutableArray *_sections;
     Class _lastResultClass;
-    BOOL _respondsToTitleUTF8String;
-    BOOL _respondsToSubtitleUTF8String;
-    BOOL _respondsToAuxiliaryTitleUTF8String;
-    BOOL _respondsToAuxiliarySubtitleUTF8String;
-    BOOL _respondsToSummaryUTF8String;
-    BOOL _respondsToIdentifier;
-    BOOL _respondsToURL;
-    BOOL _respondsToBadgeValue;
-    BOOL _inProc;
-    BOOL _completed;
+    _Bool _respondsToTitleUTF8String;
+    _Bool _respondsToSubtitleUTF8String;
+    _Bool _respondsToAuxiliaryTitleUTF8String;
+    _Bool _respondsToAuxiliarySubtitleUTF8String;
+    _Bool _respondsToSummaryUTF8String;
+    _Bool _respondsToIdentifier;
+    _Bool _respondsToURL;
+    _Bool _respondsToBadgeValue;
+    _Bool _inProc;
+    _Bool _completed;
 }
 
-@property(readonly, nonatomic) BOOL completed; // @synthesize completed=_completed;
-- (unsigned int)byteVector;
+@property(readonly, nonatomic) _Bool completed; // @synthesize completed=_completed;
+- (unsigned long long)byteVector;
 - (unsigned int)byteVectorCount;
 - (void)serialize;
-- (BOOL)appendResult:(id)arg1;
-- (BOOL)appendSection:(id)arg1;
-- (BOOL)appendResult:(id)arg1 toSection:(id)arg2;
+- (_Bool)appendResult:(id)arg1;
+- (_Bool)appendSection:(id)arg1;
+- (_Bool)appendResult:(id)arg1 toSection:(id)arg2;
 - (unsigned int)sectionCount;
 - (id)_convertConformingResult:(id)arg1;
-- (unsigned int)write:(const char *)arg1 maxLength:(unsigned int)arg2;
+- (unsigned long long)write:(const char *)arg1 maxLength:(unsigned long long)arg2;
 - (void)dealloc;
 - (id)initWithInitialCapacity:(unsigned int)arg1;
-- (id)initWithInitialCapacity:(unsigned int)arg1 inProc:(BOOL)arg2;
-- (unsigned int)_allocateSize:(unsigned int)arg1;
+- (id)initWithInitialCapacity:(unsigned int)arg1 inProc:(_Bool)arg2;
+- (unsigned long long)_allocateSize:(unsigned long long)arg1;
 - (id)init;
 
 @end

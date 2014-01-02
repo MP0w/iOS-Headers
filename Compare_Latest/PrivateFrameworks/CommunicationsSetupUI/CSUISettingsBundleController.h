@@ -12,8 +12,8 @@
 
 - (id)name;
 - (id)settingsClassName;
-- (int)serviceType;
-- (BOOL)_cnfreg_overrideForController:(id)arg1 withDictionary:(id)arg2;
+- (long long)serviceType;
+- (_Bool)_cnfreg_overrideForController:(id)arg1 withDictionary:(id)arg2;
 - (void)bundleTappedWithSpecifier:(id)arg1;
 - (void)_resetSpecifierAction:(id)arg1;
 - (Class)controllerClassToInstantiate:(id)arg1;

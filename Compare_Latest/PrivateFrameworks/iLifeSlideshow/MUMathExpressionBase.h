@@ -14,13 +14,11 @@
     NSError *_lastError;
 }
 
-+ (id)parserErrorToString:(CDStruct_ac6699d7 *)arg1;
 - (id)lastError;
 - (void)finalize;
 - (void)dealloc;
 - (void)_cleanup;
 - (id)init;
-- (void)setLastError:(CDStruct_ac6699d7 *)arg1;
 
 @end
 

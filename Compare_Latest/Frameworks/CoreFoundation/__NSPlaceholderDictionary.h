@@ -6,6 +6,7 @@
 
 #import <CoreFoundation/NSMutableDictionary.h>
 
+// Not exported
 @interface __NSPlaceholderDictionary : NSMutableDictionary
 {
 }
@@ -18,16 +19,16 @@
 - (void)setObject:(id)arg1 forKey:(id)arg2;
 - (id)keyEnumerator;
 - (id)objectForKey:(id)arg1;
-- (unsigned int)count;
+- (unsigned long long)count;
 - (void)dealloc;
-- (unsigned int)retainCount;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;
 - (id)initWithContentsOfURL:(id)arg1;
 - (id)initWithContentsOfFile:(id)arg1;
 - (id)init;
-- (id)initWithCapacity:(unsigned int)arg1;
-- (id)initWithObjects:(const id *)arg1 forKeys:(const id *)arg2 count:(unsigned int)arg3;
+- (id)initWithCapacity:(unsigned long long)arg1;
+- (id)initWithObjects:(const id *)arg1 forKeys:(const id *)arg2 count:(unsigned long long)arg3;
 
 @end
 

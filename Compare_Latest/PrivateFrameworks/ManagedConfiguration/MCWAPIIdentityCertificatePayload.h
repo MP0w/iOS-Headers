@@ -19,7 +19,7 @@
 @property(readonly, nonatomic) NSData *pemData; // @synthesize pemData=_pemData;
 - (void).cxx_destruct;
 - (id)description;
-- (BOOL)isIdentity;
+- (_Bool)isIdentity;
 - (struct __SecIdentity *)copyIdentityFromKeychain;
 - (struct __SecCertificate *)copyCertificate;
 - (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;

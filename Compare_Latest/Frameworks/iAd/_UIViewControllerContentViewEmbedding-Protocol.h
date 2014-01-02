@@ -7,9 +7,9 @@
 @protocol _UIViewControllerContentViewEmbedding
 - (void)viewControllerViewDidLayoutSubviews:(id)arg1;
 - (void)viewControllerViewWillLayoutSubviews:(id)arg1;
-- (void)viewController:(id)arg1 viewDidDisappear:(BOOL)arg2;
-- (void)viewController:(id)arg1 viewWillDisappear:(BOOL)arg2;
-- (void)viewController:(id)arg1 viewDidAppear:(BOOL)arg2;
-- (void)viewController:(id)arg1 viewWillAppear:(BOOL)arg2;
+- (void)viewController:(id)arg1 viewDidDisappear:(_Bool)arg2;
+- (void)viewController:(id)arg1 viewWillDisappear:(_Bool)arg2;
+- (void)viewController:(id)arg1 viewDidAppear:(_Bool)arg2;
+- (void)viewController:(id)arg1 viewWillAppear:(_Bool)arg2;
 @end
 

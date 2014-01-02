@@ -10,7 +10,7 @@
 
 @interface SWMusicRemoteController : NSObject
 {
-    int _musicSelection;
+    long long _musicSelection;
     int _currentVolumeDirection;
     NSTimer *_volumeAdjustTimer;
     NSString *_latestSelectedPlaylistName;
@@ -19,30 +19,35 @@
     MPMediaQuery *_interruptedQueueAsQuery;
     MPMediaItem *_interruptedItem;
     double _interruptedPlaybackTime;
-    int _interruptedRepeatMode;
+    long long _interruptedRepeatMode;
     MPMediaItem *_powersongItem;
+    NSString *_nowPlayingTitle;
+    NSString *_nowPlayingAlbum;
+    NSString *_nowPlayingArtist;
+    _Bool _nowPlayingIsPlaying;
 }
 
 + (void)clearCachedDatabaseData;
 + (id)sharedMusicController;
 @property(copy, nonatomic) NSString *latestSelectedPlaylistName; // @synthesize latestSelectedPlaylistName=_latestSelectedPlaylistName;
 - (void)_mediaLibraryChanged:(id)arg1;
-- (void)_nowPlayingItemChanged:(id)arg1;
+- (void)_mediaRemoteNowPlayingInfoChanged:(id)arg1;
+- (void)_mediaRemoteNowPlayingIsPlayingChanged:(id)arg1;
 - (void)_resumeInterruptedQueue;
 - (void)_adjustVolumeDown;
 - (void)_adjustVolumeUp;
 - (void)_adjustVolumeDownTimer:(id)arg1;
 - (void)_adjustVolumeUpTimer:(id)arg1;
-- (unsigned long long)_persistentUIDForPlaylistIndex:(unsigned int)arg1 isWorkoutMix:(BOOL)arg2;
-- (void)_startPlaylistAtIndex:(unsigned int)arg1 isWorkoutMix:(BOOL)arg2;
+- (unsigned long long)_persistentUIDForPlaylistIndex:(unsigned long long)arg1 isWorkoutMix:(_Bool)arg2;
+- (void)_startPlaylistAtIndex:(unsigned long long)arg1 isWorkoutMix:(_Bool)arg2;
 - (void)_startPlaylistWithPersistentUID:(unsigned long long)arg1;
-- (unsigned long long)persistentUIDForWorkoutMixIndex:(unsigned int)arg1;
-- (unsigned long long)persistentUIDForPlaylistIndex:(unsigned int)arg1;
-@property(readonly, nonatomic) BOOL powersongIsNowPlayingItem; // @dynamic powersongIsNowPlayingItem;
+- (unsigned long long)persistentUIDForWorkoutMixIndex:(unsigned long long)arg1;
+- (unsigned long long)persistentUIDForPlaylistIndex:(unsigned long long)arg1;
+@property(readonly, nonatomic) _Bool powersongIsNowPlayingItem; // @dynamic powersongIsNowPlayingItem;
 - (void)interruptPlaybackForTrackUID:(id)arg1;
 - (void)startShuffleSongs;
-- (void)startPlaylistAtIndex:(unsigned int)arg1;
-- (void)startWorkoutMixAtIndex:(unsigned int)arg1;
+- (void)startPlaylistAtIndex:(unsigned long long)arg1;
+- (void)startWorkoutMixAtIndex:(unsigned long long)arg1;
 - (void)startPlaylistWithPersistentUID:(unsigned long long)arg1;
 - (void)startWorkoutMixWithPersistentUID:(unsigned long long)arg1;
 - (id)playlists;
@@ -52,16 +57,18 @@
 - (void)play;
 - (void)selectNextSong;
 - (void)selectPreviousSong;
-@property(readonly, nonatomic) BOOL shouldControlMusic;
+@property(readonly, nonatomic) _Bool shouldControlMusic;
 - (void)endAdjustingVolume:(int)arg1;
 - (void)beginAdjustingVolume:(int)arg1;
 - (void)endSeeking;
 - (void)beginSeekingBackward;
 - (void)beginSeekingForward;
 - (void)goToNowPlaying;
+- (id)currentArtistName;
+- (id)currentAlbumName;
 - (id)currentSongName;
-- (BOOL)isNowPlaying;
-@property(nonatomic) int musicSelection;
+- (_Bool)isNowPlaying;
+@property(nonatomic) long long musicSelection;
 - (void)dealloc;
 - (id)_init;
 - (id)init;

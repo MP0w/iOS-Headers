@@ -8,6 +8,7 @@
 
 @class _PFArray;
 
+// Not exported
 @interface _PFMutableProxyArray : NSMutableArray
 {
     int _cd_rc;
@@ -19,25 +20,25 @@
     struct __CFArray *_indicesVeneer;
 }
 
-- (void)replaceObjectAtIndex:(unsigned int)arg1 withObject:(id)arg2;
-- (void)removeObjectAtIndex:(unsigned int)arg1;
-- (void)insertObject:(id)arg1 atIndex:(unsigned int)arg2;
+- (void)replaceObjectAtIndex:(unsigned long long)arg1 withObject:(id)arg2;
+- (void)removeObjectAtIndex:(unsigned long long)arg1;
+- (void)insertObject:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)removeLastObject;
 - (void)addObject:(id)arg1;
 - (id)newArrayFromObjectIDs;
 - (id)arrayFromObjectIDs;
-- (unsigned int)indexOfManagedObjectForObjectID:(id)arg1;
-- (unsigned int)indexOfObjectIdenticalTo:(id)arg1 inRange:(struct _NSRange)arg2;
-- (unsigned int)indexOfObjectIdenticalTo:(id)arg1;
-- (unsigned int)indexOfObject:(id)arg1 inRange:(struct _NSRange)arg2;
-- (unsigned int)indexOfObject:(id)arg1;
-- (id)managedObjectIDAtIndex:(unsigned int)arg1;
-- (id)objectAtIndex:(unsigned int)arg1;
+- (unsigned long long)indexOfManagedObjectForObjectID:(id)arg1;
+- (unsigned long long)indexOfObjectIdenticalTo:(id)arg1 inRange:(struct _NSRange)arg2;
+- (unsigned long long)indexOfObjectIdenticalTo:(id)arg1;
+- (unsigned long long)indexOfObject:(id)arg1 inRange:(struct _NSRange)arg2;
+- (unsigned long long)indexOfObject:(id)arg1;
+- (id)managedObjectIDAtIndex:(unsigned long long)arg1;
+- (id)objectAtIndex:(unsigned long long)arg1;
 - (void)_rehash;
-- (unsigned int)count;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
-- (unsigned int)retainCount;
+- (unsigned long long)count;
+- (_Bool)_isDeallocating;
+- (_Bool)_tryRetain;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;
 - (void)finalize;

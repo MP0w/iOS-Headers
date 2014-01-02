@@ -16,21 +16,21 @@
     double _duration;
     NSDate *_referenceDate;
     id _underlyingResult;
-    BOOL _timeIsSignificant;
-    BOOL _timeIsApproximate;
-    BOOL _timeIsPast;
+    _Bool _timeIsSignificant;
+    _Bool _timeIsApproximate;
+    _Bool _timeIsPast;
 }
 
-@property(readonly) BOOL timeIsPast;
-@property(readonly) BOOL timeIsApproximate;
-@property(readonly) BOOL timeIsSignificant;
+@property(readonly) _Bool timeIsPast;
+@property(readonly) _Bool timeIsApproximate;
+@property(readonly) _Bool timeIsSignificant;
 @property(readonly) void *underlyingResult;
 @property(readonly) NSDate *referenceDate;
 @property(readonly) double duration;
 @property(readonly) NSTimeZone *timeZone;
 - (id)date;
-- (BOOL)_adjustRangesWithOffset:(int)arg1;
-- (id)resultByAdjustingRangesWithOffset:(int)arg1;
+- (_Bool)_adjustRangesWithOffset:(long long)arg1;
+- (id)resultByAdjustingRangesWithOffset:(long long)arg1;
 - (struct _NSRange)range;
 - (unsigned long long)resultType;
 - (id)initWithCoder:(id)arg1;
@@ -41,8 +41,8 @@
 - (id)initWithRange:(struct _NSRange)arg1 date:(id)arg2 timeZone:(id)arg3 duration:(double)arg4;
 - (id)initWithRange:(struct _NSRange)arg1 date:(id)arg2 timeZone:(id)arg3 duration:(double)arg4 referenceDate:(id)arg5;
 - (id)initWithRange:(struct _NSRange)arg1 date:(id)arg2 timeZone:(id)arg3 duration:(double)arg4 referenceDate:(id)arg5 underlyingResult:(void *)arg6;
-- (id)initWithRange:(struct _NSRange)arg1 date:(id)arg2 timeZone:(id)arg3 duration:(double)arg4 referenceDate:(id)arg5 underlyingResult:(void *)arg6 timeIsSignificant:(BOOL)arg7 timeIsApproximate:(BOOL)arg8;
-- (id)initWithRange:(struct _NSRange)arg1 date:(id)arg2 timeZone:(id)arg3 duration:(double)arg4 referenceDate:(id)arg5 underlyingResult:(void *)arg6 timeIsSignificant:(BOOL)arg7 timeIsApproximate:(BOOL)arg8 timeIsPast:(BOOL)arg9;
+- (id)initWithRange:(struct _NSRange)arg1 date:(id)arg2 timeZone:(id)arg3 duration:(double)arg4 referenceDate:(id)arg5 underlyingResult:(void *)arg6 timeIsSignificant:(_Bool)arg7 timeIsApproximate:(_Bool)arg8;
+- (id)initWithRange:(struct _NSRange)arg1 date:(id)arg2 timeZone:(id)arg3 duration:(double)arg4 referenceDate:(id)arg5 underlyingResult:(void *)arg6 timeIsSignificant:(_Bool)arg7 timeIsApproximate:(_Bool)arg8 timeIsPast:(_Bool)arg9;
 
 @end
 

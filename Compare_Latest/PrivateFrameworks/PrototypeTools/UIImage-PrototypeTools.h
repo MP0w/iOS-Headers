@@ -7,7 +7,7 @@
 #import "UIImage.h"
 
 @interface UIImage (PrototypeTools)
-- (id)imageResizedTo:(struct CGSize)arg1 preserveAspectRatio:(BOOL)arg2;
+- (id)imageResizedTo:(struct CGSize)arg1 preserveAspectRatio:(_Bool)arg2;
 - (id)imageResizedTo:(struct CGSize)arg1;
 @end
 

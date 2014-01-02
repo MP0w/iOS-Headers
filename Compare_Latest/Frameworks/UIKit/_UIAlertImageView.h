@@ -6,6 +6,7 @@
 
 #import <UIKit/UIImageView.h>
 
+// Not exported
 @interface _UIAlertImageView : UIImageView
 {
     struct CGRect _clip;

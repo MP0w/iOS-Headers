@@ -10,6 +10,6 @@
 
 @optional
 - (void)albumStreamActivity:(id)arg1 didCreateAlbum:(struct NSObject *)arg2;
-- (void)albumStreamActivity:(id)arg1 didFinishSuccessfully:(BOOL)arg2;
+- (void)albumStreamActivity:(id)arg1 didFinishSuccessfully:(_Bool)arg2;
 @end
 

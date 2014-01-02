@@ -25,7 +25,7 @@
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (BOOL)canBeGroupedWithCommand:(id)arg1;
+- (_Bool)canBeGroupedWithCommand:(id)arg1;
 - (id)initWithCommand:(id)arg1 variantParam:(id)arg2 invariantParam:(id)arg3;
 - (id)init;
 

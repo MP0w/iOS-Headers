@@ -6,41 +6,43 @@
 
 #import "UIButton.h"
 
-@class UIImageView, UIView;
+@class UIActivityIndicatorView, UIImageView, UIView;
 
 @interface CAMShutterButton : UIButton
 {
-    BOOL _pulsing;
-    BOOL _spinning;
-    BOOL __small;
-    int _mode;
+    _Bool _pulsing;
+    _Bool _spinning;
+    _Bool __small;
+    long long _mode;
     UIView *__outerView;
+    UIImageView *__outerImageView;
     UIView *__innerView;
-    UIView *__progressOuterView;
-    UIImageView *__progressMaskImageView;
+    UIActivityIndicatorView *__progressActivityIndicatorView;
 }
 
 + (id)smallShutterButton;
 + (id)shutterButton;
-@property(readonly, nonatomic) UIImageView *_progressMaskImageView; // @synthesize _progressMaskImageView=__progressMaskImageView;
-@property(readonly, nonatomic) UIView *_progressOuterView; // @synthesize _progressOuterView=__progressOuterView;
+@property(readonly, nonatomic) UIActivityIndicatorView *_progressActivityIndicatorView; // @synthesize _progressActivityIndicatorView=__progressActivityIndicatorView;
 @property(readonly, nonatomic) UIView *_innerView; // @synthesize _innerView=__innerView;
+@property(readonly, nonatomic) UIImageView *_outerImageView; // @synthesize _outerImageView=__outerImageView;
 @property(readonly, nonatomic) UIView *_outerView; // @synthesize _outerView=__outerView;
-@property(nonatomic, getter=_isSmall, setter=_setSmall:) BOOL _small; // @synthesize _small=__small;
-@property(nonatomic, getter=isSpinning) BOOL spinning; // @synthesize spinning=_spinning;
-@property(nonatomic, getter=isPulsing) BOOL pulsing; // @synthesize pulsing=_pulsing;
-@property(nonatomic) int mode; // @synthesize mode=_mode;
+@property(nonatomic, getter=_isSmall, setter=_setSmall:) _Bool _small; // @synthesize _small=__small;
+@property(nonatomic, getter=isSpinning) _Bool spinning; // @synthesize spinning=_spinning;
+@property(nonatomic, getter=isPulsing) _Bool pulsing; // @synthesize pulsing=_pulsing;
+@property(nonatomic) long long mode; // @synthesize mode=_mode;
 - (void)_updateSpinningAnimations;
-- (void)_performModeSwitchAnimationFromMode:(int)arg1 toMode:(int)arg2 animated:(BOOL)arg3;
+- (void)_performModeSwitchAnimationFromMode:(long long)arg1 toMode:(long long)arg2 animated:(_Bool)arg3;
 - (void)_performHighlightAnimation;
 - (void)_updateOuterAndInnerLayers;
-- (BOOL)_isStopMode:(int)arg1;
-- (float)_borderWidthForMode:(int)arg1;
-- (float)_cornerRadiusForMode:(int)arg1;
-- (struct CGSize)_sizeForMode:(int)arg1;
-- (id)_colorForMode:(int)arg1;
-- (void)setMode:(int)arg1 animated:(BOOL)arg2;
-- (void)setHighlighted:(BOOL)arg1;
+- (_Bool)_shouldUseImageViewForMode:(long long)arg1;
+- (_Bool)_isStopMode:(long long)arg1;
+- (id)_outerImageForMode:(long long)arg1;
+- (double)_borderWidthForMode:(long long)arg1;
+- (double)_cornerRadiusForMode:(long long)arg1;
+- (struct CGSize)_sizeForMode:(long long)arg1;
+- (id)_colorForMode:(long long)arg1;
+- (void)setMode:(long long)arg1 animated:(_Bool)arg2;
+- (void)setHighlighted:(_Bool)arg1;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)dealloc;

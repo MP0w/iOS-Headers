@@ -10,6 +10,6 @@
 
 @optional
 - (void)flowcaseViewDidEndDecelerating:(id)arg1;
-- (void)flowcaseView:(id)arg1 didSelectViewAtIndex:(int)arg2;
+- (void)flowcaseView:(id)arg1 didSelectViewAtIndex:(long long)arg2;
 @end
 

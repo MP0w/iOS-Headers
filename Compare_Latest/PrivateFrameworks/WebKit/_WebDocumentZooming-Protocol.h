@@ -7,9 +7,9 @@
 #import "NSObject-Protocol.h"
 
 @protocol _WebDocumentZooming <NSObject>
-- (BOOL)_canResetZoom;
-- (BOOL)_canZoomIn;
-- (BOOL)_canZoomOut;
+- (_Bool)_canResetZoom;
+- (_Bool)_canZoomIn;
+- (_Bool)_canZoomOut;
 - (void)_resetZoom:(id)arg1;
 - (void)_zoomIn:(id)arg1;
 - (void)_zoomOut:(id)arg1;

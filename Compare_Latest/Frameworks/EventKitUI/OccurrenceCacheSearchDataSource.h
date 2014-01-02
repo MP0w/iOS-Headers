@@ -13,8 +13,8 @@
     EKOccurrenceCacheSearch *_search;
     NSMutableArray *_processingCachedDays;
     struct _opaque_pthread_mutex_t {
-        long __sig;
-        char __opaque[40];
+        long long __sig;
+        char __opaque[56];
     } _resultsLock;
 }
 
@@ -23,10 +23,10 @@
 - (void)stopSearching;
 - (void)searchWithTerm:(id)arg1;
 - (void)_setCachedDaysAndNotify:(id)arg1 withDateToScrollTo:(id)arg2;
-- (int)countOfOccurrencesAtDayIndex:(int)arg1;
+- (long long)countOfOccurrencesAtDayIndex:(long long)arg1;
 - (void)invalidateCachedOccurrences;
-- (BOOL)supportsFakeTodaySection;
-- (BOOL)supportsInvitations;
+- (_Bool)supportsFakeTodaySection;
+- (_Bool)supportsInvitations;
 - (void)dealloc;
 - (void)invalidate;
 - (id)initWithEventStore:(id)arg1 calendars:(id)arg2;

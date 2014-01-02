@@ -28,14 +28,14 @@
     struct CGPoint _previousGestureLocation;
     double _timeOfLastBigUpdate;
     struct CGRect _draggedItemOriginalFrame;
-    BOOL _dragWasSuccessful;
-    BOOL _scrollingForDrag;
+    _Bool _dragWasSuccessful;
+    _Bool _scrollingForDrag;
 }
 
 + (id)sharedInstance;
 - (void)_scrollViewIfNecessary;
-- (BOOL)_gestureRecognizer:(id)arg1 shouldBeRequiredToFailByGestureRecognizer:(id)arg2;
-- (BOOL)gestureRecognizerShouldBegin:(id)arg1;
+- (_Bool)_gestureRecognizer:(id)arg1 shouldBeRequiredToFailByGestureRecognizer:(id)arg2;
+- (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (void)_handleLongPress:(id)arg1;
 - (void)enumerateDragContextsUsingBlock:(id)arg1;
 - (void)cancelCurrentDragOperation;

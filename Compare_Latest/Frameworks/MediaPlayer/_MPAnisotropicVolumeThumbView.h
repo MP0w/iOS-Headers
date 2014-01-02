@@ -13,7 +13,7 @@
     UIImageView *_darkReflectionView;
     double _filteredX;
     double _filteredY;
-    float _magSqr;
+    double _magSqr;
     id _motionManagerObserver;
     UIImageView *_leftLightReflectionView;
     UIImageView *_rightLightReflectionView;

@@ -16,11 +16,11 @@
 
 @property(readonly, nonatomic) NSMutableSet *listeners; // @synthesize listeners=_listeners;
 @property(retain, nonatomic) FTCServiceMonitor *monitor; // @synthesize monitor=_monitor;
-- (BOOL)removeListenerID:(id)arg1;
-- (BOOL)addListenerID:(id)arg1;
-- (BOOL)hasListenerID:(id)arg1;
+- (_Bool)removeListenerID:(id)arg1;
+- (_Bool)addListenerID:(id)arg1;
+- (_Bool)hasListenerID:(id)arg1;
 - (void)dealloc;
-- (id)initWithServiceType:(int)arg1;
+- (id)initWithServiceType:(long long)arg1;
 
 @end
 

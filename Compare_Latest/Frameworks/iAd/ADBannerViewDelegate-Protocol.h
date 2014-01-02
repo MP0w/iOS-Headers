@@ -10,7 +10,7 @@
 
 @optional
 - (void)bannerViewActionDidFinish:(id)arg1;
-- (BOOL)bannerViewActionShouldBegin:(id)arg1 willLeaveApplication:(BOOL)arg2;
+- (_Bool)bannerViewActionShouldBegin:(id)arg1 willLeaveApplication:(_Bool)arg2;
 - (void)bannerView:(id)arg1 didFailToReceiveAdWithError:(id)arg2;
 - (void)bannerViewDidLoadAd:(id)arg1;
 - (void)bannerViewWillLoadAd:(id)arg1;

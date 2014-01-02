@@ -15,7 +15,6 @@
     NSString *_identifier;
 }
 
-+ (id)main;
 @property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
 - (void)afterInterval:(double)arg1 async:(id)arg2;
@@ -27,7 +26,6 @@
 - (id)debugDescription;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithIdentifier:(id)arg1;
-- (void)heartAttack;
 
 @end
 

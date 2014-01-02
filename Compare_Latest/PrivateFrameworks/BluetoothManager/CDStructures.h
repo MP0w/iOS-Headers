@@ -7,9 +7,9 @@
 #pragma mark Typedef'd Structures
 
 typedef struct {
-    char _field1;
-    char _field2;
-    char _field3;
-    char _field4;
-} CDStruct_b2f7276a;
+    _Bool _field1;
+    _Bool _field2;
+    _Bool _field3;
+    _Bool _field4;
+} CDStruct_8024420c;
 

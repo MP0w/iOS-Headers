@@ -8,6 +8,7 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface _UIQueueingServiceWebViewControllerProxy : NSObject
 {
     NSMutableArray *_queuedInvocations;

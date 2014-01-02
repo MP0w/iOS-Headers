@@ -8,17 +8,18 @@
 
 @class UIWindow;
 
+// Not exported
 @interface DDFallbackController : UIViewController
 {
     UIWindow *_baseWindow;
     UIWindow *_ourWindow;
     id _interactionDelegate;
-    int _startOrientation;
+    long long _startOrientation;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (void)dismissViewControllerAnimated:(BOOL)arg1 completion:(id)arg2;
-- (void)presentViewController:(id)arg1 animated:(BOOL)arg2 completion:(id)arg3;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (void)dismissViewControllerAnimated:(_Bool)arg1 completion:(id)arg2;
+- (void)presentViewController:(id)arg1 animated:(_Bool)arg2 completion:(id)arg3;
 - (void)loadView;
 - (void)dealloc;
 - (id)initWithWindow:(id)arg1 interactionDelegate:(id)arg2;

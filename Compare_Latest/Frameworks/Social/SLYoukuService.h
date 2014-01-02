@@ -6,12 +6,13 @@
 
 #import <Social/SLService.h>
 
+// Not exported
 @interface SLYoukuService : SLService
 {
 }
 
-- (BOOL)isFirstClassService;
-- (int)authenticationStyle;
+- (_Bool)isFirstClassService;
+- (long long)authenticationStyle;
 - (id)accountTypeIdentifier;
 - (id)serviceType;
 

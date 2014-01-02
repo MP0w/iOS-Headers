@@ -8,6 +8,7 @@
 
 @class NSFileAccessNode, NSObject<OS_xpc_object>;
 
+// Not exported
 @interface NSFileReactorProxy : NSObject
 {
     NSObject<OS_xpc_object> *_client;

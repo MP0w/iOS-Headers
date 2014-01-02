@@ -8,6 +8,7 @@
 
 @class UIColor, UIImageView, UIView, _UIBackdropView, _UINavigationBarAppearanceStorage;
 
+// Not exported
 @interface _UINavigationBarBackground : _UIBarBackgroundImageView
 {
     UIColor *_barTintColor;
@@ -20,7 +21,6 @@
         unsigned int backgroundImageNeedsUpdate:1;
         unsigned int isContainedInPopover:1;
         unsigned int barWantsAdaptiveBackdrop:1;
-        unsigned int barForcesOpaqueBackground:1;
     } _navbarFlags;
 }
 
@@ -29,19 +29,19 @@
 - (void)dealloc;
 - (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
-- (void)_setFrame:(struct CGRect)arg1 forceUpdateBackgroundImage:(BOOL)arg2;
+- (void)_setFrame:(struct CGRect)arg1 forceUpdateBackgroundImage:(_Bool)arg2;
 - (void)_didMoveFromWindow:(id)arg1 toWindow:(id)arg2;
 - (id)_customShadowImageForSearchBar;
 - (void)didMoveToSuperview;
 - (void)updateBackgroundImage;
 - (id)_currentCustomBackground;
-- (id)_currentCustomBackgroundRespectOversize_legacy:(char *)arg1;
-- (id)initWithFrame:(struct CGRect)arg1 barStyle:(int)arg2 barTintColor:(id)arg3 appearance:(id)arg4 barTranslucence:(int)arg5;
-- (void)_setIsContainedInPopover:(BOOL)arg1;
-@property(nonatomic) BOOL barForcesOpaqueBackground;
-@property(nonatomic) BOOL barWantsAdaptiveBackdrop;
-@property(nonatomic, getter=isTranslucent) BOOL translucent;
-@property(nonatomic) int barStyle;
+- (id)_currentCustomBackgroundDedicatedToBarMetrics:(long long *)arg1 barPosition:(long long *)arg2;
+- (id)_currentCustomBackgroundRespectOversize_legacy:(_Bool *)arg1;
+- (id)initWithFrame:(struct CGRect)arg1 barStyle:(long long)arg2 barTintColor:(id)arg3 appearance:(id)arg4 barTranslucence:(long long)arg5;
+- (void)_setIsContainedInPopover:(_Bool)arg1;
+@property(nonatomic) _Bool barWantsAdaptiveBackdrop;
+@property(nonatomic, getter=isTranslucent) _Bool translucent;
+@property(nonatomic) long long barStyle;
 @property(retain, nonatomic) UIColor *barTintColor;
 
 @end

@@ -7,7 +7,6 @@
 #import "NSObject.h"
 
 #import "MPActionableSupport-Protocol.h"
-#import "MPActionableSupportInternal-Protocol.h"
 #import "MPAudioSupport-Protocol.h"
 #import "MPFilterSupport-Protocol.h"
 #import "NSCoding-Protocol.h"
@@ -15,7 +14,7 @@
 
 @class MCContainerParallelizer, MCPlug, MPAudioPlaylist, MPLayer, MPTransition, NSMutableArray, NSMutableDictionary, NSString;
 
-@interface MPEffectContainer : NSObject <MPActionableSupportInternal, NSCoding, NSCopying, MPFilterSupport, MPAudioSupport, MPActionableSupport>
+@interface MPEffectContainer : NSObject <NSCoding, NSCopying, MPFilterSupport, MPAudioSupport, MPActionableSupport>
 {
     MCPlug *_containerPlug;
     MCContainerParallelizer *_containerParallelizer;
@@ -25,7 +24,7 @@
     MPTransition *_transition;
     MPLayer *_parentLayer;
     MPAudioPlaylist *_audioPlaylist;
-    BOOL _transitionDisconnected;
+    _Bool _transitionDisconnected;
     double _startTime;
     double _duration;
     struct CGColor *_backgroundColor;
@@ -33,29 +32,29 @@
 }
 
 + (id)effectContainer;
-+ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
++ (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 @property(nonatomic) double duration; // @synthesize duration=_duration;
 @property(nonatomic) struct CGColor *backgroundCGColor; // @synthesize backgroundCGColor=_backgroundColor;
 - (double)outroTransitionDuration;
 - (double)introTransitionDuration;
 - (double)startTime;
 - (id)parentLayer;
-- (int)index;
+- (long long)index;
 - (void)setAudioPlaylist:(id)arg1;
 - (id)audioPlaylist;
 - (void)setBackgroundColorString:(id)arg1;
-- (void)moveFiltersFromIndices:(id)arg1 toIndex:(int)arg2;
+- (void)moveFiltersFromIndices:(id)arg1 toIndex:(long long)arg2;
 - (void)removeAllFilters;
 - (void)removeFiltersAtIndices:(id)arg1;
-- (void)insertFilters:(id)arg1 atIndex:(int)arg2;
+- (void)insertFilters:(id)arg1 atIndex:(long long)arg2;
 - (void)addFilters:(id)arg1;
 - (void)addFilter:(id)arg1;
 - (id)filters;
 @property(retain, nonatomic) MPTransition *transition; // @synthesize transition=_transition;
-- (void)moveEffectsFromIndices:(id)arg1 toIndex:(int)arg2;
+- (void)moveEffectsFromIndices:(id)arg1 toIndex:(long long)arg2;
 - (void)removeAllEffects;
 - (void)removeEffectsAtIndices:(id)arg1;
-- (void)insertEffects:(id)arg1 atIndex:(int)arg2;
+- (void)insertEffects:(id)arg1 atIndex:(long long)arg2;
 - (void)addEffects:(id)arg1;
 - (void)addEffect:(id)arg1;
 - (id)effects;
@@ -66,51 +65,6 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)description;
 - (id)init;
-- (id)fullDebugLog;
-- (BOOL)isTransitionConnected;
-- (void)reconnectTransition;
-- (void)disconnectTransition;
-- (double)findMinDuration;
-- (void)dump;
-- (id)plug;
-- (id)container;
-- (id)nearestLayerGroup;
-- (int)textCount;
-- (int)slideCount;
-- (id)userInfoAttributeForKey:(id)arg1;
-- (void)setUserInfoAttribute:(id)arg1 forKey:(id)arg2;
-- (void)calculateDurationToSmallest:(BOOL)arg1;
-- (void)convertFromEffectContainerToParallelizer;
-- (void)convertFromParallelizerToEffectContainer;
-- (BOOL)shouldBeParallelizer;
-- (void)setStartTime:(double)arg1;
-- (void)setParentLayer:(id)arg1;
-- (void)setContainerEffect:(id)arg1;
-- (void)setContainerParallelizer:(id)arg1;
-- (void)setContainerPlug:(id)arg1;
-- (void)cleanup;
-- (void)adjustPhasesWithDuration:(double)arg1;
-- (void)copyAudioPlaylist:(id)arg1;
-- (void)copyTransition:(id)arg1;
-- (void)copyFilters:(id)arg1;
-- (void)copyEffects:(id)arg1;
-- (void)copyVars:(id)arg1;
-- (id)parentDocument;
-- (id)uuid;
-- (id)objectID;
-- (id)plugID;
-- (void)setScriptingTransition:(id)arg1;
-- (id)scriptingTransition;
-- (void)replaceObjectInFiltersAtIndex:(int)arg1 withObject:(id)arg2;
-- (void)removeObjectFromFiltersAtIndex:(int)arg1;
-- (void)insertObject:(id)arg1 inFiltersAtIndex:(int)arg2;
-- (id)objectInFiltersAtIndex:(int)arg1;
-- (int)countOfFilters;
-- (void)replaceObjectInEffectsAtIndex:(int)arg1 withObject:(id)arg2;
-- (void)removeObjectFromEffectsAtIndex:(int)arg1;
-- (void)insertObject:(id)arg1 inEffectsAtIndex:(int)arg2;
-- (id)objectInEffectsAtIndex:(int)arg1;
-- (int)countOfEffects;
 
 @end
 

@@ -4,18 +4,22 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
+#import "NSObject-Protocol.h"
+
 @class NSString, UIColor;
 
-@protocol SBUIPasscodeLockView
-@property(retain, nonatomic) id <SBUIColorStatisticsProvider> backgroundColorStatisticsProvider;
+@protocol SBUIPasscodeLockView <NSObject>
+@property(nonatomic) unsigned long long biometricMatchMode;
+@property(retain, nonatomic) id <SBFLegibilitySettingsProvider> backgroundLegibilitySettingsProvider;
 @property(retain, nonatomic) UIColor *customBackgroundColor;
-@property(nonatomic) float backgroundAlpha;
-@property(nonatomic) BOOL showsEmergencyCallButton;
-@property(nonatomic) BOOL showsStatusField;
-@property(nonatomic) BOOL playsKeypadSounds;
+@property(nonatomic) double backgroundAlpha;
+@property(nonatomic) _Bool showsEmergencyCallButton;
+@property(nonatomic) _Bool showsStatusField;
+@property(nonatomic) _Bool playsKeypadSounds;
 @property(readonly, nonatomic) NSString *passcode;
 @property(readonly, nonatomic) int style;
 @property(nonatomic) id <SBUIPasscodeLockViewDelegate> delegate;
+- (void)setAllowsStatusTextUpdatingOnResignFirstResponder:(_Bool)arg1;
 - (void)reset;
 - (void)resetForFailedPasscode;
 @end

@@ -8,13 +8,14 @@
 
 @class EMFPlusPlayer, MFGraphicsDevice;
 
+// Not exported
 @interface EMFPlayer : NSObject
 {
     MFGraphicsDevice *m_gdi;
-    BOOL m_headerDone;
+    _Bool m_headerDone;
     EMFPlusPlayer *m_emfPlusPlayer;
-    BOOL m_ignoreEMFRecords;
-    BOOL m_ignoreEMFPlusRecords;
+    _Bool m_ignoreEMFRecords;
+    _Bool m_ignoreEMFPlusRecords;
 }
 
 + (struct CGRect)boundsInPoints:(id)arg1;
@@ -27,7 +28,7 @@
 - (int)playFillRgn:(unsigned int)arg1:(const char *)arg2;
 - (int)playSelectClipRegion:(unsigned int)arg1:(const char *)arg2;
 - (int)playSelectClipPath:(unsigned int)arg1:(const char *)arg2;
-- (int)playStrokeAndFillPath:(unsigned int)arg1:(const char *)arg2:(BOOL)arg3:(BOOL)arg4;
+- (int)playStrokeAndFillPath:(unsigned int)arg1:(const char *)arg2:(_Bool)arg3:(_Bool)arg4;
 - (int)playCloseFigure:(unsigned int)arg1:(const char *)arg2;
 - (int)playWidenPath:(unsigned int)arg1:(const char *)arg2;
 - (int)playEndPath:(unsigned int)arg1:(const char *)arg2;
@@ -42,9 +43,9 @@
 - (int)playMaskBlt:(unsigned int)arg1:(const char *)arg2;
 - (int)playStretchBlt:(unsigned int)arg1:(const char *)arg2;
 - (int)playBitBlt:(unsigned int)arg1:(const char *)arg2;
-- (int)playAngleArc:(unsigned int)arg1:(const char *)arg2:(BOOL)arg3;
-- (int)playPolyPolyLine:(unsigned int)arg1:(const char *)arg2:(BOOL)arg3;
-- (int)playPolyPolygon:(unsigned int)arg1:(const char *)arg2:(BOOL)arg3;
+- (int)playAngleArc:(unsigned int)arg1:(const char *)arg2:(_Bool)arg3;
+- (int)playPolyPolyLine:(unsigned int)arg1:(const char *)arg2:(_Bool)arg3;
+- (int)playPolyPolygon:(unsigned int)arg1:(const char *)arg2:(_Bool)arg3;
 - (int)playRectangle:(unsigned int)arg1:(const char *)arg2;
 - (int)playEllipse:(unsigned int)arg1:(const char *)arg2;
 - (int)playPie:(unsigned int)arg1:(const char *)arg2;
@@ -58,12 +59,12 @@
 - (int)playSaveDC:(unsigned int)arg1:(const char *)arg2;
 - (int)playSetStretchBltMode:(unsigned int)arg1:(const char *)arg2;
 - (int)playRoundRect:(unsigned int)arg1:(const char *)arg2;
-- (int)playPolyLineTo:(unsigned int)arg1:(const char *)arg2:(BOOL)arg3;
-- (int)playPolyLine:(unsigned int)arg1:(const char *)arg2:(BOOL)arg3;
-- (int)playPolygon:(unsigned int)arg1:(const char *)arg2:(BOOL)arg3;
-- (int)playPolyBezierTo:(unsigned int)arg1:(const char *)arg2:(BOOL)arg3;
-- (int)playPolyBezier:(unsigned int)arg1:(const char *)arg2:(BOOL)arg3;
-- (int)playPolyDraw:(unsigned int)arg1:(const char *)arg2:(BOOL)arg3;
+- (int)playPolyLineTo:(unsigned int)arg1:(const char *)arg2:(_Bool)arg3;
+- (int)playPolyLine:(unsigned int)arg1:(const char *)arg2:(_Bool)arg3;
+- (int)playPolygon:(unsigned int)arg1:(const char *)arg2:(_Bool)arg3;
+- (int)playPolyBezierTo:(unsigned int)arg1:(const char *)arg2:(_Bool)arg3;
+- (int)playPolyBezier:(unsigned int)arg1:(const char *)arg2:(_Bool)arg3;
+- (int)playPolyDraw:(unsigned int)arg1:(const char *)arg2:(_Bool)arg3;
 - (int)playSetMapMode:(unsigned int)arg1:(const char *)arg2;
 - (int)playSetBrushOrg:(unsigned int)arg1:(const char *)arg2;
 - (int)playSetBkMode:(unsigned int)arg1:(const char *)arg2;
@@ -73,7 +74,7 @@
 - (int)playSetTextAlign:(unsigned int)arg1:(const char *)arg2;
 - (int)playExtTextOutW:(unsigned int)arg1:(const char *)arg2;
 - (int)playExtTextOutA:(unsigned int)arg1:(const char *)arg2;
-- (int)playExtTextOut:(unsigned int)arg1:(const char *)arg2:(BOOL)arg3;
+- (int)playExtTextOut:(unsigned int)arg1:(const char *)arg2:(_Bool)arg3;
 - (int)playCreateDibPatternBrushPT:(unsigned int)arg1:(const char *)arg2;
 - (int)playCreateMonoBrush:(unsigned int)arg1:(const char *)arg2;
 - (int)playCreateBrushIndirect:(unsigned int)arg1:(const char *)arg2;
@@ -101,8 +102,8 @@
 - (void)done;
 - (int)play:(unsigned int)arg1:(const char *)arg2;
 - (id)getGdi;
-- (void)setIgnoreEMFPlusRecords:(BOOL)arg1;
-- (void)setIgnoreEMFRecords:(BOOL)arg1;
+- (void)setIgnoreEMFPlusRecords:(_Bool)arg1;
+- (void)setIgnoreEMFRecords:(_Bool)arg1;
 - (void)dealloc;
 - (id)initWithGraphicsDevice:(id)arg1;
 

@@ -13,10 +13,10 @@
 - (void)setAttributesFromCopyData:(id)arg1;
 - (id)copyDataFromAttributes;
 - (void)copyAttributesInto:(id)arg1;
-- (id)createCSIRepresentationFromPSDImage:(id)arg1 withCompression:(BOOL)arg2 colorSpaceID:(unsigned int)arg3;
-- (id)createCSIRepresentationWithCompression:(BOOL)arg1 colorSpaceID:(unsigned int)arg2 document:(id)arg3;
-- (id)createCSIRepresentationFromGradientPSDImage:(id)arg1 withCompression:(BOOL)arg2 colorSpaceID:(unsigned int)arg3;
-- (id)createCSIRepresentationFromPSDImage:(id)arg1 withCompression:(BOOL)arg2 edgeMetricsMask:(id)arg3 textMetricsMask:(id)arg4 colorSpaceID:(unsigned int)arg5;
+- (id)createCSIRepresentationFromPSDImage:(id)arg1 withCompression:(_Bool)arg2 colorSpaceID:(unsigned long long)arg3;
+- (id)createCSIRepresentationWithCompression:(_Bool)arg1 colorSpaceID:(unsigned long long)arg2 document:(id)arg3;
+- (id)createCSIRepresentationFromGradientPSDImage:(id)arg1 withCompression:(_Bool)arg2 colorSpaceID:(unsigned long long)arg3;
+- (id)createCSIRepresentationFromPSDImage:(id)arg1 withCompression:(_Bool)arg2 edgeMetricsMask:(id)arg3 textMetricsMask:(id)arg4 colorSpaceID:(unsigned long long)arg5;
 - (void)_logExtra:(id)arg1;
 - (void)_logWarning:(id)arg1;
 - (void)_logError:(id)arg1;

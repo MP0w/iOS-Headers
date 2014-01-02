@@ -16,8 +16,10 @@
     long long _downloadIdentifier;
     NSNumber *_rentalKeyIdentifier;
     NSArray *_sinfs;
+    _Bool _shouldValidateRentalInfo;
 }
 
+@property(nonatomic) _Bool shouldValidateRentalInfo; // @synthesize shouldValidateRentalInfo=_shouldValidateRentalInfo;
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)copyXPCEncoding;
 - (void)startWithConnectionResponseBlock:(id)arg1;

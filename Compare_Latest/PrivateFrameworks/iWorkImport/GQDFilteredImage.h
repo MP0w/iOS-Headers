@@ -10,6 +10,7 @@
 
 @class GQDImageBinary;
 
+// Not exported
 @interface GQDFilteredImage : NSObject <GQDNameMappable>
 {
     GQDImageBinary *mOriginalImageBinary;

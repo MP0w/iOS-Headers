@@ -18,17 +18,17 @@
     struct __CFSet *_unusableTopLevelDirectoryNumbers;
     int _lastUsedDirectoryNumber;
     NSMutableDictionary *_userInfo;
-    BOOL _userInfoDidChange;
+    _Bool _userInfoDidChange;
     struct flock *_dcimDirectoryLock;
     int _dcimDirectoryLockDescriptor;
 }
 
-- (void)setHasChangedExternally:(BOOL)arg1;
-- (BOOL)hasChangedExternally;
+- (void)setHasChangedExternally:(_Bool)arg1;
+- (_Bool)hasChangedExternally;
 - (void)unlockDirectory;
 - (void)lockDirectory;
 - (id)countOfAllPhotosAndVideos;
-- (void)countOfAllPhotos:(int *)arg1 andVideos:(int *)arg2 stopAfterFirst:(BOOL)arg3;
+- (void)countOfAllPhotos:(int *)arg1 andVideos:(int *)arg2 stopAfterFirst:(_Bool)arg3;
 - (id)nextAvailableDirectory;
 - (void)clearDCFDirectories;
 - (id)dcfDirectories;
@@ -44,8 +44,8 @@
 - (void)dealloc;
 - (id)initWithDCIMPath:(id)arg1;
 - (id)_userInfoPath;
-- (BOOL)isValidVideoExtension:(id)arg1;
-- (BOOL)isValidImageExtension:(id)arg1;
+- (_Bool)isValidVideoExtension:(id)arg1;
+- (_Bool)isValidImageExtension:(id)arg1;
 
 @end
 

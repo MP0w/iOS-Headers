@@ -11,21 +11,22 @@
 
 @class NSString;
 
+// Not exported
 @interface NSGlyphInfo : NSObject <NSCopying, NSCoding>
 {
     NSString *_baseString;
 }
 
 + (void)initialize;
-+ (id)glyphInfoWithCharacterIdentifier:(unsigned int)arg1 collection:(unsigned int)arg2 baseString:(id)arg3;
++ (id)glyphInfoWithCharacterIdentifier:(unsigned long long)arg1 collection:(unsigned long long)arg2 baseString:(id)arg3;
 + (id)glyphInfoWithGlyph:(unsigned int)arg1 forFont:(id)arg2 baseString:(id)arg3;
 + (id)glyphInfoWithGlyphName:(id)arg1 forFont:(id)arg2 baseString:(id)arg3;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (Class)classForKeyedArchiver;
 - (void)encodeWithCoder:(id)arg1;
-- (unsigned int)characterCollection;
-- (unsigned int)characterIdentifier;
+- (unsigned long long)characterCollection;
+- (unsigned long long)characterIdentifier;
 - (id)glyphName;
 - (id)_baseString;
 - (unsigned int)_glyphForFont:(id)arg1 baseString:(id)arg2;

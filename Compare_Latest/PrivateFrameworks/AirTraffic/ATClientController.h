@@ -17,7 +17,7 @@
 + (id)sharedInstance;
 + (id)controllerForDataclasses:(id)arg1;
 - (void)dealloc;
-- (BOOL)_loadClientsForDataclasses:(id)arg1;
+- (_Bool)_loadClientsForDataclasses:(id)arg1;
 - (struct dispatch_queue_s *)queueForClient:(id)arg1;
 - (void)waitToDrain;
 - (void)resetQueues;

@@ -12,19 +12,19 @@
 {
     NSObject<OS_xpc_object> *_conn;
     NSObject<OS_dispatch_queue> *_eventQueue;
-    BOOL _ownsQueue;
+    _Bool _ownsQueue;
     id _messageHandler;
     id _disconnectHandler;
     NSMutableSet *_outstandingMessages;
-    BOOL _timeoutDisabled;
+    _Bool _timeoutDisabled;
     id _context;
 }
 
-@property(nonatomic) BOOL timeoutDisabled; // @synthesize timeoutDisabled=_timeoutDisabled;
+@property(nonatomic) _Bool timeoutDisabled; // @synthesize timeoutDisabled=_timeoutDisabled;
 @property(retain, nonatomic) id context; // @synthesize context=_context;
 @property(copy, nonatomic) id disconnectHandler; // @synthesize disconnectHandler=_disconnectHandler;
 @property(copy, nonatomic) id messageHandler; // @synthesize messageHandler=_messageHandler;
-- (int)_outstandingMessages;
+- (long long)_outstandingMessages;
 - (void)_removeMessage:(id)arg1;
 - (void)_registerMessage:(id)arg1;
 - (void)_setEventHandlerOnConnection:(id)arg1;

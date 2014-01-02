@@ -6,11 +6,12 @@
 
 #import <QuickLook/RTFNSParagraphStyle.h>
 
+// Not exported
 @interface RTFNSMutableParagraphStyle : RTFNSParagraphStyle
 {
 }
 
-- (void)setBaseWritingDirection:(int)arg1;
+- (void)setBaseWritingDirection:(long long)arg1;
 - (void)setTextBlocks:(id)arg1;
 - (void)setFirstLineHeadIndent:(float)arg1;
 - (void)setTailIndent:(float)arg1;

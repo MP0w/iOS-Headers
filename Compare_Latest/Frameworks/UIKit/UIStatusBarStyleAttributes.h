@@ -8,30 +8,32 @@
 
 @class UIStatusBarForegroundStyleAttributes, UIStatusBarStyleRequest;
 
+// Not exported
 @interface UIStatusBarStyleAttributes : NSObject
 {
     UIStatusBarStyleRequest *_request;
     UIStatusBarForegroundStyleAttributes *_foregroundStyle;
 }
 
-- (BOOL)shouldShowInternalItemType:(int)arg1 withScreenCapabilities:(id)arg2;
+- (_Bool)shouldShowInternalItemType:(int)arg1 withScreenCapabilities:(id)arg2;
 - (double)glowAnimationDuration;
-- (id)newForegroundStyleWithHeight:(float)arg1;
-- (float)foregroundAlpha;
+- (id)newForegroundStyleWithHeight:(double)arg1;
+- (double)foregroundAlpha;
 - (id)backgroundImageName;
 - (id)backgroundColorWithTintColor:(id)arg1;
-- (BOOL)shouldUseVisualAltitude;
-- (BOOL)isDoubleHeight;
-- (BOOL)isTransparent;
-- (BOOL)isTranslucent;
-- (BOOL)areTopCornersRounded;
+- (_Bool)shouldUseVisualAltitude;
+- (_Bool)isDoubleHeight;
+- (_Bool)isTransparent;
+- (_Bool)isTranslucent;
+- (_Bool)areTopCornersRounded;
 - (int)cornerStyle;
-- (float)heightForMetrics:(int)arg1;
-- (float)heightForOrientation:(int)arg1;
-- (int)idiom;
+- (double)heightForMetrics:(long long)arg1;
+- (double)heightForOrientation:(long long)arg1;
+- (long long)idiom;
 - (id)foregroundStyle;
-- (int)legibilityStyle;
-- (int)style;
+- (_Bool)supportsRasterization;
+- (long long)legibilityStyle;
+- (long long)style;
 - (void)dealloc;
 - (id)init;
 - (id)initWithRequest:(id)arg1;

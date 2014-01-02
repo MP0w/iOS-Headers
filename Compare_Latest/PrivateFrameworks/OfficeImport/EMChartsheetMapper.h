@@ -8,6 +8,7 @@
 
 @class EDChartSheet;
 
+// Not exported
 @interface EMChartsheetMapper : EMSheetMapper
 {
     EDChartSheet *mChartSheet;

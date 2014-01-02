@@ -9,6 +9,6 @@
 @protocol BTDevicePickerDelegate <NSObject>
 
 @optional
-- (void)devicePicker:(id)arg1 didDismissWithResult:(int)arg2 device:(id)arg3;
+- (void)devicePicker:(id)arg1 didDismissWithResult:(long long)arg2 device:(id)arg3;
 @end
 

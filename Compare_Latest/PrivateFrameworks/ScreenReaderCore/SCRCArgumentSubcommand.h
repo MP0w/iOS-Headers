@@ -20,14 +20,14 @@
 - (void)stopDueToSigTerm;
 - (void)stop;
 - (int)run;
-- (void)addOption:(id)arg1 argument:(id)arg2 target:(id)arg3 action:(SEL)arg4 argumentDescription:(id)arg5 required:(BOOL)arg6;
+- (void)addOption:(id)arg1 argument:(id)arg2 target:(id)arg3 action:(SEL)arg4 argumentDescription:(id)arg5 required:(_Bool)arg6;
 - (id)formattedHelpFooter;
 - (id)formattedHelpHeader;
 - (id)optionArray;
 - (id)subcommandName;
-- (int)compare:(id)arg1;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (long long)compare:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)addOptions;
 - (void)dealloc;
 - (id)initWithName:(id)arg1;

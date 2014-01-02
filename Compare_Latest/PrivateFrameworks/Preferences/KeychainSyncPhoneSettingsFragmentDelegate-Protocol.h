@@ -7,6 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol KeychainSyncPhoneSettingsFragmentDelegate <NSObject>
-- (void)phoneSettingsFragment:(id)arg1 didChangePhoneNumber:(id)arg2 countryCode:(id)arg3;
+- (void)phoneSettingsFragment:(id)arg1 didChangePhoneNumber:(id)arg2 countryInfo:(id)arg3;
 @end
 

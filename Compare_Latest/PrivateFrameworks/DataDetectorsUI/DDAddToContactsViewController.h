@@ -18,15 +18,14 @@
     ABUnknownPersonViewController *_personViewController;
 }
 
++ (id)_exportedInterface;
++ (id)_remoteViewControllerInterface;
 @property(retain) DDAction *action; // @synthesize action=_action;
-@property(retain) XPCProxy<DDRemoteActionPresenter> *proxy; // @synthesize proxy=_proxy;
 - (void)cancelPressed:(id)arg1;
 - (void)unknownPersonViewController:(id)arg1 didResolveToPerson:(void *)arg2;
-- (BOOL)unknownPersonViewController:(id)arg1 shouldPerformDefaultActionForPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
+- (_Bool)unknownPersonViewController:(id)arg1 shouldPerformDefaultActionForPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
 - (void)prepareForAction:(id)arg1;
 - (void)_augmentRecord:(void *)arg1 withResultsFromAction:(id)arg2;
-- (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
-- (void)_willAppearInRemoteViewController:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

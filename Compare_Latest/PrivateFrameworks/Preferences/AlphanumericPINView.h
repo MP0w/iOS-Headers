@@ -17,23 +17,23 @@
     UITableView *_table;
 }
 
-- (BOOL)textFieldShouldReturn:(id)arg1;
+- (_Bool)textFieldShouldReturn:(id)arg1;
 - (void)deleteLastCharacter;
 - (void)appendString:(id)arg1;
 - (void)setStringValue:(id)arg1;
-- (BOOL)resignFirstResponder;
-- (BOOL)becomeFirstResponder;
-- (BOOL)canBecomeFirstResponder;
-- (BOOL)isFirstResponder;
-- (void)hidePasscodeField:(BOOL)arg1;
+- (_Bool)resignFirstResponder;
+- (_Bool)becomeFirstResponder;
+- (_Bool)canBecomeFirstResponder;
+- (_Bool)isFirstResponder;
+- (void)hidePasscodeField:(_Bool)arg1;
 - (void)okButtonPressed:(id)arg1;
 - (id)stringValue;
 - (void)dealloc;
-- (void)showError:(id)arg1 animate:(BOOL)arg2;
-- (BOOL)keyboardInputChanged:(id)arg1;
-- (void)setBlocked:(BOOL)arg1;
+- (void)showError:(id)arg1 animate:(_Bool)arg2;
+- (_Bool)keyboardInputChanged:(id)arg1;
+- (void)setBlocked:(_Bool)arg1;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 

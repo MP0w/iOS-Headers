@@ -8,10 +8,10 @@
 
 @interface SURoundedCornersMaskProvider : SUMaskProvider
 {
-    float _cornerRadius;
+    double _cornerRadius;
 }
 
-@property(nonatomic) float cornerRadius; // @synthesize cornerRadius=_cornerRadius;
+@property(nonatomic) double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
 - (struct CGPath *)copyPathForMaskWithSize:(struct CGSize)arg1;
 
 @end

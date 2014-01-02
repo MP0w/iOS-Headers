@@ -8,7 +8,7 @@
 
 @interface NSURL (WFAdditions)
 - (id)WF_normalizedRelativePath;
-- (BOOL)WF_hostnameIsIPAddress;
+- (_Bool)WF_hostnameIsIPAddress;
 - (id)WF_hostnameFromSecondLevelDomain;
 @end
 

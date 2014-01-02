@@ -7,7 +7,7 @@
 #pragma mark Named Structures
 
 struct timespec {
-    int tv_sec;
-    long tv_nsec;
+    long long tv_sec;
+    long long tv_nsec;
 };
 

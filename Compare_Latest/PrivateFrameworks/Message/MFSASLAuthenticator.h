@@ -17,15 +17,15 @@
 }
 
 - (void)setMissingPasswordError;
-- (BOOL)couldRetry;
-- (BOOL)base64EncodeResponseData;
-- (BOOL)isUsingSSL;
+- (_Bool)couldRetry;
+- (_Bool)base64EncodeResponseData;
+- (_Bool)isUsingSSL;
 - (id)securityLayer;
-- (BOOL)justSentPlainTextPassword;
+- (_Bool)justSentPlainTextPassword;
 - (void)setAuthenticationState:(int)arg1;
 - (int)authenticationState;
 - (id)responseForServerData:(id)arg1;
-- (BOOL)supportsInitialClientResponse;
+- (_Bool)supportsInitialClientResponse;
 - (id)saslName;
 - (id)account;
 - (id)authScheme;

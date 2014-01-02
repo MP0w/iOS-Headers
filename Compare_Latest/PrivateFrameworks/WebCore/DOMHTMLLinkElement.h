@@ -8,6 +8,7 @@
 
 @class DOMStyleSheet, NSString, NSURL;
 
+// Not exported
 @interface DOMHTMLLinkElement : DOMHTMLElement
 {
 }
@@ -22,9 +23,7 @@
 @property(copy) NSString *hreflang;
 @property(copy) NSString *href;
 @property(copy) NSString *charset;
-@property BOOL disabled;
-- (BOOL)_mediaQueryMatches;
-- (BOOL)_mediaQueryMatchesForOrientation:(int)arg1;
+@property _Bool disabled;
 
 @end
 

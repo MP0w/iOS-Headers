@@ -8,30 +8,31 @@
 
 @class NSIndexPath, UITableViewUpdateGap;
 
+// Not exported
 @interface UIUpdateItem : NSObject
 {
     int _action;
     NSIndexPath *_indexPath;
-    int _animation;
-    float _offset;
+    long long _animation;
+    double _offset;
     UITableViewUpdateGap *_gap;
-    BOOL _headerFooterOnly;
-    BOOL _skipAnimation;
+    _Bool _headerFooterOnly;
+    _Bool _skipAnimation;
 }
 
-@property(nonatomic) BOOL skipAnimation; // @synthesize skipAnimation=_skipAnimation;
-@property(nonatomic) BOOL headerFooterOnly; // @synthesize headerFooterOnly=_headerFooterOnly;
+@property(nonatomic) _Bool skipAnimation; // @synthesize skipAnimation=_skipAnimation;
+@property(nonatomic) _Bool headerFooterOnly; // @synthesize headerFooterOnly=_headerFooterOnly;
 @property(nonatomic) UITableViewUpdateGap *gap; // @synthesize gap=_gap;
-@property(nonatomic) float offset; // @synthesize offset=_offset;
-@property(nonatomic) int animation; // @synthesize animation=_animation;
+@property(nonatomic) double offset; // @synthesize offset=_offset;
+@property(nonatomic) long long animation; // @synthesize animation=_animation;
 @property(readonly, nonatomic) NSIndexPath *indexPath; // @synthesize indexPath=_indexPath;
 @property(readonly, nonatomic) int action; // @synthesize action=_action;
-- (int)inverseCompareIndexPaths:(id)arg1;
-- (int)compareIndexPaths:(id)arg1;
-- (BOOL)isSectionOperation;
+- (long long)inverseCompareIndexPaths:(id)arg1;
+- (long long)compareIndexPaths:(id)arg1;
+- (_Bool)isSectionOperation;
 - (id)_actionDescription;
 - (void)dealloc;
-- (id)initWithAction:(int)arg1 forIndexPath:(id)arg2 animation:(int)arg3;
+- (id)initWithAction:(int)arg1 forIndexPath:(id)arg2 animation:(long long)arg3;
 
 @end
 

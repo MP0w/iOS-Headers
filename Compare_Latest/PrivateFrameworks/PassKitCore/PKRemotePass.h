@@ -15,9 +15,9 @@
 
 @property(retain, nonatomic) PKPassLibrary *passLibrary; // @synthesize passLibrary=_passLibrary;
 - (id)archivedPass;
-- (void)setSettings:(int)arg1;
+- (void)setSettings:(long long)arg1;
 - (void)flushCachedImageSets;
-- (void)fetchImageSet:(int)arg1 withCompletion:(id)arg2;
+- (void)fetchImageSet:(long long)arg1 withCompletion:(id)arg2;
 - (void)fetchContentWithCompletion:(id)arg1;
 - (void)dealloc;
 

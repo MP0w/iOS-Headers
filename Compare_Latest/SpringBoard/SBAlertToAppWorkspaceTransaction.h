@@ -8,38 +8,40 @@
 
 #import "SBUIAnimationControllerDelegate-Protocol.h"
 
-@class SBAlert, SBUIAnimationController;
+@class SBAlert, SBPasscodeLockDisableAssertion, SBUIAnimationController;
 
 @interface SBAlertToAppWorkspaceTransaction : SBToAppWorkspaceTransaction <SBUIAnimationControllerDelegate>
 {
     SBAlert *_alert;
+    SBPasscodeLockDisableAssertion *_siriUnlockAssertion;
     SBUIAnimationController *_animation;
-    BOOL _preventAlertDeactivationForAnimation;
-    BOOL _preventAlertDeactivationForAnimationLegacy;
-    BOOL _animatedAppActivation;
-    BOOL _deactivateAfterNextLaunch;
-    BOOL _activatingFromAssistant;
-    BOOL _fadeAssistant;
+    _Bool _preventAlertDeactivationForAnimation;
+    _Bool _preventAlertDeactivationForAnimationLegacy;
+    _Bool _animatedAppActivation;
+    _Bool _deactivateAfterNextLaunch;
+    _Bool _activatingFromAssistant;
+    _Bool _fadeAssistant;
 }
 
 @property(readonly, nonatomic) SBAlert *alert; // @synthesize alert=_alert;
 - (void)animationControllerDidFinishAnimation:(id)arg1;
-- (void)animationController:(id)arg1 willBeginAnimation:(BOOL)arg2;
+- (void)animationController:(id)arg1 willBeginAnimation:(_Bool)arg2;
 - (void)_handleFailure;
 - (void)_deactivateAlertIfNecessary;
 - (void)_alertAnimationComplete:(id)arg1;
 - (void)_transactionComplete;
 - (void)_endAnimation;
-- (BOOL)shouldPerformToAppStateCleanupOnCompletion;
-- (BOOL)selfAlertDidDeactivate:(id)arg1;
-- (BOOL)selfAlertWillDeactivate:(id)arg1;
-- (BOOL)selfApplicationExited:(id)arg1;
-- (BOOL)selfApplicationLaunchDidFail:(id)arg1;
-- (BOOL)selfApplicationDidFinishLaunching:(id)arg1 withInfo:(id)arg2;
-- (BOOL)selfApplicationDidBecomeReceiver:(id)arg1 fromApplication:(id)arg2;
-- (BOOL)selfApplicationWillBecomeReceiver:(id)arg1 fromApplication:(id)arg2;
-- (BOOL)selfApplicationActivated:(id)arg1;
+- (_Bool)shouldPerformToAppStateCleanupOnCompletion;
+- (_Bool)selfAlertDidDeactivate:(id)arg1;
+- (_Bool)selfAlertWillDeactivate:(id)arg1;
+- (_Bool)selfApplicationExited:(id)arg1;
+- (_Bool)selfApplicationLaunchDidFail:(id)arg1;
+- (_Bool)selfApplicationDidFinishLaunching:(id)arg1 withInfo:(id)arg2;
+- (_Bool)selfApplicationDidBecomeReceiver:(id)arg1 fromApplication:(id)arg2;
+- (_Bool)selfApplicationWillBecomeReceiver:(id)arg1 fromApplication:(id)arg2;
+- (_Bool)selfApplicationActivated:(id)arg1;
 - (void)_commit;
+- (_Bool)shouldDismissSwitcher;
 - (id)debugDescription;
 - (void)dealloc;
 - (id)initWithWorkspace:(id)arg1 alertManager:(id)arg2 alert:(id)arg3 toApplication:(id)arg4 activationHandler:(id)arg5;

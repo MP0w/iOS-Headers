@@ -18,9 +18,10 @@
 + (id)sharedStyle;
 - (void).cxx_destruct;
 - (id)chartLabelFont;
-- (id)boldFontOfSize:(float)arg1;
-- (id)fontOfSize:(float)arg1;
-- (id)lightFontOfSize:(float)arg1;
+- (id)boldFontOfSize:(double)arg1;
+- (id)mediumFontOfSize:(double)arg1;
+- (id)fontOfSize:(double)arg1;
+- (id)lightFontOfSize:(double)arg1;
 - (id)chartHighlightColor;
 - (id)lossColor;
 - (id)gainColor;

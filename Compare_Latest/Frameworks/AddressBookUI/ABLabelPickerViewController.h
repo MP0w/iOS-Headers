@@ -14,30 +14,30 @@
     NSString *_selectedLabel;
     void *_addressBook;
     ABPropertyGroup *_propertyGroup;
-    int _itemIndex;
+    long long _itemIndex;
     ABItemLabelPicker *_labelPicker;
-    BOOL _didCreateNewLabel;
+    _Bool _didCreateNewLabel;
 }
 
-@property(nonatomic) BOOL didCreateNewLabel; // @synthesize didCreateNewLabel=_didCreateNewLabel;
+@property(nonatomic) _Bool didCreateNewLabel; // @synthesize didCreateNewLabel=_didCreateNewLabel;
 @property(retain, nonatomic) NSString *selectedLabel; // @synthesize selectedLabel=_selectedLabel;
-- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)loadView;
-- (void)viewWillAppear:(BOOL)arg1;
-- (void)_getRotationContentSettings:(CDStruct_af7d35ee *)arg1;
-- (BOOL)_allowsAutorotation;
-- (BOOL)itemLabelPickerShouldDismissKeyboard:(id)arg1;
-- (void)itemLabelPicker:(id)arg1 endedWithSelectionConfirmed:(BOOL)arg2 animate:(BOOL)arg3;
+- (void)viewWillAppear:(_Bool)arg1;
+- (void)_getRotationContentSettings:(CDStruct_ebaa735e *)arg1;
+- (_Bool)_allowsAutorotation;
+- (_Bool)itemLabelPickerShouldDismissKeyboard:(id)arg1;
+- (void)itemLabelPicker:(id)arg1 endedWithSelectionConfirmed:(_Bool)arg2 animate:(_Bool)arg3;
 - (void)itemLabelPickerDeletedLastCustomLabel:(id)arg1;
 - (void)itemLabelPicker:(id)arg1 deletedCustomLabel:(id)arg2;
 - (void)itemLabelPickerDidChangeSelection:(id)arg1;
-- (float)ab_heightToFitForViewInPopoverView;
+- (double)ab_heightToFitForViewInPopoverView;
 - (id)labelPicker;
 - (struct CGSize)fullScreenContentSize;
 - (void)setStyleProvider:(id)arg1;
 - (void)setDelegate:(id)arg1;
 - (void)dealloc;
-- (id)initWithAddressBook:(void *)arg1 propertyGroup:(id)arg2 itemIndex:(int)arg3 additionalLabels:(id)arg4;
+- (id)initWithAddressBook:(void *)arg1 propertyGroup:(id)arg2 itemIndex:(long long)arg3 additionalLabels:(id)arg4;
 
 @end
 

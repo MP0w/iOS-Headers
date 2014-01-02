@@ -13,46 +13,46 @@
 
 @interface AXEventRepresentation : NSObject <NSSecureCoding, NSCopying>
 {
-    BOOL _isBuiltIn;
-    BOOL _isGeneratedEvent;
+    _Bool _isBuiltIn;
+    _Bool _isGeneratedEvent;
     unsigned int _type;
     int _subtype;
     int _flags;
+    unsigned int _taskPort;
+    unsigned int _contextId;
+    int _pid;
+    unsigned long long _time;
     AXEventHandInfoRepresentation *_handInfo;
     AXEventKeyInfoRepresentation *_keyInfo;
     NSString *_clientId;
-    unsigned int _taskPort;
-    unsigned int _contextId;
-    void *_window;
-    int _pid;
-    NSData *_data;
-    NSData *_HIDAttributeData;
-    struct CGPoint _location;
-    struct CGPoint _windowLocation;
-    unsigned long long _time;
     unsigned long long _HIDTime;
     unsigned long long _additionalFlags;
+    void *_window;
+    NSData *_data;
+    NSData *_HIDAttributeData;
     unsigned long long _HIDSenderId;
+    struct CGPoint _location;
+    struct CGPoint _windowLocation;
 }
 
 + (id)touchRepresentationWithHandType:(unsigned int)arg1 location:(struct CGPoint)arg2;
 + (id)buttonRepresentationWithType:(unsigned int)arg1;
 + (id)keyRepresentationWithType:(unsigned int)arg1;
-+ (id)representationWithEventRecord:(CDStruct_74958489 *)arg1;
++ (id)representationWithEventRecord:(CDStruct_64a21a73 *)arg1;
 + (id)representationWithHIDEvent:(struct __IOHIDEvent *)arg1 hidStreamIdentifier:(id)arg2;
 + (id)representationWithLocation:(struct CGPoint)arg1 windowLocation:(struct CGPoint)arg2 handInfo:(id)arg3;
 + (id)_keyboardButtonEvent:(struct __IOHIDEvent *)arg1;
 + (id)_digitizerRepresentation:(struct __IOHIDEvent *)arg1 hidStreamIdentifier:(id)arg2;
 + (id)representationWithType:(unsigned int)arg1 subtype:(int)arg2 time:(unsigned long long)arg3 location:(struct CGPoint)arg4 windowLocation:(struct CGPoint)arg5 handInfo:(id)arg6;
 + (id)representationWithData:(id)arg1;
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) unsigned long long HIDSenderId; // @synthesize HIDSenderId=_HIDSenderId;
 @property(retain, nonatomic) NSData *HIDAttributeData; // @synthesize HIDAttributeData=_HIDAttributeData;
 @property(retain, nonatomic) NSData *data; // @synthesize data=_data;
 @property(nonatomic) int pid; // @synthesize pid=_pid;
 @property(nonatomic) void *window; // @synthesize window=_window;
-@property(nonatomic) BOOL isGeneratedEvent; // @synthesize isGeneratedEvent=_isGeneratedEvent;
-@property(nonatomic) BOOL isBuiltIn; // @synthesize isBuiltIn=_isBuiltIn;
+@property(nonatomic) _Bool isGeneratedEvent; // @synthesize isGeneratedEvent=_isGeneratedEvent;
+@property(nonatomic) _Bool isBuiltIn; // @synthesize isBuiltIn=_isBuiltIn;
 @property(nonatomic) unsigned int contextId; // @synthesize contextId=_contextId;
 @property(nonatomic) unsigned long long additionalFlags; // @synthesize additionalFlags=_additionalFlags;
 @property(nonatomic) unsigned long long HIDTime; // @synthesize HIDTime=_HIDTime;
@@ -73,10 +73,10 @@
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (struct __GSEvent *)newGSEventRef;
-- (CDStruct_74958489 *)newEventRecord;
+- (CDStruct_64a21a73 *)newEventRecord;
 - (struct __IOHIDEvent *)_newHandHIDEventRef;
-- (id)denormalizedEventRepresentation:(BOOL)arg1;
-- (id)normalizedEventRepresentation:(BOOL)arg1;
+- (id)denormalizedEventRepresentation:(_Bool)arg1;
+- (id)normalizedEventRepresentation:(_Bool)arg1;
 - (struct __IOHIDEvent *)_newButtonHIDEventRef;
 - (struct __IOHIDEvent *)_newKeyboardHIDEventRef;
 - (struct __IOHIDEvent *)newHIDEventRef;

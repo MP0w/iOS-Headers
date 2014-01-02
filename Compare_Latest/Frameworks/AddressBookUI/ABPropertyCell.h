@@ -10,39 +10,47 @@
 
 @interface ABPropertyCell : ABContactCell
 {
-    BOOL _allowsEditing;
+    double _labelWidth;
+    _Bool _allowsEditing;
+    _Bool _displayConstraintsActive;
+    _Bool _editingConstraintsActive;
     UILabel *_labelLabel;
     UILabel *_valueLabel;
     UIView *_innerContentView;
     UIResponder *_firstResponderItem;
-    float _labelWidth;
     id <ABPropertyCellDelegate> _delegate;
+    id <ABPresenterDelegate> _presentingDelegate;
     NSDictionary *_labelTextAttributes;
     NSDictionary *_valueTextAttributes;
-    NSLayoutConstraint *_cellWidthConstraint;
+    NSLayoutConstraint *_labelWidthConstraint;
 }
 
-+ (float)cellHeight;
-+ (float)labelsPadding;
-+ (BOOL)requiresConstraintBasedLayout;
-@property(retain, nonatomic) NSLayoutConstraint *cellWidthConstraint; // @synthesize cellWidthConstraint=_cellWidthConstraint;
++ (double)cellHeight;
++ (double)labelsPadding;
++ (_Bool)requiresConstraintBasedLayout;
+@property(retain, nonatomic) NSLayoutConstraint *labelWidthConstraint; // @synthesize labelWidthConstraint=_labelWidthConstraint;
+@property(nonatomic) _Bool editingConstraintsActive; // @synthesize editingConstraintsActive=_editingConstraintsActive;
+@property(nonatomic) _Bool displayConstraintsActive; // @synthesize displayConstraintsActive=_displayConstraintsActive;
 @property(copy, nonatomic) NSDictionary *valueTextAttributes; // @synthesize valueTextAttributes=_valueTextAttributes;
 @property(copy, nonatomic) NSDictionary *labelTextAttributes; // @synthesize labelTextAttributes=_labelTextAttributes;
+@property(nonatomic) id <ABPresenterDelegate> presentingDelegate; // @synthesize presentingDelegate=_presentingDelegate;
 @property(nonatomic) id <ABPropertyCellDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) float labelWidth; // @synthesize labelWidth=_labelWidth;
-@property(nonatomic) BOOL allowsEditing; // @synthesize allowsEditing=_allowsEditing;
+@property(nonatomic) _Bool allowsEditing; // @synthesize allowsEditing=_allowsEditing;
 @property(readonly, nonatomic) UIResponder *firstResponderItem; // @synthesize firstResponderItem=_firstResponderItem;
 @property(readonly, nonatomic) UIView *innerContentView; // @synthesize innerContentView=_innerContentView;
 @property(readonly, nonatomic) UILabel *valueLabel; // @synthesize valueLabel=_valueLabel;
 @property(readonly, nonatomic) UILabel *labelLabel; // @synthesize labelLabel=_labelLabel;
 - (void)_adjustCellLayoutForSectionLocation:(int)arg1;
 - (void)setBackgroundColor:(id)arg1;
+- (void)tintColorDidChange;
 - (id)contentViewEditingConstraints;
 - (id)contentViewConstraints;
 - (void)updateConstraints;
-- (void)setNeedsUpdateConstraints;
-- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)setNeedsUpdateEditingConstraints;
+- (void)setNeedsUpdateDisplayConstraints;
+@property(nonatomic) double labelWidth;
 - (void)copy:(id)arg1;
+- (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)willMoveToSuperview:(id)arg1;
 - (void)updateWithPropertyItem:(id)arg1;
 - (void)setPropertyItem:(id)arg1;
@@ -50,7 +58,7 @@
 - (void)setCardGroupItem:(id)arg1;
 - (void)performDefaultAction;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

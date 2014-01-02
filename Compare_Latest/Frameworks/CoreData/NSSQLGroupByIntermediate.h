@@ -8,6 +8,7 @@
 
 @class NSArray;
 
+// Not exported
 @interface NSSQLGroupByIntermediate : NSSQLIntermediate
 {
     NSArray *_properties;

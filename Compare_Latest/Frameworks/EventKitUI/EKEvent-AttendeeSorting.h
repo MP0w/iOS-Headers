@@ -7,7 +7,7 @@
 #import "EKEvent.h"
 
 @interface EKEvent (AttendeeSorting)
-- (BOOL)hasHumanInviteesToDisplay;
+- (_Bool)hasHumanInviteesToDisplay;
 - (id)sortedEKParticipantsDisplayStringsIgnoringNonHumans:(id)arg1;
 - (id)sortEKParticipantsIgnoringNonHumans:(id)arg1;
 - (id)_sortedEKParticipantsForSortingIgnoringNonHumans:(id)arg1;

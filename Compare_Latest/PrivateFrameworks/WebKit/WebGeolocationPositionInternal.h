@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface WebGeolocationPositionInternal : NSObject
 {
     struct RefPtr<WebCore::GeolocationPosition> _position;

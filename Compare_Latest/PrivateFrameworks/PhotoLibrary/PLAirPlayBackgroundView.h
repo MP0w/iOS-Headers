@@ -14,7 +14,7 @@
 }
 
 @property(retain, nonatomic) NSString *deviceName; // @synthesize deviceName=_deviceName;
-- (void)setIsMovie:(BOOL)arg1;
+- (void)setIsMovie:(_Bool)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 deviceName:(id)arg2;
 

@@ -12,8 +12,8 @@
 
 + (id)enableShuffleWithDictionary:(id)arg1 context:(id)arg2;
 + (id)enableShuffle;
-- (BOOL)requiresResponse;
-@property(nonatomic) BOOL enable;
+- (_Bool)requiresResponse;
+@property(nonatomic) _Bool enable;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

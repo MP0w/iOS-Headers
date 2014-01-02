@@ -11,6 +11,7 @@
 
 @class EDReference, EDResources, EDWorksheet;
 
+// Not exported
 @interface EDColumnInfo : NSObject <NSCopying, EDKeyedObject>
 {
     EDResources *mResources;
@@ -18,7 +19,7 @@
     int mWidth;
     _Bool mHidden;
     EDReference *mRange;
-    unsigned int mStyleIndex;
+    unsigned long long mStyleIndex;
     unsigned char mOutlineLevel;
 }
 
@@ -34,14 +35,10 @@
 - (_Bool)isHidden;
 - (void)setWidth:(double)arg1;
 - (double)width;
-- (int)key;
+- (long long)key;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithResources:(id)arg1 worksheet:(id)arg2;
-- (void)setStyleIndex:(unsigned int)arg1;
-- (unsigned int)styleIndex;
-- (void)setWidthInXlUnits:(int)arg1;
-- (int)widthInXlUnits;
 
 @end
 

@@ -9,7 +9,7 @@
 @class SUGridView;
 
 @interface UITableViewCell (SUGridTableAdditions)
-- (void)setEditingBySwiping:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)setEditingBySwiping:(_Bool)arg1 animated:(_Bool)arg2;
 @property(readonly, nonatomic) SUGridView *gridView;
 @end
 

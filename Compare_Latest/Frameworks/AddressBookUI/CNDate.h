@@ -11,8 +11,10 @@
 }
 
 + (id)dateFromComponents:(id)arg1;
++ (id)yearlessComponentsFromDate:(id)arg1;
 + (id)componentsFromDate:(id)arg1;
-+ (id)gregorianCalendar;
++ (id)gregorianCalendarGMT;
++ (id)currentCalendarGMT;
 
 @end
 

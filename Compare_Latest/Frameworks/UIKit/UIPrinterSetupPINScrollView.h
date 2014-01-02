@@ -8,16 +8,17 @@
 
 @class UIView;
 
+// Not exported
 @interface UIPrinterSetupPINScrollView : UIScrollView
 {
     UIView *_contentView;
-    float _visibleHeight;
+    double _visibleHeight;
 }
 
-@property(nonatomic) float visibleHeight; // @synthesize visibleHeight=_visibleHeight;
+@property(nonatomic) double visibleHeight; // @synthesize visibleHeight=_visibleHeight;
 @property(retain, nonatomic) UIView *contentView; // @synthesize contentView=_contentView;
-- (void)scrollRectToVisible:(struct CGRect)arg1 animated:(BOOL)arg2;
-- (BOOL)_scrollsToMakeFirstResponderVisible;
+- (void)scrollRectToVisible:(struct CGRect)arg1 animated:(_Bool)arg2;
+- (_Bool)_scrollsToMakeFirstResponderVisible;
 - (void)layoutSubviews;
 - (void)keyboardDidChangeFrame:(id)arg1;
 - (void)dealloc;

@@ -8,6 +8,7 @@
 
 @class NSKeyValueMutatingSetMethodSet;
 
+// Not exported
 @interface NSKeyValueFastMutableSet : NSKeyValueMutableSet
 {
     NSKeyValueMutatingSetMethodSet *_mutatingMethods;

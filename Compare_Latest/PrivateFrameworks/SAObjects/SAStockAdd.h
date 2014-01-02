@@ -14,7 +14,7 @@
 
 + (id)addWithDictionary:(id)arg1 context:(id)arg2;
 + (id)add;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSString *tickerSymbol;
 @property(copy, nonatomic) NSArray *stocks;
 @property(copy, nonatomic) NSArray *stockReferences;

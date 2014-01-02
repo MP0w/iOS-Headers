@@ -8,6 +8,7 @@
 
 @class MKTileOverlayRequester, NSData;
 
+// Not exported
 @interface MKTileOverlayRequesterOp : NSObject
 {
     struct _GEOTileKey _key;

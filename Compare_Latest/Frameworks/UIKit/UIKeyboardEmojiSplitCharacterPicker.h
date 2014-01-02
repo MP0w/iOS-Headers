@@ -8,20 +8,23 @@
 
 #import "UIKeyboardEmojiInput-Protocol.h"
 
-@class UIKeyboardEmojiCategory, UIKeyboardEmojiInputController;
+@class UIKeyboardEmojiCategory, UIKeyboardEmojiInputController, UILabel;
 
+// Not exported
 @interface UIKeyboardEmojiSplitCharacterPicker : UIKeyboardEmojiSplit <UIKeyboardEmojiInput>
 {
+    UILabel *_optionalDescription;
     UIKeyboardEmojiCategory *_category;
     UIKeyboardEmojiInputController *_inputController;
 }
 
 @property(retain) UIKeyboardEmojiCategory *category; // @synthesize category=_category;
+- (void)setRenderConfig:(id)arg1;
 - (void)scrollViewWillEndDragging:(id)arg1 withVelocity:(struct CGPoint)arg2 targetContentOffset:(inout struct CGPoint *)arg3;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
-- (id)charactersForRow:(int)arg1;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (id)charactersForRow:(long long)arg1;
 - (void)reloadForCategory:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 keyplane:(id)arg2 key:(id)arg3;

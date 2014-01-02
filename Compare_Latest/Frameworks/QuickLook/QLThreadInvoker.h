@@ -8,6 +8,7 @@
 
 @class NSData, NSError, NSURLConnection;
 
+// Not exported
 @interface QLThreadInvoker : NSObject
 {
     NSURLConnection *_connection;

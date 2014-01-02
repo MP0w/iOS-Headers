@@ -6,18 +6,24 @@
 
 #import <ChatKit/CKMediaObject.h>
 
+@class CKImageData;
+
 @interface CKImageMediaObject : CKMediaObject
 {
+    CKImageData *_imageData;
+    CKImageData *_backgroundImageData;
 }
 
-+ (BOOL)isPreviewable;
++ (Class)imageDataClass;
++ (_Bool)isPreviewable;
 + (id)fallbackFilenamePrefix;
 + (id)UTITypes;
-- (id)imageData;
+@property(readonly, nonatomic) CKImageData *imageData;
 - (id)generateThumbnailFillToSize:(struct CGSize)arg1;
 - (id)generateThumbnail;
 - (struct CGSize)bbSize;
 - (int)mediaType;
+- (void)dealloc;
 
 @end
 

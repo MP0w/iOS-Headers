@@ -8,13 +8,14 @@
 
 @class GQDSStyle;
 
+// Not exported
 @interface GQDBGPlaceholder : GQDDrawable
 {
     GQDSStyle *mStyle;
-    BOOL mIsVisible;
+    _Bool mIsVisible;
 }
 
-- (BOOL)isVisible;
+- (_Bool)isVisible;
 - (id)placeholderStyle;
 - (void)dealloc;
 

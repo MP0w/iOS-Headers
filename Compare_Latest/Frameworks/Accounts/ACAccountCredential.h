@@ -8,7 +8,7 @@
 
 #import "NSSecureCoding-Protocol.h"
 
-@class ACAccount, NSDate, NSMutableDictionary, NSMutableSet, NSString;
+@class ACAccount, NSDate, NSMutableDictionary, NSMutableSet, NSSet, NSString;
 
 @interface ACAccountCredential : NSObject <NSSecureCoding>
 {
@@ -16,21 +16,22 @@
     NSString *_credentialType;
     NSMutableSet *_dirtyProperties;
     ACAccount *_owningAccount;
-    BOOL _dirty;
-    BOOL _empty;
-    NSString *_findMyiPhoneToken;
+    _Bool _dirty;
+    _Bool _empty;
 }
 
 + (id)nonPersistentKeysForAccountTypeIdentifier:(id)arg1 credentialType:(id)arg2;
 + (id)supportedKeysForAccountTypeIdentifier:(id)arg1 credentialType:(id)arg2;
 + (id)credentialWithPassword:(id)arg1;
 + (id)credentialWithOAuthToken:(id)arg1 tokenSecret:(id)arg2;
-+ (BOOL)supportsSecureCoding;
-@property(copy, nonatomic) NSString *findMyiPhoneToken; // @synthesize findMyiPhoneToken=_findMyiPhoneToken;
-@property(nonatomic, getter=isEmpty) BOOL empty; // @synthesize empty=_empty;
-@property(nonatomic, getter=isDirty) BOOL dirty; // @synthesize dirty=_dirty;
++ (_Bool)supportsSecureCoding;
+@property(nonatomic, getter=isEmpty) _Bool empty; // @synthesize empty=_empty;
+@property(nonatomic, getter=isDirty) _Bool dirty; // @synthesize dirty=_dirty;
+@property(readonly, nonatomic) NSSet *dirtyProperties; // @synthesize dirtyProperties=_dirtyProperties;
 - (void).cxx_destruct;
 @property(copy, nonatomic) NSString *credentialType;
+@property(copy, nonatomic) NSString *mapsToken;
+@property(copy, nonatomic) NSString *findMyiPhoneToken;
 @property(copy, nonatomic) NSString *password;
 @property(retain, nonatomic) NSDate *expiryDate;
 @property(copy, nonatomic) NSString *oauthRefreshToken;
@@ -50,8 +51,8 @@
 - (id)initWithPassword:(id)arg1;
 - (id)initWithOAuthToken:(id)arg1 tokenSecret:(id)arg2;
 - (id)initWithOAuth2Token:(id)arg1 refreshToken:(id)arg2 expiryDate:(id)arg3;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 
 @end
 

@@ -6,16 +6,17 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface OADConnection : NSObject
 {
-    unsigned long mDrawableId;
+    unsigned long long mDrawableId;
     int mLocationIndex;
 }
 
 - (void)setLocationIndex:(int)arg1;
 - (int)locationIndex;
-- (void)setDrawableId:(unsigned long)arg1;
-- (unsigned long)drawableId;
+- (void)setDrawableId:(unsigned long long)arg1;
+- (unsigned long long)drawableId;
 
 @end
 

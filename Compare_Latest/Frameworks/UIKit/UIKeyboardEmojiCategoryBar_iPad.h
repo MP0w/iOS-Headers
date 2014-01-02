@@ -8,6 +8,7 @@
 
 @class UIImage;
 
+// Not exported
 @interface UIKeyboardEmojiCategoryBar_iPad : UIKeyboardEmojiCategoryBar
 {
     UIImage *categoryKeyImage;

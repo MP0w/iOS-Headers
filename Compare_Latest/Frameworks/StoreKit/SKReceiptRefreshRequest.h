@@ -14,9 +14,9 @@
 }
 
 @property(readonly, nonatomic) NSDictionary *receiptProperties; // @synthesize receiptProperties=_properties;
-- (BOOL)_wantsVPP;
-- (BOOL)_wantsRevoked;
-- (BOOL)_wantsExpired;
+- (_Bool)_wantsVPP;
+- (_Bool)_wantsRevoked;
+- (_Bool)_wantsExpired;
 - (void)_sendXPCMessage;
 - (void)_handleReply:(id)arg1;
 - (void)dealloc;

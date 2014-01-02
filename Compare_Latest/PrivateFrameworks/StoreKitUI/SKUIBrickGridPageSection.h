@@ -14,32 +14,31 @@
 @interface SKUIBrickGridPageSection : SKUIStorePageSection <SKUIArtworkRequestDelegate, SKUIMissingItemDelegate>
 {
     NSMapTable *_artworkRequests;
-    float _baseHeight;
-    float _columnWidth;
+    double _baseHeight;
+    double _columnWidth;
     NSMapTable *_editorialLayouts;
     SKUIMissingItemLoader *_missingItemLoader;
-    int _numberOfColumns;
-    float _paddingHorizontal;
-    float _paddingTop;
+    long long _numberOfColumns;
+    double _paddingHorizontal;
+    double _paddingTop;
     UIImage *_placeholderImage;
 }
 
 - (void).cxx_destruct;
 - (id)_missingItemLoader;
-- (void)_loadMissingItemsFromIndex:(int)arg1 withReason:(int)arg2;
-- (void)_loadArtworkForBrick:(id)arg1 artworkLoader:(id)arg2 reason:(int)arg3;
+- (void)_loadMissingItemsFromIndex:(long long)arg1 withReason:(long long)arg2;
+- (void)_loadArtworkForBrick:(id)arg1 artworkLoader:(id)arg2 reason:(long long)arg3;
 - (void)_enumerateVisibleBricksUsingBlock:(id)arg1;
 - (id)_editorialLayoutForBrick:(id)arg1;
-- (struct UIEdgeInsets)_contentInsetsForColumnIndex:(int)arg1 rowWidth:(float)arg2;
+- (struct UIEdgeInsets)_contentInsetsForColumnIndex:(long long)arg1 rowWidth:(double)arg2;
 - (void)missingItemLoader:(id)arg1 didLoadItems:(id)arg2;
 - (void)artworkRequest:(id)arg1 didLoadImage:(id)arg2;
-- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)willRotateToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
 - (void)willAppearInContext:(id)arg1;
-- (void)prefetchResourcesWithReason:(int)arg1;
-- (int)numberOfCells;
-- (int)coloringOffset;
+- (void)prefetchResourcesWithReason:(long long)arg1;
+- (long long)numberOfCells;
 - (void)collectionViewDidSelectItemAtIndexPath:(id)arg1;
-- (id)clickEventWithLink:(id)arg1 elementName:(id)arg2 index:(int)arg3;
+- (id)clickEventWithLink:(id)arg1 elementName:(id)arg2 index:(long long)arg3;
 - (struct CGSize)cellSizeForIndexPath:(id)arg1;
 - (id)cellForIndexPath:(id)arg1;
 - (void)addImpressionsForIndexPath:(id)arg1 toSession:(id)arg2;

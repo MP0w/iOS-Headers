@@ -24,7 +24,7 @@
 + (id)newActionsControllerForProperty:(int)arg1;
 @property(retain, nonatomic) ABUIPerson *person; // @synthesize person=_person;
 - (void)_performAction:(int)arg1 forProperty:(int)arg2;
-- (int)_actionAtIndex:(int)arg1 forProperty:(int)arg2;
+- (int)_actionAtIndex:(long long)arg1 forProperty:(int)arg2;
 - (struct __CFArray *)_actionsForProperty:(int)arg1;
 - (void)setContext:(void *)arg1;
 - (void *)context;
@@ -33,15 +33,15 @@
 - (id)value;
 - (void)setStringValue:(id)arg1;
 - (id)stringValue;
-- (void)performActionAtIndex:(int)arg1 forProperty:(int)arg2;
+- (void)performActionAtIndex:(long long)arg1 forProperty:(int)arg2;
 - (void)performDefaultAction;
 - (int)defaultAction;
 - (void)performAction:(int)arg1;
 - (id)urlForAction:(int)arg1 forProperty:(int)arg2;
 - (void)resetPrimaryPropertyActions;
-- (id)titleAtIndex:(int)arg1 forProperty:(int)arg2;
+- (id)titleAtIndex:(long long)arg1 forProperty:(int)arg2;
 - (id)titleForAction:(int)arg1;
-- (int)actionsCountForProperty:(int)arg1;
+- (long long)actionsCountForProperty:(int)arg1;
 - (void)dealloc;
 - (id)init;
 - (id)initWithProperty:(int)arg1;

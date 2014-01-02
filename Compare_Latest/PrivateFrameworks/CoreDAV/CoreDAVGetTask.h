@@ -9,15 +9,15 @@
 @interface CoreDAVGetTask : CoreDAVTask
 {
     id _appSpecificDataItemResult;
-    BOOL _forceNoCache;
+    _Bool _forceNoCache;
 }
 
-@property BOOL forceNoCache; // @synthesize forceNoCache=_forceNoCache;
+@property _Bool forceNoCache; // @synthesize forceNoCache=_forceNoCache;
 @property(retain) id appSpecificDataItemResult; // @synthesize appSpecificDataItemResult=_appSpecificDataItemResult;
 - (void)finishCoreDAVTaskWithError:(id)arg1;
 - (id)copyDefaultParserForContentType:(id)arg1;
 - (id)requestBody;
-- (unsigned int)cachePolicy;
+- (unsigned long long)cachePolicy;
 - (id)httpMethod;
 - (id)description;
 - (void)dealloc;

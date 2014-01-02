@@ -27,15 +27,15 @@
 - (void)setImageKindWithTypeName:(id)arg1 variantName:(id)arg2;
 @property(readonly, nonatomic) struct CGSize imageSize;
 - (id)initWithArtworkDictionary:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)description;
 - (id)valueForProperty:(id)arg1;
-@property(readonly, nonatomic) int width;
-@property(readonly, nonatomic, getter=isPrerendered) BOOL prerendered;
-@property(readonly, nonatomic) float imageScale;
-@property(readonly, nonatomic) int imageOrientation;
-@property(readonly, nonatomic) int height;
+@property(readonly, nonatomic) long long width;
+@property(readonly, nonatomic, getter=isPrerendered) _Bool prerendered;
+@property(readonly, nonatomic) double imageScale;
+@property(readonly, nonatomic) long long imageOrientation;
+@property(readonly, nonatomic) long long height;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 

@@ -16,7 +16,7 @@
 
 + (id)attributionWithDictionary:(id)arg1 context:(id)arg2;
 + (id)attribution;
-@property(nonatomic) int version;
+@property(nonatomic) long long version;
 @property(copy, nonatomic) NSArray *urls;
 @property(copy, nonatomic) NSString *attributionId;
 - (id)encodedClassName;

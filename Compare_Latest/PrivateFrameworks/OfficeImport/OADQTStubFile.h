@@ -6,6 +6,7 @@
 
 #import <OfficeImport/OADEmbeddedMediaFile.h>
 
+// Not exported
 @interface OADQTStubFile : OADEmbeddedMediaFile
 {
 }

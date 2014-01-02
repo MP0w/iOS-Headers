@@ -8,6 +8,6 @@
 
 @interface NSDictionary (Goodies)
 - (int)mf_integerForKey:(id)arg1;
-- (BOOL)mf_boolForKey:(id)arg1;
+- (_Bool)mf_boolForKey:(id)arg1;
 @end
 

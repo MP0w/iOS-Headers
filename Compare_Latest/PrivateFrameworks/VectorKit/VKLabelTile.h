@@ -8,22 +8,25 @@
 
 @class GEOVectorTile;
 
+// Not exported
 @interface VKLabelTile : VKTile
 {
     int _tileType;
-    shared_ptr_dd1f7020 _labelManager;
+    struct weak_ptr<vk::LabelManager> _labelManager;
     GEOVectorTile *_modelTile;
-    set_2bef5b43 _roadFeatures;
-    set_a425ba2c _pointFeatures;
+    set_4d79ca70 _roadFeatures;
+    set_d0a7cc39 _pointFeatures;
+    unsigned int _styleStamp;
 }
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (id)description;
-- (const set_a425ba2c *)pointFeatures;
-- (const set_2bef5b43 *)roadFeatures;
+- (const set_d0a7cc39 *)pointFeatures;
+- (const set_4d79ca70 *)roadFeatures;
 - (id)modelTile;
 - (int)tileType;
+- (void)updateStylesIfNeededWithManager:(struct LabelManager *)arg1;
 - (void)dealloc;
 - (id)initWithKey:(const struct VKTileKey *)arg1 modelTile:(id)arg2 tileType:(int)arg3 labelManager:(const shared_ptr_dd1f7020 *)arg4;
 

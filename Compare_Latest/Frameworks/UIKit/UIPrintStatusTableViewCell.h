@@ -8,6 +8,7 @@
 
 @class UIActivityIndicatorView, UILabel;
 
+// Not exported
 @interface UIPrintStatusTableViewCell : UITableViewCell
 {
     UIActivityIndicatorView *_activityIndicator;
@@ -18,7 +19,7 @@
 @property(retain, nonatomic) UILabel *hostLabel; // @synthesize hostLabel=_hostLabel;
 @property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 - (void)layoutSubviews;
-@property(nonatomic) BOOL showActive;
+@property(nonatomic) _Bool showActive;
 - (void)dealloc;
 - (id)initWithReuseIdentifier:(id)arg1;
 

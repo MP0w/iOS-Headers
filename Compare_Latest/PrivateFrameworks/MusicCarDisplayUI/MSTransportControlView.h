@@ -14,20 +14,23 @@
     UIButton *_playPauseButton;
     UIButton *_fastForwardButton;
     UIProgressView *_progressView;
-    BOOL _progressActive;
+    _Bool _progressActive;
     UILabel *_timeLabel;
     UILabel *_timeRemainingLabel;
+    _Bool _tintLeftButton;
     int _mode;
     float _playbackProgress;
 }
 
+@property(nonatomic) _Bool tintLeftButton; // @synthesize tintLeftButton=_tintLeftButton;
 @property(nonatomic) float playbackProgress; // @synthesize playbackProgress=_playbackProgress;
-@property(nonatomic) BOOL progressActive; // @synthesize progressActive=_progressActive;
+@property(nonatomic) _Bool progressActive; // @synthesize progressActive=_progressActive;
 @property(readonly, nonatomic) UIButton *fastForwardButton; // @synthesize fastForwardButton=_fastForwardButton;
 @property(readonly, nonatomic) UIButton *playPauseButton; // @synthesize playPauseButton=_playPauseButton;
 @property(readonly, nonatomic) UIButton *leftButton; // @synthesize leftButton=_leftButton;
 @property(nonatomic) int mode; // @synthesize mode=_mode;
 - (void).cxx_destruct;
+- (void)_updateLeftButton;
 - (void)setPlaybackTime:(double)arg1 duration:(double)arg2;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;

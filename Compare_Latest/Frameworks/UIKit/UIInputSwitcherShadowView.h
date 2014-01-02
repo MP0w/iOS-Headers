@@ -8,10 +8,11 @@
 
 @class NSArray, UIKeyboardMenuView, _UIBackdropView;
 
+// Not exported
 @interface UIInputSwitcherShadowView : UIView
 {
     int m_mode;
-    float m_pointerOffset;
+    double m_pointerOffset;
     NSArray *m_gradientColors;
     UIKeyboardMenuView *_menu;
     _UIBackdropView *_blurView;
@@ -22,7 +23,7 @@
 @property(nonatomic) UIKeyboardMenuView *menu; // @synthesize menu=_menu;
 @property(nonatomic) struct CGRect keyRect; // @synthesize keyRect=_keyRect;
 @property(retain, nonatomic) NSArray *gradientColors; // @synthesize gradientColors=m_gradientColors;
-@property(nonatomic) float pointerOffset; // @synthesize pointerOffset=m_pointerOffset;
+@property(nonatomic) double pointerOffset; // @synthesize pointerOffset=m_pointerOffset;
 @property(nonatomic) int mode; // @synthesize mode=m_mode;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)layoutSubviews;

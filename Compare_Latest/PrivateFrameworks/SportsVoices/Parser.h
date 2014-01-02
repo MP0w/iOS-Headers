@@ -18,7 +18,7 @@
 
 + (id)retrievePlistForPathArray:(id)arg1 from:(id)arg2;
 + (id)retrievePlistForStringInDotNotation:(id)arg1 from:(id)arg2;
-+ (BOOL)insertStatementsFromOriginal:(id)arg1 intoBranch:(id)arg2;
++ (_Bool)insertStatementsFromOriginal:(id)arg1 intoBranch:(id)arg2;
 + (id)loadGrammarsFromPlistAtPath:(id)arg1;
 @property(readonly) NSMutableArray *productionRules; // @synthesize productionRules=_productionRules;
 - (void)dealloc;

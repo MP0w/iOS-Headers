@@ -8,24 +8,22 @@
 
 @interface PUPhotosSharingViewControllerSpec : NSObject
 {
-    BOOL _maximizeImageHeight;
+    _Bool _maximizeImageHeight;
     int _fastImageFormat;
     int _qualityImageFormat;
     int _zoomingImageFormat;
-    float _interItemSpacing;
-    float _maxImageDimension;
+    double _interItemSpacing;
 }
 
-@property(readonly, nonatomic) BOOL maximizeImageHeight; // @synthesize maximizeImageHeight=_maximizeImageHeight;
-@property(readonly, nonatomic) float maxImageDimension; // @synthesize maxImageDimension=_maxImageDimension;
-@property(readonly, nonatomic) float interItemSpacing; // @synthesize interItemSpacing=_interItemSpacing;
+@property(readonly, nonatomic) _Bool maximizeImageHeight; // @synthesize maximizeImageHeight=_maximizeImageHeight;
+@property(readonly, nonatomic) double interItemSpacing; // @synthesize interItemSpacing=_interItemSpacing;
 @property(readonly, nonatomic) int zoomingImageFormat; // @synthesize zoomingImageFormat=_zoomingImageFormat;
 @property(readonly, nonatomic) int qualityImageFormat; // @synthesize qualityImageFormat=_qualityImageFormat;
 @property(readonly, nonatomic) int fastImageFormat; // @synthesize fastImageFormat=_fastImageFormat;
-- (BOOL)allowsInterfaceRotation;
-- (BOOL)embedsActivityViewForOrientation:(int)arg1;
-- (struct UIEdgeInsets)collectionViewLayoutContentInsetForOrientation:(int)arg1;
-@property(readonly, nonatomic) unsigned int selectionBadgeCorner;
+- (_Bool)allowsInterfaceRotation;
+- (_Bool)embedsActivityViewForOrientation:(long long)arg1;
+- (struct UIEdgeInsets)collectionViewLayoutContentInsetForOrientation:(long long)arg1;
+@property(readonly, nonatomic) unsigned long long selectionBadgeCorner;
 @property(readonly, nonatomic) struct UIOffset selectionBadgeOffset;
 @property(readonly, nonatomic) struct CGSize selectionBadgeSize;
 

@@ -11,7 +11,7 @@
 }
 
 - (void)registerServices:(id)arg1;
-- (BOOL)WCMAvailable;
+- (_Bool)WCMAvailable;
 
 @end
 

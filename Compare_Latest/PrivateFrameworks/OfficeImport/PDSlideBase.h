@@ -8,6 +8,7 @@
 
 @class NSArray, NSString, OADBackground, OADShape, OADTableStyle, PDAnimation, PDTransition;
 
+// Not exported
 @interface PDSlideBase : NSObject
 {
     NSString *mName;
@@ -18,38 +19,38 @@
     OADTableStyle *mDefaultTableStyle;
     unsigned int mIsHidden:1;
     unsigned int mIsDoneWithContent:1;
-    BOOL mCachedSlideNumberShape;
+    _Bool mCachedSlideNumberShape;
     OADShape *mSlideNumberShape;
-    BOOL mCachedSlideNumberPlaceholder;
+    _Bool mCachedSlideNumberPlaceholder;
     OADShape *mSlideNumberPlaceholder;
 }
 
 + (int)inheritedPlaceholderType:(int)arg1;
 - (void)generatePpt9Animations:(id)arg1;
-- (BOOL)hasPpt9Animations;
-- (BOOL)hasPpt10Animations;
+- (_Bool)hasPpt9Animations;
+- (_Bool)hasPpt10Animations;
 - (id)drawingTheme;
 - (void)doneWithContent;
 - (void)setDefaultTableStyle:(id)arg1;
 - (id)defaultTableStyle;
-- (void)setIsHidden:(BOOL)arg1;
-- (BOOL)isHidden;
+- (void)setIsHidden:(_Bool)arg1;
+- (_Bool)isHidden;
 - (id)styleMatrix;
 - (id)colorMap;
 - (id)fontScheme;
 - (id)colorScheme;
 - (id)parentSlideBase;
-- (id)masterGraphicForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(BOOL)arg3;
-- (id)parentShapePropertiesForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(BOOL)arg3;
+- (id)masterGraphicForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(_Bool)arg3;
+- (id)parentShapePropertiesForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(_Bool)arg3;
 - (id)parentTextStyleForTables;
-- (id)parentTextStyleForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 defaultTextListStyle:(id)arg3 overrideIndex:(BOOL)arg4;
-- (id)parentTextBodyPropertiesForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(BOOL)arg3;
-@property(readonly, nonatomic) BOOL hasMappableSlideNumberShape;
+- (id)parentTextStyleForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 defaultTextListStyle:(id)arg3 overrideIndex:(_Bool)arg4;
+- (id)parentTextBodyPropertiesForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(_Bool)arg3;
+@property(readonly, nonatomic) _Bool hasMappableSlideNumberShape;
 @property(readonly, nonatomic) OADShape *slideNumberPlaceholder;
 @property(readonly, nonatomic) OADShape *slideNumberShape;
 - (id)placeholders;
-- (id)placeholderWithType:(int)arg1 placeholderTypeIndex:(int)arg2 useBaseTypeMatch:(BOOL)arg3 overrideIndex:(BOOL)arg4;
-- (id)placeholderWithType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(BOOL)arg3;
+- (id)placeholderWithType:(int)arg1 placeholderTypeIndex:(int)arg2 useBaseTypeMatch:(_Bool)arg3 overrideIndex:(_Bool)arg4;
+- (id)placeholderWithType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(_Bool)arg3;
 - (id)defaultTheme;
 - (void)setTransition:(id)arg1;
 - (id)transition;
@@ -63,8 +64,6 @@
 - (id)name;
 - (void)dealloc;
 - (id)init;
-- (void)addSlideNumberPlaceholder:(id)arg1;
-- (void)setPpt9AnimationDataForCacheItem:(id)arg1 order:(int)arg2;
 
 @end
 

@@ -17,7 +17,7 @@
 
 + (id)sharedInstance;
 - (void)PLXPCRegisterClient:(id)arg1;
-- (BOOL)PLXPCSendMessage:(id)arg1;
+- (_Bool)PLXPCSendMessage:(id)arg1;
 - (id)PLXPCSendMessageWithReply:(id)arg1;
 - (void)PLXPCConnectionUnLock;
 - (void)PLXPCConnectionLock;

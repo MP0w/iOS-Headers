@@ -14,7 +14,7 @@
 }
 
 - (void)deleteOfflineCacheData;
-- (BOOL)replayOperationsUsingBlock:(id)arg1;
+- (_Bool)replayOperationsUsingBlock:(id)arg1;
 - (void)deferOperation:(id)arg1;
 - (void)setLastSelectedMailbox:(id)arg1;
 - (void)dealloc;

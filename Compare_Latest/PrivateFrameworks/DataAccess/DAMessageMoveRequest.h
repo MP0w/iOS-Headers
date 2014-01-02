@@ -22,8 +22,8 @@
 @property(readonly) NSString *message; // @synthesize message=_message;
 - (void)dealloc;
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)initMoveRequestWithMessage:(id)arg1 fromFolder:(id)arg2 toFolder:(id)arg3;
 
 @end

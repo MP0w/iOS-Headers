@@ -9,11 +9,12 @@
 #import "UIGestureRecognizerDelegate-Protocol.h"
 #import "UITextFieldDelegate-Protocol.h"
 
-@class MPUShapeView, SKUICircleProgressIndicator, UIBarButtonItem, UIButton, UILabel, UITapGestureRecognizer, UITextField, UIView;
+@class MPUShapeView, SKUICircleProgressIndicator, UIBarButtonItem, UIButton, UILabel, UITapGestureRecognizer, UITextField;
 
 @interface RUSignInViewController : UIViewController <UIGestureRecognizerDelegate, UITextFieldDelegate>
 {
     SKUICircleProgressIndicator *_activityIndicatorView;
+    UILabel *_appleIDTitleLabel;
     UITextField *_appleIDTextField;
     UIBarButtonItem *_cancelBarButtonItem;
     UIButton *_continueButton;
@@ -21,19 +22,20 @@
     UITapGestureRecognizer *_dismissGestureRecognizer;
     MPUShapeView *_entryContentView;
     UIButton *_forgotPasswordButton;
-    UIView *_inputContentView;
-    BOOL _isAuthenticating;
+    _Bool _isAuthenticating;
     struct CGRect _keyboardFrame;
     UILabel *_loadingLabel;
+    UILabel *_passwordTitleLabel;
     UITextField *_passwordTextField;
+    UILabel *_titleLabel;
     id <RUSignInViewControllerDelegate> _delegate;
 }
 
 @property(nonatomic) __weak id <RUSignInViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)_updateContinueButtonVisibilityAnimated:(BOOL)arg1;
-- (void)_setLoading:(BOOL)arg1;
-- (void)_layoutInputSubviews;
+- (void)_updateContinueButtonVisibilityAnimated:(_Bool)arg1;
+- (void)_setLoading:(_Bool)arg1;
+- (void)_keyboardWillHideNotification:(id)arg1;
 - (void)_keyboardWillChangeFrameNotification:(id)arg1;
 - (void)_textFieldDidChangeAction:(id)arg1;
 - (void)_forgotPasswordAction:(id)arg1;
@@ -42,10 +44,11 @@
 - (void)_continueAction:(id)arg1;
 - (void)_cancelAction:(id)arg1;
 - (void)resetFakeLoadingState;
-- (BOOL)textFieldShouldReturn:(id)arg1;
-- (BOOL)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
-- (void)viewWillAppear:(BOOL)arg1;
+- (_Bool)textFieldShouldReturn:(id)arg1;
+- (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
+- (void)viewDidLayoutSubviews;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 

@@ -25,7 +25,7 @@
 - (void)queue_reregister;
 - (void)queue_handleMessage:(id)arg1;
 - (void)queue_registerWithServer;
-- (void)queue_updateInterestedStates:(BOOL)arg1;
+- (void)queue_updateInterestedStates:(_Bool)arg1;
 - (void)queue_updateInterestedStates;
 - (void)queue_setInterestedStates:(unsigned int)arg1;
 - (void)queue_setInterestedBundleIDs:(id)arg1;
@@ -34,7 +34,7 @@
 - (id)_connection;
 - (void)invalidate;
 - (id)bundleInfoValueForKey:(id)arg1 PID:(int)arg2;
-- (BOOL)isApplicationBeingDebugged:(id)arg1;
+- (_Bool)isApplicationBeingDebugged:(id)arg1;
 - (unsigned int)mostElevatedApplicationStateForPID:(int)arg1;
 - (unsigned int)applicationStateForApplication:(id)arg1;
 - (void)applicationInfoForPID:(int)arg1 completion:(id)arg2;

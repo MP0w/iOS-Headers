@@ -7,6 +7,6 @@
 #import "NSDictionary.h"
 
 @interface NSDictionary (PickableRoute)
-- (BOOL)matchesUID:(id)arg1;
+- (_Bool)matchesUID:(id)arg1;
 @end
 

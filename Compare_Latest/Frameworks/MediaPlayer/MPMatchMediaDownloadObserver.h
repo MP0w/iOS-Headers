@@ -17,11 +17,11 @@
 
 - (void).cxx_destruct;
 - (void)downloadManager:(id)arg1 downloadDidProgress:(id)arg2;
-- (BOOL)isRestoreDownload;
-- (BOOL)isPurchasing;
+- (_Bool)isRestoreDownload;
+- (_Bool)isPurchasing;
 - (void)cancelDownload;
-- (BOOL)canCancel;
-- (BOOL)isCurrentlyPlayable;
+- (_Bool)canCancel;
+- (_Bool)isCurrentlyPlayable;
 - (double)rawDownloadTotal;
 - (double)rawDownloadProgress;
 - (double)downloadProgress;

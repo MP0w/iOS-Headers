@@ -17,10 +17,10 @@
 - (void)setImageAlignment:(int)arg1;
 - (void)setImageSize:(struct CGSize)arg1;
 - (void)setImage:(id)arg1;
-- (BOOL)loadImage;
+- (_Bool)loadImage;
 - (void)imageLoaded:(id)arg1;
 - (int)_horizontalAlignmentForString:(id)arg1;
-- (id)URLAttributeForImageName:(id)arg1 getScale:(float *)arg2;
+- (id)URLAttributeForImageName:(id)arg1 getScale:(double *)arg2;
 - (id)sourceURL;
 - (void)dealloc;
 - (void)populatePostbackDictionary:(id)arg1;

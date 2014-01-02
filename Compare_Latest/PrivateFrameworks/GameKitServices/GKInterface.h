@@ -8,6 +8,7 @@
 
 @class NSNumber, NSString;
 
+// Not exported
 @interface GKInterface : NSObject
 {
     NSNumber *_index;

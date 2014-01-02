@@ -10,9 +10,9 @@
 {
 }
 
-- (BOOL)canAuthenticateAccountClass:(Class)arg1 connection:(id)arg2;
-- (BOOL)hasEncryption;
-- (BOOL)sendsPlainTextPasswords;
+- (_Bool)canAuthenticateAccountClass:(Class)arg1 connection:(id)arg2;
+- (_Bool)hasEncryption;
+- (_Bool)sendsPlainTextPasswords;
 - (id)humanReadableName;
 - (id)name;
 - (Class)authenticatorClass;

@@ -10,7 +10,7 @@
 
 @interface FTRegAccountMonitor : NSObject
 {
-    int _serviceType;
+    long long _serviceType;
     IMServiceImpl *_service;
     NSArray *_accounts;
     FTRegConnectionHandler *_connectionHandler;
@@ -18,18 +18,18 @@
 }
 
 @property(readonly, nonatomic) NSArray *activeAccounts; // @synthesize activeAccounts=_accounts;
-@property(nonatomic) int serviceType; // @synthesize serviceType=_serviceType;
+@property(nonatomic) long long serviceType; // @synthesize serviceType=_serviceType;
 @property(retain, nonatomic) IMServiceImpl *service; // @synthesize service=_service;
 - (void)_handleDaemonConnected:(id)arg1;
 - (void)_handleAccountNotification:(id)arg1;
 - (void)_stopListeningForNotifications;
 - (void)_startListeningForNotifications;
-- (BOOL)_shouldHandleAccountNofication:(id)arg1;
-- (void)_updateAccountState:(BOOL)arg1;
+- (_Bool)_shouldHandleAccountNofication:(id)arg1;
+- (void)_updateAccountState:(_Bool)arg1;
 - (id)_activeAccounts;
 - (id)logName;
 - (void)dealloc;
-- (id)initWithServiceType:(int)arg1;
+- (id)initWithServiceType:(long long)arg1;
 
 @end
 

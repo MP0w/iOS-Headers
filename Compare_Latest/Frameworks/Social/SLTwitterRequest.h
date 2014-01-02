@@ -16,15 +16,15 @@
     NSObject<SLTimestampSkewStorageDelegate> *_timestampSkewStorageDelegate;
     NSURL *_url;
     NSMutableDictionary *_parameters;
-    int _requestMethod;
+    long long _requestMethod;
     NSMutableArray *_multiParts;
     NSString *_applicationID;
 }
 
-+ (BOOL)shouldRetryAfterCount:(int)arg1 delay:(float *)arg2;
-+ (BOOL)responseIsTimestampOutOfBounds:(id)arg1 data:(id)arg2;
++ (_Bool)shouldRetryAfterCount:(int)arg1 delay:(float *)arg2;
++ (_Bool)responseIsTimestampOutOfBounds:(id)arg1 data:(id)arg2;
 @property(readonly, nonatomic) NSDictionary *parameters; // @synthesize parameters=_parameters;
-@property(readonly, nonatomic) int requestMethod; // @synthesize requestMethod=_requestMethod;
+@property(readonly, nonatomic) long long requestMethod; // @synthesize requestMethod=_requestMethod;
 @property(retain, nonatomic) ACAccount *account; // @synthesize account=_account;
 @property(readonly, nonatomic) NSURL *URL; // @synthesize URL=_url;
 - (void).cxx_destruct;
@@ -48,13 +48,13 @@
 - (double)_timestampSkew;
 - (void)setParameter:(id)arg1 forKey:(id)arg2;
 - (id)commandName;
-- (BOOL)requiresAuthorization;
+- (_Bool)requiresAuthorization;
 - (id)credential;
 - (void)setCredential:(id)arg1;
-- (void)setRequestMethod:(int)arg1;
+- (void)setRequestMethod:(long long)arg1;
 - (id)initWithCredential:(id)arg1 URL:(id)arg2;
 - (id)initWithURL:(id)arg1;
-- (id)initWithURL:(id)arg1 parameters:(id)arg2 requestMethod:(int)arg3;
+- (id)initWithURL:(id)arg1 parameters:(id)arg2 requestMethod:(long long)arg3;
 - (void)sharedPrivateInit;
 
 @end

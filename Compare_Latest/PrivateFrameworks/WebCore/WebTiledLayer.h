@@ -6,12 +6,13 @@
 
 #import "CATiledLayer.h"
 
+// Not exported
 @interface WebTiledLayer : CATiledLayer
 {
 }
 
 + (unsigned int)prefetchedTiles;
-+ (BOOL)shouldDrawOnMainThread;
++ (_Bool)shouldDrawOnMainThread;
 + (double)fadeDuration;
 - (void)drawInContext:(struct CGContext *)arg1;
 - (void)display;

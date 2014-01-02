@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface MKQuadTrie : NSObject
 {
     unsigned int _maxItems;
@@ -21,12 +22,13 @@
 - (id)depthFirstDescription;
 - (void)clearAllItemsPerforming:(id)arg1;
 - (id)allItems;
-- (unsigned int)count;
+- (unsigned long long)count;
 - (void)foreach:(id)arg1;
 - (id)itemsPassingRectTest:(id)arg1 coordinateTest:(void)arg2;
 - (id)itemsInMapRect:(CDStruct_90e2a262)arg1;
-- (BOOL)contains:(id)arg1;
-- (BOOL)remove:(id)arg1;
+- (id)_itemsInMapRect:(CDStruct_90e2a262)arg1;
+- (_Bool)contains:(id)arg1;
+- (_Bool)remove:(id)arg1;
 - (void)insert:(id)arg1;
 - (void)dealloc;
 - (id)initWithInitialRegion:(CDStruct_90e2a262)arg1 minimumSize:(CDStruct_c3b9c2ee)arg2 maximumItems:(unsigned int)arg3;

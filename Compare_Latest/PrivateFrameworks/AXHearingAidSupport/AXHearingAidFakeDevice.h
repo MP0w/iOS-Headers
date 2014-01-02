@@ -6,36 +6,41 @@
 
 #import <AXHearingAidSupport/AXHearingAidDevice.h>
 
-@class NSMutableArray, NSString;
+@class NSDate, NSMutableArray, NSString;
 
 @interface AXHearingAidFakeDevice : AXHearingAidDevice
 {
     NSMutableArray *_leftFakePrograms;
     NSMutableArray *_rightFakePrograms;
-    BOOL _connected;
+    _Bool _connected;
     int updateCount;
     int _type;
+    NSDate *_leftBatteryLowDate;
+    NSDate *_rightBatteryLowDate;
     NSString *_deviceUUID;
 }
 
 @property(retain, nonatomic) NSString *deviceUUID; // @synthesize deviceUUID=_deviceUUID;
-@property(nonatomic) BOOL connected; // @synthesize connected=_connected;
+@property(retain, nonatomic) NSDate *rightBatteryLowDate; // @synthesize rightBatteryLowDate=_rightBatteryLowDate;
+@property(retain, nonatomic) NSDate *leftBatteryLowDate; // @synthesize leftBatteryLowDate=_leftBatteryLowDate;
+@property(nonatomic) _Bool connected; // @synthesize connected=_connected;
 @property(nonatomic) int type; // @synthesize type=_type;
 @property(nonatomic) int updateCount; // @synthesize updateCount;
 - (void)persist;
-- (BOOL)didLoadRequiredProperties;
-- (BOOL)didLoadBasicProperties;
-- (id)valueForProperty:(int)arg1;
+- (_Bool)didLoadRequiredProperties;
+- (_Bool)didLoadBasicProperties;
+- (void)setValue:(id)arg1 forProperty:(long long)arg2;
+- (id)valueForProperty:(long long)arg1;
 - (id)persistentRepresentation;
-- (void)writeInt:(unsigned char)arg1 toPeripheral:(id)arg2 forProperty:(int)arg3;
+- (void)writeInt:(unsigned char)arg1 toPeripheral:(id)arg2 forProperty:(long long)arg3;
 - (id)rightPrograms;
 - (id)leftPrograms;
 - (void)createPrograms;
-- (BOOL)isPersistent;
-@property(nonatomic) BOOL isPaired;
-- (BOOL)isConnected;
-- (BOOL)rightAvailable;
-- (BOOL)leftAvailable;
+- (_Bool)isPersistent;
+@property(nonatomic) _Bool isPaired;
+- (_Bool)isConnected;
+- (_Bool)rightAvailable;
+- (_Bool)leftAvailable;
 - (void)disconnect;
 - (void)connect;
 - (id)modelForType;
@@ -44,15 +49,15 @@
 - (id)initWithDeviceType:(int)arg1;
 
 // Remaining properties
-@property(nonatomic) BOOL isConnecting;
-@property(nonatomic) float leftBatteryLevel;
+@property(nonatomic) _Bool isConnecting;
+@property(nonatomic) double leftBatteryLevel;
 @property(retain, nonatomic) NSString *leftFirmwareVersion;
 @property(retain, nonatomic) NSString *leftHardwareVersion;
 @property(retain, nonatomic) NSString *leftUUID;
 @property(retain, nonatomic) NSString *manufacturer;
 @property(retain, nonatomic) NSString *model;
 @property(retain, nonatomic) NSString *name;
-@property(nonatomic) float rightBatteryLevel;
+@property(nonatomic) double rightBatteryLevel;
 @property(retain, nonatomic) NSString *rightFirmwareVersion;
 @property(retain, nonatomic) NSString *rightHardwareVersion;
 @property(retain, nonatomic) NSString *rightUUID;

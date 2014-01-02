@@ -6,6 +6,7 @@
 
 #import "NSDictionary.h"
 
+// Not exported
 @interface NSOwnedDictionaryProxy : NSDictionary
 {
     id _owner;
@@ -13,7 +14,7 @@
 
 - (id)objectForKey:(id)arg1;
 - (id)keyEnumerator;
-- (unsigned int)count;
+- (unsigned long long)count;
 - (void)superRelease;
 - (oneway void)release;
 - (id)retain;

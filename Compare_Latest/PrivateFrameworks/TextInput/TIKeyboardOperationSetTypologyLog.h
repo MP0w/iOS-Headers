@@ -15,7 +15,7 @@
 }
 
 + (id)operationWithTypedString:(id)arg1 logDictionary:(id)arg2;
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) NSDictionary *logDictionary; // @synthesize logDictionary=_logDictionary;
 @property(readonly, nonatomic) NSString *typedString; // @synthesize typedString=_typedString;
 - (id)propertiesForDescription;

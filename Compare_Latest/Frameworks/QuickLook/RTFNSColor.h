@@ -6,28 +6,29 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface RTFNSColor : NSObject
 {
-    float _red;
-    float _green;
-    float _blue;
-    float _alpha;
+    double _red;
+    double _green;
+    double _blue;
+    double _alpha;
 }
 
 + (id)blackColor;
 + (id)whiteColor;
-+ (id)colorWithCalibratedRed:(float)arg1 green:(float)arg2 blue:(float)arg3 alpha:(float)arg4;
-+ (id)colorWithCalibratedWhite:(float)arg1 alpha:(float)arg2;
-@property float alpha; // @synthesize alpha=_alpha;
-@property float blue; // @synthesize blue=_blue;
-@property float green; // @synthesize green=_green;
-@property float red; // @synthesize red=_red;
++ (id)colorWithCalibratedRed:(double)arg1 green:(double)arg2 blue:(double)arg3 alpha:(double)arg4;
++ (id)colorWithCalibratedWhite:(double)arg1 alpha:(double)arg2;
+@property double alpha; // @synthesize alpha=_alpha;
+@property double blue; // @synthesize blue=_blue;
+@property double green; // @synthesize green=_green;
+@property double red; // @synthesize red=_red;
 - (id)description;
 - (id)colorUsingColorSpaceName:(id)arg1;
-- (void)getRed:(float *)arg1 green:(float *)arg2 blue:(float *)arg3 alpha:(float *)arg4;
+- (void)getRed:(double *)arg1 green:(double *)arg2 blue:(double *)arg3 alpha:(double *)arg4;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithCalibratedRed:(float)arg1 green:(float)arg2 blue:(float)arg3 alpha:(float)arg4;
-- (id)initWithCalibratedWhite:(float)arg1 alpha:(float)arg2;
+- (id)initWithCalibratedRed:(double)arg1 green:(double)arg2 blue:(double)arg3 alpha:(double)arg4;
+- (id)initWithCalibratedWhite:(double)arg1 alpha:(double)arg2;
 - (id)init;
 
 @end

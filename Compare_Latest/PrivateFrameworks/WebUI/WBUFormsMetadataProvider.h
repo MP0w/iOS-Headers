@@ -18,7 +18,7 @@
 
 + (id)metadataProviderWithFrames:(id)arg1 metadataForAllForms:(id)arg2;
 - (void)enumerateFormsUsingBlock:(id)arg1;
-@property(readonly, nonatomic) unsigned int formCount;
+@property(readonly, nonatomic) unsigned long long formCount;
 - (void)dealloc;
 - (id)initWithFrames:(id)arg1 metadataForAllForms:(id)arg2;
 

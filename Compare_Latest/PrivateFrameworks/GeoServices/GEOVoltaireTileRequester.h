@@ -23,9 +23,9 @@
 
 + (Class)multiDownloaderClass;
 + (Class)simpleRequesterClass;
-+ (BOOL)skipNetworkForKeysWhenPreloading:(id)arg1;
++ (_Bool)skipNetworkForKeysWhenPreloading:(id)arg1;
 + (CDStruct_e4886f83 *)newExpiringTilesets;
-+ (unsigned int)expiringTilesetsCount;
++ (unsigned long long)expiringTilesetsCount;
 + (unsigned char)tileProviderIdentifier;
 - (void)tileRequesterFinished:(id)arg1;
 - (void)tileRequester:(id)arg1 receivedError:(id)arg2;
@@ -37,7 +37,7 @@
 - (void)cancel;
 - (void)cleanup;
 - (void)_startWithTileKeys:(id)arg1;
-- (id)multiTileURLStringForTileKey:(struct _GEOTileKey *)arg1 useStatusCodes:(char *)arg2;
+- (id)multiTileURLStringForTileKey:(struct _GEOTileKey *)arg1 useStatusCodes:(_Bool *)arg2;
 - (void)resourceManifestManagerDidChangeActiveTileGroup:(id)arg1;
 - (void)resourceManifestManagerWillChangeActiveTileGroup:(id)arg1;
 - (void)_failedToReceiveActiveTileGroup:(id)arg1;

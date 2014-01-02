@@ -10,8 +10,8 @@
 {
 }
 
-- (float)preferredHeightForWidth:(float)arg1;
-- (int)_labelTextAlignment;
+- (double)preferredHeightForWidth:(double)arg1;
+- (long long)_labelTextAlignment;
 - (id)_labelText;
 - (id)initWithSpecifier:(id)arg1;
 

@@ -6,29 +6,32 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, NSOperationQueue;
+@class NSMutableDictionary, NSOperationQueue, SKUIClientContext;
 
 @interface SKUIResourceLoader : NSObject
 {
+    SKUIClientContext *_clientContext;
     id <SKUIResourceLoaderDelegate> _delegate;
     NSOperationQueue *_operationQueue;
     NSMutableDictionary *_operationsByRequestID;
     NSMutableDictionary *_resourcesByRequestID;
 }
 
+@property(readonly, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
 @property(readonly, nonatomic) NSOperationQueue *operationQueue; // @synthesize operationQueue=_operationQueue;
 @property(nonatomic) __weak id <SKUIResourceLoaderDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_sendDidIdleIfNecessary;
 - (void)_finishLoadForRequest:(id)arg1 withResource:(id)arg2;
-- (void)setReason:(int)arg1 forRequestWithIdentifier:(unsigned int)arg2;
+- (void)setReason:(long long)arg1 forRequestWithIdentifier:(unsigned long long)arg2;
 - (void)removeAllCachedResources;
-- (BOOL)loadResourceWithRequest:(id)arg1 reason:(int)arg2;
-@property(readonly, nonatomic, getter=isIdle) BOOL idle;
-- (void)cancelRequestWithIdentifier:(unsigned int)arg1;
+- (_Bool)loadResourceWithRequest:(id)arg1 reason:(long long)arg2;
+@property(readonly, nonatomic, getter=isIdle) _Bool idle;
+- (void)cancelRequestWithIdentifier:(unsigned long long)arg1;
 - (void)cancelAllRequests;
-- (id)cachedResourceForRequestIdentifier:(unsigned int)arg1;
-- (void)addResource:(id)arg1 forRequestIdentifier:(unsigned int)arg2;
+- (id)cachedResourceForRequestIdentifier:(unsigned long long)arg1;
+- (void)addResource:(id)arg1 forRequestIdentifier:(unsigned long long)arg2;
+- (id)initWithOperationQueue:(id)arg1 clientContext:(id)arg2;
 - (id)initWithOperationQueue:(id)arg1;
 - (id)init;
 

@@ -8,6 +8,8 @@
 
 struct DispatchTimer;
 
+struct Entry;
+
 struct ErrorInfo;
 
 struct GEOFeatureShield {
@@ -15,12 +17,37 @@ struct GEOFeatureShield {
     long long _field2;
 };
 
+struct GeoCoordinates {
+    struct Longitude _field1;
+    struct Latitude _field2;
+};
+
+struct GeometryPathElement;
+
+struct Latitude {
+    unsigned int _field1;
+};
+
+struct Longitude {
+    unsigned int _field1;
+};
+
 struct Message;
+
+struct Path<std::__1::shared_ptr<geo::MapEdge>> {
+    struct GeoCoordinates _field1;
+    struct GeoCoordinates _field2;
+    struct vector<zilch::RoadPathElement<std::__1::shared_ptr<geo::MapEdge>>, std::__1::allocator<zilch::RoadPathElement<std::__1::shared_ptr<geo::MapEdge>>>> _field3;
+    struct vector<zilch::GeometryPathElement, std::__1::allocator<zilch::GeometryPathElement>> _field4;
+    struct vector<zilch::Path<std::__1::shared_ptr<geo::MapEdge>>::Entry, std::__1::allocator<zilch::Path<std::__1::shared_ptr<geo::MapEdge>>::Entry>> _field5;
+};
 
 struct PolylineCoordinate {
     unsigned int _field1;
     float _field2;
 };
+
+struct RoadPathElement<std::__1::shared_ptr<geo::MapEdge>>;
 
 struct Vec2Imp<float> {
     float x;
@@ -43,8 +70,8 @@ struct _GEOTileKey {
 };
 
 struct _NSRange {
-    unsigned int _field1;
-    unsigned int _field2;
+    unsigned long long _field1;
+    unsigned long long _field2;
 };
 
 struct __hash_node<GEORoadEdge, void *>;
@@ -74,9 +101,9 @@ struct deque<ErrorInfo, std::__1::allocator<ErrorInfo>> {
             struct ErrorInfo **__first_;
         } __end_cap_;
     } __map_;
-    unsigned int __start_;
+    unsigned long long __start_;
     struct __compressed_pair<unsigned long, std::__1::allocator<ErrorInfo>> {
-        unsigned long __first_;
+        unsigned long long __first_;
     } __size_;
 };
 
@@ -89,9 +116,9 @@ struct deque<GEORoadEdge, std::__1::allocator<GEORoadEdge>> {
             CDStruct_183601bc **__first_;
         } __end_cap_;
     } __map_;
-    unsigned int __start_;
+    unsigned long long __start_;
     struct __compressed_pair<unsigned long, std::__1::allocator<GEORoadEdge>> {
-        unsigned long __first_;
+        unsigned long long __first_;
     } __size_;
 };
 
@@ -101,7 +128,7 @@ struct list<CacheItem, std::__1::allocator<CacheItem>> {
         struct __list_node<CacheItem, void *> *__next_;
     } __end_;
     struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__list_node<CacheItem, void *>>> {
-        unsigned long __first_;
+        unsigned long long __first_;
     } __size_alloc_;
 };
 
@@ -111,7 +138,7 @@ struct list<LoadItem, std::__1::allocator<LoadItem>> {
         struct __list_node<LoadItem, void *> *__next_;
     } __end_;
     struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__list_node<LoadItem, void *>>> {
-        unsigned long __first_;
+        unsigned long long __first_;
     } __size_alloc_;
 };
 
@@ -121,7 +148,7 @@ struct list<ShrinkCacheRequester, std::__1::allocator<ShrinkCacheRequester>> {
         struct __list_node<ShrinkCacheRequester, void *> *__next_;
     } __end_;
     struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__list_node<ShrinkCacheRequester, void *>>> {
-        unsigned long __first_;
+        unsigned long long __first_;
     } __size_alloc_;
 };
 
@@ -134,15 +161,15 @@ struct map<unsigned int, _GEOAltitudeTriggerData, std::__1::less<unsigned int>, 
             } __first_;
         } __pair1_;
         struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, _GEOAltitudeTriggerData, std::__1::less<unsigned int>, true>> {
-            unsigned long __first_;
+            unsigned long long __first_;
         } __pair3_;
     } __tree_;
 };
 
 struct mutex {
     struct _opaque_pthread_mutex_t {
-        long __sig;
-        char __opaque[40];
+        long long __sig;
+        char __opaque[56];
     } __m_;
 };
 
@@ -168,7 +195,7 @@ struct unique_ptr<std::__1::__hash_node<GEORoadEdge, void *>*[], std::__1::__buc
         struct __hash_node<GEORoadEdge, void *> **__first_;
         struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<GEORoadEdge, void *>*>> {
             struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<GEORoadEdge, void *>*>> {
-                unsigned long __first_;
+                unsigned long long __first_;
             } __data_;
         } __second_;
     } __ptr_;
@@ -179,7 +206,7 @@ struct unique_ptr<std::__1::__hash_node<_GEOTileKey, void *>*[], std::__1::__buc
         struct __hash_node<_GEOTileKey, void *> **__first_;
         struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<_GEOTileKey, void *>*>> {
             struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<_GEOTileKey, void *>*>> {
-                unsigned long __first_;
+                unsigned long long __first_;
             } __data_;
         } __second_;
     } __ptr_;
@@ -190,7 +217,7 @@ struct unique_ptr<std::__1::__hash_node<std::__1::pair<_GEOTileKey, UsageData>, 
         struct __hash_node<std::__1::pair<_GEOTileKey, UsageData>, void *> **__first_;
         struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<_GEOTileKey, UsageData>, void *>*>> {
             struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<std::__1::pair<_GEOTileKey, UsageData>, void *>*>> {
-                unsigned long __first_;
+                unsigned long long __first_;
             } __data_;
         } __second_;
     } __ptr_;
@@ -201,7 +228,7 @@ struct unique_ptr<std::__1::__hash_node<std::__1::pair<_GEOTileKey, std::__1::__
         struct __hash_node<std::__1::pair<_GEOTileKey, std::__1::__list_iterator<CacheItem, void *>>, void *> **__first_;
         struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<_GEOTileKey, std::__1::__list_iterator<CacheItem, void *>>, void *>*>> {
             struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<std::__1::pair<_GEOTileKey, std::__1::__list_iterator<CacheItem, void *>>, void *>*>> {
-                unsigned long __first_;
+                unsigned long long __first_;
             } __data_;
         } __second_;
     } __ptr_;
@@ -216,7 +243,7 @@ struct unordered_map<_GEOTileKey, UsageData, std::__1::hash<GEOTileKey>, std::__
             } __first_;
         } __p1_;
         struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<_GEOTileKey, UsageData, std::__1::hash<GEOTileKey>, true>> {
-            unsigned long __first_;
+            unsigned long long __first_;
         } __p2_;
         struct __compressed_pair<float, std::__1::__unordered_map_equal<_GEOTileKey, UsageData, std::__1::equal_to<GEOTileKey>, true>> {
             float __first_;
@@ -233,7 +260,7 @@ struct unordered_map<_GEOTileKey, std::__1::__list_iterator<CacheItem, void *>, 
             } __first_;
         } __p1_;
         struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<_GEOTileKey, std::__1::__list_iterator<CacheItem, void *>, hashkey, true>> {
-            unsigned long __first_;
+            unsigned long long __first_;
         } __p2_;
         struct __compressed_pair<float, std::__1::__unordered_map_equal<_GEOTileKey, std::__1::__list_iterator<CacheItem, void *>, eqkey, true>> {
             float __first_;
@@ -250,7 +277,7 @@ struct unordered_set<GEORoadEdge, std::__1::hash<GEORoadEdge>, std::__1::equal_t
             } __first_;
         } __p1_;
         struct __compressed_pair<unsigned long, std::__1::hash<GEORoadEdge>> {
-            unsigned long __first_;
+            unsigned long long __first_;
         } __p2_;
         struct __compressed_pair<float, std::__1::equal_to<GEORoadEdge>> {
             float __first_;
@@ -267,7 +294,7 @@ struct unordered_set<_GEOTileKey, std::__1::hash<GEOTileKey>, std::__1::equal_to
             } __first_;
         } __p1_;
         struct __compressed_pair<unsigned long, std::__1::hash<GEOTileKey>> {
-            unsigned long __first_;
+            unsigned long long __first_;
         } __p2_;
         struct __compressed_pair<float, std::__1::equal_to<GEOTileKey>> {
             float __first_;
@@ -275,23 +302,47 @@ struct unordered_set<_GEOTileKey, std::__1::hash<GEOTileKey>, std::__1::equal_to
     } __table_;
 };
 
+struct vector<zilch::GeometryPathElement, std::__1::allocator<zilch::GeometryPathElement>> {
+    struct GeometryPathElement *_field1;
+    struct GeometryPathElement *_field2;
+    struct __compressed_pair<zilch::GeometryPathElement *, std::__1::allocator<zilch::GeometryPathElement>> {
+        struct GeometryPathElement *_field1;
+    } _field3;
+};
+
+struct vector<zilch::Path<std::__1::shared_ptr<geo::MapEdge>>::Entry, std::__1::allocator<zilch::Path<std::__1::shared_ptr<geo::MapEdge>>::Entry>> {
+    struct Entry *_field1;
+    struct Entry *_field2;
+    struct __compressed_pair<zilch::Path<std::__1::shared_ptr<geo::MapEdge>>::Entry *, std::__1::allocator<zilch::Path<std::__1::shared_ptr<geo::MapEdge>>::Entry>> {
+        struct Entry *_field1;
+    } _field3;
+};
+
+struct vector<zilch::RoadPathElement<std::__1::shared_ptr<geo::MapEdge>>, std::__1::allocator<zilch::RoadPathElement<std::__1::shared_ptr<geo::MapEdge>>>> {
+    struct RoadPathElement<std::__1::shared_ptr<geo::MapEdge>> *_field1;
+    struct RoadPathElement<std::__1::shared_ptr<geo::MapEdge>> *_field2;
+    struct __compressed_pair<zilch::RoadPathElement<std::__1::shared_ptr<geo::MapEdge>>*, std::__1::allocator<zilch::RoadPathElement<std::__1::shared_ptr<geo::MapEdge>>>> {
+        struct RoadPathElement<std::__1::shared_ptr<geo::MapEdge>> *_field1;
+    } _field3;
+};
+
 #pragma mark Typedef'd Structures
 
 typedef struct {
     id _field1;
     char *_field2;
-    unsigned int _field3;
-    unsigned int _field4;
-    unsigned int _field5;
-    unsigned int _field6;
+    unsigned long long _field3;
+    unsigned long long _field4;
+    unsigned long long _field5;
+    unsigned long long _field6;
     unsigned int _field7;
     unsigned long long _field8;
-    char _field9;
+    _Bool _field9;
     unsigned long long _field10;
     float _field11;
     id _field12;
     int _field13;
-} CDStruct_4c1ff046;
+} CDStruct_283a3ada;
 
 typedef struct {
     unsigned int _field1;
@@ -323,20 +374,7 @@ typedef struct {
 typedef struct {
     unsigned int _field1;
     double _field2;
-    unsigned int _field3;
-} CDStruct_3d12f1c7;
-
-typedef struct {
-    unsigned int _field1;
-    double _field2;
 } CDStruct_e4886f83;
-
-typedef struct {
-    unsigned long _field1;
-    id *_field2;
-    unsigned long *_field3;
-    unsigned long _field4[5];
-} CDStruct_11f37819;
 
 typedef struct {
     unsigned long long _high;
@@ -344,20 +382,33 @@ typedef struct {
 } CDStruct_612aec5b;
 
 typedef struct {
+    unsigned long long _field1;
+    id *_field2;
+    unsigned long long *_field3;
+    unsigned long long _field4[5];
+} CDStruct_70511ce9;
+
+typedef struct {
+    unsigned long long _field1;
+    double _field2;
+    unsigned long long _field3;
+} CDStruct_96e0509c;
+
+typedef struct {
     unsigned short _field1;
 } CDStruct_f6a177db;
 
 typedef struct {
     unsigned int *list;
-    unsigned int count;
-    unsigned int size;
-} CDStruct_084d6ede;
+    unsigned long long count;
+    unsigned long long size;
+} CDStruct_9f2792e4;
 
 typedef struct {
     unsigned long long *list;
-    unsigned int count;
-    unsigned int size;
-} CDStruct_cb16bb10;
+    unsigned long long count;
+    unsigned long long size;
+} CDStruct_62a50c50;
 
 typedef struct {
     char *_field1;
@@ -367,15 +418,15 @@ typedef struct {
 
 typedef struct {
     int *list;
-    unsigned int count;
-    unsigned int size;
-} CDStruct_56d48c16;
+    unsigned long long count;
+    unsigned long long size;
+} CDStruct_95bda58d;
 
 typedef struct {
     long long *list;
-    unsigned int count;
-    unsigned int size;
-} CDStruct_815f15fd;
+    unsigned long long count;
+    unsigned long long size;
+} CDStruct_5df41632;
 
 typedef struct {
     float _field1;
@@ -389,9 +440,9 @@ typedef struct {
 } CDStruct_0756942c;
 
 typedef struct {
-    int _field1;
-    int _field2;
-} CDStruct_1ef3fb1f;
+    long long _field1;
+    long long _field2;
+} CDStruct_912cb5d2;
 
 typedef struct CDStruct_183601bc;
 
@@ -399,14 +450,14 @@ typedef struct {
     unsigned char _field1;
     struct {
         char *_field1;
-        unsigned int _field2;
-        unsigned int _field3;
+        unsigned long long _field2;
+        unsigned long long _field3;
     } _field2;
     _Bool _field3;
     char *_field4;
-    unsigned int _field5;
-    unsigned int _field6;
-} CDStruct_ef964b09;
+    unsigned long long _field5;
+    unsigned long long _field6;
+} CDStruct_f3ac0f61;
 
 typedef struct {
     unsigned int _field1;
@@ -444,33 +495,33 @@ typedef struct {
 
 typedef struct {
     CDStruct_183601bc *road;
-    unsigned int vertexIndexA;
-    unsigned int vertexIndexB;
-    unsigned int junctionIndexA;
-    unsigned int junctionIndexB;
+    unsigned long long vertexIndexA;
+    unsigned long long vertexIndexB;
+    unsigned long long junctionIndexA;
+    unsigned long long junctionIndexB;
     CDStruct_183601bc *junctionA;
     CDStruct_183601bc *junctionB;
-} CDStruct_b4689c16;
+} CDStruct_f8e839fc;
 
 typedef struct {
     CDStruct_183601bc *_field1;
-    unsigned int _field2;
+    unsigned long long _field2;
     unsigned short _field3;
     unsigned int _field4;
     char *_field5;
-    unsigned int _field6;
+    unsigned long long _field6;
     struct {
         unsigned int _field1;
         _Bool _field2;
     } _field7;
-} CDStruct_b123d8da;
+} CDStruct_effb527d;
 
 typedef struct {
     CDStruct_183601bc *_field1;
-    unsigned int _field2;
+    unsigned long long _field2;
     struct _NSRange *_field3;
-    unsigned int _field4;
-} CDStruct_1105677d;
+    unsigned long long _field4;
+} CDStruct_bdb97a7c;
 
 typedef struct {
     double _field1;
@@ -527,14 +578,14 @@ typedef struct {
 } CDStruct_c55e649d;
 
 typedef struct {
-    CDStruct_4c1ff046 _field1;
-    unsigned int _field2;
-    unsigned int _field3;
+    CDStruct_283a3ada _field1;
+    unsigned long long _field2;
+    unsigned long long _field3;
     int _field4;
     int _field5;
     int _field6;
-    unsigned int _field7;
-    unsigned int _field8;
+    unsigned long long _field7;
+    unsigned long long _field8;
     struct {
         float _field1;
         float _field2;
@@ -547,22 +598,22 @@ typedef struct {
         unsigned short _field2[2];
     } _field11;
     unsigned char _field12;
-} CDStruct_ffa11a62;
+} CDStruct_4d3e1879;
 
 typedef struct {
-    CDStruct_4c1ff046 _field1;
+    CDStruct_283a3ada _field1;
     char *_field2;
-    unsigned int _field3;
-} CDStruct_0f5ec4c6;
+    unsigned long long _field3;
+} CDStruct_9c9be310;
 
 typedef struct {
-    CDStruct_4c1ff046 _field1;
+    CDStruct_283a3ada _field1;
     CDStruct_b2fbf00d _field2;
     unsigned char _field3;
     char _field4;
     char _field5;
     CDStruct_183601bc *_field6;
-} CDStruct_40c3e2f4;
+} CDStruct_605af631;
 
 typedef struct {
     struct {
@@ -595,32 +646,32 @@ typedef struct {
         unsigned int _field1;
         int _field2;
         float _field3;
-        char _field4;
-        char _field5;
-        char _field6;
-        char _field7;
-        char _field8;
+        _Bool _field4;
+        _Bool _field5;
+        _Bool _field6;
+        _Bool _field7;
+        _Bool _field8;
         struct {
             unsigned char _field1;
             unsigned short _field2;
         } _field9[16];
     } _field2;
-} CDStruct_dab2d0bd;
+} CDStruct_db2bd8f2;
 
 typedef struct {
-    CDStruct_ffa11a62 _field1;
-    unsigned int _field2;
-    unsigned int _field3;
-    char _field4;
-} CDStruct_60e73917;
+    CDStruct_4d3e1879 _field1;
+    unsigned long long _field2;
+    unsigned long long _field3;
+    _Bool _field4;
+} CDStruct_128d788e;
 
 typedef struct {
-    CDStruct_ffa11a62 _field1;
+    CDStruct_4d3e1879 _field1;
     CDStruct_b2fbf00d _field2;
-    char _field3;
-    unsigned int _field4;
-    unsigned int _field5;
-} CDStruct_ec6684d8;
+    _Bool _field3;
+    unsigned long long _field4;
+    unsigned long long _field5;
+} CDStruct_6532d03c;
 
 // Ambiguous groups
 typedef struct {
@@ -650,10 +701,6 @@ typedef struct {
 } CDStruct_d7010776;
 
 typedef struct {
-    unsigned int isMarkedIncorrect:1;
-} CDStruct_9e8b5140;
-
-typedef struct {
     unsigned int photoType:1;
 } CDStruct_86c1f53f;
 
@@ -680,6 +727,14 @@ typedef struct {
     double y;
 } CDStruct_34734122;
 
+typedef struct Path<std::__1::shared_ptr<geo::MapEdge>> {
+    struct GeoCoordinates _field1;
+    struct GeoCoordinates _field2;
+    struct vector<zilch::RoadPathElement<std::__1::shared_ptr<geo::MapEdge>>, std::__1::allocator<zilch::RoadPathElement<std::__1::shared_ptr<geo::MapEdge>>>> _field3;
+    struct vector<zilch::GeometryPathElement, std::__1::allocator<zilch::GeometryPathElement>> _field4;
+    struct vector<zilch::Path<std::__1::shared_ptr<geo::MapEdge>>::Entry, std::__1::allocator<zilch::Path<std::__1::shared_ptr<geo::MapEdge>>::Entry>> _field5;
+} Path_7b702847;
+
 typedef struct Vec2Imp<float> {
     float x;
     float y;
@@ -703,11 +758,11 @@ typedef struct unordered_set<_GEOTileKey, std::__1::hash<GEOTileKey>, std::__1::
             } __first_;
         } __p1_;
         struct __compressed_pair<unsigned long, std::__1::hash<GEOTileKey>> {
-            unsigned long __first_;
+            unsigned long long __first_;
         } __p2_;
         struct __compressed_pair<float, std::__1::equal_to<GEOTileKey>> {
             float __first_;
         } __p3_;
     } __table_;
-} unordered_set_2ba6858f;
+} unordered_set_4cb294f7;
 

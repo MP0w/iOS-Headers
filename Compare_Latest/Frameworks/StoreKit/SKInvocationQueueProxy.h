@@ -8,6 +8,7 @@
 
 @class NSMutableArray, Protocol;
 
+// Not exported
 @interface SKInvocationQueueProxy : NSObject
 {
     NSMutableArray *_invocationQueue;

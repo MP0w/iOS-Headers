@@ -12,7 +12,7 @@
 
 + (id)openCellularDataWithDictionary:(id)arg1 context:(id)arg2;
 + (id)openCellularData;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

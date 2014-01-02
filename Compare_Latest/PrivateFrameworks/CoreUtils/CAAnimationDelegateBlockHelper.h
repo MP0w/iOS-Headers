@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface CAAnimationDelegateBlockHelper : NSObject
 {
     id _animationDidStartBlock;
@@ -14,7 +15,7 @@
 
 @property(copy, nonatomic) id animationDidStopBlock; // @synthesize animationDidStopBlock=_animationDidStopBlock;
 @property(copy, nonatomic) id animationDidStartBlock; // @synthesize animationDidStartBlock=_animationDidStartBlock;
-- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
+- (void)animationDidStop:(id)arg1 finished:(_Bool)arg2;
 - (void)animationDidStart:(id)arg1;
 - (void)dealloc;
 

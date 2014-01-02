@@ -6,42 +6,26 @@
 
 #import "UIControl.h"
 
-@class NSArray, NSMutableArray, NSString, SKUIColorScheme, UIImage, UIImageView;
+@class NSArray, NSString, SKUIColorScheme, SKUISegmentedControl;
 
 @interface SKUIPillsControl : UIControl
 {
-    UIImage *_backgroundImage;
-    UIImageView *_backgroundViewLeft;
-    UIImageView *_backgroundViewRight;
-    NSMutableArray *_buttons;
     SKUIColorScheme *_colorScheme;
-    int _maximumNumberOfVisiblePills;
+    long long _maximumNumberOfVisiblePills;
     NSString *_moreListTitle;
-    UIImage *_notchImage;
-    UIImageView *_notchImageView;
-    int _selectedIndex;
-    UIImage *_selectedPillImage;
-    BOOL _showsSelectedPillNotch;
-    BOOL _showsShadow;
+    SKUISegmentedControl *_segmentedControl;
     NSArray *_titles;
 }
 
 @property(copy, nonatomic) NSArray *titles; // @synthesize titles=_titles;
-@property(nonatomic) BOOL showsShadow; // @synthesize showsShadow=_showsShadow;
-@property(nonatomic) BOOL showsSelectedPillNotch; // @synthesize showsSelectedPillNotch=_showsSelectedPillNotch;
-@property(nonatomic) int selectedIndex; // @synthesize selectedIndex=_selectedIndex;
 @property(copy, nonatomic) NSString *moreListTitle; // @synthesize moreListTitle=_moreListTitle;
-@property(nonatomic) int maximumNumberOfVisiblePills; // @synthesize maximumNumberOfVisiblePills=_maximumNumberOfVisiblePills;
+@property(nonatomic) long long maximumNumberOfVisiblePills; // @synthesize maximumNumberOfVisiblePills=_maximumNumberOfVisiblePills;
 @property(copy, nonatomic) SKUIColorScheme *colorScheme; // @synthesize colorScheme=_colorScheme;
 - (void).cxx_destruct;
-- (id)_uberImageWithBaseName:(id)arg1 tintColor:(id)arg2 bundle:(id)arg3;
-- (id)_selectedPillImageInBundle:(id)arg1;
-- (id)_newButtonWithTitle:(id)arg1 bundle:(id)arg2;
-- (id)_notchImageInBundle:(id)arg1;
-- (id)_backgroundImageInBundle:(id)arg1;
-- (void)_buttonAction:(id)arg1;
+- (void)_segmentedControlAction:(id)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
+@property(nonatomic) long long selectedIndex;
 @property(readonly, nonatomic) struct CGRect selectedPillFrame;
 - (void)reloadPills;
 - (void)dealloc;

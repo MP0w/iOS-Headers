@@ -10,7 +10,7 @@
 
 @interface ABTransportButton : UIButton
 {
-    int _transportType;
+    long long _transportType;
     UIColor *_glyphColor;
     UIImage *_image;
 }
@@ -18,9 +18,9 @@
 + (id)transportButton;
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
 @property(retain, nonatomic) UIColor *glyphColor; // @synthesize glyphColor=_glyphColor;
-@property(nonatomic) int transportType; // @synthesize transportType=_transportType;
-- (id)_imageNameForType:(int)arg1;
-- (void)_updateImageWithType:(int)arg1;
+@property(nonatomic) long long transportType; // @synthesize transportType=_transportType;
+- (id)_imageNameForType:(long long)arg1;
+- (void)_updateImageWithType:(long long)arg1;
 - (void)tintColorDidChange;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (struct CGRect)backgroundRectForBounds:(struct CGRect)arg1;

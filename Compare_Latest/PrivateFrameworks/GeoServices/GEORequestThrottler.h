@@ -14,7 +14,7 @@
 }
 
 + (id)sharedThrottler;
-- (BOOL)allowRequest:(unsigned int)arg1 toURL:(id)arg2;
+- (_Bool)allowRequest:(unsigned int)arg1 toURL:(id)arg2;
 - (void)clear;
 - (void)dealloc;
 - (id)init;

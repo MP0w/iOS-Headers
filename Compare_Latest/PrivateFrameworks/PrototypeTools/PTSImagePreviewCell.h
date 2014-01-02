@@ -19,7 +19,7 @@
 }
 
 + (void)_getLeftFrame:(struct CGRect *)arg1 rightFrame:(struct CGRect *)arg2 forImage:(id)arg3 inBounds:(struct CGRect)arg4;
-+ (float)heightForImage:(id)arg1;
++ (double)heightForImage:(id)arg1;
 @property(retain, nonatomic) UIImage *previewImage; // @synthesize previewImage=_previewImage;
 - (void).cxx_destruct;
 - (void)layoutSubviews;

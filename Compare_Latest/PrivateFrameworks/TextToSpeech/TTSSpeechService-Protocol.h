@@ -11,9 +11,9 @@
 - (oneway void)getSpeechIsActiveReply:(id)arg1;
 - (oneway void)getFootprintsForVoiceName:(id)arg1 languageCode:(id)arg2 reply:(id)arg3;
 - (oneway void)getVoiceNamesForLanguage:(id)arg1 reply:(id)arg2;
-- (oneway void)stopSpeechRequestAtMark:(int)arg1 reply:(id)arg2;
+- (oneway void)stopSpeechRequestAtMark:(long long)arg1 reply:(id)arg2;
 - (oneway void)continueSpeechRequest;
-- (oneway void)pauseSpeechRequestAtMark:(int)arg1 reply:(id)arg2;
+- (oneway void)pauseSpeechRequestAtMark:(long long)arg1 reply:(id)arg2;
 - (oneway void)startSpeechRequest:(id)arg1;
 @end
 

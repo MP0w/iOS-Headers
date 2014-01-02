@@ -8,11 +8,12 @@
 
 @class NSMutableArray, NSString;
 
+// Not exported
 @interface CPDumpStruct : CPDumpType
 {
-    long mSize;
+    long long mSize;
     NSString *mSizeFieldName;
-    long mSizeCorrection;
+    long long mSizeCorrection;
     NSMutableArray *mMembers;
 }
 
@@ -20,9 +21,9 @@
 - (void)dealloc;
 - (id)initWithSizeFieldName:(id)arg1 sizeCorrection:(int)arg2 members:(id)arg3;
 - (id)initWithSizeFieldName:(id)arg1 members:(id)arg2;
-- (id)initWithSize:(long)arg1 members:(id)arg2;
+- (id)initWithSize:(long long)arg1 members:(id)arg2;
 - (id)initWithMembers:(id)arg1;
-- (id)initWithSize:(long)arg1 sizeFieldName:(id)arg2 sizeCorrection:(int)arg3 members:(id)arg4;
+- (id)initWithSize:(long long)arg1 sizeFieldName:(id)arg2 sizeCorrection:(int)arg3 members:(id)arg4;
 
 @end
 

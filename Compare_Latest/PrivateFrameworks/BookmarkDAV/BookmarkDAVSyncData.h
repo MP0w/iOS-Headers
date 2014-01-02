@@ -12,18 +12,18 @@
 {
     void *_db;
     NSMutableDictionary *_backingDict;
-    BOOL _hasChanges;
+    _Bool _hasChanges;
 }
 
-@property(readonly) BOOL hasChanges; // @synthesize hasChanges=_hasChanges;
+@property(readonly) _Bool hasChanges; // @synthesize hasChanges=_hasChanges;
 @property(retain, nonatomic) NSNumber *knownQuotaRemaining;
-@property(nonatomic) BOOL hasHitQuotaLimit;
+@property(nonatomic) _Bool hasHitQuotaLimit;
 @property(retain, nonatomic) NSDictionary *heldAsideOrderings;
 @property(retain, nonatomic) NSURL *principalURL;
 @property(retain, nonatomic) NSString *accountPrsId;
-@property(nonatomic) unsigned int clientVersion;
-@property(nonatomic) unsigned int bookmarksMenuOrder;
-@property(nonatomic) unsigned int bookmarksBarOrder;
+@property(nonatomic) unsigned long long clientVersion;
+@property(nonatomic) unsigned long long bookmarksMenuOrder;
+@property(nonatomic) unsigned long long bookmarksBarOrder;
 @property(retain, nonatomic) NSString *bookmarksMenuId;
 @property(retain, nonatomic) NSString *bookmarksBarId;
 @property(retain, nonatomic) NSDictionary *bulkRequests;
@@ -33,8 +33,8 @@
 @property(retain, nonatomic) NSString *ptag;
 @property(retain, nonatomic) NSString *ctag;
 @property(retain, nonatomic) NSString *pushKey;
-@property(nonatomic) BOOL supportsSyncCollection;
-@property(nonatomic) BOOL initialSyncDone;
+@property(nonatomic) _Bool supportsSyncCollection;
+@property(nonatomic) _Bool initialSyncDone;
 @property(retain, nonatomic) NSURL *homeURL;
 - (void)writeToBookmarkDB;
 - (void)dealloc;

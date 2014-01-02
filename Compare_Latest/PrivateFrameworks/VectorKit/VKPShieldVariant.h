@@ -8,12 +8,13 @@
 
 @class NSString;
 
+// Not exported
 @interface VKPShieldVariant : PBCodable
 {
     CDStruct_79d0722e _textShadow;
     CDStruct_f43f0670 _textStroke;
     CDStruct_58ec0031 _fontColor;
-    CDStruct_d570ea55 _centerPoints;
+    CDStruct_fae3dc92 _centerPoints;
     unsigned int _atlasIndex;
     float _centerOffsetX;
     NSString *_fontName;
@@ -50,30 +51,30 @@
 @property(nonatomic) unsigned int minDigits; // @synthesize minDigits=_minDigits;
 @property(nonatomic) unsigned int quadIndex; // @synthesize quadIndex=_quadIndex;
 @property(nonatomic) unsigned int atlasIndex; // @synthesize atlasIndex=_atlasIndex;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (void)setCenterPoints:(float *)arg1 count:(unsigned int)arg2;
-- (float)centerPointAtIndex:(unsigned int)arg1;
+- (void)setCenterPoints:(float *)arg1 count:(unsigned long long)arg2;
+- (float)centerPointAtIndex:(unsigned long long)arg1;
 - (void)addCenterPoint:(float)arg1;
 - (void)clearCenterPoints;
 @property(readonly, nonatomic) float *centerPoints;
-@property(readonly, nonatomic) unsigned int centerPointsCount;
-@property(nonatomic) BOOL hasNonDigitFontSize;
-@property(readonly, nonatomic) BOOL hasNonDigitFontName;
-@property(nonatomic) BOOL hasTextShadow;
-@property(nonatomic) BOOL hasTextStroke;
-@property(nonatomic) BOOL hasFontColor;
-@property(nonatomic) BOOL hasFontSize;
-@property(readonly, nonatomic) BOOL hasFontName;
-@property(nonatomic) BOOL hasCenterOffsetX;
-@property(nonatomic) BOOL hasTextBaseLine;
-@property(nonatomic) BOOL hasMaxDigits;
-@property(nonatomic) BOOL hasMinDigits;
+@property(readonly, nonatomic) unsigned long long centerPointsCount;
+@property(nonatomic) _Bool hasNonDigitFontSize;
+@property(readonly, nonatomic) _Bool hasNonDigitFontName;
+@property(nonatomic) _Bool hasTextShadow;
+@property(nonatomic) _Bool hasTextStroke;
+@property(nonatomic) _Bool hasFontColor;
+@property(nonatomic) _Bool hasFontSize;
+@property(readonly, nonatomic) _Bool hasFontName;
+@property(nonatomic) _Bool hasCenterOffsetX;
+@property(nonatomic) _Bool hasTextBaseLine;
+@property(nonatomic) _Bool hasMaxDigits;
+@property(nonatomic) _Bool hasMinDigits;
 - (void)dealloc;
 
 @end

@@ -12,14 +12,12 @@
 
 @interface BitmapHandView : UIView <HandView>
 {
-    float _handAngle;
     NSArray *_partViews;
     NSArray *_partViewsMaintainingOrientation;
 }
 
-+ (id)partInfoWithName:(id)arg1 offset:(struct CGPoint)arg2 maintainsOrientation:(BOOL)arg3;
++ (id)partInfoWithName:(id)arg1 offset:(struct CGPoint)arg2 maintainsOrientation:(_Bool)arg3;
 + (id)partInfoWithName:(id)arg1;
-@property(nonatomic) float handAngle; // @synthesize handAngle=_handAngle;
 - (void)dealloc;
 - (id)initWithImage:(id)arg1 rotationalCenter:(struct CGPoint)arg2;
 - (id)initWithBundle:(id)arg1 resourcePath:(id)arg2 partInfoList:(id)arg3 rotationalCenter:(struct CGPoint)arg4;

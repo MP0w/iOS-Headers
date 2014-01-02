@@ -8,6 +8,7 @@
 
 @class NSMutableArray, WDDocument, WDListDefinition;
 
+// Not exported
 @interface WDListDefinitionTable : NSObject
 {
     NSMutableArray *mListDefinitions;
@@ -17,16 +18,14 @@
     WDListDefinition *mLastKnownGoodListDefinition;
 }
 
-- (id)definitionWithId:(long)arg1;
-- (id)addDefinition:(long)arg1;
+- (id)definitionWithId:(long long)arg1;
+- (id)addDefinition:(long long)arg1;
 - (id)addDefinition;
-- (id)definitionAt:(unsigned int)arg1;
-- (unsigned int)definitionCount;
+- (id)definitionAt:(unsigned long long)arg1;
+- (unsigned long long)definitionCount;
 - (id)document;
 - (void)dealloc;
 - (id)initWithDocument:(id)arg1;
-- (void)setLastKnowGoodListDefinition:(id)arg1;
-- (int)nextId;
 
 @end
 

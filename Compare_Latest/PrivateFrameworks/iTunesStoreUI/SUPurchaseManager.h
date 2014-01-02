@@ -8,11 +8,12 @@
 
 #import "SSDownloadManagerObserver-Protocol.h"
 #import "SSPurchaseRequestDelegate-Protocol.h"
+#import "SSPurchaseRequestDelegatePrivate-Protocol.h"
 #import "SUContinuationDelegate-Protocol.h"
 
 @class NSMutableArray, NSMutableSet, NSSet, NSString, SUQueueSessionManager;
 
-@interface SUPurchaseManager : NSObject <SUContinuationDelegate, SSDownloadManagerObserver, SSPurchaseRequestDelegate>
+@interface SUPurchaseManager : NSObject <SSPurchaseRequestDelegatePrivate, SUContinuationDelegate, SSDownloadManagerObserver, SSPurchaseRequestDelegate>
 {
     id <SUPurchaseManagerDelegate> _delegate;
     NSMutableSet *_futurePurchases;
@@ -23,10 +24,10 @@
     NSMutableSet *_purchasedIdentifiers;
     NSMutableArray *_purchaseRequests;
     SUQueueSessionManager *_queueSessionManager;
-    BOOL _showingErrorDialogs;
-    int _updatesCount;
+    _Bool _showingErrorDialogs;
+    long long _updatesCount;
     NSString *_userAgent;
-    BOOL _waitingForAuthentication;
+    _Bool _waitingForAuthentication;
 }
 
 @property(copy, nonatomic) NSString *userAgent; // @synthesize userAgent=_userAgent;
@@ -40,8 +41,8 @@
 - (void)_removePurchaseRequest:(id)arg1;
 - (void)_removePlaceholdersForPurchase:(id)arg1;
 - (void)_performNextAction;
-- (BOOL)_needsAuthenticationForPurchases:(id)arg1;
-- (BOOL)_issuePurchaseRequestForPurchases:(id)arg1;
+- (_Bool)_needsAuthenticationForPurchases:(id)arg1;
+- (_Bool)_issuePurchaseRequestForPurchases:(id)arg1;
 - (void)_enqueuePurchases:(id)arg1;
 - (void)_enqueueExternalDownload:(id)arg1;
 - (void)_enqueueContinuations:(id)arg1;
@@ -50,39 +51,26 @@
 - (id)_accountForPurchase:(id)arg1;
 - (void)requestDidFinish:(id)arg1;
 - (void)request:(id)arg1 didFailWithError:(id)arg2;
+- (void)purchaseRequest:(id)arg1 purchaseDidSucceedWithResponse:(id)arg2;
 - (void)purchaseRequest:(id)arg1 purchaseDidSucceed:(id)arg2;
 - (void)purchaseRequest:(id)arg1 purchaseDidFail:(id)arg2 withError:(id)arg3;
 - (void)continuationFinished:(id)arg1;
 - (void)continuation:(id)arg1 failedWithError:(id)arg2;
 - (void)_dialogDidFinish:(id)arg1;
 - (void)removePurchasedItemIdentifier:(unsigned long long)arg1;
-@property(readonly, nonatomic) int numberOfPendingPurchases;
+@property(readonly, nonatomic) long long numberOfPendingPurchases;
 - (id)newPurchaseBatchForItems:(id)arg1 offers:(id)arg2;
-- (BOOL)itemIdentifierIsPurchasing:(unsigned long long)arg1;
-- (BOOL)itemIdentifierIsPurchased:(unsigned long long)arg1;
+- (_Bool)itemIdentifierIsPurchasing:(unsigned long long)arg1;
+- (_Bool)itemIdentifierIsPurchased:(unsigned long long)arg1;
 - (void)endUpdates;
 - (void)cancelFuturePurchase:(id)arg1;
 - (void)beginUpdates;
 - (void)addPurchasedItemIdentifiers:(id)arg1;
 - (void)addPurchasedItemIdentifier:(unsigned long long)arg1;
-- (BOOL)addPurchaseBatch:(id)arg1;
+- (_Bool)addPurchaseBatch:(id)arg1;
 - (void)addFuturePurchase:(id)arg1;
 - (void)dealloc;
 - (id)init;
-- (void)_schedulePurchaseCallback:(id)arg1;
-- (id)_newPurchaseBatchForPurchases:(id)arg1;
-- (id)_newExternalDownloadWithItemDictionary:(id)arg1;
-- (id)_newExternalDownloadWithDownloadDictionary:(id)arg1;
-- (id)_newExternalDownloadWithDictionary:(id)arg1;
-- (id)_newDictionaryForWebScriptValue:(id)arg1 inContext:(struct OpaqueJSContext *)arg2;
-- (void)_addBatchForPurchases:(id)arg1 options:(id)arg2;
-- (void)purchaseScriptObject:(id)arg1 withOptions:(id)arg2 inContext:(struct OpaqueJSContext *)arg3;
-- (void)purchaseScriptObject:(id)arg1;
-- (void)enqueueScriptPurchases:(id)arg1;
-- (id)copyPurchaseForScriptObject:(id)arg1 inContext:(struct OpaqueJSContext *)arg2;
-- (id)copyPurchaseForScriptObject:(id)arg1;
-- (void)addExternalDownloads:(id)arg1 withOptions:(id)arg2 inContext:(struct OpaqueJSContext *)arg3;
-- (void)addExternalDownloads:(id)arg1 inContext:(struct OpaqueJSContext *)arg2;
 
 @end
 

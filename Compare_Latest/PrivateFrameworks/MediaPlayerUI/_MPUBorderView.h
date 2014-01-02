@@ -11,22 +11,24 @@
 @interface _MPUBorderView : UIView
 {
     UIColor *_borderColor;
-    float _borderWidth;
-    float _borderAlpha;
+    double _borderWidth;
+    double _borderAlpha;
     UIColor *_fillColor;
-    float _fillAlpha;
-    float _dropShadowAlpha;
+    double _fillAlpha;
+    double _dropShadowAlpha;
+    unsigned long long _dropShadowEdges;
+    double _dropShadowWidth;
     UIColor *_dropShadowColor;
-    struct UIOffset _dropShadowOffset;
 }
 
 @property(retain, nonatomic) UIColor *dropShadowColor; // @synthesize dropShadowColor=_dropShadowColor;
-@property(nonatomic) float dropShadowAlpha; // @synthesize dropShadowAlpha=_dropShadowAlpha;
-@property(nonatomic) struct UIOffset dropShadowOffset; // @synthesize dropShadowOffset=_dropShadowOffset;
-@property(nonatomic) float fillAlpha; // @synthesize fillAlpha=_fillAlpha;
+@property(nonatomic) double dropShadowWidth; // @synthesize dropShadowWidth=_dropShadowWidth;
+@property(nonatomic) unsigned long long dropShadowEdges; // @synthesize dropShadowEdges=_dropShadowEdges;
+@property(nonatomic) double dropShadowAlpha; // @synthesize dropShadowAlpha=_dropShadowAlpha;
+@property(nonatomic) double fillAlpha; // @synthesize fillAlpha=_fillAlpha;
 @property(retain, nonatomic) UIColor *fillColor; // @synthesize fillColor=_fillColor;
-@property(nonatomic) float borderAlpha; // @synthesize borderAlpha=_borderAlpha;
-@property(nonatomic) float borderWidth; // @synthesize borderWidth=_borderWidth;
+@property(nonatomic) double borderAlpha; // @synthesize borderAlpha=_borderAlpha;
+@property(nonatomic) double borderWidth; // @synthesize borderWidth=_borderWidth;
 @property(retain, nonatomic) UIColor *borderColor; // @synthesize borderColor=_borderColor;
 - (void).cxx_destruct;
 - (void)drawRect:(struct CGRect)arg1;

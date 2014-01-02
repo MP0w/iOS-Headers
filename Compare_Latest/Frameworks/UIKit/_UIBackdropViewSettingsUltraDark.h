@@ -6,6 +6,7 @@
 
 #import <UIKit/_UIBackdropViewSettingsNonAdaptive.h>
 
+// Not exported
 @interface _UIBackdropViewSettingsUltraDark : _UIBackdropViewSettingsNonAdaptive
 {
 }

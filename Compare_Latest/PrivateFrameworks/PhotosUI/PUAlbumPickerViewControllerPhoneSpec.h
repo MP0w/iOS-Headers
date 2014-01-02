@@ -13,8 +13,8 @@
 - (void)configureSessionInfo:(id)arg1;
 - (id)newAlbumListViewController;
 - (id)albumListViewControllerSpec;
-- (unsigned int)bannerViewStyle;
-- (unsigned int)supportedInterfaceOrientations;
+- (unsigned long long)bannerViewStyle;
+- (unsigned long long)supportedInterfaceOrientations;
 
 @end
 

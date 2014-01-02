@@ -6,14 +6,15 @@
 
 #import <OfficeImport/OADTextBodyAutoFit.h>
 
+// Not exported
 @interface OADNormalTextBodyAutoFit : OADTextBodyAutoFit
 {
     float mFontScalePercent;
     float mLineSpacingReductionPercent;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (float)lineSpacingReductionPercent;
 - (float)fontScalePercent;
 - (id)initWithFontScalePercent:(float)arg1 lineSpacingReductionPercent:(float)arg2;

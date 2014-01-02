@@ -8,19 +8,19 @@
 
 @interface HSDAAPML3ImportItem : ML3ImportItem
 {
-    CDStruct_30baf813 _parsedValues[256];
-    int _parsedValuesPropertyIndex[109];
-    int _parsedValuesPropertyIndex[109];
-    CDStruct_30baf813 _parsedValues[256];
+    CDStruct_1568afcd _parsedValues[256];
+    long long _parsedValuesPropertyIndex[109];
+    long long _parsedValuesPropertyIndex[109];
+    CDStruct_1568afcd _parsedValues[256];
 }
 
-- (unsigned long)mediaType;
+- (unsigned int)mediaType;
 - (long long)ratingLevel;
 - (id)deduplicationPredicates;
-- (BOOL)mediaKindIsSupported:(unsigned int)arg1;
-- (BOOL)isValid;
+- (_Bool)mediaKindIsSupported:(unsigned int)arg1;
+- (_Bool)isValid;
 - (void)parseItemData:(id)arg1;
-- (BOOL)hasValueForProperty:(unsigned int)arg1;
+- (_Bool)hasValueForProperty:(unsigned int)arg1;
 - (id)valueForProperty:(unsigned int)arg1;
 - (id)init;
 

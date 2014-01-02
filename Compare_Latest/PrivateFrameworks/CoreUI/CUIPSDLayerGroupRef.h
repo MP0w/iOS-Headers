@@ -16,9 +16,9 @@
 - (id)layerRefAtIndex:(unsigned int)arg1;
 - (id)layerNames;
 - (unsigned int)numberOfLayers;
-- (BOOL)isOpen;
+- (_Bool)isOpen;
 - (struct CGRect)bounds;
-- (BOOL)isLayerGroup;
+- (_Bool)isLayerGroup;
 - (void)dealloc;
 - (id)initWithImageRef:(id)arg1 layerIndex:(unsigned int)arg2;
 

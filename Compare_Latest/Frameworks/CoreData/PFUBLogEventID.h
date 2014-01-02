@@ -8,16 +8,17 @@
 
 @class NSString;
 
+// Not exported
 @interface PFUBLogEventID : NSObject
 {
     NSString *_idString;
-    int _hash;
-    int _eventType;
+    long long _hash;
+    long long _eventType;
 }
 
 + (void)initialize;
-@property(readonly, nonatomic) int eventType; // @synthesize eventType=_eventType;
-@property(readonly, nonatomic) int hash; // @synthesize hash=_hash;
+@property(readonly, nonatomic) long long eventType; // @synthesize eventType=_eventType;
+@property(readonly, nonatomic) long long hash; // @synthesize hash=_hash;
 @property(readonly, nonatomic) NSString *idString; // @synthesize idString=_idString;
 - (id)initWithCustomKey:(id)arg1;
 - (id)initWithEventType:(int)arg1;

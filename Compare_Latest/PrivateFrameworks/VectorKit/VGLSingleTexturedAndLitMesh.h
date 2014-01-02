@@ -8,6 +8,7 @@
 
 @class VGLTexture;
 
+// Not exported
 @interface VGLSingleTexturedAndLitMesh : VGLMesh
 {
     VGLTexture *_texture;

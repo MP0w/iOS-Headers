@@ -12,12 +12,12 @@
 {
     MFMailMessage *_message;
     id _content;
-    BOOL _isDraft;
+    _Bool _isDraft;
 }
 
 - (void)loadAttachments;
 - (void)dealloc;
-- (id)initWithMessage:(id)arg1 content:(id)arg2 isDraft:(BOOL)arg3;
+- (id)initWithMessage:(id)arg1 content:(id)arg2 isDraft:(_Bool)arg3;
 
 @end
 

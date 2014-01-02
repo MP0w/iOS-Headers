@@ -13,19 +13,19 @@
 
 + (id)dataDetectorWithTypes:(unsigned long long)arg1 error:(id *)arg2;
 + (void)initialize;
-- (void)enumerateMatchesInString:(id)arg1 options:(unsigned int)arg2 range:(struct _NSRange)arg3 usingBlock:(id)arg4;
-- (unsigned int)numberOfCaptureGroups;
-- (unsigned int)options;
+- (void)enumerateMatchesInString:(id)arg1 options:(unsigned long long)arg2 range:(struct _NSRange)arg3 usingBlock:(id)arg4;
+- (unsigned long long)numberOfCaptureGroups;
+- (unsigned long long)options;
 - (id)pattern;
 @property(readonly) unsigned long long checkingTypes;
 - (id)description;
 - (void)finalize;
 - (void)dealloc;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (id)initWithPattern:(id)arg1 options:(unsigned int)arg2 error:(id *)arg3;
+- (id)initWithPattern:(id)arg1 options:(unsigned long long)arg2 error:(id *)arg3;
 - (id)initWithTypes:(unsigned long long)arg1 error:(id *)arg2;
 
 @end

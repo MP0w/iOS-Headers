@@ -8,14 +8,15 @@
 
 @class NSDictionary;
 
+// Not exported
 @interface OADImageRecolorInfo : NSObject
 {
     NSDictionary *mColors;
     NSDictionary *mFills;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)fills;
 - (id)colors;
 - (void)dealloc;

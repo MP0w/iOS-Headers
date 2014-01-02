@@ -18,7 +18,7 @@
 }
 
 - (id)_artworkLoader;
-- (void)showcase:(id)arg1 didSelectItem:(id)arg2 atIndex:(int)arg3;
+- (void)showcase:(id)arg1 didSelectItem:(id)arg2 atIndex:(long long)arg3;
 - (void)loadView;
 - (void)dealloc;
 - (id)initWithShowcaseDictionary:(id)arg1;

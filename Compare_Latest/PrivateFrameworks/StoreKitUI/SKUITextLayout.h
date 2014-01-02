@@ -6,10 +6,12 @@
 
 #import "NSObject.h"
 
-@interface SKUITextLayout : NSObject
+#import "SKUICachedLayout-Protocol.h"
+
+@interface SKUITextLayout : NSObject <SKUICachedLayout>
 {
     struct __CTFramesetter *_framesetter;
-    BOOL _requiresTruncation;
+    _Bool _requiresTruncation;
     struct CGSize _size;
     struct __CTFrame *_textFrame;
     struct CGSize _truncatedSize;
@@ -20,7 +22,7 @@
 @property(readonly, nonatomic) struct __CTFrame *textFrame; // @synthesize textFrame=_textFrame;
 @property(readonly, nonatomic) struct CGSize truncatedSize; // @synthesize truncatedSize=_truncatedSize;
 @property(readonly, nonatomic) struct CGSize textSize; // @synthesize textSize=_size;
-@property(readonly, nonatomic) BOOL requiresTruncation; // @synthesize requiresTruncation=_requiresTruncation;
+@property(readonly, nonatomic) _Bool requiresTruncation; // @synthesize requiresTruncation=_requiresTruncation;
 - (void)dealloc;
 - (id)initWithLayoutRequest:(id)arg1;
 

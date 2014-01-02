@@ -8,22 +8,22 @@
 
 @class UIImage, UIView;
 
+// Not exported
 @interface UIKeyboardCandidateUnsplitKeyboardToggleButton : UIKeyboardCandidateToggleButton
 {
     UIView *_pocketShadow;
-    UIView *_borderLine;
     UIImage *_backgroundNormal;
     UIImage *_backgroundHighlighted;
-    BOOL _drawsBackground;
-    BOOL _drawsPocketShadow;
+    _Bool _drawsBackground;
+    _Bool _drawsPocketShadow;
 }
 
-@property(nonatomic) BOOL drawsPocketShadow; // @synthesize drawsPocketShadow=_drawsPocketShadow;
-@property(nonatomic) BOOL drawsBackground; // @synthesize drawsBackground=_drawsBackground;
-- (id)toggleButtonBackgroundImageWithHighlight:(BOOL)arg1;
+@property(nonatomic) _Bool drawsPocketShadow; // @synthesize drawsPocketShadow=_drawsPocketShadow;
+@property(nonatomic) _Bool drawsBackground; // @synthesize drawsBackground=_drawsBackground;
+- (id)toggleButtonBackgroundImageWithHighlight:(_Bool)arg1;
 - (void)updateBackgroundImages;
-- (void)setHighlighted:(BOOL)arg1;
-- (void)setSelected:(BOOL)arg1;
+- (void)setHighlighted:(_Bool)arg1;
+- (void)setSelected:(_Bool)arg1;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

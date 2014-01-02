@@ -14,7 +14,7 @@
 
 + (id)assistantLoadedWithDictionary:(id)arg1 context:(id)arg2;
 + (id)assistantLoaded;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSString *version;
 @property(copy, nonatomic) NSArray *syncAnchors;
 @property(copy, nonatomic) NSNumber *requestSync;

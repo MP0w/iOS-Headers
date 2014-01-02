@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface CHBPlotArea : NSObject
 {
 }
 
 + (id)readWithState:(id)arg1;
-+ (void)readAxisGroup:(int)arg1 to:(id)arg2 state:(id)arg3;
 
 @end
 

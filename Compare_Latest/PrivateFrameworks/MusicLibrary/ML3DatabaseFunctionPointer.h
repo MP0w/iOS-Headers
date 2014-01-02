@@ -6,6 +6,7 @@
 
 #import <MusicLibrary/ML3DatabaseFunction.h>
 
+// Not exported
 @interface ML3DatabaseFunctionPointer : ML3DatabaseFunction
 {
     void *_functionPointer;
@@ -14,7 +15,7 @@
 
 @property(nonatomic) void *userData; // @synthesize userData=_userData;
 @property(nonatomic) void *functionPointer; // @synthesize functionPointer=_functionPointer;
-- (BOOL)registerWithConnection:(id)arg1;
+- (_Bool)registerWithConnection:(id)arg1;
 
 @end
 

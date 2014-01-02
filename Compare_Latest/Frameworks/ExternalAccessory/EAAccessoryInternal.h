@@ -10,7 +10,7 @@
 
 @interface EAAccessoryInternal : NSObject
 {
-    BOOL _connected;
+    _Bool _connected;
     unsigned int _connectionID;
     NSString *_name;
     NSString *_manufacturer;
@@ -23,7 +23,7 @@
     int _classType;
     NSDictionary *_audioPorts;
     unsigned int _capabilities;
-    BOOL _notPresentInIAPAccessoriesArray;
+    _Bool _notPresentInIAPAccessoriesArray;
     NSMutableArray *_sessionsList;
     NSArray *_eqNames;
     int _iPodOutOptionsMask;
@@ -49,7 +49,7 @@
 @property(nonatomic) int iPodOutOptionsMask; // @synthesize iPodOutOptionsMask=_iPodOutOptionsMask;
 @property(nonatomic) unsigned int eqIndex; // @synthesize eqIndex=_eqIndex;
 @property(retain, nonatomic) NSArray *eqNames; // @synthesize eqNames=_eqNames;
-@property(nonatomic) BOOL notPresentInIAPAccessoriesArray; // @synthesize notPresentInIAPAccessoriesArray=_notPresentInIAPAccessoriesArray;
+@property(nonatomic) _Bool notPresentInIAPAccessoriesArray; // @synthesize notPresentInIAPAccessoriesArray=_notPresentInIAPAccessoriesArray;
 @property(nonatomic) unsigned int capabilities; // @synthesize capabilities=_capabilities;
 @property(retain, nonatomic) NSDictionary *audioPorts; // @synthesize audioPorts=_audioPorts;
 @property(nonatomic) int classType; // @synthesize classType=_classType;
@@ -62,7 +62,7 @@
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(copy, nonatomic) NSString *manufacturer; // @synthesize manufacturer=_manufacturer;
 @property(nonatomic) unsigned int connectionID; // @synthesize connectionID=_connectionID;
-@property(nonatomic) BOOL connected; // @synthesize connected=_connected;
+@property(nonatomic) _Bool connected; // @synthesize connected=_connected;
 @property(readonly, nonatomic) NSArray *sessionsList;
 - (void)removeSession:(id)arg1;
 - (void)addSession:(id)arg1;

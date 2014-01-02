@@ -8,6 +8,7 @@
 
 @class NSObject<OS_xpc_object>, _UIViewServiceSessionEndpoint;
 
+// Not exported
 @interface _UIViewServiceInterfaceConnectionRequest_XPCObjects : _UIViewServiceInterfaceConnectionRequest
 {
     _UIViewServiceSessionEndpoint *_serviceSessionEndpoint;

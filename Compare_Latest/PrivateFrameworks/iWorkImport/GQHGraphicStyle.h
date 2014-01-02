@@ -6,6 +6,7 @@
 
 #import <iWorkImport/GQHTextBox.h>
 
+// Not exported
 @interface GQHGraphicStyle : GQHTextBox
 {
 }
@@ -15,7 +16,7 @@
 + (const char *)name;
 + (void)mapFill:(id)arg1 style:(id)arg2 state:(id)arg3;
 + (void)mapExternalWrap:(id)arg1 style:(id)arg2 state:(id)arg3;
-+ (void)mapStyle:(id)arg1 style:(id)arg2 state:(id)arg3 suppressNullFillOverride:(BOOL)arg4;
++ (void)mapStyle:(id)arg1 style:(id)arg2 state:(id)arg3 suppressNullFillOverride:(_Bool)arg4;
 + (void)mapStyle:(id)arg1 style:(id)arg2 state:(id)arg3;
 
 @end

@@ -13,18 +13,18 @@
 @interface SSDownloadMonitorItem : NSObject <SSXPCCoding>
 {
     NSString *_clientIdentifier;
-    int _itemState;
+    long long _itemState;
     NSString *_representativeTitle;
     NSString *_statusString;
-    int _totalNumberOfItems;
-    unsigned int _transferTypes;
+    long long _totalNumberOfItems;
+    unsigned long long _transferTypes;
 }
 
-@property(nonatomic) unsigned int transferTypes; // @synthesize transferTypes=_transferTypes;
-@property(nonatomic) int totalNumberOfItems; // @synthesize totalNumberOfItems=_totalNumberOfItems;
+@property(nonatomic) unsigned long long transferTypes; // @synthesize transferTypes=_transferTypes;
+@property(nonatomic) long long totalNumberOfItems; // @synthesize totalNumberOfItems=_totalNumberOfItems;
 @property(copy, nonatomic) NSString *statusString; // @synthesize statusString=_statusString;
 @property(copy, nonatomic) NSString *representativeTitle; // @synthesize representativeTitle=_representativeTitle;
-@property(nonatomic) int itemState; // @synthesize itemState=_itemState;
+@property(nonatomic) long long itemState; // @synthesize itemState=_itemState;
 @property(copy, nonatomic) NSString *clientIdentifier; // @synthesize clientIdentifier=_clientIdentifier;
 - (id)copyXPCEncoding;
 - (id)initWithXPCEncoding:(id)arg1;

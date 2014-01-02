@@ -18,7 +18,7 @@
 + (id)recurrence;
 @property(copy, nonatomic) NSArray *weeksOfTheYear;
 @property(copy, nonatomic) NSArray *monthsOfTheYear;
-@property(nonatomic) int interval;
+@property(nonatomic) long long interval;
 @property(copy, nonatomic) NSString *frequencyTimeUnit;
 @property(copy, nonatomic) NSArray *daysOfTheYear;
 @property(copy, nonatomic) NSArray *daysOfTheWeek;

@@ -6,14 +6,13 @@
 
 #import "_UISettings.h"
 
-@class SBAlertItemsSettings, SBAppParallaxSettings, SBAppSliderSettings, SBCarDisplaySettings, SBCloseBoxSettings, SBControlCenterSettings, SBDockSettings, SBFadeAnimationSettings, SBFolderSettings, SBLockScreenSettings, SBLockScreenTestPluginSettings, SBNotificationCenterSettings, SBRootZoomSettings;
+@class NSString, SBAlertItemsSettings, SBAppParallaxSettings, SBAppSliderSettings, SBCarDisplaySettings, SBControlCenterSettings, SBFWallpaperSettings, SBFadeAnimationSettings, SBFolderSettings, SBIconColorSettings, SBLegibilitySettings, SBLockScreenSettings, SBLockScreenTestPluginSettings, SBNotificationCenterSettings, SBRootZoomSettings;
 
 @interface SBRootSettings : _UISettings
 {
-    BOOL _preventLockover;
-    BOOL _slowSpringAnimations;
+    _Bool _preventLockover;
+    _Bool _slowSpringAnimations;
     SBAppParallaxSettings *_parallaxSettings;
-    SBDockSettings *_dockSettings;
     SBFolderSettings *_folderSettings;
     SBRootZoomSettings *_rootZoomSettings;
     SBControlCenterSettings *_controlCenterSettings;
@@ -21,19 +20,25 @@
     SBLockScreenSettings *_lockScreenSettings;
     SBCarDisplaySettings *_carDisplaySettings;
     SBLockScreenTestPluginSettings *_lockScreenTestPluginSettings;
-    SBCloseBoxSettings *_closeBoxSettings;
+    SBIconColorSettings *_iconColorSettings;
     SBFadeAnimationSettings *_fadeAnimationSettings;
     SBAlertItemsSettings *_alertItemsSettings;
     SBNotificationCenterSettings *_notificationCenterSettings;
+    SBLegibilitySettings *_legibilitySettings;
+    SBFWallpaperSettings *_wallpaperSettings;
+    NSString *_testRecipeClassName;
 }
 
 + (id)settingsControllerModule;
-@property BOOL slowSpringAnimations; // @synthesize slowSpringAnimations=_slowSpringAnimations;
-@property BOOL preventLockover; // @synthesize preventLockover=_preventLockover;
+@property _Bool slowSpringAnimations; // @synthesize slowSpringAnimations=_slowSpringAnimations;
+@property _Bool preventLockover; // @synthesize preventLockover=_preventLockover;
+@property(retain) NSString *testRecipeClassName; // @synthesize testRecipeClassName=_testRecipeClassName;
+@property(retain) SBFWallpaperSettings *wallpaperSettings; // @synthesize wallpaperSettings=_wallpaperSettings;
+@property(retain) SBLegibilitySettings *legibilitySettings; // @synthesize legibilitySettings=_legibilitySettings;
 @property(retain) SBNotificationCenterSettings *notificationCenterSettings; // @synthesize notificationCenterSettings=_notificationCenterSettings;
 @property(retain) SBAlertItemsSettings *alertItemsSettings; // @synthesize alertItemsSettings=_alertItemsSettings;
 @property(retain) SBFadeAnimationSettings *fadeAnimationSettings; // @synthesize fadeAnimationSettings=_fadeAnimationSettings;
-@property(retain) SBCloseBoxSettings *closeBoxSettings; // @synthesize closeBoxSettings=_closeBoxSettings;
+@property(retain) SBIconColorSettings *iconColorSettings; // @synthesize iconColorSettings=_iconColorSettings;
 @property(retain) SBLockScreenTestPluginSettings *lockScreenTestPluginSettings; // @synthesize lockScreenTestPluginSettings=_lockScreenTestPluginSettings;
 @property(retain) SBCarDisplaySettings *carDisplaySettings; // @synthesize carDisplaySettings=_carDisplaySettings;
 @property(retain) SBLockScreenSettings *lockScreenSettings; // @synthesize lockScreenSettings=_lockScreenSettings;
@@ -41,8 +46,8 @@
 @property(retain) SBControlCenterSettings *controlCenterSettings; // @synthesize controlCenterSettings=_controlCenterSettings;
 @property(retain) SBRootZoomSettings *rootZoomSettings; // @synthesize rootZoomSettings=_rootZoomSettings;
 @property(retain) SBFolderSettings *folderSettings; // @synthesize folderSettings=_folderSettings;
-@property(retain) SBDockSettings *dockSettings; // @synthesize dockSettings=_dockSettings;
 @property(retain) SBAppParallaxSettings *parallaxSettings; // @synthesize parallaxSettings=_parallaxSettings;
+- (void)setDefaultValues;
 
 @end
 

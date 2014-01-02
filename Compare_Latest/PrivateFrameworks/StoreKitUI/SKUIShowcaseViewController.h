@@ -22,11 +22,11 @@
     NSArray *_showcaseItems;
     UIPageViewController *_pageViewController;
     UIImage *_placeholderImage;
-    BOOL _showsReflections;
+    _Bool _showsReflections;
     NSTimer *_timer;
 }
 
-@property(nonatomic) BOOL showsReflections; // @synthesize showsReflections=_showsReflections;
+@property(nonatomic) _Bool showsReflections; // @synthesize showsReflections=_showsReflections;
 @property(copy, nonatomic) NSArray *showcaseItems; // @synthesize showcaseItems=_showcaseItems;
 @property(nonatomic) __weak id <SKUIShowcaseDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
@@ -39,17 +39,17 @@
 - (void)_cancelOutstandingArtworkRequests;
 - (id)_artworkRequestWithItem:(id)arg1;
 - (void)_buttonAction:(id)arg1;
-- (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(BOOL)arg2;
+- (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(_Bool)arg2;
 - (void)scrollViewWillBeginDragging:(id)arg1;
-- (void)pageViewController:(id)arg1 didFinishAnimating:(BOOL)arg2 previousViewControllers:(id)arg3 transitionCompleted:(BOOL)arg4;
+- (void)pageViewController:(id)arg1 didFinishAnimating:(_Bool)arg2 previousViewControllers:(id)arg3 transitionCompleted:(_Bool)arg4;
 - (id)pageViewController:(id)arg1 viewControllerAfterViewController:(id)arg2;
 - (id)pageViewController:(id)arg1 viewControllerBeforeViewController:(id)arg2;
 - (void)artworkRequest:(id)arg1 didLoadImage:(id)arg2;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)loadView;
-- (void)prefetchResourcesWithReason:(int)arg1;
-@property(readonly, nonatomic) int indexOfVisibleItem;
+- (void)prefetchResourcesWithReason:(long long)arg1;
+@property(readonly, nonatomic) long long indexOfVisibleItem;
 - (void)dealloc;
 - (id)initWithArtworkLoader:(id)arg1;
 

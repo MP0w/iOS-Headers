@@ -6,23 +6,24 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
 #import "NSMutableCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
 @class NSArray;
 
-@interface MPMediaQuerySectionInfo : NSObject <NSCopying, NSMutableCopying, NSCoding>
+@interface MPMediaQuerySectionInfo : NSObject <NSCopying, NSMutableCopying, NSSecureCoding>
 {
     NSArray *_sections;
     NSArray *_sectionIndexTitles;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSArray *sectionIndexTitles; // @synthesize sectionIndexTitles=_sectionIndexTitles;
 @property(readonly, nonatomic) NSArray *sections; // @synthesize sections=_sections;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) unsigned int count;
-- (unsigned int)indexOfSectionForSectionIndexTitleAtIndex:(unsigned int)arg1;
+@property(readonly, nonatomic) unsigned long long count;
+- (unsigned long long)indexOfSectionForSectionIndexTitleAtIndex:(unsigned long long)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

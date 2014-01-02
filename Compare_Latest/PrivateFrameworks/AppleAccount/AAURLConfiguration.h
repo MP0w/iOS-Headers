@@ -16,6 +16,9 @@
 + (void)reset;
 + (id)urlConfiguration;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSString *verifyCodeURL;
+@property(readonly, nonatomic) NSString *sendCodeURL;
+@property(readonly, nonatomic) NSString *deviceListURL;
 @property(readonly, nonatomic) NSString *loginDelegatesURL;
 @property(readonly, nonatomic) NSString *syncMachineURL;
 @property(readonly, nonatomic) NSString *finishProvisioningURL;

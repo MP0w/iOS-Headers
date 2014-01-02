@@ -9,9 +9,9 @@
 @protocol SBAssistantObserver <NSObject>
 
 @optional
-- (void)assistant:(id)arg1 viewDidDisappear:(int)arg2;
-- (void)assistant:(id)arg1 viewWillDisappear:(int)arg2;
-- (void)assistant:(id)arg1 viewDidAppear:(int)arg2;
-- (void)assistant:(id)arg1 viewWillAppear:(int)arg2;
+- (void)assistant:(id)arg1 viewDidDisappear:(long long)arg2;
+- (void)assistant:(id)arg1 viewWillDisappear:(long long)arg2;
+- (void)assistant:(id)arg1 viewDidAppear:(long long)arg2;
+- (void)assistant:(id)arg1 viewWillAppear:(long long)arg2;
 @end
 

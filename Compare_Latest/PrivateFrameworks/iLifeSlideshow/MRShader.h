@@ -29,10 +29,10 @@
     NSMutableDictionary *mUniformLocations;
     NSMutableDictionary *mUniforms;
     NSMutableDictionary *mAttributeLocations;
-    BOOL mTextureUnitsAreBound;
+    _Bool mTextureUnitsAreBound;
 }
 
-@property BOOL textureUnitsAreBound; // @synthesize textureUnitsAreBound=mTextureUnitsAreBound;
+@property _Bool textureUnitsAreBound; // @synthesize textureUnitsAreBound=mTextureUnitsAreBound;
 @property(readonly, nonatomic) unsigned int program; // @synthesize program=mProgram;
 @property(readonly) NSString *shaderKey; // @synthesize shaderKey=mShaderKey;
 @property(readonly) NSString *shaderID; // @synthesize shaderID=mShaderID;
@@ -47,10 +47,10 @@
 - (void)setUniformInt:(int)arg1 forKey:(id)arg2;
 - (int)_locationForUniform:(id)arg1;
 - (void)setForeColor:(const float *)arg1;
-- (BOOL)caresAboutForeColor;
-- (void)setTextureMatrix:(float [16])arg1 onTextureUnit:(unsigned int)arg2;
+- (_Bool)caresAboutForeColor;
+- (void)setTextureMatrix:(float [16])arg1 onTextureUnit:(unsigned long long)arg2;
 - (void)setNormal:(float)arg1:(float)arg2:(float)arg3;
-- (BOOL)caresAboutNormal;
+- (_Bool)caresAboutNormal;
 - (void)setModelViewProjectionMatrix:(float [16])arg1;
 @property(retain) MRContext *useContext;
 - (void)dealloc;

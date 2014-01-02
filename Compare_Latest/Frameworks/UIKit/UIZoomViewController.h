@@ -8,6 +8,7 @@
 
 @class UIButton, UIWindow;
 
+// Not exported
 @interface UIZoomViewController : UIViewController
 {
     UIWindow *_window;
@@ -16,17 +17,17 @@
 
 @property(readonly, nonatomic) UIWindow *window; // @synthesize window=_window;
 - (id)screen;
-- (void)_getRotationContentSettings:(CDStruct_19ba41f1 *)arg1 forWindow:(id)arg2;
+- (void)_getRotationContentSettings:(CDStruct_010f855d *)arg1 forWindow:(id)arg2;
 - (void)_suspendAnimationStarted:(id)arg1;
 - (void)_applicationDidFinishLaunching:(id)arg1;
-- (void)_zoomOrientationAnimationFinished:(id)arg1 finished:(BOOL)arg2 context:(void *)arg3;
+- (void)_zoomOrientationAnimationFinished:(id)arg1 finished:(_Bool)arg2 context:(void *)arg3;
 - (void)_zoomOrientationChange:(id)arg1;
 - (void)loadView;
-- (void)_setupPositioningAndRotationForInterfaceOrientation:(int)arg1 offscreen:(BOOL)arg2;
+- (void)_setupPositioningAndRotationForInterfaceOrientation:(long long)arg1 offscreen:(_Bool)arg2;
 - (void)_updateZoomButtonTitle;
 - (void)_changeZoom:(id)arg1;
-- (id)_zoomText:(BOOL)arg1;
-- (BOOL)isClassicControlWindow:(id)arg1;
+- (id)_zoomText:(_Bool)arg1;
+- (_Bool)isClassicControlWindow:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

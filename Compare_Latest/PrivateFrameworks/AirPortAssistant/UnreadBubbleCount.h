@@ -9,19 +9,19 @@
 @interface UnreadBubbleCount : UIView
 {
     struct CGSize _textSize;
-    BOOL _isSelected;
-    int _count;
+    _Bool _isSelected;
+    long long _count;
 }
 
 + (void)deallocImageCache;
-+ (long)initImageCache;
-@property(nonatomic) BOOL isSelected; // @synthesize isSelected=_isSelected;
-@property(nonatomic) int count; // @synthesize count=_count;
++ (int)initImageCache;
+@property(nonatomic) _Bool isSelected; // @synthesize isSelected=_isSelected;
+@property(nonatomic) long long count; // @synthesize count=_count;
 - (void)calculateTextMetrics;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)layoutSubviews;
-- (BOOL)isHighlighted;
-- (void)setHighlighted:(BOOL)arg1;
+- (_Bool)isHighlighted;
+- (void)setHighlighted:(_Bool)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

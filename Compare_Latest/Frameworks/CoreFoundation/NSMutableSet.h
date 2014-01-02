@@ -10,9 +10,9 @@
 {
 }
 
-+ (id)setWithCapacity:(unsigned int)arg1;
-- (id)initWithObjects:(const id *)arg1 count:(unsigned int)arg2;
-- (id)initWithCapacity:(unsigned int)arg1;
++ (id)setWithCapacity:(unsigned long long)arg1;
+- (id)initWithObjects:(const id *)arg1 count:(unsigned long long)arg2;
+- (id)initWithCapacity:(unsigned long long)arg1;
 - (void)unionSet:(id)arg1;
 - (void)unionOrderedSet:(id)arg1;
 - (void)setSet:(id)arg1;
@@ -21,7 +21,7 @@
 - (void)setObject:(id)arg1;
 - (void)replaceObject:(id)arg1;
 - (void)removeObjectsPassingTest:(id)arg1;
-- (void)removeObjectsWithOptions:(unsigned int)arg1 passingTest:(id)arg2;
+- (void)removeObjectsWithOptions:(unsigned long long)arg1 passingTest:(id)arg2;
 - (void)removeObjectsInSet:(id)arg1;
 - (void)removeObjectsInOrderedSet:(id)arg1;
 - (void)removeObjectsInOrderedSet:(id)arg1 range:(struct _NSRange)arg2;
@@ -37,7 +37,7 @@
 - (void)addObjectsFromOrderedSet:(id)arg1 range:(struct _NSRange)arg2;
 - (void)addObjectsFromArray:(id)arg1;
 - (void)addObjectsFromArray:(id)arg1 range:(struct _NSRange)arg2;
-- (void)addObjects:(const id *)arg1 count:(unsigned int)arg2;
+- (void)addObjects:(const id *)arg1 count:(unsigned long long)arg2;
 - (void)_mutate;
 - (void)removeObject:(id)arg1;
 - (void)addObject:(id)arg1;

@@ -14,7 +14,7 @@
 
 + (id)mainQueue;
 + (id)currentQueue;
-+ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
++ (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 - (id)__;
 - (void)__:(id)arg1;
 - (id)description;
@@ -22,16 +22,16 @@
 - (void)cancelAllOperations;
 - (void)setName:(id)arg1;
 - (id)name;
-- (void)setOvercommitsOperations:(BOOL)arg1;
-- (BOOL)overcommitsOperations;
-- (void)setSuspended:(BOOL)arg1;
-- (BOOL)isSuspended;
-- (void)setMaxConcurrentOperationCount:(int)arg1;
-- (int)maxConcurrentOperationCount;
-- (unsigned int)operationCount;
+- (void)setOvercommitsOperations:(_Bool)arg1;
+- (_Bool)overcommitsOperations;
+- (void)setSuspended:(_Bool)arg1;
+- (_Bool)isSuspended;
+- (void)setMaxConcurrentOperationCount:(long long)arg1;
+- (long long)maxConcurrentOperationCount;
+- (unsigned long long)operationCount;
 - (id)operations;
 - (void)addOperationWithBlock:(id)arg1;
-- (void)addOperations:(id)arg1 waitUntilFinished:(BOOL)arg2;
+- (void)addOperations:(id)arg1 waitUntilFinished:(_Bool)arg2;
 - (void)addOperation:(id)arg1;
 - (void)dealloc;
 - (id)init;

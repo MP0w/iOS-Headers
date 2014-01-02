@@ -10,16 +10,16 @@
 {
 }
 
-+ (float)unhighlightCrossfadeHighlightFadeDuration;
-+ (float)unhighlightCrossfadeNormalFadeDuration;
-+ (float)unhighlightCrossfadeHighlightBeginTime;
-+ (float)unhighlightCrossfadeNormalBeginTime;
-+ (float)highlightCrossfadeHighlightFadeDuration;
-+ (float)highlightCrossfadeNormalFadeDuration;
-+ (float)highlightCrossfadeHighlightBeginTime;
-+ (float)highlightCrossfadeNormalBeginTime;
-+ (id)colorForHighlightedKeypadGlyphs;
-+ (id)colorForKeypadGlyphs;
++ (double)unhighlightCrossfadeHighlightFadeDuration;
++ (double)unhighlightCrossfadeNormalFadeDuration;
++ (double)unhighlightCrossfadeHighlightBeginTime;
++ (double)unhighlightCrossfadeNormalBeginTime;
++ (double)highlightCrossfadeHighlightFadeDuration;
++ (double)highlightCrossfadeNormalFadeDuration;
++ (double)highlightCrossfadeHighlightBeginTime;
++ (double)highlightCrossfadeNormalBeginTime;
++ (id)imageForCharacter:(unsigned int)arg1 highlighted:(_Bool)arg2;
++ (id)imageForCharacter:(unsigned int)arg1;
 - (id)defaultColor;
 
 @end

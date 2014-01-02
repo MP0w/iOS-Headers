@@ -6,13 +6,14 @@
 
 #import <OfficeImport/OADColor.h>
 
+// Not exported
 @interface OADSystemColor : OADColor
 {
     int mSystemColorID;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (int)systemColorID;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithSystemColorID:(int)arg1;

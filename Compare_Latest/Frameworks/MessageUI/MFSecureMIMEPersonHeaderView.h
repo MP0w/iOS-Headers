@@ -19,15 +19,18 @@
     unsigned int _editing:1;
 }
 
++ (id)_explanationLabelDefaultAttributes;
 @property(copy, nonatomic) NSArray *buttons; // @synthesize buttons=_buttons;
 - (id)_warningLabel;
 - (id)_secureLabel;
 - (id)_signedLabel;
-- (void)_insert:(BOOL)arg1 subview:(id)arg2;
+- (void)_insert:(_Bool)arg1 subview:(id)arg2;
 - (void)_setText:(id)arg1 forLabel:(id)arg2;
+- (void)setBounds:(struct CGRect)arg1;
 - (void)layoutSubviews;
+- (struct CGSize)intrinsicContentSize;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-@property(nonatomic) BOOL editing;
+@property(nonatomic) _Bool editing;
 @property(copy, nonatomic) NSString *explanationText;
 @property(copy, nonatomic) NSString *warningLabelText;
 @property(copy, nonatomic) NSString *secureLabelText;

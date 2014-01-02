@@ -15,12 +15,12 @@
 
 + (id)sharedInstance;
 - (void)_purgeRecycledLabels;
-- (int)_styleForLabel:(id)arg1;
+- (long long)styleForLabel:(id)arg1;
 - (void)recycleLabel:(id)arg1;
-- (id)combinedDateLabelWithStartDate:(id)arg1 endDate:(id)arg2 timeZone:(id)arg3 allDay:(BOOL)arg4 forStyle:(int)arg5;
-- (id)endLabelWithStartDate:(id)arg1 endDate:(id)arg2 timeZone:(id)arg3 allDay:(BOOL)arg4 forStyle:(int)arg5;
-- (id)startLabelWithStartDate:(id)arg1 endDate:(id)arg2 timeZone:(id)arg3 allDay:(BOOL)arg4 forStyle:(int)arg5;
-- (id)_labelWithStartDate:(id)arg1 endDate:(id)arg2 timeZone:(id)arg3 allDay:(BOOL)arg4 forStyle:(int)arg5 forType:(int)arg6;
+- (id)combinedDateLabelWithStartDate:(id)arg1 endDate:(id)arg2 timeZone:(id)arg3 allDay:(_Bool)arg4 forStyle:(long long)arg5;
+- (id)endLabelWithStartDate:(id)arg1 endDate:(id)arg2 timeZone:(id)arg3 allDay:(_Bool)arg4 forStyle:(long long)arg5;
+- (id)startLabelWithStartDate:(id)arg1 endDate:(id)arg2 timeZone:(id)arg3 allDay:(_Bool)arg4 forStyle:(long long)arg5;
+- (id)_labelWithStartDate:(id)arg1 endDate:(id)arg2 timeZone:(id)arg3 allDay:(_Bool)arg4 forStyle:(long long)arg5 forType:(int)arg6;
 - (void)dealloc;
 - (id)init;
 

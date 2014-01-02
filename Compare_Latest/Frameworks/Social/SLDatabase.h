@@ -22,7 +22,7 @@
 - (id)_managedObjectModel;
 - (id)_persistentStoreCoordinator;
 - (void)_setUpManagedObjectContext;
-- (BOOL)save:(id *)arg1;
+- (_Bool)save:(id *)arg1;
 - (id)newObjectForEntityNamed:(id)arg1;
 - (id)fetchObjectsForEntityNamed:(id)arg1 withPredicate:(id)arg2;
 - (id)initWithStoreName:(id)arg1 modelPath:(id)arg2;

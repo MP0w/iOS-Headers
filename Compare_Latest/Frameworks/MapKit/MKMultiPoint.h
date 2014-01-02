@@ -9,18 +9,18 @@
 @interface MKMultiPoint : MKShape
 {
     CDStruct_c3b9c2ee *_points;
-    unsigned int _pointCount;
+    unsigned long long _pointCount;
     CDStruct_02837cd9 _boundingRect;
 }
 
-@property(readonly, nonatomic) unsigned int pointCount; // @synthesize pointCount=_pointCount;
+@property(readonly, nonatomic) unsigned long long pointCount; // @synthesize pointCount=_pointCount;
 @property(readonly, nonatomic) CDStruct_c3b9c2ee *points; // @synthesize points=_points;
-- (BOOL)intersectsMapRect:(CDStruct_90e2a262)arg1;
+- (_Bool)intersectsMapRect:(CDStruct_90e2a262)arg1;
 - (CDStruct_c3b9c2ee)coordinate;
 - (void)getCoordinates:(CDStruct_c3b9c2ee *)arg1 range:(struct _NSRange)arg2;
-- (void)_assignPoints:(CDStruct_c3b9c2ee *)arg1 count:(unsigned int)arg2;
-- (void)_setPoints:(CDStruct_c3b9c2ee *)arg1 count:(unsigned int)arg2;
-- (void)_setCoordinates:(CDStruct_c3b9c2ee *)arg1 count:(unsigned int)arg2;
+- (void)_assignPoints:(CDStruct_c3b9c2ee *)arg1 count:(unsigned long long)arg2;
+- (void)_setPoints:(CDStruct_c3b9c2ee *)arg1 count:(unsigned long long)arg2;
+- (void)_setCoordinates:(CDStruct_c3b9c2ee *)arg1 count:(unsigned long long)arg2;
 - (void)_calculateBounds;
 - (void)_setBounds:(CDStruct_90e2a262)arg1;
 - (CDStruct_90e2a262)boundingMapRect;

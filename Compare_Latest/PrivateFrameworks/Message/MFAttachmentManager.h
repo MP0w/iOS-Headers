@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MFInvocationQueue, NSMutableDictionary, NSObject<OS_dispatch_queue>;
+@class MFInvocationQueue, NSLock, NSMutableDictionary, NSObject<OS_dispatch_queue>;
 
 @interface MFAttachmentManager : NSObject
 {
@@ -15,6 +15,7 @@
     NSMutableDictionary *_providers;
     NSMutableDictionary *_attachments;
     NSMutableDictionary *_metadata;
+    NSLock *_metaDataLock;
 }
 
 + (id)allManagers;
@@ -25,7 +26,7 @@
 - (void)setContentIDForAttachment:(id)arg1 toCID:(id)arg2;
 - (void)cancelFetchForAttachment:(id)arg1;
 - (void)_fetchCompletedForAttachment:(id)arg1 error:(id)arg2;
-- (void)_callProgressBlockForAttachmentURL:(id)arg1 withBytes:(unsigned int)arg2 expectedSize:(unsigned int)arg3;
+- (void)_callProgressBlockForAttachmentURL:(id)arg1 withBytes:(unsigned long long)arg2 expectedSize:(unsigned long long)arg3;
 - (void)fetchDataSynchronouslyForAttachment:(id)arg1;
 - (void)fetchDataForAttachment:(id)arg1;
 - (id)_fetchDataForAttachment:(id)arg1 withProvider:(id)arg2;
@@ -36,7 +37,7 @@
 - (id)attachmentsForURLs:(id)arg1 error:(id *)arg2;
 - (id)attachmentForURL:(id)arg1 error:(id *)arg2;
 - (id)_dataProviderForAttachmentURL:(id)arg1 error:(id *)arg2;
-- (BOOL)_setupAttachment:(id)arg1 error:(id *)arg2;
+- (_Bool)_setupAttachment:(id)arg1 error:(id *)arg2;
 - (void)removeProvider:(id)arg1;
 - (void)removeProviderForBaseURL:(id)arg1;
 - (void)addProvider:(id)arg1 forBaseURL:(id)arg2;

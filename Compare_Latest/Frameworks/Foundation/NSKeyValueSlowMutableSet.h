@@ -8,15 +8,16 @@
 
 @class NSKeyValueGetter, NSKeyValueSetter;
 
+// Not exported
 @interface NSKeyValueSlowMutableSet : NSKeyValueMutableSet
 {
     NSKeyValueGetter *_valueGetter;
     NSKeyValueSetter *_valueSetter;
-    BOOL _treatNilValuesLikeEmptySets;
+    _Bool _treatNilValuesLikeEmptySets;
     char _padding[3];
 }
 
-+ (CDStruct_e8a1eea0 *)_proxyNonGCPoolPointer;
++ (CDStruct_7c9a8e9f *)_proxyNonGCPoolPointer;
 - (void)unionSet:(id)arg1;
 - (void)setSet:(id)arg1;
 - (void)removeObject:(id)arg1;
@@ -28,7 +29,7 @@
 - (id)_createMutableSetValueWithSelector:(SEL)arg1;
 - (id)objectEnumerator;
 - (id)member:(id)arg1;
-- (unsigned int)count;
+- (unsigned long long)count;
 - (id)_setValueWithSelector:(SEL)arg1;
 - (void)_raiseNilValueExceptionWithSelector:(SEL)arg1;
 - (void)_proxyNonGCFinalize;

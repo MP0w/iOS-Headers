@@ -8,6 +8,7 @@
 
 @class ODDFillColorList;
 
+// Not exported
 @interface ODDColorTransformStyleLabel : NSObject
 {
     ODDFillColorList *mFillColors;

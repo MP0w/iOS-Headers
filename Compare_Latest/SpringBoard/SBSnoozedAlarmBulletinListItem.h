@@ -10,7 +10,7 @@
 {
 }
 
-- (BOOL)canBeClearedByNotificationCenter;
+- (_Bool)canBeClearedByNotificationCenter;
 - (id)sortDate;
 
 @end

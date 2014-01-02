@@ -6,15 +6,17 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, NSString, SBOrderedRequesters, SBWindowContextHostView, SBWindowContextManager, UIScreen;
+@class NSMutableDictionary, NSString, SBOrderedRequesters, SBWindowContextHostView, SBWindowContextManager, UIColor, UIScreen;
 
 @interface SBWindowContextHostManager : NSObject
 {
     SBWindowContextManager *_contextManager;
     UIScreen *_screen;
     NSString *_identifier;
+    UIColor *_defaultBackgroundColorWhileHosting;
+    UIColor *_defaultBackgroundColorWhileNotHosting;
     SBWindowContextHostView *_hostView;
-    BOOL _suspended;
+    _Bool _suspended;
     SBOrderedRequesters *_hostRequesters;
     NSMutableDictionary *_hostRequesterInfo;
     int _jailBehavior;
@@ -29,7 +31,7 @@
 @property(readonly, nonatomic) UIScreen *screen; // @synthesize screen=_screen;
 - (void)_notePropertiesSetOnRealContextHostViewWhichIReallyNeedToChangeAndIKnowWhatImDoingISwear:(id)arg1 originalProperties:(id)arg2 forRequester:(id)arg3;
 - (id)_realContextHostViewWhichIReallyNeedToAccessAndIKnowWhatImDoingISwear;
-- (void)_hostOnDefaultWindowForRequester:(id)arg1 priority:(int)arg2 hide:(BOOL)arg3;
+- (void)_hostOnDefaultWindowForRequester:(id)arg1 priority:(int)arg2 hide:(_Bool)arg3;
 - (id)_overrideRequesterIfNecessary:(id)arg1;
 - (void)_removeRequesterInfo:(id)arg1;
 - (void)_applyRequesterInfo:(id)arg1;
@@ -37,7 +39,7 @@
 - (void *)createIOSurfaceForFrame:(struct CGRect)arg1 excludeContext:(unsigned int)arg2 outTransform:(struct CGAffineTransform *)arg3;
 - (void *)createIOSurfaceForFrame:(struct CGRect)arg1 outTransform:(struct CGAffineTransform *)arg2;
 - (void *)createIOSurfaceForFrame:(struct CGRect)arg1;
-- (void)setContextId:(unsigned int)arg1 hidden:(BOOL)arg2 forRequester:(id)arg3;
+- (void)setContextId:(unsigned int)arg1 hidden:(_Bool)arg2 forRequester:(id)arg3;
 - (void)hideHostViewOnDefaultWindowForRequester:(id)arg1 priority:(int)arg2;
 - (void)hideHostViewOnDefaultWindowForRequester:(id)arg1;
 - (void)unhideHostViewOnDefaultWindowForRequester:(id)arg1;
@@ -46,11 +48,13 @@
 - (void)resumeContextHosting;
 - (void)suspendContextHosting;
 - (void)enableHostingForRequester:(id)arg1 priority:(int)arg2;
-- (void)enableHostingForRequester:(id)arg1 orderFront:(BOOL)arg2;
-- (id)hostViewForRequester:(id)arg1 enableAndOrderFront:(BOOL)arg2;
+- (void)enableHostingForRequester:(id)arg1 orderFront:(_Bool)arg2;
+- (id)hostViewForRequester:(id)arg1 enableAndOrderFront:(_Bool)arg2;
 - (id)hostViewForRequester:(id)arg1;
 - (id)description;
-@property(readonly, nonatomic) unsigned int contextCount;
+@property(readonly, nonatomic) unsigned long long contextCount;
+@property(copy, nonatomic) UIColor *defaultBackgroundColorWhileNotHosting;
+@property(copy, nonatomic) UIColor *defaultBackgroundColorWhileHosting;
 @property(nonatomic) id <SBWindowContextHostManagerDelegate> delegate;
 - (void)dealloc;
 - (id)initWithContextManager:(id)arg1 screen:(id)arg2 jailBehavior:(int)arg3;

@@ -8,13 +8,13 @@
 
 @interface ASClientController : SUClientController
 {
-    BOOL _shouldExitAfterPurchases;
+    _Bool _shouldExitAfterPurchases;
 }
 
-@property(nonatomic) BOOL shouldExitAfterPurchases; // @synthesize shouldExitAfterPurchases=_shouldExitAfterPurchases;
+@property(nonatomic) _Bool shouldExitAfterPurchases; // @synthesize shouldExitAfterPurchases=_shouldExitAfterPurchases;
 - (id)purchaseManager:(id)arg1 purchaseBatchForPurchases:(id)arg2;
 - (id)purchaseManager:(id)arg1 purchaseBatchForItems:(id)arg2;
-- (BOOL)libraryContainsItemIdentifier:(unsigned long long)arg1;
+- (_Bool)libraryContainsItemIdentifier:(unsigned long long)arg1;
 - (id)initWithClientInterface:(id)arg1;
 - (id)initWithClientIdentifier:(id)arg1;
 

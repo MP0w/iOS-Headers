@@ -16,18 +16,18 @@
     NSArray *_previousSubActionsAttributes;
     UICollectionViewLayoutAttributes *_backgroundAttributes;
     UICollectionViewLayoutAttributes *_previousBackgroundAttributes;
-    float _notificationHeight;
-    float _transitionSpacing;
+    double _notificationHeight;
+    double _transitionSpacing;
     struct UIEdgeInsets _subActionsInsets;
-    float _subActionPadding;
-    float _subActionHeight;
+    double _subActionPadding;
+    double _subActionHeight;
 }
 
-@property(nonatomic) float subActionHeight; // @synthesize subActionHeight=_subActionHeight;
-@property(nonatomic) float subActionPadding; // @synthesize subActionPadding=_subActionPadding;
+@property(nonatomic) double subActionHeight; // @synthesize subActionHeight=_subActionHeight;
+@property(nonatomic) double subActionPadding; // @synthesize subActionPadding=_subActionPadding;
 @property(nonatomic) struct UIEdgeInsets subActionsInsets; // @synthesize subActionsInsets=_subActionsInsets;
-@property(nonatomic) float transitionSpacing; // @synthesize transitionSpacing=_transitionSpacing;
-@property(nonatomic) float notificationHeight; // @synthesize notificationHeight=_notificationHeight;
+@property(nonatomic) double transitionSpacing; // @synthesize transitionSpacing=_transitionSpacing;
+@property(nonatomic) double notificationHeight; // @synthesize notificationHeight=_notificationHeight;
 - (id)finalLayoutAttributesForDisappearingDecorationElementOfKind:(id)arg1 atIndexPath:(id)arg2;
 - (id)initialLayoutAttributesForAppearingDecorationElementOfKind:(id)arg1 atIndexPath:(id)arg2;
 - (id)finalLayoutAttributesForDisappearingItemAtIndexPath:(id)arg1;
@@ -37,12 +37,12 @@
 - (id)_indexPathsToDeleteForDecorationViewOfKind:(id)arg1;
 - (id)_indexPathsToInsertForDecorationViewOfKind:(id)arg1;
 - (struct CGSize)collectionViewContentSize;
-- (BOOL)shouldInvalidateLayoutForBoundsChange:(struct CGRect)arg1;
+- (_Bool)shouldInvalidateLayoutForBoundsChange:(struct CGRect)arg1;
 - (id)layoutAttributesForDecorationViewOfKind:(id)arg1 atIndexPath:(id)arg2;
 - (id)layoutAttributesForItemAtIndexPath:(id)arg1;
 - (id)layoutAttributesForElementsInRect:(struct CGRect)arg1;
 - (void)prepareLayout;
-- (id)_transitionAttributesForAction:(int)arg1 withLayoutAttributes:(id)arg2;
+- (id)_transitionAttributesForAction:(long long)arg1 withLayoutAttributes:(id)arg2;
 - (void)dealloc;
 - (id)init;
 

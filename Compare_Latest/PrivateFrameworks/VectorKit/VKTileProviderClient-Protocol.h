@@ -10,6 +10,6 @@
 - (void)didStopLoadingTilesWithError:(id)arg1;
 - (void)willStartLoadingTiles;
 - (void)tileProviderNeedsUpdate:(id)arg1;
-- (BOOL)tileProviderMayUseNetwork:(id)arg1;
+- (_Bool)tileProviderMayUseNetwork:(id)arg1;
 @end
 

@@ -12,31 +12,31 @@
 {
     NSString *_expectedRequestPattern;
     NSData *_response;
-    unsigned int _responseChunkSize;
-    unsigned int _responseChunkDelay;
-    unsigned int _responseChunkInitialDelay;
-    unsigned int _responseOffset;
-    BOOL _cancelled;
+    unsigned long long _responseChunkSize;
+    unsigned long long _responseChunkDelay;
+    unsigned long long _responseChunkInitialDelay;
+    unsigned long long _responseOffset;
+    _Bool _cancelled;
     id <NSURLConnectionDelegate> _delegate;
 }
 
-+ (BOOL)canHandleRequest:(id)arg1;
-+ (BOOL)waitForAllDoppelgangersUpToTimeout:(double)arg1;
++ (_Bool)canHandleRequest:(id)arg1;
++ (_Bool)waitForAllDoppelgangersUpToTimeout:(double)arg1;
 + (void)clearDoppelgangerData;
 + (void)spewDoppelgangerData;
 + (void)_spewDoppelgangerArray:(id)arg1 named:(id)arg2;
 + (void)_doppelgangerFinished:(id)arg1;
-+ (id)prepDoppelgangerForChartResponseWithSymbol:(id)arg1 numberOfDataPoints:(int)arg2;
-+ (id)prepDoppelgangerForNewsResponseWithSymbol:(id)arg1 numberOfNewsItems:(int)arg2;
-+ (id)prepDoppelgangerForQuotesResponseWithSymbols:(id)arg1 includeMetdata:(BOOL)arg2;
++ (id)prepDoppelgangerForChartResponseWithSymbol:(id)arg1 numberOfDataPoints:(long long)arg2;
++ (id)prepDoppelgangerForNewsResponseWithSymbol:(id)arg1 numberOfNewsItems:(long long)arg2;
++ (id)prepDoppelgangerForQuotesResponseWithSymbols:(id)arg1 includeMetdata:(_Bool)arg2;
 + (id)prepDoppelgangerWithRequestPattern:(id)arg1 response:(id)arg2;
 + (id)newDoppelgangerMatchingRequestPattern:(id)arg1;
 + (void)setTestHarness:(id)arg1;
 + (void)hookIntoXMLHTTPRequestIfNeeded;
 @property(nonatomic) __weak id <NSURLConnectionDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) unsigned int responseChunkInitialDelay; // @synthesize responseChunkInitialDelay=_responseChunkInitialDelay;
-@property(nonatomic) unsigned int responseChunkDelay; // @synthesize responseChunkDelay=_responseChunkDelay;
-@property(nonatomic) unsigned int responseChunkSize; // @synthesize responseChunkSize=_responseChunkSize;
+@property(nonatomic) unsigned long long responseChunkInitialDelay; // @synthesize responseChunkInitialDelay=_responseChunkInitialDelay;
+@property(nonatomic) unsigned long long responseChunkDelay; // @synthesize responseChunkDelay=_responseChunkDelay;
+@property(nonatomic) unsigned long long responseChunkSize; // @synthesize responseChunkSize=_responseChunkSize;
 @property(retain, nonatomic) NSData *response; // @synthesize response=_response;
 @property(retain, nonatomic) NSString *expectedRequestPattern; // @synthesize expectedRequestPattern=_expectedRequestPattern;
 - (void).cxx_destruct;
@@ -47,7 +47,7 @@
 - (id)description;
 - (void)_relayDataChunk;
 - (id)init;
-- (BOOL)matchesRequest:(id)arg1;
+- (_Bool)matchesRequest:(id)arg1;
 
 @end
 

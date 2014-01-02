@@ -14,25 +14,25 @@
     id <CLLocationManagerDelegate> fDelegate;
     double fDistanceFilter;
     double fDesiredAccuracy;
-    BOOL fUpdatingLocation;
+    _Bool fUpdatingLocation;
     CDStruct_4185d922 fLocation;
     NSString *fLocationEventType;
-    BOOL fCapabilitiesValid;
+    _Bool fCapabilitiesValid;
     struct {
         double bestAccuracy;
     } fCapabilities;
-    BOOL fUpdatingHeading;
+    _Bool fUpdatingHeading;
     double fHeadingFilter;
     int fHeadingOrientation;
-    BOOL fPersistentMonitoringEnabled;
-    BOOL fAllowsLocationPrompts;
-    BOOL fPreviousAuthorizationStatusValid;
+    _Bool fPersistentMonitoringEnabled;
+    _Bool fAllowsLocationPrompts;
+    _Bool fPreviousAuthorizationStatusValid;
     int fPreviousAuthorizationStatus;
-    int fActivityType;
+    long long fActivityType;
     int fPausesLocationUpdatesAutomatically;
-    BOOL fPaused;
-    BOOL fAllowsMapCorrection;
-    BOOL fBatchingLocation;
+    _Bool fPaused;
+    _Bool fAllowsMapCorrection;
+    _Bool fBatchingLocation;
     NSMutableSet *fRangedRegions;
 }
 

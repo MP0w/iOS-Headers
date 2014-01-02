@@ -17,10 +17,10 @@
 
 @property(readonly, nonatomic) SUInputSource *inputSource; // @synthesize inputSource=_inputSource;
 @property(readonly, nonatomic) SUFilteringDataConsumer *dataConsumer; // @synthesize dataConsumer=_dataConsumer;
-- (int)read:(char *)arg1 maxLength:(unsigned int)arg2 error:(id *)arg3;
-- (BOOL)open:(id *)arg1;
-- (unsigned int)minimumReadLength;
-- (BOOL)hasBytesAvailable;
+- (long long)read:(char *)arg1 maxLength:(unsigned long long)arg2 error:(id *)arg3;
+- (_Bool)open:(id *)arg1;
+- (unsigned long long)minimumReadLength;
+- (_Bool)hasBytesAvailable;
 - (long long)expectedLength;
 - (void)close;
 - (void)dealloc;

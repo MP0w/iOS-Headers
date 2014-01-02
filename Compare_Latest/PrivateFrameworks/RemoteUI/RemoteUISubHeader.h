@@ -14,17 +14,17 @@
 {
     UILabel *_headerLabel;
     UILabel *_subHeaderLabel;
-    float _subHeaderSized;
-    BOOL _isFirstSection;
-    BOOL _isRightToLeft;
+    double _subHeaderSized;
+    _Bool _isFirstSection;
+    _Bool _isRightToLeft;
 }
 
 @property(readonly, nonatomic) UILabel *subHeaderLabel; // @synthesize subHeaderLabel=_subHeaderLabel;
 @property(readonly, nonatomic) UILabel *headerLabel; // @synthesize headerLabel=_headerLabel;
 - (void)dealloc;
-- (float)headerHeightForWidth:(float)arg1 inTableView:(id)arg2;
+- (double)headerHeightForWidth:(double)arg1 inTableView:(id)arg2;
 - (void)layoutSubviews;
-- (void)setSectionIsFirst:(BOOL)arg1;
+- (void)setSectionIsFirst:(_Bool)arg1;
 - (id)initWithAttributes:(id)arg1;
 
 @end

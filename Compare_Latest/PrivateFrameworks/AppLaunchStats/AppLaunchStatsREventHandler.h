@@ -28,6 +28,7 @@
 - (void)hdlr_dataforecast:(unsigned long long)arg1 withXPCObject:(id)arg2;
 - (void)hdlr_ok2launch:(unsigned long long)arg1 withXPCObject:(id)arg2;
 - (void)hdlr_getscores:(unsigned long long)arg1 withXPCObject:(id)arg2;
+- (void)hdlr_nonprewarm:(id)arg1;
 - (void)hdlr_dbolderthan:(id)arg1;
 - (void)hdlr:(id)arg1;
 - (id)init:(id)arg1 withHandlers:(id)arg2;

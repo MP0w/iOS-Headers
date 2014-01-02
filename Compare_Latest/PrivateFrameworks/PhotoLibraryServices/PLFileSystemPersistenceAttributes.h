@@ -15,7 +15,7 @@
 
 - (id)description;
 - (id)stringForKey:(id)arg1;
-- (BOOL)getUInt16:(unsigned short *)arg1 forKey:(id)arg2;
+- (_Bool)getUInt16:(unsigned short *)arg1 forKey:(id)arg2;
 - (id)UUIDStringForKey:(id)arg1;
 - (id)dataForKey:(id)arg1;
 - (void)dealloc;

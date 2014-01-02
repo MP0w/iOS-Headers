@@ -8,19 +8,20 @@
 
 @class TIKeyboardCandidate;
 
+// Not exported
 @interface UIKeyboardAutocorrectionController : NSObject
 {
     TIKeyboardCandidate *_autocorrection;
-    BOOL _needsAutocorrection;
-    BOOL _deferredAutocorrection;
-    BOOL _requestedAutocorrection;
+    _Bool _needsAutocorrection;
+    _Bool _deferredAutocorrection;
+    _Bool _requestedAutocorrection;
 }
 
-@property(nonatomic) BOOL requestedAutocorrection; // @synthesize requestedAutocorrection=_requestedAutocorrection;
-@property(nonatomic) BOOL deferredAutocorrection; // @synthesize deferredAutocorrection=_deferredAutocorrection;
-@property(nonatomic) BOOL needsAutocorrection; // @synthesize needsAutocorrection=_needsAutocorrection;
+@property(nonatomic) _Bool requestedAutocorrection; // @synthesize requestedAutocorrection=_requestedAutocorrection;
+@property(nonatomic) _Bool deferredAutocorrection; // @synthesize deferredAutocorrection=_deferredAutocorrection;
+@property(nonatomic) _Bool needsAutocorrection; // @synthesize needsAutocorrection=_needsAutocorrection;
 - (void)requestAutocorrectionWithExecutionContext:(id)arg1;
-- (BOOL)hasAutocorrection;
+- (_Bool)hasAutocorrection;
 - (void)setNeedsAutocorrection;
 @property(copy, nonatomic) TIKeyboardCandidate *autocorrection;
 - (void)dealloc;

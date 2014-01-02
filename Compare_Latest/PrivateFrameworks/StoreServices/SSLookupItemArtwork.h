@@ -14,9 +14,9 @@
 }
 
 @property(readonly, nonatomic) NSDictionary *lookupDictionary; // @synthesize lookupDictionary=_dictionary;
-@property(readonly, nonatomic) int width;
+@property(readonly, nonatomic) long long width;
 @property(readonly, nonatomic) NSURL *URL;
-@property(readonly, nonatomic) int height;
+@property(readonly, nonatomic) long long height;
 - (void)dealloc;
 - (id)initWithLookupDictionary:(id)arg1;
 

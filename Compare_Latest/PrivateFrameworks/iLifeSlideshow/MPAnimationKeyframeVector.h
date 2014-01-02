@@ -13,7 +13,7 @@
     MPVector *_vector;
 }
 
-+ (id)keyframeVectorWithVector:(id)arg1 atTime:(double)arg2 offsetType:(unsigned int)arg3;
++ (id)keyframeVectorWithVector:(id)arg1 atTime:(double)arg2 offsetType:(unsigned long long)arg3;
 + (id)keyframeVectorWithVector:(id)arg1 atTime:(double)arg2;
 @property(copy, nonatomic) MPVector *vector; // @synthesize vector=_vector;
 - (id)description;
@@ -21,8 +21,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initKeyframeVectorWithVector:(id)arg1 atTime:(double)arg2 offsetType:(unsigned int)arg3;
-- (id)keyframe;
+- (id)initKeyframeVectorWithVector:(id)arg1 atTime:(double)arg2 offsetType:(unsigned long long)arg3;
 
 @end
 

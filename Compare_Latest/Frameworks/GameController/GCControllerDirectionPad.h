@@ -19,9 +19,9 @@
 @property(readonly) GCControllerAxisInput *yAxis;
 @property(readonly) GCControllerAxisInput *xAxis;
 - (id)description;
-- (BOOL)setHIDValue:(struct __IOHIDValue *)arg1;
+- (_Bool)setHIDValue:(struct __IOHIDValue *)arg1;
 @property(copy) id valueChangedHandler;
-- (id)initWithFlippedY:(BOOL)arg1 digital:(BOOL)arg2;
+- (id)initWithFlippedY:(_Bool)arg1 digital:(_Bool)arg2;
 
 @end
 

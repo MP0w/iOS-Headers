@@ -6,13 +6,15 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSData, NSMutableArray;
 
-@interface GEODirectionsResponse : PBCodable
+@interface GEODirectionsResponse : PBCodable <NSCopying>
 {
     CDStruct_c55e649d *_problemDetails;
-    unsigned int _problemDetailsCount;
-    unsigned int _problemDetailsSpace;
+    unsigned long long _problemDetailsCount;
+    unsigned long long _problemDetailsSpace;
     NSData *_directionsResponseID;
     NSMutableArray *_incidentsOffRoutes;
     NSMutableArray *_incidentsOnRoutes;
@@ -21,8 +23,8 @@
     NSMutableArray *_placeSearchResponses;
     NSMutableArray *_routes;
     int _status;
-    BOOL _isNavigable;
-    BOOL _routeDeviatesFromOriginal;
+    _Bool _isNavigable;
+    _Bool _routeDeviatesFromOriginal;
     struct {
         unsigned int instructionSignFillColor:1;
         unsigned int localDistanceUnits:1;
@@ -38,41 +40,42 @@
 @property(retain, nonatomic) NSMutableArray *placeSearchResponses; // @synthesize placeSearchResponses=_placeSearchResponses;
 @property(retain, nonatomic) NSMutableArray *routes; // @synthesize routes=_routes;
 @property(nonatomic) int status; // @synthesize status=_status;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (void)setProblemDetails:(CDStruct_c55e649d *)arg1 count:(unsigned int)arg2;
-- (CDStruct_c55e649d)problemDetailAtIndex:(unsigned int)arg1;
+- (void)setProblemDetails:(CDStruct_c55e649d *)arg1 count:(unsigned long long)arg2;
+- (CDStruct_c55e649d)problemDetailAtIndex:(unsigned long long)arg1;
 - (void)addProblemDetail:(CDStruct_c55e649d)arg1;
 - (void)clearProblemDetails;
 @property(readonly, nonatomic) CDStruct_c55e649d *problemDetails;
-@property(readonly, nonatomic) unsigned int problemDetailsCount;
-- (id)incidentsOffRoutesAtIndex:(unsigned int)arg1;
-- (unsigned int)incidentsOffRoutesCount;
+@property(readonly, nonatomic) unsigned long long problemDetailsCount;
+- (id)incidentsOffRoutesAtIndex:(unsigned long long)arg1;
+- (unsigned long long)incidentsOffRoutesCount;
 - (void)addIncidentsOffRoutes:(id)arg1;
 - (void)clearIncidentsOffRoutes;
-- (id)incidentsOnRoutesAtIndex:(unsigned int)arg1;
-- (unsigned int)incidentsOnRoutesCount;
+- (id)incidentsOnRoutesAtIndex:(unsigned long long)arg1;
+- (unsigned long long)incidentsOnRoutesCount;
 - (void)addIncidentsOnRoutes:(id)arg1;
 - (void)clearIncidentsOnRoutes;
-@property(nonatomic) BOOL hasInstructionSignFillColor;
+@property(nonatomic) _Bool hasInstructionSignFillColor;
 @property(nonatomic) int instructionSignFillColor; // @synthesize instructionSignFillColor=_instructionSignFillColor;
-@property(nonatomic) BOOL hasIsNavigable;
-@property(nonatomic) BOOL isNavigable; // @synthesize isNavigable=_isNavigable;
-@property(readonly, nonatomic) BOOL hasDirectionsResponseID;
-@property(nonatomic) BOOL hasRouteDeviatesFromOriginal;
-@property(nonatomic) BOOL routeDeviatesFromOriginal; // @synthesize routeDeviatesFromOriginal=_routeDeviatesFromOriginal;
-@property(nonatomic) BOOL hasLocalDistanceUnits;
-- (id)placeSearchResponseAtIndex:(unsigned int)arg1;
-- (unsigned int)placeSearchResponsesCount;
+@property(nonatomic) _Bool hasIsNavigable;
+@property(nonatomic) _Bool isNavigable; // @synthesize isNavigable=_isNavigable;
+@property(readonly, nonatomic) _Bool hasDirectionsResponseID;
+@property(nonatomic) _Bool hasRouteDeviatesFromOriginal;
+@property(nonatomic) _Bool routeDeviatesFromOriginal; // @synthesize routeDeviatesFromOriginal=_routeDeviatesFromOriginal;
+@property(nonatomic) _Bool hasLocalDistanceUnits;
+- (id)placeSearchResponseAtIndex:(unsigned long long)arg1;
+- (unsigned long long)placeSearchResponsesCount;
 - (void)addPlaceSearchResponse:(id)arg1;
 - (void)clearPlaceSearchResponses;
-- (id)routeAtIndex:(unsigned int)arg1;
-- (unsigned int)routesCount;
+- (id)routeAtIndex:(unsigned long long)arg1;
+- (unsigned long long)routesCount;
 - (void)addRoute:(id)arg1;
 - (void)clearRoutes;
 - (void)dealloc;

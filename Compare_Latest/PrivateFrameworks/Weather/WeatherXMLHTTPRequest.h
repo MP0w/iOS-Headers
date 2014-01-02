@@ -8,11 +8,11 @@
 
 #import "NSURLConnectionDelegate-Protocol.h"
 
-@class NSMutableData, NSURLConnection, NSURLRequest;
+@class NSMutableData, NSMutableURLRequest, NSURLConnection;
 
 @interface WeatherXMLHTTPRequest : NSObject <NSURLConnectionDelegate>
 {
-    NSURLRequest *_request;
+    NSMutableURLRequest *_request;
     NSURLConnection *_connection;
     NSMutableData *_rawData;
 }
@@ -29,7 +29,7 @@
 - (void)_forceRawDataDump:(id)arg1;
 - (void)connectionDidFinishLoading:(id)arg1;
 - (void)connection:(id)arg1 didReceiveData:(id)arg2;
-- (BOOL)isLoading;
+- (_Bool)isLoading;
 - (void)cancel;
 - (void)loadRequest:(id)arg1;
 - (void)dealloc;

@@ -9,16 +9,16 @@
 @interface MRGesturePanZoomRotation : NSObject
 {
     double time;
-    float x;
-    float y;
-    float deltaX;
-    float deltaY;
-    float scale;
-    float rotation;
-    float speedX;
-    float speedY;
-    float speedScale;
-    float speedRotation;
+    double x;
+    double y;
+    double deltaX;
+    double deltaY;
+    double scale;
+    double rotation;
+    double speedX;
+    double speedY;
+    double speedScale;
+    double speedRotation;
     int direction;
 }
 

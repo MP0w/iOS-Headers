@@ -22,10 +22,9 @@
 - (void)cancelLoadForAsset:(id)arg1;
 - (void)resumeLoading;
 - (void)pauseLoading;
-- (id)loadImageSynchronously:(BOOL)arg1 forAsset:(id)arg2 format:(int)arg3 priority:(int)arg4 completion:(id)arg5;
+- (id)loadImageSynchronously:(_Bool)arg1 forAsset:(id)arg2 format:(int)arg3 priority:(int)arg4 completion:(id)arg5;
 - (void)dealloc;
 - (id)init;
-- (id)imageViewForAsset:(id)arg1 inAlbum:(struct NSObject *)arg2 format:(int)arg3 preheatedImage:(id)arg4 loadImagesSynchronously:(BOOL)arg5;
 
 @end
 

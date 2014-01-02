@@ -6,29 +6,20 @@
 
 #import <UIKit/UIViewController.h>
 
+#import "UINavigationControllerDelegate-Protocol.h"
 #import <UIKit/UITableViewDataSource-Protocol.h>
 #import "UITableViewDelegate-Protocol.h"
-#import "_UILongDefinitionViewDelegate-Protocol.h"
-#import "_UIShortDefinitionViewDelegate-Protocol.h"
 
-@class NSArray, NSString, UIButton, UILabel, UINavigationController, UITableViewController, UIView, UIWindow;
+@class NSArray, NSString, UINavigationController, UITableViewController, UIWindow;
 
-@interface UIReferenceLibraryViewController : UIViewController <_UIShortDefinitionViewDelegate, _UILongDefinitionViewDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface UIReferenceLibraryViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate>
 {
     NSString *_term;
     NSArray *_definitionValues;
-    UIView *_diddlyDoView;
-    UIView *_buttonsView;
-    UILabel *_dictionaryLabel;
-    UIButton *_doneButton;
-    UIView *_headerView;
-    UIView *_contentView;
-    UIView *_footerView;
-    UIView *_dictionaryDisplayView;
-    int _oldPopoverStyle;
     UINavigationController *_baseNavController;
     UITableViewController *_multiDefViewController;
     UIViewController *_longDefViewController;
+    long long _oldPopoverStyle;
     UIWindow *_rotationDecider;
     id _dismissCompletionHandler;
 }
@@ -41,26 +32,17 @@
 + (id)_diddlyDoViewLineColor;
 + (id)_foregroundColor;
 + (id)_backgroundColor;
-+ (id)_viewControllerForReferenceWithString:(id)arg1 options:(unsigned int)arg2;
++ (id)_viewControllerForReferenceWithString:(id)arg1 options:(unsigned long long)arg2;
 + (id)_popoverControllerForReferenceLibraryWithString:(id)arg1;
-+ (BOOL)dictionaryHasDefinitionForTerm:(id)arg1;
++ (_Bool)dictionaryHasDefinitionForTerm:(id)arg1;
 @property(copy, nonatomic) id dismissCompletionHandler; // @synthesize dismissCompletionHandler=_dismissCompletionHandler;
 @property(retain, nonatomic, setter=_setRotationDecider:) UIWindow *_rotationDecider; // @synthesize _rotationDecider;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
 - (void)_didResignContentViewControllerOfPopover:(id)arg1;
 - (void)_willBecomeContentViewControllerOfPopover:(id)arg1;
 - (void)_setPopoverController:(id)arg1;
 - (void)viewDidLoad;
-- (unsigned int)supportedInterfaceOrientations;
-- (id)_dictionaryDisplayView;
-- (id)_contentView;
-- (id)_footerView;
-- (id)_headerView;
-- (id)_doneButton;
-- (id)_buttonsView;
-- (id)_diddlyDoView;
-- (id)_dictionaryLabel;
-- (id)_buttonWithTitle:(id)arg1;
+- (unsigned long long)supportedInterfaceOrientations;
 - (id)_colorAttributes;
 - (id)_dictionaryDefinitionAttributes;
 - (id)_localizedDictionaryTitleAttributes;
@@ -69,16 +51,16 @@
 - (id)_diddlyDoViewLineColor;
 - (id)_foregroundColor;
 - (id)_backgroundColor;
-- (void)_backButtonWasTapped:(id)arg1;
-- (void)_definitionValueWasChosen:(id)arg1;
-- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (void)navigationController:(id)arg1 willShowViewController:(id)arg2 animated:(_Bool)arg3;
 - (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;
-- (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
-- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (id)tableView:(id)arg1 titleForHeaderInSection:(long long)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (void)_searchWikipedia:(id)arg1;
-- (void)_doneButtonPressed:(id)arg1;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
+- (void)pushDownloadManager:(id)arg1;
+- (void)_installRequiredElementsOnViewController:(id)arg1;
+- (void)_dismissModalReferenceView:(id)arg1;
 - (void)_searchWeb:(id)arg1;
 - (void)dealloc;
 - (id)initWithTerm:(id)arg1;

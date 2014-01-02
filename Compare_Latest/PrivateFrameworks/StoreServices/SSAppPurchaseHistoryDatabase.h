@@ -13,23 +13,24 @@
     SSSQLiteDatabase *_database;
 }
 
-+ (id)newDefaultInstance;
-+ (void)createDatabaseDirectory;
++ (_Bool)_setupDatabase:(id)arg1;
++ (void)_createDatabaseDirectory;
 + (id)accountUniqueIdentifierKey;
 + (id)localRevisionKey;
-- (BOOL)resetCacheForNewAccountID:(id)arg1;
-- (id)allProperties:(id)arg1 accountID:(id)arg2 includingHidden:(BOOL)arg3;
-- (BOOL)setValue:(id)arg1 forDatabaseProperty:(id)arg2;
++ (id)newDefaultInstance;
+- (_Bool)resetCacheForNewAccountID:(id)arg1;
+- (id)allProperties:(id)arg1 accountID:(id)arg2 includingHidden:(_Bool)arg3;
+- (_Bool)setValue:(id)arg1 forDatabaseProperty:(id)arg2;
 - (id)valueForDatabaseProperty:(id)arg1;
 - (id)database;
-- (BOOL)setLocalRevision:(int)arg1 forAccountUniqueIdentifier:(id)arg2;
-- (int)localRevisionForAccountUniqueIdentifier:(id)arg1;
+- (_Bool)setLocalRevision:(long long)arg1 forAccountUniqueIdentifier:(id)arg2;
+- (long long)localRevisionForAccountUniqueIdentifier:(id)arg1;
 - (id)currentAccountUniqueIdentifier;
 - (void)readUsingTransactionBlock:(id)arg1;
 - (void)readAsyncUsingTransactionBlock:(id)arg1;
 - (void)modifyUsingAppPurchaseHistoryTransactionBlock:(id)arg1;
 - (void)dealloc;
-- (id)initWithDatabaseURL:(id)arg1 readOnly:(BOOL)arg2;
+- (id)initWithDatabaseURL:(id)arg1 readOnly:(_Bool)arg2;
 - (id)init;
 
 @end

@@ -6,6 +6,7 @@
 
 #import <UIKit/UILabel.h>
 
+// Not exported
 @interface UITableViewLabel : UILabel
 {
 }

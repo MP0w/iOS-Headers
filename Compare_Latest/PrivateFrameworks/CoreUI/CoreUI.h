@@ -10,35 +10,21 @@
 {
 }
 
-+ (BOOL)isSharedCacheSizeTestEnabled;
++ (_Bool)isSharedCacheSizeTestEnabled;
 + (id)versionCreditsString;
 + (void)installForCustomLook:(id)arg1;
 + (void)_setCustomLookDelegate:(id)arg1;
 + (id)_customLookDelegate;
 + (void)install;
-+ (BOOL)_isInIBCocoaSimulator;
++ (_Bool)_isInIBCocoaSimulator;
 + (void)_determineCompatibilityMode;
 + (id)defaultsDomainName;
-+ (void)setBool:(BOOL)arg1 forDefaultsKey:(id)arg2;
++ (void)setBool:(_Bool)arg1 forDefaultsKey:(id)arg2;
 + (void)setValue:(id)arg1 forDefaultsKey:(id)arg2;
-+ (int)integerForDefaultsKey:(id)arg1;
++ (long long)integerForDefaultsKey:(id)arg1;
 + (id)stringForDefaultsKey:(id)arg1;
-+ (BOOL)boolForDefaultsKey:(id)arg1;
-+ (BOOL)defaultExistsForKey:(id)arg1;
-+ (int)lookCongruencyForObject:(id)arg1;
-+ (struct _themelook *)currentSystemThemeLook;
-+ (void)changeToLook:(struct _themelook *)arg1;
-+ (void)_invalidateVisibleWindows;
-+ (BOOL)_isCurrentLook:(struct _themelook *)arg1;
-+ (void)_setCurrentSystemThemeLook:(struct _themelook *)arg1;
-+ (void)_updateMenuBarDrawingStyleForLook:(struct _themelook *)arg1;
-+ (BOOL)_hasDarkMenuBarForLook:(struct _themelook *)arg1;
-+ (void)_setThemeLookDelegate:(id)arg1;
-+ (id)_themeLookDelegate;
-+ (int)maximumLookGradation;
-+ (int)currentLookGradation;
-+ (void)changeToLookGradation:(int)arg1;
-+ (void)_changeToLookGradation:(int)arg1 forceRedraw:(BOOL)arg2;
++ (_Bool)boolForDefaultsKey:(id)arg1;
++ (_Bool)defaultExistsForKey:(id)arg1;
 
 @end
 

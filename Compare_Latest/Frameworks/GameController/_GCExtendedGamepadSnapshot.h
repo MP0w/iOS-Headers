@@ -6,15 +6,20 @@
 
 #import <GameController/_GCExtendedGamepad.h>
 
+#import "_GCSnapshot-Protocol.h"
+
 @class NSData;
 
-@interface _GCExtendedGamepadSnapshot : _GCExtendedGamepad
+// Not exported
+@interface _GCExtendedGamepadSnapshot : _GCExtendedGamepad <_GCSnapshot>
 {
     NSData *_snapshotData;
 }
 
 - (void).cxx_destruct;
+- (id)initWithController:(id)arg1 snapshotData:(id)arg2;
 - (id)initWithSnapshotData:(id)arg1;
+- (id)init;
 @property(copy) NSData *snapshotData; // @synthesize snapshotData=_snapshotData;
 
 @end

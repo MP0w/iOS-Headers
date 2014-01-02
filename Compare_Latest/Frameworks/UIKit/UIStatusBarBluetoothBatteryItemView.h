@@ -6,14 +6,15 @@
 
 #import <UIKit/UIStatusBarItemView.h>
 
+// Not exported
 @interface UIStatusBarBluetoothBatteryItemView : UIStatusBarItemView
 {
     int _capacity;
 }
 
-- (float)extraLeftPadding;
+- (double)extraLeftPadding;
 - (id)contentsImage;
-- (BOOL)updateForNewData:(id)arg1 actions:(int)arg2;
+- (_Bool)updateForNewData:(id)arg1 actions:(int)arg2;
 
 @end
 

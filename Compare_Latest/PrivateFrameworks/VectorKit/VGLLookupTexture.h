@@ -6,12 +6,13 @@
 
 #import <VectorKit/VGLTexture.h>
 
+// Not exported
 @interface VGLLookupTexture : VGLTexture
 {
     char *_data;
 }
 
-- (BOOL)loadTexture;
+- (_Bool)loadTexture;
 - (void)dealloc;
 - (id)initWithData:(const float *)arg1 size:(struct CGSize)arg2;
 

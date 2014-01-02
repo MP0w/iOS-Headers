@@ -12,9 +12,9 @@
 }
 
 @property id <CNFSoundPlayerDelegateProtocol> delegate; // @synthesize delegate=_delegate;
-@property(readonly) BOOL playingSound;
+@property(readonly) _Bool playingSound;
 - (void)stop;
-- (void)playSound:(int)arg1 numOfLoops:(int)arg2 pauseDuration:(float)arg3;
+- (void)playSound:(int)arg1 numOfLoops:(int)arg2 pauseDuration:(double)arg3;
 - (void)playSelectedSound;
 - (void)dealloc;
 

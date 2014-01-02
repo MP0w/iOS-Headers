@@ -12,10 +12,10 @@
 {
     id <AXUIService> _service;
     NSObject<OS_xpc_object> *_connection;
-    unsigned int _clientIdentifier;
+    unsigned long long _clientIdentifier;
 }
 
-@property(nonatomic) unsigned int clientIdentifier; // @synthesize clientIdentifier=_clientIdentifier;
+@property(nonatomic) unsigned long long clientIdentifier; // @synthesize clientIdentifier=_clientIdentifier;
 @property(retain, nonatomic) NSObject<OS_xpc_object> *connection; // @synthesize connection=_connection;
 @property(retain, nonatomic) id <AXUIService> service; // @synthesize service=_service;
 - (void)dealloc;

@@ -16,7 +16,7 @@
 @property(retain, nonatomic) AlphanumericPINTextField *pinTextField; // @synthesize pinTextField=_pinTextField;
 - (void)layoutSubviews;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

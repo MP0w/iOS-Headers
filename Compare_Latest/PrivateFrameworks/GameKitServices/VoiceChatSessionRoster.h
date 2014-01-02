@@ -8,6 +8,7 @@
 
 @class GKSessionInternal, GKVoiceChatSessionInternal, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
 
+// Not exported
 @interface VoiceChatSessionRoster : NSObject
 {
     GKSessionInternal *_gkSession;
@@ -17,17 +18,17 @@
     NSMutableArray *_connectedPeers;
     NSMutableDictionary *_peerStateTable;
     struct _opaque_pthread_mutex_t resMutex;
-    BOOL _needsUpdateBeaconList;
-    BOOL _waitingToCalculateFocus;
+    _Bool _needsUpdateBeaconList;
+    _Bool _waitingToCalculateFocus;
     unsigned int _deviceRating;
     unsigned int _focusRating;
     unsigned int _chosenFocusRating;
     unsigned int _focusID;
-    BOOL _isBeaconUp;
-    BOOL _hasFocus;
+    _Bool _isBeaconUp;
+    _Bool _hasFocus;
 }
 
-- (BOOL)hasFocus;
+- (_Bool)hasFocus;
 - (id)subscribedPeers;
 - (void)processSubscribeBeacon:(struct tagVoiceChatBeacon *)arg1 beaconState:(id)arg2 fromPeer:(id)arg3;
 - (void)processUnsubscribeBeacon:(struct tagVoiceChatBeacon *)arg1 beaconState:(id)arg2 fromPeer:(id)arg3;
@@ -40,7 +41,7 @@
 - (void)updateBeacon;
 - (void)startBeacon;
 - (void)startBeaconWrapper:(id)arg1;
-- (BOOL)recalculateFocusRating;
+- (_Bool)recalculateFocusRating;
 - (void)configureDeviceRating;
 - (unsigned int)focusID;
 - (void)cleanup;

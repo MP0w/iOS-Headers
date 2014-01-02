@@ -8,6 +8,7 @@
 
 @class ACDManagedAccount, NSString;
 
+// Not exported
 @interface ACDManagedAccountProperty : NSManagedObject
 {
 }

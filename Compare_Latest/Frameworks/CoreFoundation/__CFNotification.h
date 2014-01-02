@@ -8,21 +8,22 @@
 
 #import "NSCopying-Protocol.h"
 
+// Not exported
 @interface __CFNotification : NSObject <NSCopying>
 {
     id _name;
     id _object;
     id _userInfo;
-    BOOL _fouSemantics;
-    BOOL _dyingObject;
+    _Bool _fouSemantics;
+    _Bool _dyingObject;
 }
 
 - (void)finalize;
 - (void)dealloc;
-- (id)initWithName:(struct __CFString *)arg1 object:(const void *)arg2 userInfo:(struct __CFDictionary *)arg3 foundation:(BOOL)arg4;
+- (id)initWithName:(struct __CFString *)arg1 object:(const void *)arg2 userInfo:(struct __CFDictionary *)arg3 foundation:(_Bool)arg4;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)userInfo;
 - (id)object;
 - (id)name;

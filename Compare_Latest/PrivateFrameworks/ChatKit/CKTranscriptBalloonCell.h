@@ -6,19 +6,25 @@
 
 #import <ChatKit/CKTranscriptMessageCell.h>
 
-@class CKBalloonView, UIView<CKGradientReferenceView>;
+@class CKBalloonView, NSAttributedString, UILabel, UIView<CKGradientReferenceView>;
 
 @interface CKTranscriptBalloonCell : CKTranscriptMessageCell
 {
     CKBalloonView *_balloonView;
+    double _transcriptDrawerWidth;
+    double _drawerPercentRevealed;
+    UILabel *_drawerLabel;
 }
 
+@property(retain, nonatomic) UILabel *drawerLabel; // @synthesize drawerLabel=_drawerLabel;
+@property(nonatomic) double drawerPercentRevealed; // @synthesize drawerPercentRevealed=_drawerPercentRevealed;
+@property(nonatomic) double transcriptDrawerWidth; // @synthesize transcriptDrawerWidth=_transcriptDrawerWidth;
 @property(retain, nonatomic) CKBalloonView *balloonView; // @synthesize balloonView=_balloonView;
+@property(copy, nonatomic) NSAttributedString *drawerAttributedText;
 @property(retain, nonatomic) UIView<CKGradientReferenceView> *gradientReferenceView;
 - (void)layoutSubviews;
+- (id)initWithFrame:(struct CGRect)arg1;
 - (void)dealloc;
-- (void)configureForRow:(id)arg1;
-- (void)configureForRowObject:(id)arg1;
 
 @end
 

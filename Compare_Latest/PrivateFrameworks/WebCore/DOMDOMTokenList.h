@@ -6,14 +6,15 @@
 
 #import <WebCore/DOMObject.h>
 
+// Not exported
 @interface DOMDOMTokenList : DOMObject
 {
 }
 
-- (BOOL)toggle:(id)arg1 force:(BOOL)arg2;
+- (_Bool)toggle:(id)arg1 force:(_Bool)arg2;
 - (void)remove:(id)arg1;
 - (void)add:(id)arg1;
-- (BOOL)contains:(id)arg1;
+- (_Bool)contains:(id)arg1;
 - (id)item:(unsigned int)arg1;
 @property(readonly) unsigned int length;
 - (void)finalize;

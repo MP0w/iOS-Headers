@@ -12,17 +12,19 @@
 
 @interface VSVoiceAsset : NSObject <NSSecureCoding>
 {
-    BOOL _isInstalled;
+    _Bool _isInstalled;
+    _Bool _isBuiltInVoice;
     NSString *_name;
     NSArray *_languages;
-    int _gender;
-    int _footprint;
+    long long _gender;
+    long long _footprint;
 }
 
-+ (BOOL)supportsSecureCoding;
-@property(readonly, nonatomic) BOOL isInstalled; // @synthesize isInstalled=_isInstalled;
-@property(readonly, nonatomic) int footprint; // @synthesize footprint=_footprint;
-@property(readonly, nonatomic) int gender; // @synthesize gender=_gender;
++ (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool isBuiltInVoice; // @synthesize isBuiltInVoice=_isBuiltInVoice;
+@property(readonly, nonatomic) _Bool isInstalled; // @synthesize isInstalled=_isInstalled;
+@property(readonly, nonatomic) long long footprint; // @synthesize footprint=_footprint;
+@property(readonly, nonatomic) long long gender; // @synthesize gender=_gender;
 @property(readonly, nonatomic) NSArray *languages; // @synthesize languages=_languages;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
@@ -31,7 +33,7 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)description;
-- (id)initWithName:(id)arg1 languages:(id)arg2 gender:(int)arg3 footprint:(int)arg4 isInstalled:(BOOL)arg5;
+- (id)initWithName:(id)arg1 languages:(id)arg2 gender:(long long)arg3 footprint:(long long)arg4 isInstalled:(_Bool)arg5;
 
 @end
 

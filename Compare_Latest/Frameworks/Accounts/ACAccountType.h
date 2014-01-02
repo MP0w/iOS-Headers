@@ -20,19 +20,19 @@
     NSString *_credentialProtectionPolicy;
     ACAccountStore *_accountStore;
     int _supportsAuthentication;
-    BOOL _supportsMultipleAccounts;
+    _Bool _supportsMultipleAccounts;
     NSSet *_supportedDataclasses;
     NSSet *_syncableDataclasses;
     NSSet *_accessKeys;
 }
 
-+ (BOOL)supportsSecureCoding;
-@property(nonatomic) BOOL supportsMultipleAccounts; // @synthesize supportsMultipleAccounts=_supportsMultipleAccounts;
++ (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool supportsMultipleAccounts; // @synthesize supportsMultipleAccounts=_supportsMultipleAccounts;
 @property(nonatomic) __weak ACAccountStore *accountStore; // @synthesize accountStore=_accountStore;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSSet *accessKeys; // @synthesize accessKeys=_accessKeys;
 @property(nonatomic) int supportsAuthentication; // @synthesize supportsAuthentication=_supportsAuthentication;
-@property(readonly, nonatomic) BOOL accessGranted;
+@property(readonly, nonatomic) _Bool accessGranted;
 @property(copy, nonatomic) id credentialProtectionPolicy;
 @property(nonatomic) int visibility;
 @property(retain, nonatomic) NSString *credentialType; // @synthesize credentialType=_credentialType;

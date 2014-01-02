@@ -8,39 +8,50 @@
 
 #import "RUGenreListViewControllerDelegate-Protocol.h"
 #import "RUSearchViewControllerDelegate-Protocol.h"
+#import "UIScrollViewDelegate-Protocol.h"
 
-@class RUGenreListViewController, RUSearchViewController, SKUICircleProgressIndicator, UILabel, UISearchDisplayController;
+@class NSMutableArray, RUGenreListViewController, RUMetricsController, RUSearchViewController, SKUICircleProgressIndicator, UILabel, UISearchDisplayController;
 
-@interface RUCreateStationViewController : UIViewController <RUGenreListViewControllerDelegate, RUSearchViewControllerDelegate>
+@interface RUCreateStationViewController : UIViewController <RUGenreListViewControllerDelegate, RUSearchViewControllerDelegate, UIScrollViewDelegate>
 {
     SKUICircleProgressIndicator *_activityIndicator;
-    BOOL _didLoadGenres;
+    _Bool _didLoadGenres;
     RUGenreListViewController *_genreListViewController;
     UILabel *_loadingLabel;
+    RUMetricsController *_metricsController;
+    NSMutableArray *_queuedMetricsOperations;
     UISearchDisplayController *_searchDisplayController;
     RUSearchViewController *_searchResultsViewController;
-    BOOL _shouldScrollSearchBar;
+    _Bool _shouldScrollSearchBar;
     id <RUCreateStationViewControllerDelegate> _delegate;
 }
 
 @property(nonatomic) __weak id <RUCreateStationViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_updateViewForDataSourceInvalidation;
-- (void)_updateSearchBarFrameForced:(BOOL)arg1;
+- (void)_updateSearchBarFrameForced:(_Bool)arg1;
+- (struct CGRect)_searchBarSearchingFrame;
 - (id)_searchDisplayController;
 - (void)_addStationWithDictionary:(id)arg1;
-- (void)_doneAction:(id)arg1;
+- (void)_addMetricsControllerOperationBlock:(id)arg1;
+- (void)_statusBarHeightChangedNotification:(id)arg1;
+- (void)_radioAuthenticatedAccountIdentifierDidChangeNotification:(id)arg1;
+- (void)_doneAction:(id)arg1 withEvent:(id)arg2;
 - (void)removeAddingIndicator;
 - (void)searchViewControllerWillEndSearching:(id)arg1;
 - (void)searchViewControllerWillBeginSearching:(id)arg1;
 - (void)searchViewController:(id)arg1 didSelectStation:(id)arg2;
 - (void)searchViewControllerDidEndSearching:(id)arg1;
 - (void)searchViewControllerDidBeginSearching:(id)arg1;
-- (void)genreListViewController:(id)arg1 tableViewDidScroll:(id)arg2;
+- (id)metricsPageTypeForSearchViewController:(id)arg1;
+- (id)metricsPageDescriptionForSearchViewController:(id)arg1;
+- (void)genreListViewController:(id)arg1 scrollViewDidScroll:(id)arg2;
 - (void)genreListViewController:(id)arg1 didSelectStation:(id)arg2;
 - (void)genreListViewControllerGenresDidBecomeAvailable:(id)arg1;
 - (id)contentScrollView;
+- (void)willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
 - (void)viewDidLoad;
+- (void)didRotateFromInterfaceOrientation:(long long)arg1;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 

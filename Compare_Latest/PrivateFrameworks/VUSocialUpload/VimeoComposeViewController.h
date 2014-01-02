@@ -8,7 +8,7 @@
 
 #import "VimeoComposeOptionViewDelegate-Protocol.h"
 
-@class ACAccount, ACAccountStore, NSString, SLSheetAction, UIImageView, VimeoDetailsController;
+@class ACAccount, ACAccountStore, NSArray, NSString, SLSheetAction, UIImageView, VimeoDetailsController;
 
 @interface VimeoComposeViewController : SLComposeServiceViewController <VimeoComposeOptionViewDelegate>
 {
@@ -18,16 +18,22 @@
     ACAccountStore *_accountStore;
     ACAccount *_vimeoAccount;
     NSString *_description;
+    NSArray *_tags;
+    long long _videoSize;
+    long long _privacySettings;
 }
 
+@property(nonatomic) long long privacySettings; // @synthesize privacySettings=_privacySettings;
+@property(nonatomic) long long videoSize; // @synthesize videoSize=_videoSize;
+@property(retain, nonatomic) NSArray *tags; // @synthesize tags=_tags;
 @property(retain, nonatomic) NSString *description; // @synthesize description=_description;
 @property(retain, nonatomic) ACAccount *vimeoAccount; // @synthesize vimeoAccount=_vimeoAccount;
 @property(retain, nonatomic) ACAccountStore *accountStore; // @synthesize accountStore=_accountStore;
-- (BOOL)textView:(id)arg1 shouldChangeTextInRange:(struct _NSRange)arg2 replacementText:(id)arg3;
+- (_Bool)textView:(id)arg1 shouldChangeTextInRange:(struct _NSRange)arg2 replacementText:(id)arg3;
 - (void)send;
-- (BOOL)validateText:(id)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)vimeoComposeOptionView:(id)arg1 didFinishWithDescription:(id)arg2;
+- (_Bool)validateText:(id)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
+- (void)vimeoComposeOptionsViewDidFinish:(id)arg1;
 - (id)sheetActions;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

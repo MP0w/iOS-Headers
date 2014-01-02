@@ -9,29 +9,31 @@
 #import "GEOResourceManifestServerProxy-Protocol.h"
 #import "NSURLConnectionDelegate-Protocol.h"
 
-@class GEOActiveTileGroup, GEOResourceLoader, GEOResourceManifestDownload, NSError, NSLock, NSMutableData, NSMutableDictionary, NSString, NSTimer, NSURLConnection;
+@class GEOActiveTileGroup, GEOResourceLoader, GEOResourceManifestDownload, NSError, NSLock, NSMutableArray, NSMutableData, NSMutableDictionary, NSString, NSTimer, NSURLConnection;
 
+// Not exported
 @interface GEOResourceManifestServerLocalProxy : NSObject <NSURLConnectionDelegate, GEOResourceManifestServerProxy>
 {
     id <GEOResourceManifestServerProxyDelegate> _delegate;
     NSURLConnection *_connection;
     NSMutableData *_responseData;
     NSString *_responseETag;
-    BOOL _isObservingManifestReachability;
+    _Bool _isObservingManifestReachability;
     NSTimer *_manifestUpdateTimer;
-    BOOL _isObservingTileGroupReachability;
+    _Bool _isObservingTileGroupReachability;
     NSTimer *_tileGroupUpdateTimer;
     GEOResourceManifestDownload *_resourceManifest;
     GEOActiveTileGroup *_activeTileGroup;
     GEOResourceLoader *_resourceLoader;
     NSMutableDictionary *_resourceRetainCounts;
-    BOOL _started;
-    BOOL _hiDPI;
-    unsigned int _manifestRetryCount;
-    unsigned int _tileGroupRetryCount;
+    _Bool _started;
+    _Bool _hiDPI;
+    unsigned long long _manifestRetryCount;
+    unsigned long long _tileGroupRetryCount;
     NSString *_authToken;
     NSLock *_authTokenLock;
     NSError *_lastResourceManifestLoadError;
+    NSMutableArray *_manifestUpdateCompletionHandlers;
 }
 
 @property(nonatomic) id <GEOResourceManifestServerProxyDelegate> delegate; // @synthesize delegate=_delegate;
@@ -42,17 +44,20 @@
 - (id)_resourceInfosForTileGroup:(id)arg1;
 - (void)connection:(id)arg1 didFailWithError:(id)arg2;
 - (void)connectionDidFinishLoading:(id)arg1;
+- (void)_notifyManifestUpdateCompletionHandlers:(id)arg1;
 - (void)connection:(id)arg1 didReceiveData:(id)arg2;
 - (void)connection:(id)arg1 didReceiveResponse:(id)arg2;
+- (void)setManifestToken:(id)arg1 completionHandler:(id)arg2;
 - (void)_updateTimerFired:(id)arg1;
 - (void)_scheduleUpdateTimerWithTimeInterval:(double)arg1;
 - (void)getResourceManifestWithHandler:(id)arg1;
 - (oneway void)forceUpdate;
 - (void)_updateManifest;
-- (BOOL)_updateManifestIfNecessary;
+- (void)_updateManifest:(id)arg1;
+- (_Bool)_updateManifestIfNecessary;
 - (id)_manifestURL;
 - (void)_reachabilityChanged:(id)arg1;
-- (void)_registerReachabilityObserver:(unsigned int)arg1;
+- (void)_registerReachabilityObserver:(unsigned long long)arg1;
 - (void)_countryProvidersDidChange:(id)arg1;
 - (void)_writeManifestToDisk:(id)arg1;
 - (void)_writeActiveTileGroupToDisk:(id)arg1;
@@ -61,12 +66,12 @@
 - (oneway void)setActiveTileGroupIdentifier:(id)arg1;
 - (void)_cleanupConnection;
 - (void)_cancelConnection;
-- (void)_forceChangeActiveTileGroup:(id)arg1 flushTileCache:(BOOL)arg2 ignoreIdentifier:(BOOL)arg3;
+- (void)_forceChangeActiveTileGroup:(id)arg1 flushTileCache:(_Bool)arg2 ignoreIdentifier:(_Bool)arg3;
 - (void)_tileGroupTimerFired:(id)arg1;
 - (void)_scheduleTileGroupUpdateTimerWithTimeInterval:(double)arg1;
 - (void)_considerChangingActiveTileGroup;
 - (id)_idealTileGroupToUse;
-- (void)_changeActiveTileGroup:(id)arg1 flushTileCache:(BOOL)arg2;
+- (_Bool)_changeActiveTileGroup:(id)arg1 flushTileCache:(_Bool)arg2;
 - (void)_loadFromDisk;
 - (oneway void)startServer:(id)arg1;
 - (id)authToken;

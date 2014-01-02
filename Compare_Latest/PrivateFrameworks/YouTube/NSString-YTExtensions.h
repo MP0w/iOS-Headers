@@ -7,7 +7,7 @@
 #import "NSString.h"
 
 @interface NSString (YTExtensions)
-- (BOOL)_yt_containsSubstring:(id)arg1;
+- (_Bool)_yt_containsSubstring:(id)arg1;
 - (id)stringByRemovingLTGT;
 - (id)youTubeTrimmedString;
 - (id)escapedYouTubeSearchString;

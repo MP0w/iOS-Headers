@@ -8,36 +8,37 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface UIInputViewAnimationStyle : NSObject
 {
-    BOOL animated;
+    _Bool animated;
     double duration;
     int outDirection;
-    unsigned int extraOptions;
-    BOOL persistUntilComplete;
-    BOOL ignoreNewAnimations;
+    unsigned long long extraOptions;
+    _Bool persistUntilComplete;
+    _Bool ignoreNewAnimations;
     NSMutableArray *extraViews;
-    BOOL placeholderKeyboard;
-    BOOL force;
+    _Bool placeholderKeyboard;
+    _Bool force;
 }
 
-+ (id)animationStyleAnimated:(BOOL)arg1 duration:(double)arg2 outDirection:(int)arg3;
++ (id)animationStyleAnimated:(_Bool)arg1 duration:(double)arg2 outDirection:(int)arg3;
 + (id)animationStyleDefault;
 + (id)animationStyleImmediate;
-@property(nonatomic) BOOL placeholderKeyboard; // @synthesize placeholderKeyboard;
+@property(nonatomic) _Bool placeholderKeyboard; // @synthesize placeholderKeyboard;
 @property(retain, nonatomic) NSMutableArray *extraViews; // @synthesize extraViews;
-@property(nonatomic) BOOL ignoreNewAnimations; // @synthesize ignoreNewAnimations;
-@property(nonatomic) BOOL persistUntilComplete; // @synthesize persistUntilComplete;
-@property(nonatomic) unsigned int extraOptions; // @synthesize extraOptions;
-@property(nonatomic) BOOL force; // @synthesize force;
+@property(nonatomic) _Bool ignoreNewAnimations; // @synthesize ignoreNewAnimations;
+@property(nonatomic) _Bool persistUntilComplete; // @synthesize persistUntilComplete;
+@property(nonatomic) unsigned long long extraOptions; // @synthesize extraOptions;
+@property(nonatomic) _Bool force; // @synthesize force;
 @property(nonatomic) int outDirection; // @synthesize outDirection;
 @property(nonatomic) double duration; // @synthesize duration;
-@property(nonatomic) BOOL animated; // @synthesize animated;
+@property(nonatomic) _Bool animated; // @synthesize animated;
 - (void)launchAnimation:(id)arg1 afterStarted:(void)arg2 completion:(id)arg3 forHost:(void)arg4 fromCurrentPosition:(id)arg5;
-- (BOOL)delayForTransaction;
-@property(readonly, nonatomic) BOOL isAnimationCompleted;
+@property(readonly, nonatomic) _Bool useCustomTransition;
+@property(readonly, nonatomic) _Bool isAnimationCompleted;
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
 
 @end

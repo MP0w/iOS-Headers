@@ -10,20 +10,20 @@
 
 @interface PUTransitionSectionInfo : NSObject
 {
-    int _transitionSection;
+    long long _transitionSection;
     NSIndexSet *_visualSections;
     NSArray *_visualRowStartMarkers;
-    int _contiguousRows;
+    long long _contiguousRows;
     NSIndexPath *_anchorRealPath;
     struct PUGridCoordinates _anchorShiftOffset;
 }
 
 @property(nonatomic) struct PUGridCoordinates anchorShiftOffset; // @synthesize anchorShiftOffset=_anchorShiftOffset;
 @property(retain, nonatomic) NSIndexPath *anchorRealPath; // @synthesize anchorRealPath=_anchorRealPath;
-@property(nonatomic) int contiguousRows; // @synthesize contiguousRows=_contiguousRows;
+@property(nonatomic) long long contiguousRows; // @synthesize contiguousRows=_contiguousRows;
 @property(retain, nonatomic) NSArray *visualRowStartMarkers; // @synthesize visualRowStartMarkers=_visualRowStartMarkers;
 @property(retain, nonatomic) NSIndexSet *visualSections; // @synthesize visualSections=_visualSections;
-@property(nonatomic) int transitionSection; // @synthesize transitionSection=_transitionSection;
+@property(nonatomic) long long transitionSection; // @synthesize transitionSection=_transitionSection;
 - (void).cxx_destruct;
 - (id)description;
 - (id)init;

@@ -10,6 +10,7 @@
 
 @class SKStoreProductViewController;
 
+// Not exported
 @interface SKRemoteProductViewController : _UIRemoteViewController <SKUIClientProductPageViewController>
 {
     SKStoreProductViewController *_productViewController;
@@ -27,7 +28,7 @@
 - (void)didFinishWithResult:(id)arg1;
 - (void)didFinish;
 - (void)viewServiceDidTerminateWithError:(id)arg1;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
 
 @end
 

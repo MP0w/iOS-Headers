@@ -11,15 +11,16 @@
 @interface MFModernAtomIconView : UIView
 {
     NSArray *_iconImages;
-    float _iconPadding;
+    double _iconPadding;
     struct CGPoint _drawingOffset;
 }
 
 @property(nonatomic) struct CGPoint drawingOffset; // @synthesize drawingOffset=_drawingOffset;
-@property(nonatomic) float iconPadding; // @synthesize iconPadding=_iconPadding;
+@property(nonatomic) double iconPadding; // @synthesize iconPadding=_iconPadding;
 @property(retain, nonatomic) NSArray *iconImages; // @synthesize iconImages=_iconImages;
-- (float)preferredWidth;
+- (double)preferredWidth;
 - (void)drawRect:(struct CGRect)arg1;
+- (void)dealloc;
 
 @end
 

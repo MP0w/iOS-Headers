@@ -8,19 +8,20 @@
 
 @class UITextPosition;
 
+// Not exported
 @interface UITextInputArrowKeyHistory : NSObject
 {
     UITextPosition *startPosition;
-    int amount;
+    long long amount;
     int anchor;
     UITextPosition *start;
     UITextPosition *end;
     UITextPosition *cursor;
-    BOOL affinityDownstream;
+    _Bool affinityDownstream;
 }
 
-@property(nonatomic) int amount; // @synthesize amount;
-@property(nonatomic) BOOL affinityDownstream; // @synthesize affinityDownstream;
+@property(nonatomic) long long amount; // @synthesize amount;
+@property(nonatomic) _Bool affinityDownstream; // @synthesize affinityDownstream;
 @property(retain, nonatomic) UITextPosition *end; // @synthesize end;
 @property(retain, nonatomic) UITextPosition *start; // @synthesize start;
 @property(retain, nonatomic) UITextPosition *cursor; // @synthesize cursor;

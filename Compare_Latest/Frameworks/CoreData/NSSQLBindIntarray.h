@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface NSSQLBindIntarray : NSObject
 {
     unsigned int _index;

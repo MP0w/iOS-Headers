@@ -8,22 +8,25 @@
 
 @class CIImage, CIVector, NSNumber;
 
+// Not exported
 @interface CIVignetteEffect : CIFilter
 {
     CIImage *inputImage;
     CIVector *inputCenter;
-    NSNumber *inputIntensity;
     NSNumber *inputRadius;
+    NSNumber *inputIntensity;
+    NSNumber *inputFalloff;
 }
 
 + (id)customAttributes;
-@property(retain, nonatomic) NSNumber *inputRadius; // @synthesize inputRadius;
+@property(retain, nonatomic) NSNumber *inputFalloff; // @synthesize inputFalloff;
 @property(retain, nonatomic) NSNumber *inputIntensity; // @synthesize inputIntensity;
+@property(retain, nonatomic) NSNumber *inputRadius; // @synthesize inputRadius;
 @property(retain, nonatomic) CIVector *inputCenter; // @synthesize inputCenter;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
 - (id)_kernel;
-- (BOOL)_isIdentity;
+- (_Bool)_isIdentity;
 - (void)setDefaults;
 
 @end

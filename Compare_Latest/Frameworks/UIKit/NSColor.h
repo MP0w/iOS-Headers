@@ -6,12 +6,13 @@
 
 #import <UIKit/UIColor.h>
 
+// Not exported
 @interface NSColor : UIColor
 {
 }
 
-+ (id)colorWithCalibratedWhite:(float)arg1 alpha:(float)arg2;
-+ (id)colorWithCalibratedRed:(float)arg1 green:(float)arg2 blue:(float)arg3 alpha:(float)arg4;
++ (id)colorWithCalibratedWhite:(double)arg1 alpha:(double)arg2;
++ (id)colorWithCalibratedRed:(double)arg1 green:(double)arg2 blue:(double)arg3 alpha:(double)arg4;
 - (id)initWithCoder:(id)arg1;
 
 @end

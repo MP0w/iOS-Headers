@@ -10,8 +10,8 @@
 
 @interface SBManagerClientCache : NSObject
 {
-    BOOL _behaviorBundleSupport;
-    BOOL _behaviorBundleSupportKnown;
+    _Bool _behaviorBundleSupport;
+    _Bool _behaviorBundleSupportKnown;
     NSMutableDictionary *_keyValueCache;
     NSLock *_cacheLock;
     struct dispatch_queue_s *_queue;
@@ -22,8 +22,8 @@
 @property struct dispatch_queue_s *queue; // @synthesize queue=_queue;
 @property NSLock *cacheLock; // @synthesize cacheLock=_cacheLock;
 @property NSMutableDictionary *keyValueCache; // @synthesize keyValueCache=_keyValueCache;
-@property BOOL behaviorBundleSupportKnown; // @synthesize behaviorBundleSupportKnown=_behaviorBundleSupportKnown;
-@property BOOL behaviorBundleSupport; // @synthesize behaviorBundleSupport=_behaviorBundleSupport;
+@property _Bool behaviorBundleSupportKnown; // @synthesize behaviorBundleSupportKnown=_behaviorBundleSupportKnown;
+@property _Bool behaviorBundleSupport; // @synthesize behaviorBundleSupport=_behaviorBundleSupport;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)callCallbacksForEvent:(id)arg1;
@@ -31,7 +31,7 @@
 - (void)registerCallbackForEvent:(id)arg1 with:(struct EventCallbackData *)arg2;
 - (void)cacheValue:(id)arg1 forKey:(id)arg2;
 - (id)copyCachedValueFor:(id)arg1;
-- (void)saveBehaviorBundleSupport:(BOOL)arg1 withValue:(BOOL)arg2;
+- (void)saveBehaviorBundleSupport:(_Bool)arg1 withValue:(_Bool)arg2;
 - (void)resetKeyValueCache;
 - (id)init;
 

@@ -8,14 +8,15 @@
 
 @class NSString;
 
+// Not exported
 @interface NSStoreMapping : NSObject
 {
     NSString *_externalName;
 }
 
 - (void)copyValuesForReadOnlyFetch:(id)arg1;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)setExternalName:(id)arg1;
 - (id)externalName;
 - (void)dealloc;

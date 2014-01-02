@@ -10,25 +10,25 @@
 
 @interface UserFSBuffer : NSObject <NSDiscardableContent>
 {
-    unsigned long _allocatedSize;
+    unsigned long long _allocatedSize;
     int _fd;
     unsigned int _busyCount;
-    BOOL _dirty;
-    unsigned long _length;
-    void *_buffer;
+    _Bool _dirty;
     unsigned long long _offset;
+    unsigned long long _length;
+    void *_buffer;
 }
 
-@property(nonatomic) BOOL dirty; // @synthesize dirty=_dirty;
+@property(nonatomic) _Bool dirty; // @synthesize dirty=_dirty;
 @property(readonly, nonatomic) void *buffer; // @synthesize buffer=_buffer;
-@property(readonly, nonatomic) unsigned long length; // @synthesize length=_length;
+@property(readonly, nonatomic) unsigned long long length; // @synthesize length=_length;
 @property(readonly, nonatomic) unsigned long long offset; // @synthesize offset=_offset;
 - (void)discardContentIfPossible;
-- (BOOL)isContentDiscarded;
+- (_Bool)isContentDiscarded;
 - (void)endContentAccess;
-- (BOOL)beginContentAccess;
-- (int)resizeToLength:(unsigned long)arg1;
-- (id)initWithOffset:(unsigned long long)arg1 length:(unsigned long)arg2 fileDescriptor:(int)arg3;
+- (_Bool)beginContentAccess;
+- (int)resizeToLength:(unsigned long long)arg1;
+- (id)initWithOffset:(unsigned long long)arg1 length:(unsigned long long)arg2 fileDescriptor:(int)arg3;
 - (int)_writeBlockContents;
 - (int)_readBlockContents;
 

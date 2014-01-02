@@ -8,30 +8,31 @@
 
 #import "UIKBRenderEffect-Protocol.h"
 
-@class UIKBGradient;
+@class NSString, UIKBGradient;
 
+// Not exported
 @interface UIKBEdgeEffect : NSObject <UIKBRenderEffect>
 {
-    struct CGColor *_color;
-    int _edges;
-    float _inset;
-    float _weight;
+    NSString *_colorName;
+    unsigned long long _edges;
+    double _inset;
+    double _weight;
     UIKBGradient *_gradient;
 }
 
-+ (id)effectWithColor:(id)arg1 edges:(int)arg2 inset:(float)arg3 weight:(float)arg4;
++ (id)effectWithColor:(id)arg1 edges:(unsigned long long)arg2 inset:(double)arg3 weight:(double)arg4;
 @property(retain, nonatomic) UIKBGradient *gradient; // @synthesize gradient=_gradient;
-@property(nonatomic) float weight; // @synthesize weight=_weight;
-@property(nonatomic) float inset; // @synthesize inset=_inset;
-@property(nonatomic) int edges; // @synthesize edges=_edges;
-@property(readonly, nonatomic) struct CGColor *color; // @synthesize color=_color;
+@property(nonatomic) double weight; // @synthesize weight=_weight;
+@property(nonatomic) double inset; // @synthesize inset=_inset;
+@property(nonatomic) unsigned long long edges; // @synthesize edges=_edges;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (struct CGColor *)CGColor;
 - (id)description;
 - (void)dealloc;
-- (id)initWithColor:(id)arg1 edges:(int)arg2 inset:(float)arg3 weight:(float)arg4;
+- (id)initWithColor:(id)arg1 edges:(unsigned long long)arg2 inset:(double)arg3 weight:(double)arg4;
 @property(readonly, nonatomic) SEL renderSelector;
-@property(readonly, nonatomic) BOOL renderUnder;
-@property(readonly, nonatomic) BOOL isValid;
+@property(readonly, nonatomic) _Bool renderUnder;
+@property(readonly, nonatomic) _Bool isValid;
 
 @end
 

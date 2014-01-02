@@ -7,6 +7,6 @@
 #import "NSManagedObject.h"
 
 @interface NSManagedObject (TrackingAPI)
-+ (BOOL)isTracked;
++ (_Bool)isTracked;
 @end
 

@@ -16,15 +16,11 @@
     PLCloudSharedComment *_comment;
 }
 
-+ (id)_attributedStringForBylineText:(id)arg1 color:(id)arg2;
-+ (id)_attributedStringForBylineText:(id)arg1;
-+ (id)_attributedStringForCommentText:(id)arg1 color:(id)arg2;
-+ (id)_attributedStringForCommentText:(id)arg1;
-+ (id)bylineStringForComment:(id)arg1;
-+ (float)heightForComment:(id)arg1 forWidth:(float)arg2 forInterfaceOrientation:(int)arg3;
-+ (float)heightForCommentText:(id)arg1 bylineText:(id)arg2 forWidth:(float)arg3 forInterfaceOrientation:(int)arg4;
++ (id)_attributionStringForComment:(id)arg1;
++ (id)_commentStringForComment:(id)arg1;
++ (double)heightForComment:(id)arg1 forWidth:(double)arg2 forInterfaceOrientation:(long long)arg3;
 + (Class)layerClass;
-+ (id)_synthesizedAttributedString:(id)arg1 withWordWrapping:(BOOL)arg2;
++ (id)_synthesizedAttributedString:(id)arg1 withWordWrapping:(_Bool)arg2;
 @property(copy, nonatomic) PLCloudSharedComment *comment; // @synthesize comment=_comment;
 @property(readonly, nonatomic) UIView *styledSeparatorView; // @synthesize styledSeparatorView=_styledSeparatorView;
 @property(readonly, nonatomic) UILabel *commentBylineLabel; // @synthesize commentBylineLabel=_commentBylineLabel;
@@ -34,7 +30,7 @@
 - (void)delete:(id)arg1;
 - (void)prepareForReuse;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

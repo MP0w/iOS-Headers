@@ -6,31 +6,34 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
 @class NSMutableData, NSObject<OS_dispatch_queue>;
 
-@interface MPReshuffledArrayIndexMap : NSObject <NSCoding, NSCopying>
+@interface MPReshuffledArrayIndexMap : NSObject <NSSecureCoding, NSCopying>
 {
-    unsigned int _arrayCount;
-    unsigned int _identityIndexesCount;
+    unsigned long long _arrayCount;
+    unsigned long long _identityIndexesCount;
     NSObject<OS_dispatch_queue> *_shuffledIndexesQueue;
     NSMutableData *_shuffledIndexesData;
     struct _NSRange _focusedRange;
+    _Bool _autoReshufflingDisabled;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) struct _NSRange focusedRange; // @synthesize focusedRange=_focusedRange;
 - (void).cxx_destruct;
-- (unsigned int)sourceArrayIndexForIndex:(unsigned int)arg1;
-- (BOOL)_onQueueExtendMap;
-@property(readonly, nonatomic) unsigned int countOfArrayIndexMappings;
+- (unsigned long long)sourceArrayIndexForIndex:(unsigned long long)arg1;
+- (_Bool)_onQueueExtendMap;
+- (_Bool)_canExtendShuffleMapToCount:(unsigned long long)arg1;
+@property(readonly, nonatomic) unsigned long long countOfArrayIndexMappings;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)dealloc;
-- (id)initWithSourceArrayCount:(unsigned int)arg1 identityArraysCount:(unsigned int)arg2;
-- (id)initWithSourceArrayCount:(unsigned int)arg1 identityIndexesCount:(unsigned int)arg2;
+- (id)initWithSourceArrayCount:(unsigned long long)arg1 identityArraysCount:(unsigned long long)arg2;
+- (id)initWithSourceArrayCount:(unsigned long long)arg1 identityIndexesCount:(unsigned long long)arg2;
 
 @end
 

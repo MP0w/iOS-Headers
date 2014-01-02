@@ -34,33 +34,26 @@
 + (id)whitespaceCharacterSet;
 + (id)controlCharacterSet;
 + (void)initialize;
-+ (id)URLFragmentAllowedCharacterSet;
-+ (id)URLQueryAllowedCharacterSet;
-+ (id)URLPathAllowedCharacterSet;
-+ (id)URLHostAllowedCharacterSet;
-+ (id)URLPasswordAllowedCharacterSet;
-+ (id)URLUserAllowedCharacterSet;
 - (id)_retainedBitmapRepresentation;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)bitmapRepresentation;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)hasMemberInPlane:(unsigned char)arg1;
-- (BOOL)isSupersetOfSet:(id)arg1;
-- (BOOL)longCharacterIsMember:(unsigned long)arg1;
-- (BOOL)characterIsMember:(unsigned short)arg1;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)hasMemberInPlane:(unsigned char)arg1;
+- (_Bool)isSupersetOfSet:(id)arg1;
+- (_Bool)longCharacterIsMember:(unsigned int)arg1;
+- (_Bool)characterIsMember:(unsigned short)arg1;
 - (void)makeImmutable;
-- (BOOL)isMutable;
-- (unsigned int)count;
-- (BOOL)isEmpty;
+- (_Bool)isMutable;
+- (unsigned long long)count;
+- (_Bool)isEmpty;
 - (id)invertedSet;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)init;
 - (struct __CFCharacterSet *)_expandedCFCharacterSet;
-- (unsigned long)_cfTypeID;
-- (id)replacementObjectForPortCoder:(id)arg1;
+- (unsigned long long)_cfTypeID;
 
 @end
 

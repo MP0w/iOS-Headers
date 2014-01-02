@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSString;
 
-@interface GEOPhotoInfo : PBCodable
+@interface GEOPhotoInfo : PBCodable <NSCopying>
 {
     int _size;
     NSString *_url;
@@ -19,15 +21,16 @@
 
 @property(retain, nonatomic) NSString *url; // @synthesize url=_url;
 @property(nonatomic) int size; // @synthesize size=_size;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) BOOL hasUrl;
-@property(nonatomic) BOOL hasSize;
+@property(readonly, nonatomic) _Bool hasUrl;
+@property(nonatomic) _Bool hasSize;
 - (void)dealloc;
 
 @end

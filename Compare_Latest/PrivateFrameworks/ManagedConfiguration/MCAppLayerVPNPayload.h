@@ -6,16 +6,18 @@
 
 #import <ManagedConfiguration/MCVPNPayloadBase.h>
 
-@class NSString;
+@class NSArray, NSString;
 
 @interface MCAppLayerVPNPayload : MCVPNPayloadBase
 {
     NSString *_VPNUUID;
+    NSArray *_SafariDomains;
 }
 
 + (id)localizedPluralForm;
 + (id)localizedSingularForm;
 + (id)typeStrings;
+@property(retain, nonatomic) NSArray *SafariDomains; // @synthesize SafariDomains=_SafariDomains;
 @property(retain, nonatomic) NSString *VPNUUID; // @synthesize VPNUUID=_VPNUUID;
 - (void).cxx_destruct;
 - (id)description;

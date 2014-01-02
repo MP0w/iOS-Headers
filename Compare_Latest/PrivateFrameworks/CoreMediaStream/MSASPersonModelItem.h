@@ -24,7 +24,7 @@
 @property(nonatomic) int errorCount; // @synthesize errorCount=_errorCount;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 
 @end
 

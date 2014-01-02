@@ -27,8 +27,8 @@
 @property(nonatomic) double value; // @synthesize value=_value;
 - (id)description;
 - (void)_appendDescriptionToString:(id)arg1 atLevel:(int)arg2;
-- (BOOL)_isUpperBoundary;
-- (BOOL)_isLowerBoundary;
+- (_Bool)_isUpperBoundary;
+- (_Bool)_isLowerBoundary;
 - (void)_setBoundaryPull:(double)arg1;
 - (double)_boundaryPull;
 - (id)_applier;

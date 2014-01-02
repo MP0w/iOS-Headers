@@ -12,33 +12,33 @@
 {
     NSString *_threadLocalStorageKey;
     NSObject<OS_dispatch_queue> *_concurrentQueue;
-    unsigned int _specialBehaviors;
+    unsigned long long _specialBehaviors;
 }
 
 + (id)backgroundAccessQueue;
 + (id)mainAccessQueue;
-@property(nonatomic) unsigned int specialBehaviors; // @synthesize specialBehaviors=_specialBehaviors;
+@property(nonatomic) unsigned long long specialBehaviors; // @synthesize specialBehaviors=_specialBehaviors;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *concurrentQueue; // @synthesize concurrentQueue=_concurrentQueue;
 @property(copy, nonatomic) NSString *threadLocalStorageKey; // @synthesize threadLocalStorageKey=_threadLocalStorageKey;
-- (void)_performBlock:(id)arg1 withDispatchFunction:(void)arg2 synchronously:(void *)arg3 accessQueueContext:(BOOL)arg4;
-- (unsigned int)_accessQueueContextInCurrentExecutionThread;
+- (void)_performBlock:(id)arg1 withDispatchFunction:(void)arg2 synchronously:(void *)arg3 accessQueueContext:(_Bool)arg4;
+- (unsigned long long)_accessQueueContextInCurrentExecutionThread;
 - (id)description;
-- (BOOL)canOnlyReadInCurrentExecutionThread;
-- (BOOL)canWriteInCurrentExecutionThread;
-- (BOOL)canReadInCurrentExecutionThread;
+- (_Bool)canOnlyReadInCurrentExecutionThread;
+- (_Bool)canWriteInCurrentExecutionThread;
+- (_Bool)canReadInCurrentExecutionThread;
 - (void)afterDelay:(double)arg1 processWritingBlock:(id)arg2;
 - (void)afterDelay:(double)arg1 processReadingBlock:(id)arg2;
 - (void)performAsynchronousWritingBlock:(id)arg1;
 - (void)performAsynchronousReadingBlock:(id)arg1;
 - (void)performSynchronousWritingBlock:(id)arg1;
 - (void)performSynchronousReadingBlock:(id)arg1;
-@property(readonly, nonatomic) BOOL behavesWithoutErrorReporting;
-@property(readonly, nonatomic) BOOL behavesAsMainQueue;
+@property(readonly, nonatomic) _Bool behavesWithoutErrorReporting;
+@property(readonly, nonatomic) _Bool behavesAsMainQueue;
 @property(readonly, nonatomic) NSString *label;
 - (void)dealloc;
-- (id)initWithParentClass:(Class)arg1 description:(id)arg2 appendUUIDToLabel:(BOOL)arg3;
-- (id)_initWithLabel:(id)arg1 appendUUIDToLabel:(BOOL)arg2 specialBehaviors:(unsigned int)arg3;
-- (id)initWithLabel:(id)arg1 appendUUIDToLabel:(BOOL)arg2;
+- (id)initWithParentClass:(Class)arg1 description:(id)arg2 appendUUIDToLabel:(_Bool)arg3;
+- (id)_initWithLabel:(id)arg1 appendUUIDToLabel:(_Bool)arg2 specialBehaviors:(unsigned long long)arg3;
+- (id)initWithLabel:(id)arg1 appendUUIDToLabel:(_Bool)arg2;
 - (id)init;
 
 @end

@@ -6,6 +6,7 @@
 
 #import <CoreData/NSSQLStatement.h>
 
+// Not exported
 @interface NSSQLiteStatement : NSSQLStatement
 {
     struct sqlite3_stmt *_cachedSQLiteStatement;

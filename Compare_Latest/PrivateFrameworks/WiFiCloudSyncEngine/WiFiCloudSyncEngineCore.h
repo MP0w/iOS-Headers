@@ -14,18 +14,20 @@
     void *context;
     void *callback;
     NSThread *clientThread;
-    BOOL iCloudSyncingEnabled;
+    _Bool iCloudSyncingEnabled;
 }
 
-@property BOOL iCloudSyncingEnabled; // @synthesize iCloudSyncingEnabled;
+@property _Bool iCloudSyncingEnabled; // @synthesize iCloudSyncingEnabled;
 @property(retain) NSThread *clientThread; // @synthesize clientThread;
 @property void *callback; // @synthesize callback;
 @property void *context; // @synthesize context;
 @property(retain) NSUbiquitousKeyValueStore *keyValueStore; // @synthesize keyValueStore;
+- (void)relayCircleStatusCheck:(id)arg1;
+- (void)asyncCircleStatusCheck;
 - (void)relayCloudEvent:(id)arg1;
 - (void)unSubscribeKVStoreNotfications;
 - (void)subscribeKVStoreNotficationsForBundleId:(id)arg1;
-- (void)enableIcloudSyncing:(BOOL)arg1 ForBundleId:(id)arg2;
+- (void)enableIcloudSyncing:(_Bool)arg1 ForBundleId:(id)arg2;
 - (void)ubiquitousKeyValueStoreDidChange:(id)arg1;
 - (void)printCompleteKVStore;
 - (id)readCompleteKVStore;

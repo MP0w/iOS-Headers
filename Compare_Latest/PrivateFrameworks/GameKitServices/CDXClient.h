@@ -8,10 +8,11 @@
 
 @class NSData, NSError, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString;
 
+// Not exported
 @interface CDXClient : NSObject
 {
     id <CDXClientDelegate> delegate_;
-    int holePunchAttemptCount_;
+    long long holePunchAttemptCount_;
     NSData *preblob_;
     NSMutableDictionary *sessionLookup_;
     NSError *error_;
@@ -21,11 +22,11 @@
     NSString *server_;
     unsigned short port_;
     unsigned short localPort_;
-    int restartCount_;
+    long long restartCount_;
     struct sockaddr_in cdxaddr_ipv4;
     double holePunchInterval_;
-    BOOL preblobIsUpToDate_;
-    BOOL willReconfigureShortly_;
+    _Bool preblobIsUpToDate_;
+    _Bool willReconfigureShortly_;
     struct __SCDynamicStore *scDynamicStore_;
     struct __CFRunLoopSource *scDynamicStoreRunLoopSource_;
     NSObject<OS_dispatch_queue> *queue_;
@@ -41,7 +42,7 @@
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=queue_;
 - (id)createSessionWithTicket:(id)arg1 sessionKey:(id)arg2;
 - (void)invalidateSession:(id)arg1;
-- (BOOL)sendRaw:(id)arg1;
+- (_Bool)sendRaw:(id)arg1;
 - (void)invalidate;
 - (void)stopHolePunchTimer;
 - (void)restart;
@@ -53,7 +54,7 @@
 - (void)networkDidChange;
 - (void)handleFDEvent;
 - (void)resetHolepunchTimer;
-- (BOOL)handleHolePunchEvent;
+- (_Bool)handleHolePunchEvent;
 - (void)sendHolePunch;
 - (void)setPreblob:(id)arg1;
 @property(readonly) NSData *preblob; // @synthesize preblob=preblob_;

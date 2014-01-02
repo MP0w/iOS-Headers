@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface GQHBulletState : NSObject
 {
     struct __CFArray *mLevels;
@@ -27,7 +28,7 @@
 - (int)labelTypeAtLevel:(int)arg1;
 - (void)setLabelType:(int)arg1 level:(int)arg2;
 - (int)numberAtLevel:(int)arg1;
-- (BOOL)hasNumberAtLevel:(int)arg1;
+- (_Bool)hasNumberAtLevel:(int)arg1;
 - (void)setNumber:(int)arg1 level:(int)arg2;
 - (int)typeAtlevel:(int)arg1;
 - (void)setType:(int)arg1 level:(int)arg2;

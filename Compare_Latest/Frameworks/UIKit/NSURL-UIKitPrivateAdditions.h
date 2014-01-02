@@ -7,6 +7,6 @@
 #import "NSURL.h"
 
 @interface NSURL (UIKitPrivateAdditions)
-- (BOOL)isInternalUIKitURL;
+- (_Bool)isInternalUIKitURL;
 @end
 

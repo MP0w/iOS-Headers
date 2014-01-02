@@ -16,32 +16,32 @@
     NSArray *_accountDisplayNames;
     NSDictionary *_groupsByAccountIdentifier;
     ACAccountStore *_accountStore;
-    BOOL _hidesSearchableSources;
-    BOOL _hidesGlobalGroupWrapper;
-    BOOL _dirty;
+    _Bool _hidesSearchableSources;
+    _Bool _hidesGlobalGroupWrapper;
+    _Bool _dirty;
     ABModel *_model;
 }
 
 @property(retain, nonatomic) ACAccountStore *accountStore; // @synthesize accountStore=_accountStore;
-@property(nonatomic, getter=isDirty) BOOL dirty; // @synthesize dirty=_dirty;
-@property(nonatomic) BOOL hidesGlobalGroupWrapper; // @synthesize hidesGlobalGroupWrapper=_hidesGlobalGroupWrapper;
-@property(nonatomic) BOOL hidesSearchableSources; // @synthesize hidesSearchableSources=_hidesSearchableSources;
+@property(nonatomic, getter=isDirty) _Bool dirty; // @synthesize dirty=_dirty;
+@property(nonatomic) _Bool hidesGlobalGroupWrapper; // @synthesize hidesGlobalGroupWrapper=_hidesGlobalGroupWrapper;
+@property(nonatomic) _Bool hidesSearchableSources; // @synthesize hidesSearchableSources=_hidesSearchableSources;
 @property(retain, nonatomic) ABModel *model; // @synthesize model=_model;
 - (void)cancelScheduledRefresh;
 - (void)scheduleRefresh;
-- (int)numberOfGroupsForAccountIdentifier:(id)arg1;
+- (long long)numberOfGroupsForAccountIdentifier:(id)arg1;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (id)tableView:(id)arg1 titleForHeaderInSection:(int)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (int)numberOfGroupsInAccountAtIndex:(int)arg1;
-- (id)accountDisplayNameAtIndex:(int)arg1;
+- (id)tableView:(id)arg1 titleForHeaderInSection:(long long)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (long long)numberOfGroupsInAccountAtIndex:(long long)arg1;
+- (id)accountDisplayNameAtIndex:(long long)arg1;
 - (id)newContactsFilterFromSelectedGroupWrappers;
 - (id)indexPathForGroupWrapper:(id)arg1;
 - (id)groupWrapperForIndexPath:(id)arg1;
 - (void)reloadData;
-- (void)reloadDataIncludingAccountStore:(BOOL)arg1 usingArchivedState:(BOOL)arg2;
+- (void)reloadDataIncludingAccountStore:(_Bool)arg1 usingArchivedState:(_Bool)arg2;
 - (id)defaultGroupWrapper;
 - (void)dealloc;
 

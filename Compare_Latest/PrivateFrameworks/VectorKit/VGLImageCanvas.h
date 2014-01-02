@@ -10,40 +10,41 @@
 
 @class VGLContext, VGLFramebuffer, VGLTexture;
 
+// Not exported
 @interface VGLImageCanvas : NSObject <VGLCanvas>
 {
     VGLContext *_targetContext;
     VGLFramebuffer *_targetFramebuffer;
     VGLTexture *_targetTexture;
     struct CGSize _size;
-    float _contentScale;
-    BOOL _useDepthBuffer;
-    BOOL _useStencilBuffer;
+    double _contentScale;
+    _Bool _useDepthBuffer;
+    _Bool _useStencilBuffer;
     struct _VGLColor _glClearColor;
-    BOOL _canMakeImage;
-    BOOL _recreateFramebuffer;
+    _Bool _canMakeImage;
+    _Bool _recreateFramebuffer;
 }
 
 + (struct CGImage *)newImageFromTargetTexture:(id)arg1;
-+ (void *)bitmapData:(unsigned int *)arg1 fromTexture:(id)arg2;
++ (void *)bitmapData:(unsigned long long *)arg1 fromTexture:(id)arg2;
 + (Class)contextClass;
 @property(nonatomic) struct CGSize size; // @synthesize size=_size;
-@property(nonatomic) float contentScale; // @synthesize contentScale=_contentScale;
+@property(nonatomic) double contentScale; // @synthesize contentScale=_contentScale;
 @property(nonatomic) struct _VGLColor glClearColor; // @synthesize glClearColor=_glClearColor;
-@property(nonatomic) BOOL useStencilBuffer; // @synthesize useStencilBuffer=_useStencilBuffer;
-@property(nonatomic) BOOL useDepthBuffer; // @synthesize useDepthBuffer=_useDepthBuffer;
+@property(nonatomic) _Bool useStencilBuffer; // @synthesize useStencilBuffer=_useStencilBuffer;
+@property(nonatomic) _Bool useDepthBuffer; // @synthesize useDepthBuffer=_useDepthBuffer;
 @property(readonly, nonatomic) VGLContext *vglContext; // @synthesize vglContext=_targetContext;
 - (id).cxx_construct;
 - (struct CGImage *)newImage;
-- (void *)bitmapData:(unsigned int *)arg1;
+- (void *)bitmapData:(unsigned long long *)arg1;
 - (void)didDrawView;
 - (void)willDrawView;
 - (void)_destroyFramebuffer;
 - (void)_createFramebuffer;
 - (void)dealloc;
-- (id)initWithSize:(struct CGSize)arg1 scale:(float)arg2 context:(id)arg3;
+- (id)initWithSize:(struct CGSize)arg1 scale:(double)arg2 context:(id)arg3;
 @property(readonly, nonatomic) struct CGSize sizeInPixels;
-@property(nonatomic) BOOL useMultisampling;
+@property(nonatomic) _Bool useMultisampling;
 
 @end
 

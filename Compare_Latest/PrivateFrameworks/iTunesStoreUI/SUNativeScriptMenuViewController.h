@@ -16,10 +16,10 @@
 
 @property(retain, nonatomic) NSArray *menuItems; // @synthesize menuItems=_menuItems;
 @property(retain, nonatomic) SUScriptFunction *action; // @synthesize action=_action;
-- (id)titleOfMenuItemAtIndex:(int)arg1;
-- (void)performActionForMenuItemAtIndex:(int)arg1;
-- (int)numberOfMenuItems;
-- (BOOL)isMenuItemEnabledAtIndex:(int)arg1;
+- (id)titleOfMenuItemAtIndex:(long long)arg1;
+- (void)performActionForMenuItemAtIndex:(long long)arg1;
+- (long long)numberOfMenuItems;
+- (_Bool)isMenuItemEnabledAtIndex:(long long)arg1;
 - (id)copyScriptViewController;
 - (void)dealloc;
 

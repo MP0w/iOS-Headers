@@ -9,28 +9,15 @@
 #import "_UIViewServiceDeputy-Protocol.h"
 #import "_UIViewServiceUIBehaviorInterface-Protocol.h"
 
-@class _UIAsyncInvocation;
-
+// Not exported
 @interface _UIViewControllerControlMessageDeputy : _UITargetedProxy <_UIViewServiceDeputy, _UIViewServiceUIBehaviorInterface>
 {
-    _UIAsyncInvocation *_invalidationInvocation;
-    int __automatic_invalidation_retainCount;
-    BOOL __automatic_invalidation_invalidated;
 }
 
 + (id)proxyWithTarget:(id)arg1;
 + (id)XPCInterface;
-- (void)_invalidateUnconditionallyThen:(id)arg1;
 - (id)invalidate;
 - (void)__prepareForDisconnectionWithCompletionHandler:(id)arg1;
-- (void)dealloc;
-- (id)_queue;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
-- (unsigned int)retainCount;
-- (oneway void)release;
-- (id)retain;
-- (int)__automatic_invalidation_logic;
 
 @end
 

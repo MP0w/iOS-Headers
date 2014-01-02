@@ -12,20 +12,22 @@
 {
     NSURL *_objectIDURI;
     NSArray *_fileURLs;
-    unsigned int _thumbnailIndex;
+    unsigned long long _thumbnailIndex;
     NSString *_thumbnailIdentifier;
     NSString *_uuid;
+    unsigned long long _timestamp;
 }
 
 + (id)deletionInfoWithAsset:(id)arg1;
+@property(readonly) unsigned long long timestamp; // @synthesize timestamp=_timestamp;
 @property(readonly) NSString *uuid; // @synthesize uuid=_uuid;
 @property(readonly) NSString *thumbnailIdentifier; // @synthesize thumbnailIdentifier=_thumbnailIdentifier;
-@property(readonly) unsigned int thumbnailIndex; // @synthesize thumbnailIndex=_thumbnailIndex;
+@property(readonly) unsigned long long thumbnailIndex; // @synthesize thumbnailIndex=_thumbnailIndex;
 @property(readonly) NSArray *fileURLs; // @synthesize fileURLs=_fileURLs;
 @property(readonly) NSURL *objectIDURI; // @synthesize objectIDURI=_objectIDURI;
 - (id)description;
 - (void)dealloc;
-- (id)initWithObjectIDURI:(id)arg1 fileURLs:(id)arg2 thumbnailIndex:(unsigned int)arg3 thumbnailIdentifier:(id)arg4 uuid:(id)arg5;
+- (id)initWithObjectIDURI:(id)arg1 fileURLs:(id)arg2 thumbnailIndex:(unsigned long long)arg3 thumbnailIdentifier:(id)arg4 uuid:(id)arg5 timestamp:(unsigned long long)arg6;
 
 @end
 

@@ -11,7 +11,7 @@
 @interface MKLocalSearchCompleter : MKSearchCompleter
 {
     double _lastRequestTime;
-    BOOL _dirty;
+    _Bool _dirty;
     NSArray *_results;
     NSTimer *_timer;
     GEOSearchRequest *_request;
@@ -23,12 +23,13 @@
 - (void)cancel;
 - (void)_cancelRequest;
 - (void)_cancelTimer;
-- (BOOL)resultsAreCurrent;
-- (BOOL)isSearching;
+- (_Bool)resultsAreCurrent;
+- (_Bool)isSearching;
 - (void)setBoundingRegion:(CDStruct_90e2a262)arg1;
 - (void)setFragment:(id)arg1;
+- (void)_scheduleRequest;
 - (void)_markDirty;
-- (BOOL)_canRequestNow;
+- (void)_schedulePendingRequest;
 - (void)_fireRequest;
 - (void)_handleError:(id)arg1 forRequest:(id)arg2;
 - (void)_handleResponse:(id)arg1 forRequest:(id)arg2;

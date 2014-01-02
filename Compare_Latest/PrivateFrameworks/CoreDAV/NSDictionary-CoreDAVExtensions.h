@@ -7,6 +7,7 @@
 #import "NSDictionary.h"
 
 @interface NSDictionary (CoreDAVExtensions)
+- (id)CDVMergeOverrideDictionary:(id)arg1;
 - (id)CDVObjectForKeyWithNameSpace:(id)arg1 andName:(id)arg2;
 - (id)CDVObjectForKeyCaseInsensitive:(id)arg1;
 @end

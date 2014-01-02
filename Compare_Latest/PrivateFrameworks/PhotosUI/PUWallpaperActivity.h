@@ -17,10 +17,9 @@
 - (void)wallpaperImageViewControllerDidCancel:(id)arg1;
 - (void)wallpaperImageViewControllerDidFinishSaving:(id)arg1;
 - (void)wallpaperImageViewControllerDidCropWallpaper:(id)arg1;
-- (id)_embeddedActivityViewController;
 - (id)activityViewController;
 - (void)prepareWithActivityItems:(id)arg1;
-- (BOOL)canPerformWithActivityItems:(id)arg1;
+- (_Bool)canPerformWithActivityItems:(id)arg1;
 - (id)activityImage;
 - (id)activityTitle;
 - (id)activityType;

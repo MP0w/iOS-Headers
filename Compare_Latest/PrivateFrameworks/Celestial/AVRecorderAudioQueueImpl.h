@@ -12,45 +12,45 @@
 
 @interface AVRecorderAudioQueueImpl : NSObject <AVRecorderImpl>
 {
-    BOOL _isActive;
-    BOOL _isRecording;
-    BOOL _isWriting;
+    _Bool _isActive;
+    _Bool _isRecording;
+    _Bool _isWriting;
     NSMutableDictionary *_attributes;
-    unsigned long _fileType;
-    unsigned long _audioCodec;
+    unsigned int _fileType;
+    unsigned int _audioCodec;
     long long _maxPCMFramesToRecord;
-    BOOL _haveRecordedMaxPCMFrames;
+    _Bool _haveRecordedMaxPCMFrames;
     struct AudioStreamBasicDescription _recordingFormat;
     struct OpaqueAudioFileID *_audioFile;
     struct OpaqueAudioQueue *_audioQueue;
-    unsigned long _numDeviceChannels;
+    unsigned int _numDeviceChannels;
     struct AudioQueueLevelMeterState *_audioLevels;
     struct AudioQueueLevelMeterState *_audioLevelsDB;
-    unsigned long _totalBytesRecorded;
-    unsigned long _totalPacketsRecorded;
-    unsigned long _totalFramesRecorded;
+    unsigned long long _totalBytesRecorded;
+    unsigned long long _totalPacketsRecorded;
+    unsigned long long _totalFramesRecorded;
     struct AudioQueueBuffer *_buffers[3];
-    char _bufferUsed[3];
+    _Bool _bufferUsed[3];
 }
 
-- (void)haveABuffer:(struct AudioQueueBuffer *)arg1 withTimeStamp:(const struct AudioTimeStamp *)arg2 andNumPackets:(unsigned long)arg3 andPacketDescs:(const struct AudioStreamPacketDescription *)arg4;
+- (void)haveABuffer:(struct AudioQueueBuffer *)arg1 withTimeStamp:(const struct AudioTimeStamp *)arg2 andNumPackets:(unsigned int)arg3 andPacketDescs:(const struct AudioStreamPacketDescription *)arg4;
 - (void)copyEncoderCookieToFile;
-- (BOOL)audioCurrentAverageDecibelLevels:(float *)arg1 andPeakDecibelLevels:(float *)arg2;
-- (BOOL)audioCurrentAverageVolumeLevels:(float *)arg1 andPeakVolumeLevels:(float *)arg2;
-- (BOOL)audioCurrentAverageVolumeLevels:(float *)arg1 andPeakVolumeLevels:(float *)arg2 useDB:(BOOL)arg3;
-- (unsigned int)audioNumDeviceChannels;
+- (_Bool)audioCurrentAverageDecibelLevels:(float *)arg1 andPeakDecibelLevels:(float *)arg2;
+- (_Bool)audioCurrentAverageVolumeLevels:(float *)arg1 andPeakVolumeLevels:(float *)arg2;
+- (_Bool)audioCurrentAverageVolumeLevels:(float *)arg1 andPeakVolumeLevels:(float *)arg2 useDB:(_Bool)arg3;
+- (unsigned long long)audioNumDeviceChannels;
 - (double)recordedDuration;
 - (long long)recordedFileSizeInBytes;
 - (void)setMicVolume:(float)arg1;
 - (float)micVolume;
-- (BOOL)isRecording;
+- (_Bool)isRecording;
 - (void)stop;
-- (BOOL)start;
-- (BOOL)autoFocusAtPoint:(struct CGPoint)arg1;
-- (BOOL)takePhoto;
-- (BOOL)isActive;
+- (_Bool)start;
+- (_Bool)autoFocusAtPoint:(struct CGPoint)arg1;
+- (_Bool)takePhoto;
+- (_Bool)isActive;
 - (void)deactivate;
-- (BOOL)activate:(id *)arg1;
+- (_Bool)activate:(id *)arg1;
 - (id)attributeForKey:(id)arg1;
 - (void)setAttribute:(id)arg1 forKey:(id)arg2;
 - (id)filePath;

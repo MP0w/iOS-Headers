@@ -25,7 +25,6 @@
     unsigned char _positionEyeStale;
     unsigned char _firstLight;
     float _spotCutoffDegrees;
-    unsigned long long *_effectDirtyUniforms;
     int _positionEyeLoc;
     int _ambientLoc;
     int _diffuseLoc;
@@ -40,6 +39,7 @@
     int _ambientTermLoc;
     int _lightIndex;
     int _lightingType;
+    unsigned long long *_effectDirtyUniforms;
     union _GLKVector3 _normalizedSpotDirectionEye;
     union _GLKVector4 _positionEye;
     struct GLKBigInt_s _allVshMasks;

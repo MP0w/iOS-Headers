@@ -17,8 +17,8 @@
 
 @property(retain) BBDataProviderIdentity *identity; // @synthesize identity=_identity;
 - (void)deliverMessageWithName:(id)arg1 userInfo:(id)arg2;
-- (BOOL)migrateSectionInfo:(id)arg1 oldSectionInfo:(id)arg2;
-- (BOOL)canPerformMigration;
+- (_Bool)migrateSectionInfo:(id)arg1 oldSectionInfo:(id)arg2;
+- (_Bool)canPerformMigration;
 - (void)updateSectionInfoWithSectionInfo:(id)arg1 handler:(id)arg2 completion:(void)arg3;
 - (void)updateClearedInfoWithClearedInfo:(id)arg1 handler:(id)arg2 completion:(void)arg3;
 - (void)noteSectionInfoDidChange:(id)arg1;
@@ -26,10 +26,12 @@
 - (void)attachmentAspectRatioForRecordID:(id)arg1 completion:(id)arg2;
 - (void)attachmentPNGDataForRecordID:(id)arg1 sizeConstraints:(id)arg2 completion:(id)arg3;
 - (void)deliverResponse:(id)arg1 forBulletinRequest:(id)arg2;
+- (void)clearedInfoAndBulletinsForClearingAllBulletinsWithLimit:(id)arg1 lastClearedInfo:(id)arg2 completion:(id)arg3;
 - (void)clearedInfoForBulletins:(id)arg1 lastClearedInfo:(id)arg2 completion:(id)arg3;
 - (void)bulletinsWithRequestParameters:(id)arg1 lastCleared:(id)arg2 completion:(id)arg3;
-- (BOOL)syncsBulletinDismissal;
-- (BOOL)isPushDataProvider;
+- (_Bool)canClearAllBulletins;
+- (_Bool)syncsBulletinDismissal;
+- (_Bool)isPushDataProvider;
 - (id)sortKey;
 - (id)sortDescriptors;
 - (id)sectionParameters;
@@ -41,7 +43,7 @@
 - (id)sectionIdentifier;
 - (void)dataProviderDidLoad;
 - (void)startWatchdog;
-- (BOOL)initialized;
+- (_Bool)initialized;
 - (void)invalidate;
 - (id)description;
 - (void)dealloc;

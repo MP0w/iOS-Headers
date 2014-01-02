@@ -8,6 +8,7 @@
 
 @class NSArray;
 
+// Not exported
 @interface NSSQLOrderIntermediate : NSSQLIntermediate
 {
     NSArray *_sortDescriptors;

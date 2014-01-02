@@ -16,7 +16,7 @@
     struct CGSize renderSize;
     float renderScale;
     NSArray *instructions;
-    BOOL auxiliaryTrackLayerSetLast;
+    _Bool auxiliaryTrackLayerSetLast;
     AVVideoCompositionCoreAnimationTool *animationTool;
 }
 

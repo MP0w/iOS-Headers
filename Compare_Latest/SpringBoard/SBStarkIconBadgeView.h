@@ -10,7 +10,7 @@
 {
 }
 
-+ (id)_createImageForText:(id)arg1 highlighted:(BOOL)arg2;
++ (id)_createImageForText:(id)arg1 highlighted:(_Bool)arg2;
 + (id)_checkoutBackgroundImage;
 
 @end

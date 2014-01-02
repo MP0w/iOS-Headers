@@ -12,18 +12,18 @@
 {
 }
 
-- (BOOL)checkValidity;
+- (_Bool)checkValidity;
 - (void)reset;
 - (void)submit;
 - (void)setAutocapitalize:(id)arg1;
 - (id)autocapitalize;
-- (void)setAutocorrect:(BOOL)arg1;
-- (BOOL)autocorrect;
+- (void)setAutocorrect:(_Bool)arg1;
+- (_Bool)autocorrect;
 @property(readonly) int length;
 @property(readonly) DOMHTMLCollection *elements;
 @property(copy) NSString *target;
-- (void)setNoValidate:(BOOL)arg1;
-- (BOOL)noValidate;
+- (void)setNoValidate:(_Bool)arg1;
+- (_Bool)noValidate;
 @property(copy) NSString *name;
 @property(copy) NSString *method;
 @property(copy) NSString *encoding;
@@ -32,7 +32,6 @@
 - (id)autocomplete;
 @property(copy) NSString *action;
 @property(copy) NSString *acceptCharset;
-- (int)structuralComplexityContribution;
 
 @end
 

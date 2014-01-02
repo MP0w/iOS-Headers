@@ -8,6 +8,7 @@
 
 @class UIEvent;
 
+// Not exported
 @interface UIDelayedControlTargetAction : UIControlTargetAction
 {
     UIEvent *_event;

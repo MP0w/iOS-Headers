@@ -21,7 +21,7 @@
 @property(readonly) NSString *username; // @synthesize username=_username;
 - (id)addressDictionary;
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)initWithUsername:(id)arg1 service:(id)arg2;

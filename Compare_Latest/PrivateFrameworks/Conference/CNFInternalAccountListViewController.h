@@ -23,10 +23,10 @@
 - (void)accountTappedWithSpecifier:(id)arg1;
 - (id)accountNameForSpecifier:(id)arg1;
 - (id)specifiers;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)dealloc;
-- (id)initWithServiceType:(int)arg1;
+- (id)initWithServiceType:(long long)arg1;
 
 @end
 

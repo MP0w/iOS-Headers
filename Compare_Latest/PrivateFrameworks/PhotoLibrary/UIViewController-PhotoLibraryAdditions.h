@@ -7,7 +7,7 @@
 #import "UIViewController.h"
 
 @interface UIViewController (PhotoLibraryAdditions)
-- (BOOL)pl_visitControllerHierarchyWithBlock:(id)arg1;
-@property(readonly, nonatomic) BOOL pl_isInPopover;
+- (_Bool)pl_visitControllerHierarchyWithBlock:(id)arg1;
+@property(readonly, nonatomic) _Bool pl_isInPopover;
 @end
 

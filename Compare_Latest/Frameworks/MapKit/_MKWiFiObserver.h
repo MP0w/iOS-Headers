@@ -6,17 +6,18 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface _MKWiFiObserver : NSObject
 {
     struct __WiFiManagerClient *_wifiManager;
     struct __WiFiDeviceClient *_wifiDevice;
-    BOOL _wifiEnabled;
+    _Bool _wifiEnabled;
     id <_MKWiFiObserverDelegate> _delegate;
 }
 
 @property(nonatomic) id <_MKWiFiObserverDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic, getter=isWifiEnabled) BOOL wifiEnabled; // @synthesize wifiEnabled=_wifiEnabled;
-- (void)_updateWiFiState:(BOOL)arg1;
+@property(readonly, nonatomic, getter=isWifiEnabled) _Bool wifiEnabled; // @synthesize wifiEnabled=_wifiEnabled;
+- (void)_updateWiFiState:(_Bool)arg1;
 - (void)dealloc;
 - (id)init;
 

@@ -6,14 +6,15 @@
 
 #import <EventKitUI/EKEventDetailTwoValueCell.h>
 
+// Not exported
 @interface EKEventDetailAlarmCell : EKEventDetailTwoValueCell
 {
 }
 
-- (BOOL)update;
+- (_Bool)update;
 - (void)setAlarms:(id)arg1;
-- (BOOL)isEditable;
-- (id)initWithEvent:(id)arg1 editable:(BOOL)arg2 platformStyle:(int)arg3;
+- (_Bool)isEditable;
+- (id)initWithEvent:(id)arg1 editable:(_Bool)arg2 platformStyle:(int)arg3;
 
 @end
 

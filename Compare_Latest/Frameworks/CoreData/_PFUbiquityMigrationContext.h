@@ -8,6 +8,7 @@
 
 @class PFUbiquityStoreSaveSnapshot, PFUbiquityTransactionLog;
 
+// Not exported
 @interface _PFUbiquityMigrationContext : NSObject
 {
     PFUbiquityTransactionLog *_transactionLog;

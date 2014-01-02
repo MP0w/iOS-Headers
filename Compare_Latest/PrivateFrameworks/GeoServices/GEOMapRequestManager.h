@@ -8,6 +8,7 @@
 
 @class NSMutableSet;
 
+// Not exported
 @interface GEOMapRequestManager : NSObject
 {
     NSMutableSet *_requests;

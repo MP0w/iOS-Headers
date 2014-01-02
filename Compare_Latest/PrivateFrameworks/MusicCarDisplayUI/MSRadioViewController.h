@@ -8,7 +8,7 @@
 
 #import "RURadioDataSourceDelegate-Protocol.h"
 
-@class NSArray, NSString, RURadioDataSource;
+@class NSArray, NSMutableDictionary, NSString, RURadioDataSource;
 
 @interface MSRadioViewController : MSTableViewController <RURadioDataSourceDelegate>
 {
@@ -16,13 +16,14 @@
     NSArray *_featuredStations;
     NSArray *_myStations;
     NSString *_featuredStationNamesBrief;
+    NSMutableDictionary *_stationArtworkRequests;
 }
 
 - (void).cxx_destruct;
 - (id)viewControllerForRowAtIndexPath:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (void)radioDataSourceDidInvalidate:(id)arg1;
 - (id)stationFromIndexPath:(id)arg1;
 - (void)categorizeStations;

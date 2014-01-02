@@ -8,6 +8,7 @@
 
 @class NSManagedObjectContext, NSMutableArray, NSSQLConnection, NSSQLCore, NSSQLEntity;
 
+// Not exported
 @interface NSSQLChannel : NSObject
 {
     NSSQLConnection *_connection;
@@ -21,15 +22,15 @@
 - (id)currentContext;
 - (void)_closeChannel;
 - (void)_openChannel;
-- (void)endFetchAndRecycleStatement:(BOOL)arg1;
+- (void)endFetchAndRecycleStatement:(_Bool)arg1;
 - (void)endFetch;
-- (BOOL)selectCountWithFetchRequest:(id)arg1;
+- (_Bool)selectCountWithFetchRequest:(id)arg1;
 - (void)selectRowsWithCachedStatement:(id)arg1;
 - (void)selectRowsWithStatement:(id)arg1;
 - (void)bindTempTablesForStatementIfNecessary:(id)arg1;
 - (void)selectRowsWithFetchRequest:(id)arg1;
 - (id)sqlCore;
-- (BOOL)isFetchInProgress;
+- (_Bool)isFetchInProgress;
 - (void)setCurrentContext:(id)arg1;
 - (void)setCurrentEntity:(id)arg1;
 - (id)_propertiesToFetch;

@@ -10,7 +10,7 @@
 {
 }
 
-- (BOOL)shouldDownloadAttachmentOnDisplay;
+- (_Bool)shouldDownloadAttachmentOnDisplay;
 
 @end
 

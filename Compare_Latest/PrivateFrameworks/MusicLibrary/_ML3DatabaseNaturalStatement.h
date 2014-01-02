@@ -8,6 +8,7 @@
 
 @class NSMutableArray, NSString;
 
+// Not exported
 @interface _ML3DatabaseNaturalStatement : NSObject
 {
     NSString *_sql;
@@ -18,7 +19,7 @@
 @property(retain, nonatomic) NSMutableArray *parameters; // @synthesize parameters=_parameters;
 @property(retain, nonatomic) NSString *sql; // @synthesize sql=_sql;
 - (void).cxx_destruct;
-- (void)setParameter:(id)arg1 forPosition:(unsigned int)arg2;
+- (void)setParameter:(id)arg1 forPosition:(unsigned long long)arg2;
 - (id)init;
 
 @end

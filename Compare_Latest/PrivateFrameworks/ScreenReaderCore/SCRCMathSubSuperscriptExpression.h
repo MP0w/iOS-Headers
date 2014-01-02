@@ -6,6 +6,7 @@
 
 #import <ScreenReaderCore/SCRCMathExpression.h>
 
+// Not exported
 @interface SCRCMathSubSuperscriptExpression : SCRCMathExpression
 {
     SCRCMathExpression *_base;
@@ -18,15 +19,15 @@
 @property(retain, nonatomic) SCRCMathExpression *subscript; // @synthesize subscript=_subscript;
 - (id)latexMathModeDescription;
 - (id)mathMLString;
-- (id)dollarCodeDescriptionWithNumberOfOuterRadicals:(unsigned int)arg1 treePosition:(id)arg2;
-- (id)speakableSegmentsWithSpeakingStyle:(int)arg1 upToDepth:(unsigned int)arg2 treePosition:(id)arg3;
-- (id)speakableDescriptionWithSpeakingStyle:(int)arg1 arePausesAllowed:(BOOL)arg2;
+- (id)dollarCodeDescriptionWithNumberOfOuterRadicals:(unsigned long long)arg1 treePosition:(id)arg2;
+- (id)speakableSegmentsWithSpeakingStyle:(int)arg1 upToDepth:(unsigned long long)arg2 treePosition:(id)arg3;
+- (id)speakableDescriptionWithSpeakingStyle:(int)arg1 arePausesAllowed:(_Bool)arg2;
 - (id)_stringToAddForSuperscript:(id)arg1 withPriorDescription:(id)arg2 updatedDescription:(id *)arg3;
 - (id)subExpressions;
-- (unsigned int)fractionLevel;
-- (BOOL)isNumber;
-- (BOOL)isBaseSubSuperscript;
-- (BOOL)isRangeSubSuperscript;
+- (unsigned long long)fractionLevel;
+- (_Bool)isNumber;
+- (_Bool)isBaseSubSuperscript;
+- (_Bool)isRangeSubSuperscript;
 - (id)description;
 - (void)dealloc;
 - (id)initWithDictionary:(id)arg1;

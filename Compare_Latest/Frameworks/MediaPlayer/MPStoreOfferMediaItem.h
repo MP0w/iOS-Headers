@@ -6,53 +6,43 @@
 
 #import <MediaPlayer/MPNondurableMediaItem.h>
 
-#import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
 @class MPStoreOfferContentRating, NSDictionary;
 
-@interface MPStoreOfferMediaItem : MPNondurableMediaItem <NSCoding, NSCopying>
+@interface MPStoreOfferMediaItem : MPNondurableMediaItem <NSSecureCoding, NSCopying>
 {
     NSDictionary *_lookupCollectionPropertyValues;
-    unsigned int _indexInCollectionItems;
-    int _preferredStoreOfferVariant;
+    unsigned long long _indexInCollectionItems;
+    long long _preferredStoreOfferVariant;
     MPStoreOfferContentRating *_contentRating;
 }
 
 + (id)mediaitemsByRemovingRestrictedContentFromMediaItems:(id)arg1;
 + (id)mediaItemsByMergingStoreOfferMediaItems:(id)arg1 localItems:(id)arg2;
-+ (BOOL)canRequestStoreOfferForLocalMediaItems:(id)arg1;
-+ (BOOL)canMergeStoreOfferWithLocalMediaItems:(id)arg1;
-+ (BOOL)canFilterByProperty:(id)arg1;
-+ (id)mediaItemsWithStoreLookupCollectionPropertyValues:(id)arg1 preferredStoreOfferVariant:(int)arg2;
++ (_Bool)canRequestStoreOfferForLocalMediaItems:(id)arg1;
++ (_Bool)canMergeStoreOfferWithLocalMediaItems:(id)arg1;
++ (_Bool)canFilterByProperty:(id)arg1;
++ (_Bool)supportsSecureCoding;
++ (id)mediaItemsWithStoreLookupCollectionPropertyValues:(id)arg1 preferredStoreOfferVariant:(long long)arg2;
 + (id)defaultPropertyValues;
-+ (id)preferredAssetDictionaryInOfferDictionary:(id)arg1;
-+ (id)offerDictionaryWithPreferredAssetDictionaryInItemResponseDictionary:(id)arg1;
-+ (id)offerDictionariesForLookupCollectionPropertyValues:(id)arg1 itemIndex:(unsigned int)arg2;
-+ (id)mediaValueForStoreLookupCollectionPropertyValues:(id)arg1 itemIndex:(unsigned int)arg2 mediaProperty:(id)arg3;
-+ (BOOL)hasMediaItemValuesForStoreLookupCollectionPropertyValues:(id)arg1 itemIndex:(unsigned int)arg2;
-+ (id)contentRatingForCollectionPropertyValues:(id)arg1 itemIndex:(unsigned int)arg2;
-+ (id)localRepresentativeItemPropertyForMediaProperty:(id)arg1;
-+ (id)collectionLookupKeyForMediaProperty:(id)arg1;
-+ (id)itemLookupKeyForMediaProperty:(id)arg1;
-+ (id)offerLookupKeyForItemMediaProperty:(id)arg1;
-+ (id)assetLookupKeyForItemMediaProperty:(id)arg1;
 - (void).cxx_destruct;
 - (id)_lookupOfferDictionaries;
-- (int)preferredStoreOfferVariant;
-- (id)buyOfferForVariant:(int)arg1;
-- (BOOL)isDownloadable;
-- (BOOL)_offeredItemAlreadyExists;
+- (long long)preferredStoreOfferVariant;
+- (id)buyOfferForVariant:(long long)arg1;
+- (_Bool)isDownloadable;
+- (_Bool)_offeredItemAlreadyExists;
 - (id)valueForProperty:(id)arg1;
-- (BOOL)setValue:(id)arg1 forProperty:(id)arg2;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)setValue:(id)arg1 forProperty:(id)arg2;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)mediaLibrary;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithLookupLookupCollectionPropertyValues:(id)arg1 preferredStoreOfferVariant:(int)arg2 itemID:(id)arg3 itemIndex:(unsigned int)arg4;
+- (id)initWithLookupLookupCollectionPropertyValues:(id)arg1 preferredStoreOfferVariant:(long long)arg2 itemID:(id)arg3 itemIndex:(unsigned long long)arg4;
 
 @end
 

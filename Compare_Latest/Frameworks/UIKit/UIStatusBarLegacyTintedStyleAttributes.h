@@ -6,14 +6,15 @@
 
 #import <UIKit/UIStatusBarLegacyStyleAttributes.h>
 
+// Not exported
 @interface UIStatusBarLegacyTintedStyleAttributes : UIStatusBarLegacyStyleAttributes
 {
 }
 
-- (float)foregroundAlpha;
+- (double)foregroundAlpha;
 - (id)backgroundImageName;
 - (id)backgroundColorWithTintColor:(id)arg1;
-- (BOOL)areTopCornersRounded;
+- (_Bool)areTopCornersRounded;
 
 @end
 

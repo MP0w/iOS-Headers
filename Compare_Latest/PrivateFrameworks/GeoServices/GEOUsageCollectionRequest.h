@@ -6,9 +6,11 @@
 
 #import "PBRequest.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSMutableArray;
 
-@interface GEOUsageCollectionRequest : PBRequest
+@interface GEOUsageCollectionRequest : PBRequest <NSCopying>
 {
     NSMutableArray *_directionsFeedbackCollections;
     NSMutableArray *_mapsUsageFeedbackCollections;
@@ -24,37 +26,38 @@
 @property(retain, nonatomic) NSMutableArray *placeSearchFeedbackCollections; // @synthesize placeSearchFeedbackCollections=_placeSearchFeedbackCollections;
 @property(retain, nonatomic) NSMutableArray *directionsFeedbackCollections; // @synthesize directionsFeedbackCollections=_directionsFeedbackCollections;
 @property(retain, nonatomic) NSMutableArray *usageCollections; // @synthesize usageCollections=_usageCollections;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (Class)responseClass;
 - (unsigned int)requestTypeCode;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)suggestionsFeedbackCollectionAtIndex:(unsigned int)arg1;
-- (unsigned int)suggestionsFeedbackCollectionsCount;
+- (id)suggestionsFeedbackCollectionAtIndex:(unsigned long long)arg1;
+- (unsigned long long)suggestionsFeedbackCollectionsCount;
 - (void)addSuggestionsFeedbackCollection:(id)arg1;
 - (void)clearSuggestionsFeedbackCollections;
-- (id)mapsUsageFeedbackCollectionAtIndex:(unsigned int)arg1;
-- (unsigned int)mapsUsageFeedbackCollectionsCount;
+- (id)mapsUsageFeedbackCollectionAtIndex:(unsigned long long)arg1;
+- (unsigned long long)mapsUsageFeedbackCollectionsCount;
 - (void)addMapsUsageFeedbackCollection:(id)arg1;
 - (void)clearMapsUsageFeedbackCollections;
-- (id)transitAppLaunchFeedbackCollectionAtIndex:(unsigned int)arg1;
-- (unsigned int)transitAppLaunchFeedbackCollectionsCount;
+- (id)transitAppLaunchFeedbackCollectionAtIndex:(unsigned long long)arg1;
+- (unsigned long long)transitAppLaunchFeedbackCollectionsCount;
 - (void)addTransitAppLaunchFeedbackCollection:(id)arg1;
 - (void)clearTransitAppLaunchFeedbackCollections;
-- (id)placeSearchFeedbackCollectionAtIndex:(unsigned int)arg1;
-- (unsigned int)placeSearchFeedbackCollectionsCount;
+- (id)placeSearchFeedbackCollectionAtIndex:(unsigned long long)arg1;
+- (unsigned long long)placeSearchFeedbackCollectionsCount;
 - (void)addPlaceSearchFeedbackCollection:(id)arg1;
 - (void)clearPlaceSearchFeedbackCollections;
-- (id)directionsFeedbackCollectionAtIndex:(unsigned int)arg1;
-- (unsigned int)directionsFeedbackCollectionsCount;
+- (id)directionsFeedbackCollectionAtIndex:(unsigned long long)arg1;
+- (unsigned long long)directionsFeedbackCollectionsCount;
 - (void)addDirectionsFeedbackCollection:(id)arg1;
 - (void)clearDirectionsFeedbackCollections;
-- (id)usageCollectionAtIndex:(unsigned int)arg1;
-- (unsigned int)usageCollectionsCount;
+- (id)usageCollectionAtIndex:(unsigned long long)arg1;
+- (unsigned long long)usageCollectionsCount;
 - (void)addUsageCollection:(id)arg1;
 - (void)clearUsageCollections;
 - (void)dealloc;

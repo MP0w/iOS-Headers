@@ -17,8 +17,10 @@
 - (void)_badgeDidChangeNotification:(id)arg1;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (id)tabBarItem;
+- (unsigned long long)supportedInterfaceOrientations;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;
-- (int)ITunesStoreUIBarStyle;
+- (long long)ITunesStoreUIBarStyle;
 - (void)didMoveToParentViewController:(id)arg1;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

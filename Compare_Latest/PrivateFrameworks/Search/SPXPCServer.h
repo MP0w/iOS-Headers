@@ -20,8 +20,8 @@
     NSObject<OS_dispatch_queue> *_eventQueue;
     NSObject<OS_dispatch_queue> *_timerQueue;
     NSObject<OS_dispatch_source> *_idleTimerSource;
-    BOOL _timerHasFiredSinceLastMessage;
-    BOOL _timeoutPending;
+    _Bool _timerHasFiredSinceLastMessage;
+    _Bool _timeoutPending;
 }
 
 @property(copy, nonatomic) id shutdownHandler; // @synthesize shutdownHandler=_shutdownHandler;
@@ -29,9 +29,9 @@
 @property(copy, nonatomic) id defaultMessageHandler; // @synthesize defaultMessageHandler=_defaultMessageHandler;
 - (void)setIdleTimerInterval:(double)arg1;
 - (void)_rescheduleIdleTimerSourceWithInterval:(double)arg1;
-- (BOOL)_doingWork;
+- (_Bool)_doingWork;
 - (void)_resetMessageFlag;
-- (BOOL)_runShutdownHandler;
+- (_Bool)_runShutdownHandler;
 - (void)setHandlerForMessageName:(id)arg1 handler:(id)arg2;
 - (void)dealloc;
 - (id)initListenerWithServiceName:(id)arg1;
@@ -40,7 +40,7 @@
 - (void)_handleNewConnection:(id)arg1;
 - (id)_handlerForMessageName:(SEL)arg1;
 - (id)_highAvailabilityQueue;
-- (BOOL)connectionsAreActive;
+- (_Bool)connectionsAreActive;
 
 @end
 

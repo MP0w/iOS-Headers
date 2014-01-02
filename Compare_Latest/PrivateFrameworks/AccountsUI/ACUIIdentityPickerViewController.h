@@ -14,22 +14,22 @@
     NSString *_property;
     NSArray *_identities;
     NSArray *_emailAddresses;
-    BOOL _allowEditing;
+    _Bool _allowEditing;
 }
 
 @property(readonly, nonatomic) NSString *property; // @synthesize property=_property;
 - (void).cxx_destruct;
-- (void)_updateCell:(id)arg1 selected:(BOOL)arg2;
-- (BOOL)_allowIdentitySelection;
+- (void)_updateCell:(id)arg1 selected:(_Bool)arg2;
+- (_Bool)_allowIdentitySelection;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 accessoryButtonTappedForRowWithIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (struct __SecIdentity *)_selectedIdentity;
-- (BOOL)_isPropertyEnabled;
+- (_Bool)_isPropertyEnabled;
 - (id)_valueForSwitchSpecifier:(id)arg1;
-- (void)_setPropertyEnabled:(BOOL)arg1 identity:(struct __SecIdentity *)arg2;
+- (void)_setPropertyEnabled:(_Bool)arg1 identity:(struct __SecIdentity *)arg2;
 - (void)_setValue:(id)arg1 forSwitchSpecifier:(id)arg2;
-- (struct __SecIdentity *)_identityToAutoselectWithEnabled:(BOOL)arg1;
+- (struct __SecIdentity *)_identityToAutoselectWithEnabled:(_Bool)arg1;
 - (id)_identitySpecifiers;
 - (id)_specifiersForIdentities:(id)arg1;
 - (void)_finishedFetchingIdentities:(id)arg1;

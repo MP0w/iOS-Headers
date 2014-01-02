@@ -30,10 +30,10 @@
     unsigned char _useConstantColor;
     unsigned char _propertyArrayStale;
     unsigned char _effectStale;
+    unsigned int _programName;
     GLKEffectPropertyConstantColor *_constantColorProp;
     NSMutableArray *_propertyArray;
     GLKEffect *_effect;
-    unsigned int _programName;
     union _GLKVector4 _lightModelAmbientColor;
 }
 
@@ -55,8 +55,8 @@
 - (id)description;
 - (void)prepareToDraw;
 - (void)updateBaseEffect;
-- (BOOL)perPixelLightingEnabled;
-- (BOOL)perVertexLightingEnabled;
+- (_Bool)perPixelLightingEnabled;
+- (_Bool)perVertexLightingEnabled;
 @property(nonatomic) union _GLKVector4 constantColor; // @synthesize constantColor=_constantColor;
 @property(readonly, nonatomic) GLKEffectPropertyFog *fog; // @synthesize fog=_fog;
 @property(readonly, nonatomic) GLKEffectPropertyTexture *texture2d1; // @synthesize texture2d1=_texture2d1;

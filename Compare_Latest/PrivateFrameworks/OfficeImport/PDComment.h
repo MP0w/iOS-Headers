@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface PDComment : NSObject
 {
     struct CGPoint mPosition;

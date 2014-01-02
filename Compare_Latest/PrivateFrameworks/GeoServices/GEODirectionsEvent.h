@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class GEOLatLng, NSData, NSString;
 
-@interface GEODirectionsEvent : PBCodable
+@interface GEODirectionsEvent : PBCodable <NSCopying>
 {
     long long _errorCode;
     NSString *_errorDomain;
@@ -35,24 +37,25 @@
 @property(retain, nonatomic) NSData *occurrenceRouteID; // @synthesize occurrenceRouteID=_occurrenceRouteID;
 @property(nonatomic) unsigned int occurrenceResponseIndex; // @synthesize occurrenceResponseIndex=_occurrenceResponseIndex;
 @property(nonatomic) int type; // @synthesize type=_type;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) BOOL hasErrorCode;
-@property(readonly, nonatomic) BOOL hasErrorDomain;
-@property(readonly, nonatomic) BOOL hasSynthesizedStepInstructions;
-@property(nonatomic) BOOL hasSynthesizedStepManeuverType;
-@property(readonly, nonatomic) BOOL hasSwitchedToRouteID;
-@property(nonatomic) BOOL hasSwitchedToResponseIndex;
-@property(readonly, nonatomic) BOOL hasOccurrenceLatLng;
-@property(nonatomic) BOOL hasOccurrenceStepIndex;
-@property(readonly, nonatomic) BOOL hasOccurrenceRouteID;
-@property(nonatomic) BOOL hasOccurrenceResponseIndex;
-@property(nonatomic) BOOL hasType;
+@property(nonatomic) _Bool hasErrorCode;
+@property(readonly, nonatomic) _Bool hasErrorDomain;
+@property(readonly, nonatomic) _Bool hasSynthesizedStepInstructions;
+@property(nonatomic) _Bool hasSynthesizedStepManeuverType;
+@property(readonly, nonatomic) _Bool hasSwitchedToRouteID;
+@property(nonatomic) _Bool hasSwitchedToResponseIndex;
+@property(readonly, nonatomic) _Bool hasOccurrenceLatLng;
+@property(nonatomic) _Bool hasOccurrenceStepIndex;
+@property(readonly, nonatomic) _Bool hasOccurrenceRouteID;
+@property(nonatomic) _Bool hasOccurrenceResponseIndex;
+@property(nonatomic) _Bool hasType;
 - (void)dealloc;
 
 @end

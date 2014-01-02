@@ -6,13 +6,14 @@
 
 #import <UIKit/UIView.h>
 
+// Not exported
 @interface _UITableViewHeaderFooterViewBackground : UIView
 {
     UIView *_opaqueBackgroundView;
     UIView *_transparentBackgroundView;
 }
 
-- (void)setOpaque:(BOOL)arg1;
+- (void)setOpaque:(_Bool)arg1;
 - (void)setBackgroundImage:(id)arg1;
 - (void)_updateBackingView;
 - (id)_transparentBackgroundView;

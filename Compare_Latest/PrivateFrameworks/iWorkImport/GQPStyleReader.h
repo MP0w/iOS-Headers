@@ -11,14 +11,15 @@
 
 @class GQDSStyle, GQDSStylesheet;
 
+// Not exported
 @interface GQPStyleReader : NSObject <GQPObjectReader, GQPObjectHandler>
 {
     int mStyleType;
     struct __CFArray *mEntries;
     GQDSStylesheet *mStylesheet;
     int mCurrentProperty;
-    BOOL mStyleIsIdentified;
-    BOOL mStyleIdentiferEqualsParentIdentifier;
+    _Bool mStyleIsIdentified;
+    _Bool mStyleIdentiferEqualsParentIdentifier;
     char *mIdentifier;
     char *mUid;
     char *mParentIdentifier;
@@ -31,13 +32,6 @@
 - (int)beginReadingFromReader:(struct _xmlTextReader *)arg1 processor:(id)arg2;
 - (void)dealloc;
 - (id)initWithStyleType:(int)arg1;
-- (void)handleDoubleValue:(double)arg1;
-- (void)handleFloatValue:(float)arg1;
-- (void)handleIntValue:(int)arg1;
-- (void)handleBoolValue:(BOOL)arg1;
-- (void)doneProperty;
-- (BOOL)beginProperty:(const char *)arg1;
-- (id)createStyle;
 
 @end
 

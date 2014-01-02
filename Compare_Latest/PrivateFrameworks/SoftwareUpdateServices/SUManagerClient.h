@@ -14,10 +14,10 @@
 {
     NSXPCConnection *_serverConnection;
     id <SUManagerClientDelegate> _delegate;
-    BOOL _connected;
-    BOOL _serverIsExiting;
+    _Bool _connected;
+    _Bool _serverIsExiting;
     int _clientType;
-    BOOL _installing;
+    _Bool _installing;
     SUDescriptor *_installDescriptor;
 }
 

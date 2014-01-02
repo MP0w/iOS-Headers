@@ -6,6 +6,7 @@
 
 #import <Foundation/NSKeyValueSetter.h>
 
+// Not exported
 @interface NSKeyValueMethodSetter : NSKeyValueSetter
 {
     struct objc_method *_method;

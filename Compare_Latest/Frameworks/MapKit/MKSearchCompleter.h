@@ -15,9 +15,15 @@
     id <MKSearchCompleterDelegate> _delegate;
     id _context;
     NSString *_identifier;
+    long long _entriesType;
+    long long _listType;
+    double _timeSinceLastInBoundingRegion;
 }
 
 + (id)alloc;
+@property(nonatomic) double timeSinceLastInBoundingRegion; // @synthesize timeSinceLastInBoundingRegion=_timeSinceLastInBoundingRegion;
+@property(nonatomic) long long listType; // @synthesize listType=_listType;
+@property(nonatomic) long long entriesType; // @synthesize entriesType=_entriesType;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(nonatomic) id context; // @synthesize context=_context;
 @property(nonatomic) id <MKSearchCompleterDelegate> delegate; // @synthesize delegate=_delegate;
@@ -26,8 +32,8 @@
 @property(readonly, nonatomic) NSArray *results;
 - (void)retry;
 - (void)cancel;
-- (BOOL)isSearching;
-- (BOOL)resultsAreCurrent;
+- (_Bool)isSearching;
+- (_Bool)resultsAreCurrent;
 - (void)dealloc;
 - (id)init;
 

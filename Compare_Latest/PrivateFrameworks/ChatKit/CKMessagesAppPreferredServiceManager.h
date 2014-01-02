@@ -10,9 +10,9 @@
 {
 }
 
-- (id)preferredServiceForConversation:(id)arg1 newComposition:(BOOL)arg2 checkWithServer:(BOOL)arg3 error:(char *)arg4;
-- (unsigned int)_optionsForRecipients:(id)arg1;
-- (unsigned int)__optionsForConversation:(id)arg1;
+- (id)preferredServiceForConversation:(id)arg1 newComposition:(_Bool)arg2 checkWithServer:(_Bool)arg3 error:(char *)arg4;
+- (unsigned long long)_optionsForRecipients:(id)arg1;
+- (unsigned long long)__optionsForConversation:(id)arg1;
 
 @end
 

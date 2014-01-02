@@ -27,9 +27,9 @@
 - (id)regularFileContents;
 - (id)symbolicLinkDestination;
 - (id)fileWrappers;
-- (BOOL)isDirectory;
-- (BOOL)isRegularFile;
-- (BOOL)isSymbolicLink;
+- (_Bool)isDirectory;
+- (_Bool)isRegularFile;
+- (_Bool)isSymbolicLink;
 - (id)filename;
 - (void)setFilename:(id)arg1;
 - (id)preferredFilename;
@@ -38,14 +38,14 @@
 - (id)initRegularFileWithContents:(id)arg1;
 - (void)setURL:(id)arg1;
 - (id)URL;
-- (BOOL)isPlaceholder;
+- (_Bool)isPlaceholder;
 - (void)setPath:(id)arg1;
 - (id)path;
 - (id)initWithPath:(id)arg1;
-- (BOOL)isUnzippableFile;
-- (BOOL)isPDFFile;
-- (BOOL)isImageFile;
-- (void)_isImage:(char *)arg1 orPDFFile:(char *)arg2;
+- (_Bool)isUnzippableFile;
+- (_Bool)isPDFFile;
+- (_Bool)isImageFile;
+- (void)_isImage:(_Bool *)arg1 orPDFFile:(_Bool *)arg2;
 - (id)fileProtection;
 - (void)setFileProtection:(id)arg1;
 - (id)icsRepresentation;
@@ -63,10 +63,10 @@
 - (void)setMimeType:(id)arg1;
 - (unsigned short)finderFlags;
 - (void)setFinderFlags:(unsigned short)arg1;
-- (unsigned long)creator;
-- (void)setCreator:(unsigned long)arg1;
-- (unsigned long)type;
-- (void)setType:(unsigned long)arg1;
+- (unsigned int)creator;
+- (void)setCreator:(unsigned int)arg1;
+- (unsigned int)type;
+- (void)setType:(unsigned int)arg1;
 
 @end
 

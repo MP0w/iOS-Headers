@@ -14,20 +14,20 @@
 {
     NSAttributedString *_deselectedAttributedString;
     UIColor *_tintColor;
-    BOOL _shouldDim;
-    BOOL _highlighted;
+    _Bool _shouldDim;
+    _Bool _highlighted;
     UILabel *_titleLabel;
 }
 
-+ (float)height;
++ (double)height;
 + (id)highlightedStringAttributes;
 + (id)regularStringAttributes;
 + (id)defaultStringAttributes;
-@property(nonatomic) BOOL highlighted; // @synthesize highlighted=_highlighted;
+@property(nonatomic) _Bool highlighted; // @synthesize highlighted=_highlighted;
 @property(readonly, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
-@property(nonatomic) BOOL shouldDim; // @synthesize shouldDim=_shouldDim;
+@property(nonatomic) _Bool shouldDim; // @synthesize shouldDim=_shouldDim;
 - (void)setBackgroundColor:(id)arg1;
-- (void)setTintColor:(id)arg1 animated:(BOOL)arg2;
+- (void)setTintColor:(id)arg1 animated:(_Bool)arg2;
 - (id)tintColor;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)dealloc;

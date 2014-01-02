@@ -7,13 +7,16 @@
 #import "NSObject-Protocol.h"
 
 @protocol ACDAccountStoreProtocol <NSObject>
+- (void)openAuthenticationURL:(id)arg1 forAccount:(id)arg2 shouldConfirm:(_Bool)arg3 completion:(id)arg4;
+- (void)clientTokenForAccountIdentifier:(id)arg1 completion:(id)arg2;
+- (void)addClientToken:(id)arg1 forAccountIdentifier:(id)arg2 completion:(id)arg3;
+- (void)handleURL:(id)arg1;
+- (void)accountIdentifiersEnabledForDataclasses:(id)arg1 withAccountTypeIdentifiers:(id)arg2 completion:(id)arg3;
 - (void)isPushSupportedForAccount:(id)arg1 completion:(id)arg2;
 - (void)tetheredSyncSourceTypeForDataclass:(id)arg1 completion:(id)arg2;
 - (void)isTetheredSyncingEnabledForDataclass:(id)arg1 completion:(id)arg2;
-- (void)promptUserForCredentialsWithAccount:(id)arg1 withHandler:(id)arg2;
-- (void)renewCredentialsForAccount:(id)arg1 reason:(id)arg2 completion:(id)arg3;
-- (void)renewCredentialsForAccount:(id)arg1 force:(BOOL)arg2 reason:(id)arg3 completion:(id)arg4;
-- (void)verifyCredentialsForAccount:(id)arg1 saveWhenAuthorized:(BOOL)arg2 withHandler:(id)arg3;
+- (void)renewCredentialsForAccount:(id)arg1 options:(id)arg2 completion:(id)arg3;
+- (void)verifyCredentialsForAccount:(id)arg1 saveWhenAuthorized:(_Bool)arg2 withHandler:(id)arg3;
 - (void)clearAllPermissionsGrantedForAccountType:(id)arg1 withHandler:(id)arg2;
 - (void)typeIdentifierForDomain:(id)arg1 withHandler:(id)arg2;
 - (void)clearGrantedPermissionsForAccountType:(id)arg1 withHandler:(id)arg2;
@@ -22,11 +25,10 @@
 - (void)setPermissionGranted:(id)arg1 forBundleID:(id)arg2 onAccountType:(id)arg3 withHandler:(id)arg4;
 - (void)appPermissionsForAccountType:(id)arg1 withHandler:(id)arg2;
 - (void)requestAccessForAccountTypeWithIdentifier:(id)arg1 options:(id)arg2 withHandler:(id)arg3;
-- (void)insertAccountDataclass:(id)arg1 withHandler:(id)arg2;
 - (void)removeAccountType:(id)arg1 withHandler:(id)arg2;
 - (void)insertAccountType:(id)arg1 withHandler:(id)arg2;
 - (void)updateExistenceCacheOfAccountWithTypeIdentifier:(id)arg1 withHandler:(id)arg2;
-- (void)saveAccount:(id)arg1 pid:(id)arg2 verify:(BOOL)arg3 dataclassActions:(id)arg4 completion:(id)arg5;
+- (void)saveAccount:(id)arg1 verify:(_Bool)arg2 dataclassActions:(id)arg3 completion:(id)arg4;
 - (void)saveAccount:(id)arg1 withHandler:(id)arg2;
 - (void)canSaveAccount:(id)arg1 completion:(id)arg2;
 - (void)removeAccount:(id)arg1 withDataclassActions:(id)arg2 completion:(id)arg3;
@@ -54,7 +56,7 @@
 - (void)accountWithIdentifier:(id)arg1 handler:(id)arg2;
 - (void)accountTypesWithHandler:(id)arg1;
 - (void)accountsWithHandler:(id)arg1;
-- (void)setNotificationsEnabledNum:(BOOL)arg1;
+- (void)setNotificationsEnabledNum:(_Bool)arg1;
 - (void)setClientBundleID:(id)arg1 withHandler:(id)arg2;
 @end
 

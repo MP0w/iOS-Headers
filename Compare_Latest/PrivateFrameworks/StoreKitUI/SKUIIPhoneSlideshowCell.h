@@ -17,9 +17,9 @@
 - (void).cxx_destruct;
 - (void)prepareForReuse;
 - (void)layoutSubviews;
-- (void)setHighlighted:(BOOL)arg1;
+- (void)setHighlighted:(_Bool)arg1;
 @property(readonly, nonatomic) struct CGRect imageFrame;
-@property(nonatomic, getter=isVideo) BOOL video;
+@property(nonatomic, getter=isVideo) _Bool video;
 @property(retain, nonatomic) UIImage *image;
 - (id)initWithFrame:(struct CGRect)arg1;
 

@@ -10,34 +10,38 @@
 
 @interface MPAVRoute : NSObject
 {
-    BOOL _displayIsPicked;
-    int _displayRouteType;
-    BOOL _isPicked;
-    BOOL _requiresPassword;
-    unsigned int _routeIndex;
+    _Bool _displayIsPicked;
+    long long _displayRouteType;
+    _Bool _isPicked;
+    _Bool _requiresPassword;
+    unsigned long long _routeIndex;
     NSString *_routeName;
-    int _routeType;
+    long long _routeType;
     NSString *_routeUID;
+    long long _routeSubtype;
 }
 
-+ (id)_availableRoutesFromAudioDeviceController:(id)arg1 forType:(unsigned int)arg2;
++ (long long)_routeSubtypeForAVOutputRouteType:(id)arg1;
++ (id)_availableRoutesFromAudioDeviceController:(id)arg1 forType:(unsigned long long)arg2;
 + (id)_audioDeviceController;
 + (id)wirelessDisplayRouteForRoute:(id)arg1;
 + (id)videoRouteForRoute:(id)arg1;
-+ (id)availableRoutesForType:(unsigned int)arg1;
-+ (BOOL)availableRoutesExistForType:(unsigned int)arg1;
++ (id)availableRoutesForType:(unsigned long long)arg1;
++ (_Bool)availableRoutesExistForType:(unsigned long long)arg1;
+@property(readonly, nonatomic) long long routeSubtype; // @synthesize routeSubtype=_routeSubtype;
 @property(readonly, nonatomic) NSString *routeUID; // @synthesize routeUID=_routeUID;
-@property(readonly, nonatomic) int routeType; // @synthesize routeType=_routeType;
-@property(readonly, nonatomic) unsigned int routeIndex; // @synthesize routeIndex=_routeIndex;
-@property(readonly, nonatomic) BOOL requiresPassword; // @synthesize requiresPassword=_requiresPassword;
+@property(readonly, nonatomic) long long routeType; // @synthesize routeType=_routeType;
+@property(readonly, nonatomic) unsigned long long routeIndex; // @synthesize routeIndex=_routeIndex;
+@property(readonly, nonatomic) _Bool requiresPassword; // @synthesize requiresPassword=_requiresPassword;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_routeName;
-@property(nonatomic) BOOL isPicked; // @synthesize isPicked=_isPicked;
-@property(nonatomic) int displayRouteType; // @synthesize displayRouteType=_displayRouteType;
-@property(nonatomic) BOOL displayIsPicked; // @synthesize displayIsPicked=_displayIsPicked;
+@property(nonatomic) _Bool isPicked; // @synthesize isPicked=_isPicked;
+@property(nonatomic) long long displayRouteType; // @synthesize displayRouteType=_displayRouteType;
+@property(nonatomic) _Bool displayIsPicked; // @synthesize displayIsPicked=_displayIsPicked;
 - (void).cxx_destruct;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (id)_initWithName:(id)arg1 routeType:(int)arg2 routeUID:(id)arg3 routeIndex:(unsigned int)arg4 requiresPassword:(BOOL)arg5;
+@property(readonly, nonatomic) _Bool isBluetoothRoute;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (id)_initWithName:(id)arg1 routeType:(long long)arg2 routeSubtype:(long long)arg3 routeUID:(id)arg4 routeIndex:(unsigned long long)arg5 requiresPassword:(_Bool)arg6;
 
 @end
 

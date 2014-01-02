@@ -15,12 +15,12 @@
     SBSnoozedAlarmDateLabel *_countdownLabel;
 }
 
-+ (float)rowHeight;
++ (_Bool)wantsUnlockActionText;
++ (double)rowHeight;
 - (void)dateLabelDidChange:(id)arg1;
-- (void)setContentAlpha:(float)arg1;
+- (void)setContentAlpha:(double)arg1;
 - (void)setFireDate:(id)arg1;
 - (void)layoutSubviews;
-- (BOOL)wantsUnlockActionText;
 - (void)dealloc;
 
 @end

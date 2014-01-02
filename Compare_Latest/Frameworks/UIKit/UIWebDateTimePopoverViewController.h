@@ -6,6 +6,7 @@
 
 #import <UIKit/UIViewController.h>
 
+// Not exported
 @interface UIWebDateTimePopoverViewController : UIViewController
 {
     id <UIWebFormControl> _innerWebDateTimeControl;
@@ -14,7 +15,7 @@
 @property(retain, nonatomic) id <UIWebFormControl> _innerWebDateTimeControl; // @synthesize _innerWebDateTimeControl;
 - (void)loadView;
 - (void)dealloc;
-- (id)initWithDOMHTMLInputElement:(id)arg1 datePickerMode:(int)arg2;
+- (id)initWithDOMHTMLInputElement:(id)arg1 datePickerMode:(long long)arg2;
 
 @end
 

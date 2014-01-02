@@ -8,6 +8,7 @@
 
 @class UITextInputController;
 
+// Not exported
 @interface NSUndoTextOperation : NSObject
 {
     struct _NSRange _affectedRange;
@@ -16,7 +17,7 @@
 
 @property(nonatomic) UITextInputController *inputController; // @synthesize inputController=_inputController;
 @property(nonatomic) struct _NSRange affectedRange; // @synthesize affectedRange=_affectedRange;
-- (BOOL)supportsCoalescing;
+- (_Bool)supportsCoalescing;
 - (void)undoRedo;
 - (id)initWithAffectedRange:(struct _NSRange)arg1 inputController:(id)arg2;
 

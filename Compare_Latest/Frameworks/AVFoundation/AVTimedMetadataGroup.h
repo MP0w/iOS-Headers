@@ -17,8 +17,8 @@
 
 @property(readonly) NSArray *items;
 @property(readonly) CDStruct_e83c9415 timeRange;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

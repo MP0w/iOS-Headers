@@ -29,9 +29,9 @@
 - (void)_handleAllFileTransfers:(id)arg1;
 - (void)_handleStandaloneFileTransferRegistered:(id)arg1;
 - (void)acceptFileTransferIfPreauthorzed:(id)arg1;
-- (BOOL)wasFileTransferPreauthorized:(id)arg1;
+- (_Bool)wasFileTransferPreauthorized:(id)arg1;
 - (void)preauthorizeFileTransferFromOtherPerson:(id)arg1 account:(id)arg2 filename:(id)arg3 saveToPath:(id)arg4;
-- (BOOL)isFileTransfer:(id)arg1 preauthorizedWithDictionary:(id)arg2;
+- (_Bool)isFileTransfer:(id)arg1 preauthorizedWithDictionary:(id)arg2;
 - (void)clearFinishedTransfers;
 @property(readonly, nonatomic) NSArray *orderedTransfersGUIDs;
 @property(readonly, nonatomic) NSArray *orderedTransfers;
@@ -44,27 +44,28 @@
 - (void)removeTransfer:(id)arg1;
 - (void)stopTransfer:(id)arg1;
 - (void)acceptTransfer:(id)arg1;
-- (void)acceptTransfer:(id)arg1 withPath:(id)arg2 autoRename:(BOOL)arg3 overwrite:(BOOL)arg4;
+- (void)acceptTransfer:(id)arg1 withPath:(id)arg2 autoRename:(_Bool)arg3 overwrite:(_Bool)arg4;
 - (void)sendTransfer:(id)arg1;
-- (id)transferForGUID:(id)arg1 includeRemoved:(BOOL)arg2;
+- (id)transferForGUID:(id)arg1 includeRemoved:(_Bool)arg2;
 - (id)transferForGUID:(id)arg1;
 - (id)chatForTransfer:(id)arg1;
 - (void)assignTransfer:(id)arg1 toHandle:(id)arg2;
 - (void)assignTransfer:(id)arg1 toMessage:(id)arg2 account:(id)arg3;
+- (_Bool)registerGUID:(id)arg1 forNewOutgoingTransferWithLocalURL:(id)arg2;
 - (id)guidForNewOutgoingTransferWithLocalURL:(id)arg1;
-- (BOOL)doesLocalURLRequireArchiving:(id)arg1 toHandle:(id)arg2;
+- (_Bool)doesLocalURLRequireArchiving:(id)arg1 toHandle:(id)arg2;
 - (void)_addTransfer:(id)arg1;
 - (void)_addTransfer:(id)arg1 toAccount:(id)arg2;
 - (void)_clearTransfers;
 - (void)_removeAllActiveTransfers;
 - (void)_removeActiveTransfer:(id)arg1;
 - (void)_addActiveTransfer:(id)arg1;
-@property(readonly, nonatomic) BOOL hasActiveFileTransfers;
+@property(readonly, nonatomic) _Bool hasActiveFileTransfers;
 - (void)acknowledgeAllPendingTransfers;
 - (void)acknowledgePendingTransfer:(id)arg1;
 - (void)_removePendingTransfer:(id)arg1;
 - (void)_addPendingTransfer:(id)arg1;
-@property(readonly, nonatomic) BOOL hasPendingFileTransfers;
+@property(readonly, nonatomic) _Bool hasPendingFileTransfers;
 - (void)dealloc;
 
 @end

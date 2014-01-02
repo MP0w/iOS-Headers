@@ -8,26 +8,28 @@
 
 @interface TIZephyrCandidate : TIKeyboardCandidateSingle
 {
-    BOOL extensionCandidate;
-    BOOL _isFromPhraseDictionary;
-    unsigned int _wordOriginFeedbackID;
+    _Bool extensionCandidate;
+    _Bool _isFromPhraseDictionary;
+    _Bool _isFromTextChecker;
     unsigned int _usageTrackingMask;
+    unsigned long long _wordOriginFeedbackID;
 }
 
 + (int)type;
-+ (BOOL)supportsSecureCoding;
-@property(nonatomic) BOOL isFromPhraseDictionary; // @synthesize isFromPhraseDictionary=_isFromPhraseDictionary;
-@property(nonatomic, getter=isExtensionCandidate) BOOL extensionCandidate; // @synthesize extensionCandidate;
++ (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool isFromTextChecker; // @synthesize isFromTextChecker=_isFromTextChecker;
+@property(nonatomic) _Bool isFromPhraseDictionary; // @synthesize isFromPhraseDictionary=_isFromPhraseDictionary;
+@property(nonatomic, getter=isExtensionCandidate) _Bool extensionCandidate; // @synthesize extensionCandidate;
 - (unsigned int)usageTrackingMask;
 - (void)encodeWithCandidateResultSetCoder:(id)arg1;
 - (id)initWithCandidateResultSetCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isAutocorrection;
-- (unsigned int)wordOriginFeedbackID;
-- (id)initWithCandidate:(id)arg1 forInput:(id)arg2 wordOriginFeedbackID:(unsigned int)arg3 usageTrackingMask:(unsigned int)arg4;
-- (id)initWithCandidate:(id)arg1 forInput:(id)arg2 wordOriginFeedbackID:(unsigned int)arg3;
+- (_Bool)isAutocorrection;
+- (unsigned long long)wordOriginFeedbackID;
+- (id)initWithCandidate:(id)arg1 forInput:(id)arg2 wordOriginFeedbackID:(unsigned long long)arg3 usageTrackingMask:(unsigned int)arg4;
+- (id)initWithCandidate:(id)arg1 forInput:(id)arg2 wordOriginFeedbackID:(unsigned long long)arg3;
 
 @end
 

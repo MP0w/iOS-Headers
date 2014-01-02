@@ -11,6 +11,7 @@
 
 @class EDCollection, EDDifferentialStyle;
 
+// Not exported
 @interface EDTableStyleElement : NSObject <EDKeyedObject, NSCopying>
 {
     EDCollection *mDifferentialStyles;
@@ -20,14 +21,14 @@
 }
 
 + (id)tableStyleElementWithResources:(id)arg1;
-- (void)setDifferentialStyleWithIndex:(unsigned int)arg1;
+- (void)setDifferentialStyleWithIndex:(unsigned long long)arg1;
 - (void)setDifferentialStyle:(id)arg1;
 - (id)differentialStyle;
 - (void)setBandSize:(unsigned int)arg1;
 - (unsigned int)bandSize;
 - (void)setType:(int)arg1;
 - (int)type;
-- (int)key;
+- (long long)key;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)initWithResources:(id)arg1;

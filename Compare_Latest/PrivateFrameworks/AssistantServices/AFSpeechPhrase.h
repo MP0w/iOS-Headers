@@ -12,12 +12,12 @@
 
 @interface AFSpeechPhrase : NSObject <NSSecureCoding>
 {
-    BOOL _isLowConfidence;
+    _Bool _isLowConfidence;
     NSArray *_interpretations;
 }
 
-+ (BOOL)supportsSecureCoding;
-@property BOOL isLowConfidence; // @synthesize isLowConfidence=_isLowConfidence;
++ (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool isLowConfidence; // @synthesize isLowConfidence=_isLowConfidence;
 @property(copy, nonatomic) NSArray *interpretations; // @synthesize interpretations=_interpretations;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;

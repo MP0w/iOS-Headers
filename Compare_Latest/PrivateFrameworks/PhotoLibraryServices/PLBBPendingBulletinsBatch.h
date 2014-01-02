@@ -17,7 +17,7 @@
     NSObject<OS_dispatch_source> *_downloadTimerSource;
     PLXPCTransaction *_downloadTimerTransaction;
     int _currentState;
-    BOOL _downloadTimerExpired;
+    _Bool _downloadTimerExpired;
     id <PLBBPendingBulletinsBatchDelegate> _delegate;
 }
 
@@ -29,12 +29,12 @@
 - (void)_scheduleEvaluatePendingBulletins;
 - (void)noteAssetWithUUID:(id)arg1 didChangePlaceholderKindTo:(int)arg2 fromOldKind:(int)arg3;
 - (void)removeBulletinsWithAlbumUUID:(id)arg1 bulletinTypes:(id)arg2;
-- (void)removeBulletinsWithAssetUUID:(id)arg1 deleteCommentsOrLikesBulletin:(BOOL)arg2 deletePhotosAddedToAlbumBulletin:(BOOL)arg3;
-- (BOOL)addBulletin:(id)arg1 forMergeOnly:(BOOL)arg2;
+- (void)removeBulletinsWithAssetUUID:(id)arg1 deleteCommentsOrLikesBulletin:(_Bool)arg2 deletePhotosAddedToAlbumBulletin:(_Bool)arg3;
+- (_Bool)addBulletin:(id)arg1 forMergeOnly:(_Bool)arg2;
 - (void)_transitionToStateForEvent:(int)arg1;
 - (void)_trackCompletionPercentageForState:(int)arg1;
-@property(readonly) BOOL canAcceptMergeBulletins;
-@property(readonly) BOOL canAcceptNewBulletins;
+@property(readonly) _Bool canAcceptMergeBulletins;
+@property(readonly) _Bool canAcceptNewBulletins;
 - (void)dealloc;
 - (id)initWithIsolationQueue:(id)arg1;
 

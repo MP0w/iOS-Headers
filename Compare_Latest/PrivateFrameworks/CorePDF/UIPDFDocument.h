@@ -11,13 +11,13 @@
 @interface UIPDFDocument : NSObject
 {
     struct CGPDFDocument *_cgDocument;
-    unsigned int _numberOfPages;
-    float _cachedWidth;
+    unsigned long long _numberOfPages;
+    double _cachedWidth;
     NSString *_documentID;
     NSString *_documentName;
     UIPDFPageImageCache *_pageImageCache;
-    unsigned int _imageCacheCount;
-    unsigned int _imageCacheLookAhead;
+    unsigned long long _imageCacheCount;
+    unsigned long long _imageCacheLookAhead;
     int _lock;
     int _imageCacheLock;
     UIPDFPageImageCache *_thumbnailCache;
@@ -28,24 +28,22 @@
 + (id)documentNamed:(id)arg1;
 @property(readonly) struct CGPDFDocument *CGDocument; // @synthesize CGDocument=_cgDocument;
 @property(nonatomic) id <NSObject><UIPDFDocumentDelegate> delegate; // @synthesize delegate=_delegate;
-- (BOOL)copyDocumentTo:(id)arg1;
-- (BOOL)allowsCopying;
+- (_Bool)copyDocumentTo:(id)arg1;
+- (_Bool)allowsCopying;
 @property(readonly) NSString *documentID; // @dynamic documentID;
-- (void)purgePagesBefore:(unsigned int)arg1;
-- (id)copyPageAtIndex:(unsigned int)arg1;
-- (id)pageAtIndex:(unsigned int)arg1;
-@property(readonly) unsigned int numberOfPages; // @dynamic numberOfPages;
-- (void)setImageCacheCount:(unsigned int)arg1 lookAhead:(unsigned int)arg2;
+- (void)purgePagesBefore:(unsigned long long)arg1;
+- (id)copyPageAtIndex:(unsigned long long)arg1;
+- (id)pageAtIndex:(unsigned long long)arg1;
+@property(readonly) unsigned long long numberOfPages; // @dynamic numberOfPages;
+- (void)setImageCacheCount:(unsigned long long)arg1 lookAhead:(unsigned long long)arg2;
 - (void)dealloc;
 - (id)initWithURL:(id)arg1;
 - (id)initWithCGPDFDocument:(struct CGPDFDocument *)arg1;
 - (struct CGPDFDocument *)copyCGPDFDocument;
-@property(retain) UIPDFPageImageCache *thumbnailCache; // @dynamic thumbnailCache;
+
+// Remaining properties
 @property(retain) UIPDFPageImageCache *pageImageCache; // @dynamic pageImageCache;
-- (float)sumHeight;
-- (float)sumWidth;
-- (float)maxHeight;
-- (float)maxWidth;
+@property(retain) UIPDFPageImageCache *thumbnailCache; // @dynamic thumbnailCache;
 
 @end
 

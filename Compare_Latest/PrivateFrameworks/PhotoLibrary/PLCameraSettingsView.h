@@ -14,19 +14,19 @@
     PLCameraSettingsGroupView *_gridLinesGroup;
     PLCameraSettingsGroupView *_hdrGroup;
     PLCameraSettingsGroupView *_panoramaGroup;
-    BOOL gridIsOn;
-    BOOL hdrIsOn;
+    _Bool gridIsOn;
+    _Bool hdrIsOn;
 }
 
-@property(nonatomic) BOOL hdrIsOn; // @synthesize hdrIsOn;
-@property(nonatomic) BOOL gridIsOn; // @synthesize gridIsOn;
+@property(nonatomic) _Bool hdrIsOn; // @synthesize hdrIsOn;
+@property(nonatomic) _Bool gridIsOn; // @synthesize gridIsOn;
 @property(nonatomic) id <PLCameraSettingsViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)_toggleEnableHDR:(id)arg1;
 - (void)_toggleEnableGridLines:(id)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 showGrid:(BOOL)arg2 showHDR:(BOOL)arg3 showPano:(BOOL)arg4;
+- (id)initWithFrame:(struct CGRect)arg1 showGrid:(_Bool)arg2 showHDR:(_Bool)arg3 showPano:(_Bool)arg4;
 
 @end
 

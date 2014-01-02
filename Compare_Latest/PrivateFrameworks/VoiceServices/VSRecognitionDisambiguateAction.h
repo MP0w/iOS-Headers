@@ -23,7 +23,7 @@
 - (struct __VSRecognition *)_createRecognitionInstanceWithCallbacks:(CDStruct_90f67059 *)arg1 info:(void *)arg2;
 - (struct __VSRecognitionDisambiguationContext *)_disambiguationContext;
 - (void)setKeywords:(id)arg1;
-- (BOOL)_keywordIndexChanged;
+- (_Bool)_keywordIndexChanged;
 - (id)_keywords;
 - (void)setAmbiguousValues:(id)arg1 phoneticValues:(id)arg2 forClassIdentifier:(id)arg3;
 - (id)ambiguousValuesForClassIdentifier:(id)arg1;

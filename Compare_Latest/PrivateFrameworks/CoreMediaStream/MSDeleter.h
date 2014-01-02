@@ -23,7 +23,7 @@
     MSMediaStreamDaemon *_daemon;
 }
 
-+ (BOOL)isInRetryState;
++ (_Bool)isInRetryState;
 + (void)abortAllActivities;
 + (void)stopAllActivities;
 + (id)personIDsWithOutstandingActivities;
@@ -38,7 +38,7 @@
 @property(nonatomic) MSMediaStreamDaemon *daemon; // @synthesize daemon=_daemon;
 @property(nonatomic) id <MSDeleterDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (BOOL)_isInRetryState;
+- (_Bool)_isInRetryState;
 - (void)stop;
 - (void)abort;
 - (void)_forget;
@@ -50,7 +50,7 @@
 - (void)_sendDeleteRequest;
 - (void)performOutstandingActivities;
 - (void)deleteAssetCollections:(id)arg1;
-- (BOOL)_isAllowedToDelete;
+- (_Bool)_isAllowedToDelete;
 - (void)_updateMasterManifest;
 - (void)dealloc;
 - (void)deactivate;

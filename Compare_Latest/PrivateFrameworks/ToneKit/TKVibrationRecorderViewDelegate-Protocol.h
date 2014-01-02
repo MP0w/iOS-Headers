@@ -9,7 +9,7 @@
 @protocol TKVibrationRecorderViewDelegate <NSObject>
 - (void)vibrationRecorderViewDidReachVibrationRecordingMaximumDuration:(id)arg1;
 - (void)vibrationRecorderView:(id)arg1 didExitRecordingModeWithContextObject:(id)arg2;
-- (BOOL)vibrationRecorderViewDidEnterRecordingMode:(id)arg1;
+- (_Bool)vibrationRecorderViewDidEnterRecordingMode:(id)arg1;
 - (void)vibrationRecorderViewDidFinishReplayingVibration:(id)arg1;
 - (void)vibrationRecorderView:(id)arg1 buttonTappedWithIdentifier:(int)arg2;
 - (void)vibrationComponentDidEndForVibrationRecorderView:(id)arg1;

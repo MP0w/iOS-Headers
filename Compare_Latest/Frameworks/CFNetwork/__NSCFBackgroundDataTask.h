@@ -6,6 +6,7 @@
 
 #import <CFNetwork/__NSCFBackgroundSessionTask.h>
 
+// Not exported
 @interface __NSCFBackgroundDataTask : __NSCFBackgroundSessionTask
 {
 }
@@ -13,7 +14,7 @@
 - (void)_onqueue_didReceiveData:(id)arg1;
 - (void)_onqueue_didReceiveResponse:(id)arg1 redirectRequest:(id)arg2 withCompletion:(id)arg3;
 - (void)dealloc;
-- (BOOL)isKindOfClass:(Class)arg1;
+- (_Bool)isKindOfClass:(Class)arg1;
 
 @end
 

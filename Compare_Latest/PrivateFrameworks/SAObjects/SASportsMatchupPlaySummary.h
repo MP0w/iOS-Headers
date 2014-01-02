@@ -18,8 +18,8 @@
 + (id)matchupPlaySummary;
 @property(copy, nonatomic) NSString *time;
 @property(copy, nonatomic) NSString *summaryDescription;
-@property(nonatomic) BOOL appliesToHomeTeam;
-@property(nonatomic) BOOL appliesToAwayTeam;
+@property(nonatomic) _Bool appliesToHomeTeam;
+@property(nonatomic) _Bool appliesToAwayTeam;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

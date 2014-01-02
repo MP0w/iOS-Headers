@@ -10,10 +10,10 @@
 {
     unsigned long long _offset;
     unsigned long long _capacity;
-    BOOL _allocatedBytes;
+    _Bool _allocatedBytes;
     char *_bytes;
     int _fd;
-    BOOL _useByteBuffer;
+    _Bool _useByteBuffer;
     unsigned long long _excessDataLength;
     double _progressNotificationTime;
     void *_progressNotifier;
@@ -30,7 +30,7 @@
 - (unsigned long long)appendBytes:(const void *)arg1 length64:(unsigned long long)arg2;
 - (unsigned long long)appendData:(id)arg1;
 - (unsigned long long)offset;
-- (BOOL)wasInitWithFD;
+- (_Bool)wasInitWithFD;
 - (void *)mutableBytes;
 - (const void *)bytes;
 - (void)setLength64:(unsigned long long)arg1;

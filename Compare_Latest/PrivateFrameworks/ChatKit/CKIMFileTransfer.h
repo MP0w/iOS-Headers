@@ -12,25 +12,25 @@
 
 @interface CKIMFileTransfer : NSObject <CKFileTransfer>
 {
-    unsigned int _mediaObjectCount;
+    unsigned long long _mediaObjectCount;
     NSObject<OS_dispatch_queue> *_serial_queue;
-    BOOL _fileDataReady;
-    BOOL _fileURLFinalized;
-    BOOL _restoring;
+    _Bool _fileDataReady;
+    _Bool _fileURLFinalized;
+    _Bool _restoring;
     NSString *_guid;
     NSURL *_fileURL;
     NSString *_filename;
     NSError *_error;
     NSDictionary *_transcoderUserInfo;
-    int _transferState;
-    id <CKMessage> _message;
-    NSURL *_linkFileURL;
     unsigned long long _currentBytes;
     unsigned long long _totalBytes;
+    long long _transferState;
+    id <CKMessage> _message;
+    NSURL *_linkFileURL;
 }
 
 @property(copy, nonatomic) NSURL *linkFileURL; // @synthesize linkFileURL=_linkFileURL;
-@property(nonatomic) int transferState; // @synthesize transferState=_transferState;
+@property(nonatomic) long long transferState; // @synthesize transferState=_transferState;
 @property(readonly, nonatomic) NSString *guid; // @synthesize guid=_guid;
 - (void)attachmentRestored:(id)arg1;
 - (void)transferUpdated:(id)arg1;
@@ -42,11 +42,11 @@
 - (id)imFileTransferCenter;
 - (void)mediaObjectRemoved;
 - (void)mediaObjectAdded;
-@property(readonly, nonatomic, getter=isDownloading) BOOL downloading;
-@property(readonly, nonatomic, getter=isDownloadable) BOOL downloadable;
-@property(readonly, nonatomic, getter=isRestoring) BOOL restoring; // @synthesize restoring=_restoring;
-@property(readonly, nonatomic, getter=isFileURLFinalized) BOOL fileURLFinalized; // @synthesize fileURLFinalized=_fileURLFinalized;
-@property(readonly, nonatomic, getter=isFileDataReady) BOOL fileDataReady; // @synthesize fileDataReady=_fileDataReady;
+@property(readonly, nonatomic, getter=isDownloading) _Bool downloading;
+@property(readonly, nonatomic, getter=isDownloadable) _Bool downloadable;
+@property(readonly, nonatomic, getter=isRestoring) _Bool restoring; // @synthesize restoring=_restoring;
+@property(readonly, nonatomic, getter=isFileURLFinalized) _Bool fileURLFinalized; // @synthesize fileURLFinalized=_fileURLFinalized;
+@property(readonly, nonatomic, getter=isFileDataReady) _Bool fileDataReady; // @synthesize fileDataReady=_fileDataReady;
 @property(readonly, nonatomic) unsigned long long totalBytes; // @synthesize totalBytes=_totalBytes;
 @property(readonly, nonatomic) unsigned long long currentBytes; // @synthesize currentBytes=_currentBytes;
 @property(readonly, nonatomic) NSDictionary *transcoderUserInfo; // @synthesize transcoderUserInfo=_transcoderUserInfo;

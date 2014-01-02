@@ -6,6 +6,7 @@
 
 #import <Foundation/NSDistributedNotificationCenter.h>
 
+// Not exported
 @interface _NSLocalNotificationCenter : NSDistributedNotificationCenter
 {
 }

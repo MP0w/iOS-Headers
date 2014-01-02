@@ -6,21 +6,29 @@
 
 #import "UIPageControl.h"
 
+@class _UILegibilityImageSet;
+
 @interface SBIconListPageControl : UIPageControl
 {
     id _delegate;
-    BOOL _firstPageIsSearch;
+    _UILegibilityImageSet *_pageIndicatorImageSet;
+    _UILegibilityImageSet *_enabledPageIndicatorImageSet;
 }
 
-@property(nonatomic) BOOL firstPageIsSearch; // @synthesize firstPageIsSearch=_firstPageIsSearch;
+@property(nonatomic) _UILegibilityImageSet *enabledPageIndicatorImageSet; // @synthesize enabledPageIndicatorImageSet=_enabledPageIndicatorImageSet;
+@property(nonatomic) _UILegibilityImageSet *pageIndicatorImageSet; // @synthesize pageIndicatorImageSet=_pageIndicatorImageSet;
 @property(nonatomic) id <SBIconListPageControlDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)_transitionIndicator:(id)arg1 toEnabled:(_Bool)arg2 index:(long long)arg3;
+- (id)_indicatorViewEnabled:(_Bool)arg1 index:(long long)arg2;
+- (void)_setIndicatorImage:(id)arg1 toEnabled:(_Bool)arg2;
+- (void)setLegibilitySettings:(id)arg1;
 - (void)setFrame:(struct CGRect)arg1;
-- (id)_pageIndicatorCurrentImageForPage:(int)arg1;
-- (id)_pageIndicatorImageForPage:(int)arg1;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
-- (float)defaultHeight;
+- (double)defaultHeight;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

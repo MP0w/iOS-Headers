@@ -8,6 +8,7 @@
 
 #import <OfficeImport/OAVClient-Protocol.h>
 
+// Not exported
 @interface PXVmlClient : NSObject <OAVClient>
 {
 }
@@ -15,7 +16,6 @@
 + (int)vmlSupportLevel;
 + (void)readClientDataFromGroup:(struct _xmlNode *)arg1 toGroup:(id)arg2 state:(id)arg3;
 + (void)readClientDataFromShape:(struct _xmlNode *)arg1 toGraphic:(id)arg2 state:(id)arg3;
-+ (id)colorWithRecolorInfoColorString:(id)arg1;
 
 @end
 

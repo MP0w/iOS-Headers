@@ -17,7 +17,7 @@
     void *_ICUSearchContext;
     void *_CPSearchContext;
     int _transactionType;
-    unsigned int _transactionCount;
+    unsigned long long _transactionCount;
 }
 
 @property(readonly, nonatomic) struct sqlite3 *db; // @synthesize db=_db;
@@ -27,7 +27,7 @@
 - (int)beginTransaction;
 - (struct sqlite3_stmt *)preparedStatementForPattern:(id)arg1;
 - (void)flush;
-- (BOOL)isOpen;
+- (_Bool)isOpen;
 - (void)close;
 - (int)open;
 - (const char *)_vfsModuleName;

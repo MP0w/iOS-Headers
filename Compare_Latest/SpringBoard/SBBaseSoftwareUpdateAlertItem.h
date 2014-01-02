@@ -14,9 +14,9 @@
 }
 
 @property(readonly, nonatomic) SUDescriptor *descriptor; // @synthesize descriptor=_descriptor;
-- (BOOL)dismissOnLock;
-- (BOOL)shouldShowInLockScreen;
-- (BOOL)forcesModalAlertAppearance;
+- (_Bool)dismissOnLock;
+- (_Bool)shouldShowInLockScreen;
+- (_Bool)forcesModalAlertAppearance;
 - (void)activateDisplayWithURL:(id)arg1;
 - (void)activateSoftwareUpdateSettingsDisplay;
 - (id)updateName;

@@ -20,13 +20,14 @@
     BKSApplicationStateMonitor *appStateMonitor;
     NSMutableDictionary *blackListed;
     NSMutableDictionary *recentList;
+    NSMutableDictionary *trendList;
     NSMutableString *foreGroundApp;
-    BOOL _enableAppSwitcherCheck;
-    BOOL _enableWasRecentlyLaunched;
+    _Bool _enableAppSwitcherCheck;
+    _Bool _enableWasRecentlyLaunched;
 }
 
-@property(readonly, nonatomic) BOOL enableWasRecentlyLaunched; // @synthesize enableWasRecentlyLaunched=_enableWasRecentlyLaunched;
-@property(readonly, nonatomic) BOOL enableAppSwitcherCheck; // @synthesize enableAppSwitcherCheck=_enableAppSwitcherCheck;
+@property(readonly, nonatomic) _Bool enableWasRecentlyLaunched; // @synthesize enableWasRecentlyLaunched=_enableWasRecentlyLaunched;
+@property(readonly, nonatomic) _Bool enableAppSwitcherCheck; // @synthesize enableAppSwitcherCheck=_enableAppSwitcherCheck;
 @property(readonly, nonatomic) NSMutableString *foreGroundApp; // @synthesize foreGroundApp;
 - (void).cxx_destruct;
 - (void)logLight:(struct __aslclient *)arg1 withMsg:(struct __aslmsg *)arg2 withLevel:(int)arg3;
@@ -43,6 +44,7 @@
 - (void)appSuspendedTriggerExternalEvent:(id)arg1;
 - (void)addToBlackList:(id)arg1;
 - (void)initListenerForAppStateChange;
+- (void)clearTrendingCache;
 - (void)appSwitchedObserver:(id)arg1;
 - (id)init:(id)arg1 withCallback:(id)arg2;
 

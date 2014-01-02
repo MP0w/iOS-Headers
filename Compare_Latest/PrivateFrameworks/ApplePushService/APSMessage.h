@@ -22,7 +22,7 @@
 - (id)objectForKey:(id)arg1;
 - (id)guid;
 - (void)setGuid:(id)arg1;
-@property(nonatomic) unsigned int identifier;
+@property(nonatomic) unsigned long long identifier;
 @property(retain, nonatomic) NSDictionary *userInfo;
 @property(retain, nonatomic) NSString *topic;
 - (void)encodeWithCoder:(id)arg1;

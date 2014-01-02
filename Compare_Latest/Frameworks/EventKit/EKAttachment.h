@@ -13,12 +13,12 @@
 }
 
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
-- (int)compareFileNames:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
+- (long long)compareFileNames:(id)arg1;
 @property(readonly, nonatomic) NSString *UUID;
 @property(readonly, nonatomic) NSNumber *fileSize;
 @property(readonly, nonatomic) NSURL *localURL;
-@property(readonly, nonatomic) BOOL isBinary;
+@property(readonly, nonatomic) _Bool isBinary;
 @property(readonly, nonatomic) NSString *fileFormat;
 @property(readonly, nonatomic) NSString *fileName;
 @property(readonly, nonatomic) NSURL *URL;

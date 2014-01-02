@@ -22,7 +22,7 @@
 - (id)availableRegions;
 - (unsigned int)versionForRegion:(unsigned int)arg1;
 - (void)dealloc;
-- (BOOL)parseXml:(id)arg1;
+- (_Bool)parseXml:(id)arg1;
 - (void)resourceManifestManagerDidChangeActiveTileGroup:(id)arg1;
 - (void)resourceManifestManagerWillChangeActiveTileGroup:(id)arg1;
 - (void)_reloadManifest;

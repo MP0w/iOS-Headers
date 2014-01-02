@@ -7,6 +7,7 @@
 #import "UIViewController.h"
 
 @interface UIViewController (PUTabbedLibraryViewController)
-@property(readonly, nonatomic) BOOL pu_shouldActAsTabRootViewController;
+@property(readonly, nonatomic) _Bool pu_shouldActAsTabRootViewController;
+- (_Bool)pu_handleSecondTabTap;
 @end
 

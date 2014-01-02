@@ -18,6 +18,7 @@
 + (id)business2;
 - (void)updateUsingSet:(id)arg1 add:(id)arg2 remove:(id)arg3;
 @property(copy, nonatomic) NSArray *reviewList;
+@property(copy, nonatomic) NSString *priceRange;
 @property(copy, nonatomic) NSArray *photoList;
 @property(copy, nonatomic) NSString *phoneNumber;
 @property(retain, nonatomic) SALocalSearchOperationHours *operationHours;
@@ -26,6 +27,7 @@
 @property(copy, nonatomic) NSDictionary *identifierMap;
 @property(copy, nonatomic) NSString *extSessionGuid;
 @property(copy, nonatomic) NSString *description;
+@property(copy, nonatomic) NSString *currencySymbol;
 @property(copy, nonatomic) NSArray *categories;
 @property(copy, nonatomic) NSURL *businessUrl;
 @property(retain, nonatomic) SALocation *address;

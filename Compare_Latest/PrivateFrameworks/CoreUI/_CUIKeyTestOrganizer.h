@@ -12,18 +12,18 @@
 {
     struct _renditionkeytoken originalKey[16];
     NSArray *orderedNonZeroFlexibleAttributes;
-    unsigned int flexAttributesCount;
+    unsigned long long flexAttributesCount;
     struct _renditionkeytoken testKey[16];
-    unsigned int chooseCount;
-    unsigned int subchooseCount;
+    unsigned long long chooseCount;
+    unsigned long long subchooseCount;
 }
 
 - (struct _renditionkeytoken *)nextKey;
 - (void)dealloc;
 - (id)initWithRenditionKey:(const struct _renditionkeytoken *)arg1;
 - (void)_bumpTestKey;
-- (BOOL)_bumpTestKeyAttributeIndex:(unsigned int)arg1;
-- (unsigned int)_attributeToBumpIndex;
+- (_Bool)_bumpTestKeyAttributeIndex:(unsigned long long)arg1;
+- (unsigned long long)_attributeToBumpIndex;
 - (id)_nonZeroFlexibleAttributesInKey:(const struct _renditionkeytoken *)arg1;
 
 @end

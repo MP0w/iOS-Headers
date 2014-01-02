@@ -7,6 +7,6 @@
 #import "NSDictionary.h"
 
 @interface NSDictionary (ABCompare)
-- (int)abCompare:(id)arg1;
+- (long long)abCompare:(id)arg1;
 @end
 

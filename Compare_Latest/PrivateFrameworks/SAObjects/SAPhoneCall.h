@@ -14,9 +14,9 @@
 
 + (id)callWithDictionary:(id)arg1 context:(id)arg2;
 + (id)call;
-- (BOOL)requiresResponse;
-@property(nonatomic) BOOL faceTimeAudio;
-@property(nonatomic) BOOL faceTime;
+- (_Bool)requiresResponse;
+@property(nonatomic) _Bool faceTimeAudio;
+@property(nonatomic) _Bool faceTime;
 @property(copy, nonatomic) NSNumber *emergencyCall;
 @property(retain, nonatomic) SAPersonAttribute *callRecipient;
 - (id)encodedClassName;

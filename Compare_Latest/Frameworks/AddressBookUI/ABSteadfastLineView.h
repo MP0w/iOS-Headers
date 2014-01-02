@@ -8,10 +8,10 @@
 
 @interface ABSteadfastLineView : UIView
 {
-    BOOL disappearsOnHighlight;
+    _Bool disappearsOnHighlight;
 }
 
-@property(nonatomic) BOOL disappearsOnHighlight; // @synthesize disappearsOnHighlight;
+@property(nonatomic) _Bool disappearsOnHighlight; // @synthesize disappearsOnHighlight;
 - (void)forceSetBackgroundColor:(id)arg1;
 - (void)setBackgroundColor:(id)arg1;
 

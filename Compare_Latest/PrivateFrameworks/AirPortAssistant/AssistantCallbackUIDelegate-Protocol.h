@@ -8,8 +8,8 @@
 - (void)callbackAskCancel;
 
 @optional
-- (long)callbackAskUserAQuestion:(int)arg1 paramDict:(id)arg2 forController:(id)arg3;
-- (long)callbackAskUserToChooseFromStringList:(id)arg1 context:(int)arg2 forController:(id)arg3;
-- (long)callbackAskUserForPassword:(int)arg1 param:(id)arg2 forController:(id)arg3;
+- (int)callbackAskUserAQuestion:(int)arg1 paramDict:(id)arg2 forController:(id)arg3;
+- (int)callbackAskUserToChooseFromStringList:(id)arg1 context:(int)arg2 forController:(id)arg3;
+- (int)callbackAskUserForPassword:(int)arg1 param:(id)arg2 forController:(id)arg3;
 @end
 

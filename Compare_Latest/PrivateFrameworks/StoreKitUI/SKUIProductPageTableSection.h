@@ -8,13 +8,13 @@
 
 @interface SKUIProductPageTableSection : SKUITableViewSection
 {
-    BOOL _expanded;
+    _Bool _expanded;
 }
 
-@property(nonatomic, getter=isExpanded) BOOL expanded; // @synthesize expanded=_expanded;
+@property(nonatomic, getter=isExpanded) _Bool expanded; // @synthesize expanded=_expanded;
 - (id)textBoxTableViewCellForTableView:(id)arg1 indexPath:(id)arg2;
 - (id)selectionActionForTableView:(id)arg1 indexPath:(id)arg2;
-- (float)heightForTextLayout:(id)arg1 isExpanded:(BOOL)arg2;
+- (double)heightForTextLayout:(id)arg1 isExpanded:(_Bool)arg2;
 
 @end
 

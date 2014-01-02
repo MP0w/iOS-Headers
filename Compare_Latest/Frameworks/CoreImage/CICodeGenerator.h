@@ -6,15 +6,14 @@
 
 #import <CoreImage/CIFilter.h>
 
-@class NSData, NSDictionary;
+@class NSData;
 
+// Not exported
 @interface CICodeGenerator : CIFilter
 {
     NSData *inputMessage;
-    NSDictionary *inputOptions;
 }
 
-@property(copy, nonatomic) NSDictionary *inputOptions; // @synthesize inputOptions;
 @property(copy, nonatomic) NSData *inputMessage; // @synthesize inputMessage;
 - (id)outputImage;
 - (struct CGImage *)outputCGImage;

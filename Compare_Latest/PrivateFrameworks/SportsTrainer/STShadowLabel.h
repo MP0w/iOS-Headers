@@ -11,10 +11,10 @@
 @interface STShadowLabel : UILabel
 {
     UIColor *_auxiliaryShadowColor;
-    float _auxiliaryShadowBlurRadius;
-    BOOL _animating;
-    BOOL _phase;
-    float _animatedAuxiliaryShadowBlurRadius;
+    double _auxiliaryShadowBlurRadius;
+    _Bool _animating;
+    _Bool _phase;
+    double _animatedAuxiliaryShadowBlurRadius;
     STShadowBlurRadiusAnimation *_pulseAnimation;
 }
 
@@ -22,7 +22,7 @@
 - (void)animator:(id)arg1 stopAnimation:(id)arg2;
 - (void)stopPulse;
 - (void)startPulse;
-- (void)setAuxiliaryShadowBlurRadius:(float)arg1;
+- (void)setAuxiliaryShadowBlurRadius:(double)arg1;
 - (void)setAuxiliaryShadowColor:(id)arg1;
 - (void)drawTextInRect:(struct CGRect)arg1;
 - (void)dealloc;

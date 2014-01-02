@@ -20,10 +20,10 @@
 @property(retain, nonatomic) SAReminderRecurrence *recurrence;
 @property(retain, nonatomic) id <SAReminderPayload> payload;
 @property(copy, nonatomic) NSArray *lists;
-@property(nonatomic) BOOL important;
+@property(nonatomic) _Bool important;
 @property(copy, nonatomic) NSString *dueDateTimeZoneId;
 @property(copy, nonatomic) NSDate *dueDate;
-@property(nonatomic) BOOL completed;
+@property(nonatomic) _Bool completed;
 @property(copy, nonatomic) NSString *alternateSubject;
 - (id)encodedClassName;
 - (id)groupIdentifier;

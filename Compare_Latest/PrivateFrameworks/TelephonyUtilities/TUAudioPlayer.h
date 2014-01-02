@@ -12,9 +12,9 @@
 }
 
 @property(nonatomic) id <TUAudioPlayerDelegateProtocol> delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) BOOL playingSound;
+@property(readonly, nonatomic) _Bool playingSound;
 - (void)stop;
-- (void)playSound:(int)arg1 numOfLoops:(int)arg2 pauseDuration:(float)arg3;
+- (void)playSound:(int)arg1 numOfLoops:(int)arg2 pauseDuration:(double)arg3;
 - (void)playSelectedSound;
 - (void)dealloc;
 

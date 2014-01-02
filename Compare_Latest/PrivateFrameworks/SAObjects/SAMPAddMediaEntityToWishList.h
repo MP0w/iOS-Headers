@@ -12,7 +12,7 @@
 
 + (id)addMediaEntityToWishListWithDictionary:(id)arg1 context:(id)arg2;
 + (id)addMediaEntityToWishList;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

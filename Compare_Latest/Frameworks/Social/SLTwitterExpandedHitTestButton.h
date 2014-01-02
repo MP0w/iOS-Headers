@@ -6,11 +6,12 @@
 
 #import "UIButton.h"
 
+// Not exported
 @interface SLTwitterExpandedHitTestButton : UIButton
 {
 }
 
-- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 
 @end
 

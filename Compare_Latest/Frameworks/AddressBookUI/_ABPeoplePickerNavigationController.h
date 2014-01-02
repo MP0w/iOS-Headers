@@ -19,24 +19,24 @@
 }
 
 @property(nonatomic) id <_ABPeoplePickerNavigationControllerDelegate> peoplePickerDelegate; // @synthesize peoplePickerDelegate=_peoplePickerDelegate;
-- (BOOL)shouldContinueAfterSelectingPerson:(int)arg1 vcard:(id)arg2 property:(int)arg3 identifier:(int)arg4;
-- (BOOL)shouldContinueAfterSelectingPerson:(int)arg1 vcard:(id)arg2;
+- (_Bool)shouldContinueAfterSelectingPerson:(int)arg1 vcard:(id)arg2 property:(int)arg3 identifier:(int)arg4;
+- (_Bool)shouldContinueAfterSelectingPerson:(int)arg1 vcard:(id)arg2;
 - (void)didCancel;
 @property(nonatomic) void *addressBook;
 @property(copy, nonatomic) NSArray *displayedProperties;
-- (void)setNavigationBarHidden:(BOOL)arg1 animated:(BOOL)arg2;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (BOOL)shouldAutomaticallyForwardRotationMethods;
-- (BOOL)shouldAutomaticallyForwardAppearanceMethods;
+- (void)setNavigationBarHidden:(_Bool)arg1 animated:(_Bool)arg2;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (_Bool)shouldAutomaticallyForwardRotationMethods;
+- (_Bool)shouldAutomaticallyForwardAppearanceMethods;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (id)init;
 - (id)initWithStyle:(int)arg1;
 - (id)initWithAddressBook:(void *)arg1;
-- (id)initAsAddressBook:(BOOL)arg1;
-- (id)initAsAddressBook:(BOOL)arg1 withStyle:(int)arg2;
-- (id)initAsAddressBook:(BOOL)arg1 withAddressBook:(void *)arg2;
-- (id)initAsAddressBook:(BOOL)arg1 withAddressBook:(void *)arg2 withStyle:(int)arg3;
+- (id)initAsAddressBook:(_Bool)arg1;
+- (id)initAsAddressBook:(_Bool)arg1 withStyle:(int)arg2;
+- (id)initAsAddressBook:(_Bool)arg1 withAddressBook:(void *)arg2;
+- (id)initAsAddressBook:(_Bool)arg1 withAddressBook:(void *)arg2 withStyle:(int)arg3;
 
 @end
 

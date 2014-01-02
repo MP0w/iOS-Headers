@@ -20,7 +20,8 @@
 @property(retain, nonatomic) NSDate *messageDate; // @synthesize messageDate=_messageDate;
 @property(copy, nonatomic) NSString *messageGUID; // @synthesize messageGUID=_messageGUID;
 @property(copy, nonatomic) NSString *chatGUID; // @synthesize chatGUID=_chatGUID;
-- (int)compare:(id)arg1;
+- (long long)compare:(id)arg1;
+- (void)dealloc;
 - (id)initWithMessage:(id)arg1 chatGUID:(id)arg2;
 
 @end

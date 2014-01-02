@@ -16,7 +16,7 @@
 + (void)_startRemoteLinking;
 + (void)_startLinking;
 @property(nonatomic) id <STEmpedLinkingManagerDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)_fakeEmpedLinkingStateChanged:(BOOL)arg1 afterDelay:(double)arg2;
+- (void)_fakeEmpedLinkingStateChanged:(_Bool)arg1 afterDelay:(double)arg2;
 - (void)_remoteLinkingStateChanged:(id)arg1;
 - (void)_empedLinkingStateChanged:(id)arg1;
 - (void)unlinkRemote;
@@ -24,7 +24,7 @@
 - (void)stopLinking;
 - (void)startRemoteLinking;
 - (void)startLinking;
-- (BOOL)isLinking;
+- (_Bool)isLinking;
 - (void)dealloc;
 - (id)init;
 

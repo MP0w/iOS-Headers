@@ -10,7 +10,7 @@
 {
     UIView *_backView;
     id _completionBlock;
-    int _direction;
+    long long _direction;
     double _duration;
     struct CGRect _fromFrame;
     UIView *_frontView;
@@ -18,14 +18,14 @@
 }
 
 @property(nonatomic) double duration; // @synthesize duration=_duration;
-@property(nonatomic) int direction; // @synthesize direction=_direction;
+@property(nonatomic) long long direction; // @synthesize direction=_direction;
 - (void).cxx_destruct;
 - (id)_timingFunction;
 - (id)_positionAnimation;
 - (id)_inputColorAnimation;
 - (id)_frontLayerAnimation;
 - (id)_backLayerAnimation;
-- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
+- (void)animationDidStop:(id)arg1 finished:(_Bool)arg2;
 - (void)performFlipWithCompletionBlock:(id)arg1;
 - (id)initWithFrontView:(id)arg1 backView:(id)arg2;
 

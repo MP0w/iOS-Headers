@@ -5,27 +5,25 @@
  */
 
 #import "NSObject-Protocol.h"
+#import "PLCloudFeedNavigating-Protocol.h"
 
-@protocol PLRootLibraryNavigationController <NSObject>
-- (BOOL)cloudFeedInvitationForAlbumIsAvailableForNavigation:(id)arg1;
-- (BOOL)cloudFeedCommentIsAvailableForNavigation:(id)arg1;
-- (BOOL)cloudFeedAssetIsAvailableForNavigation:(id)arg1;
-- (BOOL)cloudFeedIsAvailableForNavigation;
-- (BOOL)commentIsAvailableForNavigation:(id)arg1 inAsset:(id)arg2;
-- (BOOL)assetIsAvailableForNavigation:(id)arg1 inAlbum:(struct NSObject *)arg2;
-- (BOOL)albumIsAvailableForNavigation:(struct NSObject *)arg1;
-- (BOOL)contentModeIsAvailableForNavigation:(int)arg1;
-- (void)navigateToComment:(id)arg1 forAsset:(id)arg2 animated:(BOOL)arg3;
-- (void)navigateToRevealAsset:(id)arg1 inAlbum:(struct NSObject *)arg2 animated:(BOOL)arg3;
-- (void)navigateToAsset:(id)arg1 inAlbum:(struct NSObject *)arg2 animated:(BOOL)arg3;
-- (void)navigateToRevealAlbum:(struct NSObject *)arg1 initiallyHidden:(BOOL)arg2 animated:(BOOL)arg3;
-- (void)navigateToAlbum:(struct NSObject *)arg1 animated:(BOOL)arg2 completion:(id)arg3;
+@protocol PLRootLibraryNavigationController <NSObject, PLCloudFeedNavigating>
+- (_Bool)cloudFeedIsAvailableForNavigation;
+- (_Bool)commentIsAvailableForNavigation:(id)arg1 inAsset:(id)arg2;
+- (_Bool)assetIsAvailableForNavigation:(id)arg1 inAlbum:(struct NSObject *)arg2;
+- (_Bool)albumIsAvailableForNavigation:(struct NSObject *)arg1;
+- (_Bool)contentModeIsAvailableForNavigation:(int)arg1;
+- (void)navigateToComment:(id)arg1 forAsset:(id)arg2 animated:(_Bool)arg3;
+- (void)navigateToRevealAsset:(id)arg1 inAlbum:(struct NSObject *)arg2 animated:(_Bool)arg3;
+- (void)navigateToAsset:(id)arg1 inAlbum:(struct NSObject *)arg2 animated:(_Bool)arg3;
+- (void)navigateToRevealAlbum:(struct NSObject *)arg1 initiallyHidden:(_Bool)arg2 animated:(_Bool)arg3;
+- (void)navigateToAlbum:(struct NSObject *)arg1 animated:(_Bool)arg2 completion:(id)arg3;
 - (void)navigateToRevealCloudFeedInvitationForAlbum:(id)arg1 completion:(id)arg2;
 - (void)navigateToCloudFeedComment:(id)arg1 completion:(id)arg2;
 - (void)navigateToRevealCloudFeedComment:(id)arg1 completion:(id)arg2;
 - (void)navigateToCloudFeedAsset:(id)arg1 completion:(id)arg2;
 - (void)navigateToRevealCloudFeedAsset:(id)arg1 completion:(id)arg2;
 - (void)navigateToCloudFeedWithCompletion:(id)arg1;
-- (void)navigateToContentMode:(int)arg1 animated:(BOOL)arg2 completion:(id)arg3;
+- (void)navigateToContentMode:(int)arg1 animated:(_Bool)arg2 completion:(id)arg3;
 @end
 

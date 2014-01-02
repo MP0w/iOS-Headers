@@ -8,6 +8,7 @@
 
 @class ALAsset, ALAssetsLibrary, NSCondition, NSURL;
 
+// Not exported
 @interface _UIGetAssetThread : NSThread
 {
     NSURL *_url;

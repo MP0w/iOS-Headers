@@ -8,6 +8,7 @@
 
 @class CHDChart;
 
+// Not exported
 @interface EDChartSheet : EDSheet
 {
     CHDChart *mMainChart;
@@ -22,7 +23,6 @@
 - (_Bool)areBoundsSet;
 - (void)setMainChart:(id)arg1;
 - (id)mainChart;
-- (void)teardown;
 
 @end
 

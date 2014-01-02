@@ -9,9 +9,9 @@
 @protocol _MFSearchResultsConsumer <NSObject>
 - (void)_appendSortedResultsOfType:(int)arg1 excluding:(id)arg2 toResults:(id)arg3;
 - (void)_enumerateSearchResultTypesInSortOrderUsingBlock:(id)arg1;
-- (BOOL)_didFinishSearchForType:(int)arg1;
-- (BOOL)_shouldProcessResultsAfterFinishingType:(int)arg1;
+- (_Bool)_didFinishSearchForType:(int)arg1;
+- (_Bool)_shouldProcessResultsAfterFinishingType:(int)arg1;
 - (void)_addResults:(id)arg1 ofType:(int)arg2;
-- (BOOL)_isResetting;
+- (_Bool)_isResetting;
 @end
 

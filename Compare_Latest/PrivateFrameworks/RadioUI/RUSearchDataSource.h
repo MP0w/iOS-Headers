@@ -16,8 +16,10 @@
     double _minimumSearchTimeInterval;
     NSString *_queuedSearchTerm;
     NSArray *_searchResultCategories;
+    _Bool _excludeFeaturedStations;
 }
 
+@property(nonatomic) _Bool excludeFeaturedStations; // @synthesize excludeFeaturedStations=_excludeFeaturedStations;
 @property(readonly, nonatomic) NSArray *searchResultCategories; // @synthesize searchResultCategories=_searchResultCategories;
 @property(nonatomic) __weak id <RUSearchDataSourceDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;

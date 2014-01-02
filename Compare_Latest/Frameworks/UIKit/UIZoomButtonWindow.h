@@ -6,11 +6,12 @@
 
 #import <UIKit/UIClassicWindow.h>
 
+// Not exported
 @interface UIZoomButtonWindow : UIClassicWindow
 {
 }
 
-- (BOOL)_isWindowServerHostingManaged;
+- (_Bool)_isWindowServerHostingManaged;
 
 @end
 

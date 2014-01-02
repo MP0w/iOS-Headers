@@ -13,20 +13,21 @@
     CNFRegSigninLearnMoreView *_signInView;
 }
 
-- (id)tableView:(id)arg1 viewForHeaderInSection:(int)arg2;
-- (float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2;
-- (id)_existingLearnMoreViewForSection:(int)arg1;
+- (id)tableView:(id)arg1 viewForHeaderInSection:(long long)arg2;
+- (double)tableView:(id)arg1 heightForHeaderInSection:(long long)arg2;
+- (id)_existingLearnMoreViewForSection:(long long)arg1;
 - (id)_existingLearnMoreViewForSpecifier:(id)arg1;
-- (void)_setFieldsEnabled:(BOOL)arg1 animated:(BOOL)arg2;
-- (BOOL)passwordIsEmpty;
+- (void)_setFieldsEnabled:(_Bool)arg1 animated:(_Bool)arg2;
+- (_Bool)passwordIsEmpty;
 - (void)setPasswordText:(id)arg1;
 - (id)passwordTextField;
-- (BOOL)usernameIsEmpty;
+- (_Bool)usernameIsEmpty;
 - (void)setUsernameText:(id)arg1;
 - (id)usernameTextField;
 - (void)_updateDescriptionText;
 - (void)viewDidLoad;
 - (id)specifierList;
+- (void)viewWillAppear:(_Bool)arg1;
 
 @end
 

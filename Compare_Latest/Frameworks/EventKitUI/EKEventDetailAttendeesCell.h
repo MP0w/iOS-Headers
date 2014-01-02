@@ -8,18 +8,19 @@
 
 @class EKEventDetailAttendeesListView;
 
+// Not exported
 @interface EKEventDetailAttendeesCell : EKEventDetailCell
 {
     EKEventDetailAttendeesListView *_attendeesListView;
 }
 
 - (void).cxx_destruct;
-- (void)layoutForWidth:(float)arg1 position:(int)arg2;
+- (void)layoutForWidth:(double)arg1 position:(int)arg2;
 - (id)_attendeesListView;
 - (void)setAttendees:(id)arg1;
 - (id)viewControllerForCell;
-- (BOOL)update;
-- (id)initWithEvent:(id)arg1 editable:(BOOL)arg2;
+- (_Bool)update;
+- (id)initWithEvent:(id)arg1 editable:(_Bool)arg2;
 
 @end
 

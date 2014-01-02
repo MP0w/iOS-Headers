@@ -16,29 +16,23 @@
 
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (id)pointerArrayWithPointerFunctions:(id)arg1;
-+ (id)pointerArrayWithOptions:(unsigned int)arg1;
-+ (id)weakObjectsPointerArray;
-+ (id)strongObjectsPointerArray;
-+ (id)pointerArrayWithWeakObjects;
-+ (id)pointerArrayWithStrongObjects;
++ (id)pointerArrayWithOptions:(unsigned long long)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)setCount:(unsigned int)arg1;
-- (unsigned int)count;
+- (void)setCount:(unsigned long long)arg1;
+- (unsigned long long)count;
 - (void)compact;
-- (void)replacePointerAtIndex:(unsigned int)arg1 withPointer:(void *)arg2;
-- (void)insertPointer:(void *)arg1 atIndex:(unsigned int)arg2;
-- (void)removePointerAtIndex:(unsigned int)arg1;
+- (void)replacePointerAtIndex:(unsigned long long)arg1 withPointer:(void *)arg2;
+- (void)insertPointer:(void *)arg1 atIndex:(unsigned long long)arg2;
+- (void)removePointerAtIndex:(unsigned long long)arg1;
 - (void)addPointer:(void *)arg1;
-- (void *)pointerAtIndex:(unsigned int)arg1;
-- (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
+- (void *)pointerAtIndex:(unsigned long long)arg1;
+- (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
 - (id)pointerFunctions;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithPointerFunctions:(id)arg1;
-- (id)initWithOptions:(unsigned int)arg1;
+- (id)initWithOptions:(unsigned long long)arg1;
 - (id)init;
-- (id)allObjects;
-- (id)mutableArray;
 
 @end
 

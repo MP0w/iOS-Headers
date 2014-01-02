@@ -6,6 +6,7 @@
 
 #import <VectorKit/VGLTextureProgram.h>
 
+// Not exported
 @interface VGLClutTextureProgram : VGLTextureProgram
 {
     int _uClutSampler;

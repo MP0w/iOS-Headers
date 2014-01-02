@@ -8,7 +8,7 @@
 
 @interface NSString (MimeHeaderEncoding)
 - (id)mf_decodeMimeHeaderValueWithCharsetHint:(id)arg1;
-- (id)mf_decodeMimeHeaderValueWithEncodingHint:(unsigned long)arg1;
-- (id)mf_encodedHeaderDataWithEncodingHint:(unsigned long)arg1;
+- (id)mf_decodeMimeHeaderValueWithEncodingHint:(unsigned int)arg1;
+- (id)mf_encodedHeaderDataWithEncodingHint:(unsigned int)arg1;
 @end
 

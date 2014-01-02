@@ -7,6 +7,7 @@
 #import "NSURL.h"
 
 @interface NSURL (NSURLSession_Additions)
-- (BOOL)_isSafeFileForBackgroundUpload:(int)arg1;
+- (_Bool)_isSafeDirectoryForDownloads:(int)arg1;
+- (_Bool)_isSafeFileForBackgroundUpload:(int)arg1;
 @end
 

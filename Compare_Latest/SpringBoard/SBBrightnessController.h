@@ -8,7 +8,7 @@
 
 @interface SBBrightnessController : NSObject
 {
-    BOOL _debounce;
+    _Bool _debounce;
     struct BKSDisplayBrightnessTransaction *_brightnessDownTransaction;
     struct BKSDisplayBrightnessTransaction *_brightnessUpTransaction;
 }
@@ -19,8 +19,8 @@
 - (void)decreaseBrightnessAndRepeat;
 - (void)increaseBrightnessAndRepeat;
 - (void)setBrightnessLevel:(float)arg1;
-- (void)_setBrightnessLevel:(float)arg1 showHUD:(BOOL)arg2;
-- (void)adjustBacklightLevel:(BOOL)arg1;
+- (void)_setBrightnessLevel:(float)arg1 showHUD:(_Bool)arg2;
+- (void)adjustBacklightLevel:(_Bool)arg1;
 - (float)_calcButtonRepeatDelay;
 
 @end

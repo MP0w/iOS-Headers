@@ -13,12 +13,12 @@
 @interface SBRelativeDateLabel : SBDefaultDateLabel <SBRelativeDateTimerDelegate>
 {
     SBRelativeDateTimer *_relativeDateTimer;
-    unsigned int _value;
+    unsigned long long _value;
     int _resolution;
-    int _comparedToNow;
+    long long _comparedToNow;
 }
 
-- (void)timerFiredWithValue:(unsigned int)arg1 forResolution:(int)arg2 comparedToNow:(int)arg3;
+- (void)timerFiredWithValue:(unsigned long long)arg1 forResolution:(int)arg2 comparedToNow:(long long)arg3;
 - (id)constructLabelString;
 - (void)prepareForReuse;
 - (void)dealloc;

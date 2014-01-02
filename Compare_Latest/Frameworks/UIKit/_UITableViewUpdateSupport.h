@@ -8,12 +8,13 @@
 
 @class NSArray, NSMutableArray, NSMutableIndexSet, UITableView, UITableViewRowData;
 
+// Not exported
 @interface _UITableViewUpdateSupport : NSObject
 {
-    int oldSection;
-    int newSection;
-    int oldGlobalRow;
-    int newGlobalRow;
+    long long oldSection;
+    long long newSection;
+    long long oldGlobalRow;
+    long long newGlobalRow;
     UITableView *tableView;
     struct _NSRange visibleRows;
     NSArray *updateItems;
@@ -27,19 +28,19 @@
     struct CGRect oldTableViewVisibleBounds;
     struct CGRect newTableViewVisibleBounds;
     struct CGRect tableViewVisibleBoundsUnion;
-    float tableViewVisibleBoundsOffset;
-    int oldSectionCount;
-    int newSectionCount;
-    int *oldSectionMap;
-    int *newSectionMap;
-    int oldGlobalRowCount;
-    int newGlobalRowCount;
-    int *oldGlobalRowMap;
-    int *newGlobalRowMap;
+    double tableViewVisibleBoundsOffset;
+    long long oldSectionCount;
+    long long newSectionCount;
+    long long *oldSectionMap;
+    long long *newSectionMap;
+    long long oldGlobalRowCount;
+    long long newGlobalRowCount;
+    long long *oldGlobalRowMap;
+    long long *newGlobalRowMap;
     id *animatedCells;
     id *animatedHeaders;
     id *animatedFooters;
-    int globalReorderingRow;
+    long long globalReorderingRow;
     id _context;
     NSMutableArray *viewAnimations;
     NSMutableArray *deletedSections;
@@ -50,30 +51,6 @@
 - (void)dealloc;
 - (void)_setupAnimations;
 - (id)initWithTableView:(id)arg1 updateItems:(id)arg2 oldRowData:(id)arg3 newRowData:(id)arg4 oldRowRange:(struct _NSRange)arg5 newRowRange:(struct _NSRange)arg6 context:(id)arg7;
-- (void)_setupAnimationForTableFooter;
-- (void)_setupAnimationForTableHeader;
-- (void)_setupAnimationsForExistingHeadersAndFooters;
-- (void)_setupAnimationsForExistingOffscreenCells;
-- (void)_setupDeleteAnimationForFooterInSection:(int)arg1 withTargetRect:(struct CGRect)arg2 forUpdateItem:(id)arg3;
-- (void)_setupDeleteAnimationForHeaderInSection:(int)arg1 withTargetRect:(struct CGRect)arg2 forUpdateItem:(id)arg3;
-- (void)_setupAnimationsForDeletedHeadersAndFooters;
-- (void)_setupAnimationsForDeletedCells;
-- (void)_addBottomShadowViewViewForViewAnimation:(id)arg1;
-- (id)_imageViewForView:(id)arg1;
-- (void)_setupInsertAnimationForFooterInSection:(int)arg1 withTargetRect:(struct CGRect)arg2 forUpdateItem:(id)arg3;
-- (void)_setupInsertAnimationForHeaderInSection:(int)arg1 withTargetRect:(struct CGRect)arg2 forUpdateItem:(id)arg3;
-- (void)_setupAnimationsForInsertedHeadersAndFooters;
-- (void)_setupAnimationsForNewlyInsertedCells;
-- (void)_setupAnimationForReorderingRow;
-- (void)_setupAnimationsForExistingVisibleCells;
-- (void)_computeAutomaticAnimationTypes;
-- (void)_computeGaps;
-- (void)_setupAnimationStructures;
-- (void)_computeRowUpdates;
-- (void)_computeSectionUpdates;
-- (void)_computeVisibleBounds;
-- (BOOL)_isReloadSectionUpdate;
-- (void)_validateAnimatedCells;
 
 @end
 

@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface OADProperties : NSObject
 {
     OADProperties *mParent;
@@ -14,16 +15,16 @@
 }
 
 + (id)defaultProperties;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)removeUnnecessaryOverrides;
 - (void)flatten;
-- (BOOL)isMergedPropertyForSelector:(SEL)arg1;
+- (_Bool)isMergedPropertyForSelector:(SEL)arg1;
 - (id)overrideForSelector:(SEL)arg1;
-- (void)setMergedWithParent:(BOOL)arg1;
-- (BOOL)isMergedWithParent;
-- (void)setMerged:(BOOL)arg1;
-- (BOOL)isMerged;
+- (void)setMergedWithParent:(_Bool)arg1;
+- (_Bool)isMergedWithParent;
+- (void)setMerged:(_Bool)arg1;
+- (_Bool)isMerged;
 - (void)setParent:(id)arg1 myRestrictedClass:(Class)arg2;
 - (void)setParent:(id)arg1;
 - (void)p_setParent:(id)arg1;

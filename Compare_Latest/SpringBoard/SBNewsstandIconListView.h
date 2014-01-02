@@ -8,20 +8,20 @@
 
 @interface SBNewsstandIconListView : SBFolderIconListView
 {
-    float _iconVPaddingPortrait;
-    float _topIconInsetPortrait;
-    float _iconVPaddingLandscape;
-    float _topIconInsetLandscape;
+    double _iconVPaddingPortrait;
+    double _topIconInsetPortrait;
+    double _iconVPaddingLandscape;
+    double _topIconInsetLandscape;
 }
 
-+ (unsigned int)maxVisibleIconRowsInterfaceOrientation:(int)arg1;
-+ (unsigned int)iconColumnsForInterfaceOrientation:(int)arg1;
-+ (int)rotationAnchor;
-- (void)_updateVisibleIconsFromRow:(unsigned int)arg1 toRow:(unsigned int)arg2 includeIcon:(id)arg3 layoutIfNeeded:(BOOL)arg4;
-- (float)verticalIconPadding;
-- (float)sideIconInset;
-- (float)bottomIconInset;
-- (float)topIconInset;
++ (unsigned long long)maxVisibleIconRowsInterfaceOrientation:(long long)arg1;
++ (unsigned long long)iconColumnsForInterfaceOrientation:(long long)arg1;
++ (long long)rotationAnchor;
+- (void)_updateVisibleIconsFromRow:(unsigned long long)arg1 toRow:(unsigned long long)arg2 includeIcon:(id)arg3 layoutIfNeeded:(_Bool)arg4;
+- (double)verticalIconPadding;
+- (double)sideIconInset;
+- (double)bottomIconInset;
+- (double)topIconInset;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (Class)baseIconViewClass;

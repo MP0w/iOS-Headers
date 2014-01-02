@@ -10,18 +10,20 @@
 
 @class ALAssetsLibrary, PLManagedAsset, PLPhotoLibrary;
 
+// Not exported
 @interface ALAssetPrivate : NSObject <ALAssetsLibraryAsset>
 {
     ALAssetsLibrary *_library;
-    BOOL _isValid;
+    _Bool _isValid;
     PLManagedAsset *_photo;
     PLPhotoLibrary *_photoLibrary;
 }
 
 @property(retain, nonatomic) PLPhotoLibrary *_photoLibrary; // @synthesize _photoLibrary;
-@property(nonatomic) BOOL isValid; // @synthesize isValid=_isValid;
+@property(nonatomic) _Bool isValid; // @synthesize isValid=_isValid;
 @property(retain, nonatomic) PLManagedAsset *photo; // @synthesize photo=_photo;
 - (void)_performBlockAndWait:(id)arg1;
+@property(readonly, nonatomic, getter=isDeletable) _Bool deletable;
 - (void)libraryDidChange;
 @property(nonatomic) ALAssetsLibrary *library;
 - (void)dealloc;

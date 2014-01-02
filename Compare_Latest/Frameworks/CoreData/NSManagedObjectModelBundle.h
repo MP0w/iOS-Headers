@@ -8,6 +8,7 @@
 
 @class NSBundle, NSDictionary;
 
+// Not exported
 @interface NSManagedObjectModelBundle : NSObject
 {
     NSBundle *_bundle;
@@ -15,7 +16,7 @@
 }
 
 - (id)_modelForVersionHashes:(id)arg1;
-- (id)_modelForVersionHashes:(id)arg1 inStyle:(unsigned int)arg2;
+- (id)_modelForVersionHashes:(id)arg1 inStyle:(unsigned long long)arg2;
 - (id)optimizedVersionURL;
 - (id)currentVersionURL;
 - (id)urlForModelVersionWithName:(id)arg1;

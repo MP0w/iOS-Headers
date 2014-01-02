@@ -6,12 +6,13 @@
 
 #import <EventKitUI/EKEventDetailCell.h>
 
+// Not exported
 @interface EKEventDetailCommentCell : EKEventDetailCell
 {
 }
 
-- (BOOL)update;
-- (id)initWithEvent:(id)arg1 editable:(BOOL)arg2;
+- (_Bool)update;
+- (id)initWithEvent:(id)arg1 editable:(_Bool)arg2;
 
 @end
 

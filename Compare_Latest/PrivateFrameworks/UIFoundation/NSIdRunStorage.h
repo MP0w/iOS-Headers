@@ -6,14 +6,15 @@
 
 #import <UIFoundation/NSRunStorage.h>
 
+// Not exported
 @interface NSIdRunStorage : NSRunStorage
 {
 }
 
 + (void)initialize;
 - (void)dealloc;
-- (void)_reallocData:(unsigned long)arg1;
-- (void)_allocData:(unsigned long)arg1;
+- (void)_reallocData:(unsigned long long)arg1;
+- (void)_allocData:(unsigned long long)arg1;
 
 @end
 

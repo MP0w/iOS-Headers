@@ -7,6 +7,11 @@
 #import "NSObject-Protocol.h"
 
 @protocol SBWallpaperObserver <NSObject>
-- (void)wallpaperDidChange;
+
+@optional
+- (void)wallpaperGeometryDidChangeForVariant:(long long)arg1;
+- (void)wallpaperLegibilitySettingsDidChange:(id)arg1 forVariant:(long long)arg2;
+- (void)wallpaperDidChangeForVariant:(long long)arg1;
+- (void)wallpaperWillChangeForVariant:(long long)arg1;
 @end
 

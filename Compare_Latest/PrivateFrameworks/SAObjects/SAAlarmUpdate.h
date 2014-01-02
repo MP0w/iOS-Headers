@@ -14,7 +14,7 @@
 
 + (id)updateWithDictionary:(id)arg1 context:(id)arg2;
 + (id)update;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSArray *removedFrequency;
 @property(copy, nonatomic) NSNumber *minute;
 @property(copy, nonatomic) NSString *label;

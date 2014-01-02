@@ -8,6 +8,7 @@
 
 @class ODDColorTransform, ODDNodePoint, ODDStyleDefinition;
 
+// Not exported
 @interface ODDDiagram : OADDrawable
 {
     ODDNodePoint *mDocumentPoint;

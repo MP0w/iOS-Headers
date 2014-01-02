@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface VKAnchor : NSObject
 {
     shared_ptr_6f3fd3aa _anchor;
@@ -14,15 +15,15 @@
 - (id).cxx_construct;
 - (void).cxx_destruct;
 @property(nonatomic) id <VKAnchorDelegate> delegate;
-- (int)worldIndexWithContext:(id)arg1;
+- (long long)worldIndexWithContext:(id)arg1;
 @property(readonly, nonatomic) struct VKPoint worldPoint;
 @property(readonly, nonatomic) struct VKPoint mercatorPoint;
 @property(nonatomic) CDStruct_c3b9c2ee coordinate;
 - (void)setMercatorPoint:(struct VKPoint)arg1;
 - (void)worldPointDidChange;
-@property(readonly, nonatomic) BOOL followsTerrain;
-@property(readonly, nonatomic) BOOL isGeocentric;
-@property(readonly, nonatomic) BOOL isMercator;
+@property(readonly, nonatomic) _Bool followsTerrain;
+@property(readonly, nonatomic) _Bool isGeocentric;
+@property(readonly, nonatomic) _Bool isMercator;
 - (id)initWithAnchor:(shared_ptr_6f3fd3aa)arg1;
 
 @end

@@ -8,6 +8,6 @@
 
 @interface UILabel (SBStringDrawing)
 - (void)drawWithMetrics:(id)arg1 inContext:(struct CGContext *)arg2;
-- (id)stringMetricsForFirstLineWidth:(float)arg1;
+- (id)stringMetricsForFirstLineWidth:(double)arg1;
 @end
 

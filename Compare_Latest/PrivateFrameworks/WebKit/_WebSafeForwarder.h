@@ -8,16 +8,17 @@
 
 @class _WebSafeAsyncForwarder;
 
+// Not exported
 @interface _WebSafeForwarder : NSObject
 {
     id target;
     id defaultTarget;
     _WebSafeAsyncForwarder *asyncForwarder;
-    long asyncForwarderPred;
+    long long asyncForwarderPred;
 }
 
 - (id)methodSignatureForSelector:(SEL)arg1;
-- (BOOL)respondsToSelector:(SEL)arg1;
+- (_Bool)respondsToSelector:(SEL)arg1;
 - (void)forwardInvocation:(id)arg1;
 - (void)clearTarget;
 - (void)dealloc;

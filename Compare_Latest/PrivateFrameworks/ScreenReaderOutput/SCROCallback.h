@@ -12,12 +12,12 @@
 {
     int _key;
     id _object;
-    BOOL _isAtomic;
+    _Bool _isAtomic;
 }
 
 - (void)postToHandler:(id)arg1;
-- (BOOL)isAtomic;
-- (void)setIsAtomic:(BOOL)arg1;
+- (_Bool)isAtomic;
+- (void)setIsAtomic:(_Bool)arg1;
 - (id)object;
 - (int)key;
 - (void)dealloc;

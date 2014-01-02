@@ -5,6 +5,6 @@
  */
 
 @protocol InterfaceListenerDelegate
-- (void)interfaceStateDidChangeWithWifiUp:(BOOL)arg1 withCellUp:(BOOL)arg2;
+- (void)interfaceStateDidChangeWithWifiUp:(_Bool)arg1 withCellUp:(_Bool)arg2;
 @end
 

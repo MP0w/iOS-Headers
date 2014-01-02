@@ -8,15 +8,15 @@
 
 @interface SBLineFragment : NSObject
 {
-    unsigned int _index;
-    float _lineWidth;
+    unsigned long long _index;
+    double _lineWidth;
     struct _NSRange _range;
 }
 
-+ (id)fragmentWithIndex:(unsigned int)arg1 length:(unsigned int)arg2 lineWidth:(float)arg3;
-@property(nonatomic) float lineWidth; // @synthesize lineWidth=_lineWidth;
++ (id)fragmentWithIndex:(unsigned long long)arg1 length:(unsigned long long)arg2 lineWidth:(double)arg3;
+@property(nonatomic) double lineWidth; // @synthesize lineWidth=_lineWidth;
 @property(nonatomic) struct _NSRange range; // @synthesize range=_range;
-@property(nonatomic) unsigned int index; // @synthesize index=_index;
+@property(nonatomic) unsigned long long index; // @synthesize index=_index;
 - (id)description;
 
 @end

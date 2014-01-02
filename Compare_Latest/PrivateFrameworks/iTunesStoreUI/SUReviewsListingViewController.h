@@ -15,13 +15,13 @@
 
 - (void)_reloadHeaderView;
 - (id)_headerItem;
-- (BOOL)_canWriteReview;
+- (_Bool)_canWriteReview;
 - (id)_accessoryView;
 - (void)_writeAReview:(id)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (id)newTermsAndConditionsFooter;
-- (void)reloadForChangedRowCount:(int)arg1;
+- (void)reloadForChangedRowCount:(long long)arg1;
 - (void)reloadData;
 - (void)loadView;
 - (void)dealloc;

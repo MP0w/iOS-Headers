@@ -8,11 +8,12 @@
 
 @class NSAttributedString, NSDictionary, NSFileWrapper, NSMutableArray, NSMutableData, NSMutableDictionary;
 
+// Not exported
 @interface NSRTFWriter : NSObject
 {
     NSMutableData *_output;
     NSAttributedString *_attrString;
-    unsigned int _attrStringLength;
+    unsigned long long _attrStringLength;
     NSFileWrapper *_document;
     NSMutableDictionary *_fontNames;
     NSMutableDictionary *_colors;
@@ -26,26 +27,21 @@
     id _curSuperscript;
     id _curUnderlineStyle;
     int _curTraits;
-    unsigned long _curEncoding;
-    struct {
-        unsigned int _forceColorWrite:1;
-        unsigned int _activeFontFeatures:1;
-        unsigned int _preserveNaturalAlignment:1;
-        unsigned int _reserved:29;
-    } _rwFlags;
-    float _rightMargin;
+    unsigned int _curEncoding;
+    CDStruct_cfe5321f _rwFlags;
+    double _rightMargin;
     NSDictionary *_docAttrs;
     void *_layoutSections;
 }
 
 + (void)initialize;
 + (id)RTFDataForDate:(id)arg1;
-+ (id)RTFDataForString:(id)arg1 range:(struct _NSRange)arg2 encoding:(unsigned long)arg3;
++ (id)RTFDataForString:(id)arg1 range:(struct _NSRange)arg2 encoding:(unsigned int)arg3;
 - (void)writeBody;
-- (void)writeTextFlow:(unsigned int)arg1;
-- (unsigned int)textFlowWithAttributes:(id)arg1 range:(struct _NSRange *)arg2;
+- (void)writeTextFlow:(unsigned long long)arg1;
+- (unsigned long long)textFlowWithAttributes:(id)arg1 range:(struct _NSRange *)arg2;
 - (void)writeDate:(id)arg1;
-- (BOOL)writeLinkInfo:(id)arg1;
+- (_Bool)writeLinkInfo:(id)arg1;
 - (void)writeGlyphInfo:(id)arg1;
 - (void)writeAttachment:(id)arg1 editableData:(id)arg2 editableTypeIdentifier:(id)arg3;
 - (void)writeCharacterAttributes:(id)arg1 previousAttributes:(id)arg2;
@@ -59,14 +55,14 @@
 - (void)writeBaselineOffset:(id)arg1;
 - (void)writeSuperscript:(id)arg1;
 - (void)writeStrikethroughStyle:(id)arg1;
-- (void)writeUnderlineStyle:(id)arg1 allowStrikethrough:(BOOL)arg2;
+- (void)writeUnderlineStyle:(id)arg1 allowStrikethrough:(_Bool)arg2;
 - (void)writeKern:(id)arg1;
-- (void)writeFont:(id)arg1 forceFontNumber:(BOOL)arg2;
+- (void)writeFont:(id)arg1 forceFontNumber:(_Bool)arg2;
 - (id)_plainFontNameForFont:(id)arg1;
 - (void)writeParagraphStyle:(id)arg1;
-- (BOOL)writeCellTerminator:(id)arg1 atIndex:(unsigned int)arg2 nestingLevel:(unsigned int)arg3;
-- (void)writeTableHeader:(id)arg1 atIndex:(unsigned int)arg2 nestingLevel:(unsigned int)arg3;
-- (void)writeColor:(id)arg1 type:(unsigned int)arg2;
+- (_Bool)writeCellTerminator:(id)arg1 atIndex:(unsigned long long)arg2 nestingLevel:(unsigned long long)arg3;
+- (void)writeTableHeader:(id)arg1 atIndex:(unsigned long long)arg2 nestingLevel:(unsigned long long)arg3;
+- (void)writeColor:(id)arg1 type:(unsigned long long)arg2;
 - (void)writeHeader;
 - (void)writeInfo;
 - (void)writeKeywordsDocumentAttribute;
@@ -87,7 +83,7 @@
 - (id)documentAttributes;
 - (id)documentAttribute:(id)arg1;
 - (void)setDocumentAttributes:(id)arg1;
-- (void)_setPreserveNaturalAlignment:(BOOL)arg1;
+- (void)_setPreserveNaturalAlignment:(_Bool)arg1;
 - (void)_setRTFDFileWrapper:(id)arg1;
 - (id)_RTFDFileWrapper;
 - (id)RTFDFileWrapper;

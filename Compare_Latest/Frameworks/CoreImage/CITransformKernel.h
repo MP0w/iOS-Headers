@@ -6,6 +6,7 @@
 
 #import <CoreImage/CIKernel.h>
 
+// Not exported
 @interface CITransformKernel : CIKernel
 {
 }

@@ -22,27 +22,27 @@
     NSMutableArray *_images;
     NSMutableDictionary *_placeholderImages;
     SKUIScreenshotDataConsumer *_screenshotConsumer;
-    int _indexToScrollToOnLoadView;
-    BOOL _respondsToCount;
-    BOOL _respondsToURL;
-    BOOL _respondsToImage;
+    long long _indexToScrollToOnLoadView;
+    _Bool _respondsToCount;
+    _Bool _respondsToURL;
+    _Bool _respondsToImage;
 }
 
 @property(nonatomic) __weak id <SKUISlideshowViewControllerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(retain, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
 - (void).cxx_destruct;
 - (void)_reloadPageControl;
-- (void)_setLowResImage:(id)arg1 atIndex:(int)arg2;
-- (void)_setImage:(id)arg1 atIndex:(int)arg2;
-- (id)_placeholderImageAtIndex:(int)arg1;
-- (id)_imageAtIndex:(int)arg1;
+- (void)_setLowResImage:(id)arg1 atIndex:(long long)arg2;
+- (void)_setImage:(id)arg1 atIndex:(long long)arg2;
+- (id)_placeholderImageAtIndex:(long long)arg1;
+- (id)_imageAtIndex:(long long)arg1;
 - (void)_doneAction:(id)arg1;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
-- (int)collectionView:(id)arg1 numberOfItemsInSection:(int)arg2;
+- (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
 - (void)scrollViewDidScroll:(id)arg1;
-@property(nonatomic) int currentIndex;
+@property(nonatomic) long long currentIndex;
 - (void)reloadData;
-- (unsigned int)supportedInterfaceOrientations;
+- (unsigned long long)supportedInterfaceOrientations;
 - (void)loadView;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

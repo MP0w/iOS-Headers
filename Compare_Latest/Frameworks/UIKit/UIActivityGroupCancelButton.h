@@ -8,13 +8,14 @@
 
 @class _UIBackdropView;
 
+// Not exported
 @interface UIActivityGroupCancelButton : UIButton
 {
     _UIBackdropView *_backdropView;
 }
 
 @property(retain, nonatomic) _UIBackdropView *backdropView; // @synthesize backdropView=_backdropView;
-- (void)setHighlighted:(BOOL)arg1;
+- (void)setHighlighted:(_Bool)arg1;
 - (void)dealloc;
 
 @end

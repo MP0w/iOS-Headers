@@ -21,7 +21,7 @@
 @property(readonly) NSString *localizedFailureReason;
 @property(readonly) NSString *localizedDescription;
 @property(readonly) NSString *domain;
-@property(readonly) int code;
+@property(readonly) long long code;
 - (id)_className;
 - (void)dealloc;
 - (id)initWithError:(id)arg1;

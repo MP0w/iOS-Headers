@@ -17,29 +17,29 @@
     NSDateComponents *_endComponents;
     NSString *_calendarIdentifier;
     NSCalendar *_calendar;
-    unsigned int _repeatInterval;
+    unsigned long long _repeatInterval;
 }
 
-+ (id)dateWithComponents:(id)arg1 immediatelyFollowingDate:(id)arg2 calendar:(id)arg3 repeatInterval:(unsigned int)arg4;
-+ (id)dateWithComponents:(id)arg1 immediatelyPriorToDate:(id)arg2 calendar:(id)arg3 repeatInterval:(unsigned int)arg4;
-+ (id)dateWithComponents:(id)arg1 closestToDate:(id)arg2 earlierThanDate:(BOOL)arg3 calendar:(id)arg4 repeatInterval:(unsigned int)arg5;
-+ (int)_dateComponentWithProvidedComponent:(int)arg1 andBaseComponent:(int)arg2;
-+ (id)adjustComponentsForRepeatInterval:(unsigned int)arg1 earlier:(BOOL)arg2;
-+ (unsigned int)relevantUnitsForRepeatInterval:(unsigned int)arg1;
-@property(nonatomic) unsigned int repeatInterval; // @synthesize repeatInterval=_repeatInterval;
++ (id)dateWithComponents:(id)arg1 immediatelyFollowingDate:(id)arg2 calendar:(id)arg3 repeatInterval:(unsigned long long)arg4;
++ (id)dateWithComponents:(id)arg1 immediatelyPriorToDate:(id)arg2 calendar:(id)arg3 repeatInterval:(unsigned long long)arg4;
++ (id)dateWithComponents:(id)arg1 closestToDate:(id)arg2 earlierThanDate:(_Bool)arg3 calendar:(id)arg4 repeatInterval:(unsigned long long)arg5;
++ (long long)_dateComponentWithProvidedComponent:(long long)arg1 andBaseComponent:(long long)arg2;
++ (id)adjustComponentsForRepeatInterval:(unsigned long long)arg1 earlier:(_Bool)arg2;
++ (unsigned long long)relevantUnitsForRepeatInterval:(unsigned long long)arg1;
+@property(nonatomic) unsigned long long repeatInterval; // @synthesize repeatInterval=_repeatInterval;
 @property(copy, nonatomic) NSCalendar *calendar; // @synthesize calendar=_calendar;
 @property(copy, nonatomic) NSString *calendarIdentifier; // @synthesize calendarIdentifier=_calendarIdentifier;
 @property(copy, nonatomic) NSDateComponents *endComponents; // @synthesize endComponents=_endComponents;
 @property(copy, nonatomic) NSDateComponents *startComponents; // @synthesize startComponents=_startComponents;
 - (id)nextTransitionDateAfterDate:(id)arg1;
-- (BOOL)containsDate:(id)arg1;
+- (_Bool)containsDate:(id)arg1;
 - (void)_synchronizeTimeZone;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)description;
 - (void)dealloc;
-- (id)initWithStartComponents:(id)arg1 endComponents:(id)arg2 calendarIdentifier:(id)arg3 repeatInterval:(unsigned int)arg4;
+- (id)initWithStartComponents:(id)arg1 endComponents:(id)arg2 calendarIdentifier:(id)arg3 repeatInterval:(unsigned long long)arg4;
 - (id)_configuredCalendarWithIdentifier:(id)arg1;
 
 @end

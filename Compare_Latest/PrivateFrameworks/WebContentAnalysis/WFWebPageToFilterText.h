@@ -6,14 +6,15 @@
 
 #import <WebContentAnalysis/WFWebPageDecorator.h>
 
+// Not exported
 @interface WFWebPageToFilterText : WFWebPageDecorator
 {
 }
 
 - (id)URLFuzzyForFilter;
 - (id)URLFuzzyWithWordLength:(int)arg1;
-- (BOOL)selfRestricted;
-- (BOOL)isWorthAnalyzingWithEvidence:(int *)arg1 message:(id *)arg2;
+- (_Bool)selfRestricted;
+- (_Bool)isWorthAnalyzingWithEvidence:(int *)arg1 message:(id *)arg2;
 - (id)rawPlainText;
 
 @end

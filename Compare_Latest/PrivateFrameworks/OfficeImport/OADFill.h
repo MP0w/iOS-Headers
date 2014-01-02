@@ -8,12 +8,13 @@
 
 #import "NSCopying-Protocol.h"
 
+// Not exported
 @interface OADFill : OADProperties <NSCopying>
 {
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)setStyleColor:(id)arg1;
 - (float)alpha;
 - (id)copyWithZone:(struct _NSZone *)arg1;

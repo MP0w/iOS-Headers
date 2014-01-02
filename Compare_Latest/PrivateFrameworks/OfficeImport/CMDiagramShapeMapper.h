@@ -8,6 +8,7 @@
 
 @class NSString, OADOrientedBounds;
 
+// Not exported
 @interface CMDiagramShapeMapper : CMDiagramMapper
 {
     int mChildCount;
@@ -18,10 +19,10 @@
     float mDefaultScale;
 }
 
-- (struct CGSize)sizeForNode:(id)arg1 atIndex:(unsigned int)arg2;
-- (float)setFonSizeForChildNode:(id)arg1 atIndex:(unsigned int)arg2 level:(int)arg3;
+- (struct CGSize)sizeForNode:(id)arg1 atIndex:(unsigned long long)arg2;
+- (float)setFonSizeForChildNode:(id)arg1 atIndex:(unsigned long long)arg2 level:(int)arg3;
 - (struct CGSize)textSizeForShapeSize:(struct CGSize)arg1;
-- (void)setFonSizeForChildNode:(id)arg1 atIndex:(unsigned int)arg2;
+- (void)setFonSizeForChildNode:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)setDefaultFonSize;
 - (float)defaultFontSize;
 - (void)mapChildrenAt:(id)arg1 withState:(id)arg2;

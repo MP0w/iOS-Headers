@@ -10,22 +10,22 @@
 
 @interface UIInputView : UIView
 {
-    int _style;
+    long long _style;
     UIKBRenderConfig *_renderConfig;
-    BOOL _suppressBackgroundStyling;
-    BOOL _disableSplitSupport;
+    _Bool _suppressBackgroundStyling;
+    _Bool _disableSplitSupport;
     _UIInputViewContent *_leftContentView;
     _UIInputViewContent *_rightContentView;
-    float _contentRatio;
+    double _contentRatio;
     struct CGSize _leftContentSize;
     struct CGSize _rightContentSize;
     struct CGSize _defaultSize;
-    float _gapWidth;
-    float _leftOffset;
-    BOOL _isTransitioning;
-    float _transitionGap;
-    float _transitionLeftOffset;
-    float _transitionRatio;
+    double _gapWidth;
+    double _leftOffset;
+    _Bool _isTransitioning;
+    double _transitionGap;
+    double _transitionLeftOffset;
+    double _transitionRatio;
     UIImage *_mergedImage;
     UIImage *_splitImage;
     NSMutableDictionary *_mergedSliceMap;
@@ -34,45 +34,49 @@
     CALayer *_transitionLayer;
 }
 
-+ (void)setupAppearancesIfNecessary;
++ (void)_setupAppearanceIfNecessary;
 @property(retain, nonatomic) NSMutableDictionary *_splitSliceMap; // @synthesize _splitSliceMap;
 @property(retain, nonatomic) NSMutableDictionary *_mergedSliceMap; // @synthesize _mergedSliceMap;
 @property(retain, nonatomic) UIImage *_splitImage; // @synthesize _splitImage;
 @property(retain, nonatomic) UIImage *_mergedImage; // @synthesize _mergedImage;
 @property(nonatomic) struct CGSize rightContentViewSize; // @synthesize rightContentViewSize=_rightContentSize;
 @property(nonatomic) struct CGSize leftContentViewSize; // @synthesize leftContentViewSize=_leftContentSize;
-@property(nonatomic) float contentRatio; // @synthesize contentRatio=_contentRatio;
+@property(nonatomic) double contentRatio; // @synthesize contentRatio=_contentRatio;
 @property(readonly, nonatomic) UIView *rightContentView; // @synthesize rightContentView=_rightContentView;
 @property(readonly, nonatomic) UIView *leftContentView; // @synthesize leftContentView=_leftContentView;
-@property(readonly, nonatomic) int inputViewStyle; // @synthesize inputViewStyle=_style;
+@property(readonly, nonatomic) long long inputViewStyle; // @synthesize inputViewStyle=_style;
 - (void)didEndSplitTransition;
 - (void)willBeginSplitTransition;
 - (struct CGSize)_defaultSize;
-- (float)_additionalClipHeight;
+- (double)_additionalClipHeight;
 - (int)_clipCornersOfView:(id)arg1;
 - (void)_updateClipCorners;
+- (id)_toolbarBorderedBackground;
+- (id)_splitBorderedBackgroundWithCorners:(unsigned long long)arg1;
 - (void)updateSplitSubviewContraintsWithLeftContentSize:(struct CGSize)arg1 rightContentSize:(struct CGSize)arg2;
 - (void)updateMergedSubviewConstraints;
 - (void)layoutSplitSubviewsWithLeftContentSize:(struct CGSize)arg1 rightContentSize:(struct CGSize)arg2;
 - (void)layoutMergedSubviews;
 - (void)setFrame:(struct CGRect)arg1;
-- (void)_endSplitTransitionIfNeeded:(BOOL)arg1;
-- (void)_beginSplitTransitionIfNeeded:(float)arg1 gapWidth:(float)arg2;
-- (BOOL)_isTransitioning;
-- (void)_setProgress:(float)arg1 boundedBy:(float)arg2;
-- (void)_setLeftOffset:(float)arg1 gapWidth:(float)arg2;
-- (BOOL)_supportsSplit;
+- (void)_endSplitTransitionIfNeeded:(_Bool)arg1;
+- (void)_beginSplitTransitionIfNeeded:(double)arg1 gapWidth:(double)arg2;
+- (_Bool)_isTransitioning;
+- (void)_setProgress:(double)arg1 boundedBy:(double)arg2;
+- (void)_setLeftOffset:(double)arg1 gapWidth:(double)arg2;
+- (_Bool)_supportsSplit;
 - (void)_setNeedsContentSizeUpdate;
-- (BOOL)_isSplit;
-- (BOOL)_isToolbars;
-- (void)setInputViewStyle:(int)arg1;
+- (_Bool)_isSplit;
+- (_Bool)_isToolbars;
+- (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (void)setInputViewStyle:(long long)arg1;
 - (id)_inheritedRenderConfig;
 - (void)_setRenderConfig:(id)arg1;
-- (id)initWithFrame:(struct CGRect)arg1 inputViewStyle:(int)arg2;
+- (void)_updateBackgroundColor;
+- (id)tintColor;
+- (id)_initWithFrame:(struct CGRect)arg1 inputViewStyle:(long long)arg2 useSplitViews:(_Bool)arg3;
+- (id)initWithFrame:(struct CGRect)arg1 inputViewStyle:(long long)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)dealloc;
-@property(nonatomic) BOOL _suppressBackgroundStyling;
-@property(nonatomic) BOOL _disableSplitSupport;
 
 @end
 

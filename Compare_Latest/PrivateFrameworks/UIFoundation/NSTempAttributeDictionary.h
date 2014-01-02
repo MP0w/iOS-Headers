@@ -6,6 +6,7 @@
 
 #import <UIFoundation/NSAttributeDictionary.h>
 
+// Not exported
 @interface NSTempAttributeDictionary : NSAttributeDictionary
 {
 }

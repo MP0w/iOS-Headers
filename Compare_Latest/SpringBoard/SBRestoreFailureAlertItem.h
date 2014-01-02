@@ -8,21 +8,18 @@
 
 @interface SBRestoreFailureAlertItem : SBAlertItem
 {
-    BOOL _runningModal;
 }
 
-- (BOOL)allowInSetup;
-- (BOOL)forcesModalAlertAppearance;
-- (BOOL)shouldShowInLockScreen;
-- (BOOL)allowMenuButtonDismissal;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (_Bool)allowInSetup;
+- (_Bool)forcesModalAlertAppearance;
+- (_Bool)shouldShowInLockScreen;
+- (_Bool)allowMenuButtonDismissal;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (void)performUnlockAction;
 - (void)restartSystemEvent;
 - (void)_rebootNow;
 - (double)autoDismissInterval;
-- (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
-- (void)didPresentAlertView:(id)arg1;
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
+- (void)configure:(_Bool)arg1 requirePasscodeForActions:(_Bool)arg2;
 
 @end
 

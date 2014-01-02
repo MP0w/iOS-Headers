@@ -13,25 +13,28 @@
 @interface PUPhotosSharingGridCell : UICollectionViewCell <UIGestureRecognizerDelegate>
 {
     PUPhotoView *_photoView;
+    UIView *_highlightOverlayView;
     struct CGPoint _originalZoomPoint;
     struct CGPoint _lastZoomPoint;
     PUPhotosZoomingSharingGridCell *_zoomingCell;
     UIView *_zoomingCellSuperview;
-    BOOL _zooming;
+    _Bool _zooming;
     UIImage *_zoomingImage;
     id <PUPhotosSharingGridCellDelegate> _delegate;
 }
 
-+ (struct CGSize)sizeThatFits:(struct CGSize)arg1 imageSize:(struct CGSize)arg2;
 @property(nonatomic) __weak id <PUPhotosSharingGridCellDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) UIImage *zoomingImage; // @synthesize zoomingImage=_zoomingImage;
-- (void)_setZooming:(BOOL)arg1;
-@property(nonatomic, getter=isZooming) BOOL zooming; // @synthesize zooming=_zooming;
+- (void)_setZooming:(_Bool)arg1;
+@property(nonatomic, getter=isZooming) _Bool zooming; // @synthesize zooming=_zooming;
 @property(readonly, nonatomic) PUPhotoView *photoView; // @synthesize photoView=_photoView;
 - (void).cxx_destruct;
-- (BOOL)gestureRecognizerShouldBegin:(id)arg1;
+- (_Bool)gestureRecognizerShouldBegin:(id)arg1;
+- (void)setHighlighted:(_Bool)arg1;
 - (void)prepareForReuse;
 - (void)layoutSubviews;
+- (void)_updateSubviewOrdering;
+- (void)_updateHighlight;
 - (void)_pinch:(id)arg1;
 - (void)_endZooming;
 - (id)initWithFrame:(struct CGRect)arg1;

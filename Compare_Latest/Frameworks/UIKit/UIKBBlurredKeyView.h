@@ -8,6 +8,7 @@
 
 @class UIKBBackdropView;
 
+// Not exported
 @interface UIKBBlurredKeyView : UIKBKeyView
 {
     UIKBKeyView *_keyView;
@@ -15,13 +16,12 @@
 }
 
 - (void)setRenderConfig:(id)arg1;
-- (struct UIEdgeInsets)displayInsets;
 - (id)renderConfig;
-- (void)setDrawOrigin:(struct CGPoint)arg1;
-- (struct CGPoint)drawOrigin;
+- (void)setDrawFrame:(struct CGRect)arg1;
+- (struct CGRect)drawFrame;
 - (id)key;
 - (id)keyplane;
-- (void)dimKeyCaps:(float)arg1 duration:(float)arg2;
+- (void)dimKeyCaps:(double)arg1 duration:(double)arg2;
 - (void)updateForKeyplane:(id)arg1 key:(id)arg2;
 - (void)setNeedsDisplay;
 - (void)displayLayer:(id)arg1;

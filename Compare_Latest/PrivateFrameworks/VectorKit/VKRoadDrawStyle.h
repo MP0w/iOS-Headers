@@ -6,6 +6,7 @@
 
 #import <VectorKit/VKDrawStyle.h>
 
+// Not exported
 @interface VKRoadDrawStyle : VKDrawStyle
 {
     struct VKProfileSparseRamp<float> width;
@@ -14,23 +15,31 @@
     struct VKProfileSparseRamp<float> widthDropoff;
     struct VKProfileSparseRamp<_VGLColor> fillColor;
     struct VKProfileSparseRamp<_VGLColor> strokeColor;
-    struct VKProfileSparseRamp<signed char> simpleLine;
+    struct VKProfileSparseRamp<bool> simpleLine;
     struct VKProfileSparseRamp<int> zIndices;
     struct VKProfileSparseRamp<int> fillZIndices;
-    struct VKProfileSparseRamp<signed char> strokeColorInterpolate;
-    struct VKProfileSparseRamp<signed char> fillColorInterpolate;
-    int railroadPattern;
+    struct VKProfileSparseRamp<bool> strokeColorInterpolate;
+    struct VKProfileSparseRamp<bool> fillColorInterpolate;
+    long long railroadPattern;
     struct VKProfileSparseRamp<_VGLColor> alternateFillColor;
     struct VKProfileSparseRamp<float> patternScaler;
     struct VKProfileSparseRamp<float> patternScalerQuantizationFactor;
-    struct VKProfileSparseRamp<signed char> renderEndCaps;
+    struct VKProfileSparseRamp<bool> renderEndCaps;
+    float trafficIncidentUnknownMinZ;
+    float trafficIncidentAccidentMinZ;
+    float trafficIncidentConstructionMinZ;
+    float trafficIncidentRoadClosureMinZ;
+    float trafficIncidentEventMinZ;
+    float trafficIncidentHazardMinZ;
+    float trafficIncidentLaneClosureMinZ;
+    float trafficIncidentRampClosureMinZ;
 }
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (int)railroadPattern;
+- (long long)railroadPattern;
 - (void)takeFromZoomInvariantProperties:(id)arg1;
-- (void)takeFromStyleProperties:(id)arg1 atZoom:(unsigned int)arg2 globals:(id)arg3;
+- (void)takeFromStyleProperties:(id)arg1 atZoom:(unsigned long long)arg2 globals:(id)arg3;
 - (id)variant;
 
 @end

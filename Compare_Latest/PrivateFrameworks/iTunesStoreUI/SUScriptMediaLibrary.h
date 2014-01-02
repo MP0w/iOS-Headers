@@ -20,7 +20,7 @@
 - (id)attributeKeys;
 - (void)_launchMusicAppAfterPlayback:(id)arg1 firstItem:(id)arg2;
 - (void)_launchMusicApp;
-- (BOOL)_isRestricted;
+- (_Bool)_isRestricted;
 - (void)_connectNativeObject;
 @property(readonly) NSString *queryPresetVideoPodcasts;
 @property(readonly) NSString *queryPresetTVShows;

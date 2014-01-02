@@ -14,7 +14,7 @@
 - (int)fillFocusRight;
 - (int)fillFocusTop;
 - (int)fillFocusLeft;
-- (long)fillFocus;
+- (int)fillFocus;
 - (int)fillAngle;
 - (int)fillBgAlpha;
 - (int)fillFgAlpha;

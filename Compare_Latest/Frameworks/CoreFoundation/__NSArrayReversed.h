@@ -6,15 +6,16 @@
 
 #import <CoreFoundation/NSArray.h>
 
+// Not exported
 @interface __NSArrayReversed : NSArray
 {
     id _array;
-    unsigned int _cnt;
+    unsigned long long _cnt;
 }
 
 - (void)getObjects:(id *)arg1 range:(struct _NSRange)arg2;
-- (id)objectAtIndex:(unsigned int)arg1;
-- (unsigned int)count;
+- (id)objectAtIndex:(unsigned long long)arg1;
+- (unsigned long long)count;
 - (void)dealloc;
 - (id)initWithArray:(id)arg1;
 

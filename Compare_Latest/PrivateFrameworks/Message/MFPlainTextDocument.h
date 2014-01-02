@@ -17,12 +17,10 @@
 - (void)appendArchivedRepresentation:(id)arg1;
 - (id)archivedRepresentation;
 - (id)string;
-- (void)getString:(id *)arg1 quoteLevel:(unsigned int *)arg2 ofFragmentAtIndex:(unsigned int)arg3;
-- (unsigned int)fragmentCount;
+- (void)getString:(id *)arg1 quoteLevel:(unsigned int *)arg2 ofFragmentAtIndex:(unsigned long long)arg3;
+- (unsigned long long)fragmentCount;
 - (void)appendString:(id)arg1 withQuoteLevel:(unsigned int)arg2;
 - (void)dealloc;
-- (id)quotedString:(unsigned long)arg1;
-- (void)getFormatFlowedString:(id *)arg1 insertedTrailingSpaces:(char *)arg2 encoding:(unsigned long)arg3;
 
 @end
 

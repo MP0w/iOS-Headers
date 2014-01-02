@@ -12,31 +12,33 @@
 
 @protocol UITextInputPrivate <UITextInput, UITextInputTokenizer, UITextInputTraits_Private>
 @property(readonly, nonatomic) UITextInteractionAssistant *interactionAssistant;
-- (BOOL)hasSelection;
+- (_Bool)hasSelection;
 - (void)selectAll;
-- (BOOL)hasContent;
+- (_Bool)hasContent;
 - (struct _NSRange)selectionRange;
 - (id)textInputTraits;
 
 @optional
 + (void)_preheatDictationIfNecessary;
-@property(nonatomic) int selectionGranularity;
+@property(nonatomic) long long selectionGranularity;
 - (void)_insertAttributedTextWithoutClosingTyping:(id)arg1;
 - (id)fontForCaretSelection;
 - (id)textColorForCaretSelection;
 - (void)replaceRangeWithTextWithoutClosingTyping:(id)arg1 replacementText:(id)arg2;
-- (BOOL)_shouldRepeatInsertText:(id)arg1;
-- (float)_delayUntilRepeatInsertText:(id)arg1;
-- (BOOL)isAutoFillMode;
+- (_Bool)_shouldRepeatInsertText:(id)arg1;
+- (double)_delayUntilRepeatInsertText:(id)arg1;
+- (_Bool)isAutoFillMode;
 - (void)acceptedAutoFillWord:(id)arg1;
+- (id)_dictationLanguage;
+- (void)_stopDictation;
 - (void)_startDictation;
 - (void)dictationRecordingDidBegin;
 - (id)rangeWithTextAlternatives:(id *)arg1 atPosition:(id)arg2;
 - (id)metadataDictionariesForDictationResults;
 - (void)insertDictationResult:(id)arg1 withCorrectionIdentifier:(id)arg2;
 - (id)automaticallySelectedOverlay;
-- (void)setBottomBufferHeight:(float)arg1;
+- (void)setBottomBufferHeight:(double)arg1;
 - (void)handleKeyWebEvent:(id)arg1;
-- (BOOL)requiresKeyEvents;
+- (_Bool)requiresKeyEvents;
 @end
 

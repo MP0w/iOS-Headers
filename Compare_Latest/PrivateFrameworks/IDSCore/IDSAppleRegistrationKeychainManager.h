@@ -6,34 +6,41 @@
 
 #import "NSObject.h"
 
-@class IMTimer, NSArray, NSMutableArray, NSRecursiveLock;
+@class IMTimer, NSArray, NSMutableArray, NSMutableDictionary, NSRecursiveLock;
 
 @interface IDSAppleRegistrationKeychainManager : NSObject
 {
+    NSMutableDictionary *_smsSignatures;
+    NSMutableDictionary *_authenticationCerts;
     NSMutableArray *_registrationData;
     IMTimer *_purgeTimer;
     NSRecursiveLock *_lock;
     id _purgeCancelBlock;
     id _purgeEnqueueBlock;
-    BOOL _loaded;
+    _Bool _loaded;
 }
 
-+ (id)keychainAccessGroupForVersion:(unsigned int)arg1;
-+ (id)keychainAccountForVersion:(unsigned int)arg1;
-+ (id)keychainServiceForVersion:(unsigned int)arg1;
++ (id)keychainAccessGroupForVersion:(unsigned long long)arg1;
++ (id)keychainAccountForVersion:(unsigned long long)arg1;
++ (id)keychainServiceForVersion:(unsigned long long)arg1;
 + (id)sharedInstance;
-- (BOOL)removeAllRegistrations;
-- (BOOL)removeRegistration:(id)arg1;
-- (BOOL)addRegistration:(id)arg1;
+- (void)setSMSSignature:(id)arg1 mainID:(id)arg2;
+- (id)smsSignatureAndMainID:(id *)arg1;
+- (void)setAuthenticationCert:(id)arg1 forID:(id)arg2;
+- (id)authenticationCertForID:(id)arg1;
+- (_Bool)removeAllRegistrations;
+- (_Bool)removeRegistration:(id)arg1;
+- (_Bool)addRegistration:(id)arg1;
 @property(readonly, nonatomic) NSArray *registrations; // @dynamic registrations;
-- (id)registrationWithServiceType:(id)arg1 registrationType:(int)arg2 value:(id)arg3;
+- (id)registrationWithServiceType:(id)arg1 registrationType:(long long)arg2 value:(id)arg3;
 - (void)reloadFromKeychain;
 - (void)_reloadFromDictionary:(id)arg1;
 - (void)_loadIfNeeded;
 - (void)_setPurgeTimer;
 - (void)_flush;
-- (BOOL)saveToKeychain;
-- (BOOL)_saveToKeychain;
+- (_Bool)saveToKeychain;
+- (_Bool)_saveToKeychain;
+- (_Bool)__saveToKeychain;
 - (void)systemDidFinishMigration;
 - (void)dealloc;
 - (id)init;

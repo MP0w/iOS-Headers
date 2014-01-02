@@ -8,17 +8,18 @@
 
 @class BKSProcessAssertion, NSObject<OS_dispatch_queue>;
 
+// Not exported
 @interface SBKProcessAssertion : NSObject
 {
     NSObject<OS_dispatch_queue> *_queue;
     id _expirationBlock;
-    unsigned int _identifier;
+    unsigned long long _identifier;
     BKSProcessAssertion *_bkProcessAssertion;
     id _expirationObserver;
 }
 
 @property(retain) id expirationObserver; // @synthesize expirationObserver=_expirationObserver;
-@property(readonly) unsigned int identifier; // @synthesize identifier=_identifier;
+@property(readonly) unsigned long long identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
 - (void)invalidate;
 - (void)_expireBackgroundTask;

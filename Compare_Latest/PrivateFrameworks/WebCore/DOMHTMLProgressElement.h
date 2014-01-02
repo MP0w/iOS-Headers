@@ -8,6 +8,7 @@
 
 @class DOMNodeList;
 
+// Not exported
 @interface DOMHTMLProgressElement : DOMHTMLElement
 {
 }

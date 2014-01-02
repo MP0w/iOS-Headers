@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface VKFootprint : NSObject
 {
     CDStruct_aca18c62 _boundingRect;
@@ -17,8 +18,11 @@
     double _minDepth;
     double _maxDepth;
     double _centerDepth;
+    int _cornerGroundPointsCount;
+    struct VKPoint _cornerGroundPoints[12];
 }
 
+@property(readonly, nonatomic) int cornerGroundPointsCount; // @synthesize cornerGroundPointsCount=_cornerGroundPointsCount;
 @property(readonly, nonatomic) struct VKPoint nearestGroundPoint; // @synthesize nearestGroundPoint=_nearestGroundPoint;
 @property(readonly, nonatomic) struct VKPoint furthestGroundPoint; // @synthesize furthestGroundPoint=_furthestGroundPoint;
 @property(readonly, nonatomic) double centerDepth; // @synthesize centerDepth=_centerDepth;
@@ -27,9 +31,10 @@
 @property(readonly, nonatomic) struct VKFootprintConvexHull_struct convexHull; // @synthesize convexHull=_convexHull;
 @property(readonly, nonatomic) CDStruct_d2b197d1 boundingRect; // @synthesize boundingRect=_boundingRect;
 - (id).cxx_construct;
-- (BOOL)containsGroundPoint:(struct VKPoint *)arg1;
-- (BOOL)rejectsRect:(const CDStruct_d2b197d1 *)arg1;
+- (_Bool)containsGroundPoint:(struct VKPoint *)arg1;
+- (_Bool)rejectsRect:(const CDStruct_d2b197d1 *)arg1;
 - (void)computeFromCamera:(id)arg1;
+@property(readonly, nonatomic) struct VKPoint *cornerGroundPoints;
 
 @end
 

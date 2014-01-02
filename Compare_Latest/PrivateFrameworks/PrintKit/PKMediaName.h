@@ -10,13 +10,13 @@
 
 @interface PKMediaName : NSObject
 {
+    int _units;
     NSString *_mediaName;
     NSString *_mediaClass;
     NSString *_baseName;
-    NSString *_widthStr;
-    int _units;
     double _widthInUnits;
     double _heightInUnits;
+    NSString *_widthStr;
     double _conversionFactor;
 }
 
@@ -31,7 +31,7 @@
 @property(retain) NSString *mediaName; // @synthesize mediaName=_mediaName;
 @property(readonly) double height; // @dynamic height;
 @property(readonly) double width; // @dynamic width;
-@property(readonly) BOOL isRoll; // @dynamic isRoll;
+@property(readonly) _Bool isRoll; // @dynamic isRoll;
 @property(readonly) NSString *unitStr; // @dynamic unitStr;
 - (void)parseMediaName:(id)arg1;
 - (void)dealloc;

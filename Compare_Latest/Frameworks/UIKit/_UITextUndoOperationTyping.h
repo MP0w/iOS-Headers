@@ -8,15 +8,16 @@
 
 @class NSMutableAttributedString;
 
+// Not exported
 @interface _UITextUndoOperationTyping : NSUndoTextOperation
 {
     struct _NSRange _replacementRange;
     NSMutableAttributedString *_attributedString;
 }
 
-- (BOOL)supportsCoalescing;
+- (_Bool)supportsCoalescing;
 - (void)undoRedo;
-- (BOOL)coalesceAffectedRange:(struct _NSRange)arg1 replacementRange:(struct _NSRange)arg2 selectedRange:(struct _NSRange)arg3 textStorage:(id)arg4;
+- (_Bool)coalesceAffectedRange:(struct _NSRange)arg1 replacementRange:(struct _NSRange)arg2 selectedRange:(struct _NSRange)arg3 textStorage:(id)arg4;
 - (void)dealloc;
 - (id)initWithAffectedRange:(struct _NSRange)arg1 inputController:(id)arg2 replacementRange:(struct _NSRange)arg3;
 

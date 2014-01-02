@@ -10,8 +10,9 @@
 {
 }
 
-+ (BOOL)updateRepresentativeItemPersistentIDsInLibrary:(id)arg1 persistentIDs:(const long long *)arg2 count:(unsigned int)arg3;
-+ (BOOL)libraryContentsChangeForProperty:(id)arg1;
++ (_Bool)canonicalizeCollectionRepresentativeItemsWithWriteConnection:(id)arg1;
++ (_Bool)updateRepresentativeItemPersistentIDsInLibrary:(id)arg1 persistentIDs:(const long long *)arg2 count:(unsigned long long)arg3;
++ (_Bool)libraryContentsChangeForProperty:(id)arg1;
 + (id)artworkCacheIDProperty;
 + (id)trackForeignPersistentID;
 + (id)propertiesForGroupingKey;

@@ -17,12 +17,12 @@
 @property(nonatomic) id <UIPrintStatusDelegate> printStatusDelegate; // @synthesize printStatusDelegate=_printStatusDelegate;
 - (void)jobDidCancel;
 - (void)popoverControllerDidDismissPopover:(id)arg1;
-- (void)dismissAnimated:(BOOL)arg1;
-- (void)presentPrintStatusFromRect:(struct CGRect)arg1 inView:(id)arg2 animated:(BOOL)arg3;
+- (void)dismissAnimated:(_Bool)arg1;
+- (void)presentPrintStatusFromRect:(struct CGRect)arg1 inView:(id)arg2 animated:(_Bool)arg3;
 - (id)printStatusView;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
 - (void)dealloc;
 
 @end

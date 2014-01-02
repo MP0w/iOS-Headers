@@ -12,10 +12,10 @@
 {
     unsigned int pdfObjectID;
     struct CGPath *path;
-    BOOL isUprightRectangle;
+    _Bool isUprightRectangle;
     int windingRule;
-    float lineWidth;
-    float miterLimit;
+    double lineWidth;
+    double miterLimit;
     int lineCap;
     int lineJoin;
     struct CGColor *fillColor;
@@ -23,44 +23,44 @@
     union CGPDFObject *fillObject;
     union CGPDFObject *strokeObject;
     struct CGAffineTransform paintTransform;
-    BOOL boundsComputed;
-    BOOL renderedBoundsComputed;
+    _Bool boundsComputed;
+    _Bool renderedBoundsComputed;
 }
 
 - (unsigned int)pathElementCount;
 - (void)makeLineFromVertex:(struct CGPoint)arg1 toVertex:(struct CGPoint)arg2;
 - (id)string;
 - (void)addShape:(id)arg1;
-- (BOOL)canCombineWith:(id)arg1;
-- (BOOL)isVisible;
-- (BOOL)isStrokeFor:(id)arg1;
-- (BOOL)hasSamePathAs:(id)arg1;
+- (_Bool)canCombineWith:(id)arg1;
+- (_Bool)isVisible;
+- (_Bool)isStrokeFor:(id)arg1;
+- (_Bool)hasSamePathAs:(id)arg1;
 - (void)setPaintTransform:(struct CGAffineTransform)arg1;
 - (struct CGAffineTransform)paintTransform;
 - (void)setLineJoin:(int)arg1;
 - (int)lineJoin;
 - (void)setLineCap:(int)arg1;
 - (int)lineCap;
-- (void)setMiterLimit:(float)arg1;
-- (float)miterLimit;
-- (void)setLineWidth:(float)arg1;
-- (float)lineWidth;
-- (BOOL)hasStroke;
+- (void)setMiterLimit:(double)arg1;
+- (double)miterLimit;
+- (void)setLineWidth:(double)arg1;
+- (double)lineWidth;
+- (_Bool)hasStroke;
 - (void)setStrokeObject:(union CGPDFObject *)arg1;
 - (union CGPDFObject *)strokeObject;
 - (void)setStrokeColor:(struct CGColor *)arg1;
 - (struct CGColor *)strokeColor;
-- (BOOL)hasFill;
+- (_Bool)hasFill;
 - (void)setFillObject:(union CGPDFObject *)arg1;
 - (union CGPDFObject *)fillObject;
 - (void)setFillColor:(struct CGColor *)arg1;
 - (struct CGColor *)fillColor;
 - (void)setWindingRule:(int)arg1;
 - (int)windingRule;
-- (long)zOrder;
+- (long long)zOrder;
 - (void)accept:(id)arg1;
 - (id)attributes;
-- (BOOL)isUprightRectangle;
+- (_Bool)isUprightRectangle;
 - (struct CGRect)innerBounds;
 - (void)recomputeRenderedBounds;
 - (struct CGRect)renderedBounds;
@@ -75,7 +75,6 @@
 - (void)finalize;
 - (void)dispose;
 - (id)init;
-- (id)initWithPDFShape:(struct CPPDFShape *)arg1;
 
 @end
 

@@ -11,7 +11,7 @@
 }
 
 + (id)descriptionForDuration:(double)arg1;
-+ (BOOL)vibrationNameTextField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
++ (_Bool)vibrationNameTextField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
 + (void)configureVibrationNameTextField:(id)arg1;
 
 @end

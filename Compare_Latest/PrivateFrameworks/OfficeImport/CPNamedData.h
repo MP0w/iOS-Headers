@@ -8,6 +8,7 @@
 
 @class NSData, NSString;
 
+// Not exported
 @interface CPNamedData : NSObject
 {
     NSData *mData;

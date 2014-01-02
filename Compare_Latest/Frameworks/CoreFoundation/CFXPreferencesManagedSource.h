@@ -6,6 +6,7 @@
 
 #import <CoreFoundation/CFXPreferencesPropertyListSource.h>
 
+// Not exported
 @interface CFXPreferencesManagedSource : CFXPreferencesPropertyListSource
 {
 }

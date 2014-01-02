@@ -7,6 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol RCGLWaveformRendererDelegate <NSObject>
-- (void)waveformRenderer:(id)arg1 contentWidthDidChange:(float)arg2;
+- (void)waveformRendererContentDidFinishLoading:(id)arg1;
+- (void)waveformRenderer:(id)arg1 contentWidthDidChange:(double)arg2;
 @end
 

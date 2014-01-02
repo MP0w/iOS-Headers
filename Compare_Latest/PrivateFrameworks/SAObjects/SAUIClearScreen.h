@@ -14,7 +14,7 @@
 
 + (id)clearScreenWithDictionary:(id)arg1 context:(id)arg2;
 + (id)clearScreen;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(retain, nonatomic) SAAceView *initialView;
 - (id)encodedClassName;
 - (id)groupIdentifier;

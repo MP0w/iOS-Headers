@@ -9,10 +9,10 @@
 - (void)endGesture:(id)arg1;
 - (void)doGesture:(id)arg1;
 - (void)beginGesture:(id)arg1;
-- (BOOL)endLiveUpdateForHitBlob:(id)arg1;
-- (BOOL)beginLiveUpdateForHitBlob:(id)arg1;
+- (_Bool)endLiveUpdateForHitBlob:(id)arg1;
+- (_Bool)beginLiveUpdateForHitBlob:(id)arg1;
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 toHitBlob:(id)arg2;
-- (BOOL)getOnScreenVertices:(struct CGPoint [4])arg1 forHitBlob:(id)arg2;
+- (_Bool)getOnScreenVertices:(struct CGPoint [4])arg1 forHitBlob:(id)arg2;
 - (id)blobHitAtPoint:(struct CGPoint)arg1 fromObjectsForObjectIDs:(id)arg2 localPoint:(struct CGPoint *)arg3;
 @end
 

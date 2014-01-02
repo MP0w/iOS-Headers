@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSData, NSMutableArray;
 
-@interface GEODirectionsProblem : PBCodable
+@interface GEODirectionsProblem : PBCodable <NSCopying>
 {
     unsigned long long _problematicEventIndex;
     NSMutableArray *_directionsRequests;
@@ -29,28 +31,29 @@
 @property(retain, nonatomic) NSData *overviewScreenshotImageData; // @synthesize overviewScreenshotImageData=_overviewScreenshotImageData;
 @property(retain, nonatomic) NSMutableArray *directionsResponses; // @synthesize directionsResponses=_directionsResponses;
 @property(retain, nonatomic) NSMutableArray *directionsRequests; // @synthesize directionsRequests=_directionsRequests;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) BOOL hasProblematicEventIndex;
-@property(nonatomic) BOOL hasProblematicStepIndex;
-@property(readonly, nonatomic) BOOL hasProblematicRouteID;
-@property(nonatomic) BOOL hasProblematicResponseIndex;
-- (id)eventsAtIndex:(unsigned int)arg1;
-- (unsigned int)eventsCount;
+@property(nonatomic) _Bool hasProblematicEventIndex;
+@property(nonatomic) _Bool hasProblematicStepIndex;
+@property(readonly, nonatomic) _Bool hasProblematicRouteID;
+@property(nonatomic) _Bool hasProblematicResponseIndex;
+- (id)eventsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)eventsCount;
 - (void)addEvents:(id)arg1;
 - (void)clearEvents;
-@property(readonly, nonatomic) BOOL hasOverviewScreenshotImageData;
-- (id)directionsResponsesAtIndex:(unsigned int)arg1;
-- (unsigned int)directionsResponsesCount;
+@property(readonly, nonatomic) _Bool hasOverviewScreenshotImageData;
+- (id)directionsResponsesAtIndex:(unsigned long long)arg1;
+- (unsigned long long)directionsResponsesCount;
 - (void)addDirectionsResponses:(id)arg1;
 - (void)clearDirectionsResponses;
-- (id)directionsRequestsAtIndex:(unsigned int)arg1;
-- (unsigned int)directionsRequestsCount;
+- (id)directionsRequestsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)directionsRequestsCount;
 - (void)addDirectionsRequests:(id)arg1;
 - (void)clearDirectionsRequests;
 - (void)dealloc;

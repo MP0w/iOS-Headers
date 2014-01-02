@@ -11,22 +11,22 @@
 @interface _UIHighlightView : UIView
 {
     UIColor *_color;
-    float _cornerRadius;
+    double _cornerRadius;
     struct CGRect _invertedHighlightClipRect;
     NSArray *_cornerRadii;
     NSMutableArray *_innerBounds;
     NSMutableArray *_innerQuads;
-    BOOL _invertHighlight;
+    _Bool _invertHighlight;
 }
 
 - (id)hitTest:(struct CGPoint)arg1 forEvent:(struct __GSEvent *)arg2;
 - (void)drawRect:(struct CGRect)arg1;
-- (void)setInvertHighlight:(BOOL)arg1 clipRect:(struct CGRect)arg2;
+- (void)setInvertHighlight:(_Bool)arg1 clipRect:(struct CGRect)arg2;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)setQuads:(id)arg1 boundaryRect:(struct CGRect)arg2;
 - (void)setFrames:(id)arg1 boundaryRect:(struct CGRect)arg2;
 - (void)setCornerRadii:(id)arg1;
-- (void)setCornerRadius:(float)arg1;
+- (void)setCornerRadius:(double)arg1;
 - (void)setColor:(id)arg1;
 - (void)dealloc;
 - (void)cleanUp;

@@ -13,7 +13,6 @@
 + (id)rowWithTitleKeyPath:(id)arg1 childSettingsKeyPath:(id)arg2;
 + (id)rowWithTitle:(id)arg1 childSettingsKeyPath:(id)arg2;
 - (id)init;
-- (Class)rowTableViewCellClass;
 
 @end
 

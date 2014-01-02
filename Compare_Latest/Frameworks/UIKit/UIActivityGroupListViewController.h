@@ -6,37 +6,46 @@
 
 #import <UIKit/UIViewController.h>
 
-@class UIActivityGroupCancelButton, UIActivityGroupView, UIControl, _UIBackdropView;
+@class NSLayoutConstraint, UIActivityGroupCancelButton, UIActivityGroupView, UIControl, UIView, _UIBackdropView;
 
+// Not exported
 @interface UIActivityGroupListViewController : UIViewController
 {
-    BOOL _embedded;
-    BOOL _modal;
+    _Bool _embedded;
+    _Bool _modal;
     UIActivityGroupCancelButton *_cancelButton;
     _UIBackdropView *_backdropView;
+    UIView *_contentView;
+    UIView *_statusBlurView;
+    NSLayoutConstraint *_statusBlurHeight;
+    long long _currentStatusBarStyle;
     UIControl *_dimView;
     UIActivityGroupView *_groupView;
 }
 
 @property(retain, nonatomic) UIActivityGroupView *groupView; // @synthesize groupView=_groupView;
 @property(retain, nonatomic) UIControl *dimView; // @synthesize dimView=_dimView;
+@property(nonatomic) long long currentStatusBarStyle; // @synthesize currentStatusBarStyle=_currentStatusBarStyle;
+@property(retain, nonatomic) NSLayoutConstraint *statusBlurHeight; // @synthesize statusBlurHeight=_statusBlurHeight;
+@property(retain, nonatomic) UIView *statusBlurView; // @synthesize statusBlurView=_statusBlurView;
+@property(retain, nonatomic) UIView *contentView; // @synthesize contentView=_contentView;
 @property(retain, nonatomic) _UIBackdropView *backdropView; // @synthesize backdropView=_backdropView;
 @property(retain, nonatomic) UIActivityGroupCancelButton *cancelButton; // @synthesize cancelButton=_cancelButton;
-@property(nonatomic) BOOL modal; // @synthesize modal=_modal;
-@property(nonatomic) BOOL embedded; // @synthesize embedded=_embedded;
+@property(nonatomic) _Bool modal; // @synthesize modal=_modal;
+@property(nonatomic) _Bool embedded; // @synthesize embedded=_embedded;
 - (void)cancel;
-- (void)dimCancel;
 - (void)showDone;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewDidLoad;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)hideDimmingView;
-- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (float)displayHeight;
+- (void)viewDidLayoutSubviews;
+- (void)willRotateToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (long long)preferredStatusBarStyle;
+- (double)displayHeight;
 - (void)setActivityGroupViewControllers:(id)arg1;
 - (void)updateVisibleActivityGroupViewControllers;
 - (void)dealloc;
-- (id)initWithActivityGroupViewControllers:(id)arg1 embedded:(BOOL)arg2 modal:(BOOL)arg3;
+- (id)initWithActivityGroupViewControllers:(id)arg1 embedded:(_Bool)arg2 modal:(_Bool)arg3;
 
 @end
 

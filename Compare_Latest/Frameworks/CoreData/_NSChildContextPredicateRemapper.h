@@ -8,6 +8,7 @@
 
 @class NSManagedObjectContext;
 
+// Not exported
 @interface _NSChildContextPredicateRemapper : NSObject
 {
     NSManagedObjectContext *_context;

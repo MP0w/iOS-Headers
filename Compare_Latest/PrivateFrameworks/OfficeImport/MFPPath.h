@@ -8,6 +8,7 @@
 
 @class TSDBezierPath;
 
+// Not exported
 @interface MFPPath : NSObject
 {
     TSDBezierPath *mPath;

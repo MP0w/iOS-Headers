@@ -7,6 +7,6 @@
 #import "NSDictionary.h"
 
 @interface NSDictionary (MRMediaRemoteAdditions)
-- (BOOL)MR_isEqualToDictionary:(id)arg1;
+- (_Bool)MR_isEqualToDictionary:(id)arg1;
 @end
 

@@ -8,10 +8,10 @@
 
 @interface PRPinyinString : NSPinyinString
 {
-    unsigned int _originalLength;
-    unsigned int _originalCheckedLength;
-    unsigned int _modificationCount;
-    unsigned int *_modificationTypes;
+    unsigned long long _originalLength;
+    unsigned long long _originalCheckedLength;
+    unsigned long long _modificationCount;
+    unsigned long long *_modificationTypes;
     struct _NSRange *_originalRanges;
     struct _NSRange *_finalRanges;
     struct _NSRange *_originalSyllableRanges;
@@ -22,38 +22,38 @@
 + (id)prefixesForInputString:(id)arg1;
 + (id)alternativesForInputString:(id)arg1;
 - (id)nonPinyinIndexSet;
-- (struct _NSRange)nonPinyinRangeAtIndex:(unsigned int)arg1;
-- (unsigned int)numberOfDeletions;
-- (unsigned int)numberOfInsertions;
-- (unsigned int)numberOfTranspositions;
-- (unsigned int)numberOfReplacements;
-- (unsigned int)numberOfNonPinyinRanges;
-- (unsigned int)indexOfFirstModification;
-- (struct _NSRange)originalAdditionalSyllableRangeForModificationAtIndex:(unsigned int)arg1;
-- (struct _NSRange)originalSyllableRangeForModificationAtIndex:(unsigned int)arg1;
-- (struct _NSRange)finalRangeForModificationAtIndex:(unsigned int)arg1;
-- (struct _NSRange)originalRangeForModificationAtIndex:(unsigned int)arg1;
-- (unsigned int)typeOfModificationAtIndex:(unsigned int)arg1;
-- (unsigned int)numberOfModifications;
-- (unsigned int)finalCheckedLength;
-- (unsigned int)originalCheckedLength;
-- (unsigned int)originalLength;
-- (unsigned int)score;
-- (BOOL)lastSyllableIsPartial;
-- (unsigned int)syllableCount;
+- (struct _NSRange)nonPinyinRangeAtIndex:(unsigned long long)arg1;
+- (unsigned long long)numberOfDeletions;
+- (unsigned long long)numberOfInsertions;
+- (unsigned long long)numberOfTranspositions;
+- (unsigned long long)numberOfReplacements;
+- (unsigned long long)numberOfNonPinyinRanges;
+- (unsigned long long)indexOfFirstModification;
+- (struct _NSRange)originalAdditionalSyllableRangeForModificationAtIndex:(unsigned long long)arg1;
+- (struct _NSRange)originalSyllableRangeForModificationAtIndex:(unsigned long long)arg1;
+- (struct _NSRange)finalRangeForModificationAtIndex:(unsigned long long)arg1;
+- (struct _NSRange)originalRangeForModificationAtIndex:(unsigned long long)arg1;
+- (unsigned long long)typeOfModificationAtIndex:(unsigned long long)arg1;
+- (unsigned long long)numberOfModifications;
+- (unsigned long long)finalCheckedLength;
+- (unsigned long long)originalCheckedLength;
+- (unsigned long long)originalLength;
+- (unsigned long long)score;
+- (_Bool)lastSyllableIsPartial;
+- (unsigned long long)syllableCount;
 - (id)string;
 - (id)description;
 - (id)annotatedString;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
-- (id)initWithString:(id)arg1 syllableCount:(unsigned int)arg2 lastSyllableIsPartial:(BOOL)arg3 score:(unsigned int)arg4 originalLength:(unsigned int)arg5 originalCheckedLength:(unsigned int)arg6 numberOfModifications:(unsigned int)arg7 modificationTypes:(unsigned int *)arg8 originalModificationRanges:(struct _NSRange *)arg9 finalModificationRanges:(struct _NSRange *)arg10 originalSyllableRanges:(struct _NSRange *)arg11 originalAdditionalSyllableRanges:(struct _NSRange *)arg12;
-- (id)initWithUncheckedString:(id)arg1 score:(unsigned int)arg2 originalLength:(unsigned int)arg3;
-- (id)initWithString:(id)arg1 syllableCount:(unsigned int)arg2 lastSyllableIsPartial:(BOOL)arg3 score:(unsigned int)arg4 originalLength:(unsigned int)arg5 modificationType:(unsigned int)arg6 originalModificationRange:(struct _NSRange)arg7 finalModificationRange:(struct _NSRange)arg8 originalSyllableRange:(struct _NSRange)arg9 originalAdditionalSyllableRange:(struct _NSRange)arg10;
-- (id)initWithString:(id)arg1 syllableCount:(unsigned int)arg2 lastSyllableIsPartial:(BOOL)arg3 score:(unsigned int)arg4 originalLength:(unsigned int)arg5 modificationType:(unsigned int)arg6 originalModificationRange:(struct _NSRange)arg7 finalModificationRange:(struct _NSRange)arg8 originalSyllableRange:(struct _NSRange)arg9;
-- (id)initWithString:(id)arg1 syllableCount:(unsigned int)arg2 lastSyllableIsPartial:(BOOL)arg3 score:(unsigned int)arg4 originalLength:(unsigned int)arg5 modificationType:(unsigned int)arg6 originalModificationRange:(struct _NSRange)arg7 finalModificationRange:(struct _NSRange)arg8;
-- (unsigned short)characterAtIndex:(unsigned int)arg1;
-- (unsigned int)length;
+- (id)initWithString:(id)arg1 syllableCount:(unsigned long long)arg2 lastSyllableIsPartial:(_Bool)arg3 score:(unsigned long long)arg4 originalLength:(unsigned long long)arg5 originalCheckedLength:(unsigned long long)arg6 numberOfModifications:(unsigned long long)arg7 modificationTypes:(unsigned long long *)arg8 originalModificationRanges:(struct _NSRange *)arg9 finalModificationRanges:(struct _NSRange *)arg10 originalSyllableRanges:(struct _NSRange *)arg11 originalAdditionalSyllableRanges:(struct _NSRange *)arg12;
+- (id)initWithUncheckedString:(id)arg1 score:(unsigned long long)arg2 originalLength:(unsigned long long)arg3;
+- (id)initWithString:(id)arg1 syllableCount:(unsigned long long)arg2 lastSyllableIsPartial:(_Bool)arg3 score:(unsigned long long)arg4 originalLength:(unsigned long long)arg5 modificationType:(unsigned long long)arg6 originalModificationRange:(struct _NSRange)arg7 finalModificationRange:(struct _NSRange)arg8 originalSyllableRange:(struct _NSRange)arg9 originalAdditionalSyllableRange:(struct _NSRange)arg10;
+- (id)initWithString:(id)arg1 syllableCount:(unsigned long long)arg2 lastSyllableIsPartial:(_Bool)arg3 score:(unsigned long long)arg4 originalLength:(unsigned long long)arg5 modificationType:(unsigned long long)arg6 originalModificationRange:(struct _NSRange)arg7 finalModificationRange:(struct _NSRange)arg8 originalSyllableRange:(struct _NSRange)arg9;
+- (id)initWithString:(id)arg1 syllableCount:(unsigned long long)arg2 lastSyllableIsPartial:(_Bool)arg3 score:(unsigned long long)arg4 originalLength:(unsigned long long)arg5 modificationType:(unsigned long long)arg6 originalModificationRange:(struct _NSRange)arg7 finalModificationRange:(struct _NSRange)arg8;
+- (unsigned short)characterAtIndex:(unsigned long long)arg1;
+- (unsigned long long)length;
 
 @end
 

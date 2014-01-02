@@ -6,6 +6,7 @@
 
 #import <OfficeImport/OADColor.h>
 
+// Not exported
 @interface OADRgbColor : OADColor
 {
     float mRed;
@@ -20,10 +21,10 @@
 + (id)rgbColorWithWhite:(float)arg1;
 + (id)rgbColorWithRedByte:(float)arg1 greenByte:(float)arg2 blueByte:(float)arg3;
 + (id)rgbColorWithRed:(float)arg1 green:(float)arg2 blue:(float)arg3;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (BOOL)isBlack;
-- (BOOL)isWhite;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isBlack;
+- (_Bool)isWhite;
 - (unsigned char)blueByte;
 - (unsigned char)greenByte;
 - (unsigned char)redByte;

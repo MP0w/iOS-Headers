@@ -6,25 +6,39 @@
 
 #import <MediaPlayer/MPAVItem.h>
 
-@class RadioAudioClip;
+@class NSString, RadioAudioClip, RadioStation, UIImage;
 
 @interface MPRadioAudioClipAVItem : MPAVItem
 {
     RadioAudioClip *_audioClip;
+    UIImage *_cachedArtworkImage;
+    RadioStation *_station;
+    NSString *_stationHash;
+    long long _stationID;
+    NSString *_stationName;
 }
 
+@property(readonly, nonatomic) NSString *stationName; // @synthesize stationName=_stationName;
+@property(readonly, nonatomic) long long stationID; // @synthesize stationID=_stationID;
+@property(readonly, nonatomic) NSString *stationHash; // @synthesize stationHash=_stationHash;
+@property(retain, nonatomic) RadioStation *station; // @synthesize station=_station;
 - (void).cxx_destruct;
+- (id)_cachedArtworkImage;
 - (void)_applyLoudnessInfoForVolumeNormalization;
 - (id)audioClip;
-- (unsigned int)type;
+- (unsigned long long)type;
 - (id)titlesForTime:(double)arg1;
-- (BOOL)supportsSkip;
+- (_Bool)supportsSkip;
 - (void)reevaluateType;
+- (id)radioTrack;
 - (id)mainTitle;
-- (BOOL)isStreamable;
-- (BOOL)isRadioItem;
-- (id)imageCacheRequestWithSize:(struct CGSize)arg1 time:(double)arg2 usePlaceholderAsFallback:(BOOL)arg3;
+- (_Bool)isStreamable;
+- (_Bool)isRadioItem;
+- (_Bool)isExplicitTrack;
+- (id)imageCacheRequestWithSize:(struct CGSize)arg1 time:(double)arg2 usePlaceholderAsFallback:(_Bool)arg3;
 - (id)imageCache;
+- (id)artworkMIMEType;
+- (id)artworkImageData;
 - (id)initWithAudioClip:(id)arg1;
 
 @end

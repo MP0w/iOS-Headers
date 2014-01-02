@@ -8,9 +8,9 @@
 
 @protocol PCInterfaceUsabilityMonitorProtocol <PCInterfaceMonitorProtocol>
 @property(nonatomic) id <PCInterfaceUsabilityMonitorDelegate> delegate;
-@property(readonly, nonatomic) BOOL isRadioHot;
-- (void)setTrackUsability:(BOOL)arg1;
-- (void)setThresholdOffTransitionCount:(unsigned int)arg1;
+@property(readonly, nonatomic) _Bool isRadioHot;
+- (void)setTrackUsability:(_Bool)arg1;
+- (void)setThresholdOffTransitionCount:(unsigned long long)arg1;
 - (void)setTrackedTimeInterval:(double)arg1;
 @end
 

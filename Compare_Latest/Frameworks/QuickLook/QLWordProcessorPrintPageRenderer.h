@@ -13,8 +13,8 @@
     UIWebPaginationInfo *_paginationInfo;
 }
 
-- (id)pdfDataForPageAtIndex:(int)arg1 withSize:(struct CGSize)arg2 printingDone:(char *)arg3;
-- (int)numberOfPages;
+- (id)pdfDataForPageAtIndex:(long long)arg1 withSize:(struct CGSize)arg2 printingDone:(_Bool *)arg3;
+- (long long)numberOfPages;
 - (id)_paginationInfo;
 - (void)dealloc;
 

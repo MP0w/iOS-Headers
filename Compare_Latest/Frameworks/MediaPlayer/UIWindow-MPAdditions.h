@@ -7,6 +7,6 @@
 #import "UIWindow.h"
 
 @interface UIWindow (MPAdditions)
-- (id)copyIOSurfaceSnapshotView:(int)arg1;
+- (id)copyIOSurfaceSnapshotView:(long long)arg1;
 @end
 

@@ -11,7 +11,7 @@
 }
 
 + (id)machO32HeaderWithUniverse:(id)arg1 memory:(id)arg2 name:(id)arg3 path:(id)arg4 timestamp:(id)arg5;
-- (BOOL)isMachO32;
+- (_Bool)isMachO32;
 - (id)initWithUniverse:(id)arg1 memory:(id)arg2 name:(id)arg3 path:(id)arg4 timestamp:(id)arg5;
 
 @end

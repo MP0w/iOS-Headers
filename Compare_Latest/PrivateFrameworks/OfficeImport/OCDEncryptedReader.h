@@ -8,16 +8,16 @@
 
 @class OCCDecryptor;
 
+// Not exported
 @interface OCDEncryptedReader : OCDReader
 {
     OCCDecryptor *mDecryptor;
 }
 
 @property(readonly, nonatomic) OCCDecryptor *decryptor; // @synthesize decryptor=mDecryptor;
-- (BOOL)retainDecryptorWithErrorCode:(int *)arg1;
+- (_Bool)retainDecryptorWithErrorCode:(int *)arg1;
 - (void)useUnencryptedDocument;
 - (void)dealloc;
-- (void)restartReaderToUseDecryptedDocument;
 
 @end
 

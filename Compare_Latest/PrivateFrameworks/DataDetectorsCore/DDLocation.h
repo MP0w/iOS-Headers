@@ -10,6 +10,7 @@
 
 @class NSString;
 
+// Not exported
 @interface DDLocation : NSObject <NSCoding>
 {
     NSString *_fileName;

@@ -6,18 +6,19 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface OADCachedTextStyle : NSObject
 {
     struct OADCachedTextStyleData mData;
-    unsigned int mHash;
+    unsigned long long mHash;
 }
 
 - (id).cxx_construct;
 - (void)applyToTextBodyProperties:(id)arg1 graphicStyleCache:(id)arg2;
 - (void)applyToParagraphProperties:(id)arg1 graphicStyleCache:(id)arg2;
 - (id)initWithTextBodyProperties:(id)arg1 paragraphProperties:(id)arg2 characterProperties:(id)arg3 colorContext:(id)arg4 graphicStyleCache:(id)arg5;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 
 @end
 

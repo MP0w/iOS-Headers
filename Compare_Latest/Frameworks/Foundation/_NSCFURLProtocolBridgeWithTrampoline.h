@@ -12,12 +12,12 @@
 {
     NSMutableArray *_workQueue;
     NSCountedSet *_runloops;
-    BOOL _canSignalDirectly;
+    _Bool _canSignalDirectly;
     NSThread *_processThread;
 }
 
 - (void)pushEvent:(id)arg1 from:(void)arg2;
-- (BOOL)shouldSignalDirectly;
+- (_Bool)shouldSignalDirectly;
 - (void)unschedule:(struct __CFRunLoop *)arg1 mode:(struct __CFString *)arg2;
 - (void)schedule:(struct __CFRunLoop *)arg1 mode:(struct __CFString *)arg2;
 - (void)finalize;

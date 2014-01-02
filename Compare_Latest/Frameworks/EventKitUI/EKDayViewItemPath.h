@@ -11,15 +11,15 @@
 @interface EKDayViewItemPath : NSObject <NSCopying>
 {
     int _section;
-    unsigned int _index;
+    unsigned long long _index;
 }
 
-+ (id)itemPathWithIndex:(unsigned int)arg1 inSection:(int)arg2;
-@property(readonly, nonatomic) unsigned int index; // @synthesize index=_index;
++ (id)itemPathWithIndex:(unsigned long long)arg1 inSection:(int)arg2;
+@property(readonly, nonatomic) unsigned long long index; // @synthesize index=_index;
 @property(readonly, nonatomic) int section; // @synthesize section=_section;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (id)initWithIndex:(unsigned int)arg1 inSection:(int)arg2;
+- (_Bool)isEqual:(id)arg1;
+- (id)initWithIndex:(unsigned long long)arg1 inSection:(int)arg2;
 
 @end
 

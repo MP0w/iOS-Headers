@@ -14,11 +14,11 @@
 @interface UICollectionViewLayoutAttributes : NSObject <NSCopying, UIDynamicItem>
 {
     NSString *_elementKind;
-    NSString *_reuseIdentifer;
+    NSString *_reuseIdentifier;
     struct CGPoint _center;
     struct CGSize _size;
     struct CGRect _frame;
-    float _alpha;
+    double _alpha;
     struct CATransform3D _transform;
     NSIndexPath *_indexPath;
     NSString *_isCloneString;
@@ -28,26 +28,27 @@
         unsigned int isHidden:1;
         unsigned int isClone:1;
     } _layoutFlags;
-    int _zIndex;
+    long long _zIndex;
 }
 
 + (id)layoutAttributesForDecorationViewOfKind:(id)arg1 withIndexPath:(id)arg2;
 + (id)layoutAttributesForSupplementaryViewOfKind:(id)arg1 withIndexPath:(id)arg2;
 + (id)layoutAttributesForCellWithIndexPath:(id)arg1;
 @property(retain, nonatomic) NSIndexPath *indexPath; // @synthesize indexPath=_indexPath;
-@property(nonatomic) int zIndex; // @synthesize zIndex=_zIndex;
-@property(nonatomic) float alpha; // @synthesize alpha=_alpha;
+@property(nonatomic) long long zIndex; // @synthesize zIndex=_zIndex;
+@property(nonatomic) double alpha; // @synthesize alpha=_alpha;
 @property(nonatomic) struct CATransform3D transform3D; // @synthesize transform3D=_transform;
 @property(nonatomic) struct CGSize size; // @synthesize size=_size;
 @property(nonatomic) struct CGPoint center; // @synthesize center=_center;
 @property(readonly, nonatomic) NSString *representedElementKind;
-@property(readonly, nonatomic) unsigned int representedElementCategory;
-- (BOOL)_isSupplementaryView;
-- (BOOL)_isDecorationView;
-- (BOOL)_isCell;
-- (unsigned int)hash;
-- (BOOL)_isEquivalentTo:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
+@property(readonly, nonatomic) unsigned long long representedElementCategory;
+- (_Bool)_isSupplementaryView;
+- (_Bool)_isDecorationView;
+- (_Bool)_isCell;
+- (unsigned long long)hash;
+- (_Bool)_isTransitionVisibleTo:(id)arg1;
+- (_Bool)_isEquivalentTo:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
 @property(nonatomic) struct CGAffineTransform transform;
 @property(nonatomic) struct CGRect frame;
@@ -58,9 +59,9 @@
 - (void)_setReuseIdentifier:(id)arg1;
 - (id)_elementKind;
 - (void)_setElementKind:(id)arg1;
-- (BOOL)_isClone;
-- (void)_setIsClone:(BOOL)arg1;
-@property(nonatomic, getter=isHidden) BOOL hidden;
+- (_Bool)_isClone;
+- (void)_setIsClone:(_Bool)arg1;
+@property(nonatomic, getter=isHidden) _Bool hidden;
 - (void)dealloc;
 - (id)init;
 

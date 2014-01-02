@@ -16,7 +16,7 @@
     PLImageLoadingQueue *_imageLoadingQueue;
     PLImageSource *_imageSource;
     struct __CFArray *_imageIndexes;
-    unsigned int _currentIndex;
+    unsigned long long _currentIndex;
     PLManagedAsset *_requestedImage;
     PLCachedImage *_nextImage;
     PLCroppedImageView *_currentImageView;
@@ -33,9 +33,9 @@
 - (void)_didLoadImage:(id)arg1;
 - (void)_displayFirstImage;
 - (void)imageLoadingQueue:(id)arg1 didLoadImage:(id)arg2 forAsset:(id)arg3 fromSource:(id)arg4;
-- (void)_requestNextImageSynchronously:(BOOL)arg1;
+- (void)_requestNextImageSynchronously:(_Bool)arg1;
 - (id)_nextImage;
-- (int)_albumImageIndexForSlideIndex:(int)arg1;
+- (long long)_albumImageIndexForSlideIndex:(long long)arg1;
 - (void)_scheduleSlideshowTimer;
 - (void)stopSlideshow;
 - (void)resumeSlideshow;

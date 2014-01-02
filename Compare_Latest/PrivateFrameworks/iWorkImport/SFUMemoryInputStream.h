@@ -10,6 +10,7 @@
 
 @class NSData;
 
+// Not exported
 @interface SFUMemoryInputStream : NSObject <SFUBufferedInputStream>
 {
     NSData *mData;
@@ -22,14 +23,14 @@
 - (void)close;
 - (void)enableSystemCaching;
 - (void)disableSystemCaching;
-- (BOOL)seekWithinBufferToOffset:(long long)arg1;
-- (unsigned long)readToOwnBuffer:(const char **)arg1 size:(unsigned long)arg2;
+- (_Bool)seekWithinBufferToOffset:(long long)arg1;
+- (unsigned long long)readToOwnBuffer:(const char **)arg1 size:(unsigned long long)arg2;
 - (void)seekToOffset:(long long)arg1;
-- (BOOL)canSeek;
-- (unsigned long)readToBuffer:(char *)arg1 size:(unsigned long)arg2;
+- (_Bool)canSeek;
+- (unsigned long long)readToBuffer:(char *)arg1 size:(unsigned long long)arg2;
 - (long long)offset;
 - (void)dealloc;
-- (id)initWithData:(id)arg1 offset:(unsigned long)arg2 length:(unsigned long)arg3;
+- (id)initWithData:(id)arg1 offset:(unsigned long long)arg2 length:(unsigned long long)arg3;
 - (id)initWithData:(id)arg1;
 
 @end

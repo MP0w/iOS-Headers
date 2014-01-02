@@ -8,16 +8,17 @@
 
 @class DOMNode;
 
+// Not exported
 @interface DDRange : NSObject
 {
     DOMNode *_node;
-    long _startOffset;
-    long _endOffset;
+    long long _startOffset;
+    long long _endOffset;
 }
 
 + (id)rangeWithDOMRange:(id)arg1;
-@property(nonatomic) long endOffset; // @synthesize endOffset=_endOffset;
-@property(nonatomic) long startOffset; // @synthesize startOffset=_startOffset;
+@property(nonatomic) long long endOffset; // @synthesize endOffset=_endOffset;
+@property(nonatomic) long long startOffset; // @synthesize startOffset=_startOffset;
 @property(retain, nonatomic) DOMNode *node; // @synthesize node=_node;
 - (id)description;
 - (void)dealloc;

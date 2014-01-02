@@ -9,6 +9,6 @@
 @interface NSArray (SLSocialNSArrayAdditions)
 - (id)objectsPassingTest:(id)arg1;
 - (id)firstObjectPassingTest:(id)arg1;
-- (unsigned int)countObjectsPassingTest:(id)arg1;
+- (unsigned long long)countObjectsPassingTest:(id)arg1;
 @end
 

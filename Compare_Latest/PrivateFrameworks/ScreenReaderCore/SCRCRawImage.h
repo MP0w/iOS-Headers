@@ -6,19 +6,20 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface SCRCRawImage : NSObject
 {
     struct CGImage *_imageRef;
     char *_data;
-    int _width;
-    int _height;
-    int _bytesPerPixel;
+    long long _width;
+    long long _height;
+    long long _bytesPerPixel;
 }
 
 + (id)rawImageForImage:(struct CGImage *)arg1;
-@property(nonatomic) int bytesPerPixel; // @synthesize bytesPerPixel=_bytesPerPixel;
-@property(nonatomic) int height; // @synthesize height=_height;
-@property(nonatomic) int width; // @synthesize width=_width;
+@property(nonatomic) long long bytesPerPixel; // @synthesize bytesPerPixel=_bytesPerPixel;
+@property(nonatomic) long long height; // @synthesize height=_height;
+@property(nonatomic) long long width; // @synthesize width=_width;
 @property(nonatomic) char *data; // @synthesize data=_data;
 @property(retain, nonatomic) struct CGImage *imageRef; // @synthesize imageRef=_imageRef;
 - (void)dealloc;

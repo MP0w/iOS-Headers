@@ -10,7 +10,9 @@
 {
 }
 
-+ (id)autocorrectionContextOfType:(unsigned int)arg1;
++ (id)autocorrectionContextOfType:(unsigned long long)arg1;
+- (double)validSequenceCorrectionThreshold;
+- (void)setValidSequenceCorrectionThreshold:(double)arg1;
 - (void)reset;
 - (id)prefixes;
 - (id)removedModifications;

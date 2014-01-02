@@ -18,14 +18,14 @@
     int _hideAction;
     int _tableAction;
     NSMutableArray *_tableItems;
-    int _indexOfSelectedTableItem;
+    long long _indexOfSelectedTableItem;
     id _context;
     id _actionHandler;
 }
 
 @property(copy, nonatomic) id actionHandler; // @synthesize actionHandler=_actionHandler;
 - (id)selectedTableItem;
-- (void)setSelectedTableItemIndex:(int)arg1;
+- (void)setSelectedTableItemIndex:(long long)arg1;
 - (void)setTableItems:(id)arg1 withTitles:(id)arg2;
 - (id)tableItems;
 - (id)context;
@@ -34,7 +34,7 @@
 - (int)tableAction;
 - (int)hideAction;
 - (int)defaultAction;
-- (int)actionForButtonTag:(int)arg1;
+- (int)actionForButtonTag:(long long)arg1;
 - (id)buttonTitles;
 - (id)_buttonTitleForAction:(int)arg1;
 - (id)bodyText;

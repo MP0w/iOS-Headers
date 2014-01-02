@@ -10,13 +10,13 @@
 
 @interface PUGridMagnifiedImageViewController : UIViewController
 {
-    BOOL _canShowFullScreen;
+    _Bool _canShowFullScreen;
+    int _imageFormat;
     id _delegate;
     NSIndexPath *_itemIndexPath;
-    float _magnifiedYOffset;
-    int _imageFormat;
-    float _shadowRadius;
-    float _shadowOpacity;
+    double _magnifiedYOffset;
+    double _shadowRadius;
+    double _shadowOpacity;
     PUGridMagnifiedView *_magnifiedView;
     struct CGPoint _gestureWindLocation;
     struct CGSize _magnifiedSize;
@@ -24,18 +24,20 @@
     struct CGPoint _lastLocation;
     struct CGRect _itemWindFrame;
     struct CGRect _trackingWindFrame;
+    struct UIEdgeInsets _magnifiedDragEdgeInsets;
 }
 
 @property(nonatomic) struct CGPoint lastLocation; // @synthesize lastLocation=_lastLocation;
 @property(retain, nonatomic) PUGridMagnifiedView *magnifiedView; // @synthesize magnifiedView=_magnifiedView;
-@property(nonatomic) float shadowOpacity; // @synthesize shadowOpacity=_shadowOpacity;
-@property(nonatomic) float shadowRadius; // @synthesize shadowRadius=_shadowRadius;
+@property(nonatomic) double shadowOpacity; // @synthesize shadowOpacity=_shadowOpacity;
+@property(nonatomic) double shadowRadius; // @synthesize shadowRadius=_shadowRadius;
 @property(nonatomic) struct CGSize shadowOffset; // @synthesize shadowOffset=_shadowOffset;
 @property(nonatomic) struct CGSize magnifiedSize; // @synthesize magnifiedSize=_magnifiedSize;
 @property(nonatomic) int imageFormat; // @synthesize imageFormat=_imageFormat;
-@property(nonatomic) float magnifiedYOffset; // @synthesize magnifiedYOffset=_magnifiedYOffset;
+@property(nonatomic) struct UIEdgeInsets magnifiedDragEdgeInsets; // @synthesize magnifiedDragEdgeInsets=_magnifiedDragEdgeInsets;
+@property(nonatomic) double magnifiedYOffset; // @synthesize magnifiedYOffset=_magnifiedYOffset;
 @property(nonatomic) struct CGRect trackingWindFrame; // @synthesize trackingWindFrame=_trackingWindFrame;
-@property(readonly, nonatomic) BOOL canShowFullScreen; // @synthesize canShowFullScreen=_canShowFullScreen;
+@property(readonly, nonatomic) _Bool canShowFullScreen; // @synthesize canShowFullScreen=_canShowFullScreen;
 @property(nonatomic) struct CGRect itemWindFrame; // @synthesize itemWindFrame=_itemWindFrame;
 @property(retain, nonatomic) NSIndexPath *itemIndexPath; // @synthesize itemIndexPath=_itemIndexPath;
 @property(nonatomic) struct CGPoint gestureWindLocation; // @synthesize gestureWindLocation=_gestureWindLocation;
@@ -44,9 +46,9 @@
 - (struct CGRect)magnifiedImageWindFrame;
 - (id)imageForIndexPath:(id)arg1;
 - (id)imageForMagnifyLocation:(struct CGPoint)arg1;
-- (BOOL)isValidMagnifyLocation:(struct CGPoint)arg1;
-- (BOOL)gestureInNewLocation;
-- (void)hideMagnifiedThumbnailWithAnimation:(BOOL)arg1;
+- (_Bool)isValidMagnifyLocation:(struct CGPoint)arg1;
+- (_Bool)gestureInNewLocation;
+- (void)hideMagnifiedThumbnailWithAnimation:(_Bool)arg1;
 - (void)setupMagnifiedView;
 - (id)installMagnifiedView;
 - (void)endMagnification;

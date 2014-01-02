@@ -10,10 +10,10 @@
 {
 }
 
-+ (BOOL)CA_automaticallyNotifiesObservers:(Class)arg1;
-+ (BOOL)_hasRenderLayerSubclass;
++ (_Bool)CA_automaticallyNotifiesObservers:(Class)arg1;
++ (_Bool)_hasRenderLayerSubclass;
 @property unsigned int contextId;
-- (void)layerDidBecomeVisible:(BOOL)arg1;
+- (void)layerDidBecomeVisible:(_Bool)arg1;
 - (_Bool)_renderLayerDefinesProperty:(unsigned int)arg1;
 - (struct Layer *)_copyRenderLayer:(struct Transaction *)arg1 layerFlags:(unsigned int)arg2 commitFlags:(unsigned int *)arg3;
 - (void)didChangeValueForKey:(id)arg1;

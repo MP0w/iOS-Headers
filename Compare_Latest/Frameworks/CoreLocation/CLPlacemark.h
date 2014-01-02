@@ -17,7 +17,7 @@
 }
 
 + (id)placemarkWithPlace:(id)arg1;
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 - (id)description;
 @property(readonly, nonatomic) NSString *ocean;
 @property(readonly, nonatomic) NSString *inlandWater;

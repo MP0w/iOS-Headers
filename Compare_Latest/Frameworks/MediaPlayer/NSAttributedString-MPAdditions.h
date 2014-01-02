@@ -7,6 +7,6 @@
 #import "NSAttributedString.h"
 
 @interface NSAttributedString (MPAdditions)
-- (id)MP_attributedStringByAddingAttributes:(id)arg1 toOccurrencesOfSubstring:(id)arg2 options:(unsigned int)arg3;
+- (id)MP_attributedStringByAddingAttributes:(id)arg1 toOccurrencesOfSubstring:(id)arg2 options:(unsigned long long)arg3;
 @end
 

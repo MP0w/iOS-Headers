@@ -10,6 +10,7 @@
 
 @class GQDWPExternalTextWrap;
 
+// Not exported
 @interface GQDGroup : GQDDrawable <GQDNameMappable>
 {
     struct __CFArray *mDrawables;

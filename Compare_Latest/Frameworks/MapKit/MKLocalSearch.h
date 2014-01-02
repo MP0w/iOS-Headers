@@ -15,7 +15,7 @@
 }
 
 - (void)_handleResponse:(id)arg1 withCompletionHandler:(id)arg2;
-@property(readonly, nonatomic, getter=isSearching) BOOL searching;
+@property(readonly, nonatomic, getter=isSearching) _Bool searching;
 - (void)cancel;
 - (void)startWithCompletionHandler:(id)arg1;
 - (void)dealloc;

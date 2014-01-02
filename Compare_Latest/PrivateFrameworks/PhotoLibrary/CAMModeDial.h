@@ -10,40 +10,38 @@
 
 @interface CAMModeDial : UIControl
 {
-    int _orientation;
+    long long _orientation;
     id <CAMModeDialDataSource> _dataSource;
-    unsigned int _selectedIndex;
+    unsigned long long _selectedIndex;
     NSMutableArray *__items;
     UIView *__dialContainerView;
     UIView *__itemsContainerView;
     UIImageView *__dotImageView;
     CAGradientLayer *__dialGradientLayer;
-    float __supersamplingFactor;
 }
 
-@property(readonly, nonatomic) float _supersamplingFactor; // @synthesize _supersamplingFactor=__supersamplingFactor;
 @property(readonly, nonatomic) CAGradientLayer *_dialGradientLayer; // @synthesize _dialGradientLayer=__dialGradientLayer;
 @property(readonly, nonatomic) UIImageView *_dotImageView; // @synthesize _dotImageView=__dotImageView;
 @property(readonly, nonatomic) UIView *_itemsContainerView; // @synthesize _itemsContainerView=__itemsContainerView;
 @property(readonly, nonatomic) UIView *_dialContainerView; // @synthesize _dialContainerView=__dialContainerView;
 @property(readonly, nonatomic) NSMutableArray *_items; // @synthesize _items=__items;
-@property(nonatomic) unsigned int selectedIndex; // @synthesize selectedIndex=_selectedIndex;
+@property(nonatomic) unsigned long long selectedIndex; // @synthesize selectedIndex=_selectedIndex;
 @property(nonatomic) id <CAMModeDialDataSource> dataSource; // @synthesize dataSource=_dataSource;
-@property(readonly, nonatomic) int orientation; // @synthesize orientation=_orientation;
+@property(readonly, nonatomic) long long orientation; // @synthesize orientation=_orientation;
 - (id)_dotImage;
+- (id)_fontForOrientation:(long long)arg1;
 - (id)_verticalDialMeshTransform;
 - (id)_horizontalDialMeshTransform;
 - (void)_updateContainerViewPositionFromSelectedIndex;
 - (struct CGPoint)_containerPositionFromSelectedIndex;
-- (struct CGRect)_frameForOrientation:(int)arg1;
+- (struct CGRect)_frameForOrientation:(long long)arg1;
 - (void)reloadData;
-- (void)setSelectedIndex:(unsigned int)arg1 animated:(BOOL)arg2;
-- (void)endTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
+- (void)setSelectedIndex:(unsigned long long)arg1 animated:(_Bool)arg2;
 - (void)layoutSubviews;
 - (void)_layoutForVerticalOrientation;
 - (void)_layoutForHorizontalOrientation;
 - (void)dealloc;
-- (id)initWithOrientation:(int)arg1;
+- (id)initWithOrientation:(long long)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)_commonCAMModeDialInitialization;

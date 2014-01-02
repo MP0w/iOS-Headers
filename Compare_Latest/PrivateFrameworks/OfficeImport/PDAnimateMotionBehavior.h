@@ -8,35 +8,36 @@
 
 @class NSString;
 
+// Not exported
 @interface PDAnimateMotionBehavior : PDAnimateScaleBehavior
 {
     NSString *mPath;
-    BOOL mHasAngle;
+    _Bool mHasAngle;
     double mAngle;
-    BOOL mHasPointType;
+    _Bool mHasPointType;
     int mPointType;
-    BOOL mHasOriginType;
+    _Bool mHasOriginType;
     int mOriginType;
-    BOOL mHasRotationCenter;
+    _Bool mHasRotationCenter;
     struct CGPoint mRotationCenter;
 }
 
 - (id).cxx_construct;
 - (void)setRotationCenter:(struct CGPoint)arg1;
 - (struct CGPoint)rotationCenter;
-- (BOOL)hasRotationCenter;
+- (_Bool)hasRotationCenter;
 - (void)setOriginType:(int)arg1;
 - (int)originType;
-- (BOOL)hasOriginType;
+- (_Bool)hasOriginType;
 - (void)setPointType:(int)arg1;
 - (int)pointType;
-- (BOOL)hasPointType;
+- (_Bool)hasPointType;
 - (void)setAngle:(double)arg1;
 - (double)angle;
-- (BOOL)hasAngle;
+- (_Bool)hasAngle;
 - (void)setPath:(id)arg1;
 - (id)path;
-- (BOOL)hasPath;
+- (_Bool)hasPath;
 - (void)dealloc;
 
 @end

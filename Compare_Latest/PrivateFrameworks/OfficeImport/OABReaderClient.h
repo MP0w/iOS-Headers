@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface OABReaderClient : NSObject
 {
 }
 
-+ (BOOL)sourceDrawableIsTopLevel:(id)arg1;
++ (_Bool)sourceDrawableIsTopLevel:(id)arg1;
 
 @end
 

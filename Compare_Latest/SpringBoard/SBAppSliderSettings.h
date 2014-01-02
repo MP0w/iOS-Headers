@@ -6,20 +6,20 @@
 
 #import "_UISettings.h"
 
-@class SBAnimationSettings, _UIScreenEdgePanRecognizerSettings;
+@class SBFAnimationSettings, _UIScreenEdgePanRecognizerSettings;
 
 @interface SBAppSliderSettings : _UISettings
 {
-    int _simplicityOptions;
-    SBAnimationSettings *_dosidoAnimationSettings;
+    long long _simplicityOptions;
+    SBFAnimationSettings *_dosidoAnimationSettings;
     _UIScreenEdgePanRecognizerSettings *_gestureSettings;
 }
 
 + (id)settingsControllerModule;
 @property(retain) _UIScreenEdgePanRecognizerSettings *gestureSettings; // @synthesize gestureSettings=_gestureSettings;
-@property(retain) SBAnimationSettings *dosidoAnimationSettings; // @synthesize dosidoAnimationSettings=_dosidoAnimationSettings;
-@property int simplicityOptions; // @synthesize simplicityOptions=_simplicityOptions;
-- (BOOL)shouldSimplifyForOptions:(int)arg1;
+@property(retain) SBFAnimationSettings *dosidoAnimationSettings; // @synthesize dosidoAnimationSettings=_dosidoAnimationSettings;
+@property long long simplicityOptions; // @synthesize simplicityOptions=_simplicityOptions;
+- (_Bool)shouldSimplifyForOptions:(long long)arg1;
 - (void)setDefaultValues;
 
 @end

@@ -9,7 +9,7 @@
 #import "UITableViewDataSource-Protocol.h"
 #import "UITableViewDelegate-Protocol.h"
 
-@class NSArray, NSDictionary, NSString, UILocalizedIndexedCollation, UITableViewController;
+@class NSArray, NSString, UILocalizedIndexedCollation, UITableViewController;
 
 @interface ABCountryPickerController : UINavigationController <UITableViewDataSource, UITableViewDelegate>
 {
@@ -18,12 +18,8 @@
     UILocalizedIndexedCollation *_collation;
     NSArray *_countries;
     NSArray *_sections;
-    NSArray *_sectionIndexTitles;
-    NSDictionary *_indexToSections;
 }
 
-@property(copy, nonatomic) NSDictionary *indexToSections; // @synthesize indexToSections=_indexToSections;
-@property(copy, nonatomic) NSArray *sectionIndexTitles; // @synthesize sectionIndexTitles=_sectionIndexTitles;
 @property(copy, nonatomic) NSArray *sections; // @synthesize sections=_sections;
 @property(copy, nonatomic) NSArray *countries; // @synthesize countries=_countries;
 @property(retain, nonatomic) UILocalizedIndexedCollation *collation; // @synthesize collation=_collation;
@@ -31,14 +27,16 @@
 @property(copy, nonatomic) NSString *selectedCountryCode; // @synthesize selectedCountryCode=_selectedCountryCode;
 - (void)_configureSections;
 - (void)_loadCountryCodes;
-- (int)tableView:(id)arg1 sectionForSectionIndexTitle:(id)arg2 atIndex:(int)arg3;
+- (void)tableView:(id)arg1 willDisplayHeaderView:(id)arg2 forSection:(long long)arg3;
+- (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
+- (long long)tableView:(id)arg1 sectionForSectionIndexTitle:(id)arg2 atIndex:(long long)arg3;
 - (id)sectionIndexTitlesForTableView:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (id)tableView:(id)arg1 titleForHeaderInSection:(int)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (id)tableView:(id)arg1 titleForHeaderInSection:(long long)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)cancelPicker:(id)arg1;
 - (void)dealloc;

@@ -10,8 +10,8 @@
 {
 }
 
-+ (BOOL)canMergeRemoteChanges;
-+ (BOOL)useModelMigratorToCreateDatabase;
++ (_Bool)canMergeRemoteChanges;
++ (_Bool)useModelMigratorToCreateDatabase;
 - (void)disconnectFromChangeHub;
 - (void)connectToChangeHub;
 

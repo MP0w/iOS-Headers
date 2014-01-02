@@ -6,23 +6,18 @@
 
 #import "NSObject.h"
 
-#import "CKTranscriptDataRowObject-Protocol.h"
-
 @class IMHandle, NSAttributedString, NSString, UIImage;
 
-@interface CKEntity : NSObject <CKTranscriptDataRowObject>
+@interface CKEntity : NSObject
 {
     IMHandle *_handle;
 }
 
 + (id)copyEntityForAddressString:(id)arg1;
-+ (id)copyEntityForAddressString:(id)arg1 onService:(id)arg2;
 + (id)_copyEntityForAddressString:(id)arg1 onAccount:(id)arg2;
 @property(retain, nonatomic) IMHandle *handle; // @synthesize handle=_handle;
 @property(readonly, nonatomic) NSAttributedString *attributedTranscriptText;
 @property(readonly, nonatomic) UIImage *transcriptContactImage;
-- (id)contactImage;
-@property(readonly, nonatomic) BOOL hasContactImage;
 @property(readonly, nonatomic) NSString *textVibrationIdentifier;
 @property(readonly, nonatomic) NSString *textToneIdentifier;
 @property(readonly, nonatomic) NSString *name;
@@ -33,21 +28,11 @@
 @property(readonly, nonatomic) int identifier;
 @property(readonly, nonatomic) void *abRecord;
 @property(readonly, nonatomic) IMHandle *defaultIMHandle;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (void)dealloc;
 - (id)initWithIMHandle:(id)arg1;
-- (id)personViewControllerWithDelegate:(id)arg1;
-- (id)__ck_displayContactImage;
-- (void)__ck_prewarmForDisplay;
-- (BOOL)__ck_displayDuringSend;
-- (BOOL)__ck_displayTranscriptOrientation;
-- (struct UIEdgeInsets)__ck_displayContentAlignmentInsets;
-- (struct CGSize)__ck_displaySize:(struct UIEdgeInsets *)arg1;
-- (id)__ck_displayCellIdentifier;
-- (Class)__ck_displayCellClass;
-- (id)__ck_displayGUIDWithMessage:(id)arg1;
 
 @end
 

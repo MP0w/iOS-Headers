@@ -20,13 +20,13 @@
 + (void)performPassbookDeleteWithView:(id)arg1 completion:(id)arg2;
 @property(retain, nonatomic) PKPassView *passView; // @synthesize passView=_passView;
 @property(nonatomic) id <PKPassDeleteDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)actionSheetCancel:(id)arg1;
-- (void)actionSheet:(id)arg1 willDismissWithButtonIndex:(int)arg2;
+- (void)actionSheet:(id)arg1 didDismissWithButtonIndex:(long long)arg2;
+- (void)actionSheet:(id)arg1 willDismissWithButtonIndex:(long long)arg2;
 - (void)_applicationDidEnterBackground:(id)arg1;
 - (void)_unregisterForEnterBackgroundNotification;
 - (void)_registerForEnterBackgroundNotification;
 - (void)_startAnimation;
-- (void)finished:(BOOL)arg1;
+- (void)finished:(_Bool)arg1;
 - (void)showInView:(id)arg1;
 - (void)dealloc;
 - (id)initWithPassView:(id)arg1;

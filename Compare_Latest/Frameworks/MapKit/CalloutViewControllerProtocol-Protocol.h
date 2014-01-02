@@ -15,10 +15,10 @@
 @property(copy, nonatomic) NSString *calloutSubtitle;
 @property(copy, nonatomic) NSString *calloutTitle;
 - (void)beginMapsTransitionMovingSideways;
-- (BOOL)canDisplayCompleteTitleWhenExpanded;
-- (void)setDetailView:(id)arg1 animated:(BOOL)arg2;
-- (void)setRightView:(id)arg1 animated:(BOOL)arg2;
-- (void)setLeftView:(id)arg1 animated:(BOOL)arg2;
-- (void)setCalloutSubtitle:(id)arg1 animated:(BOOL)arg2;
+- (_Bool)canDisplayCompleteTitleWhenExpanded;
+- (void)setDetailView:(id)arg1 animated:(_Bool)arg2;
+- (void)setRightView:(id)arg1 animated:(_Bool)arg2;
+- (void)setLeftView:(id)arg1 animated:(_Bool)arg2;
+- (void)setCalloutSubtitle:(id)arg1 animated:(_Bool)arg2;
 @end
 

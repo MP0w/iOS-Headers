@@ -15,27 +15,29 @@
     TPLCDTextView *_labelView;
     TPLCDSubImageView *_imageView;
     unsigned int _layoutAsLabelled:1;
-    BOOL _verticallyCenterTextViewIfLabelless;
-    BOOL _hasBackgroundGradient;
+    _Bool _verticallyCenterTextViewIfLabelless;
+    _Bool _hasBackgroundGradient;
     UIView *_backgroundGradientView;
 }
 
-+ (float)labelFontSize;
-+ (float)textFontSize;
-@property(nonatomic) BOOL hasBackgroundGradient; // @synthesize hasBackgroundGradient=_hasBackgroundGradient;
++ (double)labelFontSize;
++ (double)textFontSize;
+@property(nonatomic) _Bool hasBackgroundGradient; // @synthesize hasBackgroundGradient=_hasBackgroundGradient;
 @property(retain, nonatomic) UIView *backgroundGradientView; // @synthesize backgroundGradientView=_backgroundGradientView;
-@property BOOL verticallyCenterTextViewIfLabelless; // @synthesize verticallyCenterTextViewIfLabelless=_verticallyCenterTextViewIfLabelless;
+@property _Bool verticallyCenterTextViewIfLabelless; // @synthesize verticallyCenterTextViewIfLabelless=_verticallyCenterTextViewIfLabelless;
 - (id)secondLineText;
 - (void)setSecondLineText:(id)arg1;
-- (void)setLayoutAsLabelled:(BOOL)arg1;
+- (void)setLayoutAsLabelled:(_Bool)arg1;
 - (void)setShadowColor:(id)arg1;
 - (id)subImage;
 - (void)setSubImage:(id)arg1;
 - (void)blinkLabel;
 - (id)label;
-- (void)setLabel:(id)arg1 animate:(BOOL)arg2;
+- (void)setLabel:(id)arg1 animate:(_Bool)arg2;
 - (void)setLabel:(id)arg1;
 - (void)didFinishAnimatingLCDLabelFadeOut:(id)arg1 finished:(id)arg2 context:(id)arg3;
+- (void)didMoveToWindow;
+- (struct CGPoint)_backgroundGradientViewOrigin;
 - (void)layoutSubviews;
 - (struct CGRect)_imageViewFrame;
 - (struct CGRect)_labelFrame;
@@ -43,14 +45,13 @@
 - (struct CGRect)_text1Frame;
 - (id)text;
 - (void)setText:(id)arg1;
-- (float)_textVInset;
-- (float)_labelVInset;
-- (void)setContentsAlpha:(float)arg1;
-- (BOOL)showImageViewOnLeftSide;
-- (BOOL)shouldCenterContentView;
-- (BOOL)shouldCenterText;
+- (double)_textVInset;
+- (double)_labelVInset;
+- (void)setContentsAlpha:(double)arg1;
+- (_Bool)shouldCenterContentView;
+- (_Bool)shouldCenterText;
 - (void)dealloc;
-- (id)initWithDefaultSizeForOrientation:(int)arg1;
+- (id)initWithDefaultSizeForOrientation:(long long)arg1;
 - (void)_resetContentViewFrame;
 - (struct CGRect)fullSizedContentViewFrame;
 

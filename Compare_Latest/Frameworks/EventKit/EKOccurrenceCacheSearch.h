@@ -15,7 +15,7 @@
     EKEventStore *_store;
     id _callback;
     NSNumber *_replyID;
-    BOOL _canceled;
+    _Bool _canceled;
 }
 
 + (id)searchWithCalendars:(id)arg1 searchTerm:(id)arg2 store:(id)arg3 callback:(id)arg4;

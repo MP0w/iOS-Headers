@@ -8,14 +8,15 @@
 
 @class NSHashTable, NSObject<OS_dispatch_queue>;
 
+// Not exported
 @interface LSApplicationWorkspaceRemoteObserver : LSApplicationWorkspaceObserver
 {
-    BOOL _observinglsd;
+    _Bool _observinglsd;
     NSHashTable *_observers;
     NSObject<OS_dispatch_queue> *_progressSubscriptionsQueue;
 }
 
-- (void)networkUsageChanged:(BOOL)arg1;
+- (void)networkUsageChanged:(_Bool)arg1;
 - (void)applicationInstallsDidPrioritize:(id)arg1;
 - (void)applicationInstallsDidCancel:(id)arg1;
 - (void)applicationInstallsDidResume:(id)arg1;
@@ -26,9 +27,10 @@
 - (void)applicationInstallsDidChange:(id)arg1;
 - (void)applicationInstallsDidUpdateIcon:(id)arg1;
 - (void)applicationInstallsDidStart:(id)arg1;
-- (void)setObservinglsd:(BOOL)arg1;
-- (BOOL)isObservinglsd;
-- (int)currentObserverCount;
+- (void)setObservinglsd:(_Bool)arg1;
+- (_Bool)isObservinglsd;
+- (unsigned long long)currentObserverCount;
+- (id)localObservers;
 - (void)removeLocalObserver:(id)arg1;
 - (void)addLocalObserver:(id)arg1;
 - (void)dealloc;

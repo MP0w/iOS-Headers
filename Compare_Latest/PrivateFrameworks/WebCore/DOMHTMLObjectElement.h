@@ -13,12 +13,12 @@
 }
 
 - (void)setCustomValidity:(id)arg1;
-- (BOOL)checkValidity;
+- (_Bool)checkValidity;
 @property(readonly) NSURL *absoluteImageURL;
 @property(readonly) DOMDocument *contentDocument;
 - (id)validationMessage;
 - (id)validity;
-- (BOOL)willValidate;
+- (_Bool)willValidate;
 @property(copy) NSString *width;
 @property int vspace;
 @property(copy) NSString *useMap;
@@ -27,7 +27,7 @@
 @property(copy) NSString *name;
 @property int hspace;
 @property(copy) NSString *height;
-@property BOOL declare;
+@property _Bool declare;
 @property(copy) NSString *data;
 @property(copy) NSString *codeType;
 @property(copy) NSString *codeBase;

@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface UIKeyboardEmojiGraphics : NSObject
 {
     struct CGRect _imageRect;
@@ -25,20 +26,22 @@
     struct CGGradient *_backgroundGradient;
 }
 
-+ (id)pressIndicatorViewWithFrame:(struct CGRect)arg1;
-+ (struct CGPoint)padding:(BOOL)arg1;
-+ (struct CGPoint)margin:(BOOL)arg1;
-+ (unsigned char)colCount:(BOOL)arg1;
-+ (unsigned char)rowCount:(BOOL)arg1;
-+ (struct CGSize)emojiSize:(BOOL)arg1;
++ (id)pressIndicatorViewWithFrame:(struct CGRect)arg1 whiteKeyboard:(_Bool)arg2;
++ (double)emojiPageControlYOffset:(_Bool)arg1;
++ (double)optionalDescriptionPadding:(_Bool)arg1;
++ (struct CGPoint)padding:(_Bool)arg1;
++ (struct CGPoint)margin:(_Bool)arg1;
++ (unsigned char)colCount:(_Bool)arg1;
++ (unsigned char)rowCount:(_Bool)arg1;
++ (struct CGSize)emojiSize:(_Bool)arg1;
 + (id)emojiFontAttributes;
-+ (id)emojiFontAttributesForPortrait:(BOOL)arg1;
-+ (id)imageWithRect:(struct CGRect)arg1 name:(id)arg2 pressed:(BOOL)arg3;
-+ (BOOL)isLandscape;
++ (id)emojiFontAttributesForPortrait:(_Bool)arg1;
++ (id)imageWithRect:(struct CGRect)arg1 name:(id)arg2 pressed:(_Bool)arg3;
++ (_Bool)isLandscape;
 + (id)sharedInstance;
-- (id)categoryKeyGenerator:(BOOL)arg1 rect:(struct CGRect)arg2;
-- (id)keyImageWithDisplayString:(id)arg1 state:(int)arg2 rect:(struct CGRect)arg3 fontSize:(float)arg4;
-- (id)keyImageWithDisplayString:(id)arg1 state:(int)arg2 rect:(struct CGRect)arg3 fontSize:(float)arg4 offset:(struct CGPoint)arg5;
+- (id)categoryKeyGenerator:(_Bool)arg1 rect:(struct CGRect)arg2;
+- (id)keyImageWithDisplayString:(id)arg1 state:(int)arg2 rect:(struct CGRect)arg3 fontSize:(double)arg4;
+- (id)keyImageWithDisplayString:(id)arg1 state:(int)arg2 rect:(struct CGRect)arg3 fontSize:(double)arg4 offset:(struct CGPoint)arg5;
 - (id)protoKeyboard;
 - (id)protoKeyWithDisplayString:(id)arg1;
 - (struct UIKBTheme *)createProtoThemeForKey:(id)arg1 keyboard:(id)arg2 state:(int)arg3;
@@ -58,7 +61,7 @@
 - (id)dividerGenerator:(id)arg1;
 - (id)dividerWithTheme:(struct UIKBTheme *)arg1;
 - (void)drawTopEdgeInContext:(struct CGContext *)arg1 withTheme:(struct UIKBTheme *)arg2;
-- (id)generateImageWithRect:(struct CGRect)arg1 name:(id)arg2 pressed:(BOOL)arg3;
+- (id)generateImageWithRect:(struct CGRect)arg1 name:(id)arg2 pressed:(_Bool)arg3;
 - (void)initializeThemes;
 - (void)releaseThemes;
 - (void)dealloc;

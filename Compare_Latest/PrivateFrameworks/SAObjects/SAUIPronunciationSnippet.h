@@ -19,6 +19,7 @@
 @property(copy, nonatomic) NSArray *pronunciations;
 @property(copy, nonatomic) NSString *orthography;
 @property(copy, nonatomic) NSString *interactionId;
+@property(copy, nonatomic) NSArray *cancelCommands;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

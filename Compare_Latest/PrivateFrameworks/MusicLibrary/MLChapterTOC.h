@@ -25,9 +25,8 @@
 - (unsigned int)groupIndexForChapterIndex:(unsigned int)arg1 groupingProperty:(int)arg2;
 - (unsigned int)chapterIndexForGroupIndex:(unsigned int)arg1 groupingProperty:(int)arg2;
 - (unsigned int)countOfGroupsForProperty:(int)arg1;
-- (BOOL)hasDataForProperty:(int)arg1;
+- (_Bool)hasDataForProperty:(int)arg1;
 - (unsigned int)countOfChapters;
-- (struct ChapterData *)chapterDataRef;
 
 @end
 

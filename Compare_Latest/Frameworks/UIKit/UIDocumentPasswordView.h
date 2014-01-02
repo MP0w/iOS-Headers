@@ -20,15 +20,15 @@
 
 @property(readonly, nonatomic) UITextField *passwordField; // @synthesize passwordField=_passwordTextField;
 @property(nonatomic) NSObject<UIDocumentPasswordViewDelegate> *passwordDelegate; // @synthesize passwordDelegate;
-- (float)_textFieldWidth;
-- (float)_labelHorizontalOffset;
+- (double)_textFieldWidth;
+- (double)_labelHorizontalOffset;
 - (id)_labelTextColor;
 - (id)_labelFont;
 - (void)_passwordEntered:(id)arg1;
 - (void)textFieldDidEndEditing:(id)arg1;
 - (void)textFieldDidBeginEditing:(id)arg1;
 - (void)drawRect:(struct CGRect)arg1;
-- (BOOL)_canDrawContent;
+- (_Bool)_canDrawContent;
 - (void)layoutSubviews;
 - (struct CGRect)_iconRectForContainerRect:(struct CGRect)arg1;
 - (void)dealloc;

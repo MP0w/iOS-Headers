@@ -14,7 +14,7 @@
 - (id)URLByAppendingPathExtension:(id)arg1;
 - (id)URLByDeletingLastPathComponent;
 - (id)URLByAppendingPathComponent:(id)arg1;
-- (id)URLByAppendingPathComponent:(id)arg1 isDirectory:(BOOL)arg2;
+- (id)URLByAppendingPathComponent:(id)arg1 isDirectory:(_Bool)arg2;
 - (id)pathExtension;
 - (id)lastPathComponent;
 - (id)pathComponents;

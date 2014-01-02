@@ -29,7 +29,7 @@
 - (id)dictionaryRepresentation;
 - (void)sendFinishedToConsumerWithError:(id)arg1;
 - (void)sendResultsToConsumer:(id)arg1;
-- (BOOL)isQueryRunning;
+- (_Bool)isQueryRunning;
 - (id)initWithDictionaryRepresentation:(id)arg1 consumer:(id)arg2;
 - (id)description;
 - (void)dealloc;

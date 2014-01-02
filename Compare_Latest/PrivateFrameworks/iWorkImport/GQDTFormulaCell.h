@@ -6,6 +6,7 @@
 
 #import <iWorkImport/GQDTCell.h>
 
+// Not exported
 @interface GQDTFormulaCell : GQDTCell
 {
     GQDTCell *mResultCell;
@@ -13,7 +14,6 @@
 
 - (id)resultCell;
 - (void)dealloc;
-- (void)setResultCell:(id)arg1;
 
 @end
 

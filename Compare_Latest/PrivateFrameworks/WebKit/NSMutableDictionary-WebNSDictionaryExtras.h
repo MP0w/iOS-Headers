@@ -11,9 +11,8 @@
 - (void)_webkit_setUnsignedShort:(unsigned short)arg1 forKey:(id)arg2;
 - (void)_webkit_setUnsignedLongLong:(unsigned long long)arg1 forKey:(id)arg2;
 - (void)_webkit_setLongLong:(long long)arg1 forKey:(id)arg2;
-- (void)_webkit_setBool:(BOOL)arg1 forKey:(id)arg2;
+- (void)_webkit_setBool:(_Bool)arg1 forKey:(id)arg2;
 - (void)_webkit_setFloat:(float)arg1 forKey:(id)arg2;
 - (void)_webkit_setInt:(int)arg1 forKey:(id)arg2;
-- (void)_webkit_setObject:(id)arg1 forUncopiedKey:(id)arg2;
 @end
 

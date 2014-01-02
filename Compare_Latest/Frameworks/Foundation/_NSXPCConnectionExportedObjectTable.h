@@ -8,14 +8,17 @@
 
 @class NSLock;
 
+// Not exported
 @interface _NSXPCConnectionExportedObjectTable : NSObject
 {
     NSLock *_lock;
     struct __CFDictionary *_proxyNumberToObject;
     struct __CFDictionary *_objectToProxyNumber;
     unsigned long long _next;
+    _Bool _valid;
 }
 
+- (void)invalidate;
 - (void)releaseExportedObject:(unsigned long long)arg1;
 - (unsigned long long)proxyNumberForExportedObject:(id)arg1 interface:(id)arg2;
 - (id)interfaceForProxyNumber:(unsigned long long)arg1;

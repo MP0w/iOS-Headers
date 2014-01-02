@@ -15,7 +15,7 @@
 @interface SSDownloadMetadata : NSObject <SSXPCCoding, NSCoding, NSCopying>
 {
     NSMutableDictionary *_dictionary;
-    int _keyStyle;
+    long long _keyStyle;
     NSLock *_lock;
 }
 
@@ -34,30 +34,30 @@
 - (id)valueForFirstAvailableKey:(id)arg1;
 @property(copy) NSURL *transitMapDataURL;
 @property(retain) NSArray *sinfs;
-@property BOOL shouldDownloadAutomatically;
+@property _Bool shouldDownloadAutomatically;
 - (void)setValuesFromDownload:(id)arg1;
 - (void)setValue:(id)arg1 forMetadataKey:(id)arg2;
 @property(copy) id requiredDeviceCapabilities;
 @property(retain) NSString *releaseDateString;
-@property(getter=isRedownloadDownload) BOOL redownloadDownload;
+@property(getter=isRedownloadDownload) _Bool redownloadDownload;
 @property(copy) NSString *redownloadActionParameters;
 @property(retain) NSURL *primaryAssetURL;
 @property unsigned long long preOrderIdentifier;
 @property(copy) NSString *preferredAssetFlavor;
 @property(copy) NSString *pageProgressionDirection;
 - (void)setMD5HashStrings:(id)arg1 numberOfBytesToHash:(id)arg2;
-@property int keyStyle;
+@property long long keyStyle;
 @property(retain) NSString *fileExtension;
 @property(retain) NSData *epubRightsData;
 @property(retain) NSString *downloadKey;
 @property(retain) NSDictionary *dictionary;
 @property(retain) NSString *copyright;
 @property(retain) NSURL *cancelDownloadURL;
-@property(getter=isAutomaticDownload) BOOL automaticDownload;
+@property(getter=isAutomaticDownload) _Bool automaticDownload;
 @property(readonly) NSNumber *numberOfBytesToHash;
 - (id)newDownloadProperties;
 @property(readonly) NSArray *MD5HashStrings;
-@property(readonly, getter=isContentRestricted) BOOL contentRestricted;
+@property(readonly, getter=isContentRestricted) _Bool contentRestricted;
 - (id)copyWritableMetadata;
 @property(readonly) NSData *appReceiptData;
 - (id)viewStoreItemURL;
@@ -78,9 +78,9 @@
 - (void)setLongSeasonDescription:(id)arg1;
 - (void)setSeriesName:(id)arg1;
 - (void)setSeasonNumber:(id)arg1;
-- (void)setSample:(BOOL)arg1;
+- (void)setSample:(_Bool)arg1;
 - (void)setSagaIdentifier:(unsigned long long)arg1;
-- (void)setRental:(BOOL)arg1;
+- (void)setRental:(_Bool)arg1;
 @property(retain) NSNumber *releaseYear;
 @property(retain) NSDate *releaseDate;
 - (void)setPurchaseDate:(id)arg1;
@@ -94,11 +94,11 @@
 @property(retain) NSString *kind;
 @property unsigned long long itemIdentifier;
 - (void)setIndexInCollection:(id)arg1;
-- (void)setHighDefinition:(BOOL)arg1;
+- (void)setHighDefinition:(_Bool)arg1;
 @property unsigned long long genreIdentifier;
 @property(retain) NSString *genre;
 @property(retain) NSURL *fullSizeImageURL;
-- (void)setExplicitContent:(BOOL)arg1;
+- (void)setExplicitContent:(_Bool)arg1;
 - (void)setEpisodeSortIdentifier:(id)arg1;
 - (void)setEpisodeIdentifier:(id)arg1;
 - (void)setDurationInMilliseconds:(id)arg1;
@@ -106,14 +106,14 @@
 - (void)setContentRating:(id)arg1;
 - (void)setComposerName:(id)arg1;
 - (void)setComposerIdentifier:(unsigned long long)arg1;
-- (void)setCompilation:(BOOL)arg1;
+- (void)setCompilation:(_Bool)arg1;
 - (void)setCollectionName:(id)arg1;
 - (void)setCollectionIndexInCollectionGroup:(id)arg1;
 - (void)setCollectionIdentifier:(unsigned long long)arg1;
 - (void)setCollectionArtistName:(id)arg1;
 - (void)setCloudIdentifier:(id)arg1;
 - (void)setBundleIdentifier:(id)arg1;
-- (void)setArtworkIsPrerendered:(BOOL)arg1;
+- (void)setArtworkIsPrerendered:(_Bool)arg1;
 @property(copy) NSString *artistName;
 @property unsigned long long artistIdentifier;
 - (id)longSeasonDescription;
@@ -128,11 +128,11 @@
 - (id)numberOfItemsInCollection;
 - (id)numberOfCollectionsInCollectionGroup;
 - (id)networkName;
-- (BOOL)isSample;
-- (BOOL)isRental;
-- (BOOL)isHighDefinition;
-- (BOOL)isExplicitContent;
-- (BOOL)isCompilation;
+- (_Bool)isSample;
+- (_Bool)isRental;
+- (_Bool)isHighDefinition;
+- (_Bool)isExplicitContent;
+- (_Bool)isCompilation;
 - (id)indexInCollection;
 - (id)episodeSortIdentifier;
 - (id)episodeIdentifier;
@@ -147,7 +147,7 @@
 - (id)collectionArtistName;
 - (id)cloudIdentifier;
 - (id)bundleIdentifier;
-- (BOOL)artworkIsPrerendered;
+- (_Bool)artworkIsPrerendered;
 - (id)applicationIdentifier;
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)copyXPCEncoding;

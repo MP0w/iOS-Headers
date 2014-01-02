@@ -8,19 +8,20 @@
 
 @class OADColor;
 
+// Not exported
 @interface OADSolidFill : OADFill
 {
     OADColor *mColor;
-    BOOL mIsColorOverridden;
+    _Bool mIsColorOverridden;
 }
 
 + (id)blackFill;
 + (id)whiteFill;
 + (id)defaultProperties;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)setStyleColor:(id)arg1;
-- (BOOL)isColorOverridden;
+- (_Bool)isColorOverridden;
 - (void)setColor:(id)arg1;
 - (id)color;
 - (id)initWithDefaults;

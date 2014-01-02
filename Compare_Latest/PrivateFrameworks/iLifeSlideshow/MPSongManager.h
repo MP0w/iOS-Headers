@@ -21,13 +21,10 @@
 + (void)releaseSharedManager;
 + (id)sharedManager;
 - (id)songMetadataForPath:(id)arg1;
-- (BOOL)hasBeatsForSongAtPath:(id)arg1;
+- (_Bool)hasBeatsForSongAtPath:(id)arg1;
 - (id)beatsForSongAtPath:(id)arg1 progressCallback:(void *)arg2 context:(void *)arg3;
 - (void)dealloc;
 - (id)init;
-- (id)initWithPaths:(id)arg1;
-- (void)storeBeats:(id)arg1 forPath:(id)arg2;
-- (id)cachedBeatsForSongAtPath:(id)arg1;
 
 @end
 

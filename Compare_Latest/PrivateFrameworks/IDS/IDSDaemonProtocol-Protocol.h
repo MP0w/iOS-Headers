@@ -12,15 +12,11 @@
 - (void)setListenerCapabilities:(unsigned int)arg1;
 - (void)setListenerCommands:(id)arg1;
 - (void)setListenerServices:(id)arg1;
-- (void)requestIDStatusCache;
-- (void)startQueryForURIs:(id)arg1 fromService:(id)arg2;
-- (void)startQueryForURIs:(id)arg1 fromAccountUniqueID:(id)arg2 fromURI:(id)arg3 fromService:(id)arg4 forSending:(BOOL)arg5;
-- (void)forgetPeerTokensForURI:(id)arg1 fromURI:(id)arg2 fromService:(id)arg3;
-- (void)noteRemoteDecryptionErrorForToken:(id)arg1 forURI:(id)arg2 fromURI:(id)arg3 type:(int)arg4;
 - (void)acknowledgeMessageWithGUID:(id)arg1;
 - (void)acknowledgeOutgoingMessageWithGUID:(id)arg1;
 - (void)requestKeepAlive;
-- (void)sendMessage:(id)arg1 fromID:(id)arg2 toDestinations:(id)arg3 usingAccountWithUniqueID:(id)arg4 useDictAsTopLevel:(BOOL)arg5 dataToEncrypt:(id)arg6 wantsResponse:(BOOL)arg7 timeout:(id)arg8 highPriority:(BOOL)arg9 identifier:(id)arg10;
+- (void)sendServerMessage:(id)arg1 command:(id)arg2 usingAccountWithUniqueID:(id)arg3;
+- (void)sendMessage:(id)arg1 fromID:(id)arg2 toDestinations:(id)arg3 usingAccountWithUniqueID:(id)arg4 useDictAsTopLevel:(_Bool)arg5 dataToEncrypt:(id)arg6 encryptPayload:(_Bool)arg7 wantsResponse:(_Bool)arg8 timeout:(id)arg9 command:(id)arg10 wantsDeliveryStatus:(_Bool)arg11 deliveryStatusContext:(id)arg12 messageUUID:(id)arg13 highPriority:(_Bool)arg14 identifier:(id)arg15;
 - (void)deactivateAndPurgeIdentifyForAccount:(id)arg1;
 - (void)_reregisterAndReidentify:(id)arg1 account:(id)arg2;
 - (void)unregisterAccount:(id)arg1;
@@ -34,6 +30,8 @@
 - (void)passwordUpdatedForAccount:(id)arg1;
 - (void)authenticateAccount:(id)arg1;
 - (void)authenticationChangedForAccount:(id)arg1;
+- (void)passwordChanged:(id)arg1 forAccount:(id)arg2;
+- (void)authTokenChanged:(id)arg1 forAccount:(id)arg2;
 - (void)setLoginID:(id)arg1 forAccount:(id)arg2;
 - (void)disableAccount:(id)arg1;
 - (void)enableAccount:(id)arg1;
@@ -41,6 +39,6 @@
 - (void)_removeAndDeregisterAccount:(id)arg1;
 - (void)_removeAccount:(id)arg1;
 - (void)addAccountWithLoginID:(id)arg1 serviceName:(id)arg2 uniqueID:(id)arg3 accountType:(int)arg4 accountInfo:(id)arg5;
-- (void)setupAccountWithLoginID:(id)arg1 serviceName:(id)arg2 accountType:(int)arg3 accountConfig:(id)arg4 transactionID:(id)arg5;
+- (void)setupAccountWithLoginID:(id)arg1 serviceName:(id)arg2 accountType:(int)arg3 accountConfig:(id)arg4 authToken:(id)arg5 password:(id)arg6 transactionID:(id)arg7;
 @end
 

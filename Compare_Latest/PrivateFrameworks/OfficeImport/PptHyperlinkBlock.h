@@ -8,6 +8,7 @@
 
 @class ESDContainer, ESDObject;
 
+// Not exported
 @interface PptHyperlinkBlock : NSObject
 {
     ESDContainer *mInteractiveInfoContainerHolder;

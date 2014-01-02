@@ -6,6 +6,7 @@
 
 #import <OfficeImport/CHDSeries.h>
 
+// Not exported
 @interface CHDUnsupportedSeries : CHDSeries
 {
 }

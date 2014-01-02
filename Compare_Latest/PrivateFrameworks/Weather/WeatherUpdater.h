@@ -17,26 +17,26 @@
 }
 
 @property(copy, nonatomic) id weatherCompletionUpdaterHandler; // @synthesize weatherCompletionUpdaterHandler=_weatherCompletionUpdaterHandler;
-- (BOOL)isUpdatingCity:(id)arg1;
+- (_Bool)isUpdatingCity:(id)arg1;
 - (id)aggregateDictionaryDomain;
 - (void)failWithError:(id)arg1;
 - (void)didProcessDocument;
 - (void)loadRequestURL:(id)arg1 parameters:(id)arg2;
-- (void)handleCompletionForCity:(id)arg1 withUpdateDetail:(unsigned int)arg2;
+- (void)handleCompletionForCity:(id)arg1 withUpdateDetail:(unsigned long long)arg2;
 - (void)handleNilCity;
 - (void)processDocument:(struct _xmlDoc *)arg1;
-- (void)_failed:(unsigned int)arg1;
+- (void)_failed:(unsigned long long)arg1;
 - (void)addCityToPendingQueue:(id)arg1;
 - (void)removeAllUpdatingCities;
 - (void)addUpdatingCity:(id)arg1;
 - (void)_updateNextPendingCity;
-- (void)runAndClearWeatherCompletionWithDetail:(unsigned int)arg1;
+- (void)runAndClearWeatherCompletionWithDetail:(unsigned long long)arg1;
 - (void)dealloc;
 - (id)init;
 - (void)setDelegate:(id)arg1;
 - (void)failCity:(id)arg1;
 - (void)parsedResultCity:(id)arg1;
-- (BOOL)isDataValid:(id)arg1;
+- (_Bool)isDataValid:(id)arg1;
 
 @end
 

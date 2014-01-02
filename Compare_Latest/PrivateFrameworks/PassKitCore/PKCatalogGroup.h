@@ -17,14 +17,14 @@
     NSMutableArray *_uniqueIDs;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSMutableArray *uniqueIDs; // @synthesize uniqueIDs=_uniqueIDs;
 @property(retain, nonatomic) NSNumber *groupID; // @synthesize groupID=_groupID;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isEqualToGroup:(id)arg1;
+- (_Bool)isEqualToGroup:(id)arg1;
 - (void)dealloc;
 
 @end

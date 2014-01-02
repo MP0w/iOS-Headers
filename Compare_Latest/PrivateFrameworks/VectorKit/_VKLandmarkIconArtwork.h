@@ -6,10 +6,11 @@
 
 #import <VectorKit/VKIconArtwork.h>
 
+// Not exported
 @interface _VKLandmarkIconArtwork : VKIconArtwork
 {
-    CDStruct_44473e2f _style;
-    float _contentScale;
+    CDStruct_cf20f7af _style;
+    double _contentScale;
     struct CGImage *_maskImage;
     struct CGImage *_outlineMaskImage;
 }
@@ -19,7 +20,7 @@
 - (id)_newIcon;
 - (struct CGSize)size;
 - (void)dealloc;
-- (id)initWithMask:(struct CGImage *)arg1 outlineMask:(struct CGImage *)arg2 style:(CDStruct_44473e2f *)arg3 contentScale:(float)arg4;
+- (id)initWithMask:(struct CGImage *)arg1 outlineMask:(struct CGImage *)arg2 style:(CDStruct_cf20f7af *)arg3 contentScale:(double)arg4;
 
 @end
 

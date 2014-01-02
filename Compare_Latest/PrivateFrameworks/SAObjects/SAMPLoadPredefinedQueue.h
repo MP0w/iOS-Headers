@@ -12,8 +12,8 @@
 
 + (id)loadPredefinedQueueWithDictionary:(id)arg1 context:(id)arg2;
 + (id)loadPredefinedQueue;
-- (BOOL)requiresResponse;
-@property(nonatomic) BOOL shouldShuffle;
+- (_Bool)requiresResponse;
+@property(nonatomic) _Bool shouldShuffle;
 @property(nonatomic) int mediaItemType;
 - (id)encodedClassName;
 - (id)groupIdentifier;

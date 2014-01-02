@@ -8,15 +8,16 @@
 
 @class VKAttributedRoute;
 
+// Not exported
 @interface VKAttributedRouteMapMatcher : NSObject
 {
     VKAttributedRoute *_attributedRoute;
 }
 
-- (BOOL)_getClippedSegment:(const struct PolylineCoordinate *)arg1 maxDistance:(double)arg2 bounds:(const CDStruct_d2b197d1 *)arg3 startCoord:(const struct PolylineCoordinate *)arg4 endCoord:(const struct PolylineCoordinate *)arg5 startPoint:(Vec2Imp_1782d7e3 *)arg6 endPoint:(Vec2Imp_1782d7e3 *)arg7 startOffset:(float *)arg8 endOffset:(float *)arg9 segmentLength:(double *)arg10;
-- (double)_modifiedHorizontalAccuracy:(double)arg1 routeIndex:(unsigned int)arg2;
-- (BOOL)_bestMatchToPolylineSection:(const struct RouteMapMatchingSection *)arg1 from:(id)arg2 point:(const struct VKPoint *)arg3 useCLMatchedLocation:(BOOL)arg4 bounds:(const CDStruct_d2b197d1 *)arg5 distanceLeftToSearch:(double *)arg6 trackedLocation:(id)arg7 bestMatchParams:(CDStruct_34e0fc6f *)arg8;
-- (id)findClosestCoordinateAlongSectionsFromDataSource:(id)arg1 forLocation:(id)arg2 useCLMatchedLocation:(BOOL)arg3 trackedLocation:(id)arg4 onDate:(id)arg5;
+- (_Bool)_getClippedSegment:(const struct PolylineCoordinate *)arg1 maxDistance:(double)arg2 bounds:(const CDStruct_d2b197d1 *)arg3 startCoord:(const struct PolylineCoordinate *)arg4 endCoord:(const struct PolylineCoordinate *)arg5 startPoint:(Vec2Imp_1782d7e3 *)arg6 endPoint:(Vec2Imp_1782d7e3 *)arg7 startOffset:(float *)arg8 endOffset:(float *)arg9 segmentLength:(double *)arg10;
+- (double)_modifiedHorizontalAccuracy:(double)arg1 routeIndex:(unsigned long long)arg2;
+- (_Bool)_bestMatchToPolylineSection:(const struct RouteMapMatchingSection *)arg1 from:(id)arg2 point:(const struct VKPoint *)arg3 useCLMatchedLocation:(_Bool)arg4 bounds:(const CDStruct_d2b197d1 *)arg5 distanceLeftToSearch:(double *)arg6 trackedLocation:(id)arg7 bestMatchParams:(CDStruct_3dc48697 *)arg8;
+- (id)findClosestCoordinateAlongSectionsFromDataSource:(id)arg1 forLocation:(id)arg2 useCLMatchedLocation:(_Bool)arg3 trackedLocation:(id)arg4 onDate:(id)arg5;
 - (id)init:(id)arg1;
 
 @end

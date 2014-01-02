@@ -22,7 +22,7 @@
 @property(copy, nonatomic) NSString *title;
 @property(copy, nonatomic) NSString *message;
 @property(retain, nonatomic) UIImage *iconImage;
-- (void)removeButtonTarget:(id)arg1 action:(SEL)arg2 forControlEvents:(unsigned int)arg3;
+- (void)removeButtonTarget:(id)arg1 action:(SEL)arg2 forControlEvents:(unsigned long long)arg3;
 - (id)addButtonWithTitle:(id)arg1;
 
 @end

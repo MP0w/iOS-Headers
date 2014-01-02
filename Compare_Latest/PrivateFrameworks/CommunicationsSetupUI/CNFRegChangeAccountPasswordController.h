@@ -21,7 +21,7 @@
 - (id)overrideURLForURL:(id)arg1;
 - (id)logName;
 - (id)bagKey;
-- (BOOL)canSendURLRequest:(id)arg1;
+- (_Bool)canSendURLRequest:(id)arg1;
 - (void)setHeadersForRequest:(id)arg1;
 - (void)dealloc;
 - (id)initWithRegController:(id)arg1 appleID:(id)arg2;

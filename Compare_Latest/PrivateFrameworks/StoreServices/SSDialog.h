@@ -6,21 +6,22 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSDictionary, NSString, SSDialogButton;
+@class NSArray, NSDictionary, NSMutableDictionary, NSString, SSDialogButton;
 
 @interface SSDialog : NSObject
 {
     NSArray *_buttons;
-    NSDictionary *_dialogDictionary;
+    NSMutableDictionary *_dialogDictionary;
 }
 
+- (void)_setValue:(id)arg1 forProperty:(id)arg2;
+@property(copy, nonatomic) NSString *title;
+@property(copy, nonatomic) NSString *message;
+@property(copy, nonatomic) NSArray *buttons;
 @property(readonly, nonatomic) NSString *dialogKind;
 @property(readonly, nonatomic) NSDictionary *dialogDictionary;
 - (id)valueForProperty:(id)arg1;
-@property(readonly, nonatomic) NSString *title;
-@property(readonly, nonatomic) NSString *message;
-@property(readonly, nonatomic) SSDialogButton *defaultButton;
-@property(readonly, nonatomic) NSArray *buttons;
+@property(retain, nonatomic) SSDialogButton *defaultButton;
 - (void)dealloc;
 - (id)initWithDialogDictionary:(id)arg1;
 - (id)init;

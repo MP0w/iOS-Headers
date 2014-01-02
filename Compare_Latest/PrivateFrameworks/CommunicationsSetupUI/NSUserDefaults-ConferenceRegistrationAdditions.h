@@ -7,16 +7,16 @@
 #import "NSUserDefaults.h"
 
 @interface NSUserDefaults (ConferenceRegistrationAdditions)
-+ (BOOL)shouldShowCNFRegistrationServerLogs;
-+ (void)setShouldShowCNFRegistrationServerLogs:(BOOL)arg1;
++ (_Bool)shouldShowCNFRegistrationServerLogs;
++ (void)setShouldShowCNFRegistrationServerLogs:(_Bool)arg1;
 + (id)CNFRegServerURLOverride;
 + (void)setCNFRegServerURLOverride:(id)arg1;
 + (void)setCNFRegSavedAccountName:(id)arg1;
 + (id)CNFRegSavedAccountName;
-+ (void)setCNFRegEmailValidationTimeout:(unsigned int)arg1;
-+ (unsigned int)CNFRegEmailValidationTimeout;
-+ (BOOL)shouldShowCNFRegistrationSettingsUI;
-+ (void)setShouldShowCNFRegistrationSettingsUI:(BOOL)arg1;
++ (void)setCNFRegEmailValidationTimeout:(unsigned long long)arg1;
++ (unsigned long long)CNFRegEmailValidationTimeout;
++ (_Bool)shouldShowCNFRegistrationSettingsUI;
++ (void)setShouldShowCNFRegistrationSettingsUI:(_Bool)arg1;
 + (id)CNFObjectForKey:(id)arg1;
 + (void)setCNFObject:(id)arg1 forKey:(id)arg2;
 @end

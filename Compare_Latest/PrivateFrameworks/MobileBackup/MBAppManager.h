@@ -16,7 +16,7 @@
 
 + (id)appManagerWithSettingsContext:(id)arg1;
 + (id)appManager;
-- (BOOL)processRestoredAppsWithBundleIDs:(id)arg1 error:(id *)arg2;
+- (_Bool)processRestoredAppsWithBundleIDs:(id)arg1 error:(id *)arg2;
 - (id)createSafeHarborForApp:(id)arg1 error:(id *)arg2;
 - (void)removeOldSafeHarbors;
 - (id)appWithBundleID:(id)arg1;
@@ -24,10 +24,10 @@
 - (id)_appsWithPlists:(id)arg1 error:(id *)arg2;
 - (id)_safeHarborsWithError:(id *)arg1;
 - (id)_userAppsWithError:(id *)arg1;
-- (BOOL)loadAppsWithSafeHarbors:(BOOL)arg1 error:(id *)arg2;
+- (_Bool)loadAppsWithSafeHarbors:(_Bool)arg1 error:(id *)arg2;
 - (id)allRestrictedDomainNames;
-- (void)setEnabled:(BOOL)arg1 forDomainName:(id)arg2;
-- (BOOL)isDomainNameEnabled:(id)arg1;
+- (void)setEnabled:(_Bool)arg1 forDomainName:(id)arg2;
+- (_Bool)isDomainNameEnabled:(id)arg1;
 - (void)removeAllDisabledDomainNames;
 - (id)allDisabledDomainNames;
 - (void)dealloc;

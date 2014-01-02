@@ -16,34 +16,33 @@
     NSObject<OS_dispatch_queue> *_scalingQueue;
     MFConditionLock *_scalingThrottle;
     int _pendingImageScalingOperations;
-    BOOL _outgoing;
-    BOOL _didCancelImageScalingOperations;
-    BOOL _isScalingEnabled;
-    BOOL _isScalingThrottled;
+    _Bool _outgoing;
+    _Bool _didCancelImageScalingOperations;
+    _Bool _isScalingEnabled;
+    _Bool _isScalingThrottled;
 }
 
 + (void)addAttachmentUniqueIdentifierStore:(id)arg1;
-+ (BOOL)isPreventingInlinePDFs;
++ (_Bool)isPreventingInlinePDFs;
 + (void)endPreventingInlinePDFs;
 + (void)beginPreventingInlinePDFs;
-@property(nonatomic) BOOL scalingThrottled; // @synthesize scalingThrottled=_isScalingThrottled;
+@property(nonatomic) _Bool scalingThrottled; // @synthesize scalingThrottled=_isScalingThrottled;
 @property(readonly, nonatomic) NSArray *attachments;
 - (void)removeAttachmentsForURLs:(id)arg1;
 - (void)removeAttachmentForURL:(id)arg1;
-- (void)_enqueueScaleAttachment:(id)arg1 withFlags:(unsigned int)arg2 originalSize:(unsigned int)arg3;
+- (void)_enqueueScaleAttachment:(id)arg1 withFlags:(unsigned int)arg2 originalSize:(unsigned long long)arg3;
 - (void)_notifyAttachmentCachedSizesChanged;
 - (void)_decrementPendingImageScalingOperations;
 - (void)_inrementPendingImageScalingOperations;
-- (BOOL)addAttachment:(id)arg1 allowingOverride:(id)arg2;
-- (BOOL)addAttachment:(id)arg1;
-- (BOOL)setAttachment:(id)arg1 forURL:(id)arg2;
-- (BOOL)didCancelImageScalingOperations;
+- (_Bool)addAttachment:(id)arg1 allowingOverride:(id)arg2;
+- (_Bool)addAttachment:(id)arg1;
+- (_Bool)setAttachment:(id)arg1 forURL:(id)arg2;
+- (_Bool)didCancelImageScalingOperations;
 - (void)cancelImageScalingOperations;
-- (BOOL)hasPendingImageScalingOperations;
+- (_Bool)hasPendingImageScalingOperations;
 - (void)dealloc;
 - (id)description;
 - (id)initOutgoing;
-- (unsigned long)sizeForScale:(unsigned int)arg1 imagesOnly:(BOOL)arg2;
 
 @end
 

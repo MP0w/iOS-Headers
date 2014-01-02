@@ -11,7 +11,7 @@
 }
 
 + (int)type;
-- (BOOL)isForShortcutConversion;
+- (_Bool)isForShortcutConversion;
 
 @end
 

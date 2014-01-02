@@ -23,7 +23,7 @@
 - (id)fullNameForPersonID:(id)arg1;
 - (id)lastNameForPersonID:(id)arg1;
 - (id)firstNameForPersonID:(id)arg1;
-- (BOOL)updateWithSharingRelationship:(id)arg1;
+- (_Bool)updateWithSharingRelationship:(id)arg1;
 - (void)initWithPath:(id)arg1;
 
 @end

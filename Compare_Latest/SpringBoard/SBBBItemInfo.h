@@ -16,13 +16,14 @@
 + (id)infoWithRepresentedObject:(id)arg1;
 @property(readonly, nonatomic) id representedObject; // @synthesize representedObject=_representedObject;
 - (id)description;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)invalidateCachedLayoutData;
-- (float)heightForReusableViewInTableView:(id)arg1;
+- (double)heightForReusableViewInTableView:(id)arg1;
 - (void)populateReusableView:(id)arg1;
 - (Class)reusableViewClass;
 @property(readonly, nonatomic) NSString *identifier;
+- (void)dealloc;
 - (id)initWithRepresentedObject:(id)arg1;
 
 @end

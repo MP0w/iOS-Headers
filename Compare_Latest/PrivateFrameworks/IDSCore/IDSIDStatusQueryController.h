@@ -17,7 +17,7 @@
     NSDate *_startQueryDate;
     id _purgeCancelBlock;
     id _purgeEnqueueBlock;
-    BOOL _loaded;
+    _Bool _loaded;
     int _numQueriesThisHour;
 }
 
@@ -30,16 +30,17 @@
 - (void)clearCache;
 - (void)removeCompletionBlockForUniqueIdentifier:(id)arg1;
 - (void)addCompletionBlock:(id)arg1 forUniqueIdentifier:(void)arg2;
-- (void)_sendIDStatusChanges:(id)arg1 forService:(id)arg2 URI:(id)arg3 success:(BOOL)arg4 error:(id)arg5;
+- (void)_sendIDStatusChanges:(id)arg1 forService:(id)arg2 URI:(id)arg3 success:(_Bool)arg4 error:(id)arg5;
 - (id)currentCacheForService:(id)arg1;
 - (id)currentCache;
 - (unsigned int)cachedIDStatusForID:(id)arg1 fromURI:(id)arg2 fromService:(id)arg3;
-- (void)requestIDStatusForID:(id)arg1 fromIdentity:(id)arg2 fromURI:(id)arg3 fromService:(id)arg4;
-- (void)forgetPeerTokensForURI:(id)arg1 fromURI:(id)arg2 fromService:(id)arg3;
-- (BOOL)_lookupIDStatusForURI:(id)arg1 displayID:(id)arg2 fromIdentity:(id)arg3 fromURI:(id)arg4 fromService:(id)arg5;
+- (void)requestIDStatusForID:(id)arg1 fromIdentity:(id)arg2 fromURI:(id)arg3 fromService:(id)arg4 completionBlock:(id)arg5;
+- (void)requestIDStatusForIDs:(id)arg1 fromIdentity:(id)arg2 fromURI:(id)arg3 fromService:(id)arg4 completionBlock:(id)arg5;
+- (void)_lookupIDStatusForURIs:(id)arg1 fromIdentity:(id)arg2 fromURI:(id)arg3 fromService:(id)arg4 completionBlock:(id)arg5;
 - (id)_lookupDateForURI:(id)arg1 fromURI:(id)arg2 fromService:(id)arg3;
+- (id)_cachedResultsForURIs:(id)arg1 fromURI:(id)arg2 fromService:(id)arg3;
 - (unsigned int)_IDStatusForURI:(id)arg1 fromURI:(id)arg2 fromService:(id)arg3;
-- (void)_setIDStatus:(unsigned int)arg1 forURI:(id)arg2 displayID:(id)arg3 fromURI:(id)arg4 fromService:(id)arg5 success:(BOOL)arg6 error:(id)arg7;
+- (void)_updateCacheWithStatusUpdates:(id)arg1 fromURI:(id)arg2 fromService:(id)arg3 success:(_Bool)arg4 error:(id)arg5;
 - (void)dealloc;
 - (id)init;
 

@@ -14,8 +14,8 @@
     NSMutableArray *_mergedFavorites;
     YTAuthenticatedAccountPost *_accountPost;
     YTAccountFeedRequest *_accountFeedRequest;
-    BOOL _usingAccountFavorites;
-    BOOL _shouldOfferMergeOfLocalBookmarks;
+    _Bool _usingAccountFavorites;
+    _Bool _shouldOfferMergeOfLocalBookmarks;
     NSURL *_batchURL;
     NSMutableArray *_bookmarkVideos;
     NSMutableArray *_bookmarkShortIDs;
@@ -38,13 +38,13 @@
 - (id)bookmarkedVideos;
 - (void)_loadBookmarks;
 - (void)_saveBookmarks;
-- (void)_bookmarksDidChangeNotifyObservers:(BOOL)arg1;
+- (void)_bookmarksDidChangeNotifyObservers:(_Bool)arg1;
 - (void)mergeLocalBookmarksToAccountFavoritesWithDelegate:(id)arg1;
 - (void)_processNextPendingFavoritesBatch;
-- (void)setLocalBookmarksMergeOffered:(BOOL)arg1;
-- (BOOL)shouldOfferMergeOfLocalBookmarks;
-- (void)setUsingAccountFavorites:(BOOL)arg1;
-- (BOOL)usingAccountFavorites;
+- (void)setLocalBookmarksMergeOffered:(_Bool)arg1;
+- (_Bool)shouldOfferMergeOfLocalBookmarks;
+- (void)setUsingAccountFavorites:(_Bool)arg1;
+- (_Bool)usingAccountFavorites;
 - (void)dealloc;
 
 @end

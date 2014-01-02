@@ -14,12 +14,12 @@
 {
     NSString *_directoryPath;
     NSString *_fileName;
-    int _maxNumberOfLogFiles;
-    unsigned long _maxSizeInBytes;
+    long long _maxNumberOfLogFiles;
+    unsigned long long _maxSizeInBytes;
 }
 
-@property(nonatomic) int maxNumberOfLogFiles; // @synthesize maxNumberOfLogFiles=_maxNumberOfLogFiles;
-@property(nonatomic) unsigned long maxLogFileSize; // @synthesize maxLogFileSize=_maxSizeInBytes;
+@property(nonatomic) long long maxNumberOfLogFiles; // @synthesize maxNumberOfLogFiles=_maxNumberOfLogFiles;
+@property(nonatomic) unsigned long long maxLogFileSize; // @synthesize maxLogFileSize=_maxSizeInBytes;
 @property(copy, nonatomic) NSString *logFileBaseName; // @synthesize logFileBaseName=_fileName;
 @property(copy, nonatomic) NSString *logDirectoryPath; // @synthesize logDirectoryPath=_directoryPath;
 - (id)copyWithZone:(struct _NSZone *)arg1;

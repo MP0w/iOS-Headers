@@ -5,6 +5,6 @@
  */
 
 @protocol ABPersonTableTinyActionDelegate
-- (BOOL)personTableTinyActionCell:(id)arg1 shouldShowAction:(id)arg2;
+- (_Bool)personTableTinyActionCell:(id)arg1 shouldShowAction:(id)arg2;
 @end
 

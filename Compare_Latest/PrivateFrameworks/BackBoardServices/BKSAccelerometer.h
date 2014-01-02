@@ -15,7 +15,7 @@
     struct __CFRunLoop *_accelerometerEventsRunLoop;
     double _interval;
     NSLock *_lock;
-    BOOL _orientationEventsEnabled;
+    _Bool _orientationEventsEnabled;
     int _orientationCheckToken;
     int _orientationNotificationsToken;
     NSThread *_orientationEventsThread;
@@ -27,7 +27,7 @@
 - (void)_orientationDidChange;
 - (id)_orientationEventsThread;
 - (int)currentDeviceOrientation;
-@property(nonatomic) BOOL orientationEventsEnabled;
+@property(nonatomic) _Bool orientationEventsEnabled;
 - (void)_serverWasRestarted;
 - (void)_checkOut;
 - (void)_checkIn;
@@ -35,7 +35,7 @@
 @property(nonatomic) float yThreshold;
 @property(nonatomic) float xThreshold;
 @property(nonatomic) double updateInterval;
-@property(nonatomic) BOOL accelerometerEventsEnabled;
+@property(nonatomic) _Bool accelerometerEventsEnabled;
 - (void)dealloc;
 - (id)init;
 @property(nonatomic) id <BKSAccelerometerDelegate> delegate;

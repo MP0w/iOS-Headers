@@ -6,14 +6,17 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSMutableArray;
 
-@interface GEORegionalResource : PBCodable
+// Not exported
+@interface GEORegionalResource : PBCodable <NSCopying>
 {
     CDStruct_d66e66b9 *_tileRanges;
-    unsigned int _tileRangesCount;
-    unsigned int _tileRangesSpace;
-    CDStruct_084d6ede _validSubManifestVersions;
+    unsigned long long _tileRangesCount;
+    unsigned long long _tileRangesSpace;
+    CDStruct_9f2792e4 _validSubManifestVersions;
     NSMutableArray *_attributions;
     NSMutableArray *_iconChecksums;
     NSMutableArray *_icons;
@@ -33,40 +36,41 @@
 @property(nonatomic) unsigned int z; // @synthesize z=_z;
 @property(nonatomic) unsigned int y; // @synthesize y=_y;
 @property(nonatomic) unsigned int x; // @synthesize x=_x;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (void)setValidSubManifestVersions:(unsigned int *)arg1 count:(unsigned int)arg2;
-- (unsigned int)validSubManifestVersionAtIndex:(unsigned int)arg1;
+- (void)setValidSubManifestVersions:(unsigned int *)arg1 count:(unsigned long long)arg2;
+- (unsigned int)validSubManifestVersionAtIndex:(unsigned long long)arg1;
 - (void)addValidSubManifestVersion:(unsigned int)arg1;
 - (void)clearValidSubManifestVersions;
 @property(readonly, nonatomic) unsigned int *validSubManifestVersions;
-@property(readonly, nonatomic) unsigned int validSubManifestVersionsCount;
-- (void)setTileRanges:(CDStruct_d66e66b9 *)arg1 count:(unsigned int)arg2;
-- (CDStruct_d66e66b9)tileRangeAtIndex:(unsigned int)arg1;
+@property(readonly, nonatomic) unsigned long long validSubManifestVersionsCount;
+- (void)setTileRanges:(CDStruct_d66e66b9 *)arg1 count:(unsigned long long)arg2;
+- (CDStruct_d66e66b9)tileRangeAtIndex:(unsigned long long)arg1;
 - (void)addTileRange:(CDStruct_d66e66b9)arg1;
 - (void)clearTileRanges;
 @property(readonly, nonatomic) CDStruct_d66e66b9 *tileRanges;
-@property(readonly, nonatomic) unsigned int tileRangesCount;
-- (id)iconChecksumAtIndex:(unsigned int)arg1;
-- (unsigned int)iconChecksumsCount;
+@property(readonly, nonatomic) unsigned long long tileRangesCount;
+- (id)iconChecksumAtIndex:(unsigned long long)arg1;
+- (unsigned long long)iconChecksumsCount;
 - (void)addIconChecksum:(id)arg1;
 - (void)clearIconChecksums;
-- (id)attributionAtIndex:(unsigned int)arg1;
-- (unsigned int)attributionsCount;
+- (id)attributionAtIndex:(unsigned long long)arg1;
+- (unsigned long long)attributionsCount;
 - (void)addAttribution:(id)arg1;
 - (void)clearAttributions;
-- (id)iconAtIndex:(unsigned int)arg1;
-- (unsigned int)iconsCount;
+- (id)iconAtIndex:(unsigned long long)arg1;
+- (unsigned long long)iconsCount;
 - (void)addIcon:(id)arg1;
 - (void)clearIcons;
-@property(nonatomic) BOOL hasZ;
-@property(nonatomic) BOOL hasY;
-@property(nonatomic) BOOL hasX;
+@property(nonatomic) _Bool hasZ;
+@property(nonatomic) _Bool hasY;
+@property(nonatomic) _Bool hasX;
 - (void)dealloc;
 
 @end

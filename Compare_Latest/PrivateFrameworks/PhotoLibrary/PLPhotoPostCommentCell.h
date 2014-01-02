@@ -15,7 +15,7 @@
     UIView *_styledSeparatorView;
 }
 
-+ (float)heightForWidth:(float)arg1 forInterfaceOrientation:(int)arg2;
++ (double)heightForWidth:(double)arg1;
 @property(readonly, nonatomic) UIView *styledSeparatorView; // @synthesize styledSeparatorView=_styledSeparatorView;
 @property(readonly, nonatomic) UIButton *addCommentButton; // @synthesize addCommentButton=_addCommentButton;
 @property(readonly, nonatomic) UILabel *contentLabel; // @synthesize contentLabel=_contentLabel;
@@ -23,7 +23,7 @@
 - (id)_attributedStringForPlaceholder;
 - (void)setupContent;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

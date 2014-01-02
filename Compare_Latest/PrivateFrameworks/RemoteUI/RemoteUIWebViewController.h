@@ -15,8 +15,10 @@
     UIWebView *_webView;
     UIToolbar *_toolbar;
     id _delegate;
+    _Bool _scalesPageToFit;
 }
 
+@property(nonatomic) _Bool scalesPageToFit; // @synthesize scalesPageToFit=_scalesPageToFit;
 - (void)loadURL:(id)arg1;
 - (void)donePressed:(id)arg1;
 - (void)setDelegate:(id)arg1;

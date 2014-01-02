@@ -6,43 +6,46 @@
 
 #import "SBUIMainScreenAnimationController.h"
 
-@class UIView;
+@class SBAppStatusBarTransitionInfo, UIView;
 
 @interface SBUIAnimationZoomUpApp : SBUIMainScreenAnimationController
 {
     UIView *_contextHostView;
-    BOOL _zoomHostView;
-    CDStruct_5d575efc _fakeStatusBarInfo;
-    int _animationTransition;
-    BOOL _finishedZooming;
-    BOOL _finishedActivating;
-    BOOL _finishedCrossfadingToHostView;
-    BOOL _fromSwitcher;
-    BOOL _fromNC;
-    BOOL _fromCC;
-    BOOL _fromAssistant;
+    _Bool _zoomHostView;
+    SBAppStatusBarTransitionInfo *_appStatusBarTransitionInfo;
+    long long _animationTransition;
+    _Bool _finishedZooming;
+    _Bool _finishedActivating;
+    _Bool _finishedCrossfadingToHostView;
+    _Bool _animationFinished;
+    _Bool _fromSwitcher;
+    _Bool _fromNC;
+    _Bool _fromCC;
+    _Bool _fromAssistant;
     UIView *_viewToAnimate;
 }
 
-@property(nonatomic) int animationTransition; // @synthesize animationTransition=_animationTransition;
-- (BOOL)_shouldWaitForSiriDismissBeforeZooming;
+@property(nonatomic) long long animationTransition; // @synthesize animationTransition=_animationTransition;
+- (_Bool)_shouldWaitForSiriDismissBeforeZooming;
 - (void)_maybeReportAnimationFinished;
 - (void)_noteContextHostCrossfadeDidFinish;
 - (void)_maybeStartCrossfade;
 - (void)_noteZoomDidFinish;
 - (void)_applicationDependencyStateChanged;
+- (_Bool)isReasonableMomentToInterrupt;
 - (void)_cleanupAnimation;
 - (void)_startAnimation;
 - (void)_prepareAnimation;
 - (id)_animationProgressDependency;
-- (BOOL)_animationShouldStart;
+- (_Bool)_animationShouldStart;
 - (void)cleanupZoom;
 - (void)animateZoomWithCompletion:(id)arg1;
 - (void)prepareZoom;
+- (void)noteDependencyDidInvalidate;
 - (double)animationDelay;
 - (double)animationDuration;
 - (void)animateFakeStatusBarWithParameters:(id)arg1;
-- (CDStruct_5d575efc)fakeStatusBarInfoWithStartStyle:(int)arg1 startOrientation:(int)arg2;
+- (id)appStatusBarTransitionInfoWithStartStyleRequest:(id)arg1 startOrientation:(long long)arg2;
 - (void)dealloc;
 - (id)initWithActivatingApp:(id)arg1;
 

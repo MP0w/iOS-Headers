@@ -8,6 +8,7 @@
 
 @class UIImageView, UILabel;
 
+// Not exported
 @interface UIPickerContentView : UIView
 {
     UILabel *_titleLabel;
@@ -18,14 +19,15 @@
     } _pickerContentViewFlags;
 }
 
-+ (float)_checkmarkOffset;
-- (BOOL)_isSelectable;
-- (float)labelWidthForBounds:(struct CGRect)arg1;
-- (void)setHighlighted:(BOOL)arg1;
-- (BOOL)isHighlighted;
++ (double)_checkmarkOffset;
+- (_Bool)_isSelectable;
+- (double)labelWidthForBounds:(struct CGRect)arg1;
+- (void)setHighlighted:(_Bool)arg1;
+- (_Bool)isHighlighted;
 - (void)layoutSubviews;
 @property(readonly, nonatomic) UILabel *titleLabel;
-@property(nonatomic, getter=isChecked) BOOL checked;
+@property(nonatomic, getter=isChecked) _Bool checked;
+- (id)checkedColor;
 - (void)dealloc;
 
 @end

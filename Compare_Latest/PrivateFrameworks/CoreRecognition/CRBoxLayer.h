@@ -8,31 +8,32 @@
 
 @class CAShapeLayer, CATextLayer, NSMutableArray;
 
+// Not exported
 @interface CRBoxLayer : CAReplicatorLayer
 {
     CAShapeLayer *_reticleLayer;
     CATextLayer *_codeLayer;
     NSMutableArray *_completionBlocks;
-    float _demoSpeed;
+    double _demoSpeed;
 }
 
 + (id)layer;
-@property float demoSpeed; // @synthesize demoSpeed=_demoSpeed;
+@property double demoSpeed; // @synthesize demoSpeed=_demoSpeed;
 @property(retain) NSMutableArray *completionBlocks; // @synthesize completionBlocks=_completionBlocks;
 @property(retain) CATextLayer *codeLayer; // @synthesize codeLayer=_codeLayer;
 @property(retain) CAShapeLayer *reticleLayer; // @synthesize reticleLayer=_reticleLayer;
 - (void).cxx_destruct;
 - (void)addCompletionBlock:(id)arg1;
 - (void)animatePulseColor:(id)arg1;
-- (void)setString:(id)arg1 mirrored:(BOOL)arg2 inverted:(BOOL)arg3;
-- (void)animateToPosition:(struct CGPoint)arg1 transform:(struct CATransform3D)arg2 opacity:(float)arg3 type:(int)arg4;
+- (void)setString:(id)arg1 mirrored:(_Bool)arg2 inverted:(_Bool)arg3;
+- (void)animateToPosition:(struct CGPoint)arg1 transform:(struct CATransform3D)arg2 opacity:(double)arg3 type:(long long)arg4;
 - (void)animateConceal;
 - (void)animateReveal;
 - (void)positionForCodeBoxPoints:(id)arg1;
 - (void)layoutSublayers;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;
-- (id)initWithCodeFrameRatio:(float)arg1;
+- (id)initWithCodeFrameRatio:(double)arg1;
 - (id)init;
 
 @end

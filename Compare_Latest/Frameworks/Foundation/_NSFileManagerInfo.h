@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface _NSFileManagerInfo : NSObject
 {
     id _delegate;

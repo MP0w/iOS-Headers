@@ -13,16 +13,16 @@
 
 @interface BKSApplicationProcessInfo : NSObject <NSCopying, BKSXPCCoding>
 {
-    BOOL _suspended;
-    BOOL _classic;
+    _Bool _suspended;
+    _Bool _classic;
     NSString *_bundleIdentifier;
     NSNumber *_pidNumber;
     NSNumber *_beingDebugged;
     BKSMachSendRight *_eventPort;
 }
 
-@property(nonatomic) BOOL classic; // @synthesize classic=_classic;
-@property(nonatomic) BOOL suspended; // @synthesize suspended=_suspended;
+@property(nonatomic) _Bool classic; // @synthesize classic=_classic;
+@property(nonatomic) _Bool suspended; // @synthesize suspended=_suspended;
 @property(retain, nonatomic) BKSMachSendRight *eventPort; // @synthesize eventPort=_eventPort;
 @property(retain, nonatomic) NSNumber *beingDebugged; // @synthesize beingDebugged=_beingDebugged;
 @property(retain, nonatomic) NSNumber *pidNumber; // @synthesize pidNumber=_pidNumber;

@@ -11,9 +11,9 @@
 @interface XMLChartParserData : NSObject
 {
     int state;
-    unsigned int valueIndex;
+    unsigned long long valueIndex;
     double lastTime;
-    BOOL marketTimeZoneSet;
+    _Bool marketTimeZoneSet;
     NSString *_bufferString;
     StockChartData *_chartData;
 }

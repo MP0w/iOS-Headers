@@ -4,11 +4,11 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "ABPresenterDelegate-Protocol.h"
+#import "NSObject-Protocol.h"
 
-@protocol ABPropertyCellDelegate <ABPresenterDelegate>
+@protocol ABPropertyCellDelegate <NSObject>
 - (void)propertyCellDidChangeLayout:(id)arg1;
-- (void)propertyCell:(id)arg1 performActionForItem:(id)arg2 withTransportType:(int)arg3;
+- (void)propertyCell:(id)arg1 performActionForItem:(id)arg2 withTransportType:(long long)arg3;
 - (void)propertyCell:(id)arg1 didUpdateItem:(id)arg2 withNewValue:(id)arg3;
 - (void)propertyCell:(id)arg1 didUpdateItem:(id)arg2 withNewLabel:(id)arg3;
 @end

@@ -8,16 +8,17 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface GEOTileEditionUpdate : NSObject
 {
     NSMutableArray *_entries;
-    BOOL _flushEverything;
+    _Bool _flushEverything;
 }
 
-@property(nonatomic) BOOL flushEverything; // @synthesize flushEverything=_flushEverything;
+@property(nonatomic) _Bool flushEverything; // @synthesize flushEverything=_flushEverything;
 - (void)dealloc;
-- (void)tileset:(unsigned int *)arg1 edition:(unsigned int *)arg2 provider:(unsigned int *)arg3 atIndex:(unsigned int)arg4;
-- (unsigned int)tilesetCount;
+- (void)tileset:(unsigned int *)arg1 edition:(unsigned int *)arg2 provider:(unsigned int *)arg3 atIndex:(unsigned long long)arg4;
+- (unsigned long long)tilesetCount;
 - (void)addTileset:(unsigned int)arg1 edition:(unsigned int)arg2 provider:(unsigned int)arg3;
 - (id)init;
 

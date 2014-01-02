@@ -8,6 +8,7 @@
 
 @class CIImage;
 
+// Not exported
 @interface CIColorMap : CIFilter
 {
     CIImage *inputImage;
@@ -22,6 +23,7 @@
 - (id)outputImage;
 - (id)gradientImage;
 - (id)_kernel;
+- (void)dealloc;
 
 @end
 

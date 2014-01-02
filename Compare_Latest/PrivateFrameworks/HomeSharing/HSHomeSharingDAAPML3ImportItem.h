@@ -11,7 +11,7 @@
 }
 
 - (id)deduplicationPredicates;
-- (BOOL)mediaKindIsSupported:(unsigned int)arg1;
+- (_Bool)mediaKindIsSupported:(unsigned int)arg1;
 - (id)valueForProperty:(unsigned int)arg1;
 - (id)description;
 

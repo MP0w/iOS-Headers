@@ -9,21 +9,21 @@
 @protocol PKPassGroupViewDelegate <NSObject>
 
 @optional
-- (int)groupViewContentModeForFrontmostPassWhenStacked:(id)arg1;
+- (long long)groupViewContentModeForFrontmostPassWhenStacked:(id)arg1;
 - (id)groupViewReusablePassViewQueue:(id)arg1;
-- (BOOL)groupViewPassesSuppressedContent:(id)arg1;
-- (BOOL)groupViewPassesGrowCenteredWhenFlipped:(id)arg1;
-- (BOOL)groupViewPassesGrowWhenFlipped:(id)arg1;
+- (_Bool)groupViewPassesSuppressedContent:(id)arg1;
+- (_Bool)groupViewPassesGrowCenteredWhenFlipped:(id)arg1;
+- (_Bool)groupViewPassesGrowWhenFlipped:(id)arg1;
 - (void)groupView:(id)arg1 flipButtonPressedForPass:(id)arg2;
-- (BOOL)groupView:(id)arg1 deleteButtonEnabledForPass:(id)arg2;
+- (_Bool)groupView:(id)arg1 deleteButtonEnabledForPass:(id)arg2;
 - (void)groupView:(id)arg1 deleteButtonPressedForPass:(id)arg2;
-- (void)groupViewFrontPassDidFlip:(id)arg1 animated:(BOOL)arg2;
-- (BOOL)groupViewShouldAllowPassFlip:(id)arg1;
+- (void)groupViewFrontPassDidFlip:(id)arg1 animated:(_Bool)arg2;
+- (_Bool)groupViewShouldAllowPassFlip:(id)arg1;
 - (void)groupViewDidUpdatePageControlVisibility:(id)arg1;
 - (void)groupView:(id)arg1 panned:(struct CGPoint)arg2 withVelocity:(struct CGPoint)arg3;
 - (void)groupViewPanDidEnd:(id)arg1;
 - (void)groupViewPanDidBegin:(id)arg1;
-- (BOOL)groupViewShouldAllowPanning:(id)arg1;
+- (_Bool)groupViewShouldAllowPanning:(id)arg1;
 - (void)groupViewTapped:(id)arg1;
 @end
 

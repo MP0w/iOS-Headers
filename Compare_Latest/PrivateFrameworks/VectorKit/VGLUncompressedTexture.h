@@ -6,6 +6,7 @@
 
 #import <VectorKit/VGLTexture.h>
 
+// Not exported
 @interface VGLUncompressedTexture : VGLTexture
 {
     struct CGImage *_image;
@@ -13,13 +14,13 @@
     unsigned int _pixelFormat;
     unsigned int _colorFormat;
     struct CGImageBlockSet *_blockSetRef;
-    BOOL _fastPath;
+    _Bool _fastPath;
 }
 
 - (BRectImp_7721609a)textureCoordinateRect:(struct CGRect)arg1;
-- (BOOL)isFlipped;
-- (BOOL)loadTexture;
-- (BOOL)decodeTexture;
+- (_Bool)isFlipped;
+- (_Bool)loadTexture;
+- (_Bool)decodeTexture;
 - (void)dealloc;
 - (id)initWithData:(id)arg1;
 - (id)initWithCGImage:(struct CGImage *)arg1;

@@ -10,23 +10,23 @@
 {
 }
 
-- (BOOL)actionSheetsUsePopoverStyle;
-- (BOOL)learnMoreButtonDrawsUnderline;
+- (_Bool)actionSheetsUsePopoverStyle;
+- (_Bool)learnMoreButtonDrawsUnderline;
 - (id)learnMoreArrowImagePressed;
 - (id)learnMoreArrowImage;
 - (id)learnMoreShadowColor;
 - (id)learnMoreTextColorSelected;
 - (id)learnMoreTextColor;
-- (BOOL)navigationBarIsTranslucent;
-- (int)navigationBarStyle;
-- (BOOL)webViewDrawsShadows;
-- (BOOL)webViewIsOpaque;
+- (_Bool)navigationBarIsTranslucent;
+- (long long)navigationBarStyle;
+- (_Bool)webViewDrawsShadows;
+- (_Bool)webViewIsOpaque;
 - (id)webViewBackgroundColor;
-- (int)modalPresentationStyle;
+- (long long)modalPresentationStyle;
 - (id)searchResultsTableSeparatorBottomShadowColor;
 - (id)searchResultsTableSeparatorTopShadowColor;
 - (id)searchResultsTableSeparatorColor;
-- (int)searchResultsTableSeparatorStyle;
+- (long long)searchResultsTableSeparatorStyle;
 - (struct CGSize)tableHeaderTextShadowOffset;
 - (id)tableHeaderTextShadowColor;
 - (id)tableHeaderTextColor;
@@ -40,7 +40,7 @@
 - (id)tableSeparatorBottomShadowColor;
 - (id)tableSeparatorTopShadowColor;
 - (id)tableSeparatorColor;
-- (int)tableSeparatorStyle;
+- (long long)tableSeparatorStyle;
 - (id)tableSectionBorderColor;
 - (id)tableCellBackgroundColor;
 - (id)tableCellEditableTextPlaceholderColor;
@@ -53,10 +53,10 @@
 - (id)tableCellTextLabelBackgroundColor;
 - (id)tableCellTextLabelColor;
 - (id)tableBackgroundColor;
-- (BOOL)styleUsesCustomSearchResultsStyle;
-- (BOOL)styleUsesCustomSeparatorStyle;
-- (BOOL)styleUsesCustomAccessoryView;
-- (BOOL)styleUsesCustomTableStyle;
+- (_Bool)styleUsesCustomSearchResultsStyle;
+- (_Bool)styleUsesCustomSeparatorStyle;
+- (_Bool)styleUsesCustomAccessoryView;
+- (_Bool)styleUsesCustomTableStyle;
 
 @end
 

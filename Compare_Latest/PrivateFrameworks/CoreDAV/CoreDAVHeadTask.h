@@ -12,7 +12,7 @@
 
 - (void)finishCoreDAVTaskWithError:(id)arg1;
 - (id)requestBody;
-- (unsigned int)cachePolicy;
+- (unsigned long long)cachePolicy;
 - (id)httpMethod;
 
 @end

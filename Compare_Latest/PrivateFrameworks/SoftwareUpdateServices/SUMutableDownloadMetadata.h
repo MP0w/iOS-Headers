@@ -15,7 +15,7 @@
 
 // Remaining properties
 @property(nonatomic) int downloadFeeAgreementStatus; // @dynamic downloadFeeAgreementStatus;
-@property(nonatomic) BOOL enforceWifiOnlyOverride; // @dynamic enforceWifiOnlyOverride;
+@property(nonatomic) _Bool enforceWifiOnlyOverride; // @dynamic enforceWifiOnlyOverride;
 
 @end
 

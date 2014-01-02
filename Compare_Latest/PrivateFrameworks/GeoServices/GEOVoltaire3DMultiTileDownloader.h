@@ -6,11 +6,12 @@
 
 #import <GeoServices/GEOVoltaireMultiTileDownloader.h>
 
+// Not exported
 @interface GEOVoltaire3DMultiTileDownloader : GEOVoltaireMultiTileDownloader
 {
 }
 
-- (struct _GEOTileKey)_tileKeyForURL:(id)arg1 edition:(unsigned int *)arg2 isLocalized:(char *)arg3;
+- (struct _GEOTileKey)_tileKeyForURL:(id)arg1 edition:(unsigned int *)arg2 isLocalized:(_Bool *)arg3;
 - (id)_localizationURLIfNecessaryForTileKey:(struct _GEOTileKey *)arg1;
 - (id)_urlForTileKey:(struct _GEOTileKey *)arg1;
 - (id)_baseURLStringForTileKey:(struct _GEOTileKey *)arg1;

@@ -6,18 +6,19 @@
 
 #import "UICollectionViewLayoutInvalidationContext.h"
 
-@class NSDictionary;
-
 @interface PUSectionedGridLayoutInvalidationContext : UICollectionViewLayoutInvalidationContext
 {
-    BOOL _invalidateForVerticalScroll;
+    _Bool _invalidateForVerticalScroll;
+    _Bool _sectioningIsPreserved;
+    _Bool _samplingIsPreserved;
+    _Bool _invalidationHasBeenRedispatched;
 }
 
-@property(nonatomic) BOOL invalidateForVerticalScroll; // @synthesize invalidateForVerticalScroll=_invalidateForVerticalScroll;
+@property(nonatomic) _Bool invalidationHasBeenRedispatched; // @synthesize invalidationHasBeenRedispatched=_invalidationHasBeenRedispatched;
+@property(nonatomic) _Bool samplingIsPreserved; // @synthesize samplingIsPreserved=_samplingIsPreserved;
+@property(nonatomic) _Bool sectioningIsPreserved; // @synthesize sectioningIsPreserved=_sectioningIsPreserved;
+@property(nonatomic) _Bool invalidateForVerticalScroll; // @synthesize invalidateForVerticalScroll=_invalidateForVerticalScroll;
 - (id)description;
-
-// Remaining properties
-@property(retain, nonatomic, setter=_setInvalidatedSupplementaryViews:) NSDictionary *_invalidatedSupplementaryViews; // @dynamic _invalidatedSupplementaryViews;
 
 @end
 

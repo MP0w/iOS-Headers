@@ -11,6 +11,6 @@
 @optional
 - (void)performActionForActivity:(id)arg1;
 - (void)activity:(id)arg1 prepareWithActivityItems:(id)arg2;
-- (BOOL)activity:(id)arg1 canPerformWithActivityItems:(id)arg2;
+- (_Bool)activity:(id)arg1 canPerformWithActivityItems:(id)arg2;
 @end
 

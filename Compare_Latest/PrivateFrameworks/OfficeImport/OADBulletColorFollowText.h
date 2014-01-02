@@ -6,12 +6,13 @@
 
 #import <OfficeImport/OADBulletColor.h>
 
+// Not exported
 @interface OADBulletColorFollowText : OADBulletColor
 {
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 
 @end
 

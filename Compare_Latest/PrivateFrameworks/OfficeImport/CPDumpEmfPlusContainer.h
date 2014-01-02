@@ -6,6 +6,7 @@
 
 #import <OfficeImport/CPDumpType.h>
 
+// Not exported
 @interface CPDumpEmfPlusContainer : CPDumpType
 {
 }

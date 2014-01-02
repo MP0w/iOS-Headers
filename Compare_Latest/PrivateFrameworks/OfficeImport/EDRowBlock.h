@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface EDRowBlock : NSObject
 {
     struct __CFData *mPackedData;
@@ -29,14 +30,6 @@
 - (void)doneWithContent;
 - (void)dealloc;
 - (id)init;
-- (void)checkCellOffsetOrThrow:(unsigned long)arg1;
-- (unsigned long)startOfCellsOrThrow;
-- (void)removeCellAtIndex:(unsigned int)arg1 rowInfo:(struct EDRowInfo **)arg2;
-- (void)archiveByAppendingToMutableData:(struct __CFData *)arg1;
-- (void)unarchiveFromData:(struct __CFData *)arg1 offset:(unsigned int *)arg2;
-- (void)incrementIndex;
-- (void)setIndex:(unsigned int)arg1;
-- (unsigned int)index;
 
 @end
 

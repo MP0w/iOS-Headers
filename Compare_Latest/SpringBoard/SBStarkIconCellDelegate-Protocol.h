@@ -7,6 +7,6 @@
 #import "SBCollectionViewCellDelegate-Protocol.h"
 
 @protocol SBStarkIconCellDelegate <SBCollectionViewCellDelegate>
-- (BOOL)starkIconCellDisplaysBadges:(id)arg1;
+- (_Bool)starkIconCellDisplaysBadges:(id)arg1;
 @end
 

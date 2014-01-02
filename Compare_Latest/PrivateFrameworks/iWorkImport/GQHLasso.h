@@ -8,6 +8,7 @@
 
 #import "GQLassoGenerator-Protocol.h"
 
+// Not exported
 @interface GQHLasso : NSObject <GQLassoGenerator>
 {
 }

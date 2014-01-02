@@ -13,34 +13,35 @@
 
 @interface CalendarEventAlarmTable : UITableView <UITableViewDelegate, UITableViewDataSource>
 {
-    int _alarmIdentifier;
+    long long _alarmIdentifier;
     NSString *_customString;
-    int _selectedItem;
-    BOOL _useAllDayAlarms;
-    BOOL _shouldAllowAlarmsTriggeringAfterStartDate;
-    BOOL _customSelected;
+    long long _selectedItem;
+    _Bool _immediateAlarmCreation;
+    _Bool _useAllDayAlarms;
+    _Bool _shouldAllowAlarmsTriggeringAfterStartDate;
+    _Bool _customSelected;
     id <CalendarEventAlarmTableDelegate> _alarmTableDelegate;
     id <EKStyleProvider> _styleProvider;
 }
 
-@property(nonatomic) BOOL customSelected; // @synthesize customSelected=_customSelected;
-@property(nonatomic) BOOL shouldAllowAlarmsTriggeringAfterStartDate; // @synthesize shouldAllowAlarmsTriggeringAfterStartDate=_shouldAllowAlarmsTriggeringAfterStartDate;
-@property(nonatomic) BOOL useAllDayAlarms; // @synthesize useAllDayAlarms=_useAllDayAlarms;
+@property(nonatomic) _Bool customSelected; // @synthesize customSelected=_customSelected;
+@property(nonatomic) _Bool shouldAllowAlarmsTriggeringAfterStartDate; // @synthesize shouldAllowAlarmsTriggeringAfterStartDate=_shouldAllowAlarmsTriggeringAfterStartDate;
+@property(nonatomic) _Bool useAllDayAlarms; // @synthesize useAllDayAlarms=_useAllDayAlarms;
 @property(retain, nonatomic) id <EKStyleProvider> styleProvider; // @synthesize styleProvider=_styleProvider;
 @property(nonatomic) __weak id <CalendarEventAlarmTableDelegate> alarmTableDelegate; // @synthesize alarmTableDelegate=_alarmTableDelegate;
 - (void).cxx_destruct;
-- (int)presetIdentifierAtIndex:(unsigned int)arg1;
-- (unsigned int)countOfPresets;
-- (int)intervalForPresetIdentifier:(int)arg1;
+- (long long)presetIdentifierAtIndex:(unsigned long long)arg1;
+- (unsigned long long)countOfPresets;
+- (int)intervalForPresetIdentifier:(long long)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (void)setCustomString:(id)arg1;
-- (int)presetIdentifier;
-- (void)setPresetIdentifier:(int)arg1;
-- (void)_selectRow:(int)arg1;
-- (int)_presetIdentifierForRow:(int)arg1;
-- (int)rowForPresetIdentifier:(int)arg1;
+- (long long)presetIdentifier;
+- (void)setPresetIdentifier:(long long)arg1;
+- (void)_selectRow:(long long)arg1;
+- (long long)_presetIdentifierForRow:(long long)arg1;
+- (long long)rowForPresetIdentifier:(long long)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

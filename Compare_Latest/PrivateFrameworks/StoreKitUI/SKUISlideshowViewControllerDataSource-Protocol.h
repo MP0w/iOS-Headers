@@ -7,10 +7,10 @@
 #import "NSObject-Protocol.h"
 
 @protocol SKUISlideshowViewControllerDataSource <NSObject>
-- (int)numberOfItemsInSlideshowViewController:(id)arg1;
+- (long long)numberOfItemsInSlideshowViewController:(id)arg1;
 
 @optional
-- (id)slideshowViewController:(id)arg1 imageURLAtIndex:(int)arg2 size:(struct CGSize *)arg3;
-- (id)slideshowViewController:(id)arg1 imageAtIndex:(int)arg2;
+- (id)slideshowViewController:(id)arg1 imageURLAtIndex:(long long)arg2 size:(struct CGSize *)arg3;
+- (id)slideshowViewController:(id)arg1 imageAtIndex:(long long)arg2;
 @end
 

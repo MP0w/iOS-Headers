@@ -9,7 +9,7 @@
 @class NSData, NSDate, NSError, NSString;
 
 @protocol MMCSAsset <NSObject>
-@property(nonatomic) unsigned long MMCSItemFlags;
+@property(nonatomic) unsigned int MMCSItemFlags;
 @property(retain, nonatomic) NSString *MMCSReceipt;
 @property(retain, nonatomic) NSDate *MMCSAccessHeaderTimeStamp;
 @property(retain, nonatomic) NSString *MMCSAccessHeader;
@@ -18,6 +18,7 @@
 @property(retain, nonatomic) NSData *MMCSHash;
 @property(nonatomic) unsigned long long MMCSItemID;
 @property(retain, nonatomic) NSString *MMCSUTI;
+- (id)MMCSItemType;
 - (int)MMCSOpenNewFileDescriptor;
 @end
 

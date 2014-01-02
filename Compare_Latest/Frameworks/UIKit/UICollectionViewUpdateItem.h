@@ -12,27 +12,27 @@
 {
     NSIndexPath *_initialIndexPath;
     NSIndexPath *_finalIndexPath;
-    int _updateAction;
+    long long _updateAction;
     id _gap;
 }
 
-@property(readonly, nonatomic) int updateAction; // @synthesize updateAction=_updateAction;
+@property(readonly, nonatomic) long long updateAction; // @synthesize updateAction=_updateAction;
 @property(readonly, nonatomic) NSIndexPath *indexPathAfterUpdate; // @synthesize indexPathAfterUpdate=_finalIndexPath;
 @property(readonly, nonatomic) NSIndexPath *indexPathBeforeUpdate; // @synthesize indexPathBeforeUpdate=_initialIndexPath;
-- (int)inverseCompareIndexPaths:(id)arg1;
-- (int)compareIndexPaths:(id)arg1;
-- (BOOL)_isSectionOperation;
+- (long long)inverseCompareIndexPaths:(id)arg1;
+- (long long)compareIndexPaths:(id)arg1;
+- (_Bool)_isSectionOperation;
 - (void)_setGap:(id)arg1;
 - (id)_gap;
 - (id)_indexPath;
-- (int)_action;
+- (long long)_action;
 - (id)description;
 - (void)_setNewIndexPath:(id)arg1;
 - (id)_newIndexPath;
 - (void)dealloc;
 - (id)initWithOldIndexPath:(id)arg1 newIndexPath:(id)arg2;
-- (id)initWithAction:(int)arg1 forIndexPath:(id)arg2;
-- (id)initWithInitialIndexPath:(id)arg1 finalIndexPath:(id)arg2 updateAction:(int)arg3;
+- (id)initWithAction:(long long)arg1 forIndexPath:(id)arg2;
+- (id)initWithInitialIndexPath:(id)arg1 finalIndexPath:(id)arg2 updateAction:(long long)arg3;
 
 @end
 

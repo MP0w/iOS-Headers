@@ -13,15 +13,15 @@
 @interface SLFacebookUpload : NSObject <NSSecureCoding>
 {
     NSString *_uploadID;
-    int _uploadType;
+    long long _uploadType;
     unsigned long long _totalBytes;
     unsigned long long _transferredBytes;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) unsigned long long transferredBytes; // @synthesize transferredBytes=_transferredBytes;
 @property(nonatomic) unsigned long long totalBytes; // @synthesize totalBytes=_totalBytes;
-@property(nonatomic) int uploadType; // @synthesize uploadType=_uploadType;
+@property(nonatomic) long long uploadType; // @synthesize uploadType=_uploadType;
 @property(retain, nonatomic) NSString *uploadID; // @synthesize uploadID=_uploadID;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;

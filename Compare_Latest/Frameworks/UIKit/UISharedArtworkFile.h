@@ -6,22 +6,23 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface UISharedArtworkFile : NSObject
 {
     int _scale;
     int _device;
     struct UISharedArtworkFileHeader *_data;
-    unsigned long _length;
+    unsigned long long _length;
 }
 
 @property(readonly, nonatomic) int device; // @synthesize device=_device;
 @property(readonly, nonatomic) int scale; // @synthesize scale=_scale;
-- (id)nameAtIndex:(unsigned int)arg1;
-- (id)imageAtIndex:(unsigned int)arg1;
-- (unsigned int)indexForImageNamed:(id)arg1;
+- (id)nameAtIndex:(unsigned long long)arg1;
+- (id)imageAtIndex:(unsigned long long)arg1;
+- (unsigned long long)indexForImageNamed:(id)arg1;
 - (void)enumerateImageInfoWithBlock:(id)arg1;
-- (BOOL)hasImagesForScale:(int)arg1 device:(int)arg2;
-- (unsigned int)count;
+- (_Bool)hasImagesForScale:(int)arg1 device:(int)arg2;
+- (unsigned long long)count;
 - (void)dealloc;
 - (id)initWithBasePath:(id)arg1 info:(const CDStruct_04eade4e *)arg2;
 

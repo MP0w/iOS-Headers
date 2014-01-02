@@ -8,6 +8,7 @@
 
 @class NSMutableDictionary;
 
+// Not exported
 @interface CPBundleResourceManager : NSObject
 {
     NSMutableDictionary *mPackageMap;
@@ -19,7 +20,6 @@
 - (id)dataForResource:(id)arg1 ofType:(id)arg2 inPackage:(id)arg3;
 - (void)dealloc;
 - (id)init;
-- (id)packageWithName:(id)arg1;
 
 @end
 

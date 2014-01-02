@@ -16,7 +16,7 @@
 @property(nonatomic) __weak id <PUAbstractNavigationBannerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) UIView *view;
-@property(readonly, nonatomic) float height;
+@property(readonly, nonatomic) double height;
 
 @end
 

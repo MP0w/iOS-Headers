@@ -10,14 +10,14 @@
 
 @interface PSListItemsController : PSListController
 {
-    int _rowToSelect;
-    BOOL _deferItemSelection;
-    BOOL _restrictionList;
+    long long _rowToSelect;
+    _Bool _deferItemSelection;
+    _Bool _restrictionList;
     PSSpecifier *_lastSelectedSpecifier;
 }
 
-- (void)setIsRestrictionList:(BOOL)arg1;
-- (BOOL)isRestrictionList;
+- (void)setIsRestrictionList:(_Bool)arg1;
+- (_Bool)isRestrictionList;
 - (id)specifiers;
 - (id)itemsFromDataSource;
 - (id)itemsFromParent;
@@ -28,12 +28,12 @@
 - (void)prepareSpecifiersMetadata;
 - (void)didLock;
 - (void)suspend;
-- (void)viewWillDisappear:(BOOL)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
 - (void)dealloc;
 - (void)setValueForSpecifier:(id)arg1 defaultValue:(id)arg2;
 - (void)setRowToSelect;
 - (void)scrollToSelectedCell;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 
 @end
 

@@ -7,17 +7,17 @@
 @class NSArray, NSSet;
 
 @protocol MCFilterSupport
-@property(readonly, nonatomic) unsigned int countOfFilters;
+@property(readonly, nonatomic) unsigned long long countOfFilters;
 @property(readonly) NSArray *orderedFilters;
 @property(readonly) NSSet *filters;
 - (void)unobserveFilter:(id)arg1;
 - (void)observeFilter:(id)arg1;
-- (void)moveFiltersAtIndices:(id)arg1 toIndex:(unsigned int)arg2;
+- (void)moveFiltersAtIndices:(id)arg1 toIndex:(unsigned long long)arg2;
 - (void)removeAllFilters;
 - (void)removeFiltersAtIndices:(id)arg1;
-- (id)insertFilterWithFilterID:(id)arg1 atIndex:(unsigned int)arg2;
+- (id)insertFilterWithFilterID:(id)arg1 atIndex:(unsigned long long)arg2;
 - (id)addFilterWithFilterID:(id)arg1;
-- (id)filterAtIndex:(unsigned int)arg1;
+- (id)filterAtIndex:(unsigned long long)arg1;
 - (id)imprintsForFilters;
 - (void)demolishFilters;
 - (void)initFiltersWithImprints:(id)arg1;

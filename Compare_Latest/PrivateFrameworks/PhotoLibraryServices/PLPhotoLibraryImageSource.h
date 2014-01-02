@@ -11,8 +11,8 @@
     int _imageFormat;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)newImageForAsset:(id)arg1 createMetadata:(id *)arg2;
 - (id)description;
 @property(readonly, nonatomic) int imageFormat;

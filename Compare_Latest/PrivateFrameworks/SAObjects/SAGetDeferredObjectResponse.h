@@ -12,7 +12,7 @@
 
 + (id)getDeferredObjectResponseWithDictionary:(id)arg1 context:(id)arg2;
 + (id)getDeferredObjectResponse;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(retain, nonatomic) id <SAAceSerializable> object;
 - (id)encodedClassName;
 - (id)groupIdentifier;

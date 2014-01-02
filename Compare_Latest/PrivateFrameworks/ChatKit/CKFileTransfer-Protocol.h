@@ -9,11 +9,11 @@
 @class NSDictionary, NSError, NSString, NSURL;
 
 @protocol CKFileTransfer <NSObject>
-@property(readonly, nonatomic, getter=isRestoring) BOOL restoring;
-@property(readonly, nonatomic, getter=isDownloading) BOOL downloading;
-@property(readonly, nonatomic, getter=isDownloadable) BOOL downloadable;
-@property(readonly, nonatomic, getter=isFileDataReady) BOOL fileDataReady;
-@property(readonly, nonatomic, getter=isFileURLFinalized) BOOL fileURLFinalized;
+@property(readonly, nonatomic, getter=isRestoring) _Bool restoring;
+@property(readonly, nonatomic, getter=isDownloading) _Bool downloading;
+@property(readonly, nonatomic, getter=isDownloadable) _Bool downloadable;
+@property(readonly, nonatomic, getter=isFileDataReady) _Bool fileDataReady;
+@property(readonly, nonatomic, getter=isFileURLFinalized) _Bool fileURLFinalized;
 @property(readonly, nonatomic) unsigned long long totalBytes;
 @property(readonly, nonatomic) unsigned long long currentBytes;
 @property(readonly, nonatomic) NSError *error;

@@ -8,6 +8,7 @@
 
 @class NSArray, NSManagedObjectContext, NSMutableArray, NSMutableDictionary, NSPersistentStore, NSPersistentStoreCoordinator;
 
+// Not exported
 @interface PFUbiquityPeerRangeReservationContext : NSObject
 {
     NSMutableDictionary *_peerEntityNameRangeStartSet;
@@ -18,17 +19,17 @@
     NSPersistentStoreCoordinator *_psc;
     NSMutableDictionary *_storeNameToFetchedMetadata;
     NSArray *_globalObjectIDs;
-    int _numRangesToReserve;
+    long long _numRangesToReserve;
 }
 
-@property(readonly, nonatomic) int numRangesToReserve; // @synthesize numRangesToReserve=_numRangesToReserve;
+@property(readonly, nonatomic) long long numRangesToReserve; // @synthesize numRangesToReserve=_numRangesToReserve;
 @property(readonly, nonatomic) NSArray *globalObjectIDs; // @synthesize globalObjectIDs=_globalObjectIDs;
 @property(readonly, nonatomic) NSManagedObjectContext *moc; // @synthesize moc=_moc;
 @property(readonly, nonatomic) NSPersistentStore *store; // @synthesize store=_store;
 @property(readonly, nonatomic) NSPersistentStoreCoordinator *psc; // @synthesize psc=_psc;
 - (id)createLocalIDStringForStoreUUID:(id)arg1 entityName:(id)arg2 andPrimaryKeyString:(id)arg3;
 - (void)prepareForRangeReservationWithRangeStart:(id)arg1 andGlobalID:(id)arg2 andEntityName:(id)arg3;
-- (BOOL)createNewPeerRangesWithCache:(id)arg1 Error:(id *)arg2;
+- (_Bool)createNewPeerRangesWithCache:(id)arg1 Error:(id *)arg2;
 - (void)dealloc;
 - (id)initWithPersistentStore:(id)arg1 andGlobalObjectIDs:(id)arg2;
 - (id)init;

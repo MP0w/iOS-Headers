@@ -8,12 +8,13 @@
 
 @class NSRecursiveLock;
 
+// Not exported
 @interface XNSHTTPCookieStorageInternal : NSObject
 {
     struct OpaqueCFHTTPCookieStorage *storage;
     struct OpaqueCFHTTPCookieStorage *privateStorage;
     NSRecursiveLock *dataLock;
-    BOOL privateBrowsing;
+    _Bool privateBrowsing;
 }
 
 - (void)dealloc;

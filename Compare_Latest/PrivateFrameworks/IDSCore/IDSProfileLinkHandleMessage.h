@@ -25,8 +25,8 @@
 - (id)messageBody;
 - (id)requiredKeys;
 - (id)bagKey;
-- (BOOL)wantsBodySignature;
-- (BOOL)wantsSignature;
+- (_Bool)wantsBodySignature;
+- (_Bool)wantsSignature;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;

@@ -10,14 +10,14 @@
 
 @interface ProgressController : NSObject
 {
-    BOOL _progressShowing;
+    _Bool _progressShowing;
     int _loadingCount;
     NSTimer *_hideSpinnerTimer;
 }
 
 + (id)sharedProgressController;
 - (void)suspend;
-- (void)setLoadingData:(BOOL)arg1;
+- (void)setLoadingData:(_Bool)arg1;
 - (void)_showSpinner;
 - (void)_hideSpinner;
 - (void)_setHideSpinnerTimer:(id)arg1;

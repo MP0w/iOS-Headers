@@ -10,12 +10,12 @@
 {
     int _status;
     double _duration;
-    unsigned int _bytesSent;
-    BOOL _isWifi;
+    unsigned long long _bytesSent;
+    _Bool _isWifi;
 }
 
-@property(nonatomic) BOOL isWifi; // @synthesize isWifi=_isWifi;
-@property(nonatomic) unsigned int bytesSent; // @synthesize bytesSent=_bytesSent;
+@property(nonatomic) _Bool isWifi; // @synthesize isWifi=_isWifi;
+@property(nonatomic) unsigned long long bytesSent; // @synthesize bytesSent=_bytesSent;
 @property(nonatomic) double duration; // @synthesize duration=_duration;
 @property(nonatomic) int status; // @synthesize status=_status;
 - (id)description;

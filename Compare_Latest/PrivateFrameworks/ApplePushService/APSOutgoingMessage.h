@@ -10,27 +10,27 @@
 {
 }
 
-- (void)setPriority:(int)arg1;
-- (int)priority;
-@property(nonatomic) unsigned int payloadLength;
-@property(nonatomic) int payloadFormat;
-- (void)setTimedOut:(BOOL)arg1;
-- (BOOL)hasTimedOut;
-- (void)setCancelled:(BOOL)arg1;
-- (BOOL)wasCancelled;
-- (void)setSendInterface:(int)arg1;
-- (int)sendInterface;
-- (void)setSent:(BOOL)arg1;
-- (BOOL)wasSent;
-@property(nonatomic, getter=isCritical) BOOL critical;
+- (void)setPriority:(long long)arg1;
+- (long long)priority;
+@property(nonatomic) unsigned long long payloadLength;
+@property(nonatomic) unsigned long long payloadFormat;
+- (void)setTimedOut:(_Bool)arg1;
+- (_Bool)hasTimedOut;
+- (void)setCancelled:(_Bool)arg1;
+- (_Bool)wasCancelled;
+- (void)setSendInterface:(long long)arg1;
+- (long long)sendInterface;
+- (void)setSent:(_Bool)arg1;
+- (_Bool)wasSent;
+@property(nonatomic, getter=isCritical) _Bool critical;
 - (id)rawTimeoutTime;
 - (id)sendTimeoutTime;
-- (unsigned int)_effectiveSendTimeout;
-@property(nonatomic) unsigned int timeout;
+- (unsigned long long)_effectiveSendTimeout;
+@property(nonatomic) unsigned long long timeout;
 - (void)setTimestamp:(id)arg1;
 - (id)timestamp;
-- (void)setMessageID:(unsigned int)arg1;
-- (unsigned int)messageID;
+- (void)setMessageID:(unsigned long long)arg1;
+- (unsigned long long)messageID;
 
 @end
 

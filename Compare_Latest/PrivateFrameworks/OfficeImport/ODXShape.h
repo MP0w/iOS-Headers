@@ -6,13 +6,12 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface ODXShape : NSObject
 {
 }
 
 + (void)readNode:(struct _xmlNode *)arg1 toShape:(id)arg2;
-+ (void)readAdjustmentListNode:(struct _xmlNode *)arg1 toShape:(id)arg2;
-+ (void)readTypeFromNode:(struct _xmlNode *)arg1 toShape:(id)arg2;
 
 @end
 

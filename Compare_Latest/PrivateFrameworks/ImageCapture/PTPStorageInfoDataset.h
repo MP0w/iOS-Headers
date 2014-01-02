@@ -15,20 +15,20 @@
     unsigned short _accessCapability;
     unsigned long long _maxCapacity;
     unsigned long long _freeSpaceInBytes;
-    unsigned long _freeSpaceInImages;
+    unsigned int _freeSpaceInImages;
     NSString *_storageDescription;
     NSString *_volumeLabel;
     NSMutableData *_content;
-    BOOL _dirty;
-    BOOL _readOnlyObject;
+    _Bool _dirty;
+    _Bool _readOnlyObject;
 }
 
 - (void)setVolumeLabel:(id)arg1;
 - (id)volumeLabel;
 - (void)setStorageDescription:(id)arg1;
 - (id)storageDescription;
-- (void)setFreeSpaceInImages:(unsigned long)arg1;
-- (unsigned long)freeSpaceInImages;
+- (void)setFreeSpaceInImages:(unsigned int)arg1;
+- (unsigned int)freeSpaceInImages;
 - (void)setFreeSpaceInBytes:(unsigned long long)arg1;
 - (unsigned long long)freeSpaceInBytes;
 - (void)setMaxCapacity:(unsigned long long)arg1;

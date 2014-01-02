@@ -9,7 +9,7 @@
 @interface NSKeyedArchiver : NSCoder
 {
     void *_stream;
-    unsigned int _flags;
+    unsigned long long _flags;
     id _delegate;
     id _containers;
     id _objects;
@@ -18,10 +18,10 @@
     id _classNameMap;
     id _conditionals;
     id _classes;
-    unsigned int _genericKey;
+    unsigned long long _genericKey;
     void *_cache;
-    unsigned int _cacheSize;
-    unsigned int _estimatedCount;
+    unsigned long long _cacheSize;
+    unsigned long long _estimatedCount;
     void *_reserved2;
     id _visited;
     void *_reserved0;
@@ -29,17 +29,17 @@
 
 + (id)classNameForClass:(Class)arg1;
 + (void)setClassName:(id)arg1 forClass:(Class)arg2;
-+ (BOOL)archiveRootObject:(id)arg1 toFile:(id)arg2;
++ (_Bool)archiveRootObject:(id)arg1 toFile:(id)arg2;
 + (id)archivedDataWithRootObject:(id)arg1;
 + (void)initialize;
-- (void)setRequiresSecureCoding:(BOOL)arg1;
-- (BOOL)requiresSecureCoding;
+- (void)setRequiresSecureCoding:(_Bool)arg1;
+- (_Bool)requiresSecureCoding;
 - (unsigned int)systemVersion;
-- (int)versionForClassName:(id)arg1;
-- (void)encodeArrayOfObjCType:(const char *)arg1 count:(unsigned int)arg2 at:(const void *)arg3;
+- (long long)versionForClassName:(id)arg1;
+- (void)encodeArrayOfObjCType:(const char *)arg1 count:(unsigned long long)arg2 at:(const void *)arg3;
 - (void)encodeValueOfObjCType:(const char *)arg1 at:(const void *)arg2;
 - (void)encodeValuesOfObjCTypes:(const char *)arg1;
-- (void)encodeBytes:(const void *)arg1 length:(unsigned int)arg2;
+- (void)encodeBytes:(const void *)arg1 length:(unsigned long long)arg2;
 - (void)encodeDataObject:(id)arg1;
 - (void)encodeRootObject:(id)arg1;
 - (void)encodeByrefObject:(id)arg1;
@@ -47,13 +47,13 @@
 - (void)encodeConditionalObject:(id)arg1;
 - (void)encodeObject:(id)arg1;
 - (void)_encodePropertyList:(id)arg1 forKey:(id)arg2;
-- (void)encodeBytes:(const char *)arg1 length:(unsigned int)arg2 forKey:(id)arg3;
+- (void)encodeBytes:(const char *)arg1 length:(unsigned long long)arg2 forKey:(id)arg3;
 - (void)encodeDouble:(double)arg1 forKey:(id)arg2;
 - (void)encodeFloat:(float)arg1 forKey:(id)arg2;
 - (void)encodeInt64:(long long)arg1 forKey:(id)arg2;
 - (void)encodeInt32:(int)arg1 forKey:(id)arg2;
 - (void)encodeInt:(int)arg1 forKey:(id)arg2;
-- (void)encodeBool:(BOOL)arg1 forKey:(id)arg2;
+- (void)encodeBool:(_Bool)arg1 forKey:(id)arg2;
 - (void)_encodeArrayOfObjects:(id)arg1 forKey:(id)arg2;
 - (void)encodeConditionalObject:(id)arg1 forKey:(id)arg2;
 - (void)encodeObject:(id)arg1 forKey:(id)arg2;
@@ -61,11 +61,11 @@
 - (void)finishEncoding;
 - (id)classNameForClass:(Class)arg1;
 - (void)setClassName:(id)arg1 forClass:(Class)arg2;
-- (unsigned int)outputFormat;
-- (void)setOutputFormat:(unsigned int)arg1;
+- (unsigned long long)outputFormat;
+- (void)setOutputFormat:(unsigned long long)arg1;
 - (id)delegate;
 - (void)setDelegate:(id)arg1;
-- (BOOL)allowsKeyedCoding;
+- (_Bool)allowsKeyedCoding;
 - (id)description;
 - (void)finalize;
 - (void)dealloc;

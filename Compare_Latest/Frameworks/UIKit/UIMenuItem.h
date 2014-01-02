@@ -12,10 +12,10 @@
 {
     NSString *_title;
     SEL _action;
-    BOOL _dontDismiss;
+    _Bool _dontDismiss;
 }
 
-@property(nonatomic) BOOL dontDismiss; // @synthesize dontDismiss=_dontDismiss;
+@property(nonatomic) _Bool dontDismiss; // @synthesize dontDismiss=_dontDismiss;
 @property(nonatomic) SEL action; // @synthesize action=_action;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 - (void)dealloc;

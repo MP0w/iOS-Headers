@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface WXParagraphProperties : NSObject
 {
 }
 
-+ (void)readFrom:(struct _xmlNode *)arg1 to:(id)arg2 readBaseStyle:(BOOL)arg3 state:(id)arg4;
++ (void)readFrom:(struct _xmlNode *)arg1 to:(id)arg2 readBaseStyle:(_Bool)arg3 state:(id)arg4;
 + (void)initialize;
 
 @end

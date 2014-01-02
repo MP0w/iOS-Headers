@@ -8,20 +8,21 @@
 
 @class UIInputViewAnimationStyle;
 
+// Not exported
 @interface UIKeyboardRotationState : NSObject
 {
     int _state;
-    BOOL _requiresNewState;
+    _Bool _requiresNewState;
     int _postRotationState;
     UIInputViewAnimationStyle *_animationStyle;
-    int _targetOrientation;
+    long long _targetOrientation;
 }
 
-+ (id)stateWithState:(int)arg1 targetOrientation:(int)arg2;
-@property(nonatomic) int targetOrientation; // @synthesize targetOrientation=_targetOrientation;
++ (id)stateWithState:(int)arg1 targetOrientation:(long long)arg2;
+@property(nonatomic) long long targetOrientation; // @synthesize targetOrientation=_targetOrientation;
 @property(retain, nonatomic) UIInputViewAnimationStyle *animationStyle; // @synthesize animationStyle=_animationStyle;
 @property(nonatomic) int postRotationState; // @synthesize postRotationState=_postRotationState;
-@property(nonatomic) BOOL requiresNewState; // @synthesize requiresNewState=_requiresNewState;
+@property(nonatomic) _Bool requiresNewState; // @synthesize requiresNewState=_requiresNewState;
 @property(nonatomic) int state; // @synthesize state=_state;
 - (void)setPostRotationState:(int)arg1 animationStyle:(id)arg2;
 - (void)dealloc;

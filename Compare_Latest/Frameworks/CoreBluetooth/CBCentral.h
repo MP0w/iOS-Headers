@@ -14,10 +14,10 @@
 {
     struct __CFUUID *_UUID;
     NSUUID *_identifier;
-    unsigned int _maximumUpdateValueLength;
+    unsigned long long _maximumUpdateValueLength;
 }
 
-@property(nonatomic) unsigned int maximumUpdateValueLength; // @synthesize maximumUpdateValueLength=_maximumUpdateValueLength;
+@property(nonatomic) unsigned long long maximumUpdateValueLength; // @synthesize maximumUpdateValueLength=_maximumUpdateValueLength;
 @property(readonly, nonatomic) NSUUID *identifier; // @synthesize identifier=_identifier;
 @property(readonly, nonatomic) struct __CFUUID *UUID; // @synthesize UUID=_UUID;
 - (id)description;

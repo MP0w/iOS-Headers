@@ -8,6 +8,7 @@
 
 @class NSMutableArray, NSObject<OS_tcp_listener>;
 
+// Not exported
 @interface NSNetServicesInternal : NSObject
 {
     NSMutableArray *_monitors;

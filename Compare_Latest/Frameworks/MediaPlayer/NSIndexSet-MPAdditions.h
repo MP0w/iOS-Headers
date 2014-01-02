@@ -7,6 +7,6 @@
 #import "NSIndexSet.h"
 
 @interface NSIndexSet (MPAdditions)
-+ (id)indexSetWithIndexes:(unsigned int)arg1;
++ (id)indexSetWithIndexes:(unsigned long long)arg1;
 @end
 

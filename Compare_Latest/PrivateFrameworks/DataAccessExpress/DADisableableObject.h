@@ -8,10 +8,10 @@
 
 @interface DADisableableObject : NSObject
 {
-    BOOL _isDisabled;
+    _Bool _isDisabled;
 }
 
-@property BOOL isDisabled; // @synthesize isDisabled=_isDisabled;
+@property _Bool isDisabled; // @synthesize isDisabled=_isDisabled;
 - (void)disable;
 
 @end

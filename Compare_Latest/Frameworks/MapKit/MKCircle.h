@@ -22,7 +22,7 @@
 @property(readonly, nonatomic) CDStruct_90e2a262 boundingMapRect; // @synthesize boundingMapRect=_boundingMapRect;
 @property(readonly, nonatomic) double radius; // @synthesize radius=_radius;
 @property(readonly, nonatomic) CDStruct_c3b9c2ee coordinate; // @synthesize coordinate=_coordinate;
-- (BOOL)intersectsMapRect:(CDStruct_90e2a262)arg1;
+- (_Bool)intersectsMapRect:(CDStruct_90e2a262)arg1;
 - (id)_initWithCenterCoordinate:(CDStruct_c3b9c2ee)arg1 radius:(double)arg2;
 
 // Remaining properties

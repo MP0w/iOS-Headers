@@ -13,23 +13,23 @@
     UINavigationBar *_navigationBar;
     UINavigationItem *_originalNavigationItem;
     UITextLabel *_chapterGuideTitleLabel;
-    BOOL _shouldPlayAfterFlip;
-    BOOL _tvOutEnabled;
+    _Bool _shouldPlayAfterFlip;
+    _Bool _tvOutEnabled;
 }
 
-@property(nonatomic) BOOL TVOutEnabled; // @synthesize TVOutEnabled=_tvOutEnabled;
-@property(nonatomic) BOOL playAfterFlip; // @synthesize playAfterFlip=_shouldPlayAfterFlip;
+@property(nonatomic) _Bool TVOutEnabled; // @synthesize TVOutEnabled=_tvOutEnabled;
+@property(nonatomic) _Bool playAfterFlip; // @synthesize playAfterFlip=_shouldPlayAfterFlip;
 @property(retain, nonatomic) UINavigationBar *navigationBar; // @synthesize navigationBar=_navigationBar;
 - (void).cxx_destruct;
 - (void)_showChapterGuideNavigationViews;
 - (void)_restoreOriginalNavigationViewsDidStop:(id)arg1;
-- (void)_restoreOriginalNavigationViews:(BOOL)arg1;
-- (int)_interfaceOrientation;
+- (void)_restoreOriginalNavigationViews:(_Bool)arg1;
+- (long long)_interfaceOrientation;
 - (void)_hideNavigationAndStatusBars;
 - (id)_copySwizzledNavigationViews;
 - (id)_chapterGuideTitleLabel;
 - (void)_done:(id)arg1;
-- (void)performTransition:(unsigned int)arg1;
+- (void)performTransition:(unsigned long long)arg1;
 - (void)dealloc;
 
 @end

@@ -11,6 +11,7 @@
 
 @class NSArray, OADFill, OADScene3D, OADShape3D, OADStroke;
 
+// Not exported
 @interface OADGraphicProperties : OADDrawableProperties <OADEffectsParent, OADProperties3DParent>
 {
     OADFill *mFill;
@@ -22,25 +23,25 @@
     unsigned int mIsBehindText:1;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)removeUnnecessaryOverrides;
-- (BOOL)hasIsBehindText;
-- (void)setIsBehindText:(BOOL)arg1;
-- (BOOL)isBehindText;
-- (BOOL)hasStroke;
+- (_Bool)hasIsBehindText;
+- (void)setIsBehindText:(_Bool)arg1;
+- (_Bool)isBehindText;
+- (_Bool)hasStroke;
 - (void)setStroke:(id)arg1;
 - (id)stroke;
-- (BOOL)hasShape3D;
+- (_Bool)hasShape3D;
 - (void)setShape3D:(id)arg1;
 - (id)shape3D;
-- (BOOL)hasScene3D;
+- (_Bool)hasScene3D;
 - (void)setScene3D:(id)arg1;
 - (id)scene3D;
-- (BOOL)hasEffects;
+- (_Bool)hasEffects;
 - (void)setEffects:(id)arg1;
 - (id)effects;
-- (BOOL)hasFill;
+- (_Bool)hasFill;
 - (void)setFill:(id)arg1;
 - (id)fill;
 - (void)setParent:(id)arg1;

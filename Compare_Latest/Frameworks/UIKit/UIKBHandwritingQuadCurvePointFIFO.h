@@ -8,6 +8,7 @@
 
 @class NSMutableArray, UIBezierPath, UIKBHandwritingStrokeView;
 
+// Not exported
 @interface UIKBHandwritingQuadCurvePointFIFO : UIKBHandwritingPointFIFO
 {
     NSMutableArray *_prevPoints;

@@ -6,31 +6,24 @@
 
 #import "UIView.h"
 
-@class CAShapeLayer, UIColor;
+@class UIColor;
 
 @interface SFCircleProgressView : UIView
 {
-    CAShapeLayer *_progressBackgroundLayer;
-    CAShapeLayer *_progressLayer;
-    float _progressLineWidth;
-    UIColor *_progressBackgroundColor;
-    UIColor *_completedColor;
-    double _progress;
-    BOOL _finishAnimationInProgress;
-    float _oneFullRotation;
-    BOOL _showProgressTray;
-    int _progressStartPoint;
-    UIColor *_progressColor;
 }
 
-@property(nonatomic) BOOL showProgressTray; // @synthesize showProgressTray=_showProgressTray;
-@property(nonatomic) float progressLineWidth; // @synthesize progressLineWidth=_progressLineWidth;
-@property(readonly, nonatomic) UIColor *progressColor; // @synthesize progressColor=_progressColor;
-@property(nonatomic) int progressStartPoint; // @synthesize progressStartPoint=_progressStartPoint;
-- (void).cxx_destruct;
-- (void)setProgress:(double)arg1 animated:(BOOL)arg2;
-- (double)progress;
-- (void)drawRect:(struct CGRect)arg1;
++ (Class)layerClass;
+- (double)progressPresentationValue;
+- (void)animateProgressCompletedWithCompletion:(id)arg1;
+- (void)setProgress:(double)arg1 animated:(_Bool)arg2 forced:(_Bool)arg3 completion:(id)arg4;
+- (void)setProgress:(double)arg1 animated:(_Bool)arg2 completion:(id)arg3;
+@property(nonatomic) double progress;
+@property(nonatomic) _Bool showProgressTray;
+@property(nonatomic) double progressLineWidth;
+@property(readonly, nonatomic) UIColor *progressColor;
+- (void)setProgressColor:(id)arg1;
+@property(nonatomic) long long progressStartPoint;
+- (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

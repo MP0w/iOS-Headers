@@ -14,7 +14,7 @@
 }
 
 @property(readonly, nonatomic) SUMediaPlayerItem *mediaPlayerItem; // @synthesize mediaPlayerItem=_mediaItem;
-- (BOOL)_runHEADRequest:(id *)arg1;
+- (_Bool)_runHEADRequest:(id *)arg1;
 - (void)run;
 - (void)dealloc;
 - (id)initWithMediaPlayerItem:(id)arg1;

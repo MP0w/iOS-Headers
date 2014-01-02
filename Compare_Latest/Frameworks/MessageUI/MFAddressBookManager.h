@@ -12,10 +12,11 @@
     void *_addressBook;
 }
 
-+ (BOOL)isAuthorizedToUseAddressBook;
++ (_Bool)isAuthorizedToUseAddressBook;
 + (id)sharedManager;
 - (void)removeClient:(id)arg1;
 - (void)addClient:(id)arg1;
+- (void)_handleAddressBookPrefsChangeNotification;
 - (void)_handleAddressBookChangeNotification;
 - (void)_applicationResumed:(id)arg1;
 - (void *)addressBook;

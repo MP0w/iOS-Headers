@@ -11,7 +11,7 @@
 @protocol ADAdRecipient <NSObject>
 @property(readonly, nonatomic) UIViewController *presentingViewController;
 @property(readonly, nonatomic) UIView *adSpaceView;
-@property(readonly, nonatomic) int options;
+@property(readonly, nonatomic) long long options;
 @property(readonly, nonatomic) int internalAdType;
 - (void)storyboardViewControllerDidPresent;
 - (void)serverStoryboardDidTransitionOut;

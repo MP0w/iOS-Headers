@@ -8,18 +8,18 @@
 
 @interface ABTonePickerViewController : ABPickerViewController
 {
-    BOOL _isTextToneViewController;
+    _Bool _isTextToneViewController;
 }
 
 - (void)cancelButtonClicked:(id)arg1;
 - (void)ringtoneSaveButtonClicked:(id)arg1;
-- (void)_getRotationContentSettings:(CDStruct_af7d35ee *)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (float)ab_heightToFitForViewInPopoverView;
+- (void)_getRotationContentSettings:(CDStruct_ebaa735e *)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (double)ab_heightToFitForViewInPopoverView;
 - (void)loadView;
 @property(readonly, nonatomic) id tonePicker;
 - (void)setStyleProvider:(id)arg1;
-- (id)initAsRingtoneViewController:(BOOL)arg1;
+- (id)initAsRingtoneViewController:(_Bool)arg1;
 - (id)init;
 
 @end

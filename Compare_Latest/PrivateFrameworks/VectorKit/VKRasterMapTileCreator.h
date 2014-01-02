@@ -13,7 +13,7 @@
 @interface VKRasterMapTileCreator : NSObject <VKMapModelDelegate>
 {
     VKImageCanvas *_canvas;
-    int _mapType;
+    long long _mapType;
     VKMapModel *_mapModel;
     struct VKTileKey _superTileKey;
     double _startTimestamp;
@@ -27,29 +27,29 @@
 - (void)mapModelDidFailLoadingTiles:(id)arg1 withError:(id)arg2;
 - (void)mapModelDidFinishLoadingTiles:(id)arg1;
 - (void)mapModelDidStartLoadingTiles:(id)arg1;
-- (void)mapModel:(id)arg1 willTransitionFrom:(int)arg2 to:(int)arg3 duration:(double)arg4;
+- (void)mapModel:(id)arg1 willTransitionFrom:(long long)arg2 to:(long long)arg3 duration:(double)arg4;
 - (void)mapModel:(id)arg1 selectedLabelMarkerWillDisappear:(id)arg2;
 - (void)mapModel:(id)arg1 didFinishAddingAnnotationMarkers:(id)arg2;
 - (void)mapModel:(id)arg1 didAnimateInAnnotationMarkers:(id)arg2;
 - (void)mapModel:(id)arg1 willAnimateInAnnotationMarkers:(id)arg2;
-- (void)mapModel:(id)arg1 annotationMarker:(id)arg2 didChangeDragState:(int)arg3 fromOldState:(int)arg4;
-- (void)mapModel:(id)arg1 needsPanByOffset:(struct CGPoint)arg2 relativeToScreenPoint:(struct CGPoint)arg3 animated:(BOOL)arg4 duration:(double)arg5 completionHandler:(id)arg6;
+- (void)mapModel:(id)arg1 annotationMarker:(id)arg2 didChangeDragState:(long long)arg3 fromOldState:(long long)arg4;
+- (void)mapModel:(id)arg1 needsPanByOffset:(struct CGPoint)arg2 relativeToScreenPoint:(struct CGPoint)arg3 animated:(_Bool)arg4 duration:(double)arg5 completionHandler:(id)arg6;
 - (void)mapModel:(id)arg1 didAddAnnotationMarkers:(id)arg2;
 - (id)mapModel:(id)arg1 markerForAnnotation:(id)arg2;
 - (double)mapModelZoomScale:(id)arg1;
-- (BOOL)mapModelInNav:(id)arg1;
-- (BOOL)mapModelInNavAtDefaultZoom:(id)arg1;
-- (void)mapModelDidBecomeFullyDrawn:(id)arg1 hasFailedTiles:(BOOL)arg2;
+- (_Bool)mapModelInNav:(id)arg1;
+- (_Bool)mapModelInNavAtDefaultZoom:(id)arg1;
+- (void)mapModelDidBecomeFullyDrawn:(id)arg1 hasFailedTiles:(_Bool)arg2;
 - (void)mapModelWillBecomFullyDrawn:(id)arg1;
 - (void)renderTile:(id)arg1;
-@property(nonatomic) int labelScaleFactor;
-@property(nonatomic) BOOL localizeLabels;
-@property(nonatomic) int mapType;
-- (void)setContentScale:(float)arg1;
+@property(nonatomic) long long labelScaleFactor;
+@property(nonatomic) _Bool localizeLabels;
+@property(nonatomic) long long mapType;
+- (void)setContentScale:(double)arg1;
 - (void)setTileKey:(const struct VKRasterTileKey *)arg1;
 - (id)detailedDescription;
 - (void)dealloc;
-- (id)initWithSoftwareRendering:(BOOL)arg1;
+- (id)initWithSoftwareRendering:(_Bool)arg1;
 - (void)_lookAtKey:(const struct VKTileKey *)arg1;
 
 @end

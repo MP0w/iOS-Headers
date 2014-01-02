@@ -10,9 +10,9 @@
 
 @optional
 - (void)keyboardInputChangedSelection:(id)arg1;
-- (BOOL)keyboardInputChanged:(id)arg1;
-- (BOOL)keyboardInputShouldDelete:(id)arg1;
-- (BOOL)keyboardInput:(id)arg1 shouldInsertText:(id)arg2 isMarkedText:(BOOL)arg3;
-- (BOOL)keyboardInput:(id)arg1 shouldReplaceTextInRange:(struct _NSRange)arg2 replacementText:(id)arg3;
+- (_Bool)keyboardInputChanged:(id)arg1;
+- (_Bool)keyboardInputShouldDelete:(id)arg1;
+- (_Bool)keyboardInput:(id)arg1 shouldInsertText:(id)arg2 isMarkedText:(_Bool)arg3;
+- (_Bool)keyboardInput:(id)arg1 shouldReplaceTextInRange:(struct _NSRange)arg2 replacementText:(id)arg3;
 @end
 

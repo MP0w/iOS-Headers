@@ -10,6 +10,8 @@
 @protocol NSTextContainerView <NSObject, NSTextLayoutOrientationProvider>
 
 @optional
+- (void)updateInsertionPointStateAndRestartTimer:(_Bool)arg1;
+- (void)setNeedsDisplayInRect:(struct CGRect)arg1 avoidAdditionalLayout:(_Bool)arg2;
 - (struct CGRect)desiredBoundsForTextContainerSize:(struct CGSize)arg1;
 - (struct CGRect)textContainerFrameForBounds:(struct CGRect)arg1;
 - (id)linkTextAttributes;

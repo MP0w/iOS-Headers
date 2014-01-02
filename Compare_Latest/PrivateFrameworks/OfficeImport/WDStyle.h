@@ -10,6 +10,7 @@
 
 @class NSString, WDCharacterProperties, WDParagraphProperties, WDStyleSheet, WDTableCellProperties, WDTableRowProperties, WDTableStyleOverride;
 
+// Not exported
 @interface WDStyle : NSObject <NSCopying>
 {
     WDParagraphProperties *mParagraphProperties;
@@ -20,7 +21,7 @@
     WDStyleSheet *mStyleSheet;
     WDStyle *mBaseStyle;
     WDStyle *mNextStyle;
-    BOOL mHidden;
+    _Bool mHidden;
     NSString *mName;
     NSString *mId;
     int mStyleType;
@@ -39,9 +40,9 @@
 - (id)tableCellProperties;
 - (id)tableRowProperties;
 - (id)tableProperties;
-- (BOOL)isAnythingOverridden;
-- (void)setHidden:(BOOL)arg1;
-- (BOOL)hidden;
+- (_Bool)isAnythingOverridden;
+- (void)setHidden:(_Bool)arg1;
+- (_Bool)hidden;
 - (id)styleSheet;
 - (id)characterProperties;
 - (id)paragraphProperties;

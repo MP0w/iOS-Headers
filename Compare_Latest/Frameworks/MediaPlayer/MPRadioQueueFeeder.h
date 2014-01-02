@@ -6,51 +6,50 @@
 
 #import <MediaPlayer/MPQueueFeeder.h>
 
-#import "MCProfileConnectionObserver-Protocol.h"
+@class ADBannerView, MPRadioAdObserver, NSArray, NSData, NSMapTable, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, RadioStation;
 
-@class ADBannerView, MPAudioDeviceController, MPRadioAdObserver, NSArray, NSData, NSDictionary, NSMutableArray, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, RadioStation;
-
-@interface MPRadioQueueFeeder : MPQueueFeeder <MCProfileConnectionObserver>
+@interface MPRadioQueueFeeder : MPQueueFeeder
 {
+    NSObject<OS_dispatch_queue> *_accessQueue;
     MPRadioAdObserver *_adObserver;
-    MPAudioDeviceController *_audioDeviceController;
-    BOOL _didFailToFetchTracks;
-    BOOL _isExplicitContentRestricted;
-    BOOL _isFetchingTracks;
-    BOOL _deviceIsDocked;
-    BOOL _deviceIsLocked;
-    int _lockStateNotifyToken;
-    BOOL _lockStateNotifyTokenIsValid;
-    NSDictionary *_pickedRoute;
-    BOOL _playbackIsPaused;
-    NSObject<OS_dispatch_source> *_playbackTimerSource;
+    _Bool _didFailToFetchTracks;
+    NSMutableDictionary *_fetchingTracksCompletionHandlersByStation;
     ADBannerView *_skipAdView;
     NSData *_skipAdTrackData;
+    NSMapTable *_startTimesByRadioTrack;
     RadioStation *_station;
     NSObject<OS_dispatch_queue> *_trackHistoryQueue;
+    NSObject<OS_dispatch_queue> *_trackRemovalQueue;
     NSMutableArray *_tracks;
-    BOOL _wasUsingBackgroundNetwork;
-    unsigned int _initialTrackIndex;
+    _Bool _wasUsingBackgroundNetwork;
 }
 
-+ (BOOL)shouldRestorePlaybackQueue;
++ (void)_updateIsExplicitContentRestrictedAndPostNotification:(_Bool)arg1 removeTracks:(_Bool)arg2;
++ (id)_profileConnectionObserver;
++ (_Bool)shouldRestorePlaybackQueue;
 + (id)imageCache;
-+ (void)_radioConfigurationDidChangeNotification:(id)arg1;
-+ (void)initialize;
-@property(nonatomic) unsigned int initialTrackIndex; // @synthesize initialTrackIndex=_initialTrackIndex;
++ (void)setUserDefaultExplicitTracksEnabled:(_Bool)arg1;
++ (void)setMinimumDurationToPlayToCountForHistory:(double)arg1;
++ (_Bool)isUserDefaultExplicitTracksEnabled;
++ (_Bool)isExplicitTracksEnabled;
++ (void)_isProfileExplicitContentRestrictedDidChangeNotification:(id)arg1;
 - (void).cxx_destruct;
-- (void)_updatePlaybackTimerForDeviceStateChange;
-- (void)_updateIsExplicitContentRestrictedForProfileConnection:(id)arg1;
+- (void)_updateTracksKeepingExistingTracks:(_Bool)arg1 keepingCurrentTrack:(_Bool)arg2 invalidatingContent:(_Bool)arg3;
 - (id)_tracksWithPromotionalContentFromTracks:(id)arg1;
-- (void)_insertAdTrack:(id)arg1 afterCurrentItemIndex:(unsigned int)arg2;
-- (unsigned int)_indexOfCurrentItem;
-- (void)_fetchAdditionalTracksAndKeepExistingTracks:(BOOL)arg1 withCompletionHandler:(id)arg2;
-- (BOOL)_endPlaybackIfNecessaryForNetworkType;
+- (void)_recordTrackTimeForItem:(id)arg1;
+- (void)_prefetchArtworkForNextTrack;
+- (void)_insertAdTrack:(id)arg1 afterCurrentItemIndex:(unsigned long long)arg2;
+- (unsigned long long)_indexOfCurrentItem;
+- (void)_fetchAdditionalTracksWithCompletionHandler:(id)arg1;
+- (_Bool)_endPlaybackIfNecessaryForNetworkType;
 - (void)_cancelScheduledAds;
-- (void)_cancelPlaybackTimer;
-- (BOOL)reloadWithDataSource:(id)arg1 keepPlayingCurrentItemIfPossible:(BOOL)arg2 initialTrackIndex:(unsigned int)arg3 startPlayback:(BOOL)arg4;
+- (_Bool)reloadWithDataSource:(id)arg1 keepPlayingCurrentItemIfPossible:(_Bool)arg2 startPlayback:(_Bool)arg3;
 @property(copy, nonatomic) NSArray *tracks;
-@property(retain, nonatomic) RadioStation *station; // @synthesize station=_station;
+@property(retain, nonatomic) RadioStation *station;
+- (void)setStartTime:(double)arg1 forRadioTrack:(id)arg2;
+- (void)removeStartTimeForRadioTrack:(id)arg1;
+- (void)removeAllStartTimes;
+- (void)reloadTracksForPlayingStationAndKeepExistingTracks:(_Bool)arg1;
 - (void)reloadTracksForPlayingStation;
 - (void)loadArtworkImageForItem:(id)arg1 completionHandler:(id)arg2;
 - (void)_songBeganResponseNotification:(id)arg1;
@@ -60,29 +59,31 @@
 - (void)_itemIsBannedDidChangedNotification:(id)arg1;
 - (void)_itemDidFinishLoadingNotification:(id)arg1;
 - (void)_itemWillChangeNotification:(id)arg1;
+- (void)_isExplicitTracksEnabledDidChangeNotification:(id)arg1;
 - (void)_didFailToLoadAdNotification:(id)arg1;
 - (void)_cellularNetworkingAllowedDidChangeNotification:(id)arg1;
 - (void)_bufferingStateDidChangeNotification:(id)arg1;
-- (void)profileConnectionDidReceiveRestrictionChangedNotification:(id)arg1 userInfo:(id)arg2;
-- (void)profileConnectionDidReceiveEffectiveSettingsChangedNotification:(id)arg1 userInfo:(id)arg2;
-- (unsigned int)initialPlaybackQueueDepth;
-- (void)audioDeviceControllerAudioRoutesChanged:(id)arg1;
-- (BOOL)shouldBeginPlaybackOfItem:(id)arg1 error:(id *)arg2;
+- (void)_applicationWillTerminateNotification:(id)arg1;
+- (unsigned long long)initialPlaybackQueueDepth;
+- (_Bool)shouldBeginPlaybackOfItem:(id)arg1 error:(id *)arg2;
 - (void)setAVController:(id)arg1;
-- (BOOL)reloadWithDataSource:(id)arg1 keepPlayingCurrentItemIfPossible:(BOOL)arg2;
+- (_Bool)reloadWithDataSource:(id)arg1 keepPlayingCurrentItemIfPossible:(_Bool)arg2;
+- (unsigned long long)realRepeatType;
+- (_Bool)playerPreparesItemsForPlaybackAsynchronously;
 - (int)playbackMode;
 - (id)localizedPositionInPlaylistString:(id)arg1;
 - (id)localizedAttributedPositionInPlaylistStringForItem:(id)arg1 withRegularTextAttributes:(id)arg2 emphasizedTextAttributes:(id)arg3;
-- (unsigned int)itemTypeForIndex:(unsigned int)arg1;
-- (unsigned int)itemCount;
+- (unsigned long long)itemTypeForIndex:(unsigned long long)arg1;
+- (unsigned long long)itemCount;
 - (Class)itemClass;
-- (BOOL)hasValidItemAtIndex:(unsigned int)arg1;
-- (id)copyRawItemAtIndex:(unsigned int)arg1;
-- (void)controller:(id)arg1 willChangePlaybackIndexBy:(int)arg2 deltaType:(int)arg3 ignoreElapsedTime:(BOOL)arg4 allowSkippingAds:(BOOL)arg5;
-- (id)_trackAtIndex:(unsigned int)arg1;
-- (BOOL)canSkipToPreviousItem;
-- (BOOL)canSkipItem:(id)arg1;
-- (BOOL)canSeek;
+- (_Bool)hasValidItemAtIndex:(unsigned long long)arg1;
+- (id)copyRawItemAtIndex:(unsigned long long)arg1;
+- (void)controller:(id)arg1 willChangePlaybackIndexBy:(long long)arg2 deltaType:(int)arg3 ignoreElapsedTime:(_Bool)arg4 allowSkippingAds:(_Bool)arg5;
+- (id)_trackAtIndex:(unsigned long long)arg1;
+- (id)playbackInfoAtIndex:(unsigned long long)arg1;
+- (_Bool)canSkipToPreviousItem;
+- (_Bool)canSkipItem:(id)arg1;
+- (_Bool)canSeek;
 - (void)dealloc;
 - (id)init;
 

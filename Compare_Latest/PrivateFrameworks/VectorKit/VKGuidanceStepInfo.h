@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface VKGuidanceStepInfo : NSObject
 {
     NSString *_roadName;

@@ -22,6 +22,7 @@
 @property(retain, nonatomic) MPAVController *player; // @synthesize player=_player;
 - (void).cxx_destruct;
 - (void)_tabsDidChange:(id)arg1;
+- (void)showNowPlaying;
 - (void)dealloc;
 - (id)initWithScreen:(id)arg1 tabs:(id)arg2;
 - (id)initWithTabs:(id)arg1;

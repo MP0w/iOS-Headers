@@ -6,13 +6,14 @@
 
 #import <CoreFoundation/NSDate.h>
 
+// Not exported
 @interface __NSDate : NSDate
 {
     double _time;
 }
 
 + (id)allocWithZone:(struct _NSZone *)arg1;
-+ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
++ (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 + (id)__new:(double)arg1;
 - (id)initWithTimeIntervalSinceReferenceDate:(double)arg1;
 - (void)dealloc;

@@ -6,10 +6,11 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface GQHXML : NSObject
 {
     id <GQHXMLOutput> mOutput;
-    BOOL mUseExternalCss;
+    _Bool mUseExternalCss;
     struct __CFString *mFilename;
     struct __CFString *mCssFilename;
     struct __CFString *mCss;
@@ -20,9 +21,10 @@
 @property(readonly) _Bool isProgressive; // @synthesize isProgressive;
 - (struct __CFData *)createProgressiveeCSSwithStyleTags:(unsigned char)arg1;
 - (struct __CFData *)createProgressiveHtml;
-- (BOOL)writeToOutputBundle:(id)arg1;
+- (_Bool)writeToOutputBundle:(id)arg1 isThumbnail:(_Bool)arg2;
 - (void)addViewportMetaTagForDocumentSize:(struct CGSize)arg1 maximumScale:(float)arg2;
 - (void)addViewportMetaTagForDocumentSize:(struct CGSize)arg1;
+- (void)addMetaTagWithTextFormat:(struct __CFString *)arg1;
 - (struct __CFString *)cssFilename;
 - (void)addStyleClassLast:(struct __CFString *)arg1;
 - (void)addStyleClass:(struct __CFString *)arg1;
@@ -37,8 +39,8 @@
 - (void)endElement;
 - (void)startElement:(const char *)arg1;
 - (void)dealloc;
-- (id)initWithFilename:(struct __CFString *)arg1 documentSize:(struct CGSize *)arg2 outputBundle:(id)arg3 useExternalCss:(BOOL)arg4;
-- (id)initEmptyWithFilename:(struct __CFString *)arg1 useExternalCss:(BOOL)arg2;
+- (id)initWithFilename:(struct __CFString *)arg1 documentSize:(struct CGSize *)arg2 outputBundle:(id)arg3 useExternalCss:(_Bool)arg4;
+- (id)initEmptyWithFilename:(struct __CFString *)arg1 useExternalCss:(_Bool)arg2;
 
 @end
 

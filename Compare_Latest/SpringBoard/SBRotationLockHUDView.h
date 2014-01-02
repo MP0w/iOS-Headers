@@ -8,11 +8,11 @@
 
 @interface SBRotationLockHUDView : SBHUDView
 {
-    BOOL _locked;
-    BOOL locked;
+    _Bool _locked;
+    _Bool locked;
 }
 
-@property(nonatomic, getter=isLocked) BOOL locked; // @synthesize locked;
+@property(nonatomic, getter=isLocked) _Bool locked; // @synthesize locked;
 - (id)init;
 - (void)_updateLockedImage;
 

@@ -8,26 +8,27 @@
 
 @class EDFormula, EDString, TSUPointerKeyDictionary;
 
+// Not exported
 @interface EDName : NSObject
 {
-    unsigned int mSheetIndex;
+    unsigned long long mSheetIndex;
     EDString *mNameString;
     EDFormula *mFormula;
     TSUPointerKeyDictionary *mMaxWorksheetReferences;
 }
 
 - (id)maxWorksheetReferences;
-- (void)setSheetIndex:(unsigned int)arg1;
-- (unsigned int)sheetIndex;
+- (void)setSheetIndex:(unsigned long long)arg1;
+- (unsigned long long)sheetIndex;
 - (void)setCleanedFormula:(id)arg1;
 - (void)setFormula:(id)arg1 workbook:(id)arg2;
 - (id)formula;
 - (void)setNameString:(id)arg1;
 - (id)nameString;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isEqualToString:(id)arg1;
-- (BOOL)isEqualToEDName:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)isEqualToString:(id)arg1;
+- (_Bool)isEqualToEDName:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

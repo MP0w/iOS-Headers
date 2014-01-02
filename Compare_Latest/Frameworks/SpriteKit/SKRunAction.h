@@ -8,14 +8,15 @@
 
 @class NSString;
 
+// Not exported
 @interface SKRunAction : SKAction
 {
     SKAction *_action;
     NSString *_subSpriteKey;
     NSString *_actionKey;
-    BOOL _waitForKeyedAction;
-    BOOL _runOnSubSprite;
-    BOOL _fired;
+    _Bool _waitForKeyedAction;
+    _Bool _runOnSubSprite;
+    _Bool _fired;
 }
 
 + (id)runAction:(id)arg1 afterActionWithKey:(id)arg2;

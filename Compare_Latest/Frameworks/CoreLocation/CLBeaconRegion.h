@@ -15,16 +15,15 @@
     NSNumber *_minor;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 + (id)any;
 @property(readonly, nonatomic) NSNumber *minor; // @synthesize minor=_minor;
 @property(readonly, nonatomic) NSNumber *major; // @synthesize major=_major;
 @property(readonly, nonatomic) NSUUID *proximityUUID; // @synthesize proximityUUID=_proximityUUID;
-@property(nonatomic) BOOL notifyEntryStateOnDisplay;
+@property(nonatomic) _Bool notifyEntryStateOnDisplay;
 - (id)peripheralDataWithMeasuredPower:(id)arg1;
 - (BOOL)_measuredPowerForDevice;
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

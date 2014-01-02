@@ -6,13 +6,14 @@
 
 #import <UIKit/UIStatusBarItemView.h>
 
+// Not exported
 @interface UIStatusBarLocationItemView : UIStatusBarItemView
 {
     int _iconType;
 }
 
 - (id)contentsImage;
-- (BOOL)updateForNewData:(id)arg1 actions:(int)arg2;
+- (_Bool)updateForNewData:(id)arg1 actions:(int)arg2;
 
 @end
 

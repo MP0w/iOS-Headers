@@ -7,17 +7,17 @@
 #pragma mark Named Structures
 
 struct CGAffineTransform {
-    float a;
-    float b;
-    float c;
-    float d;
-    float tx;
-    float ty;
+    double a;
+    double b;
+    double c;
+    double d;
+    double tx;
+    double ty;
 };
 
 struct CGPoint {
-    float x;
-    float y;
+    double x;
+    double y;
 };
 
 struct CGRect {
@@ -26,8 +26,8 @@ struct CGRect {
 };
 
 struct CGSize {
-    float width;
-    float height;
+    double width;
+    double height;
 };
 
 struct NSObject {
@@ -35,35 +35,35 @@ struct NSObject {
 };
 
 struct UIEdgeInsets {
-    float top;
-    float left;
-    float bottom;
-    float right;
+    double top;
+    double left;
+    double bottom;
+    double right;
 };
 
 struct _NSRange {
-    unsigned int location;
-    unsigned int length;
+    unsigned long long _field1;
+    unsigned long long _field2;
 };
 
 #pragma mark Typedef'd Structures
 
 typedef struct {
-    char _field1;
-    char _field2;
-    char _field3;
-    char _field4;
-    float _field5;
+    _Bool _field1;
+    _Bool _field2;
+    _Bool _field3;
+    _Bool _field4;
+    double _field5;
     int _field6;
-} CDStruct_af7d35ee;
+} CDStruct_ebaa735e;
 
 typedef struct {
-    int version;
+    long long version;
     void *info;
     void *retain;
     void *release;
     void *copyDescription;
-} CDStruct_304912e7;
+} CDStruct_4210025a;
 
 // Ambiguous groups
 typedef struct {
@@ -94,4 +94,15 @@ typedef struct {
         double longitudeDelta;
     } span;
 } CDStruct_feeb6407;
+
+typedef struct {
+    struct {
+        double x;
+        double y;
+    } origin;
+    struct {
+        double width;
+        double height;
+    } size;
+} CDStruct_02837cd9;
 

@@ -6,6 +6,7 @@
 
 #import <UIKit/UIStatusBarButtonActionItemView.h>
 
+// Not exported
 @interface UIStatusBarReturnToAppItemView : UIStatusBarButtonActionItemView
 {
 }

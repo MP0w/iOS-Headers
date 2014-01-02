@@ -10,16 +10,19 @@
 
 @class GQDAffineGeometry, GQDFilteredImage, GQDImageBinary, GQDPath;
 
+// Not exported
 @interface GQDMedia : GQDGraphic <GQDNameMappable>
 {
     GQDFilteredImage *mFilteredImage;
     GQDAffineGeometry *mCropGeometry;
     GQDImageBinary *mOriginalImageBinary;
-    GQDPath *mPath;
+    GQDPath *mMaskingShapePath;
+    struct CGPath *mAlphaMaskBezier;
 }
 
 + (const struct StateSpec *)stateForReading;
-- (id)maskPath;
+- (struct CGPath *)alphaMaskBezier;
+- (id)maskingShapePath;
 - (id)cropGeometry;
 - (id)imageBinary;
 - (void)dealloc;

@@ -8,12 +8,13 @@
 
 @class NSMutableDictionary, NSMutableSet;
 
+// Not exported
 @interface WebElementDictionary : NSDictionary
 {
     struct HitTestResult *_result;
     NSMutableDictionary *_cache;
     NSMutableSet *_nilValues;
-    BOOL _cacheComplete;
+    _Bool _cacheComplete;
 }
 
 + (void)initializeLookupTable;
@@ -37,7 +38,7 @@
 - (id)_domNode;
 - (id)objectForKey:(id)arg1;
 - (id)keyEnumerator;
-- (unsigned int)count;
+- (unsigned long long)count;
 - (void)_fillCache;
 - (void)finalize;
 - (void)dealloc;

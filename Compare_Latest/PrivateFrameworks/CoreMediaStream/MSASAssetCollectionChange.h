@@ -10,12 +10,12 @@
 
 @interface MSASAssetCollectionChange : NSObject
 {
-    BOOL _wasDeleted;
+    _Bool _wasDeleted;
     NSString *_GUID;
     NSString *_ctag;
 }
 
-@property(nonatomic) BOOL wasDeleted; // @synthesize wasDeleted=_wasDeleted;
+@property(nonatomic) _Bool wasDeleted; // @synthesize wasDeleted=_wasDeleted;
 @property(retain, nonatomic) NSString *ctag; // @synthesize ctag=_ctag;
 @property(retain, nonatomic) NSString *GUID; // @synthesize GUID=_GUID;
 - (void).cxx_destruct;

@@ -6,18 +6,19 @@
 
 #import <UIKit/_UIBackdropViewSettings.h>
 
+// Not exported
 @interface _UIBackdropViewSettingsCombiner : _UIBackdropViewSettings
 {
     _UIBackdropViewSettings *_inputSettingsA;
     _UIBackdropViewSettings *_inputSettingsB;
-    float _weighting;
+    double _weighting;
     _UIBackdropViewSettings *_outputSettingsA;
     _UIBackdropViewSettings *_outputSettingsB;
 }
 
 @property(retain, nonatomic) _UIBackdropViewSettings *outputSettingsB; // @synthesize outputSettingsB=_outputSettingsB;
 @property(retain, nonatomic) _UIBackdropViewSettings *outputSettingsA; // @synthesize outputSettingsA=_outputSettingsA;
-@property(nonatomic) float weighting; // @synthesize weighting=_weighting;
+@property(nonatomic) double weighting; // @synthesize weighting=_weighting;
 @property(retain, nonatomic) _UIBackdropViewSettings *inputSettingsB; // @synthesize inputSettingsB=_inputSettingsB;
 @property(retain, nonatomic) _UIBackdropViewSettings *inputSettingsA; // @synthesize inputSettingsA=_inputSettingsA;
 - (void)computeOutputSettingsUsingModel:(id)arg1;

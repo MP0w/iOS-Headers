@@ -16,7 +16,7 @@
     UIImage *_minValueImage;
     UIImage *_maxValueImage;
     int _numberOfTickMarks;
-    float _hitOffset;
+    double _hitOffset;
     UIImage *_sliderRightCap;
     UIImage *_sliderRightFullCap;
     UIImage *_sliderLeftCap;
@@ -43,24 +43,24 @@
     struct CGPoint _idleTrackingPoint;
 }
 
-- (void)setSendActionDuringAnimation:(BOOL)arg1;
-- (void)setContinuous:(BOOL)arg1;
-- (BOOL)cancelTouchTracking;
+- (void)setSendActionDuringAnimation:(_Bool)arg1;
+- (void)setContinuous:(_Bool)arg1;
+- (_Bool)cancelTouchTracking;
 - (void)_controlTouchEnded:(id)arg1 withEvent:(id)arg2;
 - (void)_controlTouchMoved:(id)arg1 withEvent:(id)arg2;
 - (void)_controlTouchBegan:(id)arg1 withEvent:(id)arg2;
 - (void)endTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (BOOL)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (BOOL)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (BOOL)cancelMouseTracking;
-- (void)setHighlighted:(BOOL)arg1;
-- (float)_validatedValueForPoint:(struct CGPoint)arg1 includeTickMarks:(BOOL)arg2;
+- (_Bool)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
+- (_Bool)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
+- (_Bool)cancelMouseTracking;
+- (void)setHighlighted:(_Bool)arg1;
+- (float)_validatedValueForPoint:(struct CGPoint)arg1 includeTickMarks:(_Bool)arg2;
 - (float)_validatedValue:(float)arg1;
-- (void)setEnabled:(BOOL)arg1;
+- (void)setEnabled:(_Bool)arg1;
 - (void)setMaxValueImage:(id)arg1;
 - (void)setMinValueImage:(id)arg1;
-- (void)setShowValue:(BOOL)arg1;
-- (void)setAllowsTickMarkValuesOnly:(BOOL)arg1;
+- (void)setShowValue:(_Bool)arg1;
+- (void)setAllowsTickMarkValuesOnly:(_Bool)arg1;
 - (void)setNumberOfTickMarks:(int)arg1;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)setMaxValue:(float)arg1;
@@ -70,10 +70,10 @@
 - (struct CGRect)minValueImageBounds;
 - (struct CGRect)sliderBounds;
 - (float)value;
-- (void)setValue:(float)arg1 animated:(BOOL)arg2;
-- (void)setValue:(float)arg1 animated:(BOOL)arg2 animationCurve:(int)arg3;
-- (BOOL)isAnimatingValueChange;
-- (void)_setValue:(float)arg1 andSendAction:(BOOL)arg2;
+- (void)setValue:(float)arg1 animated:(_Bool)arg2;
+- (void)setValue:(float)arg1 animated:(_Bool)arg2 animationCurve:(int)arg3;
+- (_Bool)isAnimatingValueChange;
+- (void)_setValue:(float)arg1 andSendAction:(_Bool)arg2;
 - (void)setValue:(float)arg1;
 - (void)_sendDelayedActions;
 - (void)animator:(id)arg1 stopAnimation:(id)arg2;
@@ -88,10 +88,9 @@
 - (struct CGRect)fillBounds;
 - (void)_resetFillFrames;
 - (id)createSliderKnobView;
-- (id)initWithFrame:(struct CGRect)arg1 layeredFill:(BOOL)arg2;
+- (id)initWithFrame:(struct CGRect)arg1 layeredFill:(_Bool)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)init;
-- (id)_scriptingInfo;
 
 @end
 

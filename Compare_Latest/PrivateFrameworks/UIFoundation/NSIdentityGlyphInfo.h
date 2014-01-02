@@ -8,6 +8,7 @@
 
 @class UIFont;
 
+// Not exported
 @interface NSIdentityGlyphInfo : NSGlyphInfo
 {
     UIFont *_font;

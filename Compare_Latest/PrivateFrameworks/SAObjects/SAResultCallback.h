@@ -17,7 +17,7 @@
 + (id)resultCallbackWithDictionary:(id)arg1 context:(id)arg2;
 + (id)resultCallback;
 @property(copy, nonatomic) NSArray *commands;
-@property(nonatomic) int code;
+@property(nonatomic) long long code;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

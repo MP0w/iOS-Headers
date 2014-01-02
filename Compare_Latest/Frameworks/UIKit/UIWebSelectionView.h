@@ -8,6 +8,7 @@
 
 @class NSTimer, UIWebDocumentView, UIWebSelection, UIWebSelectionGraph, UIWebSelectionHandle, UIWebSelectionNode, UIWebSelectionOutline, UIWebTextRangeView;
 
+// Not exported
 @interface UIWebSelectionView : UIView
 {
     UIView *_center;
@@ -21,8 +22,8 @@
     UIWebDocumentView *_documentView;
     UIWebSelectionNode *_selectionNode;
     UIWebSelectionGraph *_selectionGraph;
-    float _growThreshold;
-    float _shrinkThreshold;
+    double _growThreshold;
+    double _shrinkThreshold;
     struct {
         UIWebSelectionHandle *scrollingHandle;
         double startTime;
@@ -32,32 +33,32 @@
     struct {
         UIWebSelectionHandle *activeHandle;
         struct CGPoint handleCenterStart;
-        float handleOffset;
+        double handleOffset;
     } _blockSelectionData;
     struct {
         UIWebSelectionHandle *start;
         UIWebSelectionHandle *end;
         struct CGSize startingOffset;
-        char anchorAtStart;
+        _Bool anchorAtStart;
         struct {
-            char flipPossible;
-            char rectsChanged;
+            _Bool flipPossible;
+            _Bool rectsChanged;
             struct CGRect originalSelectionRect;
         } flipData;
     } _rangedSelectionData;
-    BOOL _creatingSelection;
+    _Bool _creatingSelection;
     int _nestedLayoutCalls;
-    BOOL _calloutBarIsHiddenBeforeRotation;
-    BOOL _rotating;
+    _Bool _calloutBarIsHiddenBeforeRotation;
+    _Bool _rotating;
     int _selectionInFixedPosition;
 }
 
 @property(retain, nonatomic) UIWebSelectionNode *selectionNode; // @synthesize selectionNode=_selectionNode;
-- (void)layoutChangedByScrolling:(BOOL)arg1;
+- (void)layoutChangedByScrolling:(_Bool)arg1;
 - (void)updateForChangedLayoutWhileManipulatingBlockSelectionHandle;
 - (void)updateForChangedLayoutWhileManipulatingTextSelectionHandle;
-- (BOOL)activelyManipulatingBlockSelectionHandle;
-- (BOOL)activelyManipulatingTextSelectionHandle;
+- (_Bool)activelyManipulatingBlockSelectionHandle;
+- (_Bool)activelyManipulatingTextSelectionHandle;
 - (id)activeHandle;
 @property(readonly, nonatomic) UIWebSelection *selection;
 - (void)scaleChanged;
@@ -80,23 +81,23 @@
 - (int)autoscrollDirectionsForHandle:(id)arg1;
 - (void)contractForActiveHandle;
 - (void)expandForActiveHandle;
-- (BOOL)shouldContractForActiveHandle;
-- (BOOL)shouldExpandForActiveHandle;
+- (_Bool)shouldContractForActiveHandle;
+- (_Bool)shouldExpandForActiveHandle;
 - (void)computeExpandAndContractThresholdsForActiveHandle;
-- (BOOL)canFlip;
+- (_Bool)canFlip;
 - (void)considerFlipping;
 - (void)switchToTextModeForHandle:(id)arg1;
-- (BOOL)isHorizontalWritingMode;
+- (_Bool)isHorizontalWritingMode;
 - (void)switchToBlockModeForHandle:(id)arg1;
-- (BOOL)shouldSwitchToBlockModeForHandle:(id)arg1;
+- (_Bool)shouldSwitchToBlockModeForHandle:(id)arg1;
 - (void)touchChanged:(id)arg1 forHandleInText:(id)arg2;
 - (void)setOrientationOfMagnifier:(id)arg1 forHandleInText:(id)arg2;
 - (void)touchChanged:(id)arg1 forHandle:(id)arg2;
 - (id)handles;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)resetSelection;
-- (void)setSelectionFrame:(struct CGRect)arg1 animated:(BOOL)arg2;
-- (void)updateFrameAndHandlesWithAnimation:(BOOL)arg1;
+- (void)setSelectionFrame:(struct CGRect)arg1 animated:(_Bool)arg2;
+- (void)updateFrameAndHandlesWithAnimation:(_Bool)arg1;
 - (void)updateTextRangeViewSelectionRects;
 - (struct CGRect)fetchSelectionBoundingRect;
 - (struct CGRect)fetchSelectionBoundingTextSelectionRect;
@@ -110,11 +111,11 @@
 - (void)willStartScrollingOverflow;
 - (void)didEndScrollingOrZoomingPage;
 - (void)willStartScrollingOrZoomingPage;
-- (void)onAfterScrollOrZoomShowingSelection:(BOOL)arg1;
-- (void)onBeforeScrollOrZoomHidingSelection:(BOOL)arg1;
+- (void)onAfterScrollOrZoomShowingSelection:(_Bool)arg1;
+- (void)onBeforeScrollOrZoomHidingSelection:(_Bool)arg1;
 - (void)calloutBar:(id)arg1 selectedCommand:(id)arg2;
-- (void)showCopyCalloutWithAnimation:(BOOL)arg1;
-- (BOOL)updateRectForCalloutBar:(id)arg1 inWindow:(id)arg2;
+- (void)showCopyCalloutWithAnimation:(_Bool)arg1;
+- (_Bool)updateRectForCalloutBar:(id)arg1 inWindow:(id)arg2;
 - (void)hideCopyCallout;
 - (void)dealloc;
 - (id)initWithWebDocumentView:(id)arg1;

@@ -6,12 +6,13 @@
 
 #import <UIKit/UIImageView.h>
 
+// Not exported
 @interface _UIActivityFunctionImageView : UIImageView
 {
-    BOOL _overlay;
+    _Bool _overlay;
 }
 
-@property(nonatomic) BOOL overlay; // @synthesize overlay=_overlay;
+@property(nonatomic) _Bool overlay; // @synthesize overlay=_overlay;
 
 @end
 

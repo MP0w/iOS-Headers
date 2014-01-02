@@ -12,7 +12,7 @@
 {
     ISOperation *_operation;
     NSString *_permissionIdentifier;
-    unsigned int _taskIdentifier;
+    unsigned long long _taskIdentifier;
 }
 
 - (void)_takeBackgroundAssertion;

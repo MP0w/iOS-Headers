@@ -6,27 +6,29 @@
 
 #import <MediaPlayer/MPAVItem.h>
 
-@class MPMediaItem;
+@class MPMediaItem, NSCache;
 
 @interface MPMediaQueryNowPlayingItem : MPAVItem
 {
     MPMediaItem *_mediaItem;
+    NSCache *_cache;
 }
 
-+ (void)applyVolumeNormalizationWithSoundCheckEnabled:(BOOL)arg1 forQueuedItems:(id)arg2 currentQuery:(id)arg3;
++ (void)setShouldAlwaysAirplayFromCloud:(_Bool)arg1;
++ (void)applyVolumeNormalizationWithSoundCheckEnabled:(_Bool)arg1 forQueuedItems:(id)arg2 currentQuery:(id)arg3;
 - (void).cxx_destruct;
-- (void)_updateBookmarkTimeIfNecessary:(double)arg1 isCheckpoint:(BOOL)arg2;
-- (id)_newTimeMarkersForChapterType:(int)arg1;
-- (void)_handlePlaybackFinishedTime:(double)arg1 finishedByHittingEnd:(BOOL)arg2;
+- (void)_updateBookmarkTimeIfNecessary:(double)arg1 isCheckpoint:(_Bool)arg2;
+- (id)_newTimeMarkersForChapterType:(long long)arg1;
+- (void)_handlePlaybackFinishedTime:(double)arg1 finishedByHittingEnd:(_Bool)arg2;
 - (id)_chapterTitleForTime:(double)arg1;
 - (void)_applyLoudnessInfo;
 - (float)userRating;
-- (BOOL)useEmbeddedChapterData;
+- (_Bool)useEmbeddedChapterData;
 - (id)urlTimeMarkers;
-- (unsigned int)type;
+- (unsigned long long)type;
 - (id)titlesForTime:(double)arg1;
-- (BOOL)supportsRewindAndFastForward15Seconds;
-- (BOOL)supportsAddStation;
+- (_Bool)supportsRewindAndFastForward15Seconds;
+- (_Bool)supportsAddStation;
 - (void)setRating:(float)arg1;
 - (void)setPlaybackStoppedTime:(double)arg1;
 - (void)setPlaybackFinishedTime:(double)arg1;
@@ -39,32 +41,32 @@
 - (void)notePlaybackFinishedByHittingEnd;
 @property(readonly, nonatomic) MPMediaItem *mediaItem; // @synthesize mediaItem=_mediaItem;
 - (id)mainTitle;
-- (id)imageCacheRequestWithSize:(struct CGSize)arg1 time:(double)arg2 usePlaceholderAsFallback:(BOOL)arg3;
+- (id)imageCacheRequestWithSize:(struct CGSize)arg1 time:(double)arg2 usePlaceholderAsFallback:(_Bool)arg3;
 - (id)imageCache;
-- (BOOL)hasDataForItemArtwork;
-- (BOOL)hasAlternatesForTypes:(unsigned int)arg1;
-- (void)handlePlaybackFinishedTime:(double)arg1 finishedByHittingEnd:(BOOL)arg2;
+- (_Bool)hasDataForItemArtwork;
+- (_Bool)hasAlternatesForTypes:(unsigned long long)arg1;
+- (void)handlePlaybackFinishedTime:(double)arg1 finishedByHittingEnd:(_Bool)arg2;
 - (id)genre;
-- (BOOL)allowsEQ;
-- (int)customAVEQPreset;
-- (BOOL)isStreamable;
-- (BOOL)isSupportedDefaultPlaybackSpeed:(unsigned int)arg1;
-- (BOOL)isAssetURLValid;
-- (BOOL)isPlaceholderForItem:(id)arg1;
-- (BOOL)isValidPlayerSubstituteForItem:(id)arg1;
-- (BOOL)isExplicitTrack;
+- (_Bool)allowsEQ;
+- (long long)customAVEQPreset;
+- (_Bool)isStreamable;
+- (_Bool)isSupportedDefaultPlaybackSpeed:(unsigned long long)arg1;
+- (_Bool)isAssetURLValid;
+- (_Bool)isPlaceholderForItem:(id)arg1;
+- (_Bool)isValidPlayerSubstituteForItem:(id)arg1;
+- (_Bool)isExplicitTrack;
 - (double)durationFromExternalMetadata;
 - (id)displayableText;
-- (unsigned int)discCount;
-- (unsigned int)discNumber;
+- (unsigned long long)discCount;
+- (unsigned long long)discNumber;
 - (id)composer;
 - (id)chapterTimeMarkers;
-- (BOOL)canSeedGenius;
+- (_Bool)canSeedGenius;
 - (id)artworkTimeMarkers;
 - (id)artworkMIMEType;
 - (id)artworkImageData;
-- (unsigned int)albumTrackCount;
-- (unsigned int)albumTrackNumber;
+- (unsigned long long)albumTrackCount;
+- (unsigned long long)albumTrackNumber;
 - (id)albumArtist;
 - (id)artist;
 - (id)album;

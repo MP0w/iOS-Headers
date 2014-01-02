@@ -6,6 +6,7 @@
 
 #import <CoreFoundation/__NSFastEnumerationEnumerator.h>
 
+// Not exported
 @interface __NSDictionaryObjectEnumerator : __NSFastEnumerationEnumerator
 {
 }

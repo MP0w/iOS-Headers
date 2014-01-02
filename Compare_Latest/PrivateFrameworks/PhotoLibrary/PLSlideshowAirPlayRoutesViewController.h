@@ -16,17 +16,17 @@
     UIView *_containerView;
     UITableView *_table;
     NSArray *_airplayRoutes;
-    unsigned int _selectedRouteIndex;
+    unsigned long long _selectedRouteIndex;
 }
 
-@property(nonatomic) unsigned int selectedRouteIndex; // @synthesize selectedRouteIndex=_selectedRouteIndex;
+@property(nonatomic) unsigned long long selectedRouteIndex; // @synthesize selectedRouteIndex=_selectedRouteIndex;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (struct CGSize)contentSizeForViewInPopoverView;
 - (void)dealloc;
 - (void)loadView;
-- (id)initWithAirplayRoutes:(id)arg1 selectedRouteIndex:(unsigned int)arg2;
+- (id)initWithAirplayRoutes:(id)arg1 selectedRouteIndex:(unsigned long long)arg2;
 
 @end
 

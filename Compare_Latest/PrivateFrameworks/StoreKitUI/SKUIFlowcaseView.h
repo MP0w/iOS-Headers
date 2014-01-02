@@ -11,16 +11,16 @@
 @interface SKUIFlowcaseView : UIControl
 {
     id <SKUIFlowcaseViewDelegate> _delegate;
-    int _distanceIndex;
+    long long _distanceIndex;
     CADisplayLink *_displayLink;
     float _distances[10];
-    BOOL _landscape;
+    _Bool _landscape;
     CALayer *_maskLayer1;
     CALayer *_maskLayer2;
-    float _position;
+    double _position;
     NSArray *_positions;
-    BOOL _sendScrollDidEnd;
-    int _selection;
+    _Bool _sendScrollDidEnd;
+    long long _selection;
     CALayer *_selectionLayer;
     UIView *_shadowView1;
     UIView *_shadowView2;
@@ -30,11 +30,11 @@
     NSArray *_views;
 }
 
-+ (id)_gradientMaskWithLandscape:(BOOL)arg1 inverted:(BOOL)arg2;
-+ (float)_endPositionForStartPosition:(float)arg1 velocity:(float)arg2 landscape:(BOOL)arg3;
-+ (id)_arrayForStartPosition:(float)arg1 endPosition:(float)arg2;
-@property(nonatomic) BOOL landscape; // @synthesize landscape=_landscape;
-@property(nonatomic) float position; // @synthesize position=_position;
++ (id)_gradientMaskWithLandscape:(_Bool)arg1 inverted:(_Bool)arg2;
++ (double)_endPositionForStartPosition:(double)arg1 velocity:(double)arg2 landscape:(_Bool)arg3;
++ (id)_arrayForStartPosition:(double)arg1 endPosition:(double)arg2;
+@property(nonatomic) _Bool landscape; // @synthesize landscape=_landscape;
+@property(nonatomic) double position; // @synthesize position=_position;
 @property(retain, nonatomic) NSArray *views; // @synthesize views=_views;
 @property(nonatomic) __weak id <SKUIFlowcaseViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
@@ -43,11 +43,11 @@
 - (void)_timerStop;
 - (void)_timerStart;
 - (void)_timerAction:(id)arg1;
-- (void)_showSelectionAtIndex:(int)arg1 immediately:(BOOL)arg2;
+- (void)_showSelectionAtIndex:(long long)arg1 immediately:(_Bool)arg2;
 - (void)_reloadForPosition;
-- (float)_positionForPosition:(float)arg1;
-- (int)_indexOfViewAtPoint:(struct CGPoint)arg1;
-- (void)_decelerateWithVelocity:(float)arg1;
+- (float)_positionForPosition:(double)arg1;
+- (long long)_indexOfViewAtPoint:(struct CGPoint)arg1;
+- (void)_decelerateWithVelocity:(double)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;

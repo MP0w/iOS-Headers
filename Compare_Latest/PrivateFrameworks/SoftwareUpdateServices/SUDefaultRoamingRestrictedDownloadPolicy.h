@@ -10,7 +10,7 @@
 {
 }
 
-- (BOOL)isDownloadAllowableForCellularRoaming;
+- (_Bool)isDownloadAllowableForCellularRoaming;
 
 @end
 

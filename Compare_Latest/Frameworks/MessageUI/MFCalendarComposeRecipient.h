@@ -14,8 +14,8 @@
     id _participant;
 }
 
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)displayString;
 @property(retain, nonatomic) id participant;
 - (void)setCalAttendeeName:(id)arg1;

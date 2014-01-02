@@ -12,7 +12,7 @@
 {
     NSOrderedSet *_albumsOrderedSet;
     NSMutableSet *_selectedAlbumGuids;
-    BOOL _allowsMutlipleSelection;
+    _Bool _allowsMutlipleSelection;
     id <PUPhotoStreamsAlbumsTableViewControllerDelegate> _pickerDelegate;
     NSString *_selectedCloudGuid;
 }
@@ -21,19 +21,20 @@
 + (struct NSObject *)albumListForContentMode:(int)arg1;
 @property(retain, nonatomic) NSString *selectedCloudGuid; // @synthesize selectedCloudGuid=_selectedCloudGuid;
 @property(nonatomic) __weak id <PUPhotoStreamsAlbumsTableViewControllerDelegate> pickerDelegate; // @synthesize pickerDelegate=_pickerDelegate;
-@property(nonatomic) BOOL allowsMutlipleSelection; // @synthesize allowsMutlipleSelection=_allowsMutlipleSelection;
+@property(nonatomic) _Bool allowsMutlipleSelection; // @synthesize allowsMutlipleSelection=_allowsMutlipleSelection;
 - (void).cxx_destruct;
 - (struct CGSize)contentSizeForViewInPopover;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
+- (id)posterImageForAlbum:(struct NSObject *)arg1 cell:(id)arg2;
 - (void)reloadActions;
 - (void)didReceiveMemoryWarning;
-- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;
-- (id)initWithStyle:(int)arg1;
+- (id)initWithStyle:(long long)arg1;
 
 @end
 

@@ -8,6 +8,7 @@
 
 @class NSExpression, NSSQLEntity, NSSQLProperty, NSString;
 
+// Not exported
 @interface NSSQLExistenceSubqueryWhereIntermediate : NSSQLWhereIntermediate
 {
     NSExpression *_subqueryExpression;
@@ -22,8 +23,8 @@
 - (id)governingAliasForKeypathExpression:(id)arg1;
 - (id)governingEntityForKeypathExpression:(id)arg1;
 - (id)fetchIntermediateForKeypathExpression:(id)arg1;
-- (BOOL)_isKeypathScopedToSubquery:(id)arg1;
-- (BOOL)isExistenceScoped;
+- (_Bool)_isKeypathScopedToSubquery:(id)arg1;
+- (_Bool)isExistenceScoped;
 - (id)initWithPredicate:(id)arg1 inScope:(id)arg2;
 
 @end

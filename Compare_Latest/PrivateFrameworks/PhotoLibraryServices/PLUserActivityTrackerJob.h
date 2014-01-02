@@ -10,14 +10,16 @@
 
 @interface PLUserActivityTrackerJob : PLDaemonJob
 {
+    long long _activity;
     NSArray *_uuids;
     NSString *_clientID;
-    long long _activity;
 }
 
 + (id)persistentStoreCoordinator;
 + (id)managedObjectModel;
 + (id)managedObjectContext;
++ (id)_uuidsFilteringNulls:(id)arg1;
++ (id)_uuidsForAssets:(id)arg1;
 + (void)_noteActivity:(long long)arg1 uuid:(id)arg2;
 + (void)_noteActivity:(long long)arg1 uuids:(id)arg2;
 + (id)_queue;
@@ -35,11 +37,13 @@
 + (void)trackAssetsWereSharedViaWeibo:(id)arg1;
 + (void)trackAssetsWereSharedViaTwitter:(id)arg1;
 + (void)trackAssetsWereSharedViaFacebook:(id)arg1;
++ (void)trackPhotoWasEditedWithFilters:(id)arg1;
 + (void)trackPhotoWasEditedWithStraighten:(id)arg1;
 + (void)trackPhotoWasEditedWithCrop:(id)arg1;
 + (void)trackPhotoWasEditedWithRedEye:(id)arg1;
 + (void)trackPhotoWasEditedWithAutoEnhance:(id)arg1;
 + (void)trackPhotoWasEditedWithRotation:(id)arg1;
++ (void)trackSlalomWasEdited:(id)arg1;
 + (void)trackAssetWasLoadedViaAPI:(id)arg1;
 + (void)trackAssetWasPickedViaAPI:(id)arg1;
 + (void)trackVideoWasTrimmed:(id)arg1;

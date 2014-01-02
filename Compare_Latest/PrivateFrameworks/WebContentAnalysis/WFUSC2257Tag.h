@@ -6,6 +6,7 @@
 
 #import <WebContentAnalysis/WFTagFlyweight.h>
 
+// Not exported
 @interface WFUSC2257Tag : WFTagFlyweight
 {
 }

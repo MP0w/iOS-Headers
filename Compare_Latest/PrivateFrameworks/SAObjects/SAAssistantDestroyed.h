@@ -14,7 +14,7 @@
 
 + (id)assistantDestroyedWithDictionary:(id)arg1 context:(id)arg2;
 + (id)assistantDestroyed;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSString *assistantId;
 - (id)encodedClassName;
 - (id)groupIdentifier;

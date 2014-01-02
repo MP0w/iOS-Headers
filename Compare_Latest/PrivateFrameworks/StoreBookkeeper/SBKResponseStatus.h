@@ -8,31 +8,32 @@
 
 @class NSError, NSString;
 
+// Not exported
 @interface SBKResponseStatus : NSObject
 {
-    BOOL _isRecoverable;
-    BOOL _isError;
-    BOOL _shouldFileRadar;
-    BOOL _isPuntedError;
-    int _statusCode;
+    _Bool _isRecoverable;
+    _Bool _isError;
+    _Bool _shouldFileRadar;
+    _Bool _isPuntedError;
+    long long _statusCode;
     NSString *_consoleDescription;
 }
 
 + (id)responseStatusForStatusCodeNumber:(id)arg1;
-@property(readonly) BOOL isPuntedError; // @synthesize isPuntedError=_isPuntedError;
-@property(readonly) BOOL shouldFileRadar; // @synthesize shouldFileRadar=_shouldFileRadar;
-@property(readonly) BOOL isError; // @synthesize isError=_isError;
-@property(readonly) BOOL isRecoverable; // @synthesize isRecoverable=_isRecoverable;
+@property(readonly) _Bool isPuntedError; // @synthesize isPuntedError=_isPuntedError;
+@property(readonly) _Bool shouldFileRadar; // @synthesize shouldFileRadar=_shouldFileRadar;
+@property(readonly) _Bool isError; // @synthesize isError=_isError;
+@property(readonly) _Bool isRecoverable; // @synthesize isRecoverable=_isRecoverable;
 @property(readonly) NSString *consoleDescription; // @synthesize consoleDescription=_consoleDescription;
-@property(readonly) int statusCode; // @synthesize statusCode=_statusCode;
+@property(readonly) long long statusCode; // @synthesize statusCode=_statusCode;
 - (void).cxx_destruct;
-@property(readonly) BOOL isGenericError;
-@property(readonly) BOOL isValidationError;
-@property(readonly) BOOL isAuthenticationError;
-@property(readonly) BOOL isUnsupportedClient;
+@property(readonly) _Bool isGenericError;
+@property(readonly) _Bool isValidationError;
+@property(readonly) _Bool isAuthenticationError;
+@property(readonly) _Bool isUnsupportedClient;
 @property(readonly) NSError *requestError;
-@property(readonly) BOOL isSuccess;
-- (id)initWithStatus:(int)arg1 isRecoverable:(BOOL)arg2 isError:(BOOL)arg3 consoleDescription:(id)arg4 shouldFileRadar:(BOOL)arg5;
+@property(readonly) _Bool isSuccess;
+- (id)initWithStatus:(long long)arg1 isRecoverable:(_Bool)arg2 isError:(_Bool)arg3 consoleDescription:(id)arg4 shouldFileRadar:(_Bool)arg5;
 
 @end
 

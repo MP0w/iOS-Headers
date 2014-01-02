@@ -8,10 +8,10 @@
 
 @interface SUGridTableViewCell : SUTableCell
 {
-    int _gridPosition;
+    unsigned long long _gridPosition;
 }
 
-@property(nonatomic) int gridPosition; // @synthesize gridPosition=_gridPosition;
+@property(nonatomic) unsigned long long gridPosition; // @synthesize gridPosition=_gridPosition;
 - (void)removeControl:(id)arg1 willRemoveTarget:(id)arg2;
 - (void)deleteConfirmationControlWasClicked:(id)arg1;
 

@@ -6,7 +6,7 @@
 
 #import <RemoteUI/RUIElement.h>
 
-@class NSArray, NSMutableArray, RUITableViewRow, UIView<RemoteUITableFooter>, UIView<RemoteUITableHeader>;
+@class NSArray, NSMutableArray, NSNumber, RUITableViewRow, UIView<RemoteUITableFooter>, UIView<RemoteUITableHeader>;
 
 @interface RUITableViewSection : RUIElement
 {
@@ -14,22 +14,25 @@
     UIView<RemoteUITableHeader> *_header;
     UIView<RemoteUITableFooter> *_footer;
     id _delegate;
-    int _disclosureLimit;
+    long long _disclosureLimit;
     RUITableViewRow *_showAllRow;
+    NSNumber *_drawsTopSeparator;
+    _Bool _configured;
     UIView<RemoteUITableFooter> *_footerView;
-    float _headerHeight;
-    float _footerHeight;
+    double _headerHeight;
+    double _footerHeight;
 }
 
-@property(nonatomic) float footerHeight; // @synthesize footerHeight=_footerHeight;
-@property(nonatomic) float headerHeight; // @synthesize headerHeight=_headerHeight;
+@property(nonatomic) _Bool configured; // @synthesize configured=_configured;
+@property(nonatomic) double footerHeight; // @synthesize footerHeight=_footerHeight;
+@property(nonatomic) double headerHeight; // @synthesize headerHeight=_headerHeight;
 @property(retain, nonatomic) UIView<RemoteUITableFooter> *footerView; // @synthesize footerView=_footerView;
 @property(retain, nonatomic) UIView<RemoteUITableHeader> *headerView; // @synthesize headerView=_header;
 - (void)dealloc;
 - (id)sourceURL;
 - (void)populatePostbackDictionary:(id)arg1;
-- (BOOL)hasCustomFooter;
-- (BOOL)hasCustomHeader;
+- (_Bool)hasCustomFooter;
+- (_Bool)hasCustomHeader;
 - (void)setImageAlignment:(int)arg1;
 - (void)setImageSize:(struct CGSize)arg1;
 - (void)setImage:(id)arg1;
@@ -40,9 +43,11 @@
 - (void)setDelegate:(id)arg1;
 - (void)didTapShowAllRowWithTable:(id)arg1;
 @property(readonly, nonatomic) NSArray *rows; // @synthesize rows=_rows;
-- (void)removeRowAtIndex:(unsigned int)arg1;
+- (void)removeRowAtIndex:(unsigned long long)arg1;
 - (void)addRow:(id)arg1;
-- (void)insertRow:(id)arg1 atIndex:(unsigned int)arg2;
+- (void)insertRow:(id)arg1 atIndex:(unsigned long long)arg2;
+- (_Bool)hasValueForDrawsTopSeparator;
+@property(nonatomic) _Bool drawTopSeparator;
 - (id)init;
 
 @end

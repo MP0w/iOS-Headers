@@ -12,16 +12,15 @@
 
 @interface ASRuntimeFixMailAccount : NSObject <ASRuntimeFixProtocol>
 {
-    BOOL _shouldNotifyMobileMail;
+    _Bool _shouldNotifyMobileMail;
     NSSet *_supportedMailClasses;
 }
 
 - (id)supportedAccountTypes;
-- (void)accountsHaveBeenSaved:(BOOL)arg1;
+- (void)accountsHaveBeenSaved:(_Bool)arg1;
 - (int)fixBasicAccountIfNeeded:(id)arg1 loggingMessage:(id)arg2;
 - (void)dealloc;
 - (id)init;
-- (BOOL)_cleanupAccountClass:(id)arg1;
 
 @end
 

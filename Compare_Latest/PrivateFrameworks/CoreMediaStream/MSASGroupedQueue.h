@@ -10,19 +10,19 @@
 
 @interface MSASGroupedQueue : NSObject
 {
-    BOOL _isShuttingDown;
-    BOOL _isAssertingBusyAssertion;
+    _Bool _isShuttingDown;
+    _Bool _isAssertingBusyAssertion;
+    int _maxGroupedCallbackEventBatchCount;
     MSASServerSideModel *_model;
     NSObject<OS_dispatch_queue> *_workQueue;
     NSObject<OS_dispatch_queue> *_memberQueue;
-    int _maxGroupedCallbackEventBatchCount;
-    MSTimerGate *_idleTimerGate;
-    MSTimerGate *_stalenessTimerGate;
     double _maxGroupedCallbackEventIdleInterval;
     double _maxGroupedCallbackEventStaleness;
+    MSTimerGate *_idleTimerGate;
+    MSTimerGate *_stalenessTimerGate;
 }
 
-@property(nonatomic) BOOL isShuttingDown; // @synthesize isShuttingDown=_isShuttingDown;
+@property(nonatomic) _Bool isShuttingDown; // @synthesize isShuttingDown=_isShuttingDown;
 @property(retain, nonatomic) MSTimerGate *stalenessTimerGate; // @synthesize stalenessTimerGate=_stalenessTimerGate;
 @property(retain, nonatomic) MSTimerGate *idleTimerGate; // @synthesize idleTimerGate=_idleTimerGate;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *memberQueue; // @synthesize memberQueue=_memberQueue;
@@ -36,12 +36,12 @@
 - (void)workQueueClearIdleTimer;
 - (void)workQueueRestartIdleTimer;
 - (void)workQueueFlushQueue;
-- (BOOL)hasEnqueuedItems;
+- (_Bool)hasEnqueuedItems;
 - (void)flushQueueCompletionBlock:(id)arg1;
-- (void)shutDownFlush:(BOOL)arg1 completionBlock:(id)arg2;
-- (void)memberQueueSetIsAssertingBusyAssertion:(BOOL)arg1;
-- (BOOL)memberQueueIsAssertingBusyAssertion;
-@property(readonly, nonatomic) BOOL isAssertingBusyAssertion; // @synthesize isAssertingBusyAssertion=_isAssertingBusyAssertion;
+- (void)shutDownFlush:(_Bool)arg1 completionBlock:(id)arg2;
+- (void)memberQueueSetIsAssertingBusyAssertion:(_Bool)arg1;
+- (_Bool)memberQueueIsAssertingBusyAssertion;
+@property(readonly, nonatomic) _Bool isAssertingBusyAssertion; // @synthesize isAssertingBusyAssertion=_isAssertingBusyAssertion;
 - (void)workQueueDeassertBusyAssertion;
 - (void)workQueueAssertBusyAssertion;
 - (void)deassertBusyAssertion;

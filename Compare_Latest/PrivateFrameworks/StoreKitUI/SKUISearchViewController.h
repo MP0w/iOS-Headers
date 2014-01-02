@@ -6,19 +6,21 @@
 
 #import <StoreKitUI/SKUIViewController.h>
 
+#import "SKUIMetricsViewController-Protocol.h"
 #import "SKUISearchChildViewControllerDelegate-Protocol.h"
 
-@class NSArray, NSDictionary, NSMutableArray, NSURL, SKUIIPadSearchViewController, SKUIIPhoneSearchViewController, SKUILoadURLOperation, SKUIMetricsController, SKUISearchFieldController, SKUISearchPage;
+@class NSArray, NSDictionary, NSMutableArray, NSURLRequest, SKUIIPadSearchViewController, SKUIIPhoneSearchViewController, SKUIMetricsController, SKUISearchFieldController, SKUISearchPage, SSMetricsPageEvent, SSVLoadURLOperation;
 
-@interface SKUISearchViewController : SKUIViewController <SKUISearchChildViewControllerDelegate>
+@interface SKUISearchViewController : SKUIViewController <SKUISearchChildViewControllerDelegate, SKUIMetricsViewController>
 {
     SKUIIPhoneSearchViewController *_iPhoneViewController;
     SKUIIPadSearchViewController *_iPadViewController;
-    SKUILoadURLOperation *_loadOperation;
+    SSMetricsPageEvent *_lastPageEvent;
+    SSVLoadURLOperation *_loadOperation;
     SKUIMetricsController *_metricsController;
     SKUISearchPage *_page;
     SKUISearchFieldController *_searchFieldController;
-    NSURL *_url;
+    NSURLRequest *_urlRequest;
     NSDictionary *_facetSelections;
     NSArray *_searchFacets;
     NSMutableArray *_previousRelatedQueries;
@@ -29,9 +31,12 @@
 - (void).cxx_destruct;
 - (void)_setResponse:(id)arg1 error:(id)arg2;
 - (void)_setMetricsController:(id)arg1;
-- (void)_reloadOrientation:(int)arg1;
+- (void)_searchWithURLRequest:(id)arg1 persistRelated:(_Bool)arg2;
+- (void)_searchWithSearchTerm:(id)arg1 persistRelated:(_Bool)arg2;
+- (void)_reloadOrientation:(long long)arg1;
 - (void)_reloadView;
 - (void)_reloadChildViewController;
+- (void)_metricsEnterEventNotification:(id)arg1;
 - (void)_cancelButtonAction:(id)arg1;
 - (void)searchChildViewControllerDidChangeFacetSelections:(id)arg1;
 - (void)searchChildViewController:(id)arg1 didSelectSearchTerm:(id)arg2;
@@ -39,23 +44,23 @@
 - (void)searchChildViewController:(id)arg1 didSelectRelatedQuery:(id)arg2;
 - (void)searchChildViewController:(id)arg1 didSelectEditorial:(id)arg2;
 - (void)searchChildViewController:(id)arg1 didSelectItem:(id)arg2;
-- (id)contentScrollView;
-- (void)encodeRestorableStateWithCoder:(id)arg1;
-- (void)decodeRestorableStateWithCoder:(id)arg1;
-- (void)didRotateFromInterfaceOrientation:(int)arg1;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (void)viewDidDisappear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (id)activeMetricsController;
+- (void)willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (void)viewWillAppear:(_Bool)arg1;
+- (void)viewDidDisappear:(_Bool)arg1;
 - (void)loadView;
+- (void)encodeRestorableStateWithCoder:(id)arg1;
+- (void)didRotateFromInterfaceOrientation:(long long)arg1;
+- (void)decodeRestorableStateWithCoder:(id)arg1;
+- (id)contentScrollView;
 - (void)setClientContext:(id)arg1;
 - (void)reloadData;
-- (void)searchWithSearchTerm:(id)arg1 persistRelated:(BOOL)arg2;
-- (void)searchWithURL:(id)arg1 persistRelated:(BOOL)arg2;
 - (void)searchWithSearchTerm:(id)arg1;
 - (void)searchWithExternalURL:(id)arg1;
 - (void)searchWithURL:(id)arg1;
 - (void)scrollToTop;
 - (void)dealloc;
+- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 @end
 

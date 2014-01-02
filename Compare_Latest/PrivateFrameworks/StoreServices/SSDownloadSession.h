@@ -18,8 +18,8 @@
 }
 
 - (id)_copySessionPropertyWithKey:(const char *)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)description;
 @property(readonly) SSDownloadAsset *downloadAsset;
 @property(readonly) SSDownload *download;

@@ -6,18 +6,17 @@
 
 #import <OfficeImport/WMStyle.h>
 
+// Not exported
 @interface WMParagraphStyle : WMStyle
 {
-    BOOL mIsInTextFrame;
+    _Bool mIsInTextFrame;
 }
 
-+ (BOOL)isShadingNull:(id)arg1;
 - (void)addListProperties:(id)arg1;
 - (void)addParagraphProperties:(id)arg1;
 - (void)addParagraphStyleCharacterProperties:(id)arg1;
-- (id)initWithWDStyle:(id)arg1 isInTextFrame:(BOOL)arg2;
-- (id)initWithWDParagraphProperties:(id)arg1 isInTextFrame:(BOOL)arg2;
-- (void)mapBorders:(id)arg1;
+- (id)initWithWDStyle:(id)arg1 isInTextFrame:(_Bool)arg2;
+- (id)initWithWDParagraphProperties:(id)arg1 isInTextFrame:(_Bool)arg2;
 
 @end
 

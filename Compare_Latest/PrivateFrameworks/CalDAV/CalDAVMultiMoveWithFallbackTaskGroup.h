@@ -11,17 +11,17 @@
 @interface CalDAVMultiMoveWithFallbackTaskGroup : CoreDAVMultiMoveWithFallbackTaskGroup
 {
     NSDictionary *_sourceEntityScheduleTags;
-    BOOL _isAutoScheduleSupported;
+    _Bool _isAutoScheduleSupported;
     NSMutableDictionary *_destinationEntityScheduleTags;
 }
 
-@property(readonly) BOOL isAutoScheduleSupported; // @synthesize isAutoScheduleSupported=_isAutoScheduleSupported;
+@property(readonly) _Bool isAutoScheduleSupported; // @synthesize isAutoScheduleSupported=_isAutoScheduleSupported;
 @property(readonly, nonatomic) NSMutableDictionary *destinationEntityScheduleTags; // @synthesize destinationEntityScheduleTags=_destinationEntityScheduleTags;
 @property(readonly, nonatomic) NSDictionary *sourceEntityScheduleTags; // @synthesize sourceEntityScheduleTags=_sourceEntityScheduleTags;
 - (void)_completedPropFindTask:(id)arg1 intermediateETag:(id)arg2 intermediateScheduleTag:(id)arg3 destinationFilename:(id)arg4;
 - (void)_setTagsForDestinationEntityAtURL:(id)arg1 fromTaskResponseHeaders:(id)arg2 completionBlock:(id)arg3;
 - (void)dealloc;
-- (id)initWithSourceURLs:(id)arg1 destinationURL:(id)arg2 overwrite:(BOOL)arg3 useFallback:(BOOL)arg4 sourceEntityDataPayloads:(id)arg5 sourceEntityDataContentTypes:(id)arg6 sourceEntityETags:(id)arg7 sourceEntityScheduleTags:(id)arg8 accountInfoProvider:(id)arg9 taskManager:(id)arg10 isAutoScheduleSupported:(BOOL)arg11;
+- (id)initWithSourceURLs:(id)arg1 destinationURL:(id)arg2 overwrite:(_Bool)arg3 useFallback:(_Bool)arg4 sourceEntityDataPayloads:(id)arg5 sourceEntityDataContentTypes:(id)arg6 sourceEntityETags:(id)arg7 sourceEntityScheduleTags:(id)arg8 accountInfoProvider:(id)arg9 taskManager:(id)arg10 isAutoScheduleSupported:(_Bool)arg11;
 
 @end
 

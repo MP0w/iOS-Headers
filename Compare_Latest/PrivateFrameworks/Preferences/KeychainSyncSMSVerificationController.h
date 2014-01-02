@@ -6,20 +6,33 @@
 
 #import <Preferences/KeychainSyncTextEntryController.h>
 
-@class NSString;
+#import "UIAlertViewDelegate-Protocol.h"
 
-@interface KeychainSyncSMSVerificationController : KeychainSyncTextEntryController
+@class NSString, PSKeychainSyncManager, UIAlertView, UIButton;
+
+@interface KeychainSyncSMSVerificationController : KeychainSyncTextEntryController <UIAlertViewDelegate>
 {
+    UIButton *_footerButton;
+    UIAlertView *_supportVerificationAlert;
     NSString *_phoneNumber;
+    NSString *_dialingPrefix;
     NSString *_countryCode;
+    unsigned long long _verificationCodeLength;
+    PSKeychainSyncManager *_keychainSyncManager;
 }
 
+@property(nonatomic) PSKeychainSyncManager *keychainSyncManager; // @synthesize keychainSyncManager=_keychainSyncManager;
+@property(nonatomic) unsigned long long verificationCodeLength; // @synthesize verificationCodeLength=_verificationCodeLength;
 @property(retain, nonatomic) NSString *countryCode; // @synthesize countryCode=_countryCode;
+@property(retain, nonatomic) NSString *dialingPrefix; // @synthesize dialingPrefix=_dialingPrefix;
 @property(retain, nonatomic) NSString *phoneNumber; // @synthesize phoneNumber=_phoneNumber;
-- (void)viewDidAppear:(BOOL)arg1;
-- (id)placeholderText;
+- (void)alertView:(id)arg1 didDismissWithButtonIndex:(long long)arg2;
+- (void)showSupportVerification;
+- (void)viewDidLayoutSubviews;
+- (void)loadView;
 - (id)specifiers;
 - (void)dealloc;
+- (unsigned long long)numberOfPasscodeFields;
 - (id)init;
 
 @end

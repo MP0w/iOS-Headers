@@ -8,11 +8,12 @@
 
 @class WDAContent;
 
+// Not exported
 @interface WMOfficeArtMapper : CMDrawableMapper
 {
-    BOOL mFloating;
-    BOOL mIsMapped;
-    BOOL mIsInsideGroup;
+    _Bool mFloating;
+    _Bool mIsMapped;
+    _Bool mIsInsideGroup;
     WDAContent *mContent;
     unsigned int mCurrentPage;
 }
@@ -23,16 +24,10 @@
 - (void)setWithClientData:(id)arg1 state:(id)arg2;
 - (void)mapAt:(id)arg1 withState:(id)arg2;
 - (void)setCurrentPage:(unsigned int)arg1;
-- (id)initWithOadDrawable:(id)arg1 asFloating:(BOOL)arg2 origin:(struct CGPoint)arg3 parent:(id)arg4;
-- (void)setIsInsideGroup:(BOOL)arg1;
-- (BOOL)isInsideGroup;
+- (id)initWithOadDrawable:(id)arg1 asFloating:(_Bool)arg2 origin:(struct CGPoint)arg3 parent:(id)arg4;
+- (void)setIsInsideGroup:(_Bool)arg1;
+- (_Bool)isInsideGroup;
 - (id)initWithWdOfficeArt:(id)arg1 parent:(id)arg2;
-- (struct CGSize)expandedSizeForTextBox:(id)arg1 withState:(id)arg2;
-- (void)mapDiagramAt:(id)arg1 withState:(id)arg2;
-- (void)mapOfficeArtGroupAt:(id)arg1 withState:(id)arg2;
-- (void)mapOfficeArtTextboxAt:(id)arg1 withState:(id)arg2;
-- (void)mapOfficeArtShapeAt:(id)arg1 withState:(id)arg2;
-- (void)mapOfficeArtImageAt:(id)arg1 withState:(id)arg2;
 
 @end
 

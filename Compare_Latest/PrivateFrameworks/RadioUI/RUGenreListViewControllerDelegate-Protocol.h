@@ -9,7 +9,7 @@
 @protocol RUGenreListViewControllerDelegate <NSObject>
 
 @optional
-- (void)genreListViewController:(id)arg1 tableViewDidScroll:(id)arg2;
+- (void)genreListViewController:(id)arg1 scrollViewDidScroll:(id)arg2;
 - (void)genreListViewController:(id)arg1 didSelectStation:(id)arg2;
 - (void)genreListViewControllerGenresDidBecomeAvailable:(id)arg1;
 @end

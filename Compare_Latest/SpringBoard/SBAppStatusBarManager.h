@@ -6,20 +6,27 @@
 
 #import "NSObject.h"
 
-@class NSHashTable;
+@class NSHashTable, NSMutableDictionary, NSMutableOrderedSet;
 
 @interface SBAppStatusBarManager : NSObject
 {
     NSHashTable *_disableAlphaChangeAssertions;
+    NSMutableOrderedSet *_windowLevelOverrideReasons;
+    NSMutableDictionary *_windowLevelOverrideMap;
+    double _defaultWindowLevel;
 }
 
 + (id)sharedInstance;
-- (void)removeDisableAppStatusBarAlphaChangesAssertion:(id)arg1;
-- (void)addDisableAppStatusBarAlphaChangesAssertion:(id)arg1;
-- (void)setStatusBarAlpha:(float)arg1;
+- (void)_removeDisableAppStatusBarAlphaChangesAssertion:(id)arg1;
+- (void)_addDisableAppStatusBarAlphaChangesAssertion:(id)arg1;
+- (void)_updateWindowLevel;
+- (void)removeWindowLevelOverrideReason:(id)arg1;
+- (void)setWindowLevel:(double)arg1 forOverrideReason:(id)arg2;
+- (void)setDefaultWindowLevel:(double)arg1;
+- (void)setStatusBarAlpha:(double)arg1;
 - (void)hideStatusBar;
 - (void)showStatusBar;
-- (BOOL)isStatusBarHidden;
+- (_Bool)isStatusBarHidden;
 - (void)dealloc;
 - (id)init;
 

@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface CHXSeries : NSObject
 {
 }
@@ -13,7 +14,6 @@
 + (void)resolveSeriesStyle:(id)arg1 state:(id)arg2;
 + (id)chdSeriesFromXmlSeriesElement:(struct _xmlNode *)arg1 state:(id)arg2;
 + (id)readFrom:(struct _xmlNode *)arg1 state:(id)arg2;
-+ (Class)chxSeriesClassWithState:(id)arg1;
 
 @end
 

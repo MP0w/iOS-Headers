@@ -8,6 +8,7 @@
 
 @class UIWindow;
 
+// Not exported
 @interface UIWindowLayer : CALayer
 {
     UIWindow *_window;

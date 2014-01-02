@@ -6,13 +6,14 @@
 
 #import "NSConcreteMutableAttributedString.h"
 
+// Not exported
 @interface NSConcreteNotifyingMutableAttributedString : NSConcreteMutableAttributedString
 {
     id _delegate;
 }
 
 + (Class)_mutableStringClass;
-- (void)edited:(unsigned int)arg1 range:(struct _NSRange)arg2 changeInLength:(int)arg3;
+- (void)edited:(unsigned long long)arg1 range:(struct _NSRange)arg2 changeInLength:(long long)arg3;
 - (void)endEditing;
 - (void)beginEditing;
 - (id)delegate;

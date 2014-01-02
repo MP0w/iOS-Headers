@@ -8,6 +8,7 @@
 
 @class OCPZipPackage;
 
+// Not exported
 @interface OCXReader : OCDEncryptedReader
 {
     OCPZipPackage *mZipPackage;
@@ -15,11 +16,11 @@
 
 @property(retain, nonatomic) OCPZipPackage *zipPackage; // @synthesize zipPackage=mZipPackage;
 - (id)read;
-- (BOOL)start;
+- (_Bool)start;
 - (void)restartReaderToUseDecryptedDocument;
-- (BOOL)retainDecryptorWithErrorCode:(int *)arg1;
+- (_Bool)retainDecryptorWithErrorCode:(int *)arg1;
 - (_Bool)isBinaryReader;
-- (BOOL)verifyFileFormat;
+- (_Bool)verifyFileFormat;
 - (void)dealloc;
 
 @end

@@ -4,47 +4,45 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject-Protocol.h"
+#import "PUPhotosGridTransitioningLayoutBasic-Protocol.h"
 
-@class NSIndexPath, UICollectionViewLayout<PUPhotosGridTransitioningLayout>;
+@class NSIndexPath;
 
-@protocol PUPhotosGridTransitioningLayout <NSObject>
+@protocol PUPhotosGridTransitioningLayout <PUPhotosGridTransitioningLayoutBasic>
 @property(readonly, nonatomic) NSIndexPath *transitionLastVisibleRowVisualPath;
 @property(readonly, nonatomic) NSIndexPath *transitionFirstVisibleRowVisualPath;
-@property(readonly, nonatomic) int numberOfVisualSections;
+@property(readonly, nonatomic) long long numberOfVisualSections;
 @property(nonatomic) struct CGSize interItemSpacing;
 @property(nonatomic) struct CGSize itemSize;
-@property(readonly, nonatomic) int itemsPerRow;
-@property(nonatomic) BOOL transitionAnchorShiftsColumns;
+@property(readonly, nonatomic) long long itemsPerRow;
+@property(nonatomic) _Bool transitionAnchorShiftsColumns;
 @property(copy, nonatomic) NSIndexPath *transitionExplicitAnchorItemIndexPath;
-@property(nonatomic) BOOL transitionIsAppearing;
-@property(nonatomic) BOOL transitionZoomingOut;
-@property(readonly, nonatomic) int transitionAnchorColumnOffset;
+@property(readonly, nonatomic) long long transitionAnchorColumnOffset;
+@property(nonatomic) _Bool transitionIsAnimated;
 @property(readonly, nonatomic) struct CGSize transitionActualContentSize;
 @property(nonatomic) struct CGPoint transitionEffectiveContentOrigin;
-@property(nonatomic) struct CGPoint transitionEndContentOffset;
-@property(nonatomic) struct CGPoint transitionStartContentOffset;
-@property(retain, nonatomic) UICollectionViewLayout<PUPhotosGridTransitioningLayout> *transitionLayout;
-- (id)transitionAnchorIndexPathForTransitionSection:(int)arg1;
+- (id)transitionAnchorIndexPathForTransitionSection:(long long)arg1;
 - (id)transitionSectionsInRect:(struct CGRect)arg1 toOrFromGridLayout:(id)arg2;
 - (id)targetTransitionRealIndexPathForIndexPath:(id)arg1;
-- (struct PUGridCoordinates)visualGridCoordsForTransitionGridCoords:(struct PUGridCoordinates)arg1 atTransitionSection:(int)arg2 outVisualSection:(int *)arg3;
-- (struct PUGridCoordinates)targetTransitionGridCoordsForGridCoords:(struct PUGridCoordinates)arg1 atVisualSection:(int)arg2 outTransitionSection:(int *)arg3;
-- (BOOL)hasItemAtGridCoordinates:(struct PUGridCoordinates)arg1 inTransitionSection:(int)arg2;
-- (id)mainRealIndexPathAtGridCoordinates:(struct PUGridCoordinates)arg1 inTransitionSection:(int)arg2;
-- (struct CGRect)frameForItemAtGridCoordinates:(struct PUGridCoordinates)arg1 inTransitionSection:(int)arg2;
-- (int)numberOfContiguousRowsInTransitionSection:(int)arg1;
+- (struct PUGridCoordinates)visualGridCoordsForTransitionGridCoords:(struct PUGridCoordinates)arg1 atTransitionSection:(long long)arg2 outVisualSection:(long long *)arg3;
+- (struct PUGridCoordinates)targetTransitionGridCoordsForGridCoords:(struct PUGridCoordinates)arg1 atVisualSection:(long long)arg2 outTransitionSection:(long long *)arg3;
+- (_Bool)hasItemAtGridCoordinates:(struct PUGridCoordinates)arg1 inTransitionSection:(long long)arg2;
+- (id)mainRealIndexPathAtGridCoordinates:(struct PUGridCoordinates)arg1 inTransitionSection:(long long)arg2;
+- (struct CGRect)frameForItemAtGridCoordinates:(struct PUGridCoordinates)arg1 inTransitionSection:(long long)arg2;
+- (long long)numberOfContiguousRowsInTransitionSection:(long long)arg1;
 - (struct PUGridCoordinates)gridCoordinatesInTransitionSectionForItemAtIndexPath:(id)arg1;
 - (struct PUGridCoordinates)gridCoordinatesInVisualSectionForItemAtIndexPath:(id)arg1;
-- (struct CGRect)frameForSectionHeaderAtVisualSection:(int)arg1;
-- (struct CGRect)frameForItemAtGridCoordinates:(struct PUGridCoordinates)arg1 inVisualSection:(int)arg2;
+- (struct CGRect)frameForSectionHeaderAtVisualSection:(long long)arg1;
+- (struct CGRect)frameForItemAtGridCoordinates:(struct PUGridCoordinates)arg1 inVisualSection:(long long)arg2;
 - (id)itemIndexPathClosestToPoint:(struct CGPoint)arg1;
 - (id)itemIndexPathAtPoint:(struct CGPoint)arg1;
 - (id)itemIndexPathAtCenterOfRect:(struct CGRect)arg1;
-- (int)numberOfRowsInVisualSection:(int)arg1;
-- (int)numberOfVisualItemsInVisualSection:(int)arg1;
-- (void)enumerateRealSectionsForVisualSection:(int)arg1 usingBlock:(id)arg2;
-- (int)mainRealSectionForVisualSection:(int)arg1;
-- (int)visualSectionForRealSection:(int)arg1;
+- (long long)numberOfRowsInVisualSection:(long long)arg1;
+- (long long)numberOfVisualItemsInVisualSection:(long long)arg1;
+- (void)enumerateRealSectionsForVisualSection:(long long)arg1 usingBlock:(id)arg2;
+- (long long)mainRealSectionForVisualSection:(long long)arg1;
+- (long long)visualSectionForRealSection:(long long)arg1;
+- (void)adjustEffectiveContentOriginForTransitionEndContentOffset:(struct CGPoint)arg1;
+- (struct CGPoint)targetContentOffsetForTransitionFromGridLayout:(id)arg1;
 @end
 

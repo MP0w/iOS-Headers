@@ -8,6 +8,7 @@
 
 @class VKPStyleProperties;
 
+// Not exported
 @interface VKPZoomProperty : PBCodable
 {
     float _maxZ;
@@ -18,15 +19,14 @@
 @property(retain, nonatomic) VKPStyleProperties *properties; // @synthesize properties=_properties;
 @property(nonatomic) float maxZ; // @synthesize maxZ=_maxZ;
 @property(nonatomic) float minZ; // @synthesize minZ=_minZ;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
 - (void)dealloc;
-- (void)applyTo:(id)arg1 zoom:(float)arg2;
 
 @end
 

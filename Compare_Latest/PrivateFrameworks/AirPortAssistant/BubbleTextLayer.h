@@ -21,9 +21,9 @@
     void *_font;
     struct __CTFont *_curCTFont;
     struct __CTLine *_theLine;
-    float _descent;
-    float _ascent;
-    float _leading;
+    double _descent;
+    double _ascent;
+    double _leading;
     struct CGRect _fontBounds;
     NSMutableArray *_annotationPoints;
     struct CGColor *_generalShadowColor;
@@ -33,19 +33,19 @@
     id _owningView;
 }
 
-+ (BOOL)needsDisplayForKey:(id)arg1;
++ (_Bool)needsDisplayForKey:(id)arg1;
 - (void)drawInContext:(struct CGContext *)arg1;
 - (void)layoutSublayers;
-@property(readonly, nonatomic) float textBaselineOffset;
+@property(readonly, nonatomic) double textBaselineOffset;
 @property(readonly, nonatomic) struct CGRect textFrame;
 - (struct CGSize)preferredFrameSize;
 - (struct CGSize)calculatePreferredSubframeSizes;
 - (struct CGSize)textPreferredFrameSizeForLayerSize:(struct CGSize)arg1;
-- (BOOL)isAnnotationBubble;
+- (_Bool)isAnnotationBubble;
 - (struct CGSize)getRightAccessoryLayerPreferredSize;
 - (struct CGSize)getImagePreferredSize;
 @property(nonatomic) struct CGSize boundsSizeConstraint;
-@property(retain, nonatomic) id font;
+- (void)setFont:(id)arg1;
 @property(retain, nonatomic) CALayer *rightAccessoryLayer;
 @property(retain, nonatomic) struct CGImage *image;
 @property(nonatomic) id owningView;
@@ -56,10 +56,10 @@
 // Remaining properties
 @property(retain, nonatomic) struct CGColor *fillColor; // @dynamic fillColor;
 @property(retain, nonatomic) struct CGColor *fillColor2; // @dynamic fillColor2;
-@property(nonatomic) float fontSize; // @dynamic fontSize;
+@property(nonatomic) double fontSize; // @dynamic fontSize;
 @property(retain, nonatomic) struct CGColor *foregroundColor; // @dynamic foregroundColor;
 @property(retain, nonatomic) struct CGColor *frameColor; // @dynamic frameColor;
-@property(nonatomic) float frameWidth; // @dynamic frameWidth;
+@property(nonatomic) double frameWidth; // @dynamic frameWidth;
 @property(retain, nonatomic) id string; // @dynamic string;
 
 @end

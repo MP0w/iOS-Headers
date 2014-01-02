@@ -17,7 +17,7 @@
 - (void)setTransform:(struct CGAffineTransform)arg1;
 - (struct CGAffineTransform)transform;
 - (void)didMoveToWindow;
-- (void)setUserInteractionEnabled:(BOOL)arg1;
+- (void)setUserInteractionEnabled:(_Bool)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

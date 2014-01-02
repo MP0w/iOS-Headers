@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface OCXStreamUtility : NSObject
 {
 }
 
-+ (BOOL)readStream:(struct _xmlTextReader *)arg1 streamState:(id)arg2;
-+ (BOOL)pScanStreamForwardToApplicableContentInAlternateContent:(struct _xmlTextReader *)arg1;
++ (_Bool)readStream:(struct _xmlTextReader *)arg1 streamState:(id)arg2;
++ (_Bool)pScanStreamForwardToApplicableContentInAlternateContent:(struct _xmlTextReader *)arg1;
 
 @end
 

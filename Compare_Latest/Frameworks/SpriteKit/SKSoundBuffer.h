@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface SKSoundBuffer : NSObject
 {
     unsigned int _bufferId;

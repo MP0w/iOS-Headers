@@ -8,6 +8,7 @@
 
 @class UIKeyboardTaskQueue;
 
+// Not exported
 @interface UIKeyboardTaskExecutionContext : NSObject
 {
     UIKeyboardTaskExecutionContext *_parentExecutionContext;

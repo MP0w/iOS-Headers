@@ -22,10 +22,10 @@
 @property(retain, nonatomic) NSMutableDictionary *refreshingWaiters; // @synthesize refreshingWaiters=_refreshingWaiters;
 @property(retain, nonatomic) NSString *buildVersion; // @synthesize buildVersion=_buildVersion;
 - (void)giveAccountWithIDAnotherChance:(id)arg1;
-- (BOOL)accountShouldContinue:(id)arg1;
-- (BOOL)accountWithIDShouldContinue:(id)arg1;
+- (_Bool)accountShouldContinue:(id)arg1;
+- (_Bool)accountWithIDShouldContinue:(id)arg1;
 - (void)unregisterAccount:(id)arg1 forOperationWithName:(id)arg2;
-- (BOOL)registerAccount:(id)arg1 forOperationWithName:(id)arg2;
+- (_Bool)registerAccount:(id)arg1 forOperationWithName:(id)arg2;
 - (void)_decrementRefreshCountForWaiterID:(id)arg1 operationName:(id)arg2;
 - (void)_decrementRefreshCountForWaiter:(id)arg1 forOperationWithName:(id)arg2;
 - (void)_incrementRefreshCountForWaiterID:(id)arg1 operationName:(id)arg2;

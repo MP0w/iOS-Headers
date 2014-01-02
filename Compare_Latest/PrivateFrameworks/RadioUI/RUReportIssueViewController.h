@@ -14,7 +14,7 @@
 @interface RUReportIssueViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 {
     RadioTrack *_currentTrack;
-    BOOL _isLowBitrate;
+    _Bool _isLowBitrate;
     UIPickerView *_issuePicker;
     NSArray *_issueTypes;
     UITextView *_reportIssueTextField;
@@ -24,14 +24,14 @@
 
 - (void).cxx_destruct;
 - (void)_dismissPopoverOrSheet;
-- (id)_descriptionForIssueType:(int)arg1;
+- (id)_descriptionForIssueType:(long long)arg1;
 @property(readonly, nonatomic) NSString *issueText;
 - (void)_reportIssueDoneAction:(id)arg1;
 - (void)_reportIssueCancelAction:(id)arg1;
-- (id)pickerView:(id)arg1 titleForRow:(int)arg2 forComponent:(int)arg3;
-- (int)pickerView:(id)arg1 numberOfRowsInComponent:(int)arg2;
-- (int)numberOfComponentsInPickerView:(id)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
+- (id)pickerView:(id)arg1 titleForRow:(long long)arg2 forComponent:(long long)arg3;
+- (long long)pickerView:(id)arg1 numberOfRowsInComponent:(long long)arg2;
+- (long long)numberOfComponentsInPickerView:(id)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)dealloc;
 - (id)initWithStation:(id)arg1 currentItem:(id)arg2 playbackQueue:(id)arg3;

@@ -15,7 +15,7 @@
     VKRouteLine *_routeLine;
     double _routeLineHalfWidthRegular;
     double _routeLineHalfWidthRealistic;
-    BOOL _selected;
+    _Bool _selected;
     VGLTexture *_selectedTextureRealistic;
     VGLTexture *_obscuredTextureRealistic;
     VGLTexture *_travelledTextureRealistic;
@@ -30,20 +30,22 @@
     float _alphaScale;
     VKAnimation *_arrowFadeAnimation;
     float _arrowAlphaScale;
-    BOOL _showArrows;
+    _Bool _showArrows;
     VKAnimation *_arrowCrossFadeAnimation;
-    BOOL _showTraffic;
+    _Bool _showTraffic;
+    _Bool _forceRoutelineUpdate;
     int _stencilValue;
-    float _contentScale;
+    double _contentScale;
     VGLRenderState *_renderState;
     VKTrafficDrawStyle *_trafficDrawStyle;
-    unsigned int _targetDisplayStep;
+    unsigned long long _targetDisplayStep;
     float _crossfadingDisplayStep;
+    _Bool _wasInRealisticMode;
 }
 
-@property(nonatomic) BOOL showTraffic; // @synthesize showTraffic=_showTraffic;
+@property(nonatomic) _Bool showTraffic; // @synthesize showTraffic=_showTraffic;
 @property(retain, nonatomic) GEORoute *route; // @synthesize route=_route;
-@property(nonatomic) BOOL selected; // @synthesize selected=_selected;
+@property(nonatomic) _Bool selected; // @synthesize selected=_selected;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)stylesheetDidChange;
@@ -56,8 +58,10 @@
 - (void)drawArrowsWithContext:(id)arg1;
 - (void)prepareToDrawWithContext:(id)arg1;
 - (void)_drawRegularWithContext:(id)arg1;
+- (float)routeLineWidthForCamera:(id)arg1 canvasSize:(struct CGSize)arg2;
 - (void)_populateRenderBuffer:(id)arg1 matrix:(void)arg2 halfWidth:(const CDUnion_f5b85e25 *)arg3 context:(float)arg4;
-- (BOOL)_shouldShowTraffic;
+- (_Bool)_shouldShowTraffic;
+- (void)drawWithContext:(id)arg1 tiles:(id)arg2 prepare:(_Bool)arg3 updateStencil:(_Bool)arg4;
 - (void)drawWithContext:(id)arg1 tiles:(id)arg2;
 - (void)layoutWithContext:(id)arg1 tiles:(id)arg2 keysInView:(id)arg3;
 - (void)setNeedsLayoutForPolyline:(id)arg1;

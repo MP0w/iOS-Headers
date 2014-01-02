@@ -7,7 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol WebDocumentElement <NSObject>
-- (id)elementAtPoint:(struct CGPoint)arg1 allowShadowContent:(BOOL)arg2;
+- (id)elementAtPoint:(struct CGPoint)arg1 allowShadowContent:(_Bool)arg2;
 - (id)elementAtPoint:(struct CGPoint)arg1;
 @end
 

@@ -10,7 +10,7 @@
 
 @interface MSASAlbumChange : NSObject
 {
-    BOOL _wasDeleted;
+    _Bool _wasDeleted;
     NSString *_GUID;
     NSString *_ownerEmail;
     NSString *_ownerPersonID;
@@ -22,7 +22,7 @@
     NSString *_name;
 }
 
-@property(nonatomic) BOOL wasDeleted; // @synthesize wasDeleted=_wasDeleted;
+@property(nonatomic) _Bool wasDeleted; // @synthesize wasDeleted=_wasDeleted;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) MSASInvitation *invitation; // @synthesize invitation=_invitation;
 @property(retain, nonatomic) NSString *URLString; // @synthesize URLString=_URLString;

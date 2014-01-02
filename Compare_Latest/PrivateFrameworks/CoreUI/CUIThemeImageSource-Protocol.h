@@ -7,9 +7,9 @@
 #import "NSObject-Protocol.h"
 
 @protocol CUIThemeImageSource <NSObject>
-- (BOOL)hasValueSlices;
+- (_Bool)hasValueSlices;
 - (struct CGSize)imageSize;
-- (id)imageForState:(int)arg1 withValue:(int)arg2;
-- (id)imageForState:(int)arg1;
+- (id)imageForState:(long long)arg1 withValue:(long long)arg2;
+- (id)imageForState:(long long)arg1;
 @end
 

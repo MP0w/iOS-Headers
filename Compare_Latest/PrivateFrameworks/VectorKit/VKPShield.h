@@ -8,6 +8,7 @@
 
 @class NSMutableArray, NSString, VKPGenericShieldStyleInfo;
 
+// Not exported
 @interface VKPShield : PBCodable
 {
     VKPGenericShieldStyleInfo *_genericShieldStyleInfo;
@@ -18,16 +19,16 @@
 @property(retain, nonatomic) VKPGenericShieldStyleInfo *genericShieldStyleInfo; // @synthesize genericShieldStyleInfo=_genericShieldStyleInfo;
 @property(retain, nonatomic) NSMutableArray *variants; // @synthesize variants=_variants;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) BOOL hasGenericShieldStyleInfo;
-- (id)variantsAtIndex:(unsigned int)arg1;
-- (unsigned int)variantsCount;
+@property(readonly, nonatomic) _Bool hasGenericShieldStyleInfo;
+- (id)variantsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)variantsCount;
 - (void)addVariants:(id)arg1;
 - (void)clearVariants;
 - (void)dealloc;

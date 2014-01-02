@@ -14,7 +14,7 @@
 
 + (id)geoFenceSetWithDictionary:(id)arg1 context:(id)arg2;
 + (id)geoFenceSet;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(retain, nonatomic) SALocation *requestedLocation;
 @property(copy, nonatomic) NSNumber *oneTimeOnly;
 @property(copy, nonatomic) NSString *geoFenceTrigger;

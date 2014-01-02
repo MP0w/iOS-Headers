@@ -6,6 +6,7 @@
 
 #import <OfficeImport/PDAnimationShapeTarget.h>
 
+// Not exported
 @interface PDAnimationTextTarget : PDAnimationShapeTarget
 {
     int mType;
@@ -13,8 +14,8 @@
 }
 
 - (id).cxx_construct;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)setRange:(struct _NSRange)arg1;
 - (struct _NSRange)range;
 - (void)setType:(int)arg1;

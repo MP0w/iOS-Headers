@@ -8,6 +8,7 @@
 
 @class NSNumber, NSString;
 
+// Not exported
 @interface SCRCArgumentHolderPrivate : NSObject
 {
     NSNumber *option;
@@ -15,7 +16,7 @@
     id target;
     SEL action;
     NSString *argumentDescription;
-    BOOL isRequired;
+    _Bool isRequired;
 }
 
 @end

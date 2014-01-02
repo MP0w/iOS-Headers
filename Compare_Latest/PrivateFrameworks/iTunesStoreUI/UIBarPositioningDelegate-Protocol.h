@@ -9,6 +9,6 @@
 @protocol UIBarPositioningDelegate <NSObject>
 
 @optional
-- (int)positionForBar:(id)arg1;
+- (long long)positionForBar:(id)arg1;
 @end
 

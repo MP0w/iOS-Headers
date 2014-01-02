@@ -10,8 +10,8 @@
 
 @interface SYDRemotePreferencesSource : NSObject
 {
-    long _generationCount;
-    long _lastGenerationFromDisk;
+    long long _generationCount;
+    long long _lastGenerationFromDisk;
     struct __CFString *preferenceID;
     struct __CFURL *urlOnDisk;
     struct __CFDictionary *cache;
@@ -27,15 +27,12 @@
     NSObject<OS_dispatch_queue> *_protectionQueue;
     NSObject<OS_dispatch_source> *_memoryWarningSource;
     double _lastAccess;
-    BOOL _forceNextSynchronization;
+    _Bool _forceNextSynchronization;
 }
 
 + (id)SYDRemotePreferencesSourceConfigurationDidChangeNotification;
 + (id)SYDRemotePreferencesSourceDidChangeNotification;
 + (void)initialize;
-+ (void)migrateSyncedDefaultsForBundleIdentifier:(id)arg1;
-+ (void)noteAccountChanges:(id)arg1;
-+ (void)resetAllApplicationsWithCompletionHandler:(id)arg1;
 - (id)serverSideDebugDescription;
 - (void)_didReceiveMemoryWarning;
 - (void)_createMemoryWarningSource;
@@ -43,7 +40,7 @@
 - (void)updateConfiguration;
 - (void)unregisterForSynchronizedDefaults;
 - (void)registerForSynchronizedDefaults;
-- (long)generationCount;
+- (long long)generationCount;
 - (struct __CFDictionary *)copyDictionary;
 - (struct __CFArray *)copyKeyList;
 - (void)discardExternalChangesForChangeCount:(long long)arg1;
@@ -61,14 +58,14 @@
 - (void)_forceRegistrationNow;
 - (void)finalize;
 - (void)dealloc;
-- (id)initWithApplicationID:(struct __CFString *)arg1 storeID:(struct __CFString *)arg2 shared:(BOOL)arg3 additionalSource:(BOOL)arg4;
-- (id)initWithApplicationID:(struct __CFString *)arg1 storeID:(struct __CFString *)arg2 shared:(BOOL)arg3;
-- (id)initWithApplicationID:(struct __CFString *)arg1 shared:(BOOL)arg2;
-- (long)maximumTotalDataLength;
-- (long)maximumDataLengthPerKey;
-- (long)maximumKeyLength;
-- (long)maximumKeyCount;
-- (long)configurationValueForKey:(struct __CFString *)arg1;
+- (id)initWithApplicationID:(struct __CFString *)arg1 storeID:(struct __CFString *)arg2 shared:(_Bool)arg3 additionalSource:(_Bool)arg4;
+- (id)initWithApplicationID:(struct __CFString *)arg1 storeID:(struct __CFString *)arg2 shared:(_Bool)arg3;
+- (id)initWithApplicationID:(struct __CFString *)arg1 shared:(_Bool)arg2;
+- (long long)maximumTotalDataLength;
+- (long long)maximumDataLengthPerKey;
+- (long long)maximumKeyLength;
+- (long long)maximumKeyCount;
+- (long long)configurationValueForKey:(struct __CFString *)arg1;
 - (struct __CFDictionary *)copyConfigurationDictionary;
 - (void)_storeConfiguration:(struct __CFDictionary *)arg1;
 

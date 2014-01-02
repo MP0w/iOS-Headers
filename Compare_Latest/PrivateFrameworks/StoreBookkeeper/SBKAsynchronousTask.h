@@ -8,12 +8,13 @@
 
 @class NSError, NSMutableArray, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, SBKTaskAssertion;
 
+// Not exported
 @interface SBKAsynchronousTask : NSObject
 {
     NSObject<OS_dispatch_queue> *_handlerQueue;
     NSObject<OS_dispatch_queue> *_queue;
     NSObject<OS_dispatch_source> *_timeoutTimer;
-    BOOL _taskInvalidationDisabled;
+    _Bool _taskInvalidationDisabled;
     double _timeout;
     int _cancelType;
     id _result;
@@ -32,7 +33,7 @@
 - (void)invokeTaskCompletionBlocksWithBlock:(id)arg1;
 - (void)addTaskCompletionBlock:(id)arg1;
 - (void)invalidate;
-- (void)_invalidateAssertion:(BOOL)arg1;
+- (void)_invalidateAssertion:(_Bool)arg1;
 - (void)endTaskOperation;
 - (void)finishTaskOperationWithResult:(id)arg1 error:(id)arg2;
 - (void)beginTaskOperation;

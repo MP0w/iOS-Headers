@@ -11,19 +11,19 @@
 
 @interface CUIPSDGradientStop : NSObject <NSCoding, NSCopying>
 {
-    float location;
+    double location;
 }
 
 + (void)initialize;
-- (BOOL)isOpacityStop;
-- (BOOL)isColorStop;
-- (BOOL)isDoubleStop;
-- (void)setLocation:(float)arg1;
-- (float)location;
+- (_Bool)isOpacityStop;
+- (_Bool)isColorStop;
+- (_Bool)isDoubleStop;
+- (void)setLocation:(double)arg1;
+- (double)location;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithLocation:(float)arg1;
+- (id)initWithLocation:(double)arg1;
 
 @end
 

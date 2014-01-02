@@ -29,7 +29,7 @@
 - (void)workQueueEnqueueCommand:(id)arg1 variantParam:(id)arg2 invariantParam:(id)arg3;
 - (void)workQueueFlushQueue;
 - (void)flushQueue;
-- (BOOL)hasEnqueuedItems;
+- (_Bool)hasEnqueuedItems;
 
 @end
 

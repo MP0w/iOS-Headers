@@ -10,8 +10,8 @@
 {
 }
 
-- (void)setTitle:(id)arg1 destructive:(BOOL)arg2;
-- (id)initWithTitle:(id)arg1 isDestructive:(BOOL)arg2;
+- (void)setTitle:(id)arg1 destructive:(_Bool)arg2;
+- (id)initWithTitle:(id)arg1 isDestructive:(_Bool)arg2;
 
 @end
 

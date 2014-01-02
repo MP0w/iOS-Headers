@@ -7,6 +7,6 @@
 #import "NSString.h"
 
 @interface NSString (CKUtilities)
-- (struct _NSRange)__ck_rangeOfSequenceOfCharactersFromSet:(id)arg1 options:(unsigned int)arg2 range:(struct _NSRange)arg3;
+- (struct _NSRange)__ck_rangeOfSequenceOfCharactersFromSet:(id)arg1 options:(unsigned long long)arg2 range:(struct _NSRange)arg3;
 @end
 

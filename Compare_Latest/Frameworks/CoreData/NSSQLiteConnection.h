@@ -8,6 +8,7 @@
 
 @class NSMutableArray, NSMutableDictionary, NSMutableSet, NSSQLEntity, NSSQLiteStatement, NSString;
 
+// Not exported
 @interface NSSQLiteConnection : NSSQLConnection
 {
     struct sqlite3 *_db;
@@ -43,10 +44,11 @@
     unsigned long long _debugInode;
 }
 
-+ (BOOL)_destroyPersistentStoreAtURL:(id)arg1 options:(id)arg2 error:(id *)arg3;
-+ (BOOL)_replacePersistentStoreAtURL:(id)arg1 destinationOptions:(id)arg2 withPersistentStoreFromURL:(id)arg3 sourceOptions:(id)arg4 error:(id *)arg5;
++ (_Bool)_destroyPersistentStoreAtURL:(id)arg1 options:(id)arg2 error:(id *)arg3;
++ (_Bool)_replacePersistentStoreAtURL:(id)arg1 destinationOptions:(id)arg2 withPersistentStoreFromURL:(id)arg3 sourceOptions:(id)arg4 error:(id *)arg5;
 + (const char *)_databaseOpenURLStringForURL:(id)arg1;
 + (int)readMagicWordFromPath:(const char *)arg1;
++ (int)openAtPath:(const char *)arg1 handle:(struct sqlite3 **)arg2 flags:(int)arg3 module:(const char *)arg4;
 + (void)__INode_Changed_AllThatIsLeftToUsIsHonor__;
 + (void)initialize;
 + (void)_setDebugFlags:(int)arg1;
@@ -63,7 +65,7 @@
 - (void)updateUbiquityKnowledgeForPeerWithID:(id)arg1 andTransactionNumber:(id)arg2;
 - (void)updateUbiquityKnowledgeVector:(id)arg1;
 - (id)fetchUbiquityKnowledgeVector;
-- (BOOL)isLocalFS;
+- (_Bool)isLocalFS;
 - (void)_setupVacuumIfNecessary;
 - (long long)_getCurrentAutoVacuumValue;
 - (void)_performPostSaveTasks;
@@ -72,20 +74,20 @@
 - (void)willCreateSchema;
 - (void)_configurePageSize;
 - (void)_configureAutoVacuum;
-- (BOOL)hasPrimaryKeyTable;
+- (_Bool)hasPrimaryKeyTable;
 - (long long)generatePrimaryKeysForEntity:(id)arg1 batch:(unsigned int)arg2;
 - (void)endPrimaryKeyGeneration;
 - (void)prepareForPrimaryKeyGeneration;
 - (void)_registerExtraFunctions;
-- (BOOL)hasMetadataTable;
-- (BOOL)_hasTableWithName:(id)arg1;
+- (_Bool)hasMetadataTable;
+- (_Bool)_hasTableWithName:(id)arg1;
 - (id)newFetchUUIDSForSubentitiesRootedAt:(id)arg1;
 - (id)fetchTableCreationSQL;
 - (id)fetchTableNames;
-- (BOOL)performIntegrityCheck;
+- (_Bool)performIntegrityCheck;
 - (struct sqlite3_stmt *)_vmstatement;
 - (void)endFetch;
-- (void)setExclusiveLockingMode:(BOOL)arg1;
+- (void)setExclusiveLockingMode:(_Bool)arg1;
 - (int)fetchResultSet:(void *)arg1 usingFetchPlan:(id)arg2;
 - (void)handleCorruptedDB:(id)arg1;
 - (void)cacheCurrentDBStatementOn:(id)arg1;
@@ -113,24 +115,24 @@
 - (void)_clearBindVariablesForInsertedRow;
 - (void)_bindVariablesWithInsertedRow:(id)arg1;
 - (int)_rowsChangedByLastExecute;
-- (BOOL)isOpen;
+- (_Bool)isOpen;
 - (void)rollbackTransaction;
 - (void)commitTransaction;
 - (void)beginTransaction;
 - (void)disconnect;
 - (void)_forceDisconnectOnError;
-- (void)_endPowerAssertionWithAssert:(unsigned int)arg1 andApp:(id)arg2;
-- (id)_beginPowerAssertionWithAssert:(unsigned int *)arg1;
+- (void)_endPowerAssertionWithAssert:(unsigned long long)arg1 andApp:(id)arg2;
+- (id)_beginPowerAssertionWithAssert:(unsigned long long *)arg1;
 - (void)_finalizeStatement;
 - (void)_clearTransactionCaches;
 - (void)connect;
-- (void)_configurePragmaOptions:(int)arg1 createdSchema:(BOOL)arg2;
+- (void)_configurePragmaOptions:(int)arg1 createdSchema:(_Bool)arg2;
 - (void)_configureUbiquityMetadataTable;
 - (void)_configureIntegrityCheck;
 - (void)_configureSynchronousMode;
 - (void)_executeSQLString:(id)arg1;
-- (BOOL)databaseIsEmpty;
-- (BOOL)canConnect;
+- (_Bool)databaseIsEmpty;
+- (_Bool)canConnect;
 - (long long)fetchMaxPrimaryKeyForEntity:(id)arg1;
 - (long long)_fetchMaxPrimaryKeyForEntity:(id)arg1;
 - (struct __CFArray *)rawIntegerRowsForSQL:(id)arg1;
@@ -138,7 +140,7 @@
 - (void)_ensureNoFetchInProgress;
 - (void)_ensureNoStatementPrepared;
 - (void)_ensureDatabaseOpen;
-- (BOOL)isFetchInProgress;
+- (_Bool)isFetchInProgress;
 - (id)_adapter;
 - (void)finalize;
 - (void)dealloc;

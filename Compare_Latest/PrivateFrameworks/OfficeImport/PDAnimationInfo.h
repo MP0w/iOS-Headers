@@ -8,6 +8,7 @@
 
 @class PDAnimationInfoData;
 
+// Not exported
 @interface PDAnimationInfo : NSObject
 {
     PDAnimationInfoData *mEntrance;

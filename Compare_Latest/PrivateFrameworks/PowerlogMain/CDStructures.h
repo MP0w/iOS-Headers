@@ -6,6 +6,11 @@
 
 #pragma mark Named Structures
 
+struct _NSRange {
+    unsigned long long _field1;
+    unsigned long long _field2;
+};
+
 struct __sFILE {
     char *_field1;
     int _field2;

@@ -13,7 +13,7 @@
 @interface SBBulletinSystemStateAdapter : NSObject <SBApplicationRestrictionObserver>
 {
     BBSystemStateProvider *_stateProvider;
-    BOOL _quietModeEnabled;
+    _Bool _quietModeEnabled;
 }
 
 + (id)sharedInstanceIfExists;

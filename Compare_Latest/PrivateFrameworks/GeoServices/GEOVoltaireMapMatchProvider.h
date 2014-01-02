@@ -15,10 +15,10 @@
     GEORequester *_requester;
     id _errorHandler;
     id _finishedHandler;
-    BOOL _cancelled;
+    _Bool _cancelled;
 }
 
-+ (void)setUsePersistentConnection:(BOOL)arg1;
++ (void)setUsePersistentConnection:(_Bool)arg1;
 + (void)_resetURL;
 + (id)providerURL;
 @property(retain, nonatomic) GEORequester *requester; // @synthesize requester=_requester;

@@ -13,12 +13,12 @@
     SBIcon *_icon;
     SBStarkIconImageView *_iconImageView;
     UIView<SBIconAccessoryView> *_accessoryView;
-    BOOL _disableFrameChangeOnHighlight;
-    float _initialHeight;
-    BOOL _temporarilyEnableHighlightDimming;
+    _Bool _disableFrameChangeOnHighlight;
+    double _initialHeight;
+    _Bool _temporarilyEnableHighlightDimming;
 }
 
-@property(nonatomic) BOOL temporarilyEnableHighlightDimming; // @synthesize temporarilyEnableHighlightDimming=_temporarilyEnableHighlightDimming;
+@property(nonatomic) _Bool temporarilyEnableHighlightDimming; // @synthesize temporarilyEnableHighlightDimming=_temporarilyEnableHighlightDimming;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
@@ -29,7 +29,7 @@
 - (void)layoutSubviews;
 - (void)applyLayoutAttributes:(id)arg1;
 - (void)prepareForReuse;
-- (void)_didSetHighlighted:(BOOL)arg1;
+- (void)_didSetHighlighted:(_Bool)arg1;
 @property(retain, nonatomic) SBIcon *icon;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

@@ -12,9 +12,9 @@
 
 @interface IMAVLocalPreviewClient : NSObject <IMSystemMonitorListener>
 {
-    BOOL _wantsPreview;
-    BOOL _wantsPausedPreview;
-    BOOL _wantsUnpausedPreview;
+    _Bool _wantsPreview;
+    _Bool _wantsPausedPreview;
+    _Bool _wantsUnpausedPreview;
 }
 
 + (id)sharedInstance;
@@ -34,14 +34,14 @@
 - (void)beginAnimationToPreview;
 - (void)endAnimationToPIP;
 - (void)beginAnimationToPIP;
-@property(readonly, nonatomic) BOOL isPreviewRunning;
+@property(readonly, nonatomic) _Bool isPreviewRunning;
 - (void)unpausePreview;
 - (void)pausePreview;
 - (void)stopPreview;
 - (void)startPreview;
 - (void)_avDaemonConnected;
 - (void)_updatePreviewState;
-- (BOOL)_shouldPreviewBeRunning;
+- (_Bool)_shouldPreviewBeRunning;
 - (void)setLocalScreenAttributes:(id)arg1;
 - (id)localScreenAttributesForVideoAttributes:(id)arg1;
 @property(nonatomic) void *localVideoBackLayer;

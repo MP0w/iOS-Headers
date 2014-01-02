@@ -19,12 +19,12 @@
 - (void)_reloadButtons;
 - (id)_newButton;
 - (void)_buttonAction:(id)arg1;
-- (void)setHighlighted:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)setHighlighted:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)setConfiguration:(id)arg1;
 - (void)layoutSubviews;
 - (void)reloadView;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

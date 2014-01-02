@@ -9,16 +9,16 @@
 @interface SBCollectionViewCell : UICollectionViewCell
 {
     id <SBCollectionViewCellDelegate> _delegate;
-    BOOL _performSetHighlighted;
-    BOOL _protectDelayedUnhighlights;
+    _Bool _performSetHighlighted;
+    _Bool _protectDelayedUnhighlights;
 }
 
-@property(nonatomic) BOOL protectDelayedUnhighlights; // @synthesize protectDelayedUnhighlights=_protectDelayedUnhighlights;
+@property(nonatomic) _Bool protectDelayedUnhighlights; // @synthesize protectDelayedUnhighlights=_protectDelayedUnhighlights;
 - (void)prepareForReuse;
-- (void)setHighlighted:(BOOL)arg1;
-- (void)setHighlighted:(BOOL)arg1 afterDelay:(double)arg2;
+- (void)setHighlighted:(_Bool)arg1;
+- (void)setHighlighted:(_Bool)arg1 afterDelay:(double)arg2;
 - (void)_performSetHighlighted;
-- (void)_didSetHighlighted:(BOOL)arg1;
+- (void)_didSetHighlighted:(_Bool)arg1;
 @property(nonatomic) id <SBCollectionViewCellDelegate> delegate;
 
 @end

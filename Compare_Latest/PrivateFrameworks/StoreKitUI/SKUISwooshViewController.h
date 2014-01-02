@@ -20,10 +20,10 @@
 @property(retain, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
 - (void).cxx_destruct;
 - (void)unhideImages;
-- (void)setImage:(id)arg1 forItemAtIndex:(int)arg2;
-- (id)popImageViewForItemAtIndex:(int)arg1;
+- (void)setImage:(id)arg1 forItemAtIndex:(long long)arg2;
+- (id)popImageViewForItemAtIndex:(long long)arg1;
 - (id)indexPathsForVisibleItems;
-- (struct CGRect)frameForItemAtIndex:(int)arg1;
+- (struct CGRect)frameForItemAtIndex:(long long)arg1;
 
 @end
 

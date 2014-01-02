@@ -7,6 +7,6 @@
 #import "ICDevice.h"
 
 @interface ICDevice (PLCameraImporter)
-- (BOOL)isCameraDevice;
+- (_Bool)isCameraDevice;
 @end
 

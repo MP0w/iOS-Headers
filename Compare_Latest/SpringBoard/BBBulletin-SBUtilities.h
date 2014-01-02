@@ -9,8 +9,8 @@
 #import "SBUIQuietModePlayability-Protocol.h"
 
 @interface BBBulletin (SBUtilities) <SBUIQuietModePlayability>
-- (BOOL)overridesQuietMode;
-- (BOOL)isCritical;
+- (_Bool)overridesQuietMode;
+- (_Bool)isCritical;
 - (id)sectionIconImageWithFormat:(int)arg1;
 @end
 

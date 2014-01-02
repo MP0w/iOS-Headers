@@ -8,13 +8,14 @@
 
 #import "_UISharedArtworkResolving-Protocol.h"
 
+// Not exported
 @interface UIImageTableArtwork : UISharedArtwork <_UISharedArtworkResolving>
 {
 }
 
 + (id)sharedInstance;
 + (void)initialize;
-- (void)cacheImage:(id)arg1 name:(id)arg2 index:(unsigned int)arg3;
+- (void)cacheImage:(id)arg1 name:(id)arg2 index:(unsigned long long)arg3;
 
 @end
 

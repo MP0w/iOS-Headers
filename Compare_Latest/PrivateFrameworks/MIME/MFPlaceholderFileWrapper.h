@@ -10,7 +10,7 @@
 {
 }
 
-- (BOOL)isPlaceholder;
+- (_Bool)isPlaceholder;
 
 @end
 

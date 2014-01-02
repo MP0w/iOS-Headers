@@ -8,6 +8,7 @@
 
 @class CMDrawableMapper, NSAffineTransform, NSMutableArray;
 
+// Not exported
 @interface CMDrawingContext : NSObject
 {
     CMDrawableMapper *_mapper;

@@ -8,6 +8,7 @@
 
 @class NSDictionary;
 
+// Not exported
 @interface _NSXPCDistantObjectWithUserInfoAndError : _NSXPCDistantObjectWithError
 {
     NSDictionary *_userInfo;

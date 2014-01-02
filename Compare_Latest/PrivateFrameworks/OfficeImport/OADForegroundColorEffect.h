@@ -8,13 +8,14 @@
 
 @class OADColor;
 
+// Not exported
 @interface OADForegroundColorEffect : OADBlipEffect
 {
     OADColor *mForegroundColor;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)setStyleColor:(id)arg1;
 - (void)setForegroundColor:(id)arg1;
 - (id)foregroundColor;

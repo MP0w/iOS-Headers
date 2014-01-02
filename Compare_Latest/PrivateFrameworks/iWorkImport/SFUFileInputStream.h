@@ -8,10 +8,11 @@
 
 #import "SFUInputStream-Protocol.h"
 
+// Not exported
 @interface SFUFileInputStream : NSObject <SFUInputStream>
 {
     int mFd;
-    BOOL mIsCachingDisabled;
+    _Bool mIsCachingDisabled;
     long long mStartOffset;
     long long mCurrentOffset;
     long long mEndOffset;
@@ -22,8 +23,8 @@
 - (void)enableSystemCaching;
 - (void)disableSystemCaching;
 - (void)seekToOffset:(long long)arg1;
-- (BOOL)canSeek;
-- (unsigned long)readToBuffer:(char *)arg1 size:(unsigned long)arg2;
+- (_Bool)canSeek;
+- (unsigned long long)readToBuffer:(char *)arg1 size:(unsigned long long)arg2;
 - (long long)offset;
 - (void)dealloc;
 - (id)initWithPath:(id)arg1 offset:(long long)arg2;

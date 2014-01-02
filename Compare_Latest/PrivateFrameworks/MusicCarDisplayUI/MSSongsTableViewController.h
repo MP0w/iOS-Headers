@@ -8,15 +8,15 @@
 
 @interface MSSongsTableViewController : MSSectionedTableViewController
 {
-    BOOL _shouldShowAlbumAndArtistSubtitle;
-    BOOL _shouldShowShuffleAction;
+    _Bool _shouldShowAlbumAndArtistSubtitle;
+    _Bool _shouldShowShuffleAction;
 }
 
-@property(nonatomic) BOOL shouldShowShuffleAction; // @synthesize shouldShowShuffleAction=_shouldShowShuffleAction;
-@property(nonatomic) BOOL shouldShowAlbumAndArtistSubtitle; // @synthesize shouldShowAlbumAndArtistSubtitle=_shouldShowAlbumAndArtistSubtitle;
+@property(nonatomic) _Bool shouldShowShuffleAction; // @synthesize shouldShowShuffleAction=_shouldShowShuffleAction;
+@property(nonatomic) _Bool shouldShowAlbumAndArtistSubtitle; // @synthesize shouldShowAlbumAndArtistSubtitle=_shouldShowAlbumAndArtistSubtitle;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (unsigned int)countOfActions;
+- (unsigned long long)countOfActions;
 - (id)initWithQuery:(id)arg1 player:(id)arg2 serviceProvider:(id)arg3;
 
 @end

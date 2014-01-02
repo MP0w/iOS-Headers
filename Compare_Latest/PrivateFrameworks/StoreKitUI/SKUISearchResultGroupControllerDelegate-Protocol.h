@@ -7,7 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol SKUISearchResultGroupControllerDelegate <NSObject>
-- (void)searchResultGroupController:(id)arg1 didLoadArtworkAtIndex:(unsigned int)arg2;
-- (void)searchResultGroupController:(id)arg1 didLoadEntityAtIndex:(unsigned int)arg2;
+- (void)searchResultGroupController:(id)arg1 didLoadArtworkAtIndex:(unsigned long long)arg2;
+- (void)searchResultGroupController:(id)arg1 didLoadEntityAtIndexes:(id)arg2;
 @end
 

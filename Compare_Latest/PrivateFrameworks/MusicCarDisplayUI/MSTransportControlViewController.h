@@ -12,8 +12,8 @@
 {
     id <MSCarDisplayServiceProvider> _serviceProvider;
     MPAVController *_player;
-    id <MSTransportControlViewControllerDelegate> _delegate;
     int _mode;
+    id <MSTransportControlViewControllerDelegate> _delegate;
     MSTransportControlView *_transportControlView;
     struct UIEdgeInsets _contentInset;
 }
@@ -23,6 +23,7 @@
 @property(nonatomic) int mode; // @synthesize mode=_mode;
 @property(nonatomic) __weak id <MSTransportControlViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)updateTrackInformation;
 - (void)updateTimeInformation;
 - (void)updatePlaybackState;
 - (void)_playbackStateChanged:(id)arg1;
@@ -34,9 +35,9 @@
 - (void)_leftButtonTouchHeld;
 - (void)_leftButtonTouchDown:(id)arg1;
 - (void)viewDidLayoutSubviews;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

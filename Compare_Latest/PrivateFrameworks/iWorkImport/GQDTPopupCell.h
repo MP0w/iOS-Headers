@@ -6,6 +6,7 @@
 
 #import <iWorkImport/GQDTCell.h>
 
+// Not exported
 @interface GQDTPopupCell : GQDTCell
 {
     GQDTCell *mResultCell;

@@ -6,13 +6,14 @@
 
 #import <OfficeImport/OADBlipEffect.h>
 
+// Not exported
 @interface OADBiLevelEffect : OADBlipEffect
 {
     float mThreshold;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)setThreshold:(float)arg1;
 - (float)threshold;
 - (id)copyWithZone:(struct _NSZone *)arg1;

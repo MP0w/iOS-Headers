@@ -12,6 +12,7 @@
 
 @class NSAsyncSSDownloadManager, NSCountedSet, NSMutableArray, NSTimer, SSDownloadHandler;
 
+// Not exported
 @interface NSURLConnectionInternalBackgroundDownload : NSURLConnectionInternal <NSURLConnectionRequired, SSDownloadManagerObserver, SSDownloadHandlerDelegate>
 {
     struct __CFRunLoopSource *_source;
@@ -21,7 +22,7 @@
     NSAsyncSSDownloadManager *_manager;
     long long _downloadIdent;
     long long _ctLast;
-    BOOL _terminated;
+    _Bool _terminated;
     NSTimer *_deferredStartTimer;
 }
 
@@ -36,7 +37,7 @@
 - (long long)_getDownloadIdent;
 - (void)_updateClientWithCurrentWrites:(id)arg1;
 - (void)downloadHandler:(id)arg1 handleAuthenticationSession:(id)arg2;
-- (BOOL)downloadHandler:(id)arg1 pauseSession:(id)arg2;
+- (_Bool)downloadHandler:(id)arg1 pauseSession:(id)arg2;
 - (void)downloadHandler:(id)arg1 cancelSession:(id)arg2;
 - (void)downloadHandlerDidDisconnect:(id)arg1;
 - (void)setDelegateQueue:(id)arg1;

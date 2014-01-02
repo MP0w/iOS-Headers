@@ -26,9 +26,9 @@
 @property(retain, nonatomic) NSString *principalName; // @synthesize principalName=_principalName;
 - (void).cxx_destruct;
 - (id)stubDictionary;
-- (BOOL)validateURLPrefixMatch:(id)arg1 outNormalizedString:(id *)arg2 outError:(id *)arg3;
+- (_Bool)validateURLPrefixMatch:(id)arg1 outNormalizedString:(id *)arg2 outError:(id *)arg3;
 - (id)description;
-- (BOOL)validateAppIdentifierMatch:(id)arg1 outError:(id *)arg2;
+- (_Bool)validateAppIdentifierMatch:(id)arg1 outError:(id *)arg2;
 - (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
 
 @end

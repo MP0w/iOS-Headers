@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface GQUCommon : NSObject
 {
 }
 
-+ (BOOL)fileExistsAtUrl:(struct __CFURL *)arg1;
++ (_Bool)fileExistsAtUrl:(struct __CFURL *)arg1;
 
 @end
 

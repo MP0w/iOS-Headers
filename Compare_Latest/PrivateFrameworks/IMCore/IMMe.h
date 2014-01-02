@@ -34,12 +34,12 @@
 @property(readonly, nonatomic) NSString *firstName;
 @property(readonly, nonatomic) NSString *nickname;
 - (void)setFirstName:(id)arg1 lastName:(id)arg2;
-- (BOOL)removeIMHandle:(id)arg1;
-- (BOOL)isIMHandleLoginIMHandle:(id)arg1;
-- (BOOL)addIMHandle:(id)arg1;
+- (_Bool)removeIMHandle:(id)arg1;
+- (_Bool)isIMHandleLoginIMHandle:(id)arg1;
+- (_Bool)addIMHandle:(id)arg1;
 - (id)loginIMHandles;
-- (BOOL)removeLoginIMHandle:(id)arg1;
-- (BOOL)addLoginIMHandle:(id)arg1;
+- (_Bool)removeLoginIMHandle:(id)arg1;
+- (_Bool)addLoginIMHandle:(id)arg1;
 @property(readonly, nonatomic) IMPerson *person;
 - (void)setIMPerson:(id)arg1;
 - (void)resetABPerson;

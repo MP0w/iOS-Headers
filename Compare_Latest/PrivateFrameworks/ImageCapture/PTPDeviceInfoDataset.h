@@ -11,9 +11,9 @@
 @interface PTPDeviceInfoDataset : NSObject
 {
     NSMutableData *_content;
-    BOOL _dirty;
+    _Bool _dirty;
     unsigned short _standardVersion;
-    unsigned long _vendorExtensionID;
+    unsigned int _vendorExtensionID;
     unsigned short _vendorExtensionVersion;
     NSString *_vendorExtensionDescription;
     unsigned short _functionalMode;
@@ -26,7 +26,7 @@
     NSString *_model;
     NSString *_deviceVersion;
     NSString *_serialNumber;
-    BOOL _readOnlyObject;
+    _Bool _readOnlyObject;
 }
 
 - (id)canonicalManufacturer;
@@ -54,8 +54,8 @@
 - (id)vendorExtensionDescription;
 - (void)setVendorExtensionVersion:(unsigned short)arg1;
 - (unsigned short)vendorExtensionVersion;
-- (void)setVendorExtensionID:(unsigned long)arg1;
-- (unsigned long)vendorExtensionID;
+- (void)setVendorExtensionID:(unsigned int)arg1;
+- (unsigned int)vendorExtensionID;
 - (void)setStandardVersion:(unsigned short)arg1;
 - (unsigned short)standardVersion;
 - (id)description;

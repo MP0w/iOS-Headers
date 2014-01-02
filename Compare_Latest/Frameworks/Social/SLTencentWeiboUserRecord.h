@@ -8,18 +8,18 @@
 
 #import "NSSecureCoding-Protocol.h"
 
-@class NSNumber, NSURL;
+@class NSString, NSURL;
 
 @interface SLTencentWeiboUserRecord : SLMicroBlogUserRecord <NSSecureCoding>
 {
-    NSNumber *_uid;
+    NSString *_openid;
     NSURL *_objectID;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 + (id)userRecordWithDictionaryRepresentation:(id)arg1;
 @property(retain, nonatomic) NSURL *objectID; // @synthesize objectID=_objectID;
-@property(copy, nonatomic) NSNumber *uid; // @synthesize uid=_uid;
+@property(copy, nonatomic) NSString *openid; // @synthesize openid=_openid;
 - (void).cxx_destruct;
 - (void)setValuesWithUserDictionary:(id)arg1;
 - (id)description;

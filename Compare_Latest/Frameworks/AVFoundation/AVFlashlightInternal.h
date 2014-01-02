@@ -12,8 +12,8 @@
 {
     struct OpaqueFigRecorder *recorder;
     AVWeakReference *weakReference;
-    BOOL overheated;
-    BOOL available;
+    _Bool overheated;
+    _Bool available;
     float flashlightLevel;
 }
 

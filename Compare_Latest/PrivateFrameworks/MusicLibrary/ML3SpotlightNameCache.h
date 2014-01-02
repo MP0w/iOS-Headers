@@ -8,14 +8,16 @@
 
 @class ML3MusicLibrary;
 
+// Not exported
 @interface ML3SpotlightNameCache : NSObject
 {
     struct unordered_map<long long, NSString *, std::__1::hash<long long>, std::__1::equal_to<long long>, std::__1::allocator<std::__1::pair<const long long, NSString *>>> _map;
-    BOOL _idle;
+    _Bool _idle;
     ML3MusicLibrary *_library;
 }
 
 + (id)copyFromLibrary:(id)arg1 cancelHandler:(id)arg2;
++ (void)initialize;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)dealloc;

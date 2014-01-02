@@ -12,8 +12,8 @@ struct ClassicConnectionSession {
     struct _CFURLSessionConfiguration *_field3;
     struct XCookieStorage *_field4;
     int _field5;
-    int _field6;
-    id _field7;
+    id _field6;
+    unsigned char _field7;
     id _field8;
     void _field9;
     id _field10;
@@ -53,7 +53,7 @@ struct stat {
 };
 
 struct timespec {
-    int tv_sec;
-    long tv_nsec;
+    long long tv_sec;
+    long long tv_nsec;
 };
 

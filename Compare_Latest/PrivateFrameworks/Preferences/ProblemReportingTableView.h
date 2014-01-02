@@ -16,7 +16,7 @@
 - (void)dealloc;
 - (void)layoutSubviews;
 - (void)setController:(id)arg1;
-- (id)initWithFrame:(struct CGRect)arg1 style:(int)arg2;
+- (id)initWithFrame:(struct CGRect)arg1 style:(long long)arg2;
 
 @end
 

@@ -18,22 +18,22 @@
     unsigned long long _bytesWritten;
     double _lastReplenishTime;
     NSMutableDictionary *_authTokens;
-    BOOL _digestAuthenticationEnabled;
-    BOOL _pipeliningEnabled;
+    _Bool _digestAuthenticationEnabled;
+    _Bool _pipeliningEnabled;
     unsigned short _port;
+    int _cacheMaxAge;
     id <HTSHTTPServerDelegate> _delegate;
     NSObject<OS_dispatch_queue> *_delegateQueue;
-    struct __CFHTTPMessage *_currentRequest;
-    NSString *_documentRoot;
-    int _cacheMaxAge;
     double _latency;
     double _latencyStddev;
     double _kbps;
     double _bandwidthStddev;
     unsigned long long _totalBytesWritten;
+    struct __CFHTTPMessage *_currentRequest;
+    NSString *_documentRoot;
 }
 
-@property(nonatomic) BOOL pipeliningEnabled; // @synthesize pipeliningEnabled=_pipeliningEnabled;
+@property(nonatomic) _Bool pipeliningEnabled; // @synthesize pipeliningEnabled=_pipeliningEnabled;
 @property(nonatomic) int cacheMaxAge; // @synthesize cacheMaxAge=_cacheMaxAge;
 @property(copy, nonatomic) NSString *documentRoot; // @synthesize documentRoot=_documentRoot;
 @property(nonatomic) struct __CFHTTPMessage *currentRequest; // @synthesize currentRequest=_currentRequest;
@@ -42,7 +42,7 @@
 @property(nonatomic) double kbps; // @synthesize kbps=_kbps;
 @property(nonatomic) double latencyStddev; // @synthesize latencyStddev=_latencyStddev;
 @property(nonatomic) double latency; // @synthesize latency=_latency;
-@property(nonatomic) BOOL digestAuthenticationEnabled; // @synthesize digestAuthenticationEnabled=_digestAuthenticationEnabled;
+@property(nonatomic) _Bool digestAuthenticationEnabled; // @synthesize digestAuthenticationEnabled=_digestAuthenticationEnabled;
 @property(readonly, nonatomic) unsigned short port; // @synthesize port=_port;
 @property(nonatomic) NSObject<OS_dispatch_queue> *delegateQueue; // @synthesize delegateQueue=_delegateQueue;
 @property(nonatomic) id <HTSHTTPServerDelegate> delegate; // @synthesize delegate=_delegate;
@@ -54,12 +54,12 @@
 - (id)_authenticationResponseForRequest:(id)arg1;
 - (void)_respondWithData:(id)arg1 mimeType:(id)arg2 toRequest:(id)arg3 connection:(id)arg4;
 - (void)_connection:(id)arg1 didReceiveRequest:(id)arg2;
-- (void)_returnResponse:(id)arg1 toConnection:(id)arg2 closeAfterSending:(BOOL)arg3;
+- (void)_returnResponse:(id)arg1 toConnection:(id)arg2 closeAfterSending:(_Bool)arg3;
 - (id)_restrictedFilePathForRelativePath:(id)arg1;
 - (void)_connection:(id)arg1 hadError:(id)arg2;
 - (void)_connectionComplete:(id)arg1;
 - (id)_mimeTypeForExtension:(id)arg1;
-- (BOOL)_listenOnPort:(unsigned short)arg1;
+- (_Bool)_listenOnPort:(unsigned short)arg1;
 - (void)_cleanupListenSocket;
 @property(readonly, nonatomic) NSString *urlString;
 - (id)init;

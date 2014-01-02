@@ -11,10 +11,10 @@
 @interface PT2DGraphView : UIView
 {
     NSArray *_provisionalData;
-    float _xminimum;
-    float _yminimum;
-    float _xmaximum;
-    float _ymaximum;
+    double _xminimum;
+    double _yminimum;
+    double _xmaximum;
+    double _ymaximum;
     PT2DGraphAxisStyle *_xaxisStyle;
     PT2DGraphAxisStyle *_yaxisStyle;
     UIColor *_groundColor;
@@ -37,10 +37,10 @@
 @property(retain, nonatomic) PT2DGraphAxisStyle *yaxisStyle; // @synthesize yaxisStyle=_yaxisStyle;
 @property(retain, nonatomic) PT2DGraphAxisStyle *xaxisStyle; // @synthesize xaxisStyle=_xaxisStyle;
 @property(nonatomic) struct CGPoint origin; // @synthesize origin=_origin;
-@property(nonatomic) float ymaximum; // @synthesize ymaximum=_ymaximum;
-@property(nonatomic) float xmaximum; // @synthesize xmaximum=_xmaximum;
-@property(nonatomic) float yminimum; // @synthesize yminimum=_yminimum;
-@property(nonatomic) float xminimum; // @synthesize xminimum=_xminimum;
+@property(nonatomic) double ymaximum; // @synthesize ymaximum=_ymaximum;
+@property(nonatomic) double xmaximum; // @synthesize xmaximum=_xmaximum;
+@property(nonatomic) double yminimum; // @synthesize yminimum=_yminimum;
+@property(nonatomic) double xminimum; // @synthesize xminimum=_xminimum;
 @property(retain, nonatomic) NSArray *provisionalData; // @synthesize provisionalData=_provisionalData;
 - (void).cxx_destruct;
 - (void)drawRect:(struct CGRect)arg1;

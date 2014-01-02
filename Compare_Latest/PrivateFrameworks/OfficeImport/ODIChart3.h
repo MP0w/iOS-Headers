@@ -6,6 +6,7 @@
 
 #import <OfficeImport/ODICycle5.h>
 
+// Not exported
 @interface ODIChart3 : ODICycle5
 {
 }

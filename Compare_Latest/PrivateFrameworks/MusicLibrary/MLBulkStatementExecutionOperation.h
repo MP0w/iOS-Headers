@@ -10,9 +10,9 @@
 {
 }
 
-- (BOOL)_executeStatements:(id)arg1 onConnection:(id)arg2 withError:(id *)arg3;
+- (_Bool)_executeStatements:(id)arg1 onConnection:(id)arg2 withError:(id *)arg3;
 - (void)main;
-- (unsigned int)type;
+- (unsigned long long)type;
 
 @end
 

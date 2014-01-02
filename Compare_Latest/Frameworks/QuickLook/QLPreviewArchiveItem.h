@@ -18,17 +18,18 @@
     NSURL *_unarchivedURL;
     NSOperation *_unarchiveOperation;
     NSMutableArray *_completionBlocks;
-    int _previewItemIndex;
-    int _UIItemIndex;
-    int _level;
+    long long _previewItemIndex;
+    long long _UIItemIndex;
+    long long _level;
 }
 
-@property int level; // @synthesize level=_level;
-@property int UIItemIndex; // @synthesize UIItemIndex=_UIItemIndex;
-@property int previewItemIndex; // @synthesize previewItemIndex=_previewItemIndex;
+@property long long level; // @synthesize level=_level;
+@property long long UIItemIndex; // @synthesize UIItemIndex=_UIItemIndex;
+@property long long previewItemIndex; // @synthesize previewItemIndex=_previewItemIndex;
 - (void)cancelIconUpdate;
 - (void)updateIconWithSize:(struct CGSize)arg1 completionBlock:(id)arg2;
 @property(readonly) UIImage *icon;
+@property(readonly) _Bool isFolder;
 - (void)cleanup;
 - (void)unarchiveWithCompletionBlock:(id)arg1;
 @property(readonly) NSURL *previewItemURL;

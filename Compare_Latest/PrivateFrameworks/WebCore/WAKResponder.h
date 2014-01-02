@@ -6,14 +6,15 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface WAKResponder : NSObject
 {
 }
 
-- (BOOL)tryToPerform:(SEL)arg1 with:(id)arg2;
-- (BOOL)resignFirstResponder;
-- (BOOL)becomeFirstResponder;
-- (BOOL)acceptsFirstResponder;
+- (_Bool)tryToPerform:(SEL)arg1 with:(id)arg2;
+- (_Bool)resignFirstResponder;
+- (_Bool)becomeFirstResponder;
+- (_Bool)acceptsFirstResponder;
 - (void)mouseDown:(id)arg1;
 - (void)mouseUp:(id)arg1;
 - (void)moveUpAndModifySelection:(id)arg1;

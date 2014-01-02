@@ -8,6 +8,6 @@
 
 @interface NSNotificationCenter (ThreadHelpers)
 - (void)postNotificationNameOnMainThreadHandler:(id)arg1;
-- (void)postNotificationNameOnMainThread:(id)arg1 object:(id)arg2 userInfo:(id)arg3 waitUntilDone:(BOOL)arg4;
+- (void)postNotificationNameOnMainThread:(id)arg1 object:(id)arg2 userInfo:(id)arg3 waitUntilDone:(_Bool)arg4;
 @end
 

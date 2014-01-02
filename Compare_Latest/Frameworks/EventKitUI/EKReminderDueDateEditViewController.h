@@ -15,38 +15,38 @@
 @interface EKReminderDueDateEditViewController : EKEditItemViewController <UITableViewDelegate, UITableViewDataSource, EKPickerTableViewDelegate>
 {
     NSDate *_dueDate;
-    BOOL _hasDueDate;
-    BOOL _isAllDay;
-    BOOL _shouldShowAllDay;
+    _Bool _hasDueDate;
+    _Bool _isAllDay;
+    _Bool _shouldShowAllDay;
     EKPickerTableView *_container;
 }
 
 - (void).cxx_destruct;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 willDeselectRowAtIndexPath:(id)arg2;
 - (void)_updateDueDateString;
 - (void)_updateDueDateStringForCell:(id)arg1;
 - (void)_updateDatePickerMode;
 - (void)_updateDatePickerDate;
-- (void)_updateDatePickerPresenceAnimated:(BOOL)arg1;
+- (void)_updateDatePickerPresenceAnimated:(_Bool)arg1;
 - (void)_updateEnabledState;
 - (void)pickerTableViewDidChangeDatePickerInterval:(id)arg1;
 - (void)_datePickerChanged:(id)arg1;
 - (void)_isAllDayChanged:(id)arg1;
 - (void)_hasDueDateChanged:(id)arg1;
 - (void)_localeChanged;
-- (void)setShouldShowAllDay:(BOOL)arg1;
-- (BOOL)isAllDay;
-- (void)setIsAllDay:(BOOL)arg1;
-- (BOOL)hasDueDate;
-- (void)setHasDueDate:(BOOL)arg1;
-- (void)_setIsAllDay:(BOOL)arg1 updateSwitch:(BOOL)arg2;
-- (void)_setHasDueDate:(BOOL)arg1 updateSwitch:(BOOL)arg2 updateTableAnimated:(BOOL)arg3;
+- (void)setShouldShowAllDay:(_Bool)arg1;
+- (_Bool)isAllDay;
+- (void)setIsAllDay:(_Bool)arg1;
+- (_Bool)hasDueDate;
+- (void)setHasDueDate:(_Bool)arg1;
+- (void)_setIsAllDay:(_Bool)arg1 updateSwitch:(_Bool)arg2;
+- (void)_setHasDueDate:(_Bool)arg1 updateSwitch:(_Bool)arg2 updateTableAnimated:(_Bool)arg3;
 - (id)dueDate;
 - (void)setDueDate:(id)arg1;
-- (void)_setDueDate:(id)arg1 updateDatePicker:(BOOL)arg2;
+- (void)_setDueDate:(id)arg1 updateDatePicker:(_Bool)arg2;
 - (void)loadView;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 styleProvider:(id)arg2;

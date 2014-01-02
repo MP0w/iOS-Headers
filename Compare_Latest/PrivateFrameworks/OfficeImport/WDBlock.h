@@ -8,13 +8,14 @@
 
 @class WDText;
 
+// Not exported
 @interface WDBlock : NSObject
 {
     WDText *mText;
 }
 
 - (void)clearProperties;
-- (BOOL)isEmpty;
+- (_Bool)isEmpty;
 - (id)newRunIterator;
 - (id)runIterator;
 - (id)initWithText:(id)arg1;

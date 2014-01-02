@@ -6,6 +6,7 @@
 
 #import <UIKit/UITextSelectionRect.h>
 
+// Not exported
 @interface UISimpleSelectionRect : UITextSelectionRect
 {
     struct CGRect _rect;

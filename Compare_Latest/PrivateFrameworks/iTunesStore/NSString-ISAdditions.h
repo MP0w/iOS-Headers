@@ -7,6 +7,6 @@
 #import "NSString.h"
 
 @interface NSString (ISAdditions)
-- (id)copyUTF8StringOfLength:(unsigned int)arg1;
+- (id)copyUTF8StringOfLength:(unsigned long long)arg1;
 @end
 

@@ -19,8 +19,8 @@
 
 @property(retain, nonatomic) NSString *personalizedBaseName; // @synthesize personalizedBaseName;
 @property(retain, nonatomic) UIView *justTextContainerView2; // @synthesize justTextContainerView2;
-- (void)primaryActionSelected:(BOOL)arg1;
-- (BOOL)shouldChangeTextField:(id)arg1 atIndexPath:(id)arg2 forTextIndex:(unsigned int)arg3 toString:(id)arg4;
+- (void)primaryActionSelected:(_Bool)arg1;
+- (_Bool)shouldChangeTextField:(id)arg1 atIndexPath:(id)arg2 forTextIndex:(unsigned long long)arg3 toString:(id)arg4;
 - (void)validateAndUpdateNextButton;
 - (void)selectedDeviceUpdated;
 - (id)devicePickerLabel;
@@ -30,7 +30,7 @@
 - (void)prepareParams;
 - (void)setupHeaderAndFooter;
 - (void)setupEditableBaseStationName;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)dealloc;
 - (void)viewDidLoad;
 

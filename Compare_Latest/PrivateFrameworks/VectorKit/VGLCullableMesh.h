@@ -6,6 +6,7 @@
 
 #import <VectorKit/VGLMesh.h>
 
+// Not exported
 @interface VGLCullableMesh : VGLMesh
 {
     int _vertexOffset;
@@ -19,16 +20,16 @@
 @property(nonatomic) unsigned int tilePointSize; // @synthesize tilePointSize=_pointSize;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)drawInRects:(const CDStruct_818bb265 *)arg1 numRects:(unsigned int)arg2 context:(id)arg3;
+- (void)drawInRects:(const CDStruct_818bb265 *)arg1 numRects:(unsigned long long)arg2 context:(id)arg3;
 - (void)drawInPreparedCulls:(id)arg1;
-- (void)prepareCullsInRects:(const CDStruct_818bb265 *)arg1 numRects:(unsigned int)arg2;
+- (void)prepareCullsInRects:(const CDStruct_818bb265 *)arg1 numRects:(unsigned long long)arg2;
 - (void)drawDebugBounds:(id)arg1;
 - (void)buildCullingTree;
 - (void)freeze;
-- (void)_createSortedLineIndicesFromSortedTriangleLinesForIndex:(unsigned int)arg1 fromIndex:(unsigned int)arg2;
-- (void)_splitForIndexMode:(unsigned int)arg1;
+- (void)_createSortedLineIndicesFromSortedTriangleLinesForIndex:(unsigned long long)arg1 fromIndex:(unsigned long long)arg2;
+- (void)_splitForIndexMode:(unsigned long long)arg1;
 - (id)init;
-@property(readonly, nonatomic) BOOL isPrimaryIndexModeLinesWithTriangles;
+@property(readonly, nonatomic) _Bool isPrimaryIndexModeLinesWithTriangles;
 
 @end
 

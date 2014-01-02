@@ -16,8 +16,8 @@
     double _timeout;
     double _wifiTimeout;
     double _startTime;
-    unsigned int _flags;
-    unsigned int _options;
+    unsigned long long _flags;
+    unsigned long long _options;
     id _completionBlock;
 }
 
@@ -28,8 +28,8 @@
 - (void)_timerHit:(id)arg1;
 - (void)_cancel;
 - (void)dealloc;
-- (id)initWithFlags:(unsigned int)arg1 timeout:(double)arg2 wifiTimeout:(double)arg3 completionBlock:(id)arg4;
-- (id)initWithFlags:(unsigned int)arg1 options:(unsigned int)arg2 timeout:(double)arg3 wifiTimeout:(double)arg4 completionBlock:(id)arg5;
+- (id)initWithFlags:(unsigned long long)arg1 timeout:(double)arg2 wifiTimeout:(double)arg3 completionBlock:(id)arg4;
+- (id)initWithFlags:(unsigned long long)arg1 options:(unsigned long long)arg2 timeout:(double)arg3 wifiTimeout:(double)arg4 completionBlock:(id)arg5;
 
 @end
 

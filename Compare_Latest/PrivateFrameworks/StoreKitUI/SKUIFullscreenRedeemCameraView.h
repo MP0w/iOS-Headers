@@ -17,7 +17,7 @@
     UIView *_redeemerView;
     SKUIRedeemTextField *_textField;
     struct CGRect _keyboardRect;
-    BOOL _enabled;
+    _Bool _enabled;
 }
 
 @property(nonatomic) __weak id <SKUIRedeemCameraViewDelegate> delegate; // @synthesize delegate=_delegate;
@@ -28,7 +28,7 @@
 - (void)_hideKeyboard;
 - (void)_tapGestureAction:(id)arg1;
 - (void)textFieldDidEndEditing:(id)arg1;
-- (BOOL)textFieldShouldReturn:(id)arg1;
+- (_Bool)textFieldShouldReturn:(id)arg1;
 - (void)textFieldDidBeginEditing:(id)arg1;
 - (void)textFieldTextDidChange:(id)arg1;
 - (void)keyboardDidHide:(id)arg1;
@@ -37,7 +37,7 @@
 - (void)keyboardWillShow:(id)arg1;
 - (void)layoutSubviews;
 - (void)start;
-@property(nonatomic) BOOL enabled;
+@property(nonatomic) _Bool enabled;
 - (void)showKeyboard;
 @property(retain, nonatomic) UIImage *image;
 @property(copy, nonatomic) NSString *text;

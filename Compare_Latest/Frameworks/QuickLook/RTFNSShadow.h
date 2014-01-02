@@ -8,14 +8,15 @@
 
 @class RTFNSColor;
 
+// Not exported
 @interface RTFNSShadow : NSObject
 {
     RTFNSColor *shadowColor;
     struct CGSize shadowOffset;
-    float shadowBlurRadius;
+    double shadowBlurRadius;
 }
 
-@property float shadowBlurRadius; // @synthesize shadowBlurRadius;
+@property double shadowBlurRadius; // @synthesize shadowBlurRadius;
 @property struct CGSize shadowOffset; // @synthesize shadowOffset;
 @property(retain) RTFNSColor *shadowColor; // @synthesize shadowColor;
 

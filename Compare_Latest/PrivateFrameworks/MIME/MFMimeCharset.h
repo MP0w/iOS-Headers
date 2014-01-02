@@ -10,7 +10,7 @@
 
 @interface MFMimeCharset : NSObject
 {
-    unsigned long _encoding;
+    unsigned int _encoding;
     NSString *_primaryLanguage;
     NSString *_charsetName;
     unsigned int _coversLargeUnicodeSubset:1;
@@ -19,20 +19,20 @@
 }
 
 + (id)preferredMimeCharset;
-+ (id)charsetForEncoding:(unsigned long)arg1;
++ (id)charsetForEncoding:(unsigned int)arg1;
 + (id)allMimeCharsets;
-+ (id)allMimeCharsets:(BOOL)arg1;
++ (id)allMimeCharsets:(_Bool)arg1;
 - (id)description;
 - (id)primaryLanguage;
 - (id)displayName;
-- (BOOL)useBase64InHeaders;
-- (BOOL)coversLargeUnicodeSubset;
-- (BOOL)canBeUsedForOutgoingMessages;
+- (_Bool)useBase64InHeaders;
+- (_Bool)coversLargeUnicodeSubset;
+- (_Bool)canBeUsedForOutgoingMessages;
 - (id)charsetName;
-- (unsigned long)encoding;
+- (unsigned int)encoding;
 - (void)dealloc;
 - (void)_setPrimaryLanguage:(id)arg1;
-- (id)initWithEncoding:(unsigned long)arg1;
+- (id)initWithEncoding:(unsigned int)arg1;
 
 @end
 

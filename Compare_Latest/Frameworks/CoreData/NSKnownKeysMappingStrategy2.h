@@ -6,18 +6,19 @@
 
 #import <CoreData/NSKnownKeysMappingStrategy1.h>
 
+// Not exported
 @interface NSKnownKeysMappingStrategy2 : NSKnownKeysMappingStrategy1
 {
 }
 
-- (BOOL)_tryRetain;
-- (BOOL)_isDeallocating;
-- (unsigned int)retainCount;
+- (_Bool)_tryRetain;
+- (_Bool)_isDeallocating;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;
-- (id)_setupForKeys:(id *)arg1 count:(unsigned int)arg2 table:(void *)arg3 inData:(id)arg4;
+- (id)_setupForKeys:(id *)arg1 count:(unsigned long long)arg2 table:(void *)arg3 inData:(id)arg4;
 - (void)dealloc;
-- (id)initForKeys:(id *)arg1 count:(unsigned int)arg2;
+- (id)initForKeys:(id *)arg1 count:(unsigned long long)arg2;
 - (id)initForKeys:(id)arg1;
 - (id)init;
 

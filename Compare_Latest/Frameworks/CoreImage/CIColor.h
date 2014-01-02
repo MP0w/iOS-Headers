@@ -16,28 +16,28 @@
 }
 
 + (id)colorWithString:(id)arg1;
-+ (id)colorWithRed:(float)arg1 green:(float)arg2 blue:(float)arg3;
-+ (id)colorWithRed:(float)arg1 green:(float)arg2 blue:(float)arg3 alpha:(float)arg4;
++ (id)colorWithRed:(double)arg1 green:(double)arg2 blue:(double)arg3;
++ (id)colorWithRed:(double)arg1 green:(double)arg2 blue:(double)arg3 alpha:(double)arg4;
 + (id)colorWithCGColor:(struct CGColor *)arg1;
 - (id)description;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (struct CGColor *)CGColor;
 - (struct CGColor *)cgColor;
 - (struct CGColorSpace *)colorSpace;
 - (id)stringRepresentation;
-- (float)blue;
-- (float)green;
-- (float)red;
-- (float)alpha;
-- (const float *)components;
-- (unsigned long)numberOfComponents;
+- (double)blue;
+- (double)green;
+- (double)red;
+- (double)alpha;
+- (const double *)components;
+- (unsigned long long)numberOfComponents;
 - (void)finalize;
 - (void)dealloc;
-- (id)initWithRed:(float)arg1 green:(float)arg2 blue:(float)arg3 alpha:(float)arg4;
+- (id)initWithRed:(double)arg1 green:(double)arg2 blue:(double)arg3 alpha:(double)arg4;
 - (id)initWithCGColor:(struct CGColor *)arg1;
 - (id)initWithString:(id)arg1;
 

@@ -8,10 +8,11 @@
 
 @class NSString;
 
+// Not exported
 @interface TSUTemporaryDirectory : NSObject
 {
     NSString *_path;
-    BOOL _leak;
+    _Bool _leak;
 }
 
 - (void)_createDirectoryWithSignature:(id)arg1;

@@ -6,14 +6,15 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface VKLandmarkIconGenerator : NSObject
 {
 }
 
 + (id)sharedGenerator;
-- (id)newIconWithMask:(struct CGImage *)arg1 outlineMask:(struct CGImage *)arg2 style:(CDStruct_44473e2f *)arg3 scale:(float)arg4;
-- (id)keyForName:(id)arg1 style:(CDStruct_44473e2f *)arg2;
-- (BOOL)canHandleStyle:(CDStruct_44473e2f *)arg1;
+- (id)newIconWithMask:(struct CGImage *)arg1 outlineMask:(struct CGImage *)arg2 style:(CDStruct_cf20f7af *)arg3 scale:(double)arg4;
+- (id)keyForName:(id)arg1 style:(CDStruct_cf20f7af *)arg2;
+- (_Bool)canHandleStyle:(CDStruct_cf20f7af *)arg1;
 
 @end
 

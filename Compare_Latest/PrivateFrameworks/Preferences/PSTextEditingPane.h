@@ -21,8 +21,8 @@
 - (void)setPreferenceSpecifier:(id)arg1;
 - (id)preferenceValue;
 - (void)setPreferenceValue:(id)arg1;
-- (BOOL)becomeFirstResponder;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (_Bool)becomeFirstResponder;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)layoutSubviews;
 - (void)dealloc;

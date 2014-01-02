@@ -6,12 +6,13 @@
 
 #import <UIKit/UIStatusBarLegacyStyleAttributes.h>
 
+// Not exported
 @interface UIStatusBarLegacyBlackTranslucentStyleAttributes : UIStatusBarLegacyStyleAttributes
 {
 }
 
 - (id)backgroundImageName;
-- (BOOL)isTranslucent;
+- (_Bool)isTranslucent;
 
 @end
 

@@ -8,7 +8,7 @@
 
 @interface WebView (ReadingListFetcherExtras)
 - (id)_quickLookContentFilePath;
-- (BOOL)_createSymlinkInDirectory:(id)arg1 pointingToPath:(id)arg2;
-- (BOOL)_writeDataAtPath:(id)arg1 asArchive:(BOOL)arg2;
+- (_Bool)_createSymlinkInDirectory:(id)arg1 pointingToPath:(id)arg2;
+- (_Bool)_writeDataAtPath:(id)arg1 asArchive:(_Bool)arg2;
 @end
 

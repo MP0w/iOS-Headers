@@ -12,7 +12,7 @@
 {
     UIWindow *_flashWindow;
     UIView *_flashView;
-    BOOL _windowVisible;
+    _Bool _windowVisible;
 }
 
 + (id)sharedInstance;

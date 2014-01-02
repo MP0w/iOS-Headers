@@ -17,19 +17,19 @@
     NSDictionary *_VTCleanApertureDictionary;
 }
 
-+ (BOOL)_validateVideoCompressionProperties:(id)arg1 againstSupportedPropertyDictionary:(id)arg2 forCodecType:(id)arg3 exceptionReason:(id *)arg4;
++ (_Bool)_validateVideoCompressionProperties:(id)arg1 againstSupportedPropertyDictionary:(id)arg2 forCodecType:(id)arg3 exceptionReason:(id *)arg4;
 + (id)_videoOutputSettingsWithVideoSettingsDictionary:(id)arg1 exceptionReason:(id *)arg2;
 + (id)eligibleOutputSettingsDictionaryKeys;
 @property(readonly, nonatomic) NSDictionary *videoCompressionProperties;
 @property(readonly, nonatomic) NSDictionary *videoEncoderSpecification;
-@property(readonly, nonatomic) unsigned long videoCodecType;
+@property(readonly, nonatomic) unsigned int videoCodecType;
 - (id)cleanApertureDictionary;
 - (id)pixelAspectRatioDictionary;
 - (int)height;
 - (int)width;
-- (BOOL)canFullySpecifyOutputFormatReturningReason:(id *)arg1;
-- (BOOL)isCodecAvailableOnCurrentSystem;
-- (BOOL)willYieldCompressedSamples;
+- (_Bool)canFullySpecifyOutputFormatReturningReason:(id *)arg1;
+- (_Bool)isCodecAvailableOnCurrentSystem;
+- (_Bool)willYieldCompressedSamples;
 - (void)dealloc;
 - (id)initWithTrustedAVVideoSettingsDictionary:(id)arg1;
 - (id)initWithAVVideoSettingsDictionary:(id)arg1 exceptionReason:(id *)arg2;

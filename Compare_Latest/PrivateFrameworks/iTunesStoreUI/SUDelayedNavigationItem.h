@@ -16,29 +16,29 @@
     id _delayedTitle;
     id _delayedTitleView;
     id _delayedRightBarButtonItems;
-    BOOL _shouldDelayChanges;
+    _Bool _shouldDelayChanges;
     SUNavigationItem *_wrappedNavigationItem;
 }
 
 @property(retain, nonatomic) SUNavigationItem *wrappedNavigationItem; // @synthesize wrappedNavigationItem=_wrappedNavigationItem;
-@property(nonatomic) BOOL shouldDelayChanges; // @synthesize shouldDelayChanges=_shouldDelayChanges;
+@property(nonatomic) _Bool shouldDelayChanges; // @synthesize shouldDelayChanges=_shouldDelayChanges;
 - (void)_scheduleCommit;
 - (void)_prepareButtonItemForDisplay:(id)arg1;
 - (id)titleView;
 - (id)title;
-- (void)setTitleView:(id)arg1 animated:(BOOL)arg2;
+- (void)setTitleView:(id)arg1 animated:(_Bool)arg2;
 - (void)setTitleView:(id)arg1;
 - (void)setTitle:(id)arg1;
-- (void)setRightBarButtonItems:(id)arg1 animated:(BOOL)arg2;
-- (void)setRightBarButtonItem:(id)arg1 animated:(BOOL)arg2;
-- (void)setLeftItemsSupplementBackButton:(BOOL)arg1;
-- (void)setLeftBarButtonItems:(id)arg1 animated:(BOOL)arg2;
-- (void)setLeftBarButtonItem:(id)arg1 animated:(BOOL)arg2;
+- (void)setRightBarButtonItems:(id)arg1 animated:(_Bool)arg2;
+- (void)setRightBarButtonItem:(id)arg1 animated:(_Bool)arg2;
+- (void)setLeftItemsSupplementBackButton:(_Bool)arg1;
+- (void)setLeftBarButtonItems:(id)arg1 animated:(_Bool)arg2;
+- (void)setLeftBarButtonItem:(id)arg1 animated:(_Bool)arg2;
 - (void)setBackButtonTitle:(id)arg1;
 - (id)rightBarButtonItems;
 - (id)rightBarButtonItem;
 - (id)navigationBar;
-- (BOOL)leftItemsSupplementBackButton;
+- (_Bool)leftItemsSupplementBackButton;
 - (id)leftBarButtonItems;
 - (id)leftBarButtonItem;
 - (id)backButtonTitle;

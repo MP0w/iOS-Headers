@@ -8,6 +8,7 @@
 
 @class NSString, OADParagraphProperties;
 
+// Not exported
 @interface OADTextField : OADTextRun
 {
     OADParagraphProperties *mParagraphProperties;
@@ -21,7 +22,7 @@
 - (void)setId:(id)arg1;
 - (id)id;
 - (id)paragraphProperties;
-- (BOOL)isEmpty;
+- (_Bool)isEmpty;
 - (void)dealloc;
 - (id)init;
 

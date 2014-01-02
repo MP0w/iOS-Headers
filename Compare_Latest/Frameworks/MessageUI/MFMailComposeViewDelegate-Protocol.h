@@ -9,17 +9,20 @@
 #import "UITableViewDelegate-Protocol.h"
 
 @protocol MFMailComposeViewDelegate <UIPickerViewDelegate, UITableViewDelegate, UITableViewDataSource>
+- (id)attachmentStoreCreateIfNecessary;
 - (id)popoverManager;
 - (void)insertPhotoOrVideo;
 - (int)compositionType;
 - (id)currentScaleImageSize;
-- (BOOL)hasAttachments;
-- (BOOL)bccAddressesDirtied;
-- (BOOL)sendingEmailDirtied;
-- (BOOL)canShowImageSizeField;
-- (BOOL)canShowFromField;
+- (_Bool)hasAttachments;
+- (_Bool)bccAddressesDirtied;
+- (_Bool)sendingEmailDirtied;
+- (_Bool)canShowImageSizeField;
+- (_Bool)canShowFromField;
 - (id)sendingAccountProxy;
-- (id)setSendingEmailAddress:(id)arg1;
+- (void)updateSignature;
+- (void)addSignature:(_Bool)arg1;
+- (void)setSendingEmailAddress:(id)arg1;
 - (id)sendingEmailAddress;
 - (id)sendingEmailAddressIfExists;
 - (id)emailAddresses;

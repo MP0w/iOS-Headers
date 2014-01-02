@@ -12,10 +12,12 @@
 {
     NSString *_fromURI;
     NSString *_forURI;
+    NSString *_forService;
     NSMutableDictionary *_map;
 }
 
 @property(retain, nonatomic) NSMutableDictionary *map; // @synthesize map=_map;
+@property(copy, nonatomic) NSString *forService; // @synthesize forService=_forService;
 @property(copy, nonatomic) NSString *forURI; // @synthesize forURI=_forURI;
 @property(copy, nonatomic) NSString *fromURI; // @synthesize fromURI=_fromURI;
 - (void)dealloc;

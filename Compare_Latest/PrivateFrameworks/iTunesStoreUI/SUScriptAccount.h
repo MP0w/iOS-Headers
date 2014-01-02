@@ -18,7 +18,7 @@
 + (id)webScriptNameForKeyName:(id)arg1;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
-- (void)_setServiceType:(int)arg1 enabled:(id)arg2;
+- (void)_setServiceType:(long long)arg1 enabled:(id)arg2;
 - (void)_commitChanges;
 @property(retain) id socialEnabled;
 @property(retain) id purchaseHistoryEnabled;
@@ -30,8 +30,8 @@
 @property(readonly, getter=isPrimaryLockerAccount) id primaryLockerAccount;
 - (id)_className;
 - (void)setSecureToken:(id)arg1;
-- (BOOL)isSecureTokenValid;
-- (BOOL)isPrimaryAccount;
+- (_Bool)isSecureTokenValid;
+- (_Bool)isPrimaryAccount;
 @property(retain) SSAccount *account;
 - (void)dealloc;
 - (id)init;

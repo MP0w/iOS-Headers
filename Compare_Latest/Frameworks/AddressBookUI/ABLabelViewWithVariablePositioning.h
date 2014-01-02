@@ -11,14 +11,14 @@
 @interface ABLabelViewWithVariablePositioning : UIView
 {
     UILabel *_label;
-    float _topPadding;
-    float _bottomPadding;
-    float _horizontalPadding;
+    double _topPadding;
+    double _bottomPadding;
+    double _horizontalPadding;
 }
 
-@property(nonatomic) float horizontalPadding; // @synthesize horizontalPadding=_horizontalPadding;
-@property(nonatomic) float bottomPadding; // @synthesize bottomPadding=_bottomPadding;
-@property(nonatomic) float topPadding; // @synthesize topPadding=_topPadding;
+@property(nonatomic) double horizontalPadding; // @synthesize horizontalPadding=_horizontalPadding;
+@property(nonatomic) double bottomPadding; // @synthesize bottomPadding=_bottomPadding;
+@property(nonatomic) double topPadding; // @synthesize topPadding=_topPadding;
 - (void)layoutSubviews;
 - (void)setLabelShadowOffset:(struct CGSize)arg1;
 - (void)setLabelShadowColor:(id)arg1;

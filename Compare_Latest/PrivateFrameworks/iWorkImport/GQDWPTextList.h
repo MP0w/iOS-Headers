@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface GQDWPTextList : NSObject
 {
     struct __CFArray *mChildren;
 }
 
-- (BOOL)isBlank;
+- (_Bool)isBlank;
 - (void)setChildren:(struct __CFArray *)arg1;
 - (struct __CFArray *)children;
 - (void)dealloc;

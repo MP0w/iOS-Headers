@@ -8,7 +8,7 @@
 
 #import "MPDetailSliderDelegate-Protocol.h"
 
-@class CABasicAnimation, MPAVController, MPAVItem, MPButton, MPDetailSlider, MPTimeMarker, UIActivityIndicatorView, UIImage, UILabel;
+@class CABasicAnimation, MPAVController, MPAVItem, MPButton, MPDetailSlider, MPTimeMarker, NSString, UIActivityIndicatorView, UIImage, UILabel;
 
 @interface MPPlaybackControlsView : UIView <MPDetailSliderDelegate>
 {
@@ -46,7 +46,7 @@
     unsigned int _useMediaDetailSlider:1;
     unsigned int _detailScrubbing:1;
     unsigned int _needsUpdateButtonVisibility:1;
-    BOOL _radioButtonHidden;
+    _Bool _radioButtonHidden;
     unsigned long long _disabledParts;
 }
 
@@ -65,7 +65,7 @@
 - (void)_changeGeniusImageToNormalImage:(id)arg1;
 - (void)_changeGeniusImageToPressedImage:(id)arg1;
 - (void)reloadControls;
-- (void)_addOpacityAnimationToBezelView:(id)arg1 reversed:(BOOL)arg2;
+- (void)_addOpacityAnimationToBezelView:(id)arg1 reversed:(_Bool)arg2;
 - (void)_validityChangedNotification:(id)arg1;
 - (void)_timeDidJumpNotification:(id)arg1;
 - (void)_tickNotification:(id)arg1;
@@ -75,12 +75,12 @@
 - (void)_contentsChangedNotification:(id)arg1;
 - (void)_applicationWillEnterForegroundNotification:(id)arg1;
 - (void)_applicationDidEnterBackgroundNotification:(id)arg1;
-- (void)detailSlider:(id)arg1 didChangeScrubSpeed:(int)arg2;
+- (void)detailSlider:(id)arg1 didChangeScrubSpeed:(long long)arg2;
 - (void)detailSlider:(id)arg1 didChangeValue:(float)arg2;
 - (void)detailSliderTrackingDidEnd:(id)arg1;
 - (void)detailSliderTrackingDidCancel:(id)arg1;
 - (void)detailSliderTrackingDidBegin:(id)arg1;
-- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
+- (void)animationDidStop:(id)arg1 finished:(_Bool)arg2;
 - (void)_shuffleButton:(id)arg1;
 - (void)_rewindButton:(id)arg1;
 - (void)_trackInfoButton:(id)arg1;
@@ -93,41 +93,42 @@
 - (void)_mailButton:(id)arg1;
 - (void)_handleGeniusButtonClick;
 - (void)_geniusButton:(id)arg1;
-@property(readonly, nonatomic) BOOL shouldOverrideProgressTimeLabelStyle;
+@property(readonly, nonatomic) _Bool shouldOverrideProgressTimeLabelStyle;
 - (unsigned long long)displayablePartsInPartMask:(unsigned long long)arg1;
 - (void)unregisterForPlayerNotifications;
 - (void)registerForPlayerNotifications;
-- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)didMoveToSuperview;
 - (void)updateForEndOfDetailScrubbing;
 - (void)setCurrentTime:(double)arg1;
 - (void)stopTicking;
 - (void)startTicking;
-@property(readonly, nonatomic) unsigned int shuffleType;
-@property(readonly, nonatomic) BOOL shuffleIsOn;
+@property(readonly, nonatomic) unsigned long long shuffleType;
+@property(readonly, nonatomic) _Bool shuffleIsOn;
 @property(readonly, nonatomic) UIImage *shuffleButtonImage;
 - (void)resetDetailSlider:(id)arg1;
 @property(readonly, nonatomic) UIImage *repeatButtonImage;
-@property(readonly, nonatomic) BOOL isScrubbing;
-@property(readonly, nonatomic) unsigned int repeatType;
+@property(readonly, nonatomic) _Bool isScrubbing;
+@property(readonly, nonatomic) unsigned long long repeatType;
 - (void)reloadView;
 - (void)reloadButtonVisibility;
-- (double)_updatedDisplayDurationForTime:(double)arg1 preciseChapterMarkers:(BOOL)arg2;
+- (double)_updatedDisplayDurationForTime:(double)arg1 preciseChapterMarkers:(_Bool)arg2;
 - (double)_currentDisplayTime;
-- (id)playbackSpeedTitleForPlaybackSpeed:(unsigned int)arg1;
-- (id)playbackSpeedButtonImageForPlaybackSpeed:(unsigned int)arg1;
-- (BOOL)progressBarClipsToChapterDuration;
+- (id)playbackSpeedTitleForPlaybackSpeed:(unsigned long long)arg1;
+- (id)playbackSpeedButtonImageForPlaybackSpeed:(unsigned long long)arg1;
+- (_Bool)progressBarClipsToChapterDuration;
 @property(readonly, nonatomic) UIImage *mailButtonImage;
-@property(readonly, nonatomic) BOOL hideGeniusButton;
-- (void)handleChangeToShuffleType:(unsigned int)arg1;
-- (void)handleChangeToRepeatType:(unsigned int)arg1;
-- (id)geniusButtonImageForControlState:(unsigned int)arg1;
+@property(readonly, nonatomic) NSString *localizedScrubSpeedText;
+@property(readonly, nonatomic) _Bool hideGeniusButton;
+- (void)handleChangeToShuffleType:(unsigned long long)arg1;
+- (void)handleChangeToRepeatType:(unsigned long long)arg1;
+- (id)geniusButtonImageForControlState:(unsigned long long)arg1;
 - (id)newTrackInfoLabel;
 - (id)newProgressIndicator;
 - (id)newButtonBezelViewForPart:(unsigned long long)arg1;
 - (id)newButtonForPart:(unsigned long long)arg1;
-@property(readonly, nonatomic) BOOL detailScrubbingHidesControls;
-- (int)buttonType;
+@property(readonly, nonatomic) _Bool detailScrubbingHidesControls;
+- (long long)buttonType;
 - (Class)buttonClass;
 - (void)layoutSubviews;
 - (void)dealloc;

@@ -11,16 +11,16 @@
 }
 
 - (void)drawRect:(struct CGRect)arg1;
-- (int)alignment;
-- (void)setAlignment:(int)arg1;
+- (long long)alignment;
+- (void)setAlignment:(long long)arg1;
 - (float)minFontSize;
 - (void)setMinFontSize:(float)arg1;
-- (BOOL)textAutoresizesToFit;
-- (void)setTextAutoresizesToFit:(BOOL)arg1;
-- (BOOL)wrapsText;
-- (void)setWrapsText:(BOOL)arg1;
-- (BOOL)centersHorizontally;
-- (void)setCentersHorizontally:(BOOL)arg1;
+- (_Bool)textAutoresizesToFit;
+- (void)setTextAutoresizesToFit:(_Bool)arg1;
+- (_Bool)wrapsText;
+- (void)setWrapsText:(_Bool)arg1;
+- (_Bool)centersHorizontally;
+- (void)setCentersHorizontally:(_Bool)arg1;
 - (id)highlightedColor;
 - (void)setHighlightedColor:(id)arg1;
 - (id)color;

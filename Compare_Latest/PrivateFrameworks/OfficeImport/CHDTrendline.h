@@ -8,6 +8,7 @@
 
 @class CHDTrendlineLabel, EDString, OADGraphicProperties;
 
+// Not exported
 @interface CHDTrendline : NSObject
 {
     _Bool mDisplayEquation;
@@ -16,7 +17,7 @@
     double mForward;
     double mInterceptYAxis;
     int mPolynomialOrder;
-    long mMovingAveragePeriod;
+    long long mMovingAveragePeriod;
     int mType;
     OADGraphicProperties *mGraphicProperties;
     CHDTrendlineLabel *mLabel;
@@ -33,8 +34,8 @@
 - (id)label;
 - (void)setType:(int)arg1;
 - (int)type;
-- (void)setMovingAveragePeriod:(long)arg1;
-- (long)movingAveragePeriod;
+- (void)setMovingAveragePeriod:(long long)arg1;
+- (long long)movingAveragePeriod;
 - (void)setPolynomialOrder:(int)arg1;
 - (int)polynomialOrder;
 - (void)setInterceptYAxis:(double)arg1;

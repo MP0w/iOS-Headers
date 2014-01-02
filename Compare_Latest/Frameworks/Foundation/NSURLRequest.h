@@ -19,31 +19,27 @@
 
 + (double)defaultTimeoutInterval;
 + (void)setDefaultTimeoutInterval:(double)arg1;
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 + (id)requestWithURL:(id)arg1;
-+ (id)requestWithURL:(id)arg1 cachePolicy:(unsigned int)arg2 timeoutInterval:(double)arg3;
++ (id)requestWithURL:(id)arg1 cachePolicy:(unsigned long long)arg2 timeoutInterval:(double)arg3;
 + (void)checkForSharedCookieStoreNeed:(struct _CFURLRequest *)arg1;
-+ (void)setAllowsSpecificHTTPSCertificate:(id)arg1 forHost:(id)arg2;
-+ (id)allowsSpecificHTTPSCertificateForHost:(id)arg1;
-+ (void)setAllowsAnyHTTPSCertificate:(BOOL)arg1 forHost:(id)arg2;
-+ (BOOL)allowsAnyHTTPSCertificateForHost:(id)arg1;
 - (id)boundInterfaceIdentifier;
-- (BOOL)allowsCellularAccess;
-- (unsigned int)networkServiceType;
+- (_Bool)allowsCellularAccess;
+- (unsigned long long)networkServiceType;
 - (void)_removePropertyForKey:(id)arg1;
 - (void)_setProperty:(id)arg1 forKey:(id)arg2;
 - (id)_propertyForKey:(id)arg1;
-- (BOOL)_URLHasScheme:(id)arg1;
+- (_Bool)_URLHasScheme:(id)arg1;
 - (id)_copyReplacingURLWithURL:(id)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)dealloc;
 - (id)mainDocumentURL;
 - (double)timeoutInterval;
-- (unsigned int)cachePolicy;
+- (unsigned long long)cachePolicy;
 - (id)URL;
 - (struct _CFURLRequest *)_CFURLRequest;
 - (void)encodeWithCoder:(id)arg1;
@@ -51,19 +47,7 @@
 - (id)init;
 - (id)initWithURL:(id)arg1;
 - (id)_initWithCFURLRequest:(struct _CFURLRequest *)arg1;
-- (id)initWithURL:(id)arg1 cachePolicy:(unsigned int)arg2 timeoutInterval:(double)arg3;
-- (id)contentDispositionEncodingFallbackArray;
-- (BOOL)HTTPShouldUsePipelining;
-- (BOOL)HTTPShouldHandleCookies;
-- (id)HTTPUserAgent;
-- (id)HTTPReferrer;
-- (id)HTTPExtraCookies;
-- (id)HTTPContentType;
-- (id)HTTPBodyStream;
-- (id)HTTPBody;
-- (id)valueForHTTPHeaderField:(id)arg1;
-- (id)allHTTPHeaderFields;
-- (id)HTTPMethod;
+- (id)initWithURL:(id)arg1 cachePolicy:(unsigned long long)arg2 timeoutInterval:(double)arg3;
 
 @end
 

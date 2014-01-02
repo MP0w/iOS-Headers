@@ -14,16 +14,17 @@
 @interface AVSpeechUtterance : NSObject <NSCopying, NSSecureCoding>
 {
     AVSpeechSynthesisVoice *_voice;
-    NSString *_speechString;
     float _rate;
     float _pitchMultiplier;
     float _volume;
+    NSString *_speechString;
     double _preUtteranceDelay;
     double _postUtteranceDelay;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 + (id)speechUtteranceWithString:(id)arg1;
++ (void)initialize;
 @property(nonatomic) double postUtteranceDelay; // @synthesize postUtteranceDelay=_postUtteranceDelay;
 @property(nonatomic) double preUtteranceDelay; // @synthesize preUtteranceDelay=_preUtteranceDelay;
 @property(nonatomic) float volume; // @synthesize volume=_volume;

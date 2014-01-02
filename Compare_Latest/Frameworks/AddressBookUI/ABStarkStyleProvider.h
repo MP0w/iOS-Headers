@@ -10,14 +10,14 @@
 {
 }
 
-+ (float)memberHeaderRowHeight;
-+ (float)memberTextBaseline;
-+ (float)memberRowHeight;
++ (double)memberHeaderRowHeight;
++ (double)memberTextBaseline;
++ (double)memberRowHeight;
 - (id)cardPhotoOverlayImage;
 - (id)cardPhotoBackgroundImage;
 - (id)cardPlaceholderCompanyImage;
 - (id)cardPlaceholderPersonImage;
-- (BOOL)memberShowContactPhoto;
+- (_Bool)memberShowContactPhoto;
 - (id)memberNameMeCardDisabledImage;
 - (id)memberNameMeCardSelectedImage;
 - (id)memberNameMeCardImage;
@@ -29,12 +29,11 @@
 - (id)memberNameTextColor;
 - (id)memberNameBoldFont;
 - (id)memberNameRegularFont;
-- (float)memberNameFontSize;
+- (double)memberNameFontSize;
 - (struct UIEdgeInsets)memberNameInsets;
 - (id)membersBackgroundColor;
-- (unsigned int)membersCountToShowSections;
-- (int)membersSelectionStyle;
-- (BOOL)memberNameRespectsLargeTextSetting;
+- (unsigned long long)membersCountToShowIndex;
+- (long long)membersSelectionStyle;
 
 @end
 

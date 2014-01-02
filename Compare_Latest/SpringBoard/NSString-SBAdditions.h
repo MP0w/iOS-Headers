@@ -7,7 +7,7 @@
 #import "NSString.h"
 
 @interface NSString (SBAdditions)
-- (BOOL)sb_containsEmoji;
-- (BOOL)sb_containsNonLatinLikeCharacters;
+- (_Bool)sb_containsEmoji;
+- (_Bool)sb_containsNonLatinLikeCharacters;
 @end
 

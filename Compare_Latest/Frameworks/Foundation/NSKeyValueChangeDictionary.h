@@ -8,22 +8,23 @@
 
 @class NSObject;
 
+// Not exported
 @interface NSKeyValueChangeDictionary : NSDictionary
 {
-    CDStruct_26283fc3 _details;
+    CDStruct_e173081d _details;
     NSObject *_originalObservable;
-    BOOL _isPriorNotification;
-    BOOL _isRetainingObjects;
+    _Bool _isPriorNotification;
+    _Bool _isRetainingObjects;
 }
 
 - (id)keyEnumerator;
 - (id)objectForKey:(id)arg1;
-- (unsigned int)count;
+- (unsigned long long)count;
 - (void)dealloc;
 - (void)retainObjects;
 - (void)setOriginalObservable:(id)arg1;
-- (void)setDetailsNoCopy:(CDStruct_26283fc3)arg1 originalObservable:(id)arg2;
-- (id)initWithDetailsNoCopy:(CDStruct_26283fc3)arg1 originalObservable:(id)arg2 isPriorNotification:(BOOL)arg3;
+- (void)setDetailsNoCopy:(CDStruct_e173081d)arg1 originalObservable:(id)arg2;
+- (id)initWithDetailsNoCopy:(CDStruct_e173081d)arg1 originalObservable:(id)arg2 isPriorNotification:(_Bool)arg3;
 
 @end
 

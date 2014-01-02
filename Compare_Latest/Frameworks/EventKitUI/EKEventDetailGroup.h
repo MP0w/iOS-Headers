@@ -10,23 +10,23 @@
 
 @interface EKEventDetailGroup : NSObject
 {
-    int _tag;
+    long long _tag;
     NSArray *_items;
     NSString *_headerTitle;
 }
 
 @property(retain, nonatomic) NSString *headerTitle; // @synthesize headerTitle=_headerTitle;
 @property(retain, nonatomic) NSArray *items; // @synthesize items=_items;
-@property(nonatomic) int tag; // @synthesize tag=_tag;
+@property(nonatomic) long long tag; // @synthesize tag=_tag;
 - (void).cxx_destruct;
 - (id)description;
-- (BOOL)hasSubitemForIndexPathRow:(unsigned int)arg1;
-- (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 forWidth:(float)arg2;
-- (id)cellForSubitemAtIndex:(unsigned int)arg1;
-- (id)itemAtIndex:(unsigned int)arg1 subitemIndex:(unsigned int *)arg2;
-- (id)itemAtIndex:(unsigned int)arg1;
-- (unsigned int)numberOfRows;
-- (id)initWithTag:(int)arg1 headerTitle:(id)arg2;
+- (_Bool)hasSubitemForIndexPathRow:(unsigned long long)arg1;
+- (double)defaultCellHeightForSubitemAtIndex:(unsigned long long)arg1 forWidth:(double)arg2;
+- (id)cellForSubitemAtIndex:(unsigned long long)arg1;
+- (id)itemAtIndex:(unsigned long long)arg1 subitemIndex:(unsigned long long *)arg2;
+- (id)itemAtIndex:(unsigned long long)arg1;
+- (unsigned long long)numberOfRows;
+- (id)initWithTag:(long long)arg1 headerTitle:(id)arg2;
 
 @end
 

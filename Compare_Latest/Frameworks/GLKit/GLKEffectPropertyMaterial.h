@@ -13,12 +13,12 @@
     union _GLKVector4 _specularColor;
     union _GLKVector4 _emissiveColor;
     float _shininess;
-    unsigned long long *_effectDirtyUniforms;
     int _ambientColorLoc;
     int _diffuseColorLoc;
     int _specularColorLoc;
     int _emissiveColorLoc;
     int _shininessLoc;
+    unsigned long long *_effectDirtyUniforms;
     struct GLKBigInt_s _colorMaterialEnabledMask;
 }
 

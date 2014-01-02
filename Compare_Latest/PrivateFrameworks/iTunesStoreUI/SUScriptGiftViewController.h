@@ -10,7 +10,7 @@
 
 @interface SUScriptGiftViewController : SUScriptViewController
 {
-    int _giftCategory;
+    long long _giftCategory;
     SKUIItem *_item;
 }
 
@@ -19,12 +19,12 @@
 + (id)webScriptNameForKeyName:(id)arg1;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
-@property(readonly, nonatomic) int giftCategoryMedia;
-@property(readonly, nonatomic) int giftCategoryBooks;
-@property(readonly, nonatomic) int giftCategoryApps;
+@property(readonly, nonatomic) long long giftCategoryMedia;
+@property(readonly, nonatomic) long long giftCategoryBooks;
+@property(readonly, nonatomic) long long giftCategoryApps;
 - (id)_className;
 - (void)setProductGiftItem:(id)arg1;
-- (void)setCreditGiftStyle:(int)arg1;
+- (void)setCreditGiftStyle:(long long)arg1;
 - (id)newNativeViewController;
 
 @end

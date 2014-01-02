@@ -11,6 +11,7 @@
 
 @class EDColorReference, EDResources, NSString;
 
+// Not exported
 @interface EDFont : NSObject <NSCopying, EDImmutableObject>
 {
     EDResources *mResources;
@@ -39,7 +40,6 @@
 + (id)lassoNameForFontName:(id)arg1 bold:(_Bool)arg2 italic:(_Bool)arg3;
 + (id)filterFontName:(id)arg1;
 + (id)fontWithResources:(id)arg1;
-+ (id)fontNameWithFamilyName:(id)arg1 bold:(_Bool)arg2 italic:(_Bool)arg3;
 - (void)setDoNotModify:(_Bool)arg1;
 - (void)setWeight:(unsigned int)arg1;
 - (_Bool)isWeightOverridden;
@@ -75,13 +75,11 @@
 - (int)script;
 - (id)lassoName;
 - (id)filteredName;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isEqualToFont:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)isEqualToFont:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)initWithResources:(id)arg1;
-- (void)setColorReference:(id)arg1;
-- (id)colorReference;
 
 @end
 

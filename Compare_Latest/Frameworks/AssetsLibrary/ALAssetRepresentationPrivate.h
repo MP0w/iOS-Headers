@@ -10,10 +10,11 @@
 
 @class ALAssetsLibrary, NSString, PLManagedAsset, PLPhotoLibrary, PLSidecarFile;
 
+// Not exported
 @interface ALAssetRepresentationPrivate : NSObject <ALAssetsLibraryAsset>
 {
     ALAssetsLibrary *_library;
-    BOOL _isValid;
+    _Bool _isValid;
     PLManagedAsset *_photo;
     PLSidecarFile *_sidecar;
     NSString *_extension;
@@ -25,13 +26,13 @@
 + (int)_fileDescriptorForPersistentURL:(id)arg1;
 + (void)_setupFileDescriptorQueue;
 @property(retain, nonatomic) PLPhotoLibrary *_photoLibrary; // @synthesize _photoLibrary;
-@property(nonatomic) BOOL isValid; // @synthesize isValid=_isValid;
+@property(nonatomic) _Bool isValid; // @synthesize isValid=_isValid;
 @property(copy, nonatomic) NSString *extension; // @synthesize extension=_extension;
 @property(retain, nonatomic) PLSidecarFile *sidecar; // @synthesize sidecar=_sidecar;
 @property(retain, nonatomic) PLManagedAsset *photo; // @synthesize photo=_photo;
 - (void)_performBlockAndWait:(id)arg1;
-- (BOOL)_isVideo;
-- (BOOL)_isImage;
+- (_Bool)_isVideo;
+- (_Bool)_isImage;
 - (void)libraryDidChange;
 @property(nonatomic) ALAssetsLibrary *library;
 - (void)dealloc;

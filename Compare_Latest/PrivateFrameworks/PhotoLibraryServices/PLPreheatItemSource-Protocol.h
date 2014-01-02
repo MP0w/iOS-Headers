@@ -7,10 +7,10 @@
 #import "NSObject-Protocol.h"
 
 @protocol PLPreheatItemSource <NSObject>
-- (id)preheatItemForAsset:(id)arg1;
+- (id)preheatItemForAsset:(id)arg1 options:(unsigned int)arg2;
 
 @optional
-- (id)imageDataAtIndex:(unsigned int)arg1 width:(int *)arg2 height:(int *)arg3 bytesPerRow:(int *)arg4 dataWidth:(int *)arg5 dataHeight:(int *)arg6 dataOffset:(int *)arg7;
+- (id)imageDataAtIndex:(unsigned long long)arg1 width:(int *)arg2 height:(int *)arg3 bytesPerRow:(int *)arg4 dataWidth:(int *)arg5 dataHeight:(int *)arg6 dataOffset:(int *)arg7;
 - (void)preheatImageDataAtIndexes:(id)arg1;
 @end
 

@@ -8,11 +8,11 @@
 
 @interface TDThemeLook : TDThemeConstant
 {
-    BOOL _supportsContrastAdjustment;
+    _Bool _supportsContrastAdjustment;
 }
 
-- (BOOL)supportsContrastAdjustment;
-- (void)setSupportsContrastAdjustment:(BOOL)arg1;
+- (_Bool)supportsContrastAdjustment;
+- (void)setSupportsContrastAdjustment:(_Bool)arg1;
 
 @end
 

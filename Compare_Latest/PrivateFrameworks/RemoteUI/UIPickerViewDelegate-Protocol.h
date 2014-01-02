@@ -9,11 +9,11 @@
 @protocol UIPickerViewDelegate <NSObject>
 
 @optional
-- (void)pickerView:(id)arg1 didSelectRow:(int)arg2 inComponent:(int)arg3;
-- (id)pickerView:(id)arg1 viewForRow:(int)arg2 forComponent:(int)arg3 reusingView:(id)arg4;
-- (id)pickerView:(id)arg1 attributedTitleForRow:(int)arg2 forComponent:(int)arg3;
-- (id)pickerView:(id)arg1 titleForRow:(int)arg2 forComponent:(int)arg3;
-- (float)pickerView:(id)arg1 rowHeightForComponent:(int)arg2;
-- (float)pickerView:(id)arg1 widthForComponent:(int)arg2;
+- (void)pickerView:(id)arg1 didSelectRow:(long long)arg2 inComponent:(long long)arg3;
+- (id)pickerView:(id)arg1 viewForRow:(long long)arg2 forComponent:(long long)arg3 reusingView:(id)arg4;
+- (id)pickerView:(id)arg1 attributedTitleForRow:(long long)arg2 forComponent:(long long)arg3;
+- (id)pickerView:(id)arg1 titleForRow:(long long)arg2 forComponent:(long long)arg3;
+- (double)pickerView:(id)arg1 rowHeightForComponent:(long long)arg2;
+- (double)pickerView:(id)arg1 widthForComponent:(long long)arg2;
 @end
 

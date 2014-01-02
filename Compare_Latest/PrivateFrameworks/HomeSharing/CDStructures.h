@@ -7,8 +7,8 @@
 #pragma mark Named Structures
 
 struct CGSize {
-    float width;
-    float height;
+    double width;
+    double height;
 };
 
 struct FairPlayHWInfo_ {
@@ -61,9 +61,9 @@ typedef struct {
 typedef struct {
     unsigned int propertyCode;
     void *bytes;
-    unsigned int encodedLength;
+    unsigned long long encodedLength;
     int valueType;
-} CDStruct_30baf813;
+} CDStruct_1568afcd;
 
 typedef struct {
     float _field1;

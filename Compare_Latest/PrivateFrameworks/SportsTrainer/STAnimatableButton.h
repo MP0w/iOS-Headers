@@ -19,11 +19,11 @@
     STShadowLabel *_subtitleLabel;
     id _target;
     SEL _action;
-    BOOL _isLandscape;
-    BOOL _touchInside;
-    BOOL _slicesNeedDisplay;
+    _Bool _isLandscape;
+    _Bool _touchInside;
+    _Bool _slicesNeedDisplay;
     UIColor *_shadowColor;
-    float _shadowBlurRadius;
+    double _shadowBlurRadius;
     struct UIEdgeInsets _hitRectEdgeInsets;
     STAnimatableButtonSlice *_leftSlice;
     STAnimatableButtonSlice *_middleSlice;
@@ -33,8 +33,8 @@
 @property(nonatomic) struct UIEdgeInsets hitRectEdgeInsets; // @synthesize hitRectEdgeInsets=_hitRectEdgeInsets;
 - (id)_buttonWellLandscapeImage;
 - (id)_buttonWellImage;
-- (void)setShadowColor:(id)arg1 blurRadius:(float)arg2;
-- (void)setLandscape:(BOOL)arg1;
+- (void)setShadowColor:(id)arg1 blurRadius:(double)arg2;
+- (void)setLandscape:(_Bool)arg1;
 - (void)setTarget:(id)arg1 action:(SEL)arg2;
 - (void)setHighlightedBackgroundImage:(id)arg1;
 - (void)setNormalBackgroundImage:(id)arg1;
@@ -43,8 +43,8 @@
 - (void)setTitle:(id)arg1;
 - (void)drawImageForSlice;
 - (void)layoutSubviews;
-- (void)setFrame:(struct CGRect)arg1 animated:(BOOL)arg2;
-- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (void)setFrame:(struct CGRect)arg1 animated:(_Bool)arg2;
+- (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (struct CGRect)hitRect;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;

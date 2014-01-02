@@ -18,7 +18,7 @@
 @property(copy, nonatomic) NSString *groupKeyPath; // @synthesize groupKeyPath=_groupKeyPath;
 @property(retain, nonatomic) Class settingsClass; // @synthesize settingsClass=_settingsClass;
 - (void).cxx_destruct;
-- (void)resolveTemplatesWithIndex:(unsigned int)arg1;
+- (void)resolveTemplatesWithIndex:(unsigned long long)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
 

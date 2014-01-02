@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface EDPhoneticRun : NSObject
 {
     unsigned int mCharIndex;

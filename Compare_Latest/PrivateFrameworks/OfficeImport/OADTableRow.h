@@ -8,6 +8,7 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface OADTableRow : NSObject
 {
     NSMutableArray *mCells;
@@ -17,8 +18,8 @@
 - (void)setHeight:(float)arg1;
 - (float)height;
 - (id)addCell;
-- (id)cellAtIndex:(unsigned int)arg1;
-- (unsigned int)cellCount;
+- (id)cellAtIndex:(unsigned long long)arg1;
+- (unsigned long long)cellCount;
 - (void)dealloc;
 - (id)init;
 

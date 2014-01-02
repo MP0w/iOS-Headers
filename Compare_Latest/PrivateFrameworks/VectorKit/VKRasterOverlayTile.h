@@ -8,6 +8,7 @@
 
 @class NSMutableData, VGLBytesTexture;
 
+// Not exported
 @interface VKRasterOverlayTile : VKTile
 {
     int _size;
@@ -20,7 +21,7 @@
 - (void)dealloc;
 - (id)texture;
 - (struct CGContext *)drawContext;
-- (BOOL)isEmpty;
+- (_Bool)isEmpty;
 - (id)initWithKey:(const struct VKTileKey *)arg1 size:(int)arg2 scale:(float)arg3;
 
 @end

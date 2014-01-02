@@ -6,10 +6,13 @@
 
 #import "PBCodable.h"
 
-@class GEOAddress, GEOBusiness, GEOLatLng, GEOMapRegion, GEORating, NSMutableArray, NSString;
+#import "NSCopying-Protocol.h"
 
-@interface GEOPlace : PBCodable
+@class GEOAddress, GEOLatLng, GEOMapRegion, NSMutableArray, NSString;
+
+@interface GEOPlace : PBCodable <NSCopying>
 {
+    double _area;
     long long _geoId;
     long long _uID;
     GEOAddress *_address;
@@ -26,8 +29,9 @@
     NSString *_spokenName;
     int _type;
     int _version;
-    BOOL _isDisputed;
+    _Bool _isDisputed;
     struct {
+        unsigned int area:1;
         unsigned int geoId:1;
         unsigned int uID:1;
         unsigned int addressGeocodeAccuracy:1;
@@ -39,6 +43,7 @@
 }
 
 @property(nonatomic) long long geoId; // @synthesize geoId=_geoId;
+@property(nonatomic) double area; // @synthesize area=_area;
 @property(retain, nonatomic) NSString *spokenAddress; // @synthesize spokenAddress=_spokenAddress;
 @property(retain, nonatomic) NSString *spokenName; // @synthesize spokenName=_spokenName;
 @property(nonatomic) int localSearchProviderID; // @synthesize localSearchProviderID=_localSearchProviderID;
@@ -54,42 +59,40 @@
 @property(nonatomic) int type; // @synthesize type=_type;
 @property(nonatomic) int version; // @synthesize version=_version;
 @property(nonatomic) long long uID; // @synthesize uID=_uID;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) BOOL hasGeoId;
-@property(readonly, nonatomic) BOOL hasSpokenAddress;
-@property(readonly, nonatomic) BOOL hasSpokenName;
-@property(nonatomic) BOOL hasLocalSearchProviderID;
-@property(nonatomic) BOOL hasIsDisputed;
-@property(nonatomic) BOOL isDisputed; // @synthesize isDisputed=_isDisputed;
-- (id)entryPointAtIndex:(unsigned int)arg1;
-- (unsigned int)entryPointsCount;
+@property(nonatomic) _Bool hasGeoId;
+@property(nonatomic) _Bool hasArea;
+@property(readonly, nonatomic) _Bool hasSpokenAddress;
+@property(readonly, nonatomic) _Bool hasSpokenName;
+@property(nonatomic) _Bool hasLocalSearchProviderID;
+@property(nonatomic) _Bool hasIsDisputed;
+@property(nonatomic) _Bool isDisputed; // @synthesize isDisputed=_isDisputed;
+- (id)entryPointAtIndex:(unsigned long long)arg1;
+- (unsigned long long)entryPointsCount;
 - (void)addEntryPoint:(id)arg1;
 - (void)clearEntryPoints;
-@property(nonatomic) BOOL hasAddressGeocodeAccuracy;
-- (id)businessAtIndex:(unsigned int)arg1;
-- (unsigned int)businessCount;
+@property(nonatomic) _Bool hasAddressGeocodeAccuracy;
+- (id)businessAtIndex:(unsigned long long)arg1;
+- (unsigned long long)businessCount;
 - (void)addBusiness:(id)arg1;
 - (void)clearBusiness;
-@property(readonly, nonatomic) BOOL hasCenter;
-@property(readonly, nonatomic) BOOL hasPhoneticAddress;
-@property(readonly, nonatomic) BOOL hasPhoneticName;
-@property(readonly, nonatomic) BOOL hasAddress;
-@property(readonly, nonatomic) BOOL hasMapRegion;
-@property(readonly, nonatomic) BOOL hasName;
-@property(nonatomic) BOOL hasType;
-@property(nonatomic) BOOL hasVersion;
-@property(nonatomic) BOOL hasUID;
+@property(readonly, nonatomic) _Bool hasCenter;
+@property(readonly, nonatomic) _Bool hasPhoneticAddress;
+@property(readonly, nonatomic) _Bool hasPhoneticName;
+@property(readonly, nonatomic) _Bool hasAddress;
+@property(readonly, nonatomic) _Bool hasMapRegion;
+@property(readonly, nonatomic) _Bool hasName;
+@property(nonatomic) _Bool hasType;
+@property(nonatomic) _Bool hasVersion;
+@property(nonatomic) _Bool hasUID;
 - (void)dealloc;
-- (CDStruct_c3b9c2ee)coordinate;
-- (id)addressDictionary;
-@property(readonly, nonatomic) GEORating *firstRating;
-@property(readonly, nonatomic) GEOBusiness *firstBusiness;
 
 @end
 

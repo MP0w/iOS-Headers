@@ -10,8 +10,8 @@
 {
 }
 
-- (BOOL)userExists;
-- (BOOL)success;
+- (_Bool)userExists;
+- (_Bool)success;
 
 @end
 

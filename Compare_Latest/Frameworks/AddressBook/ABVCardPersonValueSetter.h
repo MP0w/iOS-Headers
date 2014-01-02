@@ -16,9 +16,9 @@
 - (void)setValueInTemporaryCache:(id)arg1 forProperty:(unsigned int)arg2;
 - (id)fullName;
 - (id)imageData;
-- (BOOL)setImageData:(id)arg1 cropRectX:(int)arg2 cropRectY:(int)arg3 cropRectWidth:(int)arg4 cropRectHeight:(int)arg5;
+- (_Bool)setImageData:(id)arg1 cropRectX:(int)arg2 cropRectY:(int)arg3 cropRectWidth:(int)arg4 cropRectHeight:(int)arg5;
 - (void *)valueForProperty:(unsigned int)arg1;
-- (BOOL)setValue:(void *)arg1 forProperty:(unsigned int)arg2;
+- (_Bool)setValue:(void *)arg1 forProperty:(unsigned int)arg2;
 - (void)dealloc;
 - (struct __CFArray *)foundProperties;
 - (id)initWithPerson:(void *)arg1;

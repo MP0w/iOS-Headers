@@ -6,13 +6,13 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface GQDWPPageStart : NSObject
 {
-    long mIndex;
+    long long mIndex;
 }
 
-- (long)index;
-- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1;
+- (long long)index;
 
 @end
 

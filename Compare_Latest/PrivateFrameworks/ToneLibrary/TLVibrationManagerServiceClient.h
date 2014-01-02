@@ -10,8 +10,8 @@
 {
 }
 
-+ (void)sendMessage:(id)arg1 asynchronously:(BOOL)arg2 completionBlock:(id)arg3;
-+ (void)_sendXPCMessage:(id)arg1 asynchronously:(BOOL)arg2 remainingAttempts:(unsigned int)arg3 previousError:(id)arg4 completionBlock:(id)arg5;
++ (void)sendMessage:(id)arg1 asynchronously:(_Bool)arg2 completionBlock:(id)arg3;
++ (void)_sendXPCMessage:(id)arg1 asynchronously:(_Bool)arg2 remainingAttempts:(unsigned long long)arg3 previousError:(id)arg4 completionBlock:(id)arg5;
 + (id)_sharedConnection;
 
 @end

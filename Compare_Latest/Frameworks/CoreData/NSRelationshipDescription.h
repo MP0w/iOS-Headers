@@ -16,46 +16,34 @@
     NSString *_lazyDestinationEntityName;
     NSRelationshipDescription *_inverseRelationship;
     NSString *_lazyInverseRelationshipName;
-    unsigned long _maxCount;
-    unsigned long _minCount;
-    unsigned int _deleteRule;
+    unsigned long long _maxCount;
+    unsigned long long _minCount;
+    unsigned long long _deleteRule;
 }
 
 + (void)initialize;
-- (BOOL)isOrdered;
-- (void)setOrdered:(BOOL)arg1;
+- (_Bool)isOrdered;
+- (void)setOrdered:(_Bool)arg1;
 - (id)versionHash;
 - (void)setInverseRelationship:(id)arg1;
 - (id)inverseRelationship;
-- (void)setDeleteRule:(unsigned int)arg1;
+- (void)setDeleteRule:(unsigned long long)arg1;
 - (void)setDestinationEntity:(id)arg1;
 - (id)destinationEntity;
-- (BOOL)isIndexed;
-- (BOOL)isToMany;
-- (void)setMinCount:(unsigned int)arg1;
-- (void)setMaxCount:(unsigned int)arg1;
-- (unsigned int)minCount;
-- (unsigned int)maxCount;
-- (unsigned int)deleteRule;
+- (_Bool)isIndexed;
+- (_Bool)isToMany;
+- (void)setMinCount:(unsigned long long)arg1;
+- (void)setMaxCount:(unsigned long long)arg1;
+- (unsigned long long)minCount;
+- (unsigned long long)maxCount;
+- (unsigned long long)deleteRule;
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (void)dealloc;
 - (id)init;
-- (id)_initWithName:(id)arg1;
-- (void)_writeIntoData:(id)arg1 propertiesDict:(id)arg2 uniquedPropertyNames:(id)arg3 uniquedStrings:(id)arg4 uniquedData:(id)arg5 entitiesSlots:(id)arg6 fetchRequests:(id)arg7;
-- (void)_updateInverse:(id)arg1;
-- (BOOL)_nonPredicateValidateValue:(id *)arg1 forKey:(id)arg2 inObject:(id)arg3 error:(id *)arg4;
-- (BOOL)_validateValuesAreOfDestinationEntity:(id)arg1 source:(id)arg2;
-- (void)_setLazyDestinationEntityName:(id)arg1;
-- (BOOL)_isToManyRelationship;
-- (BOOL)_isRelationship;
-- (unsigned int)_propertyType;
-- (void)_versionHash:(char *)arg1 inStyle:(unsigned int)arg2;
-- (void)_versionHash:(char *)arg1 inStyle:(unsigned int)arg2 proxyContext:(id)arg3;
-- (void)_createCachesAndOptimizeState;
 
 @end
 

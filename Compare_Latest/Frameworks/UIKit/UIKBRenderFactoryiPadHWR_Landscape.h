@@ -6,18 +6,21 @@
 
 #import <UIKit/UIKBRenderFactoryiPadHWR_Portrait.h>
 
+// Not exported
 @interface UIKBRenderFactoryiPadHWR_Landscape : UIKBRenderFactoryiPadHWR_Portrait
 {
 }
 
-- (float)controlColumnWidthFactor;
+- (double)controlColumnWidthFactor;
+- (double)keyCornerRadius;
+- (struct CGPoint)spaceReturnKeyTextOffset;
 - (struct CGPoint)dismissKeyOffset;
-- (float)dismissKeyFontSize;
-- (float)spaceKeyFontSize;
-- (float)dictationKeyFontSize;
-- (float)internationalKeyFontSize;
-- (float)moreKeyFontSize;
-- (float)deleteKeyFontSize;
+- (double)dismissKeyFontSize;
+- (double)spaceKeyFontSize;
+- (double)dictationKeyFontSize;
+- (double)internationalKeyFontSize;
+- (double)moreKeyFontSize;
+- (double)deleteKeyFontSize;
 
 @end
 

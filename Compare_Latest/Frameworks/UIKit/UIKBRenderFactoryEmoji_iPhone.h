@@ -6,11 +6,13 @@
 
 #import <UIKit/UIKBRenderFactory_Emoji.h>
 
+// Not exported
 @interface UIKBRenderFactoryEmoji_iPhone : UIKBRenderFactory_Emoji
 {
 }
 
 - (id)_traitsForKey:(id)arg1 onKeyplane:(id)arg2;
+- (id)traitsHashStringForKey:(id)arg1 withGeometry:(id)arg2 controlOpacities:(_Bool)arg3;
 
 @end
 

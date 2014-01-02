@@ -6,6 +6,7 @@
 
 #import "GEOVectorTileDecoder.h"
 
+// Not exported
 @interface VKTileDecoderWrapper : GEOVectorTileDecoder
 {
 }

@@ -7,9 +7,9 @@
 #import "NSObject-Protocol.h"
 
 @protocol ABMembersDataSourceDelegate <NSObject>
-- (BOOL)abDataSource:(id)arg1 shouldAllowSelectingPersonWithRecordID:(int)arg2;
-- (BOOL)abDataSourceAllowsShowingPersonsCards:(id)arg1;
-- (BOOL)abDataSource:(id)arg1 selectedPerson:(void *)arg2 atIndexPath:(id)arg3 withMemberCell:(id)arg4 animate:(BOOL)arg5;
+- (_Bool)abDataSource:(id)arg1 shouldAllowSelectingPersonWithRecordID:(int)arg2;
+- (_Bool)abDataSourceAllowsShowingPersonsCards:(id)arg1;
+- (_Bool)abDataSource:(id)arg1 selectedPerson:(void *)arg2 atIndexPath:(id)arg3 withMemberCell:(id)arg4 animate:(_Bool)arg5;
 
 @optional
 - (void)abScrollViewDidBeginDragging:(id)arg1;

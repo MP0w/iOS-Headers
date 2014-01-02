@@ -8,25 +8,26 @@
 
 @class UIImageView, UIStatusBarCorners, UIStatusBarStyleAttributes;
 
+// Not exported
 @interface UIStatusBarBackgroundView : UIView
 {
     UIStatusBarStyleAttributes *_style;
     UIStatusBarCorners *_topCorners;
     UIImageView *_glowView;
-    BOOL _glowEnabled;
-    BOOL _suppressGlow;
+    _Bool _glowEnabled;
+    _Bool _suppressGlow;
 }
 
-- (BOOL)_topCornersAreRounded;
+- (_Bool)_topCornersAreRounded;
 - (id)_glowImage;
 - (id)_baseImage;
 - (id)_backgroundImageName;
 - (void)_stopGlowAnimation;
-- (void)_startGlowAnimationWaitForNextCycle:(BOOL)arg1;
-- (BOOL)_styleCanGlow;
-- (void)setSuppressesGlow:(BOOL)arg1;
-- (void)_setGlowAnimationEnabled:(BOOL)arg1 waitForNextCycle:(BOOL)arg2;
-- (void)setGlowAnimationEnabled:(BOOL)arg1;
+- (void)_startGlowAnimationWaitForNextCycle:(_Bool)arg1;
+- (_Bool)_styleCanGlow;
+- (void)setSuppressesGlow:(_Bool)arg1;
+- (void)_setGlowAnimationEnabled:(_Bool)arg1 waitForNextCycle:(_Bool)arg2;
+- (void)setGlowAnimationEnabled:(_Bool)arg1;
 - (id)style;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 style:(id)arg2 backgroundColor:(id)arg3;

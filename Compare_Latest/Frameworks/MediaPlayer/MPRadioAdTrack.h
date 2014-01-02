@@ -8,21 +8,24 @@
 
 #import "NSCopying-Protocol.h"
 
-@class ADBannerView, NSURL;
+@class ADBannerView, NSDictionary, NSURL;
 
 @interface MPRadioAdTrack : NSObject <NSCopying>
 {
     NSURL *_url;
     ADBannerView *_adView;
-    int _adType;
+    long long _adType;
+    NSDictionary *_loudnessInfo;
 }
 
-@property(readonly, nonatomic) int adType; // @synthesize adType=_adType;
+@property(readonly, nonatomic) NSDictionary *loudnessInfo; // @synthesize loudnessInfo=_loudnessInfo;
+@property(readonly, nonatomic) long long adType; // @synthesize adType=_adType;
 @property(readonly, nonatomic) ADBannerView *adView; // @synthesize adView=_adView;
 - (void)setURL:(id)arg1;
 @property(copy, nonatomic) NSURL *url; // @synthesize url=_url;
 - (void).cxx_destruct;
-- (BOOL)isLiked;
+- (id)_loudnessInfoForVideoAssetDictionary:(id)arg1;
+- (_Bool)isLiked;
 - (id)title;
 - (id)artist;
 - (id)album;

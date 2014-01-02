@@ -8,6 +8,7 @@
 
 @class _UIViewServiceSessionEndpoint;
 
+// Not exported
 @interface _UIViewServiceInterface_XPCObjects : _UIViewServiceInterface
 {
     _UIViewServiceSessionEndpoint *_serviceSessionEndpoint;

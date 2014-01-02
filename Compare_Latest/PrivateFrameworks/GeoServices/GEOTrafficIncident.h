@@ -6,9 +6,12 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSString;
 
-@interface GEOTrafficIncident : PBCodable
+// Not exported
+@interface GEOTrafficIncident : PBCodable <NSCopying>
 {
     double _endTime;
     double _lastUpdated;
@@ -41,23 +44,24 @@
 @property(retain, nonatomic) NSString *info; // @synthesize info=_info;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
 @property(nonatomic) long long uID; // @synthesize uID=_uID;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) BOOL hasType;
-@property(nonatomic) BOOL hasLastUpdated;
-@property(nonatomic) BOOL hasEndTime;
-@property(nonatomic) BOOL hasStartTime;
-@property(nonatomic) BOOL hasVertexCount;
-@property(nonatomic) BOOL hasVertexOffset;
-@property(readonly, nonatomic) BOOL hasLocation;
-@property(readonly, nonatomic) BOOL hasInfo;
-@property(readonly, nonatomic) BOOL hasTitle;
-@property(nonatomic) BOOL hasUID;
+@property(nonatomic) _Bool hasType;
+@property(nonatomic) _Bool hasLastUpdated;
+@property(nonatomic) _Bool hasEndTime;
+@property(nonatomic) _Bool hasStartTime;
+@property(nonatomic) _Bool hasVertexCount;
+@property(nonatomic) _Bool hasVertexOffset;
+@property(readonly, nonatomic) _Bool hasLocation;
+@property(readonly, nonatomic) _Bool hasInfo;
+@property(readonly, nonatomic) _Bool hasTitle;
+@property(nonatomic) _Bool hasUID;
 - (void)dealloc;
 
 @end

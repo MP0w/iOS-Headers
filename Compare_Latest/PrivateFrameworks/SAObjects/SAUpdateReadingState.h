@@ -16,8 +16,8 @@
 
 + (id)updateReadingStateWithDictionary:(id)arg1 context:(id)arg2;
 + (id)updateReadingState;
-@property(nonatomic) int updatedItemIndex;
-@property(nonatomic) int updatedGroupIndex;
+@property(nonatomic) long long updatedItemIndex;
+@property(nonatomic) long long updatedGroupIndex;
 @property(copy, nonatomic) NSString *readingStateId;
 - (id)encodedClassName;
 - (id)groupIdentifier;

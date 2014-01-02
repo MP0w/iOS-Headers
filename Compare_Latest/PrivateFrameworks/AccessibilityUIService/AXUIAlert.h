@@ -10,8 +10,8 @@
 {
 }
 
-- (id)_newLabelWithText:(id)arg1 textColor:(id)arg2 backgroundColor:(id)arg3 shadowColor:(id)arg4 shadowOffset:(struct UIOffset)arg5 font:(id)arg6 lineHeightOffset:(float)arg7;
-- (id)initWithType:(unsigned int)arg1 text:(id)arg2 subtitleText:(id)arg3 iconImage:(id)arg4 styleProvider:(id)arg5;
+- (id)_newLabelWithText:(id)arg1 textColor:(id)arg2 backgroundColor:(id)arg3 shadowColor:(id)arg4 shadowOffset:(struct UIOffset)arg5 font:(id)arg6 lineHeightOffset:(double)arg7;
+- (id)initWithType:(unsigned long long)arg1 text:(id)arg2 subtitleText:(id)arg3 iconImage:(id)arg4 styleProvider:(id)arg5;
 
 @end
 

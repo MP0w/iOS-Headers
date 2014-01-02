@@ -11,12 +11,12 @@
 }
 
 + (id)sharedInstance;
-- (BOOL)removePortForName:(id)arg1;
+- (_Bool)removePortForName:(id)arg1;
 - (id)portForName:(id)arg1 host:(id)arg2;
 - (id)servicePortWithName:(id)arg1;
-- (BOOL)registerPort:(id)arg1 name:(id)arg2;
+- (_Bool)registerPort:(id)arg1 name:(id)arg2;
 - (id)portForName:(id)arg1;
-- (id)portForName:(id)arg1 options:(unsigned int)arg2;
+- (id)portForName:(id)arg1 options:(unsigned long long)arg2;
 
 @end
 

@@ -9,6 +9,6 @@
 @protocol RUAudioPreviewViewDelegate <NSObject>
 
 @optional
-- (void)audioPreviewViewDidCancel:(id)arg1;
+- (void)audioPreviewViewDidCancel:(id)arg1 forReason:(long long)arg2;
 @end
 

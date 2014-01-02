@@ -12,7 +12,7 @@
 - (void)URLProtocol:(id)arg1 didFailWithError:(id)arg2;
 - (void)URLProtocolDidFinishLoading:(id)arg1;
 - (void)URLProtocol:(id)arg1 didLoadData:(id)arg2;
-- (void)URLProtocol:(id)arg1 didReceiveResponse:(id)arg2 cacheStoragePolicy:(unsigned int)arg3;
+- (void)URLProtocol:(id)arg1 didReceiveResponse:(id)arg2 cacheStoragePolicy:(unsigned long long)arg3;
 - (void)URLProtocol:(id)arg1 cachedResponseIsValid:(id)arg2;
 - (void)URLProtocol:(id)arg1 wasRedirectedToRequest:(id)arg2 redirectResponse:(id)arg3;
 @end

@@ -6,14 +6,15 @@
 
 #import <UIKit/UIInternalEvent.h>
 
+// Not exported
 @interface UIMoveEvent : UIInternalEvent
 {
-    int _moveDirection;
+    long long _moveDirection;
 }
 
-@property(nonatomic, setter=_setMoveDirection:) int _moveDirection; // @synthesize _moveDirection;
+@property(nonatomic, setter=_setMoveDirection:) long long _moveDirection; // @synthesize _moveDirection;
 - (void)_sendEventToResponder:(id)arg1;
-- (int)type;
+- (long long)type;
 
 @end
 

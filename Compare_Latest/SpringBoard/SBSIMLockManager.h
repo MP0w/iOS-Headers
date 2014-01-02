@@ -10,15 +10,15 @@
 
 @interface SBSIMLockManager : NSObject
 {
-    BOOL _isInitialUpdate;
-    BOOL _isBrickedDevice;
+    _Bool _isInitialUpdate;
+    _Bool _isBrickedDevice;
     int _status;
     SBSIMLockAlertItem *_currentAlert;
     SBSIMLockEntryAlert *_lockEntryAlert;
     NSString *_languageCode;
-    BOOL _hasHadSIMWhileNotBricked;
-    BOOL _wasActivated;
-    BOOL _neededUIM;
+    _Bool _hasHadSIMWhileNotBricked;
+    _Bool _wasActivated;
+    _Bool _neededUIM;
 }
 
 + (id)sharedInstance;
@@ -41,7 +41,7 @@
 - (void)attemptUnlock;
 - (void)repopAlert;
 - (void)_setupAppActivationStateDidChange:(id)arg1;
-- (BOOL)_shouldSuppressAlert;
+- (_Bool)_shouldSuppressAlert;
 - (void)alertItemDismissed:(id)arg1;
 - (void)lockEntryAlertDismissed:(id)arg1;
 - (int)_statusFromCT;

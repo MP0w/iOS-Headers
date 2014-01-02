@@ -8,6 +8,7 @@
 
 @class GQDSStyle, GQDWPLayoutStorage;
 
+// Not exported
 @interface GQDWPLayoutFrame : NSObject
 {
     char *mStyleRef;
@@ -16,13 +17,11 @@
     unsigned int mTextScale;
 }
 
-- (BOOL)isBlank;
+- (_Bool)isBlank;
 - (unsigned int)textScale;
 - (id)storage;
 - (id)layoutStyle;
 - (void)dealloc;
-- (void)resolveStyleRef;
-- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1;
 
 @end
 

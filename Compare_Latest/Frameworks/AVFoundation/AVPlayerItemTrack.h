@@ -16,6 +16,7 @@
 + (id)playerItemTrackWithFigPlaybackItem:(struct OpaqueFigPlaybackItem *)arg1 trackID:(int)arg2 asset:(id)arg3 playerItem:(id)arg4;
 - (void)_addLayer:(id)arg1;
 - (void)_removeLayer:(id)arg1;
+- (void)_setAudioTimePitchAlgorithm:(id)arg1;
 - (void)_setAudioTapProcessor:(struct opaqueMTAudioProcessingTap *)arg1;
 - (void)_setAudioVolumeCurve:(id)arg1;
 - (id)_audioVolumeCurve;
@@ -23,13 +24,13 @@
 - (id)loudnessInfo;
 @property(readonly, nonatomic) float currentVideoFrameRate;
 - (id)fallbackTrack;
-@property(nonatomic, getter=isEnabled) BOOL enabled;
+@property(nonatomic, getter=isEnabled) _Bool enabled;
 @property(readonly, nonatomic) AVAssetTrack *assetTrack;
 - (int)trackID;
 - (id)_playerItem;
 - (struct OpaqueFigPlaybackItem *)_figPlaybackItem;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (void)finalize;
 - (void)dealloc;

@@ -10,8 +10,9 @@ struct CPRecordStore;
 
 struct CalDatabase {
     struct __CFRuntimeBase {
-        unsigned int _field1;
+        unsigned long long _field1;
         unsigned char _field2[4];
+        unsigned int _field3;
     } _field1;
     int _field2;
     struct CPRecordStore *_field3;
@@ -133,8 +134,8 @@ struct __CFSet;
 struct __CFString;
 
 struct _opaque_pthread_mutex_t {
-    long __sig;
-    char __opaque[40];
+    long long __sig;
+    char __opaque[56];
 };
 
 #pragma mark Typedef'd Structures
@@ -208,14 +209,19 @@ typedef struct {
 } CDStruct_1ef3fb1f;
 
 typedef struct {
+    long long _field1;
+    long long _field2;
+} CDStruct_912cb5d2;
+
+typedef struct {
     unsigned short _field1[64];
     struct __CFString *_field2;
     unsigned short *_field3;
     char *_field4;
-    CDStruct_1ef3fb1f _field5;
-    int _field6;
-    int _field7;
-} CDStruct_64adce64;
+    CDStruct_912cb5d2 _field5;
+    long long _field6;
+    long long _field7;
+} CDStruct_f9502b4c;
 
 typedef struct {
     CDStruct_1ef3fb1f _field1;

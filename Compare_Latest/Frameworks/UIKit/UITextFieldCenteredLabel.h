@@ -6,15 +6,16 @@
 
 #import <UIKit/UITextFieldLabel.h>
 
+// Not exported
 @interface UITextFieldCenteredLabel : UITextFieldLabel
 {
-    float _textXPosition;
-    float _textWidth;
+    double _textXPosition;
+    double _textWidth;
 }
 
-@property(nonatomic) float textWidth; // @synthesize textWidth=_textWidth;
-@property(nonatomic) float textXPosition; // @synthesize textXPosition=_textXPosition;
-- (BOOL)_isTextFieldCenteredLabel;
+@property(nonatomic) double textWidth; // @synthesize textWidth=_textWidth;
+@property(nonatomic) double textXPosition; // @synthesize textXPosition=_textXPosition;
+- (_Bool)_isTextFieldCenteredLabel;
 
 @end
 

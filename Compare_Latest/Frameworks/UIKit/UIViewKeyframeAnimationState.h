@@ -8,14 +8,15 @@
 
 @class NSMutableDictionary, NSMutableSet;
 
+// Not exported
 @interface UIViewKeyframeAnimationState : UIViewAnimationState
 {
     double _frameDuration;
     double _frameStartTime;
-    int _calculationMode;
+    long long _calculationMode;
     NSMutableSet *_keyframeLayers;
     NSMutableDictionary *_keyframeLayersForCurrentKeyFrameDict;
-    BOOL _inFrame;
+    _Bool _inFrame;
 }
 
 - (void)cleanupTrackedLayers;
@@ -23,7 +24,7 @@
 - (void)pop;
 - (void)addKeyframeWithRelativeStartTime:(double)arg1 relativeDuration:(double)arg2 animations:(id)arg3;
 - (id)actionForLayer:(id)arg1 forKey:(id)arg2 forView:(id)arg3;
-- (void)setupWithDuration:(double)arg1 delay:(double)arg2 view:(id)arg3 options:(unsigned int)arg4 factory:(id)arg5 parentState:(id)arg6 start:(id)arg7 completion:(void)arg8;
+- (void)setupWithDuration:(double)arg1 delay:(double)arg2 view:(id)arg3 options:(unsigned long long)arg4 factory:(id)arg5 parentState:(id)arg6 start:(id)arg7 completion:(void)arg8;
 - (id)init;
 
 @end

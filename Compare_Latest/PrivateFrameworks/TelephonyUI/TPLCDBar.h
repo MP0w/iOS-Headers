@@ -15,16 +15,16 @@
 }
 
 + (id)backgroundImage;
-+ (float)defaultHeightForOrientation:(int)arg1;
-+ (float)defaultHeight;
++ (double)defaultHeightForOrientation:(long long)arg1;
++ (double)defaultHeight;
 @property(readonly) UIImageView *shadowView; // @synthesize shadowView=_shadowView;
 @property(retain, nonatomic) UIImage *barBackground; // @synthesize barBackground=_barBackground;
 - (struct CGRect)contentStretchRect;
-- (void)setOrientation:(int)arg1;
-- (void)setOrientation:(int)arg1 updateFrame:(BOOL)arg2;
+- (void)setOrientation:(long long)arg1;
+- (void)setOrientation:(long long)arg1 updateFrame:(_Bool)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithDefaultSize;
-- (id)initWithDefaultSizeForOrientation:(int)arg1;
+- (id)initWithDefaultSizeForOrientation:(long long)arg1;
 
 @end
 

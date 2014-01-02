@@ -11,7 +11,7 @@
 @interface EKAttendeesListViewCell : UITableViewCell
 {
     EKParticipant *_attendee;
-    BOOL _showStatus;
+    _Bool _showStatus;
     UIImage *_attendingImage;
     UIImage *_maybeImage;
     UIImage *_notAttendingImage;
@@ -24,9 +24,8 @@
 - (id)_maybeImage;
 - (id)_attendingImage;
 - (id)_imageForStatus:(int)arg1;
-- (void)setSelected:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)setAttendee:(id)arg1;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 attendee:(id)arg3 showStatusImage:(BOOL)arg4;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 attendee:(id)arg3 showStatusImage:(_Bool)arg4;
 
 @end
 

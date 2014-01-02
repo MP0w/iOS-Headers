@@ -16,7 +16,7 @@
     NSBundle *_bundle;
 }
 
-+ (void)_setAudioSessionActive:(BOOL)arg1;
++ (void)_setAudioSessionActive:(_Bool)arg1;
 + (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 + (void)__nts_queuePlayerStatusChanged:(id)arg1;
 + (void)__nts_indicateEndOfQueuePlayback:(id)arg1;
@@ -28,7 +28,7 @@
 - (void)stopAllSounds;
 - (void)playSoundFilesInSequence:(id)arg1;
 - (void)_addFileToQueue:(id)arg1;
-@property(readonly, nonatomic) BOOL isPlaying; // @dynamic isPlaying;
+@property(readonly, nonatomic) _Bool isPlaying; // @dynamic isPlaying;
 - (void)dealloc;
 - (id)initWithDirectory:(id)arg1 bundle:(id)arg2;
 - (id)_playerItemForFileNamed:(id)arg1;

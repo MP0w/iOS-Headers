@@ -8,6 +8,7 @@
 
 @class CMStyle, ECColumnWidthConvertor, EDWorksheet;
 
+// Not exported
 @interface EMWorksheetMapper : EMSheetMapper
 {
     EDWorksheet *edWorksheet;
@@ -36,17 +37,10 @@
 - (double *)rowGrid;
 - (int)columnCount;
 - (double *)columnGrid;
-- (BOOL)isVisible;
+- (_Bool)isVisible;
 - (void)dealloc;
 - (void)_initWithState:(id)arg1;
 - (id)initWithEDWorksheet:(id)arg1 parent:(id)arg2;
-- (void)mapTableStyleAt:(id)arg1 withState:(id)arg2;
-- (void)mapTableAt:(id)arg1 withState:(id)arg2;
-- (void)mapDrawablesAt:(id)arg1 withState:(id)arg2;
-- (void)mapGridAt:(id)arg1;
-- (void)mapColumnInfosAt:(id)arg1 withState:(id)arg2;
-- (void)countRowsAndColumnsWithState:(id)arg1;
-- (void)setRowGrid;
 
 @end
 

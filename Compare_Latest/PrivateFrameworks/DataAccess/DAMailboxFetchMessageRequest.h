@@ -17,8 +17,8 @@
 
 - (void)dealloc;
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (int)maxSize;
 - (int)bodyFormat;
 - (id)messageID;

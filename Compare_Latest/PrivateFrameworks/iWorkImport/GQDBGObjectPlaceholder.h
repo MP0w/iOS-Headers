@@ -10,6 +10,7 @@
 
 @class GQDDrawable;
 
+// Not exported
 @interface GQDBGObjectPlaceholder : GQDBGPlaceholder <GQDNameMappable>
 {
     char *mContentType;
@@ -19,7 +20,6 @@
 + (const struct StateSpec *)stateForReading;
 - (id)drawable;
 - (void)dealloc;
-- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1 processor:(id)arg2;
 
 @end
 

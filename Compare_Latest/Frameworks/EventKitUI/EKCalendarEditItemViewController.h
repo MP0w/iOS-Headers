@@ -10,23 +10,25 @@
 
 @class EKCalendar, EKCalendarChooser, EKEventStore;
 
+// Not exported
 @interface EKCalendarEditItemViewController : EKEditItemViewController <EKCalendarChooserDelegate>
 {
     EKEventStore *_store;
     EKCalendarChooser *_chooser;
     EKCalendar *_selectedCalendar;
-    unsigned int _entityType;
-    BOOL _limitToSource;
+    unsigned long long _entityType;
+    _Bool _limitToSource;
 }
 
-@property(nonatomic) BOOL limitToSource; // @synthesize limitToSource=_limitToSource;
+@property(nonatomic) _Bool limitToSource; // @synthesize limitToSource=_limitToSource;
 - (void).cxx_destruct;
 - (void)calendarChooserSelectionDidChange:(id)arg1;
+- (struct CGSize)preferredContentSize;
 @property(retain, nonatomic) EKCalendar *selectedCalendar;
 - (void)loadView;
 - (id)initWithFrame:(struct CGRect)arg1 store:(id)arg2;
 - (id)initWithFrame:(struct CGRect)arg1 store:(id)arg2 styleProvider:(id)arg3;
-- (id)initWithFrame:(struct CGRect)arg1 store:(id)arg2 styleProvider:(id)arg3 entityType:(unsigned int)arg4;
+- (id)initWithFrame:(struct CGRect)arg1 store:(id)arg2 styleProvider:(id)arg3 entityType:(unsigned long long)arg4;
 
 @end
 

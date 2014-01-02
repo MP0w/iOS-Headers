@@ -11,10 +11,10 @@
 @interface MPVideoChapterCellContentView : UIView
 {
     unsigned int _current:1;
-    unsigned int _index;
+    unsigned long long _index;
     unsigned int _selected:1;
     unsigned int _showThumbnailColumn:1;
-    float _timeColumnWidth;
+    double _timeColumnWidth;
     MPTimeMarker *_timeMarker;
     UIImage *_artwork;
     MPImageCache *_artworkImageCache;
@@ -24,13 +24,13 @@
 @property(retain, nonatomic) MPImageCache *artworkImageCache; // @synthesize artworkImageCache=_artworkImageCache;
 @property(retain, nonatomic) UIImage *artwork; // @synthesize artwork=_artwork;
 @property(retain, nonatomic) MPTimeMarker *timeMarker; // @synthesize timeMarker=_timeMarker;
-@property(nonatomic) float timeColumnWidth; // @synthesize timeColumnWidth=_timeColumnWidth;
-@property(nonatomic) unsigned int index; // @synthesize index=_index;
+@property(nonatomic) double timeColumnWidth; // @synthesize timeColumnWidth=_timeColumnWidth;
+@property(nonatomic) unsigned long long index; // @synthesize index=_index;
 - (void).cxx_destruct;
 - (void)setArtworkImageRequest:(id)arg1 artworkLoadCompletionHandler:(id)arg2;
-@property(nonatomic) BOOL showThumbnailColumn;
-@property(nonatomic, getter=isSelected) BOOL selected;
-@property(nonatomic, getter=isCurrent) BOOL current;
+@property(nonatomic) _Bool showThumbnailColumn;
+@property(nonatomic, getter=isSelected) _Bool selected;
+@property(nonatomic, getter=isCurrent) _Bool current;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)dealloc;
 

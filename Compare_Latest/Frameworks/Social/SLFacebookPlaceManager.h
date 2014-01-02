@@ -15,9 +15,9 @@
 {
     CLLocationManager *_locationManager;
     double _timeout;
-    BOOL _isCanceled;
-    BOOL _isUpdatingLocation;
-    BOOL _disableTimeout;
+    _Bool _isCanceled;
+    _Bool _isUpdatingLocation;
+    _Bool _disableTimeout;
     NSMutableData *_placeData;
     NSHTTPURLResponse *_urlResponse;
     NSURLConnection *_urlConnection;

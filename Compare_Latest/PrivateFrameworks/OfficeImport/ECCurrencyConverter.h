@@ -8,6 +8,7 @@
 
 @class NSMutableDictionary;
 
+// Not exported
 @interface ECCurrencyConverter : NSObject
 {
     NSMutableDictionary *mXlToLassoCurrencyCode;
@@ -21,8 +22,6 @@
 - (id)xlCurrencyCodeFromLasso:(id)arg1;
 - (id)lassoCurrencyCodeFromXl:(id)arg1;
 - (void)dealloc;
-- (id)lassoCurrencyCodeForDollar;
-- (void)populateDictionaries;
 
 @end
 

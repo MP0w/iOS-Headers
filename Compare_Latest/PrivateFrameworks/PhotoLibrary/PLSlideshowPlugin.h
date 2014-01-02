@@ -14,12 +14,12 @@
     struct NSObject *_album;
     NSArray *_albumAssets;
     double _secondsPerSlide;
-    BOOL _shuffleAlbum;
-    BOOL _shouldRepeat;
+    _Bool _shuffleAlbum;
+    _Bool _shouldRepeat;
 }
 
-@property(nonatomic) BOOL shouldRepeat; // @synthesize shouldRepeat=_shouldRepeat;
-@property(nonatomic) BOOL shuffleAlbum; // @synthesize shuffleAlbum=_shuffleAlbum;
+@property(nonatomic) _Bool shouldRepeat; // @synthesize shouldRepeat=_shouldRepeat;
+@property(nonatomic) _Bool shuffleAlbum; // @synthesize shuffleAlbum=_shuffleAlbum;
 @property(nonatomic) double secondsPerSlide; // @synthesize secondsPerSlide=_secondsPerSlide;
 @property(nonatomic) id <PLSlideshowPluginDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSArray *albumAssets; // @synthesize albumAssets=_albumAssets;

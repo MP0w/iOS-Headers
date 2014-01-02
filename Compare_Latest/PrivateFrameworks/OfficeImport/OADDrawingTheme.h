@@ -8,6 +8,7 @@
 
 @class OADColorMap, OADColorScheme, OADDefaultProperties, OADFontScheme, OADStyleMatrix;
 
+// Not exported
 @interface OADDrawingTheme : NSObject
 {
     OADDefaultProperties *mShapeDefaults;
@@ -29,7 +30,7 @@
 @property(readonly, nonatomic) OADDefaultProperties *lineDefaults; // @synthesize lineDefaults=mLineDefaults;
 @property(readonly, nonatomic) OADDefaultProperties *shapeDefaults; // @synthesize shapeDefaults=mShapeDefaults;
 - (void)dealloc;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (void)applyThemeOverrides:(id)arg1 colorMapOverride:(id)arg2;
 - (id)initWithTheme:(id)arg1 colorMap:(id)arg2 colorPalette:(id)arg3;
 

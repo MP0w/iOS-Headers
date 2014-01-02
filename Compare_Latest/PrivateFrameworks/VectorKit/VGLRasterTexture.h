@@ -6,11 +6,12 @@
 
 #import <VectorKit/VGLUncompressedTexture.h>
 
+// Not exported
 @interface VGLRasterTexture : VGLUncompressedTexture
 {
 }
 
-- (BOOL)decodeTexture;
+- (_Bool)decodeTexture;
 
 @end
 

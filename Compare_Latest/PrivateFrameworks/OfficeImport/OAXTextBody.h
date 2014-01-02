@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface OAXTextBody : NSObject
 {
 }
@@ -15,10 +16,6 @@
 + (int)readFlowType:(id)arg1;
 + (void)readTextBodyProperties:(struct _xmlNode *)arg1 textBodyProperties:(id)arg2 drawingState:(id)arg3;
 + (void)readTextBodyFromXmlNode:(struct _xmlNode *)arg1 textBody:(id)arg2 drawingState:(id)arg3;
-+ (void)readHorizontalOverflowType:(id)arg1 textBodyProperties:(id)arg2;
-+ (void)readVerticalOverflowType:(id)arg1 textBodyProperties:(id)arg2;
-+ (void)readWrapType:(id)arg1 textBodyProperties:(id)arg2;
-+ (void)readFlowType:(id)arg1 textBodyProperties:(id)arg2;
 
 @end
 

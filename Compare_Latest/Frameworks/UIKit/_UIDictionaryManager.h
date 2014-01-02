@@ -8,17 +8,22 @@
 
 @class NSArray;
 
+// Not exported
 @interface _UIDictionaryManager : NSObject
 {
     NSArray *_availableDefinitionDictionaries;
 }
 
++ (id)_filteredDictionaryIDs;
 + (id)assetManager;
++ (void)initialize;
 @property(readonly) NSArray *availableDefinitionDictionaries; // @synthesize availableDefinitionDictionaries=_availableDefinitionDictionaries;
 - (id)_currentlyAvailableDefinitionDictionaries;
+- (id)_allAvailableDefinitionDictionariesUsingRemoteInfo:(_Bool)arg1;
 - (id)_availableDictionaryAssets;
+- (id)_availableDictionaryAssetsUsingRemoteInfo:(_Bool)arg1;
 - (id)_definitionValuesForTerm:(id)arg1;
-- (BOOL)_hasDefinitionForTerm:(id)arg1;
+- (_Bool)_hasDefinitionForTerm:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

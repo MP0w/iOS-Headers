@@ -10,15 +10,15 @@
 
 @interface HSControlPrompt : NSObject
 {
-    BOOL _secureText;
+    _Bool _secureText;
     unsigned int _keyboardType;
     unsigned int _messageType;
     unsigned int _promptID;
+    unsigned int _version;
+    unsigned long long _sessionID;
     NSString *_string;
     NSString *_subText;
     NSString *_title;
-    unsigned int _version;
-    unsigned long long _sessionID;
 }
 
 @property(nonatomic) unsigned int version; // @synthesize version=_version;
@@ -26,7 +26,7 @@
 @property(copy, nonatomic) NSString *subText; // @synthesize subText=_subText;
 @property(copy, nonatomic) NSString *string; // @synthesize string=_string;
 @property(nonatomic) unsigned long long sessionID; // @synthesize sessionID=_sessionID;
-@property(nonatomic, getter=isSecureText) BOOL secureText; // @synthesize secureText=_secureText;
+@property(nonatomic, getter=isSecureText) _Bool secureText; // @synthesize secureText=_secureText;
 @property(nonatomic) unsigned int promptID; // @synthesize promptID=_promptID;
 @property(nonatomic) unsigned int messageType; // @synthesize messageType=_messageType;
 @property(nonatomic) unsigned int keyboardType; // @synthesize keyboardType=_keyboardType;

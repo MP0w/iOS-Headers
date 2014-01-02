@@ -13,7 +13,6 @@
 @interface MFMailComposeInternalViewController : UIViewController <MFMailComposeRemoteViewControllerDelegate>
 {
     id <MFMailComposeViewControllerDelegate> _mailComposeDelegate;
-    id _autorotationDelegate;
     MFMailComposePlaceholderViewController *_placeholderViewController;
     MFMailComposeRemoteViewController *_serviceViewController;
     _UIAsyncInvocation *_cancellationInvocation;
@@ -31,6 +30,7 @@
     unsigned int _didAppear:1;
     unsigned int _didFinish:1;
     unsigned int _delegateRespondsToBodyFinishedLoadingWithResult:1;
+    id _autorotationDelegate;
 }
 
 @property(nonatomic) id autorotationDelegate; // @synthesize autorotationDelegate=_autorotationDelegate;
@@ -40,37 +40,38 @@
 - (void)_setCompositionValue:(id)arg1 forKey:(id)arg2;
 - (void)finalizeCompositionValues;
 - (id)addAttachmentData:(id)arg1 mimeType:(id)arg2 fileName:(id)arg3;
-- (void)setContentVisible:(BOOL)arg1;
+- (void)setContentVisible:(_Bool)arg1;
 - (void)setSourceAccountManagement:(int)arg1;
-- (void)setShowKeyboardImmediately:(BOOL)arg1;
+- (void)setShowKeyboardImmediately:(_Bool)arg1;
 - (void)setBccRecipients:(id)arg1;
 - (void)setCcRecipients:(id)arg1;
 - (void)setToRecipients:(id)arg1;
-- (void)setMessageBody:(id)arg1 isHTML:(BOOL)arg2;
+- (void)setMessageBody:(id)arg1 isHTML:(_Bool)arg2;
 - (void)setSubject:(id)arg1;
 - (void)setAutosaveIdentifier:(id)arg1;
 - (void)setURL:(id)arg1;
 - (void)compositionViewServiceTerminatedWithError:(id)arg1;
-- (void)_notifyBodyDidFinishLoadingWithResult:(BOOL)arg1;
+- (void)_notifyBodyDidFinishLoadingWithResult:(_Bool)arg1;
 - (void)_notifyCompositionDidFinish;
 - (void)compositionFinishedWithResult:(int)arg1 error:(id)arg2;
 - (void)_cancelRemoteServiceViewControllerRequest;
 - (void)_cancelComposition:(id)arg1;
-- (void)_finishServiceViewControllerRequestWithSuccess:(BOOL)arg1;
+- (void)_finishServiceViewControllerRequestWithSuccess:(_Bool)arg1;
 - (void)_configureRemoteViewContoller;
 - (void)_serviceViewControllerReady:(id)arg1 error:(id)arg2;
 - (void)_didEndDelayingCompositionPresentation;
 - (void)_endDelayingCompositionPresentation;
 - (void)_beginDelayingCompositionPresenation;
+- (double)_delayedPresentationTimeout;
 - (void)willMoveToParentViewController:(id)arg1;
-- (BOOL)shouldAutorotate;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)_setPlaceHolderSubject:(id)arg1;
-- (void)_loadContentViewControllerForcingPlaceholder:(BOOL)arg1;
+- (void)_loadContentViewControllerForcingPlaceholder:(_Bool)arg1;
 - (void)loadView;
-- (BOOL)automaticallyForwardAppearanceAndRotationMethodsToChildViewControllers;
+- (_Bool)automaticallyForwardAppearanceAndRotationMethodsToChildViewControllers;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 

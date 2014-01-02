@@ -13,9 +13,9 @@
 @interface QLPreviewRemoteItem : NSObject <QLPreviewItem>
 {
     QLServicePreviewContentController *_contentController;
-    int _index;
+    long long _index;
     QLPreviewItemProxy *_proxy;
-    BOOL _resolving;
+    _Bool _resolving;
     id _completionBlock;
 }
 
@@ -29,7 +29,7 @@
 - (void)resolveWithCompletionBlock:(id)arg1;
 - (void)_clearCompletionBlock;
 - (void)dealloc;
-- (id)initWithContentController:(id)arg1 index:(int)arg2;
+- (id)initWithContentController:(id)arg1 index:(long long)arg2;
 
 @end
 

@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface OAVPath : NSObject
 {
 }
 
 + (void)readPath:(id)arg1 toGeometry:(id)arg2;
-+ (struct EshComputedValue)parseParam:(const char **)arg1 first:(BOOL)arg2;
++ (struct EshComputedValue)parseParam:(const char **)arg1 first:(_Bool)arg2;
 + (int)parseCommand:(const char **)arg1;
 
 @end

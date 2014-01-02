@@ -19,7 +19,7 @@
 
 @property(copy, nonatomic) NSDictionary *info; // @synthesize info=_info;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
-- (BOOL)needsReply;
+- (_Bool)needsReply;
 - (void)sendReply:(id)arg1;
 - (void *)_createXPCMessage;
 - (id)_initWithXPCMessage:(void *)arg1 onConnection:(id)arg2;

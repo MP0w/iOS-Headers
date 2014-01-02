@@ -15,7 +15,7 @@
 
 + (id)exportedInterface;
 + (id)serviceViewControllerInterface;
-+ (BOOL)shouldPropagateAppearanceCustomizations;
++ (_Bool)shouldPropagateAppearanceCustomizations;
 @property(nonatomic) __weak id <RCCurrentRecordingViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)currentRecordingDidEnd;

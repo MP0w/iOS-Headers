@@ -8,6 +8,7 @@
 
 @class CIImage, NSNumber;
 
+// Not exported
 @interface CISharpenLuminance : CIFilter
 {
     CIImage *inputImage;

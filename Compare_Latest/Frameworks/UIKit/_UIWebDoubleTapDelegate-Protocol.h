@@ -5,19 +5,19 @@
  */
 
 @protocol _UIWebDoubleTapDelegate
-- (BOOL)considerHeightForDoubleTap;
-- (CDStruct_869f9c67)doubleTapScalesForSize:(struct CGSize)arg1;
+- (_Bool)considerHeightForDoubleTap;
+- (CDStruct_39925896)doubleTapScalesForSize:(struct CGSize)arg1;
 - (struct CGRect)rectOfInterestForPoint:(struct CGPoint)arg1;
-- (float)minimumScaleForSize:(struct CGSize)arg1;
+- (double)minimumScaleForSize:(struct CGSize)arg1;
 - (struct CGRect)visibleContentRect;
-- (float)currentDocumentScale;
-- (float)zoomedDocumentScale;
+- (double)currentDocumentScale;
+- (double)zoomedDocumentScale;
 - (id)contentView;
 - (id)enclosingScrollView;
 
 @optional
-- (void)willZoomToLocation:(struct CGPoint)arg1 atScale:(float)arg2 forDuration:(double)arg3;
-- (BOOL)shouldSelectionAssistantReceiveDoubleTapAtPoint:(struct CGPoint)arg1 forScale:(float)arg2;
+- (void)willZoomToLocation:(struct CGPoint)arg1 atScale:(double)arg2 forDuration:(double)arg3;
+- (_Bool)shouldSelectionAssistantReceiveDoubleTapAtPoint:(struct CGPoint)arg1 forScale:(double)arg2;
 - (void)willZoomToMinimumScale;
 @end
 

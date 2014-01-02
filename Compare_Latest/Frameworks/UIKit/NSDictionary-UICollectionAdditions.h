@@ -7,6 +7,6 @@
 #import "NSDictionary.h"
 
 @interface NSDictionary (UICollectionAdditions)
-- (BOOL)_boolForKey:(id)arg1;
+- (_Bool)_boolForKey:(id)arg1;
 @end
 

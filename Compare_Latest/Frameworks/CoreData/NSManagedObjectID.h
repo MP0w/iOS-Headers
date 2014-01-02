@@ -12,25 +12,17 @@
 {
 }
 
-+ (BOOL)accessInstanceVariablesDirectly;
-+ (int)version;
++ (_Bool)accessInstanceVariablesDirectly;
++ (long long)version;
 + (void)initialize;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)URIRepresentation;
 - (id)description;
-- (BOOL)isTemporaryID;
+- (_Bool)isTemporaryID;
 - (id)persistentStore;
 - (id)entity;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
-- (id)_retainedURIString;
-- (BOOL)_isPersistentStoreAlive;
-- (id)_storeInfo1;
-- (id)_storeIdentifier;
-- (long long)_referenceData64;
-- (id)_referenceData;
 
 @end
 

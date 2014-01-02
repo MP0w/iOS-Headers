@@ -8,10 +8,10 @@
 
 @interface SUCellConfigurationContext : NSObject
 {
-    int _tableViewStyle;
+    long long _tableViewStyle;
 }
 
-@property(nonatomic) int tableViewStyle; // @synthesize tableViewStyle=_tableViewStyle;
+@property(nonatomic) long long tableViewStyle; // @synthesize tableViewStyle=_tableViewStyle;
 - (void)resetLayoutCaches;
 
 @end

@@ -10,6 +10,7 @@
 
 @class NSArray;
 
+// Not exported
 @interface EKEventAttachmentDetailItem : EKEventDetailItem <EKEventAttachmentCellControllerDelegate>
 {
     NSArray *_cellControllers;
@@ -18,12 +19,12 @@
 - (void).cxx_destruct;
 - (id)owningEventForAttachmentCellController:(id)arg1;
 - (id)parentViewControllerForAttachmentCellController:(id)arg1;
-- (void)eventViewController:(id)arg1 didSelectSubitem:(unsigned int)arg2;
-- (unsigned int)numberOfSubitems;
-- (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 forWidth:(float)arg2;
-- (BOOL)hasDetailViewControllerAtIndex:(unsigned int)arg1;
-- (id)cellForSubitemAtIndex:(unsigned int)arg1;
-- (BOOL)configureWithCalendar:(id)arg1 preview:(BOOL)arg2;
+- (void)eventViewController:(id)arg1 didSelectSubitem:(unsigned long long)arg2;
+- (unsigned long long)numberOfSubitems;
+- (double)defaultCellHeightForSubitemAtIndex:(unsigned long long)arg1 forWidth:(double)arg2;
+- (_Bool)hasDetailViewControllerAtIndex:(unsigned long long)arg1;
+- (id)cellForSubitemAtIndex:(unsigned long long)arg1;
+- (_Bool)configureWithCalendar:(id)arg1 preview:(_Bool)arg2;
 - (void)dealloc;
 - (void)reset;
 - (void)setEvent:(id)arg1 store:(id)arg2;

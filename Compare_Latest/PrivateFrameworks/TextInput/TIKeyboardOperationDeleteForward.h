@@ -8,19 +8,19 @@
 
 @interface TIKeyboardOperationDeleteForward : TIKeyboardOperation
 {
-    BOOL _shouldNotify;
-    unsigned int _deletionCount;
+    _Bool _shouldNotify;
+    unsigned long long _deletionCount;
 }
 
-+ (id)operationWithDeletionCount:(unsigned int)arg1 shouldNotify:(BOOL)arg2;
-+ (id)operationWithDeletionCount:(unsigned int)arg1;
-+ (BOOL)supportsSecureCoding;
-@property(readonly, nonatomic) BOOL shouldNotify; // @synthesize shouldNotify=_shouldNotify;
-@property(readonly, nonatomic) unsigned int deletionCount; // @synthesize deletionCount=_deletionCount;
++ (id)operationWithDeletionCount:(unsigned long long)arg1 shouldNotify:(_Bool)arg2;
++ (id)operationWithDeletionCount:(unsigned long long)arg1;
++ (_Bool)supportsSecureCoding;
+@property(readonly, nonatomic) _Bool shouldNotify; // @synthesize shouldNotify=_shouldNotify;
+@property(readonly, nonatomic) unsigned long long deletionCount; // @synthesize deletionCount=_deletionCount;
 - (id)propertiesForDescription;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithDeletionCount:(unsigned int)arg1 shouldNotify:(BOOL)arg2;
+- (id)initWithDeletionCount:(unsigned long long)arg1 shouldNotify:(_Bool)arg2;
 
 @end
 

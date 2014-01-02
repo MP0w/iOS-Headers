@@ -22,7 +22,7 @@
 + (long long)diskSpaceAvailableForUse;
 + (id)sharedInstance;
 - (long long)bytesToAutomaticallyClear;
-- (BOOL)hasEnoughDiskToTakePicture;
+- (_Bool)hasEnoughDiskToTakePicture;
 - (void)updateAvailableDiskSpace;
 - (void)_updateCookie;
 - (void)_actuallyUpdateCookie;

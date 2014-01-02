@@ -25,7 +25,7 @@
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) NSData *payload; // @synthesize payload=_payload;
 - (void).cxx_destruct;
-- (unsigned int)length;
+- (unsigned long long)length;
 - (id)payloadEpilogue;
 - (id)payloadPreamble;
 - (id)multiPartHeader;

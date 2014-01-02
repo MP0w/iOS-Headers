@@ -15,7 +15,7 @@
     UIView *_grabberView;
     UIImage *_grabberImage;
     NSArray *_grabberGestureRecognizers;
-    BOOL _isAnimatingOutGrabber;
+    _Bool _isAnimatingOutGrabber;
 }
 
 + (id)videoDeclineButtonImage;

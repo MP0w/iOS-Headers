@@ -17,17 +17,12 @@
 + (void)setProperty:(id)arg1 forKey:(id)arg2 inRequest:(id)arg3;
 + (id)propertyForKey:(id)arg1 inRequest:(id)arg2;
 + (void)unregisterClass:(Class)arg1;
-+ (BOOL)registerClass:(Class)arg1;
-+ (BOOL)requestIsCacheEquivalent:(id)arg1 toRequest:(id)arg2;
-+ (BOOL)_requestIsCacheEquivalent:(id)arg1 toRequest:(id)arg2 allowCF:(BOOL)arg3;
++ (_Bool)registerClass:(Class)arg1;
++ (_Bool)requestIsCacheEquivalent:(id)arg1 toRequest:(id)arg2;
++ (_Bool)_requestIsCacheEquivalent:(id)arg1 toRequest:(id)arg2 allowCF:(_Bool)arg3;
 + (id)canonicalRequestForRequest:(id)arg1;
-+ (id)_canonicalRequestForRequest:(id)arg1 allowCF:(BOOL)arg2;
-+ (BOOL)canInitWithRequest:(id)arg1;
-+ (void)_removePropertyForKey:(id)arg1 inRequest:(id)arg2;
-+ (id)_makeRequestCanonicalByMakingRequestURLCanonical:(id)arg1;
-+ (Class)_protocolClassForRequest:(id)arg1;
-+ (Class)_protocolClassForRequest:(id)arg1 allowCF:(BOOL)arg2;
-+ (id)_registeredClasses;
++ (id)_canonicalRequestForRequest:(id)arg1 allowCF:(_Bool)arg2;
++ (_Bool)canInitWithRequest:(id)arg1;
 - (void)stopLoading;
 - (void)startLoading;
 - (void)dealloc;
@@ -35,9 +30,6 @@
 - (id)request;
 - (id)client;
 - (id)initWithRequest:(id)arg1 cachedResponse:(id)arg2 client:(id)arg3;
-- (void)_resumeLoading;
-- (void)_suspendLoading;
-- (void)_releaseProtocolClientReference;
 
 @end
 

@@ -12,18 +12,18 @@
 {
     UIView *_rotationHolder;
     UIImageView *_iconView;
-    BOOL _lockEnabled;
-    BOOL _isLandscape;
-    BOOL _dontDrawDisabled;
+    _Bool _lockEnabled;
+    _Bool _isLandscape;
+    _Bool _dontDrawDisabled;
     UIImage *_cameraIcon;
     UIImage *_cameraIconLandscape;
     NSArray *_videoRecordingIcons;
     UIImage *_panoRecordingIcon;
     UIImage *_panoRecordingIconLandscape;
     int _buttonMode;
-    BOOL _isCapturing;
-    int _orientation;
-    BOOL _watchingOrientationChanges;
+    _Bool _isCapturing;
+    long long _orientation;
+    _Bool _watchingOrientationChanges;
 }
 
 + (struct UIEdgeInsets)hitRectExtension;
@@ -42,17 +42,17 @@
 + (id)backgroundPressedImageName;
 + (id)backgroundImageName;
 + (id)defaultIconName;
-- (int)orientation;
-- (void)setButtonOrientation:(int)arg1 animated:(BOOL)arg2;
+- (long long)orientation;
+- (void)setButtonOrientation:(long long)arg1 animated:(_Bool)arg2;
 - (void)_deviceOrientationChanged:(id)arg1;
 - (void)_stopWatchingDeviceOrientationChanges;
 - (void)_startWatchingDeviceOrientationChanges;
-- (void)setLockEnabled:(BOOL)arg1;
-- (void)_setHighlightOnMouseDown:(BOOL)arg1;
-- (void)setEnabled:(BOOL)arg1;
-- (void)setDontShowDisabledState:(BOOL)arg1;
-- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
-- (void)setIsCapturing:(BOOL)arg1;
+- (void)setLockEnabled:(_Bool)arg1;
+- (void)_setHighlightOnMouseDown:(_Bool)arg1;
+- (void)setEnabled:(_Bool)arg1;
+- (void)setDontShowDisabledState:(_Bool)arg1;
+- (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (void)setIsCapturing:(_Bool)arg1;
 - (void)setButtonMode:(int)arg1;
 - (void)_loadPanoLandscapeResources;
 - (void)_loadPanoResources;

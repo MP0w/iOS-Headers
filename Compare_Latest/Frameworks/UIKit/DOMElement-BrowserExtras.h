@@ -7,7 +7,7 @@
 #import "DOMElement.h"
 
 @interface DOMElement (BrowserExtras)
-- (BOOL)isHidden;
-- (BOOL)inDocument;
+- (_Bool)isHidden;
+- (_Bool)inDocument;
 @end
 

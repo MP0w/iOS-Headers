@@ -18,7 +18,7 @@
 + (id)abstractSocialPost;
 @property(copy, nonatomic) NSString *title;
 @property(copy, nonatomic) NSString *text;
-@property(nonatomic) int rank;
+@property(nonatomic) long long rank;
 @property(copy, nonatomic) NSURL *icon;
 @property(copy, nonatomic) NSDate *dateModified;
 @property(copy, nonatomic) NSDate *dateCreated;

@@ -16,48 +16,48 @@
     NSString *_hostGUID;
     NSString *_targetName;
     NSString *_targetAddress;
-    unsigned long _targetPort;
+    unsigned int _targetPort;
     NSString *_targetGUID;
     id _connectionRequestResponse;
-    unsigned long _connectionNumber;
+    unsigned int _connectionNumber;
     PTPTCPIPConnection *_tempConnection;
     NSMutableData *_tempData;
     PTPTCPIPConnection *_cdConnection;
     PTPTCPIPConnection *_eventConnection;
     NSMutableData *_cdData;
     NSMutableData *_eventData;
-    BOOL _delegateNeedsData;
+    _Bool _delegateNeedsData;
 }
 
-- (int)waitForCallbackThreadConditionSignalWithTimeoutForConnection:(long)arg1;
-- (int)waitForCallbackThreadConditionSignalWithTimeout:(long)arg1;
+- (int)waitForCallbackThreadConditionSignalWithTimeoutForConnection:(long long)arg1;
+- (int)waitForCallbackThreadConditionSignalWithTimeout:(long long)arg1;
 - (void)handleData:(id)arg1 from:(id)arg2;
-- (void)didCloseConnection:(id)arg1 withError:(CDStruct_1ef3fb1f)arg2;
+- (void)didCloseConnection:(id)arg1 withError:(CDStruct_87dc826d)arg2;
 - (void)acceptConnectionFromSocket:(int)arg1;
 - (void)releaseConnections;
 - (void)cancelTransaction:(id)arg1;
-- (BOOL)sendEvent:(id)arg1;
-- (BOOL)sendResponse:(id)arg1;
+- (_Bool)sendEvent:(id)arg1;
+- (_Bool)sendResponse:(id)arg1;
 - (void)sendData:(id)arg1;
 - (void)sendDataPackets:(id)arg1;
-- (id)sendRequest:(id)arg1 sendData:(id)arg2 timeout:(unsigned long)arg3;
-- (id)sendRequest:(id)arg1 receiveData:(id)arg2 timeout:(unsigned long)arg3;
-- (BOOL)sendCancel:(id)arg1;
-- (BOOL)sendStartData:(id)arg1;
+- (id)sendRequest:(id)arg1 sendData:(id)arg2 timeout:(unsigned int)arg3;
+- (id)sendRequest:(id)arg1 receiveData:(id)arg2 timeout:(unsigned int)arg3;
+- (_Bool)sendCancel:(id)arg1;
+- (_Bool)sendStartData:(id)arg1;
 - (id)description;
-- (BOOL)connected;
+- (_Bool)connected;
 - (void)stop;
-- (BOOL)startInitiator;
-- (BOOL)waitForConnectionWithTimeout:(double)arg1;
-- (BOOL)startResponder;
+- (_Bool)startInitiator;
+- (_Bool)waitForConnectionWithTimeout:(double)arg1;
+- (_Bool)startResponder;
 - (id)targetGUID;
-- (unsigned long)targetPort;
+- (unsigned int)targetPort;
 - (id)targetAddress;
 - (id)targetName;
 - (void)dealloc;
-- (id)initWithTargetAddress:(id)arg1 targetPort:(unsigned long)arg2 targetGUID:(id)arg3 targetName:(id)arg4 hostGUID:(id)arg5 hostName:(id)arg6 delegate:(id)arg7;
+- (id)initWithTargetAddress:(id)arg1 targetPort:(unsigned int)arg2 targetGUID:(id)arg3 targetName:(id)arg4 hostGUID:(id)arg5 hostName:(id)arg6 delegate:(id)arg7;
 - (id)initForAcceptedSocketWithDelegate:(id)arg1 andHostGUID:(id)arg2 andHostName:(id)arg3;
-- (id)initWithHostPort:(unsigned long)arg1 hostName:(id)arg2 hostGUID:(id)arg3 bonjourServiceType:(id)arg4 bonjourTXTRecords:(id)arg5 delegate:(id)arg6;
+- (id)initWithHostPort:(unsigned int)arg1 hostName:(id)arg2 hostGUID:(id)arg3 bonjourServiceType:(id)arg4 bonjourTXTRecords:(id)arg5 delegate:(id)arg6;
 
 @end
 

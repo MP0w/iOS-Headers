@@ -6,15 +6,16 @@
 
 #import <OfficeImport/CMDiagramPointMapper.h>
 
+// Not exported
 @interface CMDiagramPointChevronMapper : CMDiagramPointMapper
 {
-    BOOL mPlaceholder;
-    BOOL mHomePlate;
+    _Bool mPlaceholder;
+    _Bool mHomePlate;
 }
 
 - (void)mapAt:(id)arg1 withState:(id)arg2;
-- (void)setIsHomePlate:(BOOL)arg1;
-- (void)setIsPlaceholder:(BOOL)arg1;
+- (void)setIsHomePlate:(_Bool)arg1;
+- (void)setIsPlaceholder:(_Bool)arg1;
 
 @end
 

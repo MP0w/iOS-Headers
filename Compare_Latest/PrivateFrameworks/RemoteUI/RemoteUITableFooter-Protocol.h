@@ -7,7 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol RemoteUITableFooter <NSObject>
-- (float)footerHeightForWidth:(float)arg1 inTableView:(id)arg2;
+- (double)footerHeightForWidth:(double)arg1 inTableView:(id)arg2;
 - (id)initWithAttributes:(id)arg1;
 
 @optional

@@ -16,7 +16,7 @@
 - (void)withdrawBulletinWithPublisherBulletinID:(id)arg1;
 - (void)withdrawBulletinsWithRecordID:(id)arg1;
 - (void)modifyBulletin:(id)arg1;
-- (void)addBulletin:(id)arg1 forDestinations:(unsigned int)arg2;
+- (void)addBulletin:(id)arg1 forDestinations:(unsigned long long)arg2;
 - (void)invalidateBulletins;
 - (void)removeDataProvider;
 @end

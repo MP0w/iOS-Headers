@@ -8,18 +8,19 @@
 
 @class CHDChart, NSData, NSMutableArray;
 
+// Not exported
 @interface EBEscherShape : ESDObject
 {
     NSData *mChartData;
     NSMutableArray *mChartColorLocators;
-    BOOL mShowLegend;
+    _Bool mShowLegend;
     CHDChart *mChart;
 }
 
 - (void)setChart:(id)arg1;
 - (id)chart;
-- (void)setShowLegend:(BOOL)arg1;
-- (BOOL)showLegend;
+- (void)setShowLegend:(_Bool)arg1;
+- (_Bool)showLegend;
 - (void)setChartColorLocators:(id)arg1;
 - (id)chartColorLocators;
 - (void)setChartData:(id)arg1;

@@ -12,42 +12,42 @@
 {
     float _animatedStartValue;
     float _animatedValue;
-    BOOL _animating;
-    BOOL _canCancel;
+    _Bool _animating;
+    _Bool _canCancel;
     double _animationEndTime;
     double _animationStartTime;
     CADisplayLink *_displayLink;
     UIImageView *_centerImageView;
-    BOOL _mpExternalHidden;
-    BOOL _mpInternalHidden;
-    int _style;
+    _Bool _mpExternalHidden;
+    _Bool _mpInternalHidden;
+    long long _style;
     float _value;
 }
 
-+ (id)_stopImageForStyle:(int)arg1;
-+ (struct CGSize)_sizeForStyle:(int)arg1;
-+ (id)_nonstopImageForStyle:(int)arg1;
-+ (BOOL)_isStyleModernShimmer:(int)arg1;
-+ (id)_fillImageForStyle:(int)arg1;
++ (id)_stopImageForStyle:(long long)arg1;
++ (struct CGSize)_sizeForStyle:(long long)arg1;
++ (id)_nonstopImageForStyle:(long long)arg1;
++ (_Bool)_isStyleModernShimmer:(long long)arg1;
++ (id)_fillImageForStyle:(long long)arg1;
 + (void)_drawModernGradientInRect:(struct CGRect)arg1;
-+ (id)_baseImageForStyle:(int)arg1;
++ (id)_baseImageForStyle:(long long)arg1;
 @property(nonatomic) float value; // @synthesize value=_value;
-@property(readonly, nonatomic) int style; // @synthesize style=_style;
-@property(nonatomic) BOOL canCancel; // @synthesize canCancel=_canCancel;
+@property(readonly, nonatomic) long long style; // @synthesize style=_style;
+@property(nonatomic) _Bool canCancel; // @synthesize canCancel=_canCancel;
 - (void).cxx_destruct;
-- (void)_setInternalHidden:(BOOL)arg1;
+- (void)_setInternalHidden:(_Bool)arg1;
 - (struct CGRect)_fillFrameForSize:(struct CGSize)arg1 inBounds:(struct CGRect)arg2;
-- (struct CGRect)_centerImageViewFrame:(struct CGRect)arg1 inBounds:(struct CGRect)arg2 forStyle:(int)arg3;
+- (struct CGRect)_centerImageViewFrame:(struct CGRect)arg1 inBounds:(struct CGRect)arg2 forStyle:(long long)arg3;
 - (struct CGRect)_baseFrameForSize:(struct CGSize)arg1 inBounds:(struct CGRect)arg2;
 - (void)_animateValueOnDisplayLink:(id)arg1;
-- (void)updateFromObserver:(id)arg1 animated:(BOOL)arg2;
+- (void)updateFromObserver:(id)arg1 animated:(_Bool)arg2;
 - (void)updateFromObserver:(id)arg1;
-- (void)setValue:(float)arg1 animated:(BOOL)arg2;
+- (void)setValue:(float)arg1 animated:(_Bool)arg2;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (void)setHidden:(BOOL)arg1;
+- (void)setHidden:(_Bool)arg1;
 - (void)layoutSubviews;
 - (void)drawRect:(struct CGRect)arg1;
-- (id)initWithStyle:(int)arg1;
+- (id)initWithStyle:(long long)arg1;
 
 @end
 

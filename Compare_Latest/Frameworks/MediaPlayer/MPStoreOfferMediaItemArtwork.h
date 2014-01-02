@@ -6,27 +6,34 @@
 
 #import <MediaPlayer/MPMediaItemArtwork.h>
 
-@class NSArray;
+@class NSArray, NSString;
 
 @interface MPStoreOfferMediaItemArtwork : MPMediaItemArtwork
 {
+    long long _itemPersistentID;
     NSArray *_screenshotDictionaries;
     NSArray *_itemArtworkDictionaries;
     NSArray *_containerArtworkDictionaries;
+    unsigned long long _hash;
+    NSString *_cacheID;
 }
 
+@property(readonly, nonatomic) NSString *cacheID; // @synthesize cacheID=_cacheID;
 - (void).cxx_destruct;
+- (_Bool)shouldAsynchrounouslyLoadArtworkForItemWithIdentifier:(long long)arg1 artworkSize:(struct CGSize)arg2 artworkCacheID:(id)arg3;
+- (_Bool)shouldAsynchrounouslyLoadArtworkForItemWithIdentifier:(long long)arg1 artworkFormat:(long long)arg2 artworkCacheID:(id)arg3;
 - (id)imageWithSize:(struct CGSize)arg1 artworkCacheID:(id)arg2;
-- (id)imageWithFormat:(int)arg1 artworkCacheID:(id)arg2 canUseSurfaceBackedImage:(BOOL)arg3;
+- (id)imageWithFormat:(long long)arg1 artworkCacheID:(id)arg2 canUseSurfaceBackedImage:(_Bool)arg3;
 - (id)albumImageDataWithSize:(struct CGSize)arg1;
 - (id)albumImageWithSize:(struct CGSize)arg1;
 - (id)imageDataWithSize:(struct CGSize)arg1 atPlaybackTime:(double)arg2;
 - (id)imageWithSize:(struct CGSize)arg1 atPlaybackTime:(double)arg2;
-- (BOOL)hasArtworkAvailable;
+- (_Bool)hasArtworkAvailable;
 - (id)imageWithSize:(struct CGSize)arg1;
+- (unsigned long long)hash;
 - (id)_bestImageURLForSize:(struct CGSize)arg1 artworkDictionaries:(id)arg2;
 - (id)_imageWithURL:(id)arg1;
-- (id)initWithScreenshotDictionaries:(id)arg1 itemArtworkDictionaries:(id)arg2 containerArtworkDictionaries:(id)arg3;
+- (id)initWithItemPersistentID:(long long)arg1 screenshotDictionaries:(id)arg2 itemArtworkDictionaries:(id)arg3 containerArtworkDictionaries:(id)arg4;
 
 @end
 

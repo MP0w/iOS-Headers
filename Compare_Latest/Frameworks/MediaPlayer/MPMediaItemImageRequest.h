@@ -11,31 +11,33 @@
 @interface MPMediaItemImageRequest : MPImageCacheRequest
 {
     NSString *_artworkCacheID;
-    int _artworkFormat;
+    long long _artworkFormat;
     MPMediaItem *_mediaItem;
-    unsigned int _placeHolderMediaType;
+    unsigned long long _placeHolderMediaType;
     double _retrievalTime;
-    BOOL _usePlaceholderAsFallback;
-    BOOL _crop;
-    BOOL _fillToSquareAspectRatio;
-    BOOL _canUseSurfaceBackedImage;
+    _Bool _usePlaceholderAsFallback;
+    _Bool _crop;
+    _Bool _fillToSquareAspectRatio;
+    _Bool _canUseSurfaceBackedImage;
+    _Bool _prefersScreenshot;
 }
 
 + (id)placeholderImage;
-@property(nonatomic) BOOL canUseSurfaceBackedImage; // @synthesize canUseSurfaceBackedImage=_canUseSurfaceBackedImage;
-@property(nonatomic) unsigned int placeHolderMediaType; // @synthesize placeHolderMediaType=_placeHolderMediaType;
-@property(nonatomic) BOOL usePlaceholderAsFallback; // @synthesize usePlaceholderAsFallback=_usePlaceholderAsFallback;
+@property(nonatomic) _Bool prefersScreenshot; // @synthesize prefersScreenshot=_prefersScreenshot;
+@property(nonatomic) _Bool canUseSurfaceBackedImage; // @synthesize canUseSurfaceBackedImage=_canUseSurfaceBackedImage;
+@property(nonatomic) unsigned long long placeHolderMediaType; // @synthesize placeHolderMediaType=_placeHolderMediaType;
+@property(nonatomic) _Bool usePlaceholderAsFallback; // @synthesize usePlaceholderAsFallback=_usePlaceholderAsFallback;
 @property(nonatomic) double retrievalTime; // @synthesize retrievalTime=_retrievalTime;
 @property(readonly, nonatomic) MPMediaItem *mediaItem; // @synthesize mediaItem=_mediaItem;
-@property(nonatomic) BOOL fillToSquareAspectRatio; // @synthesize fillToSquareAspectRatio=_fillToSquareAspectRatio;
-@property(nonatomic) BOOL crop; // @synthesize crop=_crop;
-@property(nonatomic) int artworkFormat; // @synthesize artworkFormat=_artworkFormat;
+@property(nonatomic) _Bool fillToSquareAspectRatio; // @synthesize fillToSquareAspectRatio=_fillToSquareAspectRatio;
+@property(nonatomic) _Bool crop; // @synthesize crop=_crop;
+@property(nonatomic) long long artworkFormat; // @synthesize artworkFormat=_artworkFormat;
 @property(copy, nonatomic) NSString *artworkCacheID; // @synthesize artworkCacheID=_artworkCacheID;
 - (void).cxx_destruct;
 - (void)composeUniqueKey;
 - (id)uniqueKey;
 - (id)copyRawImageReturningError:(id *)arg1;
-- (BOOL)canRequestSynchronously;
+- (_Bool)canRequestSynchronously;
 - (id)placeholderImage;
 - (id)finalPlaceholderImage;
 - (void)setRetrievalTimeForPlaybackTime:(double)arg1;

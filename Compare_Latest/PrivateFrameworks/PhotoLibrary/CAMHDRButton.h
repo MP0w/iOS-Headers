@@ -6,20 +6,36 @@
 
 #import "UIButton.h"
 
-@class UIImage;
+@class CAMButtonLabel;
 
 @interface CAMHDRButton : UIButton
 {
-    UIImage *__baseImage;
+    _Bool _on;
+    long long _orientation;
+    CAMButtonLabel *__hdrLabel;
+    CAMButtonLabel *__offLabel;
+    CAMButtonLabel *__onLabel;
 }
 
-@property(readonly, nonatomic) UIImage *_baseImage; // @synthesize _baseImage=__baseImage;
-- (id)_HDRImageForOnState:(BOOL)arg1;
-@property(nonatomic, getter=isOn) BOOL on;
+@property(readonly, nonatomic) CAMButtonLabel *_onLabel; // @synthesize _onLabel=__onLabel;
+@property(readonly, nonatomic) CAMButtonLabel *_offLabel; // @synthesize _offLabel=__offLabel;
+@property(readonly, nonatomic) CAMButtonLabel *_hdrLabel; // @synthesize _hdrLabel=__hdrLabel;
+@property(nonatomic) long long orientation; // @synthesize orientation=_orientation;
+@property(nonatomic, getter=isOn) _Bool on; // @synthesize on=_on;
+- (void)_updateFromOrientationChangeAnimated:(_Bool)arg1;
+- (void)_updateFrameFromOrientation;
+- (struct CGAffineTransform)_transformForOrientation:(long long)arg1;
+- (void)_updateLabelsFromOrientation;
+- (void)_updateFromOnState;
+- (void)setOrientation:(long long)arg1 animated:(_Bool)arg2;
+- (void)layoutSubviews;
+- (void)_layoutForLandscapeOrientation;
+- (void)_layoutForPortraitOrientation;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)dealloc;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (void)_commonInit;
+- (void)_commonCAMHDRButtonInitialization;
 
 @end
 

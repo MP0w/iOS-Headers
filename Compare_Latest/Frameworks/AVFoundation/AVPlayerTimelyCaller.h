@@ -14,8 +14,8 @@
     AVWeakReference *_weakReference;
     AVPlayer *_player;
     NSObject<OS_dispatch_source> *_timerSource;
-    BOOL _isInvalidated;
-    BOOL _timerQueueIsPlayerStateDispatchQueue;
+    _Bool _isInvalidated;
+    _Bool _timerQueueIsPlayerStateDispatchQueue;
     struct OpaqueCMTimebase *_timebase;
     double _lastRate;
     double _currentRate;
@@ -32,7 +32,7 @@
 - (void)_startObservingTimebaseNotificationsForCurrentItem;
 - (void)_stopRespondingToPlayerStateChanges;
 - (void)_stopObservingTimebaseNotifications;
-- (long)_removeCurrentTimebaseFromTimerSource;
+- (int)_removeCurrentTimebaseFromTimerSource;
 - (void)finalize;
 - (void)dealloc;
 - (id)initWithPlayer:(id)arg1 queue:(id)arg2;

@@ -20,14 +20,14 @@ struct _PTPRange {
 };
 
 struct timespec {
-    int _field1;
-    long _field2;
+    long long _field1;
+    long long _field2;
 };
 
 #pragma mark Typedef'd Structures
 
 typedef struct {
-    int _field1;
+    long long _field1;
     int _field2;
-} CDStruct_1ef3fb1f;
+} CDStruct_87dc826d;
 

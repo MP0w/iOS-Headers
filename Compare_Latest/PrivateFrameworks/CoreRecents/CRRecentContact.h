@@ -11,6 +11,7 @@
 @interface CRRecentContact : NSObject
 {
     NSMutableArray *_recentDates;
+    long long _contactID;
     NSString *_recentsDomain;
     NSString *_displayName;
     NSString *_kind;
@@ -21,10 +22,9 @@
     NSNumber *_weight;
     NSNumber *_decayedWeight;
     NSArray *_members;
+    long long _recentID;
     NSString *_groupName;
     NSString *_rawAddress;
-    long long _contactID;
-    long long _recentID;
 }
 
 @property(copy, nonatomic) NSString *rawAddress; // @synthesize rawAddress=_rawAddress;
@@ -52,19 +52,19 @@
 - (void)enumerateArchivablePropertiesWithBlock:(id)arg1;
 - (id)initWithDictionary:(id)arg1;
 - (id)copyDictionaryRepresentation;
-- (void)insertDate:(id)arg1 atIndex:(unsigned int)arg2 required:(BOOL)arg3;
-- (unsigned int)insertionIndexForDate:(id)arg1 wouldBeUnique:(char *)arg2;
+- (void)insertDate:(id)arg1 atIndex:(unsigned long long)arg2 required:(_Bool)arg3;
+- (unsigned long long)insertionIndexForDate:(id)arg1 wouldBeUnique:(_Bool *)arg2;
 - (void)lazilyCreateRecentDates;
-- (void)recordRecentEventForDate:(id)arg1 userInitiated:(BOOL)arg2;
+- (void)recordRecentEventForDate:(id)arg1 userInitiated:(_Bool)arg2;
 @property(copy, nonatomic) NSArray *recentDates;
 @property(readonly, nonatomic) NSDate *leastRecentDate;
 @property(readonly, nonatomic) NSDate *mostRecentDate;
-@property(readonly, nonatomic) unsigned int countOfRecents;
+@property(readonly, nonatomic) unsigned long long countOfRecents;
 - (void)applyWeight:(id)arg1;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)hasFullTextMatch:(id)arg1;
-@property(readonly, nonatomic, getter=isGroup) BOOL group;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)hasFullTextMatch:(id)arg1;
+@property(readonly, nonatomic, getter=isGroup) _Bool group;
 - (id)description;
 - (void)dealloc;
 - (id)initWithMembers:(id)arg1 displayName:(id)arg2 recentDate:(id)arg3 recentsDomain:(id)arg4;

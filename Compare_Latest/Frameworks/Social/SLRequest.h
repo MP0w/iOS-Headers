@@ -12,7 +12,7 @@
 {
     ACAccount *_account;
     OACredential *_OAuthCredential;
-    int _requestMethod;
+    long long _requestMethod;
     NSURL *_url;
     NSMutableDictionary *_parameters;
     NSMutableArray *_multiParts;
@@ -24,8 +24,8 @@
     SLService *_service;
 }
 
-+ (id)requestForServiceType:(id)arg1 requestMethod:(int)arg2 URL:(id)arg3 parameters:(id)arg4;
-@property(readonly, nonatomic) int requestMethod; // @synthesize requestMethod=_requestMethod;
++ (id)requestForServiceType:(id)arg1 requestMethod:(long long)arg2 URL:(id)arg3 parameters:(id)arg4;
+@property(readonly, nonatomic) long long requestMethod; // @synthesize requestMethod=_requestMethod;
 @property(readonly, nonatomic) NSDictionary *parameters; // @synthesize parameters=_parameters;
 @property(readonly, nonatomic) NSURL *URL; // @synthesize URL=_url;
 - (void).cxx_destruct;
@@ -34,17 +34,17 @@
 - (void)performJSONRequestWithHandler:(id)arg1;
 - (void)performJSONRequestWithHandler:(id)arg1 retryCount:(void)arg2;
 - (id)_commandName;
-- (BOOL)_shouldRetryAfterCount:(int)arg1 delay:(float *)arg2;
+- (_Bool)_shouldRetryAfterCount:(int)arg1 delay:(float *)arg2;
 - (void)performRequestWithHandler:(id)arg1;
 - (id)dictionaryRepresentationForJSONSerialization;
 - (id)preparedURLRequest;
 - (id)_HTTPMethodName;
 - (id)_preparedURL;
-- (BOOL)shouldIncludeParameterString;
-- (BOOL)_requiresAuthorization;
+- (_Bool)shouldIncludeParameterString;
+- (_Bool)_requiresAuthorization;
 - (id)_parameterString;
 - (void)_addAuthenticationParameters:(id)arg1;
-- (BOOL)_shouldAppendTencentWeiboParametersToRequest;
+- (_Bool)_shouldAppendTencentWeiboParametersToRequest;
 - (id)_allParameters;
 - (void)_appendCoreSig1Signature;
 - (void)setApplicationID:(id)arg1;
@@ -65,7 +65,7 @@
 - (id)parameterForKey:(id)arg1;
 - (void)removeParameterForKey:(id)arg1;
 - (void)setParameterValue:(id)arg1 forKey:(id)arg2;
-- (id)initWithServiceType:(id)arg1 URL:(id)arg2 parameters:(id)arg3 requestMethod:(int)arg4;
+- (id)initWithServiceType:(id)arg1 URL:(id)arg2 parameters:(id)arg3 requestMethod:(long long)arg4;
 - (id)init;
 
 @end

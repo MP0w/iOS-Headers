@@ -6,20 +6,21 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface CloudServicesError : NSObject
 {
 }
 
 + (id)errorForHTTPURLResponse:(id)arg1 error:(id)arg2;
 + (id)errorForNSError:(id)arg1 path:(id)arg2 format:(id)arg3;
-+ (id)errorWithDomain:(id)arg1 code:(int)arg2 format:(id)arg3;
-+ (id)errorWithCode:(int)arg1 error:(id)arg2 URL:(id)arg3 format:(id)arg4;
-+ (id)errorWithCode:(int)arg1 URL:(id)arg2 format:(id)arg3;
-+ (id)errorWithCode:(int)arg1 error:(id)arg2 format:(id)arg3;
-+ (id)errorWithCode:(int)arg1 format:(id)arg2;
++ (id)errorWithDomain:(id)arg1 code:(long long)arg2 format:(id)arg3;
++ (id)errorWithCode:(long long)arg1 error:(id)arg2 URL:(id)arg3 format:(id)arg4;
++ (id)errorWithCode:(long long)arg1 URL:(id)arg2 format:(id)arg3;
++ (id)errorWithCode:(long long)arg1 error:(id)arg2 format:(id)arg3;
++ (id)errorWithCode:(long long)arg1 format:(id)arg2;
 + (id)sanitizedError:(id)arg1;
-+ (long)codeForErrno:(long)arg1;
-+ (long)codeForNSError:(id)arg1;
++ (long long)codeForErrno:(long long)arg1;
++ (long long)codeForNSError:(id)arg1;
 
 @end
 

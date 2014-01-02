@@ -8,12 +8,12 @@
 
 @interface SBStarkLauncherLayoutAttributes : UICollectionViewLayoutAttributes
 {
-    BOOL _lastIcon;
+    _Bool _lastIcon;
 }
 
-@property(nonatomic, getter=isLastIcon) BOOL lastIcon; // @synthesize lastIcon=_lastIcon;
+@property(nonatomic, getter=isLastIcon) _Bool lastIcon; // @synthesize lastIcon=_lastIcon;
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end

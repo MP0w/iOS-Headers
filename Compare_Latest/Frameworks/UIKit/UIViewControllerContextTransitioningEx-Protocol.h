@@ -9,9 +9,9 @@
 @class NSArray;
 
 @protocol UIViewControllerContextTransitioningEx <UIViewControllerContextTransitioning>
-@property(nonatomic, setter=_setPercentOffset:) float _percentOffset;
+@property(nonatomic, setter=_setPercentOffset:) double _percentOffset;
 @property(retain, nonatomic, setter=_setContainerViews:) NSArray *_containerViews;
-- (void)_interactivityDidChange:(BOOL)arg1;
+- (void)_interactivityDidChange:(_Bool)arg1;
 - (void)__runAlongsideAnimations;
 @end
 

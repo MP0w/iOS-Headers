@@ -7,15 +7,15 @@
 @class NSString;
 
 @protocol VKLabelNavFeature
-@property(readonly, nonatomic) BOOL isGuidanceStepStart;
-@property(readonly, nonatomic) int intraRoadPriority;
-@property(readonly, nonatomic) BOOL isInGuidance;
-@property(readonly, nonatomic) BOOL isStartOfRoadName;
+@property(readonly, nonatomic) _Bool isGuidanceStepStart;
+@property(readonly, nonatomic) long long intraRoadPriority;
+@property(readonly, nonatomic) _Bool isInGuidance;
+@property(readonly, nonatomic) _Bool isStartOfRoadName;
 @property(readonly, nonatomic) NSString *shieldDisplayGroup;
 @property(readonly, nonatomic) NSString *name;
-@property(readonly, nonatomic) BOOL isRamp;
+@property(readonly, nonatomic) _Bool isRamp;
 @property(readonly, nonatomic) struct PolylineCoordinate routeOffset;
-@property(readonly, nonatomic) BOOL isAwayFromRoute;
-@property(readonly, nonatomic) BOOL isOnRoute;
+@property(readonly, nonatomic) _Bool isAwayFromRoute;
+@property(readonly, nonatomic) _Bool isOnRoute;
 @end
 

@@ -22,8 +22,6 @@
 - (id)initWithPreferredLanguages:(id)arg1 preferredMediaCharacteristics:(id)arg2;
 - (id)initWithPreferredLanguages:(id)arg1 preferredMediaCharacteristics:(id)arg2 preferredMediaSubTypes:(id)arg3 precludedMediaSubTypes:(id)arg4;
 - (id)init;
-- (id)initWithFigDictionary:(id)arg1;
-- (id)figDictionary;
 
 @end
 

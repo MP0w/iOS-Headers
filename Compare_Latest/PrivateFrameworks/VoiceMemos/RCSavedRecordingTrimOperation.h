@@ -10,22 +10,24 @@
 
 @interface RCSavedRecordingTrimOperation : NSOperation
 {
-    BOOL _trimOriginalFile;
+    _Bool _trimOriginalFile;
     RCSavedRecording *_savedRecording;
+    RCSavedRecording *_sourceRecording;
     NSString *_trimmedPath;
     CDStruct_73a5d3ca _timeRangeToTrim;
     CDStruct_73a5d3ca _trimmedTimeRange;
 }
 
-+ (BOOL)_trimWaveformAtPath:(id)arg1 clipToTimeRange:(CDStruct_73a5d3ca)arg2 outputPath:(id)arg3;
++ (_Bool)_trimWaveformAtPath:(id)arg1 clipToTimeRange:(CDStruct_73a5d3ca)arg2 outputPath:(id)arg3;
 @property(readonly, nonatomic) CDStruct_73a5d3ca trimmedTimeRange; // @synthesize trimmedTimeRange=_trimmedTimeRange;
 @property(readonly, nonatomic) NSString *trimmedPath; // @synthesize trimmedPath=_trimmedPath;
-@property(readonly, nonatomic) BOOL trimOriginalFile; // @synthesize trimOriginalFile=_trimOriginalFile;
+@property(readonly, nonatomic) _Bool trimOriginalFile; // @synthesize trimOriginalFile=_trimOriginalFile;
 @property(readonly, nonatomic) CDStruct_73a5d3ca timeRangeToTrim; // @synthesize timeRangeToTrim=_timeRangeToTrim;
+@property(readonly, nonatomic) RCSavedRecording *sourceRecording; // @synthesize sourceRecording=_sourceRecording;
 @property(readonly, nonatomic) RCSavedRecording *savedRecording; // @synthesize savedRecording=_savedRecording;
 - (void).cxx_destruct;
 - (void)main;
-- (id)initWithSavedRecording:(id)arg1 timeRangeToTrim:(CDStruct_73a5d3ca)arg2 trimOriginalFile:(BOOL)arg3;
+- (id)initWithSavedRecording:(id)arg1 timeRangeToTrim:(CDStruct_73a5d3ca)arg2 souceRecording:(id)arg3;
 
 @end
 

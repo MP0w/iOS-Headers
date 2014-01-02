@@ -18,7 +18,7 @@
     NSString *_appSpecificMultiGetCommand;
     NSString *_appSpecificDataProp;
     Class _appSpecificDataItemClass;
-    BOOL _shouldIgnoreResponseErrors;
+    _Bool _shouldIgnoreResponseErrors;
     NSSet *_additionalPropElements;
     NSSet *_parsedContents;
     NSSet *_missingURLs;
@@ -28,7 +28,7 @@
 @property(readonly, nonatomic) NSSet *deletedURLs; // @synthesize deletedURLs=_deletedURLs;
 @property(readonly, nonatomic) NSSet *missingURLs; // @synthesize missingURLs=_missingURLs;
 @property(readonly, nonatomic) NSSet *parsedContents; // @synthesize parsedContents=_parsedContents;
-@property(nonatomic) BOOL shouldIgnoreResponseErrors; // @synthesize shouldIgnoreResponseErrors=_shouldIgnoreResponseErrors;
+@property(nonatomic) _Bool shouldIgnoreResponseErrors; // @synthesize shouldIgnoreResponseErrors=_shouldIgnoreResponseErrors;
 @property(retain) NSSet *additionalPropElements; // @synthesize additionalPropElements=_additionalPropElements;
 - (void)finishCoreDAVTaskWithError:(id)arg1;
 - (id)copyDefaultParserForContentType:(id)arg1;

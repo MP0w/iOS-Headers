@@ -24,8 +24,7 @@
 @property(copy, nonatomic) NSString *interactionId;
 @property(copy, nonatomic) NSString *fieldLabel;
 @property(copy, nonatomic) NSString *fieldId;
-@property(nonatomic) BOOL enableAutoEndpointing;
-@property(nonatomic) BOOL censorSpeech;
+@property(nonatomic) _Bool censorSpeech;
 @property(copy, nonatomic) NSString *applicationVersion;
 @property(copy, nonatomic) NSString *applicationName;
 @property(copy, nonatomic) NSData *activationToken;

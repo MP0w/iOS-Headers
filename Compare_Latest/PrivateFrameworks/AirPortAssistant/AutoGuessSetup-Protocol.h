@@ -7,7 +7,7 @@
 @class NSDictionary;
 
 @protocol AutoGuessSetup
-- (long)setupFromAutoguessRecommendation:(id)arg1 withOptions:(id)arg2;
+- (int)setupFromAutoguessRecommendation:(id)arg1 withOptions:(id)arg2;
 
 @optional
 @property(retain) NSDictionary *restoreRecommendation;

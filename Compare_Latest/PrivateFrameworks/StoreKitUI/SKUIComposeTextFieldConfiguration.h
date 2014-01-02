@@ -11,20 +11,20 @@
 @interface SKUIComposeTextFieldConfiguration : NSObject
 {
     struct UIEdgeInsets _borderInsets;
-    int _columnIndex;
-    BOOL _isRequired;
+    long long _columnIndex;
+    _Bool _isRequired;
     NSString *_label;
-    unsigned int _maxLength;
+    unsigned long long _maxLength;
     NSString *_placeholder;
     NSString *_value;
 }
 
 @property(copy, nonatomic) NSString *value; // @synthesize value=_value;
 @property(copy, nonatomic) NSString *placeholder; // @synthesize placeholder=_placeholder;
-@property(nonatomic) unsigned int maxLength; // @synthesize maxLength=_maxLength;
+@property(nonatomic) unsigned long long maxLength; // @synthesize maxLength=_maxLength;
 @property(copy, nonatomic) NSString *label; // @synthesize label=_label;
-@property(nonatomic, getter=isRequired) BOOL required; // @synthesize required=_isRequired;
-@property(nonatomic) int columnIndex; // @synthesize columnIndex=_columnIndex;
+@property(nonatomic, getter=isRequired) _Bool required; // @synthesize required=_isRequired;
+@property(nonatomic) long long columnIndex; // @synthesize columnIndex=_columnIndex;
 @property(nonatomic) struct UIEdgeInsets borderInsets; // @synthesize borderInsets=_borderInsets;
 - (void).cxx_destruct;
 

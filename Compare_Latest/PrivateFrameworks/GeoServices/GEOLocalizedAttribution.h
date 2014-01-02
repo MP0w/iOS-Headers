@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSMutableArray, NSString;
 
-@interface GEOLocalizedAttribution : PBCodable
+@interface GEOLocalizedAttribution : PBCodable <NSCopying>
 {
     NSString *_displayName;
     NSString *_language;
@@ -20,25 +22,25 @@
 @property(retain, nonatomic) NSMutableArray *logoURLs; // @synthesize logoURLs=_logoURLs;
 @property(retain, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 @property(retain, nonatomic) NSString *language; // @synthesize language=_language;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)snippetLogoURLsAtIndex:(unsigned int)arg1;
-- (unsigned int)snippetLogoURLsCount;
+- (id)snippetLogoURLsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)snippetLogoURLsCount;
 - (void)addSnippetLogoURLs:(id)arg1;
 - (void)clearSnippetLogoURLs;
-- (id)logoURLsAtIndex:(unsigned int)arg1;
-- (unsigned int)logoURLsCount;
+- (id)logoURLsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)logoURLsCount;
 - (void)addLogoURLs:(id)arg1;
 - (void)clearLogoURLs;
-@property(readonly, nonatomic) BOOL hasDisplayName;
-@property(readonly, nonatomic) BOOL hasLanguage;
+@property(readonly, nonatomic) _Bool hasDisplayName;
+@property(readonly, nonatomic) _Bool hasLanguage;
 - (void)dealloc;
-- (id)bestURLForLogos:(id)arg1 hiDPI:(BOOL)arg2;
 
 @end
 

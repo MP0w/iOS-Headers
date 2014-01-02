@@ -12,17 +12,17 @@
 {
 }
 
-+ (BOOL)autoBrightnessEnabled;
-+ (void)setAutoBrightnessEnabled:(BOOL)arg1;
-+ (BOOL)deviceSupportsAutoBrightness;
++ (_Bool)autoBrightnessEnabled;
++ (void)setAutoBrightnessEnabled:(_Bool)arg1;
++ (_Bool)deviceSupportsAutoBrightness;
 + (void)endObservingExternalBrightnessChanges;
 + (void)beginObservingExternalBrightnessChanges:(id)arg1 changedAction:(void)arg2;
 + (void)endBrightnessAdjustmentTransaction;
 + (void)beginBrightnessAdjustmentTransaction;
-+ (void)setValue:(float)arg1;
-+ (void)incrementBrightnessValue:(float)arg1;
-+ (float)incrementedBrightnessValue:(float)arg1;
-+ (float)currentValue;
++ (void)setValue:(double)arg1;
++ (void)incrementBrightnessValue:(double)arg1;
++ (double)incrementedBrightnessValue:(double)arg1;
++ (double)currentValue;
 + (id)iconImage;
 + (id)preferencesURL;
 

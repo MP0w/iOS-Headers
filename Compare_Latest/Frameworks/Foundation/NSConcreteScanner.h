@@ -8,13 +8,14 @@
 
 @class NSCharacterSet, NSString;
 
+// Not exported
 @interface NSConcreteScanner : NSScanner
 {
     NSString *scanString;
     NSCharacterSet *skipSet;
     NSCharacterSet *invertedSkipSet;
     id locale;
-    unsigned int scanLocation;
+    unsigned long long scanLocation;
     struct {
         unsigned int caseSensitive:1;
         unsigned int :31;
@@ -23,16 +24,16 @@
 
 - (void)finalize;
 - (void)dealloc;
-- (BOOL)scanLongLong:(long long *)arg1;
-- (BOOL)scanInt:(int *)arg1;
+- (_Bool)scanLongLong:(long long *)arg1;
+- (_Bool)scanInt:(int *)arg1;
 - (id)locale;
 - (void)setLocale:(id)arg1;
-- (BOOL)caseSensitive;
-- (void)setCaseSensitive:(BOOL)arg1;
+- (_Bool)caseSensitive;
+- (void)setCaseSensitive:(_Bool)arg1;
 - (id)charactersToBeSkipped;
 - (void)setCharactersToBeSkipped:(id)arg1;
-- (unsigned int)scanLocation;
-- (void)setScanLocation:(unsigned int)arg1;
+- (unsigned long long)scanLocation;
+- (void)setScanLocation:(unsigned long long)arg1;
 - (id)_invertedSkipSet;
 - (id)string;
 - (id)initWithString:(id)arg1;

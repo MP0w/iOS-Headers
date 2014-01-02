@@ -7,7 +7,7 @@
 #import "SFUInputStream-Protocol.h"
 
 @protocol SFUBufferedInputStream <SFUInputStream>
-- (BOOL)seekWithinBufferToOffset:(long long)arg1;
-- (unsigned long)readToOwnBuffer:(const char **)arg1 size:(unsigned long)arg2;
+- (_Bool)seekWithinBufferToOffset:(long long)arg1;
+- (unsigned long long)readToOwnBuffer:(const char **)arg1 size:(unsigned long long)arg2;
 @end
 

@@ -8,8 +8,9 @@
 
 #import "_UISiriWaveyViewDelegate-Protocol.h"
 
-@class UIButton, UIKeyboardDicationBackground, _UISiriWaveyView;
+@class UIButton, UIDictationMeterView, UIKeyboardDicationBackground, _UISiriWaveyView;
 
+// Not exported
 @interface UIDictationView : UIView <_UISiriWaveyViewDelegate>
 {
     UIKeyboardDicationBackground *_background;
@@ -17,9 +18,10 @@
     UIButton *_endpointButtonLandscape;
     UIButton *_waveTapEndpointButton;
     int _state;
-    BOOL _keyboardInTransition;
-    BOOL _automaticAppearanceWasEnabled;
+    _Bool _keyboardInTransition;
+    _Bool _automaticAppearanceWasEnabled;
     _UISiriWaveyView *_waveyView;
+    UIDictationMeterView *_meterView;
 }
 
 + (struct CGSize)layoutSize;
@@ -28,13 +30,14 @@
 + (struct CGSize)viewSize;
 + (Class)dictationViewClass;
 - (float)audioLevelForWaveyView:(id)arg1;
-- (BOOL)visible;
+- (_Bool)visible;
 - (void)endpointButtonPressed;
 - (void)dealloc;
 - (void)layoutSubviews;
-- (BOOL)drawsOwnBackground;
+- (_Bool)drawsOwnBackground;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)setState:(int)arg1;
+- (_Bool)isShowing;
 - (void)returnToKeyboard;
 - (void)finishReturnToKeyboard;
 - (void)prepareForReturnToKeyboard;
@@ -47,7 +50,8 @@
 - (struct CGSize)currentScreenSize;
 - (id)createEndpointButtonWithRect:(struct CGRect)arg1 action:(SEL)arg2;
 - (id)endpointButton;
-- (id)endpointButtonImageWithRect:(struct CGRect)arg1 pressed:(BOOL)arg2;
+- (id)endpointButtonImageWithRect:(struct CGRect)arg1 pressed:(_Bool)arg2;
+- (void)applicationWillResignActive;
 
 @end
 

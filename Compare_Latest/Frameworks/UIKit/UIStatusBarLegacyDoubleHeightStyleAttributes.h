@@ -6,14 +6,15 @@
 
 #import <UIKit/UIStatusBarLegacyStyleAttributes.h>
 
+// Not exported
 @interface UIStatusBarLegacyDoubleHeightStyleAttributes : UIStatusBarLegacyStyleAttributes
 {
 }
 
 - (double)glowAnimationDuration;
-- (BOOL)isDoubleHeight;
-- (BOOL)areTopCornersRounded;
-- (float)heightForMetrics:(int)arg1;
+- (_Bool)isDoubleHeight;
+- (_Bool)areTopCornersRounded;
+- (double)heightForMetrics:(long long)arg1;
 
 @end
 

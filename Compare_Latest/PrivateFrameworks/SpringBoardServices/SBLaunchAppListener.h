@@ -13,14 +13,14 @@
     NSString *_displayIdentifier;
     id _block;
     NSLock *_lock;
-    BOOL _launched;
+    _Bool _launched;
     int _notifyToken;
     int _notifyAppExitedToken;
     unsigned int _notifyRegisterStatus;
     unsigned int _notifyAppExitedStatus;
 }
 
-+ (BOOL)waitForLaunchThatSpringBoardKnowsAbout:(id)arg1 timeout:(double)arg2;
++ (_Bool)waitForLaunchThatSpringBoardKnowsAbout:(id)arg1 timeout:(double)arg2;
 - (void)invalidate;
 - (void)_didFailToLaunch;
 - (void)_didLaunch;

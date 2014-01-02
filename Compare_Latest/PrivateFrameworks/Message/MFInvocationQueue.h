@@ -12,27 +12,27 @@
 {
     NSConditionLock *_lock;
     NSMutableArray *_items;
-    unsigned int _numThreads;
-    unsigned int _maxThreads;
+    unsigned long long _numThreads;
+    unsigned long long _maxThreads;
     int _threadPriorityTrigger;
     double _threadRecycleTimeout;
 }
 
 + (void)flushAllInvocationQueues;
-+ (unsigned int)totalInvocationCount;
++ (unsigned long long)totalInvocationCount;
 + (id)sharedInvocationQueue;
 @property(nonatomic) double threadRecycleTimeout; // @synthesize threadRecycleTimeout=_threadRecycleTimeout;
 @property(nonatomic) int threadPriorityTrigger; // @synthesize threadPriorityTrigger=_threadPriorityTrigger;
-@property(readonly, nonatomic) unsigned int threadCount; // @synthesize threadCount=_numThreads;
+@property(readonly, nonatomic) unsigned long long threadCount; // @synthesize threadCount=_numThreads;
 - (void)didCancel:(id)arg1;
 - (void)_drainQueue:(id)arg1;
 - (void)removeAllItems;
 - (void)addInvocation:(id)arg1;
-@property(readonly, nonatomic) unsigned int invocationCount;
-@property(nonatomic) unsigned int maxThreadCount;
+@property(readonly, nonatomic) unsigned long long invocationCount;
+@property(nonatomic) unsigned long long maxThreadCount;
 - (void)dealloc;
 - (id)init;
-- (id)initWithMaxThreadCount:(unsigned long)arg1;
+- (id)initWithMaxThreadCount:(unsigned long long)arg1;
 
 @end
 

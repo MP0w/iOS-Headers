@@ -7,7 +7,8 @@
 #import "NSObject-Protocol.h"
 
 @protocol PUPhotosSharingViewControllerDelegate <NSObject>
-- (void)photosSharingViewController:(id)arg1 didCompleteWithActivityType:(id)arg2 success:(BOOL)arg3;
-- (void)photosSharingViewControllerDidCancel:(id)arg1;
+- (void)photosSharingViewController:(id)arg1 didCompleteWithActivityType:(id)arg2 success:(_Bool)arg3;
+- (void)photosSharingViewControllerDidCancel:(id)arg1 needsDismiss:(_Bool)arg2;
+- (void)photosSharingViewControllerWillCancel:(id)arg1;
 @end
 

@@ -6,16 +6,20 @@
 
 #import "NSObject.h"
 
-@class NSCache;
+@class NSCache, NSMapTable;
 
 @interface VKTrafficIncidentImageManager : NSObject
 {
     NSCache *_imageCache;
+    NSMapTable *_targetDisplayToProvider;
 }
 
 + (id)sharedManager;
-- (id)iconForIncidentType:(int)arg1 contentScale:(float)arg2;
-- (id)imageForIncidentType:(int)arg1 contentScale:(float)arg2;
+- (void)setIncidentIconProvider:(id)arg1 forTargetDisplay:(void)arg2;
+- (id)iconForIncidentType:(long long)arg1 contentScale:(double)arg2;
+- (id)imageForIncidentType:(long long)arg1 contentScale:(double)arg2;
+- (id)iconForIncidentType:(long long)arg1 contentScale:(double)arg2 targetDisplay:(long long)arg3;
+- (id)imageForIncidentType:(long long)arg1 contentScale:(double)arg2 targetDisplay:(long long)arg3;
 - (void)dealloc;
 
 @end

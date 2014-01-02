@@ -10,24 +10,25 @@
 
 @class CALayer, NSString;
 
+// Not exported
 @interface UIKBThemedView : UIView <UIKBCacheableView>
 {
     CALayer *_borders;
     CALayer *_background;
-    BOOL _lightKeyboard;
-    BOOL _active;
-    BOOL _usePersistentCaching;
+    _Bool _lightKeyboard;
+    _Bool _active;
+    _Bool _usePersistentCaching;
     int _style;
     struct UIEdgeInsets _cacheInsets;
 }
 
-@property(nonatomic) BOOL usePersistentCaching; // @synthesize usePersistentCaching=_usePersistentCaching;
+@property(nonatomic) _Bool usePersistentCaching; // @synthesize usePersistentCaching=_usePersistentCaching;
 @property(nonatomic) struct UIEdgeInsets cacheInsets; // @synthesize cacheInsets=_cacheInsets;
 @property(nonatomic) int style; // @synthesize style=_style;
-@property(nonatomic) BOOL active; // @synthesize active=_active;
-@property(readonly, nonatomic) BOOL keepNonPersistent;
-@property(readonly, nonatomic) float cachedWidth;
-@property(readonly, nonatomic) BOOL cacheDeferable;
+@property(nonatomic) _Bool active; // @synthesize active=_active;
+@property(readonly, nonatomic) _Bool keepNonPersistent;
+@property(readonly, nonatomic) double cachedWidth;
+@property(readonly, nonatomic) _Bool cacheDeferable;
 - (void)drawContentsOfRenderers:(id)arg1;
 - (id)traitsForCurrentStyle;
 - (void)displayLayer:(id)arg1;
@@ -36,8 +37,8 @@
 @property(readonly, nonatomic) NSString *cacheKey;
 - (void)_setRenderConfig:(id)arg1;
 - (void)didMoveToWindow;
-- (BOOL)_canDrawContent;
-- (BOOL)_hasInsets;
+- (_Bool)_canDrawContent;
+- (_Bool)_hasInsets;
 - (id)initWithFrame:(struct CGRect)arg1 style:(int)arg2;
 
 @end

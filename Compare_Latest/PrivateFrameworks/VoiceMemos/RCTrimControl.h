@@ -17,13 +17,13 @@
     double _startTimeInterval;
     double _endTimeInterval;
     UIImageView *_scrubberKnob;
-    BOOL _showsScrubberKnob;
+    _Bool _showsScrubberKnob;
     double _playingTimeInterval;
-    BOOL _tracking;
-    BOOL _trackingLeft;
-    BOOL _trackingMiddle;
-    BOOL _trackingRight;
-    BOOL _trackingScrubber;
+    _Bool _tracking;
+    _Bool _trackingLeft;
+    _Bool _trackingMiddle;
+    _Bool _trackingRight;
+    _Bool _trackingScrubber;
     struct CGPoint _trackingPoint;
     RCTrimBezel *_bezel;
     UIImageView *_trackView;
@@ -33,7 +33,7 @@
 }
 
 @property(nonatomic) double playingTimeInterval; // @synthesize playingTimeInterval=_playingTimeInterval;
-@property(nonatomic) BOOL showsScrubberKnob; // @synthesize showsScrubberKnob=_showsScrubberKnob;
+@property(nonatomic) _Bool showsScrubberKnob; // @synthesize showsScrubberKnob=_showsScrubberKnob;
 @property(nonatomic) double endTimeInterval; // @synthesize endTimeInterval=_endTimeInterval;
 @property(nonatomic) double startTimeInterval; // @synthesize startTimeInterval=_startTimeInterval;
 @property(nonatomic) double maxTrimmedDuration; // @synthesize maxTrimmedDuration=_maxTrimmedDuration;
@@ -46,13 +46,13 @@
 - (struct CGRect)_rightHandleRect;
 - (struct CGRect)_leftHandleRect;
 - (struct CGRect)_enabledRect;
-- (float)_widthForTotalDuration;
-- (void)setPlayingTimeInterval:(double)arg1 animated:(BOOL)arg2;
-- (void)setShowsScrubberKnob:(BOOL)arg1 animated:(BOOL)arg2;
+- (double)_widthForTotalDuration;
+- (void)setPlayingTimeInterval:(double)arg1 animated:(_Bool)arg2;
+- (void)setShowsScrubberKnob:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)cancelTrackingWithEvent:(id)arg1;
 - (void)endTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (BOOL)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (BOOL)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
+- (_Bool)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
+- (_Bool)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (void)layoutSubviews;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;

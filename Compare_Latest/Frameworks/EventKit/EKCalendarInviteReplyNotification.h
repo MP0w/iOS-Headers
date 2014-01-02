@@ -12,7 +12,7 @@
 }
 
 @property(nonatomic) int status; // @synthesize status=_status;
-- (BOOL)needsAlert;
+- (_Bool)needsAlert;
 - (id)inviteReplyNotificationFromEventStore:(id)arg1;
 - (id)initWithType:(int)arg1;
 

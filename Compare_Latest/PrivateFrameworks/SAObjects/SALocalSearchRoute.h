@@ -6,11 +6,11 @@
 
 #import <SAObjects/AceObject.h>
 
-#import "SAAceSerializable-Protocol.h"
+#import "SABackgroundContextObject-Protocol.h"
 
 @class NSData;
 
-@interface SALocalSearchRoute : AceObject <SAAceSerializable>
+@interface SALocalSearchRoute : AceObject <SABackgroundContextObject>
 {
 }
 

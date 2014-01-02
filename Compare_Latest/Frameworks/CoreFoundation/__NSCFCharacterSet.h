@@ -6,11 +6,12 @@
 
 #import <CoreFoundation/__NSCFType.h>
 
+// Not exported
 @interface __NSCFCharacterSet : __NSCFType
 {
 }
 
-+ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
++ (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (Class)classForCoder;
 - (void)makeCharacterSetFast;
@@ -24,20 +25,20 @@
 - (void)addCharactersInRange:(struct _NSRange)arg1;
 - (id)invertedSet;
 - (id)bitmapRepresentation;
-- (BOOL)hasMemberInPlane:(unsigned char)arg1;
-- (BOOL)isSupersetOfSet:(id)arg1;
-- (BOOL)longCharacterIsMember:(unsigned long)arg1;
-- (BOOL)characterIsMember:(unsigned short)arg1;
+- (_Bool)hasMemberInPlane:(unsigned char)arg1;
+- (_Bool)isSupersetOfSet:(id)arg1;
+- (_Bool)longCharacterIsMember:(unsigned int)arg1;
+- (_Bool)characterIsMember:(unsigned short)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)finalize;
-- (unsigned int)retainCount;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
+- (unsigned long long)retainCount;
+- (_Bool)_isDeallocating;
+- (_Bool)_tryRetain;
 - (oneway void)release;
 - (id)retain;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 
 @end
 

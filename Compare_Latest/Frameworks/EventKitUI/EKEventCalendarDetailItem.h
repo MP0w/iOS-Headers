@@ -8,18 +8,19 @@
 
 @class UITableViewCell;
 
+// Not exported
 @interface EKEventCalendarDetailItem : EKEventDetailItem
 {
     UITableViewCell *_cell;
 }
 
 - (void).cxx_destruct;
-- (BOOL)editItemViewControllerCommit:(id)arg1;
-- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(unsigned int)arg2;
-- (BOOL)hasDetailViewControllerAtIndex:(unsigned int)arg1;
-- (id)cellForSubitemAtIndex:(unsigned int)arg1;
-- (BOOL)configureWithCalendar:(id)arg1 preview:(BOOL)arg2;
-- (BOOL)_calendarCanBeChanged;
+- (_Bool)editItemViewControllerCommit:(id)arg1;
+- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(unsigned long long)arg2;
+- (_Bool)hasDetailViewControllerAtIndex:(unsigned long long)arg1;
+- (id)cellForSubitemAtIndex:(unsigned long long)arg1;
+- (_Bool)configureWithCalendar:(id)arg1 preview:(_Bool)arg2;
+- (_Bool)_calendarCanBeChanged;
 - (void)reset;
 
 @end

@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface WebDeviceOrientationProviderMockInternal : NSObject
 {
     struct OwnPtr<WebCore::DeviceOrientationClientMock> m_core;

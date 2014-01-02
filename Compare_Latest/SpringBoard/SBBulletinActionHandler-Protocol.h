@@ -7,6 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol SBBulletinActionHandler <NSObject>
-- (BOOL)handleActionForBulletin:(id)arg1;
+- (_Bool)handleActionForBulletin:(id)arg1;
 @end
 

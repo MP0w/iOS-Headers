@@ -9,12 +9,12 @@
 @interface _CUIPSDStopAndMidpointPair : NSObject
 {
     id stop;
-    float midpoint;
+    double midpoint;
 }
 
-- (float)midpoint;
+- (double)midpoint;
 - (id)stop;
-- (int)compare:(id)arg1;
+- (long long)compare:(id)arg1;
 - (void)dealloc;
 - (id)initWithStop:(id)arg1 midpoint:(id)arg2;
 

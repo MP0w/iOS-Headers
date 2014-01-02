@@ -16,12 +16,12 @@
     NSMutableArray *_tableSections;
 }
 
-- (id)tableView:(id)arg1 titleForHeaderInSection:(int)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
+- (id)tableView:(id)arg1 titleForHeaderInSection:(long long)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (id)_detailForIndexPath:(id)arg1;
 - (id)_titleForIndexPath:(id)arg1;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 certificateProperties:(id)arg2;

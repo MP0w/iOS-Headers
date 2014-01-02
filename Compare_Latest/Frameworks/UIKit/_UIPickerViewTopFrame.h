@@ -8,18 +8,19 @@
 
 @class UIImage;
 
+// Not exported
 @interface _UIPickerViewTopFrame : UIView
 {
     UIImage *_leftImage;
     UIImage *_middleImage;
     UIImage *_rightImage;
-    float _inset;
-    float _shift;
+    double _inset;
+    double _shift;
 }
 
 - (void)drawRect:(struct CGRect)arg1;
-- (void)setShift:(float)arg1;
-- (void)setInset:(float)arg1;
+- (void)setShift:(double)arg1;
+- (void)setInset:(double)arg1;
 - (void)dealloc;
 - (void)setLeftImage:(id)arg1 middleImage:(id)arg2 rightImage:(id)arg3;
 - (id)initWithFrame:(struct CGRect)arg1;

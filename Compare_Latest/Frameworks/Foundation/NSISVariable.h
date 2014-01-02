@@ -13,24 +13,24 @@
     unsigned int _ident;
 }
 
-+ (id)variableWithName:(id)arg1 valueRestriction:(int)arg2 shouldBeMinimized:(BOOL)arg3;
-+ (id)variableMarkingConstraint:(id)arg1 valueRestriction:(int)arg2 shouldBeMinimized:(BOOL)arg3;
-+ (id)variableWithDelegate:(id)arg1 valueRestriction:(int)arg2 shouldBeMinimized:(BOOL)arg3;
++ (id)variableWithName:(id)arg1 valueRestriction:(int)arg2 shouldBeMinimized:(_Bool)arg3;
++ (id)variableMarkingConstraint:(id)arg1 valueRestriction:(int)arg2 shouldBeMinimized:(_Bool)arg3;
++ (id)variableWithDelegate:(id)arg1 valueRestriction:(int)arg2 shouldBeMinimized:(_Bool)arg3;
 @property id <NSISVariableDelegate> delegate; // @synthesize delegate=_delegate;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
-- (unsigned int)retainCount;
+- (_Bool)_isDeallocating;
+- (_Bool)_tryRetain;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;
 - (id)markedConstraint;
-@property(readonly) BOOL shouldBeMinimized;
+@property(readonly) _Bool shouldBeMinimized;
 @property(readonly) int valueRestriction;
-- (BOOL)valueIsUserVisible;
-- (BOOL)markedConstraintIsEligibleForIntegralizationAdjustment;
-- (float)allowedMagnitudeForIntegralizationAdjustmentOfMarkedConstraint;
-- (BOOL)shouldBeIntegral;
+- (_Bool)valueIsUserVisible;
+- (_Bool)markedConstraintIsEligibleForIntegralizationAdjustment;
+- (double)allowedMagnitudeForIntegralizationAdjustmentOfMarkedConstraint;
+- (_Bool)shouldBeIntegral;
 - (id)description;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)init;
 
 @end

@@ -10,11 +10,11 @@
 
 @interface CoreDAVPostOrPutTask : CoreDAVActionBackedTask
 {
-    BOOL _forceToServer;
+    _Bool _forceToServer;
     NSString *_previousETag;
     NSString *_requestDataContentType;
     NSData *_requestDataPayload;
-    BOOL _sendOrder;
+    _Bool _sendOrder;
     int _absoluteOrder;
     NSURL *_priorOrderedURL;
 }
@@ -24,7 +24,7 @@
 @property(retain) NSData *requestDataPayload; // @synthesize requestDataPayload=_requestDataPayload;
 @property(retain) NSString *requestDataContentType; // @synthesize requestDataContentType=_requestDataContentType;
 @property(retain) NSString *previousETag; // @synthesize previousETag=_previousETag;
-@property BOOL forceToServer; // @synthesize forceToServer=_forceToServer;
+@property _Bool forceToServer; // @synthesize forceToServer=_forceToServer;
 - (id)requestBody;
 - (id)additionalHeaderValues;
 - (id)description;

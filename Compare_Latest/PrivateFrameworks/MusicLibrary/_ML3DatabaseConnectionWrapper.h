@@ -8,14 +8,17 @@
 
 @class ML3DatabaseConnection, NSThread;
 
+// Not exported
 @interface _ML3DatabaseConnectionWrapper : NSObject
 {
     ML3DatabaseConnection *_connection;
     NSThread *_owningThread;
-    unsigned int _useCount;
+    NSThread *_borrowingThread;
+    unsigned long long _useCount;
 }
 
-@property(nonatomic) unsigned int useCount; // @synthesize useCount=_useCount;
+@property(nonatomic) unsigned long long useCount; // @synthesize useCount=_useCount;
+@property(retain, nonatomic) NSThread *borrowingThread; // @synthesize borrowingThread=_borrowingThread;
 @property(retain, nonatomic) NSThread *owningThread; // @synthesize owningThread=_owningThread;
 @property(retain, nonatomic) ML3DatabaseConnection *connection; // @synthesize connection=_connection;
 - (void).cxx_destruct;

@@ -8,10 +8,10 @@
 
 @interface PLRotatedImage : UIImage
 {
-    BOOL _wasRotated;
+    _Bool _wasRotated;
 }
 
-@property(nonatomic) BOOL wasRotated; // @synthesize wasRotated=_wasRotated;
+@property(nonatomic) _Bool wasRotated; // @synthesize wasRotated=_wasRotated;
 
 @end
 

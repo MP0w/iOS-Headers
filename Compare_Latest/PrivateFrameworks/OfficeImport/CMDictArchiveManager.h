@@ -8,6 +8,7 @@
 
 @class NSMutableDictionary, NSMutableString, NSString;
 
+// Not exported
 @interface CMDictArchiveManager : CMArchiveManager
 {
     NSMutableString *mCssString;
@@ -26,7 +27,7 @@
 - (id)addCssStyle:(id)arg1;
 - (id)resourceUrlProtocol;
 - (int)resourceCount;
-- (id)copyDictionaryWithSizeInfos:(BOOL)arg1;
+- (id)copyDictionaryWithSizeInfos:(_Bool)arg1;
 - (void)pushText:(id)arg1 toPath:(id)arg2;
 - (void)pushData:(id)arg1 toPath:(id)arg2;
 - (id)copyResourceWithName:(id)arg1;

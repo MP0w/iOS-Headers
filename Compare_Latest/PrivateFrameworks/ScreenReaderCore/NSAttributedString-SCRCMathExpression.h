@@ -16,13 +16,13 @@
 + (id)scrcStringWithString:(id)arg1 treePosition:(id)arg2;
 + (id)scrcStringWithString:(id)arg1;
 + (id)scrcStringWithFormat:(id)arg1;
-+ (id)_scrcStringWithFormat:(id)arg1 args:(void *)arg2;
-- (BOOL)scrcContainsPause;
-- (BOOL)_scrcHasPauseCommaAtIndex:(unsigned int)arg1;
++ (id)_scrcStringWithFormat:(id)arg1 args:(char *)arg2;
+- (_Bool)scrcContainsPause;
+- (_Bool)_scrcHasPauseCommaAtIndex:(unsigned long long)arg1;
 - (id)scrcStringByAddingAttribute:(id)arg1 value:(id)arg2;
 - (id)scrcStringByReplacingOccurrencesOfString:(id)arg1 withString:(id)arg2;
 - (id)scrcStringByAppendingAttributedString:(id)arg1;
-- (struct _NSRange)_scrcRangeOfFormatSpecifierWithIndex:(unsigned int)arg1;
+- (struct _NSRange)_scrcRangeOfFormatSpecifierWithIndex:(unsigned long long)arg1;
 - (struct _NSRange)_scrcRangeOfVanillaFormatSpecifier;
 @end
 

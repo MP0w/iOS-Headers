@@ -10,6 +10,7 @@
 
 @class EKObjectID, NSString, NSURL;
 
+// Not exported
 @interface EKCalendarNotification : NSObject <EKIdentityProtocol>
 {
     int _type;
@@ -19,12 +20,12 @@
     NSURL *_URI;
     EKObjectID *_objectID;
     struct CGColor *_dotColor;
-    BOOL _hiddenFromNotificationCenter;
-    BOOL _alerted;
+    _Bool _hiddenFromNotificationCenter;
+    _Bool _alerted;
 }
 
-@property(nonatomic) BOOL alerted; // @synthesize alerted=_alerted;
-@property(nonatomic) BOOL hiddenFromNotificationCenter; // @synthesize hiddenFromNotificationCenter=_hiddenFromNotificationCenter;
+@property(nonatomic) _Bool alerted; // @synthesize alerted=_alerted;
+@property(nonatomic) _Bool hiddenFromNotificationCenter; // @synthesize hiddenFromNotificationCenter=_hiddenFromNotificationCenter;
 @property(nonatomic) struct CGColor *dotColor; // @synthesize dotColor=_dotColor;
 @property(retain, nonatomic) EKObjectID *objectID; // @synthesize objectID=_objectID;
 @property(retain, nonatomic) NSURL *URI; // @synthesize URI=_URI;
@@ -32,7 +33,7 @@
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
 @property(nonatomic) int type; // @synthesize type=_type;
-@property(readonly, nonatomic) BOOL needsAlert;
+@property(readonly, nonatomic) _Bool needsAlert;
 - (void)dealloc;
 - (id)initWithType:(int)arg1;
 

@@ -18,17 +18,17 @@
     NSArray *_clientCertificates;
     unsigned int _portNumber;
     struct __CFString *_connectionServiceType;
-    BOOL _usesSSL;
-    BOOL _usesOpportunisticSockets;
-    BOOL _tryDirectSSLConnection;
-    BOOL _allowsTrustPrompt;
+    _Bool _usesSSL;
+    _Bool _usesOpportunisticSockets;
+    _Bool _tryDirectSSLConnection;
+    _Bool _allowsTrustPrompt;
     NSString *_sourceApplicationBundleIdentifier;
     NSString *_accountIdentifier;
 }
 
-@property(nonatomic) BOOL allowsTrustPrompt; // @synthesize allowsTrustPrompt=_allowsTrustPrompt;
-@property(nonatomic) BOOL usesOpportunisticSockets; // @synthesize usesOpportunisticSockets=_usesOpportunisticSockets;
-@property(nonatomic) BOOL usesSSL; // @synthesize usesSSL=_usesSSL;
+@property(nonatomic) _Bool allowsTrustPrompt; // @synthesize allowsTrustPrompt=_allowsTrustPrompt;
+@property(nonatomic) _Bool usesOpportunisticSockets; // @synthesize usesOpportunisticSockets=_usesOpportunisticSockets;
+@property(nonatomic) _Bool usesSSL; // @synthesize usesSSL=_usesSSL;
 @property(nonatomic) unsigned int portNumber; // @synthesize portNumber=_portNumber;
 @property(copy, nonatomic) NSString *accountIdentifier; // @synthesize accountIdentifier=_accountIdentifier;
 @property(copy, nonatomic) NSString *sourceApplicationBundleIdentifier; // @synthesize sourceApplicationBundleIdentifier=_sourceApplicationBundleIdentifier;
@@ -36,7 +36,7 @@
 @property(copy, nonatomic) NSString *serviceName; // @synthesize serviceName=_serviceName;
 @property(copy, nonatomic) NSString *hostname; // @synthesize hostname=_hostname;
 @property(copy, nonatomic) NSString *certUIService; // @synthesize certUIService=_certUIService;
-@property(nonatomic) BOOL tryDirectSSL; // @synthesize tryDirectSSL=_tryDirectSSLConnection;
+@property(nonatomic) _Bool tryDirectSSL; // @synthesize tryDirectSSL=_tryDirectSSLConnection;
 - (id)description;
 - (void)setConnectionServiceType:(struct __CFString *)arg1;
 - (struct __CFString *)connectionServiceType;

@@ -10,9 +10,9 @@
 {
 }
 
-- (float)heightForReusableViewInTableView:(id)arg1;
+- (double)heightForReusableViewInTableView:(id)arg1;
 - (Class)reusableViewClass;
-- (int)sectionCategory;
+- (long long)sectionCategory;
 - (id)identifier;
 
 @end

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
+@class NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>;
 
 @interface VMAccount : NSObject
 {
@@ -18,7 +18,7 @@
 - (void)handleStoreChanged:(id)arg1;
 - (void)handleSignificantChange:(id)arg1;
 - (void)handleVoicemailFlagsChanged:(id)arg1;
-- (BOOL)willBroadcastNotificationName:(id)arg1 userInfo:(id)arg2;
+- (_Bool)willBroadcastNotificationName:(id)arg1 userInfo:(id)arg2;
 - (void)_updateCache;
 - (void)_updateCacheDoWork;
 - (void)_updateVoicemailFlagsIndexFromCache;
@@ -37,40 +37,36 @@
 - (void)displayPasswordRequestIfNecessary;
 - (void)moveVoicemailFromTrash:(id)arg1;
 - (void)moveVoicemailToTrash:(id)arg1;
-- (void)setGreetingType:(int)arg1 withData:(id)arg2 duration:(unsigned int)arg3;
-- (BOOL)greetingAvailable;
+- (void)setGreetingType:(long long)arg1 withData:(id)arg2 duration:(unsigned int)arg3;
+- (_Bool)greetingAvailable;
 - (void)retrieveGreeting;
 - (void)changePassword:(id)arg1 fromPassword:(id)arg2;
 - (void)retrieveDataForVoicemail:(id)arg1;
-- (void)synchronize:(BOOL)arg1;
-- (BOOL)greetingFetchExistsProgressiveLoadInProgress:(char *)arg1;
-- (BOOL)dataForVoicemailPending:(id)arg1 progressiveLoadInProgress:(char *)arg2;
-- (BOOL)synchronizationPending;
-- (BOOL)headerChangesPending;
+- (void)synchronize:(_Bool)arg1;
+- (_Bool)greetingFetchExistsProgressiveLoadInProgress:(_Bool *)arg1;
+- (_Bool)dataForVoicemailPending:(id)arg1 progressiveLoadInProgress:(_Bool *)arg2;
+- (_Bool)synchronizationPending;
+- (_Bool)headerChangesPending;
 - (void)progressiveDataLengthsForVoicemail:(id)arg1 expected:(unsigned int *)arg2 current:(unsigned int *)arg3;
-- (BOOL)taskOfTypeExists:(int)arg1;
-- (int)mailboxGreetingType;
-- (BOOL)passwordChangeRequiresEnteringOldPassword;
+- (_Bool)taskOfTypeExists:(long long)arg1;
+- (long long)mailboxGreetingType;
+- (_Bool)passwordChangeRequiresEnteringOldPassword;
 - (int)maximumPasswordLength;
 - (int)minimumPasswordLength;
 - (int)maximumGreetingDuration;
 - (id)provisionalPassword;
 - (void)setProvisionalPassword:(id)arg1;
-- (BOOL)isMessageWaiting;
+- (_Bool)isMessageWaiting;
 - (unsigned int)trashedCount;
 - (unsigned int)unreadCount;
 - (int)mailboxUsage;
-- (BOOL)mailboxRequiresSetup;
+- (_Bool)mailboxRequiresSetup;
 - (void)clearActivationError;
-- (BOOL)isOfflineDueToRoaming;
-- (BOOL)isOnline;
-- (BOOL)isSubscribed;
+- (_Bool)isOfflineDueToRoaming;
+- (_Bool)isOnline;
+- (_Bool)isSubscribed;
 - (unsigned int)capabilities;
 - (void)dealloc;
-- (void)_forceUpdateCache;
-@property(readonly) NSString *identifier;
-- (id)voicemailWithIdentifier:(long long)arg1 creating:(BOOL)arg2;
-- (id)initForLegacyVisualVoicemail;
 
 @end
 

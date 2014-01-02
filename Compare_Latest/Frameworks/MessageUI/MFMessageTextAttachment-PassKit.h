@@ -8,6 +8,6 @@
 
 @interface MFMessageTextAttachment (PassKit)
 - (id)pass;
-- (BOOL)isPass;
+- (_Bool)isPass;
 @end
 

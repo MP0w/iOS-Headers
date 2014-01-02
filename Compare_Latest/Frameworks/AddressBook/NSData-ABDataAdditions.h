@@ -9,8 +9,8 @@
 @interface NSData (ABDataAdditions)
 - (id)abDecodeVCardBase64;
 - (id)abDecodedUTF7;
-- (id)abEncodeVCardBase64DataWithInitialLength:(unsigned int)arg1;
-- (BOOL)abIsUTF16EntourageVCard;
-- (id)abStringAtRange:(struct _NSRange)arg1 inEncoding:(unsigned int)arg2;
+- (id)abEncodeVCardBase64DataWithInitialLength:(unsigned long long)arg1;
+- (_Bool)abIsUTF16EntourageVCard;
+- (id)abStringAtRange:(struct _NSRange)arg1 inEncoding:(unsigned long long)arg2;
 @end
 

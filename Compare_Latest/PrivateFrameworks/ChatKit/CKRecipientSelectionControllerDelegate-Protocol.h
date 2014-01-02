@@ -7,6 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol CKRecipientSelectionControllerDelegate <NSObject>
+- (struct UIEdgeInsets)recipientSelectionControllerRequestNavigationBarInsets:(id)arg1;
 - (void)recipientSelectionControllerRequestDismissKeyboard:(id)arg1;
 - (void)recipientSelectionController:(id)arg1 textDidChange:(id)arg2;
 - (void)recipientSelectionControllerSearchListDidShowOrHide:(id)arg1;

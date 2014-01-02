@@ -8,28 +8,31 @@
 
 #import "SPDaemonQueryDelegate-Protocol.h"
 
-@class CPLRUDictionary, NSDate, NSObject<OS_dispatch_semaphore>, NSTimer;
+@class CPLRUDictionary, NSDate, NSObject<OS_dispatch_semaphore>, NSOperation, NSOperationQueue, NSTimer;
 
 @interface SBSearchModel : SPSearchAgent <SPDaemonQueryDelegate>
 {
     NSTimer *_clearSearchTimer;
     NSDate *_clearSearchDate;
-    CPLRUDictionary *_cachedImages;
-    NSObject<OS_dispatch_semaphore> *_cacheLock;
     CPLRUDictionary *_cachedResultImages;
     NSObject<OS_dispatch_semaphore> *_cacheResultLock;
+    NSOperationQueue *_prefetchOperationQueue;
+    NSOperationQueue *_loadOperationQueue;
+    NSOperation *_waitOperation;
     void *_addressBook;
 }
 
 + (id)sharedInstance;
 - (id)currentToken;
-- (id)imageForResult:(id)arg1 inSection:(id)arg2 withCompletionBlock:(id)arg3;
+- (id)operationFetchingImageForResult:(id)arg1 inSection:(id)arg2 withCompletionBlock:(id)arg3;
+- (_Bool)prefetchImageForResult:(id)arg1 inSection:(id)arg2;
+- (void)cancelPrefetchingAndStartNewBatch;
+- (id)cachedImageForResult:(id)arg1 inSection:(id)arg2;
+- (void)fetchImageForResult:(id)arg1 inSection:(id)arg2 withCompletionBlock:(id)arg3;
 - (void)_cacheImage:(id)arg1 forKey:(id)arg2 withCompletionBlock:(id)arg3;
 - (id)_imageForResult:(id)arg1 inSection:(id)arg2 withCompletionBlock:(id)arg3;
 - (id)_uniqueKeyForResult:(id)arg1 withSearchDomain:(unsigned int)arg2;
 - (id)_customImageForPath:(id)arg1;
-- (id)_imageForSection:(id)arg1 withDisplayIdentifier:(id)arg2;
-- (id)imageForSection:(id)arg1;
 - (void)handleOptionsForNewSections:(id)arg1;
 - (void)invalidate;
 - (id)launchingURLForResult:(id)arg1 withDisplayIdentifier:(id)arg2 andSection:(id)arg3;

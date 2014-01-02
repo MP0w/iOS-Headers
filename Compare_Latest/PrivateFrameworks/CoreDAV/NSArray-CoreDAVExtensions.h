@@ -8,6 +8,6 @@
 
 @interface NSArray (CoreDAVExtensions)
 + (id)cdvArrayWithIntegers:(int)arg1;
-+ (id)_arrayWithIntArg:(int)arg1 additionalArgs:(void *)arg2;
++ (id)_arrayWithIntArg:(int)arg1 additionalArgs:(char *)arg2;
 @end
 

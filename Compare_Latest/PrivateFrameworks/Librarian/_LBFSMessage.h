@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface _LBFSMessage : NSObject
 {
     int _updateType;

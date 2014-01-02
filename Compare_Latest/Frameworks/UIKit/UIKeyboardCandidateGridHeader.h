@@ -6,17 +6,20 @@
 
 #import <UIKit/UIView.h>
 
-@class NSString, UIButton, UILabel;
+@class NSString, UIButton, UIKBBackdropView, UILabel;
 
+// Not exported
 @interface UIKeyboardCandidateGridHeader : UIView
 {
     UILabel *_inlineTextLabel;
-    float _inlineTextRightMargin;
+    double _inlineTextRightMargin;
     UIButton *_toggleButton;
+    UIKBBackdropView *_backdropView;
 }
 
+@property(retain, nonatomic) UIKBBackdropView *backdropView; // @synthesize backdropView=_backdropView;
 @property(retain, nonatomic) UIButton *toggleButton; // @synthesize toggleButton=_toggleButton;
-@property(nonatomic) float inlineTextRightMargin; // @synthesize inlineTextRightMargin=_inlineTextRightMargin;
+@property(nonatomic) double inlineTextRightMargin; // @synthesize inlineTextRightMargin=_inlineTextRightMargin;
 @property(retain, nonatomic) UILabel *inlineTextLabel; // @synthesize inlineTextLabel=_inlineTextLabel;
 @property(copy, nonatomic) NSString *inlineText;
 - (void)layoutSubviews;

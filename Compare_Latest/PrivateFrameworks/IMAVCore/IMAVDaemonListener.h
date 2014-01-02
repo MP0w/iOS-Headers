@@ -12,15 +12,15 @@
 {
     NSMutableArray *_handlers;
     NSProtocolChecker *_protocol;
-    BOOL _setupComplete;
-    BOOL _postedSetupComplete;
+    _Bool _setupComplete;
+    _Bool _postedSetupComplete;
 }
 
-@property(readonly, nonatomic) BOOL isSetupComplete; // @synthesize isSetupComplete=_setupComplete;
+@property(readonly, nonatomic) _Bool isSetupComplete; // @synthesize isSetupComplete=_setupComplete;
 @property(readonly, nonatomic) NSArray *handlers; // @synthesize handlers=_handlers;
 - (void)forwardInvocation:(id)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
-- (void)setupComplete:(BOOL)arg1 info:(id)arg2;
+- (void)setupComplete:(_Bool)arg1 info:(id)arg2;
 - (void)removeHandler:(id)arg1;
 - (void)addHandler:(id)arg1;
 - (void)_noteDisconnected;

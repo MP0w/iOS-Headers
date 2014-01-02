@@ -10,7 +10,7 @@
 {
 }
 
-+ (id)outputImageFromFilters:(id)arg1 inputImage:(id)arg2 orientation:(int)arg3 copyFiltersFirst:(BOOL)arg4;
++ (id)outputImageFromFilters:(id)arg1 inputImage:(id)arg2 orientation:(int)arg3 copyFiltersFirst:(_Bool)arg4;
 + (id)filterCopiesFromFilters:(id)arg1;
 
 @end

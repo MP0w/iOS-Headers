@@ -19,18 +19,21 @@
     double _watchdogTimeout;
 }
 
-+ (BOOL)shouldFakeAdoption;
++ (_Bool)shouldFakeAdoption;
 + (id)sharedInstance;
-- (void)handlePushNotificationFromApplication:(id)arg1 userInfo:(id)arg2 priority:(int)arg3 completion:(id)arg4;
-- (id)_opportunisticallyUpdateApplications:(id)arg1 trigger:(unsigned int)arg2;
+- (void)handlePushNotificationFromApplication:(id)arg1 userInfo:(id)arg2 priority:(long long)arg3 completion:(id)arg4;
+- (id)_opportunisticallyUpdateApplications:(id)arg1 trigger:(unsigned long long)arg2;
 - (void)_performPendingWorkForBundleID:(id)arg1;
-- (BOOL)_launchAppForUpdating:(id)arg1 trigger:(unsigned int)arg2 pushNotificationUserInfo:(id)arg3 withWatchdoggableCompletion:(id)arg4;
-- (void)_startBackgroundFetchTaskForApplication:(id)arg1 trigger:(unsigned int)arg2 sequenceNumber:(int)arg3 withWatchdoggableCompletion:(id)arg4;
-- (void)queue_startBackgroundFetchTaskForApplication:(id)arg1 trigger:(unsigned int)arg2 sequenceNumber:(int)arg3 withWatchdoggableCompletion:(id)arg4;
+- (_Bool)_launchAppForUpdating:(id)arg1 trigger:(unsigned long long)arg2 pushNotificationUserInfo:(id)arg3 withWatchdoggableCompletion:(id)arg4;
+- (void)_startBackgroundFetchTaskForApplication:(id)arg1 trigger:(unsigned long long)arg2 sequenceNumber:(int)arg3 withWatchdoggableCompletion:(id)arg4;
+- (void)queue_startBackgroundFetchTaskForApplication:(id)arg1 trigger:(unsigned long long)arg2 sequenceNumber:(int)arg3 withWatchdoggableCompletion:(id)arg4;
 - (void)_backgroundTaskFinished:(id)arg1 forApplication:(id)arg2;
 - (void)queue_backgroundTaskFinished:(id)arg1 forApplication:(id)arg2;
+- (void)_invalidateBackgroundTasksForApplication:(id)arg1;
+- (void)queue_invalidateBackgroundTasksForApplication:(id)arg1;
 - (void)_watchdogCompletionForBackgroundFetchTaskValue:(id)arg1;
 - (void)queue_fireWatchdoggableCompletionForBackgroundFetchTaskValue:(id)arg1;
+- (void)queue_bearTrap_AppWasSuspended:(id)arg1;
 - (void)_appStateDidChange:(id)arg1;
 - (void)_startBackgroundFetchForNotification:(id)arg1;
 - (void)_appFinishedBackgroundUpdating:(id)arg1;

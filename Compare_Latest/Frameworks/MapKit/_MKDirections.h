@@ -10,8 +10,7 @@
 {
 }
 
-@property(readonly, nonatomic, getter=isBusy) BOOL busy;
-- (void)_calculateETAWithCompletionHandler:(id)arg1;
+@property(readonly, nonatomic, getter=isBusy) _Bool busy;
 - (void)calculateETAWithCompletionHandler:(id)arg1;
 
 @end

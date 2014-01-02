@@ -13,8 +13,8 @@
     unsigned int _holding:1;
 }
 
-+ (id)easyTouchButtonWithType:(int)arg1;
-+ (float)easyTouchDefaultCharge;
++ (id)easyTouchButtonWithType:(long long)arg1;
++ (double)easyTouchDefaultCharge;
 + (struct UIEdgeInsets)easyTouchDefaultHitRectInsets;
 @property(nonatomic) double holdDelayInterval; // @synthesize holdDelayInterval=_holdDelayInterval;
 @property(nonatomic) struct UIEdgeInsets hitRectInsets; // @synthesize hitRectInsets=_hitRectInsets;
@@ -22,11 +22,12 @@
 - (void)_handleTouchDown;
 - (void)_handleTouchCancel;
 - (void)_delayedTriggerHold;
-- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (void)dealloc;
+- (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (struct CGRect)hitRect;
 - (void)endTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (void)cancelTrackingWithEvent:(id)arg1;
-- (BOOL)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
+- (_Bool)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

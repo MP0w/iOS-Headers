@@ -8,11 +8,12 @@
 
 @class EDResources, OADGraphicProperties;
 
+// Not exported
 @interface CHDDataLabel : NSObject
 {
     EDResources *mResources;
-    unsigned int mStringIndex;
-    unsigned int mContentFormatId;
+    unsigned long long mStringIndex;
+    unsigned long long mContentFormatId;
     int mPosition;
     _Bool mShowLeaderLines;
     _Bool mShowCategoryName;
@@ -52,10 +53,6 @@
 - (id)string;
 - (void)dealloc;
 - (id)initWithResources:(id)arg1;
-- (void)setContentFormatId:(unsigned int)arg1;
-- (unsigned int)contentFormatId;
-- (void)setStringIndex:(unsigned int)arg1;
-- (unsigned int)stringIndex;
 
 @end
 

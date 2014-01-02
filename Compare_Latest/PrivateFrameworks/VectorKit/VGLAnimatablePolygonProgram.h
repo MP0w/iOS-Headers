@@ -6,6 +6,7 @@
 
 #import <VectorKit/VGLPolygonProgram.h>
 
+// Not exported
 @interface VGLAnimatablePolygonProgram : VGLPolygonProgram
 {
     int _uTextureVariantSampler;

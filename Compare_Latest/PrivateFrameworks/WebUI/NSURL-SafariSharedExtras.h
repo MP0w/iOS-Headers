@@ -15,13 +15,14 @@
 - (id)safari_userVisibleHost;
 - (id)safari_userVisibleString;
 - (id)safari_originalDataAsString;
-- (BOOL)safari_hasCharactersBeyondPath;
+- (_Bool)safari_hasCharactersBeyondPath;
 - (id)safari_URLByDeletingPort;
+- (id)safari_URLByReplacingQueryWithString:(id)arg1;
 - (id)safari_URLByReplacingSchemeWithString:(id)arg1;
 - (id)safari_URLByReplacingHostWithString:(id)arg1;
-- (id)_safari_URLByReplacingComponent:(long)arg1 withString:(id)arg2;
-- (id)_safari_URLByReplacingComponent:(long)arg1 includingSeparators:(BOOL)arg2 withString:(id)arg3;
-- (BOOL)safari_isDataURL;
-- (BOOL)safari_isHTTPFamilyURL;
+- (id)_safari_URLByReplacingComponent:(long long)arg1 withString:(id)arg2;
+- (id)_safari_URLByReplacingComponent:(long long)arg1 includingSeparators:(_Bool)arg2 withString:(id)arg3;
+- (_Bool)safari_isDataURL;
+- (_Bool)safari_isHTTPFamilyURL;
 @end
 

@@ -5,6 +5,6 @@
  */
 
 @protocol _CTGlyphStorageAdvanceLookup
-- (struct CGSize)customAdvanceForIndex:(long)arg1;
+- (struct CGSize)customAdvanceForIndex:(long long)arg1;
 @end
 

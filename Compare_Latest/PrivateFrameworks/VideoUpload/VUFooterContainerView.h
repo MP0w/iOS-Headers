@@ -18,7 +18,7 @@
 @property(nonatomic) id delegate; // @synthesize delegate=_delegate;
 - (void)layoutSubviews;
 - (void)setFrame:(struct CGRect)arg1;
-- (void)setFrame:(struct CGRect)arg1 bypassDelegate:(BOOL)arg2;
+- (void)setFrame:(struct CGRect)arg1 bypassDelegate:(_Bool)arg2;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

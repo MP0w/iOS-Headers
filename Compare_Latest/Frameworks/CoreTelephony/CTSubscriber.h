@@ -18,7 +18,7 @@
 - (void).cxx_destruct;
 - (void)authenticateWithInfo:(id)arg1 handleResult:(id)arg2;
 - (void)handleAuthCallback:(id)arg1;
-- (BOOL)refreshCarrierToken;
+- (_Bool)refreshCarrierToken;
 @property(readonly, nonatomic) NSData *carrierToken; // @dynamic carrierToken;
 - (void)dealloc;
 - (id)init;

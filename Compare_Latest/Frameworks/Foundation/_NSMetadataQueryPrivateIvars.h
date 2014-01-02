@@ -8,6 +8,7 @@
 
 @class _NSMetadataQueryResultArray;
 
+// Not exported
 @interface _NSMetadataQueryPrivateIvars : NSObject
 {
     _NSMetadataQueryResultArray *resultArray;

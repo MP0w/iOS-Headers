@@ -11,12 +11,12 @@
 @interface EADiscoveredWirelessAccessoryInternal : NSObject
 {
     NSString *_name;
-    BOOL _connected;
+    _Bool _connected;
     id <EADiscoveredWirelessAccessoryDelegate> _delegate;
 }
 
 @property(nonatomic) id <EADiscoveredWirelessAccessoryDelegate> delegate; // @synthesize delegate=_delegate;
-@property BOOL connected; // @synthesize connected=_connected;
+@property _Bool connected; // @synthesize connected=_connected;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 - (void)dealloc;
 - (id)init;

@@ -7,6 +7,6 @@
 #import "DOMHTMLTextAreaElement.h"
 
 @interface DOMHTMLTextAreaElement (UIWebInteraction)
-- (BOOL)nodeCanBecomeFirstResponder;
+- (_Bool)nodeCanBecomeFirstResponder;
 @end
 

@@ -7,8 +7,9 @@
 #import "NSObject-Protocol.h"
 
 @protocol SBStatusBarStateAggregatorPosting <NSObject>
-- (void)statusBarStateAggregatorDidFinishPost:(id)arg1 withData:(const CDStruct_87a532be *)arg2 actions:(int)arg3;
-- (void)statusBarStateAggregator:(id)arg1 didVisitItem:(int)arg2 withUpdates:(BOOL)arg3 toData:(const CDStruct_87a532be *)arg4;
+- (void)statusBarStateAggregatorDidFinishPost:(id)arg1 withData:(const CDStruct_0e61b686 *)arg2 actions:(int)arg3;
+- (void)statusBarStateAggregator:(id)arg1 didUpdateNonItemData:(const CDStruct_0e61b686 *)arg2;
+- (void)statusBarStateAggregator:(id)arg1 didVisitItem:(int)arg2 withUpdates:(_Bool)arg3 toData:(const CDStruct_0e61b686 *)arg4;
 - (void)statusBarStateAggregatorDidStartPost:(id)arg1;
 @end
 

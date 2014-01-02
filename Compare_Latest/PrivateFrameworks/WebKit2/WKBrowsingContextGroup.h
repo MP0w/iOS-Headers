@@ -14,16 +14,15 @@
 }
 
 - (void)removeAllUserScripts;
-- (void)addUserScript:(id)arg1 baseURL:(id)arg2 whitelistedURLPatterns:(id)arg3 blacklistedURLPatterns:(id)arg4 injectionTime:(int)arg5 mainFrameOnly:(BOOL)arg6;
+- (void)addUserScript:(id)arg1 baseURL:(id)arg2 whitelistedURLPatterns:(id)arg3 blacklistedURLPatterns:(id)arg4 injectionTime:(int)arg5 mainFrameOnly:(_Bool)arg6;
 - (void)removeAllUserStyleSheets;
-- (void)addUserStyleSheet:(id)arg1 baseURL:(id)arg2 whitelistedURLPatterns:(id)arg3 blacklistedURLPatterns:(id)arg4 mainFrameOnly:(BOOL)arg5;
-@property BOOL allowsPlugIns;
-- (void)setAllowsJavaScriptMarkup:(BOOL)arg1;
-- (BOOL)allowsJavaScriptMarkup;
-@property BOOL allowsJavaScript;
+- (void)addUserStyleSheet:(id)arg1 baseURL:(id)arg2 whitelistedURLPatterns:(id)arg3 blacklistedURLPatterns:(id)arg4 mainFrameOnly:(_Bool)arg5;
+@property _Bool allowsPlugIns;
+- (void)setAllowsJavaScriptMarkup:(_Bool)arg1;
+- (_Bool)allowsJavaScriptMarkup;
+@property _Bool allowsJavaScript;
 - (void)dealloc;
 - (id)initWithIdentifier:(id)arg1;
-@property(readonly) struct OpaqueWKPageGroup *_pageGroupRef;
 
 @end
 

@@ -6,15 +6,16 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface NSURLProtocolCFNetwork : NSObject
 {
     Class clazz;
 }
 
-+ (Class)_protocolClassForRequest:(id)arg1 allowCF:(BOOL)arg2;
-- (BOOL)_requestIsCacheEquivalent:(id)arg1 toRequest:(id)arg2 allowCF:(BOOL)arg3;
-- (id)_canonicalRequestForRequest:(id)arg1 allowCF:(BOOL)arg2;
-- (Class)_protocolClassForRequest:(id)arg1 allowCF:(BOOL)arg2;
++ (Class)_protocolClassForRequest:(id)arg1 allowCF:(_Bool)arg2;
+- (_Bool)_requestIsCacheEquivalent:(id)arg1 toRequest:(id)arg2 allowCF:(_Bool)arg3;
+- (id)_canonicalRequestForRequest:(id)arg1 allowCF:(_Bool)arg2;
+- (Class)_protocolClassForRequest:(id)arg1 allowCF:(_Bool)arg2;
 - (id)initWithClass:(Class)arg1;
 
 @end

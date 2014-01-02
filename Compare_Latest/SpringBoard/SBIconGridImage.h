@@ -8,20 +8,20 @@
 
 @interface SBIconGridImage : UIImage
 {
-    unsigned int _numberOfCells;
+    unsigned long long _numberOfCells;
 }
 
-+ (struct CGSize)sizeForNumberOfRows:(unsigned int)arg1;
-+ (struct CGRect)rectAtIndex:(unsigned int)arg1 maxCount:(unsigned int)arg2;
++ (struct CGSize)sizeForNumberOfRows:(unsigned long long)arg1;
++ (struct CGRect)rectAtIndex:(unsigned long long)arg1 maxCount:(unsigned long long)arg2;
 + (struct CGSize)cellSpacing;
 + (struct CGSize)cellSize;
-+ (unsigned int)numberOfRowsForNumberOfCells:(unsigned int)arg1;
-+ (unsigned int)numberOfColumns;
-+ (id)gridImageForNumberOfCells:(unsigned int)arg1 withCellImageProviderBlock:(id)arg2;
-+ (id)_gridImageForNumberOfCells:(unsigned int)arg1 withPreviousGridImage:(id)arg2 cellImageProviderBlock:(id)arg3;
-@property(readonly, nonatomic) unsigned int numberOfRows;
-@property(readonly, nonatomic) unsigned int numberOfColumns;
-@property(readonly, nonatomic) unsigned int numberOfCells;
++ (unsigned long long)numberOfRowsForNumberOfCells:(unsigned long long)arg1;
++ (unsigned long long)numberOfColumns;
++ (id)gridImageForNumberOfCells:(unsigned long long)arg1 withCellImageProviderBlock:(id)arg2;
++ (id)_gridImageForNumberOfCells:(unsigned long long)arg1 withPreviousGridImage:(id)arg2 cellImageProviderBlock:(id)arg3;
+@property(readonly, nonatomic) unsigned long long numberOfRows;
+@property(readonly, nonatomic) unsigned long long numberOfColumns;
+@property(readonly, nonatomic) unsigned long long numberOfCells;
 - (id)gridImageByPatchingWithCellImageProviderBlock:(id)arg1;
 
 @end

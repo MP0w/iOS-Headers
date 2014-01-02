@@ -8,6 +8,7 @@
 
 @class EKEventStore, NSMutableDictionary, NSMutableSet;
 
+// Not exported
 @interface EKPersistentObject : NSObject
 {
     struct _opaque_pthread_mutex_t _lock;
@@ -25,10 +26,10 @@
 @property(retain, nonatomic) NSMutableDictionary *committedProperties; // @synthesize committedProperties=_committedProperties;
 - (id)dump;
 - (void)_loadDefaultPropertiesIfNeeded;
-- (void)_takeValuesForDefaultProperties:(id)arg1;
+- (void)_takeValuesForDefaultProperties:(id)arg1 inSet:(id)arg2;
 - (void)takeValues:(id)arg1 forProperties:(id)arg2;
-- (BOOL)_loadChildIdentifiersForKey:(id)arg1 values:(id *)arg2;
-- (BOOL)_loadRelationForKey:(id)arg1 value:(id *)arg2;
+- (_Bool)_loadChildIdentifiersForKey:(id)arg1 values:(id *)arg2;
+- (_Bool)_loadRelationForKey:(id)arg1 value:(id *)arg2;
 - (void)primitiveSetDataValue:(id)arg1 forKey:(id)arg2;
 - (id)primitiveDataValueForKey:(id)arg1;
 - (void)primitiveSetURLValue:(id)arg1 forKey:(id)arg2;
@@ -40,8 +41,8 @@
 - (id)_loadStringValueForKey:(id)arg1;
 - (void)primitiveSetDateValue:(id)arg1 forKey:(id)arg2;
 - (id)primitiveDateValueForKey:(id)arg1;
-- (void)primitiveSetBoolValue:(BOOL)arg1 forKey:(id)arg2;
-- (BOOL)primitiveBoolValueForKey:(id)arg1;
+- (void)primitiveSetBoolValue:(_Bool)arg1 forKey:(id)arg2;
+- (_Bool)primitiveBoolValueForKey:(id)arg1;
 - (void)primitiveSetDoubleValue:(double)arg1 forKey:(id)arg2;
 - (double)primitiveDoubleValueForKey:(id)arg1;
 - (void)primitiveSetIntValue:(int)arg1 forKey:(id)arg2;
@@ -65,40 +66,40 @@
 - (void)_addReference:(id)arg1 forKey:(id)arg2;
 - (void)_releaseLoadedProperties;
 - (void)_setProperty:(id)arg1 forKey:(id)arg2;
-- (void)_fastpathSetProperty:(id)arg1 forKey:(id)arg2 isRelation:(BOOL)arg3;
+- (void)_fastpathSetProperty:(id)arg1 forKey:(id)arg2 isRelation:(_Bool)arg3;
 - (id)_propertyForKey:(id)arg1;
-- (BOOL)_shouldRetainPropertyForKey:(id)arg1;
+- (_Bool)_shouldRetainPropertyForKey:(id)arg1;
 - (id)_relationForKey:(id)arg1;
-- (BOOL)_areDefaultPropertiesLoaded;
-- (void)_setDefaultPropertiesLoaded:(BOOL)arg1;
-- (BOOL)_isPendingDelete;
-- (void)_setPendingDelete:(BOOL)arg1;
-- (BOOL)_isPendingUpdate;
-- (void)_setPendingUpdate:(BOOL)arg1;
-- (BOOL)_isPendingInsert;
-- (void)_setPendingInsert:(BOOL)arg1;
+- (_Bool)_areDefaultPropertiesLoaded;
+- (void)_setDefaultPropertiesLoaded:(_Bool)arg1;
+- (_Bool)_isPendingDelete;
+- (void)_setPendingDelete:(_Bool)arg1;
+- (_Bool)_isPendingUpdate;
+- (void)_setPendingUpdate:(_Bool)arg1;
+- (_Bool)_isPendingInsert;
+- (void)_setPendingInsert:(_Bool)arg1;
 - (void)rollback;
 - (void)reset;
 - (void)saved;
-- (BOOL)pushDirtyProperties:(id *)arg1;
-- (BOOL)validate:(id *)arg1;
-- (BOOL)isPropertyLoaded:(id)arg1;
+- (_Bool)pushDirtyProperties:(id *)arg1;
+- (_Bool)validate:(id *)arg1;
+- (_Bool)isPropertyLoaded:(id)arg1;
 - (void)_addDirtyProperty:(id)arg1;
 - (id)dirtyProperties;
-- (BOOL)isPropertyDirty:(id)arg1;
-- (BOOL)refreshExcludingProperties:(id)arg1;
-- (BOOL)refresh;
+- (_Bool)isPropertyDirty:(id)arg1;
+- (_Bool)refreshExcludingProperties:(id)arg1;
+- (_Bool)refresh;
 - (id)_loadedPropertyKeys;
 - (void)changed;
-- (BOOL)isDirty;
-- (BOOL)isNew;
-- (BOOL)existsInStore;
+- (_Bool)isDirty;
+- (_Bool)isNew;
+- (_Bool)existsInStore;
 - (void)_setObjectID:(id)arg1;
 - (id)objectID;
 - (void)_setEventStore:(id)arg1;
 @property(readonly, nonatomic) EKEventStore *eventStore;
 @property(readonly, nonatomic) int entityType;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)init;
 - (id)initCommon;

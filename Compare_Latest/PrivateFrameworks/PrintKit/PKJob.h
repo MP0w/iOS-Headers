@@ -10,15 +10,15 @@
 
 @interface PKJob : NSObject
 {
-    int number;
-    int mediaProgress;
-    int mediaSheets;
-    int mediaSheetsCompleted;
+    long long number;
+    long long mediaProgress;
+    long long mediaSheets;
+    long long mediaSheetsCompleted;
     NSString *printerDisplayName;
-    int printerKind;
+    long long printerKind;
     NSString *printerLocation;
     PKPrintSettings *settings;
-    int state;
+    long long state;
     NSDate *timeAtCompleted;
     NSDate *timeAtCreation;
     NSDate *timeAtProcessing;
@@ -31,17 +31,17 @@
 @property(retain, nonatomic) NSDate *timeAtProcessing; // @synthesize timeAtProcessing;
 @property(retain, nonatomic) NSDate *timeAtCreation; // @synthesize timeAtCreation;
 @property(retain, nonatomic) NSDate *timeAtCompleted; // @synthesize timeAtCompleted;
-@property(nonatomic) int state; // @synthesize state;
+@property(nonatomic) long long state; // @synthesize state;
 @property(retain, nonatomic) PKPrintSettings *settings; // @synthesize settings;
 @property(retain, nonatomic) NSString *printerLocation; // @synthesize printerLocation;
-@property(nonatomic) int printerKind; // @synthesize printerKind;
+@property(nonatomic) long long printerKind; // @synthesize printerKind;
 @property(retain, nonatomic) NSString *printerDisplayName; // @synthesize printerDisplayName;
-@property(nonatomic) int mediaSheetsCompleted; // @synthesize mediaSheetsCompleted;
-@property(nonatomic) int mediaSheets; // @synthesize mediaSheets;
-@property(nonatomic) int mediaProgress; // @synthesize mediaProgress;
-@property(nonatomic) int number; // @synthesize number;
-- (int)update;
-- (int)cancel;
+@property(nonatomic) long long mediaSheetsCompleted; // @synthesize mediaSheetsCompleted;
+@property(nonatomic) long long mediaSheets; // @synthesize mediaSheets;
+@property(nonatomic) long long mediaProgress; // @synthesize mediaProgress;
+@property(nonatomic) long long number; // @synthesize number;
+- (long long)update;
+- (long long)cancel;
 
 @end
 

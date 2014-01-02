@@ -8,6 +8,7 @@
 
 @class NSDate, NSMutableDictionary, NSMutableString;
 
+// Not exported
 @interface CMProgressiveArchiveManager : CMArchiveManager
 {
     const void *mClient;
@@ -15,7 +16,7 @@
     NSMutableDictionary *mDataCache;
     NSMutableDictionary *mStyleCache;
     NSMutableString *mCssString;
-    BOOL mMainDataInited;
+    _Bool mMainDataInited;
     NSDate *mStartDate;
     NSDate *mLastCommitDate;
     NSMutableString *mHtmlLogString;
@@ -25,13 +26,13 @@
 - (void)pushCssToPath:(id)arg1;
 - (void)addCssStyle:(id)arg1 withName:(id)arg2;
 - (id)addCssStyle:(id)arg1;
-- (BOOL)isCancelled;
+- (_Bool)isCancelled;
 - (void)closeResourceAtPath:(id)arg1;
 - (void)commitDataAtPath:(id)arg1;
 - (void)pushText:(id)arg1 toPath:(id)arg2;
 - (void)pushData:(id)arg1 toPath:(id)arg2;
 - (id)copyResourceWithName:(id)arg1;
-- (BOOL)isProgressive;
+- (_Bool)isProgressive;
 - (void)dealloc;
 - (id)initWithClient:(const void *)arg1 andCallBacks:(CDStruct_ba543347 *)arg2;
 

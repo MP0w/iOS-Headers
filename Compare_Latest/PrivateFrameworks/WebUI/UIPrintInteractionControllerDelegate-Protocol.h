@@ -9,7 +9,7 @@
 @protocol UIPrintInteractionControllerDelegate <NSObject>
 
 @optional
-- (float)printInteractionController:(id)arg1 cutLengthForPaper:(id)arg2;
+- (double)printInteractionController:(id)arg1 cutLengthForPaper:(id)arg2;
 - (void)printInteractionControllerDidFinishJob:(id)arg1;
 - (void)printInteractionControllerWillStartJob:(id)arg1;
 - (void)printInteractionControllerDidDismissPrinterOptions:(id)arg1;

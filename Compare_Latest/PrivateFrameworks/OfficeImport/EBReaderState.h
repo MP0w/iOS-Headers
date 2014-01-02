@@ -8,6 +8,7 @@
 
 @class ECColumnWidthConvertor, OABReaderState;
 
+// Not exported
 @interface EBReaderState : EBState
 {
     struct XlBinaryReader *mXlReader;
@@ -17,10 +18,10 @@
     unsigned int mTotalCellsWithFormulaCount;
     struct XlEshObjectFactory *mXlEshObjectFactory;
     OABReaderState *mOAState;
-    BOOL mImportCSV;
+    _Bool mImportCSV;
 }
 
-@property(nonatomic) BOOL importCSV; // @synthesize importCSV=mImportCSV;
+@property(nonatomic) _Bool importCSV; // @synthesize importCSV=mImportCSV;
 - (void)reportWarning:(struct CPTaggedMessageStructure *)arg1;
 - (id)oaState;
 - (void)incrementCellsWithFormulaCount;

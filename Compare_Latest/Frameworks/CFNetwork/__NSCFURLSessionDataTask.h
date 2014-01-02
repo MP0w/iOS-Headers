@@ -6,6 +6,7 @@
 
 #import <CFNetwork/__NSCFURLSessionTask.h>
 
+// Not exported
 @interface __NSCFURLSessionDataTask : __NSCFURLSessionTask
 {
 }

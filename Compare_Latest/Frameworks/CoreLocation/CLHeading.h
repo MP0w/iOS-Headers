@@ -16,7 +16,7 @@
     id _internal;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) NSDate *timestamp;
 @property(readonly, nonatomic) double z;
 @property(readonly, nonatomic) double y;

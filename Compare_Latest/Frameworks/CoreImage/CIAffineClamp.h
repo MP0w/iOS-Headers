@@ -8,6 +8,7 @@
 
 @class CIImage, NSValue;
 
+// Not exported
 @interface CIAffineClamp : CIFilter
 {
     CIImage *inputImage;

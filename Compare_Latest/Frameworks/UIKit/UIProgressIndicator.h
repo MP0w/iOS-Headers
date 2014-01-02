@@ -13,7 +13,7 @@
 + (struct CGSize)size;
 - (void)stopAnimation;
 - (void)startAnimation;
-- (void)setAnimating:(BOOL)arg1;
+- (void)setAnimating:(_Bool)arg1;
 - (void)setStyle:(int)arg1;
 @property(nonatomic) int progressIndicatorStyle;
 

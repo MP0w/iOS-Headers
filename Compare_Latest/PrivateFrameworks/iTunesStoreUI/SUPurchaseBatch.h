@@ -15,7 +15,7 @@
     NSArray *_items;
     NSArray *_offers;
     SUPurchaseManager *_purchaseManager;
-    BOOL _shouldSuspendWhenFinished;
+    _Bool _shouldSuspendWhenFinished;
     NSArray *_validPurchases;
 }
 
@@ -29,7 +29,7 @@
 - (id)_copyValidPurchasesForItems:(id)arg1;
 - (id)_copyUniqueErrorsFromErrors:(id)arg1;
 - (id)_copyModifiedErrorsFromDictionary:(struct __CFDictionary *)arg1;
-- (id)mergedErrorForError:(id)arg1 withCount:(int)arg2;
+- (id)mergedErrorForError:(id)arg1 withCount:(long long)arg2;
 - (id)everythingFailedErrorForError:(id)arg1;
 - (void *)errorEqualCallback;
 - (id)copyFilteredItemsFromItems:(id)arg1;

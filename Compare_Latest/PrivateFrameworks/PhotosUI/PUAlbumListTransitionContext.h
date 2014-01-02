@@ -6,19 +6,21 @@
 
 #import "NSObject.h"
 
-@class PLManagedAsset, PUPhotoDecoration, UICollectionViewTransitionLayout;
+@class NSIndexPath, PUPhotoDecoration, UICollectionViewTransitionLayout;
 
 @interface PUAlbumListTransitionContext : NSObject
 {
+    _Bool _usesContentOffsetAutoAdjust;
     id <PLAssetContainer> _collection;
-    PLManagedAsset *_keyAsset;
+    NSIndexPath *_keyItemIndexPath;
     PUPhotoDecoration *_photoDecoration;
     UICollectionViewTransitionLayout *_transitionLayout;
 }
 
 @property(retain, nonatomic) UICollectionViewTransitionLayout *transitionLayout; // @synthesize transitionLayout=_transitionLayout;
+@property(nonatomic) _Bool usesContentOffsetAutoAdjust; // @synthesize usesContentOffsetAutoAdjust=_usesContentOffsetAutoAdjust;
 @property(retain, nonatomic) PUPhotoDecoration *photoDecoration; // @synthesize photoDecoration=_photoDecoration;
-@property(retain, nonatomic) PLManagedAsset *keyAsset; // @synthesize keyAsset=_keyAsset;
+@property(retain, nonatomic) NSIndexPath *keyItemIndexPath; // @synthesize keyItemIndexPath=_keyItemIndexPath;
 @property(retain, nonatomic) id <PLAssetContainer> collection; // @synthesize collection=_collection;
 - (void).cxx_destruct;
 

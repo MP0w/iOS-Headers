@@ -6,6 +6,7 @@
 
 #import <UIKit/UIKeyboardCandidateToggleButton.h>
 
+// Not exported
 @interface UIKeyboardCandidateSplitKeyboardToggleButton : UIKeyboardCandidateToggleButton
 {
 }

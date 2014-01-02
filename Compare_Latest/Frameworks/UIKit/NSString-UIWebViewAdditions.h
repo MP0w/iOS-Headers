@@ -7,7 +7,7 @@
 #import "NSString.h"
 
 @interface NSString (UIWebViewAdditions)
-- (id)_uikit_stringWithWritingDirection:(int)arg1 asOverride:(BOOL)arg2;
+- (id)_uikit_stringWithWritingDirection:(long long)arg1 asOverride:(_Bool)arg2;
 - (id)_uikit_stringByTrimmingWhitespaceAndNewlines;
 @end
 

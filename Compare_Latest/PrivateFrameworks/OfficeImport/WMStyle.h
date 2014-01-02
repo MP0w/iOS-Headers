@@ -6,6 +6,7 @@
 
 #import <OfficeImport/CMStyle.h>
 
+// Not exported
 @interface WMStyle : CMStyle
 {
 }
@@ -15,7 +16,7 @@
 - (void)ResoveInterPropertyDependencies;
 - (void)addCharacterProperties:(id)arg1;
 - (id)initWithWDCharacterProperties:(id)arg1;
-- (id)initWithWDStyle:(id)arg1 isInTextFrame:(BOOL)arg2;
+- (id)initWithWDStyle:(id)arg1 isInTextFrame:(_Bool)arg2;
 - (id)initWithWDStyle:(id)arg1;
 - (id)initWithWMStyle:(id)arg1;
 

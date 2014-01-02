@@ -10,21 +10,21 @@
 
 @interface SULoadingView : UIView
 {
-    int _activityIndicatorStyle;
+    long long _activityIndicatorStyle;
     UIColor *_activityIndicatorColor;
     UILabel *_label;
     UIActivityIndicatorView *_progressIndicator;
-    unsigned int _style;
+    unsigned long long _style;
     UIColor *_textColor;
     UIColor *_textShadowColor;
 }
 
 @property(retain, nonatomic) UIColor *textShadowColor; // @synthesize textShadowColor=_textShadowColor;
 @property(retain, nonatomic) UIColor *textColor; // @synthesize textColor=_textColor;
-@property(nonatomic) int activityIndicatorStyle; // @synthesize activityIndicatorStyle=_activityIndicatorStyle;
+@property(nonatomic) long long activityIndicatorStyle; // @synthesize activityIndicatorStyle=_activityIndicatorStyle;
 @property(retain, nonatomic) UIColor *activityIndicatorColor; // @synthesize activityIndicatorColor=_activityIndicatorColor;
 - (void)_setupSubviews;
-- (void)setStyle:(unsigned int)arg1;
+- (void)setStyle:(unsigned long long)arg1;
 - (id)newTextLabel;
 - (id)newProgressIndicator;
 - (void)sizeToFit;

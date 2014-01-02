@@ -6,6 +6,7 @@
 
 #import <OfficeImport/ODIImageLinear.h>
 
+// Not exported
 @interface ODIAccentedImageLinear : ODIImageLinear
 {
 }

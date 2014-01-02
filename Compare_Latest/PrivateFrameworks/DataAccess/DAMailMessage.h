@@ -16,9 +16,9 @@
 - (id)initWithCoder:(id)arg1;
 - (id)rfc822Data;
 - (int)smimeType;
-- (BOOL)verbIsSet;
-- (BOOL)flaggedIsSet;
-- (BOOL)readIsSet;
+- (_Bool)verbIsSet;
+- (_Bool)flaggedIsSet;
+- (_Bool)readIsSet;
 - (int)lastVerb;
 - (id)folderID;
 - (id)longID;
@@ -26,7 +26,7 @@
 - (id)conversationIndex;
 - (id)conversationId;
 - (id)threadTopic;
-- (BOOL)meetingRequestIsActionable;
+- (_Bool)meetingRequestIsActionable;
 - (id)meetingRequestMetaData;
 - (id)meetingRequestUUID;
 - (id)attachments;
@@ -34,8 +34,8 @@
 - (int)bodyTruncated;
 - (int)bodySize;
 - (id)body;
-- (BOOL)flagged;
-- (BOOL)read;
+- (_Bool)flagged;
+- (_Bool)read;
 - (int)importance;
 - (id)displayTo;
 - (id)subject;

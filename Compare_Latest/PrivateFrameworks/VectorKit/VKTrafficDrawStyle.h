@@ -6,6 +6,7 @@
 
 #import <VectorKit/VKDrawStyle.h>
 
+// Not exported
 @interface VKTrafficDrawStyle : VKDrawStyle
 {
     struct VKProfileSparseRamp<float> width;
@@ -20,13 +21,15 @@
         float pattern[3];
         float fadingFactor[2];
     } perSpeedTraffic[4];
+    struct VKProfileSparseRamp<int> collisionOrder;
+    struct VKProfileSparseRamp<float> collisionRank;
 }
 
 @property(readonly, nonatomic) float incidentBrightness; // @synthesize incidentBrightness;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)takeFromZoomInvariantProperties:(id)arg1;
-- (void)takeFromStyleProperties:(id)arg1 atZoom:(unsigned int)arg2 globals:(id)arg3;
+- (void)takeFromStyleProperties:(id)arg1 atZoom:(unsigned long long)arg2 globals:(id)arg3;
 - (id)variant;
 
 @end

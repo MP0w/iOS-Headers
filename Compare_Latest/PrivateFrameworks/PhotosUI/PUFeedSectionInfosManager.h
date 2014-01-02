@@ -11,13 +11,14 @@
 #import "PLCloudFeedEntriesObserver-Protocol.h"
 #import "PLPhotoLibraryShouldReloadObserver-Protocol.h"
 
-@class NSMapTable, NSMutableArray, PLPhotoLibrary;
+@class NSDate, NSMapTable, NSMutableArray, PLPhotoLibrary;
 
 @interface PUFeedSectionInfosManager : NSObject <PLCloudFeedEntriesObserver, PLCloudCommentsChangeObserver, PLAssetChangeObserver, PLPhotoLibraryShouldReloadObserver>
 {
     PLPhotoLibrary *_photoLibrary;
     NSMutableArray *_sectionInfos;
     NSMapTable *_sectionInfosByCloudFeedEntry;
+    NSDate *_earliestDate;
     NSMutableArray *_pendingFeedEntriesChangeNotifications;
     NSMutableArray *_pendingCommentsChangeNotifications;
     NSMutableArray *_pendingAssetsChangeNotifications;
@@ -28,20 +29,23 @@
 - (void).cxx_destruct;
 - (id)_sectionInfoSortingComparator;
 - (void)_updateSectionInfosForFeedEntriesChangeNotifications:(id)arg1 commentsChangeNotifications:(id)arg2 assetsChangeNotifications:(id)arg3;
-- (BOOL)_shouldPerformFullReloadForFeedEntriesChangeNotifications:(id)arg1 commentsChangeNotifications:(id)arg2;
+- (_Bool)_shouldPerformFullReloadForFeedEntriesChangeNotifications:(id)arg1 commentsChangeNotifications:(id)arg2;
 - (void)_didFinishPostingNotifications:(id)arg1;
 - (void)shouldReload:(id)arg1;
 - (void)assetsDidChange:(id)arg1;
 - (void)cloudCommentsDidChange:(id)arg1;
 - (void)cloudFeedEntriesDidChange:(id)arg1;
+- (void)_getEarliestDate:(out id *)arg1 mostRecentEntries:(out id *)arg2 forBatchWithLatestDate:(id)arg3;
 - (void)_rebuildSectionInfos;
+- (id)indexesOfInvitationsReceivedSectionInfos;
+- (long long)numberOfInvitationsReceived;
 - (void)loadSectionInfosAtIndexes:(id)arg1;
-- (int)indexOfSectionInfoForCloudFeedEntry:(id)arg1;
-- (int)indexOfSectionInfo:(id)arg1;
+- (long long)indexOfSectionInfoForCloudFeedEntry:(id)arg1;
+- (long long)indexOfSectionInfo:(id)arg1;
 - (id)sectionInfosAtIndexes:(id)arg1;
-- (id)sectionInfoAtIndex:(int)arg1;
-- (int)numberOfInvitationsReceived;
-- (int)numberOfSectionInfos;
+- (id)sectionInfoAtIndex:(long long)arg1;
+- (_Bool)hasEnoughCloudFeedAssetEntriesToDisplay;
+- (long long)numberOfSectionInfos;
 - (void)dealloc;
 - (id)initWithPhotoLibrary:(id)arg1;
 

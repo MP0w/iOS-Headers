@@ -6,6 +6,7 @@
 
 #import <OfficeImport/OCBReader.h>
 
+// Not exported
 @interface PBReader : OCBReader
 {
     struct PptObjectFactory *mPptObjectFactory;
@@ -16,7 +17,7 @@
 - (struct OCCEncryptionInfoReader *)encryptionInfoReader;
 @property(readonly, nonatomic) struct PptBinaryReader *pptReader;
 - (id)read;
-- (BOOL)start;
+- (_Bool)start;
 - (void)dealloc;
 - (id)initWithCancelDelegate:(id)arg1 tracing:(id)arg2;
 

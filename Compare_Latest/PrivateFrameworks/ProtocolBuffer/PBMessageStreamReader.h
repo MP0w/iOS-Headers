@@ -12,10 +12,10 @@
 {
     NSInputStream *_stream;
     Class _classOfNextMessage;
-    unsigned int _position;
+    unsigned long long _position;
 }
 
-@property(readonly) unsigned int position; // @synthesize position=_position;
+@property(readonly) unsigned long long position; // @synthesize position=_position;
 @property Class classOfNextMessage; // @synthesize classOfNextMessage=_classOfNextMessage;
 - (id)nextMessage;
 - (void)dealloc;

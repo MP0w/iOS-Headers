@@ -8,23 +8,24 @@
 
 @class EDCollection, EDReference, EDResources, NSString;
 
+// Not exported
 @interface EDTable : NSObject
 {
     EDResources *mResources;
-    unsigned int mStyleIndex;
-    unsigned int mHeaderRowDxfIndex;
-    unsigned int mTotalsRowDxfIndex;
-    unsigned int mDataAreaDxfIndex;
-    unsigned int mHeaderRowBorderDxfIndex;
-    unsigned int mTotalsRowBorderDxfIndex;
-    unsigned int mDataAreaBorderDxfIndex;
-    unsigned int mTableBorderDxfIndex;
+    unsigned long long mStyleIndex;
+    unsigned long long mHeaderRowDxfIndex;
+    unsigned long long mTotalsRowDxfIndex;
+    unsigned long long mDataAreaDxfIndex;
+    unsigned long long mHeaderRowBorderDxfIndex;
+    unsigned long long mTotalsRowBorderDxfIndex;
+    unsigned long long mDataAreaBorderDxfIndex;
+    unsigned long long mTableBorderDxfIndex;
     NSString *mName;
     NSString *mDisplayName;
     EDReference *mTableRange;
     NSString *mStyleName;
-    unsigned int mHeaderRowCount;
-    unsigned int mTotalsRowCount;
+    unsigned long long mHeaderRowCount;
+    unsigned long long mTotalsRowCount;
     _Bool mShowFirstColumn;
     _Bool mShowLastColumn;
     _Bool mShowRowStripes;
@@ -45,10 +46,10 @@
 - (_Bool)showFirstColumn;
 - (id)columnFilters;
 - (id)tableColumns;
-- (void)setTotalsRowCount:(unsigned int)arg1;
-- (unsigned int)totalsRowCount;
-- (void)setHeaderRowCount:(unsigned int)arg1;
-- (unsigned int)headerRowCount;
+- (void)setTotalsRowCount:(unsigned long long)arg1;
+- (unsigned long long)totalsRowCount;
+- (void)setHeaderRowCount:(unsigned long long)arg1;
+- (unsigned long long)headerRowCount;
 - (id)tableRange;
 - (void)setStyleName:(id)arg1;
 - (id)styleName;
@@ -74,22 +75,6 @@
 - (id)style;
 - (void)dealloc;
 - (id)initWithResources:(id)arg1;
-- (void)setTableBorderDxfIndex:(unsigned int)arg1;
-- (unsigned int)tableBorderDxfIndex;
-- (void)setDataAreaBorderDxfIndex:(unsigned int)arg1;
-- (unsigned int)dataAreaBorderDxfIndex;
-- (void)setTotalsRowBorderDxfIndex:(unsigned int)arg1;
-- (unsigned int)totalsRowBorderDxfIndex;
-- (void)setHeaderRowBorderDxfIndex:(unsigned int)arg1;
-- (unsigned int)headerRowBorderDxfIndex;
-- (void)setDataAreaDxfIndex:(unsigned int)arg1;
-- (unsigned int)dataAreaDxfIndex;
-- (void)setTotalsRowDxfIndex:(unsigned int)arg1;
-- (unsigned int)totalsRowDxfIndex;
-- (void)setHeaderRowDxfIndex:(unsigned int)arg1;
-- (unsigned int)headerRowDxfIndex;
-- (void)setStyleIndex:(unsigned int)arg1;
-- (unsigned int)styleIndex;
 
 @end
 

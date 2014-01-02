@@ -13,9 +13,9 @@
 }
 
 - (id)getCurrentContext;
-- (BOOL)allowContextProvider:(id)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (_Bool)allowContextProvider:(id)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)dealloc;
 
 @end

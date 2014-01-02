@@ -13,38 +13,35 @@
 @interface MPMediaQueryCriteria : NSObject <NSCopying>
 {
     NSMutableSet *_filterPredicates;
-    unsigned int _entityOrder;
-    int _groupingType;
+    unsigned long long _entityOrder;
+    long long _groupingType;
     NSArray *_orderingProperties;
     NSSet *_itemPropertiesToFetch;
     NSSet *_collectionPropertiesToFetch;
-    BOOL _useSections;
+    _Bool _useSections;
+    _Bool _ignoreSystemFilterPredicates;
 }
 
-@property(nonatomic) unsigned int entityOrder; // @synthesize entityOrder=_entityOrder;
+@property(nonatomic) unsigned long long entityOrder; // @synthesize entityOrder=_entityOrder;
+@property(nonatomic) _Bool ignoreSystemFilterPredicates; // @synthesize ignoreSystemFilterPredicates=_ignoreSystemFilterPredicates;
 @property(copy, nonatomic) NSSet *itemPropertiesToFetch; // @synthesize itemPropertiesToFetch=_itemPropertiesToFetch;
 @property(copy, nonatomic) NSSet *filterPredicates; // @synthesize filterPredicates=_filterPredicates;
 @property(copy, nonatomic) NSArray *orderingProperties; // @synthesize orderingProperties=_orderingProperties;
-@property(nonatomic) int groupingType; // @synthesize groupingType=_groupingType;
+@property(nonatomic) long long groupingType; // @synthesize groupingType=_groupingType;
 @property(copy, nonatomic) NSSet *collectionPropertiesToFetch; // @synthesize collectionPropertiesToFetch=_collectionPropertiesToFetch;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) BOOL specifiesPlaylistItems;
+@property(readonly, nonatomic) _Bool specifiesPlaylistItems;
 - (void)removePredicatesForProperty:(id)arg1;
 - (id)predicateForProperty:(id)arg1;
 - (void)removeFilterPredicate:(id)arg1;
 - (void)addFilterPredicates:(id)arg1;
 - (void)addFilterPredicate:(id)arg1;
-@property(readonly, nonatomic) BOOL excludesEntitiesWithBlankNames;
+@property(readonly, nonatomic) _Bool excludesEntitiesWithBlankNames;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (id)init;
-- (id)ML3CollectionsQueryInLibrary:(id)arg1;
-- (id)ML3ItemsQueryInLibrary:(id)arg1 orderingProperties:(id)arg2 nameBlankProperty:(id)arg3;
-- (id)ML3ItemsQueryInLibrary:(id)arg1;
-- (id)ML3OrderingPropertiesForGroupingType:(int)arg1;
-- (id)ML3OrderingPropertiesForMPOrderingProperties:(id)arg1;
 
 @end
 

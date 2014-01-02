@@ -11,6 +11,6 @@
 - (void)request:(id)arg1 didReceiveObject:(id)arg2;
 
 @optional
-- (void)request:(id)arg1 hasWrittenBytes:(int)arg2 expectsToWrite:(int)arg3;
+- (void)request:(id)arg1 hasWrittenBytes:(long long)arg2 expectsToWrite:(long long)arg3;
 @end
 

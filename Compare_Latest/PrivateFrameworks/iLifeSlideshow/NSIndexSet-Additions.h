@@ -7,8 +7,8 @@
 #import "NSIndexSet.h"
 
 @interface NSIndexSet (Additions)
-- (id)indexSetWithMaximum:(int)arg1;
-- (id)indexSetWithOffset:(int)arg1;
-- (int)indexAtIndex:(int)arg1;
+- (id)indexSetWithMaximum:(long long)arg1;
+- (id)indexSetWithOffset:(long long)arg1;
+- (long long)indexAtIndex:(long long)arg1;
 @end
 

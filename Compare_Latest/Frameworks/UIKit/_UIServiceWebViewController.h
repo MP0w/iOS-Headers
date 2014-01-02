@@ -11,6 +11,7 @@
 
 @class WebUIBrowserLoadingController, _UIServiceWebView;
 
+// Not exported
 @interface _UIServiceWebViewController : UIViewController <_UIServiceWebViewControllerProtocol, WebUIBrowserLoadingControllerDelegate>
 {
     _UIServiceWebView *_uiWebView;
@@ -19,9 +20,9 @@
 
 + (id)_exportedInterface;
 + (id)_remoteViewControllerInterface;
-- (void)didRotateFromInterfaceOrientation:(int)arg1;
-- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (void)didRotateFromInterfaceOrientation:(long long)arg1;
+- (void)willRotateToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
 - (void)stopLoading;
 - (void)reload;
 - (void)goForward;
@@ -42,12 +43,12 @@
 - (void)configureWithEncodedSettings:(id)arg1;
 - (void)_remotelyDispatchDidDismissViewController;
 - (void)_remotelyDispatchWillPresentViewControllerWithCompletionHandler:(id)arg1;
-- (void)_remotelyDecidePolicyForRequest:(id)arg1 inMainFrame:(BOOL)arg2 navigationType:(id)arg3 decisionHandler:(id)arg4;
-- (void)setShouldDecidePolicyRemotely:(BOOL)arg1;
+- (void)_remotelyDecidePolicyForRequest:(id)arg1 inMainFrame:(_Bool)arg2 navigationType:(id)arg3 decisionHandler:(id)arg4;
+- (void)setShouldDecidePolicyRemotely:(_Bool)arg1;
 - (void)_willAppearInRemoteViewController;
 - (void)_setupRemoteInspectorDetailsForRequestingProcess;
 - (id)localizedApplicationNameForProcess:(int)arg1;
-- (BOOL)_isInternalInstall;
+- (_Bool)_isInternalInstall;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 @end

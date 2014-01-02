@@ -8,6 +8,7 @@
 
 @class NSString, NSURL;
 
+// Not exported
 @interface _UIPreviewItemProxy : NSObject
 {
     NSURL *_URL;

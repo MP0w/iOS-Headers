@@ -13,13 +13,13 @@
     unsigned int _scaleFactor;
 }
 
-+ (int)subtypeFromImageFilename:(id)arg1;
-+ (int)idiomFromImageFilename:(id)arg1;
++ (long long)subtypeFromImageFilename:(id)arg1;
++ (long long)idiomFromImageFilename:(id)arg1;
 + (unsigned int)scaleFactorFromImageFilename:(id)arg1;
 + (id)_filenameRegex;
 @property(readonly, nonatomic) NSString *baseName;
 - (void)setHasProduction:(id)arg1;
-- (BOOL)hasProduction;
+- (_Bool)hasProduction;
 - (id)fileURLWithDocument:(id)arg1;
 - (id)sourceRelativePath;
 - (id)_sourceRelativePathComponents;

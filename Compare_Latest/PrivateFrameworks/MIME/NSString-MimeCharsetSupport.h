@@ -8,7 +8,7 @@
 
 @interface NSString (MimeCharsetSupport)
 - (id)mf_bestMimeCharsetForMessageDeliveryUsingSubtype:(id)arg1;
-- (id)mf_bestMimeCharsetUsingHint:(unsigned long)arg1;
+- (id)mf_bestMimeCharsetUsingHint:(unsigned int)arg1;
 - (id)_mf_bestMimeCharset:(id)arg1;
 - (id)mf_bestMimeCharset;
 @end

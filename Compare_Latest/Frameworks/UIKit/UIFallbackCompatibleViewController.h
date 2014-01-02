@@ -6,6 +6,7 @@
 
 #import <UIKit/UIViewController.h>
 
+// Not exported
 @interface UIFallbackCompatibleViewController : UIViewController
 {
     id _dismissCompletionHandler;

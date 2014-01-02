@@ -22,10 +22,6 @@
 - (id)userInfo;
 - (void)setUserInfo:(id)arg1;
 - (void)dealloc;
-- (id)_convertValueToObjcValue:(struct JSValue)arg1;
-- (void)_clearDebuggerCallFrame;
-- (void)_setDebuggerCallFrame:(const struct DebuggerCallFrame *)arg1;
-- (id)_initWithGlobalObject:(id)arg1 debugger:(struct WebScriptDebugger *)arg2 caller:(id)arg3 debuggerCallFrame:(const struct DebuggerCallFrame *)arg4;
 
 @end
 

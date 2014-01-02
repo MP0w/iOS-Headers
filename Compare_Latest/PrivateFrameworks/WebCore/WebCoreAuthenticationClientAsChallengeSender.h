@@ -8,6 +8,7 @@
 
 #import "NSURLAuthenticationChallengeSender-Protocol.h"
 
+// Not exported
 @interface WebCoreAuthenticationClientAsChallengeSender : NSObject <NSURLAuthenticationChallengeSender>
 {
     struct AuthenticationClient *m_client;

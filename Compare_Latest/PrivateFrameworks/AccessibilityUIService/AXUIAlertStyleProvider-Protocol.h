@@ -7,31 +7,31 @@
 #import "NSObject-Protocol.h"
 
 @protocol AXUIAlertStyleProvider <NSObject>
-- (double)alertFadeAnimationDurationForType:(unsigned int)arg1;
-- (BOOL)alertShouldBeAsWideAsScreenForType:(unsigned int)arg1;
-- (int)alertPositionForType:(unsigned int)arg1;
-- (struct UIEdgeInsets)alertEdgeInsetsForType:(unsigned int)arg1;
-- (struct UIEdgeInsets)alertIconImageViewEdgeInsetsForType:(unsigned int)arg1;
-- (float)alertSubtitleTextLabelVerticalSpacingHeightWithTextLabelForType:(unsigned int)arg1;
-- (float)alertSubtitleTextLabelLineHeightOffsetForType:(unsigned int)arg1;
-- (struct UIOffset)alertSubtitleTextLabelShadowOffsetForType:(unsigned int)arg1;
-- (id)alertSubtitleTextLabelShadowColorForType:(unsigned int)arg1;
-- (id)alertSubtitleTextLabelBackgroundColorForType:(unsigned int)arg1;
-- (id)alertSubtitleTextLabelTextColorForType:(unsigned int)arg1;
-- (id)alertSubtitleTextLabelFontForType:(unsigned int)arg1;
-- (float)alertTextLabelLineHeightOffsetForType:(unsigned int)arg1;
-- (struct UIOffset)alertTextLabelShadowOffsetForType:(unsigned int)arg1;
-- (id)alertTextLabelShadowColorForType:(unsigned int)arg1;
-- (id)alertTextLabelBackgroundColorForType:(unsigned int)arg1;
-- (id)alertTextLabelTextColorForType:(unsigned int)arg1;
-- (id)alertTextLabelFontForType:(unsigned int)arg1;
-- (struct UIEdgeInsets)alertContentEdgeInsetsForType:(unsigned int)arg1;
-- (struct CGSize)alertBackgroundSizeForType:(unsigned int)arg1;
-- (int)alertBackgroundStyleForType:(unsigned int)arg1;
+- (double)alertFadeAnimationDurationForType:(unsigned long long)arg1;
+- (_Bool)alertShouldBeAsWideAsScreenForType:(unsigned long long)arg1;
+- (int)alertPositionForType:(unsigned long long)arg1;
+- (struct UIEdgeInsets)alertEdgeInsetsForType:(unsigned long long)arg1;
+- (struct UIEdgeInsets)alertIconImageViewEdgeInsetsForType:(unsigned long long)arg1;
+- (double)alertSubtitleTextLabelVerticalSpacingHeightWithTextLabelForType:(unsigned long long)arg1;
+- (double)alertSubtitleTextLabelLineHeightOffsetForType:(unsigned long long)arg1;
+- (struct UIOffset)alertSubtitleTextLabelShadowOffsetForType:(unsigned long long)arg1;
+- (id)alertSubtitleTextLabelShadowColorForType:(unsigned long long)arg1;
+- (id)alertSubtitleTextLabelBackgroundColorForType:(unsigned long long)arg1;
+- (id)alertSubtitleTextLabelTextColorForType:(unsigned long long)arg1;
+- (id)alertSubtitleTextLabelFontForType:(unsigned long long)arg1;
+- (double)alertTextLabelLineHeightOffsetForType:(unsigned long long)arg1;
+- (struct UIOffset)alertTextLabelShadowOffsetForType:(unsigned long long)arg1;
+- (id)alertTextLabelShadowColorForType:(unsigned long long)arg1;
+- (id)alertTextLabelBackgroundColorForType:(unsigned long long)arg1;
+- (id)alertTextLabelTextColorForType:(unsigned long long)arg1;
+- (id)alertTextLabelFontForType:(unsigned long long)arg1;
+- (struct UIEdgeInsets)alertContentEdgeInsetsForType:(unsigned long long)arg1;
+- (struct CGSize)alertBackgroundSizeForType:(unsigned long long)arg1;
+- (int)alertBackgroundStyleForType:(unsigned long long)arg1;
 
 @optional
-- (float)alertBackgroundCornerRadiusForType:(unsigned int)arg1;
-- (struct UIEdgeInsets)alertBackgroundImageCapInsetsForType:(unsigned int)arg1;
-- (id)alertBackgroundImageForType:(unsigned int)arg1;
+- (double)alertBackgroundCornerRadiusForType:(unsigned long long)arg1;
+- (struct UIEdgeInsets)alertBackgroundImageCapInsetsForType:(unsigned long long)arg1;
+- (id)alertBackgroundImageForType:(unsigned long long)arg1;
 @end
 

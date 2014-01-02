@@ -10,7 +10,7 @@
 #import "NSCopying-Protocol.h"
 #import "NSMutableCopying-Protocol.h"
 
-@class AVMetadataItemInternal, NSData, NSDate, NSDictionary, NSLocale, NSNumber, NSString;
+@class AVMetadataItemInternal, NSDictionary, NSLocale, NSString;
 
 @interface AVMetadataItem : NSObject <AVAsynchronousKeyValueLoading, NSCopying, NSMutableCopying>
 {
@@ -20,7 +20,7 @@
 + (id)_figMetadataPropertyFromMetadataItems:(id)arg1;
 + (id)_replaceQuickTimeUserDataKeySpaceWithISOUserDataKeySpaceIfRequired:(id)arg1;
 + (id)_isoUserDataKeysRequiringKeySpaceConversion;
-+ (BOOL)_clientExpectsISOUserDataKeysInQuickTimeUserDataKeySpace;
++ (_Bool)_clientExpectsISOUserDataKeysInQuickTimeUserDataKeySpace;
 + (id)metadataItemsFromArray:(id)arg1 filteredByMetadataItemFilter:(id)arg2;
 + (id)metadataItemsFromArray:(id)arg1 withStringValue:(id)arg2;
 + (id)metadataItemsFromArray:(id)arg1 withKey:(id)arg2 keySpace:(id)arg3;
@@ -28,7 +28,7 @@
 + (id)metadataItemsFromArray:(id)arg1 withLocale:(id)arg2;
 - (void)cancelLoading;
 - (void)loadValuesAsynchronouslyForKeys:(id)arg1 completionHandler:(id)arg2;
-- (int)statusOfValueForKey:(id)arg1 error:(id *)arg2;
+- (long long)statusOfValueForKey:(id)arg1 error:(id *)arg2;
 @property(readonly) NSDictionary *extraAttributes;
 @property(readonly) id <NSObject><NSCopying> value;
 @property(readonly) CDStruct_1b6d18a9 duration;
@@ -40,26 +40,16 @@
 - (id)_figMetadataFormat;
 - (id)_figMetadataProperties;
 - (id)_figMetadataDictionary;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)finalize;
 - (void)dealloc;
 - (id)_initWithFigMetadataDictionary:(id)arg1;
-- (id)_initWithReader:(struct OpaqueFigMetadataReader *)arg1 itemIndex:(long)arg2;
+- (id)_initWithReader:(struct OpaqueFigMetadataReader *)arg1 itemIndex:(long long)arg2;
 - (id)init;
-- (id)_keyAsString;
-- (void)_extractPropertiesFromDictionary:(id)arg1;
-- (void)_updateCommonKey;
-- (void)_makePropertiesReady;
-- (void)_makeValueReady;
-- (struct CGImage *)imageValue;
-@property(readonly) NSData *dataValue;
-@property(readonly) NSDate *dateValue;
-@property(readonly) NSNumber *numberValue;
-@property(readonly) NSString *stringValue;
 
 @end
 

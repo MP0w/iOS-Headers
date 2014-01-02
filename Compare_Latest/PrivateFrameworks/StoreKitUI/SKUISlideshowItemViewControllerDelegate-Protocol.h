@@ -7,7 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol SKUISlideshowItemViewControllerDelegate <NSObject>
-- (void)slideshowItemViewControllerDidDismissWithPinchGesture:(id)arg1 ratio:(float)arg2;
+- (void)slideshowItemViewControllerDidDismissWithPinchGesture:(id)arg1 ratio:(double)arg2;
 - (void)slideshowItemViewControllerDidBeginPinchGesture:(id)arg1;
 @end
 

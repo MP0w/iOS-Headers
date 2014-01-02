@@ -8,6 +8,7 @@
 
 @class ACDManagedAccountType, NSString;
 
+// Not exported
 @interface ACDManagedAuthorization : NSManagedObject
 {
 }

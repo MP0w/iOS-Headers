@@ -6,18 +6,19 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface UINibStringIDTable : NSObject
 {
     struct UIStringIDTableBucket **table;
     struct UIStringIDTableBucket *buckets;
-    unsigned int hashMask;
-    unsigned int count;
+    unsigned long long hashMask;
+    unsigned long long count;
 }
 
-- (int)count;
-- (BOOL)lookupKey:(id)arg1 identifier:(int *)arg2;
+- (long long)count;
+- (_Bool)lookupKey:(id)arg1 identifier:(long long *)arg2;
 - (void)dealloc;
-- (id)initWithKeysTransferingOwnership:(id *)arg1 count:(unsigned int)arg2;
+- (id)initWithKeysTransferingOwnership:(id *)arg1 count:(unsigned long long)arg2;
 
 @end
 

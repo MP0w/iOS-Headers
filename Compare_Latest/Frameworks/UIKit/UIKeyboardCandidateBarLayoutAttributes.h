@@ -8,14 +8,15 @@
 
 #import "NSCopying-Protocol.h"
 
+// Not exported
 @interface UIKeyboardCandidateBarLayoutAttributes : UICollectionViewLayoutAttributes <NSCopying>
 {
-    BOOL _beginsFirstPage;
-    BOOL _endsLastPage;
+    _Bool _beginsFirstPage;
+    _Bool _endsLastPage;
 }
 
-@property(nonatomic) BOOL endsLastPage; // @synthesize endsLastPage=_endsLastPage;
-@property(nonatomic) BOOL beginsFirstPage; // @synthesize beginsFirstPage=_beginsFirstPage;
+@property(nonatomic) _Bool endsLastPage; // @synthesize endsLastPage=_endsLastPage;
+@property(nonatomic) _Bool beginsFirstPage; // @synthesize beginsFirstPage=_beginsFirstPage;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end

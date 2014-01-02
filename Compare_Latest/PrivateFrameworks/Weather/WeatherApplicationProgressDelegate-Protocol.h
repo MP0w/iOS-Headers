@@ -5,6 +5,6 @@
  */
 
 @protocol WeatherApplicationProgressDelegate
-- (BOOL)showProgressIndicator;
+- (_Bool)showProgressIndicator;
 @end
 

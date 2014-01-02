@@ -15,10 +15,10 @@
 }
 
 @property(readonly, nonatomic) NSData *SHA1Digest;
-@property(readonly, nonatomic, getter=isComposable) BOOL composable;
-@property(readonly, nonatomic, getter=isReadable) BOOL readable;
-@property(readonly, nonatomic, getter=isExportable) BOOL exportable;
-- (BOOL)hasProtectedContent;
+@property(readonly, nonatomic, getter=isComposable) _Bool composable;
+@property(readonly, nonatomic, getter=isReadable) _Bool readable;
+@property(readonly, nonatomic, getter=isExportable) _Bool exportable;
+- (_Bool)hasProtectedContent;
 - (id)metadataForFormat:(id)arg1;
 @property(readonly, nonatomic) NSArray *availableMetadataFormats;
 @property(readonly, nonatomic) NSArray *commonMetadata;
@@ -28,8 +28,8 @@
 @property(readonly, nonatomic) NSDictionary *trackReferences;
 @property(readonly, nonatomic) NSArray *alternateTrackGroups;
 @property(readonly, nonatomic) NSArray *trackIDs;
-@property(readonly, nonatomic) long trackCount;
-@property(readonly, nonatomic) BOOL providesPreciseDurationAndTiming;
+@property(readonly, nonatomic) long long trackCount;
+@property(readonly, nonatomic) _Bool providesPreciseDurationAndTiming;
 @property(readonly, nonatomic) int naturalTimeScale;
 @property(readonly, nonatomic) struct CGSize naturalSize;
 @property(readonly, nonatomic) struct CGAffineTransform preferredTransform;

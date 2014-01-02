@@ -8,10 +8,10 @@
 
 @interface ISMainThreadInvocationRecorder : ISInvocationRecorder
 {
-    BOOL _waitUntilDone;
+    _Bool _waitUntilDone;
 }
 
-@property(nonatomic) BOOL waitUntilDone; // @synthesize waitUntilDone=_waitUntilDone;
+@property(nonatomic) _Bool waitUntilDone; // @synthesize waitUntilDone=_waitUntilDone;
 - (void)invokeInvocation:(id)arg1;
 
 @end

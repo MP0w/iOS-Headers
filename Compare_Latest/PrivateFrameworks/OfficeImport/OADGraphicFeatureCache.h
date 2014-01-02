@@ -8,6 +8,7 @@
 
 @class NSMutableArray, TSUNoCopyDictionary;
 
+// Not exported
 @interface OADGraphicFeatureCache : NSObject
 {
     NSMutableArray *mFeatureUsageArray;
@@ -15,8 +16,8 @@
 }
 
 - (id)featuresSortedByUsageCount;
-- (id)countedFeatureAtIndex:(unsigned int)arg1;
-- (unsigned int)cacheFeature:(id)arg1;
+- (id)countedFeatureAtIndex:(unsigned long long)arg1;
+- (unsigned long long)cacheFeature:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

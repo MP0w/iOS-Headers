@@ -11,15 +11,15 @@
 @interface UIMovieChapterListView : UIView
 {
     UIImageView *_backgroundImageView;
-    unsigned int _pinnedRow;
+    unsigned long long _pinnedRow;
     UITableView *_tableView;
-    float _topPadding;
+    double _topPadding;
 }
 
-@property(nonatomic) float topPadding; // @synthesize topPadding=_topPadding;
+@property(nonatomic) double topPadding; // @synthesize topPadding=_topPadding;
 @property(readonly, nonatomic) UITableView *tableView; // @synthesize tableView=_tableView;
 - (void).cxx_destruct;
-- (void)pinVisibleRow:(unsigned int)arg1;
+- (void)pinVisibleRow:(unsigned long long)arg1;
 - (void)layoutSubviews;
 - (id)init;
 

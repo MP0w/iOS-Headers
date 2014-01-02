@@ -6,12 +6,18 @@
 
 #import "UIView.h"
 
+@class PLPhotoTileViewController;
+
 @interface PLTileContainerView : UIView
 {
+    PLPhotoTileViewController *_photoTileController;
 }
 
-- (BOOL)canBecomeFirstResponder;
+- (_Bool)canBecomeFirstResponder;
+- (void)clearBackReference;
+- (void)willMoveToSuperview:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (id)initWithFrame:(struct CGRect)arg1 photoTileController:(id)arg2;
 
 @end
 

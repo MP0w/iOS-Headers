@@ -10,8 +10,8 @@
 
 @interface GEOTileDBReader : NSObject
 {
-    BOOL _defunct;
-    BOOL _closed;
+    _Bool _defunct;
+    _Bool _closed;
     int _editionUpdating;
     NSObject<OS_dispatch_queue> *_readQueue;
     NSString *_path;
@@ -20,16 +20,16 @@
     struct sqlite3_stmt *_versionQuery;
     GEOTileDBMRU *_tileDBMRU;
     CDStruct_e4886f83 *_expirationRecords;
-    unsigned int _expirationRecordCount;
+    unsigned long long _expirationRecordCount;
 }
 
 @property(retain, nonatomic) GEOTileDBMRU *tileDBMRU; // @synthesize tileDBMRU=_tileDBMRU;
-- (void)setExpirationRecords:(CDStruct_e4886f83 *)arg1 count:(unsigned int)arg2;
+- (void)setExpirationRecords:(CDStruct_e4886f83 *)arg1 count:(unsigned long long)arg2;
 - (void)dataForKeys:(id)arg1 asyncHandler:(id)arg2;
 - (void)dataForKey:(struct _GEOTileKey *)arg1 asyncHandler:(id)arg2;
 - (id)dataForKey:(struct _GEOTileKey *)arg1;
 - (id)_dataForKey:(struct _GEOTileKey)arg1;
-@property BOOL closed;
+@property _Bool closed;
 - (void)_openDB;
 - (void)_closeDB;
 - (void)_editionUpdateEnd:(id)arg1;

@@ -6,22 +6,33 @@
 
 #import <UIKit/UIKBRenderFactoryiPad.h>
 
+// Not exported
 @interface UIKBRenderFactoryiPadSplit : UIKBRenderFactoryiPad
 {
 }
 
 - (id)_traitsForKey:(id)arg1 onKeyplane:(id)arg2;
 - (void)_customizeSymbolStyle:(id)arg1 forKey:(id)arg2 contents:(id)arg3;
+- (id)variantGeometriesForGeometry:(id)arg1 variantCount:(unsigned long long)arg2;
 - (void)_customizeGeometry:(id)arg1 forKey:(id)arg2 contents:(id)arg3;
-- (float)keyInsetBottom;
-- (float)symbolFrameInset;
-- (float)defaultPathWeight;
+- (void)_customizeTraits:(id)arg1 forPopupForKey:(id)arg2 withRenderConfig:(id)arg3 keycapsFontName:(id)arg4;
+- (double)keyInsetBottom;
+- (double)symbolFrameInset;
+- (double)defaultPathWeight;
 - (id)backgroundTraitsForKeyplane:(id)arg1;
+- (double)skinnyKeyThreshold;
+- (id)shiftOnKeyImageName;
+- (id)shiftKeyImageName;
+- (id)deleteKeyImageName;
+- (double)keyCornerRadius;
 - (id)muttitapReverseKeyImageName;
 - (id)multitapCompleteKeyImageName;
 - (id)dismissKeyImageName;
 - (id)dictationKeyImageName;
 - (id)globalKeyImageName;
+- (struct CGPoint)shiftKeyOffset;
+- (struct CGPoint)deleteKeyOffset;
+- (struct CGPoint)dismissKeyOffset;
 
 @end
 

@@ -17,21 +17,21 @@
 
 @property(retain, nonatomic) NSMapTable *_children; // @synthesize _children=__children;
 - (void).cxx_destruct;
-- (BOOL)deleteChildNamed:(id)arg1;
+- (_Bool)deleteChildNamed:(id)arg1;
 - (id)childNamed:(id)arg1;
 - (int)readChildrenIntoArray:(id)arg1 withState:(id *)arg2;
-- (BOOL)enumerateChildrenUsingBlock:(id)arg1;
-- (BOOL)enumerateFileSetsAtOffset:(unsigned long long)arg1 usingBlock:(id)arg2;
-- (int)_updateFileSet:(struct exfat_file_entry_set *)arg1 atOffset:(unsigned long long)arg2 length:(unsigned long)arg3;
+- (_Bool)enumerateChildrenUsingBlock:(id)arg1;
+- (_Bool)enumerateFileSetsAtOffset:(unsigned long long)arg1 usingBlock:(id)arg2;
+- (int)_updateFileSet:(struct exfat_file_entry_set *)arg1 atOffset:(unsigned long long)arg2 length:(unsigned long long)arg3;
 - (id)debugDescription;
-@property(readonly, nonatomic) BOOL isDirectory;
-- (id)initWithVolume:(id)arg1 parent:(id)arg2 name:(id)arg3 startingCluster:(unsigned int)arg4 length:(unsigned long long)arg5 contiguous:(BOOL)arg6;
+@property(readonly, nonatomic) _Bool isDirectory;
+- (id)initWithVolume:(id)arg1 parent:(id)arg2 name:(id)arg3 startingCluster:(unsigned int)arg4 length:(unsigned long long)arg5 contiguous:(_Bool)arg6;
 
 // Remaining properties
-@property(readonly, nonatomic) struct timespec createdDate;
+@property(readonly, nonatomic) long long createdDate;
 @property(readonly, nonatomic) unsigned long long length;
-@property(readonly, nonatomic, getter=isLocked) BOOL locked;
-@property(readonly, nonatomic) struct timespec modifiedDate;
+@property(readonly, nonatomic, getter=isLocked) _Bool locked;
+@property(readonly, nonatomic) long long modifiedDate;
 @property(readonly, nonatomic) NSString *name;
 @property(retain, nonatomic) ExFATVolume *volume;
 

@@ -19,7 +19,7 @@
 @property(nonatomic) struct UIEdgeInsets touchAllowance; // @synthesize touchAllowance=_touchAllowance;
 @property(readonly, nonatomic) UIView *focusedView; // @synthesize focusedView=_focusedView;
 - (void).cxx_destruct;
-- (BOOL)_gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
+- (_Bool)_gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
 - (id)initWithFocusedView:(id)arg1 touchAllowance:(struct UIEdgeInsets)arg2;
 

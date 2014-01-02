@@ -7,10 +7,10 @@
 #import "UIViewController.h"
 
 @interface UIViewController (SUStorePageAdditions)
-- (BOOL)reloadWithURLRequestProperties:(id)arg1;
-- (BOOL)pushStorePage:(id)arg1 withTarget:(int)arg2 animated:(BOOL)arg3;
-- (BOOL)loadMoreWithURL:(id)arg1;
-- (BOOL)hasDisplayableContent;
+- (_Bool)reloadWithURLRequestProperties:(id)arg1;
+- (_Bool)pushStorePage:(id)arg1 withTarget:(long long)arg2 animated:(_Bool)arg3;
+- (_Bool)loadMoreWithURL:(id)arg1;
+- (_Bool)hasDisplayableContent;
 - (void)handleStoreFailureWithError:(id)arg1;
 @end
 

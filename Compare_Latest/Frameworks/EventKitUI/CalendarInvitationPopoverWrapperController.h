@@ -6,11 +6,10 @@
 
 #import "UINavigationController.h"
 
-@class CalendarModel, EKEventViewController;
+@class EKEventViewController;
 
 @interface CalendarInvitationPopoverWrapperController : UINavigationController
 {
-    CalendarModel *_model;
     EKEventViewController *_eventViewController;
 }
 

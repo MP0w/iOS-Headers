@@ -6,6 +6,7 @@
 
 #import <UIKit/UILabel.h>
 
+// Not exported
 @interface _UITableViewHeaderFooterViewLabel : UILabel
 {
     struct CGSize _patternPhase;

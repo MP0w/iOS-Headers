@@ -26,10 +26,10 @@
 @property(copy) NSString *innerPath; // @synthesize innerPath=_innerPath;
 @property(retain) MRLayerEffect *effectLayer; // @synthesize effectLayer=_effectLayer;
 @property(retain) MRLayer *outerLayer; // @synthesize outerLayer=_outerLayer;
-- (BOOL)isEqualToHitBlob:(id)arg1;
+- (_Bool)isEqualToHitBlob:(id)arg1;
 @property(readonly) NSString *mediaType;
 @property(readonly) struct CGSize innerResolution;
-@property(readonly) float aspectRatio;
+@property(readonly) double aspectRatio;
 
 @end
 

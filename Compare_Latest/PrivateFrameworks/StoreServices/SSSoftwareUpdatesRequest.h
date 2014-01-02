@@ -16,7 +16,7 @@
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)copyXPCEncoding;
 - (void)startWithCompletionBlock:(id)arg1;
-- (BOOL)start;
+- (_Bool)start;
 @property(readonly) SSSoftwareUpdatesContext *updateQueueContext;
 - (void)startWithUpdatesResponseBlock:(id)arg1;
 - (void)dealloc;

@@ -7,12 +7,12 @@
 #import "NSError.h"
 
 @interface NSError (MMCSKit)
-+ (id)MMCSErrorWithDomain:(id)arg1 code:(int)arg2 description:(id)arg3;
++ (id)MMCSErrorWithDomain:(id)arg1 code:(long long)arg2 description:(id)arg3;
 - (id)MMCSRetryAfterDate;
-- (BOOL)MMCSIsFatalError;
-- (BOOL)MMCSIsAuthorizationError;
-- (BOOL)MMCSIsNetworkConditionsError;
-- (BOOL)MMCSIsCancelError;
+- (_Bool)MMCSIsFatalError;
+- (_Bool)MMCSIsAuthorizationError;
+- (_Bool)MMCSIsNetworkConditionsError;
+- (_Bool)MMCSIsCancelError;
 - (void)_MMCSApplyBlock:(id)arg1;
 - (int)MMCSErrorType;
 @end

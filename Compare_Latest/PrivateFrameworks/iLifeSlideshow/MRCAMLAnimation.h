@@ -12,7 +12,7 @@
 {
     double startTime;
     double duration;
-    BOOL removedOnCompletion;
+    _Bool removedOnCompletion;
     NSString *keyPath;
     NSArray *keyframes;
 }

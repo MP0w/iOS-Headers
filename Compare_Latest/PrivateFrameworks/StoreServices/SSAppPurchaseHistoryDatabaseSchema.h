@@ -11,8 +11,7 @@
 }
 
 + (id)databasePath;
-+ (BOOL)createFunctionsInDatabase:(id)arg1;
-+ (BOOL)createSchemaInDatabase:(id)arg1;
++ (_Bool)createSchemaInDatabase:(id)arg1;
 
 @end
 

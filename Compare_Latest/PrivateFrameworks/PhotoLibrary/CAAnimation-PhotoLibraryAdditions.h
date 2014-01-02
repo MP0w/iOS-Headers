@@ -7,7 +7,7 @@
 #import "CAAnimation.h"
 
 @interface CAAnimation (PhotoLibraryAdditions)
-- (void)performCompletionBlock:(BOOL)arg1;
+- (void)performCompletionBlock:(_Bool)arg1;
 @property(copy, nonatomic) id completionBlock;
 @property(nonatomic) int animationID;
 @end

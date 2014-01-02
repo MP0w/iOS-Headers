@@ -7,7 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol NSProgressPublisher <NSObject>
-- (oneway void)appWithBundleID:(id)arg1 didAcknowledgeWithSuccess:(BOOL)arg2;
+- (oneway void)appWithBundleID:(id)arg1 didAcknowledgeWithSuccess:(_Bool)arg2;
 - (oneway void)prioritize;
 - (oneway void)pause;
 - (oneway void)cancel;

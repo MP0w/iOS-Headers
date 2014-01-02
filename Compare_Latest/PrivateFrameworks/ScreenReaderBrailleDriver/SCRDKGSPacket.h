@@ -8,6 +8,7 @@
 
 @class NSData;
 
+// Not exported
 @interface SCRDKGSPacket : NSObject
 {
     unsigned char _command;

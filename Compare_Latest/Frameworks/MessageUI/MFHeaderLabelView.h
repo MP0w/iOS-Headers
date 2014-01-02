@@ -14,7 +14,6 @@
 
 + (id)_defaultColor;
 - (struct CGPoint)baselinePoint;
-@property(nonatomic, getter=isHighlighted) BOOL highlighted;
 - (id)effectiveTextColor;
 - (id)initWithFrame:(struct CGRect)arg1;
 

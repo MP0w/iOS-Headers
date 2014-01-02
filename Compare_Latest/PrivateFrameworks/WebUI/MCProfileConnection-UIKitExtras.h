@@ -7,6 +7,6 @@
 #import "MCProfileConnection.h"
 
 @interface MCProfileConnection (UIKitExtras)
-- (BOOL)installConfigurationProfileWithData:(id)arg1;
+- (_Bool)installConfigurationProfileWithData:(id)arg1;
 @end
 

@@ -8,9 +8,10 @@
 
 @class BKSProcessAssertion;
 
+// Not exported
 @interface _UIBackgroundTaskInfo : NSObject
 {
-    unsigned int _taskId;
+    unsigned long long _taskId;
     id _expireHandler;
     BKSProcessAssertion *_processAssertion;
     int _count;

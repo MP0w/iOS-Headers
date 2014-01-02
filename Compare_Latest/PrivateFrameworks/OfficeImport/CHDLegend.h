@@ -8,11 +8,12 @@
 
 @class EDCollection, EDResources, OADGraphicProperties;
 
+// Not exported
 @interface CHDLegend : NSObject
 {
     int mLegendPosition;
     OADGraphicProperties *mGraphicProperties;
-    unsigned int mFontIndex;
+    unsigned long long mFontIndex;
     EDCollection *mLegendEntries;
     EDResources *mResources;
     _Bool mIsVertical;
@@ -29,8 +30,6 @@
 - (int)legendPosition;
 - (void)dealloc;
 - (id)initWithResources:(id)arg1;
-- (void)setFontIndex:(unsigned int)arg1;
-- (unsigned int)fontIndex;
 
 @end
 

@@ -14,7 +14,7 @@
 }
 
 + (id)defaultCenter;
-- (BOOL)isEmpty;
+- (_Bool)isEmpty;
 - (id)addObserverForName:(id)arg1 object:(id)arg2 queue:(id)arg3 usingBlock:(id)arg4;
 - (void)postNotificationName:(id)arg1 object:(id)arg2 userInfo:(id)arg3;
 - (void)postNotificationName:(id)arg1 object:(id)arg2;

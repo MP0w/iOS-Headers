@@ -8,6 +8,7 @@
 
 @class DOMNode;
 
+// Not exported
 @interface DOMTreeWalker : DOMObject
 {
 }
@@ -20,7 +21,7 @@
 - (id)firstChild;
 - (id)parentNode;
 @property(retain) DOMNode *currentNode;
-@property(readonly) BOOL expandEntityReferences;
+@property(readonly) _Bool expandEntityReferences;
 @property(readonly) id <DOMNodeFilter> filter;
 @property(readonly) unsigned int whatToShow;
 @property(readonly) DOMNode *root;

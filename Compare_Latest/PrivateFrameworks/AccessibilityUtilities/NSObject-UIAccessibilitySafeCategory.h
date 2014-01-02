@@ -10,7 +10,7 @@
 - (void)handleFailoversForClassNamed:(id)arg1;
 - (id)safeValueForKeyPath:(id)arg1;
 - (id)safeValueForKey:(id)arg1;
-- (BOOL)safeBoolForKey:(id)arg1;
+- (_Bool)safeBoolForKey:(id)arg1;
 - (void *)safeIvarForKey:(id)arg1;
 @end
 

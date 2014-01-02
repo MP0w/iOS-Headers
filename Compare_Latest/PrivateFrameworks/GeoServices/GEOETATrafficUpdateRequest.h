@@ -6,54 +6,60 @@
 
 #import "PBRequest.h"
 
-@class GEOClientCapabilities, GEOLocation, GEORouteAttributes, NSMutableArray;
+#import "NSCopying-Protocol.h"
 
-@interface GEOETATrafficUpdateRequest : PBRequest
+@class GEOClientCapabilities, GEOLocation, GEORouteAttributes, NSData, NSMutableArray;
+
+@interface GEOETATrafficUpdateRequest : PBRequest <NSCopying>
 {
     GEOClientCapabilities *_clientCapabilities;
     GEOLocation *_currentUserLocation;
     NSMutableArray *_destinationWaypoints;
+    NSData *_directionsResponseID;
     GEORouteAttributes *_routeAttributes;
     NSMutableArray *_routes;
     NSMutableArray *_serviceTags;
-    BOOL _includeBetterRouteSuggestion;
+    _Bool _includeBetterRouteSuggestion;
     struct {
         unsigned int includeBetterRouteSuggestion:1;
     } _has;
 }
 
 @property(retain, nonatomic) NSMutableArray *serviceTags; // @synthesize serviceTags=_serviceTags;
+@property(retain, nonatomic) NSData *directionsResponseID; // @synthesize directionsResponseID=_directionsResponseID;
 @property(retain, nonatomic) GEOClientCapabilities *clientCapabilities; // @synthesize clientCapabilities=_clientCapabilities;
 @property(retain, nonatomic) NSMutableArray *routes; // @synthesize routes=_routes;
 @property(retain, nonatomic) NSMutableArray *destinationWaypoints; // @synthesize destinationWaypoints=_destinationWaypoints;
 @property(retain, nonatomic) GEORouteAttributes *routeAttributes; // @synthesize routeAttributes=_routeAttributes;
 @property(retain, nonatomic) GEOLocation *currentUserLocation; // @synthesize currentUserLocation=_currentUserLocation;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (Class)responseClass;
 - (unsigned int)requestTypeCode;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)serviceTagAtIndex:(unsigned int)arg1;
-- (unsigned int)serviceTagsCount;
+- (id)serviceTagAtIndex:(unsigned long long)arg1;
+- (unsigned long long)serviceTagsCount;
 - (void)addServiceTag:(id)arg1;
 - (void)clearServiceTags;
-@property(readonly, nonatomic) BOOL hasClientCapabilities;
-- (id)routeAtIndex:(unsigned int)arg1;
-- (unsigned int)routesCount;
+@property(readonly, nonatomic) _Bool hasDirectionsResponseID;
+@property(readonly, nonatomic) _Bool hasClientCapabilities;
+- (id)routeAtIndex:(unsigned long long)arg1;
+- (unsigned long long)routesCount;
 - (void)addRoute:(id)arg1;
 - (void)clearRoutes;
-- (id)destinationWaypointAtIndex:(unsigned int)arg1;
-- (unsigned int)destinationWaypointsCount;
+- (id)destinationWaypointAtIndex:(unsigned long long)arg1;
+- (unsigned long long)destinationWaypointsCount;
 - (void)addDestinationWaypoint:(id)arg1;
 - (void)clearDestinationWaypoints;
-@property(nonatomic) BOOL hasIncludeBetterRouteSuggestion;
-@property(nonatomic) BOOL includeBetterRouteSuggestion; // @synthesize includeBetterRouteSuggestion=_includeBetterRouteSuggestion;
-@property(readonly, nonatomic) BOOL hasRouteAttributes;
-@property(readonly, nonatomic) BOOL hasCurrentUserLocation;
+@property(nonatomic) _Bool hasIncludeBetterRouteSuggestion;
+@property(nonatomic) _Bool includeBetterRouteSuggestion; // @synthesize includeBetterRouteSuggestion=_includeBetterRouteSuggestion;
+@property(readonly, nonatomic) _Bool hasRouteAttributes;
+@property(readonly, nonatomic) _Bool hasCurrentUserLocation;
 - (void)dealloc;
 
 @end

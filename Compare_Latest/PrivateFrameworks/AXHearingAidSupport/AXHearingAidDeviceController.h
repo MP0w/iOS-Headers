@@ -14,7 +14,7 @@
 {
     CBCentralManager *_bluetoothManager;
     NSLock *_centralRequestsLock;
-    BOOL _isScanning;
+    _Bool _isScanning;
     NSObject<OS_dispatch_queue> *_bluetoothCentralQueue;
     NSMutableArray *_availableSearchBlocks;
     NSMutableArray *_connectedSearchBlocks;
@@ -48,15 +48,9 @@
 - (void)centralManager:(id)arg1 didRetrievePeripherals:(id)arg2;
 - (void)centralManagerDidUpdateState:(id)arg1;
 - (void)sendRequestToCentralManager:(id)arg1;
-- (id)modelNumberUUID;
-- (id)firmwareVersionUUID;
-- (id)hardwareVersionUUID;
-- (id)manufacturerUUID;
-- (id)disUUID;
-- (id)leaHearingAidUUID;
 - (void)deviceDidFinishLoading:(id)arg1;
 - (void)device:(id)arg1 didSubsumeSlave:(id)arg2;
-- (void)device:(id)arg1 didUpdateProperty:(int)arg2;
+- (void)device:(id)arg1 didUpdateProperty:(long long)arg2;
 - (void)clearConnectedDevices;
 - (void)removeConnectedDevice:(id)arg1;
 - (void)addConnectedDevice:(id)arg1;
@@ -69,12 +63,13 @@
 - (void)loadedDevicesDidChange;
 - (id)hearingAidForPeripheral:(id)arg1;
 - (id)hearingAidsForUUID:(id)arg1;
-- (BOOL)isScanning;
+- (_Bool)isScanning;
 - (void)stopPropertyUpdates;
 - (void)stopSearching;
-- (BOOL)isBluetoothAvailable;
+- (_Bool)isBluetoothAvailable;
 - (void)disconnectFromPeripheral:(id)arg1;
 - (void)connectToPeripheral:(id)arg1;
+- (void)resetConnectionToPeripheral:(id)arg1;
 - (void)searchForConnectedDevices;
 - (void)searchForAvailableDevices;
 - (void)clearMissingHearingAids;

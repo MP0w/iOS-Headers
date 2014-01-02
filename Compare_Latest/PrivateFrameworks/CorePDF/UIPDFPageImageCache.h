@@ -11,29 +11,29 @@
 @interface UIPDFPageImageCache : NSObject
 {
     UIPDFDocument *_document;
-    unsigned int _lookAhead;
-    unsigned int _jobCount;
+    unsigned long long _lookAhead;
+    unsigned long long _jobCount;
     id *_jobsPrioritized;
-    unsigned int _nextJobIndex;
-    unsigned int _pageCount;
+    unsigned long long _nextJobIndex;
+    unsigned long long _pageCount;
     id *_jobsByPage;
     NSOperationQueue *_renderQueue;
     int _lock;
 }
 
-@property(readonly) unsigned int lookAhead; // @synthesize lookAhead=_lookAhead;
-@property(readonly) unsigned int pageCount; // @synthesize pageCount=_pageCount;
+@property(readonly) unsigned long long lookAhead; // @synthesize lookAhead=_lookAhead;
+@property(readonly) unsigned long long pageCount; // @synthesize pageCount=_pageCount;
 @property(readonly) UIPDFDocument *document; // @synthesize document=_document;
 - (void)didReceiveMemoryWarning:(id)arg1;
 - (void)cancelPendingRenderOperationsForTarget:(id)arg1;
 - (void)cancelPendingRenderOperations;
-- (id)getImageIfAvailableForPage:(unsigned int)arg1;
-- (void)deliverImageOfPage:(unsigned int)arg1 maxSize:(struct CGSize)arg2 quality:(char *)arg3 receiver:(id)arg4 selector:(SEL)arg5 info:(id)arg6;
-- (void)cacheImageOfPage:(unsigned int)arg1 maxSize:(struct CGSize)arg2;
+- (id)getImageIfAvailableForPage:(unsigned long long)arg1;
+- (void)deliverImageOfPage:(unsigned long long)arg1 maxSize:(struct CGSize)arg2 quality:(_Bool *)arg3 receiver:(id)arg4 selector:(SEL)arg5 info:(id)arg6;
+- (void)cacheImageOfPage:(unsigned long long)arg1 maxSize:(struct CGSize)arg2;
 - (void)addRenderJob:(id)arg1;
 - (void)dealloc;
 - (void)clearCache;
-- (id)initWithDocument:(id)arg1 cacheCount:(unsigned int)arg2 lookAhead:(unsigned int)arg3;
+- (id)initWithDocument:(id)arg1 cacheCount:(unsigned long long)arg2 lookAhead:(unsigned long long)arg3;
 - (id)initWithDocument:(id)arg1;
 
 @end

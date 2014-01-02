@@ -9,16 +9,16 @@
 @interface PLAirTunesButton : UINavigationButton
 {
     int _mode;
-    BOOL _isInMiniBar;
+    _Bool _isInMiniBar;
 }
 
-@property(nonatomic) BOOL isInMiniBar; // @synthesize isInMiniBar=_isInMiniBar;
+@property(nonatomic) _Bool isInMiniBar; // @synthesize isInMiniBar=_isInMiniBar;
 @property(nonatomic) int mode; // @synthesize mode=_mode;
-- (void)updateForMiniBarState:(BOOL)arg1;
+- (void)updateForMiniBarState:(_Bool)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (id)initWithAirTunesMode:(int)arg1;
-- (void)_setImagesForMode:(int)arg1 miniBar:(BOOL)arg2;
-- (id)_imageNameForMode:(int)arg1 isInMinibar:(BOOL)arg2;
+- (void)_setImagesForMode:(int)arg1 miniBar:(_Bool)arg2;
+- (id)_imageNameForMode:(int)arg1 isInMinibar:(_Bool)arg2;
 
 @end
 

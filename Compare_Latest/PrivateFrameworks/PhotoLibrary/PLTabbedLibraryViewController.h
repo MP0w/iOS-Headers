@@ -10,26 +10,22 @@
 #import "PLAssetContainerObserver-Protocol.h"
 #import "PLDismissableViewController-Protocol.h"
 #import "PLInvitationRecordsObserver-Protocol.h"
-#import "PLPhotosPickerSessionParticipant-Protocol.h"
 #import "PLRootLibraryNavigationController-Protocol.h"
 #import "UINavigationControllerDelegate-Protocol.h"
 
-@class NSDictionary, PLPhotosPickerSession, UINavigationController;
+@class NSDictionary, UINavigationController;
 
-@interface PLTabbedLibraryViewController : UITabBarController <PLPhotosPickerSessionParticipant, PLAssetContainerListChangeObserver, PLAssetContainerObserver, PLInvitationRecordsObserver, PLDismissableViewController, PLRootLibraryNavigationController, UINavigationControllerDelegate>
+@interface PLTabbedLibraryViewController : UITabBarController <PLAssetContainerListChangeObserver, PLAssetContainerObserver, PLInvitationRecordsObserver, PLDismissableViewController, PLRootLibraryNavigationController, UINavigationControllerDelegate>
 {
-    PLPhotosPickerSession *_currentPickerSession;
     NSDictionary *_filteredAlbumListsByContentMode;
     int _pendingSelectedContentMode;
     int _baseAlbumListFilter;
-    BOOL _showPlacesTab;
-    BOOL _psBadgeIsDirty;
-    BOOL _barHiddenExplicitly;
+    _Bool _psBadgeIsDirty;
+    _Bool _barHiddenExplicitly;
 }
 
 + (void)initialize;
 @property(readonly) int baseAlbumListFilter; // @synthesize baseAlbumListFilter=_baseAlbumListFilter;
-@property(retain, nonatomic) PLPhotosPickerSession *currentPickerSession; // @synthesize currentPickerSession=_currentPickerSession;
 - (void)prepareForDefaultImageSnapshot;
 - (void)_makeViewControllersPerformSelector:(SEL)arg1 withNotification:(id)arg2;
 - (void)_didFinishPostingNotifications:(id)arg1;
@@ -40,58 +36,57 @@
 - (void)_applicationWillEnterForeground:(id)arg1;
 - (id)newNavigationControllerWithRootController:(id)arg1;
 - (void)configureTabBarItem:(id)arg1 iconName:(id)arg2;
-- (void)getCustomTitle:(out id *)arg1 backButtonTitle:(out id *)arg2 ofRootController:(id)arg3 forContentMode:(int)arg4;
 - (void)configureTabBar:(id)arg1;
-- (void)updateDisplayedTabs:(BOOL)arg1;
-- (BOOL)shouldShowTabForContentMode:(int)arg1;
+- (void)updateDisplayedTabs:(_Bool)arg1;
+- (_Bool)shouldShowTabForContentMode:(int)arg1;
 - (id)_navigationControllerForContentMode:(int)arg1 replacedController:(id *)arg2;
-- (BOOL)isNavigationControllerBadged:(id)arg1;
+- (_Bool)isNavigationControllerBadged:(id)arg1;
 - (int)contentModeForNavigationController:(id)arg1;
-- (id)_existingNavigationControllerForContentMode:(int)arg1;
+- (id)existingNavigationControllerForContentMode:(int)arg1;
 - (struct NSObject *)defaultAlbumList;
-- (id)rootViewControllerForContentMode:(int)arg1;
+- (id)newRootViewControllerForContentMode:(int)arg1;
 - (void)_updatePhotoStreamTabBadgeForNavigationController:(id)arg1;
-@property(readonly, nonatomic) BOOL needsTabBar;
+@property(readonly, nonatomic) _Bool needsTabBar;
 - (void)showTabBarIfNeededWithTransition:(int)arg1;
-- (void)showTabBarIfNeeded:(BOOL)arg1;
+- (void)showTabBarIfNeeded:(_Bool)arg1;
 - (void)showBarWithTransition:(int)arg1;
 - (void)hideTabBarWithTransition:(int)arg1;
-- (void)hideTabBar:(BOOL)arg1;
-- (BOOL)prepareForDismissingForced:(BOOL)arg1;
-- (BOOL)_navigateToRootOfCurrentTabAnimated:(BOOL)arg1;
-- (BOOL)cloudFeedInvitationForAlbumIsAvailableForNavigation:(id)arg1;
-- (BOOL)cloudFeedCommentIsAvailableForNavigation:(id)arg1;
-- (BOOL)cloudFeedAssetIsAvailableForNavigation:(id)arg1;
-- (BOOL)cloudFeedIsAvailableForNavigation;
-- (BOOL)commentIsAvailableForNavigation:(id)arg1 inAsset:(id)arg2;
-- (BOOL)assetIsAvailableForNavigation:(id)arg1 inAlbum:(struct NSObject *)arg2;
+- (void)hideTabBar:(_Bool)arg1;
+- (_Bool)prepareForDismissingForced:(_Bool)arg1;
+- (_Bool)navigateToRootOfCurrentTabAnimated:(_Bool)arg1;
+- (_Bool)cloudFeedInvitationForAlbumIsAvailableForNavigation:(id)arg1;
+- (_Bool)cloudFeedCommentIsAvailableForNavigation:(id)arg1;
+- (_Bool)cloudFeedAssetIsAvailableForNavigation:(id)arg1;
+- (_Bool)cloudFeedIsAvailableForNavigation;
+- (_Bool)commentIsAvailableForNavigation:(id)arg1 inAsset:(id)arg2;
+- (_Bool)assetIsAvailableForNavigation:(id)arg1 inAlbum:(struct NSObject *)arg2;
 - (struct NSObject *)_availableAlbumToNavigateToAsset:(id)arg1 preferredAlbum:(struct NSObject *)arg2;
-- (BOOL)albumIsAvailableForNavigation:(struct NSObject *)arg1;
-- (BOOL)contentModeIsAvailableForNavigation:(int)arg1;
-- (void)navigateToComment:(id)arg1 forAsset:(id)arg2 animated:(BOOL)arg3;
-- (void)navigateToRevealAsset:(id)arg1 inAlbum:(struct NSObject *)arg2 animated:(BOOL)arg3;
-- (void)navigateToAsset:(id)arg1 inAlbum:(struct NSObject *)arg2 animated:(BOOL)arg3;
-- (void)_navigateToAsset:(id)arg1 andPerformAction:(int)arg2 inAlbum:(struct NSObject *)arg3 animated:(BOOL)arg4;
+- (_Bool)albumIsAvailableForNavigation:(struct NSObject *)arg1;
+- (_Bool)contentModeIsAvailableForNavigation:(int)arg1;
+- (void)navigateToComment:(id)arg1 forAsset:(id)arg2 animated:(_Bool)arg3;
+- (void)navigateToRevealAsset:(id)arg1 inAlbum:(struct NSObject *)arg2 animated:(_Bool)arg3;
+- (void)navigateToAsset:(id)arg1 inAlbum:(struct NSObject *)arg2 animated:(_Bool)arg3;
+- (void)_navigateToAsset:(id)arg1 andPerformAction:(int)arg2 inAlbum:(struct NSObject *)arg3 animated:(_Bool)arg4;
 - (void)navigateToRevealCloudFeedInvitationForAlbum:(id)arg1 completion:(id)arg2;
 - (void)navigateToCloudFeedComment:(id)arg1 completion:(id)arg2;
 - (void)navigateToRevealCloudFeedComment:(id)arg1 completion:(id)arg2;
 - (void)navigateToCloudFeedAsset:(id)arg1 completion:(id)arg2;
 - (void)navigateToRevealCloudFeedAsset:(id)arg1 completion:(id)arg2;
 - (void)navigateToCloudFeedWithCompletion:(id)arg1;
-- (void)navigateToContentMode:(int)arg1 animated:(BOOL)arg2 completion:(id)arg3;
-- (void)navigateToRevealAlbum:(struct NSObject *)arg1 initiallyHidden:(BOOL)arg2 animated:(BOOL)arg3;
-- (void)navigateToAlbum:(struct NSObject *)arg1 animated:(BOOL)arg2 completion:(id)arg3;
-- (void)_navigateToAlbum:(struct NSObject *)arg1 andPerformAction:(int)arg2 initiallyHidden:(BOOL)arg3 animated:(BOOL)arg4 completion:(id)arg5;
+- (void)navigateToContentMode:(int)arg1 animated:(_Bool)arg2 completion:(id)arg3;
+- (void)navigateToRevealAlbum:(struct NSObject *)arg1 initiallyHidden:(_Bool)arg2 animated:(_Bool)arg3;
+- (void)navigateToAlbum:(struct NSObject *)arg1 animated:(_Bool)arg2 completion:(id)arg3;
+- (void)_navigateToAlbum:(struct NSObject *)arg1 andPerformAction:(int)arg2 initiallyHidden:(_Bool)arg3 animated:(_Bool)arg4 completion:(id)arg5;
 - (int)_contentModeForAlbum:(struct NSObject *)arg1;
 - (void)navigateToInitialLocationInNavigationController:(id)arg1;
-- (BOOL)shouldSuppressTabForContentMode:(int)arg1;
+- (_Bool)canShowTabBadgeForContentMode:(int)arg1;
 - (struct NSObject *)albumListForContentMode:(int)arg1;
 @property(nonatomic) int selectedContentMode;
 @property(readonly, nonatomic) UINavigationController *selectedNavigationController;
-- (void)navigationController:(id)arg1 willShowViewController:(id)arg2 animated:(BOOL)arg3;
-- (unsigned int)supportedInterfaceOrientations;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)navigationController:(id)arg1 willShowViewController:(id)arg2 animated:(_Bool)arg3;
+- (unsigned long long)supportedInterfaceOrientations;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)dealloc;
 - (id)init;

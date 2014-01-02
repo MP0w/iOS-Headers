@@ -8,10 +8,11 @@
 
 @class NSArray, NSObject<WebDocumentView>, UIWebDocumentView;
 
+// Not exported
 @interface UIWebPaginationInfo : NSObject
 {
     NSObject<WebDocumentView> *_documentView;
-    float _scaleFactor;
+    double _scaleFactor;
     struct CGSize _layoutSize;
     NSArray *_pageRects;
     UIWebDocumentView *_webDocumentView;
@@ -21,12 +22,12 @@
 - (id)documentView;
 - (id)pageRects;
 - (struct CGSize)layoutSize;
-- (float)scaleFactor;
-- (struct CGSize)sizeForPageAtIndex:(int)arg1;
-@property(readonly, nonatomic) float lastPageHeight;
-@property(readonly, nonatomic) unsigned int pageCount;
+- (double)scaleFactor;
+- (struct CGSize)sizeForPageAtIndex:(long long)arg1;
+@property(readonly, nonatomic) double lastPageHeight;
+@property(readonly, nonatomic) unsigned long long pageCount;
 - (void)dealloc;
-- (id)initWithDocumentView:(id)arg1 scaleFactor:(float)arg2 layoutSize:(struct CGSize)arg3 pageRects:(id)arg4;
+- (id)initWithDocumentView:(id)arg1 scaleFactor:(double)arg2 layoutSize:(struct CGSize)arg3 pageRects:(id)arg4;
 
 @end
 

@@ -10,10 +10,10 @@
 {
 }
 
-+ (double)timeToCacheResultsForIDStatus:(unsigned int)arg1;
-+ (double)timeToCacheUnknownResults;
-+ (double)timeToCacheNegativeResults;
-+ (double)timeToCachePositiveResults;
++ (double)timeToCacheResultsForIDStatus:(unsigned int)arg1 forService:(id)arg2;
++ (double)timeToCacheUnknownResultsForService:(id)arg1;
++ (double)timeToCacheNegativeResultsForService:(id)arg1;
++ (double)timeToCachePositiveResultsForService:(id)arg1;
 
 @end
 

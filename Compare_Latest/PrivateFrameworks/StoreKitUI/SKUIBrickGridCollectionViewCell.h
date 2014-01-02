@@ -6,14 +6,15 @@
 
 #import "UICollectionViewCell.h"
 
-@class NSString, SKUITextBoxView, UIImage, UIImageView;
+@class NSString, SKUIEditorialCellLayout, UIImage, UIImageView, UIView;
 
 @interface SKUIBrickGridCollectionViewCell : UICollectionViewCell
 {
     NSString *_accessibilityLabel;
     UIImageView *_brickImageView;
     struct UIEdgeInsets _contentInsets;
-    SKUITextBoxView *_editorialView;
+    SKUIEditorialCellLayout *_editorialCellLayout;
+    UIView *_editorialContainerView;
 }
 
 @property(nonatomic) struct UIEdgeInsets contentInsets; // @synthesize contentInsets=_contentInsets;
@@ -23,7 +24,7 @@
 - (void)layoutSubviews;
 - (void)setColoringWithColorScheme:(id)arg1;
 @property(retain, nonatomic) UIImage *brickImage;
-- (void)applyEditorialLayout:(id)arg1 orientation:(int)arg2;
+- (void)applyEditorialLayout:(id)arg1 orientation:(long long)arg2;
 
 @end
 

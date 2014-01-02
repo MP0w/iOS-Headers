@@ -8,6 +8,7 @@
 
 @class CMDrawableStyle, NSData, NSString, OADDrawable, OADOrientedBounds;
 
+// Not exported
 @interface CMDrawableMapper : CMMapper
 {
     OADDrawable *mDrawable;
@@ -19,8 +20,8 @@
     NSString *mSourcePath;
     struct CGRect mBox;
     float mRotation;
-    BOOL mIsSupported;
-    BOOL mIsCropped;
+    _Bool mIsSupported;
+    _Bool mIsCropped;
     struct CGRect mUncroppedBox;
     OADOrientedBounds *mOrientedBounds;
 }
@@ -29,7 +30,7 @@
 - (id)convertMetafileToPdf;
 - (void)mapTextBoxAt:(id)arg1 withState:(id)arg2;
 - (struct CGRect)shapeTextBoxRect;
-- (void)mapDrawingContext:(id)arg1 at:(id)arg2 relative:(BOOL)arg3 withState:(id)arg4;
+- (void)mapDrawingContext:(id)arg1 at:(id)arg2 relative:(_Bool)arg3 withState:(id)arg4;
 - (void)mapShapeGraphicsAt:(id)arg1 withState:(id)arg2;
 - (void)calculateUncroppedBox:(id)arg1;
 - (void)mapBounds;
@@ -41,7 +42,7 @@
 - (void)setRotation:(float)arg1;
 - (float)rotation;
 - (struct CGRect)uncroppedBox;
-- (BOOL)isCropped;
+- (_Bool)isCropped;
 - (struct CGRect)box;
 - (id)initWithOadDrawable:(id)arg1 parent:(id)arg2;
 - (id)initWithParent:(id)arg1;

@@ -16,16 +16,17 @@
     SUClientInterface *_clientInterface;
     SUDownloadManager *_downloadManager;
     UIView *_emptyDownloadQueueView;
-    BOOL _isUsingNetwork;
+    _Bool _isUsingNetwork;
     NSObject<OS_dispatch_source> *_reloadFromServerTimer;
+    _Bool _isEditing;
 }
 
 - (void)_updatePurchasedPlaylistButton;
 - (void)_startReloadFromServerTimer;
-- (void)_setUsingNetwork:(BOOL)arg1;
+- (void)_setUsingNetwork:(_Bool)arg1;
 - (void)_reloadDownloadManagerFromServer;
 - (void)_reloadEmptyDownloadQueueView;
-- (void)_reloadDataAnimated:(BOOL)arg1;
+- (void)_reloadDataAnimated:(_Bool)arg1;
 - (id)_newChildViewController;
 - (void)_cancelReloadFromServerTimer;
 - (void)_tabConfigurationChanged:(id)arg1;
@@ -44,7 +45,7 @@
 - (id)copyScriptViewController;
 - (id)contentScrollView;
 - (void)applicationWillEnterForeground;
-- (void)updateTabBarItemsAnimated:(BOOL)arg1;
+- (void)updateTabBarItemsAnimated:(_Bool)arg1;
 - (void)dealloc;
 - (id)initWithManagerOptions:(id)arg1 preorderItemKinds:(id)arg2;
 - (id)initWithManagerOptions:(id)arg1;

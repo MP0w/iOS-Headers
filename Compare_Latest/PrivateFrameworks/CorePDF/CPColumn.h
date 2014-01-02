@@ -8,42 +8,40 @@
 
 @interface CPColumn : CPRegion
 {
-    BOOL hasCentredParagraph;
-    BOOL hasColumnBreak;
-    float maxLeftPad;
-    float maxRightPad;
-    float maxRight;
-    float minLeft;
-    BOOL complete;
+    _Bool hasCentredParagraph;
+    _Bool hasColumnBreak;
+    double maxLeftPad;
+    double maxRightPad;
+    double maxRight;
+    double minLeft;
+    _Bool complete;
 }
 
-@property BOOL complete; // @synthesize complete;
+@property _Bool complete; // @synthesize complete;
 - (id)description;
-- (float)selectionBottom;
+- (double)selectionBottom;
 - (struct CGRect)paddedBounds;
-- (void)setMaxRightPad:(float)arg1;
-- (float)maxRightPad;
-- (void)setMaxLeftPad:(float)arg1;
-- (float)maxLeftPad;
-- (float)rightPad;
-- (float)leftPad;
-- (void)setHasCentredParagraph:(BOOL)arg1;
-- (BOOL)hasCentredParagraph;
-- (float)bottomBaseline;
+- (void)setMaxRightPad:(double)arg1;
+- (double)maxRightPad;
+- (void)setMaxLeftPad:(double)arg1;
+- (double)maxLeftPad;
+- (double)rightPad;
+- (double)leftPad;
+- (void)setHasCentredParagraph:(_Bool)arg1;
+- (_Bool)hasCentredParagraph;
+- (double)bottomBaseline;
 - (struct CGRect)columnBounds;
-- (BOOL)isShapeRegion;
-- (BOOL)isImageRegion;
-- (void)setIsImageRegion:(BOOL)arg1;
-- (BOOL)isRowRegion;
-- (BOOL)isGraphicalRegion;
-- (BOOL)isBoxRegion;
-- (void)setHasColumnBreak:(BOOL)arg1;
+- (_Bool)isShapeRegion;
+- (_Bool)isImageRegion;
+- (void)setIsImageRegion:(_Bool)arg1;
+- (_Bool)isRowRegion;
+- (_Bool)isGraphicalRegion;
+- (_Bool)isBoxRegion;
+- (void)setHasColumnBreak:(_Bool)arg1;
 - (void)accept:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)init;
-- (int)inOrder;
-- (int)outOrder;
 
 @end
 

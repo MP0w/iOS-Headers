@@ -8,6 +8,7 @@
 
 @class NSSQLToOne;
 
+// Not exported
 @interface NSSQLForeignKey : NSSQLColumn
 {
     NSSQLToOne *_toOne;

@@ -33,7 +33,7 @@
 - (unsigned long long)vmsize;
 - (unsigned long long)vmaddr;
 - (id)name;
-- (BOOL)isSegment;
+- (_Bool)isSegment;
 
 @end
 

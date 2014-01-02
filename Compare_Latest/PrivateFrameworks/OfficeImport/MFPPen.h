@@ -8,6 +8,7 @@
 
 @class MFPBrush, MFPCustomLineCap;
 
+// Not exported
 @interface MFPPen : NSObject
 {
     MFPBrush *mBrush;

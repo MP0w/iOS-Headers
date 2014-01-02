@@ -15,8 +15,8 @@
 - (void)setCardGroupItem:(id)arg1;
 - (void)tintColorDidChange;
 - (void)performDefaultAction;
-- (BOOL)shouldPerformDefaultAction;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (_Bool)shouldPerformDefaultAction;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

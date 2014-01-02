@@ -9,13 +9,13 @@
 @interface NSValue (MKAdditions)
 - (CDStruct_90e2a262)MKMapRectValue;
 - (id)_mapkit_initWithMKMapRect:(CDStruct_90e2a262)arg1;
-- (CDStruct_0c7fa811)_mapkit_zoomRegionValue;
-- (id)_mapkit_initWithZoomRegion:(CDStruct_0c7fa811)arg1;
+- (CDStruct_46f4fb6f)_mapkit_zoomRegionValue;
+- (id)_mapkit_initWithZoomRegion:(CDStruct_46f4fb6f)arg1;
 - (id)_mapkit_initWithCGRect:(struct CGRect)arg1;
-- (struct CADoubleRect)CADoubleRectValue;
-- (id)_mapkit_initWithCADoubleRect:(struct CADoubleRect)arg1;
-- (struct CADoublePoint)CADoublePointValue;
-- (id)_mapkit_initWithCADoublePoint:(struct CADoublePoint)arg1;
+- (struct CGRect)CADoubleRectValue;
+- (id)_mapkit_initWithCADoubleRect:(struct CGRect)arg1;
+- (struct CGPoint)CADoublePointValue;
+- (id)_mapkit_initWithCADoublePoint:(struct CGPoint)arg1;
 - (id)_mapkit_initWithCGPoint:(struct CGPoint)arg1;
 @end
 

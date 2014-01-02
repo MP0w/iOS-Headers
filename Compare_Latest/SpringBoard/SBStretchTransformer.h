@@ -12,23 +12,23 @@
 {
     UIView *m_view;
     int m_anchorEdge;
-    int m_orientation;
+    long long m_orientation;
     CAMutableMeshTransform *m_mesh;
-    float m_stretchFactor;
+    double m_stretchFactor;
     id m_animationCompletionHandler;
 }
 
-@property(nonatomic) float stretchFactor; // @synthesize stretchFactor=m_stretchFactor;
-@property(nonatomic) int orientation; // @synthesize orientation=m_orientation;
+@property(nonatomic) double stretchFactor; // @synthesize stretchFactor=m_stretchFactor;
+@property(nonatomic) long long orientation; // @synthesize orientation=m_orientation;
 @property(nonatomic) int anchorEdge; // @synthesize anchorEdge=m_anchorEdge;
 @property(retain, nonatomic) UIView *view; // @synthesize view=m_view;
-- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
+- (void)animationDidStop:(id)arg1 finished:(_Bool)arg2;
 - (void)animateToZeroStretchFactorWithCompletionHandler:(id)arg1;
 - (void)animateToZeroStretchFactor;
-- (void)updateMeshTransform:(id)arg1 stretchFactor:(float)arg2;
+- (void)updateMeshTransform:(id)arg1 stretchFactor:(double)arg2;
 - (id)meshTransform;
 - (void)dealloc;
-- (id)initWithView:(id)arg1 anchorEdge:(int)arg2 orientation:(int)arg3;
+- (id)initWithView:(id)arg1 anchorEdge:(int)arg2 orientation:(long long)arg3;
 
 @end
 

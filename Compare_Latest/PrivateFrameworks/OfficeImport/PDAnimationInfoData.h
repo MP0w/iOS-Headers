@@ -8,6 +8,7 @@
 
 @class OADDrawable, PDBuild, PDSequentialTimeNode;
 
+// Not exported
 @interface PDAnimationInfoData : NSObject
 {
     unsigned int mOrder;

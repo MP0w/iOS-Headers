@@ -10,6 +10,7 @@
 
 @class NSOperationQueue, NSString, NSURL, PFUbiquityLocation;
 
+// Not exported
 @interface PFUbiquityContainerIdentifier : NSObject <NSFilePresenter>
 {
     NSString *_storeName;
@@ -18,18 +19,18 @@
     NSString *_uuidString;
     PFUbiquityLocation *_uuidFileLocation;
     NSURL *_presentedItemURL;
-    BOOL _usedExistingUUIDFile;
+    _Bool _usedExistingUUIDFile;
 }
 
 @property(readonly) NSURL *presentedItemURL; // @synthesize presentedItemURL=_presentedItemURL;
-@property(readonly, nonatomic) BOOL usedExistingUUIDFile; // @synthesize usedExistingUUIDFile=_usedExistingUUIDFile;
+@property(readonly, nonatomic) _Bool usedExistingUUIDFile; // @synthesize usedExistingUUIDFile=_usedExistingUUIDFile;
 @property(readonly, nonatomic) PFUbiquityLocation *uuidFileLocation; // @synthesize uuidFileLocation=_uuidFileLocation;
 @property(readonly, nonatomic) NSString *uuidString; // @synthesize uuidString=_uuidString;
 @property(readonly) NSOperationQueue *presentedItemOperationQueue;
 - (void)accommodatePresentedItemDeletionWithCompletionHandler:(id)arg1;
-- (BOOL)replaceIdentifierWithUUID:(id)arg1 error:(id *)arg2;
-- (BOOL)identifyContainer:(id *)arg1;
-- (BOOL)writeToDisk:(id *)arg1;
+- (_Bool)replaceIdentifierWithUUID:(id)arg1 error:(id *)arg2;
+- (_Bool)identifyContainer:(id *)arg1;
+- (_Bool)writeToDisk:(id *)arg1;
 - (void)setUUIDStringFromLocation:(id)arg1;
 - (id)description;
 - (void)dealloc;

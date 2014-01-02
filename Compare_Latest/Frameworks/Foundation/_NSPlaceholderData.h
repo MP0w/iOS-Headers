@@ -6,15 +6,16 @@
 
 #import "NSData.h"
 
+// Not exported
 @interface _NSPlaceholderData : NSData
 {
 }
 
-- (unsigned int)retainCount;
+- (unsigned long long)retainCount;
 - (id)retain;
 - (oneway void)release;
 - (id)initWithData:(id)arg1;
-- (id)initWithBytes:(void *)arg1 length:(unsigned int)arg2 copy:(BOOL)arg3 deallocator:(id)arg4;
+- (id)initWithBytes:(void *)arg1 length:(unsigned long long)arg2 copy:(_Bool)arg3 deallocator:(id)arg4;
 - (id)init;
 
 @end

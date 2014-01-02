@@ -14,7 +14,7 @@
     NSString *_hostname;
     NSString *_username;
     NSString *_password;
-    BOOL _useSSL;
+    _Bool _useSSL;
     NSArray *_searchSettings;
     NSString *_accountPersistentUUID;
 }
@@ -24,7 +24,7 @@
 + (id)typeStrings;
 @property(copy, nonatomic) NSString *accountPersistentUUID; // @synthesize accountPersistentUUID=_accountPersistentUUID;
 @property(readonly, nonatomic) NSArray *searchSettings; // @synthesize searchSettings=_searchSettings;
-@property(readonly, nonatomic) BOOL useSSL; // @synthesize useSSL=_useSSL;
+@property(readonly, nonatomic) _Bool useSSL; // @synthesize useSSL=_useSSL;
 @property(retain, nonatomic) NSString *password; // @synthesize password=_password;
 @property(retain, nonatomic) NSString *username; // @synthesize username=_username;
 @property(readonly, nonatomic) NSString *hostname; // @synthesize hostname=_hostname;

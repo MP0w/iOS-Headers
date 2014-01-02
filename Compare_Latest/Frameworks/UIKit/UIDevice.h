@@ -10,7 +10,7 @@
 
 @interface UIDevice : NSObject
 {
-    int _numDeviceOrientationObservers;
+    long long _numDeviceOrientationObservers;
     float _batteryLevel;
     struct {
         unsigned int batteryMonitoringEnabled:1;
@@ -23,46 +23,37 @@
 }
 
 + (id)currentDevice;
-+ (int)currentDeviceOrientationAllowingAmbiguous:(BOOL)arg1;
-+ (id)modelSpecificLocalizedStringKeyForKey:(id)arg1;
-- (void)_playSystemSound:(unsigned long)arg1;
++ (long long)currentDeviceOrientationAllowingAmbiguous:(_Bool)arg1;
+- (void)_playSystemSound:(unsigned int)arg1;
 - (void)_unregisterForSystemSounds:(id)arg1;
 - (void)_registerForSystemSounds:(id)arg1;
 - (void)_updateSystemSoundActiveStatus:(id)arg1;
 - (float)_softwareDimmingAlpha;
 @property(nonatomic, setter=_setBacklightLevel:) float _backlightLevel;
 - (void)playInputClick;
-@property(readonly, nonatomic) int userInterfaceIdiom;
-@property(readonly, nonatomic, getter=isMultitaskingSupported) BOOL multitaskingSupported;
-@property(readonly, nonatomic) BOOL proximityState;
-- (void)_setExpectsFaceContactInLandscape:(BOOL)arg1;
-@property(nonatomic, getter=isProximityMonitoringEnabled) BOOL proximityMonitoringEnabled;
+@property(readonly, nonatomic) long long userInterfaceIdiom;
+@property(readonly, nonatomic, getter=isMultitaskingSupported) _Bool multitaskingSupported;
+@property(readonly, nonatomic) _Bool proximityState;
+- (void)_setExpectsFaceContactInLandscape:(_Bool)arg1;
+@property(nonatomic, getter=isProximityMonitoringEnabled) _Bool proximityMonitoringEnabled;
 @property(readonly, nonatomic) float batteryLevel;
-@property(readonly, nonatomic) int batteryState;
-@property(nonatomic, getter=isBatteryMonitoringEnabled) BOOL batteryMonitoringEnabled;
-@property(readonly, nonatomic, getter=isGeneratingDeviceOrientationNotifications) BOOL generatesDeviceOrientationNotifications;
+@property(readonly, nonatomic) long long batteryState;
+@property(nonatomic, getter=isBatteryMonitoringEnabled) _Bool batteryMonitoringEnabled;
+@property(readonly, nonatomic, getter=isGeneratingDeviceOrientationNotifications) _Bool generatesDeviceOrientationNotifications;
 - (void)endGeneratingDeviceOrientationNotifications;
 - (void)beginGeneratingDeviceOrientationNotifications;
-@property(readonly, nonatomic) int orientation;
-- (void)setOrientation:(int)arg1 animated:(BOOL)arg2;
+@property(readonly, nonatomic) long long orientation;
+- (void)setOrientation:(long long)arg1;
+- (void)setOrientation:(long long)arg1 animated:(_Bool)arg2;
 @property(readonly, nonatomic) NSUUID *identifierForVendor;
-- (id)uniqueIdentifier;
-@property(readonly, nonatomic) NSString *buildVersion;
+- (id)buildVersion;
 @property(readonly, nonatomic) NSString *systemVersion;
 @property(readonly, nonatomic) NSString *systemName;
 @property(readonly, nonatomic) NSString *localizedModel;
 @property(readonly, nonatomic) NSString *model;
 @property(readonly, nonatomic) NSString *name;
 - (id)_deviceInfoForKey:(struct __CFString *)arg1;
-- (void)_setActiveUserInterfaceIdiom:(int)arg1;
-- (void)_enableDeviceOrientationEvents:(BOOL)arg1;
-- (void)_clearGraphicsQualityOverride;
-- (void)_setGraphicsQualityOverride:(int)arg1;
-- (int)_graphicsQuality;
-- (BOOL)_isTTYEnabled;
-- (void)_setBatteryLevel:(float)arg1;
-- (void)_setBatteryState:(int)arg1;
-- (void)_setProximityState:(BOOL)arg1;
+- (void)_setActiveUserInterfaceIdiom:(long long)arg1;
 
 @end
 

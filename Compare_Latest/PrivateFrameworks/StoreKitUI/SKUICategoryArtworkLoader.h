@@ -24,8 +24,9 @@
 - (void).cxx_destruct;
 - (void)artworkRequest:(id)arg1 didLoadImage:(id)arg2;
 - (void)removeObserver:(id)arg1;
+@property(readonly, nonatomic) struct CGSize imageSize;
 @property(readonly, nonatomic) UIImage *placeholderImage;
-- (void)loadImageForCategory:(id)arg1 reason:(int)arg2;
+- (void)loadImageForCategory:(id)arg1 reason:(long long)arg2;
 - (id)cachedImageForCategory:(id)arg1;
 - (void)addObserver:(id)arg1;
 - (id)initWithArtworkLoader:(id)arg1;

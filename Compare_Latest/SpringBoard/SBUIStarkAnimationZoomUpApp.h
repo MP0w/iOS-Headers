@@ -13,8 +13,8 @@
     SBAlert *_alertImpersonator;
     UIView *_viewToAnimate;
     UIView *_contextHostView;
-    BOOL _requiresHostView;
-    BOOL _activateBeforeHosting;
+    _Bool _requiresHostView;
+    _Bool _activateBeforeHosting;
 }
 
 - (void)animationDidStop:(id)arg1 finished:(id)arg2 context:(void *)arg3;
@@ -22,7 +22,7 @@
 - (void)_startAnimation;
 - (void)_prepareAnimation;
 - (id)_animationProgressDependency;
-- (BOOL)_animationShouldStart;
+- (_Bool)_animationShouldStart;
 - (void)dealloc;
 - (id)initWithActivatingApp:(id)arg1 withAlertImpersonator:(id)arg2 starkScreenController:(id)arg3;
 - (id)initWithActivatingApp:(id)arg1 starkScreenController:(id)arg2;

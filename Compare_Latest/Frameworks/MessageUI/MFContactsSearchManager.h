@@ -23,7 +23,7 @@
     NSArray *_explicitSearchAccountIDs;
     NSArray *_searchAccounts;
     int _contactSearchAccountChangedToken;
-    BOOL _registeredForAddressBookChanges;
+    _Bool _registeredForAddressBookChanges;
     NSString *_recentsBundleIdentifier;
     NSString *_sendingAddress;
 }

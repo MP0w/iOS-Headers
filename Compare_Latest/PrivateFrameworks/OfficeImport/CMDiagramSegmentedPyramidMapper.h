@@ -6,13 +6,14 @@
 
 #import <OfficeImport/CMDiagramShapeMapper.h>
 
+// Not exported
 @interface CMDiagramSegmentedPyramidMapper : CMDiagramShapeMapper
 {
 }
 
-- (struct CGSize)sizeForNode:(id)arg1 atIndex:(unsigned int)arg2;
-- (id)_suggestedBoundsForPyramidLayerWithIndex:(unsigned int)arg1 inLayer:(unsigned int)arg2 andSlice:(unsigned int)arg3;
-- (unsigned int)layerCount;
+- (struct CGSize)sizeForNode:(id)arg1 atIndex:(unsigned long long)arg2;
+- (id)_suggestedBoundsForPyramidLayerWithIndex:(unsigned long long)arg1 inLayer:(unsigned long long)arg2 andSlice:(unsigned long long)arg3;
+- (unsigned long long)layerCount;
 - (void)mapChildrenAt:(id)arg1 withState:(id)arg2;
 - (void)mapAt:(id)arg1 withState:(id)arg2;
 - (int)pointCount;

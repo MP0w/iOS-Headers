@@ -6,6 +6,7 @@
 
 #import <OfficeImport/OADBlipEffect.h>
 
+// Not exported
 @interface OADGrayscaleEffect : OADBlipEffect
 {
 }

@@ -15,18 +15,18 @@
     NSString *_meid;
     NSString *_imei;
     NSString *_iccid;
-    float _alertHeight;
+    double _alertHeight;
 }
 
 + (id)activeItem;
 - (id)_formattedIMEI;
 - (id)_formattedICCID;
-- (BOOL)allowInSetup;
-- (BOOL)forcesModalAlertAppearance;
+- (_Bool)allowInSetup;
+- (_Bool)forcesModalAlertAppearance;
 - (void)didDeactivateForReason:(int)arg1;
 - (void)willActivate;
 - (void)_simStatusChanged:(id)arg1;
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
+- (void)configure:(_Bool)arg1 requirePasscodeForActions:(_Bool)arg2;
 - (void)_updateTextView;
 - (void)dealloc;
 - (id)init;

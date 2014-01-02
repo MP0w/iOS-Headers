@@ -10,7 +10,7 @@
 {
 }
 
-+ (BOOL)migrationFinished;
++ (_Bool)migrationFinished;
 + (void)writeMigrationVersionPref;
 + (void)signalMigrationFinished;
 + (id)_currentSystemVersion;

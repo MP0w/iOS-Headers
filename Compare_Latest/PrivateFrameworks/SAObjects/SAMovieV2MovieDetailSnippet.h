@@ -20,15 +20,16 @@
 @property(copy, nonatomic) NSString *synopsis;
 @property(copy, nonatomic) NSArray *studios;
 @property(retain, nonatomic) SAMovieV2ShowtimeSnippet *showtimeSnippet;
-@property(nonatomic) int runtimeInMinutes;
+@property(nonatomic) long long runtimeInMinutes;
 @property(copy, nonatomic) NSString *rating;
 @property(copy, nonatomic) NSNumber *qualityRating;
 @property(copy, nonatomic) NSArray *posterImages;
 @property(copy, nonatomic) NSNumber *playTrailer;
 @property(copy, nonatomic) NSString *name;
 @property(retain, nonatomic) SAMovieV2ReviewListSnippet *movieReviewListSnippet;
+@property(copy, nonatomic) NSURL *movieIdentifier;
 @property(copy, nonatomic) NSURL *lowresTrailerUri;
-@property(nonatomic) BOOL is3d;
+@property(nonatomic) _Bool is3d;
 @property(copy, nonatomic) NSURL *iTunesUri;
 @property(copy, nonatomic) NSURL *hiresTrailerUri;
 @property(copy, nonatomic) NSArray *genres;

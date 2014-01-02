@@ -7,9 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol SFAirDropDiscoveryControllerDelegate <NSObject>
+- (void)discoveryControllerVisibilityDidChange:(id)arg1;
 - (void)discoveryControllerSettingsDidChange:(id)arg1;
-
-@optional
-- (void)discoveryController:(id)arg1 isVisible:(BOOL)arg2;
 @end
 

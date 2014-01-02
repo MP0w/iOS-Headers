@@ -4,13 +4,24 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "UILabel.h"
+#import "UIView.h"
 
-@interface PLCameraPanoramaTextLabel : UILabel
+#import "_UIBackdropViewObserver-Protocol.h"
+
+@class _UIBackdropView, _UILegibilitySettingsProvider, _UILegibilityView;
+
+@interface PLCameraPanoramaTextLabel : UIView <_UIBackdropViewObserver>
 {
+    _UIBackdropView *_backdropView;
+    _UILegibilityView *_legibilityView;
+    _UILegibilitySettingsProvider *_legibilitySettingsProvider;
 }
 
+- (void)backdropViewDidChange:(id)arg1;
+- (void)layoutSubviews;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)setText:(id)arg1;
+- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

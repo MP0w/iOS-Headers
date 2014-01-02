@@ -10,16 +10,17 @@
 
 @class VGLRenderState, VKStylesheet;
 
+// Not exported
 @interface VKPolygonMapModel : VKVectorMapModel <VKStylesheetObserver>
 {
-    BOOL _drawShapes;
+    _Bool _drawShapes;
     struct RenderStepsSet _renderStepsSet;
     struct RenderStepsSet _transitRenderStepsSet;
     VGLRenderState *_transparentRenderState;
     VGLRenderState *_renderState;
 }
 
-@property(nonatomic) BOOL drawShapes; // @synthesize drawShapes=_drawShapes;
+@property(nonatomic) _Bool drawShapes; // @synthesize drawShapes=_drawShapes;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)renderTransparentPolygonsInRenderStepSet:(const struct RenderStepsSet *)arg1 withWidth:(float)arg2 minDepth:(float)arg3 context:(id)arg4;
@@ -34,9 +35,9 @@
 - (void)drawRenderStepSet:(const struct RenderStepsSet *)arg1 scene:(id)arg2 withContext:(id)arg3;
 - (void)layoutScene:(id)arg1 withContext:(id)arg2;
 - (struct RenderStepsSet *)renderStepSetForFeatureWithAttributes:(id)arg1;
-- (unsigned int)textureSize;
+- (unsigned long long)textureSize;
 - (unsigned int)supportedRenderPasses;
-- (unsigned int)mapLayerPosition;
+- (unsigned long long)mapLayerPosition;
 - (void)reset;
 - (void)dealloc;
 - (id)init;

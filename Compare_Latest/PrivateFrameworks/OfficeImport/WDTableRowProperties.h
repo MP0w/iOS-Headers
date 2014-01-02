@@ -10,6 +10,7 @@
 
 @class WDCharacterProperties, WDTableProperties;
 
+// Not exported
 @interface WDTableRowProperties : NSObject <NSCopying>
 {
     WDTableProperties *mTableProperties;
@@ -17,31 +18,31 @@
     unsigned int mOriginal:1;
     unsigned int mTracked:1;
     unsigned int mResolved:1;
-    CDStruct_4f9224b4 mOriginalProperties;
-    CDStruct_4f9224b4 mTrackedProperties;
+    CDStruct_43955328 mOriginalProperties;
+    CDStruct_43955328 mTrackedProperties;
 }
 
 - (id).cxx_construct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isHeaderOverridden;
-- (void)setHeader:(BOOL)arg1;
-- (BOOL)header;
-- (BOOL)isHeightTypeOverridden;
+- (_Bool)isHeaderOverridden;
+- (void)setHeader:(_Bool)arg1;
+- (_Bool)header;
+- (_Bool)isHeightTypeOverridden;
 - (void)setHeightType:(int)arg1;
 - (int)heightType;
-- (BOOL)isHeightOverridden;
-- (void)setHeight:(long)arg1;
-- (long)height;
-- (BOOL)isWidthAfterTypeOverridden;
+- (_Bool)isHeightOverridden;
+- (void)setHeight:(long long)arg1;
+- (long long)height;
+- (_Bool)isWidthAfterTypeOverridden;
 - (void)setWidthAfterType:(int)arg1;
 - (int)widthAfterType;
-- (BOOL)isWidthAfterOverridden;
+- (_Bool)isWidthAfterOverridden;
 - (void)setWidthAfter:(short)arg1;
 - (short)widthAfter;
-- (BOOL)isWidthBeforeTypeOverridden;
+- (_Bool)isWidthBeforeTypeOverridden;
 - (void)setWidthBeforeType:(int)arg1;
 - (int)widthBeforeType;
-- (BOOL)isWidthBeforeOverridden;
+- (_Bool)isWidthBeforeOverridden;
 - (void)setWidthBefore:(short)arg1;
 - (short)widthBefore;
 - (void)addProperties:(id)arg1;
@@ -52,7 +53,6 @@
 - (void)dealloc;
 - (id)initWithDocument:(id)arg1;
 - (id)init;
-- (void)addPropertiesValues:(CDStruct_4f9224b4 *)arg1 to:(CDStruct_4f9224b4 *)arg2;
 
 @end
 

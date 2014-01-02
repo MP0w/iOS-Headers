@@ -7,6 +7,6 @@
 #import "CAAnimation.h"
 
 @interface CAAnimation (MKAdditions)
-@property int _mapkit_ID;
+@property long long _mapkit_ID;
 @end
 

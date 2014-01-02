@@ -8,6 +8,6 @@
 
 @interface MFAttachment (PassKit)
 - (id)pass;
-- (BOOL)isPass;
+- (_Bool)isPass;
 @end
 

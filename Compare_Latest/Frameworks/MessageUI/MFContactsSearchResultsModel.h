@@ -23,7 +23,7 @@
     struct __CFArray *_resultTypesPriorityOrder;
     struct __CFSet *_finishedResultTypes;
     int _preferredType;
-    BOOL _favorMobileNumbers;
+    _Bool _favorMobileNumbers;
     int _resetCount;
     NSArray *_enteredRecipients;
 }
@@ -35,16 +35,16 @@
 - (void)_addBestRecipientsForRecipients:(id)arg1 excluding:(id)arg2 toArray:(id)arg3;
 - (id)_bestRecipientForAddress:(id)arg1 fallback:(id)arg2;
 - (void)_enumerateSearchResultTypesInSortOrderUsingBlock:(id)arg1;
-- (BOOL)_didFinishSearchForType:(int)arg1;
-- (BOOL)_shouldProcessResultsAfterFinishingType:(int)arg1;
+- (_Bool)_didFinishSearchForType:(int)arg1;
+- (_Bool)_shouldProcessResultsAfterFinishingType:(int)arg1;
 - (void)_finishSearchOfType:(int)arg1;
 - (void)addResults:(id)arg1 ofType:(int)arg2;
 - (void)_addResults:(id)arg1 ofType:(int)arg2;
-- (BOOL)_isResetting;
+- (_Bool)_isResetting;
 - (void)reset;
 - (void)dealloc;
-- (id)initWithResultTypeSortOrderComparator:(void *)arg1 resultTypePriorityComparator:(void *)arg2 favorMobileNumbers:(BOOL)arg3;
-- (id)initWithFavorMobileNumbers:(BOOL)arg1;
+- (id)initWithResultTypeSortOrderComparator:(void *)arg1 resultTypePriorityComparator:(void *)arg2 favorMobileNumbers:(_Bool)arg3;
+- (id)initWithFavorMobileNumbers:(_Bool)arg1;
 - (id)init;
 
 @end

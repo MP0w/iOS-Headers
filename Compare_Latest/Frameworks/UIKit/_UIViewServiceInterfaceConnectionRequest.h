@@ -8,19 +8,20 @@
 
 @class BKSProcessAssertion, NSError, NSObject<OS_dispatch_queue>, NSString, NSXPCConnection, _UIAsyncInvocation;
 
+// Not exported
 @interface _UIViewServiceInterfaceConnectionRequest : NSObject
 {
     id _connectionHandler;
     NSString *_serviceBundleIdentifier;
     NSObject<OS_dispatch_queue> *_queue;
-    BOOL _isCancelled;
+    _Bool _isCancelled;
     NSError *_cancellationError;
     _UIAsyncInvocation *_cancellationInvocation;
     int _sessionRequestNotifyToken;
     BKSProcessAssertion *_serviceProcessAssertion;
     NSXPCConnection *_serviceSessionConnection;
     int __automatic_invalidation_retainCount;
-    BOOL __automatic_invalidation_invalidated;
+    _Bool __automatic_invalidation_invalidated;
 }
 
 + (id)connectToViewServiceViaXPCObjectsWithBundleIdentifier:(id)arg1 connectionHandler:(id)arg2;
@@ -32,9 +33,9 @@
 - (void)_createProcessAssertion;
 - (void)_launchService;
 - (void)dealloc;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
-- (unsigned int)retainCount;
+- (_Bool)_isDeallocating;
+- (_Bool)_tryRetain;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;
 - (int)__automatic_invalidation_logic;

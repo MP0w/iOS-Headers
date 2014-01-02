@@ -31,13 +31,13 @@
 - (void)connection:(id)arg1 didReceiveData:(id)arg2;
 - (void)invalidateToken;
 - (id)token;
-- (BOOL)isAuthenticating;
+- (_Bool)isAuthenticating;
 - (void)authenticate;
 - (void)_failWithErrorCode:(int)arg1;
 - (void)_clearNonces;
-- (BOOL)_authenticate2;
-- (BOOL)_authenticate1;
-- (BOOL)canAuthenticate;
+- (_Bool)_authenticate2;
+- (_Bool)_authenticate1;
+- (_Bool)canAuthenticate;
 - (void)_copyCertificateData:(id *)arg1 privateKey:(struct __SecKey **)arg2;
 - (void)_loadStatusChanged;
 

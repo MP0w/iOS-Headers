@@ -17,7 +17,7 @@
 }
 
 @property(readonly, nonatomic) NSString *sender; // @synthesize sender=_sender;
-- (BOOL)hasTrustException;
+- (_Bool)hasTrustException;
 - (void)removeTrustException;
 - (void)addTrustException;
 - (struct __SecTrust *)copyTrust;

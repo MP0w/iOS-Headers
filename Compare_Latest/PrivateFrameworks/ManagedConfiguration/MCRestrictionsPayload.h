@@ -6,26 +6,27 @@
 
 #import <ManagedConfiguration/MCPayload.h>
 
-@class NSMutableDictionary;
+@class NSMutableDictionary, NSString;
 
 @interface MCRestrictionsPayload : MCPayload
 {
     NSMutableDictionary *_restrictions;
+    NSString *_iCloudPassword;
 }
 
 + (id)localizedPluralForm;
 + (id)localizedSingularForm;
 + (id)typeStrings;
+@property(retain, nonatomic) NSString *iCloudPassword; // @synthesize iCloudPassword=_iCloudPassword;
 - (void).cxx_destruct;
 - (id)installationWarnings;
-- (void)_insertRestrictedBoolForKey:(id)arg1 value:(id)arg2 preferenc:(BOOL)arg3;
+- (void)_insertRestrictedBoolForKey:(id)arg1 value:(id)arg2 preferenc:(_Bool)arg3;
 - (id)subtitle1Description;
 - (id)_defaultMediaSettings;
 - (id)_unionStrings;
 - (id)_intersectionStrings;
 - (id)_enforcedFeatureStrings;
 - (id)_restrictedFeatureStrings;
-- (id)description;
 - (id)stubDictionary;
 - (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
 - (id)_invalidFieldErrorWithFieldName:(id)arg1;

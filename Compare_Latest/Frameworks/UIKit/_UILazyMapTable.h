@@ -8,6 +8,7 @@
 
 @class NSMapTable;
 
+// Not exported
 @interface _UILazyMapTable : NSObject
 {
     id _mappingBlock;
@@ -22,9 +23,9 @@
 - (id)keyEnumerable;
 - (id)cachedObjects;
 - (id)keys;
-- (BOOL)hasCachedObjectForKey:(id)arg1;
+- (_Bool)hasCachedObjectForKey:(id)arg1;
 - (id)objectForKey:(id)arg1;
-- (unsigned int)count;
+- (unsigned long long)count;
 - (id)description;
 - (void)dealloc;
 - (id)initWithMappingBlock:(id)arg1;

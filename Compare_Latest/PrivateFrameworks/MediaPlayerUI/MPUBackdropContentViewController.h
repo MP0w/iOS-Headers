@@ -8,12 +8,12 @@
 
 @interface MPUBackdropContentViewController : UIViewController
 {
-    int _backdropViewPrivateStyle;
+    long long _backdropViewPrivateStyle;
     UIViewController *_contentViewController;
 }
 
 @property(retain, nonatomic) UIViewController *contentViewController; // @synthesize contentViewController=_contentViewController;
-@property(nonatomic) int backdropViewPrivateStyle; // @synthesize backdropViewPrivateStyle=_backdropViewPrivateStyle;
+@property(nonatomic) long long backdropViewPrivateStyle; // @synthesize backdropViewPrivateStyle=_backdropViewPrivateStyle;
 - (void).cxx_destruct;
 - (void)loadView;
 - (id)initWithContentViewController:(id)arg1;

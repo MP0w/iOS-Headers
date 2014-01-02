@@ -8,25 +8,33 @@
 
 @class TIKeyboardCandidate, UIKBThemedView, UILabel;
 
+// Not exported
 @interface UIKBHandwritingCandidateViewCell : UICollectionViewCell
 {
-    UIKBThemedView *_themedView;
     TIKeyboardCandidate *_candidate;
-    UILabel *_label;
     CDStruct_961fb75c _visualStyling;
-    struct UIEdgeInsets _edgeInsets;
+    UILabel *_label;
+    UILabel *_secondaryLabel;
+    UIKBThemedView *_themedView;
 }
 
-+ (id)font;
-@property(nonatomic) struct UIEdgeInsets edgeInsets; // @synthesize edgeInsets=_edgeInsets;
-@property(nonatomic) CDStruct_961fb75c visualStyling; // @synthesize visualStyling=_visualStyling;
-@property(retain, nonatomic) UILabel *label; // @synthesize label=_label;
-@property(copy, nonatomic) TIKeyboardCandidate *candidate; // @synthesize candidate=_candidate;
++ (double)widthForCandidate:(id)arg1 visualStyling:(CDStruct_961fb75c)arg2;
++ (id)secondaryLabelFont;
++ (id)labelFontForText:(id)arg1;
 @property(retain, nonatomic) UIKBThemedView *themedView; // @synthesize themedView=_themedView;
-- (void)setHighlighted:(BOOL)arg1;
+@property(retain, nonatomic) UILabel *secondaryLabel; // @synthesize secondaryLabel=_secondaryLabel;
+@property(retain, nonatomic) UILabel *label; // @synthesize label=_label;
+@property(nonatomic) CDStruct_961fb75c visualStyling; // @synthesize visualStyling=_visualStyling;
+@property(copy, nonatomic) TIKeyboardCandidate *candidate; // @synthesize candidate=_candidate;
+- (void)setSelected:(_Bool)arg1;
+- (void)setHighlighted:(_Bool)arg1;
+@property(readonly, nonatomic) struct UIEdgeInsets edgeInsets;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)reloadData;
+- (void)updateLabels;
+- (void)updateThemedView;
 - (void)_setRenderConfig:(id)arg1;
+- (void)didMoveToWindow;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

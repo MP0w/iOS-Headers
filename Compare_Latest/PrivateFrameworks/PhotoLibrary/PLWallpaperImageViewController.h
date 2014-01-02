@@ -6,58 +6,58 @@
 
 #import <PhotoLibrary/PLUIEditImageViewController.h>
 
+#import "SBFLegibilitySettingsProviderDelegate-Protocol.h"
 #import "UIActionSheetDelegate-Protocol.h"
 
-@class NSArray, NSString, PLWallpaperNavigationItem, UIActionSheet, UIViewController;
+@class NSArray, NSString, PLWallpaperNavigationItem, SBFWallpaperPreviewViewController, UIActionSheet;
 
-@interface PLWallpaperImageViewController : PLUIEditImageViewController <UIActionSheetDelegate>
+@interface PLWallpaperImageViewController : PLUIEditImageViewController <SBFLegibilitySettingsProviderDelegate, UIActionSheetDelegate>
 {
     PLWallpaperNavigationItem *_navItem;
     int _wallpaperMode;
     NSArray *_navigationToolbarItems;
-    BOOL _saveWallpaperData;
+    _Bool _saveWallpaperData;
     NSString *_wallpaperTitle;
     UIActionSheet *_wallpaperOptionsSheet;
     unsigned int _didSetImageMode:1;
-    UIViewController *__magicWallpaperViewController;
+    SBFWallpaperPreviewViewController *_wallpaperPreviewViewController;
 }
 
-+ (void)setWallpaperFromArgs:(id)arg1;
-+ (id)argsForSavingWallpaperFromTile:(id)arg1 mode:(int)arg2;
-@property(retain, nonatomic, setter=_setMagicWallpaperViewController:) UIViewController *_magicWallpaperViewController; // @synthesize _magicWallpaperViewController=__magicWallpaperViewController;
+@property(retain, nonatomic) SBFWallpaperPreviewViewController *wallpaperPreviewViewController; // @synthesize wallpaperPreviewViewController=_wallpaperPreviewViewController;
 @property(copy, nonatomic) NSString *wallpaperTitle; // @synthesize wallpaperTitle=_wallpaperTitle;
-@property(nonatomic) BOOL saveWallpaperData; // @synthesize saveWallpaperData=_saveWallpaperData;
-- (void)didRotateFromInterfaceOrientation:(int)arg1;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
+@property(nonatomic) _Bool saveWallpaperData; // @synthesize saveWallpaperData=_saveWallpaperData;
+- (void)providerLegibilitySettingsChanged:(id)arg1;
+- (void)setupWallpaperPreview;
+- (void)_updatePreviewFrame:(id)arg1;
+- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (void)cropOverlayWasCancelled:(id)arg1;
 - (void)cropOverlayWasOKed:(id)arg1;
-- (void)_setImageAsHomeScreenAndLockScreenClicked:(id)arg1;
-- (void)_setImageAsLockScreenClicked:(id)arg1;
-- (void)_setImageAsHomeScreenClicked:(id)arg1;
+- (void)setImageAsHomeScreenAndLockScreenClicked:(id)arg1;
+- (void)setImageAsLockScreenClicked:(id)arg1;
+- (void)setImageAsHomeScreenClicked:(id)arg1;
 - (void)_cropWallpaperFinished:(id)arg1;
-- (void)_backgroundCropWallpaper:(id)arg1;
+- (void)_backgroundCropWallpaper;
 - (void)_savePhoto;
 - (void)_updateTitles;
-- (BOOL)uiipc_useTelephonyUI;
+- (_Bool)uiipc_useTelephonyUI;
 - (void)_adjustScrollViewGeometry;
 - (int)imageFormat;
-- (BOOL)clientIsWallpaper;
+- (_Bool)clientIsWallpaper;
 - (void)setupNavigationItem;
 - (void)loadView;
-- (unsigned int)_tileAutoresizingMask;
-- (unsigned int)_contentAutoresizingMask;
+- (unsigned long long)_tileAutoresizingMask;
+- (unsigned long long)_contentAutoresizingMask;
 - (struct CGRect)_viewFrame;
 - (void)photoTileViewControllerRequestsFullScreenImage:(id)arg1;
-- (void)viewDidDisappear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
 - (void)dealloc;
 - (id)navigationItem;
 - (int)cropOverlayMode;
-- (id)initWithMagicWallpaperViewController:(id)arg1;
 - (id)initWithUIImage:(id)arg1;
 - (id)init;
+- (void)setWallpaperFromArgs:(id)arg1;
 
 @end
 

@@ -10,27 +10,28 @@
 
 @interface TKVibrationRecorderTouchSurface : TKVibrationRecorderRippleView
 {
-    BOOL _recordingModeEnabled;
-    BOOL _shouldIgnoreCurrentTouch;
-    BOOL _replayModeEnabled;
+    _Bool _recordingModeEnabled;
+    _Bool _shouldIgnoreCurrentTouch;
+    _Bool _replayModeEnabled;
     id <TKVibrationRecorderTouchSurfaceDelegate> _delegate;
+    double _vibrationPatternMaximumDuration;
     TKVibrationRecorderTouchSurfaceRecordedDataWrapper *_recordedDataWrapper;
     TLVibrationPattern *_vibrationPatternToReplay;
-    double _vibrationPatternMaximumDuration;
     double _replayModeWasEnteredStartTime;
 }
 
 @property(nonatomic, setter=_setReplayModeWasEnteredStartTime:) double _replayModeWasEnteredStartTime; // @synthesize _replayModeWasEnteredStartTime;
 @property(retain, nonatomic, setter=_setVibrationPatternToReplay:) TLVibrationPattern *_vibrationPatternToReplay; // @synthesize _vibrationPatternToReplay;
-@property(nonatomic, getter=_isReplayModeEnabled, setter=_setReplayModeEnabled:) BOOL _replayModeEnabled; // @synthesize _replayModeEnabled;
-@property(nonatomic, setter=_setShouldIgnoreCurrentTouch:) BOOL _shouldIgnoreCurrentTouch; // @synthesize _shouldIgnoreCurrentTouch;
+@property(nonatomic, getter=_isReplayModeEnabled, setter=_setReplayModeEnabled:) _Bool _replayModeEnabled; // @synthesize _replayModeEnabled;
+@property(nonatomic, setter=_setShouldIgnoreCurrentTouch:) _Bool _shouldIgnoreCurrentTouch; // @synthesize _shouldIgnoreCurrentTouch;
 @property(retain, nonatomic, setter=_setRecordedDataWrapper:) TKVibrationRecorderTouchSurfaceRecordedDataWrapper *_recordedDataWrapper; // @synthesize _recordedDataWrapper;
 @property(nonatomic, setter=_setVibrationPatternMaximumDuration:) double _vibrationPatternMaximumDuration; // @synthesize _vibrationPatternMaximumDuration;
-@property(nonatomic, getter=_isRecordingModeEnabled, setter=_setRecordingModeEnabled:) BOOL _recordingModeEnabled; // @synthesize _recordingModeEnabled;
+@property(nonatomic, getter=_isRecordingModeEnabled, setter=_setRecordingModeEnabled:) _Bool _recordingModeEnabled; // @synthesize _recordingModeEnabled;
 @property(nonatomic) id <TKVibrationRecorderTouchSurfaceDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)_updateTouchLocationForReplayMode:(id)arg1;
 - (void)exitReplayMode;
 - (void)enterReplayModeWithVibrationPattern:(id)arg1;
+- (void)_recordTouchLocation:(struct CGPoint)arg1 touchPhase:(int)arg2;
 - (void)currentVibrationComponentShouldEnd;
 - (void)exitRecordingMode;
 - (void)enterRecordingMode;
@@ -39,7 +40,7 @@
 - (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
 - (void)dealloc;
-- (id)initWithVibrationPatternMaximumDuration:(double)arg1;
+- (id)initWithVibrationPatternMaximumDuration:(double)arg1 styleProvider:(id)arg2;
 - (id)init;
 
 @end

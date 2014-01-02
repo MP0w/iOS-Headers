@@ -12,40 +12,41 @@
 
 @interface SKUIProductPageHeaderView : UIView <SKUIItemOfferButtonDelegate>
 {
+    UILabel *_ageBandLabel;
     UIButton *_artistButton;
     SKUIClientContext *_clientContext;
     NSString *_contentRatingName;
     SKUIColorScheme *_colorScheme;
     UILabel *_facebookFriendsLabel;
     UIImageView *_facebookLogoImageView;
-    float _headerImageHeight;
+    double _headerImageHeight;
     UIImageView *_headerImageView;
     UIImageView *_iconImageView;
     UILabel *_inAppPurchasesLabel;
     SKUIItemOffer *_itemOffer;
     SKUIItemOfferButton *_itemOfferButton;
     SKUIItemState *_itemState;
-    int _numberOfUserRatings;
-    BOOL _restricted;
+    long long _numberOfUserRatings;
+    _Bool _restricted;
     UIButton *_shareButton;
     SKUIProductPageHeaderLabel *_titleLabel;
-    float _userRating;
+    double _userRating;
     UILabel *_userRatingLabel;
     UIImageView *_userRatingStarsView;
 }
 
 @property(readonly, nonatomic) UIControl *shareButton; // @synthesize shareButton=_shareButton;
-@property(nonatomic) float userRating; // @synthesize userRating=_userRating;
-@property(nonatomic, getter=isRestricted) BOOL restricted; // @synthesize restricted=_restricted;
-@property(nonatomic) int numberOfUserRatings; // @synthesize numberOfUserRatings=_numberOfUserRatings;
+@property(nonatomic) double userRating; // @synthesize userRating=_userRating;
+@property(nonatomic, getter=isRestricted) _Bool restricted; // @synthesize restricted=_restricted;
+@property(nonatomic) long long numberOfUserRatings; // @synthesize numberOfUserRatings=_numberOfUserRatings;
 @property(copy, nonatomic) SKUIItemState *itemState; // @synthesize itemState=_itemState;
-@property(readonly, nonatomic) UIControl *itemOfferButton; // @synthesize itemOfferButton=_itemOfferButton;
+@property(readonly, nonatomic) SKUIItemOfferButton *itemOfferButton; // @synthesize itemOfferButton=_itemOfferButton;
 @property(retain, nonatomic) SKUIItemOffer *itemOffer; // @synthesize itemOffer=_itemOffer;
-@property(nonatomic) float headerImageHeight; // @synthesize headerImageHeight=_headerImageHeight;
+@property(nonatomic) double headerImageHeight; // @synthesize headerImageHeight=_headerImageHeight;
 @property(retain, nonatomic) SKUIColorScheme *colorScheme; // @synthesize colorScheme=_colorScheme;
 @property(readonly, nonatomic) UIControl *artistButton; // @synthesize artistButton=_artistButton;
 - (void).cxx_destruct;
-- (void)_reloadItemOfferButton:(BOOL)arg1;
+- (void)_reloadItemOfferButton:(_Bool)arg1;
 - (void)_showConfirmationAction:(id)arg1;
 - (void)_cancelConfirmationAction:(id)arg1;
 - (void)itemOfferButtonWillAnimateTransition:(id)arg1;
@@ -53,13 +54,14 @@
 - (void)setBackgroundColor:(id)arg1;
 - (void)layoutSubviews;
 @property(copy, nonatomic) NSString *title;
-- (void)setItemState:(id)arg1 animated:(BOOL)arg2;
+- (void)setItemState:(id)arg1 animated:(_Bool)arg2;
 @property(copy, nonatomic) NSString *inAppPurchasesString;
 @property(retain, nonatomic) UIImage *iconImage;
 @property(retain, nonatomic) UIImage *headerImage;
 @property(copy, nonatomic) NSString *facebookFriendsString;
 @property(copy, nonatomic) NSString *contentRatingName; // @synthesize contentRatingName=_contentRatingName;
 @property(copy, nonatomic) NSString *artistName;
+@property(copy, nonatomic) NSString *ageBandString;
 - (void)dealloc;
 - (id)initWithClientContext:(id)arg1;
 

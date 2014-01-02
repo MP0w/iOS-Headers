@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface EXChartsheet : NSObject
 {
 }
@@ -14,7 +15,6 @@
 + (void)readOtherSheetComponentsWithState:(id)arg1;
 + (_Bool)readDistinctSheetElementsFrom:(struct _xmlTextReader *)arg1 state:(id)arg2;
 + (id)edSheetWithState:(id)arg1;
-+ (void)setupProcessors:(id)arg1;
 
 @end
 

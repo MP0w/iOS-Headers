@@ -6,12 +6,13 @@
 
 #import <Foundation/NSISVariable.h>
 
+// Not exported
 @interface NSISUnrestrictedVariable : NSISVariable
 {
 }
 
 - (id)markedConstraint;
-- (BOOL)shouldBeMinimized;
+- (_Bool)shouldBeMinimized;
 - (int)valueRestriction;
 
 @end

@@ -12,8 +12,8 @@
 
 + (id)setNumberWithDictionary:(id)arg1 context:(id)arg2;
 + (id)setNumber;
-- (BOOL)requiresResponse;
-@property(nonatomic) BOOL increment;
+- (_Bool)requiresResponse;
+@property(nonatomic) _Bool increment;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

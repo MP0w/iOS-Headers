@@ -6,19 +6,26 @@
 
 #import <UIKit/UIGestureRecognizer.h>
 
+// Not exported
 @interface _UISystemGestureGateGestureRecognizer : UIGestureRecognizer
 {
     unsigned int _systemGesturesRecognitionPossible:1;
+    unsigned int _waitingForSystemGestureStateNotification:1;
+    double _lastTouchTime;
 }
 
-- (BOOL)canBePreventedByGestureRecognizer:(id)arg1;
-- (BOOL)canPreventGestureRecognizer:(id)arg1;
-- (BOOL)_shouldBeRequiredToFailByGestureRecognizer:(id)arg1;
-- (BOOL)_shouldReceiveTouch:(id)arg1;
+- (id)_gateGestureTypeString;
+- (void)setEnabled:(_Bool)arg1;
+- (_Bool)canBePreventedByGestureRecognizer:(id)arg1;
+- (_Bool)canPreventGestureRecognizer:(id)arg1;
+- (_Bool)_shouldBeRequiredToFailByGestureRecognizer:(id)arg1;
+- (_Bool)_shouldReceiveTouch:(id)arg1;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
+- (int)_gateGestureType;
 - (void)_systemGestureStateChanged:(id)arg1;
+- (void)_resetGestureRecognizer;
 - (void)dealloc;
 - (id)initWithTarget:(id)arg1 action:(SEL)arg2;
 

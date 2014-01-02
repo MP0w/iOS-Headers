@@ -6,13 +6,14 @@
 
 #import <UIKit/_UIPopoverStandardChromeView.h>
 
+// Not exported
 @interface UIActivityViewPopoverBackgroundView : _UIPopoverStandardChromeView
 {
 }
 
 + (struct UIEdgeInsets)contentViewInsets;
-+ (void)useNormalContentViewInsets:(BOOL)arg1;
-- (float)_shadowOpacity;
++ (void)useNormalContentViewInsets:(_Bool)arg1;
+- (double)_shadowOpacity;
 
 @end
 

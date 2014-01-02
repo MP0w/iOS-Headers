@@ -12,7 +12,7 @@
 {
     SBStarkBackgroundProvidersViewController *_providerViewController;
     struct UIEdgeInsets _providerInsets;
-    BOOL _providerHidden;
+    _Bool _providerHidden;
     struct CGPoint _highestOccludedPoint;
 }
 
@@ -22,7 +22,7 @@
 - (struct CGRect)_viewFrame;
 - (void)viewDidLayoutSubviews;
 - (void)loadView;
-- (void)setProviderHidden:(BOOL)arg1 withAnimationFactory:(id)arg2 completionState:(id)arg3;
+- (void)setProviderHidden:(_Bool)arg1 withAnimationFactory:(id)arg2 completionState:(id)arg3;
 - (void)switchToState:(id)arg1 withAnimationName:(id)arg2;
 @property(nonatomic) struct CGPoint highestOccludedPoint;
 @property(nonatomic) struct UIEdgeInsets providerInsets;

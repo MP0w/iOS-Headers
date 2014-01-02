@@ -15,7 +15,7 @@
     id <MPAudioVideoRoutingViewControllerDelegate> _delegate;
 }
 
-+ (BOOL)hasWirelessDisplayRoutes;
++ (_Bool)hasWirelessDisplayRoutes;
 @property(nonatomic) __weak id <MPAudioVideoRoutingViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_doneAction:(id)arg1;

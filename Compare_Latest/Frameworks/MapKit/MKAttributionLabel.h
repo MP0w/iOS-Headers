@@ -6,18 +6,17 @@
 
 #import "UILabel.h"
 
+// Not exported
 @interface MKAttributionLabel : UILabel
 {
-    unsigned int _mapType;
-    BOOL _useDarkText;
+    unsigned long long _mapType;
+    _Bool _useDarkText;
 }
 
-@property(nonatomic) unsigned int mapType; // @synthesize mapType=_mapType;
+@property(nonatomic) unsigned long long mapType; // @synthesize mapType=_mapType;
 - (void)drawRect:(struct CGRect)arg1;
-- (void)didMoveToSuperview;
-- (void)_layoutLabel;
 - (void)_prepareLabel;
-- (id)_attributesWithStroke:(BOOL)arg1;
+- (id)_attributesWithStroke:(_Bool)arg1;
 - (void)dealloc;
 - (id)init;
 

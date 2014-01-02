@@ -8,11 +8,11 @@
 
 @interface MFLineEndingConverterFilter : MFBaseFilterDataConsumer
 {
-    BOOL _lastCR;
+    _Bool _lastCR;
 }
 
 - (void)done;
-- (int)appendData:(id)arg1;
+- (long long)appendData:(id)arg1;
 
 @end
 

@@ -8,14 +8,15 @@
 
 @class OADColor;
 
+// Not exported
 @interface OADGlowEffect : OADEffect
 {
     OADColor *mColor;
     float mRadius;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)setRadius:(float)arg1;
 - (float)radius;
 - (void)setColor:(id)arg1;

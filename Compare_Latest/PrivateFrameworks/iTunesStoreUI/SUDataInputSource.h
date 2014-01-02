@@ -11,13 +11,13 @@
 @interface SUDataInputSource : SUInputSource
 {
     NSData *_data;
-    int _offset;
+    long long _offset;
     id _promiseBlock;
 }
 
-- (int)read:(char *)arg1 maxLength:(unsigned int)arg2 error:(id *)arg3;
-- (BOOL)open:(id *)arg1;
-- (BOOL)hasBytesAvailable;
+- (long long)read:(char *)arg1 maxLength:(unsigned long long)arg2 error:(id *)arg3;
+- (_Bool)open:(id *)arg1;
+- (_Bool)hasBytesAvailable;
 - (long long)expectedLength;
 @property(readonly, nonatomic) NSData *data;
 - (id)copyAllData:(id *)arg1;

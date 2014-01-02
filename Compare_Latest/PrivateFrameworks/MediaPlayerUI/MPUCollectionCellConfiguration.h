@@ -12,6 +12,7 @@
 
 + (id)cellBackgroundColor;
 + (void)configureCell:(id)arg1 forViewController:(id)arg2 withEntity:(id)arg3;
++ (void)configureCell:(id)arg1 withViewController:(id)arg2 entity:(id)arg3 animated:(_Bool)arg4;
 
 @end
 

@@ -6,41 +6,42 @@
 
 #import <OfficeImport/OADImageFillTechnique.h>
 
+// Not exported
 @interface OADTileTechnique : OADImageFillTechnique
 {
     float mOffsetX;
-    BOOL mIsOffsetXOverridden;
+    _Bool mIsOffsetXOverridden;
     float mOffsetY;
-    BOOL mIsOffsetYOverridden;
+    _Bool mIsOffsetYOverridden;
     float mScaleX;
-    BOOL mIsScaleXOverridden;
+    _Bool mIsScaleXOverridden;
     float mScaleY;
-    BOOL mIsScaleYOverridden;
+    _Bool mIsScaleYOverridden;
     int mFlipMode;
-    BOOL mIsFlipModeOverridden;
+    _Bool mIsFlipModeOverridden;
     int mAlignment;
-    BOOL mIsAlignmentOverridden;
+    _Bool mIsAlignmentOverridden;
 }
 
 + (id)defaultProperties;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (BOOL)isAlignmentOverridden;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isAlignmentOverridden;
 - (void)setAlignment:(int)arg1;
 - (int)alignment;
-- (BOOL)isFlipModeOverridden;
+- (_Bool)isFlipModeOverridden;
 - (void)setFlipMode:(int)arg1;
 - (int)flipMode;
-- (BOOL)isScaleYOverridden;
+- (_Bool)isScaleYOverridden;
 - (void)setScaleY:(float)arg1;
 - (float)scaleY;
-- (BOOL)isScaleXOverridden;
+- (_Bool)isScaleXOverridden;
 - (void)setScaleX:(float)arg1;
 - (float)scaleX;
-- (BOOL)isOffsetYOverridden;
+- (_Bool)isOffsetYOverridden;
 - (void)setOffsetY:(float)arg1;
 - (float)offsetY;
-- (BOOL)isOffsetXOverridden;
+- (_Bool)isOffsetXOverridden;
 - (void)setOffsetX:(float)arg1;
 - (float)offsetX;
 - (id)initWithDefaults;

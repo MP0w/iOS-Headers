@@ -9,12 +9,12 @@
 @class NSString;
 
 @interface NSProgress (SFAirDropTransferProgressAdditions)
-+ (id)sf_transferStateAsString:(int)arg1;
++ (id)sf_transferStateAsString:(long long)arg1;
 + (id)sf_publishingKeyForApp:(id)arg1 sessionID:(id)arg2;
 - (id)description;
 @property(readonly, nonatomic) NSString *sf_error;
 - (void)sf_failedWithError:(id)arg1;
-@property(nonatomic) int sf_transferState;
+@property(nonatomic) long long sf_transferState;
 - (id)sf_initWithFileURL:(id)arg1;
 @property(readonly, nonatomic) NSString *sf_personRealName;
 @property(readonly, nonatomic) NSString *sf_sessionID;

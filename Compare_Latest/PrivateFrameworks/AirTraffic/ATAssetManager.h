@@ -14,8 +14,8 @@
     NSMutableDictionary *_assetsByDataclass;
     NSMutableDictionary *_assetsByStoreID;
     NSMutableArray *_completedStoreAssets;
-    unsigned int _completedAssets;
-    unsigned int _totalAssetCount;
+    unsigned long long _completedAssets;
+    unsigned long long _totalAssetCount;
     NSMutableDictionary *_totalAssetCountByDataclass;
 }
 
@@ -23,8 +23,8 @@
 - (id)init;
 - (void)_installSignalHandler;
 - (void)reset;
-- (BOOL)isEmpty;
-- (BOOL)dataclassIsEmpty:(id)arg1;
+- (_Bool)isEmpty;
+- (_Bool)dataclassIsEmpty:(id)arg1;
 - (void)removeCompletedStoreAsset:(id)arg1;
 - (void)fixUpInstallOnlyAssetsForDataclass:(id)arg1;
 - (id)assetManifestForDataclasses:(id)arg1;
@@ -42,12 +42,12 @@
 - (void)mapStoreIDToAsset:(id)arg1;
 - (void)enqueueAsset:(id)arg1;
 - (void)enqueueAssets:(id)arg1;
-- (unsigned int)awaitingStoreCompletion;
+- (unsigned long long)awaitingStoreCompletion;
 - (id)assetProgressForAllDataclasses;
-- (unsigned int)currentAssetForDataclass:(id)arg1;
-- (unsigned int)currentAsset;
-- (unsigned int)totalAssetCountForDataclass:(id)arg1;
-- (unsigned int)totalAssetCount;
+- (unsigned long long)currentAssetForDataclass:(id)arg1;
+- (unsigned long long)currentAsset;
+- (unsigned long long)totalAssetCountForDataclass:(id)arg1;
+- (unsigned long long)totalAssetCount;
 
 @end
 

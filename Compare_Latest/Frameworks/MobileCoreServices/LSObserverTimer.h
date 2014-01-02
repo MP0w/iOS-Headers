@@ -8,15 +8,16 @@
 
 @class NSDate, NSMutableSet, NSString, NSTimer;
 
+// Not exported
 @interface LSObserverTimer : NSObject
 {
     NSString *_name;
     NSTimer *_timer;
     NSDate *_lastFiredDate;
     NSMutableSet *_applications;
-    SEL _observerSelector;
     double _minInterval;
     double _latency;
+    SEL _observerSelector;
 }
 
 @property SEL observerSelector; // @synthesize observerSelector=_observerSelector;

@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface CHBDataValueProperties : NSObject
 {
 }
@@ -15,7 +16,6 @@
 + (id)chdDataValuePropertiesFromState:(id)arg1;
 + (id)chdDataValuePropertiesFrom:(const struct XlChartSeriesFormat *)arg1 state:(id)arg2;
 + (id)readFrom:(const struct XlChartSeriesFormat *)arg1 state:(id)arg2;
-+ (Class)chbDataValuePropertiesClassWithState:(id)arg1;
 
 @end
 

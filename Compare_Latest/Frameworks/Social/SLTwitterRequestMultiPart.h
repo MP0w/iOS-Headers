@@ -8,6 +8,7 @@
 
 @class NSData, NSString;
 
+// Not exported
 @interface SLTwitterRequestMultiPart : NSObject
 {
     NSData *_payload;

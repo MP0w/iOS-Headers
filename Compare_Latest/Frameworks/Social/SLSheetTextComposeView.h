@@ -8,21 +8,22 @@
 
 @class UILabel, UITextView;
 
+// Not exported
 @interface SLSheetTextComposeView : UIView
 {
     UITextView *_textView;
     UILabel *_placeholderLabel;
-    float _textRightInset;
+    double _textRightInset;
 }
 
-@property(nonatomic) float textRightInset; // @synthesize textRightInset=_textRightInset;
+@property(nonatomic) double textRightInset; // @synthesize textRightInset=_textRightInset;
 @property(retain, nonatomic) UILabel *placeholderLabel; // @synthesize placeholderLabel=_placeholderLabel;
 @property(retain, nonatomic) UITextView *textView; // @synthesize textView=_textView;
 - (void).cxx_destruct;
 - (void)restoreKeyboard;
 - (void)layoutSubviews;
-- (BOOL)resignFirstResponder;
-- (BOOL)becomeFirstResponder;
+- (_Bool)resignFirstResponder;
+- (_Bool)becomeFirstResponder;
 - (void)_assembleView;
 - (id)initWithFrame:(struct CGRect)arg1;
 

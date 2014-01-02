@@ -5,6 +5,6 @@
  */
 
 @protocol DecomposerDelegateProtocol
-- (id)decomposer:(id)arg1 decompositionOf:(id)arg2 isSubsetOfWhole:(BOOL)arg3;
+- (id)decomposer:(id)arg1 decompositionOf:(id)arg2 isSubsetOfWhole:(_Bool)arg3;
 @end
 

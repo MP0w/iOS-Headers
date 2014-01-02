@@ -8,6 +8,7 @@
 
 @class CIColor, CIImage;
 
+// Not exported
 @interface CIWhitePointAdjust : CIFilter
 {
     CIImage *inputImage;
@@ -19,7 +20,7 @@
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (void)setDefaults;
 - (id)outputImage;
-- (BOOL)_isIdentity;
+- (_Bool)_isIdentity;
 - (id)_kernel;
 
 @end

@@ -6,32 +6,32 @@
 
 #import "UIViewController.h"
 
-@class NSArray, PUPhotoStreamRecipientViewController, UINavigationItem;
+@class NSArray, NSString, PUPhotoStreamRecipientViewController, UINavigationItem;
 
 @interface PUCloudSharedCreateAlbumViewController : UIViewController
 {
     UINavigationItem *_navItem;
     PUPhotoStreamRecipientViewController *_composeRecipientController;
-    BOOL _inMultiStepActivity;
     id <PUCloudSharedCreateAlbumViewControllerDelegate> _delegate;
+    NSString *_nextButtonTitle;
     NSArray *__albumRecipients;
 }
 
 @property(retain, nonatomic, setter=_setAlbumRecipients:) NSArray *_albumRecipients; // @synthesize _albumRecipients=__albumRecipients;
-@property(nonatomic) BOOL inMultiStepActivity; // @synthesize inMultiStepActivity=_inMultiStepActivity;
+@property(retain, nonatomic) NSString *nextButtonTitle; // @synthesize nextButtonTitle=_nextButtonTitle;
 @property(nonatomic) __weak id <PUCloudSharedCreateAlbumViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (struct CGSize)contentSizeForViewInPopover;
 - (id)navigationItem;
 - (void)composeRecipientViewControllerRecipientContainerViewDidResize:(id)arg1 fromFrame:(struct CGRect)arg2 toFrame:(struct CGRect)arg3;
-- (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
-- (BOOL)_validateRecipientsToAdd:(id)arg1;
+- (void)alertView:(id)arg1 didDismissWithButtonIndex:(long long)arg2;
+- (_Bool)_validateRecipientsToAdd:(id)arg1;
 - (void)_saveUserEnterredInfo;
 - (void)_doneAction:(id)arg1;
 - (void)_cancelAction:(id)arg1;
-- (void)_handleCompletionWithSuccess:(BOOL)arg1;
+- (void)_handleCompletionWithSuccess:(_Bool)arg1;
 @property(readonly, nonatomic) NSArray *albumRecipients;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
 - (void)loadView;
 - (void)dealloc;
 - (id)init;

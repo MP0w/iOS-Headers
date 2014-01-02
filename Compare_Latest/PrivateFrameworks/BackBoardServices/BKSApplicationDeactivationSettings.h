@@ -13,18 +13,18 @@
 
 @interface BKSApplicationDeactivationSettings : NSObject <NSCopying, BKSXPCCoding>
 {
-    BOOL _animated;
-    BOOL _underLock;
-    BOOL _flip;
-    BOOL _crossfade;
+    _Bool _animated;
+    _Bool _underLock;
+    _Bool _flip;
+    _Bool _crossfade;
     NSString *_contextInfo;
 }
 
 @property(copy, nonatomic) NSString *contextInfo; // @synthesize contextInfo=_contextInfo;
-@property(nonatomic) BOOL crossfade; // @synthesize crossfade=_crossfade;
-@property(nonatomic) BOOL flip; // @synthesize flip=_flip;
-@property(nonatomic) BOOL underLock; // @synthesize underLock=_underLock;
-@property(nonatomic) BOOL animated; // @synthesize animated=_animated;
+@property(nonatomic) _Bool crossfade; // @synthesize crossfade=_crossfade;
+@property(nonatomic) _Bool flip; // @synthesize flip=_flip;
+@property(nonatomic) _Bool underLock; // @synthesize underLock=_underLock;
+@property(nonatomic) _Bool animated; // @synthesize animated=_animated;
 - (void)encodeWithXPCDictionary:(id)arg1;
 - (id)initWithXPCDictionary:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

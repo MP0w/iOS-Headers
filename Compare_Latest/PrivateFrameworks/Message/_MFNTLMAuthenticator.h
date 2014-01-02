@@ -9,7 +9,7 @@
 @interface _MFNTLMAuthenticator : MFSASLAuthenticator
 {
     struct NtlmGenerator *_ntlmGeneratorRef;
-    long _ntlmError;
+    int _ntlmError;
 }
 
 - (id)responseForServerData:(id)arg1;

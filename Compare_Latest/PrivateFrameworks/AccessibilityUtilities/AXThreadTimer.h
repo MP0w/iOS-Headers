@@ -19,9 +19,9 @@
 
 @property(retain, nonatomic) AXThreadTimerTask *task; // @synthesize task=_task;
 - (void)dealloc;
-@property(readonly, nonatomic, getter=isActive) BOOL active;
-@property(readonly, nonatomic, getter=isPending) BOOL pending;
-@property(readonly, nonatomic, getter=isCancelled) BOOL cancelled;
+@property(readonly, nonatomic, getter=isActive) _Bool active;
+@property(readonly, nonatomic, getter=isPending) _Bool pending;
+@property(readonly, nonatomic, getter=isCancelled) _Bool cancelled;
 - (void)cancel;
 - (void)afterDelay:(double)arg1 processBlock:(id)arg2 cancelBlock:(void)arg3;
 - (void)afterDelay:(double)arg1 processBlock:(id)arg2;

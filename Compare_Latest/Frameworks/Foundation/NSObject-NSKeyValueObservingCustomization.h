@@ -7,7 +7,7 @@
 #import "NSObject.h"
 
 @interface NSObject (NSKeyValueObservingCustomization)
-+ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
++ (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 + (id)keyPathsForValuesAffectingValueForKey:(id)arg1;
 + (id)_keysForValuesAffectingValueForKey:(id)arg1;
 - (void *)observationInfo;

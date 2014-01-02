@@ -6,6 +6,7 @@
 
 #import <OfficeImport/OADShadowEffect.h>
 
+// Not exported
 @interface OADInnerShadowEffect : OADShadowEffect
 {
 }

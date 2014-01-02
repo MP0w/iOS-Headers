@@ -11,11 +11,14 @@
 }
 
 - (id)classForCoder;
-- (struct _NSRange)_rangeOfSegmentsIntersectingTimeRange:(CDStruct_73a5d3ca)arg1;
 - (id)_mutableSegmentsIntersectingTimeRange:(CDStruct_73a5d3ca)arg1 intersectionRange:(struct _NSRange *)arg2;
-- (id)_segmentsByShiftingSegments:(id)arg1 byTimeOffset:(double)arg2;
+- (id)_mutableSegmentsByShiftingSegments:(id)arg1 byTimeOffset:(double)arg2;
 - (void)_mergeBoundarySegmentsInArray:(id)arg1;
-- (BOOL)clipToTimeRange:(CDStruct_73a5d3ca)arg1;
+- (void)removeSegment:(id)arg1;
+- (void)addSegments:(id)arg1;
+- (void)addSegment:(id)arg1;
+- (_Bool)clipToTimeRange:(CDStruct_73a5d3ca)arg1;
+- (id)segments;
 
 @end
 

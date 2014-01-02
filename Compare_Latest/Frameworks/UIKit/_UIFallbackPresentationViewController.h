@@ -15,10 +15,10 @@
 }
 
 @property(retain, nonatomic) UIWindow *rotationDecider; // @synthesize rotationDecider=_rotationDecider;
-- (void)_presentViewController:(id)arg1 sendingView:(id)arg2 animated:(BOOL)arg3;
-- (BOOL)shouldAutorotate;
-- (unsigned int)supportedInterfaceOrientations;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (void)_presentViewController:(id)arg1 sendingView:(id)arg2 animated:(_Bool)arg3;
+- (_Bool)shouldAutorotate;
+- (unsigned long long)supportedInterfaceOrientations;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
 - (void)viewDidUnload;
 - (void)viewDidLoad;
 - (void)didReceiveMemoryWarning;

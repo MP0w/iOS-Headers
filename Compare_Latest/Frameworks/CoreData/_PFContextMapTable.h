@@ -6,13 +6,14 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface _PFContextMapTable : NSObject
 {
-    unsigned int _slotLimit;
+    unsigned long long _slotLimit;
     struct __CFDictionary *_objectsByTemporaryID;
     struct __CFDictionary **_objectsByPermanentObjectID;
     struct __CFDictionary **_objectsBy64bitPKID;
-    unsigned int *_capacitiesFor64bitPKMappings;
+    unsigned long long *_capacitiesFor64bitPKMappings;
     struct _contextMapTableFlags {
         unsigned int _usesWeakReferences:1;
         unsigned int _garbageCollectionEnabled:1;
@@ -21,13 +22,13 @@
 }
 
 - (void)clearTemporaryIDs;
-- (void)setCapacityHint:(unsigned int)arg1 forSlot:(unsigned int)arg2;
-- (unsigned int)getAllObjects:(id *)arg1;
+- (void)setCapacityHint:(unsigned long long)arg1 forSlot:(unsigned int)arg2;
+- (unsigned long long)getAllObjects:(id *)arg1;
 - (void)finalize;
 - (void)dealloc;
 - (void)_dispose;
 - (void)setForUseWithModel:(id)arg1;
-- (id)initWithWeaksReferences:(BOOL)arg1;
+- (id)initWithWeaksReferences:(_Bool)arg1;
 
 @end
 

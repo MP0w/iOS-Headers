@@ -19,14 +19,14 @@
 @property(nonatomic) struct CGSize size; // @synthesize size=_size;
 - (struct CGImage *)CGImageSnapshotAtState:(id)arg1;
 - (struct CGImage *)CGImageSnapshotAtTime:(double)arg1;
-- (void)snapshotToBuffer:(unsigned int *)arg1 withBytesPerRow:(unsigned long)arg2 atTime:(double)arg3;
+- (void)snapshotToBuffer:(unsigned int *)arg1 withBytesPerRow:(unsigned int)arg2 atTime:(double)arg3;
 - (struct CGImage *)_CGImageSnapshot;
-- (void)_snapshotToBuffer:(unsigned int *)arg1 withBytesPerRow:(unsigned long)arg2;
+- (void)_snapshotToBuffer:(unsigned int *)arg1 withBytesPerRow:(unsigned int)arg2;
 @property(readonly, nonatomic) struct CGColorSpace *colorSpace;
 @property(nonatomic) double timeQuantum;
-@property(nonatomic) BOOL isFlipped;
+@property(nonatomic) _Bool isFlipped;
 - (void)dealloc;
-- (id)initWithMontage:(id)arg1 andAssetManagementDelegate:(id)arg2 isReadOnly:(BOOL)arg3;
+- (id)initWithMontage:(id)arg1 andAssetManagementDelegate:(id)arg2 isReadOnly:(_Bool)arg3;
 
 @end
 

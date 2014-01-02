@@ -8,7 +8,7 @@
 
 @interface UIView (iAd_Extras)
 - (struct CGRect)_iAd_screenFrame;
-- (BOOL)_iAd_isVisibleFast;
-- (BOOL)_iAd_isVisible;
+- (_Bool)_iAd_isVisibleFast;
+- (_Bool)_iAd_isVisible;
 @end
 

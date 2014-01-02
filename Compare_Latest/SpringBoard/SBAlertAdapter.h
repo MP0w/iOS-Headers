@@ -19,11 +19,11 @@
 - (id)alertDisplayViewWithSize:(struct CGSize)arg1;
 - (id)display;
 - (void)alertWindow:(id)arg1 resizedFromContentFrame:(struct CGRect)arg2 toContentFrame:(struct CGRect)arg3;
-- (unsigned int)supportedInterfaceOrientations;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (BOOL)shouldAutorotate;
-- (BOOL)shouldAutomaticallyForwardRotationMethods;
-- (BOOL)shouldAutomaticallyForwardAppearanceMethods;
+- (unsigned long long)supportedInterfaceOrientations;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (_Bool)shouldAutorotate;
+- (_Bool)shouldAutomaticallyForwardRotationMethods;
+- (_Bool)shouldAutomaticallyForwardAppearanceMethods;
 - (void)setView:(id)arg1;
 - (void)dealloc;
 - (id)initWithViewController:(id)arg1;

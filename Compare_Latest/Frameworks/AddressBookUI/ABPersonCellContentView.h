@@ -14,19 +14,19 @@
     struct CGRect _valueViewRect;
     UILabel *_label;
     UIImageView *_badge;
-    BOOL _editing;
+    _Bool _editing;
     id <ABStyleProvider> _styleProvider;
 }
 
-+ (struct CGRect)firstValueFrameForValueViewFrame:(struct CGRect)arg1 styleProvider:(id)arg2 whenEditing:(BOOL)arg3;
-+ (void)computeLabelViewFrame:(struct CGRect *)arg1 valueViewFrame:(struct CGRect *)arg2 forSize:(struct CGSize)arg3 styleProvider:(id)arg4 whenEditing:(BOOL)arg5;
-+ (struct CGSize)layoutSubviewsForView:(id)arg1 usingSize:(struct CGSize)arg2 styleProvider:(id)arg3 whenEditing:(BOOL)arg4;
++ (struct CGRect)firstValueFrameForValueViewFrame:(struct CGRect)arg1 styleProvider:(id)arg2 whenEditing:(_Bool)arg3;
++ (void)computeLabelViewFrame:(struct CGRect *)arg1 valueViewFrame:(struct CGRect *)arg2 forSize:(struct CGSize)arg3 styleProvider:(id)arg4 whenEditing:(_Bool)arg5;
++ (struct CGSize)layoutSubviewsForView:(id)arg1 usingSize:(struct CGSize)arg2 styleProvider:(id)arg3 whenEditing:(_Bool)arg4;
 @property(retain, nonatomic) id <ABStyleProvider> styleProvider; // @synthesize styleProvider=_styleProvider;
 @property(readonly, nonatomic) UILabel *label; // @synthesize label=_label;
 - (void)layoutLabel;
 - (struct CGRect)frameForLabel;
 - (struct CGRect)frameForBadge;
-- (float)labelBaselineAdjustment;
+- (double)labelBaselineAdjustment;
 - (struct CGRect)backgroundRectForView:(id)arg1;
 - (struct CGRect)rectForView:(id)arg1;
 - (void)setBadgeIcon:(id)arg1;

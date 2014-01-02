@@ -8,11 +8,12 @@
 
 @class WAKView, WebDataSource;
 
+// Not exported
 @interface WebHTMLRepresentationPrivate : NSObject
 {
     WebDataSource *dataSource;
-    BOOL hasSentResponseToPlugin;
-    BOOL includedInWebKitStatistics;
+    _Bool hasSentResponseToPlugin;
+    _Bool includedInWebKitStatistics;
     id <WebPluginManualLoader> manualLoader;
     WAKView *pluginView;
 }

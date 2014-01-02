@@ -7,6 +7,7 @@
 #import "UIView.h"
 
 @interface UIView (CAMRotatingView)
-- (void)cam_rotateWithDeviceOrientation:(int)arg1 animated:(BOOL)arg2;
++ (struct CGAffineTransform)cam_transformForDeviceOrientation:(long long)arg1;
+- (void)cam_rotateWithDeviceOrientation:(long long)arg1 animated:(_Bool)arg2;
 @end
 

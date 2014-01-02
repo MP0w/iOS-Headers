@@ -23,10 +23,9 @@
     NSMutableArray *_postStepBlocks;
 }
 
-+ (id)world;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (BOOL)stepWithTime:(double)arg1 velocityIterations:(unsigned int)arg2 positionIterations:(unsigned int)arg3;
+- (_Bool)stepWithTime:(double)arg1 velocityIterations:(unsigned long long)arg2 positionIterations:(unsigned long long)arg3;
 - (void)removeAllJoints;
 - (void)removeJoint:(id)arg1;
 - (void)addJoint:(id)arg1;
@@ -37,26 +36,22 @@
 @property(nonatomic) id <PKPhysicsContactDelegate> contactDelegate;
 - (id)collisionDelegate;
 - (void)setCollisionDelegate:(id)arg1;
-@property(nonatomic) struct CGPoint gravity;
-- (BOOL)hasBodies;
+@property(nonatomic) struct CGVector gravity;
+- (_Bool)hasBodies;
 - (id)copy;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-@property(nonatomic) float speed;
+@property(nonatomic) double velocityThreshold;
+@property(nonatomic) double speed;
 - (id)bodyAlongRayStart:(struct CGPoint)arg1 end:(struct CGPoint)arg2;
 - (id)bodyInRect:(struct CGRect)arg1;
 - (id)bodyAtPoint:(struct CGPoint)arg1;
 - (void)enumerateBodiesAlongRayStart:(struct CGPoint)arg1 end:(struct CGPoint)arg2 usingBlock:(id)arg3;
 - (void)enumerateBodiesInRect:(struct CGRect)arg1 usingBlock:(id)arg2;
 - (void)enumerateBodiesAtPoint:(struct CGPoint)arg1 usingBlock:(id)arg2;
-- (void)_runBlockOutsideOfTimeStep:(id)arg1;
-@property(nonatomic) _Bool _doSleep;
-@property(retain, nonatomic) NSMutableArray *_bodies;
-@property(nonatomic) struct b2Vec2 _gravity;
-@property(nonatomic) struct b2World *_world;
 
 @end
 

@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface WebUndoStep : NSObject
 {
     struct RefPtr<WebCore::UndoStep> m_step;

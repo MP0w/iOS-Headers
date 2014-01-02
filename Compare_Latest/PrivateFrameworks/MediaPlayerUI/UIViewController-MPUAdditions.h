@@ -9,9 +9,9 @@
 @class NSString, UIImage;
 
 @interface UIViewController (MPUAdditions)
-+ (id)_MPU_viewControllerForIdentifier:(id)arg1 forSearch:(BOOL)arg2 withQuery:(id)arg3;
++ (id)_MPU_viewControllerForIdentifier:(id)arg1 forSearch:(_Bool)arg2 withQuery:(id)arg3;
 + (Class)_MPU_viewControllerClassForIdentifier:(id)arg1;
-+ (BOOL)_MPU_hasCreationInformationForIdentifier:(id)arg1;
++ (_Bool)_MPU_hasCreationInformationForIdentifier:(id)arg1;
 + (id)_MPU_defaultQueryForIdentifier:(id)arg1;
 + (void)_MPU_configureViewController:(id)arg1 forIdentifier:(id)arg2;
 + (id)MPU_searchViewControllersForIdentifiers:(id)arg1;
@@ -22,12 +22,11 @@
 + (id)MPU_viewControllerForIdentifier:(id)arg1;
 + (void)MPU_registerIdentifier:(id)arg1 withAttributes:(id)arg2 defaultQueryCreationHandler:(id)arg3;
 + (id)MPU_defaultDataSourceForViewControllerWithIdentifier:(id)arg1;
-- (BOOL)MPU_beginPlaybackForVisibleContent;
 @property(retain, nonatomic, getter=MPU_selectedMoreListImage, setter=MPU_setSelectedMoreListImage:) UIImage *MPU_selectedMoreListImage;
 @property(retain, nonatomic, getter=MPU_moreListImage, setter=MPU_setMoreListImage:) UIImage *MPU_moreListImage;
-@property(readonly, nonatomic, getter=MPU_accessoryType) int MPU_accessoryType;
-@property(readonly, nonatomic, getter=MPU_statusBarStyle) int MPU_statusBarStyle;
-@property(readonly, nonatomic, getter=MPU_isStatusBarHidden) BOOL MPU_statusBarHidden;
+@property(readonly, nonatomic, getter=MPU_accessoryType) long long MPU_accessoryType;
+@property(readonly, nonatomic, getter=MPU_statusBarStyle) long long MPU_statusBarStyle;
+@property(readonly, nonatomic, getter=MPU_isStatusBarHidden) _Bool MPU_statusBarHidden;
 @property(copy, nonatomic, getter=MPU_identifier, setter=MPU_setIdentifier:) NSString *MPU_identifier;
 @end
 

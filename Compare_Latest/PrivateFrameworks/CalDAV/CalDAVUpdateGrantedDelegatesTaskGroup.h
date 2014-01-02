@@ -30,8 +30,8 @@
 - (void)propPatchTask:(id)arg1 parsedResponses:(id)arg2 error:(id)arg3;
 - (void)taskGroup:(id)arg1 didFinishWithError:(id)arg2;
 - (void)startTaskGroup;
-- (void)_populateUpdatesFromFetched:(id)arg1 allowWrite:(BOOL)arg2;
-- (void)_updateDelegatesWithAllowWrite:(BOOL)arg1;
+- (void)_populateUpdatesFromFetched:(id)arg1 allowWrite:(_Bool)arg2;
+- (void)_updateDelegatesWithAllowWrite:(_Bool)arg1;
 - (void)_fetchExistingGrantedDelegates;
 - (void)_finishWithError:(id)arg1 state:(int)arg2;
 - (id)initWithAccountInfoProvider:(id)arg1 addWriteURLs:(id)arg2 addReadURLs:(id)arg3 removeURLs:(id)arg4 taskManager:(id)arg5;

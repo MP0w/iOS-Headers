@@ -23,8 +23,8 @@
 - (void)webView:(id)arg1 decidePolicyForGeolocationRequestFromOrigin:(id)arg2 frame:(id)arg3 listener:(id)arg4;
 - (void)_decidePolicyForGeolocationRequestFromOrigin:(id)arg1 requestingURL:(id)arg2 window:(id)arg3 listener:(id)arg4;
 - (void)_executeNextChallenge;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
-- (int)_getChallengeCountFromHistoryForToken:(id)arg1 requestingURL:(id)arg2;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
+- (long long)_getChallengeCountFromHistoryForToken:(id)arg1 requestingURL:(id)arg2;
 - (void)clearCache;
 - (void)save;
 - (void)load;

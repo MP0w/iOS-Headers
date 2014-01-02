@@ -11,22 +11,22 @@
 
 @interface PKColor : NSObject <NSSecureCoding, NSCopying>
 {
-    float _red;
-    float _green;
-    float _blue;
-    float _alpha;
+    double _red;
+    double _green;
+    double _blue;
+    double _alpha;
     struct CGColor *_colorRef;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 + (id)colorFromString:(id)arg1;
-+ (id)colorWithH:(float)arg1 S:(float)arg2 B:(float)arg3 A:(float)arg4;
-+ (id)colorWithR:(float)arg1 G:(float)arg2 B:(float)arg3 A:(float)arg4;
++ (id)colorWithH:(double)arg1 S:(double)arg2 B:(double)arg3 A:(double)arg4;
++ (id)colorWithR:(double)arg1 G:(double)arg2 B:(double)arg3 A:(double)arg4;
 - (struct CGColor *)_newCGColor;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)string;
 - (struct CGColor *)CGColor;
 - (void)dealloc;

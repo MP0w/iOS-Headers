@@ -6,6 +6,7 @@
 
 #import <VectorKit/VGLRoadNoFattenProgram.h>
 
+// Not exported
 @interface VGLDashedLineNoFattenProgram : VGLRoadNoFattenProgram
 {
     int _uDistanceMultiplier;

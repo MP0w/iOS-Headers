@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface OABShapeGeometry : NSObject
 {
 }
@@ -24,12 +25,6 @@
 + (void)readFromFormulas:(const EshTablePropVal_f007a3b0 *)arg1 toGeometry:(id)arg2;
 + (void)readFromPathCommands:(const EshTablePropVal_ea625207 *)arg1 pathParams:(const struct EshPathParamTable *)arg2 toGeometry:(id)arg3;
 + (void)readFromShape:(struct EshShape *)arg1 toShape:(id)arg2;
-+ (int)actualPathCommandForPathCommand:(int)arg1 index:(unsigned short)arg2;
-+ (void)readLimoFromPath:(const struct EshPath *)arg1 toGeometry:(id)arg2;
-+ (void)readPathCommandsAndParamsFromPath:(const struct EshPath *)arg1 toGeometry:(id)arg2;
-+ (struct OADAdjustCoord)adjustCoordWithComputedValue:(struct EshComputedValue)arg1;
-+ (void)readGeometryCoordSpaceFromShapeProperties:(const struct EshShapeProperties *)arg1 toGeometry:(id)arg2;
-+ (void)readAdjustValuesFromShapeProperties:(const struct EshShapeProperties *)arg1 toGeometry:(id)arg2;
 
 @end
 

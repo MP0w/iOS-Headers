@@ -15,10 +15,10 @@
 }
 
 + (int)_ABPropertyIDForString:(id)arg1;
-+ (BOOL)isProxyProperty:(id)arg1;
++ (_Bool)isProxyProperty:(id)arg1;
 - (void)performWhenReady:(id)arg1;
 - (id)valueForProxyProperty:(id)arg1;
-- (id)valueForProperty:(id)arg1 isMultiValue:(char *)arg2;
+- (id)valueForProperty:(id)arg1 isMultiValue:(_Bool *)arg2;
 - (void)_addressBookChanged:(id)arg1;
 - (void)dealloc;
 - (id)init;

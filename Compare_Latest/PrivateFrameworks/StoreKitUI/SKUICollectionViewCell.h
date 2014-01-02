@@ -11,22 +11,22 @@
 @interface SKUICollectionViewCell : UICollectionViewCell
 {
     UIView *_bottomBorderView;
-    int _position;
+    long long _position;
     UIView *_rightBorderView;
     UIColor *_separatorColor;
-    BOOL _showsCellSeparators;
+    _Bool _showsCellSeparators;
 }
 
-@property(nonatomic) BOOL showsCellSeparators; // @synthesize showsCellSeparators=_showsCellSeparators;
+@property(nonatomic) _Bool showsCellSeparators; // @synthesize showsCellSeparators=_showsCellSeparators;
 @property(retain, nonatomic) UIColor *separatorColor; // @synthesize separatorColor=_separatorColor;
 - (void).cxx_destruct;
 - (void)_updateBorderVisibility;
-- (BOOL)_showsRightBorder;
-- (void)_setPosition:(int)arg1;
+- (_Bool)_showsRightBorder;
+- (void)_setPosition:(long long)arg1;
 - (void)setBackgroundColor:(id)arg1;
 - (void)layoutSubviews;
-- (void)setSelected:(BOOL)arg1;
-- (void)setHighlighted:(BOOL)arg1;
+- (void)setSelected:(_Bool)arg1;
+- (void)setHighlighted:(_Bool)arg1;
 - (void)applyLayoutAttributes:(id)arg1;
 
 @end

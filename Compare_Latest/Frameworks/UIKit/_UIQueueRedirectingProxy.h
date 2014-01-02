@@ -6,21 +6,19 @@
 
 #import <UIKit/_UITargetedProxy.h>
 
-#import "XPCProxyTarget-Protocol.h"
-
 @class NSObject<OS_dispatch_queue>;
 
-@interface _UIQueueRedirectingProxy : _UITargetedProxy <XPCProxyTarget>
+// Not exported
+@interface _UIQueueRedirectingProxy : _UITargetedProxy
 {
     NSObject<OS_dispatch_queue> *_targetQueue;
 }
 
 + (id)proxyForwardingMessagesToObject:(id)arg1 onQueue:(id)arg2;
 - (id)description;
-- (BOOL)respondsToSelector:(SEL)arg1;
+- (_Bool)respondsToSelector:(SEL)arg1;
 - (void)forwardInvocation:(id)arg1;
 - (void)dealloc;
-- (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
 
 @end
 

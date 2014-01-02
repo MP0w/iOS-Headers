@@ -14,12 +14,12 @@
 {
     NSMutableArray *_groups;
     NSDictionary *_hintText;
-    BOOL _ignoresEmptySections;
+    _Bool _ignoresEmptySections;
 }
 
-@property(nonatomic) BOOL ignoresEmptySections; // @synthesize ignoresEmptySections=_ignoresEmptySections;
+@property(nonatomic) _Bool ignoresEmptySections; // @synthesize ignoresEmptySections=_ignoresEmptySections;
 - (void)_removeHiddenItemsFromArray:(id)arg1;
-- (id)_groupAtExternalIndex:(int)arg1;
+- (id)_groupAtExternalIndex:(long long)arg1;
 - (void)setHintText:(id)arg1;
 - (id)hintTextForKey:(id)arg1;
 - (void)setItemsFromPropertyList:(id)arg1;
@@ -27,12 +27,12 @@
 - (void)replaceItemAtIndexPath:(id)arg1 withItems:(id)arg2;
 - (void)removeItemAtIndexPath:(id)arg1;
 - (void)insertItems:(id)arg1 atIndexPath:(id)arg2;
-- (id)sectionItemForSectionAtIndex:(int)arg1;
+- (id)sectionItemForSectionAtIndex:(long long)arg1;
 @property(readonly, nonatomic) NSArray *sectionIndexTitles;
-- (int)sectionIndexForIndexTitle:(id)arg1 atIndex:(int)arg2;
-@property(readonly, nonatomic) int numberOfSections;
-@property(readonly, nonatomic) int numberOfItems;
-- (id)itemsForSectionAtIndex:(int)arg1;
+- (long long)sectionIndexForIndexTitle:(id)arg1 atIndex:(long long)arg2;
+@property(readonly, nonatomic) long long numberOfSections;
+@property(readonly, nonatomic) long long numberOfItems;
+- (id)itemsForSectionAtIndex:(long long)arg1;
 - (id)itemAtIndexPath:(id)arg1;
 - (id)indexPathOfItemWithIdentifier:(unsigned long long)arg1;
 - (id)indexPathOfItem:(id)arg1;

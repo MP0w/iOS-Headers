@@ -11,17 +11,17 @@
 @interface UIKBScreenTraits : NSObject
 {
     UIScreen *_screen;
-    int _orientation;
+    long long _orientation;
     NSString *_orientationKey;
 }
 
-+ (id)traitsWithScreen:(id)arg1 orientation:(int)arg2;
++ (id)traitsWithScreen:(id)arg1 orientation:(long long)arg2;
 @property(retain, nonatomic) NSString *orientationKey; // @synthesize orientationKey=_orientationKey;
-@property(nonatomic) int orientation; // @synthesize orientation=_orientation;
+@property(nonatomic) long long orientation; // @synthesize orientation=_orientation;
 @property(readonly, nonatomic) UIScreen *screen; // @synthesize screen=_screen;
-@property(readonly, nonatomic) int idiom;
+@property(readonly, nonatomic) long long idiom;
 - (void)dealloc;
-- (id)initWithScreen:(id)arg1 orientation:(int)arg2;
+- (id)initWithScreen:(id)arg1 orientation:(long long)arg2;
 
 @end
 

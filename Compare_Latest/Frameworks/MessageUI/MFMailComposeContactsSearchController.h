@@ -17,8 +17,8 @@
     MFContactsSearchResultsModel *_model;
     NSNumber *_taskID;
     NSNumber *_corecipientSearchTaskID;
-    BOOL _foundAnySearchResults;
-    unsigned int _waitingOnSearchResultsCount;
+    _Bool _foundAnySearchResults;
+    unsigned long long _waitingOnSearchResultsCount;
 }
 
 @property(retain, nonatomic) NSNumber *taskID; // @synthesize taskID=_taskID;
@@ -30,7 +30,7 @@
 - (void)finishedSearchingForType:(int)arg1;
 - (void)consumeSearchResults:(id)arg1 type:(int)arg2 taskID:(id)arg3;
 - (void)findCorecipientsWithRecipients:(id)arg1;
-- (void)_cancelSearchAndNotify:(BOOL)arg1;
+- (void)_cancelSearchAndNotify:(_Bool)arg1;
 - (void)cancelSearch;
 - (void)searchWithString:(id)arg1 enteredRecipients:(id)arg2;
 - (void)searchWithString:(id)arg1;

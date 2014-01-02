@@ -10,6 +10,7 @@
 
 @class OADBackdrop, OADCamera, OADLightRig;
 
+// Not exported
 @interface OADScene3D : NSObject <NSCopying>
 {
     OADCamera *mCamera;
@@ -18,8 +19,8 @@
 }
 
 + (id)nullScene3D;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)setBackdrop:(id)arg1;
 - (id)backdrop;
 - (void)setLightRig:(id)arg1;

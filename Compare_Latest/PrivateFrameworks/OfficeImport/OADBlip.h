@@ -8,16 +8,17 @@
 
 @class OADSubBlip;
 
+// Not exported
 @interface OADBlip : NSObject
 {
-    unsigned long mReferenceCount;
+    unsigned int mReferenceCount;
     OADSubBlip *mMainSubBlip;
     OADSubBlip *mAltSubBlip;
 }
 
 + (id)pathExtensionForBlipType:(int)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (unsigned int *)referenceCount;
 - (void)setAltSubBlip:(id)arg1;
 - (id)altSubBlip;

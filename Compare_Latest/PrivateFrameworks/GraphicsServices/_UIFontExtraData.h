@@ -12,15 +12,16 @@
 {
     NSData *_latin1MappingTable;
     NSCharacterSet *_coveredCharacterSet;
-    float _ascender;
-    float _descender;
-    float _lineHeight;
-    float _lineGap;
+    double _ascender;
+    double _descender;
+    double _lineHeight;
+    double _lineGap;
     struct __fFlags {
         unsigned int _initialized:1;
         unsigned int _isSystemFont:1;
         unsigned int _hasKernPair:1;
         unsigned int _checkedLatin1Table:1;
+        unsigned int _isIBTextStyleFont:1;
     } _fFlags;
 }
 

@@ -22,7 +22,7 @@
 @property(copy, nonatomic) NSString *serviceName; // @synthesize serviceName=_serviceName;
 @property(copy, nonatomic) NSString *accountName; // @synthesize accountName=_accountName;
 - (void)removeGenericPassword;
-- (long)addGenericPassword:(id)arg1 withLabel:(id)arg2 andDescription:(id)arg3;
+- (int)addGenericPassword:(id)arg1 withLabel:(id)arg2 andDescription:(id)arg3;
 - (id)genericPassword;
 - (id)getGenericPassword;
 - (id)getPasswordFromQuery:(id)arg1;

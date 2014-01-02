@@ -6,6 +6,7 @@
 
 #import <iWorkImport/GQDWPBlockList.h>
 
+// Not exported
 @interface GQDWPTocEmpty : GQDWPBlockList
 {
 }

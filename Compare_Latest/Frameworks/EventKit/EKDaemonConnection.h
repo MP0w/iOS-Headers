@@ -8,9 +8,10 @@
 
 @class NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString;
 
+// Not exported
 @interface EKDaemonConnection : NSObject
 {
-    unsigned long _options;
+    unsigned int _options;
     NSString *_dbPath;
     unsigned int _serverPort;
     unsigned int _machPort;
@@ -21,20 +22,20 @@
     unsigned int _nextID;
     NSObject<OS_dispatch_source> *_replySource;
     NSObject<OS_dispatch_queue> *_replyHandlerLock;
-    BOOL _registeredForStartNote;
+    _Bool _registeredForStartNote;
 }
 
 @property id delegate; // @synthesize delegate=_delegate;
 - (void)_finishAllRepliesOnServerDeath;
-- (void)_processReplyWithID:(unsigned int)arg1 data:(id)arg2 finished:(BOOL)arg3;
+- (void)_processReplyWithID:(unsigned int)arg1 data:(id)arg2 finished:(_Bool)arg3;
 - (void)removeReplyHandler:(id)arg1;
 - (id)addReplyHandler:(id)arg1;
 - (void)_daemonRestarted;
 @property(readonly) unsigned int port;
 - (void)disconnect;
-- (BOOL)_connectToServer;
+- (_Bool)_connectToServer;
 - (void)dealloc;
-- (id)initWithOptions:(unsigned long)arg1 path:(id)arg2;
+- (id)initWithOptions:(unsigned int)arg1 path:(id)arg2;
 
 @end
 

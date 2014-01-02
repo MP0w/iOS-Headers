@@ -15,10 +15,10 @@
     NSDictionary *_uuidsToAddActions;
     NSDictionary *_hrefsToModDeleteActions;
     NSString *_checkCTag;
-    BOOL _simple;
-    BOOL _returnChangedData;
+    _Bool _simple;
+    _Bool _returnChangedData;
     NSData *_pushedData;
-    BOOL _validCTag;
+    _Bool _validCTag;
     NSString *_nextCTag;
     NSMutableSet *_bulkChangeResponses;
     NSString *_requestDataContentType;
@@ -35,7 +35,7 @@
 - (id)httpMethod;
 - (id)additionalHeaderValues;
 - (void)dealloc;
-- (id)initWithURL:(id)arg1 checkCTag:(id)arg2 simple:(BOOL)arg3 returnChangedData:(BOOL)arg4 uuidsToAddActions:(id)arg5 hrefsToModDeleteActions:(id)arg6;
+- (id)initWithURL:(id)arg1 checkCTag:(id)arg2 simple:(_Bool)arg3 returnChangedData:(_Bool)arg4 uuidsToAddActions:(id)arg5 hrefsToModDeleteActions:(id)arg6;
 
 @end
 

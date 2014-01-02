@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface CHDView3D : NSObject
 {
     int mRotationX;

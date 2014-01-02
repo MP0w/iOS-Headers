@@ -7,6 +7,6 @@
 #import "NSString.h"
 
 @interface NSString (UISafeInstantiators)
-- (id)_initWithUTF8String:(const char *)arg1 maxLength:(unsigned int)arg2;
+- (id)_initWithUTF8String:(const char *)arg1 maxLength:(unsigned long long)arg2;
 @end
 

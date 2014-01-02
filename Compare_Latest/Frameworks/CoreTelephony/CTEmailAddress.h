@@ -11,6 +11,7 @@
 
 @class NSString;
 
+// Not exported
 @interface CTEmailAddress : NSObject <NSCopying, CTMessageAddress>
 {
     NSString *_address;

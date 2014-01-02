@@ -15,12 +15,12 @@
 + (id)stringAttributesWithAttributedString:(id)arg1;
 + (id)textFormatWithNSAttributesForText:(id)arg1 attributes:(id)arg2;
 + (id)textFormatWithCTAttributesForText:(id)arg1 attributes:(id)arg2;
-+ (id)textFormatFromUnderlineStyle:(unsigned int)arg1;
-+ (unsigned int)underlineStyleFromTextFormat:(id)arg1;
-+ (id)stringFromLigature:(int)arg1;
-+ (int)ligatureFromString:(id)arg1;
-+ (id)stringFromTextAlignment:(int)arg1;
-+ (int)textAlignmentFromString:(id)arg1;
++ (id)textFormatFromUnderlineStyle:(unsigned long long)arg1;
++ (unsigned long long)underlineStyleFromTextFormat:(id)arg1;
++ (id)stringFromLigature:(long long)arg1;
++ (long long)ligatureFromString:(id)arg1;
++ (id)stringFromTextAlignment:(long long)arg1;
++ (long long)textAlignmentFromString:(id)arg1;
 + (id)stretchForFontDisplayName:(id)arg1 andFamilyName:(id)arg2;
 + (id)weightForFontDisplayName:(id)arg1 andFamilyName:(id)arg2;
 + (id)styleForFontDisplayName:(id)arg1 andFamilyName:(id)arg2;

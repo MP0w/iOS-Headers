@@ -8,6 +8,7 @@
 
 @class NSMutableString;
 
+// Not exported
 @interface WMFieldMapper : WMParagraphMapper
 {
     int mMode;

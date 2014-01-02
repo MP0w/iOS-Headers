@@ -8,6 +8,7 @@
 
 @class NSArray, NSMutableDictionary, NSString, SBKSyncTransaction;
 
+// Not exported
 @interface SBKSyncResponseData : NSObject
 {
     SBKSyncTransaction *_transaction;

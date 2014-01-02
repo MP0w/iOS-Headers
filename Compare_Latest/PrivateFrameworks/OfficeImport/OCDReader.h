@@ -8,11 +8,12 @@
 
 @class CPImportTracing, NSData, NSError, NSString;
 
+// Not exported
 @interface OCDReader : NSObject
 {
     id <OCCancelDelegate> mCancelDelegate;
     id <OCDReaderDelegate> mDelegate;
-    BOOL mIsThumbnail;
+    _Bool mIsThumbnail;
     CPImportTracing *mTracing;
     NSString *mFileName;
     NSData *mData;
@@ -20,7 +21,7 @@
 }
 
 @property(retain, nonatomic) CPImportTracing *tracing; // @synthesize tracing=mTracing;
-@property(nonatomic) BOOL isThumbnail; // @synthesize isThumbnail=mIsThumbnail;
+@property(nonatomic) _Bool isThumbnail; // @synthesize isThumbnail=mIsThumbnail;
 @property(nonatomic) id <OCDReaderDelegate> delegate; // @synthesize delegate=mDelegate;
 @property(retain, nonatomic) id <OCCancelDelegate> cancelDelegate; // @synthesize cancelDelegate=mCancelDelegate;
 @property(retain, nonatomic) NSError *startError; // @synthesize startError=mStartError;
@@ -29,10 +30,6 @@
 - (void)setStartErrorMessageFromException:(id)arg1;
 - (void)dealloc;
 - (id)initWithCancelDelegate:(id)arg1 tracing:(id)arg2;
-- (BOOL)verifyFileFormat;
-- (id)read;
-- (BOOL)start;
-- (_Bool)isBinaryReader;
 
 @end
 

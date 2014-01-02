@@ -8,14 +8,16 @@
 
 @interface _UIRepeatingPressGestureRecognizer : UIGestureRecognizer
 {
-    BOOL _timerOn;
-    int _delayIndex;
-    unsigned int _numberOfTouchesRequired;
-    int _buttonType;
+    _Bool _timerOn;
+    long long _delayIndex;
+    unsigned long long _numberOfTouchesRequired;
+    long long _buttonType;
 }
 
-@property(nonatomic, setter=_setButtonType:) int _buttonType; // @synthesize _buttonType;
-@property(nonatomic) unsigned int numberOfTouchesRequired; // @synthesize numberOfTouchesRequired=_numberOfTouchesRequired;
++ (double)delayForRepeatNumber:(long long)arg1;
+@property(nonatomic, setter=_setButtonType:) long long _buttonType; // @synthesize _buttonType;
+@property(nonatomic) unsigned long long numberOfTouchesRequired; // @synthesize numberOfTouchesRequired=_numberOfTouchesRequired;
+- (void)_finishNextStep:(id)arg1;
 - (void)_nextStep:(id)arg1;
 - (void)_scheduleNextTimer;
 - (void)_clearTapTimer;

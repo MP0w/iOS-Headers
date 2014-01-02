@@ -6,9 +6,10 @@
 
 #import <MusicLibrary/ML3DatabaseResult.h>
 
+// Not exported
 @interface ML3ContainerDatabaseResult : ML3DatabaseResult
 {
-    unsigned int _limitIndex;
+    unsigned long long _limitIndex;
     long long _limitValue;
 }
 

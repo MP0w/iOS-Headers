@@ -11,7 +11,7 @@
 @interface CalDAVOperation : CoreDAVTaskGroup
 {
     id <CalDAVPrincipal> _principal;
-    BOOL _isCancellingTaskGroups;
+    _Bool _isCancellingTaskGroups;
     NSMutableSet *_outstandingTaskGroups;
 }
 

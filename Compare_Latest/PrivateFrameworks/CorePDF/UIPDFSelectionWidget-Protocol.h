@@ -10,14 +10,14 @@
 @property(nonatomic) UIPDFPageView *pageView;
 @property(readonly, nonatomic) struct CGPoint currentSelectionPointOnPage;
 @property(readonly, nonatomic) struct CGPoint initialSelectionPointOnPage;
-- (void)setSelectedGrabber:(unsigned int)arg1;
+- (void)setSelectedGrabber:(unsigned long long)arg1;
 - (struct CGRect)selectionRectangle;
 - (void)endTracking;
 - (void)track:(struct CGPoint)arg1;
 - (void)layout;
 - (struct CGPoint)viewOffset;
 - (struct CGPoint)selectedPointFor:(struct CGPoint)arg1;
-- (BOOL)hitTest:(struct CGPoint)arg1 fixedPoint:(struct CGPoint *)arg2 preceeds:(char *)arg3;
+- (_Bool)hitTest:(struct CGPoint)arg1 fixedPoint:(struct CGPoint *)arg2 preceeds:(_Bool *)arg3;
 - (void)hide;
 - (void)remove;
 - (void)setSelection:(id)arg1;

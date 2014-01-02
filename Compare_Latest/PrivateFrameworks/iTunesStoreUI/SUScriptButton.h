@@ -14,14 +14,14 @@
 {
     id _action;
     SUScriptCanvasContext *_canvas;
-    BOOL _shouldPerformDefaultAction;
+    _Bool _shouldPerformDefaultAction;
     WebScriptObject *_target;
 }
 
 + (void)initialize;
 + (id)webScriptNameForSelector:(SEL)arg1;
 + (id)webScriptNameForKeyName:(id)arg1;
-@property(nonatomic) BOOL shouldPerformDefaultAction; // @synthesize shouldPerformDefaultAction=_shouldPerformDefaultAction;
+@property(nonatomic) _Bool shouldPerformDefaultAction; // @synthesize shouldPerformDefaultAction=_shouldPerformDefaultAction;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
 - (id)_systemItemString;
@@ -30,18 +30,18 @@
 - (id)_action;
 @property(retain) WebScriptObject *target;
 @property(retain) NSString *title;
-@property int tag;
+@property long long tag;
 @property(retain) NSString *subtitle;
 @property(retain) NSString *style;
 @property(readonly) id showingConfirmation;
-- (void)showConfirmationWithTitle:(id)arg1 animated:(BOOL)arg2;
-@property BOOL loading;
+- (void)showConfirmationWithTitle:(id)arg1 animated:(_Bool)arg2;
+@property _Bool loading;
 - (void)setImageWithURLString:(id)arg1 scale:(id)arg2;
 - (void)setImageInsetsTop:(float)arg1 left:(float)arg2 bottom:(float)arg3 right:(float)arg4;
-@property BOOL enabled;
+@property _Bool enabled;
 @property(retain) SUScriptCanvasContext *canvas;
 @property(retain) id action;
-- (void)hideConfirmationAnimated:(BOOL)arg1;
+- (void)hideConfirmationAnimated:(_Bool)arg1;
 - (id)_className;
 - (id)buttonItem;
 - (void)setNativeButton:(id)arg1;

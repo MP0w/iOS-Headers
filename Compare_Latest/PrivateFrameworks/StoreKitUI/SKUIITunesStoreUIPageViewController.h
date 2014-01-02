@@ -12,17 +12,17 @@
 {
     SUBarButtonItem *_cancelButtonItem;
     SKProductPageViewController *_productPageViewController;
-    BOOL _showsCancelButton;
+    _Bool _showsCancelButton;
 }
 
-@property(nonatomic) BOOL showsCancelButton; // @synthesize showsCancelButton=_showsCancelButton;
+@property(nonatomic) _Bool showsCancelButton; // @synthesize showsCancelButton=_showsCancelButton;
 @property(nonatomic) __weak SKProductPageViewController *productPageViewController; // @synthesize productPageViewController=_productPageViewController;
 - (void).cxx_destruct;
 - (void)_storeSheetCancelButtonAction:(id)arg1;
 - (id)_cancelButtonItem;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)resetNavigationItem:(id)arg1;
-- (BOOL)presentDialogForError:(id)arg1 pendUntilVisible:(BOOL)arg2;
+- (_Bool)presentDialogForError:(id)arg1 pendUntilVisible:(_Bool)arg2;
 - (void)handleFailureWithError:(id)arg1;
 - (void)dealloc;
 

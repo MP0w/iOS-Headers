@@ -8,6 +8,7 @@
 
 @class NSArray;
 
+// Not exported
 @interface SKGroup : SKAction
 {
     struct SKCGroup *_mycaction;
@@ -16,7 +17,7 @@
 
 + (id)groupWithActions:(id)arg1;
 - (void).cxx_destruct;
-- (BOOL)finished;
+- (_Bool)finished;
 - (id)reversedAction;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;

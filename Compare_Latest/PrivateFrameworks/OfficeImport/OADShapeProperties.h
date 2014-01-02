@@ -6,16 +6,17 @@
 
 #import <OfficeImport/OADGraphicProperties.h>
 
+// Not exported
 @interface OADShapeProperties : OADGraphicProperties
 {
-    BOOL mIsTextBox;
+    _Bool mIsTextBox;
 }
 
 + (id)defaultProperties;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (void)setIsTextBox:(BOOL)arg1;
-- (BOOL)isTextBox;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (void)setIsTextBox:(_Bool)arg1;
+- (_Bool)isTextBox;
 
 @end
 

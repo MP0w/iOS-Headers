@@ -7,6 +7,7 @@
 #import "NSMutableOrderedSet.h"
 
 @interface NSMutableOrderedSet (PLAdditions)
+- (void)pl_insertObjects:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)pl_removeObjectsInArray:(id)arg1;
 - (void)pl_addObjectsFromArray:(id)arg1;
 @end

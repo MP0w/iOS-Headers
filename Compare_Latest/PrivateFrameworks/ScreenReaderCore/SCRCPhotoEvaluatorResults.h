@@ -8,6 +8,7 @@
 
 @class SCRCPhotoEvaluatorResult, SCRCPhotoEvaluatorResultPeople;
 
+// Not exported
 @interface SCRCPhotoEvaluatorResults : NSObject
 {
     SCRCPhotoEvaluatorResult *_blurResult;

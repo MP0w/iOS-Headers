@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface NSURLRequestInternal : NSObject
 {
     struct _CFURLRequest *request;

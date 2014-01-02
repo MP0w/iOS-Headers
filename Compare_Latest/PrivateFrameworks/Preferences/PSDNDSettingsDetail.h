@@ -12,8 +12,8 @@
 {
 }
 
-+ (BOOL)isEnabled;
-+ (void)setEnabled:(BOOL)arg1;
++ (_Bool)isEnabled;
++ (void)setEnabled:(_Bool)arg1;
 + (void)loadStateWithCompletion:(id)arg1;
 + (id)iconImage;
 + (id)preferencesURL;

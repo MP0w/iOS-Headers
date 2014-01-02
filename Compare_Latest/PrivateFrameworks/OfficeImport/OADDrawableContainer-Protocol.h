@@ -9,10 +9,10 @@
 @protocol OADDrawableContainer <NSObject>
 - (void)replaceChild:(id)arg1 with:(id)arg2;
 - (id)children;
-- (id)childAtIndex:(unsigned int)arg1;
+- (id)childAtIndex:(unsigned long long)arg1;
 - (void)addChildren:(id)arg1;
 - (void)addChild:(id)arg1;
-- (unsigned int)childCount;
+- (unsigned long long)childCount;
 - (void)setLogicalBounds:(struct CGRect)arg1;
 - (struct CGRect)logicalBounds;
 @end

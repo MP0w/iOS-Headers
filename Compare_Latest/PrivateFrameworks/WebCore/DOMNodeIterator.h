@@ -8,6 +8,7 @@
 
 @class DOMNode;
 
+// Not exported
 @interface DOMNodeIterator : DOMObject
 {
 }
@@ -15,9 +16,9 @@
 - (void)detach;
 - (id)previousNode;
 - (id)nextNode;
-@property(readonly) BOOL pointerBeforeReferenceNode;
+@property(readonly) _Bool pointerBeforeReferenceNode;
 @property(readonly) DOMNode *referenceNode;
-@property(readonly) BOOL expandEntityReferences;
+@property(readonly) _Bool expandEntityReferences;
 @property(readonly) id <DOMNodeFilter> filter;
 @property(readonly) unsigned int whatToShow;
 @property(readonly) DOMNode *root;

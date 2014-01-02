@@ -15,28 +15,29 @@
     ML3QueryResultSet_BackingStore *_backingStore;
     ML3Query *_query;
     long long _revision;
-    BOOL _supportsIncrementalUpdate;
+    _Bool _supportsIncrementalUpdate;
     NSMutableArray *_updateToLibraryCurrentRevisionCompletionBlocks;
     NSObject<OS_dispatch_queue> *_queue;
+    NSObject<OS_dispatch_queue> *_fixedPriorityQueue;
 }
 
 @property(readonly, nonatomic) long long revision; // @synthesize revision=_revision;
 @property(readonly, nonatomic) ML3Query *query; // @synthesize query=_query;
 - (void).cxx_destruct;
-- (unsigned int)entityLimit;
+- (unsigned long long)entityLimit;
 - (void)enumerateSectionsUsingBlock:(id)arg1;
 - (void)enumeratePersistentIDsUsingBlock:(id)arg1;
-- (long long)persistentIDAtIndex:(unsigned int)arg1;
-- (BOOL)_updateToLibraryCurrentRevision;
-- (BOOL)updateToLibraryCurrentRevision;
-- (void)_onQueueInvokeAndClearUpdateFinishedBlocksWithDidUpdateResult:(BOOL)arg1;
+- (long long)persistentIDAtIndex:(unsigned long long)arg1;
+- (_Bool)_updateToLibraryCurrentRevision;
+- (_Bool)updateToLibraryCurrentRevision;
+- (void)_onQueueInvokeAndClearUpdateFinishedBlocksWithDidUpdateResult:(_Bool)arg1;
 - (void)_onQueueAddUpdateFinishedBlock:(id)arg1;
-- (void)_mergeChangesWithFromNewPIDs:(const vector_c1c297d2 *)arg1 changedPIDs:(unordered_set_cccfe4a5 *)arg2;
+- (void)_mergeChangesWithFromNewPIDs:(const vector_c1c297d2 *)arg1 changedPIDs:(unordered_set_f2692727 *)arg2;
 - (void)_loadCurrentFullResults;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithQuery:(id)arg1;
-- (id)_initWithQuery:(id)arg1 supportsIncrementalUpdate:(BOOL)arg2;
-@property(readonly, nonatomic) unsigned int count;
+- (id)_initWithQuery:(id)arg1 supportsIncrementalUpdate:(_Bool)arg2;
+@property(readonly, nonatomic) unsigned long long count;
 
 @end
 

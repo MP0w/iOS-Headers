@@ -8,12 +8,13 @@
 
 @class NSData;
 
+// Not exported
 @interface _UIMappedBitmapImage : UIImage
 {
     NSData *_data;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 + (void)initialize;
 @property(retain, nonatomic) NSData *data; // @synthesize data=_data;
 - (id)_initWithOtherImage:(id)arg1;

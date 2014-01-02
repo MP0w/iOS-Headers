@@ -6,46 +6,50 @@
 
 #import "UIView.h"
 
-@class EAGLContext, NSMutableArray;
+@class CAAnimation, NSMutableArray, NSMutableDictionary;
 
 @interface TKVibrationRecorderRippleView : UIView
 {
-    EAGLContext *_context;
-    int _backingWidth;
-    int _backingHeight;
-    unsigned int _viewFramebuffer;
-    unsigned int _viewRenderbuffer;
-    unsigned int _shaderProgram;
-    int *_uniformsLocations;
-    struct {
-        float _field1;
-        float _field2;
-        float _field3;
-        float _field4;
-    } *_baseRippleSectionVertices;
-    void *_verticesData;
-    unsigned long _verticesDataMaximumRipplesCount;
-    unsigned int _rippleTexture;
-    BOOL _animating;
-    float _fingerStillSpeed;
-    float _fingerMovingSpeed;
-    float _firstRippleInitialRadius;
-    float _fadeOutRadius;
-    float _darkness;
-    BOOL _isTrackingTouch;
-    CDStruct_6e3f967a _currentTouchLocation;
+    _Bool _trackingTouch;
+    _Bool _needsCurrentSpeedRefresh;
+    _Bool _animating;
+    double _fingerStillSpeed;
+    double _fingerMovingSpeed;
+    double _firstRippleInitialRadius;
+    double _fadeOutRadius;
+    id <TKVibrationRecorderStyleProvider> _styleProvider;
     double _currentTouchStartTime;
-    unsigned int _numberOfRipplesForCurrentTouch;
-    NSMutableArray *_ripplesContextQueue;
+    unsigned long long _numberOfRipplesForCurrentTouch;
     NSMutableArray *_recentTouchesContextQueue;
-    float _currentSpeedCoefficient;
-    BOOL _needsCurrentSpeedRefresh;
     NSMutableArray *_reusableTouchContexts;
+    double _currentSpeedCoefficient;
+    NSMutableArray *_ringLayersQueue;
+    NSMutableArray *_reusableRingLayers;
+    NSMutableDictionary *_ringLayersByIdentifiers;
+    unsigned long long _lastRingLayerIdentifier;
+    CAAnimation *_ringEnlargementAnimation;
+    struct CGPoint _currentTouchLocation;
 }
 
-+ (Class)layerClass;
-@property(nonatomic) float fadeOutRadius; // @synthesize fadeOutRadius=_fadeOutRadius;
-@property(nonatomic) float firstRippleInitialRadius; // @synthesize firstRippleInitialRadius=_firstRippleInitialRadius;
+@property(retain, nonatomic, setter=_setRingEnlargementAnimation:) CAAnimation *_ringEnlargementAnimation; // @synthesize _ringEnlargementAnimation;
+@property(nonatomic, setter=_setLastRingLayerIdentifier:) unsigned long long _lastRingLayerIdentifier; // @synthesize _lastRingLayerIdentifier;
+@property(retain, nonatomic, setter=_setRingLayersByIdentifiers:) NSMutableDictionary *_ringLayersByIdentifiers; // @synthesize _ringLayersByIdentifiers;
+@property(retain, nonatomic, setter=_setReusableRingLayers:) NSMutableArray *_reusableRingLayers; // @synthesize _reusableRingLayers;
+@property(retain, nonatomic, setter=_setRingLayersQueue:) NSMutableArray *_ringLayersQueue; // @synthesize _ringLayersQueue;
+@property(nonatomic, getter=_isAnimating, setter=_setAnimating:) _Bool _animating; // @synthesize _animating;
+@property(nonatomic, setter=_setNeedsCurrentSpeedRefresh:) _Bool _needsCurrentSpeedRefresh; // @synthesize _needsCurrentSpeedRefresh;
+@property(nonatomic, setter=_setCurrentSpeedCoefficient:) double _currentSpeedCoefficient; // @synthesize _currentSpeedCoefficient;
+@property(retain, nonatomic, setter=_setReusableTouchContexts:) NSMutableArray *_reusableTouchContexts; // @synthesize _reusableTouchContexts;
+@property(retain, nonatomic, setter=_setRecentTouchesContextQueue:) NSMutableArray *_recentTouchesContextQueue; // @synthesize _recentTouchesContextQueue;
+@property(nonatomic, getter=_isTrackingTouch, setter=_setTrackingTouch:) _Bool _trackingTouch; // @synthesize _trackingTouch;
+@property(nonatomic, setter=_setNumberOfRipplesForCurrentTouch:) unsigned long long _numberOfRipplesForCurrentTouch; // @synthesize _numberOfRipplesForCurrentTouch;
+@property(nonatomic, setter=_setCurrentTouchStartTime:) double _currentTouchStartTime; // @synthesize _currentTouchStartTime;
+@property(nonatomic, setter=_setCurrentTouchLocation:) struct CGPoint _currentTouchLocation; // @synthesize _currentTouchLocation;
+@property(retain, nonatomic, setter=_setStyleProvider:) id <TKVibrationRecorderStyleProvider> _styleProvider; // @synthesize _styleProvider;
+@property(nonatomic) double fadeOutRadius; // @synthesize fadeOutRadius=_fadeOutRadius;
+@property(nonatomic) double firstRippleInitialRadius; // @synthesize firstRippleInitialRadius=_firstRippleInitialRadius;
+@property(nonatomic) double fingerMovingSpeed; // @synthesize fingerMovingSpeed=_fingerMovingSpeed;
+@property(nonatomic) double fingerStillSpeed; // @synthesize fingerStillSpeed=_fingerStillSpeed;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
@@ -53,31 +57,21 @@
 - (void)_touchEndedAtLocation:(struct CGPoint)arg1;
 - (void)_touchMovedToLocation:(struct CGPoint)arg1;
 - (void)_touchBeganAtLocation:(struct CGPoint)arg1;
-- (void)_updateTouchLocationCoordinatesWithPoint:(struct CGPoint)arg1;
+- (void)animationDidStop:(id)arg1 finished:(_Bool)arg2;
+- (void)layoutSubviews;
+- (void)_updateRingEnlargementAnimation;
+- (void)_enqueueReusableRingLayer:(id)arg1;
+- (id)_reusableRingLayer;
+- (void)_enqueueRingLayerWithTimeIntervalSinceCreation:(double)arg1 normalizedLocation:(struct CGPoint)arg2 speed:(double)arg3;
 - (void)_stopAnimation;
 - (void)_startAnimation;
-- (id)_displayLinkManager;
-- (void)_refresh:(id)arg1;
 - (void)_enqueueReusableTouchContextObject:(id)arg1;
 - (id)_reusableTouchContextObject;
-- (void)layoutSubviews;
-- (void)_drawViewWithVertices:(BOOL)arg1;
-- (void)_computeBaseRippleSectionVerticesIfNeeded;
-- (BOOL)_prepareVerticesDataArrayForStoringVerticesOfRipplesWithCount:(unsigned long)arg1;
-- (void)_initializeConfigurationParameters;
-- (void)_configureView;
-- (void)_destroyFramebuffer;
-- (BOOL)_createFramebuffer;
-- (void)_tearDownView;
-- (BOOL)_setUpView;
-@property(readonly, nonatomic) float _fadeOutRadius;
-@property(readonly, nonatomic) float _firstRippleInitialRadius;
-@property(readonly, nonatomic) float _currentSpeed;
-@property(nonatomic) float darkness;
-@property(nonatomic) float fingerMovingSpeed;
-@property(nonatomic) float fingerStillSpeed;
+@property(readonly, nonatomic) double _currentSpeed;
+- (void)_refresh:(id)arg1;
+@property(readonly, nonatomic, getter=_isTouchDown) _Bool _touchDown;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1;
+- (id)initWithStyleProvider:(id)arg1;
 - (id)init;
 
 @end

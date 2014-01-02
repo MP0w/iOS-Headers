@@ -13,7 +13,7 @@
     CDStruct_e83c9415 timeRange;
     struct CGColor *backgroundColor;
     NSArray *layerInstructions;
-    BOOL enablePostProcessing;
+    _Bool enablePostProcessing;
 }
 
 @end

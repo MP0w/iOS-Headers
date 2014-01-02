@@ -8,6 +8,6 @@
 
 @interface NSDictionary (UIStringDrawingKeyCompatibility)
 - (id)_ui_attributesForDictionaryContainingUIStringDrawingKeys;
-- (BOOL)_ui_dictionaryContainsUIStringDrawingKeys;
+- (_Bool)_ui_dictionaryContainsUIStringDrawingKeys;
 @end
 

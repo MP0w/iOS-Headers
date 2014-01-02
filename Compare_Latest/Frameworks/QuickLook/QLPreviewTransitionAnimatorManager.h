@@ -6,17 +6,17 @@
 
 #import "NSObject.h"
 
+#import "UINavigationControllerDelegate-Protocol.h"
 #import "UIViewControllerTransitioningDelegate-Protocol.h"
 
-@interface QLPreviewTransitionAnimatorManager : NSObject <UIViewControllerTransitioningDelegate>
+@interface QLPreviewTransitionAnimatorManager : NSObject <UIViewControllerTransitioningDelegate, UINavigationControllerDelegate>
 {
-    id <QLPreviewTransitionAnimatorDelegate> _delegate;
 }
 
 + (id)sharedManager;
-@property id <QLPreviewTransitionAnimatorDelegate> delegate; // @synthesize delegate=_delegate;
 - (id)animationControllerForDismissedController:(id)arg1;
 - (id)animationControllerForPresentedController:(id)arg1 presentingController:(id)arg2 sourceController:(id)arg3;
+- (id)animatorForShowing:(_Bool)arg1 previewController:(id)arg2;
 
 @end
 

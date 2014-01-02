@@ -8,6 +8,7 @@
 
 @class PDSlide;
 
+// Not exported
 @interface PBSlideObjAndMasterPair : NSObject
 {
     PDSlide *mSlide;

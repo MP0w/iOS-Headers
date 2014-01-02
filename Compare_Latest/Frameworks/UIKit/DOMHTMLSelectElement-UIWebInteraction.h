@@ -7,6 +7,6 @@
 #import "DOMHTMLSelectElement.h"
 
 @interface DOMHTMLSelectElement (UIWebInteraction)
-- (BOOL)nodeCanBecomeFirstResponder;
+- (_Bool)nodeCanBecomeFirstResponder;
 @end
 

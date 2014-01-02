@@ -7,18 +7,19 @@
 #import "UIImage.h"
 
 @interface UIImage (SBGraphics)
-+ (id)sbg_imageFromContextWithSize:(struct CGSize)arg1 scale:(float)arg2 type:(int)arg3 pool:(id)arg4 drawing:(id)arg5 encapsulation:(void)arg6;
-+ (id)sbg_imageFromContextWithSize:(struct CGSize)arg1 scale:(float)arg2 type:(int)arg3 pool:(id)arg4 drawing:(id)arg5;
-+ (unsigned long)sbg_bytesNeededForSize:(struct CGSize)arg1 scale:(float)arg2 withContextType:(int)arg3;
-- (struct CGImage *)_newThumbnailWithJPEG:(id)arg1 forMaxPixelDimension:(float)arg2;
-- (struct CGImage *)_newThumbnailWithImageSource:(struct CGImageSource *)arg1 forMaxPixelDimension:(float)arg2;
++ (id)sbg_imageFromContextWithSize:(struct CGSize)arg1 scale:(double)arg2 type:(int)arg3 pool:(id)arg4 drawing:(id)arg5 encapsulation:(void)arg6;
++ (id)sbg_imageFromContextWithSize:(struct CGSize)arg1 scale:(double)arg2 type:(int)arg3 pool:(id)arg4 drawing:(id)arg5;
++ (unsigned long long)sbg_bytesNeededForSize:(struct CGSize)arg1 scale:(double)arg2 withContextType:(int)arg3;
+- (struct CGImage *)_newThumbnailWithJPEG:(id)arg1 forMaxPixelDimension:(double)arg2;
+- (struct CGImage *)_newThumbnailWithImageSource:(struct CGImageSource *)arg1 forMaxPixelDimension:(double)arg2;
 - (id)_thumbnailFitToSize:(struct CGSize)arg1;
 - (struct CGImageSource *)_newSource;
 - (id)sbg_squareImage;
 - (id)sbg_resizeImageToSize:(struct CGSize)arg1;
-- (id)sbg_resizeImageToSize:(struct CGSize)arg1 preservingAspectRatio:(BOOL)arg2;
+- (id)sbg_resizeImageToSize:(struct CGSize)arg1 preservingAspectRatio:(_Bool)arg2;
 - (id)sbg_thumbnailFitToSize:(struct CGSize)arg1;
-- (BOOL)isAnimated;
+- (_Bool)isAnimated;
 @property(readonly, nonatomic) struct CGSize pixelSize;
+- (id)sbg_memoryMappedImageWithPool:(id)arg1;
 @end
 

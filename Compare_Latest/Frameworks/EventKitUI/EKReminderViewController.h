@@ -14,8 +14,8 @@
 
 @interface EKReminderViewController : UIViewController <EKCalendarItemEditorDelegate, EKReminderEditorDelegate, EKPickerTableViewDelegate>
 {
-    float _minimumTableHeight;
-    BOOL _shouldShowDatePicker;
+    double _minimumTableHeight;
+    _Bool _shouldShowDatePicker;
     id _datePickerTarget;
     SEL _datePickerAction;
     id <EKReminderViewControllerDelegate> _delegate;
@@ -26,26 +26,26 @@
 @property(nonatomic) __weak id <EKReminderViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)getCurrentContext;
-- (BOOL)allowContextProvider:(id)arg1;
+- (_Bool)allowContextProvider:(id)arg1;
 - (void)_eventStoreChanged:(id)arg1;
 - (void)pickerTableViewDidChangeDatePickerInterval:(id)arg1;
-- (void)editor:(id)arg1 didChangeHeightAnimated:(BOOL)arg2;
+- (void)editor:(id)arg1 didChangeHeightAnimated:(_Bool)arg2;
 - (void)editor:(id)arg1 didCompleteWithAction:(int)arg2;
 - (void)editItemChanged;
-- (void)didEndDatePickingWithTarget:(id)arg1 animated:(BOOL)arg2;
-- (void)willBeginDatePickingWithDate:(id)arg1 target:(id)arg2 action:(SEL)arg3 animated:(BOOL)arg4 minimumTableHeight:(float)arg5;
-- (void)viewSizeChangedAnimated:(BOOL)arg1;
+- (void)didEndDatePickingWithTarget:(id)arg1 animated:(_Bool)arg2;
+- (void)willBeginDatePickingWithDate:(id)arg1 target:(id)arg2 action:(SEL)arg3 animated:(_Bool)arg4 minimumTableHeight:(double)arg5;
+- (void)viewSizeChangedAnimated:(_Bool)arg1;
 - (id)viewForActionSheet;
-- (void)saveReminderAnimated:(BOOL)arg1;
+- (void)saveReminderAnimated:(_Bool)arg1;
 @property(retain, nonatomic) id <EKStyleProvider> styleProvider;
 @property(retain, nonatomic) EKEventStore *eventStore;
 @property(retain, nonatomic) EKReminder *reminder;
-- (struct CGSize)contentSizeForViewInPopover;
+- (struct CGSize)preferredContentSize;
 - (id)navigationItem;
-- (void)viewDidDisappear:(BOOL)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

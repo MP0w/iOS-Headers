@@ -8,13 +8,14 @@
 
 @class NSString;
 
+// Not exported
 @interface TSUDurationFormatter : NSFormatter
 {
     NSString *mFormat;
 }
 
 @property(copy, nonatomic) NSString *format; // @synthesize format=mFormat;
-- (BOOL)getObjectValue:(out id *)arg1 forString:(id)arg2 errorDescription:(out id *)arg3;
+- (_Bool)getObjectValue:(out id *)arg1 forString:(id)arg2 errorDescription:(out id *)arg3;
 - (id)stringForObjectValue:(id)arg1;
 - (void)dealloc;
 - (id)initWithCoder:(id)arg1;

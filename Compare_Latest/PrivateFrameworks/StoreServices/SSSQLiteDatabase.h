@@ -13,22 +13,22 @@
     struct sqlite3 *_db;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     NSString *_databasePath;
-    BOOL _readOnly;
-    BOOL _isInTransaction;
+    _Bool _readOnly;
+    _Bool _isInTransaction;
     id _setupBlock;
     struct __CFDictionary *_statementCache;
-    BOOL _takesTaskCompletionAssertions;
+    _Bool _takesTaskCompletionAssertions;
     struct SBSProcessAssertion *_taskAssertion;
-    int _taskAssertionCount;
+    long long _taskAssertionCount;
 }
 
-+ (void)_stepStatement:(struct sqlite3_stmt *)arg1 hasRow:(char *)arg2 didFinish:(char *)arg3;
-+ (void)_setTakesTaskCompletionAssertions:(BOOL)arg1;
-+ (BOOL)statementHasRowAfterStepping:(struct sqlite3_stmt *)arg1;
-+ (BOOL)statementDidFinishAfterStepping:(struct sqlite3_stmt *)arg1;
++ (void)_stepStatement:(struct sqlite3_stmt *)arg1 hasRow:(_Bool *)arg2 didFinish:(_Bool *)arg3;
++ (void)_setTakesTaskCompletionAssertions:(_Bool)arg1;
++ (_Bool)statementHasRowAfterStepping:(struct sqlite3_stmt *)arg1;
++ (_Bool)statementDidFinishAfterStepping:(struct sqlite3_stmt *)arg1;
 @property(copy, nonatomic) id setupBlock; // @synthesize setupBlock=_setupBlock;
-- (struct sqlite3_stmt *)_statementForSQL:(id)arg1 cache:(BOOL)arg2;
-- (BOOL)_resetDatabaseWithPath:(id)arg1;
+- (struct sqlite3_stmt *)_statementForSQL:(id)arg1 cache:(_Bool)arg2;
+- (_Bool)_resetDatabaseWithPath:(id)arg1;
 - (void)_resetCorruptDatabase;
 - (int)_resetAndReopenDatabaseWithPath:(id)arg1;
 - (int)_openFlags;
@@ -36,24 +36,24 @@
 - (void)_endTaskCompletionAssertion;
 - (void)_beginTaskCompletionAssertion;
 - (void)_accessDatabaseUsingBlock:(id)arg1;
-@property BOOL takesTaskCompletionAssertions;
+@property _Bool takesTaskCompletionAssertions;
 - (void)endTaskCompletionAssertion;
 - (void)beginTaskCompletionAssertion;
-- (int)userVersionForDatabase:(id)arg1;
-- (int)userVersion;
-- (BOOL)setUserVersion:(int)arg1 forDatabase:(id)arg2;
-- (BOOL)setUserVersion:(int)arg1;
-- (void)prepareStatementForSQL:(id)arg1 cache:(BOOL)arg2 usingBlock:(id)arg3;
+- (long long)userVersionForDatabase:(id)arg1;
+- (long long)userVersion;
+- (_Bool)setUserVersion:(long long)arg1 forDatabase:(id)arg2;
+- (_Bool)setUserVersion:(long long)arg1;
+- (void)prepareStatementForSQL:(id)arg1 cache:(_Bool)arg2 usingBlock:(id)arg3;
 - (void)performTransactionWithBlock:(id)arg1;
 - (id)newDispatchSourceWithType:(struct dispatch_source_type_s *)arg1;
-- (BOOL)executeSQL:(id)arg1;
+- (_Bool)executeSQL:(id)arg1;
 - (void)dispatchBlockSync:(id)arg1;
 - (void)dispatchBlockAsync:(id)arg1;
 - (void)dispatchAfter:(unsigned long long)arg1 block:(id)arg2;
-- (int)countChanges;
+- (long long)countChanges;
 - (void)accessDatabaseUsingBlock:(id)arg1;
 - (void)dealloc;
-- (id)initWithDatabaseURL:(id)arg1 readOnly:(BOOL)arg2;
+- (id)initWithDatabaseURL:(id)arg1 readOnly:(_Bool)arg2;
 - (id)initWithDatabaseURL:(id)arg1;
 
 @end

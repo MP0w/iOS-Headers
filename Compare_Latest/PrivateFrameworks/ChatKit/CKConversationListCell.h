@@ -16,28 +16,29 @@
     UIImageView *_chevronImageView;
     UILabel *_fromLabel;
     UIImageView *_groupImageView;
-    BOOL _isPlaceholder;
+    _Bool _isPlaceholder;
     UIImageView *_recipientPhotoView;
     NSString *_searchSummaryText;
     NSString *_searchMessageGUID;
     NSDate *_searchMessageDate;
 }
 
-+ (float)cellHeight;
++ (double)cellHeight;
 + (id)identifier;
 @property(copy, nonatomic) NSString *searchSummaryText; // @synthesize searchSummaryText=_searchSummaryText;
 @property(retain, nonatomic) NSDate *searchMessageDate; // @synthesize searchMessageDate=_searchMessageDate;
 @property(copy, nonatomic) NSString *searchMessageGUID; // @synthesize searchMessageGUID=_searchMessageGUID;
-- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)layoutSubviews;
-- (id)_calculateLayoutFrames;
+- (void)_calculateLayoutFrames;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)updateWithSearchResult:(id)arg1;
 - (void)updateContentsForConversation:(id)arg1;
-- (void)_userPreferredContentSizeChangedNotification:(id)arg1;
+- (_Bool)showingEditControl;
+- (void)_contentSizeCategoryDidChange:(id)arg1;
 - (void)prepareForReuse;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

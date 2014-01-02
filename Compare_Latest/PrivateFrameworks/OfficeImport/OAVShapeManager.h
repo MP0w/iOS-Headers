@@ -8,6 +8,7 @@
 
 @class NSDictionary, OCPPackagePart;
 
+// Not exported
 @interface OAVShapeManager : NSObject
 {
     struct _xmlNode *mShape;
@@ -18,19 +19,19 @@
 }
 
 - (struct OAVTextBoxInsets)textInsets;
-- (BOOL)fitShapeToText;
+- (_Bool)fitShapeToText;
 - (id)textRotation;
 - (id)textAltLayoutFlow;
 - (id)textLayoutFlow;
-- (BOOL)autoInsets;
+- (_Bool)autoInsets;
 - (id)textAnchor;
 - (id)textWrapStyle;
 - (struct CGPoint)shadowOffsets;
 - (float)shadowAlpha;
 - (id)shadowColor;
 - (id)shadowType;
-- (BOOL)isShadowed;
-- (BOOL)isShadowOK;
+- (_Bool)isShadowed;
+- (_Bool)isShadowOK;
 - (id)strokeEndArrowLength;
 - (id)strokeEndArrowWidth;
 - (id)strokeEndArrowType;
@@ -47,8 +48,8 @@
 - (id)strokeFillType;
 - (id)strokeBgColor;
 - (id)strokeFgColor;
-- (BOOL)isStroked;
-- (BOOL)isStrokeOK;
+- (_Bool)isStroked;
+- (_Bool)isStrokeOK;
 - (id)imageFillTitle;
 - (id)imageFillId;
 - (id)fillGradientColors;
@@ -59,10 +60,10 @@
 - (float)fillFgAlpha;
 - (id)fillFgColor;
 - (id)fillType;
-- (BOOL)isFilled;
-- (BOOL)isFillOK;
-- (BOOL)isWordArt;
-- (BOOL)isImage;
+- (_Bool)isFilled;
+- (_Bool)isFillOK;
+- (_Bool)isWordArt;
+- (_Bool)isImage;
 - (id)movieRelId;
 - (id)imageRelId;
 - (id)textBodyRects;

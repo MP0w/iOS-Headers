@@ -27,7 +27,7 @@
 @property id <NSXPCListenerDelegate> delegate; // @synthesize delegate=_delegate;
 - (id)_queue;
 - (void)_setQueue:(id)arg1;
-- (void)setOptions:(unsigned int)arg1;
+- (void)setOptions:(unsigned long long)arg1;
 - (id)endpoint;
 - (id)serviceName;
 - (void)invalidate;

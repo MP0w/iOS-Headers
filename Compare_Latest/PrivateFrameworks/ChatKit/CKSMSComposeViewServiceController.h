@@ -13,11 +13,11 @@
 
 @interface CKSMSComposeViewServiceController : UINavigationController <CKTranscriptComposeDelegate, CKSMSComposeViewServiceProtocol>
 {
-    BOOL _canEditRecipients;
-    BOOL _supportsAttachments;
-    BOOL _supportsMessageInspection;
-    BOOL _forceMMS;
-    BOOL _disableCameraAttachments;
+    _Bool _canEditRecipients;
+    _Bool _supportsAttachments;
+    _Bool _supportsMessageInspection;
+    _Bool _forceMMS;
+    _Bool _disableCameraAttachments;
     CKModalTranscriptController *_modalTranscriptController;
 }
 
@@ -25,17 +25,17 @@
 + (id)_exportedInterface;
 @property(retain, nonatomic) CKModalTranscriptController *modalTranscriptController; // @synthesize modalTranscriptController=_modalTranscriptController;
 - (void)_willAppearInRemoteViewController;
-- (BOOL)supportsMessageInspection;
-- (BOOL)supportsAttachments;
-@property(nonatomic) BOOL canEditRecipients; // @dynamic canEditRecipients;
+- (_Bool)supportsMessageInspection;
+- (_Bool)supportsAttachments;
+@property(nonatomic) _Bool canEditRecipients; // @dynamic canEditRecipients;
 - (void)transcriptController:(id)arg1 didSelectNewConversation:(id)arg2;
 - (void)showNewMessageCompositionForMessageParts:(id)arg1;
 - (void)showForwardedMessageParts:(id)arg1;
 - (void)transcriptController:(id)arg1 didSendMessageInConversation:(id)arg2;
 - (void)transcriptController:(id)arg1 willSendComposition:(id)arg2 inConversation:(id)arg3;
 - (void)didCancelComposition:(id)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)setTextEntryContentsVisible:(BOOL)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
+- (void)setTextEntryContentsVisible:(_Bool)arg1;
 - (void)disableCameraAttachments;
 - (void)setPendingAddresses:(id)arg1;
 - (void)setText:(id)arg1 subject:(id)arg2 addresses:(id)arg3;
@@ -45,6 +45,7 @@
 - (void)setUICustomizationData:(id)arg1;
 - (void)forceCancelComposition;
 - (void)insertAttachmentWithURL:(id)arg1 andDescription:(id)arg2;
+- (void)insertFileURL:(id)arg1 filename:(id)arg2 transcoderUserInfo:(id)arg3;
 - (void)insertTextPart:(id)arg1;
 - (void)insertData:(id)arg1 MIMEType:(id)arg2 exportedFilename:(id)arg3;
 - (void)insertFilename:(id)arg1 MIMEType:(id)arg2 exportedFilename:(id)arg3 options:(id)arg4;

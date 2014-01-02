@@ -9,8 +9,8 @@
 @class CALayer, MKMapView;
 
 @interface UIView (MapKitExtras)
-@property(readonly, nonatomic) struct CADoubleRect _mapkit_doubleFrame;
-- (unsigned int)_mapkit_countOfSet:(id)arg1 minusSubset:(id)arg2;
+@property(readonly, nonatomic) struct CGRect _mapkit_doubleFrame;
+- (unsigned long long)_mapkit_countOfSet:(id)arg1 minusSubset:(id)arg2;
 @property(readonly, nonatomic) MKMapView *_mapKit_mapView;
 @property(readonly, nonatomic) CALayer *_mapkit_currentLayer;
 @end

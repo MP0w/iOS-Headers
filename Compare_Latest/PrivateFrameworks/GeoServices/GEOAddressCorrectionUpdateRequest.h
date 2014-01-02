@@ -6,9 +6,11 @@
 
 #import "PBRequest.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSMutableArray, NSString;
 
-@interface GEOAddressCorrectionUpdateRequest : PBRequest
+@interface GEOAddressCorrectionUpdateRequest : PBRequest <NSCopying>
 {
     NSString *_addressID;
     int _correctionStatus;
@@ -21,21 +23,22 @@
 @property(retain, nonatomic) NSString *addressID; // @synthesize addressID=_addressID;
 @property(retain, nonatomic) NSMutableArray *significantLocations; // @synthesize significantLocations=_significantLocations;
 @property(nonatomic) int correctionStatus; // @synthesize correctionStatus=_correctionStatus;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (Class)responseClass;
 - (unsigned int)requestTypeCode;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) BOOL hasAddressID;
-- (id)significantLocationAtIndex:(unsigned int)arg1;
-- (unsigned int)significantLocationsCount;
+@property(readonly, nonatomic) _Bool hasAddressID;
+- (id)significantLocationAtIndex:(unsigned long long)arg1;
+- (unsigned long long)significantLocationsCount;
 - (void)addSignificantLocation:(id)arg1;
 - (void)clearSignificantLocations;
-@property(nonatomic) BOOL hasCorrectionStatus;
+@property(nonatomic) _Bool hasCorrectionStatus;
 - (void)dealloc;
 
 @end

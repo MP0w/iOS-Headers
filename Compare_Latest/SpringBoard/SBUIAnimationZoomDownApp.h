@@ -6,12 +6,12 @@
 
 #import "SBUIMainScreenAnimationController.h"
 
-@class UIView;
+@class SBAppStatusBarTransitionInfo, UIView;
 
 @interface SBUIAnimationZoomDownApp : SBUIMainScreenAnimationController
 {
     UIView *_viewToAnimate;
-    CDStruct_5d575efc _fakeStatusBarInfo;
+    SBAppStatusBarTransitionInfo *_appStatusBarTransitionInfo;
 }
 
 - (void)_cleanupAnimation;
@@ -24,8 +24,8 @@
 - (double)animationDelay;
 - (double)animationDuration;
 - (id)appContext;
-- (BOOL)prefersLayerHostSnapshot;
-- (CDStruct_5d575efc)fakeStatusBarInfoWithStartEffectivelyHidden:(BOOL)arg1 endStyle:(int)arg2 endOrientation:(int)arg3;
+- (_Bool)prefersLayerHostSnapshot;
+- (id)appStatusBarTransitionInfoWithStartEffectivelyHidden:(_Bool)arg1 endStyleRequest:(id)arg2 endOrientation:(long long)arg3;
 - (void)dealloc;
 - (id)initWithDeactivatingApp:(id)arg1;
 

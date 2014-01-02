@@ -10,7 +10,7 @@
 {
 }
 
-- (id)initWithEffectData:(const struct _cuieffectdata *)arg1 forScaleFactor:(float)arg2;
+- (id)initWithEffectData:(const struct _cuieffectdata *)arg1 forScaleFactor:(double)arg2;
 
 @end
 

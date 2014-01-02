@@ -17,11 +17,11 @@
     struct CGPoint _rightTouchLocation;
     struct CGPoint _previousLeftLocation;
     struct CGPoint _previousRightLocation;
-    unsigned int _leftTouchIndex;
-    unsigned int _rightTouchIndex;
-    float _pinchVelocity;
+    unsigned long long _leftTouchIndex;
+    unsigned long long _rightTouchIndex;
+    double _pinchVelocity;
     double _trackingTimeInterval;
-    float _expansionFraction;
+    double _expansionFraction;
     struct {
         unsigned int state:3;
         unsigned int prevState:3;
@@ -45,33 +45,33 @@
     } _expandFlags;
 }
 
-- (BOOL)canCollapse;
-- (BOOL)_canPinch;
-- (BOOL)isTracking;
-- (float)expansionFraction;
-- (void)setExpansionFraction:(float)arg1;
+- (_Bool)canCollapse;
+- (_Bool)_canPinch;
+- (_Bool)isTracking;
+- (double)expansionFraction;
+- (void)setExpansionFraction:(double)arg1;
 - (int)previousState;
 - (int)state;
-@property(nonatomic) BOOL allowsExpansion;
+@property(nonatomic) _Bool allowsExpansion;
 @property(nonatomic) struct CGRect expandedFrame;
 @property(nonatomic) struct CGRect contractedFrame;
 - (id)delegate;
 - (void)setDelegate:(id)arg1;
-- (void)expandWithAnimation:(BOOL)arg1 completion:(id)arg2;
-- (void)collapseWithAnimation:(BOOL)arg1 completion:(id)arg2;
+- (void)expandWithAnimation:(_Bool)arg1 completion:(id)arg2;
+- (void)collapseWithAnimation:(_Bool)arg1 completion:(id)arg2;
 - (float)completeTrackingPinch:(id)arg1 toState:(int)arg2 duration:(double)arg3;
 - (float)continueTrackingPinch:(id)arg1;
 - (void)beginTrackingPinch:(id)arg1;
-- (struct CGRect)pinchRect:(struct CGRect)arg1 inView:(id)arg2 insetTouches:(BOOL)arg3;
+- (struct CGRect)pinchRect:(struct CGRect)arg1 inView:(id)arg2 insetTouches:(_Bool)arg3;
 - (void)updatePinchState:(id)arg1;
-- (int)snapState:(BOOL)arg1;
+- (int)snapState:(_Bool)arg1;
 - (void)finishTransitionToState:(int)arg1;
 - (void)finishTransition;
 - (void)canceledPinch:(id)arg1;
 - (void)finishedPinch:(id)arg1;
 - (void)continuedPinch:(id)arg1;
 - (void)startedPinch:(id)arg1;
-- (void)notifyExpansionFraction:(float)arg1 force:(BOOL)arg2;
+- (void)notifyExpansionFraction:(float)arg1 force:(_Bool)arg2;
 - (void)didMoveToWindow;
 - (void)willMoveToWindow:(id)arg1;
 - (void)stateDidChangeFrom:(int)arg1;
@@ -95,7 +95,7 @@
 - (void)_notifyWillCancelCollapsingWithDuration:(double)arg1;
 - (void)_notifyWillBeginExpanding;
 - (void)_notifyDidCompleteCollapsing;
-- (void)_setAutorotationDisabled:(BOOL)arg1;
+- (void)_setAutorotationDisabled:(_Bool)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

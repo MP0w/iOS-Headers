@@ -6,13 +6,14 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
-@interface MPMediaPredicate : NSObject <NSCoding>
+@interface MPMediaPredicate : NSObject <NSSecureCoding>
 {
 }
 
-- (BOOL)evaluateEntity:(id)arg1;
++ (_Bool)supportsSecureCoding;
+- (_Bool)evaluateEntity:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 

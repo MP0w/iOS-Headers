@@ -6,6 +6,7 @@
 
 #import <CoreImage/_CICompositeFilter.h>
 
+// Not exported
 @interface CISourceAtopCompositing : _CICompositeFilter
 {
 }

@@ -6,31 +6,33 @@
 
 #import "NSObject.h"
 
+@class NSString;
+
 @interface AirPortAssistantController : NSObject
 {
     id _delegate;
     id _viewController;
     id _context;
+    NSString *_configuredSSID;
 }
 
-+ (BOOL)launchAUForNetwork:(id)arg1 withMacAddress:(id)arg2 getAUFromAppStore:(BOOL)arg3;
-+ (BOOL)launchAUForDevice:(id)arg1 getAUFromAppStore:(BOOL)arg2;
++ (_Bool)launchAUForNetwork:(id)arg1 withMacAddress:(id)arg2 getAUFromAppStore:(_Bool)arg3;
++ (_Bool)launchAUForDevice:(id)arg1 getAUFromAppStore:(_Bool)arg2;
 + (id)uniqueBaseStationName:(id)arg1 withBssid:(id)arg2;
 + (id)unconfiguredDeviceName:(id)arg1;
-+ (BOOL)isUnconfiguredDevice:(id)arg1;
-+ (BOOL)isGenericMFiAccessory:(id)arg1;
-+ (BOOL)isSTAOnlyDevice:(id)arg1;
-+ (BOOL)isAirPlayDevice:(id)arg1;
++ (_Bool)isUnconfiguredDevice:(id)arg1;
++ (_Bool)isGenericMFiAccessory:(id)arg1;
++ (_Bool)isSTAOnlyDevice:(id)arg1;
++ (_Bool)isAirPlayDevice:(id)arg1;
 + (void)cancelAirPortAssistantController;
 + (id)assistantUIViewControllerWithParameters:(id)arg1;
 + (id)sharedInstance;
-+ (void)downloadAssetsIfNeeded;
-+ (void)downloadAssetsCancel;
+@property(retain) NSString *configuredSSID; // @synthesize configuredSSID=_configuredSSID;
 @property(retain) id context; // @synthesize context=_context;
 @property(retain) id viewController; // @synthesize viewController=_viewController;
 @property(nonatomic) id <AirPortAssistantControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)dealloc;
-- (void)assistantCompleteWithResult:(long)arg1;
+- (void)assistantCompleteWithResult:(int)arg1;
 
 @end
 

@@ -7,6 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol ABSearchOperationDelegate <NSObject>
-- (void)searchOperation:(id)arg1 didFindMatches:(id)arg2 moreComing:(BOOL)arg3;
+- (void)searchOperation:(id)arg1 didFindMatches:(id)arg2 moreComing:(_Bool)arg3;
 @end
 

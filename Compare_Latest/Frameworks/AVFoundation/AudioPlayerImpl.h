@@ -8,6 +8,7 @@
 
 @class NSArray, NSData, NSDictionary, NSObject<OS_dispatch_queue>, NSURL;
 
+// Not exported
 @interface AudioPlayerImpl : NSObject
 {
     id <AVAudioPlayerDelegate> _delegate;

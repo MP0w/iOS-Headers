@@ -14,42 +14,35 @@
 }
 
 @property(copy, nonatomic) NSArray *channelAssignments;
-- (float)averagePowerForChannel:(unsigned int)arg1;
-- (float)peakPowerForChannel:(unsigned int)arg1;
+- (float)averagePowerForChannel:(unsigned long long)arg1;
+- (float)peakPowerForChannel:(unsigned long long)arg1;
 - (void)updateMeters;
-@property(getter=isMeteringEnabled) BOOL meteringEnabled;
-@property int numberOfLoops;
+@property(getter=isMeteringEnabled) _Bool meteringEnabled;
+@property long long numberOfLoops;
 @property double currentTime;
 @property(readonly) double deviceCurrentTime;
-@property(readonly) unsigned int numberOfChannels;
+@property(readonly) unsigned long long numberOfChannels;
 @property float pan;
 @property float rate;
-@property BOOL enableRate;
+@property _Bool enableRate;
 @property float volume;
 @property(readonly) double duration;
 @property(readonly) NSDictionary *settings;
 @property id <AVAudioPlayerDelegate> delegate;
 @property(readonly) NSData *data;
 @property(readonly) NSURL *url;
-@property(readonly, getter=isPlaying) BOOL playing;
+@property(readonly, getter=isPlaying) _Bool playing;
 - (void)stop;
 - (void)pause;
-- (BOOL)playAtTime:(double)arg1;
-- (BOOL)play;
-- (BOOL)prepareToPlay;
+- (_Bool)playAtTime:(double)arg1;
+- (_Bool)play;
+- (_Bool)prepareToPlay;
 - (id)initWithData:(id)arg1 fileTypeHint:(id)arg2 error:(id *)arg3;
 - (id)initWithContentsOfURL:(id)arg1 fileTypeHint:(id)arg2 error:(id *)arg3;
 - (id)initWithContentsOfURL:(id)arg1 error:(id *)arg2;
 - (id)initWithData:(id)arg1 error:(id *)arg2;
 - (void)dealloc;
 - (void)finalize;
-- (void)endInterruption;
-- (void)endInterruptionWithFlags:(id)arg1;
-- (void)beginInterruption;
-- (void)decodeError:(id)arg1;
-- (void)finishedPlaying:(id)arg1;
-- (id)baseInit;
-- (id)impl;
 
 @end
 

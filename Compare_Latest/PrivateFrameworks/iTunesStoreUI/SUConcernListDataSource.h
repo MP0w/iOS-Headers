@@ -11,17 +11,17 @@
 @interface SUConcernListDataSource : SUTableDataSource
 {
     NSArray *_concerns;
-    int _selectedConcernIndex;
+    long long _selectedConcernIndex;
     SUTextViewCell *_textViewCell;
 }
 
-@property(nonatomic) int selectedConcernIndex; // @synthesize selectedConcernIndex=_selectedConcernIndex;
+@property(nonatomic) long long selectedConcernIndex; // @synthesize selectedConcernIndex=_selectedConcernIndex;
 @property(retain, nonatomic) NSArray *concerns; // @synthesize concerns=_concerns;
 - (id)_titleCellForIndexPath:(id)arg1;
-- (int)tableViewStyle;
-- (int)numberOfRowsInSection:(int)arg1;
-- (int)numberOfSections;
-- (float)cellHeightForIndexPath:(id)arg1;
+- (long long)tableViewStyle;
+- (long long)numberOfRowsInSection:(long long)arg1;
+- (long long)numberOfSections;
+- (double)cellHeightForIndexPath:(id)arg1;
 - (id)cellForIndexPath:(id)arg1;
 @property(readonly, nonatomic) SUTextViewCell *textViewCell; // @synthesize textViewCell=_textViewCell;
 - (void)dealloc;

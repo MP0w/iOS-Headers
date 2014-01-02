@@ -7,9 +7,9 @@
 #import "NSString.h"
 
 @interface NSString (CPStringAdditions)
-+ (id)stringWithBytes:(const void *)arg1 length:(unsigned int)arg2 fontFamilyName:(id)arg3;
-+ (id)stringWithBytes:(const void *)arg1 length:(unsigned int)arg2 codePointMapper:(void *)arg3;
-- (BOOL)startsWithString:(id)arg1;
++ (id)stringWithBytes:(const void *)arg1 length:(unsigned long long)arg2 fontFamilyName:(id)arg3;
++ (id)stringWithBytes:(const void *)arg1 length:(unsigned long long)arg2 codePointMapper:(void *)arg3;
+- (_Bool)startsWithString:(id)arg1;
 - (id)stringByFixingCharactersWithLatinFontFamilyName:(id)arg1 symbolFontFamilyName:(id)arg2;
 @end
 

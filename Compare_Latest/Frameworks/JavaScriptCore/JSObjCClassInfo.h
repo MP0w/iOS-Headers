@@ -8,6 +8,7 @@
 
 @class JSContext;
 
+// Not exported
 @interface JSObjCClassInfo : NSObject
 {
     JSContext *m_context;

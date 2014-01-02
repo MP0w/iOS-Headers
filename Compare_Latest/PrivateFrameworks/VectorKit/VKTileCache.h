@@ -6,6 +6,7 @@
 
 #import <VectorKit/VKLRUCache.h>
 
+// Not exported
 @interface VKTileCache : VKLRUCache
 {
 }

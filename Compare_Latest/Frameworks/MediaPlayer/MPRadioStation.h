@@ -6,16 +6,18 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
-@class NSString, RadioStation;
+@class MPImageCache, NSString, RadioStation;
 
-@interface MPRadioStation : NSObject <NSCoding, NSCopying>
+@interface MPRadioStation : NSObject <NSSecureCoding, NSCopying>
 {
+    MPImageCache *_imageCache;
     RadioStation *_station;
 }
 
++ (_Bool)supportsSecureCoding;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) long long uniqueIdentifier;
 - (id)_station;
@@ -25,7 +27,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)initWithStation:(id)arg1;
 
 @end

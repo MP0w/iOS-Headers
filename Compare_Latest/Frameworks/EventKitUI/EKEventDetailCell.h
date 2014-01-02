@@ -8,19 +8,20 @@
 
 @class EKEvent;
 
+// Not exported
 @interface EKEventDetailCell : UITableViewCell
 {
     EKEvent *_event;
-    BOOL _editable;
+    _Bool _editable;
 }
 
 - (void).cxx_destruct;
-- (void)layoutForWidth:(float)arg1 position:(int)arg2;
-- (BOOL)update;
-@property(readonly, nonatomic) BOOL isEditable;
+- (void)layoutForWidth:(double)arg1 position:(int)arg2;
+- (_Bool)update;
+@property(readonly, nonatomic) _Bool isEditable;
 - (void)setEvent:(id)arg1;
-- (id)initWithEvent:(id)arg1 editable:(BOOL)arg2 style:(int)arg3;
-- (id)initWithEvent:(id)arg1 editable:(BOOL)arg2;
+- (id)initWithEvent:(id)arg1 editable:(_Bool)arg2 style:(long long)arg3;
+- (id)initWithEvent:(id)arg1 editable:(_Bool)arg2;
 
 @end
 

@@ -23,7 +23,7 @@
 - (void)performAsynchronousBlock:(id)arg1;
 - (void)performSynchronousBlock:(id)arg1;
 - (void)dealloc;
-- (id)initWithLabel:(id)arg1 appendUUIDToLabel:(BOOL)arg2;
+- (id)initWithLabel:(id)arg1 appendUUIDToLabel:(_Bool)arg2;
 
 @end
 

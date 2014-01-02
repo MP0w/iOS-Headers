@@ -7,12 +7,12 @@
 #import "NSLocale.h"
 
 @interface NSLocale (MKLocale)
-+ (void)_mapkit_overrideDistanceUnit:(int)arg1;
-+ (void)_mapkit_overrideGuidanceUnit:(int)arg1;
++ (void)_mapkit_overrideDistanceUnit:(long long)arg1;
++ (void)_mapkit_overrideGuidanceUnit:(long long)arg1;
 + (id)_localeOverridesForLocaleWithIdentifier:(id)arg1;
-- (BOOL)_mapkit_useYardsForShortDistances;
-- (BOOL)_mapkit_distanceUsesMetricSystem;
-- (BOOL)_mapkit_guidanceUsesMetricSystem;
+- (_Bool)_mapkit_useYardsForShortDistances;
+- (_Bool)_mapkit_distanceUsesMetricSystem;
+- (_Bool)_mapkit_guidanceUsesMetricSystem;
 - (id)_mapkit_objectForKey:(id)arg1;
 @end
 

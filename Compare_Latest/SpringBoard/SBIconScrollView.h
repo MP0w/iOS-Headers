@@ -11,8 +11,8 @@
 }
 
 - (void)setContentOffset:(struct CGPoint)arg1;
-- (BOOL)_scrollsToMakeFirstResponderVisible;
-- (BOOL)cancelTouchTracking;
+- (_Bool)_scrollsToMakeFirstResponderVisible;
+- (_Bool)cancelTouchTracking;
 
 // Remaining properties
 @property(nonatomic) id <SBIconScrollViewDelegate> delegate;

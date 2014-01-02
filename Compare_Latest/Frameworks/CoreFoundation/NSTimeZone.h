@@ -13,8 +13,8 @@
 {
 }
 
-+ (BOOL)supportsSecureCoding;
-+ (id)timeZoneForSecondsFromGMT:(int)arg1;
++ (_Bool)supportsSecureCoding;
++ (id)timeZoneForSecondsFromGMT:(long long)arg1;
 + (id)timeZoneWithAbbreviation:(id)arg1;
 + (id)timeZoneWithName:(id)arg1;
 + (id)timeZoneWithName:(id)arg1 data:(id)arg2;
@@ -34,22 +34,22 @@
 - (id)initWithName:(id)arg1;
 - (id)initWithName:(id)arg1 data:(id)arg2;
 - (id)description;
-- (BOOL)isEqualToTimeZone:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (id)localizedName:(int)arg1 locale:(id)arg2;
+- (_Bool)isEqualToTimeZone:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (id)localizedName:(long long)arg1 locale:(id)arg2;
 - (id)nextDaylightSavingTimeTransition;
 - (double)daylightSavingTimeOffset;
-- (BOOL)isDaylightSavingTime;
+- (_Bool)isDaylightSavingTime;
 - (id)abbreviation;
-- (int)secondsFromGMT;
-- (unsigned long)_cfTypeID;
-- (BOOL)isNSTimeZone__;
+- (long long)secondsFromGMT;
+- (unsigned long long)_cfTypeID;
+- (_Bool)isNSTimeZone__;
 - (id)nextDaylightSavingTimeTransitionAfterDate:(id)arg1;
 - (double)daylightSavingTimeOffsetForDate:(id)arg1;
-- (BOOL)isDaylightSavingTimeForDate:(id)arg1;
+- (_Bool)isDaylightSavingTimeForDate:(id)arg1;
 - (id)abbreviationForDate:(id)arg1;
-- (int)secondsFromGMTForDate:(id)arg1;
+- (long long)secondsFromGMTForDate:(id)arg1;
 - (id)data;
 - (id)name;
 

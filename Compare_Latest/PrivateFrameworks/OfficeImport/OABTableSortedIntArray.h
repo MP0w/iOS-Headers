@@ -8,6 +8,7 @@
 
 @class NSArray;
 
+// Not exported
 @interface OABTableSortedIntArray : NSObject
 {
     NSArray *mIntArray;

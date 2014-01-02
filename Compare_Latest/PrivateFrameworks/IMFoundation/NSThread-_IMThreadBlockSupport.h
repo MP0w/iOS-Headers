@@ -10,7 +10,7 @@
 + (void)_im_runBlock:(id)arg1;
 - (void)__im_performBlock:(id)arg1 afterDelay:(void)arg2 modes:(double)arg3;
 - (void)__im_performBlock:(id)arg1 afterDelay:(void)arg2;
-- (void)__im_performBlock:(id)arg1 waitUntilDone:(void)arg2 modes:(BOOL)arg3;
+- (void)__im_performBlock:(id)arg1 waitUntilDone:(void)arg2 modes:(_Bool)arg3;
 - (void)__im_performBlock:(id)arg1 waitUntilDone:(void)arg2;
 - (void)__im_performBlock:(id)arg1 modes:(void)arg2;
 - (void)__im_performBlock:(id)arg1;

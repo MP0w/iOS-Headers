@@ -7,7 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol PKPassFaceDelegate <NSObject>
-- (BOOL)passFaceDeleteButtonEnabled;
+- (_Bool)passFaceDeleteButtonEnabled;
 - (void)passFaceDeleteButtonPressed:(id)arg1;
 - (void)passFaceFlipButtonPressed:(id)arg1;
 - (void)passFaceShareButtonPressed:(id)arg1;

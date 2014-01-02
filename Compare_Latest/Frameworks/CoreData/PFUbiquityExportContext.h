@@ -8,16 +8,17 @@
 
 @class NSMutableDictionary, NSString, PFUbiquityLocation;
 
+// Not exported
 @interface PFUbiquityExportContext : NSObject
 {
     NSMutableDictionary *_storeNameToStoreExportContext;
     NSMutableDictionary *_ubiquityRootPathToStack;
     NSString *_localPeerID;
     PFUbiquityLocation *_ubiquityRootLocation;
-    BOOL _useLocalStorage;
+    _Bool _useLocalStorage;
 }
 
-@property(nonatomic) BOOL useLocalStorage; // @synthesize useLocalStorage=_useLocalStorage;
+@property(nonatomic) _Bool useLocalStorage; // @synthesize useLocalStorage=_useLocalStorage;
 @property(readonly, nonatomic) NSString *localPeerID; // @synthesize localPeerID=_localPeerID;
 - (id)storeExportContextForStore:(id)arg1;
 - (id)storeExportContextForStoreName:(id)arg1;

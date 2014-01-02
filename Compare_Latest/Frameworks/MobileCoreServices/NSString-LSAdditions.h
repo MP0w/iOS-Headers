@@ -9,6 +9,6 @@
 @interface NSString (LSAdditions)
 - (id)queryToDict;
 - (id)LS_unescapedQueryValue;
-- (BOOL)LS_hasCaseInsensitivePrefix:(id)arg1;
+- (_Bool)LS_hasCaseInsensitivePrefix:(id)arg1;
 @end
 

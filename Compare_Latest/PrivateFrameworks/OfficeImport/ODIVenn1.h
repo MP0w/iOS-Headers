@@ -6,12 +6,10 @@
 
 #import <OfficeImport/ODIVenn.h>
 
+// Not exported
 @interface ODIVenn1 : ODIVenn
 {
 }
-
-+ (void)mapNode:(id)arg1 index:(unsigned int)arg2 state:(id)arg3;
-+ (struct CGRect)mapGSpaceWithState:(id)arg1;
 
 @end
 

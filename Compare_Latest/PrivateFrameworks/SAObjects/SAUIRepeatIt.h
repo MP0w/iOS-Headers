@@ -14,7 +14,7 @@
 
 + (id)repeatItWithDictionary:(id)arg1 context:(id)arg2;
 + (id)repeatIt;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSString *contingency;
 - (id)encodedClassName;
 - (id)groupIdentifier;

@@ -8,14 +8,14 @@
 
 @class WebGeolocationPrivate;
 
+// Not exported
 @interface WebGeolocation : NSObject
 {
     WebGeolocationPrivate *_private;
 }
 
 - (void)dealloc;
-- (void)setIsAllowed:(BOOL)arg1;
-- (id)_initWithWebCoreGeolocation:(struct Geolocation *)arg1;
+- (void)setIsAllowed:(_Bool)arg1;
 
 @end
 

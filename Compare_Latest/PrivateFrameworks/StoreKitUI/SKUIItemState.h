@@ -16,10 +16,10 @@
     float _downloadProgress;
     long long _installedVersionIdentifier;
     NSNumber *_itemIdentifier;
-    unsigned int _state;
+    unsigned long long _state;
 }
 
-@property(nonatomic) unsigned int state; // @synthesize state=_state;
+@property(nonatomic) unsigned long long state; // @synthesize state=_state;
 @property(copy, nonatomic) NSNumber *itemIdentifier; // @synthesize itemIdentifier=_itemIdentifier;
 @property(nonatomic) long long installedVersionIdentifier; // @synthesize installedVersionIdentifier=_installedVersionIdentifier;
 @property(nonatomic) float downloadProgress; // @synthesize downloadProgress=_downloadProgress;

@@ -6,18 +6,19 @@
 
 #import <SpriteKit/SKAction.h>
 
+// Not exported
 @interface SKMove : SKAction
 {
     struct SKCMove *_mycaction;
 }
 
-+ (id)moveByY:(float)arg1 duration:(double)arg2;
-+ (id)moveToY:(float)arg1 duration:(double)arg2;
-+ (id)moveByX:(float)arg1 duration:(double)arg2;
-+ (id)moveToX:(float)arg1 duration:(double)arg2;
-+ (id)moveToX:(float)arg1 y:(float)arg2 duration:(double)arg3;
++ (id)moveByY:(double)arg1 duration:(double)arg2;
++ (id)moveToY:(double)arg1 duration:(double)arg2;
++ (id)moveByX:(double)arg1 duration:(double)arg2;
++ (id)moveToX:(double)arg1 duration:(double)arg2;
++ (id)moveToX:(double)arg1 y:(double)arg2 duration:(double)arg3;
 + (id)moveTo:(struct CGPoint)arg1 duration:(double)arg2;
-+ (id)moveByX:(float)arg1 y:(float)arg2 duration:(double)arg3;
++ (id)moveByX:(double)arg1 y:(double)arg2 duration:(double)arg3;
 + (id)moveBy:(struct CGPoint)arg1 duration:(double)arg2;
 - (id)reversedAction;
 - (id)copyWithZone:(struct _NSZone *)arg1;

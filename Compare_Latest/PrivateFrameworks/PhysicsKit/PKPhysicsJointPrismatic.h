@@ -11,21 +11,21 @@
     struct b2PrismaticJointDef _jointDef;
     struct b2PrismaticJoint *_joint;
     struct CGPoint _anchor;
-    struct CGPoint _axis;
+    struct CGVector _axis;
 }
 
-+ (id)jointWithBodyA:(id)arg1 bodyB:(id)arg2 anchor:(struct CGPoint)arg3 axis:(struct CGPoint)arg4;
++ (id)jointWithBodyA:(id)arg1 bodyB:(id)arg2 anchor:(struct CGPoint)arg3 axis:(struct CGVector)arg4;
 - (id).cxx_construct;
 - (void)create;
 - (struct b2JointDef *)_jointDef;
 - (void)set_joint:(struct b2Joint *)arg1;
 - (struct b2Joint *)_joint;
-@property(nonatomic) float upperDistanceLimit;
-@property(nonatomic) float lowerDistanceLimit;
-@property(nonatomic) BOOL shouldEnableLimits;
+@property(nonatomic) double upperDistanceLimit;
+@property(nonatomic) double lowerDistanceLimit;
+@property(nonatomic) _Bool shouldEnableLimits;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (id)initWithBodyA:(id)arg1 bodyB:(id)arg2 anchor:(struct CGPoint)arg3 axis:(struct CGPoint)arg4;
+- (id)initWithBodyA:(id)arg1 bodyB:(id)arg2 anchor:(struct CGPoint)arg3 axis:(struct CGVector)arg4;
 
 @end
 

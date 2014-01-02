@@ -12,22 +12,22 @@
 {
 }
 
-- (void)didRotateFromInterfaceOrientation:(int)arg1;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1;
-- (void)willRotateToInterfaceOrientation:(int)arg1;
-- (BOOL)_listIndexIsVisible:(unsigned int)arg1;
-- (void)setDockVerticalStretch:(float)arg1;
-- (void)setDockOffscreenFraction:(float)arg1;
+- (void)didRotateFromInterfaceOrientation:(long long)arg1;
+- (void)willAnimateRotationToInterfaceOrientation:(long long)arg1;
+- (void)willRotateToInterfaceOrientation:(long long)arg1;
+- (_Bool)_listIndexIsVisible:(unsigned long long)arg1;
+- (void)setDockVerticalStretch:(double)arg1;
+- (void)setDockOffscreenFraction:(double)arg1;
 - (id)dockListView;
-- (BOOL)hasDock;
-- (BOOL)isDisplayingIcon:(id)arg1;
+- (_Bool)hasDock;
+- (_Bool)isDisplayingIcon:(id)arg1;
 - (void)setIdleText:(id)arg1;
-- (BOOL)setCurrentPageIndex:(int)arg1 animated:(BOOL)arg2;
+- (_Bool)setCurrentPageIndex:(long long)arg1 animated:(_Bool)arg2;
 - (id)folderControllers;
-- (unsigned int)_depth;
+- (unsigned long long)_depth;
 - (Class)_contentViewClass;
 - (void)dealloc;
-- (id)initWithFolder:(id)arg1 orientation:(int)arg2;
+- (id)initWithFolder:(id)arg1 orientation:(long long)arg2;
 
 // Remaining properties
 @property(readonly, nonatomic) SBRootFolderView *contentView;

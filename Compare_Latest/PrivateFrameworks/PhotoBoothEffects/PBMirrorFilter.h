@@ -18,9 +18,9 @@
 
 @property float inputOrientation; // @synthesize inputOrientation;
 @property struct CGPoint inputPoint; // @synthesize inputPoint;
-- (BOOL)needsWrapMirror;
+- (_Bool)needsWrapMirror;
 - (id)ciFilterName;
-- (void)applyParametersToCIFilter:(BOOL)arg1 extent:(struct CGRect)arg2;
+- (void)applyParametersToCIFilter:(_Bool)arg1 extent:(struct CGRect)arg2;
 - (void)setDefaults;
 
 @end

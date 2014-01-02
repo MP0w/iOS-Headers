@@ -7,10 +7,11 @@
 #import "NSObject-Protocol.h"
 
 @protocol PUStackedAlbumControllerTransition <NSObject>
-- (void)setAlbumListTransitionLayout:(id)arg1 animated:(BOOL)arg2;
+- (void)handleTransitionFade:(_Bool)arg1 animate:(_Bool)arg2;
+- (void)setAlbumListTransitionLayout:(id)arg1 animated:(_Bool)arg2;
 - (void)setAlbumListTransitionContext:(id)arg1;
 - (id)gridLayout;
 - (id)collectionView;
-- (BOOL)isEmpty;
+- (_Bool)isEmpty;
 @end
 

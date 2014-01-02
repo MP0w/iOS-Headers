@@ -6,6 +6,7 @@
 
 #import <UIKit/_UISettings.h>
 
+// Not exported
 @interface _UIScreenEdgePanRecognizerCornerSettings : _UISettings
 {
     double _cornerSize;

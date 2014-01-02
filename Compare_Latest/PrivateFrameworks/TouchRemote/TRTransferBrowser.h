@@ -12,22 +12,22 @@
 
 @interface TRTransferBrowser : NSObject <WPTransferDelegate>
 {
-    CDStruct_a554bdc7 *_aesContext;
+    CDStruct_2d76d2d8 *_aesContext;
     struct AirPlayPairingSessionPrivate *_pairingSession;
-    int _pairingState;
+    long long _pairingState;
     NSObject<OS_dispatch_queue> *_queue;
-    BOOL _started;
-    int _scannerState;
+    _Bool _started;
+    long long _scannerState;
     WPTransfer *_transferSession;
     id <TRTransferBrowserDelegate> _delegate;
-    int _state;
+    long long _state;
 }
 
-@property(readonly, nonatomic) int state; // @synthesize state=_state;
+@property(readonly, nonatomic) long long state; // @synthesize state=_state;
 @property(nonatomic) __weak id <TRTransferBrowserDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (long)_runVerifyStepWithInput:(const void *)arg1 inputLength:(unsigned long)arg2 outputData:(id *)arg3;
-- (long)_runSetupStepWithInput:(const void *)arg1 inputLength:(unsigned long)arg2 outputData:(id *)arg3;
+- (int)_runVerifyStepWithInput:(const void *)arg1 inputLength:(unsigned long long)arg2 outputData:(id *)arg3;
+- (int)_runSetupStepWithInput:(const void *)arg1 inputLength:(unsigned long long)arg2 outputData:(id *)arg3;
 - (id)_didReceiveEncryptedData:(id)arg1;
 - (void)_didFinishPairing;
 - (void)_beginScanningIfPowered;

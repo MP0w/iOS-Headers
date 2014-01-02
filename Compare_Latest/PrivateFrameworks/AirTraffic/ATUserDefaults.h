@@ -14,10 +14,11 @@
 }
 
 + (id)readOnlyDefaults;
++ (void)synchronize;
 - (void)dealloc;
 - (id)init;
 @property(retain, nonatomic) NSDictionary *diskUsageInfo;
-@property(nonatomic) BOOL hasCompletedDataMigration;
+@property(nonatomic) _Bool hasCompletedDataMigration;
 - (id)allHosts;
 - (id)hostInfoForIdentifier:(id)arg1;
 - (void)removeHost:(id)arg1;

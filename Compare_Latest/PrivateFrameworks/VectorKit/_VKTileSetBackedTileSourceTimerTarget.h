@@ -8,6 +8,7 @@
 
 @class VKTileSetBackedTileSource;
 
+// Not exported
 @interface _VKTileSetBackedTileSourceTimerTarget : NSObject
 {
     VKTileSetBackedTileSource *_tileSource;

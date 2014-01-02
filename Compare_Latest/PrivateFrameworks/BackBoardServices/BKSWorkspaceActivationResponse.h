@@ -13,15 +13,15 @@
 
 @interface BKSWorkspaceActivationResponse : NSObject <NSCopying, BKSXPCCoding>
 {
-    BOOL _willResume;
-    BOOL _launchFailed;
+    _Bool _willResume;
+    _Bool _launchFailed;
     NSString *_bundleIdentifier;
 }
 
 + (id)responseForWorkspaceUnsuspend:(id)arg1;
 + (id)responseForLaunchFailure:(id)arg1;
-@property(nonatomic) BOOL launchFailed; // @synthesize launchFailed=_launchFailed;
-@property(nonatomic) BOOL willResume; // @synthesize willResume=_willResume;
+@property(nonatomic) _Bool launchFailed; // @synthesize launchFailed=_launchFailed;
+@property(nonatomic) _Bool willResume; // @synthesize willResume=_willResume;
 @property(copy, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
 - (void)encodeWithXPCDictionary:(id)arg1;
 - (id)initWithXPCDictionary:(id)arg1;

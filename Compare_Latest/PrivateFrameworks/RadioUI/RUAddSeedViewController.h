@@ -24,10 +24,12 @@
 - (id)_newSearchBar;
 - (void)searchViewControllerDidEndSearching:(id)arg1;
 - (void)searchViewController:(id)arg1 didSelectStation:(id)arg2;
-- (void)viewWillAppear:(BOOL)arg1;
+- (id)metricsPageTypeForSearchViewController:(id)arg1;
+- (id)metricsPageDescriptionForSearchViewController:(id)arg1;
+- (id)contentScrollView;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)dealloc;
-- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 @end
 

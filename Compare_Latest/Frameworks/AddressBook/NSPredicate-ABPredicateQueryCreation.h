@@ -9,7 +9,7 @@
 @interface NSPredicate (ABPredicateQueryCreation)
 - (id)ab_newQueryWithSortOrder:(unsigned int)arg1 addressBook:(void *)arg2 propertyIndices:(const struct __CFDictionary **)arg3;
 - (void)ab_bindStatement:(struct CPSqliteStatement *)arg1 withBindingOffset:(int *)arg2 predicateIdentifier:(int)arg3;
-- (BOOL)ab_hasCallback;
+- (_Bool)ab_hasCallback;
 - (void)ab_addCallbackContextToArray:(struct __CFArray *)arg1;
 @end
 

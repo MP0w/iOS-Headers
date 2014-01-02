@@ -6,12 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSData, NSDate, NSString;
+@class NSDate, NSString;
 
 @interface WBSCreditCardData : NSObject
 {
-    NSData *_keychainItem;
-    NSString *_cardNameUIString;
+    NSString *_cardName;
     NSString *_cardholderName;
     NSString *_cardNumber;
     NSDate *_expirationDate;
@@ -20,11 +19,10 @@
 @property(readonly, nonatomic) NSDate *expirationDate; // @synthesize expirationDate=_expirationDate;
 @property(copy, nonatomic) NSString *cardNumber; // @synthesize cardNumber=_cardNumber;
 @property(copy, nonatomic) NSString *cardholderName; // @synthesize cardholderName=_cardholderName;
-@property(copy, nonatomic) NSString *cardNameUIString; // @synthesize cardNameUIString=_cardNameUIString;
-- (void)removeFromKeychain;
-- (void)saveToKeychain;
-- (BOOL)isSavedToKeychain;
-- (id)initWithKeychainItem:(id)arg1;
+@property(copy, nonatomic) NSString *cardName; // @synthesize cardName=_cardName;
+- (id)creditCardDataByMergingCardholderNameAndExpirationDateFromCard:(id)arg1;
+- (id)keychainRepresentation;
+- (id)initWithKeychainRepresentation:(id)arg1;
 - (id)description;
 - (id)initWithCardName:(id)arg1 number:(id)arg2 cardholderName:(id)arg3 expirationDate:(id)arg4;
 - (void)dealloc;

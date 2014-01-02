@@ -7,7 +7,7 @@
 #import "NSURL.h"
 
 @interface NSURL (AMOSExtensions)
-- (BOOL)isAMOSCommittedIdentifier;
-- (BOOL)isAMOSIdentifier;
+- (_Bool)isAMOSCommittedIdentifier;
+- (_Bool)isAMOSIdentifier;
 @end
 

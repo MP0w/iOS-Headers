@@ -10,19 +10,20 @@
 
 @class NSDate, PreferencesDoubleTwoPartValueCell;
 
+// Not exported
 @interface EKEventDateDetailItem : EKEventDetailItem <EKCellShortener>
 {
     PreferencesDoubleTwoPartValueCell *_cell;
     NSDate *_startDate;
     NSDate *_endDate;
-    BOOL _indent;
+    _Bool _indent;
 }
 
 - (void).cxx_destruct;
 - (void)shortenCell:(id)arg1;
-- (id)cellForSubitemAtIndex:(unsigned int)arg1;
-- (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 forWidth:(float)arg2;
-- (BOOL)configureWithCalendar:(id)arg1 preview:(BOOL)arg2;
+- (id)cellForSubitemAtIndex:(unsigned long long)arg1;
+- (double)defaultCellHeightForSubitemAtIndex:(unsigned long long)arg1 forWidth:(double)arg2;
+- (_Bool)configureWithCalendar:(id)arg1 preview:(_Bool)arg2;
 - (void)setEvent:(id)arg1 store:(id)arg2;
 - (void)reset;
 - (void)dealloc;

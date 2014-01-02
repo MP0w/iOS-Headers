@@ -8,10 +8,10 @@
 
 @interface CalDAVCalendarInfoTaskGroup : CoreDAVContainerInfoTaskGroup
 {
-    BOOL _fetchSharees;
+    _Bool _fetchSharees;
 }
 
-@property(nonatomic) BOOL fetchSharees; // @synthesize fetchSharees=_fetchSharees;
+@property(nonatomic) _Bool fetchSharees; // @synthesize fetchSharees=_fetchSharees;
 - (id)containerForURL:(id)arg1;
 - (id)_copyContainerWithURL:(id)arg1 andProperties:(id)arg2;
 - (id)_copyContainerParserMappings;

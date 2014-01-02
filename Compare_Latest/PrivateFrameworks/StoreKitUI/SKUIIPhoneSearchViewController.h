@@ -7,17 +7,18 @@
 #import "UIViewController.h"
 
 #import "SKUIItemCollectionDelegate-Protocol.h"
+#import "SKUIMetricsViewController-Protocol.h"
 #import "SKUISearchRelatedViewDelegate-Protocol.h"
 #import "SKUISearchResultGroupControllerDelegate-Protocol.h"
 #import "UICollectionViewDataSource-Protocol.h"
 #import "UICollectionViewDelegate-Protocol.h"
 
-@class NSMutableDictionary, NSString, SKUIClientContext, SKUIItemCollectionController, SKUIMetricsController, SKUISearchPage, SKUISearchRelatedView, SKUISearchResultGroupController, UICollectionView;
+@class NSMutableDictionary, NSString, SKUIClientContext, SKUIGiftThemeCollectionView, SKUIItemCollectionController, SKUIMetricsController, SKUISearchPage, SKUISearchRelatedView, SKUISearchResultGroupController;
 
-@interface SKUIIPhoneSearchViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, SKUISearchResultGroupControllerDelegate, SKUIItemCollectionDelegate, SKUISearchRelatedViewDelegate>
+@interface SKUIIPhoneSearchViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, SKUISearchResultGroupControllerDelegate, SKUIItemCollectionDelegate, SKUISearchRelatedViewDelegate, SKUIMetricsViewController>
 {
     SKUIClientContext *_clientContext;
-    UICollectionView *_collectionView;
+    SKUIGiftThemeCollectionView *_collectionView;
     id <SKUISearchChildViewControllerDelegate> _delegate;
     SKUIItemCollectionController *_itemCollectionController;
     NSMutableDictionary *_indexesByItemIndex;
@@ -35,37 +36,42 @@
 @property(nonatomic) __weak id <SKUISearchChildViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
 - (void).cxx_destruct;
-- (int)_itemIndexForIndex:(int)arg1;
-- (int)_indexForItemIndex:(int)arg1;
-- (id)_visibleMetricsImpressionsDictionary;
+- (long long)_itemIndexForIndex:(long long)arg1;
+- (long long)_indexForItemIndex:(long long)arg1;
+- (id)_visibleMetricsImpressionsString;
 - (void)_reloadView;
 - (void)_reloadScreenshotHeight;
+- (void)_recordImpressionEventWithIndex:(long long)arg1;
+- (void)_recordImpressionEventWithContentOffset:(struct CGPoint)arg1;
 - (void)_recordClickEventForItemOffer:(id)arg1 atIndexPath:(id)arg2;
 - (void)_recordClickEventForItem:(id)arg1 atIndexPath:(id)arg2;
 - (void)_recordClickEventForEditorial:(id)arg1 atIndexPath:(id)arg2;
 - (void)_recordClickEvent:(id)arg1 withCell:(id)arg2;
 - (id)_itemCollectionController;
-- (void)_addImpressionWithItemID:(long long)arg1 type:(id)arg2 index:(int)arg3;
+- (void)_addImpressionWithItemID:(long long)arg1 type:(id)arg2 index:(long long)arg3;
 - (void)_noResultsAction:(id)arg1;
+- (void)scrollViewWillEndDragging:(id)arg1 withVelocity:(struct CGPoint)arg2 targetContentOffset:(inout struct CGPoint *)arg3;
+- (void)scrollViewWillBeginDragging:(id)arg1;
+- (void)scrollViewDidEndDecelerating:(id)arg1;
 - (void)searchRelatedViewDidSelectBackButton:(id)arg1;
-- (void)searchRelatedView:(id)arg1 didSelectRelatedQueryAtIndex:(int)arg2;
+- (void)searchRelatedView:(id)arg1 didSelectRelatedQueryAtIndex:(long long)arg2;
 - (void)itemCollectionView:(id)arg1 didConfirmItemOfferForCell:(id)arg2;
 - (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
 - (id)collectionView:(id)arg1 viewForSupplementaryElementOfKind:(id)arg2 atIndexPath:(id)arg3;
-- (int)numberOfSectionsInCollectionView:(id)arg1;
-- (int)collectionView:(id)arg1 numberOfItemsInSection:(int)arg2;
+- (long long)numberOfSectionsInCollectionView:(id)arg1;
+- (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
 - (struct _NSRange)visibleItemRangeForItemCollectionController:(id)arg1;
 - (void)itemCollectionController:(id)arg1 applyScreenshotImage:(id)arg2 toCellLayout:(id)arg3;
 - (struct _NSRange)itemCollectionController:(id)arg1 itemPageRangeForOffset:(struct CGPoint)arg2;
-- (BOOL)shouldCacheAheadWhenIdleForItemCollectionController:(id)arg1;
+- (_Bool)shouldCacheAheadWhenIdleForItemCollectionController:(id)arg1;
 - (id)itemCollectionController:(id)arg1 screenshotForItem:(id)arg2;
-- (id)itemCollectionController:(id)arg1 cellLayoutForItemIndex:(int)arg2;
-- (void)searchResultGroupController:(id)arg1 didLoadArtworkAtIndex:(unsigned int)arg2;
-- (void)searchResultGroupController:(id)arg1 didLoadEntityAtIndex:(unsigned int)arg2;
+- (id)itemCollectionController:(id)arg1 cellLayoutForItemIndex:(long long)arg2;
+- (void)searchResultGroupController:(id)arg1 didLoadArtworkAtIndex:(unsigned long long)arg2;
+- (void)searchResultGroupController:(id)arg1 didLoadEntityAtIndexes:(id)arg2;
+- (id)activeMetricsController;
 - (id)contentScrollView;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;
 - (void)setSearchPage:(id)arg1 previousRelatedSearchTerm:(id)arg2;
 - (void)scrollToTop;

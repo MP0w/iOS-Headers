@@ -9,12 +9,12 @@
 @protocol MFComposeRecipientViewDelegate <NSObject>
 
 @optional
-- (BOOL)chooseSelectedSearchResultForComposeRecipientView:(id)arg1;
+- (_Bool)chooseSelectedSearchResultForComposeRecipientView:(id)arg1;
 - (void)selectPreviousSearchResultForComposeRecipientView:(id)arg1;
 - (void)selectNextSearchResultForComposeRecipientView:(id)arg1;
 - (void)dismissSearchResultsForComposeRecipientView:(id)arg1;
-- (BOOL)presentSearchResultsForComposeRecipientView:(id)arg1;
-- (BOOL)composeRecipientViewShowingSearchResults:(id)arg1;
+- (_Bool)presentSearchResultsForComposeRecipientView:(id)arg1;
+- (_Bool)composeRecipientViewShowingSearchResults:(id)arg1;
 - (void)composeRecipientViewDidBecomeFirstResponder:(id)arg1;
 - (void)composeRecipientViewReturnPressed:(id)arg1;
 - (id)composeRecipientView:(id)arg1 composeRecipientForRecord:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
@@ -25,7 +25,7 @@
 - (void)composeRecipientView:(id)arg1 showPersonCardForAtom:(id)arg2;
 - (void)composeRecipientViewDidFinishPickingRecipient:(id)arg1;
 - (void)composeRecipientViewRequestAddRecipient:(id)arg1;
-- (BOOL)recipientViewShouldIgnoreFirstResponderChanges:(id)arg1;
+- (_Bool)recipientViewShouldIgnoreFirstResponderChanges:(id)arg1;
 - (void)recipientViewDidResignFirstResponder:(id)arg1;
 - (void)recipientViewDidBecomeFirstResponder:(id)arg1;
 - (void)composeRecipientView:(id)arg1 textDidChange:(id)arg2;

@@ -20,7 +20,7 @@
 - (id)_copyAccount;
 @property(readonly, nonatomic) NSURL *versionMismatchURL;
 @property(readonly, nonatomic) NSArray *pingURLs;
-@property(readonly, nonatomic, getter=isSupportedProtocolVersion) BOOL supportedProtocolVersion;
+@property(readonly, nonatomic, getter=isSupportedProtocolVersion) _Bool supportedProtocolVersion;
 @property(readonly, nonatomic) NSNumber *failureType;
 - (id)actionsWithActionType:(id)arg1;
 @property(readonly, nonatomic) NSArray *actions;

@@ -20,16 +20,16 @@
     int _usbLocationID;
     int _usbProductID;
     int _usbVendorID;
-    BOOL _hasOpenSession;
-    BOOL _autoOpenSession;
-    BOOL _openSessionPending;
-    BOOL _closeSessionPending;
+    _Bool _hasOpenSession;
+    _Bool _autoOpenSession;
+    _Bool _openSessionPending;
+    _Bool _closeSessionPending;
 }
 
-@property BOOL closeSessionPending; // @synthesize closeSessionPending=_closeSessionPending;
-@property BOOL openSessionPending; // @synthesize openSessionPending=_openSessionPending;
-@property BOOL autoOpenSession; // @synthesize autoOpenSession=_autoOpenSession;
-@property BOOL hasOpenSession; // @synthesize hasOpenSession=_hasOpenSession;
+@property _Bool closeSessionPending; // @synthesize closeSessionPending=_closeSessionPending;
+@property _Bool openSessionPending; // @synthesize openSessionPending=_openSessionPending;
+@property _Bool autoOpenSession; // @synthesize autoOpenSession=_autoOpenSession;
+@property _Bool hasOpenSession; // @synthesize hasOpenSession=_hasOpenSession;
 @property int usbVendorID; // @synthesize usbVendorID=_usbVendorID;
 @property int usbProductID; // @synthesize usbProductID=_usbProductID;
 @property int usbLocationID; // @synthesize usbLocationID=_usbLocationID;

@@ -6,16 +6,19 @@
 
 #import <CoreData/PFUbiquitySafeSaveFile.h>
 
-@class PFUbiquityKnowledgeVector, PFUbiquityLocation;
+@class NSDate, PFUbiquityKnowledgeVector, PFUbiquityLocation;
 
+// Not exported
 @interface PFUbiquityPeerReceipt : PFUbiquitySafeSaveFile
 {
     PFUbiquityKnowledgeVector *_kv;
+    NSDate *_writeDate;
 }
 
+@property(retain, nonatomic) NSDate *writeDate; // @synthesize writeDate=_writeDate;
 @property(readonly, nonatomic) PFUbiquityKnowledgeVector *kv; // @synthesize kv=_kv;
-- (BOOL)writeFileToLocation:(id)arg1 error:(id *)arg2;
-- (BOOL)loadFileFromLocation:(id)arg1 error:(id *)arg2;
+- (_Bool)writeFileToLocation:(id)arg1 error:(id *)arg2;
+- (_Bool)loadFileFromLocation:(id)arg1 error:(id *)arg2;
 - (id)description;
 @property(readonly, nonatomic) PFUbiquityLocation *receiptFileLocation;
 - (void)dealloc;

@@ -7,13 +7,13 @@
 #import "NSObject.h"
 
 @interface NSObject (SBS)
-+ (BOOL)sbs_synchronousWrapper:(id)arg1 dispatchTimeout:(void)arg2;
++ (_Bool)sbs_synchronousWrapper:(id)arg1 dispatchTimeout:(void)arg2;
 + (id)sbs_valueFromData:(id)arg1 ofType:(const char *)arg2;
 + (id)sbs_dataWithValue:(id)arg1;
-+ (BOOL)sbs_synchronousWrapper:(id)arg1 timeout:(void)arg2;
-+ (BOOL)sbs_synchronousWrapper:(id)arg1;
++ (_Bool)sbs_synchronousWrapper:(id)arg1 timeout:(void)arg2;
++ (_Bool)sbs_synchronousWrapper:(id)arg1;
 + (id)sbs_objectFromData:(id)arg1;
 + (id)sbs_dataFromObject:(id)arg1;
-- (BOOL)sbs_isPlistableType;
+- (_Bool)sbs_isPlistableType;
 @end
 

@@ -12,26 +12,26 @@
 
 @interface SUDeferredUIButton : UIButton <SUDeferredUIView>
 {
-    BOOL _deferredEnabled;
+    _Bool _deferredEnabled;
     struct CGRect _deferredFrame;
     NSMutableDictionary *_deferredImages;
     NSMutableDictionary *_deferredTitles;
-    BOOL _isDeferringInterfaceUpdates;
+    _Bool _isDeferringInterfaceUpdates;
 }
 
 - (void)_saveTitlesAsDeferred;
 - (void)_saveImagesAsDeferred;
 - (void)_saveCurrentStateAsDeferred;
 - (void)_commitDeferredInterfaceUpdates;
-- (id)titleForState:(unsigned int)arg1;
-- (void)setTitle:(id)arg1 forState:(unsigned int)arg2;
-- (void)setImage:(id)arg1 forState:(unsigned int)arg2;
+- (id)titleForState:(unsigned long long)arg1;
+- (void)setTitle:(id)arg1 forState:(unsigned long long)arg2;
+- (void)setImage:(id)arg1 forState:(unsigned long long)arg2;
 - (void)setFrame:(struct CGRect)arg1;
-- (void)setEnabled:(BOOL)arg1;
-- (id)imageForState:(unsigned int)arg1;
-- (BOOL)isEnabled;
+- (void)setEnabled:(_Bool)arg1;
+- (id)imageForState:(unsigned long long)arg1;
+- (_Bool)isEnabled;
 - (struct CGRect)frame;
-@property(nonatomic, getter=isDeferringInterfaceUpdates) BOOL deferringInterfaceUpdates;
+@property(nonatomic, getter=isDeferringInterfaceUpdates) _Bool deferringInterfaceUpdates;
 - (void)dealloc;
 
 @end

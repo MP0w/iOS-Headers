@@ -10,6 +10,7 @@
 
 @class OADBevel, OADColor;
 
+// Not exported
 @interface OADShape3D : NSObject <NSCopying>
 {
     OADBevel *mTopBevel;
@@ -23,8 +24,8 @@
 }
 
 + (id)nullShape3D;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)setMaterial:(int)arg1;
 - (int)material;
 - (void)setShapeDepth:(float)arg1;

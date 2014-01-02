@@ -11,7 +11,7 @@
 }
 
 - (int)annotationType;
-- (BOOL)hasPopUp;
+- (_Bool)hasPopUp;
 
 @end
 

@@ -15,6 +15,7 @@
 
 @property(retain, nonatomic) SBBBWidgetBulletinInfo *representedWidgetBulletinInfo; // @synthesize representedWidgetBulletinInfo=_representedWidgetBulletinInfo;
 - (void)dealloc;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

@@ -8,20 +8,21 @@
 
 @class GEORegionalResourceTileData, NSMutableArray;
 
+// Not exported
 @interface _GEORegionalResourcesTileLoader : NSObject
 {
     NSMutableArray *_pendingDownloads;
     GEORegionalResourceTileData *_tile;
     id _finishedHandler;
     id _errorHandler;
-    BOOL _canceled;
+    _Bool _canceled;
 }
 
 - (void)cancel;
 - (void)loadResourcesForTileKey:(const struct _GEOTileKey *)arg1 finished:(id)arg2 error:(void)arg3;
 - (void)_loadNextResource;
-- (void)_addDownloadForName:(id)arg1 ofType:(int)arg2 baseURLString:(id)arg3 expectedChecksum:(id)arg4;
-- (BOOL)_loadRegionalResourceFromFilesystemIfPossible:(id)arg1 resourceChecksum:(id)arg2;
+- (void)_addDownloadForName:(id)arg1 ofType:(long long)arg2 baseURLString:(id)arg3 expectedChecksum:(id)arg4;
+- (_Bool)_loadRegionalResourceFromFilesystemIfPossible:(id)arg1 resourceChecksum:(id)arg2;
 - (id)_destinationPathForResource:(id)arg1;
 - (void)dealloc;
 

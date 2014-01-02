@@ -8,6 +8,7 @@
 
 @class WDCharacterProperties;
 
+// Not exported
 @interface WDFieldMarker : WDRun
 {
     WDCharacterProperties *mProperties;
@@ -23,20 +24,20 @@
     unsigned int mHasSeparator:1;
 }
 
-- (void)setHasSeparator:(BOOL)arg1;
-- (BOOL)hasSeparator;
-- (void)setNested:(BOOL)arg1;
-- (BOOL)nested;
-- (void)setPrivateResult:(BOOL)arg1;
-- (BOOL)privateResult;
-- (void)setLocked:(BOOL)arg1;
-- (BOOL)locked;
-- (void)setResultEdited:(BOOL)arg1;
-- (BOOL)resultEdited;
-- (void)setResultDirty:(BOOL)arg1;
-- (BOOL)resultDirty;
-- (void)setZombieEmbed:(BOOL)arg1;
-- (BOOL)zombieEmbed;
+- (void)setHasSeparator:(_Bool)arg1;
+- (_Bool)hasSeparator;
+- (void)setNested:(_Bool)arg1;
+- (_Bool)nested;
+- (void)setPrivateResult:(_Bool)arg1;
+- (_Bool)privateResult;
+- (void)setLocked:(_Bool)arg1;
+- (_Bool)locked;
+- (void)setResultEdited:(_Bool)arg1;
+- (_Bool)resultEdited;
+- (void)setResultDirty:(_Bool)arg1;
+- (_Bool)resultDirty;
+- (void)setZombieEmbed:(_Bool)arg1;
+- (_Bool)zombieEmbed;
 - (int)runType;
 - (void)setFieldType:(unsigned char)arg1;
 - (unsigned char)fieldType;

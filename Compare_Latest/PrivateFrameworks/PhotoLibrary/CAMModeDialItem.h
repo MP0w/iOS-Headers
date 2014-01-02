@@ -6,28 +6,28 @@
 
 #import "UIView.h"
 
-@class NSString, UILabel;
+@class NSString, UIFont, UILabel;
 
 @interface CAMModeDialItem : UIView
 {
-    BOOL _selected;
+    _Bool _selected;
     NSString *_title;
+    UIFont *_font;
     UILabel *__titleLabel;
     UILabel *__selectedTitleLabel;
-    float _supersamplingFactor;
 }
 
-@property(nonatomic) float supersamplingFactor; // @synthesize supersamplingFactor=_supersamplingFactor;
 @property(readonly, nonatomic) UILabel *_selectedTitleLabel; // @synthesize _selectedTitleLabel=__selectedTitleLabel;
 @property(readonly, nonatomic) UILabel *_titleLabel; // @synthesize _titleLabel=__titleLabel;
+@property(retain, nonatomic) UIFont *font; // @synthesize font=_font;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
-@property(nonatomic, getter=isSelected) BOOL selected; // @synthesize selected=_selected;
-- (void)setSelected:(BOOL)arg1 animated:(BOOL)arg2;
+@property(nonatomic, getter=isSelected) _Bool selected; // @synthesize selected=_selected;
+- (void)setSelected:(_Bool)arg1 animated:(_Bool)arg2;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithFrame:(struct CGRect)arg1 supersamplingFactor:(float)arg2;
+- (id)initWithFrame:(struct CGRect)arg1;
 - (void)_commonCAMModeDialItemInitialization;
 
 @end

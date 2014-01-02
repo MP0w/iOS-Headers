@@ -19,7 +19,7 @@
     NSMutableSet *_cachedAccounts;
     NSMutableSet *_enabledAccounts;
     NSMutableDictionary *_transactionIDToHandlersMap;
-    BOOL _accountsLoaded;
+    _Bool _accountsLoaded;
 }
 
 - (void)accountDisabled:(id)arg1 onService:(id)arg2;
@@ -34,9 +34,12 @@
 - (void)_removeAccount:(id)arg1;
 - (void)_removeAndDeregisterAccount:(id)arg1;
 - (void)addAccount:(id)arg1;
+- (void)setupAccountWithSetupParameters:(id)arg1 aliases:(id)arg2 completionHandler:(id)arg3;
+- (void)setupAccountWithLoginID:(id)arg1 authToken:(id)arg2 profileID:(id)arg3 selfHandle:(id)arg4 aliases:(id)arg5 completionHandler:(id)arg6;
+- (void)setupAccountWithLoginID:(id)arg1 aliases:(id)arg2 password:(id)arg3 completionHandler:(id)arg4;
 - (void)setupAccountWithLoginID:(id)arg1 authToken:(id)arg2 profileID:(id)arg3 selfHandle:(id)arg4 completionHandler:(id)arg5;
 - (void)setupAccountWithLoginID:(id)arg1 password:(id)arg2 completionHandler:(id)arg3;
-- (void)_setupAccountWithLoginID:(id)arg1 accountConfig:(id)arg2 completionHandler:(id)arg3;
+- (void)_setupAccountWithLoginID:(id)arg1 accountConfig:(id)arg2 authToken:(id)arg3 password:(id)arg4 completionHandler:(id)arg5;
 - (id)accountWithLoginID:(id)arg1 service:(id)arg2;
 - (id)accountWithUniqueID:(id)arg1;
 - (void)_loadCachedAccounts;

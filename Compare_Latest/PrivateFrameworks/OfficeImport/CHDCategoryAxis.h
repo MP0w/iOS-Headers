@@ -6,16 +6,17 @@
 
 #import <OfficeImport/CHDAxis.h>
 
+// Not exported
 @interface CHDCategoryAxis : CHDAxis
 {
     _Bool mAutomatic;
     _Bool mNoMultipleLevelLabel;
     int mLabelAlignment;
-    long mLabelFrequency;
+    long long mLabelFrequency;
 }
 
-- (void)setLabelFrequency:(long)arg1;
-- (long)labelFrequency;
+- (void)setLabelFrequency:(long long)arg1;
+- (long long)labelFrequency;
 - (void)adjustAxisPositionForHorizontalChart;
 - (void)setLabelAlignment:(int)arg1;
 - (int)labelAlignment;

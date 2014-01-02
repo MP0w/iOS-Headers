@@ -10,6 +10,7 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface _APSLogFileCompressor : NSObject <CUTFileCopierDelegate>
 {
     NSMutableArray *_archivers;

@@ -18,7 +18,7 @@
 @property(retain, nonatomic) NSPredicate *conditionPredicate; // @synthesize conditionPredicate=_conditionPredicate;
 @property(retain, nonatomic) NSString *conditionKeyPath; // @synthesize conditionKeyPath=_conditionKeyPath;
 - (void).cxx_destruct;
-- (BOOL)evaluateWithSettings:(id)arg1;
+- (_Bool)evaluateWithSettings:(id)arg1;
 - (void)addKeyPathPrefix:(id)arg1;
 
 @end

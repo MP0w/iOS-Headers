@@ -11,10 +11,10 @@
 }
 
 + (id)sharedInstance;
-@property(readonly, nonatomic) BOOL _nonWifiFaceTimeEntitled;
-@property(nonatomic) BOOL allowAnyNetwork;
-@property(nonatomic) BOOL cellularFaceTimeEnabled;
-- (BOOL)_adequateInternalOrCarrierInstall;
+@property(readonly, nonatomic) _Bool _nonWifiFaceTimeEntitled;
+@property(nonatomic) _Bool allowAnyNetwork;
+@property(nonatomic) _Bool cellularFaceTimeEnabled;
+- (_Bool)_adequateInternalOrCarrierInstall;
 
 @end
 

@@ -6,13 +6,14 @@
 
 #import <CoreData/NSSQLIntermediate.h>
 
+// Not exported
 @interface NSSQLLimitIntermediate : NSSQLIntermediate
 {
-    unsigned int _limit;
+    unsigned long long _limit;
 }
 
 - (id)generateSQLStringInContext:(id)arg1;
-- (id)initWithLimit:(unsigned int)arg1 inScope:(id)arg2;
+- (id)initWithLimit:(unsigned long long)arg1 inScope:(id)arg2;
 
 @end
 

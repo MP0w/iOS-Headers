@@ -7,18 +7,18 @@
 #import "NSData.h"
 
 @interface NSData (CDXTicket)
-- (BOOL)CDXTicketIsRelatedToTicket:(id)arg1;
-- (BOOL)CDXTicketWellFormed;
+- (_Bool)CDXTicketIsRelatedToTicket:(id)arg1;
+- (_Bool)CDXTicketWellFormed;
 - (id)CDXTicketTrimmed;
-- (BOOL)CDXTicketIsStub;
-- (BOOL)CDXTicketIsHolePunch;
-- (BOOL)CDXTicketIsReflected;
+- (_Bool)CDXTicketIsStub;
+- (_Bool)CDXTicketIsHolePunch;
+- (_Bool)CDXTicketIsReflected;
 - (unsigned long long)CDXTicketSID;
 - (struct CDXTicket *)mutableCDXTicket;
 - (const struct CDXTicket *)CDXTicket;
-- (unsigned int)CDXTicketRevision;
+- (unsigned long long)CDXTicketRevision;
 - (id)CDXTicketExpirationDate;
-- (int)CDXTicketPCNT;
-- (int)CDXTicketPID;
+- (long long)CDXTicketPCNT;
+- (long long)CDXTicketPID;
 @end
 

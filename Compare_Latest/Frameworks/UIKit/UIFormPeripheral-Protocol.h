@@ -6,6 +6,7 @@
 
 @protocol UIFormPeripheral
 - (id)assistantView;
+- (void)endEditing;
 - (void)beginEditing;
 @end
 

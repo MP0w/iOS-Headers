@@ -20,7 +20,7 @@
 @property(nonatomic) __weak id <SUActivityDelegate> ITunesStoreDelegate; // @synthesize ITunesStoreDelegate=_delegate;
 - (void)prepareWithActivityItems:(id)arg1;
 - (void)performActivity;
-- (BOOL)canPerformWithActivityItems:(id)arg1;
+- (_Bool)canPerformWithActivityItems:(id)arg1;
 - (id)activityViewController;
 - (id)activityType;
 - (id)activityTitle;

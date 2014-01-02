@@ -28,7 +28,7 @@
 - (void)abortEnqueuedJobsCompletionBlock:(id)arg1;
 - (void)waitForEnqueuedJobsToCompleteCompletionBlock:(id)arg1;
 - (void)jobDidFinish;
-- (BOOL)hasJobsEnqueued;
+- (_Bool)hasJobsEnqueued;
 - (void)enqueueJob:(id)arg1;
 - (id)init;
 

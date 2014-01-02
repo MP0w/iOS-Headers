@@ -14,17 +14,17 @@
 {
     NSString *_localizedTitle;
     NSString *_localizedBody;
-    BOOL _isLongForm;
+    _Bool _isLongForm;
 }
 
-+ (id)warningWithLocalizedTitle:(id)arg1 localizedBody:(id)arg2 isLongForm:(BOOL)arg3;
-@property(nonatomic) BOOL isLongForm; // @synthesize isLongForm=_isLongForm;
++ (id)warningWithLocalizedTitle:(id)arg1 localizedBody:(id)arg2 isLongForm:(_Bool)arg3;
+@property(nonatomic) _Bool isLongForm; // @synthesize isLongForm=_isLongForm;
 @property(retain, nonatomic) NSString *localizedBody; // @synthesize localizedBody=_localizedBody;
 @property(retain, nonatomic) NSString *localizedTitle; // @synthesize localizedTitle=_localizedTitle;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (id)initWithLocalizedTitle:(id)arg1 localizedBody:(id)arg2 isLongForm:(BOOL)arg3;
+- (id)initWithLocalizedTitle:(id)arg1 localizedBody:(id)arg2 isLongForm:(_Bool)arg3;
 
 @end
 

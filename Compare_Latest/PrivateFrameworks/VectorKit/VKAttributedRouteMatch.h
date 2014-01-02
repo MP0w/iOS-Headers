@@ -8,52 +8,54 @@
 
 @class NSDate, VKAttributedRoute;
 
+// Not exported
 @interface VKAttributedRouteMatch : NSObject
 {
     struct PolylineCoordinate _routeCoordinate;
     CDStruct_2c43369c _coordinateOnRoute;
-    unsigned int _stepIndex;
+    unsigned long long _stepIndex;
     double _modifiedHorizontalAccuracy;
-    unsigned int _consecutiveProgressionsOffRoute;
+    unsigned long long _consecutiveProgressionsOffRoute;
     double _distanceTraveledOffRoute;
     double _modifiedCourseAccuracy;
     double _matchedCourse;
     double _distanceFromRoute;
-    BOOL _isPoorMatch;
+    _Bool _isPoorMatch;
     VKAttributedRoute *_route;
-    CDStruct_c272c4e8 *_road;
+    CDStruct_02d551b3 *_road;
     float _roadWidth;
     VKAttributedRouteMatch *_projectedFrom;
     NSDate *_timestamp;
 }
 
 @property(nonatomic) double distanceTraveledOffRoute; // @synthesize distanceTraveledOffRoute=_distanceTraveledOffRoute;
-@property(nonatomic) unsigned int consecutiveProgressionsOffRoute; // @synthesize consecutiveProgressionsOffRoute=_consecutiveProgressionsOffRoute;
+@property(nonatomic) unsigned long long consecutiveProgressionsOffRoute; // @synthesize consecutiveProgressionsOffRoute=_consecutiveProgressionsOffRoute;
 @property(readonly, nonatomic) NSDate *timestamp; // @synthesize timestamp=_timestamp;
-@property(nonatomic) BOOL isPoorMatch; // @synthesize isPoorMatch=_isPoorMatch;
+@property(nonatomic) _Bool isPoorMatch; // @synthesize isPoorMatch=_isPoorMatch;
 @property(retain, nonatomic) VKAttributedRouteMatch *projectedFrom; // @synthesize projectedFrom=_projectedFrom;
 @property(nonatomic) double modifiedCourseAccuracy; // @synthesize modifiedCourseAccuracy=_modifiedCourseAccuracy;
 @property(nonatomic) double modifiedHorizontalAccuracy; // @synthesize modifiedHorizontalAccuracy=_modifiedHorizontalAccuracy;
 @property(nonatomic) double distanceFromRoute; // @synthesize distanceFromRoute=_distanceFromRoute;
 @property(readonly, nonatomic) float roadWidth; // @synthesize roadWidth=_roadWidth;
-@property(nonatomic) CDStruct_c272c4e8 *road; // @synthesize road=_road;
+@property(nonatomic) CDStruct_02d551b3 *road; // @synthesize road=_road;
 @property(readonly, nonatomic) VKAttributedRoute *route; // @synthesize route=_route;
 @property(readonly, nonatomic) double matchedCourse; // @synthesize matchedCourse=_matchedCourse;
-@property(readonly, nonatomic) unsigned int stepIndex; // @synthesize stepIndex=_stepIndex;
+@property(readonly, nonatomic) unsigned long long stepIndex; // @synthesize stepIndex=_stepIndex;
 @property(nonatomic) CDStruct_c3b9c2ee coordinateOnRoute; // @synthesize coordinateOnRoute=_coordinateOnRoute;
 @property(readonly, nonatomic) struct PolylineCoordinate routeCoordinate; // @synthesize routeCoordinate=_routeCoordinate;
 - (id).cxx_construct;
 - (id)description;
-@property(readonly, nonatomic) BOOL routeMatchedToEnd;
+@property(readonly, nonatomic) unsigned int stepID;
+@property(readonly, nonatomic) _Bool routeMatchedToEnd;
 @property(readonly, nonatomic) float offset;
 @property(readonly, nonatomic) unsigned int pointIndex;
-- (BOOL)routeMatchBehind:(id)arg1;
-- (unsigned int)hash;
-- (BOOL)isEqualIgnoringScore:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)routeMatchBehind:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqualIgnoringScore:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (void)updateOffRouteProgress:(id)arg1 minDistanceToGetOnRoute:(double)arg2;
 - (void)dealloc;
-- (id)initWithRoute:(id)arg1 routeCoordinate:(struct PolylineCoordinate)arg2 coordinateOnRoute:(CDStruct_c3b9c2ee)arg3 stepIndex:(unsigned int)arg4 matchedCourse:(double)arg5 timestamp:(id)arg6;
+- (id)initWithRoute:(id)arg1 routeCoordinate:(struct PolylineCoordinate)arg2 coordinateOnRoute:(CDStruct_c3b9c2ee)arg3 stepIndex:(unsigned long long)arg4 matchedCourse:(double)arg5 timestamp:(id)arg6;
 
 @end
 

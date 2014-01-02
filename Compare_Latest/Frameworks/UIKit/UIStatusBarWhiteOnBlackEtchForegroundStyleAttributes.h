@@ -6,23 +6,24 @@
 
 #import <UIKit/UIStatusBarForegroundStyleAttributes.h>
 
+// Not exported
 @interface UIStatusBarWhiteOnBlackEtchForegroundStyleAttributes : UIStatusBarForegroundStyleAttributes
 {
 }
 
-- (float)bluetoothBatteryExtraLeftPadding;
-- (float)airplaneItemExtraMargin;
+- (double)bluetoothBatteryExtraLeftPadding;
+- (double)airplaneItemExtraMargin;
 - (int)legacyStyle;
 - (struct CGPoint)positionForMoonMaskInBounds:(struct CGRect)arg1;
-- (float)sizeForMoonMaskVisible:(BOOL)arg1;
-- (id)textColorForStyle:(int)arg1;
-- (id)makeTextFontForStyle:(int)arg1;
-- (float)textOffsetForStyle:(int)arg1;
+- (double)sizeForMoonMaskVisible:(_Bool)arg1;
+- (id)textColorForStyle:(long long)arg1;
+- (id)makeTextFontForStyle:(long long)arg1;
+- (double)textOffsetForStyle:(long long)arg1;
 - (id)expandedNameForImageName:(id)arg1;
-- (float)edgePadding;
+- (double)edgePadding;
 - (void)drawTextInRect:(struct CGRect)arg1 withColor:(id)arg2 withBlock:(id)arg3;
-- (void)drawBluetoothBatteryInsidesWithSize:(struct CGSize)arg1 capacity:(float)arg2;
-- (void)drawBatteryInsidesWithSize:(struct CGSize)arg1 capacity:(float)arg2 charging:(BOOL)arg3;
+- (void)drawBluetoothBatteryInsidesWithSize:(struct CGSize)arg1 capacity:(double)arg2;
+- (void)drawBatteryInsidesWithSize:(struct CGSize)arg1 capacity:(double)arg2 charging:(_Bool)arg3;
 
 @end
 

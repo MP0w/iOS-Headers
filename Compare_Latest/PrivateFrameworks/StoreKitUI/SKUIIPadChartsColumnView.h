@@ -11,14 +11,16 @@
 @interface SKUIIPadChartsColumnView : UIView
 {
     NSArray *_contentViewControllers;
-    int _selectedViewControllerIndex;
+    long long _selectedViewControllerIndex;
+    struct UIEdgeInsets _contentInset;
 }
 
+@property(nonatomic) struct UIEdgeInsets contentInset; // @synthesize contentInset=_contentInset;
 @property(copy, nonatomic) NSArray *contentViewControllers; // @synthesize contentViewControllers=_contentViewControllers;
 - (void).cxx_destruct;
 - (void)_addSelectedViewController;
 - (void)layoutSubviews;
-- (void)setSelectedViewControllerIndex:(int)arg1;
+- (void)setSelectedViewControllerIndex:(long long)arg1;
 @property(readonly, nonatomic) SKUIItemListTableViewController *selectedViewController;
 
 @end

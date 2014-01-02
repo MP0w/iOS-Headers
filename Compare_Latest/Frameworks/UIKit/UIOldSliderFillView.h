@@ -8,6 +8,7 @@
 
 @class UIImage;
 
+// Not exported
 @interface UIOldSliderFillView : UIView
 {
     UIImage *_sliderImage;

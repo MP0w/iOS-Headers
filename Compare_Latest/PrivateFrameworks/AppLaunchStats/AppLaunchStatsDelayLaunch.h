@@ -25,7 +25,7 @@
 - (void)saveContext:(id)arg1;
 - (void)save:(id)arg1;
 - (void)restore:(id)arg1;
-- (_Bool)shouldDelayLaunch:(id)arg1;
+- (_Bool)shouldDelayLaunch:(id)arg1 forTrending:(_Bool)arg2;
 - (void)resetDelayLaunch:(id)arg1;
 - (void)delayLaunch:(id)arg1 with:(double)arg2;
 - (id)init;

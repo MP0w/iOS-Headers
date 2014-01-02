@@ -18,13 +18,13 @@
 
 + (struct CGSize)sizeForImageSize:(struct CGSize)arg1;
 + (struct CGSize)thumbnailSizeForImageSize:(struct CGSize)arg1;
-+ (float)defaultSpacing;
++ (double)defaultSpacing;
 @property(retain, nonatomic) UIView *thumbnailView; // @synthesize thumbnailView=_thumbnailView;
 @property(nonatomic) struct CGSize thumbnailSize; // @synthesize thumbnailSize=_thumbnailSize;
 - (void)layoutSubviews;
 - (void)_updateAppearance;
-- (void)setHighlighted:(BOOL)arg1;
-- (void)setSelected:(BOOL)arg1;
+- (void)setHighlighted:(_Bool)arg1;
+- (void)setSelected:(_Bool)arg1;
 - (void)prepareForReuse;
 @property(copy, nonatomic) NSString *text;
 - (void)dealloc;

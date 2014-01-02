@@ -13,7 +13,7 @@
     NSDictionary *_dictionary;
 }
 
-+ (BOOL)isKeyExcludedFromWebScript:(const char *)arg1;
++ (_Bool)isKeyExcludedFromWebScript:(const char *)arg1;
 @property(readonly) NSDictionary *dictionary; // @synthesize dictionary=_dictionary;
 - (id)attributeKeys;
 - (id)valueForKey:(id)arg1;

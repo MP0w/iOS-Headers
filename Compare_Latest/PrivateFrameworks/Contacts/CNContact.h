@@ -30,8 +30,8 @@
     NSString *_jobTitle;
     NSDateComponents *_birthday;
     NSString *_note;
-    int _contactType;
-    int _nameOrder;
+    long long _contactType;
+    long long _nameOrder;
     NSArray *_phoneNumbers;
     NSArray *_emailAddresses;
     NSArray *_urlAddresses;
@@ -42,7 +42,7 @@
     NSArray *_postalAddresses;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 + (id)contact;
 @property(readonly) NSArray *postalAddresses; // @synthesize postalAddresses=_postalAddresses;
 @property(readonly) NSArray *socialProfiles; // @synthesize socialProfiles=_socialProfiles;
@@ -52,8 +52,8 @@
 @property(readonly) NSArray *urlAddresses; // @synthesize urlAddresses=_urlAddresses;
 @property(readonly) NSArray *emailAddresses; // @synthesize emailAddresses=_emailAddresses;
 @property(readonly) NSArray *phoneNumbers; // @synthesize phoneNumbers=_phoneNumbers;
-@property(readonly) int nameOrder; // @synthesize nameOrder=_nameOrder;
-@property(readonly) int contactType; // @synthesize contactType=_contactType;
+@property(readonly) long long nameOrder; // @synthesize nameOrder=_nameOrder;
+@property(readonly) long long contactType; // @synthesize contactType=_contactType;
 @property(readonly) NSString *note; // @synthesize note=_note;
 @property(readonly) NSDateComponents *birthday; // @synthesize birthday=_birthday;
 @property(readonly) NSString *jobTitle; // @synthesize jobTitle=_jobTitle;
@@ -71,9 +71,9 @@
 @property(readonly) NSString *namePrefix; // @synthesize namePrefix=_namePrefix;
 @property(readonly) CNContactIdentifier *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
-- (BOOL)isEqualToContact:(id)arg1 includeIdentifiers:(BOOL)arg2;
-- (BOOL)isEqualToContact:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqualToContact:(id)arg1 includeIdentifiers:(_Bool)arg2;
+- (_Bool)isEqualToContact:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;

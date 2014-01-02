@@ -8,15 +8,15 @@
 
 @interface CKTranscriptCollectionView : CKEditableCollectionView
 {
-    BOOL _ignoresContentOffsetChanges;
+    _Bool _ignoresContentOffsetChanges;
 }
 
-@property(nonatomic) BOOL ignoresContentOffsetChanges; // @synthesize ignoresContentOffsetChanges=_ignoresContentOffsetChanges;
-- (BOOL)isFastAnimationAvailableForContentOffset;
+@property(nonatomic) _Bool ignoresContentOffsetChanges; // @synthesize ignoresContentOffsetChanges=_ignoresContentOffsetChanges;
+- (_Bool)isFastAnimationAvailableForContentOffset;
 - (void)reloadData;
 - (void)setContentInset:(struct UIEdgeInsets)arg1;
 - (void)setContentOffset:(struct CGPoint)arg1;
-- (void)setContentOffset:(struct CGPoint)arg1 animated:(BOOL)arg2;
+- (void)setContentOffset:(struct CGPoint)arg1 animated:(_Bool)arg2;
 
 @end
 

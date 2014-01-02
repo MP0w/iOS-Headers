@@ -8,21 +8,22 @@
 
 @class EDResources, NSMutableArray, NSString;
 
+// Not exported
 @interface EDConditionalFormattingRule : NSObject
 {
     EDResources *mResources;
     int mType;
     int mOperator;
     NSMutableArray *mFormulas;
-    unsigned int mDifferentialStyleIndex;
+    unsigned long long mDifferentialStyleIndex;
     _Bool mStopIfTrue;
-    long mPriority;
+    long long mPriority;
     _Bool mAboveAverage;
     _Bool mBottom;
     _Bool mEqualAverage;
     _Bool mPercent;
-    unsigned long mRank;
-    long mStdDev;
+    unsigned long long mRank;
+    long long mStdDev;
     NSString *mText;
     int mTimePeriod;
 }
@@ -32,10 +33,10 @@
 - (int)timePeriod;
 - (void)setText:(id)arg1;
 - (id)text;
-- (void)setStdDev:(long)arg1;
-- (long)stdDev;
-- (void)setRank:(unsigned long)arg1;
-- (unsigned long)rank;
+- (void)setStdDev:(long long)arg1;
+- (long long)stdDev;
+- (void)setRank:(unsigned long long)arg1;
+- (unsigned long long)rank;
 - (void)setPercent:(_Bool)arg1;
 - (_Bool)percent;
 - (void)setEqualAverage:(_Bool)arg1;
@@ -44,24 +45,22 @@
 - (_Bool)bottom;
 - (void)setAboveAverage:(_Bool)arg1;
 - (_Bool)aboveAverage;
-- (void)setPriority:(long)arg1;
-- (long)priority;
+- (void)setPriority:(long long)arg1;
+- (long long)priority;
 - (void)setStopIfTrue:(_Bool)arg1;
 - (_Bool)stopIfTrue;
 - (void)setDifferentialStyle:(id)arg1;
 - (id)differentialStyle;
 - (void)addFormula:(id)arg1 worksheet:(id)arg2;
-- (id)formulaAtIndex:(unsigned int)arg1;
-- (unsigned int)formulaCount;
+- (id)formulaAtIndex:(unsigned long long)arg1;
+- (unsigned long long)formulaCount;
 - (void)setOperatorEnum:(int)arg1;
 - (int)operatorEnum;
 - (void)setType:(int)arg1;
 - (int)type;
-- (int)compareToOtherRuleUsingPriority:(id)arg1;
+- (long long)compareToOtherRuleUsingPriority:(id)arg1;
 - (void)dealloc;
 - (id)initWithResources:(id)arg1;
-- (void)setDifferentialStyleIndex:(unsigned int)arg1;
-- (unsigned int)differentialStyleIndex;
 
 @end
 

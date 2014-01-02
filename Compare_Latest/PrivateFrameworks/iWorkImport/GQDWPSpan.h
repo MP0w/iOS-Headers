@@ -8,6 +8,7 @@
 
 @class GQDSStyle;
 
+// Not exported
 @interface GQDWPSpan : GQDWPTextList
 {
     GQDSStyle *mCharStyle;

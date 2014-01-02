@@ -8,12 +8,13 @@
 
 @class OIXMLElement, WDParagraph;
 
+// Not exported
 @interface WMParagraphMapper : CMMapper
 {
     WDParagraph *wdParagraph;
     WMParagraphMapper *mCurrentMapper;
     OIXMLElement *mActiveNode;
-    BOOL mIsDeleted;
+    _Bool mIsDeleted;
 }
 
 + (void)mapPlaceholderAt:(id)arg1 rect:(struct CGRect)arg2 withState:(id)arg3;
@@ -25,9 +26,6 @@
 - (id)activeNode;
 - (void)dealloc;
 - (id)initWithBlock:(id)arg1 parent:(id)arg2;
-- (BOOL)isTextFrame;
-- (BOOL)containsOfficeArt;
-- (BOOL)isCollapsable:(id)arg1;
 
 @end
 

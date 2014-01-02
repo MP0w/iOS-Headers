@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface ODDIteratorAttributes : NSObject
 {
     int mAxis;
     int mPointType;
-    BOOL mHideLastTransition;
+    _Bool mHideLastTransition;
     int mStart;
     unsigned int mCount;
     int mStep;
@@ -22,8 +23,8 @@
 - (unsigned int)count;
 - (void)setStart:(int)arg1;
 - (int)start;
-- (void)setHideLastTransition:(BOOL)arg1;
-- (BOOL)hideLastTransition;
+- (void)setHideLastTransition:(_Bool)arg1;
+- (_Bool)hideLastTransition;
 - (void)setPointType:(int)arg1;
 - (int)pointType;
 - (void)setAxis:(int)arg1;

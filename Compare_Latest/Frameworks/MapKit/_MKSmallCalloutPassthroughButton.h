@@ -8,16 +8,17 @@
 
 @class UIButton, UIView;
 
+// Not exported
 @interface _MKSmallCalloutPassthroughButton : UIControl
 {
     UIButton *_targetButton;
     UIView *_highlightView;
-    float _leftHighlightInset;
+    double _leftHighlightInset;
 }
 
-@property(nonatomic) float leftHighlightInset; // @synthesize leftHighlightInset=_leftHighlightInset;
+@property(nonatomic) double leftHighlightInset; // @synthesize leftHighlightInset=_leftHighlightInset;
 @property(retain, nonatomic) UIButton *targetButton; // @synthesize targetButton=_targetButton;
-- (void)setHighlighted:(BOOL)arg1;
+- (void)setHighlighted:(_Bool)arg1;
 - (void)handleTap:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

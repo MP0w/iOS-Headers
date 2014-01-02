@@ -8,13 +8,14 @@
 
 @class UIWebDocumentView;
 
+// Not exported
 @interface UIWebLongPressInSelectableRecognizer : UILongPressGestureRecognizer
 {
     UIWebDocumentView *_documentView;
 }
 
 @property(nonatomic) UIWebDocumentView *documentView; // @synthesize documentView=_documentView;
-- (void)setState:(int)arg1;
+- (void)setState:(long long)arg1;
 
 @end
 

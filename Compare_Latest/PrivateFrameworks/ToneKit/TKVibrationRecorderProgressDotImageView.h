@@ -8,14 +8,14 @@
 
 @interface TKVibrationRecorderProgressDotImageView : UIImageView
 {
-    float _accessibilityFrameAdditionalHeight;
     double _timeInterval;
     double _duration;
     double _previousPauseTimeInterval;
     double _previousPauseDuration;
+    double _accessibilityFrameAdditionalHeight;
 }
 
-@property(nonatomic) float accessibilityFrameAdditionalHeight; // @synthesize accessibilityFrameAdditionalHeight=_accessibilityFrameAdditionalHeight;
+@property(nonatomic) double accessibilityFrameAdditionalHeight; // @synthesize accessibilityFrameAdditionalHeight=_accessibilityFrameAdditionalHeight;
 @property(nonatomic) double previousPauseDuration; // @synthesize previousPauseDuration=_previousPauseDuration;
 @property(nonatomic) double previousPauseTimeInterval; // @synthesize previousPauseTimeInterval=_previousPauseTimeInterval;
 @property(nonatomic) double duration; // @synthesize duration=_duration;
@@ -24,7 +24,7 @@
 - (struct CGRect)accessibilityFrame;
 - (id)accessibilityValue;
 - (id)accessibilityLabel;
-- (BOOL)isAccessibilityElement;
+- (_Bool)isAccessibilityElement;
 
 @end
 

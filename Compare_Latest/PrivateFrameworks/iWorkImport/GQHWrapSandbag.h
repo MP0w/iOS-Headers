@@ -6,14 +6,15 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface GQHWrapSandbag : NSObject
 {
     struct CGSize mSize;
-    BOOL mFloatsLeft;
+    _Bool mFloatsLeft;
 }
 
 - (id).cxx_construct;
-- (id)initWithSize:(struct CGSize)arg1 floatsLeft:(BOOL)arg2;
+- (id)initWithSize:(struct CGSize)arg1 floatsLeft:(_Bool)arg2;
 
 @end
 

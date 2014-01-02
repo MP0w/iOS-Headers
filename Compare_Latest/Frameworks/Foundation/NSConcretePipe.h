@@ -8,6 +8,7 @@
 
 @class NSFileHandle;
 
+// Not exported
 @interface NSConcretePipe : NSPipe
 {
     NSFileHandle *_readHandle;

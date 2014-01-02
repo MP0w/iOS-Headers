@@ -8,6 +8,7 @@
 
 @class GEOVConnectivity, NSData, NSMutableArray;
 
+// Not exported
 @interface GEOVTile : PBCodable
 {
     NSMutableArray *_coastlines;
@@ -40,40 +41,40 @@
 @property(retain, nonatomic) NSMutableArray *points; // @synthesize points=_points;
 @property(retain, nonatomic) NSMutableArray *polygons; // @synthesize polygons=_polygons;
 @property(retain, nonatomic) NSMutableArray *lines; // @synthesize lines=_lines;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) BOOL hasSectionDeltaLengthBits;
+@property(nonatomic) _Bool hasSectionDeltaLengthBits;
 @property(nonatomic) unsigned int sectionDeltaLengthBits; // @synthesize sectionDeltaLengthBits=_sectionDeltaLengthBits;
-@property(nonatomic) BOOL hasVertexBits;
+@property(nonatomic) _Bool hasVertexBits;
 @property(nonatomic) unsigned int vertexBits; // @synthesize vertexBits=_vertexBits;
-- (id)labelLanguageAtIndex:(unsigned int)arg1;
-- (unsigned int)labelLanguagesCount;
+- (id)labelLanguageAtIndex:(unsigned long long)arg1;
+- (unsigned long long)labelLanguagesCount;
 - (void)addLabelLanguage:(id)arg1;
 - (void)clearLabelLanguages;
-- (id)coastlinesAtIndex:(unsigned int)arg1;
-- (unsigned int)coastlinesCount;
+- (id)coastlinesAtIndex:(unsigned long long)arg1;
+- (unsigned long long)coastlinesCount;
 - (void)addCoastlines:(id)arg1;
 - (void)clearCoastlines;
-@property(nonatomic) BOOL hasZBits;
-@property(nonatomic) BOOL hasMinZ;
-@property(readonly, nonatomic) BOOL hasConnectivity;
-@property(readonly, nonatomic) BOOL hasVertices;
-@property(readonly, nonatomic) BOOL hasLabels;
-- (id)pointAtIndex:(unsigned int)arg1;
-- (unsigned int)pointsCount;
+@property(nonatomic) _Bool hasZBits;
+@property(nonatomic) _Bool hasMinZ;
+@property(readonly, nonatomic) _Bool hasConnectivity;
+@property(readonly, nonatomic) _Bool hasVertices;
+@property(readonly, nonatomic) _Bool hasLabels;
+- (id)pointAtIndex:(unsigned long long)arg1;
+- (unsigned long long)pointsCount;
 - (void)addPoint:(id)arg1;
 - (void)clearPoints;
-- (id)polygonAtIndex:(unsigned int)arg1;
-- (unsigned int)polygonsCount;
+- (id)polygonAtIndex:(unsigned long long)arg1;
+- (unsigned long long)polygonsCount;
 - (void)addPolygon:(id)arg1;
 - (void)clearPolygons;
-- (id)lineAtIndex:(unsigned int)arg1;
-- (unsigned int)linesCount;
+- (id)lineAtIndex:(unsigned long long)arg1;
+- (unsigned long long)linesCount;
 - (void)addLine:(id)arg1;
 - (void)clearLines;
 - (void)dealloc;

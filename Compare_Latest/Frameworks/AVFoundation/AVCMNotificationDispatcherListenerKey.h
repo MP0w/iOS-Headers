@@ -19,8 +19,8 @@
 }
 
 + (id)listenerKeyWithWeakReferenceToListener:(id)arg1 callback:(void *)arg2 name:(id)arg3 object:(const void *)arg4;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)initWithWeakReferenceToListener:(id)arg1 callback:(void *)arg2 name:(id)arg3 object:(const void *)arg4;

@@ -11,8 +11,8 @@
 + (id)mf_stringRepresentationForBytes:(long long)arg1;
 + (id)mf_messageIDStringWithDomainHint:(id)arg1;
 + (id)mf_UUID;
-- (id)mf_stringByReplacingPercentEscapesUsingEncoding:(unsigned int)arg1;
-- (id)mf_stringByAddingPercentEscapesUsingEncoding:(unsigned int)arg1;
+- (id)mf_stringByReplacingPercentEscapesUsingEncoding:(unsigned long long)arg1;
+- (id)mf_stringByAddingPercentEscapesUsingEncoding:(unsigned long long)arg1;
 - (id)mf_stringByEscapingHTMLCodes;
 - (id)mf_stringByEscapingForXML;
 - (id)mf_uniqueFilenameWithRespectToFilenames:(id)arg1;

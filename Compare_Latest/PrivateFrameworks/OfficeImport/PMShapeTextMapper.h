@@ -8,18 +8,19 @@
 
 @class CMStyle, OADOrientedBounds, OADTextBody;
 
+// Not exported
 @interface PMShapeTextMapper : CMMapper
 {
     OADTextBody *mTextBody;
     OADOrientedBounds *mBounds;
     CMStyle *mStyle;
-    BOOL mRectangular;
+    _Bool mRectangular;
 }
 
 - (int)textAnchor;
-- (BOOL)isTableCellContent;
+- (_Bool)isTableCellContent;
 - (void)mapAt:(id)arg1 withState:(id)arg2;
-- (void)setRectangular:(BOOL)arg1;
+- (void)setRectangular:(_Bool)arg1;
 - (void)dealloc;
 - (id)initWithOadTextBody:(id)arg1 bounds:(id)arg2 parent:(id)arg3;
 

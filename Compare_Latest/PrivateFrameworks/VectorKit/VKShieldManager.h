@@ -20,11 +20,12 @@
 }
 
 + (id)sharedManager;
-- (id)imageForShieldType:(int)arg1 shieldText:(id)arg2 contentScale:(float)arg3 size:(int)arg4 idiom:(int)arg5;
-- (id)artworkForShieldType:(int)arg1 textLength:(unsigned int)arg2 contentScale:(float)arg3 size:(int)arg4 idiom:(int)arg5;
-- (id)artworkForShieldType:(int)arg1 textLength:(unsigned int)arg2 contentScale:(float)arg3 resourceNames:(id)arg4 style:(id)arg5 size:(int)arg6 idiom:(int)arg7 numberOfLines:(unsigned int)arg8;
-- (id)_defaultAtlasForSize:(int)arg1 scale:(float)arg2 idiom:(int)arg3;
-- (id)_defaultIndexForSize:(int)arg1 scale:(float)arg2 idiom:(int)arg3;
+- (id)imageForShieldType:(int)arg1 shieldText:(id)arg2 contentScale:(double)arg3 size:(long long)arg4 idiom:(long long)arg5;
+- (id)artworkForShieldType:(int)arg1 textLength:(unsigned long long)arg2 contentScale:(double)arg3 size:(long long)arg4 idiom:(long long)arg5;
+- (id)artworkForShieldType:(int)arg1 textLength:(unsigned long long)arg2 contentScale:(double)arg3 size:(long long)arg4 idiom:(long long)arg5 mapRect:(CDStruct_02837cd9)arg6;
+- (id)artworkForShieldType:(int)arg1 textLength:(unsigned long long)arg2 contentScale:(double)arg3 resourceNames:(id)arg4 style:(id)arg5 size:(long long)arg6 idiom:(long long)arg7 numberOfLines:(unsigned long long)arg8;
+- (id)_defaultAtlasForSize:(long long)arg1 scale:(double)arg2 idiom:(long long)arg3;
+- (id)_defaultIndexForSize:(long long)arg1 scale:(double)arg2 idiom:(long long)arg3;
 - (id)_indexForName:(id)arg1;
 - (id)_atlasForName:(id)arg1;
 - (void)_didReceiveMemoryWarning:(id)arg1;

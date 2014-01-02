@@ -7,6 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol PUCloudSharedCreateAlbumViewControllerDelegate <NSObject>
-- (void)albumStreamingCreateViewController:(id)arg1 didSucceed:(BOOL)arg2;
+- (void)albumStreamingCreateViewController:(id)arg1 didSucceed:(_Bool)arg2;
 @end
 

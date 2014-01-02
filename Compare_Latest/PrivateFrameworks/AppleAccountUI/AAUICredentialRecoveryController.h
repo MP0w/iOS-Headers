@@ -20,7 +20,7 @@
     UINavigationController *_navigationController;
     UIViewController *_presentationViewController;
     UIViewController *_navigationBaseViewController;
-    BOOL _isModal;
+    _Bool _isModal;
     NSObject<AAUICredentialRecoveryPresentationDelegate> *_delegate;
 }
 
@@ -30,19 +30,19 @@
 - (id)parentViewControllerForObjectModel:(id)arg1;
 - (void)_displayConnectionError;
 - (void)_cleanupLoader;
-- (void)_popObjectModelAnimated:(BOOL)arg1;
+- (void)_popObjectModelAnimated:(_Bool)arg1;
 - (void)objectModel:(id)arg1 pressedButton:(id)arg2 attributes:(id)arg3;
 - (void)objectModel:(id)arg1 pressedLink:(id)arg2 httpMethod:(id)arg3;
 - (void)loader:(id)arg1 receivedObjectModel:(id)arg2 actionSignal:(int)arg3;
 - (void)loader:(id)arg1 didFailWithError:(id)arg2;
 - (void)_cancelButtonTapped:(id)arg1;
-- (void)_finishPresentationWithSuccess:(BOOL)arg1;
+- (void)_finishPresentationWithSuccess:(_Bool)arg1;
 - (void)_addHeadersToRequest:(id)arg1;
 - (void)_createRemoteUIViewControllerFromURL:(id)arg1;
 - (void)cancelPresentation;
 - (void)startPresentation;
 - (id)remoteUIURL;
-- (id)initWithRemoteUIURL:(id)arg1 modalPresentation:(BOOL)arg2;
+- (id)initWithRemoteUIURL:(id)arg1 modalPresentation:(_Bool)arg2;
 - (id)init;
 
 @end

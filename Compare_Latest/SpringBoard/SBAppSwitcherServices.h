@@ -16,10 +16,11 @@
 }
 
 @property(readonly, nonatomic) NSMutableArray *services; // @synthesize services=_services;
+- (id)serviceBundleIdentifiers;
 - (id)serviceForIdentifier:(id)arg1;
 - (id)serviceForBundleIdentifier:(id)arg1;
-- (id)serviceAtIndex:(unsigned int)arg1;
-- (unsigned int)count;
+- (id)serviceAtIndex:(unsigned long long)arg1;
+- (unsigned long long)count;
 - (void)removeService:(id)arg1;
 - (void)addService:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

@@ -12,7 +12,7 @@
 {
 }
 
-- (BOOL)shouldHelperPrepareInputs;
+- (_Bool)shouldHelperPrepareInputs;
 - (void)finishWritingHelperDidFail:(id)arg1;
 - (void)finishWritingHelperDidCancelFinishWriting:(id)arg1;
 - (void)finishWritingHelper:(id)arg1 didInitiateFinishWritingForFigAssetWriter:(struct OpaqueFigAssetWriter *)arg2;

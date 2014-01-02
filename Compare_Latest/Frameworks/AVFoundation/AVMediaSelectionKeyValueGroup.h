@@ -17,12 +17,12 @@
 }
 
 - (id)_defaultOption;
-- (BOOL)_isKeyValueGroup;
+- (_Bool)_isKeyValueGroup;
 - (id)dictionary;
 - (id)options;
 - (id)asset;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)initWithAsset:(id)arg1 dictionary:(id)arg2;
 

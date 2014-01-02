@@ -8,6 +8,7 @@
 
 @class NSMutableSet, _UIPhysicalButton;
 
+// Not exported
 @interface UIPhysicalButtonsEvent : UIInternalEvent
 {
     NSMutableSet *_allPhysicalButtons;
@@ -18,9 +19,9 @@
 - (void)_removePhysicalButton:(id)arg1;
 - (void)_addPhysicalButton:(id)arg1;
 - (id)_gestureRecognizersForWindow:(id)arg1;
-- (id)_physicalButtonsForGestureRecognizer:(id)arg1 withPhase:(int)arg2;
+- (id)_physicalButtonsForGestureRecognizer:(id)arg1 withPhase:(long long)arg2;
 - (id)_physicalButtonsForGestureRecognizer:(id)arg1;
-- (id)_physicalButtonsForResponder:(id)arg1 withPhase:(int)arg2;
+- (id)_physicalButtonsForResponder:(id)arg1 withPhase:(long long)arg2;
 - (id)_physicalButtonsForResponder:(id)arg1;
 - (id)_respondersForWindow:(id)arg1;
 - (id)_physicalButtonsForWindow:(id)arg1;

@@ -17,18 +17,18 @@
 
 @property(retain, nonatomic) IMAccount *account; // @synthesize account=_account;
 @property(copy, nonatomic) NSString *alias; // @synthesize alias=_alias;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isLocalPhoneNumberAlias;
-- (int)localizedCaseInsensitiveCompare:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)isLocalPhoneNumberAlias;
+- (long long)localizedCaseInsensitiveCompare:(id)arg1;
 - (id)description;
 - (void)setDisplayName:(id)arg1;
 @property(readonly, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
-- (int)validationErrorReason;
-- (int)validationStatus;
-- (BOOL)validate;
-- (BOOL)isPhoneNumberAliasOnPhoneNumberAccount;
-@property(readonly, nonatomic) int type; // @dynamic type;
+- (long long)validationErrorReason;
+- (long long)validationStatus;
+- (_Bool)validate;
+- (_Bool)isPhoneNumberAliasOnPhoneNumberAccount;
+@property(readonly, nonatomic) long long type; // @dynamic type;
 @property(readonly, nonatomic) NSString *identifier; // @dynamic identifier;
 - (void)dealloc;
 - (id)initWithAccount:(id)arg1 alias:(id)arg2;

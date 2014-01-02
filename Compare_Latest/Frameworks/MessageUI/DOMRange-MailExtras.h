@@ -7,7 +7,7 @@
 #import "DOMRange.h"
 
 @interface DOMRange (MailExtras)
-- (void)mf_getBlockBoundaryParent:(id *)arg1 nextSibling:(id *)arg2 atStart:(BOOL)arg3;
+- (void)mf_getBlockBoundaryParent:(id *)arg1 nextSibling:(id *)arg2 atStart:(_Bool)arg3;
 - (id)mf_lastNode;
 - (id)mf_firstNode;
 - (void)mf_hoistRange;

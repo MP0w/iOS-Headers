@@ -12,14 +12,14 @@
 
 + (id)sharedInstance;
 - (id)description;
-- (BOOL)isHoldAndAnswerAllowed;
-- (BOOL)isEndAndAnswerAllowed;
-- (BOOL)isHardPauseAvailable;
+- (_Bool)isHoldAndAnswerAllowed;
+- (_Bool)isEndAndAnswerAllowed;
+- (_Bool)isHardPauseAvailable;
 - (int)ambiguityState;
-- (BOOL)isAddCallAllowed;
-- (BOOL)isHoldAllowed;
-- (BOOL)isMergeable;
-- (BOOL)isSwappable;
+- (_Bool)isAddCallAllowed;
+- (_Bool)isHoldAllowed;
+- (_Bool)isMergeable;
+- (_Bool)isSwappable;
 - (void)dealloc;
 - (id)init;
 

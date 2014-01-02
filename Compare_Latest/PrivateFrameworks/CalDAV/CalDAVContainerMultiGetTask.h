@@ -8,16 +8,16 @@
 
 @interface CalDAVContainerMultiGetTask : CoreDAVContainerMultiGetTask
 {
-    BOOL _getScheduleTags;
-    BOOL _getScheduleChanges;
+    _Bool _getScheduleTags;
+    _Bool _getScheduleChanges;
 }
 
-@property BOOL getScheduleChanges; // @synthesize getScheduleChanges=_getScheduleChanges;
-@property BOOL getScheduleTags; // @synthesize getScheduleTags=_getScheduleTags;
+@property _Bool getScheduleChanges; // @synthesize getScheduleChanges=_getScheduleChanges;
+@property _Bool getScheduleTags; // @synthesize getScheduleTags=_getScheduleTags;
 - (void)setAdditionalProperties:(id)arg1 onDataItem:(id)arg2;
 - (id)copyAdditionalPropElements;
-- (id)initWithURLs:(id)arg1 atContainerURL:(id)arg2 getScheduleTags:(BOOL)arg3 getScheduleChanges:(BOOL)arg4;
-- (id)initWithURLs:(id)arg1 atContainerURL:(id)arg2 getScheduleTags:(BOOL)arg3 getScheduleChanges:(BOOL)arg4 appSpecificCalendarItemClass:(Class)arg5;
+- (id)initWithURLs:(id)arg1 atContainerURL:(id)arg2 getScheduleTags:(_Bool)arg3 getScheduleChanges:(_Bool)arg4;
+- (id)initWithURLs:(id)arg1 atContainerURL:(id)arg2 getScheduleTags:(_Bool)arg3 getScheduleChanges:(_Bool)arg4 appSpecificCalendarItemClass:(Class)arg5;
 
 @end
 

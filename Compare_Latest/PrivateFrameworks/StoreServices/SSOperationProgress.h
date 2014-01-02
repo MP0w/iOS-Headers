@@ -13,7 +13,7 @@
 
 @interface SSOperationProgress : NSObject <SSXPCCoding, NSCopying>
 {
-    BOOL _canPause;
+    _Bool _canPause;
     double _changeRate;
     long long _currentValue;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
@@ -21,26 +21,26 @@
     long long _maxValue;
     long long _normalizedCurrentValue;
     long long _normalizedMaxValue;
-    int _operationType;
+    long long _operationType;
     NSMutableArray *_snapshotTimes;
     NSMutableArray *_snapshotValues;
-    int _units;
+    long long _units;
 }
 
 - (void)_updateStatisticsFromSnapshots;
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)copyXPCEncoding;
 - (id)description;
-@property int units;
+@property long long units;
 - (void)snapshot;
-@property int operationType;
+@property long long operationType;
 @property long long normalizedMaxValue;
 @property long long normalizedCurrentValue;
 @property long long maxValue;
 @property double estimatedTimeRemaining;
 @property long long currentValue;
 @property double changeRate;
-@property BOOL canPause;
+@property _Bool canPause;
 - (void)resetSnapshots;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;

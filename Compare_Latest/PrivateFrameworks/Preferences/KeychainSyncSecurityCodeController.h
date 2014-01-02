@@ -6,34 +6,44 @@
 
 #import <Preferences/KeychainSyncTextEntryController.h>
 
-@class ComplexCodeFooterView, NSString, UIButton;
+#import "UIAlertViewDelegate-Protocol.h"
 
-@interface KeychainSyncSecurityCodeController : KeychainSyncTextEntryController
+@class NSString, UIAlertView, UIButton;
+
+@interface KeychainSyncSecurityCodeController : KeychainSyncTextEntryController <UIAlertViewDelegate>
 {
-    BOOL _inConfirmation;
-    NSString *_firstPasscodeEntry;
-    BOOL _passcodeMismatch;
-    UIButton *_complexCodeButton;
-    ComplexCodeFooterView *_descriptionFooterView;
-    BOOL _usingGeneratedCode;
-    BOOL _useComplexCode;
+    NSString *_generatedCode;
+    _Bool _passcodeMismatch;
+    UIButton *_footerButton;
+    UIAlertView *_forgotSecurityCodeAlert;
+    _Bool _forgotCodeAlertHasApproveButton;
+    UIAlertView *_resetKeychainAlert;
+    UIAlertView *_weakSecurityCodeAlert;
+    _Bool _showsAdvancedSettings;
     int _mode;
+    int _securityCodeType;
+    NSString *_firstPasscodeEntry;
 }
 
-@property(nonatomic) BOOL useComplexCode; // @synthesize useComplexCode=_useComplexCode;
+@property(retain, nonatomic) NSString *firstPasscodeEntry; // @synthesize firstPasscodeEntry=_firstPasscodeEntry;
+@property(nonatomic) _Bool showsAdvancedSettings; // @synthesize showsAdvancedSettings=_showsAdvancedSettings;
+@property(nonatomic) int securityCodeType; // @synthesize securityCodeType=_securityCodeType;
 @property(nonatomic) int mode; // @synthesize mode=_mode;
-- (void)generateRandomCode;
+- (void)alertView:(id)arg1 didDismissWithButtonIndex:(long long)arg2;
+- (void)forgotSecurityCode;
+- (void)showAdvancedOptions;
 - (void)textEntryViewDidChange:(id)arg1;
-- (void)toggleCodeComplexity;
-- (void)nextPressed;
-- (void)didFinishEnteringPasscode:(id)arg1;
-- (void)animatePasscodeFieldLeft:(BOOL)arg1;
+- (void)generateRandomCode;
+- (void)updateNextButton;
+- (void)didFinishEnteringText:(id)arg1;
+- (void)animatePasscodeFieldLeft:(_Bool)arg1;
 - (id)placeholderText;
 - (id)specifiers;
-- (void)setSpecifier:(id)arg1;
 - (void)viewDidLayoutSubviews;
 - (void)keyboardWillShow:(id)arg1;
-- (void)loadView;
+- (void)viewDidLoad;
+- (id)textEntryCell;
+- (Class)textEntryCellClass;
 - (void)dealloc;
 - (id)init;
 

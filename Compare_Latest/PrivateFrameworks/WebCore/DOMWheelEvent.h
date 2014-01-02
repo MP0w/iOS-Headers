@@ -10,9 +10,9 @@
 {
 }
 
-- (void)initWheelEvent:(int)arg1 wheelDeltaY:(int)arg2 view:(id)arg3 screenX:(int)arg4 screenY:(int)arg5 clientX:(int)arg6 clientY:(int)arg7 ctrlKey:(BOOL)arg8 altKey:(BOOL)arg9 shiftKey:(BOOL)arg10 metaKey:(BOOL)arg11;
-@property(readonly) BOOL isHorizontal;
-- (BOOL)webkitDirectionInvertedFromDevice;
+- (void)initWheelEvent:(int)arg1 wheelDeltaY:(int)arg2 view:(id)arg3 screenX:(int)arg4 screenY:(int)arg5 clientX:(int)arg6 clientY:(int)arg7 ctrlKey:(_Bool)arg8 altKey:(_Bool)arg9 shiftKey:(_Bool)arg10 metaKey:(_Bool)arg11;
+@property(readonly) _Bool isHorizontal;
+- (_Bool)webkitDirectionInvertedFromDevice;
 @property(readonly) int wheelDelta;
 - (unsigned int)deltaMode;
 @property(readonly) int wheelDeltaY;

@@ -10,7 +10,7 @@
 {
 }
 
-+ (BOOL)activeInterfaceMechanismIsHardware;
++ (_Bool)activeInterfaceMechanismIsHardware;
 + (id)starkScreen;
 
 @end

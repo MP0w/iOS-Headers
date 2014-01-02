@@ -8,13 +8,14 @@
 
 @class GQDSStyle;
 
+// Not exported
 @interface GQHBulletInfo : NSObject
 {
     int mType;
     int mBulletIndent;
     int mTextIndent;
     struct __CFString *mChar;
-    BOOL mHasNumber;
+    _Bool mHasNumber;
     int mNumber;
     int mLabelType;
     GQDSStyle *mStyle;
@@ -33,8 +34,8 @@
 - (void)setType:(int)arg1;
 - (int)labelType;
 - (void)setLabelType:(int)arg1;
-- (void)setHasNumber:(BOOL)arg1;
-- (BOOL)hasNumber;
+- (void)setHasNumber:(_Bool)arg1;
+- (_Bool)hasNumber;
 - (int)number;
 - (void)setNumber:(int)arg1;
 - (void)dealloc;

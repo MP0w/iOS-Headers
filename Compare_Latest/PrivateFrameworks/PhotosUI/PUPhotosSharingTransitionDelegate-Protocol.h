@@ -6,7 +6,7 @@
 
 @protocol PUPhotosSharingTransitionDelegate
 - (id)photosSharingTransition:(id)arg1 viewForTransitionWithCollections:(id)arg2;
-- (void)photosSharingTransition:(id)arg1 setVisibility:(BOOL)arg2 forKeyAssetIndexPath:(id)arg3 inCollections:(id)arg4;
+- (void)photosSharingTransition:(id)arg1 setVisibility:(_Bool)arg2 forKeyAssetIndexPath:(id)arg3 inCollections:(id)arg4;
 - (struct CGPoint)photosSharingTransition:(id)arg1 contentOffsetForKeyAssetIndexPath:(id)arg2 inCollections:(id)arg3;
 - (id)photosSharingTransition:(id)arg1 layoutForKeyAssetIndexPath:(id)arg2 inCollections:(id)arg3;
 @end

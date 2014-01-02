@@ -28,11 +28,11 @@
 - (void)geocodeAddressString:(id)arg1 inRegion:(id)arg2 completionHandler:(id)arg3;
 - (void)geocodeAddressString:(id)arg1 completionHandler:(id)arg2;
 - (void)geocodeAddressDictionary:(id)arg1 completionHandler:(id)arg2;
-- (void)reverseGeocodeLocation:(id)arg1 heading:(double)arg2 localResultsOnly:(BOOL)arg3 completionHandler:(id)arg4;
+- (void)reverseGeocodeLocation:(id)arg1 heading:(double)arg2 localResultsOnly:(_Bool)arg3 completionHandler:(id)arg4;
 - (void)reverseGeocodeLocation:(id)arg1 heading:(double)arg2 completionHandler:(id)arg3;
 - (void)reverseGeocodeLocation:(id)arg1 completionHandler:(id)arg2;
-- (void)reverseGeocodeLocation:(id)arg1 localResultsOnly:(BOOL)arg2 completionHandler:(id)arg3;
-@property(readonly, nonatomic, getter=isGeocoding) BOOL geocoding;
+- (void)reverseGeocodeLocation:(id)arg1 localResultsOnly:(_Bool)arg2 completionHandler:(id)arg3;
+@property(readonly, nonatomic, getter=isGeocoding) _Bool geocoding;
 - (void)dealloc;
 - (id)init;
 

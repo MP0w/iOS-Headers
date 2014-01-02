@@ -7,6 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol MLMediaLibraryServiceClientProtocol <NSObject>
-- (void)writerCanceledTransactionWithIdentifier:(id)arg1;
+- (oneway void)serviceTerminatedTransactionWithIdentifier:(id)arg1 error:(id)arg2;
+- (oneway void)serviceWillTerminateTransactionWithIdentifier:(id)arg1 replyBlock:(id)arg2;
 @end
 

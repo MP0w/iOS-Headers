@@ -12,16 +12,16 @@
 {
     GEOStep *_geoStep;
     NSString *_instructions;
-    unsigned int _transportType;
+    unsigned long long _transportType;
     MKRouteStepPolyline *_polyline;
 }
 
-@property(readonly, nonatomic) unsigned int transportType; // @synthesize transportType=_transportType;
+@property(readonly, nonatomic) unsigned long long transportType; // @synthesize transportType=_transportType;
 @property(readonly, nonatomic) NSString *instructions; // @synthesize instructions=_instructions;
 @property(readonly, nonatomic) MKPolyline *polyline; // @synthesize polyline=_polyline;
 @property(readonly, nonatomic) double distance;
 @property(readonly, nonatomic) NSString *notice;
-- (id)_initWithGEOStep:(id)arg1 instructions:(id)arg2 transportType:(unsigned int)arg3 polyline:(id)arg4;
+- (id)_initWithGEOStep:(id)arg1 instructions:(id)arg2 transportType:(unsigned long long)arg3 polyline:(id)arg4;
 - (void)dealloc;
 
 @end

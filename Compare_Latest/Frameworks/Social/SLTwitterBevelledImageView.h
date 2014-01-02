@@ -8,9 +8,10 @@
 
 @class UIActivityIndicatorView, UIImage, UIImageView;
 
+// Not exported
 @interface SLTwitterBevelledImageView : UIView
 {
-    BOOL _hasBevel;
+    _Bool _hasBevel;
     UIImage *_image;
     UIImageView *_chromeView;
     UIImageView *_previewView;
@@ -19,10 +20,10 @@
 
 + (id)blankWebpageImage;
 - (void).cxx_destruct;
-@property(nonatomic) BOOL isTranscoding;
+@property(nonatomic) _Bool isTranscoding;
 @property(retain, nonatomic) UIImage *image;
 - (void)positionPreviewView;
-- (id)initWithBevel:(BOOL)arg1;
+- (id)initWithBevel:(_Bool)arg1;
 - (struct CGRect)previewFrame;
 
 @end

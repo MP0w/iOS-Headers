@@ -8,11 +8,11 @@
 
 #import "PSHeaderFooterView-Protocol.h"
 
-@class CNFRegSplashSignInController, PSSpecifier, UIButton, UIImageView, UILabel, UITextField, UserPassBox;
+@class CNFRegSplashSignInController, PSSpecifier, UIButton, UIImageView, UILabel, UIProgressIndicator, UITextField, UserPassBox;
 
 @interface CNFRegSigninLearnMoreView : UIView <PSHeaderFooterView>
 {
-    int _serviceType;
+    long long _serviceType;
     PSSpecifier *_specifier;
     UIButton *_learnMoreButton;
     UIImageView *_splashImageView;
@@ -24,19 +24,21 @@
     UILabel *_passwordLabel;
     UITextField *_passwordField;
     UIButton *_signInButton;
+    UIProgressIndicator *_signInSpinner;
     UIButton *_forgotIDButton;
     UIButton *_createNewButton;
     CNFRegSplashSignInController *_controller;
 }
 
 @property(nonatomic) CNFRegSplashSignInController *controller; // @synthesize controller=_controller;
-@property(nonatomic) int serviceType; // @synthesize serviceType=_serviceType;
+@property(nonatomic) long long serviceType; // @synthesize serviceType=_serviceType;
 - (void)_learnMorePressed:(id)arg1;
-- (float)preferredHeightForWidth:(float)arg1;
+- (double)preferredHeightForWidth:(double)arg1;
 - (void)layoutSubviews;
 - (void)_textDidChange:(id)arg1;
 - (id)createNewButton;
 - (id)forgotIDButton;
+- (id)signInSpinner;
 - (id)signInButton;
 - (id)passwordField;
 - (id)passwordLabel;
@@ -48,14 +50,12 @@
 - (id)splashImageView;
 - (id)learnMoreButton;
 - (id)_splashImage;
+- (void)setForgotIDButtonTarget:(id)arg1 selector:(SEL)arg2;
 - (void)setCreateNewButtonTarget:(id)arg1 selector:(SEL)arg2;
 - (void)setSignInButtonTarget:(id)arg1 selector:(SEL)arg2;
 - (id)passwordTextField;
 - (id)usernameTextField;
-- (void)setFieldsEnabled:(BOOL)arg1;
-- (void)didMoveToWindow;
-- (void)removeKnockouts;
-- (void)updateKnockouts;
+- (void)setFieldsEnabled:(_Bool)arg1;
 - (void)_updateSignInButton;
 - (void)dealloc;
 - (id)initWithSpecifier:(id)arg1;

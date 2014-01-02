@@ -30,8 +30,8 @@
     NSMutableData *_outputData;
     iAUPServer *_iAUPServer;
     NSObject<OS_dispatch_queue> *_eaNotificationDispatchQueue;
-    BOOL _firmwareUpdateComplete;
-    BOOL _isExpectingReconnect;
+    _Bool _firmwareUpdateComplete;
+    _Bool _isExpectingReconnect;
     NSTimer *_reconnectTimer;
     NSString *_updateBundleFilename;
     NSURL *_updateBundleURL;
@@ -55,7 +55,7 @@
 - (void)accessoryDidDisconnect:(id)arg1;
 - (void)handleInputData;
 - (id)flushOutput;
-- (void)stream:(id)arg1 handleEvent:(unsigned int)arg2;
+- (void)stream:(id)arg1 handleEvent:(unsigned long long)arg2;
 - (void)updateComplete:(id)arg1;
 - (void)firmwareUpdateComplete:(id)arg1;
 - (void)updateProgress:(double)arg1;
@@ -72,7 +72,7 @@
 - (void)reconnectTimerDidFire:(id)arg1;
 - (void)stopReconnectTimer;
 - (void)startReconnectTimer;
-- (BOOL)findAccessory;
+- (_Bool)findAccessory;
 - (void)dealloc;
 - (id)initWithProductIDCode:(unsigned int)arg1 assetType:(id)arg2;
 

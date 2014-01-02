@@ -10,6 +10,10 @@ struct AlignedBuffer<128, 4> {
     char _field1[128];
 };
 
+struct AlignedBuffer<256, 8> {
+    char _field1[256];
+};
+
 struct AlternativeTextClient;
 
 struct AnimationController;
@@ -43,17 +47,17 @@ struct BackForwardListImpl;
 struct BitVector;
 
 struct CGAffineTransform {
-    float _field1;
-    float _field2;
-    float _field3;
-    float _field4;
-    float _field5;
-    float _field6;
+    double _field1;
+    double _field2;
+    double _field3;
+    double _field4;
+    double _field5;
+    double _field6;
 };
 
 struct CGPoint {
-    float x;
-    float y;
+    double x;
+    double y;
 };
 
 struct CGRect {
@@ -62,8 +66,8 @@ struct CGRect {
 };
 
 struct CGSize {
-    float width;
-    float height;
+    double width;
+    double height;
 };
 
 struct CLLocationManager {
@@ -186,7 +190,7 @@ struct DocumentLoader {
     _Bool _field39;
     struct DocumentLoadTiming _field40;
     double _field41;
-    unsigned long _field42;
+    unsigned long long _field42;
     struct Timer<WebCore::DocumentLoader> _field43;
     _Bool _field44;
     struct RefPtr<WebCore::EnumCallback<WebCore::IconLoadDecision>> _field45;
@@ -339,11 +343,13 @@ struct FrameLoader {
     _Bool _field34;
     _Bool _field35;
     _Bool _field36;
-    int _field37;
-    struct RefPtr<WebCore::FrameNetworkingContext> _field38;
-    struct KURL _field39;
-    struct RefPtr<WebCore::HistoryItem> _field40;
-    _Bool _field41;
+    _Bool _field37;
+    int _field38;
+    struct RefPtr<WebCore::FrameNetworkingContext> _field39;
+    struct KURL _field40;
+    struct RefPtr<WebCore::HistoryItem> _field41;
+    struct OwnPtr<WebCore::PageActivityAssertionToken> _field42;
+    _Bool _field43;
 };
 
 struct FrameLoaderClient;
@@ -433,6 +439,10 @@ struct HTTPHeaderMap {
     struct HashTable<WTF::AtomicString, WTF::KeyValuePair<WTF::AtomicString, WTF::String>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<WTF::AtomicString, WTF::String>>, WTF::CaseFoldingHash, WTF::HashMapValueTraits<WTF::HashTraits<WTF::AtomicString>, WTF::HashTraits<WTF::String>>, WTF::HashTraits<WTF::AtomicString>> _field1;
 };
 
+struct HashMap<CALayer *, CALayer *, WTF::PtrHash<CALayer *>, WTF::HashTraits<CALayer *>, WTF::HashTraits<CALayer *>> {
+    struct HashTable<CALayer *, WTF::KeyValuePair<CALayer *, CALayer *>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<CALayer *, CALayer *>>, WTF::PtrHash<CALayer *>, WTF::HashMapValueTraits<WTF::HashTraits<CALayer *>, WTF::HashTraits<CALayer *>>, WTF::HashTraits<CALayer *>> _field1;
+};
+
 struct HashMap<CALayer *, WTF::OwnPtr<WebCore::ViewportConstraints>, WTF::PtrHash<CALayer *>, WTF::HashTraits<CALayer *>, WTF::HashTraits<WTF::OwnPtr<WebCore::ViewportConstraints>>> {
     struct HashTable<CALayer *, WTF::KeyValuePair<CALayer *, WTF::OwnPtr<WebCore::ViewportConstraints>>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<CALayer *, WTF::OwnPtr<WebCore::ViewportConstraints>>>, WTF::PtrHash<CALayer *>, WTF::HashMapValueTraits<WTF::HashTraits<CALayer *>, WTF::HashTraits<WTF::OwnPtr<WebCore::ViewportConstraints>>>, WTF::HashTraits<CALayer *>> _field1;
 };
@@ -449,8 +459,12 @@ struct HashMap<WTF::RefPtr<WebCore::ResourceLoader>, WTF::RefPtr<WebCore::Substi
     struct HashTable<WTF::RefPtr<WebCore::ResourceLoader>, WTF::KeyValuePair<WTF::RefPtr<WebCore::ResourceLoader>, WTF::RefPtr<WebCore::SubstituteResource>>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<WTF::RefPtr<WebCore::ResourceLoader>, WTF::RefPtr<WebCore::SubstituteResource>>>, WTF::PtrHash<WTF::RefPtr<WebCore::ResourceLoader>>, WTF::KeyValuePairHashTraits<WTF::HashTraits<WTF::RefPtr<WebCore::ResourceLoader>>, WTF::HashTraits<WTF::RefPtr<WebCore::SubstituteResource>>>, WTF::HashTraits<WTF::RefPtr<WebCore::ResourceLoader>>> _field1;
 };
 
-struct HashMap<WTF::RetainPtr<CALayer>, WTF::OwnPtr<WebCore::ViewportConstraints>, WTF::PtrHash<WTF::RetainPtr<CALayer>>, WTF::HashTraits<WTF::RetainPtr<CALayer>>, WTF::HashTraits<WTF::OwnPtr<WebCore::ViewportConstraints>>> {
-    struct HashTable<WTF::RetainPtr<CALayer>, WTF::KeyValuePair<WTF::RetainPtr<CALayer>, WTF::OwnPtr<WebCore::ViewportConstraints>>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<WTF::RetainPtr<CALayer>, WTF::OwnPtr<WebCore::ViewportConstraints>>>, WTF::PtrHash<WTF::RetainPtr<CALayer>>, WTF::HashMapValueTraits<WTF::HashTraits<WTF::RetainPtr<CALayer>>, WTF::HashTraits<WTF::OwnPtr<WebCore::ViewportConstraints>>>, WTF::HashTraits<WTF::RetainPtr<CALayer>>> _field1;
+struct HashMap<WTF::RefPtr<WebCore::SecurityOrigin>, WTF::RefPtr<WebCore::StorageNamespace>, WebCore::SecurityOriginHash, WTF::HashTraits<WTF::RefPtr<WebCore::SecurityOrigin>>, WTF::HashTraits<WTF::RefPtr<WebCore::StorageNamespace>>> {
+    struct HashTable<WTF::RefPtr<WebCore::SecurityOrigin>, WTF::KeyValuePair<WTF::RefPtr<WebCore::SecurityOrigin>, WTF::RefPtr<WebCore::StorageNamespace>>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<WTF::RefPtr<WebCore::SecurityOrigin>, WTF::RefPtr<WebCore::StorageNamespace>>>, WebCore::SecurityOriginHash, WTF::KeyValuePairHashTraits<WTF::HashTraits<WTF::RefPtr<WebCore::SecurityOrigin>>, WTF::HashTraits<WTF::RefPtr<WebCore::StorageNamespace>>>, WTF::HashTraits<WTF::RefPtr<WebCore::SecurityOrigin>>> _field1;
+};
+
+struct HashMap<WTF::RetainPtr<CALayer>, WTF::OwnPtr<ViewportConstrainedLayerData>, WTF::PtrHash<WTF::RetainPtr<CALayer>>, WTF::HashTraits<WTF::RetainPtr<CALayer>>, WTF::HashTraits<WTF::OwnPtr<ViewportConstrainedLayerData>>> {
+    struct HashTable<WTF::RetainPtr<CALayer>, WTF::KeyValuePair<WTF::RetainPtr<CALayer>, WTF::OwnPtr<ViewportConstrainedLayerData>>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<WTF::RetainPtr<CALayer>, WTF::OwnPtr<ViewportConstrainedLayerData>>>, WTF::PtrHash<WTF::RetainPtr<CALayer>>, WTF::HashMapValueTraits<WTF::HashTraits<WTF::RetainPtr<CALayer>>, WTF::HashTraits<WTF::OwnPtr<ViewportConstrainedLayerData>>>, WTF::HashTraits<WTF::RetainPtr<CALayer>>> _field1;
 };
 
 struct HashMap<WTF::RetainPtr<WebView>, WTF::RetainPtr<id<WebGeolocationProviderInitializationListener>>, WTF::PtrHash<WTF::RetainPtr<WebView>>, WTF::HashTraits<WTF::RetainPtr<WebView>>, WTF::HashTraits<WTF::RetainPtr<id<WebGeolocationProviderInitializationListener>>>> {
@@ -541,6 +555,14 @@ struct HashSet<unsigned long long, WebCore::LinkHashHash, WTF::HashTraits<unsign
     struct HashTable<unsigned long long, unsigned long long, WTF::IdentityExtractor, WebCore::LinkHashHash, WTF::HashTraits<unsigned long long>, WTF::HashTraits<unsigned long long>> _field1;
 };
 
+struct HashTable<CALayer *, WTF::KeyValuePair<CALayer *, CALayer *>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<CALayer *, CALayer *>>, WTF::PtrHash<CALayer *>, WTF::HashMapValueTraits<WTF::HashTraits<CALayer *>, WTF::HashTraits<CALayer *>>, WTF::HashTraits<CALayer *>> {
+    struct KeyValuePair<CALayer *, CALayer *> *_field1;
+    int _field2;
+    int _field3;
+    int _field4;
+    int _field5;
+};
+
 struct HashTable<CALayer *, WTF::KeyValuePair<CALayer *, WTF::OwnPtr<WebCore::ViewportConstraints>>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<CALayer *, WTF::OwnPtr<WebCore::ViewportConstraints>>>, WTF::PtrHash<CALayer *>, WTF::HashMapValueTraits<WTF::HashTraits<CALayer *>, WTF::HashTraits<WTF::OwnPtr<WebCore::ViewportConstraints>>>, WTF::HashTraits<CALayer *>> {
     struct KeyValuePair<CALayer *, WTF::OwnPtr<WebCore::ViewportConstraints>> *_field1;
     int _field2;
@@ -597,8 +619,16 @@ struct HashTable<WTF::RefPtr<WebCore::ResourceLoader>, WTF::RefPtr<WebCore::Reso
     int _field5;
 };
 
-struct HashTable<WTF::RetainPtr<CALayer>, WTF::KeyValuePair<WTF::RetainPtr<CALayer>, WTF::OwnPtr<WebCore::ViewportConstraints>>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<WTF::RetainPtr<CALayer>, WTF::OwnPtr<WebCore::ViewportConstraints>>>, WTF::PtrHash<WTF::RetainPtr<CALayer>>, WTF::HashMapValueTraits<WTF::HashTraits<WTF::RetainPtr<CALayer>>, WTF::HashTraits<WTF::OwnPtr<WebCore::ViewportConstraints>>>, WTF::HashTraits<WTF::RetainPtr<CALayer>>> {
-    struct KeyValuePair<WTF::RetainPtr<CALayer>, WTF::OwnPtr<WebCore::ViewportConstraints>> *_field1;
+struct HashTable<WTF::RefPtr<WebCore::SecurityOrigin>, WTF::KeyValuePair<WTF::RefPtr<WebCore::SecurityOrigin>, WTF::RefPtr<WebCore::StorageNamespace>>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<WTF::RefPtr<WebCore::SecurityOrigin>, WTF::RefPtr<WebCore::StorageNamespace>>>, WebCore::SecurityOriginHash, WTF::KeyValuePairHashTraits<WTF::HashTraits<WTF::RefPtr<WebCore::SecurityOrigin>>, WTF::HashTraits<WTF::RefPtr<WebCore::StorageNamespace>>>, WTF::HashTraits<WTF::RefPtr<WebCore::SecurityOrigin>>> {
+    struct KeyValuePair<WTF::RefPtr<WebCore::SecurityOrigin>, WTF::RefPtr<WebCore::StorageNamespace>> *_field1;
+    int _field2;
+    int _field3;
+    int _field4;
+    int _field5;
+};
+
+struct HashTable<WTF::RetainPtr<CALayer>, WTF::KeyValuePair<WTF::RetainPtr<CALayer>, WTF::OwnPtr<ViewportConstrainedLayerData>>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<WTF::RetainPtr<CALayer>, WTF::OwnPtr<ViewportConstrainedLayerData>>>, WTF::PtrHash<WTF::RetainPtr<CALayer>>, WTF::HashMapValueTraits<WTF::HashTraits<WTF::RetainPtr<CALayer>>, WTF::HashTraits<WTF::OwnPtr<ViewportConstrainedLayerData>>>, WTF::HashTraits<WTF::RetainPtr<CALayer>>> {
+    struct KeyValuePair<WTF::RetainPtr<CALayer>, WTF::OwnPtr<ViewportConstrainedLayerData>> *_field1;
     int _field2;
     int _field3;
     int _field4;
@@ -803,8 +833,10 @@ struct HistoryItem {
     float _field29;
     _Bool _field30;
     struct ViewportArguments _field31;
-    struct RetainPtr<id> _field32;
-    struct OwnPtr<WTF::HashMap<WTF::String, WTF::RetainPtr<id>, WTF::StringHash, WTF::HashTraits<WTF::String>, WTF::HashTraits<WTF::RetainPtr<id>>>> _field33;
+    unsigned int _field32;
+    struct String _field33;
+    struct RetainPtr<id> _field34;
+    struct OwnPtr<WTF::HashMap<WTF::String, WTF::RetainPtr<id>, WTF::StringHash, WTF::HashTraits<WTF::String>, WTF::HashTraits<WTF::RetainPtr<id>>>> _field35;
 };
 
 struct HitTestLocation {
@@ -908,6 +940,8 @@ struct IntSize {
     int _field2;
 };
 
+struct JSCell;
+
 struct JSGlobalObject;
 
 struct JSValue {
@@ -930,6 +964,8 @@ struct KURL {
     int _field11;
 };
 
+struct KeyValuePair<CALayer *, CALayer *>;
+
 struct KeyValuePair<CALayer *, WTF::OwnPtr<WebCore::ViewportConstraints>>;
 
 struct KeyValuePair<WTF::AtomicString, WTF::String>;
@@ -938,7 +974,9 @@ struct KeyValuePair<WTF::RefPtr<WebCore::Geolocation::GeoNotifier>, int>;
 
 struct KeyValuePair<WTF::RefPtr<WebCore::ResourceLoader>, WTF::RefPtr<WebCore::SubstituteResource>>;
 
-struct KeyValuePair<WTF::RetainPtr<CALayer>, WTF::OwnPtr<WebCore::ViewportConstraints>>;
+struct KeyValuePair<WTF::RefPtr<WebCore::SecurityOrigin>, WTF::RefPtr<WebCore::StorageNamespace>>;
+
+struct KeyValuePair<WTF::RetainPtr<CALayer>, WTF::OwnPtr<ViewportConstrainedLayerData>>;
 
 struct KeyValuePair<WTF::RetainPtr<WebView>, WTF::RetainPtr<id<WebGeolocationProviderInitializationListener>>>;
 
@@ -1033,8 +1071,8 @@ struct MixedContentChecker {
 
 struct Mutex {
     struct _opaque_pthread_mutex_t {
-        long __sig;
-        char __opaque[40];
+        long long __sig;
+        char __opaque[56];
     } m_mutex;
 };
 
@@ -1045,7 +1083,7 @@ struct NSData {
 struct NSError {
     Class _field1;
     void *_field2;
-    int _field3;
+    long long _field3;
     id _field4;
     id _field5;
 };
@@ -1089,10 +1127,6 @@ struct Node;
 struct NodeRareDataBase;
 
 struct ObjectCallback<WebCore::SharedBuffer *>;
-
-struct OwnPtr<LayerFlushController> {
-    struct LayerFlushController *m_ptr;
-};
 
 struct OwnPtr<WTF::BitVector> {
     struct BitVector *_field1;
@@ -1228,6 +1262,10 @@ struct OwnPtr<WebCore::InspectorOverlay> {
     struct InspectorOverlay *_field1;
 };
 
+struct OwnPtr<WebCore::PageActivityAssertionToken> {
+    struct PageActivityAssertionToken *_field1;
+};
+
 struct OwnPtr<WebCore::PageConsole> {
     struct PageConsole *_field1;
 };
@@ -1315,7 +1353,7 @@ struct Page {
     struct String _field32;
     struct String _field33;
     _Bool _field34;
-    int _field35;
+    long long _field35;
     struct OwnPtr<WebCore::PageGroup> _field36;
     struct PageGroup *_field37;
     struct Debugger *_field38;
@@ -1331,17 +1369,23 @@ struct Page {
     int _field48;
     unsigned int _field49;
     unsigned int _field50;
-    struct HashSet<WebCore::RenderObject *, WTF::PtrHash<WebCore::RenderObject *>, WTF::HashTraits<WebCore::RenderObject *>> _field51;
-    struct Region _field52;
-    struct Region _field53;
+    int _field51;
+    int _field52;
+    struct HashSet<WebCore::RenderObject *, WTF::PtrHash<WebCore::RenderObject *>, WTF::HashTraits<WebCore::RenderObject *>> _field53;
     struct Region _field54;
-    _Bool _field55;
-    struct AlternativeTextClient *_field56;
+    struct Region _field55;
+    struct Region _field56;
     _Bool _field57;
-    struct OwnPtr<WebCore::PageConsole> _field58;
-    struct HashSet<WTF::String, WTF::StringHash, WTF::HashTraits<WTF::String>> _field59;
-    struct HashSet<WTF::String, WTF::StringHash, WTF::HashTraits<WTF::String>> _field60;
+    struct AlternativeTextClient *_field58;
+    _Bool _field59;
+    struct RefPtr<WebCore::PageThrottler> _field60;
+    struct OwnPtr<WebCore::PageConsole> _field61;
+    struct HashSet<WTF::String, WTF::StringHash, WTF::HashTraits<WTF::String>> _field62;
+    struct HashSet<WTF::String, WTF::StringHash, WTF::HashTraits<WTF::String>> _field63;
+    unsigned int _field64;
 };
+
+struct PageActivityAssertionToken;
 
 struct PageConsole;
 
@@ -1353,11 +1397,14 @@ struct PageGroup {
     _Bool _field5;
     unsigned int _field6;
     struct RefPtr<WebCore::StorageNamespace> _field7;
-    struct OwnPtr<WTF::HashMap<WTF::RefPtr<WebCore::DOMWrapperWorld>, WTF::OwnPtr<WTF::Vector<WTF::OwnPtr<WebCore::UserScript>, 0, WTF::CrashOnOverflow>>, WTF::PtrHash<WTF::RefPtr<WebCore::DOMWrapperWorld>>, WTF::HashTraits<WTF::RefPtr<WebCore::DOMWrapperWorld>>, WTF::HashTraits<WTF::OwnPtr<WTF::Vector<WTF::OwnPtr<WebCore::UserScript>, 0, WTF::CrashOnOverflow>>>>> _field8;
-    struct OwnPtr<WTF::HashMap<WTF::RefPtr<WebCore::DOMWrapperWorld>, WTF::OwnPtr<WTF::Vector<WTF::OwnPtr<WebCore::UserStyleSheet>, 0, WTF::CrashOnOverflow>>, WTF::PtrHash<WTF::RefPtr<WebCore::DOMWrapperWorld>>, WTF::HashTraits<WTF::RefPtr<WebCore::DOMWrapperWorld>>, WTF::HashTraits<WTF::OwnPtr<WTF::Vector<WTF::OwnPtr<WebCore::UserStyleSheet>, 0, WTF::CrashOnOverflow>>>>> _field9;
-    struct OwnPtr<WebCore::GroupSettings> _field10;
-    struct OwnPtr<WebCore::CaptionUserPreferences> _field11;
+    struct HashMap<WTF::RefPtr<WebCore::SecurityOrigin>, WTF::RefPtr<WebCore::StorageNamespace>, WebCore::SecurityOriginHash, WTF::HashTraits<WTF::RefPtr<WebCore::SecurityOrigin>>, WTF::HashTraits<WTF::RefPtr<WebCore::StorageNamespace>>> _field8;
+    struct OwnPtr<WTF::HashMap<WTF::RefPtr<WebCore::DOMWrapperWorld>, WTF::OwnPtr<WTF::Vector<WTF::OwnPtr<WebCore::UserScript>, 0, WTF::CrashOnOverflow>>, WTF::PtrHash<WTF::RefPtr<WebCore::DOMWrapperWorld>>, WTF::HashTraits<WTF::RefPtr<WebCore::DOMWrapperWorld>>, WTF::HashTraits<WTF::OwnPtr<WTF::Vector<WTF::OwnPtr<WebCore::UserScript>, 0, WTF::CrashOnOverflow>>>>> _field9;
+    struct OwnPtr<WTF::HashMap<WTF::RefPtr<WebCore::DOMWrapperWorld>, WTF::OwnPtr<WTF::Vector<WTF::OwnPtr<WebCore::UserStyleSheet>, 0, WTF::CrashOnOverflow>>, WTF::PtrHash<WTF::RefPtr<WebCore::DOMWrapperWorld>>, WTF::HashTraits<WTF::RefPtr<WebCore::DOMWrapperWorld>>, WTF::HashTraits<WTF::OwnPtr<WTF::Vector<WTF::OwnPtr<WebCore::UserStyleSheet>, 0, WTF::CrashOnOverflow>>>>> _field10;
+    struct OwnPtr<WebCore::GroupSettings> _field11;
+    struct OwnPtr<WebCore::CaptionUserPreferences> _field12;
 };
+
+struct PageThrottler;
 
 struct Pagination {
     int _field1;
@@ -1425,6 +1472,7 @@ struct PluginInfo {
     struct String file;
     struct String desc;
     struct Vector<WebCore::MimeClassInfo, 0, WTF::CrashOnOverflow> mimes;
+    _Bool isApplicationPlugin;
 };
 
 struct PolicyChecker;
@@ -1457,6 +1505,10 @@ struct RangeBoundaryPoint {
     struct RefPtr<WebCore::Node> _field1;
     int _field2;
     struct RefPtr<WebCore::Node> _field3;
+};
+
+struct RefPtr<LayerFlushController> {
+    struct LayerFlushController *m_ptr;
 };
 
 struct RefPtr<WTF::StringImpl> {
@@ -1532,7 +1584,7 @@ struct RefPtr<WebCore::FormData> {
 };
 
 struct RefPtr<WebCore::Frame> {
-    struct Frame *_field1;
+    struct Frame *m_ptr;
 };
 
 struct RefPtr<WebCore::FrameNetworkingContext> {
@@ -1583,6 +1635,10 @@ struct RefPtr<WebCore::Node> {
 
 struct RefPtr<WebCore::ObjectCallback<WebCore::SharedBuffer *>> {
     struct ObjectCallback<WebCore::SharedBuffer *> *_field1;
+};
+
+struct RefPtr<WebCore::PageThrottler> {
+    struct PageThrottler *_field1;
 };
 
 struct RefPtr<WebCore::PluginData> {
@@ -1680,37 +1736,36 @@ struct RenderLayer {
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
-    int _field4;
-    struct RenderLayerModelObject *_field5;
+    struct RenderLayerModelObject *_field4;
+    struct RenderLayer *_field5;
     struct RenderLayer *_field6;
     struct RenderLayer *_field7;
     struct RenderLayer *_field8;
     struct RenderLayer *_field9;
-    struct RenderLayer *_field10;
+    struct LayoutRect _field10;
     struct LayoutRect _field11;
-    struct LayoutRect _field12;
-    struct LayoutSize _field13;
-    struct LayoutPoint _field14;
+    struct LayoutSize _field12;
+    struct LayoutPoint _field13;
+    struct IntSize _field14;
     struct IntSize _field15;
-    struct IntSize _field16;
-    struct LayoutSize _field17;
+    struct LayoutSize _field16;
+    struct RefPtr<WebCore::Scrollbar> _field17;
     struct RefPtr<WebCore::Scrollbar> _field18;
-    struct RefPtr<WebCore::Scrollbar> _field19;
+    struct OwnPtr<WTF::Vector<WebCore::RenderLayer *, 0, WTF::CrashOnOverflow>> _field19;
     struct OwnPtr<WTF::Vector<WebCore::RenderLayer *, 0, WTF::CrashOnOverflow>> _field20;
     struct OwnPtr<WTF::Vector<WebCore::RenderLayer *, 0, WTF::CrashOnOverflow>> _field21;
-    struct OwnPtr<WTF::Vector<WebCore::RenderLayer *, 0, WTF::CrashOnOverflow>> _field22;
-    struct OwnPtr<WebCore::ClipRectsCache> _field23;
-    struct IntPoint _field24;
-    struct OwnPtr<WebCore::RenderMarquee> _field25;
+    struct OwnPtr<WebCore::ClipRectsCache> _field22;
+    struct IntPoint _field23;
+    struct OwnPtr<WebCore::RenderMarquee> _field24;
+    struct LayoutUnit _field25;
     struct LayoutUnit _field26;
-    struct LayoutUnit _field27;
-    struct OwnPtr<WebCore::TransformationMatrix> _field28;
-    struct RenderReplica *_field29;
+    struct OwnPtr<WebCore::TransformationMatrix> _field27;
+    struct RenderReplica *_field28;
+    struct RenderScrollbarPart *_field29;
     struct RenderScrollbarPart *_field30;
-    struct RenderScrollbarPart *_field31;
-    struct RenderLayer *_field32;
-    struct IntRect _field33;
-    struct OwnPtr<WebCore::RenderLayerBacking> _field34;
+    struct RenderLayer *_field31;
+    struct IntRect _field32;
+    struct OwnPtr<WebCore::RenderLayerBacking> _field33;
 };
 
 struct RenderLayerBacking;
@@ -1781,12 +1836,10 @@ struct ResourceResponse {
     int _field6;
     struct String _field7;
     struct HTTPHeaderMap _field8;
-    int _field9;
     unsigned int :1;
-    unsigned int _field10;
+    unsigned int _field9;
     unsigned int :1;
-    struct RefPtr<WebCore::ResourceLoadTiming> _field11;
-    unsigned int :1;
+    struct RefPtr<WebCore::ResourceLoadTiming> _field10;
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
@@ -1795,16 +1848,17 @@ struct ResourceResponse {
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
+    unsigned int :1;
+    double _field11;
     double _field12;
     double _field13;
     double _field14;
     double _field15;
-    double _field16;
-    struct RetainPtr<_CFURLResponse *> _field17;
-    struct RetainPtr<NSURLResponse> _field18;
-    struct RetainPtr<const __CFArray *> _field19;
-    int _field20;
-    _Bool _field21;
+    struct RetainPtr<_CFURLResponse *> _field16;
+    struct RetainPtr<NSURLResponse> _field17;
+    struct RetainPtr<const __CFArray *> _field18;
+    int _field19;
+    _Bool _field20;
 };
 
 struct RetainPtr<CLLocationManager> {
@@ -1824,7 +1878,7 @@ struct RetainPtr<NSMutableDictionary> {
 };
 
 struct RetainPtr<NSString> {
-    struct NSString *_field1;
+    struct NSString *m_ptr;
 };
 
 struct RetainPtr<NSTimer> {
@@ -1909,15 +1963,14 @@ struct SecurityOrigin {
     struct String _field3;
     struct String _field4;
     struct String _field5;
-    struct String _field6;
-    unsigned short _field7;
+    unsigned short _field6;
+    _Bool _field7;
     _Bool _field8;
     _Bool _field9;
     _Bool _field10;
-    _Bool _field11;
-    int _field12;
+    int _field11;
+    _Bool _field12;
     _Bool _field13;
-    _Bool _field14;
 };
 
 struct SerializedScriptValue;
@@ -2100,8 +2153,8 @@ struct Vector<WebCore::Node *, 0, WTF::CrashOnOverflow> {
 struct Vector<WebCore::Region::Span, 16, WTF::CrashOnOverflow> {
     struct Span *_field1;
     unsigned int _field2;
-    struct AlignedBuffer<128, 4> _field3;
-    unsigned int _field4;
+    unsigned int _field3;
+    struct AlignedBuffer<256, 8> _field4;
 };
 
 struct Vector<WebCore::RenderLayer *, 0, WTF::CrashOnOverflow>;
@@ -2129,8 +2182,8 @@ struct Vector<int, 0, WTF::CrashOnOverflow> {
 struct Vector<int, 32, WTF::CrashOnOverflow> {
     int *_field1;
     unsigned int _field2;
-    struct AlignedBuffer<128, 4> _field3;
-    unsigned int _field4;
+    unsigned int _field3;
+    struct AlignedBuffer<128, 4> _field4;
 };
 
 struct ViewportArguments {
@@ -2186,7 +2239,7 @@ struct WebDocumentLoaderMac;
 
 struct WebFixedPositionContentData {
     id _field1;
-    struct HashMap<WTF::RetainPtr<CALayer>, WTF::OwnPtr<WebCore::ViewportConstraints>, WTF::PtrHash<WTF::RetainPtr<CALayer>>, WTF::HashTraits<WTF::RetainPtr<CALayer>>, WTF::HashTraits<WTF::OwnPtr<WebCore::ViewportConstraints>>> _field2;
+    struct HashMap<WTF::RetainPtr<CALayer>, WTF::OwnPtr<ViewportConstrainedLayerData>, WTF::PtrHash<WTF::RetainPtr<CALayer>>, WTF::HashTraits<WTF::RetainPtr<CALayer>>, WTF::HashTraits<WTF::OwnPtr<ViewportConstrainedLayerData>>> _field2;
 };
 
 struct WebFrameLoadDelegateImplementationCache {
@@ -2219,6 +2272,7 @@ struct WebFrameLoadDelegateImplementationCache {
     void *didRunInsecureContentFunc;
     void *didDetectXSSFunc;
     void *didRemoveFrameFromHierarchyFunc;
+    void *webThreadDidLayoutFunc;
 };
 
 struct WebGeolocationCoreLocationProvider {
@@ -2270,7 +2324,7 @@ struct WebInspectorWindowController {
     id _field2;
     struct WebInspectorFrontendClient *_field3;
     struct WebInspectorClient *_field4;
-    char _field5;
+    _Bool _field5;
     id _field6;
     id _field7;
 };
@@ -2284,8 +2338,8 @@ struct WebNodeHighlighter {
 struct WebPreferencesPrivate {
     struct RetainPtr<NSMutableDictionary> _field1;
     struct RetainPtr<NSString> _field2;
-    char _field3;
-    char _field4;
+    _Bool _field3;
+    _Bool _field4;
     unsigned int _field5;
     id _field6;
 };
@@ -2323,8 +2377,8 @@ struct WebScriptCallFrame {
 };
 
 struct WebScriptDebugDelegateImplementationCache {
-    char didParseSourceExpectsBaseLineNumber;
-    char exceptionWasRaisedExpectsHasHandlerFlag;
+    _Bool didParseSourceExpectsBaseLineNumber;
+    _Bool exceptionWasRaisedExpectsHasHandlerFlag;
     void *didParseSourceFunc;
     void *failedToParseSourceFunc;
     void *didEnterCallFrameFunc;
@@ -2347,8 +2401,8 @@ struct WebView {
     struct _WKViewContext _field2;
     struct WKView *_field3;
     id _field4;
-    char _field5;
-    char _field6;
+    _Bool _field5;
+    _Bool _field6;
     id _field7;
 };
 
@@ -2357,8 +2411,8 @@ struct _CFURLRequest;
 struct _CFURLResponse;
 
 struct _NSRange {
-    unsigned int _field1;
-    unsigned int _field2;
+    unsigned long long _field1;
+    unsigned long long _field2;
 };
 
 struct _WKViewContext {
@@ -2382,7 +2436,7 @@ typedef struct ?<WebInspectorWindowController> {
 
 typedef struct ?<WebInspectorWindowController> {
     struct WebInspectorWindowController *_field1;
-} RetainPtr_a22ad9ef;
+} RetainPtr_7fce34d2;
 
 typedef struct {
     void **_field1;
@@ -2410,13 +2464,17 @@ typedef struct {
     int _field7;
     id _field8;
     struct WebInspectorFrontendClient *_field9;
-} WebInspectorClient_b612fe75;
+} WebInspectorClient_507d6387;
 
 #endif
 
 #pragma mark Typedef'd Structures
 
 // Template types
+typedef struct HashMap<CALayer *, CALayer *, WTF::PtrHash<CALayer *>, WTF::HashTraits<CALayer *>, WTF::HashTraits<CALayer *>> {
+    struct HashTable<CALayer *, WTF::KeyValuePair<CALayer *, CALayer *>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<CALayer *, CALayer *>>, WTF::PtrHash<CALayer *>, WTF::HashMapValueTraits<WTF::HashTraits<CALayer *>, WTF::HashTraits<CALayer *>>, WTF::HashTraits<CALayer *>> _field1;
+} HashMap_552a0c7e;
+
 typedef struct HashMap<CALayer *, WTF::OwnPtr<WebCore::ViewportConstraints>, WTF::PtrHash<CALayer *>, WTF::HashTraits<CALayer *>, WTF::HashTraits<WTF::OwnPtr<WebCore::ViewportConstraints>>> {
     struct HashTable<CALayer *, WTF::KeyValuePair<CALayer *, WTF::OwnPtr<WebCore::ViewportConstraints>>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<CALayer *, WTF::OwnPtr<WebCore::ViewportConstraints>>>, WTF::PtrHash<CALayer *>, WTF::HashMapValueTraits<WTF::HashTraits<CALayer *>, WTF::HashTraits<WTF::OwnPtr<WebCore::ViewportConstraints>>>, WTF::HashTraits<CALayer *>> _field1;
 } HashMap_84a2442e;
@@ -2484,7 +2542,7 @@ union DataUnion {
 
 union EncodedValueDescriptor {
     long long _field1;
-    double _field2;
+    struct JSCell *_field2;
     struct {
         int _field1;
         int _field2;

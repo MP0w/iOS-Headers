@@ -10,7 +10,7 @@
 
 @interface MBDomain : NSObject
 {
-    BOOL _shouldDigest;
+    _Bool _shouldDigest;
     NSString *_rootPath;
     NSString *_name;
     NSSet *_relativePathsToBackupAndRestore;
@@ -39,8 +39,8 @@
 + (id)domainWithName:(id)arg1 rootPath:(id)arg2;
 + (id)nameWithAppBundleID:(id)arg1;
 + (id)bundleIDWithName:(id)arg1;
-+ (BOOL)isAppPlaceholderName:(id)arg1;
-+ (BOOL)isAppName:(id)arg1;
++ (_Bool)isAppPlaceholderName:(id)arg1;
++ (_Bool)isAppName:(id)arg1;
 + (double)systemDomainsMaxSupportedVersion;
 + (double)systemDomainsVersion;
 + (double)systemDomainsMinSupportedVersion;
@@ -52,8 +52,8 @@
 + (id)_dictionaryOfStringsToStringFromValue:(id)arg1 forKey:(id)arg2;
 + (id)_setOfStringsFromValue:(id)arg1 forKey:(id)arg2;
 + (id)_stringByRemovingCommentsFromValue:(id)arg1 forKey:(id)arg2;
-+ (BOOL)_boolFromValue:(id)arg1 forKey:(id)arg2;
-@property(nonatomic) BOOL shouldDigest; // @synthesize shouldDigest=_shouldDigest;
++ (_Bool)_boolFromValue:(id)arg1 forKey:(id)arg2;
+@property(nonatomic) _Bool shouldDigest; // @synthesize shouldDigest=_shouldDigest;
 @property(retain, nonatomic) NSDictionary *relativePathDomainRedirects; // @synthesize relativePathDomainRedirects=_relativePathDomainRedirects;
 @property(retain, nonatomic) NSDictionary *relativePathAggregateDictionaryGroups; // @synthesize relativePathAggregateDictionaryGroups=_relativePathAggregateDictionaryGroups;
 @property(retain, nonatomic) NSSet *relativePathsNotToRemoveIfNotRestored; // @synthesize relativePathsNotToRemoveIfNotRestored=_relativePathsNotToRemoveIfNotRestored;
@@ -75,16 +75,16 @@
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, nonatomic) NSString *rootPath; // @synthesize rootPath=_rootPath;
 @property(readonly, nonatomic) NSString *bundleID;
-@property(readonly, nonatomic, getter=isUninstalledAppDomain) BOOL installedAppDomain;
-@property(readonly, nonatomic, getter=isPlaceholderAppDomain) BOOL placeholderAppDomain;
-@property(readonly, nonatomic, getter=isAppDomain) BOOL appDomain;
+@property(readonly, nonatomic, getter=isUninstalledAppDomain) _Bool installedAppDomain;
+@property(readonly, nonatomic, getter=isPlaceholderAppDomain) _Bool placeholderAppDomain;
+@property(readonly, nonatomic, getter=isAppDomain) _Bool appDomain;
 @property(readonly, nonatomic) NSSet *relativePathsToRestore;
 @property(readonly, nonatomic) NSSet *relativePathsToBackup;
 - (id)description;
-- (unsigned int)hash;
-- (int)compare:(id)arg1;
-- (BOOL)isEqualToDomain:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (long long)compare:(id)arg1;
+- (_Bool)isEqualToDomain:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)initWithName:(id)arg1 plist:(id)arg2;
 - (id)initWithName:(id)arg1 rootPath:(id)arg2;

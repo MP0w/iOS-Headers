@@ -7,6 +7,6 @@
 #import "NSObject.h"
 
 @interface NSObject (AXAttributedStringAdditions)
-- (BOOL)isAXAttributedString;
+- (_Bool)isAXAttributedString;
 @end
 

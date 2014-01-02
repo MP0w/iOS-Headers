@@ -10,9 +10,9 @@
 {
 }
 
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)name;
-- (BOOL)isContainerWrapper;
+- (_Bool)isContainerWrapper;
 
 @end
 

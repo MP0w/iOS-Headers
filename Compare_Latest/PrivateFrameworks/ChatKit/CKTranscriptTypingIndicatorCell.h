@@ -16,13 +16,14 @@
 + (struct CGSize)indicatorSize;
 @property(retain, nonatomic) CKTypingIndicatorLayer *typingIndicatorLayer; // @synthesize typingIndicatorLayer=_typingIndicatorLayer;
 - (void)startShrinkAnimation;
+- (void)stopPulseAnimation;
 - (void)startPulseAnimation;
 - (void)startGrowAnimation;
+- (void)_applicationDidEnterBackground:(id)arg1;
 - (void)_applicationWillEnterForeground:(id)arg1;
 - (void)didMoveToWindow;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)dealloc;
-- (void)configureForRowObject:(id)arg1;
 
 @end
 

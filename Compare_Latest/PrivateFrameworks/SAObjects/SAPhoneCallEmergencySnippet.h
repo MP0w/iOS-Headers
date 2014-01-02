@@ -12,7 +12,7 @@
 
 + (id)callEmergencySnippetWithDictionary:(id)arg1 context:(id)arg2;
 + (id)callEmergencySnippet;
-@property(nonatomic) int countDownSeconds;
+@property(nonatomic) long long countDownSeconds;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

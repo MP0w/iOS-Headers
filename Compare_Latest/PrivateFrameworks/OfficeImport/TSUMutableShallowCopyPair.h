@@ -6,6 +6,7 @@
 
 #import <OfficeImport/TSUShallowCopyPair.h>
 
+// Not exported
 @interface TSUMutableShallowCopyPair : TSUShallowCopyPair
 {
 }

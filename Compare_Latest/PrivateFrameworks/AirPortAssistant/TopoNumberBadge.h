@@ -11,16 +11,16 @@
 @interface TopoNumberBadge : CALayer
 {
     id _owningView;
-    int _count;
+    long long _count;
     struct CGSize _imageSize;
     struct CGSize _textSize;
     UIFont *_font;
 }
 
-+ (id)imageBadgeForCount:(int)arg1;
++ (id)imageBadgeForCount:(long long)arg1;
 + (void)deallocImageCache;
-+ (long)initImageCache;
-@property(nonatomic) int count; // @synthesize count=_count;
++ (int)initImageCache;
+@property(nonatomic) long long count; // @synthesize count=_count;
 - (struct CGImage *)newNumberBadge;
 - (void)calculateBadgeMetrics;
 - (void)layoutSublayers;

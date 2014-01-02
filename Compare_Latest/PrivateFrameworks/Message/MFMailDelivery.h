@@ -18,7 +18,7 @@
     MFMutableMessageHeaders *_headers;
     NSDictionary *_compositionSpecification;
     NSArray *_mixedContent;
-    BOOL _textPartsAreHTML;
+    _Bool _textPartsAreHTML;
     NSString *_htmlString;
     MFPlainTextDocument *_plainTextAlternative;
     NSArray *_otherStringsAndAttachments;
@@ -27,18 +27,18 @@
     unsigned int _useCellDataOnly:1;
 }
 
-+ (BOOL)deliverMessage:(id)arg1;
++ (_Bool)deliverMessage:(id)arg1;
 + (id)newWithHeaders:(id)arg1 HTML:(id)arg2 plainTextAlternative:(id)arg3 other:(id)arg4 charsets:(id)arg5;
-+ (id)newWithHeaders:(id)arg1 mixedContent:(id)arg2 textPartsAreHTML:(BOOL)arg3;
++ (id)newWithHeaders:(id)arg1 mixedContent:(id)arg2 textPartsAreHTML:(_Bool)arg3;
 + (id)newWithMessage:(id)arg1;
 @property(retain, nonatomic) NSDictionary *compositionSpecification; // @synthesize compositionSpecification=_compositionSpecification;
 - (void)archive;
-- (void)setCellDataOnly:(BOOL)arg1;
+- (void)setCellDataOnly:(_Bool)arg1;
 - (id)deliverMessageData:(id)arg1 toRecipients:(id)arg2;
 - (id)deliverSynchronously;
 - (void)deliverAsynchronously;
-- (BOOL)shouldEncryptMessage;
-- (BOOL)shouldSignMessage;
+- (_Bool)shouldEncryptMessage;
+- (_Bool)shouldSignMessage;
 - (id)headersForDelivery;
 - (id)originalHeaders;
 - (id)deliveryResult;
@@ -53,7 +53,7 @@
 - (id)newMessageWriter;
 - (void)dealloc;
 - (id)initWithHeaders:(id)arg1 HTML:(id)arg2 plainTextAlternative:(id)arg3 other:(id)arg4 charsets:(id)arg5;
-- (id)initWithHeaders:(id)arg1 mixedContent:(id)arg2 textPartsAreHTML:(BOOL)arg3;
+- (id)initWithHeaders:(id)arg1 mixedContent:(id)arg2 textPartsAreHTML:(_Bool)arg3;
 - (id)initWithMessage:(id)arg1;
 
 @end

@@ -18,10 +18,10 @@
     struct UIEdgeInsets _imageInsets;
     NSURL *_imageURL;
     float _imageURLScale;
-    int _tag;
+    long long _tag;
 }
 
-@property(nonatomic) int tag; // @synthesize tag=_tag;
+@property(nonatomic) long long tag; // @synthesize tag=_tag;
 @property(nonatomic) float imageURLScale; // @synthesize imageURLScale=_imageURLScale;
 @property(copy, nonatomic) NSURL *imageURL; // @synthesize imageURL=_imageURL;
 @property(nonatomic) struct UIEdgeInsets imageInsets; // @synthesize imageInsets=_imageInsets;

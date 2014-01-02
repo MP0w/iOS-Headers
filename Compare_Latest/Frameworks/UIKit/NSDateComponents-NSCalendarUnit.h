@@ -7,13 +7,13 @@
 #import "NSDateComponents.h"
 
 @interface NSDateComponents (NSCalendarUnit)
-+ (id)namesForComponents:(unsigned int)arg1;
-+ (unsigned int)largerComponentsRelativeToComponent:(unsigned int)arg1;
-+ (unsigned int)smallerComponentsRelativeToComponent:(unsigned int)arg1;
-+ (unsigned int)smaller:(BOOL)arg1 componentsRelativeToComponent:(unsigned int)arg2;
-- (void)setComponents:(id)arg1;
-- (void)setValue:(int)arg1 forComponent:(unsigned int)arg2;
-- (int)valueForComponent:(unsigned int)arg1;
-- (id)conciseDescription;
++ (id)_ui_namesForComponents:(unsigned long long)arg1;
++ (unsigned long long)_ui_largerComponentsRelativeToComponent:(unsigned long long)arg1;
++ (unsigned long long)_ui_smallerComponentsRelativeToComponent:(unsigned long long)arg1;
++ (unsigned long long)smaller:(_Bool)arg1 componentsRelativeToComponent:(unsigned long long)arg2;
+- (void)_ui_setComponents:(id)arg1;
+- (void)_ui_setValue:(long long)arg1 forComponent:(unsigned long long)arg2;
+- (long long)_ui_valueForComponent:(unsigned long long)arg1;
+- (id)_ui_conciseDescription;
 @end
 

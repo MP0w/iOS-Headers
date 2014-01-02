@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CUIPSDGradient, CUIShapeEffectPreset, NSMutableArray, NSString;
+@class CUIPSDGradient, CUIShapeEffectPreset, NSDate, NSMutableArray, NSString;
 
 @interface CSIGenerator : NSObject
 {
@@ -15,34 +15,36 @@
     NSMutableArray *_slices;
     NSMutableArray *_bitmaps;
     NSMutableArray *_metrics;
-    BOOL _isFPOHint;
-    BOOL _isExcludedFromFilter;
+    _Bool _isFPOHint;
+    _Bool _isExcludedFromFilter;
     short _colorSpaceID;
     short _layout;
     unsigned int _scaleFactor;
     CUIPSDGradient *_gradient;
     CUIShapeEffectPreset *_effectPreset;
     int _blendMode;
-    float _opacity;
+    double _opacity;
+    NSDate *_modtime;
 }
 
-@property(nonatomic) float opacity; // @synthesize opacity=_opacity;
+@property(copy, nonatomic) NSDate *modtime; // @synthesize modtime=_modtime;
+@property(nonatomic) double opacity; // @synthesize opacity=_opacity;
 @property(nonatomic) int blendMode; // @synthesize blendMode=_blendMode;
 @property(retain, nonatomic) CUIShapeEffectPreset *effectPreset; // @synthesize effectPreset=_effectPreset;
 @property(nonatomic) unsigned int scaleFactor; // @synthesize scaleFactor=_scaleFactor;
 @property(retain, nonatomic) CUIPSDGradient *gradient; // @synthesize gradient=_gradient;
 @property(nonatomic) short colorSpaceID; // @synthesize colorSpaceID=_colorSpaceID;
-@property(nonatomic, getter=isExcludedFromContrastFilter) BOOL excludedFromContrastFilter; // @synthesize excludedFromContrastFilter=_isExcludedFromFilter;
-@property(nonatomic) BOOL isRenditionFPO; // @synthesize isRenditionFPO=_isFPOHint;
+@property(nonatomic, getter=isExcludedFromContrastFilter) _Bool excludedFromContrastFilter; // @synthesize excludedFromContrastFilter=_isExcludedFromFilter;
+@property(nonatomic) _Bool isRenditionFPO; // @synthesize isRenditionFPO=_isFPOHint;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
-- (id)CSIRepresentationWithCompression:(BOOL)arg1;
-- (unsigned long)writeGradientToData:(id)arg1;
+- (id)CSIRepresentationWithCompression:(_Bool)arg1;
+- (unsigned long long)writeGradientToData:(id)arg1;
 - (void)_addNodes:(id)arg1 toNodeList:(struct _csigradientdatanode *)arg2;
-- (unsigned long)writeBitmap:(id)arg1 toData:(id)arg2 compress:(BOOL)arg3;
-- (unsigned long)writeResourcesToData:(id)arg1;
+- (unsigned long long)writeBitmap:(id)arg1 toData:(id)arg2 compress:(_Bool)arg3;
+- (unsigned long long)writeResourcesToData:(id)arg1;
 - (void)writeHeader:(struct _csiheader *)arg1 toData:(id)arg2;
 - (void)formatCSIHeader:(struct _csiheader *)arg1;
-- (void)addMetrics:(CDStruct_29e12816)arg1;
+- (void)addMetrics:(CDStruct_1ba92a5e)arg1;
 - (void)addSliceRect:(struct CGRect)arg1;
 - (void)addBitmap:(id)arg1;
 - (void)dealloc;

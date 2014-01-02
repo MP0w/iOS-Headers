@@ -10,13 +10,15 @@
 @class NSIndexPath, NSSet, NSString;
 
 @protocol PUGridLayoutProtocol <NSObject, PUCollectionViewLayoutDelegating>
-@property(nonatomic) float sectionTopPadding;
-@property(nonatomic) float sectionHeaderHeight;
+@property(nonatomic) double sectionTopPadding;
+@property(nonatomic) double sectionHeaderHeight;
 @property(copy, nonatomic) NSString *sectionHeaderElementKind;
 @property(copy, nonatomic) NSSet *hiddenItemIndexPaths;
-@property(nonatomic) float globalBottomPadding;
-@property(nonatomic) float globalFooterHeight;
+@property(nonatomic) double globalBottomPadding;
+@property(nonatomic) double globalTopPadding;
+@property(nonatomic) double globalFooterHeight;
 @property(readonly, nonatomic) NSIndexPath *globalFooterIndexPath;
+- (void)invalidateLayoutForVerticalScroll;
 - (id)assetIndexPathsForElementsInRect:(struct CGRect)arg1;
 @end
 

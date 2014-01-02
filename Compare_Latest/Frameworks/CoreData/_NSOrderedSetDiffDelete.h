@@ -6,6 +6,7 @@
 
 #import <CoreData/_NSOrderedSetDiff.h>
 
+// Not exported
 @interface _NSOrderedSetDiffDelete : _NSOrderedSetDiff
 {
 }

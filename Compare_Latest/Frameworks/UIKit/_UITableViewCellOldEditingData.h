@@ -8,6 +8,7 @@
 
 @class UIControl, UIRemoveControl, UIView;
 
+// Not exported
 @interface _UITableViewCellOldEditingData : NSObject
 {
     UIRemoveControl *_removeControl;
@@ -18,7 +19,7 @@
 @property(retain, nonatomic) UIView *separatorView; // @synthesize separatorView=_separator;
 @property(retain, nonatomic) UIControl *reorderControl; // @synthesize reorderControl=_grabber;
 - (void)dealloc;
-- (BOOL)dataRequired;
+- (_Bool)dataRequired;
 
 @end
 

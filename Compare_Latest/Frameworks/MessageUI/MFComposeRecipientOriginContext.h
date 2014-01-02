@@ -10,8 +10,8 @@
 
 @interface MFComposeRecipientOriginContext : NSObject
 {
-    NSString *_searchTerm;
     int _resultType;
+    NSString *_searchTerm;
 }
 
 @property(readonly, nonatomic) int resultType; // @synthesize resultType=_resultType;

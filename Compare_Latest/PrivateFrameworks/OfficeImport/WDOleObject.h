@@ -6,6 +6,7 @@
 
 #import <OfficeImport/WDPicture.h>
 
+// Not exported
 @interface WDOleObject : WDPicture
 {
 }

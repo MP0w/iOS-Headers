@@ -13,7 +13,7 @@
 - (double)timeIntervalFromMilliseconds:(id)arg1;
 - (id)millisecondsFromTimeInterval:(double)arg1;
 - (id)_dictionaryRepresentationOfBody;
-- (BOOL)isBlacklistedByConfiguration:(id)arg1;
+- (_Bool)isBlacklistedByConfiguration:(id)arg1;
 - (id)allTableEntityPropertiesPermittedByConfiguration:(id)arg1;
 - (void)appendPropertiesToBody:(id)arg1;
 

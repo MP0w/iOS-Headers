@@ -8,6 +8,7 @@
 
 @class VKTileCache;
 
+// Not exported
 @interface VKTrafficDynamicTileSource : VKTileSetBackedTileSource
 {
     VKTileCache *_recentTrafficDynamicTiles;
@@ -17,11 +18,11 @@
 - (id)sourceKeysForRenderKey:(const struct VKTileKey *)arg1;
 - (struct _GEOTileKey)downloadKeyAtX:(unsigned int)arg1 y:(unsigned int)arg2 z:(unsigned int)arg3;
 - (id)tileForData:(id)arg1 downloadKey:(const struct _GEOTileKey *)arg2 sourceKey:(const struct VKTileKey *)arg3;
-- (BOOL)minimumZoomLevelBoundsCamera;
-- (BOOL)maximumZoomLevelBoundsCamera;
-- (unsigned int)mapLayerForZoomLevelRange;
-- (int)defaultMaximumZoomLevel;
-- (int)defaultMinimumZoomLevel;
+- (_Bool)minimumZoomLevelBoundsCamera;
+- (_Bool)maximumZoomLevelBoundsCamera;
+- (unsigned long long)mapLayerForZoomLevelRange;
+- (long long)defaultMaximumZoomLevel;
+- (long long)defaultMinimumZoomLevel;
 - (void)didLoadTile:(id)arg1 forKey:(const struct VKTileKey *)arg2;
 - (void)clearCaches;
 - (void)dealloc;

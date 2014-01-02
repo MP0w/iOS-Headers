@@ -14,7 +14,7 @@
     NSString *_hostname;
     NSString *_username;
     NSString *_password;
-    BOOL _useSSL;
+    _Bool _useSSL;
     NSString *_accountPersistentUUID;
 }
 
@@ -22,7 +22,7 @@
 + (id)localizedSingularForm;
 + (id)typeStrings;
 @property(copy, nonatomic) NSString *accountPersistentUUID; // @synthesize accountPersistentUUID=_accountPersistentUUID;
-@property(readonly, nonatomic) BOOL useSSL; // @synthesize useSSL=_useSSL;
+@property(readonly, nonatomic) _Bool useSSL; // @synthesize useSSL=_useSSL;
 @property(readonly, nonatomic) NSString *password; // @synthesize password=_password;
 @property(readonly, nonatomic) NSString *username; // @synthesize username=_username;
 @property(readonly, nonatomic) NSString *hostname; // @synthesize hostname=_hostname;

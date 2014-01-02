@@ -24,7 +24,7 @@
     unsigned int _index;
     NSMutableString *_blockText;
     int _propertyClass;
-    BOOL _indexedMask;
+    _Bool _indexedMask;
 }
 
 + (void)printTreeVerbose:(id)arg1;
@@ -37,7 +37,7 @@
 + (struct GLKBigInt_s)maskForLabel:(id)arg1 root:(id)arg2 index:(int)arg3;
 + (id)copyTreeWithRootButNotSiblings:(id)arg1 parent:(id)arg2;
 + (id)copyTreeWithRoot:(id)arg1 parent:(id)arg2;
-@property(nonatomic) BOOL indexedMask; // @synthesize indexedMask=_indexedMask;
+@property(nonatomic) _Bool indexedMask; // @synthesize indexedMask=_indexedMask;
 @property(nonatomic) unsigned int index; // @synthesize index=_index;
 @property(nonatomic) int propertyClass; // @synthesize propertyClass=_propertyClass;
 @property(retain, nonatomic) NSMutableString *blockText; // @synthesize blockText=_blockText;

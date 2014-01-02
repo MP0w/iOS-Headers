@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface WFNodeWrapper : NSObject
 {
     struct _xmlNode *_node;

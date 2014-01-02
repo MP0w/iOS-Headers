@@ -8,6 +8,7 @@
 
 @class GEOMapAccess, GEOMapTileFinder, NSMutableSet;
 
+// Not exported
 @interface GEOMapEdgeFinder : GEOMapRequest
 {
     struct unordered_set<GEORoadEdge, std::__1::hash<GEORoadEdge>, std::__1::equal_to<GEORoadEdge>, std::__1::allocator<GEORoadEdge>> _roadsConsidered;

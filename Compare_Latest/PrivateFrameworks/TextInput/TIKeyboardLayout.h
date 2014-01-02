@@ -10,23 +10,23 @@
 
 @interface TIKeyboardLayout : NSObject <NSSecureCoding>
 {
-    unsigned int _count;
+    unsigned long long _count;
     struct _ShortRect *_frames;
-    unsigned int _framesCapacity;
+    unsigned long long _framesCapacity;
     char *_strings;
-    unsigned int _stringsSize;
-    unsigned int _stringsCapacity;
+    unsigned long long _stringsSize;
+    unsigned long long _stringsCapacity;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 - (void)enumerateKeysUsingBlock:(id)arg1;
 - (void)addKeyWithString:(id)arg1 frame:(struct CGRect)arg2;
-- (void)ensureStringCapacity:(unsigned int)arg1;
-- (void)ensureFrameCapacity:(unsigned int)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (void)ensureStringCapacity:(unsigned long long)arg1;
+- (void)ensureFrameCapacity:(unsigned long long)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithCapacity:(unsigned int)arg1;
+- (id)initWithCapacity:(unsigned long long)arg1;
 - (void)dealloc;
 
 @end

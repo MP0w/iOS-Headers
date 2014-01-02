@@ -18,7 +18,7 @@
     NSDate *_scheduledManualDownloadWifiPeriodEndTime;
     NSDate *_scheduledAutodownloadWifiPeriodEndTime;
     NSDate *_scheduledAutodownloadPolicyChangeTime;
-    BOOL _autodownloadNeedsOneTimeRetry;
+    _Bool _autodownloadNeedsOneTimeRetry;
     NSString *_lastProductVersion;
     NSString *_lastProductBuild;
     NSString *_lastProductType;
@@ -31,7 +31,7 @@
 @property(retain, nonatomic) NSString *lastProductType; // @synthesize lastProductType=_lastProductType;
 @property(retain, nonatomic) NSString *lastProductBuild; // @synthesize lastProductBuild=_lastProductBuild;
 @property(retain, nonatomic) NSString *lastProductVersion; // @synthesize lastProductVersion=_lastProductVersion;
-@property(nonatomic) BOOL autodownloadNeedsOneTimeRetry; // @synthesize autodownloadNeedsOneTimeRetry=_autodownloadNeedsOneTimeRetry;
+@property(nonatomic) _Bool autodownloadNeedsOneTimeRetry; // @synthesize autodownloadNeedsOneTimeRetry=_autodownloadNeedsOneTimeRetry;
 @property(retain, nonatomic) NSDate *scheduledAutodownloadPolicyChangeTime; // @synthesize scheduledAutodownloadPolicyChangeTime=_scheduledAutodownloadPolicyChangeTime;
 @property(retain, nonatomic) NSDate *scheduledAutodownloadWifiPeriodEndTime; // @synthesize scheduledAutodownloadWifiPeriodEndTime=_scheduledAutodownloadWifiPeriodEndTime;
 @property(retain, nonatomic) NSDate *scheduledManualDownloadWifiPeriodEndTime; // @synthesize scheduledManualDownloadWifiPeriodEndTime=_scheduledManualDownloadWifiPeriodEndTime;

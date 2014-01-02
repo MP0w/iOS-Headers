@@ -8,6 +8,7 @@
 
 @class NSDictionary, NSMappedObjectStore, NSString;
 
+// Not exported
 @interface NSPersistentStoreMap : NSObject
 {
     NSMappedObjectStore *_store;
@@ -22,7 +23,7 @@
 - (void)setMetadata:(id)arg1;
 - (void)_setMetadata:(id)arg1;
 - (id)metadata;
-- (id)_updatedMetadataWithSeed:(id)arg1 includeVersioning:(BOOL)arg2;
+- (id)_updatedMetadataWithSeed:(id)arg1 includeVersioning:(_Bool)arg2;
 - (void)setDatabaseUUID:(id)arg1;
 - (id)databaseUUID;
 - (unsigned long long)_cheatAndLookAtCurrentValueOfnextPK64;

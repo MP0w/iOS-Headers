@@ -19,7 +19,7 @@
 + (id)context;
 - (id)description;
 @property unsigned int rendererFlags;
-@property(getter=isMirroringEnabled) BOOL mirroringEnabled;
+@property(getter=isMirroringEnabled) _Bool mirroringEnabled;
 @property(readonly) NSArray *displays;
 - (void)dealloc;
 - (void)_detectDisplays;

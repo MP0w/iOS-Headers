@@ -6,6 +6,7 @@
 
 #import <VectorKit/VKMapMatcher.h>
 
+// Not exported
 @interface VKSimpleMapMatcher : VKMapMatcher
 {
 }

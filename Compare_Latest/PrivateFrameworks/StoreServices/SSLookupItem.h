@@ -18,11 +18,11 @@
 @property(readonly, nonatomic) float userRating;
 @property(readonly, nonatomic) NSURL *productPageURL;
 @property(readonly, nonatomic) NSArray *offers;
-@property(readonly, nonatomic) int numberOfUserRatingsForCurrentVersion;
-@property(readonly, nonatomic) int numberOfUserRatings;
+@property(readonly, nonatomic) long long numberOfUserRatingsForCurrentVersion;
+@property(readonly, nonatomic) long long numberOfUserRatings;
 @property(readonly, nonatomic) NSNumber *ITunesStoreIdentifier;
 @property(readonly, nonatomic) NSString *itemKind;
-@property(readonly, nonatomic, getter=isPOIBased) BOOL POIBased;
+@property(readonly, nonatomic, getter=isPOIBased) _Bool POIBased;
 @property(readonly, nonatomic) NSString *displayName;
 @property(readonly, nonatomic) NSArray *categoryNames;
 @property(readonly, nonatomic) NSString *bundleIdentifier;

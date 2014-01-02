@@ -11,16 +11,16 @@
 }
 
 + (void)handleSignal;
-+ (BOOL)saveRecentLogsToTemporaryPath:(id *)arg1;
++ (_Bool)saveRecentLogsToTemporaryPath:(id *)arg1;
 + (id)recentLogs;
-+ (BOOL)isWorkspaceLoggingEnabled;
++ (_Bool)isWorkspaceLoggingEnabled;
 + (int)workspaceLoggingType;
 - (void)willBeginLoggingToPath:(id)arg1;
-- (id)fileFormat:(id)arg1 withArguments:(char *)arg2;
-- (BOOL)includeConsole;
+- (id)fileFormat:(id)arg1 withArguments:(struct __va_list_tag [1])arg2;
+- (_Bool)includeConsole;
 - (void)reloadFromDefaults;
 - (id)name;
-- (BOOL)isEnabled;
+- (_Bool)isEnabled;
 
 @end
 

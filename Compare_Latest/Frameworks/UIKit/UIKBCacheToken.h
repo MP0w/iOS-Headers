@@ -14,8 +14,9 @@
 {
     NSMutableArray *_components;
     NSString *_name;
+    double _scale;
     int _emptyFields;
-    int _renderFlags;
+    long long _renderFlags;
 }
 
 + (id)tokenTemplateFilledForKey:(id)arg1 style:(int)arg2 size:(struct CGSize)arg3;
@@ -25,22 +26,28 @@
 + (id)tokenForKey:(id)arg1 style:(CDStruct_961fb75c)arg2 displayInsets:(struct UIEdgeInsets)arg3;
 + (id)tokenForKey:(id)arg1 style:(CDStruct_961fb75c)arg2;
 + (id)tokenForKeyplane:(id)arg1;
-@property(nonatomic) int renderFlags; // @synthesize renderFlags=_renderFlags;
+@property(nonatomic) long long renderFlags; // @synthesize renderFlags=_renderFlags;
 @property(nonatomic) int emptyFields; // @synthesize emptyFields=_emptyFields;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
-- (id)stringForRenderFlags:(int)arg1 lightKeyboard:(BOOL)arg2;
-- (id)stringForSplitState:(BOOL)arg1;
+- (id)stringForRenderFlags:(long long)arg1 lightKeyboard:(_Bool)arg2;
+- (id)stringForSplitState:(_Bool)arg1;
 - (id)stringForState:(int)arg1;
 - (id)stringForKey:(id)arg1 state:(int)arg2;
-@property(readonly, nonatomic) BOOL hasKey;
+@property(readonly, nonatomic) NSString *string;
+- (id)stringForComponentArray:(id)arg1 additionalValues:(id)arg2;
+- (id)stringForConstruction:(id)arg1;
+- (int)_writeArray:(id)arg1 toStr:(char *)arg2 maxLen:(int)arg3;
+- (int)_writeEdgeInsets:(struct UIEdgeInsets)arg1 toStr:(char *)arg2 maxLen:(int)arg3;
+- (int)_writeNumber:(float)arg1 toStr:(char *)arg2;
+- (int)_writeString:(id)arg1 toStr:(char *)arg2 maxLen:(int)arg3;
+@property(readonly, nonatomic) _Bool hasKey;
 @property(nonatomic) int displayHint;
 @property(nonatomic) int rowHint;
 @property(nonatomic) struct CGSize size;
-@property(readonly, nonatomic) NSString *string;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
-- (id)initWithComponents:(id)arg1 name:(id)arg2 emptyFields:(int)arg3;
 - (id)initWithComponents:(id)arg1 name:(id)arg2;
+- (id)initWithName:(id)arg1;
 
 @end
 

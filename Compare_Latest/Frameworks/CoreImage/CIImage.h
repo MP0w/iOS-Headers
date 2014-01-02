@@ -28,9 +28,9 @@
 + (id)imageWithCVPixelBuffer:(struct __CVBuffer *)arg1 options:(id)arg2;
 + (id)imageWithCVPixelBuffer:(struct __CVBuffer *)arg1;
 + (id)imageWithTexture:(unsigned int)arg1 size:(struct CGSize)arg2 options:(id)arg3;
-+ (id)imageWithTexture:(unsigned int)arg1 size:(struct CGSize)arg2 flipped:(BOOL)arg3 colorSpace:(struct CGColorSpace *)arg4;
-+ (id)imageWithBitmapData:(id)arg1 bytesPerRow:(unsigned long)arg2 size:(struct CGSize)arg3 format:(int)arg4 colorSpace:(struct CGColorSpace *)arg5;
-+ (id)imageWithBitmapData:(id)arg1 bytesPerRow:(unsigned long)arg2 size:(struct CGSize)arg3 format:(int)arg4 options:(id)arg5;
++ (id)imageWithTexture:(unsigned int)arg1 size:(struct CGSize)arg2 flipped:(_Bool)arg3 colorSpace:(struct CGColorSpace *)arg4;
++ (id)imageWithBitmapData:(id)arg1 bytesPerRow:(unsigned long long)arg2 size:(struct CGSize)arg3 format:(int)arg4 colorSpace:(struct CGColorSpace *)arg5;
++ (id)imageWithBitmapData:(id)arg1 bytesPerRow:(unsigned long long)arg2 size:(struct CGSize)arg3 format:(int)arg4 options:(id)arg5;
 + (id)imageWithCGImage:(struct CGImage *)arg1 options:(id)arg2;
 + (id)imageWithCGImage:(struct CGImage *)arg1;
 + (id)imageWithIOSurface:(struct __IOSurface *)arg1 options:(id)arg2;
@@ -61,28 +61,20 @@
 - (id)imageByApplyingOrientation:(int)arg1;
 - (struct CGAffineTransform)imageTransformForOrientation:(int)arg1;
 - (id)initWithColor:(id)arg1;
-- (id)initWithColorR:(float)arg1 G:(float)arg2 B:(float)arg3 A:(float)arg4;
+- (id)initWithColorR:(double)arg1 G:(double)arg2 B:(double)arg3 A:(double)arg4;
 - (id)initWithCVPixelBuffer:(struct __CVBuffer *)arg1 options:(id)arg2;
 - (id)initWithCVPixelBuffer:(struct __CVBuffer *)arg1;
 - (id)initWithTexture:(unsigned int)arg1 size:(struct CGSize)arg2 options:(id)arg3;
-- (id)initWithTexture:(unsigned int)arg1 size:(struct CGSize)arg2 flipped:(BOOL)arg3 colorSpace:(struct CGColorSpace *)arg4;
-- (id)initWithBitmapData:(id)arg1 bytesPerRow:(unsigned long)arg2 size:(struct CGSize)arg3 format:(int)arg4 options:(id)arg5;
-- (id)initWithBitmapData:(id)arg1 bytesPerRow:(unsigned long)arg2 size:(struct CGSize)arg3 format:(int)arg4 colorSpace:(struct CGColorSpace *)arg5;
-- (id)_initWithBitmapData:(id)arg1 bytesPerRow:(unsigned long)arg2 size:(struct CGSize)arg3 format:(int)arg4 options:(id)arg5;
-- (id)initWithCGImageSource:(struct CGImageSource *)arg1 index:(unsigned long)arg2 options:(id)arg3;
+- (id)initWithTexture:(unsigned int)arg1 size:(struct CGSize)arg2 flipped:(_Bool)arg3 colorSpace:(struct CGColorSpace *)arg4;
+- (id)initWithBitmapData:(id)arg1 bytesPerRow:(unsigned long long)arg2 size:(struct CGSize)arg3 format:(int)arg4 options:(id)arg5;
+- (id)initWithBitmapData:(id)arg1 bytesPerRow:(unsigned long long)arg2 size:(struct CGSize)arg3 format:(int)arg4 colorSpace:(struct CGColorSpace *)arg5;
+- (id)_initWithBitmapData:(id)arg1 bytesPerRow:(unsigned long long)arg2 size:(struct CGSize)arg3 format:(int)arg4 options:(id)arg5;
+- (id)initWithCGImageSource:(struct CGImageSource *)arg1 index:(unsigned long long)arg2 options:(id)arg3;
 - (id)initWithCGImage:(struct CGImage *)arg1 options:(id)arg2;
 - (id)_initNaiveWithCGImage:(struct CGImage *)arg1 options:(id)arg2;
 - (id)initWithCGImage:(struct CGImage *)arg1;
 - (id)initWithIOSurface:(struct __IOSurface *)arg1 options:(id)arg2;
 - (id)initWithIOSurface:(struct __IOSurface *)arg1;
-- (id)autoRedEyeFilterWithFeatures:(id)arg1 options:(id)arg2;
-- (id)autoRedEyeFilterWithFeatures:(id)arg1 imageProperties:(id)arg2 options:(id)arg3;
-- (id)_autoRedEyeFilterWithFeatures:(id)arg1 imageProperties:(id)arg2 context:(id)arg3 options:(id)arg4;
-- (id)_dictForFeature:(id)arg1 scale:(float)arg2 imageHeight:(float)arg3;
-- (id)autoAdjustmentFiltersWithOptions:(id)arg1;
-- (id)autoAdjustmentFilters;
-- (id)autoAdjustmentFiltersWithImageProperties:(id)arg1 options:(id)arg2;
-- (id)_scaleImageToMaxDimension:(unsigned int)arg1;
 
 @end
 

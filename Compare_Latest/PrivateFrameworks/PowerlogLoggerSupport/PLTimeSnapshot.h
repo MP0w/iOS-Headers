@@ -12,7 +12,7 @@
 
 @interface PLTimeSnapshot : NSObject <NSCopying>
 {
-    BOOL _staticSnapshot;
+    _Bool _staticSnapshot;
     NSDate *_timestamp;
     NSDate *_startTimestamp;
     NSDate *_lastWakeTimestamp;
@@ -21,7 +21,7 @@
     double _cachedWakeTime;
 }
 
-@property BOOL staticSnapshot; // @synthesize staticSnapshot=_staticSnapshot;
+@property _Bool staticSnapshot; // @synthesize staticSnapshot=_staticSnapshot;
 @property double cachedWakeTime; // @synthesize cachedWakeTime=_cachedWakeTime;
 @property double sleepSeconds; // @synthesize sleepSeconds=_sleepSeconds;
 @property(retain, nonatomic) NSDate *lastSleepTimestamp; // @synthesize lastSleepTimestamp=_lastSleepTimestamp;

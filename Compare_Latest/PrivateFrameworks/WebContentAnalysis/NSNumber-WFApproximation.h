@@ -7,6 +7,6 @@
 #import "NSNumber.h"
 
 @interface NSNumber (WFApproximation)
-- (BOOL)WF_isEqualToNumber:(id)arg1 withPrecision:(float)arg2;
+- (_Bool)WF_isEqualToNumber:(id)arg1 withPrecision:(float)arg2;
 @end
 

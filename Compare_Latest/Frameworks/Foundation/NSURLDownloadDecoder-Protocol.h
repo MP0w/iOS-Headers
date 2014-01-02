@@ -8,10 +8,10 @@
 
 @protocol NSURLDownloadDecoder <NSObject>
 + (id)MIMEType;
-+ (BOOL)canDecodeDownloadHeaderData:(id)arg1;
++ (_Bool)canDecodeDownloadHeaderData:(id)arg1;
 - (id)filenameWithOriginalFilename:(id)arg1;
 - (id)fileAttributes;
-- (BOOL)finishDownloadDecoding;
-- (BOOL)decodeDownloadData:(id)arg1 dataForkData:(id *)arg2 resourceForkData:(id *)arg3;
+- (_Bool)finishDownloadDecoding;
+- (_Bool)decodeDownloadData:(id)arg1 dataForkData:(id *)arg2 resourceForkData:(id *)arg3;
 @end
 

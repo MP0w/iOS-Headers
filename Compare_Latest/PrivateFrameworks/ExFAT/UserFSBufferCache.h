@@ -19,10 +19,11 @@
 
 - (void).cxx_destruct;
 - (void)cache:(id)arg1 willEvictObject:(id)arg2;
+- (int)invalidateAllBuffers;
 - (int)flushAndReturnError;
 - (void)releaseBuffer:(id)arg1;
 - (int)flushBuffer:(id)arg1;
-- (id)getBufferAtOffset:(unsigned long long)arg1 ofLength:(unsigned long)arg2 error:(int *)arg3;
+- (id)getBufferAtOffset:(unsigned long long)arg1 ofLength:(unsigned long long)arg2 error:(int *)arg3;
 - (id)initWithFileDescriptor:(int)arg1;
 
 @end

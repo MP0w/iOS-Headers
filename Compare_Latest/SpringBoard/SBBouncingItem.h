@@ -12,12 +12,12 @@
 {
     struct CGRect _bounds;
     struct CGPoint _center;
-    float _multiplier;
+    double _multiplier;
     id _translateBlock;
 }
 
 @property(copy) id translateBlock; // @synthesize translateBlock=_translateBlock;
-@property float multiplier; // @synthesize multiplier=_multiplier;
+@property double multiplier; // @synthesize multiplier=_multiplier;
 @property(nonatomic) struct CGAffineTransform transform;
 - (void)setBounds:(struct CGRect)arg1;
 @property(readonly, nonatomic) struct CGRect bounds;

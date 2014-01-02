@@ -14,12 +14,12 @@
     UILabel *restoreRecommendationLabel;
     UIView *dontRestoreRecommendationContainerView;
     UILabel *dontRestoreRecommendationLabel;
-    BOOL dontRestore;
+    _Bool dontRestore;
 }
 
 @property(retain, nonatomic) UIView *dontRestoreRecommendationContainerView; // @synthesize dontRestoreRecommendationContainerView;
 @property(retain, nonatomic) UIView *restoreRecommendationContainerView; // @synthesize restoreRecommendationContainerView;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)setupInitialTableHeaderConfiguration;
 - (void)dealloc;
 - (void)viewDidLoad;

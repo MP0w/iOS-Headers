@@ -20,9 +20,9 @@
 - (id)containersRelationshipName;
 - (id)photoLibrary;
 - (id)managedObjectContext;
-- (BOOL)canEditContainers;
-- (BOOL)isEmpty;
-@property(readonly, nonatomic) unsigned int containersCount;
+- (_Bool)canEditContainers;
+- (_Bool)isEmpty;
+@property(readonly, nonatomic) unsigned long long containersCount;
 - (id)containers;
 
 @end

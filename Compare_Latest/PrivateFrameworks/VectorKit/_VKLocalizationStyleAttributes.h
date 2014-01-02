@@ -10,6 +10,7 @@
 
 @class NSDictionary;
 
+// Not exported
 @interface _VKLocalizationStyleAttributes : NSObject <GEOResourceManifestTileGroupObserver>
 {
     struct _opaque_pthread_mutex_t _lock;

@@ -10,12 +10,16 @@
 
 @interface PLGatekeeperClient : NSObject
 {
+    NSObject<OS_dispatch_queue> *_serialReplyQueue;
     NSObject<OS_xpc_object> *connection;
 }
 
++ (id)securityPolicyErrorForMissingEntitlement:(id)arg1;
 + (id)sharedInstance;
 @property(nonatomic) NSObject<OS_xpc_object> *connection; // @synthesize connection;
+- (long long)estimatedOutputFileLengthForVideoURL:(id)arg1 fallbackFilePath:(id)arg2 exportPreset:(id)arg3 exportProperties:(id)arg4;
 - (int)getCurrentModelVersion;
+- (void)rebuildAllThumbnails;
 - (void)resetDupesAnalysis;
 - (void)rebuildCloudFeed;
 - (void)analyzeMomentList:(id)arg1;
@@ -23,7 +27,7 @@
 - (void)analyzeInvalidMomentsAndDupesIfNeeded;
 - (void)analyzeAllMoments;
 - (void)rebuildMomentLists;
-- (void)rebuildMomentsIncremental:(BOOL)arg1;
+- (void)rebuildMomentsIncremental:(_Bool)arg1;
 - (void)automaticallyDeleteEmptyAlbum:(id)arg1;
 - (void)setPersonInfoDictionary:(id)arg1 forPersonID:(id)arg2;
 - (id)personInfoDictionaryForPersonID:(id)arg1;
@@ -35,44 +39,49 @@
 - (void)waitUntilConnectionSendsAllMessages;
 - (void)sendDaemonJob:(id)arg1 replyHandler:(id)arg2;
 - (void)cleanupForStoreDemoMode;
-- (void)clearAllBulletinsWithLastClearedRecordID:(unsigned int)arg1;
-- (id)getThumbnailImageDataForBulletinWithRecordID:(unsigned int)arg1;
-- (int)getCurrentApplicationBadgeCount;
+- (void)clearAllBulletinsWithLastClearedRecordID:(unsigned long long)arg1;
+- (id)getThumbnailImageDataForBulletinWithRecordID:(unsigned long long)arg1;
+- (long long)getCurrentApplicationBadgeCount;
 - (id)getCurrentBulletins;
 - (void)repairSingletonObjects;
 - (void)createPhotostreamAlbumWithStreamID:(id)arg1;
 - (void)enablePhotostreamsWithStreamID:(id)arg1;
 - (void)recoverFromCrashIfNeeded;
 - (void)clearChangeStore;
+- (_Bool)hasCompletedMomentAnalysis;
+- (_Bool)hasCompletedRestorePostProcessing;
 - (void)recalculateCachedAlbumCounts;
 - (void)notifyAboutTerminationDueToUncaughtException:(id)arg1;
 - (void)dataMigrationWillFinish;
 - (void)repairPotentialModelCorruption;
 - (void)cleanupModelAfteriTunesRestore;
-- (unsigned int)secondsNeededToCleanupModelAfteriTunesRestore;
+- (unsigned long long)secondsNeededToCleanupModelAfteriTunesRestore;
 - (void)writeDataInBackground:(id)arg1 toFileURL:(id)arg2;
 - (void)updateRestoredAssetWithUUID:(id)arg1 paths:(id)arg2;
-- (void)cleanupAfteriTunesSync;
-- (void)finalizeOTARestoreRecreatingAlbums:(BOOL)arg1;
+- (void)finalizeOTARestoreRecreatingAlbums:(_Bool)arg1;
 - (void)updateModelAfterOTARestore;
-- (void)updateStackedImageCacheForAlbum:(id)arg1;
 - (void)updateCameraPreviewWellImage:(id)arg1;
-- (void)updateThumbnailsForPhoto:(id)arg1 waitForReply:(BOOL)arg2 assignNewIndex:(BOOL)arg3 forceRefresh:(BOOL)arg4;
+- (void)updateThumbnailsForPhotos:(id)arg1 waitForReply:(_Bool)arg2 assignNewIndex:(_Bool)arg3 forceRefresh:(_Bool)arg4;
+- (void)setLargePreviewImageForAssetWithURL:(id)arg1 imageData:(id)arg2 properties:(id)arg3 handler:(id)arg4;
 - (void)getLibrarySizes:(id)arg1;
 - (void)getPhotosAndVideosCountWithHandler:(id)arg1;
 - (void)launchAssetsd;
-- (void)importFileSystemAssetsWaitingForReply:(BOOL)arg1;
+- (void)importFileSystemAssetsWaitingForReply:(_Bool)arg1;
 - (void)createPhotoLibraryDatabase;
+- (void)setExternalUsageIntent:(unsigned long long)arg1 forAssetWithURL:(id)arg2 handler:(id)arg3;
+- (void)deleteAssetWithURL:(id)arg1 handler:(id)arg2;
 - (void)addAssetWithURL:(id)arg1 toAlbumWithUUID:(id)arg2 handler:(id)arg3;
 - (void)addGroupWithName:(id)arg1 handler:(id)arg2;
 - (id)imageDataForAsset:(id)arg1 format:(int)arg2;
 - (void)requestImageDataForAsset:(id)arg1 format:(int)arg2 handler:(id)arg3;
 - (id)fileURLForNewAssetWithType:(unsigned int)arg1 extension:(id)arg2;
+- (void)batchSaveAssetsWithJobDictionaries:(id)arg1 handler:(id)arg2;
 - (void)saveAssetWithJobDictionary:(id)arg1 handler:(id)arg2 imageSurface:(void)arg3 previewImageSurface:(struct __IOSurface *)arg4;
-- (id)fileURLForAssetURL:(id)arg1 withAdjustments:(BOOL)arg2;
+- (id)fileURLForAssetURL:(id)arg1 withAdjustments:(_Bool)arg2;
 - (int)fileDescriptorForAssetURL:(id)arg1;
 - (void)requestAccessWithHandler:(id)arg1;
 - (id)init;
+- (id)deviceSpecificReplyQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *replyQueue;
 - (id)sendQueue;
 

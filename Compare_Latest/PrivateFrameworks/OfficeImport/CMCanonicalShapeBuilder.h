@@ -6,6 +6,7 @@
 
 #import <OfficeImport/CMShapeBuilder.h>
 
+// Not exported
 @interface CMCanonicalShapeBuilder : CMShapeBuilder
 {
 }

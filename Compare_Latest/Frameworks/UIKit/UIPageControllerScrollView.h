@@ -14,10 +14,10 @@
 }
 
 @property(nonatomic) UIPageController *pageController; // @synthesize pageController=_pageController;
-- (int)_abuttedPagingEdges;
-- (void)_scrollViewAnimationEnded:(id)arg1 finished:(BOOL)arg2;
+- (unsigned long long)_abuttedPagingEdges;
+- (void)_scrollViewAnimationEnded:(id)arg1 finished:(_Bool)arg2;
 - (void)_scrollViewDidEndDecelerating;
-- (void)_scrollViewDidEndDraggingWithDeceleration:(BOOL)arg1;
+- (void)_scrollViewDidEndDraggingWithDeceleration:(_Bool)arg1;
 - (void)_scrollViewWillBeginDragging;
 - (void)layoutSubviews;
 - (void)setFrame:(struct CGRect)arg1;

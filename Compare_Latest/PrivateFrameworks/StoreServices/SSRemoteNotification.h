@@ -26,7 +26,7 @@
 @property(readonly, nonatomic) NSString *alertOKString;
 @property(readonly, nonatomic) NSString *alertCancelString;
 @property(readonly, nonatomic) NSString *alertBodyString;
-@property(readonly, nonatomic) int actionType;
+@property(readonly, nonatomic) long long actionType;
 - (void)dealloc;
 - (id)initWithNotificationUserInfo:(id)arg1;
 

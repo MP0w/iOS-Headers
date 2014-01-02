@@ -6,29 +6,32 @@
 
 #import "NSObject.h"
 
-@class SBLockScreenBounceAnimator, SBLockScreenView, UIView, _UIDynamicValueAnimation;
+@class SBDisableAppStatusBarAlphaChangesAssertion, SBLockScreenBounceAnimator, SBLockScreenView, UIView, _UIDynamicValueAnimation;
 
 @interface SBLockScreenSlideUpController : NSObject
 {
-    BOOL _isInScreenOffMode;
+    _Bool _isInScreenOffMode;
     UIView *_slidingStatusBarView;
     SBLockScreenView *_lockScreenView;
     SBLockScreenBounceAnimator *_bounceAnimator;
     _UIDynamicValueAnimation *_dynamicAnimation;
+    SBDisableAppStatusBarAlphaChangesAssertion *_disableStatusBarAssertion;
 }
 
 + (id)lockScreenViewFakeStatusBar;
-- (id)_newDynamicAnimationForGestureSucceeded:(BOOL)arg1 targetValue:(double)arg2 withInitialVelocity:(double)arg3;
+@property(retain) SBDisableAppStatusBarAlphaChangesAssertion *disableStatusBarAssertion; // @synthesize disableStatusBarAssertion=_disableStatusBarAssertion;
+- (id)bounceAnimator;
+- (id)_newDynamicAnimationForGestureSucceeded:(_Bool)arg1 targetValue:(double)arg2 withInitialVelocity:(double)arg3;
 - (id)_newBounceAnimatorWithGrabberView:(id)arg1;
 - (void)abortDynamicAnimationForScreenOff;
-- (void)setInScreenOffMode:(BOOL)arg1;
+- (void)setInScreenOffMode:(_Bool)arg1;
 - (void)hideSlidingStatusBar;
 - (void)finalizeGesture;
 - (void)cleanupFromGesture;
 - (void)prepareForSlideUpAnimation;
-- (void)translateSlidingViewByY:(float)arg1;
-- (void)gestureDidEnd:(BOOL)arg1;
-- (void)gestureWillEndWithVelocity:(float)arg1;
+- (void)translateSlidingViewByY:(double)arg1;
+- (void)gestureDidEnd:(_Bool)arg1;
+- (void)gestureWillEndWithVelocity:(double)arg1;
 - (void)setGrabberOnLockScreen:(id)arg1;
 - (id)grabberView;
 - (void)dealloc;

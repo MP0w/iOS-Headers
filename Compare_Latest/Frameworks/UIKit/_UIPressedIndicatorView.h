@@ -8,10 +8,11 @@
 
 @class UIImage;
 
+// Not exported
 @interface _UIPressedIndicatorView : UIView
 {
     UIImage *_image;
-    CDStruct_c8cd2c5d _slices;
+    CDStruct_fa4dcde7 _slices;
 }
 
 - (void)drawRect:(struct CGRect)arg1;

@@ -8,6 +8,7 @@
 
 @class NSMutableData;
 
+// Not exported
 @interface SBKZipDeflateMemoryOutputStream : NSObject
 {
     NSMutableData *deflatedData;
@@ -18,10 +19,10 @@
 
 + (id)dataByDeflatingData:(id)arg1;
 - (void).cxx_destruct;
-- (BOOL)writeBuffer:(const char *)arg1 size:(unsigned long)arg2;
+- (_Bool)writeBuffer:(const char *)arg1 size:(unsigned long long)arg2;
 - (id)close;
 - (void)dealloc;
-- (id)initWithBufferingSize:(int)arg1 compressionType:(unsigned int)arg2;
+- (id)initWithBufferingSize:(int)arg1 compressionType:(unsigned long long)arg2;
 
 @end
 

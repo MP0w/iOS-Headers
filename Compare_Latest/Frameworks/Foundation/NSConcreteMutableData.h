@@ -6,33 +6,34 @@
 
 #import "NSMutableData.h"
 
+// Not exported
 @interface NSConcreteMutableData : NSMutableData
 {
     unsigned int _reserved:1;
     unsigned int _needToZero:1;
     unsigned int _hasVM:1;
     unsigned int _retainCount:29;
-    unsigned int _length;
-    unsigned int _capacity;
+    unsigned long long _length;
+    unsigned long long _capacity;
     void *_bytes;
 }
 
 - (void)finalize;
 - (void)dealloc;
-- (id)initWithBytes:(void *)arg1 length:(unsigned int)arg2 copy:(BOOL)arg3 deallocator:(id)arg4;
-- (id)initWithCapacity:(unsigned int)arg1;
-- (id)initWithLength:(unsigned int)arg1;
+- (id)initWithBytes:(void *)arg1 length:(unsigned long long)arg2 copy:(_Bool)arg3 deallocator:(id)arg4;
+- (id)initWithCapacity:(unsigned long long)arg1;
+- (id)initWithLength:(unsigned long long)arg1;
 - (id)init;
 - (void)resetBytesInRange:(struct _NSRange)arg1;
 - (void)replaceBytesInRange:(struct _NSRange)arg1 withBytes:(const void *)arg2;
-- (void)increaseLengthBy:(unsigned int)arg1;
+- (void)increaseLengthBy:(unsigned long long)arg1;
 - (void)appendData:(id)arg1;
-- (void)appendBytes:(const void *)arg1 length:(unsigned int)arg2;
-- (void)setLength:(unsigned int)arg1;
+- (void)appendBytes:(const void *)arg1 length:(unsigned long long)arg2;
+- (void)setLength:(unsigned long long)arg1;
 - (void)_freeBytes;
 - (void *)mutableBytes;
 - (const void *)bytes;
-- (unsigned int)length;
+- (unsigned long long)length;
 
 @end
 

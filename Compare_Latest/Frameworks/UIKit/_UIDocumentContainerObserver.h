@@ -8,6 +8,7 @@
 
 @class NSArray, NSDate, NSMutableDictionary, NSMutableSet, NSOrderedSet, NSPredicate;
 
+// Not exported
 @interface _UIDocumentContainerObserver : NSObject
 {
     NSMutableSet *_added;

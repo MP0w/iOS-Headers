@@ -10,20 +10,23 @@
 
 @class VKRoadPainter, VKStylesheet;
 
+// Not exported
 @interface VKRoadMapModel : VKVectorMapModel <VKStylesheetObserver>
 {
     VKRoadPainter *_roadPainter;
-    BOOL _drawRoads;
+    _Bool _drawRoads;
+    unsigned int _supportedRenderPasses;
+    unsigned long long _mapLayerPosition;
 }
 
-@property(nonatomic) BOOL drawRoads; // @synthesize drawRoads=_drawRoads;
+@property(nonatomic) unsigned int supportedRenderPasses; // @synthesize supportedRenderPasses=_supportedRenderPasses;
+@property(nonatomic) unsigned long long mapLayerPosition; // @synthesize mapLayerPosition=_mapLayerPosition;
+@property(nonatomic) _Bool drawRoads; // @synthesize drawRoads=_drawRoads;
 - (void)stylesheetDidChange;
 - (void)dealloc;
 - (id)init;
 - (void)drawDebugScene:(id)arg1 WithContext:(id)arg2;
 - (void)drawScene:(id)arg1 withContext:(id)arg2;
-- (unsigned int)supportedRenderPasses;
-- (unsigned int)mapLayerPosition;
 
 // Remaining properties
 @property(readonly, nonatomic) VKStylesheet *stylesheet;

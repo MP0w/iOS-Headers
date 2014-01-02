@@ -29,10 +29,10 @@
 - (void)resume;
 - (void)endGeneratingForMediaObject:(id)arg1 orientation:(BOOL)arg2;
 - (void)beginGeneratingForMediaObject:(id)arg1 orientation:(BOOL)arg2;
-- (BOOL)isGeneratingForMediaObject:(id)arg1 orientation:(BOOL)arg2;
+- (_Bool)isGeneratingForMediaObject:(id)arg1 orientation:(BOOL)arg2;
 - (void)setCachedPreview:(id)arg1 forMediaObject:(id)arg2 orientation:(BOOL)arg3;
 - (id)cachedPreviewForMediaObject:(id)arg1 orientation:(BOOL)arg2;
-- (void)enqueueGenerationBlock:(id)arg1 completion:(void)arg2 withPriority:(id)arg3 forMediaObject:(void)arg4 orientation:(int)arg5;
+- (void)enqueueGenerationBlock:(id)arg1 completion:(void)arg2 withPriority:(id)arg3 forMediaObject:(void)arg4 orientation:(long long)arg5;
 - (void)enqueueSaveBlock:(id)arg1 forMediaObject:(void)arg2 withPriority:(id)arg3;
 - (id)init;
 - (void)dealloc;

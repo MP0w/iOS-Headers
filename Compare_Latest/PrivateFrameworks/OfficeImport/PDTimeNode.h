@@ -8,6 +8,7 @@
 
 @class NSMutableArray, NSString, PDIterate;
 
+// Not exported
 @interface PDTimeNode : NSObject
 {
     NSMutableArray *mStartTimeConditions;
@@ -22,7 +23,7 @@
     int mRepeatCount;
     int mRepeatDuration;
     int mRestartType;
-    BOOL mHasDuration;
+    _Bool mHasDuration;
     double mDuration;
     double mSpeed;
     double mAcceleration;
@@ -41,10 +42,10 @@
 - (double)speed;
 - (void)setDuration:(double)arg1;
 - (double)duration;
-- (BOOL)hasDuration;
+- (_Bool)hasDuration;
 - (void)setRestartType:(int)arg1;
 - (int)restartType;
-- (BOOL)hasRestartType;
+- (_Bool)hasRestartType;
 - (void)setRepeatDuration:(int)arg1;
 - (int)repeatDuration;
 - (void)setRepeatCount:(int)arg1;
@@ -55,10 +56,10 @@
 - (int)presetSubType;
 - (void)setAnimationPresetClass:(int)arg1;
 - (int)animationPresetClass;
-- (BOOL)hasPresetClass;
+- (_Bool)hasPresetClass;
 - (void)setType:(int)arg1;
 - (int)type;
-- (BOOL)hasType;
+- (_Bool)hasType;
 - (void)setIterate:(id)arg1;
 - (id)iterate;
 - (void)setSubTimeNodeList:(id)arg1;

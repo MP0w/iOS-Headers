@@ -18,8 +18,8 @@
     NSObject<OS_dispatch_queue> *_sessionQueue;
     NSObject<OS_dispatch_queue> *_callbackQueue;
     NSString *_activeFilter;
-    BOOL _isInternalClient;
-    BOOL _didUnregister;
+    _Bool _isInternalClient;
+    _Bool _didUnregister;
 }
 
 - (void)dealloc;
@@ -27,23 +27,23 @@
 - (id)clientIdentifier;
 - (id)bundleIdentifier;
 - (void)unregister;
-- (BOOL)setLastRemoteFindDate:(id)arg1;
+- (_Bool)setLastRemoteFindDate:(id)arg1;
 - (void)performNextStepWithOptions:(id)arg1;
 - (void)performStep:(id)arg1 withOptions:(id)arg2;
 - (const char *)getActiveDeviceClassCString;
 - (id)getActiveDeviceClass;
-- (BOOL)setActiveDeviceClass:(id)arg1;
+- (_Bool)setActiveDeviceClass:(id)arg1;
 - (id)queryNextStep:(id *)arg1;
-- (BOOL)sendMessageForCommand:(int)arg1 withOptions:(id)arg2 requiresFilter:(BOOL)arg3 replyHandler:(id)arg4;
-- (BOOL)sendMessageForCommand:(int)arg1 withOptions:(id)arg2 requiresFilter:(BOOL)arg3;
-- (BOOL)doesOperationCodeRequireFilter:(int)arg1;
+- (_Bool)sendMessageForCommand:(int)arg1 withOptions:(id)arg2 requiresFilter:(_Bool)arg3 replyHandler:(id)arg4;
+- (_Bool)sendMessageForCommand:(int)arg1 withOptions:(id)arg2 requiresFilter:(_Bool)arg3;
+- (_Bool)doesOperationCodeRequireFilter:(int)arg1;
 - (int)getOperationCodeFromName:(id)arg1;
 - (void)handleInboundEvent:(id)arg1;
-- (BOOL)registerForIdentifier:(id)arg1 isGroupIdentifier:(BOOL)arg2;
+- (_Bool)registerForIdentifier:(id)arg1 isGroupIdentifier:(_Bool)arg2;
 - (void)createConnection;
 - (id)initWithPluginIdentifier:(id)arg1 delegate:(id)arg2 options:(id)arg3 error:(id *)arg4;
 - (id)initWithGroupIdentifer:(id)arg1 delegate:(id)arg2 options:(id)arg3 error:(id *)arg4;
-- (id)initWithPluginIdentifier:(id)arg1 isGroupIdentifier:(BOOL)arg2 delegate:(id)arg3 isInternalClient:(BOOL)arg4 options:(id)arg5 error:(id *)arg6;
+- (id)initWithPluginIdentifier:(id)arg1 isGroupIdentifier:(_Bool)arg2 delegate:(id)arg3 isInternalClient:(_Bool)arg4 options:(id)arg5 error:(id *)arg6;
 
 @end
 

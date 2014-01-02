@@ -17,8 +17,8 @@
 - (id)uniqueOperationForKey:(id)arg1;
 - (void)setUniqueOperation:(id)arg1 forKey:(id)arg2;
 - (void)removeOperation:(id)arg1;
-- (unsigned int)countOfOperations;
-- (BOOL)containsOperation:(id)arg1;
+- (unsigned long long)countOfOperations;
+- (_Bool)containsOperation:(id)arg1;
 - (void)addOperation:(id)arg1;
 - (void)dealloc;
 - (id)init;

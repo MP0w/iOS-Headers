@@ -8,6 +8,7 @@
 
 @class NSURL;
 
+// Not exported
 @interface _UITextViewInteractableLink : _UITextViewInteractableItem
 {
     NSURL *_link;
@@ -23,7 +24,7 @@
 - (id)linkActions;
 - (id)defaultAction;
 - (id)actions;
-- (BOOL)allowInteraction;
+- (_Bool)allowInteraction;
 - (id)localizedTitle;
 - (void)dealloc;
 

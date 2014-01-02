@@ -26,29 +26,29 @@
     NSString *_nextPTag;
     NSArray *_actions;
     void *_context;
-    unsigned int _multiGetBatchSize;
+    unsigned long long _multiGetBatchSize;
     NSMutableArray *_unsubmittedTasks;
     NSURL *_addMemberURL;
-    BOOL _useMultiGet;
+    _Bool _useMultiGet;
     NSMutableSet *_syncReportDeletedURLs;
     NSMutableDictionary *_leafURLToETag;
     NSMutableArray *_childCollectionURL;
     Class _appSpecificDataItemClass;
     Class _appSpecificContainerItemClass;
-    BOOL _syncItemOrder;
+    _Bool _syncItemOrder;
     NSMutableDictionary *_folderURLToChildrenURLOrder;
-    BOOL _preflightCTag;
+    _Bool _preflightCTag;
 }
 
 @property(retain) NSString *nextCTag; // @synthesize nextCTag=_nextCTag;
 @property(readonly) NSDictionary *folderURLToChildrenURLOrder; // @synthesize folderURLToChildrenURLOrder=_folderURLToChildrenURLOrder;
 @property(readonly) void *context; // @synthesize context=_context;
 @property(retain) NSString *previousSyncToken; // @synthesize previousSyncToken=_previousSyncToken;
-@property BOOL preflightCTag; // @synthesize preflightCTag=_preflightCTag;
+@property _Bool preflightCTag; // @synthesize preflightCTag=_preflightCTag;
 @property(readonly) NSString *previousCTag; // @synthesize previousCTag=_previousCTag;
 @property(readonly) NSURL *folderURL; // @synthesize folderURL=_folderURL;
-@property unsigned int multiGetBatchSize; // @synthesize multiGetBatchSize=_multiGetBatchSize;
-- (BOOL)shouldSyncChildWithResourceType:(id)arg1;
+@property unsigned long long multiGetBatchSize; // @synthesize multiGetBatchSize=_multiGetBatchSize;
+- (_Bool)shouldSyncChildWithResourceType:(id)arg1;
 - (id)dataContentType;
 - (id)copyFolderMultiGetTaskWithURLs:(id)arg1;
 - (id)copyMultiGetTaskWithURLs:(id)arg1;
@@ -63,7 +63,7 @@
 - (void)_folderModTask:(id)arg1 parsedPropStats:(id)arg2 error:(id)arg3;
 - (void)_postTask:(id)arg1 didFinishWithError:(id)arg2;
 - (void)putTask:(id)arg1 completedWithNewETag:(id)arg2 error:(id)arg3;
-- (BOOL)isWhitelistedError:(id)arg1;
+- (_Bool)isWhitelistedError:(id)arg1;
 - (void)syncAway;
 - (void)startTaskGroup;
 - (void)_getDataPayloads;
@@ -71,7 +71,7 @@
 - (void)_getTopFolderTags;
 - (void)_pushActions;
 - (void)_taskGroupSuccessfullyFinishedWithContents:(id)arg1;
-- (unsigned int)_submitTasks;
+- (unsigned long long)_submitTasks;
 - (void)cancelTaskGroup;
 - (void)bailWithError:(id)arg1;
 - (void)_foundChildrenOrder:(id)arg1 inFolderWithURL:(id)arg2;
@@ -79,7 +79,7 @@
 - (void)taskGroupWillCancelWithError:(id)arg1;
 - (id)description;
 - (void)dealloc;
-- (id)initWithFolderURL:(id)arg1 previousCTag:(id)arg2 previousPTag:(id)arg3 previousSyncToken:(id)arg4 actions:(id)arg5 syncItemOrder:(BOOL)arg6 context:(void *)arg7 accountInfoProvider:(id)arg8 taskManager:(id)arg9;
+- (id)initWithFolderURL:(id)arg1 previousCTag:(id)arg2 previousPTag:(id)arg3 previousSyncToken:(id)arg4 actions:(id)arg5 syncItemOrder:(_Bool)arg6 context:(void *)arg7 accountInfoProvider:(id)arg8 taskManager:(id)arg9;
 
 // Remaining properties
 @property(nonatomic) id <CoreDAVLocalDBTreeInfoProvider> delegate; // @dynamic delegate;

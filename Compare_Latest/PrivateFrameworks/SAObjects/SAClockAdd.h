@@ -14,7 +14,7 @@
 
 + (id)addWithDictionary:(id)arg1 context:(id)arg2;
 + (id)add;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(retain, nonatomic) SAClockObject *clockToAdd;
 - (id)encodedClassName;
 - (id)groupIdentifier;

@@ -8,32 +8,33 @@
 
 @class EKObject, NSString;
 
+// Not exported
 @interface EKObjectRelation : NSObject
 {
     EKObject *_owner;
     NSString *_relationName;
-    BOOL _dirty;
-    BOOL _loaded;
+    _Bool _dirty;
+    _Bool _loaded;
     NSString *_inverseName;
 }
 
 @property(readonly, nonatomic) NSString *inverseName; // @synthesize inverseName=_inverseName;
 @property(readonly, nonatomic) NSString *relationName; // @synthesize relationName=_relationName;
 @property(readonly, nonatomic) EKObject *owner; // @synthesize owner=_owner;
-- (void)_removeRelatedObject:(id)arg1 setInverse:(BOOL)arg2 dirty:(BOOL)arg3;
-- (void)_addRelatedObject:(id)arg1 setInverse:(BOOL)arg2 dirty:(BOOL)arg3;
+- (void)_removeRelatedObject:(id)arg1 setInverse:(_Bool)arg2 dirty:(_Bool)arg3;
+- (void)_addRelatedObject:(id)arg1 setInverse:(_Bool)arg2 dirty:(_Bool)arg3;
 - (id)committedValue;
-- (BOOL)validate:(id *)arg1;
+- (_Bool)validate:(id *)arg1;
 - (void)relatedObjectDidChange;
-- (BOOL)isDirty;
+- (_Bool)isDirty;
 - (void)didCommit;
 - (void)refresh;
 - (void)rollback;
 - (void)reset;
 - (void)updatePersistentObject;
-- (BOOL)isWeak;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isWeak;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)dealloc;
 - (id)initWithOwner:(id)arg1 relationName:(id)arg2 inverseRelationName:(id)arg3;
 

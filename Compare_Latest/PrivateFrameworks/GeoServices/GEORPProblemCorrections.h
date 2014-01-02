@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class GEORPCorrectedCoordinate, GEORPCorrectedLabel, GEORPCorrectedSearch, GEORPMapLocation, NSMutableArray, NSString;
 
-@interface GEORPProblemCorrections : PBCodable
+@interface GEORPProblemCorrections : PBCodable <NSCopying>
 {
     NSString *_comments;
     GEORPCorrectedCoordinate *_correctedCoordinate;
@@ -24,20 +26,21 @@
 @property(retain, nonatomic) GEORPCorrectedCoordinate *correctedCoordinate; // @synthesize correctedCoordinate=_correctedCoordinate;
 @property(retain, nonatomic) GEORPCorrectedLabel *correctedLabel; // @synthesize correctedLabel=_correctedLabel;
 @property(retain, nonatomic) NSMutableArray *correctedFields; // @synthesize correctedFields=_correctedFields;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) BOOL hasComments;
-@property(readonly, nonatomic) BOOL hasCorrectedMapLocation;
-@property(readonly, nonatomic) BOOL hasCorrectedSearch;
-@property(readonly, nonatomic) BOOL hasCorrectedCoordinate;
-@property(readonly, nonatomic) BOOL hasCorrectedLabel;
-- (id)correctedFieldsAtIndex:(unsigned int)arg1;
-- (unsigned int)correctedFieldsCount;
+@property(readonly, nonatomic) _Bool hasComments;
+@property(readonly, nonatomic) _Bool hasCorrectedMapLocation;
+@property(readonly, nonatomic) _Bool hasCorrectedSearch;
+@property(readonly, nonatomic) _Bool hasCorrectedCoordinate;
+@property(readonly, nonatomic) _Bool hasCorrectedLabel;
+- (id)correctedFieldsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)correctedFieldsCount;
 - (void)addCorrectedFields:(id)arg1;
 - (void)clearCorrectedFields;
 - (void)dealloc;

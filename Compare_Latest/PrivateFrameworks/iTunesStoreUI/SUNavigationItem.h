@@ -12,7 +12,7 @@
 {
 }
 
-- (void)setSecondaryLeftBarButtonItem:(id)arg1 animated:(BOOL)arg2;
+- (void)setSecondaryLeftBarButtonItem:(id)arg1 animated:(_Bool)arg2;
 @property(retain, nonatomic) UIBarButtonItem *secondaryLeftBarButtonItem;
 
 @end

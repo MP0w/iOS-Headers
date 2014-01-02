@@ -14,14 +14,14 @@
 + (id)mediaGroups;
 - (id)specifiers;
 - (id)sizeForSpecifier:(id)arg1;
-- (BOOL)tableView:(id)arg1 shouldIndentWhileEditingRowAtIndexPath:(id)arg2;
-- (void)tableView:(id)arg1 commitEditingStyle:(int)arg2 forRowAtIndexPath:(id)arg3;
-- (void)updateSizesAfterDeletingSize:(float)arg1 shouldPop:(BOOL)arg2;
-- (int)tableView:(id)arg1 editingStyleForRowAtIndexPath:(id)arg2;
+- (_Bool)tableView:(id)arg1 shouldIndentWhileEditingRowAtIndexPath:(id)arg2;
+- (void)tableView:(id)arg1 commitEditingStyle:(long long)arg2 forRowAtIndexPath:(id)arg3;
+- (void)updateSizesAfterDeletingSize:(float)arg1 shouldPop:(_Bool)arg2;
+- (long long)tableView:(id)arg1 editingStyleForRowAtIndexPath:(id)arg2;
 - (void)dealloc;
 - (id)size:(id)arg1;
-- (BOOL)canBeShownFromSuspendedState;
-- (BOOL)needsToShowToolbarInPrefsAppRoot;
+- (_Bool)canBeShownFromSuspendedState;
+- (_Bool)needsToShowToolbarInPrefsAppRoot;
 - (void)loadView;
 
 @end

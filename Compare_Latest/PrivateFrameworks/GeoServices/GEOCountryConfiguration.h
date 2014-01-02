@@ -15,26 +15,27 @@
     NSString *_countryCode;
     NSDictionary *_oldProvidersInfo;
     NSString *_oldCountryCode;
-    BOOL _isObservingReachability;
-    BOOL _isUpdating;
-    BOOL _currentCountrySupportsTraffic;
-    BOOL _currentCountrySupportsDirections;
+    _Bool _isObservingReachability;
+    _Bool _isUpdating;
+    _Bool _currentCountrySupportsTraffic;
+    _Bool _currentCountrySupportsDirections;
 }
 
 + (id)sharedConfiguration;
-@property(readonly, nonatomic) BOOL currentCountrySupportsTraffic; // @synthesize currentCountrySupportsTraffic=_currentCountrySupportsTraffic;
-@property(readonly, nonatomic) BOOL currentCountrySupportsDirections; // @synthesize currentCountrySupportsDirections=_currentCountrySupportsDirections;
+@property(readonly, nonatomic) _Bool currentCountrySupportsTraffic; // @synthesize currentCountrySupportsTraffic=_currentCountrySupportsTraffic;
+@property(readonly, nonatomic) _Bool currentCountrySupportsDirections; // @synthesize currentCountrySupportsDirections=_currentCountrySupportsDirections;
 @property(copy, nonatomic) NSString *countryCode; // @synthesize countryCode=_countryCode;
 - (void)resourceManifestManagerDidChangeActiveTileGroup:(id)arg1;
 - (void)resourceManifestManagerWillChangeActiveTileGroup:(id)arg1;
 - (id)countryDefaultForKey:(id)arg1;
-- (id)countryDefaultForKey:(id)arg1 sourcePtr:(int *)arg2;
+- (id)countryDefaultForKey:(id)arg1 sourcePtr:(long long *)arg2;
 - (id)defaultForKey:(id)arg1 defaultValue:(id)arg2;
-- (id)defaultForKey:(id)arg1 defaultValue:(id)arg2 sourcePtr:(int *)arg3;
+- (id)defaultForKey:(id)arg1 defaultValue:(id)arg2 sourcePtr:(long long *)arg3;
 - (void)_useCountryCodeProvider:(id)arg1;
 - (void)_checkCountryProviders;
 - (void)_registerNetworkDefaults;
 - (void)_checkCountryCode;
+@property(readonly, nonatomic) _Bool currentCountrySupportsNavigation;
 - (void)_updatedSupportedFeatures;
 - (void)updateProvidersForCurrentCountry;
 - (void)_reachabilityChanged:(id)arg1;

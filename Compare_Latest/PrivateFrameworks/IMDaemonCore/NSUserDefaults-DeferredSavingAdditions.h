@@ -7,6 +7,6 @@
 #import "NSUserDefaults.h"
 
 @interface NSUserDefaults (DeferredSavingAdditions)
-- (BOOL)delayedSynchronize;
+- (_Bool)delayedSynchronize;
 @end
 

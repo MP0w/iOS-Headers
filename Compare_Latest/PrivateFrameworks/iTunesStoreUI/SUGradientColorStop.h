@@ -10,22 +10,22 @@
 
 @interface SUGradientColorStop : NSObject <NSCoding>
 {
-    float _r;
-    float _g;
-    float _b;
-    float _a;
-    float _offset;
+    double _r;
+    double _g;
+    double _b;
+    double _a;
+    double _offset;
     struct CGColor *_rawColor;
 }
 
 - (id)description;
-@property(readonly, nonatomic) float offset;
+@property(readonly, nonatomic) double offset;
 - (struct CGColor *)copyCGColor;
-- (int)compare:(id)arg1;
+- (long long)compare:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (void)dealloc;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithColor:(struct CGColor *)arg1 offset:(float)arg2;
+- (id)initWithColor:(struct CGColor *)arg1 offset:(double)arg2;
 - (id)init;
 
 @end

@@ -10,22 +10,52 @@
 
 @interface PUZoomableGridViewControllerSpec : NSObject
 {
+    _Bool _canDisplayMultipleRightBarButtonItems;
+    int _magnifiedImageFormat;
+    int _fullMomentsLevelThumbnailFormat;
     PUPhotosGridViewControllerSpec *_gridSpec;
-    struct UIEdgeInsets _groupedMomentsLevelSectionContentInset;
-    struct UIEdgeInsets _groupedMomentsLevelSectionHeaderContentInset;
-    struct UIEdgeInsets _collapsedYearsLevelSectionContentInset;
+    double _magnifiedYOffset;
+    long long _fullMomentsSectionHeaderStyle;
+    long long _collectionsSectionHeaderStyle;
+    long long _yearsSectionHeaderStyle;
+    struct CGSize _magnifiedImageSize;
+    struct UIEdgeInsets _magnifiedDragEdgeInsets;
+    struct UIEdgeInsets _fullMomentsLevelSectionHeaderContentInset;
+    struct UIEdgeInsets _fullMomentsLevelSectionHeaderHighlightInset;
+    struct UIEdgeInsets _collectionsLevelSectionHeaderContentInset;
+    struct UIEdgeInsets _collectionsLevelSectionHeaderHighlightInset;
+    struct UIEdgeInsets _yearsLevelSectionHeaderContentInset;
+    struct UIEdgeInsets _yearsLevelSectionHeaderHighlightInset;
 }
 
-@property(readonly, nonatomic) struct UIEdgeInsets collapsedYearsLevelSectionContentInset; // @synthesize collapsedYearsLevelSectionContentInset=_collapsedYearsLevelSectionContentInset;
-@property(readonly, nonatomic) struct UIEdgeInsets groupedMomentsLevelSectionHeaderContentInset; // @synthesize groupedMomentsLevelSectionHeaderContentInset=_groupedMomentsLevelSectionHeaderContentInset;
-@property(readonly, nonatomic) struct UIEdgeInsets groupedMomentsLevelSectionContentInset; // @synthesize groupedMomentsLevelSectionContentInset=_groupedMomentsLevelSectionContentInset;
-@property(readonly, nonatomic) PUPhotosGridViewControllerSpec *gridSpec; // @synthesize gridSpec=_gridSpec;
+@property(readonly, nonatomic) long long yearsSectionHeaderStyle; // @synthesize yearsSectionHeaderStyle=_yearsSectionHeaderStyle;
+@property(readonly, nonatomic) struct UIEdgeInsets yearsLevelSectionHeaderHighlightInset; // @synthesize yearsLevelSectionHeaderHighlightInset=_yearsLevelSectionHeaderHighlightInset;
+@property(readonly, nonatomic) struct UIEdgeInsets yearsLevelSectionHeaderContentInset; // @synthesize yearsLevelSectionHeaderContentInset=_yearsLevelSectionHeaderContentInset;
+@property(readonly, nonatomic) long long collectionsSectionHeaderStyle; // @synthesize collectionsSectionHeaderStyle=_collectionsSectionHeaderStyle;
+@property(readonly, nonatomic) struct UIEdgeInsets collectionsLevelSectionHeaderHighlightInset; // @synthesize collectionsLevelSectionHeaderHighlightInset=_collectionsLevelSectionHeaderHighlightInset;
+@property(readonly, nonatomic) struct UIEdgeInsets collectionsLevelSectionHeaderContentInset; // @synthesize collectionsLevelSectionHeaderContentInset=_collectionsLevelSectionHeaderContentInset;
+@property(readonly, nonatomic) long long fullMomentsSectionHeaderStyle; // @synthesize fullMomentsSectionHeaderStyle=_fullMomentsSectionHeaderStyle;
+@property(readonly, nonatomic) struct UIEdgeInsets fullMomentsLevelSectionHeaderHighlightInset; // @synthesize fullMomentsLevelSectionHeaderHighlightInset=_fullMomentsLevelSectionHeaderHighlightInset;
+@property(readonly, nonatomic) struct UIEdgeInsets fullMomentsLevelSectionHeaderContentInset; // @synthesize fullMomentsLevelSectionHeaderContentInset=_fullMomentsLevelSectionHeaderContentInset;
+@property(readonly, nonatomic) int fullMomentsLevelThumbnailFormat; // @synthesize fullMomentsLevelThumbnailFormat=_fullMomentsLevelThumbnailFormat;
+@property(nonatomic) struct UIEdgeInsets magnifiedDragEdgeInsets; // @synthesize magnifiedDragEdgeInsets=_magnifiedDragEdgeInsets;
+@property(nonatomic) double magnifiedYOffset; // @synthesize magnifiedYOffset=_magnifiedYOffset;
+@property(readonly, nonatomic) struct CGSize magnifiedImageSize; // @synthesize magnifiedImageSize=_magnifiedImageSize;
+@property(readonly, nonatomic) int magnifiedImageFormat; // @synthesize magnifiedImageFormat=_magnifiedImageFormat;
+@property(readonly, nonatomic) _Bool canDisplayMultipleRightBarButtonItems; // @synthesize canDisplayMultipleRightBarButtonItems=_canDisplayMultipleRightBarButtonItems;
+- (void)_setGridSpec:(id)arg1;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) unsigned int collapsedYearsSectionHeaderStyle;
-@property(readonly, nonatomic) int collapsedYearsLevelThumbnailFormat;
-- (void)configureCollapsedYearsLevelGridLayout:(id)arg1 forWidth:(float)arg2;
-@property(readonly, nonatomic) int groupedMomentsLevelThumbnailFormat;
-- (void)configureGroupedMomentsLevelGridLayout:(id)arg1 forWidth:(float)arg2;
+- (id)mapViewControllerSpec;
+@property(readonly, nonatomic) int yearsLevelThumbnailFormat;
+- (void)configureYearsLevelGridLayout:(id)arg1 forWidth:(double)arg2;
+@property(readonly, nonatomic) int collectionsLevelThumbnailFormat;
+@property(readonly, nonatomic) unsigned long long yearsSectionHeaderBackgroundStyle;
+@property(readonly, nonatomic) unsigned long long collectionsSectionHeaderBackgroundStyle;
+@property(readonly, nonatomic) unsigned long long fullMomentsSectionHeaderBackgroundStyle;
+- (void)configureCollectionsLevelGridLayout:(id)arg1 forWidth:(double)arg2;
+- (void)configureFullMomentsLevelGridLayout:(id)arg1 forWidth:(double)arg2;
+- (id)newGridSpec;
+@property(retain, nonatomic) PUPhotosGridViewControllerSpec *gridSpec; // @synthesize gridSpec=_gridSpec;
 
 @end
 

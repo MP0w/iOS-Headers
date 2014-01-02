@@ -16,17 +16,19 @@
     NSObject<OS_dispatch_queue> *_serialQueue;
     NSUUID *_poolStorageKey;
     int _connectionsProfilingLevel;
-    BOOL _useDistantWriterConnections;
+    _Bool _useDistantWriterConnections;
     NSString *_databasePath;
     id <ML3DatabaseConnectionPoolDelegate> _delegate;
-    unsigned int _maxReaders;
-    unsigned int _maxWriters;
+    unsigned long long _maxReaders;
+    unsigned long long _maxWriters;
+    unsigned long long _connectionsJournalingMode;
 }
 
-@property(readonly) unsigned int maxWriters; // @synthesize maxWriters=_maxWriters;
-@property(readonly) unsigned int maxReaders; // @synthesize maxReaders=_maxReaders;
-@property __weak id <ML3DatabaseConnectionPoolDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly) NSString *databasePath; // @synthesize databasePath=_databasePath;
+@property(nonatomic) unsigned long long connectionsJournalingMode; // @synthesize connectionsJournalingMode=_connectionsJournalingMode;
+@property(readonly, nonatomic) unsigned long long maxWriters; // @synthesize maxWriters=_maxWriters;
+@property(readonly, nonatomic) unsigned long long maxReaders; // @synthesize maxReaders=_maxReaders;
+@property(nonatomic) __weak id <ML3DatabaseConnectionPoolDelegate> delegate; // @synthesize delegate=_delegate;
+@property(readonly, nonatomic) NSString *databasePath; // @synthesize databasePath=_databasePath;
 - (void).cxx_destruct;
 - (void)_setLocalConnection:(id)arg1 forThread:(id)arg2;
 - (id)_localConnectionForThread:(id)arg1;
@@ -34,15 +36,16 @@
 - (id)_connectionForIdentifier:(id)arg1;
 - (void)closeAllConnections;
 - (void)checkInConnection:(id)arg1;
-- (id)_connectionForWriting:(BOOL)arg1 useThreadConnection:(BOOL)arg2;
+- (id)_connectionForWriting:(_Bool)arg1 useThreadConnection:(_Bool)arg2;
+@property(readonly) _Bool isCurrentThreadConnectionInTransaction;
 - (id)writerConnection;
 - (id)readerConnection;
-@property BOOL useDistantWriterConnections;
-@property int connectionsProfilingLevel;
+@property(nonatomic) _Bool useDistantWriterConnections;
+@property(nonatomic) int connectionsProfilingLevel;
 - (void)dealloc;
 - (id)init;
-- (id)initWithDatabasePath:(id)arg1 maxReaders:(unsigned int)arg2 maxWriters:(unsigned int)arg3;
-- (id)initWithDatabasePath:(id)arg1 maxReaders:(unsigned int)arg2;
+- (id)initWithDatabasePath:(id)arg1 maxReaders:(unsigned long long)arg2 maxWriters:(unsigned long long)arg3;
+- (id)initWithDatabasePath:(id)arg1 maxReaders:(unsigned long long)arg2;
 
 @end
 

@@ -11,31 +11,25 @@
 @interface SKUICardCellLayout : SKUIItemCellLayout
 {
     UILabel *_artistLabel;
-    int _numberOfUserRatings;
+    long long _numberOfUserRatings;
     UIImageView *_screenshotImageView;
     UILabel *_titleLabel;
-    float _userRating;
+    double _userRating;
     UIImageView *_userRatingImageView;
     UILabel *_userRatingLabel;
-    NSString *_artistName;
 }
 
-@property(copy, nonatomic) NSString *artistName; // @synthesize artistName=_artistName;
-@property(nonatomic) float userRating; // @synthesize userRating=_userRating;
-@property(nonatomic) int numberOfUserRatings; // @synthesize numberOfUserRatings=_numberOfUserRatings;
+@property(nonatomic) double userRating; // @synthesize userRating=_userRating;
+@property(nonatomic) long long numberOfUserRatings; // @synthesize numberOfUserRatings=_numberOfUserRatings;
 - (void).cxx_destruct;
-- (void)_reloadUserRatingViews;
-- (id)_newLabel;
 - (void)layoutForItemOfferChange;
-- (void)setIconImage:(id)arg1;
 - (void)setBackgroundColor:(id)arg1;
 - (void)resetLayout;
 - (void)prepareForReuse;
 - (void)layoutSubviews;
 @property(copy, nonatomic) NSString *title;
 @property(retain, nonatomic) UIImage *screenshotImage;
-- (id)initWithParentView:(id)arg1 backgroundImage:(id)arg2;
-- (id)initWithCollectionViewCell:(id)arg1;
+@property(copy, nonatomic) NSString *artistName;
 
 @end
 

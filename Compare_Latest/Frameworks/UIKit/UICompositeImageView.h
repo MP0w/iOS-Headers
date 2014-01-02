@@ -8,6 +8,7 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface UICompositeImageView : UIView
 {
     NSMutableArray *m_images;
@@ -15,9 +16,9 @@
 
 - (void)drawRect:(struct CGRect)arg1;
 - (void)removeAllImages;
-- (void)addImage:(id)arg1 toRect:(struct CGRect)arg2 fromRect:(struct CGRect)arg3 operation:(int)arg4 fraction:(float)arg5;
+- (void)addImage:(id)arg1 toRect:(struct CGRect)arg2 fromRect:(struct CGRect)arg3 operation:(int)arg4 fraction:(double)arg5;
 - (void)addImage:(id)arg1 toRect:(struct CGRect)arg2 fromRect:(struct CGRect)arg3;
-- (void)addImage:(id)arg1 operation:(int)arg2 fraction:(float)arg3;
+- (void)addImage:(id)arg1 operation:(int)arg2 fraction:(double)arg3;
 - (void)addImage:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

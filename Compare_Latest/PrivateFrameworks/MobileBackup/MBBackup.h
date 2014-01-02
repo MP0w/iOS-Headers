@@ -19,10 +19,10 @@
     NSString *_hardwareModel;
     NSString *_marketingName;
     NSArray *_snapshots;
-    BOOL _restoreSystemFiles;
+    _Bool _restoreSystemFiles;
 }
 
-@property(readonly, nonatomic, getter=canRestoreSystemFiles) BOOL restoreSystemFiles; // @synthesize restoreSystemFiles=_restoreSystemFiles;
+@property(readonly, nonatomic, getter=canRestoreSystemFiles) _Bool restoreSystemFiles; // @synthesize restoreSystemFiles=_restoreSystemFiles;
 @property(readonly, nonatomic) NSArray *snapshots; // @synthesize snapshots=_snapshots;
 @property(readonly, nonatomic) NSString *marketingName; // @synthesize marketingName=_marketingName;
 @property(readonly, nonatomic) NSString *hardwareModel; // @synthesize hardwareModel=_hardwareModel;
@@ -30,12 +30,12 @@
 @property(readonly, nonatomic) NSString *deviceClass; // @synthesize deviceClass=_deviceClass;
 @property(readonly, nonatomic) NSString *backupUDID; // @synthesize backupUDID=_backupUDID;
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithBackupUDID:(id)arg1 deviceClass:(id)arg2 productType:(id)arg3 hardwareModel:(id)arg4 marketingName:(id)arg5 snapshots:(id)arg6 restoreSystemFiles:(BOOL)arg7;
+- (id)initWithBackupUDID:(id)arg1 deviceClass:(id)arg2 productType:(id)arg3 hardwareModel:(id)arg4 marketingName:(id)arg5 snapshots:(id)arg6 restoreSystemFiles:(_Bool)arg7;
 
 @end
 

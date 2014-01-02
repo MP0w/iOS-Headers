@@ -11,12 +11,13 @@
 @interface EKPlaceholderTextView : UITextView
 {
     UILabel *_placeholder;
-    BOOL _showingPlaceholder;
+    _Bool _showingPlaceholder;
 }
 
 - (void).cxx_destruct;
 - (void)setPlaceholder:(id)arg1;
 - (id)placeholder;
+- (void)layoutSubviews;
 - (void)_updatePlaceholder;
 - (id)_placeholderLabel;
 - (void)textChanged:(id)arg1;

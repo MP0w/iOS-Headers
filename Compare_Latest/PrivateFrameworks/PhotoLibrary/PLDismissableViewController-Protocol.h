@@ -7,6 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol PLDismissableViewController <NSObject>
-- (BOOL)prepareForDismissingForced:(BOOL)arg1;
+- (_Bool)prepareForDismissingForced:(_Bool)arg1;
 @end
 

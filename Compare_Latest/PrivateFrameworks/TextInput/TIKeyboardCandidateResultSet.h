@@ -13,40 +13,46 @@
 
 @interface TIKeyboardCandidateResultSet : NSObject <NSCopying, NSSecureCoding>
 {
-    BOOL _excludedExtensionCandidates;
+    _Bool _excludedExtensionCandidates;
     NSArray *_candidates;
-    unsigned int _initialSelectedIndex;
+    unsigned long long _initialSelectedIndex;
     TIKeyboardCandidate *_defaultCandidate;
     NSArray *_sortMethods;
     NSDictionary *_sortMethodGroups;
     NSDictionary *_indexTitles;
     NSDictionary *_showExtensionCandidates;
     NSArray *_initiallyHiddenCandidates;
-    unsigned int _generatedCandidateCount;
+    unsigned long long _generatedCandidateCount;
+    unsigned long long _batchCandidateLocation;
+    unsigned long long _selectedHiddenCandidateIndex;
 }
 
 + (id)dummySet;
-+ (id)setWithCandidates:(id)arg1 initialSelectedIndex:(unsigned int)arg2 defaultCandidate:(id)arg3 sortMethods:(id)arg4 sortMethodGroups:(id)arg5 indexTitles:(id)arg6 showExtensionCandidates:(id)arg7 initiallyHiddenCandidates:(id)arg8 excludedExtensionCandidates:(BOOL)arg9;
++ (id)setWithCandidates:(id)arg1 initialSelectedIndex:(unsigned long long)arg2 defaultCandidate:(id)arg3 sortMethods:(id)arg4 sortMethodGroups:(id)arg5 indexTitles:(id)arg6 showExtensionCandidates:(id)arg7 initiallyHiddenCandidates:(id)arg8 selectedHiddenCandidateIndex:(unsigned long long)arg9 excludedExtensionCandidates:(_Bool)arg10;
 + (id)setWithCandidates:(id)arg1;
-+ (BOOL)supportsSecureCoding;
-@property(nonatomic) unsigned int generatedCandidateCount; // @synthesize generatedCandidateCount=_generatedCandidateCount;
-@property(nonatomic) BOOL excludedExtensionCandidates; // @synthesize excludedExtensionCandidates=_excludedExtensionCandidates;
++ (_Bool)supportsSecureCoding;
+@property(nonatomic) unsigned long long selectedHiddenCandidateIndex; // @synthesize selectedHiddenCandidateIndex=_selectedHiddenCandidateIndex;
+@property(nonatomic) unsigned long long batchCandidateLocation; // @synthesize batchCandidateLocation=_batchCandidateLocation;
+@property(nonatomic) unsigned long long generatedCandidateCount; // @synthesize generatedCandidateCount=_generatedCandidateCount;
+@property(nonatomic) _Bool excludedExtensionCandidates; // @synthesize excludedExtensionCandidates=_excludedExtensionCandidates;
 @property(retain, nonatomic) NSArray *initiallyHiddenCandidates; // @synthesize initiallyHiddenCandidates=_initiallyHiddenCandidates;
 @property(retain, nonatomic) NSDictionary *showExtensionCandidates; // @synthesize showExtensionCandidates=_showExtensionCandidates;
 @property(retain, nonatomic) NSDictionary *indexTitles; // @synthesize indexTitles=_indexTitles;
 @property(retain, nonatomic) NSDictionary *sortMethodGroups; // @synthesize sortMethodGroups=_sortMethodGroups;
 @property(retain, nonatomic) NSArray *sortMethods; // @synthesize sortMethods=_sortMethods;
 @property(copy, nonatomic) TIKeyboardCandidate *defaultCandidate; // @synthesize defaultCandidate=_defaultCandidate;
-@property(nonatomic) unsigned int initialSelectedIndex; // @synthesize initialSelectedIndex=_initialSelectedIndex;
+@property(nonatomic) unsigned long long initialSelectedIndex; // @synthesize initialSelectedIndex=_initialSelectedIndex;
 @property(retain, nonatomic) NSArray *candidates; // @synthesize candidates=_candidates;
-- (id)initWithCandidates:(id)arg1 initialSelectedIndex:(unsigned int)arg2 defaultCandidate:(id)arg3 sortMethods:(id)arg4 sortMethodGroups:(id)arg5 indexTitles:(id)arg6 showExtensionCandidates:(id)arg7 initiallyHiddenCandidates:(id)arg8 excludedExtensionCandidates:(BOOL)arg9;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isSubsetOf:(id)arg1;
+- (id)setByAppendingSet:(id)arg1;
+- (id)initWithCandidates:(id)arg1 initialSelectedIndex:(unsigned long long)arg2 defaultCandidate:(id)arg3 sortMethods:(id)arg4 sortMethodGroups:(id)arg5 indexTitles:(id)arg6 showExtensionCandidates:(id)arg7 initiallyHiddenCandidates:(id)arg8 selectedHiddenCandidateIndex:(unsigned long long)arg9 excludedExtensionCandidates:(_Bool)arg10;
+- (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
-- (unsigned int)positionInCandidateList:(id)arg1;
-@property(readonly, nonatomic) BOOL isDummySet;
-@property(readonly, nonatomic) BOOL hasMetadata;
+- (unsigned long long)positionInCandidateList:(id)arg1;
+@property(readonly, nonatomic) _Bool isDummySet;
+@property(readonly, nonatomic) _Bool hasMetadata;
 @property(readonly, nonatomic) TIKeyboardCandidate *firstCandidate;
-@property(readonly, nonatomic) BOOL hasCandidates;
+@property(readonly, nonatomic) _Bool hasCandidates;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

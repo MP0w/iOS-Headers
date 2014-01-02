@@ -12,14 +12,15 @@
 - (void)_remote_playbackPaused;
 - (void)_remote_playbackStarted;
 - (void)_remote_scheduleAd;
+- (void)_remote_reportPreRollImpression;
 - (void)_remote_interstitialRemovedFromSuperview;
 - (void)_remote_presentInterstitialStoryboard;
 - (void)_remote_bannerCancelAction;
 - (void)_remote_bannerRefuseAction;
 - (void)_remote_bannerBeginActionFromFrame:(id)arg1 tapLocation:(id)arg2;
-- (void)_remote_setShouldNotCycle:(BOOL)arg1;
+- (void)_remote_setShouldNotCycle:(_Bool)arg1;
 - (void)_remote_setFrame:(id)arg1;
-- (void)_remote_setVisibility:(int)arg1;
+- (void)_remote_setVisibility:(long long)arg1;
 - (void)_remote_setAuthenticationUserName:(id)arg1;
 - (void)_remote_setSection:(id)arg1;
 - (void)_priv_cycleImpressionImmediately;

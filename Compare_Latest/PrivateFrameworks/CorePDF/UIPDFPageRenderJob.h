@@ -11,23 +11,23 @@
 @interface UIPDFPageRenderJob : NSObject
 {
     UIPDFPage *_page;
-    unsigned int _pageIndex;
+    unsigned long long _pageIndex;
     struct CGSize _size;
-    int _priority;
+    long long _priority;
     UIImage *_image;
     UIPDFPageRenderOperation *_operation;
     id _target;
     SEL _callback;
     id _userData;
-    BOOL _sendPending;
-    BOOL _releaseWhenDone;
+    _Bool _sendPending;
+    _Bool _releaseWhenDone;
     int _lock;
 }
 
 @property(readonly) struct CGSize size; // @synthesize size=_size;
-@property BOOL releaseWhenDone; // @synthesize releaseWhenDone=_releaseWhenDone;
-@property(readonly) int priority; // @synthesize priority=_priority;
-@property(readonly) unsigned int pageIndex; // @synthesize pageIndex=_pageIndex;
+@property _Bool releaseWhenDone; // @synthesize releaseWhenDone=_releaseWhenDone;
+@property(readonly) long long priority; // @synthesize priority=_priority;
+@property(readonly) unsigned long long pageIndex; // @synthesize pageIndex=_pageIndex;
 - (void)sendImageTo:(id)arg1 callback:(SEL)arg2 userData:(id)arg3;
 - (void)sendImage;
 - (void)renderImage;
@@ -39,8 +39,7 @@
 - (void)cancelOperation;
 - (void)cancel;
 - (void)dealloc;
-- (id)initWithPage:(id)arg1 maxSize:(struct CGSize)arg2 queuePriority:(int)arg3;
-- (BOOL)hasPage;
+- (id)initWithPage:(id)arg1 maxSize:(struct CGSize)arg2 queuePriority:(long long)arg3;
 
 @end
 

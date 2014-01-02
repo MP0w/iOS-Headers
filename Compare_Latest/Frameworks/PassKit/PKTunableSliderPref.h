@@ -10,20 +10,20 @@
 
 @interface PKTunableSliderPref : PKTunablePref
 {
-    float _minVal;
-    float _maxVal;
+    double _minVal;
+    double _maxVal;
     UIView *_view;
     UISlider *_slider;
 }
 
 @property(retain) UISlider *slider; // @synthesize slider=_slider;
 @property(retain) UIView *view; // @synthesize view=_view;
-@property float maxVal; // @synthesize maxVal=_maxVal;
-@property float minVal; // @synthesize minVal=_minVal;
+@property double maxVal; // @synthesize maxVal=_maxVal;
+@property double minVal; // @synthesize minVal=_minVal;
 - (void)restore:(id)arg1;
 - (void)takeValueFromView:(id)arg1;
 - (id)viewWithContainedLabel:(id *)arg1;
-- (id)initWithPrefName:(id)arg1 defaultValue:(id)arg2 minimumValue:(float)arg3 maximumValue:(float)arg4;
+- (id)initWithPrefName:(id)arg1 defaultValue:(id)arg2 minimumValue:(double)arg3 maximumValue:(double)arg4;
 - (void)dealloc;
 
 @end

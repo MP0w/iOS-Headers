@@ -15,9 +15,10 @@
 @property(retain) id <NSObject> userInfo; // @synthesize userInfo=_userInfo;
 - (void)dealloc;
 - (id)init;
+- (id)decodeXPCObjectOfType:(struct _xpc_type_s *)arg1 forKey:(id)arg2;
 - (id)decodeXPCObjectForKey:(id)arg1;
 - (void)encodeXPCObject:(id)arg1 forKey:(id)arg2;
-- (BOOL)requiresSecureCoding;
+- (_Bool)requiresSecureCoding;
 
 @end
 

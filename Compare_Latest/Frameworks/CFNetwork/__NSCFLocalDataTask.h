@@ -6,12 +6,13 @@
 
 #import <CFNetwork/__NSCFLocalSessionTask.h>
 
+// Not exported
 @interface __NSCFLocalDataTask : __NSCFLocalSessionTask
 {
 }
 
 - (void)_onqueue_didReceiveResponse:(id)arg1;
-- (BOOL)isKindOfClass:(Class)arg1;
+- (_Bool)isKindOfClass:(Class)arg1;
 
 @end
 

@@ -8,6 +8,7 @@
 
 @class _CDSnapshot;
 
+// Not exported
 @interface NSSQLRow : NSExternalRefCountedData
 {
     _CDSnapshot *_snapshot;
@@ -27,7 +28,7 @@
 - (id)attributeValueForSlot:(unsigned int)arg1;
 - (id)valueForKey:(id)arg1;
 - (void)_validateToOnes;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (unsigned int)foreignOrderKeyForSlot:(unsigned int)arg1;
 - (unsigned int)foreignEntityKeyForSlot:(unsigned int)arg1;
 - (long long)foreignKeyForSlot:(unsigned int)arg1;

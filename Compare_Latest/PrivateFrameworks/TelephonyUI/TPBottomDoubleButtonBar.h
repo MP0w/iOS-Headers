@@ -13,19 +13,19 @@
     TPButton *_button2;
 }
 
-- (void)setDrawsSeparateWells:(BOOL)arg1;
+- (void)setDrawsSeparateWells:(_Bool)arg1;
 - (void)layoutSubviews;
 - (void)_layoutButtons;
 - (id)button2;
-- (void)setButton2:(id)arg1 andStyle:(BOOL)arg2;
-- (void)setButton:(id)arg1 andStyle:(BOOL)arg2;
+- (void)setButton2:(id)arg1 andStyle:(_Bool)arg2;
+- (void)setButton:(id)arg1 andStyle:(_Bool)arg2;
 - (void)dealloc;
 - (id)initForVideoChatWithFrame:(struct CGRect)arg1;
 - (id)initForEmergencyCallWithFrame:(struct CGRect)arg1;
 - (id)initForCallFailureWithFrame:(struct CGRect)arg1;
 - (id)initForIncomingCallWithFrame:(struct CGRect)arg1;
-- (id)initWithFrame:(struct CGRect)arg1 style:(int)arg2;
-- (float)_buttonWidth;
+- (id)initWithFrame:(struct CGRect)arg1 style:(long long)arg2;
+- (double)_buttonWidth;
 
 @end
 

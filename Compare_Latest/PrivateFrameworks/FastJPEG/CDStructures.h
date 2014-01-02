@@ -7,8 +7,8 @@
 #pragma mark Named Structures
 
 struct CGPoint {
-    float x;
-    float y;
+    double x;
+    double y;
 };
 
 struct CGRect {
@@ -17,8 +17,8 @@ struct CGRect {
 };
 
 struct CGSize {
-    float width;
-    float height;
+    double width;
+    double height;
 };
 
 struct entryList {
@@ -35,7 +35,7 @@ struct jpegDecoder {
 
 struct lruEntry {
     id _field1;
-    int _field2;
+    long long _field2;
     struct {
         struct lruEntry *_field1;
         struct lruEntry **_field2;

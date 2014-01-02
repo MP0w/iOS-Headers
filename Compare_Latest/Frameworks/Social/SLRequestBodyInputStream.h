@@ -12,33 +12,33 @@
 {
     NSArray *_inputStreams;
     SLRequestMultiPartInputStream *_currentStream;
-    unsigned int _dataLength;
-    unsigned int _dataOffset;
-    unsigned int _currentIndex;
-    unsigned int _currentOffset;
-    unsigned int _currentLength;
-    BOOL _openEventSent;
-    unsigned int _streamStatus;
+    unsigned long long _dataLength;
+    unsigned long long _dataOffset;
+    unsigned long long _currentIndex;
+    unsigned long long _currentOffset;
+    unsigned long long _currentLength;
+    _Bool _openEventSent;
+    unsigned long long _streamStatus;
     struct __CFRunLoopSource *_rls;
     void *_clientCallback;
-    CDStruct_304912e7 _clientContext;
+    CDStruct_4210025a _clientContext;
     id <NSStreamDelegate> _delegate;
 }
 
 @property(nonatomic) __weak id <NSStreamDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (BOOL)getBuffer:(char **)arg1 length:(unsigned int *)arg2;
-- (BOOL)hasBytesAvailable;
-- (unsigned int)bytesRead;
-@property(readonly) unsigned int totalBytes;
-- (int)read:(char *)arg1 maxLength:(unsigned int)arg2;
-- (unsigned int)streamStatus;
+- (_Bool)getBuffer:(char **)arg1 length:(unsigned long long *)arg2;
+- (_Bool)hasBytesAvailable;
+- (unsigned long long)bytesRead;
+@property(readonly) unsigned long long totalBytes;
+- (long long)read:(char *)arg1 maxLength:(unsigned long long)arg2;
+- (unsigned long long)streamStatus;
 - (id)streamError;
 - (void)close;
 - (void)open;
 - (void)removeFromRunLoop:(id)arg1 forMode:(id)arg2;
 - (void)scheduleInRunLoop:(id)arg1 forMode:(id)arg2;
-- (BOOL)_setCFClientFlags:(unsigned long)arg1 callback:(void *)arg2 context:(CDStruct_304912e7 *)arg3;
+- (_Bool)_setCFClientFlags:(unsigned long long)arg1 callback:(void *)arg2 context:(CDStruct_4210025a *)arg3;
 - (void)_unscheduleFromCFRunLoop:(struct __CFRunLoop *)arg1 forMode:(struct __CFString *)arg2;
 - (void)_scheduleInCFRunLoop:(struct __CFRunLoop *)arg1 forMode:(struct __CFString *)arg2;
 - (void)_scheduleCallback;

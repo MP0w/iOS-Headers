@@ -23,7 +23,7 @@
 - (id)newBannerViewForContext:(id)arg1;
 - (id)dequeueNextBannerItemForTarget:(id)arg1;
 - (id)peekNextBannerItemForTarget:(id)arg1;
-- (unsigned int)enumerateAllItemsMatchingContext:(id)arg1 withBlock:(id)arg2;
+- (unsigned long long)enumerateAllItemsMatchingContext:(id)arg1 withBlock:(id)arg2;
 - (void)removeEnqueuedItemsAtIndexes:(id)arg1;
 - (void)dismissCurrentItemFromTarget;
 - (void)enqueueItem:(id)arg1;

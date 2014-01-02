@@ -6,16 +6,18 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSString;
 
-@interface GEOLocalizedName : PBCodable
+@interface GEOLocalizedName : PBCodable <NSCopying>
 {
     NSString *_languageCode;
     NSString *_name;
     unsigned int _nameRank;
     NSString *_nameType;
     NSString *_phoneticName;
-    BOOL _isDefault;
+    _Bool _isDefault;
     struct {
         unsigned int nameRank:1;
         unsigned int isDefault:1;
@@ -27,20 +29,21 @@
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) NSString *nameType; // @synthesize nameType=_nameType;
 @property(retain, nonatomic) NSString *languageCode; // @synthesize languageCode=_languageCode;
-@property(nonatomic) BOOL isDefault; // @synthesize isDefault=_isDefault;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+@property(nonatomic) _Bool isDefault; // @synthesize isDefault=_isDefault;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) BOOL hasPhoneticName;
-@property(nonatomic) BOOL hasNameRank;
-@property(readonly, nonatomic) BOOL hasName;
-@property(readonly, nonatomic) BOOL hasNameType;
-@property(readonly, nonatomic) BOOL hasLanguageCode;
-@property(nonatomic) BOOL hasIsDefault;
+@property(readonly, nonatomic) _Bool hasPhoneticName;
+@property(nonatomic) _Bool hasNameRank;
+@property(readonly, nonatomic) _Bool hasName;
+@property(readonly, nonatomic) _Bool hasNameType;
+@property(readonly, nonatomic) _Bool hasLanguageCode;
+@property(nonatomic) _Bool hasIsDefault;
 - (void)dealloc;
 
 @end

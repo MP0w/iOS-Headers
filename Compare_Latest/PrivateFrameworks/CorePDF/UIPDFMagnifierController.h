@@ -18,19 +18,19 @@
     CALayer *_imageLayer;
     CAShapeLayer *_selectionLayer;
     CALayer *_maskLayer;
-    float _power;
+    double _power;
     struct CGSize _magnifierSize;
-    BOOL _loupe;
+    _Bool _loupe;
     struct CGPoint _touchPoint;
     struct CGPoint _pointToMagnify;
-    float _enlargementScale;
+    double _enlargementScale;
     CALayer *_leftBar;
     CALayer *_leftGrabber;
     CALayer *_rightBar;
     CALayer *_rightGrabber;
     struct CGSize _controlPointSize;
     struct CGColor *_grabberColor;
-    unsigned int _pageRotation;
+    unsigned long long _pageRotation;
     UIPDFPageView *pageView;
 }
 
@@ -43,28 +43,6 @@
 - (void)setPosition:(struct CGPoint)arg1 viewPoint:(struct CGPoint)arg2;
 - (void)dealloc;
 - (id)init;
-- (void)setImageContainerMask;
-- (id)imageReceived:(id)arg1 data:(id)arg2;
-- (void)placeImage;
-- (void)setSelectionPath;
-- (void)setSelectionPath:(struct CGPath *)arg1 bounds:(struct CGRect)arg2 transform:(struct CGAffineTransform)arg3;
-- (void)addBling;
-- (void)setLayerPositions;
-- (void)setImageContainerPositionLoupe;
-- (void)setImageContainerPositionMagnifier;
-- (struct CGPoint)pointToMagnifyInPDFSpace;
-- (struct CGPoint)viewPointInTextEffectsSpace;
-- (struct CGPoint)convertPointToEnlargedSpace:(struct CGPoint)arg1;
-- (struct CGRect)convertRectToEnlargedSpace:(struct CGRect)arg1;
-- (struct CGRect)convertRectToRotatedPage:(struct CGRect)arg1;
-- (struct CGPoint)convertPointToRotatedPage:(struct CGPoint)arg1;
-- (struct CGPoint)convertViewPointToEnlargedSpace:(struct CGPoint)arg1;
-- (BOOL)isSelectionUniformlyRotated:(float *)arg1;
-- (void)setPower;
-- (void)tearDownLayers;
-- (void)drawLayer:(id)arg1 inContext:(struct CGContext *)arg2;
-- (void)addTextRangeHandles;
-- (void)setTextRangeHandlePositions;
 
 @end
 

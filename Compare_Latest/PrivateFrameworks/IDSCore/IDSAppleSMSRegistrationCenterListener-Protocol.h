@@ -6,7 +6,7 @@
 
 @protocol IDSAppleSMSRegistrationCenterListener
 - (void)centerNeedsNewIdentification:(id)arg1;
-- (void)center:(id)arg1 failedIdentification:(id)arg2 error:(int)arg3;
-- (void)center:(id)arg1 succeededIdentification:(id)arg2;
+- (void)center:(id)arg1 failedIdentification:(id)arg2 error:(long long)arg3;
+- (void)center:(id)arg1 succeededIdentification:(id)arg2 phoneNumber:(id)arg3 token:(id)arg4;
 @end
 

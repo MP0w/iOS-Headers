@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
-@interface GEOPhotoOptions : PBCodable
+#import "NSCopying-Protocol.h"
+
+@interface GEOPhotoOptions : PBCodable <NSCopying>
 {
-    CDStruct_56d48c16 _photoSizes;
+    CDStruct_95bda58d _photoSizes;
     int _maxPhotos;
     int _photoType;
     CDStruct_86c1f53f _has;
@@ -16,20 +18,21 @@
 
 @property(nonatomic) int photoType; // @synthesize photoType=_photoType;
 @property(nonatomic) int maxPhotos; // @synthesize maxPhotos=_maxPhotos;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (void)setPhotoSizes:(int *)arg1 count:(unsigned int)arg2;
-- (int)photoSizeAtIndex:(unsigned int)arg1;
+- (void)setPhotoSizes:(int *)arg1 count:(unsigned long long)arg2;
+- (int)photoSizeAtIndex:(unsigned long long)arg1;
 - (void)addPhotoSize:(int)arg1;
 - (void)clearPhotoSizes;
 @property(readonly, nonatomic) int *photoSizes;
-@property(readonly, nonatomic) unsigned int photoSizesCount;
-@property(nonatomic) BOOL hasPhotoType;
+@property(readonly, nonatomic) unsigned long long photoSizesCount;
+@property(nonatomic) _Bool hasPhotoType;
 - (void)dealloc;
 
 @end

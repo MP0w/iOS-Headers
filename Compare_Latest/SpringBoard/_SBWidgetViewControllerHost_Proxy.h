@@ -20,13 +20,13 @@
 @property(nonatomic) SBWidgetViewControllerHost *managingHost; // @synthesize managingHost=_managingHost;
 - (void)__invalidatePreferredViewSize;
 - (void)__requestLaunchOfURL:(id)arg1;
-- (void)__requestPresentationOfViewController:(id)arg1 presentationStyle:(int)arg2 context:(id)arg3 replyHandler:(id)arg4;
+- (void)__requestPresentationOfViewController:(id)arg1 presentationStyle:(long long)arg2 context:(id)arg3 replyHandler:(id)arg4;
 - (void)_hostDidDismiss;
 - (void)_hostWillDismiss;
 - (void)_hostDidPresent;
 - (void)_hostWillPresent;
 - (void)_requestServicePreferredViewSizeWithReplyHandler:(id)arg1;
-- (void)_setWidgetIdiom:(int)arg1;
+- (void)_setWidgetIdiom:(long long)arg1;
 - (void)_setWidgetIdentifier:(id)arg1;
 
 @end

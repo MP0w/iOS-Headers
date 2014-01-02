@@ -7,7 +7,7 @@
 #import "NSURL.h"
 
 @interface NSURL (UIKitExtras)
-- (BOOL)isStoreServicesURL;
-- (BOOL)isMailToURL;
+- (_Bool)isStoreServicesURL;
+- (_Bool)isMailToURL;
 @end
 

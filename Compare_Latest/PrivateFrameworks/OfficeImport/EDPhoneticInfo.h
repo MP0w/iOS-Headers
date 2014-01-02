@@ -10,10 +10,11 @@
 
 @class EDCollection, EDResources, NSString;
 
+// Not exported
 @interface EDPhoneticInfo : NSObject <EDImmutableObject>
 {
     EDResources *mResources;
-    unsigned int mFontIndex;
+    unsigned long long mFontIndex;
     NSString *mString;
     int mType;
     int mAlign;
@@ -32,13 +33,11 @@
 - (int)align;
 - (void)setType:(int)arg1;
 - (int)type;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isEqualToEDPhoneticInfo:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)isEqualToEDPhoneticInfo:(id)arg1;
 - (void)dealloc;
 - (id)initWithResources:(id)arg1;
-- (void)setFontIndex:(unsigned int)arg1;
-- (unsigned int)fontIndex;
 
 @end
 

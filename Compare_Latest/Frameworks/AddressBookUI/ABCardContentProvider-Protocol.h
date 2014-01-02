@@ -8,15 +8,15 @@
 
 @protocol ABCardContentProvider <NSObject>
 - (id)contentSwitchingControlPocketShadow;
-- (int)defaultContentIndex;
+- (long long)defaultContentIndex;
 - (id)newContentSwitchingControl;
-- (id)newContentViewForItemAtIndex:(int)arg1;
+- (id)newContentViewForItemAtIndex:(long long)arg1;
 - (id)newCustomHeaderView;
 - (id)initWithPerson:(void *)arg1;
 
 @optional
 - (int)style;
-- (BOOL)showsContentSwitchingControl;
+- (_Bool)showsContentSwitchingControl;
 - (id)contentSwitchingControlBorder;
 - (id)backgroundColor;
 @end

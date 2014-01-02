@@ -25,15 +25,15 @@
 }
 
 - (void)inactivityTimerCallBack:(id)arg1;
-- (void)handleErrorOccurred:(CDStruct_1ef3fb1f)arg1;
+- (void)handleErrorOccurred:(CDStruct_87dc826d)arg1;
 - (void)handleEndEncountered;
 - (void)handleCanAcceptBytes;
 - (void)handleHasBytesAvailable;
-- (BOOL)writeData:(id)arg1;
+- (_Bool)writeData:(id)arg1;
 - (void)close;
-- (BOOL)open;
+- (_Bool)open;
 - (void)dealloc;
-- (id)initWithSocketToHost:(id)arg1 port:(unsigned long)arg2 transport:(id)arg3;
+- (id)initWithSocketToHost:(id)arg1 port:(unsigned int)arg2 transport:(id)arg3;
 - (id)initWithNativeSocket:(int)arg1 transport:(id)arg2;
 
 @end

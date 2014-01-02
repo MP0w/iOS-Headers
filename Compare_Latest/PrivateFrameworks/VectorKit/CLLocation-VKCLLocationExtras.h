@@ -7,7 +7,7 @@
 #import "CLLocation.h"
 
 @interface CLLocation (VKCLLocationExtras)
-- (BOOL)hasMatch;
+- (_Bool)hasMatch;
 - (double)speedAccuracy;
 - (double)courseAccuracy;
 - (double)_vectorkit_rawCourse;

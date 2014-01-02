@@ -8,6 +8,7 @@
 
 @class NSString, RTF_OIXMLElement;
 
+// Not exported
 @interface RTF_OIXMLDocument : RTF_OIXMLNode
 {
     RTF_OIXMLElement *_rootElement;

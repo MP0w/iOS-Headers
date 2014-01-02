@@ -6,13 +6,14 @@
 
 #import <VectorKit/VKVectorTileSource.h>
 
+// Not exported
 @interface VKPolygonTileSource : VKVectorTileSource
 {
 }
 
 - (id)tileForData:(id)arg1 downloadKey:(const struct _GEOTileKey *)arg2 sourceKey:(const struct VKTileKey *)arg3;
-- (unsigned int)mapLayerForZoomLevelRange;
-- (int)defaultMinimumZoomLevel;
+- (unsigned long long)mapLayerForZoomLevelRange;
+- (long long)defaultMinimumZoomLevel;
 
 @end
 

@@ -15,7 +15,7 @@
 }
 
 - (id)compressedData;
-- (BOOL)getCompressedData:(id *)arg1 usedEncoding:(int *)arg2;
+- (_Bool)getCompressedData:(id *)arg1 usedEncoding:(int *)arg2;
 - (id)pixelData;
 - (struct CGContext *)bitmapContext;
 - (void)finalize;

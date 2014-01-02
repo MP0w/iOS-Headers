@@ -8,6 +8,7 @@
 
 @class OADCharacterProperties;
 
+// Not exported
 @interface OADTextRun : NSObject
 {
     OADCharacterProperties *mProperties;
@@ -16,7 +17,7 @@
 - (void)removeUnnecessaryOverrides;
 - (void)setProperties:(id)arg1;
 - (id)properties;
-- (BOOL)isEmpty;
+- (_Bool)isEmpty;
 - (void)dealloc;
 - (id)init;
 

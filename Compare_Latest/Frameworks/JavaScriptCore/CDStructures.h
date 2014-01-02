@@ -7,8 +7,8 @@
 #pragma mark Named Structures
 
 struct CGPoint {
-    float _field1;
-    float _field2;
+    double _field1;
+    double _field2;
 };
 
 struct CGRect {
@@ -17,8 +17,8 @@ struct CGRect {
 };
 
 struct CGSize {
-    float _field1;
-    float _field2;
+    double _field1;
+    double _field2;
 };
 
 struct CallbackData {
@@ -27,7 +27,7 @@ struct CallbackData {
     id _field3;
     struct OpaqueJSValue *_field4;
     id _field5;
-    unsigned int _field6;
+    unsigned long long _field6;
     struct OpaqueJSValue **_field7;
     id _field8;
 };
@@ -104,7 +104,7 @@ struct WeakGCMap<id, JSC::JSObject, WTF::PtrHash<id>, WTF::HashTraits<id>> {
 struct WeakImpl;
 
 struct _NSRange {
-    unsigned int _field1;
-    unsigned int _field2;
+    unsigned long long _field1;
+    unsigned long long _field2;
 };
 

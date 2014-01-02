@@ -6,6 +6,7 @@
 
 #import <VectorKit/VGLShader.h>
 
+// Not exported
 @interface VGLFragmentShader : VGLShader
 {
 }

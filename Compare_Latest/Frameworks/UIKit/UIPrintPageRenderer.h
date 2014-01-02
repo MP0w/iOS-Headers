@@ -10,8 +10,8 @@
 
 @interface UIPrintPageRenderer : NSObject
 {
-    float _headerHeight;
-    float _footerHeight;
+    double _headerHeight;
+    double _footerHeight;
     struct CGRect _paperRect;
     struct CGRect _printableRect;
     NSMutableArray *_printFormatters;
@@ -21,22 +21,22 @@
 @property(copy, nonatomic) NSArray *printFormatters; // @synthesize printFormatters=_printFormatters;
 @property(nonatomic) struct CGRect printableRect; // @synthesize printableRect=_printableRect;
 @property(nonatomic) struct CGRect paperRect; // @synthesize paperRect=_paperRect;
-@property(nonatomic) float footerHeight; // @synthesize footerHeight=_footerHeight;
-@property(nonatomic) float headerHeight; // @synthesize headerHeight=_headerHeight;
-- (void)_endPrintContext:(id)arg1 success:(BOOL)arg2;
-- (void)_drawPage:(int)arg1;
-- (BOOL)_startPrintContext:(id)arg1 printSettings:(id)arg2;
-- (void)drawFooterForPageAtIndex:(int)arg1 inRect:(struct CGRect)arg2;
-- (void)drawContentForPageAtIndex:(int)arg1 inRect:(struct CGRect)arg2;
-- (void)drawHeaderForPageAtIndex:(int)arg1 inRect:(struct CGRect)arg2;
-- (void)drawPrintFormatter:(id)arg1 forPageAtIndex:(int)arg2;
-- (void)drawPageAtIndex:(int)arg1 inRect:(struct CGRect)arg2;
+@property(nonatomic) double footerHeight; // @synthesize footerHeight=_footerHeight;
+@property(nonatomic) double headerHeight; // @synthesize headerHeight=_headerHeight;
+- (void)_endPrintContext:(id)arg1 success:(_Bool)arg2;
+- (void)_drawPage:(long long)arg1;
+- (_Bool)_startPrintContext:(id)arg1 printSettings:(id)arg2;
+- (void)drawFooterForPageAtIndex:(long long)arg1 inRect:(struct CGRect)arg2;
+- (void)drawContentForPageAtIndex:(long long)arg1 inRect:(struct CGRect)arg2;
+- (void)drawHeaderForPageAtIndex:(long long)arg1 inRect:(struct CGRect)arg2;
+- (void)drawPrintFormatter:(id)arg1 forPageAtIndex:(long long)arg2;
+- (void)drawPageAtIndex:(long long)arg1 inRect:(struct CGRect)arg2;
 - (void)prepareForDrawingPages:(struct _NSRange)arg1;
-- (int)numberOfPages;
-- (int)_maxFormatterPage;
+- (long long)numberOfPages;
+- (long long)_maxFormatterPage;
 - (void)_removePrintFormatter:(id)arg1;
-- (id)printFormattersForPageAtIndex:(int)arg1;
-- (void)addPrintFormatter:(id)arg1 startingAtPageAtIndex:(int)arg2;
+- (id)printFormattersForPageAtIndex:(long long)arg1;
+- (void)addPrintFormatter:(id)arg1 startingAtPageAtIndex:(long long)arg2;
 - (void)dealloc;
 
 @end

@@ -12,9 +12,9 @@
 {
 }
 
-+ (float)_numberPadButtonOuterCircleDiameter;
-+ (float)_numberPadButtonPaddingWidth;
-+ (float)_numberPadButtonPaddingHeight;
++ (double)_numberPadButtonOuterCircleDiameter;
++ (double)_numberPadButtonPaddingWidth;
++ (double)_numberPadButtonPaddingHeight;
 + (struct UIEdgeInsets)paddingOutsideRing;
 + (struct CGSize)defaultSize;
 - (id)stringCharacter;

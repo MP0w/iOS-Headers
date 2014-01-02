@@ -11,30 +11,30 @@
 }
 
 + (id)prettyPrintDate:(id)arg1;
-+ (id)addToDate:(id)arg1 numberOfDays:(int)arg2;
++ (id)addToDate:(id)arg1 numberOfDays:(long long)arg2;
 + (id)gregorianCalendar;
 + (id)URLIfFileExists:(id)arg1;
-+ (BOOL)hasEnoughDiskSpace:(unsigned long long)arg1;
-+ (int)translateErrorCodeFromError:(id)arg1;
++ (_Bool)hasEnoughDiskSpace:(unsigned long long)arg1;
++ (long long)translateErrorCodeFromError:(id)arg1;
 + (id)translateError:(id)arg1 withAddedUserInfo:(id)arg2;
 + (id)translateError:(id)arg1;
-+ (void)assignError:(id *)arg1 withError:(id)arg2 translate:(BOOL)arg3;
-+ (void)assignError:(id *)arg1 withCode:(int)arg2;
-+ (id)errorWithCode:(int)arg1 originalError:(id)arg2;
-+ (id)errorWithCode:(int)arg1;
++ (void)assignError:(id *)arg1 withError:(id)arg2 translate:(_Bool)arg3;
++ (void)assignError:(id *)arg1 withCode:(long long)arg2;
++ (id)errorWithCode:(long long)arg1 originalError:(id)arg2;
++ (id)errorWithCode:(long long)arg1;
 + (id)currentReleaseType;
 + (id)currentProductBuild;
 + (id)currentProductVersion;
 + (id)currentProductType;
 + (id)currentProductCategory;
 + (id)serialNumber;
-+ (BOOL)cellularDataIsEnabled;
-+ (BOOL)hasCellularRadio;
-+ (BOOL)isCellularDataCapable;
-+ (BOOL)isWiFiCapable;
-+ (BOOL)isDaemon;
-+ (void)setIsDaemon:(BOOL)arg1;
-+ (BOOL)isRestoringFromCloud;
++ (_Bool)cellularDataIsEnabled;
++ (_Bool)hasCellularRadio;
++ (_Bool)isCellularDataCapable;
++ (_Bool)isWiFiCapable;
++ (_Bool)isDaemon;
++ (void)setIsDaemon:(_Bool)arg1;
++ (_Bool)isRestoringFromCloud;
 + (id)taskQueue;
 
 @end

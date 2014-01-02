@@ -9,23 +9,24 @@
 @class NSString;
 
 @interface NSURL (Telephony)
-+ (id)URLWithTelephoneNumber:(id)arg1 addressBookUID:(int)arg2 forceAssist:(BOOL)arg3 suppressAssist:(BOOL)arg4 wasAssisted:(BOOL)arg5;
++ (id)URLWithTelephoneNumber:(id)arg1 addressBookUID:(int)arg2 forceAssist:(_Bool)arg3 suppressAssist:(_Bool)arg4 wasAssisted:(_Bool)arg5;
 + (id)URLWithTelephoneNumber:(id)arg1 addressBookUID:(int)arg2;
-+ (id)URLWithTelephoneNumber:(id)arg1 promptUser:(BOOL)arg2;
++ (id)URLWithTelephoneNumber:(id)arg1 promptUser:(_Bool)arg2;
 + (id)URLWithTelephoneNumber:(id)arg1;
 - (id)_mobilePhoneQueryParameters;
 - (id)_mobilePhonePathParameters;
 - (id)telephonyParameterDictionary;
 - (id)webSafeTelephoneURL;
-- (BOOL)isWebSafeTelephoneURL;
+- (_Bool)isWebSafeTelephoneURL;
 - (id)numberQualifiedForAddressBook;
 - (id)formattedPhoneNumber;
-- (BOOL)hasTelephonyScheme;
-@property(readonly) BOOL wasAlreadyAssisted;
-@property(readonly) BOOL suppressAssist;
-@property(readonly) BOOL forceAssist;
+- (_Bool)hasTelephonyScheme;
+@property(readonly) _Bool wasAlreadyAssisted;
+@property(readonly) _Bool suppressAssist;
+@property(readonly) _Bool forceAssist;
 @property(readonly) int callService;
 @property(readonly) int addressBookUID;
 @property(readonly) NSString *phoneNumber;
+- (id)_phoneNumberConvertNumbersToLatin:(_Bool)arg1;
 @end
 

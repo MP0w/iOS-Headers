@@ -10,6 +10,7 @@
 
 @class NSError, UIAlertView;
 
+// Not exported
 @interface UIDocumentAlertPresenter : NSObject <UIAlertViewDelegate>
 {
     id _completionHandler;
@@ -19,7 +20,7 @@
 
 + (id)_presentAlertWithError:(id)arg1 completionHandler:(id)arg2;
 - (void)alertViewCancel:(id)arg1;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (void)_forceFinishNow;
 - (void)dealloc;
 - (id)initWithError:(id)arg1 completionHandler:(id)arg2;

@@ -6,18 +6,12 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface OAXBlipEffects : NSObject
 {
 }
 
 + (void)readBlipEffectsFromBlipRef:(struct _xmlNode *)arg1 toBlipRef:(id)arg2;
-+ (id)duotoneTransferModeEnumMap;
-+ (id)readDuotoneEffect:(struct _xmlNode *)arg1;
-+ (id)readAlphaModFixEffect:(struct _xmlNode *)arg1;
-+ (id)readColorChangeEffect:(struct _xmlNode *)arg1;
-+ (id)readBiLevelEffect:(struct _xmlNode *)arg1;
-+ (id)readGrayscaleEffect:(struct _xmlNode *)arg1;
-+ (id)readLuminanceEffect:(struct _xmlNode *)arg1;
 
 @end
 

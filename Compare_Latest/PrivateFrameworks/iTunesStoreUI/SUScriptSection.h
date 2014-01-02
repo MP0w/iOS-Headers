@@ -12,7 +12,7 @@
 {
     NSString *_badgeValue;
     NSString *_identifier;
-    BOOL _transient;
+    _Bool _transient;
     SUScriptViewController *_viewController;
 }
 
@@ -22,11 +22,11 @@
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
 @property(readonly) SUScriptViewController *viewController;
-@property(readonly) BOOL transient;
+@property(readonly) _Bool transient;
 @property(retain) NSString *badgeValue;
 @property(readonly) NSString *identifier;
 - (id)_className;
-- (void)setBadgeValue:(id)arg1 animated:(BOOL)arg2 blink:(BOOL)arg3;
+- (void)setBadgeValue:(id)arg1 animated:(_Bool)arg2 blink:(_Bool)arg3;
 - (void)dealloc;
 - (id)initWithNativeSection:(id)arg1;
 

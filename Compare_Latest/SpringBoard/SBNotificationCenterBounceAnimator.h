@@ -20,7 +20,7 @@
     id _completion;
     SBBounceSettings *_settings;
     struct CGRect _targetFrame;
-    BOOL _didBounce;
+    _Bool _didBounce;
 }
 
 @property(copy, nonatomic, getter=_completion, setter=_setCompletion:) id completion; // @synthesize completion=_completion;

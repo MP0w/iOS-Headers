@@ -6,6 +6,7 @@
 
 #import <OfficeImport/EDSharedFormula.h>
 
+// Not exported
 @interface EDArrayedFormula : EDSharedFormula
 {
 }

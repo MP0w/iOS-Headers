@@ -19,6 +19,7 @@
 }
 
 + (id)currentClient;
+- (id)_appleClientVersions;
 - (void)_softwareMapInvalidatedNotification:(id)arg1;
 - (id)localStoreFrontID;
 @property(copy) NSString *userAgent;

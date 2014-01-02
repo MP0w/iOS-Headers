@@ -15,8 +15,9 @@
 
 @property(copy, nonatomic) id completionHandler; // @synthesize completionHandler=_completionHandler;
 - (void).cxx_destruct;
-- (void)actionSheet:(id)arg1 didDismissWithButtonIndex:(int)arg2;
+- (void)actionSheet:(id)arg1 didDismissWithButtonIndex:(long long)arg2;
 - (void)showFromViewController:(id)arg1 withCompletionHandler:(id)arg2;
+- (void)showFromObject:(id)arg1 animated:(_Bool)arg2 withCompletionHandler:(id)arg3;
 - (void)setDelegate:(id)arg1;
 - (void)_tearDown;
 - (id)initWithTitle:(id)arg1 cancelButtonTitle:(id)arg2 destructiveButtonTitle:(id)arg3 otherButtonTitles:(id)arg4;

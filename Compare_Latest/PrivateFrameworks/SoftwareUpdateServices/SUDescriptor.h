@@ -23,16 +23,16 @@
     unsigned long long _preparationSize;
     unsigned long long _installationSize;
     int _updateType;
-    BOOL _autoDownloadAllowableForCellular;
-    BOOL _downloadAllowableForCellular;
-    BOOL _downloadable;
-    BOOL _downloadableOverCellular;
+    _Bool _autoDownloadAllowableForCellular;
+    _Bool _downloadAllowableForCellular;
+    _Bool _downloadable;
+    _Bool _downloadableOverCellular;
 }
 
-+ (BOOL)supportsSecureCoding;
-@property(nonatomic, getter=isDownloadableOverCellular) BOOL downloadableOverCellular; // @synthesize downloadableOverCellular=_downloadableOverCellular;
-@property(nonatomic, getter=isDownloadable) BOOL downloadable; // @synthesize downloadable=_downloadable;
-@property(nonatomic) BOOL autoDownloadAllowableForCellular; // @synthesize autoDownloadAllowableForCellular=_autoDownloadAllowableForCellular;
++ (_Bool)supportsSecureCoding;
+@property(nonatomic, getter=isDownloadableOverCellular) _Bool downloadableOverCellular; // @synthesize downloadableOverCellular=_downloadableOverCellular;
+@property(nonatomic, getter=isDownloadable) _Bool downloadable; // @synthesize downloadable=_downloadable;
+@property(nonatomic) _Bool autoDownloadAllowableForCellular; // @synthesize autoDownloadAllowableForCellular=_autoDownloadAllowableForCellular;
 @property(retain, nonatomic) SUDocumentation *documentation; // @synthesize documentation=_documentation;
 @property(nonatomic) int updateType; // @synthesize updateType=_updateType;
 @property(nonatomic) unsigned long long installationSize; // @synthesize installationSize=_installationSize;
@@ -43,11 +43,11 @@
 @property(retain, nonatomic) NSString *productSystemName; // @synthesize productSystemName=_productSystemName;
 @property(retain, nonatomic) NSString *publisher; // @synthesize publisher=_publisher;
 - (id)description;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)_buildCompareKey;
-- (BOOL)_hasValue:(id)arg1;
-- (BOOL)isValidDescriptor;
+- (_Bool)_hasValue:(id)arg1;
+- (_Bool)isValidDescriptor;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

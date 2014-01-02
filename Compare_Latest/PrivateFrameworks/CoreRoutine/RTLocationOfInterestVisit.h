@@ -17,7 +17,7 @@
     NSDate *_exitTime;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) NSDate *exitTime; // @synthesize exitTime=_exitTime;
 @property(readonly, nonatomic) NSDate *entryTime; // @synthesize entryTime=_entryTime;
 - (void).cxx_destruct;

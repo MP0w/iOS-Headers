@@ -8,6 +8,7 @@
 
 @class NSMapTable, VGLResourceFactory;
 
+// Not exported
 @interface VGLProgramFactory : NSObject
 {
     VGLResourceFactory *_factory;
@@ -16,6 +17,7 @@
 
 @property(nonatomic) VGLResourceFactory *factory; // @synthesize factory=_factory;
 - (id)programWithClass:(Class)arg1;
+- (void)dealloc;
 - (id)initWithResourceFactory:(id)arg1;
 
 @end

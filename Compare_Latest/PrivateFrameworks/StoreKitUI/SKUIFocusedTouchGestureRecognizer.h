@@ -11,7 +11,7 @@
 @interface SKUIFocusedTouchGestureRecognizer : UIGestureRecognizer
 {
     NSMutableSet *_activeTouches;
-    BOOL _didTouchOutside;
+    _Bool _didTouchOutside;
     UIView *_focusedView;
     struct UIEdgeInsets _touchAllowance;
 }

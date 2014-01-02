@@ -21,7 +21,7 @@
 - (void)shutDownCompletionBlock:(id)arg1;
 - (id)initWithServiceName:(id)arg1 delegate:(id)arg2;
 - (void)sendMessage:(id)arg1 withHandler:(id)arg2;
-- (void)_reallySendMessage:(id)arg1 handler:(id)arg2 sequence:(void)arg3 retryCount:(unsigned long)arg4;
+- (void)_reallySendMessage:(id)arg1 handler:(id)arg2 sequence:(void)arg3 retryCount:(unsigned long long)arg4;
 - (void)_handleIncomingMessage:(id)arg1;
 - (void)_handleConnectionEvent:(id)arg1;
 - (id)debugDescription;

@@ -8,6 +8,7 @@
 
 @class EKParticipant, NSString;
 
+// Not exported
 @interface EKEventAttendeesEditItem : EKEventEditItem
 {
     EKParticipant *_selfOrganizer;
@@ -15,12 +16,12 @@
 }
 
 - (void).cxx_destruct;
-- (BOOL)editItemViewControllerCommit:(id)arg1;
-- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(unsigned int)arg2 inSubsection:(unsigned int)arg3;
+- (_Bool)editItemViewControllerCommit:(id)arg1;
+- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(unsigned long long)arg2 inSubsection:(unsigned long long)arg3;
 - (id)attendeesWithoutSelfOrganizer;
-- (id)cellForSubitemAtIndex:(unsigned int)arg1 inSubsection:(unsigned int)arg2;
-- (BOOL)configureForCalendarConstraints:(id)arg1;
-- (BOOL)canBeConfiguredForCalendarConstraints:(id)arg1;
+- (id)cellForSubitemAtIndex:(unsigned long long)arg1 inSubsection:(unsigned long long)arg2;
+- (_Bool)configureForCalendarConstraints:(id)arg1;
+- (_Bool)canBeConfiguredForCalendarConstraints:(id)arg1;
 
 @end
 

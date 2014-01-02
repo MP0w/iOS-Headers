@@ -12,8 +12,8 @@
 
 + (id)plainTextFromHTMLSnippet:(id)arg1;
 + (id)plainTextFromHTML:(id)arg1;
-+ (id)plainTextFromHTML:(id)arg1 limit:(unsigned long)arg2;
-+ (id)plainTextFromHTML:(id)arg1 limit:(unsigned long)arg2 preserveNewlines:(BOOL)arg3;
++ (id)plainTextFromHTML:(id)arg1 limit:(unsigned long long)arg2;
++ (id)plainTextFromHTML:(id)arg1 limit:(unsigned long long)arg2 preserveNewlines:(_Bool)arg3;
 
 @end
 

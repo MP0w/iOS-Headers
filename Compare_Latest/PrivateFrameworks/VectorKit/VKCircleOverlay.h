@@ -10,6 +10,7 @@
 
 @class GEOMapRegion;
 
+// Not exported
 @interface VKCircleOverlay : NSObject <VKOverlay>
 {
     CDStruct_2c43369c _coordinate;

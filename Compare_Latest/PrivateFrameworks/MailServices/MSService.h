@@ -20,7 +20,7 @@
 
 - (void)_generateUnitTestResponsesForResultArray:(id)arg1;
 - (id)_generateUnitTestReplyForMethod:(id)arg1 arg:(id)arg2 error:(id *)arg3;
-- (BOOL)_unitTestsAreEnabled;
+- (_Bool)_unitTestsAreEnabled;
 - (void)_simulateServicesMethod:(id)arg1 arguments:(id)arg2 callback:(id)arg3;
 - (void)_callServicesMethod:(id)arg1 arguments:(id)arg2 callback:(id)arg3;
 - (id)_handleMessageSendFailure:(id)arg1 message:(id)arg2 messageIndex:(long long)arg3 context:(inout id *)arg4;
@@ -29,7 +29,7 @@
 - (void)setupResponseConnectionOnQueue:(id)arg1;
 - (void)responseConnection:(id)arg1 handleResponse:(id)arg2;
 - (void)responseConnection:(id)arg1 handleError:(id)arg2;
-@property(readonly, getter=isCanceled) BOOL canceled;
+@property(readonly, getter=isCanceled) _Bool canceled;
 - (void)cancel;
 - (void)stop;
 - (void)start;

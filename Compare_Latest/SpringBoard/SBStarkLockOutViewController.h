@@ -11,20 +11,20 @@
 @interface SBStarkLockOutViewController : UIViewController
 {
     UIStatusBar *_statusBarView;
-    int _mode;
+    long long _mode;
     UIView *_modeView;
-    BOOL _animating;
-    int _pendingMode;
+    _Bool _animating;
+    long long _pendingMode;
     SBStarkLockOutAnimation *_pendingAnimation;
 }
 
 - (void)_updateLockOutModeIfPending;
-- (id)_newModeViewForMode:(int)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
+- (id)_newModeViewForMode:(long long)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillLayoutSubviews;
 - (void)loadView;
-- (void)setLockOutMode:(int)arg1 withAnimation:(id)arg2;
-@property(nonatomic) int lockOutMode;
+- (void)setLockOutMode:(long long)arg1 withAnimation:(id)arg2;
+@property(nonatomic) long long lockOutMode;
 
 @end
 

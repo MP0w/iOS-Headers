@@ -11,21 +11,21 @@
 @interface SBStarkLockOutView : UIView
 {
     NSMutableArray *_titleLabels;
-    float _titleAscender;
-    float _titleDescender;
+    double _titleAscender;
+    double _titleDescender;
     UIImageView *_imageView;
     struct CGSize _imageSize;
     NSMutableArray *_messageLabels;
-    float _messageAscender;
-    float _messageDescender;
+    double _messageAscender;
+    double _messageDescender;
     NSArray *_baselineSeparations;
-    float _verticalOffset;
+    double _verticalOffset;
 }
 
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (id)initWithFrame:(struct CGRect)arg1 titleLines:(id)arg2 image:(id)arg3 messageLines:(id)arg4 baselineSeparations:(id)arg5 verticalOffset:(float)arg6;
+- (id)initWithFrame:(struct CGRect)arg1 titleLines:(id)arg2 image:(id)arg3 messageLines:(id)arg4 baselineSeparations:(id)arg5 verticalOffset:(double)arg6;
 
 @end
 

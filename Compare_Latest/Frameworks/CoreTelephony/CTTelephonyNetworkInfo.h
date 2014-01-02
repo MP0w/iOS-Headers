@@ -14,14 +14,14 @@
     struct __CTServerConnection *server_connection;
     NSLock *server_lock;
     id _subscriberCellularProviderDidUpdateNotifier;
-    BOOL _monitoringCellId;
+    _Bool _monitoringCellId;
     CTCarrier *_subscriberCellularProvider;
     NSString *_cachedCurrentRadioAccessTechnology;
     NSDictionary *_cachedSignalStrength;
     NSString *_cachedCellId;
 }
 
-@property BOOL monitoringCellId; // @synthesize monitoringCellId=_monitoringCellId;
+@property _Bool monitoringCellId; // @synthesize monitoringCellId=_monitoringCellId;
 @property(retain) NSString *cachedCellId; // @synthesize cachedCellId=_cachedCellId;
 @property(retain) NSDictionary *cachedSignalStrength; // @synthesize cachedSignalStrength=_cachedSignalStrength;
 @property(retain) NSString *cachedCurrentRadioAccessTechnology; // @synthesize cachedCurrentRadioAccessTechnology=_cachedCurrentRadioAccessTechnology;
@@ -30,7 +30,7 @@
 - (void).cxx_destruct;
 - (id)radioAccessTechnology;
 @property(retain, nonatomic) NSString *cellId;
-@property(readonly, nonatomic) NSDictionary *signalStrength;
+- (id)signalStrength;
 @property(readonly, nonatomic) NSString *currentRadioAccessTechnology;
 - (void)queryCellId;
 - (void)updateRadioAccessTechnology:(id)arg1;
@@ -42,16 +42,16 @@
 - (id)createSignalStrengthDictWithBars:(id)arg1;
 - (void)postCellularProviderUpdatesIfNecessary;
 - (void)handleNotificationFromConnection:(void *)arg1 ofType:(id)arg2 withInfo:(id)arg3;
-- (BOOL)updateNetworkInfoAndShouldNotifyClient:(char *)arg1;
-- (BOOL)getAllowsVOIP:(char *)arg1 withCTError:(CDStruct_1ef3fb1f *)arg2;
-- (BOOL)getMobileNetworkCode:(id)arg1 withCTError:(CDStruct_1ef3fb1f *)arg2;
-- (BOOL)getMobileCountryCode:(id)arg1 andIsoCountryCode:(id)arg2 withCTError:(CDStruct_1ef3fb1f *)arg3;
-- (BOOL)getCarrierName:(id)arg1 withCTError:(CDStruct_1ef3fb1f *)arg2;
+- (_Bool)updateNetworkInfoAndShouldNotifyClient:(_Bool *)arg1;
+- (_Bool)getAllowsVOIP:(_Bool *)arg1 withCTError:(CDStruct_1ef3fb1f *)arg2;
+- (_Bool)getMobileNetworkCode:(id)arg1 withCTError:(CDStruct_1ef3fb1f *)arg2;
+- (_Bool)getMobileCountryCode:(id)arg1 andIsoCountryCode:(id)arg2 withCTError:(CDStruct_1ef3fb1f *)arg3;
+- (_Bool)getCarrierName:(id)arg1 withCTError:(CDStruct_1ef3fb1f *)arg2;
 @property(copy, nonatomic) id subscriberCellularProviderDidUpdateNotifier;
 - (void)dealloc;
 - (id)init;
 - (void)cleanUpServerConnection;
-- (BOOL)setUpServerConnection;
+- (_Bool)setUpServerConnection;
 
 @end
 

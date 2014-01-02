@@ -17,7 +17,7 @@
 @property(readonly) NSString *service;
 @property(readonly) NSString *username;
 @property(readonly) NSString *placeholder;
-- (void)reloadFromModelIncludingRows:(BOOL)arg1;
+- (void)reloadFromModelIncludingRows:(_Bool)arg1;
 
 @end
 

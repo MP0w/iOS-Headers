@@ -8,9 +8,9 @@
 
 @protocol SLSheetPreviewView
 @property(retain, nonatomic) NSArray *principalAttachments;
-@property(nonatomic) BOOL isTranscoding;
-- (void)setCurrentBarMetrics:(int)arg1;
+@property(nonatomic) _Bool isTranscoding;
+- (void)setCurrentBarMetrics:(long long)arg1;
 - (void)setPreviewImage:(id)arg1 forAttachment:(id)arg2;
-- (BOOL)previewDependsOnAttachment:(id)arg1;
+- (_Bool)previewDependsOnAttachment:(id)arg1;
 @end
 

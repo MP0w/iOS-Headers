@@ -6,32 +6,21 @@
 
 #import <iLifeSlideshow/MCAnimationPath.h>
 
-#import "MCAnimationPathSupport-Protocol.h"
+@class NSMutableSet, NSString;
 
-@class NSMutableSet, NSSet, NSString;
-
-@interface MCAnimationPathCombo : MCAnimationPath <MCAnimationPathSupport>
+@interface MCAnimationPathCombo : MCAnimationPath
 {
     NSMutableSet *mAnimationPaths;
-    BOOL mIsSnapshot;
+    _Bool mIsSnapshot;
     NSString *mCombineOperation;
 }
 
-- (BOOL)isSnapshot;
+- (_Bool)isSnapshot;
 @property(copy) NSString *combineOperation; // @synthesize combineOperation=mCombineOperation;
 - (void)_copySelfToSnapshot:(id)arg1;
 - (id)imprint;
 - (void)demolish;
 - (id)initWithImprint:(id)arg1;
-- (void)removeAllAnimationPaths;
-- (void)removeAnimationPathForKey:(id)arg1;
-- (void)addAnimationPath:(id)arg1;
-- (id)animationPathForKey:(id)arg1;
-@property(readonly) unsigned int countOfAnimationPaths;
-@property(readonly) NSSet *animationPaths;
-- (id)imprintsForAnimationPaths;
-- (void)demolishAnimationPaths;
-- (void)initAnimationPathsWithImprints:(id)arg1;
 
 @end
 

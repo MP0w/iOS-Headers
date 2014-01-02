@@ -6,19 +6,24 @@
 
 #import "UIView.h"
 
+#import "SBWallpaperObserver-Protocol.h"
 #import "_UISettingsKeyObserver-Protocol.h"
 
-@class SBFolderSettings, _UIBackdropView;
+@class SBFolderSettings, SBWallpaperEffectView, UIImageView;
 
-@interface SBFolderBackgroundView : UIView <_UISettingsKeyObserver>
+@interface SBFolderBackgroundView : UIView <_UISettingsKeyObserver, SBWallpaperObserver>
 {
-    _UIBackdropView *_backdropView;
+    SBWallpaperEffectView *_backdropView;
+    UIImageView *_backgroundImageView;
     SBFolderSettings *_folderSettings;
 }
 
++ (double)cornerRadiusToInsetContent;
 + (struct CGSize)folderBackgroundSize;
+- (void)wallpaperDidChangeForVariant:(long long)arg1;
 - (void)settings:(id)arg1 changedValueForKey:(id)arg2;
 - (void)_configureBackground;
+- (void)adjustCornerRadiusForMagnificationFraction:(double)arg1;
 - (void)didAnimate;
 - (void)willAnimate;
 - (void)layoutSubviews;

@@ -23,9 +23,9 @@
 - (void)mapView:(id)arg1 didAddAnnotationViews:(id)arg2;
 - (id)mapView:(id)arg1 viewForAnnotation:(id)arg2;
 - (id)initWithAnnotation:(id)arg1;
-- (BOOL)wantsFullScreenLayout;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
+- (_Bool)wantsFullScreenLayout;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)loadView;
 - (void)dealloc;
 

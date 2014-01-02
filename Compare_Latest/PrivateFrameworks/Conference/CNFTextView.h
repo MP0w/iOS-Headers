@@ -18,7 +18,7 @@
     UILabel *_messageLabel;
 }
 
-- (void)setOrientation:(int)arg1;
+- (void)setOrientation:(long long)arg1;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)dealloc;

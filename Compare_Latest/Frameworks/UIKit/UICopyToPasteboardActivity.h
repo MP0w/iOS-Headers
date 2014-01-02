@@ -13,7 +13,7 @@
 - (id)pasteboard;
 - (void)performActivity;
 - (void)prepareWithActivityItems:(id)arg1;
-- (BOOL)canPerformWithActivityItems:(id)arg1;
+- (_Bool)canPerformWithActivityItems:(id)arg1;
 - (id)_activityImage;
 - (id)activityTitle;
 - (id)activityType;

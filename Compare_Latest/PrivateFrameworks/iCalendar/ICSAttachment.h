@@ -15,17 +15,14 @@
 @property(retain) NSString *x_apple_ews_attachmentid;
 @property(retain) NSString *x_apple_filename;
 @property(retain) NSString *managed_filename;
-@property BOOL x_apple_autoarchived;
+@property _Bool x_apple_autoarchived;
 @property(retain) NSString *fmtype;
 @property(retain) NSString *managed_id;
 @property int size;
 - (id)filename;
-- (BOOL)isBinary;
+- (_Bool)isBinary;
 - (id)initWithData:(id)arg1;
 - (id)initWithURL:(id)arg1;
-- (void)setURL:(id)arg1;
-- (void)setData:(id)arg1;
-- (void)_ICSStringWithOptions:(unsigned int)arg1 appendingToString:(id)arg2;
 
 @end
 

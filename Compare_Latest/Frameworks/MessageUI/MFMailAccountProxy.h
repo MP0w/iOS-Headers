@@ -14,10 +14,10 @@
 }
 
 @property(readonly, nonatomic) id mailAccount;
-- (BOOL)_isRestricted;
-- (BOOL)_isActive;
-@property(readonly, nonatomic) BOOL restrictsRepliesAndForwards;
-@property(readonly, nonatomic) BOOL supportsSoftBankCodePoints;
+- (_Bool)_isRestricted;
+- (_Bool)_isActive;
+@property(readonly, nonatomic) _Bool restrictsRepliesAndForwards;
+@property(readonly, nonatomic) _Bool supportsSoftBankCodePoints;
 @property(readonly, nonatomic) NSString *uniqueID;
 - (id)_emailAddressesAndAliases;
 @property(readonly, nonatomic) NSArray *fromEmailAddressesIncludingDisabled;
@@ -26,7 +26,7 @@
 @property(readonly, nonatomic) NSString *firstEmailAddress;
 @property(readonly, nonatomic) NSString *username;
 @property(readonly, nonatomic) NSString *fullUserName;
-@property(readonly, nonatomic) BOOL isDefaultDeliveryAccount;
+@property(readonly, nonatomic) _Bool isDefaultDeliveryAccount;
 - (void)dealloc;
 - (id)_initWithProperties:(id)arg1;
 

@@ -8,6 +8,7 @@
 
 @class CPDumpNumeric, NSMutableDictionary, NSString;
 
+// Not exported
 @interface CPDumpUnion : CPDumpType
 {
     NSString *mSelectorFieldName;

@@ -11,7 +11,7 @@
 @interface PLTextView : UITextView
 {
     UILabel *_placeholder;
-    BOOL _showingPlaceholder;
+    _Bool _showingPlaceholder;
 }
 
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;

@@ -8,9 +8,9 @@
 
 @interface NSBundle : NSObject
 {
-    unsigned int _flags;
+    unsigned long long _flags;
     id _cfBundle;
-    unsigned int _reserved2;
+    unsigned long long _reserved2;
     Class _principalClass;
     id _initialPath;
     id _resolvedPath;
@@ -35,10 +35,10 @@
 + (id)URLForResource:(id)arg1 withExtension:(id)arg2 subdirectory:(id)arg3 inBundleWithURL:(id)arg4;
 + (id)pathForResource:(id)arg1 ofType:(id)arg2 inDirectory:(id)arg3;
 + (id)findBundleResourceURLsCallingMethod:(SEL)arg1 baseURL:(id)arg2 passingTest:(id)arg3;
-+ (id)findBundleResourceURLs:(id)arg1 callingMethod:(SEL)arg2 bundleURL:(id)arg3 languages:(id)arg4 name:(id)arg5 types:(id)arg6 limit:(unsigned int)arg7;
-+ (id)findBundleResources:(id)arg1 callingMethod:(SEL)arg2 directory:(id)arg3 languages:(id)arg4 name:(id)arg5 types:(id)arg6 limit:(unsigned int)arg7;
++ (id)findBundleResourceURLs:(id)arg1 callingMethod:(SEL)arg2 bundleURL:(id)arg3 languages:(id)arg4 name:(id)arg5 types:(id)arg6 limit:(unsigned long long)arg7;
++ (id)findBundleResources:(id)arg1 callingMethod:(SEL)arg2 directory:(id)arg3 languages:(id)arg4 name:(id)arg5 types:(id)arg6 limit:(unsigned long long)arg7;
 - (id)executableArchitectures;
-- (BOOL)preflightAndReturnError:(id *)arg1;
+- (_Bool)preflightAndReturnError:(id *)arg1;
 - (id)localizationsToSearch;
 - (id)developmentLocalization;
 - (id)preferredLocalizations;
@@ -56,7 +56,7 @@
 - (Class)classNamed:(id)arg1;
 - (void)invalidateResourceCache;
 - (id)bundleLanguages;
-- (unsigned int)versionNumber;
+- (unsigned long long)versionNumber;
 - (id)bundleIdentifier;
 - (id)builtInPlugInsURL;
 - (id)builtInPlugInsPath;
@@ -80,10 +80,10 @@
 - (void)finalize;
 - (void)dealloc;
 - (oneway void)release;
-- (BOOL)isLoaded;
-- (BOOL)unload;
-- (BOOL)loadAndReturnError:(id *)arg1;
-- (BOOL)load;
+- (_Bool)isLoaded;
+- (_Bool)unload;
+- (_Bool)loadAndReturnError:(id *)arg1;
+- (_Bool)load;
 - (id)localizedStringForKey:(id)arg1 value:(id)arg2 table:(id)arg3;
 - (id)URLsForResourcesWithExtension:(id)arg1 subdirectory:(id)arg2;
 - (id)pathsForResourcesOfType:(id)arg1 inDirectory:(id)arg2;

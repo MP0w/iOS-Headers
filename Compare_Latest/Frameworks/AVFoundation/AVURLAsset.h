@@ -6,7 +6,7 @@
 
 #import <AVFoundation/AVAsset.h>
 
-@class AVAssetCache, AVAssetResourceLoader, AVURLAssetInternal, NSString, NSURL;
+@class AVURLAssetInternal, NSURL;
 
 @interface AVURLAsset : AVAsset
 {
@@ -14,11 +14,16 @@
 }
 
 + (id)URLAssetWithURL:(id)arg1 options:(id)arg2;
-+ (BOOL)isPlayableExtendedMIMEType:(id)arg1;
++ (_Bool)isPlayableExtendedMIMEType:(id)arg1;
 + (id)audiovisualMIMETypes;
 + (id)audiovisualTypes;
 + (id)_UTTypes;
++ (id)_fileUTTypes;
++ (id)_streamingUTTypes;
 + (id)_figMIMETypes;
++ (id)_figFilePathExtensions;
++ (id)_figFileMIMETypes;
++ (id)_figStreamingMIMETypes;
 + (id)_avfValidationPlist;
 - (id)lyrics;
 - (void)cancelLoading;
@@ -39,24 +44,6 @@
 - (id)_errorForFigNotificationPayload:(struct __CFDictionary *)arg1 key:(struct __CFString *)arg2;
 - (id)initWithURL:(id)arg1 options:(id)arg2;
 - (id)init;
-- (id)chapterMetadataGroupsBestMatchingPreferredLanguages:(id)arg1;
-- (id)chapterMetadataGroupsWithTitleLocale:(id)arg1 containingItemsWithCommonKeys:(id)arg2;
-- (unsigned int)_addChapterMetadataItem:(id)arg1 timeRange:(CDStruct_e83c9415)arg2 toChapters:(id)arg3 fromIndex:(unsigned int)arg4;
-- (id)availableChapterLocales;
-- (id)_chapterGroupInfo;
-- (BOOL)_shouldOptimizeAccessForLinearMoviePlayback;
-- (id)SHA1Digest;
-- (unsigned long long)downloadToken;
-- (id)downloadDestinationURL;
-- (id)resolvedURL;
-@property(readonly, nonatomic) NSString *cacheKey;
-@property(readonly, nonatomic) BOOL shouldMatchDataInCacheByURLWithoutQueryComponent;
-@property(readonly, nonatomic) BOOL shouldMatchDataInCacheByURLPathComponentOnly;
-@property(readonly, nonatomic) AVAssetCache *assetCache;
-- (BOOL)_hasResourceLoaderDelegate;
-@property(readonly, nonatomic) AVAssetResourceLoader *resourceLoader;
-- (void)_handleURLRequest:(id)arg1;
-- (void)_finishLoadingCustomURLProviderRequestWithResponseProperties:(id)arg1 context:(id)arg2;
 
 @end
 

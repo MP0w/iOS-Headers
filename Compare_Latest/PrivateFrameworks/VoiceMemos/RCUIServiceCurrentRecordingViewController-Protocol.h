@@ -8,7 +8,7 @@
 
 @protocol RCUIServiceCurrentRecordingViewController <NSObject>
 - (void)dismissLockscreenInterface;
-- (void)presentLockscreenInterfaceWithBackgroundColor:(id)arg1;
-- (void)setScreenUpdatesDisabled:(BOOL)arg1;
+- (void)presentLockscreenInterfaceWithBackgroundColor:(id)arg1 waveformForegroundColor:(id)arg2;
+- (void)setScreenUpdatesDisabled:(_Bool)arg1;
 @end
 

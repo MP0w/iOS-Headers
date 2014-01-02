@@ -8,6 +8,7 @@
 
 @class NSArray, NSMutableArray, UIView<UITextInput>, UIWebDragDotView;
 
+// Not exported
 @interface UIWebTextRangeView : UIView
 {
     UIView<UITextInput> *m_container;
@@ -15,7 +16,7 @@
     NSMutableArray *_rectViews;
     UIWebDragDotView *_startDot;
     UIWebDragDotView *_endDot;
-    BOOL _magnifying;
+    _Bool _magnifying;
 }
 
 @property(copy, nonatomic) NSArray *rects; // @synthesize rects=_rects;
@@ -23,8 +24,8 @@
 - (void)doneMagnifying;
 - (void)prepareForMagnification;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
-- (BOOL)endIsHorizontal;
-- (BOOL)startIsHorizontal;
+- (_Bool)endIsHorizontal;
+- (_Bool)startIsHorizontal;
 - (struct CGPoint)endCorner;
 - (struct CGPoint)startCorner;
 - (struct CGRect)endEdge;

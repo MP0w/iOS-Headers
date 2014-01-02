@@ -14,14 +14,14 @@
     UISlider *_slider;
     UILabel *_valueLabel;
     NSNumberFormatter *_numberFormatter;
-    float _sliderMargin;
-    float _valueWidth;
+    double _sliderMargin;
+    double _valueWidth;
 }
 
 - (id)description;
 - (void)accessibilityDecrement;
 - (void)accessibilityIncrement;
-- (BOOL)isAccessibilityElement;
+- (_Bool)isAccessibilityElement;
 - (id)accessibilityLabel;
 - (id)accessibilityHint;
 - (id)accessibilityValue;
@@ -33,7 +33,7 @@
 - (void)sliderValueDidChange:(id)arg1;
 - (void)willMoveToSuperview:(id)arg1;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
 
 @end
 

@@ -6,20 +6,21 @@
 
 #import <UIKit/UIButton.h>
 
+// Not exported
 @interface UITexturedButton : UIButton
 {
 }
 
-- (id)backgroundImageForState:(unsigned int)arg1;
-- (void)setBackgroundImage:(id)arg1 forStates:(unsigned int)arg2;
-- (id)titleShadowColorForState:(unsigned int)arg1;
-- (void)setTitleShadowColor:(id)arg1 forStates:(unsigned int)arg2;
-- (id)titleColorForState:(unsigned int)arg1;
-- (void)setTitleColor:(id)arg1 forStates:(unsigned int)arg2;
+- (id)backgroundImageForState:(unsigned long long)arg1;
+- (void)setBackgroundImage:(id)arg1 forStates:(unsigned long long)arg2;
+- (id)titleShadowColorForState:(unsigned long long)arg1;
+- (void)setTitleShadowColor:(id)arg1 forStates:(unsigned long long)arg2;
+- (id)titleColorForState:(unsigned long long)arg1;
+- (void)setTitleColor:(id)arg1 forStates:(unsigned long long)arg2;
 - (void)drawRect:(struct CGRect)arg1;
 - (struct CGSize)_intrinsicSizeWithinSize:(struct CGSize)arg1;
-- (void)setHighlighted:(BOOL)arg1;
-- (int)buttonType;
+- (void)setHighlighted:(_Bool)arg1;
+- (long long)buttonType;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

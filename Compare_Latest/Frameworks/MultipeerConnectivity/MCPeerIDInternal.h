@@ -11,8 +11,8 @@
 @interface MCPeerIDInternal : NSObject
 {
     NSString *_idString;
-    NSString *_displayName;
     unsigned long long _pid64;
+    NSString *_displayName;
 }
 
 @property(readonly, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;

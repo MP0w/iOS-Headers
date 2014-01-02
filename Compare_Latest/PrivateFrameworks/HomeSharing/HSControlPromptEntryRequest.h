@@ -10,8 +10,8 @@
 
 @interface HSControlPromptEntryRequest : HSRequest
 {
-    NSDictionary *_attributes;
     unsigned int _interfaceID;
+    NSDictionary *_attributes;
 }
 
 + (id)requestWithInterfaceID:(unsigned int)arg1 attributes:(id)arg2;

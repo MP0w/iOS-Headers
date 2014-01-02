@@ -8,39 +8,41 @@
 
 #import "EKEditItemViewControllerProtocol-Protocol.h"
 
+// Not exported
 @interface EKEditItemViewController : UIViewController <EKEditItemViewControllerProtocol>
 {
     struct CGRect _initialFrame;
     int _subitem;
-    BOOL _modal;
+    _Bool _modal;
     id <EKStyleProvider> _styleProvider;
     id <EKEditItemViewControllerDelegate> _editDelegate;
-    BOOL _showsDoneButton;
+    _Bool _showsDoneButton;
     int _subsection;
 }
 
-@property(nonatomic) BOOL showsDoneButton; // @synthesize showsDoneButton=_showsDoneButton;
-@property(nonatomic) BOOL modal; // @synthesize modal=_modal;
+@property(nonatomic) _Bool showsDoneButton; // @synthesize showsDoneButton=_showsDoneButton;
+@property(nonatomic) _Bool modal; // @synthesize modal=_modal;
 @property(nonatomic) int subsection; // @synthesize subsection=_subsection;
 @property(nonatomic) int subitem; // @synthesize subitem=_subitem;
 @property(nonatomic) __weak id <EKEditItemViewControllerDelegate> editDelegate; // @synthesize editDelegate=_editDelegate;
 - (void).cxx_destruct;
-- (float)tableView:(id)arg1 heightForFooterInSection:(int)arg2;
-- (float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2;
-- (float)marginForTableView:(id)arg1;
-- (void)setCell:(id)arg1 checked:(BOOL)arg2;
-- (BOOL)fitsPopoverWhenKeyboardActive;
-- (struct CGSize)contentSizeForViewInPopover;
+- (double)tableView:(id)arg1 heightForFooterInSection:(long long)arg2;
+- (double)tableView:(id)arg1 heightForHeaderInSection:(long long)arg2;
+- (double)marginForTableView:(id)arg1;
+- (void)setCell:(id)arg1 checked:(_Bool)arg2;
+- (_Bool)fitsPopoverWhenKeyboardActive;
+- (struct CGSize)preferredContentSize;
 - (void)didReceiveMemoryWarning;
-- (BOOL)validateAllowingAlert:(BOOL)arg1;
+- (_Bool)validateAllowingAlert:(_Bool)arg1;
+- (void)popIfNonModal;
 - (void)saveAndDismissWithExtremePrejudice;
 - (void)saveAndDismiss;
-- (void)_saveAndDismissWithForce:(BOOL)arg1;
+- (void)_saveAndDismissWithForce:(_Bool)arg1;
 - (void)cancel;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (unsigned int)supportedInterfaceOrientations;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (unsigned long long)supportedInterfaceOrientations;
 - (void)viewDidLoad;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 styleProvider:(id)arg2;
 

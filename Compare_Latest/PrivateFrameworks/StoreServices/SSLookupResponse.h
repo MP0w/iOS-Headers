@@ -28,7 +28,7 @@
 - (id)valueForProperty:(id)arg1;
 @property(readonly, nonatomic) SSMetricsConfiguration *metricsConfiguration;
 - (id)itemForKey:(id)arg1;
-- (id)appStoreURLWithReason:(int)arg1 initialIndex:(int)arg2;
+- (id)appStoreURLWithReason:(long long)arg1 initialIndex:(long long)arg2;
 @property(readonly, nonatomic) NSArray *allItems;
 - (void)dealloc;
 - (id)initWithResponseDictionary:(id)arg1;

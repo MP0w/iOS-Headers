@@ -10,6 +10,7 @@
 
 @class NSArray, NSString;
 
+// Not exported
 @interface CalAlarmMetadata : NSObject <NSCoding>
 {
     NSArray *_attach;

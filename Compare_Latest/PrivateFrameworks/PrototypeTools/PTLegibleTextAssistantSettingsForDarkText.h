@@ -10,7 +10,7 @@
 {
 }
 
-- (id)calculateForegroundColorWithImageStatistics:(CDStruct_d4b298fb)arg1;
+- (id)calculateForegroundColorWithImageStatistics:(CDStruct_7d841a06)arg1;
 - (void)setDefaultValues;
 
 @end

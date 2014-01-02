@@ -12,12 +12,12 @@
 {
     NSCalendar *_calendar;
     NSDate *_baseDate;
-    int _hour;
-    int _minute;
+    long long _hour;
+    long long _minute;
 }
 
-- (void)forceSetHour:(int)arg1 minute:(int)arg2;
-- (BOOL)setHour:(int)arg1 minute:(int)arg2;
+- (void)forceSetHour:(long long)arg1 minute:(long long)arg2;
+- (_Bool)setHour:(long long)arg1 minute:(long long)arg2;
 - (void)refreshUI;
 - (void)resetFontSizes;
 - (void)significantTimeChange:(id)arg1;

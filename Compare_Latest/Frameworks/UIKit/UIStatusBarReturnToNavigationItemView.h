@@ -6,11 +6,12 @@
 
 #import <UIKit/UIStatusBarReturnToAppItemView.h>
 
+// Not exported
 @interface UIStatusBarReturnToNavigationItemView : UIStatusBarReturnToAppItemView
 {
 }
 
-- (int)buttonType;
+- (long long)buttonType;
 - (id)_text;
 
 @end

@@ -8,67 +8,74 @@
 
 @class UIColor, UIImageView, _UIBarButtonItemAppearanceStorage;
 
+// Not exported
 @interface UINavigationItemButtonView : UINavigationItemView
 {
-    int _style;
-    BOOL _pressed;
+    long long _style;
+    _Bool _pressed;
     _UIBarButtonItemAppearanceStorage *_appearanceStorage;
-    BOOL _customBackgroundImageChangedToOrFromNil;
+    _Bool _customBackgroundImageChangedToOrFromNil;
     UIImageView *_imageView;
+    unsigned long long _abbreviatedTitleIndex;
 }
 
+@property(nonatomic, setter=_setAbbreviatedTitleIndex:) unsigned long long _abbreviatedTitleIndex; // @synthesize _abbreviatedTitleIndex;
 - (Class)_appearanceGuideClass;
 - (void)_applyBarButtonAppearanceStorage:(id)arg1 withTaggedSelectors:(id)arg2;
-- (struct UIOffset)_backButtonTitlePositionAdjustmentForBarMetrics:(int)arg1;
-- (void)_setBackButtonTitlePositionAdjustment:(struct UIOffset)arg1 forBarMetrics:(int)arg2;
-- (void)_UIAppearance_setBackButtonTitlePositionAdjustment:(struct UIOffset)arg1 forBarMetrics:(int)arg2;
-- (float)_backButtonBackgroundVerticalPositionAdjustmentForBarMetrics:(int)arg1;
-- (void)_setBackButtonBackgroundVerticalPositionAdjustment:(float)arg1 forBarMetrics:(int)arg2;
-- (void)_UIAppearance_setBackButtonBackgroundVerticalPositionAdjustment:(float)arg1 forBarMetrics:(int)arg2;
-- (void)_setTitlePositionAdjustment:(struct UIOffset)arg1 forBarMetrics:(int)arg2;
-- (void)_UIAppearance_setTitlePositionAdjustment:(struct UIOffset)arg1 forBarMetrics:(int)arg2;
-- (float)_backgroundVerticalPositionAdjustmentForBarMetrics:(int)arg1;
-- (void)_setBackgroundVerticalPositionAdjustment:(float)arg1 forBarMetrics:(int)arg2;
-- (void)_UIAppearance_setBackgroundVerticalPositionAdjustment:(float)arg1 forBarMetrics:(int)arg2;
-- (id)_backButtonBackgroundImageForState:(unsigned int)arg1 barMetrics:(int)arg2;
-- (void)_setBackButtonBackgroundImage:(id)arg1 forState:(unsigned int)arg2 barMetrics:(int)arg3;
-- (void)_UIAppearance_setBackButtonBackgroundImage:(id)arg1 forState:(unsigned int)arg2 barMetrics:(int)arg3;
-- (BOOL)hasCustomBackgroundImage;
+- (struct UIOffset)_backButtonTitlePositionAdjustmentForBarMetrics:(long long)arg1;
+- (void)_setBackButtonTitlePositionAdjustment:(struct UIOffset)arg1 forBarMetrics:(long long)arg2;
+- (void)_UIAppearance_setBackButtonTitlePositionAdjustment:(struct UIOffset)arg1 forBarMetrics:(long long)arg2;
+- (double)_backButtonBackgroundVerticalPositionAdjustmentForBarMetrics:(long long)arg1;
+- (void)_setBackButtonBackgroundVerticalPositionAdjustment:(double)arg1 forBarMetrics:(long long)arg2;
+- (void)_UIAppearance_setBackButtonBackgroundVerticalPositionAdjustment:(double)arg1 forBarMetrics:(long long)arg2;
+- (void)_setTitlePositionAdjustment:(struct UIOffset)arg1 forBarMetrics:(long long)arg2;
+- (void)_UIAppearance_setTitlePositionAdjustment:(struct UIOffset)arg1 forBarMetrics:(long long)arg2;
+- (double)_backgroundVerticalPositionAdjustmentForBarMetrics:(long long)arg1;
+- (void)_setBackgroundVerticalPositionAdjustment:(double)arg1 forBarMetrics:(long long)arg2;
+- (void)_UIAppearance_setBackgroundVerticalPositionAdjustment:(double)arg1 forBarMetrics:(long long)arg2;
+- (id)_backButtonBackgroundImageForState:(unsigned long long)arg1 barMetrics:(long long)arg2;
+- (void)_setBackButtonBackgroundImage:(id)arg1 forState:(unsigned long long)arg2 barMetrics:(long long)arg3;
+- (void)_UIAppearance_setBackButtonBackgroundImage:(id)arg1 forState:(unsigned long long)arg2 barMetrics:(long long)arg3;
+- (_Bool)hasCustomBackgroundImage;
 - (void)backIndicatorViewHasRespondedToCustomBackgroundImageChange;
-- (BOOL)customBackgroundImageChangedToOrFromNil;
-- (id)_titleTextAttributesForState:(unsigned int)arg1;
-- (void)_setTitleTextAttributes:(id)arg1 forState:(unsigned int)arg2;
-- (void)_UIAppearance_setTitleTextAttributes:(id)arg1 forState:(unsigned int)arg2;
+- (_Bool)customBackgroundImageChangedToOrFromNil;
+- (id)_titleTextAttributesForState:(unsigned long long)arg1;
+- (void)_setTitleTextAttributes:(id)arg1 forState:(unsigned long long)arg2;
+- (void)_UIAppearance_setTitleTextAttributes:(id)arg1 forState:(unsigned long long)arg2;
 @property(retain, nonatomic, setter=_setTintColor:) UIColor *_tintColor;
 - (void)_UIAppearance_setTintColor:(id)arg1;
-- (void)_setBackgroundImage:(id)arg1 forState:(unsigned int)arg2 barMetrics:(int)arg3;
-- (void)_UIAppearance_setBackgroundImage:(id)arg1 forState:(unsigned int)arg2 barMetrics:(int)arg3;
-- (void)_UIAppearance_setBackgroundImage:(id)arg1 forState:(unsigned int)arg2 style:(int)arg3 barMetrics:(int)arg4;
+- (void)_setBackgroundImage:(id)arg1 forState:(unsigned long long)arg2 barMetrics:(long long)arg3;
+- (void)_UIAppearance_setBackgroundImage:(id)arg1 forState:(unsigned long long)arg2 barMetrics:(long long)arg3;
+- (void)_setBackgroundImage:(id)arg1 forState:(unsigned long long)arg2 style:(long long)arg3 barMetrics:(long long)arg4;
+- (void)_UIAppearance_setBackgroundImage:(id)arg1 forState:(unsigned long long)arg2 style:(long long)arg3 barMetrics:(long long)arg4;
 - (void)dealloc;
 - (id)_defaultFont;
 - (id)_scriptingInfo;
-- (BOOL)pressed;
-- (void)setPressed:(BOOL)arg1 initialPress:(BOOL)arg2;
-- (void)setPressed:(BOOL)arg1;
-- (void)setStyle:(int)arg1;
-- (void)setStyle:(int)arg1 animated:(BOOL)arg2;
+- (_Bool)pressed;
+- (void)setPressed:(_Bool)arg1 initialPress:(_Bool)arg2;
+- (void)setPressed:(_Bool)arg1;
+- (void)setStyle:(long long)arg1;
+- (void)setStyle:(long long)arg1 animated:(_Bool)arg2;
 - (void)_styleAnimationDidStop:(id)arg1 finished:(id)arg2 context:(id)arg3;
 - (struct CGSize)imageSize;
 - (id)image;
 - (id)title;
 - (void)drawRect:(struct CGRect)arg1;
-- (BOOL)_canDrawContent;
+- (_Bool)_canDrawContent;
 - (void)layoutSubviews;
+- (struct CGRect)_labelFrame;
+- (double)_titleYAdjustmentCustomization;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)_drawBackground;
 - (struct UIEdgeInsets)alignmentRectInsets;
-- (id)_currentCustomBackgroundNeedsDarkening:(char *)arg1;
-- (struct CGSize)_currentTextShadowOffsetForBarStyle:(int)arg1;
-- (id)_currentTextShadowColorForBarStyle:(int)arg1;
-- (id)_currentTextColorForBarStyle:(int)arg1;
-- (BOOL)_useSilverLookForBarStyle:(int)arg1;
+- (id)_currentCustomBackgroundNeedsDarkening:(_Bool *)arg1;
+- (struct CGSize)_currentTextShadowOffsetForBarStyle:(long long)arg1;
+- (id)_currentTextShadowColorForBarStyle:(long long)arg1;
+- (id)_currentTextColorForBarStyle:(long long)arg1;
+- (_Bool)_useSilverLookForBarStyle:(long long)arg1;
 - (id)_appearanceStorage;
 - (void)tintColorDidChange;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

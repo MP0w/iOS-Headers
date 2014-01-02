@@ -20,30 +20,30 @@
     UICollectionView *_iconCollectionView;
 }
 
-+ (float)desiredHeightForBounds:(struct CGRect)arg1;
++ (double)desiredHeightForBounds:(struct CGRect)arg1;
 @property(nonatomic) id <SBStarkTouchLauncherObserver> observer; // @synthesize observer=_observer;
 - (void)starkLauncherLayoutDidChangeScrollButtonInsets:(id)arg1;
-- (BOOL)starkIconCellDisplaysBadges:(id)arg1;
+- (_Bool)starkIconCellDisplaysBadges:(id)arg1;
 - (void)scrollViewDidScroll:(id)arg1;
-- (BOOL)collectionView:(id)arg1 shouldShowMenuForItemAtIndexPath:(id)arg2;
+- (_Bool)collectionView:(id)arg1 shouldShowMenuForItemAtIndexPath:(id)arg2;
 - (void)collectionView:(id)arg1 didDeselectItemAtIndexPath:(id)arg2;
 - (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
 - (void)collectionView:(id)arg1 didHighlightItemAtIndexPath:(id)arg2;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
-- (int)collectionView:(id)arg1 numberOfItemsInSection:(int)arg2;
-- (int)numberOfSectionsInCollectionView:(id)arg1;
+- (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
+- (long long)numberOfSectionsInCollectionView:(id)arg1;
 - (void)loadView;
 - (void)relayoutIcons;
-- (float)height;
-- (void)setHeight:(float)arg1;
+- (double)height;
+- (void)setHeight:(double)arg1;
 - (void)scrollRight;
-- (BOOL)canScrollRight;
+- (_Bool)canScrollRight;
 - (void)scrollLeft;
-- (BOOL)canScrollLeft;
+- (_Bool)canScrollLeft;
 - (struct UIEdgeInsets)scrollButtonInsets;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
-- (id)initWithInterfaceType:(int)arg1;
+- (id)initWithInterfaceType:(long long)arg1;
 
 @end
 

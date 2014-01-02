@@ -11,17 +11,17 @@
 @interface EKUISingleDayTimelineLayoutPartition : NSObject
 {
     NSMutableArray *_stackOfOccurrences;
-    float _initialLeftBoundary;
-    float _rightBoundary;
     double _topBoundaryTime;
+    double _initialLeftBoundary;
+    double _rightBoundary;
 }
 
-@property(nonatomic) float rightBoundary; // @synthesize rightBoundary=_rightBoundary;
-@property(nonatomic) float initialLeftBoundary; // @synthesize initialLeftBoundary=_initialLeftBoundary;
+@property(nonatomic) double rightBoundary; // @synthesize rightBoundary=_rightBoundary;
+@property(nonatomic) double initialLeftBoundary; // @synthesize initialLeftBoundary=_initialLeftBoundary;
 @property(nonatomic) double topBoundaryTime; // @synthesize topBoundaryTime=_topBoundaryTime;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) float freeSpaceWidth;
-@property(readonly, nonatomic) float freeSpaceLeftBoundary;
+@property(readonly, nonatomic) double freeSpaceWidth;
+@property(readonly, nonatomic) double freeSpaceLeftBoundary;
 - (void)popOccurrence;
 - (void)pushOccurrence:(id)arg1;
 - (id)peekOccurrence;

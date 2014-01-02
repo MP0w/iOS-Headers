@@ -11,14 +11,14 @@
 @interface SKUIGalleryPaneViewController : UIViewController
 {
     SKUIMediaComponent *_component;
-    int _galleryIndex;
+    long long _galleryIndex;
 }
 
-@property(readonly, nonatomic) int galleryIndex; // @synthesize galleryIndex=_galleryIndex;
+@property(readonly, nonatomic) long long galleryIndex; // @synthesize galleryIndex=_galleryIndex;
 @property(readonly, nonatomic) SKUIMediaComponent *component; // @synthesize component=_component;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) SKUIEmbeddedMediaView *mediaView;
-- (id)initWithMediaComponent:(id)arg1 galleryIndex:(int)arg2;
+- (id)initWithMediaComponent:(id)arg1 galleryIndex:(long long)arg2;
 
 @end
 

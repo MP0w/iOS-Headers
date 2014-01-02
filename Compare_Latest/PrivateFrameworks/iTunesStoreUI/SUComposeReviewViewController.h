@@ -20,6 +20,7 @@
 - (void)_showRemoteView;
 - (void)reviewComposeViewControllerDidFinish:(id)arg1;
 - (void)loadView;
+- (_Bool)automaticallyForwardAppearanceAndRotationMethodsToChildViewControllers;
 - (void)prepareWithCompletionBlock:(id)arg1;
 - (id)copyScriptViewController;
 - (void)dealloc;

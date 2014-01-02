@@ -24,7 +24,7 @@
 - (void)configureTarget;
 - (void)configureActions;
 - (void)setAction:(id)arg1;
-- (void)setAction:(id)arg1 forCondition:(BOOL)arg2;
+- (void)setAction:(id)arg1 forCondition:(_Bool)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (void)dealloc;

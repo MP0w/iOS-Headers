@@ -6,74 +6,73 @@
 
 #import "UIView.h"
 
-@class EKCurrentTimeMarkerView, NSTimer, UIColor;
+#import "EKCurrentTimeMarkerViewUpdating-Protocol.h"
 
-@interface EKDayTimeView : UIView
+@class EKCurrentTimeMarkerView, UIColor;
+
+@interface EKDayTimeView : UIView <EKCurrentTimeMarkerViewUpdating>
 {
     UIView *_topContentView;
     UIView *_bottomContentView;
     unsigned int _leftBorder:1;
     unsigned int _rightBorder:1;
-    BOOL _useLightText;
+    _Bool _useLightText;
     double _highlightedHour;
-    int _orientation;
-    float _hourSize;
-    float _designatorSize;
+    long long _orientation;
+    double _hourSize;
+    double _designatorSize;
     EKCurrentTimeMarkerView *_timeMarker;
-    NSTimer *_timeMarkerTimer;
     UIView *_timeMarkerExtension;
-    BOOL _showsTimeMarker;
-    BOOL _showsTimeMarkerExtension;
-    BOOL _usesLightText;
+    _Bool _showsTimeMarker;
+    _Bool _showsTimeMarkerExtension;
+    _Bool _usesLightText;
     UIColor *_timeColor;
-    int _hoursToPad;
-    float _hourHeight;
-    float _timeWidth;
+    double _hoursToPad;
+    double _hourHeight;
+    double _timeWidth;
     id <EKDayTimeViewDelegate> _delegate;
     struct _NSRange _hoursToRender;
 }
 
-+ (float)defaultHeightForOrientation:(int)arg1;
-+ (float)designatorSizeForOrientation:(int)arg1;
-+ (float)hourSizeForOrientation:(int)arg1;
-+ (float)hourHeightForOrientation:(int)arg1;
-+ (float)timeWidthForOrientation:(int)arg1;
-+ (float)timeVerticalInsetForOrientation:(int)arg1;
-+ (float)timeInsetForOrientation:(int)arg1;
-+ (float)verticalPadding;
-+ (float)_hourWidthForOrientation:(int)arg1;
-+ (void)_calculateWidthForOrientation:(int)arg1;
++ (double)defaultHeightForOrientation:(long long)arg1;
++ (double)designatorSizeForOrientation:(long long)arg1;
++ (double)hourSizeForOrientation:(long long)arg1;
++ (double)hourHeightForOrientation:(long long)arg1;
++ (double)timeWidthForOrientation:(long long)arg1;
++ (double)timeVerticalInsetForOrientation:(long long)arg1;
++ (double)timeInsetForOrientation:(long long)arg1;
++ (void)setVerticalPadding:(double)arg1;
++ (double)verticalPadding;
++ (double)_hourWidthForOrientation:(long long)arg1;
++ (void)_calculateWidthForOrientation:(long long)arg1;
 + (void)_invalidateWidth;
 @property(nonatomic) __weak id <EKDayTimeViewDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) float timeWidth; // @synthesize timeWidth=_timeWidth;
-@property(readonly, nonatomic) float hourHeight; // @synthesize hourHeight=_hourHeight;
+@property(readonly, nonatomic) double timeWidth; // @synthesize timeWidth=_timeWidth;
+@property(readonly, nonatomic) double hourHeight; // @synthesize hourHeight=_hourHeight;
 @property(nonatomic) struct _NSRange hoursToRender; // @synthesize hoursToRender=_hoursToRender;
-@property(nonatomic) int hoursToPad; // @synthesize hoursToPad=_hoursToPad;
-@property(nonatomic) BOOL usesLightText; // @synthesize usesLightText=_usesLightText;
-@property(nonatomic) BOOL showsTimeMarkerExtension; // @synthesize showsTimeMarkerExtension=_showsTimeMarkerExtension;
-@property(nonatomic) BOOL showsTimeMarker; // @synthesize showsTimeMarker=_showsTimeMarker;
+@property(nonatomic) double hoursToPad; // @synthesize hoursToPad=_hoursToPad;
+@property(nonatomic) _Bool usesLightText; // @synthesize usesLightText=_usesLightText;
+@property(nonatomic) _Bool showsTimeMarkerExtension; // @synthesize showsTimeMarkerExtension=_showsTimeMarkerExtension;
+@property(nonatomic) _Bool showsTimeMarker; // @synthesize showsTimeMarker=_showsTimeMarker;
 - (void).cxx_destruct;
-- (float)_positionOfSecond:(int)arg1;
-- (void)_updateMarkerPosition;
-- (void)_invalidateMarkerTimer;
-- (void)_startMarkerTimer;
+- (double)_positionOfSecond:(int)arg1;
+- (void)updateMarkerPosition;
 - (void)drawRect:(struct CGRect)arg1 forContentView:(id)arg2 withHourRange:(struct _NSRange)arg3;
 - (void)setFrame:(struct CGRect)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (void)setOrientation:(int)arg1;
+- (void)setOrientation:(long long)arg1;
 @property(readonly, nonatomic) EKCurrentTimeMarkerView *timeMarker;
 @property(retain, nonatomic) UIColor *timeColor; // @synthesize timeColor=_timeColor;
 @property(nonatomic) double highlightedHour;
-@property(nonatomic) BOOL showsRightBorder;
-@property(nonatomic) BOOL showsLeftBorder;
-- (void)setOpaque:(BOOL)arg1;
-- (float)topPadding;
+@property(nonatomic) _Bool showsRightBorder;
+@property(nonatomic) _Bool showsLeftBorder;
+- (void)setOpaque:(_Bool)arg1;
+- (double)topPadding;
 - (void)_localeChanged;
 - (void)setNeedsDisplay;
 - (void)dealloc;
-- (void)willMoveToSuperview:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
-@property(readonly, nonatomic) float defaultHeight;
+@property(readonly, nonatomic) double defaultHeight;
 
 @end
 

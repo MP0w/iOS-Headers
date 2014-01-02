@@ -8,6 +8,7 @@
 
 @class NSMutableSet, NSSet;
 
+// Not exported
 @interface EKObjectToManyRelation : EKObjectRelation
 {
     NSMutableSet *_loadedItems;
@@ -27,19 +28,19 @@
 - (void)didCommit;
 - (void)updatePersistentObject;
 - (id)committedValue;
-- (BOOL)validate:(id *)arg1;
+- (_Bool)validate:(id *)arg1;
 - (void)_forgetRelatedObject:(id)arg1;
-- (void)_removeRelatedObject:(id)arg1 setInverse:(BOOL)arg2 dirty:(BOOL)arg3;
-- (void)_addRelatedObject:(id)arg1 setInverse:(BOOL)arg2 dirty:(BOOL)arg3;
+- (void)_removeRelatedObject:(id)arg1 setInverse:(_Bool)arg2 dirty:(_Bool)arg3;
+- (void)_addRelatedObject:(id)arg1 setInverse:(_Bool)arg2 dirty:(_Bool)arg3;
 - (void)removeItem:(id)arg1;
 - (void)addItem:(id)arg1;
-@property(readonly, nonatomic) unsigned int count;
+@property(readonly, nonatomic) unsigned long long count;
 @property(copy, nonatomic) NSSet *items;
 - (id)_effectiveItems;
 - (id)_loadedItems;
-@property(readonly, nonatomic) BOOL itemsWereRemoved;
-@property(readonly, nonatomic) BOOL itemsWereAdded;
-- (BOOL)isWeak;
+@property(readonly, nonatomic) _Bool itemsWereRemoved;
+@property(readonly, nonatomic) _Bool itemsWereAdded;
+- (_Bool)isWeak;
 - (void)dealloc;
 
 @end

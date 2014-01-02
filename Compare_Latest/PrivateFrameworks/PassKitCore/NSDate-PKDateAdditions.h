@@ -9,11 +9,11 @@
 @interface NSDate (PKDateAdditions)
 + (id)PKDateYesterday;
 + (id)PKDateTomorrow;
-+ (id)PKDateWithDaysBeforeNow:(unsigned int)arg1;
-+ (id)PKDateWithDaysFromNow:(unsigned int)arg1;
-- (BOOL)PKIsYesterday;
-- (BOOL)PKIsTomorrow;
-- (BOOL)PKIsToday;
-- (BOOL)PKIsEqualToDateIgnoringTime:(id)arg1;
++ (id)PKDateWithDaysBeforeNow:(unsigned long long)arg1;
++ (id)PKDateWithDaysFromNow:(unsigned long long)arg1;
+- (_Bool)PKIsYesterday;
+- (_Bool)PKIsTomorrow;
+- (_Bool)PKIsToday;
+- (_Bool)PKIsEqualToDateIgnoringTime:(id)arg1;
 @end
 

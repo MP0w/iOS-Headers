@@ -11,7 +11,7 @@
 @class NSString, UIView;
 
 @interface VKAnnotationMarker (MapKitAdditions) <MKCalloutSource>
-- (void)_setHiddenForOffscreen:(BOOL)arg1;
+- (void)_setHiddenForOffscreen:(_Bool)arg1;
 @property(retain, nonatomic) UIView *detailCalloutAccessoryView;
 @property(retain, nonatomic) UIView *rightCalloutAccessoryView;
 @property(retain, nonatomic) UIView *leftCalloutAccessoryView;

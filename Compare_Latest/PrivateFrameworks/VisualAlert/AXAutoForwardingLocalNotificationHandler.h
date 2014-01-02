@@ -9,13 +9,13 @@
 @interface AXAutoForwardingLocalNotificationHandler : AXLocalNotificationHandler
 {
     SEL *_possibleHandlers;
-    unsigned long _possibleHandlersCount;
+    unsigned long long _possibleHandlersCount;
 }
 
 - (id)_notificationTypeDescription;
 - (void)_stopObserving;
 - (void)_startObserving;
-- (BOOL)_handleForwardDistributedNotificationWithName:(id)arg1 object:(const void *)arg2 userInfo:(id)arg3;
+- (_Bool)_handleForwardDistributedNotificationWithName:(id)arg1 object:(const void *)arg2 userInfo:(id)arg3;
 - (id)_forwardDistributedNotificationNameForHandler:(SEL)arg1;
 - (id)_prefixForForwardDistributedNotificationName;
 - (void)processHandler:(SEL)arg1;

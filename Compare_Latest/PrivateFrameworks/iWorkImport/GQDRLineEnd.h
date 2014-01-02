@@ -10,23 +10,23 @@
 
 @class GQDBezierPath;
 
+// Not exported
 @interface GQDRLineEnd : NSObject <GQDNameMappable>
 {
     GQDBezierPath *mPath;
     struct CGPoint mEndPoint;
-    BOOL mIsFilled;
+    _Bool mIsFilled;
     double mScale;
 }
 
 + (const struct StateSpec *)stateForReading;
 - (id).cxx_construct;
 - (double)scale;
-- (BOOL)isFilled;
+- (_Bool)isFilled;
 - (struct CGPoint)endPoint;
 - (struct CGPath *)path;
 - (char *)pathStr;
 - (void)dealloc;
-- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1;
 
 @end
 

@@ -15,20 +15,20 @@
     NSDictionary *_forcedState;
     double _unalteredTime;
     double _displayLinkTimestamp;
-    float _morphingProgress;
+    double _morphingProgress;
     int _thumbnailPolicy;
     unsigned char _currentLayoutIndex;
-    BOOL _isPreloading;
-    BOOL _freezesSizeOfImageRequests;
-    BOOL _skipsAnimations;
+    _Bool _isPreloading;
+    _Bool _freezesSizeOfImageRequests;
+    _Bool _skipsAnimations;
 }
 
-@property(nonatomic) BOOL skipsAnimations; // @synthesize skipsAnimations=_skipsAnimations;
-@property BOOL freezesSizeOfImageRequests; // @synthesize freezesSizeOfImageRequests=_freezesSizeOfImageRequests;
+@property(nonatomic) _Bool skipsAnimations; // @synthesize skipsAnimations=_skipsAnimations;
+@property _Bool freezesSizeOfImageRequests; // @synthesize freezesSizeOfImageRequests=_freezesSizeOfImageRequests;
 @property int thumbnailPolicy; // @synthesize thumbnailPolicy=_thumbnailPolicy;
-@property(readonly) BOOL isPreloading; // @synthesize isPreloading=_isPreloading;
+@property(readonly) _Bool isPreloading; // @synthesize isPreloading=_isPreloading;
 @property unsigned char currentLayoutIndex; // @synthesize currentLayoutIndex=_currentLayoutIndex;
-@property float morphingProgress; // @synthesize morphingProgress=_morphingProgress;
+@property double morphingProgress; // @synthesize morphingProgress=_morphingProgress;
 @property double displayLinkTimestamp; // @synthesize displayLinkTimestamp=_displayLinkTimestamp;
 @property double unalteredTime; // @synthesize unalteredTime=_unalteredTime;
 @property(retain) NSDictionary *forcedState; // @synthesize forcedState=_forcedState;

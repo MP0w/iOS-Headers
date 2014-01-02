@@ -16,12 +16,16 @@
 
 + (id)fallbackFilenamePrefix;
 + (id)UTITypes;
++ (_Bool)isPreviewable;
 @property(retain, nonatomic) UIImage *icon; // @synthesize icon=_icon;
 @property(retain, nonatomic) PKPass *pass; // @synthesize pass=_pass;
 - (int)mediaType;
-- (BOOL)shouldShowDisclosure;
-- (BOOL)shouldBeQuickLooked;
-- (BOOL)shouldShowViewer;
+- (id)passView;
+- (_Bool)shouldShowDisclosure;
+- (_Bool)shouldBeQuickLooked;
+- (_Bool)shouldShowViewer;
+- (id)generateThumbnailFillToSize:(struct CGSize)arg1;
+- (id)generateThumbnail;
 - (id)subtitle;
 - (id)title;
 - (void)dealloc;

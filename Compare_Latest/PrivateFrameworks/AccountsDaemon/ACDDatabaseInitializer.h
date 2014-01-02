@@ -88,10 +88,10 @@
 - (void)_addTwitterAccountType;
 - (void)_addAccessKeyWithName:(id)arg1;
 - (void)_addDataclassWithName:(id)arg1;
-- (void)_addCredentialType:(id)arg1 toAccountType:(id)arg2 supportsAuthentication:(BOOL)arg3;
-- (void)_addAccountTypeWithIdentifier:(id)arg1 displayName:(id)arg2 visibility:(int)arg3 supportedDataclasses:(id)arg4 syncableDataclasses:(id)arg5 credentialType:(id)arg6 supportsAuthentication:(BOOL)arg7 supportsMultipleAccounts:(BOOL)arg8 credentialProtectionPolicy:(id)arg9;
-- (void)_addAccountTypeWithIdentifier:(id)arg1 displayName:(id)arg2 visibility:(int)arg3 supportedDataclasses:(id)arg4 syncableDataclasses:(id)arg5 credentialType:(id)arg6 supportsAuthentication:(BOOL)arg7 supportsMultipleAccounts:(BOOL)arg8;
-- (void)_addAccountTypeWithIdentifier:(id)arg1 displayName:(id)arg2 visibility:(int)arg3 supportedDataclasses:(id)arg4 credentialType:(id)arg5 supportsAuthentication:(BOOL)arg6 supportsMultipleAccounts:(BOOL)arg7;
+- (void)_addCredentialType:(id)arg1 toAccountType:(id)arg2 supportsAuthentication:(_Bool)arg3;
+- (void)_addAccountTypeWithIdentifier:(id)arg1 displayName:(id)arg2 visibility:(int)arg3 supportedDataclasses:(id)arg4 syncableDataclasses:(id)arg5 credentialType:(id)arg6 supportsAuthentication:(_Bool)arg7 supportsMultipleAccounts:(_Bool)arg8 credentialProtectionPolicy:(id)arg9;
+- (void)_addAccountTypeWithIdentifier:(id)arg1 displayName:(id)arg2 visibility:(int)arg3 supportedDataclasses:(id)arg4 syncableDataclasses:(id)arg5 credentialType:(id)arg6 supportsAuthentication:(_Bool)arg7 supportsMultipleAccounts:(_Bool)arg8;
+- (void)_addAccountTypeWithIdentifier:(id)arg1 displayName:(id)arg2 visibility:(int)arg3 supportedDataclasses:(id)arg4 credentialType:(id)arg5 supportsAuthentication:(_Bool)arg6 supportsMultipleAccounts:(_Bool)arg7;
 - (id)_accessKeyWithName:(id)arg1;
 - (id)_accountTypeWithIdentifier:(id)arg1;
 - (id)_dataclassWithName:(id)arg1;

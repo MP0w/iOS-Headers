@@ -29,9 +29,6 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)init;
-- (void)copyAnimationPaths:(id)arg1;
-- (void)setAnimationPath:(id)arg1;
-- (void)cleanup;
 
 @end
 

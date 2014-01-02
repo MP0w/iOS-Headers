@@ -6,14 +6,15 @@
 
 #import <UIKit/UIButton.h>
 
+// Not exported
 @interface UIPopoverButton : UIButton
 {
 }
 
 - (struct CGSize)_intrinsicSizeWithinSize:(struct CGSize)arg1;
 - (id)_setupBackgroundView;
-- (void)setEnabled:(BOOL)arg1;
-- (id)initWithFrame:(struct CGRect)arg1 buttonType:(int)arg2;
+- (void)setEnabled:(_Bool)arg1;
+- (id)initWithFrame:(struct CGRect)arg1 buttonType:(long long)arg2;
 
 @end
 

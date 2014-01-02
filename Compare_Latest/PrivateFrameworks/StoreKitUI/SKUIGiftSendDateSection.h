@@ -15,17 +15,17 @@
     struct UIEdgeInsets _headerInsets;
     SKUIGiftTableSectionHeaderView *_headerView;
     NSDate *_sendDate;
-    int _sendDateStyle;
+    long long _sendDateStyle;
 }
 
-@property(nonatomic) int sendDateStyle; // @synthesize sendDateStyle=_sendDateStyle;
+@property(nonatomic) long long sendDateStyle; // @synthesize sendDateStyle=_sendDateStyle;
 @property(copy, nonatomic) NSDate *sendDate; // @synthesize sendDate=_sendDate;
 @property(retain, nonatomic) SKUIItem *giftItem; // @synthesize giftItem=_giftItem;
 - (void).cxx_destruct;
 - (id)_headerView;
 - (id)tableViewCellForTableView:(id)arg1 indexPath:(id)arg2;
-- (int)numberOfRowsInSection;
-- (float)heightForCellInTableView:(id)arg1 indexPath:(id)arg2;
+- (long long)numberOfRowsInSection;
+- (double)heightForCellInTableView:(id)arg1 indexPath:(id)arg2;
 - (id)headerViewForTableView:(id)arg1;
 @property(nonatomic) struct UIEdgeInsets headerInsets;
 

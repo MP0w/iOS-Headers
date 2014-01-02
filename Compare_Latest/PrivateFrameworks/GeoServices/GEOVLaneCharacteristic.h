@@ -8,6 +8,7 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface GEOVLaneCharacteristic : PBCodable
 {
     NSMutableArray *_laneDirections;
@@ -23,26 +24,26 @@
 @property(retain, nonatomic) NSMutableArray *laneDirections; // @synthesize laneDirections=_laneDirections;
 @property(retain, nonatomic) NSMutableArray *laneDividers; // @synthesize laneDividers=_laneDividers;
 @property(nonatomic) unsigned int roadLaneCount; // @synthesize roadLaneCount=_roadLaneCount;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)laneTypeAtIndex:(unsigned int)arg1;
-- (unsigned int)laneTypesCount;
+- (id)laneTypeAtIndex:(unsigned long long)arg1;
+- (unsigned long long)laneTypesCount;
 - (void)addLaneType:(id)arg1;
 - (void)clearLaneTypes;
-- (id)laneDirectionAtIndex:(unsigned int)arg1;
-- (unsigned int)laneDirectionsCount;
+- (id)laneDirectionAtIndex:(unsigned long long)arg1;
+- (unsigned long long)laneDirectionsCount;
 - (void)addLaneDirection:(id)arg1;
 - (void)clearLaneDirections;
-- (id)laneDividerAtIndex:(unsigned int)arg1;
-- (unsigned int)laneDividersCount;
+- (id)laneDividerAtIndex:(unsigned long long)arg1;
+- (unsigned long long)laneDividersCount;
 - (void)addLaneDivider:(id)arg1;
 - (void)clearLaneDividers;
-@property(nonatomic) BOOL hasRoadLaneCount;
+@property(nonatomic) _Bool hasRoadLaneCount;
 - (void)dealloc;
 
 @end

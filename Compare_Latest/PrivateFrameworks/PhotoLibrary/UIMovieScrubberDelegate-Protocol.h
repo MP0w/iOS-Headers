@@ -9,6 +9,9 @@
 @protocol UIMovieScrubberDelegate <NSObject>
 
 @optional
+- (void)movieScrubberDidEndAnimatingZoom:(id)arg1;
+- (void)movieScrubberDidBeginAnimatingZoom:(id)arg1;
+- (void)movieScrubber:(id)arg1 willZoomToMinimumValue:(double)arg2 maximumValue:(double)arg3;
 - (void)movieScrubberEditingAnimationFinished:(id)arg1;
 - (void)movieScrubberDidCancelEditing:(id)arg1;
 - (void)movieScrubberDidBeginEditing:(id)arg1;

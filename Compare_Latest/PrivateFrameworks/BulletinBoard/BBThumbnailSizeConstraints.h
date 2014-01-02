@@ -10,13 +10,13 @@
 
 @interface BBThumbnailSizeConstraints : NSObject <NSCoding>
 {
-    int _constraintType;
     float _fixedWidth;
     float _fixedHeight;
     float _fixedDimension;
     float _minAspectRatio;
     float _maxAspectRatio;
     float _thumbnailScale;
+    long long _constraintType;
 }
 
 @property(nonatomic) float thumbnailScale; // @synthesize thumbnailScale=_thumbnailScale;
@@ -25,8 +25,8 @@
 @property(nonatomic) float fixedDimension; // @synthesize fixedDimension=_fixedDimension;
 @property(nonatomic) float fixedHeight; // @synthesize fixedHeight=_fixedHeight;
 @property(nonatomic) float fixedWidth; // @synthesize fixedWidth=_fixedWidth;
-@property(nonatomic) int constraintType; // @synthesize constraintType=_constraintType;
-- (BOOL)areReasonable;
+@property(nonatomic) long long constraintType; // @synthesize constraintType=_constraintType;
+- (_Bool)areReasonable;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 

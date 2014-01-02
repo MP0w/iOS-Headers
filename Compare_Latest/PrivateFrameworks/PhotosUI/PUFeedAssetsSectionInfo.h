@@ -10,19 +10,19 @@
 {
 }
 
-- (unsigned int)assetsCount;
+- (unsigned long long)assetsCount;
 - (id)assets;
-- (int)indexOfItemWithAsset:(id)arg1;
-- (BOOL)containsAsset:(id)arg1;
-- (BOOL)areAllAssetsLiked;
-- (void)getPhotoCount:(out unsigned int *)arg1 videoCount:(out unsigned int *)arg2;
-- (id)batchIDForItemAtIndex:(int)arg1;
-- (id)captionForItemAtIndex:(int)arg1;
-- (id)assetForItemAtIndex:(int)arg1;
-- (int)typeForItemAtIndex:(int)arg1;
+- (long long)indexOfItemWithAsset:(id)arg1;
+- (_Bool)containsAsset:(id)arg1;
+- (_Bool)areAllAssetsLiked;
+- (void)getPhotoCount:(out unsigned long long *)arg1 videoCount:(out unsigned long long *)arg2;
+- (id)batchIDForItemAtIndex:(long long)arg1;
+- (id)captionForItemAtIndex:(long long)arg1;
+- (id)assetForItemAtIndex:(long long)arg1;
+- (long long)typeForItemAtIndex:(long long)arg1;
 - (void)updateFromCloudFeedEntry;
 - (id)cloudFeedAssetsEntry;
-- (int)sectionType;
+- (long long)sectionType;
 
 @end
 

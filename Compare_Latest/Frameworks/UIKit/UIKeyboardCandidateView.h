@@ -8,6 +8,7 @@
 
 @class UIImageView, UIKeyboardCandidateBar, UIKeyboardCandidateGrid, UIKeyboardCandidateSortControl, UIKeyboardCandidateSplitKeyboardToggleButton, UIKeyboardCandidateUnsplitKeyboardToggleButton, UIView<UIKeyboardCandidateList>;
 
+// Not exported
 @interface UIKeyboardCandidateView : UIInputView
 {
     UIKeyboardCandidateBar *_bar;
@@ -25,27 +26,28 @@
     } _candidateBarFlags;
 }
 
-+ (float)defaultExtendedControlHeight;
++ (double)defaultExtendedControlHeight;
 + (id)activeCandidateList;
 + (void)setActiveCandidateView:(id)arg1;
 + (id)activeCandidateView;
-+ (id)sharedInstanceForInlineView:(BOOL)arg1;
++ (id)sharedInstanceForInlineView:(_Bool)arg1;
 + (id)sharedInstanceForInlineView;
 + (id)sharedInstance;
 @property(retain, nonatomic) UIView<UIKeyboardCandidateList> *inlineView; // @synthesize inlineView=_inlineView;
-- (unsigned int)_numberOfColumns:(BOOL)arg1;
+- (void)setCandidatesToExtendedViewFromCollapsedView:(id)arg1;
+- (unsigned long long)_numberOfColumns:(_Bool)arg1;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
-- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)willMoveToSuperview:(id)arg1;
 - (void)layoutSubviews;
-- (float)barHeight;
+- (double)barHeight;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)_toggleExtendedCandidateView:(id)arg1;
-- (void)setCandidateViewExtended:(BOOL)arg1;
+- (void)setCandidateViewExtended:(_Bool)arg1;
 - (void)candidatesDidChange;
 - (id)activeCandidateList;
-- (void)setCandidateBarCanExtend:(BOOL)arg1;
-- (BOOL)isExtended;
+- (void)setCandidateBarCanExtend:(_Bool)arg1;
+- (_Bool)isExtended;
 - (void)updatePageControlStatus;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

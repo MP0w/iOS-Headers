@@ -7,6 +7,6 @@
 #import "NSString.h"
 
 @interface NSString (SCROBundleExtras)
-- (int)_brailleTableCompare:(id)arg1;
+- (long long)_brailleTableCompare:(id)arg1;
 @end
 

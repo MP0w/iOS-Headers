@@ -10,6 +10,7 @@
 
 @class NSArray, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, SBKSyncBagContext, SBKSyncResponseData, SBKTransactionController;
 
+// Not exported
 @interface SBKSyncRequestHandler : SBKRequestHandler <SBKSyncTransactionProcessing>
 {
     NSObject<OS_dispatch_queue> *_queue;
@@ -23,14 +24,14 @@
     SBKTransactionController *_transactionController;
 }
 
-+ (int)conflictDetectionType;
++ (long long)conflictDetectionType;
 @property(readonly) SBKTransactionController *transactionController; // @synthesize transactionController=_transactionController;
 @property(readonly) SBKSyncBagContext *bagContext; // @synthesize bagContext=_bagContext;
 @property(readonly) SBKSyncResponseData *responseData; // @synthesize responseData=_responseData;
 - (void).cxx_destruct;
 - (id)transaction:(id)arg1 keyValuePairForUpdatedKey:(id)arg2;
-- (void)transaction:(id)arg1 processDeletedKey:(id)arg2 isDirty:(char *)arg3;
-- (void)transaction:(id)arg1 processUpdatedKey:(id)arg2 data:(id)arg3 conflict:(BOOL)arg4 isDirty:(char *)arg5;
+- (void)transaction:(id)arg1 processDeletedKey:(id)arg2 isDirty:(_Bool *)arg3;
+- (void)transaction:(id)arg1 processUpdatedKey:(id)arg2 data:(id)arg3 conflict:(_Bool)arg4 isDirty:(_Bool *)arg5;
 - (void)transaction:(id)arg1 didProcessResponseData:(id)arg2;
 - (void)transaction:(id)arg1 willProcessResponseData:(id)arg2;
 - (void)startTransactionWithSyncAnchor:(id)arg1 keysToUpdate:(id)arg2 keysToDelete:(id)arg3 finishedBlock:(id)arg4;

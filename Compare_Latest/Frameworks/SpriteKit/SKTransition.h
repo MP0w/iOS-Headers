@@ -12,8 +12,8 @@
 {
     CDStruct_eed8e9f9 _data;
     CIFilter *_filter;
-    BOOL _pauseIncoming;
-    BOOL _pauseOutgoing;
+    _Bool _pauseIncoming;
+    _Bool _pauseOutgoing;
 }
 
 + (id)transitionWithCIFilter:(id)arg1 duration:(double)arg2;
@@ -39,11 +39,11 @@
 + (id)crossFadeWithDuration:(double)arg1;
 + (id)fadeWithColor:(id)arg1 duration:(double)arg2;
 + (id)fadeWithDuration:(double)arg1;
-+ (id)pushWithDirection:(int)arg1 duration:(double)arg2;
-+ (id)moveInWithDirection:(int)arg1 duration:(double)arg2;
-+ (id)revealWithDirection:(int)arg1 duration:(double)arg2;
-@property(nonatomic) BOOL pausesOutgoingScene; // @synthesize pausesOutgoingScene=_pauseOutgoing;
-@property(nonatomic) BOOL pausesIncomingScene; // @synthesize pausesIncomingScene=_pauseIncoming;
++ (id)pushWithDirection:(long long)arg1 duration:(double)arg2;
++ (id)moveInWithDirection:(long long)arg1 duration:(double)arg2;
++ (id)revealWithDirection:(long long)arg1 duration:(double)arg2;
+@property(nonatomic) _Bool pausesOutgoingScene; // @synthesize pausesOutgoingScene=_pauseOutgoing;
+@property(nonatomic) _Bool pausesIncomingScene; // @synthesize pausesIncomingScene=_pauseIncoming;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (id)_filter;

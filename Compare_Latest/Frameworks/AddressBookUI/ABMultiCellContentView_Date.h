@@ -15,18 +15,18 @@
     ABDateField *_dateField;
 }
 
-+ (struct CGSize)layoutSubviewsForView:(id)arg1 usingSize:(struct CGSize)arg2 propertyGroup:(id)arg3 info:(id)arg4 styleProvider:(id)arg5 whenEditing:(BOOL)arg6;
-- (BOOL)dateFieldShouldClear:(id)arg1;
-- (BOOL)dateFieldShouldReturn:(id)arg1;
++ (struct CGSize)layoutSubviewsForView:(id)arg1 usingSize:(struct CGSize)arg2 propertyGroup:(id)arg3 info:(id)arg4 styleProvider:(id)arg5 whenEditing:(_Bool)arg6;
+- (_Bool)dateFieldShouldClear:(id)arg1;
+- (_Bool)dateFieldShouldReturn:(id)arg1;
 - (void)dateFieldDidBeginEditing:(id)arg1;
 - (void)dateFieldDidEndEditing:(id)arg1;
-- (BOOL)dateFieldShouldEndEditing:(id)arg1;
-- (BOOL)dateFieldShouldBeginEditing:(id)arg1;
+- (_Bool)dateFieldShouldEndEditing:(id)arg1;
+- (_Bool)dateFieldShouldBeginEditing:(id)arg1;
 - (void)dateFieldDateDidChange:(id)arg1;
 - (id)hitTestForTouches:(id)arg1 withEvent:(id)arg2;
 - (void)setAbCellStyle:(int)arg1;
 - (id)viewForFirstResponder;
-- (void)updateSubviewsForNewStateAnimated:(BOOL)arg1;
+- (void)updateSubviewsForNewStateAnimated:(_Bool)arg1;
 - (void)reloadFromModel;
 - (void)reload;
 @property(readonly, nonatomic) NSDate *date;

@@ -9,32 +9,33 @@
 @interface SBFluidSlideGestureRecognizer : SBGestureRecognizer
 {
     int m_degreeOfFreedom;
-    unsigned int m_minTouches;
-    BOOL m_blocksIconController;
-    float _animationDistance;
-    float _commitDistance;
-    float _accelerationThreshold;
-    float _accelerationPower;
+    unsigned long long m_minTouches;
+    _Bool m_blocksIconController;
+    double _animationDistance;
+    double _commitDistance;
+    double _accelerationThreshold;
+    double _accelerationPower;
     int _requiredDirectionality;
-    float _defaultHandSize;
-    float _handSizeCompensationPower;
-    float _incrementalMotion;
-    float _smoothedIncrementalMotion;
-    float _cumulativeMotion;
-    float _cumulativeMotionEnvelope;
-    float _cumulativeMotionSkipped;
-    BOOL _hasSignificantMotion;
+    double _defaultHandSize;
+    double _handSizeCompensationPower;
+    double _incrementalMotion;
+    double _smoothedIncrementalMotion;
+    double _cumulativeMotion;
+    double _cumulativeMotionEnvelope;
+    double _cumulativeMotionSkipped;
+    _Bool _hasSignificantMotion;
     struct CGPoint _movementVelocityInPointsPerSecond;
     struct CGPoint _centroidPoint;
+    double _recognitionStartTimestamp;
 }
 
 @property(readonly, nonatomic) struct CGPoint centroidPoint; // @synthesize centroidPoint=_centroidPoint;
 @property(readonly, nonatomic) struct CGPoint movementVelocityInPointsPerSecond; // @synthesize movementVelocityInPointsPerSecond=_movementVelocityInPointsPerSecond;
 @property(nonatomic) int requiredDirectionality; // @synthesize requiredDirectionality=_requiredDirectionality;
-@property(nonatomic) float accelerationPower; // @synthesize accelerationPower=_accelerationPower;
-@property(nonatomic) float accelerationThreshold; // @synthesize accelerationThreshold=_accelerationThreshold;
-@property(nonatomic) float animationDistance; // @synthesize animationDistance=_animationDistance;
-@property(nonatomic) unsigned int minTouches; // @synthesize minTouches=m_minTouches;
+@property(nonatomic) double accelerationPower; // @synthesize accelerationPower=_accelerationPower;
+@property(nonatomic) double accelerationThreshold; // @synthesize accelerationThreshold=_accelerationThreshold;
+@property(nonatomic) double animationDistance; // @synthesize animationDistance=_animationDistance;
+@property(nonatomic) unsigned long long minTouches; // @synthesize minTouches=m_minTouches;
 @property(readonly, nonatomic) int degreeOfFreedom; // @synthesize degreeOfFreedom=m_degreeOfFreedom;
 - (void)touchesCancelled:(struct __SBGestureContext *)arg1;
 - (void)touchesEnded:(struct __SBGestureContext *)arg1;
@@ -43,20 +44,23 @@
 - (void)updateActiveTouches:(struct __SBGestureContext *)arg1;
 - (void)updateForEndedOrCancelledTouches:(struct __SBGestureContext *)arg1;
 - (void)updateForBeganOrMovedTouches:(struct __SBGestureContext *)arg1;
-- (int)completionTypeProjectingMomentumForInterval:(double)arg1;
-- (float)projectMotionForInterval:(double)arg1;
+- (void)setState:(int)arg1;
+- (long long)completionTypeProjectingMomentumForInterval:(double)arg1;
+- (double)projectMotionForInterval:(double)arg1;
 - (void)computeCentroidPoint:(struct __SBGestureContext *)arg1;
 - (void)computeHasSignificantMotionIfNeeded:(struct __SBGestureContext *)arg1;
-- (float)computeIncrementalGestureMotion:(struct __SBGestureContext *)arg1;
+- (double)computeIncrementalGestureMotion:(struct __SBGestureContext *)arg1;
 - (void)computeGestureMotion:(struct __SBGestureContext *)arg1;
-- (float)computeHandSizeCompensationGain:(float)arg1;
-- (float)computeNonlinearSpeedGain:(float)arg1;
+- (double)computeHandSizeCompensationGain:(double)arg1;
+- (double)computeNonlinearSpeedGain:(double)arg1;
 - (void)skipCumulativeMotion;
 - (void)reset;
-@property(readonly, nonatomic) float incrementalMotion;
-@property(readonly, nonatomic) float cumulativeMotion;
-@property(readonly, nonatomic) float cumulativePercentage;
-@property(readonly, nonatomic) float skippedCumulativePercentage;
+- (double)activeTouchTimestamp;
+@property(readonly, nonatomic) double activeRecognitionDuration;
+@property(readonly, nonatomic) double incrementalMotion;
+@property(readonly, nonatomic) double cumulativeMotion;
+@property(readonly, nonatomic) double cumulativePercentage;
+@property(readonly, nonatomic) double skippedCumulativePercentage;
 - (id)init;
 
 @end

@@ -14,6 +14,7 @@
 
 + (id)disambiguationListWithDictionary:(id)arg1 context:(id)arg2;
 + (id)disambiguationList;
+@property(copy, nonatomic) NSString *title;
 @property(copy, nonatomic) NSString *speakableSuffix;
 @property(copy, nonatomic) NSString *speakableSelectionResponse;
 @property(copy, nonatomic) NSString *speakableFinalDelimiter;

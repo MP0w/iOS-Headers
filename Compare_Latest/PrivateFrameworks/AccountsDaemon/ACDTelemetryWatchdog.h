@@ -11,7 +11,7 @@
 @interface ACDTelemetryWatchdog : NSObject
 {
     NSLock *_lock;
-    BOOL _fired;
+    _Bool _fired;
     NSMutableArray *_telemetry;
     NSObject<OS_dispatch_queue> *_timerQueue;
     NSObject<OS_dispatch_source> *_timerSource;

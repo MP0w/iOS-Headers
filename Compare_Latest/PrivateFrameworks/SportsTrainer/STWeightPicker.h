@@ -21,16 +21,16 @@
 + (id)weightFormatter;
 @property(readonly, nonatomic) int selectedWeightUnit; // @synthesize selectedWeightUnit=_selectedWeightUnit;
 @property(nonatomic) id <STWeightPickerDelegate> weightPickerDelegate; // @synthesize weightPickerDelegate=_weightPickerDelegate;
-- (float)_weightFractionForRow:(int)arg1;
-- (float)_weightForRow:(int)arg1;
+- (float)_weightFractionForRow:(long long)arg1;
+- (float)_weightForRow:(long long)arg1;
 - (void)saveCurrentWeight;
 @property(readonly, nonatomic) float weightInKg;
-- (void)setWeightInLbs:(float)arg1 animated:(BOOL)arg2;
+- (void)setWeightInLbs:(float)arg1 animated:(_Bool)arg2;
 @property(nonatomic) float weightInLbs;
-- (void)pickerView:(id)arg1 didSelectRow:(int)arg2 inComponent:(int)arg3;
-- (id)pickerView:(id)arg1 viewForRow:(int)arg2 forComponent:(int)arg3 reusingView:(id)arg4;
-- (int)pickerView:(id)arg1 numberOfRowsInComponent:(int)arg2;
-- (int)numberOfComponentsInPickerView:(id)arg1;
+- (void)pickerView:(id)arg1 didSelectRow:(long long)arg2 inComponent:(long long)arg3;
+- (id)pickerView:(id)arg1 viewForRow:(long long)arg2 forComponent:(long long)arg3 reusingView:(id)arg4;
+- (long long)pickerView:(id)arg1 numberOfRowsInComponent:(long long)arg2;
+- (long long)numberOfComponentsInPickerView:(id)arg1;
 - (id)pickerImageNamePrefix;
 - (id)initWithFrame:(struct CGRect)arg1;
 

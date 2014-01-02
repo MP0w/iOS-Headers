@@ -10,10 +10,11 @@
 
 @class NSString, VKLabelNavJunction, VKLabelNavRoadLabel, VKLabelTile;
 
+// Not exported
 @interface VKLabelNavRoad : NSObject <VKLabelNavFeature>
 {
     VKLabelTile *_tile;
-    CDStruct_c272c4e8 *_data;
+    CDStruct_02d551b3 *_data;
     int _vertexIndexA;
     int _vertexIndexB;
     CDStruct_dde70fb6 *_junctionA;
@@ -21,73 +22,73 @@
     VKLabelNavJunction *_navJunctionA;
     vector_d5845d09 _simplifiedPoints;
     Vec2Imp_1782d7e3 _direction;
-    BOOL _isRoadLabelUnique;
-    BOOL _isOnRoute;
-    BOOL _isStartOfRoadName;
-    BOOL _isInGuidance;
-    BOOL _isGuidanceStepStart;
-    BOOL _areLabelsDisabled;
+    _Bool _isRoadLabelUnique;
+    _Bool _isOnRoute;
+    _Bool _isStartOfRoadName;
+    _Bool _isInGuidance;
+    _Bool _isGuidanceStepStart;
+    _Bool _areLabelsDisabled;
     struct PolylineCoordinate _routeOffset;
     float _routeCrossProduct;
-    int _intraRoadPriority;
+    long long _intraRoadPriority;
     double _length;
     NSString *_name;
     NSString *_shieldDisplayGroup;
     NSString *_shieldGroup;
     VKLabelNavRoadLabel *_roadSign;
     VKLabelNavRoadLabel *_roadShield;
-    BOOL _areNavStylesInitialized;
-    BOOL _hasVisibleSigns;
-    BOOL _hasVisibleShields;
-    BOOL _suppressRoadSignIfShieldPresent;
+    _Bool _areNavStylesInitialized;
+    _Bool _hasVisibleSigns;
+    _Bool _hasVisibleShields;
+    _Bool _suppressRoadSignIfShieldPresent;
 }
 
-@property(readonly, nonatomic) BOOL suppressRoadSignIfShieldPresent; // @synthesize suppressRoadSignIfShieldPresent=_suppressRoadSignIfShieldPresent;
+@property(readonly, nonatomic) _Bool suppressRoadSignIfShieldPresent; // @synthesize suppressRoadSignIfShieldPresent=_suppressRoadSignIfShieldPresent;
 @property(readonly, nonatomic) VKLabelNavJunction *navJunctionA; // @synthesize navJunctionA=_navJunctionA;
-@property(nonatomic) BOOL isRoadLabelUnique; // @synthesize isRoadLabelUnique=_isRoadLabelUnique;
-@property(nonatomic) BOOL areLabelsDisabled; // @synthesize areLabelsDisabled=_areLabelsDisabled;
-@property(nonatomic) int intraRoadPriority; // @synthesize intraRoadPriority=_intraRoadPriority;
+@property(nonatomic) _Bool isRoadLabelUnique; // @synthesize isRoadLabelUnique=_isRoadLabelUnique;
+@property(nonatomic) _Bool areLabelsDisabled; // @synthesize areLabelsDisabled=_areLabelsDisabled;
+@property(nonatomic) long long intraRoadPriority; // @synthesize intraRoadPriority=_intraRoadPriority;
 @property(readonly, nonatomic) CDStruct_dde70fb6 *junctionB; // @synthesize junctionB=_junctionB;
 @property(nonatomic) struct PolylineCoordinate routeOffset; // @synthesize routeOffset=_routeOffset;
 @property(nonatomic) float routeCrossProduct; // @synthesize routeCrossProduct=_routeCrossProduct;
-@property(nonatomic) BOOL isGuidanceStepStart; // @synthesize isGuidanceStepStart=_isGuidanceStepStart;
-@property(nonatomic) BOOL isInGuidance; // @synthesize isInGuidance=_isInGuidance;
-@property(nonatomic) BOOL isStartOfRoadName; // @synthesize isStartOfRoadName=_isStartOfRoadName;
-@property(nonatomic) BOOL isOnRoute; // @synthesize isOnRoute=_isOnRoute;
+@property(nonatomic) _Bool isGuidanceStepStart; // @synthesize isGuidanceStepStart=_isGuidanceStepStart;
+@property(nonatomic) _Bool isInGuidance; // @synthesize isInGuidance=_isInGuidance;
+@property(nonatomic) _Bool isStartOfRoadName; // @synthesize isStartOfRoadName=_isStartOfRoadName;
+@property(nonatomic) _Bool isOnRoute; // @synthesize isOnRoute=_isOnRoute;
 @property(nonatomic) Vec2Imp_1782d7e3 direction; // @synthesize direction=_direction;
 @property(readonly, nonatomic) VKLabelTile *tile; // @synthesize tile=_tile;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (double)length;
-- (id)_newLabelWithNavContext:(struct NavContext *)arg1 isShieldLabel:(BOOL)arg2 worldPoint:(struct VKPoint)arg3 alignment:(int)arg4;
-@property(readonly, nonatomic) int roadSignAlignment;
-- (BOOL)_worldPointForRoadOffset:(float)arg1 worldPoint:(struct VKPoint *)arg2;
+- (id)_newLabelWithNavContext:(struct NavContext *)arg1 isShieldLabel:(_Bool)arg2 worldPoint:(struct VKPoint)arg3 alignment:(long long)arg4;
+@property(readonly, nonatomic) long long roadSignAlignment;
+- (_Bool)_worldPointForRoadOffset:(float)arg1 worldPoint:(struct VKPoint *)arg2;
 - (void)_worldRoadPoints:(vector_d5845d09 *)arg1;
 - (void)appendSimplifiedWorldRoadPoints:(vector_d5845d09 *)arg1;
-- (void)recreateRoadSignWithAlignment:(int)arg1 navContext:(struct NavContext *)arg2;
-- (void)createLabelWithNavContext:(struct NavContext *)arg1 isShieldLabel:(BOOL)arg2 desiredOffsetDistance:(float)arg3 maxOffsetDistance:(float)arg4 minJunctionDistance:(float)arg5 minRouteDistance:(float)arg6 roadGraph:(id)arg7;
-- (BOOL)_findLabelAnchorPoint:(struct VKPoint *)arg1 isShieldLabel:(BOOL)arg2 desiredOffsetDistance:(float)arg3 maxOffsetDistance:(float)arg4 minJunctionDistance:(float)arg5 roadGraph:(id)arg6;
+- (void)recreateRoadSignWithAlignment:(long long)arg1 navContext:(struct NavContext *)arg2;
+- (void)createLabelWithNavContext:(struct NavContext *)arg1 isShieldLabel:(_Bool)arg2 desiredOffsetDistance:(float)arg3 maxOffsetDistance:(float)arg4 minJunctionDistance:(float)arg5 minRouteDistance:(float)arg6 roadGraph:(id)arg7;
+- (_Bool)_findLabelAnchorPoint:(struct VKPoint *)arg1 isShieldLabel:(_Bool)arg2 desiredOffsetDistance:(float)arg3 maxOffsetDistance:(float)arg4 minJunctionDistance:(float)arg5 roadGraph:(id)arg6;
 - (float)_findRoadOffsetForDistanceToRay:(float)arg1 rayStart:(struct VKPoint)arg2 rayVector:(Vec2Imp_1782d7e3)arg3 roadGraph:(id)arg4;
-- (id)labelWithType:(BOOL)arg1;
+- (id)labelWithType:(_Bool)arg1;
 @property(readonly, nonatomic) NSString *shieldDisplayGroup;
 @property(readonly, nonatomic) NSString *shieldGroup;
-- (BOOL)hasShield;
-- (BOOL)hasVisibleShields;
-- (BOOL)hasVisibleSigns;
-- (BOOL)matchesRoad:(id)arg1;
-- (BOOL)matchesRoadEdge:(const CDStruct_fc3c0eb0 *)arg1;
-- (void)getRoadEdge:(CDStruct_fc3c0eb0 *)arg1;
-@property(readonly, nonatomic) BOOL isOnewayToJunction;
-@property(readonly, nonatomic) BOOL isRamp;
-@property(readonly, nonatomic) BOOL isAwayFromRoute;
+- (_Bool)hasShield;
+- (_Bool)hasVisibleShields;
+- (_Bool)hasVisibleSigns;
+- (_Bool)matchesRoad:(id)arg1;
+- (_Bool)matchesRoadEdge:(const CDStruct_91f75a7f *)arg1;
+- (void)getRoadEdge:(CDStruct_91f75a7f *)arg1;
+@property(readonly, nonatomic) _Bool isOnewayToJunction;
+@property(readonly, nonatomic) _Bool isRamp;
+@property(readonly, nonatomic) _Bool isAwayFromRoute;
 @property(readonly, nonatomic) int roadClass;
 - (id)description;
 - (void)prepareStyleVarsWithContext:(struct NavContext *)arg1;
 - (void)clearRoadSign;
 @property(readonly, nonatomic) const char *cstrName;
 - (void)dealloc;
-- (id)initWithRoadEdge:(const CDStruct_fc3c0eb0 *)arg1 navJunctionA:(id)arg2 routeOffset:(struct PolylineCoordinate)arg3 tile:(id)arg4;
+- (id)initWithRoadEdge:(const CDStruct_91f75a7f *)arg1 navJunctionA:(id)arg2 routeOffset:(struct PolylineCoordinate)arg3 tile:(id)arg4;
 
 @end
 

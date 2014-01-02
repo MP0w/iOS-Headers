@@ -21,7 +21,7 @@
 - (id)imageDataWithSize:(struct CGSize)arg1 atPlaybackTime:(double)arg2;
 - (id)imageWithSize:(struct CGSize)arg1 atPlaybackTime:(double)arg2;
 - (id)imageWithSize:(struct CGSize)arg1;
-- (BOOL)hasArtworkAvailable;
+- (_Bool)hasArtworkAvailable;
 - (id)initWithImage:(id)arg1;
 
 @end

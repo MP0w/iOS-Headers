@@ -11,13 +11,14 @@
 @interface RUTableSectionHeaderView : UITableViewHeaderFooterView
 {
     _UIBackdropView *_backdropView;
-    float _backdropTransitionWeighting;
+    double _backdropTransitionWeighting;
     UILabel *_titleLabel;
 }
 
 @property(readonly, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
-@property(nonatomic) float backdropTransitionWeighting; // @synthesize backdropTransitionWeighting=_backdropTransitionWeighting;
+@property(nonatomic) double backdropTransitionWeighting; // @synthesize backdropTransitionWeighting=_backdropTransitionWeighting;
 - (void).cxx_destruct;
+- (void)setTableViewStyle:(long long)arg1;
 - (void)layoutSubviews;
 - (id)initWithReuseIdentifier:(id)arg1;
 

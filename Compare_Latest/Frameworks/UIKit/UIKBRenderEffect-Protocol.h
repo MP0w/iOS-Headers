@@ -8,10 +8,10 @@
 #import "NSObject-Protocol.h"
 
 @protocol UIKBRenderEffect <NSObject, NSCopying>
-@property(nonatomic) float weight;
-@property(readonly, nonatomic) struct CGColor *color;
+@property(nonatomic) double weight;
 @property(readonly, nonatomic) SEL renderSelector;
-@property(readonly, nonatomic) BOOL renderUnder;
-@property(readonly, nonatomic) BOOL isValid;
+@property(readonly, nonatomic) _Bool renderUnder;
+@property(readonly, nonatomic) _Bool isValid;
+- (struct CGColor *)CGColor;
 @end
 

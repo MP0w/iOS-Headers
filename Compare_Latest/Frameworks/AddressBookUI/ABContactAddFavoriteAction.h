@@ -11,18 +11,18 @@
 @interface ABContactAddFavoriteAction : ABPropertyAction
 {
     ABContactAddFavoriteActionDelegate *_addFavoriteDelegate;
-    BOOL _allowPhoneFavorites;
-    BOOL _allowFaceTimeFavorites;
-    BOOL _allowAppleCallFavorites;
+    _Bool _allowPhoneFavorites;
+    _Bool _allowFaceTimeFavorites;
+    _Bool _allowFaceTimeAudioFavorites;
 }
 
-@property(nonatomic) BOOL allowAppleCallFavorites; // @synthesize allowAppleCallFavorites=_allowAppleCallFavorites;
-@property(nonatomic) BOOL allowFaceTimeFavorites; // @synthesize allowFaceTimeFavorites=_allowFaceTimeFavorites;
-@property(nonatomic) BOOL allowPhoneFavorites; // @synthesize allowPhoneFavorites=_allowPhoneFavorites;
+@property(nonatomic) _Bool allowFaceTimeAudioFavorites; // @synthesize allowFaceTimeAudioFavorites=_allowFaceTimeAudioFavorites;
+@property(nonatomic) _Bool allowFaceTimeFavorites; // @synthesize allowFaceTimeFavorites=_allowFaceTimeFavorites;
+@property(nonatomic) _Bool allowPhoneFavorites; // @synthesize allowPhoneFavorites=_allowPhoneFavorites;
 - (id)_filterFavoritedPropertyItems:(id)arg1;
 - (void)performActionForItem:(id)arg1 sender:(id)arg2;
 - (void)performActionWithSender:(id)arg1;
-- (BOOL)canPerformAction;
+- (_Bool)canPerformAction;
 - (void)dealloc;
 
 @end

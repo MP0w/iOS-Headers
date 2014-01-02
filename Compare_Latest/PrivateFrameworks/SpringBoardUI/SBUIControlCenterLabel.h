@@ -10,23 +10,22 @@
 
 @interface SBUIControlCenterLabel : UILabel <SBUIControlCenterControl>
 {
-    int _maskUpdatesNeeded;
 }
 
-- (void)controlConfigurationDidChangeForState:(int)arg1;
-- (void)controlAppearanceDidChangeForState:(int)arg1;
+- (void)controlConfigurationDidChangeForState:(long long)arg1;
+- (void)controlAppearanceDidChangeForState:(long long)arg1;
 - (void)drawTextInRect:(struct CGRect)arg1;
-- (struct CGRect)textRectForBounds:(struct CGRect)arg1 limitedToNumberOfLines:(int)arg2;
+- (struct CGRect)textRectForBounds:(struct CGRect)arg1 limitedToNumberOfLines:(long long)arg2;
 - (void)setAttributedText:(id)arg1;
 - (void)setText:(id)arg1;
 - (void)_updateAttributedText;
-- (void)setNumberOfLines:(int)arg1;
+- (void)setNumberOfLines:(long long)arg1;
 - (void)setFont:(id)arg1;
-- (void)setEnabled:(BOOL)arg1;
-- (void)setHighlighted:(BOOL)arg1;
-- (int)_currentState;
+- (void)setEnabled:(_Bool)arg1;
+- (void)setHighlighted:(_Bool)arg1;
+- (long long)_currentState;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
+- (_Bool)_shouldAnimatePropertyWithKey:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

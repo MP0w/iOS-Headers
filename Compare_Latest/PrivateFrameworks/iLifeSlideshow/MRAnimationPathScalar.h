@@ -11,13 +11,13 @@
 @interface MRAnimationPathScalar : NSObject
 {
     MCAnimationPath *animationPath;
-    float value;
-    float speed;
-    float time;
+    double value;
+    double speed;
+    double time;
 }
 
 - (void)dealloc;
-- (id)initWithMCAnimationPath:(id)arg1 andValue:(float)arg2;
+- (id)initWithMCAnimationPath:(id)arg1 andValue:(double)arg2;
 
 @end
 

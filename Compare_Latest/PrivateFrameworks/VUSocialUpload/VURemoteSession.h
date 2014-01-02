@@ -13,8 +13,6 @@
     ACAccountStore *_accountStore;
 }
 
-+ (void)_powerAssertionTimerFired:(id)arg1;
-+ (void)_startPowerAssertionRefreshTimer;
 + (void)refreshPowerAssertion;
 + (void)decrementPowerAssertion;
 + (void)incrementPowerAssertion;

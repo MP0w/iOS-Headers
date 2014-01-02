@@ -8,6 +8,7 @@
 
 @class NSArray, NSMutableArray, NSMutableDictionary, NSPersistentStore, NSPersistentStoreCoordinator, NSRecursiveLock, NSString, PFUbiquityGlobalObjectIDCache, PFUbiquityKnowledgeVector, PFUbiquityLocation;
 
+// Not exported
 @interface PFUbiquityTransactionHistoryCache : NSObject
 {
     NSString *_localPeerID;
@@ -22,7 +23,7 @@
     PFUbiquityKnowledgeVector *_cacheKV;
     PFUbiquityKnowledgeVector *_minCacheKV;
     PFUbiquityGlobalObjectIDCache *_globalIDCache;
-    BOOL _hasScheduledWriteBlock;
+    _Bool _hasScheduledWriteBlock;
 }
 
 @property(readonly, nonatomic) PFUbiquityKnowledgeVector *minCacheKV; // @synthesize minCacheKV=_minCacheKV;
@@ -31,12 +32,12 @@
 @property(readonly, nonatomic) PFUbiquityKnowledgeVector *cacheKV; // @synthesize cacheKV=_cacheKV;
 @property(readonly, nonatomic) NSArray *cachedGlobalIDs;
 - (id)cachedTransactionHistoryForGlobalID:(id)arg1;
-- (BOOL)purgeCacheAndWritePendingEntries:(BOOL)arg1 error:(id *)arg2;
-- (BOOL)writePendingEntries:(id *)arg1;
-- (BOOL)addTransactionEntryLights:(id)arg1 error:(id *)arg2;
-- (BOOL)addTransactionEntryLight:(id)arg1 needsWrite:(BOOL)arg2 error:(id *)arg3;
-- (BOOL)addTransactionEntry:(id)arg1 error:(id *)arg2;
-- (BOOL)cacheTransactionHistory:(id *)arg1;
+- (_Bool)purgeCacheAndWritePendingEntries:(_Bool)arg1 error:(id *)arg2;
+- (_Bool)writePendingEntries:(id *)arg1;
+- (_Bool)addTransactionEntryLights:(id)arg1 error:(id *)arg2;
+- (_Bool)addTransactionEntryLight:(id)arg1 needsWrite:(_Bool)arg2 error:(id *)arg3;
+- (_Bool)addTransactionEntry:(id)arg1 error:(id *)arg2;
+- (_Bool)cacheTransactionHistory:(id *)arg1;
 - (id)describeCachesVerbose;
 - (id)describeCaches;
 - (id)description;

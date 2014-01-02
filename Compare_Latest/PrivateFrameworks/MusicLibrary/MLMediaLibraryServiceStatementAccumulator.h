@@ -8,26 +8,27 @@
 
 @class MLMediaLibraryService, NSMutableArray, NSObject<OS_dispatch_queue>, NSString, NSUUID;
 
+// Not exported
 @interface MLMediaLibraryServiceStatementAccumulator : NSObject
 {
     MLMediaLibraryService *_xpcService;
     NSObject<OS_dispatch_queue> *_serialQueue;
-    unsigned int _statementThreshold;
+    unsigned long long _statementThreshold;
     NSMutableArray *_statementQueue;
     NSString *_databasePath;
     NSUUID *_existingTransactionIdentifier;
-    unsigned int _priorityLevel;
+    unsigned long long _priorityLevel;
 }
 
-@property(nonatomic) unsigned int priorityLevel; // @synthesize priorityLevel=_priorityLevel;
+@property(nonatomic) unsigned long long priorityLevel; // @synthesize priorityLevel=_priorityLevel;
 @property(retain, nonatomic) NSUUID *existingTransactionIdentifier; // @synthesize existingTransactionIdentifier=_existingTransactionIdentifier;
 @property(readonly, nonatomic) NSString *databasePath; // @synthesize databasePath=_databasePath;
 @property(readonly, nonatomic) NSMutableArray *statementQueue; // @synthesize statementQueue=_statementQueue;
-@property(nonatomic) unsigned int statementThreshold; // @synthesize statementThreshold=_statementThreshold;
+@property(nonatomic) unsigned long long statementThreshold; // @synthesize statementThreshold=_statementThreshold;
 - (void).cxx_destruct;
-- (void)_onQueueFlushAndWait:(BOOL)arg1;
-- (void)flushAndWait:(BOOL)arg1;
-- (void)enqueueStatement:(id)arg1;
+- (_Bool)_onQueueFlushAndWait:(_Bool)arg1;
+- (_Bool)flushAndWait:(_Bool)arg1;
+- (_Bool)enqueueStatement:(id)arg1;
 - (void)dealloc;
 - (id)init;
 - (id)initWithDatabasePath:(id)arg1;

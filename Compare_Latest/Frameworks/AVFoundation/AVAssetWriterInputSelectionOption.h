@@ -18,13 +18,13 @@
     NSString *_extendedLanguageTag;
     NSArray *_metadata;
     NSDictionary *_trackReferences;
-    BOOL _displaysNonForcedSubtitles;
-    BOOL _enabled;
+    _Bool _displaysNonForcedSubtitles;
+    _Bool _enabled;
 }
 
-+ (id)assetWriterInputSelectionOptionWithAssetWriterInput:(id)arg1 displaysNonForcedSubtitles:(BOOL)arg2;
++ (id)assetWriterInputSelectionOptionWithAssetWriterInput:(id)arg1 displaysNonForcedSubtitles:(_Bool)arg2;
 + (id)assetWriterInputSelectionOptionWithAssetWriterInput:(id)arg1;
-@property(readonly, nonatomic) BOOL displaysNonForcedSubtitles; // @synthesize displaysNonForcedSubtitles=_displaysNonForcedSubtitles;
+@property(readonly, nonatomic) _Bool displaysNonForcedSubtitles; // @synthesize displaysNonForcedSubtitles=_displaysNonForcedSubtitles;
 @property(readonly, nonatomic) NSDictionary *trackReferences; // @synthesize trackReferences=_trackReferences;
 @property(readonly, nonatomic) NSArray *metadata; // @synthesize metadata=_metadata;
 @property(readonly, nonatomic) NSString *extendedLanguageTag; // @synthesize extendedLanguageTag=_extendedLanguageTag;
@@ -39,20 +39,20 @@
 - (id)availableMetadataFormats;
 - (id)commonMetadata;
 - (id)locale;
-- (BOOL)_isDesignatedDefault;
-- (BOOL)isPlayable;
-- (BOOL)hasMediaCharacteristic:(id)arg1;
-- (BOOL)_isMainProgramContent;
-- (BOOL)_isAuxiliaryContent;
+- (_Bool)_isDesignatedDefault;
+- (_Bool)isPlayable;
+- (_Bool)hasMediaCharacteristic:(id)arg1;
+- (_Bool)_isMainProgramContent;
+- (_Bool)_isAuxiliaryContent;
 - (id)_taggedCharacteristics;
 - (id)mediaSubTypes;
 - (id)_ancillaryDescription;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)_hasEqualValueForKey:(id)arg1 asObject:(id)arg2;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)_hasEqualValueForKey:(id)arg1 asObject:(id)arg2;
 - (void)finalize;
 - (void)dealloc;
-- (id)initWithAssetWriterInput:(id)arg1 displaysNonForcedSubtitles:(BOOL)arg2;
+- (id)initWithAssetWriterInput:(id)arg1 displaysNonForcedSubtitles:(_Bool)arg2;
 - (id)initWithAssetWriterInput:(id)arg1;
 
 @end

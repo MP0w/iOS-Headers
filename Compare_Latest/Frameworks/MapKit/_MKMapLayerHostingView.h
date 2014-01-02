@@ -8,6 +8,7 @@
 
 @class VKMapView;
 
+// Not exported
 @interface _MKMapLayerHostingView : UIView
 {
     VKMapView *_mapView;

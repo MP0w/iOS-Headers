@@ -8,11 +8,12 @@
 
 @class EDStyle;
 
+// Not exported
 @interface EMCellStyle : CMStyle
 {
     EDStyle *edStyle;
-    BOOL _nameContainsItalic;
-    BOOL _nameContainsBold;
+    _Bool _nameContainsItalic;
+    _Bool _nameContainsBold;
 }
 
 - (id)_parseFontName:(id)arg1;

@@ -10,37 +10,34 @@
 
 @interface ADCountdownButton : UIControl
 {
+    _Bool _dimmed;
     UIImage *_iconImage;
     UIImage *_dimmedIconImage;
-    int _icon;
     UIImageView *_backgroundView;
     UIImageView *_iconView;
     UIView *_outlineView;
     CAShapeLayer *_outlineProgressLayer;
 }
 
-+ (id)buttonWithIcon:(int)arg1 accessibilityLabel:(id)arg2;
++ (id)_inactiveCloseBoxImage;
++ (id)_closeBoxImage;
 @property(retain, nonatomic) CAShapeLayer *outlineProgressLayer; // @synthesize outlineProgressLayer=_outlineProgressLayer;
 @property(retain, nonatomic) UIView *outlineView; // @synthesize outlineView=_outlineView;
 @property(retain, nonatomic) UIImageView *iconView; // @synthesize iconView=_iconView;
 @property(retain, nonatomic) UIImageView *backgroundView; // @synthesize backgroundView=_backgroundView;
-@property(nonatomic) int icon; // @synthesize icon=_icon;
 @property(retain, nonatomic) UIImage *dimmedIconImage; // @synthesize dimmedIconImage=_dimmedIconImage;
 @property(retain, nonatomic) UIImage *iconImage; // @synthesize iconImage=_iconImage;
-- (BOOL)gestureRecognizerShouldBegin:(id)arg1;
+@property(nonatomic) _Bool dimmed; // @synthesize dimmed=_dimmed;
+- (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (unsigned long long)accessibilityTraits;
-- (BOOL)isAccessibilityElement;
-- (void)resumeAnimationsOnLayer:(id)arg1;
-- (void)pauseAnimationsOnLayer:(id)arg1;
-- (void)resumeEnablingButton;
-- (void)pauseEnablingButton;
+- (_Bool)isAccessibilityElement;
 - (void)startEnablingButtonWithCountdownDuration:(double)arg1 completionHandler:(id)arg2;
-- (void)setDimmed:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)setDimmed:(BOOL)arg1;
-- (void)setHighlighted:(BOOL)arg1;
-- (void)setEnabled:(BOOL)arg1;
-@property(nonatomic) double countdownProgress;
-- (id)initWithIcon:(int)arg1 accessibilityLabel:(id)arg2;
+- (void)setDimmed:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)setHighlighted:(_Bool)arg1;
+- (void)setEnabled:(_Bool)arg1;
+- (void)setCountdownProgress:(double)arg1;
+- (double)countdownProgress;
+- (id)init;
 - (void)dealloc;
 
 @end

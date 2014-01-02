@@ -10,11 +10,10 @@
 #import "UICollectionViewDataSource-Protocol.h"
 #import "UICollectionViewDelegate-Protocol.h"
 
-@class NSArray, NSMutableArray, NSMutableIndexSet, NSOperationQueue, SKUIAccountButtonsViewController, SKUIClientContext, SKUIIconDataConsumer, SKUIItemArtworkContext, SKUIItemCollectionController, SKUIUber, UICollectionView, UIImage;
+@class NSArray, NSMutableArray, NSMutableIndexSet, NSOperationQueue, SKUIClientContext, SKUIIconDataConsumer, SKUIItemArtworkContext, SKUIItemCollectionController, SKUIUber, UICollectionView, UIImage;
 
 @interface SKUIItemGridViewController : UIViewController <SKUIItemCollectionDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 {
-    SKUIAccountButtonsViewController *_accountButtonsViewController;
     SKUIClientContext *_clientContext;
     UICollectionView *_collectionView;
     id <SKUIItemGridDelegate> _delegate;
@@ -24,21 +23,21 @@
     struct CGSize _imageBoundingSize;
     NSOperationQueue *_operationQueue;
     UIImage *_placeholderImage;
-    float _rowHeight;
+    double _rowHeight;
     NSMutableIndexSet *_selectedItemIndexSet;
     SKUIUber *_uber;
     SKUIItemArtworkContext *_artworkContext;
 }
 
 @property(retain, nonatomic) SKUIUber *uber; // @synthesize uber=_uber;
-@property(readonly, nonatomic) float rowHeight; // @synthesize rowHeight=_rowHeight;
+@property(readonly, nonatomic) double rowHeight; // @synthesize rowHeight=_rowHeight;
 @property(retain, nonatomic) NSOperationQueue *operationQueue; // @synthesize operationQueue=_operationQueue;
 @property(copy, nonatomic) NSArray *items; // @synthesize items=_items;
 @property(nonatomic) struct CGSize imageBoundingSize; // @synthesize imageBoundingSize=_imageBoundingSize;
 @property(nonatomic) __weak id <SKUIItemGridDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
 - (void).cxx_destruct;
-- (int)_numberOfColumnsForOrientation:(int)arg1;
+- (long long)_numberOfColumnsForOrientation:(long long)arg1;
 - (id)_itemCollectionController;
 - (id)_collectionView;
 - (void)scrollViewWillEndDragging:(id)arg1 withVelocity:(struct CGPoint)arg2 targetContentOffset:(inout struct CGPoint *)arg3;
@@ -46,30 +45,27 @@
 - (void)scrollViewDidEndDecelerating:(id)arg1;
 - (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
 - (void)collectionView:(id)arg1 didEndDisplayingCell:(id)arg2 forItemAtIndexPath:(id)arg3;
-- (id)collectionView:(id)arg1 viewForSupplementaryElementOfKind:(id)arg2 atIndexPath:(id)arg3;
-- (int)collectionView:(id)arg1 numberOfItemsInSection:(int)arg2;
+- (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
 - (void)itemCollectionView:(id)arg1 didConfirmItemOfferForCell:(id)arg2;
 - (struct _NSRange)visibleItemRangeForItemCollectionController:(id)arg1;
-- (BOOL)shouldCacheAheadWhenIdleForItemCollectionController:(id)arg1;
+- (_Bool)shouldCacheAheadWhenIdleForItemCollectionController:(id)arg1;
 - (struct _NSRange)itemCollectionController:(id)arg1 itemPageRangeForOffset:(struct CGPoint)arg2;
-- (id)itemCollectionController:(id)arg1 cellLayoutForItemIndex:(int)arg2;
-- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (void)viewWillAppear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
-- (unsigned int)supportedInterfaceOrientations;
+- (id)itemCollectionController:(id)arg1 cellLayoutForItemIndex:(long long)arg2;
+- (void)willRotateToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (void)viewWillAppear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
+- (unsigned long long)supportedInterfaceOrientations;
 - (void)loadView;
 - (void)unhideIcons;
 - (void)setItemCellClass:(Class)arg1;
 @property(retain, nonatomic) SKUIIconDataConsumer *iconDataConsumer;
 @property(nonatomic) struct CGPoint contentOffset;
 @property(retain, nonatomic) SKUIItemArtworkContext *artworkContext; // @synthesize artworkContext=_artworkContext;
-- (id)popIconImageViewForItemAtIndex:(int)arg1;
-- (void)loadNextPageOfArtworkWithReason:(int)arg1;
-@property(readonly, nonatomic) NSArray *indexPathsForSelectedItems;
-- (void)deleteItemsAtIndexPaths:(id)arg1;
+- (id)popIconImageViewForItemAtIndex:(long long)arg1;
+- (void)loadNextPageOfArtworkWithReason:(long long)arg1;
 - (void)dealloc;
-- (id)initWithRowHeight:(float)arg1;
+- (id)initWithRowHeight:(double)arg1;
 
 @end
 

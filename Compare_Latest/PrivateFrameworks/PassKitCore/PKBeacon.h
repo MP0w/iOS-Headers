@@ -8,18 +8,22 @@
 
 #import "NSSecureCoding-Protocol.h"
 
-@class NSString, NSUUID;
+@class NSNumber, NSString, NSUUID;
 
 @interface PKBeacon : NSObject <NSSecureCoding>
 {
     NSUUID *_proximityUUID;
+    NSNumber *_major;
+    NSNumber *_minor;
     NSString *_name;
     NSString *_relevantText;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSString *relevantText; // @synthesize relevantText=_relevantText;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
+@property(retain, nonatomic) NSNumber *minor; // @synthesize minor=_minor;
+@property(retain, nonatomic) NSNumber *major; // @synthesize major=_major;
 @property(retain, nonatomic) NSUUID *proximityUUID; // @synthesize proximityUUID=_proximityUUID;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

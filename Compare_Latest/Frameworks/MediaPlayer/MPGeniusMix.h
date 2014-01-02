@@ -7,12 +7,12 @@
 #import "NSObject.h"
 
 #import "MPStoreDownloadManagerObserver-Protocol.h"
-#import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
 @class MPMediaPlaylist, MPMediaQuery, NSArray, NSString;
 
-@interface MPGeniusMix : NSObject <MPStoreDownloadManagerObserver, NSCoding, NSCopying>
+@interface MPGeniusMix : NSObject <MPStoreDownloadManagerObserver, NSSecureCoding, NSCopying>
 {
     MPMediaPlaylist *_playlist;
     MPMediaQuery *_seedTracksQuery;
@@ -23,36 +23,37 @@
 + (id)artworkImageForMediaItem:(id)arg1 scaleMode:(int)arg2;
 + (id)artworkImageForMediaItem:(id)arg1;
 + (id)artworkCacheDirectoryPath;
++ (_Bool)supportsSecureCoding;
 + (id)mixQueue;
 @property(readonly, nonatomic) MPMediaPlaylist *playlist; // @synthesize playlist=_playlist;
 - (void).cxx_destruct;
-- (id)_representativeImageItemsWithMaxCount:(unsigned int)arg1;
-- (unsigned long long)_entityArtworkCacheHashForRepresentativeItems:(id)arg1 ensureItemArtworkFilesExist:(BOOL)arg2;
-- (id)_cachedRepresentativeImagePath;
+- (id)_representativeImageItemsWithMaxCount:(unsigned long long)arg1;
+- (unsigned long long)_entityArtworkCacheHashForRepresentativeItems:(id)arg1 ensureItemArtworkFilesExist:(_Bool)arg2;
+- (id)_cachedRepresentativeImagePathWithTileLength:(double)arg1;
 - (id)_cacheDirectoryPath;
 @property(readonly, nonatomic) MPMediaQuery *seedTracksQuery;
-- (id)loadRepresentativeImageWithTileLength:(float)arg1 completionBlock:(id)arg2;
-- (void)preloadRepresentativeImageWithTileLength:(float)arg1 completionBlock:(id)arg2;
-- (id)_alreadyLoadedRepresentativeImageWithTileLength:(float)arg1 loadCompletionBlock:(id)arg2;
-- (void)_generateMixImageWithTileLength:(float)arg1 imageDidLoadBlock:(id)arg2;
-- (BOOL)_observeMixImageLoadingWithImageDidLoadBlock:(id)arg1;
-- (void)_onQueueLoadRepresentativeImageWithTileLength:(float)arg1;
-- (id)_placeholderMixImageWithTileLength:(float)arg1;
-- (id)_placeholderImageWithTileLength:(float)arg1;
+- (id)loadRepresentativeImageWithTileLength:(double)arg1 completionBlock:(id)arg2;
+- (void)preloadRepresentativeImageWithTileLength:(double)arg1 completionBlock:(id)arg2;
+- (id)_alreadyLoadedRepresentativeImageWithTileLength:(double)arg1 loadCompletionBlock:(id)arg2;
+- (void)_generateMixImageWithTileLength:(double)arg1 imageDidLoadBlock:(id)arg2;
+- (_Bool)_observeMixImageLoadingWithImageDidLoadBlock:(id)arg1;
+- (void)_onQueueLoadRepresentativeImageWithTileLength:(double)arg1;
+- (id)_placeholderMixImageWithTileLength:(double)arg1;
+- (id)_placeholderImageWithTileLength:(double)arg1;
 - (void)downloadManager:(id)arg1 downloadDidFinish:(id)arg2;
 @property(readonly, nonatomic) NSArray *representativeArtists;
 @property(readonly, nonatomic) NSString *name;
-@property(readonly, nonatomic) BOOL isDownloading;
-@property(readonly, nonatomic) BOOL isCloudMix;
+@property(readonly, nonatomic) _Bool isDownloading;
+@property(readonly, nonatomic) _Bool isCloudMix;
 @property(readonly, nonatomic) float downloadProgress;
 - (void)downloadMixWithPermissionHandler:(id)arg1;
-- (BOOL)canPlayUsingNetworkType:(int)arg1;
+- (_Bool)canPlayUsingNetworkType:(long long)arg1;
 - (void)cancelDownload;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)description;
 - (void)dealloc;
 - (id)initWithMPMediaPlaylist:(id)arg1;

@@ -14,28 +14,28 @@
 {
     SWRunSensor *_sensor;
     SWPaceModel *_paceModel;
-    BOOL _hasStarted;
+    _Bool _hasStarted;
     float _weightInLbs;
-    BOOL _isCalibration;
+    _Bool _isCalibration;
 }
 
 + (id)workoutWithSensor:(id)arg1;
-@property(nonatomic) BOOL isCalibration; // @synthesize isCalibration=_isCalibration;
+@property(nonatomic) _Bool isCalibration; // @synthesize isCalibration=_isCalibration;
 @property(nonatomic) float weightInLbs; // @synthesize weightInLbs=_weightInLbs;
 @property(readonly, nonatomic) SWRunSensor *sensor; // @synthesize sensor=_sensor;
-- (void)sensor:(id)arg1 didReceivePacketPayload:(const char *)arg2 timestamp:(unsigned long)arg3;
+- (void)sensor:(id)arg1 didReceivePacketPayload:(const char *)arg2 timestamp:(unsigned long long)arg3;
 - (void)pauseWorkout;
 - (void)activateWorkout;
-- (BOOL)recalibrateWithAdjustedDistanceMiles:(float)arg1;
-- (BOOL)calibrateWithDistanceMiles:(float)arg1 forWalk:(BOOL)arg2;
+- (_Bool)recalibrateWithAdjustedDistanceMiles:(float)arg1;
+- (_Bool)calibrateWithDistanceMiles:(float)arg1 forWalk:(_Bool)arg2;
 - (void)resetCalibration;
 @property(readonly, nonatomic) float maximumCalibrationDistanceMiles; // @dynamic maximumCalibrationDistanceMiles;
 @property(readonly, nonatomic) float minimumCalibrationDistanceMiles; // @dynamic minimumCalibrationDistanceMiles;
-@property(readonly, nonatomic) BOOL canBeUsedForRunCalibration; // @dynamic canBeUsedForRunCalibration;
-@property(readonly, nonatomic) BOOL canBeUsedForWalkCalibration; // @dynamic canBeUsedForWalkCalibration;
+@property(readonly, nonatomic) _Bool canBeUsedForRunCalibration; // @dynamic canBeUsedForRunCalibration;
+@property(readonly, nonatomic) _Bool canBeUsedForWalkCalibration; // @dynamic canBeUsedForWalkCalibration;
 @property(copy, nonatomic) NSData *paceModelParameters; // @dynamic paceModelParameters;
 - (id)workoutData;
-@property(readonly, nonatomic) BOOL isWalk; // @dynamic isWalk;
+@property(readonly, nonatomic) _Bool isWalk; // @dynamic isWalk;
 - (void)dealloc;
 - (id)initWithSensor:(id)arg1;
 

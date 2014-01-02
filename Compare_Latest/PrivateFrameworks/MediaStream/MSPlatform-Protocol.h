@@ -11,8 +11,8 @@
 - (id)authTokenForPersonID:(id)arg1;
 - (id)baseURLForPersonID:(id)arg1;
 - (id)socketOptions;
-- (BOOL)policyMayDownload;
-- (BOOL)policyMayUpload;
+- (_Bool)policyMayDownload;
+- (_Bool)policyMayUpload;
 - (id)appBundleInfoString;
 - (id)OSString;
 - (id)hardwareString;
@@ -22,16 +22,16 @@
 - (Class)publisherPluginClass;
 - (id)pathMediaStreamDir;
 - (id)fullNameFromFirstName:(id)arg1 lastName:(id)arg2;
-- (void)logFile:(const char *)arg1 func:(const char *)arg2 line:(int)arg3 facility:(int)arg4 level:(int)arg5 format:(id)arg6 args:(void *)arg7;
-- (void)logFacility:(int)arg1 level:(int)arg2 format:(id)arg3 args:(void *)arg4;
-- (BOOL)shouldLogAtLevel:(int)arg1;
+- (void)logFile:(const char *)arg1 func:(const char *)arg2 line:(int)arg3 facility:(int)arg4 level:(int)arg5 format:(id)arg6 args:(char *)arg7;
+- (void)logFacility:(int)arg1 level:(int)arg2 format:(id)arg3 args:(char *)arg4;
+- (_Bool)shouldLogAtLevel:(int)arg1;
 
 @optional
-- (BOOL)isPerformanceLoggingEnabled;
-- (BOOL)shouldEnableNewFeatures;
+- (_Bool)isPerformanceLoggingEnabled;
+- (_Bool)shouldEnableNewFeatures;
 - (id)pushToken;
 - (id)pushTokenForPersonID:(id)arg1;
-- (BOOL)policyMaySendDelete;
+- (_Bool)policyMaySendDelete;
 - (void)didDetectUnrecoverableCondition;
 - (Class)deletePluginClass;
 @end

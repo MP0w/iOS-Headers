@@ -12,31 +12,31 @@
 {
     UILabel *_statusSubtitleView;
     UIView *_entryFieldFiller;
-    float _targetEntryFieldFillerAlpha;
-    BOOL _isShowingStatus;
+    double _targetEntryFieldFillerAlpha;
+    _Bool _isShowingStatus;
     UIView *_statusSpringView;
     UIView *_statusSpringViewParent;
 }
 
-- (float)_distanceFromLastLineBaselineToTextFieldBoundsHeight:(id)arg1;
-- (float)_distanceToFirstLineBaseline:(id)arg1;
+- (double)_distanceFromLastLineBaselineToTextFieldBoundsHeight:(id)arg1;
+- (double)_distanceToFirstLineBaseline:(id)arg1;
 - (id)_statusSubtitleFont;
-- (float)_subtitleBaselineYOffsetFromTopOfEntryField;
-- (float)_subtitleBaselineYOffsetFromTopOfNumberPad;
-- (float)_expectedDistanceBetweenTitleAndSubtitleBaselines;
-- (float)_expectedYOffsetBetweenTitleAndSubtitleViews;
+- (double)_subtitleBaselineYOffsetFromTopOfEntryField;
+- (double)_subtitleBaselineYOffsetFromTopOfNumberPad;
+- (double)_expectedDistanceBetweenTitleAndSubtitleBaselines;
+- (double)_expectedYOffsetBetweenTitleAndSubtitleViews;
 - (void)_sizeLabel:(id)arg1;
 - (void)_setText:(id)arg1 onLabel:(id)arg2;
-- (BOOL)_needsToHideTextFieldForStatus;
+- (_Bool)_needsToHideTextFieldForStatus;
 - (void)_shakeStatus;
 - (void)layoutSubviews;
 - (void)_layoutStatusView;
-- (void)setBackgroundAlpha:(float)arg1;
+- (void)setBackgroundAlpha:(double)arg1;
 - (void)setCustomBackgroundColor:(id)arg1;
-- (void)_setHasInput:(BOOL)arg1;
+- (void)_setHasInput:(_Bool)arg1;
 - (void)resetForFailedPasscode;
-- (BOOL)_showsPromptLabelOnEntryField;
-- (void)forceShowStatus:(BOOL)arg1;
+- (_Bool)_showsPromptLabelOnEntryField;
+- (void)forceShowStatus:(_Bool)arg1;
 @property(copy, nonatomic) NSString *statusSubtitle; // @dynamic statusSubtitle;
 @property(copy, nonatomic) NSString *statusTitle; // @dynamic statusTitle;
 - (void)dealloc;

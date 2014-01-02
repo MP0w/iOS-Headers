@@ -16,21 +16,21 @@
     NSTimer *_maskTimer;
     double _maskStartTime;
     UIFont *_labelFont;
-    float _deltaFromDefaultTrackWidth;
+    double _deltaFromDefaultTrackWidth;
     UIImage *_maskImage;
-    float _fps;
+    double _fps;
 }
 
-@property(readonly) float deltaFromDefaultTrackWidth; // @synthesize deltaFromDefaultTrackWidth=_deltaFromDefaultTrackWidth;
+@property(readonly) double deltaFromDefaultTrackWidth; // @synthesize deltaFromDefaultTrackWidth=_deltaFromDefaultTrackWidth;
 - (void)movedFromWindow:(id)arg1;
 - (void)drawRect:(struct CGRect)arg1;
-- (BOOL)isAnimating;
-- (float)fps;
-- (void)setFPS:(float)arg1;
+- (_Bool)isAnimating;
+- (double)fps;
+- (void)setFPS:(double)arg1;
 - (void)stopAnimation;
 - (void)startAnimation;
 - (id)label;
-- (id)initWithLabel:(id)arg1 fontSize:(float)arg2 trackWidthDelta:(float)arg3;
+- (id)initWithLabel:(id)arg1 fontSize:(double)arg2 trackWidthDelta:(double)arg3;
 - (void)_cacheLabel:(id)arg1 size:(struct CGSize)arg2;
 - (void)dealloc;
 

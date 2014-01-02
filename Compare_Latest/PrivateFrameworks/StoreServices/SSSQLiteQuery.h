@@ -14,17 +14,17 @@
     SSSQLiteQueryDescriptor *_descriptor;
 }
 
-- (id)_newSelectSQLWithProperties:(const id *)arg1 count:(unsigned int)arg2;
+- (id)_newSelectSQLWithProperties:(const id *)arg1 count:(unsigned long long)arg2;
 @property(readonly) SSSQLiteQueryDescriptor *queryDescriptor;
-- (void)enumeratePersistentIDsAndProperties:(const id *)arg1 count:(unsigned int)arg2 usingBlock:(id)arg3;
+- (void)enumeratePersistentIDsAndProperties:(const id *)arg1 count:(unsigned long long)arg2 usingBlock:(id)arg3;
 - (void)enumeratePersistentIDsUsingBlock:(id)arg1;
 - (void)enumerateMemoryEntitiesWithProperties:(id)arg1 usingBlock:(id)arg2;
 - (void)enumerateMemoryEntitiesUsingBlock:(id)arg1;
-- (BOOL)deleteAllEntities;
+- (_Bool)deleteAllEntities;
 @property(readonly) SSSQLiteDatabase *database;
-- (BOOL)createTemporaryTableWithName:(id)arg1 properties:(const id *)arg2 count:(unsigned int)arg3;
-@property(readonly) int countOfEntities;
-- (id)copySelectSQLWithProperties:(const id *)arg1 count:(unsigned int)arg2;
+- (_Bool)createTemporaryTableWithName:(id)arg1 properties:(const id *)arg2 count:(unsigned long long)arg3;
+@property(readonly) long long countOfEntities;
+- (id)copySelectSQLWithProperties:(const id *)arg1 count:(unsigned long long)arg2;
 - (id)copyEntityIdentifiers;
 - (void)bindToSelectStatement:(struct sqlite3_stmt *)arg1 bindingIndex:(inout int *)arg2;
 - (void)dealloc;

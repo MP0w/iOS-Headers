@@ -23,8 +23,8 @@
 - (void)encodeWithCoder:(id)arg1;
 - (Class)classForCoder;
 - (id)initWithCoder:(id)arg1;
-- (unsigned short)characterAtIndex:(unsigned int)arg1;
-- (unsigned int)length;
+- (unsigned short)characterAtIndex:(unsigned long long)arg1;
+- (unsigned long long)length;
 - (id)awakeAfterUsingCoder:(id)arg1;
 
 @end

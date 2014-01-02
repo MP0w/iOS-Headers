@@ -12,17 +12,17 @@
 {
     SSXPCConnection *_connection;
     SSKeyValueStoreDatabase *_database;
-    BOOL _useLocalRead;
-    BOOL _useLocalWrite;
+    _Bool _useLocalRead;
+    _Bool _useLocalWrite;
 }
 
-+ (BOOL)isLocalReadable;
++ (_Bool)isLocalReadable;
 - (void)removeAccountFromDomain:(id)arg1;
 - (void)readUsingSessionBlock:(id)arg1;
 - (void)modifyUsingTransactionBlock:(id)arg1;
 - (id)iTunesValueForKey:(id)arg1 usedDomain:(id *)arg2;
-@property(readonly, getter=isLocalWritable) BOOL localWritable;
-@property(readonly, getter=isLocalReadable) BOOL localReadable;
+@property(readonly, getter=isLocalWritable) _Bool localWritable;
+@property(readonly, getter=isLocalReadable) _Bool localReadable;
 - (id)copyAccounts;
 - (id)copyAccountDictionaryForDomain:(id)arg1;
 - (void)setValuesWithDictionary:(id)arg1 forDomain:(id)arg2 completionBlock:(id)arg3;
@@ -32,7 +32,7 @@
 - (void)removeAllValuesWithCompletionBlock:(id)arg1;
 - (void)removeAllValuesForDomain:(id)arg1 completionBlock:(id)arg2;
 - (void)removeAllValuesForDomain:(id)arg1;
-- (void)getValuesForDomain:(id)arg1 keys:(const id *)arg2 count:(unsigned int)arg3 usingBlock:(id)arg4;
+- (void)getValuesForDomain:(id)arg1 keys:(const id *)arg2 count:(unsigned long long)arg3 usingBlock:(id)arg4;
 - (void)getValueForDomain:(id)arg1 key:(id)arg2 usingBlock:(id)arg3;
 - (void)dealloc;
 - (id)init;

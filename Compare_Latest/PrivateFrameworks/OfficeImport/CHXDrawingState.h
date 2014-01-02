@@ -8,6 +8,7 @@
 
 @class CHXState;
 
+// Not exported
 @interface CHXDrawingState : OAXDrawingState
 {
     CHXState *mCHXState;

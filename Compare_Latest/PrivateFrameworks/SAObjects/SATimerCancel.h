@@ -12,7 +12,7 @@
 
 + (id)cancelWithDictionary:(id)arg1 context:(id)arg2;
 + (id)cancel;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

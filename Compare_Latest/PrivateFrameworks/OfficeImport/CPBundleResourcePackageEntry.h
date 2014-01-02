@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
-@class SFUZipEntry;
+@class OISFUZipEntry;
 
+// Not exported
 @interface CPBundleResourcePackageEntry : NSObject
 {
-    SFUZipEntry *mZipEntry;
+    OISFUZipEntry *mZipEntry;
     struct _xmlDoc *mXmlDocument;
 }
 

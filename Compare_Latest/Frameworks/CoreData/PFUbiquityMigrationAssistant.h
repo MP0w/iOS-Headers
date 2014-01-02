@@ -8,6 +8,7 @@
 
 @class NSMutableArray, NSMutableDictionary, NSString, PFUbiquityLocation;
 
+// Not exported
 @interface PFUbiquityMigrationAssistant : NSObject
 {
     NSString *_ubiquityName;
@@ -26,8 +27,8 @@
 - (id)transactionLogLocationsForModelVersionHash:(id)arg1;
 - (id)latestBaselineLocationSkipModelVersionHash:(id)arg1;
 - (id)latestTransactionLogForModelVersionHash:(id)arg1;
-- (BOOL)electPreviousModelVersionHashFromTransactionLogsError:(id *)arg1;
-- (BOOL)canUseReceipts;
+- (_Bool)electPreviousModelVersionHashFromTransactionLogsError:(id *)arg1;
+- (_Bool)canUseReceipts;
 - (id)orderedReceipts;
 - (id)transactionLogLocationsByModelVersionHash;
 - (id)receiptLocations;

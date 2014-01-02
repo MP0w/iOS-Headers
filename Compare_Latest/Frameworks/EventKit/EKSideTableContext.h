@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface EKSideTableContext : NSManagedObjectContext
 {
     NSString *_path;

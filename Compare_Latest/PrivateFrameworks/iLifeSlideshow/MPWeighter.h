@@ -10,44 +10,44 @@
 
 @interface MPWeighter : NSObject
 {
-    int _totalWeight;
+    long long _totalWeight;
     NSMutableArray *_weights;
     NSMutableArray *_items;
     NSMutableArray *_constraints;
     NSMutableArray *_usageCount;
     NSMutableIndexSet *_ignoreIndices;
-    BOOL _evenlyPickByID;
-    BOOL _ignoreBreaks;
+    _Bool _evenlyPickByID;
+    _Bool _ignoreBreaks;
 }
 
 - (void)clearAllItems;
-- (int)count;
+- (long long)count;
 - (id)constraintsForItem:(id)arg1;
 - (id)allUsageCounts;
 - (id)allConstraints;
 - (id)allItems;
-- (void)addIndexToIgnore:(int)arg1;
+- (void)addIndexToIgnore:(long long)arg1;
 - (void)clearIgnoreIndices;
 - (void)ignoreIndices:(id)arg1;
-- (void)ignoreIndex:(int)arg1;
+- (void)ignoreIndex:(long long)arg1;
 - (id)ignoredIndices;
-- (void)setIgnoreBreaks:(BOOL)arg1;
+- (void)setIgnoreBreaks:(_Bool)arg1;
 - (id)imageCounts;
-- (int)numberOfItemsWithImageCount:(int)arg1;
-- (void)setEvenlyPickByID:(BOOL)arg1;
+- (long long)numberOfItemsWithImageCount:(long long)arg1;
+- (void)setEvenlyPickByID:(_Bool)arg1;
 - (id)indicesEqualingConstraints:(id)arg1;
 - (id)indicesMeetingConstraints:(id)arg1;
-- (void)increaseUsageCountOfObjectAtIndex:(int)arg1;
-- (BOOL)itemAtIndex:(int)arg1 meetsContraints:(id)arg2 oneMatch:(BOOL)arg3;
-- (BOOL)itemAtIndex:(int)arg1 meetsContraints:(id)arg2;
-- (int)getRandomIndex;
-- (int)getRandomIndexInSubset:(id)arg1 withPreviousTags:(id)arg2;
-- (int)getRandomIndexInSubset:(id)arg1;
-- (id)getRandomItemMeetingNumberOfFaceLandscapes:(int)arg1 facePortraits:(int)arg2 imageLandscapes:(int)arg3 imagePortraits:(int)arg4 vBreaks:(int)arg5 hBreaks:(int)arg6 movies:(int)arg7 fitsInExtraWide:(int)arg8 aspectRatios:(id)arg9 previousTags:(id)arg10;
-- (int)getRandomIndexWithNoBreaksForImageCount:(int)arg1;
-- (int)getRandomIndexMeetingContraints:(id)arg1 oneMatch:(BOOL)arg2;
-- (int)getRandomIndexMeetingContraints:(id)arg1;
-- (void)addItem:(id)arg1 withWeight:(int)arg2 andContraints:(id)arg3;
+- (void)increaseUsageCountOfObjectAtIndex:(long long)arg1;
+- (_Bool)itemAtIndex:(long long)arg1 meetsContraints:(id)arg2 oneMatch:(_Bool)arg3;
+- (_Bool)itemAtIndex:(long long)arg1 meetsContraints:(id)arg2;
+- (long long)getRandomIndex;
+- (long long)getRandomIndexInSubset:(id)arg1 withPreviousTags:(id)arg2;
+- (long long)getRandomIndexInSubset:(id)arg1;
+- (id)getRandomItemMeetingNumberOfFaceLandscapes:(long long)arg1 facePortraits:(long long)arg2 imageLandscapes:(long long)arg3 imagePortraits:(long long)arg4 vBreaks:(long long)arg5 hBreaks:(long long)arg6 movies:(long long)arg7 fitsInExtraWide:(long long)arg8 aspectRatios:(id)arg9 previousTags:(id)arg10;
+- (long long)getRandomIndexWithNoBreaksForImageCount:(long long)arg1;
+- (long long)getRandomIndexMeetingContraints:(id)arg1 oneMatch:(_Bool)arg2;
+- (long long)getRandomIndexMeetingContraints:(id)arg1;
+- (void)addItem:(id)arg1 withWeight:(long long)arg2 andContraints:(id)arg3;
 - (void)dealloc;
 - (id)init;
 

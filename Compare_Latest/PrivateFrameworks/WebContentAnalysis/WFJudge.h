@@ -8,6 +8,7 @@
 
 @class WFLSMMap;
 
+// Not exported
 @interface WFJudge : NSObject
 {
     WFLSMMap *map;

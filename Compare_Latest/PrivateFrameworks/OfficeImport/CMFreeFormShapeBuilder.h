@@ -8,6 +8,7 @@
 
 @class OADPath;
 
+// Not exported
 @interface CMFreeFormShapeBuilder : CMLineShapeBuilder
 {
     OADPath *_path;

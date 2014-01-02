@@ -13,7 +13,7 @@
 - (id)currentSlide;
 - (id)currentSlides;
 - (void)watcherThread:(id)arg1;
-- (int)_mainLayerIndex;
+- (long long)_mainLayerIndex;
 - (id)_effectContainerForTime:(double)arg1;
 - (id)_firstEffectContainer;
 - (id)_currentEffectContainer;
@@ -21,7 +21,7 @@
 - (void)moveToTitleSlide;
 - (void)moveToPreviousEffectContainer;
 - (void)moveToNextEffectContainer;
-- (void)moveToEffectContainer:(id)arg1 withStartOffset:(double)arg2 toStopOffset:(double)arg3 blocking:(BOOL)arg4;
+- (void)moveToEffectContainer:(id)arg1 withStartOffset:(double)arg2 toStopOffset:(double)arg3 blocking:(_Bool)arg4;
 - (id)displayedEffectContainers;
 - (double)relativeTimeForLayer:(id)arg1;
 - (double)relativeTimeForBackgroundAudio;

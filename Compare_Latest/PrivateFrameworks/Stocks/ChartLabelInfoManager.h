@@ -13,18 +13,18 @@
     ChartLabelInfo *_yAxisLabelInfo;
     NSMutableArray *_monthLabelInfoArrays;
     NSMutableArray *_integerLabelInfoArray;
-    BOOL _use24hrTime;
+    _Bool _use24hrTime;
 }
 
-+ (struct __CFString *)_CFDateFormatterPropertyForMonthLabelLength:(int)arg1;
++ (struct __CFString *)_CFDateFormatterPropertyForMonthLabelLength:(long long)arg1;
 + (id)chartLabelFont;
 + (void)clearSharedManager;
 + (id)sharedLabelInfoManager;
 - (void).cxx_destruct;
 - (void)resetLocale;
-- (id)monthLabelInfoArrayForLabelLength:(int)arg1;
-- (BOOL)use24hrTime;
-- (id)labelInfoWithUnsignedInteger:(unsigned int)arg1;
+- (id)monthLabelInfoArrayForLabelLength:(long long)arg1;
+- (_Bool)use24hrTime;
+- (id)labelInfoWithUnsignedInteger:(unsigned long long)arg1;
 - (id)labelInfoForYAxis;
 - (id)labelInfoWithString:(id)arg1;
 - (void)dealloc;

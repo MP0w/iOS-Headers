@@ -18,11 +18,11 @@
     AVWeakReference *_weakReferenceToSelf;
 }
 
-- (BOOL)shouldHelperPrepareInputs;
+- (_Bool)shouldHelperPrepareInputs;
 - (void)finishWritingHelperDidFail:(id)arg1;
 - (void)finishWritingHelperDidCancelFinishWriting:(id)arg1;
 - (void)finishWritingHelper:(id)arg1 didInitiateFinishWritingForFigAssetWriter:(struct OpaqueFigAssetWriter *)arg2;
-- (void)didReceiveFigAssetWriterNotificationWithSuccess:(BOOL)arg1 error:(id)arg2;
+- (void)didReceiveFigAssetWriterNotificationWithSuccess:(_Bool)arg1 error:(id)arg2;
 - (void)finalize;
 - (void)dealloc;
 - (id)init;

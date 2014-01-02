@@ -10,7 +10,7 @@
 
 @interface FTRegConnectionHandler : NSObject
 {
-    int _serviceType;
+    long long _serviceType;
     unsigned int _caps;
     NSString *_name;
     NSString *_listenerID;
@@ -21,21 +21,21 @@
 @property(retain, nonatomic) NSString *_logName; // @synthesize _logName;
 @property(copy, nonatomic, setter=_setListenerID:) NSString *_listenerID; // @synthesize _listenerID;
 @property(nonatomic) unsigned int caps; // @synthesize caps=_caps;
-@property(nonatomic) int serviceType; // @synthesize serviceType=_serviceType;
+@property(nonatomic) long long serviceType; // @synthesize serviceType=_serviceType;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 - (void)_handleDaemonDisconnected:(id)arg1;
 - (void)_handleDaemonConnected:(id)arg1;
 - (void)_disconnectFromDaemon;
-- (BOOL)connectToDaemon;
-- (BOOL)connectToDaemon:(BOOL)arg1;
-- (BOOL)isConnectedToDaemon;
-- (BOOL)_isServiceSupported;
+- (_Bool)connectToDaemon;
+- (_Bool)connectToDaemon:(_Bool)arg1;
+- (_Bool)isConnectedToDaemon;
+- (_Bool)_isServiceSupported;
 - (void)_stopListeningForNotifications;
 - (void)_startListeningForNotifications;
 @property(readonly, nonatomic) NSString *_serviceName;
 - (void)dealloc;
-- (id)initWithServiceType:(int)arg1 name:(id)arg2;
-- (id)initWithServiceType:(int)arg1 name:(id)arg2 capabilities:(unsigned long long)arg3;
+- (id)initWithServiceType:(long long)arg1 name:(id)arg2;
+- (id)initWithServiceType:(long long)arg1 name:(id)arg2 capabilities:(unsigned long long)arg3;
 
 @end
 

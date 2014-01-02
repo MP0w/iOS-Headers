@@ -11,11 +11,14 @@
 @interface _NSXPCInterfaceMethodInfo : NSObject
 {
     char *_replySignature;
-    int replyPosition;
-    NSMutableArray *replyArguments;
-    NSMutableArray *arguments;
+    int _replyPosition;
+    NSMutableArray *_replyArguments;
+    NSMutableArray *_arguments;
 }
 
+@property int replyPosition; // @synthesize replyPosition=_replyPosition;
+@property(retain) NSMutableArray *arguments; // @synthesize arguments=_arguments;
+@property(retain) NSMutableArray *replyArguments; // @synthesize replyArguments=_replyArguments;
 - (const char *)replySignature;
 - (void)setReplySignature:(id)arg1;
 - (void)finalize;

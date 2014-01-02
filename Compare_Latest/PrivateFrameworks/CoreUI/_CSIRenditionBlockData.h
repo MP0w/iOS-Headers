@@ -11,16 +11,20 @@
     int _pixelFormat;
     char *_data;
     unsigned int _nrows;
-    unsigned long _rowbytes;
+    unsigned long long _rowbytes;
+    char _name[128];
 }
 
++ (id)sharedCache;
 - (void)_makeReadOnly;
 - (void)_freeImageBytes;
 - (void)_allocateImageBytes;
-- (void)expandCSIBitmapData:(struct _csibitmap *)arg1 fromSlice:(struct _slice)arg2 makeReadOnly:(BOOL)arg3;
+- (void)expandCSIBitmapData:(struct _csibitmap *)arg1 fromSlice:(struct _slice)arg2 makeReadOnly:(_Bool)arg3;
 - (void)dealloc;
 - (const char *)bytes;
-- (unsigned long)rowbytes;
+- (unsigned int)nrows;
+- (unsigned long long)rowbytes;
+- (void)_setNameFromCSIHeader:(const struct _csiheader *)arg1;
 - (id)initWithPixelWidth:(unsigned int)arg1 pixelHeight:(unsigned int)arg2 pixelFormat:(int)arg3;
 
 @end

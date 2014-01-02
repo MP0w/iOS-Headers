@@ -10,6 +10,7 @@
 {
 }
 
++ (_Bool)isCertificateChain:(id)arg1 trustedForHost:(id)arg2;
 + (id)identitiesWithProtectionSpace:(id)arg1;
 
 @end

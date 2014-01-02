@@ -9,44 +9,44 @@
 @interface PTPOperationRequestPacket : NSObject
 {
     int _numParameters;
-    unsigned long _dataPhaseInfo;
+    unsigned int _dataPhaseInfo;
     unsigned short _operationCode;
-    unsigned long _transactionID;
-    unsigned long _parameters[5];
+    unsigned int _transactionID;
+    unsigned int _parameters[5];
 }
 
-- (void)setParameter5:(unsigned long)arg1;
-- (unsigned long)parameter5;
-- (void)setParameter4:(unsigned long)arg1;
-- (unsigned long)parameter4;
-- (void)setParameter3:(unsigned long)arg1;
-- (unsigned long)parameter3;
-- (void)setParameter2:(unsigned long)arg1;
-- (unsigned long)parameter2;
-- (void)setParameter1:(unsigned long)arg1;
-- (unsigned long)parameter1;
-- (void)setPparameter:(unsigned long)arg1 atIndex:(unsigned long)arg2;
-- (unsigned long)parameterAtIndex:(unsigned long)arg1;
+- (void)setParameter5:(unsigned int)arg1;
+- (unsigned int)parameter5;
+- (void)setParameter4:(unsigned int)arg1;
+- (unsigned int)parameter4;
+- (void)setParameter3:(unsigned int)arg1;
+- (unsigned int)parameter3;
+- (void)setParameter2:(unsigned int)arg1;
+- (unsigned int)parameter2;
+- (void)setParameter1:(unsigned int)arg1;
+- (unsigned int)parameter1;
+- (void)setPparameter:(unsigned int)arg1 atIndex:(unsigned int)arg2;
+- (unsigned int)parameterAtIndex:(unsigned int)arg1;
 - (int)numParameters;
-- (void)setDataPhaseInfo:(unsigned long)arg1;
-- (unsigned long)dataPhaseInfo;
-- (void)setTransactionID:(unsigned long)arg1;
-- (unsigned long)transactionID;
+- (void)setDataPhaseInfo:(unsigned int)arg1;
+- (unsigned int)dataPhaseInfo;
+- (void)setTransactionID:(unsigned int)arg1;
+- (unsigned int)transactionID;
 - (void)setOperationCode:(unsigned short)arg1;
 - (unsigned short)operationCode;
 - (id)description;
-- (id)contentForUSBUsingBuffer:(void *)arg1 capacity:(unsigned long)arg2;
+- (id)contentForUSBUsingBuffer:(void *)arg1 capacity:(unsigned int)arg2;
 - (id)contentForUSB;
 - (id)contentForTCP;
 - (id)initWithUSBBuffer:(void *)arg1;
 - (id)initWithTCPBuffer:(void *)arg1;
-- (id)initWithOperationCode:(unsigned short)arg1 transactionID:(unsigned long)arg2 dataPhaseInfo:(unsigned long)arg3 parameter1:(unsigned long)arg4 parameter2:(unsigned long)arg5 parameter3:(unsigned long)arg6 parameter4:(unsigned long)arg7 parameter5:(unsigned long)arg8;
-- (id)initWithOperationCode:(unsigned short)arg1 transactionID:(unsigned long)arg2 dataPhaseInfo:(unsigned long)arg3 parameter1:(unsigned long)arg4 parameter2:(unsigned long)arg5 parameter3:(unsigned long)arg6 parameter4:(unsigned long)arg7;
-- (id)initWithOperationCode:(unsigned short)arg1 transactionID:(unsigned long)arg2 dataPhaseInfo:(unsigned long)arg3 parameter1:(unsigned long)arg4 parameter2:(unsigned long)arg5 parameter3:(unsigned long)arg6;
-- (id)initWithOperationCode:(unsigned short)arg1 transactionID:(unsigned long)arg2 dataPhaseInfo:(unsigned long)arg3 parameter1:(unsigned long)arg4 parameter2:(unsigned long)arg5;
-- (id)initWithOperationCode:(unsigned short)arg1 transactionID:(unsigned long)arg2 dataPhaseInfo:(unsigned long)arg3 parameter1:(unsigned long)arg4;
-- (id)initWithOperationCode:(unsigned short)arg1 transactionID:(unsigned long)arg2 dataPhaseInfo:(unsigned long)arg3;
-- (id)initWithOperationCode:(unsigned short)arg1 transactionID:(unsigned long)arg2 dataPhaseInfo:(unsigned long)arg3 numParameters:(unsigned long)arg4 parameters:(unsigned int *)arg5;
+- (id)initWithOperationCode:(unsigned short)arg1 transactionID:(unsigned int)arg2 dataPhaseInfo:(unsigned int)arg3 parameter1:(unsigned int)arg4 parameter2:(unsigned int)arg5 parameter3:(unsigned int)arg6 parameter4:(unsigned int)arg7 parameter5:(unsigned int)arg8;
+- (id)initWithOperationCode:(unsigned short)arg1 transactionID:(unsigned int)arg2 dataPhaseInfo:(unsigned int)arg3 parameter1:(unsigned int)arg4 parameter2:(unsigned int)arg5 parameter3:(unsigned int)arg6 parameter4:(unsigned int)arg7;
+- (id)initWithOperationCode:(unsigned short)arg1 transactionID:(unsigned int)arg2 dataPhaseInfo:(unsigned int)arg3 parameter1:(unsigned int)arg4 parameter2:(unsigned int)arg5 parameter3:(unsigned int)arg6;
+- (id)initWithOperationCode:(unsigned short)arg1 transactionID:(unsigned int)arg2 dataPhaseInfo:(unsigned int)arg3 parameter1:(unsigned int)arg4 parameter2:(unsigned int)arg5;
+- (id)initWithOperationCode:(unsigned short)arg1 transactionID:(unsigned int)arg2 dataPhaseInfo:(unsigned int)arg3 parameter1:(unsigned int)arg4;
+- (id)initWithOperationCode:(unsigned short)arg1 transactionID:(unsigned int)arg2 dataPhaseInfo:(unsigned int)arg3;
+- (id)initWithOperationCode:(unsigned short)arg1 transactionID:(unsigned int)arg2 dataPhaseInfo:(unsigned int)arg3 numParameters:(unsigned int)arg4 parameters:(unsigned int *)arg5;
 
 @end
 

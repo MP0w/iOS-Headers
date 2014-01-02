@@ -8,21 +8,22 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface GEOVConnectivity : PBCodable
 {
     NSMutableArray *_junctions;
 }
 
 @property(retain, nonatomic) NSMutableArray *junctions; // @synthesize junctions=_junctions;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)junctionAtIndex:(unsigned int)arg1;
-- (unsigned int)junctionsCount;
+- (id)junctionAtIndex:(unsigned long long)arg1;
+- (unsigned long long)junctionsCount;
 - (void)addJunction:(id)arg1;
 - (void)clearJunctions;
 - (void)dealloc;

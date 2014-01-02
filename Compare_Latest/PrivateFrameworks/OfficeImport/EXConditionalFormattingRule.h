@@ -6,14 +6,12 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface EXConditionalFormattingRule : NSObject
 {
 }
 
 + (id)edConditionalFormattingRuleFromXmlConditionalFormattingRuleElement:(struct _xmlNode *)arg1 state:(id)arg2;
-+ (int)edTimePeriodFromXmlTimePeriodString:(id)arg1;
-+ (int)edOperatorFromXmlOperatorString:(id)arg1;
-+ (int)edRuleTypeFromXmlRuleTypeString:(id)arg1;
 
 @end
 

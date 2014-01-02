@@ -20,16 +20,10 @@
     id _moreVars;
 }
 
-+ (id)_newContentsAtURL:(id)arg1 path:(id)arg2 itemKind:(id)arg3 oldChildrenByUniqueFileName:(id)arg4 options:(unsigned int)arg5 error:(id *)arg6;
-+ (BOOL)_canSafelyMapFilesAtPath:(id)arg1;
-+ (BOOL)_forPath:(id)arg1 getItemKind:(id *)arg2 modificationDate:(id *)arg3;
++ (id)_newContentsAtURL:(id)arg1 path:(id)arg2 itemKind:(id)arg3 oldChildrenByUniqueFileName:(id)arg4 options:(unsigned long long)arg5 error:(id *)arg6;
++ (_Bool)_canSafelyMapFilesAtPath:(id)arg1;
++ (_Bool)_forPath:(id)arg1 getItemKind:(id *)arg2 modificationDate:(id *)arg3;
 + (void)initialize;
-+ (void)_removeTemporaryDirectoryAtURL:(id)arg1;
-+ (BOOL)_finishWritingToURL:(id)arg1 byTakingContentsFromItemAtURL:(id)arg2 addingAttributes:(id)arg3 usingTemporaryDirectoryAtURL:(id)arg4 backupFileName:(id)arg5 error:(id *)arg6;
-+ (BOOL)_finishWritingToURL:(id)arg1 byMovingItemAtURL:(id)arg2 addingAttributes:(id)arg3 error:(id *)arg4;
-+ (void)_writeAttributes:(id)arg1 toURL:(id)arg2;
-+ (id)_temporaryDirectoryURLForWritingToURL:(id)arg1 error:(id *)arg2;
-+ (id)_pathForURL:(id)arg1 reading:(BOOL)arg2 error:(id *)arg3;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)symbolicLinkDestinationURL;
@@ -49,15 +43,15 @@
 - (id)serializedRepresentation;
 - (id)_newImpl;
 - (id)_initWithImpl:(id)arg1 preferredFileName:(id)arg2 uniqueFileName:(id)arg3 docInfo:(id)arg4 iconData:(id)arg5;
-- (BOOL)writeToURL:(id)arg1 options:(unsigned int)arg2 originalContentsURL:(id)arg3 error:(id *)arg4;
+- (_Bool)writeToURL:(id)arg1 options:(unsigned long long)arg2 originalContentsURL:(id)arg3 error:(id *)arg4;
 - (void)_updateDescendantFileNames;
 - (id)_attributesToWrite;
-- (BOOL)_writeContentsToURL:(id)arg1 path:(id)arg2 originalContentsURL:(id)arg3 tryHardLinking:(BOOL)arg4 didHardLinking:(char *)arg5 error:(id *)arg6;
+- (_Bool)_writeContentsToURL:(id)arg1 path:(id)arg2 originalContentsURL:(id)arg3 tryHardLinking:(_Bool)arg4 didHardLinking:(_Bool *)arg5 error:(id *)arg6;
 - (void)_forWritingToURL:(id)arg1 returnContentsLazyReadingError:(id *)arg2;
-- (BOOL)readFromURL:(id)arg1 options:(unsigned int)arg2 error:(id *)arg3;
-- (BOOL)_readContentsFromURL:(id)arg1 path:(id)arg2 itemKind:(id)arg3 options:(unsigned int)arg4 error:(id *)arg5;
-- (BOOL)matchesContentsOfURL:(id)arg1;
-- (BOOL)_matchesItemKind:(id)arg1 modificationDate:(id)arg2;
+- (_Bool)readFromURL:(id)arg1 options:(unsigned long long)arg2 error:(id *)arg3;
+- (_Bool)_readContentsFromURL:(id)arg1 path:(id)arg2 itemKind:(id)arg3 options:(unsigned long long)arg4 error:(id *)arg5;
+- (_Bool)matchesContentsOfURL:(id)arg1;
+- (_Bool)_matchesItemKind:(id)arg1 modificationDate:(id)arg2;
 - (id)fileAttributes;
 - (void)setFileAttributes:(id)arg1;
 - (id)filename;
@@ -65,18 +59,17 @@
 - (id)preferredFilename;
 - (void)setPreferredFilename:(id)arg1;
 - (void)_observePreferredFileNameOfChild:(id)arg1;
-- (BOOL)isSymbolicLink;
-- (BOOL)isRegularFile;
-- (BOOL)isDirectory;
+- (_Bool)isSymbolicLink;
+- (_Bool)isRegularFile;
+- (_Bool)isDirectory;
 - (void)dealloc;
 - (id)initWithSerializedRepresentation:(id)arg1;
 - (id)initSymbolicLinkWithDestinationURL:(id)arg1;
 - (id)initRegularFileWithContents:(id)arg1;
 - (id)initDirectoryWithFileWrappers:(id)arg1;
-- (id)initWithURL:(id)arg1 options:(unsigned int)arg2 error:(id *)arg3;
+- (id)initWithURL:(id)arg1 options:(unsigned long long)arg2 error:(id *)arg3;
 - (id)_init;
 - (id)init;
-- (id)_fullDescription:(BOOL)arg1;
 
 @end
 

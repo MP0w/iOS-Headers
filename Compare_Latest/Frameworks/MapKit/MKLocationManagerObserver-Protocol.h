@@ -9,7 +9,7 @@
 @protocol MKLocationManagerObserver <NSObject>
 - (void)locationManagerDidResumeLocationUpdates:(id)arg1;
 - (void)locationManagerDidPauseLocationUpdates:(id)arg1;
-- (BOOL)locationManagerShouldPauseLocationUpdates:(id)arg1;
+- (_Bool)locationManagerShouldPauseLocationUpdates:(id)arg1;
 - (void)locationManagerDidReset:(id)arg1;
 - (void)locationManagerFailedToUpdateLocation:(id)arg1 withError:(id)arg2;
 - (void)locationManagerUpdatedLocation:(id)arg1;

@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface STPropVariant : NSObject
 {
     struct _SsrwPropVariant mProp;
@@ -16,7 +17,7 @@
 - (struct _SsrwPropVariant *)propVariant;
 - (void)setBlobValue:(id)arg1;
 - (void)setStringValue:(id)arg1;
-- (void)setLongValue:(long)arg1;
+- (void)setLongValue:(int)arg1;
 - (void)setShortValue:(short)arg1;
 
 @end

@@ -9,7 +9,7 @@
 @protocol WebDocumentSelection <WebDocumentText>
 - (id)selectionView;
 - (struct CGRect)selectionImageRect;
-- (struct CGImage *)selectionImageForcingBlackText:(BOOL)arg1;
+- (struct CGImage *)selectionImageForcingBlackText:(_Bool)arg1;
 - (struct CGRect)selectionRect;
 - (id)selectionTextRects;
 @end

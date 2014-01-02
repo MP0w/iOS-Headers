@@ -6,6 +6,7 @@
 
 #import <QuartzCore/CAContext.h>
 
+// Not exported
 @interface CAContextImpl : CAContext
 {
     struct Context *_impl;
@@ -14,13 +15,13 @@
 - (struct Context *)renderContext;
 - (void)setObject:(id)arg1 forSlot:(unsigned int)arg2;
 - (void)deleteSlot:(unsigned int)arg1;
-- (unsigned int)createImageSlot:(struct CGSize)arg1 hasAlpha:(BOOL)arg2;
+- (unsigned int)createImageSlot:(struct CGSize)arg1 hasAlpha:(_Bool)arg2;
 - (unsigned int)createSlot;
 - (void)setFence:(unsigned int)arg1 count:(unsigned int)arg2;
 - (void)setFencePort:(unsigned int)arg1 commitHandler:(id)arg2;
 - (void)setFencePort:(unsigned int)arg1;
 - (unsigned int)createFencePort;
-- (BOOL)valid;
+- (_Bool)valid;
 - (id)options;
 - (float)level;
 - (void)setLevel:(float)arg1;

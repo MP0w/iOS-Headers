@@ -11,14 +11,15 @@
 
 @class NSObject<OS_dispatch_queue>, _UIAsyncInvocation;
 
+// Not exported
 @interface _UIViewServiceSessionConnectionCatcher : NSObject <_UIViewServiceSession_HostInterface, XPCProxyTarget>
 {
     NSObject<OS_dispatch_queue> *_queue;
     id _continuation;
-    BOOL _isInvalidated;
+    _Bool _isInvalidated;
     _UIAsyncInvocation *_invalidationInvocation;
     int __automatic_invalidation_retainCount;
-    BOOL __automatic_invalidation_invalidated;
+    _Bool __automatic_invalidation_invalidated;
 }
 
 + (id)awaitRequestThen:(id)arg1;
@@ -26,9 +27,9 @@
 - (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
 - (id)invalidate;
 - (void)__requestConnectionToDeputyOfType:(id)arg1 withReplyHandler:(id)arg2;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
-- (unsigned int)retainCount;
+- (_Bool)_isDeallocating;
+- (_Bool)_tryRetain;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;
 - (int)__automatic_invalidation_logic;

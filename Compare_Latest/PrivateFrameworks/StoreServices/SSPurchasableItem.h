@@ -19,7 +19,7 @@
 + (id)sortByDatePurchasedKey;
 + (id)databaseTable;
 - (long long)storeID;
-- (BOOL)isHidden;
+- (_Bool)isHidden;
 - (id)datePurchased;
 - (long long)accountUniqueIdentifier;
 - (long long)pid;

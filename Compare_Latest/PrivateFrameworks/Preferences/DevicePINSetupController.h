@@ -8,13 +8,14 @@
 
 @interface DevicePINSetupController : PSSetupController
 {
-    BOOL _success;
+    _Bool _success;
 }
 
-- (BOOL)canBeShownFromSuspendedState;
-- (BOOL)popupStyleIsModal;
-- (BOOL)usePopupStyle;
-- (BOOL)success;
+- (struct CGSize)preferredContentSize;
+- (_Bool)canBeShownFromSuspendedState;
+- (_Bool)popupStyleIsModal;
+- (_Bool)usePopupStyle;
+- (_Bool)success;
 
 @end
 

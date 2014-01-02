@@ -15,7 +15,7 @@
 
 - (id)keypadView;
 - (void)dealloc;
-- (id)_initWithStyle:(int)arg1 interfaceOrientation:(int)arg2 showsEmergencyCall:(BOOL)arg3;
+- (id)_initWithStyle:(int)arg1 interfaceOrientation:(long long)arg2 showsEmergencyCall:(_Bool)arg3;
 
 @end
 

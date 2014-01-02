@@ -19,13 +19,13 @@
 @property(readonly) int naturalWidth;
 @property(readonly) int naturalHeight;
 @property(copy) NSString *lowsrc;
-@property(readonly) BOOL complete;
+@property(readonly) _Bool complete;
 @property int width;
 @property int vspace;
 @property(copy) NSString *useMap;
 @property(copy) NSString *src;
 @property(copy) NSString *longDesc;
-@property BOOL isMap;
+@property _Bool isMap;
 @property int hspace;
 @property int height;
 - (void)setCrossOrigin:(id)arg1;
@@ -34,8 +34,6 @@
 @property(copy) NSString *alt;
 @property(copy) NSString *align;
 @property(copy) NSString *name;
-- (id)mimeType;
-- (id)dataRepresentation:(BOOL)arg1;
 
 @end
 

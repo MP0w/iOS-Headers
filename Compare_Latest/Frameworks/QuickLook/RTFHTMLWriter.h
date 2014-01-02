@@ -8,6 +8,7 @@
 
 @class NSMutableArray, RTF_CMArchiveManager, RTF_OIXMLElement;
 
+// Not exported
 @interface RTFHTMLWriter : NSObject
 {
     RTF_CMArchiveManager *_archiver;
@@ -18,7 +19,7 @@
     RTF_OIXMLElement *_currentTableParagraph;
     RTF_OIXMLElement *_currentTable;
     RTF_OIXMLElement *_currentRow;
-    BOOL _inited;
+    _Bool _inited;
 }
 
 - (void)insertAttachmentNamed:(id)arg1 withData:(id)arg2;

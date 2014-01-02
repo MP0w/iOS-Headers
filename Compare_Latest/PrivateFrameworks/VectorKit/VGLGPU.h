@@ -8,11 +8,12 @@
 
 @class NSSet, NSString, VGLContext, VGLSharegroup;
 
+// Not exported
 @interface VGLGPU : NSObject
 {
     VGLContext *_internalContext;
     VGLSharegroup *_sharegroup;
-    int _kind;
+    long long _kind;
     NSSet *_extensionNames;
     int _initializedCapabilities;
     int _maxTextureSize;
@@ -29,16 +30,16 @@
     int _maxSamples;
 }
 
-+ (id)gpuForKind:(int)arg1;
++ (id)gpuForKind:(long long)arg1;
 @property(readonly, nonatomic) NSSet *extensionNames; // @synthesize extensionNames=_extensionNames;
-@property(readonly, nonatomic) int kind; // @synthesize kind=_kind;
+@property(readonly, nonatomic) long long kind; // @synthesize kind=_kind;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (id)newContext:(Class)arg1;
-- (BOOL)platformSupports:(id)arg1;
+- (_Bool)platformSupports:(id)arg1;
 - (id)description;
 - (void)dealloc;
-- (id)initWithKind:(int)arg1;
+- (id)initWithKind:(long long)arg1;
 @property(readonly, nonatomic) NSString *rendererName; // @synthesize rendererName=_rendererName;
 @property(readonly, nonatomic) int maxSamples; // @synthesize maxSamples=_maxSamples;
 @property(readonly, nonatomic) int maxFragShaderTextureUnits; // @synthesize maxFragShaderTextureUnits=_maxFragShaderTextureUnits;

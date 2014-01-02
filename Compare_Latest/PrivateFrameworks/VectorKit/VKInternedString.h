@@ -6,6 +6,7 @@
 
 #import "NSString.h"
 
+// Not exported
 @interface VKInternedString : NSString
 {
     NSString *original;
@@ -14,15 +15,15 @@
 + (id)stringWithString:(id)arg1;
 + (void)initialize;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (unsigned int)hash;
-- (BOOL)isEqualToString:(id)arg1;
-- (int)compare:(id)arg1 options:(unsigned int)arg2 range:(struct _NSRange)arg3 locale:(id)arg4;
+- (unsigned long long)hash;
+- (_Bool)isEqualToString:(id)arg1;
+- (long long)compare:(id)arg1 options:(unsigned long long)arg2 range:(struct _NSRange)arg3 locale:(id)arg4;
 - (id)substringWithRange:(struct _NSRange)arg1;
-- (id)substringToIndex:(unsigned int)arg1;
-- (id)substringFromIndex:(unsigned int)arg1;
+- (id)substringToIndex:(unsigned long long)arg1;
+- (id)substringFromIndex:(unsigned long long)arg1;
 - (void)getCharacters:(unsigned short *)arg1 range:(struct _NSRange)arg2;
-- (unsigned short)characterAtIndex:(unsigned int)arg1;
-- (unsigned int)length;
+- (unsigned short)characterAtIndex:(unsigned long long)arg1;
+- (unsigned long long)length;
 - (void)dealloc;
 - (id)initWithString:(id)arg1;
 

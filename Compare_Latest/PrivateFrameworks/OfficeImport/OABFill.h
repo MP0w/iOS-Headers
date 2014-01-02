@@ -6,15 +6,13 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface OABFill : NSObject
 {
 }
 
 + (void)writeFill:(id)arg1 toFill:(struct EshFill *)arg2 state:(id)arg3;
 + (id)readFillFromFillPropertiesManager:(id)arg1 colorPalette:(id)arg2;
-+ (void)readImageFill:(id)arg1 fromFillPropertiesManager:(id)arg2 colorPalette:(id)arg3;
-+ (void)readGradientFill:(id)arg1 fromFillPropertiesManager:(id)arg2 colorPalette:(id)arg3;
-+ (void)addStopsFromArray:(const struct OABGradientStop *)arg1 stopCount:(int)arg2 inverted:(BOOL)arg3 startPos:(float)arg4 endPos:(float)arg5 toGradientFill:(id)arg6 fillPropertiesManager:(id)arg7;
 
 @end
 

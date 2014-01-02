@@ -14,7 +14,9 @@
     NSString *_name;
     unsigned int _sessionID;
     int _compType;
-    unsigned short _version;
+    unsigned short _clientVersion;
+    unsigned char _selfVersionMajor;
+    unsigned char _selfVersionMinor;
     unsigned short _eventID;
     char *_udid;
     NSString *_displayURL;
@@ -22,13 +24,15 @@
 
 @property(copy) NSString *displayURL; // @synthesize displayURL=_displayURL;
 @property char *udid; // @synthesize udid=_udid;
-@property unsigned short version; // @synthesize version=_version;
+@property unsigned short clientVersion; // @synthesize clientVersion=_clientVersion;
 @property int compType; // @synthesize compType=_compType;
 @property unsigned int sessionID; // @synthesize sessionID=_sessionID;
-- (BOOL)uploadFileAtPath:(id)arg1;
+- (_Bool)uploadFileAtPath:(id)arg1;
 - (id)sendMsgOfType:(int)arg1 method:(unsigned short)arg2 respCode:(unsigned short)arg3 dict:(id)arg4;
 - (id)sendMsgOfType:(int)arg1 method:(unsigned short)arg2 respCode:(unsigned short)arg3 eventID:(unsigned short)arg4 dict:(id)arg5;
+- (void)setSelfVersion:(id)arg1;
 - (void)dealloc;
+- (void)cleanup;
 - (id)initWithName:(id)arg1 profile:(id)arg2;
 
 @end

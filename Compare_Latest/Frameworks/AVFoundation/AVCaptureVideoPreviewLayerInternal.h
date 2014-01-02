@@ -16,19 +16,19 @@
     struct CGSize sensorSize;
     NSString *sensorToPreviewVTScalingMode;
     struct CGSize previewSize;
-    float previewRotationDegrees;
+    double previewRotationDegrees;
     NSString *gravity;
-    BOOL disableActions;
-    int orientation;
-    BOOL automaticallyAdjustsMirroring;
-    BOOL mirrored;
-    BOOL isPresentationLayer;
-    BOOL visible;
-    BOOL isPaused;
-    BOOL chromaNoiseReductionEnabled;
+    _Bool disableActions;
+    long long orientation;
+    _Bool automaticallyAdjustsMirroring;
+    _Bool mirrored;
+    _Bool isPresentationLayer;
+    _Bool visible;
+    _Bool isPaused;
+    _Bool chromaNoiseReductionEnabled;
     int changeSeed;
     struct CGAffineTransform captureDeviceTransform;
-    float rollAdjustment;
+    double rollAdjustment;
 }
 
 @end

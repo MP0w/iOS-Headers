@@ -8,13 +8,14 @@
 
 @class _NSFaultingMutableOrderedSetMutationMethods;
 
+// Not exported
 @interface _NSProxyWrapperMutableOrderedSet : _NSNotifyingWrapperMutableOrderedSet
 {
     _NSFaultingMutableOrderedSetMutationMethods *_mutationMethods;
 }
 
-- (void)sortRange:(struct _NSRange)arg1 options:(unsigned int)arg2 usingComparator:(id)arg3;
-- (void)sortWithOptions:(unsigned int)arg1 usingComparator:(id)arg2;
+- (void)sortRange:(struct _NSRange)arg1 options:(unsigned long long)arg2 usingComparator:(id)arg3;
+- (void)sortWithOptions:(unsigned long long)arg1 usingComparator:(id)arg2;
 - (void)sortUsingComparator:(id)arg1;
 - (void)unionSet:(id)arg1;
 - (void)minusSet:(id)arg1;
@@ -27,13 +28,13 @@
 - (void)removeObjectsAtIndexes:(id)arg1;
 - (void)removeObjectsInRange:(struct _NSRange)arg1;
 - (void)insertObjects:(id)arg1 atIndexes:(id)arg2;
-- (void)insertObjects:(id *)arg1 count:(unsigned int)arg2 atIndex:(unsigned int)arg3;
+- (void)insertObjects:(id *)arg1 count:(unsigned long long)arg2 atIndex:(unsigned long long)arg3;
 - (void)addObjectsFromArray:(id)arg1;
-- (void)addObjects:(const id *)arg1 count:(unsigned int)arg2;
+- (void)addObjects:(const id *)arg1 count:(unsigned long long)arg2;
 - (void)addObject:(id)arg1;
-- (void)replaceObjectAtIndex:(unsigned int)arg1 withObject:(id)arg2;
-- (void)removeObjectAtIndex:(unsigned int)arg1;
-- (void)insertObject:(id)arg1 atIndex:(unsigned int)arg2;
+- (void)replaceObjectAtIndex:(unsigned long long)arg1 withObject:(id)arg2;
+- (void)removeObjectAtIndex:(unsigned long long)arg1;
+- (void)insertObject:(id)arg1 atIndex:(unsigned long long)arg2;
 - (id)initWithContainer:(id)arg1 key:(id)arg2 mutableOrderedSet:(id)arg3 mutationMethods:(id)arg4;
 - (void)dealloc;
 

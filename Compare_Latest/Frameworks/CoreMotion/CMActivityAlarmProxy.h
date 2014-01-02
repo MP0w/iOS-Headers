@@ -21,7 +21,7 @@
 + (id)sharedInstance;
 - (void)stopListeningForActivityAlarm:(id)arg1;
 - (void)listenForActivityAlarm:(id)arg1;
-- (BOOL)activityAlarmAvailable;
+- (_Bool)activityAlarmAvailable;
 - (void)dealloc;
 - (id)init;
 

@@ -14,13 +14,13 @@
 }
 
 + (id)allocWithZone:(struct _NSZone *)arg1;
-- (BOOL)isLocking;
+- (_Bool)isLocking;
 - (id)name;
 - (void)setName:(id)arg1;
 - (id)description;
 - (void)unlock;
-- (BOOL)tryLock;
-- (BOOL)lockBeforeDate:(id)arg1;
+- (_Bool)tryLock;
+- (_Bool)lockBeforeDate:(id)arg1;
 - (void)lock;
 - (void)finalize;
 - (void)dealloc;

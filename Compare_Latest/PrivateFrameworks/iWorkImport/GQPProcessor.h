@@ -6,8 +6,9 @@
 
 #import "NSObject.h"
 
-@class GQSDocument, GQZArchive, SFUCryptoKey, SFUZipInflateInputStream;
+@class GQSDocument, SFUCryptoKey, SFUZipArchive, SFUZipInflateInputStream;
 
+// Not exported
 @interface GQPProcessor : NSObject
 {
     struct _xmlTextReader *mReader;
@@ -20,19 +21,19 @@
         struct _xmlBuf *_field6;
         int _field7;
         int _field8;
-        unsigned long _field9;
+        unsigned long long _field9;
     } *mParserInputBuffer;
-    GQZArchive *mArchive;
+    SFUZipArchive *mArchive;
     SFUCryptoKey *mCryptoKey;
     unsigned long long mTotalBytesToConsume;
     SFUZipInflateInputStream *mInputStream;
-    stack_3670a4ff *mStateStack;
-    stack_1c37755b *mActionStack;
+    stack_e5003a0d *mStateStack;
+    stack_00018fe6 *mActionStack;
     GQSDocument *mDocumentState;
     struct __QLPreviewRequest *mOutputPreviewRequest;
     struct __CFBundle *mBundle;
     struct CGSize mThumbnailSize;
-    BOOL mWrongFormat;
+    _Bool mWrongFormat;
     unsigned char mIsProgressive;
 }
 
@@ -40,16 +41,16 @@
 + (struct _xmlTextReader *)createXmlReaderWithZipArchive:(id)arg1 indexFileName:(id)arg2 cryptoKey:(id)arg3 indexEntry:(id *)arg4 zipInputStream:(id *)arg5;
 + (void)initialize;
 - (id).cxx_construct;
-- (void)setWrongFormat:(BOOL)arg1;
-- (BOOL)isWrongFormat;
+- (void)setWrongFormat:(_Bool)arg1;
+- (_Bool)isWrongFormat;
 - (void)setProgressiveMode:(unsigned char)arg1;
 - (void)setThumbnailSize:(struct CGSize)arg1;
 - (struct CGSize)thumbnailSize;
 - (id)cryptoKey;
 - (id)documentState;
-- (stack_1c37755b *)actionStack;
-- (stack_3670a4ff *)stateStack;
-- (BOOL)go;
+- (stack_00018fe6 *)actionStack;
+- (stack_e5003a0d *)stateStack;
+- (_Bool)go;
 - (void)setBundle:(struct __CFBundle *)arg1;
 - (struct __CFBundle *)bundle;
 - (id)archive;

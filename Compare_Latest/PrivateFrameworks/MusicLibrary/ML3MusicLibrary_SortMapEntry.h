@@ -8,19 +8,20 @@
 
 @class NSData, NSString;
 
+// Not exported
 @interface ML3MusicLibrary_SortMapEntry : NSObject
 {
     long long _nameOrder;
     NSString *_name;
     NSData *_sortKey;
     int _nameSection;
-    BOOL _dirty;
+    _Bool _dirty;
 }
 
 - (void).cxx_destruct;
 - (id)description;
 - (id)initWithName:(id)arg1 nameSection:(int)arg2 sortKey:(id)arg3;
-- (id)initWithName:(id)arg1 nameSection:(int)arg2 sortKey:(id)arg3 nameOrder:(long long)arg4 dirtyFlag:(BOOL)arg5;
+- (id)initWithName:(id)arg1 nameSection:(int)arg2 sortKey:(id)arg3 nameOrder:(long long)arg4 dirtyFlag:(_Bool)arg5;
 
 @end
 

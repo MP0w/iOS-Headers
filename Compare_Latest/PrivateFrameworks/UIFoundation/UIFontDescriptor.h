@@ -22,20 +22,19 @@
 }
 
 + (id)fontDescriptorWithName:(id)arg1 matrix:(struct CGAffineTransform)arg2;
-+ (id)fontDescriptorWithName:(id)arg1 size:(float)arg2;
++ (id)fontDescriptorWithName:(id)arg1 size:(double)arg2;
 + (id)fontDescriptorWithFontAttributes:(id)arg1;
-+ (id)defaultFontDescriptorWithTextStyle:(id)arg1 addingSymbolicTraits:(unsigned int)arg2 options:(unsigned int)arg3;
++ (id)defaultFontDescriptorWithTextStyle:(id)arg1 addingSymbolicTraits:(unsigned int)arg2 options:(unsigned long long)arg3;
 + (id)defaultFontDescriptorWithTextStyle:(id)arg1;
-+ (id)preferredFontDescriptorWithTextStyle:(id)arg1 addingSymbolicTraits:(unsigned int)arg2 options:(unsigned int)arg3;
++ (id)preferredFontDescriptorWithTextStyle:(id)arg1 addingSymbolicTraits:(unsigned int)arg2 options:(unsigned long long)arg3;
 + (id)preferredFontDescriptorWithTextStyle:(id)arg1;
 + (id)_createMungledDictionary:(id)arg1;
-+ (BOOL)supportsSecureCoding;
 - (id)description;
 - (id)_visibleName;
 - (id)fontDescriptorWithFamily:(id)arg1;
 - (id)fontDescriptorWithFace:(id)arg1;
 - (id)fontDescriptorWithMatrix:(struct CGAffineTransform)arg1;
-- (id)fontDescriptorWithSize:(float)arg1;
+- (id)fontDescriptorWithSize:(double)arg1;
 - (id)fontDescriptorWithSymbolicTraits:(unsigned int)arg1;
 - (id)fontDescriptorByAddingAttributes:(id)arg1;
 - (id)matchingFontDescriptorWithMandatoryKeys:(id)arg1;
@@ -43,7 +42,7 @@
 - (id)objectForKey:(id)arg1;
 @property(readonly, nonatomic) unsigned int symbolicTraits;
 @property(readonly, nonatomic) struct CGAffineTransform matrix;
-@property(readonly, nonatomic) float pointSize;
+@property(readonly, nonatomic) double pointSize;
 @property(readonly, nonatomic) NSString *postscriptName;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
@@ -54,7 +53,7 @@
 - (void)dealloc;
 - (id)init;
 - (id)initWithFontAttributes:(id)arg1;
-- (id)_initWithFontAttributes:(id)arg1 options:(unsigned int)arg2;
+- (id)_initWithFontAttributes:(id)arg1 options:(unsigned long long)arg2;
 
 @end
 

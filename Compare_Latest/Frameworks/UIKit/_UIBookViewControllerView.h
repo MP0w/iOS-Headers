@@ -8,6 +8,7 @@
 
 @class UIBookViewController;
 
+// Not exported
 @interface _UIBookViewControllerView : UIView
 {
     UIBookViewController *_bookViewController;

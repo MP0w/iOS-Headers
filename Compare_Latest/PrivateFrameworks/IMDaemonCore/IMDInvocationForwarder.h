@@ -17,7 +17,7 @@
 @property(retain, nonatomic) NSLock *_lock; // @synthesize _lock;
 @property(retain, nonatomic) NSMutableArray *_targets; // @synthesize _targets;
 - (void)forwardInvocation:(id)arg1;
-- (BOOL)respondsToSelector:(SEL)arg1;
+- (_Bool)respondsToSelector:(SEL)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (void)removeTarget:(id)arg1;
 - (void)addTarget:(id)arg1;

@@ -12,7 +12,7 @@
 {
     VMULinkedListEntry *_prev;
     VMULinkedListEntry *_next;
-    unsigned int _size;
+    unsigned long long _size;
     VMUSymbolOwner *_symbolOwner;
 }
 
@@ -24,7 +24,7 @@
 - (id)next;
 - (id)prev;
 - (id)symbolOwner;
-- (unsigned int)size;
+- (unsigned long long)size;
 - (id)initWithSymbolOwner:(id)arg1;
 
 @end

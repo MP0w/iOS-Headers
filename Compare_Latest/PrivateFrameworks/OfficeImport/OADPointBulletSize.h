@@ -6,13 +6,14 @@
 
 #import <OfficeImport/OADBulletSize.h>
 
+// Not exported
 @interface OADPointBulletSize : OADBulletSize
 {
     int mPoints;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (int)points;
 - (id)initWithPoints:(int)arg1;
 

@@ -6,6 +6,7 @@
 
 #import <VectorKit/VKLabelTileSource.h>
 
+// Not exported
 @interface VKPOILabelTileSource : VKLabelTileSource
 {
 }

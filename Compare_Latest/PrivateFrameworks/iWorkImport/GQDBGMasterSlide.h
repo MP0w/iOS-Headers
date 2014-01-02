@@ -6,6 +6,7 @@
 
 #import <iWorkImport/GQDBGAbstractSlide.h>
 
+// Not exported
 @interface GQDBGMasterSlide : GQDBGAbstractSlide
 {
 }

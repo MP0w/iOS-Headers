@@ -8,6 +8,7 @@
 
 @class NSString, NSURL;
 
+// Not exported
 @interface OADHyperlink : NSObject
 {
     NSURL *mTargetLocation;
@@ -16,16 +17,16 @@
     NSString *mAction;
     NSString *mTooltip;
     NSString *mInvalidUrl;
-    BOOL mDoEndSound;
-    BOOL mIsVisited;
-    BOOL mDoAddToHistory;
+    _Bool mDoEndSound;
+    _Bool mIsVisited;
+    _Bool mDoAddToHistory;
 }
 
-@property(nonatomic) BOOL doAddToHistory; // @synthesize doAddToHistory=mDoAddToHistory;
-@property(nonatomic) BOOL isVisited; // @synthesize isVisited=mIsVisited;
-@property(nonatomic) BOOL doEndSound; // @synthesize doEndSound=mDoEndSound;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+@property(nonatomic) _Bool doAddToHistory; // @synthesize doAddToHistory=mDoAddToHistory;
+@property(nonatomic) _Bool isVisited; // @synthesize isVisited=mIsVisited;
+@property(nonatomic) _Bool doEndSound; // @synthesize doEndSound=mDoEndSound;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)setInvalidUrl:(id)arg1;
 - (id)invalidUrl;
 - (void)setTooltip:(id)arg1;

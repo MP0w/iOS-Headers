@@ -6,6 +6,7 @@
 
 #import <OfficeImport/CHDArea2DType.h>
 
+// Not exported
 @interface CHDArea3DType : CHDArea2DType
 {
     int mGapDepth;

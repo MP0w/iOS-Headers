@@ -16,22 +16,22 @@
 
 + (id)defaultPropertiesToLoad;
 + (id)relations;
-- (BOOL)validate:(id *)arg1;
+- (_Bool)validate:(id *)arg1;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 @property(copy, nonatomic) NSSet *snoozedAlarms;
 @property(retain, nonatomic) EKPersistentAlarm *originalAlarm;
-@property(nonatomic, getter=isDefaultAlarm) BOOL defaultAlarm;
+@property(nonatomic, getter=isDefaultAlarm) _Bool defaultAlarm;
 @property(copy, nonatomic) NSDate *acknowledgedDate;
 @property(copy, nonatomic) EKPersistentLocation *location;
-@property(nonatomic) int proximity;
+@property(nonatomic) long long proximity;
 - (void)setOwner:(id)arg1;
 - (id)owner;
 @property(copy, nonatomic) NSString *externalID;
 @property(copy, nonatomic) NSData *externalData;
 @property(nonatomic) int alarmType;
 @property(copy, nonatomic) NSTimeZone *timeZone;
-@property(readonly, nonatomic) BOOL isAbsolute;
+@property(readonly, nonatomic) _Bool isAbsolute;
 @property(copy, nonatomic) NSDate *absoluteDate;
 @property(nonatomic) double relativeOffset;
 @property(readonly, nonatomic) NSString *UUID;

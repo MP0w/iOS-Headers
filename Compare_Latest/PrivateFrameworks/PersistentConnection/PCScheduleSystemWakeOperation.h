@@ -8,9 +8,10 @@
 
 @class NSDate, NSString;
 
+// Not exported
 @interface PCScheduleSystemWakeOperation : NSOperation
 {
-    BOOL _scheduleOrCancel;
+    _Bool _scheduleOrCancel;
     NSDate *_wakeDate;
     NSString *_serviceIdentifier;
     void *_unqiueIdentifier;
@@ -18,7 +19,7 @@
 
 - (void)dealloc;
 - (void)main;
-- (id)initForScheduledWake:(BOOL)arg1 wakeDate:(id)arg2 serviceIdentifier:(id)arg3 uniqueIdentifier:(void *)arg4;
+- (id)initForScheduledWake:(_Bool)arg1 wakeDate:(id)arg2 serviceIdentifier:(id)arg3 uniqueIdentifier:(void *)arg4;
 
 @end
 

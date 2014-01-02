@@ -6,29 +6,16 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSDictionary, NSMutableDictionary;
-
 @interface WBSFormToABBinder : NSObject
 {
-    NSMutableDictionary *_labelToValueSpecifierMap;
-    NSMutableDictionary *_tokenToValueSpecifierMap;
-    NSArray *_fieldLabels;
-    NSArray *_emailFieldLabels;
-    NSDictionary *_synonyms;
 }
 
-+ (void)getAutocompleteMappingsURL:(id *)arg1;
-+ (void)getEmailFieldLabels:(id *)arg1;
-+ (void)getFieldLabels:(id *)arg1;
-+ (unsigned int)indexOfBestMatchForString:(id)arg1 inArray:(id)arg2;
++ (struct __WBSFieldLabelPatternMatcherArray *)emailFieldLabelPatternMatchers;
++ (struct __WBSFieldLabelPatternMatcherArray *)addressBookFieldLabelPatternMatchers;
++ (unsigned long long)indexOfBestMatchForString:(id)arg1 inArray:(id)arg2;
 + (id)specifierForAutocompleteToken:(id)arg1;
 + (id)specifierForLabel:(id)arg1;
 + (id)allSynonymsForMatch:(id)arg1;
-+ (void)initialize;
-- (id)synonymsForMatch:(id)arg1;
-- (void)indexMapping:(id)arg1;
-- (void)dealloc;
-- (id)initWithPropertyListAtURL:(id)arg1;
 
 @end
 

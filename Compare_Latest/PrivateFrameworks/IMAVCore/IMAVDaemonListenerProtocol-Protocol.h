@@ -7,6 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol IMAVDaemonListenerProtocol <NSObject>
-- (void)setupComplete:(BOOL)arg1 info:(id)arg2;
+- (void)setupComplete:(_Bool)arg1 info:(id)arg2;
 @end
 

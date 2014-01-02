@@ -13,23 +13,24 @@
 @interface _MKUserTrackingButton : UIButton <MKUserTrackingButtonTarget>
 {
     _MKUserTrackingButtonController *_controller;
-    BOOL _inMiniBar;
+    _Bool _inMiniBar;
 }
 
 + (Class)_activityIndicatorClass;
 + (id)buttonWithMapView:(id)arg1;
-+ (id)buttonWithWorldView:(id)arg1 forceIdiom:(int)arg2;
++ (id)buttonWithWorldView:(id)arg1 forceIdiom:(long long)arg2;
 + (id)buttonWithWorldView:(id)arg1;
 + (id)_buttonWithUserTrackingView:(id)arg1;
 @property(readonly, nonatomic) _MKUserTrackingButtonController *controller; // @synthesize controller=_controller;
-- (void)updateForMiniBarState:(BOOL)arg1;
+- (struct CGRect)_selectedIndicatorBounds;
+- (void)updateForMiniBarState:(_Bool)arg1;
 - (void)sizeToFit;
 - (void)_repositionViews;
-- (void)_setState:(int)arg1;
-- (int)_state;
-- (void)_updateForState:(int)arg1;
-- (BOOL)_isHighlightedForState:(int)arg1;
-- (int)_activityIndicatorStyle;
+- (void)_setState:(long long)arg1;
+- (long long)_state;
+- (void)_updateForState:(long long)arg1;
+- (_Bool)_isHighlightedForState:(long long)arg1;
+- (long long)_activityIndicatorStyle;
 - (id)_trackingFollowWithHeadingImage;
 - (id)_trackingFollowImage;
 - (id)_trackingNoneImage;

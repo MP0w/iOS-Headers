@@ -13,8 +13,8 @@
     struct GLKBigInt_s _bigInt;
 }
 
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithBigInt:(struct GLKBigInt_s *)arg1;
 

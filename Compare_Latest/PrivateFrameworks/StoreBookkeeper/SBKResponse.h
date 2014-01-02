@@ -8,42 +8,43 @@
 
 @class NSDictionary, NSError, NSString, SBKResponseStatus;
 
+// Not exported
 @interface SBKResponse : NSObject
 {
     NSDictionary *_responseDictionary;
-    unsigned int _responseCode;
+    unsigned long long _responseCode;
     NSDictionary *_responseHeaderFields;
     NSError *_error;
+    double _retrySeconds;
     NSString *_MIMEType;
     SBKResponseStatus *_responseStatus;
-    double _retrySeconds;
 }
 
 + (id)responseWithResponse:(id)arg1;
-+ (id)responseWithCode:(unsigned int)arg1 headerFields:(id)arg2 responseDictionary:(id)arg3 MIMEType:(id)arg4 error:(id)arg5;
++ (id)responseWithCode:(unsigned long long)arg1 headerFields:(id)arg2 responseDictionary:(id)arg3 MIMEType:(id)arg4 error:(id)arg5;
 + (id)responseWithURLResponse:(id)arg1 responseDictionary:(id)arg2;
 @property(readonly, nonatomic) SBKResponseStatus *responseStatus; // @synthesize responseStatus=_responseStatus;
 @property(readonly, nonatomic) NSString *MIMEType; // @synthesize MIMEType=_MIMEType;
 @property(readonly) double retrySeconds; // @synthesize retrySeconds=_retrySeconds;
 @property(readonly, nonatomic) NSError *error; // @synthesize error=_error;
 @property(readonly, nonatomic) NSDictionary *responseHeaderFields; // @synthesize responseHeaderFields=_responseHeaderFields;
-@property(readonly, nonatomic) unsigned int responseCode; // @synthesize responseCode=_responseCode;
+@property(readonly, nonatomic) unsigned long long responseCode; // @synthesize responseCode=_responseCode;
 @property(readonly, nonatomic) NSDictionary *responseDictionary; // @synthesize responseDictionary=_responseDictionary;
 - (void).cxx_destruct;
-@property(readonly) BOOL isPuntedError;
-@property(readonly) BOOL isValidationError;
-@property(readonly) BOOL isAuthenticationError;
-@property(readonly) BOOL isUnsupportedClient;
-@property(readonly) BOOL isGenericError;
-@property(readonly) BOOL shouldFileRadar;
-@property(readonly) BOOL isError;
-@property(readonly) BOOL isRecoverable;
-@property(readonly) BOOL isSuccess;
+@property(readonly) _Bool isPuntedError;
+@property(readonly) _Bool isValidationError;
+@property(readonly) _Bool isAuthenticationError;
+@property(readonly) _Bool isUnsupportedClient;
+@property(readonly) _Bool isGenericError;
+@property(readonly) _Bool shouldFileRadar;
+@property(readonly) _Bool isError;
+@property(readonly) _Bool isRecoverable;
+@property(readonly) _Bool isSuccess;
 @property(readonly) NSError *requestError;
 @property(readonly) NSString *consoleDescription;
-@property(readonly) int statusCode;
+@property(readonly) long long statusCode;
 - (id)description;
-- (id)initWithCode:(unsigned int)arg1 headerFields:(id)arg2 responseDictionary:(id)arg3 MIMEType:(id)arg4 error:(id)arg5;
+- (id)initWithCode:(unsigned long long)arg1 headerFields:(id)arg2 responseDictionary:(id)arg3 MIMEType:(id)arg4 error:(id)arg5;
 - (id)initWithURLResponse:(id)arg1 responseDictionary:(id)arg2;
 
 @end

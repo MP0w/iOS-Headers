@@ -8,6 +8,7 @@
 
 @class NSDictionary, NSMutableDictionary;
 
+// Not exported
 @interface NSBinaryObjectStoreFile : NSObject
 {
     int _databaseVersion;
@@ -17,12 +18,12 @@
     NSDictionary *_storeOptions;
 }
 
-- (BOOL)writeToFile:(id)arg1 error:(id *)arg2;
-- (BOOL)_writeMetadataData:(id)arg1 andMapDataData:(id)arg2 toFile:(id)arg3 error:(id *)arg4;
-- (BOOL)readMetadataFromFile:(id)arg1 error:(id *)arg2;
-- (BOOL)writeMetadataToFile:(id)arg1 error:(id *)arg2;
-- (BOOL)readFromFile:(id)arg1 error:(id *)arg2;
-- (BOOL)readBinaryStoreFromData:(id)arg1 originalPath:(id)arg2 error:(id *)arg3;
+- (_Bool)writeToFile:(id)arg1 error:(id *)arg2;
+- (_Bool)_writeMetadataData:(id)arg1 andMapDataData:(id)arg2 toFile:(id)arg3 error:(id *)arg4;
+- (_Bool)readMetadataFromFile:(id)arg1 error:(id *)arg2;
+- (_Bool)writeMetadataToFile:(id)arg1 error:(id *)arg2;
+- (_Bool)readFromFile:(id)arg1 error:(id *)arg2;
+- (_Bool)readBinaryStoreFromData:(id)arg1 originalPath:(id)arg2 error:(id *)arg3;
 - (void)clearCurrentValues;
 - (void)setMapData:(id)arg1;
 - (id)mapData;

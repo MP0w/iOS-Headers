@@ -6,52 +6,53 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSMutableArray, NSObject<OS_dispatch_queue>, NSOperationQueue;
+@class MPMediaPredicate, NSArray, NSMutableArray, NSObject<OS_dispatch_queue>, NSOperationQueue;
 
 @interface MPEnabledMediaTypesMonitor : NSObject
 {
     NSObject<OS_dispatch_queue> *_queue;
     NSMutableArray *_completionHandlers;
-    BOOL _ignoreLibraryDidChangeNotifications;
-    BOOL _monitoringActive;
-    BOOL _hidesSecondPartyMediaTypes;
-    unsigned int _enabledMediaTypes;
-    unsigned int _enabledIfPresentMediaTypes;
+    _Bool _ignoreLibraryDidChangeNotifications;
+    _Bool _monitoringActive;
+    MPMediaPredicate *_enabledMediaTypesPredicate;
+    _Bool _hidesSecondPartyMediaTypes;
+    unsigned long long _enabledMediaTypes;
+    unsigned long long _enabledIfPresentMediaTypes;
     NSArray *_externalTypeManagers;
-    unsigned int _defaultEnabledMediaTypes;
-    unsigned int _disablableMediaTypes;
-    unsigned int _unavailableDisabledTypes;
-    unsigned int _externallyManagedMediaTypes;
+    unsigned long long _defaultEnabledMediaTypes;
+    unsigned long long _disablableMediaTypes;
+    unsigned long long _unavailableDisabledTypes;
+    unsigned long long _externallyManagedMediaTypes;
     NSOperationQueue *_lookupQueue;
 }
 
-+ (void)monitorWithDefaultMediaTypes:(unsigned int)arg1;
++ (void)monitorWithDefaultMediaTypes:(unsigned long long)arg1;
 + (void)alertUserOneTimeForDisabledMediaTypes;
 + (id)sharedInstance;
 @property(retain, nonatomic) NSOperationQueue *lookupQueue; // @synthesize lookupQueue=_lookupQueue;
-@property(nonatomic) unsigned int externallyManagedMediaTypes; // @synthesize externallyManagedMediaTypes=_externallyManagedMediaTypes;
-@property(nonatomic) unsigned int unavailableDisabledTypes; // @synthesize unavailableDisabledTypes=_unavailableDisabledTypes;
-@property(nonatomic) BOOL hidesSecondPartyMediaTypes; // @synthesize hidesSecondPartyMediaTypes=_hidesSecondPartyMediaTypes;
-@property(nonatomic) unsigned int disablableMediaTypes; // @synthesize disablableMediaTypes=_disablableMediaTypes;
-@property(nonatomic) unsigned int defaultEnabledMediaTypes; // @synthesize defaultEnabledMediaTypes=_defaultEnabledMediaTypes;
+@property(nonatomic) unsigned long long externallyManagedMediaTypes; // @synthesize externallyManagedMediaTypes=_externallyManagedMediaTypes;
+@property(nonatomic) unsigned long long unavailableDisabledTypes; // @synthesize unavailableDisabledTypes=_unavailableDisabledTypes;
+@property(nonatomic) _Bool hidesSecondPartyMediaTypes; // @synthesize hidesSecondPartyMediaTypes=_hidesSecondPartyMediaTypes;
+@property(nonatomic) unsigned long long disablableMediaTypes; // @synthesize disablableMediaTypes=_disablableMediaTypes;
+@property(nonatomic) unsigned long long defaultEnabledMediaTypes; // @synthesize defaultEnabledMediaTypes=_defaultEnabledMediaTypes;
 @property(retain, nonatomic) NSArray *externalTypeManagers; // @synthesize externalTypeManagers=_externalTypeManagers;
-@property(nonatomic) unsigned int enabledMediaTypes; // @synthesize enabledMediaTypes=_enabledMediaTypes;
+@property(nonatomic) unsigned long long enabledMediaTypes; // @synthesize enabledMediaTypes=_enabledMediaTypes;
 - (void).cxx_destruct;
 - (void)alertUserOneTimeForDisabledMediaTypes;
-- (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
-- (void)alertView:(id)arg1 willDismissWithButtonIndex:(int)arg2;
+- (void)alertView:(id)arg1 didDismissWithButtonIndex:(long long)arg2;
+- (void)alertView:(id)arg1 willDismissWithButtonIndex:(long long)arg2;
 - (void)_updateWithCompletionHandler:(id)arg1;
 - (void)_onQueueUpdateUnavailableDisabledTypes;
 - (void)_onQueueUpdateExternallyManagedTypes;
-- (void)_onQueueUpdateEnabledTypesByUpdatingExternallyManagedTypes:(BOOL)arg1 updateNonExistentTypes:(BOOL)arg2;
+- (void)_onQueueUpdateEnabledTypesByUpdatingExternallyManagedTypes:(_Bool)arg1 updateNonExistentTypes:(_Bool)arg2;
 - (void)_installedSoftwaredChanged;
-@property(readonly, nonatomic) unsigned int enabledIfPresentMediaTypes; // @synthesize enabledIfPresentMediaTypes=_enabledIfPresentMediaTypes;
-- (void)setEnabledMediaTypes:(unsigned int)arg1 enabledIfPresentMediaTypes:(unsigned int)arg2;
-- (unsigned int)_calculatedEnabledIfPresentMediaTypes;
-- (unsigned int)_calculatedEnabledMediaTypes;
+@property(readonly, nonatomic) unsigned long long enabledIfPresentMediaTypes; // @synthesize enabledIfPresentMediaTypes=_enabledIfPresentMediaTypes;
+- (void)setEnabledMediaTypes:(unsigned long long)arg1 enabledIfPresentMediaTypes:(unsigned long long)arg2;
+- (unsigned long long)_calculatedEnabledIfPresentMediaTypes;
+- (unsigned long long)_calculatedEnabledMediaTypes;
 - (void)_libraryDidChangeNotification:(id)arg1;
 - (void)dealloc;
-- (void)_beginMonitoringWithDefaultMediaTypes:(unsigned int)arg1;
+- (void)_beginMonitoringWithDefaultMediaTypes:(unsigned long long)arg1;
 - (id)init;
 
 @end

@@ -6,18 +6,19 @@
 
 #import <UIKit/UIKBRenderFactory10Key.h>
 
+// Not exported
 @interface UIKBRenderFactoryHWR_Portrait : UIKBRenderFactory10Key
 {
 }
 
 - (void)setupLayoutSegments;
 - (id)_traitsForKey:(id)arg1 onKeyplane:(id)arg2;
+- (double)spaceKeyFontSize;
 - (struct CGPoint)moreKeyTextOffset;
 - (struct CGPoint)spaceKeyTextOffset;
 - (struct CGPoint)deleteGlyphOffset;
-- (BOOL)deleteKeyAdjacentToCandidates;
 - (struct UIEdgeInsets)handwritingAreaInsets;
-- (float)handwritingGradientStartLocation;
+- (double)handwritingGradientStartLocation;
 
 @end
 

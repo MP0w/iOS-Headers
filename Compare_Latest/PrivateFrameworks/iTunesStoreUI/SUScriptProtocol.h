@@ -20,9 +20,9 @@
 - (void)_setValue:(id)arg1 forProtocolKey:(id)arg2;
 - (void)_setProtocol:(id)arg1;
 - (id)_copyProtocol;
-@property BOOL shouldShowInOverlay;
+@property _Bool shouldShowInOverlay;
 @property(retain) SUScriptURLRequest *overlayBackgroundURLRequest;
-@property BOOL excludeFromNavigationHistory;
+@property _Bool excludeFromNavigationHistory;
 @property(retain) NSString *copyright;
 @property(retain) NSArray *allowedOrientations;
 @property(readonly) NSString *protocolVersion;

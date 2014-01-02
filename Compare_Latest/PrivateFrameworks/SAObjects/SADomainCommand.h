@@ -14,7 +14,7 @@
 
 + (id)domainCommandWithDictionary:(id)arg1 context:(id)arg2;
 + (id)domainCommand;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSNumber *timeout;
 @property(copy, nonatomic) NSURL *targetPluginId;
 @property(copy, nonatomic) NSURL *targetAppId;

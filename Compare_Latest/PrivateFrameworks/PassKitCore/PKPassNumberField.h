@@ -10,15 +10,16 @@
 
 @interface PKPassNumberField : PKPassField
 {
-    int _numberStyle;
     NSString *_currencyCode;
+    long long _numberStyle;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
+@property(nonatomic) long long numberStyle; // @synthesize numberStyle=_numberStyle;
 @property(copy, nonatomic) NSString *currencyCode; // @synthesize currencyCode=_currencyCode;
-@property(nonatomic) int numberStyle; // @synthesize numberStyle=_numberStyle;
 - (id)value;
 - (void)encodeWithCoder:(id)arg1;
+- (void)dealloc;
 - (id)initWithCoder:(id)arg1;
 
 @end

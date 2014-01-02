@@ -30,10 +30,10 @@
 - (void)_setLandscapeImage:(id)arg1 portraitImage:(id)arg2 forItem:(id)arg3;
 - (void)_cutOrientationImagesWithItem:(id)arg1 image:(id)arg2;
 - (void)artworkRequest:(id)arg1 didLoadImage:(id)arg2;
-- (void)prefetchResourcesWithReason:(int)arg1;
-- (id)placeholderImageForOrientation:(int)arg1;
-- (BOOL)loadImageForItem:(id)arg1 reason:(int)arg2;
-- (id)cachedImageForItem:(id)arg1 orientation:(int)arg2;
+- (void)prefetchResourcesWithReason:(long long)arg1;
+- (id)placeholderImageForOrientation:(long long)arg1;
+- (_Bool)loadImageForItem:(id)arg1 reason:(long long)arg2;
+- (id)cachedImageForItem:(id)arg1 orientation:(long long)arg2;
 - (id)initWithArtworkLoader:(id)arg1 flowcase:(id)arg2;
 
 @end

@@ -9,8 +9,8 @@
 @protocol SUPreviewOverlayContainer <NSObject>
 
 @optional
-- (BOOL)showPreviewOverlay:(id)arg1 animated:(BOOL)arg2 completionBlock:(id)arg3;
-- (void)hidePreviewOverlay:(id)arg1 animated:(BOOL)arg2 completionBlock:(id)arg3;
-- (BOOL)isShowingPreviewOverlay;
+- (_Bool)showPreviewOverlay:(id)arg1 animated:(_Bool)arg2 completionBlock:(id)arg3;
+- (void)hidePreviewOverlay:(id)arg1 animated:(_Bool)arg2 completionBlock:(id)arg3;
+- (_Bool)isShowingPreviewOverlay;
 @end
 

@@ -12,19 +12,21 @@
 {
     UILabel *_leftLabel;
     UILabel *_rightLabel;
-    float _labelSpacing;
-    int _textAlignment;
+    double _labelSpacing;
+    long long _textAlignment;
     unsigned int _reversesLabels:1;
     unsigned int _forceLayout:1;
+    unsigned int _verticalArrangement:1;
 }
 
-@property(nonatomic) int textAlignment; // @synthesize textAlignment=_textAlignment;
-@property(nonatomic) float labelSpacing; // @synthesize labelSpacing=_labelSpacing;
+@property(nonatomic) long long textAlignment; // @synthesize textAlignment=_textAlignment;
+@property(nonatomic) double labelSpacing; // @synthesize labelSpacing=_labelSpacing;
 @property(readonly, nonatomic) UILabel *rightLabel; // @synthesize rightLabel=_rightLabel;
 @property(readonly, nonatomic) UILabel *leftLabel; // @synthesize leftLabel=_leftLabel;
-- (BOOL)_labelsNeedSizing;
+- (_Bool)_labelsNeedSizing;
 - (void)_sizeLabelsToFit;
-@property(nonatomic) BOOL reversesLabels;
+@property(nonatomic) _Bool verticalArrangement;
+@property(nonatomic) _Bool reversesLabels;
 - (void)layoutSubviews;
 - (void)sizeToFit;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;

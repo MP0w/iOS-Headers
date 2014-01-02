@@ -6,6 +6,7 @@
 
 #import <SpriteKit/SKAction.h>
 
+// Not exported
 @interface SKFade : SKAction
 {
     struct SKCFade *_mycaction;
@@ -13,8 +14,8 @@
 
 + (id)fadeOutWithDuration:(double)arg1;
 + (id)fadeInWithDuration:(double)arg1;
-+ (id)fadeAlphaTo:(float)arg1 duration:(double)arg2;
-+ (id)fadeAlphaBy:(float)arg1 duration:(double)arg2;
++ (id)fadeAlphaTo:(double)arg1 duration:(double)arg2;
++ (id)fadeAlphaBy:(double)arg1 duration:(double)arg2;
 - (id)reversedAction;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;

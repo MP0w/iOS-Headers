@@ -6,28 +6,28 @@
 
 #import "NSObject.h"
 
-#import "UIViewControllerAnimatorTransitioning-Protocol.h"
+#import "UIViewControllerAnimatedTransitioning-Protocol.h"
 
 @class UIPercentDrivenInteractiveTransition;
 
-@interface PUViewControllerTransition : NSObject <UIViewControllerAnimatorTransitioning>
+@interface PUViewControllerTransition : NSObject <UIViewControllerAnimatedTransitioning>
 {
-    float _duration;
+    double _duration;
     id <UIViewControllerContextTransitioning> _transitionContext;
     UIPercentDrivenInteractiveTransition *_interactiveTransition;
-    BOOL _interactive;
-    float _interactiveProgress;
+    _Bool _interactive;
+    double _interactiveProgress;
 }
 
-+ (id)interactionControllerUsingAnimator:(id)arg1;
-@property(nonatomic, setter=_setInteractiveProgress:) float interactiveProgress; // @synthesize interactiveProgress=_interactiveProgress;
-@property(nonatomic, getter=isInteractive) BOOL interactive; // @synthesize interactive=_interactive;
-@property(readonly, nonatomic) float duration; // @synthesize duration=_duration;
++ (id)interactionControllerForAnimationController:(id)arg1;
+@property(nonatomic, setter=_setInteractiveProgress:) double interactiveProgress; // @synthesize interactiveProgress=_interactiveProgress;
+@property(nonatomic, getter=isInteractive) _Bool interactive; // @synthesize interactive=_interactive;
+@property(readonly, nonatomic) double duration; // @synthesize duration=_duration;
 - (void).cxx_destruct;
-- (void)animationEnded:(BOOL)arg1;
+- (void)animationEnded:(_Bool)arg1;
 - (void)animateTransition:(id)arg1;
 - (double)transitionDuration:(id)arg1;
-- (void)completeTransition:(BOOL)arg1;
+- (void)completeTransition:(_Bool)arg1;
 - (struct CGRect)finalToViewFrame;
 - (struct CGRect)finalFromViewFrame;
 - (struct CGRect)initialToViewFrame;
@@ -39,9 +39,9 @@
 - (id)interactiveTransition;
 - (void)cancelInteractiveTransition;
 - (void)finishInteractiveTransition;
-- (void)updateInteractiveTransitionProgress:(float)arg1;
+- (void)updateInteractiveTransitionProgress:(double)arg1;
 - (id)_newInteractiveTransition;
-- (id)initWithDuration:(float)arg1;
+- (id)initWithDuration:(double)arg1;
 
 @end
 

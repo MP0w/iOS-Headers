@@ -10,8 +10,8 @@
 {
 }
 
-+ (id)newLocalizedStringWithInt:(int)arg1;
-+ (id)localizedStringWithInt:(int)arg1;
++ (id)newLocalizedStringWithInt:(long long)arg1;
++ (id)localizedStringWithInt:(long long)arg1;
 
 @end
 

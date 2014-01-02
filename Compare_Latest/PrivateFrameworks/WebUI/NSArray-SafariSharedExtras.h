@@ -7,9 +7,9 @@
 #import "NSArray.h"
 
 @interface NSArray (SafariSharedExtras)
-- (id)safari_arrayAtIndex:(unsigned int)arg1;
-- (id)safari_dictionaryAtIndex:(unsigned int)arg1;
-- (id)safari_stringAtIndex:(unsigned int)arg1;
-- (id)safari_numberAtIndex:(unsigned int)arg1;
+- (id)safari_arrayAtIndex:(unsigned long long)arg1;
+- (id)safari_dictionaryAtIndex:(unsigned long long)arg1;
+- (id)safari_stringAtIndex:(unsigned long long)arg1;
+- (id)safari_numberAtIndex:(unsigned long long)arg1;
 @end
 

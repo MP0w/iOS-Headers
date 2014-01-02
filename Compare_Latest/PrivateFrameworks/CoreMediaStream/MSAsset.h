@@ -14,7 +14,7 @@
 
 @interface MSAsset : NSObject <MMCSAsset, NSSecureCoding, NSCopying>
 {
-    BOOL _assetDataAvailableOnServer;
+    _Bool _assetDataAvailableOnServer;
     NSData *_masterAssetHash;
     NSDictionary *_metadata;
     NSString *_path;
@@ -23,6 +23,7 @@
     NSError *_error;
     NSString *_type;
     NSData *_fileHash;
+    unsigned long long _protocolFileSize;
     NSString *_MMCSAccessHeader;
     NSDate *_MMCSAccessHeaderTimeStamp;
     NSString *_MMCSReceipt;
@@ -31,16 +32,14 @@
     NSDate *_batchCreationDate;
     NSDate *_photoCreationDate;
     id <NSCoding> _userInfo;
-    unsigned int _mediaAssetType;
-    unsigned long long _protocolFileSize;
+    unsigned long long _mediaAssetType;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 + (id)assetWithAsset:(id)arg1;
 + (id)asset;
-+ (id)MSASPAssetFromProtocolDictionary:(id)arg1;
-@property(nonatomic) BOOL assetDataAvailableOnServer; // @synthesize assetDataAvailableOnServer=_assetDataAvailableOnServer;
-@property(nonatomic) unsigned int mediaAssetType; // @synthesize mediaAssetType=_mediaAssetType;
+@property(nonatomic) _Bool assetDataAvailableOnServer; // @synthesize assetDataAvailableOnServer=_assetDataAvailableOnServer;
+@property(nonatomic) unsigned long long mediaAssetType; // @synthesize mediaAssetType=_mediaAssetType;
 @property(retain, nonatomic) id <NSCoding> userInfo; // @synthesize userInfo=_userInfo;
 @property(retain, nonatomic) NSDate *photoCreationDate; // @synthesize photoCreationDate=_photoCreationDate;
 @property(retain, nonatomic) NSDate *batchCreationDate; // @synthesize batchCreationDate=_batchCreationDate;
@@ -65,16 +64,17 @@
 - (void)setMetadataValue:(id)arg1 forKey:(id)arg2;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (unsigned long long)_fileSizeOnDisk;
 - (void)setMMCSAccessHeader:(id)arg1 andTimeStamp:(id)arg2;
+- (id)MMCSItemType;
 - (int)MMCSOpenNewFileDescriptor;
 @property(nonatomic) unsigned long long MMCSItemID;
-@property(nonatomic) unsigned long MMCSItemFlags;
+@property(nonatomic) unsigned int MMCSItemFlags;
 - (unsigned long long)_fileSize;
-- (BOOL)isVideo;
-- (BOOL)isPhoto;
+- (_Bool)isVideo;
+- (_Bool)isPhoto;
 - (id)description;
 - (id)init;
 - (id)initWithGUID:(id)arg1;
@@ -82,7 +82,6 @@
 @property(nonatomic) unsigned long long protocolFileSize;
 @property(retain, nonatomic) NSString *type;
 @property(retain, nonatomic) NSData *fileHash;
-- (id)MSASPProtocolDictionary;
 
 @end
 

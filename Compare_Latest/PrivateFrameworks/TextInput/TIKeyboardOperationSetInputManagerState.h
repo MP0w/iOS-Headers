@@ -14,7 +14,7 @@
 }
 
 + (id)operationWithInputManagerState:(id)arg1;
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) TIKeyboardInputManagerState *inputManagerState; // @synthesize inputManagerState=_inputManagerState;
 - (id)propertiesForDescription;
 - (void)encodeWithCoder:(id)arg1;

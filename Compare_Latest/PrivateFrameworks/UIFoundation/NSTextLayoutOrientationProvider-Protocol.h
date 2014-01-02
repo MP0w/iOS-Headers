@@ -5,6 +5,6 @@
  */
 
 @protocol NSTextLayoutOrientationProvider
-@property(nonatomic) int layoutOrientation;
+@property(nonatomic) long long layoutOrientation;
 @end
 

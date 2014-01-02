@@ -6,6 +6,7 @@
 
 #import <OfficeImport/CHDUnsupportedType.h>
 
+// Not exported
 @interface CHDBubbleType : CHDUnsupportedType
 {
 }

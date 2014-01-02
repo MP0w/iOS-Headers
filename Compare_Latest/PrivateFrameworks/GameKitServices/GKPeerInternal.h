@@ -10,12 +10,13 @@
 
 @class GKSessionInternal, NSString;
 
+// Not exported
 @interface GKPeerInternal : NSObject <GKTableCleanupWhenRemoved>
 {
     unsigned int _pid;
     NSString *_displayName;
     NSString *_serviceName;
-    BOOL _isBusy;
+    _Bool _isBusy;
     GKSessionInternal *_session;
     int _serviceCount;
     struct _DNSServiceRef_t *_resolveService;
@@ -26,20 +27,20 @@
     struct _DNSServiceRef_t **_lookupServiceList;
     int _lookupServiceCount;
     int _lookupServiceSize;
-    BOOL _moreResolvesComing;
+    _Bool _moreResolvesComing;
     double _connectTimeout;
-    BOOL _needsToTimeout;
+    _Bool _needsToTimeout;
 }
 
 + (void)freeLookupList:(struct _DNSServiceRef_t **)arg1 andAddrList:(id *)arg2 andInterfaceList:(unsigned int *)arg3 count:(int)arg4;
-@property BOOL needsToTimeout; // @synthesize needsToTimeout=_needsToTimeout;
+@property _Bool needsToTimeout; // @synthesize needsToTimeout=_needsToTimeout;
 @property double connectTimeout; // @synthesize connectTimeout=_connectTimeout;
 @property(retain, nonatomic) GKSessionInternal *session; // @synthesize session=_session;
-@property BOOL moreResolvesComing; // @synthesize moreResolvesComing=_moreResolvesComing;
+@property _Bool moreResolvesComing; // @synthesize moreResolvesComing=_moreResolvesComing;
 @property unsigned int servicePort; // @synthesize servicePort=_servicePort;
 @property struct _DNSServiceRef_t *txtRecordService; // @synthesize txtRecordService=_txtRecordService;
 @property struct _DNSServiceRef_t *resolveService; // @synthesize resolveService=_resolveService;
-@property(getter=isBusy) BOOL busy; // @synthesize busy=_isBusy;
+@property(getter=isBusy) _Bool busy; // @synthesize busy=_isBusy;
 @property(readonly) unsigned int pid; // @synthesize pid=_pid;
 @property(readonly) NSString *displayName; // @synthesize displayName=_displayName;
 @property(readonly) NSString *serviceName; // @synthesize serviceName=_serviceName;
@@ -50,10 +51,10 @@
 - (int)usableAddrs;
 - (void)copyLookupList:(struct _DNSServiceRef_t ***)arg1 count:(int *)arg2;
 - (void)setAddr:(const struct sockaddr_in *)arg1 interface:(unsigned int)arg2 forLookupService:(struct _DNSServiceRef_t *)arg3;
-- (BOOL)containsLookupService:(struct _DNSServiceRef_t *)arg1;
+- (_Bool)containsLookupService:(struct _DNSServiceRef_t *)arg1;
 - (void)removeAndReturnLookupList:(struct _DNSServiceRef_t ***)arg1 andAddrList:(id **)arg2 andInterfaceList:(unsigned int **)arg3 count:(int *)arg4;
 - (void)addLookup:(struct _DNSServiceRef_t *)arg1;
-- (BOOL)tryDetruncateDisplayName:(id)arg1;
+- (_Bool)tryDetruncateDisplayName:(id)arg1;
 @property int serviceCount; // @synthesize serviceCount=_serviceCount;
 - (void)dealloc;
 - (id)initWithPID:(unsigned int)arg1 displayName:(id)arg2 serviceName:(id)arg3;

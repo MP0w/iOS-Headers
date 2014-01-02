@@ -6,27 +6,25 @@
 
 #import "NSObject.h"
 
-@class AVVideoCompositionRenderContextInternal;
+@class AVVideoComposition, AVVideoCompositionRenderContextInternal;
 
 @interface AVVideoCompositionRenderContext : NSObject
 {
     AVVideoCompositionRenderContextInternal *_internal;
 }
 
-+ (id)renderContextPropertiesFromFigCompositor:(struct OpaqueFigVideoCompositor *)arg1;
 - (struct __CVBuffer *)newPixelBuffer;
 - (struct __CVPixelBufferPool *)_pixelBufferPool;
-@property(readonly, nonatomic) BOOL highQualityRendering;
-@property(readonly, nonatomic) CDStruct_b8308255 edgeWidths;
-@property(readonly, nonatomic) CDStruct_1ef3fb1f pixelAspectRatio;
+@property(readonly, nonatomic) AVVideoComposition *videoComposition;
+@property(readonly, nonatomic) _Bool highQualityRendering;
+@property(readonly, nonatomic) CDStruct_1edcc8d7 edgeWidths;
+@property(readonly, nonatomic) CDStruct_43f4b5b8 pixelAspectRatio;
 @property(readonly, nonatomic) float renderScale;
 @property(readonly, nonatomic) struct CGAffineTransform renderTransform;
 @property(readonly, nonatomic) struct CGSize size;
 - (void)dealloc;
 - (void)finalize;
 - (void)_willDeallocOrFinalize;
-- (BOOL)hasEqualPropertiesToFigVideoCompositor:(struct OpaqueFigVideoCompositor *)arg1;
-- (id)initWithFigVideoCompositor:(struct OpaqueFigVideoCompositor *)arg1 clientRequiredPixelBufferAttributes:(id)arg2;
 
 @end
 

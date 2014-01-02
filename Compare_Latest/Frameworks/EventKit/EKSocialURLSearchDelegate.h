@@ -8,13 +8,14 @@
 
 #import "ABSearchOperationDelegate-Protocol.h"
 
+// Not exported
 @interface EKSocialURLSearchDelegate : NSObject <ABSearchOperationDelegate>
 {
     id _searchCompleteHandler;
 }
 
 - (void)dealloc;
-- (void)searchOperation:(id)arg1 didFindMatches:(id)arg2 moreComing:(BOOL)arg3;
+- (void)searchOperation:(id)arg1 didFindMatches:(id)arg2 moreComing:(_Bool)arg3;
 - (void)_completeWithRecord:(void *)arg1;
 - (void)setCompletionHandler:(id)arg1;
 

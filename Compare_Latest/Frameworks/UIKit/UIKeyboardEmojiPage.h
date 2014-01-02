@@ -8,6 +8,7 @@
 
 @class NSArray, NSDictionary, UIKBRenderConfig, UIKeyboardEmojiInputController, UIKeyboardEmojiView, UITouch;
 
+// Not exported
 @interface UIKeyboardEmojiPage : UIView
 {
     NSArray *_emoji;
@@ -19,8 +20,8 @@
     struct CGSize _emojiSize;
     struct CGRect _keyActivationRect;
     UITouch *_activeTouch;
-    BOOL _needsLayout;
-    BOOL _needsEmojiRendering;
+    _Bool _needsLayout;
+    _Bool _needsEmojiRendering;
     UIKBRenderConfig *_renderConfig;
     NSDictionary *_emojiAttributes;
     UIKeyboardEmojiView *_touched;
@@ -31,7 +32,7 @@
 
 @property(retain) UIKBRenderConfig *renderConfig; // @synthesize renderConfig=_renderConfig;
 @property(retain, nonatomic) NSDictionary *emojiAttributes; // @synthesize emojiAttributes=_emojiAttributes;
-@property BOOL needsEmojiRendering; // @synthesize needsEmojiRendering=_needsEmojiRendering;
+@property _Bool needsEmojiRendering; // @synthesize needsEmojiRendering=_needsEmojiRendering;
 @property UIKeyboardEmojiInputController *inputController; // @synthesize inputController=_inputController;
 @property struct CGRect keyActivationRect; // @synthesize keyActivationRect=_keyActivationRect;
 @property(retain) UIKeyboardEmojiView *onDisplay; // @synthesize onDisplay=_onDisplay;
@@ -52,13 +53,13 @@
 - (void)showPendingPopup:(id)arg1;
 - (void)cancelPendingPopupChanges;
 - (id)closestForPoint:(struct CGPoint)arg1;
-- (struct CGRect)emojiRectForPoint:(struct CGPoint)arg1 index:(unsigned int *)arg2;
+- (struct CGRect)emojiRectForPoint:(struct CGPoint)arg1 index:(unsigned long long *)arg2;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)deactivatePopUps;
 - (void)generateSubviews;
 - (void)drawRect:(struct CGRect)arg1;
 - (int)takeEmoji:(id)arg1 fromIndex:(int)arg2;
-@property(readonly, nonatomic) int emojiCountPerPage;
+@property(readonly, nonatomic) long long emojiCountPerPage;
 - (struct CGRect)rectForRow:(int)arg1 Col:(int)arg2;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)updateLayoutConstants;

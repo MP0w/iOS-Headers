@@ -33,7 +33,7 @@
 + (id)characterSetWithCharactersInString:(id)arg1;
 + (id)characterSetWithRange:(struct _NSRange)arg1;
 - (id)initWithCoder:(id)arg1;
-- (BOOL)isMutable;
+- (_Bool)isMutable;
 - (void)invert;
 - (void)formIntersectionWithCharacterSet:(id)arg1;
 - (void)formUnionWithCharacterSet:(id)arg1;

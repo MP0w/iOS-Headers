@@ -13,7 +13,7 @@
     NSMutableArray *recordingDelegatesArray;
     CDStruct_1b6d18a9 movieFragmentInterval;
     NSArray *metadata;
-    BOOL sendLastVideoPreviewFrame;
+    _Bool sendLastVideoPreviewFrame;
 }
 
 - (void)dealloc;

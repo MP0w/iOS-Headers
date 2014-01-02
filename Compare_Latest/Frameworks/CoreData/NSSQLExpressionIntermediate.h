@@ -8,13 +8,14 @@
 
 @class NSExpression;
 
+// Not exported
 @interface NSSQLExpressionIntermediate : NSSQLIntermediate
 {
     NSExpression *_expression;
-    BOOL _allowToMany;
+    _Bool _allowToMany;
 }
 
-- (id)initWithExpression:(id)arg1 allowToMany:(BOOL)arg2 inScope:(id)arg3;
+- (id)initWithExpression:(id)arg1 allowToMany:(_Bool)arg2 inScope:(id)arg3;
 
 @end
 

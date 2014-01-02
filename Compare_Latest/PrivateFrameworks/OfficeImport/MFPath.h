@@ -8,6 +8,7 @@
 
 #import "NSCopying-Protocol.h"
 
+// Not exported
 @interface MFPath : NSObject <NSCopying>
 {
 }
@@ -21,7 +22,7 @@
 - (int)abort;
 - (int)end;
 - (int)begin;
-- (BOOL)isOpen;
+- (_Bool)isOpen;
 - (int)state;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 

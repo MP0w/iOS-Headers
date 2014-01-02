@@ -7,7 +7,7 @@
 #import "AVMediaSelectionOption.h"
 
 @interface AVMediaSelectionOption (MediaPlayer)
-@property(readonly, nonatomic) BOOL mpIsSDH;
-@property(readonly, nonatomic) BOOL mpIsAC3;
+@property(readonly, nonatomic) _Bool mpIsSDH;
+@property(readonly, nonatomic) _Bool mpIsAC3;
 @end
 

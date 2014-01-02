@@ -8,13 +8,14 @@
 
 @class GEOGeocodeRequest, MKPlacemark;
 
+// Not exported
 @interface MKReverseGeocoderInternal : NSObject
 {
     CDStruct_2c43369c coordinate;
     id <MKReverseGeocoderDelegate> delegate;
     MKPlacemark *storedPlacemark;
     GEOGeocodeRequest *request;
-    BOOL querying;
+    _Bool querying;
 }
 
 @end

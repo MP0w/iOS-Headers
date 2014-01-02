@@ -20,7 +20,7 @@
 - (void)_deallocInternalCFCachedURLResponse;
 - (struct _CFCachedURLResponse *)_CFCachedURLResponse;
 - (void)dealloc;
-- (unsigned int)storagePolicy;
+- (unsigned long long)storagePolicy;
 - (id)userInfo;
 - (id)dataArray;
 - (id)data;
@@ -29,8 +29,8 @@
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)_initWithCFCachedURLResponse:(struct _CFCachedURLResponse *)arg1;
-- (id)initWithResponse:(id)arg1 dataArray:(id)arg2 userInfo:(id)arg3 storagePolicy:(unsigned int)arg4;
-- (id)initWithResponse:(id)arg1 data:(id)arg2 userInfo:(id)arg3 storagePolicy:(unsigned int)arg4;
+- (id)initWithResponse:(id)arg1 dataArray:(id)arg2 userInfo:(id)arg3 storagePolicy:(unsigned long long)arg4;
+- (id)initWithResponse:(id)arg1 data:(id)arg2 userInfo:(id)arg3 storagePolicy:(unsigned long long)arg4;
 - (id)initWithResponse:(id)arg1 data:(id)arg2;
 
 @end

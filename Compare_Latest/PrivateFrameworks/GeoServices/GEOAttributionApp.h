@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSMutableArray, NSString;
 
-@interface GEOAttributionApp : PBCodable
+@interface GEOAttributionApp : PBCodable <NSCopying>
 {
     NSString *_appBundleIdentifier;
     NSMutableArray *_handledSchemes;
@@ -16,15 +18,16 @@
 
 @property(retain, nonatomic) NSMutableArray *handledSchemes; // @synthesize handledSchemes=_handledSchemes;
 @property(retain, nonatomic) NSString *appBundleIdentifier; // @synthesize appBundleIdentifier=_appBundleIdentifier;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)handledSchemesAtIndex:(unsigned int)arg1;
-- (unsigned int)handledSchemesCount;
+- (id)handledSchemesAtIndex:(unsigned long long)arg1;
+- (unsigned long long)handledSchemesCount;
 - (void)addHandledSchemes:(id)arg1;
 - (void)clearHandledSchemes;
 - (void)dealloc;

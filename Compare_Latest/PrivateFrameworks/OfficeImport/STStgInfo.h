@@ -8,14 +8,15 @@
 
 @class NSString;
 
+// Not exported
 @interface STStgInfo : NSObject
 {
     NSString *m_pstrName;
     int m_type;
-    unsigned long m_userFlags;
-    unsigned long m_size;
-    long m_creationTime;
-    long m_modificationTime;
+    unsigned int m_userFlags;
+    unsigned int m_size;
+    long long m_creationTime;
+    long long m_modificationTime;
     int m_accessMode;
     CDStruct_214f2dba m_clsid;
 }
@@ -24,14 +25,14 @@
 - (CDStruct_214f2dba)getCLSID;
 - (void)setAccessMode:(int)arg1;
 - (int)getAccessMode;
-- (void)setModificationTime:(long)arg1;
-- (long)getModificationTime;
-- (void)setCreationTime:(long)arg1;
-- (long)getCreationTime;
-- (void)setSize:(unsigned long)arg1;
-- (unsigned long)getSize;
-- (void)setUserFlags:(unsigned long)arg1;
-- (unsigned long)getUserFlags;
+- (void)setModificationTime:(long long)arg1;
+- (long long)getModificationTime;
+- (void)setCreationTime:(long long)arg1;
+- (long long)getCreationTime;
+- (void)setSize:(unsigned int)arg1;
+- (unsigned int)getSize;
+- (void)setUserFlags:(unsigned int)arg1;
+- (unsigned int)getUserFlags;
 - (void)setType:(int)arg1;
 - (int)getType;
 - (void)setName:(id)arg1;

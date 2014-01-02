@@ -10,7 +10,7 @@
 - (void)editItemViewController:(id)arg1 didCompleteWithAction:(int)arg2;
 
 @optional
-- (void)editItemViewControllerWantsKeyboardPinned:(BOOL)arg1;
-- (BOOL)editItemViewControllerCommit:(id)arg1;
+- (void)editItemViewControllerWantsKeyboardPinned:(_Bool)arg1;
+- (_Bool)editItemViewControllerCommit:(id)arg1;
 @end
 

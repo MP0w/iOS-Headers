@@ -10,7 +10,7 @@
 - (id)MPU_libraryLinkURL;
 - (id)MPU_directStoreURL;
 - (id)MPU_containerLibraryLinkURL;
-- (id)MPU_libraryLinkURL:(BOOL)arg1;
+- (id)MPU_libraryLinkURL:(_Bool)arg1;
 - (id)MPU_libraryLinkPlaylistName;
 - (id)MPU_libraryLinkKind;
 - (id)MPU_libraryLinkArtist;

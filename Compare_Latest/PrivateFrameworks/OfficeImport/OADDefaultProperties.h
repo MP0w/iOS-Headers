@@ -8,6 +8,7 @@
 
 @class OADShapeProperties, OADTextBodyProperties, OADTextListStyle;
 
+// Not exported
 @interface OADDefaultProperties : NSObject
 {
     OADShapeProperties *mShapeProperties;

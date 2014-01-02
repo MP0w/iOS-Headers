@@ -10,10 +10,10 @@
 
 @interface PLUserActivityDaemonJob : PLDaemonJob
 {
+    long long _actionType;
     NSString *_albumUUID;
     NSArray *_assetUUIDs;
-    int _cloudFeedContent;
-    long long _actionType;
+    long long _cloudFeedContent;
 }
 
 + (void)userDidLeavePhotosApplication;
@@ -24,8 +24,8 @@
 + (void)userDidNavigateAwayFromSharedAlbum:(id)arg1;
 + (void)userDidNavigateIntoImagePickerSharedAlbum:(id)arg1;
 + (void)userDidNavigateIntoSharedAlbum:(id)arg1;
-+ (void)userDidViewCloudFeedContent:(int)arg1;
-@property(nonatomic) int cloudFeedContent; // @synthesize cloudFeedContent=_cloudFeedContent;
++ (void)userDidViewCloudFeedContent:(long long)arg1;
+@property(nonatomic) long long cloudFeedContent; // @synthesize cloudFeedContent=_cloudFeedContent;
 @property(retain, nonatomic) NSArray *assetUUIDs; // @synthesize assetUUIDs=_assetUUIDs;
 @property(copy, nonatomic) NSString *albumUUID; // @synthesize albumUUID=_albumUUID;
 @property long long actionType; // @synthesize actionType=_actionType;

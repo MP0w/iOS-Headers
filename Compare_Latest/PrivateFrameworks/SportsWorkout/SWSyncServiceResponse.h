@@ -12,7 +12,7 @@
 
 @interface SWSyncServiceResponse : NSObject <NSXMLParserDelegate>
 {
-    BOOL _hasFoundRootElement;
+    _Bool _hasFoundRootElement;
     NSError *_validationError;
     NSMutableString *_status;
     NSMutableString *_pin;

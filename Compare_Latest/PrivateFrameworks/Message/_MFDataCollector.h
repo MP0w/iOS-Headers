@@ -16,16 +16,16 @@
     MFLibraryMessage *_message;
     MFBufferedDataConsumer *_consumer;
     NSString *_part;
-    BOOL _partial;
-    BOOL _incomplete;
+    _Bool _partial;
+    _Bool _incomplete;
 }
 
 - (id)data;
 - (void)dealloc;
 - (void)done;
-- (int)appendData:(id)arg1;
+- (long long)appendData:(id)arg1;
 - (id)pathForStorage;
-- (id)initWithLibrary:(id)arg1 message:(id)arg2 part:(id)arg3 partial:(BOOL)arg4 incomplete:(BOOL)arg5;
+- (id)initWithLibrary:(id)arg1 message:(id)arg2 part:(id)arg3 partial:(_Bool)arg4 incomplete:(_Bool)arg5;
 
 @end
 

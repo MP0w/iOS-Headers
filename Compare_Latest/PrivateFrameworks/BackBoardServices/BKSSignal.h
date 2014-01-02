@@ -8,11 +8,11 @@
 
 @interface BKSSignal : NSObject
 {
-    BOOL _signalled;
+    _Bool _signalled;
 }
 
 - (void)reset;
-- (BOOL)hasBeenSignalled;
+- (_Bool)hasBeenSignalled;
 - (void)signal;
 - (id)init;
 

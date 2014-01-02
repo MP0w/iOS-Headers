@@ -10,6 +10,7 @@
 
 @class DOMHTMLSelectElement, NSArray, UIWebSelectPopover;
 
+// Not exported
 @interface UIWebSelectTableViewController : UITableViewController <UIKeyInput>
 {
     DOMHTMLSelectElement *_selectionNode;
@@ -17,10 +18,10 @@
     NSArray *_groupsAndOptions;
     unsigned int _singleSelectionIndex;
     unsigned int _singleSelectionSection;
-    BOOL _allowsMultipleSelection;
-    float _fontSize;
-    float _maximumTextWidth;
-    int _textAlignment;
+    _Bool _allowsMultipleSelection;
+    double _fontSize;
+    double _maximumTextWidth;
+    long long _textAlignment;
     UIWebSelectPopover *_popover;
 }
 
@@ -30,29 +31,29 @@
 @property(retain, nonatomic) DOMHTMLSelectElement *_selectionNode; // @synthesize _selectionNode;
 - (void)deleteBackward;
 - (void)insertText:(id)arg1;
-- (BOOL)hasText;
+- (_Bool)hasText;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (id)_optionsForSection:(int)arg1;
-- (id)tableView:(id)arg1 titleForHeaderInSection:(int)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
-- (float)heightForItems;
-- (void)viewWillAppear:(BOOL)arg1;
+- (id)_optionsForSection:(long long)arg1;
+- (id)tableView:(id)arg1 titleForHeaderInSection:(long long)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
+- (double)heightForItems;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)dealloc;
-- (id)initWithDOMHTMLSelectNode:(id)arg1 cachedItems:(id)arg2 singleSelectionIndex:(unsigned int)arg3 multipleSelection:(BOOL)arg4;
+- (id)initWithDOMHTMLSelectNode:(id)arg1 cachedItems:(id)arg2 singleSelectionIndex:(unsigned int)arg3 multipleSelection:(_Bool)arg4;
 - (void)_setupGroupsAndOptions;
-- (BOOL)_isEmpty;
+- (_Bool)_isEmpty;
 
 // Remaining properties
-@property(nonatomic) int autocapitalizationType;
-@property(nonatomic) int autocorrectionType;
-@property(nonatomic) BOOL enablesReturnKeyAutomatically;
-@property(nonatomic) int keyboardAppearance;
-@property(nonatomic) int keyboardType;
-@property(nonatomic) int returnKeyType;
-@property(nonatomic, getter=isSecureTextEntry) BOOL secureTextEntry;
-@property(nonatomic) int spellCheckingType;
+@property(nonatomic) long long autocapitalizationType;
+@property(nonatomic) long long autocorrectionType;
+@property(nonatomic) _Bool enablesReturnKeyAutomatically;
+@property(nonatomic) long long keyboardAppearance;
+@property(nonatomic) long long keyboardType;
+@property(nonatomic) long long returnKeyType;
+@property(nonatomic, getter=isSecureTextEntry) _Bool secureTextEntry;
+@property(nonatomic) long long spellCheckingType;
 
 @end
 

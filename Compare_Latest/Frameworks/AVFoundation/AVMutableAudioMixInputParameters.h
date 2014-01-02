@@ -6,7 +6,7 @@
 
 #import <AVFoundation/AVAudioMixInputParameters.h>
 
-@class AVMutableAudioMixInputParametersInternal;
+@class AVMutableAudioMixInputParametersInternal, NSString;
 
 @interface AVMutableAudioMixInputParameters : AVAudioMixInputParameters
 {
@@ -19,6 +19,9 @@
 - (void)setVolumeRampFromStartVolume:(float)arg1 toEndVolume:(float)arg2 timeRange:(CDStruct_e83c9415)arg3;
 @property(retain, nonatomic) struct opaqueMTAudioProcessingTap *audioTapProcessor;
 @property(nonatomic) int trackID;
+
+// Remaining properties
+@property(copy, nonatomic) NSString *audioTimePitchAlgorithm;
 
 @end
 

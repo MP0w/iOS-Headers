@@ -10,13 +10,14 @@
 
 @class NSURLAuthenticationChallenge, NSURLProtocol;
 
+// Not exported
 @interface _NSCFURLProtocolBridge : NSObject <NSURLProtocolClient>
 {
     NSURLProtocol *_nsProt;
     struct _CFURLProtocol *_cfProt;
     struct _CFURLAuthChallenge *_cfChallenge;
     NSURLAuthenticationChallenge *_nsChallenge;
-    BOOL _loading;
+    _Bool _loading;
 }
 
 + (void)_fillinProtocolImplementation:(struct CFURLProtocolImplementation_V0 *)arg1;
@@ -31,7 +32,7 @@
 - (void)URLProtocolDidFinishLoading:(id)arg1;
 - (void)URLProtocol:(id)arg1 didLoadData:(id)arg2;
 - (void)URLProtocol:(id)arg1 didLoadData:(id)arg2 lengthReceived:(long long)arg3;
-- (void)URLProtocol:(id)arg1 didReceiveResponse:(id)arg2 cacheStoragePolicy:(unsigned int)arg3;
+- (void)URLProtocol:(id)arg1 didReceiveResponse:(id)arg2 cacheStoragePolicy:(unsigned long long)arg3;
 - (void)URLProtocol:(id)arg1 cachedResponseIsValid:(id)arg2;
 - (void)URLProtocol:(id)arg1 wasRedirectedToRequest:(id)arg2 redirectResponse:(id)arg3;
 - (void)didReceiveAuthenticationChallenge:(id)arg1;

@@ -6,15 +6,16 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface ML3ContainerMediaTypeCounts : NSObject
 {
     struct __CFDictionary *_map;
-    unsigned int _count;
+    unsigned long long _count;
 }
 
-@property(nonatomic) unsigned int count; // @synthesize count=_count;
+@property(nonatomic) unsigned long long count; // @synthesize count=_count;
 - (void)enumerateMediaTypesWithBlock:(id)arg1;
-- (void)addMediaType:(unsigned long)arg1 count:(unsigned int)arg2;
+- (void)addMediaType:(unsigned int)arg1 count:(unsigned long long)arg2;
 - (id)description;
 - (void)dealloc;
 - (id)init;

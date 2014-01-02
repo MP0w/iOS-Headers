@@ -14,7 +14,7 @@
     NSObject<OS_dispatch_queue> *clientQueue;
     NSDictionary *videoSettings;
     CDStruct_1b6d18a9 deprecatedMinFrameDuration;
-    BOOL alwaysDiscardsLateVideoFrames;
+    _Bool alwaysDiscardsLateVideoFrames;
 }
 
 - (void)dealloc;

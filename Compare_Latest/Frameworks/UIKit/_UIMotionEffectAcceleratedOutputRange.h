@@ -9,6 +9,7 @@
 #import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
 
+// Not exported
 @interface _UIMotionEffectAcceleratedOutputRange : NSObject <NSCoding, NSCopying>
 {
     struct UIOffset _referenceOffset;
@@ -18,8 +19,8 @@
 
 @property(readonly, nonatomic) struct CGPoint acceleration; // @synthesize acceleration=_acceleration;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (void)reset;
 - (struct UIOffset)acceleratedOutputForViewerOffset:(struct UIOffset)arg1 accelerationBoostFactor:(struct CGPoint)arg2;

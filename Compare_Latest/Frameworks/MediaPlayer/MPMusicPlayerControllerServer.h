@@ -14,7 +14,7 @@
 }
 
 + (id)sharedInstance;
-+ (BOOL)isMusicPlayerControllerServerRunning;
++ (_Bool)isMusicPlayerControllerServerRunning;
 + (void)startMusicPlayerControllerServerWithDelegate:(id)arg1;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) MPAVController *player;
@@ -22,7 +22,6 @@
 - (void)forwardInvocation:(id)arg1;
 - (void)setDelegate:(id)arg1;
 - (id)init;
-- (void)_runMigServer;
 
 @end
 

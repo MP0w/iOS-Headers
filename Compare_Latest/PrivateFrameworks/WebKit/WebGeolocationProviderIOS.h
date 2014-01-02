@@ -12,9 +12,9 @@
 {
     struct RetainPtr<WebGeolocationCoreLocationProvider> _coreLocationProvider;
     struct RetainPtr<_WebCoreLocationUpdateThreadingProxy> _coreLocationUpdateListenerProxy;
-    BOOL _enableHighAccuracy;
-    BOOL _isSuspended;
-    BOOL _shouldResetOnResume;
+    _Bool _enableHighAccuracy;
+    _Bool _isSuspended;
+    _Bool _shouldResetOnResume;
     struct HashMap<WTF::RetainPtr<WebView>, WTF::RetainPtr<id<WebGeolocationProviderInitializationListener>>, WTF::PtrHash<WTF::RetainPtr<WebView>>, WTF::HashTraits<WTF::RetainPtr<WebView>>, WTF::HashTraits<WTF::RetainPtr<id<WebGeolocationProviderInitializationListener>>>> _webViewsWaitingForCoreLocationStart;
     struct HashSet<WebView *, WTF::PtrHash<WebView *>, WTF::HashTraits<WebView *>> _warmUpWebViews;
     struct HashSet<WebView *, WTF::PtrHash<WebView *>, WTF::HashTraits<WebView *>> _pendingInitialPositionWebView;
@@ -35,7 +35,7 @@
 - (void)stopTrackingWebView:(id)arg1;
 - (void)cancelWarmUpForWebView:(id)arg1;
 - (void)initializeGeolocationForWebView:(id)arg1 listener:(id)arg2;
-- (void)setEnableHighAccuracy:(BOOL)arg1;
+- (void)setEnableHighAccuracy:(_Bool)arg1;
 - (id)lastPosition;
 - (void)unregisterWebView:(id)arg1;
 - (void)registerWebView:(id)arg1;

@@ -6,12 +6,13 @@
 
 #import <UIKit/UITextFieldLabel.h>
 
+// Not exported
 @interface UISearchBarTextFieldLabel : UITextFieldLabel
 {
-    BOOL _ignoresGeometryChanges;
+    _Bool _ignoresGeometryChanges;
 }
 
-@property(nonatomic) BOOL ignoresGeometryChanges; // @synthesize ignoresGeometryChanges=_ignoresGeometryChanges;
+@property(nonatomic) _Bool ignoresGeometryChanges; // @synthesize ignoresGeometryChanges=_ignoresGeometryChanges;
 - (void)setFrame:(struct CGRect)arg1;
 
 @end

@@ -11,13 +11,13 @@
 @interface PLVideoPosterFrameView : UIView
 {
     UIImageView *_imageView;
-    unsigned int _scaleMode;
+    unsigned long long _scaleMode;
 }
 
 @property(readonly, nonatomic) struct CGRect imageFrame;
 - (id)imageView;
 - (id)image;
-- (void)setScaleMode:(unsigned int)arg1;
+- (void)setScaleMode:(unsigned long long)arg1;
 - (void)setImage:(id)arg1;
 - (void)layoutSubviews;
 - (void)setFrame:(struct CGRect)arg1;

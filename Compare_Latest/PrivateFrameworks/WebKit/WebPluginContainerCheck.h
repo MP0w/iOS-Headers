@@ -8,6 +8,7 @@
 
 @class NSString, NSURLRequest, WebPolicyDecisionListener;
 
+// Not exported
 @interface WebPluginContainerCheck : NSObject
 {
     NSURLRequest *_request;
@@ -16,7 +17,7 @@
     id _resultObject;
     SEL _resultSelector;
     id _contextInfo;
-    BOOL _done;
+    _Bool _done;
     WebPolicyDecisionListener *_listener;
 }
 
@@ -26,7 +27,7 @@
 - (void)start;
 - (void)_askPolicyDelegate;
 - (id)_actionInformationWithURL:(id)arg1;
-- (BOOL)_isForbiddenFileLoad;
+- (_Bool)_isForbiddenFileLoad;
 - (void)_continueWithPolicy:(int)arg1;
 - (void)dealloc;
 - (void)finalize;

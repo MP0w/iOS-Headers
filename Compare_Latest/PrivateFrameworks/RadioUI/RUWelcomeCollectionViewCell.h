@@ -14,16 +14,19 @@
 {
     MPUStackView *_stackView;
     UIImage *_artworkImage;
+    struct CGSize _artworkSize;
 }
 
-+ (struct CGSize)artworkSize;
++ (struct CGSize)artworkSizeForOrientation:(long long)arg1;
+@property(nonatomic) struct CGSize artworkSize; // @synthesize artworkSize=_artworkSize;
 @property(retain, nonatomic) UIImage *artworkImage; // @synthesize artworkImage=_artworkImage;
 - (void).cxx_destruct;
 - (void)updateForChangedDistanceFromVanishingPoint;
+@property(nonatomic) struct CGPoint vanishingPoint;
 @property(retain, nonatomic) UIView *perspectiveTargetView;
 - (void)stackView:(id)arg1 didCreateItem:(id)arg2;
-- (void)stackView:(id)arg1 applyAttributesToItem:(id)arg2 atIndex:(int)arg3;
-- (int)numberOfItemsInStackView:(id)arg1;
+- (void)stackView:(id)arg1 applyAttributesToItem:(id)arg2 atIndex:(long long)arg3;
+- (long long)numberOfItemsInStackView:(id)arg1;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 

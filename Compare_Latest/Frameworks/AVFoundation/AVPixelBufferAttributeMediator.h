@@ -12,7 +12,7 @@
 }
 
 - (id)mediatedPixelBufferAttributes;
-- (void)setLayersAreSuppressed:(BOOL)arg1;
+- (void)setLayersAreSuppressed:(_Bool)arg1;
 - (void)removeRequestedPixelBufferAttributesAttributesForKey:(id)arg1;
 - (void)setRequestedPixelBufferAttributes:(id)arg1 forKey:(id)arg2;
 - (void)dealloc;

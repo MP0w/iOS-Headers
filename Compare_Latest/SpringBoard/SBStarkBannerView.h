@@ -17,15 +17,15 @@
     SBStarkBannerItem *_bannerItem;
     UIImageView *_categoryImageView;
     UILabel *_titleLabel;
-    float _titleAscender;
+    double _titleAscender;
     UILabel *_subTitleLabel;
-    float _subTitleAscender;
+    double _subTitleAscender;
     UIImageView *_actionImageView;
     struct UIEdgeInsets _contentInsets;
 }
 
-+ (struct UIEdgeInsets)_contentInsetsForActionType:(int)arg1;
-+ (id)_imageForActionType:(int)arg1;
++ (struct UIEdgeInsets)_contentInsetsForActionType:(long long)arg1;
++ (id)_imageForActionType:(long long)arg1;
 - (void)starkBannerItemDidReloadDisplayProperties:(id)arg1;
 - (id)bannerContext;
 - (void)layoutSubviews;

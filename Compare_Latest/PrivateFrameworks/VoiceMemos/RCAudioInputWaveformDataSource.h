@@ -10,28 +10,28 @@
 #import "RCWaveformDataSource-Protocol.h"
 #import "RCWaveformGeneratorSegmentOutputObserver-Protocol.h"
 
-@class NSArray, NSMutableArray, NSObject<OS_dispatch_source>, NSURL, RCAudioInputDevice, RCWaveformGenerator;
+@class NSObject<OS_dispatch_source>, NSURL, RCAudioInputDevice, RCMutableWaveform, RCWaveform, RCWaveformGenerator;
 
 @interface RCAudioInputWaveformDataSource : NSObject <AVCaptureAudioDataOutputSampleBufferDelegate, RCWaveformGeneratorSegmentOutputObserver, RCWaveformDataSource>
 {
+    RCMutableWaveform *_waveform;
     RCWaveformGenerator *_waveformGenerator;
     NSURL *_waveformURL;
-    NSMutableArray *_waveformSegmentsToSave;
     RCAudioInputDevice *_inputDevice;
     NSObject<OS_dispatch_source> *_sampleTimer;
-    BOOL _wasSaved;
+    _Bool _wasSaved;
 }
 
 - (void).cxx_destruct;
 - (void)_saveWaveformIfNecessary;
 - (void)handleInputBuffer:(struct opaqueCMSampleBuffer *)arg1;
 - (void)waveformGenerator:(id)arg1 didLoadWaveformSegment:(id)arg2;
-- (void)waveformGeneratorDidFinishLoading:(id)arg1;
-- (void)endLoadingBeforeDate:(id)arg1 withCompletionHandler:(id)arg2;
+- (void)waveformGeneratorDidFinishLoading:(id)arg1 error:(id)arg2;
+- (void)finishLoadingBeforeDate:(id)arg1 loadingFinishedBlock:(id)arg2;
 - (void)beginLoadingForRecordingOutputURL:(id)arg1;
 - (void)reload;
 - (double)duration;
-@property(readonly, nonatomic) NSArray *loadedSegments;
+@property(readonly, nonatomic) RCWaveform *waveform;
 - (id)waveformGenerator;
 - (id)dataSourceByReloading;
 - (void)dealloc;

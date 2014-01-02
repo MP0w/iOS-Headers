@@ -15,7 +15,7 @@
 {
     MPVideoView *_videoView;
     MPImageCache *_imageCache;
-    unsigned int _currentMarker;
+    unsigned long long _currentMarker;
     NSArray *_chapterTimeMarkers;
     UIMovieChapterListView *_chapterListView;
     float _timeColumnWidth;
@@ -25,19 +25,19 @@
 
 @property(retain, nonatomic) NSArray *chapterTimeMarkers; // @synthesize chapterTimeMarkers=_chapterTimeMarkers;
 @property(retain, nonatomic) MPVideoView *videoView; // @synthesize videoView=_videoView;
-@property(nonatomic) unsigned int currentMarkerIndex; // @synthesize currentMarkerIndex=_currentMarker;
+@property(nonatomic) unsigned long long currentMarkerIndex; // @synthesize currentMarkerIndex=_currentMarker;
 - (void).cxx_destruct;
 - (void)_sizeColumnsToFit;
 - (void)_reloadThumbnails;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (id)newImageRequestWithMediaEntity:(id)arg1 timeMarker:(id)arg2;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewDidDisappear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)loadView;
-@property(nonatomic) BOOL videoOutActive;
+@property(nonatomic) _Bool videoOutActive;
 @property(nonatomic) float topPadding;
 - (void)setCurrentMarker:(unsigned int)arg1;
 - (void)dealloc;

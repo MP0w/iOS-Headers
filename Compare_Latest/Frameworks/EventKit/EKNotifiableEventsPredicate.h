@@ -6,13 +6,17 @@
 
 #import "NSPredicate.h"
 
-@interface EKNotifiableEventsPredicate : NSPredicate
+#import "EKDefaultPropertiesLoading-Protocol.h"
+
+@interface EKNotifiableEventsPredicate : NSPredicate <EKDefaultPropertiesLoading>
 {
 }
 
 + (id)predicate;
+- (id)defaultPropertiesToLoad;
+- (_Bool)shouldLoadDefaultProperties;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)evaluateWithObject:(id)arg1;
+- (_Bool)evaluateWithObject:(id)arg1;
 
 @end
 

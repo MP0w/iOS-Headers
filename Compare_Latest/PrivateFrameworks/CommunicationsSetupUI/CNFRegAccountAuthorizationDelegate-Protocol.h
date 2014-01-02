@@ -7,6 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol CNFRegAccountAuthorizationDelegate <NSObject>
-- (void)authorizationController:(id)arg1 authorizedAccount:(BOOL)arg2;
+- (void)authorizationController:(id)arg1 authorizedAccount:(_Bool)arg2;
 @end
 

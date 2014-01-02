@@ -10,21 +10,22 @@
 
 @interface LSDocumentProxy : LSResourceProxy
 {
-    BOOL _sourceIsManaged;
+    _Bool _sourceIsManaged;
     NSString *_name;
     NSString *_typeIdentifier;
     NSString *_MIMEType;
 }
 
 + (id)documentProxyForName:(id)arg1 type:(id)arg2 MIMEType:(id)arg3;
-+ (id)documentProxyForName:(id)arg1 type:(id)arg2 MIMEType:(id)arg3 sourceIsManaged:(BOOL)arg4;
-@property(readonly, nonatomic) BOOL sourceIsManaged; // @synthesize sourceIsManaged=_sourceIsManaged;
++ (id)documentProxyForName:(id)arg1 type:(id)arg2 MIMEType:(id)arg3 sourceIsManaged:(_Bool)arg4;
+@property(readonly, nonatomic) _Bool sourceIsManaged; // @synthesize sourceIsManaged=_sourceIsManaged;
 @property(readonly, nonatomic) NSString *MIMEType; // @synthesize MIMEType=_MIMEType;
 @property(readonly, nonatomic) NSString *typeIdentifier; // @synthesize typeIdentifier=_typeIdentifier;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
+- (id)description;
 - (id)iconStyleDomain;
 - (void)dealloc;
-- (id)initWithName:(id)arg1 type:(id)arg2 MIMEType:(id)arg3 sourceIsManaged:(BOOL)arg4;
+- (id)initWithName:(id)arg1 type:(id)arg2 MIMEType:(id)arg3 sourceIsManaged:(_Bool)arg4;
 - (void)bind;
 
 @end

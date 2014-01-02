@@ -8,6 +8,7 @@
 
 @class GQDSStyle;
 
+// Not exported
 @interface GQDWPLink : GQDWPInlineList
 {
     GQDSStyle *mCharStyle;
@@ -17,7 +18,6 @@
 - (struct __CFString *)href;
 - (id)characterStyle;
 - (void)dealloc;
-- (int)readStyleFromReader:(struct _xmlTextReader *)arg1 processor:(id)arg2;
 
 @end
 

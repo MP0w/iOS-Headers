@@ -8,6 +8,7 @@
 
 @class DOMHTMLElement, UIColor, UIDelayedAction, UIFont, UITextInteractionAssistant, UIView, UIWebDocumentView, WebFrame;
 
+// Not exported
 @interface _UICompatibilityTextViewData : NSObject
 {
     WebFrame *m_frame;
@@ -15,25 +16,25 @@
     int m_marginTop;
     UIDelayedAction *m_selectionTimer;
     UIDelayedAction *m_longPressAction;
-    BOOL m_editable;
-    BOOL m_editing;
-    BOOL m_becomesEditableWithGestures;
-    BOOL m_reentrancyGuard;
-    BOOL m_readyForScroll;
-    BOOL m_hasExplicitTextAlignment;
-    BOOL m_hasExplicitLineHeight;
+    _Bool m_editable;
+    _Bool m_editing;
+    _Bool m_becomesEditableWithGestures;
+    _Bool m_reentrancyGuard;
+    _Bool m_readyForScroll;
+    _Bool m_hasExplicitTextAlignment;
+    _Bool m_hasExplicitLineHeight;
     UITextInteractionAssistant *m_interactionAssistant;
     UIWebDocumentView *m_webView;
     UIFont *m_font;
     UIColor *m_textColor;
-    int m_textAlignment;
+    long long m_textAlignment;
     UIView *m_inputView;
     UIView *m_inputAccessoryView;
-    float m_lineHeight;
-    BOOL m_skipScrollContainingView;
-    BOOL m_allowsEditingTextAttributes;
-    BOOL m_usesAttributedText;
-    BOOL m_clearsOnInsertion;
+    double m_lineHeight;
+    _Bool m_skipScrollContainingView;
+    _Bool m_allowsEditingTextAttributes;
+    _Bool m_usesAttributedText;
+    _Bool m_clearsOnInsertion;
 }
 
 @end

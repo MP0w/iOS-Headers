@@ -18,7 +18,7 @@
 - (void)endSessionAtSourceTime:(CDStruct_1b6d18a9)arg1;
 - (void)startSessionAtSourceTime:(CDStruct_1b6d18a9)arg1;
 - (id)error;
-- (int)status;
+- (long long)status;
 - (void)dealloc;
 - (id)initWithConfigurationState:(id)arg1 terminalError:(id)arg2;
 - (id)initWithConfigurationState:(id)arg1;

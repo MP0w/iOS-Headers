@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class SKUIColorScheme, SKUIItemOfferButtonAppearance, SKUIMetricsController, SKUIResourceLoader, SKUIStorePageViewController, SKUITextLayoutCache, UICollectionView;
+@class SKUIColorScheme, SKUIItemOfferButtonAppearance, SKUILayoutCache, SKUIMetricsController, SKUIResourceLoader, SKUIStorePageViewController, UICollectionView;
 
 @interface SKUIStorePageSectionContext : NSObject
 {
@@ -16,10 +16,10 @@
     SKUIMetricsController *_metricsController;
     SKUIStorePageViewController *_parentViewController;
     SKUIResourceLoader *_resourceLoader;
-    SKUITextLayoutCache *_textLayoutCache;
+    SKUILayoutCache *_textLayoutCache;
 }
 
-@property(readonly, nonatomic) SKUITextLayoutCache *textLayoutCache; // @synthesize textLayoutCache=_textLayoutCache;
+@property(readonly, nonatomic) SKUILayoutCache *textLayoutCache; // @synthesize textLayoutCache=_textLayoutCache;
 @property(readonly, nonatomic) SKUIResourceLoader *resourceLoader; // @synthesize resourceLoader=_resourceLoader;
 @property(readonly, nonatomic) SKUIStorePageViewController *parentViewController; // @synthesize parentViewController=_parentViewController;
 @property(readonly, nonatomic) SKUIMetricsController *metricsController; // @synthesize metricsController=_metricsController;

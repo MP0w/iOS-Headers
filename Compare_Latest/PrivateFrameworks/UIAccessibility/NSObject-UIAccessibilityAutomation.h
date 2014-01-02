@@ -9,8 +9,8 @@
 @interface NSObject (UIAccessibilityAutomation)
 - (id)_accessibilityUserTestingChildren;
 - (id)_accessibilityUserTestingChildrenWithRange:(struct _NSRange)arg1;
-- (int)_accessibilityUserTestingChildrenCount;
-- (id)_accessibilityUserTestingSupplementaryViews:(BOOL)arg1;
+- (long long)_accessibilityUserTestingChildrenCount;
+- (id)_accessibilityUserTestingSupplementaryViews:(_Bool)arg1;
 - (id)_accessibilityAncestry;
 - (id)_accessibilityUserTestingParent;
 - (id)_accessibilityUserTestingElementType;
@@ -18,11 +18,11 @@
 - (id)_accessibilityUserTestingElementBaseType;
 - (id)_accessibilityUserTestingElementAttributes;
 - (id)_accessibilityKeyboardKeyEnteredString;
-- (BOOL)_accessibilityUserTestingIsRightNavButton;
-- (BOOL)_accessibilityUserTestingIsBackNavButton;
-- (void)_accessibilitySetUserTestingIsCancelButton:(BOOL)arg1;
-- (void)_accessibilitySetUserTestingIsDefaultButton:(BOOL)arg1;
-- (BOOL)_accessibilityUserTestingIsCancelButton;
-- (BOOL)_accessibilityUserTestingIsDefaultButton;
+- (_Bool)_accessibilityUserTestingIsRightNavButton;
+- (_Bool)_accessibilityUserTestingIsBackNavButton;
+- (void)_accessibilitySetUserTestingIsCancelButton:(_Bool)arg1;
+- (void)_accessibilitySetUserTestingIsDefaultButton:(_Bool)arg1;
+- (_Bool)_accessibilityUserTestingIsCancelButton;
+- (_Bool)_accessibilityUserTestingIsDefaultButton;
 @end
 

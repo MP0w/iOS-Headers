@@ -20,9 +20,9 @@
 + (id)mediaFileTypeWithFileTypeIdentifier:(id)arg1;
 + (id)allFileTypeIdentifiers;
 + (void)initialize;
-- (BOOL)supportsFormat:(struct opaqueCMFormatDescription *)arg1;
-- (BOOL)supportsOutputSettings:(id)arg1 reason:(id *)arg2;
-@property(readonly, nonatomic) unsigned long audioFileTypeID;
+- (_Bool)supportsFormat:(struct opaqueCMFormatDescription *)arg1;
+- (_Bool)supportsOutputSettings:(id)arg1 reason:(id *)arg2;
+@property(readonly, nonatomic) unsigned int audioFileTypeID;
 @property(readonly, nonatomic) NSString *figFormatReaderFileFormat;
 @property(readonly, nonatomic) NSString *UTI;
 @property(readonly, nonatomic) NSSet *supportedMediaTypes;

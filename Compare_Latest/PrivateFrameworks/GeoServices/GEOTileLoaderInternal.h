@@ -11,6 +11,7 @@
 
 @class GEOTileCache, GEOTileLoaderConfiguration, GEOTileServerProxy, NSMutableArray, NSMutableSet, NSObject<OS_dispatch_queue>;
 
+// Not exported
 @interface GEOTileLoaderInternal : GEOTileLoader <GEOTileServerProxyDelegate, GEOResourceManifestTileGroupObserver>
 {
     struct list<LoadItem, std::__1::allocator<LoadItem>> _loadItems;
@@ -27,14 +28,14 @@
     int _networkHits;
     struct list<ShrinkCacheRequester, std::__1::allocator<ShrinkCacheRequester>> _shrinkCacheRequesters;
     NSMutableArray *_tileDecoders;
-    BOOL _networkActive;
+    _Bool _networkActive;
     id <GEOTileLoaderInternalDelegate> _internalDelegate;
     NSObject<OS_dispatch_queue> *_internalDelegateQ;
     GEOTileLoaderConfiguration *_config;
     struct mutex _usageLock;
     struct unordered_map<_GEOTileKey, UsageData, std::__1::hash<GEOTileKey>, std::__1::equal_to<GEOTileKey>, std::__1::allocator<std::__1::pair<const _GEOTileKey, UsageData>>> _usageData;
     struct unique_ptr<geo::DispatchTimer, std::__1::default_delete<geo::DispatchTimer>> _usageTimer;
-    BOOL _isUsageTimerScheduled;
+    _Bool _isUsageTimerScheduled;
     int _rollingBatchId;
     struct deque<ErrorInfo, std::__1::allocator<ErrorInfo>> _recentErrors;
 }
@@ -61,6 +62,7 @@
 - (void)expireTilesWithPredicate:(id)arg1;
 - (void)registerTileLoader:(Class)arg1;
 - (void)registerTileDecoder:(id)arg1;
+- (void)_localeChanged:(id)arg1;
 - (void)_tileEditionChanged:(id)arg1;
 - (void)resourceManifestManagerDidChangeActiveTileGroup:(id)arg1;
 - (void)resourceManifestManagerWillChangeActiveTileGroup:(id)arg1;
@@ -74,10 +76,11 @@
 - (void)setSortPoint:(const CDStruct_c3b9c2ee *)arg1;
 - (void)_timerFired;
 - (void)_requestOnlineTiles;
-- (void)loadKey:(const struct _GEOTileKey *)arg1 priority:(unsigned int)arg2 forClient:(id)arg3 options:(unsigned int)arg4 callbackQ:(id)arg5 beginNetwork:(id)arg6 callback:(void)arg7;
+- (void)loadKey:(const struct _GEOTileKey *)arg1 priority:(unsigned int)arg2 forClient:(id)arg3 options:(unsigned long long)arg4 callbackQ:(id)arg5 beginNetwork:(id)arg6 callback:(void)arg7;
 - (void)_usageTimerFired;
-- (void)loadKey:(const struct _GEOTileKey *)arg1 priority:(unsigned int)arg2 forClient:(id)arg3 proxyClient:(id)arg4 options:(unsigned int)arg5 callbackQ:(id)arg6 beginNetwork:(id)arg7 callback:(void)arg8;
-- (BOOL)_cancelIfNeeded:(__list_iterator_d839716a *)arg1;
+- (_Bool)reprioritizeKey:(const struct _GEOTileKey *)arg1 forClient:(id)arg2 newPriority:(unsigned int)arg3;
+- (void)loadKey:(const struct _GEOTileKey *)arg1 priority:(unsigned int)arg2 forClient:(id)arg3 proxyClient:(id)arg4 options:(unsigned long long)arg5 callbackQ:(id)arg6 beginNetwork:(id)arg7 callback:(void)arg8;
+- (_Bool)_cancelIfNeeded:(__list_iterator_d839716a *)arg1;
 - (void)_cancel:(__list_iterator_d839716a *)arg1 err:(id)arg2;
 - (void)_updateNetworkActive;
 - (void)closeForClient:(id)arg1;

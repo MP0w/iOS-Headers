@@ -6,18 +6,19 @@
 
 #import <ScreenReaderCore/SCRCPhotoEvaluatorResult.h>
 
+// Not exported
 @interface SCRCPhotoEvaluatorResultColor : SCRCPhotoEvaluatorResult
 {
-    float _redLevel;
-    float _blueLevel;
-    float _greenLevel;
+    double _redLevel;
+    double _blueLevel;
+    double _greenLevel;
 }
 
-@property(readonly, nonatomic) float greenLevel; // @synthesize greenLevel=_greenLevel;
-@property(readonly, nonatomic) float blueLevel; // @synthesize blueLevel=_blueLevel;
-@property(readonly, nonatomic) float redLevel; // @synthesize redLevel=_redLevel;
+@property(readonly, nonatomic) double greenLevel; // @synthesize greenLevel=_greenLevel;
+@property(readonly, nonatomic) double blueLevel; // @synthesize blueLevel=_blueLevel;
+@property(readonly, nonatomic) double redLevel; // @synthesize redLevel=_redLevel;
 - (id)humanReadableResult;
-- (id)initWithRedLevel:(float)arg1 blueLevel:(float)arg2 greenLevel:(float)arg3;
+- (id)initWithRedLevel:(double)arg1 blueLevel:(double)arg2 greenLevel:(double)arg3;
 
 @end
 

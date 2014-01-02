@@ -10,9 +10,9 @@
 {
 }
 
-+ (float)rowHeightForTitle:(id)arg1 body:(id)arg2 rowWidth:(float)arg3;
++ (_Bool)wantsUnlockActionText;
++ (double)rowHeightForTitle:(id)arg1 body:(id)arg2 rowWidth:(double)arg3;
 - (void)layoutSubviews;
-- (BOOL)wantsUnlockActionText;
 
 @end
 

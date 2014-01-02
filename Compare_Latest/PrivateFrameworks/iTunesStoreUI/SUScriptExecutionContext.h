@@ -28,7 +28,7 @@
 - (void)evaluateScriptWithURLBagKey:(id)arg1;
 - (void)evaluateScriptAtURL:(id)arg1;
 - (void)callWebScriptMethod:(id)arg1 withArguments:(id)arg2;
-- (BOOL)evaluateData:(id)arg1 MIMEType:(id)arg2 textEncodingName:(id)arg3 baseURL:(id)arg4;
+- (_Bool)evaluateData:(id)arg1 MIMEType:(id)arg2 textEncodingName:(id)arg3 baseURL:(id)arg4;
 - (void)dealloc;
 
 @end

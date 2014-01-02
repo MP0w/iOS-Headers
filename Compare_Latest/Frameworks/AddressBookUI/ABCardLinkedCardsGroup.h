@@ -6,13 +6,18 @@
 
 #import <AddressBookUI/ABCardGroup.h>
 
+@class NSArray;
+
 @interface ABCardLinkedCardsGroup : ABCardGroup
 {
+    NSArray *_linkedContacts;
 }
 
+@property(retain, nonatomic) NSArray *linkedContacts; // @synthesize linkedContacts=_linkedContacts;
 - (id)editingItems;
 - (id)displayItems;
 - (id)title;
+- (void)dealloc;
 
 @end
 

@@ -8,6 +8,7 @@
 
 @class CIColor, CIVector;
 
+// Not exported
 @interface CISmoothLinearGradient : CIFilter
 {
     CIVector *inputPoint0;

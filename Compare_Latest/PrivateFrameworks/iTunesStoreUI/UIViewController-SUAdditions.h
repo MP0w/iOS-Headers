@@ -10,8 +10,8 @@
 
 @interface UIViewController (SUAdditions)
 @property(readonly, nonatomic) SUViewControllerFactory *viewControllerFactory;
-@property(readonly, nonatomic) BOOL shouldInvalidateForMemoryPurge;
-- (void)setBadgeValue:(id)arg1 animated:(BOOL)arg2 blink:(BOOL)arg3;
+@property(readonly, nonatomic) _Bool shouldInvalidateForMemoryPurge;
+- (void)setBadgeValue:(id)arg1 animated:(_Bool)arg2 blink:(_Bool)arg3;
 - (id)section;
 - (id)_sectionForViewController:(id)arg1;
 - (void)restoreArchivableContext:(id)arg1;
@@ -21,13 +21,13 @@
 - (void)keyboardWillHideWithInfo:(id)arg1;
 - (void)keyboardDidShowWithInfo:(id)arg1;
 - (void)keyboardDidHideWithInfo:(id)arg1;
-- (BOOL)isRootViewController;
-@property(readonly, nonatomic, getter=isLoading) BOOL loading;
-@property(readonly, nonatomic, getter=isLoaded) BOOL loaded;
-- (BOOL)isInMoreList;
-- (BOOL)isDescendantOfViewController:(id)arg1;
+- (_Bool)isRootViewController;
+@property(readonly, nonatomic, getter=isLoading) _Bool loading;
+@property(readonly, nonatomic, getter=isLoaded) _Bool loaded;
+- (_Bool)isInMoreList;
+- (_Bool)isDescendantOfViewController:(id)arg1;
 - (void)iTunesStoreUI_dismissAction:(id)arg1;
-- (void)dismissAnimated:(BOOL)arg1;
+- (void)dismissAnimated:(_Bool)arg1;
 - (id)copyArchivableJetsamContext;
 - (id)copyArchivableContext;
 @end

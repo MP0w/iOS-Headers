@@ -10,6 +10,7 @@
 
 @class OADPoint3D, OADVector3D;
 
+// Not exported
 @interface OADBackdrop : NSObject <NSCopying>
 {
     OADPoint3D *mAnchor;
@@ -17,8 +18,8 @@
     OADVector3D *mUp;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)setUp:(id)arg1;
 - (id)up;
 - (void)setNormal:(id)arg1;

@@ -8,6 +8,7 @@
 
 @class NSEntityMapping, NSMigrationManager, NSMutableDictionary, NSPropertyMapping;
 
+// Not exported
 @interface NSMigrationContext : NSObject
 {
     NSMutableDictionary *_bySourceAssociationTable;
@@ -16,7 +17,7 @@
     NSMutableDictionary *_byMappingByDestinationAssociationTable;
     NSMigrationManager *_migrationManager;
     NSEntityMapping *_currentMapping;
-    unsigned int _currentStep;
+    unsigned long long _currentStep;
     NSPropertyMapping *_currentPropertyMapping;
 }
 
@@ -25,8 +26,8 @@
 - (void)associateSourceInstance:(id)arg1 withDestinationInstance:(id)arg2 forEntityMapping:(id)arg3;
 - (void)_createAssociationsByDestination:(id)arg1 fromSource:(id)arg2 forEntityMapping:(id)arg3;
 - (void)_createAssociationsBySource:(id)arg1 withDestination:(id)arg2 forEntityMapping:(id)arg3;
-- (void)setCurrentMigrationStep:(unsigned int)arg1;
-- (unsigned int)currentMigrationStep;
+- (void)setCurrentMigrationStep:(unsigned long long)arg1;
+- (unsigned long long)currentMigrationStep;
 - (void)setCurrentPropertyMapping:(id)arg1;
 - (id)currentPropertyMapping;
 - (void)setCurrentEntityMapping:(id)arg1;

@@ -34,7 +34,7 @@
 - (unsigned int)groupIndexForChapterIndex:(unsigned int)arg1 groupingProperty:(int)arg2;
 - (unsigned int)chapterIndexForGroupIndex:(unsigned int)arg1 groupingProperty:(int)arg2;
 - (unsigned int)countOfGroupsForProperty:(int)arg1;
-- (unsigned int *)_cachedCookieIndexMapForProperty:(int)arg1 createIfNecessary:(BOOL)arg2;
+- (unsigned int *)_cachedCookieIndexMapForProperty:(int)arg1 createIfNecessary:(_Bool)arg2;
 - (unsigned int)countOfChapters;
 - (void)dealloc;
 - (struct ChapterData *)chapterDataRef;

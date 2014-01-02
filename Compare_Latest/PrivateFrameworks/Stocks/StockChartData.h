@@ -13,25 +13,25 @@
     StockGraphImageSet *_graphImageSets[2];
     NSArray *_labelInfoArrays[4];
     int _labelAlignments[2];
-    BOOL _isUnavailable;
-    BOOL _hasVolume;
-    Stock *_stock;
-    int _chartInterval;
-    CDStruct_8cc9ba3e *_stockValues;
+    _Bool _isUnavailable;
+    _Bool _hasVolume;
     unsigned int _stockValueCount;
+    int _yAxisFractionDigits;
+    Stock *_stock;
+    long long _chartInterval;
+    CDStruct_8cc9ba3e *_stockValues;
     NSArray *_interestingIndexes;
     NSDate *_marketOpenDate;
     NSDate *_marketCloseDate;
     NSTimeZone *_marketTimeZone;
     CDStruct_8cc9ba3e *_minValue;
     CDStruct_8cc9ba3e *_maxValue;
-    int _yAxisFractionDigits;
     double _expirationTime;
 }
 
 @property(nonatomic) int yAxisFractionDigits; // @synthesize yAxisFractionDigits=_yAxisFractionDigits;
-@property(nonatomic) BOOL hasVolume; // @synthesize hasVolume=_hasVolume;
-@property(nonatomic) BOOL isUnavailable; // @synthesize isUnavailable=_isUnavailable;
+@property(nonatomic) _Bool hasVolume; // @synthesize hasVolume=_hasVolume;
+@property(nonatomic) _Bool isUnavailable; // @synthesize isUnavailable=_isUnavailable;
 @property(nonatomic) double expirationTime; // @synthesize expirationTime=_expirationTime;
 @property(nonatomic) CDStruct_8cc9ba3e *maxValue; // @synthesize maxValue=_maxValue;
 @property(nonatomic) CDStruct_8cc9ba3e *minValue; // @synthesize minValue=_minValue;
@@ -41,20 +41,20 @@
 @property(retain, nonatomic) NSArray *interestingIndexes; // @synthesize interestingIndexes=_interestingIndexes;
 @property(readonly) unsigned int stockValueCount; // @synthesize stockValueCount=_stockValueCount;
 @property(readonly) CDStruct_8cc9ba3e *stockValues; // @synthesize stockValues=_stockValues;
-@property(nonatomic) int chartInterval; // @synthesize chartInterval=_chartInterval;
+@property(nonatomic) long long chartInterval; // @synthesize chartInterval=_chartInterval;
 @property(nonatomic) __weak Stock *stock; // @synthesize stock=_stock;
 - (void).cxx_destruct;
 - (void)dealloc;
 - (id)description;
-- (void)setLabelAlignment:(int)arg1 forDetailedMode:(BOOL)arg2;
-- (int)labelAlignmentForDetailedMode:(BOOL)arg1;
-- (void)setLabelInfoArray:(id)arg1 forYAxis:(BOOL)arg2 detailedMode:(BOOL)arg3;
-- (id)labelInfoArrayForYAxis:(BOOL)arg1 detailedMode:(BOOL)arg2;
+- (void)setLabelAlignment:(int)arg1 forDetailedMode:(_Bool)arg2;
+- (int)labelAlignmentForDetailedMode:(_Bool)arg1;
+- (void)setLabelInfoArray:(id)arg1 forYAxis:(_Bool)arg2 detailedMode:(_Bool)arg3;
+- (id)labelInfoArrayForYAxis:(_Bool)arg1 detailedMode:(_Bool)arg2;
 - (void)clearAllImageSets;
 - (void)setImageSet:(id)arg1 forStockGraphSize:(int)arg2;
 - (id)imageSetForStockGraphSize:(int)arg1;
 - (CDStruct_8cc9ba3e *)allocateStockValuesWithCount:(unsigned int)arg1;
-- (id)initWithStock:(id)arg1 interval:(int)arg2;
+- (id)initWithStock:(id)arg1 interval:(long long)arg2;
 
 @end
 

@@ -23,7 +23,7 @@
 @property(readonly, nonatomic) CLSilo *silo; // @synthesize silo=_silo;
 - (void).cxx_destruct;
 - (id)debugDescription;
-- (BOOL)isHydrated;
+- (_Bool)isHydrated;
 - (id)initWithInboundProtocol:(id)arg1 outboundProtocol:(id)arg2 andSilo:(id)arg3;
 - (id)initInSilo:(id)arg1;
 - (id)init;

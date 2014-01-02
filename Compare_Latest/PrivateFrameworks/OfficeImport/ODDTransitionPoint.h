@@ -6,6 +6,7 @@
 
 #import <OfficeImport/ODDDataPoint.h>
 
+// Not exported
 @interface ODDTransitionPoint : ODDDataPoint
 {
 }

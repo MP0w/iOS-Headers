@@ -8,6 +8,7 @@
 
 @class NSString, NSURL;
 
+// Not exported
 @interface WFBlockPage : NSObject
 {
     NSURL *pageTemplateURL;
@@ -25,7 +26,7 @@
 - (id)_blockpage;
 - (void)dealloc;
 - (id)_initWithUsername:(id)arg1 fileName:(id)arg2;
-- (id)initWithUsername:(id)arg1 overridesAllowded:(BOOL)arg2;
+- (id)initWithUsername:(id)arg1 overridesAllowded:(_Bool)arg2;
 - (id)initNoOveridePageWithUsername:(id)arg1;
 
 @end

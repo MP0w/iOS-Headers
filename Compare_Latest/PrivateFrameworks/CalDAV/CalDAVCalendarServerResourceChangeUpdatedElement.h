@@ -10,14 +10,14 @@
 
 @interface CalDAVCalendarServerResourceChangeUpdatedElement : CalDAVCalendarServerResourceChangeElement
 {
-    BOOL _content;
+    _Bool _content;
     CoreDAVItem *_prop;
     NSMutableSet *_calendarChanges;
 }
 
 @property(retain) NSMutableSet *calendarChanges; // @synthesize calendarChanges=_calendarChanges;
 @property(retain) CoreDAVItem *prop; // @synthesize prop=_prop;
-@property BOOL content; // @synthesize content=_content;
+@property _Bool content; // @synthesize content=_content;
 - (id)copyParseRules;
 - (void)addCalendarChange:(id)arg1;
 - (void)addContentItem:(id)arg1;

@@ -8,12 +8,12 @@
 
 @interface ObservationTarget : NSObject
 {
-    BOOL _isActive;
+    _Bool _isActive;
     SEL _selector;
 }
 
 @property(nonatomic) SEL selector; // @synthesize selector=_selector;
-@property(nonatomic) BOOL isActive; // @synthesize isActive=_isActive;
+@property(nonatomic) _Bool isActive; // @synthesize isActive=_isActive;
 - (id)description;
 
 @end

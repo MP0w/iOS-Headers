@@ -11,12 +11,12 @@
 @interface BBXPCOutgoingConnection : BBXPCConnection
 {
     NSString *_name;
-    BOOL _autoReconnect;
+    _Bool _autoReconnect;
     NSInvocation *_connectionEstablishmentInvocation;
 }
 
 @property(retain, nonatomic) NSInvocation *connectionEstablishmentInvocation; // @synthesize connectionEstablishmentInvocation=_connectionEstablishmentInvocation;
-@property(nonatomic) BOOL autoReconnects; // @synthesize autoReconnects=_autoReconnect;
+@property(nonatomic) _Bool autoReconnects; // @synthesize autoReconnects=_autoReconnect;
 @property(readonly, nonatomic) NSString *serviceName; // @synthesize serviceName=_name;
 - (void)_configureRemoteProxy;
 - (void)_connectionEstablishedResponse:(id)arg1;

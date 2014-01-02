@@ -27,9 +27,9 @@
 - (id)description;
 - (id)signature;
 - (id)segmentAddresses;
-- (BOOL)isProtected;
+- (_Bool)isProtected;
 - (id)commpage;
-- (BOOL)isCommpage;
+- (_Bool)isCommpage;
 - (id)uuid;
 - (unsigned int)compatibilityVersion;
 - (unsigned int)currentVersion;
@@ -39,8 +39,8 @@
 - (id)regions;
 - (id)sections;
 - (id)segmentNamed:(id)arg1;
-- (BOOL)isMachO;
-- (BOOL)isFromSharedCache;
+- (_Bool)isMachO;
+- (_Bool)isFromSharedCache;
 - (unsigned int)flags;
 - (unsigned int)fileType;
 - (long long)vmaddrSlide;

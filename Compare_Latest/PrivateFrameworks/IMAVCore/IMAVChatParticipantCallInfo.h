@@ -21,25 +21,25 @@
     NSNumber *_localNATType;
     NSNumber *_remoteNATType;
     unsigned int _callID;
-    int _state;
-    BOOL _isBeingHandedOff;
-    BOOL _isAudioPaused;
-    BOOL _isVideoPaused;
-    BOOL _isReinitiate;
-    unsigned int _localConnectionType;
-    unsigned int _remoteConnectionType;
+    long long _state;
+    _Bool _isBeingHandedOff;
+    _Bool _isAudioPaused;
+    _Bool _isVideoPaused;
+    _Bool _isReinitiate;
+    unsigned long long _localConnectionType;
+    unsigned long long _remoteConnectionType;
     NSMutableArray *_remotePacketOutageTimes;
-    BOOL _inviteNeedsDelivery;
+    _Bool _inviteNeedsDelivery;
     NSData *_localSKEData;
     NSData *_remoteSKEData;
 }
 
-@property(nonatomic) BOOL inviteNeedsDelivery; // @synthesize inviteNeedsDelivery=_inviteNeedsDelivery;
-@property(nonatomic) unsigned int remoteConnectionType; // @synthesize remoteConnectionType=_remoteConnectionType;
-@property(nonatomic) unsigned int localConnectionType; // @synthesize localConnectionType=_localConnectionType;
-@property(nonatomic) BOOL isReinitiate; // @synthesize isReinitiate=_isReinitiate;
-@property(nonatomic) BOOL isVideoPaused; // @synthesize isVideoPaused=_isVideoPaused;
-@property(readonly, nonatomic) BOOL isAudioPaused; // @synthesize isAudioPaused=_isAudioPaused;
+@property(nonatomic) _Bool inviteNeedsDelivery; // @synthesize inviteNeedsDelivery=_inviteNeedsDelivery;
+@property(nonatomic) unsigned long long remoteConnectionType; // @synthesize remoteConnectionType=_remoteConnectionType;
+@property(nonatomic) unsigned long long localConnectionType; // @synthesize localConnectionType=_localConnectionType;
+@property(nonatomic) _Bool isReinitiate; // @synthesize isReinitiate=_isReinitiate;
+@property(nonatomic) _Bool isVideoPaused; // @synthesize isVideoPaused=_isVideoPaused;
+@property(readonly, nonatomic) _Bool isAudioPaused; // @synthesize isAudioPaused=_isAudioPaused;
 @property(retain, nonatomic) NSData *remoteNATIP; // @synthesize remoteNATIP=_remoteNATIP;
 @property(retain, nonatomic) NSData *localNATIP; // @synthesize localNATIP=_localNATIP;
 @property(retain, nonatomic) NSNumber *remoteNATType; // @synthesize remoteNATType=_remoteNATType;
@@ -49,8 +49,8 @@
 @property(retain, nonatomic) NSData *localSKEData; // @synthesize localSKEData=_localSKEData;
 @property(retain, nonatomic) NSData *localICEData; // @synthesize localICEData=_localICEData;
 @property(retain, nonatomic) NSData *remoteICEData; // @synthesize remoteICEData=_remoteICEData;
-@property(nonatomic) BOOL isBeingHandedOff; // @synthesize isBeingHandedOff=_isBeingHandedOff;
-@property(nonatomic) int state; // @synthesize state=_state;
+@property(nonatomic) _Bool isBeingHandedOff; // @synthesize isBeingHandedOff=_isBeingHandedOff;
+@property(nonatomic) long long state; // @synthesize state=_state;
 @property(nonatomic) unsigned int callID; // @synthesize callID=_callID;
 @property(retain, nonatomic) NSDictionary *relayCancel; // @synthesize relayCancel=_relayCancel;
 @property(retain, nonatomic) NSDictionary *relayUpdate; // @synthesize relayUpdate=_relayUpdate;
@@ -58,7 +58,7 @@
 - (unsigned int)_numberOfOutagesSinceInterval:(double)arg1;
 - (void)_addRemotePacketOutage;
 - (id)description;
-@property(readonly, nonatomic) BOOL isFinished;
+@property(readonly, nonatomic) _Bool isFinished;
 - (void)dealloc;
 - (id)init;
 

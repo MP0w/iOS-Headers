@@ -11,7 +11,7 @@
 - (void)voiceChatService:(id)arg1 sendData:(id)arg2 toParticipantID:(id)arg3;
 
 @optional
-- (void)voiceChatService:(id)arg1 didReceiveInvitationFromParticipantID:(id)arg2 callID:(unsigned long)arg3;
+- (void)voiceChatService:(id)arg1 didReceiveInvitationFromParticipantID:(id)arg2 callID:(unsigned int)arg3;
 - (void)voiceChatService:(id)arg1 didStopWithParticipantID:(id)arg2 error:(id)arg3;
 - (void)voiceChatService:(id)arg1 didNotStartWithParticipantID:(id)arg2 error:(id)arg3;
 - (void)voiceChatService:(id)arg1 didStartWithParticipantID:(id)arg2;

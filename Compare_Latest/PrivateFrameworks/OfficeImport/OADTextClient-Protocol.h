@@ -7,6 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol OADTextClient <NSObject>
-- (BOOL)hasText;
+- (_Bool)hasText;
 @end
 

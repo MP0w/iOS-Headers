@@ -6,6 +6,7 @@
 
 #import <OfficeImport/EDSheet.h>
 
+// Not exported
 @interface EDUnsupportedSheet : EDSheet
 {
 }

@@ -14,15 +14,20 @@
 }
 
 + (id)sharedInstance;
-- (void)requestIDStatusCache;
-- (void)forgetPeerTokensForURI:(id)arg1 fromURI:(id)arg2 fromService:(id)arg3;
-- (void)noteRemoteDecryptionErrorForToken:(id)arg1 forURI:(id)arg2 fromURI:(id)arg3 type:(int)arg4;
-- (void)startQueryForDestinations:(id)arg1 fromAccount:(id)arg2 fromURI:(id)arg3 fromService:(id)arg4 forSending:(BOOL)arg5;
-- (BOOL)requestIDStatusForDestination:(id)arg1 service:(id)arg2 listenerID:(id)arg3 queue:(id)arg4 completionBlock:(id)arg5;
-- (BOOL)requestIDStatusForDestinations:(id)arg1 service:(id)arg2 listenerID:(id)arg3 queue:(id)arg4 completionBlock:(id)arg5;
-- (id)idStatusForDestinations:(id)arg1 service:(id)arg2;
-- (BOOL)removeListenerID:(id)arg1 forService:(id)arg2;
+- (_Bool)requestIDStatusForDestination:(id)arg1 service:(id)arg2 listenerID:(id)arg3 queue:(id)arg4 completionBlock:(id)arg5;
+- (_Bool)requestIDStatusForDestinations:(id)arg1 service:(id)arg2 listenerID:(id)arg3 queue:(id)arg4 completionBlock:(id)arg5;
+- (_Bool)_flushQueryCacheForService:(id)arg1;
+- (_Bool)_warmupQueryCacheForService:(id)arg1;
+- (long long)_currentCachedIDStatusForDestination:(id)arg1 service:(id)arg2 listenerID:(id)arg3;
+- (_Bool)_hasCacheForService:(id)arg1;
+- (_Bool)currentIDStatusForDestination:(id)arg1 service:(id)arg2 listenerID:(id)arg3 queue:(id)arg4 completionBlock:(id)arg5;
+- (_Bool)currentIDStatusForDestinations:(id)arg1 service:(id)arg2 listenerID:(id)arg3 queue:(id)arg4 completionBlock:(id)arg5;
+- (_Bool)refreshIDStatusForDestination:(id)arg1 service:(id)arg2 listenerID:(id)arg3 queue:(id)arg4 completionBlock:(id)arg5;
+- (_Bool)refreshIDStatusForDestinations:(id)arg1 service:(id)arg2 listenerID:(id)arg3 queue:(id)arg4 completionBlock:(id)arg5;
+- (_Bool)removeListenerID:(id)arg1 forService:(id)arg2;
 - (void)addListenerID:(id)arg1 forService:(id)arg2;
+- (void)removeDelegate:(id)arg1 forService:(id)arg2 listenerID:(id)arg3;
+- (void)addDelegate:(id)arg1 forService:(id)arg2 listenerID:(id)arg3 queue:(id)arg4;
 - (void)removeDelegate:(id)arg1;
 - (void)addDelegate:(id)arg1 queue:(id)arg2;
 - (void)dealloc;

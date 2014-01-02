@@ -6,7 +6,7 @@
 
 #import <SAObjects/SADomainObject.h>
 
-@class NSArray, NSString, NSURL, SAMicroblogTwitterPostAuthor, SASnippetSubtitle, SAUIAppPunchOut;
+@class NSArray, NSString, NSURL, SADecoratedString, SAMicroblogTwitterPostAuthor, SAUIAppPunchOut;
 
 @interface SAMicroblogAceMicroblogSearchResult : SADomainObject
 {
@@ -16,8 +16,8 @@
 + (id)aceMicroblogSearchResult;
 - (void)updateUsingSet:(id)arg1 add:(id)arg2 remove:(id)arg3;
 @property(copy, nonatomic) NSURL *webAddress;
+@property(retain, nonatomic) SADecoratedString *summary;
 @property(copy, nonatomic) NSArray *resultUsers;
-@property(retain, nonatomic) SASnippetSubtitle *resultSummary;
 @property(copy, nonatomic) NSArray *resultPosts;
 @property(copy, nonatomic) NSArray *resultNews;
 @property(copy, nonatomic) NSString *query;

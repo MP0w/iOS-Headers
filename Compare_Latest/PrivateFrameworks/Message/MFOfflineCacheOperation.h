@@ -14,7 +14,7 @@
 }
 
 @property(nonatomic) long long rowid; // @synthesize rowid=_rowid;
-- (BOOL)hasRowid;
+- (_Bool)hasRowid;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)init;

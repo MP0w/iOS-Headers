@@ -20,8 +20,8 @@
 - (void).cxx_destruct;
 - (id)tableViewCellForTableView:(id)arg1 indexPath:(id)arg2;
 - (id)selectionActionForTableView:(id)arg1 indexPath:(id)arg2;
-- (int)numberOfRowsInSection;
-- (float)heightForCellInTableView:(id)arg1 indexPath:(id)arg2;
+- (long long)numberOfRowsInSection;
+- (double)heightForCellInTableView:(id)arg1 indexPath:(id)arg2;
 - (id)initWithItem:(id)arg1 clientContext:(id)arg2;
 
 @end

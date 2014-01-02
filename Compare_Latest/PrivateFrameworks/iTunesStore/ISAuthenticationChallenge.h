@@ -16,14 +16,14 @@
 
 @property(retain) NSString *localizedTitle; // @synthesize localizedTitle=_localizedTitle;
 @property(retain) NSString *localizedMessage; // @synthesize localizedMessage=_localizedMessage;
-@property(readonly) BOOL userNameIsEmail;
-@property(readonly) BOOL userNameIsEditable;
+@property(readonly) _Bool userNameIsEmail;
+@property(readonly) _Bool userNameIsEditable;
 - (void)useCredential:(id)arg1;
 @property(readonly) NSString *user;
 @property(readonly) id <NSURLAuthenticationChallengeSender> sender;
 @property(readonly) NSString *password;
-@property(readonly) BOOL hasPassword;
-@property(readonly) int failureCount;
+@property(readonly) _Bool hasPassword;
+@property(readonly) long long failureCount;
 - (void)cancelAuthentication;
 - (void)dealloc;
 

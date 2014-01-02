@@ -12,15 +12,15 @@
 
 - (id)nodeIdentifier;
 - (void)_setDisplayNameFromRepresentation:(id)arg1;
-- (BOOL)canAddIcon;
+- (_Bool)canAddIcon;
 - (id)folderType;
-- (BOOL)canEditDisplayName;
-- (BOOL)canRemoveIcons;
-- (BOOL)shouldRemoveWhenEmpty;
-- (BOOL)isNewsstandFolder;
+- (_Bool)canEditDisplayName;
+- (_Bool)canRemoveIcons;
+- (_Bool)shouldRemoveWhenEmpty;
+- (_Bool)isNewsstandFolder;
 - (Class)listViewClass;
 - (Class)listModelClass;
-- (void)setIsOpen:(BOOL)arg1;
+- (void)setIsOpen:(_Bool)arg1;
 - (id)icon;
 - (id)init;
 - (Class)controllerClass;

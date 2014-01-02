@@ -12,7 +12,7 @@
 
 @interface WPAWDL : NSObject <XPCClientDelegate>
 {
-    int _state;
+    long long _state;
     XPCClient *_connection;
     id <WPAWDLDelegate> _delegate;
     NSObject<OS_dispatch_queue> *_queue;
@@ -20,15 +20,15 @@
 
 + (id)generateDataFromEmails:(id)arg1;
 + (id)hashEmail:(id)arg1;
-+ (BOOL)doesData:(id)arg1 matchArray:(id)arg2;
++ (_Bool)doesData:(id)arg1 matchArray:(id)arg2;
 @property(retain) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(nonatomic) __weak id <WPAWDLDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) XPCClient *connection; // @synthesize connection=_connection;
-@property int state; // @synthesize state=_state;
+@property long long state; // @synthesize state=_state;
 - (void).cxx_destruct;
 - (void)connectionInterrupted;
 - (void)connectionDied;
-- (void)updateState:(int)arg1;
+- (void)updateState:(long long)arg1;
 - (void)messageArrived:(id)arg1;
 - (void)dealloc;
 - (id)initWithDelegate:(id)arg1;
@@ -39,6 +39,7 @@
 - (void)startConnectionlessAWDLServiceScanning;
 - (void)stopConnectionlessAWDLServiceAdvertising;
 - (void)startConnectionlessAWDLServiceAdvertisingWithData:(id)arg1;
+- (id)description;
 
 @end
 

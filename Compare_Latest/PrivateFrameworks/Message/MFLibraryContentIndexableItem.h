@@ -11,12 +11,12 @@
 @interface MFLibraryContentIndexableItem : NSObject
 {
     unsigned int _documentIdentifier;
+    unsigned int _mailboxID;
     NSString *_content;
     NSArray *_to;
     NSArray *_cc;
     NSArray *_senders;
     NSString *_subject;
-    unsigned int _mailboxID;
 }
 
 @property(nonatomic) unsigned int mailboxID; // @synthesize mailboxID=_mailboxID;
@@ -26,7 +26,7 @@
 @property(copy, nonatomic) NSArray *to; // @synthesize to=_to;
 @property(copy, nonatomic) NSString *content; // @synthesize content=_content;
 @property(nonatomic) unsigned int documentIdentifier; // @synthesize documentIdentifier=_documentIdentifier;
-- (int)compare:(id)arg1;
+- (long long)compare:(id)arg1;
 - (void)dealloc;
 - (id)initWithDocumentIdentifier:(unsigned int)arg1;
 

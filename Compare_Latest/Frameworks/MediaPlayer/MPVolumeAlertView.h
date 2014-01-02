@@ -16,7 +16,6 @@
 }
 
 - (void).cxx_destruct;
-- (void)layout;
 - (void)setVolumeAudioCategory:(id)arg1;
 - (id)volumeView;
 

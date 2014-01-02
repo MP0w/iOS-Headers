@@ -15,7 +15,7 @@
     SKUIClientContext *_clientContext;
     SKUIColorScheme *_colorScheme;
     SKUIRoundedRectButton *_giftingButton;
-    int _interfaceOrientation;
+    long long _interfaceOrientation;
     UIButton *_termsAndConditionsButton;
     SKUIRoundedRectButton *_usernameButton;
     UIButton *_redeemButton;
@@ -23,7 +23,7 @@
 
 @property(readonly, nonatomic) UIButton *termsAndConditionsButton; // @synthesize termsAndConditionsButton=_termsAndConditionsButton;
 @property(readonly, nonatomic) UIButton *redeemButton; // @synthesize redeemButton=_redeemButton;
-@property(nonatomic) int interfaceOrientation; // @synthesize interfaceOrientation=_interfaceOrientation;
+@property(nonatomic) long long interfaceOrientation; // @synthesize interfaceOrientation=_interfaceOrientation;
 @property(readonly, nonatomic) UIButton *giftingButton; // @synthesize giftingButton=_giftingButton;
 @property(copy, nonatomic) SKUIColorScheme *colorScheme; // @synthesize colorScheme=_colorScheme;
 @property(readonly, nonatomic) UIButton *appleIDButton; // @synthesize appleIDButton=_appleIDButton;
@@ -32,7 +32,8 @@
 - (void)_layoutForIPad;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
-@property(nonatomic, getter=isTermsAndConditionsHidden) BOOL termsAndConditionsHidden;
+@property(nonatomic, getter=isTermsAndConditionsHidden) _Bool termsAndConditionsHidden;
+@property(nonatomic, getter=isGiftingHidden) _Bool giftingHidden;
 @property(copy, nonatomic) NSString *accountCredits;
 - (id)initWithClientContext:(id)arg1;
 - (id)_termsChevronImage;

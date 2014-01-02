@@ -15,31 +15,19 @@
     NSMutableDictionary *_childAccountsByID;
     NSMutableDictionary *_childAccountIDToParentAccountID;
     NSMutableDictionary *_originalAccountsByID;
-    unsigned int _dataVersion;
+    unsigned long long _dataVersion;
     NSArray *_runtimeFixers;
 }
 
 + (id)_notifierClassNamesForAccountType:(id)arg1 dataclass:(id)arg2;
-+ (id)displayNameForGroupOfAccountType:(id)arg1 forBeginningOfSentence:(BOOL)arg2;
++ (id)displayNameForGroupOfAccountType:(id)arg1 forBeginningOfSentence:(_Bool)arg2;
 + (void)accountDidChange:(id)arg1 forDataclass:(id)arg2;
 + (void)accountWillChange:(id)arg1 forDataclass:(id)arg2;
 + (void)_migrateAccountsIfNeeded;
-+ (void)_setShouldSkipNotifications:(BOOL)arg1;
-+ (id)fullPathToAccountSettingsPlist;
-+ (unsigned int)currentVersion;
-+ (BOOL)_oldMailAccountsInformationFound;
-+ (BOOL)_oldDAAccountsInformationFound;
-+ (BOOL)accountSettingsNeedsToBeMigrated;
-+ (void)shouldMigrateOldMailAccounts:(char *)arg1 oldDAAccounts:(char *)arg2 newAccountSettings:(char *)arg3;
-+ (void)removeNewAccountSettingsToMigrateOldAccountInformation;
-+ (void)waitForMigrationToFinish;
-+ (void)releaseMigrationLock:(id)arg1;
-+ (id)createAndLockMigrationLock;
-+ (void)killDataAccessIfNecessary;
 - (void)_sendNotificationsForChangedAccounts;
 - (void)_addNotificationToDictionary:(id)arg1 forChangeType:(int)arg2 originalProperties:(id)arg3 currentProperties:(id)arg4;
 - (void)_setOriginalAccountDictionaries;
-- (unsigned int)countOfBasicAccountsWithTypes:(id)arg1;
+- (unsigned long long)countOfBasicAccountsWithTypes:(id)arg1;
 - (id)_createRuntimeFixers;
 - (id)_initWithAccountsInfo:(id)arg1;
 - (void)_loadChildrenFromAccount:(id)arg1;
@@ -54,7 +42,7 @@
 - (void)deleteAccount:(id)arg1;
 - (void)insertAccount:(id)arg1;
 - (void)updateAccount:(id)arg1;
-- (unsigned int)count;
+- (unsigned long long)count;
 - (id)accountsWithTypes:(id)arg1 withLoader:(id)arg2;
 - (id)accountsWithTypes:(id)arg1;
 - (id)allMailAccounts;
@@ -68,10 +56,6 @@
 - (id)accountWithIdentifier:(id)arg1;
 - (void)dealloc;
 - (id)init;
-- (unsigned int)dataVersion;
-- (id)initInsideOfMigration;
-- (id)initWithAccounsInfoArray:(id)arg1;
-- (void)setDataVersion:(unsigned int)arg1;
 
 @end
 

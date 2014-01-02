@@ -10,6 +10,7 @@
 
 @class NSKeyValueNonmutatingArrayMethodSet, NSObject, NSString;
 
+// Not exported
 @interface NSKeyValueArray : NSArray <NSKeyValueProxyCaching>
 {
     NSObject *_container;
@@ -18,11 +19,11 @@
 }
 
 + (id)_proxyShare;
-+ (CDStruct_e8a1eea0 *)_proxyNonGCPoolPointer;
++ (CDStruct_7c9a8e9f *)_proxyNonGCPoolPointer;
 - (id)objectsAtIndexes:(id)arg1;
-- (id)objectAtIndex:(unsigned int)arg1;
+- (id)objectAtIndex:(unsigned long long)arg1;
 - (void)getObjects:(id *)arg1 range:(struct _NSRange)arg2;
-- (unsigned int)count;
+- (unsigned long long)count;
 - (void)dealloc;
 - (void)_proxyNonGCFinalize;
 - (CDStruct_a70f6672)_proxyLocator;

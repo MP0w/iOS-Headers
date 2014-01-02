@@ -12,20 +12,20 @@
     NSExpression *_right;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 - (id)expressionValueWithObject:(id)arg1 context:(id)arg2;
 - (id)_expressionWithSubstitutionVariables:(id)arg1;
-- (void)acceptVisitor:(id)arg1 flags:(unsigned int)arg2;
+- (void)acceptVisitor:(id)arg1 flags:(unsigned long long)arg2;
 - (id)rightExpression;
 - (id)leftExpression;
 - (id)predicateFormat;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (void)allowEvaluation;
 - (void)dealloc;
-- (id)initWithType:(unsigned int)arg1 leftExpression:(id)arg2 rightExpression:(id)arg3;
+- (id)initWithType:(unsigned long long)arg1 leftExpression:(id)arg2 rightExpression:(id)arg3;
 
 @end
 

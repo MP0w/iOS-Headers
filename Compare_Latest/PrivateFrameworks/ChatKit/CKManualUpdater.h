@@ -8,14 +8,14 @@
 
 @interface CKManualUpdater : NSObject
 {
-    BOOL _needsUpdate;
+    _Bool _needsUpdate;
     id _target;
     SEL _action;
 }
 
 @property(nonatomic) SEL action; // @synthesize action=_action;
 @property(nonatomic) id target; // @synthesize target=_target;
-@property(nonatomic) BOOL needsUpdate; // @synthesize needsUpdate=_needsUpdate;
+@property(nonatomic) _Bool needsUpdate; // @synthesize needsUpdate=_needsUpdate;
 - (void)updateIfNeeded;
 - (void)setNeedsUpdate;
 - (id)initWithTarget:(id)arg1 action:(SEL)arg2;

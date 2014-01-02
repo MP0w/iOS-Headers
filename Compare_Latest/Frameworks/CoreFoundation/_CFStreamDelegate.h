@@ -8,10 +8,11 @@
 
 #import "NSStreamDelegate-Protocol.h"
 
+// Not exported
 @interface _CFStreamDelegate : NSObject <NSStreamDelegate>
 {
-    unsigned long _flags;
-    CDStruct_304912e7 _client;
+    unsigned long long _flags;
+    CDStruct_4210025a _client;
     union {
         void *_rcb;
         void *_wcb;
@@ -20,9 +21,9 @@
     } _cb;
 }
 
-- (void)stream:(id)arg1 handleEvent:(unsigned int)arg2;
+- (void)stream:(id)arg1 handleEvent:(unsigned long long)arg2;
 - (void)dealloc;
-- (id)initWithStreamEvents:(unsigned long)arg1 callback:(void *)arg2 context:(CDStruct_304912e7 *)arg3;
+- (id)initWithStreamEvents:(unsigned long long)arg1 callback:(void *)arg2 context:(CDStruct_4210025a *)arg3;
 
 @end
 

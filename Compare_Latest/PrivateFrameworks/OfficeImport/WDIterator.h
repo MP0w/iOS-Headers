@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface WDIterator : NSObject
 {
 }
 
 - (id)next;
-- (BOOL)hasNext;
+- (_Bool)hasNext;
 
 @end
 

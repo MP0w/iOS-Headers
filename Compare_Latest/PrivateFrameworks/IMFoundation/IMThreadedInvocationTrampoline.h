@@ -11,12 +11,12 @@
 @interface IMThreadedInvocationTrampoline : IMInvocationTrampoline
 {
     NSThread *_thread;
-    BOOL _immediateForMatchingThread;
+    _Bool _immediateForMatchingThread;
 }
 
 - (void)forwardInvocation:(id)arg1;
 - (void)dealloc;
-- (id)initWithTarget:(id)arg1 thread:(id)arg2 immediateForMatchingThread:(BOOL)arg3;
+- (id)initWithTarget:(id)arg1 thread:(id)arg2 immediateForMatchingThread:(_Bool)arg3;
 
 @end
 

@@ -11,15 +11,14 @@
     struct CGPoint _point;
 }
 
-+ (id)keyframe2DWithPoint:(struct CGPoint)arg1 atTime:(double)arg2 offsetType:(unsigned int)arg3;
++ (id)keyframe2DWithPoint:(struct CGPoint)arg1 atTime:(double)arg2 offsetType:(unsigned long long)arg3;
 + (id)keyframe2DWithPoint:(struct CGPoint)arg1 atTime:(double)arg2;
 @property(nonatomic) struct CGPoint point; // @synthesize point=_point;
 - (id)description;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initKeyframe2DWithPoint:(struct CGPoint)arg1 atTime:(double)arg2 offsetType:(unsigned int)arg3;
-- (id)keyframe;
+- (id)initKeyframe2DWithPoint:(struct CGPoint)arg1 atTime:(double)arg2 offsetType:(unsigned long long)arg3;
 
 @end
 

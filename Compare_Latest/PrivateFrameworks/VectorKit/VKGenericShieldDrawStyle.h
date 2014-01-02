@@ -6,6 +6,7 @@
 
 #import <VectorKit/VKDrawStyle.h>
 
+// Not exported
 @interface VKGenericShieldDrawStyle : VKDrawStyle
 {
     int _style;
@@ -30,9 +31,8 @@
 @property(nonatomic) int style; // @synthesize style=_style;
 - (id).cxx_construct;
 - (void)takeFromZoomInvariantProperties:(id)arg1;
-- (void)takeFromStyleProperties:(id)arg1 atZoom:(unsigned int)arg2 globals:(id)arg3;
+- (void)takeFromStyleProperties:(id)arg1 atZoom:(unsigned long long)arg2 globals:(id)arg3;
 - (id)variant;
-- (id)initWithStyleInfo:(id)arg1;
 
 @end
 

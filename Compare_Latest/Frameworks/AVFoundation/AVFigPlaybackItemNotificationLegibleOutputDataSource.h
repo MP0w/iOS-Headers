@@ -16,9 +16,12 @@
     struct OpaqueFigPlaybackItem *_figPlaybackItem;
     NSString *_figLegibleOutputsDictionaryKey;
     id _dataProviderBlock;
+    id _flushBlock;
 }
 
+- (void)_figPlaybackItem:(struct OpaqueFigPlaybackItem *)arg1 didFlushLegibleOutputWithDictionaryKey:(id)arg2;
 - (void)_figPlaybackItem:(struct OpaqueFigPlaybackItem *)arg1 didOutputAttributedStrings:(id)arg2 nativeSampleBuffers:(id)arg3 atItemTime:(CDStruct_1b6d18a9)arg4 withLegibleOutputsDictionaryKey:(id)arg5;
+- (void)setFlushBlock:(id)arg1;
 - (void)setDataProviderBlock:(id)arg1;
 - (void)finalize;
 - (void)dealloc;

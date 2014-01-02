@@ -6,17 +6,17 @@
 
 #import "SBScaleZoomSettings.h"
 
-@class SBAnimationSettings;
+@class SBFAnimationSettings;
 
 @interface SBCrossfadeZoomSettings : SBScaleZoomSettings
 {
-    BOOL _morphWithZoom;
-    SBAnimationSettings *_morphSettings;
+    _Bool _morphWithZoom;
+    SBFAnimationSettings *_morphSettings;
 }
 
 + (id)settingsControllerModule;
-@property(retain) SBAnimationSettings *morphSettings; // @synthesize morphSettings=_morphSettings;
-@property BOOL morphWithZoom; // @synthesize morphWithZoom=_morphWithZoom;
+@property(retain) SBFAnimationSettings *morphSettings; // @synthesize morphSettings=_morphSettings;
+@property _Bool morphWithZoom; // @synthesize morphWithZoom=_morphWithZoom;
 - (id)effectiveMorphAnimationSettings;
 - (void)setDefaultValues;
 

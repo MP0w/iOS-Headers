@@ -17,10 +17,10 @@
 
 + (id)sharedInstance;
 - (void)loggerEnabledStateChanged:(id)arg1;
-- (void)_recordForLogNamed:(id)arg1 format:(id)arg2 arguments:(char *)arg3;
+- (void)_recordForLogNamed:(id)arg1 format:(id)arg2 arguments:(struct __va_list_tag [1])arg3;
 - (void)_enableOrDisableLoggerIfNecessary:(id)arg1;
 - (void)_addLogger:(id)arg1;
-- (BOOL)isClass:(Class)arg1 aKindOfClass:(Class)arg2;
+- (_Bool)isClass:(Class)arg1 aKindOfClass:(Class)arg2;
 - (void)_loadFileLoggers;
 - (void)flush;
 - (void)reloadFromDefaults;

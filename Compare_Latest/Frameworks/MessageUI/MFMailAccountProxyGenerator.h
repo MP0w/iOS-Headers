@@ -11,16 +11,16 @@
 @interface MFMailAccountProxyGenerator : NSObject
 {
     _MFMailAccountProxySource *_proxySource;
-    BOOL _allowsRestrictedAccounts;
+    _Bool _allowsRestrictedAccounts;
 }
 
 - (id)allAccountProxies;
 - (id)activeAccountProxiesOriginatingBundleID:(id)arg1 sourceAccountManagement:(int)arg2;
-- (id)accountProxyContainingEmailAddress:(id)arg1 includingInactive:(BOOL)arg2 originatingBundleID:(id)arg3 sourceAccountManagement:(int)arg4;
-- (id)accountProxyContainingEmailAddress:(id)arg1 includingInactive:(BOOL)arg2;
+- (id)accountProxyContainingEmailAddress:(id)arg1 includingInactive:(_Bool)arg2 originatingBundleID:(id)arg3 sourceAccountManagement:(int)arg4;
+- (id)accountProxyContainingEmailAddress:(id)arg1 includingInactive:(_Bool)arg2;
 - (id)defaultMailAccountProxyForDeliveryOriginatingBundleID:(id)arg1 sourceAccountManagement:(int)arg2;
 - (void)dealloc;
-- (id)initWithAllowsRestrictedAccounts:(BOOL)arg1;
+- (id)initWithAllowsRestrictedAccounts:(_Bool)arg1;
 - (id)init;
 
 @end

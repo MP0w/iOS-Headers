@@ -8,19 +8,23 @@
 
 #import "NSLayoutManagerDelegate-Protocol.h"
 
+@class NSAttributedString;
+
 @interface CKBalloonTextView : UITextView <NSLayoutManagerDelegate>
 {
-    BOOL _singleLine;
-    float _capOffsetFromBoundsTop;
-    float _lastLineBaselineOffsetFromBoundsTop;
+    _Bool _singleLine;
+    NSAttributedString *_attributedText;
+    double _capOffsetFromBoundsTop;
+    double _lastLineBaselineOffsetFromBoundsTop;
 }
 
-@property(nonatomic, getter=isSingleLine) BOOL singleLine; // @synthesize singleLine=_singleLine;
-@property(nonatomic) float lastLineBaselineOffsetFromBoundsTop; // @synthesize lastLineBaselineOffsetFromBoundsTop=_lastLineBaselineOffsetFromBoundsTop;
-@property(nonatomic) float capOffsetFromBoundsTop; // @synthesize capOffsetFromBoundsTop=_capOffsetFromBoundsTop;
-- (void)layoutManager:(id)arg1 didCompleteLayoutForTextContainer:(id)arg2 atEnd:(BOOL)arg3;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1 textAlignmentInsets:(struct UIEdgeInsets *)arg2 isSingleLine:(char *)arg3;
+@property(nonatomic, getter=isSingleLine) _Bool singleLine; // @synthesize singleLine=_singleLine;
+@property(nonatomic) double lastLineBaselineOffsetFromBoundsTop; // @synthesize lastLineBaselineOffsetFromBoundsTop=_lastLineBaselineOffsetFromBoundsTop;
+@property(nonatomic) double capOffsetFromBoundsTop; // @synthesize capOffsetFromBoundsTop=_capOffsetFromBoundsTop;
+@property(copy, nonatomic) NSAttributedString *attributedText; // @synthesize attributedText=_attributedText;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1 textAlignmentInsets:(struct UIEdgeInsets *)arg2 isSingleLine:(_Bool *)arg3;
 - (id)initReadonlyAndUnselectableWithFrame:(struct CGRect)arg1 textContainer:(id)arg2;
+- (void)didMoveToWindow;
 
 @end
 

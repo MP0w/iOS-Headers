@@ -12,13 +12,13 @@
 {
     SKPhysicsBody *_bodyA;
     SKPhysicsBody *_bodyB;
-    float _collisionImpulse;
+    double _collisionImpulse;
     struct CGPoint _contactPoint;
 }
 
 + (id)copyWithZone:(struct _NSZone *)arg1;
 + (id)allocWithZone:(struct _NSZone *)arg1;
-@property(readonly, nonatomic) float collisionImpulse; // @synthesize collisionImpulse=_collisionImpulse;
+@property(readonly, nonatomic) double collisionImpulse; // @synthesize collisionImpulse=_collisionImpulse;
 @property(readonly, nonatomic) struct CGPoint contactPoint; // @synthesize contactPoint=_contactPoint;
 @property(readonly, nonatomic) SKPhysicsBody *bodyB; // @synthesize bodyB=_bodyB;
 @property(readonly, nonatomic) SKPhysicsBody *bodyA; // @synthesize bodyA=_bodyA;

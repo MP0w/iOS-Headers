@@ -8,6 +8,7 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface UIKeyboardSplitControlMenu : UIKeyboardMenuView
 {
     NSMutableArray *m_menuOptions;
@@ -18,9 +19,9 @@
 + (id)sharedInstance;
 - (void)didSelectItemAtIndex:(int)arg1;
 - (id)titleForItemAtIndex:(int)arg1;
-- (int)defaultSelectedIndex;
+- (long long)defaultSelectedIndex;
 - (struct CGSize)preferredSize;
-- (int)numberOfItems;
+- (long long)numberOfItems;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

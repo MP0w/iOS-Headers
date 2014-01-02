@@ -6,6 +6,7 @@
 
 #import <VectorKit/VKRasterTile.h>
 
+// Not exported
 @interface VKRasterizedMapTile : VKRasterTile
 {
 }

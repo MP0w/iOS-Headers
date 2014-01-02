@@ -6,10 +6,11 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface WebCoreMediaPlayerNotificationHelper : NSObject
 {
     struct MediaPlayerPrivateIOS *_client;
-    BOOL _deferredPropertiesScheduled;
+    _Bool _deferredPropertiesScheduled;
 }
 
 - (void)pluginElementDidOutputAttributedStrings:(id)arg1 nativeSampleBuffers:(id)arg2 forTime:(double)arg3;

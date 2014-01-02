@@ -11,11 +11,11 @@
 @interface YTSubscriptionsVideoDataSource : YTVideoDataSource
 {
     NSString *_subscriptionURL;
-    BOOL _requiresAuth;
+    _Bool _requiresAuth;
 }
 
 - (void)reloadData;
-- (void)setSubscriptionURL:(id)arg1 requiresAuthentication:(BOOL)arg2;
+- (void)setSubscriptionURL:(id)arg1 requiresAuthentication:(_Bool)arg2;
 
 @end
 

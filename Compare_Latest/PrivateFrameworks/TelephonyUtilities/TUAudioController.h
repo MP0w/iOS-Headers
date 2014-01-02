@@ -15,11 +15,6 @@
 - (void)blockUntilOutstandingRequestsComplete;
 - (void)dealloc;
 - (id)init;
-- (void)_requestUpdatedValueWithBlock:(id)arg1 object:(void)arg2 isRequestingPointer:(id *)arg3 forceNewRequest:(char *)arg4 scheduleTimePointer:(BOOL)arg5 notificationString:(unsigned long long *)arg6 queue:(id)arg7;
-- (void)_leaveOutstandingRequestsGroup;
-- (void)_enterOutstandingRequestsGroup;
-- (void)_releaseLock;
-- (void)_acquireLock;
 
 @end
 

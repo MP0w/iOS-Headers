@@ -24,7 +24,7 @@
     NSString *_ISOCountryCode;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 + (id)postalAddress;
 @property(readonly) NSString *ISOCountryCode; // @synthesize ISOCountryCode=_ISOCountryCode;
 @property(readonly) NSString *country; // @synthesize country=_country;
@@ -35,7 +35,7 @@
 @property(readonly) NSString *subLocality; // @synthesize subLocality=_subLocality;
 @property(readonly) NSString *street; // @synthesize street=_street;
 - (void).cxx_destruct;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;

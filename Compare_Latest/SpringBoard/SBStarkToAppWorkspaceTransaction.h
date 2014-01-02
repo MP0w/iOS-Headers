@@ -11,7 +11,7 @@
 @interface SBStarkToAppWorkspaceTransaction : SBStarkWorkspaceTransaction
 {
     SBApplication *_toApp;
-    BOOL _fromAssistant;
+    _Bool _fromAssistant;
 }
 
 @property(readonly, nonatomic) SBApplication *toApp; // @synthesize toApp=_toApp;

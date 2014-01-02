@@ -6,13 +6,14 @@
 
 #import <OfficeImport/OADShadowEffect.h>
 
+// Not exported
 @interface OADPresetShadowEffect : OADShadowEffect
 {
     int mPresetShadowType;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)equivalentOuterShadowEffect;
 - (void)setPresetShadowType:(int)arg1;
 - (int)presetShadowType;

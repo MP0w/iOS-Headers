@@ -8,6 +8,7 @@
 
 @class NSMutableDictionary, NSString;
 
+// Not exported
 @interface CPDumpEnum : NSObject
 {
     NSString *mTypeName;
@@ -15,7 +16,7 @@
     NSMutableDictionary *mNameToValueMap;
 }
 
-- (id)nameForValue:(long)arg1;
+- (id)nameForValue:(int)arg1;
 - (id)valueForName:(id)arg1;
 - (id)typeName;
 - (void)dealloc;

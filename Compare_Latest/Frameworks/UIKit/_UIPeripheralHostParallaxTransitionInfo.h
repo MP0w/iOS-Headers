@@ -6,20 +6,22 @@
 
 #import "NSObject.h"
 
-@interface _UIPeripheralHostParallaxTransitionInfo : NSObject
+#import "_UIPeripheralHostCustomTransition-Protocol.h"
+
+// Not exported
+@interface _UIPeripheralHostParallaxTransitionInfo : NSObject <_UIPeripheralHostCustomTransition>
 {
-    BOOL _transitionToKeyboard;
-    float _parallaxOffset;
-    float _gapBetweenViews;
-    int _style;
-    int _operation;
+    double _parallaxOffset;
+    double _gapBetweenViews;
+    long long _style;
+    long long _operation;
 }
 
-@property(nonatomic) int operation; // @synthesize operation=_operation;
-@property(nonatomic) int style; // @synthesize style=_style;
-@property(nonatomic) float gapBetweenViews; // @synthesize gapBetweenViews=_gapBetweenViews;
-@property(nonatomic) float parallaxOffset; // @synthesize parallaxOffset=_parallaxOffset;
-@property(nonatomic) BOOL transitionToKeyboard; // @synthesize transitionToKeyboard=_transitionToKeyboard;
+@property(nonatomic) long long operation; // @synthesize operation=_operation;
+@property(nonatomic) long long style; // @synthesize style=_style;
+@property(nonatomic) double gapBetweenViews; // @synthesize gapBetweenViews=_gapBetweenViews;
+@property(nonatomic) double parallaxOffset; // @synthesize parallaxOffset=_parallaxOffset;
+- (void)computeTransition:(id)arg1 forHost:(id)arg2;
 
 @end
 

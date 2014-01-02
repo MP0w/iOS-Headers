@@ -19,7 +19,7 @@
     id _defaultMessageHandler;
     struct dispatch_queue_s *_timerQueue;
     struct dispatch_source_s *_idleTimerSource;
-    BOOL _timerHasFiredSinceLastMessage;
+    _Bool _timerHasFiredSinceLastMessage;
 }
 
 @property(copy, nonatomic) id shutdownHandler; // @synthesize shutdownHandler=_shutdownHandler;
@@ -29,7 +29,7 @@
 @property(readonly, nonatomic) NSSet *connections; // @synthesize connections=_connections;
 - (void)setIdleTimerInterval:(double)arg1;
 - (void)_rescheduleIdleTimerSourceWithInterval:(double)arg1;
-- (BOOL)_doingWork;
+- (_Bool)_doingWork;
 - (void)_resetMessageFlag;
 - (void)_runShutdownHandler;
 - (void)setHandlerForMessageName:(id)arg1 handler:(id)arg2;

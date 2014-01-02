@@ -6,6 +6,7 @@
 
 #import <OfficeImport/OADBaseStylesBase.h>
 
+// Not exported
 @interface OADBaseStyles : OADBaseStylesBase
 {
 }

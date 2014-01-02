@@ -12,17 +12,17 @@
 {
     UIScrollView *_targetScrollView;
     struct CGPoint _targetPoint;
-    float _thresholdDistance;
+    double _thresholdDistance;
     NSTimer *_autoscrollTimer;
 }
 
-@property(readonly) float thresholdDistance; // @synthesize thresholdDistance=_thresholdDistance;
+@property(readonly) double thresholdDistance; // @synthesize thresholdDistance=_thresholdDistance;
 @property(nonatomic) struct CGPoint targetPoint; // @synthesize targetPoint=_targetPoint;
 - (void)_stopAutoscrollTimer;
 - (void)_updateAutoscrollTimer:(id)arg1;
 - (void)stopAndInvalidate;
 - (void)dealloc;
-- (id)initWithTargetScrollView:(id)arg1 thresholdDistance:(float)arg2;
+- (id)initWithTargetScrollView:(id)arg1 thresholdDistance:(double)arg2;
 - (id)init;
 
 @end

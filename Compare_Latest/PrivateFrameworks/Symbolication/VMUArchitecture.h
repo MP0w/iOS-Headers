@@ -29,20 +29,18 @@
 - (id)description;
 - (int)cpuSubtype;
 - (int)cpuType;
-- (BOOL)matchesArchitecture:(id)arg1;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isEqualToArchitecture:(id)arg1;
-- (BOOL)is64Bit;
-- (BOOL)is32Bit;
-- (BOOL)isLittleEndian;
-- (BOOL)isBigEndian;
+- (_Bool)matchesArchitecture:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)isEqualToArchitecture:(id)arg1;
+- (_Bool)is64Bit;
+- (_Bool)is32Bit;
+- (_Bool)isLittleEndian;
+- (_Bool)isBigEndian;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithCpuType:(int)arg1 cpuSubtype:(int)arg2;
-- (struct _VMURange)objcpageAddressRange;
-- (struct _VMURange)commpageAddressRange;
 
 @end
 

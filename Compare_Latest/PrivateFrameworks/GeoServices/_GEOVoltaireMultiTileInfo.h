@@ -8,19 +8,20 @@
 
 @class GEOTileKeyList, NSURL;
 
+// Not exported
 @interface _GEOVoltaireMultiTileInfo : NSObject
 {
     GEOTileKeyList *_keys;
     NSURL *_url;
-    BOOL _useStatusCodes;
+    _Bool _useStatusCodes;
 }
 
 @property(readonly, nonatomic) NSURL *url; // @synthesize url=_url;
 @property(readonly, nonatomic) GEOTileKeyList *keys; // @synthesize keys=_keys;
-@property(readonly, nonatomic) BOOL useStatusCodes; // @synthesize useStatusCodes=_useStatusCodes;
+@property(readonly, nonatomic) _Bool useStatusCodes; // @synthesize useStatusCodes=_useStatusCodes;
 - (void)appendKey:(struct _GEOTileKey *)arg1;
 - (void)dealloc;
-- (id)initWithURL:(id)arg1 useStatusCodes:(BOOL)arg2;
+- (id)initWithURL:(id)arg1 useStatusCodes:(_Bool)arg2;
 
 @end
 

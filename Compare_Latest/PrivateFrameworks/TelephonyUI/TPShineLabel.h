@@ -8,10 +8,10 @@
 
 @interface TPShineLabel : UILabel
 {
-    BOOL _isAnimating;
+    _Bool _isAnimating;
 }
 
-@property(nonatomic) BOOL isAnimating; // @synthesize isAnimating=_isAnimating;
+@property(nonatomic) _Bool isAnimating; // @synthesize isAnimating=_isAnimating;
 - (struct CGSize)_maskSize;
 - (id)_maskLayer;
 - (struct CGPoint)_maskEndingPosition;

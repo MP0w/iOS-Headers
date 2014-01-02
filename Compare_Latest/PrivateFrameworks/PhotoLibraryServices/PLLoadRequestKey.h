@@ -14,13 +14,13 @@
 {
     unsigned short _sourceID;
     NSManagedObjectID *_objectID;
-    unsigned int _hash;
+    unsigned long long _hash;
 }
 
 + (id)keyWithSource:(id)arg1 asset:(id)arg2;
 - (id)description;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 

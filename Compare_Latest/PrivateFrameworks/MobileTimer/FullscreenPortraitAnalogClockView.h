@@ -10,11 +10,8 @@
 {
 }
 
-+ (void)adjustNumberalCenter:(struct CGPoint *)arg1 forNumeralIndex:(int)arg2;
-+ (id)numeralFont;
-+ (float)numeralInset;
-+ (struct CGSize)clockSize;
-+ (float)faceRadius;
++ (struct CGPoint)handRotationalCenterForHand:(int)arg1;
++ (double)faceRadius;
 + (id)resourcePath;
 + (int)style;
 

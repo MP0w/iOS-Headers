@@ -9,19 +9,19 @@
 @protocol UIWindowDelegate <NSObject>
 
 @optional
-- (void)window:(id)arg1 willAnimateSecondHalfOfRotationFromInterfaceOrientation:(int)arg2 duration:(double)arg3;
-- (void)window:(id)arg1 willAnimateFirstHalfOfRotationToInterfaceOrientation:(int)arg2 duration:(double)arg3;
-- (void)window:(id)arg1 willAnimateRotationToInterfaceOrientation:(int)arg2 duration:(double)arg3;
-- (void)getRotationContentSettings:(CDStruct_af7d35ee *)arg1 forWindow:(id)arg2;
-- (BOOL)shouldWindowUseOnePartInterfaceRotationAnimation:(id)arg1;
-- (void)window:(id)arg1 didRotateFromInterfaceOrientation:(int)arg2;
-- (void)window:(id)arg1 didAnimateFirstHalfOfRotationToInterfaceOrientation:(int)arg2;
-- (void)window:(id)arg1 willRotateToInterfaceOrientation:(int)arg2 duration:(double)arg3;
+- (void)window:(id)arg1 willAnimateSecondHalfOfRotationFromInterfaceOrientation:(long long)arg2 duration:(double)arg3;
+- (void)window:(id)arg1 willAnimateFirstHalfOfRotationToInterfaceOrientation:(long long)arg2 duration:(double)arg3;
+- (void)window:(id)arg1 willAnimateRotationToInterfaceOrientation:(long long)arg2 duration:(double)arg3;
+- (void)getRotationContentSettings:(CDStruct_ebaa735e *)arg1 forWindow:(id)arg2;
+- (_Bool)shouldWindowUseOnePartInterfaceRotationAnimation:(id)arg1;
+- (void)window:(id)arg1 didRotateFromInterfaceOrientation:(long long)arg2;
+- (void)window:(id)arg1 didAnimateFirstHalfOfRotationToInterfaceOrientation:(long long)arg2;
+- (void)window:(id)arg1 willRotateToInterfaceOrientation:(long long)arg2 duration:(double)arg3;
 - (id)rotatingFooterViewForWindow:(id)arg1;
 - (id)rotatingHeaderViewForWindow:(id)arg1;
 - (id)rotatingSnapshotViewForWindow:(id)arg1;
 - (id)rotatingContentViewForWindow:(id)arg1;
-- (BOOL)window:(id)arg1 shouldAutorotateToInterfaceOrientation:(int)arg2;
+- (_Bool)window:(id)arg1 shouldAutorotateToInterfaceOrientation:(long long)arg2;
 - (void)window:(id)arg1 willAnimateFromContentFrame:(struct CGRect)arg2 toContentFrame:(struct CGRect)arg3;
 @end
 

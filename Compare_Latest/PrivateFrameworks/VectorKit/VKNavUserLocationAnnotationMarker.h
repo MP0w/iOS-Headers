@@ -10,15 +10,15 @@
 
 @interface VKNavUserLocationAnnotationMarker : VKMeshAnnotationMarker
 {
-    BOOL _shouldBillboard;
+    _Bool _shouldBillboard;
     VKAnimation *_billboardAnimation;
     float _billboardFactor;
     float _scale;
-    BOOL _shouldShowCourse;
-    BOOL _puckFlipped;
+    _Bool _shouldShowCourse;
+    _Bool _puckFlipped;
     double _presentationCourse;
     double _sizePoints;
-    BOOL _stale;
+    _Bool _stale;
     VGLTexture *_arrowTexture;
     VGLTexture *_circleTexture;
     VKAnimation *_puckStyleAnimation;
@@ -26,23 +26,22 @@
     float _greyPuckAlphaScale;
     VGLRenderState *_puckRenderState;
     struct {
-        float alphaScale;
         CDStruct_aa5aacbc arrowMatrix;
         CDStruct_aa5aacbc circleMatrix;
-        int depthMode;
         struct _VGLColor arrowColor;
     } _puckState;
     int _style;
     struct _VGLColor _arrowColor;
     struct _VGLColor _arrowColorStale;
     float _circleBrightness;
+    float _arrowBrightness;
 }
 
 @property(nonatomic) struct _VGLColor innerColor; // @synthesize innerColor=_arrowColor;
 @property(nonatomic) int style; // @synthesize style=_style;
-@property(nonatomic) BOOL shouldShowCourse; // @synthesize shouldShowCourse=_shouldShowCourse;
-@property(nonatomic) BOOL shouldBillboard; // @synthesize shouldBillboard=_shouldBillboard;
-@property(nonatomic, getter=isStale) BOOL stale; // @synthesize stale=_stale;
+@property(nonatomic) _Bool shouldShowCourse; // @synthesize shouldShowCourse=_shouldShowCourse;
+@property(nonatomic) _Bool shouldBillboard; // @synthesize shouldBillboard=_shouldBillboard;
+@property(nonatomic, getter=isStale) _Bool stale; // @synthesize stale=_stale;
 @property(nonatomic) float scale; // @synthesize scale=_scale;
 - (id).cxx_construct;
 - (void)updateWithStyle:(id)arg1;

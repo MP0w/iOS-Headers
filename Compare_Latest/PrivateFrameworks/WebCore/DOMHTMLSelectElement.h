@@ -13,7 +13,7 @@
 }
 
 - (void)setCustomValidity:(id)arg1;
-- (BOOL)checkValidity;
+- (_Bool)checkValidity;
 - (void)remove:(int)arg1;
 - (void)add:(id)arg1:(id)arg2;
 - (void)add:(id)arg1 before:(id)arg2;
@@ -22,7 +22,7 @@
 - (id)labels;
 - (id)validationMessage;
 - (id)validity;
-@property(readonly) BOOL willValidate;
+@property(readonly) _Bool willValidate;
 @property(copy) NSString *value;
 @property int selectedIndex;
 - (id)selectedOptions;
@@ -30,18 +30,13 @@
 @property(readonly) DOMHTMLOptionsCollection *options;
 @property(readonly) NSString *type;
 @property int size;
-- (void)setRequired:(BOOL)arg1;
-- (BOOL)required;
+- (void)setRequired:(_Bool)arg1;
+- (_Bool)required;
 @property(copy) NSString *name;
-@property BOOL multiple;
+@property _Bool multiple;
 @property(readonly) DOMHTMLFormElement *form;
-@property BOOL disabled;
-@property BOOL autofocus;
-- (void)_activateItemAtIndex:(int)arg1 allowMultipleSelection:(BOOL)arg2;
-- (void)_activateItemAtIndex:(int)arg1;
-- (int)structuralComplexityContribution;
-- (id)listItemAtIndex:(int)arg1;
-- (unsigned int)completeLength;
+@property _Bool disabled;
+@property _Bool autofocus;
 
 @end
 

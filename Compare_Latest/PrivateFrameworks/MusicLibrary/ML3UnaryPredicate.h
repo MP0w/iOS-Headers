@@ -6,6 +6,7 @@
 
 #import <MusicLibrary/ML3Predicate.h>
 
+// Not exported
 @interface ML3UnaryPredicate : ML3Predicate
 {
     ML3Predicate *_predicate;
@@ -17,8 +18,8 @@
 - (id)databaseStatementParameters;
 - (id)SQLJoinClausesForClass:(Class)arg1;
 - (id)predicateOptimizedForEntityClass:(Class)arg1;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithPredicate:(id)arg1;

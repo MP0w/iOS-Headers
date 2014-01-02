@@ -13,11 +13,11 @@
     DOMDocument *_document;
 }
 
-+ (BOOL)documentContainsAnyQuotation:(id)arg1;
++ (_Bool)documentContainsAnyQuotation:(id)arg1;
 - (id)rangeFromElement:(id)arg1 toElement:(id)arg2;
 - (void)extendRange:(id)arg1 toElement:(id)arg2;
 - (id)rangeForElement:(id)arg1;
-- (BOOL)parse;
+- (_Bool)parse;
 - (void)_consumeAccumulatedNodes:(id)arg1;
 - (Class)messageBodyElementClass;
 - (void)dealloc;

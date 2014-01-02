@@ -15,7 +15,7 @@
 - (id)description;
 @property(retain, nonatomic) NSString *referringURL;
 @property(retain, nonatomic) NSString *referringAppName;
-- (void)setEnterTypeWithLaunchReason:(int)arg1;
+- (void)setEnterTypeWithLaunchReason:(long long)arg1;
 @property(retain, nonatomic) NSString *enterType;
 - (id)init;
 

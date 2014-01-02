@@ -7,7 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol VKMapModeObserver <NSObject>
-- (void)didTransitionFrom:(int)arg1 To:(int)arg2;
-- (void)willTransitionFrom:(int)arg1 To:(int)arg2;
+- (void)didTransitionFrom:(long long)arg1 To:(long long)arg2;
+- (void)willTransitionFrom:(long long)arg1 To:(long long)arg2;
 @end
 

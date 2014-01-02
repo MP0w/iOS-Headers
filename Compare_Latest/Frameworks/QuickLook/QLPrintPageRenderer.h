@@ -9,15 +9,15 @@
 @interface QLPrintPageRenderer : UIPrintPageRenderer
 {
     id <QLPrintPageRendererDataSource> _dataSource;
-    int _numberOfPages;
-    BOOL _printingDone;
-    int _numberOfPrintedPages;
+    long long _numberOfPages;
+    _Bool _printingDone;
+    long long _numberOfPrintedPages;
 }
 
 @property id <QLPrintPageRendererDataSource> dataSource; // @synthesize dataSource=_dataSource;
-- (void)drawPageAtIndex:(int)arg1 inRect:(struct CGRect)arg2;
+- (void)drawPageAtIndex:(long long)arg1 inRect:(struct CGRect)arg2;
 - (void)prepareForDrawingPages:(struct _NSRange)arg1;
-- (int)numberOfPages;
+- (long long)numberOfPages;
 - (void)prepareForPrinting;
 - (id)init;
 

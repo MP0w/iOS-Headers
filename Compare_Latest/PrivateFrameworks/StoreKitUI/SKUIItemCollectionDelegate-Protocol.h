@@ -9,10 +9,10 @@
 @protocol SKUIItemCollectionDelegate <NSObject>
 - (struct _NSRange)visibleItemRangeForItemCollectionController:(id)arg1;
 - (struct _NSRange)itemCollectionController:(id)arg1 itemPageRangeForOffset:(struct CGPoint)arg2;
-- (id)itemCollectionController:(id)arg1 cellLayoutForItemIndex:(int)arg2;
+- (id)itemCollectionController:(id)arg1 cellLayoutForItemIndex:(long long)arg2;
 
 @optional
-- (BOOL)shouldCacheAheadWhenIdleForItemCollectionController:(id)arg1;
+- (_Bool)shouldCacheAheadWhenIdleForItemCollectionController:(id)arg1;
 - (id)itemCollectionController:(id)arg1 screenshotForItem:(id)arg2;
 - (void)itemCollectionController:(id)arg1 applyScreenshotImage:(id)arg2 toCellLayout:(id)arg3;
 @end

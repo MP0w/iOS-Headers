@@ -18,12 +18,12 @@
     NSMutableDictionary *mContainersForObjectIDs;
     NSRecursiveLock *mLock;
     MCPlug *mRootPlug;
-    NSString *mBasePath;
-    NSArray *mLayouts;
     double mFadeInDuration;
     double mFadeOutDuration;
     double mAudioFadeOutDuration;
+    NSString *mBasePath;
     unsigned long long mUUIDSeed;
+    NSArray *mLayouts;
 }
 
 @property(retain) NSArray *layouts; // @synthesize layouts=mLayouts;

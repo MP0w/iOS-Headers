@@ -8,17 +8,9 @@
 
 @interface SBFakeStatusBarView : UIStatusBar
 {
-    BOOL _initialized;
 }
 
-+ (id)allocWithZone:(struct _NSZone *)arg1;
-@property(nonatomic) BOOL initialized; // @synthesize initialized=_initialized;
-- (void)matchStyleOfStatusBar:(id)arg1;
-- (oneway void)release;
-- (id)retain;
-- (void)dealloc;
-- (void)_clearChanges;
-- (id)initWithFrame:(struct CGRect)arg1;
+- (void)setSnapshotOverridesWithTimeEnabled:(_Bool)arg1;
 
 @end
 

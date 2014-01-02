@@ -16,7 +16,7 @@
     NSMutableURLRequest *_postRequest;
     NSURLConnection *_connection;
     int _type;
-    BOOL _validResponse;
+    _Bool _validResponse;
     NSMutableData *_rawData;
 }
 
@@ -29,7 +29,7 @@
 - (void)addVideoToFavorites:(id)arg1;
 - (void)fileComplaintForVideo:(id)arg1;
 - (void)postComment:(id)arg1 forVideo:(id)arg2;
-- (void)setRating:(BOOL)arg1 forVideo:(id)arg2;
+- (void)setRating:(_Bool)arg1 forVideo:(id)arg2;
 - (void)connection:(id)arg1 didFailWithError:(id)arg2;
 - (void)connectionDidFinishLoading:(id)arg1;
 - (void)connection:(id)arg1 didReceiveData:(id)arg2;
@@ -42,7 +42,7 @@
 - (void)setDelegate:(id)arg1;
 - (void)dealloc;
 - (void)_cleanup;
-- (void)_listenForAuthenticationNotifications:(BOOL)arg1;
+- (void)_listenForAuthenticationNotifications:(_Bool)arg1;
 
 @end
 

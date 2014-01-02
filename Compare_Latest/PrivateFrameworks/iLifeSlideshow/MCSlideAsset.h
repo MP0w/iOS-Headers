@@ -13,8 +13,8 @@
     MCAssetVideo *_asset;
     NSString *_kenBurnsType;
     struct CGPoint center;
-    float scale;
-    float rotation;
+    double scale;
+    double rotation;
 }
 
 @property(copy) NSString *kenBurnsType; // @synthesize kenBurnsType=_kenBurnsType;

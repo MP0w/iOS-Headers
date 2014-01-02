@@ -6,15 +6,16 @@
 
 #import <CoreFoundation/NSOrderedSet.h>
 
+// Not exported
 @interface __NSOrderedSetReversed : NSOrderedSet
 {
     id _orderedSet;
-    unsigned int _cnt;
+    unsigned long long _cnt;
 }
 
-- (id)objectAtIndex:(unsigned int)arg1;
-- (unsigned int)indexOfObject:(id)arg1;
-- (unsigned int)count;
+- (id)objectAtIndex:(unsigned long long)arg1;
+- (unsigned long long)indexOfObject:(id)arg1;
+- (unsigned long long)count;
 - (void)dealloc;
 - (id)initWithOrderedSet:(id)arg1;
 

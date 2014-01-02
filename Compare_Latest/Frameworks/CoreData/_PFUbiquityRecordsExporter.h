@@ -8,6 +8,7 @@
 
 @class NSDate, NSLock, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, PFUbiquityLocation;
 
+// Not exported
 @interface _PFUbiquityRecordsExporter : NSObject
 {
     NSString *_localPeerID;
@@ -17,16 +18,18 @@
     NSString *_storeName;
     NSLock *_transactionLock;
     NSMutableDictionary *_pendingTransactionsToStoreNameAndTransactionNumber;
-    BOOL _pendingTempLogMove;
-    BOOL _allowTempLogStorage;
-    BOOL _useLocalStorage;
+    _Bool _pendingTempLogMove;
+    _Bool _allowTempLogStorage;
+    _Bool _useLocalStorage;
     NSObject<OS_dispatch_queue> *_processingQueue;
+    _Bool _throwOptimisticLockingException;
 }
 
-@property(nonatomic) BOOL useLocalStorage; // @synthesize useLocalStorage=_useLocalStorage;
+@property(nonatomic) _Bool throwOptimisticLockingException; // @synthesize throwOptimisticLockingException=_throwOptimisticLockingException;
+@property(nonatomic) _Bool useLocalStorage; // @synthesize useLocalStorage=_useLocalStorage;
 @property(readonly, nonatomic) PFUbiquityLocation *localRootLocation; // @synthesize localRootLocation=_localRootLocation;
-@property(nonatomic) BOOL allowTempLogStorage; // @synthesize allowTempLogStorage=_allowTempLogStorage;
-@property(readonly, nonatomic) BOOL pendingTempLogMove; // @synthesize pendingTempLogMove=_pendingTempLogMove;
+@property(nonatomic) _Bool allowTempLogStorage; // @synthesize allowTempLogStorage=_allowTempLogStorage;
+@property(readonly, nonatomic) _Bool pendingTempLogMove; // @synthesize pendingTempLogMove=_pendingTempLogMove;
 @property(retain) NSDate *lastTransactionDate; // @synthesize lastTransactionDate=_lastTransactionDate;
 @property(retain, nonatomic) PFUbiquityLocation *ubiquityRootLocation; // @synthesize ubiquityRootLocation=_ubiquityRootLocation;
 @property(readonly, nonatomic) NSString *localPeerID; // @synthesize localPeerID=_localPeerID;
@@ -35,7 +38,7 @@
 - (id)createDictionaryForObjectsInSaveNotification:(id)arg1 forTransactionOfType:(int)arg2 withExportContext:(id)arg3 andSaveSnapshot:(id)arg4;
 - (void)managedObjectContextDidSave:(id)arg1;
 - (void)cleanUpFromRolledbackPendingTransaction:(id)arg1 withNotification:(id)arg2;
-- (BOOL)shouldRespondToSaveNotification:(id)arg1;
+- (_Bool)shouldRespondToSaveNotification:(id)arg1;
 - (void)stopWatchingForChanges;
 - (void)beginWatchingForChangesFromStore:(id)arg1;
 @property(readonly, nonatomic) PFUbiquityLocation *currentRootLocation;

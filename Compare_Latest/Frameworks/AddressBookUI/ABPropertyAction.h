@@ -17,10 +17,10 @@
 
 + (void)performDefaultActionForItem:(id)arg1 sender:(id)arg2;
 @property(copy, nonatomic) NSArray *propertyItems; // @synthesize propertyItems=_propertyItems;
-- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (void)performActionWithSender:(id)arg1;
 - (void)performActionForItem:(id)arg1 sender:(id)arg2;
-@property(readonly, nonatomic) BOOL canPerformAction;
+@property(readonly, nonatomic) _Bool canPerformAction;
 - (void)dealloc;
 - (id)initWithContact:(id)arg1 propertyItem:(id)arg2;
 - (id)initWithContact:(id)arg1 propertyItems:(id)arg2;

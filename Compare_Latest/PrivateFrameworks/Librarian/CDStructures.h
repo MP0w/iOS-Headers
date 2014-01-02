@@ -7,19 +7,19 @@
 #pragma mark Typedef'd Structures
 
 typedef struct {
-    unsigned int first_max_num;
-    unsigned int first_max_ms;
-    unsigned int progress_max_num;
-    unsigned int progress_max_ms;
-    unsigned int update_max_num;
-    unsigned int update_max_ms;
-} CDStruct_51932491;
+    unsigned long long first_max_num;
+    unsigned long long first_max_ms;
+    unsigned long long progress_max_num;
+    unsigned long long progress_max_ms;
+    unsigned long long update_max_num;
+    unsigned long long update_max_ms;
+} CDStruct_37e85dac;
 
 typedef struct {
-    int _field1;
+    long long _field1;
     void *_field2;
     void *_field3;
     void *_field4;
     void *_field5;
-} CDStruct_41c7518b;
+} CDStruct_70d275a4;
 

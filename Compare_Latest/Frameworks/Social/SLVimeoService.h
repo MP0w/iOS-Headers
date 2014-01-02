@@ -6,19 +6,20 @@
 
 #import <Social/SLService.h>
 
+// Not exported
 @interface SLVimeoService : SLService
 {
 }
 
 - (id)activityImage;
 - (id)activityTitle;
-- (int)maximumVideoTimeLimit;
-- (int)maximumVideoDataSize;
-- (int)maximumVideoCount;
-- (int)maximumImageCount;
-- (int)maximumURLCount;
-- (BOOL)isFirstClassService;
-- (int)authenticationStyle;
+- (long long)maximumVideoTimeLimit;
+- (long long)maximumVideoDataSize;
+- (long long)maximumVideoCount;
+- (long long)maximumImageCount;
+- (long long)maximumURLCount;
+- (_Bool)isFirstClassService;
+- (long long)authenticationStyle;
 - (id)accountTypeIdentifier;
 - (id)serviceType;
 

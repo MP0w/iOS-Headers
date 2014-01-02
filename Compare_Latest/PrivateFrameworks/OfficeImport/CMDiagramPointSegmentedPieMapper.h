@@ -6,23 +6,24 @@
 
 #import <OfficeImport/CMDiagramPointMapper.h>
 
+// Not exported
 @interface CMDiagramPointSegmentedPieMapper : CMDiagramPointMapper
 {
-    float mStartAngle;
-    float mStopAngle;
-    BOOL mDrawArrows;
-    unsigned int mSegmentIndex;
-    unsigned int mSegmentCount;
+    double mStartAngle;
+    double mStopAngle;
+    _Bool mDrawArrows;
+    unsigned long long mSegmentIndex;
+    unsigned long long mSegmentCount;
 }
 
 - (id)transformPresentationName;
 - (void)mapAt:(id)arg1 withState:(id)arg2;
 - (id)_arrowFillWithState:(id)arg1;
-- (void)setSegmentCount:(unsigned int)arg1;
-- (void)setSegmentIndex:(unsigned int)arg1;
-- (void)setDrawArrows:(BOOL)arg1;
-- (void)setStopAngle:(float)arg1;
-- (void)setStartAngle:(float)arg1;
+- (void)setSegmentCount:(unsigned long long)arg1;
+- (void)setSegmentIndex:(unsigned long long)arg1;
+- (void)setDrawArrows:(_Bool)arg1;
+- (void)setStopAngle:(double)arg1;
+- (void)setStartAngle:(double)arg1;
 
 @end
 

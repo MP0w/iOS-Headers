@@ -8,11 +8,12 @@
 
 #import "ImageRowReading-Protocol.h"
 
+// Not exported
 @interface CIImageRowReader : NSObject <ImageRowReading>
 {
-    unsigned long height;
-    unsigned long width;
-    unsigned long bpr;
+    unsigned long long height;
+    unsigned long long width;
+    unsigned long long bpr;
     void *data;
     short red;
     short green;
@@ -35,8 +36,8 @@
 - (short)blue;
 - (short)green;
 - (short)red;
-- (unsigned long)height;
-- (unsigned long)width;
+- (unsigned long long)height;
+- (unsigned long long)width;
 - (void)dealloc;
 - (id)init;
 - (void)dumpImageAsDict:(id)arg1;

@@ -41,7 +41,7 @@
 - (void)addBlockToPendingList:(id)arg1;
 - (void)addQueryResult:(id)arg1 toPrinter:(id)arg2;
 - (void)reissueTXTQuery:(id)arg1;
-- (void)addLimboPrinter:(id)arg1 local:(BOOL)arg2;
+- (void)addLimboPrinter:(id)arg1 local:(_Bool)arg2;
 - (void)removePrinter:(id)arg1;
 - (void)dealloc;
 - (id)initWithDelegate:(id)arg1;

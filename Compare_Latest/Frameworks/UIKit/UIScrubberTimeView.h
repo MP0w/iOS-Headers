@@ -8,6 +8,7 @@
 
 @class NSString, UIColor;
 
+// Not exported
 @interface UIScrubberTimeView : UIView
 {
     NSString *_time;

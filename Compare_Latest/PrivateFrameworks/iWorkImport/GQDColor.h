@@ -8,32 +8,26 @@
 
 #import "GQDNameMappable-Protocol.h"
 
+// Not exported
 @interface GQDColor : NSObject <GQDNameMappable>
 {
-    float mRed;
-    float mGreen;
-    float mBlue;
-    float mAlpha;
+    double mRed;
+    double mGreen;
+    double mBlue;
+    double mAlpha;
 }
 
-+ (id)colorWithCalibratedRed:(float)arg1 green:(float)arg2 blue:(float)arg3;
++ (id)colorWithCalibratedRed:(double)arg1 green:(double)arg2 blue:(double)arg3;
 + (id)blackColor;
 + (const struct StateSpec *)stateForReading;
-+ (id)cmykColorFromReader:(struct _xmlTextReader *)arg1;
-+ (id)whiteColorFromReader:(struct _xmlTextReader *)arg1 calibrated:(BOOL)arg2;
-+ (id)rgbColorFromReader:(struct _xmlTextReader *)arg1 calibrated:(BOOL)arg2;
-+ (void)readColorFromProcessor:(id)arg1 reader:(struct _xmlTextReader *)arg2;
-- (id)blendedColorWithFraction:(float)arg1 ofColor:(id)arg2;
-- (float)alphaComponent;
-- (float)blueComponent;
-- (float)greenComponent;
-- (float)redComponent;
-- (void)getRed:(float *)arg1 green:(float *)arg2 blue:(float *)arg3 alpha:(float *)arg4;
+- (id)blendedColorWithFraction:(double)arg1 ofColor:(id)arg2;
+- (double)alphaComponent;
+- (double)blueComponent;
+- (double)greenComponent;
+- (double)redComponent;
+- (void)getRed:(double *)arg1 green:(double *)arg2 blue:(double *)arg3 alpha:(double *)arg4;
 - (id)description;
-- (id)initWithCalibratedRed:(float)arg1 green:(float)arg2 blue:(float)arg3 alpha:(float)arg4;
-- (int)htmlBlue;
-- (int)htmlGreen;
-- (int)htmlRed;
+- (id)initWithCalibratedRed:(double)arg1 green:(double)arg2 blue:(double)arg3 alpha:(double)arg4;
 
 @end
 

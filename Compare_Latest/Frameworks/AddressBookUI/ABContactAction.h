@@ -10,7 +10,7 @@
 
 @interface ABContactAction : NSObject
 {
-    BOOL _destructive;
+    _Bool _destructive;
     id <ABContactActionDelegate> _delegate;
     CNContact *_contact;
     NSString *_title;
@@ -18,9 +18,9 @@
     SEL _selector;
 }
 
-+ (id)contactActionWithTitle:(id)arg1 target:(id)arg2 selector:(SEL)arg3 destructive:(BOOL)arg4;
++ (id)contactActionWithTitle:(id)arg1 target:(id)arg2 selector:(SEL)arg3 destructive:(_Bool)arg4;
 + (id)contactActionWithTitle:(id)arg1 target:(id)arg2 selector:(SEL)arg3;
-@property(nonatomic, getter=isDestructive) BOOL destructive; // @synthesize destructive=_destructive;
+@property(nonatomic, getter=isDestructive) _Bool destructive; // @synthesize destructive=_destructive;
 @property(readonly, nonatomic) SEL selector; // @synthesize selector=_selector;
 @property(readonly, nonatomic) id target; // @synthesize target=_target;
 @property(readonly, nonatomic) NSString *title; // @synthesize title=_title;
@@ -29,7 +29,7 @@
 - (id)description;
 - (void)performActionWithSender:(id)arg1;
 - (void)dealloc;
-- (id)initWithTitle:(id)arg1 target:(id)arg2 selector:(SEL)arg3 destructive:(BOOL)arg4;
+- (id)initWithTitle:(id)arg1 target:(id)arg2 selector:(SEL)arg3 destructive:(_Bool)arg4;
 - (id)initWithContact:(id)arg1;
 
 @end

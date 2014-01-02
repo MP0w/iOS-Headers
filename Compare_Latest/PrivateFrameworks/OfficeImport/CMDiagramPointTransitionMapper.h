@@ -8,6 +8,7 @@
 
 @class NSDictionary;
 
+// Not exported
 @interface CMDiagramPointTransitionMapper : CMDiagramPointMapper
 {
     int mShapeType;

@@ -8,15 +8,16 @@
 
 @class NSDictionary;
 
+// Not exported
 @interface NSNetworkSettingsInternal : NSObject
 {
     struct __SCDynamicStore *store;
     struct __CFRunLoopSource *storeSource;
     NSDictionary *proxyDictionary;
-    BOOL ftpPassiveEnabled;
-    BOOL _pad1;
-    BOOL _pad2;
-    BOOL _pad3;
+    _Bool ftpPassiveEnabled;
+    _Bool _pad1;
+    _Bool _pad2;
+    _Bool _pad3;
 }
 
 - (void)finalize;

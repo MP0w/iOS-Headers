@@ -6,14 +6,16 @@
 
 #import "PBRequest.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSMutableArray;
 
-@interface GEOBatchRevGeocodeRequest : PBRequest
+@interface GEOBatchRevGeocodeRequest : PBRequest <NSCopying>
 {
-    CDStruct_56d48c16 _additionalPlaceTypes;
+    CDStruct_95bda58d _additionalPlaceTypes;
     NSMutableArray *_locations;
     NSMutableArray *_serviceTags;
-    BOOL _splitIntoClusters;
+    _Bool _splitIntoClusters;
     struct {
         unsigned int splitIntoClusters:1;
     } _has;
@@ -21,31 +23,32 @@
 
 @property(retain, nonatomic) NSMutableArray *serviceTags; // @synthesize serviceTags=_serviceTags;
 @property(retain, nonatomic) NSMutableArray *locations; // @synthesize locations=_locations;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (Class)responseClass;
 - (unsigned int)requestTypeCode;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)serviceTagAtIndex:(unsigned int)arg1;
-- (unsigned int)serviceTagsCount;
+- (id)serviceTagAtIndex:(unsigned long long)arg1;
+- (unsigned long long)serviceTagsCount;
 - (void)addServiceTag:(id)arg1;
 - (void)clearServiceTags;
-- (void)setAdditionalPlaceTypes:(int *)arg1 count:(unsigned int)arg2;
-- (int)additionalPlaceTypeAtIndex:(unsigned int)arg1;
+- (void)setAdditionalPlaceTypes:(int *)arg1 count:(unsigned long long)arg2;
+- (int)additionalPlaceTypeAtIndex:(unsigned long long)arg1;
 - (void)addAdditionalPlaceType:(int)arg1;
 - (void)clearAdditionalPlaceTypes;
 @property(readonly, nonatomic) int *additionalPlaceTypes;
-@property(readonly, nonatomic) unsigned int additionalPlaceTypesCount;
-- (id)locationAtIndex:(unsigned int)arg1;
-- (unsigned int)locationsCount;
+@property(readonly, nonatomic) unsigned long long additionalPlaceTypesCount;
+- (id)locationAtIndex:(unsigned long long)arg1;
+- (unsigned long long)locationsCount;
 - (void)addLocation:(id)arg1;
 - (void)clearLocations;
-@property(nonatomic) BOOL hasSplitIntoClusters;
-@property(nonatomic) BOOL splitIntoClusters; // @synthesize splitIntoClusters=_splitIntoClusters;
+@property(nonatomic) _Bool hasSplitIntoClusters;
+@property(nonatomic) _Bool splitIntoClusters; // @synthesize splitIntoClusters=_splitIntoClusters;
 - (void)dealloc;
 
 @end

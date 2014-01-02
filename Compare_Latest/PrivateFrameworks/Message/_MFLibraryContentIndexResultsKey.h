@@ -16,8 +16,8 @@
 
 @property(copy, nonatomic) NSIndexSet *mailboxIDs; // @synthesize mailboxIDs=_mailboxIDs;
 @property(retain, nonatomic) MFMessageCriterion *criterion; // @synthesize criterion=_criterion;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)dealloc;
 
 @end

@@ -12,10 +12,10 @@
 {
     struct CGPoint _p[4];
     struct CGPath *_path;
-    BOOL _parserError;
+    _Bool _parserError;
 }
 
-@property(readonly) BOOL parserError; // @synthesize parserError=_parserError;
+@property(readonly) _Bool parserError; // @synthesize parserError=_parserError;
 - (void)parser:(id)arg1 didEndElement:(id)arg2 namespaceURI:(id)arg3 qualifiedName:(id)arg4;
 - (void)parser:(id)arg1 didStartElement:(id)arg2 namespaceURI:(id)arg3 qualifiedName:(id)arg4 attributes:(id)arg5;
 - (void)parserDidStartDocument:(id)arg1;

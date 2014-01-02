@@ -7,10 +7,11 @@
 #import "NSString.h"
 
 @interface NSString (ABAdditions)
-- (BOOL)AB_containsNonLatinCharacters;
-- (id)AB_stringByTransliteratingToPhoneticCharacters;
-- (BOOL)AB_shouldTransliterateToLatin;
+- (_Bool)AB_containsEmojiCharacters;
+- (_Bool)AB_containsNonLatinCharacters;
+- (id)AB_stringByTransliteratingToPhoneticCharactersAsFamilyName:(_Bool)arg1;
+- (_Bool)AB_shouldTransliterateToLatin;
 - (id)AB_stringByTransliteratingToKana;
-- (unsigned long)AB_firstUTF32Character;
+- (unsigned int)AB_firstUTF32Character;
 @end
 

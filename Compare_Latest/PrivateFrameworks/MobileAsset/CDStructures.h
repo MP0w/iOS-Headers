@@ -8,8 +8,9 @@
 
 struct __MobileAsset {
     struct __CFRuntimeBase {
-        unsigned int _field1;
+        unsigned long long _field1;
         unsigned char _field2[4];
+        unsigned int _field3;
     } _field1;
     struct __CFString *_field2;
     struct __CFDictionary *_field3;

@@ -16,7 +16,7 @@
     void *_reservedb;
 }
 
-+ (BOOL)setMetadata:(id)arg1 forPersistentStoreWithURL:(id)arg2 error:(id *)arg3;
++ (_Bool)setMetadata:(id)arg1 forPersistentStoreWithURL:(id)arg2 error:(id *)arg3;
 + (id)metadataForPersistentStoreWithURL:(id)arg1 error:(id *)arg2;
 + (id)identifierForNewStoreAtURL:(id)arg1;
 - (id)referenceObjectForObjectID:(id)arg1;
@@ -26,16 +26,13 @@
 - (id)executeRequest:(id)arg1 withContext:(id)arg2 error:(id *)arg3;
 - (id)newValueForRelationship:(id)arg1 forObjectWithID:(id)arg2 withContext:(id)arg3 error:(id *)arg4;
 - (id)newValuesForObjectWithID:(id)arg1 withContext:(id)arg2 error:(id *)arg3;
-- (BOOL)_prepareForExecuteRequest:(id)arg1 withContext:(id)arg2 error:(id *)arg3;
+- (_Bool)_prepareForExecuteRequest:(id)arg1 withContext:(id)arg2 error:(id *)arg3;
 - (id)obtainPermanentIDsForObjects:(id)arg1 error:(id *)arg2;
-- (BOOL)loadMetadata:(id *)arg1;
+- (_Bool)loadMetadata:(id *)arg1;
 - (void)setMetadata:(id)arg1;
 - (id)metadata;
-- (BOOL)load:(id *)arg1;
+- (_Bool)load:(id *)arg1;
 - (void)dealloc;
-- (void)_setMetadata:(id)arg1 includeVersioning:(BOOL)arg2;
-- (void)_preflightCrossCheck;
-- (id)_rawMetadata__;
 
 @end
 

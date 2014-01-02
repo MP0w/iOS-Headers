@@ -11,7 +11,7 @@
 @interface PSLocaleController : PSListController
 {
     PSSpecifier *_checkedSpecifier;
-    BOOL _firstAppearance;
+    _Bool _firstAppearance;
 }
 
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
@@ -19,7 +19,7 @@
 - (id)locale:(id)arg1;
 - (id)specifiers;
 - (void)addLanguage:(id)arg1 toSupportedLanguages:(id)arg2;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)subcategorySelected:(id)arg1 specifier:(id)arg2;
 - (void)updateChecked:(id)arg1;

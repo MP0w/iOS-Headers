@@ -6,12 +6,18 @@
 
 #import <CoreImage/CICodeGenerator.h>
 
+@class NSDictionary;
+
+// Not exported
 @interface CIAztecCodeGenerator : CICodeGenerator
 {
+    NSDictionary *inputOptions;
 }
 
 + (id)customAttributes;
+@property(copy, nonatomic) NSDictionary *inputOptions; // @synthesize inputOptions;
 - (struct CGImage *)outputCGImage;
+- (void)setDefaults;
 
 @end
 

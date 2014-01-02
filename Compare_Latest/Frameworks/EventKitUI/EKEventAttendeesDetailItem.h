@@ -8,6 +8,7 @@
 
 @class EKEventDetailAttendeesCell, NSArray, NSMutableDictionary;
 
+// Not exported
 @interface EKEventAttendeesDetailItem : EKEventDetailItem
 {
     NSMutableDictionary *_attendeesCells;
@@ -19,11 +20,11 @@
 @property(retain, nonatomic) NSArray *attendees; // @synthesize attendees=_attendees;
 @property(nonatomic) int status; // @synthesize status=_status;
 - (void).cxx_destruct;
-- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(unsigned int)arg2;
-- (id)cellForSubitemAtIndex:(unsigned int)arg1;
-- (BOOL)configureWithCalendar:(id)arg1 preview:(BOOL)arg2;
-- (unsigned int)numberOfSubitems;
-- (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 forWidth:(float)arg2;
+- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(unsigned long long)arg2;
+- (id)cellForSubitemAtIndex:(unsigned long long)arg1;
+- (_Bool)configureWithCalendar:(id)arg1 preview:(_Bool)arg2;
+- (unsigned long long)numberOfSubitems;
+- (double)defaultCellHeightForSubitemAtIndex:(unsigned long long)arg1 forWidth:(double)arg2;
 - (void)reset;
 
 @end

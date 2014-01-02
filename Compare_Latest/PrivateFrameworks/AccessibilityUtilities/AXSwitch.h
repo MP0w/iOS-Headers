@@ -13,29 +13,33 @@
 @interface AXSwitch : NSObject <NSSecureCoding>
 {
     unsigned short _keyCode;
-    int _action;
+    long long _action;
     NSString *_name;
     struct NSString *_source;
     struct NSString *_type;
-    int _buttonNumber;
-    int _headSwitch;
+    NSString *_productName;
+    NSString *_manufacturerName;
+    long long _buttonNumber;
+    long long _headSwitch;
     NSUUID *_uuid;
 }
 
-+ (id)switchWithAction:(int)arg1 name:(id)arg2 source:(struct NSString *)arg3 type:(struct NSString *)arg4;
-+ (BOOL)supportsSecureCoding;
++ (id)switchWithAction:(long long)arg1 name:(id)arg2 source:(struct NSString *)arg3 type:(struct NSString *)arg4;
++ (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
-@property(nonatomic) int headSwitch; // @synthesize headSwitch=_headSwitch;
-@property(nonatomic) int buttonNumber; // @synthesize buttonNumber=_buttonNumber;
+@property(nonatomic) long long headSwitch; // @synthesize headSwitch=_headSwitch;
+@property(nonatomic) long long buttonNumber; // @synthesize buttonNumber=_buttonNumber;
 @property(nonatomic) unsigned short keyCode; // @synthesize keyCode=_keyCode;
+@property(copy, nonatomic) NSString *manufacturerName; // @synthesize manufacturerName=_manufacturerName;
+@property(copy, nonatomic) NSString *productName; // @synthesize productName=_productName;
 @property(retain, nonatomic) NSString *type; // @synthesize type=_type;
 @property(retain, nonatomic) NSString *source; // @synthesize source=_source;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
-@property(readonly, nonatomic) int action; // @synthesize action=_action;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+@property(nonatomic) long long action; // @synthesize action=_action;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)description;
-- (id)initWithAction:(int)arg1 name:(id)arg2 source:(struct NSString *)arg3 type:(struct NSString *)arg4;
+- (id)initWithAction:(long long)arg1 name:(id)arg2 source:(struct NSString *)arg3 type:(struct NSString *)arg4;
 - (void)dealloc;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

@@ -8,6 +8,7 @@
 
 @class GQDTComputedFormatSpec;
 
+// Not exported
 @interface GQDTDurationCell : GQDTCell
 {
     double mValue;
@@ -17,8 +18,6 @@
 
 - (struct __CFString *)createStringValue;
 - (void)dealloc;
-- (void)setProcessorBundle:(struct __CFBundle *)arg1;
-- (int)readAttributesForDurationCell:(struct _xmlTextReader *)arg1;
 
 @end
 

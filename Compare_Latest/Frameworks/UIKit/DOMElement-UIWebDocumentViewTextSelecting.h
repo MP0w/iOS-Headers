@@ -7,6 +7,6 @@
 #import "DOMElement.h"
 
 @interface DOMElement (UIWebDocumentViewTextSelecting)
-- (BOOL)exceedsStructuralComplexity:(int)arg1;
+- (_Bool)exceedsStructuralComplexity:(int)arg1;
 @end
 

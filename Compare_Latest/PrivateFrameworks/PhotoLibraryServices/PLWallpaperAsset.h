@@ -19,11 +19,11 @@
 - (id)urlForKey:(id)arg1;
 - (id)_thumbnailImage;
 - (id)_image;
-- (BOOL)isIncludedInMoments;
+- (_Bool)isIncludedInMoments;
 - (id)newFullScreenImage:(const struct __CFDictionary **)arg1;
 - (id)wallpaperFullScreenImage;
 - (void)prepareForDeletion;
-- (BOOL)allowsWallpaperEditing;
+- (_Bool)allowsWallpaperEditing;
 - (id)indexSheetImage;
 - (id)imageWithFormat:(int)arg1 outImageProperties:(const struct __CFDictionary **)arg2;
 - (id)imageWithFormat:(int)arg1;

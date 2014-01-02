@@ -10,15 +10,15 @@
 {
     id _attr;
     id _value;
-    unsigned int _count;
+    unsigned long long _count;
     void *_reserved;
 }
 
-- (unsigned int)count;
+- (unsigned long long)count;
 - (id)value;
 - (id)attribute;
 - (void)dealloc;
-- (id)_init:(id)arg1 attribute:(id)arg2 value:(id)arg3 count:(unsigned int)arg4;
+- (id)_init:(id)arg1 attribute:(id)arg2 value:(id)arg3 count:(unsigned long long)arg4;
 
 @end
 

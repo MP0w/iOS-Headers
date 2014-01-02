@@ -8,14 +8,15 @@
 
 @class OADTableCellProperties, OADTextBody;
 
+// Not exported
 @interface OADTableCell : NSObject
 {
     OADTextBody *mTextBody;
     OADTableCellProperties *mProperties;
     int mRowSpan;
     int mGridSpan;
-    BOOL mHorzMerge;
-    BOOL mVertMerge;
+    _Bool mHorzMerge;
+    _Bool mVertMerge;
     int mTopRow;
     int mLeftColumn;
 }
@@ -24,11 +25,11 @@
 - (int)leftColumn;
 - (void)setTopRow:(int)arg1;
 - (int)topRow;
-- (BOOL)merge:(int)arg1;
-- (void)setVertMerge:(BOOL)arg1;
-- (BOOL)vertMerge;
-- (void)setHorzMerge:(BOOL)arg1;
-- (BOOL)horzMerge;
+- (_Bool)merge:(int)arg1;
+- (void)setVertMerge:(_Bool)arg1;
+- (_Bool)vertMerge;
+- (void)setHorzMerge:(_Bool)arg1;
+- (_Bool)horzMerge;
 - (void)setGridSpan:(int)arg1;
 - (int)gridSpan;
 - (void)setRowSpan:(int)arg1;

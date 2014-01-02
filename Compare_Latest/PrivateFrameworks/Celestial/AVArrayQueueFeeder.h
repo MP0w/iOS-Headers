@@ -16,10 +16,10 @@
 - (void)shuffleWithCurrentIndex:(unsigned int)arg1;
 - (void)removeObjectAtIndex:(unsigned int)arg1;
 - (void)insertObject:(id)arg1 atIndex:(unsigned int)arg2;
-- (id)pathAtIndex:(unsigned int)arg1;
-- (unsigned int)numberOfPaths;
-- (unsigned int)itemCount;
-- (id)itemForIndex:(unsigned int)arg1;
+- (id)pathAtIndex:(unsigned long long)arg1;
+- (unsigned long long)numberOfPaths;
+- (unsigned long long)itemCount;
+- (id)itemForIndex:(unsigned long long)arg1;
 - (void)dealloc;
 - (id)initWithArray:(id)arg1;
 - (id)init;

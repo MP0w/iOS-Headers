@@ -17,10 +17,10 @@
 + (void)initialize;
 - (id)humanReadableName;
 - (id)name;
-- (BOOL)requiresPassword;
+- (_Bool)requiresPassword;
 - (id)authenticatorForAccount:(id)arg1 connection:(id)arg2;
-- (BOOL)canAuthenticateAccountClass:(Class)arg1 connection:(id)arg2;
-- (BOOL)hasEncryption;
+- (_Bool)canAuthenticateAccountClass:(Class)arg1 connection:(id)arg2;
+- (_Bool)hasEncryption;
 - (unsigned int)defaultPortForAccount:(id)arg1;
 - (Class)authenticatorClass;
 - (Class)connectionClassForAccountClass:(Class)arg1;

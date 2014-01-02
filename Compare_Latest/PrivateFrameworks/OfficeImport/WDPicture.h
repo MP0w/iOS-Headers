@@ -6,11 +6,12 @@
 
 #import <OfficeImport/WDOfficeArt.h>
 
+// Not exported
 @interface WDPicture : WDOfficeArt
 {
 }
 
-- (BOOL)hasContent;
+- (_Bool)hasContent;
 - (int)runType;
 - (void)dealloc;
 

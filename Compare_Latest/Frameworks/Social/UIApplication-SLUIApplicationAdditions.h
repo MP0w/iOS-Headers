@@ -7,6 +7,6 @@
 #import "UIApplication.h"
 
 @interface UIApplication (SLUIApplicationAdditions)
-+ (void)shouldShowNetworkActivityIndicatorInRemoteApplication:(BOOL)arg1;
++ (void)shouldShowNetworkActivityIndicatorInRemoteApplication:(_Bool)arg1;
 @end
 

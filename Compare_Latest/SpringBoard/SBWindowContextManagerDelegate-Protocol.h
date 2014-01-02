@@ -9,6 +9,6 @@
 @protocol SBWindowContextManagerDelegate <NSObject>
 - (void)windowContextManager:(id)arg1 didStopTrackingContextsForScreen:(id)arg2;
 - (void)windowContextManager:(id)arg1 willStartTrackingContextsForScreen:(id)arg2;
-- (BOOL)windowContextManager:(id)arg1 shouldAddContext:(id)arg2;
+- (_Bool)windowContextManager:(id)arg1 shouldAddContext:(id)arg2;
 @end
 

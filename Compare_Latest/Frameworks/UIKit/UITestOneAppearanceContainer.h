@@ -6,6 +6,7 @@
 
 #import <UIKit/UIDeviceAppearanceContainer.h>
 
+// Not exported
 @interface UITestOneAppearanceContainer : UIDeviceAppearanceContainer
 {
 }

@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class GEOLocation, GEOMapRegion, GEOPlaceSearchRequest, NSString;
 
-@interface GEOMapQuery : PBCodable
+@interface GEOMapQuery : PBCodable <NSCopying>
 {
     CDStruct_612aec5b _sessionID;
     int _clientImgFmt;
@@ -58,29 +60,30 @@
 @property(nonatomic) int mapCenterX; // @synthesize mapCenterX=_mapCenterX;
 @property(nonatomic) int requestType; // @synthesize requestType=_requestType;
 @property(retain, nonatomic) NSString *query; // @synthesize query=_query;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) BOOL hasPlaceSearchRequest;
-@property(nonatomic) BOOL hasSessionID;
-@property(readonly, nonatomic) BOOL hasUserLocation;
-@property(readonly, nonatomic) BOOL hasMapRegion;
-@property(nonatomic) BOOL hasClientImgMaxHeight;
-@property(nonatomic) BOOL hasClientImgMaxWidth;
-@property(nonatomic) BOOL hasTilesizeY;
-@property(nonatomic) BOOL hasTilesizeX;
-@property(nonatomic) BOOL hasClientImgFmt;
-@property(nonatomic) BOOL hasZoomlevel;
-@property(nonatomic) BOOL hasMapSpanY;
-@property(nonatomic) BOOL hasMapSpanX;
-@property(nonatomic) BOOL hasMapCenterY;
-@property(nonatomic) BOOL hasMapCenterX;
-@property(nonatomic) BOOL hasRequestType;
-@property(readonly, nonatomic) BOOL hasQuery;
+@property(readonly, nonatomic) _Bool hasPlaceSearchRequest;
+@property(nonatomic) _Bool hasSessionID;
+@property(readonly, nonatomic) _Bool hasUserLocation;
+@property(readonly, nonatomic) _Bool hasMapRegion;
+@property(nonatomic) _Bool hasClientImgMaxHeight;
+@property(nonatomic) _Bool hasClientImgMaxWidth;
+@property(nonatomic) _Bool hasTilesizeY;
+@property(nonatomic) _Bool hasTilesizeX;
+@property(nonatomic) _Bool hasClientImgFmt;
+@property(nonatomic) _Bool hasZoomlevel;
+@property(nonatomic) _Bool hasMapSpanY;
+@property(nonatomic) _Bool hasMapSpanX;
+@property(nonatomic) _Bool hasMapCenterY;
+@property(nonatomic) _Bool hasMapCenterX;
+@property(nonatomic) _Bool hasRequestType;
+@property(readonly, nonatomic) _Bool hasQuery;
 - (void)dealloc;
 
 @end

@@ -14,7 +14,7 @@
     UILabel *_secondaryLabel;
 }
 
-+ (BOOL)shouldFlipLabels;
++ (_Bool)shouldFlipLabels;
 + (id)defaultTextForSecondaryLabel;
 + (id)defaultFormatForSecondaryLabel;
 + (id)defaultTextForPrimaryLabel;

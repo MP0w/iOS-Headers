@@ -10,16 +10,16 @@
 
 @interface SKPhysicsWorld : NSObject <NSCoding>
 {
-    float speed;
+    double speed;
     id <SKPhysicsContactDelegate> _contactDelegate;
-    struct CGPoint _gravity;
+    struct CGVector _gravity;
 }
 
 + (id)copyWithZone:(struct _NSZone *)arg1;
 + (id)allocWithZone:(struct _NSZone *)arg1;
 @property(nonatomic) id <SKPhysicsContactDelegate> contactDelegate; // @synthesize contactDelegate=_contactDelegate;
-@property(nonatomic) struct CGPoint gravity; // @synthesize gravity=_gravity;
-@property(nonatomic) float speed; // @synthesize speed;
+@property(nonatomic) struct CGVector gravity; // @synthesize gravity=_gravity;
+@property(nonatomic) double speed; // @synthesize speed;
 - (id).cxx_construct;
 - (id)bodyAlongRayStart:(struct CGPoint)arg1 end:(struct CGPoint)arg2;
 - (id)bodyInRect:(struct CGRect)arg1;
@@ -31,11 +31,11 @@
 - (void)removeJoint:(id)arg1;
 - (void)addJoint:(id)arg1;
 - (id)bodies;
-- (BOOL)hasBodies;
+- (_Bool)hasBodies;
 - (void)removeAllBodies;
 - (void)removeBody:(id)arg1;
 - (void)addBody:(id)arg1;
-- (BOOL)stepWithTime:(double)arg1 velocityIterations:(unsigned int)arg2 positionIterations:(unsigned int)arg3;
+- (_Bool)stepWithTime:(double)arg1 velocityIterations:(unsigned long long)arg2 positionIterations:(unsigned long long)arg3;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 

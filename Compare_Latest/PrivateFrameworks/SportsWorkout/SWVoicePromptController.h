@@ -26,12 +26,12 @@
 + (id)sharedPromptController;
 @property(retain, nonatomic) NSString *language; // @synthesize language=_language;
 @property(retain, nonatomic) NSString *gender; // @synthesize gender=_gender;
-- (void)_firePacePromptWithAmount:(id)arg1 units:(id)arg2 isAveragePace:(BOOL)arg3;
+- (void)_firePacePromptWithAmount:(id)arg1 units:(id)arg2 isAveragePace:(_Bool)arg3;
 - (void)_firePrompt:(id)arg1 amount:(id)arg2 units:(id)arg3 words:(id *)arg4 englishWords:(id *)arg5;
-- (void)_firePrompt:(id)arg1 amount:(id)arg2 units:(id)arg3 pronounceUnits:(BOOL)arg4 words:(id *)arg5 englishWords:(id *)arg6;
-- (BOOL)_fireOneLinerPromptUsingRandomGenderWithString:(id)arg1;
+- (void)_firePrompt:(id)arg1 amount:(id)arg2 units:(id)arg3 pronounceUnits:(_Bool)arg4 words:(id *)arg5 englishWords:(id *)arg6;
+- (_Bool)_fireOneLinerPromptUsingRandomGenderWithString:(id)arg1;
 - (void)_fireStandaloneNumberPrompt:(id)arg1;
-- (BOOL)_fireOneLinerPromptWithString:(id)arg1;
+- (_Bool)_fireOneLinerPromptWithString:(id)arg1;
 - (id)_roundedAmount:(id)arg1 forUnits:(id)arg2;
 - (void)_setUpWithSettings;
 - (id)_promptExpenderUnitsForWorkoutControllerUnits:(id)arg1;
@@ -77,12 +77,11 @@
 - (void)fireWalkAroundToActivateSensorPrompt;
 - (void)fireHalfwayPointPrompt;
 - (void)stopAllPrompts;
-@property(readonly, nonatomic) BOOL isPlaying; // @dynamic isPlaying;
+@property(readonly, nonatomic) _Bool isPlaying; // @dynamic isPlaying;
 - (void)refreshSettings;
 - (void)dealloc;
 - (id)_initWithLanguage:(id)arg1 gender:(id)arg2;
 - (id)init;
-- (void)fireAmountPromptWithAmount:(id)arg1 units:(id)arg2 words:(id *)arg3 englishWords:(id *)arg4;
 
 @end
 

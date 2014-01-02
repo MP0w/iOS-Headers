@@ -14,26 +14,26 @@
     NSMutableSet *_disabledSubviews;
     UIView *_tappedView;
     struct CGPoint _tapLocation;
-    int _scrollBlocked;
+    long long _scrollBlocked;
     struct _NSRange _selectedRange;
-    BOOL _catchesSingleTap;
-    BOOL _shouldScrollToFirstResponder;
+    _Bool _catchesSingleTap;
+    _Bool _shouldScrollToFirstResponder;
 }
 
-@property(nonatomic) BOOL shouldScrollToFirstResponder; // @synthesize shouldScrollToFirstResponder=_shouldScrollToFirstResponder;
+@property(nonatomic) _Bool shouldScrollToFirstResponder; // @synthesize shouldScrollToFirstResponder=_shouldScrollToFirstResponder;
 @property(nonatomic) struct CGPoint tapLocation; // @synthesize tapLocation=_tapLocation;
 @property(retain, nonatomic) UIView *tappedView; // @synthesize tappedView=_tappedView;
-- (BOOL)_scrollsToMakeFirstResponderVisible;
-- (void)setContentOffset:(struct CGPoint)arg1 animated:(BOOL)arg2;
+- (_Bool)_scrollsToMakeFirstResponderVisible;
+- (void)setContentOffset:(struct CGPoint)arg1 animated:(_Bool)arg2;
 - (void)endBlockingScroll;
 - (void)beginBlockingScroll;
 - (void)willRemoveSubview:(id)arg1;
 - (void)didAddSubview:(id)arg1;
 - (void)enableSubview:(id)arg1;
 - (void)disableSubview:(id)arg1;
-- (void)performDelayedTap:(BOOL)arg1;
+- (void)performDelayedTap:(_Bool)arg1;
 - (void)singleTap:(id)arg1;
-@property(nonatomic) BOOL catchesSingleTap;
+@property(nonatomic) _Bool catchesSingleTap;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

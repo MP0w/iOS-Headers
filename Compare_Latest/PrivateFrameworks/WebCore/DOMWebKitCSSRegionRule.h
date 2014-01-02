@@ -8,6 +8,7 @@
 
 @class DOMCSSRuleList;
 
+// Not exported
 @interface DOMWebKitCSSRegionRule : DOMCSSRule
 {
 }

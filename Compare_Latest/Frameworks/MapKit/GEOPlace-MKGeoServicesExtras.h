@@ -12,7 +12,7 @@
 @property(readonly, nonatomic) NSString *yelpID;
 - (unsigned long long)businessID;
 - (id)businessName;
-- (BOOL)hasSingleBusiness;
+- (_Bool)hasSingleBusiness;
 - (id)initWithPlacemark:(id)arg1;
 @end
 

@@ -8,17 +8,17 @@
 
 @interface NSConcreteValue : NSValue
 {
-    unsigned int _specialFlags;
+    unsigned long long _specialFlags;
     void *typeInfo;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 + (void)initialize;
 - (void)encodeWithCoder:(id)arg1;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (unsigned int)hash;
-- (BOOL)isEqualToValue:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqualToValue:(id)arg1;
 - (const void *)_value;
 - (const char *)objCType;
 - (void)getValue:(void *)arg1;

@@ -15,7 +15,7 @@
     NSTimer *_nextQueryTimer;
     NSDate *_timeOfDeath;
     int _numberOfQueriesDone;
-    BOOL _isDead;
+    _Bool _isDead;
 }
 
 - (void)_invalidateNextQueryTimer;

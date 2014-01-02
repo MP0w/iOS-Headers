@@ -13,7 +13,7 @@
 @interface CPCompoundGraphicMaker : NSObject <CPDisposable>
 {
     CPChunk *parentChunk;
-    BOOL shapesAreVectorGraphics;
+    _Bool shapesAreVectorGraphics;
     unsigned int shapeCount;
     id *shapes;
     double pageSpread;
@@ -23,17 +23,17 @@
         unsigned int _field1;
         struct CGRect _field2;
     } *groupInfoArray;
-    BOOL disposed;
+    _Bool disposed;
 }
 
-+ (BOOL)makeCompoundGraphicsInZonesOf:(id)arg1;
-- (BOOL)makeCompoundGraphics;
-- (BOOL)groupOverlappingGraphics;
-- (BOOL)makeCompoundGraphicsFromShapeGroups;
++ (_Bool)makeCompoundGraphicsInZonesOf:(id)arg1;
+- (_Bool)makeCompoundGraphics;
+- (_Bool)groupOverlappingGraphics;
+- (_Bool)makeCompoundGraphicsFromShapeGroups;
 - (void)coalesceShapeGroups;
 - (void)makeCompoundGraphicFromShapesAtIndex:(unsigned int)arg1 count:(unsigned int)arg2;
 - (void)addGroupInfoWithIndex:(unsigned int)arg1 bounds:(struct CGRect)arg2;
-- (BOOL)findClusterLevel;
+- (_Bool)findClusterLevel;
 - (void)dealloc;
 - (void)finalize;
 - (void)dispose;

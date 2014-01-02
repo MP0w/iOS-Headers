@@ -11,22 +11,22 @@
 @interface SLRequestMultiPartInputStream : NSInputStream
 {
     SLRequestMultiPart *_multiPart;
-    unsigned int _streamStatus;
-    unsigned int _bytesReadInState;
-    unsigned int _totalBytesRead;
+    unsigned long long _streamStatus;
+    unsigned long long _bytesReadInState;
+    unsigned long long _totalBytesRead;
     NSData *_srcData;
     int _currentState;
 }
 
 - (void).cxx_destruct;
-- (BOOL)hasBytesAvailable;
-- (BOOL)getBuffer:(char **)arg1 length:(unsigned int *)arg2;
-- (int)read:(char *)arg1 maxLength:(unsigned int)arg2;
+- (_Bool)hasBytesAvailable;
+- (_Bool)getBuffer:(char **)arg1 length:(unsigned long long *)arg2;
+- (long long)read:(char *)arg1 maxLength:(unsigned long long)arg2;
 - (void)close;
 - (void)open;
-- (unsigned int)length;
-- (int)currentStateRead:(char *)arg1 maxLength:(unsigned int)arg2;
-- (unsigned int)readStateSourceData:(id)arg1 toBuffer:(char *)arg2 offset:(unsigned int)arg3 maxLength:(unsigned int)arg4;
+- (unsigned long long)length;
+- (long long)currentStateRead:(char *)arg1 maxLength:(unsigned long long)arg2;
+- (unsigned long long)readStateSourceData:(id)arg1 toBuffer:(char *)arg2 offset:(unsigned long long)arg3 maxLength:(unsigned long long)arg4;
 - (void)transitionState;
 - (id)initWithMultiPart:(id)arg1;
 

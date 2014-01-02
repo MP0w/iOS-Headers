@@ -15,7 +15,7 @@
 
 + (id)keyPathsForValuesAffectingPixelBufferPool;
 + (id)assetWriterInputPixelBufferAdaptorWithAssetWriterInput:(id)arg1 sourcePixelBufferAttributes:(id)arg2;
-- (BOOL)appendPixelBuffer:(struct __CVBuffer *)arg1 withPresentationTime:(CDStruct_1b6d18a9)arg2;
+- (_Bool)appendPixelBuffer:(struct __CVBuffer *)arg1 withPresentationTime:(CDStruct_1b6d18a9)arg2;
 @property(readonly, nonatomic) struct __CVPixelBufferPool *pixelBufferPool;
 @property(readonly, nonatomic) NSDictionary *sourcePixelBufferAttributes;
 @property(readonly, nonatomic) AVAssetWriterInput *assetWriterInput;

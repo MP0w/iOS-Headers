@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface WDAAnchor : NSObject
 {
     struct CGRect mBounds;
@@ -19,28 +20,28 @@
     int mRelativeHorizontalPosition;
     int mVerticalPosition;
     int mRelativeVerticalPosition;
-    BOOL mIsBehindText;
-    BOOL mAllowOverlap;
-    BOOL mMoveWithText;
-    long mZIndexTotal;
-    long mZIndex;
+    _Bool mIsBehindText;
+    _Bool mAllowOverlap;
+    _Bool mMoveWithText;
+    long long mZIndexTotal;
+    long long mZIndex;
 }
 
-@property(nonatomic) BOOL allowOverlap; // @synthesize allowOverlap=mAllowOverlap;
+@property(nonatomic) _Bool allowOverlap; // @synthesize allowOverlap=mAllowOverlap;
 @property(nonatomic) int textWrappingModeType; // @synthesize textWrappingModeType=mTextWrappingModeType;
 @property(nonatomic) int textWrappingMode; // @synthesize textWrappingMode=mTextWrappingMode;
 @property(nonatomic) struct CGRect bounds; // @synthesize bounds=mBounds;
 - (id).cxx_construct;
-- (void)setZIndexTotal:(long)arg1;
-- (long)zIndexTotal;
-- (void)setZIndex:(long)arg1;
-- (long)zIndex;
+- (void)setZIndexTotal:(long long)arg1;
+- (long long)zIndexTotal;
+- (void)setZIndex:(long long)arg1;
+- (long long)zIndex;
 - (void)setRelativeVerticalPosition:(int)arg1;
 - (int)relativeVerticalPosition;
 - (void)setRelativeHorizontalPosition:(int)arg1;
 - (int)relativeHorizontalPosition;
-- (void)setBehindText:(BOOL)arg1;
-- (BOOL)isBehindText;
+- (void)setBehindText:(_Bool)arg1;
+- (_Bool)isBehindText;
 - (void)setVerticalPosition:(int)arg1;
 - (int)verticalPosition;
 - (void)setHorizontalPosition:(int)arg1;

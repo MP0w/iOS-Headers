@@ -6,15 +6,21 @@
 
 #import <UIKit/UITextPosition.h>
 
+// Not exported
 @interface _UITextKitTextPosition : UITextPosition
 {
-    int _offset;
+    long long _offset;
+    _Bool _caretAfterOffset;
+    long long _nextOffset;
 }
 
-+ (id)positionWithOffset:(int)arg1;
-@property int offset; // @synthesize offset=_offset;
++ (id)positionWithOffset:(long long)arg1 caretPositionedAfterOffset:(_Bool)arg2 nextOffset:(unsigned long long)arg3;
++ (id)positionWithOffset:(long long)arg1;
+@property long long nextOffset; // @synthesize nextOffset=_nextOffset;
+@property _Bool caretPositionAfterOffset; // @synthesize caretPositionAfterOffset=_caretAfterOffset;
+@property long long offset; // @synthesize offset=_offset;
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)init;
 
 @end

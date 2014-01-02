@@ -28,7 +28,7 @@
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
 @property(readonly, nonatomic) MFComposeRecipient *recipient;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 recipient:(id)arg2 presentationOptions:(unsigned int)arg3;
+- (id)initWithFrame:(struct CGRect)arg1 recipient:(id)arg2 presentationOptions:(unsigned long long)arg3;
 - (id)initWithFrame:(struct CGRect)arg1 recipient:(id)arg2;
 
 @end

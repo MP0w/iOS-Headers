@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface CHXChartType : NSObject
 {
 }
@@ -14,7 +15,6 @@
 + (int)chdShapeTypeFromXmlShapeTypeElement:(struct _xmlNode *)arg1;
 + (int)chdGroupingFromXmlGroupingElement:(struct _xmlNode *)arg1;
 + (id)chdChartTypeFromXmlChartTypeElement:(struct _xmlNode *)arg1 state:(id)arg2;
-+ (Class)chxChartTypeClassWithXmlElement:(struct _xmlNode *)arg1;
 
 @end
 

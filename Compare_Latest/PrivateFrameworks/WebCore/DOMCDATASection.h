@@ -6,6 +6,7 @@
 
 #import <WebCore/DOMText.h>
 
+// Not exported
 @interface DOMCDATASection : DOMText
 {
 }

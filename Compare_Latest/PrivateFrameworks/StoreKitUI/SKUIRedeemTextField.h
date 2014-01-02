@@ -12,8 +12,11 @@
 {
     UIView *_bottomBorderView;
     UIView *_topBorderView;
+    UIView *_backdropView;
+    _Bool _backdropBackground;
 }
 
+@property(nonatomic) _Bool backdropBackground; // @synthesize backdropBackground=_backdropBackground;
 - (void).cxx_destruct;
 - (void)layoutSubviews;
 - (struct CGRect)textRectForBounds:(struct CGRect)arg1;

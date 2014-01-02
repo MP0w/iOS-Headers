@@ -6,13 +6,13 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface MKThreadContext : NSObject
 {
-    int _CA_disableActionsCounter;
+    long long _CA_disableActionsCounter;
 }
 
 + (id)currentContext;
-- (void)_CA_setDisableActions:(BOOL)arg1;
 
 @end
 

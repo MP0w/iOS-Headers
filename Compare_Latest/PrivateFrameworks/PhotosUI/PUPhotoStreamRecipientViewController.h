@@ -7,14 +7,15 @@
 #import "UIViewController.h"
 
 #import "ABPeoplePickerNavigationControllerDelegate-Protocol.h"
+#import "IDSBatchIDQueryControllerDelegate-Protocol.h"
 #import "MFContactsSearchConsumer-Protocol.h"
 #import "UIPopoverControllerDelegate-Protocol.h"
 #import "UITableViewDataSource-Protocol.h"
 #import "UITableViewDelegate-Protocol.h"
 
-@class MFComposeRecipientView, MFContactsSearchManager, MFContactsSearchResultsModel, NSArray, NSNumber, UIPopoverController, UIScrollView, UITableView;
+@class IDSBatchIDQueryController, MFComposeRecipientView, MFContactsSearchManager, MFContactsSearchResultsModel, NSArray, NSMutableSet, NSNumber, UIPopoverController, UIScrollView, UITableView;
 
-@interface PUPhotoStreamRecipientViewController : UIViewController <MFContactsSearchConsumer, UITableViewDataSource, UITableViewDelegate, ABPeoplePickerNavigationControllerDelegate, UIPopoverControllerDelegate>
+@interface PUPhotoStreamRecipientViewController : UIViewController <MFContactsSearchConsumer, UITableViewDataSource, UITableViewDelegate, ABPeoplePickerNavigationControllerDelegate, UIPopoverControllerDelegate, IDSBatchIDQueryControllerDelegate>
 {
     UITableView *_searchResultsTable;
     MFComposeRecipientView *_recipientView;
@@ -24,26 +25,36 @@
     MFContactsSearchResultsModel *_searchResultsModel;
     NSNumber *_currentSearchTaskID;
     NSArray *_searchResults;
-    BOOL _wasFirstResponder;
-    BOOL _showingPeoplePicker;
+    IDSBatchIDQueryController *_idsBatchIDQueryController;
+    NSMutableSet *_validPhoneNumbers;
+    _Bool _wasFirstResponder;
+    _Bool _showingPeoplePicker;
     UIPopoverController *_peoplePickerPopoverController;
+    struct CGSize _recipientViewSize;
+    double _lastHeight;
     id _delegate;
+    double _bottomTableOffset;
 }
 
++ (void)recordRecentInvitationRecipient:(id)arg1 displayName:(id)arg2 date:(id)arg3;
+@property(nonatomic) double bottomTableOffset; // @synthesize bottomTableOffset=_bottomTableOffset;
 @property(nonatomic) __weak id delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)popoverControllerDidDismissPopover:(id)arg1;
 - (void)_forceDismissPeoplePickerPopover;
 - (void)_dismissPeoplePicker:(id)arg1;
-- (BOOL)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
-- (BOOL)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2;
+- (_Bool)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
+- (_Bool)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2;
 - (void)peoplePickerNavigationControllerDidCancel:(id)arg1;
-- (BOOL)shouldShowCardForPerson:(void *)arg1 peoplePicker:(id)arg2;
+- (_Bool)shouldShowCardForPerson:(void *)arg1 peoplePicker:(id)arg2;
+- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (void)idStatusUpdatedForDestinations:(id)arg1;
 - (void)_setSearchResults:(id)arg1;
+- (id)_selectedNormalizedPhoneForRecipient:(id)arg1;
 - (void)endedNetworkActivity;
 - (void)beganNetworkActivity;
 - (void)finishedTaskWithID:(id)arg1;
@@ -58,19 +69,22 @@
 - (id)composeRecipientView:(id)arg1 composeRecipientForAddress:(id)arg2;
 - (void)composeRecipientView:(id)arg1 showPersonCardForAtom:(id)arg2;
 - (void)composeRecipientViewDidFinishPickingRecipient:(id)arg1;
-- (BOOL)composeRecipientViewIsShowingPeoplePicker:(id)arg1;
+- (void)composeRecipientView:(id)arg1 didRemoveRecipient:(id)arg2;
+- (void)composeRecipientView:(id)arg1 didAddRecipient:(id)arg2;
+- (_Bool)composeRecipientViewIsShowingPeoplePicker:(id)arg1;
 - (void)composeRecipientViewRequestAddRecipient:(id)arg1;
 - (void)composeRecipientView:(id)arg1 didChangeSize:(struct CGSize)arg2;
 - (void)composeRecipientView:(id)arg1 didFinishEnteringAddress:(id)arg2;
 - (void)composeRecipientView:(id)arg1 requestDeleteRecipientAtIndex:(int)arg2;
 - (void)composeRecipientView:(id)arg1 textDidChange:(id)arg2;
 @property(readonly, nonatomic) NSArray *recipients;
-- (void)_addConstraintsWithRecipientHeight:(float)arg1 animated:(BOOL)arg2;
+- (void)viewWillLayoutSubviews;
 - (void)makeRecipientViewFirstResponder;
 - (void)makeRecipientViewResignFirstResponder;
-- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;
-- (void)loadView;
+- (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 @end

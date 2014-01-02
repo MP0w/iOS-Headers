@@ -7,6 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol MFMessageIterationFilter <NSObject>
-- (BOOL)filterMessageWithStatement:(struct sqlite3_stmt *)arg1;
+- (_Bool)filterMessageWithStatement:(struct sqlite3_stmt *)arg1;
 @end
 

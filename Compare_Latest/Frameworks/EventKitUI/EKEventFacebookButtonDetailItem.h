@@ -8,16 +8,17 @@
 
 @class UITableViewCell;
 
+// Not exported
 @interface EKEventFacebookButtonDetailItem : EKEventDetailItem
 {
     UITableViewCell *_cell;
 }
 
 - (void).cxx_destruct;
-- (void)layoutCellsForWidth:(float)arg1 position:(int)arg2;
-- (void)eventViewController:(id)arg1 didSelectSubitem:(unsigned int)arg2;
-- (id)cellForSubitemAtIndex:(unsigned int)arg1;
-- (BOOL)configureWithCalendar:(id)arg1 preview:(BOOL)arg2;
+- (void)layoutCellsForWidth:(double)arg1 position:(int)arg2;
+- (void)eventViewController:(id)arg1 didSelectSubitem:(unsigned long long)arg2;
+- (id)cellForSubitemAtIndex:(unsigned long long)arg1;
+- (_Bool)configureWithCalendar:(id)arg1 preview:(_Bool)arg2;
 - (void)reset;
 
 @end

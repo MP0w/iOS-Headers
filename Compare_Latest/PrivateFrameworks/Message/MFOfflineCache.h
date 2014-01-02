@@ -11,11 +11,11 @@
 @interface MFOfflineCache : NSObject
 {
     MFMailMessageLibrary *_library;
-    int _accountLibraryID;
+    long long _accountLibraryID;
     NSMutableArray *_deferredOperations;
     MFOfflineCacheReplayContext *_replayContext;
     unsigned int _lastTemporaryMessageID;
-    BOOL _isReplaying;
+    _Bool _isReplaying;
 }
 
 - (void)_applyReplayContextTransformation:(id)arg1;
@@ -27,8 +27,8 @@
 - (id)selectedMailboxID;
 - (void)setSelectedMailboxID:(id)arg1;
 - (void)deleteOfflineCacheData;
-- (BOOL)replayOperationsUsingBlock:(id)arg1;
-- (BOOL)hasDeferredOperations;
+- (_Bool)replayOperationsUsingBlock:(id)arg1;
+- (_Bool)hasDeferredOperations;
 - (void)deferOperation:(id)arg1;
 @property(readonly, nonatomic) NSString *nextTemporaryMessageID; // @dynamic nextTemporaryMessageID;
 - (void)enumerateOperationsUsingBlock:(id)arg1;

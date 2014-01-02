@@ -10,9 +10,10 @@
 
 @interface PLPhotosDefaults : NSObject
 {
-    BOOL _shouldRepeat;
-    BOOL _shouldShuffle;
-    BOOL _shouldPlayMusic;
+    _Bool _shouldRepeat;
+    _Bool _shouldShuffle;
+    _Bool _shouldPlayMusic;
+    _Bool _summarizeMomentSections;
     int _transition;
     int _secondsPerSlide;
     MPMediaItemCollection *_musicCollection;
@@ -22,16 +23,18 @@
 + (id)sharedInstance;
 - (id)musicCollection;
 - (void)setMusicCollection:(id)arg1;
-- (void)setShouldPlayMusic:(BOOL)arg1;
-- (BOOL)shouldPlayMusic;
+- (void)setShouldPlayMusic:(_Bool)arg1;
+- (_Bool)shouldPlayMusic;
 - (void)setTransition:(int)arg1;
 - (int)transition;
-- (int)transitionForAnimationMovingForward:(BOOL)arg1;
+- (int)transitionForAnimationMovingForward:(_Bool)arg1;
+- (_Bool)summarizeMomentSections;
 - (int)secondsPerSlide;
-- (BOOL)shouldShuffle;
-- (BOOL)shouldRepeat;
+- (_Bool)shouldShuffle;
+- (_Bool)shouldRepeat;
 - (id)init;
-- (void)setPhotoDefaultValues;
+- (void)_reloadPhotoDefaultValuesAndNotify:(_Bool)arg1;
+- (void)reloadPhotoDefaultValues;
 - (void)dealloc;
 
 @end

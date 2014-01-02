@@ -8,10 +8,11 @@
 
 #import "NSCoding-Protocol.h"
 
+// Not exported
 @interface NSHTTPURLResponseInternal : NSObject <NSCoding>
 {
     struct __SecTrust *peerTrust;
-    BOOL isMixedReplace;
+    _Bool isMixedReplace;
 }
 
 - (void)dealloc;

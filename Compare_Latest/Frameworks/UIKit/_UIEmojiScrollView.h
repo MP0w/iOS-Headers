@@ -6,15 +6,16 @@
 
 #import <UIKit/UIScrollView.h>
 
+// Not exported
 @interface _UIEmojiScrollView : UIScrollView
 {
     double _delay;
-    BOOL _canDragToScroll;
+    _Bool _canDragToScroll;
 }
 
 @property double delay; // @synthesize delay=_delay;
-- (BOOL)touchesShouldCancelInContentView:(id)arg1;
-- (BOOL)touchesShouldBegin:(id)arg1 withEvent:(id)arg2 inContentView:(id)arg3;
+- (_Bool)touchesShouldCancelInContentView:(id)arg1;
+- (_Bool)touchesShouldBegin:(id)arg1 withEvent:(id)arg2 inContentView:(id)arg3;
 - (void)_lookForScrolling;
 - (void)_stopLookingForScrolling;
 - (void)setContentOffset:(struct CGPoint)arg1;

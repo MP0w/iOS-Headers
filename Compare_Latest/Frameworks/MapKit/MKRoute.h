@@ -21,7 +21,7 @@
 @property(readonly, nonatomic) double distance;
 @property(readonly, nonatomic) NSArray *advisoryNotices;
 @property(readonly, nonatomic) NSString *name;
-@property(readonly, nonatomic) unsigned int transportType;
+@property(readonly, nonatomic) unsigned long long transportType;
 - (id)_initWithGEORoute:(id)arg1;
 - (void)dealloc;
 

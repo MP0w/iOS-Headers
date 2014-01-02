@@ -19,7 +19,7 @@
     NSObject<OS_dispatch_queue> *_queue;
     NSMutableArray *_pendingRequests;
     id <BBRemoteDataProviderDelegate> _delegate;
-    BOOL _operational;
+    _Bool _operational;
 }
 
 + (id)_sharedSystemService;
@@ -34,12 +34,12 @@
 - (void)withdrawBulletinWithPublisherBulletinID:(id)arg1;
 - (void)withdrawBulletinsWithRecordID:(id)arg1;
 - (void)modifyBulletin:(id)arg1;
-- (void)addBulletin:(id)arg1 forDestinations:(unsigned int)arg2;
+- (void)addBulletin:(id)arg1 forDestinations:(unsigned long long)arg2;
 - (void)invalidateBulletins;
 - (void)ping:(id)arg1;
 - (void)deliverMessageWithName:(id)arg1 userInfo:(id)arg2;
-- (BOOL)migrateSectionInfo:(id)arg1 oldSectionInfo:(id)arg2;
-- (BOOL)canPerformMigration;
+- (_Bool)migrateSectionInfo:(id)arg1 oldSectionInfo:(id)arg2;
+- (_Bool)canPerformMigration;
 - (void)updateSectionInfoWithSectionInfo:(id)arg1 handler:(id)arg2 completion:(void)arg3;
 - (void)updateClearedInfoWithClearedInfo:(id)arg1 handler:(id)arg2 completion:(void)arg3;
 - (void)noteSectionInfoDidChange:(id)arg1;
@@ -47,17 +47,19 @@
 - (void)attachmentPNGDataForRecordID:(id)arg1 sizeConstraints:(id)arg2 completion:(id)arg3;
 - (void)deliverResponse:(id)arg1 forBulletinRequest:(id)arg2;
 - (void)clearedInfoForBulletins:(id)arg1 lastClearedInfo:(id)arg2 completion:(id)arg3;
+- (void)clearedInfoAndBulletinsForClearingAllBulletinsWithLimit:(id)arg1 lastClearedInfo:(id)arg2 completion:(id)arg3;
 - (void)bulletinsWithRequestParameters:(id)arg1 lastCleared:(id)arg2 completion:(id)arg3;
 - (void)dataProviderDidLoad;
 - (void)_logDoesNotRespond:(SEL)arg1;
 - (void)_sendRequest:(id)arg1;
 - (void)_prependAndSendRequest:(id)arg1;
 - (void)_processPendingRequests;
-- (void)connection:(id)arg1 connectionStateDidChange:(BOOL)arg2;
+- (void)connection:(id)arg1 connectionStateDidChange:(_Bool)arg2;
 - (void)startWatchdog;
 - (void)resume;
 - (void)_invalidate;
 - (void)invalidate;
+- (id)sectionIdentifier;
 - (id)description;
 - (void)dealloc;
 - (id)initWithSectionID:(id)arg1 serviceName:(id)arg2 appBundleID:(id)arg3 delegate:(id)arg4 onQueue:(id)arg5;

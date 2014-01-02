@@ -10,9 +10,10 @@
 {
 }
 
-- (BOOL)resignFirstResponder;
-- (BOOL)becomeFirstResponder;
 - (void)_handleKeyUIEvent:(id)arg1;
+- (_Bool)resignFirstResponder;
+- (_Bool)becomeFirstResponder;
+- (void)dealloc;
 
 @end
 

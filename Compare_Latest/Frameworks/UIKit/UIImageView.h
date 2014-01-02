@@ -14,38 +14,38 @@
     UIImage *_decompressingImage;
     UIImage *_decompressingHighlightedImage;
     struct UIEdgeInsets _cachedEdgeInsetsForEffects;
-    BOOL _edgeInsetsForEffectsAreValid;
-    BOOL __animatesContents;
+    _Bool _edgeInsetsForEffectsAreValid;
+    _Bool __animatesContents;
     struct UIEdgeInsets _edgeInsetsForEffects;
 }
 
-@property(nonatomic, setter=_setAnimatesContents:) BOOL _animatesContents; // @synthesize _animatesContents=__animatesContents;
-@property(nonatomic, setter=_setEdgeInsetsForEffectsAreValid:) BOOL _edgeInsetsForEffectsAreValid; // @synthesize _edgeInsetsForEffectsAreValid;
-- (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
-- (void)setAnimating:(BOOL)arg1;
+@property(nonatomic, setter=_setAnimatesContents:) _Bool _animatesContents; // @synthesize _animatesContents=__animatesContents;
+@property(nonatomic, setter=_setEdgeInsetsForEffectsAreValid:) _Bool _edgeInsetsForEffectsAreValid; // @synthesize _edgeInsetsForEffectsAreValid;
+- (_Bool)_shouldAnimatePropertyWithKey:(id)arg1;
+- (void)setAnimating:(_Bool)arg1;
 - (struct CGImage *)imageRef;
 - (void)setCGImageRef:(struct CGImage *)arg1;
 @property(nonatomic) int drawMode;
 - (void)_drawImageEffectsForImage:(id)arg1 inRect:(struct CGRect)arg2;
-- (BOOL)_needsImageEffectsForImage:(id)arg1 suppressColorizing:(BOOL)arg2;
-- (BOOL)_needsImageEffectsForImage:(id)arg1;
+- (_Bool)_needsImageEffectsForImage:(id)arg1 suppressColorizing:(_Bool)arg2;
+- (_Bool)_needsImageEffectsForImage:(id)arg1;
 - (void)tintColorDidChange;
 - (id)_effectiveTintColorWithImage:(id)arg1;
-@property(nonatomic, setter=_setMasksTemplateImages:) BOOL _masksTemplateImages;
-@property(nonatomic, setter=_setTemplateImageRenderingEffects:) unsigned int _templateImageRenderingEffects;
-@property(nonatomic, setter=_setDefaultRenderingMode:) int _defaultRenderingMode;
+@property(nonatomic, setter=_setMasksTemplateImages:) _Bool _masksTemplateImages;
+@property(nonatomic, setter=_setTemplateImageRenderingEffects:) unsigned long long _templateImageRenderingEffects;
+@property(nonatomic, setter=_setDefaultRenderingMode:) long long _defaultRenderingMode;
 @property(readonly, nonatomic) struct UIEdgeInsets _edgeInsetsForEffects; // @synthesize _edgeInsetsForEffects;
 - (void)_updateTemplateProperties;
 - (void)_templateSettingsDidChange;
 - (void)_updateMasking;
-- (BOOL)_shouldTreatImageAsTemplate:(id)arg1;
+- (_Bool)_shouldTreatImageAsTemplate:(id)arg1;
 - (id)_activeImage;
 - (id)_generateBackdropMaskImage;
 - (void)layoutSubviews;
 - (void)setBackgroundColor:(id)arg1;
-@property(nonatomic) int animationRepeatCount;
+@property(nonatomic) long long animationRepeatCount;
 @property(nonatomic) double animationDuration;
-- (BOOL)isAnimating;
+- (_Bool)isAnimating;
 - (void)stopAnimating;
 - (void)startAnimating;
 @property(copy, nonatomic) NSArray *highlightedAnimationImages;
@@ -57,7 +57,7 @@
 - (void)setFrame:(struct CGRect)arg1;
 - (void)setBounds:(struct CGRect)arg1;
 - (void)_setViewGeometry:(struct CGRect)arg1 forMetric:(int)arg2;
-@property(nonatomic, getter=isHighlighted) BOOL highlighted;
+@property(nonatomic, getter=isHighlighted) _Bool highlighted;
 @property(retain, nonatomic) UIImage *highlightedImage;
 @property(retain, nonatomic) UIImage *image;
 - (void)dealloc;
@@ -67,24 +67,13 @@
 - (id)initWithImage:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)_updateState;
-- (BOOL)_setImageViewContents:(id)arg1;
-- (BOOL)_canDrawContent;
-- (BOOL)_shouldDrawImage:(id)arg1;
-- (BOOL)useBlockyMagnificationInClassic;
-- (void)decodeRestorableStateWithCoder:(id)arg1;
-- (void)encodeRestorableStateWithCoder:(id)arg1;
-- (BOOL)isElementAccessibilityExposedToInterfaceBuilder;
-- (unsigned long long)defaultAccessibilityTraits;
-- (BOOL)isAccessibilityElementByDefault;
-- (void)_applySettingsForLegibilityStyle:(int)arg1;
-- (id)_cachedPretiledImageForImage:(id)arg1;
-- (void)_clearPretiledImageCacheForImage:(id)arg1;
-- (void)_updatePretiledImageCacheForImage:(id)arg1;
-- (BOOL)_recomputePretilingState;
+- (_Bool)_setImageViewContents:(id)arg1;
+- (_Bool)_canDrawContent;
+- (_Bool)_shouldDrawImage:(id)arg1;
 
 // Remaining properties
 @property(retain, nonatomic) UIColor *tintColor; // @dynamic tintColor;
-@property(nonatomic, getter=isUserInteractionEnabled) BOOL userInteractionEnabled; // @dynamic userInteractionEnabled;
+@property(nonatomic, getter=isUserInteractionEnabled) _Bool userInteractionEnabled; // @dynamic userInteractionEnabled;
 
 @end
 

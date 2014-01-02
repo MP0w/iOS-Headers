@@ -8,6 +8,7 @@
 
 @class NSMutableCharacterSet, NSNumberFormatter;
 
+// Not exported
 @interface MKRisonParser : NSObject
 {
     NSNumberFormatter *_formatter;
@@ -21,14 +22,14 @@
 - (id)stringFromArray:(id)arg1;
 - (id)stringFromDictionary:(id)arg1;
 - (id)stringFromRisonObject:(id)arg1;
-- (id)numberWithReaderInfo:(CDStruct_b337ead5 *)arg1;
-- (id)boolWithReaderInfo:(CDStruct_b337ead5 *)arg1;
-- (id)nullWithReaderInfo:(CDStruct_b337ead5 *)arg1;
-- (id)stringLiteralWithReaderInfo:(CDStruct_b337ead5 *)arg1;
-- (id)arrayWithReaderInfo:(CDStruct_b337ead5 *)arg1;
-- (id)keyWithReaderInfo:(CDStruct_b337ead5 *)arg1;
-- (id)dictionaryWithReaderInfo:(CDStruct_b337ead5 *)arg1;
-- (id)objectWithReaderInfo:(CDStruct_b337ead5 *)arg1;
+- (id)numberWithReaderInfo:(CDStruct_8bf61218 *)arg1;
+- (id)boolWithReaderInfo:(CDStruct_8bf61218 *)arg1;
+- (id)nullWithReaderInfo:(CDStruct_8bf61218 *)arg1;
+- (id)stringLiteralWithReaderInfo:(CDStruct_8bf61218 *)arg1;
+- (id)arrayWithReaderInfo:(CDStruct_8bf61218 *)arg1;
+- (id)keyWithReaderInfo:(CDStruct_8bf61218 *)arg1;
+- (id)dictionaryWithReaderInfo:(CDStruct_8bf61218 *)arg1;
+- (id)objectWithReaderInfo:(CDStruct_8bf61218 *)arg1;
 - (id)objectFromRisonString:(id)arg1;
 - (void)dealloc;
 - (id)init;

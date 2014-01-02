@@ -13,9 +13,9 @@
     UIWebPaginationInfo *_paginationInfo;
 }
 
-- (void)drawInRect:(struct CGRect)arg1 forPageAtIndex:(int)arg2;
-- (struct CGRect)rectForPageAtIndex:(int)arg1;
-- (int)_recalcPageCount;
+- (void)drawInRect:(struct CGRect)arg1 forPageAtIndex:(long long)arg2;
+- (struct CGRect)rectForPageAtIndex:(long long)arg1;
+- (long long)_recalcPageCount;
 - (void)removeFromPrintPageRenderer;
 - (id)_webDocumentView;
 - (id)copyWithZone:(struct _NSZone *)arg1;

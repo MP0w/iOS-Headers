@@ -25,7 +25,7 @@
 - (void)trimController:(id)arg1 didFinishTrimmingToFile:(id)arg2 trimDuration:(double)arg3;
 - (void)trimControllerDidCancel:(id)arg1;
 - (void)trimControllerDidConfirm:(id)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)loadView;
 - (id)initWithMediaObject:(id)arg1;
 

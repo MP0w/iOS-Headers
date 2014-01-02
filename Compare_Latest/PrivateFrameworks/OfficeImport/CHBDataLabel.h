@@ -6,14 +6,13 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface CHBDataLabel : NSObject
 {
 }
 
 + (id)chdDataLabelFromXlChartCustomLabelText:(struct XlChartCustomLabelText *)arg1 state:(id)arg2;
 + (id)chdDataLabelFromXlChartSeriesFormat:(const struct XlChartSeriesFormat *)arg1 state:(id)arg2;
-+ (int)xlLabelPositionEnumFromCHDDataLabelPosition:(int)arg1;
-+ (int)chdLabelPositionEnumFromXlLabelPosition:(int)arg1;
 
 @end
 

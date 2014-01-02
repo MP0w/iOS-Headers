@@ -12,16 +12,16 @@
 }
 
 + (void)setBatteryLevel:(unsigned int)arg1;
-+ (BOOL)_shouldIgnoreChangeToBatteryLevel:(unsigned int)arg1;
++ (_Bool)_shouldIgnoreChangeToBatteryLevel:(unsigned int)arg1;
 + (unsigned int)_thresholdForLevel:(unsigned int)arg1;
 + (void)initialize;
 + (void)saveLowBatteryLogWithCapacity:(int)arg1 voltage:(int)arg2;
 + (id)systemVersionDescription;
-- (BOOL)undimsScreen;
-- (BOOL)shouldShowInEmergencyCall;
-- (BOOL)shouldShowInLockScreen;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
+- (_Bool)undimsScreen;
+- (_Bool)shouldShowInEmergencyCall;
+- (_Bool)shouldShowInLockScreen;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
+- (void)configure:(_Bool)arg1 requirePasscodeForActions:(_Bool)arg2;
 - (void)willPresentAlertView:(id)arg1;
 - (id)initWithLevel:(unsigned int)arg1;
 - (id)init;

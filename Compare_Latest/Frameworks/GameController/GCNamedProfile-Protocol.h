@@ -10,7 +10,8 @@
 
 @protocol GCNamedProfile <NSObject>
 @property(readonly) NSString *name;
-- (void)setPlayerIndex:(int)arg1;
+- (void)setController:(id)arg1;
+- (void)setPlayerIndex:(long long)arg1;
 - (id)initWithController:(id)arg1;
 - (void)didChangeValueForElement:(id)arg1;
 - (id)inputForElement:(struct __IOHIDElement *)arg1;

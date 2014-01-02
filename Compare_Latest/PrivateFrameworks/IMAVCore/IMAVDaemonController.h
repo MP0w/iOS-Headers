@@ -22,8 +22,8 @@
     NSObject<OS_dispatch_queue> *_remoteMessageQueue;
     NSObject<OS_dispatch_queue> *_localObjectLockQueue;
     struct __CFRunLoopSource *_runLoopSource;
-    BOOL _hasCheckedForDaemon;
-    BOOL _acquiringDaemonConnection;
+    _Bool _hasCheckedForDaemon;
+    _Bool _acquiringDaemonConnection;
 }
 
 + (id)sharedInstance;
@@ -38,20 +38,20 @@
 - (void)_disconnectFromDaemon;
 - (void)_cleanUpConnection;
 - (void)_connectToDaemon;
-- (BOOL)_makeConnectionWithCompletionBlock:(id)arg1;
-- (BOOL)removeListenerID:(id)arg1;
-- (BOOL)hasListenerForID:(id)arg1;
-- (BOOL)addListenerID:(id)arg1;
+- (_Bool)_makeConnectionWithCompletionBlock:(id)arg1;
+- (_Bool)removeListenerID:(id)arg1;
+- (_Bool)hasListenerForID:(id)arg1;
+- (_Bool)addListenerID:(id)arg1;
 - (void)_listenerSetUpdated;
 - (void)_remoteObjectCleanup;
 - (void)_localObjectCleanup;
-- (BOOL)localObjectExists;
-- (BOOL)remoteObjectExists;
+- (_Bool)localObjectExists;
+- (_Bool)remoteObjectExists;
 - (void)_noteSetupComplete;
-- (BOOL)isConnected;
-- (BOOL)isConnecting;
-- (BOOL)__isRemoteObjectValidOnQueue:(id)arg1;
-- (BOOL)__isLocalObjectValidOnQueue:(id)arg1;
+- (_Bool)isConnected;
+- (_Bool)isConnecting;
+- (_Bool)__isRemoteObjectValidOnQueue:(id)arg1;
+- (_Bool)__isLocalObjectValidOnQueue:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

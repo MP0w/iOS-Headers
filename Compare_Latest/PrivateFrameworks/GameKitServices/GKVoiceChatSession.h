@@ -15,13 +15,13 @@
 
 @property float sessionVolume;
 @property(readonly) float inputMeter;
-@property(getter=isActiveSession) BOOL activeSession;
+@property(getter=isActiveSession) _Bool activeSession;
 @property(readonly) NSArray *peerList;
 @property(readonly) NSString *sessionName;
 @property id <GKVoiceChatSessionDelegate> delegate;
 - (float)outputMeterForPeer:(id)arg1;
-- (BOOL)getMuteStateForPeer:(id)arg1;
-- (void)setMute:(BOOL)arg1 forPeer:(id)arg2;
+- (_Bool)getMuteStateForPeer:(id)arg1;
+- (void)setMute:(_Bool)arg1 forPeer:(id)arg2;
 - (void)stopSession;
 - (void)startSession;
 - (void)dealloc;

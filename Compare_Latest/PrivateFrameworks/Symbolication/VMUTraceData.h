@@ -16,16 +16,16 @@
     NSMapTable *fnXrefs;
     NSMutableSet *threadIDnumbers;
     unsigned int maxDepth;
-    unsigned int threadCount;
+    unsigned long long threadCount;
 }
 
 - (void)printXrefs:(id)arg1 toString:(id)arg2;
 - (id)libraryXref;
 - (id)functionXref;
-- (void)generateXref:(id)arg1 withSelector:(SEL)arg2 commutative:(BOOL)arg3;
-- (void)addOrIncrementXref:(id)arg1 withParent:(id)arg2 withChild:(id)arg3 withSelector:(SEL)arg4 commutative:(BOOL)arg5;
-- (BOOL)readFromFile:(struct __sFILE *)arg1;
-- (unsigned long long)readAddressFromFile:(struct __sFILE *)arg1 has64bitAddresses:(BOOL)arg2 needSwap:(BOOL)arg3;
+- (void)generateXref:(id)arg1 withSelector:(SEL)arg2 commutative:(_Bool)arg3;
+- (void)addOrIncrementXref:(id)arg1 withParent:(id)arg2 withChild:(id)arg3 withSelector:(SEL)arg4 commutative:(_Bool)arg5;
+- (_Bool)readFromFile:(struct __sFILE *)arg1;
+- (unsigned long long)readAddressFromFile:(struct __sFILE *)arg1 has64bitAddresses:(_Bool)arg2 needSwap:(_Bool)arg3;
 - (void)writeToFile:(struct __sFILE *)arg1;
 - (unsigned int)maxDepth;
 - (id)numberForThread:(unsigned int)arg1;
@@ -34,7 +34,7 @@
 - (id)symbolForPC:(unsigned long long)arg1;
 - (id)initWithBacktraces:(id)arg1 forTask:(unsigned int)arg2;
 - (id)initWithLogRecords:(CDStruct_32d0cbe3 *)arg1 forTask:(unsigned int)arg2;
-- (void)buildPCMap:(long *)arg1 withNumPages:(unsigned int)arg2 forTask:(unsigned int)arg3;
+- (void)buildPCMap:(long long *)arg1 withNumPages:(unsigned int)arg2 forTask:(unsigned int)arg3;
 - (void)addEvent:(id)arg1;
 - (void)finalize;
 - (void)dealloc;

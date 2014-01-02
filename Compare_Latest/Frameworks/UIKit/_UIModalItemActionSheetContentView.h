@@ -19,7 +19,7 @@
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)layout;
 - (void)_moveAllSubviewsToEffectContentView;
-- (float)numberOfOtherButtonTitles;
+- (double)numberOfOtherButtonTitles;
 - (void)_prepareViewIfNeeded;
 - (void)_createOtherButtonTableView;
 - (void)dealloc;

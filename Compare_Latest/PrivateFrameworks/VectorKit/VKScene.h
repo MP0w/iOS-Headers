@@ -10,6 +10,7 @@
 
 @class GEOTileKeyList, NSMutableArray, NSSet, VKTileKeyList;
 
+// Not exported
 @interface VKScene : NSObject <NSCopying>
 {
     NSSet *_tilesToRender;
@@ -17,13 +18,13 @@
     VKTileKeyList *_keysInView;
     VKTileKeyList *_neighborKeys;
     GEOTileKeyList *_debugKeyList;
-    BOOL _fullyLoaded;
-    BOOL _mapIsOpaque;
+    _Bool _fullyLoaded;
+    _Bool _mapIsOpaque;
     NSMutableArray *_rasterOverlayScenes;
 }
 
-@property(nonatomic) BOOL mapIsOpaque; // @synthesize mapIsOpaque=_mapIsOpaque;
-@property(nonatomic) BOOL fullyLoaded; // @synthesize fullyLoaded=_fullyLoaded;
+@property(nonatomic) _Bool mapIsOpaque; // @synthesize mapIsOpaque=_mapIsOpaque;
+@property(nonatomic) _Bool fullyLoaded; // @synthesize fullyLoaded=_fullyLoaded;
 @property(retain, nonatomic) GEOTileKeyList *debugKeyList; // @synthesize debugKeyList=_debugKeyList;
 @property(retain, nonatomic) VKTileKeyList *neighborKeys; // @synthesize neighborKeys=_neighborKeys;
 @property(retain, nonatomic) VKTileKeyList *keysInView; // @synthesize keysInView=_keysInView;
@@ -31,7 +32,7 @@
 @property(retain, nonatomic) NSSet *tilesToRender; // @synthesize tilesToRender=_tilesToRender;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)clearRasterOverlayScenes;
-- (id)rasterOverlaySceneAtLevel:(unsigned int)arg1;
+- (id)rasterOverlaySceneAtLevel:(unsigned long long)arg1;
 - (void)addRasterOverlayScene:(id)arg1;
 - (void)dealloc;
 - (void)reset;

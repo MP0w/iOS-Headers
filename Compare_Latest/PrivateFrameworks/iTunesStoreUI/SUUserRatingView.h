@@ -15,13 +15,13 @@
     UIImageView *_backgroundImageView;
 }
 
-+ (float)reflectionHeight;
-+ (id)copyImageForRating:(float)arg1 backgroundColor:(id)arg2 style:(int)arg3;
++ (double)reflectionHeight;
++ (id)copyImageForRating:(float)arg1 backgroundColor:(id)arg2 style:(long long)arg3;
 - (struct CGRect)_foregroundImageClipBounds;
 - (void)layoutSubviews;
 - (void)setValue:(float)arg1;
 - (float)heightWithoutReflection;
-- (id)initWithStyle:(int)arg1;
+- (id)initWithStyle:(long long)arg1;
 - (id)initWithForeground:(id)arg1 background:(id)arg2;
 - (id)init;
 

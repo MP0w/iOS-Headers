@@ -8,6 +8,7 @@
 
 @class UITableViewCell, UITextView;
 
+// Not exported
 @interface EKEventNotesDetailItem : EKEventDetailItem
 {
     UITableViewCell *_cell;
@@ -16,13 +17,12 @@
 }
 
 - (void).cxx_destruct;
-- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(unsigned int)arg2;
-- (BOOL)hasDetailViewControllerAtIndex:(unsigned int)arg1;
-- (id)cellForSubitemAtIndex:(unsigned int)arg1;
-- (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 forWidth:(float)arg2;
-- (unsigned int)numberOfSubitems;
-- (id)_notesViewForWidth:(float)arg1;
-- (BOOL)configureWithCalendar:(id)arg1 preview:(BOOL)arg2;
+- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(unsigned long long)arg2;
+- (_Bool)hasDetailViewControllerAtIndex:(unsigned long long)arg1;
+- (id)cellForSubitemAtIndex:(unsigned long long)arg1;
+- (double)defaultCellHeightForSubitemAtIndex:(unsigned long long)arg1 forWidth:(double)arg2;
+- (unsigned long long)numberOfSubitems;
+- (_Bool)configureWithCalendar:(id)arg1 preview:(_Bool)arg2;
 - (void)reset;
 
 @end

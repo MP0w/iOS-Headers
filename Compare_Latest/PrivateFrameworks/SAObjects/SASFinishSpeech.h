@@ -16,7 +16,7 @@
 
 + (id)finishSpeechWithDictionary:(id)arg1 context:(id)arg2;
 + (id)finishSpeech;
-@property(nonatomic) int packetCount;
+@property(nonatomic) long long packetCount;
 @property(copy, nonatomic) NSArray *orderedContext;
 @property(copy, nonatomic) NSString *endpoint;
 - (id)encodedClassName;

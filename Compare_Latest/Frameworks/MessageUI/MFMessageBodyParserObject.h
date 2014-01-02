@@ -9,16 +9,16 @@
 @interface MFMessageBodyParserObject : NSObject
 {
     double _timeoutTime;
-    BOOL _shouldAbort;
-    BOOL _didTimeout;
-    BOOL _copyBlocks;
+    _Bool _shouldAbort;
+    _Bool _didTimeout;
+    _Bool _copyBlocks;
     double _timeoutInterval;
 }
 
 @property(nonatomic) double timeoutInterval; // @synthesize timeoutInterval=_timeoutInterval;
-- (BOOL)areBlocksCopied;
+- (_Bool)areBlocksCopied;
 - (void)copyBlocks;
-- (BOOL)shouldProceedParsing;
+- (_Bool)shouldProceedParsing;
 - (void)abortParsing;
 - (void)messageBodyParserWillBeginParsing:(id)arg1;
 

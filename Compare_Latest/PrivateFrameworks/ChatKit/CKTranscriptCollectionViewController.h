@@ -7,6 +7,7 @@
 #import <ChatKit/CKViewController.h>
 
 #import "CKBalloonViewDelegate-Protocol.h"
+#import "CKTranscriptCollectionViewDelegate-Protocol.h"
 #import "CKTranscriptDataDelegate-Protocol.h"
 #import "UIAlertViewDelegate-Protocol.h"
 #import "UICollectionViewDataSource-Protocol.h"
@@ -15,8 +16,11 @@
 
 @class CKConversation, CKDispatchQueue, CKTranscriptCollectionView, CKTranscriptData, NSIndexSet, NSObject<OS_dispatch_group>, UITapGestureRecognizer, UIView<CKGradientReferenceView>;
 
-@interface CKTranscriptCollectionViewController : CKViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIAlertViewDelegate, CKTranscriptDataDelegate, CKBalloonViewDelegate>
+@interface CKTranscriptCollectionViewController : CKViewController <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIAlertViewDelegate, CKTranscriptCollectionViewDelegate, CKTranscriptDataDelegate, CKBalloonViewDelegate>
 {
+    _Bool _updatesAnimatingContentOffset;
+    _Bool _peeking;
+    _Bool _initialLoad;
     CKDispatchQueue *_transcriptDispatchQueue;
     CKConversation *_conversation;
     CKTranscriptData *_transcriptData;
@@ -27,9 +31,16 @@
     NSIndexSet *_hiddenItems;
     UITapGestureRecognizer *_loggingTapGestureRecognizer;
     id _alertHandler;
+    double _transcriptDrawerWidth;
+    struct CGPoint _peekSampleTranslation;
 }
 
+@property(nonatomic, getter=isInitialLoad) _Bool initialLoad; // @synthesize initialLoad=_initialLoad;
+@property(nonatomic, getter=isPeeking) _Bool peeking; // @synthesize peeking=_peeking;
+@property(nonatomic) double transcriptDrawerWidth; // @synthesize transcriptDrawerWidth=_transcriptDrawerWidth;
+@property(nonatomic) struct CGPoint peekSampleTranslation; // @synthesize peekSampleTranslation=_peekSampleTranslation;
 @property(copy, nonatomic) id alertHandler; // @synthesize alertHandler=_alertHandler;
+@property(nonatomic) _Bool updatesAnimatingContentOffset; // @synthesize updatesAnimatingContentOffset=_updatesAnimatingContentOffset;
 @property(retain, nonatomic) UITapGestureRecognizer *loggingTapGestureRecognizer; // @synthesize loggingTapGestureRecognizer=_loggingTapGestureRecognizer;
 @property(copy, nonatomic) NSIndexSet *hiddenItems; // @synthesize hiddenItems=_hiddenItems;
 @property(retain, nonatomic) NSObject<OS_dispatch_group> *updateAnimationGroup; // @synthesize updateAnimationGroup=_updateAnimationGroup;
@@ -38,19 +49,18 @@
 @property(retain, nonatomic) CKTranscriptCollectionView *collectionView; // @synthesize collectionView=_collectionView;
 @property(retain, nonatomic) CKTranscriptData *transcriptData; // @synthesize transcriptData=_transcriptData;
 @property(retain, nonatomic) CKConversation *conversation; // @synthesize conversation=_conversation;
+- (_Bool)wantsDrawerLayout;
 - (id)collectionViewLayout;
-- (BOOL)_shouldShowSendAsSMSForMessage:(id)arg1;
+- (_Bool)_shouldShowSendAsSMSForMessage:(id)arg1;
 @property(readonly, nonatomic) CKDispatchQueue *transcriptDispatchQueue; // @synthesize transcriptDispatchQueue=_transcriptDispatchQueue;
 - (void)flushTranscriptDispatchQueue;
-- (void)contentSizeCategoryDidChange:(id)arg1;
 - (void)addressBookChanged:(id)arg1;
-- (void)localeDidChange:(id)arg1;
 - (void)transferUpdated:(id)arg1;
 - (void)previewDidChange:(id)arg1;
 - (void)transferRestored:(id)arg1;
 - (void)_resendMessageAtIndexPath:(id)arg1;
 - (void)_downgradeMessageAtIndexPath:(id)arg1;
-- (void)_downgradeMessage:(id)arg1 validateSend:(BOOL)arg2;
+- (void)_downgradeMessage:(id)arg1 validateSend:(_Bool)arg2;
 - (void)touchUpInsideHeaderCellLoadMoreButton:(id)arg1;
 - (void)touchUpInsideMessageCellFailureButton:(id)arg1;
 - (void)balloonView:(id)arg1 sendAsTextMessage:(id)arg2;
@@ -59,59 +69,59 @@
 - (id)messageForBalloonView:(id)arg1;
 - (id)transcriptObjectForBalloonView:(id)arg1;
 - (id)indexPathForBalloonView:(id)arg1;
-- (void)updateTranscriptWithInsertedIndexes:(id)arg1 deletedIndexes:(id)arg2 reloadedIndexes:(id)arg3 frameIndexes:(id)arg4 tailedIndexes:(id)arg5 anchorIndex:(unsigned int)arg6 animated:(BOOL)arg7 completion:(id)arg8;
-- (void)updateTranscriptWithInsertedIndexes:(id)arg1 deletedIndexes:(id)arg2 reloadedIndexes:(id)arg3 frameIndexes:(id)arg4 tailedIndexes:(id)arg5 animated:(BOOL)arg6 completion:(id)arg7;
+- (void)updateTranscriptWithInsertedIndexes:(id)arg1 deletedIndexes:(id)arg2 reloadedIndexes:(id)arg3 frameIndexes:(id)arg4 tailedIndexes:(id)arg5 anchorIndex:(unsigned long long)arg6 animated:(_Bool)arg7 completion:(id)arg8;
+- (void)updateTranscriptWithInsertedIndexes:(id)arg1 deletedIndexes:(id)arg2 reloadedIndexes:(id)arg3 frameIndexes:(id)arg4 tailedIndexes:(id)arg5 animated:(_Bool)arg6 completion:(id)arg7;
 - (void)configureCell:(id)arg1 forItemAtIndexPath:(id)arg2;
-- (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
+- (void)alertView:(id)arg1 didDismissWithButtonIndex:(long long)arg2;
 - (void)balloonViewWillResignFirstResponder:(id)arg1;
 - (void)balloonViewTapped:(id)arg1 withEvent:(id)arg2;
 - (void)balloonViewTouchedDown:(id)arg1 withEvent:(id)arg2;
-- (BOOL)balloonView:(id)arg1 canPerformAction:(SEL)arg2 withSender:(id)arg3;
+- (_Bool)balloonView:(id)arg1 canPerformAction:(SEL)arg2 withSender:(id)arg3;
 - (struct CGRect)calloutTargetRectForBalloonView:(id)arg1;
 - (id)menuItemsForBalloonView:(id)arg1;
 - (void)balloonViewDidFinishDataDetectorAction:(id)arg1;
 - (void)transcriptDataDidUpdate:(id)arg1 inserted:(id)arg2 deleted:(id)arg3 reloaded:(id)arg4 frames:(id)arg5 tailed:(id)arg6;
+- (_Bool)collectionView:(id)arg1 layoutHasContactPhotos:(id)arg2;
+- (double)collectionView:(id)arg1 layoutBottomSpace:(id)arg2;
+- (_Bool)collectionView:(id)arg1 layout:(id)arg2 wantsDrawerLayoutForItemAtIndexPath:(id)arg3;
 - (BOOL)collectionView:(id)arg1 layout:(id)arg2 orientationForItemAtIndexPath:(id)arg3;
 - (struct CGRect)collectionView:(id)arg1 layout:(id)arg2 frameForItemAtIndexPath:(id)arg3;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
-- (int)collectionView:(id)arg1 numberOfItemsInSection:(int)arg2;
+- (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
 - (void)collectionViewDidInset:(id)arg1;
 - (void)collectionViewWillInset:(id)arg1 targetContentInset:(inout struct UIEdgeInsets *)arg2;
-- (BOOL)collectionView:(id)arg1 isEditableItemAtIndexPath:(id)arg2;
+- (_Bool)collectionView:(id)arg1 isEditableItemAtIndexPath:(id)arg2;
+- (void)collectionView:(id)arg1 didEndDisplayingCell:(id)arg2 forItemAtIndexPath:(id)arg3;
 - (void)collectionView:(id)arg1 didDeselectItemAtIndexPath:(id)arg2;
 - (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
-- (BOOL)collectionView:(id)arg1 shouldHighlightItemAtIndexPath:(id)arg2;
-- (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(BOOL)arg2;
+- (_Bool)collectionView:(id)arg1 shouldHighlightItemAtIndexPath:(id)arg2;
+- (void)collectionViewWillProgrammaticallyScroll:(id)arg1;
+- (void)collectionViewWillScroll:(id)arg1 targetContentOffset:(inout struct CGPoint *)arg2;
+- (void)scrollViewDidScroll:(id)arg1;
+- (void)scrollViewDidEndScrollingAnimation:(id)arg1;
+- (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(_Bool)arg2;
+- (void)scrollViewWillEndDragging:(id)arg1 withVelocity:(struct CGPoint)arg2 targetContentOffset:(inout struct CGPoint *)arg3;
 - (void)scrollViewWillBeginDragging:(id)arg1;
 - (void)reloadData;
-- (void)setScrollAnchor:(float)arg1;
+- (void)setScrollAnchor:(double)arg1;
 - (void)deleteSelectedItems:(id)arg1;
 - (id)selectedItems;
 - (id)initWithConversation:(id)arg1;
 - (void)viewDidAppearDeferredSetup;
 - (void)performResumeDeferredSetup;
-- (void)systemApplicationWillEnterForeground;
-- (void)parentControllerDidResume:(BOOL)arg1 animating:(BOOL)arg2;
 - (void)prepareForSuspend;
 - (void)significantTimeChange;
 - (id)contentScrollView;
-- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)didRotateFromInterfaceOrientation:(long long)arg1;
+- (void)willRotateToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)didReceiveMemoryWarning;
-- (void)viewDidDisappear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)didMoveToParentViewController:(id)arg1;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;
 - (void)dealloc;
-- (id)_remoteLogDumpButtonTitle;
-- (id)_localLogDumpButtonTitle;
-- (void)_performRemoteLogDump;
-- (void)_performLocalLogDump;
-- (void)__handleLoggingTapped:(id)arg1;
-- (void)_showLoggingAlertIfNecessary;
-- (void)_tearDownLoggingTapGestureRecognizer;
-- (void)_setupLoggingTapGestureRecognizer;
-- (BOOL)_shouldShowInternalUILogging;
-- (BOOL)_shouldShowUILogging;
 
 @end
 

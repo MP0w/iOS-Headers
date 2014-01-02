@@ -6,16 +6,16 @@
 
 #import "UITableViewCell.h"
 
-@class NSString, UIImageView, UILabel;
+@class NSOperation, NSString, UIImageView, UILabel, UIView;
 
 @interface SBSearchTableViewCell : UITableViewCell
 {
-    BOOL _badged;
-    BOOL _starred;
-    BOOL _isFirstInSection;
-    BOOL _isLastInSection;
-    BOOL _hasImage;
-    BOOL _aboveSelectedCell;
+    _Bool _badged;
+    _Bool _starred;
+    _Bool _isFirstInSection;
+    _Bool _isLastInSection;
+    _Bool _hasImage;
+    _Bool _aboveSelectedCell;
     UILabel *_titleLabel;
     UILabel *_subtitleLabel;
     UILabel *_auxiliaryTitleLabel;
@@ -24,51 +24,55 @@
     UIImageView *_titleImageView;
     UIImageView *_badgeImageView;
     UIImageView *_starImageView;
-    struct CGImage *_selectedMask;
-    BOOL _hasRoundedImage;
-    BOOL _shouldKnockoutImage;
+    NSOperation *_fetchImageOperation;
+    UIView *_background;
+    UIView *_clippingContainer;
+    UIView *_separatorView;
+    _Bool _hasRoundedImage;
+    _Bool _shouldKnockoutImage;
 }
 
-+ (id)clippingLayer;
-+ (float)summaryBaselineOriginForContentSizeCategory:(id)arg1;
-+ (float)subtitleBaselineOriginForContentSizeCategory:(id)arg1;
-+ (float)titleBaselineOriginForContentSizeCategory:(id)arg1;
-+ (float)rowHeightForPreferredContentSizeWithNumberOfSummaryLines:(int)arg1;
++ (double)summaryBaselineOriginForContentSizeCategory:(id)arg1;
++ (double)subtitleBaselineOriginForContentSizeCategory:(id)arg1;
++ (double)titleBaselineOriginForContentSizeCategory:(id)arg1;
++ (double)rowHeightForPreferredContentSizeWithNumberOfSummaryLines:(long long)arg1;
 + (void)resetContentSizeCache;
 + (id)starImage;
 + (id)unreadImage;
 + (id)selectedTextColor;
 + (id)secontaryTextColor;
-+ (id)selectedBackgroundColor;
++ (id)maskedSelectedBackgroundColor;
++ (id)unmaskedSelectedBackgroundColor;
 + (id)backgroundColor;
 + (id)lineColor;
 + (void)initialize;
-@property(nonatomic) BOOL shouldKnockoutImage; // @synthesize shouldKnockoutImage=_shouldKnockoutImage;
-@property(nonatomic, getter=hasRoundedImage) BOOL hasRoundedImage; // @synthesize hasRoundedImage=_hasRoundedImage;
-@property(nonatomic, getter=isAboveSelectedCell) BOOL aboveSelectedCell; // @synthesize aboveSelectedCell=_aboveSelectedCell;
-@property(nonatomic, getter=hasImage) BOOL hasImage; // @synthesize hasImage=_hasImage;
-@property(nonatomic, getter=isLastInSection) BOOL lastInSection; // @synthesize lastInSection=_isLastInSection;
-@property(nonatomic, getter=isFirstInSection) BOOL firstInSection; // @synthesize firstInSection=_isFirstInSection;
-@property(nonatomic, getter=isStarred) BOOL starred; // @synthesize starred=_starred;
-@property(nonatomic, getter=isBadged) BOOL badged; // @synthesize badged=_badged;
-- (void)willDisplayCell;
-- (void)setHighlighted:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)setSelected:(BOOL)arg1 animated:(BOOL)arg2;
+@property(nonatomic) _Bool shouldKnockoutImage; // @synthesize shouldKnockoutImage=_shouldKnockoutImage;
+@property(nonatomic, getter=hasRoundedImage) _Bool hasRoundedImage; // @synthesize hasRoundedImage=_hasRoundedImage;
+@property(retain, nonatomic) NSOperation *fetchImageOperation; // @synthesize fetchImageOperation=_fetchImageOperation;
+@property(nonatomic, getter=isAboveSelectedCell) _Bool aboveSelectedCell; // @synthesize aboveSelectedCell=_aboveSelectedCell;
+@property(nonatomic, getter=hasImage) _Bool hasImage; // @synthesize hasImage=_hasImage;
+@property(nonatomic, getter=isLastInSection) _Bool lastInSection; // @synthesize lastInSection=_isLastInSection;
+@property(nonatomic, getter=isFirstInSection) _Bool firstInSection; // @synthesize firstInSection=_isFirstInSection;
+@property(nonatomic, getter=isStarred) _Bool starred; // @synthesize starred=_starred;
+@property(nonatomic, getter=isBadged) _Bool badged; // @synthesize badged=_badged;
+- (void)setHighlighted:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)setSelected:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)updateSelectedState;
 - (void)prepareForReuse;
 - (void)layoutSubviews;
-- (void)setTitleImage:(id)arg1 animated:(BOOL)arg2;
+- (void)setTitleImage:(id)arg1 animated:(_Bool)arg2;
 - (id)_scriptingInfo;
 - (void)clipToTopHeaderInTableView:(id)arg1;
-- (void)drawRect:(struct CGRect)arg1;
-- (void)setSummary:(id)arg1 withNumberOfLines:(int)arg2;
+- (void)updateBottomLine;
+- (void)setIsLastInSection:(_Bool)arg1;
+- (void)setSummary:(id)arg1 withNumberOfLines:(long long)arg2;
 @property(retain, nonatomic) NSString *summary;
 @property(retain, nonatomic) NSString *auxiliarySubtitle;
 @property(retain, nonatomic) NSString *auxiliaryTitle;
 @property(retain, nonatomic) NSString *subtitle;
 @property(retain, nonatomic) NSString *title;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

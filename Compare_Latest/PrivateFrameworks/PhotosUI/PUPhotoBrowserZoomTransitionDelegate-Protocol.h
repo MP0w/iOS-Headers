@@ -7,15 +7,15 @@
 #import "NSObject-Protocol.h"
 
 @protocol PUPhotoBrowserZoomTransitionDelegate <NSObject>
-- (void)zoomTransition:(id)arg1 setVisibility:(BOOL)arg2 forPhoto:(id)arg3 inCollection:(id)arg4;
-- (struct CGRect)zoomTransition:(id)arg1 frameForPhoto:(id)arg2 inCollection:(id)arg3 forOperation:(int)arg4;
+- (void)zoomTransition:(id)arg1 setVisibility:(_Bool)arg2 forPhotoToken:(id)arg3;
+- (_Bool)zoomTransition:(id)arg1 getFrame:(struct CGRect *)arg2 contentMode:(long long *)arg3 forPhotoToken:(id)arg4 operation:(long long)arg5;
+- (id)zoomTransition:(id)arg1 photoTokenForPhoto:(id)arg2 inCollection:(id)arg3;
 
 @optional
-- (BOOL)zoomTransitionWantsStatusBarHiddenOnPop:(id)arg1;
-- (BOOL)zoomTransitionWantsToolbarHiddenOnPop:(id)arg1;
-- (BOOL)zoomTransitionWantsNavigationBarHiddenOnPop:(id)arg1;
-- (void)zoomTransition:(id)arg1 didFinishForOperation:(int)arg2;
-- (void)zoomTransition:(id)arg1 willBeginForOperation:(int)arg2;
-- (BOOL)zoomTransition:(id)arg1 transitionImageForPhoto:(id)arg2 inCollection:(id)arg3 callback:(id)arg4;
+- (void)zoomTransition:(id)arg1 didFinishAnimationForOperation:(long long)arg2;
+- (void)zoomTransition:(id)arg1 willBeginAnimationForOperation:(long long)arg2;
+- (void)zoomTransition:(id)arg1 didFinishForOperation:(long long)arg2 animated:(_Bool)arg3 interactive:(_Bool)arg4;
+- (void)zoomTransition:(id)arg1 willBeginForOperation:(long long)arg2 animated:(_Bool)arg3 interactive:(_Bool)arg4;
+- (_Bool)zoomTransition:(id)arg1 transitionImageForPhotoToken:(id)arg2 callback:(id)arg3;
 @end
 

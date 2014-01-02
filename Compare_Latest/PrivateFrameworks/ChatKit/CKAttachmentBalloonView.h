@@ -14,24 +14,22 @@
     CKAttachmentView *_attachmentView;
 }
 
-+ (BOOL)fixedWidth;
 @property(retain, nonatomic) CKAttachmentView *attachmentView; // @synthesize attachmentView=_attachmentView;
 @property(retain, nonatomic) CKMediaObject *mediaObject; // @synthesize mediaObject=_mediaObject;
-- (void)contentSizeCategoryDidChange:(id)arg1;
 - (void)transferUpdated:(id)arg1;
 - (void)updateViews;
-- (BOOL)isFilled;
-- (void)setFilled:(BOOL)arg1;
+- (_Bool)isFilled;
+- (void)setFilled:(_Bool)arg1;
 - (BOOL)color;
 - (void)setColor:(BOOL)arg1;
 - (void)prepareForReuse;
 - (void)prepareForDisplay;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1 textAlignmentInsets:(struct UIEdgeInsets *)arg2;
+- (struct UIEdgeInsets)alignmentRectInsets;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)description;
 - (void)dealloc;
-- (void)configureForMessagePart:(id)arg1;
 
 @end
 

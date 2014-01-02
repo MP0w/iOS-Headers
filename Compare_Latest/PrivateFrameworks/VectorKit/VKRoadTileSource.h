@@ -6,14 +6,15 @@
 
 #import <VectorKit/VKVectorTileSource.h>
 
+// Not exported
 @interface VKRoadTileSource : VKVectorTileSource
 {
 }
 
 - (void)releaseTraffic;
 - (id)tileForData:(id)arg1 downloadKey:(const struct _GEOTileKey *)arg2 sourceKey:(const struct VKTileKey *)arg3;
-- (unsigned int)mapLayerForZoomLevelRange;
-- (BOOL)minimumZoomLevelBoundsCamera;
+- (unsigned long long)mapLayerForZoomLevelRange;
+- (_Bool)minimumZoomLevelBoundsCamera;
 
 @end
 

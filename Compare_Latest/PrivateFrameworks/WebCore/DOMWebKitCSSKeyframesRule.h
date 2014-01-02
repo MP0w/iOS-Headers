@@ -8,6 +8,7 @@
 
 @class DOMCSSRuleList, NSString;
 
+// Not exported
 @interface DOMWebKitCSSKeyframesRule : DOMCSSRule
 {
 }

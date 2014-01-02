@@ -8,42 +8,40 @@
 
 #import "PLAssetContainerListChangeObserver-Protocol.h"
 #import "PLAssetContainerObserver-Protocol.h"
-#import "PLPhotosPickerSessionParticipant-Protocol.h"
 #import "PlacesMapViewDelegateDetailsDelegate-Protocol.h"
 
-@class NSArray, NSObject<PLDiagnosticsProvider>, PLPhotosPickerSession, PLPlaces, PLPlacesMapViewDelegate;
+@class MKMapView, NSArray, NSObject<PLDiagnosticsProvider>, PLPlaces, PLPlacesMapViewDelegate;
 
-@interface PUPlacesViewController : UIViewController <PlacesMapViewDelegateDetailsDelegate, PLPhotosPickerSessionParticipant, PLAssetContainerObserver, PLAssetContainerListChangeObserver>
+@interface PUPlacesViewController : UIViewController <PlacesMapViewDelegateDetailsDelegate, PLAssetContainerObserver, PLAssetContainerListChangeObserver>
 {
     PLPlacesMapViewDelegate *_placesMapKitDelegate;
     PLPlaces *_places;
     struct NSObject *_allPhotosAlbum;
-    PLPhotosPickerSession *_currentPickerSession;
-    BOOL _networkingEnabled;
-    BOOL _refreshMapAfterResume;
-    BOOL _suspended;
-    BOOL _allowDetails;
+    MKMapView *_mapView;
+    _Bool _networkingEnabled;
+    _Bool _refreshMapAfterResume;
+    _Bool _suspended;
+    _Bool _allowDetails;
     NSArray *_locationAssets;
     NSObject<PLDiagnosticsProvider> *_diagnosticsProvider;
 }
 
 @property(retain, nonatomic) NSObject<PLDiagnosticsProvider> *diagnosticsProvider; // @synthesize diagnosticsProvider=_diagnosticsProvider;
 @property(copy, nonatomic) NSArray *locationAssets; // @synthesize locationAssets=_locationAssets;
-@property(nonatomic) BOOL allowDetails; // @synthesize allowDetails=_allowDetails;
-@property(retain, nonatomic) PLPhotosPickerSession *currentPickerSession; // @synthesize currentPickerSession=_currentPickerSession;
+@property(nonatomic) _Bool allowDetails; // @synthesize allowDetails=_allowDetails;
 - (void).cxx_destruct;
 - (void)_handleReportButton:(id)arg1;
 - (void)assetContainerDidChange:(id)arg1;
 - (void)assetContainerListDidChange:(id)arg1;
 - (void)displayDetailsForAlbum:(struct NSObject *)arg1;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)_updateNavItem;
-- (void)viewDidDisappear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
-- (void)_setNetworkingEnabled:(BOOL)arg1;
+- (_Bool)pu_wantsTabBarVisible;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
+- (void)_setNetworkingEnabled:(_Bool)arg1;
 - (void)dealloc;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (void)loadView;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (void)viewDidLoad;
 - (id)init;
 
 @end

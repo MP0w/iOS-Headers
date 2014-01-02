@@ -8,6 +8,7 @@
 
 @class WDTableCell;
 
+// Not exported
 @interface WMTableCellMapper : CMMapper
 {
     WDTableCell *mWdTableCell;
@@ -21,8 +22,6 @@
 - (void)mapAt:(id)arg1 withState:(id)arg2;
 - (unsigned int)colSpan;
 - (id)initWithWDTableCell:(id)arg1 atIndex:(unsigned int)arg2 parent:(id)arg3;
-- (id)tableMapper;
-- (void)mapCellStyleAt:(id)arg1;
 
 @end
 

@@ -6,13 +6,14 @@
 
 #import <OfficeImport/OADColorTransform.h>
 
+// Not exported
 @interface OADValueColorTransform : OADColorTransform
 {
     float mValue;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)setValue:(float)arg1;
 - (float)value;
 

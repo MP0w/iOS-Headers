@@ -13,19 +13,19 @@
 {
     struct CGRect tableBounds;
     unsigned int rowCount;
-    float *rowY;
+    double *rowY;
     unsigned int columnCount;
-    float *columnX;
+    double *columnX;
     struct CGColor *backgroundColor;
     unsigned int backgroundGraphicCount;
     id *backgroundGraphics;
     unsigned int usedGraphicCount;
-    BOOL disposed;
+    _Bool disposed;
 }
 
 @property(readonly, nonatomic) unsigned int backgroundGraphicCount; // @synthesize backgroundGraphicCount;
-@property(readonly, nonatomic) float *columnX; // @synthesize columnX;
-@property(readonly, nonatomic) float *rowY; // @synthesize rowY;
+@property(readonly, nonatomic) double *columnX; // @synthesize columnX;
+@property(readonly, nonatomic) double *rowY; // @synthesize rowY;
 @property(readonly, nonatomic) struct CGRect tableBounds; // @synthesize tableBounds;
 - (unsigned int)usedGraphicCount;
 - (void)incrementUsedGraphicCount;

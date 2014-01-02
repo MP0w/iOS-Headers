@@ -10,6 +10,8 @@
 + (id)_mapkit_userLocationAccuracyRingFillColor;
 + (id)_mapkit_userLocationAccuracyRingStrokeColorSatellite;
 + (id)_mapkit_userLocationAccuracyRingStrokeColor;
-- (BOOL)_mapkit_isWhite;
+- (id)_mapkit_blendedColorWithFraction:(double)arg1 ofColor:(id)arg2;
+- (_Bool)_mapkit_getRed:(double *)arg1 green:(double *)arg2 blue:(double *)arg3 alpha:(double *)arg4;
+- (_Bool)_mapkit_isWhite;
 @end
 

@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface ECFormulaProcessor : NSObject
 {
     struct XlFormulaProcessor *mXlFormulaProcessorLasso;
@@ -21,8 +22,6 @@
 - (void)setupWithWorkbook:(id)arg1;
 - (void)dealloc;
 - (id)init;
-- (ChVector_be6372b9 *)sheetNamesFromWorkbook:(id)arg1;
-- (struct XlFormulaProcessor *)setupWithWorkbook:(id)arg1 xlNameTable:(struct XlNameTable *)arg2 sheetNames:(ChVector_be6372b9 *)arg3 xlLinkTable:(struct XlLinkTable *)arg4 lassoSyntax:(_Bool)arg5;
 
 @end
 

@@ -6,11 +6,12 @@
 
 #import <MapKit/MKAnnotationView.h>
 
+// Not exported
 @interface MKLabelMarkerView : MKAnnotationView
 {
 }
 
-+ (BOOL)_followsTerrain;
++ (_Bool)_followsTerrain;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;
 - (void)setAnnotation:(id)arg1;

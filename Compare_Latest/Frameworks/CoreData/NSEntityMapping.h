@@ -14,7 +14,7 @@
     void *_reserved1;
     NSDictionary *_mappingsByName;
     NSString *_name;
-    unsigned int _mappingType;
+    unsigned long long _mappingType;
     NSString *_sourceEntityName;
     NSData *_sourceEntityVersionHash;
     NSString *_destinationEntityName;
@@ -49,27 +49,17 @@
 - (id)sourceEntityVersionHash;
 - (void)setSourceEntityName:(id)arg1;
 - (id)sourceEntityName;
-- (void)setMappingType:(unsigned int)arg1;
-- (unsigned int)mappingType;
+- (void)setMappingType:(unsigned long long)arg1;
+- (unsigned long long)mappingType;
 - (void)setName:(id)arg1;
 - (id)name;
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (void)dealloc;
 - (id)init;
-- (BOOL)_hasInferredMappingNeedingValidation;
-- (id)_mappingsByName;
-- (void)_addRelationshipMapping:(id)arg1;
-- (void)_addAttributeMapping:(id)arg1;
-- (void)_throwIfNotEditable;
-- (void)_setIsEditable:(BOOL)arg1;
-- (void)_createCachesAndOptimizeState;
-- (BOOL)isEditable;
-- (id)_initWithSourceEntityDescription:(id)arg1 destinationEntityDescription:(id)arg2;
-- (id)_migrationPolicy;
 
 @end
 

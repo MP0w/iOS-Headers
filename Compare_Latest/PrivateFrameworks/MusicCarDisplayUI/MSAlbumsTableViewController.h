@@ -10,17 +10,17 @@
 
 @interface MSAlbumsTableViewController : MSSectionedTableViewController <AFContextProvider>
 {
-    BOOL _shouldShowArtistSubtitle;
+    _Bool _shouldShowArtistSubtitle;
 }
 
-@property(nonatomic) BOOL shouldShowArtistSubtitle; // @synthesize shouldShowArtistSubtitle=_shouldShowArtistSubtitle;
+@property(nonatomic) _Bool shouldShowArtistSubtitle; // @synthesize shouldShowArtistSubtitle=_shouldShowArtistSubtitle;
 - (id)_representedCollectionForQuery;
 - (id)getCurrentContext;
-- (BOOL)allowContextProvider:(id)arg1;
+- (_Bool)allowContextProvider:(id)arg1;
 - (id)viewControllerForRowAtIndexPath:(id)arg1;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)dealloc;
 - (id)initWithQuery:(id)arg1 player:(id)arg2 serviceProvider:(id)arg3;
 

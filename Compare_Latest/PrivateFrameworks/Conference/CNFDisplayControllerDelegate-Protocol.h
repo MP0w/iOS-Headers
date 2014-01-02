@@ -7,19 +7,19 @@
 #import "NSObject-Protocol.h"
 
 @protocol CNFDisplayControllerDelegate <NSObject>
-- (void)conferenceDisplayController:(id)arg1 endCallWithReason:(unsigned int)arg2;
+- (void)conferenceDisplayController:(id)arg1 endCallWithReason:(unsigned long long)arg2;
 
 @optional
 - (void)conferenceDisplayControllerEndedWhileSuspending:(id)arg1;
-- (void)conferenceDisplayController:(id)arg1 endWithReason:(unsigned int)arg2;
-- (void)conferenceDisplayController:(id)arg1 didFinishAnimatingCallEndWithReason:(unsigned int)arg2;
-- (BOOL)auxiliaryAudioRoutesAvailable;
-- (void)conferenceDisplayController:(id)arg1 cameraToggleWithReason:(unsigned int)arg2;
-- (void)conferenceDisplayController:(id)arg1 muteConferenceWithReason:(unsigned int)arg2;
-- (void)conferenceDisplayController:(id)arg1 retryVideoConferenceInvitationWithReason:(unsigned int)arg2;
-- (void)conferenceDisplayController:(id)arg1 cancelCallFailureRecoveryWithReason:(unsigned int)arg2;
+- (void)conferenceDisplayController:(id)arg1 endWithReason:(unsigned long long)arg2;
+- (void)conferenceDisplayController:(id)arg1 didFinishAnimatingCallEndWithReason:(unsigned long long)arg2;
+- (_Bool)auxiliaryAudioRoutesAvailable;
+- (void)conferenceDisplayController:(id)arg1 cameraToggleWithReason:(unsigned long long)arg2;
+- (void)conferenceDisplayController:(id)arg1 muteConferenceWithReason:(unsigned long long)arg2;
+- (void)conferenceDisplayController:(id)arg1 retryVideoConferenceInvitationWithReason:(unsigned long long)arg2;
+- (void)conferenceDisplayController:(id)arg1 cancelCallFailureRecoveryWithReason:(unsigned long long)arg2;
 - (id)originationURL;
-- (BOOL)isInPhoneCall;
-- (BOOL)isOutgoingInvitation;
+- (_Bool)isInPhoneCall;
+- (_Bool)isOutgoingInvitation;
 @end
 

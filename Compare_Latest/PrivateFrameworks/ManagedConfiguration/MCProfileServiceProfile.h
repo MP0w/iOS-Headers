@@ -14,11 +14,11 @@
     NSArray *_deviceAttributes;
     id _challenge;
     NSData *_enrollmentIdentityPersistentID;
-    BOOL _confirmInstallation;
+    _Bool _confirmInstallation;
     NSArray *_bogusPayloads;
 }
 
-@property(readonly, nonatomic) BOOL confirmInstallation; // @synthesize confirmInstallation=_confirmInstallation;
+@property(readonly, nonatomic) _Bool confirmInstallation; // @synthesize confirmInstallation=_confirmInstallation;
 @property(retain, nonatomic) NSData *enrollmentIdentityPersistentID; // @synthesize enrollmentIdentityPersistentID=_enrollmentIdentityPersistentID;
 @property(readonly, nonatomic) id challenge; // @synthesize challenge=_challenge;
 @property(readonly, nonatomic) NSArray *deviceAttributes; // @synthesize deviceAttributes=_deviceAttributes;
@@ -28,7 +28,7 @@
 - (id)stubDictionary;
 - (id)payloads;
 - (id)localizedPayloadSummaryByType;
-- (id)initWithDictionary:(id)arg1 allowEmptyPayload:(BOOL)arg2 outError:(id *)arg3;
+- (id)initWithDictionary:(id)arg1 allowEmptyPayload:(_Bool)arg2 outError:(id *)arg3;
 - (id)_unsupportedValueErrorWithFieldName:(id)arg1 value:(id)arg2;
 - (id)_badDataTypeErrorWithFieldName:(id)arg1;
 

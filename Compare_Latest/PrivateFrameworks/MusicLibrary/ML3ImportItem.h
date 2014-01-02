@@ -14,6 +14,7 @@
 
 @property(nonatomic) long long persistentIdentifier; // @synthesize persistentIdentifier=_persistentIdentifier;
 @property(nonatomic) int sourceType; // @synthesize sourceType=_sourceType;
+- (id)sortEpisodeId;
 - (id)sortGenre;
 - (id)sortComposer;
 - (id)effectiveSortAlbumArtist;
@@ -23,9 +24,9 @@
 - (id)sortSeries;
 - (id)sortArtist;
 - (id)sortTitle;
-- (BOOL)canInsertIntoPurchasePlaylist;
+- (_Bool)canInsertIntoPurchasePlaylist;
 - (id)sanitizedStringValueForProperty:(unsigned int)arg1;
-- (BOOL)hasValueForProperty:(unsigned int)arg1;
+- (_Bool)hasValueForProperty:(unsigned int)arg1;
 - (id)valueForProperty:(unsigned int)arg1;
 - (id)allPropertyValues;
 - (id)deduplicationPredicates;

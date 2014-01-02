@@ -12,17 +12,17 @@
 
 + (void)handleSpecificHardwareKeyboard;
 + (id)sharedPreferencesController;
-- (BOOL)spaceConfirmationEnabled;
-- (float)rivenSizeFactor:(float)arg1;
-- (BOOL)costlyCapture;
-- (BOOL)typologyEnabled;
+- (_Bool)spaceConfirmationEnabled;
+- (double)rivenSizeFactor:(double)arg1;
+- (_Bool)costlyCapture;
+- (_Bool)typologyEnabled;
 - (void)setInputModeLastUsed:(id)arg1;
 - (void)saveInputModes:(id)arg1;
 - (void)setValue:(id)arg1 forKey:(int)arg2;
 - (void)touchSynchronizePreferencesTimer;
 - (void)synchronizePreferences;
 - (void)releaseDontSynchronizePreferences;
-- (BOOL)boolForKey:(int)arg1;
+- (_Bool)boolForKey:(int)arg1;
 - (id)valueForKey:(int)arg1;
 - (void)preferencesControllerChanged:(id)arg1;
 - (void)dealloc;

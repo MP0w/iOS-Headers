@@ -8,13 +8,15 @@
 
 @class NSMutableDictionary;
 
+// Not exported
 @interface LSInstallProgressList : NSObject
 {
     NSMutableDictionary *_progresses;
+    NSMutableDictionary *_subscriptions;
 }
 
 - (id)description;
-- (void)removeProgressAndSubscribersForBundleID:(id)arg1;
+- (void)removeProgressForBundleID:(id)arg1;
 - (void)removeSubscriberForPublishingKey:(id)arg1 andBundleID:(id)arg2;
 - (id)subscriberForBundleID:(id)arg1 andPublishingKey:(id)arg2;
 - (void)addSubscriber:(id)arg1 forPublishingKey:(id)arg2 andBundleID:(id)arg3;

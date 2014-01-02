@@ -6,12 +6,11 @@
 
 #import <iWorkImport/GQDRoot.h>
 
+// Not exported
 @interface GQDBGPresentation : GQDRoot
 {
     struct __CFArray *mThemes;
     struct CGSize mSlideSize;
-    BOOL mIsOldAssetNameMapInitialized;
-    struct __CFDictionary *mOldAssetNameMap;
 }
 
 + (id)parseNumberOutOfBasename:(id)arg1 returningNumber:(int *)arg2;
@@ -27,7 +26,6 @@
 - (struct __CFArray *)themes;
 - (void)dealloc;
 - (id)init;
-- (struct __CFString *)createUpgradedAppBundleResourcePath:(struct __CFString *)arg1 processorBundle:(struct __CFBundle *)arg2;
 
 @end
 

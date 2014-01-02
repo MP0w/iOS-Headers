@@ -8,6 +8,7 @@
 
 @class NSMutableArray, OADTextBodyProperties, OADTextListStyle;
 
+// Not exported
 @interface OADTextBody : NSObject
 {
     OADTextBodyProperties *mProperties;
@@ -17,7 +18,7 @@
 
 - (void)removeUnnecessaryOverrides;
 - (void)flattenProperties;
-- (BOOL)isEmpty;
+- (_Bool)isEmpty;
 - (void)removeLeadingNewlines;
 - (void)removeTrailingNewlines;
 - (void)setParentTextListStyle:(id)arg1;
@@ -26,15 +27,12 @@
 - (id)textListStyle;
 - (void)removeAllParagraphs;
 - (id)addParagraph;
-- (id)paragraphAtIndex:(unsigned int)arg1;
-- (unsigned int)paragraphCount;
+- (id)paragraphAtIndex:(unsigned long long)arg1;
+- (unsigned long long)paragraphCount;
 - (void)setProperties:(id)arg1;
 - (id)properties;
 - (void)dealloc;
 - (id)init;
-- (id)findFirstTextRunOfClass:(Class)arg1;
-- (void)addParagraphsFromTextBody:(id)arg1;
-- (id)plainText;
 
 @end
 

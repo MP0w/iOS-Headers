@@ -6,22 +6,25 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, NSMutableDictionary;
+@class NSMutableArray;
 
 @interface PLEffectFilterManager : NSObject
 {
-    NSMutableDictionary *_effects;
+    NSMutableArray *_effects;
     NSMutableArray *_names;
+    NSMutableArray *_aggdNames;
 }
 
 + (id)sharedInstance;
+- (id)aggdNameForFilter:(id)arg1;
 - (id)displayNameForFilter:(id)arg1;
-- (id)displayNameForIndex:(unsigned int)arg1;
-- (id)filterForIndex:(unsigned int)arg1;
-- (unsigned int)blackAndWhiteFilterCount;
-- (unsigned int)blackAndWhiteFilterStartIndex;
-- (unsigned int)filterCount;
-- (void)_addEffectNamed:(id)arg1 filter:(id)arg2;
+- (unsigned long long)_indexForFilter:(id)arg1;
+- (id)displayNameForIndex:(unsigned long long)arg1;
+- (id)filterForIndex:(unsigned long long)arg1;
+- (unsigned long long)blackAndWhiteFilterCount;
+- (unsigned long long)blackAndWhiteFilterStartIndex;
+- (unsigned long long)filterCount;
+- (void)_addEffectNamed:(id)arg1 aggdName:(id)arg2 filter:(id)arg3;
 - (void)dealloc;
 - (id)init;
 

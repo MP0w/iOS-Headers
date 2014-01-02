@@ -6,6 +6,7 @@
 
 #import <UIKit/UINavigationController.h>
 
+// Not exported
 @interface _UIOpenInNavigationController : UINavigationController
 {
 }

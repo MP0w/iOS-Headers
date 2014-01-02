@@ -12,8 +12,8 @@
 
 + (int)__eventTypeForUserInteractionSnapshotEvent:(id)arg1;
 + (void)__serializeWorkoutDict:(id)arg1 toURL:(id)arg2;
-+ (id)__formatPace:(unsigned int)arg1;
-+ (id)__formatTimeInterval:(unsigned int)arg1;
++ (id)__formatPace:(unsigned long long)arg1;
++ (id)__formatTimeInterval:(unsigned long long)arg1;
 + (id)__snapshotDictArrayForSnapshotVector:(vector_f582d009)arg1;
 + (id)dictionaryForWorkoutFileAtURL:(id)arg1;
 + (void)serializeWorkoutDict:(id)arg1 toURL:(id)arg2;

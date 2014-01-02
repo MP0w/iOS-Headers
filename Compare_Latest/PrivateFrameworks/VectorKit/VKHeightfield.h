@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface VKHeightfield : NSObject
 {
     float *_zBins;

@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface DDTelephoneNumberAction : DDAction
 {
     NSString *_phoneNumber;

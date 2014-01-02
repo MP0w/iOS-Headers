@@ -11,27 +11,27 @@
 @interface TIPreferencesController : NSObject
 {
     NSTimer *_synchronizePreferencesTimer;
-    BOOL dontSynchronizePreferences;
-    BOOL isInternalInstall;
+    _Bool dontSynchronizePreferences;
+    _Bool isInternalInstall;
 }
 
 + (id)sharedPreferencesController;
-@property(nonatomic) BOOL isInternalInstall; // @synthesize isInternalInstall;
-@property(nonatomic) BOOL dontSynchronizePreferences; // @synthesize dontSynchronizePreferences;
+@property(nonatomic) _Bool isInternalInstall; // @synthesize isInternalInstall;
+@property(nonatomic) _Bool dontSynchronizePreferences; // @synthesize dontSynchronizePreferences;
 - (void)setValue:(id)arg1 forKey:(int)arg2;
 - (void)touchSynchronizePreferencesTimer;
 - (void)synchronizePreferences;
 - (void)releaseDontSynchronizePreferences;
 - (void)clearSynchronizePreferencesTimer;
-- (BOOL)boolForKey:(int)arg1;
+- (_Bool)boolForKey:(int)arg1;
 - (id)valueForKey:(int)arg1;
 - (id)defaultForKey:(int)arg1;
-- (CDStruct_59875e80 *)domainForType:(int)arg1;
+- (CDStruct_5072e809 *)domainForType:(int)arg1;
 - (void)dealloc;
 - (id)init;
 - (void)preferencesChangedCallback:(id)arg1;
 - (CDStruct_982099be *)preferences;
-- (CDStruct_59875e80 *)domains;
+- (CDStruct_5072e809 *)domains;
 
 @end
 

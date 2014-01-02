@@ -6,20 +6,21 @@
 
 #import <WebCore/DOMObject.h>
 
+// Not exported
 @interface DOMValidityState : DOMObject
 {
 }
 
-@property(readonly) BOOL valid;
-@property(readonly) BOOL customError;
-@property(readonly) BOOL badInput;
-@property(readonly) BOOL stepMismatch;
-@property(readonly) BOOL rangeOverflow;
-@property(readonly) BOOL rangeUnderflow;
-@property(readonly) BOOL tooLong;
-@property(readonly) BOOL patternMismatch;
-@property(readonly) BOOL typeMismatch;
-@property(readonly) BOOL valueMissing;
+@property(readonly) _Bool valid;
+@property(readonly) _Bool customError;
+@property(readonly) _Bool badInput;
+@property(readonly) _Bool stepMismatch;
+@property(readonly) _Bool rangeOverflow;
+@property(readonly) _Bool rangeUnderflow;
+@property(readonly) _Bool tooLong;
+@property(readonly) _Bool patternMismatch;
+@property(readonly) _Bool typeMismatch;
+@property(readonly) _Bool valueMissing;
 - (void)finalize;
 - (void)dealloc;
 

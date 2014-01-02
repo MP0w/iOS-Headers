@@ -8,16 +8,16 @@
 
 @interface MPUSpringAnimationFactory : MPUAnimationFactory
 {
-    float _damping;
-    float _mass;
-    float _stiffness;
-    float _velocity;
+    double _damping;
+    double _mass;
+    double _stiffness;
+    double _velocity;
 }
 
-@property(nonatomic) float velocity; // @synthesize velocity=_velocity;
-@property(nonatomic) float stiffness; // @synthesize stiffness=_stiffness;
-@property(nonatomic) float mass; // @synthesize mass=_mass;
-@property(nonatomic) float damping; // @synthesize damping=_damping;
+@property(nonatomic) double velocity; // @synthesize velocity=_velocity;
+@property(nonatomic) double stiffness; // @synthesize stiffness=_stiffness;
+@property(nonatomic) double mass; // @synthesize mass=_mass;
+@property(nonatomic) double damping; // @synthesize damping=_damping;
 - (id)_basicAnimationForView:(id)arg1 withKeyPath:(id)arg2;
 
 @end

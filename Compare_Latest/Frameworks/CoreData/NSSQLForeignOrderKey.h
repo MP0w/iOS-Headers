@@ -8,6 +8,7 @@
 
 @class NSSQLForeignKey;
 
+// Not exported
 @interface NSSQLForeignOrderKey : NSSQLColumn
 {
     NSSQLForeignKey *_foreignKey;

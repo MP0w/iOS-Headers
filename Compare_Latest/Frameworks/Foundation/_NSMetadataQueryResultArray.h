@@ -6,13 +6,14 @@
 
 #import "NSArray.h"
 
+// Not exported
 @interface _NSMetadataQueryResultArray : NSArray
 {
     id _query;
 }
 
-- (id)objectAtIndex:(unsigned int)arg1;
-- (unsigned int)count;
+- (id)objectAtIndex:(unsigned long long)arg1;
+- (unsigned long long)count;
 - (void)finalize;
 - (void)dealloc;
 - (id)_init:(id)arg1;

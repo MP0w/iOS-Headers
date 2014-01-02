@@ -8,10 +8,11 @@
 
 @class NSArray, NSData, NSString, VKBuildingDrawStyle, VKGenericShieldDrawStyle, VKGridDrawStyle, VKLabelDrawStyle, VKLineDrawStyle, VKPGlobalProperties, VKPStyleContents, VKPinDrawStyle, VKPolygonDrawStyle, VKPuckDrawStyle, VKRoadDrawStyle, VKRouteDrawStyle, VKSkyDrawStyle, VKStylesheet, VKTrafficDrawStyle, VKVegetationDrawStyle;
 
+// Not exported
 @interface VKStyle : NSObject
 {
-    CDStruct_62f4b0a5 *_attributes;
-    unsigned int _attributesCount;
+    CDStruct_00eb6f1a *_attributes;
+    unsigned long long _attributesCount;
     VKPStyleContents *_contents;
     unsigned int _stylesPopulated;
     VKRoadDrawStyle *_roadDrawStyle;
@@ -29,23 +30,23 @@
     VKPuckDrawStyle *_puckStyle;
     VKStyle *_variant;
     VKStylesheet *_stylesheet;
-    unsigned int _mapDisplayStyles;
+    unsigned long long _mapDisplayStyles;
     struct _opaque_pthread_mutex_t _lock;
     NSData *_contentsData;
     VKPGlobalProperties *_globalProperties;
     NSArray *_inheritance;
     NSString *_name;
     unsigned int *_inheritanceIndices;
-    unsigned int _inheritanceIndexCount;
+    unsigned long long _inheritanceIndexCount;
 }
 
 @property(nonatomic) VKStylesheet *stylesheet; // @synthesize stylesheet=_stylesheet;
 @property(retain, nonatomic) VKStyle *variant; // @synthesize variant=_variant;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 - (id).cxx_construct;
-- (unsigned int)scoreForStyleAttributes:(CDStruct_62f4b0a5 *)arg1 count:(int)arg2;
-- (unsigned int)scoreForAttributes:(id)arg1 vectorType:(int)arg2 mapDisplayStyle:(int)arg3 iconTappable:(BOOL)arg4 locale:(id)arg5 targetDisplay:(int)arg6;
-- (BOOL)isDrawStyleVisibleAtLOD:(unsigned int)arg1;
+- (unsigned long long)scoreForStyleAttributes:(CDStruct_00eb6f1a *)arg1 count:(long long)arg2;
+- (unsigned long long)scoreForAttributes:(id)arg1 vectorType:(long long)arg2 mapDisplayStyle:(long long)arg3 iconTappable:(_Bool)arg4 locale:(id)arg5;
+- (_Bool)isDrawStyleVisibleAtLOD:(unsigned long long)arg1;
 - (struct _VGLColor)basicRoadColor;
 - (id)puckStyle;
 - (id)pinStyle;
@@ -65,17 +66,18 @@
 - (void)_populateStyles:(unsigned int)arg1;
 - (void)_setupPropertiesForStyleMask:(unsigned int)arg1;
 - (id)description;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)contents;
-- (BOOL)isForMapDisplayStyle:(int)arg1 exclusively:(BOOL)arg2;
-- (CDStruct_62f4b0a5 *)attributes;
-- (unsigned int)attributesCount;
+- (_Bool)isForMapDisplayStyle:(long long)arg1 exclusively:(_Bool)arg2;
+- (CDStruct_00eb6f1a *)attributes;
+- (unsigned long long)attributesCount;
 - (unsigned int *)inheritanceIndices;
-- (unsigned int)inheritsCount;
+- (unsigned long long)inheritsCount;
 - (id)globals;
 - (id)inheritance;
 - (id)contentsData;
 @property(readonly, nonatomic) float blendingFactor;
+- (void)clearInheritance;
 - (id)initWithStyle:(id)arg1 inheritance:(id)arg2 globals:(id)arg3 stylesheet:(id)arg4;
 
 @end

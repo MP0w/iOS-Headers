@@ -8,6 +8,7 @@
 
 @class CDXClient, NSData, NSIndexSet, NSMutableIndexSet, NSObject<OS_dispatch_source>;
 
+// Not exported
 @interface CDXClientSession : NSObject
 {
     id <CDXClientSessionDelegate> delegate_;
@@ -16,7 +17,7 @@
     NSData *sessionKey_;
     NSData *sessionKeyPrepped_;
     NSMutableIndexSet *participantsInFlight_;
-    int retransmitAttempts_;
+    long long retransmitAttempts_;
     NSData *lastSent_;
     unsigned short seq_;
     unsigned char pid_;
@@ -32,14 +33,14 @@
 @property(nonatomic) id <CDXClientSessionDelegate> delegate; // @synthesize delegate=delegate_;
 @property(readonly, nonatomic) CDXClient *CDXClient; // @synthesize CDXClient=CDXClient_;
 - (void)recvRaw:(id)arg1 ticket:(id)arg2;
-- (BOOL)sendData:(id)arg1 toParticipants:(id)arg2;
-- (BOOL)sendData:(id)arg1;
-- (BOOL)sendRaw:(id)arg1 toParticipants:(id)arg2;
+- (_Bool)sendData:(id)arg1 toParticipants:(id)arg2;
+- (_Bool)sendData:(id)arg1;
+- (_Bool)sendRaw:(id)arg1 toParticipants:(id)arg2;
 - (id)encrypt:(id)arg1;
 - (id)decrypt:(id)arg1 ticket:(id)arg2;
 - (void)dealloc;
 - (void)resetRetransmitTimer;
-- (BOOL)retransmitEvent;
+- (_Bool)retransmitEvent;
 - (void)invalidate;
 - (void)stopRetransmitTimer;
 - (id)initWithCDXClient:(id)arg1 ticket:(id)arg2 sessionKey:(id)arg3;

@@ -11,19 +11,20 @@
 @interface SBCenterAppIconZoomAnimator : SBCenterIconZoomAnimator
 {
     UIView *_appView;
-    float _distantScale;
+    double _distantScale;
 }
 
-@property float distantScale; // @synthesize distantScale=_distantScale;
-- (void)_fadeAppForZoomFraction:(float)arg1;
-- (void)_zoomAppForZoomFraction:(float)arg1;
+@property double distantScale; // @synthesize distantScale=_distantScale;
+- (void)_fadeAppForZoomFraction:(double)arg1;
+- (void)_zoomAppForZoomFraction:(double)arg1;
 - (double)_appZoomDelay;
 - (double)_iconZoomDelay;
-- (void)_animateToZoomFraction:(float)arg1 afterDelay:(double)arg2 withSharedCompletion:(id)arg3;
-- (unsigned int)_numberOfSignificantAnimations;
+- (void)_animateToZoomFraction:(double)arg1 afterDelay:(double)arg2 withSharedCompletion:(id)arg3;
+- (unsigned long long)_numberOfSignificantAnimations;
 - (void)_cleanupZoom;
-- (void)_setZoomFraction:(float)arg1;
+- (void)_setZoomFraction:(double)arg1;
 - (void)_prepareZoom;
+- (void)_delayedForRotation;
 - (void)dealloc;
 - (id)initWithFolderController:(id)arg1 appView:(id)arg2;
 

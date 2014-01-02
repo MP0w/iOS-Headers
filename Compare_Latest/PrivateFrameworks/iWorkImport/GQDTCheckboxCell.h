@@ -6,11 +6,12 @@
 
 #import <iWorkImport/GQDTNumberCell.h>
 
+// Not exported
 @interface GQDTCheckboxCell : GQDTNumberCell
 {
 }
 
-- (BOOL)boolValue;
+- (_Bool)boolValue;
 
 @end
 

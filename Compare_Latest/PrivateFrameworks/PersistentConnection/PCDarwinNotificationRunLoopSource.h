@@ -8,6 +8,7 @@
 
 @class CUTWeakReference, NSMachPort;
 
+// Not exported
 @interface PCDarwinNotificationRunLoopSource : NSObject
 {
     CUTWeakReference *_target;

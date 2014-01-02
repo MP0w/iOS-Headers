@@ -19,17 +19,17 @@
     void *_priv;
 }
 
-+ (BOOL)resolveInstanceMethod:(SEL)arg1;
++ (_Bool)resolveInstanceMethod:(SEL)arg1;
 + (void *)CA_getterForProperty:(const struct _CAPropertyInfo *)arg1;
 + (void *)CA_setterForProperty:(const struct _CAPropertyInfo *)arg1;
 + (void)CAMLParserStartElement:(id)arg1;
-+ (BOOL)CA_automaticallyNotifiesObservers:(Class)arg1;
-+ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
++ (_Bool)CA_automaticallyNotifiesObservers:(Class)arg1;
++ (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 + (id)defaultValueForKey:(id)arg1;
 + (id)behavior;
 @property(copy) NSDictionary *style;
 @property id delegate;
-@property(getter=isEnabled) BOOL enabled;
+@property(getter=isEnabled) _Bool enabled;
 @property(copy) NSString *name;
 - (id)CAMLTypeForKey:(id)arg1;
 - (void)encodeWithCAMLWriter:(id)arg1;
@@ -44,13 +44,13 @@
 - (id)valueForKey:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (BOOL)shouldArchiveValueForKey:(id)arg1;
+- (_Bool)shouldArchiveValueForKey:(id)arg1;
 - (void)_setCARenderBehavior:(struct Behavior *)arg1;
 - (void)dealloc;
-- (BOOL)allowsWeakReference;
-- (unsigned int)retainCount;
+- (_Bool)allowsWeakReference;
+- (unsigned long long)retainCount;
 - (oneway void)release;
-- (BOOL)retainWeakReference;
+- (_Bool)retainWeakReference;
 - (id)retain;
 - (id)init;
 

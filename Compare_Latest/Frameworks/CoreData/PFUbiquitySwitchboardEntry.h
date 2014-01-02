@@ -8,6 +8,7 @@
 
 @class NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, PFUbiquityContainerMonitor, PFUbiquityFilePresenter, PFUbiquityLocation, PFUbiquitySetupAssistant, PFUbiquitySwitchboardEntryMetadata;
 
+// Not exported
 @interface PFUbiquitySwitchboardEntry : NSObject
 {
     NSString *_localPeerID;
@@ -17,18 +18,18 @@
     PFUbiquityFilePresenter *_fp;
     PFUbiquityFilePresenter *_localFP;
     PFUbiquityContainerMonitor *_monitor;
-    unsigned int _activeStoreCount;
+    unsigned long long _activeStoreCount;
     NSMutableDictionary *_registeredCoordinators;
     PFUbiquitySwitchboardEntryMetadata *_metadata;
-    BOOL _finishedSetupForStore;
-    BOOL _hasScheduledFinishBlock;
-    BOOL _finishedInitializingForStore;
+    _Bool _finishedSetupForStore;
+    _Bool _hasScheduledFinishBlock;
+    _Bool _finishedInitializingForStore;
     int _finishLock;
     PFUbiquitySetupAssistant *_finishingSetupAssistant;
     NSObject<OS_dispatch_queue> *_privateQueue;
 }
 
-@property(readonly) PFUbiquitySwitchboardEntryMetadata *metadata; // @synthesize metadata=_metadata;
+@property(retain, nonatomic) PFUbiquitySwitchboardEntryMetadata *metadata; // @synthesize metadata=_metadata;
 @property(readonly) PFUbiquitySetupAssistant *finishingSetupAssistant; // @synthesize finishingSetupAssistant=_finishingSetupAssistant;
 @property(readonly) PFUbiquityContainerMonitor *monitor; // @synthesize monitor=_monitor;
 @property(readonly) PFUbiquityFilePresenter *localFilePresenter; // @synthesize localFilePresenter=_localFP;
@@ -37,12 +38,12 @@
 @property(retain, nonatomic) PFUbiquityLocation *ubiquityRootLocation; // @synthesize ubiquityRootLocation=_ubiquityRootLocation;
 @property(readonly, nonatomic) NSString *storeName; // @synthesize storeName=_storeName;
 @property(readonly, nonatomic) NSString *localPeerID; // @synthesize localPeerID=_localPeerID;
-@property unsigned int activeStoreCount; // @synthesize activeStoreCount=_activeStoreCount;
+@property unsigned long long activeStoreCount; // @synthesize activeStoreCount=_activeStoreCount;
 - (void)afterDelay:(double)arg1 executeBlockOnGlobalConcurrentQueue:(id)arg2;
 - (void)afterDelay:(double)arg1 executeBlockOnPrivateQueue:(id)arg2;
 - (void)executeBlockOnPrivateQueue:(id)arg1;
 - (void)setupFinished;
-- (BOOL)finishSetupForStore:(id)arg1 withSetupAssistant:(id)arg2 synchronously:(BOOL)arg3 error:(id *)arg4 finishBlock:(id)arg5;
+- (_Bool)finishSetupForStore:(id)arg1 withSetupAssistant:(id)arg2 synchronously:(_Bool)arg3 error:(id *)arg4 finishBlock:(id)arg5;
 - (void)containerIdentifierChanged:(id)arg1;
 - (void)monitorStateChanged:(id)arg1;
 - (void)containerStateChanged:(id)arg1;

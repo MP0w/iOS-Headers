@@ -8,15 +8,15 @@
 
 @interface _PUZoomRotateGestureRecognizer : UIPinchGestureRecognizer
 {
-    float _rotation;
-    float _originalAngle;
-    BOOL _hasT1;
-    BOOL _hasT2;
+    double _rotation;
+    double _originalAngle;
+    _Bool _hasT1;
+    _Bool _hasT2;
     struct CGPoint _previousT1;
     struct CGPoint _previousT2;
 }
 
-@property(readonly, nonatomic) float rotation; // @synthesize rotation=_rotation;
+@property(readonly, nonatomic) double rotation; // @synthesize rotation=_rotation;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesMoved:(id)arg1 withEvent:(id)arg2;

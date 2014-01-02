@@ -24,12 +24,12 @@
 @property(readonly, nonatomic) int dataEncoding; // @synthesize dataEncoding=_dataEncoding;
 @property(readonly, nonatomic) NSString *certificateFileName; // @synthesize certificateFileName=_certificateFileName;
 - (void).cxx_destruct;
-- (BOOL)isIdentity;
+- (_Bool)isIdentity;
 - (id)persistentResourceID;
 - (id)description;
 - (struct __SecCertificate *)copyCertificate;
 - (id)installationWarnings;
-- (BOOL)isSigned;
+- (_Bool)isSigned;
 - (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
 
 @end

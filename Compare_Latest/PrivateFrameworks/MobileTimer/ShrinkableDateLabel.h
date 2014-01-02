@@ -14,7 +14,7 @@
 }
 
 @property(retain, nonatomic) UIFont *timeDesignatorFont; // @synthesize timeDesignatorFont=_timeDesignatorFont;
-- (void)shrinkFontsToFitWidth:(float)arg1;
+- (void)shrinkFontsToFitWidth:(double)arg1;
 - (void)dealloc;
 
 @end

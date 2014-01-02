@@ -12,29 +12,29 @@
     struct __CFRunLoopSource *_source;
 }
 
-+ (id)getDoubleHeightStatusStringForStyle:(int)arg1;
-+ (BOOL)getGlowAnimationStateForStyle:(int)arg1;
-+ (double)getGlowAnimationEndTimeForStyle:(int)arg1;
++ (id)getDoubleHeightStatusStringForStyle:(long long)arg1;
++ (_Bool)getGlowAnimationStateForStyle:(long long)arg1;
++ (double)getGlowAnimationEndTimeForStyle:(long long)arg1;
 + (int)getStyleOverrides;
-+ (CDStruct_364e5eb5 *)getStatusBarOverrideData;
-+ (const CDStruct_87a532be *)getStatusBarData;
++ (CDStruct_9dad2be2 *)getStatusBarOverrideData;
++ (const CDStruct_0e61b686 *)getStatusBarData;
 + (void)permanentizeStatusBarOverrideData;
-+ (void)postStatusBarOverrideData:(CDStruct_364e5eb5 *)arg1;
++ (void)postStatusBarOverrideData:(CDStruct_9dad2be2 *)arg1;
 + (void)removeStatusBarItem:(int)arg1;
 + (void)addStatusBarItem:(int)arg1;
-+ (void)postDoubleHeightStatusString:(id)arg1 forStyle:(int)arg2;
-+ (void)postGlowAnimationState:(BOOL)arg1 forStyle:(int)arg2;
++ (void)postDoubleHeightStatusString:(id)arg1 forStyle:(long long)arg2;
++ (void)postGlowAnimationState:(_Bool)arg1 forStyle:(long long)arg2;
 + (void)removeStyleOverrides:(int)arg1;
 + (void)addStyleOverrides:(int)arg1;
-+ (void)postStatusBarData:(const CDStruct_87a532be *)arg1 withActions:(int)arg2;
++ (void)postStatusBarData:(const CDStruct_0e61b686 *)arg1 withActions:(int)arg2;
 + (unsigned int)_publisherPort;
 + (unsigned int)_serverPort;
 + (void)runServer;
 @property(retain, nonatomic) id <UIStatusBarServerClient> statusBar; // @synthesize statusBar=_statusBar;
-- (void)_receivedDoubleHeightStatus:(const char *)arg1 forStyle:(int)arg2;
-- (void)_receivedGlowAnimationState:(BOOL)arg1 forStyle:(int)arg2;
+- (void)_receivedDoubleHeightStatus:(const char *)arg1 forStyle:(long long)arg2;
+- (void)_receivedGlowAnimationState:(_Bool)arg1 forStyle:(long long)arg2;
 - (void)_receivedStyleOverrides:(int)arg1;
-- (void)_receivedStatusBarData:(CDStruct_87a532be *)arg1 actions:(int)arg2;
+- (void)_receivedStatusBarData:(CDStruct_0e61b686 *)arg1 actions:(int)arg2;
 - (void)dealloc;
 - (id)initWithStatusBar:(id)arg1;
 

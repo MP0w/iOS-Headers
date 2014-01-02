@@ -10,15 +10,12 @@
 {
 }
 
-+ (id)transcriptContactImageOfDiameter:(float)arg1 forRecordID:(int)arg2;
-+ (id)contactImageOfDiameter:(float)arg1 forRecordID:(int)arg2;
-+ (id)_generateContactImageOfDiameter:(float)arg1 forRecordUnlocked:(void *)arg2;
-+ (id)vCardImageOfDiameter:(float)arg1 forRecordUnlocked:(void *)arg2;
++ (id)monogrammerWithDiameter:(double)arg1 style:(long long)arg2;
++ (id)transcriptContactImageOfDiameter:(double)arg1 forRecordID:(int)arg2;
++ (id)placeholderContactImageOfDiameter:(double)arg1 monogramStyle:(long long)arg2;
++ (id)contactImageOfDiameter:(double)arg1 forRecordID:(int)arg2 monogramStyle:(long long)arg3;
 + (void *)addressBook;
-+ (void)resetThumbnailCaches;
-+ (id)thumbnailCache;
-+ (id)imageQueue;
-+ (id)imageCache;
++ (id)contactImageCache;
 
 @end
 

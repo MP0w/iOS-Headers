@@ -6,21 +6,22 @@
 
 #import <UIKit/UIStatusBarNewUIForegroundStyleAttributes.h>
 
+// Not exported
 @interface UIStatusBarExternalForegroundStyleAttributes : UIStatusBarNewUIForegroundStyleAttributes
 {
 }
 
 - (id)homeImageName;
-- (id)makeTextFontForStyle:(int)arg1;
+- (double)textOffsetForStyle:(long long)arg1;
+- (id)makeTextFontForStyle:(long long)arg1;
 - (id)expandedNameForImageName:(id)arg1;
-- (float)batteryAccessoryMargin;
-- (float)batteryInsidesCornerRadius;
+- (long long)activityIndicatorStyleWithSyncActivity:(_Bool)arg1;
+- (double)batteryAccessoryMargin;
 - (struct UIEdgeInsets)edgeInsetsForBluetoothBatteryInsides;
 - (struct UIEdgeInsets)edgeInsetsForBatteryInsides;
-- (BOOL)shouldAnimateBattery;
-- (float)edgePadding;
-- (float)standardPadding;
-- (float)scale;
+- (double)edgePadding;
+- (double)standardPadding;
+- (double)scale;
 
 @end
 

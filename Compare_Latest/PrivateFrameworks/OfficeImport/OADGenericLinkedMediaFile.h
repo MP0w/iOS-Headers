@@ -6,6 +6,7 @@
 
 #import <OfficeImport/OADLinkedMediaFile.h>
 
+// Not exported
 @interface OADGenericLinkedMediaFile : OADLinkedMediaFile
 {
 }

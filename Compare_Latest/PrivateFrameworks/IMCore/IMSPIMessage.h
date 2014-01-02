@@ -19,8 +19,8 @@
     NSDate *_date;
     IMSPIHandle *_sender;
     long long _messageID;
-    BOOL _isOutgoing;
-    BOOL _isRead;
+    _Bool _isOutgoing;
+    _Bool _isRead;
 }
 
 @property(retain) NSDate *date; // @synthesize date=_date;
@@ -29,8 +29,8 @@
 @property(retain) NSArray *recipients; // @synthesize recipients=_recipients;
 @property(retain) IMSPIHandle *sender; // @synthesize sender=_sender;
 @property(retain) NSString *text; // @synthesize text=_text;
-@property BOOL isOutgoing; // @synthesize isOutgoing=_isOutgoing;
-@property BOOL isRead; // @synthesize isRead=_isRead;
+@property _Bool isOutgoing; // @synthesize isOutgoing=_isOutgoing;
+@property _Bool isRead; // @synthesize isRead=_isRead;
 @property(retain) NSAttributedString *attributedText; // @synthesize attributedText=_attributedText;
 @property long long messageID; // @synthesize messageID=_messageID;
 @property(retain) NSString *guid; // @synthesize guid=_guid;

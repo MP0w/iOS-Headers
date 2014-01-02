@@ -8,6 +8,7 @@
 
 @class NSMutableDictionary, NSMutableSet, OAXDrawingState, OCPPackagePart;
 
+// Not exported
 @interface OAVState : NSObject
 {
     Class mClient;
@@ -19,8 +20,8 @@
 }
 
 - (id)blipRefForURL:(id)arg1;
-- (unsigned long)officeArtShapeIdWithVmlShapeId:(id)arg1;
-- (BOOL)isDualDrawable:(id)arg1;
+- (unsigned int)officeArtShapeIdWithVmlShapeId:(id)arg1;
+- (_Bool)isDualDrawable:(id)arg1;
 - (void)addDualDrawable:(id)arg1;
 - (void)setDrawable:(id)arg1 forVmlShapeId:(id)arg2;
 - (id)drawableForVmlShapeId:(id)arg1;

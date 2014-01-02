@@ -8,7 +8,7 @@
 
 @protocol CKTranscriptComposeDelegate <NSObject>
 - (void)transcriptController:(id)arg1 didSelectNewConversation:(id)arg2;
-- (BOOL)supportsAttachments;
+- (_Bool)supportsAttachments;
 - (void)showNewMessageCompositionForMessageParts:(id)arg1;
 - (void)showForwardedMessageParts:(id)arg1;
 - (void)transcriptController:(id)arg1 didSendMessageInConversation:(id)arg2;
@@ -16,6 +16,6 @@
 - (void)didCancelComposition:(id)arg1;
 
 @optional
-- (BOOL)canEditRecipients;
+- (_Bool)canEditRecipients;
 @end
 

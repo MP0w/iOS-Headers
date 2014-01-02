@@ -18,6 +18,7 @@
     NSMutableArray *_videoAssetURLs;
     NSString *_maskedApplicationID;
     NSString *_text;
+    NSString *_videoExportPreset;
     NSURL *_link;
     SLFacebookPlace *_place;
     SLFacebookAlbum *_album;
@@ -25,12 +26,13 @@
     NSArray *_taggedUserIDs;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(retain) NSArray *taggedUserIDs; // @synthesize taggedUserIDs=_taggedUserIDs;
 @property(retain) SLFacebookPostPrivacySetting *privacySetting; // @synthesize privacySetting=_privacySetting;
 @property(retain) SLFacebookAlbum *album; // @synthesize album=_album;
 @property(retain) SLFacebookPlace *place; // @synthesize place=_place;
 @property(retain) NSURL *link; // @synthesize link=_link;
+@property(retain) NSString *videoExportPreset; // @synthesize videoExportPreset=_videoExportPreset;
 @property(retain) NSString *text; // @synthesize text=_text;
 - (void).cxx_destruct;
 - (id)copy;

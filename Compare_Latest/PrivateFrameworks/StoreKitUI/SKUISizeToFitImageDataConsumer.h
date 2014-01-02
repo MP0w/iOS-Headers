@@ -9,7 +9,7 @@
 @interface SKUISizeToFitImageDataConsumer : SKUIImageDataConsumer
 {
     struct CGSize _constraintSize;
-    BOOL _custom;
+    _Bool _custom;
 }
 
 + (id)consumerWithConstraintSize2:(struct CGSize)arg1;

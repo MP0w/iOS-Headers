@@ -16,27 +16,32 @@
     NSArray *_additionalAssetsToDelete;
     id _completionHandler;
     id _deleteCompletionHandler;
-    int _actionSheetStyle;
-    BOOL _deleteDuplicates;
+    long long _actionSheetStyle;
+    _Bool _deleteDuplicates;
     PLPhotoLibrary *_photoLibrary;
     NSArray *_assets;
     id <PLDeletePhotosActionControllerDelegate> _delegate;
 }
 
++ (id)allUsedElsewhereMessageCombinations;
++ (id)_usedElsewhereWarningTextForAssetCount:(long long)arg1 inPhotoStreamCount:(long long)arg2 iniPhotoCount:(long long)arg3 inSomeAlbumCount:(long long)arg4 affectedLocalAlbumsCount:(long long)arg5 itemKindSuffix:(id)arg6 actualDeletionCount:(long long)arg7;
 @property(nonatomic) id <PLDeletePhotosActionControllerDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) BOOL deleteDuplicates; // @synthesize deleteDuplicates=_deleteDuplicates;
+@property(readonly, nonatomic) _Bool deleteDuplicates; // @synthesize deleteDuplicates=_deleteDuplicates;
 @property(readonly, nonatomic) NSArray *assets; // @synthesize assets=_assets;
 @property(readonly, nonatomic) PLPhotoLibrary *photoLibrary; // @synthesize photoLibrary=_photoLibrary;
-- (void)actionSheet:(id)arg1 didDismissWithButtonIndex:(int)arg2;
-- (void)redisplayFromObject:(id)arg1 animated:(BOOL)arg2;
-- (void)dismissAnimated:(BOOL)arg1;
+- (void)actionSheet:(id)arg1 didDismissWithButtonIndex:(long long)arg2;
+- (void)redisplayFromObject:(id)arg1 animated:(_Bool)arg2;
+- (void)dismissAnimated:(_Bool)arg1;
 - (void)showInView:(id)arg1 deleteCompletionHandler:(id)arg2 completionHandler:(void)arg3;
-- (void)showFromObject:(id)arg1 animated:(BOOL)arg2 deleteCompletionHandler:(id)arg3 completionHandler:(void)arg4;
+- (void)showFromObject:(id)arg1 animated:(_Bool)arg2 deleteCompletionHandler:(id)arg3 completionHandler:(void)arg4;
 - (void)_setupActionSheet;
-- (void)_getDeleteActionSheetTitle:(id *)arg1 destructiveButtonTitle:(id *)arg2 cancelButtonTitle:(id *)arg3 forAssets:(id)arg4 additionalAssets:(id)arg5;
-@property(nonatomic) int actionSheetStyle;
+- (id)_usedElsewhereWarningTextForAssets:(id)arg1 additionalPhotoStreamAssets:(id)arg2 actualDeletionCount:(long long)arg3;
+- (id)_cloudSharedWarningTextForAssets:(id)arg1;
+- (id)_avalancheDeleteWarningForAssets:(id)arg1 actualDeletionCount:(long long *)arg2;
+- (void)_getDeleteActionSheetTitle:(id *)arg1 destructiveButtonTitle:(id *)arg2 cancelButtonTitle:(id *)arg3 forAssets:(id)arg4 additionalPhotoStreamAssets:(id)arg5;
+@property(nonatomic) long long actionSheetStyle;
 - (void)dealloc;
-- (id)initWithPhotoLibrary:(id)arg1 assets:(id)arg2 deleteDuplicates:(BOOL)arg3;
+- (id)initWithPhotoLibrary:(id)arg1 assets:(id)arg2 deleteDuplicates:(_Bool)arg3;
 
 @end
 

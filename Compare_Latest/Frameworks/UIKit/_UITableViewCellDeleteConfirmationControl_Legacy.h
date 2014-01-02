@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface _UITableViewCellDeleteConfirmationControl_Legacy : UIControl
 {
     NSString *_title;

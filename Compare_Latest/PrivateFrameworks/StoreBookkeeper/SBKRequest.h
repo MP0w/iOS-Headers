@@ -8,37 +8,38 @@
 
 @class ISDataProvider, NSData, NSDictionary, NSString, NSURL;
 
+// Not exported
 @interface SBKRequest : NSObject
 {
-    BOOL _shouldAuthenticate;
+    _Bool _shouldAuthenticate;
     NSURL *_requestURL;
     NSString *_action;
     NSData *_bodyData;
-    int _bodyContentType;
+    long long _bodyContentType;
     NSDictionary *_headers;
     NSDictionary *_arguments;
-    int _method;
+    long long _method;
     ISDataProvider *_responseDataProvider;
-    BOOL _concurrent;
-    BOOL _includeDeviceGUID;
+    _Bool _concurrent;
+    _Bool _includeDeviceGUID;
 }
 
-+ (id)_contentTypeStringForBodyContentType:(int)arg1;
-+ (id)_contentEncodingTypeStringForBodyContentEncodingType:(int)arg1;
-+ (id)_methodStringForMethod:(int)arg1;
-+ (int)bodyContentEncodingType;
-+ (int)bodyContentType;
++ (id)_contentTypeStringForBodyContentType:(long long)arg1;
++ (id)_contentEncodingTypeStringForBodyContentEncodingType:(long long)arg1;
++ (id)_methodStringForMethod:(long long)arg1;
++ (long long)bodyContentEncodingType;
++ (long long)bodyContentType;
 + (id)requestWithRequestURL:(id)arg1;
 @property(retain, nonatomic) ISDataProvider *responseDataProvider; // @synthesize responseDataProvider=_responseDataProvider;
 @property(retain, nonatomic) NSData *bodyData; // @synthesize bodyData=_bodyData;
-@property(nonatomic) BOOL includeDeviceGUID; // @synthesize includeDeviceGUID=_includeDeviceGUID;
-@property(nonatomic) BOOL shouldAuthenticate; // @synthesize shouldAuthenticate=_shouldAuthenticate;
-@property(nonatomic) int method; // @synthesize method=_method;
-@property(readonly, nonatomic, getter=isConcurrent) BOOL concurrent; // @synthesize concurrent=_concurrent;
+@property(nonatomic) _Bool includeDeviceGUID; // @synthesize includeDeviceGUID=_includeDeviceGUID;
+@property(nonatomic) _Bool shouldAuthenticate; // @synthesize shouldAuthenticate=_shouldAuthenticate;
+@property(nonatomic) long long method; // @synthesize method=_method;
+@property(readonly, nonatomic, getter=isConcurrent) _Bool concurrent; // @synthesize concurrent=_concurrent;
 - (void).cxx_destruct;
 - (id)newURLOperation;
 - (id)_defaultHeaderFields;
-- (BOOL)acceptsGzipEncoding;
+- (_Bool)acceptsGzipEncoding;
 - (id)canonicalResponseForResponse:(id)arg1;
 - (id)copyRequestProperties;
 - (void)setBodyDataWithPropertyList:(id)arg1;

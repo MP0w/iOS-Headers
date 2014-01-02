@@ -6,20 +6,24 @@
 
 #import "NSObject.h"
 
+#import "SBResponderTouchDelegate-Protocol.h"
 #import "UIDynamicAnimatorDelegate-Protocol.h"
-#import "UIGestureRecognizerDelegate-Protocol.h"
 #import "_UISettingsKeyObserver-Protocol.h"
 
-@class SBBounceBehavior, SBBounceSettings, SBBouncingItem, SBBouncingSystem, UIDynamicAnimator, UIView;
+@class NSMutableSet, NSSet, SBBounceBehavior, SBBounceSettings, SBBouncingItem, SBBouncingSystem, UIDynamicAnimator, UIGestureRecognizer, UIView;
 
-@interface SBLockScreenBounceAnimator : NSObject <UIDynamicAnimatorDelegate, _UISettingsKeyObserver, UIGestureRecognizerDelegate>
+@interface SBLockScreenBounceAnimator : NSObject <UIDynamicAnimatorDelegate, _UISettingsKeyObserver, SBResponderTouchDelegate>
 {
-    BOOL _isAnimating;
+    NSMutableSet *_tapExcludedViews;
+    _Bool _isAnimating;
+    _Bool _bounceEnabled;
     UIView *_view;
     SBBouncingSystem *_system;
     UIDynamicAnimator *_animator;
     SBBouncingItem *_item;
     SBBounceBehavior *_behavior;
+    UIGestureRecognizer *_tapRecognizer;
+    UIGestureRecognizer *_panRecognizer;
     id _prepareBlock;
     id _translateBlock;
     id _canceledBlock;
@@ -32,7 +36,9 @@
 @property(copy) id canceledBlock; // @synthesize canceledBlock=_canceledBlock;
 @property(copy) id translateBlock; // @synthesize translateBlock=_translateBlock;
 @property(copy) id prepareBlock; // @synthesize prepareBlock=_prepareBlock;
-- (BOOL)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
+- (void)responder:(id)arg1 touchesCancelled:(id)arg2 withEvent:(id)arg3;
+- (void)responder:(id)arg1 touchesEnded:(id)arg2 withEvent:(id)arg3;
+- (void)responder:(id)arg1 touchesBegan:(id)arg2 withEvent:(id)arg3;
 - (void)dynamicAnimatorDidPause:(id)arg1;
 - (void)settings:(id)arg1 changedValueForKey:(id)arg2;
 - (void)_updateSettings;
@@ -43,11 +49,16 @@
 - (void)_handlePanGesture:(id)arg1;
 - (void)_handleTapGesture:(id)arg1;
 - (void)_addPanRecognizer;
+- (void)_removeTapRecognizer;
 - (void)_addTapRecognizer;
+@property(readonly, nonatomic) NSSet *tapExcludedViews;
+- (void)removeTapExcludedView:(id)arg1;
+- (void)addTapExcludedView:(id)arg1;
+- (void)setBounceEnabled:(_Bool)arg1;
 - (void)cancelAnimation;
-- (BOOL)isAnimating;
+- (_Bool)isAnimating;
 - (void)dealloc;
-- (id)initWithView:(id)arg1 allowPan:(BOOL)arg2;
+- (id)initWithView:(id)arg1 allowPan:(_Bool)arg2;
 
 @end
 

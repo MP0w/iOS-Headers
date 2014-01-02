@@ -7,13 +7,13 @@
 #import "NSOutputStream.h"
 
 @interface NSOutputStream (NSOutputStream)
-+ (id)outputStreamWithURL:(id)arg1 append:(BOOL)arg2;
-+ (id)outputStreamToFileAtPath:(id)arg1 append:(BOOL)arg2;
-+ (id)outputStreamToBuffer:(char *)arg1 capacity:(unsigned int)arg2;
++ (id)outputStreamWithURL:(id)arg1 append:(_Bool)arg2;
++ (id)outputStreamToFileAtPath:(id)arg1 append:(_Bool)arg2;
++ (id)outputStreamToBuffer:(char *)arg1 capacity:(unsigned long long)arg2;
 + (id)outputStreamToMemory;
 + (id)allocWithZone:(struct _NSZone *)arg1;
-- (unsigned long)_cfTypeID;
-- (BOOL)hasSpaceAvailable;
-- (int)write:(const char *)arg1 maxLength:(unsigned int)arg2;
+- (unsigned long long)_cfTypeID;
+- (_Bool)hasSpaceAvailable;
+- (long long)write:(const char *)arg1 maxLength:(unsigned long long)arg2;
 @end
 

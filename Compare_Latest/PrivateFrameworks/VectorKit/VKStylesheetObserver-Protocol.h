@@ -9,13 +9,13 @@
 @class VKStylesheet;
 
 @protocol VKStylesheetObserver <NSObject>
-+ (BOOL)reloadOnStylesheetChange;
++ (_Bool)reloadOnStylesheetChange;
 @property(readonly, nonatomic) VKStylesheet *stylesheet;
 
 @optional
 - (void)stylesheetDoneChanging;
 - (void)stylesheetDidChange;
 - (void)stylesheetWillChange;
-- (void)prepareForStylesheetTransitionToMapDisplayStyle:(int)arg1 withReadinessBlock:(id)arg2;
+- (void)prepareForStylesheetTransitionToMapDisplayStyle:(long long)arg1 withReadinessBlock:(id)arg2;
 @end
 

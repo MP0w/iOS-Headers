@@ -6,16 +6,17 @@
 
 #import <CoreFoundation/__NSCFString.h>
 
+// Not exported
 @interface __NSCFConstantString : __NSCFString
 {
 }
 
 - (id)autorelease;
-- (unsigned int)retainCount;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isKindOfClass:(Class)arg1;
+- (_Bool)isKindOfClass:(Class)arg1;
 
 @end
 

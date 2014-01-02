@@ -11,7 +11,7 @@
 @interface VKViewportInfo : NSObject
 {
     CDStruct_2c43369c _centerCoordinate;
-    int _tileSize;
+    long long _tileSize;
     float _zoomLevel;
     double _pitch;
     double _yaw;
@@ -20,7 +20,7 @@
 @property(nonatomic) double yaw; // @synthesize yaw=_yaw;
 @property(nonatomic) double pitch; // @synthesize pitch=_pitch;
 @property(nonatomic) float zoomLevel; // @synthesize zoomLevel=_zoomLevel;
-@property(nonatomic) int tileSize; // @synthesize tileSize=_tileSize;
+@property(nonatomic) long long tileSize; // @synthesize tileSize=_tileSize;
 @property(nonatomic) CDStruct_c3b9c2ee centerCoordinate; // @synthesize centerCoordinate=_centerCoordinate;
 - (id).cxx_construct;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;

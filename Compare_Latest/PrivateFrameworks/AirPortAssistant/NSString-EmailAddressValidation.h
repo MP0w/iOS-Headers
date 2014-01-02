@@ -7,6 +7,6 @@
 #import "NSString.h"
 
 @interface NSString (EmailAddressValidation)
-- (BOOL)isValidEmailFormat;
+- (_Bool)isValidEmailFormat;
 @end
 

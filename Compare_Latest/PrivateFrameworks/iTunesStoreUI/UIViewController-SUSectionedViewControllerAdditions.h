@@ -8,7 +8,7 @@
 
 @interface UIViewController (SUSectionedViewControllerAdditions)
 - (id)setDisplayedSectionGroup:(id)arg1;
-- (BOOL)reloadForSectionsWithGroup:(id)arg1;
-- (BOOL)canDisplaySectionGroup:(id)arg1;
+- (_Bool)reloadForSectionsWithGroup:(id)arg1;
+- (_Bool)canDisplaySectionGroup:(id)arg1;
 @end
 

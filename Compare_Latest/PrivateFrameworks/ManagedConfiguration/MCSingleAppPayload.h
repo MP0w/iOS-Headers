@@ -16,7 +16,7 @@
 - (id)subtitle1Description;
 - (id)subtitle1Label;
 - (id)restrictions;
-- (BOOL)mustInstallNonInteractively;
+- (_Bool)mustInstallNonInteractively;
 - (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
 
 @end

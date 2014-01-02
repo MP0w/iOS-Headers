@@ -11,14 +11,14 @@
 - (id)__imArrayByApplyingBlock:(id)arg1;
 - (id)__imArrayByFilteringWithBlock:(id)arg1;
 - (void)__imForEach:(id)arg1;
-- (BOOL)containsObject:(id)arg1 matchingComparison:(SEL)arg2;
-- (int)indexOfObject:(id)arg1 matchingComparison:(SEL)arg2;
-- (BOOL)containsObjectIdenticalTo:(id)arg1;
+- (_Bool)containsObject:(id)arg1 matchingComparison:(SEL)arg2;
+- (long long)indexOfObject:(id)arg1 matchingComparison:(SEL)arg2;
+- (_Bool)containsObjectIdenticalTo:(id)arg1;
 - (id)__imFirstObject;
 - (id)_copyForEnumerating;
-- (BOOL)_hasSameMembers:(id)arg1;
+- (_Bool)_hasSameMembers:(id)arg1;
 - (id)__imDeepCopy;
-- (BOOL)__imIsMutable;
+- (_Bool)__imIsMutable;
 - (id)__imSetFromArray;
 @end
 

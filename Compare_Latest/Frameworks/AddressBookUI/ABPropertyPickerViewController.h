@@ -22,11 +22,11 @@
 @property(retain, nonatomic) NSArray *policies; // @synthesize policies=_policies;
 - (void)propertyPicker:(id)arg1 selectedProperty:(int)arg2 withDefaultValue:(id)arg3;
 - (void)propertyPicker:(id)arg1 selectedProperty:(int)arg2;
-- (void)viewWillAppear:(BOOL)arg1;
-- (void)_getRotationContentSettings:(CDStruct_af7d35ee *)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
+- (void)_getRotationContentSettings:(CDStruct_ebaa735e *)arg1;
 @property(nonatomic) void *addressBook;
 @property(nonatomic) struct __CFArray *properties;
-- (float)ab_heightToFitForViewInPopoverView;
+- (double)ab_heightToFitForViewInPopoverView;
 - (id)propertyPicker;
 - (void)loadView;
 - (void)dealloc;

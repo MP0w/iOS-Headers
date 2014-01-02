@@ -8,12 +8,13 @@
 
 @class NSDate, NSMutableDictionary;
 
+// Not exported
 @interface NSFileAttributes : NSDictionary
 {
     NSMutableDictionary *dict;
     struct stat statInfo;
     struct {
-        char extensionHidden;
+        _Bool extensionHidden;
         NSDate *creationDate;
         struct _fields {
             unsigned int extensionHidden:1;
@@ -26,25 +27,25 @@
 }
 
 + (id)attributesWithStat:(struct stat *)arg1;
-+ (id)_attributesAtURL:(id)arg1 partialReturn:(BOOL)arg2 filterResourceFork:(BOOL)arg3 error:(id *)arg4;
-+ (id)_attributesAtPath:(id)arg1 partialReturn:(BOOL)arg2 filterResourceFork:(BOOL)arg3 error:(id *)arg4;
-+ (id)attributesAtPath:(id)arg1 traverseLink:(BOOL)arg2;
-- (BOOL)isDirectory;
-- (unsigned int)fileSystemFileNumber;
-- (int)fileSystemNumber;
-- (unsigned int)fileGroupOwnerAccountNumber;
++ (id)_attributesAtURL:(id)arg1 partialReturn:(_Bool)arg2 filterResourceFork:(_Bool)arg3 error:(id *)arg4;
++ (id)_attributesAtPath:(id)arg1 partialReturn:(_Bool)arg2 filterResourceFork:(_Bool)arg3 error:(id *)arg4;
++ (id)attributesAtPath:(id)arg1 traverseLink:(_Bool)arg2;
+- (_Bool)isDirectory;
+- (unsigned long long)fileSystemFileNumber;
+- (long long)fileSystemNumber;
+- (unsigned long long)fileGroupOwnerAccountNumber;
 - (id)fileGroupOwnerAccountName;
-- (unsigned int)fileOwnerAccountNumber;
+- (unsigned long long)fileOwnerAccountNumber;
 - (id)fileOwnerAccountName;
-- (unsigned int)filePosixPermissions;
+- (unsigned long long)filePosixPermissions;
 - (id)fileType;
 - (id)fileModificationDate;
 - (unsigned long long)fileSize;
 - (id)keyEnumerator;
-- (unsigned int)count;
+- (unsigned long long)count;
 - (id)objectForKey:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)dealloc;
 
 @end

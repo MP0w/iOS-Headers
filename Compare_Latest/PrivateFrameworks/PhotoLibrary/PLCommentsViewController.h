@@ -8,13 +8,13 @@
 
 #import "PLCloudCommentsChangeObserver-Protocol.h"
 #import "PLDismissableViewController-Protocol.h"
+#import "PLPhotoCommentEntryViewDelegate-Protocol.h"
 #import "UITableViewDataSource-Protocol.h"
 #import "UITableViewDelegate-Protocol.h"
-#import "UITextViewDelegate-Protocol.h"
 
-@class CAGradientLayer, NSCache, PLCloudSharedComment, PLManagedAsset, PLPhotoCommentEntryView, UIBarButtonItem, UIImageView, UITableView, UIView;
+@class CAGradientLayer, NSCache, PLCloudSharedComment, PLManagedAsset, PLPhotoCommentEntryView, UIBarButtonItem, UIImageView, UITableView, UIView, _UIBackdropView;
 
-@interface PLCommentsViewController : UIViewController <PLCloudCommentsChangeObserver, PLDismissableViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate>
+@interface PLCommentsViewController : UIViewController <PLCloudCommentsChangeObserver, PLPhotoCommentEntryViewDelegate, PLDismissableViewController, UITableViewDelegate, UITableViewDataSource>
 {
     UITableView *_tableView;
     UIView *_tableContainerView;
@@ -22,73 +22,76 @@
     CAGradientLayer *_maskLayer;
     PLPhotoCommentEntryView *_entryView;
     PLCloudSharedComment *_justInsertedComment;
-    BOOL _justTappedSmileButton;
-    BOOL _editMode;
-    BOOL _temporaryKeyboardHideReshow;
-    BOOL _shouldAdjustInitialScrollPosition;
-    float _keyboardOverlap;
+    _Bool _justTappedSmileButton;
+    _Bool _editMode;
+    _Bool _temporaryKeyboardHideReshow;
+    _Bool _shouldAdjustInitialScrollPosition;
+    double _keyboardOverlap;
     id <PLCommentsViewControllerDelegate> _commentsControllerDelegate;
     UIView *_containerView;
     NSCache *_commentsHeightCache;
     UIImageView *_gradientView;
-    BOOL _lastRowMasked;
+    _UIBackdropView *_backdropView;
+    UIBarButtonItem *_cancelButton;
+    _Bool _lastRowMasked;
 }
 
-@property(nonatomic) BOOL lastRowMasked; // @synthesize lastRowMasked=_lastRowMasked;
-@property(nonatomic) BOOL editMode; // @synthesize editMode=_editMode;
+@property(nonatomic) _Bool lastRowMasked; // @synthesize lastRowMasked=_lastRowMasked;
+@property(nonatomic) _Bool editMode; // @synthesize editMode=_editMode;
 @property(retain, nonatomic) PLCloudSharedComment *justInsertedComment; // @synthesize justInsertedComment=_justInsertedComment;
 @property(retain, nonatomic) PLManagedAsset *asset; // @synthesize asset=_asset;
 @property(nonatomic) id <PLCommentsViewControllerDelegate> commentsControllerDelegate; // @synthesize commentsControllerDelegate=_commentsControllerDelegate;
 - (void)_keyboardWillHide:(id)arg1;
 - (void)_keyboardWillShow:(id)arg1;
+- (void)_stopWatchingKeyboard;
+- (void)_startWatchingKeyboard;
 - (void)_postCommentValidated:(id)arg1;
 - (void)cancelCurrentAction:(id)arg1;
 - (void)cancelDeleteMode:(id)arg1;
-- (BOOL)prepareForDismissingForced:(BOOL)arg1;
+- (_Bool)prepareForDismissingForced:(_Bool)arg1;
 - (void)cloudCommentsDidChange:(id)arg1;
 - (void)_smileButtonTapped:(id)arg1;
-- (BOOL)checkAndAlertMaxLikesReached;
+- (_Bool)checkAndAlertMaxLikesReached;
 - (void)_addCommentButtonTapped:(id)arg1;
-- (BOOL)_checkAndAlertMaxCommentsReachedWhenFinalizing:(BOOL)arg1;
+- (_Bool)_checkAndAlertMaxCommentsReachedWhenFinalizing:(_Bool)arg1;
 - (void)scrollViewWillBeginDragging:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (BOOL)tableView:(id)arg1 canEditRowAtIndexPath:(id)arg2;
-- (void)scrollToComment:(id)arg1 animated:(BOOL)arg2;
+- (_Bool)tableView:(id)arg1 canEditRowAtIndexPath:(id)arg2;
+- (void)scrollToComment:(id)arg1 animated:(_Bool)arg2;
 - (void)tableView:(id)arg1 performAction:(SEL)arg2 forRowAtIndexPath:(id)arg3 withSender:(id)arg4;
-- (BOOL)tableView:(id)arg1 canPerformAction:(SEL)arg2 forRowAtIndexPath:(id)arg3 withSender:(id)arg4;
-- (BOOL)tableView:(id)arg1 shouldShowMenuForRowAtIndexPath:(id)arg2;
+- (_Bool)tableView:(id)arg1 canPerformAction:(SEL)arg2 forRowAtIndexPath:(id)arg3 withSender:(id)arg4;
+- (_Bool)tableView:(id)arg1 shouldShowMenuForRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;
-- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
-- (int)postCommentSection;
-- (int)textCommentSection;
-- (int)assetOwnerCommentSection;
-- (int)smileCommentSection;
-- (BOOL)shouldShowCommentPostingUI;
-- (BOOL)showAssetOwnerSection;
-- (void)textViewDidChange:(id)arg1;
-- (BOOL)_adjustTextEntrySizeForOrientation:(int)arg1;
-- (void)_adjustInitialScrollPosition:(BOOL)arg1;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
+- (long long)postCommentSection;
+- (long long)textCommentSection;
+- (long long)assetOwnerCommentSection;
+- (long long)smileCommentSection;
+- (_Bool)shouldShowCommentPostingUI;
+- (_Bool)showAssetOwnerSection;
+- (void)photoCommentEntryViewHeightDidChange:(id)arg1;
+- (_Bool)_adjustTextEntrySize;
+- (void)_adjustInitialScrollPosition:(_Bool)arg1;
 - (id)_firstUnreadCloudComment;
-- (void)_updatePostButtonAndPlaceholder;
-- (void)setRasterization:(BOOL)arg1;
+- (void)setRasterization:(_Bool)arg1;
 @property(readonly, nonatomic) UIBarButtonItem *cancelButton;
-- (void)setBottomMaskEnabled:(BOOL)arg1;
-- (id)_textInPostFieldTrimmingWhitespace;
+- (void)setBottomMaskEnabled:(_Bool)arg1;
 - (void)updateViewLayoutWithDuration:(double)arg1 completion:(id)arg2;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (void)viewDidDisappear:(BOOL)arg1;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLayoutSubviews;
 - (void)viewWillLayoutSubviews;
 - (void)_updateLayerMaskWithBoundsChange;
 - (void)loadView;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (struct CGSize)_preferredViewSizeInContainerSize:(struct CGSize)arg1 forInterfaceOrientation:(int)arg2 tableViewSize:(struct CGSize *)arg3;
-- (float)_tableViewHeightForWidth:(float)arg1 interfaceOrientation:(int)arg2;
-- (float)_heightForComment:(id)arg1 forWidth:(float)arg2 forInterfaceOrientation:(int)arg3;
+- (void)willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (struct CGSize)_preferredViewSizeInContainerSize:(struct CGSize)arg1 forInterfaceOrientation:(long long)arg2 tableViewSize:(struct CGSize *)arg3;
+- (double)_tableViewHeightForWidth:(double)arg1 interfaceOrientation:(long long)arg2;
+- (double)_heightForComment:(id)arg1 forWidth:(double)arg2 forInterfaceOrientation:(long long)arg3;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 

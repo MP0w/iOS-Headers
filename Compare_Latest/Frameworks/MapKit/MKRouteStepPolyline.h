@@ -8,11 +8,13 @@
 
 @class MKRoutePolyline;
 
+// Not exported
 @interface MKRouteStepPolyline : MKPolyline
 {
     MKRoutePolyline *_fullRoute;
 }
 
+- (CDStruct_c3b9c2ee)coordinate;
 - (void)dealloc;
 - (id)_initWithRoute:(id)arg1 range:(struct _NSRange)arg2;
 

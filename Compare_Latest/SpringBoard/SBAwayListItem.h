@@ -6,31 +6,31 @@
 
 #import "NSObject.h"
 
+#import "NSCopying-Protocol.h"
 #import "SBAwayListCellButtonHandler-Protocol.h"
 #import "SBUIQuietModePlayability-Protocol.h"
 
-@class NSArray, NSDate, SBUnlockActionContext;
+@class NSDate, NSString, SBUnlockActionContext;
 
-@interface SBAwayListItem : NSObject <SBAwayListCellButtonHandler, SBUIQuietModePlayability>
+@interface SBAwayListItem : NSObject <SBAwayListCellButtonHandler, SBUIQuietModePlayability, NSCopying>
 {
     NSDate *_timestamp;
-    BOOL _isNewItem;
+    _Bool _isNewItem;
     SBUnlockActionContext *_unlockActionContext;
-    NSArray *_buttonLabels;
+    NSString *_buttonLabel;
 }
 
-@property(retain) NSArray *buttonLabels; // @synthesize buttonLabels=_buttonLabels;
-@property(nonatomic) BOOL isNewItem; // @synthesize isNewItem=_isNewItem;
+@property(copy, nonatomic) NSString *buttonLabel; // @synthesize buttonLabel=_buttonLabel;
+@property(nonatomic) _Bool isNewItem; // @synthesize isNewItem=_isNewItem;
 @property(retain, nonatomic) NSDate *timestamp; // @synthesize timestamp=_timestamp;
-- (BOOL)overridesQuietMode;
-- (BOOL)isCritical;
-- (BOOL)inertWhenLocked;
+- (_Bool)overridesQuietMode;
+- (_Bool)isCritical;
+- (_Bool)inertWhenLocked;
 - (void)dealloc;
-- (BOOL)canBeClearedByNotificationCenter;
-- (BOOL)wantsHighlightOnInsert;
-- (int)snoozeButtonindex;
-- (int)cancelButtonIndex;
-- (void)buttonPressedAtIndex:(int)arg1;
+- (_Bool)canBeClearedByNotificationCenter;
+- (_Bool)wantsHighlightOnInsert;
+- (void)buttonPressed;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end
 

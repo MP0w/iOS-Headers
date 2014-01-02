@@ -8,14 +8,15 @@
 
 @class UIView;
 
+// Not exported
 @interface _UIBarBackgroundImageView : UIImageView
 {
     UIView *_topStripView;
     UIImageView *_customImageContainer;
-    BOOL _translucent;
+    _Bool _translucent;
 }
 
-@property(nonatomic, getter=isTranslucent) BOOL translucent; // @synthesize translucent=_translucent;
+@property(nonatomic, getter=isTranslucent) _Bool translucent; // @synthesize translucent=_translucent;
 - (id)image;
 - (void)setImage:(id)arg1;
 - (void)removeTopStripView;

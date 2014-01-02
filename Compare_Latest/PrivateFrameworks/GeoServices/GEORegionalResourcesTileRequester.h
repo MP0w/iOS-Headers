@@ -8,6 +8,7 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface GEORegionalResourcesTileRequester : GEOTileRequester
 {
     NSMutableArray *_loaders;

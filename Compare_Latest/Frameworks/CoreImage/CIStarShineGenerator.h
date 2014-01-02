@@ -8,6 +8,7 @@
 
 @class CIColor, CIVector, NSNumber;
 
+// Not exported
 @interface CIStarShineGenerator : CIFilter
 {
     CIVector *inputCenter;

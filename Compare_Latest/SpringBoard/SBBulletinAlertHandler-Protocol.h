@@ -8,6 +8,6 @@
 
 @protocol SBBulletinAlertHandler <NSObject>
 - (void)handleEvent:(int)arg1 withBulletin:(id)arg2 forRegistry:(id)arg3;
-- (BOOL)bindBulletin:(id)arg1 forRegistry:(id)arg2;
+- (_Bool)bindBulletin:(id)arg1 forRegistry:(id)arg2;
 @end
 

@@ -10,7 +10,7 @@
 {
 }
 
-- (void)setShouldRasterize:(BOOL)arg1;
+- (void)setShouldRasterize:(_Bool)arg1;
 
 @end
 

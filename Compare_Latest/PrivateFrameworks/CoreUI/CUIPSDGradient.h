@@ -11,17 +11,17 @@
 @interface CUIPSDGradient : NSObject
 {
     CUIPSDGradientEvaluator *evaluator;
-    float drawingAngle;
+    double drawingAngle;
     unsigned int gradientStyle;
 }
 
-+ (id)cuiPSDGradientWithColors:(id)arg1 locations:(id)arg2 midpointLocations:(id)arg3 angle:(float)arg4 isRadial:(BOOL)arg5;
-+ (id)getMidpointLocationFromArray:(id)arg1 atIndex:(int)arg2 withPolicy:(int)arg3;
++ (id)cuiPSDGradientWithColors:(id)arg1 locations:(id)arg2 midpointLocations:(id)arg3 angle:(double)arg4 isRadial:(_Bool)arg5;
++ (id)getMidpointLocationFromArray:(id)arg1 atIndex:(long long)arg2 withPolicy:(int)arg3;
 @property unsigned int gradientStyle; // @synthesize gradientStyle;
-@property float drawingAngle; // @synthesize drawingAngle;
+@property double drawingAngle; // @synthesize drawingAngle;
 @property(retain) CUIPSDGradientEvaluator *evaluator; // @synthesize evaluator;
 - (void)dealloc;
-- (id)initWithEvaluator:(id)arg1 drawingAngle:(float)arg2 gradientStyle:(unsigned int)arg3;
+- (id)initWithEvaluator:(id)arg1 drawingAngle:(double)arg2 gradientStyle:(unsigned int)arg3;
 
 @end
 

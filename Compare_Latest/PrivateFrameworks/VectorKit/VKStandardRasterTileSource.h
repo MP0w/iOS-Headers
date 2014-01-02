@@ -6,11 +6,12 @@
 
 #import <VectorKit/VKRasterTileSource.h>
 
+// Not exported
 @interface VKStandardRasterTileSource : VKRasterTileSource
 {
 }
 
-- (unsigned int)mapLayerForZoomLevelRange;
+- (unsigned long long)mapLayerForZoomLevelRange;
 
 @end
 

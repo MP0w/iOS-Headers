@@ -8,17 +8,17 @@
 
 @protocol VKTileSourceClient <NSObject>
 - (void)dirtyTilesFromTileSource:(id)arg1;
-- (void)tileSource:(id)arg1 dirtyTilesWithinRect:(const CDStruct_d2b197d1 *)arg2 level:(int)arg3;
+- (void)tileSource:(id)arg1 dirtyTilesWithinRect:(const CDStruct_d2b197d1 *)arg2 level:(long long)arg3;
 - (void)didStopLoadingTilesWithError:(id)arg1;
 - (void)willStartLoadingTiles;
-- (BOOL)tileSource:(id)arg1 keyIsNeeded:(const struct VKTileKey *)arg2;
+- (_Bool)tileSource:(id)arg1 keyIsNeeded:(const struct VKTileKey *)arg2;
 - (void)invalidateTilesFromTileSource:(id)arg1;
-- (void)tileSource:(id)arg1 invalidateTilesWithState:(unsigned int)arg2;
+- (void)tileSource:(id)arg1 invalidateTilesWithState:(unsigned long long)arg2;
 - (void)tileSource:(id)arg1 invalidateKeys:(id)arg2;
 - (void)tileSource:(id)arg1 invalidateKey:(const struct VKTileKey *)arg2;
 - (void)tileSource:(id)arg1 didFailToLoadTileForKey:(const struct VKTileKey *)arg2 error:(id)arg3;
 - (void)tileSource:(id)arg1 didFailToDecodeTileForKey:(const struct VKTileKey *)arg2;
 - (void)tileSource:(id)arg1 didFetchTile:(id)arg2 forKey:(const struct VKTileKey *)arg3;
-- (BOOL)tileSourceMayUseNetwork:(id)arg1;
+- (_Bool)tileSourceMayUseNetwork:(id)arg1;
 @end
 

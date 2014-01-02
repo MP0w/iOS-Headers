@@ -13,23 +13,25 @@
     SKUIColorScheme *_colorScheme;
     struct UIEdgeInsets _contentInsets;
     UIButton *_moreButton;
-    int _numberOfVisibleLines;
-    float _rating;
+    long long _numberOfVisibleLines;
+    double _rating;
     UIImageView *_ratingImageView;
     UILabel *_ratingLabel;
     UILabel *_subtitleLabel;
     struct __CTFrame *_textFrame;
+    struct UIEdgeInsets _titleInsets;
     UILabel *_titleLabel;
     struct __CTFrame *_titleTextFrame;
     struct __CTLine *_truncationToken;
-    int _truncationStyle;
+    long long _truncationStyle;
     NSString *_underlyingText;
 }
 
+@property(nonatomic) struct UIEdgeInsets titleInsets; // @synthesize titleInsets=_titleInsets;
 @property(nonatomic) struct UIEdgeInsets contentInsets; // @synthesize contentInsets=_contentInsets;
-@property(nonatomic) int truncationStyle; // @synthesize truncationStyle=_truncationStyle;
-@property(nonatomic) float rating; // @synthesize rating=_rating;
-@property(nonatomic) int numberOfVisibleLines; // @synthesize numberOfVisibleLines=_numberOfVisibleLines;
+@property(nonatomic) long long truncationStyle; // @synthesize truncationStyle=_truncationStyle;
+@property(nonatomic) double rating; // @synthesize rating=_rating;
+@property(nonatomic) long long numberOfVisibleLines; // @synthesize numberOfVisibleLines=_numberOfVisibleLines;
 @property(retain, nonatomic) SKUIColorScheme *colorScheme; // @synthesize colorScheme=_colorScheme;
 - (void).cxx_destruct;
 - (struct CGSize)_textSizeToFitSize:(struct CGSize)arg1;

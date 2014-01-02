@@ -19,14 +19,14 @@
 @property(readonly, nonatomic) ML3Predicate *conditionPredicate; // @synthesize conditionPredicate=_conditionPredicate;
 - (void).cxx_destruct;
 - (id)spotlightPredicate;
-- (BOOL)isDynamicForEntityClass:(Class)arg1;
+- (_Bool)isDynamicForEntityClass:(Class)arg1;
 - (id)databaseStatementParameters;
 - (void)appendSQLToMutableString:(id)arg1 entityClass:(Class)arg2;
 - (id)predicateOptimizedForEntityClass:(Class)arg1;
 - (id)SQLJoinClausesForClass:(Class)arg1;
 - (id)description;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithConditionPredicate:(id)arg1 thenPredicate:(id)arg2 elsePredicate:(id)arg3;

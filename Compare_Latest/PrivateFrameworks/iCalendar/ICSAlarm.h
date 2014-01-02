@@ -17,15 +17,14 @@
 + (id)ICSStringFromAction:(int)arg1;
 + (int)actionFromICSString:(id)arg1;
 + (id)name;
-@property BOOL x_apple_local_default_alarm;
-@property BOOL x_apple_default_alarm;
+@property _Bool x_apple_local_default_alarm;
+@property _Bool x_apple_default_alarm;
 @property(retain) NSString *x_apple_proximity;
 @property(retain) NSString *relatedTo;
 @property(retain) ICSDateTimeUTCValue *acknowledged;
 @property(retain) NSString *x_wr_alarmuid;
 @property int action;
-- (BOOL)isNoneAlarm;
-- (void)fixAlarm;
+- (_Bool)isNoneAlarm;
 
 // Remaining properties
 @property(retain) NSArray *attach; // @dynamic attach;

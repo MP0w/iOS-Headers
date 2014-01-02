@@ -6,17 +6,18 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface CFXPreferencesSource : NSObject
 {
     struct __CFDictionary *_dict;
-    long _generationCount;
-    BOOL _disabled;
+    long long _generationCount;
+    _Bool _disabled;
 }
 
 - (void)finalize;
 - (void)dealloc;
-- (void)setDisabled:(BOOL)arg1;
-- (long)generationCount;
+- (void)setDisabled:(_Bool)arg1;
+- (long long)generationCount;
 - (struct __CFDictionary *)copyDictionary;
 - (struct __CFArray *)copyKeyList;
 - (unsigned char)synchronize;

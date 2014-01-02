@@ -8,7 +8,7 @@
 
 @interface MPInlineAudioTransportControls : MPTransportControls
 {
-    int _style;
+    long long _style;
 }
 
 - (struct CGRect)availableProgressControlAreaFrame;
@@ -18,8 +18,8 @@
 - (id)playButtonImage;
 - (id)newVolumeSlider;
 - (id)buttonImageForPart:(unsigned long long)arg1;
-- (void)reloadForAdditions:(id)arg1 removals:(id)arg2 animate:(BOOL)arg3;
-- (id)initWithFrame:(struct CGRect)arg1 style:(int)arg2;
+- (void)reloadForAdditions:(id)arg1 removals:(id)arg2 animate:(_Bool)arg3;
+- (id)initWithFrame:(struct CGRect)arg1 style:(long long)arg2;
 
 @end
 

@@ -13,24 +13,26 @@
     NSMutableArray *inputPorts;
     AVCaptureOutput *output;
     AVCaptureVideoPreviewLayer *videoPreviewLayer;
-    BOOL active;
-    BOOL enabled;
+    _Bool active;
+    _Bool enabled;
     int outputChangeSeedOnDisable;
     AVCaptureInputPort *audioInputPort;
     NSMutableArray *audioChannels;
     NSArray *audioChannelLevels;
     long long lastGetAudioLevelsTime;
     AVCaptureInputPort *videoInputPort;
-    BOOL videoMirroringSupported;
-    BOOL automaticallyAdjustsVideoMirroring;
-    BOOL videoMirrored;
-    BOOL videoOrientationSupported;
-    int videoOrientation;
-    float videoMaxScaleAndCropFactor;
-    float videoScaleAndCropFactor;
+    _Bool videoMirroringSupported;
+    _Bool automaticallyAdjustsVideoMirroring;
+    _Bool videoMirrored;
+    _Bool videoOrientationSupported;
+    long long videoOrientation;
+    CDStruct_1b6d18a9 videoMinFrameDuration;
+    CDStruct_1b6d18a9 videoMaxFrameDuration;
+    double videoMaxScaleAndCropFactor;
+    double videoScaleAndCropFactor;
     int videoRetainedBufferCountHint;
-    BOOL enablesVideoStabilizationWhenAvailable;
-    BOOL videoStabilizationEnabled;
+    _Bool enablesVideoStabilizationWhenAvailable;
+    _Bool videoStabilizationEnabled;
 }
 
 @end

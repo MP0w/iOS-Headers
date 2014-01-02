@@ -8,9 +8,10 @@
 
 @class NSMutableArray, NSMutableDictionary;
 
+// Not exported
 @interface ECMappingContext : NSObject
 {
-    struct map<unsigned int, unsigned int, std::__1::less<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, unsigned int>>> mIndexToMappedIndex;
+    struct map<unsigned long, unsigned long, std::__1::less<unsigned long>, std::__1::allocator<std::__1::pair<const unsigned long, unsigned long>>> mIndexToMappedIndex;
     NSMutableDictionary *mSheetNameToMappedIndex;
     struct __CFDictionary *mObjectToMappingInfo;
     NSMutableArray *mMappingInfos;
@@ -19,15 +20,14 @@
 + (id)mappingContext;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (id)mappingInfoAtIndex:(unsigned int)arg1;
-- (unsigned int)mappingInfoCount;
+- (id)mappingInfoAtIndex:(unsigned long long)arg1;
+- (unsigned long long)mappingInfoCount;
 - (id)mappingInfoForObject:(id)arg1;
-- (unsigned int)mappedSheetIndexForSheetName:(id)arg1;
-- (unsigned int)mappedSheetIndexForSheetIndex:(unsigned int)arg1;
+- (unsigned long long)mappedSheetIndexForSheetName:(id)arg1;
+- (unsigned long long)mappedSheetIndexForSheetIndex:(unsigned long long)arg1;
 - (ChVector_be6372b9 *)mappedSheetNames;
 - (void)dealloc;
 - (id)init;
-- (void)associateMappingInfo:(id)arg1 withSheetName:(id)arg2 andSheetIndex:(unsigned int)arg3 andObject:(id)arg4;
 
 @end
 

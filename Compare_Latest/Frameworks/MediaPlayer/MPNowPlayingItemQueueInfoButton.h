@@ -12,35 +12,35 @@
 {
     UIImage *_infoCircleImage;
     NSURL *_infoURL;
-    BOOL _infoURLIsTimed;
-    unsigned int _infoFeederCount;
-    float _minSizingTextWidth;
-    unsigned int _minSizingPositionInQueue;
-    int _layoutDisabledCount;
-    unsigned int _allowedDisplayTypes;
+    _Bool _infoURLIsTimed;
+    unsigned long long _infoFeederCount;
+    double _minSizingTextWidth;
+    unsigned long long _minSizingPositionInQueue;
+    long long _layoutDisabledCount;
+    unsigned long long _allowedDisplayTypes;
     int _infoTypeForLayout;
     id <MPNowPlayingItemQueueInfoButtonDelegate> _delegate;
 }
 
 @property(nonatomic) __weak id <MPNowPlayingItemQueueInfoButtonDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) unsigned int allowedDisplayTypes; // @synthesize allowedDisplayTypes=_allowedDisplayTypes;
+@property(nonatomic) unsigned long long allowedDisplayTypes; // @synthesize allowedDisplayTypes=_allowedDisplayTypes;
 @property(retain, nonatomic) NSURL *infoURL; // @synthesize infoURL=_infoURL;
 - (void).cxx_destruct;
 - (void)clicked:(id)arg1;
 - (void)updateForItemCrossedTimeMarkerNotification:(id)arg1 currentTime:(double)arg2;
 - (void)configureForItem:(id)arg1;
-- (BOOL)configureForItem:(id)arg1 atTime:(double)arg2;
-- (BOOL)_shouldDisplaysInfoCircleImage;
+- (_Bool)configureForItem:(id)arg1 atTime:(double)arg2;
+- (_Bool)_shouldDisplaysInfoCircleImage;
 - (int)_activeDisplayType;
 - (void)layoutSubviews;
 - (struct CGRect)imageRectForContentRect:(struct CGRect)arg1;
 - (struct CGRect)titleRectForContentRect:(struct CGRect)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)_updateFeederCountInfo:(id)arg1;
-- (float)_minSizingTextWidth;
+- (double)_minSizingTextWidth;
 @property(readonly, nonatomic) int infoDisplayType;
-- (int)_infoDisplayTypeForURL:(id)arg1 urlIsTimed:(BOOL)arg2 feederCount:(unsigned int)arg3 askDelegate:(BOOL)arg4;
-- (int)buttonType;
+- (int)_infoDisplayTypeForURL:(id)arg1 urlIsTimed:(_Bool)arg2 feederCount:(unsigned long long)arg3 askDelegate:(_Bool)arg4;
+- (long long)buttonType;
 - (void)clearWeakReferencesToObject:(id)arg1;
 - (id)init;
 

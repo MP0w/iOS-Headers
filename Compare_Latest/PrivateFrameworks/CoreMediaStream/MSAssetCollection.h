@@ -17,15 +17,15 @@
     MSAsset *_masterAsset;
     NSArray *_derivedAssets;
     NSString *_fileName;
-    BOOL _wasDeleted;
+    _Bool _wasDeleted;
     long long _initialFailureDate;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 + (id)collectionWithMasterAsset:(id)arg1 fileName:(id)arg2 derivedAssets:(id)arg3;
 + (id)collectionWithMasterAsset:(id)arg1 fileName:(id)arg2;
 @property(nonatomic) long long initialFailureDate; // @synthesize initialFailureDate=_initialFailureDate;
-@property(nonatomic) BOOL wasDeleted; // @synthesize wasDeleted=_wasDeleted;
+@property(nonatomic) _Bool wasDeleted; // @synthesize wasDeleted=_wasDeleted;
 @property(retain, nonatomic) NSString *fileName; // @synthesize fileName=_fileName;
 @property(retain, nonatomic) MSAsset *masterAsset; // @synthesize masterAsset=_masterAsset;
 @property(retain, nonatomic) NSString *ctag; // @synthesize ctag=_ctag;
@@ -33,7 +33,7 @@
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
 @property(retain, nonatomic) NSArray *derivedAssets;
 @property(readonly, nonatomic) NSData *masterAssetHash;

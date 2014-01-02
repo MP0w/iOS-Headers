@@ -6,24 +6,24 @@
 
 #import <iWorkImport/GQDPath.h>
 
+// Not exported
 @interface GQDCallout2Path : GQDPath
 {
     struct CGSize mSize;
     double mCornerRadius;
     struct CGPoint mTailPosition;
     double mTailSize;
-    BOOL mTailAtCenter;
+    _Bool mTailAtCenter;
 }
 
 - (id).cxx_construct;
-- (BOOL)tailAtCenter;
+- (_Bool)tailAtCenter;
 - (double)tailSize;
 - (struct CGPoint)tailPosition;
 - (double)cornerRadius;
 - (struct CGSize)size;
 - (struct CGPath *)createBezierPath;
 - (struct CGPoint)tailCenter;
-- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1 processor:(id)arg2;
 
 @end
 

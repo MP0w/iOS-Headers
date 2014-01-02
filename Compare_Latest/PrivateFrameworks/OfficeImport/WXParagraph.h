@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface WXParagraph : NSObject
 {
 }
@@ -15,10 +16,6 @@
 + (void)readRFrom:(struct _xmlNode *)arg1 to:(id)arg2 targetRun:(id)arg3 state:(id)arg4;
 + (void)readFromString:(id)arg1 to:(id)arg2;
 + (void)readFrom:(struct _xmlNode *)arg1 baseStyle:(id)arg2 to:(id)arg3 state:(id)arg4;
-+ (void)readAnnotationFrom:(struct _xmlNode *)arg1 paragraphNamespace:(struct _xmlNs *)arg2 to:(id)arg3 state:(id)arg4;
-+ (void)readHyperlinkFrom:(struct _xmlNode *)arg1 paragraphNamespace:(struct _xmlNs *)arg2 to:(id)arg3 state:(id)arg4;
-+ (void)readSimpleFieldFrom:(struct _xmlNode *)arg1 paragraphNamespace:(struct _xmlNs *)arg2 to:(id)arg3 state:(id)arg4;
-+ (void)readRunsTo:(id)arg1 state:(id)arg2;
 
 @end
 

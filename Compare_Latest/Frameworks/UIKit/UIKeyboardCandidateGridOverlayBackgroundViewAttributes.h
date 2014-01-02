@@ -6,6 +6,7 @@
 
 #import <UIKit/UICollectionViewLayoutAttributes.h>
 
+// Not exported
 @interface UIKeyboardCandidateGridOverlayBackgroundViewAttributes : UICollectionViewLayoutAttributes
 {
     struct CGSize _rowSize;

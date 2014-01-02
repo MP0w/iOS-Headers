@@ -8,10 +8,11 @@
 
 @class VKModelObject;
 
+// Not exported
 @interface VKModelObject_DrawPass : NSObject
 {
-    VKModelObject *_submodel;
     unsigned int _pass;
+    VKModelObject *_submodel;
 }
 
 @property(nonatomic) unsigned int pass; // @synthesize pass=_pass;

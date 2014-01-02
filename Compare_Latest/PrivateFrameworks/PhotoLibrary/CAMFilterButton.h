@@ -17,7 +17,8 @@
 @property(readonly, nonatomic) UIImageView *_circlesImageView; // @synthesize _circlesImageView=__circlesImageView;
 - (id)_filterOnImage;
 - (id)_filterImage;
-@property(nonatomic, getter=isOn) BOOL on;
+@property(nonatomic, getter=isOn) _Bool on;
+- (double)_selectedIndicatorAlpha;
 - (void)dealloc;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

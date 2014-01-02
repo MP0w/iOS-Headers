@@ -7,6 +7,6 @@
 #import "NSString.h"
 
 @interface NSString (ABCompare)
-- (int)abCompare:(id)arg1;
+- (long long)abCompare:(id)arg1;
 @end
 

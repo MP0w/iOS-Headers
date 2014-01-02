@@ -11,7 +11,7 @@
 + (void)cancelPreviousPerformRequestsWithNonRetainedTarget:(id)arg1 selector:(SEL)arg2 object:(id)arg3;
 + (void)performSelectorWithNonRetainedTarget:(id)arg1 selector:(SEL)arg2 withObject:(id)arg3 afterDelay:(double)arg4;
 - (void)dispatchAsyncWithCancellationIdentifier:(id)arg1 delay:(double)arg2 queue:(id)arg3 block:(id)arg4;
-- (BOOL)cancelPreviousDispatchAsyncWithCancellationIdentifier:(id)arg1;
+- (_Bool)cancelPreviousDispatchAsyncWithCancellationIdentifier:(id)arg1;
 - (id)_MPCancellableDispatchAccessQueue;
 - (void)_nonRetainingPerformSelector:(SEL)arg1 withObject:(id)arg2 afterDelay:(double)arg3 inModes:(id)arg4;
 @end

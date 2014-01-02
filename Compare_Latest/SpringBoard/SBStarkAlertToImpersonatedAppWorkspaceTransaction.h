@@ -17,9 +17,9 @@
 }
 
 - (void)_activateAlert;
-- (BOOL)selfStarkAlertDidActivate:(id)arg1 overAlerts:(id)arg2;
-- (BOOL)selfStarkAlertWillActivate:(id)arg1 overAlerts:(id)arg2;
-- (BOOL)selfStarkAlertDidDeactivate:(id)arg1;
+- (_Bool)selfStarkAlertDidActivate:(id)arg1 overAlerts:(id)arg2;
+- (_Bool)selfStarkAlertWillActivate:(id)arg1 overAlerts:(id)arg2;
+- (_Bool)selfStarkAlertDidDeactivate:(id)arg1;
 - (int)_setupMilestonesFrom:(id)arg1 to:(id)arg2;
 - (id)_newAnimationControllerFrom:(id)arg1 to:(id)arg2;
 - (void)_beginAnimation;

@@ -11,7 +11,7 @@
     CDStruct_1b6d18a9 maxRecordedDuration;
     long long maxRecordedFileSize;
     long long minFreeDiskSpaceLimit;
-    BOOL pausesRecordingOnInterruption;
+    _Bool pausesRecordingOnInterruption;
 }
 
 - (id)init;

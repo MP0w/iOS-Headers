@@ -9,7 +9,7 @@
 #import "SKUIProductPageChildViewController-Protocol.h"
 #import "UIScrollViewDelegate-Protocol.h"
 
-@class SKUIClientContext, SKUIColorScheme, SKUIProductPageHeaderViewController, SKUIProductPagePlaceholderScrollView, UIScrollView;
+@class SKUIClientContext, SKUIColorScheme, SKUIProductPageHeaderViewController, SKUIProductPagePlaceholderScrollView, UIActivityIndicatorView, UIScrollView;
 
 @interface SKUIProductPagePlaceholderViewController : UIViewController <UIScrollViewDelegate, SKUIProductPageChildViewController>
 {
@@ -18,6 +18,8 @@
     SKUIProductPageHeaderViewController *_headerViewController;
     SKUIProductPagePlaceholderScrollView *_scrollView;
     id <SKUIProductPageChildViewControllerDelegate> _delegate;
+    long long _style;
+    UIActivityIndicatorView *_indicator;
 }
 
 @property(retain, nonatomic) SKUIProductPageHeaderViewController *headerViewController; // @synthesize headerViewController=_headerViewController;
@@ -25,10 +27,13 @@
 @property(retain, nonatomic) SKUIColorScheme *colorScheme; // @synthesize colorScheme=_colorScheme;
 @property(retain, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
 - (void).cxx_destruct;
+- (void)_addHeaderView;
 @property(readonly, nonatomic) UIScrollView *scrollView;
 - (void)scrollViewDidScroll:(id)arg1;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)loadView;
-- (id)_scrollView;
+- (id)initWithStyle:(long long)arg1;
 
 @end
 

@@ -8,6 +8,7 @@
 
 @class VKLabelModel;
 
+// Not exported
 @interface VKLabelAccessibility : NSObject
 {
     VKLabelModel *_labelModel;

@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface GQDImageBinary : NSObject
 {
     struct CGSize mSize;
@@ -17,10 +18,9 @@
 - (id).cxx_construct;
 - (struct __CFString *)relativePath;
 - (int)resourceType;
-- (struct __CFURL *)absoluteUrlForState:(id)arg1;
+- (struct __CFURL *)createAbsoluteUrlForState:(id)arg1;
 - (struct CGSize)size;
 - (void)dealloc;
-- (int)readDataAttributesFromReader:(struct _xmlTextReader *)arg1;
 
 @end
 

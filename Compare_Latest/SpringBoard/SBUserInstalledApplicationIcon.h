@@ -8,7 +8,7 @@
 
 @interface SBUserInstalledApplicationIcon : SBApplicationIcon
 {
-    BOOL _shouldHaveSash;
+    _Bool _shouldHaveSash;
 }
 
 - (id)uninstallAlertCancelTitle;

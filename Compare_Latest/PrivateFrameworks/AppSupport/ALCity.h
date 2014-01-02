@@ -23,7 +23,7 @@
     NSString *_countryOverride;
     NSString *_unlocalizedCountryOverride;
     NSString *_identifierForCPCity;
-    BOOL _localizationAttempted;
+    _Bool _localizationAttempted;
 }
 
 @property(retain, nonatomic) NSString *unlocalizedCountryOverride; // @synthesize unlocalizedCountryOverride=_unlocalizedCountryOverride;
@@ -41,11 +41,11 @@
 @property(retain, nonatomic) NSString *name;
 @property(readonly, nonatomic) NSDictionary *properties;
 @property(readonly, nonatomic) NSString *classicIdentifier;
-- (id)displayNameIncludingCountry:(BOOL)arg1;
-- (id)displayNameIncludingCountry:(BOOL)arg1 withFormat:(id)arg2;
+- (id)displayNameIncludingCountry:(_Bool)arg1;
+- (id)displayNameIncludingCountry:(_Bool)arg1 withFormat:(id)arg2;
 - (void)ensureLocalized;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)initWithSQLRow:(char **)arg1;
 - (id)initWithProperties:(id)arg1;

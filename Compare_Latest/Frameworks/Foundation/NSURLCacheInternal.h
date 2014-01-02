@@ -8,32 +8,33 @@
 
 @class NSLock, NSMutableDictionary, NSMutableSet, NSString, NSURLCacheNode, NSURLQueue;
 
+// Not exported
 @interface NSURLCacheInternal : NSObject
 {
-    unsigned int memoryCapacity;
-    unsigned int diskCapacity;
+    unsigned long long memoryCapacity;
+    unsigned long long diskCapacity;
     NSString *diskPath;
-    unsigned int currentMemoryUsage;
-    unsigned int currentDiskUsage;
+    unsigned long long currentMemoryUsage;
+    unsigned long long currentDiskUsage;
     NSMutableDictionary *memoryCache;
     NSLock *memoryCacheGuard;
     NSURLCacheNode *memoryCacheLRUHead;
     NSURLCacheNode *memoryCacheLRUTail;
-    unsigned int memoryCacheItemLengthThreshold;
+    unsigned long long memoryCacheItemLengthThreshold;
     NSLock *diskCacheGuard;
     NSMutableDictionary *diskCachePendingWrites;
     NSMutableSet *diskCachePendingRemovals;
     NSURLQueue *diskCachePendingOperations;
-    unsigned int diskCacheItemLengthThreshold;
+    unsigned long long diskCacheItemLengthThreshold;
     double diskCacheTouchTime;
     struct NSLRUFileList *diskCacheLRUList;
-    unsigned int timerResetCount;
-    unsigned int syncSkipCount;
+    unsigned long long timerResetCount;
+    unsigned long long syncSkipCount;
     struct _CFURLCache *_cacheRef;
-    BOOL diskCacheLeftoverFilesRemovedFlag;
-    BOOL _pad1;
-    BOOL _pad2;
-    BOOL _pad3;
+    _Bool diskCacheLeftoverFilesRemovedFlag;
+    _Bool _pad1;
+    _Bool _pad2;
+    _Bool _pad3;
 }
 
 - (void)finalize;

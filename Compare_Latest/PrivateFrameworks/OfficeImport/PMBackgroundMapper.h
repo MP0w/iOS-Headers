@@ -8,6 +8,7 @@
 
 @class OADBackground;
 
+// Not exported
 @interface PMBackgroundMapper : CMMapper
 {
     OADBackground *mBackground;
@@ -15,7 +16,6 @@
 
 - (void)mapAt:(id)arg1 withState:(id)arg2;
 - (id)initWithOadBackground:(id)arg1 parent:(id)arg2;
-- (struct CGRect)slideRect;
 
 @end
 

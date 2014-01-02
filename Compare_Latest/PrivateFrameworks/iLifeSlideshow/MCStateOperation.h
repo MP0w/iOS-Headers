@@ -17,8 +17,8 @@
 @property(copy) NSString *stateKey; // @synthesize stateKey=_stateKey;
 - (id)description;
 - (void)_copySelfToSnapshot:(id)arg1;
-@property(nonatomic) BOOL recordsTime;
-@property(nonatomic) BOOL alwaysNotifies;
+@property(nonatomic) _Bool recordsTime;
+@property(nonatomic) _Bool alwaysNotifies;
 - (id)imprint;
 - (void)demolish;
 - (id)initWithImprint:(id)arg1;

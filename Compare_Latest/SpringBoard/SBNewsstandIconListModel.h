@@ -11,8 +11,8 @@
 }
 
 + (Class)viewClass;
-- (unsigned int)firstFreeSlotIndexForType:(int)arg1;
-- (BOOL)allowsAddingIcon:(id)arg1;
+- (unsigned long long)firstFreeSlotIndexForType:(int)arg1;
+- (_Bool)allowsAddingIcon:(id)arg1;
 
 @end
 

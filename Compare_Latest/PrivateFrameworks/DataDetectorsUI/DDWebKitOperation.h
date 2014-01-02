@@ -8,6 +8,7 @@
 
 @class DOMNode, WebFrame;
 
+// Not exported
 @interface DDWebKitOperation : DDOperation
 {
     DOMNode *_startNode;
@@ -23,14 +24,14 @@
 - (void)dispatchContainerModificationBlock:(id)arg1;
 - (id)newOperationForContinuation;
 - (id)newOperationForStartingOver;
-- (BOOL)needsToStartOver;
-- (BOOL)containerIsReady;
-- (BOOL)doURLificationOnDocument;
+- (_Bool)needsToStartOver;
+- (_Bool)containerIsReady;
+- (_Bool)doURLificationOnDocument;
 - (struct __DDScanQuery *)_createScanQueryForBackend;
 - (void)_updateGenerationNumber;
-- (BOOL)_rangeValidForContainer;
+- (_Bool)_rangeValidForContainer;
 - (void)_applyContainerRestrictionsToTypes;
-- (BOOL)_containerReadyForDetection;
+- (_Bool)_containerReadyForDetection;
 - (void)cleanup;
 
 // Remaining properties

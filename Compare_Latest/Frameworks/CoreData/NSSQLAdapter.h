@@ -8,13 +8,14 @@
 
 @class NSMutableArray, NSSQLCore;
 
+// Not exported
 @interface NSSQLAdapter : NSObject
 {
     NSMutableArray *_connections;
     NSSQLCore *_sqlCore;
 }
 
-- (BOOL)supportsCorrelatedSubqueries;
+- (_Bool)supportsCorrelatedSubqueries;
 - (id)type;
 - (void)unregisterConnection:(id)arg1;
 - (void)registerConnection:(id)arg1;
@@ -24,7 +25,7 @@
 - (id)newCreateTableStatementForManyToMany:(id)arg1;
 - (id)newRenameTableStatementFrom:(id)arg1 to:(id)arg2;
 - (id)newDropTableStatementForTableNamed:(id)arg1;
-- (id)newCopyAndInsertStatementForManyToMany:(id)arg1 toManyToMany:(id)arg2 intermediateTableName:(id)arg3 invertColumns:(BOOL)arg4;
+- (id)newCopyAndInsertStatementForManyToMany:(id)arg1 toManyToMany:(id)arg2 intermediateTableName:(id)arg3 invertColumns:(_Bool)arg4;
 - (id)newRenameTableStatementFromManyToMany:(id)arg1 toManyToMany:(id)arg2 orToRandomSpot:(id)arg3;
 - (id)newPrimaryKeyInitializeStatementForEntity:(id)arg1 withInitialMaxPK:(long long)arg2;
 - (id)newCreatePrimaryKeyTableStatement;
@@ -35,7 +36,7 @@
 - (id)newUpdateStatementWithCorrelation:(id)arg1;
 - (id)newInsertStatementWithCorrelation:(id)arg1;
 - (id)newCountStatementWithFetchRequest:(id)arg1;
-- (id)_newSelectStatementWithFetchRequest:(id)arg1 ignoreInheritance:(BOOL)arg2;
+- (id)_newSelectStatementWithFetchRequest:(id)arg1 ignoreInheritance:(_Bool)arg2;
 - (id)newSelectStatementWithFetchRequest:(id)arg1;
 - (id)newDeleteStatementWithRow:(id)arg1;
 - (id)newUpdateStatementWithRow:(id)arg1;
@@ -47,7 +48,7 @@
 - (id)newStatementWithEntity:(id)arg1;
 - (id)newStatementWithSQLString:(id)arg1;
 - (id)newStatementWithoutEntity;
-- (BOOL)hasOpenConnections;
+- (_Bool)hasOpenConnections;
 - (id)connections;
 - (id)createConnection;
 - (id)url;

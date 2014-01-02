@@ -13,9 +13,9 @@
     PKImage *_faceImage;
 }
 
-+ (BOOL)supportsSecureCoding;
-+ (int)imageSet;
-+ (int)currentVersion;
++ (_Bool)supportsSecureCoding;
++ (long long)imageSet;
++ (long long)currentVersion;
 + (id)archiveName;
 @property(retain, nonatomic) PKImage *faceImage; // @synthesize faceImage=_faceImage;
 - (void)encodeWithCoder:(id)arg1;

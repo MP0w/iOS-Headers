@@ -10,6 +10,7 @@
 
 @class UIWebView;
 
+// Not exported
 @interface SLURLPreviewGenerator : NSObject <UIWebViewDelegate>
 {
     UIWebView *_webView;
@@ -18,6 +19,7 @@
 
 @property(readonly) UIWebView *webView; // @synthesize webView=_webView;
 - (void).cxx_destruct;
+- (void)uiWebView:(id)arg1 decidePolicyForGeolocationRequestFromOrigin:(id)arg2 frame:(id)arg3 listener:(id)arg4;
 - (void)webView:(id)arg1 didFailLoadWithError:(id)arg2;
 - (void)webViewDidFinishLoad:(id)arg1;
 - (void)loadURL:(id)arg1 completion:(id)arg2;

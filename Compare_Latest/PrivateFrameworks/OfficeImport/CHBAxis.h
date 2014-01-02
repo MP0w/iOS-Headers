@@ -6,16 +6,13 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface CHBAxis : NSObject
 {
 }
 
 + (int)chbAxisIdForPlotAxis:(int)arg1 state:(id)arg2;
 + (id)readWithXlPlotAxis:(int)arg1 state:(id)arg2;
-+ (int)chdAxisPositionFromAxisType:(int)arg1;
-+ (int)xlPlotAxisTypeFrom:(int)arg1;
-+ (Class)chbAxisClassWith:(id)arg1;
-+ (Class)chbAxisClassWith:(struct XlChartPlotAxis *)arg1 plotAxis:(int)arg2;
 
 @end
 

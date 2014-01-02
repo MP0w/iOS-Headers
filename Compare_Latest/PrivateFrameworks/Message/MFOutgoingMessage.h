@@ -14,12 +14,12 @@
     MFMutableMessageHeaders *_messageHeaders;
 }
 
-- (unsigned int)messageSize;
+- (unsigned long long)messageSize;
 - (id)headersIfAvailable;
 - (id)headers;
 - (void)setMutableHeaders:(id)arg1;
 - (id)mutableHeaders;
-- (BOOL)messageData:(id *)arg1 messageSize:(unsigned int *)arg2 isComplete:(char *)arg3 downloadIfNecessary:(BOOL)arg4;
+- (_Bool)messageData:(id *)arg1 messageSize:(unsigned long long *)arg2 isComplete:(_Bool *)arg3 downloadIfNecessary:(_Bool)arg4;
 - (id)messageData;
 - (id)messageBodyIfAvailable;
 - (id)messageBody;

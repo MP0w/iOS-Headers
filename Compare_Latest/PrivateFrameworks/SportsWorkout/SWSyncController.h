@@ -17,8 +17,8 @@
 
 @interface SWSyncController : NSObject <SWSyncServiceConnectionDelegate, SWGeneratePINConnectionDelegate, SWSyncWorkoutConnectionDelegate, SWPINStatusConnectionDelegate, SWGenerateTokenConnectionDelegate, SWSyncCompleteConnectionDelegate>
 {
-    int _attemptedUploadCount;
-    int _uploadCount;
+    long long _attemptedUploadCount;
+    long long _uploadCount;
     id <SWSyncControllerDelegate> _syncDelegate;
     SWSyncHost *_syncHost;
     SWSyncServiceConnection *_currentSyncConnection;
@@ -27,13 +27,13 @@
     NSString *_syncPin;
     NSString *_currentlySyncingWorkoutFilePath;
     NSString *_baseDirectoryPath;
-    BOOL _shouldMoveFilesToSynchedDirectoryWhenDone;
+    _Bool _shouldMoveFilesToSynchedDirectoryWhenDone;
 }
 
 + (void)releaseSyncInProgressFileLock;
-+ (BOOL)takeSyncInProgressFileLock:(BOOL)arg1;
-@property(nonatomic) int uploadCount; // @synthesize uploadCount=_uploadCount;
-@property(nonatomic) BOOL shouldMoveFilesToSynchedDirectoryWhenDone; // @synthesize shouldMoveFilesToSynchedDirectoryWhenDone=_shouldMoveFilesToSynchedDirectoryWhenDone;
++ (_Bool)takeSyncInProgressFileLock:(_Bool)arg1;
+@property(nonatomic) long long uploadCount; // @synthesize uploadCount=_uploadCount;
+@property(nonatomic) _Bool shouldMoveFilesToSynchedDirectoryWhenDone; // @synthesize shouldMoveFilesToSynchedDirectoryWhenDone=_shouldMoveFilesToSynchedDirectoryWhenDone;
 @property(nonatomic) id <SWSyncControllerDelegate> syncDelegate; // @synthesize syncDelegate=_syncDelegate;
 - (void)connectionDidReturnStatusInvalid:(id)arg1;
 - (void)connectionDidReturnStatusUnconfirmed:(id)arg1;
@@ -45,7 +45,7 @@
 - (void)_syncNextWorkout;
 - (void)connection:(id)arg1 didGeneratePIN:(id)arg2;
 - (void)_syncWorkoutsForNextEmpedDirectory;
-- (unsigned int)unsyncedWorkoutsCount;
+- (unsigned long long)unsyncedWorkoutsCount;
 - (void)visitNikeWebSite;
 - (void)syncAllWorkouts;
 - (void)connection:(id)arg1 didFailWithError:(id)arg2;

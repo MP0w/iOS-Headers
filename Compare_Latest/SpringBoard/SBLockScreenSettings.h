@@ -6,21 +6,43 @@
 
 #import "_UISettings.h"
 
-@class SBAnimationSettings, SBBounceSettings;
+@class SBBounceSettings, SBFAnimationSettings, SBLockScreenPasscodeSettings, SBSlideToUnlockFailureRecognizerSettings;
 
 @interface SBLockScreenSettings : _UISettings
 {
+    _Bool _alwaysPutPluginsBelowScrollView;
     SBBounceSettings *_verticalBounceSettings;
     SBBounceSettings *_horizontalBounceSettings;
-    SBAnimationSettings *_unlockWallpaperOutSettings;
-    SBAnimationSettings *_unlockWallpaperInSettings;
-    float _unlockSwipeWallpaperAlpha;
+    SBLockScreenPasscodeSettings *_passcodeSettings;
+    SBSlideToUnlockFailureRecognizerSettings *_slideToUnlockFailureRecognizerSettings;
+    SBFAnimationSettings *_unlockToPhoneWallpaperOutSettings;
+    SBFAnimationSettings *_unlockToPhoneWallpaperInSettings;
+    SBFAnimationSettings *_unlockWallpaperOutSettings;
+    SBFAnimationSettings *_unlockWallpaperInSettings;
+    double _lockToUnlockSlideCompletionPercentage;
+    double _lockToUnlockSlideCompletionPercentageIPad;
+    double _unlockSlideForIdleTimerDisabledPercentage;
+    double _unlockSlideForIdleTimerDisabledPercentageIPad;
+    double _notificationScrollForIdleTimerDisabledOffset;
+    double _notificationScrollForIdleTimerDisabledOffsetIPad;
+    double _unlockSwipeWallpaperAlpha;
 }
 
 + (id)settingsControllerModule;
-@property float unlockSwipeWallpaperAlpha; // @synthesize unlockSwipeWallpaperAlpha=_unlockSwipeWallpaperAlpha;
-@property(retain) SBAnimationSettings *unlockWallpaperInSettings; // @synthesize unlockWallpaperInSettings=_unlockWallpaperInSettings;
-@property(retain) SBAnimationSettings *unlockWallpaperOutSettings; // @synthesize unlockWallpaperOutSettings=_unlockWallpaperOutSettings;
+@property _Bool alwaysPutPluginsBelowScrollView; // @synthesize alwaysPutPluginsBelowScrollView=_alwaysPutPluginsBelowScrollView;
+@property double unlockSwipeWallpaperAlpha; // @synthesize unlockSwipeWallpaperAlpha=_unlockSwipeWallpaperAlpha;
+@property double notificationScrollForIdleTimerDisabledOffsetIPad; // @synthesize notificationScrollForIdleTimerDisabledOffsetIPad=_notificationScrollForIdleTimerDisabledOffsetIPad;
+@property double notificationScrollForIdleTimerDisabledOffset; // @synthesize notificationScrollForIdleTimerDisabledOffset=_notificationScrollForIdleTimerDisabledOffset;
+@property double unlockSlideForIdleTimerDisabledPercentageIPad; // @synthesize unlockSlideForIdleTimerDisabledPercentageIPad=_unlockSlideForIdleTimerDisabledPercentageIPad;
+@property double unlockSlideForIdleTimerDisabledPercentage; // @synthesize unlockSlideForIdleTimerDisabledPercentage=_unlockSlideForIdleTimerDisabledPercentage;
+@property double lockToUnlockSlideCompletionPercentageIPad; // @synthesize lockToUnlockSlideCompletionPercentageIPad=_lockToUnlockSlideCompletionPercentageIPad;
+@property double lockToUnlockSlideCompletionPercentage; // @synthesize lockToUnlockSlideCompletionPercentage=_lockToUnlockSlideCompletionPercentage;
+@property(retain) SBFAnimationSettings *unlockWallpaperInSettings; // @synthesize unlockWallpaperInSettings=_unlockWallpaperInSettings;
+@property(retain) SBFAnimationSettings *unlockWallpaperOutSettings; // @synthesize unlockWallpaperOutSettings=_unlockWallpaperOutSettings;
+@property(retain) SBFAnimationSettings *unlockToPhoneWallpaperInSettings; // @synthesize unlockToPhoneWallpaperInSettings=_unlockToPhoneWallpaperInSettings;
+@property(retain) SBFAnimationSettings *unlockToPhoneWallpaperOutSettings; // @synthesize unlockToPhoneWallpaperOutSettings=_unlockToPhoneWallpaperOutSettings;
+@property(retain) SBSlideToUnlockFailureRecognizerSettings *slideToUnlockFailureRecognizerSettings; // @synthesize slideToUnlockFailureRecognizerSettings=_slideToUnlockFailureRecognizerSettings;
+@property(retain) SBLockScreenPasscodeSettings *passcodeSettings; // @synthesize passcodeSettings=_passcodeSettings;
 @property(retain) SBBounceSettings *horizontalBounceSettings; // @synthesize horizontalBounceSettings=_horizontalBounceSettings;
 @property(retain) SBBounceSettings *verticalBounceSettings; // @synthesize verticalBounceSettings=_verticalBounceSettings;
 - (void)setDefaultValues;

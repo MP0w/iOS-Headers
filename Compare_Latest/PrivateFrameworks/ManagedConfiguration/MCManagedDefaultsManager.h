@@ -17,7 +17,7 @@
 - (void)addDefaults:(id)arg1 toManagedDomain:(id)arg2;
 - (void)setDefaults:(id)arg1 forManagedDomain:(id)arg2;
 - (id)managedDefaultsForDomain:(id)arg1;
-- (BOOL)domainHasManagedDefaults:(id)arg1;
+- (_Bool)domainHasManagedDefaults:(id)arg1;
 - (id)managedDefaultsPathForDomain:(id)arg1;
 
 @end

@@ -9,10 +9,10 @@
 @interface VUPublishPost : NSObject
 {
     id <VUPublishPostDelegate> _delegate;
-    BOOL _allowsCellularAccessForUploads;
+    _Bool _allowsCellularAccessForUploads;
 }
 
-@property(nonatomic) BOOL allowsCellularAccessForUploads; // @synthesize allowsCellularAccessForUploads=_allowsCellularAccessForUploads;
+@property(nonatomic) _Bool allowsCellularAccessForUploads; // @synthesize allowsCellularAccessForUploads=_allowsCellularAccessForUploads;
 - (void)startUpload;
 - (id)initWithDelegate:(id)arg1;
 

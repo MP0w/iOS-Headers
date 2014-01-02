@@ -13,21 +13,21 @@
 @interface SBDeviceLockViewWithKeypad : SBDeviceLockView <TPDialerKeypadDelegate>
 {
     SBDeviceLockKeypad *_keypad;
-    BOOL _cancelingTouches;
+    _Bool _cancelingTouches;
 }
 
 - (void)phonePad:(id)arg1 keyUp:(BOOL)arg2;
 - (void)phonePad:(id)arg1 keyDown:(BOOL)arg2;
 - (void)deviceLockEntryFieldDidAcceptEntry:(id)arg1;
 - (void)deviceLockEntryFieldTextDidChange:(id)arg1;
-- (void)setShowsEmergencyCallButton:(BOOL)arg1;
-- (BOOL)showsEmergencyCallButton;
-- (void)setPlaysKeyboardClicks:(BOOL)arg1;
-- (BOOL)playsKeyboardClicks;
+- (void)setShowsEmergencyCallButton:(_Bool)arg1;
+- (_Bool)showsEmergencyCallButton;
+- (void)setPlaysKeyboardClicks:(_Bool)arg1;
+- (_Bool)playsKeyboardClicks;
 - (void)setPasscode:(id)arg1;
 - (id)keypadView;
 - (void)dealloc;
-- (id)_initWithStyle:(int)arg1 interfaceOrientation:(int)arg2 showsEmergencyCall:(BOOL)arg3;
+- (id)_initWithStyle:(int)arg1 interfaceOrientation:(long long)arg2 showsEmergencyCall:(_Bool)arg3;
 
 @end
 

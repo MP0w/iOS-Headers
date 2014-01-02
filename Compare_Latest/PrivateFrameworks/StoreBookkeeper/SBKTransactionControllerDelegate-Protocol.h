@@ -9,9 +9,9 @@
 @protocol SBKTransactionControllerDelegate <NSObject>
 - (void)transactionController:(id)arg1 transactionDidFinish:(id)arg2;
 - (void)transactionController:(id)arg1 transactionDidCancel:(id)arg2 error:(id)arg3;
-- (BOOL)transactionController:(id)arg1 transactionDidFail:(id)arg2 error:(id)arg3;
+- (_Bool)transactionController:(id)arg1 transactionDidFail:(id)arg2 error:(id)arg3;
 
 @optional
-- (BOOL)transactionController:(id)arg1 shouldScheduleTransaction:(id)arg2;
+- (_Bool)transactionController:(id)arg1 shouldScheduleTransaction:(id)arg2;
 @end
 

@@ -8,16 +8,17 @@
 
 @class NSString, WFLSMResult;
 
+// Not exported
 @interface WFVerdict : NSObject
 {
-    BOOL restricted;
+    _Bool restricted;
     WFLSMResult *LSMEvaluationResult;
     NSString *message;
     NSString *URL;
     int evidence;
 }
 
-+ (id)verdictWithRestriction:(BOOL)arg1 URL:(id)arg2 evidence:(int)arg3 LSMEvaluationResult:(id)arg4 message:(id)arg5;
++ (id)verdictWithRestriction:(_Bool)arg1 URL:(id)arg2 evidence:(int)arg3 LSMEvaluationResult:(id)arg4 message:(id)arg5;
 - (void)dealloc;
 - (id)description;
 - (void)setEvidence:(int)arg1;
@@ -28,8 +29,8 @@
 - (id)message;
 - (void)setLSMEvaluationResult:(id)arg1;
 - (id)LSMEvaluationResult;
-- (void)setRestricted:(BOOL)arg1;
-- (BOOL)restricted;
+- (void)setRestricted:(_Bool)arg1;
+- (_Bool)restricted;
 
 @end
 

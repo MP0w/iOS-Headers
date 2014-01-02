@@ -7,6 +7,6 @@
 #import "NSDictionary.h"
 
 @interface NSDictionary (Protection)
-- (BOOL)writeToProtectedFile:(id)arg1 atomically:(BOOL)arg2;
+- (_Bool)writeToProtectedFile:(id)arg1 atomically:(_Bool)arg2;
 @end
 

@@ -5,6 +5,6 @@
  */
 
 @protocol PLAlbumProtocolDisplayCount
-@property(readonly, nonatomic) unsigned int countForDisplay;
+@property(readonly, nonatomic) unsigned long long countForDisplay;
 @end
 

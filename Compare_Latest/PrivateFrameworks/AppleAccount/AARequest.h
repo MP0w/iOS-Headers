@@ -11,7 +11,7 @@
 @interface AARequest : NSObject
 {
     NSString *_urlString;
-    BOOL _flushCache;
+    _Bool _flushCache;
     struct OpaqueCFHTTPCookieStorage *_cookieStorage;
     NSString *_oneTimePassword;
     NSString *_machineId;
@@ -19,7 +19,7 @@
 
 + (id)protocolVersion;
 + (Class)responseClass;
-@property(nonatomic) BOOL flushCache; // @synthesize flushCache=_flushCache;
+@property(nonatomic) _Bool flushCache; // @synthesize flushCache=_flushCache;
 - (void).cxx_destruct;
 - (id)redactedBodyStringWithPropertyList:(id)arg1;
 - (void)dealloc;

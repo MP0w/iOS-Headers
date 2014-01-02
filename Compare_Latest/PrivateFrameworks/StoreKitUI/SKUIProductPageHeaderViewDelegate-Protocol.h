@@ -9,7 +9,8 @@
 @protocol SKUIProductPageHeaderViewDelegate <NSObject>
 
 @optional
+- (id)metricsControllerForProductPageHeader:(id)arg1;
 - (void)productPageHeaderView:(id)arg1 didSelectURL:(id)arg2;
-- (void)productPageHeaderView:(id)arg1 didSelectSectionIndex:(int)arg2;
+- (void)productPageHeaderView:(id)arg1 didSelectSectionIndex:(long long)arg2;
 @end
 

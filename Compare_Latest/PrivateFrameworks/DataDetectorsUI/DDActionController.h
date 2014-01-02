@@ -11,6 +11,7 @@
 
 @class DDAction, UIPopoverController, UIView, UIViewController, UIWindow;
 
+// Not exported
 @interface DDActionController : NSObject <UIAlertViewDelegate, UIPopoverControllerDelegate>
 {
     UIViewController *_presentedViewController;

@@ -13,19 +13,19 @@
     NSString *_collectionID;
     int _bodyType;
     long long _truncationSize;
-    BOOL _allOrNone;
+    _Bool _allOrNone;
     NSDate *_priorToDate;
     int _MIMESupport;
-    BOOL _deepTraversal;
-    BOOL _rebuildResults;
+    _Bool _deepTraversal;
+    _Bool _rebuildResults;
 }
 
 + (id)mailboxSearchQueryWithSearchString:(id)arg1 consumer:(id)arg2;
-@property BOOL rebuildResults; // @synthesize rebuildResults=_rebuildResults;
-@property BOOL deepTraversal; // @synthesize deepTraversal=_deepTraversal;
+@property _Bool rebuildResults; // @synthesize rebuildResults=_rebuildResults;
+@property _Bool deepTraversal; // @synthesize deepTraversal=_deepTraversal;
 @property int MIMESupport; // @synthesize MIMESupport=_MIMESupport;
 @property(retain) NSDate *priorToDate; // @synthesize priorToDate=_priorToDate;
-@property BOOL allOrNone; // @synthesize allOrNone=_allOrNone;
+@property _Bool allOrNone; // @synthesize allOrNone=_allOrNone;
 @property long long truncationSize; // @synthesize truncationSize=_truncationSize;
 @property int bodyType; // @synthesize bodyType=_bodyType;
 @property(retain) NSString *collectionID; // @synthesize collectionID=_collectionID;

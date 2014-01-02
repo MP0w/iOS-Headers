@@ -19,8 +19,8 @@
 - (struct __CFMessagePort *)remotePort;
 - (void)setFdref:(struct __CFFileDescriptor *)arg1;
 - (struct __CFFileDescriptor *)fdref;
-- (void)setRegistered:(BOOL)arg1;
-- (BOOL)registered;
+- (void)setRegistered:(_Bool)arg1;
+- (_Bool)registered;
 - (void)setPid:(int)arg1;
 - (int)pid;
 - (id)init;

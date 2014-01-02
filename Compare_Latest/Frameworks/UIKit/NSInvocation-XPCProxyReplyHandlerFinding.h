@@ -7,6 +7,6 @@
 #import "NSInvocation.h"
 
 @interface NSInvocation (XPCProxyReplyHandlerFinding)
-- (int)_firstXPCProxyReplyHandlerArgumentIndex;
+- (long long)_firstXPCProxyReplyHandlerArgumentIndex;
 @end
 

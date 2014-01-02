@@ -30,7 +30,7 @@
 - (id)createKeyframeWithScalar:(float)arg1 atTime:(double)arg2 offsetKind:(int)arg3;
 - (id)createKeyframeWithScalar:(float)arg1 atTime:(double)arg2;
 - (id)orderedKeyframesInPlug:(id)arg1;
-- (unsigned int)countOfKeyframes;
+- (unsigned long long)countOfKeyframes;
 @property(readonly) NSSet *keyframes;
 - (id)imprint;
 - (void)demolish;

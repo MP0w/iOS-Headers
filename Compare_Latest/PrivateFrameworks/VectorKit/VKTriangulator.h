@@ -11,15 +11,15 @@
 @interface VKTriangulator : NSObject
 {
     void *_opaque_triangulator;
-    unsigned long _segments_capacity;
+    unsigned long long _segments_capacity;
     void *_opaque_segments;
-    unsigned long _mesh_capacity;
-    unsigned int *_mesh;
+    unsigned long long _mesh_capacity;
+    unsigned long long *_mesh;
     NSMutableData *_scratch;
 }
 
 - (id)triangulateIndicesForPoints:(CDStruct_1ef3fb1f *)arg1 pointCount:(int)arg2;
-- (BOOL)_triangulateIndicesInto:(id)arg1;
+- (_Bool)_triangulateIndicesInto:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

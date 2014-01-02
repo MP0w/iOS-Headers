@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface CMDrawingAction : NSObject
 {
     int _type;

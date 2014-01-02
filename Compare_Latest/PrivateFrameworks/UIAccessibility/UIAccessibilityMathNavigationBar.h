@@ -16,7 +16,7 @@
 + (id)_uiaxBundle;
 - (id)_popNavigationItemWithTransition:(int)arg1;
 - (void)_pushNavigationItem:(id)arg1 transition:(int)arg2;
-- (BOOL)accessibilityPerformEscape;
+- (_Bool)accessibilityPerformEscape;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

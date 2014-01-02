@@ -12,35 +12,35 @@
 
 @interface TTSSpeechRequest : NSObject <NSSecureCoding>
 {
-    BOOL _useCustomVoice;
-    BOOL _maintainsInput;
-    BOOL _audioSessionIDIsValid;
+    _Bool _useCustomVoice;
+    _Bool _maintainsInput;
+    _Bool _audioSessionIDIsValid;
+    unsigned int _audioSessionID;
+    unsigned int _audioQueueFlags;
     NSString *_text;
     NSAttributedString *_attributedText;
     NSString *_languageCode;
     NSString *_voiceName;
-    int _footprint;
-    int _gender;
+    long long _footprint;
+    long long _gender;
     NSURL *_outputPath;
-    unsigned int _audioSessionID;
-    unsigned int _audioQueueFlags;
     double _rate;
     double _pitch;
     double _volume;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) unsigned int audioQueueFlags; // @synthesize audioQueueFlags=_audioQueueFlags;
 @property(nonatomic) unsigned int audioSessionID; // @synthesize audioSessionID=_audioSessionID;
-@property(nonatomic) BOOL audioSessionIDIsValid; // @synthesize audioSessionIDIsValid=_audioSessionIDIsValid;
-@property(nonatomic) BOOL maintainsInput; // @synthesize maintainsInput=_maintainsInput;
+@property(nonatomic) _Bool audioSessionIDIsValid; // @synthesize audioSessionIDIsValid=_audioSessionIDIsValid;
+@property(nonatomic) _Bool maintainsInput; // @synthesize maintainsInput=_maintainsInput;
 @property(nonatomic) double volume; // @synthesize volume=_volume;
 @property(nonatomic) double pitch; // @synthesize pitch=_pitch;
 @property(nonatomic) double rate; // @synthesize rate=_rate;
 @property(copy, nonatomic) NSURL *outputPath; // @synthesize outputPath=_outputPath;
-@property(nonatomic) int gender; // @synthesize gender=_gender;
-@property(nonatomic) BOOL useCustomVoice; // @synthesize useCustomVoice=_useCustomVoice;
-@property(nonatomic) int footprint; // @synthesize footprint=_footprint;
+@property(nonatomic) long long gender; // @synthesize gender=_gender;
+@property(nonatomic) _Bool useCustomVoice; // @synthesize useCustomVoice=_useCustomVoice;
+@property(nonatomic) long long footprint; // @synthesize footprint=_footprint;
 @property(copy, nonatomic) NSString *voiceName; // @synthesize voiceName=_voiceName;
 @property(copy, nonatomic) NSString *languageCode; // @synthesize languageCode=_languageCode;
 @property(copy, nonatomic) NSAttributedString *attributedText; // @synthesize attributedText=_attributedText;
@@ -49,8 +49,6 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)description;
-- (long)vocalizerGender;
-- (long)vocalizerFootprint;
 
 @end
 

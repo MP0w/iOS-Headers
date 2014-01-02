@@ -11,7 +11,7 @@
 @interface ABPersonTableViewSharingDelegate : NSObject
 {
     ABActionSheetDelegate *_actionSheetDelegate;
-    BOOL _shareMessageBodyIsHTML;
+    _Bool _shareMessageBodyIsHTML;
     ABStyleProvider *_styleProvider;
     ABPersonViewControllerHelper *_helper;
     NSString *_shareMessageBody;
@@ -29,18 +29,18 @@
 @property(copy, nonatomic) NSString *shareLocationURL; // @synthesize shareLocationURL=_shareLocationURL;
 @property(copy, nonatomic) NSString *shareMessageSubject; // @synthesize shareMessageSubject=_shareMessageSubject;
 @property(copy, nonatomic) NSString *shareMessageBody; // @synthesize shareMessageBody=_shareMessageBody;
-@property(nonatomic) BOOL shareMessageBodyIsHTML; // @synthesize shareMessageBodyIsHTML=_shareMessageBodyIsHTML;
+@property(nonatomic) _Bool shareMessageBodyIsHTML; // @synthesize shareMessageBodyIsHTML=_shareMessageBodyIsHTML;
 @property(nonatomic) ABPersonViewControllerHelper *helper; // @synthesize helper=_helper;
 @property(retain, nonatomic) ABStyleProvider *styleProvider; // @synthesize styleProvider=_styleProvider;
-@property(readonly, nonatomic) BOOL canShareContact;
+@property(readonly, nonatomic) _Bool canShareContact;
 - (void)shareContact:(id)arg1;
 - (void)shareContactFromButtonItem:(id)arg1;
 - (void)shareContactFromButtonItem:(id)arg1 sender:(id)arg2;
-@property(readonly, nonatomic) BOOL canWeibo;
-@property(readonly, nonatomic) BOOL canTweet;
-@property(readonly, nonatomic) BOOL canSendMail;
-@property(readonly, nonatomic) BOOL canSendMMS;
-- (void)shareActionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
+@property(readonly, nonatomic) _Bool canWeibo;
+@property(readonly, nonatomic) _Bool canTweet;
+@property(readonly, nonatomic) _Bool canSendMail;
+@property(readonly, nonatomic) _Bool canSendMMS;
+- (void)shareActionSheet:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (void)shareLocationOnWeibo:(id)arg1;
 - (void)shareLocationOnTwitter:(id)arg1;
 - (void)messageComposeViewController:(id)arg1 didFinishWithResult:(int)arg2;
@@ -49,8 +49,8 @@
 - (void)shareContactByEmail:(id)arg1;
 - (id)vCardFileName;
 - (void)getVCardData:(id *)arg1 exportMode:(int)arg2 fileName:(id *)arg3;
-- (BOOL)loadMessageUIAndReturnBundle:(id *)arg1;
-- (BOOL)loadChatKitAndReturnBundle:(id *)arg1;
+- (_Bool)loadMessageUIAndReturnBundle:(id *)arg1;
+- (_Bool)loadChatKitAndReturnBundle:(id *)arg1;
 - (void)dealloc;
 - (id)init;
 

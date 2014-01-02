@@ -27,7 +27,7 @@
 @property(copy, nonatomic) NSDate *endDate;
 @property(copy, nonatomic) NSURL *calendarId;
 @property(copy, nonatomic) NSArray *attendees;
-@property(nonatomic) BOOL allDay;
+@property(nonatomic) _Bool allDay;
 @property(copy, nonatomic) NSArray *alerts;
 - (id)encodedClassName;
 - (id)groupIdentifier;

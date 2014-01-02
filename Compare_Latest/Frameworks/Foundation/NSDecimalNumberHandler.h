@@ -22,14 +22,14 @@
     void *_reserved;
 }
 
-+ (id)decimalNumberHandlerWithRoundingMode:(unsigned int)arg1 scale:(short)arg2 raiseOnExactness:(BOOL)arg3 raiseOnOverflow:(BOOL)arg4 raiseOnUnderflow:(BOOL)arg5 raiseOnDivideByZero:(BOOL)arg6;
++ (id)decimalNumberHandlerWithRoundingMode:(unsigned long long)arg1 scale:(short)arg2 raiseOnExactness:(_Bool)arg3 raiseOnOverflow:(_Bool)arg4 raiseOnUnderflow:(_Bool)arg5 raiseOnDivideByZero:(_Bool)arg6;
 + (id)defaultDecimalNumberHandler;
-- (id)exceptionDuringOperation:(SEL)arg1 error:(unsigned int)arg2 leftOperand:(id)arg3 rightOperand:(id)arg4;
+- (id)exceptionDuringOperation:(SEL)arg1 error:(unsigned long long)arg2 leftOperand:(id)arg3 rightOperand:(id)arg4;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (short)scale;
-- (unsigned int)roundingMode;
-- (id)initWithRoundingMode:(unsigned int)arg1 scale:(short)arg2 raiseOnExactness:(BOOL)arg3 raiseOnOverflow:(BOOL)arg4 raiseOnUnderflow:(BOOL)arg5 raiseOnDivideByZero:(BOOL)arg6;
+- (unsigned long long)roundingMode;
+- (id)initWithRoundingMode:(unsigned long long)arg1 scale:(short)arg2 raiseOnExactness:(_Bool)arg3 raiseOnOverflow:(_Bool)arg4 raiseOnUnderflow:(_Bool)arg5 raiseOnDivideByZero:(_Bool)arg6;
 
 @end
 

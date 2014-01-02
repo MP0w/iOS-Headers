@@ -9,7 +9,9 @@
 @protocol MPDetailScrubControllerDelegate <NSObject>
 
 @optional
-- (void)detailScrubController:(id)arg1 didChangeScrubSpeed:(int)arg2;
+- (void)detailScrubController:(id)arg1 didChangeScrubSpeed:(long long)arg2;
 - (void)detailScrubController:(id)arg1 didChangeValue:(float)arg2;
+- (void)detailScrubControllerDidEndScrubbing:(id)arg1;
+- (void)detailScrubControllerDidBeginScrubbing:(id)arg1;
 @end
 

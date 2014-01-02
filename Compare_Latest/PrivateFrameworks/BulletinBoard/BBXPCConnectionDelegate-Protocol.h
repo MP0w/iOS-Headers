@@ -7,6 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol BBXPCConnectionDelegate <NSObject>
-- (void)connection:(id)arg1 connectionStateDidChange:(BOOL)arg2;
+- (void)connection:(id)arg1 connectionStateDidChange:(_Bool)arg2;
 @end
 

@@ -17,11 +17,11 @@
 - (void).cxx_destruct;
 - (id)_basicAnimationWithKeyPath:(id)arg1;
 - (void)_reloadColors;
-- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
+- (void)animationDidStop:(id)arg1 finished:(_Bool)arg2;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)setTitleEdgeInsets:(struct UIEdgeInsets)arg1;
-- (void)setHighlighted:(BOOL)arg1;
-- (void)setEnabled:(BOOL)arg1;
+- (void)setHighlighted:(_Bool)arg1;
+- (void)setEnabled:(_Bool)arg1;
 - (void)layoutSubviews;
 - (void)setSubtitleWithLabel:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

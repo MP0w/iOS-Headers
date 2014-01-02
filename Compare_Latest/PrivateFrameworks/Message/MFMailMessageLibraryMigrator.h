@@ -10,7 +10,7 @@
 {
 }
 
-- (BOOL)migrateWithSQLiteConnection:(id)arg1;
+- (_Bool)migrateWithSQLiteConnection:(id)arg1;
 
 @end
 

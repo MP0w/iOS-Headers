@@ -7,6 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol EDKeyedObject <NSObject>
-- (int)key;
+- (long long)key;
 @end
 

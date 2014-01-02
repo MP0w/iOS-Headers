@@ -6,6 +6,7 @@
 
 #import <CoreFoundation/NSTimeZone.h>
 
+// Not exported
 @interface __NSPlaceholderTimeZone : NSTimeZone
 {
 }
@@ -14,20 +15,20 @@
 + (void)initialize;
 - (id)nextDaylightSavingTimeTransitionAfterDate:(id)arg1;
 - (double)daylightSavingTimeOffsetForDate:(id)arg1;
-- (BOOL)isDaylightSavingTimeForDate:(id)arg1;
+- (_Bool)isDaylightSavingTimeForDate:(id)arg1;
 - (id)abbreviationForDate:(id)arg1;
-- (int)secondsFromGMTForDate:(id)arg1;
+- (long long)secondsFromGMTForDate:(id)arg1;
 - (id)data;
 - (id)name;
 - (void)dealloc;
-- (unsigned int)retainCount;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;
 - (id)init;
 - (id)initWithName:(id)arg1;
-- (id)__initWithName:(id)arg1 cache:(BOOL)arg2;
+- (id)__initWithName:(id)arg1 cache:(_Bool)arg2;
 - (id)initWithName:(id)arg1 data:(id)arg2;
-- (id)__initWithName:(id)arg1 data:(id)arg2 cache:(BOOL)arg3;
+- (id)__initWithName:(id)arg1 data:(id)arg2 cache:(_Bool)arg3;
 
 @end
 

@@ -14,19 +14,19 @@
     ACAccountStore *_accountStore;
 }
 
-+ (BOOL)_shouldUpdateAccountsInPlace;
-+ (id)_accountWithAccountClass:(Class)arg1 persistentAccount:(id)arg2 useExisting:(BOOL)arg3;
++ (_Bool)_shouldUpdateAccountsInPlace;
++ (id)_accountWithAccountClass:(Class)arg1 persistentAccount:(id)arg2 useExisting:(_Bool)arg3;
 + (id)deliveryAccountTypeIdentifiers;
 + (id)incomingAccountTypeIdentifiers;
 + (id)sharedAccountStore;
 - (void)_accountsStoreChanged:(id)arg1;
 - (void)removePersistentAccountWithAccount:(id)arg1;
 - (void)savePersistentAccountWithAccount:(id)arg1;
-- (id)_accountWithPersistentAccount:(id)arg1 useExisting:(BOOL)arg2;
+- (id)_accountWithPersistentAccount:(id)arg1 useExisting:(_Bool)arg2;
 - (id)existingAccountWithPersistentAccount:(id)arg1;
-- (id)accountsWithTypeIdentifiers:(id)arg1;
-- (id)deliveryAccounts;
-- (id)incomingAccounts;
+- (id)accountsWithTypeIdentifiers:(id)arg1 error:(id *)arg2;
+- (id)deliveryAccountsWithError:(id *)arg1;
+- (id)incomingAccountsWithError:(id *)arg1;
 - (id)supportedDataclassesWithAccountTypeIdentifier:(id)arg1;
 - (id)newPersistentAccountWithAccountTypeIdentifier:(id)arg1;
 - (void)setPersistentStore:(id)arg1;

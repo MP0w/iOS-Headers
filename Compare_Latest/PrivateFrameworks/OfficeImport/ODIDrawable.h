@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface ODIDrawable : NSObject
 {
 }
@@ -26,12 +27,6 @@
 + (id)shapeGeometryForRoundedRectangleWithRadius:(float)arg1;
 + (id)shapeGeometryForEllipse;
 + (id)shapeGeometryForRectangle;
-+ (void)addArrowHeadToShapeProperties:(id)arg1;
-+ (void)mapShapeProperties:(id)arg1 shape:(id)arg2 state:(id)arg3;
-+ (void)mapShapeProperties:(id)arg1 shapeStyle:(id)arg2 shape:(id)arg3 state:(id)arg4;
-+ (id)styleForLabelName:(id)arg1 styleCount:(int)arg2 styleIndex:(int)arg3 state:(id)arg4;
-+ (id)styleForPresentation:(id)arg1 point:(id)arg2 state:(id)arg3;
-+ (id)presentationWithName:(id)arg1 point:(id)arg2;
 
 @end
 

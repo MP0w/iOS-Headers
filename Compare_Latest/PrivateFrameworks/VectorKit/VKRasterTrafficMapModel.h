@@ -10,18 +10,20 @@
 
 @class VKTrafficDrawStyle;
 
+// Not exported
 @interface VKRasterTrafficMapModel : VKMapTileModel <VKMapLayer>
 {
     VKTrafficDrawStyle *_trafficDrawStyle;
     int _sourceTileZtoStencilOffset;
-    BOOL _needsTileStencil;
+    _Bool _needsTileStencil;
 }
 
 - (void)drawScene:(id)arg1 withContext:(id)arg2;
 - (void)buildTileStencilWithContext:(id)arg1 scene:(id)arg2;
 - (void)layoutScene:(id)arg1 withContext:(id)arg2;
 - (unsigned int)supportedRenderPasses;
-- (unsigned int)mapLayerPosition;
+- (unsigned long long)mapLayerPosition;
+- (void)dealloc;
 
 @end
 

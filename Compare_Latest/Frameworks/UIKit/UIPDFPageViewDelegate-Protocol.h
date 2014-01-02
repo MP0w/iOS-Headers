@@ -10,9 +10,9 @@
 - (void)pageWasRendered:(id)arg1;
 - (Class)classForAnnotationType:(const char *)arg1;
 - (void)selectionDidEndTracking:(id)arg1;
-- (BOOL)selectionWillTrack:(id)arg1;
+- (_Bool)selectionWillTrack:(id)arg1;
 - (void)didTap:(id)arg1 atPoint:(struct CGPoint)arg2;
-- (BOOL)shouldRecognizeTapIn:(id)arg1 atPoint:(struct CGPoint)arg2;
+- (_Bool)shouldRecognizeTapIn:(id)arg1 atPoint:(struct CGPoint)arg2;
 - (void)doubleTapIn:(id)arg1 atPoint:(struct CGPoint)arg2;
 - (void)resetZoom:(id)arg1;
 - (void)zoom:(id)arg1 to:(struct CGRect)arg2 atPoint:(struct CGPoint)arg3 kind:(int)arg4;

@@ -6,39 +6,10 @@
 
 #import "CALayer.h"
 
+// Not exported
 @interface WebTiledScrollingIndicatorLayer : CALayer
 {
-    struct TileController {
-        void **;
-        id;
-        struct RetainPtr<CALayer>;
-        struct RetainPtr<WebTiledScrollingIndicatorLayer> {
-            struct WebTiledScrollingIndicatorLayer *;
-        };
-        struct IntSize;
-        struct FloatRect;
-        struct FloatRect;
-        struct FloatRect;
-        struct IntRect;
-        struct HashMap<WebCore::IntPoint, WebCore::TileController::TileInfo, WTF::IntPointHash, WTF::HashTraits<WebCore::IntPoint>, WTF::HashTraits<WebCore::TileController::TileInfo>>;
-        struct Timer<WebCore::TileController>;
-        struct Timer<WebCore::TileController>;
-        struct Deque<WebCore::TileController::TileCohortInfo, 0>;
-        struct IntRect;
-        float;
-        float;
-        unsigned int;
-        _Bool;
-        _Bool;
-        _Bool;
-        _Bool;
-        _Bool;
-        _Bool;
-        _Bool;
-        struct RetainPtr<CGColor *>;
-        float;
-        int;
-    } *_tileController;
+    struct TileController *_tileController;
     CALayer *_visibleRectFrameLayer;
 }
 

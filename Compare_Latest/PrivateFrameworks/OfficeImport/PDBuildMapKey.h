@@ -10,6 +10,7 @@
 
 @class NSString, NSValue;
 
+// Not exported
 @interface PDBuildMapKey : NSObject <NSCopying>
 {
     NSValue *mDrawableValue;
@@ -17,8 +18,8 @@
 }
 
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)setGroupId:(id)arg1;
 - (id)groupId;
 - (void)setDrawable:(id)arg1;

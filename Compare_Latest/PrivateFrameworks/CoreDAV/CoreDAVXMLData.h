@@ -10,24 +10,24 @@
 
 @interface CoreDAVXMLData : NSObject
 {
-    BOOL _shouldAddFormattingSpaces;
+    _Bool _shouldAddFormattingSpaces;
     struct _xmlTextWriter *_writer;
     struct _xmlDoc *_doc;
-    BOOL _docHasEnded;
+    _Bool _docHasEnded;
     struct __CFDictionary *_seenURIsToPrefixes;
     struct __CFDictionary *_seenURIsToDepth;
     struct __CFArray *_elementStack;
 }
 
-+ (BOOL)string:(id)arg1 isEqualToXmlCharString:(const char *)arg2;
-@property BOOL shouldAddFormattingSpaces; // @synthesize shouldAddFormattingSpaces=_shouldAddFormattingSpaces;
++ (_Bool)string:(id)arg1 isEqualToXmlCharString:(const char *)arg2;
+@property _Bool shouldAddFormattingSpaces; // @synthesize shouldAddFormattingSpaces=_shouldAddFormattingSpaces;
 @property(readonly, nonatomic) NSData *data;
 - (void)appendElement:(id)arg1 inNamespace:(id)arg2 withStringContentAsCDATA:(id)arg3 withAttributeNamesAndValues:(id)arg4;
 - (void)appendElement:(id)arg1 inNamespace:(id)arg2 withStringContent:(id)arg3 withAttributeNamesAndValues:(id)arg4;
 - (void)endElement:(id)arg1 inNamespace:(id)arg2;
 - (void)startElement:(id)arg1 inNamespace:(id)arg2 withAttributes:(id)arg3;
 - (void)startElement:(id)arg1 inNamespace:(id)arg2 withAttributeNamesAndValues:(id)arg3;
-- (void)_startElement:(id)arg1 inNamespace:(id)arg2 withAttributeNamesAndValues:(id)arg3 attributes:(void *)arg4;
+- (void)_startElement:(id)arg1 inNamespace:(id)arg2 withAttributeNamesAndValues:(id)arg3 attributes:(char *)arg4;
 - (void)_startElement:(id)arg1 inNamespace:(id)arg2;
 - (const char *)_prefixForNameSpace:(const char *)arg1;
 - (void)dealloc;

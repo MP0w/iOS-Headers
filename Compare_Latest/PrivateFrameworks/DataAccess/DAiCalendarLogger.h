@@ -13,7 +13,7 @@
 }
 
 + (id)sharedLogger;
-- (void)logICSMessage:(id)arg1 atLevel:(int)arg2;
+- (void)logICSMessage:(id)arg1 atLevel:(long long)arg2;
 - (void)registerWithiCalendar;
 
 @end

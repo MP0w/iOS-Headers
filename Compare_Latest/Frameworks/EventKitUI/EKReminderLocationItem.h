@@ -10,14 +10,14 @@
 
 @interface EKReminderLocationItem : NSObject
 {
-    BOOL _isLocationBeingDetermined;
+    _Bool _isLocationBeingDetermined;
+    int _type;
     EKStructuredLocation *_location;
     NSDictionary *_addressDictionary;
-    int _type;
 }
 
 @property(nonatomic) int type; // @synthesize type=_type;
-@property(nonatomic) BOOL isLocationBeingDetermined; // @synthesize isLocationBeingDetermined=_isLocationBeingDetermined;
+@property(nonatomic) _Bool isLocationBeingDetermined; // @synthesize isLocationBeingDetermined=_isLocationBeingDetermined;
 @property(retain, nonatomic) NSDictionary *addressDictionary; // @synthesize addressDictionary=_addressDictionary;
 @property(retain, nonatomic) EKStructuredLocation *location; // @synthesize location=_location;
 - (void).cxx_destruct;

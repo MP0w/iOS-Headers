@@ -14,18 +14,18 @@
 {
     NSMutableDictionary *_currentImageData;
     ABUIPerson *_personForImageData;
-    BOOL _hasImageChanges;
-    BOOL _didChangePreferredPersonForImage;
+    _Bool _hasImageChanges;
+    _Bool _didChangePreferredPersonForImage;
     ABPersonTableViewDataSource *_dataSource;
 }
 
 @property(nonatomic) ABPersonTableViewDataSource *dataSource; // @synthesize dataSource=_dataSource;
-- (BOOL)didChangePreferredPersonForImage;
+- (_Bool)didChangePreferredPersonForImage;
 - (id)personForImageDataExcludingPeople:(id)arg1;
-- (id)imageDataWithFormat:(int)arg1 cropRect:(struct CGRect *)arg2 forPerson:(id)arg3 isRemoved:(char *)arg4;
+- (id)imageDataWithFormat:(int)arg1 cropRect:(struct CGRect *)arg2 forPerson:(id)arg3 isRemoved:(_Bool *)arg4;
 - (void)updateRecordImages;
 - (void)resetImageData;
-- (BOOL)hasImageChanges;
+- (_Bool)hasImageChanges;
 - (void)setCurrentImageData:(id)arg1;
 - (id)currentImageData;
 - (void)reloadImageData;
@@ -36,7 +36,7 @@
 - (void)removeImageDataForPerson:(id)arg1;
 - (void)setImageData:(id)arg1 withFormat:(int)arg2 cropRect:(struct CGRect)arg3 forPerson:(id)arg4;
 - (id)imageDataWithFormat:(int)arg1 cropRect:(struct CGRect *)arg2 forPerson:(id)arg3;
-- (BOOL)hasImageDataForPerson:(id)arg1;
+- (_Bool)hasImageDataForPerson:(id)arg1;
 - (id)writablePeople;
 - (id)people;
 - (void)markImagesWith:(id)arg1 forPerson:(id)arg2;

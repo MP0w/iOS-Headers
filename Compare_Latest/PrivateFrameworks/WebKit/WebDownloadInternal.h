@@ -8,6 +8,7 @@
 
 #import "NSURLDownloadDelegate-Protocol.h"
 
+// Not exported
 @interface WebDownloadInternal : NSObject <NSURLDownloadDelegate>
 {
     id realDelegate;
@@ -19,14 +20,14 @@
 - (void)downloadDidFinish:(id)arg1;
 - (void)download:(id)arg1 didCreateDestination:(id)arg2;
 - (void)download:(id)arg1 decideDestinationWithSuggestedFilename:(id)arg2;
-- (BOOL)download:(id)arg1 shouldDecodeSourceDataOfMIMEType:(id)arg2;
-- (void)download:(id)arg1 didReceiveDataOfLength:(unsigned int)arg2;
+- (_Bool)download:(id)arg1 shouldDecodeSourceDataOfMIMEType:(id)arg2;
+- (void)download:(id)arg1 didReceiveDataOfLength:(unsigned long long)arg2;
 - (void)download:(id)arg1 didReceiveResponse:(id)arg2;
 - (void)download:(id)arg1 didCancelAuthenticationChallenge:(id)arg2;
 - (void)download:(id)arg1 didReceiveAuthenticationChallenge:(id)arg2;
 - (id)download:(id)arg1 willSendRequest:(id)arg2 redirectResponse:(id)arg3;
 - (void)downloadDidBegin:(id)arg1;
-- (BOOL)respondsToSelector:(SEL)arg1;
+- (_Bool)respondsToSelector:(SEL)arg1;
 - (void)setRealDelegate:(id)arg1;
 - (void)dealloc;
 

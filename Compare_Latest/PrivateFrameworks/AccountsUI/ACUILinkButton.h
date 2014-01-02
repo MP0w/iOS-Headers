@@ -4,32 +4,21 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "UIView.h"
+#import "UIButton.h"
 
-#import "PSHeaderFooterView-Protocol.h"
+@class NSString;
 
-@class ACUILink, NSString, NSURL, UIImageView;
-
-@interface ACUILinkButton : UIView <PSHeaderFooterView>
+@interface ACUILinkButton : UIButton
 {
-    ACUILink *_linkButton;
-    float _height;
-    UIImageView *_arrowImageView;
-    BOOL _showArrow;
-    NSURL *_URL;
-    NSString *_text;
-    id _target;
-    SEL _action;
+    NSString *_acui_titleString;
 }
 
-+ (id)specifierWithText:(id)arg1 showingArrow:(BOOL)arg2 target:(id)arg3 action:(SEL)arg4;
-+ (id)specifierWithText:(id)arg1 target:(id)arg2 action:(SEL)arg3;
+@property(retain) NSString *acui_titleString; // @synthesize acui_titleString=_acui_titleString;
 - (void).cxx_destruct;
-- (float)preferredHeightForWidth:(float)arg1;
-- (void)layoutSubviews;
-- (void)setAsFooterForGroupSpecifier:(id)arg1;
-- (id)initWithText:(id)arg1 target:(id)arg2 action:(SEL)arg3 height:(float)arg4 fontSize:(float)arg5 showingArrow:(BOOL)arg6;
-- (id)initWithSpecifier:(id)arg1;
+- (void)drawRect:(struct CGRect)arg1;
+- (void)setHighlighted:(_Bool)arg1;
+- (id)_normalStringAttributes;
+- (id)_highlightedStringAttributes;
 - (id)initWithText:(id)arg1 target:(id)arg2 action:(SEL)arg3;
 
 @end

@@ -6,27 +6,36 @@
 
 #import <UIKit/UICollectionViewController.h>
 
+#import "UICollectionViewDelegateFlowLayout-Protocol.h"
+
 @class NSArray, NSDictionary;
 
-@interface UIActivityGroupViewController : UICollectionViewController
+// Not exported
+@interface UIActivityGroupViewController : UICollectionViewController <UICollectionViewDelegateFlowLayout>
 {
-    int _activityCategory;
+    _Bool _darkStyleOnLegacyApp;
+    _Bool _hasActivities;
+    long long _activityCategory;
     NSArray *_activities;
     NSDictionary *_customActivityTitles;
 }
 
+@property(nonatomic) _Bool hasActivities; // @synthesize hasActivities=_hasActivities;
+@property(nonatomic) _Bool darkStyleOnLegacyApp; // @synthesize darkStyleOnLegacyApp=_darkStyleOnLegacyApp;
 @property(copy, nonatomic) NSDictionary *customActivityTitles; // @synthesize customActivityTitles=_customActivityTitles;
 @property(copy, nonatomic) NSArray *activities; // @synthesize activities=_activities;
-@property(nonatomic) int activityCategory; // @synthesize activityCategory=_activityCategory;
-- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+@property(nonatomic) long long activityCategory; // @synthesize activityCategory=_activityCategory;
+- (struct UIEdgeInsets)collectionView:(id)arg1 layout:(id)arg2 insetForSectionAtIndex:(long long)arg3;
+- (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 sizeForItemAtIndexPath:(id)arg3;
 - (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
-- (BOOL)collectionView:(id)arg1 shouldSelectItemAtIndexPath:(id)arg2;
+- (_Bool)collectionView:(id)arg1 shouldHighlightItemAtIndexPath:(id)arg2;
+- (_Bool)collectionView:(id)arg1 shouldSelectItemAtIndexPath:(id)arg2;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
-- (int)collectionView:(id)arg1 numberOfItemsInSection:(int)arg2;
-- (void)viewWillAppear:(BOOL)arg1;
+- (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
+- (void)willRotateToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
 - (void)viewDidLoad;
 - (void)dealloc;
-- (id)initWithActivityCategory:(int)arg1 title:(id)arg2;
+- (id)initWithActivityCategory:(long long)arg1 title:(id)arg2;
 
 @end
 

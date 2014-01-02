@@ -6,18 +6,18 @@
 
 #import "UITextField.h"
 
-@class SBAdaptiveColorInfo;
+@class _UILegibilitySettings, _UILegibilityView;
 
 @interface SBFolderTitleTextField : UITextField
 {
-    float _naturalHeight;
-    BOOL _showingEditUI;
-    BOOL _allowsEditing;
-    SBAdaptiveColorInfo *_adaptiveColorInfo;
+    _Bool _showingEditUI;
+    _UILegibilityView *_legibilityView;
+    _Bool _allowsEditing;
+    _UILegibilitySettings *_legibilitySettings;
 }
 
-@property(retain, nonatomic) SBAdaptiveColorInfo *adaptiveColorInfo; // @synthesize adaptiveColorInfo=_adaptiveColorInfo;
-@property(nonatomic) BOOL allowsEditing; // @synthesize allowsEditing=_allowsEditing;
+@property(retain, nonatomic) _UILegibilitySettings *legibilitySettings; // @synthesize legibilitySettings=_legibilitySettings;
+@property(nonatomic) _Bool allowsEditing; // @synthesize allowsEditing=_allowsEditing;
 - (id)_clearButtonImage;
 - (id)_backgroundImage;
 - (void)_updateLegibility;
@@ -26,7 +26,11 @@
 - (struct CGRect)textRectForBounds:(struct CGRect)arg1;
 - (struct CGRect)_textRectForBounds:(struct CGRect)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (void)setShowsEditUI:(BOOL)arg1 animated:(BOOL)arg2;
+@property(nonatomic) double fontSize;
+- (void)layoutSubviews;
+- (void)setText:(id)arg1;
+- (void)_updateLegibilityView;
+- (void)setShowsEditUI:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

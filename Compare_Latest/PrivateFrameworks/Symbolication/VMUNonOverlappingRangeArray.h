@@ -6,13 +6,14 @@
 
 #import <Symbolication/VMURangeArray.h>
 
+// Not exported
 @interface VMUNonOverlappingRangeArray : VMURangeArray
 {
 }
 
 - (struct _VMURange)largestUnusedWithInUse:(id)arg1;
-- (id)subtract:(id)arg1 mergeRanges:(BOOL)arg2;
-- (void)_mergeAllBitsOfRange:(struct _VMURange)arg1 excludingRanges:(id)arg2 mergeRanges:(BOOL)arg3;
+- (id)subtract:(id)arg1 mergeRanges:(_Bool)arg2;
+- (void)_mergeAllBitsOfRange:(struct _VMURange)arg1 excludingRanges:(id)arg2 mergeRanges:(_Bool)arg3;
 - (void)mergeRanges:(id)arg1 excludingRanges:(id)arg2;
 - (void)mergeRange:(struct _VMURange)arg1 excludingRanges:(id)arg2;
 - (void)mergeRanges:(id)arg1;

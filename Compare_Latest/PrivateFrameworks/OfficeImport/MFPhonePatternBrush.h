@@ -8,16 +8,17 @@
 
 @class MFPhoneBitmap;
 
+// Not exported
 @interface MFPhonePatternBrush : MFPhoneBrush
 {
     MFPhoneBitmap *m_pattern;
-    BOOL m_usePaletteForBilevel;
+    _Bool m_usePaletteForBilevel;
 }
 
-+ (id)patternBrushWithBitmap:(id)arg1 usePaletteForBilevel:(BOOL)arg2;
++ (id)patternBrushWithBitmap:(id)arg1 usePaletteForBilevel:(_Bool)arg2;
 - (void)fillPath:(id)arg1:(id)arg2;
 - (void)dealloc;
-- (id)initWithBitmap:(id)arg1 usePaletteForBilevel:(BOOL)arg2;
+- (id)initWithBitmap:(id)arg1 usePaletteForBilevel:(_Bool)arg2;
 
 @end
 

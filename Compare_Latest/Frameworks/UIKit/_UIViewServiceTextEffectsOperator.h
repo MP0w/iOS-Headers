@@ -13,6 +13,7 @@
 
 @class UIWindow, _UIAsyncInvocation;
 
+// Not exported
 @interface _UIViewServiceTextEffectsOperator : NSObject <XPCProxyTarget, _UIViewServiceTextEffectsOperator_RemoteViewControllerInterface, _UIViewServiceDeputy, _UIViewServiceDeputyRotationDelegate>
 {
     id _remoteViewControllerProxy;
@@ -20,24 +21,26 @@
     _UIAsyncInvocation *_invalidationInvocation;
     UIWindow *_hostedWindow;
     struct CGPoint _windowOffset;
-    BOOL _canRestoreInputViews;
-    BOOL _isRestoringInputViews;
+    _Bool _canRestoreInputViews;
+    _Bool _isRestoringInputViews;
+    _Bool _didResignForDisappear;
     id <_UIViewServiceDeputyDelegate> _delegate;
     int __automatic_invalidation_retainCount;
-    BOOL __automatic_invalidation_invalidated;
+    _Bool __automatic_invalidation_invalidated;
 }
 
 + (id)XPCInterface;
 + (id)operatorWithRemoteViewControllerProxy:(id)arg1 hostPID:(int)arg2;
 - (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
 - (void)finishRotation;
-- (void)rotateToInterfaceOrientation:(int)arg1;
-- (void)willRotateToInterfaceOrientation:(int)arg1;
+- (void)rotateToInterfaceOrientation:(long long)arg1;
+- (void)willRotateToInterfaceOrientation:(long long)arg1;
 - (void)setHostedWindow:(id)arg1;
 - (id)invalidate;
 - (void)setDeputyDelegate:(id)arg1;
 - (void)__prepareForDisconnectionWithCompletionHandler:(id)arg1;
-- (void)__hostViewWillDisappear:(BOOL)arg1;
+- (void)__hostViewWillDisappear:(_Bool)arg1;
+- (void)__hostViewWillAppear:(_Bool)arg1;
 - (void)_viewServiceHostWillEnterForeground:(id)arg1;
 - (void)__hostWillEnterForeground;
 - (void)_restoreInputViews;
@@ -51,9 +54,9 @@
 - (void)_invalidateUnconditionallyThen:(id)arg1;
 - (void)_prepareForDisconnectionUnconditionallyThen:(id)arg1;
 - (id)_queue;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
-- (unsigned int)retainCount;
+- (_Bool)_isDeallocating;
+- (_Bool)_tryRetain;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;
 - (int)__automatic_invalidation_logic;

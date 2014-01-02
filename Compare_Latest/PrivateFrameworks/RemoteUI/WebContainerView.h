@@ -11,12 +11,12 @@
 @interface WebContainerView : UIView
 {
     UIWebView *_webView;
-    BOOL _highlighted;
-    BOOL _reallyHighlighted;
+    _Bool _highlighted;
+    _Bool _reallyHighlighted;
 }
 
 @property(retain, nonatomic) UIWebView *webView; // @synthesize webView=_webView;
-@property(nonatomic, getter=isHighlighted) BOOL highlighted; // @synthesize highlighted=_highlighted;
+@property(nonatomic, getter=isHighlighted) _Bool highlighted; // @synthesize highlighted=_highlighted;
 - (void)_setHighlightedNow;
 - (void)layoutSubviews;
 - (void)dealloc;

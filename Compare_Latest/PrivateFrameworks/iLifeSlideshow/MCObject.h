@@ -19,7 +19,7 @@
 @property(readonly, nonatomic) NSString *objectID; // @synthesize objectID=mObjectID;
 - (id)snapshot;
 - (id)imprint;
-- (BOOL)isSnapshot;
+- (_Bool)isSnapshot;
 - (void)demolish;
 - (void)dealloc;
 - (void)finalize;

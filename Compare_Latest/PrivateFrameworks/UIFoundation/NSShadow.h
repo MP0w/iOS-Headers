@@ -11,24 +11,24 @@
 
 @interface NSShadow : NSObject <NSCopying, NSCoding>
 {
-    unsigned int _shadowFlags;
+    unsigned long long _shadowFlags;
     id _shadowColor;
-    float _shadowBlurRadius;
+    double _shadowBlurRadius;
     struct CGSize _shadowOffset;
 }
 
 + (id)defaultShadowColor;
 + (id)shadow;
 + (void)initialize;
-@property(nonatomic) float shadowBlurRadius; // @synthesize shadowBlurRadius=_shadowBlurRadius;
+@property(nonatomic) double shadowBlurRadius; // @synthesize shadowBlurRadius=_shadowBlurRadius;
 @property(nonatomic) struct CGSize shadowOffset; // @synthesize shadowOffset=_shadowOffset;
 - (id)description;
 @property(retain, nonatomic) id shadowColor; // @synthesize shadowColor=_shadowColor;
 - (void)dealloc;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithShadow:(id)arg1;
 

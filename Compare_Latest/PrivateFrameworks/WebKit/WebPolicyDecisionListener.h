@@ -10,6 +10,7 @@
 
 @class WebPolicyDecisionListenerPrivate;
 
+// Not exported
 @interface WebPolicyDecisionListener : NSObject <WebPolicyDecisionListener>
 {
     WebPolicyDecisionListenerPrivate *_private;

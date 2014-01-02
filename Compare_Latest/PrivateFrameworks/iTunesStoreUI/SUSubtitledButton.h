@@ -14,18 +14,18 @@
     UILabel *_subtitleView;
 }
 
-- (int)_subtitleLineBreakMode;
+- (long long)_subtitleLineBreakMode;
 - (id)_subtitleFont;
-- (id)_subtitledContentForState:(unsigned int)arg1;
+- (id)_subtitledContentForState:(unsigned long long)arg1;
 - (void)_setupSubtitleView;
-- (id)subtitleShadowColorForState:(unsigned int)arg1;
+- (id)subtitleShadowColorForState:(unsigned long long)arg1;
 - (struct CGRect)subtitleRectForContentRect:(struct CGRect)arg1;
 @property(readonly, nonatomic) UILabel *subtitleLabel;
-- (id)subtitleForState:(unsigned int)arg1;
-- (id)subtitleColorForState:(unsigned int)arg1;
-- (void)setSubtitleShadowColor:(id)arg1 forState:(unsigned int)arg2;
-- (void)setSubtitleColor:(id)arg1 forState:(unsigned int)arg2;
-- (void)setSubtitle:(id)arg1 forState:(unsigned int)arg2;
+- (id)subtitleForState:(unsigned long long)arg1;
+- (id)subtitleColorForState:(unsigned long long)arg1;
+- (void)setSubtitleShadowColor:(id)arg1 forState:(unsigned long long)arg2;
+- (void)setSubtitleColor:(id)arg1 forState:(unsigned long long)arg2;
+- (void)setSubtitle:(id)arg1 forState:(unsigned long long)arg2;
 @property(readonly, nonatomic) UIColor *currentSubtitleShadowColor;
 @property(readonly, nonatomic) UIColor *currentSubtitleColor;
 @property(readonly, nonatomic) NSString *currentSubtitle;

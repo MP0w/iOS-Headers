@@ -6,11 +6,12 @@
 
 #import <OfficeImport/WDTestIterator.h>
 
+// Not exported
 @interface WDEndnoteIterator : WDTestIterator
 {
 }
 
-- (BOOL)test:(id)arg1;
+- (_Bool)test:(id)arg1;
 
 @end
 

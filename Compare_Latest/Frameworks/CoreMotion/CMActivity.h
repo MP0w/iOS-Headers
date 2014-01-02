@@ -11,10 +11,12 @@
     id _internal;
 }
 
-@property(readonly, nonatomic) BOOL isDriving;
-@property(readonly, nonatomic) BOOL isRunning;
-@property(readonly, nonatomic) BOOL isWalking;
-@property(readonly, nonatomic) BOOL isMoving;
+@property(readonly, nonatomic) _Bool hasExitedVehicle;
+@property(readonly, nonatomic) _Bool maybeExitingVehicle;
+@property(readonly, nonatomic) _Bool isDriving;
+@property(readonly, nonatomic) _Bool isRunning;
+@property(readonly, nonatomic) _Bool isWalking;
+@property(readonly, nonatomic) _Bool isMoving;
 @property(readonly, nonatomic) int confidence;
 - (struct CLMotionActivity)activity;
 - (id)description;

@@ -10,14 +10,19 @@
 
 @interface MPUVignetteBackgroundView : UIView
 {
+    UIView *_containerView;
     UIImageView *_imageView;
     CAMatchMoveAnimation *_matchMoveAnimation;
 }
 
 - (void).cxx_destruct;
+- (void)_didEndRotation;
+- (void)_willBeginRotation;
 - (void)_configureMatchMoveAnimation;
+- (id)_sourceView;
 - (void)layoutSubviews;
 - (void)didMoveToWindow;
+- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

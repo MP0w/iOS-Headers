@@ -11,9 +11,9 @@
 }
 
 + (id)_accessibilityTargetClassName;
++ (id)_installSafeCategoryValidationMethod;
 + (id)_initializeSafeCategoryFromValidationManager;
 + (void)_initializeSafeCategory;
-- (BOOL)playSoundForBulletin:(id)arg1;
 
 @end
 

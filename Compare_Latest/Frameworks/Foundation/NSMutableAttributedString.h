@@ -16,7 +16,7 @@
 - (void)setAttributedString:(id)arg1;
 - (void)deleteCharactersInRange:(struct _NSRange)arg1;
 - (void)appendAttributedString:(id)arg1;
-- (void)insertAttributedString:(id)arg1 atIndex:(unsigned int)arg2;
+- (void)insertAttributedString:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)replaceCharactersInRange:(struct _NSRange)arg1 withAttributedString:(id)arg2;
 - (void)removeAttribute:(id)arg1 range:(struct _NSRange)arg2;
 - (void)addAttributesWeakly:(id)arg1 range:(struct _NSRange)arg2;

@@ -13,7 +13,7 @@
 
 @interface _SBUIWidgetViewController : UIViewController <_SBUIWidgetHost, _SBUIWidgetViewController_Remote_IPC>
 {
-    int _widgetIdiom;
+    long long _widgetIdiom;
     NSString *_widgetidentifier;
     id <_SBUIWidgetHost> _widgetHost;
     NSString *_widgetIdentifier;
@@ -23,17 +23,17 @@
 + (id)_remoteViewControllerInterface;
 @property(nonatomic) id <_SBUIWidgetHost> widgetHost; // @synthesize widgetHost=_widgetHost;
 @property(copy, nonatomic) NSString *widgetIdentifier; // @synthesize widgetIdentifier=_widgetIdentifier;
-@property(nonatomic) int widgetIdiom; // @synthesize widgetIdiom=_widgetIdiom;
+@property(nonatomic) long long widgetIdiom; // @synthesize widgetIdiom=_widgetIdiom;
 - (void)__hostDidDismiss;
 - (void)__hostWillDismiss;
 - (void)__hostDidPresent;
 - (void)__hostWillPresent;
-- (void)__setWidgetIdiom:(int)arg1;
+- (void)__setWidgetIdiom:(long long)arg1;
 - (void)__setWidgetIdentifier:(id)arg1;
 - (void)__requestPreferredViewSizeWithReplyHandler:(id)arg1;
 - (void)invalidatePreferredViewSize;
 - (void)requestLaunchOfURL:(id)arg1;
-- (void)requestPresentationOfViewController:(id)arg1 presentationStyle:(int)arg2 context:(id)arg3 completion:(id)arg4;
+- (void)requestPresentationOfViewController:(id)arg1 presentationStyle:(long long)arg2 context:(id)arg3 completion:(id)arg4;
 - (void)hostDidDismiss;
 - (void)hostWillDismiss;
 - (void)hostDidPresent;

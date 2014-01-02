@@ -8,6 +8,7 @@
 
 #import "GEOResourceManifestTileGroupObserver-Protocol.h"
 
+// Not exported
 @interface AltitudeGEOResourceObserver : NSObject <GEOResourceManifestTileGroupObserver>
 {
     struct GeoResourceManager *_geoResourceManager;

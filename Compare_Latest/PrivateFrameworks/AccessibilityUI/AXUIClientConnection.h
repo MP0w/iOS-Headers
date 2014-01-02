@@ -10,7 +10,7 @@
 
 @interface AXUIClientConnection : NSObject
 {
-    BOOL _connected;
+    _Bool _connected;
     NSObject<OS_xpc_object> *_xpcConnection;
     AXAccessQueue *_connectionAccessQueue;
     NSMutableDictionary *_registeredClients;
@@ -22,7 +22,7 @@
 @property(retain, nonatomic) NSMutableDictionary *registeredClients; // @synthesize registeredClients=_registeredClients;
 @property(retain, nonatomic) AXAccessQueue *connectionAccessQueue; // @synthesize connectionAccessQueue=_connectionAccessQueue;
 @property(retain, nonatomic) NSObject<OS_xpc_object> *xpcConnection; // @synthesize xpcConnection=_xpcConnection;
-@property(nonatomic, getter=isConnected) BOOL connected; // @synthesize connected=_connected;
+@property(nonatomic, getter=isConnected) _Bool connected; // @synthesize connected=_connected;
 - (id)_clientWithIdentifier:(id)arg1;
 - (void)unregisterClient:(id)arg1 withIdentifier:(id)arg2;
 - (void)registerClient:(id)arg1 withIdentifier:(id)arg2;

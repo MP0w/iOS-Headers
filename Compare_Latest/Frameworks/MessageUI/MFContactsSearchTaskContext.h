@@ -22,7 +22,7 @@
 @property(readonly, nonatomic) NSString *text; // @synthesize text=_text;
 @property(readonly, nonatomic) id <MFContactsSearchConsumer> consumer; // @synthesize consumer=_consumer;
 - (void)dealloc;
-- (BOOL)done;
+- (_Bool)done;
 
 @end
 

@@ -7,12 +7,12 @@
 #import "NSObject-Protocol.h"
 
 @protocol TPDialerKeypadProtocol <NSObject>
-- (void)setPlaysSounds:(BOOL)arg1;
-- (int)indexForHighlightedKey;
-- (void)highlightKeyAtIndex:(int)arg1;
+- (void)setPlaysSounds:(_Bool)arg1;
+- (long long)indexForHighlightedKey;
+- (void)highlightKeyAtIndex:(long long)arg1;
 - (void)setDelegate:(id)arg1;
-- (void)setSupportsHardPause:(BOOL)arg1;
-- (BOOL)supportsHardPause;
+- (void)setSupportsHardPause:(_Bool)arg1;
+- (_Bool)supportsHardPause;
 
 @optional
 - (void)performTapActionEndForHighlightedKey;

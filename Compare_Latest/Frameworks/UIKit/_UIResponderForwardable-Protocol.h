@@ -11,13 +11,13 @@
 @protocol _UIResponderForwardable <NSObject>
 @property(readonly, nonatomic) UIWindow *window;
 @property(retain, nonatomic, setter=_setResponder:) UIResponder *_responder;
-@property(nonatomic, setter=_setForwardablePhase:) int _forwardablePhase;
+@property(nonatomic, setter=_setForwardablePhase:) long long _forwardablePhase;
 - (id)_mutableForwardingRecord;
 - (void)_abandonForwardingRecord;
-- (BOOL)_isAbandoningForwardingRecord;
+- (_Bool)_isAbandoningForwardingRecord;
 - (id)gestureRecognizers;
-- (SEL)_responderSelectorForPhase:(int)arg1;
+- (SEL)_responderSelectorForPhase:(long long)arg1;
 - (id)_forwardingRecord;
-- (BOOL)_wantsForwardingFromResponder:(id)arg1 toNextResponder:(id)arg2 withEvent:(id)arg3;
+- (_Bool)_wantsForwardingFromResponder:(id)arg1 toNextResponder:(id)arg2 withEvent:(id)arg3;
 @end
 

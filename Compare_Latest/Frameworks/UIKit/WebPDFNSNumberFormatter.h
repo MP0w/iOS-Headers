@@ -6,6 +6,7 @@
 
 #import "NSNumberFormatter.h"
 
+// Not exported
 @interface WebPDFNSNumberFormatter : NSNumberFormatter
 {
 }

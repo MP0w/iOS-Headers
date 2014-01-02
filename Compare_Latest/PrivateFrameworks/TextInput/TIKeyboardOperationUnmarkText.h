@@ -14,7 +14,7 @@
 }
 
 + (id)operationWithText:(id)arg1;
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) NSString *text; // @synthesize text=_text;
 - (id)propertiesForDescription;
 - (void)encodeWithCoder:(id)arg1;

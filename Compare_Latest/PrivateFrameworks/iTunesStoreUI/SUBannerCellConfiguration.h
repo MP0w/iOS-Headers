@@ -10,8 +10,8 @@
 {
 }
 
-+ (float)rowHeightForContext:(id)arg1 representedObject:(id)arg2;
-+ (float)minimumRowHeight;
++ (double)rowHeightForContext:(id)arg1 representedObject:(id)arg2;
++ (double)minimumRowHeight;
 + (id)copyDefaultContext;
 - (struct CGSize)_imageSizeForLayoutSize:(struct CGSize)arg1;
 - (void)reloadStrings;

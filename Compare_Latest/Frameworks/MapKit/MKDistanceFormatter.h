@@ -11,19 +11,19 @@
 @interface MKDistanceFormatter : NSFormatter
 {
     NSLocale *_locale;
-    unsigned int _units;
-    unsigned int _unitStyle;
+    unsigned long long _units;
+    unsigned long long _unitStyle;
 }
 
-@property(nonatomic) unsigned int unitStyle; // @synthesize unitStyle=_unitStyle;
-@property(nonatomic) unsigned int units; // @synthesize units=_units;
+@property(nonatomic) unsigned long long unitStyle; // @synthesize unitStyle=_unitStyle;
+@property(nonatomic) unsigned long long units; // @synthesize units=_units;
 @property(copy, nonatomic) NSLocale *locale; // @synthesize locale=_locale;
-- (BOOL)isPartialStringValid:(id *)arg1 proposedSelectedRange:(struct _NSRange *)arg2 originalString:(id)arg3 originalSelectedRange:(struct _NSRange)arg4 errorDescription:(id *)arg5;
-- (BOOL)getObjectValue:(id *)arg1 forString:(id)arg2 errorDescription:(id *)arg3;
+- (_Bool)isPartialStringValid:(id *)arg1 proposedSelectedRange:(struct _NSRange *)arg2 originalString:(id)arg3 originalSelectedRange:(struct _NSRange)arg4 errorDescription:(id *)arg5;
+- (_Bool)getObjectValue:(id *)arg1 forString:(id)arg2 errorDescription:(id *)arg3;
 - (double)distanceFromString:(id)arg1;
 - (id)stringForObjectValue:(id)arg1;
 - (id)stringFromDistance:(double)arg1;
-- (BOOL)_useMetric;
+- (_Bool)_useMetric;
 - (id)description;
 - (void)dealloc;
 - (id)init;

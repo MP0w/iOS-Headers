@@ -8,14 +8,15 @@
 
 @class UIKeyboardMenuView;
 
+// Not exported
 @interface UIInputSwitcherTableView : UITableView
 {
     UIKeyboardMenuView *_menu;
 }
 
 @property(nonatomic) UIKeyboardMenuView *menu; // @synthesize menu=_menu;
-- (void)selectRowAtIndexPath:(id)arg1 animated:(BOOL)arg2 scrollPosition:(int)arg3;
-- (void)deselectRowAtIndexPath:(id)arg1 animated:(BOOL)arg2;
+- (void)selectRowAtIndexPath:(id)arg1 animated:(_Bool)arg2 scrollPosition:(long long)arg3;
+- (void)deselectRowAtIndexPath:(id)arg1 animated:(_Bool)arg2;
 
 @end
 

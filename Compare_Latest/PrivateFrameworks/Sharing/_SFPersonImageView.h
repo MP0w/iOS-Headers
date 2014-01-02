@@ -6,12 +6,13 @@
 
 #import "UIImageView.h"
 
+// Not exported
 @interface _SFPersonImageView : UIImageView
 {
-    BOOL _overlay;
+    _Bool _overlay;
 }
 
-@property(nonatomic, getter=isOverlay) BOOL overlay; // @synthesize overlay=_overlay;
+@property(nonatomic, getter=isOverlay) _Bool overlay; // @synthesize overlay=_overlay;
 
 @end
 

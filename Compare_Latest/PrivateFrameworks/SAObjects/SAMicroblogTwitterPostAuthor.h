@@ -15,12 +15,12 @@
 + (id)twitterPostAuthorWithDictionary:(id)arg1 context:(id)arg2;
 + (id)twitterPostAuthor;
 - (void)updateUsingSet:(id)arg1 add:(id)arg2 remove:(id)arg3;
-@property(nonatomic) BOOL verified;
+@property(nonatomic) _Bool verified;
 @property(copy, nonatomic) NSNumber *userId;
 @property(copy, nonatomic) NSString *screenName;
 @property(copy, nonatomic) NSURL *profileImageUrl;
 @property(copy, nonatomic) NSString *fullName;
-@property(nonatomic) int followersCount;
+@property(nonatomic) long long followersCount;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

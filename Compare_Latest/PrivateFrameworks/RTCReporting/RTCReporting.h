@@ -17,30 +17,26 @@
     NSObject<OS_dispatch_source> *_timer;
     unsigned int _sessionID;
     int _componentType;
-    unsigned short _version;
+    unsigned short _clientVersion;
     unsigned char _udid[41];
     NSArray *_frameworkList;
     NSMutableDictionary *_backendDict;
     NSMutableDictionary *_periodicServiceDict;
 }
 
-+ (BOOL)sendMsgToServer:(int)arg1 serverStoreBagName:(id)arg2 defaultSvrIP:(id)arg3 defaultSvrPort:(unsigned short)arg4 componentType:(int)arg5 version:(unsigned short)arg6 sessionID:(unsigned int)arg7 eventID:(unsigned short)arg8 method:(unsigned short)arg9 respCode:(unsigned short)arg10 dict:(id)arg11;
++ (_Bool)sendMsgToServer:(int)arg1 serverStoreBagName:(id)arg2 defaultSvrIP:(id)arg3 defaultSvrPort:(unsigned short)arg4 componentType:(int)arg5 version:(unsigned short)arg6 sessionID:(unsigned int)arg7 eventID:(unsigned short)arg8 method:(unsigned short)arg9 respCode:(unsigned short)arg10 dict:(id)arg11;
 @property(copy) id logMsgHandler; // @synthesize logMsgHandler=_logMsgHandler;
-- (BOOL)uploadFileWithName:(id)arg1;
+- (_Bool)uploadFileWithName:(id)arg1;
 - (int)getUploadflag;
-- (BOOL)unregisterPeriodTask:(id)arg1 unservice_block:(id)arg2;
-- (BOOL)registerPeriodicTask:(id)arg1 needToUpDate:(_Bool)arg2 needToReport:(_Bool)arg3 service_block:(id)arg4;
-- (BOOL)stopLogTimerForSession;
-- (BOOL)startLogTimerWithInterval:(int)arg1 reportingFrequency:(int)arg2 reportingMethod:(unsigned short)arg3 reportingStatus:(unsigned short)arg4;
+- (_Bool)unregisterPeriodTask:(id)arg1 unservice_block:(id)arg2;
+- (_Bool)registerPeriodicTask:(id)arg1 needToUpDate:(_Bool)arg2 needToReport:(_Bool)arg3 service_block:(id)arg4;
+- (_Bool)stopLogTimerForSession;
+- (_Bool)startLogTimerWithInterval:(int)arg1 reportingFrequency:(int)arg2 reportingMethod:(unsigned short)arg3 reportingStatus:(unsigned short)arg4;
 - (void)sendMsgWithMethod:(unsigned short)arg1 respCode:(unsigned short)arg2 dict:(id)arg3;
-- (BOOL)setReportToServer:(int)arg1 serverStoreBagName:(id)arg2 defaultSvrIP:(id)arg3 defaultSvrPort:(unsigned short)arg4 msgBlock:(id)arg5;
+- (_Bool)setReportToServer:(int)arg1 serverStoreBagName:(id)arg2 defaultSvrIP:(id)arg3 defaultSvrPort:(unsigned short)arg4 msgBlock:(id)arg5;
 - (void)dealloc;
 - (id)initWithSessionInfo:(int)arg1 version:(unsigned short)arg2 sessionID:(unsigned int)arg3;
 - (id)initWithSessionInfo:(int)arg1 version:(unsigned short)arg2 sessionID:(unsigned int)arg3 frameworksToCheck:(id)arg4;
-- (void)MyPeriodicTask:(unsigned short)arg1 status:(unsigned short)arg2;
-- (void)internSendMsgOfType:(int)arg1 method:(unsigned short)arg2 respCode:(unsigned short)arg3 dict:(id)arg4;
-- (void)sendClientURLInfo:(id)arg1;
-- (void)addFrameworkStatusToReportingDictionary:(id)arg1;
 
 @end
 

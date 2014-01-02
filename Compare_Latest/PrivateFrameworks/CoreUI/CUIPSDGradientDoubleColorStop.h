@@ -13,16 +13,16 @@
     struct _psdGradientColor leadOutColor;
 }
 
-+ (id)doubleColorStopWithLocation:(float)arg1 leadInColor:(struct _psdGradientColor)arg2 leadOutColor:(struct _psdGradientColor)arg3;
++ (id)doubleColorStopWithLocation:(double)arg1 leadInColor:(struct _psdGradientColor)arg2 leadOutColor:(struct _psdGradientColor)arg3;
 + (void)initialize;
 - (id)description;
-- (BOOL)isDoubleStop;
+- (_Bool)isDoubleStop;
 - (struct _psdGradientColor)leadOutColor;
 - (struct _psdGradientColor)leadInColor;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithLocation:(float)arg1 leadInColor:(struct _psdGradientColor)arg2 leadOutColor:(struct _psdGradientColor)arg3;
+- (id)initWithLocation:(double)arg1 leadInColor:(struct _psdGradientColor)arg2 leadOutColor:(struct _psdGradientColor)arg3;
 
 @end
 

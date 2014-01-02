@@ -10,9 +10,9 @@
 {
 }
 
-+ (int)cellStyle;
++ (long long)cellStyle;
 - (void)refreshCellContentsWithSpecifier:(id)arg1;
-- (BOOL)canReload;
+- (_Bool)canReload;
 
 @end
 

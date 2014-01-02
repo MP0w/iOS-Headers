@@ -9,8 +9,7 @@
 @class NSString, _UISettings;
 
 @protocol PTSHUDControl <NSObject>
-@property(nonatomic) BOOL autoEnablesForDesignMode;
-@property(nonatomic) BOOL enabled;
+@property(nonatomic) _Bool enabled;
 @property(nonatomic) int alignment;
 @property(copy, nonatomic) NSString *valueKeyPath;
 @property(nonatomic) __weak _UISettings *settings;

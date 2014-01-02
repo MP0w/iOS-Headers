@@ -14,7 +14,7 @@
 
 + (id)searchWithDictionary:(id)arg1 context:(id)arg2;
 + (id)search;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSString *query;
 @property(copy, nonatomic) NSString *provider;
 - (id)encodedClassName;

@@ -8,6 +8,7 @@
 
 @class OADColor, OADFontReference;
 
+// Not exported
 @interface OADTableTextStyle : NSObject
 {
     OADFontReference *mFontReference;

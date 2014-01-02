@@ -6,13 +6,12 @@
 
 #import "NSObject.h"
 
-#import "WebGeolocationCoreLocationUpdateListener-Protocol.h"
-
-@interface WKGeolocationProviderIOS : NSObject <WebGeolocationCoreLocationUpdateListener>
+// Not exported
+@interface WKGeolocationProviderIOS : NSObject
 {
     struct RefPtr<WebKit::WebGeolocationManagerProxy> _geolocationManager;
     struct RetainPtr<WebGeolocationCoreLocationProvider> _coreLocationProvider;
-    BOOL _isWebCoreGeolocationActive;
+    _Bool _isWebCoreGeolocationActive;
     struct RefPtr<WebKit::WebGeolocationPosition> _lastActivePosition;
     struct Vector<GeolocationRequestData, 0, WTF::CrashOnOverflow> _requestsWaitingForCoreLocationStart;
     struct HashSet<void *, WTF::PtrHash<void *>, WTF::HashTraits<void *>> _requestsInWarmUp;
@@ -26,12 +25,6 @@
 - (void)_stopUpdating;
 - (void)_startUpdating;
 - (void)_stopUpdatingIfPossible;
-- (void)permissionDenied:(struct GeolocationPermissionRequestProxy *)arg1;
-- (void)resetGeolocation;
-- (void)errorOccurred:(id)arg1;
-- (void)positionChanged:(struct GeolocationPosition *)arg1;
-- (void)geolocationDelegateUnableToStart;
-- (void)geolocationDelegateStarted;
 
 @end
 

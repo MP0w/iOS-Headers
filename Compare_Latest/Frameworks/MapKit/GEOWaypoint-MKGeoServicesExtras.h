@@ -7,6 +7,6 @@
 #import "GEOWaypoint.h"
 
 @interface GEOWaypoint (MKGeoServicesExtras)
-- (id)initWithMapItem:(id)arg1 includeEntryPoints:(BOOL)arg2;
+- (id)initWithMapItem:(id)arg1 includeEntryPoints:(_Bool)arg2;
 @end
 

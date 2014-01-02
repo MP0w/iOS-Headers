@@ -8,13 +8,14 @@
 
 @class NSLock;
 
+// Not exported
 @interface _NSXPCConnectionImportInfo : NSObject
 {
     NSLock *_lock;
     struct __CFDictionary *_map;
 }
 
-- (BOOL)decrement:(unsigned long long)arg1;
+- (_Bool)decrement:(unsigned long long)arg1;
 - (void)increment:(unsigned long long)arg1;
 - (void)finalize;
 - (void)dealloc;

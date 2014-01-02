@@ -18,7 +18,6 @@
 @property(copy) NSString *bgColor;
 @property(copy) NSString *background;
 @property(copy) NSString *aLink;
-- (int)structuralComplexityContribution;
 
 @end
 

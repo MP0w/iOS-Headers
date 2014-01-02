@@ -8,6 +8,7 @@
 
 @class NSFetchRequest, NSManagedObjectContext, _PFArray;
 
+// Not exported
 @interface _PFBatchFaultingArray : NSArray
 {
     int _cd_rc;
@@ -23,34 +24,34 @@
 
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (id)alloc;
-+ (BOOL)accessInstanceVariablesDirectly;
++ (_Bool)accessInstanceVariablesDirectly;
 + (void)initialize;
-- (id)objectAtIndex:(unsigned int)arg1;
-- (unsigned int)count;
+- (id)objectAtIndex:(unsigned long long)arg1;
+- (unsigned long long)count;
 - (id)description;
 - (id)newArrayFromObjectIDs;
 - (id)arrayFromObjectIDs;
 - (id)subarrayWithRange:(struct _NSRange)arg1;
-- (id)managedObjectIDAtIndex:(unsigned int)arg1;
-- (unsigned int)indexOfManagedObjectForObjectID:(id)arg1;
-- (unsigned int)indexOfObjectIdenticalTo:(id)arg1 inRange:(struct _NSRange)arg2;
-- (unsigned int)indexOfObjectIdenticalTo:(id)arg1;
-- (unsigned int)indexOfObject:(id)arg1 inRange:(struct _NSRange)arg2;
-- (unsigned int)indexOfObject:(id)arg1;
-- (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
+- (id)managedObjectIDAtIndex:(unsigned long long)arg1;
+- (unsigned long long)indexOfManagedObjectForObjectID:(id)arg1;
+- (unsigned long long)indexOfObjectIdenticalTo:(id)arg1 inRange:(struct _NSRange)arg2;
+- (unsigned long long)indexOfObjectIdenticalTo:(id)arg1;
+- (unsigned long long)indexOfObject:(id)arg1 inRange:(struct _NSRange)arg2;
+- (unsigned long long)indexOfObject:(id)arg1;
+- (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
 - (void)getObjects:(id *)arg1 range:(struct _NSRange)arg2;
 - (void)getObjects:(id *)arg1;
 - (void)_turnAllBatchesIntoFaults;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
-- (unsigned int)retainCount;
+- (_Bool)_isDeallocating;
+- (_Bool)_tryRetain;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;
 - (void)dealloc;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)_newSubArrayInRange:(struct _NSRange)arg1 asMutable:(BOOL)arg2;
-- (BOOL)isEqualToArray:(id)arg1;
+- (id)_newSubArrayInRange:(struct _NSRange)arg1 asMutable:(_Bool)arg2;
+- (_Bool)isEqualToArray:(id)arg1;
 - (id)initWithPFArray:(id)arg1 andRequest:(id)arg2 andContext:(id)arg3;
 
 @end

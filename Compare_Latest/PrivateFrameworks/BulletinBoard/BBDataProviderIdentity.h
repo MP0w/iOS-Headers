@@ -12,7 +12,7 @@
 
 @interface BBDataProviderIdentity : NSObject <NSSecureCoding>
 {
-    CDStruct_c264898c _traits;
+    CDStruct_c6add5c3 _traits;
     NSString *_sectionIdentifier;
     BBSectionInfo *_defaultSectionInfo;
     NSString *_sectionDisplayName;
@@ -22,12 +22,12 @@
     NSArray *_defaultSubsectionInfos;
     NSDictionary *_subsectionDisplayNames;
     NSString *_sortKey;
-    BOOL _syncsBulletinDismissal;
+    _Bool _syncsBulletinDismissal;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 + (id)identityForDataProvider:(id)arg1;
-@property(readonly, nonatomic) BOOL syncsBulletinDismissal; // @synthesize syncsBulletinDismissal=_syncsBulletinDismissal;
+@property(readonly, nonatomic) _Bool syncsBulletinDismissal; // @synthesize syncsBulletinDismissal=_syncsBulletinDismissal;
 @property(copy, nonatomic) NSDictionary *subsectionDisplayNames; // @synthesize subsectionDisplayNames=_subsectionDisplayNames;
 @property(copy, nonatomic) NSArray *defaultSubsectionInfos; // @synthesize defaultSubsectionInfos=_defaultSubsectionInfos;
 @property(retain, nonatomic) BBSectionParameters *sectionParameters; // @synthesize sectionParameters=_sectionParameters;
@@ -36,7 +36,7 @@
 @property(copy, nonatomic) NSString *sectionDisplayName; // @synthesize sectionDisplayName=_sectionDisplayName;
 @property(copy, nonatomic) BBSectionInfo *defaultSectionInfo; // @synthesize defaultSectionInfo=_defaultSectionInfo;
 @property(copy, nonatomic) NSString *sectionIdentifier; // @synthesize sectionIdentifier=_sectionIdentifier;
-@property(readonly, nonatomic) CDStruct_c264898c traits; // @synthesize traits=_traits;
+@property(readonly, nonatomic) CDStruct_c6add5c3 traits; // @synthesize traits=_traits;
 @property(copy, nonatomic) NSString *sortKey; // @synthesize sortKey=_sortKey;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

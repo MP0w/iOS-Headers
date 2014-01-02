@@ -10,33 +10,34 @@
 
 @class NSMutableDictionary, NSMutableSet, NSString;
 
+// Not exported
 @interface CMArchiveManager : NSObject <OCCancelDelegate>
 {
-    BOOL mIsThumbnail;
-    BOOL mIsOnPhone;
-    unsigned int mPageCount;
+    _Bool mIsThumbnail;
+    _Bool mIsOnPhone;
+    unsigned long long mPageCount;
     NSString *mPassphrase;
     NSMutableDictionary *mDrawableCache;
     NSString *mResourcePathPrefix;
     NSMutableSet *mPausedPaths;
     int mHeight;
     int mWidth;
-    float mCommitInterval;
-    BOOL mAutoCommit;
+    double mCommitInterval;
+    _Bool mAutoCommit;
 }
 
 + (id)resourceTypeToExtension:(int)arg1;
 + (id)resourceTypeToMIME:(int)arg1;
 + (int)blipTypeToResourceType:(int)arg1;
 @property(copy) NSString *passphrase; // @synthesize passphrase=mPassphrase;
-- (BOOL)isCancelled;
+- (_Bool)isCancelled;
 - (void)setHTMLWidth:(int)arg1;
 - (void)setHTMLHeight:(int)arg1;
-- (BOOL)isProgressive;
-- (unsigned int)pageCount;
-- (void)setPageCount:(unsigned int)arg1;
-- (BOOL)isThumbnail;
-- (void)setIsThumbnail:(BOOL)arg1;
+- (_Bool)isProgressive;
+- (unsigned long long)pageCount;
+- (void)setPageCount:(unsigned long long)arg1;
+- (_Bool)isThumbnail;
+- (void)setIsThumbnail:(_Bool)arg1;
 - (id)appendResourcePathToName:(id)arg1;
 - (id)resourcePathPrefix;
 - (void)setResourcePathPrefix:(id)arg1;
@@ -44,9 +45,9 @@
 - (void)addCssStyle:(id)arg1 withName:(id)arg2;
 - (id)addCssStyle:(id)arg1;
 - (int)resourceCount;
-- (BOOL)isOnPhone;
-- (void)setIsOnPhone:(BOOL)arg1;
-- (BOOL)progressiveMappingIsPausedOnPath:(id)arg1;
+- (_Bool)isOnPhone;
+- (void)setIsOnPhone:(_Bool)arg1;
+- (_Bool)progressiveMappingIsPausedOnPath:(id)arg1;
 - (void)restartProgressiveMappingOnPath:(id)arg1;
 - (void)pauseProgressiveMappingOnPath:(id)arg1;
 - (id)cachedPathForDrawable:(id)arg1;
@@ -54,8 +55,8 @@
 - (id)addResource:(id)arg1 withName:(id)arg2;
 - (id)addResource:(id)arg1 withType:(int)arg2;
 - (id)_validateData:(id)arg1 withType:(int *)arg2;
-- (void)setAutoCommit:(BOOL)arg1;
-- (void)setCommitInterval:(float)arg1;
+- (void)setAutoCommit:(_Bool)arg1;
+- (void)setCommitInterval:(double)arg1;
 - (void)commitDataAtPath:(id)arg1;
 - (void)closeResourceAtPath:(id)arg1;
 - (void)pushCssToPath:(id)arg1;

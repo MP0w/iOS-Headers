@@ -10,10 +10,10 @@
 {
 }
 
-- (int)read:(char *)arg1 maxLength:(unsigned int)arg2 error:(id *)arg3;
-- (BOOL)open:(id *)arg1;
-@property(readonly, nonatomic) unsigned int minimumReadLength;
-@property(readonly, nonatomic) BOOL hasBytesAvailable;
+- (long long)read:(char *)arg1 maxLength:(unsigned long long)arg2 error:(id *)arg3;
+- (_Bool)open:(id *)arg1;
+@property(readonly, nonatomic) unsigned long long minimumReadLength;
+@property(readonly, nonatomic) _Bool hasBytesAvailable;
 @property(readonly, nonatomic) long long expectedLength;
 - (id)copyAllData:(id *)arg1;
 - (void)close;

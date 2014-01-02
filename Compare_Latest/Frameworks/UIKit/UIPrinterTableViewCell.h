@@ -8,6 +8,7 @@
 
 @class UIActivityIndicatorView;
 
+// Not exported
 @interface UIPrinterTableViewCell : UITableViewCell
 {
     int _printerState;

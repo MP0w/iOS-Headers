@@ -6,11 +6,12 @@
 
 #import <WebCore/DOMHTMLElement.h>
 
+// Not exported
 @interface DOMHTMLPreElement : DOMHTMLElement
 {
 }
 
-@property BOOL wrap;
+@property _Bool wrap;
 @property int width;
 
 @end

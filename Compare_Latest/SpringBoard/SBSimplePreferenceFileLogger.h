@@ -10,13 +10,13 @@
 
 @interface SBSimplePreferenceFileLogger : SBFileLogger
 {
-    BOOL _enabled;
+    _Bool _enabled;
 }
 
 - (void)reloadFromDefaults;
 @property(readonly, nonatomic) NSString *logPreferenceName;
 @property(readonly, nonatomic) NSString *logPreferenceDomain;
-- (BOOL)isEnabled;
+- (_Bool)isEnabled;
 
 @end
 

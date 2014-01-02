@@ -21,11 +21,11 @@
 }
 
 + (id)sharedInstance;
-- (void)connection:(id)arg1 didChangeConnectedStatus:(BOOL)arg2;
+- (void)connection:(id)arg1 didChangeConnectedStatus:(_Bool)arg2;
 - (void)connectionDidReconnect:(id)arg1;
 - (void)connection:(id)arg1 didFailToSendOutgoingMessage:(id)arg2 error:(id)arg3;
 - (void)connection:(id)arg1 didSendOutgoingMessage:(id)arg2;
-- (void)connection:(id)arg1 didReceiveMessageForTopic:(id)arg2 userInfo:(id)arg3;
+- (void)connection:(id)arg1 didReceiveIncomingMessage:(id)arg2;
 - (void)connection:(id)arg1 didReceivePublicToken:(id)arg2;
 - (void)setCommands:(id)arg1 forListener:(id)arg2;
 - (void)setTopics:(id)arg1 forListener:(id)arg2;

@@ -14,14 +14,12 @@
     NSString *_title;
     UIImage *_appImage;
     NSString *_message;
-    int _cancelButtonIdx;
-    BOOL _isAlarm;
+    long long _displayedButtonIndex;
+    _Bool _isAlarm;
 }
 
-- (BOOL)isAlarm;
-- (int)snoozeButtonindex;
-- (int)cancelButtonIndex;
-- (void)buttonPressedAtIndex:(int)arg1;
+- (_Bool)isAlarm;
+- (void)buttonPressed;
 - (id)sortDate;
 - (id)iconImage;
 - (id)title;
@@ -30,6 +28,7 @@
 - (id)currentAlert;
 - (void)dealloc;
 - (id)initWithSystemAlert:(id)arg1;
+- (id)init;
 
 @end
 

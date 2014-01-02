@@ -9,14 +9,14 @@
 @interface MFQuotedPrintableDecoder : MFBaseFilterDataConsumer
 {
     unsigned char _lastEncoded;
-    unsigned long _required;
-    BOOL _forTextPart;
-    BOOL _badlyEncoded;
+    unsigned long long _required;
+    _Bool _forTextPart;
+    _Bool _badlyEncoded;
 }
 
-@property(nonatomic) BOOL forTextPart; // @synthesize forTextPart=_forTextPart;
+@property(nonatomic) _Bool forTextPart; // @synthesize forTextPart=_forTextPart;
 - (void)done;
-- (int)appendData:(id)arg1;
+- (long long)appendData:(id)arg1;
 
 @end
 

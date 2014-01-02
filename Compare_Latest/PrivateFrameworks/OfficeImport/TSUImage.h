@@ -6,44 +6,37 @@
 
 #import "NSObject.h"
 
-@class UIImage;
-
+// Not exported
 @interface TSUImage : NSObject
 {
     struct CGImage *mCGImage;
-    long mCGImageLock;
-    float mScale;
+    long long mCGImageLock;
+    double mScale;
     int mOrientation;
 }
 
-+ (id)imageWithCGImage:(struct CGImage *)arg1 scale:(float)arg2 orientation:(int)arg3;
++ (id)imageWithCGImage:(struct CGImage *)arg1 scale:(double)arg2 orientation:(int)arg3;
 + (id)imageWithCGImage:(struct CGImage *)arg1;
 + (id)imageWithData:(id)arg1;
 + (id)imageWithContentsOfFile:(id)arg1;
 + (id)imageNamed:(id)arg1;
-+ (id)imageWithUIImage:(id)arg1;
 @property(readonly, nonatomic) int imageOrientation; // @synthesize imageOrientation=mOrientation;
 @property(readonly, nonatomic) struct CGImage *CGImage; // @synthesize CGImage=mCGImage;
-- (void)drawInRect:(struct CGRect)arg1 context:(struct CGContext *)arg2 leftCapWidth:(int)arg3 topCapHeight:(int)arg4;
-- (void)drawInRect:(struct CGRect)arg1 context:(struct CGContext *)arg2 stretchingCenterWidthBy:(float)arg3;
-- (BOOL)isEmpty;
+- (void)drawInRect:(struct CGRect)arg1 context:(struct CGContext *)arg2 leftCapWidth:(long long)arg3 topCapHeight:(long long)arg4;
+- (void)drawInRect:(struct CGRect)arg1 context:(struct CGContext *)arg2 stretchingCenterWidthBy:(double)arg3;
+- (_Bool)isEmpty;
 - (id)TIFFRepresentation;
-- (id)JPEGRepresentationWithCompressionQuality:(float)arg1;
+- (id)JPEGRepresentationWithCompressionQuality:(double)arg1;
 - (id)PNGRepresentation;
-@property(readonly, nonatomic) float scale;
+@property(readonly, nonatomic) double scale;
 @property(readonly, nonatomic) struct CGSize size;
-- (struct CGImage *)CGImageForContentsScale:(float)arg1;
-- (id)initWithCGImage:(struct CGImage *)arg1 scale:(float)arg2 orientation:(int)arg3;
+- (struct CGImage *)CGImageForContentsScale:(double)arg1;
+- (id)initWithCGImage:(struct CGImage *)arg1 scale:(double)arg2 orientation:(int)arg3;
 - (id)initWithCGImage:(struct CGImage *)arg1;
 - (id)initWithData:(id)arg1;
 - (id)initWithContentsOfFile:(id)arg1;
 - (id)initWithImageSourceRef:(struct CGImageSource *)arg1;
 - (void)dealloc;
-- (void)drawInRect:(struct CGRect)arg1 fromRect:(struct CGRect)arg2 isFlipped:(BOOL)arg3;
-@property(readonly, nonatomic) UIImage *UIImage;
-- (id)initWithUIImage:(id)arg1;
-- (struct CGImage *)p_imageForContentsScale:(float)arg1;
-- (void)p_loadImageForScreenScaleIfNecessary:(float)arg1;
 
 @end
 

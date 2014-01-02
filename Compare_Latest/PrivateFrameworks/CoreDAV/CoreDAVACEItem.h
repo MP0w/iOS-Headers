@@ -29,7 +29,7 @@
 - (void)write:(id)arg1;
 - (id)description;
 - (void)dealloc;
-- (id)initWithPrincipal:(id)arg1 shouldInvert:(BOOL)arg2 action:(int)arg3 withPrivileges:(id)arg4;
+- (id)initWithPrincipal:(id)arg1 shouldInvert:(_Bool)arg2 action:(int)arg3 withPrivileges:(id)arg4;
 - (id)init;
 
 @end

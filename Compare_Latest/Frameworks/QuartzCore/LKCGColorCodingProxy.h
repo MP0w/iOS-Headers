@@ -6,6 +6,7 @@
 
 #import <QuartzCore/CACodingProxy.h>
 
+// Not exported
 @interface LKCGColorCodingProxy : CACodingProxy
 {
     struct CGColor *_color;

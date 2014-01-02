@@ -16,18 +16,18 @@
     NSRunLoop *_operationRunLoop;
     ISOperation *_parentOperation;
     SSOperationProgress *_progress;
-    BOOL _shouldMessageMainThread;
+    _Bool _shouldMessageMainThread;
     NSString *_powerAssertionIdentifier;
     NSArray *_serializationLockIdentifiers;
     NSMutableArray *_subOperations;
-    BOOL _shouldRunWithBackgroundPriority;
-    BOOL _stopped;
-    BOOL _success;
+    _Bool _shouldRunWithBackgroundPriority;
+    _Bool _stopped;
+    _Bool _success;
     id _threadSafeDelegate;
 }
 
-@property BOOL success; // @synthesize success=_success;
-@property BOOL shouldRunWithBackgroundPriority; // @synthesize shouldRunWithBackgroundPriority=_shouldRunWithBackgroundPriority;
+@property _Bool success; // @synthesize success=_success;
+@property _Bool shouldRunWithBackgroundPriority; // @synthesize shouldRunWithBackgroundPriority=_shouldRunWithBackgroundPriority;
 @property(retain) NSString *powerAssertionIdentifier; // @synthesize powerAssertionIdentifier=_powerAssertionIdentifier;
 @property(retain) ISOperation *parentOperation; // @synthesize parentOperation=_parentOperation;
 @property(retain) NSRunLoop *operationRunLoop; // @synthesize operationRunLoop=_operationRunLoop;
@@ -36,7 +36,7 @@
 - (void)_sendSuccessToDelegate;
 - (void)_sendErrorToDelegate:(id)arg1;
 - (void)_removeSubOperation:(id)arg1;
-- (void)_main:(BOOL)arg1;
+- (void)_main:(_Bool)arg1;
 - (void)_keepAliveTimer:(id)arg1;
 - (void)_failAfterException;
 - (void)_addSubOperation:(id)arg1;
@@ -44,7 +44,8 @@
 @property(copy) NSArray *serializationLockIdentifiers;
 - (void)sendProgressToDelegate;
 - (void)sendDidTakeSerializationLocks;
-- (void)run:(BOOL)arg1;
+- (void)run:(_Bool)arg1;
+- (void)releasePowerAssertionsDuringBlock:(id)arg1;
 - (void)lock;
 - (void)dispatchCompletionBlock;
 - (id)copySerializationLocks;
@@ -53,23 +54,18 @@
 - (void)cancel;
 @property(readonly) NSString *uniqueKey;
 @property(readonly) id threadSafeDelegate;
-@property BOOL shouldMessageMainThread;
-- (BOOL)shouldFailAfterUniquePredecessorError:(id)arg1;
+@property _Bool shouldMessageMainThread;
+- (_Bool)shouldFailAfterUniquePredecessorError:(id)arg1;
 @property id <ISOperationDelegate> delegate;
-- (BOOL)stopRunLoop;
-- (BOOL)runSubOperation:(id)arg1 onQueue:(id)arg2 error:(id *)arg3;
-- (BOOL)runSubOperation:(id)arg1 returningError:(id *)arg2;
-- (long)runRunLoopUntilStopped;
+- (_Bool)stopRunLoop;
+- (_Bool)runSubOperation:(id)arg1 onQueue:(id)arg2 error:(id *)arg3;
+- (_Bool)runSubOperation:(id)arg1 returningError:(id *)arg2;
+- (int)runRunLoopUntilStopped;
 - (void)run;
-@property(readonly) int progressWeight;
+@property(readonly) long long progressWeight;
 @property(readonly, nonatomic) SSOperationProgress *progress;
 - (void)dealloc;
 - (id)init;
-- (BOOL)loadURLBagWithContext:(id)arg1 returningError:(id *)arg2;
-- (id)loadedURLBagWithContext:(id)arg1 returningError:(id *)arg2;
-- (BOOL)loadSoftwareMapReturningError:(id *)arg1;
-- (BOOL)copyAccountID:(id *)arg1 byAuthenticatingWithContext:(id)arg2 returningError:(id *)arg3;
-- (id)authenticatedAccountDSID;
 
 @end
 

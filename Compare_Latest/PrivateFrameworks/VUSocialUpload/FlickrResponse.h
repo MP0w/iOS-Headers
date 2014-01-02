@@ -13,18 +13,18 @@
 @interface FlickrResponse : NSObject <NSXMLParserDelegate>
 {
     NSMutableString *_partialPhotoIDString;
-    BOOL _workaround;
-    BOOL _success;
-    NSString *_errorDescription;
+    _Bool _workaround;
+    _Bool _success;
     int _errorCode;
     long long _photoID;
+    NSString *_errorDescription;
 }
 
 + (id)responseWithData:(id)arg1;
 @property(nonatomic) int errorCode; // @synthesize errorCode=_errorCode;
 @property(retain, nonatomic) NSString *errorDescription; // @synthesize errorDescription=_errorDescription;
 @property(nonatomic) long long photoID; // @synthesize photoID=_photoID;
-@property(nonatomic, getter=isSuccess) BOOL success; // @synthesize success=_success;
+@property(nonatomic, getter=isSuccess) _Bool success; // @synthesize success=_success;
 - (void)parser:(id)arg1 didEndElement:(id)arg2 namespaceURI:(id)arg3 qualifiedName:(id)arg4;
 - (void)parser:(id)arg1 foundCharacters:(id)arg2;
 - (void)parser:(id)arg1 didStartElement:(id)arg2 namespaceURI:(id)arg3 qualifiedName:(id)arg4 attributes:(id)arg5;

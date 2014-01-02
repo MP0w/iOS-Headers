@@ -17,17 +17,18 @@
 
 @property(readonly, nonatomic) VSSpeechRequest *request; // @synthesize request=_request;
 - (void).cxx_destruct;
+- (void)getVoiceInfoForLanguageCode:(id)arg1 footprint:(long long)arg2 gender:(long long)arg3 custom:(_Bool)arg4 reply:(id)arg5;
 - (void)getAutoDownloadedVoiceAssets:(id)arg1;
 - (void)setAutoDownloadedVoiceAssets:(id)arg1;
 - (void)downloadVoiceAsset:(id)arg1 progress:(id)arg2 completion:(void)arg3;
 - (void)getLocalVoiceAssets:(id)arg1;
 - (void)getAllVoiceAssets:(id)arg1;
 - (void)continueCurrentSpeechRequest;
-- (void)pauseCurrentSpeechRequestAtMark:(int)arg1 waitUntilPaused:(BOOL)arg2;
-- (void)stopCurrentSpeechRequestAtMark:(int)arg1 waitUntilStopped:(BOOL)arg2;
+- (void)pauseCurrentSpeechRequestAtMark:(long long)arg1;
+- (void)stopCurrentSpeechRequestAtMark:(long long)arg1;
 - (void)startSpeechRequest:(id)arg1;
-- (BOOL)isSystemSpeakingOnBehalfOfCurrentConnection;
-- (BOOL)isSystemSpeaking;
+- (_Bool)isSystemSpeakingOnBehalfOfCurrentConnection;
+- (_Bool)isSystemSpeaking;
 - (id)availableFootprintsForVoice:(id)arg1 languageCode:(id)arg2;
 - (id)availableVoicesForLanguageCode:(id)arg1;
 @property(nonatomic) __weak id <VSSpeechConnectionDelegate> delegate;

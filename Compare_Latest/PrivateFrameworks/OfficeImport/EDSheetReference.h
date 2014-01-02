@@ -6,20 +6,21 @@
 
 #import <OfficeImport/EDReference.h>
 
+// Not exported
 @interface EDSheetReference : EDReference
 {
-    unsigned int mSheetIndex;
+    unsigned long long mSheetIndex;
 }
 
-+ (id)referenceWithSheetIndex:(unsigned int)arg1 firstRow:(int)arg2 lastRow:(int)arg3 firstColumn:(int)arg4 lastColumn:(int)arg5;
++ (id)referenceWithSheetIndex:(unsigned long long)arg1 firstRow:(int)arg2 lastRow:(int)arg3 firstColumn:(int)arg4 lastColumn:(int)arg5;
 - (void)unionWithReference:(id)arg1;
 - (_Bool)fullyAdjacentToReference:(id)arg1;
-- (unsigned int)sheetIndex;
+- (unsigned long long)sheetIndex;
 - (_Bool)isSheedIndexValid;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isEqualToTableReference:(id)arg1;
-- (id)initWithSheetIndex:(unsigned int)arg1 firstRow:(int)arg2 lastRow:(int)arg3 firstColumn:(int)arg4 lastColumn:(int)arg5;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)isEqualToTableReference:(id)arg1;
+- (id)initWithSheetIndex:(unsigned long long)arg1 firstRow:(int)arg2 lastRow:(int)arg3 firstColumn:(int)arg4 lastColumn:(int)arg5;
 - (id)init;
 
 @end

@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface VKGridDrawStyle : VKDrawStyle
 {
     NSString *_texture;
@@ -20,7 +21,7 @@
 @property(readonly, nonatomic) struct _VGLColor lineColor;
 @property(readonly, nonatomic) struct _VGLColor fillColor;
 - (void)takeFromZoomInvariantProperties:(id)arg1;
-- (void)takeFromStyleProperties:(id)arg1 atZoom:(unsigned int)arg2 globals:(id)arg3;
+- (void)takeFromStyleProperties:(id)arg1 atZoom:(unsigned long long)arg2 globals:(id)arg3;
 - (id)variant;
 - (void)dealloc;
 

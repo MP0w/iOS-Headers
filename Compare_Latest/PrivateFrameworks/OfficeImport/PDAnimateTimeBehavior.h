@@ -8,14 +8,15 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface PDAnimateTimeBehavior : PDAnimateBehavior
 {
     NSMutableArray *mTimeAnimateValues;
 }
 
 - (void)addTimeAnimateValue:(id)arg1;
-- (id)timeAnimateValueAtIndex:(unsigned int)arg1;
-- (unsigned int)timeAnimateValueCount;
+- (id)timeAnimateValueAtIndex:(unsigned long long)arg1;
+- (unsigned long long)timeAnimateValueCount;
 - (void)dealloc;
 - (id)init;
 

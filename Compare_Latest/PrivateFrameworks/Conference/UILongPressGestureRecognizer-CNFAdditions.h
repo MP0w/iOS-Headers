@@ -7,6 +7,6 @@
 #import "UILongPressGestureRecognizer.h"
 
 @interface UILongPressGestureRecognizer (CNFAdditions)
-+ (void)addLongPressGestureRecognizerToView:(id)arg1 withTarget:(id)arg2 action:(SEL)arg3 minimumPressDuration:(double)arg4 touchCount:(int)arg5;
++ (void)addLongPressGestureRecognizerToView:(id)arg1 withTarget:(id)arg2 action:(SEL)arg3 minimumPressDuration:(double)arg4 touchCount:(long long)arg5;
 @end
 

@@ -7,33 +7,36 @@
 #import "NSObject.h"
 
 #import "NSCopying-Protocol.h"
+#import "NSMutableCopying-Protocol.h"
 
-@class NSString;
+@class NSString, UIFont;
 
-@interface SBIconLabelImageParameters : NSObject <NSCopying>
+@interface SBIconLabelImageParameters : NSObject <NSCopying, NSMutableCopying>
 {
+    UIFont *_font;
     NSString *_text;
-    BOOL _containsNonLatinLikeCharacters;
-    BOOL _containsEmoji;
-    BOOL _canEllipsize;
+    _Bool _containsNonLatinLikeCharacters;
+    _Bool _containsEmoji;
+    _Bool _canEllipsize;
     struct CGSize _maxSize;
-    int _legibilityStyle;
+    long long _style;
 }
 
-+ (id)parametersWithText:(id)arg1 canEllipsize:(BOOL)arg2 maxSize:(struct CGSize)arg3 style:(int)arg4;
-- (int)legibilityStyle;
-- (id)textColor;
-- (id)font;
-- (BOOL)colorspaceIsGrayscale;
-- (struct CGSize)maxSize;
-- (BOOL)canEllipsize;
-- (id)text;
+@property(readonly, nonatomic) long long style; // @synthesize style=_style;
+@property(readonly, nonatomic) _Bool containsEmoji; // @synthesize containsEmoji=_containsEmoji;
+@property(readonly, nonatomic) _Bool containsNonLatinLikeCharacters; // @synthesize containsNonLatinLikeCharacters=_containsNonLatinLikeCharacters;
+@property(readonly, nonatomic) _Bool canEllipsize; // @synthesize canEllipsize=_canEllipsize;
+@property(readonly, nonatomic) UIFont *font; // @synthesize font=_font;
+@property(readonly, nonatomic) struct CGSize maxSize; // @synthesize maxSize=_maxSize;
+@property(readonly, nonatomic) NSString *text; // @synthesize text=_text;
+- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)colorspaceIsGrayscale;
 - (void)dealloc;
-- (id)initWithText:(id)arg1 canEllipsize:(BOOL)arg2 maxSize:(struct CGSize)arg3 style:(int)arg4;
+- (id)initWithParameters:(id)arg1;
 
 @end
 

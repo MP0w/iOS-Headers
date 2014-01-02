@@ -18,13 +18,13 @@
 + (id)titleBarMaskImage;
 + (id)placeholderPreviewCache;
 + (id)mapThumbnailQueue;
-+ (BOOL)isPreviewable;
++ (_Bool)isPreviewable;
 + (id)fallbackFilenamePrefix;
 + (id)UTITypes;
 @property(nonatomic) CDStruct_2c43369c coordinate; // @synthesize coordinate=_coordinate;
 - (id)generatePlaceholderThumbnailFillToSize:(struct CGSize)arg1;
 - (id)generatePlaceholderThumbnail;
-- (BOOL)isDroppedPin;
+- (_Bool)isDroppedPin;
 - (id)pin;
 - (id)vCardURLProperties;
 - (id)bbPreviewFillToSize:(struct CGSize)arg1;

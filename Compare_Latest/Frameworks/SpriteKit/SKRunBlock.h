@@ -8,6 +8,7 @@
 
 @class NSObject<OS_dispatch_queue>;
 
+// Not exported
 @interface SKRunBlock : SKAction
 {
     id _block;

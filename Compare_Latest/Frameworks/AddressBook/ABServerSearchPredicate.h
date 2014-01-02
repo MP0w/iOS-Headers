@@ -15,21 +15,21 @@
     void *_source;
     NSString *_accountIdentifier;
     NSString *_searchString;
-    BOOL _includeSourceInResults;
+    _Bool _includeSourceInResults;
     DADConnection *_connection;
     DAContactsSearchQuery *_searchQuery;
     NSMutableArray *_searchResults;
     NSConditionLock *_doneLock;
     int _error;
     id <ABPredicateDelegate> _delegate;
-    BOOL _includePhotosInResults;
+    _Bool _includePhotosInResults;
 }
 
 @property(retain, nonatomic) DADConnection *connection; // @synthesize connection=_connection;
 @property(readonly, nonatomic) int error; // @synthesize error=_error;
 @property(nonatomic) id <ABPredicateDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) BOOL includePhotosInResults; // @synthesize includePhotosInResults=_includePhotosInResults;
-@property(nonatomic) BOOL includeSourceInResults; // @synthesize includeSourceInResults=_includeSourceInResults;
+@property(nonatomic) _Bool includePhotosInResults; // @synthesize includePhotosInResults=_includePhotosInResults;
+@property(nonatomic) _Bool includeSourceInResults; // @synthesize includeSourceInResults=_includeSourceInResults;
 @property(copy, nonatomic) NSString *searchString; // @synthesize searchString=_searchString;
 @property(copy, nonatomic) NSString *accountIdentifier; // @synthesize accountIdentifier=_accountIdentifier;
 @property(nonatomic) void *source; // @synthesize source=_source;
@@ -42,8 +42,8 @@
 - (void)runPredicate;
 - (void)dealloc;
 - (id)initWithSearchString:(id)arg1 source:(void *)arg2 account:(id)arg3;
-- (id)initWithSearchString:(id)arg1 source:(void *)arg2 account:(id)arg3 includeSourceInResults:(BOOL)arg4;
-- (id)initWithSearchString:(id)arg1 source:(void *)arg2 account:(id)arg3 includeSourceInResults:(BOOL)arg4 includePhotosInResults:(BOOL)arg5;
+- (id)initWithSearchString:(id)arg1 source:(void *)arg2 account:(id)arg3 includeSourceInResults:(_Bool)arg4;
+- (id)initWithSearchString:(id)arg1 source:(void *)arg2 account:(id)arg3 includeSourceInResults:(_Bool)arg4 includePhotosInResults:(_Bool)arg5;
 
 @end
 

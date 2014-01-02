@@ -14,20 +14,20 @@
     NSObject<OS_dispatch_queue> *_queue;
     id <XPCProxyTarget> _target;
     id <BBXPCConnectionDelegate> _delegate;
-    BOOL _established;
-    BOOL _invalidated;
+    _Bool _established;
+    _Bool _invalidated;
     Protocol *_protocol;
 }
 
 @property(nonatomic) id <BBXPCConnectionDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)_invalidateConnection;
-- (void)_noteConnectionStateDidChange:(BOOL)arg1;
+- (void)_noteConnectionStateDidChange:(_Bool)arg1;
 @property(readonly, nonatomic) NSObject<OS_xpc_object> *connection;
-- (BOOL)isValid;
+- (_Bool)isValid;
 - (void)invalidate;
 - (void)resume;
 @property(readonly, nonatomic) id proxy; // @synthesize proxy=_remoteProxy;
-- (BOOL)established;
+- (_Bool)established;
 - (id)_queue;
 - (id)description;
 - (void)dealloc;

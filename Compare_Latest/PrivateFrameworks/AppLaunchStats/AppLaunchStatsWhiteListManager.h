@@ -7,21 +7,23 @@
 #import "NSObject.h"
 
 #import "DuetLoggerProtocol-Protocol.h"
+#import "LSApplicationWorkspaceObserverProtocol-Protocol.h"
 
-@class AppLaunchStatsSaveAndRestore, NSMutableArray, NSObject<OS_dispatch_queue>;
+@class AppLaunchStatsSaveAndRestore, LSApplicationWorkspace, NSMutableArray, NSObject<OS_dispatch_queue>;
 
-@interface AppLaunchStatsWhiteListManager : NSObject <DuetLoggerProtocol>
+@interface AppLaunchStatsWhiteListManager : NSObject <LSApplicationWorkspaceObserverProtocol, DuetLoggerProtocol>
 {
     NSObject<OS_dispatch_queue> *aplsWLMQueue;
     AppLaunchStatsSaveAndRestore *saveAndRestoreContext;
+    LSApplicationWorkspace *wlmAppWorkSpace;
     NSMutableArray *defaultsWriteWhiteList;
     NSMutableArray *launchServiceWhiteListFetch;
     NSMutableArray *launchServiceWhiteListPush;
-    BOOL enableWhiteListCheck;
+    _Bool enableWhiteListCheck;
 }
 
 + (id)instance;
-@property(nonatomic) BOOL enableWhiteListCheck; // @synthesize enableWhiteListCheck;
+@property(nonatomic) _Bool enableWhiteListCheck; // @synthesize enableWhiteListCheck;
 - (void).cxx_destruct;
 - (void)logLight:(struct __aslclient *)arg1 withMsg:(struct __aslmsg *)arg2 withLevel:(int)arg3;
 - (void)logAll:(struct __aslclient *)arg1 withMsg:(struct __aslmsg *)arg2 withLevel:(int)arg3;
@@ -29,6 +31,9 @@
 - (void)reloadConfiguration;
 - (_Bool)isWhiteListed:(id)arg1 withFetch:(int)arg2;
 - (_Bool)isAppInList:(id)arg1 withBundleID:(id)arg2;
+- (void)initSetup;
+- (void)applicationsDidInstall:(id)arg1;
+- (void)addToMultiTaskingQueue:(id)arg1;
 - (id)init;
 
 @end

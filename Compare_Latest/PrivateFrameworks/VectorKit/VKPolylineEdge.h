@@ -6,33 +6,34 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface VKPolylineEdge : NSObject
 {
     CDStruct_aca18c62 _localBounds;
     shared_ptr_035a2da2 _mapEdge;
     struct vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>> _points;
     struct vector<geo::PolylineCoordinate, vk_allocator<geo::PolylineCoordinate>> _routeOffsets;
-    unsigned long _mapEdgeOffset;
-    BOOL _clippedFront;
-    BOOL _clippedBack;
+    unsigned long long _mapEdgeOffset;
+    _Bool _clippedFront;
+    _Bool _clippedBack;
 }
 
-@property(readonly, nonatomic) BOOL clippedBack; // @synthesize clippedBack=_clippedBack;
-@property(readonly, nonatomic) BOOL clippedFront; // @synthesize clippedFront=_clippedFront;
-@property(readonly, nonatomic) unsigned long mapEdgeOffset; // @synthesize mapEdgeOffset=_mapEdgeOffset;
+@property(readonly, nonatomic) _Bool clippedBack; // @synthesize clippedBack=_clippedBack;
+@property(readonly, nonatomic) _Bool clippedFront; // @synthesize clippedFront=_clippedFront;
+@property(readonly, nonatomic) unsigned long long mapEdgeOffset; // @synthesize mapEdgeOffset=_mapEdgeOffset;
 @property(readonly, nonatomic) shared_ptr_035a2da2 mapEdge; // @synthesize mapEdge=_mapEdge;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) CDStruct_c272c4e8 *feature;
+@property(readonly, nonatomic) CDStruct_02d551b3 *feature;
 @property(readonly, nonatomic) struct PolylineCoordinate routeOffsetB;
 @property(readonly, nonatomic) struct PolylineCoordinate routeOffsetA;
 @property(readonly, nonatomic) struct PolylineCoordinate *routeOffsets;
 - (id)description;
-@property(readonly, nonatomic) unsigned long pointCount;
+@property(readonly, nonatomic) unsigned long long pointCount;
 @property(readonly, nonatomic) Vec2Imp_1782d7e3 *points;
 - (void)calculateRouteOffsetsBetweenA:(struct PolylineCoordinate)arg1 andB:(struct PolylineCoordinate)arg2 overLength:(float)arg3 onRoute:(id)arg4;
 - (void)dealloc;
-- (id)initWithRoadPath:(const RoadPathElement_777899a4 *)arg1 sectionRect:(const CDStruct_d2b197d1 *)arg2;
+- (id)initWithRoadPath:(const RoadPathElement_1a15aef6 *)arg1 sectionRect:(const CDStruct_d2b197d1 *)arg2;
 
 @end
 

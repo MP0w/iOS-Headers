@@ -44,15 +44,15 @@
         unsigned int _field12;
         unsigned int _field13;
         unsigned int _field14;
-        CDStruct_b2fbf00d _field15;
-        CDStruct_b2fbf00d _field16;
-        CDStruct_b2fbf00d _field17;
-        CDStruct_b2fbf00d _field18;
-        float _field19;
-        float _field20;
-        char _field21;
-        char _field22;
-        char _field23;
+        CDStruct_c3b9c2ee _field15;
+        CDStruct_c3b9c2ee _field16;
+        CDStruct_c3b9c2ee _field17;
+        CDStruct_c3b9c2ee _field18;
+        double _field19;
+        double _field20;
+        _Bool _field21;
+        _Bool _field22;
+        _Bool _field23;
     } *qualityEntries;
 }
 

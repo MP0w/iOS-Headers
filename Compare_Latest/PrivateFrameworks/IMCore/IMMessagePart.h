@@ -14,7 +14,7 @@
 }
 
 @property(readonly, nonatomic) NSString *guid; // @synthesize guid=_guid;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)initWithGUID:(id)arg1;
 

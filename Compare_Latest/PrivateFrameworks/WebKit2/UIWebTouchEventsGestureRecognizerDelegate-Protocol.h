@@ -5,7 +5,7 @@
  */
 
 @protocol UIWebTouchEventsGestureRecognizerDelegate
-- (BOOL)isAnyTouchOverActiveArea:(id)arg1;
-- (BOOL)shouldIgnoreWebTouch;
+- (_Bool)isAnyTouchOverActiveArea:(id)arg1;
+- (_Bool)shouldIgnoreWebTouch;
 @end
 

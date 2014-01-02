@@ -28,7 +28,7 @@
 @property(readonly, nonatomic) NSMutableDictionary *_nodesByObjectID; // @synthesize _nodesByObjectID=__nodesByObjectID;
 - (id)spatialNeighborsOfNodes:(id)arg1 forSigma:(double)arg2;
 - (id)temporalNeighborsOfNode:(id)arg1 forTheta:(double)arg2;
-- (unsigned int)countOfTemporalNeighborsOfNode:(id)arg1 forTheta:(double)arg2;
+- (unsigned long long)countOfTemporalNeighborsOfNode:(id)arg1 forTheta:(double)arg2;
 - (id)nodeWithPartialAssetDictionary:(id)arg1;
 - (id)nodeForAsset:(id)arg1;
 - (void)performBatch:(id)arg1;

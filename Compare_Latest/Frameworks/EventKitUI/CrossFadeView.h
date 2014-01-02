@@ -8,13 +8,14 @@
 
 @interface CrossFadeView : UIView
 {
-    id _completion;
+    _Bool _scaleSize;
     UIView *_startView;
     UIView *_endView;
     struct CGRect _startFrame;
     struct CGRect _endFrame;
 }
 
+@property(nonatomic) _Bool scaleSize; // @synthesize scaleSize=_scaleSize;
 @property(readonly, nonatomic) struct CGRect endFrame; // @synthesize endFrame=_endFrame;
 @property(readonly, nonatomic) struct CGRect startFrame; // @synthesize startFrame=_startFrame;
 @property(readonly, nonatomic) UIView *endView; // @synthesize endView=_endView;
@@ -22,8 +23,6 @@
 - (void).cxx_destruct;
 - (id)description;
 - (void)haltAnimation;
-- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
-- (void)animationDidStart:(id)arg1;
 - (void)setToEndState;
 - (void)setToStartState;
 - (void)springAnimateToEndStateWithTimingFunction:(int)arg1 completion:(id)arg2;
@@ -35,6 +34,7 @@
 - (void)setEndView:(id)arg1;
 - (void)setStartView:(id)arg1;
 - (id)initWithStartView:(id)arg1 endView:(id)arg2 startFrame:(struct CGRect)arg3 endFrame:(struct CGRect)arg4;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

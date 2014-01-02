@@ -7,7 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol WBSFormsMetadataProvider <NSObject>
-@property(readonly, nonatomic) unsigned int formCount;
+@property(readonly, nonatomic) unsigned long long formCount;
 - (void)enumerateFormsUsingBlock:(id)arg1;
 @end
 

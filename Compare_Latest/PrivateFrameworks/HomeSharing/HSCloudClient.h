@@ -12,7 +12,7 @@
 
 @interface HSCloudClient : NSObject <HSCloudAvailability>
 {
-    BOOL _active;
+    _Bool _active;
     HSConnectionConfiguration *_configuration;
     NSObject<OS_xpc_object> *_connection;
     NSObject<OS_dispatch_queue> *_connectionQueue;
@@ -30,12 +30,12 @@
 - (void)_serverDidLaunch;
 - (void)_sendConfigurationToDaemon;
 - (void)_performBlockOnMainThread:(id)arg1;
-- (BOOL)canShowCloudVideo;
-- (BOOL)canShowCloudMusic;
-- (BOOL)canShowCloudDownloadButtons;
-- (BOOL)shouldProhibitActionsForCurrentNetworkConditions;
-- (BOOL)isCellularDataRestricted;
-- (BOOL)hasProperNetworkConditionsToPlayMedia;
+- (_Bool)canShowCloudVideo;
+- (_Bool)canShowCloudMusic;
+- (_Bool)canShowCloudDownloadButtons;
+- (_Bool)shouldProhibitActionsForCurrentNetworkConditions;
+- (_Bool)isCellularDataRestricted;
+- (_Bool)hasProperNetworkConditionsToPlayMedia;
 - (void)updatePlaylistWithSagaID:(unsigned long long)arg1 itemSagaIDs:(id)arg2 queue:(id)arg3 completionHandler:(id)arg4;
 - (void)updateArtistImagesWithCompletionHandler:(id)arg1;
 - (void)uploadItemProperties;
@@ -64,7 +64,7 @@
 - (void)deauthenticateWithCompletionHandler:(id)arg1;
 - (void)updateSagaLibraryWithCompletionHandler:(id)arg1;
 - (void)unhideAllPurchasedApps:(id)arg1;
-- (void)setHidden:(BOOL)arg1 purchasedAppWithStoreID:(id)arg2 completionHandler:(id)arg3;
+- (void)setHidden:(_Bool)arg1 purchasedAppWithStoreID:(id)arg2 completionHandler:(id)arg3;
 - (void)redownloadPurchaseAppWithStoreID:(id)arg1 completionHandler:(id)arg2;
 - (void)jaliscoAppsImageDataForStoreID:(id)arg1 completionHandler:(id)arg2;
 - (void)searchJaliscoAppsLibrary:(id)arg1 searchMethod:(long long)arg2 completionHandler:(id)arg3;

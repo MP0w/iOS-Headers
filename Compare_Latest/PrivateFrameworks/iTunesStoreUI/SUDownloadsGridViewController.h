@@ -8,22 +8,32 @@
 
 #import "SUDownloadsChildViewController-Protocol.h"
 
-@class NSArray, SUTableDataSource;
+@class NSArray, SUClientInterface, SUTableDataSource;
 
 @interface SUDownloadsGridViewController : SUGridViewController <SUDownloadsChildViewController>
 {
+    _Bool _isEditing;
+    SUClientInterface *_clientInterface;
 }
 
-- (void)_reloadColumnCountForOrientation:(int)arg1;
+@property(retain, nonatomic) SUClientInterface *clientInterface; // @synthesize clientInterface=_clientInterface;
+- (void)_updateEditButtons;
+- (void)_reloadColumnCountForOrientation:(long long)arg1;
 - (id)_downloadsViewController;
+- (void)_deleteAction:(id)arg1;
+- (void)_cancelAction:(id)arg1;
+- (void)_editAction:(id)arg1;
 - (id)visibleDownloadCellForDownload:(id)arg1;
 @property(retain, nonatomic) NSArray *scriptButtons;
+- (void)reloadData;
 - (void)reloadDownloadCellForDownload:(id)arg1;
-- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)gridViewEditSelectionDidChange:(id)arg1;
+- (void)willRotateToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (void)viewWillAppear:(_Bool)arg1;
 @property(retain, nonatomic) SUTableDataSource *dataSource; // @dynamic dataSource;
 - (void)loadView;
-- (BOOL)deleteCellAtIndexPath:(id)arg1;
+- (_Bool)deleteCellAtIndexPath:(id)arg1;
+- (void)dealloc;
 - (id)init;
 
 @end

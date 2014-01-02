@@ -6,19 +6,26 @@
 
 #import <UIKit/UIImage.h>
 
+// Not exported
 @interface _UIResizableImage : UIImage
 {
-    BOOL _alwaysStretches;
+    _Bool _alwaysStretches;
+    _Bool _isSubimage;
+    struct UIEdgeInsets _subimageInsets;
     struct UIEdgeInsets _capInsets;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 - (id)_resizableImageWithCapMask:(int)arg1;
-- (BOOL)_isTiledWhenStretchedToSize:(struct CGSize)arg1;
-- (void)_setAlwaysStretches:(BOOL)arg1;
-- (BOOL)_isResizable;
+- (_Bool)_isTiledWhenStretchedToSize:(struct CGSize)arg1;
+- (void)_setAlwaysStretches:(_Bool)arg1;
+- (_Bool)_isResizable;
+- (_Bool)_isSubimage;
+- (struct CGRect)_contentRectInPixels;
 - (struct CGRect)_contentStretchInPixels;
-- (int)resizingMode;
+- (struct CGRect)_contentInsetsInPixels:(struct UIEdgeInsets)arg1 emptySizeFallback:(id)arg2;
+- (long long)resizingMode;
+- (void)_setSubimageInsets:(struct UIEdgeInsets)arg1;
 - (struct UIEdgeInsets)capInsets;
 - (void)_setCapInsets:(struct UIEdgeInsets)arg1;
 - (void)encodeWithCoder:(id)arg1;

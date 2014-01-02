@@ -10,19 +10,20 @@
 {
 }
 
-+ (unsigned int)iconRowsForInterfaceOrientation:(int)arg1;
-+ (unsigned int)iconColumnsForInterfaceOrientation:(int)arg1;
-+ (float)defaultHeight;
-- (unsigned int)columnAtPoint:(struct CGPoint)arg1;
++ (unsigned long long)iconRowsForInterfaceOrientation:(long long)arg1;
++ (unsigned long long)iconColumnsForInterfaceOrientation:(long long)arg1;
++ (double)defaultHeight;
+- (unsigned long long)columnAtPoint:(struct CGPoint)arg1;
 - (struct CGPoint)originForIconAtCoordinate:(struct SBIconCoordinate)arg1;
-- (float)_additionalSideInsetToCenterIcons;
-- (unsigned int)rowAtPoint:(struct CGPoint)arg1;
-- (id)iconAtPoint:(struct CGPoint)arg1 index:(unsigned int *)arg2 proposedOrder:(int *)arg3 grabbedIcon:(id)arg4;
-- (float)topIconInset;
-- (unsigned int)iconsInRowForSpacingCalculation;
-- (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
+- (double)_additionalSideInsetToCenterIcons;
+- (unsigned long long)rowAtPoint:(struct CGPoint)arg1;
+- (id)iconAtPoint:(struct CGPoint)arg1 index:(unsigned long long *)arg2 proposedOrder:(int *)arg3 grabbedIcon:(id)arg4;
+- (double)sideIconInset;
+- (double)topIconInset;
+- (unsigned long long)iconsInRowForSpacingCalculation;
+- (_Bool)_shouldAnimatePropertyWithKey:(id)arg1;
 - (int)iconLocation;
-- (id)initWithModel:(id)arg1 orientation:(int)arg2 viewMap:(id)arg3;
+- (id)initWithModel:(id)arg1 orientation:(long long)arg2 viewMap:(id)arg3;
 
 @end
 

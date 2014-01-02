@@ -6,12 +6,17 @@
 
 #import <UIKit/UIKBRenderFactory10Key.h>
 
+// Not exported
 @interface UIKBRenderFactory10Key_Portrait : UIKBRenderFactory10Key
 {
 }
 
 - (void)setupLayoutSegments;
-- (float)controlColumnWidthFactor;
+- (double)controlColumnWidthFactor;
+- (double)interkeyGapsCenterXOfKeyplaneFrame:(struct CGRect)arg1;
+- (struct UIEdgeInsets)topEdgeAdjustmentInsets;
+- (struct CGPoint)dictationKeyTextOffset;
+- (struct CGPoint)globeKeyTextOffset;
 - (id)muttitapReverseKeyImageName;
 - (id)multitapCompleteKeyImageName;
 

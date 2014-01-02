@@ -13,22 +13,22 @@
     AVAssetReaderInternal *_priv;
 }
 
-+ (id)_errorForOSStatus:(long)arg1;
++ (id)_errorForOSStatus:(int)arg1;
 + (id)assetReaderWithAsset:(id)arg1 error:(id *)arg2;
 + (void)initialize;
 @property(readonly, nonatomic, getter=_figAssetReader) struct OpaqueFigAssetReader *figAssetReader;
 - (void)_handleServerDiedNotification;
 - (void)cancelReading;
-- (BOOL)startReading;
+- (_Bool)startReading;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)addOutput:(id)arg1;
-- (BOOL)canAddOutput:(id)arg1;
-- (BOOL)_canAddOutput:(id)arg1 exceptionReason:(id *)arg2;
+- (_Bool)canAddOutput:(id)arg1;
+- (_Bool)_canAddOutput:(id)arg1 exceptionReason:(id *)arg2;
 @property(readonly, nonatomic) NSArray *outputs;
 @property(nonatomic) CDStruct_e83c9415 timeRange;
 @property(readonly) NSError *error;
-- (void)_transitionToStatus:(int)arg1 failureError:(id)arg2;
-@property(readonly) int status;
+- (void)_transitionToStatus:(long long)arg1 failureError:(id)arg2;
+@property(readonly) long long status;
 @property(readonly, nonatomic) AVAsset *asset;
 - (id)description;
 - (void)_tearDownFigAssetReader;

@@ -7,13 +7,11 @@
 #import "NSObject.h"
 
 #import "CAMediaTiming-Protocol.h"
-#import "CAPropertyInfo-Protocol.h"
 #import "NSCoding-Protocol.h"
-#import "NSCopying-Protocol.h"
 
 @class NSArray, NSDictionary, NSString;
 
-@interface CAEmitterCell : NSObject <NSCopying, CAPropertyInfo, NSCoding, CAMediaTiming>
+@interface CAEmitterCell : NSObject <NSCoding, CAMediaTiming>
 {
     void *_attr[2];
     void *_state;
@@ -21,11 +19,10 @@
 }
 
 + (void)CAMLParserStartElement:(id)arg1;
-+ (BOOL)CA_automaticallyNotifiesObservers:(Class)arg1;
-+ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
++ (_Bool)CA_automaticallyNotifiesObservers:(Class)arg1;
++ (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 + (id)defaultValueForKey:(id)arg1;
 + (id)emitterCell;
-+ (id)properties;
 @property(copy) NSArray *emitterCells;
 @property float minificationFilterBias;
 @property(copy) NSString *minificationFilter;
@@ -41,32 +38,37 @@
 @property float redSpeed;
 @property float redRange;
 @property struct CGColor *color;
-@property float spinRange;
-@property float spin;
-@property float rotationRange;
-@property float rotation;
-@property float orientationRange;
-@property float orientationLongitude;
-@property float orientationLatitude;
-@property float scaleSpeed;
-@property float scaleRange;
-@property float scale;
-@property float zAcceleration;
-@property float yAcceleration;
-@property float xAcceleration;
-@property float velocityRange;
-@property float velocity;
-@property float emissionRange;
-@property float emissionLongitude;
-@property float emissionLatitude;
+@property double spinRange;
+@property double spin;
+- (void)setRotationRange:(double)arg1;
+- (double)rotationRange;
+- (void)setRotation:(double)arg1;
+- (double)rotation;
+- (void)setOrientationRange:(double)arg1;
+- (double)orientationRange;
+- (void)setOrientationLongitude:(double)arg1;
+- (double)orientationLongitude;
+- (void)setOrientationLatitude:(double)arg1;
+- (double)orientationLatitude;
+@property double scaleSpeed;
+@property double scaleRange;
+@property double scale;
+@property double zAcceleration;
+@property double yAcceleration;
+@property double xAcceleration;
+@property double velocityRange;
+@property double velocity;
+@property double emissionRange;
+@property double emissionLongitude;
+@property double emissionLatitude;
 @property float lifetimeRange;
 @property float lifetime;
 @property float birthRate;
 @property(copy) NSDictionary *style;
-@property(getter=isEnabled) BOOL enabled;
+@property(getter=isEnabled) _Bool enabled;
 @property(copy) NSString *name;
 @property(copy) NSString *fillMode;
-@property BOOL autoreverses;
+@property _Bool autoreverses;
 @property double repeatDuration;
 @property float repeatCount;
 @property float speed;
@@ -86,20 +88,10 @@
 - (id)valueForKey:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (BOOL)shouldArchiveValueForKey:(id)arg1;
+- (_Bool)shouldArchiveValueForKey:(id)arg1;
 - (struct Object *)CA_copyRenderValue;
 - (void)CA_prepareRenderValue;
 - (void)dealloc;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-@property float contentsFramesPerSecond;
-@property unsigned int contentsFramesPerRow;
-@property unsigned int contentsFrameCount;
-@property(copy) NSString *contentsFrameMode;
-@property float contentsScale;
-@property(copy) NSArray *emitterBehaviors;
-@property float massRange;
-@property float mass;
-@property(copy) NSString *particleType;
 
 @end
 

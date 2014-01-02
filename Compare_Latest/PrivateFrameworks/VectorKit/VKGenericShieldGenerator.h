@@ -10,6 +10,7 @@
 
 @class NSCache, VKGenericShieldDrawStyle;
 
+// Not exported
 @interface VKGenericShieldGenerator : NSObject <GEOResourceManifestTileGroupObserver>
 {
     VKGenericShieldDrawStyle *_defaultStyle;
@@ -17,7 +18,7 @@
 }
 
 + (id)sharedGenerator;
-- (id)newArtworkWithScale:(float)arg1 style:(id)arg2 size:(int)arg3 extraScale:(float)arg4 numberOfLines:(unsigned int)arg5;
+- (id)newArtworkWithScale:(double)arg1 style:(id)arg2 size:(long long)arg3 extraScale:(double)arg4 numberOfLines:(unsigned long long)arg5;
 - (void)resourceManifestManagerDidChangeActiveTileGroup:(id)arg1;
 - (void)resourceManifestManagerWillChangeActiveTileGroup:(id)arg1;
 - (void)dealloc;

@@ -14,15 +14,15 @@
 }
 
 - (void).cxx_destruct;
-- (void)_setCanUseDoubleHeightStatusBar:(BOOL)arg1;
+- (void)_setCanUseDoubleHeightStatusBar:(_Bool)arg1;
 - (void)didFinishLoadingWaveform;
 - (void)setDuration:(double)arg1;
-- (void)setPlaying:(BOOL)arg1;
+- (void)setPlaying:(_Bool)arg1;
 - (void)viewDidLayoutSubviews;
-- (void)viewDidDisappear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
-- (int)defaultControlsConfiguration;
+- (long long)defaultControlsConfiguration;
 - (void)dealloc;
 - (id)init;
 

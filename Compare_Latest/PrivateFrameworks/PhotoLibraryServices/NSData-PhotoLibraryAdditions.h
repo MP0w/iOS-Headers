@@ -9,6 +9,6 @@
 @interface NSData (PhotoLibraryAdditions)
 - (void)pl_adviceDoNotNeed;
 - (void)pl_adviceWillNeed;
-- (unsigned int)pl_advisoryLength;
+- (unsigned long long)pl_advisoryLength;
 @end
 

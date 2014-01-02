@@ -8,6 +8,7 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface VKPGenericShield : PBCodable
 {
     int _style;
@@ -16,15 +17,15 @@
 
 @property(retain, nonatomic) NSMutableArray *variants; // @synthesize variants=_variants;
 @property(nonatomic) int style; // @synthesize style=_style;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)variantAtIndex:(unsigned int)arg1;
-- (unsigned int)variantsCount;
+- (id)variantAtIndex:(unsigned long long)arg1;
+- (unsigned long long)variantsCount;
 - (void)addVariant:(id)arg1;
 - (void)clearVariants;
 - (void)dealloc;

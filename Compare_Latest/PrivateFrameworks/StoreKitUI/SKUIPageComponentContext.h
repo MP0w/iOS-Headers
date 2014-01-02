@@ -14,16 +14,21 @@
 {
     NSDictionary *_componentDictionary;
     NSDictionary *_items;
+    long long _layoutStyle;
+    double _pageGenerationTime;
     NSDictionary *_unavailableItems;
 }
 
 @property(copy, nonatomic) NSDictionary *unavailableItems; // @synthesize unavailableItems=_unavailableItems;
+@property(readonly, nonatomic) double pageGenerationTime; // @synthesize pageGenerationTime=_pageGenerationTime;
+@property(nonatomic) long long layoutStyle; // @synthesize layoutStyle=_layoutStyle;
 @property(copy, nonatomic) NSDictionary *items; // @synthesize items=_items;
 @property(copy, nonatomic) NSDictionary *componentDictionary; // @synthesize componentDictionary=_componentDictionary;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)itemForItemIdentifier:(id)arg1;
-- (BOOL)isUnavailableItemIdentifier:(id)arg1;
+- (_Bool)isUnavailableItemIdentifier:(id)arg1;
+- (id)init;
 
 @end
 

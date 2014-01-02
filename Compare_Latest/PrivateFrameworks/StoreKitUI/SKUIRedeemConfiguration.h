@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSOperationQueue, UIImage;
+@class NSOperationQueue, SKUIClientContext, UIImage;
 
 @interface SKUIRedeemConfiguration : NSObject
 {
-    int _category;
+    long long _category;
+    SKUIClientContext *_clientContext;
     UIImage *_inputImage;
     UIImage *_landingImage;
     NSOperationQueue *_operationQueue;
@@ -24,7 +25,7 @@
 - (void).cxx_destruct;
 - (void)_loadURLsWithDictionary:(id)arg1;
 - (void)loadImages;
-- (id)initWithOperationQueue:(id)arg1 category:(int)arg2;
+- (id)initWithOperationQueue:(id)arg1 category:(long long)arg2 clientContext:(id)arg3;
 
 @end
 

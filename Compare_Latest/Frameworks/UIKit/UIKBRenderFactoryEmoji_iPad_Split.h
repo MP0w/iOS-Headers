@@ -6,12 +6,17 @@
 
 #import <UIKit/UIKBRenderFactory_Emoji.h>
 
+// Not exported
 @interface UIKBRenderFactoryEmoji_iPad_Split : UIKBRenderFactory_Emoji
 {
 }
 
 - (id)_traitsForKey:(id)arg1 onKeyplane:(id)arg2;
 - (id)backgroundTraitsForKeyplane:(id)arg1;
+- (void)_customizeTraits:(id)arg1 forPopupForKey:(id)arg2 withRenderConfig:(id)arg3 keycapsFontName:(id)arg4;
+- (double)keyCornerRadius;
+- (id)thinKeycapsFontName;
+- (id)lightKeycapsFontName;
 
 @end
 

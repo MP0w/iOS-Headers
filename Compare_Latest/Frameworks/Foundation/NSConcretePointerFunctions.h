@@ -6,33 +6,34 @@
 
 #import <Foundation/NSPointerFunctions.h>
 
+// Not exported
 @interface NSConcretePointerFunctions : NSPointerFunctions
 {
     struct NSSlice slice;
 }
 
-+ (_Bool)initializeSlice:(struct NSSlice *)arg1 withOptions:(unsigned int)arg2;
-+ (void)initializeBackingStore:(struct NSSlice *)arg1 sentinel:(BOOL)arg2 compactable:(BOOL)arg3;
-- (BOOL)usesWeakReadAndWriteBarriers;
-- (BOOL)usesStrongWriteBarrier;
++ (_Bool)initializeSlice:(struct NSSlice *)arg1 withOptions:(unsigned long long)arg2;
++ (void)initializeBackingStore:(struct NSSlice *)arg1 sentinel:(_Bool)arg2 compactable:(_Bool)arg3;
+- (_Bool)usesWeakReadAndWriteBarriers;
+- (_Bool)usesStrongWriteBarrier;
 - (void *)relinquishFunction;
 - (void *)acquireFunction;
 - (void *)descriptionFunction;
 - (void *)isEqualFunction;
 - (void *)hashFunction;
 - (void *)sizeFunction;
-- (void)setUsesWeakReadAndWriteBarriers:(BOOL)arg1;
-- (void)setUsesStrongWriteBarrier:(BOOL)arg1;
+- (void)setUsesWeakReadAndWriteBarriers:(_Bool)arg1;
+- (void)setUsesStrongWriteBarrier:(_Bool)arg1;
 - (void)setRelinquishFunction:(void *)arg1;
 - (void)setAcquireFunction:(void *)arg1;
 - (void)setDescriptionFunction:(void *)arg1;
 - (void)setIsEqualFunction:(void *)arg1;
 - (void)setHashFunction:(void *)arg1;
 - (void)setSizeFunction:(void *)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithOptions:(unsigned int)arg1;
+- (id)initWithOptions:(unsigned long long)arg1;
 
 @end
 

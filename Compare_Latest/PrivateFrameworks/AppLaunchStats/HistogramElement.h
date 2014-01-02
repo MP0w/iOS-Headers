@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "NSCoding-Protocol.h"
+
 @class NSString;
 
-@interface HistogramElement : NSObject
+@interface HistogramElement : NSObject <NSCoding>
 {
     NSString *stringkey;
     double probability;
@@ -21,6 +23,8 @@
 @property(nonatomic) double probability; // @synthesize probability;
 @property(retain, nonatomic) NSString *stringkey; // @synthesize stringkey;
 - (void).cxx_destruct;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
 - (id)description;
 - (id)initWithString:(id)arg1 withCount:(unsigned long long)arg2 withQueryID:(unsigned long long)arg3;
 - (id)initWithString:(id)arg1 withProbability:(double)arg2 withQueryID:(unsigned long long)arg3;

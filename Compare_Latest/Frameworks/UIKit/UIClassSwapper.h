@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface UIClassSwapper : NSObject
 {
     NSString *className;

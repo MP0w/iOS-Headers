@@ -8,6 +8,7 @@
 
 @class NSMutableString, NSString;
 
+// Not exported
 @interface EMNumberFormatter : NSObject
 {
     struct __CFNumberFormatter *mGenericFormatter;
@@ -47,8 +48,6 @@
 - (void)dealloc;
 - (id)initWithDefaultFormatString;
 - (id)initWithExcelFormatString:(id)arg1;
-- (void)preprocessIcuString;
-- (void)convertGenericNumberFormat;
 
 @end
 

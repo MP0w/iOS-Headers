@@ -13,7 +13,7 @@
 
 @property(retain) id target; // @synthesize target=_target;
 - (void)forwardInvocation:(id)arg1;
-- (BOOL)respondsToSelector:(SEL)arg1;
+- (_Bool)respondsToSelector:(SEL)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (void)performInvocation:(id)arg1;
 - (void)dealloc;

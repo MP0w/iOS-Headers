@@ -8,6 +8,7 @@
 
 @class EDReferenceCollection, EDWorkbook;
 
+// Not exported
 @interface CHDFormula : EDFormula
 {
     EDReferenceCollection *mReferences;
@@ -18,7 +19,7 @@
 + (id)formulaWithReference:(id)arg1;
 - (_Bool)isConstantStringFormula;
 - (void)prepareTokens;
-- (unsigned int)countOfCellsBeingReferenced;
+- (unsigned long long)countOfCellsBeingReferenced;
 - (void)setReferences:(id)arg1;
 - (id)references;
 - (void)setWorkbook:(id)arg1;
@@ -26,7 +27,6 @@
 - (id)initWithReferences:(id)arg1;
 - (id)initWithReference:(id)arg1;
 - (id)initWithWorkbook:(id)arg1;
-- (id)referencesFromFormula;
 
 @end
 

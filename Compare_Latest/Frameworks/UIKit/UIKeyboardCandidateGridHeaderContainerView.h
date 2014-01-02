@@ -6,6 +6,7 @@
 
 #import <UIKit/UICollectionReusableView.h>
 
+// Not exported
 @interface UIKeyboardCandidateGridHeaderContainerView : UICollectionReusableView
 {
 }

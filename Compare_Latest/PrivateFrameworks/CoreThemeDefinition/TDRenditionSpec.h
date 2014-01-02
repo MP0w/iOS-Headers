@@ -13,7 +13,7 @@
 }
 
 @property(retain, nonatomic) TDRenditionType *renditionType; // @dynamic renditionType;
-- (id)createCSIRepresentationWithCompression:(BOOL)arg1 colorSpaceID:(unsigned int)arg2 document:(id)arg3;
+- (id)createCSIRepresentationWithCompression:(_Bool)arg1 colorSpaceID:(unsigned long long)arg2 document:(id)arg3;
 - (void)resetToBaseKeySpec;
 - (void)awakeFromInsert;
 

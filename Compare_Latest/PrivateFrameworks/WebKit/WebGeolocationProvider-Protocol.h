@@ -10,7 +10,7 @@
 - (void)stopTrackingWebView:(id)arg1;
 - (void)cancelWarmUpForWebView:(id)arg1;
 - (void)initializeGeolocationForWebView:(id)arg1 listener:(id)arg2;
-- (void)setEnableHighAccuracy:(BOOL)arg1;
+- (void)setEnableHighAccuracy:(_Bool)arg1;
 - (id)lastPosition;
 - (void)unregisterWebView:(id)arg1;
 - (void)registerWebView:(id)arg1;

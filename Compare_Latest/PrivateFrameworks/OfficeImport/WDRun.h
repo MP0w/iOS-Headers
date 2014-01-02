@@ -8,13 +8,14 @@
 
 @class WDParagraph;
 
+// Not exported
 @interface WDRun : NSObject
 {
     WDParagraph *mParagraph;
 }
 
 - (void)clearProperties;
-- (BOOL)isEmpty;
+- (_Bool)isEmpty;
 - (void)dealloc;
 - (id)initWithParagraph:(id)arg1;
 - (id)init;

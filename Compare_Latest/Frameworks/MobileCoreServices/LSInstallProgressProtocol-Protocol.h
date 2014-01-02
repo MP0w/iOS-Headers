@@ -14,7 +14,7 @@
 - (void)placeholderInstalledForApp:(id)arg1;
 - (void)installationFailedForApplication:(id)arg1 reply:(id)arg2;
 - (void)installationEndedForApplication:(id)arg1;
-- (void)createInstallProgressForApplication:(id)arg1 withPhase:(unsigned int)arg2 andPublishingString:(id)arg3;
+- (void)createInstallProgressForApplication:(id)arg1 withPhase:(unsigned long long)arg2 andPublishingString:(id)arg3;
 - (void)removeObserverWithUUID:(id)arg1;
 - (void)addObserver:(id)arg1 withUUID:(id)arg2;
 @end

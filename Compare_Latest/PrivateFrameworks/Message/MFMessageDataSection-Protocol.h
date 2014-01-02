@@ -6,8 +6,8 @@
 
 @protocol MFMessageDataSection
 - (id)data;
-- (BOOL)isComplete;
-- (BOOL)isPartial;
+- (_Bool)isComplete;
+- (_Bool)isPartial;
 - (id)partName;
 @end
 

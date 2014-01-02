@@ -6,9 +6,12 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSString;
 
-@interface GEOAttribution : PBCodable
+// Not exported
+@interface GEOAttribution : PBCodable <NSCopying>
 {
     NSString *_badge;
     NSString *_badgeChecksum;
@@ -24,19 +27,20 @@
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) NSString *logo; // @synthesize logo=_logo;
 @property(retain, nonatomic) NSString *badge; // @synthesize badge=_badge;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) BOOL hasLogoChecksum;
-@property(readonly, nonatomic) BOOL hasBadgeChecksum;
-@property(readonly, nonatomic) BOOL hasUrl;
-@property(readonly, nonatomic) BOOL hasName;
-@property(readonly, nonatomic) BOOL hasLogo;
-@property(readonly, nonatomic) BOOL hasBadge;
+@property(readonly, nonatomic) _Bool hasLogoChecksum;
+@property(readonly, nonatomic) _Bool hasBadgeChecksum;
+@property(readonly, nonatomic) _Bool hasUrl;
+@property(readonly, nonatomic) _Bool hasName;
+@property(readonly, nonatomic) _Bool hasLogo;
+@property(readonly, nonatomic) _Bool hasBadge;
 - (void)dealloc;
 
 @end

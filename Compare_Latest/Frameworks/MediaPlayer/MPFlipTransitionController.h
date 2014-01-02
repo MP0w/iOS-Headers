@@ -12,16 +12,16 @@
 {
     UIView *_fromView;
     struct CGRect _toFrame;
-    float _topMargin;
+    double _topMargin;
 }
 
-@property(nonatomic) float topMargin; // @synthesize topMargin=_topMargin;
+@property(nonatomic) double topMargin; // @synthesize topMargin=_topMargin;
 @property(nonatomic) struct CGRect toFrame; // @synthesize toFrame=_toFrame;
 @property(retain, nonatomic) UIView *fromView; // @synthesize fromView=_fromView;
 - (void).cxx_destruct;
-- (id)_subtypeForTransitionType:(unsigned int)arg1;
-- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
-- (void)performTransition:(unsigned int)arg1;
+- (id)_subtypeForTransitionType:(unsigned long long)arg1;
+- (void)animationDidStop:(id)arg1 finished:(_Bool)arg2;
+- (void)performTransition:(unsigned long long)arg1;
 - (id)init;
 
 @end

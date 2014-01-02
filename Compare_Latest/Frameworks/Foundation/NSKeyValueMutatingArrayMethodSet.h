@@ -6,6 +6,7 @@
 
 #import <Foundation/NSKeyValueMutatingCollectionMethodSet.h>
 
+// Not exported
 @interface NSKeyValueMutatingArrayMethodSet : NSKeyValueMutatingCollectionMethodSet
 {
     struct objc_method *insertObjectAtIndex;

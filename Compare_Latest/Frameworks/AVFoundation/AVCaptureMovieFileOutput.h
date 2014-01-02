@@ -13,20 +13,20 @@
     AVCaptureMovieFileOutputInternal *_internal;
 }
 
-+ (BOOL)consolidateMovieFragmentsInFile:(id)arg1 error:(id *)arg2;
-+ (BOOL)updateMovieMetadataInFile:(id)arg1 withMetadata:(id)arg2 error:(id *)arg3;
++ (_Bool)consolidateMovieFragmentsInFile:(id)arg1 error:(id *)arg2;
++ (_Bool)updateMovieMetadataInFile:(id)arg1 withMetadata:(id)arg2 error:(id *)arg3;
 + (id)recorderCommonMetadataForAVMetadataItemArray:(id)arg1;
 + (void)initialize;
 - (void)_applyOverridesToCaptureOptions:(id)arg1;
-- (long)_stopRecording;
-- (long)_startRecording:(id)arg1;
+- (int)_stopRecording;
+- (int)_startRecording:(id)arg1;
 - (void)handleNotification:(id)arg1 payload:(id)arg2;
-- (id)_avErrorUserInfoDictionaryForError:(long)arg1 wrapper:(id)arg2;
-- (void)_handleStartRecordingError:(long)arg1 info:(id)arg2;
+- (id)_avErrorUserInfoDictionaryForError:(int)arg1 wrapper:(id)arg2;
+- (void)_handleStartRecordingError:(int)arg1 info:(id)arg2;
 @property(copy, nonatomic) NSArray *metadata;
 - (id)outputSettingsForConnection:(id)arg1;
-- (BOOL)sendsLastVideoPreviewFrame;
-- (void)setSendsLastVideoPreviewFrame:(BOOL)arg1;
+- (_Bool)sendsLastVideoPreviewFrame;
+- (void)setSendsLastVideoPreviewFrame:(_Bool)arg1;
 @property(nonatomic) CDStruct_1b6d18a9 movieFragmentInterval;
 - (void)handleEnabledChangedForConnection:(id)arg1;
 - (void)didStopForSession:(id)arg1 error:(id)arg2;
@@ -35,12 +35,12 @@
 - (id)outputFileURL;
 - (void)resumeRecording;
 - (void)pauseRecording;
-- (BOOL)isRecordingPaused;
-- (BOOL)isRecording;
+- (_Bool)isRecordingPaused;
+- (_Bool)isRecording;
 - (id)connectionMediaTypes;
 - (void)dealloc;
 - (id)init;
-- (BOOL)getRecorderBoolForKey:(id)arg1 withDefault:(BOOL)arg2;
+- (_Bool)getRecorderBoolForKey:(id)arg1 withDefault:(_Bool)arg2;
 
 @end
 

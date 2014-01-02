@@ -6,6 +6,7 @@
 
 #import <CoreImage/CITileFilter.h>
 
+// Not exported
 @interface CISixfoldReflectedTile : CITileFilter
 {
 }

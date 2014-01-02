@@ -8,30 +8,29 @@
 
 #import "GQDNameMappable-Protocol.h"
 
+// Not exported
 @interface GQDBezierPath : GQDPath <GQDNameMappable>
 {
     struct CGPath *mPath;
     char *mPathStr;
-    BOOL mHasVFlip;
-    BOOL mVFlip;
-    BOOL mHasHFlip;
-    BOOL mHFlip;
+    _Bool mHasVFlip;
+    _Bool mVFlip;
+    _Bool mHasHFlip;
+    _Bool mHFlip;
 }
 
 + (struct __CFString *)createCFStringFromPath:(struct CGPath *)arg1;
 + (const struct StateSpec *)stateForReading;
-+ (struct CGPath *)createPathFromCString:(const char *)arg1;
-- (BOOL)horizontalFlip;
-- (BOOL)verticalFlip;
-- (BOOL)hasHorizontalFlip;
-- (BOOL)hasVerticalFlip;
+- (_Bool)horizontalFlip;
+- (_Bool)verticalFlip;
+- (_Bool)hasHorizontalFlip;
+- (_Bool)hasVerticalFlip;
 - (struct CGPath *)createBezierPath;
 - (char *)pathStr;
 - (struct CGPath *)path;
-- (BOOL)isRectangular;
+- (_Bool)isRectangular;
 - (void)dealloc;
 - (id)initWithPathString:(const char *)arg1;
-- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1 processor:(id)arg2;
 
 @end
 

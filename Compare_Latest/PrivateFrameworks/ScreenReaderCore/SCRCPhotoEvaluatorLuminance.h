@@ -6,6 +6,7 @@
 
 #import <ScreenReaderCore/SCRCPhotoEvaluatorMethod.h>
 
+// Not exported
 @interface SCRCPhotoEvaluatorLuminance : SCRCPhotoEvaluatorMethod
 {
 }

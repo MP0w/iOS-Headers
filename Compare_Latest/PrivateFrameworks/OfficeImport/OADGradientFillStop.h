@@ -10,14 +10,15 @@
 
 @class OADColor;
 
+// Not exported
 @interface OADGradientFillStop : NSObject <NSCopying>
 {
     OADColor *mColor;
     float mPosition;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)setStyleColor:(id)arg1;
 - (float)position;
 - (id)color;

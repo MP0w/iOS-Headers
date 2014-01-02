@@ -10,6 +10,6 @@
 - (id)cutRandomTemporaryPathWithFileName:(id)arg1;
 - (id)cutUniqueFilename:(id)arg1 atPath:(id)arg2 ofType:(id)arg3;
 - (id)cutCreateUniqueDirectoryWithName:(id)arg1 atPath:(id)arg2 ofType:(id)arg3;
-- (BOOL)_cutIsPathOnMissingVolume:(id)arg1;
+- (_Bool)_cutIsPathOnMissingVolume:(id)arg1;
 @end
 

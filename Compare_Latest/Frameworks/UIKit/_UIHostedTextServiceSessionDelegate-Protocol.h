@@ -7,6 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol _UIHostedTextServiceSessionDelegate <NSObject>
-- (void)dismissHostedTextServiceSession:(id)arg1 animated:(BOOL)arg2;
+- (void)dismissHostedTextServiceSession:(id)arg1 animated:(_Bool)arg2;
 @end
 

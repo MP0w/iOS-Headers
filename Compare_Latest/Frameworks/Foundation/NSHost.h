@@ -16,8 +16,8 @@
 }
 
 + (void)flushHostCache;
-+ (void)setHostCacheEnabled:(BOOL)arg1;
-+ (BOOL)isHostCacheEnabled;
++ (void)setHostCacheEnabled:(_Bool)arg1;
++ (_Bool)isHostCacheEnabled;
 + (id)hostWithAddress:(id)arg1;
 + (id)hostWithName:(id)arg1;
 + (id)currentHost;
@@ -29,7 +29,7 @@
 - (id)address;
 - (id)names;
 - (id)name;
-- (BOOL)isEqualToHost:(id)arg1;
+- (_Bool)isEqualToHost:(id)arg1;
 - (void)resolveCurrentHostWithHandler:(id)arg1;
 - (void)__resolveWithFlags:(int)arg1 resultArray:(id)arg2 handler:(id)arg3;
 - (void)blockingResolveUntil:(int)arg1;

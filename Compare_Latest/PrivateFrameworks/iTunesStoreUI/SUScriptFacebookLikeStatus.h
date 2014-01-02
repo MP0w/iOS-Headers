@@ -18,9 +18,9 @@
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
 @property(readonly, getter=isLikedByMe) id likedByMe;
-@property(readonly) unsigned int globalLikeCount;
+@property(readonly) unsigned long long globalLikeCount;
 @property(readonly) NSArray *friends;
-@property(readonly) unsigned int friendLikeCount;
+@property(readonly) unsigned long long friendLikeCount;
 - (id)_className;
 - (void)dealloc;
 - (id)initWithLikeStatusDictionary:(id)arg1;

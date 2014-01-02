@@ -6,12 +6,13 @@
 
 #import "UIView.h"
 
-@class RUStationTuningSlider, RadioStation, UILabel;
+@class RUStationTuningSlider, RadioStation, UIImageView, UILabel;
 
 @interface RUStationTuningView : UIView
 {
     RUStationTuningSlider *_tuningSlider;
-    UILabel *_tuningLabel;
+    double _tuningSliderMaskDrawnWidth;
+    UIImageView *_tuningSliderMaskView;
     UILabel *_tuningType1Label;
     UILabel *_tuningType2Label;
     UILabel *_tuningType3Label;

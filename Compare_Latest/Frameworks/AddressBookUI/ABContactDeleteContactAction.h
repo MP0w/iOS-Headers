@@ -12,7 +12,7 @@
 {
 }
 
-- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (void)performActionWithSender:(id)arg1;
 
 @end

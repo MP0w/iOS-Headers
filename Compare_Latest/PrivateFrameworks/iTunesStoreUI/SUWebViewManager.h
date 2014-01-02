@@ -18,7 +18,7 @@
     id <SUWebViewManagerDelegate> _delegate;
     ISURLRequestPerformance *_initialRequestPerformance;
     NSLock *_lock;
-    int _modalAlertClickedIndex;
+    long long _modalAlertClickedIndex;
     id _originalFrameLoadDelegate;
     id _originalPolicyDelegate;
     id _originalResourceLoadDelegate;
@@ -26,7 +26,7 @@
     NSMapTable *_scriptInterfaces;
     SUScriptWindowContext *_scriptWindowContext;
     NSSet *_suppressCookiesHosts;
-    int _usingNetworkCount;
+    long long _usingNetworkCount;
     struct __CFSet *_webFramesPendingInitialRequest;
     UIWebView *_webView;
 }
@@ -49,11 +49,11 @@
 - (void)_cancelUsingNetwork;
 - (void)_beginUsingNetwork;
 - (id)webView:(id)arg1 runJavaScriptTextInputPanelWithPrompt:(id)arg2 defaultText:(id)arg3 initiatedByFrame:(id)arg4;
-- (BOOL)webView:(id)arg1 runJavaScriptConfirmPanelWithMessage:(id)arg2 initiatedByFrame:(id)arg3;
+- (_Bool)webView:(id)arg1 runJavaScriptConfirmPanelWithMessage:(id)arg2 initiatedByFrame:(id)arg3;
 - (void)webView:(id)arg1 runJavaScriptAlertPanelWithMessage:(id)arg2 initiatedByFrame:(id)arg3;
-- (void)webView:(id)arg1 exceptionWasRaised:(id)arg2 sourceId:(long)arg3 line:(int)arg4 forWebFrame:(id)arg5;
-- (void)webView:(id)arg1 failedToParseSource:(id)arg2 baseLineNumber:(unsigned int)arg3 fromURL:(id)arg4 withError:(id)arg5 forWebFrame:(id)arg6;
-- (void)webView:(id)arg1 didParseSource:(id)arg2 fromURL:(id)arg3 sourceId:(long)arg4 forWebFrame:(id)arg5;
+- (void)webView:(id)arg1 exceptionWasRaised:(id)arg2 sourceId:(long long)arg3 line:(int)arg4 forWebFrame:(id)arg5;
+- (void)webView:(id)arg1 failedToParseSource:(id)arg2 baseLineNumber:(unsigned long long)arg3 fromURL:(id)arg4 withError:(id)arg5 forWebFrame:(id)arg6;
+- (void)webView:(id)arg1 didParseSource:(id)arg2 fromURL:(id)arg3 sourceId:(long long)arg4 forWebFrame:(id)arg5;
 - (void)webView:(id)arg1 resource:(id)arg2 didReceiveResponse:(id)arg3 fromDataSource:(id)arg4;
 - (void)webView:(id)arg1 didStartProvisionalLoadForFrame:(id)arg2;
 - (void)webView:(id)arg1 didReceiveTitle:(id)arg2 forFrame:(id)arg3;
@@ -68,15 +68,15 @@
 - (void)uiWebView:(id)arg1 resource:(id)arg2 didFailLoadingWithError:(id)arg3 fromDataSource:(id)arg4;
 - (id)uiWebView:(id)arg1 identifierForInitialRequest:(id)arg2 fromDataSource:(id)arg3;
 - (void)uiWebView:(id)arg1 decidePolicyForMIMEType:(id)arg2 request:(id)arg3 frame:(id)arg4 decisionListener:(id)arg5;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (void)webView:(id)arg1 documentViewDidSetFrame:(struct CGRect)arg2;
 - (id)performanceMetricsForScriptInterface:(id)arg1;
 - (id)parentViewControllerForScriptInterface:(id)arg1;
 - (id)DOMElementForScriptInterface:(id)arg1 element:(id)arg2;
-- (BOOL)respondsToSelector:(SEL)arg1;
+- (_Bool)respondsToSelector:(SEL)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (void)forwardInvocation:(id)arg1;
-- (void)dispatchEvent:(id)arg1 forName:(id)arg2 synchronously:(BOOL)arg3;
+- (void)dispatchEvent:(id)arg1 forName:(id)arg2 synchronously:(_Bool)arg3;
 - (void)dispatchEvent:(id)arg1 forName:(id)arg2;
 - (void)disconnectFromWebView;
 - (void)connectToWebView:(id)arg1;

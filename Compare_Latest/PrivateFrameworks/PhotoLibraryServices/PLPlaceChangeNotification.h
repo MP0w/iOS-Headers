@@ -18,10 +18,10 @@
 
 + (id)notificationForFromPlace:(id)arg1 toPlace:(id)arg2 changedObjects:(id)arg3 fromAlbumChangeNotification:(id)arg4;
 - (id)_changedObjects;
-- (BOOL)_getOldSet:(id *)arg1 newSet:(id *)arg2;
+- (_Bool)_getOldSet:(id *)arg1 newSet:(id *)arg2;
 - (void)dealloc;
 - (id)initWithFromPlace:(id)arg1 toPlace:(id)arg2 changedObjects:(id)arg3 fromAlbumChangeNotification:(id)arg4;
-- (BOOL)titleDidChange;
+- (_Bool)titleDidChange;
 - (struct NSObject *)album;
 - (id)object;
 - (id)init;

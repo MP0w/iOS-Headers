@@ -24,7 +24,7 @@
 - (void)_sendCompletionBlock:(id)arg1 forGetPurchasesReply:(void)arg2;
 - (id)_responseConnection;
 - (id)_requestConnection;
-- (BOOL)_resultForReply:(id)arg1 error:(id *)arg2;
+- (_Bool)_resultForReply:(id)arg1 error:(id *)arg2;
 - (void)_reconnectForDaemonLaunch;
 - (id)_newEncodedArrayWithPurchases:(id)arg1;
 - (id)_newEncodedArrayWithPurchaseIdentifiers:(id)arg1;

@@ -6,6 +6,7 @@
 
 #import <OfficeImport/WBPicture.h>
 
+// Not exported
 @interface WBOleObject : WBPicture
 {
 }

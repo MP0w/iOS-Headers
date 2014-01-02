@@ -6,24 +6,24 @@
 
 #import <TextInput/TIKeyboardCandidate.h>
 
-@class NSString, NSValue;
+@class NSNumber, NSString;
 
 @interface TIMecabraCandidate : TIKeyboardCandidate
 {
-    BOOL _emojiCandidate;
-    BOOL _extensionCandidate;
-    BOOL _isForShortcutConversion;
+    _Bool _emojiCandidate;
+    _Bool _extensionCandidate;
+    _Bool _isForShortcutConversion;
     NSString *_candidate;
     NSString *_input;
-    NSValue *_mecabraCandidatePointerValue;
+    NSNumber *_mecabraCandidatePointerValue;
 }
 
 + (int)type;
-+ (BOOL)supportsSecureCoding;
-- (BOOL)isForShortcutConversion;
-- (BOOL)isExtensionCandidate;
-- (BOOL)isEmojiCandidate;
-@property(retain, nonatomic) NSValue *mecabraCandidatePointerValue; // @synthesize mecabraCandidatePointerValue=_mecabraCandidatePointerValue;
++ (_Bool)supportsSecureCoding;
+- (_Bool)isForShortcutConversion;
+- (_Bool)isExtensionCandidate;
+- (_Bool)isEmojiCandidate;
+@property(retain, nonatomic) NSNumber *mecabraCandidatePointerValue; // @synthesize mecabraCandidatePointerValue=_mecabraCandidatePointerValue;
 - (id)input;
 - (id)candidate;
 - (void)encodeWithCandidateResultSetCoder:(id)arg1;
@@ -32,7 +32,7 @@
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
-- (id)initWithCandidate:(id)arg1 forInput:(id)arg2 mecabraCandidatePointerValue:(id)arg3 isExtension:(BOOL)arg4 isEmoji:(BOOL)arg5 isShortcut:(BOOL)arg6;
+- (id)initWithCandidate:(id)arg1 forInput:(id)arg2 mecabraCandidatePointerValue:(id)arg3 isExtension:(_Bool)arg4 isEmoji:(_Bool)arg5 isShortcut:(_Bool)arg6;
 - (id)initWithSurface:(id)arg1 input:(id)arg2 mecabraCandidatePointerValue:(id)arg3;
 
 @end

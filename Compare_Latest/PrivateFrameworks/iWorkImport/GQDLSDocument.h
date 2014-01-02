@@ -8,11 +8,10 @@
 
 @class GQDSStylesheet;
 
+// Not exported
 @interface GQDLSDocument : GQDRoot
 {
     GQDSStylesheet *mStylesheet;
-    BOOL mIsOldAssetNameMapInitialized;
-    struct __CFDictionary *mOldAssetNameMap;
 }
 
 + (struct _xmlNs *)appNamespace;
@@ -21,7 +20,6 @@
 - (void)setStylesheet:(id)arg1;
 - (id)stylesheet;
 - (void)dealloc;
-- (struct __CFString *)createUpgradedAppBundleResourcePath:(struct __CFString *)arg1;
 
 @end
 

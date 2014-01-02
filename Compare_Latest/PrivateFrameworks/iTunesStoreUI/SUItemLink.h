@@ -12,16 +12,16 @@
 
 @interface SUItemLink : NSObject <NSCopying>
 {
-    int _linkTarget;
-    int _linkType;
+    long long _linkTarget;
+    long long _linkType;
     NSString *_title;
     NSURL *_url;
 }
 
 @property(retain, nonatomic) NSURL *URL; // @synthesize URL=_url;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
-@property(nonatomic) int linkType; // @synthesize linkType=_linkType;
-@property(nonatomic) int linkTarget; // @synthesize linkTarget=_linkTarget;
+@property(nonatomic) long long linkType; // @synthesize linkType=_linkType;
+@property(nonatomic) long long linkTarget; // @synthesize linkTarget=_linkTarget;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 

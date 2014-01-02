@@ -10,6 +10,7 @@
 
 @class NSMutableArray, _UIViewControllerTransitionContext;
 
+// Not exported
 @interface _UIViewControllerTransitionCoordinator : NSObject <UIViewControllerTransitionCoordinator>
 {
     _UIViewControllerTransitionContext *__mainContext;
@@ -26,24 +27,24 @@
 @property(nonatomic, setter=_setMainContext:) _UIViewControllerTransitionContext *_mainContext; // @synthesize _mainContext=__mainContext;
 - (void)handlerToInvokeOnInteractivityChanges:(id)arg1;
 - (void)notifyWhenInteractionEndsUsingBlock:(id)arg1;
-- (BOOL)animateAlongsideTransition:(id)arg1 completion:(void)arg2;
-- (BOOL)animateAlongsideTransitionInView:(id)arg1 animation:(id)arg2 completion:(void)arg3;
+- (_Bool)animateAlongsideTransition:(id)arg1 completion:(void)arg2;
+- (_Bool)animateAlongsideTransitionInView:(id)arg1 animation:(id)arg2 completion:(void)arg3;
 - (void)_applyBlocks:(id)arg1 releaseBlocks:(id)arg2;
-- (id)_alongsideCompletions:(BOOL)arg1;
-- (id)_alongsideAnimations:(BOOL)arg1;
-- (id)_interactiveChangeHandlers:(BOOL)arg1;
+- (id)_alongsideCompletions:(_Bool)arg1;
+- (id)_alongsideAnimations:(_Bool)arg1;
+- (id)_interactiveChangeHandlers:(_Bool)arg1;
 - (id)containerView;
 - (id)viewControllerForKey:(id)arg1;
 - (double)transitionDuration;
-- (int)completionCurve;
-- (float)completionVelocity;
-- (float)percentComplete;
-- (BOOL)isCompleting;
-- (BOOL)isCancelled;
-- (BOOL)isInteractive;
-- (BOOL)initiallyInteractive;
-- (int)presentationStyle;
-- (BOOL)isAnimated;
+- (long long)completionCurve;
+- (double)completionVelocity;
+- (double)percentComplete;
+- (_Bool)isCompleting;
+- (_Bool)isCancelled;
+- (_Bool)isInteractive;
+- (_Bool)initiallyInteractive;
+- (long long)presentationStyle;
+- (_Bool)isAnimated;
 - (void)dealloc;
 - (id)initWithMainContext:(id)arg1;
 

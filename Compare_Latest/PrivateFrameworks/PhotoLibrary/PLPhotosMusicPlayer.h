@@ -10,9 +10,9 @@
 {
 }
 
-+ (void)setShouldRepeatMusic:(BOOL)arg1;
++ (void)setShouldRepeatMusic:(_Bool)arg1;
 + (void)continueMusic;
-+ (void)pauseMusic:(BOOL)arg1;
++ (void)pauseMusic:(_Bool)arg1;
 + (void)stopMusic;
 + (void)startMusicForAlbum:(struct NSObject *)arg1;
 + (void)startMusicWithSettings:(id)arg1;

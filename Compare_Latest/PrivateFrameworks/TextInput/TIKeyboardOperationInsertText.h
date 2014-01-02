@@ -14,7 +14,7 @@
 }
 
 + (id)operationWithTextInsertion:(id)arg1;
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) NSString *textInsertion; // @synthesize textInsertion=_textInsertion;
 - (id)propertiesForDescription;
 - (void)encodeWithCoder:(id)arg1;

@@ -20,16 +20,16 @@
 - (void)addCompletionBlock:(id)arg1;
 - (void)removePulseColor;
 - (void)animatePulseColor:(id)arg1;
-- (void)animateToPosition:(struct CGPoint)arg1 transform:(struct CATransform3D)arg2 opacity:(float)arg3 type:(int)arg4;
+- (void)animateToPosition:(struct CGPoint)arg1 transform:(struct CATransform3D)arg2 opacity:(double)arg3 type:(long long)arg4;
 - (void)animateConceal;
 - (void)animateReveal;
-- (void)animateBounce:(BOOL)arg1;
+- (void)animateBounce:(_Bool)arg1;
 - (void)positionForFrame:(struct CGRect)arg1;
 - (void)positionForCodeBoxPoints:(id)arg1;
 - (void)layoutSublayers;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;
-- (id)initWithCodeFrameRatio:(float)arg1;
+- (id)initWithCodeFrameRatio:(double)arg1;
 - (id)init;
 
 @end

@@ -16,7 +16,7 @@
     NSMutableArray *_argumentArray;
     NSString *_appName;
     SCRCArgumentSubcommand *_subcommand;
-    BOOL _isLaunchedAtLogin;
+    _Bool _isLaunchedAtLogin;
 }
 
 + (id)commandPath;
@@ -27,11 +27,11 @@
 - (id)_displayVersion:(id)arg1;
 - (void)stop;
 - (int)run;
-- (BOOL)parse;
+- (_Bool)parse;
 - (void)addSubcommand:(id)arg1;
 - (id)appName;
 - (void)setAppName:(id)arg1;
-- (BOOL)isLaunchedAtLogin;
+- (_Bool)isLaunchedAtLogin;
 - (int)argc;
 - (char **)argv;
 - (void)dealloc;

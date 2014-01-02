@@ -8,13 +8,14 @@
 
 @class NSString;
 
+// Not exported
 @interface WMSymbolMapper : CMMapper
 {
     unsigned short mCharacter;
     NSString *mFontName;
 }
 
-+ (BOOL)isSymbolFontName:(id)arg1;
++ (_Bool)isSymbolFontName:(id)arg1;
 + (unsigned short)mapCharacter:(unsigned short)arg1 withFontName:(id)arg2;
 + (unsigned short)mapZapfDingbatsCharacter:(unsigned short)arg1;
 + (unsigned short)mapWindingsCharacter:(unsigned short)arg1;

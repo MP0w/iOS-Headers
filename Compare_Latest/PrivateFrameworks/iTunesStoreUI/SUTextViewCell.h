@@ -19,20 +19,20 @@
 
 @property(readonly, nonatomic) SUTextContentView *textContentView; // @synthesize textContentView=_textContentView;
 @property(nonatomic) id <SUTextViewCellDelegate> delegate; // @synthesize delegate=_delegate;
-- (BOOL)textContentViewShouldEndEditing:(id)arg1;
-- (BOOL)textContentViewShouldBeginEditing:(id)arg1;
+- (_Bool)textContentViewShouldEndEditing:(id)arg1;
+- (_Bool)textContentViewShouldBeginEditing:(id)arg1;
 - (void)textContentViewDidChange:(id)arg1;
-- (BOOL)textContentView:(id)arg1 shouldScrollForPendingContentSize:(struct CGSize)arg2;
-- (BOOL)textContentView:(id)arg1 shouldChangeSizeForContentSize:(struct CGSize)arg2;
+- (_Bool)textContentView:(id)arg1 shouldScrollForPendingContentSize:(struct CGSize)arg2;
+- (_Bool)textContentView:(id)arg1 shouldChangeSizeForContentSize:(struct CGSize)arg2;
 - (void)textContentView:(id)arg1 didChangeSize:(struct CGSize)arg2;
-- (void)setSelected:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)setHighlighted:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)setSelected:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)setHighlighted:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)setBackgroundColor:(id)arg1;
-- (BOOL)resignFirstResponder;
+- (_Bool)resignFirstResponder;
 - (void)layoutSubviews;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

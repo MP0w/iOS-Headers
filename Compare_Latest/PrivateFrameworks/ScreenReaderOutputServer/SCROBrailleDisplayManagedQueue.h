@@ -14,7 +14,7 @@
     struct __CFDictionary *_queueStateDict;
     struct __CFDictionary *_displayQueueDict;
     SCRCIndexMap *_tokenDisplayMap;
-    unsigned int _maxActiveQueueSize;
+    unsigned long long _maxActiveQueueSize;
 }
 
 - (id)loadingDisplays;
@@ -22,18 +22,18 @@
 - (id)sleepingDisplays;
 - (id)activePendingDisplays;
 - (id)activeDisplays;
-- (void)setActiveQueueMaximumSize:(unsigned int)arg1;
-- (unsigned int)activeQueueMaximumSize;
+- (void)setActiveQueueMaximumSize:(unsigned long long)arg1;
+- (unsigned long long)activeQueueMaximumSize;
 - (void)setPrimaryDisplay:(id)arg1;
 - (id)primaryDisplay;
-- (unsigned int)displayCountIncludingDisconnectedDisplays:(BOOL)arg1;
-- (id)displayForToken:(long)arg1;
+- (unsigned long long)displayCountIncludingDisconnectedDisplays:(_Bool)arg1;
+- (id)displayForToken:(int)arg1;
 - (int)stateForDisplay:(id)arg1;
 - (void)setState:(int)arg1 forDisplay:(id)arg2;
 - (void)_fillActiveBrailleDisplayQueue;
 - (void)removeDisplay:(id)arg1;
 - (void)addDisplay:(id)arg1 withState:(int)arg2;
-- (id)_queueForState:(int)arg1 createQueue:(BOOL)arg2;
+- (id)_queueForState:(int)arg1 createQueue:(_Bool)arg2;
 - (void)dealloc;
 - (id)init;
 

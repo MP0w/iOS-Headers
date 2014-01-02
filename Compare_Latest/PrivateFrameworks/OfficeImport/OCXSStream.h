@@ -8,13 +8,14 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface OCXSStream : NSObject
 {
     NSMutableArray *mLevelStack;
 }
 
-- (BOOL)hasLevels;
-- (BOOL)popLevel;
+- (_Bool)hasLevels;
+- (_Bool)popLevel;
 - (void)pushLevel:(int)arg1 name:(const char *)arg2;
 - (int)currentContextChildDepth;
 - (int)currentContextDepth;

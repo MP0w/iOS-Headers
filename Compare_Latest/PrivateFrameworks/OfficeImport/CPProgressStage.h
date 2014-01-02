@@ -8,6 +8,7 @@
 
 @class CPProgressContext, NSString;
 
+// Not exported
 @interface CPProgressStage : NSObject
 {
     double m_currentPosition;

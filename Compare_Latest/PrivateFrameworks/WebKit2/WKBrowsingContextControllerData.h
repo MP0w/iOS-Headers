@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface WKBrowsingContextControllerData : NSObject
 {
     struct WKRetainPtr<const OpaqueWKPage *> _pageRef;

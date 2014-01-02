@@ -6,6 +6,7 @@
 
 #import <OfficeImport/CMDiagramPointMapper.h>
 
+// Not exported
 @interface CMDiagramPointRoundedRectMapper : CMDiagramPointMapper
 {
 }

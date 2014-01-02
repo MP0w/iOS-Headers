@@ -8,10 +8,11 @@
 
 @class NSString, NSURL;
 
+// Not exported
 @interface _GEORegionalResourceDownload : NSObject
 {
     NSString *_name;
-    int _type;
+    long long _type;
     NSURL *_url;
     NSString *_destinationPath;
     NSString *_expectedChecksum;
@@ -20,7 +21,7 @@
 @property(copy, nonatomic) NSString *expectedChecksum; // @synthesize expectedChecksum=_expectedChecksum;
 @property(copy, nonatomic) NSString *destinationPath; // @synthesize destinationPath=_destinationPath;
 @property(copy, nonatomic) NSURL *url; // @synthesize url=_url;
-@property(nonatomic) int type; // @synthesize type=_type;
+@property(nonatomic) long long type; // @synthesize type=_type;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 - (void)dealloc;
 

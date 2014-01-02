@@ -8,6 +8,7 @@
 
 @class NSDictionary;
 
+// Not exported
 @interface _UIDictationAttachment : NSTextAttachment
 {
     NSDictionary *_typingAttributesBeforeInsertion;
@@ -16,6 +17,7 @@
 
 @property(copy, nonatomic) NSDictionary *typingAttributesBeforeInsertion; // @synthesize typingAttributesBeforeInsertion=_typingAttributesBeforeInsertion;
 @property(nonatomic) struct _NSRange attachmentRange; // @synthesize attachmentRange=_attachmentRange;
+- (void)dealloc;
 
 @end
 

@@ -8,6 +8,7 @@
 
 @class NSString;
 
+// Not exported
 @interface PDAnimationSoundTarget : PDAnimationShapeTarget
 {
     NSString *mSoundFile;

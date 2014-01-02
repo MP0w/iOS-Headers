@@ -11,36 +11,36 @@
 
 @interface NSPredicateOperator : NSObject <NSSecureCoding, NSCopying>
 {
-    unsigned int _operatorType;
-    unsigned int _modifier;
+    unsigned long long _operatorType;
+    unsigned long long _modifier;
 }
 
-+ (BOOL)supportsSecureCoding;
-+ (id)operatorWithCustomSelector:(SEL)arg1 modifier:(unsigned int)arg2;
-+ (id)_newOperatorWithType:(unsigned int)arg1 modifier:(unsigned int)arg2 options:(unsigned int)arg3;
-+ (id)operatorWithType:(unsigned int)arg1 modifier:(unsigned int)arg2 options:(unsigned int)arg3;
-+ (SEL)_getSelectorForType:(unsigned int)arg1;
-+ (id)_getSymbolForType:(unsigned int)arg1;
-- (void)_setModifier:(unsigned int)arg1;
-- (unsigned int)options;
-- (void)_setOptions:(unsigned int)arg1;
-- (void)acceptVisitor:(id)arg1 flags:(unsigned int)arg2;
-- (BOOL)performOperationUsingObject:(id)arg1 andObject:(id)arg2;
-- (BOOL)performPrimitiveOperationUsingObject:(id)arg1 andObject:(id)arg2;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)modifier;
++ (_Bool)supportsSecureCoding;
++ (id)operatorWithCustomSelector:(SEL)arg1 modifier:(unsigned long long)arg2;
++ (id)_newOperatorWithType:(unsigned long long)arg1 modifier:(unsigned long long)arg2 options:(unsigned long long)arg3;
++ (id)operatorWithType:(unsigned long long)arg1 modifier:(unsigned long long)arg2 options:(unsigned long long)arg3;
++ (SEL)_getSelectorForType:(unsigned long long)arg1;
++ (id)_getSymbolForType:(unsigned long long)arg1;
+- (void)_setModifier:(unsigned long long)arg1;
+- (unsigned long long)options;
+- (void)_setOptions:(unsigned long long)arg1;
+- (void)acceptVisitor:(id)arg1 flags:(unsigned long long)arg2;
+- (_Bool)performOperationUsingObject:(id)arg1 andObject:(id)arg2;
+- (_Bool)performPrimitiveOperationUsingObject:(id)arg1 andObject:(id)arg2;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)modifier;
 - (id)symbol;
-- (unsigned int)operatorType;
+- (unsigned long long)operatorType;
 - (SEL)selector;
 - (id)description;
 - (id)predicateFormat;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (id)initWithOperatorType:(unsigned int)arg1 modifier:(unsigned int)arg2 options:(unsigned int)arg3;
-- (id)initWithOperatorType:(unsigned int)arg1 modifier:(unsigned int)arg2;
-- (id)initWithOperatorType:(unsigned int)arg1;
+- (id)initWithOperatorType:(unsigned long long)arg1 modifier:(unsigned long long)arg2 options:(unsigned long long)arg3;
+- (id)initWithOperatorType:(unsigned long long)arg1 modifier:(unsigned long long)arg2;
+- (id)initWithOperatorType:(unsigned long long)arg1;
 
 @end
 

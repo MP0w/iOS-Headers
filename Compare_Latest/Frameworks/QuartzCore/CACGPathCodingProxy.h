@@ -6,6 +6,7 @@
 
 #import <QuartzCore/CACodingProxy.h>
 
+// Not exported
 @interface CACGPathCodingProxy : CACodingProxy
 {
     struct CGPath *_path;

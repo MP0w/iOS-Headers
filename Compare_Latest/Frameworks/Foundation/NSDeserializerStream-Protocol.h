@@ -5,9 +5,9 @@
  */
 
 @protocol NSDeserializerStream
-- (id)initFromMemoryNoCopy:(const void *)arg1 length:(unsigned int)arg2 freeWhenDone:(BOOL)arg3;
-- (void)readData:(void *)arg1 length:(unsigned int)arg2;
-- (unsigned int)readAlignedDataSize;
+- (id)initFromMemoryNoCopy:(const void *)arg1 length:(unsigned long long)arg2 freeWhenDone:(_Bool)arg3;
+- (void)readData:(void *)arg1 length:(unsigned long long)arg2;
+- (unsigned long long)readAlignedDataSize;
 - (int)readInt;
 @end
 

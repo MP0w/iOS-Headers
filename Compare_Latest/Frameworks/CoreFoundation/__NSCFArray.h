@@ -6,31 +6,32 @@
 
 #import <CoreFoundation/NSMutableArray.h>
 
+// Not exported
 @interface __NSCFArray : NSMutableArray
 {
 }
 
-+ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
++ (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 - (void)getObjects:(id *)arg1 range:(struct _NSRange)arg2;
-- (void)removeObjectAtIndex:(unsigned int)arg1;
-- (void)replaceObjectAtIndex:(unsigned int)arg1 withObject:(id)arg2;
-- (void)insertObject:(id)arg1 atIndex:(unsigned int)arg2;
+- (void)removeObjectAtIndex:(unsigned long long)arg1;
+- (void)replaceObjectAtIndex:(unsigned long long)arg1 withObject:(id)arg2;
+- (void)insertObject:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)removeLastObject;
 - (void)addObject:(id)arg1;
-- (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
-- (id)objectAtIndex:(unsigned int)arg1;
-- (unsigned int)count;
+- (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
+- (id)objectAtIndex:(unsigned long long)arg1;
+- (unsigned long long)count;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (Class)classForCoder;
 - (void)finalize;
-- (unsigned int)retainCount;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
+- (unsigned long long)retainCount;
+- (_Bool)_isDeallocating;
+- (_Bool)_tryRetain;
 - (oneway void)release;
 - (id)retain;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 
 @end
 

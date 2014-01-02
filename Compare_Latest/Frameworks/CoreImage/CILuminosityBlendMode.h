@@ -6,6 +6,7 @@
 
 #import <CoreImage/CIBlendModeFilter.h>
 
+// Not exported
 @interface CILuminosityBlendMode : CIBlendModeFilter
 {
 }

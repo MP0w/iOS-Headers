@@ -15,7 +15,7 @@
     NSString *_username;
     NSString *_password;
     NSString *_emailAddress;
-    BOOL _useSSL;
+    _Bool _useSSL;
     NSNumber *_mailNumberOfPastDaysToSync;
     NSData *_embeddedCertificate;
     NSString *_embeddedCertificateName;
@@ -23,15 +23,13 @@
     NSString *_certificateUUID;
     NSString *_accountPersistentUUID;
     NSData *_certificatePersistentID;
-    BOOL _syncDefaultFoldersOnly;
-    NSString *_headerMagic;
+    _Bool _syncDefaultFoldersOnly;
 }
 
 + (id)localizedPluralForm;
 + (id)localizedSingularForm;
 + (id)typeStrings;
-@property(retain, nonatomic) NSString *headerMagic; // @synthesize headerMagic=_headerMagic;
-@property(nonatomic) BOOL syncDefaultFoldersOnly; // @synthesize syncDefaultFoldersOnly=_syncDefaultFoldersOnly;
+@property(nonatomic) _Bool syncDefaultFoldersOnly; // @synthesize syncDefaultFoldersOnly=_syncDefaultFoldersOnly;
 @property(retain, nonatomic) NSData *certificatePersistentID; // @synthesize certificatePersistentID=_certificatePersistentID;
 @property(copy, nonatomic) NSString *accountPersistentUUID; // @synthesize accountPersistentUUID=_accountPersistentUUID;
 @property(readonly, nonatomic) NSString *certificateUUID; // @synthesize certificateUUID=_certificateUUID;
@@ -39,7 +37,7 @@
 @property(readonly, nonatomic) NSString *embeddedCertificateName; // @synthesize embeddedCertificateName=_embeddedCertificateName;
 @property(readonly, nonatomic) NSData *embeddedCertificate; // @synthesize embeddedCertificate=_embeddedCertificate;
 @property(readonly, nonatomic) NSNumber *mailNumberOfPastDaysToSync; // @synthesize mailNumberOfPastDaysToSync=_mailNumberOfPastDaysToSync;
-@property(readonly, nonatomic) BOOL useSSL; // @synthesize useSSL=_useSSL;
+@property(readonly, nonatomic) _Bool useSSL; // @synthesize useSSL=_useSSL;
 @property(copy, nonatomic) NSString *emailAddress; // @synthesize emailAddress=_emailAddress;
 @property(copy, nonatomic) NSString *password; // @synthesize password=_password;
 @property(copy, nonatomic) NSString *username; // @synthesize username=_username;
@@ -53,7 +51,7 @@
 - (id)title;
 - (id)stubDictionary;
 - (id)description;
-@property(readonly, nonatomic) BOOL hasCertificate;
+@property(readonly, nonatomic) _Bool hasCertificate;
 - (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
 
 @end

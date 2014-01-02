@@ -8,6 +8,6 @@
 
 @protocol SKUISearchRelatedViewDelegate <NSObject>
 - (void)searchRelatedViewDidSelectBackButton:(id)arg1;
-- (void)searchRelatedView:(id)arg1 didSelectRelatedQueryAtIndex:(int)arg2;
+- (void)searchRelatedView:(id)arg1 didSelectRelatedQueryAtIndex:(long long)arg2;
 @end
 

@@ -8,18 +8,18 @@
 
 @interface TRDirectionalButtonPacketEvent : TRPacketEvent
 {
-    int _buttonType;
-    int _gestureState;
-    int _gestureType;
+    long long _buttonType;
+    long long _gestureState;
+    long long _gestureType;
 }
 
 + (unsigned int)_packetEventType;
-@property(readonly, nonatomic) int gestureType; // @synthesize gestureType=_gestureType;
-@property(readonly, nonatomic) int gestureState; // @synthesize gestureState=_gestureState;
-@property(readonly, nonatomic) int buttonType; // @synthesize buttonType=_buttonType;
+@property(readonly, nonatomic) long long gestureType; // @synthesize gestureType=_gestureType;
+@property(readonly, nonatomic) long long gestureState; // @synthesize gestureState=_gestureState;
+@property(readonly, nonatomic) long long buttonType; // @synthesize buttonType=_buttonType;
 - (id)_initWithVersion:(unsigned int)arg1 payloadDictionary:(id)arg2;
 - (id)description;
-- (id)initWithButtonType:(int)arg1 gestureType:(int)arg2 gestureState:(int)arg3;
+- (id)initWithButtonType:(long long)arg1 gestureType:(long long)arg2 gestureState:(long long)arg3;
 
 @end
 

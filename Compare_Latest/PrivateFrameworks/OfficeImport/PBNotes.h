@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface PBNotes : NSObject
 {
 }
 
-+ (void)writeNotes:(id)arg1 targetNotesSlideId:(unsigned long)arg2 presentationState:(id)arg3;
++ (void)writeNotes:(id)arg1 targetNotesSlideId:(unsigned int)arg2 presentationState:(id)arg3;
 + (void)writeNotesMaster:(id)arg1 presentationState:(id)arg2;
 
 @end

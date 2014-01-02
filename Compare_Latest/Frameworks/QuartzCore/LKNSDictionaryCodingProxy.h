@@ -8,6 +8,7 @@
 
 @class NSDictionary;
 
+// Not exported
 @interface LKNSDictionaryCodingProxy : CACodingProxy
 {
     NSDictionary *_dict;

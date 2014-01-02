@@ -6,6 +6,7 @@
 
 #import <OfficeImport/MFPEffect.h>
 
+// Not exported
 @interface MFPColorLUTEffect : MFPEffect
 {
     unsigned char mLutA[256];

@@ -13,7 +13,7 @@
     MPDocument *mDocument;
     NSObject<MRMarimbaPlayback> *mRenderer;
     NSOperationQueue *mDetectionQueue;
-    BOOL mIsCancelled;
+    _Bool mIsCancelled;
     NSMutableSet *mPathsInQueue;
     NSLock *mPathQueueLock;
     NSMutableSet *mPlayingSlides;
@@ -22,7 +22,7 @@
     NSTimer *mCheckTimer;
 }
 
-@property(nonatomic) BOOL isCancelled; // @synthesize isCancelled=mIsCancelled;
+@property(nonatomic) _Bool isCancelled; // @synthesize isCancelled=mIsCancelled;
 @property(retain, nonatomic) NSObject<MRMarimbaPlayback> *renderer; // @synthesize renderer=mRenderer;
 @property(retain, nonatomic) MPDocument *document; // @synthesize document=mDocument;
 - (void)stop;
@@ -30,11 +30,11 @@
 - (void)_checkPlayingSlides;
 - (void)_setupTimer;
 - (void)detectFaces:(id)arg1;
-- (BOOL)suspended;
+- (_Bool)suspended;
 - (void)resume;
 - (void)suspend;
 - (void)_start;
-- (BOOL)_pathIsInQueue:(id)arg1;
+- (_Bool)_pathIsInQueue:(id)arg1;
 - (void)_removePathToQueue:(id)arg1;
 - (void)_addPathToQueue:(id)arg1;
 - (void)start;

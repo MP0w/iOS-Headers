@@ -17,8 +17,8 @@
 - (void)_prepareAnimation;
 - (void)animateZoomWithCompletion:(id)arg1;
 - (void)animateFakeStatusBarWithParameters:(id)arg1;
-- (BOOL)_shouldTakeActivationAssertionForDeactivatingApp;
-- (BOOL)_shouldUpdateStatusBarOnContentRestore;
+- (_Bool)_shouldTakeActivationAssertionForDeactivatingApp;
+- (_Bool)_shouldUpdateStatusBarOnContentRestore;
 - (void)dealloc;
 - (id)initWithLockScreenViewController:(id)arg1;
 

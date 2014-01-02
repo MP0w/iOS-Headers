@@ -7,6 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol OADColorPalette <NSObject>
-- (id)colorWithIndex:(unsigned int)arg1;
+- (id)colorWithIndex:(unsigned long long)arg1;
 @end
 

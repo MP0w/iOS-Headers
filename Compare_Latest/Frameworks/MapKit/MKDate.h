@@ -23,7 +23,7 @@
 - (double)timeIntervalSinceReferenceDate;
 - (id)initWithTimeIntervalSinceReferenceDate:(double)arg1;
 - (id)initWithNSDate:(id)arg1;
-- (int)dayOfCommonEra;
+- (long long)dayOfCommonEra;
 
 @end
 

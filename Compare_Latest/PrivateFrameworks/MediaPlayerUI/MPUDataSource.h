@@ -12,39 +12,46 @@
 
 @interface MPUDataSource : NSObject <NSCoding>
 {
-    int _entityType;
+    long long _entityType;
 }
 
-@property(readonly, nonatomic) int entityType; // @synthesize entityType=_entityType;
-@property(readonly, nonatomic) BOOL usesSections;
+@property(readonly, nonatomic) long long entityType; // @synthesize entityType=_entityType;
+@property(readonly, nonatomic) _Bool usesSections;
 @property(readonly, nonatomic) NSString *titleForGlobalHeader;
-@property(readonly, nonatomic) BOOL showsIndexBar;
-@property(readonly, nonatomic) BOOL showsEntityCountFooter;
-- (struct _NSRange)rangeOfSectionAtIndex:(unsigned int)arg1;
-- (id)playbackContextForIndex:(unsigned int)arg1;
-@property(readonly, nonatomic) unsigned int numberOfSections;
-- (id)localizedSectionTitleAtIndex:(unsigned int)arg1;
+@property(readonly, nonatomic) _Bool showsIndexBar;
+@property(readonly, nonatomic) _Bool showsEntityCountFooter;
+- (id)sectionEntities;
+- (unsigned long long)indexOfSectionEntity:(id)arg1;
+- (id)sectionEntityAtIndex:(unsigned long long)arg1;
+- (struct _NSRange)rangeOfSectionAtIndex:(unsigned long long)arg1;
+- (id)playbackContextForIndex:(unsigned long long)arg1;
+@property(readonly, nonatomic) unsigned long long numberOfSections;
+- (id)localizedSectionTitleAtIndex:(unsigned long long)arg1;
 @property(readonly, nonatomic) NSArray *localizedSectionIndexTitles;
 - (void)invalidateWithInsertedObjects:(id)arg1 updatedObjects:(id)arg2 deletedObjects:(id)arg3;
+- (void)invalidateCalculatedEntities;
 - (void)invalidate;
-@property(readonly, nonatomic) BOOL isEmpty;
-- (unsigned int)indexOfSectionForSectionTitleAtIndex:(unsigned int)arg1;
-- (unsigned int)indexOfEntity:(id)arg1;
-- (BOOL)entityIsNowPlayingAtIndex:(unsigned int)arg1;
+- (void)endIgnoringInvalidation;
+- (void)beginIgnoringInvalidation;
+- (_Bool)isIgnoringInvalidation;
+@property(readonly, nonatomic) _Bool isEmpty;
+- (unsigned long long)indexOfSectionForSectionTitleAtIndex:(unsigned long long)arg1;
+- (unsigned long long)indexOfEntity:(id)arg1;
+- (_Bool)entityIsNowPlayingAtIndex:(unsigned long long)arg1;
 @property(readonly, nonatomic) NSString *entityCountFormat;
-- (id)entityAtIndex:(unsigned int)arg1;
+- (id)entityAtIndex:(unsigned long long)arg1;
 - (id)entities;
-- (int)editingTypeForEntityAtIndex:(unsigned int)arg1;
-- (BOOL)canEditEntityAtIndex:(unsigned int)arg1;
-- (void)deleteEntityAtIndex:(unsigned int)arg1;
-- (id)dataSourceFromEntityAtIndex:(unsigned int)arg1 entityType:(int)arg2;
-- (id)dataSourceFromEntityAtIndex:(unsigned int)arg1;
-@property(readonly, nonatomic) unsigned int count;
-- (BOOL)canSelectEntityAtIndex:(unsigned int)arg1;
+- (long long)editingTypeForEntityAtIndex:(unsigned long long)arg1;
+- (_Bool)canEditEntityAtIndex:(unsigned long long)arg1;
+- (void)deleteEntityAtIndex:(unsigned long long)arg1;
+- (id)dataSourceFromEntityAtIndex:(unsigned long long)arg1 entityType:(long long)arg2;
+- (id)dataSourceFromEntityAtIndex:(unsigned long long)arg1;
+@property(readonly, nonatomic) unsigned long long count;
+- (_Bool)canSelectEntityAtIndex:(unsigned long long)arg1;
 - (id)anyEntity;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithEntityType:(int)arg1;
+- (id)initWithEntityType:(long long)arg1;
 
 @end
 

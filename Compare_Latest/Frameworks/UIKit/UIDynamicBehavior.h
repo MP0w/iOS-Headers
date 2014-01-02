@@ -14,11 +14,12 @@
     NSMutableArray *_items;
     NSMutableArray *_behaviors;
     NSMutableArray *_addedBehaviors;
-    BOOL __isPrimitiveBehavior;
+    _Bool __isPrimitiveBehavior;
     id _action;
 }
 
-@property(nonatomic, setter=_isPrimitiveBehavior:) BOOL _isPrimitiveBehavior; // @synthesize _isPrimitiveBehavior=__isPrimitiveBehavior;
++ (void)initialize;
+@property(nonatomic, setter=_isPrimitiveBehavior:) _Bool _isPrimitiveBehavior; // @synthesize _isPrimitiveBehavior=__isPrimitiveBehavior;
 @property(copy, nonatomic) id action; // @synthesize action=_action;
 - (id)description;
 - (id)_itemsDescription;
@@ -26,15 +27,17 @@
 @property(readonly, nonatomic) NSArray *childBehaviors;
 - (void)removeChildBehavior:(id)arg1;
 - (void)addChildBehavior:(id)arg1;
-- (BOOL)allowsAnimatorToStop;
+- (_Bool)allowsAnimatorToStop;
 - (void)_dissociate;
 - (void)_associate;
-- (void)_reevaluate:(unsigned int)arg1;
+- (void)willMoveToAnimator:(id)arg1;
+- (void)_reevaluate:(unsigned long long)arg1;
 - (void)_step;
 - (void)dealloc;
 - (id)init;
-- (id)_init:(BOOL)arg1;
+- (id)_init:(_Bool)arg1;
 - (id)items;
+@property(readonly, nonatomic) UIDynamicAnimator *dynamicAnimator;
 - (id)_context;
 - (id)_items;
 - (void)_setItems:(id)arg1;

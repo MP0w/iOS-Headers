@@ -8,6 +8,7 @@
 
 @class NSCondition, NSMutableArray;
 
+// Not exported
 @interface _NSThreadPerformInfo : NSObject
 {
     id target;

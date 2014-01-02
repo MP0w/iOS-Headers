@@ -6,71 +6,72 @@
 
 #import "UIView.h"
 
-#import "UIScrollViewDelegate-Protocol.h"
+#import "CKMessageEntryContentViewDelegate-Protocol.h"
 
-@class CKContentEntryView, UIButton, UILabel, _UITextFieldRoundedRectBackgroundViewNeue;
+@class CKComposition, CKMessageEntryContentView, NSString, UIButton, UILabel, _UIBackdropView, _UITextFieldRoundedRectBackgroundViewNeue;
 
-@interface CKMessageEntryView : UIView <UIScrollViewDelegate>
+@interface CKMessageEntryView : UIView <CKMessageEntryContentViewDelegate>
 {
-    id _delegate;
     UIView *_dimmingView;
-    unsigned int _characterCountNumerator;
-    unsigned int _characterCountDenominator;
-    BOOL _isCharacterCountVisible;
-    BOOL _dimmed;
-    BOOL _supportsAttachments;
     int _animationState;
+    _Bool _shouldShowSubject;
+    _Bool _shouldShowPhotoButton;
+    _Bool _shouldShowCharacterCount;
     BOOL _sendButtonColor;
-    BOOL _keyboardVisible;
+    _Bool _dimmed;
+    _Bool _characterCountHidden;
+    id <CKMessageEntryViewDelegate> _delegate;
+    CKMessageEntryContentView *_contentView;
     UIButton *_photoButton;
-    CKContentEntryView *_contentField;
     UIButton *_sendButton;
     UILabel *_characterCountLabel;
     _UITextFieldRoundedRectBackgroundViewNeue *_coverView;
+    _UIBackdropView *_backdropView;
+    UIView *_knockoutCoverView;
+    struct CGSize _photoButtonSize;
+    struct CGSize _sendButtonSize;
+    struct CGSize _characterCountSize;
+    struct UIEdgeInsets _sendTextAlignmentInsets;
 }
 
-+ (float)defaultWidthInPortrait;
-+ (float)defaultWidthInPortraitSupportsAttachments:(BOOL)arg1;
-+ (float)defaultHeight;
++ (double)contentViewPortraitWidth;
+@property(retain, nonatomic) UIView *knockoutCoverView; // @synthesize knockoutCoverView=_knockoutCoverView;
+@property(retain, nonatomic) _UIBackdropView *backdropView; // @synthesize backdropView=_backdropView;
 @property(retain, nonatomic) _UITextFieldRoundedRectBackgroundViewNeue *coverView; // @synthesize coverView=_coverView;
+@property(nonatomic) struct CGSize characterCountSize; // @synthesize characterCountSize=_characterCountSize;
+@property(nonatomic) struct UIEdgeInsets sendTextAlignmentInsets; // @synthesize sendTextAlignmentInsets=_sendTextAlignmentInsets;
+@property(nonatomic) struct CGSize sendButtonSize; // @synthesize sendButtonSize=_sendButtonSize;
+@property(nonatomic) struct CGSize photoButtonSize; // @synthesize photoButtonSize=_photoButtonSize;
 @property(retain, nonatomic) UILabel *characterCountLabel; // @synthesize characterCountLabel=_characterCountLabel;
-@property(retain, nonatomic) UIButton *sendButton; // @synthesize sendButton=_sendButton;
-@property(retain, nonatomic) CKContentEntryView *contentField; // @synthesize contentField=_contentField;
-@property(nonatomic, getter=isDimmed) BOOL dimmed; // @synthesize dimmed=_dimmed;
+@property(nonatomic, getter=isCharacterCountHidden) _Bool characterCountHidden; // @synthesize characterCountHidden=_characterCountHidden;
+@property(nonatomic, getter=isDimmed) _Bool dimmed; // @synthesize dimmed=_dimmed;
 @property(nonatomic) int animationState; // @synthesize animationState=_animationState;
-@property(nonatomic, getter=isKeyboardVisible) BOOL keyboardVisible; // @synthesize keyboardVisible=_keyboardVisible;
-@property(nonatomic) id delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) BOOL sendButtonColor; // @synthesize sendButtonColor=_sendButtonColor;
+@property(retain, nonatomic) UIButton *sendButton; // @synthesize sendButton=_sendButton;
 @property(retain, nonatomic) UIButton *photoButton; // @synthesize photoButton=_photoButton;
-- (void)ckContentEntryViewPressedSendButton:(id)arg1;
-- (BOOL)ckContentEntryViewContentSizeChanged:(id)arg1 height:(float)arg2 animate:(BOOL)arg3;
-- (BOOL)isCharacterCountVisible;
-- (void)setCharacterCountVisible:(BOOL)arg1;
-- (void)setCharacterCountNumerator:(unsigned int)arg1 denominator:(unsigned int)arg2;
-- (void)_updateCharacterCountLabel;
-- (float)_accessoryViewFadeDuration;
-- (void)scrollToBottom:(BOOL)arg1;
-- (void)_handleUIApplicationResumed:(id)arg1;
-- (unsigned int)displayedLines;
-- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+@property(retain, nonatomic) CKMessageEntryContentView *contentView; // @synthesize contentView=_contentView;
+@property(nonatomic) id <CKMessageEntryViewDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) _Bool shouldShowCharacterCount; // @synthesize shouldShowCharacterCount=_shouldShowCharacterCount;
+@property(nonatomic) _Bool shouldShowPhotoButton; // @synthesize shouldShowPhotoButton=_shouldShowPhotoButton;
+@property(nonatomic) _Bool shouldShowSubject; // @synthesize shouldShowSubject=_shouldShowSubject;
+- (struct UIEdgeInsets)contentTextAlignmentInsets;
+- (void)send:(id)arg1;
+- (double)_accessoryViewFadeDuration;
+- (_Bool)messageEntryContentView:(id)arg1 shouldInsertMediaObjects:(id)arg2;
+- (void)messageEntryContentViewDidBeginEditing:(id)arg1;
+- (_Bool)messageEntryContentViewShouldBeginEditing:(id)arg1;
+- (void)messageEntryContentViewDidChange:(id)arg1;
+- (void)setKnocksOutTextField:(_Bool)arg1;
+- (void)animateKnockedOutTextField;
+@property(copy, nonatomic) NSString *placeholderText;
+@property(retain, nonatomic) CKComposition *composition;
+- (id)initWithFrame:(struct CGRect)arg1 shouldShowSubject:(_Bool)arg2 shouldShowPhotoButton:(_Bool)arg3 shouldShowCharacterCount:(_Bool)arg4;
+- (double)placeholderHeight;
 - (void)setFrame:(struct CGRect)arg1;
-- (struct CGSize)desiredSize;
-- (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
-- (void)disableSendButton;
-- (void)enableSendButton;
-- (struct CGRect)contentEntryFrame:(BOOL)arg1;
-- (void)updateForSettingsChange;
+- (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
-- (id)entryField;
-- (void)send:(id)arg1;
-- (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 supportsAttachments:(BOOL)arg2;
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)setDefaultText:(id)arg1;
-@property(nonatomic) BOOL sendButtonColor;
-- (void)_updateSendButtonColor;
-- (float)defaultWidthInPortrait;
 
 @end
 

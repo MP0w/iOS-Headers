@@ -6,27 +6,28 @@
 
 #import "NSObject.h"
 
-@class NSString, NSURL;
+@class NSString;
 
+// Not exported
 @interface NSFileWatcherObservations : NSObject
 {
-    BOOL _attributesChanged;
-    BOOL _contentsChanged;
-    BOOL _deleted;
-    BOOL _moved;
+    _Bool _attributesChanged;
+    _Bool _contentsChanged;
+    _Bool _deleted;
+    _Bool _moved;
     NSString *_lastObservedPath;
-    BOOL _didResetURL;
-    NSURL *_url;
+    _Bool _didResetPath;
+    NSString *_path;
 }
 
 - (void)notifyObserver:(id)arg1;
-- (void)addMoveToURL:(id)arg1;
-- (void)addMoveToPath:(id)arg1;
+- (void)addAnnouncedMoveToPath:(id)arg1;
+- (void)addDetectedMoveToPath:(id)arg1;
 - (void)addDeletion;
 - (void)addContentsChange;
 - (void)addAttributeChange;
 - (void)dealloc;
-- (id)initWithURL:(id)arg1;
+- (id)initWithPath:(id)arg1;
 
 @end
 

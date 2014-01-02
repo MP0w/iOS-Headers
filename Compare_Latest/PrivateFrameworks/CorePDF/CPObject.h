@@ -17,7 +17,7 @@
     NSMutableArray *children;
     CPDocument *document;
     CPPage *page;
-    long zOrder;
+    long long zOrder;
 }
 
 - (int)depth;
@@ -25,14 +25,14 @@
 - (void)setPage:(id)arg1;
 - (id)firstDescendantsOfClass:(Class)arg1;
 - (void)clearCachedInfo;
-- (void)setZOrder:(long)arg1;
-- (void)updateZOrder:(long)arg1;
+- (void)setZOrder:(long long)arg1;
+- (void)updateZOrder:(long long)arg1;
 - (void)recomputeZOrder;
-- (long)zOrder;
+- (long long)zOrder;
 - (id)document;
 - (void)setDocument:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)indexOf:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)indexOf:(id)arg1;
 - (void)accept:(id)arg1;
 - (unsigned int)countOfFirstDescendantsOfClass:(Class)arg1;
 - (id)lastDescendantOfClass:(Class)arg1;
@@ -41,13 +41,13 @@
 - (id)shallowDescendantsOfClass:(Class)arg1;
 - (id)descendantsOfClass:(Class)arg1;
 - (void)descendantsOfClass:(Class)arg1 to:(id)arg2;
-- (id)descendantsOfClass:(Class)arg1 deep:(BOOL)arg2;
+- (id)descendantsOfClass:(Class)arg1 deep:(_Bool)arg2;
 - (id)children;
-- (void)map:(SEL)arg1 target:(id)arg2 last:(BOOL)arg3;
+- (void)map:(SEL)arg1 target:(id)arg2 last:(_Bool)arg3;
 - (void)map:(SEL)arg1 target:(id)arg2;
 - (void)mapSafely:(SEL)arg1 target:(id)arg2 childrenOfClass:(Class)arg3;
 - (void)map:(SEL)arg1 target:(id)arg2 childrenOfClass:(Class)arg3;
-- (void)map:(SEL)arg1 target:(id)arg2 childrenOfClass:(Class)arg3 last:(BOOL)arg4;
+- (void)map:(SEL)arg1 target:(id)arg2 childrenOfClass:(Class)arg3 last:(_Bool)arg4;
 - (void)performSelector:(SEL)arg1;
 - (id)childrenNotOfClass:(Class)arg1;
 - (id)childrenOfClass:(Class)arg1;

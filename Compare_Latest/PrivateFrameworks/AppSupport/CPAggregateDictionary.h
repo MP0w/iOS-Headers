@@ -11,7 +11,7 @@
 }
 
 + (id)sharedAggregateDictionary;
-@property(readonly, nonatomic, getter=isEnabled) BOOL enabled;
+@property(readonly, nonatomic, getter=isEnabled) _Bool enabled;
 - (void)pushValue:(double)arg1 forKey:(id)arg2;
 - (void)setValue:(double)arg1 forDistributionKey:(id)arg2;
 - (void)clearDistributionKey:(id)arg1;

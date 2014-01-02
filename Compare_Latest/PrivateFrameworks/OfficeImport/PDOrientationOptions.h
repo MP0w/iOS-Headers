@@ -6,6 +6,7 @@
 
 #import <OfficeImport/PDTransitionOptions.h>
 
+// Not exported
 @interface PDOrientationOptions : PDTransitionOptions
 {
     int mOrientation;

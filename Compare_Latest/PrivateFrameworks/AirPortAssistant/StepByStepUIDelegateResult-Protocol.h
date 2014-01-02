@@ -5,6 +5,6 @@
  */
 
 @protocol StepByStepUIDelegateResult
-- (void)stepByStepNextStepResult:(long)arg1 withOptions:(id)arg2;
+- (void)stepByStepNextStepResult:(int)arg1 withOptions:(id)arg2;
 @end
 

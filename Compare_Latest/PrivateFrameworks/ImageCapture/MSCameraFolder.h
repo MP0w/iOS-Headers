@@ -13,7 +13,7 @@
 
 - (id)folderMatchingPath:(id)arg1;
 - (id)itemMatchingName:(id)arg1 fsSN:(unsigned long long)arg2 fsCreationTime:(struct timespec *)arg3 fsSize:(long long)arg4;
-- (BOOL)deleteItemFromCamera:(id)arg1;
+- (_Bool)deleteItemFromCamera:(id)arg1;
 - (void)enumerateContent;
 @property(readonly) long long fsSize;
 @property(readonly) struct timespec fsModificationTime;

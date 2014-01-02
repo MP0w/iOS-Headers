@@ -8,6 +8,7 @@
 
 @class NSTimer, UIView<UIAutoscrollContainer>;
 
+// Not exported
 @interface UIAutoscroll : NSObject
 {
     id m_target;
@@ -16,12 +17,12 @@
     int m_directions;
     double m_repeatInterval;
     NSTimer *m_timer;
-    unsigned int m_count;
-    BOOL m_active;
+    unsigned long long m_count;
+    _Bool m_active;
 }
 
-@property(nonatomic) BOOL active; // @synthesize active=m_active;
-@property(nonatomic) unsigned int count; // @synthesize count=m_count;
+@property(nonatomic) _Bool active; // @synthesize active=m_active;
+@property(nonatomic) unsigned long long count; // @synthesize count=m_count;
 @property(nonatomic) double repeatInterval; // @synthesize repeatInterval=m_repeatInterval;
 @property(nonatomic) int directions; // @synthesize directions=m_directions;
 @property(nonatomic) struct CGPoint point; // @synthesize point=m_point;
@@ -29,7 +30,7 @@
 @property(retain, nonatomic) id target; // @synthesize target=m_target;
 - (void)timerFired:(id)arg1;
 - (void)invalidate;
-- (BOOL)startAutoscroll:(id)arg1 scrollContainer:(id)arg2 point:(struct CGPoint)arg3 directions:(int)arg4 repeatInterval:(double)arg5;
+- (_Bool)startAutoscroll:(id)arg1 scrollContainer:(id)arg2 point:(struct CGPoint)arg3 directions:(int)arg4 repeatInterval:(double)arg5;
 - (void)dealloc;
 
 @end

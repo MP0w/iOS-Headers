@@ -6,6 +6,7 @@
 
 #import "CALayer.h"
 
+// Not exported
 @interface MKLayer : CALayer
 {
     struct CGRect _hitBounds;
@@ -16,7 +17,7 @@
 @property(readonly, nonatomic) struct CGRect hitBounds; // @synthesize hitBounds=_hitBounds;
 @property(nonatomic) struct CGPoint hitOutset; // @synthesize hitOutset=_hitOutset;
 @property(nonatomic) struct CGPoint hitOffset; // @synthesize hitOffset=_hitOffset;
-- (BOOL)containsPoint:(struct CGPoint)arg1;
+- (_Bool)containsPoint:(struct CGPoint)arg1;
 - (void)setBounds:(struct CGRect)arg1;
 
 @end

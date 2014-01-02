@@ -12,8 +12,8 @@
 {
 }
 
-- (BOOL)_isMinimalAddress:(id)arg1;
-- (BOOL)isEquivalentToItem:(id)arg1 whenEditing:(BOOL)arg2;
+- (_Bool)_isMinimalAddress:(id)arg1;
+- (_Bool)isEquivalentToItem:(id)arg1 whenEditing:(_Bool)arg2;
 - (id)defaultActionURL;
 - (id)displayStringForValue:(id)arg1;
 - (id)normalizedValue;

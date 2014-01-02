@@ -30,8 +30,8 @@
 - (id)additionalMessageHeadersForOutgoingPush;
 - (id)requiredKeys;
 - (id)bagKey;
-- (BOOL)payloadCanBeLogged;
-- (BOOL)hasRequiredKeys:(id *)arg1;
+- (_Bool)payloadCanBeLogged;
+- (_Bool)hasRequiredKeys:(id *)arg1;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 

@@ -6,8 +6,9 @@
 
 #import "NSConcreteTextStorage.h"
 
-@class NSDictionary, NSMutableDictionary, UIColor, UIFont;
+@class NSDictionary, NSMutableDictionary;
 
+// Not exported
 @interface _UICascadingTextStorage : NSConcreteTextStorage
 {
     NSMutableDictionary *_defaultAttributes;
@@ -15,24 +16,14 @@
 
 + (id)defaultFont;
 - (void)_restoreOriginalFontAttribute;
-- (BOOL)_shouldSetOriginalFontAttribute;
+- (_Bool)_shouldSetOriginalFontAttribute;
 - (id)_defaultAttributes;
 @property(copy, nonatomic) NSDictionary *defaultAttributes;
-- (id)attribute:(id)arg1 atIndex:(unsigned int)arg2 longestEffectiveRange:(struct _NSRange *)arg3 inRange:(struct _NSRange)arg4;
-- (id)attribute:(id)arg1 atIndex:(unsigned int)arg2 effectiveRange:(struct _NSRange *)arg3;
-- (id)attributesAtIndex:(unsigned int)arg1 longestEffectiveRange:(struct _NSRange *)arg2 inRange:(struct _NSRange)arg3;
-- (id)attributesAtIndex:(unsigned int)arg1 effectiveRange:(struct _NSRange *)arg2;
+- (id)attribute:(id)arg1 atIndex:(unsigned long long)arg2 longestEffectiveRange:(struct _NSRange *)arg3 inRange:(struct _NSRange)arg4;
+- (id)attribute:(id)arg1 atIndex:(unsigned long long)arg2 effectiveRange:(struct _NSRange *)arg3;
+- (id)attributesAtIndex:(unsigned long long)arg1 longestEffectiveRange:(struct _NSRange *)arg2 inRange:(struct _NSRange)arg3;
+- (id)attributesAtIndex:(unsigned long long)arg1 effectiveRange:(struct _NSRange *)arg2;
 - (void)dealloc;
-- (int)_resolvedTextAlignment;
-@property(nonatomic) int lineBreakMode;
-@property(nonatomic) int textAlignment;
-@property(retain, nonatomic) UIColor *textColor;
-@property(nonatomic) float shadowBlur;
-@property(nonatomic) struct CGSize shadowOffset;
-@property(retain, nonatomic) UIColor *shadowColor;
-- (id)_shadow;
-- (void)_setShadow:(id)arg1;
-@property(retain, nonatomic) UIFont *font;
 
 @end
 

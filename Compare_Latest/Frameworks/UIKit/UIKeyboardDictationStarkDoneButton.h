@@ -6,6 +6,7 @@
 
 #import <UIKit/UIButton.h>
 
+// Not exported
 @interface UIKeyboardDictationStarkDoneButton : UIButton
 {
 }

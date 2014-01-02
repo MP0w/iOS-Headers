@@ -6,11 +6,13 @@
 
 #import "NSOperation.h"
 
+#import "_MPRadioOperationProtocol-Protocol.h"
+
 @class NSLock, RadioGetTracksRequest, RadioRequestContext, RadioStation;
 
-@interface MPPrepareRadioPlaybackOperation : NSOperation
+@interface MPPrepareRadioPlaybackOperation : NSOperation <_MPRadioOperationProtocol>
 {
-    RadioRequestContext *_context;
+    RadioRequestContext *_requestContext;
     id _firstTrackBlock;
     RadioGetTracksRequest *_loadTracksRequest;
     NSLock *_lock;
@@ -18,14 +20,15 @@
     RadioStation *_station;
 }
 
-+ (BOOL)stationNeedsPreparation:(id)arg1;
++ (_Bool)stationNeedsPreparation:(id)arg1;
 - (void).cxx_destruct;
 - (id)_loadStationTracks:(id *)arg1;
 - (void)main;
 - (void)cancel;
+@property(copy) RadioRequestContext *requestContext;
 @property(copy) id preparedBlock;
 @property(copy) id firstTrackBlock;
-- (id)initWithStation:(id)arg1 context:(id)arg2;
+- (id)initWithStation:(id)arg1;
 
 @end
 

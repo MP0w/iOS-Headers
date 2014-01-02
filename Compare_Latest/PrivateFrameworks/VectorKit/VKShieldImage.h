@@ -13,7 +13,7 @@
 
 @property(readonly) struct CGPoint center; // @synthesize center=_center;
 - (id).cxx_construct;
-- (id)initWithCGImage:(struct CGImage *)arg1 scale:(float)arg2 usedAsTextureAndImage:(BOOL)arg3 centerPoint:(struct CGPoint)arg4;
+- (id)initWithCGImage:(struct CGImage *)arg1 scale:(double)arg2 usedAsTextureAndImage:(_Bool)arg3 centerPoint:(struct CGPoint)arg4;
 
 @end
 

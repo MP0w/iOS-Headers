@@ -8,6 +8,7 @@
 
 @class NSMetadataQuery;
 
+// Not exported
 @interface _NSMetadataItemPrivateIvars : NSObject
 {
     NSMetadataQuery *query;

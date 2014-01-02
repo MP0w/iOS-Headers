@@ -10,9 +10,9 @@
 
 @interface MRAudioItem : NSObject
 {
-    AVPlayerItem *_avPlayerItem;
     float _volume;
     float _duckLevel;
+    AVPlayerItem *_avPlayerItem;
     double _startTime;
     double _duration;
     double _localTimeOffset;

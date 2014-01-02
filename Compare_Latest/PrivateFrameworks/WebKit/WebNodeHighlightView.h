@@ -8,6 +8,7 @@
 
 @class NSMutableArray, WebNodeHighlight;
 
+// Not exported
 @interface WebNodeHighlightView : WAKView
 {
     WebNodeHighlight *_webNodeHighlight;
@@ -18,8 +19,8 @@
 - (void)layoutSublayers:(id)arg1;
 - (void)_layoutForRectsHighlight:(struct Highlight *)arg1 parent:(id)arg2;
 - (void)_layoutForNodeHighlight:(struct Highlight *)arg1 parent:(id)arg2;
-- (void)_attach:(id)arg1 numLayers:(unsigned int)arg2;
-- (BOOL)isFlipped;
+- (void)_attach:(id)arg1 numLayers:(unsigned long long)arg2;
+- (_Bool)isFlipped;
 - (void)detachFromWebNodeHighlight;
 - (void)dealloc;
 - (id)initWithWebNodeHighlight:(id)arg1;

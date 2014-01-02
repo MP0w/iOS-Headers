@@ -10,8 +10,8 @@
 {
 }
 
-+ (long)writeConfigChangeLog:(struct _BaseStation *)arg1;
-+ (id)configChangeLogFilesIncludingAllKeys:(BOOL)arg1 orSpecificKeys:(id)arg2;
++ (int)writeConfigChangeLog:(struct _BaseStation *)arg1;
++ (id)configChangeLogFilesIncludingAllKeys:(_Bool)arg1 orSpecificKeys:(id)arg2;
 + (id)configChangeLogFiles;
 
 @end

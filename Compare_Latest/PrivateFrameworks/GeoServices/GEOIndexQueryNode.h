@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSMutableArray, NSString;
 
-@interface GEOIndexQueryNode : PBCodable
+@interface GEOIndexQueryNode : PBCodable <NSCopying>
 {
     NSString *_field;
     NSMutableArray *_operands;
@@ -20,19 +22,20 @@
 @property(retain, nonatomic) NSString *value; // @synthesize value=_value;
 @property(retain, nonatomic) NSString *field; // @synthesize field=_field;
 @property(nonatomic) int type; // @synthesize type=_type;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)operandsAtIndex:(unsigned int)arg1;
-- (unsigned int)operandsCount;
+- (id)operandsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)operandsCount;
 - (void)addOperands:(id)arg1;
 - (void)clearOperands;
-@property(readonly, nonatomic) BOOL hasValue;
-@property(readonly, nonatomic) BOOL hasField;
+@property(readonly, nonatomic) _Bool hasValue;
+@property(readonly, nonatomic) _Bool hasField;
 - (void)dealloc;
 
 @end

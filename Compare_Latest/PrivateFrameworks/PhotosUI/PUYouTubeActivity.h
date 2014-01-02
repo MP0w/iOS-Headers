@@ -11,7 +11,7 @@
 }
 
 - (id)publishingBundle;
-- (BOOL)canPerformWithActivityItems:(id)arg1;
+- (_Bool)canPerformWithActivityItems:(id)arg1;
 - (id)_activityImage;
 - (id)activityTitle;
 - (id)activityType;

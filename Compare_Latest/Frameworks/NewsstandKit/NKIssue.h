@@ -17,8 +17,8 @@
     NSMutableArray *_assets;
     NSMapTable *_assetsByRequest;
     NSMutableSet *_resolvedAssets;
-    BOOL _foundContent;
-    BOOL _isDecodingValid;
+    _Bool _foundContent;
+    _Bool _isDecodingValid;
 }
 
 @property(copy) NSString *directory; // @synthesize directory=_directory;
@@ -28,7 +28,7 @@
 - (void)_assetChanged:(id)arg1;
 - (void)_cleanupAsset:(id)arg1;
 - (void)_markAssetAsResolved:(id)arg1;
-- (BOOL)_isDecodingValid;
+- (_Bool)_isDecodingValid;
 - (id)_assetsForRequest:(id)arg1;
 - (id)_directory;
 - (void)_setLibrary:(id)arg1;

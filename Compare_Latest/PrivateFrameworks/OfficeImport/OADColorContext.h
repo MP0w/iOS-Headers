@@ -8,6 +8,7 @@
 
 @class OADColorMap, OADColorScheme;
 
+// Not exported
 @interface OADColorContext : NSObject
 {
     OADColorScheme *mScheme;

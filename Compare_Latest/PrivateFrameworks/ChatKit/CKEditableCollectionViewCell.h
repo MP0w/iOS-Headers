@@ -10,20 +10,20 @@
 
 @interface CKEditableCollectionViewCell : UICollectionViewCell
 {
-    BOOL _editing;
+    _Bool _editing;
     UIView *_contentAlignmentView;
     UIImageView *_checkmark;
     struct UIEdgeInsets _contentAlignmentInsets;
 }
 
 @property(retain, nonatomic) UIImageView *checkmark; // @synthesize checkmark=_checkmark;
-@property(nonatomic, getter=isEditing) BOOL editing; // @synthesize editing=_editing;
+@property(nonatomic, getter=isEditing) _Bool editing; // @synthesize editing=_editing;
 @property(nonatomic) struct UIEdgeInsets contentAlignmentInsets; // @synthesize contentAlignmentInsets=_contentAlignmentInsets;
 @property(retain, nonatomic) UIView *contentAlignmentView; // @synthesize contentAlignmentView=_contentAlignmentView;
 - (void)updateCheckmarkImage;
-- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)setHighlighted:(BOOL)arg1;
-- (void)setSelected:(BOOL)arg1;
+- (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)setHighlighted:(_Bool)arg1;
+- (void)setSelected:(_Bool)arg1;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)description;

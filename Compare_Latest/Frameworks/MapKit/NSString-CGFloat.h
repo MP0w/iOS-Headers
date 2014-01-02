@@ -7,6 +7,6 @@
 #import "NSString.h"
 
 @interface NSString (CGFloat)
-- (float)_mapkit_cgFloatValue;
+- (double)_mapkit_cgFloatValue;
 @end
 

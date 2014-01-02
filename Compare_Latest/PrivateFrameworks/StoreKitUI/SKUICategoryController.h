@@ -9,7 +9,7 @@
 #import "SKUICategoryTableViewControllerDelegate-Protocol.h"
 #import "UIPopoverControllerDelegate-Protocol.h"
 
-@class NSArray, NSOperationQueue, NSURL, SKUICategory, SKUICategoryArtworkLoader, SKUICategoryTableViewController, SKUIClientContext, SKUILoadURLOperation, SKUISegmentedControl, UIBarButtonItem, UIPopoverController, UISegmentedControl, UIViewController;
+@class NSArray, NSOperationQueue, NSURL, SKUICategory, SKUICategoryArtworkLoader, SKUICategoryTableViewController, SKUIClientContext, SKUISegmentedControl, SSVLoadURLOperation, UIBarButtonItem, UIPopoverController, UISegmentedControl, UIViewController;
 
 @interface SKUICategoryController : NSObject <SKUICategoryTableViewControllerDelegate, UIPopoverControllerDelegate>
 {
@@ -19,19 +19,19 @@
     UIViewController *_contentsController;
     NSURL *_defaultURL;
     id <SKUICategoryControllerDelegate> _delegate;
-    SKUILoadURLOperation *_loadOperation;
+    SSVLoadURLOperation *_loadOperation;
     NSOperationQueue *_operationQueue;
     UIPopoverController *_popover;
     SKUICategory *_rootCategory;
     NSURL *_selectedURL;
     SKUISegmentedControl *_segmentedControl;
-    int _segmentedControlLength;
+    long long _segmentedControlLength;
     NSArray *_segmentedControlSegments;
     SKUICategoryTableViewController *_tableViewController;
 }
 
 @property(retain, nonatomic) NSURL *selectedURL; // @synthesize selectedURL=_selectedURL;
-@property(nonatomic) int segmentedControlLength; // @synthesize segmentedControlLength=_segmentedControlLength;
+@property(nonatomic) long long segmentedControlLength; // @synthesize segmentedControlLength=_segmentedControlLength;
 @property(retain, nonatomic) NSOperationQueue *operationQueue; // @synthesize operationQueue=_operationQueue;
 @property(nonatomic) __weak id <SKUICategoryControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSURL *defaultURL; // @synthesize defaultURL=_defaultURL;
@@ -41,17 +41,21 @@
 - (id)_tableViewControllerWithCategory:(id)arg1;
 - (void)_setResponse:(id)arg1 error:(id)arg2;
 - (void)_setCachedResponse:(id)arg1 error:(id)arg2;
+- (id)_rootMetricsLocations;
 - (void)_reloadSelectedSegment;
+- (void)_recordClickEventWithCategory:(id)arg1 index:(long long)arg2;
 - (void)_precacheArtworkForCategory:(id)arg1;
 - (void)_reloadSegmentedControl;
+- (id)_metricsLocationsWithIndex:(long long)arg1;
 - (id)_artworkLoader;
+- (id)metricsPageContextForCategoryTableView:(id)arg1;
 - (void)categoryTableView:(id)arg1 didSelectCategory:(id)arg2;
-- (BOOL)popoverControllerShouldDismissPopover:(id)arg1;
+- (_Bool)popoverControllerShouldDismissPopover:(id)arg1;
 - (void)segmentedControlAction:(id)arg1;
 - (void)buttonAction:(id)arg1;
 @property(readonly, nonatomic) UISegmentedControl *segmentedControl;
 - (void)loadFromURL:(id)arg1 withCompletionBlock:(id)arg2;
-@property(readonly, nonatomic) BOOL isLoading;
+@property(readonly, nonatomic) _Bool isLoading;
 - (void)dismiss;
 @property(readonly, nonatomic) UIBarButtonItem *categoryButton;
 - (void)dealloc;

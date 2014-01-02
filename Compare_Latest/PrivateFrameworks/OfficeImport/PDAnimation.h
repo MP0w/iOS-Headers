@@ -8,6 +8,7 @@
 
 @class PDRootTimeNode, TSUNoCopyDictionary;
 
+// Not exported
 @interface PDAnimation : NSObject
 {
     PDRootTimeNode *mRootTimeNode;

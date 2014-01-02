@@ -10,6 +10,7 @@
 
 @class OADFontReference, OADStyleMatrixReference;
 
+// Not exported
 @interface OADShapeStyle : NSObject <NSCopying>
 {
     OADStyleMatrixReference *mLineReference;
@@ -20,19 +21,19 @@
 
 - (void)setFontReference:(id)arg1;
 - (id)fontReference;
-- (void)setEffectMatrixIndex:(unsigned long)arg1 color:(id)arg2;
+- (void)setEffectMatrixIndex:(unsigned int)arg1 color:(id)arg2;
 - (void)setEffectReference:(id)arg1;
 - (id)effectReference;
-- (void)setFillMatrixIndex:(unsigned long)arg1 color:(id)arg2;
+- (void)setFillMatrixIndex:(unsigned int)arg1 color:(id)arg2;
 - (void)setFillReference:(id)arg1;
 - (id)fillReference;
-- (void)setLineMatrixIndex:(unsigned long)arg1 color:(id)arg2;
+- (void)setLineMatrixIndex:(unsigned int)arg1 color:(id)arg2;
 - (void)setLineReference:(id)arg1;
 - (id)lineReference;
 - (void)applyToParagraphProperties:(id)arg1;
 - (void)applyToTextListStyle:(id)arg1;
 - (void)applyToTextBody:(id)arg1;
-- (void)applyToGraphicProperties:(id)arg1 styleMatrix:(id)arg2 useNull:(BOOL)arg3 strokeWidthMultiplier:(float)arg4;
+- (void)applyToGraphicProperties:(id)arg1 styleMatrix:(id)arg2 useNull:(_Bool)arg3 strokeWidthMultiplier:(float)arg4;
 - (void)applyToGraphicProperties:(id)arg1 styleMatrix:(id)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;

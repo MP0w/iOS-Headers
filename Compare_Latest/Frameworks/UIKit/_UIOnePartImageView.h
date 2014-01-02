@@ -8,6 +8,7 @@
 
 @class UIImage;
 
+// Not exported
 @interface _UIOnePartImageView : UIView
 {
     UIImage *_image;

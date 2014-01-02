@@ -6,9 +6,10 @@
 
 #import "PBCodable.h"
 
+// Not exported
 @interface VKPStyleAttribute : PBCodable
 {
-    CDStruct_56d48c16 _intValues;
+    CDStruct_95bda58d _intValues;
     int _key;
     int _score;
     struct {
@@ -17,21 +18,21 @@
 }
 
 @property(nonatomic) int key; // @synthesize key=_key;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) BOOL hasScore;
+@property(nonatomic) _Bool hasScore;
 @property(nonatomic) int score; // @synthesize score=_score;
-- (void)setIntValues:(int *)arg1 count:(unsigned int)arg2;
-- (int)intValueAtIndex:(unsigned int)arg1;
+- (void)setIntValues:(int *)arg1 count:(unsigned long long)arg2;
+- (int)intValueAtIndex:(unsigned long long)arg1;
 - (void)addIntValue:(int)arg1;
 - (void)clearIntValues;
 @property(readonly, nonatomic) int *intValues;
-@property(readonly, nonatomic) unsigned int intValuesCount;
+@property(readonly, nonatomic) unsigned long long intValuesCount;
 - (void)dealloc;
 
 @end

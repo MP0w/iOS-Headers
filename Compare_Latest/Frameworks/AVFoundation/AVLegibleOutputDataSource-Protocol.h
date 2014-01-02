@@ -7,6 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol AVLegibleOutputDataSource <NSObject>
+- (void)setFlushBlock:(id)arg1;
 - (void)setDataProviderBlock:(id)arg1;
 @end
 

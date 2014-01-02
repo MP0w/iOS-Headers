@@ -8,14 +8,16 @@
 
 @class NSMutableArray, NSString;
 
+// Not exported
 @interface VKPolygonDrawStyle : VKDrawStyle
 {
-    struct VKProfileSparseRamp<signed char> visibility;
+    struct VKProfileSparseRamp<bool> visibility;
     struct VKProfileSparseRamp<_VGLColor> fillColor;
     struct VKProfileSparseRamp<float> strokeWidth;
     struct VKProfileSparseRamp<_VGLColor> strokeColor;
     struct VKProfileSparseRamp<float> outerStrokeWidth;
     struct VKProfileSparseRamp<_VGLColor> outerStrokeColor;
+    struct _VGLColor _casingColor;
     struct VKProfileSparseRamp<int> zIndices;
     int polygonType;
     NSMutableArray *textures;
@@ -27,30 +29,30 @@
     NSMutableArray *thirdTextures;
     struct VKProfileSparseRamp<float> thirdTextureOpacity;
     int thirdTextureBlendMode;
-    struct VKProfileSparseRamp<signed char> casingsVisible;
-    struct VKProfileSparseRamp<signed char> fancyCasingsVisible;
+    struct VKProfileSparseRamp<bool> casingsVisible;
+    struct VKProfileSparseRamp<bool> fancyCasingsVisible;
     NSString *descriptionKey;
     unsigned int hasFillColor:1;
     unsigned int hasFillTexture:1;
     unsigned int hasStrokeColor:1;
     NSString *_name;
-    float _variation;
+    double _variation;
 }
 
-@property(nonatomic) float variation; // @synthesize variation=_variation;
+@property(nonatomic) double variation; // @synthesize variation=_variation;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (id)preferredTextureNameAtZoom:(float)arg1;
 - (id)descriptionAtZoom:(float)arg1;
-- (BOOL)fancyCasingsVisibleAtZoom:(float)arg1;
-- (BOOL)casingsVisibleAtZoom:(float)arg1;
+- (_Bool)fancyCasingsVisibleAtZoom:(float)arg1;
+- (_Bool)casingsVisibleAtZoom:(float)arg1;
 - (int)polygonType;
 - (struct _VGLColor)outerStrokeColorAtZoom:(float)arg1;
 - (float)outerStrokeWidthAtZoom:(float)arg1;
 - (struct _VGLColor)strokeColorAtZoom:(float)arg1;
 - (float)strokeWidthAtZoom:(float)arg1;
-- (unsigned int)zIndexAtZoom:(float)arg1;
+- (unsigned long long)zIndexAtZoom:(float)arg1;
 - (int)thirdTextureBlendMode;
 - (float)thirdTextureOpacityAtZoom:(float)arg1;
 - (id)thirdTextureAtZoom:(float)arg1;
@@ -61,13 +63,14 @@
 - (id)textureVariantAtZoom:(float)arg1;
 - (float)textureOpacityAtZoom:(float)arg1;
 - (id)textureAtZoom:(float)arg1;
+@property(readonly, nonatomic) struct _VGLColor casingColor;
 - (struct _VGLColor)nonAnimatedFillColorAtZoom:(float)arg1;
 - (struct _VGLColor)fillColorAtZoom:(float)arg1;
-- (BOOL)isNotDrawn;
-- (BOOL)hasFillTexture;
-- (BOOL)hasFillColor;
-- (BOOL)visibleAtZoom:(float)arg1;
-- (void)takeFromStyleProperties:(id)arg1 atZoom:(unsigned int)arg2 globals:(id)arg3;
+- (_Bool)isNotDrawn;
+- (_Bool)hasFillTexture;
+- (_Bool)hasFillColor;
+- (_Bool)visibleAtZoom:(float)arg1;
+- (void)takeFromStyleProperties:(id)arg1 atZoom:(unsigned long long)arg2 globals:(id)arg3;
 - (void)takeFromZoomInvariantProperties:(id)arg1;
 - (id)variant;
 - (void)dealloc;

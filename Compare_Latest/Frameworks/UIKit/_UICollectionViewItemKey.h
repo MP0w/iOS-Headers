@@ -10,30 +10,31 @@
 
 @class NSIndexPath, NSString;
 
+// Not exported
 @interface _UICollectionViewItemKey : NSObject <NSCopying>
 {
     NSIndexPath *_indexPath;
     NSString *_identifier;
-    BOOL _isClone;
-    unsigned int _type;
+    _Bool _isClone;
+    unsigned long long _type;
 }
 
 + (id)collectionItemKeyForLayoutAttributes:(id)arg1;
 + (id)collectionItemKeyForDecorationViewOfKind:(id)arg1 andIndexPath:(id)arg2;
 + (id)collectionItemKeyForSupplementaryViewOfKind:(id)arg1 andIndexPath:(id)arg2;
 + (id)collectionItemKeyForCellWithIndexPath:(id)arg1;
-@property(readonly, nonatomic) BOOL isClone; // @synthesize isClone=_isClone;
-@property(readonly, nonatomic) unsigned int type; // @synthesize type=_type;
+@property(readonly, nonatomic) _Bool isClone; // @synthesize isClone=_isClone;
+@property(readonly, nonatomic) unsigned long long type; // @synthesize type=_type;
 @property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(readonly, nonatomic) NSIndexPath *indexPath; // @synthesize indexPath=_indexPath;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (id)copyAsClone:(BOOL)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyAsClone:(_Bool)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
 - (void)dealloc;
-- (id)initWithType:(unsigned int)arg1 indexPath:(id)arg2 identifier:(id)arg3 clone:(BOOL)arg4;
-- (id)initWithType:(unsigned int)arg1 indexPath:(id)arg2 identifier:(id)arg3;
+- (id)initWithType:(unsigned long long)arg1 indexPath:(id)arg2 identifier:(id)arg3 clone:(_Bool)arg4;
+- (id)initWithType:(unsigned long long)arg1 indexPath:(id)arg2 identifier:(id)arg3;
 
 @end
 

@@ -10,20 +10,20 @@
 
 @interface SBDefaultBannerTextView : UIView
 {
-    NSAttributedString *_primaryAttributedText;
-    UIImage *_primaryTextAccessoryImage;
-    NSAttributedString *_secondaryAttributedText;
-    BOOL _secondaryTextItalicized;
-    NSAttributedString *_relevanceDateAttributedText;
-    NSAttributedString *_attributedString;
+    NSAttributedString *_primaryTextAttributedString;
+    NSAttributedString *_primaryTextAttributedStringComponent;
+    UIImage *_primaryTextAccessoryImageComponent;
+    NSAttributedString *_secondaryTextAttributedString;
+    _Bool _secondaryTextItalicized;
+    NSAttributedString *_relevanceDateAttributedString;
 }
 
 - (void)drawRect:(struct CGRect)arg1;
-- (id)_attributedString;
-- (void)_invalidateAttributedString;
-- (BOOL)textWillWrapForWidth:(float)arg1;
+- (id)_primaryTextAttributedString;
+- (void)_invalidatePrimaryTextAttributedString;
+- (_Bool)textWillWrapForWidth:(double)arg1;
 @property(copy, nonatomic) NSString *relevanceDateText;
-- (void)setSecondaryText:(id)arg1 italicized:(BOOL)arg2;
+- (void)setSecondaryText:(id)arg1 italicized:(_Bool)arg2;
 @property(copy, nonatomic) NSString *secondaryText;
 @property(retain, nonatomic) UIImage *primaryTextAccessoryImage;
 @property(copy, nonatomic) NSString *primaryText;

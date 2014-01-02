@@ -10,6 +10,6 @@
 - (id)_web_bestURLForUserTypedString;
 - (id)_web_possibleURLsForUserTypedString;
 - (id)_web_possibleURLPrefixesForUserTypedString;
-- (id)_web_possibleURLsForForUserTypedString:(BOOL)arg1;
+- (id)_web_possibleURLsForForUserTypedString:(_Bool)arg1;
 @end
 

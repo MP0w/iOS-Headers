@@ -6,6 +6,7 @@
 
 #import <UIKit/UIKBRenderFactoryNumberPad.h>
 
+// Not exported
 @interface UIKBRenderFactoryNumberPadLandscape : UIKBRenderFactoryNumberPad
 {
 }
@@ -19,8 +20,8 @@
 - (struct CGPoint)leftColumnNumberOffset;
 - (struct CGPoint)dictationGlyphOffset;
 - (struct CGPoint)deleteGlyphOffset;
-- (float)letterFontSize;
-- (float)numberFontSize;
+- (double)letterFontSize;
+- (double)numberFontSize;
 
 @end
 

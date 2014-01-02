@@ -11,8 +11,8 @@
 @interface SUOverlayConfiguration : NSObject
 {
     NSRegularExpression *_bagKeyPattern;
-    int _cornerRadius;
-    BOOL _shouldShowNavigationBar;
+    long long _cornerRadius;
+    _Bool _shouldShowNavigationBar;
     struct CGSize _size;
     NSString *_transitionName;
     NSRegularExpression *_urlPattern;
@@ -20,10 +20,10 @@
 
 @property(readonly, nonatomic) NSString *transitionName; // @synthesize transitionName=_transitionName;
 @property(readonly, nonatomic) struct CGSize size; // @synthesize size=_size;
-@property(readonly, nonatomic) BOOL shouldShowNavigationBar; // @synthesize shouldShowNavigationBar=_shouldShowNavigationBar;
-@property(readonly, nonatomic) int cornerRadius; // @synthesize cornerRadius=_cornerRadius;
-- (BOOL)matchesURLBagKey:(id)arg1;
-- (BOOL)matchesURL:(id)arg1;
+@property(readonly, nonatomic) _Bool shouldShowNavigationBar; // @synthesize shouldShowNavigationBar=_shouldShowNavigationBar;
+@property(readonly, nonatomic) long long cornerRadius; // @synthesize cornerRadius=_cornerRadius;
+- (_Bool)matchesURLBagKey:(id)arg1;
+- (_Bool)matchesURL:(id)arg1;
 - (void)dealloc;
 - (id)initWithDictionary:(id)arg1;
 - (id)init;

@@ -12,7 +12,7 @@
 
 @interface AAUIAccountCreationRemoteUI : NSObject <RUIObjectModelDelegate>
 {
-    BOOL _isModal;
+    _Bool _isModal;
     RUILoader *_loader;
     NSMutableArray *_objectModels;
     id <AAUIAccountCreationDelegate> _delegate;
@@ -20,14 +20,14 @@
     UINavigationController *_createAccountNavController;
     UIAlertView *_tcConfirmationAlert;
     UIAlertView *_failedToCreateAccountAlert;
-    BOOL _over13;
+    _Bool _over13;
     AASetupAssistantService *_aaService;
     AAAutoAccountVerifier *_verifier;
 }
 
 - (void).cxx_destruct;
-- (unsigned int)supportedInterfaceOrientationsForObjectModel:(id)arg1 page:(id)arg2;
-- (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
+- (unsigned long long)supportedInterfaceOrientationsForObjectModel:(id)arg1 page:(id)arg2;
+- (void)alertView:(id)arg1 didDismissWithButtonIndex:(long long)arg2;
 - (void)objectModelPressedBack:(id)arg1;
 - (id)parentViewControllerForObjectModel:(id)arg1;
 - (void)loader:(id)arg1 didFailWithError:(id)arg2;
@@ -35,17 +35,17 @@
 - (void)objectModel:(id)arg1 pressedLink:(id)arg2 httpMethod:(id)arg3;
 - (void)objectModel:(id)arg1 pressedButton:(id)arg2 attributes:(id)arg3;
 - (void)loader:(id)arg1 receivedObjectModel:(id)arg2 actionSignal:(int)arg3;
-- (void)_popObjectModelAnimated:(BOOL)arg1;
+- (void)_popObjectModelAnimated:(_Bool)arg1;
 - (void)_displayConnectionErrorAndDismiss;
 - (void)_cleanupCreateAppleID:(id)arg1;
 - (void)_cleanupLoader;
-- (void)_userAgreedToTCs:(BOOL)arg1;
+- (void)_userAgreedToTCs:(_Bool)arg1;
 - (void)_createAppleAccount;
 - (void)_addHeadersToRequest:(id)arg1;
 - (void)loadURLRequest:(id)arg1;
 - (void)dealloc;
 - (void)setDelegate:(id)arg1;
-- (id)initWithNavController:(id)arg1 isModal:(BOOL)arg2;
+- (id)initWithNavController:(id)arg1 isModal:(_Bool)arg2;
 
 @end
 

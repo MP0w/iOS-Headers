@@ -14,7 +14,7 @@
 
 + (id)personSearchWithDictionary:(id)arg1 context:(id)arg2;
 + (id)personSearch;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSString *scope;
 @property(copy, nonatomic) NSString *relationship;
 @property(retain, nonatomic) SAPhone *phone;

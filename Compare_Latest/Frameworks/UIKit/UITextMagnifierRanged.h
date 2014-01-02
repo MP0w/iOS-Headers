@@ -6,23 +6,24 @@
 
 #import <UIKit/UITextMagnifier.h>
 
+// Not exported
 @interface UITextMagnifierRanged : UITextMagnifier
 {
-    float _touchOffsetFromMagnificationPoint;
-    float _magnifierOffsetFromTouch;
-    BOOL _isHorizontal;
-    BOOL _isAnimating;
-    int _delayedAnimationType;
+    double _touchOffsetFromMagnificationPoint;
+    double _magnifierOffsetFromTouch;
+    _Bool _isHorizontal;
+    _Bool _isAnimating;
+    long long _delayedAnimationType;
 }
 
 + (id)sharedRangedMagnifier;
-@property(nonatomic) BOOL isHorizontal; // @synthesize isHorizontal=_isHorizontal;
+@property(nonatomic) _Bool isHorizontal; // @synthesize isHorizontal=_isHorizontal;
 - (struct CGPoint)snappedPoint:(struct CGPoint)arg1;
 - (struct CGPoint)clipPoint:(struct CGPoint)arg1 inRect:(struct CGRect)arg2;
-- (void)stopMagnifying:(BOOL)arg1;
-- (void)beginMagnifyingTarget:(id)arg1 text:(id)arg2 magnificationPoint:(struct CGPoint)arg3 offset:(struct CGPoint)arg4 animated:(BOOL)arg5;
+- (void)stopMagnifying:(_Bool)arg1;
+- (void)beginMagnifyingTarget:(id)arg1 text:(id)arg2 magnificationPoint:(struct CGPoint)arg3 offset:(struct CGPoint)arg4 animated:(_Bool)arg5;
 - (void)updateFrame;
-- (float)offsetFromMagnificationPoint;
+- (double)offsetFromMagnificationPoint;
 - (void)remove;
 - (void)zoomDownAnimationDidStop:(id)arg1 finished:(id)arg2;
 - (void)zoomDownAnimation;
@@ -30,9 +31,9 @@
 - (void)zoomUpAnimation;
 - (void)setAutoscrollDirections:(int)arg1;
 - (int)horizontalMovement;
-- (BOOL)wasPlacedCarefullyAtTime:(double)arg1;
+- (_Bool)wasPlacedCarefullyAtTime:(double)arg1;
 - (int)horizontalMovementAtTime:(double)arg1;
-- (BOOL)terminalPointPlacedCarefully;
+- (_Bool)terminalPointPlacedCarefully;
 - (void)setMagnificationPoint:(struct CGPoint)arg1;
 - (void)dealloc;
 - (id)initWithFrame;

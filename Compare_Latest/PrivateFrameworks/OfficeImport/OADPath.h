@@ -8,21 +8,22 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface OADPath : NSObject
 {
     struct CGSize mSize;
     NSMutableArray *mElements;
     int mFillMode;
-    BOOL mStroked;
+    _Bool mStroked;
 }
 
 - (id).cxx_construct;
-- (void)setStroked:(BOOL)arg1;
-- (BOOL)stroked;
+- (void)setStroked:(_Bool)arg1;
+- (_Bool)stroked;
 - (void)setFillMode:(int)arg1;
 - (int)fillMode;
-- (id)elementAtIndex:(unsigned int)arg1;
-- (unsigned int)elementCount;
+- (id)elementAtIndex:(unsigned long long)arg1;
+- (unsigned long long)elementCount;
 - (void)addElement:(id)arg1;
 - (void)setSize:(struct CGSize)arg1;
 - (struct CGSize)size;

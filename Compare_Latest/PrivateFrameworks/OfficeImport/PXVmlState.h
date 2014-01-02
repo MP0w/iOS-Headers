@@ -8,6 +8,7 @@
 
 @class ESDObject, PBPresentationReaderState;
 
+// Not exported
 @interface PXVmlState : OAVState
 {
     ESDObject *mLegacyTextGlobals;

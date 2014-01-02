@@ -12,14 +12,14 @@
 {
     NSLock *_releaseLock;
     int _referenceCount;
-    BOOL _calledDealloc;
+    _Bool _calledDealloc;
 }
 
 - (void)dealloc;
 - (oneway void)release;
 - (void)invalidateThreadsWithWeakLinks;
 - (id)retain;
-- (unsigned int)retainCount;
+- (unsigned long long)retainCount;
 - (id)init;
 
 @end

@@ -21,7 +21,7 @@
 - (id)_itemImage;
 - (void)_giftAgainAction:(id)arg1;
 - (void)_doneButtonAction:(id)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;
 - (void)dealloc;
 - (id)initWithGift:(id)arg1 configuration:(id)arg2;

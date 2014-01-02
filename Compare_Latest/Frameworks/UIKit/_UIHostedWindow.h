@@ -10,19 +10,22 @@
 
 @interface _UIHostedWindow : UIWindow
 {
+    long long _hostTintAdjustmentMode;
 }
 
-- (BOOL)_isClippedByScreenJail;
-- (BOOL)_needsShakesWhenInactive;
+@property(nonatomic, setter=_setHostTintAdjustmentMode:) long long _hostTintAdjustmentMode; // @synthesize _hostTintAdjustmentMode;
+- (long long)_defaultTintAdjustmentMode;
+- (_Bool)_isClippedByScreenJail;
+- (_Bool)_needsShakesWhenInactive;
 - (void)_updateTransformLayerForClassicPresentation;
 - (void)_updateAppTintView;
 - (void)_unregisterScrollToTopView:(id)arg1;
 - (void)_registerScrollToTopView:(id)arg1;
-- (BOOL)_usesWindowServerHitTesting;
+- (_Bool)_usesWindowServerHitTesting;
 @property(readonly, nonatomic) _UIHostedWindowHostingHandle *hostingHandle;
 - (unsigned int)contextID;
-- (BOOL)_canPromoteFromKeyWindowStack;
-- (BOOL)_isWindowServerHostingManaged;
+- (_Bool)_canPromoteFromKeyWindowStack;
+- (_Bool)_isWindowServerHostingManaged;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

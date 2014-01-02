@@ -8,6 +8,6 @@
 
 @optional
 - (void)search:(id)arg1 didFinishWithError:(id)arg2;
-- (BOOL)search:(id)arg1 didFindResults:(id)arg2;
+- (_Bool)search:(id)arg1 didFindResults:(id)arg2;
 @end
 

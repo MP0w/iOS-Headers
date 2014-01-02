@@ -14,8 +14,8 @@
     NSString *_productVersion;
     NSString *_UUID;
     NSURL *_serviceURL;
-    BOOL _serviceDebugging;
-    BOOL _isNetworkReachable;
+    _Bool _serviceDebugging;
+    _Bool _isNetworkReachable;
 }
 
 + (void)clearSharedPreferences;
@@ -25,7 +25,7 @@
 - (id)stocksYQLBaseURL;
 - (id)stocksYQLEnvParameter;
 - (id)serviceDebuggingPath;
-- (BOOL)serviceDebugging;
+- (_Bool)serviceDebugging;
 - (id)logoBacksideImage;
 - (id)logoButtonImage;
 - (id)_cacheDirectoryPath;
@@ -40,7 +40,7 @@
 - (id)_stocksAcceptLanguage;
 - (id)_stocksCountryCode;
 - (id)_stocksUserAgent;
-@property(nonatomic, getter=isNetworkReachable) BOOL networkReachable;
+@property(nonatomic, getter=isNetworkReachable) _Bool networkReachable;
 - (void)setupLogging;
 - (id)init;
 

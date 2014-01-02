@@ -6,6 +6,7 @@
 
 #import <OfficeImport/MFPImageBrush.h>
 
+// Not exported
 @interface MFPTextureBrush : MFPImageBrush
 {
 }

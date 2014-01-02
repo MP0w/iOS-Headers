@@ -6,36 +6,45 @@
 
 #import <UIKit/UIKBRenderFactoryiPad.h>
 
+// Not exported
 @interface UIKBRenderFactoryiPadLandscape : UIKBRenderFactoryiPad
 {
 }
 
+- (double)defaultVariantSizeThreshold;
+- (double)skinnyKeyThreshold;
+- (id)shiftOnKeyImageName;
+- (id)shiftKeyImageName;
+- (id)deleteKeyImageName;
+- (id)handwritingMoreKeyImageName;
 - (id)muttitapReverseKeyImageName;
 - (id)multitapCompleteKeyImageName;
 - (id)dismissKeyImageName;
 - (id)dictationKeyImageName;
 - (id)globalKeyImageName;
+- (struct CGPoint)shiftKeyOffset;
+- (struct CGPoint)deleteKeyOffset;
 - (struct CGPoint)dismissKeyOffset;
 - (struct CGPoint)dualStringKeyOffset;
-- (float)fallbackFontSize;
-- (float)facemarkKeyFontSize;
-- (float)emailDotKeyFontSize;
-- (float)smallKanaKeyFontSize;
-- (float)dismissKeyFontSize;
-- (float)spaceKeyFontSize;
-- (float)dictationKeyFontSize;
-- (float)internationalKeyFontSize;
-- (float)moreKeyFontSize;
-- (float)deleteKeyFontSize;
-- (float)shiftKeyFontSize;
-- (float)fontSizeAdjustmentForNonAlphanumericKeycaps;
-- (float)bottomRowDefaultFontSize;
-- (float)dualStringKeyFontSizeAdjustment;
-- (float)stringKeyFontSize;
+- (double)fallbackFontSize;
+- (double)facemarkKeyFontSize;
+- (double)emailDotKeyFontSize;
+- (double)smallKanaKeyFontSize;
+- (double)dismissKeyFontSize;
+- (double)spaceKeyFontSize;
+- (double)dictationKeyFontSize;
+- (double)internationalKeyFontSize;
+- (double)moreKeyFontSize;
+- (double)deleteKeyFontSize;
+- (double)shiftKeyFontSize;
+- (double)fontSizeAdjustmentForNonAlphanumericKeycaps;
+- (double)bottomRowDefaultFontSize;
+- (double)dualStringKeyFontSizeAdjustment;
+- (double)stringKeyFontSize;
 - (struct CGRect)dismissKeySymbolFrame;
 - (struct CGRect)shiftKeySymbolFrame;
-- (float)dualStringKeyMiddleMargin;
-- (float)keyCornerRadius;
+- (double)dualStringKeyMiddleMargin;
+- (double)keyCornerRadius;
 
 @end
 

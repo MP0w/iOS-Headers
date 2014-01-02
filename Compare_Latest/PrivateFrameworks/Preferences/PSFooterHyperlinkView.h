@@ -7,18 +7,30 @@
 #import "UIView.h"
 
 #import "PSHeaderFooterView-Protocol.h"
+#import "UITextViewDelegate-Protocol.h"
 
-@class UITextView;
+@class NSString, NSURL, UITextView;
 
-@interface PSFooterHyperlinkView : UIView <PSHeaderFooterView>
+@interface PSFooterHyperlinkView : UIView <PSHeaderFooterView, UITextViewDelegate>
 {
-    UITextView *_hyperlink;
+    UITextView *_textView;
+    NSString *_text;
+    NSURL *_URL;
+    struct _NSRange _linkRange;
+    id _target;
+    SEL _action;
 }
 
-@property(retain) UITextView *hyperlink; // @synthesize hyperlink=_hyperlink;
-- (float)preferredHeightForWidth:(float)arg1;
+@property SEL action; // @synthesize action=_action;
+@property id target; // @synthesize target=_target;
+- (_Bool)textView:(id)arg1 shouldInteractWithURL:(id)arg2 inRange:(struct _NSRange)arg3;
+- (double)preferredHeightForWidth:(double)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+@property(retain) NSURL *URL;
+@property struct _NSRange linkRange;
+@property(retain) NSString *text;
 - (void)layoutSubviews;
+- (void)_linkify;
 - (void)dealloc;
 - (id)initWithSpecifier:(id)arg1;
 

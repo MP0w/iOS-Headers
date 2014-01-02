@@ -8,6 +8,7 @@
 
 @class GQDWPLayoutStorage;
 
+// Not exported
 @interface GQDTTextCell : GQDTCell
 {
     struct __CFString *mStringValue;
@@ -17,8 +18,6 @@
 - (id)layoutStorage;
 - (struct __CFString *)stringValue;
 - (void)dealloc;
-- (int)readContentForTCell:(struct _xmlTextReader *)arg1;
-- (int)readContentForTextCell:(struct _xmlTextReader *)arg1;
 
 @end
 

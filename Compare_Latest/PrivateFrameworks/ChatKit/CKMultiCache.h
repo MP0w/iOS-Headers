@@ -8,10 +8,10 @@
 
 @interface CKMultiCache : CKMultiDict
 {
-    unsigned int _limit;
+    unsigned long long _limit;
 }
 
-@property(nonatomic) unsigned int limit; // @synthesize limit=_limit;
+@property(nonatomic) unsigned long long limit; // @synthesize limit=_limit;
 - (void)pushObject:(id)arg1 forKey:(id)arg2;
 - (id)init;
 - (void)dealloc;

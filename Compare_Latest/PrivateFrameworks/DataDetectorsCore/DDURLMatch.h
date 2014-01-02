@@ -15,7 +15,7 @@
 }
 
 - (id)description;
-- (int)compare:(id)arg1;
+- (long long)compare:(id)arg1;
 - (id)url;
 - (struct _NSRange)range;
 - (void)dealloc;

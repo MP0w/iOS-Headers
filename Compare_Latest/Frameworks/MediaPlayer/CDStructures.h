@@ -7,8 +7,8 @@
 #pragma mark Named Structures
 
 struct CGPoint {
-    float x;
-    float y;
+    double x;
+    double y;
 };
 
 struct CGRect {
@@ -17,8 +17,8 @@ struct CGRect {
 };
 
 struct CGSize {
-    float width;
-    float height;
+    double width;
+    double height;
 };
 
 struct FairPlayHWInfo_ {
@@ -33,7 +33,7 @@ struct MLArtworkFormatSpec {
     unsigned int _field4;
     int _field5;
     int _field6;
-    char _field7;
+    _Bool _field7;
 };
 
 struct MLArtworkInstanceInfo {
@@ -47,15 +47,15 @@ struct StackItem {
 };
 
 struct UIEdgeInsets {
-    float top;
-    float left;
-    float bottom;
-    float right;
+    double top;
+    double left;
+    double bottom;
+    double right;
 };
 
 struct _NSRange {
-    unsigned int location;
-    unsigned int length;
+    unsigned long long location;
+    unsigned long long length;
 };
 
 #pragma mark Typedef'd Structures
@@ -74,22 +74,22 @@ typedef struct {
 typedef struct {
     int _field1;
     id _field2;
-    float _field3;
-    int _field4;
-    int _field5;
+    double _field3;
+    long long _field4;
+    long long _field5;
     struct UIEdgeInsets _field6;
     struct UIEdgeInsets _field7;
     id _field8;
     id _field9;
     struct {
-        float _field1;
-        float _field2;
-        float _field3;
-        float _field4;
-        float _field5;
-        float _field6;
-        float _field7;
-        float _field8;
+        double _field1;
+        double _field2;
+        double _field3;
+        double _field4;
+        double _field5;
+        double _field6;
+        double _field7;
+        double _field8;
     } _field10;
-} CDStruct_1d16deb2;
+} CDStruct_5ddd96cc;
 

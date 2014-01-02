@@ -8,16 +8,17 @@
 
 @class UIResponder;
 
+// Not exported
 @interface _UITouchForwardingRecipient : NSObject
 {
     UIResponder *fromResponder;
     UIResponder *responder;
-    int recordedPhase;
-    int autocompletedPhase;
+    long long recordedPhase;
+    long long autocompletedPhase;
 }
 
-@property(nonatomic) int autocompletedPhase; // @synthesize autocompletedPhase;
-@property(nonatomic) int recordedPhase; // @synthesize recordedPhase;
+@property(nonatomic) long long autocompletedPhase; // @synthesize autocompletedPhase;
+@property(nonatomic) long long recordedPhase; // @synthesize recordedPhase;
 @property(nonatomic) UIResponder *responder; // @synthesize responder;
 @property(nonatomic) UIResponder *fromResponder; // @synthesize fromResponder;
 - (id)description;

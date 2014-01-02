@@ -10,8 +10,8 @@
 {
 }
 
-+ (BOOL)loadFrameworkAtPath:(id)arg1 andStoreHandle:(void **)arg2 bundle:(id *)arg3 logging:(BOOL)arg4;
-+ (BOOL)loadFrameworkAtPath:(id)arg1 andStoreHandle:(void **)arg2 bundle:(id *)arg3;
++ (_Bool)loadFrameworkAtPath:(id)arg1 andStoreHandle:(void **)arg2 bundle:(id *)arg3 logging:(_Bool)arg4;
++ (_Bool)loadFrameworkAtPath:(id)arg1 andStoreHandle:(void **)arg2 bundle:(id *)arg3;
 
 @end
 

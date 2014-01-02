@@ -8,19 +8,19 @@
 
 @interface TIHandwritingCompositionCandidate : TIKeyboardCandidateSingle
 {
-    unsigned int _deleteCount;
+    unsigned long long _deleteCount;
 }
 
 + (int)type;
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 - (void)encodeWithCandidateResultSetCoder:(id)arg1;
 - (id)initWithCandidateResultSetCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)label;
-- (unsigned int)deleteCount;
-- (id)initWithCandidate:(id)arg1 deleteCount:(unsigned int)arg2;
+- (unsigned long long)deleteCount;
+- (id)initWithCandidate:(id)arg1 deleteCount:(unsigned long long)arg2;
 
 @end
 

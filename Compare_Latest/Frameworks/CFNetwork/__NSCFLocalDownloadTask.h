@@ -6,33 +6,38 @@
 
 #import <CFNetwork/__NSCFLocalSessionTask.h>
 
-@class NSObject<OS_dispatch_data>, __NSCFLocalDownloadFile;
+@class NSDictionary, NSObject<OS_dispatch_data>, __NSCFLocalDownloadFile;
 
+// Not exported
 @interface __NSCFLocalDownloadTask : __NSCFLocalSessionTask
 {
     _Bool _canWrite;
     _Bool _needFinish;
     _Bool _didIssueNeedFinish;
+    int _seqNo;
     id _fileCompletion;
     __NSCFLocalDownloadFile *_downloadFile;
     NSObject<OS_dispatch_data> *_writeBuffer;
-    unsigned int _ioSuspend;
-    int _seqNo;
-    unsigned long _totalWrote;
+    unsigned long long _ioSuspend;
+    unsigned long long _totalWrote;
     id _resumeCallback;
+    long long _initialResumeSize;
+    NSDictionary *_originalResumeInfo;
 }
 
+@property(retain) NSDictionary *originalResumeInfo; // @synthesize originalResumeInfo=_originalResumeInfo;
+@property long long initialResumeSize; // @synthesize initialResumeSize=_initialResumeSize;
 @property(copy) id resumeCallback; // @synthesize resumeCallback=_resumeCallback;
-@property unsigned long totalWrote; // @synthesize totalWrote=_totalWrote;
+@property unsigned long long totalWrote; // @synthesize totalWrote=_totalWrote;
 @property _Bool didIssueNeedFinish; // @synthesize didIssueNeedFinish=_didIssueNeedFinish;
 @property _Bool needFinish; // @synthesize needFinish=_needFinish;
 @property int seqNo; // @synthesize seqNo=_seqNo;
-@property unsigned int ioSuspend; // @synthesize ioSuspend=_ioSuspend;
+@property unsigned long long ioSuspend; // @synthesize ioSuspend=_ioSuspend;
 @property(retain) NSObject<OS_dispatch_data> *writeBuffer; // @synthesize writeBuffer=_writeBuffer;
 @property _Bool canWrite; // @synthesize canWrite=_canWrite;
 @property(retain) __NSCFLocalDownloadFile *downloadFile; // @synthesize downloadFile=_downloadFile;
 @property(copy) id fileCompletion; // @synthesize fileCompletion=_fileCompletion;
-- (BOOL)isKindOfClass:(Class)arg1;
+- (_Bool)isKindOfClass:(Class)arg1;
 - (void)_task_onqueue_didFinish;
 - (void)_task_onqueue_didReceiveDispatchData:(id)arg1;
 - (void)_onqueue_didReceiveResponse:(id)arg1;
@@ -43,12 +48,12 @@
 - (void)writeAndResume;
 - (void)_onqueue_willCacheResponse:(id)arg1 withCompletion:(id)arg2;
 - (void)_private_posixError:(int)arg1;
-- (void)reportProgress:(unsigned long)arg1;
+- (void)reportProgress:(unsigned long long)arg1;
 - (void)cancelByProducingResumeData:(id)arg1;
 - (void)dealloc;
 - (id)initWithTask:(id)arg1 suspendedConnection:(struct _CFURLConnection *)arg2;
-- (id)initWithSession:(id)arg1 resumeData:(id)arg2 ident:(unsigned int)arg3 bridge:(id)arg4;
-- (id)initWithSession:(id)arg1 request:(id)arg2 ident:(unsigned int)arg3 bridge:(id)arg4;
+- (id)initWithSession:(id)arg1 resumeData:(id)arg2 ident:(unsigned long long)arg3 bridge:(id)arg4;
+- (id)initWithSession:(id)arg1 request:(id)arg2 ident:(unsigned long long)arg3 bridge:(id)arg4;
 - (_Bool)setupForNewDownload;
 
 @end

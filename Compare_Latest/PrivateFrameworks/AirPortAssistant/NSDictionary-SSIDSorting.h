@@ -7,7 +7,7 @@
 #import "NSDictionary.h"
 
 @interface NSDictionary (SSIDSorting)
-- (int)ssidAndBaseNameLocalizedCaseInsensitiveCompare:(id)arg1;
-- (int)ssidLocalizedCaseInsensitiveCompare:(id)arg1;
+- (long long)ssidAndBaseNameLocalizedCaseInsensitiveCompare:(id)arg1;
+- (long long)ssidLocalizedCaseInsensitiveCompare:(id)arg1;
 @end
 

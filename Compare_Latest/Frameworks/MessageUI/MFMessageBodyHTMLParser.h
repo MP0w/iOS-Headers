@@ -14,9 +14,9 @@
 }
 
 - (void)didFindError:(id)arg1;
-- (BOOL)parse;
+- (_Bool)parse;
 - (void)_findBody;
-- (BOOL)_isMilestoneTagName:(id)arg1;
+- (_Bool)_isMilestoneTagName:(id)arg1;
 - (void)_consumeNodesFromNode:(id)arg1 upToNode:(id)arg2;
 - (Class)messageBodyElementClass;
 - (int)messageBodyStringAccumulatorDefaultOptions;

@@ -8,6 +8,7 @@
 
 @class NSNumber;
 
+// Not exported
 @interface CITile2Filter : CITileFilter
 {
     NSNumber *inputAcuteAngle;

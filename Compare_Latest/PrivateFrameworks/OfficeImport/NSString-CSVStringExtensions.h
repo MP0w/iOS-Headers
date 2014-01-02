@@ -7,7 +7,7 @@
 #import "NSString.h"
 
 @interface NSString (CSVStringExtensions)
-- (id)copyCsvRows:(unsigned int *)arg1;
-- (id)_copyCsvRows:(unsigned int *)arg1 usingDelimiter:(id)arg2 columnCountIsConstant:(char *)arg3;
+- (id)copyCsvRows:(unsigned long long *)arg1;
+- (id)_copyCsvRows:(unsigned long long *)arg1 usingDelimiter:(id)arg2 columnCountIsConstant:(_Bool *)arg3;
 @end
 

@@ -16,8 +16,8 @@
     NSMutableDictionary *_properties;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)description;
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)copyXPCEncoding;

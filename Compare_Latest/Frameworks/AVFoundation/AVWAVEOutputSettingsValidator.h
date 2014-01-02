@@ -10,7 +10,7 @@
 {
 }
 
-- (BOOL)validateAudioOutputSettings:(id)arg1 reason:(id *)arg2;
+- (_Bool)validateAudioOutputSettings:(id)arg1 reason:(id *)arg2;
 - (id)initWithFileType:(id)arg1;
 
 @end

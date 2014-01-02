@@ -13,8 +13,8 @@
     UIImageView *_cameraIcon;
 }
 
-- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
-- (void)setShowsCameraIcon:(BOOL)arg1;
+- (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (void)setShowsCameraIcon:(_Bool)arg1;
 - (void)dealloc;
 
 @end

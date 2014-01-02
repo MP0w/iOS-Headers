@@ -7,6 +7,6 @@
 #import "CALayer.h"
 
 @interface CALayer (TextEffectsLayerOrdering)
-- (int)compareTextEffectsOrdering:(id)arg1;
+- (long long)compareTextEffectsOrdering:(id)arg1;
 @end
 

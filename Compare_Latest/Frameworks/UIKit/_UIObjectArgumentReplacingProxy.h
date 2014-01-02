@@ -8,6 +8,7 @@
 
 @class NSMapTable;
 
+// Not exported
 @interface _UIObjectArgumentReplacingProxy : _UITargetedProxy
 {
     int _lock;

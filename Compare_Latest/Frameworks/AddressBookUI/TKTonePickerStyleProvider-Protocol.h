@@ -14,14 +14,14 @@
 @property(readonly, nonatomic) UIColor *tonePickerHeaderTextShadowColor;
 @property(readonly, nonatomic) UIColor *tonePickerHeaderTextColor;
 @property(readonly, nonatomic) UIFont *tonePickerHeaderTextFont;
-@property(readonly, nonatomic) BOOL wantsCustomTonePickerHeaderView;
+@property(readonly, nonatomic) _Bool wantsCustomTonePickerHeaderView;
 @property(readonly, nonatomic) UIColor *tonePickerCellBackgroundColor;
 @property(readonly, nonatomic) UIColor *tonePickerCellHighlightedTextColor;
 @property(readonly, nonatomic) UIColor *tonePickerCellTextColor;
 @property(readonly, nonatomic) UIFont *tonePickerCellTextFont;
-@property(readonly, nonatomic) int tonePickerTableViewSeparatorStyle;
-@property(readonly, nonatomic) BOOL tonePickerUsesOpaqueBackground;
+@property(readonly, nonatomic) long long tonePickerTableViewSeparatorStyle;
+@property(readonly, nonatomic) _Bool tonePickerUsesOpaqueBackground;
 - (id)newAccessoryDisclosureIndicatorViewForTonePickerCell;
-- (id)newBackgroundViewForSelectedTonePickerCell:(BOOL)arg1;
+- (id)newBackgroundViewForSelectedTonePickerCell:(_Bool)arg1;
 @end
 

@@ -6,19 +6,20 @@
 
 #import <SpriteKit/SKAction.h>
 
+// Not exported
 @interface SKScale : SKAction
 {
     struct SKCScale *_mycaction;
 }
 
-+ (id)scaleYTo:(float)arg1 duration:(double)arg2;
-+ (id)scaleByY:(float)arg1 duration:(double)arg2;
-+ (id)scaleXTo:(float)arg1 duration:(double)arg2;
-+ (id)scaleXBy:(float)arg1 duration:(double)arg2;
-+ (id)scaleXTo:(float)arg1 y:(float)arg2 duration:(double)arg3;
-+ (id)scaleTo:(float)arg1 duration:(double)arg2;
-+ (id)scaleXBy:(float)arg1 y:(float)arg2 duration:(double)arg3;
-+ (id)scaleBy:(float)arg1 duration:(double)arg2;
++ (id)scaleYTo:(double)arg1 duration:(double)arg2;
++ (id)scaleXTo:(double)arg1 duration:(double)arg2;
++ (id)scaleXTo:(double)arg1 y:(double)arg2 duration:(double)arg3;
++ (id)scaleTo:(double)arg1 duration:(double)arg2;
++ (id)scaleYBy:(double)arg1 duration:(double)arg2;
++ (id)scaleXBy:(double)arg1 duration:(double)arg2;
++ (id)scaleXBy:(double)arg1 y:(double)arg2 duration:(double)arg3;
++ (id)scaleBy:(double)arg1 duration:(double)arg2;
 - (id)reversedAction;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;

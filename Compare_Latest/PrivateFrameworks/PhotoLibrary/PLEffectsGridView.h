@@ -13,31 +13,31 @@
     struct OpaqueVTPixelTransferSession *_pixelTransferSession;
     struct __CVPixelBufferPool *_pixelBufferPool;
     struct CGSize _pixelBufferPoolSize;
-    BOOL _square;
-    BOOL __fetchingGridFilters;
-    BOOL __atomicBlackAndWhite;
+    _Bool _square;
+    _Bool __fetchingGridFilters;
+    _Bool __atomicBlackAndWhite;
     NSDictionary *__gridFilters;
 }
 
-@property(getter=_isAtomicBlackAndWhite, setter=_setAtomicBlackAndWhite:) BOOL _atomicBlackAndWhite; // @synthesize _atomicBlackAndWhite=__atomicBlackAndWhite;
-@property(setter=_setFetchingGridFilters:) BOOL _fetchingGridFilters; // @synthesize _fetchingGridFilters=__fetchingGridFilters;
+@property(getter=_isAtomicBlackAndWhite, setter=_setAtomicBlackAndWhite:) _Bool _atomicBlackAndWhite; // @synthesize _atomicBlackAndWhite=__atomicBlackAndWhite;
+@property(setter=_setFetchingGridFilters:) _Bool _fetchingGridFilters; // @synthesize _fetchingGridFilters=__fetchingGridFilters;
 @property(retain, setter=_setGridFilters:) NSDictionary *_gridFilters; // @synthesize _gridFilters=__gridFilters;
-@property(getter=isSquare) BOOL square; // @synthesize square=_square;
+@property(getter=isSquare) _Bool square; // @synthesize square=_square;
 - (id)filterIndices;
-- (unsigned int)filterIndexForPoint:(struct CGPoint)arg1;
-- (struct CGRect)rectForFilterIndex:(unsigned int)arg1;
-- (unsigned int)_filterIndexForGridIndex:(unsigned int)arg1;
-- (unsigned int)_gridIndexForFilterIndex:(unsigned int)arg1;
-- (unsigned int)_cellCount;
-- (unsigned int)_cellsPerRow;
+- (unsigned long long)filterIndexForPoint:(struct CGPoint)arg1;
+- (struct CGRect)rectForFilterIndex:(unsigned long long)arg1;
+- (unsigned long long)_filterIndexForGridIndex:(unsigned long long)arg1;
+- (unsigned long long)_gridIndexForFilterIndex:(unsigned long long)arg1;
+- (unsigned long long)_cellCount;
+- (unsigned long long)_cellsPerRow;
 - (void)_setupGridFiltersIfNecessary;
 - (void)_updatePixelBufferPoolForSize:(struct CGSize)arg1;
 - (void)_scalePixelBuffer:(struct __CVBuffer *)arg1 outputBuffer:(struct __CVBuffer *)arg2;
 - (struct __CVBuffer *)_createPixelBufferForSize:(struct CGSize)arg1;
 - (struct CGRect)_squareCropFromRect:(struct CGRect)arg1;
-- (void)_renderGridFilters:(id)arg1 withInputImage:(id)arg2 ciContext:(id)arg3 mirrorRendering:(BOOL)arg4;
-- (void)renderPixelBuffer:(struct __CVBuffer *)arg1 ciContext:(id)arg2 mirrorRendering:(BOOL)arg3;
-@property(getter=isBlackAndWhite) BOOL blackAndWhite;
+- (void)_renderGridFilters:(id)arg1 withInputImage:(id)arg2 ciContext:(id)arg3 mirrorRendering:(_Bool)arg4;
+- (void)renderPixelBuffer:(struct __CVBuffer *)arg1 ciContext:(id)arg2 mirrorRendering:(_Bool)arg3;
+@property(getter=isBlackAndWhite) _Bool blackAndWhite;
 - (void)dealloc;
 
 @end

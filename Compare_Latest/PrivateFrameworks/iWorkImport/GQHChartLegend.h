@@ -6,6 +6,7 @@
 
 #import <iWorkImport/GQHChart.h>
 
+// Not exported
 @interface GQHChartLegend : GQHChart
 {
 }

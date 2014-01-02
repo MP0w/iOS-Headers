@@ -6,20 +6,18 @@
 
 #import <iLifeSlideshow/MCObject.h>
 
-#import "MCAnimationPathSupport-Protocol.h"
+@class NSDictionary, NSMutableDictionary, NSMutableSet, NSString;
 
-@class NSDictionary, NSMutableDictionary, NSMutableSet, NSSet, NSString;
-
-@interface MCFilter : MCObject <MCAnimationPathSupport>
+@interface MCFilter : MCObject
 {
     NSMutableDictionary *mAttributes;
     NSMutableSet *mAnimationPaths;
-    unsigned int mIndex;
+    unsigned long long mIndex;
     NSString *mFilterID;
 }
 
 @property(copy) NSString *filterID; // @synthesize filterID=mFilterID;
-@property(nonatomic) unsigned int index; // @synthesize index=mIndex;
+@property(nonatomic) unsigned long long index; // @synthesize index=mIndex;
 - (void)_copySelfToSnapshot:(id)arg1;
 @property(copy) NSDictionary *attributes;
 - (void)setAttribute:(id)arg1 forKey:(id)arg2;
@@ -28,15 +26,6 @@
 - (id)imprint;
 - (void)demolish;
 - (id)initWithImprint:(id)arg1 andMontage:(id)arg2;
-- (void)removeAllAnimationPaths;
-- (void)removeAnimationPathForKey:(id)arg1;
-- (void)addAnimationPath:(id)arg1;
-- (id)animationPathForKey:(id)arg1;
-@property(readonly) unsigned int countOfAnimationPaths;
-@property(readonly) NSSet *animationPaths;
-- (id)imprintsForAnimationPaths;
-- (void)demolishAnimationPaths;
-- (void)initAnimationPathsWithImprints:(id)arg1;
 
 @end
 

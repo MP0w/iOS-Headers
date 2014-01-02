@@ -7,6 +7,6 @@
 #import "NSAttributedString.h"
 
 @interface NSAttributedString (SecuredTextField)
-- (id)_ui_secureStringWithPointSize:(float)arg1;
+- (id)_ui_secureStringWithPointSize:(double)arg1;
 @end
 

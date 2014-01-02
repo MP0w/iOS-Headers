@@ -8,6 +8,7 @@
 
 @class OADDrawable, WDCharacterProperties;
 
+// Not exported
 @interface WDOfficeArt : WDRun
 {
     WDCharacterProperties *mProperties;
@@ -25,7 +26,7 @@
 - (void)setFloating:(_Bool)arg1;
 - (_Bool)isFloating;
 - (void)clearDrawable;
-- (BOOL)isDrawableOverridden;
+- (_Bool)isDrawableOverridden;
 - (id)overrideDrawable;
 - (void)setDrawable:(id)arg1;
 - (id)drawable;
@@ -35,7 +36,6 @@
 - (int)runType;
 - (void)dealloc;
 - (id)initWithParagraph:(id)arg1;
-- (void)checkForFloating:(id)arg1;
 
 @end
 

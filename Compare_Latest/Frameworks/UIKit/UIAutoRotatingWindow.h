@@ -8,14 +8,14 @@
 
 @interface UIAutoRotatingWindow : UIWindow
 {
-    int _interfaceOrientation;
-    BOOL _unknownOrientation;
+    long long _interfaceOrientation;
+    _Bool _unknownOrientation;
 }
 
 + (id)sharedPopoverHostingWindow;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)_didRemoveSubview:(id)arg1;
-- (void)updateForOrientation:(int)arg1;
+- (void)updateForOrientation:(long long)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

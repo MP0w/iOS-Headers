@@ -12,12 +12,12 @@
 
 @interface ISPostReviewOperation : ISOperation <ISStoreURLOperationDelegate>
 {
-    BOOL _backgroundReview;
+    _Bool _backgroundReview;
     ISReview *_review;
 }
 
 @property(retain) ISReview *review; // @synthesize review=_review;
-@property(getter=isBackgroundReview) BOOL backgroundReview; // @synthesize backgroundReview=_backgroundReview;
+@property(getter=isBackgroundReview) _Bool backgroundReview; // @synthesize backgroundReview=_backgroundReview;
 - (id)_httpBody;
 - (void)operation:(id)arg1 finishedWithOutput:(id)arg2;
 - (void)run;

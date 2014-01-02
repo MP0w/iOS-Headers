@@ -16,7 +16,7 @@
     NSDictionary *_options;
     struct __MMCSEngine *_engine;
     struct {
-        int version;
+        long long version;
         void *context;
         void *getFileDescriptorAndContentTypeFromItemCallback;
         void *getItemProgressCallback;
@@ -25,16 +25,16 @@
         void *putItemDoneCallback;
         void *requestCompletedCallback;
     } _engineClientContext;
-    NSMutableDictionary *_itemIDToAssetProxyMap;
-    NSObject<OS_dispatch_queue> *_itemIDToAssetProxyMapQueue;
+    NSMutableDictionary *_itemIDToAssetMap;
+    NSObject<OS_dispatch_queue> *_itemIDToAssetMapQueue;
     NSMutableArray *_requestorContexts;
     NSObject<OS_dispatch_queue> *_reqestorContextQueue;
     NSMutableDictionary *_autoItemIDDictionary;
     NSURL *_autoItemIDPersistenceURL;
     NSObject<OS_dispatch_queue> *_autoItemIDDictionaryQueue;
-    BOOL _autoGenerateItemID;
-    BOOL _isMetricsGatheringEnabled;
-    BOOL _isDone;
+    _Bool _autoGenerateItemID;
+    _Bool _isMetricsGatheringEnabled;
+    _Bool _isDone;
     id <MMCSEngineDelegate> _delegate;
     NSThread *_workThread;
     NSTimer *_threadKeepAliveTimer;
@@ -42,20 +42,20 @@
 
 + (id)logStringForPutItemState:(int)arg1;
 + (id)logStringForGetItemState:(int)arg1;
-@property(nonatomic) BOOL isDone; // @synthesize isDone=_isDone;
+@property(nonatomic) _Bool isDone; // @synthesize isDone=_isDone;
 @property(retain, nonatomic) NSTimer *threadKeepAliveTimer; // @synthesize threadKeepAliveTimer=_threadKeepAliveTimer;
 @property(retain, nonatomic) NSThread *workThread; // @synthesize workThread=_workThread;
-@property(nonatomic) BOOL isMetricsGatheringEnabled; // @synthesize isMetricsGatheringEnabled=_isMetricsGatheringEnabled;
-@property(nonatomic) BOOL autoGenerateItemID; // @synthesize autoGenerateItemID=_autoGenerateItemID;
+@property(nonatomic) _Bool isMetricsGatheringEnabled; // @synthesize isMetricsGatheringEnabled=_isMetricsGatheringEnabled;
+@property(nonatomic) _Bool autoGenerateItemID; // @synthesize autoGenerateItemID=_autoGenerateItemID;
 @property(nonatomic) __weak id <MMCSEngineDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (unsigned long long)_nextItemID;
 - (void)_initItemIDPersistence;
 - (void)_removeRequestorContext:(id)arg1;
 - (void)_registerRequestorContext:(id)arg1;
-- (void)_removeAssetProxyForItemID:(unsigned long long)arg1;
-- (id)_assetProxyWithItemID:(unsigned long long)arg1;
-- (void)_registerAssetProxy:(id)arg1;
+- (void)_removeAssetForItemID:(unsigned long long)arg1;
+- (id)_assetWithItemID:(unsigned long long)arg1;
+- (void)_registerAsset:(id)arg1;
 - (void)_logLevel:(int)arg1 message:(id)arg2;
 - (void)putAssets:(id)arg1 requestURL:(id)arg2 DSID:(id)arg3 options:(id)arg4;
 - (void)getAssets:(id)arg1 requestURL:(id)arg2 DSID:(id)arg3 options:(id)arg4;
@@ -65,7 +65,7 @@
 - (void)reregisterAssetForDownload:(id)arg1;
 - (void)reregisterAssetForUpload:(id)arg1;
 - (void)registerAssetForUpload:(id)arg1 completionBlock:(id)arg2;
-- (BOOL)isActive;
+- (_Bool)isActive;
 - (void)shutDownCompletionBlock:(id)arg1;
 - (void)cancelAllOperations;
 - (void)cancelOperationsWithContext:(id)arg1;
@@ -74,7 +74,7 @@
 - (void)_putItemProgressItemID:(unsigned long long)arg1 state:(int)arg2 progress:(double)arg3 requestorContext:(id)arg4 error:(id)arg5;
 - (void)_getItemDoneItemID:(unsigned long long)arg1 path:(id)arg2 requestorContext:(id)arg3 error:(id)arg4;
 - (void)_getItemProgressItemID:(unsigned long long)arg1 state:(int)arg2 progress:(double)arg3 requestorContext:(id)arg4 error:(id)arg5;
-- (BOOL)_getFileDescriptorAndContentTypeFromItemID:(unsigned long long)arg1 outFD:(int *)arg2 outItemType:(id *)arg3 outError:(id *)arg4;
+- (_Bool)_getFileDescriptorAndContentTypeFromItemID:(unsigned long long)arg1 outFD:(int *)arg2 outItemType:(id *)arg3 outError:(id *)arg4;
 - (void)threadMain:(id)arg1;
 - (void)_doNothingTimerHandler:(id)arg1;
 - (void)performBlockOnWorkThread:(id)arg1;
@@ -82,7 +82,7 @@
 - (void)performBlock:(id)arg1;
 - (id)initWithWorkPath:(id)arg1 appIDHeader:(id)arg2 dataClass:(id)arg3 options:(id)arg4;
 - (id)initWithWorkPath:(id)arg1 appIDHeader:(id)arg2 dataClass:(id)arg3 options:(id)arg4 modes:(id)arg5;
-@property(readonly, nonatomic) BOOL hasOutstandingActivity;
+@property(readonly, nonatomic) _Bool hasOutstandingActivity;
 
 @end
 

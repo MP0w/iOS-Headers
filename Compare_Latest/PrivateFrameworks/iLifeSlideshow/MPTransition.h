@@ -18,16 +18,16 @@
     NSString *_transitionID;
     NSString *_presetID;
     double _duration;
-    BOOL _isRandom;
-    int _randomSeed;
+    _Bool _isRandom;
+    long long _randomSeed;
 }
 
 + (id)transitionWithTransitionID:(id)arg1;
 @property(nonatomic) double duration; // @synthesize duration=_duration;
 @property(copy, nonatomic) NSString *presetID; // @synthesize presetID=_presetID;
 @property(copy, nonatomic) NSString *transitionID; // @synthesize transitionID=_transitionID;
-- (void)setRandomSeed:(int)arg1;
-- (int)randomSeed;
+- (void)setRandomSeed:(long long)arg1;
+- (long long)randomSeed;
 - (id)parentContainer;
 - (id)parent;
 - (void)setTransitionAttribute:(id)arg1 forKey:(id)arg2;
@@ -41,20 +41,6 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
 - (id)initWithTransitionID:(id)arg1;
-- (id)transitionPresetID;
-- (double)findMaxDuration;
-- (id)convertMPAttributeToMCAttribute:(id)arg1 withKey:(id)arg2;
-- (id)fullDebugLog;
-- (void)dump;
-- (id)_transitionAttributes;
-- (void)applyFormattedAttributes;
-- (id)formattedAttributes;
-- (void)setIsRandom:(BOOL)arg1;
-- (BOOL)isRandom;
-- (void)setParent:(id)arg1;
-- (id)parentDocument;
-- (void)copyAttribures:(id)arg1;
-- (void)copyVars:(id)arg1;
 
 @end
 

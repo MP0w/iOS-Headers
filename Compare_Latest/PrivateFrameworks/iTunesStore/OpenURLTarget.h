@@ -16,12 +16,12 @@
         NSString *normalScheme;
         NSString *secureScheme;
     } _targetData;
-    int _targetIndex;
+    long long _targetIndex;
 }
 
 - (id)description;
 - (id)copyURLForURL:(id)arg1;
-- (int)compare:(id)arg1;
+- (long long)compare:(id)arg1;
 - (id)initWithTargetIdentifier:(id)arg1;
 - (id)init;
 

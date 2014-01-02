@@ -8,14 +8,15 @@
 
 @class OADFill;
 
+// Not exported
 @interface OADFillOverlayEffect : OADEffect
 {
     int mBlendMode;
     OADFill *mFill;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)setFill:(id)arg1;
 - (id)fill;
 - (void)setBlendMode:(int)arg1;

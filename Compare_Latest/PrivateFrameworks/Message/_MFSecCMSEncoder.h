@@ -10,17 +10,17 @@
 
 @interface _MFSecCMSEncoder : MFBufferedDataConsumer
 {
-    long _SecCMSError;
+    int _SecCMSError;
     struct SecCmsEncoderStr *_encoder;
     struct SecCmsMessageStr *_message;
     NSMutableData *_singleShot;
 }
 
-@property(readonly, nonatomic) long lastSecCMSError; // @synthesize lastSecCMSError=_SecCMSError;
+@property(readonly, nonatomic) int lastSecCMSError; // @synthesize lastSecCMSError=_SecCMSError;
 - (id)data;
-- (void)_appendBytes:(const void *)arg1 length:(unsigned long)arg2;
+- (void)_appendBytes:(const void *)arg1 length:(unsigned long long)arg2;
 - (void)done;
-- (int)appendData:(id)arg1;
+- (long long)appendData:(id)arg1;
 - (void)dealloc;
 - (id)initForEncryptionWithCompositionSpecification:(id)arg1 error:(id *)arg2;
 - (id)initForSigningWithSender:(id)arg1 compositionSpecification:(id)arg2 error:(id *)arg3;

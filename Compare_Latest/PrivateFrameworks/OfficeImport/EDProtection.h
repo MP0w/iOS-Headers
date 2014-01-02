@@ -8,6 +8,7 @@
 
 #import "NSCopying-Protocol.h"
 
+// Not exported
 @interface EDProtection : NSObject <NSCopying>
 {
     _Bool mHidden;
@@ -17,9 +18,9 @@
 + (id)protectionWithHidden:(_Bool)arg1 locked:(_Bool)arg2;
 - (_Bool)isLocked;
 - (_Bool)isHidden;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isEqualToProtection:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)isEqualToProtection:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithHidden:(_Bool)arg1 locked:(_Bool)arg2;
 - (id)init;

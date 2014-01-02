@@ -11,30 +11,30 @@
 @interface SSAuthenticationResponse : NSObject
 {
     NSDictionary *_responseDictionary;
-    int _urlBagType;
+    long long _urlBagType;
     NSHTTPURLResponse *_urlResponse;
 }
 
-@property int URLBagType; // @synthesize URLBagType=_urlBagType;
+@property long long URLBagType; // @synthesize URLBagType=_urlBagType;
 @property(readonly) NSDictionary *responseDictionary; // @synthesize responseDictionary=_responseDictionary;
 - (id)_valueForFirstAvailableKey:(id)arg1;
-- (int)_responseTypeForStatusValue:(int)arg1;
-- (int)_responseTypeForFailureType:(int)arg1;
-- (int)_responseTypeForErrorNumber:(int)arg1;
+- (long long)_responseTypeForStatusValue:(long long)arg1;
+- (long long)_responseTypeForFailureType:(long long)arg1;
+- (long long)_responseTypeForErrorNumber:(long long)arg1;
 @property(readonly) NSString *userMessage;
 @property(readonly) NSHTTPURLResponse *URLResponse;
 @property(readonly) NSString *token;
 @property(readonly) NSString *storeFrontIdentifier;
-@property(readonly) int responseType;
+@property(readonly) long long responseType;
 - (id)newAccount;
-@property(readonly, getter=isNewCustomer) BOOL newCustomer;
+@property(readonly, getter=isNewCustomer) _Bool newCustomer;
 @property(readonly) NSNumber *failureType;
-@property(readonly) int enabledServiceTypes;
+@property(readonly) long long enabledServiceTypes;
 @property(readonly) NSString *creditsString;
-@property(readonly) int availableServiceTypes;
+@property(readonly) long long availableServiceTypes;
 @property(readonly) NSNumber *accountUniqueIdentifier;
 @property(readonly) NSString *accountName;
-@property(readonly) int accountKind;
+@property(readonly) long long accountKind;
 - (void)dealloc;
 - (id)initWithURLResponse:(id)arg1 dictionary:(id)arg2;
 

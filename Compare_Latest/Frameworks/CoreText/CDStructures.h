@@ -6,14 +6,24 @@
 
 #pragma mark Named Structures
 
+struct CGPoint {
+    double _field1;
+    double _field2;
+};
+
+struct CGRect {
+    struct CGPoint _field1;
+    struct CGSize _field2;
+};
+
 struct CGSize {
-    float _field1;
-    float _field2;
+    double _field1;
+    double _field2;
 };
 
 struct GlyphStack {
-    int _field1;
-    int _field2;
+    long long _field1;
+    long long _field2;
     struct GlyphStackEntry _field3[1];
 };
 
@@ -21,22 +31,125 @@ struct GlyphStackEntry {
     unsigned short _field1;
     struct CGSize _field2;
     unsigned int _field3;
-    int _field4;
+    long long _field4;
     unsigned char _field5;
+};
+
+struct StrikeMetrics {
+    double _field1;
+    double _field2;
+    double _field3;
+    unsigned int _field4;
+    struct CGPoint _field5;
+    struct CGRect _field6;
+    _Bool _field7;
+};
+
+struct TBMPDataCache;
+
+struct TBaseFont {
+    void **_field1;
+    int _field2;
+    struct TCFRef<const __CFData *> _field3;
+    struct TCFRef<const __CFData *> _field4;
+    struct TCFRef<const __CFData *> _field5;
+    struct TCFRef<const __CFData *> _field6;
+    struct TCFRef<const __CFData *> _field7;
+    struct TCFRef<const __CFData *> _field8;
+    struct TCFRef<const __CFData *> _field9;
+    struct TCFRef<const __CFURL *> _field10;
+    int _field11;
+    struct TCFRef<__CFDictionary *> _field12;
+    struct TCFRef<const __CFArray *> _field13;
+    struct TCFRef<const __CFCharacterSet *> _field14;
+    struct TCFRef<const __CFArray *> _field15;
+    struct TCFRef<const __CFCharacterSet *> _field16;
+    unsigned int _field17;
+    unsigned int _field18;
+    unsigned int _field19;
+    struct TCFRef<const __CFCharacterSet *> _field20;
+    struct TCFRef<const __CFData *> _field21;
+    long long _field22;
+    struct TBMPDataCache *_field23;
+    struct unordered_map<unsigned short, unsigned short, std::__1::hash<unsigned short>, std::__1::equal_to<unsigned short>, std::__1::allocator<std::__1::pair<const unsigned short, unsigned short>>> *_field24;
+    struct TTraitsValues *_field25;
+    struct UnscaledAdvancesPage *_field26;
+    struct StrikeMetrics _field27;
+    unsigned int _field28;
+    unsigned int _field29;
+    unsigned int _field30;
+    struct TMutex _field31;
+    struct TInlineVector<TCFRef<const __CFData *>, 4> _field32;
+    struct array<TCFRef<__CFDictionary *>, 6> _field33;
+};
+
+struct TCFRef<__CFDictionary *> {
+    struct __CFDictionary *_field1;
 };
 
 struct TCFRef<const __CFArray *> {
     struct __CFArray *fRef;
 };
 
+struct TCFRef<const __CFCharacterSet *> {
+    struct __CFCharacterSet *_field1;
+};
+
+struct TCFRef<const __CFData *> {
+    struct __CFData *_field1;
+};
+
 struct TCFRef<const __CFSet *> {
     struct __CFSet *fRef;
 };
 
+struct TCFRef<const __CFURL *> {
+    struct __CFURL *_field1;
+};
+
+struct TInlineBufferAllocator<TCFRef<const __CFData *>, 4> {
+    struct type _field1;
+    struct TCFRef<const __CFData *> *_field2;
+};
+
+struct TInlineVector<TCFRef<const __CFData *>, 4> {
+    struct TCFRef<const __CFData *> *_field1;
+    struct TCFRef<const __CFData *> *_field2;
+    struct __compressed_pair<TCFRef<const __CFData *>*, TInlineBufferAllocator<TCFRef<const __CFData *>, 4>> {
+        struct TCFRef<const __CFData *> *_field1;
+        struct TInlineBufferAllocator<TCFRef<const __CFData *>, 4> _field2;
+    } _field3;
+};
+
+struct TMutex {
+    id _field1;
+};
+
+struct TTraitsValues;
+
+struct UnscaledAdvancesPage;
+
+struct array<TCFRef<__CFDictionary *>, 6> {
+    struct TCFRef<__CFDictionary *> _field1[6];
+};
+
+struct type {
+    unsigned char _field1[32];
+};
+
+struct unordered_map<unsigned short, unsigned short, std::__1::hash<unsigned short>, std::__1::equal_to<unsigned short>, std::__1::allocator<std::__1::pair<const unsigned short, unsigned short>>>;
+
 #pragma mark Typedef'd Structures
 
 typedef struct {
-    int _field1;
-    int _field2;
-} CDStruct_1ef3fb1f;
+    unsigned long long _field1;
+    id *_field2;
+    unsigned long long *_field3;
+    unsigned long long _field4[5];
+} CDStruct_70511ce9;
+
+typedef struct {
+    long long _field1;
+    long long _field2;
+} CDStruct_912cb5d2;
 

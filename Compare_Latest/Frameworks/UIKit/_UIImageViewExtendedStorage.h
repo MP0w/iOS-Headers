@@ -8,22 +8,23 @@
 
 @class NSArray, UIImage;
 
+// Not exported
 @interface _UIImageViewExtendedStorage : NSObject
 {
-    BOOL _highlighted;
+    _Bool _highlighted;
     UIImage *_image;
     UIImage *_highlightedImage;
     NSArray *_animationImages;
     NSArray *_highlightedAnimationImages;
     double _animationDuration;
-    int _animationRepeatCount;
+    long long _animationRepeatCount;
     int _drawMode;
-    int _defaultRenderingMode;
-    BOOL _masksTemplateImages;
-    unsigned int _templateImageRenderingEffects;
+    long long _defaultRenderingMode;
+    _Bool _masksTemplateImages;
+    unsigned long long _templateImageRenderingEffects;
 }
 
-- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
+- (void)animationDidStop:(id)arg1 finished:(_Bool)arg2;
 - (void)dealloc;
 
 @end

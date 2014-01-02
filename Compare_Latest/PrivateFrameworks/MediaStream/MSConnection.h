@@ -20,7 +20,7 @@
 + (id)sharedConnection;
 - (void).cxx_destruct;
 - (id)_machErrorWithUnderlyingError:(id)arg1;
-- (BOOL)isBusy;
+- (_Bool)isBusy;
 - (void)isBusyCompletionBlock:(id)arg1;
 - (void)resume:(id)arg1;
 - (id)pause;
@@ -33,7 +33,8 @@
 - (void)checkForOutstandingActivities;
 - (void)pollForSubscriptionUpdatesForPersonID:(id)arg1;
 - (void)deleteAssetCollections:(id)arg1 personID:(id)arg2;
-- (BOOL)enqueueAssetCollections:(id)arg1 personID:(id)arg2 outError:(id *)arg3;
+- (_Bool)dequeueAssetCollectionWithGUIDs:(id)arg1 personID:(id)arg2 outError:(id *)arg3;
+- (_Bool)enqueueAssetCollections:(id)arg1 personID:(id)arg2 outError:(id *)arg3;
 - (void)dealloc;
 - (id)init;
 - (void)_waitForMessageToBeSent;

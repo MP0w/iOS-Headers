@@ -10,14 +10,14 @@
 
 @interface ML3DatabaseFunction : NSObject
 {
-    NSString *_name;
     int _argumentCount;
+    NSString *_name;
 }
 
 @property(nonatomic) int argumentCount; // @synthesize argumentCount=_argumentCount;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
-- (BOOL)registerWithConnection:(id)arg1;
+- (_Bool)registerWithConnection:(id)arg1;
 - (id)initWithName:(id)arg1 argumentCount:(int)arg2;
 
 @end

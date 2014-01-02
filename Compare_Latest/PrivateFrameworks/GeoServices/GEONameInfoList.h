@@ -6,23 +6,26 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSMutableArray;
 
-@interface GEONameInfoList : PBCodable
+@interface GEONameInfoList : PBCodable <NSCopying>
 {
     NSMutableArray *_nameInfos;
 }
 
 @property(retain, nonatomic) NSMutableArray *nameInfos; // @synthesize nameInfos=_nameInfos;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)nameInfoAtIndex:(unsigned int)arg1;
-- (unsigned int)nameInfosCount;
+- (id)nameInfoAtIndex:(unsigned long long)arg1;
+- (unsigned long long)nameInfosCount;
 - (void)addNameInfo:(id)arg1;
 - (void)clearNameInfos;
 - (void)dealloc;

@@ -6,6 +6,7 @@
 
 #import <VectorKit/VGLSimpleRoadProgram.h>
 
+// Not exported
 @interface VGLRoadNoFattenProgram : VGLSimpleRoadProgram
 {
     int _uColor;

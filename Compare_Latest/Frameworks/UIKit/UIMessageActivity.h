@@ -13,13 +13,13 @@
     MFMessageComposeViewController *_messageComposeViewController;
 }
 
-+ (int)activityCategory;
++ (long long)activityCategory;
 @property(retain, nonatomic) MFMessageComposeViewController *messageComposeViewController; // @synthesize messageComposeViewController=_messageComposeViewController;
 - (void)_cleanup;
 - (void)messageComposeViewController:(id)arg1 didFinishWithResult:(int)arg2;
 - (id)activityViewController;
 - (void)prepareWithActivityItems:(id)arg1;
-- (BOOL)canPerformWithActivityItems:(id)arg1;
+- (_Bool)canPerformWithActivityItems:(id)arg1;
 - (id)activityTitle;
 - (id)_activityImage;
 - (id)activityType;

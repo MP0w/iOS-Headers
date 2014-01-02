@@ -20,8 +20,8 @@
     UILabel *_statusView;
     UIButton *_editButton;
     unsigned int _visibleItems;
-    BOOL _observingLocaleChanges;
-    BOOL _hasLocationStatus;
+    _Bool _observingLocaleChanges;
+    _Bool _hasLocationStatus;
     int _locationStatus;
     NSObject<EKEventDetailTitleCellDelegate> *_delegate;
 }
@@ -30,7 +30,7 @@
 + (id)_skinnyImageWithColor:(id)arg1;
 @property(nonatomic) __weak NSObject<EKEventDetailTitleCellDelegate> *delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)layoutForWidth:(float)arg1 position:(int)arg2;
+- (void)layoutForWidth:(double)arg1 position:(int)arg2;
 - (id)_editButton;
 - (id)_statusView;
 - (id)_recurrenceView;
@@ -40,7 +40,7 @@
 - (id)_locationStatusView;
 - (id)_titleView;
 - (void)editButtonTapped;
-- (BOOL)update;
+- (_Bool)update;
 - (id)_locationFont;
 - (void)setPrimaryTextColor:(id)arg1;
 - (void)setColor:(id)arg1;

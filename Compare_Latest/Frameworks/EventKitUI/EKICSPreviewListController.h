@@ -8,26 +8,27 @@
 
 @class EKICSPreviewModel, NSMutableArray;
 
+// Not exported
 @interface EKICSPreviewListController : UITableViewController
 {
     EKICSPreviewModel *_model;
     NSMutableArray *_sections;
-    BOOL _allowsImport;
-    BOOL _allowsSubitems;
-    BOOL _showWeekNumbers;
+    _Bool _allowsImport;
+    _Bool _allowsSubitems;
+    _Bool _showWeekNumbers;
     id <EKICSPreviewListDelegate> _listDelegate;
 }
 
-@property(nonatomic) BOOL showWeekNumbers; // @synthesize showWeekNumbers=_showWeekNumbers;
+@property(nonatomic) _Bool showWeekNumbers; // @synthesize showWeekNumbers=_showWeekNumbers;
 @property(nonatomic) __weak id <EKICSPreviewListDelegate> listDelegate; // @synthesize listDelegate=_listDelegate;
-@property(nonatomic) BOOL allowsSubitems; // @synthesize allowsSubitems=_allowsSubitems;
-@property(nonatomic) BOOL allowsImport; // @synthesize allowsImport=_allowsImport;
+@property(nonatomic) _Bool allowsSubitems; // @synthesize allowsSubitems=_allowsSubitems;
+@property(nonatomic) _Bool allowsImport; // @synthesize allowsImport=_allowsImport;
 - (void).cxx_destruct;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (id)tableView:(id)arg1 viewForHeaderInSection:(int)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (id)tableView:(id)arg1 viewForHeaderInSection:(long long)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
 - (void)buildSections;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)_showWeekNumbersPreferenceChanged:(id)arg1;

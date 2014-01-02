@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSMutableDictionary, NSSet, SBNewsstandIcon, SBPrintStatusIcon, SBRootFolder;
+@class NSDictionary, NSMutableDictionary, NSSet, SBNewsstandIcon, SBRootFolder;
 
 @interface SBIconModel : NSObject
 {
@@ -15,38 +15,37 @@
     NSMutableDictionary *_leafIconsByIdentifier;
     NSSet *_hiddenIconTags;
     NSSet *_visibleIconTags;
-    BOOL _tagsHaveBeenSet;
+    _Bool _tagsHaveBeenSet;
     SBRootFolder *_rootFolder;
     SBNewsstandIcon *_newsstandIcon;
-    SBPrintStatusIcon *_printStatusIcon;
     id <SBIconModelStore> _store;
     id <SBIconModelApplicationDataSource> _applicationDataSource;
     id <SBIconModelDelegate> _delegate;
-    BOOL _allowsSaving;
+    _Bool _allowsSaving;
 }
 
 + (id)displayIdentifiersInIconState:(id)arg1;
 + (id)modernIconStateForState:(id)arg1;
-+ (id)_modernIconListsForLists:(id)arg1 allowFolders:(BOOL)arg2;
-+ (id)_modernIconListForList:(id)arg1 allowFolders:(BOOL)arg2;
-+ (id)_modernIconCellForCell:(id)arg1 allowFolders:(BOOL)arg2;
++ (id)_modernIconListsForLists:(id)arg1 allowFolders:(_Bool)arg2;
++ (id)_modernIconListForList:(id)arg1 allowFolders:(_Bool)arg2;
++ (id)_modernIconCellForCell:(id)arg1 allowFolders:(_Bool)arg2;
 + (id)_migrateLeafIdentifierIfNecessary:(id)arg1;
 @property(readonly, nonatomic) id <SBIconModelApplicationDataSource> applicationDataSource; // @synthesize applicationDataSource=_applicationDataSource;
 @property(readonly, nonatomic) id <SBIconModelStore> store; // @synthesize store=_store;
 @property(nonatomic) id <SBIconModelDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) BOOL allowsSaving; // @synthesize allowsSaving=_allowsSaving;
+@property(nonatomic) _Bool allowsSaving; // @synthesize allowsSaving=_allowsSaving;
 @property(retain, nonatomic) NSDictionary *leafIconsByIdentifier; // @synthesize leafIconsByIdentifier=_leafIconsByIdentifier;
-- (BOOL)importState:(id)arg1;
+- (_Bool)importState:(id)arg1;
 - (id)_iTunesDictionaryForDownloadingIcon:(id)arg1;
 - (id)_iTunesDictionaryForLeafIcon:(id)arg1;
 - (id)_iTunesDictionaryForLeafIdentifier:(id)arg1;
-- (id)_iTunesIconCellForCell:(id)arg1 preApex:(BOOL)arg2 forPending:(BOOL)arg3;
-- (id)_iTunesIconListForList:(id)arg1 preApex:(BOOL)arg2 forPending:(BOOL)arg3;
-- (id)_iTunesIconListsForLists:(id)arg1 preApex:(BOOL)arg2 forPending:(BOOL)arg3;
-- (id)exportFlattenedState:(BOOL)arg1 includeMissingIcons:(BOOL)arg2;
-- (id)exportPendingState:(BOOL)arg1 includeMissingIcons:(BOOL)arg2;
-- (id)exportState:(BOOL)arg1;
-- (id)forecastedLayoutForIconState:(id)arg1 includeMissingIcons:(BOOL)arg2;
+- (id)_iTunesIconCellForCell:(id)arg1 preApex:(_Bool)arg2 forPending:(_Bool)arg3;
+- (id)_iTunesIconListForList:(id)arg1 preApex:(_Bool)arg2 forPending:(_Bool)arg3;
+- (id)_iTunesIconListsForLists:(id)arg1 preApex:(_Bool)arg2 forPending:(_Bool)arg3;
+- (id)exportFlattenedState:(_Bool)arg1 includeMissingIcons:(_Bool)arg2;
+- (id)exportPendingState:(_Bool)arg1 includeMissingIcons:(_Bool)arg2;
+- (id)exportState:(_Bool)arg1;
+- (id)forecastedLayoutForIconState:(id)arg1 includeMissingIcons:(_Bool)arg2;
 - (void)layout;
 - (id)_flattenIconState:(id)arg1;
 - (id)_newsstandIconIdentifiersFromIconState:(id)arg1;
@@ -58,11 +57,11 @@
 - (void)_saveDesiredIconState;
 - (void)deleteIconState;
 - (void)_addNewIconToDesignatedLocation:(id)arg1;
-- (id)indexPathForNewIcon:(id)arg1 isDesignatedLocation:(char *)arg2 replaceExistingIconAtIndexPath:(id *)arg3;
+- (id)indexPathForNewIcon:(id)arg1 isDesignatedLocation:(_Bool *)arg2 replaceExistingIconAtIndexPath:(id *)arg3;
 - (id)_indexPathForFirstFreeNewsstandSlot;
 - (void)clearDesiredIconStateIfPossible;
 - (void)clearDesiredIconState;
-- (BOOL)hasDesiredIconState;
+- (_Bool)hasDesiredIconState;
 - (id)_indexPathForIdentifier:(id)arg1 inListsRepresentation:(id)arg2;
 - (id)_indexPathForIdentifier:(id)arg1 inListRepresentation:(id)arg2;
 - (id)indexPathForIconInPlatformState:(id)arg1;
@@ -88,15 +87,14 @@
 - (void)removeApplicationIconForDownloadingIcon:(id)arg1;
 - (id)addDownloadingIconForBundleID:(id)arg1 withIdentifier:(id)arg2;
 - (id)addDownloadingIconForDownload:(id)arg1;
-- (BOOL)_canAddDownloadingIconForBundleID:(id)arg1;
-- (BOOL)isIconVisible:(id)arg1;
+- (_Bool)_canAddDownloadingIconForBundleID:(id)arg1;
+- (_Bool)isIconVisible:(id)arg1;
 - (void)setVisibilityOfIconsWithVisibleTags:(id)arg1 hiddenTags:(id)arg2;
 - (void)_postIconVisibilityChangedNotificationShowing:(id)arg1 hiding:(id)arg2;
 - (void)localeChanged;
 - (id)createFolderIconForFolderType:(id)arg1;
 - (id)newsstandFolder;
 - (id)newsstandIcon;
-- (id)printStatusIcon;
 - (id)rootFolder;
 - (void)dealloc;
 - (id)initWithStore:(id)arg1 applicationDataSource:(id)arg2;

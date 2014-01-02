@@ -15,7 +15,7 @@
     UIImage *_composedImage;
 }
 
-+ (int)activityCategory;
++ (long long)activityCategory;
 @property(retain, nonatomic) UIImage *composedImage; // @synthesize composedImage=_composedImage;
 @property(retain, nonatomic) SLComposeViewController *socialComposeViewController; // @synthesize socialComposeViewController=_socialComposeViewController;
 @property(copy, nonatomic) NSString *socialActivityType; // @synthesize socialActivityType=_socialActivityType;
@@ -23,11 +23,11 @@
 - (struct CGSize)_thumbnailSize;
 - (id)activityViewController;
 - (void)prepareWithActivityItems:(id)arg1;
-- (BOOL)canPerformWithActivityItems:(id)arg1;
-- (int)_blockingActivityItemTypes;
-- (int)_activityItemTypes;
+- (_Bool)canPerformWithActivityItems:(id)arg1;
+- (long long)_blockingActivityItemTypes;
+- (long long)_activityItemTypes;
 - (id)_serviceType;
-- (int)_maxImageDataSize;
+- (long long)_maxImageDataSize;
 - (id)_activityImage;
 - (id)activityTitle;
 - (id)activityType;

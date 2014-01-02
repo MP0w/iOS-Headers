@@ -14,13 +14,13 @@
 @interface UIMoreListController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 {
     UITableView *_table;
-    BOOL _allowsCustomizing;
-    BOOL _disableCustomizing;
-    BOOL _hideNavigationBar;
+    _Bool _allowsCustomizing;
+    _Bool _disableCustomizing;
+    _Bool _hideNavigationBar;
     NSArray *_moreViewControllers;
     UIMoreListCellLayoutManager *_layoutManager;
     UIBarButtonItem *_moreEditButtonItem;
-    BOOL _moreViewControllersChanged;
+    _Bool _moreViewControllersChanged;
 }
 
 - (void)decodeRestorableStateWithCoder:(id)arg1;
@@ -29,16 +29,16 @@
 - (id)_targetNavigationController;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;
 - (id)tabBarItem;
-- (BOOL)_isSupportedInterfaceOrientation:(int)arg1;
-@property(nonatomic) BOOL allowsCustomizing;
-@property(nonatomic) BOOL moreViewControllersChanged;
+- (_Bool)_isSupportedInterfaceOrientation:(long long)arg1;
+@property(nonatomic) _Bool allowsCustomizing;
+@property(nonatomic) _Bool moreViewControllersChanged;
 @property(retain, nonatomic) NSArray *moreViewControllers;
-- (void)_willChangeToIdiom:(int)arg1 onScreen:(id)arg2;
+- (void)_willChangeToIdiom:(long long)arg1 onScreen:(id)arg2;
 - (void)_updateEditButton;
 - (void)_layoutCells;
 - (id)table;

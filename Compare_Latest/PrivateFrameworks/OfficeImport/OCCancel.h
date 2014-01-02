@@ -8,15 +8,16 @@
 
 #import "OCCancelDelegate-Protocol.h"
 
+// Not exported
 @interface OCCancel : NSObject <OCCancelDelegate>
 {
-    BOOL mIsCancelled;
-    BOOL mIsQuit;
+    _Bool mIsCancelled;
+    _Bool mIsQuit;
 }
 
-- (BOOL)isQuit;
+- (_Bool)isQuit;
 - (void)quit;
-- (BOOL)isCancelled;
+- (_Bool)isCancelled;
 - (void)cancel;
 - (id)init;
 

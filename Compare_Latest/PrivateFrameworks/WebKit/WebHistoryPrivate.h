@@ -8,23 +8,24 @@
 
 @class NSMutableArray, NSMutableDictionary;
 
+// Not exported
 @interface WebHistoryPrivate : NSObject
 {
     NSMutableDictionary *_entriesByURL;
     struct HashMap<long long, WTF::RetainPtr<NSMutableArray>, WTF::IntHash<unsigned long long>, WTF::HashTraits<long long>, WTF::HashTraits<WTF::RetainPtr<NSMutableArray>>> *_entriesByDate;
     NSMutableArray *_orderedLastVisitedDays;
-    BOOL itemLimitSet;
+    _Bool itemLimitSet;
     int itemLimit;
-    BOOL ageInDaysLimitSet;
+    _Bool ageInDaysLimitSet;
     int ageInDaysLimit;
 }
 
 + (void)initialize;
 - (void)addVisitedLinksToPageGroup:(struct PageGroup *)arg1;
-- (BOOL)saveToURL:(id)arg1 error:(id *)arg2;
+- (_Bool)saveToURL:(id)arg1 error:(id *)arg2;
 - (id)data;
-- (BOOL)loadFromURL:(id)arg1 collectDiscardedItemsInto:(id)arg2 error:(id *)arg3;
-- (BOOL)loadHistoryGutsFromURL:(id)arg1 savedItemsCount:(int *)arg2 collectDiscardedItemsInto:(id)arg3 error:(id *)arg4;
+- (_Bool)loadFromURL:(id)arg1 collectDiscardedItemsInto:(id)arg2 error:(id *)arg3;
+- (_Bool)loadHistoryGutsFromURL:(id)arg1 savedItemsCount:(int *)arg2 collectDiscardedItemsInto:(id)arg3 error:(id *)arg4;
 - (id)ageLimitDate;
 - (int)historyItemLimit;
 - (void)setHistoryItemLimit:(int)arg1;
@@ -32,22 +33,22 @@
 - (void)setHistoryAgeInDaysLimit:(int)arg1;
 - (id)allItems;
 - (id)itemForURL:(id)arg1;
-- (BOOL)containsURL:(id)arg1;
+- (_Bool)containsURL:(id)arg1;
 - (id)itemForURLString:(id)arg1;
 - (id)orderedItemsLastVisitedOnDay:(id)arg1;
 - (id)orderedLastVisitedDays;
 - (void)addItems:(id)arg1;
-- (BOOL)removeAllItems;
-- (BOOL)removeItems:(id)arg1;
-- (BOOL)removeItem:(id)arg1;
+- (_Bool)removeAllItems;
+- (_Bool)removeItems:(id)arg1;
+- (_Bool)removeItem:(id)arg1;
 - (void)rebuildHistoryByDayIfNeeded:(id)arg1;
-- (BOOL)addItem:(id)arg1 discardDuplicate:(BOOL)arg2;
-- (id)visitedURL:(id)arg1 withTitle:(id)arg2 increaseVisitCount:(BOOL)arg3;
+- (_Bool)addItem:(id)arg1 discardDuplicate:(_Bool)arg2;
+- (id)visitedURL:(id)arg1 withTitle:(id)arg2 increaseVisitCount:(_Bool)arg3;
 - (void)addItemToDateCaches:(id)arg1;
-- (BOOL)removeItemForURLString:(id)arg1;
-- (BOOL)removeItemFromDateCaches:(id)arg1;
+- (_Bool)removeItemForURLString:(id)arg1;
+- (_Bool)removeItemFromDateCaches:(id)arg1;
 - (void)insertItem:(id)arg1 forDateKey:(long long)arg2;
-- (BOOL)findKey:(long long *)arg1 forDay:(double)arg2;
+- (_Bool)findKey:(long long *)arg1 forDay:(double)arg2;
 - (void)finalize;
 - (void)dealloc;
 - (id)init;

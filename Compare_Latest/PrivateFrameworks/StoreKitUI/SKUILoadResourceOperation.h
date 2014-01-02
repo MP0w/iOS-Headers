@@ -6,18 +6,20 @@
 
 #import "NSOperation.h"
 
-@class NSLock, SKUIResourceRequest;
+@class NSLock, SKUIClientContext, SKUIResourceRequest;
 
 @interface SKUILoadResourceOperation : NSOperation
 {
-    id _outputBlock;
+    SKUIClientContext *_clientContext;
     NSLock *_lock;
+    id _outputBlock;
     SKUIResourceRequest *_request;
 }
 
 - (void).cxx_destruct;
 - (void)main;
 @property(copy) id outputBlock;
+@property(retain) SKUIClientContext *clientContext;
 @property(readonly) SKUIResourceRequest *resourceRequest;
 - (id)initWithResourceRequest:(id)arg1;
 - (id)init;

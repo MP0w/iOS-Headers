@@ -11,12 +11,13 @@
 
 @class NSDictionary, NSError, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, SBKSyncBagContext, SBKSyncTransaction, SBKTransactionController;
 
+// Not exported
 @interface SBKPlaybackPositionSyncRequestHandler : SBKSyncRequestHandler <SBKTransactionControllerDelegate, SBKSyncTransactionProcessing>
 {
     NSObject<OS_dispatch_queue> *_queue;
     NSObject<OS_dispatch_queue> *_syncOperationQueue;
-    BOOL _syncInProgress;
-    BOOL _canceled;
+    _Bool _syncInProgress;
+    _Bool _canceled;
     id <SBKUniversalPlaybackPositionDataSource> _dataSource;
     SBKTransactionController *_kvsController;
     id <SBKUniversalPlaybackPositionTransactionContext> _dataSourceTransactionContext;
@@ -32,8 +33,8 @@
 
 @property(retain) NSString *overrideSyncAnchor; // @synthesize overrideSyncAnchor=_overrideSyncAnchor;
 @property(retain) NSError *fatalSyncError; // @synthesize fatalSyncError=_fatalSyncError;
-@property BOOL canceled; // @synthesize canceled=_canceled;
-@property BOOL syncInProgress; // @synthesize syncInProgress=_syncInProgress;
+@property _Bool canceled; // @synthesize canceled=_canceled;
+@property _Bool syncInProgress; // @synthesize syncInProgress=_syncInProgress;
 @property(retain) SBKSyncTransaction *currentKVSTransaction; // @synthesize currentKVSTransaction=_currentKVSTransaction;
 @property(retain) NSMutableDictionary *responseMetadataItemsMergedToCommitBackToKVSStorage; // @synthesize responseMetadataItemsMergedToCommitBackToKVSStorage=_responseMetadataItemsMergedToCommitBackToKVSStorage;
 @property(retain) NSMutableDictionary *responseMetadataItemsToCommitToDataSource; // @synthesize responseMetadataItemsToCommitToDataSource=_responseMetadataItemsToCommitToDataSource;
@@ -47,25 +48,25 @@
 - (id)transaction:(id)arg1 conflictDetectionOrdinalForKey:(id)arg2;
 - (id)transaction:(id)arg1 syncAnchorForTransactionSyncAnchor:(id)arg2;
 - (id)transaction:(id)arg1 keyValuePairForUpdatedKey:(id)arg2;
-- (void)transaction:(id)arg1 processDeletedKey:(id)arg2 isDirty:(char *)arg3;
-- (void)transaction:(id)arg1 processUpdatedKey:(id)arg2 data:(id)arg3 conflict:(BOOL)arg4 isDirty:(char *)arg5;
+- (void)transaction:(id)arg1 processDeletedKey:(id)arg2 isDirty:(_Bool *)arg3;
+- (void)transaction:(id)arg1 processUpdatedKey:(id)arg2 data:(id)arg3 conflict:(_Bool)arg4 isDirty:(_Bool *)arg5;
 - (void)transaction:(id)arg1 didProcessResponseData:(id)arg2;
 - (void)transaction:(id)arg1 willProcessResponseData:(id)arg2;
 - (void)transactionController:(id)arg1 transactionDidFinish:(id)arg2;
 - (void)transactionController:(id)arg1 transactionDidCancel:(id)arg2 error:(id)arg3;
-- (BOOL)transactionController:(id)arg1 transactionDidFail:(id)arg2 error:(id)arg3;
+- (_Bool)transactionController:(id)arg1 transactionDidFail:(id)arg2 error:(id)arg3;
 - (void)_signalKVSTransactionCompletion:(id)arg1 withError:(id)arg2;
 - (void)_signalKVSTransactionCompletion:(id)arg1;
 - (id)_synchronouslyRunKVSTransaction:(id)arg1;
-- (id)newKVSSyncTransactionWithUpdatedMetadataItemIdentifiers:(id)arg1 processConflicts:(BOOL)arg2;
+- (id)newKVSSyncTransactionWithUpdatedMetadataItemIdentifiers:(id)arg1 processConflicts:(_Bool)arg2;
 - (void)_mergeMetadataItemsFromSyncResponse;
 - (int)_mergeConflictedItemFromSyncResponse:(id)arg1;
 - (void)synchronizeWithCompletionHandler:(id)arg1;
 - (void)cancel;
 - (void)timeout;
 - (void)cancelWithError:(id)arg1;
-- (BOOL)_shouldStop;
-- (BOOL)_synchronize:(id *)arg1;
+- (_Bool)_shouldStop;
+- (_Bool)_synchronize:(id *)arg1;
 - (void)_dataSourceCancelTransaction;
 - (void)clearTransactionResponseData;
 - (id)initWithDataSource:(id)arg1 bagContext:(id)arg2;

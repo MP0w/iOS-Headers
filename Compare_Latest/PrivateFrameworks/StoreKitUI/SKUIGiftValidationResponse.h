@@ -13,10 +13,10 @@
     NSString *_errorString;
     NSString *_giftKey;
     NSString *_totalGiftAmountString;
-    BOOL _valid;
+    _Bool _valid;
 }
 
-@property(readonly, nonatomic, getter=isValid) BOOL valid; // @synthesize valid=_valid;
+@property(readonly, nonatomic, getter=isValid) _Bool valid; // @synthesize valid=_valid;
 @property(readonly, nonatomic) NSString *totalGiftAmountString; // @synthesize totalGiftAmountString=_totalGiftAmountString;
 @property(readonly, nonatomic) NSString *giftKey; // @synthesize giftKey=_giftKey;
 @property(readonly, nonatomic) NSString *errorString; // @synthesize errorString=_errorString;

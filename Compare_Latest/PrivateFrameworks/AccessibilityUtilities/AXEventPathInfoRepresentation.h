@@ -14,7 +14,7 @@
     unsigned char _pathIndex;
     unsigned char _pathIdentity;
     unsigned char _pathProximity;
-    unsigned long _pathWindowContextID;
+    unsigned int _pathWindowContextID;
     float _pathPressure;
     float _pathMajorRadius;
     float _pathMinorRadius;
@@ -26,8 +26,8 @@
     struct CGPoint _pathLocation;
 }
 
-+ (id)representationWithPathInfo:(CDStruct_7c8f539c *)arg1;
-+ (BOOL)supportsSecureCoding;
++ (id)representationWithPathInfo:(CDStruct_723b0d29 *)arg1;
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) void *pathWindow; // @synthesize pathWindow=_pathWindow;
 @property(nonatomic) unsigned int pathEventMask; // @synthesize pathEventMask=_pathEventMask;
 @property(nonatomic) float pathDensity; // @synthesize pathDensity=_pathDensity;
@@ -37,7 +37,7 @@
 @property(nonatomic) float pathMajorRadius; // @synthesize pathMajorRadius=_pathMajorRadius;
 @property(nonatomic) float pathPressure; // @synthesize pathPressure=_pathPressure;
 @property(nonatomic) unsigned char pathProximity; // @synthesize pathProximity=_pathProximity;
-@property(nonatomic) unsigned long pathWindowContextID; // @synthesize pathWindowContextID=_pathWindowContextID;
+@property(nonatomic) unsigned int pathWindowContextID; // @synthesize pathWindowContextID=_pathWindowContextID;
 @property(nonatomic) struct CGPoint pathLocation; // @synthesize pathLocation=_pathLocation;
 @property(nonatomic) unsigned char pathIdentity; // @synthesize pathIdentity=_pathIdentity;
 @property(nonatomic) unsigned char pathIndex; // @synthesize pathIndex=_pathIndex;
@@ -45,7 +45,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)writeToPathInfo:(CDStruct_7c8f539c *)arg1;
+- (void)writeToPathInfo:(CDStruct_723b0d29 *)arg1;
 
 @end
 

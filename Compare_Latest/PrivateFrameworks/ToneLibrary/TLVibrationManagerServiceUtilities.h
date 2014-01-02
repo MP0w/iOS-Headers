@@ -13,9 +13,9 @@
 + (id)userGeneratedVibrationStoreFileURL;
 + (id)_sharedResourceURLForRelativeFilePath:(id)arg1;
 + (id)_sharedResourceFilePathForRelativeFilePath:(id)arg1;
-+ (BOOL)objectIsValidUserGeneratedVibrationPatternsDictionary:(id)arg1 error:(id *)arg2;
-+ (BOOL)_objectIsValidUserGeneratedVibrationPattern:(id)arg1 error:(id *)arg2;
-+ (BOOL)_validateObjectWithError:(id *)arg1 validationBlock:(id)arg2;
++ (_Bool)objectIsValidUserGeneratedVibrationPatternsDictionary:(id)arg1 error:(id *)arg2;
++ (_Bool)_objectIsValidUserGeneratedVibrationPattern:(id)arg1 error:(id *)arg2;
++ (_Bool)_validateObjectWithError:(id *)arg1 validationBlock:(id)arg2;
 + (id)errorWithDomain:(id)arg1 description:(id)arg2;
 + (id)copyXPCObjectFromDictionary:(id)arg1 inReplyToXPCObject:(id)arg2 error:(id *)arg3;
 + (id)dictionaryFromXPCObject:(id)arg1 error:(id *)arg2;

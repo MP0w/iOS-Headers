@@ -9,12 +9,13 @@
 @class NSString;
 
 @protocol UIWebFindOnPageHighlighter <NSObject>
-@property(readonly, nonatomic) unsigned int highlightedMatchIndex;
-@property(readonly, nonatomic) unsigned int numberOfMatches;
+@property(readonly, nonatomic) unsigned long long highlightedMatchIndex;
+@property(readonly, nonatomic) unsigned long long numberOfMatches;
 @property(nonatomic) id <UIWebFindOnPageHighlighterDelegate> delegate;
 @property(readonly, nonatomic) NSString *searchText;
 - (void)highlightPreviousMatch;
 - (void)highlightNextMatch;
-- (void)setSearchText:(id)arg1 matchLimit:(unsigned int)arg2;
+- (void)setSelectionRect:(struct CGRect)arg1 textRects:(id)arg2 contentViews:(id)arg3 wobble:(_Bool)arg4;
+- (void)setSearchText:(id)arg1 matchLimit:(unsigned long long)arg2;
 @end
 

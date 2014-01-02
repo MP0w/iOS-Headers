@@ -10,8 +10,8 @@
 {
 }
 
-+ (BOOL)insertionChangesLibraryContents;
-+ (int)revisionTrackingCode;
++ (_Bool)insertionChangesLibraryContents;
++ (long long)revisionTrackingCode;
 + (id)databaseTable;
 + (id)newWithDictionary:(id)arg1 inLibrary:(id)arg2;
 - (void)enumerateOrphanedAssetsUsingBlock:(id)arg1;

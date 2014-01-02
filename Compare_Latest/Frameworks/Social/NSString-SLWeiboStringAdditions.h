@@ -7,7 +7,7 @@
 #import "NSString.h"
 
 @interface NSString (SLWeiboStringAdditions)
-- (BOOL)isWeiboDuplicatePostError;
-- (unsigned int)SLWeiboCharacterCountWithShortenedURLLength:(unsigned int)arg1;
+- (_Bool)isWeiboDuplicatePostError;
+- (unsigned long long)SLWeiboCharacterCountWithShortenedURLLength:(unsigned long long)arg1;
 @end
 

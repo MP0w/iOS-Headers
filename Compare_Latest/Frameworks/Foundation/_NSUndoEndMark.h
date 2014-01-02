@@ -6,12 +6,13 @@
 
 #import <Foundation/_NSUndoObject.h>
 
+// Not exported
 @interface _NSUndoEndMark : _NSUndoObject
 {
 }
 
 - (id)description;
-- (BOOL)isEndMark;
+- (_Bool)isEndMark;
 
 @end
 

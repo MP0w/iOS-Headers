@@ -11,7 +11,7 @@
 @interface GraphRenderer : NSObject
 {
     NSObject<OS_dispatch_queue> *_queue;
-    BOOL _cancelled;
+    _Bool _cancelled;
 }
 
 + (void)clearSharedRenderer;

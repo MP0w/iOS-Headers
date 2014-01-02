@@ -7,7 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol CAMModeDialDataSource <NSObject>
-- (id)modeDial:(id)arg1 titleForItemAtIndex:(unsigned int)arg2;
-- (int)numberOfItemsInModeDial:(id)arg1;
+- (id)modeDial:(id)arg1 titleForItemAtIndex:(unsigned long long)arg2;
+- (long long)numberOfItemsInModeDial:(id)arg1;
 @end
 

@@ -6,50 +6,64 @@
 
 #import <UIKit/UIKBRenderFactoryiPhone.h>
 
+// Not exported
 @interface UIKBRenderFactoryiPad : UIKBRenderFactoryiPhone
 {
 }
 
+- (void)_customizeTraits:(id)arg1 forPopupForKey:(id)arg2 withRenderConfig:(id)arg3 keycapsFontName:(id)arg4;
 - (void)setupLayoutSegments;
-- (float)_row4ControlSegmentWidth;
+- (double)_row4ControlSegmentWidth;
 - (id)_traitsForKey:(id)arg1 onKeyplane:(id)arg2;
-- (id)variantGeometriesForGeometry:(id)arg1 variantCount:(unsigned int)arg2;
-- (BOOL)_popupStyleForKey:(id)arg1;
-- (void)_customizePopupTraits:(id)arg1 forKey:(id)arg2;
-- (BOOL)shouldClearBaseDisplayStringForVariants;
+- (id)variantGeometriesForGeometry:(id)arg1 variantCount:(unsigned long long)arg2;
+- (double)defaultVariantSizeThreshold;
+- (struct CGSize)defaultVariantGeometrySize;
+- (void)_customizePopupTraits:(id)arg1 forKey:(id)arg2 onKeyplane:(id)arg3;
+- (struct UIEdgeInsets)variantSymbolFrameInsets;
+- (struct UIEdgeInsets)variantDisplayFrameInsets;
+- (_Bool)shouldClearBaseDisplayStringForVariants;
 - (void)_customizeSymbolStyle:(id)arg1 forKey:(id)arg2 contents:(id)arg3;
 - (struct CGPoint)dismissKeyOffset;
 - (struct CGPoint)dualStringKeyOffset;
-- (float)fallbackFontSize;
-- (float)facemarkKeyFontSize;
-- (float)emailDotKeyFontSize;
-- (float)smallKanaKeyFontSize;
-- (float)dismissKeyFontSize;
-- (float)spaceKeyFontSize;
-- (float)dictationKeyFontSize;
-- (float)internationalKeyFontSize;
-- (float)moreKeyFontSize;
-- (float)deleteKeyFontSize;
-- (float)shiftKeyFontSize;
-- (float)defaultPathWeight;
-- (float)fontSizeAdjustmentForNonAlphanumericKeycaps;
-- (float)bottomRowDefaultFontSize;
-- (float)dualStringKeyFontSizeAdjustment;
-- (float)stringKeyFontSize;
+- (double)fallbackFontSize;
+- (double)facemarkKeyFontSize;
+- (double)emailDotKeyFontSize;
+- (double)smallKanaKeyFontSize;
+- (double)dismissKeyFontSize;
+- (double)spaceKeyFontSize;
+- (double)dictationKeyFontSize;
+- (double)internationalKeyFontSize;
+- (double)moreKeyFontSize;
+- (double)deleteKeyFontSize;
+- (double)shiftKeyFontSize;
+- (double)defaultPathWeight;
+- (double)fontSizeAdjustmentForNonAlphanumericKeycaps;
+- (double)bottomRowDefaultFontSize;
+- (double)dualStringKeyFontSizeAdjustment;
+- (double)stringKeyFontSize;
 - (void)_customizeGeometry:(id)arg1 forKey:(id)arg2 contents:(id)arg3;
+- (double)skinnyKeyThreshold;
+- (id)shiftOnKeyImageName;
+- (id)shiftKeyImageName;
+- (id)deleteKeyImageName;
 - (id)muttitapReverseKeyImageName;
 - (id)multitapCompleteKeyImageName;
 - (id)dismissKeyImageName;
 - (id)dictationKeyImageName;
 - (id)globalKeyImageName;
+- (struct CGPoint)shiftKeyOffset;
+- (struct CGPoint)deleteKeyOffset;
 - (struct CGPoint)dictationKeyOffset;
 - (struct CGPoint)internationalKeyOffset;
-- (float)keyInsetBottom;
-- (float)symbolFrameInset;
+- (double)keyInsetBottom;
+- (double)returnKeySymbolFrameInset;
+- (double)symbolFrameInset;
 - (struct CGRect)dismissKeySymbolFrame;
 - (struct CGRect)shiftKeySymbolFrame;
-- (float)dualStringKeyMiddleMargin;
-- (float)keyCornerRadius;
+- (double)dualStringKeyMiddleMargin;
+- (double)keyCornerRadius;
+- (id)thinKeycapsFontName;
+- (id)lightKeycapsFontName;
 
 @end
 

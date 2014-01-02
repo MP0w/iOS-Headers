@@ -7,10 +7,10 @@
 #import "NSArray.h"
 
 @interface NSArray (Helpers)
-- (id)_subsequenceFromIndex:(unsigned int)arg1;
-- (id)_subsequenceToIndex:(unsigned int)arg1;
-- (id)_subsequenceFrom:(unsigned int)arg1 to:(unsigned int)arg2;
-- (BOOL)_containsSubArray:(id)arg1;
+- (id)_subsequenceFromIndex:(unsigned long long)arg1;
+- (id)_subsequenceToIndex:(unsigned long long)arg1;
+- (id)_subsequenceFrom:(unsigned long long)arg1 to:(unsigned long long)arg2;
+- (_Bool)_containsSubArray:(id)arg1;
 - (id)repeatedNTimes:(int)arg1;
 - (id)_withoutEmptyStrings;
 @end

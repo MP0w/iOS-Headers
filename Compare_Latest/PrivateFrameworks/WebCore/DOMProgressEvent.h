@@ -6,13 +6,14 @@
 
 #import <WebCore/DOMEvent.h>
 
+// Not exported
 @interface DOMProgressEvent : DOMEvent
 {
 }
 
 @property(readonly) unsigned long long total;
 @property(readonly) unsigned long long loaded;
-@property(readonly) BOOL lengthComputable;
+@property(readonly) _Bool lengthComputable;
 
 @end
 

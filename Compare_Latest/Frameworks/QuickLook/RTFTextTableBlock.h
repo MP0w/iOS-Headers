@@ -8,27 +8,28 @@
 
 @class RTFTextTable;
 
+// Not exported
 @interface RTFTextTableBlock : RTFTextBlock
 {
     RTFTextTable *_table;
-    int _rowNum;
-    int _colNum;
-    int _rowSpan;
-    int _colSpan;
+    long long _rowNum;
+    long long _colNum;
+    long long _rowSpan;
+    long long _colSpan;
     void *_tableBlockPrimary;
     void *_tableBlockSecondary;
 }
 
-- (void)_setColumnSpan:(int)arg1;
-- (void)_setRowSpan:(int)arg1;
-- (int)columnSpan;
-- (int)startingColumn;
-- (int)rowSpan;
-- (int)startingRow;
+- (void)_setColumnSpan:(long long)arg1;
+- (void)_setRowSpan:(long long)arg1;
+- (long long)columnSpan;
+- (long long)startingColumn;
+- (long long)rowSpan;
+- (long long)startingRow;
 - (id)table;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
-- (id)initWithTable:(id)arg1 startingRow:(int)arg2 rowSpan:(int)arg3 startingColumn:(int)arg4 columnSpan:(int)arg5;
+- (id)initWithTable:(id)arg1 startingRow:(long long)arg2 rowSpan:(long long)arg3 startingColumn:(long long)arg4 columnSpan:(long long)arg5;
 
 @end
 

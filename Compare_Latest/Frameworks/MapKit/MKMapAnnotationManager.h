@@ -8,15 +8,16 @@
 
 @class MKAnnotationView;
 
+// Not exported
 @interface MKMapAnnotationManager : MKAnnotationManager
 {
     MKAnnotationView *_userLocationView;
-    BOOL _addedUserLocationAnnotation;
+    _Bool _addedUserLocationAnnotation;
 }
 
 - (id)newInternalAnnotationRepresentationForInternalAnnotation:(id)arg1;
-- (BOOL)internalAnnotationAllowsCustomRepresentation:(id)arg1;
-- (BOOL)annotationIsInternal:(id)arg1;
+- (_Bool)internalAnnotationAllowsCustomRepresentation:(id)arg1;
+- (_Bool)annotationIsInternal:(id)arg1;
 - (void)cleanUpAnnotationRepresentationForRemoval:(id)arg1;
 - (void)configureAnnotationRepresentation:(id)arg1 forAnnotation:(id)arg2;
 - (void)configureDefaultAnnotationRepresentation:(id)arg1 forAnnotation:(id)arg2;

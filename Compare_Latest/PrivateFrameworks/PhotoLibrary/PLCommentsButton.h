@@ -10,11 +10,11 @@
 {
     int _currentMode;
     int _currentPosition;
-    int _commentCount;
+    long long _commentCount;
     struct CGRect _backgroundImageRect;
 }
 
-@property(nonatomic) int commentCount; // @synthesize commentCount=_commentCount;
+@property(nonatomic) long long commentCount; // @synthesize commentCount=_commentCount;
 @property(readonly, nonatomic) int currentPosition; // @synthesize currentPosition=_currentPosition;
 @property(nonatomic) int currentMode; // @synthesize currentMode=_currentMode;
 - (id)_commentCountFormatter;

@@ -11,7 +11,6 @@
 }
 
 - (id)feedViewControllerSpec;
-- (id)timelineViewControllerSpec;
 - (id)zoomableGridViewControllerSpec;
 - (id)createSharedAlbumListViewController;
 - (id)createAlbumListViewController;

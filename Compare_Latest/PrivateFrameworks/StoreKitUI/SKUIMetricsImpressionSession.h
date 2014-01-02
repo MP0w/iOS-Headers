@@ -6,16 +6,18 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary;
+@class NSArray, NSMutableArray, NSMutableString, NSString;
 
 @interface SKUIMetricsImpressionSession : NSObject
 {
-    NSMutableDictionary *_impressions;
+    NSMutableArray *_impressionIdentifiers;
+    NSMutableString *_impressionsString;
 }
 
+@property(readonly, nonatomic) NSString *impressionsString; // @synthesize impressionsString=_impressionsString;
+@property(readonly, nonatomic) NSArray *impressionIdentifiers; // @synthesize impressionIdentifiers=_impressionIdentifiers;
 - (void).cxx_destruct;
-- (id)impressionsDictionary;
-- (void)addLocationIdentifier:(id)arg1 forItemIdentifier:(long long)arg2;
+- (void)addItemIdentifier:(long long)arg1;
 - (id)init;
 
 @end

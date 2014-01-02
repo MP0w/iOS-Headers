@@ -12,35 +12,39 @@
 
 @interface ADAdImpressionPublicAttributes : NSObject <NSSecureCoding>
 {
-    BOOL _actionLeavesApplication;
-    BOOL _actionViewControllerHidesStatusBar;
+    _Bool _actionLeavesApplication;
+    _Bool _adHasAction;
+    _Bool _actionViewControllerHidesStatusBar;
     NSString *_accessibilityLabel;
-    unsigned int _actionViewControllerPresentationOrientationMask;
-    int _actionViewControllerTransitionStyle;
-    int _modalPresentationStyle;
+    double _videoCountdownDuration;
+    unsigned long long _actionViewControllerPresentationOrientationMask;
+    long long _actionViewControllerTransitionStyle;
+    long long _modalPresentationStyle;
     NSArray *_videoAssets;
+    NSString *_uniqueIdentifier;
     NSURL *_audioURL;
     NSURL *_staticImageURL;
     NSURL *_logoImageURL;
     NSString *_headlineForLCD;
     NSString *_descriptionForLCD;
-    double _videoCountdownDuration;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSString *descriptionForLCD; // @synthesize descriptionForLCD=_descriptionForLCD;
 @property(copy, nonatomic) NSString *headlineForLCD; // @synthesize headlineForLCD=_headlineForLCD;
 @property(retain, nonatomic) NSURL *logoImageURL; // @synthesize logoImageURL=_logoImageURL;
 @property(retain, nonatomic) NSURL *staticImageURL; // @synthesize staticImageURL=_staticImageURL;
 @property(retain, nonatomic) NSURL *audioURL; // @synthesize audioURL=_audioURL;
+@property(copy, nonatomic) NSString *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
 @property(retain, nonatomic) NSArray *videoAssets; // @synthesize videoAssets=_videoAssets;
-@property(nonatomic) int modalPresentationStyle; // @synthesize modalPresentationStyle=_modalPresentationStyle;
-@property(nonatomic) int actionViewControllerTransitionStyle; // @synthesize actionViewControllerTransitionStyle=_actionViewControllerTransitionStyle;
-@property(nonatomic) BOOL actionViewControllerHidesStatusBar; // @synthesize actionViewControllerHidesStatusBar=_actionViewControllerHidesStatusBar;
-@property(nonatomic) unsigned int actionViewControllerPresentationOrientationMask; // @synthesize actionViewControllerPresentationOrientationMask=_actionViewControllerPresentationOrientationMask;
+@property(nonatomic) long long modalPresentationStyle; // @synthesize modalPresentationStyle=_modalPresentationStyle;
+@property(nonatomic) long long actionViewControllerTransitionStyle; // @synthesize actionViewControllerTransitionStyle=_actionViewControllerTransitionStyle;
+@property(nonatomic) _Bool actionViewControllerHidesStatusBar; // @synthesize actionViewControllerHidesStatusBar=_actionViewControllerHidesStatusBar;
+@property(nonatomic) unsigned long long actionViewControllerPresentationOrientationMask; // @synthesize actionViewControllerPresentationOrientationMask=_actionViewControllerPresentationOrientationMask;
 @property(nonatomic) double videoCountdownDuration; // @synthesize videoCountdownDuration=_videoCountdownDuration;
 @property(copy, nonatomic) NSString *accessibilityLabel; // @synthesize accessibilityLabel=_accessibilityLabel;
-@property(nonatomic) BOOL actionLeavesApplication; // @synthesize actionLeavesApplication=_actionLeavesApplication;
+@property(nonatomic) _Bool adHasAction; // @synthesize adHasAction=_adHasAction;
+@property(nonatomic) _Bool actionLeavesApplication; // @synthesize actionLeavesApplication=_actionLeavesApplication;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

@@ -15,24 +15,25 @@
 
 + (id)privateCreateOrConfigureArray:(id)arg1 withRawPortArray:(id)arg2;
 + (id)privateCreateOrConfigure:(id)arg1 withRawPortDescription:(id)arg2;
++ (_Bool)privateMatchesInputs:(id)arg1 toRawInputs:(id)arg2;
 - (void)configureChannelsAndDataSources:(id)arg1;
 - (id)initWithRawPortDescription:(id)arg1;
-- (BOOL)privateMatchesRawDescription:(id)arg1;
+- (_Bool)privateMatchesRawDescription:(id)arg1;
 - (id)privateGetID;
 - (struct PortDescriptionImpl *)privateGetImplementation;
-- (BOOL)setPreferredDataSource:(id)arg1 error:(id *)arg2;
+- (_Bool)setPreferredDataSource:(id)arg1 error:(id *)arg2;
 - (id)description;
 @property(readonly) NSString *UID;
 @property(readonly) AVAudioSessionDataSourceDescription *preferredDataSource;
 @property(readonly) AVAudioSessionDataSourceDescription *selectedDataSource;
-- (BOOL)isHeadphones;
+- (_Bool)isHeadphones;
 @property(readonly) NSArray *dataSources;
 @property(readonly) NSArray *channels;
 @property(readonly) NSString *portName;
 @property(readonly) NSString *portType;
-- (unsigned int)hash;
-- (BOOL)isEqualToPort:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqualToPort:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

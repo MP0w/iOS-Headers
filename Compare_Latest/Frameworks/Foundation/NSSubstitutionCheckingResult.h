@@ -15,8 +15,8 @@
 }
 
 - (id)replacementString;
-- (BOOL)_adjustRangesWithOffset:(int)arg1;
-- (id)resultByAdjustingRangesWithOffset:(int)arg1;
+- (_Bool)_adjustRangesWithOffset:(long long)arg1;
+- (id)resultByAdjustingRangesWithOffset:(long long)arg1;
 - (struct _NSRange)range;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

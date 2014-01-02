@@ -19,7 +19,7 @@
 - (id)copyXPCEncoding;
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)_newImagesForDictionary:(id)arg1;
-- (id)_imagesForSize:(struct CGSize)arg1 scale:(float)arg2;
+- (id)_imagesForSize:(struct CGSize)arg1 scale:(double)arg2;
 - (id)imagesForKind:(id)arg1;
 - (id)imagesForSize:(struct CGSize)arg1;
 - (id)bestImageForSize:(struct CGSize)arg1;

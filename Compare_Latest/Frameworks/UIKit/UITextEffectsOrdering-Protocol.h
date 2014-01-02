@@ -5,7 +5,7 @@
  */
 
 @protocol UITextEffectsOrdering
-- (int)textEffectsVisibilityLevelWhenKey;
+- (int)textEffectsVisibilityLevelInKeyboardWindow;
 - (int)textEffectsVisibilityLevel;
 @end
 

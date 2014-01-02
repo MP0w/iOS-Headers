@@ -11,20 +11,20 @@
 @interface SBUINumericPasscodeEntryFieldBase : SBUIPasscodeEntryField
 {
     NSMutableCharacterSet *_numericTrimmingSet;
-    unsigned int _maxNumbersAllowed;
-    BOOL _allowsNewlineAcceptance;
-    BOOL _autoAcceptWhenMaxNumbersMet;
+    unsigned long long _maxNumbersAllowed;
+    _Bool _allowsNewlineAcceptance;
+    _Bool _autoAcceptWhenMaxNumbersMet;
 }
 
-@property(nonatomic) BOOL autoAcceptWhenMaxNumbersMet; // @synthesize autoAcceptWhenMaxNumbersMet=_autoAcceptWhenMaxNumbersMet;
-@property(nonatomic) unsigned int maxNumbersAllowed; // @synthesize maxNumbersAllowed=_maxNumbersAllowed;
-@property(nonatomic) BOOL allowsNewlineAcceptance; // @synthesize allowsNewlineAcceptance=_allowsNewlineAcceptance;
-- (BOOL)_hasMaxDigitsSpecified;
+@property(nonatomic) _Bool autoAcceptWhenMaxNumbersMet; // @synthesize autoAcceptWhenMaxNumbersMet=_autoAcceptWhenMaxNumbersMet;
+@property(nonatomic) unsigned long long maxNumbersAllowed; // @synthesize maxNumbersAllowed=_maxNumbersAllowed;
+@property(nonatomic) _Bool allowsNewlineAcceptance; // @synthesize allowsNewlineAcceptance=_allowsNewlineAcceptance;
+- (_Bool)_hasMaxDigitsSpecified;
 - (void)_reallyAppendString:(id)arg1;
 - (void)_appendString:(id)arg1;
 - (void)_deleteLastCharacter;
-- (BOOL)shouldInsertPasscodeText:(id)arg1;
-- (BOOL)resignFirstResponder;
+- (_Bool)shouldInsertPasscodeText:(id)arg1;
+- (_Bool)resignFirstResponder;
 - (void)dealloc;
 - (id)initWithDefaultSize;
 

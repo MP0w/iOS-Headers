@@ -8,6 +8,7 @@
 
 @class UIGestureAnimation, UIScrollAnimation;
 
+// Not exported
 @interface UIGestureInfo : NSObject
 {
     id delegate;

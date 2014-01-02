@@ -12,19 +12,19 @@
 + (id)faceTimeAcceptURLWithURL:(id)arg1;
 + (id)faceTimePromptURLWithURL:(id)arg1;
 + (id)_applyFaceTimeScheme:(id)arg1 toFaceTimeURL:(id)arg2;
-+ (id)faceTimeURLWithDestinationID:(id)arg1 addressBookUID:(int)arg2 audioOnly:(BOOL)arg3;
++ (id)faceTimeURLWithDestinationID:(id)arg1 addressBookUID:(int)arg2 audioOnly:(_Bool)arg3;
 + (id)faceTimeURLWithDestinationID:(id)arg1 addressBookUID:(int)arg2;
 + (id)faceTimeURLWithDestinationID:(id)arg1;
-+ (id)_faceTimeURLWithDestinationID:(id)arg1 addressBookUID:(int)arg2 audioOnly:(BOOL)arg3;
-- (BOOL)isValidFaceTimeURL;
-- (BOOL)isUpgradeURL;
-- (BOOL)isFaceTimeAudioAcceptURL;
-- (BOOL)isFaceTimeAudioPromptURL;
-- (BOOL)isFaceTimeAudioURL;
-- (BOOL)isFaceTimeAcceptURL;
-- (BOOL)isFaceTimePromptURL;
-- (BOOL)isFaceTimeURL;
-- (BOOL)_isPhoneNumberID:(id)arg1;
++ (id)_faceTimeURLWithDestinationID:(id)arg1 addressBookUID:(int)arg2 audioOnly:(_Bool)arg3;
+- (_Bool)isValidFaceTimeURL;
+- (_Bool)isUpgradeURL;
+- (_Bool)isFaceTimeAudioAcceptURL;
+- (_Bool)isFaceTimeAudioPromptURL;
+- (_Bool)isFaceTimeAudioURL;
+- (_Bool)isFaceTimeAcceptURL;
+- (_Bool)isFaceTimePromptURL;
+- (_Bool)isFaceTimeURL;
+- (_Bool)_isPhoneNumberID:(id)arg1;
 - (id)faceTimeDestinationAccount;
 @end
 

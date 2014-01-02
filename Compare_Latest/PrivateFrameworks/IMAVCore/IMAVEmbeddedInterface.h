@@ -11,12 +11,13 @@
 }
 
 + (void)updateCriticalState;
-- (int)_runPingTestForChat:(id)arg1;
-- (int)_checkNetworkForChat:(id)arg1 requiresWifi:(BOOL)arg2;
+- (long long)_runPingTestForChat:(id)arg1;
+- (long long)_checkNetworkForChat:(id)arg1 requiresWifi:(_Bool)arg2;
 - (void)chatStateUpdated;
 - (void)_conferenceEnded:(id)arg1;
 - (void)_conferenceWillStart:(id)arg1;
 - (void)endInterruptionForChat:(id)arg1;
+- (id)_chatForAudioPropertiesIgnoringChat:(id)arg1;
 - (void)startInterruptionForChat:(id)arg1;
 - (void)_setAudioSessionPropertiesForChat:(id)arg1;
 

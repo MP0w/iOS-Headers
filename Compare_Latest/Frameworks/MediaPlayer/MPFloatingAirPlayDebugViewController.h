@@ -13,17 +13,17 @@
 @interface MPFloatingAirPlayDebugViewController : UINavigationController <AirPlayDiagnosticsFullscreenControllerDelegate>
 {
     UIWindow *_floatingWindow;
-    BOOL _presentedAnimated;
+    _Bool _presentedAnimated;
     AirPlayDiagnosticsFullscreenController *_airPlayDiagsController;
 }
 
 @property(readonly, nonatomic) AirPlayDiagnosticsFullscreenController *airPlayDiagsController; // @synthesize airPlayDiagsController=_airPlayDiagsController;
 - (void).cxx_destruct;
 - (void)_destroyFloatingWindow;
-- (void)airPlayDiagnosticsContentViewController:(id)arg1 didComplete:(BOOL)arg2;
-- (unsigned int)supportedInterfaceOrientations;
-- (BOOL)shouldAutorotate;
-- (void)presentFromFloatingWindowAnimated:(BOOL)arg1 completion:(id)arg2;
+- (void)airPlayDiagnosticsContentViewController:(id)arg1 didComplete:(_Bool)arg2;
+- (unsigned long long)supportedInterfaceOrientations;
+- (_Bool)shouldAutorotate;
+- (void)presentFromFloatingWindowAnimated:(_Bool)arg1 completion:(id)arg2;
 
 @end
 

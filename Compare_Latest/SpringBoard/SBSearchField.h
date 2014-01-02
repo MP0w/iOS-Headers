@@ -4,13 +4,13 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "UISearchField.h"
+#import "UITextField.h"
 
-@interface SBSearchField : UISearchField
+@interface SBSearchField : UITextField
 {
 }
 
-- (id)_placeholderColor;
+- (struct CGRect)leftViewRectForBounds:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

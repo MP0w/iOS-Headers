@@ -13,20 +13,20 @@
 
 @interface SBKUniversalPlaybackPositionMetadata : NSObject <SBKSyncKeyValuePair, NSCopying>
 {
-    BOOL _hasBeenPlayed;
+    _Bool _hasBeenPlayed;
     NSString *_itemIdentifier;
-    unsigned int _playCount;
     double _timestamp;
     double _bookmarkTime;
+    unsigned long long _playCount;
 }
 
-+ (id)metadataWithItemIdentifier:(id)arg1 keyValueStorePayload:(id)arg2 failuresOkay:(BOOL)arg3;
++ (id)metadataWithItemIdentifier:(id)arg1 keyValueStorePayload:(id)arg2 failuresOkay:(_Bool)arg3;
 + (id)metadataWithItemIdentifier:(id)arg1 keyValueStorePayload:(id)arg2;
 + (id)metadataWithValuesFromDataSourceItem:(id)arg1;
 + (id)keyValueStoreItemIdentifierForItem:(id)arg1;
 + (id)_testableMetadataItem_1;
-@property unsigned int playCount; // @synthesize playCount=_playCount;
-@property BOOL hasBeenPlayed; // @synthesize hasBeenPlayed=_hasBeenPlayed;
+@property unsigned long long playCount; // @synthesize playCount=_playCount;
+@property _Bool hasBeenPlayed; // @synthesize hasBeenPlayed=_hasBeenPlayed;
 @property double bookmarkTime; // @synthesize bookmarkTime=_bookmarkTime;
 @property(copy) NSString *itemIdentifier; // @synthesize itemIdentifier=_itemIdentifier;
 - (void).cxx_destruct;
@@ -34,8 +34,8 @@
 - (id)kvsPayload;
 - (id)kvsKey;
 - (id)keyValueStorePayload;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 @property double timestamp; // @synthesize timestamp=_timestamp;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;

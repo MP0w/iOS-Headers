@@ -10,6 +10,7 @@
 
 @class MFBrush, MFFont, MFPalette, MFPath, MFPen, MFTransform, NSObject<MFDeviceDriver>, TSUColor;
 
+// Not exported
 @interface MFDeviceContext : NSObject <NSCopying>
 {
     NSObject<MFDeviceDriver> *m_driver;

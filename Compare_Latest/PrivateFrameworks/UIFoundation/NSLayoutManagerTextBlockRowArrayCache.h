@@ -8,16 +8,17 @@
 
 @class NSArray;
 
+// Not exported
 @interface NSLayoutManagerTextBlockRowArrayCache : NSObject
 {
     struct _NSRange _rowCharRange;
-    float _containerWidth;
+    double _containerWidth;
     NSArray *_rowArray;
-    BOOL _collapseBorders;
+    _Bool _collapseBorders;
 }
 
 - (void)dealloc;
-- (id)initWithRowCharRange:(struct _NSRange)arg1 containerWidth:(float)arg2 rowArray:(id)arg3 collapseBorders:(BOOL)arg4;
+- (id)initWithRowCharRange:(struct _NSRange)arg1 containerWidth:(double)arg2 rowArray:(id)arg3 collapseBorders:(_Bool)arg4;
 
 @end
 

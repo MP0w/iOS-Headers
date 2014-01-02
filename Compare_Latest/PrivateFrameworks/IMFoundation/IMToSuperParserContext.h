@@ -10,31 +10,31 @@
 
 @interface IMToSuperParserContext : IMXMLParserContext
 {
-    unsigned int _underlineCount;
-    unsigned int _boldCount;
-    unsigned int _italicCount;
-    unsigned int _strikethroughCount;
-    unsigned int _messagePartNumber;
+    unsigned long long _underlineCount;
+    unsigned long long _boldCount;
+    unsigned long long _italicCount;
+    unsigned long long _strikethroughCount;
+    unsigned long long _messagePartNumber;
     NSMutableArray *_fontFamilyStack;
     NSMutableArray *_fontSizeStack;
     NSMutableArray *_linkStack;
     NSMutableArray *_backgroundColorStack;
     NSMutableArray *_foregroundColorStack;
     NSMutableDictionary *_currentAttributes;
-    BOOL _didAddBodyAttributes;
-    int _baseWritingDirection;
+    _Bool _didAddBodyAttributes;
+    long long _baseWritingDirection;
     NSString *_backgroundColor;
     NSString *_foregroundColor;
     NSMutableAttributedString *_body;
     NSMutableArray *_fileTransferGUIDs;
 }
 
-@property int baseWritingDirection; // @synthesize baseWritingDirection=_baseWritingDirection;
+@property long long baseWritingDirection; // @synthesize baseWritingDirection=_baseWritingDirection;
 @property(retain, nonatomic) NSString *foregroundColor; // @synthesize foregroundColor=_foregroundColor;
 @property(retain, nonatomic) NSString *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 @property(retain, nonatomic) NSArray *fileTransferGUIDs; // @synthesize fileTransferGUIDs=_fileTransferGUIDs;
 @property(readonly, nonatomic) NSAttributedString *body;
-- (void)appendInlineImageWithGUID:(id)arg1 filename:(id)arg2 width:(int)arg3 height:(int)arg4;
+- (void)appendInlineImageWithGUID:(id)arg1 filename:(id)arg2 width:(long long)arg3 height:(long long)arg4;
 - (void)appendFileTransferWithGUID:(id)arg1;
 - (void)appendString:(id)arg1;
 - (void)_incrementMessagePartNumber;

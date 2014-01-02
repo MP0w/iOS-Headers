@@ -8,31 +8,31 @@
 
 @interface TKVibrationRecorderTouchSurfaceRecordedDataWrapper : NSObject
 {
-    BOOL _warmUpModeEnabled;
-    BOOL _displayLinkHasRefreshedAtLeastOnce;
-    unsigned int _maximumFramesPerSecondRate;
-    void *_recordedData;
-    unsigned long _recordedDataElementsCount;
-    unsigned long _recordedDataCursor;
+    _Bool _warmUpModeEnabled;
+    _Bool _displayLinkHasRefreshedAtLeastOnce;
     double _vibrationPatternMaximumDuration;
     double _vibrationPatternDidStartTimestamp;
+    unsigned long long _maximumFramesPerSecondRate;
+    void *_recordedData;
+    unsigned long long _recordedDataElementsCount;
+    unsigned long long _recordedDataCursor;
     double _warmUpModeDidStartTimestamp;
 }
 
-@property(nonatomic, setter=_setDisplayLinkHasRefreshedAtLeastOnce:) BOOL _displayLinkHasRefreshedAtLeastOnce; // @synthesize _displayLinkHasRefreshedAtLeastOnce;
+@property(nonatomic, setter=_setDisplayLinkHasRefreshedAtLeastOnce:) _Bool _displayLinkHasRefreshedAtLeastOnce; // @synthesize _displayLinkHasRefreshedAtLeastOnce;
 @property(nonatomic, setter=_setWarmUpModeDidStartTimestamp:) double _warmUpModeDidStartTimestamp; // @synthesize _warmUpModeDidStartTimestamp;
-@property(nonatomic, getter=_isWarmUpModeEnabled, setter=_setWarmUpModeEnabled:) BOOL _warmUpModeEnabled; // @synthesize _warmUpModeEnabled;
-@property(nonatomic, setter=_setRecordedDataCursor:) unsigned long _recordedDataCursor; // @synthesize _recordedDataCursor;
-@property(nonatomic, setter=_setRecordedDataElementsCount:) unsigned long _recordedDataElementsCount; // @synthesize _recordedDataElementsCount;
+@property(nonatomic, getter=_isWarmUpModeEnabled, setter=_setWarmUpModeEnabled:) _Bool _warmUpModeEnabled; // @synthesize _warmUpModeEnabled;
+@property(nonatomic, setter=_setRecordedDataCursor:) unsigned long long _recordedDataCursor; // @synthesize _recordedDataCursor;
+@property(nonatomic, setter=_setRecordedDataElementsCount:) unsigned long long _recordedDataElementsCount; // @synthesize _recordedDataElementsCount;
 @property(nonatomic, setter=_setRecordedData:) void *_recordedData; // @synthesize _recordedData;
-@property(nonatomic, setter=_setMaximumFramesPerSecondRate:) unsigned int _maximumFramesPerSecondRate; // @synthesize _maximumFramesPerSecondRate;
+@property(nonatomic, setter=_setMaximumFramesPerSecondRate:) unsigned long long _maximumFramesPerSecondRate; // @synthesize _maximumFramesPerSecondRate;
 @property(nonatomic, setter=_setVibrationPatternDidStartTimestamp:) double _vibrationPatternDidStartTimestamp; // @synthesize _vibrationPatternDidStartTimestamp;
 @property(nonatomic, setter=_setVibrationPatternMaximumDuration:) double _vibrationPatternMaximumDuration; // @synthesize _vibrationPatternMaximumDuration;
 - (void)_updateMaximumFramesPerSecondRate:(id)arg1;
-- (BOOL)getTouchLocation:(struct CGPoint *)arg1 touchPhase:(int *)arg2 forTimeInterval:(double)arg3;
+- (_Bool)getNormalizedTouchLocation:(struct CGPoint *)arg1 touchPhase:(int *)arg2 forTimeInterval:(double)arg3;
 - (void)didStopRecording;
-- (void)recordTouchLocation:(struct CGPoint)arg1 touchPhase:(int)arg2;
-- (void)_recordFinalDataWithTouchLocation:(struct CGPoint)arg1 touchPhase:(int)arg2 timeIntervalSinceBeginningOfPattern:(double)arg3;
+- (void)recordNormalizedTouchLocation:(struct CGPoint)arg1 touchPhase:(int)arg2;
+- (void)_recordFinalDataWithNormalizedTouchLocation:(struct CGPoint)arg1 touchPhase:(int)arg2 timeIntervalSinceBeginningOfPattern:(double)arg3;
 - (void)_prepareRecordedDataBufferForStoringEnoughElementsForRecordingDuration:(double)arg1;
 - (void)dealloc;
 - (id)initWithVibrationPatternMaximumDuration:(double)arg1;

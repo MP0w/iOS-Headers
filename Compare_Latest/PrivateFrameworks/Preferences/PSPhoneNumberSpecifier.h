@@ -8,13 +8,18 @@
 
 #import "UITextFieldDelegate-Protocol.h"
 
+@class NSString;
+
 @interface PSPhoneNumberSpecifier : PSTextFieldSpecifier <UITextFieldDelegate>
 {
+    NSString *_countryCode;
 }
 
+@property(retain, nonatomic) NSString *countryCode; // @synthesize countryCode=_countryCode;
 - (void)textFieldDidEndEditing:(id)arg1;
-- (BOOL)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
+- (_Bool)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
 - (void)setProperty:(id)arg1 forKey:(id)arg2;
+- (void)dealloc;
 
 @end
 

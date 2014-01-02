@@ -8,6 +8,7 @@
 
 @class NSMutableArray, NSMutableString;
 
+// Not exported
 @interface PptTextBlock : NSObject
 {
     struct PptTextHeaderAtom *mTextHeader;
@@ -28,15 +29,12 @@
 - (id)hyperlinks;
 - (id)metaCharacterFields;
 - (id)text;
-- (unsigned long)textIndex;
+- (unsigned int)textIndex;
 - (int)textType;
 - (void)writeTextBlock:(id)arg1;
 - (void)readTextBlock:(id)arg1;
 - (void)dealloc;
 - (id)init;
-- (void)readMetaCharacterFieldsBookmarksAndHyperlinks:(id)arg1;
-- (void)readStyles:(id)arg1;
-- (void)readString:(id)arg1;
 
 @end
 

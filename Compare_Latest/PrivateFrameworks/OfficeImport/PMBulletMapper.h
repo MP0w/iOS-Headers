@@ -8,6 +8,7 @@
 
 @class CMStyle, OADParagraphProperties;
 
+// Not exported
 @interface PMBulletMapper : CMMapper
 {
     OADParagraphProperties *mProperties;
@@ -19,10 +20,6 @@
 - (void)mapAt:(id)arg1 withState:(id)arg2;
 - (void)dealloc;
 - (id)initWithOadProperties:(id)arg1 fontSize:(int)arg2 parent:(id)arg3;
-- (id)makeBulletWithListState:(id)arg1;
-- (void)mapBulletColorWithState:(id)arg1;
-- (id)bulletFontName;
-- (int)bulletSize;
 
 @end
 

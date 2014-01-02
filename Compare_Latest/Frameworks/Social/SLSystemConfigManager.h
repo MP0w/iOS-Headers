@@ -11,7 +11,7 @@
 @interface SLSystemConfigManager : NSObject
 {
     void *_prefs;
-    BOOL _notifyForExternalChangeOnly;
+    _Bool _notifyForExternalChangeOnly;
     int _applySkipCount;
     NSString *_serviceType;
 }
@@ -19,7 +19,7 @@
 + (id)sharedInstanceForCallbackWhileLocked:(void *)arg1;
 + (id)sharedInstanceForServiceType:(id)arg1;
 - (void).cxx_destruct;
-- (void)_setCallback:(void *)arg1 withContext:(CDStruct_304912e7 *)arg2;
+- (void)_setCallback:(void *)arg1 withContext:(CDStruct_4210025a *)arg2;
 - (void)_setValue:(void *)arg1 forKey:(id)arg2;
 - (void *)_getValueForKey:(id)arg1;
 - (void)_synchronize;

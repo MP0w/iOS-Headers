@@ -8,13 +8,12 @@
 
 @class PXPresentationState;
 
+// Not exported
 @interface PXOfficeArtClient : OAXClient
 {
     PXPresentationState *mPresentationState;
 }
 
-+ (int)readPlaceholderBoundsTrackFromNode:(struct _xmlNode *)arg1;
-+ (int)readPlaceholderTypeFromNode:(struct _xmlNode *)arg1;
 - (id)readOle:(struct _xmlNode *)arg1 state:(id)arg2;
 - (void)postprocessHyperlink:(id)arg1 relationship:(id)arg2 state:(id)arg3;
 - (id)readClientTextField:(struct _xmlNode *)arg1 paragraph:(id)arg2 state:(id)arg3;

@@ -9,19 +9,12 @@
 @interface SKUIIPhoneProductPageView : UIView
 {
     UIView *_view;
-    UIView *_headerView;
-    UIView *_floatingView;
-    id <SKUIIPhoneProductPageViewDelegate> _delegate;
-    struct CGPoint _endOffset;
 }
 
-@property(nonatomic) __weak id <SKUIIPhoneProductPageViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) UIView *view; // @synthesize view=_view;
 - (void).cxx_destruct;
-- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
 - (void)layoutSubviews;
-- (void)finishAnimations;
-- (void)setView:(id)arg1 headerView:(id)arg2 floatingView:(id)arg3 startOffset:(struct CGPoint)arg4 endOffset:(struct CGPoint)arg5;
+- (void)animateYPosition:(double)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

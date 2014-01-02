@@ -10,6 +10,7 @@
 {
 }
 
+- (_Bool)displaysAvalancheStacks;
 - (int)thumbnailImageFormat;
 
 @end

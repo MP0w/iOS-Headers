@@ -6,15 +6,16 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface VKPOIIconGenerator : NSObject
 {
 }
 
 + (id)sharedGenerator;
-- (id)newIconWithGlyph:(struct CGImage *)arg1 style:(CDStruct_44473e2f *)arg2 scale:(float)arg3;
-- (struct CGSize)imageSizeForStyle:(CDStruct_44473e2f *)arg1 scale:(float)arg2;
-- (id)keyForName:(id)arg1 style:(CDStruct_44473e2f *)arg2;
-- (BOOL)canHandleStyle:(CDStruct_44473e2f *)arg1;
+- (id)newIconWithGlyph:(struct CGImage *)arg1 style:(CDStruct_cf20f7af *)arg2 scale:(double)arg3;
+- (struct CGSize)imageSizeForStyle:(CDStruct_cf20f7af *)arg1 scale:(double)arg2;
+- (id)keyForName:(id)arg1 style:(CDStruct_cf20f7af *)arg2;
+- (_Bool)canHandleStyle:(CDStruct_cf20f7af *)arg1;
 
 @end
 

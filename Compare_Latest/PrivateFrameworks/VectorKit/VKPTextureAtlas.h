@@ -8,6 +8,7 @@
 
 @class NSData;
 
+// Not exported
 @interface VKPTextureAtlas : PBCodable
 {
     unsigned int _quadHeight;
@@ -18,11 +19,11 @@
 @property(nonatomic) unsigned int quadHeight; // @synthesize quadHeight=_quadHeight;
 @property(nonatomic) unsigned int quadWidth; // @synthesize quadWidth=_quadWidth;
 @property(retain, nonatomic) NSData *texture; // @synthesize texture=_texture;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
 - (void)dealloc;

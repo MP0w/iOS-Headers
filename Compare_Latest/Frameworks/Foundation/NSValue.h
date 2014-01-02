@@ -13,7 +13,7 @@
 {
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 + (id)valueWithRange:(struct _NSRange)arg1;
 + (id)valueWithRect:(struct CGRect)arg1;
 + (id)valueWithSize:(struct CGSize)arg1;
@@ -35,15 +35,13 @@
 - (void *)pointerValue;
 - (id)nonretainedObjectValue;
 - (id)description;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isEqualToValue:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)isEqualToValue:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (const char *)objCType;
 - (void)getValue:(void *)arg1;
 - (id)init;
-- (BOOL)isNSValue__;
-- (id)replacementObjectForPortCoder:(id)arg1;
 
 @end
 

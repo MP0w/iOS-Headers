@@ -11,9 +11,9 @@
     MUPoolObject *mPoolPrev;
 }
 
-+ (BOOL)clearVars;
-+ (CDStruct_7b508128 *)poolInfo;
-+ (int)clearPool;
++ (_Bool)clearVars;
++ (CDStruct_32b7e343 *)poolInfo;
++ (long long)clearPool;
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (void)clearAllPools;
 + (id)pooledClasses;

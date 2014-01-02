@@ -10,7 +10,7 @@
 
 @optional
 - (void)downloadHandler:(id)arg1 handleAuthenticationSession:(id)arg2;
-- (BOOL)downloadHandler:(id)arg1 pauseSession:(id)arg2;
+- (_Bool)downloadHandler:(id)arg1 pauseSession:(id)arg2;
 - (void)downloadHandler:(id)arg1 cancelSession:(id)arg2;
 - (void)downloadHandler:(id)arg1 handleSession:(id)arg2;
 - (void)downloadHandlerDidDisconnect:(id)arg1;

@@ -8,6 +8,7 @@
 
 #import "MFObject-Protocol.h"
 
+// Not exported
 @interface MFBrush : NSObject <MFObject>
 {
 }

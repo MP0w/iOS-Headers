@@ -13,7 +13,7 @@
     struct __IOHIDEventSystemClient *eventSystemClient;
     NSMutableArray *clientList;
     struct __CFRunLoop *runLoop;
-    BOOL manageAccel;
+    _Bool manageAccel;
     int accelEventIndex;
     int accelUpdateInternalUS;
 }
@@ -23,7 +23,7 @@
 - (void)addClient:(id)arg1;
 - (void)refreshEventSystem;
 - (void)setAccelUpdateInterval:(double)arg1;
-- (BOOL)managingAccel;
+- (_Bool)managingAccel;
 - (id)clientList;
 - (void)updateClientState;
 - (struct __IOHIDEventSystemClient *)eventSystemClient;

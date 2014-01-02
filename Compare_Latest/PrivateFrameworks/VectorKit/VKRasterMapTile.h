@@ -13,18 +13,18 @@
     NSData *_bitmapData;
     struct VKTileKey _superTileKey;
     struct VKTileKey _finalTileKey;
-    float _scale;
+    double _scale;
     struct CGImage *_image;
 }
 
 - (struct CGImage *)_image;
-- (id)imageDataInFormat:(unsigned int)arg1;
-- (BOOL)writeImageToFile:(id)arg1 format:(unsigned int)arg2 error:(id *)arg3;
+- (id)imageDataInFormat:(unsigned long long)arg1;
+- (_Bool)writeImageToFile:(id)arg1 format:(unsigned long long)arg2 error:(id *)arg3;
 - (id)tileForKey:(const struct VKRasterTileKey *)arg1;
 - (void)foreachTileOfSize:(unsigned int)arg1 perform:(id)arg2 completion:(void)arg3;
 - (void)dealloc;
-- (id)initWithBitmapData:(id)arg1 tileKey:(const struct VKTileKey *)arg2 scale:(float)arg3;
-- (id)initWithBitmapData:(id)arg1 superKey:(const struct VKTileKey *)arg2 finalKey:(const struct VKTileKey *)arg3 scale:(float)arg4;
+- (id)initWithBitmapData:(id)arg1 tileKey:(const struct VKTileKey *)arg2 scale:(double)arg3;
+- (id)initWithBitmapData:(id)arg1 superKey:(const struct VKTileKey *)arg2 finalKey:(const struct VKTileKey *)arg3 scale:(double)arg4;
 @property(readonly, nonatomic) struct VKRasterTileKey tileKey;
 
 @end

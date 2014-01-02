@@ -8,6 +8,7 @@
 
 @class UIButton, UILabel;
 
+// Not exported
 @interface _UITextEditingController : UIViewController
 {
     UILabel *_title;
@@ -22,7 +23,7 @@
 - (void)_doneButtonClicked;
 - (void)viewDidLoad;
 - (void)loadView;
-- (unsigned int)supportedInterfaceOrientations;
+- (unsigned long long)supportedInterfaceOrientations;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 

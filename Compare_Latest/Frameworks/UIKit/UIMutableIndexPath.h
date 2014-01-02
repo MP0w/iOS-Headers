@@ -6,21 +6,22 @@
 
 #import "NSIndexPath.h"
 
+// Not exported
 @interface UIMutableIndexPath : NSIndexPath
 {
-    unsigned int *_mutableIndexes;
-    BOOL _locked;
+    unsigned long long *_mutableIndexes;
+    _Bool _locked;
 }
 
-+ (void)setIndex:(unsigned int)arg1 atPosition:(unsigned int)arg2 forIndexPath:(id *)arg3;
++ (void)setIndex:(unsigned long long)arg1 atPosition:(unsigned long long)arg2 forIndexPath:(id *)arg3;
 - (id)retain;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (int)compare:(id)arg1;
-- (void)getIndexes:(unsigned int *)arg1;
-- (unsigned int)indexAtPosition:(unsigned int)arg1;
+- (long long)compare:(id)arg1;
+- (void)getIndexes:(unsigned long long *)arg1;
+- (unsigned long long)indexAtPosition:(unsigned long long)arg1;
 - (void)dealloc;
-- (id)initWithIndexes:(const unsigned int *)arg1 length:(unsigned int)arg2;
+- (id)initWithIndexes:(const unsigned long long *)arg1 length:(unsigned long long)arg2;
 
 @end
 

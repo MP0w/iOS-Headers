@@ -8,7 +8,7 @@
 
 @interface NSMutableDictionary (NSURLExtras)
 - (void)_web_setObject:(id)arg1 forUncopiedKey:(id)arg2;
-- (void)_web_setBool:(BOOL)arg1 forKey:(id)arg2;
+- (void)_web_setBool:(_Bool)arg1 forKey:(id)arg2;
 - (void)_web_setInt:(int)arg1 forKey:(id)arg2;
 @end
 

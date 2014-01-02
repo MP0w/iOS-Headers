@@ -8,6 +8,7 @@
 
 @class NSString, NSURL;
 
+// Not exported
 @interface WFWhitelistSite : NSObject
 {
     NSString *urlString;
@@ -20,9 +21,9 @@
 @property(copy) NSURL *url; // @synthesize url;
 @property(copy) NSString *urlString; // @synthesize urlString;
 - (id)description;
-- (BOOL)hasMetasitePrefix:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)hasMetasitePrefix:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)dealloc;
 - (id)initWithURLString:(id)arg1;
 

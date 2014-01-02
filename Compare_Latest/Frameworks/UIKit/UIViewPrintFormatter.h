@@ -14,9 +14,9 @@
 }
 
 @property(readonly, nonatomic) UIView *view; // @synthesize view=_view;
-- (void)drawInRect:(struct CGRect)arg1 forPageAtIndex:(int)arg2;
-- (struct CGRect)rectForPageAtIndex:(int)arg1;
-- (int)_recalcPageCount;
+- (void)drawInRect:(struct CGRect)arg1 forPageAtIndex:(long long)arg2;
+- (struct CGRect)rectForPageAtIndex:(long long)arg1;
+- (long long)_recalcPageCount;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)_initWithView:(id)arg1;

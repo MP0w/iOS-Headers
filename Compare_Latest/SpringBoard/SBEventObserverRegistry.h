@@ -15,7 +15,7 @@
 }
 
 + (id)sharedInstance;
-- (void)setValue:(BOOL)arg1 forState:(struct __CFString *)arg2;
+- (void)setValue:(_Bool)arg1 forState:(struct __CFString *)arg2;
 - (void)postEventToInterestedObservers:(struct __CFString *)arg1;
 - (void)removeObserverWithToken:(unsigned long long)arg1 forEvent:(id)arg2;
 - (void)addObserverWithToken:(unsigned long long)arg1 forEvent:(id)arg2;

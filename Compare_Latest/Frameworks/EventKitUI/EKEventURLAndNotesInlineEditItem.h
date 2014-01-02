@@ -15,11 +15,11 @@
 }
 
 - (void).cxx_destruct;
-- (BOOL)saveAndDismissWithForce:(BOOL)arg1;
-- (BOOL)isInline;
-- (id)cellForSubitemAtIndex:(unsigned int)arg1 inSubsection:(unsigned int)arg2;
-- (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 inSubsection:(unsigned int)arg2 forWidth:(float)arg3;
-- (unsigned int)numberOfSubitemsInSubsection:(unsigned int)arg1;
+- (_Bool)saveAndDismissWithForce:(_Bool)arg1;
+- (_Bool)isInline;
+- (id)cellForSubitemAtIndex:(unsigned long long)arg1 inSubsection:(unsigned long long)arg2;
+- (double)defaultCellHeightForSubitemAtIndex:(unsigned long long)arg1 inSubsection:(unsigned long long)arg2 forWidth:(double)arg3;
+- (unsigned long long)numberOfSubitemsInSubsection:(unsigned long long)arg1;
 - (void)setSelectedResponder:(id)arg1;
 - (void)setDelegate:(id)arg1;
 - (void)setCalendarItem:(id)arg1 store:(id)arg2;

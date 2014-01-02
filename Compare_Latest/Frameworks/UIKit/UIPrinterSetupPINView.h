@@ -10,6 +10,7 @@
 
 @class UIImageView, UILabel, UIPasscodeField, UITextField;
 
+// Not exported
 @interface UIPrinterSetupPINView : UIControl <UITextFieldDelegate>
 {
     UILabel *_titleLabel;
@@ -18,10 +19,10 @@
     UITextField *_textEntryField;
     UILabel *_failedLabel;
     UIImageView *_failedBackground;
-    int _failedAttemptCount;
+    long long _failedAttemptCount;
 }
 
-@property(nonatomic) int failedAttemptCount; // @synthesize failedAttemptCount=_failedAttemptCount;
+@property(nonatomic) long long failedAttemptCount; // @synthesize failedAttemptCount=_failedAttemptCount;
 @property(retain, nonatomic) UIImageView *failedBackground; // @synthesize failedBackground=_failedBackground;
 @property(retain, nonatomic) UILabel *failedLabel; // @synthesize failedLabel=_failedLabel;
 @property(retain, nonatomic) UITextField *textEntryField; // @synthesize textEntryField=_textEntryField;
@@ -29,7 +30,7 @@
 @property(retain, nonatomic) UILabel *enterLabel; // @synthesize enterLabel=_enterLabel;
 @property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 - (void)textDidChange:(id)arg1;
-- (void)showSuccess:(BOOL)arg1;
+- (void)showSuccess:(_Bool)arg1;
 - (id)PIN;
 - (void)stopPINInput;
 - (void)startPINInput;

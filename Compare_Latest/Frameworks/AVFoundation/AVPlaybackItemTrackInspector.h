@@ -12,29 +12,29 @@
 {
     struct OpaqueFigPlaybackItem *_playbackItem;
     int _trackID;
-    unsigned long _mediaType;
+    unsigned int _mediaType;
     AVWeakReference *_weakReferenceToAsset;
 }
 
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (CDStruct_1b6d18a9)samplePresentationTimeForTrackTime:(CDStruct_1b6d18a9)arg1;
 - (struct CGAffineTransform)preferredTransform;
 - (struct CGSize)dimensions;
 - (struct CGSize)naturalSize;
 - (float)estimatedDataRate;
 - (CDStruct_e83c9415)timeRange;
-- (BOOL)isEnabled;
+- (_Bool)isEnabled;
 - (id)formatDescriptions;
 - (void *)_valueAsCFTypeForProperty:(struct __CFString *)arg1;
 - (struct OpaqueFigPlaybackItem *)_playbackItem;
 - (id)mediaType;
-- (unsigned long)_figMediaType;
+- (unsigned int)_figMediaType;
 - (int)trackID;
 - (id)asset;
 - (void)finalize;
 - (void)dealloc;
-- (id)_initWithAsset:(id)arg1 trackID:(int)arg2 trackIndex:(long)arg3;
+- (id)_initWithAsset:(id)arg1 trackID:(int)arg2 trackIndex:(long long)arg3;
 
 @end
 

@@ -14,24 +14,26 @@
     UIView *_rightPaddingView;
     UIView *_characterIndicatorsContainerView;
     NSMutableArray *_characterIndicators;
-    float _backgroundAlpha;
+    double _backgroundAlpha;
     UIView *_springView;
     UIView *_springViewParent;
 }
 
 - (struct UIEdgeInsets)_entryFieldPaddingOutsideRing;
-- (struct CGRect)_entryFieldBoundsWithXOffset:(float)arg1;
-- (float)_entryFieldIndicatorWidthPadding;
-- (float)_entryFieldIndicatorDiameter;
+- (struct CGRect)_entryFieldBoundsWithXOffset:(double)arg1;
+- (double)_entryFieldIndicatorWidthPadding;
+- (double)_entryFieldIndicatorDiameter;
+- (void)_autofillForMesaWithCompletion:(id)arg1;
 - (struct CGSize)_viewSize;
-- (void)_setLuminosityBoost:(float)arg1;
+- (void)_resetForFailedPasscode:(_Bool)arg1 playUnlockFailedSound:(_Bool)arg2;
+- (_Bool)_hasAnyCharacters;
+- (void)_setLuminosityBoost:(double)arg1;
 - (void)_deleteLastCharacter;
 - (void)_appendString:(id)arg1;
 - (void)layoutSubviews;
-- (void)resetForFailedPasscode;
 - (void)reset;
 - (void)setCustomBackgroundColor:(id)arg1;
-- (void)setBackgroundAlpha:(float)arg1;
+- (void)setBackgroundAlpha:(double)arg1;
 - (void)dealloc;
 - (id)initWithDefaultSize;
 

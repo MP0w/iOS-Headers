@@ -10,9 +10,9 @@
 {
 }
 
-- (int)typeForItemAtIndex:(int)arg1;
+- (long long)typeForItemAtIndex:(long long)arg1;
 - (void)updateFromCloudFeedEntry;
-- (int)sectionType;
+- (long long)sectionType;
 
 @end
 

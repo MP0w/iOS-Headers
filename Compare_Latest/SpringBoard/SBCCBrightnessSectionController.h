@@ -21,11 +21,11 @@
 - (void)_setBacklightLevel:(float)arg1;
 - (float)_backlightLevel;
 - (void)viewDidLayoutSubviews;
-- (void)viewDidDisappear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)noteSettingsDidUpdate:(id)arg1;
-- (struct CGSize)contentSizeForOrientation:(int)arg1;
+- (struct CGSize)contentSizeForOrientation:(long long)arg1;
 - (id)sectionIdentifier;
 - (void)dealloc;
 

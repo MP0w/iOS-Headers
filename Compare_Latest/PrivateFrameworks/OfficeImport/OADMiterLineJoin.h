@@ -6,6 +6,7 @@
 
 #import <OfficeImport/OADLineJoin.h>
 
+// Not exported
 @interface OADMiterLineJoin : OADLineJoin
 {
     float mLimit;
@@ -13,8 +14,8 @@
 }
 
 + (id)defaultProperties;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isLimitOverridden;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)isLimitOverridden;
 - (void)setLimit:(float)arg1;
 - (float)limit;
 - (id)initWithDefaults;

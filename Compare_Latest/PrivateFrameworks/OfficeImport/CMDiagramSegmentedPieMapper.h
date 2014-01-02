@@ -6,16 +6,17 @@
 
 #import <OfficeImport/CMDiagramShapeMapper.h>
 
+// Not exported
 @interface CMDiagramSegmentedPieMapper : CMDiagramShapeMapper
 {
-    BOOL mDrawArrows;
+    _Bool mDrawArrows;
 }
 
-- (struct CGSize)sizeForNode:(id)arg1 atIndex:(unsigned int)arg2;
-- (id)_suggestedBoundsForNodeAtIndex:(unsigned int)arg1;
+- (struct CGSize)sizeForNode:(id)arg1 atIndex:(unsigned long long)arg2;
+- (id)_suggestedBoundsForNodeAtIndex:(unsigned long long)arg1;
 - (void)mapChildrenAt:(id)arg1 withState:(id)arg2;
 - (void)mapAt:(id)arg1 withState:(id)arg2;
-- (void)setDrawArrows:(BOOL)arg1;
+- (void)setDrawArrows:(_Bool)arg1;
 - (int)pointCount;
 
 @end

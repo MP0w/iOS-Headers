@@ -9,7 +9,7 @@
 @interface NSObject (XPCObjectsCompatibilityMode)
 - (void)setRemoteProtocol:(id)arg1;
 - (id)proxyWithRemoteProtocol:(id)arg1;
-- (id)disconnect;
+- (id)_uikit_disconnect;
 - (id)proxyWithNewTarget:(id)arg1 label:(id)arg2 errorHandler:(id)arg3;
 - (id)proxyWithNewTarget:(id)arg1 queue:(id)arg2 errorHandler:(id)arg3;
 @end

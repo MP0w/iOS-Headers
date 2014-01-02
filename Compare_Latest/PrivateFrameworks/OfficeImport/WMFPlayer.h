@@ -8,13 +8,14 @@
 
 @class MFGraphicsDevice;
 
+// Not exported
 @interface WMFPlayer : NSObject
 {
     MFGraphicsDevice *m_gdi;
     int m_records;
     unsigned short m_windowsVersion;
-    BOOL m_boundsSet;
-    BOOL m_ignoreSetWindowOrg;
+    _Bool m_boundsSet;
+    _Bool m_ignoreSetWindowOrg;
 }
 
 + (struct CGRect)boundsInPoints:(id)arg1;

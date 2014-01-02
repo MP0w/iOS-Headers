@@ -6,6 +6,7 @@
 
 #import <OfficeImport/WMStyle.h>
 
+// Not exported
 @interface WMSectionStyle : WMStyle
 {
 }

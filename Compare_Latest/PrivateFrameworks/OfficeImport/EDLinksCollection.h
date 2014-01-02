@@ -8,25 +8,26 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface EDLinksCollection : NSObject
 {
     NSMutableArray *mLinks;
     NSMutableArray *mReferences;
 }
 
-- (void)addOrEquivalentExternalAddInName:(id)arg1 linkReferenceIndex:(unsigned int *)arg2 nameIndex:(unsigned int *)arg3;
-- (unsigned int)addOrEquivalentLinkReferenceOfType:(int)arg1 firstSheetIndex:(unsigned int)arg2 lastSheetIndex:(unsigned int)arg3;
-- (unsigned int)addOrEquivalentInternalLinkReferenceWithFirstSheetIndex:(unsigned int)arg1 lastSheetIndex:(unsigned int)arg2;
-- (_Bool)convertLinkReferenceIndex:(unsigned int)arg1 firstSheetIndex:(unsigned int *)arg2 lastSheetIndex:(unsigned int *)arg3;
-- (unsigned int)addReference:(id)arg1;
-- (unsigned int)indexOfReference:(id)arg1;
-- (id)referenceAtIndex:(unsigned int)arg1;
-- (unsigned int)referencesCount;
-- (unsigned int)linkIndexCreateIfNeededWithType:(int)arg1;
-- (unsigned int)addLink:(id)arg1;
-- (unsigned int)indexOfFirstLinkWithType:(int)arg1;
-- (id)linkAtIndex:(unsigned int)arg1;
-- (unsigned int)linksCount;
+- (void)addOrEquivalentExternalAddInName:(id)arg1 linkReferenceIndex:(unsigned long long *)arg2 nameIndex:(unsigned long long *)arg3;
+- (unsigned long long)addOrEquivalentLinkReferenceOfType:(int)arg1 firstSheetIndex:(unsigned long long)arg2 lastSheetIndex:(unsigned long long)arg3;
+- (unsigned long long)addOrEquivalentInternalLinkReferenceWithFirstSheetIndex:(unsigned long long)arg1 lastSheetIndex:(unsigned long long)arg2;
+- (_Bool)convertLinkReferenceIndex:(unsigned long long)arg1 firstSheetIndex:(unsigned long long *)arg2 lastSheetIndex:(unsigned long long *)arg3;
+- (unsigned long long)addReference:(id)arg1;
+- (unsigned long long)indexOfReference:(id)arg1;
+- (id)referenceAtIndex:(unsigned long long)arg1;
+- (unsigned long long)referencesCount;
+- (unsigned long long)linkIndexCreateIfNeededWithType:(int)arg1;
+- (unsigned long long)addLink:(id)arg1;
+- (unsigned long long)indexOfFirstLinkWithType:(int)arg1;
+- (id)linkAtIndex:(unsigned long long)arg1;
+- (unsigned long long)linksCount;
 - (void)dealloc;
 - (id)init;
 

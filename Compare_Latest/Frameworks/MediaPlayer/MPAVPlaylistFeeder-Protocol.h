@@ -7,12 +7,12 @@
 #import "NSObject-Protocol.h"
 
 @protocol MPAVPlaylistFeeder <NSObject>
-@property(readonly, nonatomic) unsigned int nonRepeatingItemCount;
-@property(readonly, nonatomic) unsigned int itemCount;
-@property(readonly, nonatomic) unsigned int initialPlaybackQueueDepth;
-- (BOOL)shouldReloadForChangeFromNetworkType:(int)arg1 toNetworkType:(int)arg2;
-- (id)itemForIndex:(unsigned int)arg1;
-- (BOOL)hasItemForIndex:(unsigned int)arg1;
+@property(readonly, nonatomic) unsigned long long nonRepeatingItemCount;
+@property(readonly, nonatomic) unsigned long long itemCount;
+@property(readonly, nonatomic) unsigned long long initialPlaybackQueueDepth;
+- (_Bool)shouldReloadForChangeFromNetworkType:(long long)arg1 toNetworkType:(long long)arg2;
+- (id)itemForIndex:(unsigned long long)arg1;
+- (_Bool)hasItemForIndex:(unsigned long long)arg1;
 - (void)assumeOwnershipOfItems:(id)arg1;
 @end
 

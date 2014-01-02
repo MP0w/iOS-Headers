@@ -6,6 +6,7 @@
 
 #import <VectorKit/VGLTextureProgram.h>
 
+// Not exported
 @interface VGLAnimatableTextureProgram : VGLTextureProgram
 {
     int _uTextureVariantSampler;

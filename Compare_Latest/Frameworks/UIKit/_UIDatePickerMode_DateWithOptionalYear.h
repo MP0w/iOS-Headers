@@ -6,18 +6,19 @@
 
 #import <UIKit/_UIDatePickerMode_Date.h>
 
+// Not exported
 @interface _UIDatePickerMode_DateWithOptionalYear : _UIDatePickerMode_Date
 {
 }
 
-+ (int)datePickerMode;
-- (id)dateComponentsByRestrictingSelectedComponents:(id)arg1 withLastManipulatedColumn:(int)arg2;
-- (BOOL)_shouldEnableValueForRow:(int)arg1 inComponent:(int)arg2 calendarUnit:(unsigned int)arg3;
++ (long long)datePickerMode;
+- (id)dateComponentsByRestrictingSelectedComponents:(id)arg1 withLastManipulatedColumn:(long long)arg2;
+- (_Bool)_shouldEnableValueForRow:(long long)arg1 inComponent:(long long)arg2 calendarUnit:(unsigned long long)arg3;
 - (id)selectedDateComponents;
-- (int)yearForRow:(int)arg1;
-- (void)loadDate:(id)arg1 animated:(BOOL)arg2;
-- (id)titleForRow:(int)arg1 inComponent:(int)arg2;
-- (int)numberOfRowsForCalendarUnit:(unsigned int)arg1;
+- (long long)rowForDate:(id)arg1 dateComponents:(id)arg2 component:(long long)arg3 currentRow:(long long)arg4;
+- (long long)yearForRow:(long long)arg1;
+- (id)titleForRow:(long long)arg1 inComponent:(long long)arg2;
+- (long long)numberOfRowsForCalendarUnit:(unsigned long long)arg1;
 
 @end
 

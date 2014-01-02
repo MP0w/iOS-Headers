@@ -15,7 +15,7 @@
     UILabel *_label;
     PSSpecifier *_specifier;
     UITableView *_cnfreg_tableView;
-    BOOL _isTopmostHeader;
+    _Bool _isTopmostHeader;
     CNFRegLearnMoreButton *_urlButton;
     NSString *_URLText;
     NSURL *_URLTarget;
@@ -23,19 +23,20 @@
 
 @property(copy, nonatomic) NSURL *URLTarget; // @synthesize URLTarget=_URLTarget;
 @property(copy, nonatomic) NSString *URLText; // @synthesize URLText=_URLText;
-@property(nonatomic) BOOL isTopmostHeader; // @synthesize isTopmostHeader=_isTopmostHeader;
+@property(nonatomic) _Bool isTopmostHeader; // @synthesize isTopmostHeader=_isTopmostHeader;
 @property(nonatomic) UITableView *cnfreg_tableView; // @synthesize cnfreg_tableView=_cnfreg_tableView;
-- (float)preferredHeightForWidth:(float)arg1;
+- (double)preferredHeightForWidth:(double)arg1;
 - (void)updateLabelText;
 - (void)_urlTapped:(id)arg1;
 - (id)_URLTarget;
 - (id)_URLText;
-- (int)_labelTextAlignment;
+- (long long)_labelTextAlignment;
 - (id)_labelText;
 - (void)layoutSubviews;
-- (float)_bottomPadding;
-- (float)_topPadding;
-- (float)_labelInset;
+- (double)_bottomPadding;
+- (double)_topPadding;
+- (double)_labelInset;
+- (void)clearSpecifier;
 - (void)dealloc;
 - (id)initWithSpecifier:(id)arg1;
 

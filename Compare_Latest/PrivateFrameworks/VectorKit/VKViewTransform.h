@@ -8,6 +8,7 @@
 
 @class VKViewVolume;
 
+// Not exported
 @interface VKViewTransform : NSObject
 {
     shared_ptr_d1ecf7a2 _viewTransform;
@@ -18,15 +19,15 @@
 - (CDStruct_aa5aacbc)orientationMatrixAtWorldPoint:(struct VKPoint)arg1;
 - (struct VKPoint)groundPointFromScreenPoint:(struct CGPoint)arg1;
 - (struct VKPoint)groundPointFromPixel:(Vec2Imp_1782d7e3)arg1;
-- (void)setCoordinateSpace:(int)arg1 screenSizeInPixels:(struct CGSize)arg2 contentScale:(float)arg3 frustum:(CDStruct_17faa5b0)arg4 position:(struct VKPoint)arg5 orientation:(const CDStruct_aa5aacbc *)arg6;
+- (void)setCoordinateSpace:(int)arg1 screenSizeInPixels:(struct CGSize)arg2 contentScale:(float)arg3 frustum:(CDStruct_184b3e93)arg4 position:(struct VKPoint)arg5 orientation:(const CDStruct_aa5aacbc *)arg6;
 @property(readonly, nonatomic) double focusDistance;
 @property(readonly, nonatomic) double farPlaneDistance;
 @property(readonly, nonatomic) double nearPlaneDistance;
 @property(readonly, nonatomic) struct VKPoint translationInMercator;
 @property(readonly, nonatomic) struct VKPoint translation;
 @property(readonly, nonatomic) int coordinateSpace;
-@property(readonly, nonatomic) BOOL isGeocentric;
-@property(readonly, nonatomic) BOOL isMercator;
+@property(readonly, nonatomic) _Bool isGeocentric;
+@property(readonly, nonatomic) _Bool isMercator;
 @property(readonly, nonatomic) float contentScale;
 @property(readonly, nonatomic) struct CGSize screenSizeInPixels;
 @property(readonly, nonatomic) struct CGSize screenSizeInPoints;

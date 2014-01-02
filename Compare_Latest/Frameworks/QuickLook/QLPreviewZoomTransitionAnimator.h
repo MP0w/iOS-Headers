@@ -10,7 +10,6 @@
 {
 }
 
-- (void)startInteractiveTransition:(id)arg1;
 - (void)animateTransition:(id)arg1;
 - (double)transitionDuration:(id)arg1;
 

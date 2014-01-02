@@ -8,6 +8,7 @@
 
 @class VGLRenderState, VGLTexture, VGLTextureCanvas;
 
+// Not exported
 @interface VKHybridRoadMapModel : VKRoadMapModel
 {
     VGLTextureCanvas *_offscreenCanvas;

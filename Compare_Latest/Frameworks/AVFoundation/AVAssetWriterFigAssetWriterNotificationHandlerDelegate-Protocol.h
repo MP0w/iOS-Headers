@@ -7,6 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol AVAssetWriterFigAssetWriterNotificationHandlerDelegate <NSObject>
-- (void)didReceiveFigAssetWriterNotificationWithSuccess:(BOOL)arg1 error:(id)arg2;
+- (void)didReceiveFigAssetWriterNotificationWithSuccess:(_Bool)arg1 error:(id)arg2;
 @end
 

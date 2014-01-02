@@ -10,13 +10,14 @@
 
 @class GEOMapRegion, NSArray;
 
+// Not exported
 @interface VKPolygonOverlay : VKMultiPointOverlay <VKOverlay>
 {
     NSArray *_interiorPolygons;
 }
 
-+ (id)polygonWithCoordinates:(CDStruct_c3b9c2ee *)arg1 count:(unsigned int)arg2 interiorPolygons:(id)arg3;
-+ (id)polygonWithCoordinates:(CDStruct_c3b9c2ee *)arg1 count:(unsigned int)arg2;
++ (id)polygonWithCoordinates:(CDStruct_c3b9c2ee *)arg1 count:(unsigned long long)arg2 interiorPolygons:(id)arg3;
++ (id)polygonWithCoordinates:(CDStruct_c3b9c2ee *)arg1 count:(unsigned long long)arg2;
 @property(readonly) NSArray *interiorPolygons; // @synthesize interiorPolygons=_interiorPolygons;
 - (void)dealloc;
 

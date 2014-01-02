@@ -10,12 +10,12 @@
 {
     int _abCellStyle;
     id <ABStyleProvider> _styleProvider;
-    BOOL _hasConfiguredBackgroundViews;
+    _Bool _hasConfiguredBackgroundViews;
 }
 
 @property(retain, nonatomic) id <ABStyleProvider> styleProvider; // @synthesize styleProvider=_styleProvider;
 @property(nonatomic) int abCellStyle; // @synthesize abCellStyle=_abCellStyle;
-- (void)setSectionLocation:(int)arg1 animated:(BOOL)arg2;
+- (void)setSectionLocation:(int)arg1 animated:(_Bool)arg2;
 - (void)_updateTextStylesForCellStyle;
 - (void)_updateBackgroundViewsForCellStyleAndLocation;
 - (void)dealloc;

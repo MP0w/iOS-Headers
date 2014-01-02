@@ -16,26 +16,29 @@
     BBObserver *_observer;
     NSMutableArray *_blockQueue;
     NSMutableDictionary *_playingSounds;
-    BOOL _deviceIsLocked;
-    BOOL _quietModeEnabled;
+    _Bool _deviceIsLocked;
+    _Bool _quietModeEnabled;
+    unsigned long long _quietModeState;
 }
 
 + (id)sharedInstanceIfExists;
 + (id)sharedInstance;
-+ (id)_sharedInstanceCreateIfNecessary:(BOOL)arg1;
++ (id)_sharedInstanceCreateIfNecessary:(_Bool)arg1;
 - (void)bulletinWindowStoppedBeingBusy;
-- (void)observer:(id)arg1 noteServerConnectionStateChanged:(BOOL)arg2;
+- (void)observer:(id)arg1 noteServerConnectionStateChanged:(_Bool)arg2;
 - (void)observer:(id)arg1 noteInvalidatedBulletinIDs:(id)arg2;
-- (void)observer:(id)arg1 noteAlertBehaviorOverridesChanged:(unsigned int)arg2;
+- (void)observer:(id)arg1 noteAlertBehaviorOverrideStateChanged:(unsigned long long)arg2;
+- (void)observer:(id)arg1 noteAlertBehaviorOverridesChanged:(unsigned long long)arg2;
 - (void)observer:(id)arg1 removeBulletin:(id)arg2;
-- (void)observer:(id)arg1 addBulletin:(id)arg2 forFeed:(unsigned int)arg3;
+- (void)observer:(id)arg1 addBulletin:(id)arg2 forFeed:(unsigned long long)arg3;
 - (void)_enqueueBlock:(id)arg1 forBulletin:(void)arg2;
-- (BOOL)_shouldHonorPlaySoundRequestForBulletin:(id)arg1;
+- (_Bool)_shouldHonorPlaySoundRequestForBulletin:(id)arg1;
 - (void)_hardwareButtonPressed:(id)arg1;
-- (BOOL)quietModeEnabled;
+- (unsigned long long)quietModeState;
+- (_Bool)quietModeEnabled;
 - (void)killSounds;
 - (void)killSoundForBulletin:(id)arg1;
-- (BOOL)playSoundForBulletin:(id)arg1;
+- (_Bool)playSoundForBulletin:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

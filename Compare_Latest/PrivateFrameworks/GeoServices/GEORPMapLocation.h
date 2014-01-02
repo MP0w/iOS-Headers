@@ -6,9 +6,11 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class GEOLatLng, GEOMapRegion, NSData;
 
-@interface GEORPMapLocation : PBCodable
+@interface GEORPMapLocation : PBCodable <NSCopying>
 {
     GEOLatLng *_coordinate;
     NSData *_image;
@@ -23,17 +25,18 @@
 @property(nonatomic) float zoomLevel; // @synthesize zoomLevel=_zoomLevel;
 @property(retain, nonatomic) GEOLatLng *coordinate; // @synthesize coordinate=_coordinate;
 @property(retain, nonatomic) NSData *image; // @synthesize image=_image;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) BOOL hasMapRegion;
-@property(nonatomic) BOOL hasZoomLevel;
-@property(readonly, nonatomic) BOOL hasCoordinate;
-@property(readonly, nonatomic) BOOL hasImage;
+@property(readonly, nonatomic) _Bool hasMapRegion;
+@property(nonatomic) _Bool hasZoomLevel;
+@property(readonly, nonatomic) _Bool hasCoordinate;
+@property(readonly, nonatomic) _Bool hasImage;
 - (void)dealloc;
 
 @end

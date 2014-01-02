@@ -14,6 +14,7 @@
     ACDDatabase *_database;
     struct __CFBundle *_bundle;
     NSString *_bundleID;
+    _Bool _didManuallySetBundleID;
     NSNumber *_pid;
     NSString *_localizedAppName;
     NSString *_name;
@@ -21,19 +22,23 @@
     ACDTelemetryWatchdog *_telemetry;
 }
 
++ (id)bundleForPID:(int)arg1;
 + (id)clientWithBundleID:(id)arg1;
 @property(retain, nonatomic) ACDTelemetryWatchdog *telemetry; // @synthesize telemetry=_telemetry;
 @property(readonly, nonatomic) ACDDatabase *database; // @synthesize database=_database;
 @property(readonly, nonatomic) NSXPCConnection *connection; // @synthesize connection=_connection;
 - (void).cxx_destruct;
-- (id)debugDescription;
-- (BOOL)hasEntitlement:(id)arg1;
+- (_Bool)hasEntitlement:(id)arg1;
 @property(readonly, nonatomic) struct __CFBundle *bundle;
 @property(readonly, nonatomic) NSString *adamOrDisplayID;
 @property(readonly, nonatomic) NSString *name;
+- (id)_displayNameFromBundleInfoDictionaryForPID:(int)arg1;
+- (id)_displayNameFromSpringBoardForPID:(int)arg1;
 @property(readonly, nonatomic) NSString *localizedAppName;
 @property(retain, nonatomic) NSString *bundleID;
 @property(readonly, nonatomic) NSNumber *pid;
+- (id)debugDescription;
+- (id)description;
 - (void)dealloc;
 - (id)initWithConnection:(id)arg1 database:(id)arg2;
 - (id)initWithConnection:(id)arg1;

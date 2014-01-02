@@ -22,12 +22,14 @@
 @property(retain, nonatomic) AXRemoteHearingAidDevice *device; // @synthesize device=_device;
 - (unsigned long long)accessibilityTraits;
 - (id)accessibilityValue;
+- (void)setSelected:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)layoutSubviews;
 - (void)updateAvailability;
-- (id)imageForBatteryLevel:(float)arg1;
+- (id)imageForBatteryLevel:(double)arg1;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 andDevice:(id)arg3;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
+- (void)bluetoothAvailabilityDidChange:(id)arg1;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 andDevice:(id)arg3;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
 
 @end
 

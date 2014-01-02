@@ -6,6 +6,7 @@
 
 #import <CoreFoundation/NSSet.h>
 
+// Not exported
 @interface __NSOrderedSetSetProxy : NSSet
 {
     id _orderedSet;
@@ -14,7 +15,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)objectEnumerator;
 - (id)member:(id)arg1;
-- (unsigned int)count;
+- (unsigned long long)count;
 - (void)dealloc;
 - (id)initWithOrderedSet:(id)arg1;
 

@@ -6,23 +6,24 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface VKRoadSignArtwork : NSObject
 {
     struct __CTLine *_line;
-    int _orientation;
-    BOOL _onRoute;
+    long long _orientation;
+    _Bool _onRoute;
     float _contentScale;
     float _scale;
     struct CGSize _layoutSize;
 }
 
 - (id).cxx_construct;
-- (CDStruct_818bb265)boundsAtPixel:(Vec2Imp_1782d7e3)arg1;
+- (BRectImp_7721609a)boundsAtOrigin;
 - (Vec2Imp_1782d7e3)offsetPixelForPixel:(Vec2Imp_1782d7e3)arg1;
 - (id)image;
 - (void)dealloc;
 - (void)_updateLayoutSize;
-- (id)initWithString:(id)arg1 orientation:(int)arg2 contentScale:(float)arg3 onRoute:(BOOL)arg4;
+- (id)initWithString:(id)arg1 orientation:(long long)arg2 contentScale:(double)arg3 onRoute:(_Bool)arg4;
 
 @end
 

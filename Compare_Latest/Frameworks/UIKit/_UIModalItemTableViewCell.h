@@ -8,20 +8,23 @@
 
 @class UIColor, UIView;
 
+// Not exported
 @interface _UIModalItemTableViewCell : UITableViewCell
 {
-    BOOL _showFullWidthSeparator;
+    _Bool _showFullWidthSeparator;
     UIColor *_fullWitdhSeparatorColor;
     UIView *_fullWidthSeparatorView;
     UIView *_topSeparatorView;
+    _Bool _isEnabled;
 }
 
+@property(nonatomic) _Bool isEnabled; // @synthesize isEnabled=_isEnabled;
 @property(retain, nonatomic) UIColor *fullWidthSeparatorColor; // @synthesize fullWidthSeparatorColor=_fullWitdhSeparatorColor;
-@property(nonatomic) BOOL showFullWidthSeparator; // @synthesize showFullWidthSeparator=_showFullWidthSeparator;
+@property(nonatomic) _Bool showFullWidthSeparator; // @synthesize showFullWidthSeparator=_showFullWidthSeparator;
 - (void)dealloc;
 @property(readonly, nonatomic) UIView *topSeparatorView; // @synthesize topSeparatorView=_topSeparatorView;
 - (void)layoutSubviews;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

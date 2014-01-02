@@ -8,6 +8,7 @@
 
 @class NSDictionary, NSMutableDictionary, NSMutableSet, NSSet;
 
+// Not exported
 @interface PFUbiquityRecordsImporterSchedulingContext : NSObject
 {
     NSMutableSet *_scheduledLogLocations;

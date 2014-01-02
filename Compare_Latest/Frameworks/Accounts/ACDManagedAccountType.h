@@ -8,6 +8,7 @@
 
 @class NSNumber, NSSet, NSString;
 
+// Not exported
 @interface ACDManagedAccountType : NSManagedObject
 {
 }

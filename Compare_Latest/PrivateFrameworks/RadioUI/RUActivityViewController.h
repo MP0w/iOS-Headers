@@ -11,6 +11,7 @@
 }
 
 - (id)_titleForActivity:(id)arg1;
+- (id)initWithActivityItems:(id)arg1 applicationActivities:(id)arg2;
 
 @end
 

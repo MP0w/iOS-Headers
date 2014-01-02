@@ -14,7 +14,7 @@
 + (id)entityInManagedObjectContext:(id)arg1;
 + (id)entityName;
 - (id)_kindDescription;
-- (unsigned int)photosCount;
+- (unsigned long long)photosCount;
 - (id)posterImage;
 - (id)localizedTitle;
 - (void)awakeFromInsert;

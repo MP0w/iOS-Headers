@@ -18,9 +18,9 @@
 @property(copy, nonatomic) NSString *cancelButtonTitle; // @synthesize cancelButtonTitle=_cancelButtonTitle;
 - (void)_cancelAction:(id)arg1;
 - (void)reloadContentSizeForViewInPopover;
-- (id)titleOfMenuItemAtIndex:(int)arg1;
-- (int)numberOfMenuItems;
-- (BOOL)isMenuItemEnabledAtIndex:(int)arg1;
+- (id)titleOfMenuItemAtIndex:(long long)arg1;
+- (long long)numberOfMenuItems;
+- (_Bool)isMenuItemEnabledAtIndex:(long long)arg1;
 - (void)dealloc;
 - (id)initWithTitles:(id)arg1;
 

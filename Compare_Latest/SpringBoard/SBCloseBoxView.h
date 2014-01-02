@@ -6,15 +6,24 @@
 
 #import "UIButton.h"
 
-#import "SBCloseBoxObserver-Protocol.h"
+@class SBIconBlurryBackgroundView, SBIconColorSettings, UIImageView, UIView;
 
-@interface SBCloseBoxView : UIButton <SBCloseBoxObserver>
+@interface SBCloseBoxView : UIButton
 {
+    SBIconBlurryBackgroundView *_backgroundView;
+    UIView *_whiteTintView;
+    UIImageView *_xColorBurnView;
+    UIImageView *_xPlusDView;
+    SBIconColorSettings *_colorSettings;
+    struct CGPoint _wallpaperRelativeCenter;
 }
 
-- (void)closeBoxImageDidUpdate:(id)arg1;
-- (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
-- (void)willMoveToWindow:(id)arg1;
+- (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (void)layoutSubviews;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (void)setLegibilityStyle:(long long)arg1;
+- (void)setWallpaperRelativeCenter:(struct CGPoint)arg1;
+- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

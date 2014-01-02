@@ -8,6 +8,7 @@
 
 @class CHDChart, CHDDataLabel, CHDSeriesCollection, EDCollection;
 
+// Not exported
 @interface CHDChartType : NSObject
 {
     CHDChart *mChart;
@@ -28,8 +29,8 @@
 - (void)setDefaultDataLabel:(id)arg1;
 - (id)defaultDataLabel;
 - (void)setSeriesCollection:(id)arg1;
-- (unsigned int)categoryCount;
-- (unsigned int)seriesCount;
+- (unsigned long long)categoryCount;
+- (unsigned long long)seriesCount;
 - (id)seriesCollection;
 - (id)axisForClass:(Class)arg1;
 - (id)axes;

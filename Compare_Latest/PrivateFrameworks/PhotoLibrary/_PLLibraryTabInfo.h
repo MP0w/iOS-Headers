@@ -10,9 +10,9 @@
 
 @interface _PLLibraryTabInfo : NSObject
 {
+    int contentMode;
     NSString *labelKey;
     NSString *iconName;
-    int contentMode;
 }
 
 + (id)tabInfoWithLabelKey:(id)arg1 iconName:(id)arg2 contentMode:(int)arg3;

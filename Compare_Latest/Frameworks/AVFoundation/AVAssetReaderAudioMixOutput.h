@@ -14,13 +14,15 @@
 }
 
 + (id)assetReaderAudioMixOutputWithAudioTracks:(id)arg1 audioSettings:(id)arg2;
-- (BOOL)_enableTrackExtractionReturningError:(id *)arg1;
+- (_Bool)_enableTrackExtractionReturningError:(id *)arg1;
 - (id)_asset;
 - (id)mediaType;
 @property(copy, nonatomic) NSString *audioTimePitchAlgorithm;
 @property(copy, nonatomic) AVAudioMix *audioMix;
 - (void)_setAudioTapProcessor:(struct opaqueMTAudioProcessingTap *)arg1 forTrack:(id)arg2;
 - (struct opaqueMTAudioProcessingTap *)_audioTapProcessorForTrack:(id)arg1;
+- (void)_setAudioTimePitchAlgorithm:(id)arg1 forTrack:(id)arg2;
+- (id)_audioTimePitchAlgorithmForTrack:(id)arg1;
 - (void)_setAudioVolumeCurve:(id)arg1 forTrack:(id)arg2;
 - (id)_audioVolumeCurveForTrack:(id)arg1;
 @property(readonly, nonatomic) NSDictionary *audioSettings;

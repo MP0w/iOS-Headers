@@ -13,23 +13,23 @@
 
 @interface BBBehaviorOverride : NSObject <NSCopying, NSCoding>
 {
-    unsigned int _overrideType;
-    unsigned int _mode;
+    unsigned long long _overrideType;
+    unsigned long long _mode;
     NSArray *_effectiveIntervals;
 }
 
 @property(copy, nonatomic) NSArray *effectiveIntervals; // @synthesize effectiveIntervals=_effectiveIntervals;
-@property(nonatomic) unsigned int mode; // @synthesize mode=_mode;
-@property(nonatomic) unsigned int overrideType; // @synthesize overrideType=_overrideType;
+@property(nonatomic) unsigned long long mode; // @synthesize mode=_mode;
+@property(nonatomic) unsigned long long overrideType; // @synthesize overrideType=_overrideType;
 - (id)nextOverrideTransitionDateAfterDate:(id)arg1;
-- (BOOL)isActiveForDate:(id)arg1;
+- (_Bool)isActiveForDate:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)description;
 - (void)dealloc;
-- (id)initWithOverrideType:(unsigned int)arg1 mode:(unsigned int)arg2 effectiveIntervals:(id)arg3;
-- (id)initWithEffectiveIntervals:(id)arg1 overrideType:(unsigned int)arg2;
+- (id)initWithOverrideType:(unsigned long long)arg1 mode:(unsigned long long)arg2 effectiveIntervals:(id)arg3;
+- (id)initWithEffectiveIntervals:(id)arg1 overrideType:(unsigned long long)arg2;
 
 @end
 

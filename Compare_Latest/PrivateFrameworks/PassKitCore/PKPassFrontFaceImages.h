@@ -16,9 +16,9 @@
     struct CGRect _stripRect;
 }
 
-+ (BOOL)supportsSecureCoding;
-+ (int)imageSet;
-+ (int)currentVersion;
++ (_Bool)supportsSecureCoding;
++ (long long)imageSet;
++ (long long)currentVersion;
 + (id)archiveName;
 @property(nonatomic) struct CGRect stripRect; // @synthesize stripRect=_stripRect;
 @property(nonatomic) struct CGRect thumbnailRect; // @synthesize thumbnailRect=_thumbnailRect;

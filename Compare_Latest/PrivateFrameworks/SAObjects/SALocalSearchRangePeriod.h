@@ -14,8 +14,8 @@
 
 + (id)rangePeriodWithDictionary:(id)arg1 context:(id)arg2;
 + (id)rangePeriod;
-@property(nonatomic) int startSecondsSinceMidnight;
-@property(nonatomic) int endSecondsSinceMidnight;
+@property(nonatomic) long long startSecondsSinceMidnight;
+@property(nonatomic) long long endSecondsSinceMidnight;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

@@ -6,11 +6,15 @@
 
 #import "MFDataMessageStore.h"
 
+@class NSString;
+
 @interface _MFSecDataMessageStore : MFDataMessageStore
 {
+    NSString *_storagePath;
 }
 
 + (Class)classForMimePart;
+@property(copy, nonatomic) NSString *storagePath; // @synthesize storagePath=_storagePath;
 
 @end
 

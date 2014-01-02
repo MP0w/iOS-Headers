@@ -12,7 +12,6 @@
 
 + (void)addLastUsedPrinter:(id)arg1 duplexMode:(id)arg2 lastUsedSize:(struct CGSize)arg3;
 + (id)lastUsedPrinters;
-+ (int)printerLookupWithArray:(id)arg1 withTimeout:(double)arg2 completionHandler:(id)arg3;
 
 @end
 

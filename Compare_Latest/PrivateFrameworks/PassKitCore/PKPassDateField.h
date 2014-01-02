@@ -8,17 +8,17 @@
 
 @interface PKPassDateField : PKPassField
 {
-    BOOL _isRelative;
-    BOOL _ignoresTimeZone;
-    int _dateStyle;
-    int _timeStyle;
+    _Bool _isRelative;
+    _Bool _ignoresTimeZone;
+    long long _dateStyle;
+    long long _timeStyle;
 }
 
-+ (BOOL)supportsSecureCoding;
-@property(nonatomic) BOOL ignoresTimeZone; // @synthesize ignoresTimeZone=_ignoresTimeZone;
-@property(nonatomic) BOOL isRelative; // @synthesize isRelative=_isRelative;
-@property(nonatomic) int timeStyle; // @synthesize timeStyle=_timeStyle;
-@property(nonatomic) int dateStyle; // @synthesize dateStyle=_dateStyle;
++ (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool ignoresTimeZone; // @synthesize ignoresTimeZone=_ignoresTimeZone;
+@property(nonatomic) _Bool isRelative; // @synthesize isRelative=_isRelative;
+@property(nonatomic) long long timeStyle; // @synthesize timeStyle=_timeStyle;
+@property(nonatomic) long long dateStyle; // @synthesize dateStyle=_dateStyle;
 - (id)value;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

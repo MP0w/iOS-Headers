@@ -6,6 +6,7 @@
 
 #import <VectorKit/VKRealisticPolygonMaker.h>
 
+// Not exported
 @interface VKWaterPolygonMaker : VKRealisticPolygonMaker
 {
 }

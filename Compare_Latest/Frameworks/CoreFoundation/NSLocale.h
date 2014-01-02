@@ -14,8 +14,8 @@
 }
 
 + (id)internetServicesRegion;
-+ (unsigned int)lineDirectionForLanguage:(id)arg1;
-+ (unsigned int)characterDirectionForLanguage:(id)arg1;
++ (unsigned long long)lineDirectionForLanguage:(id)arg1;
++ (unsigned long long)characterDirectionForLanguage:(id)arg1;
 + (unsigned int)windowsLocaleCodeFromLocaleIdentifier:(id)arg1;
 + (id)localeIdentifierFromWindowsLocaleCode:(unsigned int)arg1;
 + (id)canonicalLanguageIdentifierFromString:(id)arg1;
@@ -31,7 +31,7 @@
 + (id)localeWithLocaleIdentifier:(id)arg1;
 + (id)currentLocale;
 + (id)systemLocale;
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 + (id)allocWithZone:(struct _NSZone *)arg1;
 - (id)_prefs;
 - (id)_copyDisplayNameForKey:(id)arg1 value:(id)arg2;
@@ -41,9 +41,9 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (unsigned long)_cfTypeID;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (unsigned long long)_cfTypeID;
 - (id)init;
 - (id)displayNameForKey:(id)arg1 value:(id)arg2;
 - (id)objectForKey:(id)arg1;

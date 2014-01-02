@@ -6,9 +6,12 @@
 
 #import "PBCodable.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSData, NSMutableArray;
 
-@interface GEOTrafficTile : PBCodable
+// Not exported
+@interface GEOTrafficTile : PBCodable <NSCopying>
 {
     NSMutableArray *_trafficIncidents;
     NSMutableArray *_trafficSegments;
@@ -18,24 +21,24 @@
 @property(retain, nonatomic) NSMutableArray *trafficIncidents; // @synthesize trafficIncidents=_trafficIncidents;
 @property(retain, nonatomic) NSMutableArray *trafficSegments; // @synthesize trafficSegments=_trafficSegments;
 @property(retain, nonatomic) NSData *vertices; // @synthesize vertices=_vertices;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)trafficIncidentAtIndex:(unsigned int)arg1;
-- (unsigned int)trafficIncidentsCount;
+- (id)trafficIncidentAtIndex:(unsigned long long)arg1;
+- (unsigned long long)trafficIncidentsCount;
 - (void)addTrafficIncident:(id)arg1;
 - (void)clearTrafficIncidents;
-- (id)trafficSegmentAtIndex:(unsigned int)arg1;
-- (unsigned int)trafficSegmentsCount;
+- (id)trafficSegmentAtIndex:(unsigned long long)arg1;
+- (unsigned long long)trafficSegmentsCount;
 - (void)addTrafficSegment:(id)arg1;
 - (void)clearTrafficSegments;
-@property(readonly, nonatomic) BOOL hasVertices;
+@property(readonly, nonatomic) _Bool hasVertices;
 - (void)dealloc;
-- (CDStruct_1ef3fb1f *)createUnpackedVerticesWithGutterSize:(int)arg1;
 
 @end
 

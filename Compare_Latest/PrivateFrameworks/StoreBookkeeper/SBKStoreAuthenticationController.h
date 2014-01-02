@@ -10,20 +10,20 @@
 
 @interface SBKStoreAuthenticationController : NSObject
 {
-    BOOL _shouldAuthenticate;
+    _Bool _shouldAuthenticate;
     SSAccount *_storeAccount;
 }
 
 + (id)lastSyncedAccountName;
 + (id)lastSyncedAccountIdentifier;
 + (void)clearLastSyncnedAccount;
-@property BOOL shouldAuthenticate; // @synthesize shouldAuthenticate=_shouldAuthenticate;
+@property _Bool shouldAuthenticate; // @synthesize shouldAuthenticate=_shouldAuthenticate;
 @property(readonly) SSAccount *storeAccount; // @synthesize storeAccount=_storeAccount;
 - (void).cxx_destruct;
 - (void)saveAccountToLastSyncedDefaults;
 - (id)authenticationErrorsForTransaction:(id)arg1;
-- (BOOL)shouldForceAuthenticationForTransaction:(id)arg1;
-- (BOOL)isAuthenticationValidForTransaction:(id)arg1 error:(id *)arg2;
+- (_Bool)shouldForceAuthenticationForTransaction:(id)arg1;
+- (_Bool)isAuthenticationValidForTransaction:(id)arg1 error:(id *)arg2;
 - (id)initWithStoreAccount:(id)arg1;
 
 @end

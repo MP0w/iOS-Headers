@@ -9,20 +9,29 @@
 #import "NSCopying-Protocol.h"
 #import "NSSecureCoding-Protocol.h"
 
-@class NSData;
+@class NSData, NSString;
 
 @interface BBSectionIconVariant : NSObject <NSCopying, NSSecureCoding>
 {
-    BOOL _precomposed;
-    int _format;
+    _Bool _precomposed;
+    long long _format;
     NSData *_imageData;
+    NSString *_imagePath;
+    NSString *_imageName;
+    NSString *_bundlePath;
 }
 
-+ (BOOL)supportsSecureCoding;
-+ (id)variantWithFormat:(int)arg1 imageData:(id)arg2;
-@property(nonatomic, getter=isPrecomposed) BOOL precomposed; // @synthesize precomposed=_precomposed;
++ (_Bool)supportsSecureCoding;
++ (id)variantWithFormat:(long long)arg1 imageName:(id)arg2 inBundle:(id)arg3;
++ (id)variantWithFormat:(long long)arg1 imagePath:(id)arg2;
++ (id)variantWithFormat:(long long)arg1 imageData:(id)arg2;
++ (id)_variantWithFormat:(long long)arg1;
+@property(nonatomic, getter=isPrecomposed) _Bool precomposed; // @synthesize precomposed=_precomposed;
+@property(copy, nonatomic) NSString *bundlePath; // @synthesize bundlePath=_bundlePath;
+@property(copy, nonatomic) NSString *imageName; // @synthesize imageName=_imageName;
+@property(copy, nonatomic) NSString *imagePath; // @synthesize imagePath=_imagePath;
 @property(copy, nonatomic) NSData *imageData; // @synthesize imageData=_imageData;
-@property(nonatomic) int format; // @synthesize format=_format;
+@property(nonatomic) long long format; // @synthesize format=_format;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

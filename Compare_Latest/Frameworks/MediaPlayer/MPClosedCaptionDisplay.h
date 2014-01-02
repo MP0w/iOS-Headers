@@ -12,16 +12,16 @@
 {
     UILabel *_label;
     UIView *_backgroundView;
-    BOOL _hidden;
-    BOOL _rotating;
+    _Bool _hidden;
+    _Bool _rotating;
 }
 
 - (void).cxx_destruct;
 - (void)setText:(id)arg1;
-- (void)_updatePositioning:(BOOL)arg1;
+- (void)_updatePositioning:(_Bool)arg1;
 - (void)setNeedsLayout;
 - (void)endLayoutChange;
-- (void)startLayoutChange:(BOOL)arg1;
+- (void)startLayoutChange:(_Bool)arg1;
 - (void)_hidePanel;
 - (id)initWithFrame:(struct CGRect)arg1;
 

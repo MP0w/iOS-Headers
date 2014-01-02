@@ -11,12 +11,12 @@
 @interface OperationQueueInvocationTrampoline : InvocationTrampoline
 {
     NSOperationQueue *_queue;
-    int _priority;
+    long long _priority;
 }
 
 - (void)forwardInvocation:(id)arg1;
 - (void)dealloc;
-- (id)initWithTarget:(id)arg1 operationQueue:(id)arg2 priority:(int)arg3;
+- (id)initWithTarget:(id)arg1 operationQueue:(id)arg2 priority:(long long)arg3;
 
 @end
 

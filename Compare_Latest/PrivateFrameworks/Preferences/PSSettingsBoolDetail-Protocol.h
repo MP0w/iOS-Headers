@@ -7,7 +7,7 @@
 #import "PSSettingsDetail-Protocol.h"
 
 @protocol PSSettingsBoolDetail <PSSettingsDetail>
-+ (void)setEnabled:(BOOL)arg1;
-+ (BOOL)isEnabled;
++ (void)setEnabled:(_Bool)arg1;
++ (_Bool)isEnabled;
 @end
 

@@ -16,14 +16,14 @@
     id _delegate;
     UIView *_separator;
     NSLayoutConstraint *_labelAlignToTopConstraint;
-    BOOL _drawsLetterpress;
+    _Bool _drawsLetterpress;
 }
 
-+ (float)_labelTopPadding;
-+ (float)separatorHeight;
-+ (float)preferredHeight;
++ (double)_labelTopPaddingSpecification;
++ (double)separatorHeight;
++ (double)preferredHeight;
 + (id)defaultFont;
-@property(nonatomic) BOOL drawsLetterpress; // @synthesize drawsLetterpress=_drawsLetterpress;
+@property(nonatomic) _Bool drawsLetterpress; // @synthesize drawsLetterpress=_drawsLetterpress;
 - (void)dealloc;
 - (void)layoutSubviews;
 - (void)setFrame:(struct CGRect)arg1;
@@ -31,17 +31,17 @@
 - (void)setDelegate:(id)arg1;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)handleTouchesEnded;
-- (BOOL)_canBecomeFirstResponder;
-- (void)_updateLayoutConstraints;
+- (_Bool)_canBecomeFirstResponder;
+- (void)updateConstraints;
 - (void)addCenteredLayoutConstraintForView:(id)arg1;
-- (float)maxLabelX;
-- (void)setLabelHighlighted:(BOOL)arg1;
+- (double)maxLabelX;
+- (void)setLabelHighlighted:(_Bool)arg1;
 - (void)setLabel:(id)arg1;
 - (id)navTitle;
 - (void)setNavTitle:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (struct CGColor *)labelColor;
-- (id)_automationID;
+- (double)labelTopPadding;
 
 @end
 

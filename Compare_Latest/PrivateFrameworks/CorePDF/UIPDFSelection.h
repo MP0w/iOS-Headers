@@ -12,46 +12,41 @@
 {
     UIPDFPage *_page;
     struct CGPDFSelection *_cgSelection;
-    BOOL _dirty;
+    _Bool _dirty;
     struct __CFString *_string;
-    int _cachedStartIndex;
-    int _cachedEndIndex;
-    CDStruct_dff5684f stringRange;
+    long long _cachedStartIndex;
+    long long _cachedEndIndex;
+    CDStruct_627e0f85 stringRange;
 }
 
-@property(nonatomic) CDStruct_dff5684f stringRange; // @synthesize stringRange;
-- (unsigned int)endIndex;
-- (unsigned int)startIndex;
-- (float)baseLineAtIndex:(unsigned int)arg1;
-- (CDStruct_dff5684f)extent;
+@property(nonatomic) CDStruct_627e0f85 stringRange; // @synthesize stringRange;
+- (unsigned long long)endIndex;
+- (unsigned long long)startIndex;
+- (double)baseLineAtIndex:(unsigned long long)arg1;
+- (CDStruct_627e0f85)extent;
 - (void)copyToPasteboard;
-- (unsigned int)extendAtEnd:(unsigned int)arg1;
-- (unsigned int)extendAtStart:(unsigned int)arg1;
+- (unsigned long long)extendAtEnd:(unsigned long long)arg1;
+- (unsigned long long)extendAtStart:(unsigned long long)arg1;
 - (id)archive;
-- (CDStruct_95077174)rectangleAtIndex:(unsigned int)arg1 scale:(float)arg2 inset:(float)arg3;
-- (id)htmlAtIndex:(unsigned int)arg1;
-- (id)textAtIndex:(unsigned int)arg1;
-- (BOOL)getBounds:(struct CGRect *)arg1 transform:(struct CGAffineTransform *)arg2 index:(unsigned int)arg3;
-- (unsigned int)numberOfRectangles;
-- (BOOL)isWord;
+- (CDStruct_f9662865)rectangleAtIndex:(unsigned long long)arg1 scale:(double)arg2 inset:(double)arg3;
+- (id)htmlAtIndex:(unsigned long long)arg1;
+- (id)textAtIndex:(unsigned long long)arg1;
+- (_Bool)getBounds:(struct CGRect *)arg1 transform:(struct CGAffineTransform *)arg2 index:(unsigned long long)arg3;
+- (unsigned long long)numberOfRectangles;
+- (_Bool)isWord;
 - (id)containingTextLine;
 - (id)selectionExtendedToLineBoundaries;
-- (BOOL)isNonEmpty;
-- (BOOL)isEmpty;
-- (id)attributedStringAtIndex:(unsigned int)arg1;
+- (_Bool)isNonEmpty;
+- (_Bool)isEmpty;
+- (id)attributedStringAtIndex:(unsigned long long)arg1;
 - (id)string;
 - (struct CGRect)bounds;
 - (struct CGAffineTransform)transform;
 - (id)page;
-- (id)initWithPage:(id)arg1 fromIndex:(unsigned int)arg2 toIndex:(unsigned int)arg3;
+- (id)initWithPage:(id)arg1 fromIndex:(unsigned long long)arg2 toIndex:(unsigned long long)arg3;
 - (id)initWithSelection:(id)arg1;
 - (id)initWithPage:(id)arg1 fromArchive:(id)arg2;
 - (id)init;
-- (id)description;
-- (void)extendToParagraph;
-- (struct CGPDFSelection *)CGSelection;
-- (void)dealloc;
-- (id)initWithPage:(id)arg1 cgSelection:(struct CGPDFSelection *)arg2;
 
 @end
 

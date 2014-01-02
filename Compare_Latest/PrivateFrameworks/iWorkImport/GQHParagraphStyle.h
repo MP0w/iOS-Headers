@@ -6,6 +6,7 @@
 
 #import <iWorkImport/GQHTextStyle.h>
 
+// Not exported
 @interface GQHParagraphStyle : GQHTextStyle
 {
 }

@@ -17,13 +17,13 @@
 - (void)setValue:(id)arg1;
 - (id)controlValue;
 - (void)dealloc;
-- (BOOL)canReload;
-- (void)setCellEnabled:(BOOL)arg1;
+- (_Bool)canReload;
+- (void)setCellEnabled:(_Bool)arg1;
 - (id)titleLabel;
 - (id)newControl;
 - (void)prepareForReuse;
 - (void)refreshCellContentsWithSpecifier:(id)arg1;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
 
 @end
 

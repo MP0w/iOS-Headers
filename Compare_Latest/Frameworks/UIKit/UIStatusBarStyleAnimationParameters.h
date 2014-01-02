@@ -12,7 +12,7 @@
 }
 
 @property(nonatomic) int styleAnimation; // @synthesize styleAnimation=_styleAnimation;
-- (BOOL)shouldAnimate;
+- (_Bool)shouldAnimate;
 - (id)initWithDefaultParameters;
 
 @end

@@ -8,12 +8,13 @@
 
 @class CHDFormula, EDResources, OADGraphicProperties;
 
+// Not exported
 @interface CHDTrendlineLabel : NSObject
 {
     EDResources *mResources;
     CHDFormula *mName;
-    unsigned int mLastCachedNameStringIndex;
-    unsigned int mContentFormatId;
+    unsigned long long mLastCachedNameStringIndex;
+    unsigned long long mContentFormatId;
     _Bool mGeneratedText;
     _Bool mAutomaticLabelDeleted;
     OADGraphicProperties *mGraphicProperties;
@@ -34,10 +35,6 @@
 - (id)lastCachedName;
 - (void)dealloc;
 - (id)initWithResources:(id)arg1;
-- (void)setContentFormatId:(unsigned int)arg1;
-- (unsigned int)contentFormatId;
-- (void)setStringIndex:(unsigned int)arg1;
-- (unsigned int)stringIndex;
 
 @end
 

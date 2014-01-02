@@ -7,6 +7,6 @@
 #import "NSString.h"
 
 @interface NSString (CLExtensions)
-- (BOOL)hasSuffixInsensitive:(id)arg1;
+- (_Bool)hasSuffixInsensitive:(id)arg1;
 @end
 

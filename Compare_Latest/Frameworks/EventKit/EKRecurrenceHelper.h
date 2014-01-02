@@ -8,11 +8,12 @@
 
 @class NSArray, NSString;
 
+// Not exported
 @interface EKRecurrenceHelper : NSObject
 {
     NSString *_specifier;
-    BOOL _dirty;
-    BOOL _parsed;
+    _Bool _dirty;
+    _Bool _parsed;
     NSArray *_daysOfTheWeek;
     NSArray *_daysOfTheMonth;
     NSArray *_daysOfTheYear;
@@ -21,8 +22,8 @@
     NSArray *_setPositions;
 }
 
-- (id)_parseIndexList:(CDStruct_64adce64 *)arg1 range:(CDStruct_1ef3fb1f)arg2;
-- (id)_parseDaysOfWeek:(CDStruct_64adce64 *)arg1 range:(CDStruct_1ef3fb1f)arg2;
+- (id)_parseIndexList:(CDStruct_f9502b4c *)arg1 range:(CDStruct_912cb5d2)arg2;
+- (id)_parseDaysOfWeek:(CDStruct_f9502b4c *)arg1 range:(CDStruct_912cb5d2)arg2;
 - (void)_appendIndexList:(id)arg1 toSpecifier:(id)arg2 propertyKey:(unsigned short)arg3;
 - (void)_appendDaysOfTheWeek:(id)arg1 toSpecifier:(id)arg2;
 - (void)_parseSpecifierIfNeeded;
@@ -35,8 +36,8 @@
 @property(copy, nonatomic) NSArray *daysOfTheMonth;
 @property(copy, nonatomic) NSArray *daysOfTheWeek;
 @property(copy, nonatomic) NSString *specifier;
-- (BOOL)isEqual:(id)arg1;
-@property(readonly, nonatomic) BOOL isDirty;
+- (_Bool)isEqual:(id)arg1;
+@property(readonly, nonatomic) _Bool isDirty;
 - (void)revert;
 - (void)dealloc;
 - (id)initWithSpecifier:(id)arg1;

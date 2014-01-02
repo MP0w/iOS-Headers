@@ -17,8 +17,8 @@
 }
 
 - (void).cxx_destruct;
-- (void)giftViewController:(id)arg1 didFinishWithResult:(BOOL)arg2;
-- (BOOL)canPerformWithActivityItems:(id)arg1;
+- (void)giftViewController:(id)arg1 didFinishWithResult:(_Bool)arg2;
+- (_Bool)canPerformWithActivityItems:(id)arg1;
 - (id)_beforeActivity;
 - (id)activityViewController;
 - (id)activityType;

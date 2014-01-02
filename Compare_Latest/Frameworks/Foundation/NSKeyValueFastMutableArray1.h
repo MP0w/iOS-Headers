@@ -8,16 +8,17 @@
 
 @class NSKeyValueNonmutatingArrayMethodSet;
 
+// Not exported
 @interface NSKeyValueFastMutableArray1 : NSKeyValueFastMutableArray
 {
     NSKeyValueNonmutatingArrayMethodSet *_nonmutatingMethods;
 }
 
-+ (CDStruct_e8a1eea0 *)_proxyNonGCPoolPointer;
++ (CDStruct_7c9a8e9f *)_proxyNonGCPoolPointer;
 - (id)objectsAtIndexes:(id)arg1;
-- (id)objectAtIndex:(unsigned int)arg1;
+- (id)objectAtIndex:(unsigned long long)arg1;
 - (void)getObjects:(id *)arg1 range:(struct _NSRange)arg2;
-- (unsigned int)count;
+- (unsigned long long)count;
 - (void)_proxyNonGCFinalize;
 - (id)_proxyInitWithContainer:(id)arg1 getter:(id)arg2;
 

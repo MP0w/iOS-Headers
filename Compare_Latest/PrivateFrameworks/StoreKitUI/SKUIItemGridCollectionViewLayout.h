@@ -11,15 +11,15 @@
 @interface SKUIItemGridCollectionViewLayout : UICollectionViewFlowLayout
 {
     UIColor *_evenColor;
-    int _numberOfColumns;
+    long long _numberOfColumns;
     UIColor *_oddColor;
-    float _rowHeight;
+    double _rowHeight;
 }
 
 + (Class)layoutAttributesClass;
-@property(nonatomic) float rowHeight; // @synthesize rowHeight=_rowHeight;
+@property(nonatomic) double rowHeight; // @synthesize rowHeight=_rowHeight;
 @property(copy, nonatomic) UIColor *oddRowBackgroundColor; // @synthesize oddRowBackgroundColor=_oddColor;
-@property(nonatomic) int numberOfColumns; // @synthesize numberOfColumns=_numberOfColumns;
+@property(nonatomic) long long numberOfColumns; // @synthesize numberOfColumns=_numberOfColumns;
 @property(copy, nonatomic) UIColor *evenRowBackgroundColor; // @synthesize evenRowBackgroundColor=_evenColor;
 - (void).cxx_destruct;
 - (id)layoutAttributesForElementsInRect:(struct CGRect)arg1;

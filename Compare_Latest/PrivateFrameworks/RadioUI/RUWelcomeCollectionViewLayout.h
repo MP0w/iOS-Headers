@@ -8,9 +8,10 @@
 
 @interface RUWelcomeCollectionViewLayout : UICollectionViewFlowLayout
 {
+    long long _interfaceOrientation;
 }
 
-- (BOOL)shouldInvalidateLayoutForBoundsChange:(struct CGRect)arg1;
+@property(nonatomic) long long interfaceOrientation; // @synthesize interfaceOrientation=_interfaceOrientation;
 - (id)layoutAttributesForElementsInRect:(struct CGRect)arg1;
 
 @end

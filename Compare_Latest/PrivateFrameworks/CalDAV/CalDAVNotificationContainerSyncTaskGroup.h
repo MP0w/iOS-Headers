@@ -15,7 +15,7 @@
 
 @property(retain) NSSet *notificationTypeNamesToFetch; // @synthesize notificationTypeNamesToFetch=_notificationTypeNamesToFetch;
 - (id)copyAdditionalResourcePropertiesToFetch;
-- (BOOL)shouldFetchResourceWithEtag:(id)arg1 propertiesToValues:(id)arg2;
+- (_Bool)shouldFetchResourceWithEtag:(id)arg1 propertiesToValues:(id)arg2;
 - (id)copyGetTaskWithURL:(id)arg1;
 - (void)dealloc;
 - (id)initWithFolderURL:(id)arg1 previousCTag:(id)arg2 previousSyncToken:(id)arg3 accountInfoProvider:(id)arg4 taskManager:(id)arg5;

@@ -4,32 +4,30 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "UIView.h"
+#import "SBInteractionPassThroughView.h"
 
-@class SBIconImageView;
+@class SBIconImageView, UIView, _SBAnimatableCorneredView;
 
-@interface SBIconImageCrossfadeView : UIView
+@interface SBIconImageCrossfadeView : SBInteractionPassThroughView
 {
-    UIView *_containerView;
+    _SBAnimatableCorneredView *_containerView;
     SBIconImageView *_imageView;
     UIView *_crossfadeView;
-    UIView *_cornerMaskView;
-    float _cornerMaskCrossfadeScale;
-    float _crossfadeFraction;
-    float _containerScaleX;
-    float _containerScaleY;
-    BOOL _masksCorners;
-    BOOL _performsTrueCrossfade;
+    double _crossfadeFraction;
+    double _containerScaleX;
+    double _containerScaleY;
+    _Bool _masksCorners;
+    _Bool _performsTrueCrossfade;
     struct CGPoint _stretchAnchorPoint;
 }
 
 @property(nonatomic) struct CGPoint stretchAnchorPoint; // @synthesize stretchAnchorPoint=_stretchAnchorPoint;
-@property(nonatomic) BOOL performsTrueCrossfade; // @synthesize performsTrueCrossfade=_performsTrueCrossfade;
-@property(nonatomic) BOOL masksCorners; // @synthesize masksCorners=_masksCorners;
+@property(nonatomic) _Bool performsTrueCrossfade; // @synthesize performsTrueCrossfade=_performsTrueCrossfade;
+@property(nonatomic) _Bool masksCorners; // @synthesize masksCorners=_masksCorners;
 - (void)_updateCornerMask;
 - (void)cleanup;
-- (void)setMorphFraction:(float)arg1;
-- (void)setFadeFraction:(float)arg1;
+- (void)setMorphFraction:(double)arg1;
+- (void)setFadeFraction:(double)arg1;
 - (void)layoutSubviews;
 - (void)prepareGeometry;
 - (void)dealloc;

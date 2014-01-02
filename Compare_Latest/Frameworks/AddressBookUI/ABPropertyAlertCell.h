@@ -8,25 +8,30 @@
 
 #import "ABPickerControllerDelegate-Protocol.h"
 
-@class ABPropertyGroupAlertItem, UIImageView;
+@class ABPropertyGroupAlertItem, NSLayoutConstraint, UIImageView;
 
 @interface ABPropertyAlertCell : ABPropertyCell <ABPickerControllerDelegate>
 {
+    double _labelWidth;
+    NSLayoutConstraint *_labelWidthConstraint;
     UIImageView *_chevron;
 }
 
 @property(retain, nonatomic) UIImageView *chevron; // @synthesize chevron=_chevron;
+@property(retain, nonatomic) NSLayoutConstraint *labelWidthConstraint; // @synthesize labelWidthConstraint=_labelWidthConstraint;
 - (id)_vibrationManager;
 - (id)_toneManger;
 - (void)pickerDidCancel:(id)arg1;
 - (void)picker:(id)arg1 didPickItem:(id)arg2;
 - (id)contentViewEditingConstraints;
 - (id)contentViewConstraints;
+- (double)labelWidth;
+- (void)setLabelWidth:(double)arg1;
 - (void)performDefaultAction;
-- (BOOL)shouldPerformDefaultAction;
+- (_Bool)shouldPerformDefaultAction;
 @property(readonly, nonatomic) ABPropertyGroupAlertItem *alertItem;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

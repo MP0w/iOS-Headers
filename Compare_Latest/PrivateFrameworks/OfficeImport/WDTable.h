@@ -8,6 +8,7 @@
 
 @class NSMutableArray, WDTableProperties;
 
+// Not exported
 @interface WDTable : WDBlock
 {
     WDTableProperties *mProperties;
@@ -24,8 +25,8 @@
 - (int)blockType;
 - (void)clearRows;
 - (id)addRow;
-- (id)rowAt:(unsigned int)arg1;
-- (unsigned int)rowCount;
+- (id)rowAt:(unsigned long long)arg1;
+- (unsigned long long)rowCount;
 - (void)clearProperties;
 - (id)properties;
 - (void)dealloc;

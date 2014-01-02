@@ -8,6 +8,7 @@
 
 @class OADFill, OADStroke;
 
+// Not exported
 @interface OADUnderline : NSObject
 {
     OADStroke *mStroke;
@@ -17,12 +18,12 @@
     unsigned int mIsUsingTextStroke:1;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (void)setIsUsingTextStroke:(BOOL)arg1;
-- (BOOL)isUsingTextStroke;
-- (void)setIsUsingTextFill:(BOOL)arg1;
-- (BOOL)isUsingTextFill;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (void)setIsUsingTextStroke:(_Bool)arg1;
+- (_Bool)isUsingTextStroke;
+- (void)setIsUsingTextFill:(_Bool)arg1;
+- (_Bool)isUsingTextFill;
 - (void)setType:(int)arg1;
 - (int)type;
 - (void)setFill:(id)arg1;

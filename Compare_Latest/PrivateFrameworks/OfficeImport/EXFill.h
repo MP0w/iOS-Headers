@@ -6,17 +6,13 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface EXFill : NSObject
 {
 }
 
 + (id)edFillFromXmlFillElement:(struct _xmlNode *)arg1 differentialFill:(_Bool)arg2 state:(id)arg3;
 + (id)edFillFromXmlFillElement:(struct _xmlNode *)arg1 state:(id)arg2;
-+ (id)edStopFromXmlGradientElement:(struct _xmlNode *)arg1 state:(id)arg2;
-+ (int)edGradientTypeFromXmlGradientTypeString:(id)arg1 state:(id)arg2;
-+ (id)edGradientFillFromXmlElement:(struct _xmlNode *)arg1 state:(id)arg2;
-+ (int)edPatternTypeFromXmlPatternTypeString:(id)arg1;
-+ (id)edPatternFillFromXmlElement:(struct _xmlNode *)arg1 differentialFill:(_Bool)arg2 state:(id)arg3;
 
 @end
 

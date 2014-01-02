@@ -19,10 +19,12 @@
 - (unsigned long long)indexGreaterThanIndex:(unsigned long long)arg1;
 - (unsigned long long)firstIndex;
 - (unsigned int)count;
-- (BOOL)containsIndex:(unsigned long long)arg1;
+- (_Bool)containsIndex:(unsigned long long)arg1;
 - (void)removeIndex:(unsigned long long)arg1;
 - (void)addIndexes:(id)arg1;
 - (void)addIndex:(unsigned long long)arg1;
+- (unsigned long long)_insertionPositionOfIndex:(unsigned long long)arg1;
+- (unsigned long long)_positionOfIndex:(unsigned long long)arg1;
 - (void)_garbageCollectStorageIfNecessary;
 - (void)_incrementStorageIfNecessaryForCount:(unsigned int)arg1;
 - (void)dealloc;

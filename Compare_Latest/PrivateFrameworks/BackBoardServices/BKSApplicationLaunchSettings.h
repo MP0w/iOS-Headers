@@ -13,9 +13,9 @@
 
 @interface BKSApplicationLaunchSettings : NSObject <NSCopying, BKSXPCCoding>
 {
-    BOOL _waitForDebugger;
-    BOOL _disableASLR;
-    BOOL _checkForLeaks;
+    _Bool _waitForDebugger;
+    _Bool _disableASLR;
+    _Bool _checkForLeaks;
     NSDictionary *_environment;
     NSDictionary *_containerEnvironment;
     NSString *_containerPath;
@@ -27,9 +27,9 @@
 @property(copy, nonatomic) NSString *standardError; // @synthesize standardError=_standardError;
 @property(copy, nonatomic) NSString *standardOut; // @synthesize standardOut=_standardOut;
 @property(retain, nonatomic) NSArray *arguments; // @synthesize arguments=_arguments;
-@property(nonatomic) BOOL checkForLeaks; // @synthesize checkForLeaks=_checkForLeaks;
-@property(nonatomic) BOOL disableASLR; // @synthesize disableASLR=_disableASLR;
-@property(nonatomic) BOOL waitForDebugger; // @synthesize waitForDebugger=_waitForDebugger;
+@property(nonatomic) _Bool checkForLeaks; // @synthesize checkForLeaks=_checkForLeaks;
+@property(nonatomic) _Bool disableASLR; // @synthesize disableASLR=_disableASLR;
+@property(nonatomic) _Bool waitForDebugger; // @synthesize waitForDebugger=_waitForDebugger;
 @property(retain, nonatomic) NSString *containerPath; // @synthesize containerPath=_containerPath;
 @property(retain, nonatomic) NSDictionary *containerEnvironment; // @synthesize containerEnvironment=_containerEnvironment;
 @property(retain, nonatomic) NSDictionary *environment; // @synthesize environment=_environment;

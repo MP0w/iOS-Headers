@@ -8,10 +8,10 @@
 
 @interface UIColor (UIColor)
 + (id)colorWithComponentRGBA:(CDStruct_83984b6f)arg1;
-- (float)alpha;
-- (float)blue;
-- (float)green;
-- (float)red;
+- (double)alpha;
+- (double)blue;
+- (double)green;
+- (double)red;
 - (CDStruct_83984b6f)componentRGBA;
 @end
 

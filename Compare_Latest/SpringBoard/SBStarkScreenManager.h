@@ -23,12 +23,12 @@
 
 + (id)sharedInstance;
 @property(nonatomic) id <SBStarkScreenManagerDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)screenManager:(id)arg1 didTriggerConnectionHandlerEvent:(int)arg2 forScreen:(id)arg3;
-- (BOOL)screenManager:(id)arg1 shouldBindConnectionHandlerToScreen:(id)arg2;
+- (void)screenManager:(id)arg1 didTriggerConnectionHandlerEvent:(long long)arg2 forScreen:(id)arg3;
+- (_Bool)screenManager:(id)arg1 shouldBindConnectionHandlerToScreen:(id)arg2;
 - (void)_promptUnlockIfNecessary;
 - (void)_setActiveController:(id)arg1;
 - (id)statusBarStateProvider;
-- (BOOL)isStarkActive;
+- (_Bool)isStarkActive;
 - (id)activeScreenController;
 - (id)backgroundProviderManager;
 - (void)dealloc;

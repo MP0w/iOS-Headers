@@ -6,6 +6,7 @@
 
 #import <OfficeImport/CHDChartTypeWithGrouping.h>
 
+// Not exported
 @interface CHDBar2DType : CHDChartTypeWithGrouping
 {
     int mGapWidth;

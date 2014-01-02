@@ -6,18 +6,23 @@
 
 #import <UIKit/UIKBRenderFactoryiPhone.h>
 
+// Not exported
 @interface UIKBRenderFactoryiPhoneLandscape : UIKBRenderFactoryiPhone
 {
 }
 
-- (id)variantGeometriesForGeometry:(id)arg1 variantCount:(unsigned int)arg2;
+- (id)variantGeometriesForGeometry:(id)arg1 variantCount:(unsigned long long)arg2;
+- (double)skinnyKeyThreshold;
+- (id)shiftOnKeyImageName;
+- (id)shiftKeyImageName;
+- (id)deleteKeyImageName;
 - (id)muttitapReverseKeyImageName;
 - (id)multitapCompleteKeyImageName;
 - (id)dictationKeyImageName;
 - (id)globalKeyImageName;
 - (struct CGPoint)moreABCKeyOffset;
 - (struct CGPoint)more123KeyOffset;
-- (float)_row4ControlSegmentWidth;
+- (double)_row4ControlSegmentWidth;
 - (struct CGPoint)variantSymbolTextOffset;
 - (struct UIEdgeInsets)variantSymbolFrameInsets;
 - (struct UIEdgeInsets)variantDisplayFrameInsets;

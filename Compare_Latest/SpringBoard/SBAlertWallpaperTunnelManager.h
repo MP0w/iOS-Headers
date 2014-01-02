@@ -20,7 +20,7 @@
 + (void)registerAlertManager:(id)arg1 forScreen:(id)arg2;
 + (id)sharedInstance;
 - (id)dumpTunnelState;
-- (void)alertManager:(id)arg1 didDeactivateAlert:(id)arg2 top:(BOOL)arg3;
+- (void)alertManager:(id)arg1 didDeactivateAlert:(id)arg2 top:(_Bool)arg3;
 - (void)alertManager:(id)arg1 willActivateAlert:(id)arg2 overAlerts:(id)arg3;
 - (void)_showAlert:(id)arg1;
 - (void)_hideAlert:(id)arg1;

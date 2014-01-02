@@ -8,20 +8,20 @@
 
 @interface WBSCreditCardFormatter : NSFormatter
 {
-    BOOL _showLastFourDigits;
-    BOOL _showCreditCardNumber;
-    BOOL _allowsUnknownCardTypes;
+    _Bool _showLastFourDigits;
+    _Bool _showCreditCardNumber;
+    _Bool _allowsUnknownCardTypes;
 }
 
-@property(nonatomic) BOOL allowsUnknownCardTypes; // @synthesize allowsUnknownCardTypes=_allowsUnknownCardTypes;
-@property(nonatomic) BOOL showCreditCardNumber; // @synthesize showCreditCardNumber=_showCreditCardNumber;
-@property(nonatomic) BOOL showLastFourDigits; // @synthesize showLastFourDigits=_showLastFourDigits;
+@property(nonatomic) _Bool allowsUnknownCardTypes; // @synthesize allowsUnknownCardTypes=_allowsUnknownCardTypes;
+@property(nonatomic) _Bool showCreditCardNumber; // @synthesize showCreditCardNumber=_showCreditCardNumber;
+@property(nonatomic) _Bool showLastFourDigits; // @synthesize showLastFourDigits=_showLastFourDigits;
 - (struct _NSRange)_selectionRangeInFormattedCreditCardNumber:(id)arg1 forNormalizedSelectionRange:(struct _NSRange)arg2 inNormalizedCreditCardNumber:(id)arg3;
 - (struct _NSRange)_normalizedSelectionRangeForFormattedCreditCardNumber:(id)arg1 withOriginalSelectionRange:(struct _NSRange)arg2;
-- (id)_formattedStringForNormalizedNumber:(id)arg1 showCreditCardNumber:(BOOL)arg2;
-- (BOOL)isPartialStringValid:(id *)arg1 proposedSelectedRange:(struct _NSRange *)arg2 originalString:(id)arg3 originalSelectedRange:(struct _NSRange)arg4 errorDescription:(id *)arg5;
-- (BOOL)isPartialStringValid:(id)arg1 newEditingString:(id *)arg2 errorDescription:(id *)arg3;
-- (BOOL)getObjectValue:(id *)arg1 forString:(id)arg2 errorDescription:(id *)arg3;
+- (id)_formattedStringForNormalizedNumber:(id)arg1 showCreditCardNumber:(_Bool)arg2;
+- (_Bool)isPartialStringValid:(id *)arg1 proposedSelectedRange:(struct _NSRange *)arg2 originalString:(id)arg3 originalSelectedRange:(struct _NSRange)arg4 errorDescription:(id *)arg5;
+- (_Bool)isPartialStringValid:(id)arg1 newEditingString:(id *)arg2 errorDescription:(id *)arg3;
+- (_Bool)getObjectValue:(id *)arg1 forString:(id)arg2 errorDescription:(id *)arg3;
 - (id)stringForObjectValue:(id)arg1;
 
 @end

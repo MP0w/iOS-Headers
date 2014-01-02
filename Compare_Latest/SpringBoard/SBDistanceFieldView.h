@@ -13,13 +13,13 @@
 }
 
 + (Class)layerClass;
-@property float lineWidth;
-@property float sharpness;
-@property float offset;
+@property double lineWidth;
+@property double sharpness;
+@property double offset;
 @property struct CGColor *foregroundColor;
-@property BOOL invertsShape;
+@property _Bool invertsShape;
 @property(copy, nonatomic) NSString *renderMode;
-- (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
+- (_Bool)_shouldAnimatePropertyWithKey:(id)arg1;
 
 @end
 

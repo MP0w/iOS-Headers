@@ -6,6 +6,7 @@
 
 #import <VectorKit/VGLFogProgram.h>
 
+// Not exported
 @interface VGLBuildingProgram : VGLFogProgram
 {
     int _uColor;

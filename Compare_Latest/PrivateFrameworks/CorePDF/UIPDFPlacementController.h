@@ -16,11 +16,11 @@
 }
 
 @property(nonatomic) UIPDFPageView *pageView; // @synthesize pageView;
-- (void)layoutViews:(float)arg1;
-- (void)shift:(float)arg1;
-- (id)viewAtIndex:(unsigned int)arg1;
-- (float)yForObjectAtIndex:(unsigned int)arg1;
-- (struct CGRect)boundsForObjectAtIndex:(unsigned int)arg1;
+- (void)layoutViews:(double)arg1;
+- (void)shift:(double)arg1;
+- (id)viewAtIndex:(unsigned long long)arg1;
+- (double)yForObjectAtIndex:(unsigned long long)arg1;
+- (struct CGRect)boundsForObjectAtIndex:(unsigned long long)arg1;
 - (void)dealloc;
 - (id)initWithAnnotations:(id)arg1 viewSize:(struct CGSize)arg2;
 

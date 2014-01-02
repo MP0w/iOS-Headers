@@ -6,11 +6,12 @@
 
 #import "UISearchBar.h"
 
+// Not exported
 @interface SLTwitterSearchBar : UISearchBar
 {
 }
 
-- (BOOL)textFieldShouldClear:(id)arg1;
+- (_Bool)textFieldShouldClear:(id)arg1;
 
 @end
 

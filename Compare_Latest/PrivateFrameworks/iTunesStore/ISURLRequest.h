@@ -20,7 +20,7 @@
 + (id)requestWithURL:(id)arg1;
 - (id)requestProperties;
 @property(retain) NSArray *URLs;
-@property int URLBagType;
+@property long long URLBagType;
 @property double timeoutInterval;
 - (void)setValue:(id)arg1 forQueryStringParameter:(id)arg2;
 - (void)setValue:(id)arg1 forHeaderField:(id)arg2;
@@ -30,11 +30,11 @@
 @property(retain) NSData *HTTPBody;
 @property long long expectedContentLength;
 @property(retain) NSDictionary *customHeaders;
-@property unsigned int cachePolicy;
+@property unsigned long long cachePolicy;
 @property(retain) NSString *appleClientApplication;
-@property int allowedRetryCount;
+@property long long allowedRetryCount;
 @property(readonly) NSURL *primaryURL;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

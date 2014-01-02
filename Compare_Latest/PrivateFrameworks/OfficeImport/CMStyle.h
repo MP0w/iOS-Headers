@@ -8,6 +8,7 @@
 
 @class NSMutableDictionary, NSMutableString;
 
+// Not exported
 @interface CMStyle : NSObject
 {
     NSMutableDictionary *properties;

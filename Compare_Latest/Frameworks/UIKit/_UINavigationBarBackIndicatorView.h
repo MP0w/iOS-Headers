@@ -6,12 +6,13 @@
 
 #import <UIKit/UIImageView.h>
 
+// Not exported
 @interface _UINavigationBarBackIndicatorView : UIImageView
 {
 }
 
-- (void)_willChangeToIdiom:(int)arg1 onScreen:(id)arg2;
-- (void)setAlpha:(float)arg1;
+- (void)_willChangeToIdiom:(long long)arg1 onScreen:(id)arg2;
+- (void)setAlpha:(double)arg1;
 
 @end
 

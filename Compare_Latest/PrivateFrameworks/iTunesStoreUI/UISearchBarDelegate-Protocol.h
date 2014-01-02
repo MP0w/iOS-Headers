@@ -9,16 +9,16 @@
 @protocol UISearchBarDelegate <UIBarPositioningDelegate>
 
 @optional
-- (void)searchBar:(id)arg1 selectedScopeButtonIndexDidChange:(int)arg2;
+- (void)searchBar:(id)arg1 selectedScopeButtonIndexDidChange:(long long)arg2;
 - (void)searchBarResultsListButtonClicked:(id)arg1;
 - (void)searchBarCancelButtonClicked:(id)arg1;
 - (void)searchBarBookmarkButtonClicked:(id)arg1;
 - (void)searchBarSearchButtonClicked:(id)arg1;
-- (BOOL)searchBar:(id)arg1 shouldChangeTextInRange:(struct _NSRange)arg2 replacementText:(id)arg3;
+- (_Bool)searchBar:(id)arg1 shouldChangeTextInRange:(struct _NSRange)arg2 replacementText:(id)arg3;
 - (void)searchBar:(id)arg1 textDidChange:(id)arg2;
 - (void)searchBarTextDidEndEditing:(id)arg1;
-- (BOOL)searchBarShouldEndEditing:(id)arg1;
+- (_Bool)searchBarShouldEndEditing:(id)arg1;
 - (void)searchBarTextDidBeginEditing:(id)arg1;
-- (BOOL)searchBarShouldBeginEditing:(id)arg1;
+- (_Bool)searchBarShouldBeginEditing:(id)arg1;
 @end
 

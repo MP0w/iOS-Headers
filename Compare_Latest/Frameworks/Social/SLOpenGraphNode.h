@@ -10,12 +10,12 @@
 
 @interface SLOpenGraphNode : NSObject
 {
-    BOOL _likedByMe;
-    unsigned int _numberOfLikes;
-    unsigned int _numberOfFriendLikes;
+    _Bool _likedByMe;
+    unsigned long long _numberOfLikes;
+    unsigned long long _numberOfFriendLikes;
+    int _fetchState;
     NSURL *_URL;
     NSArray *_likedByFriends;
-    int _fetchState;
 }
 
 @property(nonatomic) int fetchState; // @synthesize fetchState=_fetchState;
@@ -25,9 +25,9 @@
 - (void)invalidate;
 - (void)unlikeWithCompletion:(id)arg1;
 - (void)likeWithCompletion:(id)arg1;
-@property(readonly) unsigned int friendLikeCount;
-@property(readonly) unsigned int globalLikeCount;
-@property(readonly) BOOL likedByMe;
+@property(readonly) unsigned long long friendLikeCount;
+@property(readonly) unsigned long long globalLikeCount;
+@property(readonly) _Bool likedByMe;
 - (void)_startUpdateIfNeeded;
 - (id)initWithURL:(id)arg1;
 - (id)cache;

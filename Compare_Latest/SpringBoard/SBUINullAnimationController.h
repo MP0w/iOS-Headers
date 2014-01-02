@@ -10,7 +10,7 @@
 {
 }
 
-- (BOOL)_isNullAnimation;
+- (_Bool)_isNullAnimation;
 
 @end
 

@@ -8,23 +8,23 @@
 
 #import "NSCopying-Protocol.h"
 
-@class NSURL, SKUIDataConsumer;
+@class NSURL, SSVURLDataConsumer;
 
 @interface SKUIArtworkRequest : SKUIResourceRequest <NSCopying>
 {
-    SKUIDataConsumer *_dataConsumer;
+    SSVURLDataConsumer *_dataConsumer;
     id <SKUIArtworkRequestDelegate> _delegate;
     NSURL *_url;
 }
 
 @property(copy, nonatomic) NSURL *URL; // @synthesize URL=_url;
 @property(nonatomic) __weak id <SKUIArtworkRequestDelegate> delegate; // @synthesize delegate=_delegate;
-@property(retain, nonatomic) SKUIDataConsumer *dataConsumer; // @synthesize dataConsumer=_dataConsumer;
+@property(retain, nonatomic) SSVURLDataConsumer *dataConsumer; // @synthesize dataConsumer=_dataConsumer;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)newLoadOperation;
 - (void)finishWithResource:(id)arg1;
-- (BOOL)cachesInMemory;
+- (_Bool)cachesInMemory;
 
 @end
 

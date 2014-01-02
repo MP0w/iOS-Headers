@@ -26,7 +26,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isEqualToContent:(id)arg1;
+- (_Bool)isEqualToContent:(id)arg1;
 - (void)dealloc;
 
 @end

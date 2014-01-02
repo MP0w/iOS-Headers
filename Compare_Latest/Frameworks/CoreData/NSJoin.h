@@ -11,6 +11,7 @@
 
 @class NSString;
 
+// Not exported
 @interface NSJoin : NSObject <NSCoding, NSCopying>
 {
     NSString *_sourceAttributeName;
@@ -23,8 +24,8 @@
 - (id)initWithCoder:(id)arg1;
 - (id)destinationAttributeName;
 - (id)sourceAttributeName;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)initWithSourceAttributeName:(id)arg1 destinationAttributeName:(id)arg2;
 

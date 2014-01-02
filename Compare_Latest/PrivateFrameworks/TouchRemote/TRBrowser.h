@@ -12,7 +12,7 @@
 {
     NSObject<OS_dispatch_queue> *_accessQueue;
     NSMutableArray *_services;
-    unsigned int _browsingCount;
+    unsigned long long _browsingCount;
 }
 
 + (id)sharedBrowser;

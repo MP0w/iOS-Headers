@@ -11,6 +11,7 @@
 
 @class CUTWeakReference, NSMutableArray, NSString;
 
+// Not exported
 @interface PCNonCellularUsabilityMonitor : NSObject <PCInterfaceUsabilityMonitorProtocol, PCInterfaceUsabilityMonitorDelegate>
 {
     struct dispatch_queue_s *_delegateQueue;
@@ -19,8 +20,8 @@
     CUTWeakReference *_delegateReference;
     NSString *_demoOverrideInterface;
     int _previousLinkQuality;
-    BOOL _trackUsability;
-    unsigned int _thresholdOffTransitionCount;
+    _Bool _trackUsability;
+    unsigned long long _thresholdOffTransitionCount;
     double _trackedTimeInterval;
     NSMutableArray *_interfaceMonitors;
 }
@@ -29,18 +30,18 @@
 - (void)interfaceLinkQualityChanged:(id)arg1 previousLinkQuality:(int)arg2;
 - (void)_callDelegateOnIvarQueueWithBlock:(id)arg1;
 @property(nonatomic) id <PCInterfaceUsabilityMonitorDelegate> delegate;
-@property(readonly, nonatomic) BOOL isRadioHot;
-@property(readonly, nonatomic) BOOL isPoorLinkQuality;
+@property(readonly, nonatomic) _Bool isRadioHot;
+@property(readonly, nonatomic) _Bool isPoorLinkQuality;
 @property(readonly, nonatomic) NSString *linkQualityString;
-@property(readonly, nonatomic) BOOL isInternetReachable;
-@property(readonly, nonatomic) BOOL isInterfaceHistoricallyUsable;
-@property(readonly, nonatomic) BOOL isInterfaceUsable;
+@property(readonly, nonatomic) _Bool isInternetReachable;
+@property(readonly, nonatomic) _Bool isInterfaceHistoricallyUsable;
+@property(readonly, nonatomic) _Bool isInterfaceUsable;
 @property(readonly, nonatomic) int linkQuality;
 - (int)_linkQualityOnIvarQueue;
-@property(readonly, nonatomic) int interfaceIdentifier;
+@property(readonly, nonatomic) long long interfaceIdentifier;
 - (void)setTrackedTimeInterval:(double)arg1;
-- (void)setThresholdOffTransitionCount:(unsigned int)arg1;
-- (void)setTrackUsability:(BOOL)arg1;
+- (void)setThresholdOffTransitionCount:(unsigned long long)arg1;
+- (void)setTrackUsability:(_Bool)arg1;
 - (void)_forwardConfigurationOnIvarQueue;
 - (void)_addMonitorWithInterfaceName:(id)arg1;
 - (void)dealloc;
@@ -48,6 +49,7 @@
 
 // Remaining properties
 @property(readonly, nonatomic) struct __CFString *currentRAT;
+@property(readonly, nonatomic) _Bool isLTEWithCDRX;
 
 @end
 

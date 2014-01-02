@@ -7,9 +7,9 @@
 #import "NSObject-Protocol.h"
 
 @protocol QLPreviewContentDataSource <NSObject>
-- (void)previewContentController:(id)arg1 previewItemAtIndex:(int)arg2 completionBlock:(id)arg3;
-- (id)previewContentController:(id)arg1 previewItemAtIndex:(int)arg2;
-- (int)numberOfPreviewItemsInPreviewContentController:(id)arg1;
-- (int)currentSourceUUIDForPreviewContentController:(id)arg1;
+- (void)previewContentController:(id)arg1 previewItemAtIndex:(long long)arg2 completionBlock:(id)arg3;
+- (id)previewContentController:(id)arg1 previewItemAtIndex:(long long)arg2;
+- (long long)numberOfPreviewItemsInPreviewContentController:(id)arg1;
+- (long long)currentSourceUUIDForPreviewContentController:(id)arg1;
 @end
 

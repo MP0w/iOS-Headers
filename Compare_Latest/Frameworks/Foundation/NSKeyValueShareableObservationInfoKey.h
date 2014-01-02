@@ -8,17 +8,18 @@
 
 @class NSKeyValueObservance, NSKeyValueObservationInfo, NSKeyValueProperty;
 
+// Not exported
 @interface NSKeyValueShareableObservationInfoKey : NSObject
 {
-    BOOL _addingNotRemoving;
+    _Bool _addingNotRemoving;
     NSKeyValueObservationInfo *_baseObservationInfo;
     NSObject *_additionObserver;
     NSKeyValueProperty *_additionProperty;
-    unsigned int _additionOptions;
+    unsigned long long _additionOptions;
     void *_additionContext;
     NSObject *_additionOriginalObservable;
     NSKeyValueObservance *_removalObservance;
-    unsigned int _removalObservanceIndex;
+    unsigned long long _removalObservanceIndex;
 }
 
 @end

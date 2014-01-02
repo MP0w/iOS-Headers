@@ -6,10 +6,12 @@
 
 #import <UIKit/_UIBackdropViewSettings.h>
 
+// Not exported
 @interface _UIBackdropViewSettingsLight : _UIBackdropViewSettings
 {
 }
 
+- (void)applyDarkeningTintWithSettings:(id)arg1;
 - (void)computeOutputSettingsUsingModel:(id)arg1;
 - (void)setDefaultValues;
 

@@ -14,22 +14,24 @@
 @interface ADVideoAdController : NSObject <ADVideoAdOverlayViewDelegate, ADBannerViewInternalDelegate>
 {
     MPMoviePlayerController *_moviePlayerController;
-    BOOL _currentlyClaimingSharedMediaPlayerVideoAd;
-    BOOL _adHasStartedPlaying;
+    _Bool _currentlyClaimingSharedMediaPlayerVideoAd;
+    _Bool _adHasStartedPlaying;
+    _Bool _didPausePlaybackOnResignActive;
     AVPlayerItem *_videoAdPlayerItem;
     ADVideoAdView *_videoAdView;
-    unsigned int _videoAdBufferingState;
+    unsigned long long _videoAdBufferingState;
     NSTimer *_videoAdOverlayIdleBarHideTimer;
     id _adPlaybackFinishedHandler;
 }
 
+@property(nonatomic) _Bool didPausePlaybackOnResignActive; // @synthesize didPausePlaybackOnResignActive=_didPausePlaybackOnResignActive;
 @property(copy, nonatomic) id adPlaybackFinishedHandler; // @synthesize adPlaybackFinishedHandler=_adPlaybackFinishedHandler;
 @property(retain, nonatomic) NSTimer *videoAdOverlayIdleBarHideTimer; // @synthesize videoAdOverlayIdleBarHideTimer=_videoAdOverlayIdleBarHideTimer;
-@property(nonatomic) unsigned int videoAdBufferingState; // @synthesize videoAdBufferingState=_videoAdBufferingState;
+@property(nonatomic) unsigned long long videoAdBufferingState; // @synthesize videoAdBufferingState=_videoAdBufferingState;
 @property(retain, nonatomic) ADVideoAdView *videoAdView; // @synthesize videoAdView=_videoAdView;
 @property(retain, nonatomic) AVPlayerItem *videoAdPlayerItem; // @synthesize videoAdPlayerItem=_videoAdPlayerItem;
-@property(nonatomic) BOOL adHasStartedPlaying; // @synthesize adHasStartedPlaying=_adHasStartedPlaying;
-@property(nonatomic) BOOL currentlyClaimingSharedMediaPlayerVideoAd; // @synthesize currentlyClaimingSharedMediaPlayerVideoAd=_currentlyClaimingSharedMediaPlayerVideoAd;
+@property(nonatomic) _Bool adHasStartedPlaying; // @synthesize adHasStartedPlaying=_adHasStartedPlaying;
+@property(nonatomic) _Bool currentlyClaimingSharedMediaPlayerVideoAd; // @synthesize currentlyClaimingSharedMediaPlayerVideoAd=_currentlyClaimingSharedMediaPlayerVideoAd;
 - (void)bannerViewActionDidFinish:(id)arg1;
 - (void)bannerViewStoryboardPresentationInDidComplete:(id)arg1;
 - (id)viewControllerForStoryboardPresentationFromBannerView:(id)arg1;
@@ -41,9 +43,11 @@
 - (void)overlayViewMoreButtonTapped:(id)arg1;
 - (void)overlayViewDoneButtonTapped:(id)arg1;
 - (void)overlayViewReceivedAXEscapeGesture:(id)arg1;
+- (void)_applicationDidBecomeActive;
+- (void)_applicationWillResignActive;
 - (void)_videoAdOverlayIdleBarHideTimerFired:(id)arg1;
 - (void)_teardownVideoAdView;
-- (void)_adPlaybackFinished;
+- (void)_adPlaybackFinishedWithError:(id)arg1;
 - (void)_moviePlayerDidExitFullscreenNotification:(id)arg1;
 - (void)_moviePlayerWillExitFullscreenNotification:(id)arg1;
 - (void)_moviePlayerDidEnterFullscreenNotification:(id)arg1;
@@ -54,8 +58,9 @@
 - (void)_playerItemFailedToPlayToEndTimeNotification:(id)arg1;
 - (void)_playerItemDidPlayToEndNotification:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (BOOL)_isVideoAdPresented;
+- (_Bool)_isVideoAdPresented;
 @property(nonatomic) __weak MPMoviePlayerController *moviePlayerController;
+- (void)stop;
 - (void)playPrerollAdWithCompletionHandler:(id)arg1;
 - (void)dealloc;
 - (id)initWithMoviePlayerController:(id)arg1;

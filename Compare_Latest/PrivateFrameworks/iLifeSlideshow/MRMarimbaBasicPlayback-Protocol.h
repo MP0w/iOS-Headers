@@ -7,23 +7,23 @@
 @class MPDocument, MRRenderer;
 
 @protocol MRMarimbaBasicPlayback
-@property(nonatomic) BOOL enableSlideDidChangeNotification;
+@property(nonatomic) _Bool enableSlideDidChangeNotification;
 @property(readonly, nonatomic) MRRenderer *renderer;
-@property(nonatomic) BOOL displaysFPS;
-@property(nonatomic) BOOL stopWithVideo;
-@property(nonatomic) float volume;
-@property(readonly, nonatomic) BOOL isPlaying;
+@property(nonatomic) _Bool displaysFPS;
+@property(nonatomic) _Bool stopWithVideo;
+@property(nonatomic) double volume;
+@property(readonly, nonatomic) _Bool isPlaying;
 @property(readonly, nonatomic) double timeRemaining;
 @property(nonatomic) double time;
 @property(retain, nonatomic) MPDocument *document;
 - (void)unlockRendering;
 - (void)lockRendering;
 - (void)touchesCancelled:(id)arg1;
-- (BOOL)touchesEnded:(id)arg1;
+- (_Bool)touchesEnded:(id)arg1;
 - (void)touchesMoved:(id)arg1;
 - (void)touchesBegan:(id)arg1;
 - (void)warmupRenderer;
-- (void)requestRendering:(BOOL)arg1;
+- (void)requestRendering:(_Bool)arg1;
 - (struct CGImage *)snapshotAsCGImage;
 - (struct CGImage *)snapshotAsCGImageForTime:(double)arg1 withSize:(struct CGSize)arg2;
 - (void)prevFrame;

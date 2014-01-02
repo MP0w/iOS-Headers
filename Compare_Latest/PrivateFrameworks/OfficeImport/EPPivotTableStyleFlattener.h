@@ -8,15 +8,16 @@
 
 @class EDPivotTable;
 
+// Not exported
 @interface EPPivotTableStyleFlattener : EPStyleFlattener
 {
     EDPivotTable *mPivotTable;
-    long mFirstHeaderRow;
-    long mFirstDataRow;
-    long mFirstDataColumn;
-    unsigned int mRowFieldsCount;
-    unsigned int mColumnFieldsCount;
-    unsigned int mPageFieldsCount;
+    long long mFirstHeaderRow;
+    long long mFirstDataRow;
+    long long mFirstDataColumn;
+    unsigned long long mRowFieldsCount;
+    unsigned long long mColumnFieldsCount;
+    unsigned long long mPageFieldsCount;
 }
 
 - (void)clearCache;
@@ -28,12 +29,6 @@
 - (id)styleFromObject:(id)arg1;
 - (id)collectionFromWorksheet:(id)arg1;
 - (_Bool)isObjectSupported:(id)arg1;
-- (void)addSubtotalColumnLevel:(unsigned int)arg1 to:(id)arg2;
-- (void)addSubtotalRowLevel:(unsigned int)arg1 to:(id)arg2;
-- (void)addColumnSubheadingLevel:(unsigned int)arg1 to:(id)arg2;
-- (void)addRowSubheadingLevel:(unsigned int)arg1 to:(id)arg2;
-- (unsigned int)constrainLevel:(unsigned int)arg1;
-- (int)stripeOffset:(int)arg1 row:(_Bool)arg2;
 
 @end
 

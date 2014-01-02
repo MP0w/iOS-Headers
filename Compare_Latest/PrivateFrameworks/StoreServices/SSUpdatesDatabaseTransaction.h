@@ -11,8 +11,8 @@
 }
 
 - (id)_newUpdateEntityPropertiesWithUpdate:(id)arg1;
-- (BOOL)mergeAvailableUpdates:(id)arg1 availableCount:(int *)arg2;
-- (BOOL)deleteUpdatesInstalledBefore:(double)arg1;
+- (_Bool)mergeAvailableUpdates:(id)arg1 availableCount:(long long *)arg2;
+- (_Bool)deleteUpdatesInstalledBefore:(double)arg1;
 
 @end
 

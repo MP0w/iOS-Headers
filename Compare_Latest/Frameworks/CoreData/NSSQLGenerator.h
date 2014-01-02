@@ -8,19 +8,20 @@
 
 @class NSSQLCore;
 
+// Not exported
 @interface NSSQLGenerator : NSObject
 {
     NSSQLCore *_persistentStore;
 }
 
 + (void)initialize;
-- (id)newSQLStatementForFetchRequest:(id)arg1 ignoreInheritance:(BOOL)arg2 countOnly:(BOOL)arg3 nestingLevel:(unsigned int)arg4;
-- (id)initializeContextForFetchRequest:(id)arg1 ignoreInheritance:(BOOL)arg2 nestingLevel:(unsigned int)arg3;
-- (id)generateIntermediatesForFetchInContext:(id)arg1 countOnly:(BOOL)arg2;
+- (id)newSQLStatementForFetchRequest:(id)arg1 ignoreInheritance:(_Bool)arg2 countOnly:(_Bool)arg3 nestingLevel:(unsigned int)arg4;
+- (id)initializeContextForFetchRequest:(id)arg1 ignoreInheritance:(_Bool)arg2 nestingLevel:(unsigned int)arg3;
+- (id)generateIntermediatesForFetchInContext:(id)arg1 countOnly:(_Bool)arg2;
 - (void)generateHavingIntermediateForPredicate:(id)arg1 inContext:(id)arg2;
 - (void)generateGroupByIntermediatesForProperties:(id)arg1 inContext:(id)arg2;
-- (void)generateIntermediateForOffset:(unsigned int)arg1 inContext:(id)arg2;
-- (void)generateIntermediateForLimit:(unsigned int)arg1 inContext:(id)arg2;
+- (void)generateIntermediateForOffset:(unsigned long long)arg1 inContext:(id)arg2;
+- (void)generateIntermediateForLimit:(unsigned long long)arg1 inContext:(id)arg2;
 - (void)generateOrderIntermediateInContext:(id)arg1;
 - (void)generateWhereIntermediatesInContext:(id)arg1;
 - (void)generateSelectIntermediateInContext:(id)arg1;

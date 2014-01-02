@@ -11,7 +11,7 @@
     struct __IOSurface *_decodedSurface;
     struct CGRect _imageRect;
     id _tileId;
-    BOOL _visible;
+    _Bool _visible;
 }
 
 - (void)dealloc;
@@ -21,8 +21,8 @@
 - (void)setDecodedSurface:(struct __IOSurface *)arg1;
 - (void)setImageRect:(struct CGRect)arg1;
 - (struct CGRect)imageRect;
-- (void)setVisible:(BOOL)arg1;
-- (BOOL)visible;
+- (void)setVisible:(_Bool)arg1;
+- (_Bool)visible;
 
 @end
 

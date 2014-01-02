@@ -8,10 +8,11 @@
 
 @class OADDrawable<OADDrawableContainer>, OADDrawableProperties;
 
+// Not exported
 @interface OADDrawable : NSObject
 {
-    BOOL mHidden;
-    unsigned long mId;
+    _Bool mHidden;
+    unsigned long long mId;
     OADDrawableProperties *mDrawableProperties;
     id <OADClient> mClientData;
     OADDrawable<OADDrawableContainer> *mParent;
@@ -28,13 +29,12 @@
 - (void)setDrawableProperties:(id)arg1;
 - (id)drawableProperties;
 - (void)identify;
-- (void)setId:(unsigned long)arg1;
-- (unsigned long)id;
-- (void)setHidden:(BOOL)arg1;
-- (BOOL)hidden;
+- (void)setId:(unsigned long long)arg1;
+- (unsigned long long)id;
+- (void)setHidden:(_Bool)arg1;
+- (_Bool)hidden;
 - (void)dealloc;
 - (id)initWithPropertiesClass:(Class)arg1;
-- (id)createWordClientDataWithTextType:(int)arg1;
 
 @end
 

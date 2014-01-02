@@ -6,21 +6,19 @@
 
 #import <StoreKitUI/SKUIStorePageSection.h>
 
-@class SKUIEditorialComponent, SKUIEditorialLayout, SKUITextBoxView;
+@class SKUIEditorialComponent, SKUIEditorialLayout;
 
 @interface SKUIEditorialPageSection : SKUIStorePageSection
 {
     SKUIEditorialLayout *_editorialLayout;
-    float _edgePadding;
-    BOOL _isExpanded;
-    SKUITextBoxView *_textBoxView;
+    _Bool _isExpanded;
 }
 
 - (void).cxx_destruct;
 - (id)_editorialLayout;
-- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)willRotateToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
 - (void)willAppearInContext:(id)arg1;
-- (int)numberOfCells;
+- (long long)numberOfCells;
 - (void)collectionViewDidSelectItemAtIndexPath:(id)arg1;
 - (struct CGSize)cellSizeForIndexPath:(id)arg1;
 - (id)cellForIndexPath:(id)arg1;

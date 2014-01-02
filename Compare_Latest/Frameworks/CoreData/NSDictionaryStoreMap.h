@@ -8,6 +8,7 @@
 
 @class NSMutableDictionary;
 
+// Not exported
 @interface NSDictionaryStoreMap : NSPersistentStoreMap
 {
     NSMutableDictionary *_theMap;

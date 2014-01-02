@@ -10,6 +10,7 @@
 
 @class EDResources;
 
+// Not exported
 @interface EDFill : NSObject <NSCopying>
 {
     EDResources *mResources;

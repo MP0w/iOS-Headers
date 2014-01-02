@@ -17,19 +17,20 @@
 }
 
 + (void)checkinLabelImage:(id)arg1;
++ (id)_parametersWithDefaultStyle:(id)arg1;
 + (id)checkoutLabelImageForParameters:(id)arg1;
 + (id)_drawLabelImageForParameters:(id)arg1;
 + (id)_labelImageCountedMap;
 + (void)drawImageInRect:(struct CGRect)arg1 fromParameters:(id)arg2;
 + (struct CGRect)rectFromParameters:(id)arg1 constrainedToRect:(struct CGRect)arg2;
-+ (struct CGRect)_rectWithDrawing:(BOOL)arg1 inRect:(struct CGRect)arg2 fromParameters:(id)arg3;
++ (struct CGRect)_rectWithDrawing:(_Bool)arg1 inRect:(struct CGRect)arg2 fromParameters:(id)arg3;
 @property(readonly, nonatomic) struct CGPoint maxSizeOffset; // @synthesize maxSizeOffset=_maxSizeOffset;
 @property(readonly, nonatomic) SBIconLabelImageParameters *parameters; // @synthesize parameters=_parameters;
 - (id)description;
 - (id)countedMapKey;
 - (void)dealloc;
-- (id)initWithCGImage:(struct CGImage *)arg1 scale:(float)arg2 orientation:(int)arg3;
-- (id)_initWithCGImage:(struct CGImage *)arg1 scale:(float)arg2 orientation:(int)arg3 parameters:(id)arg4 maxSizeOffset:(struct CGPoint)arg5;
+- (id)initWithCGImage:(struct CGImage *)arg1 scale:(double)arg2 orientation:(long long)arg3;
+- (id)_initWithCGImage:(struct CGImage *)arg1 scale:(double)arg2 orientation:(long long)arg3 parameters:(id)arg4 maxSizeOffset:(struct CGPoint)arg5;
 
 @end
 

@@ -6,15 +6,16 @@
 
 #import <OfficeImport/EDBorder.h>
 
+// Not exported
 @interface EPBorder : EDBorder
 {
-    unsigned int mPrecedence;
+    unsigned long long mPrecedence;
 }
 
-+ (id)borderWithBorder:(id)arg1 precedence:(unsigned int)arg2 resources:(id)arg3;
-- (unsigned int)precedence;
-- (BOOL)isEqualToBorder:(id)arg1;
-- (id)initWithBorder:(id)arg1 precedence:(unsigned int)arg2 resources:(id)arg3;
++ (id)borderWithBorder:(id)arg1 precedence:(unsigned long long)arg2 resources:(id)arg3;
+- (unsigned long long)precedence;
+- (_Bool)isEqualToBorder:(id)arg1;
+- (id)initWithBorder:(id)arg1 precedence:(unsigned long long)arg2 resources:(id)arg3;
 
 @end
 

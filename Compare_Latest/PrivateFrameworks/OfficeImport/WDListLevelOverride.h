@@ -8,21 +8,22 @@
 
 @class WDDocument, WDListLevel;
 
+// Not exported
 @interface WDListLevelOverride : NSObject
 {
     WDListLevel *mListLevel;
     WDDocument *mDocument;
     unsigned char mLevel;
-    long mStartNumber;
-    BOOL mStartNumberOverridden;
+    long long mStartNumber;
+    _Bool mStartNumberOverridden;
 }
 
-- (BOOL)isListLevelOverridden;
+- (_Bool)isListLevelOverridden;
 - (id)mutableListLevel;
 - (id)listLevel;
-- (BOOL)isStartNumberOverridden;
-- (void)setStartNumber:(long)arg1;
-- (long)startNumber;
+- (_Bool)isStartNumberOverridden;
+- (void)setStartNumber:(long long)arg1;
+- (long long)startNumber;
 - (void)setLevel:(unsigned char)arg1;
 - (unsigned char)level;
 - (id)document;

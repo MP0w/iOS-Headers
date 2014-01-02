@@ -12,7 +12,7 @@
 
 @optional
 - (void)interstitialAdActionDidFinish:(id)arg1;
-- (BOOL)interstitialAdActionShouldBegin:(id)arg1 willLeaveApplication:(BOOL)arg2;
+- (_Bool)interstitialAdActionShouldBegin:(id)arg1 willLeaveApplication:(_Bool)arg2;
 - (void)interstitialAdDidLoad:(id)arg1;
 - (void)interstitialAdWillLoad:(id)arg1;
 @end

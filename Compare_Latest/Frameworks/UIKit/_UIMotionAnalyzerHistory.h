@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface _UIMotionAnalyzerHistory : NSObject
 {
     struct UIOffset _lastAppliedViewerOffset;
     union _GLKQuaternion _lastAppliedRelativeQuaternion;
-    BOOL _isApplyingHysteresis;
+    _Bool _isApplyingHysteresis;
     union _GLKQuaternion _relativeQuaternionOnHysteresisEntry;
 }
 

@@ -10,6 +10,7 @@
 
 @class NSDictionary, NSMutableDictionary, NSString, PFUbiquityKnowledgeVector, PFUbiquityLocation;
 
+// Not exported
 @interface PFUbiquityBaselineMetadata : NSObject <NSCoding>
 {
     NSString *_storeName;
@@ -29,15 +30,15 @@
 @property(readonly) NSString *authorPeerID; // @synthesize authorPeerID=_authorPeerID;
 @property(readonly) NSString *storeName; // @synthesize storeName=_storeName;
 - (void)setKnowledgeVector:(id)arg1;
-- (id)createNewLocalRangeWithRangeStart:(unsigned int)arg1 andRangeEnd:(unsigned int)arg2 forEntityNamed:(id)arg3;
+- (id)createNewLocalRangeWithRangeStart:(unsigned long long)arg1 andRangeEnd:(unsigned long long)arg2 forEntityNamed:(id)arg3;
 - (void)addDictionaryForPeerRange:(id)arg1;
 - (id)createPeerRangeDictionary:(id)arg1;
 - (void)_migrateToModelVersionHash:(id)arg1;
 - (void)setPreviousKnowledgeVectorFromCurrentMetadata:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (BOOL)gatherMetadataWithStore:(id)arg1 andError:(id *)arg2;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)gatherMetadataWithStore:(id)arg1 andError:(id *)arg2;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (void)dealloc;
 - (id)initWithLocalPeerID:(id)arg1 storeName:(id)arg2 modelVersionHash:(id)arg3 andUbiquityRootLocation:(id)arg4;

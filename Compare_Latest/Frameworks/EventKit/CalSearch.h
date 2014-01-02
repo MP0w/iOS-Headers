@@ -13,7 +13,6 @@
     struct __CFString *_searchString;
     int _seed;
     id <CalSearchDataSink> _dataSink;
-    struct _opaque_pthread_mutex_t _dataSinkLock;
     _Bool _dateToStartShowingResultsSentToDataSink;
     _Bool _moreResultsAvailable;
     struct __CFArray *_partialResults;

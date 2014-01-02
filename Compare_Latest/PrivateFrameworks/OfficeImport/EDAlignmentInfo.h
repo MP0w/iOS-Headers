@@ -9,6 +9,7 @@
 #import "EDImmutableObject-Protocol.h"
 #import "NSCopying-Protocol.h"
 
+// Not exported
 @interface EDAlignmentInfo : NSObject <NSCopying, EDImmutableObject>
 {
     int mHorizontalAlignment;
@@ -39,9 +40,9 @@
 - (void)setHorizontalAlignment:(int)arg1;
 - (int)horizontalAlignment;
 - (_Bool)isHorizontalAlignOverridden;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isEqualToAlignmentInfo:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)isEqualToAlignmentInfo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
 

@@ -6,26 +6,27 @@
 
 #import <CoreFoundation/NSTimeZone.h>
 
+// Not exported
 @interface __NSLocalTimeZone : NSTimeZone
 {
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 - (id)replacementObjectForPortCoder:(id)arg1;
 - (Class)classForCoder;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (unsigned int)retainCount;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;
 - (id)description;
-- (id)localizedName:(int)arg1 locale:(id)arg2;
+- (id)localizedName:(long long)arg1 locale:(id)arg2;
 - (id)nextDaylightSavingTimeTransitionAfterDate:(id)arg1;
 - (double)daylightSavingTimeOffsetForDate:(id)arg1;
-- (BOOL)isDaylightSavingTimeForDate:(id)arg1;
+- (_Bool)isDaylightSavingTimeForDate:(id)arg1;
 - (id)abbreviationForDate:(id)arg1;
-- (int)secondsFromGMTForDate:(id)arg1;
+- (long long)secondsFromGMTForDate:(id)arg1;
 - (id)data;
 - (id)name;
 

@@ -14,17 +14,18 @@
 {
     NSObject<OS_xpc_object> *_connection;
     NSObject<OS_dispatch_queue> *_queue;
+    NSObject<OS_dispatch_queue> *_internalQueue;
     id <XPCProxyTarget> _target;
     Class _remoteClass;
     Protocol *_remoteProtocol;
     id _errorHandler;
-    BOOL _invalidated;
-    BOOL _useTraditionalEncoder;
+    _Bool _invalidated;
+    _Bool _useTraditionalEncoder;
     NSArray *_whitelistedClassNames;
 }
 
 + (void)initialize;
-@property(nonatomic) BOOL useTraditionalEncoder; // @synthesize useTraditionalEncoder=_useTraditionalEncoder;
+@property(nonatomic) _Bool useTraditionalEncoder; // @synthesize useTraditionalEncoder=_useTraditionalEncoder;
 @property(readonly, nonatomic) NSObject<OS_xpc_object> *connection; // @synthesize connection=_connection;
 @property Protocol *remoteProtocol; // @synthesize remoteProtocol=_remoteProtocol;
 @property Class remoteClass; // @synthesize remoteClass=_remoteClass;

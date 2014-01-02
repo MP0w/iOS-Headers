@@ -20,13 +20,13 @@ struct CDXTicket {
 };
 
 struct _opaque_pthread_cond_t {
-    long __sig;
-    char __opaque[24];
+    long long __sig;
+    char __opaque[40];
 };
 
 struct _opaque_pthread_mutex_t {
-    long __sig;
-    char __opaque[40];
+    long long __sig;
+    char __opaque[56];
 };
 
 struct in_addr {
@@ -69,6 +69,7 @@ struct tagCONNRESULT {
     int iRemoteCellTech;
     unsigned int dwCellularUniqueTag;
     unsigned short wCellularMTU;
+    int bIfUpgrade;
     struct tagCONNRESULT *next;
 };
 

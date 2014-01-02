@@ -8,6 +8,7 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface OADTextListStyle : NSObject
 {
     NSMutableArray *mParagraphProperties;
@@ -17,8 +18,8 @@
 - (void)overrideWithTextStyle:(id)arg1;
 - (void)flatten;
 - (void)setParentTextListStyle:(id)arg1;
-- (void)setPropertiesForListLevel:(unsigned int)arg1 properties:(id)arg2;
-- (id)propertiesForListLevel:(unsigned int)arg1;
+- (void)setPropertiesForListLevel:(unsigned long long)arg1 properties:(id)arg2;
+- (id)propertiesForListLevel:(unsigned long long)arg1;
 - (id)defaultProperties;
 - (void)dealloc;
 - (id)initWithDefaults;

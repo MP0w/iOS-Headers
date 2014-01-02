@@ -7,9 +7,9 @@
 #import "DOMHTMLTextAreaElement.h"
 
 @interface DOMHTMLTextAreaElement (UITextInputAdditions)
-- (BOOL)isEditing;
+- (_Bool)isEditing;
 - (void)setSelectionWithPoint:(struct CGPoint)arg1;
-- (BOOL)isTextControl;
+- (_Bool)isTextControl;
 - (id)textInputTraits;
 @end
 

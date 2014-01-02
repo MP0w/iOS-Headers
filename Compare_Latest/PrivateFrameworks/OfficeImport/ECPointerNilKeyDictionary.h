@@ -6,6 +6,7 @@
 
 #import <OfficeImport/TSUPointerKeyDictionary.h>
 
+// Not exported
 @interface ECPointerNilKeyDictionary : TSUPointerKeyDictionary
 {
     id mNilKeyObject;

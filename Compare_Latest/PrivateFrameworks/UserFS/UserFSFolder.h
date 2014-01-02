@@ -10,11 +10,11 @@
 {
 }
 
-- (BOOL)enumerateChildrenAndReturnError:(id *)arg1 callback:(id)arg2;
-- (BOOL)deleteChildNamed:(id)arg1 error:(id *)arg2;
+- (_Bool)enumerateChildrenAndReturnError:(id *)arg1 callback:(id)arg2;
+- (_Bool)deleteChildNamed:(id)arg1 error:(id *)arg2;
 - (id)childNamed:(id)arg1 error:(id *)arg2;
 - (id)_pathForChildNamed:(id)arg1;
-- (BOOL)isDirectory;
+- (_Bool)isDirectory;
 
 @end
 

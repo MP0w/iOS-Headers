@@ -8,6 +8,7 @@
 
 @class EKEventStore, NSArray, NSData, NSMutableArray;
 
+// Not exported
 @interface EKICSPreviewModel : NSObject
 {
     NSData *_data;
@@ -15,8 +16,8 @@
     EKEventStore *_destStore;
     NSMutableArray *_importedEvents;
     NSMutableArray *_unimportedEvents;
-    unsigned int _options;
-    BOOL _actionsDisabled;
+    unsigned long long _options;
+    int _actionsState;
 }
 
 - (void).cxx_destruct;
@@ -25,12 +26,12 @@
 @property(readonly, nonatomic) NSArray *allEvents;
 @property(readonly, nonatomic) NSArray *unimportedEvents;
 @property(readonly, nonatomic) NSArray *importedEvents;
-@property(readonly, nonatomic) BOOL actionsDisabled;
-@property(readonly, nonatomic) unsigned int unimportedEventCount;
-@property(readonly, nonatomic) unsigned int importedEventCount;
-@property(readonly, nonatomic) unsigned int totalEventCount;
+@property(readonly, nonatomic) int actionsState;
+@property(readonly, nonatomic) unsigned long long unimportedEventCount;
+@property(readonly, nonatomic) unsigned long long importedEventCount;
+@property(readonly, nonatomic) unsigned long long totalEventCount;
 @property(readonly, nonatomic) EKEventStore *eventStore;
-- (id)initWithICSData:(id)arg1 eventStore:(id)arg2 options:(unsigned int)arg3;
+- (id)initWithICSData:(id)arg1 eventStore:(id)arg2 options:(unsigned long long)arg3;
 
 @end
 

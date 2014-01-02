@@ -8,6 +8,7 @@
 
 @class CUTWeakReference, NSDate;
 
+// Not exported
 @interface PCDispatchTimer : NSObject
 {
     struct dispatch_source_s *_timerSource;
@@ -16,14 +17,14 @@
     NSDate *_fireDate;
     CUTWeakReference *_target;
     SEL _selector;
-    BOOL _isValid;
+    _Bool _isValid;
 }
 
 - (void)invalidate;
 @property(retain, nonatomic) NSDate *fireDate;
 - (void)start;
 - (void)_cleanupTimer;
-@property(readonly, nonatomic) BOOL isValid;
+@property(readonly, nonatomic) _Bool isValid;
 - (void)_callTarget;
 - (void)dealloc;
 - (id)initWithQueue:(struct dispatch_queue_s *)arg1 target:(id)arg2 selector:(SEL)arg3 fireTime:(unsigned long long)arg4;

@@ -15,15 +15,15 @@
     UIActionSheet *_actionSheet;
     id _handler;
     id _presenter;
-    BOOL _dismissingActionSheetForRotation;
+    _Bool _dismissingActionSheetForRotation;
 }
 
 + (id)sharedInstance;
 @property(retain, nonatomic) UIActionSheet *actionSheet; // @synthesize actionSheet=_actionSheet;
 @property(copy, nonatomic) id presenter; // @synthesize presenter=_presenter;
 @property(copy, nonatomic) id handler; // @synthesize handler=_handler;
-- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
-- (void)actionSheet:(id)arg1 didDismissWithButtonIndex:(int)arg2;
+- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(long long)arg2;
+- (void)actionSheet:(id)arg1 didDismissWithButtonIndex:(long long)arg2;
 - (void)handleDidRotate:(id)arg1;
 - (void)handleWillRotate:(id)arg1;
 - (void)dismissCurrentActionSheet;

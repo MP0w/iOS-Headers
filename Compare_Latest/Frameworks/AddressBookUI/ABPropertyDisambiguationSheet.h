@@ -10,11 +10,13 @@
 
 @interface ABPropertyDisambiguationSheet : ABActionSheet
 {
+    id _sender;
 }
 
-- (id)propertyItemForButtonIndex:(int)arg1;
+@property(nonatomic) id sender; // @synthesize sender=_sender;
+- (id)propertyItemForButtonIndex:(long long)arg1;
 @property(readonly, nonatomic) ABPropertyGroupItem *defaultPropertyItem;
-@property(readonly, nonatomic) BOOL needsDisambiguation;
+@property(readonly, nonatomic) _Bool needsDisambiguation;
 - (id)initWithContact:(id)arg1 propertyItems:(id)arg2;
 
 @end

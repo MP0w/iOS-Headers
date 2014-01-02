@@ -10,6 +10,7 @@
 
 @class EDAlignmentInfo, EDBorders, EDContentFormat, EDFill, EDFont, EDProtection;
 
+// Not exported
 @interface EDDifferentialStyle : NSObject <NSCopying>
 {
     EDAlignmentInfo *mAlignmentInfo;

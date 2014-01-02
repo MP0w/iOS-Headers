@@ -13,9 +13,9 @@
 @interface AXElementGroup : NSArray <AXGroupable>
 {
     NSArray *_elementStore;
-    BOOL _rootGroup;
-    id <AXElementGroupGenerator> _generator;
+    _Bool _rootGroup;
     int _groupTraits;
+    id <AXElementGroupGenerator> _generator;
     NSHashTable *_groupObservers;
     AXElementGroup *_parentGroup;
 }
@@ -24,7 +24,7 @@
 + (id)groupWithElements:(id)arg1;
 @property(nonatomic) AXElementGroup *parentGroup; // @synthesize parentGroup=_parentGroup;
 @property(retain, nonatomic) NSHashTable *groupObservers; // @synthesize groupObservers=_groupObservers;
-@property(nonatomic, getter=isRootGroup) BOOL rootGroup; // @synthesize rootGroup=_rootGroup;
+@property(nonatomic, getter=isRootGroup) _Bool rootGroup; // @synthesize rootGroup=_rootGroup;
 @property(nonatomic) int groupTraits; // @synthesize groupTraits=_groupTraits;
 @property(nonatomic) id <AXElementGroupGenerator> generator; // @synthesize generator=_generator;
 - (id)_debugFullDescriptionWithIndent:(id)arg1;
@@ -39,12 +39,12 @@
 - (void)unregisterAllGroupObservers;
 - (void)unregisterGroupObserver:(id)arg1;
 - (void)registerGroupObserver:(id)arg1;
-@property(readonly, nonatomic) unsigned int numberOfElements;
-@property(readonly, nonatomic) BOOL allowsChangingExistingGroupingOfContents;
-@property(readonly, nonatomic) BOOL canBeReplacedByChildren;
-@property(readonly, nonatomic) BOOL canBeGroupedWithOtherGroupables;
-- (BOOL)isKeyboardRow;
-- (BOOL)isKeyboardContainer;
+@property(readonly, nonatomic) unsigned long long numberOfElements;
+@property(readonly, nonatomic) _Bool allowsChangingExistingGroupingOfContents;
+@property(readonly, nonatomic) _Bool canBeReplacedByChildren;
+@property(readonly, nonatomic) _Bool canBeGroupedWithOtherGroupables;
+- (_Bool)isKeyboardRow;
+- (_Bool)isKeyboardContainer;
 - (id)keyboardContainer;
 - (id)keyboardRow;
 - (id)keyboardContainerRows;
@@ -56,18 +56,18 @@
 - (id)childrenPassingTest:(id)arg1;
 - (id)firstChildPassingTest:(id)arg1;
 - (id)firstChildMatchingItem:(id)arg1;
-- (id)previousSiblingOfChild:(id)arg1 didWrap:(char *)arg2;
-- (id)nextSiblingOfChild:(id)arg1 didWrap:(char *)arg2;
-- (id)_siblingOfChild:(id)arg1 inDirection:(BOOL)arg2 didWrap:(char *)arg3;
+- (id)previousSiblingOfChild:(id)arg1 didWrap:(_Bool *)arg2;
+- (id)nextSiblingOfChild:(id)arg1 didWrap:(_Bool *)arg2;
+- (id)_siblingOfChild:(id)arg1 inDirection:(_Bool)arg2 didWrap:(_Bool *)arg3;
 - (id)lastChild;
 - (id)firstChild;
 - (void)_generateGroupsIfNeeded;
-- (BOOL)isGroup;
+- (_Bool)isGroup;
 - (id)highestAncestorGroup;
 @property(readonly, nonatomic) struct CGRect frame;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
-- (id)objectAtIndex:(unsigned int)arg1;
-- (unsigned int)count;
+- (id)objectAtIndex:(unsigned long long)arg1;
+- (unsigned long long)count;
 - (void)_transferStateToGroup:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)groupByReplacingGroupable:(id)arg1 withGroupable:(id)arg2;

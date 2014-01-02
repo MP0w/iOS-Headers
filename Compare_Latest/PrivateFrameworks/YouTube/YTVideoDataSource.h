@@ -10,7 +10,7 @@
 
 @interface YTVideoDataSource : NSObject
 {
-    BOOL _hasLoaded;
+    _Bool _hasLoaded;
     NSMutableArray *_videos;
     YTSearchRequest *_searchRequest;
     unsigned int _startIndex;
@@ -18,12 +18,12 @@
     NSError *_lastError;
 }
 
-+ (BOOL)shouldRemoveOldDefaults;
++ (_Bool)shouldRemoveOldDefaults;
 + (void)setShouldRemoveOldDefaults;
 + (id)sharedDataSource;
 + (void)saveDataSources;
 - (void)_clearVideos;
-- (void)addVideos:(id)arg1 toTop:(BOOL)arg2;
+- (void)addVideos:(id)arg1 toTop:(_Bool)arg2;
 - (void)_setVideos:(id)arg1;
 - (void)_setLastError:(id)arg1;
 - (void)_didChange;
@@ -39,8 +39,8 @@
 - (unsigned int)videosRemaining;
 - (id)lastError;
 - (void)loadFromDefaults;
-- (BOOL)hasLoaded;
-- (BOOL)isLoading;
+- (_Bool)hasLoaded;
+- (_Bool)isLoading;
 - (void)reloadData;
 - (id)videos;
 - (void)dealloc;

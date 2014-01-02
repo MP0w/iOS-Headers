@@ -8,6 +8,7 @@
 
 @class MFPGraphicsState;
 
+// Not exported
 @interface MFPGraphicsContainer : NSObject
 {
     MFPGraphicsState *mParentGraphicsState;

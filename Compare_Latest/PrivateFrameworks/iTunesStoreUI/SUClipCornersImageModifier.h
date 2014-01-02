@@ -8,16 +8,16 @@
 
 @interface SUClipCornersImageModifier : SUImageModifier
 {
-    float _cornerRadius;
+    double _cornerRadius;
     int _corners;
 }
 
 @property(nonatomic) int corners; // @synthesize corners=_corners;
-@property(nonatomic) float cornerRadius; // @synthesize cornerRadius=_cornerRadius;
+@property(nonatomic) double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
 - (struct CGPath *)_copyClippingPathForRect:(struct CGRect)arg1;
 - (void)drawBeforeImageForContext:(struct CGContext *)arg1 imageFrame:(struct CGRect)arg2 finalSize:(struct CGSize)arg3;
 - (void)drawAfterImageForContext:(struct CGContext *)arg1 imageFrame:(struct CGRect)arg2 finalSize:(struct CGSize)arg3;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 
 @end
 

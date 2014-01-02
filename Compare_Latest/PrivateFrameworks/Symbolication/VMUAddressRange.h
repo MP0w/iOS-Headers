@@ -15,7 +15,6 @@
 
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (void)setAddressRange:(struct _VMURange)arg1;
 
 @end
 

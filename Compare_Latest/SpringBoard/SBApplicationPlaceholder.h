@@ -8,7 +8,7 @@
 
 #import "SBLeafIconDataSource-Protocol.h"
 
-@class LSApplicationProxy, NSMutableSet, NSProgress, NSString;
+@class LSApplicationProxy, NSMutableDictionary, NSMutableSet, NSProgress, NSString;
 
 @interface SBApplicationPlaceholder : NSObject <SBLeafIconDataSource>
 {
@@ -17,12 +17,12 @@
     NSString *_applicationDisplayName;
     NSProgress *_progress;
     double _fractionProgress;
-    BOOL _installing;
-    BOOL _isNewsstand;
-    BOOL _observingKVO;
-    unsigned int _installType;
-    BOOL _invalidated;
-    NSMutableSet *_generatedIconKeys;
+    _Bool _installing;
+    _Bool _isNewsstand;
+    _Bool _observingKVO;
+    unsigned long long _installType;
+    _Bool _invalidated;
+    NSMutableDictionary *_generatedIconImagesByKey;
     NSMutableSet *_formatsPendingGeneration;
 }
 
@@ -30,59 +30,59 @@
 @property(copy, nonatomic) NSString *applicationDisplayName; // @synthesize applicationDisplayName=_applicationDisplayName;
 @property(copy, nonatomic) NSString *applicationBundleID; // @synthesize applicationBundleID=_applicationBundleID;
 @property(retain, nonatomic) LSApplicationProxy *appProxy; // @synthesize appProxy=_appProxy;
-- (BOOL)icon:(id)arg1 launchFromLocation:(int)arg2;
-- (BOOL)iconAllowsLaunch:(id)arg1;
-- (BOOL)iconCompleteUninstall:(id)arg1;
-- (BOOL)iconAllowsUninstall:(id)arg1;
-- (BOOL)iconIsRecentlyUpdated:(id)arg1;
+- (_Bool)icon:(id)arg1 launchFromLocation:(int)arg2;
+- (_Bool)iconAllowsLaunch:(id)arg1;
+- (_Bool)iconCompleteUninstall:(id)arg1;
+- (_Bool)iconAllowsUninstall:(id)arg1;
+- (_Bool)iconIsRecentlyUpdated:(id)arg1;
 - (id)iconFormattedAccessoryString:(id)arg1;
 - (id)iconBadgeNumberOrString:(id)arg1;
 - (int)iconAccessoryType:(id)arg1;
-- (float)iconProgress:(id)arg1;
-- (BOOL)iconAppearsInNewsstand:(id)arg1;
-- (BOOL)iconCanElliptisizeLabel:(id)arg1;
+- (_Bool)iconProgressIsPaused:(id)arg1;
+- (double)iconProgressPercent:(id)arg1;
+- (long long)iconProgressState:(id)arg1;
+- (_Bool)iconAppearsInNewsstand:(id)arg1;
+- (_Bool)iconCanEllipsizeLabel:(id)arg1;
 - (id)icon:(id)arg1 defaultImageWithFormat:(int)arg2;
 - (id)icon:(id)arg1 imageWithFormat:(int)arg2;
-- (unsigned int)iconPriority:(id)arg1;
+- (unsigned long long)iconPriority:(id)arg1;
 - (id)iconDisplayName:(id)arg1;
-- (id)_darkenedIconImageForImage:(id)arg1;
 - (void)_reloadThumbnailImage;
 - (void)_generatePendingIconFormats;
 - (void)_generateIconImageWithFormat:(int)arg1;
-- (id)_iconImageKeyForBundleID:(id)arg1 format:(int)arg2 darkened:(BOOL)arg3;
+- (id)_iconImageKeyForBundleID:(id)arg1 format:(int)arg2;
 - (int)_newsstandImageOptions;
 - (id)_defaultIconImageWithFormat:(int)arg1;
-- (id)_getOrGenerateIconImageWithFormat:(int)arg1 darkened:(BOOL)arg2;
+- (id)_getOrGenerateIconImageWithFormat:(int)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)_addKVOObserversForProgress;
 - (void)_removeKVOObserversForProgress;
 - (void)_progressChanged;
 - (void)_progressMayHaveChanged;
-- (BOOL)_shouldDisplayAppName;
+- (_Bool)_shouldDisplayAppName;
 - (id)_downloadingLabel;
 - (void)_prioritize;
 - (void)cancel;
 - (void)resume;
 - (void)pause;
-- (BOOL)isNewsstand;
-- (float)progress;
-- (BOOL)isContentRestricted;
-- (BOOL)isInstalling;
-- (BOOL)isDownloading;
-- (BOOL)isCancelable;
-- (BOOL)isPausable;
-- (BOOL)isFailed;
-- (BOOL)isPaused;
-- (BOOL)isActive;
-- (BOOL)isDone;
-- (unsigned int)installType;
-- (id)fetchIconImageWithFormat:(int)arg1 darkened:(BOOL)arg2;
+- (_Bool)isNewsstand;
+- (_Bool)isContentRestricted;
+- (_Bool)isInstalling;
+- (_Bool)isDownloading;
+- (_Bool)isCancelable;
+- (_Bool)isPausable;
+- (_Bool)isFailed;
+- (_Bool)isPaused;
+- (_Bool)isActive;
+- (_Bool)isDone;
+- (unsigned long long)installType;
+- (id)fetchIconImageWithFormat:(int)arg1;
 - (void)iconChanged;
 - (void)setApplicationProxy:(id)arg1;
 - (void)noteDownloadStatusChanged;
 - (id)proxy;
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (void)invalidate;
 - (void)dealloc;
 - (id)initWithProxy:(id)arg1;

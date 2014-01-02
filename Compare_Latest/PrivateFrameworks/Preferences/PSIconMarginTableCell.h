@@ -11,7 +11,7 @@
 }
 
 - (void)layoutSubviews;
-- (float)iconMargin;
+- (double)iconMargin;
 
 @end
 

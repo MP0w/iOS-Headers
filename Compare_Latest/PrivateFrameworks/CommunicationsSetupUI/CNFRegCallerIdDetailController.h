@@ -16,10 +16,10 @@
 @property(readonly, nonatomic) CNFRegController *regController; // @synthesize regController=_regController;
 - (void)_setupAccountHandlers;
 - (void)reloadCallerIdValues;
-- (void)viewDidDisappear:(BOOL)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)dealloc;
 - (id)initWithRegController:(id)arg1;
 

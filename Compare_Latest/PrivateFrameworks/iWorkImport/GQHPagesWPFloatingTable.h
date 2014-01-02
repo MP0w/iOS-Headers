@@ -8,6 +8,7 @@
 
 #import "GQTableGenerator-Protocol.h"
 
+// Not exported
 @interface GQHPagesWPFloatingTable : NSObject <GQTableGenerator>
 {
 }

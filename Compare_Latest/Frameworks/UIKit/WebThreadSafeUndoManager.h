@@ -6,11 +6,12 @@
 
 #import "NSUndoManager.h"
 
+// Not exported
 @interface WebThreadSafeUndoManager : NSUndoManager
 {
 }
 
-- (BOOL)_alwaysShowEditAlertView;
+- (_Bool)_alwaysShowEditAlertView;
 - (void)redo;
 - (void)undo;
 

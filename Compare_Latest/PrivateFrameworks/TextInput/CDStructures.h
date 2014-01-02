@@ -7,8 +7,8 @@
 #pragma mark Named Structures
 
 struct CGPoint {
-    float x;
-    float y;
+    double x;
+    double y;
 };
 
 struct CGRect {
@@ -17,13 +17,13 @@ struct CGRect {
 };
 
 struct CGSize {
-    float _field1;
-    float _field2;
+    double _field1;
+    double _field2;
 };
 
 struct _NSRange {
-    unsigned int location;
-    unsigned int length;
+    unsigned long long location;
+    unsigned long long length;
 };
 
 struct _ShortRect {
@@ -33,13 +33,13 @@ struct _ShortRect {
     short _field4;
 };
 
-struct vector<CGPoint, std::__1::allocator<CGPoint>>;
+struct vector<TIHandwritingPoint, std::__1::allocator<TIHandwritingPoint>>;
 
-struct vector<std::__1::vector<CGPoint, std::__1::allocator<CGPoint>>, std::__1::allocator<std::__1::vector<CGPoint, std::__1::allocator<CGPoint>>>> {
-    struct vector<CGPoint, std::__1::allocator<CGPoint>> *__begin_;
-    struct vector<CGPoint, std::__1::allocator<CGPoint>> *__end_;
-    struct __compressed_pair<std::__1::vector<CGPoint, std::__1::allocator<CGPoint>>*, std::__1::allocator<std::__1::vector<CGPoint, std::__1::allocator<CGPoint>>>> {
-        struct vector<CGPoint, std::__1::allocator<CGPoint>> *__first_;
+struct vector<std::__1::vector<TIHandwritingPoint, std::__1::allocator<TIHandwritingPoint>>, std::__1::allocator<std::__1::vector<TIHandwritingPoint, std::__1::allocator<TIHandwritingPoint>>>> {
+    struct vector<TIHandwritingPoint, std::__1::allocator<TIHandwritingPoint>> *__begin_;
+    struct vector<TIHandwritingPoint, std::__1::allocator<TIHandwritingPoint>> *__end_;
+    struct __compressed_pair<std::__1::vector<TIHandwritingPoint, std::__1::allocator<TIHandwritingPoint>>*, std::__1::allocator<std::__1::vector<TIHandwritingPoint, std::__1::allocator<TIHandwritingPoint>>>> {
+        struct vector<TIHandwritingPoint, std::__1::allocator<TIHandwritingPoint>> *__first_;
     } __end_cap_;
 };
 
@@ -48,11 +48,11 @@ struct vector<std::__1::vector<CGPoint, std::__1::allocator<CGPoint>>, std::__1:
 typedef struct {
     id _field1;
     id _field2;
-    char _field3;
-    char _field4;
+    _Bool _field3;
+    _Bool _field4;
     unsigned long long _field5;
     int _field6;
-} CDStruct_59875e80;
+} CDStruct_5072e809;
 
 typedef struct {
     id _field1;

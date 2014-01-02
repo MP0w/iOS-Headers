@@ -6,6 +6,7 @@
 
 #import <GameKitServices/GKTable.h>
 
+// Not exported
 @interface GKAutoPeerIDTable : GKTable
 {
 }

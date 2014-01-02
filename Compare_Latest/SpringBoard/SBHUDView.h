@@ -14,7 +14,7 @@
     NSString *_title;
     NSString *_subtitle;
     UIImage *_image;
-    BOOL _showsProgress;
+    _Bool _showsProgress;
     float _progress;
     UIView *_blockView;
     _UIBackdropView *_backdropView;
@@ -22,9 +22,9 @@
 }
 
 + (float)progressIndicatorStep;
-+ (int)numberOfProgressIndicatorSteps;
++ (long long)numberOfProgressIndicatorSteps;
 @property(nonatomic) float progress; // @synthesize progress=_progress;
-@property(nonatomic) BOOL showsProgress; // @synthesize showsProgress=_showsProgress;
+@property(nonatomic) _Bool showsProgress; // @synthesize showsProgress=_showsProgress;
 @property(nonatomic) int level; // @synthesize level=_level;
 - (void)layoutSubviews;
 - (void)_updateBlockView;
@@ -33,7 +33,7 @@
 @property(retain, nonatomic) UIImage *image;
 @property(retain, nonatomic) NSString *subtitle;
 @property(retain, nonatomic) NSString *title;
-- (BOOL)displaysLabel;
+- (_Bool)displaysLabel;
 - (void)_updateBackdropMask;
 - (void)dismissWithCompletion:(id)arg1;
 - (void)cancelDismissal;

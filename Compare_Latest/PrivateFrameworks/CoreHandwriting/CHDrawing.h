@@ -18,20 +18,20 @@
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)setLineHeight:(double)arg1;
-- (vector_55d7bafa)strokeIndicesSortedByMinXCoordinate;
+- (vector_eb9481f9)strokeIndicesSortedByMinXCoordinate;
 - (id)sortedDrawing;
 - (Matrix_273a43f8)bitmapRepresentationForSize:(struct CGSize)arg1;
 - (id)xyRepresentation;
 - (struct _NSRange)matchingStrokePrefixRangeForDrawing:(id)arg1;
-- (BOOL)isPrefixForDrawing:(id)arg1;
+- (_Bool)isPrefixForDrawing:(id)arg1;
 - (void)clear;
 - (void)endStroke;
 - (void)addPoint:(struct CGPoint)arg1;
 - (struct CGRect)bounds;
-- (unsigned int)strokeCount;
-- (struct CGPoint)pointForStrokeIndex:(unsigned int)arg1 pointIndex:(unsigned int)arg2;
-- (unsigned int)pointCountForStrokeIndex:(unsigned int)arg1;
-- (unsigned int)pointCount;
+- (unsigned long long)strokeCount;
+- (struct CGPoint)pointForStrokeIndex:(unsigned long long)arg1 pointIndex:(unsigned long long)arg2;
+- (unsigned long long)pointCountForStrokeIndex:(unsigned long long)arg1;
+- (unsigned long long)pointCount;
 - (id)initWithContentsOfFile:(id)arg1;
 
 @end

@@ -14,22 +14,22 @@
 {
     NSData *_messageData;
     NSDictionary *_options;
-    int _format;
+    long long _format;
     NSString *_altText;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSString *altText; // @synthesize altText=_altText;
-@property int format; // @synthesize format=_format;
+@property long long format; // @synthesize format=_format;
 @property(copy, nonatomic) NSDictionary *options; // @synthesize options=_options;
 @property(copy, nonatomic) NSData *messageData; // @synthesize messageData=_messageData;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (BOOL)isTall;
+- (_Bool)isTall;
 - (id)initWithBarcodeDictionary:(id)arg1;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 
 @end
 

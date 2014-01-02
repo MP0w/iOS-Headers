@@ -4,27 +4,23 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "UIImageView.h"
+#import "UIView.h"
 
-@class NSString, QLDisplayBundle, UIActivityIndicatorView, UILabel;
+@class NSString, UIActivityIndicatorView, UILabel;
 
-@interface QLProgressView : UIImageView
+@interface QLProgressView : UIView
 {
-    id <QLProgressViewDelegate> _delegate;
     int _backgroundColorType;
-    QLDisplayBundle *_displayBundle;
     UIActivityIndicatorView *_progressIndicator;
     UILabel *_loadingTextLabel;
-    NSString *_loadingTextForMissingFiles;
 }
 
-@property(retain) NSString *loadingTextForMissingFiles; // @synthesize loadingTextForMissingFiles=_loadingTextForMissingFiles;
-@property id <QLProgressViewDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
 - (void)layoutSubviews;
-- (int)backgroundColorType;
+@property(copy) NSString *loadingText;
+@property int backgroundColorType;
+- (void)_update;
 - (void)dealloc;
-- (id)initWithBackgroundColorType:(int)arg1 loadingTextForMissingFiles:(id)arg2;
+- (id)init;
 
 @end
 

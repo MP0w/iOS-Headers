@@ -6,6 +6,7 @@
 
 #import <OfficeImport/ODILinear.h>
 
+// Not exported
 @interface ODIHorizontalProcess3 : ODILinear
 {
 }

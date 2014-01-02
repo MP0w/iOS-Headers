@@ -8,8 +8,8 @@
 
 @protocol CHAutoStyling <NSObject>
 - (id)autoAxisStroke;
-- (id)autoStrokeForSeriesIndex:(unsigned int)arg1;
-- (void)resolveMarker:(id)arg1 withSeriesGraphicProperties:(id)arg2 forSeriesIndex:(unsigned int)arg3;
+- (id)autoStrokeForSeriesIndex:(unsigned long long)arg1;
+- (void)resolveMarker:(id)arg1 withSeriesGraphicProperties:(id)arg2 forSeriesIndex:(unsigned long long)arg3;
 - (void)resolveLegendGraphicProperties:(id)arg1;
 - (void)resolveMinorGridLinesGraphicProperties:(id)arg1;
 - (void)resolveMajorGridLinesGraphicProperties:(id)arg1;
@@ -18,9 +18,9 @@
 - (void)resolveFloorGraphicProperties:(id)arg1;
 - (void)resolveWallGraphicProperties:(id)arg1;
 - (void)resolveChartAreaGraphicProperties:(id)arg1;
-- (void)resolveGraphicPropertiesOfErrorBar:(id)arg1 forSeriesIndex:(unsigned int)arg2 colorMap:(id)arg3 colorScheme:(id)arg4;
-- (void)resolveGraphicPropertiesOfTrendline:(id)arg1 forSeriesIndex:(unsigned int)arg2;
-- (void)resolveGraphicPropertiesOfSeries:(id)arg1 forSeriesIndex:(unsigned int)arg2 isLine:(_Bool)arg3 colorMap:(id)arg4 colorScheme:(id)arg5;
-- (void)resolveGraphicPropertiesOfSeries:(id)arg1 forSeriesIndex:(unsigned int)arg2 colorMap:(id)arg3 colorScheme:(id)arg4;
+- (void)resolveGraphicPropertiesOfErrorBar:(id)arg1 forSeriesIndex:(unsigned long long)arg2 colorMap:(id)arg3 colorScheme:(id)arg4;
+- (void)resolveGraphicPropertiesOfTrendline:(id)arg1 forSeriesIndex:(unsigned long long)arg2;
+- (void)resolveGraphicPropertiesOfSeries:(id)arg1 forSeriesIndex:(unsigned long long)arg2 isLine:(_Bool)arg3 colorMap:(id)arg4 colorScheme:(id)arg5;
+- (void)resolveGraphicPropertiesOfSeries:(id)arg1 forSeriesIndex:(unsigned long long)arg2 colorMap:(id)arg3 colorScheme:(id)arg4;
 @end
 

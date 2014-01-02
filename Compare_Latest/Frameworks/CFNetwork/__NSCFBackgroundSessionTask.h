@@ -8,14 +8,15 @@
 
 @class __NSCFURLSession;
 
+// Not exported
 @interface __NSCFBackgroundSessionTask : __NSCFURLSessionTask
 {
     id <NDBackgroundSessionProtocol> _remoteSession;
     __NSCFURLSession *_session;
-    unsigned int _ident;
+    unsigned long long _ident;
 }
 
-@property(readonly) unsigned int ident; // @synthesize ident=_ident;
+@property(readonly) unsigned long long ident; // @synthesize ident=_ident;
 @property(retain) __NSCFURLSession *session; // @synthesize session=_session;
 @property(retain) id <NDBackgroundSessionProtocol> remoteSession; // @synthesize remoteSession=_remoteSession;
 - (void)setTaskDescription:(id)arg1;
@@ -27,8 +28,8 @@
 - (void)_onqueue_didReceiveResponse:(id)arg1;
 - (void)_onqueue_didReceiveChallenge:(id)arg1 request:(id)arg2 withCompletion:(id)arg3;
 - (void)dealloc;
-- (id)initWithLocalTask:(id)arg1 session:(id)arg2 remoteSession:(id)arg3 ident:(unsigned int)arg4;
-- (id)initWithSession:(id)arg1 remoteSession:(id)arg2 request:(id)arg3 ident:(unsigned int)arg4;
+- (id)initWithLocalTask:(id)arg1 session:(id)arg2 remoteSession:(id)arg3 ident:(unsigned long long)arg4;
+- (id)initWithSession:(id)arg1 remoteSession:(id)arg2 request:(id)arg3 ident:(unsigned long long)arg4;
 
 @end
 

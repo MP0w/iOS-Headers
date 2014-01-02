@@ -11,12 +11,12 @@
 @interface MFProtectedSQLiteConnection : MFSQLiteConnection
 {
     NSString *_protectedName;
-    long _vfsOnce;
+    long long _vfsOnce;
     NSString *_vfsName;
-    BOOL _attached;
+    _Bool _attached;
 }
 
-@property(readonly, nonatomic) BOOL isProtectedDatabaseAttached; // @synthesize isProtectedDatabaseAttached=_attached;
+@property(readonly, nonatomic) _Bool isProtectedDatabaseAttached; // @synthesize isProtectedDatabaseAttached=_attached;
 - (int)detachProtectedDatabase;
 - (int)attachProtectedDatabase;
 - (void)close;

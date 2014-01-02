@@ -6,8 +6,9 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSMutableArray, NSMutableDictionary, VGLMesh, VKRealisticPolygonMaker;
+@class NSArray, NSMutableArray, NSMutableDictionary, VGLMesh, VKRealisticPolygonMaker, VKStyle;
 
+// Not exported
 @interface VKRealisticRoadGroup : NSObject
 {
     struct VKTileKey _tileKey;
@@ -24,7 +25,7 @@
     float _roadShadowRamp;
     float _roadShadowWidth;
     float _roadShadowTaperLength;
-    struct _VGLColor _casingColor;
+    VKStyle *_style;
     float _casingShadowRamp;
     struct _VGLColor _sidewalkColor;
     NSMutableArray *_roadMeshes;
@@ -36,7 +37,7 @@
 }
 
 @property(readonly, nonatomic) float casingShadowRamp; // @synthesize casingShadowRamp=_casingShadowRamp;
-@property(readonly, nonatomic) struct _VGLColor casingColor; // @synthesize casingColor=_casingColor;
+@property(retain, nonatomic) VKStyle *style; // @synthesize style=_style;
 @property(readonly, nonatomic) float roadShadowTaperLength; // @synthesize roadShadowTaperLength=_roadShadowTaperLength;
 @property(readonly, nonatomic) float roadShadowWidth; // @synthesize roadShadowWidth=_roadShadowWidth;
 @property(readonly, nonatomic) float roadShadowRamp; // @synthesize roadShadowRamp=_roadShadowRamp;
@@ -48,12 +49,11 @@
 @property(readonly, nonatomic) NSArray *roadMeshes; // @synthesize roadMeshes=_roadMeshes;
 @property(nonatomic) int renderZ; // @synthesize renderZ=_renderZ;
 - (id).cxx_construct;
-- (unsigned int)triangleCount;
-- (id)_meshForStyle:(id)arg1 tileKey:(struct VKTileKey)arg2 scale:(float)arg3;
-- (void)updateComponentsWithModelViewProjectionMatrix:(CDUnion_f5b85e25)arg1 contentScale:(float)arg2;
-- (void)addRoadForPolygon:(const Vec2Imp_1782d7e3 *)arg1 pointCount:(unsigned int)arg2 characteristicPoints:(const CDStruct_dab2d0bd *)arg3 characteristicPointCount:(unsigned int)arg4 withStyle:(id)arg5;
+- (unsigned long long)triangleCount;
+- (id)_meshForStyle:(id)arg1 tileKey:(struct VKTileKey)arg2 scale:(double)arg3;
+- (void)updateComponentsWithModelViewProjectionMatrix:(CDUnion_f5b85e25)arg1 contentScale:(double)arg2;
+- (void)addRoadForPolygon:(const Vec2Imp_1782d7e3 *)arg1 pointCount:(unsigned long long)arg2 characteristicPoints:(const CDStruct_db2bd8f2 *)arg3 characteristicPointCount:(unsigned long long)arg4 withStyle:(id)arg5;
 - (void)dealloc;
-- (struct _VGLColor)casingColorVariantWithBlendingFactor:(float)arg1;
 - (id)initWithTile:(id)arg1;
 
 @end

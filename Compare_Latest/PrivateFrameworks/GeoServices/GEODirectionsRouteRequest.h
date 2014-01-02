@@ -12,8 +12,8 @@
 }
 
 @property(nonatomic) unsigned short providerID; // @synthesize providerID=_providerID;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (Class)responseClass;
-- (id)initWithQuickETARequest:(id)arg1;
 
 @end
 

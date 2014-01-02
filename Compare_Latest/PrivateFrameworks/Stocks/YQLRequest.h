@@ -17,8 +17,8 @@
     NSMutableData *_rawData;
 }
 
-+ (BOOL)shouldGenerateOfflineData;
-+ (void)setShouldGenerateOfflineData:(BOOL)arg1;
++ (_Bool)shouldGenerateOfflineData;
++ (void)setShouldGenerateOfflineData:(_Bool)arg1;
 + (void)saveDebugString;
 + (void)appendDebugString:(id)arg1;
 - (void).cxx_destruct;
@@ -31,7 +31,7 @@
 - (void)failWithError:(id)arg1;
 - (void)didParseData;
 - (void)parseData:(id)arg1;
-- (BOOL)isLoading;
+- (_Bool)isLoading;
 - (void)loadRequest:(id)arg1;
 
 @end

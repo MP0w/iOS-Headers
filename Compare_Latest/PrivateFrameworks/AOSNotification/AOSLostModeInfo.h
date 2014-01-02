@@ -12,13 +12,13 @@
 
 @interface AOSLostModeInfo : NSObject <NSSecureCoding>
 {
-    BOOL _lostModeEnabled;
+    _Bool _lostModeEnabled;
     NSString *_message;
     NSString *_phoneNumber;
 }
 
-+ (BOOL)supportsSecureCoding;
-@property(nonatomic) BOOL lostModeEnabled; // @synthesize lostModeEnabled=_lostModeEnabled;
++ (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool lostModeEnabled; // @synthesize lostModeEnabled=_lostModeEnabled;
 @property(retain, nonatomic) NSString *phoneNumber; // @synthesize phoneNumber=_phoneNumber;
 @property(retain, nonatomic) NSString *message; // @synthesize message=_message;
 - (id)description;

@@ -14,11 +14,11 @@
     UILabel *_bodyLabel;
     UIImageView *_glowImageView;
     UIImageView *_imageView;
-    int _layoutPreset;
+    long long _layoutPreset;
     UILabel *_titleLabel;
 }
 
-@property(nonatomic) int layoutPreset; // @synthesize layoutPreset=_layoutPreset;
+@property(nonatomic) long long layoutPreset; // @synthesize layoutPreset=_layoutPreset;
 - (id)_titleLabel;
 - (id)_newLabel;
 - (id)_imageView;

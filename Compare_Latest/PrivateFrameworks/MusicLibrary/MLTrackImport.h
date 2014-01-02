@@ -16,16 +16,14 @@
     NSString *_assetFilePath;
     NSArray *_chapters;
     NSMutableDictionary *_properties;
-    BOOL _shouldAddToPurchasedPlaylist;
-    BOOL _shouldDeleteExistingArtwork;
-    BOOL _assignArtworkCacheIDFromAlbum;
+    _Bool _shouldAddToPurchasedPlaylist;
+    _Bool _assignArtworkCacheIDFromAlbum;
 }
 
 + (void)initialize;
-@property(nonatomic) BOOL shouldDeleteExistingArtwork; // @synthesize shouldDeleteExistingArtwork=_shouldDeleteExistingArtwork;
-@property(nonatomic) BOOL shouldAddToPurchasedPlaylist; // @synthesize shouldAddToPurchasedPlaylist=_shouldAddToPurchasedPlaylist;
+@property(nonatomic) _Bool shouldAddToPurchasedPlaylist; // @synthesize shouldAddToPurchasedPlaylist=_shouldAddToPurchasedPlaylist;
 @property(copy, nonatomic) NSArray *chapters; // @synthesize chapters=_chapters;
-@property(nonatomic) BOOL assignArtworkCacheIDFromAlbum; // @synthesize assignArtworkCacheIDFromAlbum=_assignArtworkCacheIDFromAlbum;
+@property(nonatomic) _Bool assignArtworkCacheIDFromAlbum; // @synthesize assignArtworkCacheIDFromAlbum=_assignArtworkCacheIDFromAlbum;
 @property(copy, nonatomic) NSString *assetFilePath; // @synthesize assetFilePath=_assetFilePath;
 @property(copy, nonatomic) NSData *artworkData; // @synthesize artworkData=_artworkData;
 - (void).cxx_destruct;
@@ -35,7 +33,7 @@
 - (id)valueForEntityProperty:(id)arg1;
 - (void)setValue:(id)arg1 forEntityProperty:(id)arg2;
 @property(copy, nonatomic) MLMovieProperties *movieProperties;
-@property(nonatomic) unsigned long mediaType;
+@property(nonatomic) unsigned int mediaType;
 @property(copy, nonatomic) MLContentRating *contentRating;
 @property(readonly, nonatomic) NSDictionary *entityProperties;
 - (id)copyWithZone:(struct _NSZone *)arg1;

@@ -10,21 +10,21 @@
 
 @interface ABDividerView : UIView
 {
-    BOOL _isVertical;
+    _Bool _isVertical;
     UIColor *_defaultColor;
     UIColor *_shadowColor;
     ABSteadfastLineView *_line;
     ABSteadfastLineView *_shadowLine;
-    BOOL _disappearsOnHighlight;
+    _Bool _disappearsOnHighlight;
 }
 
-@property(nonatomic) BOOL disappearsOnHighlight; // @synthesize disappearsOnHighlight=_disappearsOnHighlight;
+@property(nonatomic) _Bool disappearsOnHighlight; // @synthesize disappearsOnHighlight=_disappearsOnHighlight;
 @property(retain, nonatomic) UIColor *shadowColor; // @synthesize shadowColor=_shadowColor;
 @property(retain, nonatomic) UIColor *defaultColor; // @synthesize defaultColor=_defaultColor;
-@property(nonatomic, getter=isVertical) BOOL vertical; // @synthesize vertical=_isVertical;
+@property(nonatomic, getter=isVertical) _Bool vertical; // @synthesize vertical=_isVertical;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (void)setHighlighted:(BOOL)arg1;
+- (void)setHighlighted:(_Bool)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

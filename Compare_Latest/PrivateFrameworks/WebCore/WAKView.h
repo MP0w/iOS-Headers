@@ -13,8 +13,8 @@
     struct _WKViewContext viewContext;
     struct WKView *viewRef;
     NSMutableSet *subviewReferences;
-    BOOL _isHidden;
-    BOOL _drawsOwnDescendants;
+    _Bool _isHidden;
+    _Bool _drawsOwnDescendants;
 }
 
 + (void)_setInterpolationQuality:(int)arg1;
@@ -23,17 +23,17 @@
 - (id).cxx_construct;
 - (void)_appendDescriptionToString:(id)arg1 atLevel:(int)arg2;
 - (id)description;
-- (void)_setDrawsOwnDescendants:(BOOL)arg1;
+- (void)_setDrawsOwnDescendants:(_Bool)arg1;
 - (float)scale;
 - (void)setScale:(float)arg1;
 - (void)layoutIfNeeded;
 - (void)layout;
-- (void)setNeedsLayout:(BOOL)arg1;
-- (BOOL)scrollRectToVisible:(struct CGRect)arg1;
+- (void)setNeedsLayout:(_Bool)arg1;
+- (_Bool)scrollRectToVisible:(struct CGRect)arg1;
 - (void)scrollPoint:(struct CGPoint)arg1;
 - (unsigned int)autoresizingMask;
 - (void)setAutoresizingMask:(unsigned int)arg1;
-- (BOOL)inLiveResize;
+- (_Bool)inLiveResize;
 - (void)releaseGState;
 - (void)invalidateGState;
 - (id)previousKeyView;
@@ -41,11 +41,11 @@
 - (id)nextKeyView;
 - (id)previousValidKeyView;
 - (void)setNextKeyView:(id)arg1;
-- (BOOL)needsPanelToBecomeKey;
-- (BOOL)mouse:(struct CGPoint)arg1 inRect:(struct CGRect)arg2;
-- (BOOL)isHiddenOrHasHiddenAncestor;
-- (BOOL)isDescendantOf:(id)arg1;
-- (void)setHidden:(BOOL)arg1;
+- (_Bool)needsPanelToBecomeKey;
+- (_Bool)mouse:(struct CGPoint)arg1 inRect:(struct CGRect)arg2;
+- (_Bool)isHiddenOrHasHiddenAncestor;
+- (_Bool)isDescendantOf:(id)arg1;
+- (void)setHidden:(_Bool)arg1;
 - (id)hitTest:(struct CGPoint)arg1;
 - (void)unlockFocus;
 - (void)lockFocus;
@@ -72,9 +72,9 @@
 - (void)drawRect:(struct CGRect)arg1;
 - (void)displayIfNeeded;
 - (void)display;
-- (BOOL)needsDisplay;
+- (_Bool)needsDisplay;
 - (void)setNeedsDisplayInRect:(struct CGRect)arg1;
-- (void)setNeedsDisplay:(BOOL)arg1;
+- (void)setNeedsDisplay:(_Bool)arg1;
 - (void)frameSizeChanged;
 - (void)viewDidMoveToWindow;
 - (void)removeFromSuperview;
@@ -90,11 +90,10 @@
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)init;
 - (id)_initWithViewRef:(struct WKView *)arg1;
-- (BOOL)_handleResponderCall:(int)arg1;
+- (_Bool)_handleResponderCall:(int)arg1;
 - (id)nextResponder;
-- (BOOL)_selfHandleEvent:(id)arg1;
+- (_Bool)_selfHandleEvent:(id)arg1;
 - (void)handleEvent:(id)arg1;
-- (BOOL)accessibilityIsIgnored;
 
 @end
 

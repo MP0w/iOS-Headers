@@ -8,6 +8,7 @@
 
 @class NSValue;
 
+// Not exported
 @interface PDTimeAnimateValue : NSObject
 {
     NSValue *mTimeValue;

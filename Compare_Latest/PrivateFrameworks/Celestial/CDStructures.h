@@ -14,45 +14,45 @@ struct AVControllerPrivate {
     id _field5;
     Class _field6;
     id _field7;
-    int _field8;
-    int _field9;
+    long long _field8;
+    long long _field9;
     float _field10;
     float _field11;
-    int _field12;
-    char _field13;
+    long long _field12;
+    _Bool _field13;
     id _field14;
     float _field15;
     struct __CFString *_field16;
     id _field17;
-    char _field18;
-    char _field19;
-    char _field20;
+    _Bool _field18;
+    _Bool _field19;
+    _Bool _field20;
     id _field21;
     struct OpaqueFigVisualContext *_field22;
     id _field23;
     struct __CFRunLoop *_field24;
-    unsigned int _field25;
+    unsigned long long _field25;
     int _field26;
     int _field27;
     int _field28;
-    char _field29;
-    char _field30;
-    char _field31;
-    char _field32;
+    _Bool _field29;
+    _Bool _field30;
+    _Bool _field31;
+    _Bool _field32;
     id _field33;
     struct OpaqueFigPlayer *_field34;
     id _field35;
     id _field36;
     id _field37;
-    char _field38;
-    char _field39;
+    _Bool _field38;
+    _Bool _field39;
     id _field40;
     id _field41;
-    char _field42;
-    char _field43;
-    char _field44;
+    _Bool _field42;
+    _Bool _field43;
+    _Bool _field44;
     int _field45;
-    char _field46;
+    _Bool _field46;
 };
 
 struct AVFileValidatorPrivate {
@@ -61,8 +61,8 @@ struct AVFileValidatorPrivate {
     struct FigOpaqueMediaValidator *_field3;
     struct FigMediaValidatorDataLocation _field4;
     struct OpaqueCMByteStream *_field5;
-    char _field6;
-    char _field7;
+    _Bool _field6;
+    _Bool _field7;
     id _field8;
 };
 
@@ -73,18 +73,18 @@ struct AVItemPrivate {
     float _field4;
     float _field5;
     float _field6;
-    unsigned int _field7;
-    char _field8;
-    char _field9;
+    unsigned long long _field7;
+    _Bool _field8;
+    _Bool _field9;
     id _field10;
-    int _field11;
+    long long _field11;
     long long _field12;
     long long _field13;
-    char _field14;
+    _Bool _field14;
     id _field15;
     id _field16;
-    char _field17;
-    char _field18;
+    _Bool _field17;
+    _Bool _field18;
     id _field19;
     id _field20;
     struct OpaqueMD5CheckProgress *_field21;
@@ -102,7 +102,7 @@ struct AVRecorderPrivate {
 
 struct AVRemakerPrivate {
     struct OpaqueFigRemaker *_field1;
-    char _field2;
+    _Bool _field2;
     id _field3;
     id _field4;
     id _field5;
@@ -118,8 +118,8 @@ struct AVSubtitleLayerUsingWebKitPrivate {
 };
 
 struct AVSystemControllerPrivate {
-    char _field1;
-    char _field2;
+    _Bool _field1;
+    _Bool _field2;
     float _field3;
     id _field4;
     struct OpaqueFigPlayer *_field5;
@@ -169,13 +169,13 @@ struct AudioTimeStamp {
 };
 
 struct CGPoint {
-    float _field1;
-    float _field2;
+    double _field1;
+    double _field2;
 };
 
 struct CGSize {
-    float width;
-    float height;
+    double width;
+    double height;
 };
 
 struct FigMediaValidatorDataLocation {
@@ -210,13 +210,13 @@ struct SMPTETime {
 };
 
 struct _NSRange {
-    unsigned int _field1;
-    unsigned int _field2;
+    unsigned long long _field1;
+    unsigned long long _field2;
 };
 
 struct _opaque_pthread_mutex_t {
-    long __sig;
-    char __opaque[40];
+    long long __sig;
+    char __opaque[56];
 };
 
 #pragma mark Typedef'd Structures

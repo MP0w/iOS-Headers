@@ -20,10 +20,10 @@
 - (void)layoutSubviews;
 - (void)_updateTitleLabel;
 - (void)setFrame:(struct CGRect)arg1;
-- (struct CGSize)_currentTextShadowOffsetForBarStyle:(int)arg1;
-- (id)_currentTextShadowColorForBarStyle:(int)arg1;
-- (id)_currentTextColorForBarStyle:(int)arg1;
-- (BOOL)_useSilverLookForBarStyle:(int)arg1;
+- (struct CGSize)_currentTextShadowOffsetForBarStyle:(long long)arg1;
+- (id)_currentTextShadowColorForBarStyle:(long long)arg1;
+- (id)_currentTextColorForBarStyle:(long long)arg1;
+- (_Bool)_useSilverLookForBarStyle:(long long)arg1;
 - (id)_defaultFont;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

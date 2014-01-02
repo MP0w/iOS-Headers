@@ -8,6 +8,7 @@
 
 @class NSArray;
 
+// Not exported
 @interface UIKeyboardEmojiCategoryBar_iPhone : UIKeyboardEmojiCategoryBar
 {
     NSArray *_selectedImages;

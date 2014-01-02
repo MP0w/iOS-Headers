@@ -10,50 +10,46 @@
 #import "KeychainSyncViewControllerDelegate-Protocol.h"
 #import "UIAlertViewDelegate-Protocol.h"
 
-@class KeychainSyncDevicePINController, KeychainSyncPhoneNumberController, KeychainSyncPhoneSettingsFragment, KeychainSyncSecurityCodeController, NSArray, NSString, PSKeychainSyncManager, PSSetupController, PSSpecifier;
+@class KeychainSyncCountryInfo, KeychainSyncDevicePINController, KeychainSyncPhoneSettingsFragment, NSArray, NSString, PSKeychainSyncManager, PSSetupController, PSSpecifier, UIAlertView;
 
 @interface PSAccountSecurityController : PSListController <KeychainSyncViewControllerDelegate, KeychainSyncPhoneSettingsFragmentDelegate, UIAlertViewDelegate>
 {
-    PSSpecifier *_simplePasscodeSwitch;
+    PSSpecifier *_recoverySwitch;
     NSArray *_passcodeSpecifiers;
-    PSSetupController *_securityCodeChangeSetupController;
-    KeychainSyncSecurityCodeController *_createSecurityCodeController;
+    PSSetupController *_devicePasscodeChangeSetupController;
     KeychainSyncDevicePINController *_devicePINController;
-    KeychainSyncPhoneNumberController *_phoneNumberController;
     KeychainSyncPhoneSettingsFragment *_phoneSettingsFragment;
     NSString *_SMSTarget;
-    NSString *_SMSTargetCountryCode;
-    BOOL _secureBackupEnabled;
-    BOOL _toggleSimpleness;
-    NSString *_changedSecurityCode;
-    BOOL _changedSecurityCodeIsSimple;
-    BOOL _changedSecurityCodeIsGenerated;
+    KeychainSyncCountryInfo *_SMSTargetCountryInfo;
+    _Bool _secureBackupEnabled;
     PSKeychainSyncManager *_manager;
-    BOOL _usesSimpleSecurityCode;
+    UIAlertView *_invalidPhoneNumberAlert;
+    UIAlertView *_changeDevicePasscodeAlert;
+    UIAlertView *_disableRecoveryConfirmationAlert;
+    _Bool _usesSimpleSecurityCode;
     NSString *_securityCode;
 }
 
 @property(retain, nonatomic) NSString *securityCode; // @synthesize securityCode=_securityCode;
-@property(nonatomic) BOOL usesSimpleSecurityCode; // @synthesize usesSimpleSecurityCode=_usesSimpleSecurityCode;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
-- (void)phoneSettingsFragment:(id)arg1 didChangePhoneNumber:(id)arg2 countryCode:(id)arg3;
+@property(nonatomic) _Bool usesSimpleSecurityCode; // @synthesize usesSimpleSecurityCode=_usesSimpleSecurityCode;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
+- (void)cancelPressed;
+- (void)phoneSettingsFragment:(id)arg1 didChangePhoneNumber:(id)arg2 countryInfo:(id)arg3;
+- (void)_setShowsDoneButton:(_Bool)arg1;
 - (void)navDonePressed;
 - (void)navCancelPressed;
+- (void)saveSMSTargetChanges;
 - (void)keychainSyncController:(id)arg1 didFinishWithResult:(id)arg2 error:(id)arg3;
-- (void)_changeSecurityCode:(id)arg1 isSimple:(BOOL)arg2 wasGenerated:(BOOL)arg3;
-- (void)_showErrorForCurrentTask:(id)arg1;
 - (id)useRecoveryForSepecifier:(id)arg1;
 - (void)setUseRecovery:(id)arg1 specifier:(id)arg2;
-- (void)setUseSimpleSecurityCode:(id)arg1 specifier:(id)arg2;
+- (void)disableRecovery;
 - (id)useSimpleSecurityCodeForSpecifier:(id)arg1;
 - (void)changeSecurityCode:(id)arg1;
 - (void)_showSecurityCodeChangeSheetOnSpecifier:(id)arg1;
-- (void)securityCodeCancelPressed;
-- (void)_cleanupSheet;
 - (void)reloadSpecifiers;
-- (void)resetKeychainSync:(id)arg1;
 - (id)specifiers;
-- (id)passcodeSpecifiersWithCircleExists:(BOOL)arg1 inCircle:(BOOL)arg2;
+- (id)passcodeSpecifiers;
+- (void)viewWillDisappear:(_Bool)arg1;
 - (void)dealloc;
 - (id)init;
 

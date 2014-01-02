@@ -9,10 +9,10 @@
 @protocol SBIconAccessoryView <NSObject>
 + (id)checkoutAccessoryImagesForIcon:(id)arg1 location:(int)arg2;
 - (void)prepareForReuse;
-- (void)setAccessoryBrightness:(float)arg1;
-- (BOOL)displayingAccessory;
+- (void)setAccessoryBrightness:(double)arg1;
+- (_Bool)displayingAccessory;
 - (struct CGPoint)accessoryOriginForIconBounds:(struct CGRect)arg1;
-- (void)configureForIcon:(id)arg1 location:(int)arg2 highlighted:(BOOL)arg3;
-- (void)configureAnimatedForIcon:(id)arg1 location:(int)arg2 highlighted:(BOOL)arg3 withPreparation:(id)arg4 animation:(void)arg5 completion:(id)arg6;
+- (void)configureForIcon:(id)arg1 location:(int)arg2 highlighted:(_Bool)arg3;
+- (void)configureAnimatedForIcon:(id)arg1 location:(int)arg2 highlighted:(_Bool)arg3 withPreparation:(id)arg4 animation:(void)arg5 completion:(id)arg6;
 @end
 

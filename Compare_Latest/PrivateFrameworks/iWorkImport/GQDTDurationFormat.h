@@ -8,6 +8,7 @@
 
 #import "GQDNameMappable-Protocol.h"
 
+// Not exported
 @interface GQDTDurationFormat : NSObject <GQDNameMappable>
 {
     struct __CFString *mFormatString;

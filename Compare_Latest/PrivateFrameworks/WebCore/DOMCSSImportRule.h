@@ -8,6 +8,7 @@
 
 @class DOMCSSStyleSheet, DOMMediaList, NSString;
 
+// Not exported
 @interface DOMCSSImportRule : DOMCSSRule
 {
 }

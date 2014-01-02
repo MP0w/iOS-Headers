@@ -8,9 +8,10 @@
 
 @class NSMutableArray, NSMutableSet;
 
+// Not exported
 @interface MKTileOverlayRequester : GEOTileRequester
 {
-    BOOL _cancelled;
+    _Bool _cancelled;
     NSMutableArray *_waiting;
     NSMutableSet *_running;
     NSMutableArray *_errors;
@@ -21,7 +22,7 @@
 + (unsigned char)tileProviderIdentifier;
 - (void)dealloc;
 - (void)cancel;
-- (BOOL)isRunning;
+- (_Bool)isRunning;
 - (void)start;
 - (void)_operationFailed:(id)arg1 error:(id)arg2;
 - (void)_operationFinished:(id)arg1;

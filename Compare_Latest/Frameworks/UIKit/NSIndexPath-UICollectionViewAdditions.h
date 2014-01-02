@@ -7,7 +7,7 @@
 #import "NSIndexPath.h"
 
 @interface NSIndexPath (UICollectionViewAdditions)
-+ (id)indexPathForItem:(int)arg1 inSection:(int)arg2;
-@property(readonly, nonatomic) int item;
++ (id)indexPathForItem:(long long)arg1 inSection:(long long)arg2;
+@property(readonly, nonatomic) long long item;
 @end
 

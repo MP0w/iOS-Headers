@@ -22,14 +22,14 @@
 - (id)selectionRectsForRange:(id)arg1;
 - (struct CGRect)caretRectForPosition:(id)arg1;
 - (struct CGRect)firstRectForRange:(id)arg1;
-- (void)setBaseWritingDirection:(int)arg1 forRange:(id)arg2;
-- (int)baseWritingDirectionForPosition:(id)arg1 inDirection:(int)arg2;
-- (id)characterRangeByExtendingPosition:(id)arg1 inDirection:(int)arg2;
-- (id)positionWithinRange:(id)arg1 farthestInDirection:(int)arg2;
-- (int)offsetFromPosition:(id)arg1 toPosition:(id)arg2;
-- (int)comparePosition:(id)arg1 toPosition:(id)arg2;
-- (id)positionFromPosition:(id)arg1 inDirection:(int)arg2 offset:(int)arg3;
-- (id)positionFromPosition:(id)arg1 offset:(int)arg2;
+- (void)setBaseWritingDirection:(long long)arg1 forRange:(id)arg2;
+- (long long)baseWritingDirectionForPosition:(id)arg1 inDirection:(long long)arg2;
+- (id)characterRangeByExtendingPosition:(id)arg1 inDirection:(long long)arg2;
+- (id)positionWithinRange:(id)arg1 farthestInDirection:(long long)arg2;
+- (long long)offsetFromPosition:(id)arg1 toPosition:(id)arg2;
+- (long long)comparePosition:(id)arg1 toPosition:(id)arg2;
+- (id)positionFromPosition:(id)arg1 inDirection:(long long)arg2 offset:(long long)arg3;
+- (id)positionFromPosition:(id)arg1 offset:(long long)arg2;
 - (id)textRangeFromPosition:(id)arg1 toPosition:(id)arg2;
 - (void)unmarkText;
 - (void)setMarkedText:(id)arg1 selectedRange:(struct _NSRange)arg2;
@@ -37,17 +37,17 @@
 - (id)textInRange:(id)arg1;
 
 @optional
-@property(nonatomic) int selectionAffinity;
+@property(nonatomic) long long selectionAffinity;
 @property(readonly, nonatomic) UIView *textInputView;
-- (void)removeDictationResultPlaceholder:(id)arg1 willInsertResult:(BOOL)arg2;
+- (void)removeDictationResultPlaceholder:(id)arg1 willInsertResult:(_Bool)arg2;
 - (struct CGRect)frameForDictationResultPlaceholder:(id)arg1;
 - (id)insertDictationResultPlaceholder;
 - (void)dictationRecognitionFailed;
 - (void)dictationRecordingDidEnd;
 - (void)insertDictationResult:(id)arg1;
-- (int)characterOffsetOfPosition:(id)arg1 withinRange:(id)arg2;
-- (id)positionWithinRange:(id)arg1 atCharacterOffset:(int)arg2;
-- (id)textStylingAtPosition:(id)arg1 inDirection:(int)arg2;
-- (BOOL)shouldChangeTextInRange:(id)arg1 replacementText:(id)arg2;
+- (long long)characterOffsetOfPosition:(id)arg1 withinRange:(id)arg2;
+- (id)positionWithinRange:(id)arg1 atCharacterOffset:(long long)arg2;
+- (id)textStylingAtPosition:(id)arg1 inDirection:(long long)arg2;
+- (_Bool)shouldChangeTextInRange:(id)arg1 replacementText:(id)arg2;
 @end
 

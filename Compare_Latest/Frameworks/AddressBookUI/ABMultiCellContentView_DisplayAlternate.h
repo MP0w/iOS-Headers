@@ -14,19 +14,19 @@
 }
 
 + (void)setupDisplayLabel:(id)arg1 withPropertyGroup:(id)arg2 styleProvider:(id)arg3;
-+ (void)numberOfLines:(int *)arg1 lineBreakMode:(int *)arg2 forDisplayLabelWithPropertyGroup:(id)arg3 styleProvider:(id)arg4;
++ (void)numberOfLines:(long long *)arg1 lineBreakMode:(long long *)arg2 forDisplayLabelWithPropertyGroup:(id)arg3 styleProvider:(id)arg4;
 + (id)displayLabelForReuse;
-+ (struct CGSize)layoutSubviewsForView:(id)arg1 usingSize:(struct CGSize)arg2 propertyGroup:(id)arg3 info:(id)arg4 styleProvider:(id)arg5 whenEditing:(BOOL)arg6;
-+ (struct CGSize)layoutSubviewsForView:(id)arg1 usingSize:(struct CGSize)arg2 propertyGroup:(id)arg3 info:(id)arg4 styleProvider:(id)arg5 whenEditing:(BOOL)arg6 includeRows:(BOOL)arg7;
-+ (struct CGRect)displayLabelFrameForValueViewFrame:(struct CGRect)arg1 styleProvider:(id)arg2 whenEditing:(BOOL)arg3;
++ (struct CGSize)layoutSubviewsForView:(id)arg1 usingSize:(struct CGSize)arg2 propertyGroup:(id)arg3 info:(id)arg4 styleProvider:(id)arg5 whenEditing:(_Bool)arg6;
++ (struct CGSize)layoutSubviewsForView:(id)arg1 usingSize:(struct CGSize)arg2 propertyGroup:(id)arg3 info:(id)arg4 styleProvider:(id)arg5 whenEditing:(_Bool)arg6 includeRows:(_Bool)arg7;
++ (struct CGRect)displayLabelFrameForValueViewFrame:(struct CGRect)arg1 styleProvider:(id)arg2 whenEditing:(_Bool)arg3;
 - (void)setAbCellStyle:(int)arg1;
 - (void)reloadFromModel;
-- (void)reloadFromModelIncludingRows:(BOOL)arg1;
+- (void)reloadFromModelIncludingRows:(_Bool)arg1;
 - (void)reload;
-- (void)reloadIncludingRows:(BOOL)arg1 includingDisplayView:(BOOL)arg2;
+- (void)reloadIncludingRows:(_Bool)arg1 includingDisplayView:(_Bool)arg2;
 - (void)reloadDisplayText;
-- (void)updateSubviewsForNewStateAnimated:(BOOL)arg1;
-- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)updateSubviewsForNewStateAnimated:(_Bool)arg1;
+- (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
 @property(readonly, nonatomic) NSString *displayText;
 - (struct CGRect)valueTextRect;
 

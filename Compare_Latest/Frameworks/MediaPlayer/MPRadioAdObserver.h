@@ -8,44 +8,56 @@
 
 #import "ADBannerViewDelegate-Protocol.h"
 
-@class MPAVItem, MPAudioDeviceController, NSDictionary, NSMutableArray, RadioStation;
+@class MPAVItem, MPAudioDeviceController, NSDictionary, NSMapTable, NSMutableArray, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, RadioStation;
 
 @interface MPRadioAdObserver : NSObject <ADBannerViewDelegate>
 {
+    NSObject<OS_dispatch_queue> *_accessQueue;
     MPAudioDeviceController *_audioDeviceController;
     int _blankedStateNotifyToken;
-    BOOL _blankedStateNotifyTokenIsValid;
+    _Bool _blankedStateNotifyTokenIsValid;
     MPAVItem *_currentItem;
     int _lockStateNotifyToken;
-    BOOL _lockStateNotifyTokenIsValid;
+    _Bool _lockStateNotifyTokenIsValid;
     double _minDurationToCountAsPlayed;
     NSDictionary *_pickedRoute;
-    BOOL _policyEngineEnabled;
+    NSObject<OS_dispatch_source> *_playEventFlushTimerSource;
+    long long _policyEngineEnabledCount;
     NSMutableArray *_queuedAds;
-    NSMutableArray *_skipEvents;
+    NSMapTable *_skipEventsByStationInfo;
     double _startTimeForCurrentItem;
     RadioStation *_station;
-    int _visualEngagementCount;
-    unsigned int _numberOfSkippedTracks;
+    long long _visualEngagementCount;
+    _Bool _visuallyEngaged;
+    unsigned long long _numberOfSkippedTracks;
 }
 
 + (id)sharedAdObserver;
-@property(readonly, nonatomic) unsigned int numberOfSkippedTracks; // @synthesize numberOfSkippedTracks=_numberOfSkippedTracks;
+@property(readonly, nonatomic) unsigned long long numberOfSkippedTracks; // @synthesize numberOfSkippedTracks=_numberOfSkippedTracks;
+@property(readonly, nonatomic, getter=isVisuallyEngaged) _Bool visuallyEngaged; // @synthesize visuallyEngaged=_visuallyEngaged;
 @property(retain, nonatomic) RadioStation *station; // @synthesize station=_station;
 - (void).cxx_destruct;
-- (void)_updateVisualEngagementWithApplicationState:(int)arg1;
-- (void)_sendPlayAndSkipEventsForPlayedItem:(id)arg1;
+- (void)_updateVisualEngagementWithApplicationState:(long long)arg1;
+- (void)_schedulePlayEventFlushTimer;
+- (void)_sendPlayAndSkipEvents;
+- (void)_reportPlaybackEndedForTimeout;
+- (id)_stationInfoForItem:(id)arg1;
 - (id)_playEventForItem:(id)arg1;
 - (void)_loadMinDurationToCountAsPlayedFromURLBag;
-- (double)_itemTimeForItem:(id)arg1 wasSkipped:(char *)arg2;
+- (double)_itemTimeForItem:(id)arg1 wasSkipped:(_Bool *)arg2 didAssetFailToLoad:(_Bool *)arg3;
+- (_Bool)_isPolicyEngineEnabled;
+- (void)_handleSkipForChangedItem:(id)arg1;
 - (void)_disablePolicyEngine;
 - (void)_enablePolicyEngine;
 - (void)_clearAssetCacheForItem:(id)arg1;
+- (void)_cancelPlayEventFlushTimer;
 - (id)_adPolicyEngine;
+- (void)_addPlayEvents:(id)arg1 withStationInfo:(id)arg2;
+- (void)willHitPlaybackTimeoutEndingPlayback:(_Bool)arg1 withCurrentItem:(id)arg2;
 - (void)optimalTransmissionWindowDidOpen;
-@property(readonly, nonatomic, getter=isVisuallyEngaged) BOOL visuallyEngaged;
 - (void)endVisualEngagement;
 - (void)didScheduleAd:(id)arg1;
+- (void)didHitPlaybackTimeoutEndingPlayback:(_Bool)arg1 withCurrentItem:(id)arg2;
 - (void)cancelQueuedAds;
 - (void)beginVisualEngagement;
 - (void)_stationEntryResponseNotification:(id)arg1;
@@ -62,7 +74,7 @@
 - (void)_applicationDidBecomeActiveNotification:(id)arg1;
 - (void)audioDeviceControllerAudioRoutesChanged:(id)arg1;
 - (void)bannerViewStoryboardPresentationInDidComplete:(id)arg1;
-- (BOOL)bannerViewActionShouldBegin:(id)arg1 willLeaveApplication:(BOOL)arg2;
+- (_Bool)bannerViewActionShouldBegin:(id)arg1 willLeaveApplication:(_Bool)arg2;
 - (void)bannerViewActionDidFinish:(id)arg1;
 - (void)bannerView:(id)arg1 didFailToReceiveAdWithError:(id)arg2;
 - (void)dealloc;

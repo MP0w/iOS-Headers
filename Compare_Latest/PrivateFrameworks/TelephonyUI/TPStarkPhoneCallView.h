@@ -10,9 +10,9 @@
 
 @interface TPStarkPhoneCallView : UIView
 {
-    BOOL _isPartOfConferenceGroup;
-    BOOL _onHold;
-    BOOL _isShowingCallFailure;
+    _Bool _isPartOfConferenceGroup;
+    _Bool _onHold;
+    _Bool _isShowingCallFailure;
     id <TPStarkPhoneCallViewDelegate> _delegate;
     UIImageView *_pictureWellImageView;
     NSLayoutConstraint *_horizontalPositioningConstraint;
@@ -27,9 +27,9 @@
 + (struct CGSize)defaultPhoneCallViewSize;
 @property(retain) UILabel *durationOrNumberTypeLabel; // @synthesize durationOrNumberTypeLabel=_durationOrNumberTypeLabel;
 @property(retain) UILabel *nameLabel; // @synthesize nameLabel=_nameLabel;
-@property(nonatomic) BOOL isShowingCallFailure; // @synthesize isShowingCallFailure=_isShowingCallFailure;
-@property(nonatomic) BOOL onHold; // @synthesize onHold=_onHold;
-@property(nonatomic) BOOL isPartOfConferenceGroup; // @synthesize isPartOfConferenceGroup=_isPartOfConferenceGroup;
+@property(nonatomic) _Bool isShowingCallFailure; // @synthesize isShowingCallFailure=_isShowingCallFailure;
+@property(nonatomic) _Bool onHold; // @synthesize onHold=_onHold;
+@property(nonatomic) _Bool isPartOfConferenceGroup; // @synthesize isPartOfConferenceGroup=_isPartOfConferenceGroup;
 @property(retain, nonatomic) TUCall *representedPhoneCall; // @synthesize representedPhoneCall=_representedPhoneCall;
 @property(retain) NSLayoutConstraint *maximumWidthLayoutConstraint; // @synthesize maximumWidthLayoutConstraint=_maximumWidthLayoutConstraint;
 @property(retain) NSLayoutConstraint *horizontalAnchoringConstraint; // @synthesize horizontalAnchoringConstraint=_horizontalAnchoringConstraint;

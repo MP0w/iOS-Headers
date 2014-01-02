@@ -8,15 +8,15 @@
 
 @interface SUFrameAdjustmentImageModifier : SUImageModifier
 {
-    BOOL _shouldSizeDownToFit;
-    unsigned int _sizingMask;
+    _Bool _shouldSizeDownToFit;
+    unsigned long long _sizingMask;
 }
 
-@property(nonatomic) BOOL shouldSizeDownToFit; // @synthesize shouldSizeDownToFit=_shouldSizeDownToFit;
-@property(nonatomic) unsigned int sizingMask; // @synthesize sizingMask=_sizingMask;
-- (BOOL)scalesImage;
+@property(nonatomic) _Bool shouldSizeDownToFit; // @synthesize shouldSizeDownToFit=_shouldSizeDownToFit;
+@property(nonatomic) unsigned long long sizingMask; // @synthesize sizingMask=_sizingMask;
+- (_Bool)scalesImage;
 - (struct CGRect)imageFrameForImage:(id)arg1 currentFrame:(struct CGRect)arg2 finalSize:(struct CGSize)arg3;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 
 @end
 

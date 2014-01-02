@@ -14,6 +14,7 @@
 }
 
 + (id)sharedFormMetadataController;
+- (_Bool)formClassificationShouldIgnoreAutocompleteAttribute;
 - (void)clearScriptWorld;
 @property(readonly, nonatomic) WebScriptWorld *scriptWorld; // @synthesize scriptWorld=_scriptWorld;
 - (id)formAutoFillNodeForJSWrapper:(struct OpaqueJSValue *)arg1 inContext:(struct OpaqueJSContext *)arg2;

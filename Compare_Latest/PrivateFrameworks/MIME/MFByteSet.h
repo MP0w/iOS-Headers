@@ -25,7 +25,7 @@
 - (id)initWithCString:(const char *)arg1;
 - (id)initWithRange:(struct _NSRange)arg1;
 - (id)invertedSet;
-- (BOOL)byteIsMember:(BOOL)arg1;
+- (_Bool)byteIsMember:(BOOL)arg1;
 
 @end
 

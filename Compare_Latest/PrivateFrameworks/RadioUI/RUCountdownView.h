@@ -24,7 +24,7 @@
 - (void)_updateTimeRelatedSubviews;
 - (void)_cancelAnimationTimer;
 @property(retain, nonatomic) UIColor *fillShadowColor;
-@property(nonatomic) float fillShadowBlur;
+@property(nonatomic) double fillShadowBlur;
 @property(retain, nonatomic) UIImage *fillImage;
 @property(retain, nonatomic) UIImage *baseImage;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;

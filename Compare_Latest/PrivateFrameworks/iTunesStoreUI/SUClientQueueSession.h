@@ -10,7 +10,7 @@
 
 @interface SUClientQueueSession : NSObject
 {
-    int _count;
+    long long _count;
     NSArray *_downloadKinds;
     SSDownloadManagerOptions *_managerOptions;
     id _queue;
@@ -19,7 +19,7 @@
 @property(retain, nonatomic) id queue; // @synthesize queue=_queue;
 @property(copy, nonatomic) SSDownloadManagerOptions *managerOptions; // @synthesize managerOptions=_managerOptions;
 @property(copy, nonatomic) NSArray *downloadKinds; // @synthesize downloadKinds=_downloadKinds;
-@property(nonatomic) int count; // @synthesize count=_count;
+@property(nonatomic) long long count; // @synthesize count=_count;
 - (void)dealloc;
 - (id)initWithQueue:(id)arg1;
 

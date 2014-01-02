@@ -6,42 +6,55 @@
 
 #import "UIView.h"
 
-@class NSString, PUPhotoDecoration, UIImage, UIImageView, UILabel;
+@class NSNumber, NSString, PUBackgroundColorView, PUPhotoDecoration, UIImage, UIImageView, UILabel;
 
 @interface PUPhotoView : UIView
 {
-    UIView *_photoDecorationBorderView;
-    UIView *_photoDecorationOverlayView;
-    UIView *_bannerView;
+    PUBackgroundColorView *_photoDecorationBorderView;
+    PUBackgroundColorView *_photoDecorationOverlayView;
+    UIImageView *_bannerView;
     UIImageView *_bannerImageView;
     UILabel *_bannerLabel;
-    int _fillMode;
+    _Bool _isVideoBannerVisible;
+    _Bool _slalom;
+    long long _fillMode;
     UIImage *_photoImage;
     PUPhotoDecoration *_photoDecoration;
+    NSNumber *_videoDuration;
     UIImageView *_photoImageView;
+    UIImageView *__crossfadeImageView;
     UIImage *_bannerImage;
     NSString *_bannerText;
     struct CGSize _photoSize;
     struct CGAffineTransform _imageTransform;
 }
 
-+ (BOOL)_showPhotoStreamBadges;
++ (struct CGSize)sizeThatFits:(struct CGSize)arg1 imageSize:(struct CGSize)arg2 fillMode:(long long)arg3;
++ (struct CGRect)_imageContentFrameForBounds:(struct CGRect)arg1 imageSize:(struct CGSize)arg2 fillMode:(long long)arg3;
++ (_Bool)_showPhotoStreamBadges;
 @property(copy, nonatomic) NSString *bannerText; // @synthesize bannerText=_bannerText;
 @property(retain, nonatomic) UIImage *bannerImage; // @synthesize bannerImage=_bannerImage;
+@property(retain, nonatomic) UIImageView *_crossfadeImageView; // @synthesize _crossfadeImageView=__crossfadeImageView;
 @property(retain, nonatomic) UIImageView *photoImageView; // @synthesize photoImageView=_photoImageView;
+@property(readonly, nonatomic, getter=isSlalom) _Bool slalom; // @synthesize slalom=_slalom;
+@property(readonly, nonatomic) NSNumber *videoDuration; // @synthesize videoDuration=_videoDuration;
 @property(copy, nonatomic) PUPhotoDecoration *photoDecoration; // @synthesize photoDecoration=_photoDecoration;
 @property(retain, nonatomic) UIImage *photoImage; // @synthesize photoImage=_photoImage;
 @property(nonatomic) struct CGSize photoSize; // @synthesize photoSize=_photoSize;
 @property(nonatomic) struct CGAffineTransform imageTransform; // @synthesize imageTransform=_imageTransform;
-@property(nonatomic) int fillMode; // @synthesize fillMode=_fillMode;
+@property(nonatomic) long long fillMode; // @synthesize fillMode=_fillMode;
+@property(readonly, nonatomic, getter=isVideoBannerVisible) _Bool videoBannerVisible; // @synthesize videoBannerVisible=_isVideoBannerVisible;
 - (void).cxx_destruct;
+- (void)animateCrossfadeToImage:(id)arg1;
 - (void)layoutSubviews;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)_updateBannerView;
 - (void)_updatePhotoDecoration;
 - (void)_updateSubviewOrdering;
-- (void)setPhotoStreamBannerVisible:(BOOL)arg1;
-- (void)setVideoBannerVisible:(BOOL)arg1 videoDuration:(id)arg2;
-- (struct CGRect)_photoDecorationOverlayViewFrameForBounds:(struct CGRect)arg1;
+- (void)setTransitionAvalancheBannerVisible:(_Bool)arg1;
+- (void)setAvalancheBannerVisible:(_Bool)arg1;
+- (void)setPhotoStreamBannerVisible:(_Bool)arg1;
+- (void)setVideoBannerVisible:(_Bool)arg1 videoDuration:(id)arg2 isSlalom:(_Bool)arg3;
 @property(readonly, nonatomic) struct CGRect imageContentFrame;
 - (struct CGRect)_photoDecorationBorderViewFrameForImageContentFrame:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

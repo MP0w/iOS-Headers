@@ -10,7 +10,7 @@
 {
 }
 
-- (BOOL)canSendURLRequest:(id)arg1;
+- (_Bool)canSendURLRequest:(id)arg1;
 - (void)setHeadersForRequest:(id)arg1;
 
 @end

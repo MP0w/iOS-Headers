@@ -7,8 +7,8 @@
 #pragma mark Named Structures
 
 struct CGPoint {
-    float _field1;
-    float _field2;
+    double _field1;
+    double _field2;
 };
 
 struct CGRect {
@@ -17,27 +17,28 @@ struct CGRect {
 };
 
 struct CGSize {
-    float _field1;
-    float _field2;
+    double _field1;
+    double _field2;
 };
 
 struct _NSRange {
-    unsigned int location;
-    unsigned int length;
+    unsigned long long location;
+    unsigned long long length;
 };
 
 struct __CFArray;
 
 struct __CFRuntimeBase {
-    unsigned int _field1;
+    unsigned long long _field1;
     unsigned char _field2[4];
+    unsigned int _field3;
 };
 
 struct __CFString;
 
 struct __DDQueryOffset {
-    int _field1;
-    int _field2;
+    long long _field1;
+    long long _field2;
 };
 
 struct __DDResult {
@@ -47,10 +48,10 @@ struct __DDResult {
         struct __DDQueryOffset _field2;
     } _field2;
     struct {
-        int _field1;
-        int _field2;
+        long long _field1;
+        long long _field2;
     } _field3;
-    int _field4;
+    long long _field4;
     struct __CFArray *_field5;
     struct __CFString *_field6;
     struct __CFString *_field7;
@@ -61,8 +62,8 @@ struct __DDResult {
 struct __DDScanQuery {
     struct __CFRuntimeBase _field1;
     struct __DDQueryFragment *_field2;
-    int _field3;
-    int _field4;
+    long long _field3;
+    long long _field4;
     void *_field5;
     void *_field6;
 };
@@ -79,9 +80,9 @@ struct __DDScanner {
     struct __DDScanQuery *_field9;
     struct __CFArray *_field10;
     struct __CFArray *_field11;
-    int _field12;
-    int _field13;
-    int _field14;
+    long long _field12;
+    long long _field13;
+    long long _field14;
     char *_field15;
     id _field16;
     void _field17;

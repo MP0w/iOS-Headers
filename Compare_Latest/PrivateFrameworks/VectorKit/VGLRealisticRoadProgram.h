@@ -6,6 +6,7 @@
 
 #import <VectorKit/VGLRealisticProgram.h>
 
+// Not exported
 @interface VGLRealisticRoadProgram : VGLRealisticProgram
 {
     int _textureSampler;

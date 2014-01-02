@@ -6,12 +6,13 @@
 
 #import "UIView.h"
 
+#import "ABPropertyGroupItemDelegate-Protocol.h"
 #import "UITableViewDataSource-Protocol.h"
 #import "UITableViewDelegate-Protocol.h"
 
-@class ABContactPhotoView, CNContact, NSArray, NSDictionary, UIColor, UILabel, UITableView;
+@class ABContactPhotoView, CNContact, NSArray, NSDictionary, NSString, UIColor, UILabel, UITableView;
 
-@interface ABContactHeaderView : UIView <UITableViewDelegate, UITableViewDataSource>
+@interface ABContactHeaderView : UIView <UITableViewDelegate, UITableViewDataSource, ABPropertyGroupItemDelegate>
 {
     ABContactPhotoView *_photoView;
     UILabel *_nameLabel;
@@ -19,34 +20,44 @@
     UITableView *_editingTable;
     CNContact *_contact;
     UIView *_personHeaderView;
-    float _personHeaderViewHeight;
-    BOOL _editing;
+    _Bool _editing;
     id <ABPresenterDelegate> _delegate;
     UIColor *_backgroundColor;
     NSDictionary *_nameTextAttributes;
     NSDictionary *_taglineTextAttributes;
     NSArray *_editingGroups;
+    NSString *_alternateName;
+    NSString *_message;
     struct UIEdgeInsets _contentMargins;
 }
 
-+ (BOOL)requiresConstraintBasedLayout;
++ (_Bool)requiresConstraintBasedLayout;
+@property(retain, nonatomic) NSString *message; // @synthesize message=_message;
+@property(retain, nonatomic) NSString *alternateName; // @synthesize alternateName=_alternateName;
 @property(retain, nonatomic) NSArray *editingGroups; // @synthesize editingGroups=_editingGroups;
-@property(nonatomic, getter=isEditing) BOOL editing; // @synthesize editing=_editing;
+@property(nonatomic, getter=isEditing) _Bool editing; // @synthesize editing=_editing;
 @property(nonatomic) struct UIEdgeInsets contentMargins; // @synthesize contentMargins=_contentMargins;
 @property(copy, nonatomic) NSDictionary *taglineTextAttributes; // @synthesize taglineTextAttributes=_taglineTextAttributes;
 @property(copy, nonatomic) NSDictionary *nameTextAttributes; // @synthesize nameTextAttributes=_nameTextAttributes;
 @property(retain, nonatomic) UIColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 @property(nonatomic) id <ABPresenterDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)menuWillHide:(id)arg1;
+- (void)handleNameLabelLongPress:(id)arg1;
 - (id)_taglineStringForContact:(id)arg1;
+- (id)_headerStringForContact:(id)arg1;
 - (void)_updatePhotoView;
-- (float)_topMarginToNameBaselineWithName:(id)arg1 tagline:(id)arg2;
-- (void)updateBackdropMasks;
+- (double)_topMarginToNameBaselineWithName:(id)arg1 tagline:(id)arg2;
+- (void)propertyItem:(id)arg1 didChangeValue:(id)arg2;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (BOOL)tableView:(id)arg1 shouldIndentWhileEditingRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 editingStyleForRowAtIndexPath:(id)arg2;
-- (id)selectEditingGroupAtIndex:(unsigned int)arg1;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (_Bool)tableView:(id)arg1 shouldIndentWhileEditingRowAtIndexPath:(id)arg2;
+- (long long)tableView:(id)arg1 editingStyleForRowAtIndexPath:(id)arg2;
+- (_Bool)canBecomeFirstResponder;
+- (_Bool)canPerformAction:(SEL)arg1 withSender:(id)arg2;
+- (void)copy:(id)arg1;
+- (id)selectEditingGroupAtIndex:(unsigned long long)arg1;
+- (void)saveContactPhoto;
 - (void)reloadData;
 - (void)updateWithNewContact:(id)arg1;
 - (id)contentViewEditingConstraints;
@@ -54,9 +65,10 @@
 - (void)updateConstraints;
 - (void)setNeedsUpdateConstraints;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (float)_labelsVSpacing;
+- (double)_labelsVSpacing;
 - (void)willMoveToSuperview:(id)arg1;
 - (void)updateFontSizes;
+- (void)tintColorDidChange;
 - (void)dealloc;
 - (id)initWithContact:(id)arg1 withEditingGroups:(id)arg2 personHeaderView:(id)arg3 frame:(struct CGRect)arg4;
 

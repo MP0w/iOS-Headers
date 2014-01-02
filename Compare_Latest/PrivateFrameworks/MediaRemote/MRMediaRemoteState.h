@@ -8,27 +8,28 @@
 
 @class NSArray, NSData, NSDictionary, NSMutableDictionary;
 
+// Not exported
 @interface MRMediaRemoteState : NSObject
 {
-    BOOL _canBeNowPlayingApp;
+    _Bool _canBeNowPlayingApp;
     id _commandHandlerBlock;
     NSMutableDictionary *_commandHandlerBlocks;
-    BOOL _isOverrideApp;
-    BOOL _keepAlive;
-    int _originDiscoveryCount;
+    _Bool _isOverrideApp;
+    _Bool _keepAlive;
+    long long _originDiscoveryCount;
     int _notifyRestoreClientStateForLaunch;
     int _notifyDidLaunchToken;
     NSData *_nowPlayingArtworkData;
     NSDictionary *_nowPlayingInfo;
-    unsigned int _routeDiscoveryCount;
+    unsigned long long _routeDiscoveryCount;
 }
 
 @property(retain, nonatomic) NSDictionary *nowPlayingInfo; // @synthesize nowPlayingInfo=_nowPlayingInfo;
 @property(retain, nonatomic) NSData *nowPlayingArtworkData; // @synthesize nowPlayingArtworkData=_nowPlayingArtworkData;
-@property(nonatomic) BOOL keepAlive; // @synthesize keepAlive=_keepAlive;
-@property(nonatomic) BOOL isOverrideApp; // @synthesize isOverrideApp=_isOverrideApp;
+@property(nonatomic) _Bool keepAlive; // @synthesize keepAlive=_keepAlive;
+@property(nonatomic) _Bool isOverrideApp; // @synthesize isOverrideApp=_isOverrideApp;
 @property(copy, nonatomic) id commandHandlerBlock; // @synthesize commandHandlerBlock=_commandHandlerBlock;
-@property(nonatomic) BOOL canBeNowPlayingApp; // @synthesize canBeNowPlayingApp=_canBeNowPlayingApp;
+@property(nonatomic) _Bool canBeNowPlayingApp; // @synthesize canBeNowPlayingApp=_canBeNowPlayingApp;
 - (void)endRouteDiscovery;
 @property(readonly, nonatomic) NSArray *commandHandlerBlocks;
 - (void)beginRouteDiscovery;

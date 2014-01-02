@@ -17,7 +17,7 @@
     SKUIClientContext *_clientContext;
     SKUIColorScheme *_colorScheme;
     UIPopoverController *_sortPopoverController;
-    int _selectedSortIndex;
+    long long _selectedSortIndex;
     UIView *_separatorView;
     UIButton *_sortButton;
     UILabel *_sortLabel;
@@ -29,14 +29,14 @@
 @property(readonly, nonatomic) UIControl *writeAReviewButton; // @synthesize writeAReviewButton=_writeAReviewButton;
 @property(readonly, nonatomic) UIControl *appSupportButton; // @synthesize appSupportButton=_appSupportButton;
 @property(copy, nonatomic) NSArray *sortTitles; // @synthesize sortTitles=_sortTitles;
-@property(nonatomic) int selectedSortIndex; // @synthesize selectedSortIndex=_selectedSortIndex;
+@property(nonatomic) long long selectedSortIndex; // @synthesize selectedSortIndex=_selectedSortIndex;
 @property(retain, nonatomic) SKUIColorScheme *colorScheme; // @synthesize colorScheme=_colorScheme;
 - (void).cxx_destruct;
 - (void)_reloadSortButton;
 - (void)_destroySortPopoverController;
 - (void)_sortButtonAction:(id)arg1;
 - (void)popoverControllerDidDismissPopover:(id)arg1;
-- (void)menuViewController:(id)arg1 didSelectItemAtIndex:(int)arg2;
+- (void)menuViewController:(id)arg1 didSelectItemAtIndex:(long long)arg2;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)setBackgroundColor:(id)arg1;
 - (void)layoutSubviews;

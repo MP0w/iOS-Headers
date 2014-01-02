@@ -6,9 +6,10 @@
 
 #import "UIButton.h"
 
+// Not exported
 @interface SLFacebookAudienceButton : UIButton
 {
-    BOOL _hasEnteredLayout;
+    _Bool _hasEnteredLayout;
 }
 
 - (struct CGSize)intrinsicContentSize;

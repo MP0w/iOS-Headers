@@ -16,7 +16,7 @@
 
 + (id)pongWithDictionary:(id)arg1 context:(id)arg2;
 + (id)pong;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

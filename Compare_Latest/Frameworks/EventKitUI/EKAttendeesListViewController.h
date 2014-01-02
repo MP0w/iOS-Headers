@@ -10,6 +10,7 @@
 
 @class EKAttendeesListView, EKEvent;
 
+// Not exported
 @interface EKAttendeesListViewController : UIViewController <EKEditItemViewControllerProtocol>
 {
     EKEvent *_event;
@@ -18,8 +19,8 @@
 
 - (void).cxx_destruct;
 - (void)attendeeSelected:(id)arg1;
-- (unsigned int)supportedInterfaceOrientations;
-- (void)viewWillAppear:(BOOL)arg1;
+- (unsigned long long)supportedInterfaceOrientations;
+- (void)viewWillAppear:(_Bool)arg1;
 - (id)title;
 - (void)loadView;
 - (id)initWithEvent:(id)arg1;

@@ -22,7 +22,7 @@
 - (void).cxx_destruct;
 - (void)_setDisplayNameFromOption:(id)arg1;
 - (id)description;
-- (int)compare:(id)arg1;
+- (long long)compare:(id)arg1;
 - (id)initWithOption:(id)arg1;
 
 @end

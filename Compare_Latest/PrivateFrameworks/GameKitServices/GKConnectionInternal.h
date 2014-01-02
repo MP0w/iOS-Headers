@@ -9,15 +9,16 @@
 #import "CDXClientDelegate-Protocol.h"
 #import "CDXClientSessionDelegate-Protocol.h"
 
-@class CDXClient, NSData, NSMutableArray, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_source>, NSString, RTCReporting, TimingCollection;
+@class CDXClient, NSData, NSMutableArray, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_source>, NSString, TimingCollection;
 
+// Not exported
 @interface GKConnectionInternal : GKConnection <CDXClientDelegate, CDXClientSessionDelegate>
 {
     unsigned int _gckPID;
     NSString *_pidGUID;
     struct OpaqueGCKSession *_gckSession;
     NSMutableArray *_gckEventList;
-    BOOL _toForwardEVents;
+    _Bool _toForwardEVents;
     id _eventDelegate;
     CDXClient *_cdxClient;
     NSMutableDictionary *_cdxSessions;
@@ -34,7 +35,7 @@
     NSMutableDictionary *_pidToPreblobMap;
     NSMutableDictionary *_pidToConnectionDataMap;
     NSMutableArray *_pendingConnectionPIDList;
-    BOOL _fAllowMoreRelay;
+    _Bool _fAllowMoreRelay;
     NSMutableArray *_allowRelayPIDList;
     NSMutableDictionary *_pidToPlayerIDMap;
     NSMutableDictionary *_pidToConnectTimeoutSource;
@@ -51,33 +52,33 @@
     NSMutableDictionary *_localGamingSocketToPIDMap;
     NSMutableDictionary *_localGamingSocketToConnectionDataMap;
     NSMutableSet *_pidsPreparedForConnection;
-    RTCReporting *_reportingAgent;
+    struct opaqueRTCReporting *_reportingAgent;
     TimingCollection *_perfTimers;
 }
 
 @property(retain) NSMutableDictionary *cdxSessions; // @synthesize cdxSessions=_cdxSessions;
 @property(retain, nonatomic) CDXClient *cdxClient; // @synthesize cdxClient=_cdxClient;
-- (void)setReportingAgent:(id)arg1;
-- (id)reportingAgent;
+- (void)setReportingAgent:(struct opaqueRTCReporting *)arg1;
+- (struct opaqueRTCReporting *)reportingAgent;
 @property(retain) NSMutableDictionary *pidToConnectTimeoutSource; // @synthesize pidToConnectTimeoutSource=_pidToConnectTimeoutSource;
 - (id)getLocalConnectionDataForLocalGaming;
-- (BOOL)startListeningForLocalGamingCDX;
+- (_Bool)startListeningForLocalGamingCDX;
 - (void)localGamingReceiveDataHandler:(id)arg1 data:(id)arg2 time:(double)arg3 error:(id)arg4;
-- (BOOL)localGamingCheckEstablishConnection:(id)arg1 connectionData:(id)arg2;
+- (_Bool)localGamingCheckEstablishConnection:(id)arg1 connectionData:(id)arg2;
 - (id)networkStatistics;
 - (id)networkStatisticsDictionaryForGCKStats:(void *)arg1;
 - (void)cancelConnectParticipant:(id)arg1;
-- (void)updateRelayWithParticipant:(id)arg1 withConnectionData:(id)arg2 withRelayInfo:(id)arg3 didInitiate:(BOOL)arg4;
-- (void)internalUpdateRelayWithParticipant:(id)arg1 withConnectionData:(id)arg2 withRelayInfo:(id)arg3 didInitiate:(BOOL)arg4;
-- (void)initiateRelayWithParticipant:(id)arg1 withConnectionData:(id)arg2 withRelayInfo:(id)arg3 didInitiate:(BOOL)arg4;
-- (void)internalInitiateRelayWithParticipant:(id)arg1 withConnectionData:(id)arg2 withRelayInfo:(id)arg3 didInitiate:(BOOL)arg4;
+- (void)updateRelayWithParticipant:(id)arg1 withConnectionData:(id)arg2 withRelayInfo:(id)arg3 didInitiate:(_Bool)arg4;
+- (void)internalUpdateRelayWithParticipant:(id)arg1 withConnectionData:(id)arg2 withRelayInfo:(id)arg3 didInitiate:(_Bool)arg4;
+- (void)initiateRelayWithParticipant:(id)arg1 withConnectionData:(id)arg2 withRelayInfo:(id)arg3 didInitiate:(_Bool)arg4;
+- (void)internalInitiateRelayWithParticipant:(id)arg1 withConnectionData:(id)arg2 withRelayInfo:(id)arg3 didInitiate:(_Bool)arg4;
 - (void)doRelayCheckForRemotePeerID:(id)arg1;
-- (id)newRelayUpdateDictionaryForParticipant:(id)arg1 didInitiate:(BOOL)arg2;
+- (id)newRelayUpdateDictionaryForParticipant:(id)arg1 didInitiate:(_Bool)arg2;
 - (id)createInitiateRelayDictionaryForParticipant:(id)arg1 remotePeerID:(id)arg2;
 - (void)setParticipantID:(id)arg1 forPeerID:(id)arg2;
-- (BOOL)convertPeerID:(id)arg1 toParticipantID:(id *)arg2;
-- (BOOL)convertParticipantID:(id)arg1 toPeerID:(id *)arg2;
-- (void)CDXClientSession:(id)arg1 receivedData:(id)arg2 from:(int)arg3;
+- (_Bool)convertPeerID:(id)arg1 toParticipantID:(id *)arg2;
+- (_Bool)convertParticipantID:(id)arg1 toPeerID:(id *)arg2;
+- (void)CDXClientSession:(id)arg1 receivedData:(id)arg2 from:(long long)arg3;
 - (id)extractBlobUsingData:(id)arg1 withSourcePID:(unsigned int)arg2 destPID:(unsigned int)arg3;
 - (void)CDXClient:(id)arg1 preblob:(id)arg2;
 - (void)CDXClient:(id)arg1 error:(id)arg2;
@@ -89,7 +90,7 @@
 - (struct OpaqueGCKSession *)gckSession;
 - (void)internal_setRemoteConnectionData:(id)arg1 fromParticipantID:(id)arg2 pendingConnectionPIDList:(id)arg3;
 - (void)connectParticipantsWithConnectionData:(id)arg1 withSessionInfo:(id)arg2;
-- (BOOL)shouldWeInitiateRelayWithPID:(unsigned int)arg1;
+- (_Bool)shouldWeInitiateRelayWithPID:(unsigned int)arg1;
 - (void)connectPendingConnectionsFromList:(id)arg1 sessionInfo:(id)arg2;
 - (void)getLocalConnectionDataWithCompletionHandler:(id)arg1;
 - (id)asyncWorkQueue;

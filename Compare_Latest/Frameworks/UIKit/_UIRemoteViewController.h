@@ -7,13 +7,12 @@
 #import <UIKit/UIViewController.h>
 
 #import "UIActionSheetDelegate-Protocol.h"
-#import "XPCProxyTarget-Protocol.h"
 #import "_UIRemoteViewController_TextEffectsOperatorInterface-Protocol.h"
 #import "_UIRemoteViewController_ViewControllerOperatorInterface-Protocol.h"
 
-@class NSArray, NSError, NSString, UIActionSheet, UIDimmingView, UIView, _UIAsyncInvocation, _UIRemoteView, _UISizeTrackingView, _UITextServiceSession, _UIViewServiceInterface;
+@class NSArray, NSError, NSObject<OS_dispatch_semaphore>, NSString, UIActionSheet, UIDimmingView, UIView, _UIAsyncInvocation, _UIRemoteView, _UISizeTrackingView, _UITextEffectsRemoteView, _UITextServiceSession, _UIViewServiceInterface;
 
-@interface _UIRemoteViewController : UIViewController <XPCProxyTarget, _UIRemoteViewController_ViewControllerOperatorInterface, _UIRemoteViewController_TextEffectsOperatorInterface, UIActionSheetDelegate>
+@interface _UIRemoteViewController : UIViewController <_UIRemoteViewController_ViewControllerOperatorInterface, _UIRemoteViewController_TextEffectsOperatorInterface, UIActionSheetDelegate>
 {
     NSString *_serviceBundleIdentifier;
     _UIViewServiceInterface *_serviceInterface;
@@ -21,19 +20,19 @@
     id _serviceViewControllerControlMessageProxy;
     NSArray *_serviceViewControllerSupportedInterfaceOrientations;
     unsigned int _serviceAccessibilityServerPort;
-    unsigned int _serviceRegisteredScrollToTopViewCount;
+    unsigned long long _serviceRegisteredScrollToTopViewCount;
     id _viewControllerOperatorProxy;
     _UIAsyncInvocation *_viewControllerOperatorHalfDisconnectionInvocation;
     id _textEffectsOperatorProxy;
     _UIAsyncInvocation *_textEffectsOperatorHalfDisconnectionInvocation;
-    BOOL _fencingCurrentTransaction;
-    unsigned int _fenceReplyPort;
+    _Bool _fencingCurrentTransaction;
+    NSObject<OS_dispatch_semaphore> *_fenceBarrier;
     _UISizeTrackingView *_sizeTrackingView;
     _UIRemoteView *_serviceViewControllerRemoteView;
-    _UIRemoteView *_fullScreenTextEffectsRemoteView;
-    _UIRemoteView *_textEffectsAboveStatusBarRemoteView;
+    _UITextEffectsRemoteView *_fullScreenTextEffectsRemoteView;
+    _UITextEffectsRemoteView *_textEffectsAboveStatusBarRemoteView;
     UIView *_fullScreenTextEffectsSnapshotView;
-    BOOL _snapshotTextEffectsAfterRotation;
+    _Bool _snapshotTextEffectsAfterRotation;
     unsigned int _serviceScreenDisplayID;
     _UIAsyncInvocation *_terminationInvocation;
     int _terminationErrorLock;
@@ -41,56 +40,54 @@
     UIActionSheet *_hostedActionSheet;
     _UITextServiceSession *_textServiceSession;
     int __automatic_invalidation_retainCount;
-    BOOL __automatic_invalidation_invalidated;
+    _Bool __automatic_invalidation_invalidated;
     UIDimmingView *_hostedDimmingView;
     UIView *_touchGrabbingView;
-    int _preferredStatusBarStyle;
-    BOOL _prefersStatusBarHidden;
+    long long _preferredStatusBarStyle;
+    _Bool _prefersStatusBarHidden;
 }
 
 + (id)requestViewController:(id)arg1 fromServiceWithBundleIdentifier:(id)arg2 connectionHandler:(id)arg3;
-+ (BOOL)_shouldUseXPCObjects;
-+ (id)exportedInterface;
-+ (id)serviceViewControllerInterface;
-+ (BOOL)shouldPropagateAppearanceCustomizations;
++ (_Bool)_shouldUseXPCObjects;
 - (void)restoreStateForSession:(id)arg1 anchor:(id)arg2;
 - (void)saveStateForSession:(id)arg1 anchor:(id)arg2;
-- (void)__dismissTextServiceSessionAnimated:(BOOL)arg1;
-- (void)__showServiceForText:(id)arg1 type:(int)arg2 fromRectValue:(id)arg3 replyHandler:(id)arg4;
+- (void)__dismissTextServiceSessionAnimated:(_Bool)arg1;
+- (void)__showServiceForText:(id)arg1 type:(long long)arg2 fromRectValue:(id)arg3 replyHandler:(id)arg4;
+- (void)_updateTintColor;
 - (void)_appearanceInvocationsDidChange:(id)arg1;
 - (id)_appearanceSource;
 - (void)__viewServiceDidUpdateTintColor:(id)arg1 duration:(double)arg2;
-- (BOOL)_customizesForPresentationInPopover;
-- (void)__viewServicePopoverDidSetUseToolbarShine:(BOOL)arg1;
-- (void)__viewServicePopoverDidChangeContentSize:(id)arg1 animated:(BOOL)arg2 fenceSendRight:(id)arg3 withReplyHandler:(id)arg4;
+- (_Bool)_customizesForPresentationInPopover;
+- (void)__viewServicePopoverDidSetUseToolbarShine:(_Bool)arg1;
+- (void)__viewServicePopoverDidChangeContentSize:(struct CGSize)arg1 animated:(_Bool)arg2 fenceSendRight:(id)arg3 withReplyHandler:(id)arg4;
 - (void)__viewServiceDidPromoteFirstResponder;
 - (void)__sendNotificationName:(id)arg1 userInfo:(id)arg2;
 - (void)dimmingViewWasTapped:(id)arg1;
-- (void)__setViewServiceIsDisplayingPopover:(BOOL)arg1;
+- (void)__setViewServiceIsDisplayingPopover:(_Bool)arg1;
 - (void)__setSupportedInterfaceOrientations:(id)arg1;
-- (void)__viewServiceDidUpdatePreferredStatusBarStyle:(int)arg1 hidden:(BOOL)arg2;
-- (BOOL)prefersStatusBarHidden;
-- (int)preferredStatusBarStyle;
-- (BOOL)_requiresKeyboardWindowWhenFirstResponder;
+- (void)__viewServiceDidUpdatePreferredStatusBarStyle:(long long)arg1 hidden:(_Bool)arg2;
+- (_Bool)prefersStatusBarHidden;
+- (long long)preferredStatusBarStyle;
+- (_Bool)_requiresKeyboardWindowWhenFirstResponder;
 - (void)_didResignContentViewControllerOfPopover:(id)arg1;
 - (void)_willBecomeContentViewControllerOfPopover:(id)arg1;
-- (void)_didRotateFromInterfaceOrientation:(int)arg1 forwardToChildControllers:(BOOL)arg2 skipSelf:(BOOL)arg3;
-- (void)_willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2 forwardToChildControllers:(BOOL)arg3 skipSelf:(BOOL)arg4;
-- (void)_willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2 forwardToChildControllers:(BOOL)arg3 skipSelf:(BOOL)arg4;
-- (BOOL)_ignoreAppSupportedOrientations;
-- (unsigned int)supportedInterfaceOrientations;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (void)viewDidDisappear:(BOOL)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)__willChangeToIdiom:(int)arg1 onScreen:(id)arg2;
-- (void)viewWillAppear:(BOOL)arg1;
-- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
-- (void)__dismissActionSheetWithClickedButtonIndex:(int)arg1 animated:(BOOL)arg2;
-- (void)__presentActionSheetFromYCoordinate:(float)arg1 withTitle:(id)arg2 buttonTitles:(id)arg3 cancelButtonIndex:(int)arg4 destructiveButtonIndex:(int)arg5 style:(int)arg6;
+- (void)_didRotateFromInterfaceOrientation:(long long)arg1 forwardToChildControllers:(_Bool)arg2 skipSelf:(_Bool)arg3;
+- (void)_willRotateToInterfaceOrientation:(long long)arg1 duration:(double)arg2 forwardToChildControllers:(_Bool)arg3 skipSelf:(_Bool)arg4;
+- (void)_willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2 forwardToChildControllers:(_Bool)arg3 skipSelf:(_Bool)arg4;
+- (_Bool)_ignoreAppSupportedOrientations;
+- (unsigned long long)supportedInterfaceOrientations;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
+- (void)__willChangeToIdiom:(long long)arg1 onScreen:(id)arg2;
+- (void)viewWillAppear:(_Bool)arg1;
+- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(long long)arg2;
+- (void)__dismissActionSheetWithClickedButtonIndex:(long long)arg1 animated:(_Bool)arg2;
+- (void)__presentActionSheetFromYCoordinate:(double)arg1 withTitle:(id)arg2 buttonTitles:(id)arg3 cancelButtonIndex:(long long)arg4 destructiveButtonIndex:(long long)arg5 style:(long long)arg6;
 - (void)_firstResponderDidChange:(id)arg1;
-- (BOOL)canBecomeFirstResponder;
-- (BOOL)_serviceHasScrollToTopView;
+- (_Bool)canBecomeFirstResponder;
+- (_Bool)_serviceHasScrollToTopView;
 - (void)_scrollToTopFromTouchAtViewLocation:(struct CGPoint)arg1 resultHandler:(id)arg2;
 - (void)__viewServiceDidUnregisterScrollToTopView;
 - (void)__viewServiceDidRegisterScrollToTopView;
@@ -99,7 +96,7 @@
 - (id)disconnect;
 - (id)_terminateWithError:(id)arg1;
 - (void)_updateTouchGrabbingView;
-- (void)_applicationWillResignActive:(id)arg1;
+- (void)_applicationWillDeactivate:(id)arg1;
 - (void)_applicationDidBecomeActive:(id)arg1;
 - (void)_snapshotAndRemoveTextEffectsRemoteView;
 - (void)_restoreTextEffectsRemoteView;
@@ -117,17 +114,12 @@
 - (void)loadView;
 - (void)_awakeWithConnectionInfo:(id)arg1;
 - (id)_initWithViewServiceBundleIdentifier:(id)arg1;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
-- (unsigned int)retainCount;
+- (_Bool)_isDeallocating;
+- (_Bool)_tryRetain;
+- (unsigned long long)retainCount;
 - (oneway void)release;
 - (id)retain;
 - (int)__automatic_invalidation_logic;
-- (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
-- (id)serviceViewControllerProxyWithErrorHandler:(id)arg1;
-- (id)serviceViewControllerProxy;
-- (void)viewServiceSupportedInterfaceOrientationsDidChange;
-- (void)viewServiceDidTerminateWithError:(id)arg1;
 
 @end
 

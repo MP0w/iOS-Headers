@@ -10,7 +10,8 @@
 {
 }
 
-+ (float)cellHeight;
++ (double)labelXOrigin;
++ (double)cellHeight;
 - (void)layoutSubviews;
 
 @end

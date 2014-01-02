@@ -7,6 +7,6 @@
 #import "NSOperation.h"
 
 @interface NSOperation (Additions)
-@property(nonatomic) unsigned int tag;
+@property(nonatomic) unsigned long long tag;
 @end
 

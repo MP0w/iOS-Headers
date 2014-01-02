@@ -6,34 +6,46 @@
 
 #import "UIViewController.h"
 
-@class NSString;
+@class MPRemoteMediaPickerController, NSString, UIPopoverController, _UIAsyncInvocation;
 
 @interface MPMediaPickerController : UIViewController
 {
-    id <MPMediaPickerControllerDelegate> _delegate;
-    unsigned int _mediaTypes;
+    _UIAsyncInvocation *_cancelRequest;
     id _modalContext;
+    MPRemoteMediaPickerController *_remoteViewController;
+    _Bool _allowsPickingMultipleItems;
+    _Bool _showsCloudItems;
+    UIPopoverController *_containingPopover;
+    unsigned long long _mediaTypes;
+    id <MPMediaPickerControllerDelegate> _delegate;
     NSString *_prompt;
-    int _prevStatusBarStyle;
-    unsigned int _allowsPickingMultipleItems:1;
-    unsigned int _showsCloudItems:1;
 }
 
 + (void)preheatMediaPicker;
+@property(copy, nonatomic) NSString *prompt; // @synthesize prompt=_prompt;
+@property(nonatomic) __weak id <MPMediaPickerControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(readonly, nonatomic) unsigned long long mediaTypes; // @synthesize mediaTypes=_mediaTypes;
 - (void).cxx_destruct;
+- (id)_serviceViewControllerProxy;
+- (void)_sendSettingsToService;
+- (void)_resetRemoteViewController;
+- (void)_requestRemoteViewController;
+- (void)_forceDismissal;
 - (void)_pickerDidPickItems:(id)arg1;
 - (void)_pickerDidCancel;
-@property(nonatomic) BOOL showsCloudItems;
-@property(nonatomic) BOOL allowsPickingMultipleItems;
-@property(copy, nonatomic) NSString *prompt;
-@property(nonatomic) __weak id <MPMediaPickerControllerDelegate> delegate;
-@property(readonly, nonatomic) unsigned int mediaTypes;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
+- (_Bool)_hasAddedRemoteView;
+- (void)_addRemoteView;
+@property(nonatomic) _Bool showsCloudItems;
+@property(nonatomic) _Bool allowsPickingMultipleItems;
+- (void)remoteMediaPickerDidCancel;
+- (void)remoteMediaPickerDidPickMediaItems:(id)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)loadView;
+- (void)willMoveToParentViewController:(id)arg1;
 - (void)dealloc;
-- (id)initWithMediaTypes:(unsigned int)arg1;
+- (id)initWithMediaTypes:(unsigned long long)arg1;
 - (id)init;
 
 @end

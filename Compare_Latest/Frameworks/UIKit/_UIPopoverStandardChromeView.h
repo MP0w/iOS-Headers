@@ -6,45 +6,55 @@
 
 #import <UIKit/UIPopoverBackgroundView.h>
 
-@class UIView;
+@class NSArray, UIColor, UIView, _UIBackdropView;
 
+// Not exported
 @interface _UIPopoverStandardChromeView : UIPopoverBackgroundView
 {
     UIView *_arrowView;
     UIView *_leftCapView;
     UIView *_rightCapView;
-    float _arrowOffset;
-    unsigned int _arrowDirection;
-    int _backgroundStyle;
-    BOOL _arrowVisible;
-    BOOL useShortMode;
-    BOOL _debugMode;
+    _UIBackdropView *_blurView;
+    NSArray *_dimmingViews;
+    UIColor *_popoverBackgroundColor;
+    double _arrowOffset;
+    unsigned long long _arrowDirection;
+    long long _backgroundStyle;
+    _Bool _arrowVisible;
+    _Bool useShortMode;
+    _Bool _debugMode;
 }
 
 + (struct UIEdgeInsets)contentViewInsets;
-+ (float)arrowBase;
-+ (float)arrowHeight;
-@property(nonatomic, getter=isDebugModeEnabled) BOOL debugModeEnabled; // @synthesize debugModeEnabled=_debugMode;
-@property(nonatomic) BOOL useShortMode; // @synthesize useShortMode;
-- (void)setArrowVisible:(BOOL)arg1 animated:(BOOL)arg2;
-@property(nonatomic, getter=isArrowVisible) BOOL arrowVisible;
-- (void)setBackgroundStyle:(int)arg1 animated:(BOOL)arg2;
-@property(nonatomic) int backgroundStyle;
-- (BOOL)isRightArrowPinnedToBottom;
-- (BOOL)isRightArrowPinnedToTop;
-- (float)maxNonPinnedOffset;
-- (float)minNonPinnedOffset;
-- (BOOL)wouldPinForOffset:(float)arg1;
-- (BOOL)isPinned;
-- (BOOL)hasComponentViews;
++ (double)arrowBase;
++ (double)arrowHeight;
+@property(nonatomic, getter=isDebugModeEnabled) _Bool debugModeEnabled; // @synthesize debugModeEnabled=_debugMode;
+@property(nonatomic) _Bool useShortMode; // @synthesize useShortMode;
+- (void)setArrowVisible:(_Bool)arg1 animated:(_Bool)arg2;
+@property(nonatomic, getter=isArrowVisible) _Bool arrowVisible;
+@property(copy, nonatomic) UIColor *popoverBackgroundColor;
+- (void)setBackgroundStyle:(long long)arg1 animated:(_Bool)arg2;
+@property(nonatomic) long long backgroundStyle;
+- (_Bool)isRightArrowPinnedToBottom;
+- (_Bool)isRightArrowPinnedToTop;
+- (double)maxNonPinnedOffset;
+- (double)minNonPinnedOffset;
+- (_Bool)wouldPinForOffset:(double)arg1;
+- (_Bool)isPinned;
+- (_Bool)hasComponentViews;
 - (void)_loadNecessaryViews;
-- (void)setArrowDirection:(unsigned int)arg1;
-- (unsigned int)arrowDirection;
-- (void)setArrowOffset:(float)arg1;
-- (float)arrowOffset;
-- (void)motionCancelled:(int)arg1 withEvent:(id)arg2;
-- (void)motionEnded:(int)arg1 withEvent:(id)arg2;
-- (void)motionBegan:(int)arg1 withEvent:(id)arg2;
+- (id)_shadowPath;
+- (struct CGSize)_shadowOffset;
+- (double)_shadowRadius;
+- (double)_shadowOpacity;
+- (struct UIEdgeInsets)_shadowInsets;
+- (void)setArrowDirection:(unsigned long long)arg1;
+- (unsigned long long)arrowDirection;
+- (void)setArrowOffset:(double)arg1;
+- (double)arrowOffset;
+- (void)motionCancelled:(long long)arg1 withEvent:(id)arg2;
+- (void)motionEnded:(long long)arg1 withEvent:(id)arg2;
+- (void)motionBegan:(long long)arg1 withEvent:(id)arg2;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
@@ -53,7 +63,7 @@
 - (void)_layoutArrowViewsNone;
 - (void)_layoutArrowViewsLeftOrRight;
 - (void)_layoutArrowViewsUpOrDown;
-- (void)willMoveToWindow:(id)arg1;
+- (void)didMoveToWindow;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

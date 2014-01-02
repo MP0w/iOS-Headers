@@ -10,6 +10,7 @@
 
 @class NSMutableArray, NSXPCListener;
 
+// Not exported
 @interface _UIViewServiceSessionManager : NSObject <NSXPCListenerDelegate>
 {
     int _lock;
@@ -18,12 +19,12 @@
     int _connectionNotificationToken;
 }
 
-+ (BOOL)hasActiveSessions;
++ (_Bool)hasActiveSessions;
 + (void)startViewServiceSessionManager;
-+ (BOOL)_shouldUseXPCObjects;
++ (_Bool)_shouldUseXPCObjects;
 - (void)_startOrStopSystemsForBackgroundRunning;
-- (BOOL)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
-- (BOOL)_hasActiveSessions;
+- (_Bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
+- (_Bool)_hasActiveSessions;
 - (void)_registerSessionForDefaultDeputies:(id)arg1;
 - (void)_startListener;
 - (id)_init;

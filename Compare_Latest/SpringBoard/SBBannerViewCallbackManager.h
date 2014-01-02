@@ -12,15 +12,15 @@
 {
     UIView<SBUIBannerView> *_view;
     id <SBUIBannerSource> _source;
-    BOOL _sentWillAppear;
-    BOOL _sentDidAppear;
-    BOOL _sentWillDismiss;
-    BOOL _sentDidDismiss;
+    _Bool _sentWillAppear;
+    _Bool _sentDidAppear;
+    _Bool _sentWillDismiss;
+    _Bool _sentDidDismiss;
     int _dismissReason;
 }
 
 - (void)matchPreviousCallbacks:(id)arg1;
-- (BOOL)hasSentAnyCallbacks;
+- (_Bool)hasSentAnyCallbacks;
 - (void)noteDidDismissWithReason:(int)arg1;
 - (void)noteWillDismissWithReason:(int)arg1;
 - (void)noteDidAppear;

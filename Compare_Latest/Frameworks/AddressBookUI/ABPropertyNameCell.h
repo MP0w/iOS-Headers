@@ -14,7 +14,7 @@
     UIResponder *_firstResponderItem;
 }
 
-+ (BOOL)requiresConstraintBasedLayout;
++ (_Bool)requiresConstraintBasedLayout;
 @property(readonly, nonatomic) UIResponder *firstResponderItem; // @synthesize firstResponderItem=_firstResponderItem;
 @property(readonly, nonatomic) UITextField *textField; // @synthesize textField=_textField;
 - (void)setBackgroundColor:(id)arg1;
@@ -24,7 +24,7 @@
 - (void)updateConstraints;
 - (void)textFieldChanged:(id)arg1;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

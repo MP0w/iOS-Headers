@@ -12,15 +12,15 @@
 {
     RUIParser *_parser;
     NSURL *_url;
-    BOOL _allowNonSecureHTTP;
+    _Bool _allowNonSecureHTTP;
 }
 
-@property(nonatomic) BOOL allowNonSecureHTTP; // @synthesize allowNonSecureHTTP=_allowNonSecureHTTP;
+@property(nonatomic) _Bool allowNonSecureHTTP; // @synthesize allowNonSecureHTTP=_allowNonSecureHTTP;
 - (void)failWithError:(id)arg1;
-- (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
+- (void)alertView:(id)arg1 didDismissWithButtonIndex:(long long)arg2;
 - (void)webViewFinishedLoading;
 - (void)didParseData;
-- (BOOL)anyWebViewLoading;
+- (_Bool)anyWebViewLoading;
 - (void)allWebViewsFinishedLoading;
 - (void)_finishLoad;
 - (void)parseData:(id)arg1;

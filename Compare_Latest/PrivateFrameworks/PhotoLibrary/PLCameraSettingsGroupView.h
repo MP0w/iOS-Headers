@@ -10,7 +10,7 @@
 
 @interface PLCameraSettingsGroupView : UIView
 {
-    BOOL shouldCenterTitle;
+    _Bool shouldCenterTitle;
     int type;
     NSString *title;
     UILabel *titleLabel;
@@ -19,7 +19,7 @@
 
 @property(retain, nonatomic) UISwitch *accessorySwitch; // @synthesize accessorySwitch;
 @property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel;
-@property(nonatomic) BOOL shouldCenterTitle; // @synthesize shouldCenterTitle;
+@property(nonatomic) _Bool shouldCenterTitle; // @synthesize shouldCenterTitle;
 @property(copy, nonatomic) NSString *title; // @synthesize title;
 @property(nonatomic) int type; // @synthesize type;
 - (void)drawRect:(struct CGRect)arg1;

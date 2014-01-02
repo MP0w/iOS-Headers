@@ -5,21 +5,21 @@
  */
 
 @protocol MPGeometrySupport
-- (void)setScale:(float)arg1;
-- (float)scale;
-- (void)setYRotationAngle:(float)arg1;
-- (float)yRotationAngle;
-- (void)setXRotationAngle:(float)arg1;
-- (float)xRotationAngle;
+- (void)setScale:(double)arg1;
+- (double)scale;
+- (void)setYRotationAngle:(double)arg1;
+- (double)yRotationAngle;
+- (void)setXRotationAngle:(double)arg1;
+- (double)xRotationAngle;
 - (void)setSize:(struct CGSize)arg1;
 - (struct CGSize)size;
-- (void)setRotationAngle:(float)arg1;
-- (float)rotationAngle;
-- (void)setZPosition:(float)arg1;
-- (float)zPosition;
+- (void)setRotationAngle:(double)arg1;
+- (double)rotationAngle;
+- (void)setZPosition:(double)arg1;
+- (double)zPosition;
 - (void)setPosition:(struct CGPoint)arg1;
 - (struct CGPoint)position;
-- (void)setOpacity:(float)arg1;
-- (float)opacity;
+- (void)setOpacity:(double)arg1;
+- (double)opacity;
 @end
 

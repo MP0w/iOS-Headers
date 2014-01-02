@@ -15,17 +15,17 @@
     id _previewUpdateObserver;
     id _payloadUpdateObserver;
     NSString *_identifier;
-    BOOL _pendingPreviewProxy;
+    _Bool _pendingPreviewProxy;
     int _previewType;
-    UIImage *_previewImage;
     int _type;
-    id _payload;
     int _downsampleStatus;
+    UIImage *_previewImage;
+    id _payload;
 }
 
-+ (BOOL)attachmentTypeRepresentsAnImage:(int)arg1;
-+ (BOOL)supportsSecureCoding;
-@property(nonatomic) BOOL pendingPreviewProxy; // @synthesize pendingPreviewProxy=_pendingPreviewProxy;
++ (_Bool)attachmentTypeRepresentsAnImage:(int)arg1;
++ (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool pendingPreviewProxy; // @synthesize pendingPreviewProxy=_pendingPreviewProxy;
 @property(nonatomic) int downsampleStatus; // @synthesize downsampleStatus=_downsampleStatus;
 @property(copy, nonatomic) id payload; // @synthesize payload=_payload;
 @property(nonatomic) int type; // @synthesize type=_type;

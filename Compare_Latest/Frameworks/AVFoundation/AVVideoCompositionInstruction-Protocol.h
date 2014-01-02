@@ -11,8 +11,8 @@
 @protocol AVVideoCompositionInstruction <NSObject>
 @property(readonly, nonatomic) int passthroughTrackID;
 @property(readonly, nonatomic) NSArray *requiredSourceTrackIDs;
-@property(readonly, nonatomic) BOOL containsTweening;
-@property(readonly, nonatomic) BOOL enablePostProcessing;
+@property(readonly, nonatomic) _Bool containsTweening;
+@property(readonly, nonatomic) _Bool enablePostProcessing;
 @property(readonly, nonatomic) CDStruct_e83c9415 timeRange;
 @end
 

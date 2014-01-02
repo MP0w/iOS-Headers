@@ -6,6 +6,7 @@
 
 #import "CALayer.h"
 
+// Not exported
 @interface WebTiledBackingLayer : CALayer
 {
     struct OwnPtr<WebCore::TileController> _tileController;
@@ -13,18 +14,18 @@
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)setBorderWidth:(float)arg1;
+- (void)setBorderWidth:(double)arg1;
 - (void)setBorderColor:(struct CGColor *)arg1;
 - (void)invalidate;
 - (struct TiledBacking *)tiledBacking;
 - (id)tileContainerLayer;
-- (void)setContentsScale:(float)arg1;
-- (BOOL)acceleratesDrawing;
-- (void)setAcceleratesDrawing:(BOOL)arg1;
+- (void)setContentsScale:(double)arg1;
+- (_Bool)acceleratesDrawing;
+- (void)setAcceleratesDrawing:(_Bool)arg1;
 - (void)setNeedsDisplayInRect:(struct CGRect)arg1;
 - (void)setNeedsDisplay;
-- (BOOL)isOpaque;
-- (void)setOpaque:(BOOL)arg1;
+- (_Bool)isOpaque;
+- (void)setOpaque:(_Bool)arg1;
 - (void)setBounds:(struct CGRect)arg1;
 - (id)actionForKey:(id)arg1;
 - (id)initWithLayer:(id)arg1;

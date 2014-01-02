@@ -7,6 +7,6 @@
 #import "NSObject.h"
 
 @interface NSObject (__NSCFType)
-- (unsigned long)_cfTypeID;
+- (unsigned long long)_cfTypeID;
 @end
 

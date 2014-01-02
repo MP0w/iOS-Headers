@@ -14,7 +14,7 @@
 }
 
 @property(retain, nonatomic) UIView *tonePicker; // @synthesize tonePicker=_tonePicker;
-- (void)viewWillDisappear:(BOOL)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
 - (void)cancelButton:(id)arg1;
 - (void)doneButton:(id)arg1;
 - (void)dealloc;

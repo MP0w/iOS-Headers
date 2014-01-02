@@ -19,11 +19,11 @@
     int _actionSignal;
     int _parserState;
     NSURL *_baseURL;
-    BOOL _succeeded;
+    _Bool _succeeded;
     NSData *_xmlData;
 }
 
-@property(readonly, nonatomic) BOOL succeeded; // @synthesize succeeded=_succeeded;
+@property(readonly, nonatomic) _Bool succeeded; // @synthesize succeeded=_succeeded;
 @property(retain, nonatomic) NSData *xmlData; // @synthesize xmlData=_xmlData;
 @property(retain, nonatomic) NSURL *baseURL; // @synthesize baseURL=_baseURL;
 - (void)parser:(id)arg1 validationErrorOccurred:(id)arg2;

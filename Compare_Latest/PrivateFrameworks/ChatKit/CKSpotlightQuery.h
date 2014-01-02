@@ -13,13 +13,13 @@
 @interface CKSpotlightQuery : NSObject <SPDaemonQueryDelegate>
 {
     SPDaemonQueryToken *_queryToken;
-    unsigned int _resultIndex;
+    unsigned long long _resultIndex;
     SPSearchResultSection *_searchResults;
     NSMutableDictionary *_chatGUIDToLatestSearchResult;
     NSObject<OS_dispatch_group> *_searchResultLoadingGroup;
     id _completion;
-    BOOL _processing;
-    BOOL _cancelled;
+    _Bool _processing;
+    _Bool _cancelled;
 }
 
 @property(copy, nonatomic) id completion; // @synthesize completion=_completion;

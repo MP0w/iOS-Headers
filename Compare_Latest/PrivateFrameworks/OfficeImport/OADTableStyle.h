@@ -8,6 +8,7 @@
 
 @class NSString, OADTableBackground, OADTablePartStyle;
 
+// Not exported
 @interface OADTableStyle : NSObject
 {
     NSString *mName;

@@ -6,24 +6,27 @@
 
 #import "UIView.h"
 
-@class TPButton, UIScrollView;
+#import "UIScrollViewDelegate-Protocol.h"
 
-@interface TPSlidingButton : UIView
+@class TPButton;
+
+@interface TPSlidingButton : UIView <UIScrollViewDelegate>
 {
-    UIScrollView *_scrollView;
+    int _type;
     TPButton *_acceptButton;
     TPButton *_endButton;
     TPButton *_sideButtonLeft;
     TPButton *_sideButtonRight;
-    int _type;
+    id <TPSlidingButtonDelegateProtocol> _delegate;
 }
 
+@property id <TPSlidingButtonDelegateProtocol> delegate; // @synthesize delegate=_delegate;
 @property int type; // @synthesize type=_type;
 @property(retain) TPButton *sideButtonRight; // @synthesize sideButtonRight=_sideButtonRight;
 @property(retain) TPButton *sideButtonLeft; // @synthesize sideButtonLeft=_sideButtonLeft;
 @property(retain) TPButton *endButton; // @synthesize endButton=_endButton;
 @property(retain) TPButton *acceptButton; // @synthesize acceptButton=_acceptButton;
-@property(retain) UIScrollView *scrollView; // @synthesize scrollView=_scrollView;
+- (void)scrollViewDidScroll:(id)arg1;
 - (struct CGSize)intrinsicContentSize;
 - (void)layoutSubviews;
 - (void)dealloc;

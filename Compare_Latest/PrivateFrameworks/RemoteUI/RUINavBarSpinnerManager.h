@@ -12,11 +12,11 @@
 {
     NSMutableDictionary *_savedRightItems;
     NSMutableDictionary *_navigationItems;
-    int _activityIndicatorViewStyle;
+    long long _activityIndicatorViewStyle;
 }
 
 + (id)sharedSpinnerManager;
-@property(nonatomic) int activityIndicatorViewStyle; // @synthesize activityIndicatorViewStyle=_activityIndicatorViewStyle;
+@property(nonatomic) long long activityIndicatorViewStyle; // @synthesize activityIndicatorViewStyle=_activityIndicatorViewStyle;
 - (void)stopAnimatingForIdentifier:(id)arg1;
 - (void)startAnimatingInNavItem:(id)arg1 forIdentifier:(id)arg2;
 - (void)dealloc;

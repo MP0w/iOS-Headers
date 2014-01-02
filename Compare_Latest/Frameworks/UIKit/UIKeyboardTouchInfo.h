@@ -8,6 +8,7 @@
 
 @class UIKBTree, UITouch;
 
+// Not exported
 @interface UIKeyboardTouchInfo : NSObject
 {
     UITouch *_touch;
@@ -16,13 +17,13 @@
     UIKBTree *_slidOffKey;
     struct CGPoint _initialPoint;
     struct CGPoint _initialDragPoint;
-    BOOL _dragged;
+    _Bool _dragged;
     int _stage;
-    BOOL _maySuppressUpAction;
+    _Bool _maySuppressUpAction;
 }
 
-@property(nonatomic) BOOL maySuppressUpAction; // @synthesize maySuppressUpAction=_maySuppressUpAction;
-@property(nonatomic) BOOL dragged; // @synthesize dragged=_dragged;
+@property(nonatomic) _Bool maySuppressUpAction; // @synthesize maySuppressUpAction=_maySuppressUpAction;
+@property(nonatomic) _Bool dragged; // @synthesize dragged=_dragged;
 @property(nonatomic) struct CGPoint initialDragPoint; // @synthesize initialDragPoint=_initialDragPoint;
 @property(nonatomic) int stage; // @synthesize stage=_stage;
 @property(nonatomic) struct CGPoint initialPoint; // @synthesize initialPoint=_initialPoint;

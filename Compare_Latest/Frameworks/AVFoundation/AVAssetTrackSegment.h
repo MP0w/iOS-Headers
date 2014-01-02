@@ -12,9 +12,9 @@
 }
 
 @property(readonly, nonatomic) CDStruct_82206317 timeMapping; // @synthesize timeMapping=_timeMapping;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-@property(readonly, nonatomic, getter=isEmpty) BOOL empty;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+@property(readonly, nonatomic, getter=isEmpty) _Bool empty;
 - (id)_initWithTimeMapping:(CDStruct_82206317)arg1;
 
 @end

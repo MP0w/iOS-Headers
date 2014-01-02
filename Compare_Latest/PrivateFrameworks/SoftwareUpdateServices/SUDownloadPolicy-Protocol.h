@@ -10,17 +10,17 @@
 
 @protocol SUDownloadPolicy <NSObject>
 @property(retain, nonatomic) SUDescriptor *descriptor;
-- (BOOL)isDownloadableForCurrentNetworkConditions:(int *)arg1 cellularFeesApply:(char *)arg2 powerRequired:(char *)arg3;
-- (BOOL)isDownloadableForCurrentNetworkConditions:(int *)arg1 cellularFeesApply:(char *)arg2;
-- (BOOL)isDownloadAllowableForWiFi;
-- (BOOL)isDownloadAllowableForCellularRoaming;
-- (BOOL)isDownloadAllowableForCellular2G;
-- (BOOL)isDownloadAllowableForCellular;
-- (BOOL)isDownloadFreeForCellular;
-- (BOOL)isDownloadable;
-- (BOOL)isPowerRequired;
-- (BOOL)hasEnoughDiskSpace;
-- (BOOL)isSamePolicy:(id)arg1;
+- (_Bool)isDownloadableForCurrentNetworkConditions:(long long *)arg1 cellularFeesApply:(_Bool *)arg2 powerRequired:(_Bool *)arg3;
+- (_Bool)isDownloadableForCurrentNetworkConditions:(long long *)arg1 cellularFeesApply:(_Bool *)arg2;
+- (_Bool)isDownloadAllowableForWiFi;
+- (_Bool)isDownloadAllowableForCellularRoaming;
+- (_Bool)isDownloadAllowableForCellular2G;
+- (_Bool)isDownloadAllowableForCellular;
+- (_Bool)isDownloadFreeForCellular;
+- (_Bool)isDownloadable;
+- (_Bool)isPowerRequired;
+- (_Bool)hasEnoughDiskSpace;
+- (_Bool)isSamePolicy:(id)arg1;
 - (id)initWithDescriptor:(id)arg1;
 @end
 

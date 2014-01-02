@@ -8,6 +8,7 @@
 
 @class NSMutableArray, NSMutableDictionary, NSSQLEntity, NSSQLGroupByIntermediate, NSSQLHavingIntermediate, NSSQLLimitIntermediate, NSSQLOffsetIntermediate, NSSQLOrderIntermediate, NSSQLSelectIntermediate, NSSQLWhereIntermediate, NSString;
 
+// Not exported
 @interface NSSQLFetchIntermediate : NSSQLIntermediate
 {
     NSSQLEntity *_governingEntity;
@@ -23,11 +24,11 @@
     NSMutableArray *_joinIntermediates;
     NSMutableDictionary *_joinKeypaths;
     NSMutableArray *_groupByKeypaths;
-    BOOL _isDictionaryCountFetch;
+    _Bool _isDictionaryCountFetch;
 }
 
 - (void)selectDistinct;
-- (BOOL)keypathExpressionIsSafeLHSForIn:(id)arg1;
+- (_Bool)keypathExpressionIsSafeLHSForIn:(id)arg1;
 - (id)governingEntityForKeypathExpression:(id)arg1;
 - (id)governingAliasForKeypathExpression:(id)arg1;
 - (id)fetchIntermediateForKeypathExpression:(id)arg1;
@@ -50,15 +51,15 @@
 - (void)setWhereIntermediate:(id)arg1;
 - (void)setHavingIntermediate:(id)arg1;
 - (id)havingIntermediate;
-- (BOOL)groupByClauseContainsKeypath:(id)arg1;
+- (_Bool)groupByClauseContainsKeypath:(id)arg1;
 - (void)addGroupByKeypath:(id)arg1;
 - (void)setGroupByIntermediate:(id)arg1;
 - (id)groupByIntermediate;
 - (id)selectIntermediate;
 - (void)setSelectIntermediate:(id)arg1;
-- (BOOL)isFunctionScoped;
-- (void)setDictionaryCountFetch:(BOOL)arg1;
-- (BOOL)isDictionaryCountFetch;
+- (_Bool)isFunctionScoped;
+- (void)setDictionaryCountFetch:(_Bool)arg1;
+- (_Bool)isDictionaryCountFetch;
 - (id)fetchIntermediate;
 - (void)dealloc;
 - (id)initWithEntity:(id)arg1 alias:(id)arg2 inScope:(id)arg3;

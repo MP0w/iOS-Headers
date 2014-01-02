@@ -7,6 +7,6 @@
 #import "NSObject.h"
 
 @interface NSObject (NSKeyValueObserverNotifying)
-- (BOOL)_isKVOA;
+- (_Bool)_isKVOA;
 @end
 

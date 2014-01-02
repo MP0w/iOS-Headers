@@ -7,7 +7,7 @@
 #import "MFMimePart.h"
 
 @interface MFMimePart (SMIMEDecodingPrivate)
-- (BOOL)_needsSignatureVerification:(id *)arg1;
+- (_Bool)_needsSignatureVerification:(id *)arg1;
 - (void)_setSigners:(id)arg1;
 - (void)_setSMIMEError:(id)arg1;
 @end

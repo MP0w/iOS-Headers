@@ -11,14 +11,14 @@
 @interface SBDarkeningImageView : UIImageView
 {
     UIImage *_baseImage;
-    float _brightness;
+    double _brightness;
     id <SBDarkeningImageViewDelegate> _delegate;
 }
 
 @property(nonatomic) id <SBDarkeningImageViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (id)description;
-- (void)setImage:(id)arg1 brightness:(float)arg2;
-@property(nonatomic) float brightness;
+- (void)setImage:(id)arg1 brightness:(double)arg2;
+@property(nonatomic) double brightness;
 - (void)setImage:(id)arg1;
 - (id)image;
 - (void)dealloc;

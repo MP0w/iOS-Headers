@@ -12,7 +12,7 @@
 
 + (id)fakeApplication;
 - (id)icon:(id)arg1 imageWithFormat:(int)arg2;
-- (BOOL)isFakeApp;
+- (_Bool)isFakeApp;
 - (id)init;
 
 @end

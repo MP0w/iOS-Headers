@@ -8,23 +8,24 @@
 
 @class NSMapTable, NSMutableArray, VKLabelTile;
 
+// Not exported
 @interface VKLabelNavTileData : NSObject
 {
     VKLabelTile *_tile;
     NSMapTable *_geoJunctionToJunctionMap;
     NSMutableArray *_tileEdgeJunctions;
-    BOOL _foundTileEdgeJunctions;
-    BOOL _oppositeCarriagewayJunctionsValid;
+    _Bool _foundTileEdgeJunctions;
+    _Bool _oppositeCarriagewayJunctionsValid;
     NSMutableArray *_oppositeCarriagewayJunctions;
     struct vector<LabelNavJunctionInfo, vk_allocator<LabelNavJunctionInfo>> _junctionInfos;
 }
 
 @property(readonly, nonatomic) NSMutableArray *oppositeCarriagewayJunctions; // @synthesize oppositeCarriagewayJunctions=_oppositeCarriagewayJunctions;
-@property(nonatomic) BOOL oppositeCarriagewayJunctionsValid; // @synthesize oppositeCarriagewayJunctionsValid=_oppositeCarriagewayJunctionsValid;
+@property(nonatomic) _Bool oppositeCarriagewayJunctionsValid; // @synthesize oppositeCarriagewayJunctionsValid=_oppositeCarriagewayJunctionsValid;
 @property(readonly, nonatomic) VKLabelTile *tile; // @synthesize tile=_tile;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)findOppositeCarriagewayJunctionsWithRouteFeatures:(unordered_map_ad9b4de7 *)arg1 distanceThreshold:(double)arg2;
+- (void)findOppositeCarriagewayJunctionsWithRouteFeatures:(unordered_map_52431100 *)arg1 distanceThreshold:(double)arg2;
 - (void)appendNavJunctionsInWorldRect:(const BRectImp_d02b3a99 *)arg1 junctions:(id)arg2;
 - (void)initializeJunctionInfos;
 - (id)findTileEdgeJunctionAtCoordinate:(Vec2Imp_1782d7e3)arg1;

@@ -6,7 +6,9 @@
 
 #import "PBRequest.h"
 
-@interface GEOPlaceSearchFeedbackRequest : PBRequest
+#import "NSCopying-Protocol.h"
+
+@interface GEOPlaceSearchFeedbackRequest : PBRequest <NSCopying>
 {
     CDStruct_612aec5b _sessionGUID;
     long long _businessID;
@@ -36,23 +38,24 @@
 @property(nonatomic) long long businessID; // @synthesize businessID=_businessID;
 @property(nonatomic) CDStruct_612aec5b sessionGUID; // @synthesize sessionGUID=_sessionGUID;
 @property(nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (Class)responseClass;
 - (unsigned int)requestTypeCode;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) BOOL hasLocalSearchProviderID;
-@property(nonatomic) BOOL hasSequenceNumber;
-@property(nonatomic) BOOL hasPositionInResults;
-@property(nonatomic) BOOL hasNumberOfResults;
-@property(nonatomic) BOOL hasFeedbackType;
-@property(nonatomic) BOOL hasBusinessID;
-@property(nonatomic) BOOL hasSessionGUID;
-@property(nonatomic) BOOL hasTimestamp;
+@property(nonatomic) _Bool hasLocalSearchProviderID;
+@property(nonatomic) _Bool hasSequenceNumber;
+@property(nonatomic) _Bool hasPositionInResults;
+@property(nonatomic) _Bool hasNumberOfResults;
+@property(nonatomic) _Bool hasFeedbackType;
+@property(nonatomic) _Bool hasBusinessID;
+@property(nonatomic) _Bool hasSessionGUID;
+@property(nonatomic) _Bool hasTimestamp;
 - (void)dealloc;
 
 @end

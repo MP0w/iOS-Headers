@@ -11,10 +11,10 @@
 + (id)URLForFacebookGraphAPIWithDomain:(id)arg1 path:(id)arg2;
 + (id)URLForFacebookGraphAPIWithPath:(id)arg1;
 + (id)URLForFacebookRESTMethod:(id)arg1;
-+ (BOOL)_isBetaSwitchEnabledForKey:(struct __CFString *)arg1;
-- (BOOL)hasKnownStoreDomain;
-- (BOOL)isAssetURL;
-- (BOOL)isAppStoreURL;
-- (BOOL)isMusicStoreURL;
++ (_Bool)_isBetaSwitchEnabledForKey:(struct __CFString *)arg1;
+- (_Bool)hasKnownStoreDomain;
+- (_Bool)isAssetURL;
+- (_Bool)isAppStoreURL;
+- (_Bool)isMusicStoreURL;
 @end
 

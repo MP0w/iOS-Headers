@@ -28,32 +28,29 @@
     SKUIVideoImageDataConsumer *_trailerConsumer;
     NSArray *_trailers;
     NSMutableArray *_trailerImages;
-    NSMutableArray *_hiddenIndexPaths;
 }
 
 @property(retain, nonatomic) NSOperationQueue *operationQueue; // @synthesize operationQueue=_operationQueue;
 @property(nonatomic) __weak id <SKUIScreenshotsDelegate> delegate; // @synthesize delegate=_delegate;
-@property(retain, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
+@property(readonly, nonatomic) SKUIClientContext *clientContext; // @synthesize clientContext=_clientContext;
 - (void).cxx_destruct;
-- (void)_unhideImages;
-- (void)_setTrailerImage:(id)arg1 forIndex:(int)arg2;
-- (void)_setImage:(id)arg1 forIndex:(int)arg2;
+- (void)_setTrailerImage:(id)arg1 forIndex:(long long)arg2;
+- (void)_setImage:(id)arg1 forIndex:(long long)arg2;
 - (id)viewForZoomingInScrollView:(id)arg1;
 - (void)scrollViewWillBeginDragging:(id)arg1;
-- (id)slideshowViewController:(id)arg1 poppedImageViewAtIndex:(int)arg2;
-- (void)slideshowViewController:(id)arg1 scrollToImageAtIndex:(int)arg2;
-- (id)slideshowViewController:(id)arg1 imageURLAtIndex:(int)arg2 size:(struct CGSize *)arg3;
-- (id)slideshowViewController:(id)arg1 imageAtIndex:(int)arg2;
-- (int)numberOfItemsInSlideshowViewController:(id)arg1;
+- (id)slideshowViewController:(id)arg1 poppedImageViewAtIndex:(long long)arg2;
+- (void)slideshowViewController:(id)arg1 scrollToImageAtIndex:(long long)arg2;
+- (id)slideshowViewController:(id)arg1 imageURLAtIndex:(long long)arg2 size:(struct CGSize *)arg3;
+- (id)slideshowViewController:(id)arg1 imageAtIndex:(long long)arg2;
+- (long long)numberOfItemsInSlideshowViewController:(id)arg1;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
-- (int)collectionView:(id)arg1 numberOfItemsInSection:(int)arg2;
-- (int)numberOfSectionsInCollectionView:(id)arg1;
+- (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
+- (long long)numberOfSectionsInCollectionView:(id)arg1;
 - (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 sizeForItemAtIndexPath:(id)arg3;
 - (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
-- (void)viewDidAppear:(BOOL)arg1;
 - (void)loadView;
 - (void)reloadData;
-- (id)initWithTrailers:(id)arg1 screenshots:(id)arg2;
+- (id)initWithTrailers:(id)arg1 screenshots:(id)arg2 clientContext:(id)arg3;
 
 @end
 

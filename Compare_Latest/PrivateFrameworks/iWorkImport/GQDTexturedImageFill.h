@@ -10,6 +10,7 @@
 
 @class GQDColor, GQDFilteredImage;
 
+// Not exported
 @interface GQDTexturedImageFill : NSObject <GQDNameMappable>
 {
     int mTechnique;
@@ -22,9 +23,6 @@
 - (id)color;
 - (int)technique;
 - (void)dealloc;
-- (void)setColor:(id)arg1;
-- (void)invalidateFilteredImage;
-- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1 processor:(id)arg2;
 
 @end
 

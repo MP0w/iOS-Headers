@@ -6,14 +6,15 @@
 
 #import <CoreFoundation/NSArray.h>
 
+// Not exported
 @interface __NSOrderedSetArrayProxy : NSArray
 {
     id _orderedSet;
 }
 
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)objectAtIndex:(unsigned int)arg1;
-- (unsigned int)count;
+- (id)objectAtIndex:(unsigned long long)arg1;
+- (unsigned long long)count;
 - (void)dealloc;
 - (id)initWithOrderedSet:(id)arg1;
 

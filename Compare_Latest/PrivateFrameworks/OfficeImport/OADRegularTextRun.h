@@ -8,13 +8,14 @@
 
 @class NSMutableString;
 
+// Not exported
 @interface OADRegularTextRun : OADTextRun
 {
     NSMutableString *mText;
 }
 
 - (id)text;
-- (BOOL)isEmpty;
+- (_Bool)isEmpty;
 - (void)dealloc;
 - (id)init;
 

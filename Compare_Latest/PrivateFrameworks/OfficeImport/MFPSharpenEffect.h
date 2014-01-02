@@ -6,6 +6,7 @@
 
 #import <OfficeImport/MFPEffect.h>
 
+// Not exported
 @interface MFPSharpenEffect : MFPEffect
 {
     float mAmount;

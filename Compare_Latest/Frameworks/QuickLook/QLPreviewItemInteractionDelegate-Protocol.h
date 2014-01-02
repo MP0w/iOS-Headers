@@ -13,7 +13,7 @@
 - (id)clientProcessAlertViewForPreviewItem:(id)arg1;
 - (void)previewItem:(id)arg1 receivedTapOnURL:(id)arg2;
 - (id)previewItem:(id)arg1 willSendRequest:(id)arg2;
-- (void)previewItemDidLoad:(id)arg1 atIndex:(int)arg2 withError:(id)arg3;
+- (void)previewItemDidLoad:(id)arg1 atIndex:(long long)arg2 withError:(id)arg3;
 - (void)previewItem:(id)arg1 requiresDisplayBundle:(id)arg2 withHints:(id)arg3;
 - (void)previewItemWillLoad:(id)arg1;
 - (void)previewItem:(id)arg1 willHideOverlayWithDuration:(double)arg2;

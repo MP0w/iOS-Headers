@@ -7,9 +7,9 @@
 #import "NSDictionary.h"
 
 @interface NSDictionary (MRUtilities)
-- (int)sortPatchworkDescendingHorizontal:(id)arg1;
-- (int)sortPatchworkAscendingHorizontal:(id)arg1;
-- (int)sortPatchworkDescendingVertical:(id)arg1;
-- (int)sortPatchworkAscendingVertical:(id)arg1;
+- (long long)sortPatchworkDescendingHorizontal:(id)arg1;
+- (long long)sortPatchworkAscendingHorizontal:(id)arg1;
+- (long long)sortPatchworkDescendingVertical:(id)arg1;
+- (long long)sortPatchworkAscendingVertical:(id)arg1;
 @end
 

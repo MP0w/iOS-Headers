@@ -10,41 +10,42 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface _UIPopoverLayoutInfo : NSObject <NSCopying>
 {
     struct UIEdgeInsets _contentInset;
-    float _arrowHeight;
+    double _arrowHeight;
     struct CGSize _preferredContentSize;
-    unsigned int _preferredArrowDirections;
+    unsigned long long _preferredArrowDirections;
     struct CGRect _containingFrame;
     struct UIEdgeInsets _containingFrameInsets;
     struct CGRect _targetRect;
-    BOOL _constrainToTargetRect;
+    _Bool _constrainToTargetRect;
     struct CGRect _frame;
-    float _offset;
-    unsigned int _arrowDirection;
-    BOOL _preferLandscapeOrientations;
-    BOOL _updatesEnabled;
+    double _offset;
+    unsigned long long _arrowDirection;
+    _Bool _preferLandscapeOrientations;
+    _Bool _updatesEnabled;
     NSMutableArray *_candidates;
 }
 
 + (id)_observationKeys;
-@property(nonatomic) BOOL preferLandscapeOrientations; // @synthesize preferLandscapeOrientations=_preferLandscapeOrientations;
-@property(nonatomic, getter=_updatesEnabled, setter=_setUpdatesEnabled:) BOOL updatesEnabled; // @synthesize updatesEnabled=_updatesEnabled;
-@property(readonly, nonatomic) unsigned int arrowDirection; // @synthesize arrowDirection=_arrowDirection;
-@property(readonly, nonatomic) float offset; // @synthesize offset=_offset;
+@property(nonatomic) _Bool preferLandscapeOrientations; // @synthesize preferLandscapeOrientations=_preferLandscapeOrientations;
+@property(nonatomic, getter=_updatesEnabled, setter=_setUpdatesEnabled:) _Bool updatesEnabled; // @synthesize updatesEnabled=_updatesEnabled;
+@property(readonly, nonatomic) unsigned long long arrowDirection; // @synthesize arrowDirection=_arrowDirection;
+@property(readonly, nonatomic) double offset; // @synthesize offset=_offset;
 @property(readonly, nonatomic) struct CGRect frame; // @synthesize frame=_frame;
-@property(nonatomic) BOOL constrainToTargetRect; // @synthesize constrainToTargetRect=_constrainToTargetRect;
+@property(nonatomic) _Bool constrainToTargetRect; // @synthesize constrainToTargetRect=_constrainToTargetRect;
 @property(nonatomic) struct CGRect targetRect; // @synthesize targetRect=_targetRect;
 @property(nonatomic) struct UIEdgeInsets containingFrameInsets; // @synthesize containingFrameInsets=_containingFrameInsets;
 @property(nonatomic) struct CGRect containingFrame; // @synthesize containingFrame=_containingFrame;
-@property(nonatomic) unsigned int preferredArrowDirections; // @synthesize preferredArrowDirections=_preferredArrowDirections;
+@property(nonatomic) unsigned long long preferredArrowDirections; // @synthesize preferredArrowDirections=_preferredArrowDirections;
 @property(nonatomic) struct CGSize preferredContentSize; // @synthesize preferredContentSize=_preferredContentSize;
-@property(nonatomic) float arrowHeight; // @synthesize arrowHeight=_arrowHeight;
+@property(nonatomic) double arrowHeight; // @synthesize arrowHeight=_arrowHeight;
 @property(nonatomic) struct UIEdgeInsets contentInset; // @synthesize contentInset=_contentInset;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)_updateOutputs;
-- (struct CGSize)_popoverViewSizeForContentSize:(struct CGSize)arg1 arrowDirection:(unsigned int)arg2;
+- (struct CGSize)_popoverViewSizeForContentSize:(struct CGSize)arg1 arrowDirection:(unsigned long long)arg2;
 - (id)candidates;
 - (void)setProperties:(id)arg1;
 - (id)description;

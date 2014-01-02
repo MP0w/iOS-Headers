@@ -16,19 +16,19 @@
     UIImage *_dividerImage;
     UIImage *_selectedDividerImage;
     UIImage *_selectionIndicatorImage;
-    float _tabBarButtonSpacing;
-    float _tabBarButtonWidth;
+    double _tabBarButtonSpacing;
+    double _tabBarButtonWidth;
     NSMutableDictionary *_titleTextAttributes;
 }
 
-@property(nonatomic) float tabBarButtonWidth; // @synthesize tabBarButtonWidth=_tabBarButtonWidth;
-@property(nonatomic) float tabBarButtonSpacing; // @synthesize tabBarButtonSpacing=_tabBarButtonSpacing;
+@property(nonatomic) double tabBarButtonWidth; // @synthesize tabBarButtonWidth=_tabBarButtonWidth;
+@property(nonatomic) double tabBarButtonSpacing; // @synthesize tabBarButtonSpacing=_tabBarButtonSpacing;
 @property(retain, nonatomic) UIImage *selectionIndicatorImage; // @synthesize selectionIndicatorImage=_selectionIndicatorImage;
 @property(retain, nonatomic) UIImage *selectedDividerImage; // @synthesize selectedDividerImage=_selectedDividerImage;
 @property(retain, nonatomic) UIImage *dividerImage; // @synthesize dividerImage=_dividerImage;
 @property(retain, nonatomic) UIImage *backgroundImage; // @synthesize backgroundImage=_backgroundImage;
-- (id)titleTextAttributesForState:(unsigned int)arg1;
-- (void)setTitleTextAttributes:(id)arg1 forState:(unsigned int)arg2;
+- (id)titleTextAttributesForState:(unsigned long long)arg1;
+- (void)setTitleTextAttributes:(id)arg1 forState:(unsigned long long)arg2;
 - (void)enumerateTitleTextAttributesUsingBlock:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;

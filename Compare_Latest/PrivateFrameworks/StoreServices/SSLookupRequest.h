@@ -12,24 +12,24 @@
 
 @interface SSLookupRequest : SSRequest <SSXPCCoding>
 {
-    BOOL _authenticatesIfNeeded;
+    _Bool _authenticatesIfNeeded;
     SSAuthenticationContext *_authenticationContext;
     SSLookupProperties *_properties;
-    int _resultFilters;
+    long long _resultFilters;
 }
 
-@property(nonatomic) int resultFilters; // @synthesize resultFilters=_resultFilters;
+@property(nonatomic) long long resultFilters; // @synthesize resultFilters=_resultFilters;
 @property(copy, nonatomic) SSAuthenticationContext *authenticationContext; // @synthesize authenticationContext=_authenticationContext;
-@property(nonatomic) BOOL authenticatesIfNeeded; // @synthesize authenticatesIfNeeded=_authenticatesIfNeeded;
+@property(nonatomic) _Bool authenticatesIfNeeded; // @synthesize authenticatesIfNeeded=_authenticatesIfNeeded;
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)copyXPCEncoding;
 @property(readonly, nonatomic) SSLookupProperties *_lookupProperties;
 - (void)startWithCompletionBlock:(id)arg1;
-- (BOOL)start;
+- (_Bool)start;
 - (id)valueForRequestParameter:(id)arg1;
 - (void)startWithLookupBlock:(id)arg1;
 - (void)setValue:(id)arg1 forRequestParameter:(id)arg2;
-@property(nonatomic) int localizationStyle;
+@property(nonatomic) long long localizationStyle;
 @property(copy, nonatomic) NSString *keyProfile;
 - (void)dealloc;
 - (id)initWithLocation:(id)arg1;

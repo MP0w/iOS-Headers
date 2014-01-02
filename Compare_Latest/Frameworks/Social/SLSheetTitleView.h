@@ -8,12 +8,13 @@
 
 @class NSMutableArray, NSMutableDictionary, NSString, UIImageView, UILabel;
 
+// Not exported
 @interface SLSheetTitleView : UIView
 {
     UIImageView *_serviceIconView;
     NSMutableArray *_constraints;
     UILabel *_titleLabel;
-    int _currentBarMetrics;
+    long long _currentBarMetrics;
     NSMutableDictionary *_titleFonts;
     NSString *_title;
 }
@@ -26,9 +27,9 @@
 - (void)_setupTitleLabel;
 - (void)layoutSubviews;
 - (void)updateConstraints;
-- (void)_updateTitleLabelForBarMetrics:(int)arg1;
-- (void)setTitleFont:(id)arg1 forBarMetrics:(int)arg2;
-- (void)setCurrentBarMetrics:(int)arg1;
+- (void)_updateTitleLabelForBarMetrics:(long long)arg1;
+- (void)setTitleFont:(id)arg1 forBarMetrics:(long long)arg2;
+- (void)setCurrentBarMetrics:(long long)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

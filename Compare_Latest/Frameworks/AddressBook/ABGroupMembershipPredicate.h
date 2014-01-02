@@ -21,7 +21,7 @@
 - (id)description;
 - (void)ab_bindStatement:(struct CPSqliteStatement *)arg1 withBindingOffset:(int *)arg2 predicateIdentifier:(int)arg3;
 - (id)queryWhereString;
-- (BOOL)isValid;
+- (_Bool)isValid;
 - (void)dealloc;
 
 @end

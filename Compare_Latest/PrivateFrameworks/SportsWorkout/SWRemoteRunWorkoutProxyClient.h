@@ -17,19 +17,24 @@
     NSString *_sensorSearchState;
     NSString *_workoutState;
     NSDictionary *_workoutData;
-    BOOL _hasEverStarted;
-    BOOL _hasPowerSong;
+    _Bool _hasEverStarted;
+    _Bool _hasPowerSong;
     NSString *_powerSongName;
-    BOOL _shouldControlMusic;
-    int _musicSelection;
+    _Bool _shouldControlMusic;
+    long long _musicSelection;
     NSString *_currentSongName;
+    NSString *_currentAlbumName;
+    NSString *_currentArtistName;
 }
 
+- (_Bool)hasEverStarted;
+- (id)currentArtistName;
+- (id)currentAlbumName;
 - (id)currentSongName;
-- (int)musicSelection;
-- (BOOL)shouldControlMusic;
+- (long long)musicSelection;
+- (_Bool)shouldControlMusic;
 - (id)powerSongName;
-- (BOOL)hasPowerSong;
+- (_Bool)hasPowerSong;
 - (id)workoutData;
 - (id)workoutState;
 - (id)sensorSearchState;

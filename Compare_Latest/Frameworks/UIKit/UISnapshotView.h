@@ -49,8 +49,8 @@
 - (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
 @property(nonatomic, getter=_snapshotRect, setter=_setSnapshotRect:) struct CGRect snapshotRect;
-@property(nonatomic, getter=isVerticalStretchEnabled) BOOL verticalStretchEnabled;
-@property(nonatomic, getter=isEdgeAntialiasingEnabled) BOOL edgeAntialiasingEnabled;
+@property(nonatomic, getter=isVerticalStretchEnabled) _Bool verticalStretchEnabled;
+@property(nonatomic, getter=isEdgeAntialiasingEnabled) _Bool edgeAntialiasingEnabled;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

@@ -22,7 +22,7 @@
 @property(retain, nonatomic) MRAction *action; // @synthesize action=_action;
 - (float)rearmIfNeededWithDefaultValue:(float)arg1;
 - (void)disarm;
-@property(readonly) BOOL isArmed;
+@property(readonly) _Bool isArmed;
 - (void)dealloc;
 - (id)initWithAction:(id)arg1;
 

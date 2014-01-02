@@ -10,11 +10,11 @@
 {
 }
 
-+ (float)rowHeightForContext:(id)arg1 representedObject:(id)arg2;
-- (int)textAlignmentForLabelAtIndex:(unsigned int)arg1;
++ (double)rowHeightForContext:(id)arg1 representedObject:(id)arg2;
+- (long long)textAlignmentForLabelAtIndex:(unsigned long long)arg1;
 - (void)reloadLayoutInformation;
-- (id)fontForLabelAtIndex:(unsigned int)arg1;
-- (id)colorForLabelAtIndex:(unsigned int)arg1 withModifiers:(unsigned int)arg2;
+- (id)fontForLabelAtIndex:(unsigned long long)arg1;
+- (id)colorForLabelAtIndex:(unsigned long long)arg1 withModifiers:(unsigned long long)arg2;
 
 @end
 

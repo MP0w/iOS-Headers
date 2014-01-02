@@ -8,6 +8,7 @@
 
 @class NSMutableDictionary, PBPresentationWriterState;
 
+// Not exported
 @interface PBOfficeArtWriterState : OABWriterState
 {
     PBPresentationWriterState *mPresentationState;

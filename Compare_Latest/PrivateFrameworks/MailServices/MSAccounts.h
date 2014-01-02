@@ -10,16 +10,16 @@
 {
 }
 
-+ (BOOL)setPushStateForMailboxWithPath:(id)arg1 account:(id)arg2 pushState:(BOOL)arg3 error:(id *)arg4;
++ (_Bool)setPushStateForMailboxWithPath:(id)arg1 account:(id)arg2 pushState:(_Bool)arg3 error:(id *)arg4;
 + (void)mailboxListingForAccountWithUniqueIdentifier:(id)arg1 keys:(id)arg2 completionBlock:(id)arg3;
-+ (BOOL)deleteAccountsWithUniqueIdentifiers:(id)arg1 error:(id *)arg2;
++ (_Bool)deleteAccountsWithUniqueIdentifiers:(id)arg1 error:(id *)arg2;
 + (id)customSignatureForSendingEmailAddress:(id)arg1;
-+ (BOOL)canSendMailSourceAccountManagement:(int)arg1;
-+ (BOOL)canSendMail;
-+ (void)accountValuesForKeys:(id)arg1 originatingBundleID:(id)arg2 sourceAccountManagement:(int)arg3 launchMobileMail:(BOOL)arg4 completionBlock:(id)arg5;
-+ (void)accountValuesForKeys:(id)arg1 launchMobileMail:(BOOL)arg2 completionBlock:(id)arg3;
++ (_Bool)canSendMailSourceAccountManagement:(int)arg1;
++ (_Bool)canSendMail;
++ (void)accountValuesForKeys:(id)arg1 originatingBundleID:(id)arg2 sourceAccountManagement:(int)arg3 launchMobileMail:(_Bool)arg4 completionBlock:(id)arg5;
++ (void)accountValuesForKeys:(id)arg1 launchMobileMail:(_Bool)arg2 completionBlock:(id)arg3;
 + (void)accountValuesForKeys:(id)arg1 completionBlock:(id)arg2;
-+ (BOOL)hasActiveAccounts;
++ (_Bool)hasActiveAccounts;
 - (void)_simulateServicesMethod:(id)arg1 arguments:(id)arg2 callback:(id)arg3;
 - (void)_listAccountKeys:(id)arg1 originatingBundleID:(id)arg2 sourceAccountManagement:(int)arg3 handler:(id)arg4;
 

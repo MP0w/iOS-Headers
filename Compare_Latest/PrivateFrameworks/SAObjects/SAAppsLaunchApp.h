@@ -14,7 +14,7 @@
 
 + (id)launchAppWithDictionary:(id)arg1 context:(id)arg2;
 + (id)launchApp;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSString *launchId;
 - (id)encodedClassName;
 - (id)groupIdentifier;

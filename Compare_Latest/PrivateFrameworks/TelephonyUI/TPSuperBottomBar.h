@@ -6,19 +6,19 @@
 
 #import "UIView.h"
 
-#import "UIScrollViewDelegate-Protocol.h"
+#import "TPSlidingButtonDelegateProtocol-Protocol.h"
 
 @class NSArray, NSMutableArray, TPButton, TPSlidingButton;
 
-@interface TPSuperBottomBar : UIView <UIScrollViewDelegate>
+@interface TPSuperBottomBar : UIView <TPSlidingButtonDelegateProtocol>
 {
-    BOOL _declineAndRemindIsAvailable;
-    BOOL _declineAndMessageIsAvailable;
-    BOOL _enabled;
-    BOOL _blursBackground;
-    id <TPSuperBottomBarDelegateProtocol> _delegate;
+    _Bool _declineAndRemindIsAvailable;
+    _Bool _declineAndMessageIsAvailable;
+    _Bool _enabled;
+    _Bool _blursBackground;
     int _currentState;
-    float _bottomMargin;
+    id <TPSuperBottomBarDelegateProtocol> _delegate;
+    double _bottomMargin;
     NSArray *_buttonLayoutConstraints;
     NSArray *_horizontalConstraintsForSupplementalButtons;
     TPButton *_supplementalTopLeftButton;
@@ -28,12 +28,17 @@
     TPButton *_sideButtonLeft;
     TPButton *_sideButtonRight;
     TPSlidingButton *_slidingButton;
+    NSMutableArray *_hijackedGestureRecognizers;
     NSMutableArray *_stateStack;
 }
 
-+ (float)defaultBottomMargin;
-+ (float)defaultWidth;
++ (double)defaultBottomMargin;
++ (double)defaultWidth;
++ (double)defaultInterButtonSpacing;
++ (double)defaultSideMarginForDoubleButton;
++ (double)defaultSideMarginForSingleButton;
 @property(retain) NSMutableArray *stateStack; // @synthesize stateStack=_stateStack;
+@property(retain, nonatomic) NSMutableArray *hijackedGestureRecognizers; // @synthesize hijackedGestureRecognizers=_hijackedGestureRecognizers;
 @property(retain, nonatomic) TPSlidingButton *slidingButton; // @synthesize slidingButton=_slidingButton;
 @property(retain, nonatomic) TPButton *sideButtonRight; // @synthesize sideButtonRight=_sideButtonRight;
 @property(retain, nonatomic) TPButton *sideButtonLeft; // @synthesize sideButtonLeft=_sideButtonLeft;
@@ -43,19 +48,19 @@
 @property(retain, nonatomic) TPButton *supplementalTopLeftButton; // @synthesize supplementalTopLeftButton=_supplementalTopLeftButton;
 @property(retain) NSArray *horizontalConstraintsForSupplementalButtons; // @synthesize horizontalConstraintsForSupplementalButtons=_horizontalConstraintsForSupplementalButtons;
 @property(retain) NSArray *buttonLayoutConstraints; // @synthesize buttonLayoutConstraints=_buttonLayoutConstraints;
-@property(nonatomic) float bottomMargin; // @synthesize bottomMargin=_bottomMargin;
+@property(nonatomic) double bottomMargin; // @synthesize bottomMargin=_bottomMargin;
 @property(nonatomic) int currentState; // @synthesize currentState=_currentState;
-@property(nonatomic) BOOL blursBackground; // @synthesize blursBackground=_blursBackground;
-@property(nonatomic) BOOL enabled; // @synthesize enabled=_enabled;
-@property(nonatomic) BOOL declineAndMessageIsAvailable; // @synthesize declineAndMessageIsAvailable=_declineAndMessageIsAvailable;
-@property(nonatomic) BOOL declineAndRemindIsAvailable; // @synthesize declineAndRemindIsAvailable=_declineAndRemindIsAvailable;
+@property(nonatomic) _Bool blursBackground; // @synthesize blursBackground=_blursBackground;
+@property(nonatomic) _Bool enabled; // @synthesize enabled=_enabled;
+@property(nonatomic) _Bool declineAndMessageIsAvailable; // @synthesize declineAndMessageIsAvailable=_declineAndMessageIsAvailable;
+@property(nonatomic) _Bool declineAndRemindIsAvailable; // @synthesize declineAndRemindIsAvailable=_declineAndRemindIsAvailable;
 @property id <TPSuperBottomBarDelegateProtocol> delegate; // @synthesize delegate=_delegate;
 - (void)animateFromIncomingCallStateToFaceTimeInCallStateWithCompletion:(id)arg1;
 - (void)animateFromIncomingCallStateToInCallStateWithCompletion:(id)arg1;
 - (void)animateOutRightMainButtonWithCompletion:(id)arg1;
 - (void)animateOutLeftAndRightMainButtonsAndAddNewMainButton:(id)arg1 completion:(id)arg2;
 - (void)animateOutMainButtonAndAddNewLeftButton:(id)arg1 newRightButton:(id)arg2 completion:(id)arg3;
-- (BOOL)animateFromState:(int)arg1 toState:(int)arg2 completion:(id)arg3;
+- (_Bool)animateFromState:(int)arg1 toState:(int)arg2 completion:(id)arg3;
 - (void)prepareButtonsForAnimationEnd;
 - (void)prepareButtonsForAnimationBegin;
 - (void)refreshCustomizedActionTypeTitleForButton:(id)arg1;
@@ -63,7 +68,8 @@
 - (id)customTitleStringForActionType:(int)arg1 givenDefaultTitle:(id)arg2;
 - (id)controlForActionType:(int)arg1;
 - (id)viewLabels;
-- (void)scrollViewDidScroll:(id)arg1;
+- (void)slidingButton:(id)arg1 didSlideToProportion:(double)arg2;
+- (void)buttonLongPressed:(id)arg1;
 - (void)buttonPressed:(id)arg1;
 - (void)removeAllButtons;
 - (void)addSubview:(id)arg1;
@@ -72,15 +78,16 @@
 - (id)_horizontalConstraintsForSupplementalButtonsUsingLabels:(id)arg1;
 - (void)_updateHorizontalConstraintsForSupplementalButtons;
 - (id)constraintsForState:(int)arg1;
-- (void)setCurrentState:(int)arg1 animated:(BOOL)arg2 animationCompletionBlock:(id)arg3;
-- (void)setAction:(int)arg1 enabled:(BOOL)arg2;
-- (void)setAction:(int)arg1 selected:(BOOL)arg2;
+- (void)setCurrentState:(int)arg1 animated:(_Bool)arg2 animationCompletionBlock:(id)arg3;
+- (void)setAction:(int)arg1 enabled:(_Bool)arg2;
+- (void)setAction:(int)arg1 selected:(_Bool)arg2;
 - (void)resetPoppedStates;
-- (BOOL)popStateAnimated:(BOOL)arg1 animationCompletionBlock:(id)arg2;
-- (void)pushState:(int)arg1 animated:(BOOL)arg2 animationCompletionBlock:(id)arg3;
-- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (_Bool)popStateAnimated:(_Bool)arg1 animationCompletionBlock:(id)arg2;
+- (void)pushState:(int)arg1 animated:(_Bool)arg2 animationCompletionBlock:(id)arg3;
+- (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 @property(readonly, nonatomic) struct CGSize effectiveSize;
 - (struct CGSize)intrinsicContentSize;
+- (void)_clearHijackedGestureRecognizers;
 - (void)dealloc;
 - (id)init;
 - (id)initWithFrame:(struct CGRect)arg1;

@@ -5,6 +5,6 @@
  */
 
 @protocol CPEnhancedWarningReporting
-+ (BOOL)enhancedReportObject:(id)arg1 withWarning:(struct CPTaggedMessageStructure *)arg2 parameters:(void *)arg3;
++ (_Bool)enhancedReportObject:(id)arg1 withWarning:(struct CPTaggedMessageStructure *)arg2 parameters:(char *)arg3;
 @end
 

@@ -6,11 +6,11 @@
 
 #import "PKPhysicsBody.h"
 
+// Not exported
 @interface PKExtendedPhysicsBody : PKPhysicsBody
 {
-    int _associations;
-    float _areaFactor;
-    BOOL _isView;
+    long long _associations;
+    double _areaFactor;
 }
 
 + (id)bodyWithEdgeLoopFromPath:(struct CGPath *)arg1;
@@ -18,13 +18,12 @@
 + (id)bodyWithPolygonFromPath:(struct CGPath *)arg1;
 + (id)bodyWithEdgeFromPoint:(struct CGPoint)arg1 toPoint:(struct CGPoint)arg2;
 + (id)bodyWithRectangleOfSize:(struct CGSize)arg1;
-+ (id)bodyWithCircleOfRadius:(float)arg1;
-@property(nonatomic) BOOL isView; // @synthesize isView=_isView;
-- (BOOL)dissociate;
++ (id)bodyWithCircleOfRadius:(double)arg1;
+- (_Bool)dissociate;
 - (void)associate;
 - (id)description;
 - (id)initWithRectangleOfSize:(struct CGSize)arg1;
-@property(nonatomic) float normalizedDensity;
+@property(nonatomic) double normalizedDensity;
 - (id)init;
 
 @end

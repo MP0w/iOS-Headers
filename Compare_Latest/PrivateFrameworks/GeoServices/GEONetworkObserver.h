@@ -14,15 +14,15 @@
     unsigned int _networkReachability;
     struct __SCNetworkReachability *_networkReach;
     struct __CFDictionary *_networkObservers;
-    BOOL _networkNotified;
-    BOOL _networkReachable;
+    _Bool _networkNotified;
+    _Bool _networkReachable;
 }
 
 + (id)sharedNetworkObserver;
-- (BOOL)isCellConnection;
+- (_Bool)isCellConnection;
 - (void)removeNetworkReachableObserver:(id)arg1;
 - (void)addNetworkReachableObserver:(id)arg1 selector:(SEL)arg2;
-- (BOOL)isNetworkReachable;
+- (_Bool)isNetworkReachable;
 - (void)_networkReachableFirstCallBack:(id)arg1;
 - (void)_networkReachableCallBack:(unsigned int)arg1;
 - (void)_networkObserversInitialize;

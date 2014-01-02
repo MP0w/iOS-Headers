@@ -8,6 +8,7 @@
 
 @class NSString, XPCEndpoint;
 
+// Not exported
 @interface _UIViewServiceSessionEndpoint : NSObject
 {
     XPCEndpoint *_serviceSessionEndpoint;

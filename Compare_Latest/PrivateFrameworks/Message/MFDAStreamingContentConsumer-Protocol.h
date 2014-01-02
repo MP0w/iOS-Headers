@@ -9,7 +9,7 @@
 
 @protocol MFDAStreamingContentConsumer <DAMailboxStreamingContentConsumer, NSObject>
 - (double)timeOfLastActivity;
-- (BOOL)succeeded;
+- (_Bool)succeeded;
 - (id)data;
 @end
 

@@ -28,6 +28,8 @@
 - (id)messageBody;
 - (id)requiredKeys;
 - (id)bagKey;
+- (int)maxTimeoutRetries;
+- (_Bool)wantsExtraTimeoutRetry;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;

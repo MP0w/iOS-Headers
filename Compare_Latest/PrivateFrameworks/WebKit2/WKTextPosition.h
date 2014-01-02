@@ -6,6 +6,7 @@
 
 #import "UITextPosition.h"
 
+// Not exported
 @interface WKTextPosition : UITextPosition
 {
     struct CGRect _positionRect;
@@ -15,7 +16,7 @@
 @property(nonatomic) struct CGRect positionRect; // @synthesize positionRect=_positionRect;
 - (id).cxx_construct;
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 
 @end
 

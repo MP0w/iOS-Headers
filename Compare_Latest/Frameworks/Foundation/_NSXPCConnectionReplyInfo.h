@@ -8,6 +8,7 @@
 
 @class NSBlock, NSDictionary, NSXPCInterface;
 
+// Not exported
 @interface _NSXPCConnectionReplyInfo : NSObject
 {
     NSBlock *_replyBlock;
@@ -16,8 +17,10 @@
     SEL _selector;
     NSXPCInterface *_interface;
     NSDictionary *_userInfo;
+    unsigned long long _proxyNumber;
 }
 
+@property unsigned long long proxyNumber; // @synthesize proxyNumber=_proxyNumber;
 @property(retain) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
 @property(retain) NSXPCInterface *interface; // @synthesize interface=_interface;
 @property(copy) id cleanupBlock; // @synthesize cleanupBlock=_cleanupBlock;

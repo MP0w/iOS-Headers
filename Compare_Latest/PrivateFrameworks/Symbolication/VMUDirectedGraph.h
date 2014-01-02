@@ -16,7 +16,7 @@
     struct _VMUDirectedGraphEdge *_edges;
     unsigned int *_nodeNameMap;
     unsigned int _edgeCapacity;
-    BOOL _needsAdjacencyUpdate;
+    _Bool _needsAdjacencyUpdate;
 }
 
 + (void)initialize;

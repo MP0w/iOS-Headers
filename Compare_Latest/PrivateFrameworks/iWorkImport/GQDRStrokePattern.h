@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface GQDRStrokePattern : NSObject
 {
     int mType;
@@ -13,7 +14,6 @@
 
 + (id)solidPattern;
 - (int)type;
-- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1;
 
 @end
 

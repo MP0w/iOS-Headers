@@ -14,12 +14,12 @@
 }
 
 - (id)description;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isGroup;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)isGroup;
 - (id)placeholderName;
 - (id)preferredSendingAddress;
 - (id)recentContact;
-- (BOOL)isRemovableFromSearchResults;
+- (_Bool)isRemovableFromSearchResults;
 - (void)dealloc;
 - (id)initWithRecentContact:(id)arg1;
 

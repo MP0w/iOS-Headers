@@ -7,8 +7,8 @@
 #import "NSIndexSet.h"
 
 @interface NSIndexSet (TSUAdditions)
-+ (id)indexSetWithIndices:(unsigned int *)arg1 count:(unsigned int)arg2;
-- (BOOL)isSingleContiguousRange;
-- (id)initWithIndices:(unsigned int *)arg1 count:(unsigned int)arg2;
++ (id)indexSetWithIndices:(unsigned long long *)arg1 count:(unsigned long long)arg2;
+- (_Bool)isSingleContiguousRange;
+- (id)initWithIndices:(unsigned long long *)arg1 count:(unsigned long long)arg2;
 @end
 

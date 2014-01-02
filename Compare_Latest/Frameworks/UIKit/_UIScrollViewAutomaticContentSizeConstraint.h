@@ -6,6 +6,7 @@
 
 #import "NSAutoresizingMaskLayoutConstraint.h"
 
+// Not exported
 @interface _UIScrollViewAutomaticContentSizeConstraint : NSAutoresizingMaskLayoutConstraint
 {
 }

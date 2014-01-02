@@ -30,7 +30,7 @@
 - (id)cityForClassicIdentifier:(id)arg1;
 - (id)citiesWithIdentifiers:(id)arg1;
 - (void)localizeCities:(id)arg1;
-- (id)citiesMatchingName:(id)arg1 localized:(BOOL)arg2;
+- (id)citiesMatchingName:(id)arg1 localized:(_Bool)arg2;
 - (id)citiesMatchingName:(id)arg1;
 - (id)allCities;
 - (id)init;

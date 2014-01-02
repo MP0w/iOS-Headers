@@ -6,13 +6,14 @@
 
 #import <ScreenReaderCore/SCRCMathSimpleExpression.h>
 
+// Not exported
 @interface SCRCMathNumberExpression : SCRCMathSimpleExpression
 {
 }
 
 - (id)mathMLString;
-- (id)speakableDescriptionWithSpeakingStyle:(int)arg1 arePausesAllowed:(BOOL)arg2;
-- (BOOL)isNumber;
+- (id)speakableDescriptionWithSpeakingStyle:(int)arg1 arePausesAllowed:(_Bool)arg2;
+- (_Bool)isNumber;
 
 @end
 

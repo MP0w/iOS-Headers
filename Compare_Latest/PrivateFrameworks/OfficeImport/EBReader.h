@@ -8,23 +8,24 @@
 
 @class NSString;
 
+// Not exported
 @interface EBReader : OCBReader
 {
     NSString *mTemporaryDirectory;
     struct XlObjectFactory *mXlObjectFactory;
-    BOOL mUseStringOptimization;
-    BOOL mIsFileStructuredStorage;
+    _Bool mUseStringOptimization;
+    _Bool mIsFileStructuredStorage;
     const void *mBuffer;
 }
 
-@property(nonatomic) BOOL isFileStructuredStorage; // @synthesize isFileStructuredStorage=mIsFileStructuredStorage;
-@property(nonatomic) BOOL useStringOptimization; // @synthesize useStringOptimization=mUseStringOptimization;
+@property(nonatomic) _Bool isFileStructuredStorage; // @synthesize isFileStructuredStorage=mIsFileStructuredStorage;
+@property(nonatomic) _Bool useStringOptimization; // @synthesize useStringOptimization=mUseStringOptimization;
 @property(retain, nonatomic) NSString *temporaryDirectory; // @synthesize temporaryDirectory=mTemporaryDirectory;
 @property(readonly, nonatomic) struct XlBinaryReader *xlReader;
 - (struct OCCBinaryStreamer *)allocBinaryStreamerWithCryptoKey:(struct OCCCryptoKey *)arg1 baseOutputFilenameInUTF8:(const char *)arg2;
 - (struct OCCEncryptionInfoReader *)encryptionInfoReader;
 - (id)read;
-- (BOOL)start;
+- (_Bool)start;
 - (void)dealloc;
 - (id)initWithCancelDelegate:(id)arg1 tracing:(id)arg2;
 

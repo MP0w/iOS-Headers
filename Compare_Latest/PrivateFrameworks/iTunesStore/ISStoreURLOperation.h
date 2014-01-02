@@ -11,13 +11,14 @@
 @interface ISStoreURLOperation : ISURLOperation
 {
     NSNumber *_authenticatedDSID;
-    BOOL _canSendGUIDParameter;
-    BOOL _needsAuthentication;
-    BOOL _needsURLBag;
-    BOOL _performsMachineDataActions;
-    BOOL _shouldSendXTokenHeader;
-    BOOL _urlKnownToBeTrusted;
-    BOOL _useUserSpecificURLBag;
+    _Bool _canSendGUIDParameter;
+    _Bool _ignorePreexistingSecureToken;
+    _Bool _needsAuthentication;
+    _Bool _needsURLBag;
+    _Bool _performsMachineDataActions;
+    _Bool _shouldSendXTokenHeader;
+    _Bool _urlKnownToBeTrusted;
+    _Bool _useUserSpecificURLBag;
 }
 
 + (id)_restrictionsHeaderValue;
@@ -27,31 +28,31 @@
 + (id)itemPingOperationWithIdentifier:(unsigned long long)arg1 urlBagKey:(id)arg2;
 + (void)handleITunesStoreResponseHeaders:(id)arg1 withAccountIdentifier:(id)arg2;
 + (void)addITunesStoreHeadersToRequest:(id)arg1 withAccountIdentifier:(id)arg2;
-@property BOOL useUserSpecificURLBag; // @synthesize useUserSpecificURLBag=_useUserSpecificURLBag;
-@property BOOL urlKnownToBeTrusted; // @synthesize urlKnownToBeTrusted=_urlKnownToBeTrusted;
-@property BOOL needsURLBag; // @synthesize needsURLBag=_needsURLBag;
-@property BOOL needsAuthentication; // @synthesize needsAuthentication=_needsAuthentication;
+@property _Bool useUserSpecificURLBag; // @synthesize useUserSpecificURLBag=_useUserSpecificURLBag;
+@property _Bool urlKnownToBeTrusted; // @synthesize urlKnownToBeTrusted=_urlKnownToBeTrusted;
+@property _Bool needsURLBag; // @synthesize needsURLBag=_needsURLBag;
+@property _Bool needsAuthentication; // @synthesize needsAuthentication=_needsAuthentication;
 @property(retain) NSNumber *authenticatedDSID; // @synthesize authenticatedDSID=_authenticatedDSID;
 - (void)_runURLOperation;
 - (id)_resolvedURLInBagContext:(id)arg1 URLBag:(id *)arg2;
-- (id)_resolvedURL;
-- (BOOL)_isErrorTokenError:(id)arg1;
+- (_Bool)_isErrorTokenError:(id)arg1;
 - (id)_copyURLBagContext;
-- (BOOL)_canSendTokenToURL:(id)arg1;
-- (BOOL)_authenticateReturningError:(id *)arg1 promptAlways:(BOOL)arg2;
+- (_Bool)_canSendTokenToURL:(id)arg1;
+- (_Bool)_authenticateReturningError:(id *)arg1 promptAlways:(_Bool)arg2;
 - (void)_addStandardQueryParametersForURL:(id)arg1;
 - (id)_account;
-- (void)_setStoreFrontIdentifier:(id)arg1 isTransient:(BOOL)arg2;
-- (BOOL)shouldFollowRedirectWithRequest:(id)arg1 returningError:(id *)arg2;
+- (void)_setStoreFrontIdentifier:(id)arg1 isTransient:(_Bool)arg2;
+- (_Bool)shouldFollowRedirectWithRequest:(id)arg1 returningError:(id *)arg2;
 - (void)run;
 - (id)newRequestWithURL:(id)arg1;
 - (void)handleResponse:(id)arg1;
-- (BOOL)handleRedirectFromDataProvider:(id)arg1 error:(id *)arg2;
+- (_Bool)handleRedirectFromDataProvider:(id)arg1 error:(id *)arg2;
 - (id)_copyAuthenticationContext;
 - (id)authenticatedAccountDSID;
-@property BOOL shouldSendXTokenHeader;
-@property BOOL performsMachineDataActions;
-@property BOOL canSendGUIDParameter;
+@property _Bool shouldSendXTokenHeader;
+@property _Bool performsMachineDataActions;
+@property(nonatomic) _Bool ignorePreexistingSecureToken;
+@property _Bool canSendGUIDParameter;
 - (void)dealloc;
 - (id)init;
 

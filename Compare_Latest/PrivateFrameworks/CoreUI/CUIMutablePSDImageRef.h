@@ -10,8 +10,8 @@
 {
 }
 
-- (BOOL)saveToURL:(id)arg1 completionHandler:(id)arg2;
-- (BOOL)saveWithCompletionHandler:(id)arg1;
+- (_Bool)saveToURL:(id)arg1 completionHandler:(id)arg2;
+- (_Bool)saveWithCompletionHandler:(id)arg1;
 - (void)setFileURL:(id)arg1;
 - (void)updateSliceName:(id)arg1 atIndex:(unsigned int)arg2;
 - (void)addOrUpdateSlicesWithXCutPositions:(id)arg1 yCutPositions:(id)arg2;
@@ -27,7 +27,7 @@
 - (struct PSDGradient *)newPSDGradientFromCUIPSDGradient:(id)arg1;
 - (void)insertLayoutMetricsChannel:(id)arg1 atIndex:(unsigned int)arg2;
 - (void)addLayoutMetricsChannel:(id)arg1;
-- (id)initWithPixelWidth:(unsigned long)arg1 pixelHeight:(unsigned long)arg2;
+- (id)initWithPixelWidth:(unsigned long long)arg1 pixelHeight:(unsigned long long)arg2;
 - (struct __CFData *)copyDefaultICCProfileData;
 
 @end

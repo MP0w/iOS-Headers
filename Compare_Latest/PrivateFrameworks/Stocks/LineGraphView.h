@@ -10,15 +10,15 @@
 
 @interface LineGraphView : UIView
 {
-    BOOL _showingTintedLine;
+    _Bool _showingTintedLine;
     UIImage *_lineImage;
     UIView *_tintedLineClipView;
     TintedView *_tintedLineView;
 }
 
 - (void).cxx_destruct;
-- (void)resizeSelectedLineClipViewWithLeftX:(float)arg1 rightX:(float)arg2;
-- (void)setShowingSelectedLine:(BOOL)arg1;
+- (void)resizeSelectedLineClipViewWithLeftX:(double)arg1 rightX:(double)arg2;
+- (void)setShowingSelectedLine:(_Bool)arg1;
 - (void)setGraphImageSet:(id)arg1;
 - (void)setSelectedLineImage:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

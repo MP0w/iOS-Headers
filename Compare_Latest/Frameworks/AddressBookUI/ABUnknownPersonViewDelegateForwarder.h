@@ -9,17 +9,17 @@
 #import "UITableViewDataSource-Protocol.h"
 #import "UITableViewDelegate-Protocol.h"
 
-@class ABUnknownPersonViewController_Legacy;
+@class ABUnknownPersonViewController;
 
 @interface ABUnknownPersonViewDelegateForwarder : NSObject <UITableViewDelegate, UITableViewDataSource>
 {
-    ABUnknownPersonViewController_Legacy *_viewController;
+    ABUnknownPersonViewController *_viewController;
 }
 
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
 - (id)initWithUnknownPersonViewController:(id)arg1;
 
 @end

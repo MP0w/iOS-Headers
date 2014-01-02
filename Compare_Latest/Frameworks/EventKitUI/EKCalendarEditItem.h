@@ -8,6 +8,7 @@
 
 @class EKCalendar, EKEventStore;
 
+// Not exported
 @interface EKCalendarEditItem : NSObject
 {
     EKEventStore *_store;
@@ -21,16 +22,17 @@
 @property(nonatomic) __weak id <EKCalendarEditItemDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)applyStyleProviderToCell:(id)arg1;
-- (BOOL)becomeFirstResponder;
-- (BOOL)saveStateToCalendar:(id)arg1;
-- (void)calendarEditor:(id)arg1 didSelectSubitem:(unsigned int)arg2;
-- (id)cellForSubitemAtIndex:(unsigned int)arg1;
-- (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 forWidth:(float)arg2;
-- (float)footerHeightForSection;
+- (_Bool)becomeFirstResponder;
+- (_Bool)saveStateToCalendar:(id)arg1;
+- (void)calendarEditor:(id)arg1 didSelectSubitem:(unsigned long long)arg2;
+- (void)layoutForWidth:(double)arg1;
+- (id)cellForSubitemAtIndex:(unsigned long long)arg1;
+- (double)defaultCellHeightForSubitemAtIndex:(unsigned long long)arg1 forWidth:(double)arg2;
+- (double)footerHeightForSection;
 - (id)footerViewForSection;
 - (id)headerTitle;
-- (unsigned int)numberOfSubitems;
-- (BOOL)configureWithCalendar:(id)arg1;
+- (unsigned long long)numberOfSubitems;
+- (_Bool)configureWithCalendar:(id)arg1;
 - (void)reset;
 - (void)setCalendar:(id)arg1 store:(id)arg2;
 

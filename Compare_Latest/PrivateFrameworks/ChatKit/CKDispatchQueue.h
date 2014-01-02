@@ -10,33 +10,33 @@
 
 @interface CKDispatchQueue : NSObject
 {
-    unsigned int _fifo;
-    BOOL _suspended;
-    BOOL _cancelled;
+    unsigned long long _fifo;
+    _Bool _suspended;
+    _Bool _cancelled;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     NSObject<OS_dispatch_queue> *_lockQueue;
     struct __CFBinaryHeap *_heap;
     NSMutableDictionary *_dispatchQueueBlocks;
 }
 
-+ (id)concurrentQueueWithDispatchPriority:(long)arg1;
-+ (id)serialQueueWithDispatchPriority:(long)arg1;
-@property(nonatomic, getter=isCancelled) BOOL cancelled; // @synthesize cancelled=_cancelled;
++ (id)concurrentQueueWithDispatchPriority:(long long)arg1;
++ (id)serialQueueWithDispatchPriority:(long long)arg1;
+@property(nonatomic, getter=isCancelled) _Bool cancelled; // @synthesize cancelled=_cancelled;
 @property(retain, nonatomic) NSMutableDictionary *dispatchQueueBlocks; // @synthesize dispatchQueueBlocks=_dispatchQueueBlocks;
 @property(retain, nonatomic) struct __CFBinaryHeap *heap; // @synthesize heap=_heap;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *lockQueue; // @synthesize lockQueue=_lockQueue;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue; // @synthesize dispatchQueue=_dispatchQueue;
-@property(nonatomic, getter=isSuspended) BOOL suspended; // @synthesize suspended=_suspended;
+@property(nonatomic, getter=isSuspended) _Bool suspended; // @synthesize suspended=_suspended;
 - (void)cancelOustandingBlocks;
 - (void)removeOutstandingBlockForKey:(id)arg1;
-- (BOOL)containsOutstandingBlockForKey:(id)arg1;
+- (_Bool)containsOutstandingBlockForKey:(id)arg1;
 - (id)allKeysOfOutstandingBlocks;
-- (int)queuePriorityOfOutstandingBlockForKey:(id)arg1;
-- (void)setQueuePriority:(int)arg1 ofOutstandingBlockForKey:(id)arg2;
-- (void)addBlock:(id)arg1 withQueuePriority:(void)arg2 forKey:(int)arg3;
+- (long long)queuePriorityOfOutstandingBlockForKey:(id)arg1;
+- (void)setQueuePriority:(long long)arg1 ofOutstandingBlockForKey:(id)arg2;
+- (void)addBlock:(id)arg1 withQueuePriority:(void)arg2 forKey:(long long)arg3;
 - (void)addBlock:(id)arg1 withQueuePriority:(void)arg2;
 - (void)addBlock:(id)arg1;
-- (id)_initWithDispatchAttr:(id)arg1 dispatchPriority:(long)arg2;
+- (id)_initWithDispatchAttr:(id)arg1 dispatchPriority:(long long)arg2;
 - (id)init;
 - (void)dealloc;
 

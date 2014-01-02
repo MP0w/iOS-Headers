@@ -8,6 +8,7 @@
 
 @class NSData, NSLock, NSURL;
 
+// Not exported
 @interface MPLoadSAPContextOperation : NSOperation
 {
     NSData *_certificateData;

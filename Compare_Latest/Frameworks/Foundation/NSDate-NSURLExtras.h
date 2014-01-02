@@ -7,8 +7,8 @@
 #import "NSDate.h"
 
 @interface NSDate (NSURLExtras)
-- (BOOL)_web_isToday;
-- (int)_web_compareDay:(id)arg1;
+- (_Bool)_web_isToday;
+- (long long)_web_compareDay:(id)arg1;
 - (id)_web_RFC1123DateString;
 @end
 

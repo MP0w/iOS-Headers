@@ -16,16 +16,16 @@
     SBApplication *_topApplication;
     BKSApplicationActivationAssertion *_topApplicationActivationAssertion;
     SBUIAnimationController *_animation;
-    BOOL _animatedAppDeactivation;
-    BOOL _fromStarkLauncher;
+    _Bool _animatedAppDeactivation;
+    _Bool _fromStarkLauncher;
 }
 
 @property(readonly, nonatomic) SBAlert *alert; // @synthesize alert=_activatingAlert;
 - (void)animationControllerDidFinishAnimation:(id)arg1;
-- (void)animationController:(id)arg1 willBeginAnimation:(BOOL)arg2;
+- (void)animationController:(id)arg1 willBeginAnimation:(_Bool)arg2;
 - (void)_transactionComplete;
-- (BOOL)selfStarkAlertDidActivate:(id)arg1 overAlerts:(id)arg2;
-- (BOOL)selfStarkAlertWillActivate:(id)arg1 overAlerts:(id)arg2;
+- (_Bool)selfStarkAlertDidActivate:(id)arg1 overAlerts:(id)arg2;
+- (_Bool)selfStarkAlertWillActivate:(id)arg1 overAlerts:(id)arg2;
 - (void)_commit;
 - (id)debugDescription;
 - (void)dealloc;

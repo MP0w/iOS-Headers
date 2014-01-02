@@ -8,6 +8,7 @@
 
 @class NSArray, SLMicroBlogUserRecord, UIImage;
 
+// Not exported
 @interface SLMicroBlogAccountsTableViewController : UITableViewController
 {
     NSArray *_accountUserRecords;
@@ -20,8 +21,8 @@
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
 - (id)_accountUserRecordForIndexPath:(id)arg1;
 - (void)didUpdateAccountUserRecord:(id)arg1;
 - (void)setCurrentAccountUserRecord:(id)arg1;
@@ -31,7 +32,7 @@
 - (struct CGSize)contentSizeForViewInPopover;
 - (void)viewDidLoad;
 - (id)_blankImage;
-- (id)initWithStyle:(int)arg1;
+- (id)initWithStyle:(long long)arg1;
 
 @end
 

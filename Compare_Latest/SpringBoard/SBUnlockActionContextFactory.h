@@ -11,10 +11,11 @@
 }
 
 + (id)sharedInstance;
+- (id)unlockActionContextForWidgetRequest:(id)arg1;
 - (id)unlockActionContextForSnoozedAlarmItem:(id)arg1;
 - (id)unlockActionContextForCardItem:(id)arg1;
 - (id)unlockActionContextForAlertItem:(id)arg1;
-- (id)unlockActionContextForBulletin:(id)arg1 withOrigin:(int)arg2 pluginActionsAllowed:(BOOL)arg3;
+- (id)unlockActionContextForBulletin:(id)arg1 withOrigin:(int)arg2 pluginActionsAllowed:(_Bool)arg3;
 
 @end
 

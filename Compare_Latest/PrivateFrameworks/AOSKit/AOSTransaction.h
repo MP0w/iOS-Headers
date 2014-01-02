@@ -29,7 +29,7 @@
 - (id)initWithCoder:(id)arg1;
 - (id)error;
 - (id)result;
-- (BOOL)isSuccessful;
+- (_Bool)isSuccessful;
 - (void)finalize;
 - (void)dealloc;
 - (id)init;

@@ -29,11 +29,11 @@
 - (void)xpcConnectionFailed:(id)arg1;
 - (void)xpcConnectionUnhandledMessage:(id)arg1;
 - (void)xpcConnection:(id)arg1 receivedMessage:(id)arg2 userInfo:(id)arg3;
-- (void)_sendAckForToken:(id)arg1 success:(BOOL)arg2 returnValue:(id)arg3 details:(id)arg4;
+- (void)_sendAckForToken:(id)arg1 success:(_Bool)arg2 returnValue:(id)arg3 details:(id)arg4;
 - (void)_flushQueuedProbes;
 - (void)_probeBarrier:(id)arg1;
 - (void)_fireProbe:(id)arg1 withArgumentDictionary:(id)arg2;
-- (BOOL)_probeIsEnabled:(id)arg1;
+- (_Bool)_probeIsEnabled:(id)arg1;
 @property(nonatomic) NSObject<OS_dispatch_queue> *rpcDispatchQueue;
 @property(copy, nonatomic) NSString *rpcSelectorPrefix;
 @property(retain, nonatomic) id rpcTarget;
@@ -41,11 +41,11 @@
 - (void)removeObserver:(id)arg1 forMessage:(id)arg2;
 - (void)addObserver:(id)arg1 forMessage:(id)arg2 dispatchQueue:(id)arg3 block:(id)arg4;
 - (void)_setupXPCConnectionIfNeeded;
-- (BOOL)_appIsWhitelisted;
+- (_Bool)_appIsWhitelisted;
 - (id)init;
 - (id)autorelease;
 - (oneway void)release;
-- (unsigned int)retainCount;
+- (unsigned long long)retainCount;
 - (id)retain;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 

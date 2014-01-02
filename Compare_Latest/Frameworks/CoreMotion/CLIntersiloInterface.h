@@ -20,7 +20,7 @@
 - (void).cxx_destruct;
 - (id)debugDescription;
 - (id)getInfoForSelector:(SEL)arg1;
-- (BOOL)conformsToProtocol:(id)arg1;
+- (_Bool)conformsToProtocol:(id)arg1;
 - (id)initWithProtocol:(id)arg1 base:(id)arg2;
 
 @end

@@ -12,18 +12,18 @@
 {
     int _recordID;
     struct __CFString *_sortKey;
-    long _highlightIndex;
-    BOOL _isGroup;
+    long long _highlightIndex;
+    _Bool _isGroup;
     NSArray *_namePieces;
 }
 
 - (struct __CFString *)sortKey;
 - (id)namePieces;
-- (BOOL)isGroup;
-- (long)highlightIndex;
+- (_Bool)isGroup;
+- (long long)highlightIndex;
 - (int)recordID;
 - (void)dealloc;
-- (id)initWithRecordID:(int)arg1 highlightIndex:(long)arg2 group:(BOOL)arg3 namePieces:(id)arg4 sortKey:(struct __CFString *)arg5;
+- (id)initWithRecordID:(int)arg1 highlightIndex:(long long)arg2 group:(_Bool)arg3 namePieces:(id)arg4 sortKey:(struct __CFString *)arg5;
 
 @end
 

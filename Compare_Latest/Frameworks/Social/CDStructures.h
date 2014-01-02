@@ -7,8 +7,8 @@
 #pragma mark Named Structures
 
 struct CGPoint {
-    float x;
-    float y;
+    double x;
+    double y;
 };
 
 struct CGRect {
@@ -17,25 +17,25 @@ struct CGRect {
 };
 
 struct CGSize {
-    float width;
-    float height;
+    double width;
+    double height;
 };
 
 struct UIEdgeInsets {
-    float _field1;
-    float _field2;
-    float _field3;
-    float _field4;
+    double _field1;
+    double _field2;
+    double _field3;
+    double _field4;
 };
 
 struct UIOffset {
-    float _field1;
-    float _field2;
+    double _field1;
+    double _field2;
 };
 
 struct _NSRange {
-    unsigned int _field1;
-    unsigned int _field2;
+    unsigned long long _field1;
+    unsigned long long _field2;
 };
 
 #pragma mark Typedef'd Structures
@@ -46,17 +46,17 @@ typedef struct {
 } CDStruct_c3b9c2ee;
 
 typedef struct {
-    int version;
+    long long version;
     void *info;
     void *retain;
     void *release;
     void *copyDescription;
-} CDStruct_304912e7;
+} CDStruct_4210025a;
 
 typedef struct {
-    int _field1;
-    int _field2;
-} CDStruct_1ef3fb1f;
+    long long _field1;
+    long long _field2;
+} CDStruct_912cb5d2;
 
 typedef struct {
     CDStruct_c3b9c2ee _field1;

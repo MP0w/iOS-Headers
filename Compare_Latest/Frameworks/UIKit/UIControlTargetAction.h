@@ -6,15 +6,16 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface UIControlTargetAction : NSObject
 {
     id _target;
     SEL _action;
     int _eventMask;
-    BOOL _cancelled;
+    _Bool _cancelled;
 }
 
-@property(nonatomic) BOOL cancelled; // @synthesize cancelled=_cancelled;
+@property(nonatomic) _Bool cancelled; // @synthesize cancelled=_cancelled;
 
 @end
 

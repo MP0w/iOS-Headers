@@ -14,7 +14,7 @@
 }
 
 @property(copy) NSString *uploadURL; // @synthesize uploadURL=_uploadURL;
-- (BOOL)uploadFileAtPath:(id)arg1;
+- (_Bool)uploadFileAtPath:(id)arg1;
 - (void)dealloc;
 - (id)initWithName:(id)arg1 profile:(id)arg2;
 

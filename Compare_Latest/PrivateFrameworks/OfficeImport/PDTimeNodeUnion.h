@@ -8,6 +8,7 @@
 
 @class PDAnimateColorBehavior, PDAnimateEffectBehavior, PDAnimateMotionBehavior, PDAnimateRotateBehavior, PDAnimateScaleBehavior, PDAnimateTimeBehavior, PDAudioNode, PDCmdBehavior, PDParallelTimeNode, PDSequentialTimeNode, PDSetBehavior, PDVideoNode;
 
+// Not exported
 @interface PDTimeNodeUnion : NSObject
 {
     PDAnimateTimeBehavior *mTimeBehavior;

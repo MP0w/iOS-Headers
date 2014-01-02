@@ -6,45 +6,51 @@
 
 #import "UICollectionViewLayout.h"
 
-@class CADisplayLink, CKTranscriptCollectionViewLayoutAttributes, NSArray;
+@class CADisplayLink, NSArray;
 
 @interface CKTranscriptCollectionViewLayout : UICollectionViewLayout
 {
-    BOOL _easingUp;
-    BOOL _initialLoad;
-    float _anchorYPosition;
+    _Bool _holdingBoundsInvalidation;
+    _Bool _useInitialLayoutAttributesForRotation;
+    _Bool _easingUp;
+    _Bool _hasContactPhotos;
+    double _anchorYPosition;
     NSArray *_layoutAttributes;
     CADisplayLink *_displayLink;
-    CKTranscriptCollectionViewLayoutAttributes *_boundingItemAttributes;
     double _prevTimestamp;
+    double _contactPhotoDrawerInset;
+    struct CGPoint _targetContentOffset;
     struct CGSize _contentSize;
     struct CGRect _visibleBounds;
 }
 
 + (Class)layoutAttributesClass;
-@property(nonatomic, getter=isInitialLoad) BOOL initialLoad; // @synthesize initialLoad=_initialLoad;
-@property(nonatomic) BOOL easingUp; // @synthesize easingUp=_easingUp;
+@property(nonatomic) double contactPhotoDrawerInset; // @synthesize contactPhotoDrawerInset=_contactPhotoDrawerInset;
+@property(nonatomic) _Bool hasContactPhotos; // @synthesize hasContactPhotos=_hasContactPhotos;
+@property(nonatomic) _Bool easingUp; // @synthesize easingUp=_easingUp;
 @property(nonatomic) struct CGSize contentSize; // @synthesize contentSize=_contentSize;
 @property(nonatomic) double prevTimestamp; // @synthesize prevTimestamp=_prevTimestamp;
 @property(nonatomic) struct CGRect visibleBounds; // @synthesize visibleBounds=_visibleBounds;
-@property(retain, nonatomic) CKTranscriptCollectionViewLayoutAttributes *boundingItemAttributes; // @synthesize boundingItemAttributes=_boundingItemAttributes;
 @property(retain, nonatomic) CADisplayLink *displayLink; // @synthesize displayLink=_displayLink;
 @property(copy, nonatomic) NSArray *layoutAttributes; // @synthesize layoutAttributes=_layoutAttributes;
-@property(nonatomic) float anchorYPosition; // @synthesize anchorYPosition=_anchorYPosition;
-- (float)bezierPointForPercentage:(float)arg1 anchor1:(struct CGPoint)arg2 anchor2:(struct CGPoint)arg3 control1:(struct CGPoint)arg4 control2:(struct CGPoint)arg5;
+@property(nonatomic, getter=isUsingInitialLayoutAttributesForRotation) _Bool useInitialLayoutAttributesForRotation; // @synthesize useInitialLayoutAttributesForRotation=_useInitialLayoutAttributesForRotation;
+@property(nonatomic, getter=isHoldingBoundsInvalidation) _Bool holdingBoundsInvalidation; // @synthesize holdingBoundsInvalidation=_holdingBoundsInvalidation;
+@property(nonatomic) struct CGPoint targetContentOffset; // @synthesize targetContentOffset=_targetContentOffset;
+@property(nonatomic) double anchorYPosition; // @synthesize anchorYPosition=_anchorYPosition;
+- (double)bezierPointForPercentage:(double)arg1 anchor1:(double)arg2 anchor2:(double)arg3 control1:(double)arg4 control2:(double)arg5;
 - (void)updateContentSize;
 - (id)_layoutAttributesForItemAtIndexPath:(id)arg1;
-- (id)_layoutAttributesForBoundingItem;
 - (void)invalidateDisplayLink;
 - (void)reloadData;
-- (BOOL)shouldInvalidateLayoutForBoundsChange:(struct CGRect)arg1;
+- (_Bool)shouldInvalidateLayoutForBoundsChange:(struct CGRect)arg1;
 - (struct CGSize)collectionViewContentSize;
 - (id)layoutAttributesForDecorationViewOfKind:(id)arg1 atIndexPath:(id)arg2;
 - (id)layoutAttributesForSupplementaryViewOfKind:(id)arg1 atIndexPath:(id)arg2;
 - (id)layoutAttributesForItemAtIndexPath:(id)arg1;
 - (id)layoutAttributesForElementsInRect:(struct CGRect)arg1;
+- (id)finalLayoutAttributesForDisappearingItemAtIndexPath:(id)arg1;
+- (id)initialLayoutAttributesForAppearingItemAtIndexPath:(id)arg1;
 - (void)prepareLayout;
-- (id)init;
 - (void)dealloc;
 
 @end

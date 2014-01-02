@@ -11,9 +11,9 @@
 }
 
 + (id)sharedInstance;
-- (BOOL)cleanseOrphanedFileTransfers;
+- (_Bool)cleanseOrphanedFileTransfers;
 - (id)_persistentPathForTransfer:(id)arg1;
-- (BOOL)deleteAttachmentForTransfer:(id)arg1;
+- (_Bool)deleteAttachmentForTransfer:(id)arg1;
 - (id)saveAttachmentForTransfer:(id)arg1;
 
 @end

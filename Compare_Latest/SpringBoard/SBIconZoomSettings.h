@@ -6,15 +6,15 @@
 
 #import "_UISettings.h"
 
-@class SBAnimationSettings;
+@class SBFAnimationSettings;
 
 @interface SBIconZoomSettings : _UISettings
 {
-    SBAnimationSettings *_centralAnimationSettings;
+    SBFAnimationSettings *_centralAnimationSettings;
 }
 
 + (id)settingsControllerModule;
-@property(retain) SBAnimationSettings *centralAnimationSettings; // @synthesize centralAnimationSettings=_centralAnimationSettings;
+@property(retain) SBFAnimationSettings *centralAnimationSettings; // @synthesize centralAnimationSettings=_centralAnimationSettings;
 - (void)setDefaultValues;
 
 @end

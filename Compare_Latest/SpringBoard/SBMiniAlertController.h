@@ -16,9 +16,9 @@
 }
 
 + (id)sharedInstance;
-- (BOOL)canShowAlerts;
-- (BOOL)miniAlertVisible;
-- (void)_setAlertVisibleNotifyState:(BOOL)arg1;
+- (_Bool)canShowAlerts;
+- (_Bool)miniAlertVisible;
+- (void)_setAlertVisibleNotifyState:(_Bool)arg1;
 - (void)noteMiniAlertStateChanged;
 - (void)hideApplicationMiniAlerts;
 - (void)_hideMiniAlertsForApp:(id)arg1;

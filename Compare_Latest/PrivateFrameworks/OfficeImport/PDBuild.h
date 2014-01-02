@@ -8,16 +8,17 @@
 
 @class OADDrawable;
 
+// Not exported
 @interface PDBuild : NSObject
 {
-    BOOL mIsAnimateBackground;
+    _Bool mIsAnimateBackground;
     OADDrawable *mDrawable;
 }
 
 - (void)setDrawable:(id)arg1;
 - (id)drawable;
-- (void)setIsAnimateBackground:(BOOL)arg1;
-- (BOOL)isAnimateBackground;
+- (void)setIsAnimateBackground:(_Bool)arg1;
+- (_Bool)isAnimateBackground;
 - (void)dealloc;
 - (id)init;
 

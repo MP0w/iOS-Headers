@@ -8,28 +8,29 @@
 
 @class UIActivityIndicatorView, UIButton, UIImageView;
 
+// Not exported
 @interface _MKUserTrackingButtonController : NSObject
 {
     id <MKUserTrackingButtonTarget> _target;
     id <MKUserTrackingView> _userTrackingView;
-    int _state;
+    long long _state;
     UIImageView *_imageView;
     UIButton *_button;
     UIActivityIndicatorView *_activityIndicatorView;
 }
 
 @property(readonly, nonatomic) UIImageView *imageView; // @synthesize imageView=_imageView;
-@property(nonatomic) int state; // @synthesize state=_state;
+@property(nonatomic) long long state; // @synthesize state=_state;
 @property(retain, nonatomic) id <MKUserTrackingView> userTrackingView; // @synthesize userTrackingView=_userTrackingView;
-- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
+- (void)animationDidStop:(id)arg1 finished:(_Bool)arg2;
 - (id)_contentAnimation;
 - (id)_expandAnimation;
 - (id)_shrinkAnimation;
 - (void)_goToNextMode:(id)arg1;
 - (void)_updateState;
 - (void)_reloadState;
-- (id)_imageForState:(int)arg1;
-- (BOOL)_shouldAnimateFromState:(int)arg1 toState:(int)arg2;
+- (id)_imageForState:(long long)arg1;
+- (_Bool)_shouldAnimateFromState:(long long)arg1 toState:(long long)arg2;
 - (void)_authorizationStatusChanged:(id)arg1;
 - (id)_activityIndicatorView;
 - (void)dealloc;

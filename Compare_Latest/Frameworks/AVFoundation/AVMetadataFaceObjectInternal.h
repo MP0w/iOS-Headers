@@ -8,18 +8,18 @@
 
 @interface AVMetadataFaceObjectInternal : NSObject
 {
-    BOOL hasRollAngle;
-    BOOL hasYawAngle;
-    int faceID;
-    float rollAngle;
-    float yawAngle;
+    _Bool hasRollAngle;
+    _Bool hasYawAngle;
+    long long faceID;
+    double rollAngle;
+    double yawAngle;
 }
 
-@property float yawAngle; // @synthesize yawAngle;
-@property BOOL hasYawAngle; // @synthesize hasYawAngle;
-@property float rollAngle; // @synthesize rollAngle;
-@property BOOL hasRollAngle; // @synthesize hasRollAngle;
-@property int faceID; // @synthesize faceID;
+@property double yawAngle; // @synthesize yawAngle;
+@property _Bool hasYawAngle; // @synthesize hasYawAngle;
+@property double rollAngle; // @synthesize rollAngle;
+@property _Bool hasRollAngle; // @synthesize hasRollAngle;
+@property long long faceID; // @synthesize faceID;
 
 @end
 

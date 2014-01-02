@@ -12,15 +12,15 @@
 {
     struct CGRect _defaultBounds;
     struct CGPoint _badgeViewDefaultCenter;
-    unsigned int _badgeViewLayoutAnchor;
+    unsigned long long _badgeViewLayoutAnchor;
     UIView *_badgeView;
 }
 
 - (void).cxx_destruct;
 - (void)layoutSubviews;
-- (void)setZoomScale:(float)arg1 translation:(struct CGPoint)arg2 rotation:(float)arg3 animated:(BOOL)arg4 completion:(id)arg5;
+- (void)setZoomScale:(double)arg1 translation:(struct CGPoint)arg2 rotation:(double)arg3 animated:(_Bool)arg4 completion:(id)arg5;
 - (void)setZoomingImage:(id)arg1;
-- (id)initWithFrame:(struct CGRect)arg1 examplePhotoView:(id)arg2 badgeView:(id)arg3 layoutAnchor:(unsigned int)arg4;
+- (id)initWithFrame:(struct CGRect)arg1 exampleCell:(id)arg2 badgeView:(id)arg3 layoutAnchor:(unsigned long long)arg4;
 
 @end
 

@@ -22,21 +22,25 @@
     struct NSObject *_selectedAlbum;
     NSArray *_actions;
     struct NSObject *_albumList;
-    NSString *_albumTitle;
-    BOOL _inCreateNewAlbum;
+    _Bool _inCreateNewAlbum;
     NSArray *_recipients;
-    BOOL _addToExistingWorkflow;
+    _Bool _shouldShowPost;
+    NSString *_itemCountString;
+    _Bool _shouldAllowAlbumPicking;
+    _Bool _addToExistingWorkflow;
     id <PUPhotoStreamComposeServiceDelegate> _delegate;
     NSOrderedSet *_assetsToShare;
     id _completion;
+    NSString *_albumTitle;
 }
 
-@property(nonatomic) BOOL addToExistingWorkflow; // @synthesize addToExistingWorkflow=_addToExistingWorkflow;
+@property(retain, nonatomic) NSString *albumTitle; // @synthesize albumTitle=_albumTitle;
+@property(nonatomic) _Bool addToExistingWorkflow; // @synthesize addToExistingWorkflow=_addToExistingWorkflow;
 @property(copy, nonatomic) id completion; // @synthesize completion=_completion;
+@property(nonatomic) _Bool shouldAllowAlbumPicking; // @synthesize shouldAllowAlbumPicking=_shouldAllowAlbumPicking;
 @property(retain, nonatomic) NSOrderedSet *assetsToShare; // @synthesize assetsToShare=_assetsToShare;
 @property(nonatomic) __weak id <PUPhotoStreamComposeServiceDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)navigationController:(id)arg1 willShowViewController:(id)arg2 animated:(BOOL)arg3;
 - (void)_pushTitleController;
 - (void)userDidCancelWithoutAnimation;
 - (void)shouldShowNetworkActivityIndicator:(id)arg1;
@@ -44,7 +48,7 @@
 - (void)sheetFailedWithError:(id)arg1;
 - (void)userDidPost;
 - (void)userDidCancel;
-- (void)albumStreamingCreateViewController:(id)arg1 didSucceed:(BOOL)arg2;
+- (void)albumStreamingCreateViewController:(id)arg1 didSucceed:(_Bool)arg2;
 - (void)titleController:(id)arg1 didSetTitle:(id)arg2;
 - (void)titleControllerDidCancel:(id)arg1;
 - (void)controllerWillCreateNewAlbum:(id)arg1;
@@ -56,7 +60,8 @@
 - (id)serviceIconImage;
 - (id)title;
 - (id)sheetActions;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)createPreviewIfNeeded;
+- (void)viewDidLoad;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 @end

@@ -15,7 +15,6 @@
 }
 
 - (void).cxx_destruct;
-- (id)_configurationDictionaryWithBagDictionary:(id)arg1;
 - (void)main;
 @property(copy) id outputBlock;
 - (id)init;

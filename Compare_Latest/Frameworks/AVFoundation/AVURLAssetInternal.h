@@ -16,7 +16,7 @@
     NSArray *chapterGroupInfo;
     NSString *anchorChapterType;
     AVAssetResourceLoader *resourceLoader;
-    long makeOneResourceLoaderOnly;
+    long long makeOneResourceLoaderOnly;
     NSObject<OS_dispatch_queue> *tracksAccessQueue;
 }
 

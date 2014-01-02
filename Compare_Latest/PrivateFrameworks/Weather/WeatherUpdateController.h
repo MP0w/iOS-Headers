@@ -32,7 +32,7 @@
 - (void)locationManager:(id)arg1 didUpdateLocations:(id)arg2;
 - (void)didFailWithError:(id)arg1;
 - (void)didValidateLocation:(id)arg1;
-- (BOOL)weatherListContainsCity:(id)arg1;
+- (_Bool)weatherListContainsCity:(id)arg1;
 - (id)addCityToWeatherAppList:(id)arg1;
 - (int)activeCity;
 - (id)citiesInWeatherAppList;

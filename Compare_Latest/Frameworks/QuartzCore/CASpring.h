@@ -20,10 +20,10 @@
     struct CGPoint _attachmentPointA;
     struct CGPoint _attachmentPointB;
     CAValueFunction *_function;
-    float _stiffness;
-    float _damping;
-    float _restLength;
-    BOOL _enabled;
+    double _stiffness;
+    double _damping;
+    double _restLength;
+    _Bool _enabled;
     id _delegate;
     void *_priv;
 }
@@ -47,14 +47,14 @@
 - (void)dealloc;
 @property id delegate;
 @property(retain) CAValueFunction *function;
-@property float restLength;
-@property float damping;
-@property float stiffness;
+@property double restLength;
+@property double damping;
+@property double stiffness;
 @property struct CGPoint attachmentPointB;
 @property struct CGPoint attachmentPointA;
 @property(retain) CALayer *layerB;
 @property(retain) CALayer *layerA;
-@property(getter=isEnabled) BOOL enabled;
+@property(getter=isEnabled) _Bool enabled;
 @property(copy) NSString *name;
 - (id)init;
 

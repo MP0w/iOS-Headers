@@ -6,18 +6,20 @@
 
 #import "NSObject.h"
 
-@class SBLockScreenViewController, SBMediaController;
+@class PCPersistentTimer, SBLockScreenViewController, SBMediaController;
 
 @interface SBLockScreenNowPlayingPluginController : NSObject
 {
     SBLockScreenViewController *_viewController;
     SBMediaController *_mediaController;
+    PCPersistentTimer *_disableTimer;
 }
 
-- (void)_postNowPlayingChangedNotification;
-- (void)_handleNowPlayingChanged;
-- (void)_handleReLocked;
-- (void)updateNowPlayingPlugin;
+- (void)invalidateDisableTimer;
+- (void)_startDisableTimer;
+- (void)_disableNowPlayingPlugin;
+- (_Bool)isNowPlayingPluginActive;
+- (void)_updateNowPlayingPlugin;
 - (void)_addObservers;
 - (void)dealloc;
 - (id)initWithLockScreenViewController:(id)arg1 mediaController:(id)arg2;

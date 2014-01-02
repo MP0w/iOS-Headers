@@ -11,7 +11,7 @@
 - (void)swellTextViewTextDidChange:(id)arg1;
 - (void)swellTextViewDidEndEditing:(id)arg1;
 - (void)swellTextViewDidBeginEditing:(id)arg1;
-- (BOOL)swellTextViewShouldEndEditing:(id)arg1;
-- (BOOL)swellTextViewShouldBeginEditing:(id)arg1;
+- (_Bool)swellTextViewShouldEndEditing:(id)arg1;
+- (_Bool)swellTextViewShouldBeginEditing:(id)arg1;
 @end
 

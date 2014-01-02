@@ -13,9 +13,9 @@
     NSString *type;
     AVCaptureInput *input;
     AVMetadataObject *originalMetadataObject;
-    struct CGRect bounds;
     CDStruct_1b6d18a9 time;
     CDStruct_1b6d18a9 duration;
+    struct CGRect bounds;
 }
 
 @property(retain) AVMetadataObject *originalMetadataObject; // @synthesize originalMetadataObject;

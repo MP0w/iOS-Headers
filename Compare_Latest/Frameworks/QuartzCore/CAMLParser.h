@@ -20,7 +20,7 @@
 - (id)didFailToLoadResourceFromURL:(id)arg1;
 - (void)didLoadResource:(id)arg1 fromURL:(id)arg2;
 - (id)willLoadResourceFromURL:(id)arg1;
-- (id)attributeForKey:(id)arg1 remove:(BOOL)arg2;
+- (id)attributeForKey:(id)arg1 remove:(_Bool)arg2;
 - (void)setElementValue:(id)arg1;
 - (id)elementValue;
 - (id)objectById:(id)arg1;

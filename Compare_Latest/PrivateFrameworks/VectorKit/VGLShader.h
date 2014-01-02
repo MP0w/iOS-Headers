@@ -8,13 +8,14 @@
 
 @class VGLResource;
 
+// Not exported
 @interface VGLShader : NSObject
 {
     VGLResource *_resource;
 }
 
 - (void)printShaderInfoLog;
-- (BOOL)status:(unsigned int)arg1;
+- (_Bool)status:(unsigned int)arg1;
 - (void)dealloc;
 @property(readonly, nonatomic) unsigned int token;
 - (id)initWithName:(id)arg1 shaderType:(unsigned int)arg2 resource:(id)arg3;

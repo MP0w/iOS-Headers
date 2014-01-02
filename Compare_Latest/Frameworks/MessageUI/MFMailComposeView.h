@@ -14,7 +14,7 @@
 #import "UITableViewDelegate-Protocol.h"
 #import "UITextContentViewDelegate-Protocol.h"
 
-@class MFComposeBodyField, MFComposeFromView, MFComposeImageSizeView, MFComposeMultiView, MFComposeScrollView, MFComposeSubjectView, MFComposeTextContentView, MFFromAddressViewController, MFMailComposeContactsSearchController, MFMailComposeRecipientView, NSArray, NSInvocation, NSString, UIPickerView, UIResponder, UITableView, UIView;
+@class MFComposeBodyField, MFComposeFromView, MFComposeImageSizeView, MFComposeMultiView, MFComposeScrollView, MFComposeSubjectView, MFComposeTextContentView, MFFromAddressViewController, MFMailComposeContactsSearchController, MFMailComposeRecipientView, NSArray, NSInvocation, UIPickerView, UIResponder, UITableView, UIView;
 
 @interface MFMailComposeView : UITransitionView <UITextContentViewDelegate, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, MFMailComposeContactsSearchControllerDelegate, MFComposeBodyFieldDelegate, MFDragContext>
 {
@@ -45,10 +45,9 @@
     MFMailComposeContactsSearchController *_searchController;
     NSArray *_searchResults;
     UITableView *_searchResultsTable;
-    NSString *_signatureMarkupString;
-    float _offsetBeforeSearch;
-    float _keyboardIntersection;
-    unsigned int _options;
+    double _offsetBeforeSearch;
+    double _keyboardIntersection;
+    unsigned long long _options;
     struct CGSize _currentContentSize;
     unsigned int _isChangingRecipients:1;
     unsigned int _isLoading:1;
@@ -61,7 +60,7 @@
     unsigned int _shouldShowOptionalHeaders:1;
     unsigned int _isDraggingRecipients:1;
     unsigned int _hasAppeared:1;
-    unsigned int _notifyingBodyField;
+    unsigned long long _notifyingBodyField;
 }
 
 @property(readonly, nonatomic) MFComposeTextContentView *bodyTextView; // @synthesize bodyTextView=_textView;
@@ -78,59 +77,61 @@
 @property(nonatomic) id <MFComposeRecipientViewDelegate> composeRecipientDelegate; // @synthesize composeRecipientDelegate=_composeRecipientViewDelegate;
 @property(nonatomic) id <MFMailComposeViewDelegate> composeViewDelegate; // @synthesize composeViewDelegate=_mailComposeViewDelegate;
 - (void)scrollViewDidEndDecelerating:(id)arg1;
-- (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(BOOL)arg2;
+- (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(_Bool)arg2;
 - (void)scrollViewWillBeginDragging:(id)arg1;
 - (void)scrollViewDidScroll:(id)arg1;
 - (void)textContentView:(id)arg1 didChangeSize:(struct CGSize)arg2;
-- (BOOL)textContentView:(id)arg1 shouldChangeSizeForContentSize:(struct CGSize)arg2;
-- (BOOL)textContentView:(id)arg1 shouldScrollForPendingContentSize:(struct CGSize)arg2;
+- (_Bool)textContentView:(id)arg1 shouldChangeSizeForContentSize:(struct CGSize)arg2;
+- (_Bool)textContentView:(id)arg1 shouldScrollForPendingContentSize:(struct CGSize)arg2;
 - (void)willDisappear;
 - (void)didAppear;
 - (void)parentDidClose;
 - (void)parentWillClose;
-- (void)clearSearchForRecipientView:(id)arg1 reflow:(BOOL)arg2 clear:(BOOL)arg3;
+- (void)clearSearchForRecipientView:(id)arg1 reflow:(_Bool)arg2 clear:(_Bool)arg3;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)selectSearchResultsRecipientAtIndexPath:(id)arg1;
-- (void)_accessoryButtonTapped:(id)arg1;
+- (void)tableView:(id)arg1 accessoryButtonTappedForRowWithIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
-- (float)tableView:(id)arg1 estimatedHeightForRowAtIndexPath:(id)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (double)tableView:(id)arg1 estimatedHeightForRowAtIndexPath:(id)arg2;
 - (void)composeContactsSearchController:(id)arg1 didFindCorecipients:(id)arg2;
-- (void)composeContactsSearchController:(id)arg1 finishedWithResults:(BOOL)arg2;
+- (void)composeContactsSearchController:(id)arg1 finishedWithResults:(_Bool)arg2;
 - (void)composeContactsSearchController:(id)arg1 didSortResults:(id)arg2;
 - (id)sendingAddressForComposeContactsSearchController:(id)arg1;
 - (void)findCorecipientsWithRecipientView:(id)arg1;
 - (void)invalidateSearchResultRecipient:(id)arg1;
 - (void)cancelSearch;
 - (void)beginSearchForText:(id)arg1 recipientView:(id)arg2;
-- (BOOL)presentSearchResults:(id)arg1;
+- (_Bool)presentSearchResults:(id)arg1;
 - (void)dismissSearchResults;
-- (BOOL)presentSearchResults;
-- (BOOL)chooseSelectedSearchResult;
+- (_Bool)presentSearchResults;
+- (_Bool)chooseSelectedSearchResult;
 - (void)selectPreviousSearchResult;
 - (void)selectNextSearchResult;
-@property(readonly, nonatomic, getter=isSearching) BOOL searching;
-- (void)_updateOptionalHeaderVisibilityForceVisible:(BOOL)arg1;
+@property(readonly, nonatomic, getter=isSearching) _Bool searching;
+- (void)menuDidHide;
+- (void)_updateOptionalHeaderVisibilityForceVisible:(_Bool)arg1;
 - (void)updateOptionalHeaderVisibility;
 - (void)viewDidBecomeFirstResponder:(id)arg1;
 - (void)layoutForChangedComposeRecipientView:(id)arg1 size:(struct CGSize)arg2;
-- (void)setScrollsToTop:(BOOL)arg1;
-- (void)scrollToTopAnimated:(BOOL)arg1;
+- (void)setScrollsToTop:(_Bool)arg1;
+- (void)scrollToTopAnimated:(_Bool)arg1;
 - (void)focusFirstResponderAfterRecipientView:(id)arg1;
-- (void)restoreFirstResponderWithKeyboardPinning:(BOOL)arg1;
+- (void)restoreFirstResponderWithKeyboardPinning:(_Bool)arg1;
 - (void)restoreFirstResponder;
-- (void)saveFirstResponderWithKeyboardPinning:(BOOL)arg1;
+- (void)saveFirstResponderWithKeyboardPinning:(_Bool)arg1;
 - (void)saveFirstResponder;
-- (float)_heightForBottomView;
-- (BOOL)isKeyboardVisible;
-- (void)setKeyboardVisible:(BOOL)arg1 animate:(BOOL)arg2;
+- (double)_heightForBottomView;
+- (_Bool)isKeyboardVisible;
+- (void)setKeyboardVisible:(_Bool)arg1 animate:(_Bool)arg2;
 - (void)automaticKeyboardFinishedDisappearing:(id)arg1;
 - (void)automaticKeyboardFinishedAppearing:(id)arg1;
 - (void)_updateKeyboardIntersection:(struct CGRect)arg1;
 - (void)fromAddressPickerNeedsToBeRefreshed;
-- (BOOL)isFromAddressPickerVisible;
-- (void)setFromAddressPickerVisible:(BOOL)arg1;
+- (_Bool)isFromAddressPickerVisible;
+- (void)setFromAddressPickerVisible:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)setFromAddressPickerVisible:(_Bool)arg1;
 - (void)fromAddressPickerPopoverWasDismissed;
 - (struct CGRect)_frameForFromAddressPicker;
 - (void)_adjustScrollerForBottomView;
@@ -138,10 +139,11 @@
 - (void)composeBodyFieldDidFirstVisuallyNonEmptyLayout:(id)arg1;
 - (void)composeBodyFieldDidDraw:(id)arg1;
 - (void)composeBodyFieldFrameChanged:(id)arg1;
-- (void)didRotateFromInterfaceOrientation:(int)arg1;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (void)_finishUpRotationToInterfaceOrientation:(int)arg1;
-- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)didRotateFromInterfaceOrientation:(long long)arg1;
+- (void)willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (void)_finishUpRotationToInterfaceOrientation:(long long)arg1;
+- (id)_focusedRecipientView;
+- (void)willRotateToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
 - (void)_adjustScrollerContentSize;
 - (id)dragScrollView;
 - (id)dragWindow;
@@ -155,26 +157,24 @@
 - (void)_layoutFromFieldWithChangingView:(id)arg1 toSize:(struct CGSize)arg2 fieldFrame:(struct CGRect)arg3;
 - (void)_setupField:(id *)arg1 withLabel:(id)arg2 navTitle:(id)arg3 frame:(struct CGRect)arg4;
 - (void)_multiFieldClicked;
-@property(nonatomic, getter=isShowingPeoplePicker) BOOL showingPeoplePicker;
-@property(nonatomic, getter=isChangingRecipients) BOOL changingRecipients;
-@property(nonatomic, getter=isAnimationDisabled) BOOL animationDisabled;
-@property(nonatomic) BOOL isForEditing;
+@property(nonatomic, getter=isShowingPeoplePicker) _Bool showingPeoplePicker;
+@property(nonatomic, getter=isChangingRecipients) _Bool changingRecipients;
+@property(nonatomic, getter=isAnimationDisabled) _Bool animationDisabled;
+@property(nonatomic) _Bool isForEditing;
 - (void)searchResultsPopoverWasDismissed;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
-@property(nonatomic, getter=isLoading) BOOL loading;
-- (void)setRecipientFieldsEditable:(BOOL)arg1;
-- (BOOL)endEditing:(BOOL)arg1;
-- (void)setAutoresizingMask:(unsigned int)arg1;
-- (void)updateSignature;
-- (void)_updateSignatureMarkupString;
+@property(nonatomic, getter=isLoading) _Bool loading;
+- (void)setRecipientFieldsEditable:(_Bool)arg1;
+- (_Bool)endEditing:(_Bool)arg1;
+- (void)setAutoresizingMask:(unsigned long long)arg1;
 - (id)bottomView;
 - (void)toggleImageSizeFieldIfNecessary;
-- (void)_layoutSubviews:(BOOL)arg1;
-- (void)_layoutSubviews:(BOOL)arg1 changingView:(id)arg2 toSize:(struct CGSize)arg3 searchResultsWereDismissed:(BOOL)arg4;
-- (void)_layoutSubviews:(BOOL)arg1 changingView:(id)arg2 toSize:(struct CGSize)arg3;
-- (BOOL)isSearchResultsPopoverVisible;
-- (void)_layoutSubviewsWithActiveRecipientView:(BOOL)arg1 changingView:(id)arg2 toSize:(struct CGSize)arg3;
-- (void)_setupBodyFieldWithHeaderFrame:(struct CGRect)arg1 enclosingFrame:(struct CGRect)arg2 changingView:(id)arg3 frameToPin:(struct CGRect)arg4 wasSearching:(BOOL)arg5;
+- (void)_layoutSubviews:(_Bool)arg1;
+- (void)_layoutSubviews:(_Bool)arg1 changingView:(id)arg2 toSize:(struct CGSize)arg3 searchResultsWereDismissed:(_Bool)arg4;
+- (void)_layoutSubviews:(_Bool)arg1 changingView:(id)arg2 toSize:(struct CGSize)arg3;
+- (_Bool)isSearchResultsPopoverVisible;
+- (void)_layoutSubviewsWithActiveRecipientView:(_Bool)arg1 changingView:(id)arg2 toSize:(struct CGSize)arg3;
+- (void)_setupBodyFieldWithHeaderFrame:(struct CGRect)arg1 enclosingFrame:(struct CGRect)arg2 changingView:(id)arg3 frameToPin:(struct CGRect)arg4 wasSearching:(_Bool)arg5;
 - (void)composeHeaderViewClicked:(id)arg1;
 - (void)_collectKeyViews:(id)arg1;
 - (void)removeFromSuperview;
@@ -182,7 +182,7 @@
 - (void)_cancelAnimations;
 - (id)_searchResultsTable;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 options:(unsigned int)arg2;
+- (id)initWithFrame:(struct CGRect)arg1 options:(unsigned long long)arg2;
 
 @end
 

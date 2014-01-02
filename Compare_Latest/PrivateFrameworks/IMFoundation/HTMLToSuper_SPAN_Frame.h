@@ -8,14 +8,14 @@
 
 @interface HTMLToSuper_SPAN_Frame : HTMLToSuper_Default_Frame
 {
-    BOOL _shouldPopBackgroundColor;
-    BOOL _shouldPopForegroundColor;
-    BOOL _shouldPopFontFamily;
-    BOOL _shouldPopFontSize;
-    BOOL _shouldDecrementBoldCount;
-    BOOL _shouldDecrementItalicCount;
-    BOOL _shouldDecrementUnderlineCount;
-    BOOL _shouldDecrementStrikeCount;
+    _Bool _shouldPopBackgroundColor;
+    _Bool _shouldPopForegroundColor;
+    _Bool _shouldPopFontFamily;
+    _Bool _shouldPopFontSize;
+    _Bool _shouldDecrementBoldCount;
+    _Bool _shouldDecrementItalicCount;
+    _Bool _shouldDecrementUnderlineCount;
+    _Bool _shouldDecrementStrikeCount;
 }
 
 - (void)parser:(id)arg1 context:(id)arg2 didEndElement:(id)arg3 namespaceURI:(id)arg4 qualifiedName:(id)arg5;

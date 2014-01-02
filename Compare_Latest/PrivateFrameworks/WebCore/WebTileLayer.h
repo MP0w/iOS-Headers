@@ -6,37 +6,10 @@
 
 #import "CALayer.h"
 
+// Not exported
 @interface WebTileLayer : CALayer
 {
-    struct TileController {
-        void **;
-        id;
-        struct RetainPtr<CALayer>;
-        RetainPtr_6fe3f9f2;
-        struct IntSize;
-        struct FloatRect;
-        struct FloatRect;
-        struct FloatRect;
-        struct IntRect;
-        struct HashMap<WebCore::IntPoint, WebCore::TileController::TileInfo, WTF::IntPointHash, WTF::HashTraits<WebCore::IntPoint>, WTF::HashTraits<WebCore::TileController::TileInfo>>;
-        struct Timer<WebCore::TileController>;
-        struct Timer<WebCore::TileController>;
-        struct Deque<WebCore::TileController::TileCohortInfo, 0>;
-        struct IntRect;
-        float;
-        float;
-        unsigned int;
-        _Bool;
-        _Bool;
-        _Bool;
-        _Bool;
-        _Bool;
-        _Bool;
-        _Bool;
-        struct RetainPtr<CGColor *>;
-        float;
-        int;
-    } *_tileController;
+    struct TileController *_tileController;
     unsigned int _paintCount;
 }
 
@@ -44,7 +17,7 @@
 - (unsigned int)paintCount;
 - (unsigned int)incrementPaintCount;
 - (void)resetPaintCount;
-- (void)setTileController:(TileController_b19e9b86 *)arg1;
+- (void)setTileController:(struct TileController *)arg1;
 - (void)drawInContext:(struct CGContext *)arg1;
 - (id)actionForKey:(id)arg1;
 

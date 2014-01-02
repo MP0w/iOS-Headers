@@ -26,9 +26,9 @@
 - (id)environment;
 - (id)launchPath;
 - (int)processIdentifier;
-- (int)suspendCount;
-- (BOOL)resume;
-- (BOOL)suspend;
+- (long long)suspendCount;
+- (_Bool)resume;
+- (_Bool)suspend;
 - (void)terminate;
 - (void)interrupt;
 - (void)setLaunchPath:(id)arg1;
@@ -36,8 +36,8 @@
 - (void)setCurrentDirectoryPath:(id)arg1;
 - (void)setArguments:(id)arg1;
 - (void)launch;
-- (BOOL)isRunning;
-- (int)terminationReason;
+- (_Bool)isRunning;
+- (long long)terminationReason;
 - (int)terminationStatus;
 @property(copy) id terminationHandler;
 

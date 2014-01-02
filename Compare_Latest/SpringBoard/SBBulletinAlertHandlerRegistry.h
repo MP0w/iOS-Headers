@@ -15,7 +15,7 @@
 {
     NSMutableDictionary *_handlersBySectionID;
     SBAlertItemsSettings *_settings;
-    BOOL _disabled;
+    _Bool _disabled;
 }
 
 - (void)settings:(id)arg1 changedValueForKey:(id)arg2;

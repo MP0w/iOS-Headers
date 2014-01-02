@@ -10,8 +10,8 @@
 {
 }
 
-+ (float)defaultHeightForOrientation:(int)arg1;
-+ (float)defaultLabelFontSize;
++ (double)defaultHeightForOrientation:(long long)arg1;
++ (double)defaultLabelFontSize;
 
 @end
 

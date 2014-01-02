@@ -17,20 +17,22 @@
     void *_addressBook;
     id <ABMembersDataSourceDelegate> _delegate;
     id <ABStyleProvider> _styleProvider;
+    _Bool _isInPopover;
 }
 
+@property(nonatomic) _Bool isInPopover; // @synthesize isInPopover=_isInPopover;
 @property(retain, nonatomic) id <ABStyleProvider> styleProvider; // @synthesize styleProvider=_styleProvider;
 @property(nonatomic) void *addressBook; // @synthesize addressBook=_addressBook;
 @property(nonatomic) id <ABMembersDataSourceDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)scrollViewWillBeginDragging:(id)arg1;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)removeAllRecords;
 - (void)addRecords:(id)arg1;
-- (unsigned int)count;
+- (unsigned long long)count;
 @property(readonly, nonatomic) NSArray *records;
 - (void)dealloc;
 

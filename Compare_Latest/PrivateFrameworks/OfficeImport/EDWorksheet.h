@@ -8,6 +8,7 @@
 
 @class EDCollection, EDColumnInfoCollection, EDMergedCellCollection, EDPane, EDReference, EDRowBlocks, EDWarnings, TSUPointerKeyDictionary;
 
+// Not exported
 @interface EDWorksheet : EDSheet
 {
     EDRowBlocks *mRowBlocks;
@@ -21,8 +22,8 @@
     EDWarnings *mWorksheetWarnings;
     double mDefaultColumnWidth;
     unsigned short mDefaultRowHeight;
-    unsigned long mMaxRowOutlineLevel;
-    unsigned long mMaxColumnOutlineLevel;
+    unsigned long long mMaxRowOutlineLevel;
+    unsigned long long mMaxColumnOutlineLevel;
     _Bool mFitToPage;
     EDReference *mMaxCellReferencedInFormulas;
     TSUPointerKeyDictionary *mMergedRows;
@@ -47,26 +48,6 @@
 - (unsigned short)defaultRowHeight;
 - (void)setDefaultColumnWidth:(double)arg1;
 - (double)defaultColumnWidth;
-- (void)reduceMemoryIfPossible;
-- (id)mergedColRef:(unsigned int)arg1;
-- (BOOL)isColMerged:(unsigned int)arg1;
-- (BOOL)hasMergedCol;
-- (id)mergedRowRef:(unsigned int)arg1;
-- (BOOL)isRowMerged:(unsigned int)arg1;
-- (BOOL)hasMergedRow;
-- (void)setMergedColsRef:(id)arg1 from:(unsigned int)arg2 to:(unsigned int)arg3;
-- (void)setMergedRowsRef:(id)arg1 from:(unsigned int)arg2 to:(unsigned int)arg3;
-- (void)updateMaxColumnOutlineLevelIfNeeded:(unsigned long)arg1;
-- (void)setMaxColumnOutlineLevel:(unsigned long)arg1;
-- (unsigned long)maxColumnOutlineLevel;
-- (void)updateMaxRowOutlineLevelIfNeeded:(unsigned long)arg1;
-- (void)setMaxRowOutlineLevel:(unsigned long)arg1;
-- (unsigned long)maxRowOutlineLevel;
-- (void)teardown;
-- (void)setup;
-- (id)maxCellReferencedInFormulas;
-- (void)setImplicitCellArea:(id)arg1;
-- (id)implicitCellArea;
 
 @end
 

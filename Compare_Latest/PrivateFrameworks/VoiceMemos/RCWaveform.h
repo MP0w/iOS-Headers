@@ -8,22 +8,26 @@
 
 #import "NSCoding-Protocol.h"
 
-@class NSArray;
+@class NSArray, NSMutableArray;
 
 @interface RCWaveform : NSObject <NSCoding>
 {
-    NSArray *_segments;
+    NSMutableArray *_segments;
 }
 
 + (id)waveformWithContentsOfURL:(id)arg1;
 + (id)waveformPathForSavedRecordingPath:(id)arg1;
 + (void)initialize;
-@property(retain, nonatomic) NSArray *segments; // @synthesize segments=_segments;
+@property(readonly, nonatomic) NSArray *segments; // @synthesize segments=_segments;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (BOOL)saveContentsToURL:(id)arg1;
+- (struct _NSRange)rangeOfSegmentsInTimeRange:(CDStruct_73a5d3ca)arg1;
+- (id)segmentsFromTime:(double)arg1;
+- (id)segmentsInTimeRange:(CDStruct_73a5d3ca)arg1;
+- (_Bool)saveContentsToURL:(id)arg1;
 - (id)initWithSegments:(id)arg1;
+- (id)init;
 
 @end
 

@@ -11,18 +11,18 @@
 @interface MFMonitoredInvocation : NSInvocation
 {
     MFActivityMonitor *_monitor;
-    BOOL _shouldLogInvocation;
+    _Bool _shouldLogInvocation;
 }
 
-+ (id)invocationWithSelector:(SEL)arg1 target:(id)arg2 object1:(id)arg3 object2:(id)arg4 taskName:(id)arg5 priority:(int)arg6 canBeCancelled:(BOOL)arg7;
-+ (id)invocationWithSelector:(SEL)arg1 target:(id)arg2 object:(id)arg3 taskName:(id)arg4 priority:(int)arg5 canBeCancelled:(BOOL)arg6;
-+ (id)invocationWithSelector:(SEL)arg1 target:(id)arg2 taskName:(id)arg3 priority:(int)arg4 canBeCancelled:(BOOL)arg5;
++ (id)invocationWithSelector:(SEL)arg1 target:(id)arg2 object1:(id)arg3 object2:(id)arg4 taskName:(id)arg5 priority:(int)arg6 canBeCancelled:(_Bool)arg7;
++ (id)invocationWithSelector:(SEL)arg1 target:(id)arg2 object:(id)arg3 taskName:(id)arg4 priority:(int)arg5 canBeCancelled:(_Bool)arg6;
++ (id)invocationWithSelector:(SEL)arg1 target:(id)arg2 taskName:(id)arg3 priority:(int)arg4 canBeCancelled:(_Bool)arg5;
 + (id)invocationWithMethodSignature:(id)arg1;
 @property(readonly, nonatomic) MFActivityMonitor *monitor; // @synthesize monitor=_monitor;
 - (id)description;
 - (void)invoke;
-- (void)setShouldLogInvocation:(BOOL)arg1;
-- (BOOL)mf_shouldLogInvocation;
+- (void)setShouldLogInvocation:(_Bool)arg1;
+- (_Bool)mf_shouldLogInvocation;
 - (void)dealloc;
 
 @end

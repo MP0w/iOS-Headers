@@ -10,9 +10,9 @@
 + (int)_mapkit_typeWithSource:(int)arg1;
 + (id)_mapkit_stringWithType:(int)arg1;
 @property(readonly, nonatomic) int _mapkit_source;
-- (BOOL)isEqualToLocationCoordinate:(CDStruct_c3b9c2ee)arg1;
+- (_Bool)isEqualToLocationCoordinate:(CDStruct_c3b9c2ee)arg1;
 - (id)locationDescription;
-- (BOOL)hasValidCourse;
-- (BOOL)isStale;
+- (_Bool)hasValidCourse;
+- (_Bool)isStale;
 @end
 

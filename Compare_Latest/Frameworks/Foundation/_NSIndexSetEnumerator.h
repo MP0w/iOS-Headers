@@ -8,10 +8,11 @@
 
 @class NSIndexSet;
 
+// Not exported
 @interface _NSIndexSetEnumerator : NSEnumerator
 {
     NSIndexSet *_indexSet;
-    unsigned int _index;
+    unsigned long long _index;
 }
 
 - (id)nextObject;

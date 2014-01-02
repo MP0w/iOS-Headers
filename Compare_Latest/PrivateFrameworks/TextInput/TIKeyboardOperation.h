@@ -12,7 +12,7 @@
 {
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 - (id)description;
 - (id)propertiesForDescription;
 - (void)encodeWithCoder:(id)arg1;

@@ -7,7 +7,7 @@
 #import "NSString.h"
 
 @interface NSString (NSStringTextExtras)
-- (struct _NSRange)rangeOfGraphicalSegmentAtIndex:(unsigned int)arg1;
-- (unsigned int)_endOfParagraphAtIndex:(unsigned int)arg1;
+- (struct _NSRange)rangeOfGraphicalSegmentAtIndex:(unsigned long long)arg1;
+- (unsigned long long)_endOfParagraphAtIndex:(unsigned long long)arg1;
 @end
 

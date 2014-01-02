@@ -12,9 +12,9 @@
 {
 }
 
-+ (const CDStruct_9508427b *)elementDefinitionWithName:(id)arg1 withSchema:(id)arg2;
-+ (const CDStruct_9508427b *)sortedElementDefinitionAtIndex:(unsigned int)arg1 withSchema:(id)arg2;
-+ (unsigned int)elementDefinitionCountWithSchema:(id)arg1;
++ (const CDStruct_e3362728 *)elementDefinitionWithName:(id)arg1 withSchema:(id)arg2;
++ (const CDStruct_e3362728 *)sortedElementDefinitionAtIndex:(unsigned long long)arg1 withSchema:(id)arg2;
++ (unsigned long long)elementDefinitionCountWithSchema:(id)arg1;
 - (id)displayName;
 - (id)previewImage;
 
@@ -22,7 +22,7 @@
 @property(retain, nonatomic) TDSchemaCategory *category; // @dynamic category;
 @property(retain, nonatomic) NSString *name; // @dynamic name;
 @property(retain, nonatomic) NSSet *parts; // @dynamic parts;
-@property BOOL published; // @dynamic published;
+@property _Bool published; // @dynamic published;
 
 @end
 

@@ -8,6 +8,7 @@
 
 #import "WebAllowDenyPolicyListener-Protocol.h"
 
+// Not exported
 @interface WebGeolocationPolicyListener : NSObject <WebAllowDenyPolicyListener>
 {
     struct RefPtr<WebCore::Geolocation> _geolocation;
@@ -17,7 +18,7 @@
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (BOOL)shouldClearCache;
+- (_Bool)shouldClearCache;
 - (void)denyOnlyThisRequest;
 - (void)deny;
 - (void)allow;

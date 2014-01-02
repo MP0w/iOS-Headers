@@ -10,13 +10,14 @@
 
 @class GQDWPLayoutFrame;
 
+// Not exported
 @interface GQDBGTitlePlaceholder : GQDBGPlaceholder <GQDNameMappable>
 {
     GQDWPLayoutFrame *mFrame;
 }
 
 + (const struct StateSpec *)stateForReading;
-- (BOOL)isBlank;
+- (_Bool)isBlank;
 - (id)layoutFrame;
 - (void)dealloc;
 

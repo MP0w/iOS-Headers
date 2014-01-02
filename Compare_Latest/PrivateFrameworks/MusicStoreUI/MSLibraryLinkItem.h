@@ -10,16 +10,16 @@
 
 @interface MSLibraryLinkItem : NSObject
 {
-    int _fallbackSectionType;
-    BOOL _isComplete;
+    long long _fallbackSectionType;
+    _Bool _isComplete;
     NSDictionary *_queryStringDictionary;
 }
 
 @property(retain, nonatomic) NSDictionary *queryStringDictionary; // @synthesize queryStringDictionary=_queryStringDictionary;
-@property(nonatomic) int fallbackSectionType; // @synthesize fallbackSectionType=_fallbackSectionType;
-@property(nonatomic, getter=isComplete) BOOL complete; // @synthesize complete=_isComplete;
+@property(nonatomic) long long fallbackSectionType; // @synthesize fallbackSectionType=_fallbackSectionType;
+@property(nonatomic, getter=isComplete) _Bool complete; // @synthesize complete=_isComplete;
 - (void)_parseURL:(id)arg1 withFields:(id)arg2;
-- (BOOL)_parseKind:(id)arg1;
+- (_Bool)_parseKind:(id)arg1;
 - (id)_copyFieldNamesFromURLBag;
 - (void)dealloc;
 - (id)initWithURL:(id)arg1;

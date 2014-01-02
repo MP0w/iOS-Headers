@@ -8,6 +8,7 @@
 
 @class NSDictionary, TSUColor;
 
+// Not exported
 @interface MFPColorAdjust : NSObject
 {
     struct MFPColorMatrix *mColorMatrix;
@@ -20,12 +21,12 @@
     float mGamma;
     NSDictionary *mRecolorMap;
     float mThreshold;
-    BOOL mEnabled;
+    _Bool mEnabled;
 }
 
 - (id).cxx_construct;
-- (void)setEnabled:(BOOL)arg1;
-- (BOOL)isEnabled;
+- (void)setEnabled:(_Bool)arg1;
+- (_Bool)isEnabled;
 - (void)setThreshold:(float)arg1;
 - (float)threshold;
 - (void)setRecolorMap:(id)arg1;

@@ -11,23 +11,22 @@
 @interface SBOrientationLockManager : NSObject
 {
     NSMutableSet *_lockOverrideReasons;
-    int _userLockedOrientation;
+    long long _userLockedOrientation;
 }
 
 + (id)sharedInstance;
-- (BOOL)_effectivelyLocked;
-- (void)_updateLockStateWithOrientation:(int)arg1 forceUpdateHID:(BOOL)arg2 changes:(id)arg3;
-- (void)_updateLockStateWithOrientation:(int)arg1 changes:(id)arg2;
+- (_Bool)_effectivelyLocked;
+- (void)_updateLockStateWithOrientation:(long long)arg1 forceUpdateHID:(_Bool)arg2 changes:(id)arg3;
 - (void)_updateLockStateWithChanges:(id)arg1;
 - (void)updateLockOverrideForCurrentDeviceOrientation;
-- (BOOL)lockOverrideEnabled;
-- (void)enableLockOverrideForReason:(id)arg1 forceOrientation:(int)arg2;
-- (void)enableLockOverrideForReason:(id)arg1 suggestOrientation:(int)arg2;
-- (void)setLockOverrideEnabled:(BOOL)arg1 forReason:(id)arg2;
-- (int)userLockOrientation;
-- (BOOL)isLocked;
+- (_Bool)lockOverrideEnabled;
+- (void)enableLockOverrideForReason:(id)arg1 forceOrientation:(long long)arg2;
+- (void)enableLockOverrideForReason:(id)arg1 suggestOrientation:(long long)arg2;
+- (void)setLockOverrideEnabled:(_Bool)arg1 forReason:(id)arg2;
+- (long long)userLockOrientation;
+- (_Bool)isLocked;
 - (void)unlock;
-- (void)lock:(int)arg1;
+- (void)lock:(long long)arg1;
 - (void)lock;
 - (void)dealloc;
 - (id)init;

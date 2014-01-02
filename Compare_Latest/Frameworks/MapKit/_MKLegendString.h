@@ -4,21 +4,23 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
+#import "CALayer.h"
 
-@class NSString;
+@class NSAttributedString;
 
-@interface _MKLegendString : NSObject
+// Not exported
+@interface _MKLegendString : CALayer
 {
-    NSString *string;
-    float x;
-    float halfWidth;
+    NSAttributedString *string;
+    double halfWidth;
 }
 
-@property(nonatomic) float halfWidth; // @synthesize halfWidth;
-@property(nonatomic) float x; // @synthesize x;
-@property(retain, nonatomic) NSString *string; // @synthesize string;
+@property(nonatomic) double halfWidth; // @synthesize halfWidth;
+@property(retain, nonatomic) NSAttributedString *string; // @synthesize string;
+- (id)actionForKey:(id)arg1;
+- (void)drawInContext:(struct CGContext *)arg1;
 - (void)dealloc;
+- (id)init;
 
 @end
 

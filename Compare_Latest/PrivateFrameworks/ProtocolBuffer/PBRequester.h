@@ -18,12 +18,12 @@
     NSRunLoop *_connectionRunLoop;
     NSMutableData *_data;
     PBDataReader *_dataReader;
-    unsigned int _lastGoodDataOffset;
-    unsigned int _uploadPayloadSize;
-    unsigned int _downloadPayloadSize;
+    unsigned long long _lastGoodDataOffset;
+    unsigned long long _uploadPayloadSize;
+    unsigned long long _downloadPayloadSize;
     unsigned long long _timeRequestSent;
     unsigned long long _timeResponseReceived;
-    int _responseStatusCode;
+    long long _responseStatusCode;
     NSMutableArray *_requests;
     NSMutableArray *_responses;
     NSMutableArray *_internalRequests;
@@ -34,10 +34,10 @@
     struct __CFRunLoopTimer *_timeoutTimer;
     NSString *_logRequestToFile;
     NSString *_logResponseToFile;
-    BOOL _didNotifyRequestCompleted;
+    _Bool _didNotifyRequestCompleted;
     NSArray *_clientCertificates;
     NSDictionary *_connectionProperties;
-    BOOL _shouldHandleCookies;
+    _Bool _shouldHandleCookies;
     struct {
         unsigned int ignoresResponse:1;
         unsigned int loading:1;
@@ -53,11 +53,11 @@
     } _flags;
 }
 
-+ (BOOL)usesEncodedMessages;
-@property(nonatomic) BOOL shouldHandleCookies; // @synthesize shouldHandleCookies=_shouldHandleCookies;
++ (_Bool)usesEncodedMessages;
+@property(nonatomic) _Bool shouldHandleCookies; // @synthesize shouldHandleCookies=_shouldHandleCookies;
 @property(retain, nonatomic) NSArray *clientCertificates; // @synthesize clientCertificates=_clientCertificates;
-@property(readonly, nonatomic) unsigned int downloadPayloadSize; // @synthesize downloadPayloadSize=_downloadPayloadSize;
-@property(readonly, nonatomic) unsigned int uploadPayloadSize; // @synthesize uploadPayloadSize=_uploadPayloadSize;
+@property(readonly, nonatomic) unsigned long long downloadPayloadSize; // @synthesize downloadPayloadSize=_downloadPayloadSize;
+@property(readonly, nonatomic) unsigned long long uploadPayloadSize; // @synthesize uploadPayloadSize=_uploadPayloadSize;
 @property(retain, nonatomic) NSString *logResponseToFile; // @synthesize logResponseToFile=_logResponseToFile;
 @property(retain, nonatomic) NSString *logRequestToFile; // @synthesize logRequestToFile=_logRequestToFile;
 @property(nonatomic) double timeoutSeconds; // @synthesize timeoutSeconds=_timeoutSeconds;
@@ -76,21 +76,21 @@
 - (void)_resetTimeoutTimer;
 - (void)_removeTimeoutTimer;
 - (void)_startTimeoutTimer;
-@property(readonly, nonatomic) unsigned int requestResponseTime;
+@property(readonly, nonatomic) unsigned long long requestResponseTime;
 - (id)connection:(id)arg1 willSendRequestForEstablishedConnection:(id)arg2 properties:(id)arg3;
 - (void)connection:(id)arg1 didFailWithError:(id)arg2;
 - (void)connectionDidFinishLoading:(id)arg1;
 - (void)connection:(id)arg1 didReceiveData:(id)arg2;
 - (void)connection:(id)arg1 didReceiveResponse:(id)arg2;
-- (BOOL)_tryParseData;
+- (_Bool)_tryParseData;
 - (id)tryReadResponseData:(id)arg1 forRequest:(id)arg2 forResponseClass:(Class)arg3;
-- (BOOL)readResponsePreamble:(id)arg1;
+- (_Bool)readResponsePreamble:(id)arg1;
 - (void)cancelWithErrorCode:(int)arg1;
 - (void)_cancelWithErrorDomain:(id)arg1 errorCode:(int)arg2 userInfo:(id)arg3;
 - (void)_failWithErrorDomain:(id)arg1 errorCode:(int)arg2 userInfo:(id)arg3;
 - (void)_failWithError:(id)arg1;
 - (void)resume;
-- (BOOL)isPaused;
+- (_Bool)isPaused;
 - (void)pause;
 - (void)cancel;
 - (void)_cancelNoNotify;
@@ -115,8 +115,8 @@
 - (void)clearRequests;
 @property(readonly, nonatomic) NSArray *requests;
 - (void)setNeedsCancel;
-@property BOOL needsCancel;
-@property(nonatomic) BOOL ignoresResponse;
+@property _Bool needsCancel;
+@property(nonatomic) _Bool ignoresResponse;
 - (void)_cleanup;
 - (void)dealloc;
 - (id)initWithURL:(id)arg1 andDelegate:(id)arg2;

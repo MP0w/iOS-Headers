@@ -6,6 +6,7 @@
 
 #import <iWorkImport/GQDWPTextList.h>
 
+// Not exported
 @interface GQDWPInlineList : GQDWPTextList
 {
 }

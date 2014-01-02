@@ -13,15 +13,13 @@
 - (oneway void)speechRecordingDidCancel;
 - (oneway void)speechRecordingDidEnd;
 - (oneway void)speechRecordingDidUpdateAveragePower:(float)arg1 peakPower:(float)arg2;
-- (oneway void)speechRecordingDidBegin;
+- (oneway void)speechRecordingDidBeginOnAVRecordRoute:(id)arg1;
 - (oneway void)speechRecordingWillBegin;
 - (oneway void)requestRequestedDismissAssistant;
 - (oneway void)requestRequestedOpenURL:(id)arg1 reply:(id)arg2;
 - (oneway void)requestDidFailWithError:(id)arg1 requestClass:(id)arg2;
-- (oneway void)requestReplyContextMayInitiateCall;
-- (oneway void)requestDidReceiveCommandInfo:(id)arg1 reply:(id)arg2;
-- (oneway void)requestDidReceiveCommandData:(id)arg1 reply:(id)arg2;
+- (oneway void)requestDidReceiveCommand:(id)arg1 reply:(id)arg2;
 - (oneway void)requestDidFinish;
-- (oneway void)shouldSpeakChanged:(BOOL)arg1;
+- (oneway void)shouldSpeakChanged:(_Bool)arg1;
 @end
 

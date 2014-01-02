@@ -20,10 +20,10 @@
 - (void)_stopObservingTimebaseNotificationsForTimebase:(struct OpaqueCMTimebase *)arg1;
 - (struct OpaqueFigVisualContext *)_visualContext;
 - (void)_setTagBuffersWithConversionInformation;
-- (BOOL)suppressesPlayerRendering;
-- (void)setSuppressesPlayerRendering:(BOOL)arg1;
+- (_Bool)suppressesPlayerRendering;
+- (void)setSuppressesPlayerRendering:(_Bool)arg1;
 - (struct __CVBuffer *)copyPixelBufferForItemTime:(CDStruct_1b6d18a9)arg1 itemTimeForDisplay:(CDStruct_1b6d18a9 *)arg2;
-- (BOOL)hasNewPixelBufferForItemTime:(CDStruct_1b6d18a9)arg1;
+- (_Bool)hasNewPixelBufferForItemTime:(CDStruct_1b6d18a9)arg1;
 - (void)requestNotificationOfMediaDataChangeWithAdvanceInterval:(double)arg1;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *delegateQueue;
 @property(readonly, nonatomic) id <AVPlayerItemOutputPullDelegate> delegate;

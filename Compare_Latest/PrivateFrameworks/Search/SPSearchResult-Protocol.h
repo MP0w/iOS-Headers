@@ -11,7 +11,7 @@
 - (int)domain;
 
 @optional
-- (BOOL)getBadgeValue:(float *)arg1;
+- (_Bool)getBadgeValue:(float *)arg1;
 - (const char *)URLUTF8String;
 - (const char *)auxiliarySubtitleUTF8String;
 - (const char *)auxiliaryTitleUTF8String;

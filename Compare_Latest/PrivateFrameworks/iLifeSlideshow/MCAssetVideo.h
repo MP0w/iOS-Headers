@@ -16,7 +16,7 @@
 @property(readonly) NSSet *slides; // @synthesize slides=mSlides;
 - (void)forgetSlide:(id)arg1;
 - (void)learnSlide:(id)arg1;
-- (BOOL)isInUse;
+- (_Bool)isInUse;
 - (void)demolish;
 - (id)init;
 

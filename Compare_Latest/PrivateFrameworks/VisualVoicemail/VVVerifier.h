@@ -20,8 +20,8 @@
 - (id)configurationDictionary;
 - (id)readableError;
 - (id)keyDescriptions;
-- (BOOL)valueForCheckpointKey:(id)arg1 exists:(char *)arg2;
-- (void)storeValue:(BOOL)arg1 forCheckpointKey:(id)arg2;
+- (_Bool)valueForCheckpointKey:(id)arg1 exists:(_Bool *)arg2;
+- (void)storeValue:(_Bool)arg1 forCheckpointKey:(id)arg2;
 - (void)_saveCheckpointDictionary;
 - (void)_checkpointDictionaryChanged;
 - (id)_checkpointDictionary;

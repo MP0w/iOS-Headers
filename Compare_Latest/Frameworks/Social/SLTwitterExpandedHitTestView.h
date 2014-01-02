@@ -6,11 +6,12 @@
 
 #import "UIView.h"
 
+// Not exported
 @interface SLTwitterExpandedHitTestView : UIView
 {
 }
 
-- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 
 @end
 

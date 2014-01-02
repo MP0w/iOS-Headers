@@ -10,9 +10,9 @@
 
 @optional
 - (void)editItemChanged;
-- (void)didEndDatePickingWithTarget:(id)arg1 animated:(BOOL)arg2;
-- (void)willBeginDatePickingWithDate:(id)arg1 target:(id)arg2 action:(SEL)arg3 animated:(BOOL)arg4 minimumTableHeight:(float)arg5;
-- (void)viewSizeChangedAnimated:(BOOL)arg1;
+- (void)didEndDatePickingWithTarget:(id)arg1 animated:(_Bool)arg2;
+- (void)willBeginDatePickingWithDate:(id)arg1 target:(id)arg2 action:(SEL)arg3 animated:(_Bool)arg4 minimumTableHeight:(double)arg5;
+- (void)viewSizeChangedAnimated:(_Bool)arg1;
 - (id)viewForActionSheet;
 @end
 

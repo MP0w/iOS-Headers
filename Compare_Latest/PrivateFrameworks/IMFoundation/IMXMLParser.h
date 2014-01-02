@@ -26,7 +26,7 @@
 - (void)parser:(id)arg1 foundCharacters:(id)arg2;
 - (void)parser:(id)arg1 didEndElement:(id)arg2 namespaceURI:(id)arg3 qualifiedName:(id)arg4;
 - (void)parser:(id)arg1 didStartElement:(id)arg2 namespaceURI:(id)arg3 qualifiedName:(id)arg4 attributes:(id)arg5;
-- (BOOL)parseContext:(id)arg1;
+- (_Bool)parseContext:(id)arg1;
 - (id)_newDataByTidyingData:(id)arg1;
 - (void)_teardownTidy;
 - (void)_setupTidy;

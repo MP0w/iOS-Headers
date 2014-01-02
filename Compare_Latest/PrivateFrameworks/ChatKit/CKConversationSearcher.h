@@ -20,17 +20,17 @@
     UISearchDisplayController *_searchController;
     UISearchBar *_searchBar;
     CKSpotlightQuery *_currentQuery;
-    BOOL _shouldDisplayNoResults;
-    BOOL _active;
-    BOOL _showingSearchResults;
+    _Bool _shouldDisplayNoResults;
+    _Bool _active;
+    _Bool _showingSearchResults;
 }
 
-@property(readonly, nonatomic, getter=isShowingSearchResults) BOOL showingSearchResults; // @synthesize showingSearchResults=_showingSearchResults;
-@property(readonly, nonatomic, getter=isActive) BOOL active; // @synthesize active=_active;
+@property(readonly, nonatomic, getter=isShowingSearchResults) _Bool showingSearchResults; // @synthesize showingSearchResults=_showingSearchResults;
+@property(readonly, nonatomic, getter=isActive) _Bool active; // @synthesize active=_active;
 - (id)searchBar;
 @property(readonly, nonatomic) UISearchDisplayController *searchController;
 - (void)setDelegate:(id)arg1;
-- (BOOL)searchDisplayController:(id)arg1 shouldReloadTableForSearchString:(id)arg2;
+- (_Bool)searchDisplayController:(id)arg1 shouldReloadTableForSearchString:(id)arg2;
 - (void)searchDisplayController:(id)arg1 didHideSearchResultsTableView:(id)arg2;
 - (void)searchDisplayController:(id)arg1 willHideSearchResultsTableView:(id)arg2;
 - (void)searchDisplayController:(id)arg1 didShowSearchResultsTableView:(id)arg2;
@@ -41,11 +41,11 @@
 - (void)searchDisplayControllerWillBeginSearch:(id)arg1;
 - (void)searchBarCancelButtonClicked:(id)arg1;
 - (void)searchBar:(id)arg1 textDidChange:(id)arg2;
-- (BOOL)searchBarShouldBeginEditing:(id)arg1;
-- (BOOL)tableView:(id)arg1 shouldIndentWhileEditingRowAtIndexPath:(id)arg2;
-- (void)tableView:(id)arg1 commitEditingStyle:(int)arg2 forRowAtIndexPath:(id)arg3;
+- (_Bool)searchBarShouldBeginEditing:(id)arg1;
+- (_Bool)tableView:(id)arg1 shouldIndentWhileEditingRowAtIndexPath:(id)arg2;
+- (void)tableView:(id)arg1 commitEditingStyle:(long long)arg2 forRowAtIndexPath:(id)arg3;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)_cancel;
 - (void)dealloc;

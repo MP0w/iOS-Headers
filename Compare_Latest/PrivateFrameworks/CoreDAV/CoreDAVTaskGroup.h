@@ -16,9 +16,9 @@
     id <CoreDAVAccountInfoProvider> _accountInfoProvider;
     double _timeoutInterval;
     NSMutableSet *_outstandingTasks;
-    BOOL _isCancelling;
-    BOOL _isTearingDown;
-    BOOL _isFinished;
+    _Bool _isCancelling;
+    _Bool _isTearingDown;
+    _Bool _isFinished;
     id <CoreDAVTaskGroupDelegate> _delegate;
     id _progressBlock;
     id _completionBlock;

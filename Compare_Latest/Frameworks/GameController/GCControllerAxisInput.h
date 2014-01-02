@@ -12,14 +12,14 @@
 {
 }
 
-- (BOOL)setHIDValue:(struct __IOHIDValue *)arg1;
-- (BOOL)_setValue:(float)arg1;
+- (_Bool)setHIDValue:(struct __IOHIDValue *)arg1;
+- (_Bool)_setValue:(float)arg1;
 @property(readonly, nonatomic) GCControllerButtonInput *negative;
 @property(readonly, nonatomic) GCControllerButtonInput *positive;
 @property(copy) id valueChangedHandler;
-@property(readonly, nonatomic, getter=isFlipped) BOOL flipped;
-@property(readonly, nonatomic, getter=isDigital) BOOL digital;
-- (BOOL)isAnalog;
+@property(readonly, nonatomic, getter=isFlipped) _Bool flipped;
+@property(readonly, nonatomic, getter=isDigital) _Bool digital;
+- (_Bool)isAnalog;
 @property(readonly) float value;
 - (id)description;
 

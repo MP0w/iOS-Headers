@@ -6,7 +6,9 @@
 
 #import "PBCodable.h"
 
-@interface GEOETAStep : PBCodable
+#import "NSCopying-Protocol.h"
+
+@interface GEOETAStep : PBCodable <NSCopying>
 {
     unsigned int _expectedTime;
     unsigned int _stepID;
@@ -20,17 +22,18 @@
 
 @property(nonatomic) unsigned int expectedTime; // @synthesize expectedTime=_expectedTime;
 @property(nonatomic) unsigned int stepID; // @synthesize stepID=_stepID;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) BOOL hasZilchPointIndex;
+@property(nonatomic) _Bool hasZilchPointIndex;
 @property(nonatomic) int zilchPointIndex; // @synthesize zilchPointIndex=_zilchPointIndex;
-@property(nonatomic) BOOL hasExpectedTime;
-@property(nonatomic) BOOL hasStepID;
+@property(nonatomic) _Bool hasExpectedTime;
+@property(nonatomic) _Bool hasStepID;
 - (void)dealloc;
 
 @end

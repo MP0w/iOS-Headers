@@ -10,19 +10,19 @@
 
 @interface SSSQLiteComparisonPredicate : SSSQLitePropertyPredicate <NSCopying>
 {
-    int _comparisonType;
+    long long _comparisonType;
     id _value;
 }
 
-+ (id)predicateWithProperty:(id)arg1 value:(id)arg2 comparisonType:(int)arg3;
++ (id)predicateWithProperty:(id)arg1 value:(id)arg2 comparisonType:(long long)arg3;
 + (id)predicateWithProperty:(id)arg1 equalToValue:(id)arg2;
 + (id)predicateWithProperty:(id)arg1 equalToLongLong:(long long)arg2;
 @property(readonly, nonatomic) id value; // @synthesize value=_value;
-@property(readonly, nonatomic) int comparisonType; // @synthesize comparisonType=_comparisonType;
+@property(readonly, nonatomic) long long comparisonType; // @synthesize comparisonType=_comparisonType;
 - (id)_comparisonTypeString;
 - (id)SQLForEntityClass:(Class)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)bindToStatement:(struct sqlite3_stmt *)arg1 bindingIndex:(inout int *)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;

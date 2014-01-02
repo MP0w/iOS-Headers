@@ -8,6 +8,7 @@
 
 @class NSPersistentStore, NSPersistentStoreCoordinator, PFUbiquityLocation, PFUbiquityMetadataFactoryFilePresenter;
 
+// Not exported
 @interface PFUbiquityMetadataFactoryEntry : NSObject
 {
     PFUbiquityLocation *_metadataStoreFileLocation;
@@ -20,7 +21,7 @@
 @property(readonly, nonatomic) NSPersistentStoreCoordinator *psc; // @synthesize psc=_psc;
 @property(readonly, nonatomic) PFUbiquityMetadataFactoryFilePresenter *filePresenter; // @synthesize filePresenter=_filePresenter;
 @property(readonly, nonatomic) PFUbiquityLocation *metadataStoreFileLocation; // @synthesize metadataStoreFileLocation=_metadataStoreFileLocation;
-- (BOOL)initializePersistentStoreCoordinator:(id *)arg1;
+- (_Bool)initializePersistentStoreCoordinator:(id *)arg1;
 - (id)description;
 - (void)dealloc;
 - (id)initWithMetadataStoreFileLocation:(id)arg1;

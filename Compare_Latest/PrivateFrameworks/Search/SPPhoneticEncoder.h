@@ -18,11 +18,11 @@
 }
 
 - (id)codesForString:(id)arg1;
-- (BOOL)isAnyString:(id)arg1 atIndex:(int)arg2;
-- (BOOL)isVowelAtIndex:(int)arg1;
+- (_Bool)isAnyString:(id)arg1 atIndex:(int)arg2;
+- (_Bool)isVowelAtIndex:(int)arg1;
 - (void)addPrimary:(id)arg1 alternate:(id)arg2;
 - (void)add:(id)arg1;
-- (BOOL)isSlavoGermanic;
+- (_Bool)isSlavoGermanic;
 
 @end
 

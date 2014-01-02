@@ -8,6 +8,7 @@
 
 @class NSData, NSString;
 
+// Not exported
 @interface PFZipLocalFileHeader : NSObject
 {
     unsigned short _versionNeededToExtract;
@@ -37,8 +38,8 @@
 @property(nonatomic) unsigned short generalPurposeBit; // @synthesize generalPurposeBit=_generalPurposeBit;
 @property(nonatomic) unsigned short versionNeededToExtract; // @synthesize versionNeededToExtract=_versionNeededToExtract;
 - (void)appendToData:(id)arg1;
-- (unsigned int)loadFromBytes:(const char *)arg1 offset:(unsigned int)arg2;
-- (unsigned int)loadFromData:(id)arg1 offset:(unsigned int)arg2;
+- (unsigned long long)loadFromBytes:(const char *)arg1 offset:(unsigned long long)arg2;
+- (unsigned long long)loadFromData:(id)arg1 offset:(unsigned long long)arg2;
 @property(readonly, nonatomic) unsigned int totalHeaderLength;
 - (id)description;
 - (void)dealloc;

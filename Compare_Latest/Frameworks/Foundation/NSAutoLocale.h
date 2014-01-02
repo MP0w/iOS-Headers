@@ -6,12 +6,13 @@
 
 #import "NSLocale.h"
 
+// Not exported
 @interface NSAutoLocale : NSLocale
 {
     NSLocale *loc;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 - (Class)classForCoder;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

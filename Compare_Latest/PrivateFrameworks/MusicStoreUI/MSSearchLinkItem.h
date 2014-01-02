@@ -15,7 +15,7 @@
 
 + (id)URLBagKey;
 @property(retain, nonatomic) NSDictionary *queryStringDictionary; // @synthesize queryStringDictionary=_queryStringDictionary;
-- (BOOL)_parseURL:(id)arg1;
+- (_Bool)_parseURL:(id)arg1;
 - (void)dealloc;
 - (id)initWithURL:(id)arg1;
 

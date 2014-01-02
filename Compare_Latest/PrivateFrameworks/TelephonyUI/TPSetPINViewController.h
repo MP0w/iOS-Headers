@@ -8,20 +8,21 @@
 
 #import "TPSimpleNumberPadDelegate-Protocol.h"
 
-@class NSString, TPPasscodeView, TPSimpleNumberPad, UILabel;
+@class NSString, TPPasscodeView, TPSimpleNumberPad, UILabel, UIView;
 
 @interface TPSetPINViewController : UIViewController <TPSimpleNumberPadDelegate>
 {
-    BOOL _confirmPIN;
+    _Bool _confirmPIN;
+    int _initialState;
+    int _state;
+    unsigned int _minPINLength;
+    unsigned int _maxPINLength;
     id <TPSetPINViewControllerDelegate> _delegate;
     NSString *_promptTextForOldPIN;
     NSString *_promptTextForNewPIN;
     NSString *_promptTextForConfirmingNewPIN;
     NSString *_promptTextForSavingPIN;
-    int _initialState;
-    int _state;
-    unsigned int _minPINLength;
-    unsigned int _maxPINLength;
+    UIView *_customBackgroundView;
     UILabel *_statusLabel;
     TPPasscodeView *_passcodeView;
     TPSimpleNumberPad *_numberPad;
@@ -34,11 +35,12 @@
 @property(retain) TPSimpleNumberPad *numberPad; // @synthesize numberPad=_numberPad;
 @property(retain) TPPasscodeView *passcodeView; // @synthesize passcodeView=_passcodeView;
 @property(retain) UILabel *statusLabel; // @synthesize statusLabel=_statusLabel;
-@property BOOL confirmPIN; // @synthesize confirmPIN=_confirmPIN;
+@property _Bool confirmPIN; // @synthesize confirmPIN=_confirmPIN;
 @property unsigned int maxPINLength; // @synthesize maxPINLength=_maxPINLength;
 @property unsigned int minPINLength; // @synthesize minPINLength=_minPINLength;
 @property(nonatomic) int state; // @synthesize state=_state;
 @property int initialState; // @synthesize initialState=_initialState;
+@property(retain) UIView *customBackgroundView; // @synthesize customBackgroundView=_customBackgroundView;
 @property(retain, nonatomic) NSString *promptTextForSavingPIN; // @synthesize promptTextForSavingPIN=_promptTextForSavingPIN;
 @property(retain, nonatomic) NSString *promptTextForConfirmingNewPIN; // @synthesize promptTextForConfirmingNewPIN=_promptTextForConfirmingNewPIN;
 @property(retain, nonatomic) NSString *promptTextForNewPIN; // @synthesize promptTextForNewPIN=_promptTextForNewPIN;
@@ -55,12 +57,12 @@
 - (void)_doneButtonTapped;
 - (void)resetWithErrorPrompt:(id)arg1 title:(id)arg2;
 - (void)resetWithErrorPrompt:(id)arg1;
-- (BOOL)wantsFullScreenLayout;
+- (_Bool)wantsFullScreenLayout;
 - (void)loadView;
 - (void)dealloc;
-- (id)initForChangePINWithMinLength:(unsigned int)arg1 maxLength:(unsigned int)arg2 confirmPIN:(BOOL)arg3;
-- (id)initForNewPINWithMinLength:(unsigned int)arg1 maxLength:(unsigned int)arg2 confirmPIN:(BOOL)arg3;
-- (id)_initForMinLength:(unsigned int)arg1 maxLength:(unsigned int)arg2 confirmPIN:(BOOL)arg3;
+- (id)initForChangePINWithMinLength:(unsigned int)arg1 maxLength:(unsigned int)arg2 confirmPIN:(_Bool)arg3;
+- (id)initForNewPINWithMinLength:(unsigned int)arg1 maxLength:(unsigned int)arg2 confirmPIN:(_Bool)arg3;
+- (id)_initForMinLength:(unsigned int)arg1 maxLength:(unsigned int)arg2 confirmPIN:(_Bool)arg3;
 - (id)init;
 
 @end

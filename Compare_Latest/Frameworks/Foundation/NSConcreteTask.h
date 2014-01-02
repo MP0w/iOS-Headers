@@ -8,6 +8,7 @@
 
 @class NSMutableDictionary, NSObject<OS_dispatch_semaphore>, NSObject<OS_dispatch_source>, NSPort;
 
+// Not exported
 @interface NSConcreteTask : NSTask
 {
     NSObject<OS_dispatch_semaphore> *_lock;
@@ -15,24 +16,24 @@
     id _terminationHandler;
     NSObject<OS_dispatch_source> *_dsrc;
     NSPort *_tmpPort;
-    int _suspendCount;
+    long long _suspendCount;
     int _pid;
     int _platformExitInfo;
-    BOOL _hasExeced;
-    BOOL _isRunning;
-    BOOL _hasPostedDeathNotification;
-    BOOL _terminationRun;
+    _Bool _hasExeced;
+    _Bool _isRunning;
+    _Bool _hasPostedDeathNotification;
+    _Bool _terminationRun;
 }
 
-- (void)setStartsNewProcessGroup:(BOOL)arg1;
+- (void)setStartsNewProcessGroup:(_Bool)arg1;
 - (int)processIdentifier;
 - (int)_procid;
 - (void)finalize;
 - (void)dealloc;
 - (id)init;
-- (int)suspendCount;
-- (BOOL)resume;
-- (BOOL)suspend;
+- (long long)suspendCount;
+- (_Bool)resume;
+- (_Bool)suspend;
 - (void)terminateTask;
 - (void)terminate;
 - (void)interrupt;
@@ -58,9 +59,9 @@
 - (void)waitUntilExit;
 - (void)launchWithDictionary:(id)arg1;
 - (void)launch;
-- (BOOL)isRunning;
-- (int)terminationReason;
-- (int)_platformExitInformation;
+- (_Bool)isRunning;
+- (long long)terminationReason;
+- (long long)_platformExitInformation;
 - (int)terminationStatus;
 - (void)setTerminationHandler:(id)arg1;
 - (id)terminationHandler;

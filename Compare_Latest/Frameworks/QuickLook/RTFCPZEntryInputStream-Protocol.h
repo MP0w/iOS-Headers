@@ -7,7 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol RTFCPZEntryInputStream <NSObject>
-- (unsigned long)readToBuffer:(char *)arg1 size:(unsigned long)arg2;
-- (void)readToOwnBuffer:(const char **)arg1 size:(unsigned int *)arg2;
+- (unsigned long long)readToBuffer:(char *)arg1 size:(unsigned long long)arg2;
+- (void)readToOwnBuffer:(const char **)arg1 size:(unsigned long long *)arg2;
 @end
 

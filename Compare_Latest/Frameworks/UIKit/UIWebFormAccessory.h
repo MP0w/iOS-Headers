@@ -12,11 +12,13 @@
 {
     UIToolbar *_leftToolbar;
     UIToolbar *_rightToolbar;
+    UIBarButtonItem *_doneButton;
+    UIBarButtonItem *_flexibleSpaceItem;
+    UIBarButtonItem *_previousItem;
+    UIBarButtonItem *_nextItem;
     UISegmentedControl *_tab;
     UIBarButtonItem *_autofill;
     UIBarButtonItem *_clearButton;
-    UIBarButtonItem *_doneButton;
-    UIBarButtonItem *_flexibleSpaceItem;
     id <UIWebFormAccessoryDelegate> delegate;
 }
 
@@ -25,16 +27,20 @@
 @property(retain, nonatomic) UIBarButtonItem *_clearButton; // @synthesize _clearButton;
 @property(retain, nonatomic) UIBarButtonItem *_autofill; // @synthesize _autofill;
 @property(retain, nonatomic) UISegmentedControl *_tab; // @synthesize _tab;
-@property(nonatomic, getter=isPreviousEnabled) BOOL previousEnabled;
-@property(nonatomic, getter=isNextEnabled) BOOL nextEnabled;
-- (void)setClearVisible:(BOOL)arg1;
+@property(nonatomic, getter=isPreviousEnabled) _Bool previousEnabled;
+@property(nonatomic, getter=isNextEnabled) _Bool nextEnabled;
+- (void)setClearVisible:(_Bool)arg1;
 - (void)showAutoFillButton;
 - (void)showAutoFillButtonWithTitle:(id)arg1;
 - (void)hideAutoFillButton;
+- (void)_applyTreatmentToAutoFillLabel;
 - (void)_refreshAutofillPresentation;
+- (id)_autoFillButton;
 - (void)clear:(id)arg1;
 - (void)autoFill:(id)arg1;
-- (void)tab:(id)arg1;
+- (void)_nextTapped:(id)arg1;
+- (void)_previousTapped:(id)arg1;
+- (void)_tabSegmentedControlDidChange:(id)arg1;
 - (void)done:(id)arg1;
 - (void)layoutSubviews;
 - (void)_updateFrame;

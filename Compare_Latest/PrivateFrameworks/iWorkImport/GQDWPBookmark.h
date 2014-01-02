@@ -6,18 +6,18 @@
 
 #import <iWorkImport/GQDWPInlineList.h>
 
+// Not exported
 @interface GQDWPBookmark : GQDWPInlineList
 {
     struct __CFString *mName;
-    BOOL mRanged;
-    BOOL mHidden;
+    _Bool mRanged;
+    _Bool mHidden;
 }
 
-- (BOOL)isHidden;
-- (BOOL)isRanged;
+- (_Bool)isHidden;
+- (_Bool)isRanged;
 - (struct __CFString *)name;
 - (void)dealloc;
-- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1 processor:(id)arg2;
 
 @end
 

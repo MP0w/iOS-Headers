@@ -17,22 +17,22 @@
     struct __CFDictionary *_networkObservers;
     struct __SCPreferences *_wifiPreferences;
     struct __CFDictionary *_wifiObservers;
-    BOOL _networkNotified;
-    BOOL _networkReachable;
-    BOOL _wifiNotified;
-    BOOL _wifiEnabled;
+    _Bool _networkNotified;
+    _Bool _networkReachable;
+    _Bool _wifiNotified;
+    _Bool _wifiEnabled;
 }
 
 + (id)sharedNetworkObserver;
 - (void)removeWiFiObserver:(id)arg1;
 - (void)addWiFiObserver:(id)arg1 selector:(SEL)arg2;
-- (BOOL)isWiFiEnabled;
+- (_Bool)isWiFiEnabled;
 - (void)_wifiFirstCallBack:(id)arg1;
 - (void)_wifiCallBack:(unsigned int)arg1;
 - (void)_wifiObserversInitialize;
 - (void)removeNetworkReachableObserver:(id)arg1;
 - (void)addNetworkReachableObserver:(id)arg1 selector:(SEL)arg2;
-- (BOOL)isNetworkReachable;
+- (_Bool)isNetworkReachable;
 - (void)_networkReachableFirstCallBack:(id)arg1;
 - (void)_networkReachableCallBack:(unsigned int)arg1;
 - (void)_networkObserversInitialize;

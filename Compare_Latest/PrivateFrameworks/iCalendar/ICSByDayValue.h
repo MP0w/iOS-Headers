@@ -16,16 +16,12 @@
     int _weekday;
 }
 
-+ (id)byDayValueFromICSString:(id)arg1;
-+ (int)weekdayFromICSString:(id)arg1;
 @property int weekday; // @synthesize weekday=_weekday;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 @property(retain) NSNumber *number;
 - (id)initWithWeekday:(int)arg1 number:(id)arg2;
 - (id)initWithWeekday:(int)arg1;
-- (int)compare:(id)arg1;
-- (void)_ICSStringWithOptions:(unsigned int)arg1 appendingToString:(id)arg2;
 
 @end
 

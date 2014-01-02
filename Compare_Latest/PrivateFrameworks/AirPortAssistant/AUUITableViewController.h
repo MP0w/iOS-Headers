@@ -16,8 +16,8 @@
 }
 
 @property(readonly, nonatomic) TableViewManager *tableManager; // @synthesize tableManager=_tableManager;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 @property(nonatomic) id <TableViewManagerDelegate> delegate;
 @property(retain, nonatomic) UITableView *tableView; // @dynamic tableView;
 - (void)viewDidLoad;

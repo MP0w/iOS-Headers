@@ -14,7 +14,7 @@
 
 + (id)unlockDeviceWithDictionary:(id)arg1 context:(id)arg2;
 + (id)unlockDevice;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSArray *successCommands;
 @property(copy, nonatomic) NSArray *failureCommands;
 @property(copy, nonatomic) NSArray *cancellationCommands;

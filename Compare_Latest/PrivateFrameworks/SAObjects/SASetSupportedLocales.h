@@ -14,7 +14,7 @@
 
 + (id)setSupportedLocalesWithDictionary:(id)arg1 context:(id)arg2;
 + (id)setSupportedLocales;
-- (BOOL)requiresResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSArray *locales;
 - (id)encodedClassName;
 - (id)groupIdentifier;

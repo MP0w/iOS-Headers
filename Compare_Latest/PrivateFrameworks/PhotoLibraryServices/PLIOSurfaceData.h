@@ -10,15 +10,15 @@
 {
     struct __IOSurface *_surface;
     const void *_bytes;
-    unsigned int _length;
+    unsigned long long _length;
 }
 
 + (id)dataWithIOSurface:(void *)arg1;
 - (void)dealloc;
 - (const void *)bytes;
-- (unsigned int)length;
+- (unsigned long long)length;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithIOSurface:(void *)arg1 length:(unsigned int)arg2;
+- (id)initWithIOSurface:(void *)arg1 length:(unsigned long long)arg2;
 - (id)initWithIOSurface:(void *)arg1;
 
 @end

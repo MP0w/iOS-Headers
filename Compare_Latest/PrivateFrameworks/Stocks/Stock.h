@@ -10,8 +10,9 @@
 
 @interface Stock : NSObject
 {
-    BOOL _marketIsOpen;
+    _Bool _marketIsOpen;
     StockChartData *_chartDataArray[9];
+    unsigned int _pricePrecision;
     NSString *_symbol;
     NSString *_companyName;
     NSString *_shortCompanyName;
@@ -33,7 +34,6 @@
     NSString *_marketcap;
     NSString *_peRatio;
     NSString *_dividendYield;
-    unsigned int _pricePrecision;
     NSURL *_infoURL;
     double _timeQuoteLastUpdated;
     double _timeMetadataLastUpdated;
@@ -45,13 +45,13 @@
 + (id)postfixCharacterForMagnitude:(unsigned int)arg1 unitMagnitude:(unsigned int *)arg2;
 + (id)BlankValueString;
 + (void)resetLocale;
-+ (BOOL)localeUsesASCIIDigits;
-+ (id)formattedStringForString:(id)arg1 fractionDigits:(unsigned int)arg2 percentStyle:(BOOL)arg3;
-+ (id)formattedStringForString:(id)arg1 fractionDigits:(unsigned int)arg2 percentStyle:(BOOL)arg3 droppingFractionDigitsIfLengthExceeds:(unsigned int)arg4;
-+ (id)formattedStringForNumber:(id)arg1 fractionDigits:(unsigned int)arg2 percentStyle:(BOOL)arg3;
-+ (id)formattedStringForNumber:(id)arg1 fractionDigits:(unsigned int)arg2 percentStyle:(BOOL)arg3 groupingSeparators:(BOOL)arg4;
-+ (id)formattedStringForNumber:(id)arg1 fractionDigits:(unsigned int)arg2 percentStyle:(BOOL)arg3 groupingSeparators:(BOOL)arg4 droppingFractionDigitsIfLengthExceeds:(unsigned int)arg5;
-+ (id)_formattedStringForNumber:(id)arg1 fractionDigits:(unsigned int)arg2 percentStyle:(BOOL)arg3 groupingSeparators:(BOOL)arg4;
++ (_Bool)localeUsesASCIIDigits;
++ (id)formattedStringForString:(id)arg1 fractionDigits:(unsigned int)arg2 percentStyle:(_Bool)arg3;
++ (id)formattedStringForString:(id)arg1 fractionDigits:(unsigned int)arg2 percentStyle:(_Bool)arg3 droppingFractionDigitsIfLengthExceeds:(unsigned int)arg4;
++ (id)formattedStringForNumber:(id)arg1 fractionDigits:(unsigned int)arg2 percentStyle:(_Bool)arg3;
++ (id)formattedStringForNumber:(id)arg1 fractionDigits:(unsigned int)arg2 percentStyle:(_Bool)arg3 groupingSeparators:(_Bool)arg4;
++ (id)formattedStringForNumber:(id)arg1 fractionDigits:(unsigned int)arg2 percentStyle:(_Bool)arg3 groupingSeparators:(_Bool)arg4 droppingFractionDigitsIfLengthExceeds:(unsigned int)arg5;
++ (id)_formattedStringForNumber:(id)arg1 fractionDigits:(unsigned int)arg2 percentStyle:(_Bool)arg3 groupingSeparators:(_Bool)arg4;
 + (id)percentSymbol;
 + (id)PercentFormatter;
 + (id)urlForStock:(id)arg1;
@@ -86,21 +86,21 @@
 - (void)updateMetadataWithDictionary:(id)arg1 forTime:(double)arg2;
 - (void)updateQuoteWithDictionary:(id)arg1 forTime:(double)arg2;
 - (void)clearCachedGraphImageSets;
-- (void)setChartData:(id)arg1 forInterval:(int)arg2;
-- (id)chartDataForInterval:(int)arg1;
+- (void)setChartData:(id)arg1 forInterval:(long long)arg2;
+- (id)chartDataForInterval:(long long)arg1;
 - (id)listName;
-- (BOOL)marketIsOpen;
-- (id)formattedChangePercent:(BOOL)arg1 includePercentSign:(BOOL)arg2;
-- (id)formattedChangePercent:(BOOL)arg1;
-- (BOOL)isIndex;
-- (BOOL)changeIsZero;
-- (BOOL)changeIsNegative;
-- (BOOL)priceIsRealtime;
+- (_Bool)marketIsOpen;
+- (id)formattedChangePercent:(_Bool)arg1 includePercentSign:(_Bool)arg2;
+- (id)formattedChangePercent:(_Bool)arg1;
+- (_Bool)isIndex;
+- (_Bool)changeIsZero;
+- (_Bool)changeIsNegative;
+- (_Bool)priceIsRealtime;
 - (id)formattedPrice;
 @property(readonly, nonatomic) NSString *change;
 @property(readonly, nonatomic) NSString *price;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)archiveDictionary;
 - (void)dealloc;
 - (id)initWithDictionary:(id)arg1;

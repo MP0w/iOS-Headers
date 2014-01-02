@@ -6,11 +6,12 @@
 
 #import <MusicLibrary/ML3Entity.h>
 
+// Not exported
 @interface ML3StoreLink : ML3Entity
 {
 }
 
-+ (int)revisionTrackingCode;
++ (long long)revisionTrackingCode;
 + (id)databaseTable;
 
 @end

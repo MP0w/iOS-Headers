@@ -7,27 +7,27 @@
 #pragma mark Named Structures
 
 struct CATransform3D {
-    float _field1;
-    float _field2;
-    float _field3;
-    float _field4;
-    float _field5;
-    float _field6;
-    float _field7;
-    float _field8;
-    float _field9;
-    float _field10;
-    float _field11;
-    float _field12;
-    float _field13;
-    float _field14;
-    float _field15;
-    float _field16;
+    double _field1;
+    double _field2;
+    double _field3;
+    double _field4;
+    double _field5;
+    double _field6;
+    double _field7;
+    double _field8;
+    double _field9;
+    double _field10;
+    double _field11;
+    double _field12;
+    double _field13;
+    double _field14;
+    double _field15;
+    double _field16;
 };
 
 struct CGPoint {
-    float x;
-    float y;
+    double x;
+    double y;
 };
 
 struct CGRect {
@@ -36,8 +36,8 @@ struct CGRect {
 };
 
 struct CGSize {
-    float width;
-    float height;
+    double width;
+    double height;
 };
 
 struct FairPlayHWInfo_ {
@@ -47,58 +47,58 @@ struct FairPlayHWInfo_ {
 
 struct SUGradientPoint {
     struct CGPoint point;
-    float radius;
+    double radius;
 };
 
 struct UIEdgeInsets {
-    float top;
-    float left;
-    float bottom;
-    float right;
+    double top;
+    double left;
+    double bottom;
+    double right;
 };
 
 struct UIOffset {
-    float _field1;
-    float _field2;
+    double _field1;
+    double _field2;
 };
 
 struct _NSRange {
-    unsigned int _field1;
-    unsigned int _field2;
+    unsigned long long _field1;
+    unsigned long long _field2;
 };
 
 #pragma mark Typedef'd Structures
 
 typedef struct {
-    unsigned int localIndex;
-    unsigned int localCount;
-    unsigned int globalIndex;
-    unsigned int globalCount;
-} CDStruct_b08558f4;
+    unsigned long long localIndex;
+    unsigned long long localCount;
+    unsigned long long globalIndex;
+    unsigned long long globalCount;
+} CDStruct_3e55db63;
 
 typedef struct {
-    int version;
+    long long version;
     void *retain;
     void *release;
     void *copyDescription;
     void *equal;
     void *hash;
-} CDStruct_1d20123b;
+} CDStruct_f2932e27;
 
 typedef struct {
-    int version;
+    long long version;
     void *info;
     void *retain;
     void *release;
     void *copyDescription;
-} CDStruct_304912e7;
+} CDStruct_4210025a;
 
 typedef struct {
     id _field1;
-    int _field2;
-    int _field3;
+    long long _field2;
+    long long _field3;
     struct UIEdgeInsets _field4;
     id _field5;
     id _field6;
-} CDStruct_71500f42;
+} CDStruct_f9159201;
 

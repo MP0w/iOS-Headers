@@ -11,6 +11,7 @@
 
 @class CBCentralManager, NSMutableArray;
 
+// Not exported
 @interface GCControllerCBDelegate : NSObject <CBCentralManagerDelegate, CBPeripheralDelegate>
 {
     NSMutableArray *_foundPeripherals;

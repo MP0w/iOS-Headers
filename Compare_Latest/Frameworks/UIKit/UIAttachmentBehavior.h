@@ -6,7 +6,7 @@
 
 #import <UIKit/UIDynamicBehavior.h>
 
-@class NSArray, PKExtendedPhysicsBody, PKPhysicsJointDistance;
+@class NSArray, PKExtendedPhysicsBody, PKPhysicsJoint;
 
 @interface UIAttachmentBehavior : UIDynamicBehavior
 {
@@ -14,32 +14,36 @@
     struct CGPoint _anchorPointA;
     struct CGPoint _anchorPointB;
     PKExtendedPhysicsBody *_anchorBody;
-    PKPhysicsJointDistance *_joint;
-    float _damping;
-    float _frequency;
-    float _length;
-    int _type;
+    PKPhysicsJoint *_joint;
+    double _damping;
+    double _frequency;
+    double _length;
+    long long _type;
     struct {
         unsigned int dampingSet:1;
         unsigned int frequencySet:1;
         unsigned int lengthSet:1;
+        unsigned int isRevolute:1;
     } _stateFlags;
-    int _attachedBehaviorType;
+    long long _attachedBehaviorType;
 }
 
-@property(readonly, nonatomic) int attachedBehaviorType; // @synthesize attachedBehaviorType=_attachedBehaviorType;
+@property(readonly, nonatomic) long long attachedBehaviorType; // @synthesize attachedBehaviorType=_attachedBehaviorType;
 - (id)description;
 - (void)_dissociate;
 - (void)_associate;
+- (void)_reevaluateJoint;
 - (void)_changedParameter;
 @property(nonatomic) struct CGPoint anchorPoint;
-@property(nonatomic) float frequency;
-@property(nonatomic) float damping;
-@property(nonatomic) float length;
+@property(nonatomic) double frequency;
+@property(nonatomic) double damping;
+@property(nonatomic) double length;
 @property(readonly, nonatomic) NSArray *items;
-- (int)type;
+- (long long)type;
 - (void)dealloc;
 - (id)initWithItem:(id)arg1 point:(struct CGPoint)arg2 attachedToItem:(id)arg3 point:(struct CGPoint)arg4;
+- (id)initWithItem:(id)arg1 offsetFromCenter:(struct UIOffset)arg2 attachedToItem:(id)arg3 offsetFromCenter:(struct UIOffset)arg4;
+- (id)initWithItem:(id)arg1 offsetFromCenter:(struct UIOffset)arg2 attachedToAnchor:(struct CGPoint)arg3;
 - (id)initWithItem:(id)arg1 point:(struct CGPoint)arg2 attachedToAnchor:(struct CGPoint)arg3;
 - (id)initWithItem:(id)arg1 attachedToItem:(id)arg2;
 - (id)initWithItem:(id)arg1 attachedToAnchor:(struct CGPoint)arg2;

@@ -6,12 +6,13 @@
 
 #import <OfficeImport/OADTextField.h>
 
+// Not exported
 @interface OADDateTimeField : OADTextField
 {
     int mFormat;
 }
 
-- (BOOL)isEmpty;
+- (_Bool)isEmpty;
 - (void)setFormat:(int)arg1;
 - (int)format;
 - (id)init;

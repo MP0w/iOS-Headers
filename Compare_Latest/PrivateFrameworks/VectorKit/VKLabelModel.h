@@ -14,72 +14,74 @@
 
 @class NSArray, VKStylesheet;
 
+// Not exported
 @interface VKLabelModel : VKModelObject <LabelManagerDelegate, GEOResourceManifestTileGroupObserver, VKMapLayer, VKStylesheetObserver, VKMapModeObserver>
 {
-    BOOL _debugSkipLabels;
+    _Bool _debugSkipLabels;
     id <VKLabelModelDelegate> _delegate;
-    BOOL _drawLabels;
+    _Bool _drawLabels;
     id _observerIsReadyHook;
     shared_ptr_dd1f7020 _labelManager;
     int _layoutStamp;
-    struct map<VKTileKey, std::__1::shared_ptr<vk::StandardInfoMapTile>, TileKeyComparer, std::__1::allocator<std::__1::pair<const VKTileKey, std::__1::shared_ptr<vk::StandardInfoMapTile>>>> _infoMapTiles;
     struct vector<std::__1::shared_ptr<vk::InfoMapTile>, vk_allocator<std::__1::shared_ptr<vk::InfoMapTile>>> _currentTiles;
     _Bool _inRealistic;
 }
 
-+ (BOOL)reloadOnStylesheetChange;
++ (_Bool)reloadOnStylesheetChange;
 @property(readonly, nonatomic) shared_ptr_dd1f7020 labelManager; // @synthesize labelManager=_labelManager;
-@property(nonatomic) BOOL drawLabels; // @synthesize drawLabels=_drawLabels;
+@property(nonatomic) _Bool drawLabels; // @synthesize drawLabels=_drawLabels;
 @property(nonatomic) id <VKLabelModelDelegate> delegate; // @synthesize delegate=_delegate;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)didTransitionFrom:(int)arg1 To:(int)arg2;
-- (void)willTransitionFrom:(int)arg1 To:(int)arg2;
-- (void)labelManager:(struct LabelManager *)arg1 pendingArtworkIsReady:(BOOL)arg2;
+- (void)didTransitionFrom:(long long)arg1 To:(long long)arg2;
+- (void)willTransitionFrom:(long long)arg1 To:(long long)arg2;
+- (void)labelManager:(struct LabelManager *)arg1 pendingArtworkIsReady:(_Bool)arg2;
 - (void)labelManager:(struct LabelManager *)arg1 selectedLabelMarkerWillDisappear:(id)arg2;
-- (void)labelManager:(struct LabelManager *)arg1 setNeedsDisplay:(BOOL)arg2;
-- (void)labelManager:(struct LabelManager *)arg1 setNeedsLayout:(BOOL)arg2;
+- (void)labelManager:(struct LabelManager *)arg1 setNeedsDisplay:(_Bool)arg2;
+- (void)labelManager:(struct LabelManager *)arg1 setNeedsLayout:(_Bool)arg2;
 - (void)stylesheetDoneChanging;
 - (void)stylesheetDidChange;
 - (void)stylesheetWillChange;
-- (void)prepareForStylesheetTransitionToMapDisplayStyle:(int)arg1 withReadinessBlock:(id)arg2;
+- (void)prepareForStylesheetTransitionToMapDisplayStyle:(long long)arg1 withReadinessBlock:(id)arg2;
 @property(readonly, nonatomic) VKStylesheet *stylesheet;
 - (id)labelDebugString;
 - (void)forEachDisplayedLabel:(id)arg1;
-@property(nonatomic) int labelScaleFactor;
-@property(nonatomic) BOOL localizeLabels;
-@property(nonatomic) BOOL labelMarkerSelectionEnabled;
+@property(nonatomic) long long labelScaleFactor;
+@property(nonatomic) _Bool localizeLabels;
+@property(nonatomic) _Bool labelMarkerSelectionEnabled;
 - (id)selectedLabelMarker;
 - (id)focusedPolylinePainter;
 - (void)deselectLabelMarker;
 - (void)selectLabelMarker:(id)arg1;
 - (id)labelMarkers;
-- (id)labelMarkerForSelectionAtPoint:(struct CGPoint)arg1 selectableLabelsOnly:(BOOL)arg2;
-- (void)setTrafficEnabled:(BOOL)arg1;
+- (id)labelMarkerForSelectionAtPoint:(struct CGPoint)arg1 selectableLabelsOnly:(_Bool)arg2;
+- (void)setTrafficEnabled:(_Bool)arg1;
 - (void)setFocusedPolylinePainter:(id)arg1;
 - (void)setRouteUserOffset:(struct PolylineCoordinate)arg1;
 - (void)setCurrentLocationText:(id)arg1;
 - (void)setStylesheet:(id)arg1;
-- (void)setVectorType:(int)arg1;
+- (void)setVectorType:(long long)arg1;
 - (void)setLabelMode:(int)arg1;
 - (void)didTapZoom;
 - (void)willTapZoom;
-- (void)drawScene:(id)arg1 withContext:(id)arg2;
+- (void)drawScene:(id)arg1 withContext:(id)arg2 pass:(unsigned int)arg3;
 - (void)layoutScene:(id)arg1 withContext:(id)arg2;
 - (void)updateInfoMapTiles:(id)arg1;
 - (void)clearScene;
 - (unsigned int)supportedRenderPasses;
-- (unsigned int)mapLayerPosition;
+- (unsigned long long)mapLayerPosition;
 @property(retain, nonatomic) NSArray *alwaysVisibleTrafficIncidents;
-@property(nonatomic) int shieldIdiom;
-@property(nonatomic) int navigationShieldSize;
-@property(nonatomic) int shieldSize;
-- (void)setMapType:(int)arg1;
+@property(nonatomic) _Bool showsPointsOfInterest;
+@property(nonatomic) long long shieldIdiom;
+@property(nonatomic) long long navigationShieldSize;
+@property(nonatomic) long long shieldSize;
+- (void)setContentScale:(double)arg1;
+- (void)setMapType:(long long)arg1;
 - (void)debugHighlightLabelAtScreenPoint:(struct CGPoint)arg1;
 - (void)resourceManifestManagerDidChangeActiveTileGroup:(id)arg1;
 - (void)resourceManifestManagerWillChangeActiveTileGroup:(id)arg1;
 - (void)dealloc;
-- (id)initWithPurpose:(unsigned int)arg1;
+- (id)initWithPurpose:(unsigned long long)arg1;
 
 @end
 

@@ -17,7 +17,7 @@
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
 @property(retain) NSString *prompt;
-@property BOOL allowsPickingMultipleItems;
+@property _Bool allowsPickingMultipleItems;
 @property(readonly) NSArray *mediaTypes;
 - (id)_className;
 - (void)setNativeViewController:(id)arg1;

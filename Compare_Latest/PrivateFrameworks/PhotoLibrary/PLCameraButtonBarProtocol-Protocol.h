@@ -7,7 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol PLCameraButtonBarProtocol <NSObject>
-- (BOOL)isBackgroundVisible;
+- (_Bool)isBackgroundVisible;
 - (void)setButtonBarMode:(int)arg1 animationDuration:(double)arg2;
 @end
 

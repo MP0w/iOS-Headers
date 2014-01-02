@@ -10,37 +10,42 @@
 
 @class NSString, UIKBThemedView, UILabel;
 
+// Not exported
 @interface UIKeyboardCandidateBarCell : UICollectionViewCell <UIKBCacheableView>
 {
-    BOOL _beginsFirstPage;
-    BOOL _endsLastPage;
-    BOOL _isAtLeftEdge;
+    _Bool _beginsFirstPage;
+    _Bool _endsLastPage;
+    _Bool _isAtLeftEdge;
     UIKBThemedView *_themedView;
     UILabel *_label;
     NSString *_candidateText;
 }
 
-+ (float)widthForCandidateText:(id)arg1;
-+ (float)height;
++ (_Bool)highlightAffectsBackground;
++ (double)widthForCandidateText:(id)arg1;
++ (struct UIEdgeInsets)cacheInsets;
++ (id)textColorWithHighlight:(_Bool)arg1 whiteText:(_Bool)arg2;
 + (id)font;
-+ (id)collectionViewKind;
 + (id)reuseIdentifier;
-@property(nonatomic) BOOL isAtLeftEdge; // @synthesize isAtLeftEdge=_isAtLeftEdge;
-@property(nonatomic) BOOL endsLastPage; // @synthesize endsLastPage=_endsLastPage;
-@property(nonatomic) BOOL beginsFirstPage; // @synthesize beginsFirstPage=_beginsFirstPage;
+@property(nonatomic) _Bool isAtLeftEdge; // @synthesize isAtLeftEdge=_isAtLeftEdge;
+@property(nonatomic) _Bool endsLastPage; // @synthesize endsLastPage=_endsLastPage;
+@property(nonatomic) _Bool beginsFirstPage; // @synthesize beginsFirstPage=_beginsFirstPage;
 @property(copy, nonatomic) NSString *candidateText; // @synthesize candidateText=_candidateText;
 @property(retain, nonatomic) UILabel *label; // @synthesize label=_label;
 @property(retain, nonatomic) UIKBThemedView *themedView; // @synthesize themedView=_themedView;
 - (void)drawRect:(struct CGRect)arg1;
-@property(readonly, nonatomic) BOOL keepNonPersistent;
-@property(readonly, nonatomic) float cachedWidth;
-@property(readonly, nonatomic) BOOL cacheDeferable;
+@property(readonly, nonatomic) _Bool keepNonPersistent;
+@property(readonly, nonatomic) double cachedWidth;
+@property(readonly, nonatomic) _Bool cacheDeferable;
 - (void)displayLayer:(id)arg1;
 - (id)cacheKeysForRenderFlags:(id)arg1;
 @property(readonly, nonatomic) NSString *cacheKey;
 - (void)updateIsAtLeftEdgeState;
-- (void)setHighlighted:(BOOL)arg1;
-- (void)setSelected:(BOOL)arg1;
+- (void)setHighlighted:(_Bool)arg1;
+- (void)setSelected:(_Bool)arg1;
+- (void)updateLabels;
+- (void)_setRenderConfig:(id)arg1;
+- (void)didMoveToWindow;
 - (void)setCandidate:(id)arg1;
 - (void)prepareForReuse;
 - (void)applyLayoutAttributes:(id)arg1;

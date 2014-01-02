@@ -8,6 +8,7 @@
 
 @class NSObject<OS_dispatch_data>, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>;
 
+// Not exported
 @interface NSConcreteFileHandle : NSFileHandle
 {
     int _fd;
@@ -41,7 +42,7 @@
 - (void)readToEndOfFileInBackgroundAndNotifyForModes:(id)arg1;
 - (void)readInBackgroundAndNotify;
 - (void)readInBackgroundAndNotifyForModes:(id)arg1;
-- (void)performActivity:(int)arg1 modes:(id)arg2;
+- (void)performActivity:(long long)arg1 modes:(id)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)finalize;
 - (void)dealloc;
@@ -57,14 +58,14 @@
 - (unsigned long long)offsetInFile;
 - (void)writeData:(id)arg1;
 - (id)readDataToEndOfFile;
-- (id)readDataOfLength:(unsigned int)arg1;
-- (unsigned int)readDataOfLength:(unsigned int)arg1 buffer:(char *)arg2;
+- (id)readDataOfLength:(unsigned long long)arg1;
+- (unsigned long long)readDataOfLength:(unsigned long long)arg1 buffer:(char *)arg2;
 - (id)availableData;
-- (id)initWithPath:(id)arg1 flags:(int)arg2 createMode:(int)arg3;
-- (id)initWithPath:(id)arg1 flags:(int)arg2 createMode:(int)arg3 error:(id *)arg4;
-- (id)initWithURL:(id)arg1 flags:(int)arg2 createMode:(int)arg3 error:(id *)arg4;
+- (id)initWithPath:(id)arg1 flags:(long long)arg2 createMode:(long long)arg3;
+- (id)initWithPath:(id)arg1 flags:(long long)arg2 createMode:(long long)arg3 error:(id *)arg4;
+- (id)initWithURL:(id)arg1 flags:(long long)arg2 createMode:(long long)arg3 error:(id *)arg4;
 - (id)initWithFileDescriptor:(int)arg1;
-- (id)initWithFileDescriptor:(int)arg1 closeOnDealloc:(BOOL)arg2;
+- (id)initWithFileDescriptor:(int)arg1 closeOnDealloc:(_Bool)arg2;
 - (void)encodeWithCoder:(id)arg1;
 - (id)init;
 - (int)fileDescriptor;

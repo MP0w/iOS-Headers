@@ -10,9 +10,7 @@
 
 @optional
 - (void)account:(id)arg1 dependentDevicesUpdated:(id)arg2;
-- (void)receivedIDStatusCache:(id)arg1;
-- (void)IDQueryCompletedWithFromURI:(id)arg1 idStatusUpdates:(id)arg2 service:(id)arg3 success:(BOOL)arg4 error:(id)arg5;
-- (void)clearCallerIDCachesForAccount:(id)arg1;
+- (void)IDQueryCompletedWithFromURI:(id)arg1 idStatusUpdates:(id)arg2 service:(id)arg3 success:(_Bool)arg4 error:(id)arg5;
 - (void)activeDevicesUpdatedForAccount:(id)arg1;
 - (void)refreshRegistrationForAccount:(id)arg1;
 - (void)registrationFailedForAccount:(id)arg1 needsDeletion:(id)arg2;
@@ -30,10 +28,10 @@
 - (void)accountUpdated:(id)arg1;
 - (void)accountRemoved:(id)arg1;
 - (void)accountAdded:(id)arg1;
-- (void)messageIdentifier:(id)arg1 updatedWithResponseCode:(int)arg2 error:(id)arg3 lastCall:(BOOL)arg4;
+- (void)messageIdentifier:(id)arg1 updatedWithResponseCode:(long long)arg2 error:(id)arg3 lastCall:(_Bool)arg4;
 - (void)messageReceived:(id)arg1 withGUID:(id)arg2 withPayload:(id)arg3 forTopic:(id)arg4 fromID:(id)arg5;
 - (void)daemonDisconnected;
 - (void)daemonConnected;
-- (void)setupComplete:(BOOL)arg1 info:(id)arg2;
+- (void)setupComplete:(_Bool)arg1 info:(id)arg2;
 @end
 

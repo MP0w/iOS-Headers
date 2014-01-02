@@ -8,21 +8,21 @@
 
 @interface SBHandMotionExtractor : NSObject
 {
-    CDStruct_812d5f7b _pixelDeltas;
-    CDStruct_812d5f7b _smoothedDeltas;
-    CDStruct_812d5f7b _allPixelDeltas;
-    float _averageTranslation;
-    float _farthestFingerSeparation;
+    CDStruct_3dac535d _pixelDeltas;
+    CDStruct_3dac535d _smoothedDeltas;
+    CDStruct_3dac535d _allPixelDeltas;
+    double _averageTranslation;
+    double _farthestFingerSeparation;
     struct CGPoint _movementVelocityInPointsPerSecond;
 }
 
 @property(readonly, nonatomic) struct CGPoint movementVelocityInPointsPerSecond; // @synthesize movementVelocityInPointsPerSecond=_movementVelocityInPointsPerSecond;
-@property(readonly, nonatomic) float farthestFingerSeparation; // @synthesize farthestFingerSeparation=_farthestFingerSeparation;
-@property(readonly, nonatomic) float averageTranslation; // @synthesize averageTranslation=_averageTranslation;
-@property(readonly, nonatomic) CDStruct_812d5f7b averageVelocities; // @synthesize averageVelocities=_smoothedDeltas;
-@property(readonly, nonatomic) CDStruct_812d5f7b allPixelDeltas; // @synthesize allPixelDeltas=_allPixelDeltas;
-@property(readonly, nonatomic) CDStruct_812d5f7b pixelDeltas; // @synthesize pixelDeltas=_pixelDeltas;
-- (void)extractHandMotionForActiveTouches:(CDStruct_9bf48c9a *)arg1 count:(unsigned int)arg2 centroid:(struct CGPoint)arg3;
+@property(readonly, nonatomic) double farthestFingerSeparation; // @synthesize farthestFingerSeparation=_farthestFingerSeparation;
+@property(readonly, nonatomic) double averageTranslation; // @synthesize averageTranslation=_averageTranslation;
+@property(readonly, nonatomic) CDStruct_3dac535d averageVelocities; // @synthesize averageVelocities=_smoothedDeltas;
+@property(readonly, nonatomic) CDStruct_3dac535d allPixelDeltas; // @synthesize allPixelDeltas=_allPixelDeltas;
+@property(readonly, nonatomic) CDStruct_3dac535d pixelDeltas; // @synthesize pixelDeltas=_pixelDeltas;
+- (void)extractHandMotionForActiveTouches:(CDStruct_bab9d11d *)arg1 count:(unsigned long long)arg2 centroid:(struct CGPoint)arg3;
 - (void)clear;
 
 @end

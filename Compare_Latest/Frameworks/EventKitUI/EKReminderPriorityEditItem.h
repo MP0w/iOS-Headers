@@ -10,10 +10,10 @@
 {
 }
 
-- (BOOL)editItemViewControllerCommit:(id)arg1;
-- (id)cellForSubitemAtIndex:(unsigned int)arg1 inSubsection:(unsigned int)arg2;
-- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(unsigned int)arg2 inSubsection:(unsigned int)arg3;
-- (BOOL)shouldAppearWithVisibility:(int)arg1;
+- (_Bool)editItemViewControllerCommit:(id)arg1;
+- (id)cellForSubitemAtIndex:(unsigned long long)arg1 inSubsection:(unsigned long long)arg2;
+- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(unsigned long long)arg2 inSubsection:(unsigned long long)arg3;
+- (_Bool)shouldAppearWithVisibility:(int)arg1;
 
 @end
 

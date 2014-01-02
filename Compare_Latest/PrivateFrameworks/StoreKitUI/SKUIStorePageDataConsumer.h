@@ -4,16 +4,16 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <StoreKitUI/SKUIDataConsumer.h>
+#import "SSVURLDataConsumer.h"
 
-@interface SKUIStorePageDataConsumer : SKUIDataConsumer
+@interface SKUIStorePageDataConsumer : SSVURLDataConsumer
 {
     Class _storePageClass;
 }
 
 @property(nonatomic) Class storePageClass; // @synthesize storePageClass=_storePageClass;
 - (id)_roomComponentsForDictionary:(id)arg1 items:(id)arg2;
-- (id)_newFeaturedContentComponentForKind:(int)arg1 context:(id)arg2;
+- (id)_newFeaturedContentComponentForKind:(long long)arg1 context:(id)arg2;
 - (id)_newCustomPageComponentForBlockType:(id)arg1 context:(id)arg2;
 - (id)_multiRoomComponentsForDictionary:(id)arg1 items:(id)arg2;
 - (id)_groupingPageComponentsForDictionary:(id)arg1 items:(id)arg2;

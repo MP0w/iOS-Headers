@@ -10,10 +10,10 @@
 
 @interface MCBookmarkManager : NSObject
 {
+    int _notificationToken;
     NSObject<OS_dispatch_queue> *_memberQueue;
     NSArray *_memberQueueCurrentUserBookmarks;
     NSDictionary *_memberQueueStashedBookmarksByLabel;
-    int _notificationToken;
 }
 
 + (id)sharedManager;

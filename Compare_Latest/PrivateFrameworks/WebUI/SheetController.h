@@ -19,15 +19,15 @@
     NSMutableArray *_alertInvocationQueue;
     id _delegate;
     int _actionToPerform;
-    BOOL _isDismissed;
+    _Bool _isDismissed;
 }
 
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (void)didPresentAlertView:(id)arg1;
-- (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)alertView:(id)arg1 didDismissWithButtonIndex:(long long)arg2;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (void)setDelegate:(id)arg1;
 - (void)hideSheet;
 - (void)showSheetForAlert:(id)arg1 inView:(id)arg2;

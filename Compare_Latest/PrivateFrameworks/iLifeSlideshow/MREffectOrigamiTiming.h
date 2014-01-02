@@ -29,10 +29,10 @@
 @property(readonly, nonatomic) double mainDuration; // @synthesize mainDuration=_mainDuration;
 @property(readonly, nonatomic) double phaseInDuration; // @synthesize phaseInDuration=_phaseInDuration;
 - (double)lowestDisplayTime;
-- (double)displayTimeForTextAtIndex:(unsigned int)arg1;
-- (double)displayTimeForSlideAtIndex:(unsigned int)arg1;
-- (double)showDurationForSlideAtIndex:(unsigned int)arg1;
-- (double)showTimeForSlideAtIndex:(unsigned int)arg1;
+- (double)displayTimeForTextAtIndex:(unsigned long long)arg1;
+- (double)displayTimeForSlideAtIndex:(unsigned long long)arg1;
+- (double)showDurationForSlideAtIndex:(unsigned long long)arg1;
+- (double)showTimeForSlideAtIndex:(unsigned long long)arg1;
 - (void)setPhaseInDuration:(double)arg1 mainDuration:(double)arg2 phaseOutDuration:(double)arg3;
 - (void)dealloc;
 - (id)initWithEffectID:(id)arg1;

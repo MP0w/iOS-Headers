@@ -8,6 +8,7 @@
 
 @class NSString, WebView;
 
+// Not exported
 @interface WebInspectorWindowController : NSObject
 {
     WebView *_inspectedWebView;
@@ -25,7 +26,7 @@
         id;
         struct WebInspectorFrontendClient *;
     } *_inspectorClient;
-    BOOL _destroyingInspectorView;
+    _Bool _destroyingInspectorView;
     WebView *_webView;
     NSString *_title;
 }
@@ -33,8 +34,8 @@
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
 @property(readonly, nonatomic) WebView *webView; // @synthesize webView=_webView;
 - (void)destroyInspectorView:(_Bool)arg1;
-- (WebInspectorClient_b612fe75 *)inspectorClient;
-- (void)setInspectorClient:(WebInspectorClient_b612fe75 *)arg1;
+- (WebInspectorClient_507d6387 *)inspectorClient;
+- (void)setInspectorClient:(WebInspectorClient_507d6387 *)arg1;
 - (void)setFrontendClient:(struct WebInspectorFrontendClient *)arg1;
 - (void)dealloc;
 - (id)initWithInspectedWebView:(id)arg1;

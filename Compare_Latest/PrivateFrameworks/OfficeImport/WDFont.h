@@ -10,6 +10,7 @@
 
 @class NSString;
 
+// Not exported
 @interface WDFont : NSObject <NSCopying>
 {
     NSString *mName;
@@ -19,8 +20,8 @@
     int mPitch;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)initWithName:(id)arg1;

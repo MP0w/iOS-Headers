@@ -15,17 +15,17 @@
     SKUIDonationAmountView *_amountView;
     SKUIGiftValidationResponse *_lastValidationResponse;
     SKUIGiftPurchaseRequest *_purchaseRequest;
-    BOOL _tappedNextWhileValidating;
+    _Bool _tappedNextWhileValidating;
     SKUIGiftValidator *_validator;
 }
 
 - (void).cxx_destruct;
 - (void)_validateDonation:(id)arg1;
-- (void)_setDonationButtonEnabled:(BOOL)arg1;
+- (void)_setDonationButtonEnabled:(_Bool)arg1;
 - (void)_reenableAfterFailure;
 - (void)_performActionAfterValidation;
 - (void)_finishValidationWithResponse:(id)arg1 error:(id)arg2;
-- (void)_finishPurchaseWithResult:(BOOL)arg1 errorMessage:(id)arg2;
+- (void)_finishPurchaseWithResult:(_Bool)arg1 errorMessage:(id)arg2;
 - (void)_amountChangedNotification:(id)arg1;
 - (void)_donateButtonAction:(id)arg1;
 - (void)_cancelButtonAction:(id)arg1;

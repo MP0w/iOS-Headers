@@ -7,6 +7,6 @@
 #import "NSObject.h"
 
 @interface NSObject (UIAppearanceAdditions)
-+ (void)_installAppearanceSwizzleForSetter:(id)arg1;
++ (void)_installAppearanceSwizzlesForSetter:(id)arg1;
 @end
 

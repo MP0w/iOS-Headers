@@ -6,19 +6,20 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface NSCFType : NSObject
 {
 }
 
-+ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
++ (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 - (void)finalize;
-- (unsigned int)retainCount;
-- (BOOL)retainWeakReference;
-- (BOOL)allowsWeakReference;
+- (unsigned long long)retainCount;
+- (_Bool)retainWeakReference;
+- (_Bool)allowsWeakReference;
 - (oneway void)release;
 - (id)retain;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 
 @end
 

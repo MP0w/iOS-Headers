@@ -14,16 +14,16 @@
 }
 
 + (id)privateCreateArray:(id)arg1 portUID:(id)arg2;
-+ (id)privateCreate:(id)arg1 portUID:(id)arg2 channelNumber:(unsigned long)arg3;
++ (id)privateCreate:(id)arg1 portUID:(id)arg2 channelNumber:(unsigned int)arg3;
 - (struct ChannelDescriptionImpl *)privateGetImplementation;
 - (id)description;
-@property(readonly) unsigned long channelLabel;
-@property(readonly) unsigned int channelNumber;
+@property(readonly) unsigned int channelLabel;
+@property(readonly) unsigned long long channelNumber;
 @property(readonly) NSString *owningPortUID;
 @property(readonly) NSString *channelName;
-- (unsigned int)hash;
-- (BOOL)isEqualToChannel:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqualToChannel:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

@@ -6,12 +6,13 @@
 
 #import <UIKit/UISegmentedControl.h>
 
+// Not exported
 @interface UIKeyboardCandidateBarSegmentControl : UISegmentedControl
 {
 }
 
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 
 @end
 

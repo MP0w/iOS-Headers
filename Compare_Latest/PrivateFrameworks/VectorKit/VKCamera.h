@@ -8,6 +8,7 @@
 
 @class VKFootprint, VKViewVolume;
 
+// Not exported
 @interface VKCamera : NSObject
 {
     id <VKCameraDelegate> _delegate;
@@ -15,15 +16,15 @@
     CDStruct_aa5aacbc _orientation;
     float _aspectRatio;
     float _verticalFieldOfView;
-    CDStruct_17faa5b0 _frustum;
-    CDStruct_17faa5b0 _previousFrustum;
+    CDStruct_184b3e93 _frustum;
+    CDStruct_184b3e93 _previousFrustum;
     double _minHeight;
     double _maxHeight;
     double _maxPitch;
     double _terrainHeight;
     double _maxFarClipDistance;
-    BOOL _needsUpdate;
-    BOOL _updating;
+    _Bool _needsUpdate;
+    _Bool _updating;
     int _updateNumber;
     CDStruct_aa5aacbc _viewProjectionMatrix;
     CDStruct_aa5aacbc _projectionMatrix;
@@ -42,12 +43,12 @@
     double _fractionOfScreenAboveFarClipPlaneAtCanonicalPitch;
     double _distanceToGroundAndFarClipPlaneIntersection;
     double _screenHeightOfGroundAndFarClipPlaneIntersection;
-    BOOL _allowDatelineWraparound;
+    _Bool _allowDatelineWraparound;
     double _canonicalPitch;
 }
 
 @property(nonatomic) double canonicalPitch; // @synthesize canonicalPitch=_canonicalPitch;
-@property(nonatomic) BOOL allowDatelineWraparound; // @synthesize allowDatelineWraparound=_allowDatelineWraparound;
+@property(nonatomic) _Bool allowDatelineWraparound; // @synthesize allowDatelineWraparound=_allowDatelineWraparound;
 @property(readonly, nonatomic) double screenHeightOfGroundAndFarClipPlaneIntersection; // @synthesize screenHeightOfGroundAndFarClipPlaneIntersection=_screenHeightOfGroundAndFarClipPlaneIntersection;
 @property(readonly, nonatomic) double distanceToGroundAndFarClipPlaneIntersection; // @synthesize distanceToGroundAndFarClipPlaneIntersection=_distanceToGroundAndFarClipPlaneIntersection;
 @property(nonatomic) double fractionOfScreenAboveFarClipPlaneAtCanonicalPitch; // @synthesize fractionOfScreenAboveFarClipPlaneAtCanonicalPitch=_fractionOfScreenAboveFarClipPlaneAtCanonicalPitch;
@@ -59,7 +60,7 @@
 @property(nonatomic) double minHeight; // @synthesize minHeight=_minHeight;
 @property(nonatomic) float aspectRatio; // @synthesize aspectRatio=_aspectRatio;
 @property(nonatomic) struct VKPoint position; // @synthesize position=_position;
-@property(readonly, nonatomic) CDStruct_17faa5b0 frustum; // @synthesize frustum=_frustum;
+@property(readonly, nonatomic) CDStruct_184b3e93 frustum; // @synthesize frustum=_frustum;
 - (id).cxx_construct;
 - (void)adjustClipPlanes;
 - (double)depthForViewWidth:(double)arg1;
@@ -68,10 +69,10 @@
 - (struct VKPoint)groundPointFromScreenPoint:(struct CGPoint)arg1;
 - (void)updateIfNeeded;
 - (void)setNeedsUpdate;
-- (BOOL)isOuterWorldBoundsVisible;
-- (BOOL)isWorldSpaceRectVisible:(const CDStruct_d2b197d1 *)arg1;
+- (_Bool)isOuterWorldBoundsVisible;
+- (_Bool)isWorldSpaceRectVisible:(const CDStruct_d2b197d1 *)arg1;
 - (float)maximumStyleZForRect:(const CDStruct_d2b197d1 *)arg1;
-- (BOOL)hasChangedState:(struct VKCameraState *)arg1;
+- (_Bool)hasChangedState:(struct VKCameraState *)arg1;
 @property(nonatomic) struct VKCameraState cameraState;
 @property(readonly, nonatomic) double yaw;
 @property(readonly, nonatomic) double pitch;

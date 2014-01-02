@@ -12,20 +12,20 @@
 {
     NSMutableData *_bluetoothInputData;
     SWBluetoothMessageHandler *_messageHandler;
-    unsigned int _remainingBatteryLifetimeInHours;
+    unsigned long long _remainingBatteryLifetimeInHours;
     NSMutableArray *_packetRecord;
     SWPacketUnscrambler *_packetUnscrambler;
-    unsigned int _packetCount;
+    unsigned long long _packetCount;
     double _connectionTime;
     double _disconnectionTime;
 }
 
 + (void)__writePacketRecord:(id)arg1;
-@property(readonly, nonatomic) unsigned int packetCount; // @synthesize packetCount=_packetCount;
-- (unsigned int)_remainingBatteryLifetimeInHoursForPacket:(id)arg1 timestamp:(unsigned int)arg2;
+@property(readonly, nonatomic) unsigned long long packetCount; // @synthesize packetCount=_packetCount;
+- (unsigned long long)_remainingBatteryLifetimeInHoursForPacket:(id)arg1 timestamp:(unsigned long long)arg2;
 - (CDStruct_5cfa2073)_deviceAddressForSerialNumber:(id)arg1;
-- (id)_serialNumberForPacket:(id)arg1 timestamp:(unsigned int)arg2 radioId:(unsigned int *)arg3;
-- (BOOL)_isValidPacketForPaceModel:(id)arg1 timestamp:(unsigned int)arg2;
+- (id)_serialNumberForPacket:(id)arg1 timestamp:(unsigned long long)arg2 radioId:(unsigned int *)arg3;
+- (_Bool)_isValidPacketForPaceModel:(id)arg1 timestamp:(unsigned long long)arg2;
 - (void)_receivedInputReadNotification:(id)arg1;
 - (void)_receivedConnectionFailureNotification:(id)arg1;
 - (void)_receivedConnectionNotification:(id)arg1;
@@ -39,7 +39,7 @@
 - (void)unlink;
 - (void)cancelLinking;
 - (void)beginLinking;
-- (unsigned int)remainingBatteryLifetimeInHours;
+- (unsigned long long)remainingBatteryLifetimeInHours;
 - (void)deactivate;
 @property(readonly, nonatomic) double secondsConnected; // @dynamic secondsConnected;
 - (void)dealloc;

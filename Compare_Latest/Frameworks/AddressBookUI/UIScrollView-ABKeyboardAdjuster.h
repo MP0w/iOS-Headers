@@ -7,9 +7,9 @@
 #import "UIScrollView.h"
 
 @interface UIScrollView (ABKeyboardAdjuster)
-- (void)ab_adjustForAutomaticKeyboardInfo:(id)arg1 lastAdjustment:(float *)arg2;
-- (float)ab_verticalOverlapUsingKeyboardInfo:(id)arg1;
+- (void)ab_adjustForAutomaticKeyboardInfo:(id)arg1 lastAdjustment:(double *)arg2;
+- (double)ab_verticalOverlapUsingKeyboardInfo:(id)arg1;
 - (void)ab_scrollToSelectionOfTextView:(id)arg1;
-- (void)ab_scrollToSelectionOfTextView:(id)arg1 animated:(BOOL)arg2;
+- (void)ab_scrollToSelectionOfTextView:(id)arg1 animated:(_Bool)arg2;
 @end
 

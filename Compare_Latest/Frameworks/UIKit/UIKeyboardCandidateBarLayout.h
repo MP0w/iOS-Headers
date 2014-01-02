@@ -6,16 +6,20 @@
 
 #import <UIKit/UICollectionViewLayout.h>
 
-@class NSMutableArray;
+@class NSArray, NSMutableArray;
 
+// Not exported
 @interface UIKeyboardCandidateBarLayout : UICollectionViewLayout
 {
     struct CGSize _contentSize;
     NSMutableArray *_allAttributes;
+    NSArray *_edgeDummyCellAttributes;
 }
 
++ (id)dummyCellCollectionViewKind;
 + (id)layout;
 + (Class)layoutAttributesClass;
+@property(retain, nonatomic) NSArray *edgeDummyCellAttributes; // @synthesize edgeDummyCellAttributes=_edgeDummyCellAttributes;
 @property(retain, nonatomic) NSMutableArray *allAttributes; // @synthesize allAttributes=_allAttributes;
 - (void)prepareLayout;
 - (struct CGSize)collectionViewContentSize;

@@ -11,8 +11,8 @@
 @interface AVCaptureFigAudioDevice : AVCaptureDevice
 {
     NSDictionary *_deviceProperties;
-    BOOL _levelMeteringEnabled;
-    BOOL _isConnected;
+    _Bool _levelMeteringEnabled;
+    _Bool _isConnected;
     NSString *_localizedName;
     struct OpaqueCMClock *_deviceClock;
 }
@@ -21,13 +21,13 @@
 - (struct OpaqueCMClock *)deviceClock;
 - (void)audioInputDeviceLocalizedNameDidChangeHandler:(id)arg1;
 - (void)audioInputDevicesDidChangeHandler:(id)arg1;
-- (BOOL)supportsAVCaptureSessionPreset:(id)arg1;
+- (_Bool)supportsAVCaptureSessionPreset:(id)arg1;
 - (id)devicePropertiesDictionary;
 - (void)stopUsingDevice;
-- (BOOL)startUsingDevice:(id *)arg1;
-- (BOOL)isConnected;
-- (BOOL)isInUseByAnotherApplication;
-- (BOOL)hasMediaType:(id)arg1;
+- (_Bool)startUsingDevice:(id *)arg1;
+- (_Bool)isConnected;
+- (_Bool)isInUseByAnotherApplication;
+- (_Bool)hasMediaType:(id)arg1;
 - (id)localizedName;
 - (id)modelID;
 - (id)uniqueID;

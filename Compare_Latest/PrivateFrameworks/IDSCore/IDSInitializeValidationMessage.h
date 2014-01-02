@@ -27,12 +27,12 @@
 - (id)messageBody;
 - (id)requiredKeys;
 - (id)bagKey;
-- (int)responseCommand;
-- (int)command;
-- (BOOL)wantsBinaryPush;
-- (BOOL)wantsCompressedBody;
-- (BOOL)wantsHTTPHeaders;
-- (BOOL)wantsBagKey;
+- (long long)responseCommand;
+- (long long)command;
+- (_Bool)wantsBinaryPush;
+- (_Bool)wantsCompressedBody;
+- (_Bool)wantsHTTPHeaders;
+- (_Bool)wantsBagKey;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)init;

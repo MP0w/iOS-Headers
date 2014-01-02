@@ -14,7 +14,7 @@
 
 @interface ABPickerController : UINavigationController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 {
-    BOOL _allowsCustomItems;
+    _Bool _allowsCustomItems;
     NSString *_selectedItem;
     NSArray *_builtinItems;
     NSArray *_customItems;
@@ -24,19 +24,21 @@
 
 @property(retain, nonatomic) NSIndexPath *selectedIndexPath; // @synthesize selectedIndexPath=_selectedIndexPath;
 @property(retain, nonatomic) UITableViewController *tableViewController; // @synthesize tableViewController=_tableViewController;
-@property(nonatomic) BOOL allowsCustomItems; // @synthesize allowsCustomItems=_allowsCustomItems;
+@property(nonatomic) _Bool allowsCustomItems; // @synthesize allowsCustomItems=_allowsCustomItems;
 @property(copy, nonatomic) NSArray *customItems; // @synthesize customItems=_customItems;
 @property(copy, nonatomic) NSArray *builtinItems; // @synthesize builtinItems=_builtinItems;
 @property(retain, nonatomic) NSString *selectedItem; // @synthesize selectedItem=_selectedItem;
 - (id)_itemAtIndexPath:(id)arg1;
-- (BOOL)textFieldShouldEndEditing:(id)arg1;
-- (BOOL)textFieldShouldReturn:(id)arg1;
+- (_Bool)textFieldShouldEndEditing:(id)arg1;
+- (_Bool)textFieldShouldReturn:(id)arg1;
 - (void)textFieldDidBeginEditing:(id)arg1;
+- (void)tableView:(id)arg1 willDisplayHeaderView:(id)arg2 forSection:(long long)arg3;
+- (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)customLabelUpdated:(id)arg1;
 - (void)donePicker:(id)arg1;
 - (void)cancelPicker:(id)arg1;

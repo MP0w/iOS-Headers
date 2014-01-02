@@ -8,23 +8,24 @@
 
 @class UITableViewCell, UITableViewCellDeleteConfirmationControl_Legacy, UITableViewCellEditControl, UITableViewCellReorderControl, UIView;
 
+// Not exported
 @interface UITableViewCellEditingData : NSObject
 {
     UITableViewCell *_cell;
-    int _editingStyle;
+    long long _editingStyle;
     UITableViewCellEditControl *_editControl;
     UITableViewCellReorderControl *_reorderControl;
     UITableViewCellDeleteConfirmationControl_Legacy *_deleteConfirmationControl;
     UIView *_reorderSeparatorView;
 }
 
-- (id)reorderSeparatorView:(BOOL)arg1;
-- (id)deleteConfirmationControl:(BOOL)arg1;
-- (id)reorderControl:(BOOL)arg1;
-- (id)editControl:(BOOL)arg1;
-@property(readonly, nonatomic, getter=isDataRequired) BOOL dataRequired;
+- (id)reorderSeparatorView:(_Bool)arg1;
+- (id)deleteConfirmationControl:(_Bool)arg1;
+- (id)reorderControl:(_Bool)arg1;
+- (id)editControl:(_Bool)arg1;
+@property(readonly, nonatomic, getter=isDataRequired) _Bool dataRequired;
 - (void)dealloc;
-- (id)initWithTableViewCell:(id)arg1 editingStyle:(int)arg2;
+- (id)initWithTableViewCell:(id)arg1 editingStyle:(long long)arg2;
 
 @end
 

@@ -7,7 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol WBSFormAutoFillFrame <NSObject>
-- (BOOL)containsAnyFormElements;
+- (_Bool)containsAnyFormElements;
 - (void)enumerateChildFramesUsingBlock:(id)arg1;
 - (id)committedURL;
 - (struct OpaqueJSValue *)jsWrapperInMetadataControllerScriptWorldForNode:(id)arg1;

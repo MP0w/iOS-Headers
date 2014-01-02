@@ -16,7 +16,7 @@
 
 + (id)conditionWithDictionary:(id)arg1 context:(id)arg2;
 + (id)condition;
-@property(nonatomic) int conditionCodeIndex;
+@property(nonatomic) long long conditionCodeIndex;
 @property(copy, nonatomic) NSString *conditionCode;
 - (id)encodedClassName;
 - (id)groupIdentifier;

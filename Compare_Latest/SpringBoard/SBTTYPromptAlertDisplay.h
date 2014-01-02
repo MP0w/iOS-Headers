@@ -17,10 +17,10 @@
     UIView *_voiceAndTTYWrapperView;
     TPSuperBottomBar *_cancelBar;
     TPLCDView *_promptView;
-    BOOL _didAnimateIn;
+    _Bool _didAnimateIn;
     UIImage *_calleeImage;
-    BOOL _isFullscreenImage;
-    BOOL _imageSetupDone;
+    _Bool _isFullscreenImage;
+    _Bool _imageSetupDone;
 }
 
 - (id)thumbnailImage;
@@ -34,9 +34,9 @@
 - (void)_makeCall;
 - (void)startAnimatingIn;
 - (void)dismiss;
-- (void)layoutForInterfaceOrientation:(int)arg1;
-- (BOOL)isSupportedInterfaceOrientation:(int)arg1;
-- (float)_lcdYOffset;
+- (void)layoutForInterfaceOrientation:(long long)arg1;
+- (_Bool)isSupportedInterfaceOrientation:(long long)arg1;
+- (double)_lcdYOffset;
 - (void)dealloc;
 
 @end

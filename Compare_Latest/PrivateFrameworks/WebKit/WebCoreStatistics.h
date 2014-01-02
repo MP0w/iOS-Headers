@@ -11,10 +11,10 @@
 }
 
 + (id)javaScriptRootObjectTypeCounts;
-+ (unsigned long)javaScriptInterpretersCount;
++ (unsigned long long)javaScriptInterpretersCount;
 + (id)javaScriptRootObjectClasses;
-+ (unsigned long)javaScriptReferencedObjectsCount;
-+ (unsigned long)javaScriptNoGCAllowedObjectsCount;
++ (unsigned long long)javaScriptReferencedObjectsCount;
++ (unsigned long long)javaScriptNoGCAllowedObjectsCount;
 + (int)autoreleasedPageCount;
 + (int)cachedFrameCount;
 + (int)cachedPageCount;
@@ -22,27 +22,27 @@
 + (id)memoryStatistics;
 + (void)stopIgnoringWebCoreNodeLeaks;
 + (void)startIgnoringWebCoreNodeLeaks;
-+ (void)setCacheDisabled:(BOOL)arg1;
++ (void)setCacheDisabled:(_Bool)arg1;
 + (void)emptyCache;
-+ (void)setShouldPrintExceptions:(BOOL)arg1;
-+ (BOOL)shouldPrintExceptions;
-+ (unsigned long)glyphPageCount;
++ (void)setShouldPrintExceptions:(_Bool)arg1;
++ (_Bool)shouldPrintExceptions;
++ (unsigned long long)glyphPageCount;
 + (void)purgeInactiveFontData;
-+ (unsigned long)cachedFontDataInactiveCount;
-+ (unsigned long)cachedFontDataCount;
-+ (unsigned long)iconsWithDataCount;
-+ (unsigned long)iconRecordCount;
-+ (unsigned long)iconRetainedPageURLCount;
-+ (unsigned long)iconPageURLMappingCount;
-+ (void)setJavaScriptGarbageCollectorTimerEnabled:(BOOL)arg1;
-+ (void)garbageCollectJavaScriptObjectsOnAlternateThreadForDebugging:(BOOL)arg1;
++ (unsigned long long)cachedFontDataInactiveCount;
++ (unsigned long long)cachedFontDataCount;
++ (unsigned long long)iconsWithDataCount;
++ (unsigned long long)iconRecordCount;
++ (unsigned long long)iconRetainedPageURLCount;
++ (unsigned long long)iconPageURLMappingCount;
++ (void)setJavaScriptGarbageCollectorTimerEnabled:(_Bool)arg1;
++ (void)garbageCollectJavaScriptObjectsOnAlternateThreadForDebugging:(_Bool)arg1;
 + (void)garbageCollectJavaScriptObjects;
 + (id)javaScriptObjectTypeCounts;
 + (id)javaScriptProtectedObjectTypeCounts;
-+ (unsigned long)javaScriptProtectedGlobalObjectsCount;
-+ (unsigned long)javaScriptProtectedObjectsCount;
-+ (unsigned long)javaScriptGlobalObjectsCount;
-+ (unsigned long)javaScriptObjectsCount;
++ (unsigned long long)javaScriptProtectedGlobalObjectsCount;
++ (unsigned long long)javaScriptProtectedObjectsCount;
++ (unsigned long long)javaScriptGlobalObjectsCount;
++ (unsigned long long)javaScriptObjectsCount;
 + (id)statistics;
 
 @end

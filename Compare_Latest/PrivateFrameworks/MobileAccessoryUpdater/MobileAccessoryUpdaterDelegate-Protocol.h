@@ -8,7 +8,7 @@
 
 @protocol MobileAccessoryUpdaterDelegate <NSObject>
 - (void)stepRunning:(id)arg1 deviceClass:(id)arg2 progress:(double)arg3 overallProgress:(double)arg4 info:(id)arg5;
-- (void)stepComplete:(id)arg1 deviceClass:(id)arg2 successful:(BOOL)arg3 info:(id)arg4 error:(id)arg5;
+- (void)stepComplete:(id)arg1 deviceClass:(id)arg2 successful:(_Bool)arg3 info:(id)arg4 error:(id)arg5;
 - (void)deviceClassAttached:(id)arg1;
 
 @optional

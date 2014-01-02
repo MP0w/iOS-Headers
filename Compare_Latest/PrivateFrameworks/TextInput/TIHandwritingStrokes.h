@@ -11,19 +11,19 @@
 
 @interface TIHandwritingStrokes : NSObject <NSCopying, NSSecureCoding>
 {
-    struct vector<std::__1::vector<CGPoint, std::__1::allocator<CGPoint>>, std::__1::allocator<std::__1::vector<CGPoint, std::__1::allocator<CGPoint>>>> _strokes;
-    BOOL _continuePreviousStroke;
+    struct vector<std::__1::vector<TIHandwritingPoint, std::__1::allocator<TIHandwritingPoint>>, std::__1::allocator<std::__1::vector<TIHandwritingPoint, std::__1::allocator<TIHandwritingPoint>>>> _strokes;
+    _Bool _continuePreviousStroke;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (unsigned int)totalNumberOfPoints;
-- (struct CGPoint)pointAtIndex:(unsigned int)arg1 inStrokeAtIndex:(unsigned int)arg2;
-- (unsigned int)numberOfPointsInStrokeAtIndex:(unsigned int)arg1;
-- (unsigned int)numberOfStrokes;
+- (unsigned long long)totalNumberOfPoints;
+- (struct CGPoint)pointAtIndex:(unsigned long long)arg1 inStrokeAtIndex:(unsigned long long)arg2;
+- (unsigned long long)numberOfPointsInStrokeAtIndex:(unsigned long long)arg1;
+- (unsigned long long)numberOfStrokes;
 - (void)removeAllStrokes;
-- (void)removeStrokeAtIndex:(unsigned int)arg1;
+- (void)removeStrokeAtIndex:(unsigned long long)arg1;
 - (void)endStroke;
 - (void)addPoint:(struct CGPoint)arg1;
 - (id)description;

@@ -14,16 +14,15 @@
     NSObject<MSSearchDelegate> *_delegate;
 }
 
-+ (id)findMessageData:(id)arg1 matchingCriterion:(id)arg2 shouldFetch:(BOOL)arg3 onServer:(BOOL)arg4 onlyInboxes:(BOOL)arg5 delegate:(id)arg6;
-+ (id)findMessageData:(id)arg1 matchingCriterion:(id)arg2 shouldFetch:(BOOL)arg3 onServer:(BOOL)arg4 delegate:(id)arg5;
-+ (void)setUnitTestingResultsArray:(id)arg1;
++ (id)findMessageData:(id)arg1 matchingCriterion:(id)arg2 shouldFetch:(_Bool)arg3 onServer:(_Bool)arg4 onlyInboxes:(_Bool)arg5 delegate:(id)arg6;
++ (id)findMessageData:(id)arg1 matchingCriterion:(id)arg2 shouldFetch:(_Bool)arg3 onServer:(_Bool)arg4 delegate:(id)arg5;
 @property(nonatomic) NSObject<MSSearchDelegate> *delegate; // @synthesize delegate=_delegate;
 - (void)_generateUnitTestResponsesForResultArray:(id)arg1;
 - (id)_generateUnitTestReplyForMethod:(id)arg1 arg:(id)arg2 error:(id *)arg3;
-- (BOOL)_unitTestsAreEnabled;
+- (_Bool)_unitTestsAreEnabled;
 - (void)_delegateDidFindResults:(id)arg1;
 - (void)_delegateDidFinishWithError:(id)arg1;
-- (void)_findMessageData:(id)arg1 matchingCriterion:(id)arg2 shouldFetch:(BOOL)arg3 onServer:(BOOL)arg4 onlyInboxes:(BOOL)arg5;
+- (void)_findMessageData:(id)arg1 matchingCriterion:(id)arg2 shouldFetch:(_Bool)arg3 onServer:(_Bool)arg4 onlyInboxes:(_Bool)arg5;
 - (void)responseConnection:(id)arg1 handleResponse:(id)arg2;
 - (void)responseConnection:(id)arg1 handleError:(id)arg2;
 - (void)dealloc;

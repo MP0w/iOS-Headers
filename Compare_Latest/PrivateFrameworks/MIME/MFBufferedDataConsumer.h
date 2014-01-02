@@ -19,7 +19,7 @@
 }
 
 - (void)done;
-- (int)appendData:(id)arg1;
+- (long long)appendData:(id)arg1;
 - (id)data;
 - (void)dealloc;
 - (id)init;

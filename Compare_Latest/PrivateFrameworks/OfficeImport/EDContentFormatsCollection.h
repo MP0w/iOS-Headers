@@ -6,17 +6,15 @@
 
 #import <OfficeImport/EDKeyedCollection.h>
 
+// Not exported
 @interface EDContentFormatsCollection : EDKeyedCollection
 {
-    unsigned int mNextContentFormatId;
+    unsigned long long mNextContentFormatId;
 }
 
-- (unsigned int)addOrEquivalentObject:(id)arg1;
-- (unsigned int)addObject:(id)arg1;
+- (unsigned long long)addOrEquivalentObject:(id)arg1;
+- (unsigned long long)addObject:(id)arg1;
 - (id)init;
-- (_Bool)isOverwritingKeyOK;
-- (void)addDefaultWithNSString:(id)arg1 formatId:(unsigned int)arg2;
-- (void)setupDefaults;
 
 @end
 

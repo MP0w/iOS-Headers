@@ -11,30 +11,30 @@
 }
 
 + (id)defaultWorkspace;
-- (BOOL)_LSPrivateRebuildLaunchServicesDatabase;
-- (BOOL)_LSPrivateRebuildApplicationDatabasesForSystemApps:(BOOL)arg1 internal:(BOOL)arg2 user:(BOOL)arg3;
+- (_Bool)_LSPrivateRebuildLaunchServicesDatabase;
+- (_Bool)_LSPrivateRebuildApplicationDatabasesForSystemApps:(_Bool)arg1 internal:(_Bool)arg2 user:(_Bool)arg3;
 - (void)clearCreatedProgressForBundleID:(id)arg1;
-- (BOOL)installPhaseFinishedForProgress:(id)arg1;
-- (id)installProgressForApplication:(id)arg1 withPhase:(unsigned int)arg2;
+- (_Bool)installPhaseFinishedForProgress:(id)arg1;
+- (id)installProgressForApplication:(id)arg1 withPhase:(unsigned long long)arg2;
 - (void)removeInstallProgressForBundleID:(id)arg1;
 - (id)installProgressForBundleID:(id)arg1 makeSynchronous:(unsigned char)arg2;
 - (id)deviceIdentifierForVendor;
 - (id)deviceIdentifierForAdvertising;
 - (void)_clearCachedAdvertisingIdentifier;
 - (void)clearAdvertisingIdentifier;
-- (BOOL)invalidateIconCache:(id)arg1;
-- (BOOL)unregisterApplication:(id)arg1;
-- (BOOL)registerApplication:(id)arg1;
-- (BOOL)registerApplicationDictionary:(id)arg1;
-- (BOOL)registerApplicationDictionary:(id)arg1 withObserverNotification:(unsigned int)arg2;
-- (BOOL)uninstallApplication:(id)arg1 withOptions:(id)arg2 usingBlock:(id)arg3;
-- (BOOL)uninstallApplication:(id)arg1 withOptions:(id)arg2;
-- (BOOL)installApplication:(id)arg1 withOptions:(id)arg2 error:(id *)arg3 usingBlock:(id)arg4;
-- (BOOL)installApplication:(id)arg1 withOptions:(id)arg2 error:(id *)arg3;
-- (BOOL)installApplication:(id)arg1 withOptions:(id)arg2;
+- (_Bool)invalidateIconCache:(id)arg1;
+- (_Bool)unregisterApplication:(id)arg1;
+- (_Bool)registerApplication:(id)arg1;
+- (_Bool)registerApplicationDictionary:(id)arg1;
+- (_Bool)registerApplicationDictionary:(id)arg1 withObserverNotification:(unsigned long long)arg2;
+- (_Bool)uninstallApplication:(id)arg1 withOptions:(id)arg2 usingBlock:(id)arg3;
+- (_Bool)uninstallApplication:(id)arg1 withOptions:(id)arg2;
+- (_Bool)installApplication:(id)arg1 withOptions:(id)arg2 error:(id *)arg3 usingBlock:(id)arg4;
+- (_Bool)installApplication:(id)arg1 withOptions:(id)arg2 error:(id *)arg3;
+- (_Bool)installApplication:(id)arg1 withOptions:(id)arg2;
 - (id)privateURLSchemes;
 - (id)publicURLSchemes;
-- (BOOL)applicationIsInstalled:(id)arg1;
+- (_Bool)applicationIsInstalled:(id)arg1;
 - (id)allApplications;
 - (id)unrestrictedApplications;
 - (id)placeholderApplications;
@@ -43,11 +43,11 @@
 - (id)operationToOpenResource:(id)arg1 usingApplication:(id)arg2 userInfo:(id)arg3;
 - (id)operationToOpenResource:(id)arg1 usingApplication:(id)arg2 uniqueDocumentIdentifier:(id)arg3 userInfo:(id)arg4;
 - (id)operationToOpenResource:(id)arg1 usingApplication:(id)arg2 uniqueDocumentIdentifier:(id)arg3 userInfo:(id)arg4 delegate:(id)arg5;
-- (id)operationToOpenResource:(id)arg1 usingApplication:(id)arg2 uniqueDocumentIdentifier:(id)arg3 sourceIsManaged:(BOOL)arg4 userInfo:(id)arg5 delegate:(id)arg6;
-- (BOOL)openSensitiveURL:(id)arg1 withOptions:(id)arg2;
-- (BOOL)openURL:(id)arg1;
-- (BOOL)openURL:(id)arg1 withOptions:(id)arg2;
-- (BOOL)openApplicationWithBundleID:(id)arg1;
+- (id)operationToOpenResource:(id)arg1 usingApplication:(id)arg2 uniqueDocumentIdentifier:(id)arg3 sourceIsManaged:(_Bool)arg4 userInfo:(id)arg5 delegate:(id)arg6;
+- (_Bool)openSensitiveURL:(id)arg1 withOptions:(id)arg2;
+- (_Bool)openURL:(id)arg1;
+- (_Bool)openURL:(id)arg1 withOptions:(id)arg2;
+- (_Bool)openApplicationWithBundleID:(id)arg1;
 - (id)URLOverrideForURL:(id)arg1;
 - (id)applicationsAvailableForHandlingURLScheme:(id)arg1;
 - (id)applicationsAvailableForOpeningDocument:(id)arg1;
@@ -59,7 +59,7 @@
 - (void)addObserver:(id)arg1;
 - (id)delegateProxy;
 - (id)remoteObserver;
-- (BOOL)establishConnection;
+- (_Bool)establishConnection;
 
 @end
 

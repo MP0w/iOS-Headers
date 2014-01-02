@@ -10,6 +10,7 @@
 
 @class NSDate, NSDictionary, NSString;
 
+// Not exported
 @interface PCMultiStageGrowthAlgorithm : NSObject <PCGrowthAlgorithm>
 {
     double _currentKeepAliveInterval;
@@ -23,6 +24,7 @@
     NSDate *_leaveSteadyStateDate;
     NSString *_loggingIdentifier;
     NSString *_algorithmName;
+    unsigned long long _countOfGrowthActions;
 }
 
 + (void)_loadDefaultValue:(double *)arg1 forKey:(struct __CFString *)arg2;
@@ -31,6 +33,7 @@
 @property(nonatomic) double maximumKeepAliveInterval; // @synthesize maximumKeepAliveInterval=_maximumKeepAliveInterval;
 @property(nonatomic) double minimumKeepAliveInterval; // @synthesize minimumKeepAliveInterval=_minimumKeepAliveInterval;
 @property(readonly, nonatomic) double currentKeepAliveInterval; // @synthesize currentKeepAliveInterval=_currentKeepAliveInterval;
+@property(readonly, nonatomic) unsigned long long countOfGrowthActions; // @synthesize countOfGrowthActions=_countOfGrowthActions;
 - (id)_stringForStage:(int)arg1;
 - (id)_stringForAction:(int)arg1;
 - (id)description;
@@ -43,7 +46,7 @@
 - (void)_resetAlgorithmToInterval:(double)arg1;
 - (void)_resetAlgorithmToInterval:(double)arg1 stage:(int)arg2;
 @property(readonly, nonatomic) NSDictionary *cacheInfo;
-- (BOOL)useIntervalIfImprovement:(double)arg1;
+- (_Bool)useIntervalIfImprovement:(double)arg1;
 - (void)_setCurrentKeepAliveInterval:(double)arg1;
 - (void)dealloc;
 - (id)initWithCacheInfo:(id)arg1 loggingIdentifier:(id)arg2 algorithmName:(id)arg3;

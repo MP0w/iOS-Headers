@@ -11,6 +11,7 @@
 
 @class NSString;
 
+// Not exported
 @interface CTAsciiAddress : NSObject <NSCopying, CTMessageAddress>
 {
     NSString *_address;

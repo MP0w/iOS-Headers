@@ -8,12 +8,13 @@
 
 @class NSString;
 
+// Not exported
 @interface EDPivotDataField : NSObject
 {
-    long mBaseField;
-    unsigned long mBaseItem;
-    unsigned long mFieldId;
-    unsigned long mNumFmtId;
+    long long mBaseField;
+    unsigned long long mBaseItem;
+    unsigned long long mFieldId;
+    unsigned long long mNumFmtId;
     NSString *mName;
     int mFormat;
 }
@@ -23,14 +24,14 @@
 - (int)showDataAs;
 - (void)setName:(id)arg1;
 - (id)name;
-- (void)setNumFmtId:(unsigned long)arg1;
-- (unsigned long)numFmtId;
-- (void)setFieldId:(unsigned long)arg1;
-- (unsigned long)fieldId;
-- (void)setBaseItem:(unsigned long)arg1;
-- (unsigned long)baseItem;
-- (void)setBaseField:(long)arg1;
-- (long)baseField;
+- (void)setNumFmtId:(unsigned long long)arg1;
+- (unsigned long long)numFmtId;
+- (void)setFieldId:(unsigned long long)arg1;
+- (unsigned long long)fieldId;
+- (void)setBaseItem:(unsigned long long)arg1;
+- (unsigned long long)baseItem;
+- (void)setBaseField:(long long)arg1;
+- (long long)baseField;
 - (void)dealloc;
 - (id)init;
 

@@ -10,7 +10,7 @@
 
 @interface RCTrimHUD : UIView
 {
-    int _style;
+    long long _style;
     UIImageView *_hudImageView;
     UIImageView *_hudLeftImageView;
     UIImageView *_hudLeftFillImageView;
@@ -20,14 +20,14 @@
     UILabel *_trimHUDLabel;
 }
 
-@property(readonly, nonatomic) int style; // @synthesize style=_style;
+@property(readonly, nonatomic) long long style; // @synthesize style=_style;
 - (void).cxx_destruct;
-- (float)_bounceValueForFraction:(float)arg1;
+- (double)_bounceValueForFraction:(double)arg1;
 - (id)_bounceAnimationWithDuration:(double)arg1;
 @property(copy, nonatomic) NSString *text;
-- (void)hideAnimated:(BOOL)arg1;
-- (void)showAnimated:(BOOL)arg1;
-- (id)initWithFrame:(struct CGRect)arg1 style:(int)arg2;
+- (void)hideAnimated:(_Bool)arg1;
+- (void)showAnimated:(_Bool)arg1;
+- (id)initWithFrame:(struct CGRect)arg1 style:(long long)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

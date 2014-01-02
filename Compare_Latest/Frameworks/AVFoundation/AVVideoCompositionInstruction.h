@@ -18,26 +18,26 @@
     AVVideoCompositionInstructionInternal *_instruction;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (_Bool)supportsSecureCoding;
 + (void)initialize;
 - (id)description;
 - (void)_setValuesFromDictionary:(id)arg1;
 - (id)dictionaryRepresentation;
-- (void)setEnablePostProcessing:(BOOL)arg1;
-@property(readonly, nonatomic) BOOL enablePostProcessing;
+- (void)setEnablePostProcessing:(_Bool)arg1;
+@property(readonly, nonatomic) _Bool enablePostProcessing;
 - (void)setLayerInstructions:(id)arg1;
 @property(readonly, nonatomic) NSArray *layerInstructions;
 @property(retain, nonatomic) struct CGColor *backgroundColor;
 - (void)setTimeRange:(CDStruct_e83c9415)arg1;
 @property(readonly, nonatomic) CDStruct_e83c9415 timeRange;
-@property(readonly, nonatomic) BOOL containsTweening;
+@property(readonly, nonatomic) _Bool containsTweening;
 @property(readonly, nonatomic) NSArray *requiredSourceTrackIDs;
 @property(readonly, nonatomic) int passthroughTrackID;
 - (void)finalize;
 - (void)dealloc;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)init;

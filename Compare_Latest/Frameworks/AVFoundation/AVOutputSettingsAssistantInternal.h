@@ -6,14 +6,14 @@
 
 #import "NSObject.h"
 
-@class AVOutputSettingsAssistantHelper;
-
 @interface AVOutputSettingsAssistantInternal : NSObject
 {
-    AVOutputSettingsAssistantHelper *helper;
+    id <AVOutputSettingsAssistantBaseSettingsProvider> baseSettingsProvider;
+    id <AVOutputSettingsAssistantVideoSettingsAdjuster> videoSettingsAdjuster;
     struct opaqueCMFormatDescription *sourceVideoFormat;
     struct opaqueCMFormatDescription *sourceAudioFormat;
     CDStruct_1b6d18a9 sourceVideoAverageFrameDuration;
+    CDStruct_1b6d18a9 sourceVideoMinFrameDuration;
 }
 
 @end

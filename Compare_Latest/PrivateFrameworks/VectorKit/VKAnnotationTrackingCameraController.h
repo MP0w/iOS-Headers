@@ -8,6 +8,7 @@
 
 @class VKAnimation;
 
+// Not exported
 @interface VKAnnotationTrackingCameraController : VKCameraController
 {
     id <VKTrackableAnnotation> _annotation;
@@ -22,9 +23,9 @@
     double _pendingHeadingChangeDuration;
     float _headingAnimationCompletedAngle;
     struct VKEdgeInsets _edgeInsets;
-    int _annotationMarkersAnimatingInCount;
+    long long _annotationMarkersAnimatingInCount;
+    long long _zoomStyle;
     struct {
-        unsigned int autoSelectsZoomScale:1;
         unsigned int hasPendingChange:1;
         unsigned int paused:1;
         unsigned int trackingHeading:1;
@@ -37,25 +38,25 @@
     } _flags;
 }
 
+@property(nonatomic) long long zoomStyle; // @synthesize zoomStyle=_zoomStyle;
 @property(readonly, nonatomic) id <VKTrackableAnnotation> annotation; // @synthesize annotation=_annotation;
 @property(nonatomic) struct VKEdgeInsets edgeInsets; // @synthesize edgeInsets=_edgeInsets;
 - (id).cxx_construct;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)resumeAnimation;
 - (void)pauseAnimation;
-- (BOOL)isAnimating;
-- (void)setGesturing:(BOOL)arg1;
+- (_Bool)isAnimating;
+- (void)setGesturing:(_Bool)arg1;
 - (void)stopTrackingAnnotation;
-- (void)startTrackingAnnotation:(id)arg1 trackHeading:(BOOL)arg2 animated:(BOOL)arg3;
-- (void)_rotateToHeadingAnimated:(BOOL)arg1 duration:(double)arg2;
-- (void)_goToAnnotationAnimated:(BOOL)arg1 duration:(double)arg2 isInitial:(BOOL)arg3;
+- (void)startTrackingAnnotation:(id)arg1 trackHeading:(_Bool)arg2 animated:(_Bool)arg3;
+- (void)_rotateToHeadingAnimated:(_Bool)arg1 duration:(double)arg2;
+- (void)_goToAnnotationAnimated:(_Bool)arg1 duration:(double)arg2 isInitial:(_Bool)arg3;
 - (double)_zoomLevelForCameraPosition:(struct VKPoint)arg1;
 - (double)_minTrackingCameraDistance;
 - (void)updateFramerate;
 - (void)didAnimateInAnnotationMarkers:(id)arg1;
 - (void)willAnimateInAnnotationMarkers:(id)arg1;
-@property(nonatomic) BOOL autoSelectsZoomScale;
-@property(readonly, nonatomic, getter=isTrackingHeading) BOOL trackingHeading;
+@property(readonly, nonatomic, getter=isTrackingHeading) _Bool trackingHeading;
 - (void)dealloc;
 
 @end

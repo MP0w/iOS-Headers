@@ -8,6 +8,7 @@
 
 @class GKDiscoveryBonjour, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
 
+// Not exported
 @interface GKDiscoveryManager : NSObject
 {
     id _playerFoundHandler;

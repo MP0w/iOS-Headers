@@ -14,7 +14,7 @@
 {
     UIView *_bottomBorderView;
     UILabel *_label;
-    int _maximumCharacterCount;
+    long long _maximumCharacterCount;
     UILabel *_placeholderLabel;
     UITextView *_textView;
     UIView *_topBorderView;
@@ -22,16 +22,16 @@
 
 + (id)newTextView;
 @property(retain, nonatomic) UITextView *textView; // @synthesize textView=_textView;
-@property(nonatomic) int maximumCharacterCount; // @synthesize maximumCharacterCount=_maximumCharacterCount;
+@property(nonatomic) long long maximumCharacterCount; // @synthesize maximumCharacterCount=_maximumCharacterCount;
 - (void).cxx_destruct;
 - (void)textViewDidEndEditing:(id)arg1;
 - (void)textViewDidBeginEditing:(id)arg1;
-- (BOOL)textView:(id)arg1 shouldChangeTextInRange:(struct _NSRange)arg2 replacementText:(id)arg3;
+- (_Bool)textView:(id)arg1 shouldChangeTextInRange:(struct _NSRange)arg2 replacementText:(id)arg3;
 - (void)layoutSubviews;
 @property(copy, nonatomic) NSString *placeholder;
 @property(copy, nonatomic) NSString *label;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

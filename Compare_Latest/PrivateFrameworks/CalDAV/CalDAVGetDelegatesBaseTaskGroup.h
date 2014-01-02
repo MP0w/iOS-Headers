@@ -13,7 +13,7 @@
 
 @interface CalDAVGetDelegatesBaseTaskGroup : CoreDAVTaskGroup <CoreDAVTaskDelegate, CoreDAVTaskGroupDelegate>
 {
-    BOOL _serverSupportsExpandPropertyReport;
+    _Bool _serverSupportsExpandPropertyReport;
     NSURL *_principalURL;
     NSMutableArray *_readPrincipalURLs;
     NSMutableArray *_writePrincipalURLs;
@@ -26,14 +26,14 @@
 @property(retain) NSMutableArray *writePrincipalURLs; // @synthesize writePrincipalURLs=_writePrincipalURLs;
 @property(retain) NSMutableArray *readPrincipalURLs; // @synthesize readPrincipalURLs=_readPrincipalURLs;
 @property(retain) NSURL *principalURL; // @synthesize principalURL=_principalURL;
-@property BOOL serverSupportsExpandPropertyReport; // @synthesize serverSupportsExpandPropertyReport=_serverSupportsExpandPropertyReport;
+@property _Bool serverSupportsExpandPropertyReport; // @synthesize serverSupportsExpandPropertyReport=_serverSupportsExpandPropertyReport;
 @property(readonly) NSSet *readWritePrincipalDetails;
 @property(readonly) NSSet *readOnlyPrincipalDetails;
 - (void)taskGroup:(id)arg1 didFinishWithError:(id)arg2;
 - (void)task:(id)arg1 didFinishWithError:(id)arg2;
 - (id)_popFromArray:(id)arg1;
 - (void)_getPrincipalDetailsForURL:(id)arg1;
-- (void)_processDetailsFromMultiStatus:(id)arg1 allowWrite:(BOOL)arg2;
+- (void)_processDetailsFromMultiStatus:(id)arg1 allowWrite:(_Bool)arg2;
 - (id)_mappingsForPrincipalDetails;
 - (id)initWithAccountInfoProvider:(id)arg1 principalURL:(id)arg2 taskManager:(id)arg3;
 - (void)dealloc;

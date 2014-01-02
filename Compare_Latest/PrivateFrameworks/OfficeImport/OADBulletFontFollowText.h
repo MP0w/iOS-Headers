@@ -6,12 +6,13 @@
 
 #import <OfficeImport/OADBulletFont.h>
 
+// Not exported
 @interface OADBulletFontFollowText : OADBulletFont
 {
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 
 @end
 

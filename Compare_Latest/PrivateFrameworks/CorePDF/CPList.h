@@ -25,8 +25,8 @@
 @property(nonatomic) unsigned int ordinalPrefixLength; // @synthesize ordinalPrefixLength;
 @property(nonatomic) int type; // @synthesize type;
 @property(nonatomic) struct CGRect spacer; // @synthesize spacer;
-- (BOOL)isMultilevel;
-- (BOOL)containsParagraph:(id)arg1;
+- (_Bool)isMultilevel;
+- (_Bool)containsParagraph:(id)arg1;
 - (void)addItem:(id)arg1;
 - (id)itemAtIndex:(unsigned int)arg1;
 - (unsigned int)itemCount;

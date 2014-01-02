@@ -12,9 +12,11 @@
 - (void)setProductPageStyle:(id)arg1;
 - (void)setClientIdentifier:(id)arg1;
 - (void)setAffiliateIdentifier:(id)arg1;
+- (void)setAdditionalBuyParameters:(id)arg1;
 - (void)loadProductWithURL:(id)arg1;
 - (void)loadProductWithRequest:(id)arg1;
 - (void)loadProductWithParameters:(id)arg1;
+- (void)loadProductWithPageDictionary:(id)arg1;
 - (void)finishStarRatingPromptWithRating:(id)arg1;
 @end
 

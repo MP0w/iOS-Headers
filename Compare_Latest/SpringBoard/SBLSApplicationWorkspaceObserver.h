@@ -8,7 +8,7 @@
 
 #import "LSApplicationWorkspaceObserverProtocol-Protocol.h"
 
-@class LSApplicationWorkspace, NSHashTable, NSMutableSet;
+@class LSApplicationWorkspace, NSHashTable, NSMutableSet, NSSet;
 
 @interface SBLSApplicationWorkspaceObserver : LSApplicationWorkspaceObserver <LSApplicationWorkspaceObserverProtocol>
 {
@@ -19,13 +19,14 @@
 }
 
 + (id)sharedInstance;
+@property(retain, nonatomic) NSSet *placeholderProxies; // @synthesize placeholderProxies=_placeholderProxies;
 @property(readonly, nonatomic) LSApplicationWorkspace *workspace; // @synthesize workspace=_appWorkspace;
 - (void)applicationInstallsDidPrioritize:(id)arg1;
 - (void)applicationInstallsDidCancel:(id)arg1;
 - (void)applicationInstallsDidResume:(id)arg1;
 - (void)applicationInstallsDidPause:(id)arg1;
 - (void)applicationInstallsArePrioritized:(id)arg1 arePaused:(id)arg2;
-- (void)networkUsageChanged:(BOOL)arg1;
+- (void)networkUsageChanged:(_Bool)arg1;
 - (void)applicationInstallsDidUpdateIcon:(id)arg1;
 - (void)applicationsDidUninstall:(id)arg1;
 - (void)applicationsDidInstall:(id)arg1;

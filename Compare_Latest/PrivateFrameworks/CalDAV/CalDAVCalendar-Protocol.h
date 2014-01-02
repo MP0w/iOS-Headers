@@ -14,25 +14,26 @@
 @property(readonly) NSDictionary *uuidsToAddActions;
 @property(readonly) NSArray *shareeActions;
 @property(readonly) NSArray *syncActions;
-@property(readonly) BOOL needsPublishUpdate;
+@property(readonly) _Bool needsPublishUpdate;
 @property(retain) NSString *syncToken;
 @property(retain) NSString *ctag;
-@property BOOL needsResync;
-@property BOOL wasModifiedLocally;
-@property BOOL canBeShared;
-@property BOOL canBePublished;
-@property BOOL isAffectingAvailability;
-@property BOOL isPublished;
-@property BOOL isEnabled;
-@property BOOL isRenameable;
-@property BOOL isEditable;
-@property BOOL isPoll;
-@property BOOL isNotification;
-@property BOOL isScheduleOutbox;
-@property BOOL isScheduleInbox;
-@property BOOL isSubscribed;
-@property BOOL isEventContainer;
-@property BOOL isTaskContainer;
+@property _Bool needsResync;
+@property _Bool wasModifiedLocally;
+@property _Bool canBeShared;
+@property _Bool canBePublished;
+@property _Bool isAffectingAvailability;
+@property _Bool isPublished;
+@property _Bool isEnabled;
+@property _Bool isRenameable;
+@property _Bool isEditable;
+@property _Bool isPoll;
+@property _Bool isNotification;
+@property _Bool isScheduleOutbox;
+@property _Bool isScheduleInbox;
+@property _Bool isManagedByServer;
+@property _Bool isSubscribed;
+@property _Bool isEventContainer;
+@property _Bool isTaskContainer;
 @property(retain) NSSet *sharees;
 @property int sharingStatus;
 @property int order;
@@ -44,18 +45,19 @@
 @property(retain) NSString *ownerDisplayName;
 @property(retain) NSURL *owner;
 @property(retain) NSString *pushKey;
+@property(retain) NSString *symbolicColorName;
 @property(retain) NSString *color;
 @property(retain) NSString *notes;
 @property(retain) NSString *title;
 @property(retain) NSURL *calendarURL;
 @property(retain) NSString *guid;
 @property(readonly) id <CalDAVPrincipal> principal;
-- (BOOL)hasCalendarUserAddressEquivalentToURL:(id)arg1;
-- (BOOL)deleteResourcesAtURLs:(id)arg1;
-- (BOOL)updateResourcesFromServer:(id)arg1;
-- (BOOL)setURL:(id)arg1 forResourceWithUUID:(id)arg2;
-- (BOOL)setScheduleTag:(id)arg1 forItemAtURL:(id)arg2;
-- (BOOL)setEtag:(id)arg1 forItemAtURL:(id)arg2;
+- (_Bool)hasCalendarUserAddressEquivalentToURL:(id)arg1;
+- (_Bool)deleteResourcesAtURLs:(id)arg1;
+- (_Bool)updateResourcesFromServer:(id)arg1;
+- (_Bool)setURL:(id)arg1 forResourceWithUUID:(id)arg2;
+- (_Bool)setScheduleTag:(id)arg1 forItemAtURL:(id)arg2;
+- (_Bool)setEtag:(id)arg1 forItemAtURL:(id)arg2;
 - (id)etagsForItemURLs:(id)arg1;
 
 @optional
@@ -64,7 +66,6 @@
 - (void)syncDidFinishWithError:(id)arg1;
 - (void)clearShareeActions;
 - (void)prepareMergeSyncActionsWithCompletionBlock:(id)arg1;
-- (void)prepareSyncActionsWithCompletionBlock:(id)arg1;
 - (Class)appSpecificCalendarItemClass;
 @end
 

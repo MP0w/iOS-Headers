@@ -8,6 +8,7 @@
 
 @class NSString, UIFont, UIImageView, UILabel;
 
+// Not exported
 @interface SLFacebookLoginInfoCellContentView : UIView
 {
     UIFont *_font;

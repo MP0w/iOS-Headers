@@ -8,6 +8,7 @@
 
 @class EDCollection, EDReference;
 
+// Not exported
 @interface EDPivotArea : NSObject
 {
     _Bool mGrandCol;

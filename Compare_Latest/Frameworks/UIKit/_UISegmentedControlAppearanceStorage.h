@@ -8,6 +8,7 @@
 
 @class NSMutableDictionary, UIImage;
 
+// Not exported
 @interface _UISegmentedControlAppearanceStorage : NSObject
 {
     UIImage *_optionsBackgroundImage;
@@ -19,36 +20,36 @@
     NSMutableDictionary *_backgroundPositionAdjustmentsForBarMetrics;
     NSMutableDictionary *_contentPositionOffsets;
     NSMutableDictionary *_miniContentPositionOffsets;
-    BOOL _legacyDontHighlight;
-    BOOL _legacySuppressOptionsBackground;
-    BOOL _isTiled;
-    unsigned int _leftCapWidth;
-    unsigned int _rightCapWidth;
+    _Bool _legacyDontHighlight;
+    _Bool _legacySuppressOptionsBackground;
+    _Bool _isTiled;
+    unsigned long long _leftCapWidth;
+    unsigned long long _rightCapWidth;
 }
 
 @property(retain, nonatomic) UIImage *optionsBackgroundImage; // @synthesize optionsBackgroundImage=_optionsBackgroundImage;
-- (void)setIsTiled:(BOOL)arg1 leftCapWidth:(unsigned int)arg2 rightCapWidth:(unsigned int)arg3;
-- (void)setDetail:(CDStruct_a542d031 *)arg1;
-- (BOOL)legacySuppressOptionsBackground;
-- (void)takeTextAttributesFrom:(CDStruct_8f44d8bf)arg1 forState:(unsigned int)arg2;
+- (void)setIsTiled:(_Bool)arg1 leftCapWidth:(unsigned long long)arg2 rightCapWidth:(unsigned long long)arg3;
+- (void)setDetail:(CDStruct_41b0f204 *)arg1;
+- (_Bool)legacySuppressOptionsBackground;
+- (void)takeTextAttributesFrom:(CDStruct_0ba2c6ed)arg1 forState:(unsigned long long)arg2;
 - (id)init;
 - (void)dealloc;
-- (id)textAttributesForState:(unsigned int)arg1;
-- (void)setTextAttributes:(id)arg1 forState:(unsigned int)arg2;
-- (id)dividerImageForLeftSegmentState:(unsigned int)arg1 rightSegmentState:(unsigned int)arg2 isMini:(BOOL)arg3;
+- (id)textAttributesForState:(unsigned long long)arg1;
+- (void)setTextAttributes:(id)arg1 forState:(unsigned long long)arg2;
+- (id)dividerImageForLeftSegmentState:(unsigned long long)arg1 rightSegmentState:(unsigned long long)arg2 isMini:(_Bool)arg3;
 - (id)anyDividerImage;
-- (id)anyDividerImageForMini:(BOOL)arg1;
-- (id)dividerImageForLeftSegmentState:(unsigned int)arg1 rightSegmentState:(unsigned int)arg2 isMini:(BOOL)arg3 withFallback:(BOOL)arg4;
-- (void)setDividerImage:(id)arg1 forLeftSegmentState:(unsigned int)arg2 rightSegmentState:(unsigned int)arg3 isMini:(BOOL)arg4;
-- (id)backgroundImageForState:(unsigned int)arg1 isMini:(BOOL)arg2;
-- (id)backgroundImageForState:(unsigned int)arg1 isMini:(BOOL)arg2 withFallback:(BOOL)arg3;
-- (void)setBackgroundImage:(id)arg1 forState:(unsigned int)arg2 isMini:(BOOL)arg3;
-- (id)contentPositionOffsetForSegment:(int)arg1 inMiniBar:(BOOL)arg2;
-- (id)contentPositionOffsetForSegment:(int)arg1 inMiniBar:(BOOL)arg2 noFallback:(BOOL)arg3;
-- (void)setContentPositionOffset:(id)arg1 forSegment:(int)arg2 inMiniBar:(BOOL)arg3;
-- (float)backgroundPositionAdjustmentForBarMetrics:(int)arg1;
-- (void)setBackgroundPositionAdjustment:(float)arg1 forBarMetrics:(int)arg2;
-- (BOOL)wantsTrackingSuppressed;
+- (id)anyDividerImageForMini:(_Bool)arg1;
+- (id)dividerImageForLeftSegmentState:(unsigned long long)arg1 rightSegmentState:(unsigned long long)arg2 isMini:(_Bool)arg3 withFallback:(_Bool)arg4;
+- (void)setDividerImage:(id)arg1 forLeftSegmentState:(unsigned long long)arg2 rightSegmentState:(unsigned long long)arg3 isMini:(_Bool)arg4;
+- (id)backgroundImageForState:(unsigned long long)arg1 isMini:(_Bool)arg2;
+- (id)backgroundImageForState:(unsigned long long)arg1 isMini:(_Bool)arg2 withFallback:(_Bool)arg3;
+- (void)setBackgroundImage:(id)arg1 forState:(unsigned long long)arg2 isMini:(_Bool)arg3;
+- (id)contentPositionOffsetForSegment:(long long)arg1 inMiniBar:(_Bool)arg2;
+- (id)contentPositionOffsetForSegment:(long long)arg1 inMiniBar:(_Bool)arg2 noFallback:(_Bool)arg3;
+- (void)setContentPositionOffset:(id)arg1 forSegment:(long long)arg2 inMiniBar:(_Bool)arg3;
+- (double)backgroundPositionAdjustmentForBarMetrics:(long long)arg1;
+- (void)setBackgroundPositionAdjustment:(double)arg1 forBarMetrics:(long long)arg2;
+- (_Bool)wantsTrackingSuppressed;
 
 @end
 

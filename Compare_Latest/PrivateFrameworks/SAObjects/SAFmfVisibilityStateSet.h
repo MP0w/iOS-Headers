@@ -12,8 +12,8 @@
 
 + (id)visibilityStateSetWithDictionary:(id)arg1 context:(id)arg2;
 + (id)visibilityStateSet;
-- (BOOL)requiresResponse;
-@property(nonatomic) BOOL visible;
+- (_Bool)requiresResponse;
+@property(nonatomic) _Bool visible;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

@@ -11,27 +11,30 @@
 @interface CKColoredBalloonView : CKBalloonView
 {
     BOOL _color;
-    BOOL _filled;
+    _Bool _wantsGradient;
     UIImageView *_mask;
     CKGradientView *_gradientView;
 }
 
+@property(nonatomic) _Bool wantsGradient; // @synthesize wantsGradient=_wantsGradient;
 @property(retain, nonatomic) CKGradientView *gradientView; // @synthesize gradientView=_gradientView;
 @property(retain, nonatomic) UIImageView *mask; // @synthesize mask=_mask;
-@property(nonatomic, getter=isFilled) BOOL filled; // @synthesize filled=_filled;
 @property(nonatomic) BOOL color; // @synthesize color=_color;
 - (id)balloonImage;
-- (BOOL)wantsGradient;
+- (void)updateWantsGradient;
 @property(retain, nonatomic) UIView<CKGradientReferenceView> *gradientReferenceView;
-- (void)setCanUseOpaqueMask:(BOOL)arg1;
-- (void)setHasTail:(BOOL)arg1;
+- (id)overlayColor;
+- (void)setCanUseOpaqueMask:(_Bool)arg1;
+- (void)setHasTail:(_Bool)arg1;
 - (void)prepareForDisplay;
+- (void)prepareForReuse;
+- (void)setFrame:(struct CGRect)arg1;
+- (void)setBounds:(struct CGRect)arg1;
 - (struct UIEdgeInsets)alignmentRectInsets;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)description;
 - (void)dealloc;
-- (void)configureForMessagePart:(id)arg1;
 
 @end
 

@@ -23,8 +23,9 @@
     id <DATask> _activeModalTask;
     int _state;
     NSTimer *_managerIdleTimer;
+    NSTimer *_userInitiatedSyncTimer;
     NSTimer *_powerLogIdleTimer;
-    BOOL _didLogSyncStart;
+    _Bool _didLogSyncStart;
 }
 
 @property(readonly) NSArray *queuedTasks; // @synthesize queuedTasks=_queuedTasks;
@@ -48,15 +49,16 @@
 - (void)_startModal:(id)arg1;
 - (void)_requestCancelTasksWithReason:(int)arg1;
 - (void)_performTask:(id)arg1;
-- (BOOL)taskIsModal:(id)arg1;
+- (_Bool)taskIsModal:(id)arg1;
 - (void)taskEndModal:(id)arg1;
 - (void)taskRequestModal:(id)arg1;
 - (void)taskDidFinish:(id)arg1;
-- (BOOL)_hasTasksIndicatingARunningSync;
-- (BOOL)_hasTasksForcingNetworkConnection;
-- (BOOL)_taskInQueueForcesNetworkConnection:(id)arg1;
-- (BOOL)_taskForcesNetworking:(id)arg1;
+- (_Bool)_hasTasksIndicatingARunningSync;
+- (_Bool)_hasTasksForcingNetworkConnection;
+- (_Bool)_taskInQueueForcesNetworkConnection:(id)arg1;
+- (_Bool)_taskForcesNetworking:(id)arg1;
 - (void)_logSyncEnd;
+- (void)_clearUserInitiatedSyncTimer;
 - (id)_powerLogInfoDictionary;
 - (void)_useOpportunisticSocketsAgain;
 - (id)stateString;
@@ -66,20 +68,20 @@
 - (void)cancelTask:(id)arg1 withUnderlyingError:(id)arg2;
 - (void)submitQueuedTask:(id)arg1;
 - (void)submitIndependentTask:(id)arg1;
-- (void)submitExclusiveTask:(id)arg1 toFrontOfQueue:(BOOL)arg2;
+- (void)submitExclusiveTask:(id)arg1 toFrontOfQueue:(_Bool)arg2;
 - (void)submitExclusiveTask:(id)arg1;
 - (id)accountPersistentUUID;
 - (id)accountID;
 - (id)identityPersist;
-- (BOOL)useSSL;
+- (_Bool)useSSL;
 - (id)password;
 - (id)server;
-- (int)port;
+- (long long)port;
 - (id)user;
 @property DAAccount *account; // @synthesize account=_account;
 - (id)userAgent;
 - (id)deviceType;
-- (BOOL)_useFakeDescriptions;
+- (_Bool)_useFakeDescriptions;
 - (id)_version;
 - (void)_populateVersionDescriptions;
 - (void)dealloc;

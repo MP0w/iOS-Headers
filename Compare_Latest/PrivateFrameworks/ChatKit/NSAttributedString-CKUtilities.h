@@ -7,6 +7,6 @@
 #import "NSAttributedString.h"
 
 @interface NSAttributedString (CKUtilities)
-- (BOOL)containsAttribute:(id)arg1;
+- (_Bool)containsAttribute:(id)arg1;
 @end
 

@@ -8,6 +8,7 @@
 
 @class NSAttributedString;
 
+// Not exported
 @interface _UITextUndoOperationReplace : NSUndoTextOperation
 {
     struct _NSRange _replacementRange;

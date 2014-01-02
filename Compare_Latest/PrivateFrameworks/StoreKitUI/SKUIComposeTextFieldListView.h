@@ -12,23 +12,23 @@
 {
     id <SKUIComposeTextFieldListViewDelegate> _delegate;
     NSMutableArray *_fields;
-    BOOL _isValid;
-    int _style;
+    _Bool _isValid;
+    long long _style;
 }
 
 @property(nonatomic) __weak id <SKUIComposeTextFieldListViewDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) int composeReviewStyle; // @synthesize composeReviewStyle=_style;
+@property(readonly, nonatomic) long long composeReviewStyle; // @synthesize composeReviewStyle=_style;
 - (void).cxx_destruct;
 - (void)_updateValidity;
 - (void)composeTextFieldValidityChanged:(id)arg1;
-- (id)textForFieldAtIndex:(unsigned int)arg1;
+- (id)textForFieldAtIndex:(unsigned long long)arg1;
 - (void)reloadData;
 - (void)layoutSubviews;
-- (BOOL)isValid;
+- (_Bool)isValid;
 @property(readonly, nonatomic) UIResponder *initialFirstResponder;
-@property(readonly, nonatomic) float height;
+@property(readonly, nonatomic) double height;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 style:(int)arg2;
+- (id)initWithFrame:(struct CGRect)arg1 style:(long long)arg2;
 
 @end
 

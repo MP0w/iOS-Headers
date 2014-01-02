@@ -15,7 +15,7 @@
 
 - (void).cxx_destruct;
 - (id)_deviceSpecificLocalizedString:(id)arg1;
-- (BOOL)showIfNecessaryWithHandler:(id)arg1;
+- (_Bool)showIfNecessaryWithHandler:(id)arg1;
 - (void)showWithHandler:(id)arg1;
 - (id)initForDataclass:(id)arg1;
 - (id)init;

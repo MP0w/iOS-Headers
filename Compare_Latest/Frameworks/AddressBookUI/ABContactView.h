@@ -6,7 +6,7 @@
 
 #import "UITableView.h"
 
-@class CNContact, NSDictionary, UIColor, UIView;
+@class ABContactHeaderView, CNContact, NSDictionary, UIColor, UIView;
 
 @interface ABContactView : UITableView
 {
@@ -20,8 +20,8 @@
     struct UIEdgeInsets _contentMargins;
 }
 
-+ (BOOL)isFixedValueProperty:(id)arg1;
-+ (BOOL)isMultiValueProperty:(id)arg1;
++ (_Bool)isFixedValueProperty:(id)arg1;
++ (_Bool)isMultiValueProperty:(id)arg1;
 + (id)optionalCardProperties;
 + (id)defaultCardProperties;
 + (id)allCardProperties;
@@ -47,12 +47,13 @@
 - (void)applyCellAppearance:(id)arg1;
 - (void)updateFontSizes;
 - (void)tintColorDidChange;
+- (void)setAttributesFromContactView:(id)arg1;
 - (void)registerPropertyCellClass:(Class)arg1;
 - (void)setTableHeaderView:(id)arg1;
-- (id)defaultHeaderView;
+@property(readonly, nonatomic) ABContactHeaderView *defaultHeaderView;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 contact:(id)arg2;
-- (id)initWithFrame:(struct CGRect)arg1 style:(int)arg2 contact:(id)arg3;
+- (id)initWithFrame:(struct CGRect)arg1 style:(long long)arg2 contact:(id)arg3;
 
 // Remaining properties
 @property(nonatomic) id <ABContactViewDataSource> dataSource;

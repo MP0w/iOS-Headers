@@ -13,9 +13,9 @@
     PKImage *_iconImage;
 }
 
-+ (BOOL)supportsSecureCoding;
-+ (int)imageSet;
-+ (int)currentVersion;
++ (_Bool)supportsSecureCoding;
++ (long long)imageSet;
++ (long long)currentVersion;
 + (id)archiveName;
 @property(retain, nonatomic) PKImage *iconImage; // @synthesize iconImage=_iconImage;
 - (void)encodeWithCoder:(id)arg1;

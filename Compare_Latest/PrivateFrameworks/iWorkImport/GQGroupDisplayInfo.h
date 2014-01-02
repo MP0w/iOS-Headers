@@ -6,10 +6,11 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface GQGroupDisplayInfo : NSObject
 {
     int mDisplayType;
-    BOOL mIsTypeVisible;
+    _Bool mIsTypeVisible;
 }
 
 @end

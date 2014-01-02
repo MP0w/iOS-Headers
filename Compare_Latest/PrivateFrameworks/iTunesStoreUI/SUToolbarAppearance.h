@@ -21,12 +21,12 @@
 @property(retain, nonatomic) UIColor *tintColor; // @synthesize tintColor=_tintColor;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)styleToolbar:(id)arg1;
-- (id)shadowImageForPosition:(int)arg1;
-- (void)setShadowImage:(id)arg1 forPosition:(int)arg2;
-- (void)setBackgroundImage:(id)arg1 forPosition:(int)arg2 barMetrics:(int)arg3;
+- (id)shadowImageForPosition:(long long)arg1;
+- (void)setShadowImage:(id)arg1 forPosition:(long long)arg2;
+- (void)setBackgroundImage:(id)arg1 forPosition:(long long)arg2 barMetrics:(long long)arg3;
 - (void)enumerateShadowImagesUsingBlock:(id)arg1;
 - (void)enumerateBackgroundImagesUsingBlock:(id)arg1;
-- (id)backgroundImageForPosition:(int)arg1 barMetrics:(int)arg2;
+- (id)backgroundImageForPosition:(long long)arg1 barMetrics:(long long)arg2;
 - (void)dealloc;
 
 @end

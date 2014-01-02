@@ -8,6 +8,7 @@
 
 @class DOMCSSPrimitiveValue;
 
+// Not exported
 @interface DOMRGBColor : DOMObject
 {
 }

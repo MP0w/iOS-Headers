@@ -11,13 +11,13 @@
 @interface PUStackView : UIView
 {
     struct CATransform3D _transforms[3];
-    char _imageHidden[3];
-    BOOL _needsDynamicLayout;
-    unsigned int _style;
+    _Bool _imageHidden[3];
+    _Bool _needsDynamicLayout;
+    unsigned long long _style;
     PUPhotoDecoration *_photoDecoration;
-    int _numberOfVisibleItems;
+    long long _numberOfVisibleItems;
     UIImage *_emptyPlaceholderImage;
-    int __numberOfViews;
+    long long __numberOfViews;
     NSArray *__photoViews;
     NSPointerArray *__imageSizes;
     NSArray *__photoDecorationVariants;
@@ -28,35 +28,38 @@
     struct UIEdgeInsets _stackPerspectiveInsets;
 }
 
-+ (int)maximumNumberOfVisibleImagesForStyle:(unsigned int)arg1;
-+ (int)maximumNumberOfVisibleItemsForStyle:(unsigned int)arg1;
++ (long long)maximumNumberOfVisibleImagesForStyle:(unsigned long long)arg1;
++ (long long)maximumNumberOfVisibleItemsForStyle:(unsigned long long)arg1;
 @property(copy, nonatomic, setter=_setPhotoDecorationVariants:) NSArray *_photoDecorationVariants; // @synthesize _photoDecorationVariants=__photoDecorationVariants;
 @property(readonly, nonatomic) NSPointerArray *_imageSizes; // @synthesize _imageSizes=__imageSizes;
 @property(readonly, nonatomic) NSArray *_photoViews; // @synthesize _photoViews=__photoViews;
-@property(readonly, nonatomic) int _numberOfViews; // @synthesize _numberOfViews=__numberOfViews;
+@property(readonly, nonatomic) long long _numberOfViews; // @synthesize _numberOfViews=__numberOfViews;
 @property(retain, nonatomic) UIImage *emptyPlaceholderImage; // @synthesize emptyPlaceholderImage=_emptyPlaceholderImage;
-@property(nonatomic) int numberOfVisibleItems; // @synthesize numberOfVisibleItems=_numberOfVisibleItems;
+@property(nonatomic) long long numberOfVisibleItems; // @synthesize numberOfVisibleItems=_numberOfVisibleItems;
 @property(nonatomic) struct CGPoint stackPerspectiveFactor; // @synthesize stackPerspectiveFactor=_stackPerspectiveFactor;
 @property(nonatomic) struct UIOffset stackPerspectiveOffset; // @synthesize stackPerspectiveOffset=_stackPerspectiveOffset;
 @property(nonatomic) struct UIEdgeInsets stackPerspectiveInsets; // @synthesize stackPerspectiveInsets=_stackPerspectiveInsets;
 @property(nonatomic) struct UIOffset stackOffset; // @synthesize stackOffset=_stackOffset;
 @property(nonatomic) struct CGSize stackSize; // @synthesize stackSize=_stackSize;
 @property(retain, nonatomic) PUPhotoDecoration *photoDecoration; // @synthesize photoDecoration=_photoDecoration;
-@property(nonatomic) unsigned int style; // @synthesize style=_style;
+@property(nonatomic) unsigned long long style; // @synthesize style=_style;
 - (void).cxx_destruct;
 - (void)_updateDynamicLayout;
 - (void)_setNeedsDynamicLayout;
-- (void)_getCenter:(struct CGPoint *)arg1 bounds:(struct CGRect *)arg2 forPhotoViewAtIndex:(int)arg3;
+- (void)_getCenter:(struct CGPoint *)arg1 bounds:(struct CGRect *)arg2 forPhotoViewAtIndex:(long long)arg3;
 - (void)_rebuildDecorationVariants;
 - (void)_updateVisibleDecorationVariants;
 - (id)newLayoutAttributesForVisbleItemsRelativeToView:(id)arg1;
-- (id)newLayoutAttributesForItemAtIndex:(int)arg1 relativeToView:(id)arg2;
-- (void)setVideoBannerVisible:(BOOL)arg1 duration:(id)arg2 forItemAtIndex:(int)arg3;
-- (void)setImageHidden:(BOOL)arg1 forItemAtIndex:(int)arg2;
-- (BOOL)isImageHiddenForItemAtIndex:(int)arg1;
-- (void)setAlpha:(float)arg1 forItemAtIndex:(int)arg2;
-- (void)setImage:(id)arg1 forItemAtIndex:(int)arg2;
-- (void)setImageSize:(struct CGSize)arg1 forItemAtIndex:(int)arg2;
+- (id)newLayoutAttributesForItemAtIndex:(long long)arg1 relativeToView:(id)arg2;
+- (_Bool)wouldCoverAllItemsInStackView:(id)arg1;
+@property(readonly, nonatomic) NSArray *stackItemViews;
+- (struct CGRect)frameOfFrontStackItemRelativeToView:(id)arg1;
+- (void)setVideoBannerVisible:(_Bool)arg1 duration:(id)arg2 isSlalom:(_Bool)arg3 forItemAtIndex:(long long)arg4;
+- (void)setImageHidden:(_Bool)arg1 forItemAtIndex:(long long)arg2;
+- (_Bool)isImageHiddenForItemAtIndex:(long long)arg1;
+- (void)setAlpha:(double)arg1 forItemAtIndex:(long long)arg2;
+- (void)setImage:(id)arg1 forItemAtIndex:(long long)arg2;
+- (void)setImageSize:(struct CGSize)arg1 forItemAtIndex:(long long)arg2;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 

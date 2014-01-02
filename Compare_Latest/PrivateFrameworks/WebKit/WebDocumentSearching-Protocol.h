@@ -7,6 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol WebDocumentSearching <NSObject>
-- (BOOL)searchFor:(id)arg1 direction:(BOOL)arg2 caseSensitive:(BOOL)arg3 wrap:(BOOL)arg4;
+- (_Bool)searchFor:(id)arg1 direction:(_Bool)arg2 caseSensitive:(_Bool)arg3 wrap:(_Bool)arg4;
 @end
 

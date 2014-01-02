@@ -18,6 +18,8 @@
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
 - (void)_userInfoDidChange:(id)arg1;
+- (void)_checkOutAfterVisibilityChange;
+- (void)finalizeForWebScript;
 @property(copy) id width;
 @property(copy) NSString *userInfo;
 @property(copy) id top;

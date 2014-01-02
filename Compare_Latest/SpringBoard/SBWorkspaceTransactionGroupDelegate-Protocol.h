@@ -9,6 +9,6 @@
 @protocol SBWorkspaceTransactionGroupDelegate <SBWorkspaceTransactionDelegate>
 
 @optional
-- (void)transactionGroup:(id)arg1 childTransactionDidFinish:(id)arg2 success:(BOOL)arg3;
+- (void)transactionGroup:(id)arg1 childTransactionDidFinish:(id)arg2 success:(_Bool)arg3;
 @end
 

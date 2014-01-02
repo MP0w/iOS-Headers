@@ -10,9 +10,12 @@
 
 @class NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>;
 
+// Not exported
 @interface NSFileAccessArbiterProxy : NSObject <NSFileAccessArbiter>
 {
     NSObject<OS_xpc_object> *_server;
+    NSObject<OS_dispatch_queue> *_serverQueue;
+    id _serverEventHandler;
     NSObject<OS_dispatch_queue> *_queue;
     NSMutableDictionary *_presentersByID;
     NSMutableDictionary *_providersByID;
@@ -21,12 +24,13 @@
 + (id)_operationQueueForPresenter:(id)arg1;
 - (void)handleCanceledServer;
 - (void)handleMessage:(id)arg1;
+- (void)_makeProvider:(id)arg1 observePresentationChangeOfKind:(id)arg2 withPresenterID:(id)arg3 url:(id)arg4 newURL:(id)arg5 completionHandler:(id)arg6;
 - (void)_makeProvider:(id)arg1 cancelProvidingItemAtURL:(id)arg2 forAccessClaimWithID:(id)arg3;
 - (void)_makeProvider:(id)arg1 provideItemAtURL:(id)arg2 forAccessClaimWithID:(id)arg3 completionHandler:(id)arg4;
 - (void)_makePresenter:(id)arg1 reacquireFromWritingClaimForID:(id)arg2;
-- (void)_makePresenter:(id)arg1 relinquishToWritingClaimWithID:(id)arg2 options:(unsigned int)arg3 subitemURL:(id)arg4 completionHandler:(id)arg5;
+- (void)_makePresenter:(id)arg1 relinquishToWritingClaimWithID:(id)arg2 options:(unsigned long long)arg3 subitemURL:(id)arg4 completionHandler:(id)arg5;
 - (void)_makePresenter:(id)arg1 reacquireFromReadingClaimForID:(id)arg2;
-- (void)_makePresenter:(id)arg1 relinquishToReadingClaimWithID:(id)arg2 options:(unsigned int)arg3 completionHandler:(id)arg4;
+- (void)_makePresenter:(id)arg1 relinquishToReadingClaimWithID:(id)arg2 options:(unsigned long long)arg3 completionHandler:(id)arg4;
 - (void)_makePresenter:(id)arg1 relinquishToAccessClaimWithID:(id)arg2 ifNecessaryUsingSelector:(SEL)arg3 recordingRelinquishment:(id)arg4 continuer:(id)arg5;
 - (void)_makePresenter:(id)arg1 setLastPresentedItemEventIdentifier:(unsigned long long)arg2;
 - (void)_makePresenter:(id)arg1 observeVersionChangeOfKind:(id)arg2 withClientID:(id)arg3 name:(id)arg4 subitemURL:(id)arg5;
@@ -55,13 +59,13 @@
 - (void)revokeSubarbitrationClaimForID:(id)arg1;
 - (void)grantSubarbitrationClaim:(id)arg1 withServer:(id)arg2;
 - (void)revokeAccessClaimForID:(id)arg1;
-- (id)grantAccessClaim:(id)arg1 synchronouslyIfPossible:(BOOL)arg2;
+- (id)grantAccessClaim:(id)arg1 synchronouslyIfPossible:(_Bool)arg2;
 - (id)_writeRelinquishmentForPresenter:(id)arg1;
 - (id)_readRelinquishmentForPresenter:(id)arg1;
 - (id)_idForReactor:(id)arg1;
 - (void)finalize;
 - (void)dealloc;
-- (id)initWithServer:(id)arg1;
+- (id)initWithServer:(id)arg1 queue:(id)arg2 eventHandler:(id)arg3;
 
 @end
 

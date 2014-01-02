@@ -13,8 +13,8 @@
     NSMutableArray *_eventTaps;
     NSMutableArray *_addedEventTapPairs;
     NSMutableSet *_removedEventTapIdentifiers;
-    BOOL _isEnumeratingEventTaps;
-    BOOL _shouldReorderEventTaps;
+    _Bool _isEnumeratingEventTaps;
+    _Bool _shouldReorderEventTaps;
     id _installationGSCallback;
     id _installationHIDCallback;
     NSRecursiveLock *_eventTapLock;
@@ -30,10 +30,11 @@
 - (void)_installEventTap:(id)arg1;
 - (void)setEventTapPriority:(id)arg1 priority:(int)arg2;
 - (void)_reorderEventTaps;
-- (BOOL)_processGSEvent:(CDStruct_74958489 *)arg1;
-- (BOOL)_processHIDEvent:(struct __IOHIDEvent *)arg1 taskPort:(unsigned int)arg2 bundleId:(id)arg3;
-- (void)sendEvent:(id)arg1 afterTap:(id)arg2 useGSEvent:(BOOL)arg3 namedTaps:(id)arg4;
+- (_Bool)_processGSEvent:(CDStruct_64a21a73 *)arg1;
+- (_Bool)_processHIDEvent:(struct __IOHIDEvent *)arg1 taskPort:(unsigned int)arg2 bundleId:(id)arg3;
+- (void)sendEvent:(id)arg1 afterTap:(id)arg2 useGSEvent:(_Bool)arg3 namedTaps:(id)arg4;
 - (void)_enumerateEventTapPairsUsingBlock:(id)arg1;
+- (id)_copyCurrentEventTapPairs;
 - (void)_setHIDEventTapCallback:(void *)arg1;
 - (void)_setGSEventTapCallback:(void *)arg1;
 - (id)description;

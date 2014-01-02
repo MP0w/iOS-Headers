@@ -6,6 +6,7 @@
 
 #import <OfficeImport/MFPEffect.h>
 
+// Not exported
 @interface MFPColorMatrixEffect : MFPEffect
 {
     float mColorMatrix[5][5];

@@ -6,23 +6,27 @@
 
 #import "UISlider.h"
 
-@class CADisplayLink, NSTimer;
+@class NSTimer, UIImageView, UIView;
 
 @interface CAMZoomSlider : UISlider
 {
-    BOOL _minimumAutozooming;
-    BOOL _maximumAutozooming;
-    BOOL __autozooming;
+    _Bool _minimumAutozooming;
+    _Bool _maximumAutozooming;
+    _Bool __autozooming;
     id <CAMZoomSliderDelegate> _delegate;
     NSTimer *__visibilityTimer;
-    CADisplayLink *__autozoomingDisplayLink;
+    UIImageView *__thumbImageView;
+    UIView *__minTrackMaskView;
+    UIView *__maxTrackMaskView;
 }
 
-@property(nonatomic, getter=_isAutozooming, setter=_setAutozooming:) BOOL _autozooming; // @synthesize _autozooming=__autozooming;
-@property(readonly, nonatomic) CADisplayLink *_autozoomingDisplayLink; // @synthesize _autozoomingDisplayLink=__autozoomingDisplayLink;
+@property(readonly, nonatomic) UIView *_maxTrackMaskView; // @synthesize _maxTrackMaskView=__maxTrackMaskView;
+@property(readonly, nonatomic) UIView *_minTrackMaskView; // @synthesize _minTrackMaskView=__minTrackMaskView;
+@property(readonly, nonatomic) UIImageView *_thumbImageView; // @synthesize _thumbImageView=__thumbImageView;
+@property(nonatomic, getter=_isAutozooming, setter=_setAutozooming:) _Bool _autozooming; // @synthesize _autozooming=__autozooming;
 @property(readonly, nonatomic) NSTimer *_visibilityTimer; // @synthesize _visibilityTimer=__visibilityTimer;
-@property(nonatomic, getter=isMaximumAutozooming) BOOL maximumAutozooming; // @synthesize maximumAutozooming=_maximumAutozooming;
-@property(nonatomic, getter=isMinimumAutozooming) BOOL minimumAutozooming; // @synthesize minimumAutozooming=_minimumAutozooming;
+@property(nonatomic, getter=isMaximumAutozooming) _Bool maximumAutozooming; // @synthesize maximumAutozooming=_maximumAutozooming;
+@property(nonatomic, getter=isMinimumAutozooming) _Bool minimumAutozooming; // @synthesize minimumAutozooming=_minimumAutozooming;
 @property(nonatomic) id <CAMZoomSliderDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)_hideZoomSlider:(id)arg1;
 - (void)_postHideZoomSliderAnimation;
@@ -30,21 +34,20 @@
 - (void)makeVisible;
 - (void)stopVisibilityTimer;
 - (void)startVisibilityTimer;
-- (BOOL)visibilityTimerIsValid;
+- (_Bool)visibilityTimerIsValid;
 - (void)_endAutozooming;
 - (void)_updateAutozooming;
 - (void)_beginAutozooming;
-- (void)_performAutozoom;
-- (void)_setupAutozoomingDisplayLink;
-- (void)_invalidateAutozoomingDisplayLink;
-- (BOOL)_isMinimumOrMaximumAutozooming;
-- (void)_setMaximumAutozooming:(BOOL)arg1;
-- (void)_setMinimumAutozooming:(BOOL)arg1;
+- (_Bool)_isMinimumOrMaximumAutozooming;
+- (void)_setMaximumAutozooming:(_Bool)arg1;
+- (void)_setMinimumAutozooming:(_Bool)arg1;
 - (void)endTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (BOOL)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (BOOL)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
-- (int)locationOfTouch:(id)arg1;
+- (_Bool)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
+- (_Bool)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
+- (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (long long)locationOfTouch:(id)arg1;
+- (void)layoutSubviews;
+- (id)createThumbView;
 - (void)dealloc;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

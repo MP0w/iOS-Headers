@@ -14,12 +14,12 @@
 
 @interface SSDownloadPolicy : NSObject <NSCoding, SSXPCCoding, NSCopying>
 {
-    int _bagType;
+    long long _bagType;
     NSString *_downloadKind;
     NSMutableArray *_policyRules;
 }
 
-@property(readonly, nonatomic) int URLBagType; // @synthesize URLBagType=_bagType;
+@property(readonly, nonatomic) long long URLBagType; // @synthesize URLBagType=_bagType;
 @property(copy, nonatomic) NSArray *policyRules; // @synthesize policyRules=_policyRules;
 @property(readonly, nonatomic) NSString *downloadKind; // @synthesize downloadKind=_downloadKind;
 - (id)_policyRuleForSizeLimit:(long long)arg1;
@@ -28,14 +28,14 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (void)unionPolicyRule:(id)arg1;
 - (void)unionNetworkConstraints:(id)arg1;
 - (void)setPolicyRule:(id)arg1;
 - (void)dealloc;
 - (id)initWithNetworkConstraints:(id)arg1;
-- (id)initWithDownloadKind:(id)arg1 URLBagType:(int)arg2;
+- (id)initWithDownloadKind:(id)arg1 URLBagType:(long long)arg2;
 
 @end
 

@@ -14,25 +14,25 @@
     NSString *_CAInstanceName;
     NSString *_challenge;
     NSArray *_subject;
-    unsigned int _keySize;
+    unsigned long long _keySize;
     int _usageFlags;
     NSData *_CAFingerprint;
     NSArray *_CACaps;
     NSDictionary *_subjectAltName;
-    unsigned int _retries;
-    unsigned int _retryDelay;
+    unsigned long long _retries;
+    unsigned long long _retryDelay;
 }
 
 + (id)localizedPluralForm;
 + (id)localizedSingularForm;
 + (id)typeStrings;
-@property(readonly, nonatomic) unsigned int retryDelay; // @synthesize retryDelay=_retryDelay;
-@property(readonly, nonatomic) unsigned int retries; // @synthesize retries=_retries;
+@property(readonly, nonatomic) unsigned long long retryDelay; // @synthesize retryDelay=_retryDelay;
+@property(readonly, nonatomic) unsigned long long retries; // @synthesize retries=_retries;
 @property(readonly, nonatomic) NSDictionary *subjectAltName; // @synthesize subjectAltName=_subjectAltName;
 @property(readonly, nonatomic) NSArray *CACaps; // @synthesize CACaps=_CACaps;
 @property(readonly, nonatomic) NSData *CAFingerprint; // @synthesize CAFingerprint=_CAFingerprint;
 @property(readonly, nonatomic) int usageFlags; // @synthesize usageFlags=_usageFlags;
-@property(readonly, nonatomic) unsigned int keySize; // @synthesize keySize=_keySize;
+@property(readonly, nonatomic) unsigned long long keySize; // @synthesize keySize=_keySize;
 @property(readonly, nonatomic) NSArray *subject; // @synthesize subject=_subject;
 @property(readonly, nonatomic) NSString *challenge; // @synthesize challenge=_challenge;
 @property(readonly, nonatomic) NSString *CAInstanceName; // @synthesize CAInstanceName=_CAInstanceName;
@@ -43,8 +43,8 @@
 - (struct __SecIdentity *)copyIdentityFromKeychain;
 - (struct __SecCertificate *)copyCertificate;
 - (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
-- (BOOL)isIdentity;
-- (BOOL)isRoot;
+- (_Bool)isIdentity;
+- (_Bool)isRoot;
 
 @end
 

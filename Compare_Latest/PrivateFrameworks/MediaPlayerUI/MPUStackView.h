@@ -10,13 +10,15 @@
 
 @interface MPUStackView : UIView
 {
-    int _distanceIgnoreCount;
+    long long _distanceIgnoreCount;
     NSMutableArray *_items;
     UIWindow *_window;
+    _Bool _forcesIntegralX;
+    _Bool _forcesIntegralY;
     id <MPUStackViewDataSource> _dataSource;
     Class _itemClass;
     NSString *_itemReuseIdentifier;
-    int _numberOfItems;
+    long long _numberOfItems;
     UIView *_perspectiveTargetView;
     struct CGSize _baseSize;
     struct UIOffset _maximumRelativeOffsetStep;
@@ -27,11 +29,13 @@
 @property(nonatomic) struct CGPoint vanishingPoint; // @synthesize vanishingPoint=_vanishingPoint;
 @property(nonatomic) struct CGSize sizeInsetStep; // @synthesize sizeInsetStep=_sizeInsetStep;
 @property(nonatomic) __weak UIView *perspectiveTargetView; // @synthesize perspectiveTargetView=_perspectiveTargetView;
-@property(readonly, nonatomic) int numberOfItems; // @synthesize numberOfItems=_numberOfItems;
+@property(readonly, nonatomic) long long numberOfItems; // @synthesize numberOfItems=_numberOfItems;
 @property(nonatomic) struct UIOffset maximumRelativeOffsetStep; // @synthesize maximumRelativeOffsetStep=_maximumRelativeOffsetStep;
 @property(readonly, nonatomic) NSArray *items; // @synthesize items=_items;
 @property(readonly, nonatomic) NSString *itemReuseIdentifier; // @synthesize itemReuseIdentifier=_itemReuseIdentifier;
 @property(readonly, nonatomic) Class itemClass; // @synthesize itemClass=_itemClass;
+@property(nonatomic) _Bool forcesIntegralY; // @synthesize forcesIntegralY=_forcesIntegralY;
+@property(nonatomic) _Bool forcesIntegralX; // @synthesize forcesIntegralX=_forcesIntegralX;
 @property(nonatomic) __weak id <MPUStackViewDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(nonatomic) struct CGSize baseSize; // @synthesize baseSize=_baseSize;
 - (void).cxx_destruct;
@@ -39,13 +43,13 @@
 - (struct CGSize)_normalizedDistanceFromVanishingPointForCenter:(struct CGPoint)arg1 perspectiveTargetView:(id)arg2;
 - (id)_dequeueReusableItem;
 - (struct CGPoint)_centerInPerspectiveTargetViewCoordinates;
-- (void)_applyLayoutToItem:(id)arg1 atIndex:(int)arg2 centerInPerspectiveTargetViewCoordinates:(struct CGPoint)arg3;
+- (void)_applyLayoutToItem:(id)arg1 atIndex:(long long)arg2 centerInPerspectiveTargetViewCoordinates:(struct CGPoint)arg3;
 - (void)updateForChangedDistanceFromVanishingPoint;
-- (struct CGSize)sizeOfItemAtIndex:(float)arg1;
-- (void)reloadDataWithTransition:(int)arg1;
+- (struct CGSize)sizeOfItemAtIndex:(double)arg1;
+- (void)reloadDataWithTransition:(long long)arg1;
 - (void)reloadData;
-- (struct UIOffset)relativeOffsetOfItemAtIndex:(float)arg1 withCenter:(struct CGPoint)arg2;
-- (id)itemAtIndex:(int)arg1;
+- (struct UIOffset)relativeOffsetOfItemAtIndex:(double)arg1 withCenter:(struct CGPoint)arg2;
+- (id)itemAtIndex:(long long)arg1;
 - (void)endIgnoringDistanceUpdates;
 - (void)beginIgnoringDistanceUpdates;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;

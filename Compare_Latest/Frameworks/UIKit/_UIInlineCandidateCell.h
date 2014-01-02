@@ -8,27 +8,28 @@
 
 @class NSString, UIFont;
 
+// Not exported
 @interface _UIInlineCandidateCell : UIView
 {
     NSString *_candidate;
-    unsigned int _index;
+    unsigned long long _index;
     UIFont *_font;
     struct CGSize _stringImageSize;
-    BOOL _highlighted;
+    _Bool _highlighted;
     id _target;
     SEL _action;
-    BOOL _lastItem;
-    BOOL _dontDrawRightEdge;
+    _Bool _lastItem;
+    _Bool _dontDrawRightEdge;
 }
 
 - (void)drawRect:(struct CGRect)arg1;
-- (void)setHighlighted:(BOOL)arg1;
-- (void)setLastItem:(BOOL)arg1;
-- (void)dontDrawRightEdge:(BOOL)arg1;
-- (unsigned int)index;
+- (void)setHighlighted:(_Bool)arg1;
+- (void)setLastItem:(_Bool)arg1;
+- (void)dontDrawRightEdge:(_Bool)arg1;
+- (unsigned long long)index;
 - (struct CGSize)stringImageSize;
 - (void)dealloc;
-- (id)initWithCandidate:(id)arg1 andIndex:(unsigned int)arg2 withFontSize:(float)arg3 target:(id)arg4 action:(SEL)arg5;
+- (id)initWithCandidate:(id)arg1 andIndex:(unsigned long long)arg2 withFontSize:(double)arg3 target:(id)arg4 action:(SEL)arg5;
 
 @end
 

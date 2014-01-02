@@ -6,6 +6,7 @@
 
 #import <OfficeImport/PDBuild.h>
 
+// Not exported
 @interface PDDiagramBuild : PDBuild
 {
 }

@@ -11,14 +11,14 @@
 @interface UIPDFPageRenderOperation : NSOperation
 {
     UIPDFPageRenderJob *_job;
-    BOOL executing;
-    BOOL finished;
+    _Bool executing;
+    _Bool finished;
 }
 
 @property(retain) UIPDFPageRenderJob *job; // @synthesize job=_job;
-- (BOOL)isFinished;
-- (BOOL)isExecuting;
-- (BOOL)isConcurrent;
+- (_Bool)isFinished;
+- (_Bool)isExecuting;
+- (_Bool)isConcurrent;
 - (void)completeOperation;
 - (void)main;
 - (void)start;

@@ -13,8 +13,8 @@
     NSLock *procLock;
     NSMapTable *allProcs;
     NSMapTable *filteredProcs;
-    BOOL appsOnly;
-    BOOL ownedOnly;
+    _Bool appsOnly;
+    _Bool ownedOnly;
 }
 
 - (id)procInfoWithPID:(int)arg1;
@@ -26,14 +26,14 @@
 - (id)allNames;
 - (id)allPIDs;
 - (id)allProcInfos;
-- (unsigned int)count;
-- (BOOL)appsOnly;
-- (void)setAppsOnly:(BOOL)arg1;
-- (BOOL)ownedOnly:(BOOL)arg1;
-- (void)setOwnedOnly:(BOOL)arg1;
-- (BOOL)updateFromSystem;
+- (unsigned long long)count;
+- (_Bool)appsOnly;
+- (void)setAppsOnly:(_Bool)arg1;
+- (_Bool)ownedOnly:(_Bool)arg1;
+- (void)setOwnedOnly:(_Bool)arg1;
+- (_Bool)updateFromSystem;
 - (void)_populateFromSystem;
-- (BOOL)update;
+- (_Bool)update;
 - (void)removeProcInfo:(id)arg1;
 - (void)addProcInfo:(id)arg1;
 - (void)setProcInfos:(id)arg1;

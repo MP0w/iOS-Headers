@@ -21,7 +21,7 @@
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)copyXPCEncoding;
 - (void)startWithCompletionBlock:(id)arg1;
-- (BOOL)start;
+- (_Bool)start;
 - (void)startWithAuthorizationResponseBlock:(id)arg1;
 @property(readonly) id authorizationToken;
 @property(readonly) NSNumber *accountIdentifier;

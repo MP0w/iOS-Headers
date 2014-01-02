@@ -9,6 +9,6 @@
 @protocol RUTermsViewControllerDelegate <NSObject>
 
 @optional
-- (void)termsViewController:(id)arg1 didAcceptTerms:(BOOL)arg2;
+- (void)termsViewController:(id)arg1 didAcceptTerms:(_Bool)arg2;
 @end
 

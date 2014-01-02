@@ -6,6 +6,7 @@
 
 #import <UIKit/_UIBackdropViewSettings.h>
 
+// Not exported
 @interface _UIBackdropViewSettingsNone : _UIBackdropViewSettings
 {
 }

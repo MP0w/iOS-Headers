@@ -8,6 +8,7 @@
 
 @class NSArray, NSDictionary, NSMutableDictionary, UIMovieScrubberTrackOverlayView;
 
+// Not exported
 @interface UIMovieScrubberTrackView : UIView
 {
     id <UIMovieScrubberTrackViewDataSource> _dataSource;
@@ -48,20 +49,20 @@
 - (void)_unzoomAnimation:(id)arg1 didFinish:(id)arg2 context:(id)arg3;
 - (void)_zoomAnimation:(id)arg1 didFinish:(id)arg2 context:(id)arg3;
 - (void)unzoom;
-- (void)_setOverlayViewIsZoomed:(BOOL)arg1 minValue:(float)arg2 maxValue:(float)arg3;
-- (BOOL)zoomAtPoint:(struct CGPoint)arg1;
+- (void)_setOverlayViewIsZoomed:(_Bool)arg1 minValue:(float)arg2 maxValue:(float)arg3;
+- (_Bool)zoomAtPoint:(struct CGPoint)arg1;
 - (double)zoomAnimationDuration;
 - (void)setZoomAnimationDuration:(double)arg1;
 - (void)layoutSubviews;
 - (void)reloadData;
 - (void)_reallyReloadData;
 - (void)clear;
-- (id)_createImageViewForTimestamp:(id)arg1;
+- (id)_createImageViewForTimestamp:(id)arg1 isSummaryThumbnail:(_Bool)arg2;
 - (void)setThumbnailImage:(struct CGImage *)arg1 forTimestamp:(id)arg2;
 - (void)setEndValue:(double)arg1;
 - (void)setStartValue:(double)arg1;
 - (void)animateFillFramesAway;
-- (void)setEditing:(BOOL)arg1;
+- (void)setEditing:(_Bool)arg1;
 - (void)setValue:(double)arg1;
 @property(nonatomic) id <UIMovieScrubberTrackViewDelegate> delegate;
 @property(nonatomic) id <UIMovieScrubberTrackViewDataSource> dataSource;

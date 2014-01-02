@@ -11,40 +11,40 @@
 @interface SBDeviceLockEntryField : UIView
 {
     int _style;
-    int _interfaceOrientation;
+    long long _interfaceOrientation;
     UIPasscodeField *_passcodeField;
     UITextInputTraits *_textInputTraits;
     struct __CFCharacterSet *_numericTrimmingSet;
     UIImageView *_shadowView;
-    BOOL _highlighted;
+    _Bool _highlighted;
     id _delegate;
 }
 
 + (id)topShadowImage;
 @property(nonatomic) id delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) int interfaceOrientation; // @synthesize interfaceOrientation=_interfaceOrientation;
+@property(nonatomic) long long interfaceOrientation; // @synthesize interfaceOrientation=_interfaceOrientation;
 - (id)methodSignatureForSelector:(SEL)arg1;
-- (BOOL)respondsToSelector:(SEL)arg1;
+- (_Bool)respondsToSelector:(SEL)arg1;
 - (void)_handleKeyUIEvent:(id)arg1;
-@property(nonatomic, getter=isHighlighted) BOOL highlighted;
+@property(nonatomic, getter=isHighlighted) _Bool highlighted;
 - (void)passcodeFieldDidAcceptEntry:(id)arg1;
-- (BOOL)passcodeField:(id)arg1 shouldInsertText:(id)arg2;
+- (_Bool)passcodeField:(id)arg1 shouldInsertText:(id)arg2;
 - (void)passcodeFieldTextDidChange:(id)arg1;
 - (id)textInputTraits;
 - (void)deleteLastCharacter;
 - (void)appendString:(id)arg1;
-@property(nonatomic, getter=isOkayButtonEnabled) BOOL okayButtonEnabled;
+@property(nonatomic, getter=isOkayButtonEnabled) _Bool okayButtonEnabled;
 @property(copy, nonatomic) NSString *stringValue;
 - (void)_layoutForCurrentDevice;
 - (id)_backgroundImage;
 - (struct CGSize)_fieldSizeForCurrentDevice;
 - (id)passcodeField;
-- (BOOL)resignFirstResponder;
-- (BOOL)isFirstResponder;
-- (BOOL)becomeFirstResponder;
-- (BOOL)canBecomeFirstResponder;
+- (_Bool)resignFirstResponder;
+- (_Bool)isFirstResponder;
+- (_Bool)becomeFirstResponder;
+- (_Bool)canBecomeFirstResponder;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 interfaceOrientation:(int)arg2;
+- (id)initWithStyle:(int)arg1 interfaceOrientation:(long long)arg2;
 
 @end
 

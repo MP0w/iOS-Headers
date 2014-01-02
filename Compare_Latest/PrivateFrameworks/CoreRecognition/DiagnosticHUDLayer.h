@@ -8,6 +8,7 @@
 
 @class AVCaptureVideoPreviewLayer, CAShapeLayer, NSMutableArray, UIColor;
 
+// Not exported
 @interface DiagnosticHUDLayer : CALayer
 {
     AVCaptureVideoPreviewLayer *_previewLayer;
@@ -28,7 +29,7 @@
 @property(retain) UIColor *freshPointColor; // @synthesize freshPointColor=_freshPointColor;
 @property(retain) AVCaptureVideoPreviewLayer *previewLayer; // @synthesize previewLayer=_previewLayer;
 - (void).cxx_destruct;
-- (void)setAdjustingFocus:(BOOL)arg1 pointOfInterestSupported:(BOOL)arg2 focusPoint:(struct CGPoint)arg3;
+- (void)setAdjustingFocus:(_Bool)arg1 pointOfInterestSupported:(_Bool)arg2 focusPoint:(struct CGPoint)arg3;
 - (void)setVisibleCameraArea:(id)arg1;
 - (void)setBoxPoints:(id)arg1;
 - (void)layoutSublayers;

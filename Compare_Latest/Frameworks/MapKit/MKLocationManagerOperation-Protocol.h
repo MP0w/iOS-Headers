@@ -8,5 +8,6 @@
 
 @protocol MKLocationManagerOperation <NSObject>
 - (void)cancel;
+- (void)start;
 @end
 

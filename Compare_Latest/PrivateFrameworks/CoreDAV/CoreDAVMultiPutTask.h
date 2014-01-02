@@ -14,7 +14,7 @@
     NSString *_appSpecificDataProp;
     NSString *_checkCTag;
     CoreDAVXMLData *_pushedData;
-    BOOL _validCTag;
+    _Bool _validCTag;
     NSString *_nextCTag;
     NSMutableDictionary *_uuidToHREF;
     NSMutableDictionary *_hrefToETag;

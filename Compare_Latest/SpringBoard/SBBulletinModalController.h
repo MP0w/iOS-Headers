@@ -15,32 +15,32 @@
 @interface SBBulletinModalController : NSObject <BBObserverDelegate, SBBulletinAlertHandler, SBBulletinBusyClient>
 {
     BBObserver *_observer;
-    BOOL _deviceIsLocked;
+    _Bool _deviceIsLocked;
     NSMutableArray *_incomingBulletinEventQueue;
     NSMutableDictionary *_handlersBySectionID;
     NSMapTable *_handlersByBulletinID;
     NSMapTable *_alertsByBulletinID;
-    BOOL _quietModeEnabled;
+    _Bool _quietModeEnabled;
 }
 
 + (id)sharedInstanceIfExists;
 + (id)sharedInstance;
-+ (id)_sharedInstanceCreateIfNecessary:(BOOL)arg1;
++ (id)_sharedInstanceCreateIfNecessary:(_Bool)arg1;
 - (void)_syncDismissalForBulletin:(id)arg1;
 - (void)handleEvent:(int)arg1 withBulletin:(id)arg2 forRegistry:(id)arg3;
-- (BOOL)bindBulletin:(id)arg1 forRegistry:(id)arg2;
+- (_Bool)bindBulletin:(id)arg1 forRegistry:(id)arg2;
 - (void)bulletinWindowStoppedBeingBusy;
-- (void)observer:(id)arg1 noteServerConnectionStateChanged:(BOOL)arg2;
-- (void)observer:(id)arg1 noteAlertBehaviorOverridesChanged:(unsigned int)arg2;
-- (id)observer:(id)arg1 composedAttachmentImageForType:(int)arg2 thumbnailData:(id)arg3 key:(id)arg4;
-- (id)observer:(id)arg1 thumbnailSizeConstraintsForAttachmentType:(int)arg2;
-- (BOOL)observerShouldFetchAttachmentImageBeforeBulletinDelivery:(id)arg1;
+- (void)observer:(id)arg1 noteServerConnectionStateChanged:(_Bool)arg2;
+- (void)observer:(id)arg1 noteAlertBehaviorOverridesChanged:(unsigned long long)arg2;
+- (id)observer:(id)arg1 composedAttachmentImageForType:(long long)arg2 thumbnailData:(id)arg3 key:(id)arg4;
+- (id)observer:(id)arg1 thumbnailSizeConstraintsForAttachmentType:(long long)arg2;
+- (_Bool)observerShouldFetchAttachmentImageBeforeBulletinDelivery:(id)arg1;
 - (void)observer:(id)arg1 noteServerReceivedResponseForBulletin:(id)arg2;
 - (void)observer:(id)arg1 noteInvalidatedBulletinIDs:(id)arg2;
 - (void)observer:(id)arg1 purgeReferencesToBulletinID:(id)arg2;
 - (void)observer:(id)arg1 removeBulletin:(id)arg2;
 - (void)observer:(id)arg1 modifyBulletin:(id)arg2;
-- (void)observer:(id)arg1 addBulletin:(id)arg2 forFeed:(unsigned int)arg3;
+- (void)observer:(id)arg1 addBulletin:(id)arg2 forFeed:(unsigned long long)arg3;
 - (void)_executeOrPendEventBlock:(id)arg1 forBulletin:(void)arg2;
 - (void)_dequeuePendedEventsIfPossible;
 - (id)attachmentImageForBulletin:(id)arg1;

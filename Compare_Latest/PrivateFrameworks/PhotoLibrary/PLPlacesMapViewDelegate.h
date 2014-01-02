@@ -12,20 +12,20 @@
 
 @interface PLPlacesMapViewDelegate : NSObject <MKMapViewDelegate>
 {
-    BOOL _didFirstAdjustment;
+    _Bool _didFirstAdjustment;
     UIButton *_moreDetailsButton;
     PLPlaces *_places;
     NSMutableArray *_delegatePlaces;
-    unsigned int _activeDeletes;
-    unsigned int _activeSplits;
+    unsigned long long _activeDeletes;
+    unsigned long long _activeSplits;
     PLAnnotationPen *_pendingAdds;
     CDStruct_feeb6407 _previousRegion;
-    float _previousZoomLevel;
+    double _previousZoomLevel;
     id <PlacesMapViewDelegateDetailsDelegate> _detailsDelegate;
-    BOOL _displayMoreDetails;
+    _Bool _displayMoreDetails;
 }
 
-@property(nonatomic) BOOL displayMoreDetails; // @synthesize displayMoreDetails=_displayMoreDetails;
+@property(nonatomic) _Bool displayMoreDetails; // @synthesize displayMoreDetails=_displayMoreDetails;
 - (void)_flushAnnotation:(id)arg1 fromMap:(id)arg2;
 - (void)_setupMapViewCenteredOnAllPlaces:(id)arg1;
 - (void)_updateVisibleAnnotationsAfterUpdatingMapView:(id)arg1;
@@ -33,18 +33,16 @@
 - (void)animationDidStop:(id)arg1 finished:(id)arg2 context:(void *)arg3;
 - (void)mapView:(id)arg1 didAddAnnotationViews:(id)arg2;
 - (void)_updateAnnotationsInMapView:(id)arg1;
+- (void)mapView:(id)arg1 didSelectAnnotationView:(id)arg2;
 - (void)mapView:(id)arg1 annotationView:(id)arg2 calloutAccessoryControlTapped:(id)arg3;
 - (id)mapView:(id)arg1 viewForAnnotation:(id)arg2;
-- (void)mapView:(id)arg1 regionDidChangeAnimated:(BOOL)arg2;
+- (void)mapView:(id)arg1 regionDidChangeAnimated:(_Bool)arg2;
 - (void)mapViewWillStartRenderingMap:(id)arg1;
 - (void)updateMapView:(id)arg1 WithAddedAssets:(id)arg2 deletedAssets:(id)arg3 updatedAssets:(id)arg4;
 - (void)fullResetOfMapView:(id)arg1;
 - (void)setDetailsDelegate:(id)arg1;
 - (void)dealloc;
 - (id)initWithPlaces:(id)arg1;
-- (BOOL)_displaysAlbumPosterOnLeft;
-- (BOOL)_displayMoreDetailsButton;
-- (id)_createAnnotationViewWithAnnotation:(id)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

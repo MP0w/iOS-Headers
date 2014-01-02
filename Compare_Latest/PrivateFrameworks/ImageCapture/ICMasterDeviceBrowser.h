@@ -12,13 +12,13 @@
 {
     NSMutableArray *_devices;
     NSMutableArray *_browsers;
-    int _numberOfBrowsingBrowsers;
+    long long _numberOfBrowsingBrowsers;
     MSCameraDeviceManager *_msDevManager;
     PTPCameraDeviceManager *_ptpDevManager;
     ExFATCameraDeviceManager *_exFATManager;
 }
 
-+ (BOOL)exists;
++ (_Bool)exists;
 + (id)defaultBrowser;
 @property(readonly) NSMutableArray *browsers; // @synthesize browsers=_browsers;
 - (void)informBrowserDelegateUsingSelector:(SEL)arg1 withObject:(id)arg2;

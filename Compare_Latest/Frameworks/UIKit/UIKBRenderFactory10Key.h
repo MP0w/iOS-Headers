@@ -6,6 +6,7 @@
 
 #import <UIKit/UIKBRenderFactory.h>
 
+// Not exported
 @interface UIKBRenderFactory10Key : UIKBRenderFactory
 {
 }
@@ -13,6 +14,16 @@
 - (id)activeControlKeyTraits;
 - (id)controlKeyTraits;
 - (id)_traitsForKey:(id)arg1 onKeyplane:(id)arg2;
+- (struct CGPoint)numberPadVBarSecondaryTextOffset;
+- (struct CGPoint)numberPadKeySecondaryTextOffset;
+- (struct CGPoint)numberPadKeyPrimaryTextOffset;
+- (double)numberPadKeyPrimarySymbolSize;
+- (struct CGPoint)dictationKeyTextOffset;
+- (struct CGPoint)globeKeyTextOffset;
+- (struct CGPoint)abcKeyTextOffset;
+- (unsigned long long)edgesAdjustedForTranslucentGapsForGeometry:(id)arg1 key:(id)arg2 onKeyplane:(id)arg3;
+- (double)interkeyGapsCenterXOfKeyplaneFrame:(struct CGRect)arg1;
+- (struct UIEdgeInsets)topEdgeAdjustmentInsets;
 - (id)_preferredScriptFontForRendering:(int)arg1;
 - (id)displayContentsForKey:(id)arg1;
 - (id)backgroundTraitsForKeyplane:(id)arg1;

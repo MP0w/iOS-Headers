@@ -8,6 +8,7 @@
 
 @class GEOMapAccess, GEOMapTileFinder;
 
+// Not exported
 @interface GEOMapFeatureFinder : GEOMapRequest
 {
     CDStruct_2c43369c _coordinate;
@@ -15,10 +16,10 @@
     id _roadHandler;
     id _pointHandler;
     id _polygonHandler;
-    BOOL _ignoreUnnamedFeatures;
+    _Bool _ignoreUnnamedFeatures;
 }
 
-@property(nonatomic) BOOL ignoreUnnamedFeatures; // @synthesize ignoreUnnamedFeatures=_ignoreUnnamedFeatures;
+@property(nonatomic) _Bool ignoreUnnamedFeatures; // @synthesize ignoreUnnamedFeatures=_ignoreUnnamedFeatures;
 @property(copy, nonatomic) id polygonHandler; // @synthesize polygonHandler=_polygonHandler;
 @property(copy, nonatomic) id pointHandler; // @synthesize pointHandler=_pointHandler;
 @property(copy, nonatomic) id roadHandler; // @synthesize roadHandler=_roadHandler;

@@ -11,8 +11,8 @@
 - (void)folderControllerShouldBeginEditing:(id)arg1;
 - (void)folderControllerShouldClose:(id)arg1;
 - (void)folderController:(id)arg1 draggedIconShouldDropFromListView:(id)arg2;
-- (BOOL)folderController:(id)arg1 draggedIconMightDropFromListView:(id)arg2;
-- (BOOL)folderController:(id)arg1 draggedIconDidMoveFromListView:(id)arg2 toListView:(id)arg3;
-- (BOOL)folderController:(id)arg1 draggedIconDidPauseAtLocation:(struct CGPoint)arg2 inListView:(id)arg3;
+- (_Bool)folderController:(id)arg1 draggedIconMightDropFromListView:(id)arg2;
+- (_Bool)folderController:(id)arg1 draggedIconDidMoveFromListView:(id)arg2 toListView:(id)arg3;
+- (_Bool)folderController:(id)arg1 draggedIconDidPauseAtLocation:(struct CGPoint)arg2 inListView:(id)arg3;
 @end
 

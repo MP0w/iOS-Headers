@@ -17,19 +17,19 @@
 
 + (id)sharedManager;
 + (void)initialize;
-- (float)lineSpacingFactorForTextInEffectID:(id)arg1 presetID:(id)arg2 atIndex:(int)arg3;
+- (double)lineSpacingFactorForTextInEffectID:(id)arg1 presetID:(id)arg2 atIndex:(long long)arg3;
 - (id)attributeDescriptionForEffectID:(id)arg1 andKey:(id)arg2;
 - (id)defaultEffectAttributesWithEffectID:(id)arg1 andSlideInformation:(id)arg2;
-- (id)customTimingWithEffectID:(id)arg1 effectAttributes:(id)arg2 slideInformation:(id)arg3 textInformation:(id)arg4 inAspectRatio:(float)arg5;
-- (BOOL)hasCustomTimingForEffectID:(id)arg1;
+- (id)customTimingWithEffectID:(id)arg1 effectAttributes:(id)arg2 slideInformation:(id)arg3 textInformation:(id)arg4 inAspectRatio:(double)arg5;
+- (_Bool)hasCustomTimingForEffectID:(id)arg1;
 - (double)defaultPhaseOutDurationForEffectID:(id)arg1;
 - (double)defaultMainDurationForEffectID:(id)arg1;
 - (double)defaultPhaseInDurationForEffectID:(id)arg1;
-- (BOOL)isOpaqueForEffectID:(id)arg1;
-- (BOOL)supportsAccumulationForEffectID:(id)arg1;
+- (_Bool)isOpaqueForEffectID:(id)arg1;
+- (_Bool)supportsAccumulationForEffectID:(id)arg1;
 - (id)imageProviderInfosForEffectID:(id)arg1;
 - (id)imageInputInfosForEffectID:(id)arg1;
-- (BOOL)hasMultiImageInputForEffectID:(id)arg1;
+- (_Bool)hasMultiImageInputForEffectID:(id)arg1;
 - (id)sizeScriptForEffectID:(id)arg1 andKey:(id)arg2;
 - (id)resourcePathForEffectID:(id)arg1 andResource:(id)arg2;
 - (id)descriptionForEffectID:(id)arg1;

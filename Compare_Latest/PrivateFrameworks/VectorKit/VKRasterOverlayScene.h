@@ -8,12 +8,13 @@
 
 #import "NSCopying-Protocol.h"
 
+// Not exported
 @interface VKRasterOverlayScene : VKScene <NSCopying>
 {
-    unsigned int _overlayLevel;
+    unsigned long long _overlayLevel;
 }
 
-@property(nonatomic) unsigned int overlayLevel; // @synthesize overlayLevel=_overlayLevel;
+@property(nonatomic) unsigned long long overlayLevel; // @synthesize overlayLevel=_overlayLevel;
 
 @end
 

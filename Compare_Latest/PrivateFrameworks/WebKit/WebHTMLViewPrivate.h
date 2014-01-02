@@ -8,20 +8,21 @@
 
 @class NSArray, NSMutableDictionary, NSString, NSTimer, WAKView, WebDataSource, WebEvent, WebPluginController;
 
+// Not exported
 @interface WebHTMLViewPrivate : NSObject
 {
-    BOOL closed;
-    BOOL ignoringMouseDraggedEvents;
-    BOOL printing;
-    BOOL paginateScreenContent;
+    _Bool closed;
+    _Bool ignoringMouseDraggedEvents;
+    _Bool printing;
+    _Bool paginateScreenContent;
     WAKView *layerHostingView;
-    BOOL drawingIntoLayer;
+    _Bool drawingIntoLayer;
     WebEvent *mouseDownEvent;
-    BOOL handlingMouseDownEvent;
+    _Bool handlingMouseDownEvent;
     WebEvent *keyDownEvent;
-    BOOL exposeInputContext;
+    _Bool exposeInputContext;
     struct CGPoint lastScrollPosition;
-    BOOL inScrollPositionChanged;
+    _Bool inScrollPositionChanged;
     WebPluginController *pluginController;
     NSString *toolTip;
     id trackingRectOwner;
@@ -30,7 +31,7 @@
     WebEvent *autoscrollTriggerEvent;
     NSArray *pageRects;
     NSMutableDictionary *highlighters;
-    BOOL transparentBackground;
+    _Bool transparentBackground;
     struct WebHTMLViewInterpretKeyEventsParameters *interpretKeyEventsParameters;
     WebDataSource *dataSource;
     SEL selectorForDoCommandBySelector;

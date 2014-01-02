@@ -6,12 +6,16 @@
 
 #import <UIKit/UILabel.h>
 
+// Not exported
 @interface UISegmentLabel : UILabel
 {
+    UILabel *_associatedLabel;
 }
 
-- (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
+@property(nonatomic) UILabel *associatedLabel; // @synthesize associatedLabel=_associatedLabel;
+- (_Bool)_shouldAnimatePropertyWithKey:(id)arg1;
 - (id)_disabledFontColor;
+- (id)_associatedScalingLabel;
 - (id)init;
 
 @end

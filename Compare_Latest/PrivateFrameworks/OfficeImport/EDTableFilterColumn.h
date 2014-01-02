@@ -8,20 +8,21 @@
 
 @class NSMutableArray;
 
+// Not exported
 @interface EDTableFilterColumn : NSObject
 {
-    unsigned int mColumnIndex;
+    unsigned long long mColumnIndex;
     NSMutableArray *mFilters;
     int mFiltersRelation;
 }
 
 - (void)setFiltersRelation:(int)arg1;
 - (int)filtersRelation;
-- (void)setColumnIndex:(unsigned int)arg1;
-- (unsigned int)columnIndex;
+- (void)setColumnIndex:(unsigned long long)arg1;
+- (unsigned long long)columnIndex;
 - (void)addFilter:(id)arg1;
-- (id)filterAtIndex:(unsigned int)arg1;
-- (unsigned int)filterCount;
+- (id)filterAtIndex:(unsigned long long)arg1;
+- (unsigned long long)filterCount;
 - (void)dealloc;
 - (id)init;
 

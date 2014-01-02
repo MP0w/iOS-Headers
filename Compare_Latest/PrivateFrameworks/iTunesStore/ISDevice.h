@@ -12,7 +12,7 @@
 
 @interface ISDevice : NSObject <ISSingleton>
 {
-    unsigned int _daemonLaunchCount;
+    unsigned long long _daemonLaunchCount;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     NSString *_guid;
     double _lastFreeSpaceRequest;
@@ -24,15 +24,15 @@
 - (id)supportedOfferDeviceForDevices:(id)arg1;
 - (void)resetLocationAndPrivacy;
 - (void)requestFreeSpace:(unsigned long long)arg1 atPath:(id)arg2 withOptions:(id)arg3 completionBlock:(id)arg4;
-- (BOOL)takePowerAssertion:(id)arg1;
+- (_Bool)takePowerAssertion:(id)arg1;
 @property(readonly) NSString *systemName;
 @property(readonly) NSString *serialNumber;
-- (BOOL)releasePowerAssertion:(id)arg1;
+- (_Bool)releasePowerAssertion:(id)arg1;
 @property(readonly) NSString *hardwareName;
 @property(readonly) NSString *guid;
 @property(readonly) NSString *deviceName;
 - (id)copyProtocolConditionalContext;
-- (BOOL)checkCapabilities:(id)arg1 withMismatches:(id *)arg2;
+- (_Bool)checkCapabilities:(id)arg1 withMismatches:(id *)arg2;
 - (void)dealloc;
 - (id)init;
 

@@ -9,7 +9,7 @@
 @protocol SBAlertManagerDelegate <NSObject>
 
 @optional
-- (id)newAlertWindowForAlertManager:(id)arg1;
-- (BOOL)alertManager:(id)arg1 shouldDeactivateDismissedAlert:(id)arg2;
+- (id)alertManager:(id)arg1 newAlertWindowForLockAlerts:(_Bool)arg2;
+- (_Bool)alertManager:(id)arg1 shouldDeactivateDismissedAlert:(id)arg2;
 @end
 

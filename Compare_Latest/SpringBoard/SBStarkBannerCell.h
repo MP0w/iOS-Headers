@@ -18,7 +18,7 @@
 
 - (id)bannerContext;
 - (void)prepareForReuse;
-- (void)_didSetHighlighted:(BOOL)arg1;
+- (void)_didSetHighlighted:(_Bool)arg1;
 - (void)noteDidDismiss;
 - (void)noteWillDismissWithReason:(int)arg1;
 - (void)noteDidAppear;

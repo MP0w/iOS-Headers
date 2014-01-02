@@ -32,7 +32,7 @@
 - (void)setUUIDPrefix:(id)arg1;
 - (void)dealloc;
 - (id)init;
-- (unsigned int)retainCountForContext:(id)arg1;
+- (unsigned long long)retainCountForContext:(id)arg1;
 @property(readonly) NSString *uuid; // @synthesize uuid=_uuid;
 
 @end

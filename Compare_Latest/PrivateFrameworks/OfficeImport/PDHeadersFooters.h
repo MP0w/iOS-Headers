@@ -8,14 +8,15 @@
 
 @class NSString;
 
+// Not exported
 @interface PDHeadersFooters : NSObject
 {
-    BOOL mHasDateTime;
-    BOOL mHasNowDateTime;
-    BOOL mHasUserDateTime;
-    BOOL mHasSlideNumber;
-    BOOL mHasHeader;
-    BOOL mHasFooter;
+    _Bool mHasDateTime;
+    _Bool mHasNowDateTime;
+    _Bool mHasUserDateTime;
+    _Bool mHasSlideNumber;
+    _Bool mHasHeader;
+    _Bool mHasFooter;
     int mDateTimeFormat;
     NSString *mUserDateTime;
     NSString *mHeader;
@@ -28,18 +29,18 @@
 - (id)header;
 - (void)setUserDateTime:(id)arg1;
 - (id)userDateTime;
-- (void)setHasFooter:(BOOL)arg1;
-- (BOOL)hasFooter;
-- (void)setHasHeader:(BOOL)arg1;
-- (BOOL)hasHeader;
-- (void)setHasSlideNumber:(BOOL)arg1;
-- (BOOL)hasSlideNumber;
-- (void)setHasUserDateTime:(BOOL)arg1;
-- (BOOL)hasUserDateTime;
-- (void)setHasNowDateTime:(BOOL)arg1;
-- (BOOL)hasNowDateTime;
-- (void)setHasDateTime:(BOOL)arg1;
-- (BOOL)hasDateTime;
+- (void)setHasFooter:(_Bool)arg1;
+- (_Bool)hasFooter;
+- (void)setHasHeader:(_Bool)arg1;
+- (_Bool)hasHeader;
+- (void)setHasSlideNumber:(_Bool)arg1;
+- (_Bool)hasSlideNumber;
+- (void)setHasUserDateTime:(_Bool)arg1;
+- (_Bool)hasUserDateTime;
+- (void)setHasNowDateTime:(_Bool)arg1;
+- (_Bool)hasNowDateTime;
+- (void)setHasDateTime:(_Bool)arg1;
+- (_Bool)hasDateTime;
 - (void)dealloc;
 
 @end

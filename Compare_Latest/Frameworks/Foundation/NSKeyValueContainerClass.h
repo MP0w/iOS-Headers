@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
+// Not exported
 @interface NSKeyValueContainerClass : NSObject
 {
     Class _originalClass;
     void *_cachedObservationInfoImplementation;
     void *_cachedSetObservationInfoImplementation;
-    BOOL _cachedSetObservationInfoTakesAnObject;
+    _Bool _cachedSetObservationInfoTakesAnObject;
     struct {
         Class _field1;
         Class _field2;

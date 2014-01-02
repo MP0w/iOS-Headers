@@ -21,9 +21,9 @@
 - (BOOL)emergencyKeyChar;
 - (BOOL)cancelKeyChar;
 - (BOOL)deleteKeyChar;
-- (void)setDeleteEnabled:(BOOL)arg1;
-- (void)setShowsEmergencyCallButton:(BOOL)arg1;
-- (BOOL)showsEmergencyCallButton;
+- (void)setDeleteEnabled:(_Bool)arg1;
+- (void)setShowsEmergencyCallButton:(_Bool)arg1;
+- (_Bool)showsEmergencyCallButton;
 - (float)_yFudge;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

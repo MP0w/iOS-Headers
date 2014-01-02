@@ -18,13 +18,9 @@
 - (void)cancelLinking;
 - (void)beginLinking;
 - (void)deactivate;
-- (unsigned int)remainingBatteryLifetimeInHours;
+- (unsigned long long)remainingBatteryLifetimeInHours;
 - (void)dealloc;
 - (id)init;
-- (void)_fakeNextPacketWithPayload:(id)arg1 timestamp:(unsigned long)arg2;
-- (void)_fakeSearchSuccess;
-- (void)_fakeLinkingFailure;
-- (void)_fakeLinkingSuccess;
 
 @end
 

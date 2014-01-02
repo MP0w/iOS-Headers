@@ -12,7 +12,7 @@
 - (void)removeJaliscoTrackData;
 - (void)removeSagaTrackData;
 - (void)checkForChangesOnConnection:(id)arg1 completionHandler:(id)arg2;
-- (BOOL)executeUpdateSQL:(id)arg1;
+- (_Bool)executeUpdateSQL:(id)arg1;
 - (void)fillContainerForHomeSharingConnection:(id)arg1 containerID:(long long)arg2 completionHandler:(id)arg3;
 @end
 

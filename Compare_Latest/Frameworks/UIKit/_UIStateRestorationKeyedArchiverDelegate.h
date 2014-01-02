@@ -8,6 +8,7 @@
 
 #import "NSKeyedArchiverDelegate-Protocol.h"
 
+// Not exported
 @interface _UIStateRestorationKeyedArchiverDelegate : NSObject <NSKeyedArchiverDelegate>
 {
 }

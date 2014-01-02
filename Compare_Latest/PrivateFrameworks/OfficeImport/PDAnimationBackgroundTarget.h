@@ -6,6 +6,7 @@
 
 #import <OfficeImport/PDAnimationShapeTarget.h>
 
+// Not exported
 @interface PDAnimationBackgroundTarget : PDAnimationShapeTarget
 {
 }

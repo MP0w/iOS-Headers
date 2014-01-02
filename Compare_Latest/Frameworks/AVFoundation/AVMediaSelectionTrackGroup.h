@@ -18,14 +18,14 @@
 }
 
 - (id)_defaultOption;
-- (BOOL)_isAlternateTrackGroup;
+- (_Bool)_isAlternateTrackGroup;
 - (id)dictionary;
 - (id)asset;
 - (id)tracks;
 - (id)trackIDs;
 - (id)options;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)initWithAsset:(id)arg1 dictionary:(id)arg2;
 

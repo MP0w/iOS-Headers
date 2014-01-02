@@ -12,18 +12,18 @@
 
 @interface GEOTileLoaderConfiguration : NSObject <NSCopying>
 {
-    BOOL _useRemoteLoader;
-    BOOL _trackUsage;
-    unsigned int _memoryCacheCountLimit;
-    unsigned int _memoryCacheCostLimit;
+    _Bool _useRemoteLoader;
+    _Bool _trackUsage;
+    unsigned long long _memoryCacheCountLimit;
+    unsigned long long _memoryCacheCostLimit;
     NSString *_diskCacheLocation;
 }
 
 @property(copy, nonatomic) NSString *diskCacheLocation; // @synthesize diskCacheLocation=_diskCacheLocation;
-@property(nonatomic) unsigned int memoryCacheCostLimit; // @synthesize memoryCacheCostLimit=_memoryCacheCostLimit;
-@property(nonatomic) unsigned int memoryCacheCountLimit; // @synthesize memoryCacheCountLimit=_memoryCacheCountLimit;
-@property(nonatomic) BOOL trackUsage; // @synthesize trackUsage=_trackUsage;
-@property(nonatomic) BOOL useRemoteLoader; // @synthesize useRemoteLoader=_useRemoteLoader;
+@property(nonatomic) unsigned long long memoryCacheCostLimit; // @synthesize memoryCacheCostLimit=_memoryCacheCostLimit;
+@property(nonatomic) unsigned long long memoryCacheCountLimit; // @synthesize memoryCacheCountLimit=_memoryCacheCountLimit;
+@property(nonatomic) _Bool trackUsage; // @synthesize trackUsage=_trackUsage;
+@property(nonatomic) _Bool useRemoteLoader; // @synthesize useRemoteLoader=_useRemoteLoader;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;

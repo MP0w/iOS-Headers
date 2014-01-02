@@ -6,6 +6,7 @@
 
 #import <UIKit/UIInputViewTransition.h>
 
+// Not exported
 @interface UIInputViewSlideTransition : UIInputViewTransition
 {
 }

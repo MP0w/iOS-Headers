@@ -10,6 +10,7 @@
 
 @class NSArray, NSCache, SLFacebookAlbumManager, UIButton;
 
+// Not exported
 @interface SLFacebookAlbumChooserViewController : UITableViewController <SLFacebookAlbumManagerDelegate>
 {
     NSCache *_coverImageCache;
@@ -25,10 +26,10 @@
 @property(retain) UIButton *flipBackButton; // @synthesize flipBackButton=_flipBackButton;
 - (void).cxx_destruct;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
 - (void)viewDidUnload;
 - (void)viewDidLoad;
 - (void)viewWillLayoutSubviews;

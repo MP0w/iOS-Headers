@@ -29,7 +29,7 @@
 @property(retain) NSMutableSet *propStats; // @synthesize propStats=_propStats;
 @property(retain) CoreDAVLeafItem *status; // @synthesize status=_status;
 @property(retain) NSMutableArray *hrefs; // @synthesize hrefs=_hrefs;
-- (BOOL)hasPropertyError;
+- (_Bool)hasPropertyError;
 - (id)successfulPropertiesToValues;
 - (id)firstHref;
 - (void)addHref:(id)arg1;

@@ -19,7 +19,7 @@
 - (id)description;
 - (void)broadcast;
 - (void)signal;
-- (BOOL)waitUntilDate:(id)arg1;
+- (_Bool)waitUntilDate:(id)arg1;
 - (void)wait;
 - (void)unlock;
 - (void)lock;

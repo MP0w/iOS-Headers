@@ -10,11 +10,11 @@
 
 @interface ISReviewProvider : ISDataProvider <NSCopying>
 {
-    BOOL _backgroundReview;
+    _Bool _backgroundReview;
 }
 
-@property(getter=isBackgroundReview) BOOL backgroundReview; // @synthesize backgroundReview=_backgroundReview;
-- (BOOL)parseData:(id)arg1 returningError:(id *)arg2;
+@property(getter=isBackgroundReview) _Bool backgroundReview; // @synthesize backgroundReview=_backgroundReview;
+- (_Bool)parseData:(id)arg1 returningError:(id *)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end

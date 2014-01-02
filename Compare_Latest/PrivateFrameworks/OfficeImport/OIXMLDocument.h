@@ -8,6 +8,7 @@
 
 @class NSString, OIXMLElement;
 
+// Not exported
 @interface OIXMLDocument : OIXMLNode
 {
     OIXMLElement *_rootElement;

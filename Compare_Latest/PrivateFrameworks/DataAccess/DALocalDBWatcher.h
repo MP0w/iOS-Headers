@@ -18,7 +18,7 @@
     struct __CFDictionary *_concernedABPartyToBlockMap;
     struct __CFDictionary *_concernedCalPartyToBlockMap;
     struct __CFDictionary *_concernedNotePartyToBlockMap;
-    BOOL _watchingBookmarks;
+    _Bool _watchingBookmarks;
     struct __CFDictionary *_concernedBookmarkPartyToBlockMap;
 }
 

@@ -9,39 +9,47 @@
 #import "SBSearchGestureObserver-Protocol.h"
 #import "_UISettingsKeyObserver-Protocol.h"
 
-@class SBDockIconListView, SBDockView, SBParallaxSettings, SBRootFolder, TPLegacyLCDTextView;
+@class SBDockIconListView, SBDockView, SBFParallaxSettings, SBRootFolder, SBSearchViewController, TPLegacyLCDTextView;
 
 @interface SBRootFolderView : SBFolderView <_UISettingsKeyObserver, SBSearchGestureObserver>
 {
     SBDockView *_dockView;
     SBDockIconListView *_dockListView;
     TPLegacyLCDTextView *_idleTextView;
-    SBParallaxSettings *_parallaxSettings;
-    float _scrollViewOffset;
+    SBFParallaxSettings *_parallaxSettings;
+    double _searchGestureProgress;
+    SBSearchViewController *_searchViewController;
 }
 
-- (void)searchGesture:(id)arg1 changedOffset:(float)arg2;
+@property(readonly, nonatomic) SBSearchViewController *searchViewController; // @synthesize searchViewController=_searchViewController;
+- (void)searchGesture:(id)arg1 changedPercentComplete:(double)arg2;
 - (void)settings:(id)arg1 changedValueForKey:(id)arg2;
 - (void)_configureParallax;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1;
 - (void)lcdTextViewCompletedScroll:(id)arg1;
 - (void)setIdleText:(id)arg1;
-- (void)layoutIconLists:(double)arg1 domino:(BOOL)arg2 forceRelayout:(BOOL)arg3;
-- (void)_updateEditingStateAnimated:(BOOL)arg1;
+- (void)layoutIconLists:(double)arg1 domino:(_Bool)arg2 forceRelayout:(_Bool)arg3;
+- (void)tearDownListViews;
+- (void)_updateEditingStateAnimated:(_Bool)arg1;
 - (void)resetIconListViews;
 - (id)iconListViewAtPoint:(struct CGPoint)arg1;
-- (id)iconListViewAtIndex:(unsigned int)arg1;
-- (void)fadeContentForMinificationFraction:(float)arg1;
-- (void)fadeContentForMagnificationFraction:(float)arg1;
+- (id)iconListViewAtIndex:(unsigned long long)arg1;
+- (void)_enableUserInteractionAfterSignificantAnimation;
+- (void)_disableUserInteractionBeforeSignificantAnimation;
+- (void)fadeContentForMinificationFraction:(double)arg1;
+- (void)fadeContentForMagnificationFraction:(double)arg1;
 - (void)didAnimate;
 - (void)willAnimate;
-- (void)setDockVerticalStretch:(float)arg1;
-- (void)setDockOffscreenFraction:(float)arg1;
+- (void)setDockVerticalStretch:(double)arg1;
+- (void)setDockOffscreenFraction:(double)arg1;
 - (id)dockView;
 - (void)_layoutSubviews;
+- (void)layoutViewsForSearch;
+- (void)setOrientation:(long long)arg1;
 - (void)setNeedsLayout;
+- (void)returnScalingView;
 - (void)dealloc;
-- (id)initWithFolder:(id)arg1 orientation:(int)arg2;
+- (id)initWithFolder:(id)arg1 orientation:(long long)arg2 forSnapshot:(_Bool)arg3;
+- (id)initWithFolder:(id)arg1 orientation:(long long)arg2;
 
 // Remaining properties
 @property(retain, nonatomic) SBRootFolder *folder;

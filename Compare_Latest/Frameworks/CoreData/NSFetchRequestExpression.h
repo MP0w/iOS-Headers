@@ -20,23 +20,23 @@
     } _flags;
 }
 
-+ (id)expressionForFetch:(id)arg1 context:(id)arg2 countOnly:(BOOL)arg3;
++ (id)expressionForFetch:(id)arg1 context:(id)arg2 countOnly:(_Bool)arg3;
 - (id)_expressionWithSubstitutionVariables:(id)arg1;
-- (void)acceptVisitor:(id)arg1 flags:(unsigned int)arg2;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)expressionType;
+- (void)acceptVisitor:(id)arg1 flags:(unsigned long long)arg2;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)expressionType;
 - (id)description;
 - (id)predicateFormat;
 - (id)expressionValueWithObject:(id)arg1 context:(id)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (BOOL)isCountOnlyRequest;
+- (_Bool)isCountOnlyRequest;
 - (id)contextExpression;
 - (id)requestExpression;
 - (void)dealloc;
-- (id)initForFetch:(id)arg1 context:(id)arg2 countOnly:(BOOL)arg3;
+- (id)initForFetch:(id)arg1 context:(id)arg2 countOnly:(_Bool)arg3;
 
 @end
 
