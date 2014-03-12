@@ -10,5 +10,3 @@ Now you can run
 ```shell
 git diff 6.0 6.1 ./Compare_Latest/SpringBoard/SBMediaController.h
 ```
-And that's the result
-![Image](http://spottedworld.net/share/BNX9WfQCEAAsWjy.png-large.png)
